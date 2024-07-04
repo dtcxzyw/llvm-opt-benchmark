@@ -1803,8 +1803,8 @@ sub_1:                                            ; preds = %sub_0
   %94 = load i8, ptr %93, align 1
   %95 = zext i8 %94 to i32
   %96 = add nsw i32 %95, -63
-  %.not497 = icmp eq i32 %96, 0
-  br i1 %.not497, label %sub_2, label %.tail
+  %.not498 = icmp eq i32 %96, 0
+  br i1 %.not498, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
   %97 = getelementptr inbounds i8, ptr %87, i64 2
@@ -1825,42 +1825,42 @@ sub_2:                                            ; preds = %sub_1
 103:                                              ; preds = %.tail
   %104 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(10) @.str.73) #15
   %105 = icmp eq i32 %104, 0
-  br i1 %105, label %115, label %sub_0397
+  br i1 %105, label %115, label %sub_0398
 
-sub_0397:                                         ; preds = %103
-  br i1 %.not, label %sub_1398, label %.tail396
+sub_0398:                                         ; preds = %103
+  br i1 %.not, label %sub_1399, label %.tail397
 
-sub_1398:                                         ; preds = %sub_0397
+sub_1399:                                         ; preds = %sub_0398
   %106 = getelementptr inbounds i8, ptr %87, i64 1
   %107 = load i8, ptr %106, align 1
   %108 = zext i8 %107 to i32
   %109 = add nsw i32 %108, -86
-  %.not499 = icmp eq i32 %109, 0
-  br i1 %.not499, label %sub_2399, label %.tail396
+  %.not500 = icmp eq i32 %109, 0
+  br i1 %.not500, label %sub_2400, label %.tail397
 
-sub_2399:                                         ; preds = %sub_1398
+sub_2400:                                         ; preds = %sub_1399
   %110 = getelementptr inbounds i8, ptr %87, i64 2
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i32
-  br label %.tail396
+  br label %.tail397
 
-.tail396:                                         ; preds = %sub_0397, %sub_1398, %sub_2399
-  %113 = phi i32 [ %92, %sub_0397 ], [ %109, %sub_1398 ], [ %112, %sub_2399 ]
+.tail397:                                         ; preds = %sub_0398, %sub_1399, %sub_2400
+  %113 = phi i32 [ %92, %sub_0398 ], [ %109, %sub_1399 ], [ %112, %sub_2400 ]
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %115, label %117
 
-115:                                              ; preds = %.tail396, %103
+115:                                              ; preds = %.tail397, %103
   %116 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.75)
   tail call void @exit_nicely(i32 noundef 0) #16
   unreachable
 
-117:                                              ; preds = %.tail396, %2
+117:                                              ; preds = %.tail397, %2
   tail call void @InitDumpOptions(ptr noundef nonnull @main.dopt) #14
   br label %118
 
 118:                                              ; preds = %.backedge, %117
-  %.0155 = phi ptr [ @.str, %117 ], [ %.0155.be, %.backedge ]
-  %.0153 = phi ptr [ null, %117 ], [ %.0153.be, %.backedge ]
+  %.0156 = phi ptr [ @.str, %117 ], [ %.0156.be, %.backedge ]
+  %.0154 = phi ptr [ null, %117 ], [ %.0154.be, %.backedge ]
   %.0151 = phi i8 [ 0, %117 ], [ %.0151.be, %.backedge ]
   %.0149 = phi ptr [ null, %117 ], [ %.0149.be, %.backedge ]
   %.0147 = phi ptr [ null, %117 ], [ %.0147.be, %.backedge ]
@@ -1915,8 +1915,8 @@ sub_2399:                                         ; preds = %sub_1398
   ]
 
 .backedge:                                        ; preds = %118, %118, %205, %193, %189, %192, %185, %142, %read_dump_filters.exit, %203, %201, %199, %197, %184, %181, %179, %177, %174, %171, %169, %168, %167, %166, %165, %162, %160, %158, %155, %154, %151, %150, %148, %146, %139, %136, %133, %130, %128, %125, %124, %123, %122, %121, %120
-  %.0155.be = phi ptr [ %.0155, %read_dump_filters.exit ], [ %.0155, %205 ], [ %.0155, %203 ], [ %.0155, %201 ], [ %.0155, %199 ], [ %.0155, %197 ], [ %.0155, %193 ], [ %.0155, %192 ], [ %.0155, %189 ], [ %.0155, %185 ], [ %.0155, %184 ], [ %.0155, %181 ], [ %.0155, %179 ], [ %.0155, %177 ], [ %.0155, %174 ], [ %.0155, %171 ], [ %.0155, %169 ], [ %.0155, %168 ], [ %.0155, %167 ], [ %.0155, %166 ], [ %.0155, %165 ], [ %.0155, %162 ], [ %.0155, %160 ], [ %.0155, %158 ], [ %.0155, %155 ], [ %.0155, %154 ], [ %.0155, %151 ], [ %.0155, %150 ], [ %.0155, %148 ], [ %.0155, %146 ], [ %.0155, %142 ], [ %.0155, %139 ], [ %138, %136 ], [ %.0155, %133 ], [ %.0155, %130 ], [ %.0155, %128 ], [ %.0155, %125 ], [ %.0155, %124 ], [ %.0155, %123 ], [ %.0155, %122 ], [ %.0155, %121 ], [ %.0155, %120 ], [ %.0155, %118 ], [ %.0155, %118 ]
-  %.0153.be = phi ptr [ %.0153, %read_dump_filters.exit ], [ %.0153, %205 ], [ %.0153, %203 ], [ %.0153, %201 ], [ %.0153, %199 ], [ %.0153, %197 ], [ %.0153, %193 ], [ %.0153, %192 ], [ %.0153, %189 ], [ %.0153, %185 ], [ %.0153, %184 ], [ %.0153, %181 ], [ %.0153, %179 ], [ %.0153, %177 ], [ %.0153, %174 ], [ %.0153, %171 ], [ %.0153, %169 ], [ %.0153, %168 ], [ %.0153, %167 ], [ %.0153, %166 ], [ %.0153, %165 ], [ %.0153, %162 ], [ %.0153, %160 ], [ %.0153, %158 ], [ %.0153, %155 ], [ %.0153, %154 ], [ %.0153, %151 ], [ %.0153, %150 ], [ %.0153, %148 ], [ %.0153, %146 ], [ %.0153, %142 ], [ %.0153, %139 ], [ %.0153, %136 ], [ %135, %133 ], [ %.0153, %130 ], [ %.0153, %128 ], [ %.0153, %125 ], [ %.0153, %124 ], [ %.0153, %123 ], [ %.0153, %122 ], [ %.0153, %121 ], [ %.0153, %120 ], [ %.0153, %118 ], [ %.0153, %118 ]
+  %.0156.be = phi ptr [ %.0156, %read_dump_filters.exit ], [ %.0156, %205 ], [ %.0156, %203 ], [ %.0156, %201 ], [ %.0156, %199 ], [ %.0156, %197 ], [ %.0156, %193 ], [ %.0156, %192 ], [ %.0156, %189 ], [ %.0156, %185 ], [ %.0156, %184 ], [ %.0156, %181 ], [ %.0156, %179 ], [ %.0156, %177 ], [ %.0156, %174 ], [ %.0156, %171 ], [ %.0156, %169 ], [ %.0156, %168 ], [ %.0156, %167 ], [ %.0156, %166 ], [ %.0156, %165 ], [ %.0156, %162 ], [ %.0156, %160 ], [ %.0156, %158 ], [ %.0156, %155 ], [ %.0156, %154 ], [ %.0156, %151 ], [ %.0156, %150 ], [ %.0156, %148 ], [ %.0156, %146 ], [ %.0156, %142 ], [ %.0156, %139 ], [ %138, %136 ], [ %.0156, %133 ], [ %.0156, %130 ], [ %.0156, %128 ], [ %.0156, %125 ], [ %.0156, %124 ], [ %.0156, %123 ], [ %.0156, %122 ], [ %.0156, %121 ], [ %.0156, %120 ], [ %.0156, %118 ], [ %.0156, %118 ]
+  %.0154.be = phi ptr [ %.0154, %read_dump_filters.exit ], [ %.0154, %205 ], [ %.0154, %203 ], [ %.0154, %201 ], [ %.0154, %199 ], [ %.0154, %197 ], [ %.0154, %193 ], [ %.0154, %192 ], [ %.0154, %189 ], [ %.0154, %185 ], [ %.0154, %184 ], [ %.0154, %181 ], [ %.0154, %179 ], [ %.0154, %177 ], [ %.0154, %174 ], [ %.0154, %171 ], [ %.0154, %169 ], [ %.0154, %168 ], [ %.0154, %167 ], [ %.0154, %166 ], [ %.0154, %165 ], [ %.0154, %162 ], [ %.0154, %160 ], [ %.0154, %158 ], [ %.0154, %155 ], [ %.0154, %154 ], [ %.0154, %151 ], [ %.0154, %150 ], [ %.0154, %148 ], [ %.0154, %146 ], [ %.0154, %142 ], [ %.0154, %139 ], [ %.0154, %136 ], [ %135, %133 ], [ %.0154, %130 ], [ %.0154, %128 ], [ %.0154, %125 ], [ %.0154, %124 ], [ %.0154, %123 ], [ %.0154, %122 ], [ %.0154, %121 ], [ %.0154, %120 ], [ %.0154, %118 ], [ %.0154, %118 ]
   %.0151.be = phi i8 [ %.0151, %read_dump_filters.exit ], [ %.0151, %205 ], [ %.0151, %203 ], [ %.0151, %201 ], [ %.0151, %199 ], [ %.0151, %197 ], [ %.0151, %193 ], [ %.0151, %192 ], [ %.0151, %189 ], [ %.0151, %185 ], [ %.0151, %184 ], [ %.0151, %181 ], [ %.0151, %179 ], [ %.0151, %177 ], [ %.0151, %174 ], [ %.0151, %171 ], [ %.0151, %169 ], [ %.0151, %168 ], [ %.0151, %167 ], [ %.0151, %166 ], [ 1, %165 ], [ %.0151, %162 ], [ %.0151, %160 ], [ %.0151, %158 ], [ %.0151, %155 ], [ %.0151, %154 ], [ %.0151, %151 ], [ %.0151, %150 ], [ %.0151, %148 ], [ %.0151, %146 ], [ %.0151, %142 ], [ %.0151, %139 ], [ %.0151, %136 ], [ %.0151, %133 ], [ %.0151, %130 ], [ %.0151, %128 ], [ %.0151, %125 ], [ %.0151, %124 ], [ %.0151, %123 ], [ %.0151, %122 ], [ %.0151, %121 ], [ %.0151, %120 ], [ %.0151, %118 ], [ %.0151, %118 ]
   %.0149.be = phi ptr [ %.0149, %read_dump_filters.exit ], [ %.0149, %205 ], [ %.0149, %203 ], [ %.0149, %201 ], [ %.0149, %199 ], [ %.0149, %197 ], [ %.0149, %193 ], [ %.0149, %192 ], [ %.0149, %189 ], [ %.0149, %185 ], [ %.0149, %184 ], [ %.0149, %181 ], [ %.0149, %179 ], [ %.0149, %177 ], [ %.0149, %174 ], [ %.0149, %171 ], [ %.0149, %169 ], [ %.0149, %168 ], [ %.0149, %167 ], [ %.0149, %166 ], [ %.0149, %165 ], [ %.0149, %162 ], [ %.0149, %160 ], [ %.0149, %158 ], [ %.0149, %155 ], [ %.0149, %154 ], [ %.0149, %151 ], [ %.0149, %150 ], [ %.0149, %148 ], [ %.0149, %146 ], [ %.0149, %142 ], [ %.0149, %139 ], [ %.0149, %136 ], [ %.0149, %133 ], [ %132, %130 ], [ %.0149, %128 ], [ %.0149, %125 ], [ %.0149, %124 ], [ %.0149, %123 ], [ %.0149, %122 ], [ %.0149, %121 ], [ %.0149, %120 ], [ %.0149, %118 ], [ %.0149, %118 ]
   %.0147.be = phi ptr [ %.0147, %read_dump_filters.exit ], [ %.0147, %205 ], [ %.0147, %203 ], [ %.0147, %201 ], [ %.0147, %199 ], [ %.0147, %197 ], [ %.0147, %193 ], [ %.0147, %192 ], [ %.0147, %189 ], [ %.0147, %185 ], [ %.0147, %184 ], [ %183, %181 ], [ %.0147, %179 ], [ %.0147, %177 ], [ %.0147, %174 ], [ %.0147, %171 ], [ %.0147, %169 ], [ %.0147, %168 ], [ %.0147, %167 ], [ %.0147, %166 ], [ %.0147, %165 ], [ %.0147, %162 ], [ %.0147, %160 ], [ %.0147, %158 ], [ %.0147, %155 ], [ %.0147, %154 ], [ %.0147, %151 ], [ %.0147, %150 ], [ %.0147, %148 ], [ %.0147, %146 ], [ %.0147, %142 ], [ %.0147, %139 ], [ %.0147, %136 ], [ %.0147, %133 ], [ %.0147, %130 ], [ %.0147, %128 ], [ %.0147, %125 ], [ %.0147, %124 ], [ %.0147, %123 ], [ %.0147, %122 ], [ %.0147, %121 ], [ %.0147, %120 ], [ %.0147, %118 ], [ %.0147, %118 ]
@@ -2416,23 +2416,23 @@ read_dump_filters.exit:                           ; preds = %244, %209
   unreachable
 
 306:                                              ; preds = %301
-  %307 = call fastcc i32 @parseArchiveFormat(ptr noundef %.0155, ptr noundef nonnull %75)
+  %307 = call fastcc i32 @parseArchiveFormat(ptr noundef %.0156, ptr noundef nonnull %75)
   %.not172 = icmp eq i32 %307, 4
   %308 = and i32 %307, 3
   %or.cond19 = icmp ne i32 %308, 1
   %brmerge = select i1 %or.cond19, i1 true, i1 %.0
-  br i1 %brmerge, label %._crit_edge589, label %309
+  br i1 %brmerge, label %._crit_edge590, label %309
 
-._crit_edge589:                                   ; preds = %306
-  %.pre590 = load ptr, ptr %78, align 8
+._crit_edge590:                                   ; preds = %306
+  %.pre591 = load ptr, ptr %78, align 8
   br label %310
 
 309:                                              ; preds = %306
   store ptr @.str.88, ptr %78, align 8
   br label %310
 
-310:                                              ; preds = %._crit_edge589, %309
-  %311 = phi ptr [ %.pre590, %._crit_edge589 ], [ @.str.88, %309 ]
+310:                                              ; preds = %._crit_edge590, %309
+  %311 = phi ptr [ %.pre591, %._crit_edge590 ], [ @.str.88, %309 ]
   %312 = call zeroext i1 @parse_compress_algorithm(ptr noundef %311, ptr noundef nonnull @compression_algorithm) #14
   br i1 %312, label %315, label %313
 
@@ -2500,7 +2500,7 @@ read_dump_filters.exit:                           ; preds = %244, %209
   %not..b = xor i1 %.b, true
   %336 = load i32, ptr %75, align 4
   %337 = load i32, ptr %79, align 4
-  %338 = call ptr @CreateArchive(ptr noundef %.0153, i32 noundef %307, ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %76, i1 noundef zeroext %not..b, i32 noundef %336, ptr noundef nonnull @setupDumpWorker, i32 noundef %337) #14
+  %338 = call ptr @CreateArchive(ptr noundef %.0154, i32 noundef %307, ptr noundef nonnull byval(%struct.pg_compress_specification) align 8 %76, i1 noundef zeroext %not..b, i32 noundef %336, ptr noundef nonnull @setupDumpWorker, i32 noundef %337) #14
   call void @SetArchiveOptions(ptr noundef %338, ptr noundef nonnull @main.dopt, ptr noundef null) #14
   call void @on_exit_close_archive(ptr noundef %338) #14
   %339 = zext nneg i8 %.0151 to i32
@@ -3173,8 +3173,8 @@ read_dump_filters.exit:                           ; preds = %244, %209
 825:                                              ; preds = %824, %823
   %826 = getelementptr inbounds i8, ptr %809, i64 48
   %827 = load i32, ptr %826, align 8
-  %.not.i388 = icmp eq i32 %827, 0
-  br i1 %.not.i388, label %829, label %828
+  %.not.i389 = icmp eq i32 %827, 0
+  br i1 %.not.i389, label %829, label %828
 
 828:                                              ; preds = %825
   call fastcc void @binary_upgrade_extension_member(ptr noundef %814, ptr noundef nonnull readonly %799, ptr noundef nonnull @.str.757, ptr noundef %819, ptr noundef null)
@@ -3183,8 +3183,8 @@ read_dump_filters.exit:                           ; preds = %244, %209
 829:                                              ; preds = %828, %825
   %830 = load i32, ptr %802, align 8
   %831 = and i32 %830, 1
-  %.not46.i389 = icmp eq i32 %831, 0
-  br i1 %.not46.i389, label %843, label %832
+  %.not46.i390 = icmp eq i32 %831, 0
+  br i1 %.not46.i390, label %843, label %832
 
 832:                                              ; preds = %829
   %833 = getelementptr inbounds i8, ptr %799, i64 4
@@ -3206,14 +3206,14 @@ read_dump_filters.exit:                           ; preds = %244, %209
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %795, i8 0, i64 16, i1 false)
   %841 = load i64, ptr %833, align 4
   %842 = call ptr @ArchiveEntry(ptr noundef nonnull %338, i64 %841, i32 noundef %835, ptr noundef nonnull %3) #14
-  %.pre.i390 = load i32, ptr %802, align 8
+  %.pre.i391 = load i32, ptr %802, align 8
   br label %843
 
 843:                                              ; preds = %832, %829
-  %844 = phi i32 [ %.pre.i390, %832 ], [ %830, %829 ]
+  %844 = phi i32 [ %.pre.i391, %832 ], [ %830, %829 ]
   %845 = and i32 %844, 4
-  %.not47.i391 = icmp eq i32 %845, 0
-  br i1 %.not47.i391, label %859, label %846
+  %.not47.i392 = icmp eq i32 %845, 0
+  br i1 %.not47.i392, label %859, label %846
 
 846:                                              ; preds = %843
   %847 = load i8, ptr %820, align 8
@@ -3223,26 +3223,26 @@ read_dump_filters.exit:                           ; preds = %244, %209
 849:                                              ; preds = %846
   %850 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %819, ptr noundef nonnull dereferenceable(7) @.str.182) #15
   %851 = icmp eq i32 %850, 0
-  %spec.select.i392 = select i1 %851, ptr @.str.758, ptr null
+  %spec.select.i393 = select i1 %851, ptr @.str.758, ptr null
   br label %852
 
 852:                                              ; preds = %849, %846
-  %.0.i393 = phi ptr [ null, %846 ], [ %spec.select.i392, %849 ]
+  %.0.i394 = phi ptr [ null, %846 ], [ %spec.select.i393, %849 ]
   %853 = getelementptr inbounds i8, ptr %799, i64 104
   %854 = load ptr, ptr %853, align 8
   %855 = getelementptr inbounds i8, ptr %799, i64 4
   %856 = getelementptr inbounds i8, ptr %799, i64 12
   %857 = load i32, ptr %856, align 4
   %858 = load i64, ptr %855, align 4
-  call fastcc void @dumpCommentExtended(ptr noundef nonnull %338, ptr noundef nonnull @.str.757, ptr noundef %819, ptr noundef null, ptr noundef %854, i64 %858, i32 noundef %857, ptr noundef %.0.i393)
+  call fastcc void @dumpCommentExtended(ptr noundef nonnull %338, ptr noundef nonnull @.str.757, ptr noundef %819, ptr noundef null, ptr noundef %854, i64 %858, i32 noundef %857, ptr noundef %.0.i394)
   %.pre50.i = load i32, ptr %802, align 8
   br label %859
 
 859:                                              ; preds = %852, %843
   %860 = phi i32 [ %.pre50.i, %852 ], [ %844, %843 ]
   %861 = and i32 %860, 8
-  %.not48.i394 = icmp eq i32 %861, 0
-  br i1 %.not48.i394, label %869, label %862
+  %.not48.i395 = icmp eq i32 %861, 0
+  br i1 %.not48.i395, label %869, label %862
 
 862:                                              ; preds = %859
   %863 = getelementptr inbounds i8, ptr %799, i64 104
@@ -3258,8 +3258,8 @@ read_dump_filters.exit:                           ; preds = %244, %209
 869:                                              ; preds = %862, %859
   %870 = phi i32 [ %.pre51.i, %862 ], [ %860, %859 ]
   %871 = and i32 %870, 16
-  %.not49.i395 = icmp eq i32 %871, 0
-  br i1 %.not49.i395, label %879, label %872
+  %.not49.i396 = icmp eq i32 %871, 0
+  br i1 %.not49.i396, label %879, label %872
 
 872:                                              ; preds = %869
   %873 = getelementptr inbounds i8, ptr %799, i64 12
@@ -3298,8 +3298,8 @@ dumpNamespace.exit:                               ; preds = %808, %879
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %887, ptr noundef nonnull @.str.767, ptr noundef %891) #14
   %892 = getelementptr inbounds i8, ptr %881, i64 48
   %893 = load i32, ptr %892, align 8
-  %.not.i377 = icmp eq i32 %893, 0
-  br i1 %.not.i377, label %894, label %898
+  %.not.i378 = icmp eq i32 %893, 0
+  br i1 %.not.i378, label %894, label %898
 
 894:                                              ; preds = %885
   %895 = getelementptr inbounds i8, ptr %799, i64 64
@@ -3379,21 +3379,21 @@ dumpNamespace.exit:                               ; preds = %808, %879
   %937 = getelementptr inbounds i8, ptr %799, i64 56
   %938 = load i32, ptr %937, align 8
   %939 = icmp sgt i32 %938, 0
-  br i1 %939, label %.lr.ph.i383, label %._crit_edge.i378
+  br i1 %939, label %.lr.ph.i384, label %._crit_edge.i379
 
-.lr.ph.i383:                                      ; preds = %936
+.lr.ph.i384:                                      ; preds = %936
   %940 = getelementptr inbounds i8, ptr %799, i64 48
   br label %941
 
-941:                                              ; preds = %959, %.lr.ph.i383
-  %indvars.iv.i384 = phi i64 [ 0, %.lr.ph.i383 ], [ %indvars.iv.next.i387, %959 ]
-  %.07985.i = phi i32 [ 0, %.lr.ph.i383 ], [ %.1.i386, %959 ]
+941:                                              ; preds = %959, %.lr.ph.i384
+  %indvars.iv.i385 = phi i64 [ 0, %.lr.ph.i384 ], [ %indvars.iv.next.i388, %959 ]
+  %.086.i = phi i32 [ 0, %.lr.ph.i384 ], [ %.1.i387, %959 ]
   %942 = load ptr, ptr %940, align 8
-  %943 = getelementptr i32, ptr %942, i64 %indvars.iv.i384
+  %943 = getelementptr i32, ptr %942, i64 %indvars.iv.i385
   %944 = load i32, ptr %943, align 4
   %945 = call ptr @findObjectByDumpId(i32 noundef %944) #14
-  %.not84.i385 = icmp eq ptr %945, null
-  br i1 %.not84.i385, label %959, label %946
+  %.not84.i386 = icmp eq ptr %945, null
+  br i1 %.not84.i386, label %959, label %946
 
 946:                                              ; preds = %941
   %947 = load i32, ptr %945, align 8
@@ -3401,8 +3401,8 @@ dumpNamespace.exit:                               ; preds = %808, %879
   br i1 %948, label %949, label %959
 
 949:                                              ; preds = %946
-  %950 = add i32 %.07985.i, 1
-  %951 = icmp sgt i32 %.07985.i, 0
+  %950 = add i32 %.086.i, 1
+  %951 = icmp sgt i32 %.086.i, 0
   br i1 %951, label %952, label %953
 
 952:                                              ; preds = %949
@@ -3419,23 +3419,23 @@ dumpNamespace.exit:                               ; preds = %808, %879
   br label %959
 
 959:                                              ; preds = %953, %946, %941
-  %.1.i386 = phi i32 [ %950, %953 ], [ %.07985.i, %946 ], [ %.07985.i, %941 ]
-  %indvars.iv.next.i387 = add nuw nsw i64 %indvars.iv.i384, 1
+  %.1.i387 = phi i32 [ %950, %953 ], [ %.086.i, %946 ], [ %.086.i, %941 ]
+  %indvars.iv.next.i388 = add nuw nsw i64 %indvars.iv.i385, 1
   %960 = load i32, ptr %937, align 8
   %961 = sext i32 %960 to i64
-  %962 = icmp slt i64 %indvars.iv.next.i387, %961
-  br i1 %962, label %941, label %._crit_edge.i378, !llvm.loop !8
+  %962 = icmp slt i64 %indvars.iv.next.i388, %961
+  br i1 %962, label %941, label %._crit_edge.i379, !llvm.loop !8
 
-._crit_edge.i378:                                 ; preds = %959, %936
+._crit_edge.i379:                                 ; preds = %959, %936
   call void @appendPQExpBufferStr(ptr noundef %886, ptr noundef nonnull @.str.777) #14
   call void @appendPQExpBufferStr(ptr noundef %886, ptr noundef nonnull @.str.778) #14
   br label %963
 
-963:                                              ; preds = %._crit_edge.i378, %894
+963:                                              ; preds = %._crit_edge.i379, %894
   %964 = load i32, ptr %802, align 8
   %965 = and i32 %964, 1
-  %.not81.i379 = icmp eq i32 %965, 0
-  br i1 %.not81.i379, label %975, label %966
+  %.not81.i380 = icmp eq i32 %965, 0
+  br i1 %.not81.i380, label %975, label %966
 
 966:                                              ; preds = %963
   %967 = getelementptr inbounds i8, ptr %799, i64 4
@@ -3454,14 +3454,14 @@ dumpNamespace.exit:                               ; preds = %808, %879
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %787, i8 0, i64 16, i1 false)
   %973 = load i64, ptr %967, align 4
   %974 = call ptr @ArchiveEntry(ptr noundef nonnull %338, i64 %973, i32 noundef %969, ptr noundef nonnull %4) #14
-  %.pre.i380 = load i32, ptr %802, align 8
+  %.pre.i381 = load i32, ptr %802, align 8
   br label %975
 
 975:                                              ; preds = %966, %963
-  %976 = phi i32 [ %.pre.i380, %966 ], [ %964, %963 ]
+  %976 = phi i32 [ %.pre.i381, %966 ], [ %964, %963 ]
   %977 = and i32 %976, 4
-  %.not82.i381 = icmp eq i32 %977, 0
-  br i1 %.not82.i381, label %983, label %978
+  %.not82.i382 = icmp eq i32 %977, 0
+  br i1 %.not82.i382, label %983, label %978
 
 978:                                              ; preds = %975
   %979 = getelementptr inbounds i8, ptr %799, i64 4
@@ -3475,8 +3475,8 @@ dumpNamespace.exit:                               ; preds = %808, %879
 983:                                              ; preds = %978, %975
   %984 = phi i32 [ %.pre88.i, %978 ], [ %976, %975 ]
   %985 = and i32 %984, 8
-  %.not83.i382 = icmp eq i32 %985, 0
-  br i1 %.not83.i382, label %991, label %986
+  %.not83.i383 = icmp eq i32 %985, 0
+  br i1 %.not83.i383, label %991, label %986
 
 986:                                              ; preds = %983
   %987 = getelementptr inbounds i8, ptr %799, i64 4
@@ -3512,8 +3512,8 @@ dumpExtension.exit:                               ; preds = %880, %991
   %999 = call ptr @createPQExpBuffer() #14
   %1000 = getelementptr inbounds i8, ptr %994, i64 48
   %1001 = load i32, ptr %1000, align 8
-  %.not.i376 = icmp eq i32 %1001, 0
-  br i1 %.not.i376, label %1007, label %1002
+  %.not.i377 = icmp eq i32 %1001, 0
+  br i1 %.not.i377, label %1007, label %1002
 
 1002:                                             ; preds = %998
   %1003 = getelementptr inbounds i8, ptr %799, i64 64
@@ -3637,8 +3637,8 @@ dumpShellType.exit:                               ; preds = %993, %1032
   %1068 = call ptr @PQgetvalue(ptr noundef %1066, i32 noundef 0, i32 noundef %1067) #14
   %1069 = call i32 @PQfnumber(ptr noundef %1066, ptr noundef nonnull @.str.940) #14
   %1070 = call i32 @PQgetisnull(ptr noundef %1066, i32 noundef 0, i32 noundef %1069) #14
-  %.not.i358 = icmp eq i32 %1070, 0
-  br i1 %.not.i358, label %1076, label %1071
+  %.not.i359 = icmp eq i32 %1070, 0
+  br i1 %.not.i359, label %1076, label %1071
 
 1071:                                             ; preds = %1061
   %1072 = call i32 @PQfnumber(ptr noundef %1066, ptr noundef nonnull @.str.941) #14
@@ -3653,9 +3653,9 @@ dumpShellType.exit:                               ; preds = %993, %1032
   br label %1079
 
 1079:                                             ; preds = %1076, %1071
-  %.0261.i = phi ptr [ null, %1071 ], [ %1078, %1076 ]
+  %.0261.i = phi ptr [ %1073, %1071 ], [ null, %1076 ]
   %.0260.i = phi ptr [ %1075, %1071 ], [ null, %1076 ]
-  %.0258.i = phi ptr [ %1073, %1071 ], [ null, %1076 ]
+  %.0259.i = phi ptr [ null, %1071 ], [ %1078, %1076 ]
   %1080 = call i32 @PQfnumber(ptr noundef %1066, ptr noundef nonnull @.str.943) #14
   %1081 = call ptr @PQgetvalue(ptr noundef %1066, i32 noundef 0, i32 noundef %1080) #14
   %1082 = call i32 @PQfnumber(ptr noundef %1066, ptr noundef nonnull @.str.944) #14
@@ -3686,42 +3686,42 @@ dumpShellType.exit:                               ; preds = %993, %1032
   %1107 = call ptr @PQgetvalue(ptr noundef %1066, i32 noundef 0, i32 noundef %1106) #14
   %1108 = call i32 @PQfnumber(ptr noundef %1066, ptr noundef nonnull @.str.392) #14
   %1109 = call ptr @PQgetvalue(ptr noundef %1066, i32 noundef 0, i32 noundef %1108) #14
-  %.not266.i359 = icmp eq ptr %.0261.i, null
-  br i1 %.not266.i359, label %1111, label %1110
+  %.not266.i360 = icmp eq ptr %.0259.i, null
+  br i1 %.not266.i360, label %1111, label %1110
 
 1110:                                             ; preds = %1079
-  call void @appendPQExpBufferStr(ptr noundef %1042, ptr noundef nonnull %.0261.i) #14
+  call void @appendPQExpBufferStr(ptr noundef %1042, ptr noundef nonnull %.0259.i) #14
   br label %1140
 
 1111:                                             ; preds = %1079
   %1112 = load i8, ptr %.0260.i, align 1
-  %.not267.i372 = icmp eq i8 %1112, 0
+  %.not267.i373 = icmp eq i8 %1112, 0
   call void @appendPQExpBufferStr(ptr noundef %1042, ptr noundef nonnull @.str.957) #14
-  br i1 %.not267.i372, label %1132, label %1113
+  br i1 %.not267.i373, label %1132, label %1113
 
 1113:                                             ; preds = %1111
   %1114 = load i32, ptr %436, align 8
   %1115 = load i8, ptr %437, align 4
   %1116 = trunc i8 %1115 to i1
   call void @appendStringLiteral(ptr noundef %1042, ptr noundef nonnull %.0260.i, i32 noundef %1114, i1 noundef zeroext %1116) #14
-  %1117 = load i8, ptr %.0258.i, align 1
-  %.not269.i373 = icmp eq i8 %1117, 0
-  br i1 %.not269.i373, label %1140, label %1118
+  %1117 = load i8, ptr %.0261.i, align 1
+  %.not269.i374 = icmp eq i8 %1117, 0
+  br i1 %.not269.i374, label %1140, label %1118
 
 1118:                                             ; preds = %1113
   call void @appendPQExpBufferStr(ptr noundef %1042, ptr noundef nonnull @.str.136) #14
   %1119 = getelementptr inbounds i8, ptr %1034, i64 76
   %1120 = load i32, ptr %1119, align 4
-  %.not270.i374 = icmp eq i32 %1120, 0
-  br i1 %.not270.i374, label %1121, label %1127
+  %.not270.i375 = icmp eq i32 %1120, 0
+  br i1 %.not270.i375, label %1121, label %1127
 
 1121:                                             ; preds = %1118
-  %1122 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0258.i, i32 noundef 39) #15
+  %1122 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0261.i, i32 noundef 39) #15
   %1123 = icmp eq ptr %1122, null
   br i1 %1123, label %1124, label %1131
 
 1124:                                             ; preds = %1121
-  %1125 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0258.i, i32 noundef 92) #15
+  %1125 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0261.i, i32 noundef 92) #15
   %1126 = icmp eq ptr %1125, null
   br i1 %1126, label %1127, label %1131
 
@@ -3729,34 +3729,34 @@ dumpShellType.exit:                               ; preds = %993, %1032
   %1128 = load i32, ptr %436, align 8
   %1129 = load i8, ptr %437, align 4
   %1130 = trunc i8 %1129 to i1
-  call void @appendStringLiteral(ptr noundef %1042, ptr noundef nonnull %.0258.i, i32 noundef %1128, i1 noundef zeroext %1130) #14
+  call void @appendStringLiteral(ptr noundef %1042, ptr noundef nonnull %.0261.i, i32 noundef %1128, i1 noundef zeroext %1130) #14
   br label %1140
 
 1131:                                             ; preds = %1124, %1121
-  call void @appendStringLiteralDQ(ptr noundef %1042, ptr noundef nonnull %.0258.i, ptr noundef null) #14
+  call void @appendStringLiteralDQ(ptr noundef %1042, ptr noundef nonnull %.0261.i, ptr noundef null) #14
   br label %1140
 
 1132:                                             ; preds = %1111
   %1133 = getelementptr inbounds i8, ptr %1034, i64 76
   %1134 = load i32, ptr %1133, align 4
-  %.not268.i375 = icmp eq i32 %1134, 0
-  br i1 %.not268.i375, label %1139, label %1135
+  %.not268.i376 = icmp eq i32 %1134, 0
+  br i1 %.not268.i376, label %1139, label %1135
 
 1135:                                             ; preds = %1132
   %1136 = load i32, ptr %436, align 8
   %1137 = load i8, ptr %437, align 4
   %1138 = trunc i8 %1137 to i1
-  call void @appendStringLiteral(ptr noundef %1042, ptr noundef %.0258.i, i32 noundef %1136, i1 noundef zeroext %1138) #14
+  call void @appendStringLiteral(ptr noundef %1042, ptr noundef %.0261.i, i32 noundef %1136, i1 noundef zeroext %1138) #14
   br label %1140
 
 1139:                                             ; preds = %1132
-  call void @appendStringLiteralDQ(ptr noundef %1042, ptr noundef %.0258.i, ptr noundef null) #14
+  call void @appendStringLiteralDQ(ptr noundef %1042, ptr noundef %.0261.i, ptr noundef null) #14
   br label %1140
 
 1140:                                             ; preds = %1139, %1135, %1131, %1127, %1113, %1110
   %1141 = load i8, ptr %1099, align 1
-  %.not271.i360 = icmp eq i8 %1141, 0
-  br i1 %.not271.i360, label %1145, label %1142
+  %.not271.i361 = icmp eq i8 %1141, 0
+  br i1 %.not271.i361, label %1145, label %1142
 
 1142:                                             ; preds = %1140
   %1143 = call zeroext i1 @parsePGArray(ptr noundef nonnull %1099, ptr noundef nonnull %8, ptr noundef nonnull %9) #14
@@ -3805,8 +3805,8 @@ dumpShellType.exit:                               ; preds = %993, %1032
   %1164 = getelementptr inbounds i8, ptr %1163, i64 16
   %1165 = load ptr, ptr %1164, align 8
   %1166 = call ptr @fmtId(ptr noundef %1165) #14
-  %.not272.i361 = icmp eq ptr %1150, null
-  %1167 = select i1 %.not272.i361, ptr %1153, ptr %1150
+  %.not272.i362 = icmp eq ptr %1150, null
+  %1167 = select i1 %.not272.i362, ptr %1153, ptr %1150
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %1040, ptr noundef nonnull @.str.962, ptr noundef nonnull %.str.959..str.960.i, ptr noundef %1166, ptr noundef %1167) #14
   %1168 = load i8, ptr %1089, align 1
   %1169 = icmp eq i8 %1168, 112
@@ -3843,22 +3843,22 @@ dumpShellType.exit:                               ; preds = %993, %1032
   call void @parseOidArray(ptr noundef nonnull %1087, ptr noundef %1183, i32 noundef 100) #14
   %1184 = load i32, ptr %1183, align 4
   %.not275309.i = icmp eq i32 %1184, 0
-  br i1 %.not275309.i, label %.loopexit308.i, label %.lr.ph.i362
+  br i1 %.not275309.i, label %.loopexit308.i, label %.lr.ph.i363
 
-.lr.ph.i362:                                      ; preds = %1182, %1188
+.lr.ph.i363:                                      ; preds = %1182, %1188
   %1185 = phi i32 [ %1194, %1188 ], [ %1184, %1182 ]
   %1186 = phi ptr [ %1193, %1188 ], [ %1183, %1182 ]
   %.0257310.i = phi i32 [ %1191, %1188 ], [ 0, %1182 ]
   %.not291.i = icmp eq i32 %.0257310.i, 0
   br i1 %.not291.i, label %1188, label %1187
 
-1187:                                             ; preds = %.lr.ph.i362
+1187:                                             ; preds = %.lr.ph.i363
   call void @appendPQExpBufferStr(ptr noundef %1040, ptr noundef nonnull @.str.136) #14
-  %.pre.i363 = load i32, ptr %1186, align 4
+  %.pre.i364 = load i32, ptr %1186, align 4
   br label %1188
 
-1188:                                             ; preds = %1187, %.lr.ph.i362
-  %1189 = phi i32 [ %.pre.i363, %1187 ], [ %1185, %.lr.ph.i362 ]
+1188:                                             ; preds = %1187, %.lr.ph.i363
+  %1189 = phi i32 [ %.pre.i364, %1187 ], [ %1185, %.lr.ph.i363 ]
   %1190 = call fastcc ptr @getFormattedTypeName(ptr noundef nonnull %338, i32 noundef %1189, i32 noundef 4)
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %1040, ptr noundef nonnull @.str.968, ptr noundef %1190) #14
   %1191 = add i32 %.0257310.i, 1
@@ -3866,7 +3866,7 @@ dumpShellType.exit:                               ; preds = %993, %1032
   %1193 = getelementptr i32, ptr %1183, i64 %1192
   %1194 = load i32, ptr %1193, align 4
   %.not275.i = icmp eq i32 %1194, 0
-  br i1 %.not275.i, label %.loopexit308.i, label %.lr.ph.i362, !llvm.loop !9
+  br i1 %.not275.i, label %.loopexit308.i, label %.lr.ph.i363, !llvm.loop !9
 
 .loopexit308.i:                                   ; preds = %1188, %1182, %1179
   %1195 = load i8, ptr %1089, align 1
@@ -3881,12 +3881,12 @@ dumpShellType.exit:                               ; preds = %993, %1032
   %1199 = load i8, ptr %1091, align 1
   switch i8 %1199, label %1201 [
     i8 118, label %1204
-    i8 105, label %.sink.split.i364
+    i8 105, label %.sink.split.i365
     i8 115, label %1200
   ]
 
 1200:                                             ; preds = %1198
-  br label %.sink.split.i364
+  br label %.sink.split.i365
 
 1201:                                             ; preds = %1198
   %1202 = getelementptr inbounds i8, ptr %799, i64 16
@@ -3895,12 +3895,12 @@ dumpShellType.exit:                               ; preds = %993, %1032
   call void @exit_nicely(i32 noundef 1) #16
   unreachable
 
-.sink.split.i364:                                 ; preds = %1200, %1198
+.sink.split.i365:                                 ; preds = %1200, %1198
   %.str.970.sink.i = phi ptr [ @.str.971, %1200 ], [ @.str.970, %1198 ]
   call void @appendPQExpBufferStr(ptr noundef %1040, ptr noundef nonnull %.str.970.sink.i) #14
   br label %1204
 
-1204:                                             ; preds = %.sink.split.i364, %1198
+1204:                                             ; preds = %.sink.split.i365, %1198
   %1205 = load i8, ptr %1093, align 1
   %1206 = icmp eq i8 %1205, 116
   br i1 %1206, label %1207, label %1208
@@ -3921,31 +3921,31 @@ dumpShellType.exit:                               ; preds = %993, %1032
 1212:                                             ; preds = %1211, %1208
   %1213 = load i8, ptr %1097, align 1
   %1214 = icmp eq i8 %1213, 116
-  br i1 %1214, label %1215, label %sub_0.i365
+  br i1 %1214, label %1215, label %sub_0.i366
 
 1215:                                             ; preds = %1212
   call void @appendPQExpBufferStr(ptr noundef %1040, ptr noundef nonnull @.str.975) #14
-  br label %sub_0.i365
+  br label %sub_0.i366
 
-sub_0.i365:                                       ; preds = %1215, %1212
+sub_0.i366:                                       ; preds = %1215, %1212
   %1216 = load i8, ptr %1101, align 1
   %1217 = zext i8 %1216 to i32
   %1218 = add nsw i32 %1217, -48
   %.not316.i = icmp eq i32 %1218, 0
-  br i1 %.not316.i, label %sub_1.i371, label %.tail.i366
+  br i1 %.not316.i, label %sub_1.i372, label %.tail.i367
 
-sub_1.i371:                                       ; preds = %sub_0.i365
+sub_1.i372:                                       ; preds = %sub_0.i366
   %1219 = getelementptr inbounds i8, ptr %1101, i64 1
   %1220 = load i8, ptr %1219, align 1
   %1221 = zext i8 %1220 to i32
-  br label %.tail.i366
+  br label %.tail.i367
 
-.tail.i366:                                       ; preds = %sub_1.i371, %sub_0.i365
-  %1222 = phi i32 [ %1218, %sub_0.i365 ], [ %1221, %sub_1.i371 ]
+.tail.i367:                                       ; preds = %sub_1.i372, %sub_0.i366
+  %1222 = phi i32 [ %1218, %sub_0.i366 ], [ %1221, %sub_1.i372 ]
   %.not277.i = icmp eq i32 %1222, 0
   br i1 %.not277.i, label %1241, label %1223
 
-1223:                                             ; preds = %.tail.i366
+1223:                                             ; preds = %.tail.i367
   %1224 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1109, ptr noundef nonnull dereferenceable(9) @.str.977) #15
   %1225 = icmp eq i32 %1224, 0
   br i1 %1225, label %sub_0297.i, label %sub_0293.i
@@ -3993,7 +3993,7 @@ sub_1298.i:                                       ; preds = %sub_0297.i
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %1040, ptr noundef nonnull @.str.979, ptr noundef nonnull %1101) #14
   br label %1241
 
-1241:                                             ; preds = %.sink.split330.i, %1239, %.tail296.i, %.tail.i366
+1241:                                             ; preds = %.sink.split330.i, %1239, %.tail296.i, %.tail.i367
   %1242 = load i8, ptr %1068, align 1
   %1243 = icmp eq i8 %1242, 116
   br i1 %1243, label %sub_0301.i, label %sub_0305.i
@@ -4059,12 +4059,12 @@ sub_0305.i:                                       ; preds = %1249, %.tail300.thr
 1260:                                             ; preds = %.sink.split331.i, %1254
   %1261 = load i32, ptr %9, align 4
   %1262 = icmp sgt i32 %1261, 0
-  br i1 %1262, label %.lr.ph315.i, label %._crit_edge.i367
+  br i1 %1262, label %.lr.ph315.i, label %._crit_edge.i368
 
 .lr.ph315.i:                                      ; preds = %1260, %1291
-  %indvars.iv.i368 = phi i64 [ %indvars.iv.next.i369, %1291 ], [ 0, %1260 ]
+  %indvars.iv.i369 = phi i64 [ %indvars.iv.next.i370, %1291 ], [ 0, %1260 ]
   %1263 = load ptr, ptr %8, align 8
-  %1264 = getelementptr ptr, ptr %1263, i64 %indvars.iv.i368
+  %1264 = getelementptr ptr, ptr %1263, i64 %indvars.iv.i369
   %1265 = load ptr, ptr %1264, align 8
   %1266 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1265, i32 noundef 61) #15
   %1267 = icmp eq ptr %1266, null
@@ -4081,12 +4081,12 @@ sub_0305.i:                                       ; preds = %1249, %.tail300.thr
 1272:                                             ; preds = %1268
   %1273 = call zeroext i1 @SplitGUCList(ptr noundef %1269, i8 noundef signext 44, ptr noundef nonnull %10) #14
   %.pre324.i = load ptr, ptr %10, align 8
-  br i1 %1273, label %1274, label %.loopexit.i370
+  br i1 %1273, label %1274, label %.loopexit.i371
 
 1274:                                             ; preds = %1272
   %1275 = load ptr, ptr %.pre324.i, align 8
   %.not289311.i = icmp eq ptr %1275, null
-  br i1 %.not289311.i, label %.loopexit.i370, label %.lr.ph313.i
+  br i1 %.not289311.i, label %.loopexit.i371, label %.lr.ph313.i
 
 .lr.ph313.i:                                      ; preds = %1274, %1279
   %1276 = phi ptr [ %1285, %1279 ], [ %1275, %1274 ]
@@ -4113,9 +4113,9 @@ sub_0305.i:                                       ; preds = %1249, %.tail300.thr
 
 .loopexit.loopexit.i:                             ; preds = %1279
   %.pre323.i = load ptr, ptr %10, align 8
-  br label %.loopexit.i370
+  br label %.loopexit.i371
 
-.loopexit.i370:                                   ; preds = %.loopexit.loopexit.i, %1274, %1272
+.loopexit.i371:                                   ; preds = %.loopexit.loopexit.i, %1274, %1272
   %1286 = phi ptr [ %.pre323.i, %.loopexit.loopexit.i ], [ %.pre324.i, %1274 ], [ %.pre324.i, %1272 ]
   call void @pg_free(ptr noundef %1286) #14
   br label %1291
@@ -4127,14 +4127,14 @@ sub_0305.i:                                       ; preds = %1249, %.tail300.thr
   call void @appendStringLiteral(ptr noundef %1040, ptr noundef %1269, i32 noundef %1288, i1 noundef zeroext %1290) #14
   br label %1291
 
-1291:                                             ; preds = %1287, %.loopexit.i370, %.lr.ph315.i
-  %indvars.iv.next.i369 = add nuw nsw i64 %indvars.iv.i368, 1
+1291:                                             ; preds = %1287, %.loopexit.i371, %.lr.ph315.i
+  %indvars.iv.next.i370 = add nuw nsw i64 %indvars.iv.i369, 1
   %1292 = load i32, ptr %9, align 4
   %1293 = sext i32 %1292 to i64
-  %1294 = icmp slt i64 %indvars.iv.next.i369, %1293
-  br i1 %1294, label %.lr.ph315.i, label %._crit_edge.i367, !llvm.loop !11
+  %1294 = icmp slt i64 %indvars.iv.next.i370, %1293
+  br i1 %1294, label %.lr.ph315.i, label %._crit_edge.i368, !llvm.loop !11
 
-._crit_edge.i367:                                 ; preds = %1291, %1260
+._crit_edge.i368:                                 ; preds = %1291, %1260
   %1295 = load ptr, ptr %1042, align 8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %1040, ptr noundef nonnull @.str.988, ptr noundef %1295) #14
   call fastcc void @append_depends_on_extension(ptr noundef nonnull %338, ptr noundef %1040, ptr noundef readonly %799, ptr noundef nonnull @.str.989, ptr noundef nonnull %.str.959..str.960.i, ptr noundef %1160)
@@ -4143,14 +4143,14 @@ sub_0305.i:                                       ; preds = %1249, %.tail300.thr
   %.not284.i = icmp eq i32 %1297, 0
   br i1 %.not284.i, label %1302, label %1298
 
-1298:                                             ; preds = %._crit_edge.i367
+1298:                                             ; preds = %._crit_edge.i368
   %1299 = load ptr, ptr %1155, align 8
   %1300 = getelementptr inbounds i8, ptr %1299, i64 16
   %1301 = load ptr, ptr %1300, align 8
   call fastcc void @binary_upgrade_extension_member(ptr noundef %1040, ptr noundef readonly %799, ptr noundef nonnull %.str.959..str.960.i, ptr noundef %1153, ptr noundef %1301)
   br label %1302
 
-1302:                                             ; preds = %1298, %._crit_edge.i367
+1302:                                             ; preds = %1298, %._crit_edge.i368
   %1303 = load i32, ptr %802, align 8
   %1304 = and i32 %1303, 1
   %.not285.i = icmp eq i32 %1304, 0
@@ -4420,25 +4420,25 @@ format_function_arguments.exit234.i:              ; preds = %1455, %1454
   call void @appendPQExpBufferChar(ptr noundef nonnull %12, i8 noundef signext 40) #14
   %1462 = load i32, ptr %1444, align 4
   %1463 = icmp sgt i32 %1462, 0
-  br i1 %1463, label %.lr.ph.i.i354, label %._crit_edge.i.i344
+  br i1 %1463, label %.lr.ph.i.i355, label %._crit_edge.i.i344
 
-.lr.ph.i.i354:                                    ; preds = %1461
+.lr.ph.i.i355:                                    ; preds = %1461
   %1464 = getelementptr inbounds i8, ptr %799, i64 112
   br label %1465
 
-1465:                                             ; preds = %1465, %.lr.ph.i.i354
-  %indvars.iv.i.i355 = phi i64 [ 0, %.lr.ph.i.i354 ], [ %indvars.iv.next.i.i357, %1465 ]
-  %.not.i.i356 = icmp eq i64 %indvars.iv.i.i355, 0
-  %1466 = select i1 %.not.i.i356, ptr @.str.452, ptr @.str.136
+1465:                                             ; preds = %1465, %.lr.ph.i.i355
+  %indvars.iv.i.i356 = phi i64 [ 0, %.lr.ph.i.i355 ], [ %indvars.iv.next.i.i358, %1465 ]
+  %.not.i.i357 = icmp eq i64 %indvars.iv.i.i356, 0
+  %1466 = select i1 %.not.i.i357, ptr @.str.452, ptr @.str.136
   %1467 = load ptr, ptr %1464, align 8
-  %1468 = getelementptr i32, ptr %1467, i64 %indvars.iv.i.i355
+  %1468 = getelementptr i32, ptr %1467, i64 %indvars.iv.i.i356
   %1469 = load i32, ptr %1468, align 4
   %1470 = call fastcc ptr @getFormattedTypeName(ptr noundef nonnull %338, i32 noundef %1469, i32 noundef 1)
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %12, ptr noundef nonnull @.str.1053, ptr noundef nonnull %1466, ptr noundef %1470) #14
-  %indvars.iv.next.i.i357 = add nuw nsw i64 %indvars.iv.i.i355, 1
+  %indvars.iv.next.i.i358 = add nuw nsw i64 %indvars.iv.i.i356, 1
   %1471 = load i32, ptr %1444, align 4
   %1472 = sext i32 %1471 to i64
-  %1473 = icmp slt i64 %indvars.iv.next.i.i357, %1472
+  %1473 = icmp slt i64 %indvars.iv.next.i.i358, %1472
   br i1 %1473, label %1465, label %._crit_edge.i.i344, !llvm.loop !12
 
 ._crit_edge.i.i344:                               ; preds = %1465, %1461
@@ -4453,24 +4453,24 @@ format_aggregate_signature.exit.i:                ; preds = %._crit_edge.i.i344,
   %1477 = icmp eq i8 %1416, 48
   %spec.select.i = select i1 %1477, i8 %1476, i8 %1416
   %1478 = icmp eq i8 %1419, 48
-  %.0210.i = select i1 %1478, i8 %1476, i8 %1419
+  %.0.i345 = select i1 %1478, i8 %1476, i8 %1419
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %1369, ptr noundef nonnull @.str.1025, ptr noundef %1391, ptr noundef %1426) #14
   %1479 = load i8, ptr %1428, align 1
   %1480 = zext i8 %1479 to i32
   %1481 = add nsw i32 %1480, -48
   %.not265.i = icmp eq i32 %1481, 0
-  br i1 %.not265.i, label %sub_1.i353, label %format_aggregate_signature.exit.tail.i
+  br i1 %.not265.i, label %sub_1.i354, label %format_aggregate_signature.exit.tail.i
 
-sub_1.i353:                                       ; preds = %format_aggregate_signature.exit.i
+sub_1.i354:                                       ; preds = %format_aggregate_signature.exit.i
   %1482 = getelementptr inbounds i8, ptr %1428, i64 1
   %1483 = load i8, ptr %1482, align 1
   %1484 = zext i8 %1483 to i32
   br label %format_aggregate_signature.exit.tail.i
 
-format_aggregate_signature.exit.tail.i:           ; preds = %sub_1.i353, %format_aggregate_signature.exit.i
-  %1485 = phi i32 [ %1481, %format_aggregate_signature.exit.i ], [ %1484, %sub_1.i353 ]
-  %.not.i345 = icmp eq i32 %1485, 0
-  br i1 %.not.i345, label %1487, label %1486
+format_aggregate_signature.exit.tail.i:           ; preds = %sub_1.i354, %format_aggregate_signature.exit.i
+  %1485 = phi i32 [ %1481, %format_aggregate_signature.exit.i ], [ %1484, %sub_1.i354 ]
+  %.not.i346 = icmp eq i32 %1485, 0
+  br i1 %.not.i346, label %1487, label %1486
 
 1486:                                             ; preds = %format_aggregate_signature.exit.tail.i
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %1369, ptr noundef nonnull @.str.1026, ptr noundef nonnull %1428) #14
@@ -4494,20 +4494,20 @@ sub_0238.i:                                       ; preds = %1489, %1487
   %1494 = zext i8 %1493 to i32
   %1495 = add nsw i32 %1494, -45
   %.not266.i = icmp eq i32 %1495, 0
-  br i1 %.not266.i, label %sub_1239.i, label %.tail.i346
+  br i1 %.not266.i, label %sub_1239.i, label %.tail.i347
 
 sub_1239.i:                                       ; preds = %sub_0238.i
   %1496 = getelementptr inbounds i8, ptr %1393, i64 1
   %1497 = load i8, ptr %1496, align 1
   %1498 = zext i8 %1497 to i32
-  br label %.tail.i346
+  br label %.tail.i347
 
-.tail.i346:                                       ; preds = %sub_1239.i, %sub_0238.i
+.tail.i347:                                       ; preds = %sub_1239.i, %sub_0238.i
   %1499 = phi i32 [ %1495, %sub_0238.i ], [ %1498, %sub_1239.i ]
   %.not216.i = icmp eq i32 %1499, 0
   br i1 %.not216.i, label %sub_0242.i, label %1500
 
-1500:                                             ; preds = %.tail.i346
+1500:                                             ; preds = %.tail.i347
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %1369, ptr noundef nonnull @.str.1028, ptr noundef nonnull %1393) #14
   br i1 %1409, label %1501, label %1502
 
@@ -4543,7 +4543,7 @@ sub_0242.sink.split.i:                            ; preds = %1505, %1504, %1503
   call void @appendPQExpBufferStr(ptr noundef %1369, ptr noundef nonnull %.str.1030.sink.i) #14
   br label %sub_0242.i
 
-sub_0242.i:                                       ; preds = %sub_0242.sink.split.i, %1502, %.tail.i346
+sub_0242.i:                                       ; preds = %sub_0242.sink.split.i, %1502, %.tail.i347
   %1508 = load i8, ptr %1395, align 1
   %1509 = zext i8 %1508 to i32
   %1510 = add nsw i32 %1509, -45
@@ -4693,21 +4693,21 @@ sub_1263.i:                                       ; preds = %sub_0262.i
   br label %1563
 
 1563:                                             ; preds = %1562, %1561
-  %.not225.i = icmp eq i8 %.0210.i, %1476
+  %.not225.i = icmp eq i8 %.0.i345, %1476
   br i1 %.not225.i, label %1569, label %1564
 
 1564:                                             ; preds = %1563
-  switch i8 %.0210.i, label %1567 [
-    i8 114, label %.sink.split.i347
+  switch i8 %.0.i345, label %1567 [
+    i8 114, label %.sink.split.i348
     i8 115, label %1565
     i8 119, label %1566
   ]
 
 1565:                                             ; preds = %1564
-  br label %.sink.split.i347
+  br label %.sink.split.i348
 
 1566:                                             ; preds = %1564
-  br label %.sink.split.i347
+  br label %.sink.split.i348
 
 1567:                                             ; preds = %1564
   %1568 = load ptr, ptr %1441, align 8
@@ -4715,34 +4715,34 @@ sub_1263.i:                                       ; preds = %sub_0262.i
   call void @exit_nicely(i32 noundef 1) #16
   unreachable
 
-.sink.split.i347:                                 ; preds = %1566, %1565, %1564
+.sink.split.i348:                                 ; preds = %1566, %1565, %1564
   %.str.1044.sink.i = phi ptr [ @.str.1044, %1566 ], [ @.str.1043, %1565 ], [ @.str.1042, %1564 ]
   call void @appendPQExpBufferStr(ptr noundef %1369, ptr noundef nonnull %.str.1044.sink.i) #14
   br label %1569
 
-1569:                                             ; preds = %.sink.split.i347, %1563, %.tail261.i
+1569:                                             ; preds = %.sink.split.i348, %1563, %.tail261.i
   %1570 = load i8, ptr %1421, align 1
   %.not.i235.i = icmp eq i8 %1570, 48
-  br i1 %.not.i235.i, label %.tail.i.i352, label %.tail.thread.i.i348
+  br i1 %.not.i235.i, label %.tail.i.i353, label %.tail.thread.i.i349
 
-.tail.i.i352:                                     ; preds = %1569
+.tail.i.i353:                                     ; preds = %1569
   %1571 = getelementptr inbounds i8, ptr %1421, i64 1
   %1572 = load i8, ptr %1571, align 1
   %1573 = icmp eq i8 %1572, 0
-  br i1 %1573, label %getFormattedOperatorName.exit.thread.i350, label %.tail.thread.i.i348
+  br i1 %1573, label %getFormattedOperatorName.exit.thread.i351, label %.tail.thread.i.i349
 
-.tail.thread.i.i348:                              ; preds = %.tail.i.i352, %1569
+.tail.thread.i.i349:                              ; preds = %.tail.i.i353, %1569
   %1574 = call i64 @strtoul(ptr nocapture noundef nonnull %1421, ptr noundef null, i32 noundef 10) #14
   %1575 = trunc i64 %1574 to i32
   %1576 = call ptr @findOprByOid(i32 noundef %1575) #14
   %1577 = icmp eq ptr %1576, null
-  br i1 %1577, label %1578, label %getFormattedOperatorName.exit.i349
+  br i1 %1577, label %1578, label %getFormattedOperatorName.exit.i350
 
-1578:                                             ; preds = %.tail.thread.i.i348
+1578:                                             ; preds = %.tail.thread.i.i349
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.1054, ptr noundef nonnull %1421) #14
-  br label %getFormattedOperatorName.exit.thread.i350
+  br label %getFormattedOperatorName.exit.thread.i351
 
-getFormattedOperatorName.exit.i349:               ; preds = %.tail.thread.i.i348
+getFormattedOperatorName.exit.i350:               ; preds = %.tail.thread.i.i349
   %1579 = getelementptr inbounds i8, ptr %1576, i64 24
   %1580 = load ptr, ptr %1579, align 8
   %1581 = getelementptr inbounds i8, ptr %1580, i64 16
@@ -4752,22 +4752,22 @@ getFormattedOperatorName.exit.i349:               ; preds = %.tail.thread.i.i348
   %1585 = load ptr, ptr %1584, align 8
   %1586 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.1055, ptr noundef %1583, ptr noundef %1585) #14
   %.not226.i = icmp eq ptr %1586, null
-  br i1 %.not226.i, label %getFormattedOperatorName.exit.thread.i350, label %1587
+  br i1 %.not226.i, label %getFormattedOperatorName.exit.thread.i351, label %1587
 
-1587:                                             ; preds = %getFormattedOperatorName.exit.i349
+1587:                                             ; preds = %getFormattedOperatorName.exit.i350
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %1369, ptr noundef nonnull @.str.1046, ptr noundef nonnull %1586) #14
   call void @free(ptr noundef nonnull %1586) #14
-  br label %getFormattedOperatorName.exit.thread.i350
+  br label %getFormattedOperatorName.exit.thread.i351
 
-getFormattedOperatorName.exit.thread.i350:        ; preds = %1587, %getFormattedOperatorName.exit.i349, %1578, %.tail.i.i352
+getFormattedOperatorName.exit.thread.i351:        ; preds = %1587, %getFormattedOperatorName.exit.i350, %1578, %.tail.i.i353
   %1588 = icmp eq i8 %1424, 104
   br i1 %1588, label %1589, label %1590
 
-1589:                                             ; preds = %getFormattedOperatorName.exit.thread.i350
+1589:                                             ; preds = %getFormattedOperatorName.exit.thread.i351
   call void @appendPQExpBufferStr(ptr noundef %1369, ptr noundef nonnull @.str.1047) #14
   br label %1590
 
-1590:                                             ; preds = %1589, %getFormattedOperatorName.exit.thread.i350
+1590:                                             ; preds = %1589, %getFormattedOperatorName.exit.thread.i351
   %1591 = load i8, ptr %1436, align 1
   switch i8 %1591, label %1593 [
     i8 117, label %1595
@@ -4844,11 +4844,11 @@ getFormattedOperatorName.exit.thread.i350:        ; preds = %1587, %getFormatted
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %763, i8 0, i64 16, i1 false)
   %1626 = load i64, ptr %1383, align 4
   %1627 = call ptr @ArchiveEntry(ptr noundef nonnull %338, i64 %1626, i32 noundef %1618, ptr noundef nonnull %15) #14
-  %.pre.i351 = load i32, ptr %802, align 8
+  %.pre.i352 = load i32, ptr %802, align 8
   br label %1628
 
 1628:                                             ; preds = %1616, %1613
-  %1629 = phi i32 [ %.pre.i351, %1616 ], [ %1614, %1613 ]
+  %1629 = phi i32 [ %.pre.i352, %1616 ], [ %1614, %1613 ]
   %1630 = and i32 %1629, 4
   %.not231.i = icmp eq i32 %1630, 0
   br i1 %.not231.i, label %1640, label %1631
@@ -6098,7 +6098,7 @@ dumpOpfamily.exit:                                ; preds = %2076, %2196
   br label %2233
 
 2233:                                             ; preds = %2231, %2202
-  %.0.i305 = phi ptr [ %2232, %2231 ], [ null, %2202 ]
+  %.0190.i = phi ptr [ %2232, %2231 ], [ null, %2202 ]
   %2234 = call i32 @PQgetisnull(ptr noundef %2222, i32 noundef 0, i32 noundef %2226) #14
   %.not194.i = icmp eq i32 %2234, 0
   br i1 %.not194.i, label %2235, label %2237
@@ -6108,23 +6108,23 @@ dumpOpfamily.exit:                                ; preds = %2076, %2196
   br label %2237
 
 2237:                                             ; preds = %2235, %2233
-  %.0190.i = phi ptr [ %2236, %2235 ], [ null, %2233 ]
+  %.0189.i = phi ptr [ %2236, %2235 ], [ null, %2233 ]
   %2238 = load i32, ptr %438, align 8
   %2239 = icmp slt i32 %2238, 150000
   br i1 %2239, label %2240, label %2245
 
 2240:                                             ; preds = %2237
-  %2241 = load i8, ptr %.0.i305, align 1
+  %2241 = load i8, ptr %.0190.i, align 1
   %2242 = icmp eq i8 %2241, 0
-  %spec.store.select.i311 = select i1 %2242, ptr null, ptr %.0.i305
-  %2243 = load i8, ptr %.0190.i, align 1
+  %spec.store.select.i311 = select i1 %2242, ptr null, ptr %.0190.i
+  %2243 = load i8, ptr %.0189.i, align 1
   %2244 = icmp eq i8 %2243, 0
-  %spec.store.select22.i = select i1 %2244, ptr null, ptr %.0190.i
+  %spec.store.select22.i = select i1 %2244, ptr null, ptr %.0189.i
   br label %2245
 
 2245:                                             ; preds = %2240, %2237
-  %.1191.i = phi ptr [ %spec.store.select22.i, %2240 ], [ %.0190.i, %2237 ]
-  %.1.i306 = phi ptr [ %spec.store.select.i311, %2240 ], [ %.0.i305, %2237 ]
+  %.1191.i = phi ptr [ %spec.store.select.i311, %2240 ], [ %.0190.i, %2237 ]
+  %.1.i305 = phi ptr [ %spec.store.select22.i, %2240 ], [ %.0189.i, %2237 ]
   %2246 = call i32 @PQgetisnull(ptr noundef %2222, i32 noundef 0, i32 noundef %2227) #14
   %.not195.i = icmp eq i32 %2246, 0
   br i1 %.not195.i, label %2247, label %2249
@@ -6134,7 +6134,7 @@ dumpOpfamily.exit:                                ; preds = %2076, %2196
   br label %2249
 
 2249:                                             ; preds = %2247, %2245
-  %.0189.i = phi ptr [ %2248, %2247 ], [ null, %2245 ]
+  %.0188.i = phi ptr [ %2248, %2247 ], [ null, %2245 ]
   %2250 = call i32 @PQgetisnull(ptr noundef %2222, i32 noundef 0, i32 noundef %2228) #14
   %.not196.i = icmp eq i32 %2250, 0
   br i1 %.not196.i, label %2251, label %2253
@@ -6144,7 +6144,7 @@ dumpOpfamily.exit:                                ; preds = %2076, %2196
   br label %2253
 
 2253:                                             ; preds = %2251, %2249
-  %.0188.i = phi ptr [ %2252, %2251 ], [ null, %2249 ]
+  %.0.i306 = phi ptr [ %2252, %2251 ], [ null, %2249 ]
   %2254 = getelementptr inbounds i8, ptr %799, i64 24
   %2255 = load ptr, ptr %2254, align 8
   %2256 = getelementptr inbounds i8, ptr %2255, i64 16
@@ -6211,15 +6211,15 @@ sub_1.i310:                                       ; preds = %sub_0.i307
   ]
 
 2281:                                             ; preds = %2279
-  %2282 = insertelement <4 x ptr> poison, ptr %.1191.i, i64 0
-  %2283 = insertelement <4 x ptr> %2282, ptr %.1.i306, i64 1
-  %2284 = insertelement <4 x ptr> %2283, ptr %.0189.i, i64 2
-  %2285 = insertelement <4 x ptr> %2284, ptr %.0188.i, i64 3
+  %2282 = insertelement <4 x ptr> poison, ptr %.1.i305, i64 0
+  %2283 = insertelement <4 x ptr> %2282, ptr %.1191.i, i64 1
+  %2284 = insertelement <4 x ptr> %2283, ptr %.0188.i, i64 2
+  %2285 = insertelement <4 x ptr> %2284, ptr %.0.i306, i64 3
   %.fr = freeze <4 x ptr> %2285
   %2286 = icmp ne <4 x ptr> %.fr, zeroinitializer
   %2287 = bitcast <4 x i1> %2286 to i4
-  %.not779 = icmp eq i4 %2287, 0
-  br i1 %.not779, label %2337, label %2288
+  %.not780 = icmp eq i4 %2287, 0
+  br i1 %.not780, label %2337, label %2288
 
 2288:                                             ; preds = %2281
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 3, i32 noundef 0, ptr noundef nonnull @.str.1155, ptr noundef %2209) #14
@@ -6228,9 +6228,9 @@ sub_1.i310:                                       ; preds = %sub_0.i307
 2289:                                             ; preds = %2279
   %2290 = load i32, ptr %438, align 8
   %2291 = icmp sgt i32 %2290, 149999
-  %2292 = icmp eq ptr %.1.i306, null
-  %2293 = icmp eq ptr %.1191.i, null
-  %2294 = icmp ne ptr %.0189.i, null
+  %2292 = icmp eq ptr %.1191.i, null
+  %2293 = icmp eq ptr %.1.i305, null
+  %2294 = icmp ne ptr %.0188.i, null
   br i1 %2291, label %2295, label %2299
 
 2295:                                             ; preds = %2289
@@ -6244,7 +6244,7 @@ sub_1.i310:                                       ; preds = %sub_0.i307
 
 2297:                                             ; preds = %2296, %2295
   call void @appendPQExpBufferStr(ptr noundef %2204, ptr noundef nonnull @.str.1156) #14
-  %2298 = select i1 %2294, ptr %.0189.i, ptr @.str.452
+  %2298 = select i1 %2294, ptr %.0188.i, ptr @.str.452
   br label %2305
 
 2299:                                             ; preds = %2289
@@ -6253,7 +6253,7 @@ sub_1.i310:                                       ; preds = %sub_0.i307
   br i1 %or.cond13.i, label %2302, label %2300
 
 2300:                                             ; preds = %2299
-  %2301 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1.i306, ptr noundef nonnull dereferenceable(1) %.1191.i) #15
+  %2301 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1191.i, ptr noundef nonnull dereferenceable(1) %.1.i305) #15
   %.not203.i = icmp eq i32 %2301, 0
   br i1 %.not203.i, label %2303, label %2302
 
@@ -6263,7 +6263,7 @@ sub_1.i310:                                       ; preds = %sub_0.i307
 
 2303:                                             ; preds = %2302, %2300
   call void @appendPQExpBufferStr(ptr noundef %2204, ptr noundef nonnull @.str.1156) #14
-  %2304 = select i1 %2292, ptr @.str.452, ptr %.1.i306
+  %2304 = select i1 %2292, ptr @.str.452, ptr %.1191.i
   br label %2305
 
 2305:                                             ; preds = %2303, %2297
@@ -6272,7 +6272,7 @@ sub_1.i310:                                       ; preds = %sub_0.i307
   %2307 = load i8, ptr %437, align 4
   %2308 = trunc i8 %2307 to i1
   call void @appendStringLiteral(ptr noundef %2204, ptr noundef nonnull %.sink.i, i32 noundef %2306, i1 noundef zeroext %2308) #14
-  %.not207.i = icmp eq ptr %.0188.i, null
+  %.not207.i = icmp eq ptr %.0.i306, null
   br i1 %.not207.i, label %2337, label %2309
 
 2309:                                             ; preds = %2305
@@ -6280,16 +6280,16 @@ sub_1.i310:                                       ; preds = %sub_0.i307
   %2310 = load i32, ptr %436, align 8
   %2311 = load i8, ptr %437, align 4
   %2312 = trunc i8 %2311 to i1
-  call void @appendStringLiteral(ptr noundef %2204, ptr noundef nonnull %.0188.i, i32 noundef %2310, i1 noundef zeroext %2312) #14
+  call void @appendStringLiteral(ptr noundef %2204, ptr noundef nonnull %.0.i306, i32 noundef %2310, i1 noundef zeroext %2312) #14
   br label %2337
 
 2313:                                             ; preds = %2279
-  %2314 = icmp eq ptr %.0189.i, null
-  %2315 = icmp eq ptr %.0188.i, null
+  %2314 = icmp eq ptr %.0188.i, null
+  %2315 = icmp eq ptr %.0.i306, null
   %or.cond15.not199.i = select i1 %2314, i1 %2315, i1 false
-  %2316 = icmp ne ptr %.1.i306, null
+  %2316 = icmp ne ptr %.1191.i, null
   %or.cond17.i = select i1 %or.cond15.not199.i, i1 %2316, i1 false
-  %2317 = icmp ne ptr %.1191.i, null
+  %2317 = icmp ne ptr %.1.i305, null
   %or.cond19.i = select i1 %or.cond17.i, i1 %2317, i1 false
   br i1 %or.cond19.i, label %2319, label %2318
 
@@ -6302,7 +6302,7 @@ sub_1.i310:                                       ; preds = %sub_0.i307
   br i1 %or.cond21.i, label %2320, label %2327
 
 2320:                                             ; preds = %2319
-  %2321 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1.i306, ptr noundef nonnull dereferenceable(1) %.1191.i) #15
+  %2321 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1191.i, ptr noundef nonnull dereferenceable(1) %.1.i305) #15
   %2322 = icmp eq i32 %2321, 0
   br i1 %2322, label %2323, label %2327
 
@@ -6311,18 +6311,18 @@ sub_1.i310:                                       ; preds = %sub_0.i307
   %2324 = load i32, ptr %436, align 8
   %2325 = load i8, ptr %437, align 4
   %2326 = trunc i8 %2325 to i1
-  call void @appendStringLiteral(ptr noundef %2204, ptr noundef nonnull %.1.i306, i32 noundef %2324, i1 noundef zeroext %2326) #14
+  call void @appendStringLiteral(ptr noundef %2204, ptr noundef nonnull %.1191.i, i32 noundef %2324, i1 noundef zeroext %2326) #14
   br label %2337
 
 2327:                                             ; preds = %2320, %2319
   call void @appendPQExpBufferStr(ptr noundef %2204, ptr noundef nonnull @.str.1158) #14
-  %2328 = select i1 %2316, ptr %.1.i306, ptr @.str.452
+  %2328 = select i1 %2316, ptr %.1191.i, ptr @.str.452
   %2329 = load i32, ptr %436, align 8
   %2330 = load i8, ptr %437, align 4
   %2331 = trunc i8 %2330 to i1
   call void @appendStringLiteral(ptr noundef %2204, ptr noundef nonnull %2328, i32 noundef %2329, i1 noundef zeroext %2331) #14
   call void @appendPQExpBufferStr(ptr noundef %2204, ptr noundef nonnull @.str.1159) #14
-  %2332 = select i1 %2317, ptr %.1191.i, ptr @.str.452
+  %2332 = select i1 %2317, ptr %.1.i305, ptr @.str.452
   %2333 = load i32, ptr %436, align 8
   %2334 = load i8, ptr %437, align 4
   %2335 = trunc i8 %2334 to i1
@@ -8248,11 +8248,11 @@ dumpCast.exit:                                    ; preds = %3276, %3345
   unreachable
 
 3359:                                             ; preds = %3354, %3351
-  %.0.i240 = phi ptr [ %3355, %3354 ], [ null, %3351 ]
+  %.070.i = phi ptr [ %3355, %3354 ], [ null, %3351 ]
   %3360 = getelementptr inbounds i8, ptr %799, i64 76
   %3361 = load i32, ptr %3360, align 4
-  %.not75.i241 = icmp eq i32 %3361, 0
-  br i1 %.not75.i241, label %3367, label %3362
+  %.not75.i240 = icmp eq i32 %3361, 0
+  br i1 %.not75.i240, label %3367, label %3362
 
 3362:                                             ; preds = %3359
   %3363 = call ptr @findFuncByOid(i32 noundef %3361) #14
@@ -8266,7 +8266,7 @@ dumpCast.exit:                                    ; preds = %3276, %3345
   unreachable
 
 3367:                                             ; preds = %3362, %3359
-  %.070.i = phi ptr [ %3363, %3362 ], [ null, %3359 ]
+  %.0.i241 = phi ptr [ %3363, %3362 ], [ null, %3359 ]
   %3368 = call ptr @createPQExpBuffer() #14
   %3369 = call ptr @createPQExpBuffer() #14
   %3370 = call ptr @createPQExpBuffer() #14
@@ -8303,12 +8303,12 @@ dumpCast.exit:                                    ; preds = %3276, %3345
   br i1 %.not78.i250, label %3395, label %.thread87.i
 
 .thread87.i:                                      ; preds = %3386, %3367
-  %.not79.i243 = icmp eq ptr %.0.i240, null
+  %.not79.i243 = icmp eq ptr %.070.i, null
   br i1 %.not79.i243, label %3394, label %3387
 
 3387:                                             ; preds = %.thread87.i
-  %3388 = call fastcc ptr @format_function_signature(ptr noundef nonnull %338, ptr noundef nonnull %.0.i240, i1 noundef zeroext true)
-  %3389 = getelementptr inbounds i8, ptr %.0.i240, i64 24
+  %3388 = call fastcc ptr @format_function_signature(ptr noundef nonnull %338, ptr noundef nonnull %.070.i, i1 noundef zeroext true)
+  %3389 = getelementptr inbounds i8, ptr %.070.i, i64 24
   %3390 = load ptr, ptr %3389, align 8
   %3391 = getelementptr inbounds i8, ptr %3390, i64 16
   %3392 = load ptr, ptr %3391, align 8
@@ -8336,12 +8336,12 @@ dumpCast.exit:                                    ; preds = %3276, %3345
   br label %.thread90.thread.i
 
 .thread90.thread.i:                               ; preds = %3396, %.thread90.i, %3384
-  %.not82.i246 = icmp eq ptr %.070.i, null
+  %.not82.i246 = icmp eq ptr %.0.i241, null
   br i1 %.not82.i246, label %3404, label %3397
 
 3397:                                             ; preds = %.thread90.thread.i
-  %3398 = call fastcc ptr @format_function_signature(ptr noundef nonnull %338, ptr noundef nonnull %.070.i, i1 noundef zeroext true)
-  %3399 = getelementptr inbounds i8, ptr %.070.i, i64 24
+  %3398 = call fastcc ptr @format_function_signature(ptr noundef nonnull %338, ptr noundef nonnull %.0.i241, i1 noundef zeroext true)
+  %3399 = getelementptr inbounds i8, ptr %.0.i241, i64 24
   %3400 = load ptr, ptr %3399, align 8
   %3401 = getelementptr inbounds i8, ptr %3400, i64 16
   %3402 = load ptr, ptr %3401, align 8
@@ -8599,15 +8599,15 @@ forcePartitionRootLoad.exit.i:                    ; preds = %.preheader.i.i, %34
   br label %3531
 
 3531:                                             ; preds = %forcePartitionRootLoad.exit.i, %getRootTableInfo.exit.i
-  %.039.i = phi ptr [ %3521, %getRootTableInfo.exit.i ], [ %3530, %forcePartitionRootLoad.exit.i ]
-  %.038.i = phi ptr [ %3523, %getRootTableInfo.exit.i ], [ null, %forcePartitionRootLoad.exit.i ]
+  %.039.i = phi ptr [ %3523, %getRootTableInfo.exit.i ], [ null, %forcePartitionRootLoad.exit.i ]
+  %.0.i228 = phi ptr [ %3521, %getRootTableInfo.exit.i ], [ %3530, %forcePartitionRootLoad.exit.i ]
   %3532 = getelementptr inbounds i8, ptr %3486, i64 72
   %3533 = load i32, ptr %3532, align 8
   %3534 = icmp eq i32 %3533, 0
   br i1 %3534, label %3535, label %3563
 
 3535:                                             ; preds = %3531
-  call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef %3489, ptr noundef nonnull @.str.1429, ptr noundef %.039.i) #14
+  call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef %3489, ptr noundef nonnull @.str.1429, ptr noundef %.0.i228) #14
   %3536 = getelementptr inbounds i8, ptr %3488, i64 232
   %3537 = load i32, ptr %3536, align 8
   %3538 = getelementptr inbounds i8, ptr %3488, i64 240
@@ -8675,8 +8675,8 @@ fmtCopyColumnList.exit.i:                         ; preds = %3560, %._crit_edge.
   br label %3563
 
 3563:                                             ; preds = %fmtCopyColumnList.exit.i, %3531
-  %.040.i = phi ptr [ %3562, %fmtCopyColumnList.exit.i ], [ null, %3531 ]
-  %.0.i228 = phi ptr [ @dumpTableData_copy, %fmtCopyColumnList.exit.i ], [ @dumpTableData_insert, %3531 ]
+  %.040.i = phi ptr [ @dumpTableData_copy, %fmtCopyColumnList.exit.i ], [ @dumpTableData_insert, %3531 ]
+  %.038.i = phi ptr [ %3562, %fmtCopyColumnList.exit.i ], [ null, %3531 ]
   %3564 = load i32, ptr %802, align 8
   %3565 = and i32 %3564, 2
   %.not41.i = icmp eq i32 %3565, 0
@@ -8700,13 +8700,13 @@ fmtCopyColumnList.exit.i:                         ; preds = %3560, %._crit_edge.
   store ptr %3577, ptr %578, align 8
   store ptr @.str.1431, ptr %579, align 8
   store i32 3, ptr %580, align 8
-  store ptr %.038.i, ptr %581, align 8
+  store ptr %.039.i, ptr %581, align 8
   store ptr null, ptr %582, align 8
-  store ptr %.040.i, ptr %583, align 8
+  store ptr %.038.i, ptr %583, align 8
   %3578 = getelementptr inbounds i8, ptr %3488, i64 12
   store ptr %3578, ptr %584, align 8
   store i32 1, ptr %585, align 8
-  store ptr %.0.i228, ptr %586, align 8
+  store ptr %.040.i, ptr %586, align 8
   store ptr %799, ptr %587, align 8
   %3579 = load i64, ptr %3567, align 4
   %3580 = call ptr @ArchiveEntry(ptr noundef nonnull %338, i64 %3579, i32 noundef %3569, ptr noundef nonnull %39) #14
@@ -10997,7 +10997,7 @@ dumpDumpableObject.exit:                          ; preds = %796, %806, %dumpNam
 ._crit_edge:                                      ; preds = %dumpDumpableObject.exit, %433
   %4736 = call ptr @NewRestoreOptions() #14
   %4737 = getelementptr inbounds i8, ptr %4736, i64 80
-  store ptr %.0153, ptr %4737, align 8
+  store ptr %.0154, ptr %4737, align 8
   %4738 = load ptr, ptr @main.dopt, align 8
   %.not178 = icmp eq ptr %4738, null
   br i1 %.not178, label %4741, label %4739
@@ -12268,14 +12268,14 @@ define internal fastcc void @getLOs(ptr noundef %0) unnamed_addr #4 {
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %40, %59
-  %.021.i = phi ptr [ %.1.i, %59 ], [ %41, %40 ]
-  %.01420.i = phi ptr [ %.115.i, %59 ], [ %44, %40 ]
-  %45 = ptrtoint ptr %.01420.i to i64
-  %46 = ptrtoint ptr %.021.i to i64
+  %.021.i = phi ptr [ %.1.i, %59 ], [ %44, %40 ]
+  %.01420.i = phi ptr [ %.115.i, %59 ], [ %41, %40 ]
+  %45 = ptrtoint ptr %.021.i to i64
+  %46 = ptrtoint ptr %.01420.i to i64
   %47 = sub i64 %45, %46
   %48 = ashr exact i64 %47, 4
   %49 = sdiv i64 %48, 2
-  %50 = getelementptr %struct.RoleNameItem, ptr %.021.i, i64 %49
+  %50 = getelementptr %struct.RoleNameItem, ptr %.01420.i, i64 %49
   %51 = load i32, ptr %50, align 8
   %52 = icmp ugt i32 %51, %37
   br i1 %52, label %53, label %55
@@ -12293,9 +12293,9 @@ define internal fastcc void @getLOs(ptr noundef %0) unnamed_addr #4 {
   br label %59
 
 59:                                               ; preds = %57, %53
-  %.115.i = phi ptr [ %54, %53 ], [ %.01420.i, %57 ]
-  %.1.i = phi ptr [ %.021.i, %53 ], [ %58, %57 ]
-  %.not.i = icmp ugt ptr %.1.i, %.115.i
+  %.115.i = phi ptr [ %.01420.i, %53 ], [ %58, %57 ]
+  %.1.i = phi ptr [ %54, %53 ], [ %.021.i, %57 ]
+  %.not.i = icmp ugt ptr %.115.i, %.1.i
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %40, %16, %59
@@ -12383,31 +12383,31 @@ define internal fastcc void @getDependencies(ptr noundef %0) unnamed_addr #4 {
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %48
-  %.054 = phi i32 [ %49, %48 ], [ 0, %1 ]
-  %.04753 = phi ptr [ %.152, %48 ], [ null, %1 ]
-  %12 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.054, i32 noundef %6) #14
+  %.054 = phi ptr [ %.152, %48 ], [ null, %1 ]
+  %.04753 = phi i32 [ %49, %48 ], [ 0, %1 ]
+  %12 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.04753, i32 noundef %6) #14
   %13 = tail call i64 @strtoul(ptr nocapture noundef %12, ptr noundef null, i32 noundef 10) #14
-  %14 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.054, i32 noundef %7) #14
+  %14 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.04753, i32 noundef %7) #14
   %15 = tail call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 10) #14
   %16 = trunc i64 %15 to i32
-  %17 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.054, i32 noundef %8) #14
+  %17 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.04753, i32 noundef %8) #14
   %18 = tail call i64 @strtoul(ptr nocapture noundef %17, ptr noundef null, i32 noundef 10) #14
-  %19 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.054, i32 noundef %9) #14
+  %19 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.04753, i32 noundef %9) #14
   %20 = tail call i64 @strtoul(ptr nocapture noundef %19, ptr noundef null, i32 noundef 10) #14
-  %21 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.054, i32 noundef %10) #14
+  %21 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.04753, i32 noundef %10) #14
   %22 = load i8, ptr %21, align 1
-  %23 = icmp eq ptr %.04753, null
+  %23 = icmp eq ptr %.054, null
   br i1 %23, label %31, label %24
 
 24:                                               ; preds = %.lr.ph
   %25 = trunc i64 %13 to i32
-  %26 = getelementptr inbounds i8, ptr %.04753, i64 4
+  %26 = getelementptr inbounds i8, ptr %.054, i64 4
   %27 = load i32, ptr %26, align 4
   %.not = icmp eq i32 %27, %25
   br i1 %.not, label %28, label %31
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %.04753, i64 8
+  %29 = getelementptr inbounds i8, ptr %.054, i64 8
   %30 = load i32, ptr %29, align 4
   %.not49 = icmp eq i32 %30, %16
   br i1 %.not49, label %.thread, label %31
@@ -12421,7 +12421,7 @@ define internal fastcc void @getDependencies(ptr noundef %0) unnamed_addr #4 {
   br i1 %33, label %48, label %.thread
 
 .thread:                                          ; preds = %28, %31
-  %.151 = phi ptr [ %32, %31 ], [ %.04753, %28 ]
+  %.151 = phi ptr [ %32, %31 ], [ %.054, %28 ]
   %.sroa.2.0.insert.ext = shl i64 %20, 32
   %.sroa.0.0.insert.ext = and i64 %18, 4294967295
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.ext, %.sroa.0.0.insert.ext
@@ -12463,7 +12463,7 @@ define internal fastcc void @getDependencies(ptr noundef %0) unnamed_addr #4 {
 
 48:                                               ; preds = %.sink.split, %.thread, %31
   %.152 = phi ptr [ %.151, %.thread ], [ null, %31 ], [ %.151, %.sink.split ]
-  %49 = add nuw nsw i32 %.054, 1
+  %49 = add nuw nsw i32 %.04753, 1
   %exitcond.not = icmp eq i32 %49, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
@@ -12628,27 +12628,27 @@ define internal fastcc void @collectComments(ptr noundef %0) unnamed_addr #4 {
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %57
-  %.049 = phi i32 [ %58, %57 ], [ 0, %1 ]
-  %.04048 = phi ptr [ %.147, %57 ], [ null, %1 ]
-  %14 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.049, i32 noundef %6) #14
+  %.049 = phi ptr [ %.147, %57 ], [ null, %1 ]
+  %.04048 = phi i32 [ %58, %57 ], [ 0, %1 ]
+  %14 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.04048, i32 noundef %6) #14
   %15 = tail call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 10) #14
   %16 = trunc i64 %15 to i32
-  %17 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.049, i32 noundef %7) #14
+  %17 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.04048, i32 noundef %7) #14
   %18 = tail call i64 @strtoul(ptr nocapture noundef %17, ptr noundef null, i32 noundef 10) #14
   %19 = trunc i64 %18 to i32
-  %20 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.049, i32 noundef %8) #14
+  %20 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.04048, i32 noundef %8) #14
   %21 = tail call i32 @atoi(ptr nocapture noundef %20) #15
-  %22 = icmp eq ptr %.04048, null
+  %22 = icmp eq ptr %.049, null
   br i1 %22, label %29, label %23
 
 23:                                               ; preds = %.lr.ph
-  %24 = getelementptr inbounds i8, ptr %.04048, i64 4
+  %24 = getelementptr inbounds i8, ptr %.049, i64 4
   %25 = load i32, ptr %24, align 4
   %.not = icmp eq i32 %25, %16
   br i1 %.not, label %26, label %29
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %.04048, i64 8
+  %27 = getelementptr inbounds i8, ptr %.049, i64 8
   %28 = load i32, ptr %27, align 4
   %.not42 = icmp eq i32 %28, %19
   br i1 %.not42, label %.thread, label %29
@@ -12662,7 +12662,7 @@ define internal fastcc void @collectComments(ptr noundef %0) unnamed_addr #4 {
   br i1 %31, label %57, label %.thread
 
 .thread:                                          ; preds = %26, %29
-  %.146 = phi ptr [ %30, %29 ], [ %.04048, %26 ]
+  %.146 = phi ptr [ %30, %29 ], [ %.049, %26 ]
   %.not43 = icmp eq i32 %21, 0
   br i1 %.not43, label %.sink.split, label %32
 
@@ -12693,7 +12693,7 @@ define internal fastcc void @collectComments(ptr noundef %0) unnamed_addr #4 {
   br label %46
 
 46:                                               ; preds = %.sink.split, %39
-  %47 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.049, i32 noundef %5) #14
+  %47 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.04048, i32 noundef %5) #14
   %48 = tail call ptr @pg_strdup(ptr noundef %47) #14
   %49 = load ptr, ptr @comments, align 8
   %50 = load i32, ptr @ncomments, align 4
@@ -12712,7 +12712,7 @@ define internal fastcc void @collectComments(ptr noundef %0) unnamed_addr #4 {
 
 57:                                               ; preds = %29, %46
   %.147 = phi ptr [ null, %29 ], [ %.146, %46 ]
-  %58 = add nuw nsw i32 %.049, 1
+  %58 = add nuw nsw i32 %.04048, 1
   %exitcond.not = icmp eq i32 %58, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
@@ -12743,27 +12743,27 @@ define internal fastcc void @collectSecLabels(ptr noundef %0) unnamed_addr #4 {
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %64
-  %.053 = phi i32 [ %65, %64 ], [ 0, %1 ]
-  %.04452 = phi ptr [ %.151, %64 ], [ null, %1 ]
-  %15 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.053, i32 noundef %7) #14
+  %.053 = phi ptr [ %.151, %64 ], [ null, %1 ]
+  %.04452 = phi i32 [ %65, %64 ], [ 0, %1 ]
+  %15 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.04452, i32 noundef %7) #14
   %16 = tail call i64 @strtoul(ptr nocapture noundef %15, ptr noundef null, i32 noundef 10) #14
   %17 = trunc i64 %16 to i32
-  %18 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.053, i32 noundef %8) #14
+  %18 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.04452, i32 noundef %8) #14
   %19 = tail call i64 @strtoul(ptr nocapture noundef %18, ptr noundef null, i32 noundef 10) #14
   %20 = trunc i64 %19 to i32
-  %21 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.053, i32 noundef %9) #14
+  %21 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.04452, i32 noundef %9) #14
   %22 = tail call i32 @atoi(ptr nocapture noundef %21) #15
-  %23 = icmp eq ptr %.04452, null
+  %23 = icmp eq ptr %.053, null
   br i1 %23, label %30, label %24
 
 24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds i8, ptr %.04452, i64 4
+  %25 = getelementptr inbounds i8, ptr %.053, i64 4
   %26 = load i32, ptr %25, align 4
   %.not = icmp eq i32 %26, %17
   br i1 %.not, label %27, label %30
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %.04452, i64 8
+  %28 = getelementptr inbounds i8, ptr %.053, i64 8
   %29 = load i32, ptr %28, align 4
   %.not46 = icmp eq i32 %29, %20
   br i1 %.not46, label %.thread, label %30
@@ -12777,7 +12777,7 @@ define internal fastcc void @collectSecLabels(ptr noundef %0) unnamed_addr #4 {
   br i1 %32, label %64, label %.thread
 
 .thread:                                          ; preds = %27, %30
-  %.150 = phi ptr [ %31, %30 ], [ %.04452, %27 ]
+  %.150 = phi ptr [ %31, %30 ], [ %.053, %27 ]
   %.not47 = icmp eq i32 %22, 0
   br i1 %.not47, label %.sink.split, label %33
 
@@ -12808,14 +12808,14 @@ define internal fastcc void @collectSecLabels(ptr noundef %0) unnamed_addr #4 {
   br label %47
 
 47:                                               ; preds = %.sink.split, %40
-  %48 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.053, i32 noundef %5) #14
+  %48 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.04452, i32 noundef %5) #14
   %49 = tail call ptr @pg_strdup(ptr noundef %48) #14
   %50 = load ptr, ptr @seclabels, align 8
   %51 = load i32, ptr @nseclabels, align 4
   %52 = sext i32 %51 to i64
   %53 = getelementptr %struct.SecLabelItem, ptr %50, i64 %52, i32 1
   store ptr %49, ptr %53, align 8
-  %54 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.053, i32 noundef %6) #14
+  %54 = tail call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.04452, i32 noundef %6) #14
   %55 = tail call ptr @pg_strdup(ptr noundef %54) #14
   %56 = load ptr, ptr @seclabels, align 8
   %57 = load i32, ptr @nseclabels, align 4
@@ -12834,7 +12834,7 @@ define internal fastcc void @collectSecLabels(ptr noundef %0) unnamed_addr #4 {
 
 64:                                               ; preds = %30, %47
   %.151 = phi ptr [ null, %30 ], [ %.150, %47 ]
-  %65 = add nuw nsw i32 %.053, 1
+  %65 = add nuw nsw i32 %.04452, 1
   %exitcond.not = icmp eq i32 %65, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
@@ -13203,14 +13203,14 @@ define internal fastcc void @dumpDatabase(ptr noundef %0) unnamed_addr #4 {
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %53, %72
-  %.021.i = phi ptr [ %.1.i, %72 ], [ %54, %53 ]
-  %.01420.i = phi ptr [ %.115.i, %72 ], [ %57, %53 ]
-  %58 = ptrtoint ptr %.01420.i to i64
-  %59 = ptrtoint ptr %.021.i to i64
+  %.021.i = phi ptr [ %.1.i, %72 ], [ %57, %53 ]
+  %.01420.i = phi ptr [ %.115.i, %72 ], [ %54, %53 ]
+  %58 = ptrtoint ptr %.021.i to i64
+  %59 = ptrtoint ptr %.01420.i to i64
   %60 = sub i64 %58, %59
   %61 = ashr exact i64 %60, 4
   %62 = sdiv i64 %61, 2
-  %63 = getelementptr %struct.RoleNameItem, ptr %.021.i, i64 %62
+  %63 = getelementptr %struct.RoleNameItem, ptr %.01420.i, i64 %62
   %64 = load i32, ptr %63, align 8
   %65 = icmp ugt i32 %64, %50
   br i1 %65, label %66, label %68
@@ -13228,9 +13228,9 @@ define internal fastcc void @dumpDatabase(ptr noundef %0) unnamed_addr #4 {
   br label %72
 
 72:                                               ; preds = %70, %66
-  %.115.i = phi ptr [ %67, %66 ], [ %.01420.i, %70 ]
-  %.1.i = phi ptr [ %.021.i, %66 ], [ %71, %70 ]
-  %.not.i = icmp ugt ptr %.1.i, %.115.i
+  %.115.i = phi ptr [ %.01420.i, %66 ], [ %71, %70 ]
+  %.1.i = phi ptr [ %67, %66 ], [ %.021.i, %70 ]
+  %.not.i = icmp ugt ptr %.115.i, %.1.i
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %72, %53, %1
@@ -13254,7 +13254,7 @@ getRoleName.exit:                                 ; preds = %68
   br label %82
 
 82:                                               ; preds = %getRoleName.exit, %80
-  %.0 = phi ptr [ %81, %80 ], [ null, %getRoleName.exit ]
+  %.0270 = phi ptr [ %81, %80 ], [ null, %getRoleName.exit ]
   %83 = tail call i32 @PQgetisnull(ptr noundef %23, i32 noundef 0, i32 noundef %33) #14
   %.not274 = icmp eq i32 %83, 0
   br i1 %.not274, label %84, label %86
@@ -13371,7 +13371,7 @@ getRoleName.exit:                                 ; preds = %68
   br label %136
 
 136:                                              ; preds = %.thread, %130, %122
-  %.not283 = icmp eq ptr %.0, null
+  %.not283 = icmp eq ptr %.0270, null
   br i1 %.not283, label %143, label %137
 
 137:                                              ; preds = %136
@@ -13381,7 +13381,7 @@ getRoleName.exit:                                 ; preds = %68
   %140 = getelementptr inbounds i8, ptr %0, i64 68
   %141 = load i8, ptr %140, align 4
   %142 = trunc i8 %141 to i1
-  tail call void @appendStringLiteral(ptr noundef %12, ptr noundef nonnull %.0, i32 noundef %139, i1 noundef zeroext %142) #14
+  tail call void @appendStringLiteral(ptr noundef %12, ptr noundef nonnull %.0270, i32 noundef %139, i1 noundef zeroext %142) #14
   br label %143
 
 143:                                              ; preds = %137, %136
@@ -13740,21 +13740,21 @@ dumpDatabaseConfig.exit:                          ; preds = %.lr.ph33.i, %._crit
   br i1 %311, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %298, %328
-  %.0270308 = phi i32 [ %329, %328 ], [ 0, %298 ]
-  %312 = call ptr @PQgetvalue(ptr noundef %305, i32 noundef %.0270308, i32 noundef %306) #14
+  %.0308 = phi i32 [ %329, %328 ], [ 0, %298 ]
+  %312 = call ptr @PQgetvalue(ptr noundef %305, i32 noundef %.0308, i32 noundef %306) #14
   %313 = call i64 @strtoul(ptr nocapture noundef %312, ptr noundef null, i32 noundef 10) #14
   %314 = trunc i64 %313 to i32
-  %315 = call ptr @PQgetvalue(ptr noundef %305, i32 noundef %.0270308, i32 noundef %307) #14
+  %315 = call ptr @PQgetvalue(ptr noundef %305, i32 noundef %.0308, i32 noundef %307) #14
   %316 = call i64 @strtoul(ptr nocapture noundef %315, ptr noundef null, i32 noundef 10) #14
   %317 = trunc i64 %316 to i32
-  %318 = call ptr @PQgetvalue(ptr noundef %305, i32 noundef %.0270308, i32 noundef %309) #14
+  %318 = call ptr @PQgetvalue(ptr noundef %305, i32 noundef %.0308, i32 noundef %309) #14
   %319 = call i64 @strtoul(ptr nocapture noundef %318, ptr noundef null, i32 noundef 10) #14
   %320 = trunc i64 %319 to i32
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %301, ptr noundef nonnull @.str.703, i32 noundef %314, i32 noundef %317, i32 noundef %320) #14
-  %321 = call ptr @PQgetvalue(ptr noundef %305, i32 noundef %.0270308, i32 noundef %309) #14
+  %321 = call ptr @PQgetvalue(ptr noundef %305, i32 noundef %.0308, i32 noundef %309) #14
   %322 = call i64 @strtoul(ptr nocapture noundef %321, ptr noundef null, i32 noundef 10) #14
   %323 = trunc i64 %322 to i32
-  %324 = call ptr @PQgetvalue(ptr noundef %305, i32 noundef %.0270308, i32 noundef %308) #14
+  %324 = call ptr @PQgetvalue(ptr noundef %305, i32 noundef %.0308, i32 noundef %308) #14
   %325 = call i64 @strtoul(ptr nocapture noundef %324, ptr noundef null, i32 noundef 10) #14
   %326 = trunc i64 %325 to i32
   switch i32 %323, label %328 [
@@ -13771,7 +13771,7 @@ dumpDatabaseConfig.exit:                          ; preds = %.lr.ph33.i, %._crit
   br label %328
 
 328:                                              ; preds = %.sink.split, %.lr.ph
-  %329 = add nuw nsw i32 %.0270308, 1
+  %329 = add nuw nsw i32 %.0308, 1
   %330 = call i32 @PQntuples(ptr noundef %305) #14
   %331 = icmp slt i32 %329, %330
   br i1 %331, label %.lr.ph, label %._crit_edge, !llvm.loop !49
@@ -14232,14 +14232,14 @@ define dso_local ptr @getPublications(ptr noundef %0, ptr nocapture noundef writ
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %50, %69
-  %.021.i = phi ptr [ %.1.i, %69 ], [ %51, %50 ]
-  %.01420.i = phi ptr [ %.115.i, %69 ], [ %54, %50 ]
-  %55 = ptrtoint ptr %.01420.i to i64
-  %56 = ptrtoint ptr %.021.i to i64
+  %.021.i = phi ptr [ %.1.i, %69 ], [ %54, %50 ]
+  %.01420.i = phi ptr [ %.115.i, %69 ], [ %51, %50 ]
+  %55 = ptrtoint ptr %.021.i to i64
+  %56 = ptrtoint ptr %.01420.i to i64
   %57 = sub i64 %55, %56
   %58 = ashr exact i64 %57, 4
   %59 = sdiv i64 %58, 2
-  %60 = getelementptr %struct.RoleNameItem, ptr %.021.i, i64 %59
+  %60 = getelementptr %struct.RoleNameItem, ptr %.01420.i, i64 %59
   %61 = load i32, ptr %60, align 8
   %62 = icmp ugt i32 %61, %47
   br i1 %62, label %63, label %65
@@ -14257,9 +14257,9 @@ define dso_local ptr @getPublications(ptr noundef %0, ptr nocapture noundef writ
   br label %69
 
 69:                                               ; preds = %67, %63
-  %.115.i = phi ptr [ %64, %63 ], [ %.01420.i, %67 ]
-  %.1.i = phi ptr [ %.021.i, %63 ], [ %68, %67 ]
-  %.not.i = icmp ugt ptr %.1.i, %.115.i
+  %.115.i = phi ptr [ %.01420.i, %63 ], [ %68, %67 ]
+  %.1.i = phi ptr [ %64, %63 ], [ %.021.i, %67 ]
+  %.not.i = icmp ugt ptr %.115.i, %.1.i
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %50, %.lr.ph, %69
@@ -14453,9 +14453,9 @@ selectDumpableObject.exit:                        ; preds = %148, %151, %154, %1
 
 170:                                              ; preds = %2, %6, %._crit_edge
   %storemerge = phi i32 [ %17, %._crit_edge ], [ 0, %6 ], [ 0, %2 ]
-  %.0 = phi ptr [ %30, %._crit_edge ], [ null, %6 ], [ null, %2 ]
+  %.089 = phi ptr [ %30, %._crit_edge ], [ null, %6 ], [ null, %2 ]
   store i32 %storemerge, ptr %1, align 4
-  ret ptr %.0
+  ret ptr %.089
 }
 
 declare void @resetPQExpBuffer(ptr noundef) local_unnamed_addr #2
@@ -14491,12 +14491,12 @@ define dso_local void @getPublicationNamespaces(ptr noundef %0) local_unnamed_ad
   br i1 %21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %9, %82
-  %.061 = phi i32 [ %83, %82 ], [ 0, %9 ]
-  %.05760 = phi i32 [ %.1, %82 ], [ 0, %9 ]
-  %22 = tail call ptr @PQgetvalue(ptr noundef %12, i32 noundef %.061, i32 noundef %16) #14
+  %.061 = phi i32 [ %.1, %82 ], [ 0, %9 ]
+  %.05760 = phi i32 [ %83, %82 ], [ 0, %9 ]
+  %22 = tail call ptr @PQgetvalue(ptr noundef %12, i32 noundef %.05760, i32 noundef %16) #14
   %23 = tail call i64 @strtoul(ptr nocapture noundef %22, ptr noundef null, i32 noundef 10) #14
   %24 = trunc i64 %23 to i32
-  %25 = tail call ptr @PQgetvalue(ptr noundef %12, i32 noundef %.061, i32 noundef %17) #14
+  %25 = tail call ptr @PQgetvalue(ptr noundef %12, i32 noundef %.05760, i32 noundef %17) #14
   %26 = tail call i64 @strtoul(ptr nocapture noundef %25, ptr noundef null, i32 noundef 10) #14
   %27 = tail call ptr @findPublicationByOid(i32 noundef %24) #14
   %28 = icmp eq ptr %27, null
@@ -14515,15 +14515,15 @@ define dso_local void @getPublicationNamespaces(ptr noundef %0) local_unnamed_ad
   br i1 %36, label %82, label %37
 
 37:                                               ; preds = %33
-  %38 = sext i32 %.05760 to i64
+  %38 = sext i32 %.061 to i64
   %39 = getelementptr %struct._PublicationSchemaInfo, ptr %20, i64 %38
   store i32 44, ptr %39, align 8
-  %40 = tail call ptr @PQgetvalue(ptr noundef %12, i32 noundef %.061, i32 noundef %14) #14
+  %40 = tail call ptr @PQgetvalue(ptr noundef %12, i32 noundef %.05760, i32 noundef %14) #14
   %41 = tail call i64 @strtoul(ptr nocapture noundef %40, ptr noundef null, i32 noundef 10) #14
   %42 = trunc i64 %41 to i32
   %43 = getelementptr inbounds i8, ptr %39, i64 4
   store i32 %42, ptr %43, align 4
-  %44 = tail call ptr @PQgetvalue(ptr noundef %12, i32 noundef %.061, i32 noundef %15) #14
+  %44 = tail call ptr @PQgetvalue(ptr noundef %12, i32 noundef %.05760, i32 noundef %15) #14
   %45 = tail call i64 @strtoul(ptr nocapture noundef %44, ptr noundef null, i32 noundef 10) #14
   %46 = trunc i64 %45 to i32
   %47 = getelementptr inbounds i8, ptr %39, i64 8
@@ -14586,12 +14586,12 @@ selectDumpablePublicationObject.exit:             ; preds = %65, %68, %71, %chec
   %.sink.i.sink.i = phi i32 [ %79, %checkExtensionMembership.exit.i ], [ %67, %65 ], [ %74, %71 ], [ 0, %68 ]
   %80 = getelementptr inbounds i8, ptr %39, i64 32
   store i32 %.sink.i.sink.i, ptr %80, align 8
-  %81 = add i32 %.05760, 1
+  %81 = add i32 %.061, 1
   br label %82
 
 82:                                               ; preds = %33, %29, %.lr.ph, %selectDumpablePublicationObject.exit
-  %.1 = phi i32 [ %.05760, %.lr.ph ], [ %.05760, %29 ], [ %.05760, %33 ], [ %81, %selectDumpablePublicationObject.exit ]
-  %83 = add nuw nsw i32 %.061, 1
+  %.1 = phi i32 [ %.061, %.lr.ph ], [ %.061, %29 ], [ %.061, %33 ], [ %81, %selectDumpablePublicationObject.exit ]
+  %83 = add nuw nsw i32 %.05760, 1
   %exitcond.not = icmp eq i32 %83, %13
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
@@ -14646,12 +14646,12 @@ define dso_local void @getPublicationTables(ptr noundef %0, ptr nocapture nounde
   br i1 %29, label %.lr.ph100, label %._crit_edge101
 
 .lr.ph100:                                        ; preds = %13, %117
-  %.08898 = phi i32 [ %118, %117 ], [ 0, %13 ]
-  %.08997 = phi i32 [ %.1, %117 ], [ 0, %13 ]
-  %30 = call ptr @PQgetvalue(ptr noundef %18, i32 noundef %.08898, i32 noundef %22) #14
+  %.08898 = phi i32 [ %.1, %117 ], [ 0, %13 ]
+  %.08997 = phi i32 [ %118, %117 ], [ 0, %13 ]
+  %30 = call ptr @PQgetvalue(ptr noundef %18, i32 noundef %.08997, i32 noundef %22) #14
   %31 = call i64 @strtoul(ptr nocapture noundef %30, ptr noundef null, i32 noundef 10) #14
   %32 = trunc i64 %31 to i32
-  %33 = call ptr @PQgetvalue(ptr noundef %18, i32 noundef %.08898, i32 noundef %23) #14
+  %33 = call ptr @PQgetvalue(ptr noundef %18, i32 noundef %.08997, i32 noundef %23) #14
   %34 = call i64 @strtoul(ptr nocapture noundef %33, ptr noundef null, i32 noundef 10) #14
   %35 = call ptr @findPublicationByOid(i32 noundef %32) #14
   %36 = icmp eq ptr %35, null
@@ -14671,15 +14671,15 @@ define dso_local void @getPublicationTables(ptr noundef %0, ptr nocapture nounde
   br i1 %.not92, label %117, label %45
 
 45:                                               ; preds = %41
-  %46 = sext i32 %.08997 to i64
+  %46 = sext i32 %.08898 to i64
   %47 = getelementptr %struct._PublicationRelInfo, ptr %28, i64 %46
   store i32 43, ptr %47, align 8
-  %48 = call ptr @PQgetvalue(ptr noundef %18, i32 noundef %.08898, i32 noundef %20) #14
+  %48 = call ptr @PQgetvalue(ptr noundef %18, i32 noundef %.08997, i32 noundef %20) #14
   %49 = call i64 @strtoul(ptr nocapture noundef %48, ptr noundef null, i32 noundef 10) #14
   %50 = trunc i64 %49 to i32
   %51 = getelementptr inbounds i8, ptr %47, i64 4
   store i32 %50, ptr %51, align 4
-  %52 = call ptr @PQgetvalue(ptr noundef %18, i32 noundef %.08898, i32 noundef %21) #14
+  %52 = call ptr @PQgetvalue(ptr noundef %18, i32 noundef %.08997, i32 noundef %21) #14
   %53 = call i64 @strtoul(ptr nocapture noundef %52, ptr noundef null, i32 noundef 10) #14
   %54 = trunc i64 %53 to i32
   %55 = getelementptr inbounds i8, ptr %47, i64 8
@@ -14697,12 +14697,12 @@ define dso_local void @getPublicationTables(ptr noundef %0, ptr nocapture nounde
   store ptr %35, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %47, i64 72
   store ptr %39, ptr %63, align 8
-  %64 = call i32 @PQgetisnull(ptr noundef %18, i32 noundef %.08898, i32 noundef %24) #14
+  %64 = call i32 @PQgetisnull(ptr noundef %18, i32 noundef %.08997, i32 noundef %24) #14
   %.not93 = icmp eq i32 %64, 0
   br i1 %.not93, label %65, label %68
 
 65:                                               ; preds = %45
-  %66 = call ptr @PQgetvalue(ptr noundef %18, i32 noundef %.08898, i32 noundef %24) #14
+  %66 = call ptr @PQgetvalue(ptr noundef %18, i32 noundef %.08997, i32 noundef %24) #14
   %67 = call ptr @pg_strdup(ptr noundef %66) #14
   br label %68
 
@@ -14710,12 +14710,12 @@ define dso_local void @getPublicationTables(ptr noundef %0, ptr nocapture nounde
   %.sink = phi ptr [ %67, %65 ], [ null, %45 ]
   %69 = getelementptr inbounds i8, ptr %47, i64 80
   store ptr %.sink, ptr %69, align 8
-  %70 = call i32 @PQgetisnull(ptr noundef %18, i32 noundef %.08898, i32 noundef %25) #14
+  %70 = call i32 @PQgetisnull(ptr noundef %18, i32 noundef %.08997, i32 noundef %25) #14
   %.not94 = icmp eq i32 %70, 0
   br i1 %.not94, label %71, label %89
 
 71:                                               ; preds = %68
-  %72 = call ptr @PQgetvalue(ptr noundef %18, i32 noundef %.08898, i32 noundef %25) #14
+  %72 = call ptr @PQgetvalue(ptr noundef %18, i32 noundef %.08997, i32 noundef %25) #14
   %73 = call zeroext i1 @parsePGArray(ptr noundef %72, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
   br i1 %73, label %75, label %74
 
@@ -14804,12 +14804,12 @@ selectDumpablePublicationObject.exit:             ; preds = %100, %103, %106, %c
   %.sink.i.sink.i = phi i32 [ %114, %checkExtensionMembership.exit.i ], [ %102, %100 ], [ %109, %106 ], [ 0, %103 ]
   %115 = getelementptr inbounds i8, ptr %47, i64 32
   store i32 %.sink.i.sink.i, ptr %115, align 8
-  %116 = add i32 %.08997, 1
+  %116 = add i32 %.08898, 1
   br label %117
 
 117:                                              ; preds = %41, %37, %.lr.ph100, %selectDumpablePublicationObject.exit
-  %.1 = phi i32 [ %.08997, %.lr.ph100 ], [ %.08997, %37 ], [ %116, %selectDumpablePublicationObject.exit ], [ %.08997, %41 ]
-  %118 = add nuw nsw i32 %.08898, 1
+  %.1 = phi i32 [ %.08898, %.lr.ph100 ], [ %.08898, %37 ], [ %116, %selectDumpablePublicationObject.exit ], [ %.08898, %41 ]
+  %118 = add nuw nsw i32 %.08997, 1
   %exitcond.not = icmp eq i32 %118, %19
   br i1 %exitcond.not, label %._crit_edge101, label %.lr.ph100, !llvm.loop !56
 
@@ -15015,14 +15015,14 @@ is_superuser.exit:                                ; preds = %.tail.i, %sub_1.i, 
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %96, %115
-  %.021.i = phi ptr [ %.1.i, %115 ], [ %97, %96 ]
-  %.01420.i = phi ptr [ %.115.i, %115 ], [ %100, %96 ]
-  %101 = ptrtoint ptr %.01420.i to i64
-  %102 = ptrtoint ptr %.021.i to i64
+  %.021.i = phi ptr [ %.1.i, %115 ], [ %100, %96 ]
+  %.01420.i = phi ptr [ %.115.i, %115 ], [ %97, %96 ]
+  %101 = ptrtoint ptr %.021.i to i64
+  %102 = ptrtoint ptr %.01420.i to i64
   %103 = sub i64 %101, %102
   %104 = ashr exact i64 %103, 4
   %105 = sdiv i64 %104, 2
-  %106 = getelementptr %struct.RoleNameItem, ptr %.021.i, i64 %105
+  %106 = getelementptr %struct.RoleNameItem, ptr %.01420.i, i64 %105
   %107 = load i32, ptr %106, align 8
   %108 = icmp ugt i32 %107, %93
   br i1 %108, label %109, label %111
@@ -15040,9 +15040,9 @@ is_superuser.exit:                                ; preds = %.tail.i, %sub_1.i, 
   br label %115
 
 115:                                              ; preds = %113, %109
-  %.115.i = phi ptr [ %110, %109 ], [ %.01420.i, %113 ]
-  %.1.i = phi ptr [ %.021.i, %109 ], [ %114, %113 ]
-  %.not.i167 = icmp ugt ptr %.1.i, %.115.i
+  %.115.i = phi ptr [ %.01420.i, %109 ], [ %114, %113 ]
+  %.1.i = phi ptr [ %110, %109 ], [ %.021.i, %113 ]
+  %.not.i167 = icmp ugt ptr %.115.i, %.1.i
   br i1 %.not.i167, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %96, %.lr.ph, %115
@@ -15244,8 +15244,8 @@ define dso_local void @getSubscriptionTables(ptr noundef %0) local_unnamed_addr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %selectDumpableObject.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %selectDumpableObject.exit ]
-  %.082 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %selectDumpableObject.exit ]
-  %.06781 = phi i32 [ 0, %.lr.ph.preheader ], [ %.168, %selectDumpableObject.exit ]
+  %.06781 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %selectDumpableObject.exit ]
+  %.06880 = phi ptr [ null, %.lr.ph.preheader ], [ %.169, %selectDumpableObject.exit ]
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = tail call ptr @PQgetvalue(ptr noundef %13, i32 noundef %25, i32 noundef %17) #14
   %27 = tail call i64 @strtoul(ptr nocapture noundef %26, ptr noundef null, i32 noundef 10) #14
@@ -15267,8 +15267,8 @@ define dso_local void @getSubscriptionTables(ptr noundef %0) local_unnamed_addr 
   unreachable
 
 36:                                               ; preds = %32, %.lr.ph
-  %.168 = phi i32 [ %.06781, %.lr.ph ], [ %28, %32 ]
-  %.1 = phi ptr [ %.082, %.lr.ph ], [ %33, %32 ]
+  %.169 = phi ptr [ %.06880, %.lr.ph ], [ %33, %32 ]
+  %.1 = phi i32 [ %.06781, %.lr.ph ], [ %28, %32 ]
   %37 = tail call ptr @findTableByOid(i32 noundef %31) #14
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %40
@@ -15286,7 +15286,7 @@ define dso_local void @getSubscriptionTables(ptr noundef %0) local_unnamed_addr 
   %43 = getelementptr inbounds i8, ptr %41, i64 8
   store i32 %28, ptr %43, align 4
   tail call void @AssignDumpId(ptr noundef nonnull %41) #14
-  %44 = getelementptr inbounds i8, ptr %.1, i64 16
+  %44 = getelementptr inbounds i8, ptr %.169, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = tail call ptr @pg_strdup(ptr noundef %45) #14
   %47 = getelementptr inbounds i8, ptr %41, i64 16
@@ -15311,7 +15311,7 @@ define dso_local void @getSubscriptionTables(ptr noundef %0) local_unnamed_addr 
   %57 = getelementptr inbounds i8, ptr %41, i64 88
   store ptr %.sink, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %41, i64 64
-  store ptr %.1, ptr %58, align 8
+  store ptr %.169, ptr %58, align 8
   %59 = load i64, ptr %42, align 4
   %60 = tail call ptr @findOwningExtension(i64 %59) #14
   %.not7.i = icmp eq ptr %60, null
@@ -15458,14 +15458,14 @@ define dso_local ptr @getNamespaces(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %48, %67
-  %.021.i = phi ptr [ %.1.i, %67 ], [ %49, %48 ]
-  %.01420.i = phi ptr [ %.115.i, %67 ], [ %52, %48 ]
-  %53 = ptrtoint ptr %.01420.i to i64
-  %54 = ptrtoint ptr %.021.i to i64
+  %.021.i = phi ptr [ %.1.i, %67 ], [ %52, %48 ]
+  %.01420.i = phi ptr [ %.115.i, %67 ], [ %49, %48 ]
+  %53 = ptrtoint ptr %.021.i to i64
+  %54 = ptrtoint ptr %.01420.i to i64
   %55 = sub i64 %53, %54
   %56 = ashr exact i64 %55, 4
   %57 = sdiv i64 %56, 2
-  %58 = getelementptr %struct.RoleNameItem, ptr %.021.i, i64 %57
+  %58 = getelementptr %struct.RoleNameItem, ptr %.01420.i, i64 %57
   %59 = load i32, ptr %58, align 8
   %60 = icmp ugt i32 %59, %45
   br i1 %60, label %61, label %63
@@ -15483,9 +15483,9 @@ define dso_local ptr @getNamespaces(ptr noundef %0, ptr nocapture noundef writeo
   br label %67
 
 67:                                               ; preds = %65, %61
-  %.115.i = phi ptr [ %62, %61 ], [ %.01420.i, %65 ]
-  %.1.i = phi ptr [ %.021.i, %61 ], [ %66, %65 ]
-  %.not.i = icmp ugt ptr %.1.i, %.115.i
+  %.115.i = phi ptr [ %.01420.i, %61 ], [ %66, %65 ]
+  %.1.i = phi ptr [ %62, %61 ], [ %.021.i, %65 ]
+  %.not.i = icmp ugt ptr %.115.i, %.1.i
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %48, %18, %67
@@ -15907,14 +15907,14 @@ findNamespace.exit:                               ; preds = %26
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %60, %79
-  %.021.i = phi ptr [ %.1.i, %79 ], [ %61, %60 ]
-  %.01420.i = phi ptr [ %.115.i, %79 ], [ %64, %60 ]
-  %65 = ptrtoint ptr %.01420.i to i64
-  %66 = ptrtoint ptr %.021.i to i64
+  %.021.i = phi ptr [ %.1.i, %79 ], [ %64, %60 ]
+  %.01420.i = phi ptr [ %.115.i, %79 ], [ %61, %60 ]
+  %65 = ptrtoint ptr %.021.i to i64
+  %66 = ptrtoint ptr %.01420.i to i64
   %67 = sub i64 %65, %66
   %68 = ashr exact i64 %67, 4
   %69 = sdiv i64 %68, 2
-  %70 = getelementptr %struct.RoleNameItem, ptr %.021.i, i64 %69
+  %70 = getelementptr %struct.RoleNameItem, ptr %.01420.i, i64 %69
   %71 = load i32, ptr %70, align 8
   %72 = icmp ugt i32 %71, %57
   br i1 %72, label %73, label %75
@@ -15932,9 +15932,9 @@ findNamespace.exit:                               ; preds = %26
   br label %79
 
 79:                                               ; preds = %77, %73
-  %.115.i = phi ptr [ %74, %73 ], [ %.01420.i, %77 ]
-  %.1.i = phi ptr [ %.021.i, %73 ], [ %78, %77 ]
-  %.not.i = icmp ugt ptr %.1.i, %.115.i
+  %.115.i = phi ptr [ %.01420.i, %73 ], [ %78, %77 ]
+  %.1.i = phi ptr [ %74, %73 ], [ %.021.i, %77 ]
+  %.not.i = icmp ugt ptr %.115.i, %.1.i
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %60, %findNamespace.exit, %79
@@ -16331,14 +16331,14 @@ findNamespace.exit:                               ; preds = %19
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %45, %64
-  %.021.i = phi ptr [ %.1.i, %64 ], [ %46, %45 ]
-  %.01420.i = phi ptr [ %.115.i, %64 ], [ %49, %45 ]
-  %50 = ptrtoint ptr %.01420.i to i64
-  %51 = ptrtoint ptr %.021.i to i64
+  %.021.i = phi ptr [ %.1.i, %64 ], [ %49, %45 ]
+  %.01420.i = phi ptr [ %.115.i, %64 ], [ %46, %45 ]
+  %50 = ptrtoint ptr %.021.i to i64
+  %51 = ptrtoint ptr %.01420.i to i64
   %52 = sub i64 %50, %51
   %53 = ashr exact i64 %52, 4
   %54 = sdiv i64 %53, 2
-  %55 = getelementptr %struct.RoleNameItem, ptr %.021.i, i64 %54
+  %55 = getelementptr %struct.RoleNameItem, ptr %.01420.i, i64 %54
   %56 = load i32, ptr %55, align 8
   %57 = icmp ugt i32 %56, %42
   br i1 %57, label %58, label %60
@@ -16356,9 +16356,9 @@ findNamespace.exit:                               ; preds = %19
   br label %64
 
 64:                                               ; preds = %62, %58
-  %.115.i = phi ptr [ %59, %58 ], [ %.01420.i, %62 ]
-  %.1.i = phi ptr [ %.021.i, %58 ], [ %63, %62 ]
-  %.not.i = icmp ugt ptr %.1.i, %.115.i
+  %.115.i = phi ptr [ %.01420.i, %58 ], [ %63, %62 ]
+  %.1.i = phi ptr [ %59, %58 ], [ %.021.i, %62 ]
+  %.not.i = icmp ugt ptr %.115.i, %.1.i
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %45, %findNamespace.exit, %64
@@ -16520,14 +16520,14 @@ findNamespace.exit:                               ; preds = %17
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %43, %62
-  %.021.i = phi ptr [ %.1.i, %62 ], [ %44, %43 ]
-  %.01420.i = phi ptr [ %.115.i, %62 ], [ %47, %43 ]
-  %48 = ptrtoint ptr %.01420.i to i64
-  %49 = ptrtoint ptr %.021.i to i64
+  %.021.i = phi ptr [ %.1.i, %62 ], [ %47, %43 ]
+  %.01420.i = phi ptr [ %.115.i, %62 ], [ %44, %43 ]
+  %48 = ptrtoint ptr %.021.i to i64
+  %49 = ptrtoint ptr %.01420.i to i64
   %50 = sub i64 %48, %49
   %51 = ashr exact i64 %50, 4
   %52 = sdiv i64 %51, 2
-  %53 = getelementptr %struct.RoleNameItem, ptr %.021.i, i64 %52
+  %53 = getelementptr %struct.RoleNameItem, ptr %.01420.i, i64 %52
   %54 = load i32, ptr %53, align 8
   %55 = icmp ugt i32 %54, %40
   br i1 %55, label %56, label %58
@@ -16545,9 +16545,9 @@ findNamespace.exit:                               ; preds = %17
   br label %62
 
 62:                                               ; preds = %60, %56
-  %.115.i = phi ptr [ %57, %56 ], [ %.01420.i, %60 ]
-  %.1.i = phi ptr [ %.021.i, %56 ], [ %61, %60 ]
-  %.not.i = icmp ugt ptr %.1.i, %.115.i
+  %.115.i = phi ptr [ %.01420.i, %56 ], [ %61, %60 ]
+  %.1.i = phi ptr [ %57, %56 ], [ %.021.i, %60 ]
+  %.not.i = icmp ugt ptr %.115.i, %.1.i
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %43, %findNamespace.exit, %62
@@ -16700,14 +16700,14 @@ findNamespace.exit:                               ; preds = %17
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %43, %62
-  %.021.i = phi ptr [ %.1.i, %62 ], [ %44, %43 ]
-  %.01420.i = phi ptr [ %.115.i, %62 ], [ %47, %43 ]
-  %48 = ptrtoint ptr %.01420.i to i64
-  %49 = ptrtoint ptr %.021.i to i64
+  %.021.i = phi ptr [ %.1.i, %62 ], [ %47, %43 ]
+  %.01420.i = phi ptr [ %.115.i, %62 ], [ %44, %43 ]
+  %48 = ptrtoint ptr %.021.i to i64
+  %49 = ptrtoint ptr %.01420.i to i64
   %50 = sub i64 %48, %49
   %51 = ashr exact i64 %50, 4
   %52 = sdiv i64 %51, 2
-  %53 = getelementptr %struct.RoleNameItem, ptr %.021.i, i64 %52
+  %53 = getelementptr %struct.RoleNameItem, ptr %.01420.i, i64 %52
   %54 = load i32, ptr %53, align 8
   %55 = icmp ugt i32 %54, %40
   br i1 %55, label %56, label %58
@@ -16725,9 +16725,9 @@ findNamespace.exit:                               ; preds = %17
   br label %62
 
 62:                                               ; preds = %60, %56
-  %.115.i = phi ptr [ %57, %56 ], [ %.01420.i, %60 ]
-  %.1.i = phi ptr [ %.021.i, %56 ], [ %61, %60 ]
-  %.not.i = icmp ugt ptr %.1.i, %.115.i
+  %.115.i = phi ptr [ %.01420.i, %56 ], [ %61, %60 ]
+  %.1.i = phi ptr [ %57, %56 ], [ %.021.i, %60 ]
+  %.not.i = icmp ugt ptr %.115.i, %.1.i
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %43, %findNamespace.exit, %62
@@ -16930,8 +16930,8 @@ selectDumpableAccessMethod.exit:                  ; preds = %50, %53, %56, %chec
   br label %69
 
 69:                                               ; preds = %._crit_edge, %6
-  %.0 = phi ptr [ null, %6 ], [ %14, %._crit_edge ]
-  ret ptr %.0
+  %.054 = phi ptr [ null, %6 ], [ %14, %._crit_edge ]
+  ret ptr %.054
 }
 
 ; Function Attrs: nounwind uwtable
@@ -17009,14 +17009,14 @@ findNamespace.exit:                               ; preds = %17
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %43, %62
-  %.021.i = phi ptr [ %.1.i, %62 ], [ %44, %43 ]
-  %.01420.i = phi ptr [ %.115.i, %62 ], [ %47, %43 ]
-  %48 = ptrtoint ptr %.01420.i to i64
-  %49 = ptrtoint ptr %.021.i to i64
+  %.021.i = phi ptr [ %.1.i, %62 ], [ %47, %43 ]
+  %.01420.i = phi ptr [ %.115.i, %62 ], [ %44, %43 ]
+  %48 = ptrtoint ptr %.021.i to i64
+  %49 = ptrtoint ptr %.01420.i to i64
   %50 = sub i64 %48, %49
   %51 = ashr exact i64 %50, 4
   %52 = sdiv i64 %51, 2
-  %53 = getelementptr %struct.RoleNameItem, ptr %.021.i, i64 %52
+  %53 = getelementptr %struct.RoleNameItem, ptr %.01420.i, i64 %52
   %54 = load i32, ptr %53, align 8
   %55 = icmp ugt i32 %54, %40
   br i1 %55, label %56, label %58
@@ -17034,9 +17034,9 @@ findNamespace.exit:                               ; preds = %17
   br label %62
 
 62:                                               ; preds = %60, %56
-  %.115.i = phi ptr [ %57, %56 ], [ %.01420.i, %60 ]
-  %.1.i = phi ptr [ %.021.i, %56 ], [ %61, %60 ]
-  %.not.i = icmp ugt ptr %.1.i, %.115.i
+  %.115.i = phi ptr [ %.01420.i, %56 ], [ %61, %60 ]
+  %.1.i = phi ptr [ %57, %56 ], [ %.021.i, %60 ]
+  %.not.i = icmp ugt ptr %.115.i, %.1.i
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %43, %findNamespace.exit, %62
@@ -17189,14 +17189,14 @@ findNamespace.exit:                               ; preds = %17
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %43, %62
-  %.021.i = phi ptr [ %.1.i, %62 ], [ %44, %43 ]
-  %.01420.i = phi ptr [ %.115.i, %62 ], [ %47, %43 ]
-  %48 = ptrtoint ptr %.01420.i to i64
-  %49 = ptrtoint ptr %.021.i to i64
+  %.021.i = phi ptr [ %.1.i, %62 ], [ %47, %43 ]
+  %.01420.i = phi ptr [ %.115.i, %62 ], [ %44, %43 ]
+  %48 = ptrtoint ptr %.021.i to i64
+  %49 = ptrtoint ptr %.01420.i to i64
   %50 = sub i64 %48, %49
   %51 = ashr exact i64 %50, 4
   %52 = sdiv i64 %51, 2
-  %53 = getelementptr %struct.RoleNameItem, ptr %.021.i, i64 %52
+  %53 = getelementptr %struct.RoleNameItem, ptr %.01420.i, i64 %52
   %54 = load i32, ptr %53, align 8
   %55 = icmp ugt i32 %54, %40
   br i1 %55, label %56, label %58
@@ -17214,9 +17214,9 @@ findNamespace.exit:                               ; preds = %17
   br label %62
 
 62:                                               ; preds = %60, %56
-  %.115.i = phi ptr [ %57, %56 ], [ %.01420.i, %60 ]
-  %.1.i = phi ptr [ %.021.i, %56 ], [ %61, %60 ]
-  %.not.i = icmp ugt ptr %.1.i, %.115.i
+  %.115.i = phi ptr [ %.01420.i, %56 ], [ %61, %60 ]
+  %.1.i = phi ptr [ %57, %56 ], [ %.021.i, %60 ]
+  %.not.i = icmp ugt ptr %.115.i, %.1.i
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %43, %findNamespace.exit, %62
@@ -17411,14 +17411,14 @@ findNamespace.exit:                               ; preds = %.lr.ph
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %66, %85
-  %.021.i = phi ptr [ %.1.i, %85 ], [ %67, %66 ]
-  %.01420.i = phi ptr [ %.115.i, %85 ], [ %70, %66 ]
-  %71 = ptrtoint ptr %.01420.i to i64
-  %72 = ptrtoint ptr %.021.i to i64
+  %.021.i = phi ptr [ %.1.i, %85 ], [ %70, %66 ]
+  %.01420.i = phi ptr [ %.115.i, %85 ], [ %67, %66 ]
+  %71 = ptrtoint ptr %.021.i to i64
+  %72 = ptrtoint ptr %.01420.i to i64
   %73 = sub i64 %71, %72
   %74 = ashr exact i64 %73, 4
   %75 = sdiv i64 %74, 2
-  %76 = getelementptr %struct.RoleNameItem, ptr %.021.i, i64 %75
+  %76 = getelementptr %struct.RoleNameItem, ptr %.01420.i, i64 %75
   %77 = load i32, ptr %76, align 8
   %78 = icmp ugt i32 %77, %63
   br i1 %78, label %79, label %81
@@ -17436,9 +17436,9 @@ findNamespace.exit:                               ; preds = %.lr.ph
   br label %85
 
 85:                                               ; preds = %83, %79
-  %.115.i = phi ptr [ %80, %79 ], [ %.01420.i, %83 ]
-  %.1.i = phi ptr [ %.021.i, %79 ], [ %84, %83 ]
-  %.not.i = icmp ugt ptr %.1.i, %.115.i
+  %.115.i = phi ptr [ %.01420.i, %79 ], [ %84, %83 ]
+  %.1.i = phi ptr [ %80, %79 ], [ %.021.i, %83 ]
+  %.not.i = icmp ugt ptr %.115.i, %.1.i
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %66, %findNamespace.exit, %85
@@ -17700,14 +17700,14 @@ findNamespace.exit:                               ; preds = %.lr.ph
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %76, %95
-  %.021.i = phi ptr [ %.1.i, %95 ], [ %77, %76 ]
-  %.01420.i = phi ptr [ %.115.i, %95 ], [ %80, %76 ]
-  %81 = ptrtoint ptr %.01420.i to i64
-  %82 = ptrtoint ptr %.021.i to i64
+  %.021.i = phi ptr [ %.1.i, %95 ], [ %80, %76 ]
+  %.01420.i = phi ptr [ %.115.i, %95 ], [ %77, %76 ]
+  %81 = ptrtoint ptr %.021.i to i64
+  %82 = ptrtoint ptr %.01420.i to i64
   %83 = sub i64 %81, %82
   %84 = ashr exact i64 %83, 4
   %85 = sdiv i64 %84, 2
-  %86 = getelementptr %struct.RoleNameItem, ptr %.021.i, i64 %85
+  %86 = getelementptr %struct.RoleNameItem, ptr %.01420.i, i64 %85
   %87 = load i32, ptr %86, align 8
   %88 = icmp ugt i32 %87, %73
   br i1 %88, label %89, label %91
@@ -17725,9 +17725,9 @@ findNamespace.exit:                               ; preds = %.lr.ph
   br label %95
 
 95:                                               ; preds = %93, %89
-  %.115.i = phi ptr [ %90, %89 ], [ %.01420.i, %93 ]
-  %.1.i = phi ptr [ %.021.i, %89 ], [ %94, %93 ]
-  %.not.i = icmp ugt ptr %.1.i, %.115.i
+  %.115.i = phi ptr [ %.01420.i, %89 ], [ %94, %93 ]
+  %.1.i = phi ptr [ %90, %89 ], [ %.021.i, %93 ]
+  %.not.i = icmp ugt ptr %.115.i, %.1.i
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %76, %findNamespace.exit, %95
@@ -18051,14 +18051,14 @@ findNamespace.exit:                               ; preds = %80
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %121, %140
-  %.021.i = phi ptr [ %.1.i, %140 ], [ %122, %121 ]
-  %.01420.i = phi ptr [ %.115.i, %140 ], [ %125, %121 ]
-  %126 = ptrtoint ptr %.01420.i to i64
-  %127 = ptrtoint ptr %.021.i to i64
+  %.021.i = phi ptr [ %.1.i, %140 ], [ %125, %121 ]
+  %.01420.i = phi ptr [ %.115.i, %140 ], [ %122, %121 ]
+  %126 = ptrtoint ptr %.021.i to i64
+  %127 = ptrtoint ptr %.01420.i to i64
   %128 = sub i64 %126, %127
   %129 = ashr exact i64 %128, 4
   %130 = sdiv i64 %129, 2
-  %131 = getelementptr %struct.RoleNameItem, ptr %.021.i, i64 %130
+  %131 = getelementptr %struct.RoleNameItem, ptr %.01420.i, i64 %130
   %132 = load i32, ptr %131, align 8
   %133 = icmp ugt i32 %132, %118
   br i1 %133, label %134, label %136
@@ -18076,9 +18076,9 @@ findNamespace.exit:                               ; preds = %80
   br label %140
 
 140:                                              ; preds = %138, %134
-  %.115.i = phi ptr [ %135, %134 ], [ %.01420.i, %138 ]
-  %.1.i = phi ptr [ %.021.i, %134 ], [ %139, %138 ]
-  %.not.i = icmp ugt ptr %.1.i, %.115.i
+  %.115.i = phi ptr [ %.01420.i, %134 ], [ %139, %138 ]
+  %.1.i = phi ptr [ %135, %134 ], [ %.021.i, %138 ]
+  %.not.i = icmp ugt ptr %.115.i, %.1.i
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %121, %findNamespace.exit, %140
@@ -18858,18 +18858,18 @@ define dso_local void @getIndexes(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %68, label %.lr.ph284, label %._crit_edge285, !llvm.loop !76
 
 .lr.ph284:                                        ; preds = %._crit_edge, %.loopexit
-  %.0282 = phi i32 [ %81, %.loopexit ], [ -1, %._crit_edge ]
-  %.0256281 = phi i32 [ %108, %.loopexit ], [ 0, %._crit_edge ]
-  %69 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.0256281, i32 noundef %42) #14
+  %.0257282 = phi i32 [ %108, %.loopexit ], [ 0, %._crit_edge ]
+  %.0260281 = phi i32 [ %81, %.loopexit ], [ -1, %._crit_edge ]
+  %69 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.0257282, i32 noundef %42) #14
   %70 = tail call i64 @strtoul(ptr nocapture noundef %69, ptr noundef null, i32 noundef 10) #14
   %71 = trunc i64 %70 to i32
-  %72 = sub i32 %39, %.0256281
+  %72 = sub i32 %39, %.0257282
   %73 = icmp sgt i32 %72, 1
   br i1 %73, label %.lr.ph275, label %._crit_edge276
 
 .lr.ph275:                                        ; preds = %.lr.ph284, %78
-  %.0261273 = phi i32 [ %79, %78 ], [ 1, %.lr.ph284 ]
-  %74 = add i32 %.0261273, %.0256281
+  %.0255273 = phi i32 [ %79, %78 ], [ 1, %.lr.ph284 ]
+  %74 = add i32 %.0255273, %.0257282
   %75 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %74, i32 noundef %42) #14
   %76 = tail call i64 @strtoul(ptr nocapture noundef %75, ptr noundef null, i32 noundef 10) #14
   %77 = trunc i64 %76 to i32
@@ -18877,17 +18877,17 @@ define dso_local void @getIndexes(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not, label %78, label %._crit_edge276
 
 78:                                               ; preds = %.lr.ph275
-  %79 = add nuw nsw i32 %.0261273, 1
+  %79 = add nuw nsw i32 %.0255273, 1
   %exitcond293.not = icmp eq i32 %79, %72
   br i1 %exitcond293.not, label %._crit_edge276, label %.lr.ph275, !llvm.loop !77
 
 ._crit_edge276:                                   ; preds = %78, %.lr.ph275, %.lr.ph284
-  %.0261.lcssa = phi i32 [ 1, %.lr.ph284 ], [ %.0261273, %.lr.ph275 ], [ %72, %78 ]
+  %.0255.lcssa = phi i32 [ 1, %.lr.ph284 ], [ %.0255273, %.lr.ph275 ], [ %72, %78 ]
   br label %80
 
 80:                                               ; preds = %83, %._crit_edge276
-  %.1 = phi i32 [ %.0282, %._crit_edge276 ], [ %81, %83 ]
-  %81 = add i32 %.1, 1
+  %.1261 = phi i32 [ %.0260281, %._crit_edge276 ], [ %81, %83 ]
+  %81 = add i32 %.1261, 1
   %82 = icmp slt i32 %81, %2
   br i1 %82, label %83, label %89
 
@@ -18924,28 +18924,28 @@ define dso_local void @getIndexes(ptr noundef %0, ptr noundef %1, i32 noundef %2
   unreachable
 
 101:                                              ; preds = %94
-  %102 = sext i32 %.0256281 to i64
+  %102 = sext i32 %.0257282 to i64
   %103 = getelementptr %struct._indxInfo, ptr %66, i64 %102
   %104 = getelementptr inbounds i8, ptr %85, i64 440
   store ptr %103, ptr %104, align 8
   %105 = getelementptr inbounds i8, ptr %85, i64 432
-  store i32 %.0261.lcssa, ptr %105, align 8
+  store i32 %.0255.lcssa, ptr %105, align 8
   %106 = getelementptr inbounds i8, ptr %85, i64 32
   %107 = getelementptr inbounds i8, ptr %85, i64 24
-  %108 = add i32 %.0256281, %.0261.lcssa
+  %108 = add i32 %.0257282, %.0255.lcssa
   br label %109
 
 109:                                              ; preds = %101, %228
-  %.1257280 = phi i32 [ %.0256281, %101 ], [ %230, %228 ]
-  %110 = sext i32 %.1257280 to i64
+  %.1258279 = phi i32 [ %.0257282, %101 ], [ %230, %228 ]
+  %110 = sext i32 %.1258279 to i64
   %111 = getelementptr %struct._indxInfo, ptr %66, i64 %110
   store i32 15, ptr %111, align 8
-  %112 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %40) #14
+  %112 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %40) #14
   %113 = tail call i64 @strtoul(ptr nocapture noundef %112, ptr noundef null, i32 noundef 10) #14
   %114 = trunc i64 %113 to i32
   %115 = getelementptr inbounds i8, ptr %111, i64 4
   store i32 %114, ptr %115, align 4
-  %116 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %41) #14
+  %116 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %41) #14
   %117 = tail call i64 @strtoul(ptr nocapture noundef %116, ptr noundef null, i32 noundef 10) #14
   %118 = trunc i64 %117 to i32
   %119 = getelementptr inbounds i8, ptr %111, i64 8
@@ -18954,7 +18954,7 @@ define dso_local void @getIndexes(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %120 = load i32, ptr %106, align 8
   %121 = getelementptr inbounds i8, ptr %111, i64 32
   store i32 %120, ptr %121, align 8
-  %122 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %43) #14
+  %122 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %43) #14
   %123 = tail call ptr @pg_strdup(ptr noundef %122) #14
   %124 = getelementptr inbounds i8, ptr %111, i64 16
   store ptr %123, ptr %124, align 8
@@ -18963,31 +18963,31 @@ define dso_local void @getIndexes(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store ptr %125, ptr %126, align 8
   %127 = getelementptr inbounds i8, ptr %111, i64 64
   store ptr %85, ptr %127, align 8
-  %128 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %45) #14
+  %128 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %45) #14
   %129 = tail call ptr @pg_strdup(ptr noundef %128) #14
   %130 = getelementptr inbounds i8, ptr %111, i64 72
   store ptr %129, ptr %130, align 8
-  %131 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %46) #14
+  %131 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %46) #14
   %132 = tail call i32 @atoi(ptr nocapture noundef %131) #15
   %133 = getelementptr inbounds i8, ptr %111, i64 112
   store i32 %132, ptr %133, align 8
-  %134 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %47) #14
+  %134 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %47) #14
   %135 = tail call i32 @atoi(ptr nocapture noundef %134) #15
   %136 = getelementptr inbounds i8, ptr %111, i64 116
   store i32 %135, ptr %136, align 4
-  %137 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %60) #14
+  %137 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %60) #14
   %138 = tail call ptr @pg_strdup(ptr noundef %137) #14
   %139 = getelementptr inbounds i8, ptr %111, i64 80
   store ptr %138, ptr %139, align 8
-  %140 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %61) #14
+  %140 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %61) #14
   %141 = tail call ptr @pg_strdup(ptr noundef %140) #14
   %142 = getelementptr inbounds i8, ptr %111, i64 88
   store ptr %141, ptr %142, align 8
-  %143 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %62) #14
+  %143 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %62) #14
   %144 = tail call ptr @pg_strdup(ptr noundef %143) #14
   %145 = getelementptr inbounds i8, ptr %111, i64 96
   store ptr %144, ptr %145, align 8
-  %146 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %63) #14
+  %146 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %63) #14
   %147 = tail call ptr @pg_strdup(ptr noundef %146) #14
   %148 = getelementptr inbounds i8, ptr %111, i64 104
   store ptr %147, ptr %148, align 8
@@ -18997,36 +18997,36 @@ define dso_local void @getIndexes(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %152 = tail call ptr @pg_malloc(i64 noundef %151) #14
   %153 = getelementptr inbounds i8, ptr %111, i64 120
   store ptr %152, ptr %153, align 8
-  %154 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %48) #14
+  %154 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %48) #14
   %155 = load ptr, ptr %153, align 8
   %156 = load i32, ptr %136, align 4
   tail call void @parseOidArray(ptr noundef %154, ptr noundef %155, i32 noundef %156) #14
-  %157 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %49) #14
+  %157 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %49) #14
   %158 = load i8, ptr %157, align 1
   %159 = icmp eq i8 %158, 116
   %160 = getelementptr inbounds i8, ptr %111, i64 128
   %161 = zext i1 %159 to i8
   store i8 %161, ptr %160, align 8
-  %162 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %50) #14
+  %162 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %50) #14
   %163 = load i8, ptr %162, align 1
   %164 = icmp eq i8 %163, 116
   %165 = getelementptr inbounds i8, ptr %111, i64 129
   %166 = zext i1 %164 to i8
   store i8 %166, ptr %165, align 1
-  %167 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %51) #14
+  %167 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %51) #14
   %168 = load i8, ptr %167, align 1
   %169 = icmp eq i8 %168, 116
   %170 = getelementptr inbounds i8, ptr %111, i64 130
   %171 = zext i1 %169 to i8
   store i8 %171, ptr %170, align 2
-  %172 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %44) #14
+  %172 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %44) #14
   %173 = tail call i64 @strtoul(ptr nocapture noundef %172, ptr noundef null, i32 noundef 10) #14
   %174 = trunc i64 %173 to i32
   %175 = getelementptr inbounds i8, ptr %111, i64 132
   store i32 %174, ptr %175, align 4
   %176 = getelementptr inbounds i8, ptr %111, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %176, i8 0, i64 16, i1 false)
-  %177 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %52) #14
+  %177 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %52) #14
   %178 = load i8, ptr %177, align 1
   switch i8 %178, label %228 [
     i8 120, label %179
@@ -19038,12 +19038,12 @@ define dso_local void @getIndexes(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %180 = icmp eq i8 %178, 120
   %181 = tail call ptr @pg_malloc(i64 noundef 112) #14
   store i32 20, ptr %181, align 8
-  %182 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %57) #14
+  %182 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %57) #14
   %183 = tail call i64 @strtoul(ptr nocapture noundef %182, ptr noundef null, i32 noundef 10) #14
   %184 = trunc i64 %183 to i32
   %185 = getelementptr inbounds i8, ptr %181, i64 4
   store i32 %184, ptr %185, align 4
-  %186 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %58) #14
+  %186 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %58) #14
   %187 = tail call i64 @strtoul(ptr nocapture noundef %186, ptr noundef null, i32 noundef 10) #14
   %188 = trunc i64 %187 to i32
   %189 = getelementptr inbounds i8, ptr %181, i64 8
@@ -19052,7 +19052,7 @@ define dso_local void @getIndexes(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %190 = load i32, ptr %106, align 8
   %191 = getelementptr inbounds i8, ptr %181, i64 32
   store i32 %190, ptr %191, align 8
-  %192 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %53) #14
+  %192 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %53) #14
   %193 = tail call ptr @pg_strdup(ptr noundef %192) #14
   %194 = getelementptr inbounds i8, ptr %181, i64 16
   store ptr %193, ptr %194, align 8
@@ -19068,7 +19068,7 @@ define dso_local void @getIndexes(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %180, label %200, label %203
 
 200:                                              ; preds = %179
-  %201 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %59) #14
+  %201 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %59) #14
   %202 = tail call ptr @pg_strdup(ptr noundef %201) #14
   br label %203
 
@@ -19082,19 +19082,19 @@ define dso_local void @getIndexes(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %207 = load i32, ptr %206, align 4
   %208 = getelementptr inbounds i8, ptr %181, i64 100
   store i32 %207, ptr %208, align 4
-  %209 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %54) #14
+  %209 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %54) #14
   %210 = load i8, ptr %209, align 1
   %211 = icmp eq i8 %210, 116
   %212 = getelementptr inbounds i8, ptr %181, i64 104
   %213 = zext i1 %211 to i8
   store i8 %213, ptr %212, align 8
-  %214 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %55) #14
+  %214 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %55) #14
   %215 = load i8, ptr %214, align 1
   %216 = icmp eq i8 %215, 116
   %217 = getelementptr inbounds i8, ptr %181, i64 105
   %218 = zext i1 %216 to i8
   store i8 %218, ptr %217, align 1
-  %219 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1257280, i32 noundef %56) #14
+  %219 = tail call ptr @PQgetvalue(ptr noundef %38, i32 noundef %.1258279, i32 noundef %56) #14
   %220 = load i8, ptr %219, align 1
   %221 = icmp eq i8 %220, 116
   %222 = getelementptr inbounds i8, ptr %181, i64 106
@@ -19112,7 +19112,7 @@ define dso_local void @getIndexes(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.sink301 = phi i32 [ %227, %203 ], [ 0, %109 ]
   %229 = getelementptr inbounds i8, ptr %111, i64 152
   store i32 %.sink301, ptr %229, align 8
-  %230 = add i32 %.1257280, 1
+  %230 = add i32 %.1258279, 1
   %exitcond294.not = icmp eq i32 %230, %108
   br i1 %exitcond294.not, label %.loopexit, label %109, !llvm.loop !79
 
@@ -19207,14 +19207,14 @@ findNamespace.exit:                               ; preds = %.lr.ph
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %48, %67
-  %.021.i = phi ptr [ %.1.i, %67 ], [ %49, %48 ]
-  %.01420.i = phi ptr [ %.115.i, %67 ], [ %52, %48 ]
-  %53 = ptrtoint ptr %.01420.i to i64
-  %54 = ptrtoint ptr %.021.i to i64
+  %.021.i = phi ptr [ %.1.i, %67 ], [ %52, %48 ]
+  %.01420.i = phi ptr [ %.115.i, %67 ], [ %49, %48 ]
+  %53 = ptrtoint ptr %.021.i to i64
+  %54 = ptrtoint ptr %.01420.i to i64
   %55 = sub i64 %53, %54
   %56 = ashr exact i64 %55, 4
   %57 = sdiv i64 %56, 2
-  %58 = getelementptr %struct.RoleNameItem, ptr %.021.i, i64 %57
+  %58 = getelementptr %struct.RoleNameItem, ptr %.01420.i, i64 %57
   %59 = load i32, ptr %58, align 8
   %60 = icmp ugt i32 %59, %45
   br i1 %60, label %61, label %63
@@ -19232,9 +19232,9 @@ findNamespace.exit:                               ; preds = %.lr.ph
   br label %67
 
 67:                                               ; preds = %65, %61
-  %.115.i = phi ptr [ %62, %61 ], [ %.01420.i, %65 ]
-  %.1.i = phi ptr [ %.021.i, %61 ], [ %66, %65 ]
-  %.not.i = icmp ugt ptr %.1.i, %.115.i
+  %.115.i = phi ptr [ %.01420.i, %61 ], [ %66, %65 ]
+  %.1.i = phi ptr [ %62, %61 ], [ %.021.i, %65 ]
+  %.not.i = icmp ugt ptr %.115.i, %.1.i
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %48, %findNamespace.exit, %67
@@ -19427,17 +19427,17 @@ define dso_local void @getConstraints(ptr noundef %0, ptr noundef %1, i32 nounde
 
 .lr.ph150:                                        ; preds = %.lr.ph150.preheader, %.loopexit
   %indvars.iv163 = phi i64 [ 0, %.lr.ph150.preheader ], [ %indvars.iv.next164, %.loopexit ]
-  %.0148 = phi i32 [ -1, %.lr.ph150.preheader ], [ %.2, %.loopexit ]
-  %.0123147 = phi ptr [ null, %.lr.ph150.preheader ], [ %.3, %.loopexit ]
+  %.0124147 = phi ptr [ null, %.lr.ph150.preheader ], [ %.3, %.loopexit ]
+  %.0125146 = phi i32 [ -1, %.lr.ph150.preheader ], [ %.2127, %.loopexit ]
   %50 = trunc nuw nsw i64 %indvars.iv163 to i32
   %51 = tail call ptr @PQgetvalue(ptr noundef %37, i32 noundef %50, i32 noundef %41) #14
   %52 = tail call i64 @strtoul(ptr nocapture noundef %51, ptr noundef null, i32 noundef 10) #14
   %53 = trunc i64 %52 to i32
-  %54 = icmp eq ptr %.0123147, null
+  %54 = icmp eq ptr %.0124147, null
   br i1 %54, label %.preheader178, label %55
 
 55:                                               ; preds = %.lr.ph150
-  %56 = getelementptr inbounds i8, ptr %.0123147, i64 8
+  %56 = getelementptr inbounds i8, ptr %.0124147, i64 8
   %57 = load i32, ptr %56, align 4
   %.not = icmp eq i32 %57, %53
   br i1 %.not, label %.thread, label %.preheader178
@@ -19446,8 +19446,8 @@ define dso_local void @getConstraints(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %58
 
 58:                                               ; preds = %.preheader178, %61
-  %.1 = phi i32 [ %59, %61 ], [ %.0148, %.preheader178 ]
-  %59 = add i32 %.1, 1
+  %.1126 = phi i32 [ %59, %61 ], [ %.0125146, %.preheader178 ]
+  %59 = add i32 %.1126, 1
   %60 = icmp slt i32 %59, %2
   br i1 %60, label %61, label %67
 
@@ -19465,8 +19465,8 @@ define dso_local void @getConstraints(ptr noundef %0, ptr noundef %1, i32 nounde
   unreachable
 
 .thread:                                          ; preds = %61, %55
-  %.3 = phi ptr [ %.0123147, %55 ], [ %63, %61 ]
-  %.2 = phi i32 [ %.0148, %55 ], [ %59, %61 ]
+  %.2127 = phi i32 [ %.0125146, %55 ], [ %59, %61 ]
+  %.3 = phi ptr [ %.0124147, %55 ], [ %63, %61 ]
   %68 = getelementptr %struct._constraintInfo, ptr %48, i64 %indvars.iv163
   store i32 21, ptr %68, align 8
   %69 = tail call ptr @PQgetvalue(ptr noundef %37, i32 noundef %50, i32 noundef %39) #14
@@ -19843,18 +19843,18 @@ define dso_local void @getTriggers(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %54, label %.lr.ph139, label %._crit_edge140, !llvm.loop !88
 
 .lr.ph139:                                        ; preds = %39, %.loopexit
-  %.0111137 = phi i32 [ %67, %.loopexit ], [ -1, %39 ]
-  %.0113136 = phi i32 [ %82, %.loopexit ], [ 0, %39 ]
-  %55 = tail call ptr @PQgetvalue(ptr noundef %41, i32 noundef %.0113136, i32 noundef %45) #14
+  %.0111137 = phi i32 [ %82, %.loopexit ], [ 0, %39 ]
+  %.0114136 = phi i32 [ %67, %.loopexit ], [ -1, %39 ]
+  %55 = tail call ptr @PQgetvalue(ptr noundef %41, i32 noundef %.0111137, i32 noundef %45) #14
   %56 = tail call i64 @strtoul(ptr nocapture noundef %55, ptr noundef null, i32 noundef 10) #14
   %57 = trunc i64 %56 to i32
-  %58 = sub i32 %42, %.0113136
+  %58 = sub i32 %42, %.0111137
   %59 = icmp sgt i32 %58, 1
   br i1 %59, label %.lr.ph130, label %._crit_edge131
 
 .lr.ph130:                                        ; preds = %.lr.ph139, %64
   %.0109128 = phi i32 [ %65, %64 ], [ 1, %.lr.ph139 ]
-  %60 = add i32 %.0109128, %.0113136
+  %60 = add i32 %.0109128, %.0111137
   %61 = tail call ptr @PQgetvalue(ptr noundef %41, i32 noundef %60, i32 noundef %45) #14
   %62 = tail call i64 @strtoul(ptr nocapture noundef %61, ptr noundef null, i32 noundef 10) #14
   %63 = trunc i64 %62 to i32
@@ -19871,8 +19871,8 @@ define dso_local void @getTriggers(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %66
 
 66:                                               ; preds = %69, %._crit_edge131
-  %.1112 = phi i32 [ %.0111137, %._crit_edge131 ], [ %67, %69 ]
-  %67 = add i32 %.1112, 1
+  %.1115 = phi i32 [ %.0114136, %._crit_edge131 ], [ %67, %69 ]
+  %67 = add i32 %.1115, 1
   %68 = icmp slt i32 %67, %2
   br i1 %68, label %69, label %75
 
@@ -19890,33 +19890,33 @@ define dso_local void @getTriggers(ptr noundef %0, ptr noundef %1, i32 noundef %
   unreachable
 
 76:                                               ; preds = %69
-  %77 = sext i32 %.0113136 to i64
+  %77 = sext i32 %.0111137 to i64
   %78 = getelementptr %struct._triggerInfo, ptr %52, i64 %77
   %79 = getelementptr inbounds i8, ptr %71, i64 464
   store ptr %78, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %71, i64 456
   store i32 %.0109.lcssa, ptr %80, align 8
   %81 = getelementptr inbounds i8, ptr %71, i64 24
-  %82 = add i32 %.0113136, %.0109.lcssa
+  %82 = add i32 %.0111137, %.0109.lcssa
   br label %83
 
 83:                                               ; preds = %76, %83
-  %.1114134 = phi i32 [ %.0113136, %76 ], [ %111, %83 ]
-  %84 = sext i32 %.1114134 to i64
+  %.1112134 = phi i32 [ %.0111137, %76 ], [ %111, %83 ]
+  %84 = sext i32 %.1112134 to i64
   %85 = getelementptr %struct._triggerInfo, ptr %52, i64 %84
   store i32 19, ptr %85, align 8
-  %86 = tail call ptr @PQgetvalue(ptr noundef %41, i32 noundef %.1114134, i32 noundef %43) #14
+  %86 = tail call ptr @PQgetvalue(ptr noundef %41, i32 noundef %.1112134, i32 noundef %43) #14
   %87 = tail call i64 @strtoul(ptr nocapture noundef %86, ptr noundef null, i32 noundef 10) #14
   %88 = trunc i64 %87 to i32
   %89 = getelementptr inbounds i8, ptr %85, i64 4
   store i32 %88, ptr %89, align 4
-  %90 = tail call ptr @PQgetvalue(ptr noundef %41, i32 noundef %.1114134, i32 noundef %44) #14
+  %90 = tail call ptr @PQgetvalue(ptr noundef %41, i32 noundef %.1112134, i32 noundef %44) #14
   %91 = tail call i64 @strtoul(ptr nocapture noundef %90, ptr noundef null, i32 noundef 10) #14
   %92 = trunc i64 %91 to i32
   %93 = getelementptr inbounds i8, ptr %85, i64 8
   store i32 %92, ptr %93, align 4
   tail call void @AssignDumpId(ptr noundef nonnull %85) #14
-  %94 = tail call ptr @PQgetvalue(ptr noundef %41, i32 noundef %.1114134, i32 noundef %46) #14
+  %94 = tail call ptr @PQgetvalue(ptr noundef %41, i32 noundef %.1112134, i32 noundef %46) #14
   %95 = tail call ptr @pg_strdup(ptr noundef %94) #14
   %96 = getelementptr inbounds i8, ptr %85, i64 16
   store ptr %95, ptr %96, align 8
@@ -19925,21 +19925,21 @@ define dso_local void @getTriggers(ptr noundef %0, ptr noundef %1, i32 noundef %
   store ptr %97, ptr %98, align 8
   %99 = getelementptr inbounds i8, ptr %85, i64 64
   store ptr %71, ptr %99, align 8
-  %100 = tail call ptr @PQgetvalue(ptr noundef %41, i32 noundef %.1114134, i32 noundef %47) #14
+  %100 = tail call ptr @PQgetvalue(ptr noundef %41, i32 noundef %.1112134, i32 noundef %47) #14
   %101 = load i8, ptr %100, align 1
   %102 = getelementptr inbounds i8, ptr %85, i64 72
   store i8 %101, ptr %102, align 8
-  %103 = tail call ptr @PQgetvalue(ptr noundef %41, i32 noundef %.1114134, i32 noundef %48) #14
+  %103 = tail call ptr @PQgetvalue(ptr noundef %41, i32 noundef %.1112134, i32 noundef %48) #14
   %104 = load i8, ptr %103, align 1
   %105 = icmp eq i8 %104, 116
   %106 = getelementptr inbounds i8, ptr %85, i64 73
   %107 = zext i1 %105 to i8
   store i8 %107, ptr %106, align 1
-  %108 = tail call ptr @PQgetvalue(ptr noundef %41, i32 noundef %.1114134, i32 noundef %49) #14
+  %108 = tail call ptr @PQgetvalue(ptr noundef %41, i32 noundef %.1112134, i32 noundef %49) #14
   %109 = tail call ptr @pg_strdup(ptr noundef %108) #14
   %110 = getelementptr inbounds i8, ptr %85, i64 80
   store ptr %109, ptr %110, align 8
-  %111 = add i32 %.1114134, 1
+  %111 = add i32 %.1112134, 1
   %exitcond147.not = icmp eq i32 %111, %82
   br i1 %exitcond147.not, label %.loopexit, label %83, !llvm.loop !91
 
@@ -20030,14 +20030,14 @@ define dso_local ptr @getEventTriggers(ptr noundef %0, ptr nocapture noundef wri
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %48, %67
-  %.021.i = phi ptr [ %.1.i, %67 ], [ %49, %48 ]
-  %.01420.i = phi ptr [ %.115.i, %67 ], [ %52, %48 ]
-  %53 = ptrtoint ptr %.01420.i to i64
-  %54 = ptrtoint ptr %.021.i to i64
+  %.021.i = phi ptr [ %.1.i, %67 ], [ %52, %48 ]
+  %.01420.i = phi ptr [ %.115.i, %67 ], [ %49, %48 ]
+  %53 = ptrtoint ptr %.021.i to i64
+  %54 = ptrtoint ptr %.01420.i to i64
   %55 = sub i64 %53, %54
   %56 = ashr exact i64 %55, 4
   %57 = sdiv i64 %56, 2
-  %58 = getelementptr %struct.RoleNameItem, ptr %.021.i, i64 %57
+  %58 = getelementptr %struct.RoleNameItem, ptr %.01420.i, i64 %57
   %59 = load i32, ptr %58, align 8
   %60 = icmp ugt i32 %59, %45
   br i1 %60, label %61, label %63
@@ -20055,9 +20055,9 @@ define dso_local ptr @getEventTriggers(ptr noundef %0, ptr nocapture noundef wri
   br label %67
 
 67:                                               ; preds = %65, %61
-  %.115.i = phi ptr [ %62, %61 ], [ %.01420.i, %65 ]
-  %.1.i = phi ptr [ %.021.i, %61 ], [ %66, %65 ]
-  %.not.i = icmp ugt ptr %.1.i, %.115.i
+  %.115.i = phi ptr [ %.01420.i, %61 ], [ %66, %65 ]
+  %.1.i = phi ptr [ %62, %61 ], [ %.021.i, %65 ]
+  %.not.i = icmp ugt ptr %.115.i, %.1.i
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %48, %.lr.ph, %67
@@ -20148,8 +20148,8 @@ selectDumpableObject.exit:                        ; preds = %89, %92, %95, %101,
   br label %111
 
 111:                                              ; preds = %._crit_edge, %6
-  %.0 = phi ptr [ null, %6 ], [ %14, %._crit_edge ]
-  ret ptr %.0
+  %.075 = phi ptr [ null, %6 ], [ %14, %._crit_edge ]
+  ret ptr %.075
 }
 
 ; Function Attrs: nounwind uwtable
@@ -20250,14 +20250,14 @@ define dso_local ptr @getProcLangs(ptr noundef %0, ptr nocapture noundef writeon
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %66, %85
-  %.021.i = phi ptr [ %.1.i, %85 ], [ %67, %66 ]
-  %.01420.i = phi ptr [ %.115.i, %85 ], [ %70, %66 ]
-  %71 = ptrtoint ptr %.01420.i to i64
-  %72 = ptrtoint ptr %.021.i to i64
+  %.021.i = phi ptr [ %.1.i, %85 ], [ %70, %66 ]
+  %.01420.i = phi ptr [ %.115.i, %85 ], [ %67, %66 ]
+  %71 = ptrtoint ptr %.021.i to i64
+  %72 = ptrtoint ptr %.01420.i to i64
   %73 = sub i64 %71, %72
   %74 = ashr exact i64 %73, 4
   %75 = sdiv i64 %74, 2
-  %76 = getelementptr %struct.RoleNameItem, ptr %.021.i, i64 %75
+  %76 = getelementptr %struct.RoleNameItem, ptr %.01420.i, i64 %75
   %77 = load i32, ptr %76, align 8
   %78 = icmp ugt i32 %77, %63
   br i1 %78, label %79, label %81
@@ -20275,9 +20275,9 @@ define dso_local ptr @getProcLangs(ptr noundef %0, ptr nocapture noundef writeon
   br label %85
 
 85:                                               ; preds = %83, %79
-  %.115.i = phi ptr [ %80, %79 ], [ %.01420.i, %83 ]
-  %.1.i = phi ptr [ %.021.i, %79 ], [ %84, %83 ]
-  %.not.i = icmp ugt ptr %.1.i, %.115.i
+  %.115.i = phi ptr [ %.01420.i, %79 ], [ %84, %83 ]
+  %.1.i = phi ptr [ %80, %79 ], [ %.021.i, %83 ]
+  %.not.i = icmp ugt ptr %.115.i, %.1.i
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %66, %22, %85
@@ -20692,8 +20692,8 @@ selectDumpableObject.exit:                        ; preds = %75, %78, %81, %87, 
   br label %97
 
 97:                                               ; preds = %._crit_edge, %7
-  %.0 = phi ptr [ null, %7 ], [ %15, %._crit_edge ]
-  ret ptr %.0
+  %.071 = phi ptr [ null, %7 ], [ %15, %._crit_edge ]
+  ret ptr %.071
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -20841,18 +20841,18 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %82
 
 82:                                               ; preds = %.lr.ph668, %350
-  %.0537666 = phi i32 [ -1, %.lr.ph668 ], [ %95, %350 ]
-  %.0542665 = phi i32 [ 0, %.lr.ph668 ], [ %342, %350 ]
-  %83 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.0542665, i32 noundef %56) #14
+  %.0553666 = phi i32 [ 0, %.lr.ph668 ], [ %342, %350 ]
+  %.0556665 = phi i32 [ -1, %.lr.ph668 ], [ %95, %350 ]
+  %83 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.0553666, i32 noundef %56) #14
   %84 = tail call i64 @strtoul(ptr nocapture noundef %83, ptr noundef null, i32 noundef 10) #14
   %85 = trunc i64 %84 to i32
-  %86 = sub i32 %55, %.0542665
+  %86 = sub i32 %55, %.0553666
   %87 = icmp sgt i32 %86, 1
   br i1 %87, label %.lr.ph655, label %._crit_edge656
 
 .lr.ph655:                                        ; preds = %82, %92
-  %.0546653 = phi i32 [ %93, %92 ], [ 1, %82 ]
-  %88 = add i32 %.0546653, %.0542665
+  %.0550653 = phi i32 [ %93, %92 ], [ 1, %82 ]
+  %88 = add i32 %.0550653, %.0553666
   %89 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %88, i32 noundef %56) #14
   %90 = tail call i64 @strtoul(ptr nocapture noundef %89, ptr noundef null, i32 noundef 10) #14
   %91 = trunc i64 %90 to i32
@@ -20860,17 +20860,17 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not577, label %92, label %._crit_edge656
 
 92:                                               ; preds = %.lr.ph655
-  %93 = add nuw nsw i32 %.0546653, 1
+  %93 = add nuw nsw i32 %.0550653, 1
   %exitcond721.not = icmp eq i32 %93, %86
   br i1 %exitcond721.not, label %._crit_edge656, label %.lr.ph655, !llvm.loop !97
 
 ._crit_edge656:                                   ; preds = %92, %.lr.ph655, %82
-  %.0546.lcssa = phi i32 [ 1, %82 ], [ %.0546653, %.lr.ph655 ], [ %86, %92 ]
+  %.0550.lcssa = phi i32 [ 1, %82 ], [ %.0550653, %.lr.ph655 ], [ %86, %92 ]
   br label %94
 
 94:                                               ; preds = %97, %._crit_edge656
-  %.1538 = phi i32 [ %.0537666, %._crit_edge656 ], [ %95, %97 ]
-  %95 = add i32 %.1538, 1
+  %.1557 = phi i32 [ %.0556665, %._crit_edge656 ], [ %95, %97 ]
+  %95 = add i32 %.1557, 1
   %96 = icmp slt i32 %95, %2
   br i1 %96, label %97, label %103
 
@@ -20909,8 +20909,8 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 116:                                              ; preds = %109
   %117 = getelementptr inbounds i8, ptr %99, i64 232
-  store i32 %.0546.lcssa, ptr %117, align 8
-  %118 = zext nneg i32 %.0546.lcssa to i64
+  store i32 %.0550.lcssa, ptr %117, align 8
+  %118 = zext nneg i32 %.0550.lcssa to i64
   %119 = shl nuw nsw i64 %118, 3
   %120 = tail call ptr @pg_malloc(i64 noundef %119) #14
   %121 = getelementptr inbounds i8, ptr %99, i64 240
@@ -20983,11 +20983,11 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 166:                                              ; preds = %116, %311
   %indvars.iv722 = phi i64 [ 0, %116 ], [ %indvars.iv.next723, %311 ]
-  %.1543662 = phi i32 [ %.0542665, %116 ], [ %342, %311 ]
-  %.0547661 = phi i1 [ false, %116 ], [ %spec.select587, %311 ]
-  %.0549660 = phi i32 [ 0, %116 ], [ %.1550622, %311 ]
+  %.0546663 = phi i32 [ 0, %116 ], [ %.1547622, %311 ]
+  %.0548662 = phi i1 [ false, %116 ], [ %spec.select587, %311 ]
+  %.1554659 = phi i32 [ %.0553666, %116 ], [ %342, %311 ]
   %indvars.iv.next723 = add nuw nsw i64 %indvars.iv722, 1
-  %167 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %57) #14
+  %167 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %57) #14
   %168 = tail call i32 @atoi(ptr nocapture noundef %167) #15
   %169 = zext i32 %168 to i64
   %.not579 = icmp eq i64 %indvars.iv.next723, %169
@@ -21000,22 +21000,22 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   unreachable
 
 172:                                              ; preds = %166
-  %173 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %58) #14
+  %173 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %58) #14
   %174 = tail call ptr @pg_strdup(ptr noundef %173) #14
   %175 = load ptr, ptr %121, align 8
   %176 = getelementptr ptr, ptr %175, i64 %indvars.iv722
   store ptr %174, ptr %176, align 8
-  %177 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %59) #14
+  %177 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %59) #14
   %178 = tail call ptr @pg_strdup(ptr noundef %177) #14
   %179 = load ptr, ptr %123, align 8
   %180 = getelementptr ptr, ptr %179, i64 %indvars.iv722
   store ptr %178, ptr %180, align 8
-  %181 = tail call i32 @PQgetisnull(ptr noundef %54, i32 noundef %.1543662, i32 noundef %60) #14
+  %181 = tail call i32 @PQgetisnull(ptr noundef %54, i32 noundef %.1554659, i32 noundef %60) #14
   %.not580 = icmp eq i32 %181, 0
   br i1 %.not580, label %182, label %185
 
 182:                                              ; preds = %172
-  %183 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %60) #14
+  %183 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %60) #14
   %184 = tail call i32 @atoi(ptr nocapture noundef %183) #15
   br label %185
 
@@ -21024,22 +21024,22 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   %186 = load ptr, ptr %126, align 8
   %187 = getelementptr i32, ptr %186, i64 %indvars.iv722
   store i32 %.sink, ptr %187, align 4
-  %188 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %61) #14
+  %188 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %61) #14
   %189 = load i8, ptr %188, align 1
   %190 = load ptr, ptr %128, align 8
   %191 = getelementptr i8, ptr %190, i64 %indvars.iv722
   store i8 %189, ptr %191, align 1
-  %192 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %62) #14
+  %192 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %62) #14
   %193 = load i8, ptr %192, align 1
   %194 = load ptr, ptr %130, align 8
   %195 = getelementptr i8, ptr %194, i64 %indvars.iv722
   store i8 %193, ptr %195, align 1
-  %196 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %63) #14
+  %196 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %63) #14
   %197 = load i8, ptr %196, align 1
   %198 = load ptr, ptr %132, align 8
   %199 = getelementptr i8, ptr %198, i64 %indvars.iv722
   store i8 %197, ptr %199, align 1
-  %200 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %64) #14
+  %200 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %64) #14
   %201 = load i8, ptr %200, align 1
   %202 = load ptr, ptr %134, align 8
   %203 = getelementptr i8, ptr %202, i64 %indvars.iv722
@@ -21059,31 +21059,31 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   %212 = phi i1 [ true, %185 ], [ %210, %206 ]
   %213 = zext i1 %212 to i8
   store i8 %213, ptr %163, align 8
-  %214 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %65) #14
+  %214 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %65) #14
   %215 = load i8, ptr %214, align 1
   %216 = icmp eq i8 %215, 116
   %217 = load ptr, ptr %136, align 8
   %218 = getelementptr i8, ptr %217, i64 %indvars.iv722
   %219 = zext i1 %216 to i8
   store i8 %219, ptr %218, align 1
-  %220 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %66) #14
+  %220 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %66) #14
   %221 = tail call i32 @atoi(ptr nocapture noundef %220) #15
   %222 = load ptr, ptr %138, align 8
   %223 = getelementptr i32, ptr %222, i64 %indvars.iv722
   store i32 %221, ptr %223, align 4
-  %224 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %67) #14
+  %224 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %67) #14
   %225 = load i8, ptr %224, align 1
   %226 = load ptr, ptr %140, align 8
   %227 = getelementptr i8, ptr %226, i64 %indvars.iv722
   store i8 %225, ptr %227, align 1
-  %228 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %68) #14
+  %228 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %68) #14
   %229 = load i8, ptr %228, align 1
   %230 = icmp eq i8 %229, 116
   %231 = load ptr, ptr %142, align 8
   %232 = getelementptr i8, ptr %231, i64 %indvars.iv722
   %233 = zext i1 %230 to i8
   store i8 %233, ptr %232, align 1
-  %234 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %72) #14
+  %234 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %72) #14
   %235 = load i8, ptr %234, align 1
   %236 = icmp eq i8 %235, 116
   %237 = load ptr, ptr %160, align 8
@@ -21092,7 +21092,7 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   store i8 %239, ptr %238, align 1
   %240 = load i32, ptr %37, align 8
   %241 = icmp slt i32 %240, 170000
-  %242 = tail call i32 @PQgetisnull(ptr noundef %54, i32 noundef %.1543662, i32 noundef %69) #14
+  %242 = tail call i32 @PQgetisnull(ptr noundef %54, i32 noundef %.1554659, i32 noundef %69) #14
   %.not583 = icmp eq i32 %242, 0
   br i1 %241, label %243, label %264
 
@@ -21125,7 +21125,7 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %.thread597
 
 260:                                              ; preds = %249, %246, %244, %243
-  %261 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %71) #14
+  %261 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %71) #14
   %262 = load i8, ptr %261, align 1
   %263 = icmp eq i8 %262, 116
   br i1 %263, label %.thread611, label %290
@@ -21151,7 +21151,7 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %274, label %275, label %278
 
 275:                                              ; preds = %270
-  %276 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %69) #14
+  %276 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %69) #14
   %277 = tail call ptr @pstrdup(ptr noundef %276) #14
   br label %.thread597
 
@@ -21161,23 +21161,23 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   %281 = getelementptr ptr, ptr %280, i64 %indvars.iv722
   %282 = load ptr, ptr %281, align 8
   %283 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.451, ptr noundef %279, ptr noundef %282) #14
-  %284 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %69) #14
+  %284 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %69) #14
   %285 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %283, ptr noundef nonnull dereferenceable(1) %284) #15
   %286 = icmp eq i32 %285, 0
   br i1 %286, label %.thread597, label %287
 
 287:                                              ; preds = %278
-  %288 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %69) #14
+  %288 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %69) #14
   %289 = tail call ptr @pstrdup(ptr noundef %288) #14
   br label %.thread597
 
 290:                                              ; preds = %260
-  %291 = tail call i32 @PQgetisnull(ptr noundef %54, i32 noundef %.1543662, i32 noundef %69) #14
+  %291 = tail call i32 @PQgetisnull(ptr noundef %54, i32 noundef %.1554659, i32 noundef %69) #14
   %.not585 = icmp eq i32 %291, 0
   br i1 %.not585, label %.thread597, label %.thread614
 
 292:                                              ; preds = %264
-  %293 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %71) #14
+  %293 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %71) #14
   %294 = load i8, ptr %293, align 1
   %295 = icmp eq i8 %294, 116
   br i1 %295, label %.thread611, label %.thread614
@@ -21186,8 +21186,8 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %.thread597
 
 .thread611:                                       ; preds = %260, %292
-  %296 = add i32 %.0549660, 1
-  %297 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.453, i32 noundef %.0549660) #14
+  %296 = add i32 %.0546663, 1
+  %297 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.453, i32 noundef %.0546663) #14
   %298 = load ptr, ptr %154, align 8
   %299 = getelementptr ptr, ptr %298, i64 %indvars.iv722
   store ptr %297, ptr %299, align 8
@@ -21207,40 +21207,40 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   %306 = load ptr, ptr %158, align 8
   %307 = getelementptr i8, ptr %306, i64 %indvars.iv722
   store i8 0, ptr %307, align 1
-  %308 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %70) #14
+  %308 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %70) #14
   %309 = load i8, ptr %308, align 1
   %310 = icmp eq i8 %309, 116
   br label %311
 
 311:                                              ; preds = %.thread611, %.thread597
-  %.1550622 = phi i32 [ %296, %.thread611 ], [ %.0549660, %.thread597 ]
+  %.1547622 = phi i32 [ %296, %.thread611 ], [ %.0546663, %.thread597 ]
   %312 = phi i1 [ true, %.thread611 ], [ %310, %.thread597 ]
   %313 = load ptr, ptr %156, align 8
   %314 = getelementptr i8, ptr %313, i64 %indvars.iv722
   %315 = zext i1 %312 to i8
   store i8 %315, ptr %314, align 1
-  %316 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %73) #14
+  %316 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %73) #14
   %317 = tail call ptr @pg_strdup(ptr noundef %316) #14
   %318 = load ptr, ptr %144, align 8
   %319 = getelementptr ptr, ptr %318, i64 %indvars.iv722
   store ptr %317, ptr %319, align 8
-  %320 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %74) #14
+  %320 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %74) #14
   %321 = tail call i64 @strtoul(ptr nocapture noundef %320, ptr noundef null, i32 noundef 10) #14
   %322 = trunc i64 %321 to i32
   %323 = load ptr, ptr %146, align 8
   %324 = getelementptr i32, ptr %323, i64 %indvars.iv722
   store i32 %322, ptr %324, align 4
-  %325 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %75) #14
+  %325 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %75) #14
   %326 = load i8, ptr %325, align 1
   %327 = load ptr, ptr %148, align 8
   %328 = getelementptr i8, ptr %327, i64 %indvars.iv722
   store i8 %326, ptr %328, align 1
-  %329 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %76) #14
+  %329 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %76) #14
   %330 = tail call ptr @pg_strdup(ptr noundef %329) #14
   %331 = load ptr, ptr %150, align 8
   %332 = getelementptr ptr, ptr %331, i64 %indvars.iv722
   store ptr %330, ptr %332, align 8
-  %333 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %77) #14
+  %333 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %77) #14
   %334 = tail call ptr @pg_strdup(ptr noundef %333) #14
   %335 = load ptr, ptr %152, align 8
   %336 = getelementptr ptr, ptr %335, i64 %indvars.iv722
@@ -21248,11 +21248,11 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   %337 = load ptr, ptr %162, align 8
   %338 = getelementptr ptr, ptr %337, i64 %indvars.iv722
   store ptr null, ptr %338, align 8
-  %339 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1543662, i32 noundef %78) #14
+  %339 = tail call ptr @PQgetvalue(ptr noundef %54, i32 noundef %.1554659, i32 noundef %78) #14
   %340 = load i8, ptr %339, align 1
   %341 = icmp eq i8 %340, 116
-  %spec.select587 = select i1 %341, i1 true, i1 %.0547661
-  %342 = add i32 %.1543662, 1
+  %spec.select587 = select i1 %341, i1 true, i1 %.0548662
+  %342 = add i32 %.1554659, 1
   %exitcond725.not = icmp eq i64 %indvars.iv.next723, %118
   br i1 %exitcond725.not, label %343, label %166, !llvm.loop !99
 
@@ -21311,8 +21311,8 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
 
 369:                                              ; preds = %.lr.ph674, %464
   %indvars.iv726 = phi i64 [ 0, %.lr.ph674 ], [ %indvars.iv.next727, %464 ]
-  %.2672 = phi i32 [ -1, %.lr.ph674 ], [ %.4, %464 ]
-  %.0555671 = phi ptr [ null, %.lr.ph674 ], [ %.3558, %464 ]
+  %.0540671 = phi ptr [ null, %.lr.ph674 ], [ %.3, %464 ]
+  %.2558670 = phi i32 [ -1, %.lr.ph674 ], [ %.4, %464 ]
   %370 = trunc nuw nsw i64 %indvars.iv726 to i32
   %371 = tail call ptr @PQgetvalue(ptr noundef %362, i32 noundef %370, i32 noundef 0) #14
   %372 = tail call i64 @strtoul(ptr nocapture noundef %371, ptr noundef null, i32 noundef 10) #14
@@ -21326,11 +21326,11 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   %380 = tail call ptr @PQgetvalue(ptr noundef %362, i32 noundef %370, i32 noundef 3) #14
   %381 = tail call i32 @atoi(ptr nocapture noundef %380) #15
   %382 = tail call ptr @PQgetvalue(ptr noundef %362, i32 noundef %370, i32 noundef 4) #14
-  %383 = icmp eq ptr %.0555671, null
+  %383 = icmp eq ptr %.0540671, null
   br i1 %383, label %.preheader, label %384
 
 384:                                              ; preds = %369
-  %385 = getelementptr inbounds i8, ptr %.0555671, i64 8
+  %385 = getelementptr inbounds i8, ptr %.0540671, i64 8
   %386 = load i32, ptr %385, align 4
   %.not = icmp eq i32 %386, %379
   br i1 %.not, label %.thread623, label %.preheader
@@ -21339,8 +21339,8 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %387
 
 387:                                              ; preds = %.preheader, %390
-  %.3 = phi i32 [ %388, %390 ], [ %.2672, %.preheader ]
-  %388 = add i32 %.3, 1
+  %.3559 = phi i32 [ %388, %390 ], [ %.2558670, %.preheader ]
+  %388 = add i32 %.3559, 1
   %389 = icmp slt i32 %388, %2
   br i1 %389, label %390, label %396
 
@@ -21358,26 +21358,26 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   unreachable
 
 .thread623:                                       ; preds = %390, %384
-  %.3558 = phi ptr [ %.0555671, %384 ], [ %392, %390 ]
-  %.4 = phi i32 [ %.2672, %384 ], [ %388, %390 ]
+  %.4 = phi i32 [ %.2558670, %384 ], [ %388, %390 ]
+  %.3 = phi ptr [ %.0540671, %384 ], [ %392, %390 ]
   %397 = icmp slt i32 %381, 1
   br i1 %397, label %402, label %398
 
 398:                                              ; preds = %.thread623
-  %399 = getelementptr inbounds i8, ptr %.3558, i64 232
+  %399 = getelementptr inbounds i8, ptr %.3, i64 232
   %400 = load i32, ptr %399, align 8
   %401 = icmp sgt i32 %381, %400
   br i1 %401, label %402, label %405
 
 402:                                              ; preds = %.thread623, %398
-  %403 = getelementptr inbounds i8, ptr %.3558, i64 16
+  %403 = getelementptr inbounds i8, ptr %.3, i64 16
   %404 = load ptr, ptr %403, align 8
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.456, i32 noundef %381, ptr noundef %404) #14
   tail call void @exit_nicely(i32 noundef 1) #16
   unreachable
 
 405:                                              ; preds = %398
-  %406 = getelementptr inbounds i8, ptr %.3558, i64 280
+  %406 = getelementptr inbounds i8, ptr %.3, i64 280
   %407 = load ptr, ptr %406, align 8
   %408 = add nsw i32 %381, -1
   %409 = zext nneg i32 %408 to i64
@@ -21395,26 +21395,26 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   store i32 %376, ptr %416, align 4
   tail call void @AssignDumpId(ptr noundef nonnull %414) #14
   %417 = getelementptr inbounds i8, ptr %414, i64 64
-  store ptr %.3558, ptr %417, align 8
+  store ptr %.3, ptr %417, align 8
   %418 = getelementptr inbounds i8, ptr %414, i64 72
   store i32 %381, ptr %418, align 8
   %419 = tail call ptr @pg_strdup(ptr noundef %382) #14
   %420 = getelementptr inbounds i8, ptr %414, i64 80
   store ptr %419, ptr %420, align 8
-  %421 = getelementptr inbounds i8, ptr %.3558, i64 16
+  %421 = getelementptr inbounds i8, ptr %.3, i64 16
   %422 = load ptr, ptr %421, align 8
   %423 = tail call ptr @pg_strdup(ptr noundef %422) #14
   %424 = getelementptr inbounds i8, ptr %414, i64 16
   store ptr %423, ptr %424, align 8
-  %425 = getelementptr inbounds i8, ptr %.3558, i64 24
+  %425 = getelementptr inbounds i8, ptr %.3, i64 24
   %426 = load ptr, ptr %425, align 8
   %427 = getelementptr inbounds i8, ptr %414, i64 24
   store ptr %426, ptr %427, align 8
-  %428 = getelementptr inbounds i8, ptr %.3558, i64 32
+  %428 = getelementptr inbounds i8, ptr %.3, i64 32
   %429 = load i32, ptr %428, align 8
   %430 = getelementptr inbounds i8, ptr %414, i64 32
   store i32 %429, ptr %430, align 8
-  %431 = getelementptr inbounds i8, ptr %.3558, i64 296
+  %431 = getelementptr inbounds i8, ptr %.3, i64 296
   %432 = load ptr, ptr %431, align 8
   %433 = getelementptr i8, ptr %432, i64 %409
   %434 = load i8, ptr %433, align 1
@@ -21422,7 +21422,7 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not573, label %435, label %shouldPrintColumn.exit.thread
 
 435:                                              ; preds = %413
-  %436 = getelementptr inbounds i8, ptr %.3558, i64 104
+  %436 = getelementptr inbounds i8, ptr %.3, i64 104
   %437 = load i8, ptr %436, align 8
   %438 = icmp eq i8 %437, 118
   br i1 %438, label %439, label %441
@@ -21445,7 +21445,7 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %447, label %shouldPrintColumn.exit.thread626, label %448
 
 448:                                              ; preds = %443
-  %449 = getelementptr inbounds i8, ptr %.3558, i64 320
+  %449 = getelementptr inbounds i8, ptr %.3, i64 320
   %450 = load ptr, ptr %449, align 8
   %451 = getelementptr i8, ptr %450, i64 %409
   %452 = load i8, ptr %451, align 1
@@ -21453,7 +21453,7 @@ define dso_local void @getTableAttrs(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %453, label %shouldPrintColumn.exit.thread, label %shouldPrintColumn.exit
 
 shouldPrintColumn.exit:                           ; preds = %448
-  %454 = getelementptr inbounds i8, ptr %.3558, i64 211
+  %454 = getelementptr inbounds i8, ptr %.3, i64 211
   %455 = load i8, ptr %454, align 1
   %456 = trunc i8 %455 to i1
   br i1 %456, label %shouldPrintColumn.exit.thread, label %shouldPrintColumn.exit.thread626
@@ -21468,11 +21468,11 @@ shouldPrintColumn.exit.thread:                    ; preds = %shouldPrintColumn.e
   store i8 0, ptr %458, align 8
   %459 = getelementptr inbounds i8, ptr %414, i64 12
   %460 = load i32, ptr %459, align 4
-  tail call void @addObjectDependency(ptr noundef nonnull %.3558, i32 noundef %460) #14
+  tail call void @addObjectDependency(ptr noundef nonnull %.3, i32 noundef %460) #14
   br label %.thread
 
 .thread:                                          ; preds = %shouldPrintColumn.exit.thread626, %439, %shouldPrintColumn.exit.thread
-  %461 = getelementptr inbounds i8, ptr %.3558, i64 400
+  %461 = getelementptr inbounds i8, ptr %.3, i64 400
   %462 = load ptr, ptr %461, align 8
   %463 = getelementptr ptr, ptr %462, i64 %409
   store ptr %414, ptr %463, align 8
@@ -21525,18 +21525,18 @@ shouldPrintColumn.exit.thread:                    ; preds = %shouldPrintColumn.e
   br i1 %488, label %.lr.ph688, label %._crit_edge689, !llvm.loop !103
 
 .lr.ph688:                                        ; preds = %472, %.loopexit
-  %.5686 = phi i32 [ %501, %.loopexit ], [ -1, %472 ]
-  %.0539685 = phi i32 [ %524, %.loopexit ], [ 0, %472 ]
-  %489 = tail call ptr @PQgetvalue(ptr noundef %475, i32 noundef %.0539685, i32 noundef %482) #14
+  %.0537686 = phi i32 [ %524, %.loopexit ], [ 0, %472 ]
+  %.5685 = phi i32 [ %501, %.loopexit ], [ -1, %472 ]
+  %489 = tail call ptr @PQgetvalue(ptr noundef %475, i32 noundef %.0537686, i32 noundef %482) #14
   %490 = tail call i64 @strtoul(ptr nocapture noundef %489, ptr noundef null, i32 noundef 10) #14
   %491 = trunc i64 %490 to i32
-  %492 = sub i32 %476, %.0539685
+  %492 = sub i32 %476, %.0537686
   %493 = icmp sgt i32 %492, 1
   br i1 %493, label %.lr.ph678, label %._crit_edge679
 
 .lr.ph678:                                        ; preds = %.lr.ph688, %498
   %.0535676 = phi i32 [ %499, %498 ], [ 1, %.lr.ph688 ]
-  %494 = add i32 %.0535676, %.0539685
+  %494 = add i32 %.0535676, %.0537686
   %495 = tail call ptr @PQgetvalue(ptr noundef %475, i32 noundef %494, i32 noundef %482) #14
   %496 = tail call i64 @strtoul(ptr nocapture noundef %495, ptr noundef null, i32 noundef 10) #14
   %497 = trunc i64 %496 to i32
@@ -21553,7 +21553,7 @@ shouldPrintColumn.exit.thread:                    ; preds = %shouldPrintColumn.e
   br label %500
 
 500:                                              ; preds = %503, %._crit_edge679
-  %.6 = phi i32 [ %.5686, %._crit_edge679 ], [ %501, %503 ]
+  %.6 = phi i32 [ %.5685, %._crit_edge679 ], [ %501, %503 ]
   %501 = add i32 %.6, 1
   %502 = icmp slt i32 %501, %2
   br i1 %502, label %503, label %509
@@ -21588,35 +21588,35 @@ shouldPrintColumn.exit.thread:                    ; preds = %shouldPrintColumn.e
   unreachable
 
 518:                                              ; preds = %510
-  %519 = sext i32 %.0539685 to i64
+  %519 = sext i32 %.0537686 to i64
   %520 = getelementptr %struct._constraintInfo, ptr %479, i64 %519
   %521 = getelementptr inbounds i8, ptr %505, i64 408
   store ptr %520, ptr %521, align 8
   %522 = getelementptr inbounds i8, ptr %505, i64 24
   %523 = getelementptr inbounds i8, ptr %505, i64 32
-  %524 = add i32 %.0539685, %.0535.lcssa
+  %524 = add i32 %.0537686, %.0535.lcssa
   br label %525
 
 525:                                              ; preds = %518, %563
-  %.1540683 = phi i32 [ %.0539685, %518 ], [ %564, %563 ]
-  %526 = tail call ptr @PQgetvalue(ptr noundef %475, i32 noundef %.1540683, i32 noundef %486) #14
+  %.1538683 = phi i32 [ %.0537686, %518 ], [ %564, %563 ]
+  %526 = tail call ptr @PQgetvalue(ptr noundef %475, i32 noundef %.1538683, i32 noundef %486) #14
   %527 = load i8, ptr %526, align 1
   %528 = icmp ne i8 %527, 116
-  %529 = sext i32 %.1540683 to i64
+  %529 = sext i32 %.1538683 to i64
   %530 = getelementptr %struct._constraintInfo, ptr %479, i64 %529
   store i32 20, ptr %530, align 8
-  %531 = tail call ptr @PQgetvalue(ptr noundef %475, i32 noundef %.1540683, i32 noundef %480) #14
+  %531 = tail call ptr @PQgetvalue(ptr noundef %475, i32 noundef %.1538683, i32 noundef %480) #14
   %532 = tail call i64 @strtoul(ptr nocapture noundef %531, ptr noundef null, i32 noundef 10) #14
   %533 = trunc i64 %532 to i32
   %534 = getelementptr inbounds i8, ptr %530, i64 4
   store i32 %533, ptr %534, align 4
-  %535 = tail call ptr @PQgetvalue(ptr noundef %475, i32 noundef %.1540683, i32 noundef %481) #14
+  %535 = tail call ptr @PQgetvalue(ptr noundef %475, i32 noundef %.1538683, i32 noundef %481) #14
   %536 = tail call i64 @strtoul(ptr nocapture noundef %535, ptr noundef null, i32 noundef 10) #14
   %537 = trunc i64 %536 to i32
   %538 = getelementptr inbounds i8, ptr %530, i64 8
   store i32 %537, ptr %538, align 4
   tail call void @AssignDumpId(ptr noundef nonnull %530) #14
-  %539 = tail call ptr @PQgetvalue(ptr noundef %475, i32 noundef %.1540683, i32 noundef %483) #14
+  %539 = tail call ptr @PQgetvalue(ptr noundef %475, i32 noundef %.1538683, i32 noundef %483) #14
   %540 = tail call ptr @pg_strdup(ptr noundef %539) #14
   %541 = getelementptr inbounds i8, ptr %530, i64 16
   store ptr %540, ptr %541, align 8
@@ -21629,13 +21629,13 @@ shouldPrintColumn.exit.thread:                    ; preds = %shouldPrintColumn.e
   store ptr null, ptr %545, align 8
   %546 = getelementptr inbounds i8, ptr %530, i64 80
   store i8 99, ptr %546, align 8
-  %547 = tail call ptr @PQgetvalue(ptr noundef %475, i32 noundef %.1540683, i32 noundef %484) #14
+  %547 = tail call ptr @PQgetvalue(ptr noundef %475, i32 noundef %.1538683, i32 noundef %484) #14
   %548 = tail call ptr @pg_strdup(ptr noundef %547) #14
   %549 = getelementptr inbounds i8, ptr %530, i64 88
   store ptr %548, ptr %549, align 8
   %550 = getelementptr inbounds i8, ptr %530, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %550, i8 0, i64 10, i1 false)
-  %551 = tail call ptr @PQgetvalue(ptr noundef %475, i32 noundef %.1540683, i32 noundef %485) #14
+  %551 = tail call ptr @PQgetvalue(ptr noundef %475, i32 noundef %.1538683, i32 noundef %485) #14
   %552 = load i8, ptr %551, align 1
   %553 = icmp eq i8 %552, 116
   %554 = getelementptr inbounds i8, ptr %530, i64 107
@@ -21656,7 +21656,7 @@ shouldPrintColumn.exit.thread:                    ; preds = %shouldPrintColumn.e
   br label %563
 
 563:                                              ; preds = %525, %560
-  %564 = add i32 %.1540683, 1
+  %564 = add i32 %.1538683, 1
   %exitcond732.not = icmp eq i32 %564, %524
   br i1 %exitcond732.not, label %.loopexit, label %525, !llvm.loop !106
 
@@ -21938,14 +21938,14 @@ findNamespace.exit:                               ; preds = %19
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %45, %64
-  %.021.i = phi ptr [ %.1.i, %64 ], [ %46, %45 ]
-  %.01420.i = phi ptr [ %.115.i, %64 ], [ %49, %45 ]
-  %50 = ptrtoint ptr %.01420.i to i64
-  %51 = ptrtoint ptr %.021.i to i64
+  %.021.i = phi ptr [ %.1.i, %64 ], [ %49, %45 ]
+  %.01420.i = phi ptr [ %.115.i, %64 ], [ %46, %45 ]
+  %50 = ptrtoint ptr %.021.i to i64
+  %51 = ptrtoint ptr %.01420.i to i64
   %52 = sub i64 %50, %51
   %53 = ashr exact i64 %52, 4
   %54 = sdiv i64 %53, 2
-  %55 = getelementptr %struct.RoleNameItem, ptr %.021.i, i64 %54
+  %55 = getelementptr %struct.RoleNameItem, ptr %.01420.i, i64 %54
   %56 = load i32, ptr %55, align 8
   %57 = icmp ugt i32 %56, %42
   br i1 %57, label %58, label %60
@@ -21963,9 +21963,9 @@ findNamespace.exit:                               ; preds = %19
   br label %64
 
 64:                                               ; preds = %62, %58
-  %.115.i = phi ptr [ %59, %58 ], [ %.01420.i, %62 ]
-  %.1.i = phi ptr [ %.021.i, %58 ], [ %63, %62 ]
-  %.not.i = icmp ugt ptr %.1.i, %.115.i
+  %.115.i = phi ptr [ %.01420.i, %58 ], [ %63, %62 ]
+  %.1.i = phi ptr [ %59, %58 ], [ %.021.i, %62 ]
+  %.not.i = icmp ugt ptr %.115.i, %.1.i
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %45, %findNamespace.exit, %64
@@ -22272,14 +22272,14 @@ findNamespace.exit:                               ; preds = %18
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %44, %63
-  %.021.i = phi ptr [ %.1.i, %63 ], [ %45, %44 ]
-  %.01420.i = phi ptr [ %.115.i, %63 ], [ %48, %44 ]
-  %49 = ptrtoint ptr %.01420.i to i64
-  %50 = ptrtoint ptr %.021.i to i64
+  %.021.i = phi ptr [ %.1.i, %63 ], [ %48, %44 ]
+  %.01420.i = phi ptr [ %.115.i, %63 ], [ %45, %44 ]
+  %49 = ptrtoint ptr %.021.i to i64
+  %50 = ptrtoint ptr %.01420.i to i64
   %51 = sub i64 %49, %50
   %52 = ashr exact i64 %51, 4
   %53 = sdiv i64 %52, 2
-  %54 = getelementptr %struct.RoleNameItem, ptr %.021.i, i64 %53
+  %54 = getelementptr %struct.RoleNameItem, ptr %.01420.i, i64 %53
   %55 = load i32, ptr %54, align 8
   %56 = icmp ugt i32 %55, %41
   br i1 %56, label %57, label %59
@@ -22297,9 +22297,9 @@ findNamespace.exit:                               ; preds = %18
   br label %63
 
 63:                                               ; preds = %61, %57
-  %.115.i = phi ptr [ %58, %57 ], [ %.01420.i, %61 ]
-  %.1.i = phi ptr [ %.021.i, %57 ], [ %62, %61 ]
-  %.not.i = icmp ugt ptr %.1.i, %.115.i
+  %.115.i = phi ptr [ %.01420.i, %57 ], [ %62, %61 ]
+  %.1.i = phi ptr [ %58, %57 ], [ %.021.i, %61 ]
+  %.not.i = icmp ugt ptr %.115.i, %.1.i
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %44, %findNamespace.exit, %63
@@ -22460,14 +22460,14 @@ define dso_local ptr @getForeignDataWrappers(ptr noundef %0, ptr nocapture nound
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %49, %68
-  %.021.i = phi ptr [ %.1.i, %68 ], [ %50, %49 ]
-  %.01420.i = phi ptr [ %.115.i, %68 ], [ %53, %49 ]
-  %54 = ptrtoint ptr %.01420.i to i64
-  %55 = ptrtoint ptr %.021.i to i64
+  %.021.i = phi ptr [ %.1.i, %68 ], [ %53, %49 ]
+  %.01420.i = phi ptr [ %.115.i, %68 ], [ %50, %49 ]
+  %54 = ptrtoint ptr %.021.i to i64
+  %55 = ptrtoint ptr %.01420.i to i64
   %56 = sub i64 %54, %55
   %57 = ashr exact i64 %56, 4
   %58 = sdiv i64 %57, 2
-  %59 = getelementptr %struct.RoleNameItem, ptr %.021.i, i64 %58
+  %59 = getelementptr %struct.RoleNameItem, ptr %.01420.i, i64 %58
   %60 = load i32, ptr %59, align 8
   %61 = icmp ugt i32 %60, %46
   br i1 %61, label %62, label %64
@@ -22485,9 +22485,9 @@ define dso_local ptr @getForeignDataWrappers(ptr noundef %0, ptr nocapture nound
   br label %68
 
 68:                                               ; preds = %66, %62
-  %.115.i = phi ptr [ %63, %62 ], [ %.01420.i, %66 ]
-  %.1.i = phi ptr [ %.021.i, %62 ], [ %67, %66 ]
-  %.not.i = icmp ugt ptr %.1.i, %.115.i
+  %.115.i = phi ptr [ %.01420.i, %62 ], [ %67, %66 ]
+  %.1.i = phi ptr [ %63, %62 ], [ %.021.i, %66 ]
+  %.not.i = icmp ugt ptr %.115.i, %.1.i
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %49, %21, %68
@@ -22668,14 +22668,14 @@ define dso_local ptr @getForeignServers(ptr noundef %0, ptr nocapture noundef wr
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %50, %69
-  %.021.i = phi ptr [ %.1.i, %69 ], [ %51, %50 ]
-  %.01420.i = phi ptr [ %.115.i, %69 ], [ %54, %50 ]
-  %55 = ptrtoint ptr %.01420.i to i64
-  %56 = ptrtoint ptr %.021.i to i64
+  %.021.i = phi ptr [ %.1.i, %69 ], [ %54, %50 ]
+  %.01420.i = phi ptr [ %.115.i, %69 ], [ %51, %50 ]
+  %55 = ptrtoint ptr %.021.i to i64
+  %56 = ptrtoint ptr %.01420.i to i64
   %57 = sub i64 %55, %56
   %58 = ashr exact i64 %57, 4
   %59 = sdiv i64 %58, 2
-  %60 = getelementptr %struct.RoleNameItem, ptr %.021.i, i64 %59
+  %60 = getelementptr %struct.RoleNameItem, ptr %.01420.i, i64 %59
   %61 = load i32, ptr %60, align 8
   %62 = icmp ugt i32 %61, %47
   br i1 %62, label %63, label %65
@@ -22693,9 +22693,9 @@ define dso_local ptr @getForeignServers(ptr noundef %0, ptr nocapture noundef wr
   br label %69
 
 69:                                               ; preds = %67, %63
-  %.115.i = phi ptr [ %64, %63 ], [ %.01420.i, %67 ]
-  %.1.i = phi ptr [ %.021.i, %63 ], [ %68, %67 ]
-  %.not.i = icmp ugt ptr %.1.i, %.115.i
+  %.115.i = phi ptr [ %.01420.i, %63 ], [ %68, %67 ]
+  %.1.i = phi ptr [ %64, %63 ], [ %.021.i, %67 ]
+  %.not.i = icmp ugt ptr %.115.i, %.1.i
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %50, %22, %69
@@ -22900,14 +22900,14 @@ findNamespace.exit:                               ; preds = %20, %37
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %55, %74
-  %.021.i = phi ptr [ %.1.i, %74 ], [ %56, %55 ]
-  %.01420.i = phi ptr [ %.115.i, %74 ], [ %59, %55 ]
-  %60 = ptrtoint ptr %.01420.i to i64
-  %61 = ptrtoint ptr %.021.i to i64
+  %.021.i = phi ptr [ %.1.i, %74 ], [ %59, %55 ]
+  %.01420.i = phi ptr [ %.115.i, %74 ], [ %56, %55 ]
+  %60 = ptrtoint ptr %.021.i to i64
+  %61 = ptrtoint ptr %.01420.i to i64
   %62 = sub i64 %60, %61
   %63 = ashr exact i64 %62, 4
   %64 = sdiv i64 %63, 2
-  %65 = getelementptr %struct.RoleNameItem, ptr %.021.i, i64 %64
+  %65 = getelementptr %struct.RoleNameItem, ptr %.01420.i, i64 %64
   %66 = load i32, ptr %65, align 8
   %67 = icmp ugt i32 %66, %52
   br i1 %67, label %68, label %70
@@ -22925,9 +22925,9 @@ findNamespace.exit:                               ; preds = %20, %37
   br label %74
 
 74:                                               ; preds = %72, %68
-  %.115.i = phi ptr [ %69, %68 ], [ %.01420.i, %72 ]
-  %.1.i = phi ptr [ %.021.i, %68 ], [ %73, %72 ]
-  %.not.i = icmp ugt ptr %.1.i, %.115.i
+  %.115.i = phi ptr [ %.01420.i, %68 ], [ %73, %72 ]
+  %.1.i = phi ptr [ %69, %68 ], [ %.021.i, %72 ]
+  %.not.i = icmp ugt ptr %.115.i, %.1.i
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %55, %findNamespace.exit, %74
@@ -22996,20 +22996,20 @@ define dso_local void @getExtensionMembership(ptr noundef %0, ptr nocapture noun
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %29
-  %.033 = phi i32 [ %30, %29 ], [ 0, %5 ]
-  %.02832 = phi ptr [ %.130, %29 ], [ null, %5 ]
-  %14 = tail call ptr @PQgetvalue(ptr noundef %8, i32 noundef %.033, i32 noundef %10) #14
+  %.033 = phi ptr [ %.130, %29 ], [ null, %5 ]
+  %.02832 = phi i32 [ %30, %29 ], [ 0, %5 ]
+  %14 = tail call ptr @PQgetvalue(ptr noundef %8, i32 noundef %.02832, i32 noundef %10) #14
   %15 = tail call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 10) #14
-  %16 = tail call ptr @PQgetvalue(ptr noundef %8, i32 noundef %.033, i32 noundef %11) #14
+  %16 = tail call ptr @PQgetvalue(ptr noundef %8, i32 noundef %.02832, i32 noundef %11) #14
   %17 = tail call i64 @strtoul(ptr nocapture noundef %16, ptr noundef null, i32 noundef 10) #14
-  %18 = tail call ptr @PQgetvalue(ptr noundef %8, i32 noundef %.033, i32 noundef %12) #14
+  %18 = tail call ptr @PQgetvalue(ptr noundef %8, i32 noundef %.02832, i32 noundef %12) #14
   %19 = tail call i64 @strtoul(ptr nocapture noundef %18, ptr noundef null, i32 noundef 10) #14
   %20 = trunc i64 %19 to i32
-  %21 = icmp eq ptr %.02832, null
+  %21 = icmp eq ptr %.033, null
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.02832, i64 8
+  %23 = getelementptr inbounds i8, ptr %.033, i64 8
   %24 = load i32, ptr %23, align 4
   %.not = icmp eq i32 %24, %20
   br i1 %.not, label %.thread, label %25
@@ -23024,7 +23024,7 @@ define dso_local void @getExtensionMembership(ptr noundef %0, ptr nocapture noun
   br label %29
 
 .thread:                                          ; preds = %22, %25
-  %.131 = phi ptr [ %26, %25 ], [ %.02832, %22 ]
+  %.131 = phi ptr [ %26, %25 ], [ %.033, %22 ]
   %.sroa.2.0.insert.ext = shl i64 %17, 32
   %.sroa.0.0.insert.ext = and i64 %15, 4294967295
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.ext, %.sroa.0.0.insert.ext
@@ -23033,7 +23033,7 @@ define dso_local void @getExtensionMembership(ptr noundef %0, ptr nocapture noun
 
 29:                                               ; preds = %.thread, %28
   %.130 = phi ptr [ %.131, %.thread ], [ null, %28 ]
-  %30 = add nuw nsw i32 %.033, 1
+  %30 = add nuw nsw i32 %.02832, 1
   %exitcond.not = icmp eq i32 %30, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !114
 
@@ -23167,18 +23167,18 @@ define dso_local void @processExtensionTables(ptr noundef %0, ptr nocapture noun
   br label %54
 
 54:                                               ; preds = %52, %50
-  %.058 = phi i1 [ %44, %50 ], [ %spec.select, %52 ]
+  %.0 = phi i1 [ %44, %50 ], [ %spec.select, %52 ]
   %55 = getelementptr inbounds i8, ptr %45, i64 24
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 32
   %58 = load i32, ptr %57, align 8
   %59 = and i32 %58, 2
   %.not76 = icmp ne i32 %59, 0
-  %spec.select81 = select i1 %.not76, i1 true, i1 %.058
+  %spec.select81 = select i1 %.not76, i1 true, i1 %.0
   br label %60
 
 60:                                               ; preds = %54, %47
-  %.159 = phi i1 [ %44, %47 ], [ %spec.select81, %54 ]
+  %.1 = phi i1 [ %44, %47 ], [ %spec.select81, %54 ]
   %61 = load ptr, ptr @table_exclude_oids, align 8
   %.not77 = icmp eq ptr %61, null
   br i1 %.not77, label %64, label %62
@@ -23186,11 +23186,11 @@ define dso_local void @processExtensionTables(ptr noundef %0, ptr nocapture noun
 62:                                               ; preds = %60
   %63 = call zeroext i1 @simple_oid_list_member(ptr noundef nonnull @table_exclude_oids, i32 noundef %42) #14
   %not.95 = xor i1 %63, true
-  %spec.select82 = select i1 %not.95, i1 %.159, i1 false
+  %spec.select82 = select i1 %not.95, i1 %.1, i1 false
   br label %64
 
 64:                                               ; preds = %62, %60
-  %.2 = phi i1 [ %.159, %60 ], [ %spec.select82, %62 ]
+  %.2 = phi i1 [ %.1, %60 ], [ %spec.select82, %62 ]
   %65 = getelementptr inbounds i8, ptr %45, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 8
@@ -23350,11 +23350,11 @@ makeTableDataInfo.exit.thread85:                  ; preds = %74, %64, %makeTable
   br i1 %138, label %.lr.ph93, label %._crit_edge94
 
 .lr.ph93:                                         ; preds = %._crit_edge, %160
-  %.191 = phi i32 [ %161, %160 ], [ 0, %._crit_edge ]
-  %139 = call ptr @PQgetvalue(ptr noundef %134, i32 noundef %.191, i32 noundef %136) #14
+  %.15991 = phi i32 [ %161, %160 ], [ 0, %._crit_edge ]
+  %139 = call ptr @PQgetvalue(ptr noundef %134, i32 noundef %.15991, i32 noundef %136) #14
   %140 = call i64 @strtoul(ptr nocapture noundef %139, ptr noundef null, i32 noundef 10) #14
   %141 = trunc i64 %140 to i32
-  %142 = call ptr @PQgetvalue(ptr noundef %134, i32 noundef %.191, i32 noundef %137) #14
+  %142 = call ptr @PQgetvalue(ptr noundef %134, i32 noundef %.15991, i32 noundef %137) #14
   %143 = call i64 @strtoul(ptr nocapture noundef %142, ptr noundef null, i32 noundef 10) #14
   %144 = trunc i64 %143 to i32
   %145 = call ptr @findTableByOid(i32 noundef %141) #14
@@ -23383,7 +23383,7 @@ makeTableDataInfo.exit.thread85:                  ; preds = %74, %64, %makeTable
   br label %160
 
 160:                                              ; preds = %.lr.ph93, %148, %153, %157
-  %161 = add nuw nsw i32 %.191, 1
+  %161 = add nuw nsw i32 %.15991, 1
   %exitcond100.not = icmp eq i32 %161, %135
   br i1 %exitcond100.not, label %._crit_edge94, label %.lr.ph93, !llvm.loop !117
 
@@ -23611,15 +23611,15 @@ define internal fastcc noundef i32 @dumpACL(ptr noundef %0, i32 noundef %1, i32 
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %36, %44, %.thread, %47, %50
-  %.077 = phi ptr [ %15, %50 ], [ %13, %47 ], [ %13, %.thread ], [ %13, %44 ], [ %13, %36 ]
-  %.076 = phi ptr [ %19, %50 ], [ %19, %47 ], [ %15, %.thread ], [ %15, %44 ], [ %15, %36 ]
+  %.075 = phi ptr [ %15, %50 ], [ %13, %47 ], [ %13, %.thread ], [ %13, %44 ], [ %13, %36 ]
+  %.074 = phi ptr [ %19, %50 ], [ %19, %47 ], [ %15, %.thread ], [ %15, %44 ], [ %15, %36 ]
   %51 = getelementptr inbounds i8, ptr %0, i64 32
   %52 = load i32, ptr %51, align 8
-  %53 = tail call zeroext i1 @buildACLCommands(ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %3, ptr noundef %.077, ptr noundef %.076, ptr noundef %7, ptr noundef nonnull @.str.452, i32 noundef %52, ptr noundef %30) #14
+  %53 = tail call zeroext i1 @buildACLCommands(ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %3, ptr noundef %.075, ptr noundef %.074, ptr noundef %7, ptr noundef nonnull @.str.452, i32 noundef %52, ptr noundef %30) #14
   br i1 %53, label %55, label %54
 
 54:                                               ; preds = %.thread.thread
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.712, ptr noundef %.077, ptr noundef %.076, ptr noundef %4, ptr noundef %3) #14
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.712, ptr noundef %.075, ptr noundef %.074, ptr noundef %4, ptr noundef %3) #14
   tail call void @exit_nicely(i32 noundef 1) #16
   unreachable
 
@@ -23683,13 +23683,13 @@ define internal fastcc noundef i32 @dumpACL(ptr noundef %0, i32 noundef %1, i32 
   br label %80
 
 80:                                               ; preds = %65, %55
-  %.075 = phi i32 [ %66, %65 ], [ 0, %55 ]
+  %.076 = phi i32 [ %66, %65 ], [ 0, %55 ]
   call void @destroyPQExpBuffer(ptr noundef nonnull %30) #14
   br label %81
 
 81:                                               ; preds = %27, %9, %80
-  %.074 = phi i32 [ %.075, %80 ], [ 0, %9 ], [ 0, %27 ]
-  ret i32 %.074
+  %.077 = phi i32 [ %.076, %80 ], [ 0, %9 ], [ 0, %27 ]
+  ret i32 %.077
 }
 
 declare zeroext i1 @buildACLCommands(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -24287,8 +24287,8 @@ dumpBaseType.exit:                                ; preds = %262, %265
   br label %305
 
 305:                                              ; preds = %.sink.split.i23, %300
-  %.0121.i = phi i1 [ false, %300 ], [ %.not.i22, %.sink.split.i23 ]
   %.0120.i = phi ptr [ null, %300 ], [ %304, %.sink.split.i23 ]
+  %.0.i25 = phi i1 [ false, %300 ], [ %.not.i22, %.sink.split.i23 ]
   %306 = tail call i32 @PQfnumber(ptr noundef %293, ptr noundef nonnull @.str.859) #14
   %307 = tail call ptr @PQgetvalue(ptr noundef %293, i32 noundef 0, i32 noundef %306) #14
   %308 = tail call i64 @strtoul(ptr nocapture noundef %307, ptr noundef null, i32 noundef 10) #14
@@ -24350,7 +24350,7 @@ dumpBaseType.exit:                                ; preds = %262, %265
 
 341:                                              ; preds = %340
   tail call void @appendPQExpBufferStr(ptr noundef %276, ptr noundef nonnull @.str.863) #14
-  br i1 %.0121.i, label %342, label %348
+  br i1 %.0.i25, label %342, label %348
 
 342:                                              ; preds = %341
   %343 = getelementptr inbounds i8, ptr %0, i64 64
@@ -24393,11 +24393,11 @@ dumpBaseType.exit:                                ; preds = %262, %265
   %365 = getelementptr inbounds i8, ptr %357, i64 88
   %366 = load ptr, ptr %365, align 8
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %276, ptr noundef nonnull @.str.864, ptr noundef %364, ptr noundef %366) #14
-  %.pre.i25 = load i32, ptr %350, align 8
+  %.pre.i26 = load i32, ptr %350, align 8
   br label %367
 
 367:                                              ; preds = %361, %354
-  %368 = phi i32 [ %355, %354 ], [ %.pre.i25, %361 ]
+  %368 = phi i32 [ %355, %354 ], [ %.pre.i26, %361 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %369 = sext i32 %368 to i64
   %370 = icmp slt i64 %indvars.iv.next.i, %369
@@ -24608,8 +24608,8 @@ dumpDomain.exit:                                  ; preds = %464, %439
   %494 = tail call i32 @PQfnumber(ptr noundef %487, ptr noundef nonnull @.str.444) #14
   %495 = getelementptr inbounds i8, ptr %10, i64 48
   %496 = load i32, ptr %495, align 8
-  %.not.i26 = icmp eq i32 %496, 0
-  br i1 %.not.i26, label %501, label %497
+  %.not.i27 = icmp eq i32 %496, 0
+  br i1 %.not.i27, label %501, label %497
 
 497:                                              ; preds = %482
   %498 = load i32, ptr %484, align 4
@@ -24633,24 +24633,24 @@ dumpDomain.exit:                                  ; preds = %464, %439
   %512 = tail call ptr @pg_strdup(ptr noundef %511) #14
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %469, ptr noundef nonnull @.str.871, ptr noundef %512) #14
   %513 = icmp sgt i32 %488, 0
-  br i1 %513, label %.lr.ph.i29, label %._crit_edge.i27
+  br i1 %513, label %.lr.ph.i30, label %._crit_edge.i28
 
-.lr.ph.i29:                                       ; preds = %501
+.lr.ph.i30:                                       ; preds = %501
   %514 = getelementptr inbounds i8, ptr %0, i64 64
   %515 = getelementptr inbounds i8, ptr %0, i64 68
   br label %516
 
-516:                                              ; preds = %554, %.lr.ph.i29
-  %.0152.i = phi i32 [ 0, %.lr.ph.i29 ], [ %555, %554 ]
-  %.0135151.i = phi i32 [ 0, %.lr.ph.i29 ], [ %.1.i, %554 ]
-  %517 = tail call ptr @PQgetvalue(ptr noundef %487, i32 noundef %.0152.i, i32 noundef %489) #14
-  %518 = tail call ptr @PQgetvalue(ptr noundef %487, i32 noundef %.0152.i, i32 noundef %490) #14
-  %519 = tail call ptr @PQgetvalue(ptr noundef %487, i32 noundef %.0152.i, i32 noundef %491) #14
-  %520 = tail call ptr @PQgetvalue(ptr noundef %487, i32 noundef %.0152.i, i32 noundef %492) #14
-  %521 = tail call ptr @PQgetvalue(ptr noundef %487, i32 noundef %.0152.i, i32 noundef %493) #14
+516:                                              ; preds = %554, %.lr.ph.i30
+  %.0152.i = phi i32 [ 0, %.lr.ph.i30 ], [ %.1.i, %554 ]
+  %.0135151.i = phi i32 [ 0, %.lr.ph.i30 ], [ %555, %554 ]
+  %517 = tail call ptr @PQgetvalue(ptr noundef %487, i32 noundef %.0135151.i, i32 noundef %489) #14
+  %518 = tail call ptr @PQgetvalue(ptr noundef %487, i32 noundef %.0135151.i, i32 noundef %490) #14
+  %519 = tail call ptr @PQgetvalue(ptr noundef %487, i32 noundef %.0135151.i, i32 noundef %491) #14
+  %520 = tail call ptr @PQgetvalue(ptr noundef %487, i32 noundef %.0135151.i, i32 noundef %492) #14
+  %521 = tail call ptr @PQgetvalue(ptr noundef %487, i32 noundef %.0135151.i, i32 noundef %493) #14
   %522 = load i8, ptr %521, align 1
   %523 = icmp eq i8 %522, 116
-  %524 = tail call ptr @PQgetvalue(ptr noundef %487, i32 noundef %.0152.i, i32 noundef %494) #14
+  %524 = tail call ptr @PQgetvalue(ptr noundef %487, i32 noundef %.0135151.i, i32 noundef %494) #14
   %525 = tail call i64 @strtoul(ptr nocapture noundef %524, ptr noundef null, i32 noundef 10) #14
   %526 = trunc i64 %525 to i32
   br i1 %523, label %527, label %529
@@ -24661,8 +24661,8 @@ dumpDomain.exit:                                  ; preds = %464, %439
   br i1 %.not144.i, label %554, label %529
 
 529:                                              ; preds = %527, %516
-  %530 = add i32 %.0135151.i, 1
-  %531 = icmp sgt i32 %.0135151.i, 0
+  %530 = add i32 %.0152.i, 1
+  %531 = icmp sgt i32 %.0152.i, 0
   br i1 %531, label %532, label %533
 
 532:                                              ; preds = %529
@@ -24715,12 +24715,12 @@ dumpDomain.exit:                                  ; preds = %464, %439
   br label %554
 
 554:                                              ; preds = %546, %538, %536, %535, %527
-  %.1.i = phi i32 [ %530, %546 ], [ %530, %538 ], [ %530, %536 ], [ %530, %535 ], [ %.0135151.i, %527 ]
-  %555 = add nuw nsw i32 %.0152.i, 1
+  %.1.i = phi i32 [ %530, %546 ], [ %530, %538 ], [ %530, %536 ], [ %530, %535 ], [ %.0152.i, %527 ]
+  %555 = add nuw nsw i32 %.0135151.i, 1
   %exitcond.not.i = icmp eq i32 %555, %488
-  br i1 %exitcond.not.i, label %._crit_edge.i27, label %516, !llvm.loop !120
+  br i1 %exitcond.not.i, label %._crit_edge.i28, label %516, !llvm.loop !120
 
-._crit_edge.i27:                                  ; preds = %554, %501
+._crit_edge.i28:                                  ; preds = %554, %501
   tail call void @appendPQExpBufferStr(ptr noundef %469, ptr noundef nonnull @.str.837) #14
   %556 = load ptr, ptr %470, align 8
   tail call void @appendPQExpBufferStr(ptr noundef %469, ptr noundef %556) #14
@@ -24729,14 +24729,14 @@ dumpDomain.exit:                                  ; preds = %464, %439
   %.not138.i = icmp eq i32 %557, 0
   br i1 %.not138.i, label %562, label %558
 
-558:                                              ; preds = %._crit_edge.i27
+558:                                              ; preds = %._crit_edge.i28
   %559 = load ptr, ptr %506, align 8
   %560 = getelementptr inbounds i8, ptr %559, i64 16
   %561 = load ptr, ptr %560, align 8
   tail call fastcc void @binary_upgrade_extension_member(ptr noundef %469, ptr noundef %1, ptr noundef nonnull @.str.838, ptr noundef %505, ptr noundef %561)
   br label %562
 
-562:                                              ; preds = %558, %._crit_edge.i27
+562:                                              ; preds = %558, %._crit_edge.i28
   %563 = getelementptr inbounds i8, ptr %1, i64 32
   %564 = load i32, ptr %563, align 8
   %565 = and i32 %564, 1
@@ -24775,11 +24775,11 @@ dumpDomain.exit:                                  ; preds = %464, %439
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %585, i8 0, i64 16, i1 false)
   %586 = load i64, ptr %483, align 4
   %587 = call ptr @ArchiveEntry(ptr noundef nonnull %0, i64 %586, i32 noundef %568, ptr noundef nonnull %7) #14
-  %.pre.i28 = load i32, ptr %563, align 8
+  %.pre.i29 = load i32, ptr %563, align 8
   br label %588
 
 588:                                              ; preds = %566, %562
-  %589 = phi i32 [ %.pre.i28, %566 ], [ %564, %562 ]
+  %589 = phi i32 [ %.pre.i29, %566 ], [ %564, %562 ]
   %590 = and i32 %589, 4
   %.not140.i = icmp eq i32 %590, 0
   br i1 %.not140.i, label %600, label %591
@@ -25132,8 +25132,8 @@ dumpCompositeType.exit:                           ; preds = %625, %dumpComposite
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %747, ptr noundef nonnull @.str.880, ptr noundef %775) #14
   %776 = getelementptr inbounds i8, ptr %10, i64 48
   %777 = load i32, ptr %776, align 8
-  %.not.i30 = icmp eq i32 %777, 0
-  br i1 %.not.i30, label %780, label %778
+  %.not.i31 = icmp eq i32 %777, 0
+  br i1 %.not.i31, label %780, label %778
 
 778:                                              ; preds = %758
   %779 = load i32, ptr %760, align 4
@@ -25149,15 +25149,15 @@ dumpCompositeType.exit:                           ; preds = %625, %dumpComposite
 782:                                              ; preds = %780
   %783 = tail call i32 @PQfnumber(ptr noundef %763, ptr noundef nonnull @.str.896) #14
   %784 = icmp sgt i32 %764, 0
-  br i1 %784, label %.lr.ph.i33, label %.loopexit.i
+  br i1 %784, label %.lr.ph.i34, label %.loopexit.i
 
-.lr.ph.i33:                                       ; preds = %782
+.lr.ph.i34:                                       ; preds = %782
   %785 = getelementptr inbounds i8, ptr %0, i64 64
   %786 = getelementptr inbounds i8, ptr %0, i64 68
   br label %787
 
-787:                                              ; preds = %790, %.lr.ph.i33
-  %.0110.i = phi i32 [ 0, %.lr.ph.i33 ], [ %794, %790 ]
+787:                                              ; preds = %790, %.lr.ph.i34
+  %.0110.i = phi i32 [ 0, %.lr.ph.i34 ], [ %794, %790 ]
   %788 = tail call ptr @PQgetvalue(ptr noundef %763, i32 noundef %.0110.i, i32 noundef %783) #14
   %.not109.i = icmp eq i32 %.0110.i, 0
   br i1 %.not109.i, label %790, label %789
@@ -25173,8 +25173,8 @@ dumpCompositeType.exit:                           ; preds = %625, %dumpComposite
   %793 = trunc i8 %792 to i1
   tail call void @appendStringLiteral(ptr noundef %746, ptr noundef %788, i32 noundef %791, i1 noundef zeroext %793) #14
   %794 = add nuw nsw i32 %.0110.i, 1
-  %exitcond.not.i34 = icmp eq i32 %794, %764
-  br i1 %exitcond.not.i34, label %.loopexit.i, label %787, !llvm.loop !126
+  %exitcond.not.i35 = icmp eq i32 %794, %764
+  br i1 %exitcond.not.i35, label %.loopexit.i, label %787, !llvm.loop !126
 
 .loopexit.i:                                      ; preds = %790, %782, %780
   tail call void @appendPQExpBufferStr(ptr noundef %746, ptr noundef nonnull @.str.837) #14
@@ -25186,7 +25186,7 @@ dumpCompositeType.exit:                           ; preds = %625, %dumpComposite
   %797 = tail call i32 @PQfnumber(ptr noundef %763, ptr noundef nonnull @.str.105) #14
   %798 = tail call i32 @PQfnumber(ptr noundef %763, ptr noundef nonnull @.str.896) #14
   %799 = icmp sgt i32 %764, 0
-  br i1 %799, label %.lr.ph112.i, label %._crit_edge.i31
+  br i1 %799, label %.lr.ph112.i, label %._crit_edge.i32
 
 .lr.ph112.i:                                      ; preds = %796
   %800 = getelementptr inbounds i8, ptr %0, i64 64
@@ -25216,21 +25216,21 @@ dumpCompositeType.exit:                           ; preds = %625, %dumpComposite
   tail call void @appendPQExpBufferStr(ptr noundef %746, ptr noundef nonnull @.str.901) #14
   %813 = add nuw nsw i32 %.1111.i, 1
   %exitcond113.not.i = icmp eq i32 %813, %764
-  br i1 %exitcond113.not.i, label %._crit_edge.i31, label %802, !llvm.loop !127
+  br i1 %exitcond113.not.i, label %._crit_edge.i32, label %802, !llvm.loop !127
 
-._crit_edge.i31:                                  ; preds = %809, %796
+._crit_edge.i32:                                  ; preds = %809, %796
   %.pr.i = load i32, ptr %776, align 8
   %.not103.i = icmp eq i32 %.pr.i, 0
   br i1 %.not103.i, label %.thread.i, label %814
 
-814:                                              ; preds = %._crit_edge.i31
+814:                                              ; preds = %._crit_edge.i32
   %815 = load ptr, ptr %769, align 8
   %816 = getelementptr inbounds i8, ptr %815, i64 16
   %817 = load ptr, ptr %816, align 8
   tail call fastcc void @binary_upgrade_extension_member(ptr noundef %746, ptr noundef readonly %1, ptr noundef nonnull @.str.838, ptr noundef %768, ptr noundef %817)
   br label %.thread.i
 
-.thread.i:                                        ; preds = %814, %._crit_edge.i31, %.loopexit.i
+.thread.i:                                        ; preds = %814, %._crit_edge.i32, %.loopexit.i
   %818 = getelementptr inbounds i8, ptr %1, i64 32
   %819 = load i32, ptr %818, align 8
   %820 = and i32 %819, 1
@@ -25269,11 +25269,11 @@ dumpCompositeType.exit:                           ; preds = %625, %dumpComposite
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %840, i8 0, i64 16, i1 false)
   %841 = load i64, ptr %759, align 4
   %842 = call ptr @ArchiveEntry(ptr noundef nonnull %0, i64 %841, i32 noundef %823, ptr noundef nonnull %5) #14
-  %.pre.i32 = load i32, ptr %818, align 8
+  %.pre.i33 = load i32, ptr %818, align 8
   br label %843
 
 843:                                              ; preds = %821, %.thread.i
-  %844 = phi i32 [ %.pre.i32, %821 ], [ %819, %.thread.i ]
+  %844 = phi i32 [ %.pre.i33, %821 ], [ %819, %.thread.i ]
   %845 = and i32 %844, 4
   %.not105.i = icmp eq i32 %845, 0
   br i1 %.not105.i, label %855, label %846
@@ -25387,8 +25387,8 @@ dumpEnumType.exit:                                ; preds = %867, %870
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %882, ptr noundef nonnull @.str.880, ptr noundef %912) #14
   %913 = getelementptr inbounds i8, ptr %10, i64 48
   %914 = load i32, ptr %913, align 8
-  %.not.i35 = icmp eq i32 %914, 0
-  br i1 %.not.i35, label %917, label %915
+  %.not.i36 = icmp eq i32 %914, 0
+  br i1 %.not.i36, label %917, label %915
 
 915:                                              ; preds = %896
   %916 = load i32, ptr %898, align 4
@@ -25402,8 +25402,8 @@ dumpEnumType.exit:                                ; preds = %867, %870
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %881, ptr noundef nonnull @.str.909, ptr noundef %919) #14
   %920 = tail call i32 @PQfnumber(ptr noundef %901, ptr noundef nonnull @.str.911) #14
   %921 = tail call i32 @PQgetisnull(ptr noundef %901, i32 noundef 0, i32 noundef %920) #14
-  %.not104.i36 = icmp eq i32 %921, 0
-  br i1 %.not104.i36, label %922, label %925
+  %.not104.i37 = icmp eq i32 %921, 0
+  br i1 %.not104.i37, label %922, label %925
 
 922:                                              ; preds = %917
   %923 = tail call i32 @PQfnumber(ptr noundef %901, ptr noundef nonnull @.str.911) #14
@@ -25415,8 +25415,8 @@ dumpEnumType.exit:                                ; preds = %867, %870
   %926 = tail call i32 @PQfnumber(ptr noundef %901, ptr noundef nonnull @.str.913) #14
   %927 = tail call ptr @PQgetvalue(ptr noundef %901, i32 noundef 0, i32 noundef %926) #14
   %928 = load i8, ptr %927, align 1
-  %.not105.i37 = icmp eq i8 %928, 116
-  br i1 %.not105.i37, label %936, label %929
+  %.not105.i38 = icmp eq i8 %928, 116
+  br i1 %.not105.i38, label %936, label %929
 
 929:                                              ; preds = %925
   %930 = tail call i32 @PQfnumber(ptr noundef %901, ptr noundef nonnull @.str.221) #14
@@ -25434,13 +25434,13 @@ dumpEnumType.exit:                                ; preds = %867, %870
   %938 = tail call ptr @PQgetvalue(ptr noundef %901, i32 noundef 0, i32 noundef %937) #14
   %939 = tail call i64 @strtoul(ptr nocapture noundef %938, ptr noundef null, i32 noundef 10) #14
   %940 = trunc i64 %939 to i32
-  %.not106.i38 = icmp eq i32 %940, 0
-  br i1 %.not106.i38, label %sub_0.i40, label %941
+  %.not106.i39 = icmp eq i32 %940, 0
+  br i1 %.not106.i39, label %sub_0.i41, label %941
 
 941:                                              ; preds = %936
   %942 = tail call ptr @findCollationByOid(i32 noundef %940) #14
-  %.not107.i39 = icmp eq ptr %942, null
-  br i1 %.not107.i39, label %sub_0.i40, label %943
+  %.not107.i40 = icmp eq ptr %942, null
+  br i1 %.not107.i40, label %sub_0.i41, label %943
 
 943:                                              ; preds = %941
   %944 = getelementptr inbounds i8, ptr %942, i64 24
@@ -25451,26 +25451,26 @@ dumpEnumType.exit:                                ; preds = %867, %870
   %949 = load ptr, ptr %948, align 8
   %950 = tail call ptr @fmtQualifiedId(ptr noundef %947, ptr noundef %949) #14
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %881, ptr noundef nonnull @.str.917, ptr noundef %950) #14
-  br label %sub_0.i40
+  br label %sub_0.i41
 
-sub_0.i40:                                        ; preds = %943, %941, %936
+sub_0.i41:                                        ; preds = %943, %941, %936
   %951 = tail call i32 @PQfnumber(ptr noundef %901, ptr noundef nonnull @.str.918) #14
   %952 = tail call ptr @PQgetvalue(ptr noundef %901, i32 noundef 0, i32 noundef %951) #14
   %953 = load i8, ptr %952, align 1
   %.not119.i = icmp eq i8 %953, 45
-  br i1 %.not119.i, label %.tail.i42, label %.tail.thread.i
+  br i1 %.not119.i, label %.tail.i43, label %.tail.thread.i
 
-.tail.i42:                                        ; preds = %sub_0.i40
+.tail.i43:                                        ; preds = %sub_0.i41
   %954 = getelementptr inbounds i8, ptr %952, i64 1
   %955 = load i8, ptr %954, align 1
   %956 = icmp eq i8 %955, 0
   br i1 %956, label %sub_0116.i, label %.tail.thread.i
 
-.tail.thread.i:                                   ; preds = %.tail.i42, %sub_0.i40
+.tail.thread.i:                                   ; preds = %.tail.i43, %sub_0.i41
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %881, ptr noundef nonnull @.str.920, ptr noundef nonnull %952) #14
   br label %sub_0116.i
 
-sub_0116.i:                                       ; preds = %.tail.thread.i, %.tail.i42
+sub_0116.i:                                       ; preds = %.tail.thread.i, %.tail.i43
   %957 = tail call i32 @PQfnumber(ptr noundef %901, ptr noundef nonnull @.str.921) #14
   %958 = tail call ptr @PQgetvalue(ptr noundef %901, i32 noundef 0, i32 noundef %957) #14
   %959 = load i8, ptr %958, align 1
@@ -25539,11 +25539,11 @@ sub_0116.i:                                       ; preds = %.tail.thread.i, %.t
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %992, i8 0, i64 16, i1 false)
   %993 = load i64, ptr %897, align 4
   %994 = call ptr @ArchiveEntry(ptr noundef nonnull %0, i64 %993, i32 noundef %975, ptr noundef nonnull %4) #14
-  %.pre.i41 = load i32, ptr %970, align 8
+  %.pre.i42 = load i32, ptr %970, align 8
   br label %995
 
 995:                                              ; preds = %973, %969
-  %996 = phi i32 [ %.pre.i41, %973 ], [ %971, %969 ]
+  %996 = phi i32 [ %.pre.i42, %973 ], [ %971, %969 ]
   %997 = and i32 %996, 4
   %.not112.i = icmp eq i32 %997, 0
   br i1 %.not112.i, label %1007, label %998
@@ -25632,8 +25632,8 @@ dumpRangeType.exit:                               ; preds = %1019, %1022
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %1038, ptr noundef nonnull @.str.880, ptr noundef %1049) #14
   %1050 = getelementptr inbounds i8, ptr %10, i64 48
   %1051 = load i32, ptr %1050, align 8
-  %.not.i43 = icmp eq i32 %1051, 0
-  br i1 %.not.i43, label %1055, label %1052
+  %.not.i44 = icmp eq i32 %1051, 0
+  br i1 %.not.i44, label %1055, label %1052
 
 1052:                                             ; preds = %1036
   %1053 = getelementptr inbounds i8, ptr %1, i64 8
@@ -25694,11 +25694,11 @@ dumpRangeType.exit:                               ; preds = %1019, %1022
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1085, i8 0, i64 16, i1 false)
   %1086 = load i64, ptr %1066, align 4
   %1087 = call ptr @ArchiveEntry(ptr noundef nonnull %0, i64 %1086, i32 noundef %1068, ptr noundef nonnull %3) #14
-  %.pre.i44 = load i32, ptr %1062, align 8
+  %.pre.i45 = load i32, ptr %1062, align 8
   br label %1088
 
 1088:                                             ; preds = %1065, %1061
-  %1089 = phi i32 [ %.pre.i44, %1065 ], [ %1063, %1061 ]
+  %1089 = phi i32 [ %.pre.i45, %1065 ], [ %1063, %1061 ]
   %1090 = and i32 %1089, 4
   %.not53.i = icmp eq i32 %1090, 0
   br i1 %.not53.i, label %1101, label %1091
@@ -26385,10 +26385,10 @@ nonemptyReloptions.exit.thread.i:                 ; preds = %appendReloptionsArr
   br label %355
 
 355:                                              ; preds = %nonemptyReloptions.exit.thread.i, %340
-  %.0542.i = phi ptr [ %341, %340 ], [ %354, %nonemptyReloptions.exit.thread.i ]
-  %356 = load ptr, ptr %.0542.i, align 8
+  %.0536.i = phi ptr [ %341, %340 ], [ %354, %nonemptyReloptions.exit.thread.i ]
+  %356 = load ptr, ptr %.0536.i, align 8
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1217, ptr noundef %356) #14
-  tail call void @destroyPQExpBuffer(ptr noundef nonnull %.0542.i) #14
+  tail call void @destroyPQExpBuffer(ptr noundef nonnull %.0536.i) #14
   %357 = getelementptr inbounds i8, ptr %1, i64 128
   %358 = load ptr, ptr %357, align 8
   %.not601.i = icmp eq ptr %358, null
@@ -26441,16 +26441,16 @@ nonemptyReloptions.exit.thread.i:                 ; preds = %appendReloptionsArr
   br label %385
 
 385:                                              ; preds = %384, %372, %364, %binary_upgrade_set_type_oids_by_rel.exit.i
-  %.0546.i = phi ptr [ @.str.452, %384 ], [ @.str.1223, %372 ], [ @.str.452, %364 ], [ @.str.452, %binary_upgrade_set_type_oids_by_rel.exit.i ]
-  %.0545.i = phi ptr [ null, %384 ], [ %381, %372 ], [ null, %364 ], [ null, %binary_upgrade_set_type_oids_by_rel.exit.i ]
-  %.0544.i = phi ptr [ null, %384 ], [ %383, %372 ], [ null, %364 ], [ null, %binary_upgrade_set_type_oids_by_rel.exit.i ]
-  %.0543.i = phi ptr [ null, %384 ], [ null, %372 ], [ %371, %364 ], [ null, %binary_upgrade_set_type_oids_by_rel.exit.i ]
-  %.0531.i = phi ptr [ @.str.1174, %384 ], [ @.str.1220, %372 ], [ @.str.1174, %364 ], [ @.str.1224, %binary_upgrade_set_type_oids_by_rel.exit.i ]
+  %.0545.i = phi ptr [ @.str.1174, %384 ], [ @.str.1220, %372 ], [ @.str.1174, %364 ], [ @.str.1224, %binary_upgrade_set_type_oids_by_rel.exit.i ]
+  %.0535.i = phi ptr [ null, %384 ], [ null, %372 ], [ %371, %364 ], [ null, %binary_upgrade_set_type_oids_by_rel.exit.i ]
+  %.0534.i = phi ptr [ null, %384 ], [ %383, %372 ], [ null, %364 ], [ null, %binary_upgrade_set_type_oids_by_rel.exit.i ]
+  %.0533.i = phi ptr [ null, %384 ], [ %381, %372 ], [ null, %364 ], [ null, %binary_upgrade_set_type_oids_by_rel.exit.i ]
+  %.0532.i = phi ptr [ @.str.452, %384 ], [ @.str.1223, %372 ], [ @.str.452, %364 ], [ @.str.452, %binary_upgrade_set_type_oids_by_rel.exit.i ]
   %386 = getelementptr inbounds i8, ptr %1, i64 216
   %387 = load i32, ptr %386, align 8
   %388 = getelementptr inbounds i8, ptr %1, i64 224
   %389 = load ptr, ptr %388, align 8
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %308, ptr noundef nonnull @.str.961, ptr noundef nonnull %.0531.i, ptr noundef %319) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %308, ptr noundef nonnull @.str.961, ptr noundef nonnull %.0545.i, ptr noundef %319) #14
   %390 = load i32, ptr %325, align 8
   %.not564.i = icmp eq i32 %390, 0
   br i1 %.not564.i, label %394, label %391
@@ -26466,7 +26466,7 @@ nonemptyReloptions.exit.thread.i:                 ; preds = %appendReloptionsArr
   %396 = load i8, ptr %395, align 1
   %397 = icmp eq i8 %396, 117
   %398 = select i1 %397, ptr @.str.1195, ptr @.str.452
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1225, ptr noundef nonnull %398, ptr noundef nonnull %.0531.i, ptr noundef %319) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1225, ptr noundef nonnull %398, ptr noundef nonnull %.0545.i, ptr noundef %319) #14
   %399 = getelementptr inbounds i8, ptr %1, i64 180
   %400 = load i32, ptr %399, align 4
   %.not565.i = icmp eq i32 %400, 0
@@ -26508,7 +26508,7 @@ nonemptyReloptions.exit.thread.i:                 ; preds = %appendReloptionsArr
   br label %426
 
 .preheader681.i:                                  ; preds = %shouldPrintColumn.exit.thread642.i, %.preheader682.i
-  %.0.lcssa.i = phi i32 [ 0, %.preheader682.i ], [ %.1.i, %shouldPrintColumn.exit.thread642.i ]
+  %.0531.lcssa.i = phi i32 [ 0, %.preheader682.i ], [ %.1.i, %shouldPrintColumn.exit.thread642.i ]
   %421 = getelementptr inbounds i8, ptr %1, i64 172
   %422 = load i32, ptr %421, align 4
   %423 = icmp sgt i32 %422, 0
@@ -26521,7 +26521,7 @@ nonemptyReloptions.exit.thread.i:                 ; preds = %appendReloptionsArr
 
 426:                                              ; preds = %shouldPrintColumn.exit.thread642.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %shouldPrintColumn.exit.thread642.i ]
-  %.0693.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %shouldPrintColumn.exit.thread642.i ]
+  %.0531693.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %shouldPrintColumn.exit.thread642.i ]
   %427 = load i32, ptr %325, align 8
   %.not.i617.i = icmp ne i32 %427, 0
   br i1 %.not.i617.i, label %shouldPrintColumn.exit.thread.i, label %428
@@ -26595,7 +26595,7 @@ shouldPrintColumn.exit.thread.i:                  ; preds = %shouldPrintColumn.e
 
 .thread.i:                                        ; preds = %464, %461, %456
   %467 = phi i1 [ %465, %464 ], [ true, %461 ], [ true, %456 ]
-  %468 = icmp eq i32 %.0693.i, 0
+  %468 = icmp eq i32 %.0531693.i, 0
   br i1 %468, label %469, label %470
 
 469:                                              ; preds = %.thread.i
@@ -26608,7 +26608,7 @@ shouldPrintColumn.exit.thread.i:                  ; preds = %shouldPrintColumn.e
 
 471:                                              ; preds = %470, %469
   tail call void @appendPQExpBufferStr(ptr noundef %307, ptr noundef nonnull @.str.897) #14
-  %472 = add i32 %.0693.i, 1
+  %472 = add i32 %.0531693.i, 1
   %473 = load ptr, ptr %416, align 8
   %474 = getelementptr ptr, ptr %473, i64 %indvars.iv.i
   %475 = load ptr, ptr %474, align 8
@@ -26642,9 +26642,9 @@ shouldPrintColumn.exit.thread.i:                  ; preds = %shouldPrintColumn.e
   br label %490
 
 490:                                              ; preds = %486, %484
-  br i1 %452, label %.sink.split.i65, label %500
+  br i1 %452, label %.sink.split.i66, label %500
 
-.sink.split.i65:                                  ; preds = %490
+.sink.split.i66:                                  ; preds = %490
   %491 = load ptr, ptr %418, align 8
   %492 = getelementptr i8, ptr %491, i64 %indvars.iv.i
   %493 = load i8, ptr %492, align 1
@@ -26658,7 +26658,7 @@ shouldPrintColumn.exit.thread.i:                  ; preds = %shouldPrintColumn.e
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull %.str.1229..str.1230.i, ptr noundef %499) #14
   br label %500
 
-500:                                              ; preds = %.sink.split.i65, %490
+500:                                              ; preds = %.sink.split.i66, %490
   br i1 %467, label %501, label %516
 
 501:                                              ; preds = %500
@@ -26713,7 +26713,7 @@ shouldPrintColumn.exit.thread.i:                  ; preds = %shouldPrintColumn.e
   br label %shouldPrintColumn.exit.thread642.i
 
 shouldPrintColumn.exit.thread642.i:               ; preds = %522, %520, %516, %481, %464, %shouldPrintColumn.exit.i, %428
-  %.1.i = phi i32 [ %472, %481 ], [ %472, %522 ], [ %472, %520 ], [ %472, %516 ], [ %.0693.i, %shouldPrintColumn.exit.i ], [ %.0693.i, %428 ], [ %.0693.i, %464 ]
+  %.1.i = phi i32 [ %472, %481 ], [ %472, %522 ], [ %472, %520 ], [ %472, %516 ], [ %.0531693.i, %shouldPrintColumn.exit.i ], [ %.0531693.i, %428 ], [ %.0531693.i, %464 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %530 = load i32, ptr %407, align 8
   %531 = sext i32 %530 to i64
@@ -26723,7 +26723,7 @@ shouldPrintColumn.exit.thread642.i:               ; preds = %522, %520, %516, %4
 533:                                              ; preds = %555, %.lr.ph696.i
   %534 = phi i32 [ %422, %.lr.ph696.i ], [ %556, %555 ]
   %indvars.iv731.i = phi i64 [ 0, %.lr.ph696.i ], [ %indvars.iv.next732.i, %555 ]
-  %.2695.i = phi i32 [ %.0.lcssa.i, %.lr.ph696.i ], [ %.3.i, %555 ]
+  %.2695.i = phi i32 [ %.0531.lcssa.i, %.lr.ph696.i ], [ %.3.i, %555 ]
   %535 = load ptr, ptr %424, align 8
   %536 = getelementptr %struct._constraintInfo, ptr %535, i64 %indvars.iv731.i
   %537 = getelementptr inbounds i8, ptr %536, i64 108
@@ -26754,11 +26754,11 @@ shouldPrintColumn.exit.thread642.i:               ; preds = %522, %520, %516, %4
   %553 = load ptr, ptr %552, align 8
   tail call void @appendPQExpBufferStr(ptr noundef %307, ptr noundef %553) #14
   %554 = add i32 %.2695.i, 1
-  %.pre.i64 = load i32, ptr %421, align 4
+  %.pre.i65 = load i32, ptr %421, align 4
   br label %555
 
 555:                                              ; preds = %547, %544, %533
-  %556 = phi i32 [ %534, %533 ], [ %.pre.i64, %547 ], [ %534, %544 ]
+  %556 = phi i32 [ %534, %533 ], [ %.pre.i65, %547 ], [ %534, %544 ]
   %.3.i = phi i32 [ %.2695.i, %533 ], [ %554, %547 ], [ %.2695.i, %544 ]
   %indvars.iv.next732.i = add nuw nsw i64 %indvars.iv731.i, 1
   %557 = sext i32 %556 to i64
@@ -26766,7 +26766,7 @@ shouldPrintColumn.exit.thread642.i:               ; preds = %522, %520, %516, %4
   br i1 %558, label %533, label %._crit_edge.i, !llvm.loop !129
 
 ._crit_edge.i:                                    ; preds = %555, %.preheader681.i
-  %.2.lcssa.i = phi i32 [ %.0.lcssa.i, %.preheader681.i ], [ %.3.i, %555 ]
+  %.2.lcssa.i = phi i32 [ %.0531.lcssa.i, %.preheader681.i ], [ %.3.i, %555 ]
   %.not568.i = icmp eq i32 %.2.lcssa.i, 0
   br i1 %.not568.i, label %559, label %.sink.split777.i
 
@@ -26839,7 +26839,7 @@ shouldPrintColumn.exit.thread642.i:               ; preds = %522, %520, %516, %4
   br i1 %584, label %585, label %586
 
 585:                                              ; preds = %582
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1239, ptr noundef %.0543.i) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1239, ptr noundef %.0535.i) #14
   %.pr.i = load i8, ptr %21, align 8
   br label %586
 
@@ -26849,7 +26849,7 @@ shouldPrintColumn.exit.thread642.i:               ; preds = %522, %520, %516, %4
   br i1 %588, label %589, label %591
 
 589:                                              ; preds = %586
-  %590 = tail call ptr @fmtId(ptr noundef %.0545.i) #14
+  %590 = tail call ptr @fmtId(ptr noundef %.0533.i) #14
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1240, ptr noundef %590) #14
   br label %591
 
@@ -26938,16 +26938,16 @@ appendReloptionsArrayAH.exit627.i:                ; preds = %623, %617, %nonempt
   br label %nonemptyReloptions.exit621.thread.i
 
 nonemptyReloptions.exit621.thread.i:              ; preds = %appendReloptionsArrayAH.exit627.i, %nonemptyReloptions.exit621.i, %nonemptyReloptions.exit619.thread.i
-  %.not573.i = icmp eq ptr %.0544.i, null
+  %.not573.i = icmp eq ptr %.0534.i, null
   br i1 %.not573.i, label %627, label %624
 
 624:                                              ; preds = %nonemptyReloptions.exit621.thread.i
-  %625 = load i8, ptr %.0544.i, align 1
+  %625 = load i8, ptr %.0534.i, align 1
   %.not574.i = icmp eq i8 %625, 0
   br i1 %.not574.i, label %627, label %626
 
 626:                                              ; preds = %624
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1243, ptr noundef nonnull %.0544.i) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1243, ptr noundef nonnull %.0534.i) #14
   br label %627
 
 627:                                              ; preds = %626, %624, %nonemptyReloptions.exit621.thread.i
@@ -27225,7 +27225,7 @@ nonemptyReloptions.exit621.thread.i:              ; preds = %appendReloptionsArr
   %786 = tail call ptr @fmtId(ptr noundef %785) #14
   %787 = getelementptr inbounds i8, ptr %772, i64 88
   %788 = load ptr, ptr %787, align 8
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1259, ptr noundef nonnull %.0546.i, ptr noundef %319, ptr noundef %786, ptr noundef %788) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1259, ptr noundef nonnull %.0532.i, ptr noundef %319, ptr noundef %786, ptr noundef %788) #14
   tail call void @appendPQExpBufferStr(ptr noundef %307, ptr noundef nonnull @.str.1260) #14
   %789 = load ptr, ptr %784, align 8
   %790 = load i32, ptr %693, align 8
@@ -27274,7 +27274,7 @@ nonemptyReloptions.exit621.thread.i:              ; preds = %appendReloptionsArr
   %811 = getelementptr inbounds i8, ptr %806, i64 16
   %812 = load ptr, ptr %811, align 8
   %813 = tail call ptr @fmtQualifiedId(ptr noundef %810, ptr noundef %812) #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1263, ptr noundef nonnull %.0546.i, ptr noundef %319, ptr noundef %813) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1263, ptr noundef nonnull %.0532.i, ptr noundef %319, ptr noundef %813) #14
   %indvars.iv.next747.i = add nuw nsw i64 %indvars.iv746.i, 1
   %exitcond750.not.i = icmp eq i64 %indvars.iv.next747.i, %wide.trip.count749.i
   br i1 %exitcond750.not.i, label %.loopexit.i, label %.lr.ph713.i, !llvm.loop !134
@@ -27435,11 +27435,11 @@ shouldPrintColumn.exit630.i:                      ; preds = %874
   br i1 %892, label %897, label %898
 
 897:                                              ; preds = %890
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1272, ptr noundef nonnull %.0546.i, ptr noundef %319, ptr noundef %896) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1272, ptr noundef nonnull %.0532.i, ptr noundef %319, ptr noundef %896) #14
   br label %shouldPrintColumn.exit630.thread.i
 
 898:                                              ; preds = %890
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1273, ptr noundef nonnull %.0546.i, ptr noundef %319, ptr noundef nonnull %884, ptr noundef %896) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1273, ptr noundef nonnull %.0532.i, ptr noundef %319, ptr noundef nonnull %884, ptr noundef %896) #14
   br label %shouldPrintColumn.exit630.thread.i
 
 shouldPrintColumn.exit630.thread.i:               ; preds = %898, %897, %885, %881, %shouldPrintColumn.exit630.i, %874, %872
@@ -27457,7 +27457,7 @@ shouldPrintColumn.exit630.thread.i:               ; preds = %898, %897, %885, %8
   %908 = load ptr, ptr %860, align 8
   %909 = getelementptr i32, ptr %908, i64 %indvars.iv751.i
   %910 = load i32, ptr %909, align 4
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1274, ptr noundef nonnull %.0546.i, ptr noundef %319, ptr noundef %907, i32 noundef %910) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1274, ptr noundef nonnull %.0532.i, ptr noundef %319, ptr noundef %907, i32 noundef %910) #14
   br label %911
 
 911:                                              ; preds = %903, %shouldPrintColumn.exit630.thread.i
@@ -27488,12 +27488,12 @@ shouldPrintColumn.exit630.thread.i:               ; preds = %898, %897, %885, %8
   br label %922
 
 922:                                              ; preds = %921, %920, %919, %918
-  %.0533.ph.i = phi ptr [ @.str.1275, %918 ], [ @.str.1276, %919 ], [ @.str.1277, %920 ], [ @.str.1278, %921 ]
+  %.0544.ph.i = phi ptr [ @.str.1275, %918 ], [ @.str.1276, %919 ], [ @.str.1277, %920 ], [ @.str.1278, %921 ]
   %923 = load ptr, ptr %859, align 8
   %924 = getelementptr ptr, ptr %923, i64 %indvars.iv751.i
   %925 = load ptr, ptr %924, align 8
   %926 = tail call ptr @fmtId(ptr noundef %925) #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1279, ptr noundef nonnull %.0546.i, ptr noundef %319, ptr noundef %926, ptr noundef nonnull %.0533.ph.i) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1279, ptr noundef nonnull %.0532.i, ptr noundef %319, ptr noundef %926, ptr noundef nonnull %.0544.ph.i) #14
   br label %927
 
 927:                                              ; preds = %922, %918, %911
@@ -27514,12 +27514,12 @@ shouldPrintColumn.exit630.thread.i:               ; preds = %898, %897, %885, %8
   br label %934
 
 934:                                              ; preds = %933, %929
-  %.0530.ph.i = phi ptr [ @.str.1280, %929 ], [ @.str.1281, %933 ]
+  %.0529.ph.i = phi ptr [ @.str.1280, %929 ], [ @.str.1281, %933 ]
   %935 = load ptr, ptr %859, align 8
   %936 = getelementptr ptr, ptr %935, i64 %indvars.iv751.i
   %937 = load ptr, ptr %936, align 8
   %938 = tail call ptr @fmtId(ptr noundef %937) #14
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1282, ptr noundef nonnull %.0546.i, ptr noundef %319, ptr noundef %938, ptr noundef nonnull %.0530.ph.i) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1282, ptr noundef nonnull %.0532.i, ptr noundef %319, ptr noundef %938, ptr noundef nonnull %.0529.ph.i) #14
   br label %939
 
 939:                                              ; preds = %934, %929, %927
@@ -27538,7 +27538,7 @@ shouldPrintColumn.exit630.thread.i:               ; preds = %898, %897, %885, %8
   %949 = load ptr, ptr %865, align 8
   %950 = getelementptr ptr, ptr %949, i64 %indvars.iv751.i
   %951 = load ptr, ptr %950, align 8
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1283, ptr noundef nonnull %.0546.i, ptr noundef %319, ptr noundef %948, ptr noundef %951) #14
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %307, ptr noundef nonnull @.str.1283, ptr noundef nonnull %.0532.i, ptr noundef %319, ptr noundef %948, ptr noundef %951) #14
   br label %952
 
 952:                                              ; preds = %944, %939
@@ -27573,13 +27573,13 @@ shouldPrintColumn.exit630.thread.i:               ; preds = %898, %897, %885, %8
   br i1 %971, label %867, label %._crit_edge716.i, !llvm.loop !135
 
 ._crit_edge716.i:                                 ; preds = %968, %.thread661.i
-  tail call void @free(ptr noundef %.0543.i) #14
-  tail call void @free(ptr noundef %.0544.i) #14
-  tail call void @free(ptr noundef %.0545.i) #14
+  tail call void @free(ptr noundef %.0535.i) #14
+  tail call void @free(ptr noundef %.0534.i) #14
+  tail call void @free(ptr noundef %.0533.i) #14
   br label %972
 
 972:                                              ; preds = %._crit_edge716.i, %363
-  %.1532.i = phi ptr [ @.str.1213, %363 ], [ %.0531.i, %._crit_edge716.i ]
+  %.1546.i = phi ptr [ @.str.1213, %363 ], [ %.0545.i, %._crit_edge716.i ]
   %973 = load i8, ptr %21, align 8
   switch i8 %973, label %978 [
     i8 114, label %974
@@ -27622,7 +27622,7 @@ shouldPrintColumn.exit630.thread.i:               ; preds = %898, %897, %885, %8
   %986 = load ptr, ptr %313, align 8
   %987 = getelementptr inbounds i8, ptr %986, i64 16
   %988 = load ptr, ptr %987, align 8
-  tail call fastcc void @binary_upgrade_extension_member(ptr noundef %307, ptr noundef nonnull %1, ptr noundef nonnull %.1532.i, ptr noundef %312, ptr noundef %988)
+  tail call fastcc void @binary_upgrade_extension_member(ptr noundef %307, ptr noundef nonnull %1, ptr noundef nonnull %.1546.i, ptr noundef %312, ptr noundef %988)
   br label %989
 
 989:                                              ; preds = %985, %983
@@ -27649,7 +27649,7 @@ shouldPrintColumn.exit630.thread.i:               ; preds = %898, %897, %885, %8
   br label %997
 
 997:                                              ; preds = %994, %992
-  %.0529.i = phi ptr [ %996, %994 ], [ null, %992 ]
+  %.0528.i = phi ptr [ %996, %994 ], [ null, %992 ]
   switch i8 %993, label %.thread674.i [
     i8 114, label %998
     i8 116, label %998
@@ -27662,8 +27662,8 @@ shouldPrintColumn.exit630.thread.i:               ; preds = %898, %897, %885, %8
   br label %.thread674.i
 
 .thread674.i:                                     ; preds = %998, %997, %992
-  %.0529676.i = phi ptr [ %.0529.i, %998 ], [ %.0529.i, %997 ], [ null, %992 ]
-  %.0528.i = phi ptr [ %1000, %998 ], [ null, %997 ], [ null, %992 ]
+  %.0528676.i = phi ptr [ %.0528.i, %998 ], [ %.0528.i, %997 ], [ null, %992 ]
+  %.0.i64 = phi ptr [ %1000, %998 ], [ null, %997 ], [ null, %992 ]
   %1001 = getelementptr inbounds i8, ptr %1, i64 4
   %1002 = getelementptr inbounds i8, ptr %1, i64 12
   %1003 = load i32, ptr %1002, align 4
@@ -27675,15 +27675,15 @@ shouldPrintColumn.exit630.thread.i:               ; preds = %898, %897, %885, %8
   %1008 = load ptr, ptr %1007, align 8
   store ptr %1008, ptr %1005, align 8
   %1009 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %.0529676.i, ptr %1009, align 8
+  store ptr %.0528676.i, ptr %1009, align 8
   %1010 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr %.0528.i, ptr %1010, align 8
+  store ptr %.0.i64, ptr %1010, align 8
   %1011 = getelementptr inbounds i8, ptr %6, i64 32
   %1012 = getelementptr inbounds i8, ptr %1, i64 96
   %1013 = load ptr, ptr %1012, align 8
   store ptr %1013, ptr %1011, align 8
   %1014 = getelementptr inbounds i8, ptr %6, i64 40
-  store ptr %.1532.i, ptr %1014, align 8
+  store ptr %.1546.i, ptr %1014, align 8
   %1015 = getelementptr inbounds i8, ptr %6, i64 48
   %1016 = getelementptr inbounds i8, ptr %1, i64 210
   %1017 = load i8, ptr %1016, align 2
@@ -27889,14 +27889,14 @@ findComments.exit.i.i:                            ; preds = %1091, %1088, %.lr.p
   call void @resetPQExpBuffer(ptr noundef %1097) #14
   %1130 = load ptr, ptr %309, align 8
   %1131 = call ptr @fmtId(ptr noundef %1130) #14
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %1097, ptr noundef nonnull @.str.406, ptr noundef nonnull %.1532.i, ptr noundef %1131) #14
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %1097, ptr noundef nonnull @.str.406, ptr noundef nonnull %.1546.i, ptr noundef %1131) #14
   call void @resetPQExpBuffer(ptr noundef %1096) #14
   %1132 = load ptr, ptr %313, align 8
   %1133 = getelementptr inbounds i8, ptr %1132, i64 16
   %1134 = load ptr, ptr %1133, align 8
   %1135 = load ptr, ptr %309, align 8
   %1136 = call ptr @fmtQualifiedId(ptr noundef %1134, ptr noundef %1135) #14
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %1096, ptr noundef nonnull @.str.1295, ptr noundef nonnull %.1532.i, ptr noundef %1136) #14
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %1096, ptr noundef nonnull @.str.1295, ptr noundef nonnull %.1546.i, ptr noundef %1136) #14
   %1137 = load i32, ptr %1100, align 8
   %1138 = load i8, ptr %1101, align 4
   %1139 = trunc i8 %1138 to i1
@@ -28172,7 +28172,7 @@ findSecLabels.exit.i.i:                           ; preds = %1252, %1249, %.lr.p
   %1274 = load ptr, ptr %1273, align 8
   %1275 = load ptr, ptr %309, align 8
   %1276 = call ptr @fmtQualifiedId(ptr noundef %1274, ptr noundef %1275) #14
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %1258, ptr noundef nonnull @.str.406, ptr noundef nonnull %.1532.i, ptr noundef %1276) #14
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %1258, ptr noundef nonnull @.str.406, ptr noundef nonnull %.1546.i, ptr noundef %1276) #14
   br label %1297
 
 1277:                                             ; preds = %1263
@@ -28243,7 +28243,7 @@ getAttrName.exit.i.i:                             ; preds = %switch.lookup, %128
   call void @resetPQExpBuffer(ptr noundef nonnull %1258) #14
   %1307 = load ptr, ptr %309, align 8
   %1308 = call ptr @fmtId(ptr noundef %1307) #14
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %1258, ptr noundef nonnull @.str.406, ptr noundef nonnull %.1532.i, ptr noundef %1308) #14
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %1258, ptr noundef nonnull @.str.406, ptr noundef nonnull %.1546.i, ptr noundef %1308) #14
   %1309 = call i32 @createDumpId() #14
   %1310 = load ptr, ptr %1258, align 8
   store ptr %1310, ptr %3, align 8
@@ -28365,8 +28365,8 @@ dumpTableSchema.exit:                             ; preds = %1351, %1330
   %1375 = getelementptr inbounds i8, ptr %1, i64 64
   %1376 = call fastcc i32 @dumpACL(ptr noundef nonnull %0, i32 noundef %1368, i32 noundef 0, ptr noundef nonnull %1366, ptr noundef %1359, ptr noundef null, ptr noundef %1372, ptr noundef %1374, ptr noundef nonnull %1375)
   %.pre = load i32, ptr %17, align 8
-  %.pre87 = and i32 %.pre, 16
-  %1377 = icmp eq i32 %.pre87, 0
+  %.pre88 = and i32 %.pre, 16
+  %1377 = icmp eq i32 %.pre88, 0
   br i1 %1377, label %.thread, label %1378
 
 1378:                                             ; preds = %1362
@@ -28418,13 +28418,13 @@ dumpTableSchema.exit:                             ; preds = %1351, %1330
   br label %1409
 
 1409:                                             ; preds = %.lr.ph, %1409
-  %.06076 = phi i32 [ 0, %.lr.ph ], [ %1424, %1409 ]
-  %1410 = call ptr @PQgetvalue(ptr noundef %1400, i32 noundef %.06076, i32 noundef 0) #14
-  %1411 = call ptr @PQgetvalue(ptr noundef %1400, i32 noundef %.06076, i32 noundef 1) #14
-  %1412 = call ptr @PQgetvalue(ptr noundef %1400, i32 noundef %.06076, i32 noundef 2) #14
-  %1413 = call ptr @PQgetvalue(ptr noundef %1400, i32 noundef %.06076, i32 noundef 3) #14
+  %.06077 = phi i32 [ 0, %.lr.ph ], [ %1424, %1409 ]
+  %1410 = call ptr @PQgetvalue(ptr noundef %1400, i32 noundef %.06077, i32 noundef 0) #14
+  %1411 = call ptr @PQgetvalue(ptr noundef %1400, i32 noundef %.06077, i32 noundef 1) #14
+  %1412 = call ptr @PQgetvalue(ptr noundef %1400, i32 noundef %.06077, i32 noundef 2) #14
+  %1413 = call ptr @PQgetvalue(ptr noundef %1400, i32 noundef %.06077, i32 noundef 3) #14
   %1414 = load i8, ptr %1413, align 1
-  %1415 = call ptr @PQgetvalue(ptr noundef %1400, i32 noundef %.06076, i32 noundef 4) #14
+  %1415 = call ptr @PQgetvalue(ptr noundef %1400, i32 noundef %.06077, i32 noundef 4) #14
   store ptr %1411, ptr %11, align 8
   store ptr %1412, ptr %1403, align 8
   store i8 %1414, ptr %1404, align 8
@@ -28438,7 +28438,7 @@ dumpTableSchema.exit:                             ; preds = %1351, %1330
   %1422 = load ptr, ptr %1408, align 8
   %1423 = call fastcc i32 @dumpACL(ptr noundef nonnull %0, i32 noundef %1418, i32 noundef %1376, ptr noundef nonnull @.str.1174, ptr noundef %1359, ptr noundef %1417, ptr noundef %1421, ptr noundef %1422, ptr noundef nonnull %11)
   call void @free(ptr noundef %1417) #14
-  %1424 = add nuw nsw i32 %.06076, 1
+  %1424 = add nuw nsw i32 %.06077, 1
   %1425 = call i32 @PQntuples(ptr noundef %1400) #14
   %1426 = icmp slt i32 %1424, %1425
   br i1 %1426, label %1409, label %._crit_edge, !llvm.loop !142
@@ -29167,7 +29167,7 @@ nonemptyReloptions.exit.thread:                   ; preds = %._crit_edge244, %ap
   unreachable
 
 429:                                              ; preds = %291, %261, %315, %319, %349, %323, %215, %236
-  %.0.ph = phi ptr [ null, %315 ], [ null, %319 ], [ %345, %323 ], [ %345, %349 ], [ %287, %261 ], [ %287, %291 ], [ %232, %215 ], [ %232, %236 ]
+  %.0211.ph = phi ptr [ null, %315 ], [ null, %319 ], [ %345, %323 ], [ %345, %349 ], [ %287, %261 ], [ %287, %291 ], [ %232, %215 ], [ %232, %236 ]
   %430 = getelementptr inbounds i8, ptr %1, i64 108
   %431 = load i8, ptr %430, align 4
   %432 = trunc i8 %431 to i1
@@ -29185,8 +29185,8 @@ nonemptyReloptions.exit.thread:                   ; preds = %._crit_edge244, %ap
   br label %438
 
 438:                                              ; preds = %373, %405, %379, %437, %433, %429
-  %.0234 = phi ptr [ %.0.ph, %437 ], [ %.0.ph, %433 ], [ %.0.ph, %429 ], [ %401, %405 ], [ %401, %379 ], [ null, %373 ]
-  call void @free(ptr noundef %.0234) #14
+  %.0211234 = phi ptr [ %.0211.ph, %437 ], [ %.0211.ph, %433 ], [ %.0211.ph, %429 ], [ %401, %405 ], [ %401, %379 ], [ null, %373 ]
+  call void @free(ptr noundef %.0211234) #14
   call void @destroyPQExpBuffer(ptr noundef %14) #14
   call void @destroyPQExpBuffer(ptr noundef %15) #14
   br label %439
@@ -30584,7 +30584,7 @@ define internal noundef i32 @dumpTableData_insert(ptr noundef %0, ptr nocapture 
 19:                                               ; preds = %.lr.ph, %49
   %20 = phi i32 [ %13, %.lr.ph ], [ %50, %49 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %.0145169 = phi i32 [ 0, %.lr.ph ], [ %.1146, %49 ]
+  %.0144168 = phi i32 [ 0, %.lr.ph ], [ %.1145, %49 ]
   %21 = load ptr, ptr %15, align 8
   %22 = getelementptr i8, ptr %21, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1
@@ -30604,7 +30604,7 @@ define internal noundef i32 @dumpTableData_insert(ptr noundef %0, ptr nocapture 
   br i1 %.not162, label %31, label %49
 
 31:                                               ; preds = %29, %25
-  %32 = icmp sgt i32 %.0145169, 0
+  %32 = icmp sgt i32 %.0144168, 0
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %31
@@ -30635,23 +30635,23 @@ define internal noundef i32 @dumpTableData_insert(ptr noundef %0, ptr nocapture 
   %43 = load ptr, ptr %16, align 8
   %44 = getelementptr i8, ptr %43, i64 %indvars.iv
   %45 = load i8, ptr %44, align 1
-  %46 = sext i32 %.0145169 to i64
+  %46 = sext i32 %.0144168 to i64
   %47 = getelementptr i8, ptr %12, i64 %46
   store i8 %45, ptr %47, align 1
-  %48 = add i32 %.0145169, 1
+  %48 = add i32 %.0144168, 1
   %.pre193 = load i32, ptr %9, align 8
   br label %49
 
 49:                                               ; preds = %29, %19, %42
   %50 = phi i32 [ %20, %19 ], [ %20, %29 ], [ %.pre193, %42 ]
-  %.1146 = phi i32 [ %.0145169, %19 ], [ %.0145169, %29 ], [ %48, %42 ]
+  %.1145 = phi i32 [ %.0144168, %19 ], [ %.0144168, %29 ], [ %48, %42 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
   br i1 %52, label %19, label %._crit_edge, !llvm.loop !156
 
 ._crit_edge:                                      ; preds = %49
-  %53 = icmp eq i32 %.1146, 0
+  %53 = icmp eq i32 %.1145, 0
   br i1 %53, label %._crit_edge.thread, label %54
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
@@ -30660,7 +30660,7 @@ define internal noundef i32 @dumpTableData_insert(ptr noundef %0, ptr nocapture 
 
 54:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %55 = phi i1 [ true, %._crit_edge.thread ], [ false, %._crit_edge ]
-  %.0145.lcssa195 = phi i32 [ 0, %._crit_edge.thread ], [ %.1146, %._crit_edge ]
+  %.0144.lcssa195 = phi i32 [ 0, %._crit_edge.thread ], [ %.1145, %._crit_edge ]
   %56 = getelementptr inbounds i8, ptr %4, i64 24
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 16
@@ -30685,21 +30685,21 @@ define internal noundef i32 @dumpTableData_insert(ptr noundef %0, ptr nocapture 
   %69 = getelementptr inbounds i8, ptr %5, i64 136
   %70 = getelementptr i8, ptr %4, i64 224
   %71 = getelementptr inbounds i8, ptr %5, i64 80
-  %72 = icmp sgt i32 %.0145.lcssa195, 0
+  %72 = icmp sgt i32 %.0144.lcssa195, 0
   %73 = getelementptr inbounds i8, ptr %4, i64 416
   %74 = icmp eq i32 %8, 1
   %75 = getelementptr inbounds i8, ptr %0, i64 64
   %76 = getelementptr inbounds i8, ptr %0, i64 68
   %77 = getelementptr inbounds i8, ptr %5, i64 172
-  %wide.trip.count = zext nneg i32 %.0145.lcssa195 to i64
+  %wide.trip.count = zext nneg i32 %.0144.lcssa195 to i64
   br label %78
 
 78:                                               ; preds = %._crit_edge182, %66
-  %.0143 = phi i32 [ 0, %66 ], [ %.1144.lcssa, %._crit_edge182 ]
-  %.0 = phi ptr [ null, %66 ], [ %.1, %._crit_edge182 ]
+  %.0146 = phi ptr [ null, %66 ], [ %.1147, %._crit_edge182 ]
+  %.0142 = phi i32 [ 0, %66 ], [ %.1.lcssa, %._crit_edge182 ]
   %79 = tail call ptr @ExecuteSqlQuery(ptr noundef nonnull %0, ptr noundef nonnull @.str.1445, i32 noundef 2) #14
   %80 = tail call i32 @PQnfields(ptr noundef %79) #14
-  %.not150 = icmp eq i32 %.0145.lcssa195, %80
+  %.not150 = icmp eq i32 %.0144.lcssa195, %80
   br i1 %.not150, label %87, label %81
 
 81:                                               ; preds = %78
@@ -30717,7 +30717,7 @@ define internal noundef i32 @dumpTableData_insert(ptr noundef %0, ptr nocapture 
   unreachable
 
 87:                                               ; preds = %82, %78
-  %88 = icmp eq ptr %.0, null
+  %88 = icmp eq ptr %.0146, null
   br i1 %88, label %89, label %131
 
 89:                                               ; preds = %87
@@ -30769,12 +30769,12 @@ forcePartitionRootLoad.exit.thread:               ; preds = %forcePartitionRootL
   br i1 %111, label %forcePartitionRootLoad.exit.thread, label %forcePartitionRootLoad.exit, !llvm.loop !20
 
 forcePartitionRootLoad.exit:                      ; preds = %.preheader.i, %forcePartitionRootLoad.exit.thread, %89
-  %.0142 = phi ptr [ %4, %89 ], [ %.0.i164, %forcePartitionRootLoad.exit.thread ], [ %4, %.preheader.i ]
-  %112 = getelementptr inbounds i8, ptr %.0142, i64 24
+  %.0141 = phi ptr [ %4, %89 ], [ %.0.i164, %forcePartitionRootLoad.exit.thread ], [ %4, %.preheader.i ]
+  %112 = getelementptr inbounds i8, ptr %.0141, i64 24
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 16
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %.0142, i64 16
+  %116 = getelementptr inbounds i8, ptr %.0141, i64 16
   %117 = load ptr, ptr %116, align 8
   %118 = tail call ptr @fmtQualifiedId(ptr noundef %115, ptr noundef %117) #14
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %90, ptr noundef nonnull @.str.1447, ptr noundef %118) #14
@@ -30790,8 +30790,8 @@ forcePartitionRootLoad.exit:                      ; preds = %.preheader.i, %forc
   br i1 %72, label %.lr.ph172, label %._crit_edge173
 
 .lr.ph172:                                        ; preds = %121, %123
-  %.0141170 = phi i32 [ %126, %123 ], [ 0, %121 ]
-  %.not153 = icmp eq i32 %.0141170, 0
+  %.0140170 = phi i32 [ %126, %123 ], [ 0, %121 ]
+  %.not153 = icmp eq i32 %.0140170, 0
   br i1 %.not153, label %123, label %122
 
 122:                                              ; preds = %.lr.ph172
@@ -30799,11 +30799,11 @@ forcePartitionRootLoad.exit:                      ; preds = %.preheader.i, %forc
   br label %123
 
 123:                                              ; preds = %122, %.lr.ph172
-  %124 = tail call ptr @PQfname(ptr noundef %79, i32 noundef %.0141170) #14
+  %124 = tail call ptr @PQfname(ptr noundef %79, i32 noundef %.0140170) #14
   %125 = tail call ptr @fmtId(ptr noundef %124) #14
   tail call void @appendPQExpBufferStr(ptr noundef %90, ptr noundef %125) #14
-  %126 = add nuw nsw i32 %.0141170, 1
-  %exitcond.not = icmp eq i32 %126, %.0145.lcssa195
+  %126 = add nuw nsw i32 %.0140170, 1
+  %exitcond.not = icmp eq i32 %126, %.0144.lcssa195
   br i1 %exitcond.not, label %._crit_edge173, label %.lr.ph172, !llvm.loop !157
 
 ._crit_edge173:                                   ; preds = %123, %121
@@ -30825,19 +30825,19 @@ forcePartitionRootLoad.exit:                      ; preds = %.preheader.i, %forc
   br label %131
 
 131:                                              ; preds = %.sink.split, %87
-  %.1 = phi ptr [ %.0, %87 ], [ %90, %.sink.split ]
+  %.1147 = phi ptr [ %.0146, %87 ], [ %90, %.sink.split ]
   %132 = tail call i32 @PQntuples(ptr noundef %79) #14
   %133 = icmp sgt i32 %132, 0
   br i1 %133, label %.lr.ph181, label %._crit_edge182
 
 .lr.ph181:                                        ; preds = %131, %182
-  %.0140179 = phi i32 [ %183, %182 ], [ 0, %131 ]
-  %.1144178 = phi i32 [ %.2, %182 ], [ %.0143, %131 ]
-  %134 = icmp eq i32 %.1144178, 0
+  %.0139179 = phi i32 [ %183, %182 ], [ 0, %131 ]
+  %.1178 = phi i32 [ %.2, %182 ], [ %.0142, %131 ]
+  %134 = icmp eq i32 %.1178, 0
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %.lr.ph181
-  %136 = load ptr, ptr %.1, align 8
+  %136 = load ptr, ptr %.1147, align 8
   tail call void @archputs(ptr noundef %136, ptr noundef nonnull %0) #14
   br label %137
 
@@ -30845,7 +30845,7 @@ forcePartitionRootLoad.exit:                      ; preds = %.preheader.i, %forc
   br i1 %55, label %182, label %138
 
 138:                                              ; preds = %137
-  %139 = icmp sgt i32 %.1144178, 0
+  %139 = icmp sgt i32 %.1178, 0
   %.str.1452..str.1453 = select i1 %139, ptr @.str.1452, ptr @.str.1453
   %.str.1452.sink = select i1 %74, ptr @.str.1227, ptr %.str.1452..str.1453
   tail call void @archputs(ptr noundef nonnull %.str.1452.sink, ptr noundef nonnull %0) #14
@@ -30872,7 +30872,7 @@ forcePartitionRootLoad.exit:                      ; preds = %.preheader.i, %forc
 
 145:                                              ; preds = %141
   %146 = trunc nuw nsw i64 %indvars.iv188 to i32
-  %147 = tail call i32 @PQgetisnull(ptr noundef %79, i32 noundef %.0140179, i32 noundef %146) #14
+  %147 = tail call i32 @PQgetisnull(ptr noundef %79, i32 noundef %.0139179, i32 noundef %146) #14
   %.not160 = icmp eq i32 %147, 0
   br i1 %.not160, label %149, label %148
 
@@ -30896,7 +30896,7 @@ forcePartitionRootLoad.exit:                      ; preds = %.preheader.i, %forc
   ]
 
 151:                                              ; preds = %149, %149, %149, %149, %149, %149, %149
-  %152 = tail call ptr @PQgetvalue(ptr noundef %79, i32 noundef %.0140179, i32 noundef %146) #14
+  %152 = tail call ptr @PQgetvalue(ptr noundef %79, i32 noundef %.0139179, i32 noundef %146) #14
   %153 = tail call i64 @strspn(ptr noundef %152, ptr noundef nonnull @.str.1454) #15
   %154 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %152) #15
   %155 = icmp eq i64 %153, %154
@@ -30911,12 +30911,12 @@ forcePartitionRootLoad.exit:                      ; preds = %.preheader.i, %forc
   br label %179
 
 159:                                              ; preds = %149, %149
-  %160 = tail call ptr @PQgetvalue(ptr noundef %79, i32 noundef %.0140179, i32 noundef %146) #14
+  %160 = tail call ptr @PQgetvalue(ptr noundef %79, i32 noundef %.0139179, i32 noundef %146) #14
   %161 = tail call i32 (ptr, ptr, ...) @archprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1456, ptr noundef %160) #14
   br label %179
 
 sub_0:                                            ; preds = %149
-  %162 = tail call ptr @PQgetvalue(ptr noundef %79, i32 noundef %.0140179, i32 noundef %146) #14
+  %162 = tail call ptr @PQgetvalue(ptr noundef %79, i32 noundef %.0139179, i32 noundef %146) #14
   %163 = load i8, ptr %162, align 1
   %164 = zext i8 %163 to i32
   %165 = add nsw i32 %164, -116
@@ -30944,7 +30944,7 @@ sub_1:                                            ; preds = %sub_0
 
 173:                                              ; preds = %149
   tail call void @resetPQExpBuffer(ptr noundef nonnull %6) #14
-  %174 = tail call ptr @PQgetvalue(ptr noundef %79, i32 noundef %.0140179, i32 noundef %146) #14
+  %174 = tail call ptr @PQgetvalue(ptr noundef %79, i32 noundef %.0139179, i32 noundef %146) #14
   %175 = load i32, ptr %75, align 8
   %176 = load i8, ptr %76, align 4
   %177 = trunc i8 %176 to i1
@@ -30960,7 +30960,7 @@ sub_1:                                            ; preds = %sub_0
 
 ._crit_edge177:                                   ; preds = %179, %138
   tail call void @archputs(ptr noundef nonnull @.str.1457, ptr noundef nonnull %0) #14
-  %180 = add i32 %.1144178, 1
+  %180 = add i32 %.1178, 1
   %.not156 = icmp slt i32 %180, %8
   br i1 %.not156, label %182, label %.sink.split199
 
@@ -30972,21 +30972,21 @@ sub_1:                                            ; preds = %sub_0
   br label %182
 
 182:                                              ; preds = %.sink.split199, %._crit_edge177, %137
-  %.2 = phi i32 [ %.1144178, %137 ], [ %180, %._crit_edge177 ], [ 0, %.sink.split199 ]
-  %183 = add nuw nsw i32 %.0140179, 1
+  %.2 = phi i32 [ %.1178, %137 ], [ %180, %._crit_edge177 ], [ 0, %.sink.split199 ]
+  %183 = add nuw nsw i32 %.0139179, 1
   %184 = tail call i32 @PQntuples(ptr noundef %79) #14
   %185 = icmp slt i32 %183, %184
   br i1 %185, label %.lr.ph181, label %._crit_edge182, !llvm.loop !159
 
 ._crit_edge182:                                   ; preds = %182, %131
-  %.1144.lcssa = phi i32 [ %.0143, %131 ], [ %.2, %182 ]
+  %.1.lcssa = phi i32 [ %.0142, %131 ], [ %.2, %182 ]
   %186 = tail call i32 @PQntuples(ptr noundef %79) #14
   %187 = icmp slt i32 %186, 1
   tail call void @PQclear(ptr noundef %79) #14
   br i1 %187, label %188, label %78
 
 188:                                              ; preds = %._crit_edge182
-  %189 = icmp sgt i32 %.1144.lcssa, 0
+  %189 = icmp sgt i32 %.1.lcssa, 0
   br i1 %189, label %.sink.split200, label %191
 
 .sink.split200:                                   ; preds = %188
@@ -31000,11 +31000,11 @@ sub_1:                                            ; preds = %sub_0
   tail call void @archputs(ptr noundef nonnull @.str.1459, ptr noundef nonnull %0) #14
   tail call void @ExecuteSqlStatement(ptr noundef nonnull %0, ptr noundef nonnull @.str.1460) #14
   tail call void @destroyPQExpBuffer(ptr noundef nonnull %6) #14
-  %.not155 = icmp eq ptr %.1, null
+  %.not155 = icmp eq ptr %.1147, null
   br i1 %.not155, label %193, label %192
 
 192:                                              ; preds = %191
-  tail call void @destroyPQExpBuffer(ptr noundef nonnull %.1) #14
+  tail call void @destroyPQExpBuffer(ptr noundef nonnull %.1147) #14
   br label %193
 
 193:                                              ; preds = %192, %191

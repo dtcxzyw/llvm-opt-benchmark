@@ -145,12 +145,12 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
 .thread143:                                       ; preds = %.thread, %29, %27, %25, %23, %21, %19
   %33 = phi i1 [ true, %19 ], [ true, %21 ], [ false, %23 ], [ false, %25 ], [ false, %27 ], [ false, %29 ], [ false, %.thread ]
   %34 = phi i1 [ false, %19 ], [ false, %21 ], [ true, %23 ], [ true, %25 ], [ true, %27 ], [ true, %29 ], [ false, %.thread ]
-  %.0115 = phi i32 [ 1, %19 ], [ 1, %21 ], [ 2, %23 ], [ 2, %25 ], [ 2, %27 ], [ 2, %29 ], [ 0, %.thread ]
+  %.0114 = phi i32 [ 1, %19 ], [ 1, %21 ], [ 2, %23 ], [ 2, %25 ], [ 2, %27 ], [ 2, %29 ], [ 0, %.thread ]
   %35 = phi i1 [ false, %19 ], [ false, %21 ], [ false, %23 ], [ false, %25 ], [ true, %27 ], [ false, %29 ], [ false, %.thread ]
   %36 = phi i1 [ false, %19 ], [ false, %21 ], [ false, %23 ], [ false, %25 ], [ false, %27 ], [ true, %29 ], [ false, %.thread ]
-  %.0114 = phi i32 [ 0, %19 ], [ 1, %21 ], [ 0, %23 ], [ 1, %25 ], [ 2, %27 ], [ 3, %29 ], [ 0, %.thread ]
-  %.0113.in = phi ptr [ @netxray_1_0_file_type_subtype, %19 ], [ @netxray_1_1_file_type_subtype, %21 ], [ @netxray_2_00x_file_type_subtype, %23 ], [ @netxray_2_00x_file_type_subtype, %25 ], [ @netxray_2_00x_file_type_subtype, %27 ], [ @netxray_2_00x_file_type_subtype, %29 ], [ @netxray_old_file_type_subtype, %.thread ]
-  %.0113 = load i32, ptr %.0113.in, align 4
+  %.0113 = phi i32 [ 0, %19 ], [ 1, %21 ], [ 0, %23 ], [ 1, %25 ], [ 2, %27 ], [ 3, %29 ], [ 0, %.thread ]
+  %.0112.in = phi ptr [ @netxray_1_0_file_type_subtype, %19 ], [ @netxray_1_1_file_type_subtype, %21 ], [ @netxray_2_00x_file_type_subtype, %23 ], [ @netxray_2_00x_file_type_subtype, %25 ], [ @netxray_2_00x_file_type_subtype, %27 ], [ @netxray_2_00x_file_type_subtype, %29 ], [ @netxray_old_file_type_subtype, %.thread ]
+  %.0112 = load i32, ptr %.0112.in, align 4
   %37 = getelementptr inbounds i8, ptr %5, i64 41
   %38 = load i8, ptr %37, align 1
   switch i8 %38, label %48 [
@@ -179,12 +179,12 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   br label %247
 
 51:                                               ; preds = %44, %39
-  %.0118 = phi i32 [ %47, %44 ], [ %43, %39 ]
-  %52 = icmp ugt i32 %.0118, 11
+  %.0117 = phi i32 [ %47, %44 ], [ %43, %39 ]
+  %52 = icmp ugt i32 %.0117, 11
   br i1 %52, label %58, label %53
 
 53:                                               ; preds = %51
-  %54 = zext nneg i32 %.0118 to i64
+  %54 = zext nneg i32 %.0117 to i64
   %55 = getelementptr [12 x i32], ptr @netxray_open.netxray_encap, i64 0, i64 %54
   %56 = lshr i64 2529, %54
   %57 = and i64 %56, 1
@@ -194,7 +194,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
 58:                                               ; preds = %53, %51
   store i32 -4, ptr %1, align 4
   %59 = zext nneg i8 %38 to i32
-  %60 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %.0118, i32 noundef %59) #7
+  %60 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %.0117, i32 noundef %59) #7
   store ptr %60, ptr %2, align 8
   br label %247
 
@@ -217,7 +217,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   br i1 %33, label %72, label %79
 
 72:                                               ; preds = %71
-  switch i32 %.0114, label %77 [
+  switch i32 %.0113, label %77 [
     i32 0, label %73
     i32 1, label %75
   ]
@@ -234,7 +234,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
 
 77:                                               ; preds = %72
   store i32 -21, ptr %1, align 4
-  %78 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1, i32 noundef %.0114) #7
+  %78 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1, i32 noundef %.0113) #7
   store ptr %78, ptr %2, align 8
   br label %247
 
@@ -242,7 +242,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   br i1 %34, label %80, label %180
 
 80:                                               ; preds = %79
-  %cond = icmp eq i32 %.0118, 1
+  %cond = icmp eq i32 %.0117, 1
   br i1 %cond, label %81, label %161
 
 81:                                               ; preds = %80
@@ -413,7 +413,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   %167 = getelementptr inbounds i8, ptr %5, i64 80
   %168 = load i8, ptr %167, align 4
   %169 = zext i8 %168 to i32
-  %170 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %166, i32 noundef %.0118, i32 noundef %169, ptr noundef nonnull %5) #7
+  %170 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %166, i32 noundef %.0117, i32 noundef %169, ptr noundef nonnull %5) #7
   store ptr %170, ptr %2, align 8
   br label %247
 
@@ -424,9 +424,9 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   br label %175
 
 175:                                              ; preds = %98, %94, %113, %114, %127, %128, %142, %143, %156, %157, %171
-  %.0116 = phi double [ %151, %157 ], [ %151, %156 ], [ %136, %143 ], [ %136, %142 ], [ %122, %128 ], [ %122, %127 ], [ %108, %114 ], [ %108, %113 ], [ %97, %94 ], [ %100, %98 ], [ %174, %171 ]
-  %.0112 = phi double [ 0.000000e+00, %157 ], [ %68, %156 ], [ 0.000000e+00, %143 ], [ %68, %142 ], [ 0.000000e+00, %128 ], [ %68, %127 ], [ 0.000000e+00, %114 ], [ %68, %113 ], [ %68, %94 ], [ %68, %98 ], [ %68, %171 ]
-  %176 = fcmp ult double %.0116, 1.000000e+07
+  %.0115 = phi double [ %151, %157 ], [ %151, %156 ], [ %136, %143 ], [ %136, %142 ], [ %122, %128 ], [ %122, %127 ], [ %108, %114 ], [ %108, %113 ], [ %97, %94 ], [ %100, %98 ], [ %174, %171 ]
+  %.0111 = phi double [ 0.000000e+00, %157 ], [ %68, %156 ], [ 0.000000e+00, %143 ], [ %68, %142 ], [ 0.000000e+00, %128 ], [ %68, %127 ], [ 0.000000e+00, %114 ], [ %68, %113 ], [ %68, %94 ], [ %68, %98 ], [ %68, %171 ]
+  %176 = fcmp ult double %.0115, 1.000000e+07
   %177 = getelementptr inbounds i8, ptr %0, i64 148
   br i1 %176, label %179, label %178
 
@@ -440,15 +440,15 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
 
 180:                                              ; preds = %79
   store i32 -21, ptr %1, align 4
-  %181 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %.0115, i32 noundef %.0114) #7
+  %181 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %.0114, i32 noundef %.0113) #7
   store ptr %181, ptr %2, align 8
   br label %247
 
 182:                                              ; preds = %75, %73, %178, %179, %69
-  %.1117 = phi double [ 1.000000e+03, %69 ], [ 1.000000e+06, %75 ], [ 1.000000e+03, %73 ], [ %.0116, %178 ], [ %.0116, %179 ]
-  %.1 = phi double [ %68, %69 ], [ %68, %75 ], [ %68, %73 ], [ %.0112, %178 ], [ %.0112, %179 ]
-  %183 = fdiv double %.1, %.1117
-  %184 = icmp eq i32 %.0118, 4
+  %.1116 = phi double [ 1.000000e+03, %69 ], [ 1.000000e+06, %75 ], [ 1.000000e+03, %73 ], [ %.0115, %178 ], [ %.0115, %179 ]
+  %.1 = phi double [ %68, %69 ], [ %68, %75 ], [ %68, %73 ], [ %.0111, %178 ], [ %.0111, %179 ]
+  %183 = fdiv double %.1, %.1116
+  %184 = icmp eq i32 %.0117, 4
   br i1 %184, label %185, label %202
 
 185:                                              ; preds = %182
@@ -507,10 +507,10 @@ switch.lookup:                                    ; preds = %190
   br label %205
 
 205:                                              ; preds = %switch.lookup, %185, %186, %198, %197, %189, %202
-  %.0111 = phi i32 [ 40, %198 ], [ 36, %197 ], [ 27, %189 ], [ %203, %202 ], [ 19, %186 ], [ 1, %185 ], [ %switch.load, %switch.lookup ]
-  %.0110 = phi i32 [ 0, %198 ], [ 0, %197 ], [ 0, %189 ], [ 0, %202 ], [ 0, %186 ], [ 0, %185 ], [ %switch.idx.cast, %switch.lookup ]
+  %.0110 = phi i32 [ 40, %198 ], [ 36, %197 ], [ 27, %189 ], [ %203, %202 ], [ 19, %186 ], [ 1, %185 ], [ %switch.load, %switch.lookup ]
+  %.0 = phi i32 [ 0, %198 ], [ 0, %197 ], [ 0, %189 ], [ 0, %202 ], [ 0, %186 ], [ 0, %185 ], [ %switch.idx.cast, %switch.lookup ]
   %206 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %.0113, ptr %206, align 4
+  store i32 %.0112, ptr %206, align 4
   %207 = call noalias dereferenceable_or_null(64) ptr @g_malloc_n(i64 noundef 1, i64 noundef 64) #8
   %208 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %207, ptr %208, align 8
@@ -519,7 +519,7 @@ switch.lookup:                                    ; preds = %190
   %210 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr @netxray_seek_read, ptr %210, align 8
   %211 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 %.0111, ptr %211, align 8
+  store i32 %.0110, ptr %211, align 8
   %212 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %212, align 8
   %213 = getelementptr inbounds i8, ptr %5, i64 8
@@ -527,14 +527,14 @@ switch.lookup:                                    ; preds = %190
   %215 = zext i32 %214 to i64
   store i64 %215, ptr %207, align 8
   %216 = getelementptr inbounds i8, ptr %207, i64 8
-  store double %.1117, ptr %216, align 8
+  store double %.1116, ptr %216, align 8
   %217 = getelementptr inbounds i8, ptr %207, i64 16
   store double %183, ptr %217, align 8
   %218 = getelementptr inbounds i8, ptr %207, i64 48
-  store i32 %.0115, ptr %218, align 8
+  store i32 %.0114, ptr %218, align 8
   %219 = getelementptr inbounds i8, ptr %207, i64 52
   store i32 0, ptr %219, align 4
-  switch i32 %.0111, label %229 [
+  switch i32 %.0110, label %229 [
     i32 1, label %220
     i32 22, label %220
     i32 17, label %220
@@ -560,7 +560,7 @@ switch.lookup:                                    ; preds = %190
 
 229:                                              ; preds = %220, %228, %221, %205
   %230 = getelementptr inbounds i8, ptr %207, i64 56
-  store i32 %.0110, ptr %230, align 8
+  store i32 %.0, ptr %230, align 8
   %231 = getelementptr inbounds i8, ptr %207, i64 24
   store i32 0, ptr %231, align 8
   %232 = getelementptr inbounds i8, ptr %5, i64 12
@@ -587,8 +587,8 @@ switch.lookup:                                    ; preds = %190
   br label %247
 
 247:                                              ; preds = %.thread, %229, %14, %12, %8, %246, %199, %194, %180, %165, %158, %153, %139, %124, %110, %89, %77, %58, %48, %31
-  %.0 = phi i32 [ -1, %48 ], [ -1, %58 ], [ -1, %199 ], [ 1, %246 ], [ -1, %194 ], [ -1, %77 ], [ -1, %158 ], [ -1, %153 ], [ -1, %139 ], [ -1, %124 ], [ -1, %110 ], [ -1, %89 ], [ -1, %165 ], [ -1, %180 ], [ -1, %31 ], [ %., %8 ], [ 0, %12 ], [ -1, %14 ], [ -1, %229 ], [ -1, %.thread ]
-  ret i32 %.0
+  %.0119 = phi i32 [ -1, %48 ], [ -1, %58 ], [ -1, %199 ], [ 1, %246 ], [ -1, %194 ], [ -1, %77 ], [ -1, %158 ], [ -1, %153 ], [ -1, %139 ], [ -1, %124 ], [ -1, %110 ], [ -1, %89 ], [ -1, %165 ], [ -1, %180 ], [ -1, %31 ], [ %., %8 ], [ 0, %12 ], [ -1, %14 ], [ -1, %229 ], [ -1, %.thread ]
+  ret i32 %.0119
 }
 
 declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

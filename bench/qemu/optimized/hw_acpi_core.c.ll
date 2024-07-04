@@ -239,8 +239,8 @@ if.then1:                                         ; preds = %if.then
   br label %return
 
 if.end2:                                          ; preds = %entry, %if.then
-  %hdr_src.0 = phi ptr [ %blob, %if.then ], [ @dfl_hdr, %entry ]
   %body_start.0 = phi i64 [ 36, %if.then ], [ 0, %entry ]
+  %hdr_src.0 = phi ptr [ %blob, %if.then ], [ @dfl_hdr, %entry ]
   %sub = sub i64 %bloblen, %body_start.0
   %add = add i64 %sub, 36
   %cmp3 = icmp ugt i64 %add, 65535

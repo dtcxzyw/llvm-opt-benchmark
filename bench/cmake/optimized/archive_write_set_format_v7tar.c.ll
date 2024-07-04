@@ -153,7 +153,7 @@ define internal i32 @archive_write_v7tar_header(ptr noundef %0, ptr noundef %1) 
   br label %19
 
 19:                                               ; preds = %16, %._crit_edge, %2
-  %.046 = phi ptr [ %11, %2 ], [ %.pre, %._crit_edge ], [ %17, %16 ]
+  %.0 = phi ptr [ %11, %2 ], [ %.pre, %._crit_edge ], [ %17, %16 ]
   %20 = tail call ptr @archive_entry_pathname(ptr noundef %1) #11
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %23
@@ -232,7 +232,7 @@ define internal i32 @archive_write_v7tar_header(ptr noundef %0, ptr noundef %1) 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %6, ptr noundef nonnull align 16 dereferenceable(512) @template_header, i64 512, i1 false)
-  %55 = call i32 @_archive_entry_pathname_l(ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %.046) #11
+  %55 = call i32 @_archive_entry_pathname_l(ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %.0) #11
   %.not.i = icmp eq i32 %55, 0
   br i1 %.not.i, label %63, label %56
 
@@ -244,7 +244,7 @@ define internal i32 @archive_write_v7tar_header(ptr noundef %0, ptr noundef %1) 
 
 60:                                               ; preds = %56
   %61 = load ptr, ptr %5, align 8
-  %62 = call ptr @archive_string_conversion_charset_name(ptr noundef %.046) #11
+  %62 = call ptr @archive_string_conversion_charset_name(ptr noundef %.0) #11
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.7, ptr noundef %61, ptr noundef %62) #11
   br label %63
 
@@ -265,7 +265,7 @@ define internal i32 @archive_write_v7tar_header(ptr noundef %0, ptr noundef %1) 
 
 69:                                               ; preds = %68, %66
   %.1.i = phi i32 [ %.065.i, %66 ], [ -25, %68 ]
-  %70 = call i32 @_archive_entry_hardlink_l(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %.046) #11
+  %70 = call i32 @_archive_entry_hardlink_l(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %.0) #11
   %.not72.i = icmp eq i32 %70, 0
   br i1 %.not72.i, label %78, label %71
 
@@ -277,7 +277,7 @@ define internal i32 @archive_write_v7tar_header(ptr noundef %0, ptr noundef %1) 
 
 75:                                               ; preds = %71
   %76 = load ptr, ptr %4, align 8
-  %77 = call ptr @archive_string_conversion_charset_name(ptr noundef %.046) #11
+  %77 = call ptr @archive_string_conversion_charset_name(ptr noundef %.0) #11
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.10, ptr noundef %76, ptr noundef %77) #11
   br label %78
 
@@ -288,7 +288,7 @@ define internal i32 @archive_write_v7tar_header(ptr noundef %0, ptr noundef %1) 
   br i1 %.not73.not.i, label %80, label %.thread.i
 
 80:                                               ; preds = %78
-  %81 = call i32 @_archive_entry_symlink_l(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %.046) #11
+  %81 = call i32 @_archive_entry_symlink_l(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %.0) #11
   %.not74.i = icmp eq i32 %81, 0
   br i1 %.not74.i, label %89, label %82
 
@@ -300,7 +300,7 @@ define internal i32 @archive_write_v7tar_header(ptr noundef %0, ptr noundef %1) 
 
 86:                                               ; preds = %82
   %87 = load ptr, ptr %4, align 8
-  %88 = call ptr @archive_string_conversion_charset_name(ptr noundef %.046) #11
+  %88 = call ptr @archive_string_conversion_charset_name(ptr noundef %.0) #11
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.10, ptr noundef %87, ptr noundef %88) #11
   br label %89
 
@@ -636,8 +636,8 @@ format_header_v7tar.exit:                         ; preds = %._crit_edge.i.i, %.
   br label %202
 
 202:                                              ; preds = %197, %196, %192, %48, %22
-  %.0 = phi i32 [ -25, %22 ], [ -30, %48 ], [ %.068.i58, %192 ], [ %194, %196 ], [ %spec.select, %197 ]
-  ret i32 %.0
+  %.045 = phi i32 [ -25, %22 ], [ -30, %48 ], [ %.068.i58, %192 ], [ %194, %196 ], [ %spec.select, %197 ]
+  ret i32 %.045
 }
 
 ; Function Attrs: nounwind uwtable
@@ -652,8 +652,8 @@ define internal i64 @archive_write_v7tar_data(ptr noundef %0, ptr noundef %1, i6
   store i64 %9, ptr %5, align 8
   %.not = icmp eq i32 %7, 0
   %10 = sext i32 %7 to i64
-  %.0 = select i1 %.not, i64 %spec.select, i64 %10
-  ret i64 %.0
+  %.012 = select i1 %.not, i64 %spec.select, i64 %10
+  ret i64 %.012
 }
 
 ; Function Attrs: nounwind uwtable

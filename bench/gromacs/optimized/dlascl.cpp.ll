@@ -39,31 +39,31 @@ define void @dlascl_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %35 = phi i32 [ %14, %19 ], [ %275, %.loopexit171 ]
   %36 = phi i32 [ %14, %19 ], [ %276, %.loopexit171 ]
   %37 = phi i32 [ %14, %19 ], [ %277, %.loopexit171 ]
-  %.0155224 = phi double [ %21, %19 ], [ %.1156, %.loopexit171 ]
-  %.0157223 = phi double [ %20, %19 ], [ %.1158, %.loopexit171 ]
-  %38 = fmul double %.0157223, 0x350000000000000
+  %.0147224 = phi double [ %21, %19 ], [ %.1, %.loopexit171 ]
+  %.0148223 = phi double [ %20, %19 ], [ %.1149, %.loopexit171 ]
+  %38 = fmul double %.0148223, 0x350000000000000
   %39 = tail call noundef double @llvm.fabs.f64(double %38)
-  %40 = tail call noundef double @llvm.fabs.f64(double %.0155224)
+  %40 = tail call noundef double @llvm.fabs.f64(double %.0147224)
   %41 = fcmp ogt double %39, %40
   %42 = fcmp ogt double %40, 0x10000000000000
   %or.cond = and i1 %41, %42
   br i1 %or.cond, label %50, label %43
 
 43:                                               ; preds = %23
-  %44 = fmul double %.0155224, 0x350000000000000
+  %44 = fmul double %.0147224, 0x350000000000000
   %45 = tail call noundef double @llvm.fabs.f64(double %44)
-  %46 = tail call noundef double @llvm.fabs.f64(double %.0157223)
+  %46 = tail call noundef double @llvm.fabs.f64(double %.0148223)
   %47 = fcmp ogt double %45, %46
   br i1 %47, label %50, label %48
 
 48:                                               ; preds = %43
-  %49 = fdiv double %.0155224, %.0157223
+  %49 = fdiv double %.0147224, %.0148223
   br label %50
 
 50:                                               ; preds = %23, %43, %48
   %.not = phi i1 [ false, %48 ], [ true, %43 ], [ true, %23 ]
-  %.1158 = phi double [ %.0157223, %48 ], [ %.0157223, %43 ], [ %38, %23 ]
-  %.1156 = phi double [ %.0155224, %48 ], [ %44, %43 ], [ %.0155224, %23 ]
+  %.1149 = phi double [ %.0148223, %48 ], [ %.0148223, %43 ], [ %38, %23 ]
+  %.1 = phi double [ %.0147224, %48 ], [ %44, %43 ], [ %.0147224, %23 ]
   %.0 = phi double [ %49, %48 ], [ 0x7C90000000000000, %43 ], [ 0x350000000000000, %23 ]
   switch i32 %22, label %.sink.split [
     i32 71, label %.preheader170
@@ -103,21 +103,21 @@ define void @dlascl_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge221
   %57 = phi i32 [ %70, %._crit_edge221 ], [ %24, %.preheader.lr.ph ]
   %58 = phi i32 [ %71, %._crit_edge221 ], [ %55, %.preheader.lr.ph ]
-  %.0148222 = phi i32 [ %72, %._crit_edge221 ], [ 0, %.preheader.lr.ph ]
+  %.0152222 = phi i32 [ %72, %._crit_edge221 ], [ 0, %.preheader.lr.ph ]
   %59 = icmp sgt i32 %58, 0
   br i1 %59, label %.lr.ph220, label %._crit_edge221
 
 .lr.ph220:                                        ; preds = %.preheader, %.lr.ph220
-  %.0147219 = phi i32 [ %67, %.lr.ph220 ], [ 0, %.preheader ]
+  %.0154219 = phi i32 [ %67, %.lr.ph220 ], [ 0, %.preheader ]
   %60 = load i32, ptr %8, align 4
-  %61 = mul nsw i32 %60, %.0148222
-  %62 = add nsw i32 %61, %.0147219
+  %61 = mul nsw i32 %60, %.0152222
+  %62 = add nsw i32 %61, %.0154219
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds double, ptr %7, i64 %63
   %65 = load double, ptr %64, align 8
   %66 = fmul double %.0, %65
   store double %66, ptr %64, align 8
-  %67 = add nuw nsw i32 %.0147219, 1
+  %67 = add nuw nsw i32 %.0154219, 1
   %68 = load i32, ptr %5, align 4
   %69 = icmp slt i32 %67, %68
   br i1 %69, label %.lr.ph220, label %._crit_edge221.loopexit, !llvm.loop !4
@@ -129,7 +129,7 @@ define void @dlascl_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 ._crit_edge221:                                   ; preds = %._crit_edge221.loopexit, %.preheader
   %70 = phi i32 [ %.pre244, %._crit_edge221.loopexit ], [ %57, %.preheader ]
   %71 = phi i32 [ %68, %._crit_edge221.loopexit ], [ %58, %.preheader ]
-  %72 = add nuw nsw i32 %.0148222, 1
+  %72 = add nuw nsw i32 %.0152222, 1
   %73 = icmp slt i32 %72, %70
   br i1 %73, label %.preheader, label %.loopexit171, !llvm.loop !6
 
@@ -138,21 +138,21 @@ define void @dlascl_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %75 = phi i32 [ %90, %._crit_edge217 ], [ %25, %.preheader169.preheader ]
   %76 = phi i32 [ %91, %._crit_edge217 ], [ %26, %.preheader169.preheader ]
   %77 = phi i32 [ %92, %._crit_edge217 ], [ %.pre242, %.preheader169.preheader ]
-  %.1149218 = phi i32 [ %93, %._crit_edge217 ], [ 0, %.preheader169.preheader ]
-  %78 = icmp slt i32 %.1149218, %77
+  %.1153218 = phi i32 [ %93, %._crit_edge217 ], [ 0, %.preheader169.preheader ]
+  %78 = icmp slt i32 %.1153218, %77
   br i1 %78, label %.lr.ph216, label %._crit_edge217
 
 .lr.ph216:                                        ; preds = %.preheader169, %.lr.ph216
-  %.1215 = phi i32 [ %86, %.lr.ph216 ], [ %.1149218, %.preheader169 ]
+  %.1155215 = phi i32 [ %86, %.lr.ph216 ], [ %.1153218, %.preheader169 ]
   %79 = load i32, ptr %8, align 4
-  %80 = mul nsw i32 %79, %.1149218
-  %81 = add nsw i32 %80, %.1215
+  %80 = mul nsw i32 %79, %.1153218
+  %81 = add nsw i32 %80, %.1155215
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds double, ptr %7, i64 %82
   %84 = load double, ptr %83, align 8
   %85 = fmul double %.0, %84
   store double %85, ptr %83, align 8
-  %86 = add nuw nsw i32 %.1215, 1
+  %86 = add nuw nsw i32 %.1155215, 1
   %87 = load i32, ptr %5, align 4
   %88 = icmp slt i32 %86, %87
   br i1 %88, label %.lr.ph216, label %._crit_edge217.loopexit, !llvm.loop !8
@@ -166,7 +166,7 @@ define void @dlascl_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %90 = phi i32 [ %.pre243, %._crit_edge217.loopexit ], [ %75, %.preheader169 ]
   %91 = phi i32 [ %.pre243, %._crit_edge217.loopexit ], [ %76, %.preheader169 ]
   %92 = phi i32 [ %87, %._crit_edge217.loopexit ], [ %77, %.preheader169 ]
-  %93 = add nuw nsw i32 %.1149218, 1
+  %93 = add nuw nsw i32 %.1153218, 1
   %94 = icmp slt i32 %93, %91
   br i1 %94, label %.preheader169, label %.loopexit171, !llvm.loop !9
 
@@ -176,28 +176,28 @@ define void @dlascl_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %97 = phi i32 [ %112, %._crit_edge212 ], [ %26, %.preheader174 ]
   %98 = phi i32 [ %113, %._crit_edge212 ], [ %27, %.preheader174 ]
   %99 = phi i32 [ %114, %._crit_edge212 ], [ %28, %.preheader174 ]
-  %.2150213 = phi i32 [ %115, %._crit_edge212 ], [ 0, %.preheader174 ]
+  %.2213 = phi i32 [ %115, %._crit_edge212 ], [ 0, %.preheader174 ]
   %100 = load i32, ptr %5, align 4
   %.not168208 = icmp slt i32 %100, 1
   br i1 %.not168208, label %._crit_edge212, label %.lr.ph211.preheader
 
 .lr.ph211.preheader:                              ; preds = %.lr.ph214
   %101 = add nsw i32 %100, -1
-  %smin236 = tail call i32 @llvm.smin.i32(i32 %.2150213, i32 %101)
+  %smin236 = tail call i32 @llvm.smin.i32(i32 %.2213, i32 %101)
   br label %.lr.ph211
 
 .lr.ph211:                                        ; preds = %.lr.ph211.preheader, %.lr.ph211
-  %.2209 = phi i32 [ %109, %.lr.ph211 ], [ 0, %.lr.ph211.preheader ]
+  %.2156209 = phi i32 [ %109, %.lr.ph211 ], [ 0, %.lr.ph211.preheader ]
   %102 = load i32, ptr %8, align 4
-  %103 = mul nsw i32 %102, %.2150213
-  %104 = add nsw i32 %103, %.2209
+  %103 = mul nsw i32 %102, %.2213
+  %104 = add nsw i32 %103, %.2156209
   %105 = sext i32 %104 to i64
   %106 = getelementptr inbounds double, ptr %7, i64 %105
   %107 = load double, ptr %106, align 8
   %108 = fmul double %.0, %107
   store double %108, ptr %106, align 8
-  %109 = add nuw nsw i32 %.2209, 1
-  %exitcond237.not = icmp eq i32 %.2209, %smin236
+  %109 = add nuw nsw i32 %.2156209, 1
+  %exitcond237.not = icmp eq i32 %.2156209, %smin236
   br i1 %exitcond237.not, label %._crit_edge212.loopexit, label %.lr.ph211, !llvm.loop !10
 
 ._crit_edge212.loopexit:                          ; preds = %.lr.ph211
@@ -210,7 +210,7 @@ define void @dlascl_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %112 = phi i32 [ %.pre241, %._crit_edge212.loopexit ], [ %97, %.lr.ph214 ]
   %113 = phi i32 [ %.pre241, %._crit_edge212.loopexit ], [ %98, %.lr.ph214 ]
   %114 = phi i32 [ %.pre241, %._crit_edge212.loopexit ], [ %99, %.lr.ph214 ]
-  %115 = add nuw nsw i32 %.2150213, 1
+  %115 = add nuw nsw i32 %.2213, 1
   %116 = icmp slt i32 %115, %114
   br i1 %116, label %.lr.ph214, label %.loopexit171, !llvm.loop !11
 
@@ -239,8 +239,8 @@ define void @dlascl_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %130 = phi i32 [ %122, %.loopexit ], [ %29, %.preheader176 ]
   %131 = phi i32 [ %123, %.loopexit ], [ %30, %.preheader176 ]
   %indvars.iv232 = phi i32 [ %indvars.iv.next233, %.loopexit ], [ 1, %.preheader176 ]
-  %.3151206 = phi i32 [ %132, %.loopexit ], [ 0, %.preheader176 ]
-  %132 = add nuw nsw i32 %.3151206, 1
+  %.3206 = phi i32 [ %132, %.loopexit ], [ 0, %.preheader176 ]
+  %132 = add nuw nsw i32 %.3206, 1
   %133 = load i32, ptr %5, align 4
   %.not167202 = icmp slt i32 %133, 1
   br i1 %.not167202, label %.loopexit, label %.lr.ph205.preheader
@@ -251,17 +251,17 @@ define void @dlascl_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %.lr.ph205
 
 .lr.ph205:                                        ; preds = %.lr.ph205.preheader, %.lr.ph205
-  %.3203 = phi i32 [ %142, %.lr.ph205 ], [ 0, %.lr.ph205.preheader ]
+  %.3157203 = phi i32 [ %142, %.lr.ph205 ], [ 0, %.lr.ph205.preheader ]
   %135 = load i32, ptr %8, align 4
-  %136 = mul nsw i32 %135, %.3151206
-  %137 = add nsw i32 %136, %.3203
+  %136 = mul nsw i32 %135, %.3206
+  %137 = add nsw i32 %136, %.3157203
   %138 = sext i32 %137 to i64
   %139 = getelementptr inbounds double, ptr %7, i64 %138
   %140 = load double, ptr %139, align 8
   %141 = fmul double %.0, %140
   store double %141, ptr %139, align 8
-  %142 = add nuw i32 %.3203, 1
-  %exitcond235.not = icmp eq i32 %.3203, %smin234
+  %142 = add nuw i32 %.3157203, 1
+  %exitcond235.not = icmp eq i32 %.3157203, %smin234
   br i1 %exitcond235.not, label %.loopexit.loopexit, label %.lr.ph205, !llvm.loop !13
 
 143:                                              ; preds = %50
@@ -280,27 +280,27 @@ define void @dlascl_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %153 = phi i32 [ %173, %._crit_edge198 ], [ %31, %143 ]
   %154 = phi i32 [ %174, %._crit_edge198 ], [ %32, %143 ]
   %indvars.iv.in = phi i32 [ %indvars.iv, %._crit_edge198 ], [ %33, %143 ]
-  %.4152199 = phi i32 [ %175, %._crit_edge198 ], [ 0, %143 ]
+  %.4199 = phi i32 [ %175, %._crit_edge198 ], [ 0, %143 ]
   %indvars.iv = add i32 %indvars.iv.in, -1
   %smin = tail call i32 @llvm.smin.i32(i32 %144, i32 %indvars.iv)
-  %155 = xor i32 %.4152199, -1
+  %155 = xor i32 %.4199, -1
   %156 = add nsw i32 %33, %155
   %157 = tail call i32 @llvm.smin.i32(i32 %144, i32 %156)
   %.not166194 = icmp slt i32 %157, 0
   br i1 %.not166194, label %._crit_edge198, label %.lr.ph197
 
 .lr.ph197:                                        ; preds = %.lr.ph201, %.lr.ph197
-  %.4195 = phi i32 [ %165, %.lr.ph197 ], [ 0, %.lr.ph201 ]
+  %.4158195 = phi i32 [ %165, %.lr.ph197 ], [ 0, %.lr.ph201 ]
   %158 = load i32, ptr %8, align 4
-  %159 = mul nsw i32 %158, %.4152199
-  %160 = add nsw i32 %159, %.4195
+  %159 = mul nsw i32 %158, %.4199
+  %160 = add nsw i32 %159, %.4158195
   %161 = sext i32 %160 to i64
   %162 = getelementptr inbounds double, ptr %7, i64 %161
   %163 = load double, ptr %162, align 8
   %164 = fmul double %.0, %163
   store double %164, ptr %162, align 8
-  %165 = add nuw i32 %.4195, 1
-  %exitcond.not = icmp eq i32 %.4195, %smin
+  %165 = add nuw i32 %.4158195, 1
+  %exitcond.not = icmp eq i32 %.4158195, %smin
   br i1 %exitcond.not, label %._crit_edge198.loopexit, label %.lr.ph197, !llvm.loop !14
 
 ._crit_edge198.loopexit:                          ; preds = %.lr.ph197
@@ -317,7 +317,7 @@ define void @dlascl_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %172 = phi i32 [ %.pre239, %._crit_edge198.loopexit ], [ %152, %.lr.ph201 ]
   %173 = phi i32 [ %.pre239, %._crit_edge198.loopexit ], [ %153, %.lr.ph201 ]
   %174 = phi i32 [ %.pre239, %._crit_edge198.loopexit ], [ %154, %.lr.ph201 ]
-  %175 = add nuw nsw i32 %.4152199, 1
+  %175 = add nuw nsw i32 %.4199, 1
   %176 = icmp slt i32 %175, %174
   br i1 %176, label %.lr.ph201, label %.loopexit171, !llvm.loop !15
 
@@ -338,24 +338,24 @@ define void @dlascl_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %188 = phi i32 [ %209, %._crit_edge190 ], [ %32, %177 ]
   %189 = phi i32 [ %210, %._crit_edge190 ], [ %33, %177 ]
   %190 = phi i32 [ %211, %._crit_edge190 ], [ %34, %177 ]
-  %.5153191 = phi i32 [ %212, %._crit_edge190 ], [ 0, %177 ]
-  %191 = sub nsw i32 %178, %.5153191
+  %.5191 = phi i32 [ %212, %._crit_edge190 ], [ 0, %177 ]
+  %191 = sub nsw i32 %178, %.5191
   %192 = tail call i32 @llvm.smax.i32(i32 %191, i32 0)
   %.not165186 = icmp sgt i32 %192, %178
   br i1 %.not165186, label %._crit_edge190, label %.lr.ph189
 
 .lr.ph189:                                        ; preds = %.lr.ph193, %.lr.ph189
-  %.5187 = phi i32 [ %200, %.lr.ph189 ], [ %192, %.lr.ph193 ]
+  %.5159187 = phi i32 [ %200, %.lr.ph189 ], [ %192, %.lr.ph193 ]
   %193 = load i32, ptr %8, align 4
-  %194 = mul nsw i32 %193, %.5153191
-  %195 = add nsw i32 %194, %.5187
+  %194 = mul nsw i32 %193, %.5191
+  %195 = add nsw i32 %194, %.5159187
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds double, ptr %7, i64 %196
   %198 = load double, ptr %197, align 8
   %199 = fmul double %.0, %198
   store double %199, ptr %197, align 8
-  %200 = add nuw nsw i32 %.5187, 1
-  %.not165.not = icmp slt i32 %.5187, %178
+  %200 = add nuw nsw i32 %.5159187, 1
+  %.not165.not = icmp slt i32 %.5159187, %178
   br i1 %.not165.not, label %.lr.ph189, label %._crit_edge190.loopexit, !llvm.loop !16
 
 ._crit_edge190.loopexit:                          ; preds = %.lr.ph189
@@ -374,7 +374,7 @@ define void @dlascl_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %209 = phi i32 [ %.pre238, %._crit_edge190.loopexit ], [ %188, %.lr.ph193 ]
   %210 = phi i32 [ %.pre238, %._crit_edge190.loopexit ], [ %189, %.lr.ph193 ]
   %211 = phi i32 [ %.pre238, %._crit_edge190.loopexit ], [ %190, %.lr.ph193 ]
-  %212 = add nuw nsw i32 %.5153191, 1
+  %212 = add nuw nsw i32 %.5191, 1
   %213 = icmp slt i32 %212, %211
   br i1 %213, label %.lr.ph193, label %.loopexit171, !llvm.loop !17
 
@@ -404,26 +404,26 @@ define void @dlascl_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %234 = phi i32 [ %259, %._crit_edge ], [ %34, %214 ]
   %235 = phi i32 [ %260, %._crit_edge ], [ %35, %214 ]
   %236 = phi i32 [ %261, %._crit_edge ], [ %36, %214 ]
-  %.6154183 = phi i32 [ %262, %._crit_edge ], [ 0, %214 ]
-  %237 = sub nsw i32 %217, %.6154183
+  %.6183 = phi i32 [ %262, %._crit_edge ], [ 0, %214 ]
+  %237 = sub nsw i32 %217, %.6183
   %238 = tail call i32 @llvm.smax.i32(i32 %237, i32 %215)
-  %239 = sub i32 %222, %.6154183
+  %239 = sub i32 %222, %.6183
   %240 = tail call i32 @llvm.smin.i32(i32 %219, i32 %239)
   %.not164181 = icmp sgt i32 %238, %240
   br i1 %.not164181, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph185, %.lr.ph
-  %.6182 = phi i32 [ %248, %.lr.ph ], [ %238, %.lr.ph185 ]
+  %.6160182 = phi i32 [ %248, %.lr.ph ], [ %238, %.lr.ph185 ]
   %241 = load i32, ptr %8, align 4
-  %242 = mul nsw i32 %241, %.6154183
-  %243 = add nsw i32 %242, %.6182
+  %242 = mul nsw i32 %241, %.6183
+  %243 = add nsw i32 %242, %.6160182
   %244 = sext i32 %243 to i64
   %245 = getelementptr inbounds double, ptr %7, i64 %244
   %246 = load double, ptr %245, align 8
   %247 = fmul double %.0, %246
   store double %247, ptr %245, align 8
-  %248 = add nsw i32 %.6182, 1
-  %.not164.not = icmp slt i32 %.6182, %240
+  %248 = add nsw i32 %.6160182, 1
+  %.not164.not = icmp slt i32 %.6160182, %240
   br i1 %.not164.not, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !18
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -444,7 +444,7 @@ define void @dlascl_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %259 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %234, %.lr.ph185 ]
   %260 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %235, %.lr.ph185 ]
   %261 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %236, %.lr.ph185 ]
-  %262 = add nuw nsw i32 %.6154183, 1
+  %262 = add nuw nsw i32 %.6183, 1
   %263 = icmp slt i32 %262, %261
   br i1 %263, label %.lr.ph185, label %.loopexit171, !llvm.loop !19
 

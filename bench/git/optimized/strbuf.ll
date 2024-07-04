@@ -761,30 +761,30 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %do.end
-  %str.addr.051 = phi ptr [ %str, %while.body.lr.ph ], [ %add.ptr, %do.end ]
-  %slen.addr.050 = phi i64 [ %slen, %while.body.lr.ph ], [ %sub, %do.end ]
-  %alloc.049 = phi i64 [ 0, %while.body.lr.ph ], [ %alloc.2, %do.end ]
-  %nr.048 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %do.end ]
-  %ret.047 = phi ptr [ null, %while.body.lr.ph ], [ %ret.1, %do.end ]
-  %add = add i64 %nr.048, 1
+  %alloc.051 = phi i64 [ 0, %while.body.lr.ph ], [ %alloc.2, %do.end ]
+  %nr.050 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %do.end ]
+  %ret.049 = phi ptr [ null, %while.body.lr.ph ], [ %ret.1, %do.end ]
+  %str.addr.048 = phi ptr [ %str, %while.body.lr.ph ], [ %add.ptr, %do.end ]
+  %slen.addr.047 = phi i64 [ %slen, %while.body.lr.ph ], [ %sub, %do.end ]
+  %add = add i64 %nr.050, 1
   %cmp3 = icmp ult i64 %add, %conv2
   %or.cond = select i1 %cmp, i1 true, i1 %cmp3
   br i1 %or.cond, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %while.body
-  %call = tail call ptr @memchr(ptr noundef %str.addr.051, i32 noundef %terminator, i64 noundef %slen.addr.050) #24
+  %call = tail call ptr @memchr(ptr noundef %str.addr.048, i32 noundef %terminator, i64 noundef %slen.addr.047) #24
   %tobool5.not = icmp eq ptr %call, null
   br i1 %tobool5.not, label %if.end9, label %if.then6
 
 if.then6:                                         ; preds = %if.then
   %sub.ptr.lhs.cast = ptrtoint ptr %call to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %str.addr.051 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %str.addr.048 to i64
   %reass.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv8 = add i64 %reass.sub, 1
   br label %if.end9
 
 if.end9:                                          ; preds = %while.body, %if.then, %if.then6
-  %len.0 = phi i64 [ %conv8, %if.then6 ], [ %slen.addr.050, %if.then ], [ %slen.addr.050, %while.body ]
+  %len.0 = phi i64 [ %conv8, %if.then6 ], [ %slen.addr.047, %if.then ], [ %slen.addr.047, %while.body ]
   %call10 = tail call ptr @xmalloc(i64 noundef 24) #23
   %sext = shl i64 %len.0, 32
   %conv11 = ashr exact i64 %sext, 32
@@ -810,13 +810,13 @@ if.then35.i.i:                                    ; preds = %if.end9
   br label %strbuf_init.exit
 
 strbuf_init.exit:                                 ; preds = %if.end9, %if.then35.i.i
-  tail call void @strbuf_add(ptr noundef nonnull %call10, ptr noundef %str.addr.051, i64 noundef %conv11)
-  %add13 = add i64 %nr.048, 2
-  %cmp14 = icmp ugt i64 %add13, %alloc.049
+  tail call void @strbuf_add(ptr noundef nonnull %call10, ptr noundef %str.addr.048, i64 noundef %conv11)
+  %add13 = add i64 %nr.050, 2
+  %cmp14 = icmp ugt i64 %add13, %alloc.051
   br i1 %cmp14, label %if.then16, label %do.end
 
 if.then16:                                        ; preds = %strbuf_init.exit
-  %1 = mul i64 %alloc.049, 3
+  %1 = mul i64 %alloc.051, 3
   %mul = add i64 %1, 48
   %div34 = lshr i64 %mul, 1
   %add13.div34 = tail call i64 @llvm.umax.i64(i64 %div34, i64 %add13)
@@ -829,16 +829,16 @@ if.then.i:                                        ; preds = %if.then16
 
 st_mult.exit:                                     ; preds = %if.then16
   %mul.i = shl nuw i64 %add13.div34, 3
-  %call28 = tail call ptr @xrealloc(ptr noundef %ret.047, i64 noundef %mul.i) #23
+  %call28 = tail call ptr @xrealloc(ptr noundef %ret.049, i64 noundef %mul.i) #23
   br label %do.end
 
 do.end:                                           ; preds = %strbuf_init.exit, %st_mult.exit
-  %ret.1 = phi ptr [ %call28, %st_mult.exit ], [ %ret.047, %strbuf_init.exit ]
-  %alloc.2 = phi i64 [ %add13.div34, %st_mult.exit ], [ %alloc.049, %strbuf_init.exit ]
-  %arrayidx = getelementptr inbounds ptr, ptr %ret.1, i64 %nr.048
+  %ret.1 = phi ptr [ %call28, %st_mult.exit ], [ %ret.049, %strbuf_init.exit ]
+  %alloc.2 = phi i64 [ %add13.div34, %st_mult.exit ], [ %alloc.051, %strbuf_init.exit ]
+  %arrayidx = getelementptr inbounds ptr, ptr %ret.1, i64 %nr.050
   store ptr %call10, ptr %arrayidx, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %str.addr.051, i64 %conv11
-  %sub = sub i64 %slen.addr.050, %conv11
+  %add.ptr = getelementptr inbounds i8, ptr %str.addr.048, i64 %conv11
+  %sub = sub i64 %slen.addr.047, %conv11
   %tobool.not = icmp eq i64 %sub, 0
   br i1 %tobool.not, label %do.body31, label %while.body, !llvm.loop !11
 
@@ -4862,9 +4862,9 @@ for.body.lr.ph:                                   ; preds = %strbuf_grow.exit
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %5 = phi i64 [ %13, %for.inc.us ], [ %4, %for.body.lr.ph ]
-  %empties.047.us = phi i64 [ %empties.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %j.047.us = phi i64 [ %add40.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %i.046.us = phi i64 [ %add39.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %j.045.us = phi i64 [ %add40.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %empties.045.us = phi i64 [ %empties.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %6 = load ptr, ptr %buf, align 8
   %add.ptr.us = getelementptr inbounds i8, ptr %6, i64 %i.046.us
   %sub.us = sub i64 %5, %i.046.us
@@ -4896,21 +4896,21 @@ if.end.i35.us:                                    ; preds = %while.body.i.us
   br i1 %tobool.not.i36.us, label %if.else.us, label %while.body.i.us, !llvm.loop !24
 
 if.then19.us:                                     ; preds = %while.body.i.us
-  %cmp20.us = icmp ne i64 %empties.047.us, 0
-  %cmp23.us = icmp ne i64 %j.045.us, 0
+  %cmp20.us = icmp ne i64 %empties.045.us, 0
+  %cmp23.us = icmp ne i64 %j.047.us, 0
   %or.cond1.us = select i1 %cmp20.us, i1 %cmp23.us, i1 false
   br i1 %or.cond1.us, label %if.then25.us, label %if.end28.us
 
 if.then25.us:                                     ; preds = %if.then19.us
-  %inc.us = add i64 %j.045.us, 1
-  %arrayidx27.us = getelementptr inbounds i8, ptr %6, i64 %j.045.us
+  %inc.us = add i64 %j.047.us, 1
+  %arrayidx27.us = getelementptr inbounds i8, ptr %6, i64 %j.047.us
   store i8 10, ptr %arrayidx27.us, align 1
   %.pre53 = load ptr, ptr %buf, align 8
   br label %if.end28.us
 
 if.end28.us:                                      ; preds = %if.then25.us, %if.then19.us
   %10 = phi ptr [ %.pre53, %if.then25.us ], [ %6, %if.then19.us ]
-  %j.1.us = phi i64 [ %inc.us, %if.then25.us ], [ %j.045.us, %if.then19.us ]
+  %j.1.us = phi i64 [ %inc.us, %if.then25.us ], [ %j.047.us, %if.then19.us ]
   %add.ptr30.us = getelementptr inbounds i8, ptr %10, i64 %j.1.us
   %add.ptr32.us = getelementptr inbounds i8, ptr %10, i64 %i.046.us
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr30.us, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr32.us, i64 %len.addr.05.i.us, i1 false)
@@ -4923,14 +4923,14 @@ if.end28.us:                                      ; preds = %if.then25.us, %if.t
   br label %for.inc.us
 
 if.else.us:                                       ; preds = %if.end.i35.us, %for.body.us
-  %inc37.us = add i64 %empties.047.us, 1
+  %inc37.us = add i64 %empties.045.us, 1
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.else.us, %if.end28.us
   %13 = phi i64 [ %.pre54, %if.end28.us ], [ %5, %if.else.us ]
-  %j.2.us = phi i64 [ %inc34.us, %if.end28.us ], [ %j.045.us, %if.else.us ]
-  %newlen.0.us = phi i64 [ %len.addr.05.i.us, %if.end28.us ], [ 0, %if.else.us ]
   %empties.1.us = phi i64 [ 0, %if.end28.us ], [ %inc37.us, %if.else.us ]
+  %j.2.us = phi i64 [ %inc34.us, %if.end28.us ], [ %j.047.us, %if.else.us ]
+  %newlen.0.us = phi i64 [ %len.addr.05.i.us, %if.end28.us ], [ 0, %if.else.us ]
   %add39.us = add i64 %cond.us, %i.046.us
   %add40.us = add i64 %newlen.0.us, %j.2.us
   %cmp.us = icmp ult i64 %add39.us, %13
@@ -4938,9 +4938,9 @@ for.inc.us:                                       ; preds = %if.else.us, %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %14 = phi i64 [ %23, %for.inc ], [ %4, %for.body.lr.ph ]
-  %empties.047 = phi i64 [ %empties.1, %for.inc ], [ 0, %for.body.lr.ph ]
+  %j.047 = phi i64 [ %add40, %for.inc ], [ 0, %for.body.lr.ph ]
   %i.046 = phi i64 [ %add39, %for.inc ], [ 0, %for.body.lr.ph ]
-  %j.045 = phi i64 [ %add40, %for.inc ], [ 0, %for.body.lr.ph ]
+  %empties.045 = phi i64 [ %empties.1, %for.inc ], [ 0, %for.body.lr.ph ]
   %15 = load ptr, ptr %buf, align 8
   %add.ptr = getelementptr inbounds i8, ptr %15, i64 %i.046
   %sub = sub i64 %14, %i.046
@@ -4980,21 +4980,21 @@ if.end.i35:                                       ; preds = %while.body.i
   br i1 %tobool.not.i36, label %if.else, label %while.body.i, !llvm.loop !24
 
 if.then19:                                        ; preds = %while.body.i
-  %cmp20 = icmp ne i64 %empties.047, 0
-  %cmp23 = icmp ne i64 %j.045, 0
+  %cmp20 = icmp ne i64 %empties.045, 0
+  %cmp23 = icmp ne i64 %j.047, 0
   %or.cond1 = select i1 %cmp20, i1 %cmp23, i1 false
   br i1 %or.cond1, label %if.then25, label %if.end28
 
 if.then25:                                        ; preds = %if.then19
-  %inc = add i64 %j.045, 1
-  %arrayidx27 = getelementptr inbounds i8, ptr %15, i64 %j.045
+  %inc = add i64 %j.047, 1
+  %arrayidx27 = getelementptr inbounds i8, ptr %15, i64 %j.047
   store i8 10, ptr %arrayidx27, align 1
   %.pre = load ptr, ptr %buf, align 8
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then25, %if.then19
   %20 = phi ptr [ %.pre, %if.then25 ], [ %15, %if.then19 ]
-  %j.1 = phi i64 [ %inc, %if.then25 ], [ %j.045, %if.then19 ]
+  %j.1 = phi i64 [ %inc, %if.then25 ], [ %j.047, %if.then19 ]
   %add.ptr30 = getelementptr inbounds i8, ptr %20, i64 %j.1
   %add.ptr32 = getelementptr inbounds i8, ptr %20, i64 %i.046
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr30, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr32, i64 %len.addr.05.i, i1 false)
@@ -5007,14 +5007,14 @@ if.end28:                                         ; preds = %if.then25, %if.then
   br label %for.inc
 
 if.else:                                          ; preds = %if.end.i35, %for.body
-  %inc37 = add i64 %empties.047, 1
+  %inc37 = add i64 %empties.045, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true9, %if.end28, %if.else
   %23 = phi i64 [ %.pre52, %if.end28 ], [ %14, %if.else ], [ %14, %land.lhs.true9 ]
-  %j.2 = phi i64 [ %inc34, %if.end28 ], [ %j.045, %if.else ], [ %j.045, %land.lhs.true9 ]
+  %empties.1 = phi i64 [ 0, %if.end28 ], [ %inc37, %if.else ], [ %empties.045, %land.lhs.true9 ]
+  %j.2 = phi i64 [ %inc34, %if.end28 ], [ %j.047, %if.else ], [ %j.047, %land.lhs.true9 ]
   %newlen.0 = phi i64 [ %len.addr.05.i, %if.end28 ], [ 0, %if.else ], [ 0, %land.lhs.true9 ]
-  %empties.1 = phi i64 [ 0, %if.end28 ], [ %inc37, %if.else ], [ %empties.047, %land.lhs.true9 ]
   %add39 = add i64 %cond, %i.046
   %add40 = add i64 %newlen.0, %j.2
   %cmp = icmp ult i64 %add39, %23

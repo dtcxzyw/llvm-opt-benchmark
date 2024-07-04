@@ -148,27 +148,27 @@ for.body.lr.ph:                                   ; preds = %_ZNK6vectorIP4exprL
   br i1 %tobool.i.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
-  %it.045.us = phi ptr [ %incdec.ptr.us, %for.body.us ], [ %8, %for.body.lr.ph ]
-  %it2.044.us = phi ptr [ %incdec.ptr26.us, %for.body.us ], [ %11, %for.body.lr.ph ]
-  %12 = load ptr, ptr %it.045.us, align 8
-  %13 = load ptr, ptr %it2.044.us, align 8
+  %it2.045.us = phi ptr [ %incdec.ptr26.us, %for.body.us ], [ %11, %for.body.lr.ph ]
+  %it.044.us = phi ptr [ %incdec.ptr.us, %for.body.us ], [ %8, %for.body.lr.ph ]
+  %12 = load ptr, ptr %it.044.us, align 8
+  %13 = load ptr, ptr %it2.045.us, align 8
   %call25.us = tail call noundef ptr @_ZN11ast_manager7mk_leafEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %6, ptr noundef %13)
   tail call void @_ZN4goal11assert_exprEP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %t, ptr noundef %12, ptr noundef null, ptr noundef %call25.us)
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %it.045.us, i64 8
-  %incdec.ptr26.us = getelementptr inbounds i8, ptr %it2.044.us, i64 8
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %it.044.us, i64 8
+  %incdec.ptr26.us = getelementptr inbounds i8, ptr %it2.045.us, i64 8
   %cmp23.not.us = icmp eq ptr %incdec.ptr.us, %add.ptr.i
   br i1 %cmp23.not.us, label %if.end42, label %for.body.us, !llvm.loop !4
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %it.045 = phi ptr [ %incdec.ptr, %for.body ], [ %8, %for.body.lr.ph ]
-  %it2.044 = phi ptr [ %incdec.ptr26, %for.body ], [ %11, %for.body.lr.ph ]
-  %14 = load ptr, ptr %it.045, align 8
+  %it2.045 = phi ptr [ %incdec.ptr26, %for.body ], [ %11, %for.body.lr.ph ]
+  %it.044 = phi ptr [ %incdec.ptr, %for.body ], [ %8, %for.body.lr.ph ]
+  %14 = load ptr, ptr %it.044, align 8
   %call24 = tail call noundef ptr @_ZN11ast_manager11mk_assertedEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %6, ptr noundef %14)
-  %15 = load ptr, ptr %it2.044, align 8
+  %15 = load ptr, ptr %it2.045, align 8
   %call25 = tail call noundef ptr @_ZN11ast_manager7mk_leafEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %6, ptr noundef %15)
   tail call void @_ZN4goal11assert_exprEP4exprP3appPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(124) %t, ptr noundef %14, ptr noundef %call24, ptr noundef %call25)
-  %incdec.ptr = getelementptr inbounds i8, ptr %it.045, i64 8
-  %incdec.ptr26 = getelementptr inbounds i8, ptr %it2.044, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %it.044, i64 8
+  %incdec.ptr26 = getelementptr inbounds i8, ptr %it2.045, i64 8
   %cmp23.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp23.not, label %if.end42, label %for.body, !llvm.loop !4
 

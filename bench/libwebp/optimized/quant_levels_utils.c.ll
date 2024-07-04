@@ -36,31 +36,31 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef %0, i32 noundef %1
 
 .lr.ph:                                           ; preds = %.preheader137, %.lr.ph
   %.0105141 = phi i32 [ %spec.select, %.lr.ph ], [ 255, %.preheader137 ]
-  %.0106140 = phi i32 [ %.1107, %.lr.ph ], [ 0, %.preheader137 ]
-  %.0112139 = phi i64 [ %31, %.lr.ph ], [ 0, %.preheader137 ]
-  %.0119138 = phi i32 [ %28, %.lr.ph ], [ 0, %.preheader137 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 %.0112139
+  %.0110140 = phi i64 [ %31, %.lr.ph ], [ 0, %.preheader137 ]
+  %.0116139 = phi i32 [ %28, %.lr.ph ], [ 0, %.preheader137 ]
+  %.0118138 = phi i32 [ %.1119, %.lr.ph ], [ 0, %.preheader137 ]
+  %21 = getelementptr inbounds i8, ptr %0, i64 %.0110140
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i64
   %24 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   %27 = zext i1 %26 to i32
-  %28 = add nuw nsw i32 %.0119138, %27
+  %28 = add nuw nsw i32 %.0116139, %27
   %29 = zext i8 %22 to i32
   %spec.select = tail call i32 @llvm.smin.i32(i32 %.0105141, i32 %29)
-  %.1107 = tail call i32 @llvm.smax.i32(i32 %.0106140, i32 %29)
+  %.1119 = tail call i32 @llvm.smax.i32(i32 %.0118138, i32 %29)
   %30 = add nsw i32 %25, 1
   store i32 %30, ptr %24, align 4
-  %31 = add nuw i64 %.0112139, 1
+  %31 = add nuw i64 %.0110140, 1
   %exitcond.not = icmp eq i64 %31, %13
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader137
-  %.0119.lcssa = phi i32 [ 0, %.preheader137 ], [ %28, %.lr.ph ]
-  %.0106.lcssa = phi i32 [ 0, %.preheader137 ], [ %.1107, %.lr.ph ]
+  %.0118.lcssa = phi i32 [ 0, %.preheader137 ], [ %.1119, %.lr.ph ]
+  %.0116.lcssa = phi i32 [ 0, %.preheader137 ], [ %28, %.lr.ph ]
   %.0105.lcssa = phi i32 [ 255, %.preheader137 ], [ %spec.select, %.lr.ph ]
-  %.not = icmp sgt i32 %.0119.lcssa, %3
+  %.not = icmp sgt i32 %.0116.lcssa, %3
   br i1 %.not, label %.preheader136, label %.loopexit
 
 .preheader136:                                    ; preds = %._crit_edge
@@ -73,7 +73,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef %0, i32 noundef %1
 
 .lr.ph145:                                        ; preds = %.preheader136
   %33 = uitofp nneg i32 %.0105.lcssa to double
-  %34 = sub nsw i32 %.0106.lcssa, %.0105.lcssa
+  %34 = sub nsw i32 %.0118.lcssa, %.0105.lcssa
   %35 = sitofp i32 %34 to double
   %36 = add nsw i32 %3, -1
   %37 = uitofp nneg i32 %36 to double
@@ -98,32 +98,32 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef %0, i32 noundef %1
   %45 = zext nneg i32 %.0105.lcssa to i64
   %46 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %45
   store i32 0, ptr %46, align 4
-  %47 = zext nneg i32 %.0106.lcssa to i64
+  %47 = zext nneg i32 %.0118.lcssa to i64
   %48 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %47
   store i32 %.pre-phi, ptr %48, align 4
-  %.not128147 = icmp sgt i32 %.0105.lcssa, %.0106.lcssa
+  %.not128147 = icmp sgt i32 %.0105.lcssa, %.0118.lcssa
   %49 = icmp slt i32 %3, 3
   %50 = sext i32 %.pre-phi to i64
   %51 = zext nneg i32 %.0105.lcssa to i64
-  %52 = add nuw nsw i32 %.0106.lcssa, 1
+  %52 = add nuw nsw i32 %.0118.lcssa, 1
   %wide.trip.count185 = zext i32 %.pre-phi to i64
   br label %53
 
 53:                                               ; preds = %._crit_edge158, %._crit_edge146
-  %.0117161 = phi double [ 0x47D2CED32A16A1B1, %._crit_edge146 ], [ %.1115.lcssa, %._crit_edge158 ]
-  %.0118160 = phi i32 [ 0, %._crit_edge146 ], [ %108, %._crit_edge158 ]
+  %.0114161 = phi double [ 0x47D2CED32A16A1B1, %._crit_edge146 ], [ %.1112.lcssa, %._crit_edge158 ]
+  %.0115160 = phi i32 [ 0, %._crit_edge146 ], [ %108, %._crit_edge158 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %9, i8 0, i64 2048, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %10, i8 0, i64 2048, i1 false)
   br i1 %.not128147, label %._crit_edge150, label %.preheader133
 
 .preheader133:                                    ; preds = %53, %82
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %82 ], [ %51, %53 ]
-  %.0108149 = phi i32 [ %.1109.lcssa, %82 ], [ 0, %53 ]
+  %.0106149 = phi i32 [ %.1107.lcssa, %82 ], [ 0, %53 ]
   %indvars.iv178.tr = trunc i64 %indvars.iv178 to i32
   %54 = shl i32 %indvars.iv178.tr, 1
   %55 = sitofp i32 %54 to double
-  %56 = sext i32 %.0108149 to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %.0108149, i32 %.pre-phi)
+  %56 = sext i32 %.0106149 to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %.0106149, i32 %.pre-phi)
   br label %57
 
 57:                                               ; preds = %.preheader133, %59
@@ -146,7 +146,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef %0, i32 noundef %1
   br label %.critedge
 
 .critedge:                                        ; preds = %57, %.critedge.split.loop.exit201
-  %.1109.lcssa = phi i32 [ %66, %.critedge.split.loop.exit201 ], [ %smax, %57 ]
+  %.1107.lcssa = phi i32 [ %66, %.critedge.split.loop.exit201 ], [ %smax, %57 ]
   %67 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %indvars.iv178
   %68 = load i32, ptr %67, align 4
   %69 = icmp sgt i32 %68, 0
@@ -156,7 +156,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef %0, i32 noundef %1
   %71 = trunc nsw i64 %indvars.iv178 to i32
   %72 = mul nsw i32 %68, %71
   %73 = sitofp i32 %72 to double
-  %74 = sext i32 %.1109.lcssa to i64
+  %74 = sext i32 %.1107.lcssa to i64
   %75 = getelementptr inbounds [256 x double], ptr %9, i64 0, i64 %74
   %76 = load double, ptr %75, align 8
   %77 = fadd double %76, %73
@@ -170,7 +170,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef %0, i32 noundef %1
 
 82:                                               ; preds = %70, %.critedge
   %83 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %indvars.iv178
-  store i32 %.1109.lcssa, ptr %83, align 4
+  store i32 %.1107.lcssa, ptr %83, align 4
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next179 to i32
   %exitcond181.not = icmp eq i32 %52, %lftr.wideiv
@@ -204,7 +204,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef %0, i32 noundef %1
 
 .lr.ph157:                                        ; preds = %.loopexit135, %.lr.ph157
   %indvars.iv187 = phi i64 [ %indvars.iv.next188, %.lr.ph157 ], [ %51, %.loopexit135 ]
-  %.1115154 = phi double [ %105, %.lr.ph157 ], [ 0.000000e+00, %.loopexit135 ]
+  %.1112154 = phi double [ %105, %.lr.ph157 ], [ 0.000000e+00, %.loopexit135 ]
   %93 = trunc nsw i64 %indvars.iv187 to i32
   %94 = sitofp i32 %93 to double
   %95 = getelementptr inbounds [256 x i32], ptr %7, i64 0, i64 %indvars.iv187
@@ -217,17 +217,17 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef %0, i32 noundef %1
   %102 = load i32, ptr %101, align 4
   %103 = sitofp i32 %102 to double
   %104 = fmul double %100, %103
-  %105 = tail call double @llvm.fmuladd.f64(double %104, double %100, double %.1115154)
+  %105 = tail call double @llvm.fmuladd.f64(double %104, double %100, double %.1112154)
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %lftr.wideiv190 = trunc i64 %indvars.iv.next188 to i32
   %exitcond191.not = icmp eq i32 %52, %lftr.wideiv190
   br i1 %exitcond191.not, label %._crit_edge158, label %.lr.ph157, !llvm.loop !10
 
 ._crit_edge158:                                   ; preds = %.lr.ph157, %.loopexit135
-  %.1115.lcssa = phi double [ 0.000000e+00, %.loopexit135 ], [ %105, %.lr.ph157 ]
-  %106 = fsub double %.0117161, %.1115.lcssa
+  %.1112.lcssa = phi double [ 0.000000e+00, %.loopexit135 ], [ %105, %.lr.ph157 ]
+  %106 = fsub double %.0114161, %.1112.lcssa
   %107 = fcmp olt double %106, %15
-  %108 = add nuw nsw i32 %.0118160, 1
+  %108 = add nuw nsw i32 %.0115160, 1
   %exitcond192.not = icmp eq i32 %108, 6
   %or.cond203 = select i1 %107, i1 true, i1 %exitcond192.not
   br i1 %or.cond203, label %109, label %53, !llvm.loop !11
@@ -267,7 +267,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef %0, i32 noundef %1
   br i1 %exitcond199.not, label %.loopexit, label %.lr.ph167, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph167, %.preheader, %._crit_edge
-  %.3 = phi double [ 0.000000e+00, %._crit_edge ], [ %.1115.lcssa, %.preheader ], [ %.1115.lcssa, %.lr.ph167 ]
+  %.3 = phi double [ 0.000000e+00, %._crit_edge ], [ %.1112.lcssa, %.preheader ], [ %.1112.lcssa, %.lr.ph167 ]
   %.not131 = icmp eq ptr %4, null
   br i1 %.not131, label %126, label %124
 

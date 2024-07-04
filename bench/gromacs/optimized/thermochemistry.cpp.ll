@@ -81,9 +81,9 @@ define noundef double @_Z29calcVibrationalInternalEnergyN3gmx8ArrayRefIKfEEfbf(p
   br label %15
 
 15:                                               ; preds = %.lr.ph, %41
-  %.028 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %41 ]
-  %.02126 = phi i64 [ %6, %.lr.ph ], [ %42, %41 ]
-  %16 = getelementptr inbounds float, ptr %0, i64 %.02126
+  %.027 = phi i64 [ %6, %.lr.ph ], [ %42, %41 ]
+  %.02126 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %41 ]
+  %16 = getelementptr inbounds float, ptr %0, i64 %.027
   %17 = load float, ptr %16, align 4
   %18 = fcmp ogt float %17, 0.000000e+00
   br i1 %18, label %19, label %41
@@ -108,7 +108,7 @@ define noundef double @_Z29calcVibrationalInternalEnergyN3gmx8ArrayRefIKfEEfbf(p
   br i1 %.not, label %39, label %33
 
 33:                                               ; preds = %27
-  %34 = trunc i64 %.02126 to i32
+  %34 = trunc i64 %.027 to i32
   %35 = add i32 %34, 1
   %36 = load float, ptr %16, align 4
   %37 = fpext float %36 to double
@@ -116,20 +116,20 @@ define noundef double @_Z29calcVibrationalInternalEnergyN3gmx8ArrayRefIKfEEfbf(p
   br label %39
 
 39:                                               ; preds = %33, %27
-  %40 = fadd double %.028, %31
+  %40 = fadd double %.02126, %31
   br label %41
 
 41:                                               ; preds = %15, %39, %19
-  %.1 = phi double [ %40, %39 ], [ %.028, %19 ], [ %.028, %15 ]
-  %42 = add nuw nsw i64 %.02126, 1
+  %.1 = phi double [ %40, %39 ], [ %.02126, %19 ], [ %.02126, %15 ]
+  %42 = add nuw nsw i64 %.027, 1
   %exitcond.not = icmp eq i64 %42, %10
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %41, %.._crit_edge_crit_edge
   %.pre-phi = phi double [ %.pre, %.._crit_edge_crit_edge ], [ %13, %41 ]
-  %.0.lcssa = phi double [ 0.000000e+00, %.._crit_edge_crit_edge ], [ %.1, %41 ]
+  %.021.lcssa = phi double [ 0.000000e+00, %.._crit_edge_crit_edge ], [ %.1, %41 ]
   %43 = fmul double %.pre-phi, 0x3F81072C483AF26D
-  %44 = fmul double %43, %.0.lcssa
+  %44 = fmul double %43, %.021.lcssa
   ret double %44
 }
 
@@ -156,9 +156,9 @@ define noundef double @_Z27calcVibrationalHeatCapacityN3gmx8ArrayRefIKfEEfbf(ptr
   br label %15
 
 15:                                               ; preds = %.lr.ph, %42
-  %.028 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %42 ]
-  %.02126 = phi i64 [ %6, %.lr.ph ], [ %43, %42 ]
-  %16 = getelementptr inbounds float, ptr %0, i64 %.02126
+  %.027 = phi i64 [ %6, %.lr.ph ], [ %43, %42 ]
+  %.02126 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %42 ]
+  %16 = getelementptr inbounds float, ptr %0, i64 %.027
   %17 = load float, ptr %16, align 4
   %18 = fcmp ogt float %17, 0.000000e+00
   br i1 %18, label %19, label %42
@@ -184,7 +184,7 @@ define noundef double @_Z27calcVibrationalHeatCapacityN3gmx8ArrayRefIKfEEfbf(ptr
   br i1 %.not, label %40, label %34
 
 34:                                               ; preds = %27
-  %35 = trunc i64 %.02126 to i32
+  %35 = trunc i64 %.027 to i32
   %36 = add i32 %35, 1
   %37 = load float, ptr %16, align 4
   %38 = fpext float %37 to double
@@ -192,12 +192,12 @@ define noundef double @_Z27calcVibrationalHeatCapacityN3gmx8ArrayRefIKfEEfbf(ptr
   br label %40
 
 40:                                               ; preds = %34, %27
-  %41 = fadd double %.028, %32
+  %41 = fadd double %.02126, %32
   br label %42
 
 42:                                               ; preds = %15, %40, %19
-  %.1 = phi double [ %41, %40 ], [ %.028, %19 ], [ %.028, %15 ]
-  %43 = add nuw nsw i64 %.02126, 1
+  %.1 = phi double [ %41, %40 ], [ %.02126, %19 ], [ %.02126, %15 ]
+  %43 = add nuw nsw i64 %.027, 1
   %exitcond.not = icmp eq i64 %43, %10
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %15, !llvm.loop !7
 
@@ -206,8 +206,8 @@ define noundef double @_Z27calcVibrationalHeatCapacityN3gmx8ArrayRefIKfEEfbf(ptr
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
-  %.0.lcssa = phi double [ 0.000000e+00, %5 ], [ %44, %._crit_edge.loopexit ]
-  ret double %.0.lcssa
+  %.021.lcssa = phi double [ 0.000000e+00, %5 ], [ %44, %._crit_edge.loopexit ]
+  ret double %.021.lcssa
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
@@ -360,9 +360,9 @@ define noundef double @_Z24calcQuasiHarmonicEntropyN3gmx8ArrayRefIKfEEfbf(ptr %0
   br label %15
 
 15:                                               ; preds = %.lr.ph, %48
-  %.030 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %48 ]
-  %.02229 = phi i64 [ %6, %.lr.ph ], [ %49, %48 ]
-  %16 = getelementptr inbounds float, ptr %0, i64 %.02229
+  %.030 = phi i64 [ %6, %.lr.ph ], [ %49, %48 ]
+  %.02229 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %48 ]
+  %16 = getelementptr inbounds float, ptr %0, i64 %.030
   %17 = load float, ptr %16, align 4
   %18 = fcmp ogt float %17, 0.000000e+00
   br i1 %18, label %19, label %41
@@ -381,13 +381,13 @@ define noundef double @_Z24calcQuasiHarmonicEntropyN3gmx8ArrayRefIKfEEfbf(ptr %0
   %30 = fneg double %29
   %31 = tail call double @log1p(double noundef %30) #7
   %32 = fsub double %27, %31
-  %33 = fadd double %.030, %32
+  %33 = fadd double %.02229, %32
   %34 = load ptr, ptr @debug, align 8
   %.not25 = icmp eq ptr %34, null
   br i1 %.not25, label %48, label %35
 
 35:                                               ; preds = %19
-  %36 = trunc i64 %.02229 to i32
+  %36 = trunc i64 %.030 to i32
   %37 = add i32 %36, 1
   %38 = load float, ptr %16, align 4
   %39 = fpext float %38 to double
@@ -400,15 +400,15 @@ define noundef double @_Z24calcQuasiHarmonicEntropyN3gmx8ArrayRefIKfEEfbf(ptr %0
   br i1 %.not, label %48, label %43
 
 43:                                               ; preds = %41
-  %44 = trunc i64 %.02229 to i32
+  %44 = trunc i64 %.030 to i32
   %45 = add i32 %44, 1
   %46 = fpext float %17 to double
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %42, ptr noundef nonnull @.str.16, i32 noundef %45, double noundef %46) #7
   br label %48
 
 48:                                               ; preds = %35, %19, %43, %41
-  %.1 = phi double [ %33, %35 ], [ %33, %19 ], [ %.030, %43 ], [ %.030, %41 ]
-  %49 = add nuw nsw i64 %.02229, 1
+  %.1 = phi double [ %33, %35 ], [ %33, %19 ], [ %.02229, %43 ], [ %.02229, %41 ]
+  %49 = add nuw nsw i64 %.030, 1
   %exitcond.not = icmp eq i64 %49, %10
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %15, !llvm.loop !8
 
@@ -417,8 +417,8 @@ define noundef double @_Z24calcQuasiHarmonicEntropyN3gmx8ArrayRefIKfEEfbf(ptr %0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
-  %.0.lcssa = phi double [ 0.000000e+00, %5 ], [ %50, %._crit_edge.loopexit ]
-  ret double %.0.lcssa
+  %.022.lcssa = phi double [ 0.000000e+00, %5 ], [ %50, %._crit_edge.loopexit ]
+  ret double %.022.lcssa
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
@@ -448,16 +448,16 @@ define noundef double @_Z20calcSchlitterEntropyN3gmx8ArrayRefIKfEEfb(ptr %0, ptr
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %._crit_edge21, %.lr.ph
-  %.020 = phi double [ %20, %.lr.ph ], [ 0.000000e+00, %._crit_edge21 ]
-  %.01519 = phi i64 [ %21, %.lr.ph ], [ %5, %._crit_edge21 ]
-  %14 = getelementptr inbounds float, ptr %0, i64 %.01519
+  %.020 = phi i64 [ %21, %.lr.ph ], [ %5, %._crit_edge21 ]
+  %.01519 = phi double [ %20, %.lr.ph ], [ 0.000000e+00, %._crit_edge21 ]
+  %14 = getelementptr inbounds float, ptr %0, i64 %.020
   %15 = load float, ptr %14, align 4
   %16 = fpext float %15 to double
   %17 = fmul double %9, %16
   %18 = tail call double @llvm.fmuladd.f64(double %17, double 0x36A2F5C2D95FF07B, double 1.000000e+00)
   %19 = tail call double @log(double noundef %18) #7
-  %20 = fadd double %.020, %19
-  %21 = add nuw nsw i64 %.01519, 1
+  %20 = fadd double %.01519, %19
+  %21 = add nuw nsw i64 %.020, 1
   %exitcond.not = icmp eq i64 %21, %.pre26
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
@@ -466,8 +466,8 @@ define noundef double @_Z20calcSchlitterEntropyN3gmx8ArrayRefIKfEEfb(ptr %0, ptr
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %._crit_edge21
-  %.0.lcssa = phi double [ 0.000000e+00, %._crit_edge21 ], [ %22, %._crit_edge.loopexit ]
-  ret double %.0.lcssa
+  %.015.lcssa = phi double [ 0.000000e+00, %._crit_edge21 ], [ %22, %._crit_edge.loopexit ]
+  ret double %.015.lcssa
 }
 
 attributes #0 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

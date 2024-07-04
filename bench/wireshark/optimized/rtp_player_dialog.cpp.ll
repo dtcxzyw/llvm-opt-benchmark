@@ -9230,8 +9230,8 @@ _ZN5QListIP14RtpAudioStreamEixEx.exit:            ; preds = %_ZNK17QArrayDataPoi
 
 .lr.ph:                                           ; preds = %_ZN5QListIP14RtpAudioStreamEixEx.exit, %_ZN5QListIP14RtpAudioStreamEixEx.exit45
   %40 = phi i64 [ %62, %_ZN5QListIP14RtpAudioStreamEixEx.exit45 ], [ 1, %_ZN5QListIP14RtpAudioStreamEixEx.exit ]
-  %.03063 = phi i32 [ %61, %_ZN5QListIP14RtpAudioStreamEixEx.exit45 ], [ 1, %_ZN5QListIP14RtpAudioStreamEixEx.exit ]
-  %.03162 = phi double [ %.1, %_ZN5QListIP14RtpAudioStreamEixEx.exit45 ], [ %36, %_ZN5QListIP14RtpAudioStreamEixEx.exit ]
+  %.02963 = phi i32 [ %61, %_ZN5QListIP14RtpAudioStreamEixEx.exit45 ], [ 1, %_ZN5QListIP14RtpAudioStreamEixEx.exit ]
+  %.03062 = phi double [ %.1, %_ZN5QListIP14RtpAudioStreamEixEx.exit45 ], [ %36, %_ZN5QListIP14RtpAudioStreamEixEx.exit ]
   %41 = load ptr, ptr %19, align 8
   %.not.i.i.i.i38 = icmp eq ptr %41, null
   br i1 %.not.i.i.i.i38, label %_ZN5QListIP14RtpAudioStreamE6detachEv.exit.i42, label %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.i.i.i39
@@ -9271,23 +9271,23 @@ _ZN5QListIP14RtpAudioStreamEixEx.exit45:          ; preds = %_ZNK17QArrayDataPoi
   %57 = fdiv double %53, %56
   %58 = fptosi double %57 to i64
   %59 = sitofp i64 %58 to double
-  %60 = fcmp ogt double %.03162, %59
-  %.1 = select i1 %60, double %59, double %.03162
-  %61 = add i32 %.03063, 1
+  %60 = fcmp ogt double %.03062, %59
+  %.1 = select i1 %60, double %59, double %.03062
+  %61 = add i32 %.02963, 1
   %62 = sext i32 %61 to i64
   %63 = load i64, ptr %37, align 8
   %64 = icmp sgt i64 %63, %62
   br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %_ZN5QListIP14RtpAudioStreamEixEx.exit45, %_ZN5QListIP14RtpAudioStreamEixEx.exit
-  %.031.lcssa = phi double [ %36, %_ZN5QListIP14RtpAudioStreamEixEx.exit ], [ %.1, %_ZN5QListIP14RtpAudioStreamEixEx.exit45 ]
-  %65 = fcmp ogt double %.031.lcssa, 0.000000e+00
+  %.030.lcssa = phi double [ %36, %_ZN5QListIP14RtpAudioStreamEixEx.exit ], [ %.1, %_ZN5QListIP14RtpAudioStreamEixEx.exit45 ]
+  %65 = fcmp ogt double %.030.lcssa, 0.000000e+00
   br i1 %65, label %66, label %116
 
 66:                                               ; preds = %._crit_edge
   %67 = getelementptr inbounds i8, ptr %0, i64 160
   %68 = load double, ptr %67, align 8
-  %69 = fadd double %.031.lcssa, %68
+  %69 = fadd double %.030.lcssa, %68
   %70 = load ptr, ptr %13, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 520
   %72 = load ptr, ptr %71, align 8
@@ -9297,8 +9297,8 @@ _ZN5QListIP14RtpAudioStreamEixEx.exit45:          ; preds = %_ZNK17QArrayDataPoi
   %76 = fadd double %12, %75
   %77 = load double, ptr %67, align 8
   %78 = fadd double %76, %77
-  %.029 = select i1 %73, double %78, double %76
-  %79 = fsub double %69, %.029
+  %.032 = select i1 %73, double %78, double %76
+  %79 = fsub double %69, %.032
   %80 = load ptr, ptr %13, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 408
   %82 = load ptr, ptr %81, align 8
@@ -9348,7 +9348,7 @@ _ZN5QListIP14RtpAudioStreamEixEx.exit53:          ; preds = %_ZNK17QArrayDataPoi
   %98 = getelementptr inbounds i8, ptr %97, i64 7496
   %99 = load i32, ptr %98, align 8
   %100 = uitofp i32 %99 to double
-  %101 = fmul double %.031.lcssa, %100
+  %101 = fmul double %.030.lcssa, %100
   %102 = fptosi double %101 to i64
   %.not.i.i.i.i54 = icmp eq ptr %94, null
   br i1 %.not.i.i.i.i54, label %_ZN5QListIP14RtpAudioStreamE6detachEv.exit.i58, label %_ZNK17QArrayDataPointerIP14RtpAudioStreamE11needsDetachEv.exit.i.i.i55
@@ -10529,10 +10529,10 @@ _ZN9QtPrivate8RefCount5derefEv.exit:              ; preds = %3
   br i1 %.not.i.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i.i, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %24, %.preheader.i.i.i.i
-  %.067.i.i.i.i.i = phi ptr [ %30, %.preheader.i.i.i.i ], [ %28, %24 ]
-  %29 = getelementptr inbounds i8, ptr %.067.i.i.i.i.i, i64 8
+  %.08.i.i.i.i.i = phi ptr [ %30, %.preheader.i.i.i.i ], [ %28, %24 ]
+  %29 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i, i64 8
   %30 = load ptr, ptr %29, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.067.i.i.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.08.i.i.i.i.i) #23
   %.not.i.i.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !74
 
@@ -13483,11 +13483,11 @@ _ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit:    ; preds = %_ZN14QSharedPointer
 
 .lr.ph:                                           ; preds = %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit, %_ZNK8QVariant5valueIP14RtpAudioStreamEET_v.exit
   %.090839 = phi i16 [ %spec.select, %_ZNK8QVariant5valueIP14RtpAudioStreamEET_v.exit ], [ 1, %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit ]
-  %.094838 = phi i32 [ %204, %_ZNK8QVariant5valueIP14RtpAudioStreamEET_v.exit ], [ 0, %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit ]
+  %.092838 = phi i32 [ %204, %_ZNK8QVariant5valueIP14RtpAudioStreamEET_v.exit ], [ 0, %_ZN14QSharedPointerI13QCPAxisTickerED2Ev.exit ]
   %194 = load ptr, ptr %84, align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 320
   %196 = load ptr, ptr %195, align 8
-  %197 = call noundef ptr @_ZNK11QTreeWidget12topLevelItemEi(ptr noundef nonnull align 8 dereferenceable(40) %196, i32 noundef %.094838)
+  %197 = call noundef ptr @_ZNK11QTreeWidget12topLevelItemEi(ptr noundef nonnull align 8 dereferenceable(40) %196, i32 noundef %.092838)
   %198 = load ptr, ptr %197, align 8
   %199 = getelementptr inbounds i8, ptr %198, i64 24
   %200 = load ptr, ptr %199, align 8
@@ -13500,7 +13500,7 @@ _ZNK8QVariant5valueIP14RtpAudioStreamEET_v.exit:  ; preds = %.lr.ph
   %202 = getelementptr inbounds i8, ptr %201, i64 7648
   %203 = load i16, ptr %202, align 8
   %spec.select = call i16 @llvm.smax.i16(i16 %203, i16 %.090839)
-  %204 = add nuw nsw i32 %.094838, 1
+  %204 = add nuw nsw i32 %.092838, 1
   %exitcond.not = icmp eq i32 %204, %93
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !91
 
@@ -13513,13 +13513,13 @@ _ZNK8QVariant5valueIP14RtpAudioStreamEET_v.exit:  ; preds = %.lr.ph
 207:                                              ; preds = %.lr.ph845, %_ZN7QStringD2Ev.exit469
   %.0844 = phi i8 [ 0, %.lr.ph845 ], [ %.1, %_ZN7QStringD2Ev.exit469 ]
   %.083843 = phi i8 [ 0, %.lr.ph845 ], [ %.184, %_ZN7QStringD2Ev.exit469 ]
-  %.085842 = phi i8 [ 0, %.lr.ph845 ], [ %.186, %_ZN7QStringD2Ev.exit469 ]
-  %.087841 = phi i32 [ 0, %.lr.ph845 ], [ %885, %_ZN7QStringD2Ev.exit469 ]
+  %.085842 = phi i32 [ 0, %.lr.ph845 ], [ %885, %_ZN7QStringD2Ev.exit469 ]
+  %.086841 = phi i8 [ 0, %.lr.ph845 ], [ %.187, %_ZN7QStringD2Ev.exit469 ]
   %.088840 = phi i8 [ 0, %.lr.ph845 ], [ %.189, %_ZN7QStringD2Ev.exit469 ]
   %208 = load ptr, ptr %84, align 8
   %209 = getelementptr inbounds i8, ptr %208, i64 320
   %210 = load ptr, ptr %209, align 8
-  %211 = call noundef ptr @_ZNK11QTreeWidget12topLevelItemEi(ptr noundef nonnull align 8 dereferenceable(40) %210, i32 noundef %.087841)
+  %211 = call noundef ptr @_ZNK11QTreeWidget12topLevelItemEi(ptr noundef nonnull align 8 dereferenceable(40) %210, i32 noundef %.085842)
   %212 = load ptr, ptr %211, align 8
   %213 = getelementptr inbounds i8, ptr %212, i64 24
   %214 = load ptr, ptr %213, align 8
@@ -13529,7 +13529,7 @@ _ZNK8QVariant5valueIP14RtpAudioStreamEET_v.exit:  ; preds = %.lr.ph
 
 _ZNK8QVariant5valueIP14RtpAudioStreamEET_v.exit166: ; preds = %207
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #20
-  %216 = xor i32 %.087841, -1
+  %216 = xor i32 %.085842, -1
   %217 = add nsw i32 %93, %216
   %218 = call i64 @_ZN14RtpAudioStream15getAudioRoutingEv(ptr noundef nonnull align 8 dereferenceable(7680) %215)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
@@ -15275,7 +15275,7 @@ _ZN8QVariant9fromValueIP8QCPGraphEENSt9enable_ifIXsr3stdE23is_copy_constructible
 
 774:                                              ; preds = %_ZN8QVariant9fromValueIP8QCPGraphEENSt9enable_ifIXsr3stdE23is_copy_constructible_vIT_EES_E4typeERKS4_.exit419
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %73) #20
-  %775 = trunc nuw i8 %.085842 to i1
+  %775 = trunc nuw i8 %.086841 to i1
   %776 = load ptr, ptr %66, align 8
   br i1 %775, label %777, label %798
 
@@ -15384,7 +15384,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i435:   ; preds = %804
   br label %.body
 
 _ZN7QStringD2Ev.exit433:                          ; preds = %802, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i431, %799, %777, %_ZN7QStringD2Ev.exit405
-  %.186 = phi i8 [ %.085842, %777 ], [ %.085842, %_ZN7QStringD2Ev.exit405 ], [ 1, %799 ], [ 1, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i431 ], [ 1, %802 ]
+  %.187 = phi i8 [ %.086841, %777 ], [ %.086841, %_ZN7QStringD2Ev.exit405 ], [ 1, %799 ], [ 1, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i431 ], [ 1, %802 ]
   %810 = getelementptr inbounds i8, ptr %215, i64 7640
   %811 = load i64, ptr %810, align 8
   %812 = trunc i64 %811 to i32
@@ -15614,7 +15614,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i467:   ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN7QStringD2Ev.exit469
 
 _ZN7QStringD2Ev.exit469:                          ; preds = %_ZN7QStringD2Ev.exit461, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i467, %883
-  %885 = add nuw nsw i32 %.087841, 1
+  %885 = add nuw nsw i32 %.085842, 1
   %exitcond982.not = icmp eq i32 %885, %93
   br i1 %exitcond982.not, label %._crit_edge, label %207, !llvm.loop !92
 
@@ -15652,7 +15652,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i471:   ; preds = %.body
   br i1 %895, label %906, label %901
 
 901:                                              ; preds = %._crit_edge
-  %902 = trunc nuw i8 %.186 to i1
+  %902 = trunc nuw i8 %.187 to i1
   %903 = trunc nuw i8 %.189 to i1
   %904 = trunc nuw i8 %.184 to i1
   %905 = select i1 %904, i1 true, i1 %902
@@ -37184,14 +37184,14 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   br label %40
 
 40:                                               ; preds = %.lr.ph, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE8freeDataEv.exit
-  %.02236 = phi i64 [ 0, %.lr.ph ], [ %142, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE8freeDataEv.exit ]
-  %41 = getelementptr %"struct.QHashPrivate::Span.206", ptr %15, i64 %.02236
+  %.02336 = phi i64 [ 0, %.lr.ph ], [ %142, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE8freeDataEv.exit ]
+  %41 = getelementptr %"struct.QHashPrivate::Span.206", ptr %15, i64 %.02336
   %42 = getelementptr inbounds i8, ptr %41, i64 128
   br label %43
 
 43:                                               ; preds = %40, %124
-  %.02335 = phi i64 [ 0, %40 ], [ %125, %124 ]
-  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02335
+  %.02235 = phi i64 [ 0, %40 ], [ %125, %124 ]
+  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02235
   %45 = load i8, ptr %44, align 1
   %.not = icmp eq i8 %45, -1
   br i1 %.not, label %124, label %46
@@ -37333,7 +37333,7 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE6insertEm.exit: ; pred
   br label %124
 
 124:                                              ; preds = %43, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE6insertEm.exit
-  %125 = add nuw nsw i64 %.02335, 1
+  %125 = add nuw nsw i64 %.02235, 1
   %exitcond.not = icmp eq i64 %125, 128
   br i1 %exitcond.not, label %126, label %43, !llvm.loop !203
 
@@ -37357,10 +37357,10 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE6insertEm.exit: ; pred
   br i1 %.not.i.i29, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %129, %.preheader.i.i
-  %.067.i.i.i = phi ptr [ %135, %.preheader.i.i ], [ %133, %129 ]
-  %134 = getelementptr inbounds i8, ptr %.067.i.i.i, i64 8
+  %.08.i.i.i = phi ptr [ %135, %.preheader.i.i ], [ %133, %129 ]
+  %134 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 8
   %135 = load ptr, ptr %134, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.067.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.08.i.i.i) #23
   %.not.i.i.i = icmp eq ptr %135, null
   br i1 %.not.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i, label %.preheader.i.i, !llvm.loop !74
 
@@ -37383,7 +37383,7 @@ _ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i: ; preds = %.preheade
   br label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE8freeDataEv.exit
 
 _ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE8freeDataEv.exit: ; preds = %126, %141
-  %142 = add nuw nsw i64 %.02236, 1
+  %142 = add nuw nsw i64 %.02336, 1
   %exitcond38.not = icmp eq i64 %142, %38
   br i1 %exitcond38.not, label %._crit_edge.thread, label %40, !llvm.loop !204
 
@@ -37424,10 +37424,10 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE8freeDataEv.exit: ; pr
   br i1 %.not.i.i.i32, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %153, %.preheader.i.i.i
-  %.067.i.i.i.i = phi ptr [ %159, %.preheader.i.i.i ], [ %157, %153 ]
-  %158 = getelementptr inbounds i8, ptr %.067.i.i.i.i, i64 8
+  %.08.i.i.i.i = phi ptr [ %159, %.preheader.i.i.i ], [ %157, %153 ]
+  %158 = getelementptr inbounds i8, ptr %.08.i.i.i.i, i64 8
   %159 = load ptr, ptr %158, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.067.i.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.08.i.i.i.i) #23
   %.not.i.i.i.i = icmp eq ptr %159, null
   br i1 %.not.i.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i, label %.preheader.i.i.i, !llvm.loop !74
 
@@ -37598,10 +37598,10 @@ _ZN9QtPrivate8RefCount5derefEv.exit:              ; preds = %40
   br i1 %.not.i.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i.i, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %58, %.preheader.i.i.i.i
-  %.067.i.i.i.i.i = phi ptr [ %64, %.preheader.i.i.i.i ], [ %62, %58 ]
-  %63 = getelementptr inbounds i8, ptr %.067.i.i.i.i.i, i64 8
+  %.08.i.i.i.i.i = phi ptr [ %64, %.preheader.i.i.i.i ], [ %62, %58 ]
+  %63 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i, i64 8
   %64 = load ptr, ptr %63, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.067.i.i.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.08.i.i.i.i.i) #23
   %.not.i.i.i.i.i = icmp eq ptr %64, null
   br i1 %.not.i.i.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !74
 
@@ -37738,16 +37738,16 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   br label %49
 
 49:                                               ; preds = %.lr.ph, %143
-  %.037 = phi i64 [ 0, %.lr.ph ], [ %144, %143 ]
+  %.02337 = phi i64 [ 0, %.lr.ph ], [ %144, %143 ]
   %50 = load ptr, ptr %48, align 8
-  %51 = getelementptr %"struct.QHashPrivate::Span.206", ptr %50, i64 %.037
+  %51 = getelementptr %"struct.QHashPrivate::Span.206", ptr %50, i64 %.02337
   %52 = getelementptr inbounds i8, ptr %51, i64 128
-  %53 = shl nuw i64 %.037, 7
+  %53 = shl nuw i64 %.02337, 7
   br label %54
 
 54:                                               ; preds = %49, %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamEC2ERKS3_.exit
-  %.02335 = phi i64 [ 0, %49 ], [ %142, %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamEC2ERKS3_.exit ]
-  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.02335
+  %.035 = phi i64 [ 0, %49 ], [ %142, %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamEC2ERKS3_.exit ]
+  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.035
   %56 = load i8, ptr %55, align 1
   %.not34 = icmp eq i8 %56, -1
   br i1 %.not34, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamEC2ERKS3_.exit, label %57
@@ -37808,7 +37808,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   br i1 %100, label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit, label %.lr.ph.i, !llvm.loop !110
 
 101:                                              ; preds = %57
-  %102 = add nuw nsw i64 %.02335, %53
+  %102 = add nuw nsw i64 %.035, %53
   %.pre = load ptr, ptr %13, align 8
   br label %_ZNK12QHashPrivate4DataINS_9MultiNodeIjP14RtpAudioStreamEEE4findERKj.exit
 
@@ -37910,12 +37910,12 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE6insertEm.exit: ; pred
   br i1 %.not.i28, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamEC2ERKS3_.exit, label %.lr.ph.i26, !llvm.loop !205
 
 _ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamEC2ERKS3_.exit: ; preds = %.lr.ph.i26, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE6insertEm.exit, %54
-  %142 = add nuw nsw i64 %.02335, 1
+  %142 = add nuw nsw i64 %.035, 1
   %exitcond.not = icmp eq i64 %142, 128
   br i1 %exitcond.not, label %143, label %54, !llvm.loop !206
 
 143:                                              ; preds = %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamEC2ERKS3_.exit
-  %144 = add nuw nsw i64 %.037, 1
+  %144 = add nuw nsw i64 %.02337, 1
   %exitcond39.not = icmp eq i64 %144, %47
   br i1 %exitcond39.not, label %._crit_edge, label %49, !llvm.loop !207
 
@@ -39294,10 +39294,10 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataINS_9MultiNodeIjP14RtpAu
   br i1 %.not.i.i, label %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE5eraseEm.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %3, %.preheader.i.i
-  %.067.i.i.i = phi ptr [ %17, %.preheader.i.i ], [ %15, %3 ]
-  %16 = getelementptr inbounds i8, ptr %.067.i.i.i, i64 8
+  %.08.i.i.i = phi ptr [ %17, %.preheader.i.i ], [ %15, %3 ]
+  %16 = getelementptr inbounds i8, ptr %.08.i.i.i, i64 8
   %17 = load ptr, ptr %16, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.067.i.i.i) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %.08.i.i.i) #23
   %.not.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i, label %_ZN12QHashPrivate9MultiNodeIjP14RtpAudioStreamED2Ev.exit.loopexit.i, label %.preheader.i.i, !llvm.loop !74
 
@@ -39343,7 +39343,7 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE5eraseEm.exit: ; preds
   %42 = phi i64 [ %29, %.lr.ph56 ], [ %118, %.loopexit ]
   %spec.store.select.i55 = phi i64 [ %spec.store.select.i52, %.lr.ph56 ], [ %spec.store.select.i, %.loopexit ]
   %43 = phi i64 [ %27, %.lr.ph56 ], [ %116, %.loopexit ]
-  %.054 = phi i64 [ %2, %.lr.ph56 ], [ %.1, %.loopexit ]
+  %.03654 = phi i64 [ %2, %.lr.ph56 ], [ %.1, %.loopexit ]
   %44 = getelementptr inbounds i8, ptr %39, i64 128
   %45 = load ptr, ptr %44, align 8
   %46 = zext i8 %37 to i64
@@ -39366,13 +39366,13 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE5eraseEm.exit: ; preds
   br i1 %62, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36, %111
-  %.03651 = phi i64 [ %spec.store.select.i43, %111 ], [ %61, %36 ]
-  %63 = icmp eq i64 %.03651, %.054
+  %.051 = phi i64 [ %spec.store.select.i43, %111 ], [ %61, %36 ]
+  %63 = icmp eq i64 %.051, %.03654
   br i1 %63, label %64, label %111
 
 64:                                               ; preds = %.lr.ph
-  %65 = lshr i64 %.054, 7
-  %66 = and i64 %.054, 127
+  %65 = lshr i64 %.03654, 7
+  %66 = and i64 %.03654, 127
   %67 = icmp eq i64 %42, %65
   br i1 %67, label %68, label %72
 
@@ -39474,14 +39474,14 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE12moveFromSpanERS5_mm.
   br label %.loopexit
 
 111:                                              ; preds = %.lr.ph
-  %112 = add i64 %.03651, 1
+  %112 = add i64 %.051, 1
   %113 = icmp eq i64 %112, %43
   %spec.store.select.i43 = select i1 %113, i64 0, i64 %112
   %114 = icmp eq i64 %spec.store.select.i43, %spec.store.select.i55
   br i1 %114, label %.loopexit, label %.lr.ph, !llvm.loop !209
 
 .loopexit:                                        ; preds = %111, %36, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE12moveFromSpanERS5_mm.exit, %68
-  %.1 = phi i64 [ %spec.store.select.i55, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE12moveFromSpanERS5_mm.exit ], [ %spec.store.select.i55, %68 ], [ %.054, %36 ], [ %.054, %111 ]
+  %.1 = phi i64 [ %spec.store.select.i55, %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE12moveFromSpanERS5_mm.exit ], [ %spec.store.select.i55, %68 ], [ %.03654, %36 ], [ %.03654, %111 ]
   %115 = add i64 %spec.store.select.i55, 1
   %116 = load i64, ptr %25, align 8
   %117 = icmp eq i64 %115, %116
@@ -40479,14 +40479,14 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   br label %40
 
 40:                                               ; preds = %.lr.ph, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE8freeDataEv.exit
-  %.02233 = phi i64 [ 0, %.lr.ph ], [ %126, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE8freeDataEv.exit ]
-  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %15, i64 %.02233
+  %.02333 = phi i64 [ 0, %.lr.ph ], [ %126, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE8freeDataEv.exit ]
+  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %15, i64 %.02333
   %42 = getelementptr inbounds i8, ptr %41, i64 128
   br label %43
 
 43:                                               ; preds = %40, %121
-  %.02332 = phi i64 [ 0, %40 ], [ %122, %121 ]
-  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02332
+  %.02232 = phi i64 [ 0, %40 ], [ %122, %121 ]
+  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02232
   %45 = load i8, ptr %44, align 1
   %.not = icmp eq i8 %45, -1
   br i1 %.not, label %121, label %46
@@ -40623,7 +40623,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE6insertEm.exit: ; preds = %
   br label %121
 
 121:                                              ; preds = %43, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE6insertEm.exit
-  %122 = add nuw nsw i64 %.02332, 1
+  %122 = add nuw nsw i64 %.02232, 1
   %exitcond.not = icmp eq i64 %122, 128
   br i1 %exitcond.not, label %123, label %43, !llvm.loop !214
 
@@ -40638,7 +40638,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE6insertEm.exit: ; preds = %
   br label %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE8freeDataEv.exit
 
 _ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE8freeDataEv.exit: ; preds = %123, %125
-  %126 = add nuw nsw i64 %.02233, 1
+  %126 = add nuw nsw i64 %.02333, 1
   %exitcond35.not = icmp eq i64 %126, %38
   br i1 %exitcond35.not, label %._crit_edge.thread, label %40, !llvm.loop !215
 
@@ -40914,16 +40914,16 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   br label %49
 
 49:                                               ; preds = %.lr.ph, %140
-  %.033 = phi i64 [ 0, %.lr.ph ], [ %141, %140 ]
+  %.02333 = phi i64 [ 0, %.lr.ph ], [ %141, %140 ]
   %50 = load ptr, ptr %48, align 8
-  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.033
+  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.02333
   %52 = getelementptr inbounds i8, ptr %51, i64 128
-  %53 = shl nuw i64 %.033, 7
+  %53 = shl nuw i64 %.02333, 7
   br label %54
 
 54:                                               ; preds = %49, %138
-  %.02331 = phi i64 [ 0, %49 ], [ %139, %138 ]
-  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.02331
+  %.031 = phi i64 [ 0, %49 ], [ %139, %138 ]
+  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.031
   %56 = load i8, ptr %55, align 1
   %.not30 = icmp eq i8 %56, -1
   br i1 %.not30, label %138, label %57
@@ -40984,7 +40984,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   br i1 %100, label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !212
 
 101:                                              ; preds = %57
-  %102 = add nuw nsw i64 %.02331, %53
+  %102 = add nuw nsw i64 %.031, %53
   %.pre = load ptr, ptr %13, align 8
   br label %_ZNK12QHashPrivate4DataINS_4NodeIi15QHashDummyValueEEE4findERKi.exit
 
@@ -41065,12 +41065,12 @@ _ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE6insertEm.exit: ; preds = %
   br label %138
 
 138:                                              ; preds = %54, %_ZN12QHashPrivate4SpanINS_4NodeIi15QHashDummyValueEEE6insertEm.exit
-  %139 = add nuw nsw i64 %.02331, 1
+  %139 = add nuw nsw i64 %.031, 1
   %exitcond.not = icmp eq i64 %139, 128
   br i1 %exitcond.not, label %140, label %54, !llvm.loop !216
 
 140:                                              ; preds = %138
-  %141 = add nuw nsw i64 %.033, 1
+  %141 = add nuw nsw i64 %.02333, 1
   %exitcond35.not = icmp eq i64 %141, %47
   br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !217
 

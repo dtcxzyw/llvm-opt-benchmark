@@ -511,13 +511,13 @@ list_head.exit:                                   ; preds = %3, %10
 17:                                               ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
   %.055 = phi ptr [ null, %.lr.ph ], [ %61, %60 ]
-  %.04254 = phi ptr [ %13, %.lr.ph ], [ %.1, %60 ]
+  %.04453 = phi ptr [ %13, %.lr.ph ], [ %.1, %60 ]
   %18 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %16, i64 0, i64 %indvars.iv
-  %.not46 = icmp eq ptr %.04254, null
+  %.not46 = icmp eq ptr %.04453, null
   br i1 %.not46, label %30, label %19
 
 19:                                               ; preds = %17
-  %20 = load ptr, ptr %.04254, align 8
+  %20 = load ptr, ptr %.04453, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %8, align 8
@@ -525,7 +525,7 @@ list_head.exit:                                   ; preds = %3, %10
   %.val = load i32, ptr %24, align 4
   %25 = getelementptr i8, ptr %23, i64 16
   %.val48 = load ptr, ptr %25, align 8
-  %26 = getelementptr i8, ptr %.04254, i64 8
+  %26 = getelementptr i8, ptr %.04453, i64 8
   %27 = sext i32 %.val to i64
   %28 = getelementptr %union.ListCell, ptr %.val48, i64 %27
   %29 = icmp ult ptr %26, %28
@@ -537,15 +537,15 @@ list_head.exit:                                   ; preds = %3, %10
   br label %32
 
 32:                                               ; preds = %30, %19
-  %.044 = phi ptr [ %22, %19 ], [ %31, %30 ]
   %.1 = phi ptr [ %..i, %19 ], [ null, %30 ]
+  %.042 = phi ptr [ %22, %19 ], [ %31, %30 ]
   %33 = getelementptr inbounds i8, ptr %18, i64 68
   %34 = load i32, ptr %33, align 4
   %35 = getelementptr inbounds i8, ptr %18, i64 80
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds i8, ptr %18, i64 100
   %38 = load i32, ptr %37, align 4
-  %39 = tail call ptr @makeColumnDef(ptr noundef %.044, i32 noundef %34, i32 noundef %36, i32 noundef %38) #6
+  %39 = tail call ptr @makeColumnDef(ptr noundef %.042, i32 noundef %34, i32 noundef %36, i32 noundef %38) #6
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %.not47 = icmp eq i32 %41, 0
@@ -584,9 +584,9 @@ list_head.exit:                                   ; preds = %3, %10
   br i1 %64, label %17, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %60, %list_head.exit
-  %.042.lcssa = phi ptr [ %13, %list_head.exit ], [ %.1, %60 ]
+  %.044.lcssa = phi ptr [ %13, %list_head.exit ], [ %.1, %60 ]
   %.0.lcssa = phi ptr [ null, %list_head.exit ], [ %61, %60 ]
-  %.not45 = icmp eq ptr %.042.lcssa, null
+  %.not45 = icmp eq ptr %.044.lcssa, null
   br i1 %.not45, label %69, label %65
 
 65:                                               ; preds = %._crit_edge

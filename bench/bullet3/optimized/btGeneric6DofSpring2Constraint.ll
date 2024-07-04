@@ -2358,7 +2358,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 
 for.body:                                         ; preds = %sw.epilog, %for.inc
   %indvars.iv = phi i64 [ 0, %sw.epilog ], [ %indvars.iv.next, %for.inc ]
-  %row.022 = phi i32 [ %row_offset, %sw.epilog ], [ %row.1, %for.inc ]
+  %row.021 = phi i32 [ %row_offset, %sw.epilog ], [ %row.1, %for.inc ]
   %arrayidx24 = getelementptr inbounds [3 x i32], ptr %cIdx, i64 0, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx24, align 4
   %idxprom25 = sext i32 %3 to i64
@@ -2437,12 +2437,12 @@ if.then60:                                        ; preds = %if.end57
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then60, %if.end57
-  %call69 = call noundef i32 @_ZN30btGeneric6DofSpring2Constraint21get_limit_motor_info2EP23btRotationalLimitMotor2RK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef nonnull %arrayidx26, ptr noundef nonnull align 4 dereferenceable(64) %transA, ptr noundef nonnull align 4 dereferenceable(64) %transB, ptr noundef nonnull align 4 dereferenceable(16) %linVelA, ptr noundef nonnull align 4 dereferenceable(16) %linVelB, ptr noundef nonnull align 4 dereferenceable(16) %angVelA, ptr noundef nonnull align 4 dereferenceable(16) %angVelB, ptr noundef %info, i32 noundef %row.022, ptr noundef nonnull align 4 dereferenceable(16) %axis, i32 noundef 1, i32 noundef 0)
-  %add70 = add nsw i32 %call69, %row.022
+  %call69 = call noundef i32 @_ZN30btGeneric6DofSpring2Constraint21get_limit_motor_info2EP23btRotationalLimitMotor2RK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef nonnull %arrayidx26, ptr noundef nonnull align 4 dereferenceable(64) %transA, ptr noundef nonnull align 4 dereferenceable(64) %transB, ptr noundef nonnull align 4 dereferenceable(16) %linVelA, ptr noundef nonnull align 4 dereferenceable(16) %linVelB, ptr noundef nonnull align 4 dereferenceable(16) %angVelA, ptr noundef nonnull align 4 dereferenceable(16) %angVelB, ptr noundef %info, i32 noundef %row.021, ptr noundef nonnull align 4 dereferenceable(16) %axis, i32 noundef 1, i32 noundef 0)
+  %add70 = add nsw i32 %call69, %row.021
   br label %for.inc
 
 for.inc:                                          ; preds = %lor.lhs.false31, %if.end65
-  %row.1 = phi i32 [ %add70, %if.end65 ], [ %row.022, %lor.lhs.false31 ]
+  %row.1 = phi i32 [ %add70, %if.end65 ], [ %row.021, %lor.lhs.false31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
@@ -2512,7 +2512,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next.pre-phi, %for.inc ]
-  %row.addr.063 = phi i32 [ %row, %entry ], [ %row.addr.1, %for.inc ]
+  %row.addr.062 = phi i32 [ %row, %entry ], [ %row.addr.1, %for.inc ]
   %arrayidx = getelementptr inbounds [3 x i32], ptr %m_currentLimit, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 4
   %tobool.not = icmp eq i32 %1, 0
@@ -2733,13 +2733,13 @@ lor.end251.thread:                                ; preds = %lor.end196, %lor.en
 lor.end251.thread60:                              ; preds = %lor.end196, %land.lhs.true215, %lor.end251, %lor.end251.thread
   %44 = phi i32 [ 0, %lor.end251.thread ], [ 1, %lor.end251 ], [ 1, %land.lhs.true215 ], [ 1, %lor.end196 ]
   %rotAllowed.0 = select i1 %37, i32 %44, i32 1
-  %call257 = call noundef i32 @_ZN30btGeneric6DofSpring2Constraint21get_limit_motor_info2EP23btRotationalLimitMotor2RK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef nonnull %limot, ptr noundef nonnull align 4 dereferenceable(64) %transA, ptr noundef nonnull align 4 dereferenceable(64) %transB, ptr noundef nonnull align 4 dereferenceable(16) %linVelA, ptr noundef nonnull align 4 dereferenceable(16) %linVelB, ptr noundef nonnull align 4 dereferenceable(16) %angVelA, ptr noundef nonnull align 4 dereferenceable(16) %angVelB, ptr noundef %info, i32 noundef %row.addr.063, ptr noundef nonnull align 4 dereferenceable(16) %axis, i32 noundef 0, i32 noundef %rotAllowed.0)
-  %add258 = add nsw i32 %call257, %row.addr.063
+  %call257 = call noundef i32 @_ZN30btGeneric6DofSpring2Constraint21get_limit_motor_info2EP23btRotationalLimitMotor2RK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef nonnull %limot, ptr noundef nonnull align 4 dereferenceable(64) %transA, ptr noundef nonnull align 4 dereferenceable(64) %transB, ptr noundef nonnull align 4 dereferenceable(16) %linVelA, ptr noundef nonnull align 4 dereferenceable(16) %linVelB, ptr noundef nonnull align 4 dereferenceable(16) %angVelA, ptr noundef nonnull align 4 dereferenceable(16) %angVelB, ptr noundef %info, i32 noundef %row.addr.062, ptr noundef nonnull align 4 dereferenceable(16) %axis, i32 noundef 0, i32 noundef %rotAllowed.0)
+  %add258 = add nsw i32 %call257, %row.addr.062
   br label %for.inc
 
 for.inc:                                          ; preds = %lor.lhs.false6.for.inc_crit_edge, %lor.end251.thread60
   %indvars.iv.next.pre-phi = phi i64 [ %.pre68, %lor.lhs.false6.for.inc_crit_edge ], [ %27, %lor.end251.thread60 ]
-  %row.addr.1 = phi i32 [ %row.addr.063, %lor.lhs.false6.for.inc_crit_edge ], [ %add258, %lor.end251.thread60 ]
+  %row.addr.1 = phi i32 [ %row.addr.062, %lor.lhs.false6.for.inc_crit_edge ], [ %add258, %lor.end251.thread60 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !37
 
@@ -3110,8 +3110,8 @@ cond.false271:                                    ; preds = %if.else256
   br label %if.end275
 
 if.end275:                                        ; preds = %if.else256, %cond.false271, %if.then245
-  %hiLimit.0 = phi float [ %cond255, %if.then245 ], [ %85, %cond.false271 ], [ %87, %if.else256 ]
   %lowLimit.0 = phi float [ %cond250, %if.then245 ], [ %cond265, %cond.false271 ], [ %cond265, %if.else256 ]
+  %hiLimit.0 = phi float [ %cond255, %if.then245 ], [ %85, %cond.false271 ], [ %87, %if.else256 ]
   %88 = load float, ptr %m_currentPosition213, align 4
   %89 = load float, ptr %info, align 8
   %m_motorERP278 = getelementptr inbounds i8, ptr %limot, i64 20

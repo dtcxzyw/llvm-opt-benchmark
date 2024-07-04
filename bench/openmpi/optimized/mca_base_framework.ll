@@ -256,8 +256,8 @@ define noundef i32 @mca_base_framework_register_list(ptr noundef readonly %0, i3
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %.preheader, %2
-  %.0 = phi i32 [ -5, %2 ], [ 0, %.preheader ], [ %6, %.lr.ph ], [ 0, %7 ]
-  ret i32 %.0
+  %.010 = phi i32 [ -5, %2 ], [ 0, %.preheader ], [ %6, %.lr.ph ], [ 0, %7 ]
+  ret i32 %.010
 }
 
 ; Function Attrs: nounwind uwtable
@@ -387,8 +387,8 @@ define noundef i32 @mca_base_framework_open_list(ptr noundef readonly %0, i32 no
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %.preheader, %2
-  %.0 = phi i32 [ -5, %2 ], [ 0, %.preheader ], [ %6, %.lr.ph ], [ 0, %7 ]
-  ret i32 %.0
+  %.010 = phi i32 [ -5, %2 ], [ 0, %.preheader ], [ %6, %.lr.ph ], [ 0, %7 ]
+  ret i32 %.010
 }
 
 ; Function Attrs: nounwind uwtable
@@ -673,8 +673,8 @@ define i32 @mca_base_framework_close_list(ptr noundef readonly %0) local_unnamed
   br i1 %.not12, label %4, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %.preheader, %1
-  %.0 = phi i32 [ -5, %1 ], [ 0, %.preheader ], [ %8, %.lr.ph ], [ 0, %4 ]
-  ret i32 %.0
+  %.08 = phi i32 [ -5, %1 ], [ 0, %.preheader ], [ %8, %.lr.ph ], [ 0, %4 ]
+  ret i32 %.08
 }
 
 declare i32 @opal_output_open(ptr noundef) local_unnamed_addr #2

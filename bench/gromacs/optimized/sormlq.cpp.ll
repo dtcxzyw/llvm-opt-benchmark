@@ -36,11 +36,11 @@ define void @sormlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %34 = icmp eq i8 %33, 78
   %35 = load i32, ptr %11, align 4
   %36 = icmp eq i32 %35, -1
-  %.0122.in = select i1 %spec.select, ptr %2, ptr %3
-  %.0121.in = select i1 %spec.select, ptr %3, ptr %2
+  %.0121.in = select i1 %spec.select, ptr %2, ptr %3
+  %.0120.in = select i1 %spec.select, ptr %3, ptr %2
+  %.0120 = load i32, ptr %.0120.in, align 4
   %.0121 = load i32, ptr %.0121.in, align 4
-  %.0122 = load i32, ptr %.0122.in, align 4
-  %37 = shl nsw i32 %.0121, 5
+  %37 = shl nsw i32 %.0120, 5
   %38 = sitofp i32 %37 to float
   store float %38, ptr %10, align 4
   %39 = load i32, ptr %12, align 4
@@ -65,7 +65,7 @@ define void @sormlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %49, label %.sink.split, label %50
 
 50:                                               ; preds = %47
-  store i32 %.0121, ptr %20, align 4
+  store i32 %.0120, ptr %20, align 4
   %51 = icmp sgt i32 %.fr134, 32
   br i1 %51, label %52, label %.thread
 
@@ -75,13 +75,13 @@ define void @sormlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %54, label %55, label %.thread
 
 55:                                               ; preds = %52
-  %56 = sdiv i32 %53, %.0121
+  %56 = sdiv i32 %53, %.0120
   %57 = icmp slt i32 %56, 2
   br i1 %57, label %58, label %.thread
 
 .thread:                                          ; preds = %50, %52, %55
-  %.0123138 = phi i32 [ %56, %55 ], [ 32, %52 ], [ 32, %50 ]
-  %.not = icmp slt i32 %.0123138, %.fr134
+  %.0122138 = phi i32 [ %56, %55 ], [ 32, %52 ], [ 32, %50 ]
+  %.not = icmp slt i32 %.0122138, %.fr134
   br i1 %.not, label %59, label %58
 
 58:                                               ; preds = %.thread, %55
@@ -94,15 +94,15 @@ define void @sormlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 60:                                               ; preds = %59
   %61 = add nsw i32 %.fr134, -1
-  %62 = urem i32 %61, %.0123138
+  %62 = urem i32 %61, %.0122138
   %63 = sub nsw i32 %.fr134, %62
-  %64 = sub nsw i32 0, %.0123138
+  %64 = sub nsw i32 0, %.0122138
   br label %65
 
 65:                                               ; preds = %59, %60
-  %.0130 = phi i32 [ %63, %60 ], [ 1, %59 ]
-  %.0129 = phi i32 [ 1, %60 ], [ %.fr134, %59 ]
-  %.0128 = phi i32 [ %64, %60 ], [ %.0123138, %59 ]
+  %.0129 = phi i32 [ %63, %60 ], [ 1, %59 ]
+  %.0128 = phi i32 [ 1, %60 ], [ %.fr134, %59 ]
+  %.0127 = phi i32 [ %64, %60 ], [ %.0122138, %59 ]
   switch i8 %30, label %67 [
     i8 108, label %66
     i8 76, label %66
@@ -117,22 +117,22 @@ define void @sormlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %68
 
 68:                                               ; preds = %67, %66
-  %.0125 = phi i64 [ 0, %66 ], [ 1, %67 ]
-  %.0124 = phi i32 [ 1, %66 ], [ 0, %67 ]
+  %.0124 = phi i64 [ 0, %66 ], [ 1, %67 ]
+  %.0123 = phi i32 [ 1, %66 ], [ 0, %67 ]
   %69 = add i8 %32, -78
   %switch.and = and i8 %69, -33
   %switch.selectcmp = icmp eq i8 %switch.and, 0
   %70 = select i1 %switch.selectcmp, i8 84, i8 78
   store i8 %70, ptr %21, align 1
-  %71 = icmp slt i32 %.0128, 0
-  %.0120.neg139 = sub nsw i32 0, %.0130
-  %72 = icmp sge i32 %.0130, %.0129
-  %73 = icmp sle i32 %.0130, %.0129
+  %71 = icmp slt i32 %.0127, 0
+  %.0130.neg139 = sub nsw i32 0, %.0129
+  %72 = icmp sge i32 %.0129, %.0128
+  %73 = icmp sle i32 %.0129, %.0128
   %74 = select i1 %71, i1 %72, i1 %73
   br i1 %74, label %.lr.ph, label %.sink.split
 
 .lr.ph:                                           ; preds = %68
-  %75 = add i32 %.0122, 1
+  %75 = add i32 %.0121, 1
   %76 = add i32 %23, 1
   switch i8 %30, label %.lr.ph.split.preheader [
     i8 108, label %.lr.ph.split.us
@@ -140,31 +140,31 @@ define void @sormlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   ]
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %77 = sext i32 %.0130 to i64
-  %78 = sext i32 %.0128 to i64
-  %79 = zext nneg i32 %.0129 to i64
+  %77 = sext i32 %.0129 to i64
+  %78 = sext i32 %.0127 to i64
+  %79 = zext nneg i32 %.0128 to i64
   %80 = sext i32 %27 to i64
-  %invariant.gep150 = getelementptr float, ptr %29, i64 %.0125
+  %invariant.gep150 = getelementptr float, ptr %29, i64 %.0124
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph
-  %81 = mul nuw nsw i32 %.0124, %27
-  %82 = sext i32 %.0130 to i64
-  %83 = sext i32 %.0128 to i64
-  %84 = zext nneg i32 %.0129 to i64
+  %81 = mul nuw nsw i32 %.0123, %27
+  %82 = sext i32 %.0129 to i64
+  %83 = sext i32 %.0127 to i64
+  %84 = zext nneg i32 %.0128 to i64
   %85 = sext i32 %81 to i64
   %invariant.gep = getelementptr float, ptr %29, i64 %85
   br label %86
 
 86:                                               ; preds = %86, %.lr.ph.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %86 ], [ %82, %.lr.ph.split.us ]
-  %.0120.neg143.us = phi i32 [ %.0120.neg.us, %86 ], [ %.0120.neg139, %.lr.ph.split.us ]
+  %.0130.neg143.us = phi i32 [ %.0130.neg.us, %86 ], [ %.0130.neg139, %.lr.ph.split.us ]
   %87 = load i32, ptr %4, align 4
-  %88 = add i32 %.0120.neg143.us, 1
+  %88 = add i32 %.0130.neg143.us, 1
   %89 = add i32 %88, %87
-  %90 = call i32 @llvm.smin.i32(i32 %.0123138, i32 %89)
+  %90 = call i32 @llvm.smin.i32(i32 %.0122138, i32 %89)
   store i32 %90, ptr %16, align 4
-  %91 = add i32 %75, %.0120.neg143.us
+  %91 = add i32 %75, %.0130.neg143.us
   store i32 %91, ptr %14, align 4
   %92 = trunc nsw i64 %indvars.iv to i32
   %93 = mul i32 %76, %92
@@ -179,7 +179,7 @@ define void @sormlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @slarfb_(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %16, ptr noundef %95, ptr noundef nonnull %6, ptr noundef nonnull %15, ptr noundef nonnull %22, ptr noundef %gep, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %20)
   %indvars.iv.next = add nsw i64 %indvars.iv, %83
   %99 = trunc nsw i64 %indvars.iv.next to i32
-  %.0120.neg.us = sub i32 0, %99
+  %.0130.neg.us = sub i32 0, %99
   %100 = icmp sge i64 %indvars.iv.next, %84
   %101 = icmp sle i64 %indvars.iv.next, %84
   %102 = select i1 %71, i1 %100, i1 %101
@@ -187,13 +187,13 @@ define void @sormlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv146 = phi i64 [ %77, %.lr.ph.split.preheader ], [ %indvars.iv.next147, %.lr.ph.split ]
-  %.0120.neg143 = phi i32 [ %.0120.neg139, %.lr.ph.split.preheader ], [ %.0120.neg, %.lr.ph.split ]
+  %.0130.neg143 = phi i32 [ %.0130.neg139, %.lr.ph.split.preheader ], [ %.0130.neg, %.lr.ph.split ]
   %103 = load i32, ptr %4, align 4
-  %104 = add i32 %.0120.neg143, 1
+  %104 = add i32 %.0130.neg143, 1
   %105 = add i32 %104, %103
-  %106 = call i32 @llvm.smin.i32(i32 %.0123138, i32 %105)
+  %106 = call i32 @llvm.smin.i32(i32 %.0122138, i32 %105)
   store i32 %106, ptr %16, align 4
-  %107 = add i32 %75, %.0120.neg143
+  %107 = add i32 %75, %.0130.neg143
   store i32 %107, ptr %14, align 4
   %108 = trunc nsw i64 %indvars.iv146 to i32
   %109 = mul i32 %76, %108
@@ -209,7 +209,7 @@ define void @sormlq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @slarfb_(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %16, ptr noundef %111, ptr noundef nonnull %6, ptr noundef nonnull %15, ptr noundef nonnull %22, ptr noundef %gep151, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %20)
   %indvars.iv.next147 = add nsw i64 %indvars.iv146, %78
   %116 = trunc nsw i64 %indvars.iv.next147 to i32
-  %.0120.neg = sub i32 0, %116
+  %.0130.neg = sub i32 0, %116
   %117 = icmp sge i64 %indvars.iv.next147, %79
   %118 = icmp sle i64 %indvars.iv.next147, %79
   %119 = select i1 %71, i1 %117, i1 %118

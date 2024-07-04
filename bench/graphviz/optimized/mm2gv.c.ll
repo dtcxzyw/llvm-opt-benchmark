@@ -318,7 +318,7 @@ define internal fastcc ptr @makeDotGraph(ptr nocapture noundef readonly %0, ptr 
   br label %38
 
 38:                                               ; preds = %36, %30
-  %.0165 = phi ptr [ %37, %36 ], [ null, %30 ]
+  %.0160 = phi ptr [ %37, %36 ], [ null, %30 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %.not177 = icmp eq i32 %3, 0
   br i1 %.not177, label %65, label %agxbsizeof.exit.i.i
@@ -499,8 +499,8 @@ agxbuse.exit202:                                  ; preds = %agxbclear.exit.thre
   %.056 = phi i8 [ 1, %.lr.ph58 ], [ %.5, %.loopexit33 ]
   %.014755 = phi double [ 0.000000e+00, %.lr.ph58 ], [ %.5152, %.loopexit33 ]
   %.015354 = phi double [ 0.000000e+00, %.lr.ph58 ], [ %.3156, %.loopexit33 ]
-  %.016053 = phi ptr [ %108, %.lr.ph58 ], [ %155, %.loopexit33 ]
-  %111 = getelementptr inbounds i8, ptr %.016053, i64 16
+  %.016653 = phi ptr [ %108, %.lr.ph58 ], [ %155, %.loopexit33 ]
+  %111 = getelementptr inbounds i8, ptr %.016653, i64 16
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds i8, ptr %112, i64 16
   %114 = load i32, ptr %113, align 8
@@ -603,7 +603,7 @@ agxbuse.exit202:                                  ; preds = %agxbclear.exit.thre
   %.3156 = phi double [ %.015354, %138 ], [ %.015354, %122 ], [ %154, %153 ], [ %134, %133 ]
   %.5152 = phi double [ %.014755, %138 ], [ %.014755, %122 ], [ %.4151, %153 ], [ %.2149, %133 ]
   %.5 = phi i8 [ %.056, %138 ], [ %.056, %122 ], [ %.4, %153 ], [ %.2, %133 ]
-  %155 = call ptr @agnxtnode(ptr noundef %35, ptr noundef nonnull %.016053) #16
+  %155 = call ptr @agnxtnode(ptr noundef %35, ptr noundef nonnull %.016653) #16
   %.not179 = icmp eq ptr %155, null
   br i1 %.not179, label %._crit_edge59, label %110
 
@@ -620,8 +620,8 @@ agxbuse.exit202:                                  ; preds = %agxbclear.exit.thre
   br label %159
 
 159:                                              ; preds = %.lr.ph69, %._crit_edge65
-  %.116167 = phi ptr [ %156, %.lr.ph69 ], [ %175, %._crit_edge65 ]
-  %160 = getelementptr inbounds i8, ptr %.116167, i64 16
+  %.116767 = phi ptr [ %156, %.lr.ph69 ], [ %175, %._crit_edge65 ]
+  %160 = getelementptr inbounds i8, ptr %.116767, i64 16
   %161 = load ptr, ptr %160, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 16
   %163 = load i32, ptr %162, align 8
@@ -650,20 +650,20 @@ agxbuse.exit202:                                  ; preds = %agxbclear.exit.thre
   br i1 %exitcond90.not, label %._crit_edge65, label %.lr.ph64
 
 ._crit_edge65:                                    ; preds = %.lr.ph64, %159
-  %175 = call ptr @agnxtnode(ptr noundef %35, ptr noundef nonnull %.116167) #16
+  %175 = call ptr @agnxtnode(ptr noundef %35, ptr noundef nonnull %.116767) #16
   %.not180 = icmp eq ptr %175, null
   br i1 %.not180, label %.loopexit, label %159
 
 .loopexit:                                        ; preds = %._crit_edge65, %._crit_edge59, %._crit_edge
-  %.0164 = phi ptr [ null, %._crit_edge ], [ %101, %._crit_edge59 ], [ %101, %._crit_edge65 ]
-  %.0163 = phi ptr [ null, %._crit_edge ], [ %102, %._crit_edge59 ], [ %102, %._crit_edge65 ]
+  %.0159 = phi ptr [ null, %._crit_edge ], [ %101, %._crit_edge59 ], [ %101, %._crit_edge65 ]
+  %.0158 = phi ptr [ null, %._crit_edge ], [ %102, %._crit_edge59 ], [ %102, %._crit_edge65 ]
   %.0157 = phi ptr [ null, %._crit_edge ], [ %107, %._crit_edge59 ], [ %107, %._crit_edge65 ]
   %176 = call ptr @agfstnode(ptr noundef %35) #16
   %.not18174 = icmp eq ptr %176, null
   br i1 %.not18174, label %._crit_edge78, label %.lr.ph77
 
 .lr.ph77:                                         ; preds = %.loopexit
-  %177 = icmp ne ptr %.0165, null
+  %177 = icmp ne ptr %.0160, null
   %178 = icmp ne ptr %12, null
   %or.cond5 = select i1 %177, i1 %178, i1 false
   %179 = getelementptr inbounds i8, ptr %6, i64 31
@@ -672,8 +672,8 @@ agxbuse.exit202:                                  ; preds = %agxbclear.exit.thre
   br label %182
 
 182:                                              ; preds = %.lr.ph77, %._crit_edge73
-  %.216275 = phi ptr [ %176, %.lr.ph77 ], [ %386, %._crit_edge73 ]
-  %183 = getelementptr inbounds i8, ptr %.216275, i64 16
+  %.216875 = phi ptr [ %176, %.lr.ph77 ], [ %386, %._crit_edge73 ]
+  %183 = getelementptr inbounds i8, ptr %.216875, i64 16
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds i8, ptr %184, i64 16
   %186 = load i32, ptr %185, align 8
@@ -696,7 +696,7 @@ agxbuse.exit202:                                  ; preds = %agxbclear.exit.thre
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds ptr, ptr %15, i64 %196
   %198 = load ptr, ptr %197, align 8
-  %199 = call ptr @agedge(ptr noundef %35, ptr noundef nonnull %.216275, ptr noundef %198, ptr noundef null, i32 noundef 1) #16
+  %199 = call ptr @agedge(ptr noundef %35, ptr noundef nonnull %.216875, ptr noundef %198, ptr noundef null, i32 noundef 1) #16
   br i1 %or.cond5, label %200, label %241
 
 200:                                              ; preds = %.lr.ph72
@@ -815,7 +815,7 @@ agxbclear.exit.thread.i216:                       ; preds = %agxbputc.exit.i213
 
 agxbuse.exit218:                                  ; preds = %agxbclear.exit.thread.i216, %237
   %239 = phi ptr [ %238, %237 ], [ %6, %agxbclear.exit.thread.i216 ]
-  %240 = call i32 @agxset(ptr noundef %199, ptr noundef nonnull %.0165, ptr noundef %239) #16
+  %240 = call i32 @agxset(ptr noundef %199, ptr noundef nonnull %.0160, ptr noundef %239) #16
   br label %241
 
 241:                                              ; preds = %agxbuse.exit218, %.lr.ph72
@@ -1039,7 +1039,7 @@ agxbclear.exit.thread.i.i:                        ; preds = %agxbputc.exit.i.i
 
 hue2rgb.exit:                                     ; preds = %agxbclear.exit.thread.i.i, %339
   %341 = phi ptr [ %340, %339 ], [ %6, %agxbclear.exit.thread.i.i ]
-  %342 = call i32 @agxset(ptr noundef %199, ptr noundef %.0164, ptr noundef %341) #16
+  %342 = call i32 @agxset(ptr noundef %199, ptr noundef %.0159, ptr noundef %341) #16
   %343 = load double, ptr %243, align 8
   call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %6, ptr noundef nonnull @.str.28, double noundef %343)
   %.val.i.i.i220 = load i8, ptr %179, align 1
@@ -1154,7 +1154,7 @@ agxbclear.exit.thread.i233:                       ; preds = %agxbputc.exit.i230
 
 agxbuse.exit235:                                  ; preds = %agxbclear.exit.thread.i233, %378
   %380 = phi ptr [ %379, %378 ], [ %6, %agxbclear.exit.thread.i233 ]
-  %381 = call i32 @agxset(ptr noundef %199, ptr noundef %.0163, ptr noundef %380) #16
+  %381 = call i32 @agxset(ptr noundef %199, ptr noundef %.0158, ptr noundef %380) #16
   br label %382
 
 382:                                              ; preds = %241, %agxbuse.exit235
@@ -1165,7 +1165,7 @@ agxbuse.exit235:                                  ; preds = %agxbclear.exit.thre
   br i1 %385, label %.lr.ph72, label %._crit_edge73
 
 ._crit_edge73:                                    ; preds = %382, %182
-  %386 = call ptr @agnxtnode(ptr noundef %35, ptr noundef nonnull %.216275) #16
+  %386 = call ptr @agnxtnode(ptr noundef %35, ptr noundef nonnull %.216875) #16
   %.not181 = icmp eq ptr %386, null
   br i1 %.not181, label %._crit_edge78, label %182
 

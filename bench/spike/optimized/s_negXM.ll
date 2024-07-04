@@ -20,10 +20,10 @@ define void @softfloat_negXM(i8 noundef zeroext %0, ptr nocapture noundef %1) lo
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %9 = phi i32 [ %6, %.lr.ph.preheader ], [ %14, %.lr.ph ]
-  %.01011 = phi i8 [ 1, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
+  %.012 = phi i8 [ 1, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i32 %9, 0
-  %spec.select = select i1 %.not, i8 %.01011, i8 0
+  %spec.select = select i1 %.not, i8 %.012, i8 0
   %10 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
   %11 = load i32, ptr %10, align 4
   %12 = xor i32 %11, -1

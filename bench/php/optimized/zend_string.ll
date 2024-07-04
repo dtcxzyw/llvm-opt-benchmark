@@ -385,8 +385,8 @@ define internal ptr @zend_new_interned_string_request(ptr noundef %0) #2 {
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 16), align 8
   %20 = sext i32 %18 to i64
   %21 = getelementptr inbounds i32, ptr %19, i64 %20
-  %.091111 = load i32, ptr %21, align 4
-  %.not95112 = icmp eq i32 %.091111, -1
+  %.092111 = load i32, ptr %21, align 4
+  %.not95112 = icmp eq i32 %.092111, -1
   br i1 %.not95112, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
@@ -395,8 +395,8 @@ define internal ptr @zend_new_interned_string_request(ptr noundef %0) #2 {
   br label %24
 
 24:                                               ; preds = %.lr.ph, %.critedge
-  %.091113 = phi i32 [ %.091111, %.lr.ph ], [ %.091, %.critedge ]
-  %25 = zext i32 %.091113 to i64
+  %.092113 = phi i32 [ %.092111, %.lr.ph ], [ %.092, %.critedge ]
+  %25 = zext i32 %.092113 to i64
   %26 = getelementptr inbounds %struct._Bucket, ptr %19, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 16
   %28 = load i64, ptr %27, align 8
@@ -423,8 +423,8 @@ define internal ptr @zend_new_interned_string_request(ptr noundef %0) #2 {
 
 .critedge:                                        ; preds = %30, %37, %24
   %43 = getelementptr inbounds i8, ptr %26, i64 12
-  %.091 = load i32, ptr %43, align 4
-  %.not95 = icmp eq i32 %.091, -1
+  %.092 = load i32, ptr %43, align 4
+  %.not95 = icmp eq i32 %.092, -1
   br i1 %.not95, label %._crit_edge, label %24
 
 44:                                               ; preds = %37
@@ -455,8 +455,8 @@ define internal ptr @zend_new_interned_string_request(ptr noundef %0) #2 {
   %55 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 360), align 8
   %56 = sext i32 %54 to i64
   %57 = getelementptr inbounds i32, ptr %55, i64 %56
-  %.092114 = load i32, ptr %57, align 4
-  %.not97115 = icmp eq i32 %.092114, -1
+  %.090114 = load i32, ptr %57, align 4
+  %.not97115 = icmp eq i32 %.090114, -1
   br i1 %.not97115, label %._crit_edge119, label %.lr.ph118
 
 .lr.ph118:                                        ; preds = %._crit_edge
@@ -465,8 +465,8 @@ define internal ptr @zend_new_interned_string_request(ptr noundef %0) #2 {
   br label %60
 
 60:                                               ; preds = %.lr.ph118, %.critedge2
-  %.092116 = phi i32 [ %.092114, %.lr.ph118 ], [ %.092, %.critedge2 ]
-  %61 = zext i32 %.092116 to i64
+  %.090116 = phi i32 [ %.090114, %.lr.ph118 ], [ %.090, %.critedge2 ]
+  %61 = zext i32 %.090116 to i64
   %62 = getelementptr inbounds %struct._Bucket, ptr %55, i64 %61
   %63 = getelementptr inbounds i8, ptr %62, i64 16
   %64 = load i64, ptr %63, align 8
@@ -493,8 +493,8 @@ define internal ptr @zend_new_interned_string_request(ptr noundef %0) #2 {
 
 .critedge2:                                       ; preds = %66, %73, %60
   %79 = getelementptr inbounds i8, ptr %62, i64 12
-  %.092 = load i32, ptr %79, align 4
-  %.not97 = icmp eq i32 %.092, -1
+  %.090 = load i32, ptr %79, align 4
+  %.not97 = icmp eq i32 %.090, -1
   br i1 %.not97, label %._crit_edge119, label %60
 
 80:                                               ; preds = %73
@@ -575,96 +575,96 @@ define internal ptr @zend_string_init_interned_request(ptr nocapture noundef rea
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.0164189 = phi i64 [ %44, %.lr.ph ], [ 5381, %3 ]
-  %.0165188 = phi i64 [ %45, %.lr.ph ], [ %1, %3 ]
-  %.0167187 = phi ptr [ %46, %.lr.ph ], [ %0, %3 ]
-  %6 = mul i64 %.0164189, 1185921
-  %7 = load i8, ptr %.0167187, align 1
+  %.0160189 = phi i64 [ %44, %.lr.ph ], [ 5381, %3 ]
+  %.0161188 = phi i64 [ %45, %.lr.ph ], [ %1, %3 ]
+  %.0163187 = phi ptr [ %46, %.lr.ph ], [ %0, %3 ]
+  %6 = mul i64 %.0160189, 1185921
+  %7 = load i8, ptr %.0163187, align 1
   %8 = sext i8 %7 to i64
   %9 = mul nsw i64 %8, 35937
   %10 = add i64 %9, %6
-  %11 = getelementptr inbounds i8, ptr %.0167187, i64 1
+  %11 = getelementptr inbounds i8, ptr %.0163187, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = sext i8 %12 to i64
   %14 = mul nsw i64 %13, 1089
   %15 = add i64 %10, %14
-  %16 = getelementptr inbounds i8, ptr %.0167187, i64 2
+  %16 = getelementptr inbounds i8, ptr %.0163187, i64 2
   %17 = load i8, ptr %16, align 1
   %18 = sext i8 %17 to i64
   %19 = mul nsw i64 %18, 33
   %20 = add i64 %15, %19
-  %21 = getelementptr inbounds i8, ptr %.0167187, i64 3
+  %21 = getelementptr inbounds i8, ptr %.0163187, i64 3
   %22 = load i8, ptr %21, align 1
   %23 = sext i8 %22 to i64
   %24 = add i64 %20, %23
   %25 = mul i64 %24, 1185921
-  %26 = getelementptr inbounds i8, ptr %.0167187, i64 4
+  %26 = getelementptr inbounds i8, ptr %.0163187, i64 4
   %27 = load i8, ptr %26, align 1
   %28 = sext i8 %27 to i64
   %29 = mul nsw i64 %28, 35937
   %30 = add i64 %25, %29
-  %31 = getelementptr inbounds i8, ptr %.0167187, i64 5
+  %31 = getelementptr inbounds i8, ptr %.0163187, i64 5
   %32 = load i8, ptr %31, align 1
   %33 = sext i8 %32 to i64
   %34 = mul nsw i64 %33, 1089
   %35 = add i64 %30, %34
-  %36 = getelementptr inbounds i8, ptr %.0167187, i64 6
+  %36 = getelementptr inbounds i8, ptr %.0163187, i64 6
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i64
   %39 = mul nsw i64 %38, 33
   %40 = add i64 %35, %39
-  %41 = getelementptr inbounds i8, ptr %.0167187, i64 7
+  %41 = getelementptr inbounds i8, ptr %.0163187, i64 7
   %42 = load i8, ptr %41, align 1
   %43 = sext i8 %42 to i64
   %44 = add i64 %40, %43
-  %45 = add i64 %.0165188, -8
-  %46 = getelementptr inbounds i8, ptr %.0167187, i64 8
+  %45 = add i64 %.0161188, -8
+  %46 = getelementptr inbounds i8, ptr %.0163187, i64 8
   %47 = icmp ugt i64 %45, 7
   br i1 %47, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.0167.lcssa = phi ptr [ %0, %3 ], [ %46, %.lr.ph ]
-  %.0165.lcssa = phi i64 [ %1, %3 ], [ %45, %.lr.ph ]
-  %.0164.lcssa = phi i64 [ 5381, %3 ], [ %44, %.lr.ph ]
-  %48 = icmp ugt i64 %.0165.lcssa, 3
+  %.0163.lcssa = phi ptr [ %0, %3 ], [ %46, %.lr.ph ]
+  %.0161.lcssa = phi i64 [ %1, %3 ], [ %45, %.lr.ph ]
+  %.0160.lcssa = phi i64 [ 5381, %3 ], [ %44, %.lr.ph ]
+  %48 = icmp ugt i64 %.0161.lcssa, 3
   br i1 %48, label %49, label %71
 
 49:                                               ; preds = %._crit_edge
-  %50 = mul i64 %.0164.lcssa, 1185921
-  %51 = load i8, ptr %.0167.lcssa, align 1
+  %50 = mul i64 %.0160.lcssa, 1185921
+  %51 = load i8, ptr %.0163.lcssa, align 1
   %52 = sext i8 %51 to i64
   %53 = mul nsw i64 %52, 35937
   %54 = add i64 %53, %50
-  %55 = getelementptr inbounds i8, ptr %.0167.lcssa, i64 1
+  %55 = getelementptr inbounds i8, ptr %.0163.lcssa, i64 1
   %56 = load i8, ptr %55, align 1
   %57 = sext i8 %56 to i64
   %58 = mul nsw i64 %57, 1089
   %59 = add i64 %54, %58
-  %60 = getelementptr inbounds i8, ptr %.0167.lcssa, i64 2
+  %60 = getelementptr inbounds i8, ptr %.0163.lcssa, i64 2
   %61 = load i8, ptr %60, align 1
   %62 = sext i8 %61 to i64
   %63 = mul nsw i64 %62, 33
   %64 = add i64 %59, %63
-  %65 = getelementptr inbounds i8, ptr %.0167.lcssa, i64 3
+  %65 = getelementptr inbounds i8, ptr %.0163.lcssa, i64 3
   %66 = load i8, ptr %65, align 1
   %67 = sext i8 %66 to i64
   %68 = add i64 %64, %67
-  %69 = add nsw i64 %.0165.lcssa, -4
-  %70 = getelementptr inbounds i8, ptr %.0167.lcssa, i64 4
+  %69 = add nsw i64 %.0161.lcssa, -4
+  %70 = getelementptr inbounds i8, ptr %.0163.lcssa, i64 4
   br label %71
 
 71:                                               ; preds = %49, %._crit_edge
-  %.1168 = phi ptr [ %70, %49 ], [ %.0167.lcssa, %._crit_edge ]
-  %.1166 = phi i64 [ %69, %49 ], [ %.0165.lcssa, %._crit_edge ]
-  %.1 = phi i64 [ %68, %49 ], [ %.0164.lcssa, %._crit_edge ]
-  %72 = icmp ugt i64 %.1166, 1
+  %.1164 = phi ptr [ %70, %49 ], [ %.0163.lcssa, %._crit_edge ]
+  %.1162 = phi i64 [ %69, %49 ], [ %.0161.lcssa, %._crit_edge ]
+  %.1 = phi i64 [ %68, %49 ], [ %.0160.lcssa, %._crit_edge ]
+  %72 = icmp ugt i64 %.1162, 1
   br i1 %72, label %73, label %94
 
 73:                                               ; preds = %71
-  %.not172 = icmp eq i64 %.1166, 2
-  %74 = load i8, ptr %.1168, align 1
+  %.not172 = icmp eq i64 %.1162, 2
+  %74 = load i8, ptr %.1164, align 1
   %75 = sext i8 %74 to i64
-  %76 = getelementptr inbounds i8, ptr %.1168, i64 1
+  %76 = getelementptr inbounds i8, ptr %.1164, i64 1
   %77 = load i8, ptr %76, align 1
   %78 = sext i8 %77 to i64
   br i1 %.not172, label %89, label %79
@@ -675,7 +675,7 @@ define internal ptr @zend_string_init_interned_request(ptr nocapture noundef rea
   %82 = add i64 %81, %80
   %83 = mul nsw i64 %78, 33
   %84 = add i64 %82, %83
-  %85 = getelementptr inbounds i8, ptr %.1168, i64 2
+  %85 = getelementptr inbounds i8, ptr %.1164, i64 2
   %86 = load i8, ptr %85, align 1
   %87 = sext i8 %86 to i64
   %88 = add i64 %84, %87
@@ -689,12 +689,12 @@ define internal ptr @zend_string_init_interned_request(ptr nocapture noundef rea
   br label %100
 
 94:                                               ; preds = %71
-  %.not = icmp eq i64 %.1166, 0
+  %.not = icmp eq i64 %.1162, 0
   br i1 %.not, label %100, label %95
 
 95:                                               ; preds = %94
   %96 = mul i64 %.1, 33
-  %97 = load i8, ptr %.1168, align 1
+  %97 = load i8, ptr %.1164, align 1
   %98 = sext i8 %97 to i64
   %99 = add i64 %96, %98
   br label %100
@@ -708,13 +708,13 @@ define internal ptr @zend_string_init_interned_request(ptr nocapture noundef rea
   %105 = load ptr, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 16), align 8
   %106 = sext i32 %104 to i64
   %107 = getelementptr inbounds i32, ptr %105, i64 %106
-  %.0160192 = load i32, ptr %107, align 4
-  %.not173193 = icmp eq i32 %.0160192, -1
+  %.0166192 = load i32, ptr %107, align 4
+  %.not173193 = icmp eq i32 %.0166192, -1
   br i1 %.not173193, label %._crit_edge197, label %.lr.ph196
 
 .lr.ph196:                                        ; preds = %100, %.critedge
-  %.0160194 = phi i32 [ %.0160, %.critedge ], [ %.0160192, %100 ]
-  %108 = zext i32 %.0160194 to i64
+  %.0166194 = phi i32 [ %.0166, %.critedge ], [ %.0166192, %100 ]
+  %108 = zext i32 %.0166194 to i64
   %109 = getelementptr inbounds %struct._Bucket, ptr %105, i64 %108
   %110 = getelementptr inbounds i8, ptr %109, i64 16
   %111 = load i64, ptr %110, align 8
@@ -737,8 +737,8 @@ define internal ptr @zend_string_init_interned_request(ptr nocapture noundef rea
 
 .critedge:                                        ; preds = %113, %119, %.lr.ph196
   %121 = getelementptr inbounds i8, ptr %109, i64 12
-  %.0160 = load i32, ptr %121, align 4
-  %.not173 = icmp eq i32 %.0160, -1
+  %.0166 = load i32, ptr %121, align 4
+  %.not173 = icmp eq i32 %.0166, -1
   br i1 %.not173, label %._crit_edge197, label %.lr.ph196
 
 ._crit_edge197:                                   ; preds = %.critedge, %100
@@ -747,13 +747,13 @@ define internal ptr @zend_string_init_interned_request(ptr nocapture noundef rea
   %124 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 360), align 8
   %125 = sext i32 %123 to i64
   %126 = getelementptr inbounds i32, ptr %124, i64 %125
-  %.0162198 = load i32, ptr %126, align 4
-  %.not176199 = icmp eq i32 %.0162198, -1
+  %.0168198 = load i32, ptr %126, align 4
+  %.not176199 = icmp eq i32 %.0168198, -1
   br i1 %.not176199, label %._crit_edge203, label %.lr.ph202
 
 .lr.ph202:                                        ; preds = %._crit_edge197, %.critedge2
-  %.0162200 = phi i32 [ %.0162, %.critedge2 ], [ %.0162198, %._crit_edge197 ]
-  %127 = zext i32 %.0162200 to i64
+  %.0168200 = phi i32 [ %.0168, %.critedge2 ], [ %.0168198, %._crit_edge197 ]
+  %127 = zext i32 %.0168200 to i64
   %128 = getelementptr inbounds %struct._Bucket, ptr %124, i64 %127
   %129 = getelementptr inbounds i8, ptr %128, i64 16
   %130 = load i64, ptr %129, align 8
@@ -776,8 +776,8 @@ define internal ptr @zend_string_init_interned_request(ptr nocapture noundef rea
 
 .critedge2:                                       ; preds = %132, %138, %.lr.ph202
   %140 = getelementptr inbounds i8, ptr %128, i64 12
-  %.0162 = load i32, ptr %140, align 4
-  %.not176 = icmp eq i32 %.0162, -1
+  %.0168 = load i32, ptr %140, align 4
+  %.not176 = icmp eq i32 %.0168, -1
   br i1 %.not176, label %._crit_edge203, label %.lr.ph202
 
 ._crit_edge203:                                   ; preds = %.critedge2, %._crit_edge197
@@ -817,8 +817,8 @@ define internal ptr @zend_string_init_interned_request(ptr nocapture noundef rea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %119, %138, %147
-  %.0163 = phi ptr [ %149, %147 ], [ %134, %138 ], [ %115, %119 ]
-  ret ptr %.0163
+  %.0 = phi ptr [ %149, %147 ], [ %134, %138 ], [ %115, %119 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -827,96 +827,96 @@ define internal ptr @zend_string_init_existing_interned_request(ptr nocapture no
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.0153178 = phi i64 [ %43, %.lr.ph ], [ 5381, %3 ]
-  %.0154177 = phi i64 [ %44, %.lr.ph ], [ %1, %3 ]
-  %.0156176 = phi ptr [ %45, %.lr.ph ], [ %0, %3 ]
-  %5 = mul i64 %.0153178, 1185921
-  %6 = load i8, ptr %.0156176, align 1
+  %.0149178 = phi i64 [ %43, %.lr.ph ], [ 5381, %3 ]
+  %.0150177 = phi i64 [ %44, %.lr.ph ], [ %1, %3 ]
+  %.0152176 = phi ptr [ %45, %.lr.ph ], [ %0, %3 ]
+  %5 = mul i64 %.0149178, 1185921
+  %6 = load i8, ptr %.0152176, align 1
   %7 = sext i8 %6 to i64
   %8 = mul nsw i64 %7, 35937
   %9 = add i64 %8, %5
-  %10 = getelementptr inbounds i8, ptr %.0156176, i64 1
+  %10 = getelementptr inbounds i8, ptr %.0152176, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = sext i8 %11 to i64
   %13 = mul nsw i64 %12, 1089
   %14 = add i64 %9, %13
-  %15 = getelementptr inbounds i8, ptr %.0156176, i64 2
+  %15 = getelementptr inbounds i8, ptr %.0152176, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = sext i8 %16 to i64
   %18 = mul nsw i64 %17, 33
   %19 = add i64 %14, %18
-  %20 = getelementptr inbounds i8, ptr %.0156176, i64 3
+  %20 = getelementptr inbounds i8, ptr %.0152176, i64 3
   %21 = load i8, ptr %20, align 1
   %22 = sext i8 %21 to i64
   %23 = add i64 %19, %22
   %24 = mul i64 %23, 1185921
-  %25 = getelementptr inbounds i8, ptr %.0156176, i64 4
+  %25 = getelementptr inbounds i8, ptr %.0152176, i64 4
   %26 = load i8, ptr %25, align 1
   %27 = sext i8 %26 to i64
   %28 = mul nsw i64 %27, 35937
   %29 = add i64 %24, %28
-  %30 = getelementptr inbounds i8, ptr %.0156176, i64 5
+  %30 = getelementptr inbounds i8, ptr %.0152176, i64 5
   %31 = load i8, ptr %30, align 1
   %32 = sext i8 %31 to i64
   %33 = mul nsw i64 %32, 1089
   %34 = add i64 %29, %33
-  %35 = getelementptr inbounds i8, ptr %.0156176, i64 6
+  %35 = getelementptr inbounds i8, ptr %.0152176, i64 6
   %36 = load i8, ptr %35, align 1
   %37 = sext i8 %36 to i64
   %38 = mul nsw i64 %37, 33
   %39 = add i64 %34, %38
-  %40 = getelementptr inbounds i8, ptr %.0156176, i64 7
+  %40 = getelementptr inbounds i8, ptr %.0152176, i64 7
   %41 = load i8, ptr %40, align 1
   %42 = sext i8 %41 to i64
   %43 = add i64 %39, %42
-  %44 = add i64 %.0154177, -8
-  %45 = getelementptr inbounds i8, ptr %.0156176, i64 8
+  %44 = add i64 %.0150177, -8
+  %45 = getelementptr inbounds i8, ptr %.0152176, i64 8
   %46 = icmp ugt i64 %44, 7
   br i1 %46, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.0156.lcssa = phi ptr [ %0, %3 ], [ %45, %.lr.ph ]
-  %.0154.lcssa = phi i64 [ %1, %3 ], [ %44, %.lr.ph ]
-  %.0153.lcssa = phi i64 [ 5381, %3 ], [ %43, %.lr.ph ]
-  %47 = icmp ugt i64 %.0154.lcssa, 3
+  %.0152.lcssa = phi ptr [ %0, %3 ], [ %45, %.lr.ph ]
+  %.0150.lcssa = phi i64 [ %1, %3 ], [ %44, %.lr.ph ]
+  %.0149.lcssa = phi i64 [ 5381, %3 ], [ %43, %.lr.ph ]
+  %47 = icmp ugt i64 %.0150.lcssa, 3
   br i1 %47, label %48, label %70
 
 48:                                               ; preds = %._crit_edge
-  %49 = mul i64 %.0153.lcssa, 1185921
-  %50 = load i8, ptr %.0156.lcssa, align 1
+  %49 = mul i64 %.0149.lcssa, 1185921
+  %50 = load i8, ptr %.0152.lcssa, align 1
   %51 = sext i8 %50 to i64
   %52 = mul nsw i64 %51, 35937
   %53 = add i64 %52, %49
-  %54 = getelementptr inbounds i8, ptr %.0156.lcssa, i64 1
+  %54 = getelementptr inbounds i8, ptr %.0152.lcssa, i64 1
   %55 = load i8, ptr %54, align 1
   %56 = sext i8 %55 to i64
   %57 = mul nsw i64 %56, 1089
   %58 = add i64 %53, %57
-  %59 = getelementptr inbounds i8, ptr %.0156.lcssa, i64 2
+  %59 = getelementptr inbounds i8, ptr %.0152.lcssa, i64 2
   %60 = load i8, ptr %59, align 1
   %61 = sext i8 %60 to i64
   %62 = mul nsw i64 %61, 33
   %63 = add i64 %58, %62
-  %64 = getelementptr inbounds i8, ptr %.0156.lcssa, i64 3
+  %64 = getelementptr inbounds i8, ptr %.0152.lcssa, i64 3
   %65 = load i8, ptr %64, align 1
   %66 = sext i8 %65 to i64
   %67 = add i64 %63, %66
-  %68 = add nsw i64 %.0154.lcssa, -4
-  %69 = getelementptr inbounds i8, ptr %.0156.lcssa, i64 4
+  %68 = add nsw i64 %.0150.lcssa, -4
+  %69 = getelementptr inbounds i8, ptr %.0152.lcssa, i64 4
   br label %70
 
 70:                                               ; preds = %48, %._crit_edge
-  %.1157 = phi ptr [ %69, %48 ], [ %.0156.lcssa, %._crit_edge ]
-  %.1155 = phi i64 [ %68, %48 ], [ %.0154.lcssa, %._crit_edge ]
-  %.1 = phi i64 [ %67, %48 ], [ %.0153.lcssa, %._crit_edge ]
-  %71 = icmp ugt i64 %.1155, 1
+  %.1153 = phi ptr [ %69, %48 ], [ %.0152.lcssa, %._crit_edge ]
+  %.1151 = phi i64 [ %68, %48 ], [ %.0150.lcssa, %._crit_edge ]
+  %.1 = phi i64 [ %67, %48 ], [ %.0149.lcssa, %._crit_edge ]
+  %71 = icmp ugt i64 %.1151, 1
   br i1 %71, label %72, label %93
 
 72:                                               ; preds = %70
-  %.not161 = icmp eq i64 %.1155, 2
-  %73 = load i8, ptr %.1157, align 1
+  %.not161 = icmp eq i64 %.1151, 2
+  %73 = load i8, ptr %.1153, align 1
   %74 = sext i8 %73 to i64
-  %75 = getelementptr inbounds i8, ptr %.1157, i64 1
+  %75 = getelementptr inbounds i8, ptr %.1153, i64 1
   %76 = load i8, ptr %75, align 1
   %77 = sext i8 %76 to i64
   br i1 %.not161, label %88, label %78
@@ -927,7 +927,7 @@ define internal ptr @zend_string_init_existing_interned_request(ptr nocapture no
   %81 = add i64 %80, %79
   %82 = mul nsw i64 %77, 33
   %83 = add i64 %81, %82
-  %84 = getelementptr inbounds i8, ptr %.1157, i64 2
+  %84 = getelementptr inbounds i8, ptr %.1153, i64 2
   %85 = load i8, ptr %84, align 1
   %86 = sext i8 %85 to i64
   %87 = add i64 %83, %86
@@ -941,12 +941,12 @@ define internal ptr @zend_string_init_existing_interned_request(ptr nocapture no
   br label %99
 
 93:                                               ; preds = %70
-  %.not = icmp eq i64 %.1155, 0
+  %.not = icmp eq i64 %.1151, 0
   br i1 %.not, label %99, label %94
 
 94:                                               ; preds = %93
   %95 = mul i64 %.1, 33
-  %96 = load i8, ptr %.1157, align 1
+  %96 = load i8, ptr %.1153, align 1
   %97 = sext i8 %96 to i64
   %98 = add i64 %95, %97
   br label %99
@@ -960,13 +960,13 @@ define internal ptr @zend_string_init_existing_interned_request(ptr nocapture no
   %104 = load ptr, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 16), align 8
   %105 = sext i32 %103 to i64
   %106 = getelementptr inbounds i32, ptr %104, i64 %105
-  %.0149181 = load i32, ptr %106, align 4
-  %.not162182 = icmp eq i32 %.0149181, -1
+  %.0155181 = load i32, ptr %106, align 4
+  %.not162182 = icmp eq i32 %.0155181, -1
   br i1 %.not162182, label %._crit_edge186, label %.lr.ph185
 
 .lr.ph185:                                        ; preds = %99, %.critedge
-  %.0149183 = phi i32 [ %.0149, %.critedge ], [ %.0149181, %99 ]
-  %107 = zext i32 %.0149183 to i64
+  %.0155183 = phi i32 [ %.0155, %.critedge ], [ %.0155181, %99 ]
+  %107 = zext i32 %.0155183 to i64
   %108 = getelementptr inbounds %struct._Bucket, ptr %104, i64 %107
   %109 = getelementptr inbounds i8, ptr %108, i64 16
   %110 = load i64, ptr %109, align 8
@@ -989,8 +989,8 @@ define internal ptr @zend_string_init_existing_interned_request(ptr nocapture no
 
 .critedge:                                        ; preds = %112, %118, %.lr.ph185
   %120 = getelementptr inbounds i8, ptr %108, i64 12
-  %.0149 = load i32, ptr %120, align 4
-  %.not162 = icmp eq i32 %.0149, -1
+  %.0155 = load i32, ptr %120, align 4
+  %.not162 = icmp eq i32 %.0155, -1
   br i1 %.not162, label %._crit_edge186, label %.lr.ph185
 
 ._crit_edge186:                                   ; preds = %.critedge, %99
@@ -999,13 +999,13 @@ define internal ptr @zend_string_init_existing_interned_request(ptr nocapture no
   %123 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 360), align 8
   %124 = sext i32 %122 to i64
   %125 = getelementptr inbounds i32, ptr %123, i64 %124
-  %.0151187 = load i32, ptr %125, align 4
-  %.not165188 = icmp eq i32 %.0151187, -1
+  %.0157187 = load i32, ptr %125, align 4
+  %.not165188 = icmp eq i32 %.0157187, -1
   br i1 %.not165188, label %.loopexit198, label %.lr.ph191
 
 .lr.ph191:                                        ; preds = %._crit_edge186, %.critedge2
-  %.0151189 = phi i32 [ %.0151, %.critedge2 ], [ %.0151187, %._crit_edge186 ]
-  %126 = zext i32 %.0151189 to i64
+  %.0157189 = phi i32 [ %.0157, %.critedge2 ], [ %.0157187, %._crit_edge186 ]
+  %126 = zext i32 %.0157189 to i64
   %127 = getelementptr inbounds %struct._Bucket, ptr %123, i64 %126
   %128 = getelementptr inbounds i8, ptr %127, i64 16
   %129 = load i64, ptr %128, align 8
@@ -1028,8 +1028,8 @@ define internal ptr @zend_string_init_existing_interned_request(ptr nocapture no
 
 .critedge2:                                       ; preds = %131, %137, %.lr.ph191
   %139 = getelementptr inbounds i8, ptr %127, i64 12
-  %.0151 = load i32, ptr %139, align 4
-  %.not165 = icmp eq i32 %.0151, -1
+  %.0157 = load i32, ptr %139, align 4
+  %.not165 = icmp eq i32 %.0157, -1
   br i1 %.not165, label %.loopexit198, label %.lr.ph191
 
 .loopexit198:                                     ; preds = %.critedge2, %._crit_edge186
@@ -1052,8 +1052,8 @@ define internal ptr @zend_string_init_existing_interned_request(ptr nocapture no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %118, %137, %.loopexit198
-  %.0152 = phi ptr [ %143, %.loopexit198 ], [ %133, %137 ], [ %114, %118 ]
-  ret ptr %.0152
+  %.0 = phi ptr [ %143, %.loopexit198 ], [ %133, %137 ], [ %114, %118 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1087,8 +1087,8 @@ define internal ptr @zend_new_interned_string_permanent(ptr noundef %0) #2 {
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 16), align 8
   %20 = sext i32 %18 to i64
   %21 = getelementptr inbounds i32, ptr %19, i64 %20
-  %.05665 = load i32, ptr %21, align 4
-  %.not5866 = icmp eq i32 %.05665, -1
+  %.05565 = load i32, ptr %21, align 4
+  %.not5866 = icmp eq i32 %.05565, -1
   br i1 %.not5866, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
@@ -1097,8 +1097,8 @@ define internal ptr @zend_new_interned_string_permanent(ptr noundef %0) #2 {
   br label %24
 
 24:                                               ; preds = %.lr.ph, %.critedge
-  %.05667 = phi i32 [ %.05665, %.lr.ph ], [ %.056, %.critedge ]
-  %25 = zext i32 %.05667 to i64
+  %.05567 = phi i32 [ %.05565, %.lr.ph ], [ %.055, %.critedge ]
+  %25 = zext i32 %.05567 to i64
   %26 = getelementptr inbounds %struct._Bucket, ptr %19, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 16
   %28 = load i64, ptr %27, align 8
@@ -1125,8 +1125,8 @@ define internal ptr @zend_new_interned_string_permanent(ptr noundef %0) #2 {
 
 .critedge:                                        ; preds = %30, %37, %24
   %43 = getelementptr inbounds i8, ptr %26, i64 12
-  %.056 = load i32, ptr %43, align 4
-  %.not58 = icmp eq i32 %.056, -1
+  %.055 = load i32, ptr %43, align 4
+  %.not58 = icmp eq i32 %.055, -1
   br i1 %.not58, label %._crit_edge, label %24
 
 44:                                               ; preds = %37
@@ -1184,20 +1184,20 @@ zend_init_string_for_interning.exit:              ; preds = %._crit_edge
 
 70:                                               ; preds = %zend_init_string_for_interning.exit, %._crit_edge
   %71 = phi i32 [ %69, %zend_init_string_for_interning.exit ], [ %4, %._crit_edge ]
-  %.054 = phi ptr [ %60, %zend_init_string_for_interning.exit ], [ %0, %._crit_edge ]
-  store i32 1, ptr %.054, align 4
-  %72 = getelementptr inbounds i8, ptr %.054, i64 4
+  %.0 = phi ptr [ %60, %zend_init_string_for_interning.exit ], [ %0, %._crit_edge ]
+  store i32 1, ptr %.0, align 4
+  %72 = getelementptr inbounds i8, ptr %.0, i64 4
   %73 = or i32 %71, 320
   store i32 %73, ptr %72, align 4
-  store ptr %.054, ptr %2, align 8
+  store ptr %.0, ptr %2, align 8
   %74 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 6, ptr %74, align 8
-  %75 = call ptr @zend_hash_add_new(ptr noundef nonnull @interned_strings_permanent, ptr noundef nonnull %.054, ptr noundef nonnull %2) #16
+  %75 = call ptr @zend_hash_add_new(ptr noundef nonnull @interned_strings_permanent, ptr noundef nonnull %.0, ptr noundef nonnull %2) #16
   br label %76
 
 76:                                               ; preds = %51, %52, %44, %1, %70
-  %.055 = phi ptr [ %.054, %70 ], [ %0, %1 ], [ %32, %44 ], [ %32, %52 ], [ %32, %51 ]
-  ret ptr %.055
+  %.054 = phi ptr [ %.0, %70 ], [ %0, %1 ], [ %32, %44 ], [ %32, %52 ], [ %32, %51 ]
+  ret ptr %.054
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1207,132 +1207,132 @@ define internal ptr @zend_string_init_interned_permanent(ptr nocapture noundef r
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.0135151 = phi ptr [ %46, %.lr.ph ], [ %0, %3 ]
-  %.0136150 = phi i64 [ %45, %.lr.ph ], [ %1, %3 ]
-  %.0139149 = phi i64 [ %44, %.lr.ph ], [ 5381, %3 ]
-  %6 = mul i64 %.0139149, 1185921
-  %7 = load i8, ptr %.0135151, align 1
+  %.0134151 = phi i64 [ %44, %.lr.ph ], [ 5381, %3 ]
+  %.0135150 = phi i64 [ %45, %.lr.ph ], [ %1, %3 ]
+  %.0137149 = phi ptr [ %46, %.lr.ph ], [ %0, %3 ]
+  %6 = mul i64 %.0134151, 1185921
+  %7 = load i8, ptr %.0137149, align 1
   %8 = sext i8 %7 to i64
   %9 = mul nsw i64 %8, 35937
   %10 = add i64 %9, %6
-  %11 = getelementptr inbounds i8, ptr %.0135151, i64 1
+  %11 = getelementptr inbounds i8, ptr %.0137149, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = sext i8 %12 to i64
   %14 = mul nsw i64 %13, 1089
   %15 = add i64 %10, %14
-  %16 = getelementptr inbounds i8, ptr %.0135151, i64 2
+  %16 = getelementptr inbounds i8, ptr %.0137149, i64 2
   %17 = load i8, ptr %16, align 1
   %18 = sext i8 %17 to i64
   %19 = mul nsw i64 %18, 33
   %20 = add i64 %15, %19
-  %21 = getelementptr inbounds i8, ptr %.0135151, i64 3
+  %21 = getelementptr inbounds i8, ptr %.0137149, i64 3
   %22 = load i8, ptr %21, align 1
   %23 = sext i8 %22 to i64
   %24 = add i64 %20, %23
   %25 = mul i64 %24, 1185921
-  %26 = getelementptr inbounds i8, ptr %.0135151, i64 4
+  %26 = getelementptr inbounds i8, ptr %.0137149, i64 4
   %27 = load i8, ptr %26, align 1
   %28 = sext i8 %27 to i64
   %29 = mul nsw i64 %28, 35937
   %30 = add i64 %25, %29
-  %31 = getelementptr inbounds i8, ptr %.0135151, i64 5
+  %31 = getelementptr inbounds i8, ptr %.0137149, i64 5
   %32 = load i8, ptr %31, align 1
   %33 = sext i8 %32 to i64
   %34 = mul nsw i64 %33, 1089
   %35 = add i64 %30, %34
-  %36 = getelementptr inbounds i8, ptr %.0135151, i64 6
+  %36 = getelementptr inbounds i8, ptr %.0137149, i64 6
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i64
   %39 = mul nsw i64 %38, 33
   %40 = add i64 %35, %39
-  %41 = getelementptr inbounds i8, ptr %.0135151, i64 7
+  %41 = getelementptr inbounds i8, ptr %.0137149, i64 7
   %42 = load i8, ptr %41, align 1
   %43 = sext i8 %42 to i64
   %44 = add i64 %40, %43
-  %45 = add i64 %.0136150, -8
-  %46 = getelementptr inbounds i8, ptr %.0135151, i64 8
+  %45 = add i64 %.0135150, -8
+  %46 = getelementptr inbounds i8, ptr %.0137149, i64 8
   %47 = icmp ugt i64 %45, 7
   br i1 %47, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.0139.lcssa = phi i64 [ 5381, %3 ], [ %44, %.lr.ph ]
-  %.0136.lcssa = phi i64 [ %1, %3 ], [ %45, %.lr.ph ]
-  %.0135.lcssa = phi ptr [ %0, %3 ], [ %46, %.lr.ph ]
-  %48 = icmp ugt i64 %.0136.lcssa, 3
+  %.0137.lcssa = phi ptr [ %0, %3 ], [ %46, %.lr.ph ]
+  %.0135.lcssa = phi i64 [ %1, %3 ], [ %45, %.lr.ph ]
+  %.0134.lcssa = phi i64 [ 5381, %3 ], [ %44, %.lr.ph ]
+  %48 = icmp ugt i64 %.0135.lcssa, 3
   br i1 %48, label %49, label %71
 
 49:                                               ; preds = %._crit_edge
-  %50 = mul i64 %.0139.lcssa, 1185921
-  %51 = load i8, ptr %.0135.lcssa, align 1
+  %50 = mul i64 %.0134.lcssa, 1185921
+  %51 = load i8, ptr %.0137.lcssa, align 1
   %52 = sext i8 %51 to i64
   %53 = mul nsw i64 %52, 35937
   %54 = add i64 %53, %50
-  %55 = getelementptr inbounds i8, ptr %.0135.lcssa, i64 1
+  %55 = getelementptr inbounds i8, ptr %.0137.lcssa, i64 1
   %56 = load i8, ptr %55, align 1
   %57 = sext i8 %56 to i64
   %58 = mul nsw i64 %57, 1089
   %59 = add i64 %54, %58
-  %60 = getelementptr inbounds i8, ptr %.0135.lcssa, i64 2
+  %60 = getelementptr inbounds i8, ptr %.0137.lcssa, i64 2
   %61 = load i8, ptr %60, align 1
   %62 = sext i8 %61 to i64
   %63 = mul nsw i64 %62, 33
   %64 = add i64 %59, %63
-  %65 = getelementptr inbounds i8, ptr %.0135.lcssa, i64 3
+  %65 = getelementptr inbounds i8, ptr %.0137.lcssa, i64 3
   %66 = load i8, ptr %65, align 1
   %67 = sext i8 %66 to i64
   %68 = add i64 %64, %67
-  %69 = add nsw i64 %.0136.lcssa, -4
-  %70 = getelementptr inbounds i8, ptr %.0135.lcssa, i64 4
+  %69 = add nsw i64 %.0135.lcssa, -4
+  %70 = getelementptr inbounds i8, ptr %.0137.lcssa, i64 4
   br label %71
 
 71:                                               ; preds = %49, %._crit_edge
-  %.1140 = phi i64 [ %68, %49 ], [ %.0139.lcssa, %._crit_edge ]
-  %.1137 = phi i64 [ %69, %49 ], [ %.0136.lcssa, %._crit_edge ]
-  %.1 = phi ptr [ %70, %49 ], [ %.0135.lcssa, %._crit_edge ]
-  %72 = icmp ugt i64 %.1137, 1
+  %.1138 = phi ptr [ %70, %49 ], [ %.0137.lcssa, %._crit_edge ]
+  %.1136 = phi i64 [ %69, %49 ], [ %.0135.lcssa, %._crit_edge ]
+  %.1 = phi i64 [ %68, %49 ], [ %.0134.lcssa, %._crit_edge ]
+  %72 = icmp ugt i64 %.1136, 1
   br i1 %72, label %73, label %94
 
 73:                                               ; preds = %71
-  %.not143 = icmp eq i64 %.1137, 2
-  %74 = load i8, ptr %.1, align 1
+  %.not143 = icmp eq i64 %.1136, 2
+  %74 = load i8, ptr %.1138, align 1
   %75 = sext i8 %74 to i64
-  %76 = getelementptr inbounds i8, ptr %.1, i64 1
+  %76 = getelementptr inbounds i8, ptr %.1138, i64 1
   %77 = load i8, ptr %76, align 1
   %78 = sext i8 %77 to i64
   br i1 %.not143, label %89, label %79
 
 79:                                               ; preds = %73
-  %80 = mul i64 %.1140, 35937
+  %80 = mul i64 %.1, 35937
   %81 = mul nsw i64 %75, 1089
   %82 = add i64 %81, %80
   %83 = mul nsw i64 %78, 33
   %84 = add i64 %82, %83
-  %85 = getelementptr inbounds i8, ptr %.1, i64 2
+  %85 = getelementptr inbounds i8, ptr %.1138, i64 2
   %86 = load i8, ptr %85, align 1
   %87 = sext i8 %86 to i64
   %88 = add i64 %84, %87
   br label %100
 
 89:                                               ; preds = %73
-  %90 = mul i64 %.1140, 1089
+  %90 = mul i64 %.1, 1089
   %91 = mul nsw i64 %75, 33
   %92 = add i64 %91, %90
   %93 = add i64 %92, %78
   br label %100
 
 94:                                               ; preds = %71
-  %.not = icmp eq i64 %.1137, 0
+  %.not = icmp eq i64 %.1136, 0
   br i1 %.not, label %100, label %95
 
 95:                                               ; preds = %94
-  %96 = mul i64 %.1140, 33
-  %97 = load i8, ptr %.1, align 1
+  %96 = mul i64 %.1, 33
+  %97 = load i8, ptr %.1138, align 1
   %98 = sext i8 %97 to i64
   %99 = add i64 %96, %98
   br label %100
 
 100:                                              ; preds = %94, %95, %79, %89
-  %.2 = phi i64 [ %88, %79 ], [ %93, %89 ], [ %99, %95 ], [ %.1140, %94 ]
+  %.2 = phi i64 [ %88, %79 ], [ %93, %89 ], [ %99, %95 ], [ %.1, %94 ]
   %101 = or i64 %.2, -9223372036854775808
   %102 = load i32, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 12), align 4
   %103 = trunc i64 %.2 to i32
@@ -1340,13 +1340,13 @@ define internal ptr @zend_string_init_interned_permanent(ptr nocapture noundef r
   %105 = load ptr, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 16), align 8
   %106 = sext i32 %104 to i64
   %107 = getelementptr inbounds i32, ptr %105, i64 %106
-  %.0134154 = load i32, ptr %107, align 4
-  %.not144155 = icmp eq i32 %.0134154, -1
+  %.0140154 = load i32, ptr %107, align 4
+  %.not144155 = icmp eq i32 %.0140154, -1
   br i1 %.not144155, label %._crit_edge159, label %.lr.ph158
 
 .lr.ph158:                                        ; preds = %100, %.critedge
-  %.0134156 = phi i32 [ %.0134, %.critedge ], [ %.0134154, %100 ]
-  %108 = zext i32 %.0134156 to i64
+  %.0140156 = phi i32 [ %.0140, %.critedge ], [ %.0140154, %100 ]
+  %108 = zext i32 %.0140156 to i64
   %109 = getelementptr inbounds %struct._Bucket, ptr %105, i64 %108
   %110 = getelementptr inbounds i8, ptr %109, i64 16
   %111 = load i64, ptr %110, align 8
@@ -1369,8 +1369,8 @@ define internal ptr @zend_string_init_interned_permanent(ptr nocapture noundef r
 
 .critedge:                                        ; preds = %113, %119, %.lr.ph158
   %121 = getelementptr inbounds i8, ptr %109, i64 12
-  %.0134 = load i32, ptr %121, align 4
-  %.not144 = icmp eq i32 %.0134, -1
+  %.0140 = load i32, ptr %121, align 4
+  %.not144 = icmp eq i32 %.0140, -1
   br i1 %.not144, label %._crit_edge159, label %.lr.ph158
 
 ._crit_edge159:                                   ; preds = %.critedge, %100
@@ -1399,8 +1399,8 @@ define internal ptr @zend_string_init_interned_permanent(ptr nocapture noundef r
   br label %.loopexit
 
 .loopexit:                                        ; preds = %119, %._crit_edge159
-  %.0138 = phi ptr [ %124, %._crit_edge159 ], [ %115, %119 ]
-  ret ptr %.0138
+  %.0 = phi ptr [ %124, %._crit_edge159 ], [ %115, %119 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1409,132 +1409,132 @@ define internal ptr @zend_string_init_existing_interned_permanent(ptr nocapture 
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.0123139 = phi ptr [ %45, %.lr.ph ], [ %0, %3 ]
-  %.0124138 = phi i64 [ %44, %.lr.ph ], [ %1, %3 ]
-  %.0127137 = phi i64 [ %43, %.lr.ph ], [ 5381, %3 ]
-  %5 = mul i64 %.0127137, 1185921
-  %6 = load i8, ptr %.0123139, align 1
+  %.0122139 = phi i64 [ %43, %.lr.ph ], [ 5381, %3 ]
+  %.0123138 = phi i64 [ %44, %.lr.ph ], [ %1, %3 ]
+  %.0125137 = phi ptr [ %45, %.lr.ph ], [ %0, %3 ]
+  %5 = mul i64 %.0122139, 1185921
+  %6 = load i8, ptr %.0125137, align 1
   %7 = sext i8 %6 to i64
   %8 = mul nsw i64 %7, 35937
   %9 = add i64 %8, %5
-  %10 = getelementptr inbounds i8, ptr %.0123139, i64 1
+  %10 = getelementptr inbounds i8, ptr %.0125137, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = sext i8 %11 to i64
   %13 = mul nsw i64 %12, 1089
   %14 = add i64 %9, %13
-  %15 = getelementptr inbounds i8, ptr %.0123139, i64 2
+  %15 = getelementptr inbounds i8, ptr %.0125137, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = sext i8 %16 to i64
   %18 = mul nsw i64 %17, 33
   %19 = add i64 %14, %18
-  %20 = getelementptr inbounds i8, ptr %.0123139, i64 3
+  %20 = getelementptr inbounds i8, ptr %.0125137, i64 3
   %21 = load i8, ptr %20, align 1
   %22 = sext i8 %21 to i64
   %23 = add i64 %19, %22
   %24 = mul i64 %23, 1185921
-  %25 = getelementptr inbounds i8, ptr %.0123139, i64 4
+  %25 = getelementptr inbounds i8, ptr %.0125137, i64 4
   %26 = load i8, ptr %25, align 1
   %27 = sext i8 %26 to i64
   %28 = mul nsw i64 %27, 35937
   %29 = add i64 %24, %28
-  %30 = getelementptr inbounds i8, ptr %.0123139, i64 5
+  %30 = getelementptr inbounds i8, ptr %.0125137, i64 5
   %31 = load i8, ptr %30, align 1
   %32 = sext i8 %31 to i64
   %33 = mul nsw i64 %32, 1089
   %34 = add i64 %29, %33
-  %35 = getelementptr inbounds i8, ptr %.0123139, i64 6
+  %35 = getelementptr inbounds i8, ptr %.0125137, i64 6
   %36 = load i8, ptr %35, align 1
   %37 = sext i8 %36 to i64
   %38 = mul nsw i64 %37, 33
   %39 = add i64 %34, %38
-  %40 = getelementptr inbounds i8, ptr %.0123139, i64 7
+  %40 = getelementptr inbounds i8, ptr %.0125137, i64 7
   %41 = load i8, ptr %40, align 1
   %42 = sext i8 %41 to i64
   %43 = add i64 %39, %42
-  %44 = add i64 %.0124138, -8
-  %45 = getelementptr inbounds i8, ptr %.0123139, i64 8
+  %44 = add i64 %.0123138, -8
+  %45 = getelementptr inbounds i8, ptr %.0125137, i64 8
   %46 = icmp ugt i64 %44, 7
   br i1 %46, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.0127.lcssa = phi i64 [ 5381, %3 ], [ %43, %.lr.ph ]
-  %.0124.lcssa = phi i64 [ %1, %3 ], [ %44, %.lr.ph ]
-  %.0123.lcssa = phi ptr [ %0, %3 ], [ %45, %.lr.ph ]
-  %47 = icmp ugt i64 %.0124.lcssa, 3
+  %.0125.lcssa = phi ptr [ %0, %3 ], [ %45, %.lr.ph ]
+  %.0123.lcssa = phi i64 [ %1, %3 ], [ %44, %.lr.ph ]
+  %.0122.lcssa = phi i64 [ 5381, %3 ], [ %43, %.lr.ph ]
+  %47 = icmp ugt i64 %.0123.lcssa, 3
   br i1 %47, label %48, label %70
 
 48:                                               ; preds = %._crit_edge
-  %49 = mul i64 %.0127.lcssa, 1185921
-  %50 = load i8, ptr %.0123.lcssa, align 1
+  %49 = mul i64 %.0122.lcssa, 1185921
+  %50 = load i8, ptr %.0125.lcssa, align 1
   %51 = sext i8 %50 to i64
   %52 = mul nsw i64 %51, 35937
   %53 = add i64 %52, %49
-  %54 = getelementptr inbounds i8, ptr %.0123.lcssa, i64 1
+  %54 = getelementptr inbounds i8, ptr %.0125.lcssa, i64 1
   %55 = load i8, ptr %54, align 1
   %56 = sext i8 %55 to i64
   %57 = mul nsw i64 %56, 1089
   %58 = add i64 %53, %57
-  %59 = getelementptr inbounds i8, ptr %.0123.lcssa, i64 2
+  %59 = getelementptr inbounds i8, ptr %.0125.lcssa, i64 2
   %60 = load i8, ptr %59, align 1
   %61 = sext i8 %60 to i64
   %62 = mul nsw i64 %61, 33
   %63 = add i64 %58, %62
-  %64 = getelementptr inbounds i8, ptr %.0123.lcssa, i64 3
+  %64 = getelementptr inbounds i8, ptr %.0125.lcssa, i64 3
   %65 = load i8, ptr %64, align 1
   %66 = sext i8 %65 to i64
   %67 = add i64 %63, %66
-  %68 = add nsw i64 %.0124.lcssa, -4
-  %69 = getelementptr inbounds i8, ptr %.0123.lcssa, i64 4
+  %68 = add nsw i64 %.0123.lcssa, -4
+  %69 = getelementptr inbounds i8, ptr %.0125.lcssa, i64 4
   br label %70
 
 70:                                               ; preds = %48, %._crit_edge
-  %.1128 = phi i64 [ %67, %48 ], [ %.0127.lcssa, %._crit_edge ]
-  %.1125 = phi i64 [ %68, %48 ], [ %.0124.lcssa, %._crit_edge ]
-  %.1 = phi ptr [ %69, %48 ], [ %.0123.lcssa, %._crit_edge ]
-  %71 = icmp ugt i64 %.1125, 1
+  %.1126 = phi ptr [ %69, %48 ], [ %.0125.lcssa, %._crit_edge ]
+  %.1124 = phi i64 [ %68, %48 ], [ %.0123.lcssa, %._crit_edge ]
+  %.1 = phi i64 [ %67, %48 ], [ %.0122.lcssa, %._crit_edge ]
+  %71 = icmp ugt i64 %.1124, 1
   br i1 %71, label %72, label %93
 
 72:                                               ; preds = %70
-  %.not131 = icmp eq i64 %.1125, 2
-  %73 = load i8, ptr %.1, align 1
+  %.not131 = icmp eq i64 %.1124, 2
+  %73 = load i8, ptr %.1126, align 1
   %74 = sext i8 %73 to i64
-  %75 = getelementptr inbounds i8, ptr %.1, i64 1
+  %75 = getelementptr inbounds i8, ptr %.1126, i64 1
   %76 = load i8, ptr %75, align 1
   %77 = sext i8 %76 to i64
   br i1 %.not131, label %88, label %78
 
 78:                                               ; preds = %72
-  %79 = mul i64 %.1128, 35937
+  %79 = mul i64 %.1, 35937
   %80 = mul nsw i64 %74, 1089
   %81 = add i64 %80, %79
   %82 = mul nsw i64 %77, 33
   %83 = add i64 %81, %82
-  %84 = getelementptr inbounds i8, ptr %.1, i64 2
+  %84 = getelementptr inbounds i8, ptr %.1126, i64 2
   %85 = load i8, ptr %84, align 1
   %86 = sext i8 %85 to i64
   %87 = add i64 %83, %86
   br label %99
 
 88:                                               ; preds = %72
-  %89 = mul i64 %.1128, 1089
+  %89 = mul i64 %.1, 1089
   %90 = mul nsw i64 %74, 33
   %91 = add i64 %90, %89
   %92 = add i64 %91, %77
   br label %99
 
 93:                                               ; preds = %70
-  %.not = icmp eq i64 %.1125, 0
+  %.not = icmp eq i64 %.1124, 0
   br i1 %.not, label %99, label %94
 
 94:                                               ; preds = %93
-  %95 = mul i64 %.1128, 33
-  %96 = load i8, ptr %.1, align 1
+  %95 = mul i64 %.1, 33
+  %96 = load i8, ptr %.1126, align 1
   %97 = sext i8 %96 to i64
   %98 = add i64 %95, %97
   br label %99
 
 99:                                               ; preds = %93, %94, %78, %88
-  %.2 = phi i64 [ %87, %78 ], [ %92, %88 ], [ %98, %94 ], [ %.1128, %93 ]
+  %.2 = phi i64 [ %87, %78 ], [ %92, %88 ], [ %98, %94 ], [ %.1, %93 ]
   %100 = or i64 %.2, -9223372036854775808
   %101 = load i32, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 12), align 4
   %102 = trunc i64 %.2 to i32
@@ -1542,13 +1542,13 @@ define internal ptr @zend_string_init_existing_interned_permanent(ptr nocapture 
   %104 = load ptr, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 16), align 8
   %105 = sext i32 %103 to i64
   %106 = getelementptr inbounds i32, ptr %104, i64 %105
-  %.0122142 = load i32, ptr %106, align 4
-  %.not132143 = icmp eq i32 %.0122142, -1
+  %.0128142 = load i32, ptr %106, align 4
+  %.not132143 = icmp eq i32 %.0128142, -1
   br i1 %.not132143, label %._crit_edge147, label %.lr.ph146
 
 .lr.ph146:                                        ; preds = %99, %.critedge
-  %.0122144 = phi i32 [ %.0122, %.critedge ], [ %.0122142, %99 ]
-  %107 = zext i32 %.0122144 to i64
+  %.0128144 = phi i32 [ %.0128, %.critedge ], [ %.0128142, %99 ]
+  %107 = zext i32 %.0128144 to i64
   %108 = getelementptr inbounds %struct._Bucket, ptr %104, i64 %107
   %109 = getelementptr inbounds i8, ptr %108, i64 16
   %110 = load i64, ptr %109, align 8
@@ -1571,8 +1571,8 @@ define internal ptr @zend_string_init_existing_interned_permanent(ptr nocapture 
 
 .critedge:                                        ; preds = %112, %118, %.lr.ph146
   %120 = getelementptr inbounds i8, ptr %108, i64 12
-  %.0122 = load i32, ptr %120, align 4
-  %.not132 = icmp eq i32 %.0122, -1
+  %.0128 = load i32, ptr %120, align 4
+  %.not132 = icmp eq i32 %.0128, -1
   br i1 %.not132, label %._crit_edge147, label %.lr.ph146
 
 ._crit_edge147:                                   ; preds = %.critedge, %99
@@ -1594,8 +1594,8 @@ define internal ptr @zend_string_init_existing_interned_permanent(ptr nocapture 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %118, %._crit_edge147
-  %.0126 = phi ptr [ %123, %._crit_edge147 ], [ %114, %118 ]
-  ret ptr %.0126
+  %.0 = phi ptr [ %123, %._crit_edge147 ], [ %114, %118 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: allocsize(0)
@@ -1641,8 +1641,8 @@ define ptr @zend_interned_string_find_permanent(ptr noundef %0) local_unnamed_ad
   %14 = load ptr, ptr getelementptr inbounds (i8, ptr @interned_strings_permanent, i64 16), align 8
   %15 = sext i32 %13 to i64
   %16 = getelementptr inbounds i32, ptr %14, i64 %15
-  %.02225 = load i32, ptr %16, align 4
-  %.not2326 = icmp eq i32 %.02225, -1
+  %.025 = load i32, ptr %16, align 4
+  %.not2326 = icmp eq i32 %.025, -1
   br i1 %.not2326, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
@@ -1651,8 +1651,8 @@ define ptr @zend_interned_string_find_permanent(ptr noundef %0) local_unnamed_ad
   br label %19
 
 19:                                               ; preds = %.lr.ph, %.critedge
-  %.02227 = phi i32 [ %.02225, %.lr.ph ], [ %.022, %.critedge ]
-  %20 = zext i32 %.02227 to i64
+  %.027 = phi i32 [ %.025, %.lr.ph ], [ %.0, %.critedge ]
+  %20 = zext i32 %.027 to i64
   %21 = getelementptr inbounds %struct._Bucket, ptr %14, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load i64, ptr %22, align 8
@@ -1679,13 +1679,13 @@ define ptr @zend_interned_string_find_permanent(ptr noundef %0) local_unnamed_ad
 
 .critedge:                                        ; preds = %25, %32, %19
   %38 = getelementptr inbounds i8, ptr %21, i64 12
-  %.022 = load i32, ptr %38, align 4
-  %.not23 = icmp eq i32 %.022, -1
+  %.0 = load i32, ptr %38, align 4
+  %.not23 = icmp eq i32 %.0, -1
   br i1 %.not23, label %._crit_edge, label %19
 
 ._crit_edge:                                      ; preds = %.critedge, %32, %9
-  %.0 = phi ptr [ null, %9 ], [ %27, %32 ], [ null, %.critedge ]
-  ret ptr %.0
+  %.022 = phi ptr [ null, %9 ], [ %27, %32 ], [ null, %.critedge ]
+  ret ptr %.022
 }
 
 ; Function Attrs: nounwind uwtable

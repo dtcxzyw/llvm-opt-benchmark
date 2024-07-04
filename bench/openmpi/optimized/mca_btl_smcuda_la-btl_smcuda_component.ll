@@ -606,14 +606,14 @@ define i32 @mca_btl_smcuda_component_progress() #0 {
   br label %35
 
 .preheader:                                       ; preds = %.loopexit, %.loopexit99
-  %.058.lcssa = phi i32 [ 0, %.loopexit99 ], [ %.2, %.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %.loopexit99 ], [ %.2, %.loopexit ]
   %33 = call i32 @mca_btl_smcuda_progress_one_ipc_event(ptr noundef nonnull %2) #14
   %34 = icmp eq i32 %33, 1
   br i1 %34, label %.lr.ph110, label %._crit_edge
 
 35:                                               ; preds = %.lr.ph108, %.loopexit
   %indvars.iv120 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next121, %.loopexit ]
-  %.058106 = phi i32 [ 0, %.lr.ph108 ], [ %.2, %.loopexit ]
+  %.0107 = phi i32 [ 0, %.lr.ph108 ], [ %.2, %.loopexit ]
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_smcuda_component, i64 448), align 16
   %37 = getelementptr inbounds ptr, ptr %36, i64 %27
   %38 = load ptr, ptr %37, align 8
@@ -627,7 +627,7 @@ define i32 @mca_btl_smcuda_component_progress() #0 {
   br label %46
 
 46:                                               ; preds = %.backedge, %35
-  %.1 = phi i32 [ %.058106, %35 ], [ %89, %.backedge ]
+  %.1 = phi i32 [ %.0107, %35 ], [ %89, %.backedge ]
   %47 = load i8, ptr @opal_uses_threads, align 1
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %opal_atomic_lock.exit
@@ -1174,7 +1174,7 @@ opal_thread_add_fetch_32.exit.i81:                ; preds = %sm_fifo_write.exit8
   br i1 %357, label %35, label %.preheader, !llvm.loop !9
 
 .lr.ph110:                                        ; preds = %.preheader, %opal_free_list_return.exit93
-  %.3109 = phi i32 [ %424, %opal_free_list_return.exit93 ], [ %.058.lcssa, %.preheader ]
+  %.3109 = phi i32 [ %424, %opal_free_list_return.exit93 ], [ %.0.lcssa, %.preheader ]
   %358 = load ptr, ptr %2, align 8
   %359 = getelementptr inbounds i8, ptr %358, i64 72
   %360 = load ptr, ptr %359, align 8
@@ -1291,7 +1291,7 @@ opal_free_list_return.exit93:                     ; preds = %opal_free_list_retu
   br i1 %426, label %.lr.ph110, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %opal_free_list_return.exit93, %.preheader
-  %.3.lcssa = phi i32 [ %.058.lcssa, %.preheader ], [ %424, %opal_free_list_return.exit93 ]
+  %.3.lcssa = phi i32 [ %.0.lcssa, %.preheader ], [ %424, %opal_free_list_return.exit93 ]
   ret i32 %.3.lcssa
 }
 

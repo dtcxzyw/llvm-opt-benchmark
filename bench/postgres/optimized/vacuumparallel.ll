@@ -62,8 +62,8 @@ define dso_local ptr @parallel_vacuum_init(ptr noundef %0, ptr noundef %1, i32 n
 
 .lr.ph.i:                                         ; preds = %32, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %32 ]
-  %.03243.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.2.i, %32 ]
-  %.03342.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.134.i, %32 ]
+  %.03243.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %32 ]
+  %.03342.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.2.i, %32 ]
   %15 = getelementptr ptr, ptr %1, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 344
@@ -84,24 +84,24 @@ define dso_local ptr @parallel_vacuum_init(ptr noundef %0, ptr noundef %1, i32 n
   %28 = getelementptr i8, ptr %9, i64 %indvars.iv.i
   store i8 1, ptr %28, align 1
   %29 = and i32 %21, 1
-  %spec.select.i = add i32 %29, %.03243.i
+  %spec.select.i = add i32 %29, %.03342.i
   %30 = and i32 %21, 6
   %or.cond.i = icmp ne i32 %30, 0
   %31 = zext i1 %or.cond.i to i32
-  %spec.select41.i = add i32 %.03342.i, %31
+  %spec.select41.i = add i32 %.03243.i, %31
   br label %32
 
 32:                                               ; preds = %27, %23, %.lr.ph.i
-  %.134.i = phi i32 [ %.03342.i, %.lr.ph.i ], [ %.03342.i, %23 ], [ %spec.select41.i, %27 ]
-  %.2.i = phi i32 [ %.03243.i, %.lr.ph.i ], [ %.03243.i, %23 ], [ %spec.select.i, %27 ]
+  %.2.i = phi i32 [ %.03342.i, %.lr.ph.i ], [ %.03342.i, %23 ], [ %spec.select.i, %27 ]
+  %.1.i = phi i32 [ %.03243.i, %.lr.ph.i ], [ %.03243.i, %23 ], [ %spec.select41.i, %27 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %32, %.preheader.i
-  %.033.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.134.i, %32 ]
-  %.032.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.2.i, %32 ]
-  %33 = tail call i32 @llvm.smax.i32(i32 %.032.lcssa.i, i32 %.033.lcssa.i)
+  %.033.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.2.i, %32 ]
+  %.032.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.1.i, %32 ]
+  %33 = tail call i32 @llvm.smax.i32(i32 %.033.lcssa.i, i32 %.032.lcssa.i)
   %34 = add i32 %33, -1
   %35 = icmp slt i32 %34, 1
   br i1 %35, label %parallel_vacuum_compute_workers.exit.thread, label %parallel_vacuum_compute_workers.exit
@@ -204,7 +204,7 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   br label %101
 
 101:                                              ; preds = %42, %90
-  %.0184 = phi i32 [ %92, %90 ], [ 0, %42 ]
+  %.0186 = phi i32 [ %92, %90 ], [ 0, %42 ]
   tail call void @InitializeParallelDSM(ptr noundef nonnull %49) #9
   %102 = getelementptr inbounds i8, ptr %49, i64 88
   %103 = load ptr, ptr %102, align 8
@@ -253,7 +253,7 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
 
 125:                                              ; preds = %.lr.ph202, %155
   %indvars.iv = phi i64 [ 0, %.lr.ph202 ], [ %indvars.iv.next, %155 ]
-  %.0182201 = phi i32 [ 0, %.lr.ph202 ], [ %.2, %155 ]
+  %.0187200 = phi i32 [ 0, %.lr.ph202 ], [ %.2, %155 ]
   %126 = getelementptr i8, ptr %9, i64 %indvars.iv
   %127 = load i8, ptr %126, align 1
   %128 = trunc i8 %127 to i1
@@ -270,7 +270,7 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   %137 = load i8, ptr %136, align 8
   %138 = and i8 %137, 1
   %139 = zext nneg i8 %138 to i32
-  %spec.select = add i32 %.0182201, %139
+  %spec.select = add i32 %.0187200, %139
   %140 = zext i8 %135 to i32
   %141 = and i32 %140, 1
   %.not193 = icmp eq i32 %141, 0
@@ -305,13 +305,13 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   br label %155
 
 155:                                              ; preds = %150, %152, %125
-  %.2 = phi i32 [ %spec.select, %152 ], [ %spec.select, %150 ], [ %.0182201, %125 ]
+  %.2 = phi i32 [ %spec.select, %152 ], [ %spec.select, %150 ], [ %.0187200, %125 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %125, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %155, %.loopexit198
-  %.0182.lcssa = phi i32 [ 0, %.loopexit198 ], [ %.2, %155 ]
+  %.0187.lcssa = phi i32 [ 0, %.loopexit198 ], [ %.2, %155 ]
   %156 = load ptr, ptr %102, align 8
   tail call void @shm_toc_insert(ptr noundef %156, i64 noundef 6, ptr noundef %104) #9
   %157 = getelementptr inbounds i8, ptr %43, i64 40
@@ -349,12 +349,12 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   store i32 %174, ptr %159, align 8
   %175 = getelementptr inbounds i8, ptr %159, i64 4
   store i32 %5, ptr %175, align 4
-  %176 = icmp sgt i32 %.0182.lcssa, 0
+  %176 = icmp sgt i32 %.0187.lcssa, 0
   %177 = load i32, ptr @maintenance_work_mem, align 4
   br i1 %176, label %178, label %181
 
 178:                                              ; preds = %.loopexit197
-  %179 = tail call i32 @llvm.smin.i32(i32 %40, i32 %.0182.lcssa)
+  %179 = tail call i32 @llvm.smin.i32(i32 %40, i32 %.0187.lcssa)
   %180 = sdiv i32 %177, %179
   br label %181
 
@@ -446,12 +446,12 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
 
 233:                                              ; preds = %.loopexit
   %234 = load ptr, ptr %102, align 8
-  %235 = add i32 %.0184, 1
+  %235 = add i32 %.0186, 1
   %236 = sext i32 %235 to i64
   %237 = tail call ptr @shm_toc_allocate(ptr noundef %234, i64 noundef %236) #9
   %238 = load ptr, ptr @debug_query_string, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %237, ptr align 1 %238, i64 %236, i1 false)
-  %239 = sext i32 %.0184 to i64
+  %239 = sext i32 %.0186 to i64
   %240 = getelementptr i8, ptr %237, i64 %239
   store i8 0, ptr %240, align 1
   %241 = load ptr, ptr %102, align 8
@@ -592,9 +592,9 @@ define internal fastcc void @parallel_vacuum_process_all_indexes(ptr nocapture n
   br label %15
 
 15:                                               ; preds = %7, %11, %4
+  %.078 = phi i32 [ %6, %4 ], [ %14, %11 ], [ %9, %7 ]
   %.077 = phi i32 [ 1, %4 ], [ 2, %11 ], [ 2, %7 ]
-  %.0 = phi i32 [ %6, %4 ], [ %14, %11 ], [ %9, %7 ]
-  %16 = add i32 %.0, -1
+  %16 = add i32 %.078, -1
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 20
   %19 = load i32, ptr %18, align 4

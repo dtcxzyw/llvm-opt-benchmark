@@ -697,10 +697,10 @@ if.then75:                                        ; preds = %while.body, %while.
   br label %if.end80
 
 if.end80:                                         ; preds = %while.end, %if.then75, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit349
-  %reorderRangesLength.1 = phi i32 [ %reorderRangesLength.0480, %if.then75 ], [ 0, %while.end ], [ 0, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit349 ]
-  %reorderRanges.0 = phi ptr [ %add.ptr78, %if.then75 ], [ null, %while.end ], [ null, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit349 ]
-  %reorderCodesLength.0 = phi i32 [ %sub76, %if.then75 ], [ %div332, %while.end ], [ 0, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit349 ]
   %reorderCodes.0 = phi ptr [ %add.ptr67, %if.then75 ], [ %add.ptr67, %while.end ], [ null, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit349 ]
+  %reorderCodesLength.0 = phi i32 [ %sub76, %if.then75 ], [ %div332, %while.end ], [ 0, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit349 ]
+  %reorderRanges.0 = phi ptr [ %add.ptr78, %if.then75 ], [ null, %while.end ], [ null, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit349 ]
+  %reorderRangesLength.1 = phi i32 [ %reorderRangesLength.0480, %if.then75 ], [ 0, %while.end ], [ 0, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit349 ]
   br i1 %cmp.i345499, label %cond.true.i352, label %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit354
 
 cond.true.i352:                                   ; preds = %if.end80

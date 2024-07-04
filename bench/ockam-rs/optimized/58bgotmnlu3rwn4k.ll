@@ -1029,8 +1029,8 @@ define hidden noundef i8 @"_ZN113_$LT$futures_util..stream..stream..split..Split
   br label %36
 
 36:                                               ; preds = %37, %34
-  %.013 = phi i8 [ %.2, %37 ], [ %33, %34 ]
-  ret i8 %.013
+  %.0 = phi i8 [ %.2, %37 ], [ %33, %34 ]
+  ret i8 %.0
 
 "_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread21": ; preds = %.noexc15, %.noexc16
   %.1 = phi i8 [ %25, %.noexc16 ], [ %22, %.noexc15 ]
@@ -9503,7 +9503,7 @@ common.resume:                                    ; preds = %17
   br i1 %.not.i, label %"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10poll_ready17h6b371be6ca6eab11E.exit.thread44", label %9
 
 "_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10poll_ready17h6b371be6ca6eab11E.exit": ; preds = %.noexc4.i.i, %.noexc5.i.i
-  %.018.i.i.i = phi i8 [ %28, %.noexc5.i.i ], [ %25, %.noexc4.i.i ]
+  %.0.i.i.i = phi i8 [ %28, %.noexc5.i.i ], [ %25, %.noexc4.i.i ]
   tail call void @"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$6unlock17h4eb7084bb51adb30E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10), !noalias !2737
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !2718
   br label %"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10poll_ready17h6b371be6ca6eab11E.exit.thread"
@@ -9530,7 +9530,7 @@ common.resume:                                    ; preds = %17
   br label %"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10poll_ready17h6b371be6ca6eab11E.exit.thread"
 
 "_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10poll_ready17h6b371be6ca6eab11E.exit.thread": ; preds = %"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10poll_ready17h6b371be6ca6eab11E.exit", %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$24poll_lock_and_flush_slot17hf3f4da51288a6400E.exit.thread19.i", %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$24poll_lock_and_flush_slot17hf3f4da51288a6400E.exit.thread.i", %"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10start_send17h70b5638874ce3c25E.exit"
-  %.033 = phi i8 [ 0, %"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10start_send17h70b5638874ce3c25E.exit" ], [ 17, %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$24poll_lock_and_flush_slot17hf3f4da51288a6400E.exit.thread.i" ], [ 17, %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$24poll_lock_and_flush_slot17hf3f4da51288a6400E.exit.thread19.i" ], [ %.018.i.i.i, %"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10poll_ready17h6b371be6ca6eab11E.exit" ]
+  %.033 = phi i8 [ 0, %"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10start_send17h70b5638874ce3c25E.exit" ], [ 17, %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$24poll_lock_and_flush_slot17hf3f4da51288a6400E.exit.thread.i" ], [ 17, %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$24poll_lock_and_flush_slot17hf3f4da51288a6400E.exit.thread19.i" ], [ %.0.i.i.i, %"_ZN113_$LT$futures_util..stream..stream..split..SplitSink$LT$S$C$Item$GT$$u20$as$u20$futures_sink..Sink$LT$Item$GT$$GT$10poll_ready17h6b371be6ca6eab11E.exit" ]
   ret i8 %.033
 }
 

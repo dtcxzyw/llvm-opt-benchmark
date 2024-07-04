@@ -88,8 +88,8 @@ entry:
   br label %while.body
 
 while.body:                                       ; preds = %if.end19, %entry
-  %capacity.0 = phi i64 [ 0, %entry ], [ %add, %if.end19 ]
   %p.addr.0 = phi ptr [ %p, %entry ], [ %add.ptr24, %if.end19 ]
+  %capacity.0 = phi i64 [ 0, %entry ], [ %add, %if.end19 ]
   %call.i = tail call ptr @strchrnul(ptr noundef readonly %p.addr.0, i32 noundef 44) #18
   %sub.ptr.lhs.cast = ptrtoint ptr %call.i to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %p.addr.0 to i64
@@ -1964,8 +1964,8 @@ if.then2:                                         ; preds = %if.then
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end19.i, %if.then2
-  %capacity.0.i = phi i64 [ 0, %if.then2 ], [ %add.i, %if.end19.i ]
   %p.addr.0.i = phi ptr [ %params, %if.then2 ], [ %add.ptr24.i, %if.end19.i ]
+  %capacity.0.i = phi i64 [ 0, %if.then2 ], [ %add.i, %if.end19.i ]
   %call.i.i = tail call ptr @strchrnul(ptr noundef readonly %p.addr.0.i, i32 noundef 44) #18
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %p.addr.0.i to i64
@@ -2097,11 +2097,11 @@ if.end40:                                         ; preds = %if.else33
   br label %while.body.i35
 
 while.body.i35:                                   ; preds = %if.end19.i60, %if.end40
-  %capacity.0.i36 = phi i64 [ 0, %if.end40 ], [ %add.i50, %if.end19.i60 ]
-  %p.addr.0.i37 = phi ptr [ %incdec.ptr, %if.end40 ], [ %add.ptr24.i62, %if.end19.i60 ]
-  %call.i.i38 = tail call ptr @strchrnul(ptr noundef readonly %p.addr.0.i37, i32 noundef 44) #18
+  %p.addr.0.i36 = phi ptr [ %incdec.ptr, %if.end40 ], [ %add.ptr24.i62, %if.end19.i60 ]
+  %capacity.0.i37 = phi i64 [ 0, %if.end40 ], [ %add.i50, %if.end19.i60 ]
+  %call.i.i38 = tail call ptr @strchrnul(ptr noundef readonly %p.addr.0.i36, i32 noundef 44) #18
   %sub.ptr.lhs.cast.i39 = ptrtoint ptr %call.i.i38 to i64
-  %sub.ptr.rhs.cast.i40 = ptrtoint ptr %p.addr.0.i37 to i64
+  %sub.ptr.rhs.cast.i40 = ptrtoint ptr %p.addr.0.i36 to i64
   %sub.ptr.sub.i41 = sub i64 %sub.ptr.lhs.cast.i39, %sub.ptr.rhs.cast.i40
   %23 = load i8, ptr %call.i.i38, align 1
   %cmp.not.i42 = icmp eq i8 %23, 0
@@ -2118,12 +2118,12 @@ land.lhs.true.i43:                                ; preds = %while.body.i35
 if.end.i48:                                       ; preds = %land.lhs.true.i43, %while.body.i35
   %length.0.i49 = phi i64 [ %sub.ptr.sub.i41, %while.body.i35 ], [ %spec.select.i47, %land.lhs.true.i43 ]
   %25 = load ptr, ptr %value, align 8
-  %add.i50 = add i64 %length.0.i49, %capacity.0.i36
+  %add.i50 = add i64 %length.0.i49, %capacity.0.i37
   %add5.i51 = add i64 %add.i50, 1
   %call6.i52 = tail call ptr @g_realloc_n(ptr noundef %25, i64 noundef %add5.i51, i64 noundef 1) #19
   store ptr %call6.i52, ptr %value, align 8
-  %add.ptr7.i53 = getelementptr i8, ptr %call6.i52, i64 %capacity.0.i36
-  %call8.i54 = tail call ptr @strncpy(ptr noundef %add.ptr7.i53, ptr noundef %p.addr.0.i37, i64 noundef %length.0.i49) #19
+  %add.ptr7.i53 = getelementptr i8, ptr %call6.i52, i64 %capacity.0.i37
+  %call8.i54 = tail call ptr @strncpy(ptr noundef %add.ptr7.i53, ptr noundef %p.addr.0.i36, i64 noundef %length.0.i49) #19
   %26 = load ptr, ptr %value, align 8
   %arrayidx.i55 = getelementptr i8, ptr %26, i64 %add.i50
   store i8 0, ptr %arrayidx.i55, align 1
@@ -2139,7 +2139,7 @@ lor.lhs.false.i57:                                ; preds = %if.end.i48
 
 if.end19.i60:                                     ; preds = %lor.lhs.false.i57
   %add23.i61 = add i64 %sub.ptr.sub.i41, 2
-  %add.ptr24.i62 = getelementptr i8, ptr %p.addr.0.i37, i64 %add23.i61
+  %add.ptr24.i62 = getelementptr i8, ptr %p.addr.0.i36, i64 %add23.i61
   br label %while.body.i35
 
 if.end42:                                         ; preds = %lor.lhs.false.i, %lor.lhs.false.i57, %entry.tail.i, %if.end, %if.then23, %if.else28

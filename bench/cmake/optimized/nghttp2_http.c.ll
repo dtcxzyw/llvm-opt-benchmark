@@ -349,7 +349,7 @@ check_scheme.exit.thread77:                       ; preds = %100, %93, %check_sc
 check_pseudo_header.exit.i:                       ; preds = %166
   %172 = or disjoint i32 %164, 1
   store i32 %172, ptr %163, align 4
-  br label %memieq.exit122.i
+  br label %memieq.exit121.i
 
 173:                                              ; preds = %160
   %174 = getelementptr inbounds i8, ptr %1, i64 212
@@ -372,7 +372,7 @@ check_pseudo_header.exit.i:                       ; preds = %166
   %185 = load ptr, ptr %178, align 8
   %186 = getelementptr inbounds i8, ptr %185, i64 24
   %187 = load i64, ptr %186, align 8
-  switch i64 %187, label %memieq.exit122.i [
+  switch i64 %187, label %memieq.exit121.i [
     i64 4, label %188
     i64 7, label %194
   ]
@@ -382,19 +382,19 @@ check_pseudo_header.exit.i:                       ; preds = %166
   %190 = load ptr, ptr %189, align 8
   %bcmp83.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @.str.2, ptr noundef nonnull dereferenceable(4) %190, i64 4)
   %191 = icmp eq i32 %bcmp83.i, 0
-  br i1 %191, label %192, label %memieq.exit122.i
+  br i1 %191, label %192, label %memieq.exit121.i
 
 192:                                              ; preds = %188
   %193 = or i32 %175, 260
   store i32 %193, ptr %174, align 4
-  br label %memieq.exit122.i
+  br label %memieq.exit121.i
 
 194:                                              ; preds = %183
   %195 = getelementptr inbounds i8, ptr %185, i64 16
   %196 = load ptr, ptr %195, align 8
   %197 = getelementptr inbounds i8, ptr %196, i64 6
   %198 = load i8, ptr %197, align 1
-  switch i8 %198, label %memieq.exit122.i [
+  switch i8 %198, label %memieq.exit121.i [
     i8 84, label %199
     i8 83, label %208
   ]
@@ -402,7 +402,7 @@ check_pseudo_header.exit.i:                       ; preds = %166
 199:                                              ; preds = %194
   %bcmp82.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @.str.1, ptr noundef nonnull dereferenceable(7) %196, i64 7)
   %200 = icmp eq i32 %bcmp82.i, 0
-  br i1 %200, label %201, label %memieq.exit122.i
+  br i1 %200, label %201, label %memieq.exit121.i
 
 201:                                              ; preds = %199
   %202 = getelementptr inbounds i8, ptr %1, i64 168
@@ -414,17 +414,17 @@ check_pseudo_header.exit.i:                       ; preds = %166
 206:                                              ; preds = %201
   %207 = or i32 %175, 132
   store i32 %207, ptr %174, align 4
-  br label %memieq.exit122.i
+  br label %memieq.exit121.i
 
 208:                                              ; preds = %194
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @.str.3, ptr noundef nonnull dereferenceable(7) %196, i64 7)
   %209 = icmp eq i32 %bcmp.i, 0
-  br i1 %209, label %210, label %memieq.exit122.i
+  br i1 %209, label %210, label %memieq.exit121.i
 
 210:                                              ; preds = %208
   %211 = or i32 %175, 516
   store i32 %211, ptr %174, align 4
-  br label %memieq.exit122.i
+  br label %memieq.exit121.i
 
 212:                                              ; preds = %160
   %213 = getelementptr inbounds i8, ptr %1, i64 212
@@ -454,7 +454,7 @@ check_pseudo_header.exit.i:                       ; preds = %166
 229:                                              ; preds = %222
   %230 = or i32 %214, 2050
   store i32 %230, ptr %213, align 4
-  br label %memieq.exit122.i
+  br label %memieq.exit121.i
 
 231:                                              ; preds = %222
   %232 = getelementptr inbounds i8, ptr %224, i64 24
@@ -462,12 +462,12 @@ check_pseudo_header.exit.i:                       ; preds = %166
   %234 = icmp eq i64 %233, 1
   %235 = icmp eq i8 %227, 42
   %or.cond.i = and i1 %235, %234
-  br i1 %or.cond.i, label %236, label %memieq.exit122.i
+  br i1 %or.cond.i, label %236, label %memieq.exit121.i
 
 236:                                              ; preds = %231
   %237 = or i32 %214, 4098
   store i32 %237, ptr %213, align 4
-  br label %memieq.exit122.i
+  br label %memieq.exit121.i
 
 238:                                              ; preds = %160
   %239 = getelementptr inbounds i8, ptr %1, i64 212
@@ -490,7 +490,7 @@ check_pseudo_header.exit.i:                       ; preds = %166
   %250 = load ptr, ptr %243, align 8
   %251 = getelementptr inbounds i8, ptr %250, i64 24
   %252 = load i64, ptr %251, align 8
-  switch i64 %252, label %memieq.exit122.i [
+  switch i64 %252, label %memieq.exit121.i [
     i64 4, label %253
     i64 5, label %266
   ]
@@ -501,58 +501,58 @@ check_pseudo_header.exit.i:                       ; preds = %166
   br label %.lr.ph.i.i
 
 256:                                              ; preds = %.lr.ph.i.i
-  %257 = add nuw nsw i64 %.0912.i.i, 1
+  %257 = add nuw nsw i64 %.012.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %257, 4
   br i1 %exitcond.not.i.i, label %memieq.exit.i, label %.lr.ph.i.i, !llvm.loop !9
 
 .lr.ph.i.i:                                       ; preds = %256, %253
-  %.0912.i.i = phi i64 [ %257, %256 ], [ 0, %253 ]
-  %258 = getelementptr inbounds i8, ptr @.str.4, i64 %.0912.i.i
+  %.012.i.i = phi i64 [ %257, %256 ], [ 0, %253 ]
+  %258 = getelementptr inbounds i8, ptr @.str.4, i64 %.012.i.i
   %259 = load i8, ptr %258, align 1
   %260 = add i8 %259, -65
   %or.cond.i.i.i = icmp ult i8 %260, 26
   %261 = or disjoint i8 %259, 32
   %.in.i.i.i = select i1 %or.cond.i.i.i, i8 %261, i8 %259
-  %262 = getelementptr inbounds i8, ptr %255, i64 %.0912.i.i
+  %262 = getelementptr inbounds i8, ptr %255, i64 %.012.i.i
   %263 = load i8, ptr %262, align 1
   %264 = add i8 %263, -65
   %or.cond.i10.i.i = icmp ult i8 %264, 26
   %265 = or disjoint i8 %263, 32
   %.in.i11.i.i = select i1 %or.cond.i10.i.i, i8 %265, i8 %263
   %.not.i95.i = icmp eq i8 %.in.i.i.i, %.in.i11.i.i
-  br i1 %.not.i95.i, label %256, label %memieq.exit122.i
+  br i1 %.not.i95.i, label %256, label %memieq.exit121.i
 
 266:                                              ; preds = %248
   %267 = getelementptr inbounds i8, ptr %250, i64 16
   %268 = load ptr, ptr %267, align 8
-  br label %.lr.ph.i97.i
+  br label %.lr.ph.i96.i
 
-269:                                              ; preds = %.lr.ph.i97.i
-  %270 = add nuw nsw i64 %.0912.i98.i, 1
-  %exitcond.not.i105.i = icmp eq i64 %270, 5
-  br i1 %exitcond.not.i105.i, label %memieq.exit.i, label %.lr.ph.i97.i, !llvm.loop !9
+269:                                              ; preds = %.lr.ph.i96.i
+  %270 = add nuw nsw i64 %.012.i97.i, 1
+  %exitcond.not.i104.i = icmp eq i64 %270, 5
+  br i1 %exitcond.not.i104.i, label %memieq.exit.i, label %.lr.ph.i96.i, !llvm.loop !9
 
-.lr.ph.i97.i:                                     ; preds = %269, %266
-  %.0912.i98.i = phi i64 [ %270, %269 ], [ 0, %266 ]
-  %271 = getelementptr inbounds i8, ptr @.str.5, i64 %.0912.i98.i
+.lr.ph.i96.i:                                     ; preds = %269, %266
+  %.012.i97.i = phi i64 [ %270, %269 ], [ 0, %266 ]
+  %271 = getelementptr inbounds i8, ptr @.str.5, i64 %.012.i97.i
   %272 = load i8, ptr %271, align 1
   %273 = add i8 %272, -65
-  %or.cond.i.i99.i = icmp ult i8 %273, 26
+  %or.cond.i.i98.i = icmp ult i8 %273, 26
   %274 = or disjoint i8 %272, 32
-  %.in.i.i100.i = select i1 %or.cond.i.i99.i, i8 %274, i8 %272
-  %275 = getelementptr inbounds i8, ptr %268, i64 %.0912.i98.i
+  %.in.i.i99.i = select i1 %or.cond.i.i98.i, i8 %274, i8 %272
+  %275 = getelementptr inbounds i8, ptr %268, i64 %.012.i97.i
   %276 = load i8, ptr %275, align 1
   %277 = add i8 %276, -65
-  %or.cond.i10.i101.i = icmp ult i8 %277, 26
+  %or.cond.i10.i100.i = icmp ult i8 %277, 26
   %278 = or disjoint i8 %276, 32
-  %.in.i11.i102.i = select i1 %or.cond.i10.i101.i, i8 %278, i8 %276
-  %.not.i103.i = icmp eq i8 %.in.i.i100.i, %.in.i11.i102.i
-  br i1 %.not.i103.i, label %269, label %memieq.exit122.i
+  %.in.i11.i101.i = select i1 %or.cond.i10.i100.i, i8 %278, i8 %276
+  %.not.i102.i = icmp eq i8 %.in.i.i99.i, %.in.i11.i101.i
+  br i1 %.not.i102.i, label %269, label %memieq.exit121.i
 
 memieq.exit.i:                                    ; preds = %269, %256
   %279 = or i32 %240, 8200
   store i32 %279, ptr %239, align 4
-  br label %memieq.exit122.i
+  br label %memieq.exit121.i
 
 280:                                              ; preds = %160
   %.not75.i = icmp eq i32 %149, 0
@@ -562,8 +562,8 @@ memieq.exit.i:                                    ; preds = %269, %256
   %282 = getelementptr inbounds i8, ptr %1, i64 212
   %283 = load i32, ptr %282, align 4
   %284 = and i32 %283, 32768
-  %.not.i107.i = icmp eq i32 %284, 0
-  br i1 %.not.i107.i, label %285, label %http_request_on_header.exit
+  %.not.i106.i = icmp eq i32 %284, 0
+  br i1 %.not.i106.i, label %285, label %http_request_on_header.exit
 
 285:                                              ; preds = %281
   %286 = getelementptr inbounds i8, ptr %3, i64 8
@@ -571,19 +571,19 @@ memieq.exit.i:                                    ; preds = %269, %256
   %288 = getelementptr inbounds i8, ptr %287, i64 24
   %289 = load i64, ptr %288, align 8
   %290 = icmp eq i64 %289, 0
-  br i1 %290, label %http_request_on_header.exit, label %check_pseudo_header.exit109.i
+  br i1 %290, label %http_request_on_header.exit, label %check_pseudo_header.exit108.i
 
-check_pseudo_header.exit109.i:                    ; preds = %285
+check_pseudo_header.exit108.i:                    ; preds = %285
   %291 = or disjoint i32 %283, 32768
   store i32 %291, ptr %282, align 4
-  br label %memieq.exit122.i
+  br label %memieq.exit121.i
 
 292:                                              ; preds = %160
   %293 = getelementptr inbounds i8, ptr %1, i64 212
   %294 = load i32, ptr %293, align 4
   %295 = and i32 %294, 16
-  %.not.i110.i = icmp eq i32 %295, 0
-  br i1 %.not.i110.i, label %296, label %http_request_on_header.exit
+  %.not.i109.i = icmp eq i32 %295, 0
+  br i1 %.not.i109.i, label %296, label %http_request_on_header.exit
 
 296:                                              ; preds = %292
   %297 = getelementptr inbounds i8, ptr %3, i64 8
@@ -591,12 +591,12 @@ check_pseudo_header.exit109.i:                    ; preds = %285
   %299 = getelementptr inbounds i8, ptr %298, i64 24
   %300 = load i64, ptr %299, align 8
   %301 = icmp eq i64 %300, 0
-  br i1 %301, label %http_request_on_header.exit, label %check_pseudo_header.exit112.i
+  br i1 %301, label %http_request_on_header.exit, label %check_pseudo_header.exit111.i
 
-check_pseudo_header.exit112.i:                    ; preds = %296
+check_pseudo_header.exit111.i:                    ; preds = %296
   %302 = or disjoint i32 %294, 16
   store i32 %302, ptr %293, align 4
-  br label %memieq.exit122.i
+  br label %memieq.exit121.i
 
 303:                                              ; preds = %160
   %304 = getelementptr inbounds i8, ptr %1, i64 48
@@ -614,7 +614,7 @@ check_pseudo_header.exit112.i:                    ; preds = %296
   %313 = tail call fastcc i64 @parse_uint(ptr noundef %310, i64 noundef %312)
   store i64 %313, ptr %304, align 8
   %314 = icmp eq i64 %313, -1
-  br i1 %314, label %http_request_on_header.exit, label %memieq.exit122.i
+  br i1 %314, label %http_request_on_header.exit, label %memieq.exit121.i
 
 315:                                              ; preds = %160
   %316 = getelementptr inbounds i8, ptr %3, i64 8
@@ -627,54 +627,54 @@ check_pseudo_header.exit112.i:                    ; preds = %296
 321:                                              ; preds = %315
   %322 = getelementptr inbounds i8, ptr %317, i64 16
   %323 = load ptr, ptr %322, align 8
-  br label %.lr.ph.i113.i
+  br label %.lr.ph.i112.i
 
-324:                                              ; preds = %.lr.ph.i113.i
-  %325 = add nuw nsw i64 %.0912.i114.i, 1
-  %exitcond.not.i121.i = icmp eq i64 %325, 8
-  br i1 %exitcond.not.i121.i, label %memieq.exit122.i, label %.lr.ph.i113.i, !llvm.loop !9
+324:                                              ; preds = %.lr.ph.i112.i
+  %325 = add nuw nsw i64 %.012.i113.i, 1
+  %exitcond.not.i120.i = icmp eq i64 %325, 8
+  br i1 %exitcond.not.i120.i, label %memieq.exit121.i, label %.lr.ph.i112.i, !llvm.loop !9
 
-.lr.ph.i113.i:                                    ; preds = %324, %321
-  %.0912.i114.i = phi i64 [ %325, %324 ], [ 0, %321 ]
-  %326 = getelementptr inbounds i8, ptr @.str.6, i64 %.0912.i114.i
+.lr.ph.i112.i:                                    ; preds = %324, %321
+  %.012.i113.i = phi i64 [ %325, %324 ], [ 0, %321 ]
+  %326 = getelementptr inbounds i8, ptr @.str.6, i64 %.012.i113.i
   %327 = load i8, ptr %326, align 1
   %328 = add i8 %327, -65
-  %or.cond.i.i115.i = icmp ult i8 %328, 26
+  %or.cond.i.i114.i = icmp ult i8 %328, 26
   %329 = or disjoint i8 %327, 32
-  %.in.i.i116.i = select i1 %or.cond.i.i115.i, i8 %329, i8 %327
-  %330 = getelementptr inbounds i8, ptr %323, i64 %.0912.i114.i
+  %.in.i.i115.i = select i1 %or.cond.i.i114.i, i8 %329, i8 %327
+  %330 = getelementptr inbounds i8, ptr %323, i64 %.012.i113.i
   %331 = load i8, ptr %330, align 1
   %332 = add i8 %331, -65
-  %or.cond.i10.i117.i = icmp ult i8 %332, 26
+  %or.cond.i10.i116.i = icmp ult i8 %332, 26
   %333 = or disjoint i8 %331, 32
-  %.in.i11.i118.i = select i1 %or.cond.i10.i117.i, i8 %333, i8 %331
-  %.not.i119.i = icmp eq i8 %.in.i.i116.i, %.in.i11.i118.i
-  br i1 %.not.i119.i, label %324, label %http_request_on_header.exit
+  %.in.i11.i117.i = select i1 %or.cond.i10.i116.i, i8 %333, i8 %331
+  %.not.i118.i = icmp eq i8 %.in.i.i115.i, %.in.i11.i117.i
+  br i1 %.not.i118.i, label %324, label %http_request_on_header.exit
 
 334:                                              ; preds = %160
   %.not68.i = icmp eq i32 %4, 0
-  br i1 %.not68.i, label %335, label %memieq.exit122.i
+  br i1 %.not68.i, label %335, label %memieq.exit121.i
 
 335:                                              ; preds = %334
   %336 = getelementptr inbounds i8, ptr %1, i64 168
   %337 = load i32, ptr %336, align 8
   %338 = and i32 %337, 1
   %.not69.i = icmp eq i32 %338, 0
-  br i1 %.not69.i, label %memieq.exit122.i, label %339
+  br i1 %.not69.i, label %memieq.exit121.i, label %339
 
 339:                                              ; preds = %335
   %340 = getelementptr inbounds i8, ptr %1, i64 216
   %341 = load i8, ptr %340, align 8
   %342 = and i8 %341, 16
   %.not70.i = icmp eq i8 %342, 0
-  br i1 %.not70.i, label %memieq.exit122.i, label %343
+  br i1 %.not70.i, label %memieq.exit121.i, label %343
 
 343:                                              ; preds = %339
   %344 = getelementptr inbounds i8, ptr %1, i64 212
   %345 = load i32, ptr %344, align 4
   %346 = and i32 %345, 131072
   %.not71.i = icmp eq i32 %346, 0
-  br i1 %.not71.i, label %347, label %memieq.exit122.i
+  br i1 %.not71.i, label %347, label %memieq.exit121.i
 
 347:                                              ; preds = %343
   %348 = getelementptr inbounds i8, ptr %1, i64 221
@@ -696,19 +696,19 @@ check_pseudo_header.exit112.i:                    ; preds = %296
   %360 = load i32, ptr %344, align 4
   %361 = or i32 %360, 65536
   store i32 %361, ptr %344, align 4
-  br label %memieq.exit122.i
+  br label %memieq.exit121.i
 
 362:                                              ; preds = %347
   %363 = load i32, ptr %344, align 4
   %364 = and i32 %363, -196609
   %365 = or disjoint i32 %364, 131072
   store i32 %365, ptr %344, align 4
-  br label %memieq.exit122.i
+  br label %memieq.exit121.i
 
 366:                                              ; preds = %160
-  br i1 %154, label %http_request_on_header.exit, label %memieq.exit122.i
+  br i1 %154, label %http_request_on_header.exit, label %memieq.exit121.i
 
-memieq.exit122.i:                                 ; preds = %324, %.lr.ph.i97.i, %.lr.ph.i.i, %366, %362, %358, %343, %339, %335, %334, %306, %check_pseudo_header.exit112.i, %check_pseudo_header.exit109.i, %memieq.exit.i, %248, %236, %231, %229, %210, %208, %206, %199, %194, %192, %188, %183, %check_pseudo_header.exit.i
+memieq.exit121.i:                                 ; preds = %324, %.lr.ph.i96.i, %.lr.ph.i.i, %366, %362, %358, %343, %339, %335, %334, %306, %check_pseudo_header.exit111.i, %check_pseudo_header.exit108.i, %memieq.exit.i, %248, %236, %231, %229, %210, %208, %206, %199, %194, %192, %188, %183, %check_pseudo_header.exit.i
   %367 = load ptr, ptr %3, align 8
   %368 = getelementptr inbounds i8, ptr %367, i64 16
   %369 = load ptr, ptr %368, align 8
@@ -716,15 +716,15 @@ memieq.exit122.i:                                 ; preds = %324, %.lr.ph.i97.i,
   %.not85.i = icmp eq i8 %370, 58
   br i1 %.not85.i, label %http_request_on_header.exit, label %371
 
-371:                                              ; preds = %memieq.exit122.i
+371:                                              ; preds = %memieq.exit121.i
   %372 = getelementptr inbounds i8, ptr %1, i64 212
   %373 = load i32, ptr %372, align 4
   %374 = or i32 %373, 64
   store i32 %374, ptr %372, align 4
   br label %http_request_on_header.exit
 
-http_request_on_header.exit:                      ; preds = %.lr.ph.i113.i, %155, %156, %160, %160, %160, %160, %160, %162, %166, %173, %177, %201, %212, %216, %238, %242, %280, %281, %285, %292, %296, %303, %306, %315, %366, %memieq.exit122.i, %371
-  %.0.i63 = phi i32 [ -531, %156 ], [ -531, %155 ], [ -531, %201 ], [ -531, %280 ], [ -531, %303 ], [ -531, %306 ], [ -531, %160 ], [ -531, %160 ], [ -531, %160 ], [ -531, %160 ], [ -531, %160 ], [ -531, %315 ], [ -531, %366 ], [ 0, %371 ], [ 0, %memieq.exit122.i ], [ -531, %166 ], [ -531, %162 ], [ -531, %177 ], [ -531, %173 ], [ -531, %216 ], [ -531, %212 ], [ -531, %242 ], [ -531, %238 ], [ -531, %285 ], [ -531, %281 ], [ -531, %296 ], [ -531, %292 ], [ -531, %.lr.ph.i113.i ]
+http_request_on_header.exit:                      ; preds = %.lr.ph.i112.i, %155, %156, %160, %160, %160, %160, %160, %162, %166, %173, %177, %201, %212, %216, %238, %242, %280, %281, %285, %292, %296, %303, %306, %315, %366, %memieq.exit121.i, %371
+  %.0.i63 = phi i32 [ -531, %156 ], [ -531, %155 ], [ -531, %201 ], [ -531, %280 ], [ -531, %303 ], [ -531, %306 ], [ -531, %160 ], [ -531, %160 ], [ -531, %160 ], [ -531, %160 ], [ -531, %160 ], [ -531, %315 ], [ -531, %366 ], [ 0, %371 ], [ 0, %memieq.exit121.i ], [ -531, %166 ], [ -531, %162 ], [ -531, %177 ], [ -531, %173 ], [ -531, %216 ], [ -531, %212 ], [ -531, %242 ], [ -531, %238 ], [ -531, %285 ], [ -531, %281 ], [ -531, %296 ], [ -531, %292 ], [ -531, %.lr.ph.i112.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %http_response_on_header.exit
 
@@ -823,7 +823,7 @@ parse_uint.exit.i:                                ; preds = %416
   %420 = trunc i64 %417 to i16
   %421 = getelementptr inbounds i8, ptr %1, i64 208
   store i16 %420, ptr %421, align 8
-  switch i16 %420, label %memieq.exit60.i [
+  switch i16 %420, label %memieq.exit59.i [
     i16 -1, label %http_response_on_header.exit
     i16 101, label %http_response_on_header.exit
   ]
@@ -896,7 +896,7 @@ memieq.exit.i69:                                  ; preds = %.lr.ph.i.i66
   %458 = tail call fastcc i64 @parse_uint(ptr noundef %455, i64 noundef %457)
   store i64 %458, ptr %449, align 8
   %459 = icmp eq i64 %458, -1
-  br i1 %459, label %http_response_on_header.exit, label %memieq.exit60.i
+  br i1 %459, label %http_response_on_header.exit, label %memieq.exit59.i
 
 460:                                              ; preds = %386
   %461 = getelementptr inbounds i8, ptr %3, i64 8
@@ -909,34 +909,34 @@ memieq.exit.i69:                                  ; preds = %.lr.ph.i.i66
 466:                                              ; preds = %460
   %467 = getelementptr inbounds i8, ptr %462, i64 16
   %468 = load ptr, ptr %467, align 8
-  br label %.lr.ph.i51.i
+  br label %.lr.ph.i50.i
 
-469:                                              ; preds = %.lr.ph.i51.i
-  %470 = add nuw nsw i64 %.0912.i52.i, 1
-  %exitcond.not.i59.i = icmp eq i64 %470, 8
-  br i1 %exitcond.not.i59.i, label %memieq.exit60.i, label %.lr.ph.i51.i, !llvm.loop !9
+469:                                              ; preds = %.lr.ph.i50.i
+  %470 = add nuw nsw i64 %.012.i51.i, 1
+  %exitcond.not.i58.i = icmp eq i64 %470, 8
+  br i1 %exitcond.not.i58.i, label %memieq.exit59.i, label %.lr.ph.i50.i, !llvm.loop !9
 
-.lr.ph.i51.i:                                     ; preds = %469, %466
-  %.0912.i52.i = phi i64 [ %470, %469 ], [ 0, %466 ]
-  %471 = getelementptr inbounds i8, ptr @.str.6, i64 %.0912.i52.i
+.lr.ph.i50.i:                                     ; preds = %469, %466
+  %.012.i51.i = phi i64 [ %470, %469 ], [ 0, %466 ]
+  %471 = getelementptr inbounds i8, ptr @.str.6, i64 %.012.i51.i
   %472 = load i8, ptr %471, align 1
   %473 = add i8 %472, -65
-  %or.cond.i.i53.i = icmp ult i8 %473, 26
+  %or.cond.i.i52.i = icmp ult i8 %473, 26
   %474 = or disjoint i8 %472, 32
-  %.in.i.i54.i = select i1 %or.cond.i.i53.i, i8 %474, i8 %472
-  %475 = getelementptr inbounds i8, ptr %468, i64 %.0912.i52.i
+  %.in.i.i53.i = select i1 %or.cond.i.i52.i, i8 %474, i8 %472
+  %475 = getelementptr inbounds i8, ptr %468, i64 %.012.i51.i
   %476 = load i8, ptr %475, align 1
   %477 = add i8 %476, -65
-  %or.cond.i10.i55.i = icmp ult i8 %477, 26
+  %or.cond.i10.i54.i = icmp ult i8 %477, 26
   %478 = or disjoint i8 %476, 32
-  %.in.i11.i56.i = select i1 %or.cond.i10.i55.i, i8 %478, i8 %476
-  %.not.i57.i = icmp eq i8 %.in.i.i54.i, %.in.i11.i56.i
-  br i1 %.not.i57.i, label %469, label %http_response_on_header.exit
+  %.in.i11.i55.i = select i1 %or.cond.i10.i54.i, i8 %478, i8 %476
+  %.not.i56.i = icmp eq i8 %.in.i.i53.i, %.in.i11.i55.i
+  br i1 %.not.i56.i, label %469, label %http_response_on_header.exit
 
 479:                                              ; preds = %386
-  br i1 %380, label %http_response_on_header.exit, label %memieq.exit60.i
+  br i1 %380, label %http_response_on_header.exit, label %memieq.exit59.i
 
-memieq.exit60.i:                                  ; preds = %469, %479, %451, %parse_uint.exit.i
+memieq.exit59.i:                                  ; preds = %469, %479, %451, %parse_uint.exit.i
   %480 = load ptr, ptr %3, align 8
   %481 = getelementptr inbounds i8, ptr %480, i64 16
   %482 = load ptr, ptr %481, align 8
@@ -944,15 +944,15 @@ memieq.exit60.i:                                  ; preds = %469, %479, %451, %p
   %.not47.i = icmp eq i8 %483, 58
   br i1 %.not47.i, label %http_response_on_header.exit, label %484
 
-484:                                              ; preds = %memieq.exit60.i
+484:                                              ; preds = %memieq.exit59.i
   %485 = getelementptr inbounds i8, ptr %1, i64 212
   %486 = load i32, ptr %485, align 4
   %487 = or i32 %486, 64
   store i32 %487, ptr %485, align 4
   br label %http_response_on_header.exit
 
-http_response_on_header.exit:                     ; preds = %.lr.ph.i51.i, %26, %484, %memieq.exit60.i, %479, %460, %451, %448, %444, %440, %memieq.exit.i69, %.lr.ph.i.i66, %429, %426, %parse_uint.exit.i, %parse_uint.exit.i, %parse_uint.exit.thread.i, %398, %392, %388, %386, %386, %386, %386, %386, %382, %381, %check_scheme.exit.thread, %17, %http_request_on_header.exit, %134, %._crit_edge
-  %.0 = phi i32 [ -105, %134 ], [ %.0.i63, %http_request_on_header.exit ], [ -105, %._crit_edge ], [ -531, %17 ], [ -531, %check_scheme.exit.thread ], [ -106, %memieq.exit.i69 ], [ -531, %382 ], [ -531, %381 ], [ -531, %398 ], [ -531, %parse_uint.exit.i ], [ -531, %parse_uint.exit.i ], [ -531, %426 ], [ -531, %429 ], [ -531, %440 ], [ -106, %444 ], [ -531, %448 ], [ -531, %451 ], [ -531, %386 ], [ -531, %386 ], [ -531, %386 ], [ -531, %386 ], [ -531, %386 ], [ -531, %460 ], [ -531, %479 ], [ 0, %484 ], [ 0, %memieq.exit60.i ], [ -531, %parse_uint.exit.thread.i ], [ -531, %392 ], [ -531, %388 ], [ -531, %.lr.ph.i.i66 ], [ -531, %26 ], [ -531, %.lr.ph.i51.i ]
+http_response_on_header.exit:                     ; preds = %.lr.ph.i50.i, %26, %484, %memieq.exit59.i, %479, %460, %451, %448, %444, %440, %memieq.exit.i69, %.lr.ph.i.i66, %429, %426, %parse_uint.exit.i, %parse_uint.exit.i, %parse_uint.exit.thread.i, %398, %392, %388, %386, %386, %386, %386, %386, %382, %381, %check_scheme.exit.thread, %17, %http_request_on_header.exit, %134, %._crit_edge
+  %.0 = phi i32 [ -105, %134 ], [ %.0.i63, %http_request_on_header.exit ], [ -105, %._crit_edge ], [ -531, %17 ], [ -531, %check_scheme.exit.thread ], [ -106, %memieq.exit.i69 ], [ -531, %382 ], [ -531, %381 ], [ -531, %398 ], [ -531, %parse_uint.exit.i ], [ -531, %parse_uint.exit.i ], [ -531, %426 ], [ -531, %429 ], [ -531, %440 ], [ -106, %444 ], [ -531, %448 ], [ -531, %451 ], [ -531, %386 ], [ -531, %386 ], [ -531, %386 ], [ -531, %386 ], [ -531, %386 ], [ -531, %460 ], [ -531, %479 ], [ 0, %484 ], [ 0, %memieq.exit59.i ], [ -531, %parse_uint.exit.thread.i ], [ -531, %392 ], [ -531, %388 ], [ -531, %.lr.ph.i.i66 ], [ -531, %26 ], [ -531, %.lr.ph.i50.i ]
   ret i32 %.0
 }
 
@@ -1173,14 +1173,14 @@ define dso_local void @nghttp2_http_record_request_method(ptr nocapture noundef 
   %.sink = phi i64 [ 32, %5 ], [ 48, %2 ]
   %7 = getelementptr inbounds i8, ptr %1, i64 %.sink31
   %8 = getelementptr inbounds i8, ptr %1, i64 %.sink
-  %.0 = load ptr, ptr %7, align 8
-  %.022 = load i64, ptr %8, align 8
-  %.not = icmp eq i64 %.022, 0
+  %.021 = load i64, ptr %8, align 8
+  %.022 = load ptr, ptr %7, align 8
+  %.not = icmp eq i64 %.021, 0
   br i1 %.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %31
-  %.02128 = phi i64 [ %32, %31 ], [ 0, %6 ]
-  %9 = getelementptr inbounds %struct.nghttp2_nv, ptr %.0, i64 %.02128
+  %.028 = phi i64 [ %32, %31 ], [ 0, %6 ]
+  %9 = getelementptr inbounds %struct.nghttp2_nv, ptr %.022, i64 %.028
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 7
@@ -1221,8 +1221,8 @@ define dso_local void @nghttp2_http_record_request_method(ptr nocapture noundef 
   br i1 %30, label %.thread.sink.split, label %.thread
 
 31:                                               ; preds = %.lr.ph, %13, %18
-  %32 = add nuw i64 %.02128, 1
-  %exitcond.not = icmp eq i64 %32, %.022
+  %32 = add nuw i64 %.028, 1
+  %exitcond.not = icmp eq i64 %32, %.021
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !11
 
 .thread.sink.split:                               ; preds = %27, %23
@@ -1558,10 +1558,10 @@ define dso_local range(i32 -501, 1) i32 @nghttp2_http_parse_priority(ptr nocaptu
 
 12:                                               ; preds = %.lr.ph121, %.loopexit
   %13 = phi i8 [ %.pre, %.lr.ph121 ], [ %99, %.loopexit ]
-  %.1120 = phi ptr [ %.052.lcssa, %.lr.ph121 ], [ %.4115, %.loopexit ]
-  %.sroa.0.0119 = phi i32 [ %.sroa.0.0.copyload, %.lr.ph121 ], [ %.sroa.0.1, %.loopexit ]
-  %.sroa.3.0118 = phi i32 [ %.sroa.3.0.copyload, %.lr.ph121 ], [ %.sroa.3.1, %.loopexit ]
-  %14 = ptrtoint ptr %.1120 to i64
+  %.sroa.0.0120 = phi i32 [ %.sroa.0.0.copyload, %.lr.ph121 ], [ %.sroa.0.1, %.loopexit ]
+  %.sroa.3.0119 = phi i32 [ %.sroa.3.0.copyload, %.lr.ph121 ], [ %.sroa.3.1, %.loopexit ]
+  %.1118 = phi ptr [ %.052.lcssa, %.lr.ph121 ], [ %.4115, %.loopexit ]
+  %14 = ptrtoint ptr %.1118 to i64
   %15 = add i8 %13, -97
   %or.cond.i = icmp ult i8 %15, 26
   %.not.i = icmp eq i8 %13, 42
@@ -1570,11 +1570,11 @@ define dso_local range(i32 -501, 1) i32 @nghttp2_http_parse_priority(ptr nocaptu
 
 .lr.ph.preheader.i:                               ; preds = %12
   %16 = sub i64 %10, %14
-  %scevgep.i = getelementptr i8, ptr %.1120, i64 %16
+  %scevgep.i = getelementptr i8, ptr %.1118, i64 %16
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.preheader.i
-  %.016.i = phi ptr [ %22, %21 ], [ %.1120, %.lr.ph.preheader.i ]
+  %.016.i = phi ptr [ %22, %21 ], [ %.1118, %.lr.ph.preheader.i ]
   %17 = load i8, ptr %.016.i, align 1
   %18 = zext i8 %17 to i64
   %19 = getelementptr inbounds [256 x i32], ptr @SF_KEY_CHARS, i64 0, i64 %18
@@ -1595,7 +1595,7 @@ sf_parse_key.exit:                                ; preds = %21, %.lr.ph.i
   br i1 %24, label %sf_parse_key.exit.thread, label %25
 
 25:                                               ; preds = %sf_parse_key.exit
-  %26 = getelementptr inbounds i8, ptr %.1120, i64 %23
+  %26 = getelementptr inbounds i8, ptr %.1118, i64 %23
   %27 = icmp eq ptr %26, %5
   br i1 %27, label %.thread, label %28
 
@@ -1729,14 +1729,14 @@ sf_parse_item_or_inner_list.exit:                 ; preds = %71, %73
   br i1 %75, label %sf_parse_key.exit.thread, label %76
 
 76:                                               ; preds = %sf_parse_item_or_inner_list.exit, %sf_parse_params.exit
-  %.053 = phi i64 [ %63, %sf_parse_params.exit ], [ %.0.i, %sf_parse_item_or_inner_list.exit ]
   %.2 = phi ptr [ %26, %sf_parse_params.exit ], [ %66, %sf_parse_item_or_inner_list.exit ]
-  %77 = getelementptr inbounds i8, ptr %.2, i64 %.053
+  %.0 = phi i64 [ %63, %sf_parse_params.exit ], [ %.0.i, %sf_parse_item_or_inner_list.exit ]
+  %77 = getelementptr inbounds i8, ptr %.2, i64 %.0
   %78 = icmp eq i64 %23, 1
   br i1 %78, label %79, label %92
 
 79:                                               ; preds = %76
-  %80 = load i8, ptr %.1120, align 1
+  %80 = load i8, ptr %.1118, align 1
   switch i8 %80, label %92 [
     i8 105, label %81
     i8 117, label %85
@@ -1764,8 +1764,8 @@ sf_parse_item_or_inner_list.exit:                 ; preds = %71, %73
   br label %92
 
 92:                                               ; preds = %79, %83, %90, %76
-  %.sroa.3.1 = phi i32 [ %.sroa.3.0118, %79 ], [ %.sroa.3.0118, %90 ], [ %84, %83 ], [ %.sroa.3.0118, %76 ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0119, %79 ], [ %91, %90 ], [ %.sroa.0.0119, %83 ], [ %.sroa.0.0119, %76 ]
+  %.sroa.3.1 = phi i32 [ %.sroa.3.0119, %79 ], [ %.sroa.3.0119, %90 ], [ %84, %83 ], [ %.sroa.3.0119, %76 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0120, %79 ], [ %91, %90 ], [ %.sroa.0.0120, %83 ], [ %.sroa.0.0120, %76 ]
   %93 = icmp eq ptr %77, %5
   br i1 %93, label %.loopexit78, label %.lr.ph108
 
@@ -1809,8 +1809,8 @@ sf_parse_item_or_inner_list.exit:                 ; preds = %71, %73
   br label %sf_parse_key.exit.thread
 
 sf_parse_key.exit.thread:                         ; preds = %12, %85, %81, %sf_parse_item_or_inner_list.exit, %65, %sf_parse_params.exit, %sf_parse_key.exit, %.preheader, %36, %56, %53, %sf_parse_key.exit.i, %.lr.ph108, %100, %.preheader.i73, %.loopexit78
-  %.0 = phi i32 [ 0, %.loopexit78 ], [ -501, %.preheader.i73 ], [ -501, %100 ], [ -501, %.lr.ph108 ], [ -501, %sf_parse_key.exit.i ], [ -501, %53 ], [ -501, %56 ], [ -501, %36 ], [ -501, %.preheader ], [ -501, %sf_parse_key.exit ], [ -501, %sf_parse_params.exit ], [ -501, %65 ], [ -501, %sf_parse_item_or_inner_list.exit ], [ -501, %81 ], [ -501, %85 ], [ -501, %12 ]
-  ret i32 %.0
+  %.053 = phi i32 [ 0, %.loopexit78 ], [ -501, %.preheader.i73 ], [ -501, %100 ], [ -501, %.lr.ph108 ], [ -501, %sf_parse_key.exit.i ], [ -501, %53 ], [ -501, %56 ], [ -501, %36 ], [ -501, %.preheader ], [ -501, %sf_parse_key.exit ], [ -501, %sf_parse_params.exit ], [ -501, %65 ], [ -501, %sf_parse_item_or_inner_list.exit ], [ -501, %81 ], [ -501, %85 ], [ -501, %12 ]
+  ret i32 %.053
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable

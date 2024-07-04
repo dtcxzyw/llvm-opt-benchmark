@@ -168,10 +168,10 @@ define dso_local ptr @ginbulkdelete(ptr nocapture noundef readonly %0, ptr nound
 .lr.ph81:                                         ; preds = %.outer.split.us, %BufferGetPage.exit.us
   %46 = phi ptr [ %59, %BufferGetPage.exit.us ], [ %39, %.outer.split.us ]
   %47 = phi ptr [ %58, %BufferGetPage.exit.us ], [ %38, %.outer.split.us ]
-  %.046.us80 = phi i32 [ 1, %BufferGetPage.exit.us ], [ %.sink, %.outer.split.us ]
+  %.047.us80 = phi i32 [ 1, %BufferGetPage.exit.us ], [ %.sink, %.outer.split.us ]
   call void @LockBuffer(i32 noundef %29, i32 noundef 0) #7
   call void @LockBuffer(i32 noundef %29, i32 noundef 2) #7
-  %48 = icmp eq i32 %.046.us80, 1
+  %48 = icmp eq i32 %.047.us80, 1
   br i1 %48, label %49, label %.split75.us
 
 49:                                               ; preds = %.lr.ph81
@@ -217,10 +217,10 @@ BufferGetPage.exit.us:                            ; preds = %49
 .lr.ph:                                           ; preds = %.outer.split, %BufferGetPage.exit
   %75 = phi ptr [ %88, %BufferGetPage.exit ], [ %68, %.outer.split ]
   %76 = phi ptr [ %86, %BufferGetPage.exit ], [ %66, %.outer.split ]
-  %.04678 = phi i32 [ 1, %BufferGetPage.exit ], [ %.sink, %.outer.split ]
+  %.04778 = phi i32 [ 1, %BufferGetPage.exit ], [ %.sink, %.outer.split ]
   call void @LockBuffer(i32 noundef %29, i32 noundef 0) #7
   call void @LockBuffer(i32 noundef %29, i32 noundef 2) #7
-  %77 = icmp eq i32 %.04678, 1
+  %77 = icmp eq i32 %.04778, 1
   br i1 %77, label %78, label %.split75.us
 
 78:                                               ; preds = %.lr.ph
@@ -321,9 +321,9 @@ ginVacuumEntryPage.exit.thread:                   ; preds = %BufferGetPage.exit.
 .lr.ph.i:                                         ; preds = %BufferGetPage.exit.i, %231
   %.066 = phi i32 [ %.167, %231 ], [ 0, %BufferGetPage.exit.i ]
   %.05998.i = phi ptr [ %.2.i, %231 ], [ %.0.i.i5569, %BufferGetPage.exit.i ]
-  %.06097.i = phi i16 [ %232, %231 ], [ 1, %BufferGetPage.exit.i ]
+  %.06397.i = phi i16 [ %232, %231 ], [ 1, %BufferGetPage.exit.i ]
   %130 = getelementptr inbounds i8, ptr %.05998.i, i64 24
-  %131 = zext i16 %.06097.i to i64
+  %131 = zext i16 %.06397.i to i64
   %132 = add nsw i64 %131, -1
   %133 = getelementptr [0 x %struct.ItemIdData], ptr %130, i64 0, i64 %132
   %.val73.i = load i32, ptr %133, align 4
@@ -383,7 +383,7 @@ ginVacuumItemPointers.exit.thread.i:              ; preds = %156
   br label %188
 
 .lr.ph.i.i:                                       ; preds = %156, %.thread.i
-  %.06388.i = phi ptr [ %154, %.thread.i ], [ %160, %156 ]
+  %.06188.i = phi ptr [ %154, %.thread.i ], [ %160, %156 ]
   %162 = phi i32 [ %155, %.thread.i ], [ %.pr.i, %156 ]
   %163 = zext nneg i32 %162 to i64
   %164 = mul nuw nsw i64 %163, 6
@@ -394,7 +394,7 @@ ginVacuumItemPointers.exit.thread.i:              ; preds = %156
   %.029.i.i = phi ptr [ null, %.lr.ph.i.i ], [ %.1.i.i, %187 ]
   %.02228.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.123.i.i, %187 ]
   %166 = load ptr, ptr %14, align 8
-  %167 = getelementptr %struct.ItemPointerData, ptr %.06388.i, i64 %indvars.iv.i.i
+  %167 = getelementptr %struct.ItemPointerData, ptr %.06188.i, i64 %indvars.iv.i.i
   %168 = load ptr, ptr %15, align 8
   %169 = call zeroext i1 %166(ptr noundef %167, ptr noundef %168) #7
   %170 = load ptr, ptr %27, align 8
@@ -411,7 +411,7 @@ ginVacuumItemPointers.exit.thread.i:              ; preds = %156
 175:                                              ; preds = %171
   %176 = call ptr @palloc(i64 noundef %164) #7
   %177 = mul nuw nsw i64 %indvars.iv.i.i, 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %176, ptr align 2 %.06388.i, i64 %177, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %176, ptr align 2 %.06188.i, i64 %177, i1 false)
   br label %187
 
 178:                                              ; preds = %165
@@ -444,8 +444,8 @@ ginVacuumItemPointers.exit.i:                     ; preds = %187
 
 188:                                              ; preds = %ginVacuumItemPointers.exit.i, %ginVacuumItemPointers.exit.thread.i
   %.0.lcssa.i94.i = phi ptr [ null, %ginVacuumItemPointers.exit.thread.i ], [ %.1.i.i, %ginVacuumItemPointers.exit.i ]
-  %.0638792.i = phi ptr [ %160, %ginVacuumItemPointers.exit.thread.i ], [ %.06388.i, %ginVacuumItemPointers.exit.i ]
-  call void @pfree(ptr noundef %.0638792.i) #7
+  %.0618792.i = phi ptr [ %160, %ginVacuumItemPointers.exit.thread.i ], [ %.06188.i, %ginVacuumItemPointers.exit.i ]
+  call void @pfree(ptr noundef %.0618792.i) #7
   br label %189
 
 189:                                              ; preds = %188, %ginVacuumItemPointers.exit.i
@@ -485,10 +485,10 @@ ginVacuumItemPointers.exit.i:                     ; preds = %187
   br label %210
 
 210:                                              ; preds = %203, %201
-  %.061.i = phi ptr [ %209, %203 ], [ %136, %201 ]
+  %.062.i = phi ptr [ %209, %203 ], [ %136, %201 ]
   %.1.i = phi ptr [ %204, %203 ], [ %.05998.i, %201 ]
-  %211 = call zeroext i16 @gintuple_get_attrnum(ptr noundef nonnull %19, ptr noundef %.061.i) #7
-  %212 = call i64 @gintuple_get_key(ptr noundef nonnull %19, ptr noundef %.061.i, ptr noundef nonnull %7) #7
+  %211 = call zeroext i16 @gintuple_get_attrnum(ptr noundef nonnull %19, ptr noundef %.062.i) #7
+  %212 = call i64 @gintuple_get_key(ptr noundef nonnull %19, ptr noundef %.062.i, ptr noundef nonnull %7) #7
   %213 = load i8, ptr %7, align 1
   %214 = load i32, ptr %6, align 4
   %215 = call ptr @GinFormTuple(ptr noundef nonnull %19, i16 noundef zeroext %211, i64 noundef %212, i8 noundef signext %213, ptr noundef %.058.i, i64 noundef %.0.i, i32 noundef %214, i1 noundef zeroext true) #7
@@ -500,13 +500,13 @@ ginVacuumItemPointers.exit.i:                     ; preds = %187
   br label %217
 
 217:                                              ; preds = %216, %210
-  call void @PageIndexTupleDelete(ptr noundef %.1.i, i16 noundef zeroext %.06097.i) #7
+  call void @PageIndexTupleDelete(ptr noundef %.1.i, i16 noundef zeroext %.06397.i) #7
   %218 = getelementptr inbounds i8, ptr %215, i64 6
   %219 = load i16, ptr %218, align 2
   %220 = and i16 %219, 8191
   %221 = zext nneg i16 %220 to i64
-  %222 = call zeroext i16 @PageAddItemExtended(ptr noundef %.1.i, ptr noundef %215, i64 noundef %221, i16 noundef zeroext %.06097.i, i32 noundef 0) #7
-  %.not72.i = icmp eq i16 %222, %.06097.i
+  %222 = call zeroext i16 @PageAddItemExtended(ptr noundef %.1.i, ptr noundef %215, i64 noundef %221, i16 noundef zeroext %.06397.i, i32 noundef 0) #7
+  %.not72.i = icmp eq i16 %222, %.06397.i
   br i1 %.not72.i, label %230, label %223
 
 223:                                              ; preds = %217
@@ -528,7 +528,7 @@ ginVacuumItemPointers.exit.i:                     ; preds = %187
 231:                                              ; preds = %230, %189, %138, %.lr.ph.i
   %.167 = phi i32 [ %.066, %189 ], [ %.066, %230 ], [ %.066, %.lr.ph.i ], [ %146, %138 ]
   %.2.i = phi ptr [ %.05998.i, %189 ], [ %.1.i, %230 ], [ %.05998.i, %.lr.ph.i ], [ %.05998.i, %138 ]
-  %232 = add i16 %.06097.i, 1
+  %232 = add i16 %.06397.i, 1
   %.not.i = icmp ugt i16 %232, %124
   br i1 %.not.i, label %ginVacuumEntryPage.exit, label %.lr.ph.i, !llvm.loop !7
 
@@ -875,17 +875,17 @@ define dso_local ptr @ginvacuumcleanup(ptr nocapture noundef readonly %0, ptr no
   br label %18
 
 18:                                               ; preds = %14, %12
-  %.049 = phi ptr [ %15, %14 ], [ %1, %12 ]
+  %.050 = phi ptr [ %15, %14 ], [ %1, %12 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %19 = getelementptr inbounds i8, ptr %0, i64 24
   %20 = load double, ptr %19, align 8
   %21 = fcmp ogt double %20, 0.000000e+00
   %22 = select i1 %21, double %20, double 0.000000e+00
-  %23 = getelementptr inbounds i8, ptr %.049, i64 8
+  %23 = getelementptr inbounds i8, ptr %.050, i64 8
   store double %22, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 18
   %25 = load i8, ptr %24, align 2
-  %26 = getelementptr inbounds i8, ptr %.049, i64 4
+  %26 = getelementptr inbounds i8, ptr %.050, i64 4
   %27 = and i8 %25, 1
   store i8 %27, ptr %26, align 4
   %28 = getelementptr inbounds i8, ptr %5, i64 32
@@ -926,11 +926,11 @@ define dso_local ptr @ginvacuumcleanup(ptr nocapture noundef readonly %0, ptr no
   %47 = phi i64 [ 0, %.lr.ph ], [ %99, %98 ]
   %48 = phi i32 [ 0, %.lr.ph ], [ %100, %98 ]
   %49 = phi i32 [ 0, %.lr.ph ], [ %101, %98 ]
-  %.05064 = phi i32 [ 0, %.lr.ph ], [ %.1, %98 ]
-  %.05162 = phi i32 [ 1, %.lr.ph ], [ %102, %98 ]
+  %.064 = phi i32 [ 0, %.lr.ph ], [ %.1, %98 ]
+  %.04962 = phi i32 [ 1, %.lr.ph ], [ %102, %98 ]
   call void @vacuum_delay_point() #7
   %50 = load ptr, ptr %42, align 8
-  %51 = call i32 @ReadBufferExtended(ptr noundef %5, i32 noundef 0, i32 noundef %.05162, i32 noundef 0, ptr noundef %50) #7
+  %51 = call i32 @ReadBufferExtended(ptr noundef %5, i32 noundef 0, i32 noundef %.04962, i32 noundef 0, ptr noundef %50) #7
   call void @LockBuffer(i32 noundef %51, i32 noundef 1) #7
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %59
@@ -988,8 +988,8 @@ GinPageIsRecyclable.exit.GinPageIsRecyclable.exit.thread60_crit_edge: ; preds = 
   br label %GinPageIsRecyclable.exit.thread60
 
 GinPageIsRecyclable.exit.thread:                  ; preds = %75, %BufferGetPage.exit, %GinPageIsRecyclable.exit
-  call void @RecordFreeIndexPage(ptr noundef %5, i32 noundef %.05162) #7
-  %79 = add i32 %.05064, 1
+  call void @RecordFreeIndexPage(ptr noundef %5, i32 noundef %.04962) #7
+  %79 = add i32 %.064, 1
   br label %98
 
 GinPageIsRecyclable.exit.thread60:                ; preds = %GinPageIsRecyclable.exit.GinPageIsRecyclable.exit.thread60_crit_edge, %67
@@ -1032,39 +1032,39 @@ GinPageIsRecyclable.exit.thread60:                ; preds = %GinPageIsRecyclable
   %99 = phi i64 [ %47, %GinPageIsRecyclable.exit.thread ], [ %47, %82 ], [ %47, %84 ], [ %97, %89 ], [ %47, %86 ]
   %100 = phi i32 [ %48, %GinPageIsRecyclable.exit.thread ], [ %48, %82 ], [ %48, %84 ], [ %87, %89 ], [ %87, %86 ]
   %101 = phi i32 [ %49, %GinPageIsRecyclable.exit.thread ], [ %83, %82 ], [ %49, %84 ], [ %49, %89 ], [ %49, %86 ]
-  %.1 = phi i32 [ %79, %GinPageIsRecyclable.exit.thread ], [ %.05064, %82 ], [ %.05064, %84 ], [ %.05064, %89 ], [ %.05064, %86 ]
+  %.1 = phi i32 [ %79, %GinPageIsRecyclable.exit.thread ], [ %.064, %82 ], [ %.064, %84 ], [ %.064, %89 ], [ %.064, %86 ]
   call void @UnlockReleaseBuffer(i32 noundef %51) #7
-  %102 = add nuw i32 %.05162, 1
+  %102 = add nuw i32 %.04962, 1
   %exitcond.not = icmp eq i32 %102, %39
   br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %98, %38
-  %.050.lcssa = phi i32 [ 0, %38 ], [ %.1, %98 ]
+  %.0.lcssa = phi i32 [ 0, %38 ], [ %.1, %98 ]
   %103 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %39, ptr %103, align 4
   %104 = load ptr, ptr %0, align 8
   call void @ginUpdateStats(ptr noundef %104, ptr noundef nonnull %4, i1 noundef zeroext false) #7
   %105 = load ptr, ptr %0, align 8
   call void @IndexFreeSpaceMapVacuum(ptr noundef %105) #7
-  %106 = getelementptr inbounds i8, ptr %.049, i64 32
-  store i32 %.050.lcssa, ptr %106, align 8
+  %106 = getelementptr inbounds i8, ptr %.050, i64 32
+  store i32 %.0.lcssa, ptr %106, align 8
   br i1 %40, label %107, label %.critedge
 
 107:                                              ; preds = %._crit_edge
   call void @LockRelationForExtension(ptr noundef %5, i32 noundef 7) #7
   %108 = call i32 @RelationGetNumberOfBlocksInFork(ptr noundef %5, i32 noundef 0) #7
-  store i32 %108, ptr %.049, align 8
+  store i32 %108, ptr %.050, align 8
   call void @UnlockRelationForExtension(ptr noundef %5, i32 noundef 7) #7
   br label %110
 
 .critedge:                                        ; preds = %._crit_edge
   %109 = call i32 @RelationGetNumberOfBlocksInFork(ptr noundef %5, i32 noundef 0) #7
-  store i32 %109, ptr %.049, align 8
+  store i32 %109, ptr %.050, align 8
   br label %110
 
 110:                                              ; preds = %107, %.critedge, %9, %11
-  %.0 = phi ptr [ %1, %11 ], [ %1, %9 ], [ %.049, %.critedge ], [ %.049, %107 ]
-  ret ptr %.0
+  %.051 = phi ptr [ %1, %11 ], [ %1, %9 ], [ %.050, %.critedge ], [ %.050, %107 ]
+  ret ptr %.051
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

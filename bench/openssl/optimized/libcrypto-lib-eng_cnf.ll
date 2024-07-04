@@ -85,9 +85,9 @@ int_engine_configure.exit.thread:                 ; preds = %for.body
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %soft.088.i = phi i32 [ %soft.1.i, %for.inc.i ], [ 0, %for.body.preheader.i ]
   %e.087.i = phi ptr [ %e.2.i, %for.inc.i ], [ null, %for.body.preheader.i ]
-  %name.addr.086.i = phi ptr [ %name.addr.1.i, %for.inc.i ], [ %retval.0.i.i, %for.body.preheader.i ]
-  %i.085.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.body.preheader.i ]
-  %call5.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call1.i, i32 noundef %i.085.i) #4
+  %i.086.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.body.preheader.i ]
+  %name.addr.085.i = phi ptr [ %name.addr.1.i, %for.inc.i ], [ %retval.0.i.i, %for.body.preheader.i ]
+  %call5.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call1.i, i32 noundef %i.086.i) #4
   %name6.i = getelementptr inbounds i8, ptr %call5.i, i64 8
   %2 = load ptr, ptr %name6.i, align 8
   %call.i36.i = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %2, i32 noundef 46) #5
@@ -135,7 +135,7 @@ if.else35.i:                                      ; preds = %if.else15.i
   br i1 %tobool36.not.i, label %if.then37.i, label %if.end46.i
 
 if.then37.i:                                      ; preds = %if.else35.i
-  %call38.i = call ptr @ENGINE_by_id(ptr noundef %name.addr.086.i) #4
+  %call38.i = call ptr @ENGINE_by_id(ptr noundef %name.addr.085.i) #4
   %tobool39.i = icmp eq ptr %call38.i, null
   %tobool40.i = icmp ne i32 %soft.088.i, 0
   %or.cond.i = select i1 %tobool39.i, i1 %tobool40.i, i1 false
@@ -218,10 +218,10 @@ if.else77.i:                                      ; preds = %if.else69.i
   br i1 %tobool79.not.i, label %if.else99.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else77.i, %if.then72.i, %lor.lhs.false.i.i, %if.end57.i, %if.end30.i, %if.else.i, %for.body.i
-  %name.addr.1.i = phi ptr [ %name.addr.086.i, %if.end30.i ], [ %name.addr.086.i, %if.then72.i ], [ %name.addr.086.i, %if.else77.i ], [ %3, %for.body.i ], [ %name.addr.086.i, %if.else.i ], [ %name.addr.086.i, %if.end57.i ], [ %name.addr.086.i, %lor.lhs.false.i.i ]
+  %name.addr.1.i = phi ptr [ %name.addr.085.i, %if.end30.i ], [ %name.addr.085.i, %if.then72.i ], [ %name.addr.085.i, %if.else77.i ], [ %3, %for.body.i ], [ %name.addr.085.i, %if.else.i ], [ %name.addr.085.i, %if.end57.i ], [ %name.addr.085.i, %lor.lhs.false.i.i ]
   %e.2.i = phi ptr [ %call19.i, %if.end30.i ], [ %e.1.i, %if.then72.i ], [ %e.1.i, %if.else77.i ], [ %e.087.i, %for.body.i ], [ %e.087.i, %if.else.i ], [ %e.1.i, %if.end57.i ], [ %e.1.i, %lor.lhs.false.i.i ]
   %soft.1.i = phi i32 [ %soft.088.i, %if.end30.i ], [ %soft.088.i, %if.then72.i ], [ %soft.088.i, %if.else77.i ], [ %soft.088.i, %for.body.i ], [ 1, %if.else.i ], [ %soft.088.i, %if.end57.i ], [ %soft.088.i, %lor.lhs.false.i.i ]
-  %inc.i = add nuw nsw i32 %i.085.i, 1
+  %inc.i = add nuw nsw i32 %i.086.i, 1
   %call3.i = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call1.i) #4
   %cmp.i = icmp slt i32 %inc.i, %call3.i
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !4

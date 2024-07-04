@@ -279,8 +279,8 @@ define noundef ptr @Abc_CexDup(ptr noundef readonly %0, i32 noundef %1) local_un
   br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !7
 
 .loopexit:                                        ; preds = %52, %4, %2
-  %.022 = phi ptr [ inttoptr (i64 1 to ptr), %2 ], [ %calloc.i, %4 ], [ %calloc.i, %52 ]
-  ret ptr %.022
+  %.023 = phi ptr [ inttoptr (i64 1 to ptr), %2 ], [ %calloc.i, %4 ], [ %calloc.i, %52 ]
+  ret ptr %.023
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
@@ -1057,23 +1057,23 @@ define noundef ptr @Abc_CexTransformPhase(ptr noundef readonly %0, i32 noundef %
   br i1 %exitcond.not.i, label %Abc_CexDup.exit, label %35, !llvm.loop !7
 
 Abc_CexDup.exit:                                  ; preds = %54, %4, %8
-  %.022.i = phi ptr [ inttoptr (i64 1 to ptr), %4 ], [ %calloc.i.i, %8 ], [ %calloc.i.i, %54 ]
+  %.023.i = phi ptr [ inttoptr (i64 1 to ptr), %4 ], [ %calloc.i.i, %8 ], [ %calloc.i.i, %54 ]
   %56 = sdiv i32 %6, %1
-  %57 = getelementptr inbounds i8, ptr %.022.i, i64 12
+  %57 = getelementptr inbounds i8, ptr %.023.i, i64 12
   store i32 %1, ptr %57, align 4
-  store i32 -1, ptr %.022.i, align 4
+  store i32 -1, ptr %.023.i, align 4
   %58 = getelementptr inbounds i8, ptr %0, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = add nsw i32 %59, 1
   %61 = mul nsw i32 %60, %56
   %62 = add nsw i32 %61, -1
-  %63 = getelementptr inbounds i8, ptr %.022.i, i64 4
+  %63 = getelementptr inbounds i8, ptr %.023.i, i64 4
   store i32 %62, ptr %63, align 4
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %.022.i, i64 16
+  %66 = getelementptr inbounds i8, ptr %.023.i, i64 16
   store i32 %65, ptr %66, align 4
-  ret ptr %.022.i
+  ret ptr %.023.i
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
@@ -1122,16 +1122,16 @@ define noalias noundef ptr @Abc_CexTransformTempor(ptr nocapture noundef readonl
   br label %.preheader48.us
 
 .preheader48.us:                                  ; preds = %._crit_edge.us, %.preheader48.lr.ph.split.us
-  %.052.us = phi i32 [ 0, %.preheader48.lr.ph.split.us ], [ %34, %._crit_edge.us ]
-  %.04051.us = phi i32 [ %3, %.preheader48.lr.ph.split.us ], [ %56, %._crit_edge.us ]
-  %34 = add nuw nsw i32 %.052.us, 1
+  %.052.us = phi i32 [ %3, %.preheader48.lr.ph.split.us ], [ %56, %._crit_edge.us ]
+  %.04251.us = phi i32 [ 0, %.preheader48.lr.ph.split.us ], [ %34, %._crit_edge.us ]
+  %34 = add nuw nsw i32 %.04251.us, 1
   %35 = mul nuw nsw i32 %34, %1
   br label %36
 
 36:                                               ; preds = %.preheader48.us, %54
-  %.14150.us = phi i32 [ %.04051.us, %.preheader48.us ], [ %56, %54 ]
-  %.04249.us = phi i32 [ 0, %.preheader48.us ], [ %55, %54 ]
-  %37 = add nuw i32 %.04249.us, %35
+  %.150.us = phi i32 [ %.052.us, %.preheader48.us ], [ %56, %54 ]
+  %.04049.us = phi i32 [ 0, %.preheader48.us ], [ %55, %54 ]
+  %37 = add nuw i32 %.04049.us, %35
   %38 = add i32 %37, %33
   %39 = ashr i32 %38, 5
   %40 = sext i32 %39 to i64
@@ -1144,9 +1144,9 @@ define noalias noundef ptr @Abc_CexTransformTempor(ptr nocapture noundef readonl
   br i1 %.not46.us, label %54, label %46
 
 46:                                               ; preds = %36
-  %47 = and i32 %.14150.us, 31
+  %47 = and i32 %.150.us, 31
   %48 = shl nuw i32 1, %47
-  %49 = ashr i32 %.14150.us, 5
+  %49 = ashr i32 %.150.us, 5
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i32, ptr %31, i64 %50
   %52 = load i32, ptr %51, align 4
@@ -1155,8 +1155,8 @@ define noalias noundef ptr @Abc_CexTransformTempor(ptr nocapture noundef readonl
   br label %54
 
 54:                                               ; preds = %46, %36
-  %55 = add nuw nsw i32 %.04249.us, 1
-  %56 = add nsw i32 %.14150.us, 1
+  %55 = add nuw nsw i32 %.04049.us, 1
+  %56 = add nsw i32 %.150.us, 1
   %exitcond.not = icmp eq i32 %55, %1
   br i1 %exitcond.not, label %._crit_edge.us, label %36, !llvm.loop !21
 
@@ -1165,7 +1165,7 @@ define noalias noundef ptr @Abc_CexTransformTempor(ptr nocapture noundef readonl
   br i1 %exitcond65.not, label %.preheader47, label %.preheader48.us, !llvm.loop !22
 
 .preheader47:                                     ; preds = %._crit_edge.us, %.preheader48.lr.ph, %4
-  %.040.lcssa = phi i32 [ %3, %4 ], [ %3, %.preheader48.lr.ph ], [ %56, %._crit_edge.us ]
+  %.0.lcssa = phi i32 [ %3, %4 ], [ %3, %.preheader48.lr.ph ], [ %56, %._crit_edge.us ]
   %.not56 = icmp slt i32 %10, 0
   br i1 %.not56, label %._crit_edge59, label %.preheader.lr.ph
 
@@ -1181,15 +1181,15 @@ define noalias noundef ptr @Abc_CexTransformTempor(ptr nocapture noundef readonl
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %._crit_edge.us60, %.preheader.lr.ph.split.us
-  %.158.us = phi i32 [ 0, %.preheader.lr.ph.split.us ], [ %84, %._crit_edge.us60 ]
-  %.257.us = phi i32 [ %.040.lcssa, %.preheader.lr.ph.split.us ], [ %83, %._crit_edge.us60 ]
-  %62 = mul nsw i32 %.158.us, %6
+  %.258.us = phi i32 [ %.0.lcssa, %.preheader.lr.ph.split.us ], [ %83, %._crit_edge.us60 ]
+  %.14357.us = phi i32 [ 0, %.preheader.lr.ph.split.us ], [ %84, %._crit_edge.us60 ]
+  %62 = mul nsw i32 %.14357.us, %6
   br label %63
 
 63:                                               ; preds = %.preheader.us, %81
-  %.355.us = phi i32 [ %.257.us, %.preheader.us ], [ %83, %81 ]
-  %.14354.us = phi i32 [ 0, %.preheader.us ], [ %82, %81 ]
-  %64 = add i32 %.14354.us, %62
+  %.355.us = phi i32 [ %.258.us, %.preheader.us ], [ %83, %81 ]
+  %.14154.us = phi i32 [ 0, %.preheader.us ], [ %82, %81 ]
+  %64 = add i32 %.14154.us, %62
   %65 = add i32 %64, %61
   %66 = ashr i32 %65, 5
   %67 = sext i32 %66 to i64
@@ -1213,14 +1213,14 @@ define noalias noundef ptr @Abc_CexTransformTempor(ptr nocapture noundef readonl
   br label %81
 
 81:                                               ; preds = %73, %63
-  %82 = add nuw nsw i32 %.14354.us, 1
+  %82 = add nuw nsw i32 %.14154.us, 1
   %83 = add nsw i32 %.355.us, 1
   %exitcond66.not = icmp eq i32 %82, %1
   br i1 %exitcond66.not, label %._crit_edge.us60, label %63, !llvm.loop !23
 
 ._crit_edge.us60:                                 ; preds = %81
-  %84 = add nuw i32 %.158.us, 1
-  %exitcond67.not = icmp eq i32 %.158.us, %10
+  %84 = add nuw i32 %.14357.us, 1
+  %exitcond67.not = icmp eq i32 %.14357.us, %10
   br i1 %exitcond67.not, label %._crit_edge59, label %.preheader.us, !llvm.loop !24
 
 ._crit_edge59:                                    ; preds = %._crit_edge.us60, %.preheader.lr.ph, %.preheader47

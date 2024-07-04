@@ -612,8 +612,8 @@ define range(i32 -22, 1) i32 @CVodeSetRootDirection(ptr noundef %0, ptr nocaptur
   br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !4
 
 .loopexit:                                        ; preds = %12, %.preheader, %11, %4
-  %.0 = phi i32 [ -21, %4 ], [ -22, %11 ], [ 0, %.preheader ], [ 0, %12 ]
-  ret i32 %.0
+  %.012 = phi i32 [ -21, %4 ], [ -22, %11 ], [ 0, %.preheader ], [ 0, %12 ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -854,8 +854,8 @@ define range(i32 -40, 1) i32 @CVodeSetSensParams(ptr noundef %0, ptr noundef %1,
   br i1 %exitcond77.not, label %.loopexit, label %42, !llvm.loop !9
 
 .loopexit:                                        ; preds = %39, %42, %.preheader47, %.preheader, %38, %23, %11, %6
-  %.0 = phi i32 [ -21, %6 ], [ -40, %11 ], [ -22, %23 ], [ -22, %38 ], [ 0, %.preheader ], [ 0, %.preheader47 ], [ 0, %42 ], [ 0, %39 ]
-  ret i32 %.0
+  %.040 = phi i32 [ -21, %6 ], [ -40, %11 ], [ -22, %23 ], [ -22, %38 ], [ 0, %.preheader ], [ 0, %.preheader47 ], [ 0, %42 ], [ 0, %39 ]
+  ret i32 %.040
 }
 
 declare double @SUNRabs(double noundef) local_unnamed_addr #1
@@ -1313,8 +1313,8 @@ define range(i32 -21, 1) i32 @CVodeGetRootInfo(ptr noundef readonly %0, ptr noca
   br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !10
 
 .loopexit:                                        ; preds = %10, %5, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %5 ], [ 0, %10 ]
-  ret i32 %.0
+  %.010 = phi i32 [ -21, %4 ], [ 0, %5 ], [ 0, %10 ]
+  ret i32 %.010
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1616,8 +1616,8 @@ define range(i32 -50, 1) i32 @CVodeGetQuadSensErrWeights(ptr noundef %0, ptr noc
   br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !11
 
 .loopexit:                                        ; preds = %17, %10, %9, %4
-  %.0 = phi i32 [ -21, %4 ], [ -50, %9 ], [ 0, %10 ], [ 0, %17 ]
-  ret i32 %.0
+  %.013 = phi i32 [ -21, %4 ], [ -50, %9 ], [ 0, %10 ], [ 0, %17 ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1816,8 +1816,8 @@ define range(i32 -40, 1) i32 @CVodeGetSensErrWeights(ptr noundef %0, ptr nocaptu
   br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !12
 
 .loopexit:                                        ; preds = %15, %10, %9, %4
-  %.0 = phi i32 [ -21, %4 ], [ -40, %9 ], [ 0, %10 ], [ 0, %15 ]
-  ret i32 %.0
+  %.012 = phi i32 [ -21, %4 ], [ -40, %9 ], [ 0, %10 ], [ 0, %15 ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1965,8 +1965,8 @@ define range(i32 -40, 1) i32 @CVodeGetStgrSensNumNonlinSolvIters(ptr noundef %0,
   br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !13
 
 .loopexit:                                        ; preds = %18, %12, %11, %4
-  %.0 = phi i32 [ -21, %4 ], [ -40, %11 ], [ 0, %12 ], [ 0, %18 ]
-  ret i32 %.0
+  %.013 = phi i32 [ -21, %4 ], [ -40, %11 ], [ 0, %12 ], [ 0, %18 ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2015,8 +2015,8 @@ define range(i32 -40, 1) i32 @CVodeGetStgrSensNumNonlinSolvConvFails(ptr noundef
   br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !14
 
 .loopexit:                                        ; preds = %18, %12, %11, %4
-  %.0 = phi i32 [ -21, %4 ], [ -40, %11 ], [ 0, %12 ], [ 0, %18 ]
-  ret i32 %.0
+  %.013 = phi i32 [ -21, %4 ], [ -40, %11 ], [ 0, %12 ], [ 0, %18 ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable

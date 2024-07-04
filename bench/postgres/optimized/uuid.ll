@@ -38,19 +38,19 @@ define dso_local i64 @uuid_in(ptr nocapture noundef readonly %0) local_unnamed_a
 
 12:                                               ; preds = %46, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %46 ]
-  %.131.i = phi ptr [ %spec.select.i, %1 ], [ %.2.i, %46 ]
-  %13 = load i8, ptr %.131.i, align 1
+  %.130.i = phi ptr [ %spec.select.i, %1 ], [ %.2.i, %46 ]
+  %13 = load i8, ptr %.130.i, align 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %.loopexit.i, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr i8, ptr %.131.i, i64 1
+  %16 = getelementptr i8, ptr %.130.i, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %.loopexit.i, label %19
 
 19:                                               ; preds = %15
-  %20 = load i16, ptr %.131.i, align 1
+  %20 = load i16, ptr %.130.i, align 1
   store i16 %20, ptr %2, align 2
   %21 = tail call ptr @__ctype_b_loc() #13
   %22 = load ptr, ptr %21, align 8
@@ -77,7 +77,7 @@ define dso_local i64 @uuid_in(ptr nocapture noundef readonly %0) local_unnamed_a
   %36 = trunc i64 %35 to i8
   %37 = getelementptr [16 x i8], ptr %6, i64 0, i64 %indvars.iv.i
   store i8 %36, ptr %37, align 1
-  %38 = getelementptr i8, ptr %.131.i, i64 2
+  %38 = getelementptr i8, ptr %.130.i, i64 2
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 45
   br i1 %40, label %41, label %46
@@ -87,7 +87,7 @@ define dso_local i64 @uuid_in(ptr nocapture noundef readonly %0) local_unnamed_a
   %43 = icmp ne i64 %42, 0
   %44 = icmp ne i64 %indvars.iv.i, 15
   %or.cond.i = and i1 %44, %43
-  %45 = getelementptr i8, ptr %.131.i, i64 3
+  %45 = getelementptr i8, ptr %.130.i, i64 3
   %spec.select28.i = select i1 %or.cond.i, ptr %45, ptr %38
   br label %46
 
@@ -143,7 +143,7 @@ define dso_local i64 @uuid_out(ptr nocapture noundef readonly %0) local_unnamed_
 
 6:                                                ; preds = %1, %11
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %11 ]
-  %.025 = phi ptr [ %5, %1 ], [ %24, %11 ]
+  %.02324 = phi ptr [ %5, %1 ], [ %24, %11 ]
   %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = and i32 %7, 13
   switch i32 %8, label %11 [
@@ -152,12 +152,12 @@ define dso_local i64 @uuid_out(ptr nocapture noundef readonly %0) local_unnamed_
   ]
 
 9:                                                ; preds = %6, %6
-  %10 = getelementptr i8, ptr %.025, i64 1
-  store i8 45, ptr %.025, align 1
+  %10 = getelementptr i8, ptr %.02324, i64 1
+  store i8 45, ptr %.02324, align 1
   br label %11
 
 11:                                               ; preds = %6, %9
-  %.1 = phi ptr [ %10, %9 ], [ %.025, %6 ]
+  %.1 = phi ptr [ %10, %9 ], [ %.02324, %6 ]
   %12 = getelementptr [16 x i8], ptr %4, i64 0, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32

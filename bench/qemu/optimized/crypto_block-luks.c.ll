@@ -808,10 +808,10 @@ entry:
   %luks_opts.sroa.3447.0 = select i1 %tobool13, i32 %luks_opts.sroa.3447.0.copyload, i32 3
   %cmp = icmp eq i32 %luks_opts.sroa.1937.0, 2
   %tobool19 = trunc i8 %luks_opts.sroa.25.0.copyload to i1
-  %spec.select131 = select i1 %tobool19, i8 %luks_opts.sroa.25.0.copyload, i8 1
-  %spec.select132 = select i1 %tobool19, i32 %luks_opts.sroa.2843.0.copyload, i32 3
-  %luks_opts.sroa.25.0 = select i1 %cmp, i8 %spec.select131, i8 %luks_opts.sroa.25.0.copyload
-  %luks_opts.sroa.2843.0 = select i1 %cmp, i32 %spec.select132, i32 %luks_opts.sroa.2843.0.copyload
+  %spec.select131 = select i1 %tobool19, i32 %luks_opts.sroa.2843.0.copyload, i32 3
+  %spec.select132 = select i1 %tobool19, i8 %luks_opts.sroa.25.0.copyload, i8 1
+  %luks_opts.sroa.2843.0 = select i1 %cmp, i32 %spec.select131, i32 %luks_opts.sroa.2843.0.copyload
+  %luks_opts.sroa.25.0 = select i1 %cmp, i8 %spec.select132, i8 %luks_opts.sroa.25.0.copyload
   %call = tail call noalias dereferenceable_or_null(624) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 624) #17
   %opaque25 = getelementptr inbounds i8, ptr %block, i64 16
   store ptr %call, ptr %opaque25, align 8
@@ -941,7 +941,7 @@ if.end82:                                         ; preds = %if.end78
   br i1 %cmp, label %if.then85, label %if.else92
 
 if.then85:                                        ; preds = %if.end82
-  %call88 = call fastcc i32 @qcrypto_block_luks_essiv_cipher(i32 noundef %luks_opts.sroa.325.0, i32 noundef %spec.select132, ptr noundef nonnull %local_err)
+  %call88 = call fastcc i32 @qcrypto_block_luks_essiv_cipher(i32 noundef %luks_opts.sroa.325.0, i32 noundef %spec.select131, ptr noundef nonnull %local_err)
   %ivgen_cipher_alg = getelementptr inbounds i8, ptr %call, i64 608
   store i32 %call88, ptr %ivgen_cipher_alg, align 8
   %6 = load ptr, ptr %local_err, align 8

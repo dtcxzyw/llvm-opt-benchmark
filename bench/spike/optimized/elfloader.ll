@@ -133,18 +133,18 @@ define void @_Z8load_elfB5cxx11PKcP7memif_tPmj(ptr dead_on_unwind noalias writab
   br label %32
 
 30:                                               ; preds = %26, %25
-  %.0201 = phi i1 [ false, %26 ], [ true, %25 ]
+  %.0207 = phi i1 [ false, %26 ], [ true, %25 ]
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #18
   br label %32
 
 32:                                               ; preds = %28, %30
-  %.1202 = phi i1 [ %.0201, %30 ], [ true, %28 ]
+  %.1208 = phi i1 [ %.0207, %30 ], [ true, %28 ]
   %.pn248 = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #18
-  br i1 %.1202, label %33, label %_ZNSt6vectorIhSaIhEED2Ev.exit275
+  br i1 %.1208, label %33, label %_ZNSt6vectorIhSaIhEED2Ev.exit275
 
 33:                                               ; preds = %.thread, %32
   %.pn248.pn285 = phi { ptr, i32 } [ %27, %.thread ], [ %.pn248, %32 ]
@@ -200,18 +200,18 @@ define void @_Z8load_elfB5cxx11PKcP7memif_tPmj(ptr dead_on_unwind noalias writab
   br label %56
 
 54:                                               ; preds = %50, %49
-  %.0204 = phi i1 [ false, %50 ], [ true, %49 ]
+  %.0218 = phi i1 [ false, %50 ], [ true, %49 ]
   %55 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #18
   br label %56
 
 56:                                               ; preds = %52, %54
-  %.1205 = phi i1 [ %.0204, %54 ], [ true, %52 ]
+  %.1219 = phi i1 [ %.0218, %54 ], [ true, %52 ]
   %.pn245 = phi { ptr, i32 } [ %55, %54 ], [ %53, %52 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #18
-  br i1 %.1205, label %57, label %_ZNSt6vectorIhSaIhEED2Ev.exit275
+  br i1 %.1219, label %57, label %_ZNSt6vectorIhSaIhEED2Ev.exit275
 
 57:                                               ; preds = %.thread286, %56
   %.pn245.pn289 = phi { ptr, i32 } [ %51, %.thread286 ], [ %.pn245, %56 ]
@@ -565,8 +565,8 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit:               ; preds = %197, %_ZNSt12_Vecto
 
 .lr.ph341:                                        ; preds = %.lr.ph341.preheader, %238
   %indvars.iv366 = phi i64 [ 0, %.lr.ph341.preheader ], [ %indvars.iv.next367, %238 ]
-  %.0214339 = phi i32 [ 0, %.lr.ph341.preheader ], [ %.2216, %238 ]
-  %.0218338 = phi i32 [ 0, %.lr.ph341.preheader ], [ %.1219, %238 ]
+  %.0213338 = phi i32 [ 0, %.lr.ph341.preheader ], [ %.1214, %238 ]
+  %.0215337 = phi i32 [ 0, %.lr.ph341.preheader ], [ %.2217, %238 ]
   %225 = getelementptr inbounds %struct.Elf32_Shdr, ptr %215, i64 %indvars.iv366
   %226 = getelementptr inbounds i8, ptr %225, i64 4
   %227 = load i32, ptr %226, align 4
@@ -581,32 +581,32 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit:               ; preds = %197, %_ZNSt12_Vecto
   %233 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %232, ptr noundef nonnull dereferenceable(8) @.str.3) #24
   %234 = icmp eq i32 %233, 0
   %235 = trunc nuw nsw i64 %indvars.iv366 to i32
-  %spec.select = select i1 %234, i32 %235, i32 %.0214339
+  %spec.select = select i1 %234, i32 %235, i32 %.0215337
   %236 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %232, ptr noundef nonnull dereferenceable(8) @.str.4) #24
   %237 = icmp eq i32 %236, 0
-  %spec.select254 = select i1 %237, i32 %235, i32 %.0218338
+  %spec.select254 = select i1 %237, i32 %235, i32 %.0213338
   br label %238
 
 238:                                              ; preds = %229, %.lr.ph341
-  %.1219 = phi i32 [ %.0218338, %.lr.ph341 ], [ %spec.select254, %229 ]
-  %.2216 = phi i32 [ %.0214339, %.lr.ph341 ], [ %spec.select, %229 ]
+  %.2217 = phi i32 [ %.0215337, %.lr.ph341 ], [ %spec.select, %229 ]
+  %.1214 = phi i32 [ %.0213338, %.lr.ph341 ], [ %spec.select254, %229 ]
   %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
   %exitcond370.not = icmp eq i64 %indvars.iv.next367, %wide.trip.count369
   br i1 %exitcond370.not, label %._crit_edge342, label %.lr.ph341, !llvm.loop !6
 
 ._crit_edge342:                                   ; preds = %238
-  %239 = icmp ne i32 %.2216, 0
-  %240 = icmp ne i32 %.1219, 0
+  %239 = icmp ne i32 %.2217, 0
+  %240 = icmp ne i32 %.1214, 0
   %or.cond = select i1 %239, i1 %240, i1 false
   br i1 %or.cond, label %241, label %.loopexit
 
 241:                                              ; preds = %._crit_edge342
-  %242 = zext i32 %.2216 to i64
+  %242 = zext i32 %.2217 to i64
   %243 = getelementptr inbounds %struct.Elf32_Shdr, ptr %215, i64 %242, i32 4
   %244 = load i32, ptr %243, align 4
   %245 = zext i32 %244 to i64
   %246 = getelementptr inbounds i8, ptr %41, i64 %245
-  %247 = zext i32 %.1219 to i64
+  %247 = zext i32 %.1214 to i64
   %248 = getelementptr inbounds %struct.Elf32_Shdr, ptr %215, i64 %247
   %249 = getelementptr inbounds i8, ptr %248, i64 16
   %250 = load i32, ptr %249, align 4
@@ -869,8 +869,8 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit270:            ; preds = %342, %_ZNSt12_Vecto
 
 .lr.ph322:                                        ; preds = %.lr.ph322.preheader, %380
   %indvars.iv360 = phi i64 [ 0, %.lr.ph322.preheader ], [ %indvars.iv.next361, %380 ]
-  %.0208319 = phi i32 [ 0, %.lr.ph322.preheader ], [ %.1209, %380 ]
-  %.0210318 = phi i32 [ 0, %.lr.ph322.preheader ], [ %.2212, %380 ]
+  %.0202319 = phi i32 [ 0, %.lr.ph322.preheader ], [ %.1203, %380 ]
+  %.0204318 = phi i32 [ 0, %.lr.ph322.preheader ], [ %.2206, %380 ]
   %367 = getelementptr inbounds %struct.Elf64_Shdr, ptr %358, i64 %indvars.iv360
   %368 = getelementptr inbounds i8, ptr %367, i64 4
   %369 = load i32, ptr %368, align 4
@@ -885,31 +885,31 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit270:            ; preds = %342, %_ZNSt12_Vecto
   %375 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %374, ptr noundef nonnull dereferenceable(8) @.str.3) #24
   %376 = icmp eq i32 %375, 0
   %377 = trunc nuw nsw i64 %indvars.iv360 to i32
-  %spec.select253 = select i1 %376, i32 %377, i32 %.0210318
+  %spec.select253 = select i1 %376, i32 %377, i32 %.0204318
   %378 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %374, ptr noundef nonnull dereferenceable(8) @.str.4) #24
   %379 = icmp eq i32 %378, 0
-  %spec.select255 = select i1 %379, i32 %377, i32 %.0208319
+  %spec.select255 = select i1 %379, i32 %377, i32 %.0202319
   br label %380
 
 380:                                              ; preds = %371, %.lr.ph322
-  %.2212 = phi i32 [ %.0210318, %.lr.ph322 ], [ %spec.select253, %371 ]
-  %.1209 = phi i32 [ %.0208319, %.lr.ph322 ], [ %spec.select255, %371 ]
+  %.2206 = phi i32 [ %.0204318, %.lr.ph322 ], [ %spec.select253, %371 ]
+  %.1203 = phi i32 [ %.0202319, %.lr.ph322 ], [ %spec.select255, %371 ]
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next361, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge323, label %.lr.ph322, !llvm.loop !9
 
 ._crit_edge323:                                   ; preds = %380
-  %381 = icmp ne i32 %.2212, 0
-  %382 = icmp ne i32 %.1209, 0
+  %381 = icmp ne i32 %.2206, 0
+  %382 = icmp ne i32 %.1203, 0
   %or.cond3 = select i1 %381, i1 %382, i1 false
   br i1 %or.cond3, label %383, label %.loopexit
 
 383:                                              ; preds = %._crit_edge323
-  %384 = zext i32 %.2212 to i64
+  %384 = zext i32 %.2206 to i64
   %385 = getelementptr inbounds %struct.Elf64_Shdr, ptr %358, i64 %384, i32 4
   %386 = load i64, ptr %385, align 8
   %387 = getelementptr inbounds i8, ptr %41, i64 %386
-  %388 = zext i32 %.1209 to i64
+  %388 = zext i32 %.1203 to i64
   %389 = getelementptr inbounds %struct.Elf64_Shdr, ptr %358, i64 %388
   %390 = getelementptr inbounds i8, ptr %389, i64 24
   %391 = load i64, ptr %390, align 8

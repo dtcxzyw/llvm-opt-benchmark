@@ -510,7 +510,7 @@ define internal fastcc range(i32 0, 2) i32 @nettrace_msg_to_packet(ptr noundef %
 
 60:                                               ; preds = %57, %50
   %61 = phi i32 [ %59, %57 ], [ %.pre, %50 ]
-  %.0196 = phi i32 [ %58, %57 ], [ %55, %50 ]
+  %.0 = phi i32 [ %58, %57 ], [ %55, %50 ]
   %62 = load i32, ptr %22, align 4
   %63 = or i32 %62, 1
   store i32 %63, ptr %22, align 4
@@ -518,7 +518,7 @@ define internal fastcc range(i32 0, 2) i32 @nettrace_msg_to_packet(ptr noundef %
   %65 = zext i32 %61 to i64
   %66 = add i64 %64, %65
   store i64 %66, ptr %23, align 8
-  %67 = mul i32 %.0196, 1000000
+  %67 = mul i32 %.0, 1000000
   store i32 %67, ptr %24, align 8
   br label %68
 
@@ -747,7 +747,7 @@ thread-pre-split:                                 ; preds = %155, %151
 
 175:                                              ; preds = %.thread285, %164, %174, %170, %159
   %.1289 = phi i32 [ %.1, %164 ], [ %.1, %170 ], [ %.1, %174 ], [ %.1, %159 ], [ 5, %.thread285 ]
-  %.0199 = phi i32 [ 56, %164 ], [ 56, %170 ], [ 0, %174 ], [ 0, %159 ], [ 0, %.thread285 ]
+  %.0202 = phi i32 [ 56, %164 ], [ 56, %170 ], [ 0, %174 ], [ 0, %159 ], [ 0, %.thread285 ]
   %176 = phi i1 [ false, %164 ], [ false, %170 ], [ true, %174 ], [ true, %159 ], [ true, %.thread285 ]
   %177 = sub i64 %.neg235, %137
   %178 = call ptr @g_strstr_len(ptr noundef %136, i64 noundef %177, ptr noundef nonnull @.str.3) #11
@@ -773,7 +773,7 @@ thread-pre-split:                                 ; preds = %155, %151
 
 193:                                              ; preds = %175
   call void @wtap_buffer_append_epdu_tag(ptr noundef nonnull %2, i16 noundef zeroext 14, ptr noundef nonnull %12, i16 noundef zeroext 21) #11
-  call void @wtap_buffer_append_epdu_uint(ptr noundef nonnull %2, i16 noundef zeroext 32, i32 noundef %.0199) #11
+  call void @wtap_buffer_append_epdu_uint(ptr noundef nonnull %2, i16 noundef zeroext 32, i32 noundef %.0202) #11
   br label %194
 
 194:                                              ; preds = %193, %191
@@ -889,11 +889,11 @@ thread-pre-split:                                 ; preds = %155, %151
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %251
-  %.0197271 = phi ptr [ %252, %251 ], [ %179, %.lr.ph.preheader ]
-  %.0200270 = phi ptr [ %256, %251 ], [ %243, %.lr.ph.preheader ]
-  %.0201269 = phi i32 [ %257, %251 ], [ 0, %.lr.ph.preheader ]
-  %244 = getelementptr i8, ptr %.0197271, i64 1
-  %245 = load i8, ptr %.0197271, align 1
+  %.0198271 = phi ptr [ %256, %251 ], [ %243, %.lr.ph.preheader ]
+  %.0199270 = phi i32 [ %257, %251 ], [ 0, %.lr.ph.preheader ]
+  %.0203269 = phi ptr [ %252, %251 ], [ %179, %.lr.ph.preheader ]
+  %244 = getelementptr i8, ptr %.0203269, i64 1
+  %245 = load i8, ptr %.0203269, align 1
   %246 = load i8, ptr %244, align 1
   %247 = call i32 @g_ascii_xdigit_value(i8 noundef signext %245) #14
   %248 = call i32 @g_ascii_xdigit_value(i8 noundef signext %246) #14
@@ -903,13 +903,13 @@ thread-pre-split:                                 ; preds = %155, %151
   br i1 %or.cond, label %251, label %258
 
 251:                                              ; preds = %.lr.ph
-  %252 = getelementptr i8, ptr %.0197271, i64 2
+  %252 = getelementptr i8, ptr %.0203269, i64 2
   %253 = shl i32 %247, 4
   %254 = add i32 %253, %248
   %255 = trunc i32 %254 to i8
-  %256 = getelementptr i8, ptr %.0200270, i64 1
-  store i8 %255, ptr %.0200270, align 1
-  %257 = add nuw nsw i32 %.0201269, 1
+  %256 = getelementptr i8, ptr %.0198271, i64 1
+  store i8 %255, ptr %.0198271, align 1
+  %257 = add nuw nsw i32 %.0199270, 1
   %exitcond.not = icmp eq i32 %257, %238
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
 
@@ -917,7 +917,7 @@ thread-pre-split:                                 ; preds = %155, %151
   %259 = add i32 %237, %238
   %260 = sext i8 %245 to i32
   %261 = sext i8 %246 to i32
-  %262 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef %259, i32 noundef %.0201269, i32 noundef %260, i32 noundef %261) #11
+  %262 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef %259, i32 noundef %.0199270, i32 noundef %260, i32 noundef %261) #11
   store ptr %262, ptr %6, align 8
   store i32 -13, ptr %5, align 4
   br label %274
@@ -944,8 +944,8 @@ thread-pre-split:                                 ; preds = %155, %151
   br label %274
 
 274:                                              ; preds = %29, %35, %39, %79, %97, %123, %130, %157, %258, %._crit_edge, %132, %16
-  %.0 = phi i32 [ 0, %16 ], [ 0, %35 ], [ 1, %79 ], [ 1, %97 ], [ 0, %123 ], [ 0, %130 ], [ 0, %258 ], [ 1, %._crit_edge ], [ 0, %157 ], [ 0, %39 ], [ 0, %29 ], [ 0, %132 ]
-  ret i32 %.0
+  %.0195 = phi i32 [ 0, %16 ], [ 0, %35 ], [ 1, %79 ], [ 1, %97 ], [ 0, %123 ], [ 0, %130 ], [ 0, %258 ], [ 1, %._crit_edge ], [ 0, %157 ], [ 0, %39 ], [ 0, %29 ], [ 0, %132 ]
+  ret i32 %.0195
 }
 
 declare ptr @g_byte_array_remove_range(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

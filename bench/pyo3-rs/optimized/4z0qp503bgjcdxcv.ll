@@ -14641,10 +14641,10 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass36gen_complex_enum_variant_c
   %29 = extractvalue { i32, i32 } %22, 0
   %30 = extractvalue { i32, i32 } %27, 0
   %31 = icmp eq i32 %29, 0
-  %spec.select = select i1 %31, i32 %30, i32 %29
-  %spec.select15 = select i1 %31, { i32, i32 } %27, { i32, i32 } %22
-  %.sroa.3.0 = extractvalue { i32, i32 } %spec.select15, 1
-  invoke void @_ZN5quote9__private8mk_ident17h7810a7ec9978fff3E(ptr sret([24 x i8]) align 8 %0, ptr align 1 %18, i64 %20, i32 %spec.select, i32 %.sroa.3.0)
+  %spec.select = select i1 %31, { i32, i32 } %27, { i32, i32 } %22
+  %spec.select15 = select i1 %31, i32 %30, i32 %29
+  %.sroa.3.0 = extractvalue { i32, i32 } %spec.select, 1
+  invoke void @_ZN5quote9__private8mk_ident17h7810a7ec9978fff3E(ptr sret([24 x i8]) align 8 %0, ptr align 1 %18, i64 %20, i32 %spec.select15, i32 %.sroa.3.0)
           to label %32 unwind label %23
 
 32:                                               ; preds = %28
@@ -15165,10 +15165,10 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass29gen_complex_enum_variant_a
   %84 = extractvalue { i32, i32 } %77, 0
   %85 = extractvalue { i32, i32 } %82, 0
   %86 = icmp eq i32 %84, 0
-  %spec.select = select i1 %86, i32 %85, i32 %84
-  %spec.select38 = select i1 %86, { i32, i32 } %82, { i32, i32 } %77
-  %.sroa.3.0 = extractvalue { i32, i32 } %spec.select38, 1
-  invoke void @_ZN5quote9__private8mk_ident17h7810a7ec9978fff3E(ptr nonnull sret([24 x i8]) align 8 %32, ptr align 1 %73, i64 %75, i32 %spec.select, i32 %.sroa.3.0)
+  %spec.select = select i1 %86, { i32, i32 } %82, { i32, i32 } %77
+  %spec.select38 = select i1 %86, i32 %85, i32 %84
+  %.sroa.3.0 = extractvalue { i32, i32 } %spec.select, 1
+  invoke void @_ZN5quote9__private8mk_ident17h7810a7ec9978fff3E(ptr nonnull sret([24 x i8]) align 8 %32, ptr align 1 %73, i64 %75, i32 %spec.select38, i32 %.sroa.3.0)
           to label %87 unwind label %78
 
 87:                                               ; preds = %83

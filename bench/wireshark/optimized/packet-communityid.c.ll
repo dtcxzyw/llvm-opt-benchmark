@@ -577,18 +577,18 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .thread:                                          ; preds = %44, %26, %23
   %.0735 = phi ptr [ %12, %44 ], [ %4, %23 ], [ %12, %26 ]
-  %.0744 = phi ptr [ %13, %44 ], [ %5, %23 ], [ %13, %26 ]
+  %.0764 = phi ptr [ %13, %44 ], [ %5, %23 ], [ %13, %26 ]
   %45 = zext nneg i8 %1 to i64
   %46 = tail call i32 @memcmp(ptr noundef nonnull readonly %2, ptr noundef nonnull readonly %3, i64 noundef %45) #8
   %47 = icmp ne ptr %.0735, null
-  %48 = icmp ne ptr %.0744, null
+  %48 = icmp ne ptr %.0764, null
   %or.cond.i = and i1 %47, %48
   br i1 %or.cond.i, label %49, label %communityid_tuple_lt.exit
 
 49:                                               ; preds = %.thread
   %50 = load i16, ptr %.0735, align 2
   %rev.i = call i16 @llvm.bswap.i16(i16 %50)
-  %51 = load i16, ptr %.0744, align 2
+  %51 = load i16, ptr %.0764, align 2
   %rev14.i = call i16 @llvm.bswap.i16(i16 %51)
   %52 = icmp ult i16 %rev.i, %rev14.i
   br label %communityid_tuple_lt.exit
@@ -602,8 +602,8 @@ communityid_tuple_lt.exit:                        ; preds = %.thread, %49
   br i1 %narrow.i, label %58, label %57
 
 57:                                               ; preds = %communityid_tuple_lt.exit
-  %spec.select = select i1 %or.cond.i, ptr %.0735, ptr %.0744
-  %spec.select96 = select i1 %or.cond.i, ptr %.0744, ptr %.0735
+  %spec.select = select i1 %or.cond.i, ptr %.0735, ptr %.0764
+  %spec.select96 = select i1 %or.cond.i, ptr %.0764, ptr %.0735
   br label %58
 
 .critedge:                                        ; preds = %32, %switch.hole_check, %29
@@ -614,7 +614,7 @@ communityid_tuple_lt.exit:                        ; preds = %.thread, %49
   br label %58
 
 58:                                               ; preds = %.critedge, %57, %communityid_tuple_lt.exit
-  %.175 = phi ptr [ %.0744, %communityid_tuple_lt.exit ], [ %spec.select, %57 ], [ %13, %.critedge ]
+  %.177 = phi ptr [ %.0764, %communityid_tuple_lt.exit ], [ %spec.select, %57 ], [ %13, %.critedge ]
   %.1 = phi ptr [ %.0735, %communityid_tuple_lt.exit ], [ %spec.select96, %57 ], [ %12, %.critedge ]
   %.072 = phi ptr [ %3, %communityid_tuple_lt.exit ], [ %2, %57 ], [ %3, %.critedge ]
   %.071 = phi ptr [ %2, %communityid_tuple_lt.exit ], [ %3, %57 ], [ %2, %.critedge ]
@@ -638,7 +638,7 @@ communityid_tuple_lt.exit:                        ; preds = %.thread, %49
   %67 = load ptr, ptr %11, align 8
   call void @gcry_md_write(ptr noundef %67, ptr noundef nonnull %9, i64 noundef 1) #7
   %68 = icmp ne ptr %.1, null
-  %69 = icmp ne ptr %.175, null
+  %69 = icmp ne ptr %.177, null
   %or.cond10 = and i1 %69, %68
   br i1 %or.cond10, label %70, label %73
 
@@ -646,7 +646,7 @@ communityid_tuple_lt.exit:                        ; preds = %.thread, %49
   %71 = load ptr, ptr %11, align 8
   call void @gcry_md_write(ptr noundef %71, ptr noundef nonnull %.1, i64 noundef 2) #7
   %72 = load ptr, ptr %11, align 8
-  call void @gcry_md_write(ptr noundef %72, ptr noundef nonnull %.175, i64 noundef 2) #7
+  call void @gcry_md_write(ptr noundef %72, ptr noundef nonnull %.177, i64 noundef 2) #7
   br label %73
 
 73:                                               ; preds = %70, %61

@@ -641,22 +641,22 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %299
 
 299:                                              ; preds = %293, %306
-  %.0152213 = phi i64 [ 0, %293 ], [ %308, %306 ]
+  %.0213 = phi i64 [ 0, %293 ], [ %308, %306 ]
   %300 = phi i64 [ 0, %293 ], [ %307, %306 ]
-  %301 = shl nuw i64 1, %.0152213
+  %301 = shl nuw i64 1, %.0213
   %302 = and i64 %301, %296
   %.not163 = icmp eq i64 %302, 0
   br i1 %.not163, label %306, label %303
 
 303:                                              ; preds = %299
-  %304 = shl i64 %298, %.0152213
+  %304 = shl i64 %298, %.0213
   %305 = xor i64 %300, %304
   store i64 %305, ptr %294, align 8
   br label %306
 
 306:                                              ; preds = %299, %303
   %307 = phi i64 [ %300, %299 ], [ %305, %303 ]
-  %308 = add nuw nsw i64 %.0152213, 1
+  %308 = add nuw nsw i64 %.0213, 1
   %exitcond.not = icmp eq i64 %308, 64
   br i1 %exitcond.not, label %.loopexit, label %299, !llvm.loop !9
 
@@ -1269,22 +1269,22 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %299
 
 299:                                              ; preds = %293, %306
-  %.0152213 = phi i64 [ 0, %293 ], [ %308, %306 ]
+  %.0213 = phi i64 [ 0, %293 ], [ %308, %306 ]
   %300 = phi i64 [ 0, %293 ], [ %307, %306 ]
-  %301 = shl nuw i64 1, %.0152213
+  %301 = shl nuw i64 1, %.0213
   %302 = and i64 %301, %296
   %.not163 = icmp eq i64 %302, 0
   br i1 %.not163, label %306, label %303
 
 303:                                              ; preds = %299
-  %304 = shl i64 %298, %.0152213
+  %304 = shl i64 %298, %.0213
   %305 = xor i64 %300, %304
   store i64 %305, ptr %294, align 8
   br label %306
 
 306:                                              ; preds = %299, %303
   %307 = phi i64 [ %300, %299 ], [ %305, %303 ]
-  %308 = add nuw nsw i64 %.0152213, 1
+  %308 = add nuw nsw i64 %.0213, 1
   %exitcond.not = icmp eq i64 %308, 64
   br i1 %exitcond.not, label %.loopexit, label %299, !llvm.loop !14
 
@@ -1866,22 +1866,22 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %299
 
 299:                                              ; preds = %293, %306
-  %.0152213 = phi i64 [ 0, %293 ], [ %308, %306 ]
+  %.0213 = phi i64 [ 0, %293 ], [ %308, %306 ]
   %300 = phi i64 [ 0, %293 ], [ %307, %306 ]
-  %301 = shl nuw i64 1, %.0152213
+  %301 = shl nuw i64 1, %.0213
   %302 = and i64 %301, %296
   %.not163 = icmp eq i64 %302, 0
   br i1 %.not163, label %306, label %303
 
 303:                                              ; preds = %299
-  %304 = shl i64 %298, %.0152213
+  %304 = shl i64 %298, %.0213
   %305 = xor i64 %300, %304
   store i64 %305, ptr %294, align 8
   br label %306
 
 306:                                              ; preds = %299, %303
   %307 = phi i64 [ %300, %299 ], [ %305, %303 ]
-  %308 = add nuw nsw i64 %.0152213, 1
+  %308 = add nuw nsw i64 %.0213, 1
   %exitcond.not = icmp eq i64 %308, 64
   br i1 %exitcond.not, label %.loopexit, label %299, !llvm.loop !19
 
@@ -2465,22 +2465,22 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %299
 
 299:                                              ; preds = %293, %306
-  %.0152213 = phi i64 [ 0, %293 ], [ %308, %306 ]
+  %.0213 = phi i64 [ 0, %293 ], [ %308, %306 ]
   %300 = phi i64 [ 0, %293 ], [ %307, %306 ]
-  %301 = shl nuw i64 1, %.0152213
+  %301 = shl nuw i64 1, %.0213
   %302 = and i64 %301, %296
   %.not163 = icmp eq i64 %302, 0
   br i1 %.not163, label %306, label %303
 
 303:                                              ; preds = %299
-  %304 = shl i64 %298, %.0152213
+  %304 = shl i64 %298, %.0213
   %305 = xor i64 %300, %304
   store i64 %305, ptr %294, align 8
   br label %306
 
 306:                                              ; preds = %299, %303
   %307 = phi i64 [ %300, %299 ], [ %305, %303 ]
-  %308 = add nuw nsw i64 %.0152213, 1
+  %308 = add nuw nsw i64 %.0213, 1
   %exitcond.not = icmp eq i64 %308, 64
   br i1 %exitcond.not, label %.loopexit, label %299, !llvm.loop !24
 
@@ -3062,22 +3062,22 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %299
 
 299:                                              ; preds = %293, %306
-  %.0152213 = phi i64 [ 0, %293 ], [ %308, %306 ]
+  %.0213 = phi i64 [ 0, %293 ], [ %308, %306 ]
   %300 = phi i64 [ 0, %293 ], [ %307, %306 ]
-  %301 = shl nuw i64 1, %.0152213
+  %301 = shl nuw i64 1, %.0213
   %302 = and i64 %301, %296
   %.not163 = icmp eq i64 %302, 0
   br i1 %.not163, label %306, label %303
 
 303:                                              ; preds = %299
-  %304 = shl i64 %298, %.0152213
+  %304 = shl i64 %298, %.0213
   %305 = xor i64 %300, %304
   store i64 %305, ptr %294, align 8
   br label %306
 
 306:                                              ; preds = %299, %303
   %307 = phi i64 [ %300, %299 ], [ %305, %303 ]
-  %308 = add nuw nsw i64 %.0152213, 1
+  %308 = add nuw nsw i64 %.0213, 1
   %exitcond.not = icmp eq i64 %308, 64
   br i1 %exitcond.not, label %.loopexit, label %299, !llvm.loop !29
 
@@ -3661,22 +3661,22 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %299
 
 299:                                              ; preds = %293, %306
-  %.0152213 = phi i64 [ 0, %293 ], [ %308, %306 ]
+  %.0213 = phi i64 [ 0, %293 ], [ %308, %306 ]
   %300 = phi i64 [ 0, %293 ], [ %307, %306 ]
-  %301 = shl nuw i64 1, %.0152213
+  %301 = shl nuw i64 1, %.0213
   %302 = and i64 %301, %296
   %.not163 = icmp eq i64 %302, 0
   br i1 %.not163, label %306, label %303
 
 303:                                              ; preds = %299
-  %304 = shl i64 %298, %.0152213
+  %304 = shl i64 %298, %.0213
   %305 = xor i64 %300, %304
   store i64 %305, ptr %294, align 8
   br label %306
 
 306:                                              ; preds = %299, %303
   %307 = phi i64 [ %300, %299 ], [ %305, %303 ]
-  %308 = add nuw nsw i64 %.0152213, 1
+  %308 = add nuw nsw i64 %.0213, 1
   %exitcond.not = icmp eq i64 %308, 64
   br i1 %exitcond.not, label %.loopexit, label %299, !llvm.loop !34
 
@@ -4258,22 +4258,22 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %299
 
 299:                                              ; preds = %293, %306
-  %.0152213 = phi i64 [ 0, %293 ], [ %308, %306 ]
+  %.0213 = phi i64 [ 0, %293 ], [ %308, %306 ]
   %300 = phi i64 [ 0, %293 ], [ %307, %306 ]
-  %301 = shl nuw i64 1, %.0152213
+  %301 = shl nuw i64 1, %.0213
   %302 = and i64 %301, %296
   %.not163 = icmp eq i64 %302, 0
   br i1 %.not163, label %306, label %303
 
 303:                                              ; preds = %299
-  %304 = shl i64 %298, %.0152213
+  %304 = shl i64 %298, %.0213
   %305 = xor i64 %300, %304
   store i64 %305, ptr %294, align 8
   br label %306
 
 306:                                              ; preds = %299, %303
   %307 = phi i64 [ %300, %299 ], [ %305, %303 ]
-  %308 = add nuw nsw i64 %.0152213, 1
+  %308 = add nuw nsw i64 %.0213, 1
   %exitcond.not = icmp eq i64 %308, 64
   br i1 %exitcond.not, label %.loopexit, label %299, !llvm.loop !39
 
@@ -4857,22 +4857,22 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br label %299
 
 299:                                              ; preds = %293, %306
-  %.0152213 = phi i64 [ 0, %293 ], [ %308, %306 ]
+  %.0213 = phi i64 [ 0, %293 ], [ %308, %306 ]
   %300 = phi i64 [ 0, %293 ], [ %307, %306 ]
-  %301 = shl nuw i64 1, %.0152213
+  %301 = shl nuw i64 1, %.0213
   %302 = and i64 %301, %296
   %.not163 = icmp eq i64 %302, 0
   br i1 %.not163, label %306, label %303
 
 303:                                              ; preds = %299
-  %304 = shl i64 %298, %.0152213
+  %304 = shl i64 %298, %.0213
   %305 = xor i64 %300, %304
   store i64 %305, ptr %294, align 8
   br label %306
 
 306:                                              ; preds = %299, %303
   %307 = phi i64 [ %300, %299 ], [ %305, %303 ]
-  %308 = add nuw nsw i64 %.0152213, 1
+  %308 = add nuw nsw i64 %.0213, 1
   %exitcond.not = icmp eq i64 %308, 64
   br i1 %exitcond.not, label %.loopexit, label %299, !llvm.loop !44
 

@@ -1805,11 +1805,11 @@ default.unreachable:                              ; preds = %16
   br label %100
 
 69:                                               ; preds = %.thread169, %37
-  %.0132174 = phi i32 [ 1, %.thread169 ], [ %57, %37 ]
+  %.0130174 = phi i32 [ 1, %.thread169 ], [ %57, %37 ]
   %.0131151157173 = phi i1 [ %68, %.thread169 ], [ false, %37 ]
   %70 = phi i32 [ %spec.select149, %.thread169 ], [ %spec.select177, %37 ]
   %71 = load i32, ptr @hf_iso14443_inf, align 4
-  %72 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %71, ptr noundef %0, i32 noundef %70, i32 noundef %.0132174, i32 noundef 0) #3
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %71, ptr noundef %0, i32 noundef %70, i32 noundef %.0130174, i32 noundef 0) #3
   %73 = icmp eq i8 %10, 3
   %or.cond = and i1 %73, %.0131151157173
   br i1 %or.cond, label %74, label %86
@@ -1837,10 +1837,10 @@ default.unreachable:                              ; preds = %16
   br i1 %87, label %88, label %98
 
 88:                                               ; preds = %86
-  %89 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %70, i32 noundef %.0132174) #3
+  %89 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %70, i32 noundef %.0130174) #3
   %90 = lshr i32 %9, 4
   %.lobit = and i32 %90, 1
-  %91 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @i_block_reassembly_table, ptr noundef %89, i32 noundef 0, ptr noundef nonnull %1, i32 noundef 0, ptr noundef null, i32 noundef %.0132174, i32 noundef %.lobit) #3
+  %91 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @i_block_reassembly_table, ptr noundef %89, i32 noundef 0, ptr noundef nonnull %1, i32 noundef 0, ptr noundef null, i32 noundef %.0130174, i32 noundef %.lobit) #3
   %92 = tail call ptr @process_reassembled_data(ptr noundef %89, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull @.str.279, ptr noundef %91, ptr noundef nonnull @i_block_frag_items, ptr noundef null, ptr noundef %2) #3
   %.not143 = icmp eq ptr %92, null
   br i1 %.not143, label %98, label %93
@@ -1856,7 +1856,7 @@ default.unreachable:                              ; preds = %16
   br label %98
 
 98:                                               ; preds = %88, %96, %93, %86
-  %99 = add nuw nsw i32 %70, %.0132174
+  %99 = add nuw nsw i32 %70, %.0130174
   br label %100
 
 100:                                              ; preds = %.thread165, %98, %37

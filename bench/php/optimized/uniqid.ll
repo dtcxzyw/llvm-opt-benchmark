@@ -82,11 +82,11 @@ define hidden void @zif_uniqid(ptr noundef %0, ptr nocapture noundef writeonly %
   br label %32
 
 .thread150:                                       ; preds = %27, %19, %10
-  %.0113160 = phi i32 [ 9, %19 ], [ 1, %10 ], [ 9, %27 ]
-  %.0115159 = phi i32 [ 4, %19 ], [ 0, %10 ], [ 2, %27 ]
-  %.0116158 = phi ptr [ %14, %19 ], [ null, %10 ], [ %28, %27 ]
-  %.0117157 = phi i32 [ 1, %19 ], [ 0, %10 ], [ 2, %27 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0113160, i32 noundef %.0117157, ptr noundef null, i32 noundef %.0115159, ptr noundef %.0116158) #3
+  %.0112160 = phi i32 [ 9, %19 ], [ 1, %10 ], [ 9, %27 ]
+  %.0113159 = phi i32 [ 4, %19 ], [ 0, %10 ], [ 2, %27 ]
+  %.0114158 = phi ptr [ %14, %19 ], [ null, %10 ], [ %28, %27 ]
+  %.0115157 = phi i32 [ 1, %19 ], [ 0, %10 ], [ 2, %27 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0112160, i32 noundef %.0115157, ptr noundef null, i32 noundef %.0113159, ptr noundef %.0114158) #3
   br label %66
 
 32:                                               ; preds = %30, %32
@@ -126,9 +126,9 @@ define hidden void @zif_uniqid(ptr noundef %0, ptr nocapture noundef writeonly %
   br label %56
 
 56:                                               ; preds = %52, %50
-  %.0112.in = phi double [ %51, %50 ], [ %55, %52 ]
-  %.0112 = fmul double %.0112.in, 1.000000e+01
-  %57 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull %.2, i32 noundef %42, i32 noundef %44, double noundef %.0112) #3
+  %.0111.in = phi double [ %51, %50 ], [ %55, %52 ]
+  %.0111 = fmul double %.0111.in, 1.000000e+01
+  %57 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull %.2, i32 noundef %42, i32 noundef %44, double noundef %.0111) #3
   br label %60
 
 58:                                               ; preds = %41
@@ -136,9 +136,9 @@ define hidden void @zif_uniqid(ptr noundef %0, ptr nocapture noundef writeonly %
   br label %60
 
 60:                                               ; preds = %58, %56
-  %.0118 = phi ptr [ %57, %56 ], [ %59, %58 ]
-  store ptr %.0118, ptr %1, align 8
-  %61 = getelementptr inbounds i8, ptr %.0118, i64 4
+  %.0116 = phi ptr [ %57, %56 ], [ %59, %58 ]
+  store ptr %.0116, ptr %1, align 8
+  %61 = getelementptr inbounds i8, ptr %.0116, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = and i32 %62, 64
   %.not125 = icmp eq i32 %63, 0

@@ -253,8 +253,8 @@ FLAC__metadata_simple_iterator_delete.exit:       ; preds = %if.end10.i.i, %if.t
 
 do.body:                                          ; preds = %do.body.preheader, %FLAC__metadata_simple_iterator_next.exit
   %5 = phi i32 [ %and3.i.i.i, %FLAC__metadata_simple_iterator_next.exit ], [ %.pre, %do.body.preheader ]
-  %max_depth_seen.0 = phi i64 [ %max_depth_seen.1, %FLAC__metadata_simple_iterator_next.exit ], [ 0, %do.body.preheader ]
   %max_area_seen.0 = phi i64 [ %max_area_seen.1, %FLAC__metadata_simple_iterator_next.exit ], [ 0, %do.body.preheader ]
+  %max_depth_seen.0 = phi i64 [ %max_depth_seen.1, %FLAC__metadata_simple_iterator_next.exit ], [ 0, %do.body.preheader ]
   %cmp5 = icmp eq i32 %5, 6
   br i1 %cmp5, label %if.then6, label %do.cond
 
@@ -356,8 +356,8 @@ if.else:                                          ; preds = %lor.lhs.false54, %l
   br label %do.cond
 
 do.cond:                                          ; preds = %do.body, %if.end66, %if.else
-  %max_depth_seen.1 = phi i64 [ %conv69, %if.end66 ], [ %max_depth_seen.0, %if.else ], [ %max_depth_seen.0, %do.body ]
   %max_area_seen.1 = phi i64 [ %mul, %if.end66 ], [ %max_area_seen.0, %if.else ], [ %max_area_seen.0, %do.body ]
+  %max_depth_seen.1 = phi i64 [ %conv69, %if.end66 ], [ %max_depth_seen.0, %if.else ], [ %max_depth_seen.0, %do.body ]
   %15 = load i32, ptr %is_last.i, align 4
   %tobool.not.i = icmp eq i32 %15, 0
   %.pre57.pre58 = load ptr, ptr %call.i, align 8

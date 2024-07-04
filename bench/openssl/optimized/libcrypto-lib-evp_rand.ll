@@ -1179,20 +1179,20 @@ for.cond.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end6
   %out.addr.013 = phi ptr [ %add.ptr, %if.end6 ], [ %out, %for.cond.preheader ]
-  %outlen.addr.012 = phi i64 [ %sub, %if.end6 ], [ %outlen, %for.cond.preheader ]
-  %prediction_resistance.addr.011 = phi i32 [ 0, %if.end6 ], [ %prediction_resistance, %for.cond.preheader ]
+  %prediction_resistance.addr.012 = phi i32 [ 0, %if.end6 ], [ %prediction_resistance, %for.cond.preheader ]
+  %outlen.addr.011 = phi i64 [ %sub, %if.end6 ], [ %outlen, %for.cond.preheader ]
   %4 = load i64, ptr %max_request, align 8
-  %cond = call i64 @llvm.umin.i64(i64 %outlen.addr.012, i64 %4)
+  %cond = call i64 @llvm.umin.i64(i64 %outlen.addr.011, i64 %4)
   %5 = load ptr, ptr %ctx, align 8
   %generate = getelementptr inbounds i8, ptr %5, i64 80
   %6 = load ptr, ptr %generate, align 8
   %7 = load ptr, ptr %1, align 8
-  %call3 = call i32 %6(ptr noundef %7, ptr noundef %out.addr.013, i64 noundef %cond, i32 noundef %strength, i32 noundef %prediction_resistance.addr.011, ptr noundef %addin, i64 noundef %addin_len) #9
+  %call3 = call i32 %6(ptr noundef %7, ptr noundef %out.addr.013, i64 noundef %cond, i32 noundef %strength, i32 noundef %prediction_resistance.addr.012, ptr noundef %addin, i64 noundef %addin_len) #9
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %return.sink.split, label %if.end6
 
 if.end6:                                          ; preds = %for.body
-  %sub = sub i64 %outlen.addr.012, %cond
+  %sub = sub i64 %outlen.addr.011, %cond
   %add.ptr = getelementptr inbounds i8, ptr %out.addr.013, i64 %cond
   %cmp1.not = icmp eq i64 %sub, 0
   br i1 %cmp1.not, label %return, label %for.body, !llvm.loop !6

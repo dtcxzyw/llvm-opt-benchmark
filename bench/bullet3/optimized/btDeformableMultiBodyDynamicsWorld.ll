@@ -6350,7 +6350,7 @@ for.body17.lr.ph:                                 ; preds = %if.end
 
 for.body17:                                       ; preds = %for.body17.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body17.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %isSleeping.1132 = phi i1 [ %isSleeping.0, %for.body17.lr.ph ], [ %isSleeping.2, %for.inc ]
+  %isSleeping.1131 = phi i1 [ %isSleeping.0, %for.body17.lr.ph ], [ %isSleeping.2, %for.inc ]
   %m_collider = getelementptr inbounds %struct.btMultibodyLink, ptr %15, i64 %indvars.iv, i32 22
   %16 = load ptr, ptr %m_collider, align 8
   %tobool19.not = icmp eq ptr %16, null
@@ -6360,11 +6360,11 @@ land.lhs.true20:                                  ; preds = %for.body17
   %m_activationState1.i24 = getelementptr inbounds i8, ptr %16, i64 240
   %17 = load i32, ptr %m_activationState1.i24, align 8
   %cmp24 = icmp eq i32 %17, 2
-  %spec.select19 = select i1 %cmp24, i1 true, i1 %isSleeping.1132
+  %spec.select19 = select i1 %cmp24, i1 true, i1 %isSleeping.1131
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true20, %for.body17
-  %isSleeping.2 = phi i1 [ %isSleeping.1132, %for.body17 ], [ %spec.select19, %land.lhs.true20 ]
+  %isSleeping.2 = phi i1 [ %isSleeping.1131, %for.body17 ], [ %spec.select19, %land.lhs.true20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body17, !llvm.loop !59
@@ -7779,8 +7779,8 @@ if.else:                                          ; preds = %entry
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %if.then, %if.then3
-  %numSimulationSubSteps.0 = phi i32 [ %conv, %if.then3 ], [ 0, %if.then ], [ %., %if.else ]
   %fixedTimeStep.addr.0 = phi float [ %fixedTimeStep, %if.then3 ], [ %fixedTimeStep, %if.then ], [ %timeStep, %if.else ]
+  %numSimulationSubSteps.0 = phi i32 [ %conv, %if.then3 ], [ 0, %if.then ], [ %., %if.else ]
   %maxSubSteps.addr.0 = phi i32 [ %maxSubSteps, %if.then3 ], [ %maxSubSteps, %if.then ], [ %., %if.else ]
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
@@ -11896,8 +11896,8 @@ tailrecurse:                                      ; preds = %if.end17, %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %tailrecurse
-  %j.0 = phi i32 [ %hi, %tailrecurse ], [ %j.2, %do.cond ]
   %i.0 = phi i32 [ %lo.tr, %tailrecurse ], [ %i.2, %do.cond ]
+  %j.0 = phi i32 [ %hi, %tailrecurse ], [ %j.2, %do.cond ]
   %2 = load ptr, ptr %m_data, align 8
   %3 = load ptr, ptr %m_rbA.i.i.i, align 8
   %m_islandTag1.i.i.i = getelementptr inbounds i8, ptr %3, i64 228
@@ -12047,8 +12047,8 @@ if.then:                                          ; preds = %while.end11
   br label %do.cond
 
 do.cond:                                          ; preds = %while.end11, %if.then
-  %j.2 = phi i32 [ %dec13, %if.then ], [ %.us-phi53, %while.end11 ]
   %i.2 = phi i32 [ %inc12, %if.then ], [ %.us-phi47, %while.end11 ]
+  %j.2 = phi i32 [ %dec13, %if.then ], [ %.us-phi53, %while.end11 ]
   %cmp14.not = icmp sgt i32 %i.2, %j.2
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !118
 
@@ -12085,8 +12085,8 @@ tailrecurse:                                      ; preds = %if.end17, %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %tailrecurse
-  %j.0 = phi i32 [ %hi, %tailrecurse ], [ %j.2, %do.cond ]
   %i.0 = phi i32 [ %lo.tr, %tailrecurse ], [ %i.2, %do.cond ]
+  %j.0 = phi i32 [ %hi, %tailrecurse ], [ %j.2, %do.cond ]
   %2 = sext i32 %i.0 to i64
   br label %while.cond
 
@@ -12173,8 +12173,8 @@ if.then:                                          ; preds = %while.end11
   br label %do.cond
 
 do.cond:                                          ; preds = %while.end11, %if.then
-  %j.2 = phi i32 [ %dec13, %if.then ], [ %17, %while.end11 ]
   %i.2 = phi i32 [ %inc12, %if.then ], [ %16, %while.end11 ]
+  %j.2 = phi i32 [ %dec13, %if.then ], [ %17, %while.end11 ]
   %cmp14.not = icmp sgt i32 %i.2, %j.2
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !121
 

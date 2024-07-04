@@ -129,15 +129,15 @@ define noundef ptr @_Z24create_indexed_atom_typeP12reduced_atomi(ptr nocapture n
 
 .preheader:                                       ; preds = %.preheader.preheader, %25
   %indvars.iv40 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next41, %25 ]
-  %.02134 = phi i32 [ 1, %.preheader.preheader ], [ %.1, %25 ]
+  %.02035 = phi i32 [ 1, %.preheader.preheader ], [ %.1, %25 ]
   %.02833 = phi ptr [ %3, %.preheader.preheader ], [ %.129, %25 ]
-  %7 = icmp sgt i32 %.02134, 0
+  %7 = icmp sgt i32 %.02035, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
   %8 = getelementptr inbounds %struct.reduced_atom, ptr %0, i64 %indvars.iv40, i32 1
   %9 = load i32, ptr %8, align 4
-  %wide.trip.count = zext nneg i32 %.02134 to i64
+  %wide.trip.count = zext nneg i32 %.02035 to i64
   br label %10
 
 10:                                               ; preds = %.lr.ph, %14
@@ -157,37 +157,37 @@ define noundef ptr @_Z24create_indexed_atom_typeP12reduced_atomi(ptr nocapture n
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.020.lcssa = phi i32 [ 0, %.preheader ], [ %15, %._crit_edge.loopexit ]
-  %16 = icmp eq i32 %.020.lcssa, %.02134
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %15, %._crit_edge.loopexit ]
+  %16 = icmp eq i32 %.0.lcssa, %.02035
   br i1 %16, label %._crit_edge.thread, label %25
 
 ._crit_edge.thread:                               ; preds = %14, %._crit_edge
-  %17 = add nsw i32 %.02134, 1
+  %17 = add nsw i32 %.02035, 1
   %18 = sext i32 %17 to i64
   %19 = shl nsw i64 %18, 2
   %20 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 122, ptr noundef %.02833, i64 noundef %19, i64 noundef 4)
   %21 = getelementptr inbounds %struct.reduced_atom, ptr %0, i64 %indvars.iv40, i32 1
   %22 = load i32, ptr %21, align 4
-  %23 = sext i32 %.02134 to i64
+  %23 = sext i32 %.02035 to i64
   %24 = getelementptr inbounds i32, ptr %20, i64 %23
   store i32 %22, ptr %24, align 4
   br label %25
 
 25:                                               ; preds = %._crit_edge, %._crit_edge.thread
   %.129 = phi ptr [ %20, %._crit_edge.thread ], [ %.02833, %._crit_edge ]
-  %.1 = phi i32 [ %17, %._crit_edge.thread ], [ %.02134, %._crit_edge ]
+  %.1 = phi i32 [ %17, %._crit_edge.thread ], [ %.02035, %._crit_edge ]
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count43
   br i1 %exitcond44.not, label %._crit_edge36, label %.preheader, !llvm.loop !7
 
 ._crit_edge36:                                    ; preds = %25, %2
   %.028.lcssa = phi ptr [ %3, %2 ], [ %.129, %25 ]
-  %.021.lcssa = phi i32 [ 1, %2 ], [ %.1, %25 ]
-  %26 = add nsw i32 %.021.lcssa, 1
+  %.020.lcssa = phi i32 [ 1, %2 ], [ %.1, %25 ]
+  %26 = add nsw i32 %.020.lcssa, 1
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 2
   %29 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 127, ptr noundef %.028.lcssa, i64 noundef %28, i64 noundef 4)
-  %30 = sext i32 %.021.lcssa to i64
+  %30 = sext i32 %.020.lcssa to i64
   %31 = getelementptr inbounds i32, ptr %29, i64 %30
   store i32 0, ptr %31, align 4
   ret ptr %29
@@ -1339,17 +1339,17 @@ define noundef i32 @_Z16return_atom_typePKcP20gmx_structurefactors(ptr noundef %
   %44 = getelementptr inbounds ptr, ptr %36, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #17
-  %47 = sext i32 %.03851 to i64
+  %47 = sext i32 %.04050 to i64
   %48 = icmp ugt i64 %46, %47
   %49 = trunc i64 %46 to i32
-  %spec.select = select i1 %48, i32 %42, i32 %.04050
-  %spec.select43 = select i1 %48, i32 %49, i32 %.03851
+  %spec.select = select i1 %48, i32 %49, i32 %.04050
+  %spec.select43 = select i1 %48, i32 %42, i32 %.03851
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
   br i1 %exitcond66.not, label %.loopexit, label %40, !llvm.loop !23
 
 .loopexit:                                        ; preds = %40, %.preheader, %15
-  %.0 = phi i32 [ %19, %15 ], [ 0, %.preheader ], [ %spec.select, %40 ]
+  %.0 = phi i32 [ %19, %15 ], [ 0, %.preheader ], [ %spec.select43, %40 ]
   ret i32 %.0
 }
 
@@ -1763,17 +1763,17 @@ common.resume:                                    ; preds = %58, %98, %150
   %156 = getelementptr inbounds ptr, ptr %148, i64 %155
   %157 = load ptr, ptr %156, align 8
   %158 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %157) #17
-  %159 = sext i32 %.03851.i to i64
+  %159 = sext i32 %.04050.i to i64
   %160 = icmp ugt i64 %158, %159
   %161 = trunc i64 %158 to i32
-  %spec.select.i = select i1 %160, i32 %154, i32 %.04050.i
-  %spec.select43.i = select i1 %160, i32 %161, i32 %.03851.i
+  %spec.select.i = select i1 %160, i32 %161, i32 %.04050.i
+  %spec.select43.i = select i1 %160, i32 %154, i32 %.03851.i
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %exitcond66.not.i = icmp eq i64 %indvars.iv.next63.i, %wide.trip.count65.i
   br i1 %exitcond66.not.i, label %_Z16return_atom_typePKcP20gmx_structurefactors.exit, label %152, !llvm.loop !23
 
 _Z16return_atom_typePKcP20gmx_structurefactors.exit: ; preds = %152, %128, %.preheader.i
-  %.0.i = phi i32 [ %132, %128 ], [ 0, %.preheader.i ], [ %spec.select.i, %152 ]
+  %.0.i = phi i32 [ %132, %128 ], [ 0, %.preheader.i ], [ %spec.select43.i, %152 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   %162 = getelementptr inbounds %struct.reduced_atom, ptr %105, i64 %indvars.iv.i63, i32 1
   store i32 %.0.i, ptr %162, align 4

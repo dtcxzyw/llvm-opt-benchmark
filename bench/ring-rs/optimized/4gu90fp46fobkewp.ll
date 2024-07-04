@@ -1844,7 +1844,7 @@ _ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit: ; preds = %1
   br i1 %switch80, label %37, label %28
 
 33:                                               ; preds = %31, %37
-  %.060 = phi i8 [ %38, %37 ], [ 2, %31 ]
+  %.0 = phi i8 [ %38, %37 ], [ 2, %31 ]
   %34 = tail call { ptr, i64 } @_ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE(ptr noalias noundef nonnull align 8 dereferenceable(24) %5, i8 noundef 4)
   %35 = extractvalue { ptr, i64 } %34, 0
   %36 = extractvalue { ptr, i64 } %34, 1
@@ -1886,7 +1886,7 @@ _ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit: ; preds = %39
   br i1 %.not142, label %54, label %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.thread
 
 _ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.thread: ; preds = %39, %51, %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit
-  %.not67 = icmp eq i8 %.060, 2
+  %.not67 = icmp eq i8 %.0, 2
   br i1 %.not67, label %78, label %57
 
 54:                                               ; preds = %51
@@ -1904,7 +1904,7 @@ _ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.thread: ; preds = %39,
   br i1 %60, label %63, label %61
 
 61:                                               ; preds = %57
-  %62 = trunc i8 %.060 to i1
+  %62 = trunc i8 %.0 to i1
   br i1 %62, label %67, label %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit100.thread
 
 63:                                               ; preds = %57

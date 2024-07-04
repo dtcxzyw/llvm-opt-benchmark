@@ -305,18 +305,18 @@ define hidden void @mbedtls_strerror(i32 noundef %0, ptr nocapture noundef %1, i
   br label %30
 
 30:                                               ; preds = %24, %19
-  %.038 = phi ptr [ %28, %24 ], [ %1, %19 ]
-  %.037 = phi i64 [ %29, %24 ], [ %2, %19 ]
+  %.037 = phi ptr [ %28, %24 ], [ %1, %19 ]
+  %.0 = phi i64 [ %29, %24 ], [ %2, %19 ]
   %31 = tail call ptr @mbedtls_low_level_strerr(i32 noundef %spec.select)
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %30
-  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.038, i64 noundef %.037, ptr noundef nonnull @.str.205, i32 noundef %17) #6
+  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.037, i64 noundef %.0, ptr noundef nonnull @.str.205, i32 noundef %17) #6
   br label %37
 
 35:                                               ; preds = %30
-  %36 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.038, i64 noundef %.037, ptr noundef nonnull @.str.206, ptr noundef nonnull %31) #6
+  %36 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.037, i64 noundef %.0, ptr noundef nonnull @.str.206, ptr noundef nonnull %31) #6
   br label %37
 
 37:                                               ; preds = %21, %16, %14, %3, %35, %33

@@ -321,7 +321,7 @@ define internal i32 @dissect_dpaux(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 105:                                              ; preds = %.thread.i, %94
   %.not6980.i = phi i1 [ true, %.thread.i ], [ false, %94 ]
-  %.078.i = phi ptr [ null, %.thread.i ], [ %93, %94 ]
+  %.06678.i = phi ptr [ null, %.thread.i ], [ %93, %94 ]
   %106 = zext i8 %73 to i32
   %107 = icmp ult i8 %73, 9
   br i1 %107, label %switch.hole_check, label %110
@@ -354,7 +354,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not6980.i, label %123, label %117
 
 117:                                              ; preds = %113
-  %118 = getelementptr inbounds i8, ptr %.078.i, i64 4
+  %118 = getelementptr inbounds i8, ptr %.06678.i, i64 4
   %119 = load i32, ptr %118, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %114, i32 noundef 25, ptr noundef nonnull @.str.89, i32 noundef %115, ptr noundef nonnull %116, i32 noundef %119) #2
   %120 = load i32, ptr @hf_dpaux_addr, align 4
@@ -374,27 +374,27 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not6980.i, label %dissect_dpaux_from_source.exit, label %129
 
 129:                                              ; preds = %124
-  %130 = load i32, ptr %.078.i, align 4
+  %130 = load i32, ptr %.06678.i, align 4
   %.not75.i = icmp eq i32 %130, 0
   br i1 %.not75.i, label %dissect_dpaux_from_source.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %129
-  %131 = getelementptr inbounds i8, ptr %.078.i, i64 4
+  %131 = getelementptr inbounds i8, ptr %.06678.i, i64 4
   br label %132
 
 132:                                              ; preds = %dissect_dpaux_register.exit.i, %.preheader.i
-  %.06683.i = phi i32 [ 0, %.preheader.i ], [ %134, %dissect_dpaux_register.exit.i ]
+  %.083.i = phi i32 [ 0, %.preheader.i ], [ %134, %dissect_dpaux_register.exit.i ]
   %133 = load i32, ptr @hf_dpaux_reg_addr, align 4
-  %134 = add nuw nsw i32 %.06683.i, 1
+  %134 = add nuw nsw i32 %.083.i, 1
   %135 = load i32, ptr %131, align 4
-  %136 = add i32 %135, %.06683.i
+  %136 = add i32 %135, %.083.i
   %137 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %134) #2
   %138 = zext i8 %137 to i32
   %139 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %17, i32 noundef %133, ptr noundef %0, i32 noundef %134, i32 noundef 1, i32 noundef %136, ptr noundef nonnull @.str.91, i32 noundef %136, i32 noundef %138) #2
   %140 = load i32, ptr @ett_register, align 4
   %141 = tail call ptr @proto_item_add_subtree(ptr noundef %139, i32 noundef %140) #2
   %142 = load i32, ptr %131, align 4
-  %143 = add i32 %142, %.06683.i
+  %143 = add i32 %142, %.083.i
   br label %145
 
 144:                                              ; preds = %145

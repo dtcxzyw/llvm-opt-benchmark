@@ -2826,8 +2826,8 @@ entry:
 
 if.then2.i:                                       ; preds = %while.body.lr.ph.split.i, %if.then2.i
   call void @qio_channel_yield(ptr noundef %ioc, i32 noundef 1) #16
-  store ptr %buffer.addr.0.ph17.i, ptr %iov.i, align 8
-  store i64 %size.addr.0.ph16.i, ptr %iov_len.i, align 8
+  store ptr %buffer.addr.0.ph16.i, ptr %iov.i, align 8
+  store i64 %size.addr.0.ph18.i, ptr %iov_len.i, align 8
   %call.i = call i64 @qio_channel_readv(ptr noundef %ioc, ptr noundef nonnull %iov.i, i64 noundef 1, ptr noundef %errp) #16
   %cmp1.i = icmp eq i64 %call.i, -2
   br i1 %cmp1.i, label %if.then2.i, label %if.else3.i
@@ -2849,17 +2849,17 @@ if.then10.i:                                      ; preds = %if.then8.i
   br label %nbd_read_eof.exit.thread
 
 if.end14.i:                                       ; preds = %if.else6.i
-  %sub.i = sub i64 %size.addr.0.ph16.i, %.us-phi.i
-  %add.ptr.i = getelementptr i8, ptr %buffer.addr.0.ph17.i, i64 %.us-phi.i
+  %sub.i = sub i64 %size.addr.0.ph18.i, %.us-phi.i
+  %add.ptr.i = getelementptr i8, ptr %buffer.addr.0.ph16.i, i64 %.us-phi.i
   %cmp.not.i = icmp eq i64 %sub.i, 0
   br i1 %cmp.not.i, label %if.end, label %while.body.lr.ph.split.i, !llvm.loop !9
 
 while.body.lr.ph.split.i:                         ; preds = %if.end14.i, %entry
   %partial.0.ph19.i = phi i1 [ false, %entry ], [ true, %if.end14.i ]
-  %buffer.addr.0.ph17.i = phi ptr [ %reply, %entry ], [ %add.ptr.i, %if.end14.i ]
-  %size.addr.0.ph16.i = phi i64 [ 4, %entry ], [ %sub.i, %if.end14.i ]
-  store ptr %buffer.addr.0.ph17.i, ptr %iov.i, align 8
-  store i64 %size.addr.0.ph16.i, ptr %iov_len.i, align 8
+  %size.addr.0.ph18.i = phi i64 [ 4, %entry ], [ %sub.i, %if.end14.i ]
+  %buffer.addr.0.ph16.i = phi ptr [ %reply, %entry ], [ %add.ptr.i, %if.end14.i ]
+  store ptr %buffer.addr.0.ph16.i, ptr %iov.i, align 8
+  store i64 %size.addr.0.ph18.i, ptr %iov_len.i, align 8
   %call14.i = call i64 @qio_channel_readv(ptr noundef %ioc, ptr noundef nonnull %iov.i, i64 noundef 1, ptr noundef %errp) #16
   %cmp115.i = icmp eq i64 %call14.i, -2
   br i1 %cmp115.i, label %if.then2.i, label %if.else3.i
@@ -3238,8 +3238,8 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %while.body.lr.ph.split, %if.then2
   call void @qio_channel_yield(ptr noundef %ioc, i32 noundef 1) #16
-  store ptr %buffer.addr.0.ph17, ptr %iov, align 8
-  store i64 %size.addr.0.ph16, ptr %iov_len, align 8
+  store ptr %buffer.addr.0.ph16, ptr %iov, align 8
+  store i64 %size.addr.0.ph18, ptr %iov_len, align 8
   %call = call i64 @qio_channel_readv(ptr noundef %ioc, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef %errp) #16
   %cmp1 = icmp eq i64 %call, -2
   br i1 %cmp1, label %if.then2, label %if.else3
@@ -3261,17 +3261,17 @@ if.then10:                                        ; preds = %if.then8
   br label %return
 
 if.end14:                                         ; preds = %if.else6
-  %sub = sub i64 %size.addr.0.ph16, %.us-phi
-  %add.ptr = getelementptr i8, ptr %buffer.addr.0.ph17, i64 %.us-phi
+  %sub = sub i64 %size.addr.0.ph18, %.us-phi
+  %add.ptr = getelementptr i8, ptr %buffer.addr.0.ph16, i64 %.us-phi
   %cmp.not = icmp eq i64 %sub, 0
   br i1 %cmp.not, label %return, label %while.body.lr.ph.split, !llvm.loop !9
 
 while.body.lr.ph.split:                           ; preds = %if.end14, %while.cond.preheader
   %partial.0.ph19 = phi i1 [ false, %while.cond.preheader ], [ true, %if.end14 ]
-  %buffer.addr.0.ph17 = phi ptr [ %buffer, %while.cond.preheader ], [ %add.ptr, %if.end14 ]
-  %size.addr.0.ph16 = phi i64 [ %size, %while.cond.preheader ], [ %sub, %if.end14 ]
-  store ptr %buffer.addr.0.ph17, ptr %iov, align 8
-  store i64 %size.addr.0.ph16, ptr %iov_len, align 8
+  %size.addr.0.ph18 = phi i64 [ %size, %while.cond.preheader ], [ %sub, %if.end14 ]
+  %buffer.addr.0.ph16 = phi ptr [ %buffer, %while.cond.preheader ], [ %add.ptr, %if.end14 ]
+  store ptr %buffer.addr.0.ph16, ptr %iov, align 8
+  store i64 %size.addr.0.ph18, ptr %iov_len, align 8
   %call14 = call i64 @qio_channel_readv(ptr noundef %ioc, ptr noundef nonnull %iov, i64 noundef 1, ptr noundef %errp) #16
   %cmp115 = icmp eq i64 %call14, -2
   br i1 %cmp115, label %if.then2, label %if.else3
@@ -3936,8 +3936,8 @@ if.else25:                                        ; preds = %if.else21
 
 if.end27:                                         ; preds = %if.else21, %if.end13
   %..str.72 = phi ptr [ %query, %if.end13 ], [ @.str.72, %if.else21 ]
-  %data_len.0 = phi i32 [ %conv20, %if.end13 ], [ %conv5, %if.else21 ]
   %query_len.0 = phi i32 [ %conv15, %if.end13 ], [ 0, %if.else21 ]
+  %data_len.0 = phi i32 [ %conv20, %if.end13 ], [ %conv5, %if.else21 ]
   %conv28 = zext i32 %data_len.0 to i64
   %call29 = tail call noalias ptr @g_malloc(i64 noundef %conv28) #17
   %call30 = tail call ptr @nbd_opt_lookup(i32 noundef %opt) #16

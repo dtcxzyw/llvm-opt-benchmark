@@ -4803,7 +4803,7 @@ common.resume:                                    ; preds = %49, %.body193, %182
   invoke void @"_ZN4core3ptr37drop_in_place$LT$heed..txn..RoTxn$GT$17h9ba9998a5ad337d0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27) #22
           to label %common.resume unwind label %158
 
-71:                                               ; preds = %"_ZN4core3ptr43drop_in_place$LT$heed..cursor..RoCursor$GT$17h43bd8d9eea02702aE.exit.i", %.split242.us, %66
+71:                                               ; preds = %"_ZN4core3ptr43drop_in_place$LT$heed..cursor..RoCursor$GT$17h43bd8d9eea02702aE.exit.i", %.split244.us, %66
   %72 = landingpad { ptr, i32 }
           cleanup
   br label %.body193
@@ -4842,12 +4842,12 @@ common.resume:                                    ; preds = %49, %.body193, %182
 84:                                               ; preds = %.split.us
   %85 = load i8, ptr %78, align 1, !range !1024, !noundef !4
   %86 = icmp eq i8 %85, 3
-  br i1 %86, label %.split242.us, label %87
+  br i1 %86, label %.split244.us, label %87
 
 87:                                               ; preds = %84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.040.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
   %88 = icmp eq i8 %85, 2
-  br i1 %88, label %.split244.us.loopexit, label %"_ZN4core6option15Option$LT$T$GT$3zip17hc95d8f64036fec01E.exit.thread.us"
+  br i1 %88, label %.split246.us.loopexit, label %"_ZN4core6option15Option$LT$T$GT$3zip17hc95d8f64036fec01E.exit.thread.us"
 
 "_ZN4core6option15Option$LT$T$GT$3zip17hc95d8f64036fec01E.exit.thread.us": ; preds = %87
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20)
@@ -4905,7 +4905,7 @@ common.resume:                                    ; preds = %49, %.body193, %182
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %.split244.us, %131, %154
+.loopexit.split-lp:                               ; preds = %.split246.us, %131, %154
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -4913,9 +4913,9 @@ common.resume:                                    ; preds = %49, %.body193, %182
 98:                                               ; preds = %.split
   %99 = load i8, ptr %78, align 1, !range !1024, !noundef !4
   %100 = icmp eq i8 %99, 3
-  br i1 %100, label %.split242.us, label %101
+  br i1 %100, label %.split244.us, label %101
 
-.split242.us:                                     ; preds = %98, %84
+.split244.us:                                     ; preds = %98, %84
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20)
   invoke void @"_ZN4core3ptr212drop_in_place$LT$heed..iterator..prefix..RoPrefix$LT$meilisearch_auth..store..KeyIdActionCodec$C$heed_types..serde_json..SerdeJson$LT$core..option..Option$LT$time..offset_date_time..OffsetDateTime$GT$$GT$$GT$$GT$17h13928ac043c228bdE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %21)
           to label %103 unwind label %71
@@ -4927,9 +4927,9 @@ common.resume:                                    ; preds = %49, %.body193, %182
   %.sroa.040.sroa.5.0.copyload = load i64, ptr %.sroa.040.sroa.5.0..sroa_idx, align 8
   %.sroa.444.0.copyload = load i32, ptr %.sroa.444.0..sroa_idx, align 4
   %102 = icmp eq i8 %99, 2
-  br i1 %102, label %.split244.us, label %126
+  br i1 %102, label %.split246.us, label %126
 
-103:                                              ; preds = %.split242.us
+103:                                              ; preds = %.split244.us
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.636)
   %.sroa.383.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 19
@@ -5001,24 +5001,24 @@ common.resume:                                    ; preds = %49, %.body193, %182
   %127 = icmp eq ptr %.sroa.040.sroa.3.0.copyload, null
   br i1 %127, label %"_ZN4core6option15Option$LT$T$GT$3zip17hc95d8f64036fec01E.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$3zip17hc95d8f64036fec01E.exit"
 
-.split244.us.loopexit:                            ; preds = %87
+.split246.us.loopexit:                            ; preds = %87
   %.sroa.040.sroa.5.0.copyload.us = load i64, ptr %.sroa.040.sroa.5.0..sroa_idx, align 8
   %.sroa.040.sroa.4.0.copyload.us = load i64, ptr %.sroa.040.sroa.4.0..sroa_idx, align 8
   %.sroa.040.sroa.3.0.copyload.us = load ptr, ptr %.sroa.040.sroa.3.0..sroa_idx, align 8
-  br label %.split244.us
+  br label %.split246.us
 
-.split244.us:                                     ; preds = %101, %.split244.us.loopexit
-  %.us-phi245 = phi ptr [ %.sroa.040.sroa.3.0.copyload.us, %.split244.us.loopexit ], [ %.sroa.040.sroa.3.0.copyload, %101 ]
-  %.us-phi246 = phi i64 [ %.sroa.040.sroa.4.0.copyload.us, %.split244.us.loopexit ], [ %.sroa.040.sroa.4.0.copyload, %101 ]
-  %.us-phi247 = phi i64 [ %.sroa.040.sroa.5.0.copyload.us, %.split244.us.loopexit ], [ %.sroa.040.sroa.5.0.copyload, %101 ]
+.split246.us:                                     ; preds = %101, %.split246.us.loopexit
+  %.us-phi247 = phi ptr [ %.sroa.040.sroa.3.0.copyload.us, %.split246.us.loopexit ], [ %.sroa.040.sroa.3.0.copyload, %101 ]
+  %.us-phi248 = phi i64 [ %.sroa.040.sroa.4.0.copyload.us, %.split246.us.loopexit ], [ %.sroa.040.sroa.4.0.copyload, %101 ]
+  %.us-phi249 = phi i64 [ %.sroa.040.sroa.5.0.copyload.us, %.split246.us.loopexit ], [ %.sroa.040.sroa.5.0.copyload, %101 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.040.sroa.0, i64 24, i1 false)
   %.sroa.260.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 24
-  store ptr %.us-phi245, ptr %.sroa.260.0..sroa_idx, align 8
+  store ptr %.us-phi247, ptr %.sroa.260.0..sroa_idx, align 8
   %.sroa.361.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 32
-  store i64 %.us-phi246, ptr %.sroa.361.0..sroa_idx, align 8
+  store i64 %.us-phi248, ptr %.sroa.361.0..sroa_idx, align 8
   %.sroa.462.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 40
-  store i64 %.us-phi247, ptr %.sroa.462.0..sroa_idx, align 8
+  store i64 %.us-phi249, ptr %.sroa.462.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   invoke void @"_ZN103_$LT$meilisearch_auth..error..AuthControllerError$u20$as$u20$core..convert..From$LT$heed..Error$GT$$GT$4from17hb9fc814269548756E"(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %13)
           to label %177 unwind label %.loopexit.split-lp
@@ -5199,7 +5199,7 @@ common.resume:                                    ; preds = %49, %.body193, %182
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #20
   unreachable
 
-177:                                              ; preds = %.split244.us
+177:                                              ; preds = %.split246.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)

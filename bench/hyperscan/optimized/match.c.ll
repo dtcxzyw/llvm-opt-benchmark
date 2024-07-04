@@ -1441,16 +1441,16 @@ for.body.i.lr.ph:                                 ; preds = %if.end.i29
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %if.then14.i
-  %bit_idx.i.0188 = phi i32 [ 0, %for.body.i.lr.ph ], [ %inc.i, %if.then14.i ]
-  %root.i.0187 = phi i64 [ %17, %for.body.i.lr.ph ], [ %and27.i, %if.then14.i ]
-  %18 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %root.i.0187, i1 true)
+  %root.i.0188 = phi i64 [ %17, %for.body.i.lr.ph ], [ %and27.i, %if.then14.i ]
+  %bit_idx.i.0187 = phi i32 [ 0, %for.body.i.lr.ph ], [ %inc.i, %if.then14.i ]
+  %18 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %root.i.0188, i1 true)
   %.tr = trunc nuw nsw i64 %18 to i32
   %conv5.i = shl nuw nsw i32 %.tr, 6
   %narrow = add nuw nsw i32 %conv5.i, 64
   %mul9.i = shl nuw nsw i64 %18, 3
   %add.ptr.i32 = getelementptr inbounds i8, ptr %add.ptr.i21, i64 %mul9.i
   %19 = load i32, ptr %val.i, align 8
-  %add10.i = add i32 %19, %bit_idx.i.0188
+  %add10.i = add i32 %19, %bit_idx.i.0187
   %idx.ext.i33 = zext i32 %add10.i to i64
   %add.ptr11.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr.i, i64 %idx.ext.i33
   %cmp12.i.not = icmp ugt i32 %narrow, %8
@@ -1462,9 +1462,9 @@ if.then14.i:                                      ; preds = %for.body.i
   %not18.i = xor i64 %21, -1
   %and19.i = and i64 %20, %not18.i
   store i64 %and19.i, ptr %add.ptr.i32, align 1
-  %sub26.i = add i64 %root.i.0187, -1
-  %and27.i = and i64 %sub26.i, %root.i.0187
-  %inc.i = add i32 %bit_idx.i.0188, 1
+  %sub26.i = add i64 %root.i.0188, -1
+  %and27.i = and i64 %sub26.i, %root.i.0188
+  %inc.i = add i32 %bit_idx.i.0187, 1
   %tobool.i30.not = icmp eq i64 %and27.i, 0
   br i1 %tobool.i30.not, label %roseFlushLastByteHistory.exit, label %for.body.i, !llvm.loop !13
 
@@ -2213,9 +2213,9 @@ if.end.i352:                                      ; preds = %if.else.i184
 
 for.cond.i355:                                    ; preds = %for.cond.i355.backedge, %if.end.i352
   %44 = phi i64 [ %and.i349, %if.end.i352 ], [ %.be1488, %for.cond.i355.backedge ]
-  %level.i.0 = phi i32 [ 0, %if.end.i352 ], [ %level.i.0.be, %for.cond.i355.backedge ]
-  %key.i.0 = phi i32 [ 0, %if.end.i352 ], [ %key.i.0.be, %for.cond.i355.backedge ]
   %it.i344.0 = phi ptr [ %add.ptr.i170, %if.end.i352 ], [ %it.i344.0.be, %for.cond.i355.backedge ]
+  %key.i.0 = phi i32 [ 0, %if.end.i352 ], [ %key.i.0.be, %for.cond.i355.backedge ]
+  %level.i.0 = phi i32 [ 0, %if.end.i352 ], [ %level.i.0.be, %for.cond.i355.backedge ]
   %idxprom5.i = zext i32 %level.i.0 to i64
   %tobool8.i.not = icmp eq i64 %44, 0
   br i1 %tobool8.i.not, label %uplevel.i, label %if.then9.i
@@ -2327,9 +2327,9 @@ if.end59.i:                                       ; preds = %if.end38.i, %if.the
 
 for.cond.i355.backedge:                           ; preds = %if.end59.i, %if.else.i362
   %.be1488 = phi i64 [ %and66.i, %if.end59.i ], [ %and26.i, %if.else.i362 ]
-  %level.i.0.be = phi i32 [ %dec.i356, %if.end59.i ], [ %inc.i364, %if.else.i362 ]
-  %key.i.0.be = phi i32 [ %shr.i, %if.end59.i ], [ %add.i363, %if.else.i362 ]
   %it.i344.0.be = phi ptr [ %add.ptr71.i, %if.end59.i ], [ %add.ptr19.i, %if.else.i362 ]
+  %key.i.0.be = phi i32 [ %shr.i, %if.end59.i ], [ %add.i363, %if.else.i362 ]
+  %level.i.0.be = phi i32 [ %dec.i356, %if.end59.i ], [ %inc.i364, %if.else.i362 ]
   br label %for.cond.i355
 
 roseFlushLastByteHistory.exit.i:                  ; preds = %uplevel.i, %if.then14.i, %if.end.i192, %mmbit_get_flat_block.exit.i, %sw.bb.i, %sw.bb1.i, %sw.bb6.i, %sw.bb11.i, %sw.bb16.i, %sw.bb18.i, %sw.bb23.i, %sw.bb25.i, %mmbit_get_flat_block.exit65.i, %sw.bb.i608, %sw.bb1.i600, %sw.bb6.i595, %sw.bb11.i590, %sw.bb16.i588, %sw.bb18.i583, %sw.bb23.i581, %sw.bb25.i579, %if.else.i184, %if.end.i.i, %for.body.i
@@ -4260,9 +4260,9 @@ if.end.i433:                                      ; preds = %if.else.i
 
 for.cond.i443:                                    ; preds = %for.cond.i443.backedge, %if.end.i433
   %246 = phi i64 [ %and.i430, %if.end.i433 ], [ %.be, %for.cond.i443.backedge ]
-  %level.i419.0 = phi i32 [ 0, %if.end.i433 ], [ %level.i419.0.be, %for.cond.i443.backedge ]
-  %key.i417.0 = phi i32 [ 0, %if.end.i433 ], [ %key.i417.0.be, %for.cond.i443.backedge ]
   %it.i415.0 = phi ptr [ %add.ptr.i, %if.end.i433 ], [ %it.i415.0.be, %for.cond.i443.backedge ]
+  %key.i417.0 = phi i32 [ 0, %if.end.i433 ], [ %key.i417.0.be, %for.cond.i443.backedge ]
+  %level.i419.0 = phi i32 [ 0, %if.end.i433 ], [ %level.i419.0.be, %for.cond.i443.backedge ]
   %idxprom5.i444 = zext i32 %level.i419.0 to i64
   %tobool8.i446.not = icmp eq i64 %246, 0
   br i1 %tobool8.i446.not, label %uplevel.i448, label %if.then9.i492
@@ -4374,9 +4374,9 @@ if.end59.i462:                                    ; preds = %if.end38.i450, %if.
 
 for.cond.i443.backedge:                           ; preds = %if.end59.i462, %if.else.i494
   %.be = phi i64 [ %and66.i468, %if.end59.i462 ], [ %and26.i512, %if.else.i494 ]
-  %level.i419.0.be = phi i32 [ %dec.i460, %if.end59.i462 ], [ %inc.i498, %if.else.i494 ]
-  %key.i417.0.be = phi i32 [ %shr.i459, %if.end59.i462 ], [ %add.i497, %if.else.i494 ]
   %it.i415.0.be = phi ptr [ %add.ptr71.i473, %if.end59.i462 ], [ %add.ptr19.i503, %if.else.i494 ]
+  %key.i417.0.be = phi i32 [ %shr.i459, %if.end59.i462 ], [ %add.i497, %if.else.i494 ]
+  %level.i419.0.be = phi i32 [ %dec.i460, %if.end59.i462 ], [ %inc.i498, %if.else.i494 ]
   br label %for.cond.i443
 
 roseFlushLastByteHistory.exit.i132:               ; preds = %uplevel.i448, %if.then14.i299, %if.end.i249, %mmbit_get_flat_block.exit.i284, %sw.bb.i646, %sw.bb1.i638, %sw.bb6.i633, %sw.bb11.i628, %sw.bb16.i626, %sw.bb18.i621, %sw.bb23.i619, %sw.bb25.i617, %mmbit_get_flat_block.exit65.i319, %sw.bb.i684, %sw.bb1.i676, %sw.bb6.i671, %sw.bb11.i666, %sw.bb16.i664, %sw.bb18.i659, %sw.bb23.i657, %sw.bb25.i655, %if.else.i, %if.end.i.i141, %for.body.i126
@@ -5171,16 +5171,16 @@ for.body.i.lr.ph:                                 ; preds = %if.end.i10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %if.then14.i
-  %bit_idx.i.0204 = phi i32 [ 0, %for.body.i.lr.ph ], [ %inc.i, %if.then14.i ]
-  %root.i.0203 = phi i64 [ %21, %for.body.i.lr.ph ], [ %and27.i, %if.then14.i ]
-  %22 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %root.i.0203, i1 true)
+  %root.i.0204 = phi i64 [ %21, %for.body.i.lr.ph ], [ %and27.i, %if.then14.i ]
+  %bit_idx.i.0203 = phi i32 [ 0, %for.body.i.lr.ph ], [ %inc.i, %if.then14.i ]
+  %22 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %root.i.0204, i1 true)
   %.tr = trunc nuw nsw i64 %22 to i32
   %conv5.i = shl nuw nsw i32 %.tr, 6
   %narrow = add nuw nsw i32 %conv5.i, 64
   %mul9.i = shl nuw nsw i64 %22, 3
   %add.ptr.i13 = getelementptr inbounds i8, ptr %add.ptr.i1, i64 %mul9.i
   %23 = load i32, ptr %val.i, align 8
-  %add10.i = add i32 %23, %bit_idx.i.0204
+  %add10.i = add i32 %23, %bit_idx.i.0203
   %idx.ext.i14 = zext i32 %add10.i to i64
   %add.ptr11.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr.i, i64 %idx.ext.i14
   %cmp12.i.not = icmp ugt i32 %narrow, %12
@@ -5192,9 +5192,9 @@ if.then14.i:                                      ; preds = %for.body.i
   %not18.i = xor i64 %25, -1
   %and19.i = and i64 %24, %not18.i
   store i64 %and19.i, ptr %add.ptr.i13, align 1
-  %sub26.i = add i64 %root.i.0203, -1
-  %and27.i = and i64 %sub26.i, %root.i.0203
-  %inc.i = add i32 %bit_idx.i.0204, 1
+  %sub26.i = add i64 %root.i.0204, -1
+  %and27.i = and i64 %sub26.i, %root.i.0204
+  %inc.i = add i32 %bit_idx.i.0203, 1
   %tobool.i11.not = icmp eq i64 %and27.i, 0
   br i1 %tobool.i11.not, label %roseFlushLastByteHistory.exit.i, label %for.body.i, !llvm.loop !13
 
@@ -5717,16 +5717,16 @@ for.body.i.lr.ph:                                 ; preds = %if.end.i10
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.lr.ph, %if.then14.i
-  %bit_idx.i.0205 = phi i32 [ 0, %for.body.i.lr.ph ], [ %inc.i, %if.then14.i ]
-  %root.i.0204 = phi i64 [ %21, %for.body.i.lr.ph ], [ %and27.i, %if.then14.i ]
-  %22 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %root.i.0204, i1 true)
+  %root.i.0205 = phi i64 [ %21, %for.body.i.lr.ph ], [ %and27.i, %if.then14.i ]
+  %bit_idx.i.0204 = phi i32 [ 0, %for.body.i.lr.ph ], [ %inc.i, %if.then14.i ]
+  %22 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %root.i.0205, i1 true)
   %.tr = trunc nuw nsw i64 %22 to i32
   %conv5.i = shl nuw nsw i32 %.tr, 6
   %narrow = add nuw nsw i32 %conv5.i, 64
   %mul9.i = shl nuw nsw i64 %22, 3
   %add.ptr.i13 = getelementptr inbounds i8, ptr %add.ptr.i1, i64 %mul9.i
   %23 = load i32, ptr %val.i, align 8
-  %add10.i = add i32 %23, %bit_idx.i.0205
+  %add10.i = add i32 %23, %bit_idx.i.0204
   %idx.ext.i14 = zext i32 %add10.i to i64
   %add.ptr11.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %add.ptr.i, i64 %idx.ext.i14
   %cmp12.i.not = icmp ugt i32 %narrow, %12
@@ -5738,9 +5738,9 @@ if.then14.i:                                      ; preds = %for.body.i
   %not18.i = xor i64 %25, -1
   %and19.i = and i64 %24, %not18.i
   store i64 %and19.i, ptr %add.ptr.i13, align 1
-  %sub26.i = add i64 %root.i.0204, -1
-  %and27.i = and i64 %sub26.i, %root.i.0204
-  %inc.i = add i32 %bit_idx.i.0205, 1
+  %sub26.i = add i64 %root.i.0205, -1
+  %and27.i = and i64 %sub26.i, %root.i.0205
+  %inc.i = add i32 %bit_idx.i.0204, 1
   %tobool.i11.not = icmp eq i64 %and27.i, 0
   br i1 %tobool.i11.not, label %roseFlushLastByteHistory.exit.i, label %for.body.i, !llvm.loop !13
 

@@ -711,8 +711,8 @@ _thread_init.exit87:                              ; preds = %171
   br label %197
 
 197:                                              ; preds = %._crit_edge, %._crit_edge94, %148, %140, %_get_node_energy.exit83, %_get_node_energy.exit, %195
-  %.045 = phi i32 [ -1, %195 ], [ 0, %._crit_edge ], [ 0, %._crit_edge94 ], [ 0, %148 ], [ 0, %140 ], [ 0, %_get_node_energy.exit83 ], [ 0, %_get_node_energy.exit ]
-  ret i32 %.045
+  %.0 = phi i32 [ -1, %195 ], [ 0, %._crit_edge ], [ 0, %._crit_edge94 ], [ 0, %148 ], [ 0, %140 ], [ 0, %_get_node_energy.exit83 ], [ 0, %_get_node_energy.exit ]
+  ret i32 %.0
 }
 
 declare zeroext i1 @slurm_running_in_slurmd() local_unnamed_addr #2
@@ -1148,8 +1148,8 @@ _running_profile.exit:                            ; preds = %0, %10
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
-  %.023.lcssa = phi i64 [ 0, %17 ], [ %indvars.iv.next, %.lr.ph ]
-  %30 = getelementptr inbounds %struct.acct_gather_profile_dataset_t, ptr %21, i64 %.023.lcssa
+  %.025.lcssa = phi i64 [ 0, %17 ], [ %indvars.iv.next, %.lr.ph ]
+  %30 = getelementptr inbounds %struct.acct_gather_profile_dataset_t, ptr %21, i64 %.025.lcssa
   store ptr null, ptr %30, align 16
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   store i32 0, ptr %31, align 8
@@ -1258,9 +1258,9 @@ _running_profile.exit:                            ; preds = %0, %10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %49, %.loopexit.loopexit, %59
-  %.026.lcssa64 = phi i64 [ %61, %.loopexit.loopexit ], [ %61, %59 ], [ %7, %49 ]
+  %.024.lcssa64 = phi i64 [ %61, %.loopexit.loopexit ], [ %61, %59 ], [ %7, %49 ]
   %75 = phi i32 [ %.pre59, %.loopexit.loopexit ], [ %50, %59 ], [ %50, %49 ]
-  %76 = call i32 @acct_gather_profile_g_add_sample_data(i32 noundef %75, ptr noundef nonnull %3, i64 noundef %.026.lcssa64) #10
+  %76 = call i32 @acct_gather_profile_g_add_sample_data(i32 noundef %75, ptr noundef nonnull %3, i64 noundef %.024.lcssa64) #10
   br label %77
 
 77:                                               ; preds = %47, %_running_profile.exit, %.loopexit

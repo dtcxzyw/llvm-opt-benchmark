@@ -393,7 +393,7 @@ for.body.preheader.i21:                           ; preds = %if.end5
 
 for.body.i23:                                     ; preds = %for.inc.i, %for.body.preheader.i21
   %indvars.iv.i24 = phi i64 [ 0, %for.body.preheader.i21 ], [ %indvars.iv.next.i29, %for.inc.i ]
-  %remaining_nr.020.i = phi i32 [ 0, %for.body.preheader.i21 ], [ %remaining_nr.1.i, %for.inc.i ]
+  %remaining_nr.021.i = phi i32 [ 0, %for.body.preheader.i21 ], [ %remaining_nr.1.i, %for.inc.i ]
   %arrayidx.i25 = getelementptr inbounds %struct.object_id, ptr %remaining_oids.066, i64 %indvars.iv.i24
   %call2.i26 = call i32 @oid_object_info_extended(ptr noundef %repo, ptr noundef %arrayidx.i25, ptr noundef null, i32 noundef 16) #9
   %tobool.not.i27 = icmp eq i32 %call2.i26, 0
@@ -402,11 +402,11 @@ for.body.i23:                                     ; preds = %for.inc.i, %for.bod
 if.then.i28:                                      ; preds = %for.body.i23
   %arrayidx4.i = getelementptr inbounds i32, ptr %call.i20, i64 %indvars.iv.i24
   store i32 1, ptr %arrayidx4.i, align 4
-  %inc.i = add nsw i32 %remaining_nr.020.i, 1
+  %inc.i = add nsw i32 %remaining_nr.021.i, 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i28, %for.body.i23
-  %remaining_nr.1.i = phi i32 [ %inc.i, %if.then.i28 ], [ %remaining_nr.020.i, %for.body.i23 ]
+  %remaining_nr.1.i = phi i32 [ %inc.i, %if.then.i28 ], [ %remaining_nr.021.i, %for.body.i23 ]
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i29, %wide.trip.count.i22
   br i1 %exitcond.not.i30, label %for.end.i31, label %for.body.i23, !llvm.loop !9

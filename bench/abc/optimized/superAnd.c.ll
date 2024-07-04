@@ -163,8 +163,8 @@ Super2_LibFirst.exit:                             ; preds = %._crit_edge.us.i, %
   br label %52
 
 52:                                               ; preds = %.lr.ph47, %Abc_Clock.exit29
-  %.046 = phi ptr [ %calloc.i.i, %.lr.ph47 ], [ %calloc.i.i.i, %Abc_Clock.exit29 ]
-  %.01945 = phi i32 [ 1, %.lr.ph47 ], [ %331, %Abc_Clock.exit29 ]
+  %.046 = phi i32 [ 1, %.lr.ph47 ], [ %331, %Abc_Clock.exit29 ]
+  %.01945 = phi ptr [ %calloc.i.i, %.lr.ph47 ], [ %calloc.i.i.i, %Abc_Clock.exit29 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %53 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %13) #19
   %54 = icmp slt i32 %53, 0
@@ -183,30 +183,30 @@ Abc_Clock.exit:                                   ; preds = %52, %55
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %58 = getelementptr inbounds i8, ptr %.046, i64 12
+  %58 = getelementptr inbounds i8, ptr %.01945, i64 12
   %59 = load i32, ptr %58, align 4
   %60 = sub nsw i32 32, %59
   %61 = lshr i32 -1, %60
   %calloc.i.i.i = call noalias noundef dereferenceable_or_null(48) ptr @calloc(i64 1, i64 48)
-  %62 = getelementptr inbounds i8, ptr %.046, i64 8
+  %62 = getelementptr inbounds i8, ptr %.01945, i64 8
   %63 = load i32, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %calloc.i.i.i, i64 8
   store i32 %63, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %calloc.i.i.i, i64 12
   store i32 %59, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %.046, i64 16
+  %66 = getelementptr inbounds i8, ptr %.01945, i64 16
   %67 = load i32, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %calloc.i.i.i, i64 16
   store i32 %67, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %.046, i64 20
+  %69 = getelementptr inbounds i8, ptr %.01945, i64 20
   %70 = load i32, ptr %69, align 4
   %71 = getelementptr inbounds i8, ptr %calloc.i.i.i, i64 20
   store i32 %70, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %.046, i64 40
+  %72 = getelementptr inbounds i8, ptr %.01945, i64 40
   %73 = load i32, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %calloc.i.i.i, i64 40
   store i32 %73, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %.046, i64 24
+  %75 = getelementptr inbounds i8, ptr %.01945, i64 24
   %76 = load i32, ptr %75, align 8
   %77 = add nsw i32 %76, 1000
   %78 = getelementptr inbounds i8, ptr %calloc.i.i.i, i64 24
@@ -216,7 +216,7 @@ Abc_Clock.exit:                                   ; preds = %52, %55
   %81 = call noalias ptr @malloc(i64 noundef %80) #20
   %82 = getelementptr inbounds i8, ptr %calloc.i.i.i, i64 32
   store ptr %81, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %.046, i64 32
+  %83 = getelementptr inbounds i8, ptr %.01945, i64 32
   %84 = load ptr, ptr %83, align 8
   %85 = sext i32 %70 to i64
   %86 = shl nsw i64 %85, 3
@@ -300,13 +300,13 @@ Abc_Clock.exit:                                   ; preds = %52, %55
   %storemerge.lcssa.i = phi i32 [ 0, %Abc_Clock.exit ], [ %119, %.critedge.loopexit.split.loop.exit184.i ], [ %70, %117 ]
   store i32 %storemerge.lcssa.i, ptr %calloc.i.i.i, align 8
   store i32 %70, ptr %50, align 8
-  store i32 0, ptr %.046, align 8
+  store i32 0, ptr %.01945, align 8
   %120 = load i32, ptr %69, align 4
   %121 = icmp sgt i32 %120, 0
   br i1 %121, label %.lr.ph178.i, label %Super2_LibCompute.exit
 
 .lr.ph178.i:                                      ; preds = %.critedge.i
-  %122 = getelementptr inbounds i8, ptr %.046, i64 4
+  %122 = getelementptr inbounds i8, ptr %.01945, i64 4
   br label %123
 
 123:                                              ; preds = %.critedge4.i, %.lr.ph178.i
@@ -330,7 +330,7 @@ Abc_Clock.exit:                                   ; preds = %52, %55
   %133 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %storemerge127177.i)
   %134 = load ptr, ptr @stdout, align 8
   %135 = call i32 @fflush(ptr noundef %134)
-  %.pre.i = load i32, ptr %.046, align 8
+  %.pre.i = load i32, ptr %.01945, align 8
   br label %136
 
 136:                                              ; preds = %132, %129
@@ -628,7 +628,7 @@ Super2_LibAddGate.exit168.i:                      ; preds = %296, %274
   %305 = load i32, ptr %122, align 4
   %306 = add nsw i32 %305, 1
   store i32 %306, ptr %122, align 4
-  %307 = load i32, ptr %.046, align 8
+  %307 = load i32, ptr %.01945, align 8
   %308 = icmp slt i32 %306, %307
   br i1 %308, label %144, label %.critedge4.i, !llvm.loop !9
 
@@ -636,7 +636,7 @@ Super2_LibAddGate.exit168.i:                      ; preds = %296, %274
   %309 = phi i32 [ %124, %136 ], [ %124, %.lr.ph173.i ], [ %304, %302 ], [ %304, %144 ]
   %.lcssa.i = phi i32 [ %137, %136 ], [ %137, %.lr.ph173.i ], [ %307, %302 ], [ %307, %144 ]
   %310 = add nsw i32 %.lcssa.i, 1
-  store i32 %310, ptr %.046, align 8
+  store i32 %310, ptr %.01945, align 8
   %311 = load i32, ptr %69, align 4
   %312 = icmp slt i32 %310, %311
   br i1 %312, label %123, label %Super2_LibCompute.exit, !llvm.loop !10
@@ -645,7 +645,7 @@ Super2_LibCompute.exit:                           ; preds = %123, %.critedge4.i,
   %313 = phi i32 [ %70, %.critedge.i ], [ %124, %123 ], [ %309, %.critedge4.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  store i32 %.01945, ptr %68, align 8
+  store i32 %.046, ptr %68, align 8
   %314 = load ptr, ptr %83, align 8
   %.not.i27 = icmp eq ptr %314, null
   br i1 %.not.i27, label %Super2_LibStop.exit, label %315
@@ -655,9 +655,9 @@ Super2_LibCompute.exit:                           ; preds = %123, %.critedge4.i,
   br label %Super2_LibStop.exit
 
 Super2_LibStop.exit:                              ; preds = %Super2_LibCompute.exit, %315
-  call void @free(ptr noundef nonnull %.046) #19
+  call void @free(ptr noundef nonnull %.01945) #19
   %316 = load i32, ptr %71, align 4
-  %317 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.01945, i32 noundef %313, i32 noundef %316)
+  %317 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.046, i32 noundef %313, i32 noundef %316)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %318 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #19
@@ -681,17 +681,17 @@ Abc_Clock.exit29:                                 ; preds = %Super2_LibStop.exit
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, double noundef %328)
   %329 = load ptr, ptr @stdout, align 8
   %330 = call i32 @fflush(ptr noundef %329)
-  %331 = add nuw i32 %.01945, 1
-  %exitcond.not = icmp eq i32 %.01945, %1
+  %331 = add nuw i32 %.046, 1
+  %exitcond.not = icmp eq i32 %.046, %1
   br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %Abc_Clock.exit29, %Super2_LibFirst.exit
-  %.0.lcssa = phi ptr [ %calloc.i.i, %Super2_LibFirst.exit ], [ %calloc.i.i.i, %Abc_Clock.exit29 ]
+  %.019.lcssa = phi ptr [ %calloc.i.i, %Super2_LibFirst.exit ], [ %calloc.i.i.i, %Abc_Clock.exit29 ]
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %332 = load ptr, ptr @stdout, align 8
   %333 = call i32 @fflush(ptr noundef %332)
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %7)
-  %334 = getelementptr inbounds i8, ptr %.0.lcssa, i64 16
+  %334 = getelementptr inbounds i8, ptr %.019.lcssa, i64 16
   %335 = load i32, ptr %334, align 8
   %336 = icmp sgt i32 %335, 5
   br i1 %336, label %337, label %339
@@ -718,17 +718,17 @@ Abc_Clock.exit29:                                 ; preds = %Super2_LibStop.exit
 Abc_Clock.exit.i:                                 ; preds = %342, %339
   %.0.i.neg.i = phi i64 [ %.neg38.i, %342 ], [ 1, %339 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %346 = getelementptr inbounds i8, ptr %.0.lcssa, i64 40
+  %346 = getelementptr inbounds i8, ptr %.019.lcssa, i64 40
   %347 = load i32, ptr %346, align 8
   store i32 %347, ptr @s_uMaskBit, align 4
-  %348 = getelementptr inbounds i8, ptr %.0.lcssa, i64 12
+  %348 = getelementptr inbounds i8, ptr %.019.lcssa, i64 12
   %349 = load i32, ptr %348, align 4
   %350 = sub nsw i32 32, %349
   %351 = lshr i32 -1, %350
   store i32 %351, ptr @s_uMaskAll, align 4
-  %352 = getelementptr inbounds i8, ptr %.0.lcssa, i64 32
+  %352 = getelementptr inbounds i8, ptr %.019.lcssa, i64 32
   %353 = load ptr, ptr %352, align 8
-  %354 = getelementptr inbounds i8, ptr %.0.lcssa, i64 20
+  %354 = getelementptr inbounds i8, ptr %.019.lcssa, i64 20
   %355 = load i32, ptr %354, align 4
   %356 = sext i32 %355 to i64
   call void @qsort(ptr noundef %353, i64 noundef %356, i64 noundef 8, ptr noundef nonnull @Super2_LibCompareGates) #19
@@ -754,7 +754,7 @@ Abc_Clock.exit36.i:                               ; preds = %359, %Abc_Clock.exi
   %367 = sitofp i64 %366 to double
   %368 = fdiv double %367, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, double noundef %368)
-  %369 = getelementptr inbounds i8, ptr %.0.lcssa, i64 8
+  %369 = getelementptr inbounds i8, ptr %.019.lcssa, i64 8
   %370 = load i32, ptr %369, align 8
   %371 = load i32, ptr %334, align 8
   %372 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %370, i32 noundef %371) #19
@@ -777,7 +777,7 @@ Abc_Clock.exit36.i:                               ; preds = %359, %Abc_Clock.exi
   %fputc.i = call i32 @fputc(i32 10, ptr %373)
   %389 = load i32, ptr %354, align 4
   %390 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %373, ptr noundef nonnull @.str.26, i32 noundef %389) #19
-  store i32 0, ptr %.0.lcssa, align 8
+  store i32 0, ptr %.019.lcssa, align 8
   %391 = load i32, ptr %354, align 4
   %392 = icmp sgt i32 %391, 0
   br i1 %392, label %.lr.ph.i31, label %.critedge.i30
@@ -808,9 +808,9 @@ Abc_Clock.exit36.i:                               ; preds = %359, %Abc_Clock.exi
   %fputs.i.i34 = call i32 @fputs(ptr %406, ptr %373)
   %fputc.i.i35 = call i32 @fputc(i32 10, ptr %373)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %407 = load i32, ptr %.0.lcssa, align 8
+  %407 = load i32, ptr %.019.lcssa, align 8
   %408 = add nsw i32 %407, 1
-  store i32 %408, ptr %.0.lcssa, align 8
+  store i32 %408, ptr %.019.lcssa, align 8
   %409 = load i32, ptr %354, align 4
   %410 = icmp slt i32 %408, %409
   br i1 %410, label %.lr.ph.i31, label %.critedge.i30, !llvm.loop !12
@@ -826,7 +826,7 @@ Abc_Clock.exit36.i:                               ; preds = %359, %Abc_Clock.exi
 
 Super2_LibWrite.exit:                             ; preds = %337, %.critedge.i30
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %7)
-  %417 = getelementptr inbounds i8, ptr %.0.lcssa, i64 32
+  %417 = getelementptr inbounds i8, ptr %.019.lcssa, i64 32
   %418 = load ptr, ptr %417, align 8
   %.not.i36 = icmp eq ptr %418, null
   br i1 %.not.i36, label %Super2_LibStop.exit37, label %419
@@ -836,7 +836,7 @@ Super2_LibWrite.exit:                             ; preds = %337, %.critedge.i30
   br label %Super2_LibStop.exit37
 
 Super2_LibStop.exit37:                            ; preds = %Super2_LibWrite.exit, %419
-  call void @free(ptr noundef nonnull %.0.lcssa) #19
+  call void @free(ptr noundef nonnull %.019.lcssa) #19
   %420 = load ptr, ptr %calloc.i, align 8
   call void @Extra_MmFixedStop(ptr noundef %420) #19
   %421 = load ptr, ptr %16, align 8

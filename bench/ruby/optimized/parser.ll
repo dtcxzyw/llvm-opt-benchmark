@@ -584,8 +584,8 @@ define internal i64 @cParser_parse(i64 noundef %0) #0 {
   br i1 %13, label %.thread, label %.preheader106
 
 .loopexit99:                                      ; preds = %73, %69, %21, %.preheader106, %.preheader106
-  %.0 = phi ptr [ %.1, %21 ], [ %.1, %.preheader106 ], [ %.1, %.preheader106 ], [ %67, %69 ], [ %71, %73 ]
-  %14 = getelementptr inbounds i8, ptr %.0, i64 1
+  %.054 = phi ptr [ %.1, %21 ], [ %.1, %.preheader106 ], [ %.1, %.preheader106 ], [ %67, %69 ], [ %71, %73 ]
+  %14 = getelementptr inbounds i8, ptr %.054, i64 1
   %15 = icmp eq ptr %14, %12
   br i1 %15, label %.thread, label %.preheader106
 
@@ -903,8 +903,8 @@ define internal fastcc ptr @JSON_parse_value(ptr nocapture noundef %0, ptr nound
   br i1 %7, label %.loopexit, label %.preheader256
 
 .loopexit250:                                     ; preds = %362, %358, %15, %.preheader256, %.preheader256
-  %.0155 = phi ptr [ %.1, %15 ], [ %.1, %.preheader256 ], [ %.1, %.preheader256 ], [ %356, %358 ], [ %360, %362 ]
-  %8 = getelementptr inbounds i8, ptr %.0155, i64 1
+  %.0156 = phi ptr [ %.1, %15 ], [ %.1, %.preheader256 ], [ %.1, %.preheader256 ], [ %356, %358 ], [ %360, %362 ]
+  %8 = getelementptr inbounds i8, ptr %.0156, i64 1
   %9 = icmp eq ptr %8, %2
   br i1 %9, label %.loopexit, label %.preheader256
 
@@ -3034,14 +3034,14 @@ define internal fastcc ptr @JSON_parse_object(ptr nocapture noundef %0, ptr noun
   br label %215
 
 215:                                              ; preds = %210, %206
-  %.0135 = phi i64 [ %209, %206 ], [ %214, %210 ]
-  %216 = icmp eq i64 %.0135, 4
+  %.0 = phi i64 [ %209, %206 ], [ %214, %210 ]
+  %216 = icmp eq i64 %.0, 4
   br i1 %216, label %228, label %217
 
 217:                                              ; preds = %215
   %218 = load i64, ptr @mJSON, align 8
   %219 = load i64, ptr @i_deep_const_get, align 8
-  %220 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %218, i64 noundef %219, i32 noundef 1, i64 noundef %.0135) #13
+  %220 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %218, i64 noundef %219, i32 noundef 1, i64 noundef %.0) #13
   %221 = load i64, ptr @i_json_creatable_p, align 8
   %222 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %220, i64 noundef %221, i32 noundef 0) #13
   %223 = and i64 %222, -5
@@ -3060,8 +3060,8 @@ define internal fastcc ptr @JSON_parse_object(ptr nocapture noundef %0, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %181, %36, %.backedge273, %178, %.preheader264, %.preheader267, %.backedge266, %.preheader260, %78, %.loopexit247, %.loopexit254, %.lr.ph358, %.preheader252, %98, %.preheader245, %54, %49, %.backedge257, %51, %.preheader239, %160, %80, %.backedge255, %157, %.preheader233, %139, %107, %.backedge251, %136, %.preheader227, %118, %113, %.backedge248, %115, %.preheader222, %.preheader242, %.backedge241, %.preheader236, %.backedge235, %.preheader230, %.backedge229, %.preheader224, %.backedge, %.preheader218, %.preheader214, %.preheader210, %.preheader, %.preheader258, %24, %21, %228
-  %.0 = phi ptr [ %229, %228 ], [ null, %21 ], [ null, %24 ], [ null, %.preheader258 ], [ null, %.preheader ], [ null, %.preheader210 ], [ null, %.preheader214 ], [ null, %.preheader218 ], [ null, %.backedge ], [ null, %.preheader224 ], [ null, %.backedge229 ], [ null, %.preheader230 ], [ null, %.backedge235 ], [ null, %.preheader236 ], [ null, %.backedge241 ], [ null, %.preheader242 ], [ null, %.preheader222 ], [ null, %115 ], [ null, %.backedge248 ], [ null, %113 ], [ null, %118 ], [ null, %.preheader227 ], [ null, %136 ], [ null, %.backedge251 ], [ null, %107 ], [ null, %139 ], [ null, %.preheader233 ], [ null, %157 ], [ null, %.backedge255 ], [ null, %80 ], [ null, %160 ], [ null, %.preheader239 ], [ null, %51 ], [ null, %.backedge257 ], [ null, %49 ], [ null, %54 ], [ null, %.preheader245 ], [ null, %98 ], [ null, %.preheader252 ], [ null, %.lr.ph358 ], [ null, %.loopexit254 ], [ null, %.loopexit247 ], [ null, %78 ], [ null, %.preheader260 ], [ null, %.backedge266 ], [ null, %.preheader267 ], [ null, %.preheader264 ], [ null, %178 ], [ null, %.backedge273 ], [ null, %36 ], [ null, %181 ]
-  ret ptr %.0
+  %.0136 = phi ptr [ %229, %228 ], [ null, %21 ], [ null, %24 ], [ null, %.preheader258 ], [ null, %.preheader ], [ null, %.preheader210 ], [ null, %.preheader214 ], [ null, %.preheader218 ], [ null, %.backedge ], [ null, %.preheader224 ], [ null, %.backedge229 ], [ null, %.preheader230 ], [ null, %.backedge235 ], [ null, %.preheader236 ], [ null, %.backedge241 ], [ null, %.preheader242 ], [ null, %.preheader222 ], [ null, %115 ], [ null, %.backedge248 ], [ null, %113 ], [ null, %118 ], [ null, %.preheader227 ], [ null, %136 ], [ null, %.backedge251 ], [ null, %107 ], [ null, %139 ], [ null, %.preheader233 ], [ null, %157 ], [ null, %.backedge255 ], [ null, %80 ], [ null, %160 ], [ null, %.preheader239 ], [ null, %51 ], [ null, %.backedge257 ], [ null, %49 ], [ null, %54 ], [ null, %.preheader245 ], [ null, %98 ], [ null, %.preheader252 ], [ null, %.lr.ph358 ], [ null, %.loopexit254 ], [ null, %.loopexit247 ], [ null, %78 ], [ null, %.preheader260 ], [ null, %.backedge266 ], [ null, %.preheader267 ], [ null, %.preheader264 ], [ null, %178 ], [ null, %.backedge273 ], [ null, %36 ], [ null, %181 ]
+  ret ptr %.0136
 }
 
 declare void @rb_obj_freeze_inline(i64 noundef) local_unnamed_addr #1

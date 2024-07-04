@@ -192,12 +192,12 @@ while.body.lr.ph:                                 ; preds = %invoke.cont
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end35
-  %cursor.046 = phi i32 [ %3, %while.body.lr.ph ], [ %cursor.1, %if.end35 ]
-  %limit9.045 = phi i32 [ %4, %while.body.lr.ph ], [ %limit9.1, %if.end35 ]
+  %limit9.046 = phi i32 [ %4, %while.body.lr.ph ], [ %limit9.1, %if.end35 ]
+  %cursor.045 = phi i32 [ %3, %while.body.lr.ph ], [ %cursor.1, %if.end35 ]
   %vtable.i = load ptr, ptr %text, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 80
   %6 = load ptr, ptr %vfn.i, align 8
-  %call.i33 = invoke noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %cursor.046)
+  %call.i33 = invoke noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %cursor.045)
           to label %invoke.cont13 unwind label %lpad12.loopexit
 
 invoke.cont13:                                    ; preds = %while.body
@@ -254,16 +254,16 @@ invoke.cont26:                                    ; preds = %invoke.cont24
 invoke.cont28:                                    ; preds = %invoke.cont26
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i)
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #7
-  %add = add nsw i32 %cond, %cursor.046
+  %add = add nsw i32 %cond, %cursor.045
   %vtable = load ptr, ptr %text, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %15 = load ptr, ptr %vfn, align 8
-  invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %cursor.046, i32 noundef %add, ptr noundef nonnull align 8 dereferenceable(64) %str)
+  invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %cursor.045, i32 noundef %add, ptr noundef nonnull align 8 dereferenceable(64) %str)
           to label %invoke.cont30 unwind label %lpad12.loopexit
 
 invoke.cont30:                                    ; preds = %invoke.cont28
   %add31 = add nuw nsw i32 %call17, 4
-  %sub = add i32 %cond.neg48, %limit9.045
+  %sub = add i32 %cond.neg48, %limit9.046
   %add33 = add i32 %sub, %add31
   br label %if.end35
 
@@ -291,15 +291,15 @@ lpad25:                                           ; preds = %invoke.cont26, %inv
   br label %ehcleanup
 
 if.end35:                                         ; preds = %invoke.cont16, %invoke.cont30
-  %limit9.1 = phi i32 [ %add33, %invoke.cont30 ], [ %limit9.045, %invoke.cont16 ]
   %cond.pn = phi i32 [ %add31, %invoke.cont30 ], [ %cond, %invoke.cont16 ]
-  %cursor.1 = add nsw i32 %cond.pn, %cursor.046
+  %limit9.1 = phi i32 [ %add33, %invoke.cont30 ], [ %limit9.046, %invoke.cont16 ]
+  %cursor.1 = add nsw i32 %cond.pn, %cursor.045
   %cmp11 = icmp slt i32 %cursor.1, %limit9.1
   br i1 %cmp11, label %while.body, label %while.end, !llvm.loop !5
 
 while.end:                                        ; preds = %if.end35, %invoke.cont
-  %limit9.0.lcssa = phi i32 [ %4, %invoke.cont ], [ %limit9.1, %if.end35 ]
   %cursor.0.lcssa = phi i32 [ %3, %invoke.cont ], [ %cursor.1, %if.end35 ]
+  %limit9.0.lcssa = phi i32 [ %4, %invoke.cont ], [ %limit9.1, %if.end35 ]
   %19 = load i32, ptr %limit10, align 4
   %sub37 = sub i32 %limit9.0.lcssa, %19
   %contextLimit = getelementptr inbounds i8, ptr %offsets, i64 4

@@ -388,11 +388,11 @@ while.body.lr.ph.i:                               ; preds = %if.then
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end12.i, %while.body.lr.ph.i
-  %min.023.i = phi i32 [ %2, %while.body.lr.ph.i ], [ %min.1.i, %if.end12.i ]
-  %best_zero.022.i = phi i32 [ -1, %while.body.lr.ph.i ], [ %best_zero.1.i, %if.end12.i ]
-  %best_pos.021.i = phi i32 [ -1, %while.body.lr.ph.i ], [ %best_pos.1.fr.i, %if.end12.i ]
-  %limit.020.i = phi i32 [ %add.i, %while.body.lr.ph.i ], [ %limit.1.i, %if.end12.i ]
-  %add5.i = add i32 %limit.020.i, %min.023.i
+  %best_zero.023.i = phi i32 [ -1, %while.body.lr.ph.i ], [ %best_zero.1.i, %if.end12.i ]
+  %best_pos.022.i = phi i32 [ -1, %while.body.lr.ph.i ], [ %best_pos.1.fr.i, %if.end12.i ]
+  %limit.021.i = phi i32 [ %add.i, %while.body.lr.ph.i ], [ %limit.1.i, %if.end12.i ]
+  %min.020.i = phi i32 [ %2, %while.body.lr.ph.i ], [ %min.1.i, %if.end12.i ]
+  %add5.i = add i32 %min.020.i, %limit.021.i
   %div16.i = lshr i32 %add5.i, 1
   %3 = load ptr, ptr %values.i, align 8
   %idxprom.i = zext nneg i32 %div16.i to i64
@@ -408,8 +408,8 @@ _ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.ex
   %call3.i.i = tail call i64 @_ZNK4toku8locktree11get_dict_idEv(ptr noundef nonnull align 8 dereferenceable(400) %6)
   %7 = load i64, ptr %extra, align 8
   %cmp7.i.not.i = icmp eq i64 %call3.i.i, %7
-  %best_pos.0.div16.i = select i1 %cmp7.i.not.i, i32 %best_pos.021.i, i32 %div16.i
-  %div16.best_zero.0.i = select i1 %cmp7.i.not.i, i32 %div16.i, i32 %best_zero.022.i
+  %best_pos.0.div16.i = select i1 %cmp7.i.not.i, i32 %best_pos.022.i, i32 %div16.i
+  %div16.best_zero.0.i = select i1 %cmp7.i.not.i, i32 %div16.i, i32 %best_zero.023.i
   br label %if.end12.i
 
 if.then.i:                                        ; preds = %while.body.i
@@ -417,10 +417,10 @@ if.then.i:                                        ; preds = %while.body.i
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then.i, %_ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.exit.i
-  %limit.1.i = phi i32 [ %limit.020.i, %if.then.i ], [ %div16.i, %_ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.exit.i ]
-  %best_pos.1.i = phi i32 [ %best_pos.021.i, %if.then.i ], [ %best_pos.0.div16.i, %_ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.exit.i ]
-  %best_zero.1.i = phi i32 [ %best_zero.022.i, %if.then.i ], [ %div16.best_zero.0.i, %_ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.exit.i ]
-  %min.1.i = phi i32 [ %add8.i, %if.then.i ], [ %min.023.i, %_ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.exit.i ]
+  %min.1.i = phi i32 [ %add8.i, %if.then.i ], [ %min.020.i, %_ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.exit.i ]
+  %limit.1.i = phi i32 [ %limit.021.i, %if.then.i ], [ %div16.i, %_ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.exit.i ]
+  %best_pos.1.i = phi i32 [ %best_pos.022.i, %if.then.i ], [ %best_pos.0.div16.i, %_ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.exit.i ]
+  %best_zero.1.i = phi i32 [ %best_zero.023.i, %if.then.i ], [ %div16.best_zero.0.i, %_ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.exit.i ]
   %best_pos.1.fr.i = freeze i32 %best_pos.1.i
   %cmp.not.i = icmp eq i32 %min.1.i, %limit.1.i
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !4
@@ -504,11 +504,11 @@ while.body.lr.ph.i.i:                             ; preds = %if.then.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end12.i.i, %while.body.lr.ph.i.i
-  %min.023.i.i = phi i32 [ %2, %while.body.lr.ph.i.i ], [ %min.1.i.i, %if.end12.i.i ]
-  %best_zero.022.i.i = phi i32 [ -1, %while.body.lr.ph.i.i ], [ %best_zero.1.i.i, %if.end12.i.i ]
-  %best_pos.021.i.i = phi i32 [ -1, %while.body.lr.ph.i.i ], [ %best_pos.1.fr.i.i, %if.end12.i.i ]
-  %limit.020.i.i = phi i32 [ %add.i.i, %while.body.lr.ph.i.i ], [ %limit.1.i.i, %if.end12.i.i ]
-  %add5.i.i = add i32 %limit.020.i.i, %min.023.i.i
+  %best_zero.023.i.i = phi i32 [ -1, %while.body.lr.ph.i.i ], [ %best_zero.1.i.i, %if.end12.i.i ]
+  %best_pos.022.i.i = phi i32 [ -1, %while.body.lr.ph.i.i ], [ %best_pos.1.fr.i.i, %if.end12.i.i ]
+  %limit.021.i.i = phi i32 [ %add.i.i, %while.body.lr.ph.i.i ], [ %limit.1.i.i, %if.end12.i.i ]
+  %min.020.i.i = phi i32 [ %2, %while.body.lr.ph.i.i ], [ %min.1.i.i, %if.end12.i.i ]
+  %add5.i.i = add i32 %min.020.i.i, %limit.021.i.i
   %div16.i.i = lshr i32 %add5.i.i, 1
   %3 = load ptr, ptr %values.i.i, align 8
   %idxprom.i.i = zext nneg i32 %div16.i.i to i64
@@ -524,8 +524,8 @@ _ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.ex
   %call3.i.i.i = tail call i64 @_ZNK4toku8locktree11get_dict_idEv(ptr noundef nonnull align 8 dereferenceable(400) %6)
   %7 = load i64, ptr %v, align 8
   %cmp7.i.not.i.i = icmp eq i64 %call3.i.i.i, %7
-  %best_pos.0.div16.i.i = select i1 %cmp7.i.not.i.i, i32 %best_pos.021.i.i, i32 %div16.i.i
-  %div16.best_zero.0.i.i = select i1 %cmp7.i.not.i.i, i32 %div16.i.i, i32 %best_zero.022.i.i
+  %best_pos.0.div16.i.i = select i1 %cmp7.i.not.i.i, i32 %best_pos.022.i.i, i32 %div16.i.i
+  %div16.best_zero.0.i.i = select i1 %cmp7.i.not.i.i, i32 %div16.i.i, i32 %best_zero.023.i.i
   br label %if.end12.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i
@@ -533,10 +533,10 @@ if.then.i.i:                                      ; preds = %while.body.i.i
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.then.i.i, %_ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.exit.i.i
-  %limit.1.i.i = phi i32 [ %limit.020.i.i, %if.then.i.i ], [ %div16.i.i, %_ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.exit.i.i ]
-  %best_pos.1.i.i = phi i32 [ %best_pos.021.i.i, %if.then.i.i ], [ %best_pos.0.div16.i.i, %_ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.exit.i.i ]
-  %best_zero.1.i.i = phi i32 [ %best_zero.022.i.i, %if.then.i.i ], [ %div16.best_zero.0.i.i, %_ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.exit.i.i ]
-  %min.1.i.i = phi i32 [ %add8.i.i, %if.then.i.i ], [ %min.023.i.i, %_ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.exit.i.i ]
+  %min.1.i.i = phi i32 [ %add8.i.i, %if.then.i.i ], [ %min.020.i.i, %_ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.exit.i.i ]
+  %limit.1.i.i = phi i32 [ %limit.021.i.i, %if.then.i.i ], [ %div16.i.i, %_ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.exit.i.i ]
+  %best_pos.1.i.i = phi i32 [ %best_pos.022.i.i, %if.then.i.i ], [ %best_pos.0.div16.i.i, %_ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.exit.i.i ]
+  %best_zero.1.i.i = phi i32 [ %best_zero.023.i.i, %if.then.i.i ], [ %div16.best_zero.0.i.i, %_ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.exit.i.i ]
   %best_pos.1.fr.i.i = freeze i32 %best_pos.1.i.i
   %cmp.not.i.i = icmp eq i32 %min.1.i.i, %limit.1.i.i
   br i1 %cmp.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !4

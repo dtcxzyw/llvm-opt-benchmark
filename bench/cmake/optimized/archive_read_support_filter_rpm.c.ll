@@ -126,9 +126,9 @@ define internal i64 @rpm_filter_read(ptr nocapture noundef readonly %0, ptr noca
   br label %23
 
 23:                                               ; preds = %131, %2
-  %.089 = phi i64 [ 0, %2 ], [ %.392, %131 ]
-  %.086 = phi ptr [ null, %2 ], [ %.4, %131 ]
-  %24 = icmp eq ptr %.086, null
+  %.092 = phi ptr [ null, %2 ], [ %.496, %131 ]
+  %.087 = phi i64 [ 0, %2 ], [ %.3, %131 ]
+  %24 = icmp eq ptr %.092, null
   br i1 %24, label %25, label %32
 
 25:                                               ; preds = %23
@@ -144,7 +144,7 @@ define internal i64 @rpm_filter_read(ptr nocapture noundef readonly %0, ptr noca
   br label %.thread
 
 32:                                               ; preds = %25, %23
-  %.1 = phi ptr [ %27, %25 ], [ %.086, %23 ]
+  %.193 = phi ptr [ %27, %25 ], [ %.092, %23 ]
   %33 = load i32, ptr %7, align 8
   switch i32 %33, label %..loopexit_crit_edge [
     i32 0, label %36
@@ -160,7 +160,7 @@ define internal i64 @rpm_filter_read(ptr nocapture noundef readonly %0, ptr noca
 
 .preheader:                                       ; preds = %32
   %34 = load i64, ptr %3, align 8
-  %35 = icmp ult i64 %.089, %34
+  %35 = icmp ult i64 %.087, %34
   br i1 %35, label %.lr.ph, label %.loopexit
 
 36:                                               ; preds = %32
@@ -171,13 +171,13 @@ define internal i64 @rpm_filter_read(ptr nocapture noundef readonly %0, ptr noca
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %36
-  %42 = add i64 %38, %.089
+  %42 = add i64 %38, %.087
   br label %.loopexit
 
 43:                                               ; preds = %36
   %44 = sub nsw i64 96, %37
-  %45 = add i64 %44, %.089
-  %46 = getelementptr inbounds i8, ptr %.1, i64 %44
+  %45 = add i64 %44, %.087
+  %46 = getelementptr inbounds i8, ptr %.193, i64 %44
   store i32 1, ptr %7, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   store i32 1, ptr %14, align 4
@@ -187,12 +187,12 @@ define internal i64 @rpm_filter_read(ptr nocapture noundef readonly %0, ptr noca
   %48 = load i64, ptr %8, align 8
   %49 = sub i64 16, %48
   %50 = load i64, ptr %3, align 8
-  %51 = sub i64 %50, %.089
+  %51 = sub i64 %50, %.087
   %spec.select = call i64 @llvm.umin.i64(i64 %49, i64 %51)
   %52 = getelementptr inbounds i8, ptr %10, i64 %48
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull align 1 %.1, i64 %spec.select, i1 false)
-  %53 = getelementptr inbounds i8, ptr %.1, i64 %spec.select
-  %54 = add i64 %spec.select, %.089
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull align 1 %.193, i64 %spec.select, i1 false)
+  %53 = getelementptr inbounds i8, ptr %.193, i64 %spec.select
+  %54 = add i64 %spec.select, %.087
   %55 = load i64, ptr %8, align 8
   %56 = add i64 %55, %spec.select
   store i64 %56, ptr %8, align 8
@@ -279,10 +279,10 @@ define internal i64 @rpm_filter_read(ptr nocapture noundef readonly %0, ptr noca
   %108 = load i64, ptr %8, align 8
   %109 = sub i64 %107, %108
   %110 = load i64, ptr %3, align 8
-  %111 = sub i64 %110, %.089
+  %111 = sub i64 %110, %.087
   %spec.select108 = call i64 @llvm.umin.i64(i64 %109, i64 %111)
-  %112 = getelementptr inbounds i8, ptr %.1, i64 %spec.select108
-  %113 = add i64 %spec.select108, %.089
+  %112 = getelementptr inbounds i8, ptr %.193, i64 %spec.select108
+  %113 = add i64 %spec.select108, %.087
   %114 = add i64 %spec.select108, %108
   store i64 %114, ptr %8, align 8
   %115 = icmp eq i64 %114, %107
@@ -293,9 +293,9 @@ define internal i64 @rpm_filter_read(ptr nocapture noundef readonly %0, ptr noca
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %119
-  %.2117 = phi ptr [ %120, %119 ], [ %.1, %.preheader ]
-  %.190116 = phi i64 [ %121, %119 ], [ %.089, %.preheader ]
-  %117 = load i8, ptr %.2117, align 1
+  %.188117 = phi i64 [ %121, %119 ], [ %.087, %.preheader ]
+  %.294116 = phi ptr [ %120, %119 ], [ %.193, %.preheader ]
+  %117 = load i8, ptr %.294116, align 1
   %.not = icmp eq i8 %117, 0
   br i1 %.not, label %119, label %118
 
@@ -305,26 +305,26 @@ define internal i64 @rpm_filter_read(ptr nocapture noundef readonly %0, ptr noca
   br label %.loopexit
 
 119:                                              ; preds = %.lr.ph
-  %120 = getelementptr inbounds i8, ptr %.2117, i64 1
-  %121 = add i64 %.190116, 1
+  %120 = getelementptr inbounds i8, ptr %.294116, i64 1
+  %121 = add i64 %.188117, 1
   %exitcond.not = icmp eq i64 %121, %34
   br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !5
 
 122:                                              ; preds = %32
-  store ptr %.1, ptr %1, align 8
+  store ptr %.193, ptr %1, align 8
   %123 = load i64, ptr %3, align 8
   br label %.loopexit.thread
 
 .loopexit:                                        ; preds = %..loopexit_crit_edge, %.preheader, %118, %106, %116, %47, %73, %41, %43, %71
   %124 = phi i64 [ %.pre, %..loopexit_crit_edge ], [ %34, %118 ], [ %110, %116 ], [ %110, %106 ], [ %50, %71 ], [ %50, %73 ], [ %50, %47 ], [ %38, %41 ], [ %38, %43 ], [ %34, %.preheader ]
-  %.195 = phi i64 [ 0, %..loopexit_crit_edge ], [ 0, %118 ], [ 0, %116 ], [ 0, %106 ], [ %72, %71 ], [ 0, %73 ], [ 0, %47 ], [ 0, %41 ], [ 0, %43 ], [ 0, %.preheader ]
-  %.291 = phi i64 [ %.089, %..loopexit_crit_edge ], [ %.190116, %118 ], [ %113, %116 ], [ %113, %106 ], [ %54, %71 ], [ %54, %73 ], [ %54, %47 ], [ %42, %41 ], [ %45, %43 ], [ %.089, %.preheader ]
-  %.3 = phi ptr [ %.1, %..loopexit_crit_edge ], [ %.2117, %118 ], [ %112, %116 ], [ %112, %106 ], [ %53, %71 ], [ %53, %73 ], [ %53, %47 ], [ %.1, %41 ], [ %46, %43 ], [ %.1, %.preheader ]
-  %125 = icmp eq i64 %.291, %124
+  %.395 = phi ptr [ %.193, %..loopexit_crit_edge ], [ %.294116, %118 ], [ %112, %116 ], [ %112, %106 ], [ %53, %71 ], [ %53, %73 ], [ %53, %47 ], [ %.193, %41 ], [ %46, %43 ], [ %.193, %.preheader ]
+  %.190 = phi i64 [ 0, %..loopexit_crit_edge ], [ 0, %118 ], [ 0, %116 ], [ 0, %106 ], [ %72, %71 ], [ 0, %73 ], [ 0, %47 ], [ 0, %41 ], [ 0, %43 ], [ 0, %.preheader ]
+  %.2 = phi i64 [ %.087, %..loopexit_crit_edge ], [ %.188117, %118 ], [ %113, %116 ], [ %113, %106 ], [ %54, %71 ], [ %54, %73 ], [ %54, %47 ], [ %42, %41 ], [ %45, %43 ], [ %.087, %.preheader ]
+  %125 = icmp eq i64 %.2, %124
   br i1 %125, label %.loopexit.thread, label %131
 
 .loopexit.thread:                                 ; preds = %119, %122, %.loopexit
-  %.195127 = phi i64 [ %.195, %.loopexit ], [ %123, %122 ], [ 0, %119 ]
+  %.190127 = phi i64 [ %.190, %.loopexit ], [ %123, %122 ], [ 0, %119 ]
   %126 = phi i64 [ %124, %.loopexit ], [ %123, %122 ], [ %34, %119 ]
   %127 = load i64, ptr %5, align 8
   %128 = add i64 %127, %126
@@ -335,31 +335,31 @@ define internal i64 @rpm_filter_read(ptr nocapture noundef readonly %0, ptr noca
   br label %131
 
 131:                                              ; preds = %.loopexit, %.loopexit.thread
-  %.195126 = phi i64 [ %.195127, %.loopexit.thread ], [ %.195, %.loopexit ]
+  %.190126 = phi i64 [ %.190127, %.loopexit.thread ], [ %.190, %.loopexit ]
   %132 = phi i64 [ %.pre122, %.loopexit.thread ], [ %124, %.loopexit ]
-  %.392 = phi i64 [ 0, %.loopexit.thread ], [ %.291, %.loopexit ]
-  %.4 = phi ptr [ null, %.loopexit.thread ], [ %.3, %.loopexit ]
-  %133 = icmp eq i64 %.195126, 0
+  %.496 = phi ptr [ null, %.loopexit.thread ], [ %.395, %.loopexit ]
+  %.3 = phi i64 [ 0, %.loopexit.thread ], [ %.2, %.loopexit ]
+  %133 = icmp eq i64 %.190126, 0
   %134 = icmp sgt i64 %132, 0
   %135 = select i1 %133, i1 %134, i1 false
   br i1 %135, label %23, label %136, !llvm.loop !7
 
 136:                                              ; preds = %131
-  %137 = icmp ne i64 %.392, 0
-  %138 = icmp ne ptr %.4, null
+  %137 = icmp ne i64 %.3, 0
+  %138 = icmp ne ptr %.496, null
   %or.cond = select i1 %137, i1 %138, i1 false
   br i1 %or.cond, label %139, label %.thread
 
 139:                                              ; preds = %136
   %140 = load i64, ptr %5, align 8
-  %141 = add i64 %140, %.392
+  %141 = add i64 %140, %.3
   store i64 %141, ptr %5, align 8
   %142 = load ptr, ptr %6, align 8
-  %143 = call i64 @__archive_read_filter_consume(ptr noundef %142, i64 noundef %.392) #9
+  %143 = call i64 @__archive_read_filter_consume(ptr noundef %142, i64 noundef %.3) #9
   br label %.thread
 
 .thread:                                          ; preds = %29, %136, %139, %68
-  %.0 = phi i64 [ -30, %68 ], [ %.195126, %139 ], [ %.195126, %136 ], [ %spec.select113, %29 ]
+  %.0 = phi i64 [ -30, %68 ], [ %.190126, %139 ], [ %.190126, %136 ], [ %spec.select113, %29 ]
   ret i64 %.0
 }
 

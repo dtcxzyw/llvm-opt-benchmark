@@ -67,14 +67,14 @@ define hidden range(i32 -10368, 1) i32 @mbedtls_x509_string_to_names(ptr noundef
   br label %7
 
 7:                                                ; preds = %.lr.ph, %62
-  %.046111 = phi ptr [ %3, %.lr.ph ], [ %.2, %62 ]
-  %.047110 = phi i32 [ 1, %.lr.ph ], [ %.249102, %62 ]
-  %.050109 = phi ptr [ null, %.lr.ph ], [ %.1518499, %62 ]
-  %.052108 = phi ptr [ null, %.lr.ph ], [ %.15382100, %62 ]
-  %.055107 = phi ptr [ %1, %.lr.ph ], [ %63, %62 ]
-  %.058106 = phi ptr [ %1, %.lr.ph ], [ %.260101, %62 ]
-  %.not65 = icmp eq i32 %.047110, 0
-  %.pre122 = load i8, ptr %.055107, align 1
+  %.0111 = phi ptr [ %3, %.lr.ph ], [ %.2, %62 ]
+  %.046110 = phi i32 [ 1, %.lr.ph ], [ %.248102, %62 ]
+  %.049109 = phi ptr [ null, %.lr.ph ], [ %.1508499, %62 ]
+  %.051108 = phi ptr [ null, %.lr.ph ], [ %.15282100, %62 ]
+  %.053107 = phi ptr [ %1, %.lr.ph ], [ %63, %62 ]
+  %.056106 = phi ptr [ %1, %.lr.ph ], [ %.258101, %62 ]
+  %.not65 = icmp eq i32 %.046110, 0
+  %.pre122 = load i8, ptr %.053107, align 1
   br i1 %.not65, label %28, label %8
 
 8:                                                ; preds = %7
@@ -82,8 +82,8 @@ define hidden range(i32 -10368, 1) i32 @mbedtls_x509_string_to_names(ptr noundef
   br i1 %9, label %10, label %.critedge72.thread
 
 10:                                               ; preds = %8
-  %11 = ptrtoint ptr %.055107 to i64
-  %12 = ptrtoint ptr %.058106 to i64
+  %11 = ptrtoint ptr %.053107 to i64
+  %12 = ptrtoint ptr %.056106 to i64
   %13 = sub i64 %11, %12
   br label %14
 
@@ -96,7 +96,7 @@ define hidden range(i32 -10368, 1) i32 @mbedtls_x509_string_to_names(ptr noundef
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %14
-  %20 = call i32 @strncmp(ptr noundef nonnull %15, ptr noundef readonly %.058106, i64 noundef %13) #4
+  %20 = call i32 @strncmp(ptr noundef nonnull %15, ptr noundef readonly %.056106, i64 noundef %13) #4
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %x509_attr_descr_from_name.exit, label %22
 
@@ -109,21 +109,21 @@ define hidden range(i32 -10368, 1) i32 @mbedtls_x509_string_to_names(ptr noundef
 x509_attr_descr_from_name.exit:                   ; preds = %19
   %25 = getelementptr inbounds i8, ptr %.012.i, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %.055107, i64 1
+  %27 = getelementptr inbounds i8, ptr %.053107, i64 1
   br label %28
 
 28:                                               ; preds = %x509_attr_descr_from_name.exit, %7
-  %.159.ph = phi ptr [ %.058106, %7 ], [ %27, %x509_attr_descr_from_name.exit ]
-  %.153.ph = phi ptr [ %.052108, %7 ], [ %26, %x509_attr_descr_from_name.exit ]
-  %.151.ph = phi ptr [ %.050109, %7 ], [ %.012.i, %x509_attr_descr_from_name.exit ]
-  %.1.ph = phi ptr [ %.046111, %7 ], [ %3, %x509_attr_descr_from_name.exit ]
+  %.157.ph = phi ptr [ %.056106, %7 ], [ %27, %x509_attr_descr_from_name.exit ]
+  %.152.ph = phi ptr [ %.051108, %7 ], [ %26, %x509_attr_descr_from_name.exit ]
+  %.150.ph = phi ptr [ %.049109, %7 ], [ %.012.i, %x509_attr_descr_from_name.exit ]
+  %.1.ph = phi ptr [ %.0111, %7 ], [ %3, %x509_attr_descr_from_name.exit ]
   %29 = icmp ne i8 %.pre122, 92
-  %.not67 = icmp eq ptr %.055107, %5
+  %.not67 = icmp eq ptr %.053107, %5
   %or.cond = select i1 %29, i1 true, i1 %.not67
   br i1 %or.cond, label %35, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %.055107, i64 1
+  %31 = getelementptr inbounds i8, ptr %.053107, i64 1
   %32 = icmp eq ptr %31, %5
   br i1 %32, label %x509_attr_descr_from_name.exit.thread, label %33
 
@@ -138,49 +138,49 @@ x509_attr_descr_from_name.exit:                   ; preds = %19
   br i1 %or.cond73, label %37, label %.critedge72
 
 37:                                               ; preds = %35
-  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.153.ph) #4
+  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.152.ph) #4
   %39 = ptrtoint ptr %.1.ph to i64
   %40 = sub i64 %39, %6
-  %41 = call ptr @mbedtls_asn1_store_named_data(ptr noundef %0, ptr noundef %.153.ph, i64 noundef %38, ptr noundef nonnull %3, i64 noundef %40) #5
+  %41 = call ptr @mbedtls_asn1_store_named_data(ptr noundef %0, ptr noundef %.152.ph, i64 noundef %38, ptr noundef nonnull %3, i64 noundef %40) #5
   %42 = icmp eq ptr %41, null
   br i1 %42, label %x509_attr_descr_from_name.exit.thread, label %43
 
 43:                                               ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %.151.ph, i64 24
+  %44 = getelementptr inbounds i8, ptr %.150.ph, i64 24
   %45 = load i32, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %41, i64 24
   store i32 %45, ptr %46, align 8
   br label %47
 
 47:                                               ; preds = %49, %43
-  %.156 = phi ptr [ %.055107, %43 ], [ %50, %49 ]
-  %48 = icmp ult ptr %.156, %5
+  %.154 = phi ptr [ %.053107, %43 ], [ %50, %49 ]
+  %48 = icmp ult ptr %.154, %5
   br i1 %48, label %49, label %.critedge
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %.156, i64 1
+  %50 = getelementptr inbounds i8, ptr %.154, i64 1
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 32
   br i1 %52, label %47, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %47, %49
-  %53 = getelementptr inbounds i8, ptr %.156, i64 1
+  %53 = getelementptr inbounds i8, ptr %.154, i64 1
   br label %.critedge72.thread
 
 .critedge72.thread:                               ; preds = %.critedge, %8
-  %.187.ph = phi ptr [ %.046111, %8 ], [ %.1.ph, %.critedge ]
-  %.15184.ph = phi ptr [ %.050109, %8 ], [ %.151.ph, %.critedge ]
-  %.15382.ph = phi ptr [ %.052108, %8 ], [ %.153.ph, %.critedge ]
-  %.260.ph = phi ptr [ %.058106, %8 ], [ %53, %.critedge ]
-  %.257.ph = phi ptr [ %.055107, %8 ], [ %.156, %.critedge ]
-  %54 = getelementptr inbounds i8, ptr %.257.ph, i64 1
+  %.187.ph = phi ptr [ %.0111, %8 ], [ %.1.ph, %.critedge ]
+  %.15084.ph = phi ptr [ %.049109, %8 ], [ %.150.ph, %.critedge ]
+  %.15282.ph = phi ptr [ %.051108, %8 ], [ %.152.ph, %.critedge ]
+  %.258.ph = phi ptr [ %.056106, %8 ], [ %53, %.critedge ]
+  %.255.ph = phi ptr [ %.053107, %8 ], [ %.154, %.critedge ]
+  %54 = getelementptr inbounds i8, ptr %.255.ph, i64 1
   br label %62
 
 .critedge72:                                      ; preds = %35, %33
   %55 = phi i8 [ 44, %33 ], [ %.pre122, %35 ]
-  %.257 = phi ptr [ %31, %33 ], [ %.055107, %35 ]
-  %56 = getelementptr inbounds i8, ptr %.257, i64 1
-  %.not70 = icmp eq ptr %.159.ph, %56
+  %.255 = phi ptr [ %31, %33 ], [ %.053107, %35 ]
+  %56 = getelementptr inbounds i8, ptr %.255, i64 1
+  %.not70 = icmp eq ptr %.157.ph, %56
   br i1 %.not70, label %62, label %57
 
 57:                                               ; preds = %.critedge72
@@ -193,17 +193,17 @@ x509_attr_descr_from_name.exit:                   ; preds = %19
 
 62:                                               ; preds = %.critedge72.thread, %57, %.critedge72
   %63 = phi ptr [ %56, %.critedge72 ], [ %56, %57 ], [ %54, %.critedge72.thread ]
-  %.249102 = phi i32 [ 0, %.critedge72 ], [ 0, %57 ], [ 1, %.critedge72.thread ]
-  %.260101 = phi ptr [ %.159.ph, %.critedge72 ], [ %.159.ph, %57 ], [ %.260.ph, %.critedge72.thread ]
-  %.15382100 = phi ptr [ %.153.ph, %.critedge72 ], [ %.153.ph, %57 ], [ %.15382.ph, %.critedge72.thread ]
-  %.1518499 = phi ptr [ %.151.ph, %.critedge72 ], [ %.151.ph, %57 ], [ %.15184.ph, %.critedge72.thread ]
+  %.248102 = phi i32 [ 0, %.critedge72 ], [ 0, %57 ], [ 1, %.critedge72.thread ]
+  %.258101 = phi ptr [ %.157.ph, %.critedge72 ], [ %.157.ph, %57 ], [ %.258.ph, %.critedge72.thread ]
+  %.15282100 = phi ptr [ %.152.ph, %.critedge72 ], [ %.152.ph, %57 ], [ %.15282.ph, %.critedge72.thread ]
+  %.1508499 = phi ptr [ %.150.ph, %.critedge72 ], [ %.150.ph, %57 ], [ %.15084.ph, %.critedge72.thread ]
   %.2 = phi ptr [ %.1.ph, %.critedge72 ], [ %58, %57 ], [ %.187.ph, %.critedge72.thread ]
   %.not = icmp ugt ptr %63, %5
   br i1 %.not, label %x509_attr_descr_from_name.exit.thread, label %7, !llvm.loop !7
 
 x509_attr_descr_from_name.exit.thread:            ; preds = %37, %57, %30, %33, %62, %22, %2
-  %.0 = phi i32 [ 0, %2 ], [ -8448, %22 ], [ -10368, %37 ], [ -9088, %57 ], [ -9088, %30 ], [ -9088, %33 ], [ 0, %62 ]
-  ret i32 %.0
+  %.060 = phi i32 [ 0, %2 ], [ -8448, %22 ], [ -10368, %37 ], [ -9088, %57 ], [ -9088, %30 ], [ -9088, %33 ], [ 0, %62 ]
+  ret i32 %.060
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

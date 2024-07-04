@@ -384,19 +384,19 @@ define internal i32 @epm_dissect_ept_entry_t(ptr noundef %0, i32 noundef %1, ptr
   br label %16
 
 16:                                               ; preds = %13, %12
-  %.042 = phi ptr [ %15, %13 ], [ null, %12 ]
+  %.0 = phi ptr [ %15, %13 ], [ null, %12 ]
   %17 = load i32, ptr @hf_epm_object, align 4
-  %18 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.042, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %17, ptr noundef null) #5
-  %19 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.042, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @epm_dissect_tower, i32 noundef 3, ptr noundef nonnull @.str.123, i32 noundef -1) #5
+  %18 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %17, ptr noundef null) #5
+  %19 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @epm_dissect_tower, i32 noundef 3, ptr noundef nonnull @.str.123, i32 noundef -1) #5
   %20 = load i32, ptr @hf_epm_ann_offset, align 4
-  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.042, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef null) #5
+  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef null) #5
   %22 = load i32, ptr @hf_epm_ann_len, align 4
-  %23 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.042, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %8) #5
+  %23 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %8) #5
   %24 = load i32, ptr @hf_epm_annotation, align 4
   %25 = load i32, ptr %8, align 4
   %26 = getelementptr inbounds i8, ptr %2, i64 408
   %27 = load ptr, ptr %26, align 8
-  %28 = call ptr @proto_tree_add_item_ret_string(ptr noundef %.042, i32 noundef %24, ptr noundef %0, i32 noundef %23, i32 noundef %25, i32 noundef 0, ptr noundef %27, ptr noundef nonnull %9) #5
+  %28 = call ptr @proto_tree_add_item_ret_string(ptr noundef %.0, i32 noundef %24, ptr noundef %0, i32 noundef %23, i32 noundef %25, i32 noundef 0, ptr noundef %27, ptr noundef nonnull %9) #5
   %29 = load i32, ptr %8, align 4
   %30 = add i32 %29, %23
   %31 = load ptr, ptr %9, align 8
@@ -414,7 +414,7 @@ define internal i32 @epm_dissect_ept_entry_t(ptr noundef %0, i32 noundef %1, ptr
 35:                                               ; preds = %34
   %36 = load ptr, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.124, ptr noundef nonnull %31) #5
-  %37 = getelementptr inbounds i8, ptr %.042, i64 24
+  %37 = getelementptr inbounds i8, ptr %.0, i64 24
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %9, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %38, ptr noundef nonnull @.str.124, ptr noundef %39) #5
@@ -435,8 +435,8 @@ define internal i32 @epm_dissect_ept_entry_t(ptr noundef %0, i32 noundef %1, ptr
   br label %47
 
 47:                                               ; preds = %6, %44
-  %.0 = phi i32 [ %30, %44 ], [ %1, %6 ]
-  ret i32 %.0
+  %.042 = phi i32 [ %30, %44 ], [ %1, %6 ]
+  ret i32 %.042
 }
 
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

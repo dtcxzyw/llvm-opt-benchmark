@@ -78,9 +78,9 @@ define ptr @cuddAddApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %40
 
 40:                                               ; preds = %33, %35
-  %.047 = phi i32 [ %14, %35 ], [ %25, %33 ]
+  %.0 = phi i32 [ %14, %35 ], [ %25, %33 ]
+  %.050 = phi ptr [ %37, %35 ], [ %13, %33 ]
   %.049 = phi ptr [ %39, %35 ], [ %13, %33 ]
-  %.048 = phi ptr [ %37, %35 ], [ %13, %33 ]
   %.not62 = icmp ugt i32 %34, %23
   br i1 %.not62, label %46, label %41
 
@@ -92,9 +92,9 @@ define ptr @cuddAddApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %46
 
 46:                                               ; preds = %40, %41
-  %.051 = phi ptr [ %45, %41 ], [ %24, %40 ]
-  %.050 = phi ptr [ %43, %41 ], [ %24, %40 ]
-  %47 = call ptr @cuddAddApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef %.048, ptr noundef %.050)
+  %.048 = phi ptr [ %43, %41 ], [ %24, %40 ]
+  %.047 = phi ptr [ %45, %41 ], [ %24, %40 ]
+  %47 = call ptr @cuddAddApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef %.050, ptr noundef %.048)
   %48 = icmp eq ptr %47, null
   br i1 %48, label %78, label %49
 
@@ -106,7 +106,7 @@ define ptr @cuddAddApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %54 = load i32, ptr %53, align 4
   %55 = add i32 %54, 1
   store i32 %55, ptr %53, align 4
-  %56 = call ptr @cuddAddApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef %.049, ptr noundef %.051)
+  %56 = call ptr @cuddAddApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef %.049, ptr noundef %.047)
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %59
 
@@ -126,7 +126,7 @@ define ptr @cuddAddApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br i1 %66, label %.thread, label %67
 
 67:                                               ; preds = %59
-  %68 = call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %.047, ptr noundef nonnull %47, ptr noundef nonnull %56) #5
+  %68 = call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %47, ptr noundef nonnull %56) #5
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %.thread
 
@@ -149,8 +149,8 @@ define ptr @cuddAddApplyRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %78
 
 78:                                               ; preds = %46, %8, %4, %.thread, %70, %58
-  %.0 = phi ptr [ null, %58 ], [ null, %70 ], [ %71, %.thread ], [ %7, %4 ], [ %11, %8 ], [ null, %46 ]
-  ret ptr %.0
+  %.051 = phi ptr [ null, %58 ], [ null, %70 ], [ %71, %.thread ], [ %7, %4 ], [ %11, %8 ], [ null, %46 ]
+  ret ptr %.051
 }
 
 ; Function Attrs: nounwind uwtable

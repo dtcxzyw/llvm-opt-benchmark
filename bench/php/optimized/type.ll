@@ -298,11 +298,11 @@ define hidden void @zif_settype(ptr noundef %0, ptr nocapture noundef writeonly 
   br i1 %cond.fr143, label %17, label %16
 
 16:                                               ; preds = %14, %.thread154
-  %.093164 = phi i32 [ 0, %.thread154 ], [ 2, %14 ]
-  %.094163 = phi i32 [ 1, %.thread154 ], [ 9, %14 ]
-  %.095162 = phi ptr [ null, %.thread154 ], [ %9, %14 ]
-  %.096161 = phi i32 [ 0, %.thread154 ], [ 4, %14 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.094163, i32 noundef %.093164, ptr noundef null, i32 noundef %.096161, ptr noundef %.095162) #8
+  %.092164 = phi i32 [ 1, %.thread154 ], [ 9, %14 ]
+  %.093163 = phi i32 [ 0, %.thread154 ], [ 4, %14 ]
+  %.094162 = phi ptr [ null, %.thread154 ], [ %9, %14 ]
+  %.095161 = phi i32 [ 0, %.thread154 ], [ 2, %14 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.092164, i32 noundef %.095161, ptr noundef null, i32 noundef %.093163, ptr noundef %.094162) #8
   br label %204
 
 17:                                               ; preds = %14, %.thread166
@@ -331,7 +331,7 @@ define hidden void @zif_settype(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %31
 
 31:                                               ; preds = %17, %28, %22
-  %.092 = phi ptr [ %4, %22 ], [ %4, %28 ], [ %21, %17 ]
+  %.096 = phi ptr [ %4, %22 ], [ %4, %28 ], [ %21, %17 ]
   %32 = load ptr, ptr %3, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 16
   %34 = load i64, ptr %33, align 8
@@ -358,7 +358,7 @@ define hidden void @zif_settype(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %46
 
 45:                                               ; preds = %41
-  call void @convert_to_long(ptr noundef nonnull %.092) #8
+  call void @convert_to_long(ptr noundef nonnull %.096) #8
   br label %197
 
 46:                                               ; preds = %._crit_edge, %31
@@ -387,7 +387,7 @@ define hidden void @zif_settype(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %60
 
 59:                                               ; preds = %55
-  call void @convert_to_long(ptr noundef nonnull %.092) #8
+  call void @convert_to_long(ptr noundef nonnull %.096) #8
   br label %197
 
 60:                                               ; preds = %._crit_edge170, %46
@@ -416,7 +416,7 @@ define hidden void @zif_settype(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %74
 
 73:                                               ; preds = %69
-  call void @convert_to_double(ptr noundef nonnull %.092) #8
+  call void @convert_to_double(ptr noundef nonnull %.096) #8
   br label %197
 
 74:                                               ; preds = %._crit_edge175, %60
@@ -445,7 +445,7 @@ define hidden void @zif_settype(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %88
 
 87:                                               ; preds = %83
-  call void @convert_to_double(ptr noundef nonnull %.092) #8
+  call void @convert_to_double(ptr noundef nonnull %.096) #8
   br label %197
 
 88:                                               ; preds = %._crit_edge180, %74
@@ -474,13 +474,13 @@ define hidden void @zif_settype(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %105
 
 101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %.092, i64 8
+  %102 = getelementptr inbounds i8, ptr %.096, i64 8
   %103 = load i8, ptr %102, align 8
   %.not134 = icmp eq i8 %103, 6
   br i1 %.not134, label %197, label %104
 
 104:                                              ; preds = %101
-  call void @_convert_to_string(ptr noundef nonnull %.092) #8
+  call void @_convert_to_string(ptr noundef nonnull %.096) #8
   br label %197
 
 105:                                              ; preds = %._crit_edge185, %88
@@ -509,7 +509,7 @@ define hidden void @zif_settype(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %119
 
 118:                                              ; preds = %114
-  call void @convert_to_array(ptr noundef nonnull %.092) #8
+  call void @convert_to_array(ptr noundef nonnull %.096) #8
   br label %197
 
 119:                                              ; preds = %._crit_edge190, %105
@@ -538,7 +538,7 @@ define hidden void @zif_settype(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %133
 
 132:                                              ; preds = %128
-  call void @convert_to_object(ptr noundef nonnull %.092) #8
+  call void @convert_to_object(ptr noundef nonnull %.096) #8
   br label %197
 
 133:                                              ; preds = %._crit_edge195, %119
@@ -567,7 +567,7 @@ define hidden void @zif_settype(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %147
 
 146:                                              ; preds = %142
-  call void @convert_to_boolean(ptr noundef nonnull %.092) #8
+  call void @convert_to_boolean(ptr noundef nonnull %.096) #8
   br label %197
 
 147:                                              ; preds = %._crit_edge200, %133
@@ -596,7 +596,7 @@ define hidden void @zif_settype(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %161
 
 160:                                              ; preds = %156
-  call void @convert_to_boolean(ptr noundef nonnull %.092) #8
+  call void @convert_to_boolean(ptr noundef nonnull %.096) #8
   br label %197
 
 161:                                              ; preds = %._crit_edge205, %147
@@ -618,11 +618,11 @@ define hidden void @zif_settype(ptr noundef %0, ptr nocapture noundef writeonly 
   br i1 %.not139, label %174, label %175
 
 174:                                              ; preds = %170
-  call void @convert_to_null(ptr noundef nonnull %.092) #8
+  call void @convert_to_null(ptr noundef nonnull %.096) #8
   br label %197
 
 175:                                              ; preds = %170, %161
-  %176 = icmp eq ptr %.092, %4
+  %176 = icmp eq ptr %.096, %4
   br i1 %176, label %177, label %178
 
 177:                                              ; preds = %175
@@ -663,7 +663,7 @@ define hidden void @zif_settype(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %204
 
 197:                                              ; preds = %59, %87, %118, %146, %174, %160, %132, %101, %104, %73, %45
-  %198 = icmp eq ptr %.092, %4
+  %198 = icmp eq ptr %.096, %4
   br i1 %198, label %199, label %202
 
 199:                                              ; preds = %197
@@ -749,10 +749,10 @@ define hidden void @zif_intval(ptr noundef %0, ptr nocapture noundef writeonly %
   br label %.thread176
 
 20:                                               ; preds = %18, %.thread183
-  %.0151191 = phi i32 [ 0, %.thread183 ], [ 2, %18 ]
-  %.0155190 = phi ptr [ null, %.thread183 ], [ %13, %18 ]
-  %.0156189 = phi i32 [ 1, %.thread183 ], [ 9, %18 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0156189, i32 noundef %.0151191, ptr noundef null, i32 noundef 0, ptr noundef %.0155190) #8
+  %.0154191 = phi i32 [ 1, %.thread183 ], [ 9, %18 ]
+  %.0156190 = phi ptr [ null, %.thread183 ], [ %13, %18 ]
+  %.0157189 = phi i32 [ 0, %.thread183 ], [ 2, %18 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0154191, i32 noundef %.0157189, ptr noundef null, i32 noundef 0, ptr noundef %.0156190) #8
   br label %93
 
 .thread176:                                       ; preds = %..thread176_crit_edge, %.thread
@@ -807,10 +807,10 @@ define hidden void @zif_intval(ptr noundef %0, ptr nocapture noundef writeonly %
   br i1 %51, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %38, %.lr.ph
-  %.0153193 = phi i64 [ %53, %.lr.ph ], [ %41, %38 ]
-  %.0154192 = phi ptr [ %52, %.lr.ph ], [ %39, %38 ]
-  %52 = getelementptr inbounds i8, ptr %.0154192, i64 1
-  %53 = add i64 %.0153193, -1
+  %.0152193 = phi i64 [ %53, %.lr.ph ], [ %41, %38 ]
+  %.0153192 = phi ptr [ %52, %.lr.ph ], [ %39, %38 ]
+  %52 = getelementptr inbounds i8, ptr %.0153192, i64 1
+  %53 = add i64 %.0152193, -1
   %54 = load i8, ptr %52, align 1
   %55 = sext i8 %54 to i64
   %56 = getelementptr inbounds i16, ptr %43, i64 %55
@@ -822,10 +822,10 @@ define hidden void @zif_intval(ptr noundef %0, ptr nocapture noundef writeonly %
   br i1 %61, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %38
-  %.0154.lcssa = phi ptr [ %39, %38 ], [ %52, %.lr.ph ]
-  %.0153.lcssa = phi i64 [ %41, %38 ], [ %53, %.lr.ph ]
+  %.0153.lcssa = phi ptr [ %39, %38 ], [ %52, %.lr.ph ]
+  %.0152.lcssa = phi i64 [ %41, %38 ], [ %53, %.lr.ph ]
   %.lcssa = phi i8 [ %44, %38 ], [ %54, %.lr.ph ]
-  %62 = icmp ugt i64 %.0153.lcssa, 2
+  %62 = icmp ugt i64 %.0152.lcssa, 2
   br i1 %62, label %63, label %88
 
 63:                                               ; preds = %._crit_edge
@@ -835,23 +835,23 @@ define hidden void @zif_intval(ptr noundef %0, ptr nocapture noundef writeonly %
   ]
 
 64:                                               ; preds = %63, %63
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.0154.lcssa, i64 1
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.0153.lcssa, i64 1
   %.pre199 = load i8, ptr %.phi.trans.insert, align 1
   br label %65
 
 65:                                               ; preds = %63, %64
   %66 = phi i8 [ %.pre199, %64 ], [ %.lcssa, %63 ]
   %.not169 = phi i1 [ false, %64 ], [ true, %63 ]
-  %.0152 = phi i32 [ 1, %64 ], [ 0, %63 ]
-  %67 = zext nneg i32 %.0152 to i64
-  %68 = getelementptr inbounds i8, ptr %.0154.lcssa, i64 %67
+  %.0151 = phi i32 [ 1, %64 ], [ 0, %63 ]
+  %67 = zext nneg i32 %.0151 to i64
+  %68 = getelementptr inbounds i8, ptr %.0153.lcssa, i64 %67
   %69 = icmp eq i8 %66, 48
   br i1 %69, label %70, label %88
 
 70:                                               ; preds = %65
-  %71 = add nuw nsw i32 %.0152, 1
+  %71 = add nuw nsw i32 %.0151, 1
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds i8, ptr %.0154.lcssa, i64 %72
+  %73 = getelementptr inbounds i8, ptr %.0153.lcssa, i64 %72
   %74 = load i8, ptr %73, align 1
   switch i8 %74, label %88 [
     i8 98, label %75
@@ -859,13 +859,13 @@ define hidden void @zif_intval(ptr noundef %0, ptr nocapture noundef writeonly %
   ]
 
 75:                                               ; preds = %70, %70
-  %76 = add i64 %.0153.lcssa, -2
-  %77 = add i64 %.0153.lcssa, -1
+  %76 = add i64 %.0152.lcssa, -2
+  %77 = add i64 %.0152.lcssa, -1
   %78 = call noalias ptr @_emalloc(i64 noundef %77) #10
   br i1 %.not169, label %81, label %79
 
 79:                                               ; preds = %75
-  %80 = load i8, ptr %.0154.lcssa, align 1
+  %80 = load i8, ptr %.0153.lcssa, align 1
   store i8 %80, ptr %78, align 1
   br label %81
 
@@ -1575,10 +1575,10 @@ define hidden void @zif_is_callable(ptr noundef %0, ptr nocapture noundef writeo
   br label %20
 
 19:                                               ; preds = %8, %16
-  %.0114 = phi ptr [ null, %8 ], [ %17, %16 ]
-  %.0113 = phi i32 [ 0, %8 ], [ 2, %16 ]
-  %.0111 = phi i32 [ 1, %8 ], [ 9, %16 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0111, i32 noundef %.0113, ptr noundef null, i32 noundef %.0113, ptr noundef %.0114) #8
+  %.0112 = phi i32 [ 0, %8 ], [ 2, %16 ]
+  %.0111 = phi ptr [ null, %8 ], [ %17, %16 ]
+  %.0109 = phi i32 [ 1, %8 ], [ 9, %16 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0109, i32 noundef %.0112, ptr noundef null, i32 noundef %.0112, ptr noundef %.0111) #8
   br label %45
 
 20:                                               ; preds = %.critedge, %._crit_edge
@@ -1623,8 +1623,8 @@ define hidden void @zif_is_callable(ptr noundef %0, ptr nocapture noundef writeo
   br label %42
 
 42:                                               ; preds = %33, %30, %.thread
-  %.0109.in = phi i1 [ %26, %30 ], [ %26, %33 ], [ %41, %.thread ]
-  %43 = select i1 %.0109.in, i32 3, i32 2
+  %.0114.in = phi i1 [ %26, %30 ], [ %26, %33 ], [ %41, %.thread ]
+  %43 = select i1 %.0114.in, i32 3, i32 2
   %44 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %43, ptr %44, align 8
   br label %45

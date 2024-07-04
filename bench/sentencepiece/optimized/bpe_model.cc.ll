@@ -332,7 +332,7 @@ _ZNSt6vectorIZNK13sentencepiece3bpe5Model12SampleEncodeESt17basic_string_viewIcS
   br label %47
 
 47:                                               ; preds = %_ZNSt6vectorIZNK13sentencepiece3bpe5Model12SampleEncodeESt17basic_string_viewIcSt11char_traitsIcEEfE6SymbolSaIS7_EE7reserveEm.exit, %_ZNSt6vectorIZNK13sentencepiece3bpe5Model12SampleEncodeESt17basic_string_viewIcSt11char_traitsIcEEfE6SymbolSaIS7_EE12emplace_backIJRS7_EEESB_DpOT_.exit
-  %.043164 = phi i32 [ 0, %_ZNSt6vectorIZNK13sentencepiece3bpe5Model12SampleEncodeESt17basic_string_viewIcSt11char_traitsIcEEfE6SymbolSaIS7_EE7reserveEm.exit ], [ %56, %_ZNSt6vectorIZNK13sentencepiece3bpe5Model12SampleEncodeESt17basic_string_viewIcSt11char_traitsIcEEfE6SymbolSaIS7_EE12emplace_backIJRS7_EEESB_DpOT_.exit ]
+  %.044164 = phi i32 [ 0, %_ZNSt6vectorIZNK13sentencepiece3bpe5Model12SampleEncodeESt17basic_string_viewIcSt11char_traitsIcEEfE6SymbolSaIS7_EE7reserveEm.exit ], [ %56, %_ZNSt6vectorIZNK13sentencepiece3bpe5Model12SampleEncodeESt17basic_string_viewIcSt11char_traitsIcEEfE6SymbolSaIS7_EE12emplace_backIJRS7_EEESB_DpOT_.exit ]
   %.sroa.8.0163 = phi ptr [ %3, %_ZNSt6vectorIZNK13sentencepiece3bpe5Model12SampleEncodeESt17basic_string_viewIcSt11char_traitsIcEEfE6SymbolSaIS7_EE7reserveEm.exit ], [ %53, %_ZNSt6vectorIZNK13sentencepiece3bpe5Model12SampleEncodeESt17basic_string_viewIcSt11char_traitsIcEEfE6SymbolSaIS7_EE12emplace_backIJRS7_EEESB_DpOT_.exit ]
   %.sroa.0129.0162 = phi i64 [ %2, %_ZNSt6vectorIZNK13sentencepiece3bpe5Model12SampleEncodeESt17basic_string_viewIcSt11char_traitsIcEEfE6SymbolSaIS7_EE7reserveEm.exit ], [ %54, %_ZNSt6vectorIZNK13sentencepiece3bpe5Model12SampleEncodeESt17basic_string_viewIcSt11char_traitsIcEEfE6SymbolSaIS7_EE12emplace_backIJRS7_EEESB_DpOT_.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
@@ -344,12 +344,12 @@ _ZNSt6vectorIZNK13sentencepiece3bpe5Model12SampleEncodeESt17basic_string_viewIcS
   %51 = sext i32 %49 to i64
   store i64 %51, ptr %42, align 8
   store ptr %.sroa.8.0163, ptr %.sroa.2128.0..sroa_idx, align 8
-  %52 = add nsw i32 %.043164, -1
+  %52 = add nsw i32 %.044164, -1
   store i32 %52, ptr %14, align 8
   %53 = getelementptr inbounds i8, ptr %.sroa.8.0163, i64 %51
   %54 = sub i64 %.sroa.0129.0162, %51
   %55 = icmp eq i64 %54, 0
-  %56 = add nuw nsw i32 %.043164, 1
+  %56 = add nuw nsw i32 %.044164, 1
   %57 = select i1 %55, i32 -1, i32 %56
   store i32 %57, ptr %45, align 4
   %58 = load ptr, ptr %46, align 8
@@ -490,14 +490,14 @@ _ZNSt6vectorIZNK13sentencepiece3bpe5Model12SampleEncodeESt17basic_string_viewIcS
   br label %.lr.ph174
 
 .lr.ph:                                           ; preds = %.preheader, %100
-  %.044167 = phi i64 [ %101, %100 ], [ 1, %.preheader ]
-  %98 = trunc i64 %.044167 to i32
+  %.043167 = phi i64 [ %101, %100 ], [ 1, %.preheader ]
+  %98 = trunc i64 %.043167 to i32
   %99 = add i32 %98, -1
   invoke fastcc void @"_ZZNK13sentencepiece3bpe5Model12SampleEncodeESt17basic_string_viewIcSt11char_traitsIcEEfENK3$_1clEii"(ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef %99, i32 noundef %98)
           to label %100 unwind label %.loopexit.split-lp142.loopexit.split-lp.loopexit
 
 100:                                              ; preds = %.lr.ph
-  %101 = add nuw i64 %.044167, 1
+  %101 = add nuw i64 %.043167, 1
   %.val = load ptr, ptr %10, align 8
   %.val50 = load ptr, ptr %46, align 8
   %102 = ptrtoint ptr %.val50 to i64

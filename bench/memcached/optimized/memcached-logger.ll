@@ -761,7 +761,7 @@ for.body.us.preheader:                            ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc.us
   %indvars.iv91 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next92, %for.inc.us ]
-  %nfd.048.us = phi i32 [ 0, %for.body.us.preheader ], [ %nfd.2.us, %for.inc.us ]
+  %nfd.049.us = phi i32 [ 0, %for.body.us.preheader ], [ %nfd.2.us, %for.inc.us ]
   %arrayidx.us = getelementptr inbounds [20 x ptr], ptr @watchers, i64 0, i64 %indvars.iv91
   %1 = load ptr, ptr %arrayidx.us, align 8
   %cmp1.us = icmp ne ptr %1, null
@@ -780,22 +780,22 @@ if.end.us:                                        ; preds = %for.body.us
 if.then5.us:                                      ; preds = %if.end.us
   %sfd.us = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load i32, ptr %sfd.us, align 8
-  %idxprom6.us = sext i32 %nfd.048.us to i64
+  %idxprom6.us = sext i32 %nfd.049.us to i64
   %arrayidx7.us = getelementptr inbounds [20 x %struct.pollfd], ptr @watchers_pollfds, i64 0, i64 %idxprom6.us
   store i32 %3, ptr %arrayidx7.us, align 8
   %events.us = getelementptr inbounds i8, ptr %arrayidx7.us, i64 4
   store i16 4, ptr %events.us, align 4
-  %inc.us = add nsw i32 %nfd.048.us, 1
+  %inc.us = add nsw i32 %nfd.049.us, 1
   br label %if.end20.us
 
 if.end20.us:                                      ; preds = %if.end.us, %if.then5.us
-  %nfd.1.us = phi i32 [ %inc.us, %if.then5.us ], [ %nfd.048.us, %if.end.us ]
+  %nfd.1.us = phi i32 [ %inc.us, %if.then5.us ], [ %nfd.049.us, %if.end.us ]
   %failed_flush.us = getelementptr inbounds i8, ptr %1, i64 32
   store i8 0, ptr %failed_flush.us, align 8
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end20.us, %for.body.us
-  %nfd.2.us = phi i32 [ %nfd.048.us, %for.body.us ], [ %nfd.1.us, %if.end20.us ]
+  %nfd.2.us = phi i32 [ %nfd.049.us, %for.body.us ], [ %nfd.1.us, %if.end20.us ]
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next92, 20
   br i1 %exitcond94.not, label %for.end, label %for.body.us, !llvm.loop !14
@@ -809,7 +809,7 @@ for.body.preheader:                               ; preds = %entry.split
 
 for.body.us50:                                    ; preds = %entry.split, %for.inc.us73
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %for.inc.us73 ], [ 0, %entry.split ]
-  %nfd.048.us52 = phi i32 [ %nfd.2.us74, %for.inc.us73 ], [ 0, %entry.split ]
+  %nfd.049.us51 = phi i32 [ %nfd.2.us74, %for.inc.us73 ], [ 0, %entry.split ]
   %arrayidx.us54 = getelementptr inbounds [20 x ptr], ptr @watchers, i64 0, i64 %indvars.iv87
   %5 = load ptr, ptr %arrayidx.us54, align 8
   %cmp1.us55 = icmp eq ptr %5, null
@@ -822,26 +822,26 @@ lor.lhs.false.us56:                               ; preds = %for.body.us50
   %cmp4.not.us62 = icmp eq ptr %call.us61, null
   %sfd11.us = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load i32, ptr %sfd11.us, align 8
-  %idxprom12.us = sext i32 %nfd.048.us52 to i64
+  %idxprom12.us = sext i32 %nfd.049.us51 to i64
   %arrayidx13.us = getelementptr inbounds [20 x %struct.pollfd], ptr @watchers_pollfds, i64 0, i64 %idxprom12.us
   store i32 %7, ptr %arrayidx13.us, align 8
   %events17.us = getelementptr inbounds i8, ptr %arrayidx13.us, i64 4
   %. = select i1 %cmp4.not.us62, i16 1, i16 4
   store i16 %., ptr %events17.us, align 4
-  %nfd.1.us71 = add nsw i32 %nfd.048.us52, 1
+  %nfd.1.us71 = add nsw i32 %nfd.049.us51, 1
   %failed_flush.us72 = getelementptr inbounds i8, ptr %5, i64 32
   store i8 0, ptr %failed_flush.us72, align 8
   br label %for.inc.us73
 
 for.inc.us73:                                     ; preds = %lor.lhs.false.us56, %for.body.us50
-  %nfd.2.us74 = phi i32 [ %nfd.048.us52, %for.body.us50 ], [ %nfd.1.us71, %lor.lhs.false.us56 ]
+  %nfd.2.us74 = phi i32 [ %nfd.049.us51, %for.body.us50 ], [ %nfd.1.us71, %lor.lhs.false.us56 ]
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next88, 20
   br i1 %exitcond90.not, label %for.end, label %for.body.us50, !llvm.loop !14
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %nfd.048 = phi i32 [ 0, %for.body.preheader ], [ %nfd.2, %for.inc ]
+  %nfd.049 = phi i32 [ 0, %for.body.preheader ], [ %nfd.2, %for.inc ]
   %arrayidx = getelementptr inbounds [20 x ptr], ptr @watchers, i64 0, i64 %indvars.iv
   %8 = load ptr, ptr %arrayidx, align 8
   %cmp1 = icmp ne ptr %8, null
@@ -856,19 +856,19 @@ if.end:                                           ; preds = %for.body
   %cmp4.not = icmp eq ptr %call, null
   %sfd11 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i32, ptr %sfd11, align 8
-  %idxprom12 = sext i32 %nfd.048 to i64
+  %idxprom12 = sext i32 %nfd.049 to i64
   %arrayidx13 = getelementptr inbounds [20 x %struct.pollfd], ptr @watchers_pollfds, i64 0, i64 %idxprom12
   store i32 %10, ptr %arrayidx13, align 8
   %events17 = getelementptr inbounds i8, ptr %arrayidx13, i64 4
   %.103 = select i1 %cmp4.not, i16 1, i16 4
   store i16 %.103, ptr %events17, align 4
-  %nfd.1 = add nsw i32 %nfd.048, 1
+  %nfd.1 = add nsw i32 %nfd.049, 1
   %failed_flush = getelementptr inbounds i8, ptr %8, i64 32
   store i8 0, ptr %failed_flush, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end
-  %nfd.2 = phi i32 [ %nfd.048, %for.body ], [ %nfd.1, %if.end ]
+  %nfd.2 = phi i32 [ %nfd.049, %for.body ], [ %nfd.1, %if.end ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
@@ -894,8 +894,8 @@ if.then28:                                        ; preds = %if.end24
 
 for.body33:                                       ; preds = %for.cond30.preheader, %for.inc127
   %indvars.iv95 = phi i64 [ 0, %for.cond30.preheader ], [ %indvars.iv.next96, %for.inc127 ]
+  %flushed.081 = phi i32 [ 0, %for.cond30.preheader ], [ %flushed.2, %for.inc127 ]
   %nfd.380 = phi i32 [ 0, %for.cond30.preheader ], [ %nfd.4, %for.inc127 ]
-  %flushed.079 = phi i32 [ 0, %for.cond30.preheader ], [ %flushed.2, %for.inc127 ]
   %arrayidx36 = getelementptr inbounds [20 x ptr], ptr @watchers, i64 0, i64 %indvars.iv95
   %12 = load ptr, ptr %arrayidx36, align 8
   %cmp37 = icmp ne ptr %12, null
@@ -1007,17 +1007,17 @@ if.then117:                                       ; preds = %if.then92, %sw.epil
 if.else118:                                       ; preds = %sw.epilog
   %27 = load ptr, ptr %buf73, align 8
   %call120 = call ptr @bipbuf_poll(ptr noundef %27, i32 noundef %total.0) #18
-  %add = add nsw i32 %flushed.079, %total.0
+  %add = add nsw i32 %flushed.081, %total.0
   br label %if.end125
 
 if.end125:                                        ; preds = %if.then84, %if.then112, %if.then104, %if.else118, %if.then117, %if.else85, %if.end72
-  %flushed.1 = phi i32 [ %flushed.079, %if.then84 ], [ %flushed.079, %if.then112 ], [ %flushed.079, %if.then104 ], [ %flushed.079, %if.then117 ], [ %add, %if.else118 ], [ %flushed.079, %if.else85 ], [ %flushed.079, %if.end72 ]
+  %flushed.1 = phi i32 [ %flushed.081, %if.then84 ], [ %flushed.081, %if.then112 ], [ %flushed.081, %if.then104 ], [ %flushed.081, %if.then117 ], [ %add, %if.else118 ], [ %flushed.081, %if.else85 ], [ %flushed.081, %if.end72 ]
   %inc126 = add nsw i32 %nfd.380, 1
   br label %for.inc127
 
 for.inc127:                                       ; preds = %for.body33, %if.end125, %if.then69
-  %flushed.2 = phi i32 [ %flushed.079, %for.body33 ], [ %flushed.079, %if.then69 ], [ %flushed.1, %if.end125 ]
   %nfd.4 = phi i32 [ %nfd.380, %for.body33 ], [ %inc70, %if.then69 ], [ %inc126, %if.end125 ]
+  %flushed.2 = phi i32 [ %flushed.081, %for.body33 ], [ %flushed.081, %if.then69 ], [ %flushed.1, %if.end125 ]
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next96, 20
   br i1 %exitcond98.not, label %return, label %for.body33, !llvm.loop !15

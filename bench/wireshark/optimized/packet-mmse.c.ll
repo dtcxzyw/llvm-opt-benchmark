@@ -1443,13 +1443,13 @@ get_value_length.exit542:                         ; preds = %533, %535
   br label %557
 
 557:                                              ; preds = %555, %553, %550, %547, %546
-  %.019.i = phi i32 [ %556, %555 ], [ %554, %553 ], [ %552, %550 ], [ %549, %547 ], [ 0, %546 ]
+  %.0.i544 = phi i32 [ %556, %555 ], [ %554, %553 ], [ %552, %550 ], [ %549, %547 ], [ 0, %546 ]
   %558 = add nuw nsw i32 %543, 1
   br label %get_integer_value.exit
 
 get_integer_value.exit:                           ; preds = %544, %557
   %storemerge.i543 = phi i32 [ %558, %557 ], [ 1, %544 ]
-  %.0.i544 = phi i32 [ %.019.i, %557 ], [ %545, %544 ]
+  %.019.i = phi i32 [ %.0.i544, %557 ], [ %545, %544 ]
   %559 = load i32, ptr %15, align 4
   %560 = add i32 %storemerge.i543, %47
   %561 = add i32 %560, %559
@@ -1462,13 +1462,13 @@ get_integer_value.exit:                           ; preds = %544, %557
   %568 = load ptr, ptr %37, align 8
   %569 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %567) #6
   %570 = call ptr @format_text(ptr noundef %568, ptr noundef %567, i64 noundef %569) #5
-  %571 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %30, i32 noundef %563, ptr noundef %0, i32 noundef %.0588, i32 noundef %566, ptr noundef %567, ptr noundef nonnull @.str.212, ptr noundef %570, i32 noundef %.0.i544) #5
+  %571 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %30, i32 noundef %563, ptr noundef %0, i32 noundef %.0588, i32 noundef %566, ptr noundef %567, ptr noundef nonnull @.str.212, ptr noundef %570, i32 noundef %.019.i) #5
   %572 = load i32, ptr @ett_mmse_hdr_details, align 4
   %573 = call ptr @proto_item_add_subtree(ptr noundef %571, i32 noundef %572) #5
   %574 = load i32, ptr @hf_mmse_prev_sent_by_fwd_count, align 4
   %575 = load i32, ptr %15, align 4
   %576 = add i32 %575, %47
-  %577 = call ptr @proto_tree_add_uint(ptr noundef %573, i32 noundef %574, ptr noundef %0, i32 noundef %576, i32 noundef %storemerge.i543, i32 noundef %.0.i544) #5
+  %577 = call ptr @proto_tree_add_uint(ptr noundef %573, i32 noundef %574, ptr noundef %0, i32 noundef %576, i32 noundef %storemerge.i543, i32 noundef %.019.i) #5
   %578 = load i32, ptr @hf_mmse_prev_sent_by_address, align 4
   %579 = load i32, ptr %15, align 4
   %580 = add i32 %560, %579
@@ -1538,13 +1538,13 @@ get_value_length.exit547:                         ; preds = %589, %591
   br label %613
 
 613:                                              ; preds = %611, %609, %606, %603, %602
-  %.019.i551 = phi i32 [ %612, %611 ], [ %610, %609 ], [ %608, %606 ], [ %605, %603 ], [ 0, %602 ]
+  %.0.i551 = phi i32 [ %612, %611 ], [ %610, %609 ], [ %608, %606 ], [ %605, %603 ], [ 0, %602 ]
   %614 = add nuw nsw i32 %599, 1
   br label %get_integer_value.exit552
 
 get_integer_value.exit552:                        ; preds = %600, %613
   %storemerge.i549 = phi i32 [ %614, %613 ], [ 1, %600 ]
-  %.0.i550 = phi i32 [ %.019.i551, %613 ], [ %601, %600 ]
+  %.019.i550 = phi i32 [ %.0.i551, %613 ], [ %601, %600 ]
   %615 = load i32, ptr %15, align 4
   %616 = add i32 %storemerge.i549, %47
   %617 = add i32 %616, %615
@@ -1592,13 +1592,13 @@ get_long_integer.exit554:                         ; preds = %get_integer_value.e
   %639 = load ptr, ptr %37, align 8
   %640 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %634) #6
   %641 = call ptr @format_text(ptr noundef %639, ptr noundef %634, i64 noundef %640) #5
-  %642 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %30, i32 noundef %635, ptr noundef %0, i32 noundef %.0588, i32 noundef %638, ptr noundef %634, ptr noundef nonnull @.str.212, ptr noundef %641, i32 noundef %.0.i550) #5
+  %642 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %30, i32 noundef %635, ptr noundef %0, i32 noundef %.0588, i32 noundef %638, ptr noundef %634, ptr noundef nonnull @.str.212, ptr noundef %641, i32 noundef %.019.i550) #5
   %643 = load i32, ptr @ett_mmse_hdr_details, align 4
   %644 = call ptr @proto_item_add_subtree(ptr noundef %642, i32 noundef %643) #5
   %645 = load i32, ptr @hf_mmse_prev_sent_date_fwd_count, align 4
   %646 = load i32, ptr %15, align 4
   %647 = add i32 %646, %47
-  %648 = call ptr @proto_tree_add_uint(ptr noundef %644, i32 noundef %645, ptr noundef %0, i32 noundef %647, i32 noundef %storemerge.i549, i32 noundef %.0.i550) #5
+  %648 = call ptr @proto_tree_add_uint(ptr noundef %644, i32 noundef %645, ptr noundef %0, i32 noundef %647, i32 noundef %storemerge.i549, i32 noundef %.019.i550) #5
   %649 = load i32, ptr @hf_mmse_prev_sent_date_date, align 4
   %650 = load i32, ptr %15, align 4
   %651 = add i32 %616, %650
@@ -1879,7 +1879,7 @@ get_value_length.exit:                            ; preds = %13, %15
   br label %47
 
 47:                                               ; preds = %45, %43, %40, %37, %36
-  %.019.i = phi i32 [ %46, %45 ], [ %44, %43 ], [ %42, %40 ], [ %39, %37 ], [ 0, %36 ]
+  %.0.i32 = phi i32 [ %46, %45 ], [ %44, %43 ], [ %42, %40 ], [ %39, %37 ], [ 0, %36 ]
   %48 = add nuw nsw i32 %33, 1
   %.pre = add i32 %48, %1
   br label %get_integer_value.exit
@@ -1887,13 +1887,13 @@ get_value_length.exit:                            ; preds = %13, %15
 get_integer_value.exit:                           ; preds = %34, %47
   %.pre-phi = phi i32 [ %10, %34 ], [ %.pre, %47 ]
   %storemerge.i31 = phi i32 [ 1, %34 ], [ %48, %47 ]
-  %.0.i32 = phi i32 [ %35, %34 ], [ %.019.i, %47 ]
+  %.019.i = phi i32 [ %35, %34 ], [ %.0.i32, %47 ]
   %49 = getelementptr inbounds i8, ptr %3, i64 408
   %50 = load ptr, ptr %49, align 8
   %51 = load i32, ptr %6, align 4
   %52 = add i32 %.pre-phi, %51
   %53 = sub i32 %.0.i, %storemerge.i31
-  %54 = call i32 @mibenum_charset_to_encoding(i32 noundef %.0.i32) #5
+  %54 = call i32 @mibenum_charset_to_encoding(i32 noundef %.019.i) #5
   %55 = call ptr @tvb_get_string_enc(ptr noundef %50, ptr noundef %0, i32 noundef %52, i32 noundef %53, i32 noundef %54) #5
   br label %62
 

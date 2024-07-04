@@ -1450,8 +1450,8 @@ sw.default37.i:                                   ; preds = %sw.default.i
   br label %host_to_target_siginfo_noswap.exit
 
 host_to_target_siginfo_noswap.exit:               ; preds = %sw.bb.i, %if.end.i47, %sw.bb32.i, %sw.default37.i
-  %tinfo.sroa.14.sroa.4.0 = phi i64 [ %tinfo.sroa.14.sroa.4.0.extract.shift, %sw.default37.i ], [ 0, %sw.bb32.i ], [ 0, %if.end.i47 ], [ 0, %sw.bb.i ]
   %tinfo.sroa.14.sroa.0.0 = phi i32 [ %tinfo.sroa.14.sroa.0.0.extract.trunc, %sw.default37.i ], [ 0, %sw.bb32.i ], [ %or.sink.i, %if.end.i47 ], [ 0, %sw.bb.i ]
+  %tinfo.sroa.14.sroa.4.0 = phi i64 [ %tinfo.sroa.14.sroa.4.0.extract.shift, %sw.default37.i ], [ 0, %sw.bb32.i ], [ 0, %if.end.i47 ], [ 0, %sw.bb.i ]
   %si_type.0.i = phi i32 [ 327680, %sw.default37.i ], [ 131072, %sw.bb32.i ], [ 262144, %if.end.i47 ], [ 0, %sw.bb.i ]
   %53 = phi <2 x i64> [ zeroinitializer, %sw.default37.i ], [ zeroinitializer, %sw.bb32.i ], [ %45, %if.end.i47 ], [ zeroinitializer, %sw.bb.i ]
   %54 = phi <2 x i32> [ %50, %sw.default37.i ], [ %49, %sw.bb32.i ], [ %42, %if.end.i47 ], [ %41, %sw.bb.i ]
@@ -2245,8 +2245,8 @@ if.else:                                          ; preds = %trace_user_handle_s
   br label %if.end
 
 if.end:                                           ; preds = %trace_user_handle_signal.exit, %if.else
-  %sa.0 = phi ptr [ %arrayidx, %if.else ], [ null, %trace_user_handle_signal.exit ]
   %handler.0 = phi i64 [ %7, %if.else ], [ 1, %trace_user_handle_signal.exit ]
+  %sa.0 = phi ptr [ %arrayidx, %if.else ], [ null, %trace_user_handle_signal.exit ]
   %8 = load i32, ptr @qemu_loglevel, align 4
   %and.i = and i32 %8, 524288
   %cmp.i.not = icmp eq i32 %and.i, 0

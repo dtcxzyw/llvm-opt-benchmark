@@ -8249,11 +8249,11 @@ for.body20.lr.ph.i:                               ; preds = %for.cond18.preheade
 for.body.i:                                       ; preds = %invoke.cont.i, %for.inc.i
   %watchers.sroa.0.156.i = phi ptr [ %watchers.sroa.0.2.i, %for.inc.i ], [ %watchers.sroa.8.0.i, %invoke.cont.i ]
   %watchers.sroa.8.155.i = phi ptr [ %watchers.sroa.8.2.i, %for.inc.i ], [ %watchers.sroa.8.0.i, %invoke.cont.i ]
-  %watchers.sroa.15.154.i = phi ptr [ %watchers.sroa.15.2.i, %for.inc.i ], [ %watchers.sroa.15.0.i, %invoke.cont.i ]
-  %__begin2.sroa.0.053.i = phi ptr [ %call.i.i, %for.inc.i ], [ %watchers_.val6.i, %invoke.cont.i ]
-  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.053.i, i64 32
+  %__begin2.sroa.0.054.i = phi ptr [ %call.i.i, %for.inc.i ], [ %watchers_.val6.i, %invoke.cont.i ]
+  %watchers.sroa.15.153.i = phi ptr [ %watchers.sroa.15.2.i, %for.inc.i ], [ %watchers.sroa.15.0.i, %invoke.cont.i ]
+  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.054.i, i64 32
   %8 = load ptr, ptr %_M_storage.i.i.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %watchers.sroa.8.155.i, %watchers.sroa.15.154.i
+  %cmp.not.i.i.i = icmp eq ptr %watchers.sroa.8.155.i, %watchers.sroa.15.153.i
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i11.i
 
 if.then.i.i11.i:                                  ; preds = %for.body.i
@@ -8314,11 +8314,11 @@ _ZNSt6vectorIPN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfac
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZNSt6vectorIPN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfaceESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i, %if.then.i.i11.i
-  %watchers.sroa.15.2.i = phi ptr [ %add.ptr19.i.i.i.i, %_ZNSt6vectorIPN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfaceESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ], [ %watchers.sroa.15.154.i, %if.then.i.i11.i ]
+  %watchers.sroa.15.2.i = phi ptr [ %add.ptr19.i.i.i.i, %_ZNSt6vectorIPN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfaceESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ], [ %watchers.sroa.15.153.i, %if.then.i.i11.i ]
   %add.ptr.i.i.i.i.i.i.pn.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %_ZNSt6vectorIPN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfaceESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ], [ %watchers.sroa.8.155.i, %if.then.i.i11.i ]
   %watchers.sroa.0.2.i = phi ptr [ %cond.i10.i.i.i.i, %_ZNSt6vectorIPN9grpc_core19SubchannelInterface33ConnectivityStateWatcherInterfaceESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ], [ %watchers.sroa.0.156.i, %if.then.i.i11.i ]
   %watchers.sroa.8.2.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn.i, i64 8
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.053.i) #27
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.054.i) #27
   %cmp.i8.not.i = icmp eq ptr %call.i.i, %add.ptr.i.i.i
   br i1 %cmp.i8.not.i, label %for.cond18.preheader.i, label %for.body.i
 
@@ -9150,7 +9150,7 @@ for.body.lr.ph.i:                                 ; preds = %invoke.cont11.i
 
 for.body.i:                                       ; preds = %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.i, %for.body.lr.ph.i
   %found_connecting.0254.i = phi i1 [ false, %for.body.lr.ph.i ], [ %found_connecting.2214218.i, %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.i ]
-  %idle_subchannel.sroa.0.0253.i = phi ptr [ null, %for.body.lr.ph.i ], [ %idle_subchannel.sroa.0.3210219.i, %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.i ]
+  %idle_subchannel.sroa.0.0253.i = phi ptr [ null, %for.body.lr.ph.i ], [ %idle_subchannel.sroa.0.3209219.i, %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %address.i, ptr noundef nonnull align 8 dereferenceable(16) %curr_.i.i.i, i64 16, i1 false), !noalias !103
   %policy_.val24.i = load ptr, ptr %policy_.i, align 8, !noalias !103
   %subchannel_map_.i = getelementptr inbounds i8, ptr %policy_.val24.i, i64 112
@@ -9194,7 +9194,7 @@ lpad8.loopexit.i:                                 ; preds = %if.end.i.i
   br label %ehcleanup137.i
 
 lpad8.loopexit.split-lp.i:                        ; preds = %if.then.i.i.i143.i, %if.then.i.i.i.i.i.i, %if.end.i.i.i
-  %idle_subchannel.sroa.0.2.ph.i = phi ptr [ null, %if.end.i.i.i ], [ null, %if.then.i.i.i.i.i.i ], [ %idle_subchannel.sroa.0.3210219.i, %if.then.i.i.i143.i ]
+  %idle_subchannel.sroa.0.2.ph.i = phi ptr [ null, %if.end.i.i.i ], [ null, %if.then.i.i.i.i.i.i ], [ %idle_subchannel.sroa.0.3209219.i, %if.then.i.i.i143.i ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup137.i
@@ -9471,7 +9471,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWra
   ]
 
 for.inc.i:                                        ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperEED2Ev.exit.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperEED2Ev.exit.i, %if.then119.i, %invoke.cont49.i, %if.then40.i
-  %idle_subchannel.sroa.0.3210219.i = phi ptr [ %idle_subchannel.sroa.0.0253.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperEED2Ev.exit.i ], [ %idle_subchannel.sroa.0.0253.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperEED2Ev.exit.i ], [ %idle_subchannel.sroa.0.0253.i, %if.then40.i ], [ %idle_subchannel.sroa.0.0253.i, %invoke.cont49.i ], [ %call34.i, %if.then119.i ]
+  %idle_subchannel.sroa.0.3209219.i = phi ptr [ %idle_subchannel.sroa.0.0253.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperEED2Ev.exit.i ], [ %idle_subchannel.sroa.0.0253.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperEED2Ev.exit.i ], [ %idle_subchannel.sroa.0.0253.i, %if.then40.i ], [ %idle_subchannel.sroa.0.0253.i, %invoke.cont49.i ], [ %call34.i, %if.then119.i ]
   %found_connecting.2214218.i = phi i1 [ %found_connecting.2.ph.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperEED2Ev.exit.i ], [ %found_connecting.2.ph.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperEED2Ev.exit.i ], [ %found_connecting.0254.i, %if.then40.i ], [ %found_connecting.0254.i, %invoke.cont49.i ], [ %found_connecting.0254.i, %if.then119.i ]
   %55 = load i32, ptr %state_.i.i.i, align 8, !noalias !103
   %cmp.i139.i = icmp eq i32 %55, 1
@@ -9544,7 +9544,7 @@ ehcleanup131.i:                                   ; preds = %ehcleanup96.i, %ehc
   br label %ehcleanup137.i
 
 cleanup134.loopexit.i:                            ; preds = %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperEED2Ev.exit.i
-  %idle_subchannel.sroa.0.0.lcssa.ph.i = phi ptr [ %idle_subchannel.sroa.0.0253.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperEED2Ev.exit.i ], [ %idle_subchannel.sroa.0.3210219.i, %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.i ]
+  %idle_subchannel.sroa.0.0.lcssa.ph.i = phi ptr [ %idle_subchannel.sroa.0.0253.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperEED2Ev.exit.i ], [ %idle_subchannel.sroa.0.3209219.i, %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.i ]
   %cleanup.dest.slot.1.ph.i = phi i32 [ %cleanup.dest.slot.0.ph.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperEED2Ev.exit.i ], [ 0, %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.i ]
   %found_connecting.3.ph.i = phi i1 [ %found_connecting.2.ph.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperEED2Ev.exit.i ], [ %found_connecting.2214218.i, %_ZN4absl12lts_2023080216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.i ]
   %63 = icmp eq i32 %cleanup.dest.slot.1.ph.i, 0
@@ -9581,7 +9581,7 @@ if.then142.i:                                     ; preds = %if.then140.i
           to label %if.end144.i unwind label %lpad.i, !noalias !103
 
 ehcleanup137.i:                                   ; preds = %ehcleanup131.i, %lpad8.loopexit.split-lp.i, %lpad8.loopexit.i
-  %idle_subchannel.sroa.0.5.i = phi ptr [ %idle_subchannel.sroa.0.0253.i, %ehcleanup131.i ], [ %idle_subchannel.sroa.0.3210219.i, %lpad8.loopexit.i ], [ %idle_subchannel.sroa.0.2.ph.i, %lpad8.loopexit.split-lp.i ]
+  %idle_subchannel.sroa.0.5.i = phi ptr [ %idle_subchannel.sroa.0.0253.i, %ehcleanup131.i ], [ %idle_subchannel.sroa.0.3209219.i, %lpad8.loopexit.i ], [ %idle_subchannel.sroa.0.2.ph.i, %lpad8.loopexit.split-lp.i ]
   %.pn13.i = phi { ptr, i32 } [ %.pn10.pn.i, %ehcleanup131.i ], [ %lpad.loopexit.i, %lpad8.loopexit.i ], [ %lpad.loopexit.split-lp.i, %lpad8.loopexit.split-lp.i ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %subchannel_map_mu_.i)
           to label %ehcleanup165.i unwind label %terminate.lpad.i150.i, !noalias !103

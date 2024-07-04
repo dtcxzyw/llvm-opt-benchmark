@@ -21,9 +21,9 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end66
-  %list.addr.0430 = phi ptr [ %list, %for.body.lr.ph ], [ %list.addr.1, %if.end66 ]
-  %l.0429 = phi ptr [ %list, %for.body.lr.ph ], [ %l.1, %if.end66 ]
-  %1 = load ptr, ptr %l.0429, align 8
+  %l.0430 = phi ptr [ %list, %for.body.lr.ph ], [ %l.1, %if.end66 ]
+  %list.addr.0429 = phi ptr [ %list, %for.body.lr.ph ], [ %list.addr.1, %if.end66 ]
+  %1 = load ptr, ptr %l.0430, align 8
   %call = tail call i32 @range_compare(ptr noundef %1, ptr noundef %reg) #4
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.end66.sink.split, label %if.else
@@ -34,7 +34,7 @@ if.else:                                          ; preds = %for.body
   br i1 %cmp3, label %if.then4, label %if.else6
 
 if.then4:                                         ; preds = %if.else
-  %call5 = tail call ptr @g_list_insert_before(ptr noundef %list.addr.0430, ptr noundef nonnull %l.0429, ptr noundef %reg) #4
+  %call5 = tail call ptr @g_list_insert_before(ptr noundef %list.addr.0429, ptr noundef nonnull %l.0430, ptr noundef %reg) #4
   br label %return
 
 if.else6:                                         ; preds = %if.else
@@ -80,11 +80,11 @@ range_contains_range.exit:                        ; preds = %lor.lhs.false.i
   br i1 %spec.select.i, label %if.then8, label %if.else16
 
 if.then8:                                         ; preds = %range_contains_range.exit
-  %prev9 = getelementptr inbounds i8, ptr %l.0429, i64 16
+  %prev9 = getelementptr inbounds i8, ptr %l.0430, i64 16
   %3 = load ptr, ptr %prev9, align 8
-  %4 = load ptr, ptr %l.0429, align 8
+  %4 = load ptr, ptr %l.0430, align 8
   tail call void @g_free(ptr noundef %4) #4
-  %call11 = tail call ptr @g_list_delete_link(ptr noundef %list.addr.0430, ptr noundef nonnull %l.0429) #4
+  %call11 = tail call ptr @g_list_delete_link(ptr noundef %list.addr.0429, ptr noundef nonnull %l.0430) #4
   %tobool12.not = icmp eq ptr %3, null
   br i1 %tobool12.not, label %if.end66, label %if.end66.sink.split
 
@@ -135,7 +135,7 @@ if.else.i158:                                     ; preds = %range_is_empty.exit
   unreachable
 
 range_set_bounds.exit:                            ; preds = %range_is_empty.exit.i156
-  %call25 = tail call ptr @g_list_insert_before(ptr noundef %list.addr.0430, ptr noundef nonnull %l.0429, ptr noundef nonnull %reg) #4
+  %call25 = tail call ptr @g_list_insert_before(ptr noundef %list.addr.0429, ptr noundef nonnull %l.0430, ptr noundef nonnull %reg) #4
   br label %return
 
 range_upb.exit176:                                ; preds = %range_lob.exit133
@@ -210,8 +210,8 @@ if.else.i259:                                     ; preds = %range_is_empty.exit
   unreachable
 
 range_set_bounds.exit260:                         ; preds = %range_is_empty.exit.i257
-  %call44 = tail call ptr @g_list_insert_before(ptr noundef %list.addr.0430, ptr noundef nonnull %l.0429, ptr noundef nonnull %call39) #4
-  %call45 = tail call ptr @g_list_insert_before(ptr noundef %call44, ptr noundef nonnull %l.0429, ptr noundef nonnull %reg) #4
+  %call44 = tail call ptr @g_list_insert_before(ptr noundef %list.addr.0429, ptr noundef nonnull %l.0430, ptr noundef nonnull %call39) #4
+  %call45 = tail call ptr @g_list_insert_before(ptr noundef %call44, ptr noundef nonnull %l.0430, ptr noundef nonnull %reg) #4
   br label %return
 
 range_is_empty.exit.i266:                         ; preds = %range_is_empty.exit.i102
@@ -252,7 +252,7 @@ if.else.i305:                                     ; preds = %range_is_empty.exit
   unreachable
 
 range_set_bounds.exit306:                         ; preds = %range_is_empty.exit.i303
-  %call56 = tail call ptr @g_list_insert_before(ptr noundef %list.addr.0430, ptr noundef nonnull %l.0429, ptr noundef nonnull %reg) #4
+  %call56 = tail call ptr @g_list_insert_before(ptr noundef %list.addr.0429, ptr noundef nonnull %l.0430, ptr noundef nonnull %reg) #4
   br label %return
 
 range_lob.exit324:                                ; preds = %range_lob.exit278
@@ -276,15 +276,15 @@ if.else.i333:                                     ; preds = %range_is_empty.exit
   unreachable
 
 if.end66.sink.split:                              ; preds = %range_is_empty.exit.i331, %range_lob.exit194, %if.then8, %for.body
-  %l.0429.sink = phi ptr [ %l.0429, %for.body ], [ %3, %if.then8 ], [ %l.0429, %range_lob.exit194 ], [ %l.0429, %range_is_empty.exit.i331 ]
-  %list.addr.1.ph = phi ptr [ %list.addr.0430, %for.body ], [ %call11, %if.then8 ], [ %list.addr.0430, %range_lob.exit194 ], [ %list.addr.0430, %range_is_empty.exit.i331 ]
-  %next33 = getelementptr inbounds i8, ptr %l.0429.sink, i64 8
+  %l.0430.sink = phi ptr [ %l.0430, %for.body ], [ %3, %if.then8 ], [ %l.0430, %range_lob.exit194 ], [ %l.0430, %range_is_empty.exit.i331 ]
+  %list.addr.1.ph = phi ptr [ %list.addr.0429, %for.body ], [ %call11, %if.then8 ], [ %list.addr.0429, %range_lob.exit194 ], [ %list.addr.0429, %range_is_empty.exit.i331 ]
+  %next33 = getelementptr inbounds i8, ptr %l.0430.sink, i64 8
   %8 = load ptr, ptr %next33, align 8
   br label %if.end66
 
 if.end66:                                         ; preds = %if.end66.sink.split, %if.then8
-  %l.1 = phi ptr [ %call11, %if.then8 ], [ %8, %if.end66.sink.split ]
   %list.addr.1 = phi ptr [ %call11, %if.then8 ], [ %list.addr.1.ph, %if.end66.sink.split ]
+  %l.1 = phi ptr [ %call11, %if.then8 ], [ %8, %if.end66.sink.split ]
   %tobool.not = icmp eq ptr %l.1, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !5
 

@@ -10,14 +10,14 @@ define hidden noalias noundef ptr @convert_libmagic_pattern(ptr nocapture nounde
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %.09198 = phi i32 [ %6, %.lr.ph ], [ 0, %3 ]
+  %.099 = phi i32 [ %6, %.lr.ph ], [ 0, %3 ]
   %4 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1
   %switch.selectcmp = icmp eq i8 %5, 0
   %switch.select = select i1 %switch.selectcmp, i32 4, i32 1
   %switch.selectcmp117 = icmp eq i8 %5, 126
   %switch.select118 = select i1 %switch.selectcmp117, i32 2, i32 %switch.select
-  %6 = add nuw nsw i32 %.09198, %switch.select118
+  %6 = add nuw nsw i32 %.099, %switch.select118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %1
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
@@ -30,8 +30,8 @@ define hidden noalias noundef ptr @convert_libmagic_pattern(ptr nocapture nounde
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3, %._crit_edge.loopexit
-  %.091.lcssa = phi i64 [ 32, %3 ], [ %9, %._crit_edge.loopexit ]
-  %10 = tail call noalias ptr @_emalloc(i64 noundef %.091.lcssa) #2
+  %.0.lcssa = phi i64 [ 32, %3 ], [ %9, %._crit_edge.loopexit ]
+  %10 = tail call noalias ptr @_emalloc(i64 noundef %.0.lcssa) #2
   store i32 1, ptr %10, align 4
   %11 = getelementptr inbounds i8, ptr %10, i64 4
   store i32 22, ptr %11, align 4
@@ -43,7 +43,7 @@ define hidden noalias noundef ptr @convert_libmagic_pattern(ptr nocapture nounde
 
 .lr.ph103:                                        ; preds = %._crit_edge, %26
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %26 ], [ 0, %._crit_edge ]
-  %.2100 = phi i32 [ %29, %26 ], [ 1, %._crit_edge ]
+  %.2101 = phi i32 [ %29, %26 ], [ 1, %._crit_edge ]
   %14 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv109
   %15 = load i8, ptr %14, align 1
   switch i8 %15, label %26 [
@@ -52,11 +52,11 @@ define hidden noalias noundef ptr @convert_libmagic_pattern(ptr nocapture nounde
   ]
 
 16:                                               ; preds = %.lr.ph103
-  %17 = add nsw i32 %.2100, 1
-  %18 = sext i32 %.2100 to i64
+  %17 = add nsw i32 %.2101, 1
+  %18 = sext i32 %.2101 to i64
   %19 = getelementptr inbounds [1 x i8], ptr %13, i64 0, i64 %18
   store i8 92, ptr %19, align 1
-  %20 = add nsw i32 %.2100, 2
+  %20 = add nsw i32 %.2101, 2
   %21 = sext i32 %17 to i64
   %22 = getelementptr inbounds [1 x i8], ptr %13, i64 0, i64 %21
   store i8 120, ptr %22, align 1
@@ -64,17 +64,17 @@ define hidden noalias noundef ptr @convert_libmagic_pattern(ptr nocapture nounde
 
 .sink.split:                                      ; preds = %.lr.ph103, %16
   %.sink121 = phi i32 [ 3, %16 ], [ 1, %.lr.ph103 ]
-  %.2100.sink = phi i32 [ %20, %16 ], [ %.2100, %.lr.ph103 ]
+  %.2101.sink = phi i32 [ %20, %16 ], [ %.2101, %.lr.ph103 ]
   %.sink = phi i8 [ 48, %16 ], [ 92, %.lr.ph103 ]
   %.sink113.ph = phi i8 [ 48, %16 ], [ %15, %.lr.ph103 ]
-  %23 = add nsw i32 %.2100, %.sink121
-  %24 = sext i32 %.2100.sink to i64
+  %23 = add nsw i32 %.2101, %.sink121
+  %24 = sext i32 %.2101.sink to i64
   %25 = getelementptr inbounds [1 x i8], ptr %13, i64 0, i64 %24
   store i8 %.sink, ptr %25, align 1
   br label %26
 
 26:                                               ; preds = %.sink.split, %.lr.ph103
-  %.sink116 = phi i32 [ %.2100, %.lr.ph103 ], [ %23, %.sink.split ]
+  %.sink116 = phi i32 [ %.2101, %.lr.ph103 ], [ %23, %.sink.split ]
   %.sink113 = phi i8 [ %15, %.lr.ph103 ], [ %.sink113.ph, %.sink.split ]
   %27 = sext i32 %.sink116 to i64
   %28 = getelementptr inbounds [1 x i8], ptr %13, i64 0, i64 %27

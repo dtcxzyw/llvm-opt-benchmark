@@ -235,8 +235,8 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1, ptr no
   %11 = getelementptr inbounds i8, ptr %6, i64 76
   store i32 0, ptr %11, align 4
   %12 = tail call i32 @H5_get_option(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.178, ptr noundef nonnull @l_opts) #12
-  %.not179 = icmp eq i32 %12, -1
-  br i1 %.not179, label %._crit_edge, label %.lr.ph
+  %.not178 = icmp eq i32 %12, -1
+  br i1 %.not178, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %13 = getelementptr inbounds i8, ptr %6, i64 1832
@@ -276,8 +276,8 @@ define dso_local void @parse_command_line(i32 noundef %0, ptr noundef %1, ptr no
 
 45:                                               ; preds = %.lr.ph, %.loopexit
   %46 = phi i32 [ %12, %.lr.ph ], [ %216, %.loopexit ]
-  %.0127181 = phi ptr [ null, %.lr.ph ], [ %.1, %.loopexit ]
-  %.0128180 = phi ptr [ null, %.lr.ph ], [ %.1129, %.loopexit ]
+  %.0127180 = phi ptr [ null, %.lr.ph ], [ %.1, %.loopexit ]
+  %.0128179 = phi ptr [ null, %.lr.ph ], [ %.1129, %.loopexit ]
   %sext = shl i32 %46, 24
   %47 = ashr exact i32 %sext, 24
   switch i32 %47, label %48 [
@@ -344,16 +344,16 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %89
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = add nsw i32 %57, -45
-  %.not183 = icmp eq i32 %58, 0
-  br i1 %.not183, label %sub_1, label %.tail170
+  %.not182 = icmp eq i32 %58, 0
+  br i1 %.not182, label %sub_1, label %.tail169
 
 sub_1:                                            ; preds = %sub_0
   %59 = getelementptr inbounds i8, ptr %55, i64 1
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
   %62 = add nsw i32 %61, -118
-  %.not184 = icmp eq i32 %62, 0
-  br i1 %.not184, label %sub_2, label %.tail
+  %.not183 = icmp eq i32 %62, 0
+  br i1 %.not183, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
   %63 = getelementptr inbounds i8, ptr %55, i64 2
@@ -364,7 +364,7 @@ sub_2:                                            ; preds = %sub_1
 .tail:                                            ; preds = %sub_1, %sub_2
   %66 = phi i32 [ %62, %sub_1 ], [ %65, %sub_2 ]
   %.not158 = icmp eq i32 %66, 0
-  br i1 %.not158, label %67, label %sub_0171
+  br i1 %.not158, label %67, label %sub_0170
 
 67:                                               ; preds = %.tail
   br i1 %.not162, label %71, label %68
@@ -379,22 +379,22 @@ sub_2:                                            ; preds = %sub_1
   store i32 0, ptr %44, align 4
   br label %.loopexit
 
-sub_0171:                                         ; preds = %.tail
-  br i1 %.not183, label %sub_1172, label %.tail170
+sub_0170:                                         ; preds = %.tail
+  br i1 %.not182, label %sub_1171, label %.tail169
 
-sub_1172:                                         ; preds = %sub_0171
+sub_1171:                                         ; preds = %sub_0170
   %72 = getelementptr inbounds i8, ptr %55, i64 1
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i32
   %75 = add nsw i32 %74, -118
-  br label %.tail170
+  br label %.tail169
 
-.tail170:                                         ; preds = %sub_0, %sub_0171, %sub_1172
-  %76 = phi i32 [ %58, %sub_0171 ], [ %75, %sub_1172 ], [ %58, %sub_0 ]
+.tail169:                                         ; preds = %sub_0, %sub_0170, %sub_1171
+  %76 = phi i32 [ %58, %sub_0170 ], [ %75, %sub_1171 ], [ %58, %sub_0 ]
   %.not160 = icmp eq i32 %76, 0
   br i1 %.not160, label %77, label %86
 
-77:                                               ; preds = %.tail170
+77:                                               ; preds = %.tail169
   br i1 %.not162, label %82, label %78
 
 78:                                               ; preds = %77
@@ -402,17 +402,17 @@ sub_1172:                                         ; preds = %sub_0171
   %80 = load i32, ptr @H5_optind, align 4
   %81 = add nsw i32 %80, -1
   store i32 %81, ptr @H5_optind, align 4
-  %.pre191 = load ptr, ptr %79, align 8
+  %.pre190 = load ptr, ptr %79, align 8
   br label %82
 
 82:                                               ; preds = %78, %77
-  %83 = phi ptr [ %.pre191, %78 ], [ %55, %77 ]
+  %83 = phi ptr [ %.pre190, %78 ], [ %55, %77 ]
   %84 = getelementptr inbounds i8, ptr %83, i64 2
   %85 = tail call i32 @atoi(ptr nocapture noundef nonnull %84) #13
   store i32 %85, ptr %44, align 4
   br label %.loopexit
 
-86:                                               ; preds = %.tail170
+86:                                               ; preds = %.tail169
   br i1 %.not162, label %89, label %87
 
 87:                                               ; preds = %86
@@ -472,7 +472,7 @@ sub_1172:                                         ; preds = %sub_0171
   store ptr %104, ptr %100, align 8
   %105 = getelementptr inbounds i8, ptr %100, i64 8
   store i32 -1, ptr %105, align 8
-  %106 = icmp eq ptr %.0128180, null
+  %106 = icmp eq ptr %.0128179, null
   br i1 %106, label %107, label %.preheader
 
 107:                                              ; preds = %103
@@ -481,7 +481,7 @@ sub_1172:                                         ; preds = %sub_0171
   br label %.loopexit
 
 .preheader:                                       ; preds = %103, %.preheader
-  %.0130 = phi ptr [ %110, %.preheader ], [ %.0128180, %103 ]
+  %.0130 = phi ptr [ %110, %.preheader ], [ %.0128179, %103 ]
   %109 = getelementptr inbounds i8, ptr %.0130, i64 16
   %110 = load ptr, ptr %109, align 8
   %.not156 = icmp eq ptr %110, null
@@ -514,22 +514,22 @@ sub_1172:                                         ; preds = %sub_0171
   store ptr %120, ptr %116, align 8
   %121 = getelementptr inbounds i8, ptr %116, i64 8
   store i32 -1, ptr %121, align 8
-  %122 = icmp eq ptr %.0127181, null
-  br i1 %122, label %123, label %.preheader174
+  %122 = icmp eq ptr %.0127180, null
+  br i1 %122, label %123, label %.preheader173
 
 123:                                              ; preds = %119
   %124 = getelementptr inbounds i8, ptr %116, i64 16
   store ptr null, ptr %124, align 8
   br label %.loopexit
 
-.preheader174:                                    ; preds = %119, %.preheader174
-  %.0126 = phi ptr [ %126, %.preheader174 ], [ %.0127181, %119 ]
+.preheader173:                                    ; preds = %119, %.preheader173
+  %.0126 = phi ptr [ %126, %.preheader173 ], [ %.0127180, %119 ]
   %125 = getelementptr inbounds i8, ptr %.0126, i64 16
   %126 = load ptr, ptr %125, align 8
   %.not154 = icmp eq ptr %126, null
-  br i1 %.not154, label %127, label %.preheader174
+  br i1 %.not154, label %127, label %.preheader173
 
-127:                                              ; preds = %.preheader174
+127:                                              ; preds = %.preheader173
   %128 = getelementptr inbounds i8, ptr %.0126, i64 16
   %129 = getelementptr inbounds i8, ptr %116, i64 16
   store ptr null, ptr %129, align 8
@@ -563,11 +563,11 @@ select.unfold:                                    ; preds = %141, %137
   %144 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %131)
   tail call void @usage()
   tail call void @h5diff_exit(i32 noundef 1) #12
-  %.pre190 = load ptr, ptr @H5_optarg, align 8
+  %.pre189 = load ptr, ptr @H5_optarg, align 8
   br label %check_d_input.exit
 
 check_d_input.exit:                               ; preds = %141, %select.unfold
-  %145 = phi ptr [ %131, %141 ], [ %.pre190, %select.unfold ]
+  %145 = phi ptr [ %131, %141 ], [ %.pre189, %select.unfold ]
   %146 = tail call double @atof(ptr noundef %145) #13
   store double %146, ptr %35, align 8
   br label %.loopexit
@@ -588,22 +588,22 @@ check_d_input.exit:                               ; preds = %141, %select.unfold
   %155 = getelementptr inbounds i8, ptr %148, i64 1
   %156 = load i8, ptr %155, align 1
   %157 = icmp eq i8 %156, 120
-  br i1 %157, label %select.unfold167, label %158
+  br i1 %157, label %select.unfold166, label %158
 
 158:                                              ; preds = %154, %151, %147
   %159 = tail call double @atof(ptr noundef readonly %148) #13
   %160 = fcmp olt double %159, 0.000000e+00
-  br i1 %160, label %select.unfold167, label %check_p_input.exit
+  br i1 %160, label %select.unfold166, label %check_p_input.exit
 
-select.unfold167:                                 ; preds = %158, %154
+select.unfold166:                                 ; preds = %158, %154
   %161 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %148)
   tail call void @usage()
   tail call void @h5diff_exit(i32 noundef 1) #12
-  %.pre189 = load ptr, ptr @H5_optarg, align 8
+  %.pre188 = load ptr, ptr @H5_optarg, align 8
   br label %check_p_input.exit
 
-check_p_input.exit:                               ; preds = %158, %select.unfold167
-  %162 = phi ptr [ %148, %158 ], [ %.pre189, %select.unfold167 ]
+check_p_input.exit:                               ; preds = %158, %select.unfold166
+  %162 = phi ptr [ %148, %158 ], [ %.pre188, %select.unfold166 ]
   %163 = tail call double @atof(ptr noundef %162) #13
   store double %163, ptr %33, align 8
   %164 = tail call double @llvm.fabs.f64(double %163)
@@ -623,10 +623,10 @@ check_p_input.exit:                               ; preds = %158, %select.unfold
 
 .lr.ph.i:                                         ; preds = %167, %177
   %170 = phi i64 [ %179, %177 ], [ 0, %167 ]
-  %.01517.i = phi i32 [ %178, %177 ], [ 0, %167 ]
+  %.017.i = phi i32 [ %178, %177 ], [ 0, %167 ]
   %171 = getelementptr inbounds i8, ptr %168, i64 %170
   %172 = load i8, ptr %171, align 1
-  %173 = icmp eq i32 %.01517.i, 0
+  %173 = icmp eq i32 %.017.i, 0
   %174 = add i8 %172, -58
   br i1 %173, label %175, label %176
 
@@ -639,7 +639,7 @@ check_p_input.exit:                               ; preds = %158, %select.unfold
   br i1 %or.cond5.i, label %181, label %177
 
 177:                                              ; preds = %176, %175
-  %178 = add i32 %.01517.i, 1
+  %178 = add i32 %.017.i, 1
   %179 = zext i32 %178 to i64
   %180 = icmp ugt i64 %169, %179
   br i1 %180, label %.lr.ph.i, label %check_n_input.exit
@@ -750,8 +750,8 @@ check_n_input.exit:                               ; preds = %177, %167, %181
   br label %.loopexit
 
 .loopexit:                                        ; preds = %89, %52, %check_p_input.exit, %166, %123, %127, %107, %111, %96, %98, %71, %82, %214, %212, %209, %207, %205, %202, %200, %198, %195, %193, %191, %188, %187, %186, %185, %check_n_input.exit, %check_d_input.exit, %114, %93, %92, %91, %90, %50, %49, %48
-  %.1129 = phi ptr [ %.0128180, %48 ], [ %.0128180, %214 ], [ %.0128180, %212 ], [ %.0128180, %209 ], [ %.0128180, %207 ], [ %.0128180, %205 ], [ %.0128180, %202 ], [ %.0128180, %200 ], [ %.0128180, %198 ], [ %.0128180, %195 ], [ %.0128180, %193 ], [ %.0128180, %191 ], [ %.0128180, %188 ], [ %.0128180, %187 ], [ %.0128180, %186 ], [ %.0128180, %185 ], [ %.0128180, %check_n_input.exit ], [ %.0128180, %166 ], [ %.0128180, %check_p_input.exit ], [ %.0128180, %check_d_input.exit ], [ %.0128180, %123 ], [ %.0128180, %127 ], [ %.0128180, %114 ], [ %100, %107 ], [ %.0128180, %111 ], [ %.0128180, %96 ], [ %.0128180, %98 ], [ %.0128180, %93 ], [ %.0128180, %92 ], [ %.0128180, %91 ], [ %.0128180, %90 ], [ %.0128180, %82 ], [ %.0128180, %71 ], [ %.0128180, %50 ], [ %.0128180, %49 ], [ %.0128180, %52 ], [ %.0128180, %89 ]
-  %.1 = phi ptr [ %.0127181, %48 ], [ %.0127181, %214 ], [ %.0127181, %212 ], [ %.0127181, %209 ], [ %.0127181, %207 ], [ %.0127181, %205 ], [ %.0127181, %202 ], [ %.0127181, %200 ], [ %.0127181, %198 ], [ %.0127181, %195 ], [ %.0127181, %193 ], [ %.0127181, %191 ], [ %.0127181, %188 ], [ %.0127181, %187 ], [ %.0127181, %186 ], [ %.0127181, %185 ], [ %.0127181, %check_n_input.exit ], [ %.0127181, %166 ], [ %.0127181, %check_p_input.exit ], [ %.0127181, %check_d_input.exit ], [ %116, %123 ], [ %.0127181, %127 ], [ %.0127181, %114 ], [ %.0127181, %107 ], [ %.0127181, %111 ], [ %.0127181, %96 ], [ %.0127181, %98 ], [ %.0127181, %93 ], [ %.0127181, %92 ], [ %.0127181, %91 ], [ %.0127181, %90 ], [ %.0127181, %82 ], [ %.0127181, %71 ], [ %.0127181, %50 ], [ %.0127181, %49 ], [ %.0127181, %52 ], [ %.0127181, %89 ]
+  %.1129 = phi ptr [ %.0128179, %48 ], [ %.0128179, %214 ], [ %.0128179, %212 ], [ %.0128179, %209 ], [ %.0128179, %207 ], [ %.0128179, %205 ], [ %.0128179, %202 ], [ %.0128179, %200 ], [ %.0128179, %198 ], [ %.0128179, %195 ], [ %.0128179, %193 ], [ %.0128179, %191 ], [ %.0128179, %188 ], [ %.0128179, %187 ], [ %.0128179, %186 ], [ %.0128179, %185 ], [ %.0128179, %check_n_input.exit ], [ %.0128179, %166 ], [ %.0128179, %check_p_input.exit ], [ %.0128179, %check_d_input.exit ], [ %.0128179, %123 ], [ %.0128179, %127 ], [ %.0128179, %114 ], [ %100, %107 ], [ %.0128179, %111 ], [ %.0128179, %96 ], [ %.0128179, %98 ], [ %.0128179, %93 ], [ %.0128179, %92 ], [ %.0128179, %91 ], [ %.0128179, %90 ], [ %.0128179, %82 ], [ %.0128179, %71 ], [ %.0128179, %50 ], [ %.0128179, %49 ], [ %.0128179, %52 ], [ %.0128179, %89 ]
+  %.1 = phi ptr [ %.0127180, %48 ], [ %.0127180, %214 ], [ %.0127180, %212 ], [ %.0127180, %209 ], [ %.0127180, %207 ], [ %.0127180, %205 ], [ %.0127180, %202 ], [ %.0127180, %200 ], [ %.0127180, %198 ], [ %.0127180, %195 ], [ %.0127180, %193 ], [ %.0127180, %191 ], [ %.0127180, %188 ], [ %.0127180, %187 ], [ %.0127180, %186 ], [ %.0127180, %185 ], [ %.0127180, %check_n_input.exit ], [ %.0127180, %166 ], [ %.0127180, %check_p_input.exit ], [ %.0127180, %check_d_input.exit ], [ %116, %123 ], [ %.0127180, %127 ], [ %.0127180, %114 ], [ %.0127180, %107 ], [ %.0127180, %111 ], [ %.0127180, %96 ], [ %.0127180, %98 ], [ %.0127180, %93 ], [ %.0127180, %92 ], [ %.0127180, %91 ], [ %.0127180, %90 ], [ %.0127180, %82 ], [ %.0127180, %71 ], [ %.0127180, %50 ], [ %.0127180, %49 ], [ %.0127180, %52 ], [ %.0127180, %89 ]
   %216 = tail call i32 @H5_get_option(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.178, ptr noundef nonnull @l_opts) #12
   %.not = icmp eq i32 %216, -1
   br i1 %.not, label %._crit_edge, label %45
@@ -898,12 +898,12 @@ check_options.exit:                               ; preds = %250, %260
   tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.8) #12
   tail call void @usage()
   tail call void @h5diff_exit(i32 noundef 1) #12
-  %.pre192 = load i32, ptr @H5_optind, align 4
-  %.pre193 = sext i32 %.pre192 to i64
+  %.pre191 = load i32, ptr @H5_optind, align 4
+  %.pre192 = sext i32 %.pre191 to i64
   br label %281
 
 281:                                              ; preds = %280, %274
-  %.pre-phi = phi i64 [ %.pre193, %280 ], [ %275, %274 ]
+  %.pre-phi = phi i64 [ %.pre192, %280 ], [ %275, %274 ]
   %282 = getelementptr inbounds ptr, ptr %1, i64 %.pre-phi
   %283 = load ptr, ptr %282, align 8
   store ptr %283, ptr %2, align 8

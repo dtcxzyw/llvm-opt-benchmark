@@ -38,8 +38,8 @@ define i32 @FT_Get_PS_Font_Info(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br label %.thread
 
 .thread:                                          ; preds = %4, %14, %12, %10, %3, %2
-  %.013 = phi i32 [ 35, %2 ], [ 6, %3 ], [ %15, %14 ], [ 6, %12 ], [ 6, %10 ], [ 6, %4 ]
-  ret i32 %.013
+  %.014 = phi i32 [ 35, %2 ], [ 6, %3 ], [ %15, %14 ], [ 6, %12 ], [ 6, %10 ], [ 6, %4 ]
+  ret i32 %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -110,8 +110,8 @@ define i32 @FT_Get_PS_Font_Private(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %.thread
 
 .thread:                                          ; preds = %4, %15, %12, %10, %3, %2
-  %.013 = phi i32 [ 35, %2 ], [ 6, %3 ], [ %16, %15 ], [ 6, %12 ], [ 6, %10 ], [ 6, %4 ]
-  ret i32 %.013
+  %.014 = phi i32 [ 35, %2 ], [ 6, %3 ], [ %16, %15 ], [ 6, %12 ], [ 6, %10 ], [ 6, %4 ]
+  ret i32 %.014
 }
 
 ; Function Attrs: nounwind uwtable

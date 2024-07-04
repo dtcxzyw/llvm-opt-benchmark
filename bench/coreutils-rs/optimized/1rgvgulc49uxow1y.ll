@@ -366,8 +366,8 @@ define void @"_ZN65_$LT$uu_df..table..Row$u20$as$u20$core..ops..arith..AddAssign
   br label %66
 
 66:                                               ; preds = %45, %62
-  %.sroa.029.0 = phi i64 [ 1, %62 ], [ 0, %45 ]
   %.sroa.530.0 = phi double [ %65, %62 ], [ undef, %45 ]
+  %.sroa.029.0 = phi i64 [ 1, %62 ], [ 0, %45 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.14, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.11, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)

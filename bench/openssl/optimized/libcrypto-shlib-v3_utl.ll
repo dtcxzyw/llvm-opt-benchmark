@@ -682,8 +682,8 @@ entry:
   br i1 %cmp, label %err, label %for.cond
 
 for.cond:                                         ; preds = %entry, %for.inc
-  %q.0 = phi ptr [ %q.1, %for.inc ], [ %call, %entry ]
   %p.0 = phi ptr [ %incdec.ptr, %for.inc ], [ %call, %entry ]
+  %q.0 = phi ptr [ %q.1, %for.inc ], [ %call, %entry ]
   %ntmp.0 = phi ptr [ %ntmp.1, %for.inc ], [ null, %entry ]
   %state.0 = phi i32 [ %state.1, %for.inc ], [ 1, %entry ]
   %0 = load i8, ptr %p.0, align 1
@@ -1391,11 +1391,11 @@ if.end:                                           ; preds = %land.lhs.true, %if.
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else, %if.end, %entry
+  %flags.addr.1 = phi i32 [ %and, %entry ], [ %flags.addr.0, %if.end ], [ %and, %if.else ]
   %cmp93.not = phi i1 [ true, %entry ], [ true, %if.end ], [ false, %if.else ]
   %cnid.0 = phi i32 [ 48, %entry ], [ 13, %if.end ], [ 0, %if.else ]
   %alt_type.0 = phi i32 [ 22, %entry ], [ 22, %if.end ], [ 4, %if.else ]
   %equal.0 = phi ptr [ @equal_email, %entry ], [ %equal_wildcard.equal_nocase, %if.end ], [ @equal_case, %if.else ]
-  %flags.addr.1 = phi i32 [ %and, %entry ], [ %flags.addr.0, %if.end ], [ %and, %if.else ]
   %cmp14 = icmp eq i64 %chklen, 0
   br i1 %cmp14, label %if.then16, label %if.end17
 
@@ -2071,8 +2071,8 @@ if.end18:                                         ; preds = %if.end14
   br i1 %tobool21.not, label %err, label %return
 
 err:                                              ; preds = %if.end18, %if.end14, %if.end7, %if.end4
-  %iptmp.0 = phi ptr [ null, %if.end14 ], [ null, %if.end18 ], [ null, %if.end7 ], [ %call1, %if.end4 ]
   %ret.0 = phi ptr [ null, %if.end14 ], [ %call15, %if.end18 ], [ null, %if.end7 ], [ null, %if.end4 ]
+  %iptmp.0 = phi ptr [ null, %if.end14 ], [ null, %if.end18 ], [ null, %if.end7 ], [ %call1, %if.end4 ]
   call void @CRYPTO_free(ptr noundef %iptmp.0, ptr noundef nonnull @.str, i32 noundef 1134) #13
   call void @ASN1_OCTET_STRING_free(ptr noundef %ret.0) #13
   br label %return
@@ -2406,18 +2406,18 @@ for.body.lr.ph.i:                                 ; preds = %land.lhs.true, %if.
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %star.061.i = phi ptr [ null, %for.body.lr.ph.i ], [ %star.1.i, %for.inc.i ]
-  %dots.060.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %dots.1.i, %for.inc.i ]
-  %state.059.i = phi i32 [ 1, %for.body.lr.ph.i ], [ %state.2.i, %for.inc.i ]
-  %i.058.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc102.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %pattern, i64 %i.058.i
+  %dots.061.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %dots.1.i, %for.inc.i ]
+  %state.060.i = phi i32 [ 1, %for.body.lr.ph.i ], [ %state.2.i, %for.inc.i ]
+  %i.059.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc102.i, %for.inc.i ]
+  %star.058.i = phi ptr [ null, %for.body.lr.ph.i ], [ %star.1.i, %for.inc.i ]
+  %arrayidx.i = getelementptr inbounds i8, ptr %pattern, i64 %i.059.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %cmp1.i = icmp eq i8 %1, 42
   br i1 %cmp1.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %and.i = and i32 %state.059.i, 1
-  %cmp3.i = icmp eq i64 %i.058.i, %sub.i
+  %and.i = and i32 %state.060.i, 1
+  %cmp3.i = icmp eq i64 %i.059.i, %sub.i
   br i1 %cmp3.i, label %lor.end.i, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %if.then.i
@@ -2428,13 +2428,13 @@ lor.rhs.i:                                        ; preds = %if.then.i
 
 lor.end.i:                                        ; preds = %lor.rhs.i, %if.then.i
   %3 = phi i1 [ true, %if.then.i ], [ %cmp7.i, %lor.rhs.i ]
-  %cmp9.not.i = icmp eq ptr %star.061.i, null
+  %cmp9.not.i = icmp eq ptr %star.058.i, null
   br i1 %cmp9.not.i, label %lor.lhs.false.i, label %if.then5
 
 lor.lhs.false.i:                                  ; preds = %lor.end.i
-  %and11.i = and i32 %state.059.i, 8
+  %and11.i = and i32 %state.060.i, 8
   %cmp12.i = icmp ne i32 %and11.i, 0
-  %tobool.i = icmp ne i32 %dots.060.i, 0
+  %tobool.i = icmp ne i32 %dots.061.i, 0
   %or.cond.i = select i1 %cmp12.i, i1 true, i1 %tobool.i
   br i1 %or.cond.i, label %if.then5, label %if.end.i
 
@@ -2447,7 +2447,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br i1 %or.cond51.i, label %if.end27.i, label %if.then5
 
 if.end27.i:                                       ; preds = %if.end.i
-  %and29.i = and i32 %state.059.i, -10
+  %and29.i = and i32 %state.060.i, -10
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body.i
@@ -2460,9 +2460,9 @@ if.else.i:                                        ; preds = %for.body.i
   br i1 %or.cond53.i, label %if.then59.i, label %if.else74.i
 
 if.then59.i:                                      ; preds = %if.else.i
-  %and60.i = and i32 %state.059.i, 1
+  %and60.i = and i32 %state.060.i, 1
   %cmp61.not.i = icmp ne i32 %and60.i, 0
-  %sub64.i = sub i64 %pattern_len, %i.058.i
+  %sub64.i = sub i64 %pattern_len, %i.059.i
   %cmp65.i = icmp ugt i64 %sub64.i, 3
   %or.cond50.i = and i1 %cmp61.not.i, %cmp65.i
   br i1 %or.cond50.i, label %land.lhs.true67.i, label %if.end72.i
@@ -2470,11 +2470,11 @@ if.then59.i:                                      ; preds = %if.else.i
 land.lhs.true67.i:                                ; preds = %if.then59.i
   %call.i = tail call i32 @OPENSSL_strncasecmp(ptr noundef nonnull %arrayidx.i, ptr noundef nonnull @.str.21, i64 noundef 4) #13
   %cmp69.i = icmp eq i32 %call.i, 0
-  %spec.select.i = select i1 %cmp69.i, i32 8, i32 %state.059.i
+  %spec.select.i = select i1 %cmp69.i, i32 8, i32 %state.060.i
   br label %if.end72.i
 
 if.end72.i:                                       ; preds = %land.lhs.true67.i, %if.then59.i
-  %state.1.i = phi i32 [ %state.059.i, %if.then59.i ], [ %spec.select.i, %land.lhs.true67.i ]
+  %state.1.i = phi i32 [ %state.060.i, %if.then59.i ], [ %spec.select.i, %land.lhs.true67.i ]
   %and73.i = and i32 %state.1.i, -6
   br label %for.inc.i
 
@@ -2485,28 +2485,28 @@ if.else74.i:                                      ; preds = %if.else.i
   ]
 
 if.then79.i:                                      ; preds = %if.else74.i
-  %and80.i = and i32 %state.059.i, 5
+  %and80.i = and i32 %state.060.i, 5
   %cmp81.not.i = icmp eq i32 %and80.i, 0
   br i1 %cmp81.not.i, label %if.end84.i, label %if.then5
 
 if.end84.i:                                       ; preds = %if.then79.i
-  %inc.i = add nsw i32 %dots.060.i, 1
+  %inc.i = add nsw i32 %dots.061.i, 1
   br label %for.inc.i
 
 if.then90.i:                                      ; preds = %if.else74.i
-  %and91.i = and i32 %state.059.i, 1
+  %and91.i = and i32 %state.060.i, 1
   %cmp92.not.i = icmp eq i32 %and91.i, 0
   br i1 %cmp92.not.i, label %if.end95.i, label %if.then5
 
 if.end95.i:                                       ; preds = %if.then90.i
-  %or96.i = or i32 %state.059.i, 4
+  %or96.i = or i32 %state.060.i, 4
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end95.i, %if.end84.i, %if.end72.i, %if.end27.i
+  %star.1.i = phi ptr [ %arrayidx.i, %if.end27.i ], [ %star.058.i, %if.end72.i ], [ %star.058.i, %if.end84.i ], [ %star.058.i, %if.end95.i ]
   %state.2.i = phi i32 [ %and29.i, %if.end27.i ], [ %and73.i, %if.end72.i ], [ 1, %if.end84.i ], [ %or96.i, %if.end95.i ]
-  %dots.1.i = phi i32 [ 0, %if.end27.i ], [ %dots.060.i, %if.end72.i ], [ %inc.i, %if.end84.i ], [ %dots.060.i, %if.end95.i ]
-  %star.1.i = phi ptr [ %arrayidx.i, %if.end27.i ], [ %star.061.i, %if.end72.i ], [ %star.061.i, %if.end84.i ], [ %star.061.i, %if.end95.i ]
-  %inc102.i = add nuw i64 %i.058.i, 1
+  %dots.1.i = phi i32 [ 0, %if.end27.i ], [ %dots.061.i, %if.end72.i ], [ %inc.i, %if.end84.i ], [ %dots.061.i, %if.end95.i ]
+  %inc102.i = add nuw i64 %i.059.i, 1
   %exitcond.not.i = icmp eq i64 %inc102.i, %pattern_len
   br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !20
 

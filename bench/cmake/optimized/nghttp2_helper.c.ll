@@ -446,9 +446,9 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef read
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4, %9
-  %.012 = phi ptr [ %10, %9 ], [ %0, %4 ]
-  %.011 = phi i64 [ %11, %9 ], [ %1, %4 ]
-  %12 = getelementptr inbounds i8, ptr %.012, i64 %.011
+  %.011 = phi ptr [ %10, %9 ], [ %0, %4 ]
+  %.0 = phi i64 [ %11, %9 ], [ %1, %4 ]
+  %12 = getelementptr inbounds i8, ptr %.011, i64 %.0
   br label %.lr.ph
 
 13:                                               ; preds = %.lr.ph
@@ -457,7 +457,7 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef read
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
-  %.116 = phi ptr [ %14, %13 ], [ %.012, %.lr.ph.preheader ]
+  %.116 = phi ptr [ %14, %13 ], [ %.011, %.lr.ph.preheader ]
   %15 = load i8, ptr %.116, align 1
   %16 = zext i8 %15 to i64
   %17 = getelementptr inbounds [256 x i32], ptr @VALID_HD_NAME_CHARS, i64 0, i64 %16
@@ -466,8 +466,8 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef read
   br i1 %.not14, label %.loopexit, label %13
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %7, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %7 ], [ 0, %.lr.ph ], [ 1, %13 ]
-  ret i32 %.0
+  %.012 = phi i32 [ 0, %2 ], [ 0, %7 ], [ 0, %.lr.ph ], [ 1, %13 ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable

@@ -1043,18 +1043,18 @@ gm_readnext_tuple.exit.i:                         ; preds = %84
   br i1 %exitcond.not.i, label %load_tuple_array.exit, label %81, !llvm.loop !9
 
 load_tuple_array.exit:                            ; preds = %90, %gm_readnext_tuple.exit.i, %84, %76, %48
-  %.031 = phi ptr [ %53, %48 ], [ %67, %76 ], [ %67, %84 ], [ %67, %gm_readnext_tuple.exit.i ], [ %67, %90 ]
+  %.0 = phi ptr [ %53, %48 ], [ %67, %76 ], [ %67, %84 ], [ %67, %gm_readnext_tuple.exit.i ], [ %67, %90 ]
   %95 = getelementptr inbounds i8, ptr %0, i64 256
   %96 = load ptr, ptr %95, align 8
   %97 = sext i32 %1 to i64
   %98 = getelementptr ptr, ptr %96, i64 %97
   %99 = load ptr, ptr %98, align 8
-  %100 = tail call ptr @ExecStoreMinimalTuple(ptr noundef %.031, ptr noundef %99, i1 noundef zeroext true) #4
+  %100 = tail call ptr @ExecStoreMinimalTuple(ptr noundef %.0, ptr noundef %99, i1 noundef zeroext true) #4
   br label %gm_readnext_tuple.exit.thread
 
 gm_readnext_tuple.exit.thread:                    ; preds = %61, %gm_readnext_tuple.exit, %54, %5, %36, %load_tuple_array.exit, %33
-  %.0 = phi i1 [ true, %33 ], [ true, %load_tuple_array.exit ], [ false, %36 ], [ false, %5 ], [ false, %54 ], [ false, %gm_readnext_tuple.exit ], [ false, %61 ]
-  ret i1 %.0
+  %.031 = phi i1 [ true, %33 ], [ true, %load_tuple_array.exit ], [ false, %36 ], [ false, %5 ], [ false, %54 ], [ false, %gm_readnext_tuple.exit ], [ false, %61 ]
+  ret i1 %.031
 }
 
 declare void @binaryheap_replace_first(ptr noundef, i64 noundef) local_unnamed_addr #1

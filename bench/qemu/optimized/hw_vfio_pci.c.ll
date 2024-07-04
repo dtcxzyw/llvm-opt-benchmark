@@ -4543,9 +4543,9 @@ for.body.lr.ph:                                   ; preds = %trace_vfio_pci_hot_
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc104
-  %i.0211 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc104 ]
-  %multi.0210 = phi i1 [ false, %for.body.lr.ph ], [ %multi.1, %for.inc104 ]
-  %idxprom = sext i32 %i.0211 to i64
+  %multi.0211 = phi i1 [ false, %for.body.lr.ph ], [ %multi.1, %for.inc104 ]
+  %i.0210 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc104 ]
+  %idxprom = sext i32 %i.0210 to i64
   %arrayidx36 = getelementptr %struct.vfio_pci_dependent_device, ptr %devices22, i64 %idxprom
   %segment = getelementptr inbounds i8, ptr %arrayidx36, i64 4
   %22 = load i16, ptr %segment, align 4
@@ -4682,8 +4682,8 @@ for.inc100:                                       ; preds = %if.end88, %for.body
   br i1 %tobool82.not, label %for.inc104, label %for.body83, !llvm.loop !25
 
 for.inc104:                                       ; preds = %for.inc100, %if.end80, %if.end96, %trace_vfio_pci_hot_reset_dep_devices.exit
-  %multi.1 = phi i1 [ %multi.0210, %trace_vfio_pci_hot_reset_dep_devices.exit ], [ true, %if.end96 ], [ %multi.0210, %if.end80 ], [ %multi.0210, %for.inc100 ]
-  %inc = add nuw i32 %i.0211, 1
+  %multi.1 = phi i1 [ %multi.0211, %trace_vfio_pci_hot_reset_dep_devices.exit ], [ true, %if.end96 ], [ %multi.0211, %if.end80 ], [ %multi.0211, %for.inc100 ]
+  %inc = add nuw i32 %i.0210, 1
   %44 = load i32, ptr %count33, align 4
   %cmp34 = icmp ult i32 %inc, %44
   br i1 %cmp34, label %for.body, label %for.end105, !llvm.loop !26

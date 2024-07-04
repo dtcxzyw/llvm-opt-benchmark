@@ -298,8 +298,8 @@ if.end:                                           ; preds = %ps_strncmp.exit
   br label %if.end4
 
 if.end4:                                          ; preds = %if.end, %entry
-  %string.addr.0 = phi ptr [ %add.ptr3, %if.end ], [ %string, %entry ]
   %pattern.addr.0 = phi ptr [ %add.ptr, %if.end ], [ %pattern, %entry ]
+  %string.addr.0 = phi ptr [ %add.ptr3, %if.end ], [ %string, %entry ]
   %flags = getelementptr inbounds i8, ptr %item, i64 32
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 1
@@ -416,7 +416,7 @@ if.then:                                          ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %max.034 = phi i64 [ 0, %for.body.lr.ph ], [ %max.1, %for.inc ]
+  %max.035 = phi i64 [ 0, %for.body.lr.ph ], [ %max.1, %for.inc ]
   %arrayidx = getelementptr inbounds %struct.pathspec_item, ptr %2, i64 %indvars.iv
   %magic3 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %3 = load i32, ptr %magic3, align 8
@@ -463,7 +463,7 @@ if.end42.us:                                      ; preds = %land.rhs.us
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end42
   %len.029 = phi i64 [ %spec.select, %if.end42 ], [ 0, %land.rhs.lr.ph ]
   %i.028 = phi i64 [ %add, %if.end42 ], [ 0, %land.rhs.lr.ph ]
-  %exitcond.not = icmp eq i64 %i.028, %max.034
+  %exitcond.not = icmp eq i64 %i.028, %max.035
   br i1 %exitcond.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
@@ -486,12 +486,12 @@ if.end42:                                         ; preds = %while.body
 while.end:                                        ; preds = %land.rhs, %while.body, %if.end42, %land.rhs.us, %if.end42.us
   %len.0.lcssa = phi i64 [ %spec.select.us, %if.end42.us ], [ %len.029.us, %land.rhs.us ], [ %spec.select, %if.end42 ], [ %len.029, %while.body ], [ %len.029, %land.rhs ]
   %cmp48 = icmp eq i64 %indvars.iv, 0
-  %cmp50 = icmp ult i64 %len.0.lcssa, %max.034
+  %cmp50 = icmp ult i64 %len.0.lcssa, %max.035
   %or.cond = select i1 %cmp48, i1 true, i1 %cmp50
   br i1 %or.cond, label %if.then52, label %for.inc
 
 while.end.thread:                                 ; preds = %if.end7
-  %cmp5046 = icmp ne i64 %max.034, 0
+  %cmp5046 = icmp ne i64 %max.035, 0
   %or.cond47 = select i1 %cmp4845, i1 true, i1 %cmp5046
   br i1 %or.cond47, label %for.end, label %for.inc
 
@@ -500,7 +500,7 @@ if.then52:                                        ; preds = %while.end
   br i1 %tobool53.not, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %while.end.thread, %while.end, %if.then52, %for.body
-  %max.1 = phi i64 [ %max.034, %for.body ], [ %len.0.lcssa, %if.then52 ], [ %max.034, %while.end ], [ 0, %while.end.thread ]
+  %max.1 = phi i64 [ %max.035, %for.body ], [ %len.0.lcssa, %if.then52 ], [ %max.035, %while.end ], [ 0, %while.end.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond43.not, label %for.end, label %for.body, !llvm.loop !9
@@ -1249,8 +1249,8 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %lor.lhs.false, %entry
-  %len.0 = phi i32 [ -1, %entry ], [ %inc, %lor.lhs.false ]
   %match.addr.0 = phi ptr [ %match, %entry ], [ %incdec.ptr, %lor.lhs.false ]
+  %len.0 = phi i32 [ -1, %entry ], [ %inc, %lor.lhs.false ]
   %0 = load i8, ptr %match.addr.0, align 1
   %inc = add nsw i32 %len.0, 1
   %cmp = icmp eq i8 %0, 0
@@ -1275,8 +1275,8 @@ entry:
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %lor.lhs.false.i, %entry
-  %len.0.i = phi i32 [ -1, %entry ], [ %inc.i, %lor.lhs.false.i ]
   %match.addr.0.i = phi ptr [ %string, %entry ], [ %incdec.ptr.i, %lor.lhs.false.i ]
+  %len.0.i = phi i32 [ -1, %entry ], [ %inc.i, %lor.lhs.false.i ]
   %0 = load i8, ptr %match.addr.0.i, align 1
   %inc.i = add nsw i32 %len.0.i, 1
   %cmp.i = icmp eq i8 %0, 0
@@ -1370,8 +1370,8 @@ if.end20:                                         ; preds = %if.then18, %for.end
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %lor.lhs.false.i, %if.end20
-  %len.0.i = phi i32 [ -1, %if.end20 ], [ %inc.i, %lor.lhs.false.i ]
   %match.addr.0.i = phi ptr [ %p.0, %if.end20 ], [ %incdec.ptr.i, %lor.lhs.false.i ]
+  %len.0.i = phi i32 [ -1, %if.end20 ], [ %inc.i, %lor.lhs.false.i ]
   %8 = load i8, ptr %match.addr.0.i, align 1
   %inc.i = add nsw i32 %len.0.i, 1
   %cmp.i = icmp eq i8 %8, 0
@@ -1401,8 +1401,8 @@ land.lhs.true31:                                  ; preds = %simple_length.exit
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, %land.lhs.true31
-  %len.0.i.i = phi i32 [ -1, %land.lhs.true31 ], [ %inc.i.i, %lor.lhs.false.i.i ]
   %match.addr.0.i.i = phi ptr [ %add.ptr, %land.lhs.true31 ], [ %incdec.ptr.i.i, %lor.lhs.false.i.i ]
+  %len.0.i.i = phi i32 [ -1, %land.lhs.true31 ], [ %inc.i.i, %lor.lhs.false.i.i ]
   %12 = load i8, ptr %match.addr.0.i.i, align 1
   %inc.i.i = add nsw i32 %len.0.i.i, 1
   %cmp.i.i = icmp eq i8 %12, 0
@@ -1693,8 +1693,8 @@ if.end20.i:                                       ; preds = %if.then18.i, %for.e
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i, %if.end20.i
-  %len.0.i.i = phi i32 [ -1, %if.end20.i ], [ %inc.i.i, %lor.lhs.false.i.i ]
   %match.addr.0.i.i = phi ptr [ %p.0.i, %if.end20.i ], [ %incdec.ptr.i.i, %lor.lhs.false.i.i ]
+  %len.0.i.i = phi i32 [ -1, %if.end20.i ], [ %inc.i.i, %lor.lhs.false.i.i ]
   %4 = load i8, ptr %match.addr.0.i.i, align 1
   %inc.i.i = add nsw i32 %len.0.i.i, 1
   %cmp.i.i = icmp eq i8 %4, 0
@@ -1723,8 +1723,8 @@ land.lhs.true31.i:                                ; preds = %simple_length.exit.
   br label %for.cond.i.i.i
 
 for.cond.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i, %land.lhs.true31.i
-  %len.0.i.i.i = phi i32 [ -1, %land.lhs.true31.i ], [ %inc.i.i.i, %lor.lhs.false.i.i.i ]
   %match.addr.0.i.i.i = phi ptr [ %add.ptr.i, %land.lhs.true31.i ], [ %incdec.ptr.i.i.i, %lor.lhs.false.i.i.i ]
+  %len.0.i.i.i = phi i32 [ -1, %land.lhs.true31.i ], [ %inc.i.i.i, %lor.lhs.false.i.i.i ]
   %8 = load i8, ptr %match.addr.0.i.i.i, align 1
   %inc.i.i.i = add nsw i32 %len.0.i.i.i, 1
   %cmp.i.i.i = icmp eq i8 %8, 0
@@ -8526,9 +8526,9 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end, %entry
+  %set.0 = phi ptr [ %call, %entry ], [ %incdec.ptr2, %if.end ]
   %read.0 = phi ptr [ %call, %entry ], [ %incdec.ptr3, %if.end ]
   %count.0 = phi i64 [ 0, %entry ], [ %inc, %if.end ]
-  %set.0 = phi ptr [ %call, %entry ], [ %incdec.ptr2, %if.end ]
   %0 = load i8, ptr %read.0, align 1
   switch i8 %0, label %if.end [
     i8 0, label %while.end

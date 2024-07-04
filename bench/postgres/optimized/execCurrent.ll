@@ -182,7 +182,7 @@ fetch_cursor_param_value.exit:                    ; preds = %34
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %101
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %101 ]
-  %.06080 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %101 ]
+  %.06179 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %101 ]
   %85 = getelementptr ptr, ptr %82, i64 %indvars.iv
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
@@ -201,7 +201,7 @@ fetch_cursor_param_value.exit:                    ; preds = %34
   br i1 %95, label %96, label %101
 
 96:                                               ; preds = %92
-  %.not75 = icmp eq ptr %.06080, null
+  %.not75 = icmp eq ptr %.06179, null
   br i1 %.not75, label %101, label %97
 
 97:                                               ; preds = %96
@@ -213,7 +213,7 @@ fetch_cursor_param_value.exit:                    ; preds = %34
   unreachable
 
 101:                                              ; preds = %96, %92, %.lr.ph, %88
-  %.1 = phi ptr [ %.06080, %.lr.ph ], [ %.06080, %92 ], [ %.06080, %88 ], [ %86, %96 ]
+  %.1 = phi ptr [ %.06179, %.lr.ph ], [ %.06179, %92 ], [ %.06179, %88 ], [ %86, %96 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
@@ -402,7 +402,7 @@ define internal fastcc ptr @search_plan_tree(ptr noundef readonly %0, i32 nounde
 
 18:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %.02944 = phi ptr [ null, %.lr.ph ], [ %.1, %24 ]
+  %.02844 = phi ptr [ null, %.lr.ph ], [ %.1, %24 ]
   %19 = load ptr, ptr %10, align 8
   %20 = getelementptr ptr, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
@@ -411,11 +411,11 @@ define internal fastcc ptr @search_plan_tree(ptr noundef readonly %0, i32 nounde
   br i1 %.not, label %24, label %23
 
 23:                                               ; preds = %18
-  %.not33 = icmp eq ptr %.02944, null
+  %.not33 = icmp eq ptr %.02844, null
   br i1 %.not33, label %24, label %.thread
 
 24:                                               ; preds = %23, %18
-  %.1 = phi ptr [ %.02944, %18 ], [ %22, %23 ]
+  %.1 = phi ptr [ %.02844, %18 ], [ %22, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %7, align 8
   %26 = sext i32 %25 to i64
@@ -449,8 +449,8 @@ define internal fastcc ptr @search_plan_tree(ptr noundef readonly %0, i32 nounde
   br label %.thread
 
 .thread:                                          ; preds = %23, %.preheader, %14, %11, %5, %.loopexit, %.thread39, %34, %3
-  %.0 = phi ptr [ null, %3 ], [ %.242, %34 ], [ %.242, %.thread39 ], [ null, %.loopexit ], [ null, %5 ], [ null, %11 ], [ null, %14 ], [ null, %.preheader ], [ null, %23 ]
-  ret ptr %.0
+  %.029 = phi ptr [ null, %3 ], [ %.242, %34 ], [ %.242, %.thread39 ], [ null, %.loopexit ], [ null, %5 ], [ null, %11 ], [ null, %14 ], [ null, %.preheader ], [ null, %23 ]
+  ret ptr %.029
 }
 
 declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1

@@ -26238,18 +26238,18 @@ while.body.lr.ph.i:                               ; preds = %if.then8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %__first.addr.014.i = phi ptr [ %__middle.tr80, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i ]
-  %__len.013.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i ]
-  %shr.i = lshr i64 %__len.013.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.014.i, i64 %shr.i
+  %__len.014.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i ]
+  %__first.addr.013.i = phi ptr [ %__middle.tr80, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i ]
+  %shr.i = lshr i64 %__len.014.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.013.i, i64 %shr.i
   %6 = load ptr, ptr %add.ptr.i.i.i, align 8
   %7 = load i32, ptr %6, align 4
   %cmp.i.i8.i = icmp ult i32 %7, %5
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %8 = xor i64 %shr.i, -1
-  %sub2.i = add nsw i64 %__len.013.i, %8
+  %sub2.i = add nsw i64 %__len.014.i, %8
+  %__first.addr.1.i = select i1 %cmp.i.i8.i, ptr %incdec.ptr.i, ptr %__first.addr.013.i
   %__len.1.i = select i1 %cmp.i.i8.i, i64 %sub2.i, i64 %shr.i
-  %__first.addr.1.i = select i1 %cmp.i.i8.i, ptr %incdec.ptr.i, ptr %__first.addr.014.i
   %cmp.i = icmp sgt i64 %__len.1.i, 0
   br i1 %cmp.i, label %while.body.i, label %_ZSt13__lower_boundIPP4exprS1_N9__gnu_cxx5__ops14_Iter_comp_valI11ast_lt_procEEET_S8_S8_RKT0_T1_.exit.loopexit, !llvm.loop !93
 
@@ -26279,28 +26279,28 @@ while.body.lr.ph.i46:                             ; preds = %if.else
   br label %while.body.i47
 
 while.body.i47:                                   ; preds = %while.body.i47, %while.body.lr.ph.i46
-  %__first.addr.014.i48 = phi ptr [ %__first.tr79, %while.body.lr.ph.i46 ], [ %__first.addr.1.i60, %while.body.i47 ]
-  %__len.013.i49 = phi i64 [ %sub.ptr.div.i.i.i43, %while.body.lr.ph.i46 ], [ %__len.1.i59, %while.body.i47 ]
-  %shr.i50 = lshr i64 %__len.013.i49, 1
-  %add.ptr.i.i.i53 = getelementptr inbounds ptr, ptr %__first.addr.014.i48, i64 %shr.i50
+  %__len.014.i48 = phi i64 [ %sub.ptr.div.i.i.i43, %while.body.lr.ph.i46 ], [ %__len.1.i60, %while.body.i47 ]
+  %__first.addr.013.i49 = phi ptr [ %__first.tr79, %while.body.lr.ph.i46 ], [ %__first.addr.1.i59, %while.body.i47 ]
+  %shr.i50 = lshr i64 %__len.014.i48, 1
+  %add.ptr.i.i.i53 = getelementptr inbounds ptr, ptr %__first.addr.013.i49, i64 %shr.i50
   %11 = load ptr, ptr %add.ptr.i.i.i53, align 8
   %12 = load i32, ptr %11, align 4
   %cmp.i.i8.i56 = icmp ult i32 %10, %12
   %incdec.ptr.i57 = getelementptr inbounds i8, ptr %add.ptr.i.i.i53, i64 8
   %13 = xor i64 %shr.i50, -1
-  %sub2.i58 = add nsw i64 %__len.013.i49, %13
-  %__len.1.i59 = select i1 %cmp.i.i8.i56, i64 %shr.i50, i64 %sub2.i58
-  %__first.addr.1.i60 = select i1 %cmp.i.i8.i56, ptr %__first.addr.014.i48, ptr %incdec.ptr.i57
-  %cmp.i61 = icmp sgt i64 %__len.1.i59, 0
+  %sub2.i58 = add nsw i64 %__len.014.i48, %13
+  %__first.addr.1.i59 = select i1 %cmp.i.i8.i56, ptr %__first.addr.013.i49, ptr %incdec.ptr.i57
+  %__len.1.i60 = select i1 %cmp.i.i8.i56, i64 %shr.i50, i64 %sub2.i58
+  %cmp.i61 = icmp sgt i64 %__len.1.i60, 0
   br i1 %cmp.i61, label %while.body.i47, label %_ZSt13__upper_boundIPP4exprS1_N9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEET_S8_S8_RKT0_T1_.exit.loopexit, !llvm.loop !94
 
 _ZSt13__upper_boundIPP4exprS1_N9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEET_S8_S8_RKT0_T1_.exit.loopexit: ; preds = %while.body.i47
-  %.pre86 = ptrtoint ptr %__first.addr.1.i60 to i64
+  %.pre86 = ptrtoint ptr %__first.addr.1.i59 to i64
   br label %_ZSt13__upper_boundIPP4exprS1_N9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEET_S8_S8_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPP4exprS1_N9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEET_S8_S8_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPP4exprS1_N9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEET_S8_S8_RKT0_T1_.exit.loopexit, %if.else
   %sub.ptr.lhs.cast.i.i62.pre-phi = phi i64 [ %.pre86, %_ZSt13__upper_boundIPP4exprS1_N9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEET_S8_S8_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i41, %if.else ]
-  %__first.addr.0.lcssa.i45 = phi ptr [ %__first.addr.1.i60, %_ZSt13__upper_boundIPP4exprS1_N9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEET_S8_S8_RKT0_T1_.exit.loopexit ], [ %__first.tr79, %if.else ]
+  %__first.addr.0.lcssa.i45 = phi ptr [ %__first.addr.1.i59, %_ZSt13__upper_boundIPP4exprS1_N9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEET_S8_S8_RKT0_T1_.exit.loopexit ], [ %__first.tr79, %if.else ]
   %sub.ptr.sub.i.i64 = sub i64 %sub.ptr.lhs.cast.i.i62.pre-phi, %sub.ptr.rhs.cast.i.i.i41
   %sub.ptr.div.i.i65 = ashr exact i64 %sub.ptr.sub.i.i64, 3
   br label %if.end18
@@ -27031,18 +27031,18 @@ while.body.lr.ph.i:                               ; preds = %if.then9
   br label %while.body.i65
 
 while.body.i65:                                   ; preds = %while.body.i65, %while.body.lr.ph.i
-  %__first.addr.014.i = phi ptr [ %__middle.tr137, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i65 ]
-  %__len.013.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i65 ]
-  %shr.i = lshr i64 %__len.013.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.014.i, i64 %shr.i
+  %__len.014.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i65 ]
+  %__first.addr.013.i = phi ptr [ %__middle.tr137, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i65 ]
+  %shr.i = lshr i64 %__len.014.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.013.i, i64 %shr.i
   %12 = load ptr, ptr %add.ptr.i.i.i, align 8
   %13 = load i32, ptr %12, align 4
   %cmp.i.i8.i = icmp ult i32 %13, %11
   %incdec.ptr.i67 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
   %14 = xor i64 %shr.i, -1
-  %sub2.i = add nsw i64 %__len.013.i, %14
+  %sub2.i = add nsw i64 %__len.014.i, %14
+  %__first.addr.1.i = select i1 %cmp.i.i8.i, ptr %incdec.ptr.i67, ptr %__first.addr.013.i
   %__len.1.i = select i1 %cmp.i.i8.i, i64 %sub2.i, i64 %shr.i
-  %__first.addr.1.i = select i1 %cmp.i.i8.i, ptr %incdec.ptr.i67, ptr %__first.addr.014.i
   %cmp.i68 = icmp sgt i64 %__len.1.i, 0
   br i1 %cmp.i68, label %while.body.i65, label %_ZSt13__lower_boundIPP4exprS1_N9__gnu_cxx5__ops14_Iter_comp_valI11ast_lt_procEEET_S8_S8_RKT0_T1_.exit.loopexit, !llvm.loop !93
 
@@ -27072,28 +27072,28 @@ while.body.lr.ph.i89:                             ; preds = %if.else14
   br label %while.body.i90
 
 while.body.i90:                                   ; preds = %while.body.i90, %while.body.lr.ph.i89
-  %__first.addr.014.i91 = phi ptr [ %__first.tr136, %while.body.lr.ph.i89 ], [ %__first.addr.1.i103, %while.body.i90 ]
-  %__len.013.i92 = phi i64 [ %sub.ptr.div.i.i.i85, %while.body.lr.ph.i89 ], [ %__len.1.i102, %while.body.i90 ]
-  %shr.i93 = lshr i64 %__len.013.i92, 1
-  %add.ptr.i.i.i96 = getelementptr inbounds ptr, ptr %__first.addr.014.i91, i64 %shr.i93
+  %__len.014.i91 = phi i64 [ %sub.ptr.div.i.i.i85, %while.body.lr.ph.i89 ], [ %__len.1.i103, %while.body.i90 ]
+  %__first.addr.013.i92 = phi ptr [ %__first.tr136, %while.body.lr.ph.i89 ], [ %__first.addr.1.i102, %while.body.i90 ]
+  %shr.i93 = lshr i64 %__len.014.i91, 1
+  %add.ptr.i.i.i96 = getelementptr inbounds ptr, ptr %__first.addr.013.i92, i64 %shr.i93
   %17 = load ptr, ptr %add.ptr.i.i.i96, align 8
   %18 = load i32, ptr %17, align 4
   %cmp.i.i8.i99 = icmp ult i32 %16, %18
   %incdec.ptr.i100 = getelementptr inbounds i8, ptr %add.ptr.i.i.i96, i64 8
   %19 = xor i64 %shr.i93, -1
-  %sub2.i101 = add nsw i64 %__len.013.i92, %19
-  %__len.1.i102 = select i1 %cmp.i.i8.i99, i64 %shr.i93, i64 %sub2.i101
-  %__first.addr.1.i103 = select i1 %cmp.i.i8.i99, ptr %__first.addr.014.i91, ptr %incdec.ptr.i100
-  %cmp.i104 = icmp sgt i64 %__len.1.i102, 0
+  %sub2.i101 = add nsw i64 %__len.014.i91, %19
+  %__first.addr.1.i102 = select i1 %cmp.i.i8.i99, ptr %__first.addr.013.i92, ptr %incdec.ptr.i100
+  %__len.1.i103 = select i1 %cmp.i.i8.i99, i64 %shr.i93, i64 %sub2.i101
+  %cmp.i104 = icmp sgt i64 %__len.1.i103, 0
   br i1 %cmp.i104, label %while.body.i90, label %_ZSt13__upper_boundIPP4exprS1_N9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEET_S8_S8_RKT0_T1_.exit.loopexit, !llvm.loop !94
 
 _ZSt13__upper_boundIPP4exprS1_N9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEET_S8_S8_RKT0_T1_.exit.loopexit: ; preds = %while.body.i90
-  %.pre147 = ptrtoint ptr %__first.addr.1.i103 to i64
+  %.pre147 = ptrtoint ptr %__first.addr.1.i102 to i64
   br label %_ZSt13__upper_boundIPP4exprS1_N9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEET_S8_S8_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPP4exprS1_N9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEET_S8_S8_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPP4exprS1_N9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEET_S8_S8_RKT0_T1_.exit.loopexit, %if.else14
   %sub.ptr.lhs.cast.i.i105.pre-phi = phi i64 [ %.pre147, %_ZSt13__upper_boundIPP4exprS1_N9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEET_S8_S8_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i83, %if.else14 ]
-  %__first.addr.0.lcssa.i88 = phi ptr [ %__first.addr.1.i103, %_ZSt13__upper_boundIPP4exprS1_N9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEET_S8_S8_RKT0_T1_.exit.loopexit ], [ %__first.tr136, %if.else14 ]
+  %__first.addr.0.lcssa.i88 = phi ptr [ %__first.addr.1.i102, %_ZSt13__upper_boundIPP4exprS1_N9__gnu_cxx5__ops14_Val_comp_iterI11ast_lt_procEEET_S8_S8_RKT0_T1_.exit.loopexit ], [ %__first.tr136, %if.else14 ]
   %sub.ptr.sub.i.i107 = sub i64 %sub.ptr.lhs.cast.i.i105.pre-phi, %sub.ptr.rhs.cast.i.i.i83
   %sub.ptr.div.i.i108 = ashr exact i64 %sub.ptr.sub.i.i107, 3
   br label %if.end

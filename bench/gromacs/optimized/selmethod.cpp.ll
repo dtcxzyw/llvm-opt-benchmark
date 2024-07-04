@@ -1208,7 +1208,7 @@ define noundef range(i32 -1, 1) i32 @_Z35gmx_ana_selmethod_register_defaultsPN3g
 
 2:                                                ; preds = %1, %13
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %13 ]
-  %.01214 = phi i8 [ 1, %1 ], [ %spec.select, %13 ]
+  %.01114 = phi i8 [ 1, %1 ], [ %spec.select, %13 ]
   %3 = getelementptr inbounds [40 x %struct.t_register_method], ptr @__const._Z35gmx_ana_selmethod_register_defaultsPN3gmx26SelectionParserSymbolTableE.smtable_def, i64 0, i64 %indvars.iv
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -1226,9 +1226,9 @@ define noundef range(i32 -1, 1) i32 @_Z35gmx_ana_selmethod_register_defaultsPN3g
   br label %13
 
 13:                                               ; preds = %11, %8
-  %.0 = phi i32 [ %10, %8 ], [ %12, %11 ]
-  %.not = icmp eq i32 %.0, 0
-  %spec.select = select i1 %.not, i8 %.01214, i8 0
+  %.012 = phi i32 [ %10, %8 ], [ %12, %11 ]
+  %.not = icmp eq i32 %.012, 0
+  %spec.select = select i1 %.not, i8 %.01114, i8 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 40
   br i1 %exitcond.not, label %14, label %2, !llvm.loop !11

@@ -220,43 +220,43 @@ define dso_local void @RelationPreserveStorage(i64 %0, i32 %1, i1 noundef zeroex
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %24
-  %.019 = phi ptr [ %6, %24 ], [ %4, %3 ]
-  %.01518 = phi ptr [ %.1, %24 ], [ null, %3 ]
-  %5 = getelementptr inbounds i8, ptr %.019, i64 24
+  %.019 = phi ptr [ %.1, %24 ], [ null, %3 ]
+  %.01518 = phi ptr [ %6, %24 ], [ %4, %3 ]
+  %5 = getelementptr inbounds i8, ptr %.01518, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.019, i64 8
+  %7 = getelementptr inbounds i8, ptr %.01518, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %1
   br i1 %9, label %10, label %24
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %.019, i64 4
+  %11 = getelementptr inbounds i8, ptr %.01518, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, %.sroa.214.0.extract.trunc
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %10
-  %15 = load i32, ptr %.019, align 8
+  %15 = load i32, ptr %.01518, align 8
   %16 = icmp eq i32 %15, %.sroa.013.0.extract.trunc
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %.019, i64 16
+  %18 = getelementptr inbounds i8, ptr %.01518, i64 16
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
   %21 = xor i1 %20, %2
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %17
-  %.not16 = icmp eq ptr %.01518, null
-  %23 = getelementptr inbounds i8, ptr %.01518, i64 24
+  %.not16 = icmp eq ptr %.019, null
+  %23 = getelementptr inbounds i8, ptr %.019, i64 24
   %pendingDeletes.sink = select i1 %.not16, ptr @pendingDeletes, ptr %23
   store ptr %6, ptr %pendingDeletes.sink, align 8
-  tail call void @pfree(ptr noundef nonnull %.019) #8
+  tail call void @pfree(ptr noundef nonnull %.01518) #8
   br label %24
 
 24:                                               ; preds = %.lr.ph, %10, %14, %17, %22
-  %.1 = phi ptr [ %.01518, %22 ], [ %.019, %17 ], [ %.019, %14 ], [ %.019, %10 ], [ %.019, %.lr.ph ]
+  %.1 = phi ptr [ %.019, %22 ], [ %.01518, %17 ], [ %.01518, %14 ], [ %.01518, %10 ], [ %.01518, %.lr.ph ]
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
@@ -328,8 +328,8 @@ RelationGetSmgr.exit45:                           ; preds = %RelationGetSmgr.exi
   br label %28
 
 28:                                               ; preds = %23, %26, %RelationGetSmgr.exit45
-  %.040 = phi i32 [ 2, %26 ], [ 1, %23 ], [ 1, %RelationGetSmgr.exit45 ]
-  %.0 = phi i1 [ true, %26 ], [ false, %23 ], [ false, %RelationGetSmgr.exit45 ]
+  %.040 = phi i1 [ true, %26 ], [ false, %23 ], [ false, %RelationGetSmgr.exit45 ]
+  %.039 = phi i32 [ 2, %26 ], [ 1, %23 ], [ 1, %RelationGetSmgr.exit45 ]
   %29 = load ptr, ptr %6, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %RelationGetSmgr.exit50
@@ -353,7 +353,7 @@ RelationGetSmgr.exit50:                           ; preds = %28, %31
 
 37:                                               ; preds = %RelationGetSmgr.exit50
   %38 = tail call i32 @visibilitymap_prepare_truncate(ptr noundef nonnull %0, i32 noundef %1) #8
-  %39 = zext nneg i32 %.040 to i64
+  %39 = zext nneg i32 %.039 to i64
   %40 = getelementptr [3 x i32], ptr %4, i64 0, i64 %39
   store i32 %38, ptr %40, align 4
   %.not56 = icmp eq i32 %38, -1
@@ -362,11 +362,11 @@ RelationGetSmgr.exit50:                           ; preds = %28, %31
 41:                                               ; preds = %37
   %42 = getelementptr [3 x i32], ptr %3, i64 0, i64 %39
   store i32 2, ptr %42, align 4
-  %43 = add nuw nsw i32 %.040, 1
+  %43 = add nuw nsw i32 %.039, 1
   br label %44
 
 44:                                               ; preds = %37, %41, %RelationGetSmgr.exit50
-  %.1 = phi i32 [ %43, %41 ], [ %.040, %37 ], [ %.040, %RelationGetSmgr.exit50 ]
+  %.1 = phi i32 [ %43, %41 ], [ %.039, %37 ], [ %.039, %RelationGetSmgr.exit50 ]
   %45 = load ptr, ptr @pendingSyncHash, align 8
   %.not.i = icmp eq ptr %45, null
   br i1 %.not.i, label %RelationPreTruncate.exit, label %46
@@ -470,7 +470,7 @@ RelationGetSmgr.exit55:                           ; preds = %82, %85
   %92 = load i32, ptr %91, align 8
   %93 = and i32 %92, -3
   store i32 %93, ptr %91, align 8
-  br i1 %.0, label %94, label %95
+  br i1 %.040, label %94, label %95
 
 94:                                               ; preds = %RelationGetSmgr.exit55
   call void @FreeSpaceMapVacuumRange(ptr noundef nonnull %0, i32 noundef %1, i32 noundef -1) #8
@@ -687,8 +687,8 @@ define dso_local void @SerializePendingSyncs(i64 noundef %0, ptr nocapture nound
   br i1 %.not3235, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %6
-  %.036 = load ptr, ptr @pendingDeletes, align 8
-  %.not3337 = icmp eq ptr %.036, null
+  %.02836 = load ptr, ptr @pendingDeletes, align 8
+  %.not3337 = icmp eq ptr %.02836, null
   br i1 %.not3337, label %._crit_edge, label %.lr.ph39
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
@@ -699,20 +699,20 @@ define dso_local void @SerializePendingSyncs(i64 noundef %0, ptr nocapture nound
   br i1 %.not32, label %.preheader, label %.lr.ph, !llvm.loop !8
 
 .lr.ph39:                                         ; preds = %.preheader, %23
-  %.038 = phi ptr [ %.0, %23 ], [ %.036, %.preheader ]
-  %18 = getelementptr inbounds i8, ptr %.038, i64 16
+  %.02838 = phi ptr [ %.028, %23 ], [ %.02836, %.preheader ]
+  %18 = getelementptr inbounds i8, ptr %.02838, i64 16
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %.lr.ph39
-  %22 = call ptr @hash_search(ptr noundef %12, ptr noundef nonnull %.038, i32 noundef 2, ptr noundef null) #8
+  %22 = call ptr @hash_search(ptr noundef %12, ptr noundef nonnull %.02838, i32 noundef 2, ptr noundef null) #8
   br label %23
 
 23:                                               ; preds = %.lr.ph39, %21
-  %24 = getelementptr inbounds i8, ptr %.038, i64 24
-  %.0 = load ptr, ptr %24, align 8
-  %.not33 = icmp eq ptr %.0, null
+  %24 = getelementptr inbounds i8, ptr %.02838, i64 24
+  %.028 = load ptr, ptr %24, align 8
+  %.not33 = icmp eq ptr %.028, null
   br i1 %.not33, label %._crit_edge, label %.lr.ph39, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %23, %.preheader
@@ -810,10 +810,10 @@ define dso_local void @smgrDoPendingDeletes(i1 noundef zeroext %0) local_unnamed
 
 .lr.ph:                                           ; preds = %1, %33
   %.03351 = phi ptr [ %5, %33 ], [ %3, %1 ]
-  %.03450 = phi ptr [ %.1, %33 ], [ null, %1 ]
-  %.03549 = phi i32 [ %.2, %33 ], [ 0, %1 ]
-  %.03748 = phi ptr [ %.3, %33 ], [ null, %1 ]
-  %.04047 = phi i32 [ %.343, %33 ], [ 0, %1 ]
+  %.03450 = phi ptr [ %.3, %33 ], [ null, %1 ]
+  %.03549 = phi i32 [ %.338, %33 ], [ 0, %1 ]
+  %.03948 = phi i32 [ %.241, %33 ], [ 0, %1 ]
+  %.04247 = phi ptr [ %.143, %33 ], [ null, %1 ]
   %4 = getelementptr inbounds i8, ptr %.03351, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %.03351, i64 20
@@ -822,8 +822,8 @@ define dso_local void @smgrDoPendingDeletes(i1 noundef zeroext %0) local_unnamed
   br i1 %8, label %33, label %9
 
 9:                                                ; preds = %.lr.ph
-  %.not44 = icmp eq ptr %.03450, null
-  %10 = getelementptr inbounds i8, ptr %.03450, i64 24
+  %.not44 = icmp eq ptr %.04247, null
+  %10 = getelementptr inbounds i8, ptr %.04247, i64 24
   %pendingDeletes.sink = select i1 %.not44, ptr @pendingDeletes, ptr %10
   store ptr %5, ptr %pendingDeletes.sink, align 8
   %11 = getelementptr inbounds i8, ptr %.03351, i64 16
@@ -839,7 +839,7 @@ define dso_local void @smgrDoPendingDeletes(i1 noundef zeroext %0) local_unnamed
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.03351, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   %18 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, i32 noundef %17) #8
-  %19 = icmp eq i32 %.04047, 0
+  %19 = icmp eq i32 %.03549, 0
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %15
@@ -847,47 +847,47 @@ define dso_local void @smgrDoPendingDeletes(i1 noundef zeroext %0) local_unnamed
   br label %28
 
 22:                                               ; preds = %15
-  %.not45 = icmp sgt i32 %.04047, %.03549
+  %.not45 = icmp sgt i32 %.03549, %.03948
   br i1 %.not45, label %28, label %23
 
 23:                                               ; preds = %22
-  %24 = shl i32 %.04047, 1
+  %24 = shl i32 %.03549, 1
   %25 = sext i32 %24 to i64
   %26 = shl nsw i64 %25, 3
-  %27 = tail call ptr @repalloc(ptr noundef %.03748, i64 noundef %26) #8
+  %27 = tail call ptr @repalloc(ptr noundef %.03450, i64 noundef %26) #8
   br label %28
 
 28:                                               ; preds = %22, %23, %20
-  %.141 = phi i32 [ 8, %20 ], [ %24, %23 ], [ %.04047, %22 ]
-  %.138 = phi ptr [ %21, %20 ], [ %27, %23 ], [ %.03748, %22 ]
-  %29 = add i32 %.03549, 1
-  %30 = sext i32 %.03549 to i64
-  %31 = getelementptr ptr, ptr %.138, i64 %30
+  %.136 = phi i32 [ 8, %20 ], [ %24, %23 ], [ %.03549, %22 ]
+  %.1 = phi ptr [ %21, %20 ], [ %27, %23 ], [ %.03450, %22 ]
+  %29 = add i32 %.03948, 1
+  %30 = sext i32 %.03948 to i64
+  %31 = getelementptr ptr, ptr %.1, i64 %30
   store ptr %18, ptr %31, align 8
   br label %32
 
 32:                                               ; preds = %28, %9
-  %.242 = phi i32 [ %.141, %28 ], [ %.04047, %9 ]
-  %.239 = phi ptr [ %.138, %28 ], [ %.03748, %9 ]
-  %.136 = phi i32 [ %29, %28 ], [ %.03549, %9 ]
+  %.140 = phi i32 [ %29, %28 ], [ %.03948, %9 ]
+  %.237 = phi i32 [ %.136, %28 ], [ %.03549, %9 ]
+  %.2 = phi ptr [ %.1, %28 ], [ %.03450, %9 ]
   tail call void @pfree(ptr noundef nonnull %.03351) #8
   br label %33
 
 33:                                               ; preds = %.lr.ph, %32
-  %.343 = phi i32 [ %.242, %32 ], [ %.04047, %.lr.ph ]
-  %.3 = phi ptr [ %.239, %32 ], [ %.03748, %.lr.ph ]
-  %.2 = phi i32 [ %.136, %32 ], [ %.03549, %.lr.ph ]
-  %.1 = phi ptr [ %.03450, %32 ], [ %.03351, %.lr.ph ]
+  %.143 = phi ptr [ %.04247, %32 ], [ %.03351, %.lr.ph ]
+  %.241 = phi i32 [ %.140, %32 ], [ %.03948, %.lr.ph ]
+  %.338 = phi i32 [ %.237, %32 ], [ %.03549, %.lr.ph ]
+  %.3 = phi ptr [ %.2, %32 ], [ %.03450, %.lr.ph ]
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %33
-  %34 = icmp sgt i32 %.2, 0
+  %34 = icmp sgt i32 %.241, 0
   br i1 %34, label %35, label %._crit_edge.thread
 
 35:                                               ; preds = %._crit_edge
-  tail call void @smgrdounlinkall(ptr noundef %.3, i32 noundef %.2, i1 noundef zeroext false) #8
-  %wide.trip.count = zext nneg i32 %.2 to i64
+  tail call void @smgrdounlinkall(ptr noundef %.3, i32 noundef %.241, i1 noundef zeroext false) #8
+  %wide.trip.count = zext nneg i32 %.241 to i64
   br label %36
 
 36:                                               ; preds = %35, %36

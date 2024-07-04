@@ -1049,8 +1049,8 @@ if.end334:                                        ; preds = %if.end321
   br i1 %cmp336, label %if.then337, label %if.end338
 
 if.then337:                                       ; preds = %if.end334.thread, %if.end334
-  %old_columns_to_preserve.0431 = phi ptr [ %120, %if.end334.thread ], [ null, %if.end334 ]
-  %old_columns_raw_data.0429 = phi ptr [ %.pre419, %if.end334.thread ], [ null, %if.end334 ]
+  %old_columns_raw_data.0431 = phi ptr [ %.pre419, %if.end334.thread ], [ null, %if.end334 ]
+  %old_columns_to_preserve.0429 = phi ptr [ %120, %if.end334.thread ], [ null, %if.end334 ]
   %RawData335432 = getelementptr inbounds i8, ptr %call23, i64 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %span_allocator.i)
   %add.i.i370 = add nsw i32 %columns_count, 31
@@ -1148,8 +1148,8 @@ _ZN5ImGui20TableBeginInitMemoryEP10ImGuiTablei.exit: ; preds = %for.body.i372
   br label %if.end338
 
 if.end338:                                        ; preds = %_ZN5ImGui20TableBeginInitMemoryEP10ImGuiTablei.exit, %if.end334
-  %old_columns_to_preserve.0430 = phi ptr [ %old_columns_to_preserve.0431, %_ZN5ImGui20TableBeginInitMemoryEP10ImGuiTablei.exit ], [ null, %if.end334 ]
-  %old_columns_raw_data.0428 = phi ptr [ %old_columns_raw_data.0429, %_ZN5ImGui20TableBeginInitMemoryEP10ImGuiTablei.exit ], [ null, %if.end334 ]
+  %old_columns_raw_data.0430 = phi ptr [ %old_columns_raw_data.0431, %_ZN5ImGui20TableBeginInitMemoryEP10ImGuiTablei.exit ], [ null, %if.end334 ]
+  %old_columns_to_preserve.0428 = phi ptr [ %old_columns_to_preserve.0429, %_ZN5ImGui20TableBeginInitMemoryEP10ImGuiTablei.exit ], [ null, %if.end334 ]
   %IsResetAllRequest = getelementptr inbounds i8, ptr %call23, i64 576
   %133 = load i8, ptr %IsResetAllRequest, align 8
   %tobool339 = trunc i8 %133 to i1
@@ -1198,7 +1198,7 @@ if.then344:                                       ; preds = %if.end341.thread, %
   br i1 %cmp345404, label %for.body.lr.ph, label %if.end359
 
 for.body.lr.ph:                                   ; preds = %if.then344
-  %tobool348.not = icmp ne ptr %old_columns_to_preserve.0430, null
+  %tobool348.not = icmp ne ptr %old_columns_to_preserve.0428, null
   %DisplayOrderToIndex = getelementptr inbounds i8, ptr %call23, i64 40
   %sext423 = shl i64 %sub.ptr.div.i368, 32
   %135 = ashr exact i64 %sext423, 32
@@ -1215,7 +1215,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %or.cond263, label %if.then351, label %if.else352
 
 if.then351:                                       ; preds = %for.body
-  %arrayidx = getelementptr inbounds %struct.ImGuiTableColumn, ptr %old_columns_to_preserve.0430, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds %struct.ImGuiTableColumn, ptr %old_columns_to_preserve.0428, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(111) %add.ptr.i, ptr noundef nonnull align 4 dereferenceable(111) %arrayidx, i64 111, i1 false)
   br label %if.end355
 
@@ -1262,11 +1262,11 @@ if.end355:                                        ; preds = %if.else352, %if.the
   br i1 %exitcond.not, label %if.end359, label %for.body, !llvm.loop !8
 
 if.end359:                                        ; preds = %if.end355, %if.then344, %if.end341
-  %tobool360.not = icmp eq ptr %old_columns_raw_data.0428, null
+  %tobool360.not = icmp eq ptr %old_columns_raw_data.0430, null
   br i1 %tobool360.not, label %if.end362, label %if.then361
 
 if.then361:                                       ; preds = %if.end359
-  call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %old_columns_raw_data.0428)
+  call void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %old_columns_raw_data.0430)
   br label %if.end362
 
 if.end362:                                        ; preds = %if.then361, %if.end359
@@ -1757,10 +1757,10 @@ for.body.lr.ph:                                   ; preds = %if.end12
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %17 = phi i16 [ %16, %for.body.lr.ph ], [ %.fr, %for.inc ]
-  %column_settings.074 = phi ptr [ %add.ptr.i, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %data_n.074 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %display_order_mask.073 = phi i64 [ 0, %for.body.lr.ph ], [ %display_order_mask.1, %for.inc ]
-  %data_n.072 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %Index = getelementptr inbounds i8, ptr %column_settings.074, i64 8
+  %column_settings.072 = phi ptr [ %add.ptr.i, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %Index = getelementptr inbounds i8, ptr %column_settings.072, i64 8
   %18 = load i16, ptr %Index, align 4
   %cmp19 = icmp slt i16 %18, 0
   br i1 %cmp19, label %for.inc, label %lor.lhs.false
@@ -1781,11 +1781,11 @@ if.end23:                                         ; preds = %lor.lhs.false
   br i1 %tobool27.not, label %if.end34, label %if.then28
 
 if.then28:                                        ; preds = %if.end23
-  %IsStretch = getelementptr inbounds i8, ptr %column_settings.074, i64 14
+  %IsStretch = getelementptr inbounds i8, ptr %column_settings.072, i64 14
   %bf.load = load i8, ptr %IsStretch, align 2
   %22 = and i8 %bf.load, 8
   %tobool29.not = icmp eq i8 %22, 0
-  %23 = load float, ptr %column_settings.074, align 4
+  %23 = load float, ptr %column_settings.072, align 4
   %. = select i1 %tobool29.not, i64 16, i64 24
   %WidthRequest = getelementptr inbounds i8, ptr %add.ptr.i59, i64 %.
   store float %23, ptr %WidthRequest, align 4
@@ -1801,7 +1801,7 @@ if.end34:                                         ; preds = %if.then28, %if.end2
   br i1 %tobool37.not, label %if.end43, label %if.then38
 
 if.then38:                                        ; preds = %if.end34
-  %DisplayOrder = getelementptr inbounds i8, ptr %column_settings.074, i64 10
+  %DisplayOrder = getelementptr inbounds i8, ptr %column_settings.072, i64 10
   %25 = load i16, ptr %DisplayOrder, align 2
   br label %if.end43
 
@@ -1813,7 +1813,7 @@ if.end43:                                         ; preds = %if.end34, %if.then3
   %sh_prom = and i64 %conv45, 4294967295
   %shl = shl nuw i64 1, %sh_prom
   %or = or i64 %shl, %display_order_mask.073
-  %IsEnabled = getelementptr inbounds i8, ptr %column_settings.074, i64 14
+  %IsEnabled = getelementptr inbounds i8, ptr %column_settings.072, i64 14
   %bf.load46 = load i8, ptr %IsEnabled, align 2
   %IsUserEnabledNextFrame = getelementptr inbounds i8, ptr %add.ptr.i59, i64 100
   %27 = lshr i8 %bf.load46, 2
@@ -1821,7 +1821,7 @@ if.end43:                                         ; preds = %if.end34, %if.then3
   store i8 %.lobit, ptr %IsUserEnabledNextFrame, align 4
   %IsUserEnabled = getelementptr inbounds i8, ptr %add.ptr.i59, i64 99
   store i8 %.lobit, ptr %IsUserEnabled, align 1
-  %SortOrder = getelementptr inbounds i8, ptr %column_settings.074, i64 12
+  %SortOrder = getelementptr inbounds i8, ptr %column_settings.072, i64 12
   %28 = load i16, ptr %SortOrder, align 4
   %SortOrder51 = getelementptr inbounds i8, ptr %add.ptr.i59, i64 90
   store i16 %28, ptr %SortOrder51, align 2
@@ -1839,8 +1839,8 @@ for.inc:                                          ; preds = %for.body, %lor.lhs.
   %29 = phi i16 [ %17, %for.body ], [ %17, %lor.lhs.false ], [ %.pre90, %if.end43 ]
   %display_order_mask.1 = phi i64 [ %display_order_mask.073, %for.body ], [ %display_order_mask.073, %lor.lhs.false ], [ %or, %if.end43 ]
   %.fr = freeze i16 %29
-  %inc = add nuw nsw i32 %data_n.072, 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %column_settings.074, i64 16
+  %inc = add nuw nsw i32 %data_n.074, 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %column_settings.072, i64 16
   %conv16 = sext i16 %.fr to i32
   %cmp17 = icmp slt i32 %inc, %conv16
   br i1 %cmp17, label %for.body, label %for.end, !llvm.loop !10
@@ -2793,8 +2793,8 @@ for.body147.lr.ph:                                ; preds = %if.end142
 for.body147:                                      ; preds = %for.body147.lr.ph, %for.inc276
   %53 = phi i32 [ %52, %for.body147.lr.ph ], [ %82, %for.inc276 ]
   %indvars.iv651 = phi i64 [ 0, %for.body147.lr.ph ], [ %indvars.iv.next652, %for.inc276 ]
-  %sum_width_requests.0627 = phi float [ 0.000000e+00, %for.body147.lr.ph ], [ %sum_width_requests.2, %for.inc276 ]
-  %stretch_sum_weights.0626 = phi float [ 0.000000e+00, %for.body147.lr.ph ], [ %stretch_sum_weights.2, %for.inc276 ]
+  %stretch_sum_weights.0625 = phi float [ 0.000000e+00, %for.body147.lr.ph ], [ %stretch_sum_weights.2, %for.inc276 ]
+  %sum_width_requests.0624 = phi float [ 0.000000e+00, %for.body147.lr.ph ], [ %sum_width_requests.2, %for.inc276 ]
   %54 = load ptr, ptr %EnabledMaskByIndex, align 8
   %55 = trunc nuw nsw i64 %indvars.iv651 to i32
   %shr = lshr i64 %indvars.iv651, 5
@@ -2878,7 +2878,7 @@ if.then201:                                       ; preds = %land.lhs.true198
 if.end207:                                        ; preds = %land.lhs.true187, %if.then189, %land.lhs.true168, %if.else181, %if.then201, %land.lhs.true198, %land.lhs.true196, %if.end192
   %WidthRequest208 = getelementptr inbounds i8, ptr %add.ptr.i466, i64 16
   %66 = load float, ptr %WidthRequest208, align 4
-  %add209 = fadd float %sum_width_requests.0627, %66
+  %add209 = fadd float %sum_width_requests.0624, %66
   br label %if.end273
 
 if.else210:                                       ; preds = %if.end153
@@ -2914,7 +2914,7 @@ if.end236.sink.split:                             ; preds = %if.then219, %if.the
 
 if.end236:                                        ; preds = %if.end236.sink.split, %if.else210
   %71 = phi float [ %68, %if.else210 ], [ %.sink, %if.end236.sink.split ]
-  %add238 = fadd float %stretch_sum_weights.0626, %71
+  %add238 = fadd float %stretch_sum_weights.0625, %71
   %72 = load i16, ptr %LeftMostStretchedColumn, align 8
   %cmp241 = icmp eq i16 %72, -1
   br i1 %cmp241, label %if.then252, label %lor.lhs.false242
@@ -2955,8 +2955,8 @@ if.then269:                                       ; preds = %lor.lhs.false259, %
   br label %if.end273
 
 if.end273:                                        ; preds = %lor.lhs.false259, %if.then269, %if.end207
-  %stretch_sum_weights.1 = phi float [ %stretch_sum_weights.0626, %if.end207 ], [ %add238, %if.then269 ], [ %add238, %lor.lhs.false259 ]
-  %sum_width_requests.1 = phi float [ %add209, %if.end207 ], [ %sum_width_requests.0627, %if.then269 ], [ %sum_width_requests.0627, %lor.lhs.false259 ]
+  %sum_width_requests.1 = phi float [ %add209, %if.end207 ], [ %sum_width_requests.0624, %if.then269 ], [ %sum_width_requests.0624, %lor.lhs.false259 ]
+  %stretch_sum_weights.1 = phi float [ %stretch_sum_weights.0625, %if.end207 ], [ %add238, %if.then269 ], [ %add238, %lor.lhs.false259 ]
   %IsPreserveWidthAuto274 = getelementptr inbounds i8, ptr %add.ptr.i466, i64 105
   store i8 0, ptr %IsPreserveWidthAuto274, align 1
   %80 = load float, ptr %CellPaddingX, align 8
@@ -2966,8 +2966,8 @@ if.end273:                                        ; preds = %lor.lhs.false259, %
 
 for.inc276:                                       ; preds = %for.body147, %if.end273
   %82 = phi i32 [ %.pre666, %if.end273 ], [ %53, %for.body147 ]
-  %stretch_sum_weights.2 = phi float [ %stretch_sum_weights.1, %if.end273 ], [ %stretch_sum_weights.0626, %for.body147 ]
-  %sum_width_requests.2 = phi float [ %81, %if.end273 ], [ %sum_width_requests.0627, %for.body147 ]
+  %sum_width_requests.2 = phi float [ %81, %if.end273 ], [ %sum_width_requests.0624, %for.body147 ]
+  %stretch_sum_weights.2 = phi float [ %stretch_sum_weights.1, %if.end273 ], [ %stretch_sum_weights.0625, %for.body147 ]
   %indvars.iv.next652 = add nuw nsw i64 %indvars.iv651, 1
   %83 = sext i32 %82 to i64
   %cmp146 = icmp slt i64 %indvars.iv.next652, %83
@@ -2975,8 +2975,8 @@ for.inc276:                                       ; preds = %for.body147, %if.en
 
 for.end278:                                       ; preds = %for.inc276, %if.end142
   %84 = phi i32 [ %52, %if.end142 ], [ %82, %for.inc276 ]
-  %stretch_sum_weights.0.lcssa = phi float [ 0.000000e+00, %if.end142 ], [ %stretch_sum_weights.2, %for.inc276 ]
   %sum_width_requests.0.lcssa = phi float [ 0.000000e+00, %if.end142 ], [ %sum_width_requests.2, %for.inc276 ]
+  %stretch_sum_weights.0.lcssa = phi float [ 0.000000e+00, %if.end142 ], [ %stretch_sum_weights.2, %for.inc276 ]
   %stretch_sum_weights.0.lcssa.fr = freeze float %stretch_sum_weights.0.lcssa
   %ColumnsEnabledFixedCount = getelementptr inbounds i8, ptr %table, i64 516
   store i16 %count_fixed.0.lcssa, ptr %ColumnsEnabledFixedCount, align 4
@@ -4446,7 +4446,7 @@ for.body.lr.ph:                                   ; preds = %lor.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end51
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end51 ]
-  %draw_channel_current.044 = phi i32 [ 2, %for.body.lr.ph ], [ %draw_channel_current.1, %if.end51 ]
+  %draw_channel_current.043 = phi i32 [ 2, %for.body.lr.ph ], [ %draw_channel_current.1, %if.end51 ]
   %16 = load ptr, ptr %Columns, align 8
   %add.ptr.i = getelementptr inbounds %struct.ImGuiTableColumn, ptr %16, i64 %indvars.iv
   %IsVisibleX = getelementptr inbounds i8, ptr %add.ptr.i, i64 101
@@ -4461,13 +4461,13 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %tobool32, label %if.then, label %if.else
 
 if.then:                                          ; preds = %land.lhs.true
-  %conv33 = trunc i32 %draw_channel_current.044 to i16
+  %conv33 = trunc i32 %draw_channel_current.043 to i16
   %DrawChannelFrozen = getelementptr inbounds i8, ptr %add.ptr.i, i64 94
   store i16 %conv33, ptr %DrawChannelFrozen, align 2
   %19 = load i16, ptr %FreezeRowsCount, align 8
   %cmp36 = icmp sgt i16 %19, 0
   %cond41 = select i1 %cmp36, i32 %add38, i32 0
-  %add42 = add nsw i32 %cond41, %draw_channel_current.044
+  %add42 = add nsw i32 %cond41, %draw_channel_current.043
   %conv43 = trunc i32 %add42 to i16
   %DrawChannelUnfrozen = getelementptr inbounds i8, ptr %add.ptr.i, i64 96
   store i16 %conv43, ptr %DrawChannelUnfrozen, align 4
@@ -4475,7 +4475,7 @@ if.then:                                          ; preds = %land.lhs.true
   %and45 = lshr i32 %20, 20
   %21 = and i32 %and45, 1
   %22 = xor i32 %21, 1
-  %spec.select = add i32 %22, %draw_channel_current.044
+  %spec.select = add i32 %22, %draw_channel_current.043
   br label %if.end51
 
 if.else:                                          ; preds = %land.lhs.true, %for.body
@@ -4488,7 +4488,7 @@ if.else:                                          ; preds = %land.lhs.true, %for
 
 if.end51:                                         ; preds = %if.then, %if.else
   %24 = phi i16 [ %23, %if.else ], [ %conv33, %if.then ]
-  %draw_channel_current.1 = phi i32 [ %draw_channel_current.044, %if.else ], [ %spec.select, %if.then ]
+  %draw_channel_current.1 = phi i32 [ %draw_channel_current.043, %if.else ], [ %spec.select, %if.then ]
   %DrawChannelCurrent = getelementptr inbounds i8, ptr %add.ptr.i, i64 92
   store i16 %24, ptr %DrawChannelCurrent, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5580,9 +5580,9 @@ for.body.lr.ph:                                   ; preds = %if.end90
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %auto_fit_width_for_fixed.0260 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %auto_fit_width_for_fixed.2, %for.inc ]
-  %auto_fit_width_for_stretched.0259 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %auto_fit_width_for_stretched.2, %for.inc ]
-  %auto_fit_width_for_stretched_min.0258 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %auto_fit_width_for_stretched_min.1, %for.inc ]
+  %auto_fit_width_for_stretched_min.0259 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %auto_fit_width_for_stretched_min.1, %for.inc ]
+  %auto_fit_width_for_stretched.0258 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %auto_fit_width_for_stretched.2, %for.inc ]
+  %auto_fit_width_for_fixed.0257 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %auto_fit_width_for_fixed.2, %for.inc ]
   %55 = trunc nuw nsw i64 %indvars.iv to i32
   %shr = lshr i64 %indvars.iv, 5
   %idxprom = and i64 %shr, 134217727
@@ -5663,10 +5663,10 @@ _ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit: ; pred
 cond.end:                                         ; preds = %_ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit, %cond.true
   %cond107 = phi float [ %60, %cond.true ], [ %cond.i15.i, %_ZN5ImGui23TableGetColumnWidthAutoEP10ImGuiTableP16ImGuiTableColumn.exit ]
   %tobool110.not = icmp eq i32 %and100, 0
-  %add112 = fadd float %auto_fit_width_for_fixed.0260, %cond107
-  %add114 = fadd float %auto_fit_width_for_stretched.0259, %cond107
-  %auto_fit_width_for_stretched.1 = select i1 %tobool110.not, float %add114, float %auto_fit_width_for_stretched.0259
-  %auto_fit_width_for_fixed.1 = select i1 %tobool110.not, float %auto_fit_width_for_fixed.0260, float %add112
+  %add112 = fadd float %auto_fit_width_for_fixed.0257, %cond107
+  %add114 = fadd float %auto_fit_width_for_stretched.0258, %cond107
+  %auto_fit_width_for_fixed.1 = select i1 %tobool110.not, float %auto_fit_width_for_fixed.0257, float %add112
+  %auto_fit_width_for_stretched.1 = select i1 %tobool110.not, float %add114, float %auto_fit_width_for_stretched.0258
   %68 = and i32 %58, 40
   %or.cond193.not = icmp eq i32 %68, 40
   br i1 %or.cond193.not, label %if.then123, label %for.inc
@@ -5677,22 +5677,22 @@ if.then123:                                       ; preds = %cond.end
   %70 = load float, ptr %ColumnsStretchSumWeights, align 8
   %div = fdiv float %69, %70
   %div124 = fdiv float %cond107, %div
-  %cmp.i213 = fcmp oge float %auto_fit_width_for_stretched_min.0258, %div124
-  %cond.i214 = select i1 %cmp.i213, float %auto_fit_width_for_stretched_min.0258, float %div124
+  %cmp.i213 = fcmp oge float %auto_fit_width_for_stretched_min.0259, %div124
+  %cond.i214 = select i1 %cmp.i213, float %auto_fit_width_for_stretched_min.0259, float %div124
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then123, %cond.end
-  %auto_fit_width_for_stretched_min.1 = phi float [ %cond.i214, %if.then123 ], [ %auto_fit_width_for_stretched_min.0258, %cond.end ], [ %auto_fit_width_for_stretched_min.0258, %for.body ]
-  %auto_fit_width_for_stretched.2 = phi float [ %auto_fit_width_for_stretched.1, %if.then123 ], [ %auto_fit_width_for_stretched.1, %cond.end ], [ %auto_fit_width_for_stretched.0259, %for.body ]
-  %auto_fit_width_for_fixed.2 = phi float [ %auto_fit_width_for_fixed.1, %if.then123 ], [ %auto_fit_width_for_fixed.1, %cond.end ], [ %auto_fit_width_for_fixed.0260, %for.body ]
+  %auto_fit_width_for_fixed.2 = phi float [ %auto_fit_width_for_fixed.1, %if.then123 ], [ %auto_fit_width_for_fixed.1, %cond.end ], [ %auto_fit_width_for_fixed.0257, %for.body ]
+  %auto_fit_width_for_stretched.2 = phi float [ %auto_fit_width_for_stretched.1, %if.then123 ], [ %auto_fit_width_for_stretched.1, %cond.end ], [ %auto_fit_width_for_stretched.0258, %for.body ]
+  %auto_fit_width_for_stretched_min.1 = phi float [ %cond.i214, %if.then123 ], [ %auto_fit_width_for_stretched_min.0259, %cond.end ], [ %auto_fit_width_for_stretched_min.0259, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !28
 
 for.end:                                          ; preds = %for.inc, %if.end90
-  %auto_fit_width_for_stretched_min.0.lcssa = phi float [ 0.000000e+00, %if.end90 ], [ %auto_fit_width_for_stretched_min.1, %for.inc ]
-  %auto_fit_width_for_stretched.0.lcssa = phi float [ 0.000000e+00, %if.end90 ], [ %auto_fit_width_for_stretched.2, %for.inc ]
   %auto_fit_width_for_fixed.0.lcssa = phi float [ 0.000000e+00, %if.end90 ], [ %auto_fit_width_for_fixed.2, %for.inc ]
+  %auto_fit_width_for_stretched.0.lcssa = phi float [ 0.000000e+00, %if.end90 ], [ %auto_fit_width_for_stretched.2, %for.inc ]
+  %auto_fit_width_for_stretched_min.0.lcssa = phi float [ 0.000000e+00, %if.end90 ], [ %auto_fit_width_for_stretched_min.1, %for.inc ]
   %OuterPaddingX128 = getelementptr inbounds i8, ptr %1, i64 188
   %71 = load float, ptr %OuterPaddingX128, align 4
   %CellSpacingX1 = getelementptr inbounds i8, ptr %1, i64 196
@@ -7595,8 +7595,8 @@ for.cond239.preheader:                            ; preds = %for.inc235
 
 for.body113:                                      ; preds = %_Z21ImBitArraySetBitRangePjii.exit, %for.inc235
   %indvars.iv207 = phi i64 [ 0, %_Z21ImBitArraySetBitRangePjii.exit ], [ %indvars.iv.next208, %for.inc235 ]
-  %dst_tmp.0185 = phi ptr [ %59, %_Z21ImBitArraySetBitRangePjii.exit ], [ %dst_tmp.4, %for.inc235 ]
-  %remaining_count.0184 = phi i32 [ %sub109, %_Z21ImBitArraySetBitRangePjii.exit ], [ %remaining_count.1, %for.inc235 ]
+  %remaining_count.0185 = phi i32 [ %sub109, %_Z21ImBitArraySetBitRangePjii.exit ], [ %remaining_count.1, %for.inc235 ]
+  %dst_tmp.0184 = phi ptr [ %59, %_Z21ImBitArraySetBitRangePjii.exit ], [ %dst_tmp.4, %for.inc235 ]
   %arrayidx115 = getelementptr inbounds [4 x %struct.MergeGroup], ptr %merge_groups, i64 0, i64 %indvars.iv207
   %ChannelsCount116 = getelementptr inbounds i8, ptr %arrayidx115, i64 16
   %70 = load i32, ptr %ChannelsCount116, align 16
@@ -7660,7 +7660,7 @@ if.then163:                                       ; preds = %land.lhs.true159
 
 if.end171:                                        ; preds = %if.then163, %land.lhs.true159, %if.end156
   %merge_clip_rect.sroa.0.3 = phi <4 x float> [ %merge_clip_rect.sroa.0.2, %if.end156 ], [ %merge_clip_rect.sroa.0.12.vec.insert, %if.then163 ], [ %merge_clip_rect.sroa.0.2, %land.lhs.true159 ]
-  %sub173 = sub nsw i32 %remaining_count.0184, %70
+  %sub173 = sub nsw i32 %remaining_count.0185, %70
   br i1 %cmp177177, label %for.body178.lr.ph, label %for.cond189.preheader
 
 for.body178.lr.ph:                                ; preds = %if.end171
@@ -7699,7 +7699,7 @@ for.body195:                                      ; preds = %for.body195.lr.ph, 
   %78 = phi i32 [ %73, %for.body195.lr.ph ], [ %83, %for.inc221 ]
   %indvars.iv204 = phi i64 [ 0, %for.body195.lr.ph ], [ %indvars.iv.next205, %for.inc221 ]
   %merge_channels_count.0181 = phi i32 [ %70, %for.body195.lr.ph ], [ %merge_channels_count.1, %for.inc221 ]
-  %dst_tmp.1180 = phi ptr [ %dst_tmp.0185, %for.body195.lr.ph ], [ %dst_tmp.2, %for.inc221 ]
+  %dst_tmp.1180 = phi ptr [ %dst_tmp.0184, %for.body195.lr.ph ], [ %dst_tmp.2, %for.inc221 ]
   %79 = trunc nuw nsw i64 %indvars.iv204 to i32
   %shr197 = lshr i64 %indvars.iv204, 5
   %idxprom198 = and i64 %shr197, 134217727
@@ -7740,8 +7740,8 @@ for.inc221:                                       ; preds = %for.body195, %if.en
   br i1 %85, label %for.body195, label %if.end224, !llvm.loop !38
 
 if.end224:                                        ; preds = %for.inc221, %for.cond189.preheader, %for.body113
-  %remaining_count.1 = phi i32 [ %remaining_count.0184, %for.body113 ], [ %sub173, %for.cond189.preheader ], [ %sub173, %for.inc221 ]
-  %dst_tmp.3 = phi ptr [ %dst_tmp.0185, %for.body113 ], [ %dst_tmp.0185, %for.cond189.preheader ], [ %dst_tmp.2, %for.inc221 ]
+  %dst_tmp.3 = phi ptr [ %dst_tmp.0184, %for.body113 ], [ %dst_tmp.0184, %for.cond189.preheader ], [ %dst_tmp.2, %for.inc221 ]
+  %remaining_count.1 = phi i32 [ %remaining_count.0185, %for.body113 ], [ %sub173, %for.cond189.preheader ], [ %sub173, %for.inc221 ]
   %cmp225 = icmp eq i64 %indvars.iv207, 1
   %brmerge108.not = select i1 %cmp225, i1 %cmp, i1 false
   br i1 %brmerge108.not, label %if.then228, label %for.inc235
@@ -7764,8 +7764,8 @@ for.inc235:                                       ; preds = %if.end224, %if.then
 for.body245:                                      ; preds = %for.cond239.preheader, %for.inc260
   %88 = phi i32 [ %92, %for.inc260 ], [ %68, %for.cond239.preheader ]
   %indvars.iv211 = phi i64 [ %indvars.iv.next212, %for.inc260 ], [ 0, %for.cond239.preheader ]
-  %dst_tmp.5190 = phi ptr [ %dst_tmp.6, %for.inc260 ], [ %dst_tmp.4, %for.cond239.preheader ]
-  %remaining_count.2189 = phi i32 [ %remaining_count.3, %for.inc260 ], [ %remaining_count.1, %for.cond239.preheader ]
+  %remaining_count.2190 = phi i32 [ %remaining_count.3, %for.inc260 ], [ %remaining_count.1, %for.cond239.preheader ]
+  %dst_tmp.5189 = phi ptr [ %dst_tmp.6, %for.inc260 ], [ %dst_tmp.4, %for.cond239.preheader ]
   %89 = trunc nuw nsw i64 %indvars.iv211 to i32
   %shr246 = lshr i64 %indvars.iv211, 5
   %idxprom247 = and i64 %shr246, 134217727
@@ -7780,16 +7780,16 @@ for.body245:                                      ; preds = %for.cond239.prehead
 if.end254:                                        ; preds = %for.body245
   %91 = load ptr, ptr %Data.i154, align 8
   %arrayidx.i164 = getelementptr inbounds %struct.ImDrawChannel, ptr %91, i64 %indvars.iv211
-  %incdec.ptr258 = getelementptr inbounds i8, ptr %dst_tmp.5190, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %dst_tmp.5190, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i164, i64 32, i1 false)
-  %dec259 = add nsw i32 %remaining_count.2189, -1
+  %incdec.ptr258 = getelementptr inbounds i8, ptr %dst_tmp.5189, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %dst_tmp.5189, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i164, i64 32, i1 false)
+  %dec259 = add nsw i32 %remaining_count.2190, -1
   %.pre218 = load i32, ptr %_Count, align 4
   br label %for.inc260
 
 for.inc260:                                       ; preds = %for.body245, %if.end254
   %92 = phi i32 [ %.pre218, %if.end254 ], [ %88, %for.body245 ]
-  %remaining_count.3 = phi i32 [ %dec259, %if.end254 ], [ %remaining_count.2189, %for.body245 ]
-  %dst_tmp.6 = phi ptr [ %incdec.ptr258, %if.end254 ], [ %dst_tmp.5190, %for.body245 ]
+  %dst_tmp.6 = phi ptr [ %incdec.ptr258, %if.end254 ], [ %dst_tmp.5189, %for.body245 ]
+  %remaining_count.3 = phi i32 [ %dec259, %if.end254 ], [ %remaining_count.2190, %for.body245 ]
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %93 = sext i32 %92 to i64
   %cmp241 = icmp slt i64 %indvars.iv.next212, %93
@@ -9815,10 +9815,10 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %sort_order_max.032 = phi i16 [ 0, %for.body.lr.ph ], [ %cond.i, %for.body ]
+  %sort_order_max.031 = phi i16 [ 0, %for.body.lr.ph ], [ %cond.i, %for.body ]
   %SortOrder = getelementptr inbounds %struct.ImGuiTableColumn, ptr %4, i64 %indvars.iv, i32 22
   %5 = load i16, ptr %SortOrder, align 2
-  %cond.i = tail call noundef i16 @llvm.smax.i16(i16 %sort_order_max.032, i16 %5)
+  %cond.i = tail call noundef i16 @llvm.smax.i16(i16 %sort_order_max.031, i16 %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end9.loopexit, label %for.body, !llvm.loop !44
@@ -10263,7 +10263,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %4 = phi i32 [ %3, %for.body.lr.ph ], [ %16, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %row_height.017 = phi float [ %2, %for.body.lr.ph ], [ %row_height.1, %for.inc ]
+  %row_height.014 = phi float [ %2, %for.body.lr.ph ], [ %row_height.1, %for.inc ]
   %5 = load ptr, ptr %EnabledMaskByIndex, align 8
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   %shr = lshr i64 %indvars.iv, 5
@@ -10312,14 +10312,14 @@ _ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit: ; preds = %land.lhs.true.i, 
   %retval.0.i = phi ptr [ %arrayidx.i.i, %if.end6.i ], [ @.str.1, %land.lhs.true.i ], [ @.str.1, %if.end.i ]
   %call7 = tail call <2 x float> @_ZN5ImGui12CalcTextSizeEPKcS1_bf(ptr noundef %retval.0.i, ptr noundef null, i1 noundef zeroext false, float noundef -1.000000e+00)
   %ref.tmp.sroa.0.4.vec.extract = extractelement <2 x float> %call7, i64 1
-  %cmp.i12 = fcmp oge float %row_height.017, %ref.tmp.sroa.0.4.vec.extract
-  %cond.i = select i1 %cmp.i12, float %row_height.017, float %ref.tmp.sroa.0.4.vec.extract
+  %cmp.i12 = fcmp oge float %row_height.014, %ref.tmp.sroa.0.4.vec.extract
+  %cond.i = select i1 %cmp.i12, float %row_height.014, float %ref.tmp.sroa.0.4.vec.extract
   %.pre = load i32, ptr %ColumnsCount, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit, %if.then
   %16 = phi i32 [ %.pre, %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit ], [ %4, %if.then ], [ %4, %for.body ]
-  %row_height.1 = phi float [ %cond.i, %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit ], [ %row_height.017, %if.then ], [ %row_height.017, %for.body ]
+  %row_height.1 = phi float [ %cond.i, %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit ], [ %row_height.014, %if.then ], [ %row_height.014, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = sext i32 %16 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %17
@@ -10357,7 +10357,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %3 = phi i32 [ %2, %for.body.lr.ph ], [ %15, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %width.016 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %width.1, %for.inc ]
+  %width.013 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %width.1, %for.inc ]
   %4 = load ptr, ptr %EnabledMaskByIndex, align 8
   %5 = trunc nuw nsw i64 %indvars.iv to i32
   %shr = lshr i64 %indvars.iv, 5
@@ -10406,14 +10406,14 @@ _ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit: ; preds = %land.lhs.true.i, 
   %retval.0.i = phi ptr [ %arrayidx.i.i, %if.end6.i ], [ @.str.1, %land.lhs.true.i ], [ @.str.1, %if.end.i ]
   %call6 = tail call <2 x float> @_ZN5ImGui12CalcTextSizeEPKcS1_bf(ptr noundef %retval.0.i, ptr noundef null, i1 noundef zeroext true, float noundef -1.000000e+00)
   %ref.tmp.sroa.0.0.vec.extract = extractelement <2 x float> %call6, i64 0
-  %cmp.i11 = fcmp oge float %width.016, %ref.tmp.sroa.0.0.vec.extract
-  %cond.i = select i1 %cmp.i11, float %width.016, float %ref.tmp.sroa.0.0.vec.extract
+  %cmp.i11 = fcmp oge float %width.013, %ref.tmp.sroa.0.0.vec.extract
+  %cond.i = select i1 %cmp.i11, float %width.013, float %ref.tmp.sroa.0.0.vec.extract
   %.pre = load i32, ptr %ColumnsCount, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit, %if.then
   %15 = phi i32 [ %.pre, %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit ], [ %3, %if.then ], [ %3, %for.body ]
-  %width.1 = phi float [ %cond.i, %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit ], [ %width.016, %if.then ], [ %width.016, %for.body ]
+  %width.1 = phi float [ %cond.i, %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit ], [ %width.013, %if.then ], [ %width.013, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = sext i32 %15 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %16
@@ -10466,7 +10466,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %7 = phi i32 [ %6, %for.body.lr.ph.i ], [ %19, %for.inc.i ]
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %row_height.017.i = phi float [ %5, %for.body.lr.ph.i ], [ %row_height.1.i, %for.inc.i ]
+  %row_height.014.i = phi float [ %5, %for.body.lr.ph.i ], [ %row_height.1.i, %for.inc.i ]
   %8 = load ptr, ptr %EnabledMaskByIndex.i, align 8
   %9 = trunc nuw nsw i64 %indvars.iv.i to i32
   %shr.i = lshr i64 %indvars.iv.i, 5
@@ -10515,14 +10515,14 @@ _ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit.i: ; preds = %if.end6.i.i, %i
   %retval.0.i.i = phi ptr [ %arrayidx.i.i.i, %if.end6.i.i ], [ @.str.1, %land.lhs.true.i.i ], [ @.str.1, %if.end.i.i ]
   %call7.i = tail call <2 x float> @_ZN5ImGui12CalcTextSizeEPKcS1_bf(ptr noundef %retval.0.i.i, ptr noundef null, i1 noundef zeroext false, float noundef -1.000000e+00)
   %ref.tmp.sroa.0.4.vec.extract.i = extractelement <2 x float> %call7.i, i64 1
-  %cmp.i12.i = fcmp oge float %row_height.017.i, %ref.tmp.sroa.0.4.vec.extract.i
-  %cond.i.i = select i1 %cmp.i12.i, float %row_height.017.i, float %ref.tmp.sroa.0.4.vec.extract.i
+  %cmp.i12.i = fcmp oge float %row_height.014.i, %ref.tmp.sroa.0.4.vec.extract.i
+  %cond.i.i = select i1 %cmp.i12.i, float %row_height.014.i, float %ref.tmp.sroa.0.4.vec.extract.i
   %.pre.i = load i32, ptr %ColumnsCount.i, align 4
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit.i, %if.then.i, %for.body.i
   %19 = phi i32 [ %.pre.i, %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit.i ], [ %7, %if.then.i ], [ %7, %for.body.i ]
-  %row_height.1.i = phi float [ %cond.i.i, %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit.i ], [ %row_height.017.i, %if.then.i ], [ %row_height.017.i, %for.body.i ]
+  %row_height.1.i = phi float [ %cond.i.i, %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit.i ], [ %row_height.014.i, %if.then.i ], [ %row_height.014.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %20 = sext i32 %19 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %20
@@ -11481,7 +11481,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %5 = phi i32 [ %4, %for.body.lr.ph.i ], [ %17, %for.inc.i ]
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %width.016.i = phi float [ 0.000000e+00, %for.body.lr.ph.i ], [ %width.1.i, %for.inc.i ]
+  %width.013.i = phi float [ 0.000000e+00, %for.body.lr.ph.i ], [ %width.1.i, %for.inc.i ]
   %6 = load ptr, ptr %EnabledMaskByIndex.i, align 8
   %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   %shr.i = lshr i64 %indvars.iv.i, 5
@@ -11530,14 +11530,14 @@ _ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit.i: ; preds = %if.end6.i.i, %i
   %retval.0.i.i = phi ptr [ %arrayidx.i.i.i, %if.end6.i.i ], [ @.str.1, %land.lhs.true.i.i ], [ @.str.1, %if.end.i.i ]
   %call6.i = tail call <2 x float> @_ZN5ImGui12CalcTextSizeEPKcS1_bf(ptr noundef %retval.0.i.i, ptr noundef null, i1 noundef zeroext true, float noundef -1.000000e+00)
   %ref.tmp.sroa.0.0.vec.extract.i = extractelement <2 x float> %call6.i, i64 0
-  %cmp.i11.i = fcmp oge float %width.016.i, %ref.tmp.sroa.0.0.vec.extract.i
-  %cond.i.i = select i1 %cmp.i11.i, float %width.016.i, float %ref.tmp.sroa.0.0.vec.extract.i
+  %cmp.i11.i = fcmp oge float %width.013.i, %ref.tmp.sroa.0.0.vec.extract.i
+  %cond.i.i = select i1 %cmp.i11.i, float %width.013.i, float %ref.tmp.sroa.0.0.vec.extract.i
   %.pre.i = load i32, ptr %ColumnsCount.i, align 4
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit.i, %if.then.i, %for.body.i
   %17 = phi i32 [ %.pre.i, %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit.i ], [ %5, %if.then.i ], [ %5, %for.body.i ]
-  %width.1.i = phi float [ %cond.i.i, %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit.i ], [ %width.016.i, %if.then.i ], [ %width.016.i, %for.body.i ]
+  %width.1.i = phi float [ %cond.i.i, %_ZN5ImGui18TableGetColumnNameEPK10ImGuiTablei.exit.i ], [ %width.013.i, %if.then.i ], [ %width.013.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %18 = sext i32 %17 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %18
@@ -11811,20 +11811,20 @@ for.cond87.preheader:                             ; preds = %for.cond87.preheade
   %65 = phi i32 [ %156, %for.inc193 ], [ %61, %for.cond87.preheader.preheader ]
   %66 = phi i32 [ %157, %for.inc193 ], [ %61, %for.cond87.preheader.preheader ]
   %67 = phi i32 [ %158, %for.inc193 ], [ %61, %for.cond87.preheader.preheader ]
-  %max_x.0227 = phi float [ %max_x.1.lcssa, %for.inc193 ], [ 0.000000e+00, %for.cond87.preheader.preheader ]
-  %pass.0226 = phi i32 [ %inc194, %for.inc193 ], [ 0, %for.cond87.preheader.preheader ]
+  %pass.0227 = phi i32 [ %inc194, %for.inc193 ], [ 0, %for.cond87.preheader.preheader ]
+  %max_x.0226 = phi float [ %max_x.1.lcssa, %for.inc193 ], [ 0.000000e+00, %for.cond87.preheader.preheader ]
   %cmp88217 = icmp sgt i32 %67, 0
   br i1 %cmp88217, label %for.body89.lr.ph, label %for.inc193
 
 for.body89.lr.ph:                                 ; preds = %for.cond87.preheader
-  %trunc = trunc i32 %pass.0226 to i1
+  %trunc = trunc i32 %pass.0227 to i1
   br i1 %trunc, label %for.body89, label %for.body89.us
 
 for.body89.us:                                    ; preds = %for.body89.lr.ph, %for.inc.us
   %68 = phi i32 [ %125, %for.inc.us ], [ %65, %for.body89.lr.ph ]
   %69 = phi i32 [ %126, %for.inc.us ], [ %66, %for.body89.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc.us ], [ 0, %for.body89.lr.ph ]
-  %max_x.1222.us = phi float [ %max_x.3.us, %for.inc.us ], [ %max_x.0227, %for.body89.lr.ph ]
+  %max_x.1219.us = phi float [ %max_x.3.us, %for.inc.us ], [ %max_x.0226, %for.body89.lr.ph ]
   %70 = load ptr, ptr %EnabledMaskByDisplayOrder, align 8
   %71 = trunc nuw nsw i64 %indvars.iv to i32
   %shr.us = lshr i64 %indvars.iv, 5
@@ -11885,8 +11885,8 @@ if.then127.us:                                    ; preds = %arrayctor.loop.us.p
 
 if.end133.us:                                     ; preds = %if.then127.us, %arrayctor.loop.us.preheader
   %81 = load float, ptr %arrayidx118, align 8
-  %cmp.i151.us = fcmp oge float %max_x.1222.us, %81
-  %cond.i152.us = select i1 %cmp.i151.us, float %max_x.1222.us, float %81
+  %cmp.i151.us = fcmp oge float %max_x.1219.us, %81
+  %cond.i152.us = select i1 %cmp.i151.us, float %max_x.1219.us, float %81
   %82 = load i8, ptr %IsLayoutLocked.i153, align 2
   %83 = and i8 %82, 1
   %cmp.i154.us = icmp eq i8 %83, 0
@@ -11986,7 +11986,7 @@ cond.end163.us:                                   ; preds = %cond.true155.crited
 for.inc.us:                                       ; preds = %cond.end163.us, %if.end93.us, %for.body89.us
   %125 = phi i32 [ %68, %for.body89.us ], [ %68, %if.end93.us ], [ %.pre, %cond.end163.us ]
   %126 = phi i32 [ %69, %for.body89.us ], [ %69, %if.end93.us ], [ %.pre, %cond.end163.us ]
-  %max_x.3.us = phi float [ %max_x.1222.us, %for.body89.us ], [ %max_x.1222.us, %if.end93.us ], [ %cond.i152.us, %cond.end163.us ]
+  %max_x.3.us = phi float [ %max_x.1219.us, %for.body89.us ], [ %max_x.1219.us, %if.end93.us ], [ %cond.i152.us, %cond.end163.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %127 = sext i32 %126 to i64
   %cmp88.us = icmp slt i64 %indvars.iv.next, %127
@@ -12110,8 +12110,8 @@ for.inc193:                                       ; preds = %for.inc.us, %for.in
   %156 = phi i32 [ %65, %for.cond87.preheader ], [ %154, %for.inc ], [ %125, %for.inc.us ]
   %157 = phi i32 [ %66, %for.cond87.preheader ], [ %154, %for.inc ], [ %126, %for.inc.us ]
   %158 = phi i32 [ %67, %for.cond87.preheader ], [ %154, %for.inc ], [ %126, %for.inc.us ]
-  %max_x.1.lcssa = phi float [ %max_x.0227, %for.cond87.preheader ], [ %max_x.0227, %for.inc ], [ %max_x.3.us, %for.inc.us ]
-  %inc194 = add nuw nsw i32 %pass.0226, 1
+  %max_x.1.lcssa = phi float [ %max_x.0226, %for.cond87.preheader ], [ %max_x.0226, %for.inc ], [ %max_x.3.us, %for.inc.us ]
+  %inc194 = add nuw nsw i32 %pass.0227, 1
   %exitcond.not = icmp eq i32 %inc194, 2
   br i1 %exitcond.not, label %for.end195, label %for.cond87.preheader, !llvm.loop !55
 

@@ -147,21 +147,21 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_greviP11pr
   br label %37
 
 37:                                               ; preds = %31, %.critedge
-  %.040 = phi i64 [ %36, %31 ], [ %29, %.critedge ]
+  %.0 = phi i64 [ %36, %31 ], [ %29, %.critedge ]
   %38 = and i32 %6, 2
   %.not42 = icmp eq i32 %38, 0
   br i1 %.not42, label %45, label %39
 
 39:                                               ; preds = %37
-  %40 = shl i64 %.040, 2
+  %40 = shl i64 %.0, 2
   %41 = and i64 %40, -3689348814741910324
-  %42 = lshr i64 %.040, 2
+  %42 = lshr i64 %.0, 2
   %43 = and i64 %42, 3689348814741910323
   %44 = or disjoint i64 %41, %43
   br label %45
 
 45:                                               ; preds = %39, %37
-  %.1 = phi i64 [ %44, %39 ], [ %.040, %37 ]
+  %.1 = phi i64 [ %44, %39 ], [ %.0, %37 ]
   %46 = and i32 %6, 4
   %.not43 = icmp eq i32 %46, 0
   br i1 %.not43, label %53, label %47
@@ -311,21 +311,21 @@ define noundef i64 @_Z16fast_rv64i_greviP11processor_t6insn_tm(ptr nocapture nou
   br label %37
 
 37:                                               ; preds = %31, %.critedge
-  %.040 = phi i64 [ %36, %31 ], [ %29, %.critedge ]
+  %.0 = phi i64 [ %36, %31 ], [ %29, %.critedge ]
   %38 = and i32 %6, 2
   %.not42 = icmp eq i32 %38, 0
   br i1 %.not42, label %45, label %39
 
 39:                                               ; preds = %37
-  %40 = shl i64 %.040, 2
+  %40 = shl i64 %.0, 2
   %41 = and i64 %40, -3689348814741910324
-  %42 = lshr i64 %.040, 2
+  %42 = lshr i64 %.0, 2
   %43 = and i64 %42, 3689348814741910323
   %44 = or disjoint i64 %41, %43
   br label %45
 
 45:                                               ; preds = %39, %37
-  %.1 = phi i64 [ %44, %39 ], [ %.040, %37 ]
+  %.1 = phi i64 [ %44, %39 ], [ %.0, %37 ]
   %46 = and i32 %6, 4
   %.not43 = icmp eq i32 %46, 0
   br i1 %.not43, label %53, label %47
@@ -887,21 +887,21 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_greviP11pr
   br label %44
 
 44:                                               ; preds = %38, %33
-  %.045 = phi i64 [ %43, %38 ], [ %36, %33 ]
+  %.0 = phi i64 [ %43, %38 ], [ %36, %33 ]
   %45 = and i32 %6, 2
   %.not46 = icmp eq i32 %45, 0
   br i1 %.not46, label %52, label %46
 
 46:                                               ; preds = %44
-  %47 = shl i64 %.045, 2
+  %47 = shl i64 %.0, 2
   %48 = and i64 %47, -3689348814741910324
-  %49 = lshr i64 %.045, 2
+  %49 = lshr i64 %.0, 2
   %50 = and i64 %49, 3689348814741910323
   %51 = or disjoint i64 %48, %50
   br label %52
 
 52:                                               ; preds = %46, %44
-  %.1 = phi i64 [ %51, %46 ], [ %.045, %44 ]
+  %.1 = phi i64 [ %51, %46 ], [ %.0, %44 ]
   %53 = and i32 %6, 4
   %.not47 = icmp eq i32 %53, 0
   br i1 %.not47, label %60, label %54
@@ -1069,21 +1069,21 @@ define noundef i64 @_Z16fast_rv64e_greviP11processor_t6insn_tm(ptr nocapture nou
   br label %44
 
 44:                                               ; preds = %38, %33
-  %.045 = phi i64 [ %43, %38 ], [ %36, %33 ]
+  %.0 = phi i64 [ %43, %38 ], [ %36, %33 ]
   %45 = and i32 %6, 2
   %.not46 = icmp eq i32 %45, 0
   br i1 %.not46, label %52, label %46
 
 46:                                               ; preds = %44
-  %47 = shl i64 %.045, 2
+  %47 = shl i64 %.0, 2
   %48 = and i64 %47, -3689348814741910324
-  %49 = lshr i64 %.045, 2
+  %49 = lshr i64 %.0, 2
   %50 = and i64 %49, 3689348814741910323
   %51 = or disjoint i64 %48, %50
   br label %52
 
 52:                                               ; preds = %46, %44
-  %.1 = phi i64 [ %51, %46 ], [ %.045, %44 ]
+  %.1 = phi i64 [ %51, %46 ], [ %.0, %44 ]
   %53 = and i32 %6, 4
   %.not47 = icmp eq i32 %53, 0
   br i1 %.not47, label %60, label %54
@@ -1249,21 +1249,21 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_greviP11
   br label %44
 
 44:                                               ; preds = %38, %33
-  %.048 = phi i64 [ %43, %38 ], [ %36, %33 ]
+  %.047 = phi i64 [ %43, %38 ], [ %36, %33 ]
   %45 = and i32 %6, 2
   %.not49 = icmp eq i32 %45, 0
   br i1 %.not49, label %52, label %46
 
 46:                                               ; preds = %44
-  %47 = shl i64 %.048, 2
+  %47 = shl i64 %.047, 2
   %48 = and i64 %47, -3689348814741910324
-  %49 = lshr i64 %.048, 2
+  %49 = lshr i64 %.047, 2
   %50 = and i64 %49, 3689348814741910323
   %51 = or disjoint i64 %48, %50
   br label %52
 
 52:                                               ; preds = %46, %44
-  %.1 = phi i64 [ %51, %46 ], [ %.048, %44 ]
+  %.1 = phi i64 [ %51, %46 ], [ %.047, %44 ]
   %53 = and i32 %6, 4
   %.not50 = icmp eq i32 %53, 0
   br i1 %.not50, label %60, label %54
@@ -1488,21 +1488,21 @@ define noundef i64 @_Z18logged_rv64e_greviP11processor_t6insn_tm(ptr noundef %0,
   br label %44
 
 44:                                               ; preds = %38, %33
-  %.048 = phi i64 [ %43, %38 ], [ %36, %33 ]
+  %.047 = phi i64 [ %43, %38 ], [ %36, %33 ]
   %45 = and i32 %6, 2
   %.not49 = icmp eq i32 %45, 0
   br i1 %.not49, label %52, label %46
 
 46:                                               ; preds = %44
-  %47 = shl i64 %.048, 2
+  %47 = shl i64 %.047, 2
   %48 = and i64 %47, -3689348814741910324
-  %49 = lshr i64 %.048, 2
+  %49 = lshr i64 %.047, 2
   %50 = and i64 %49, 3689348814741910323
   %51 = or disjoint i64 %48, %50
   br label %52
 
 52:                                               ; preds = %46, %44
-  %.1 = phi i64 [ %51, %46 ], [ %.048, %44 ]
+  %.1 = phi i64 [ %51, %46 ], [ %.047, %44 ]
   %53 = and i32 %6, 4
   %.not50 = icmp eq i32 %53, 0
   br i1 %.not50, label %60, label %54

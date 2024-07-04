@@ -348,8 +348,8 @@ onas_send_fdpass.exit.i:                          ; preds = %116
   br label %278
 
 onas_fdpass.exit:                                 ; preds = %135, %134, %onas_send_stream.exit, %55
-  %.0115 = phi i32 [ %.030.i, %onas_send_stream.exit ], [ %38, %55 ], [ %.011.i, %135 ], [ %.011.i, %134 ]
-  %137 = icmp slt i32 %.0115, 1
+  %.0118 = phi i32 [ %.030.i, %onas_send_stream.exit ], [ %38, %55 ], [ %.011.i, %135 ], [ %.011.i, %134 ]
+  %137 = icmp slt i32 %.0118, 1
   br i1 %137, label %139, label %.preheader
 
 .preheader:                                       ; preds = %onas_fdpass.exit
@@ -363,7 +363,7 @@ onas_fdpass.exit:                                 ; preds = %135, %134, %onas_se
 139:                                              ; preds = %onas_fdpass.exit
   store i32 0, ptr %6, align 4
   %140 = icmp ne ptr %7, null
-  %141 = icmp ne i32 %.0115, 0
+  %141 = icmp ne i32 %.0118, 0
   %or.cond = and i1 %140, %141
   br i1 %or.cond, label %142, label %278
 
@@ -464,7 +464,7 @@ onas_fdpass.exit:                                 ; preds = %135, %134, %onas_se
 
 .thread194:                                       ; preds = %158, %165
   %182 = phi ptr [ %166, %165 ], [ %156, %158 ]
-  %.0116197 = phi ptr [ %167, %165 ], [ %157, %158 ]
+  %.0115197 = phi ptr [ %167, %165 ], [ %157, %158 ]
   %183 = load ptr, ptr %19, align 8
   %184 = getelementptr inbounds i8, ptr %183, i64 -7
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %184, ptr noundef nonnull dereferenceable(6) @.str.8, i64 6)
@@ -499,7 +499,7 @@ onas_fdpass.exit:                                 ; preds = %135, %134, %onas_se
 
 .thread204:                                       ; preds = %187, %189, %194
   %.1200206 = phi i32 [ %193, %194 ], [ %.0.ph, %187 ], [ %190, %189 ]
-  %195 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %3, ptr noundef nonnull %.0116197) #14
+  %195 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %3, ptr noundef nonnull %.0115197) #14
   %196 = load ptr, ptr @action, align 8
   %.not165 = icmp eq ptr %196, null
   br i1 %.not165, label %.thread202, label %197
@@ -511,7 +511,7 @@ onas_fdpass.exit:                                 ; preds = %135, %134, %onas_se
 198:                                              ; preds = %194
   %199 = load ptr, ptr %18, align 8
   %200 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %199) #14
-  store i8 0, ptr %.0116197, align 1
+  store i8 0, ptr %.0115197, align 1
   %201 = load ptr, ptr @action, align 8
   %.not164 = icmp eq ptr %201, null
   br i1 %.not164, label %.thread202, label %202
@@ -567,7 +567,7 @@ onas_fdpass.exit:                                 ; preds = %135, %134, %onas_se
   br i1 %138, label %218, label %220
 
 218:                                              ; preds = %217
-  %219 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef nonnull %3, ptr noundef nonnull %.0116197) #14
+  %219 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef nonnull %3, ptr noundef nonnull %.0115197) #14
   br label %222
 
 220:                                              ; preds = %217
@@ -627,7 +627,7 @@ onas_fdpass.exit:                                 ; preds = %135, %134, %onas_se
   br i1 %138, label %240, label %242
 
 240:                                              ; preds = %239
-  %241 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.13, ptr noundef nonnull %3, ptr noundef nonnull %.0116197) #14
+  %241 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.13, ptr noundef nonnull %3, ptr noundef nonnull %.0115197) #14
   br label %244
 
 242:                                              ; preds = %239
@@ -659,7 +659,7 @@ onas_fdpass.exit:                                 ; preds = %135, %134, %onas_se
   br i1 %138, label %251, label %253
 
 251:                                              ; preds = %250
-  %252 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.13, ptr noundef nonnull %3, ptr noundef nonnull %.0116197) #14
+  %252 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.13, ptr noundef nonnull %3, ptr noundef nonnull %.0115197) #14
   br label %255
 
 253:                                              ; preds = %250
@@ -725,7 +725,7 @@ onas_fdpass.exit:                                 ; preds = %135, %134, %onas_se
   br label %278
 
 278:                                              ; preds = %.thread, %275, %277, %264, %269, %258, %260, %180, %181, %147, %148, %139, %142, %41, %46, %27, %29, %256, %270, %53
-  %.3 = phi i32 [ %.0.ph, %256 ], [ %.0.ph, %270 ], [ -1, %53 ], [ -1, %29 ], [ -1, %27 ], [ -1, %46 ], [ -1, %41 ], [ %.0115, %142 ], [ %.0115, %139 ], [ -1, %148 ], [ -1, %147 ], [ -1, %181 ], [ -1, %180 ], [ -1, %260 ], [ -1, %258 ], [ -1, %269 ], [ -1, %264 ], [ -1, %277 ], [ -1, %275 ], [ 0, %.thread ]
+  %.3 = phi i32 [ %.0.ph, %256 ], [ %.0.ph, %270 ], [ -1, %53 ], [ -1, %29 ], [ -1, %27 ], [ -1, %46 ], [ -1, %41 ], [ %.0118, %142 ], [ %.0118, %139 ], [ -1, %148 ], [ -1, %147 ], [ -1, %181 ], [ -1, %180 ], [ -1, %260 ], [ -1, %258 ], [ -1, %269 ], [ -1, %264 ], [ -1, %277 ], [ -1, %275 ], [ 0, %.thread ]
   %279 = icmp sgt i32 %22, 0
   br i1 %279, label %280, label %282
 

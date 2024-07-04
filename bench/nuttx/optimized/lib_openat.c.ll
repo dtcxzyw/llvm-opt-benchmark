@@ -53,13 +53,13 @@ define noundef i32 @openat(i32 noundef %0, ptr noundef %1, i32 noundef %2, ...) 
   br label %29
 
 29:                                               ; preds = %26, %11
-  %.07 = phi i32 [ %28, %26 ], [ 0, %11 ]
-  %30 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %4, i32 noundef %2, i32 noundef %.07) #4
+  %.0 = phi i32 [ %28, %26 ], [ 0, %11 ]
+  %30 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %4, i32 noundef %2, i32 noundef %.0) #4
   br label %31
 
 31:                                               ; preds = %29, %8
-  %.0 = phi i32 [ -1, %8 ], [ %30, %29 ]
-  ret i32 %.0
+  %.07 = phi i32 [ -1, %8 ], [ %30, %29 ]
+  ret i32 %.07
 }
 
 declare i32 @lib_getfullpath(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1

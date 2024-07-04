@@ -481,9 +481,9 @@ switch.lookup:                                    ; preds = %59
 
 66:                                               ; preds = %63, %66
   %.098 = phi i8 [ 1, %63 ], [ %68, %66 ]
-  %.09297 = phi i32 [ 20, %63 ], [ %67, %66 ]
-  tail call fastcc void @mpls_pm_dissect_counter(ptr noundef %0, ptr noundef %17, i32 noundef %.09297, i32 noundef %30, i32 noundef %43, i8 noundef zeroext %.098)
-  %67 = add nuw nsw i32 %.09297, 8
+  %.09197 = phi i32 [ 20, %63 ], [ %67, %66 ]
+  tail call fastcc void @mpls_pm_dissect_counter(ptr noundef %0, ptr noundef %17, i32 noundef %.09197, i32 noundef %30, i32 noundef %43, i8 noundef zeroext %.098)
+  %67 = add nuw nsw i32 %.09197, 8
   %68 = add nuw nsw i8 %.098, 1
   %exitcond.not = icmp eq i8 %68, 5
   br i1 %exitcond.not, label %.loopexit, label %66, !llvm.loop !6
@@ -836,18 +836,18 @@ define internal fastcc void @dissect_mpls_pm_combined(ptr noundef %0, ptr nocapt
 
 65:                                               ; preds = %.preheader104, %65
   %.0100 = phi i8 [ %67, %65 ], [ 1, %.preheader104 ]
-  %.09399 = phi i32 [ %66, %65 ], [ 12, %.preheader104 ]
-  tail call fastcc void @mpls_pm_dissect_timestamp(ptr noundef %0, ptr noundef %17, i32 noundef %.09399, i8 noundef zeroext %49, i8 noundef zeroext %53, i32 noundef %30, i8 noundef zeroext %.0100)
-  %66 = add nuw nsw i32 %.09399, 8
+  %.09299 = phi i32 [ %66, %65 ], [ 12, %.preheader104 ]
+  tail call fastcc void @mpls_pm_dissect_timestamp(ptr noundef %0, ptr noundef %17, i32 noundef %.09299, i8 noundef zeroext %49, i8 noundef zeroext %53, i32 noundef %30, i8 noundef zeroext %.0100)
+  %66 = add nuw nsw i32 %.09299, 8
   %67 = add nuw nsw i8 %.0100, 1
   %exitcond.not = icmp eq i8 %67, 5
   br i1 %exitcond.not, label %.preheader, label %65, !llvm.loop !7
 
 .preheader:                                       ; preds = %65, %.preheader
   %.1102 = phi i8 [ %69, %.preheader ], [ 1, %65 ]
-  %.194101 = phi i32 [ %68, %.preheader ], [ 44, %65 ]
-  tail call fastcc void @mpls_pm_dissect_counter(ptr noundef %0, ptr noundef %17, i32 noundef %.194101, i32 noundef %30, i32 noundef %43, i8 noundef zeroext %.1102)
-  %68 = add nuw nsw i32 %.194101, 8
+  %.193101 = phi i32 [ %68, %.preheader ], [ 44, %65 ]
+  tail call fastcc void @mpls_pm_dissect_counter(ptr noundef %0, ptr noundef %17, i32 noundef %.193101, i32 noundef %30, i32 noundef %43, i8 noundef zeroext %.1102)
+  %68 = add nuw nsw i32 %.193101, 8
   %69 = add nuw nsw i8 %.1102, 1
   %exitcond103.not = icmp eq i8 %69, 5
   br i1 %exitcond103.not, label %.loopexit, label %.preheader, !llvm.loop !8

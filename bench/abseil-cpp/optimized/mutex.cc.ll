@@ -1715,22 +1715,25 @@ do.body11:                                        ; preds = %lor.rhs
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str, i64 120), i32 noundef 2109, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.9)
   unreachable
 
-for.cond.outer.loopexit:                          ; preds = %if.end294, %if.then271
-  %wr_wait.0.ph.ph = phi i64 [ %wr_wait.2, %if.end294 ], [ 32, %if.then271 ]
-  %pw.0.ph.ph = phi ptr [ %pw.2, %if.end294 ], [ %pw_walk.1357, %if.then271 ]
-  %w.0.ph.ph = phi ptr [ %w.2, %if.end294 ], [ %w_walk.1355, %if.then271 ]
-  br label %for.cond.outer
-
-for.cond.outer:                                   ; preds = %for.cond.outer.preheader, %for.cond.outer.loopexit
-  %wr_wait.0.ph = phi i64 [ %wr_wait.0.ph.ph, %for.cond.outer.loopexit ], [ 0, %for.cond.outer.preheader ]
-  %old_h.0.ph = phi ptr [ %21, %for.cond.outer.loopexit ], [ null, %for.cond.outer.preheader ]
-  %pw.0.ph = phi ptr [ %pw.0.ph.ph, %for.cond.outer.loopexit ], [ null, %for.cond.outer.preheader ]
-  %w.0.ph = phi ptr [ %w.0.ph.ph, %for.cond.outer.loopexit ], [ null, %for.cond.outer.preheader ]
-  %c.0.ph = phi i32 [ %c.0, %for.cond.outer.loopexit ], [ 0, %for.cond.outer.preheader ]
+for.cond.outer:                                   ; preds = %for.cond.outer.preheader, %_ZN4absl24synchronization_internal10MutexDelayEii.exit
+  %c.0.ph = phi i32 [ %c.addr.1.i, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ 0, %for.cond.outer.preheader ]
+  %w.0.ph = phi ptr [ %w.0, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ null, %for.cond.outer.preheader ]
+  %pw.0.ph = phi ptr [ %pw.0, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ null, %for.cond.outer.preheader ]
+  %old_h.0.ph = phi ptr [ %old_h.0, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ null, %for.cond.outer.preheader ]
+  %wr_wait.0.ph = phi i64 [ %wr_wait.0, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ 0, %for.cond.outer.preheader ]
   br label %for.cond
 
-for.cond:                                         ; preds = %for.cond.outer, %_ZN4absl24synchronization_internal10MutexDelayEii.exit
-  %c.0 = phi i32 [ %c.addr.1.i, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ %c.0.ph, %for.cond.outer ]
+for.cond.loopexit:                                ; preds = %if.end294, %if.then271
+  %w.0.ph611 = phi ptr [ %w.2, %if.end294 ], [ %w_walk.1369, %if.then271 ]
+  %pw.0.ph612 = phi ptr [ %pw.2, %if.end294 ], [ %pw_walk.1371, %if.then271 ]
+  %wr_wait.0.ph613 = phi i64 [ %wr_wait.2, %if.end294 ], [ 32, %if.then271 ]
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.cond.loopexit, %for.cond.outer
+  %w.0 = phi ptr [ %w.0.ph, %for.cond.outer ], [ %w.0.ph611, %for.cond.loopexit ]
+  %pw.0 = phi ptr [ %pw.0.ph, %for.cond.outer ], [ %pw.0.ph612, %for.cond.loopexit ]
+  %old_h.0 = phi ptr [ %old_h.0.ph, %for.cond.outer ], [ %21, %for.cond.loopexit ]
+  %wr_wait.0 = phi i64 [ %wr_wait.0.ph, %for.cond.outer ], [ %wr_wait.0.ph613, %for.cond.loopexit ]
   %7 = load atomic i64, ptr %this monotonic, align 8
   %and21 = and i64 %7, 8
   %cmp22.not = icmp eq i64 %and21, 0
@@ -1857,7 +1860,7 @@ do.end137:                                        ; preds = %if.then119
   br label %for.end.sink.split
 
 do.body144:                                       ; preds = %if.end106, %land.lhs.true111
-  %cmp145 = icmp eq ptr %old_h.0.ph, null
+  %cmp145 = icmp eq ptr %old_h.0, null
   br i1 %cmp145, label %if.end190, label %lor.rhs146
 
 lor.rhs146:                                       ; preds = %do.body144
@@ -1871,14 +1874,14 @@ do.body151:                                       ; preds = %lor.rhs146
   unreachable
 
 land.lhs.true163:                                 ; preds = %lor.rhs146
-  %may_skip = getelementptr inbounds i8, ptr %old_h.0.ph, i64 16
+  %may_skip = getelementptr inbounds i8, ptr %old_h.0, i64 16
   %25 = load i8, ptr %may_skip, align 8
   %tobool164 = trunc i8 %25 to i1
   br i1 %tobool164, label %if.end190, label %if.then165
 
 if.then165:                                       ; preds = %land.lhs.true163
   store i8 1, ptr %may_skip, align 8
-  %skip = getelementptr inbounds i8, ptr %old_h.0.ph, i64 8
+  %skip = getelementptr inbounds i8, ptr %old_h.0, i64 8
   %26 = load ptr, ptr %skip, align 8
   %cmp168.not = icmp eq ptr %26, null
   br i1 %cmp168.not, label %do.end181, label %do.body171
@@ -1888,12 +1891,12 @@ do.body171:                                       ; preds = %if.then165
   unreachable
 
 do.end181:                                        ; preds = %if.then165
-  %cmp182.not = icmp eq ptr %old_h.0.ph, %21
+  %cmp182.not = icmp eq ptr %old_h.0, %21
   br i1 %cmp182.not, label %if.end190, label %land.lhs.true183
 
 land.lhs.true183:                                 ; preds = %do.end181
-  %27 = load ptr, ptr %old_h.0.ph, align 8
-  %waitp.i = getelementptr inbounds i8, ptr %old_h.0.ph, i64 32
+  %27 = load ptr, ptr %old_h.0, align 8
+  %waitp.i = getelementptr inbounds i8, ptr %old_h.0, i64 32
   %28 = load ptr, ptr %waitp.i, align 8
   %29 = load ptr, ptr %28, align 8
   %waitp1.i = getelementptr inbounds i8, ptr %27, i64 32
@@ -1903,7 +1906,7 @@ land.lhs.true183:                                 ; preds = %do.end181
   br i1 %cmp.i256, label %land.lhs.true.i, label %if.end190
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true183
-  %priority.i = getelementptr inbounds i8, ptr %old_h.0.ph, i64 24
+  %priority.i = getelementptr inbounds i8, ptr %old_h.0, i64 24
   %32 = load i32, ptr %priority.i, align 8
   %priority3.i = getelementptr inbounds i8, ptr %27, i64 24
   %33 = load i32, ptr %priority3.i, align 8
@@ -1969,25 +1972,25 @@ if.then199:                                       ; preds = %land.lhs.true194
   br label %do.body301
 
 if.else201:                                       ; preds = %land.lhs.true194, %if.end190
-  %cmp202.not = icmp eq ptr %w.0.ph, null
+  %cmp202.not = icmp eq ptr %w.0, null
   br i1 %cmp202.not, label %if.else213, label %land.lhs.true203
 
 land.lhs.true203:                                 ; preds = %if.else201
-  %waitp204 = getelementptr inbounds i8, ptr %w.0.ph, i64 32
+  %waitp204 = getelementptr inbounds i8, ptr %w.0, i64 32
   %44 = load ptr, ptr %waitp204, align 8
   %45 = load ptr, ptr %44, align 8
   %cmp206 = icmp eq ptr %45, @_ZN4abslL11kExclusiveSE
-  %cmp208 = icmp eq ptr %old_h.0.ph, %21
-  %or.cond245 = or i1 %cmp206, %cmp208
+  %cmp208 = icmp eq ptr %old_h.0, %21
+  %or.cond245 = select i1 %cmp206, i1 true, i1 %cmp208
   br i1 %or.cond245, label %if.then209, label %if.else213
 
 if.then209:                                       ; preds = %land.lhs.true203
-  %cmp210 = icmp eq ptr %pw.0.ph, null
-  %spec.select246 = select i1 %cmp210, ptr %21, ptr %pw.0.ph
+  %cmp210 = icmp eq ptr %pw.0, null
+  %spec.select246 = select i1 %cmp210, ptr %21, ptr %pw.0
   br label %do.body301
 
 if.else213:                                       ; preds = %land.lhs.true203, %if.else201
-  %cmp214 = icmp eq ptr %old_h.0.ph, %21
+  %cmp214 = icmp eq ptr %old_h.0, %21
   br i1 %cmp214, label %if.then215, label %if.end233
 
 if.then215:                                       ; preds = %if.else213
@@ -2010,7 +2013,7 @@ if.then227:                                       ; preds = %if.then221
   br label %for.end.sink.split
 
 if.end233:                                        ; preds = %if.else213
-  %call108.old_h.0 = select i1 %cmp145, ptr %21, ptr %old_h.0.ph
+  %call108.old_h.0 = select i1 %cmp145, ptr %21, ptr %old_h.0
   %w_walk.0 = load ptr, ptr %call108.old_h.0, align 8
   %may_skip240 = getelementptr inbounds i8, ptr %21, i64 16
   store i8 0, ptr %may_skip240, align 16
@@ -2030,14 +2033,14 @@ while.body.preheader:                             ; preds = %if.end233
   br label %while.body
 
 while.body:                                       ; preds = %if.end298, %while.body.preheader
-  %pw_walk.1357 = phi ptr [ %pw_walk.2, %if.end298 ], [ %old_h.0.ph, %while.body.preheader ]
-  %w_walk.1355 = phi ptr [ %60, %if.end298 ], [ %w_walk.0, %while.body.preheader ]
-  %w.1354 = phi ptr [ %w.2, %if.end298 ], [ %w.0.ph, %while.body.preheader ]
-  %pw.1353 = phi ptr [ %pw.2, %if.end298 ], [ %pw.0.ph, %while.body.preheader ]
-  %wr_wait.1352 = phi i64 [ %wr_wait.2, %if.end298 ], [ %wr_wait.0.ph, %while.body.preheader ]
-  %wake260 = getelementptr inbounds i8, ptr %w_walk.1355, i64 17
+  %pw_walk.1371 = phi ptr [ %pw_walk.2, %if.end298 ], [ %old_h.0, %while.body.preheader ]
+  %w_walk.1369 = phi ptr [ %60, %if.end298 ], [ %w_walk.0, %while.body.preheader ]
+  %wr_wait.1368 = phi i64 [ %wr_wait.2, %if.end298 ], [ %wr_wait.0, %while.body.preheader ]
+  %pw.1367 = phi ptr [ %pw.2, %if.end298 ], [ %pw.0, %while.body.preheader ]
+  %w.1366 = phi ptr [ %w.2, %if.end298 ], [ %w.0, %while.body.preheader ]
+  %wake260 = getelementptr inbounds i8, ptr %w_walk.1369, i64 17
   store i8 0, ptr %wake260, align 1
-  %waitp261 = getelementptr inbounds i8, ptr %w_walk.1355, i64 32
+  %waitp261 = getelementptr inbounds i8, ptr %w_walk.1369, i64 32
   %48 = load ptr, ptr %waitp261, align 8
   %cond262 = getelementptr inbounds i8, ptr %48, i64 8
   %49 = load ptr, ptr %cond262, align 8
@@ -2051,7 +2054,7 @@ lor.lhs.false264:                                 ; preds = %while.body
   br i1 %call.i.i258, label %if.then269, label %if.end287
 
 if.then269:                                       ; preds = %lor.lhs.false264, %while.body
-  %cmp270 = icmp eq ptr %w.1354, null
+  %cmp270 = icmp eq ptr %w.1366, null
   br i1 %cmp270, label %if.then271, label %if.else278
 
 if.then271:                                       ; preds = %if.then269
@@ -2059,7 +2062,7 @@ if.then271:                                       ; preds = %if.then269
   %51 = load ptr, ptr %waitp261, align 8
   %52 = load ptr, ptr %51, align 8
   %cmp275 = icmp eq ptr %52, @_ZN4abslL11kExclusiveSE
-  br i1 %cmp275, label %for.cond.outer.loopexit, label %if.end287, !llvm.loop !18
+  br i1 %cmp275, label %for.cond.loopexit, label %if.end287, !llvm.loop !18
 
 if.else278:                                       ; preds = %if.then269
   %53 = load ptr, ptr %waitp261, align 8
@@ -2072,15 +2075,15 @@ if.then282:                                       ; preds = %if.else278
   br label %if.end287
 
 if.end287:                                        ; preds = %if.else278, %if.then271, %if.then282, %lor.lhs.false264
-  %wr_wait.2 = phi i64 [ %wr_wait.1352, %if.then271 ], [ %wr_wait.1352, %if.then282 ], [ %wr_wait.1352, %lor.lhs.false264 ], [ 32, %if.else278 ]
-  %pw.2 = phi ptr [ %pw_walk.1357, %if.then271 ], [ %pw.1353, %if.then282 ], [ %pw.1353, %lor.lhs.false264 ], [ %pw.1353, %if.else278 ]
-  %w.2 = phi ptr [ %w_walk.1355, %if.then271 ], [ %w.1354, %if.then282 ], [ %w.1354, %lor.lhs.false264 ], [ %w.1354, %if.else278 ]
+  %w.2 = phi ptr [ %w_walk.1369, %if.then271 ], [ %w.1366, %if.then282 ], [ %w.1366, %lor.lhs.false264 ], [ %w.1366, %if.else278 ]
+  %pw.2 = phi ptr [ %pw_walk.1371, %if.then271 ], [ %pw.1367, %if.then282 ], [ %pw.1367, %lor.lhs.false264 ], [ %pw.1367, %if.else278 ]
+  %wr_wait.2 = phi i64 [ %wr_wait.1368, %if.then271 ], [ %wr_wait.1368, %if.then282 ], [ %wr_wait.1368, %lor.lhs.false264 ], [ 32, %if.else278 ]
   %55 = load i8, ptr %wake260, align 1
   %tobool289 = trunc i8 %55 to i1
   br i1 %tobool289, label %if.end294, label %if.else291
 
 if.else291:                                       ; preds = %if.end287
-  %skip.i = getelementptr inbounds i8, ptr %w_walk.1355, i64 8
+  %skip.i = getelementptr inbounds i8, ptr %w_walk.1369, i64 8
   %56 = load ptr, ptr %skip.i, align 8
   %cmp.not.i = icmp eq ptr %56, null
   br i1 %cmp.not.i, label %if.end294, label %while.cond.preheader.i
@@ -2094,7 +2097,7 @@ while.cond.preheader.i:                           ; preds = %if.else291
 while.body.i:                                     ; preds = %while.cond.preheader.i, %while.body.i
   %58 = phi ptr [ %59, %while.body.i ], [ %57, %while.cond.preheader.i ]
   %x2.012.i = phi ptr [ %58, %while.body.i ], [ %56, %while.cond.preheader.i ]
-  %x1.011.i = phi ptr [ %x2.012.i, %while.body.i ], [ %w_walk.1355, %while.cond.preheader.i ]
+  %x1.011.i = phi ptr [ %x2.012.i, %while.body.i ], [ %w_walk.1369, %while.cond.preheader.i ]
   %skip3.i = getelementptr inbounds i8, ptr %x1.011.i, i64 8
   store ptr %58, ptr %skip3.i, align 8
   %skip1.i = getelementptr inbounds i8, ptr %58, i64 8
@@ -2108,21 +2111,21 @@ while.end.i:                                      ; preds = %while.body.i, %whil
   br label %if.end294
 
 if.end294:                                        ; preds = %while.end.i, %if.else291, %if.end287
-  %pw_walk.2 = phi ptr [ %w_walk.1355, %if.end287 ], [ %x2.0.lcssa.i, %while.end.i ], [ %w_walk.1355, %if.else291 ]
+  %pw_walk.2 = phi ptr [ %w_walk.1369, %if.end287 ], [ %x2.0.lcssa.i, %while.end.i ], [ %w_walk.1369, %if.else291 ]
   %cmp295.not = icmp eq ptr %pw_walk.2, %21
-  br i1 %cmp295.not, label %for.cond.outer.loopexit, label %if.end298, !llvm.loop !18
+  br i1 %cmp295.not, label %for.cond.loopexit, label %if.end298, !llvm.loop !18
 
 if.end298:                                        ; preds = %if.end294
   %60 = load ptr, ptr %pw_walk.2, align 8
   br label %while.body
 
 do.body301:                                       ; preds = %if.then209, %if.then199
-  %wr_wait.4 = phi i64 [ 32, %if.then199 ], [ %wr_wait.0.ph, %if.then209 ]
+  %w.4 = phi ptr [ %40, %if.then199 ], [ %w.0, %if.then209 ]
   %pw.4 = phi ptr [ %21, %if.then199 ], [ %spec.select246, %if.then209 ]
-  %w.4 = phi ptr [ %40, %if.then199 ], [ %w.0.ph, %if.then209 ]
-  %.lcssa289297 = extractvalue { i64, i1 } %12, 0
-  %61 = load ptr, ptr %pw.4, align 8
-  %cmp303.not = icmp eq ptr %61, %w.4
+  %wr_wait.4 = phi i64 [ 32, %if.then199 ], [ %wr_wait.0, %if.then209 ]
+  %61 = extractvalue { i64, i1 } %12, 0
+  %62 = load ptr, ptr %pw.4, align 8
+  %cmp303.not = icmp eq ptr %62, %w.4
   br i1 %cmp303.not, label %do.body.i259, label %do.body306
 
 do.body306:                                       ; preds = %do.body301
@@ -2130,20 +2133,20 @@ do.body306:                                       ; preds = %do.body301
   unreachable
 
 do.body.i259:                                     ; preds = %do.body301, %land.rhs.i260
-  %wake_tail.addr.0.i = phi ptr [ %wake_tail.addr.121.i, %land.rhs.i260 ], [ %wake_list, %do.body301 ]
-  %pw.addr.0.i = phi ptr [ %pw.addr.122.i, %land.rhs.i260 ], [ %pw.4, %do.body301 ]
+  %pw.addr.0.i = phi ptr [ %pw.addr.121.i, %land.rhs.i260 ], [ %pw.4, %do.body301 ]
+  %wake_tail.addr.0.i = phi ptr [ %wake_tail.addr.122.i, %land.rhs.i260 ], [ %wake_list, %do.body301 ]
   %skipped.0.i = phi i1 [ %skipped.123.i, %land.rhs.i260 ], [ false, %do.body301 ]
   %head.addr.0.i = phi ptr [ %head.addr.124.i, %land.rhs.i260 ], [ %21, %do.body301 ]
   %w.0.i = load ptr, ptr %pw.addr.0.i, align 8
   %wake.i = getelementptr inbounds i8, ptr %w.0.i, i64 17
-  %62 = load i8, ptr %wake.i, align 1
-  %tobool.i = trunc i8 %62 to i1
+  %63 = load i8, ptr %wake.i, align 1
+  %tobool.i = trunc i8 %63 to i1
   br i1 %tobool.i, label %do.body1.i, label %if.else.i
 
 do.body1.i:                                       ; preds = %do.body.i259
   %skip.i261 = getelementptr inbounds i8, ptr %pw.addr.0.i, i64 8
-  %63 = load ptr, ptr %skip.i261, align 8
-  %cmp.not.i262 = icmp eq ptr %63, null
+  %64 = load ptr, ptr %skip.i261, align 8
+  %cmp.not.i262 = icmp eq ptr %64, null
   br i1 %cmp.not.i262, label %do.end6.i, label %do.body3.i
 
 do.body3.i:                                       ; preds = %do.body1.i
@@ -2151,8 +2154,8 @@ do.body3.i:                                       ; preds = %do.body1.i
   unreachable
 
 do.end6.i:                                        ; preds = %do.body1.i
-  %64 = load ptr, ptr %w.0.i, align 8
-  store ptr %64, ptr %pw.addr.0.i, align 8
+  %65 = load ptr, ptr %w.0.i, align 8
+  store ptr %65, ptr %pw.addr.0.i, align 8
   %cmp.i.i263 = icmp eq ptr %w.0.i, %head.addr.0.i
   br i1 %cmp.i.i263, label %if.then.i.i266, label %if.else.i.i
 
@@ -2167,129 +2170,129 @@ if.else.i.i:                                      ; preds = %do.end6.i
 
 land.lhs.true.i.i264:                             ; preds = %if.else.i.i
   %waitp.i.i.i = getelementptr inbounds i8, ptr %pw.addr.0.i, i64 32
-  %65 = load ptr, ptr %waitp.i.i.i, align 8
-  %66 = load ptr, ptr %65, align 8
-  %waitp1.i.i.i = getelementptr inbounds i8, ptr %64, i64 32
-  %67 = load ptr, ptr %waitp1.i.i.i, align 8
-  %68 = load ptr, ptr %67, align 8
-  %cmp.i.i.i = icmp eq ptr %66, %68
+  %66 = load ptr, ptr %waitp.i.i.i, align 8
+  %67 = load ptr, ptr %66, align 8
+  %waitp1.i.i.i = getelementptr inbounds i8, ptr %65, i64 32
+  %68 = load ptr, ptr %waitp1.i.i.i, align 8
+  %69 = load ptr, ptr %68, align 8
+  %cmp.i.i.i = icmp eq ptr %67, %69
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
 
 land.lhs.true.i.i.i:                              ; preds = %land.lhs.true.i.i264
   %priority.i.i.i = getelementptr inbounds i8, ptr %pw.addr.0.i, i64 24
-  %69 = load i32, ptr %priority.i.i.i, align 8
-  %priority3.i.i.i = getelementptr inbounds i8, ptr %64, i64 24
-  %70 = load i32, ptr %priority3.i.i.i, align 8
-  %cmp4.i.i.i = icmp eq i32 %69, %70
+  %70 = load i32, ptr %priority.i.i.i, align 8
+  %priority3.i.i.i = getelementptr inbounds i8, ptr %65, i64 24
+  %71 = load i32, ptr %priority3.i.i.i, align 8
+  %cmp4.i.i.i = icmp eq i32 %70, %71
   br i1 %cmp4.i.i.i, label %land.rhs.i.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
 
 land.rhs.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
-  %cond.i.i.i = getelementptr inbounds i8, ptr %65, i64 8
-  %71 = load ptr, ptr %cond.i.i.i, align 8
-  %cond7.i.i.i = getelementptr inbounds i8, ptr %67, i64 8
-  %72 = load ptr, ptr %cond7.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %71, null
-  %cmp1.i.i.i.i = icmp eq ptr %72, null
+  %cond.i.i.i = getelementptr inbounds i8, ptr %66, i64 8
+  %72 = load ptr, ptr %cond.i.i.i, align 8
+  %cond7.i.i.i = getelementptr inbounds i8, ptr %68, i64 8
+  %73 = load ptr, ptr %cond7.i.i.i, align 8
+  %cmp.i.i.i.i = icmp eq ptr %72, null
+  %cmp1.i.i.i.i = icmp eq ptr %73, null
   %or.cond.i.i.i.i = or i1 %cmp.i.i.i.i, %cmp1.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %land.rhs.i.i.i
-  %cmp2.i.i.i.i = icmp eq ptr %71, %72
+  %cmp2.i.i.i.i = icmp eq ptr %72, %73
   br i1 %cmp2.i.i.i.i, label %if.then6.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
 
 if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i.i
-  %eval_.i.i.i.i = getelementptr inbounds i8, ptr %71, i64 16
-  %73 = load ptr, ptr %eval_.i.i.i.i, align 8
-  %eval_3.i.i.i.i = getelementptr inbounds i8, ptr %72, i64 16
-  %74 = load ptr, ptr %eval_3.i.i.i.i, align 8
-  %cmp4.i.i.i.i = icmp eq ptr %73, %74
+  %eval_.i.i.i.i = getelementptr inbounds i8, ptr %72, i64 16
+  %74 = load ptr, ptr %eval_.i.i.i.i, align 8
+  %eval_3.i.i.i.i = getelementptr inbounds i8, ptr %73, i64 16
+  %75 = load ptr, ptr %eval_3.i.i.i.i, align 8
+  %cmp4.i.i.i.i = icmp eq ptr %74, %75
   br i1 %cmp4.i.i.i.i, label %land.lhs.true.i.i.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %if.end.i.i.i.i
-  %arg_.i.i.i.i = getelementptr inbounds i8, ptr %71, i64 24
-  %75 = load ptr, ptr %arg_.i.i.i.i, align 8
-  %arg_5.i.i.i.i = getelementptr inbounds i8, ptr %72, i64 24
-  %76 = load ptr, ptr %arg_5.i.i.i.i, align 8
-  %cmp6.i.i.i.i = icmp eq ptr %75, %76
+  %arg_.i.i.i.i = getelementptr inbounds i8, ptr %72, i64 24
+  %76 = load ptr, ptr %arg_.i.i.i.i, align 8
+  %arg_5.i.i.i.i = getelementptr inbounds i8, ptr %73, i64 24
+  %77 = load ptr, ptr %arg_5.i.i.i.i, align 8
+  %cmp6.i.i.i.i = icmp eq ptr %76, %77
   br i1 %cmp6.i.i.i.i, label %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
 
 _ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i.i: ; preds = %land.lhs.true.i.i.i.i
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %71, ptr noundef nonnull readonly dereferenceable(16) %72, i64 16)
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(16) %72, ptr noundef nonnull readonly dereferenceable(16) %73, i64 16)
   %tobool.not.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %if.then6.i.i, label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
 
 if.then6.i.i:                                     ; preds = %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i.i, %if.then.i.i.i.i
-  %skip.i.i = getelementptr inbounds i8, ptr %64, i64 8
-  %77 = load ptr, ptr %skip.i.i, align 8
-  %cmp8.not.i.i = icmp eq ptr %77, null
+  %skip.i.i = getelementptr inbounds i8, ptr %65, i64 8
+  %78 = load ptr, ptr %skip.i.i, align 8
+  %cmp8.not.i.i = icmp eq ptr %78, null
   br i1 %cmp8.not.i.i, label %if.else13.i.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %if.then6.i.i
-  store ptr %77, ptr %skip.i261, align 8
+  store ptr %78, ptr %skip.i261, align 8
   br label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
 
 if.else13.i.i:                                    ; preds = %if.then6.i.i
-  store ptr %64, ptr %skip.i261, align 8
+  store ptr %65, ptr %skip.i261, align 8
   br label %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
 
 _ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i: ; preds = %if.else13.i.i, %if.then9.i.i, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i.i, %land.lhs.true.i.i.i.i, %if.end.i.i.i.i, %if.then.i.i.i.i, %land.lhs.true.i.i.i, %land.lhs.true.i.i264, %if.else.i.i, %if.then.i.i266
   %head.addr.0.i.i = phi ptr [ %cond.i.i, %if.then.i.i266 ], [ %head.addr.0.i, %if.then9.i.i ], [ %head.addr.0.i, %if.else13.i.i ], [ %head.addr.0.i, %_ZN4abslL18MuEquivalentWaiterEPNS_13base_internal14PerThreadSynchES2_.exit.i.i ], [ %head.addr.0.i, %if.else.i.i ], [ %head.addr.0.i, %if.then.i.i.i.i ], [ %head.addr.0.i, %land.lhs.true.i.i.i ], [ %head.addr.0.i, %land.lhs.true.i.i264 ], [ %head.addr.0.i, %land.lhs.true.i.i.i.i ], [ %head.addr.0.i, %if.end.i.i.i.i ]
-  %78 = load ptr, ptr %wake_tail.addr.0.i, align 8
-  store ptr %78, ptr %w.0.i, align 8
+  %79 = load ptr, ptr %wake_tail.addr.0.i, align 8
+  store ptr %79, ptr %w.0.i, align 8
   store ptr %w.0.i, ptr %wake_tail.addr.0.i, align 8
   %waitp.i265 = getelementptr inbounds i8, ptr %w.0.i, i64 32
-  %79 = load ptr, ptr %waitp.i265, align 8
-  %80 = load ptr, ptr %79, align 8
-  %cmp9.i = icmp ne ptr %80, @_ZN4abslL11kExclusiveSE
+  %80 = load ptr, ptr %waitp.i265, align 8
+  %81 = load ptr, ptr %80, align 8
+  %cmp9.i = icmp ne ptr %81, @_ZN4abslL11kExclusiveSE
   %cmp15.i = icmp eq ptr %head.addr.0.i.i, %21
   %or.cond.i = and i1 %cmp15.i, %cmp9.i
   br i1 %or.cond.i, label %land.rhs.i260, label %invoke.cont317
 
 if.else.i:                                        ; preds = %do.body.i259
   %skip.i15.i = getelementptr inbounds i8, ptr %w.0.i, i64 8
-  %81 = load ptr, ptr %skip.i15.i, align 8
-  %cmp.not.i.i = icmp eq ptr %81, null
+  %82 = load ptr, ptr %skip.i15.i, align 8
+  %cmp.not.i.i = icmp eq ptr %82, null
   br i1 %cmp.not.i.i, label %land.rhs.i260, label %while.cond.preheader.i.i
 
 while.cond.preheader.i.i:                         ; preds = %if.else.i
-  %skip19.i.i = getelementptr inbounds i8, ptr %81, i64 8
-  %82 = load ptr, ptr %skip19.i.i, align 8
-  %cmp2.not10.i.i = icmp eq ptr %82, null
+  %skip19.i.i = getelementptr inbounds i8, ptr %82, i64 8
+  %83 = load ptr, ptr %skip19.i.i, align 8
+  %cmp2.not10.i.i = icmp eq ptr %83, null
   br i1 %cmp2.not10.i.i, label %while.end.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.cond.preheader.i.i, %while.body.i.i
-  %83 = phi ptr [ %84, %while.body.i.i ], [ %82, %while.cond.preheader.i.i ]
-  %x2.012.i.i = phi ptr [ %83, %while.body.i.i ], [ %81, %while.cond.preheader.i.i ]
+  %84 = phi ptr [ %85, %while.body.i.i ], [ %83, %while.cond.preheader.i.i ]
+  %x2.012.i.i = phi ptr [ %84, %while.body.i.i ], [ %82, %while.cond.preheader.i.i ]
   %x1.011.i.i = phi ptr [ %x2.012.i.i, %while.body.i.i ], [ %w.0.i, %while.cond.preheader.i.i ]
   %skip3.i.i = getelementptr inbounds i8, ptr %x1.011.i.i, i64 8
-  store ptr %83, ptr %skip3.i.i, align 8
-  %skip1.i.i = getelementptr inbounds i8, ptr %83, i64 8
-  %84 = load ptr, ptr %skip1.i.i, align 8
-  %cmp2.not.i.i = icmp eq ptr %84, null
+  store ptr %84, ptr %skip3.i.i, align 8
+  %skip1.i.i = getelementptr inbounds i8, ptr %84, i64 8
+  %85 = load ptr, ptr %skip1.i.i, align 8
+  %cmp2.not.i.i = icmp eq ptr %85, null
   br i1 %cmp2.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !9
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %while.cond.preheader.i.i
-  %x2.0.lcssa.i.i = phi ptr [ %81, %while.cond.preheader.i.i ], [ %83, %while.body.i.i ]
+  %x2.0.lcssa.i.i = phi ptr [ %82, %while.cond.preheader.i.i ], [ %84, %while.body.i.i ]
   store ptr %x2.0.lcssa.i.i, ptr %skip.i15.i, align 8
   br label %land.rhs.i260
 
 land.rhs.i260:                                    ; preds = %while.end.i.i, %if.else.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
   %head.addr.124.i = phi ptr [ %head.addr.0.i, %if.else.i ], [ %head.addr.0.i, %while.end.i.i ], [ %head.addr.0.i.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ]
   %skipped.123.i = phi i1 [ true, %if.else.i ], [ true, %while.end.i.i ], [ %skipped.0.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ]
-  %pw.addr.122.i = phi ptr [ %w.0.i, %if.else.i ], [ %x2.0.lcssa.i.i, %while.end.i.i ], [ %pw.addr.0.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ]
-  %wake_tail.addr.121.i = phi ptr [ %wake_tail.addr.0.i, %if.else.i ], [ %wake_tail.addr.0.i, %while.end.i.i ], [ %w.0.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ]
-  %cmp16.i = icmp eq ptr %pw.addr.122.i, %head.addr.124.i
+  %wake_tail.addr.122.i = phi ptr [ %wake_tail.addr.0.i, %if.else.i ], [ %wake_tail.addr.0.i, %while.end.i.i ], [ %w.0.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ]
+  %pw.addr.121.i = phi ptr [ %w.0.i, %if.else.i ], [ %x2.0.lcssa.i.i, %while.end.i.i ], [ %pw.addr.0.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ]
+  %cmp16.i = icmp eq ptr %pw.addr.121.i, %head.addr.124.i
   %.not.i = select i1 %cmp16.i, i1 %skipped.123.i, i1 false
   br i1 %.not.i, label %invoke.cont317, label %do.body.i259, !llvm.loop !19
 
 invoke.cont317:                                   ; preds = %land.rhs.i260, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i
   %head.addr.2.i = phi ptr [ %head.addr.0.i.i, %_ZN4abslL7DequeueEPNS_13base_internal14PerThreadSynchES2_.exit.i ], [ %head.addr.124.i, %land.rhs.i260 ]
-  %and320 = and i64 %.lcssa289297, 16
+  %and320 = and i64 %61, 16
   %or321 = or disjoint i64 %and320, 2
   br i1 %cmp6, label %do.body327, label %if.then323
 
 if.then323:                                       ; preds = %invoke.cont317
-  %call325 = tail call fastcc noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef %head.addr.2.i, ptr noundef nonnull %waitp, i64 noundef %.lcssa289297, i32 noundef 2)
+  %call325 = tail call fastcc noundef ptr @_ZN4abslL7EnqueueEPNS_13base_internal14PerThreadSynchEPNS_15SynchWaitParamsEli(ptr noundef %head.addr.2.i, ptr noundef nonnull %waitp, i64 noundef %61, i32 noundef 2)
   br label %do.body327
 
 do.body327:                                       ; preds = %if.then323, %invoke.cont317
@@ -2311,29 +2314,29 @@ if.then343:                                       ; preds = %do.end341
   store i64 0, ptr %readers344, align 8
   %maybe_unlocking345 = getelementptr inbounds i8, ptr %h.0, i64 19
   store i8 0, ptr %maybe_unlocking345, align 1
-  %85 = ptrtoint ptr %h.0 to i64
-  %86 = or i64 %wr_wait.4, %85
-  %or347 = or i64 %86, %and320
+  %86 = ptrtoint ptr %h.0 to i64
+  %87 = or i64 %wr_wait.4, %86
+  %or347 = or i64 %87, %and320
   %or348 = or i64 %or347, 6
   br label %for.end.sink.split
 
-if.end353:                                        ; preds = %if.then37, %land.lhs.true48, %if.else45, %if.then27
+if.end353:                                        ; preds = %land.lhs.true48, %if.else45, %if.then37, %if.then27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %enable_rescheduling.i)
   tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
-  %87 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), align 8
+  %88 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 8), align 8
   tail call fastcc void @_ZN4absl12_GLOBAL__N_115GetMutexGlobalsEv()
   %sleep_time.sroa.0.0.copyload.i = load i64, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 16), align 16
   %sleep_time.sroa.2.0.copyload.i = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4absl12_GLOBAL__N_17globalsE, i64 24), align 8
-  %cmp.i268 = icmp sgt i32 %87, %c.0
+  %cmp.i268 = icmp sgt i32 %88, %c.0.ph
   br i1 %cmp.i268, label %if.then.i270, label %if.else.i269
 
 if.then.i270:                                     ; preds = %if.end353
-  %inc.i = add nsw i32 %c.0, 1
+  %inc.i = add nsw i32 %c.0.ph, 1
   br label %_ZN4absl24synchronization_internal10MutexDelayEii.exit
 
 if.else.i269:                                     ; preds = %if.end353
   store i32 0, ptr %enable_rescheduling.i, align 4
-  %cmp2.i = icmp eq i32 %87, %c.0
+  %cmp2.i = icmp eq i32 %88, %c.0.ph
   br i1 %cmp2.i, label %if.then3.i, label %if.else5.i
 
 if.then3.i:                                       ; preds = %if.else.i269
@@ -2341,14 +2344,14 @@ if.then3.i:                                       ; preds = %if.else.i269
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then3.i
-  %inc4.i = add nsw i32 %c.0, 1
+  %inc4.i = add nsw i32 %c.0.ph, 1
   br label %_ZN4absl24synchronization_internal10MutexDelayEii.exit
 
 lpad.i:                                           ; preds = %if.else5.i, %if.then3.i
-  %88 = landingpad { ptr, i32 }
+  %89 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl13base_internal15SchedulingGuard12ScopedEnableD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %enable_rescheduling.i) #23
-  resume { ptr, i32 } %88
+  resume { ptr, i32 } %89
 
 if.else5.i:                                       ; preds = %if.else.i269
   invoke void @AbslInternalSleepFor(i64 %sleep_time.sroa.0.0.copyload.i, i32 %sleep_time.sroa.2.0.copyload.i)
@@ -2357,7 +2360,7 @@ if.else5.i:                                       ; preds = %if.else.i269
 _ZN4absl24synchronization_internal10MutexDelayEii.exit: ; preds = %if.then.i270, %invoke.cont.i, %if.else5.i
   %c.addr.1.i = phi i32 [ %inc.i, %if.then.i270 ], [ %inc4.i, %invoke.cont.i ], [ 0, %if.else5.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %enable_rescheduling.i)
-  br label %for.cond
+  br label %for.cond.outer
 
 for.end.sink.split:                               ; preds = %do.end341, %if.then343, %if.then215, %if.then227, %if.then221, %if.then114, %do.end137
   %nv319.0.sink = phi i64 [ %or140, %do.end137 ], [ %7, %if.then114 ], [ %or229, %if.then227 ], [ %and225, %if.then221 ], [ %and217, %if.then215 ], [ %or348, %if.then343 ], [ %or321, %do.end341 ]
@@ -2370,20 +2373,20 @@ for.end:                                          ; preds = %if.end81, %for.end.
   br i1 %cmp356.not, label %cleanup, label %if.then357
 
 if.then357:                                       ; preds = %for.end
-  %89 = load atomic i64, ptr @_ZN4absl13base_internal10CycleClock19cycle_clock_source_E acquire, align 8
-  %cmp.i273 = icmp eq i64 %89, 0
+  %90 = load atomic i64, ptr @_ZN4absl13base_internal10CycleClock19cycle_clock_source_E acquire, align 8
+  %cmp.i273 = icmp eq i64 %90, 0
   br i1 %cmp.i273, label %if.then.i274, label %if.end.i
 
 if.then.i274:                                     ; preds = %if.then357
-  %90 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !16
-  %asmresult.i.i = extractvalue { i64, i64 } %90, 0
-  %asmresult1.i.i = extractvalue { i64, i64 } %90, 1
+  %91 = tail call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !16
+  %asmresult.i.i = extractvalue { i64, i64 } %91, 0
+  %asmresult1.i.i = extractvalue { i64, i64 } %91, 1
   %shl.i.i = shl i64 %asmresult1.i.i, 32
   %or.i.i = or i64 %shl.i.i, %asmresult.i.i
   br label %_ZN4absl13base_internal10CycleClock3NowEv.exit
 
 if.end.i:                                         ; preds = %if.then357
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %89 to ptr
+  %atomic-temp.i.0.i.i.i = inttoptr i64 %90 to ptr
   %call2.i276 = tail call noundef i64 %atomic-temp.i.0.i.i.i()
   br label %_ZN4absl13base_internal10CycleClock3NowEv.exit
 
@@ -2394,35 +2397,35 @@ _ZN4absl13base_internal10CycleClock3NowEv.exit:   ; preds = %if.end.i, %if.then.
   br label %do.body360
 
 do.body360:                                       ; preds = %_ZN4absl13base_internal10CycleClock3NowEv.exit, %if.end371
-  %wake_list.0.wake_list.0.286 = phi ptr [ %wake_list.0.wake_list.0.wake_list.0.286.pre, %_ZN4absl13base_internal10CycleClock3NowEv.exit ], [ %95, %if.end371 ]
+  %wake_list.0.wake_list.0.286 = phi ptr [ %wake_list.0.wake_list.0.wake_list.0.286.pre, %_ZN4absl13base_internal10CycleClock3NowEv.exit ], [ %96, %if.end371 ]
   %total_wait_cycles.0 = phi i64 [ 0, %_ZN4absl13base_internal10CycleClock3NowEv.exit ], [ %total_wait_cycles.1, %if.end371 ]
   %cond_waiter = getelementptr inbounds i8, ptr %wake_list.0.wake_list.0.286, i64 18
-  %91 = load i8, ptr %cond_waiter, align 2
-  %tobool361 = trunc i8 %91 to i1
+  %92 = load i8, ptr %cond_waiter, align 2
+  %tobool361 = trunc i8 %92 to i1
   br i1 %tobool361, label %if.end371, label %if.then362
 
 if.then362:                                       ; preds = %do.body360
   %waitp363 = getelementptr inbounds i8, ptr %wake_list.0.wake_list.0.286, i64 32
-  %92 = load ptr, ptr %waitp363, align 8
-  %contention_start_cycles = getelementptr inbounds i8, ptr %92, i64 48
-  %93 = load i64, ptr %contention_start_cycles, align 8
-  %sub364 = sub nsw i64 %retval.0.i, %93
+  %93 = load ptr, ptr %waitp363, align 8
+  %contention_start_cycles = getelementptr inbounds i8, ptr %93, i64 48
+  %94 = load i64, ptr %contention_start_cycles, align 8
+  %sub364 = sub nsw i64 %retval.0.i, %94
   %add = add nsw i64 %sub364, %total_wait_cycles.0
   store i64 %retval.0.i, ptr %contention_start_cycles, align 8
-  %94 = load ptr, ptr %waitp363, align 8
-  %should_submit_contention_data = getelementptr inbounds i8, ptr %94, i64 56
+  %95 = load ptr, ptr %waitp363, align 8
+  %should_submit_contention_data = getelementptr inbounds i8, ptr %95, i64 56
   store i8 1, ptr %should_submit_contention_data, align 8
   br label %if.end371
 
 if.end371:                                        ; preds = %if.then362, %do.body360
   %total_wait_cycles.1 = phi i64 [ %total_wait_cycles.0, %do.body360 ], [ %add, %if.then362 ]
-  %95 = load ptr, ptr %wake_list.0.wake_list.0.286, align 8
+  %96 = load ptr, ptr %wake_list.0.wake_list.0.286, align 8
   store ptr null, ptr %wake_list.0.wake_list.0.286, align 8
   %state.i = getelementptr inbounds i8, ptr %wake_list.0.wake_list.0.286, i64 28
   store atomic i32 0, ptr %state.i release, align 4
   tail call void @AbslInternalPerThreadSemPost(ptr noundef nonnull %wake_list.0.wake_list.0.286)
-  store ptr %95, ptr %wake_list, align 8
-  %cmp375.not = icmp eq ptr %95, inttoptr (i64 1 to ptr)
+  store ptr %96, ptr %wake_list, align 8
+  %cmp375.not = icmp eq ptr %96, inttoptr (i64 1 to ptr)
   br i1 %cmp375.not, label %do.end376, label %do.body360, !llvm.loop !20
 
 do.end376:                                        ; preds = %if.end371
@@ -2430,11 +2433,11 @@ do.end376:                                        ; preds = %if.end371
   br i1 %cmp377, label %if.then378, label %cleanup
 
 if.then378:                                       ; preds = %do.end376
-  %96 = load atomic i64, ptr @_ZN4absl12_GLOBAL__N_112mutex_tracerE acquire, align 8
-  %atomic-temp.i.0.i.i.i278 = inttoptr i64 %96 to ptr
+  %97 = load atomic i64, ptr @_ZN4absl12_GLOBAL__N_112mutex_tracerE acquire, align 8
+  %atomic-temp.i.0.i.i.i278 = inttoptr i64 %97 to ptr
   tail call void %atomic-temp.i.0.i.i.i278(ptr noundef nonnull @.str.28, ptr noundef nonnull %this, i64 noundef %total_wait_cycles.1)
-  %97 = load atomic i64, ptr @_ZN4absl12_GLOBAL__N_119submit_profile_dataE acquire, align 8
-  %atomic-temp.i.0.i.i.i280 = inttoptr i64 %97 to ptr
+  %98 = load atomic i64, ptr @_ZN4absl12_GLOBAL__N_119submit_profile_dataE acquire, align 8
+  %atomic-temp.i.0.i.i.i280 = inttoptr i64 %98 to ptr
   tail call void %atomic-temp.i.0.i.i.i280(i64 noundef %total_wait_cycles.1)
   br label %cleanup
 
@@ -2489,8 +2492,8 @@ do.body7:                                         ; preds = %lor.rhs
   unreachable
 
 for.cond:                                         ; preds = %for.cond.preheader, %_ZN4absl24synchronization_internal10MutexDelayEii.exit
-  %c.0 = phi i32 [ %c.addr.1.i, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ 0, %for.cond.preheader ]
   %flags.addr.0 = phi i32 [ %flags.addr.2, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ %flags, %for.cond.preheader ]
+  %c.0 = phi i32 [ %c.addr.1.i, %_ZN4absl24synchronization_internal10MutexDelayEii.exit ], [ 0, %for.cond.preheader ]
   %5 = load atomic i64, ptr %this monotonic, align 8
   %xor.i = shl i64 %5, 3
   %shl.i = xor i64 %xor.i, 32
@@ -2703,8 +2706,8 @@ if.then189:                                       ; preds = %do.body173, %do.end
   br label %do.body195
 
 do.body195:                                       ; preds = %if.else132, %land.lhs.true135, %if.then94, %if.end126, %if.else82, %if.end39, %if.then21, %if.then189
-  %c.2 = phi i32 [ 0, %if.end39 ], [ %c.0, %if.then21 ], [ 0, %if.then189 ], [ %c.0, %if.else132 ], [ %c.0, %land.lhs.true135 ], [ %c.0, %if.then94 ], [ 0, %if.end126 ], [ %c.0, %if.else82 ]
   %flags.addr.2 = phi i32 [ %or43, %if.end39 ], [ %flags.addr.0, %if.then21 ], [ %or192, %if.then189 ], [ %flags.addr.0, %if.else132 ], [ %flags.addr.0, %land.lhs.true135 ], [ %flags.addr.0, %if.then94 ], [ %or130, %if.end126 ], [ %flags.addr.0, %if.else82 ]
+  %c.2 = phi i32 [ 0, %if.end39 ], [ %c.0, %if.then21 ], [ 0, %if.then189 ], [ %c.0, %if.else132 ], [ %c.0, %land.lhs.true135 ], [ %c.0, %if.then94 ], [ 0, %if.end126 ], [ %c.0, %if.else82 ]
   %43 = load ptr, ptr %thread, align 8
   %waitp197 = getelementptr inbounds i8, ptr %43, i64 32
   %44 = load ptr, ptr %waitp197, align 8

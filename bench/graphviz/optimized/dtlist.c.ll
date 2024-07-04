@@ -68,19 +68,19 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %.not203, label %.thread, label %33
 
 33:                                               ; preds = %.thread228, %29
-  %.0164231 = phi ptr [ %25, %.thread228 ], [ %31, %29 ]
+  %.0231 = phi ptr [ %25, %.thread228 ], [ %31, %29 ]
   %34 = icmp slt i32 %.fr278, 0
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %.0164231, i64 16
+  %36 = getelementptr inbounds i8, ptr %.0231, i64 16
   %37 = load ptr, ptr %36, align 8
   br label %.thread
 
 38:                                               ; preds = %33
   %39 = zext nneg i32 %.fr278 to i64
   %40 = sub nsw i64 0, %39
-  %41 = getelementptr inbounds i8, ptr %.0164231, i64 %40
+  %41 = getelementptr inbounds i8, ptr %.0231, i64 %40
   br label %.thread
 
 42:                                               ; preds = %20
@@ -643,8 +643,8 @@ define internal ptr @dtlist(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br label %.thread
 
 .thread:                                          ; preds = %.critedge.split.split.split, %.critedge.split.split.split.us, %.critedge.split.split.us.split, %.critedge.split.split.us.split.us, %.critedge.split.us.split.split.split, %.critedge.split.us.split.split.us.split, %.critedge.split.us.split.us, %22, %.thread236, %291, %288, %283, %266, %269, %125, %128, %97, %99, %102, %86, %48, %44, %38, %35, %29, %.loopexit
-  %.0 = phi ptr [ null, %.loopexit ], [ %37, %35 ], [ %41, %38 ], [ null, %29 ], [ null, %44 ], [ null, %48 ], [ null, %86 ], [ null, %102 ], [ null, %99 ], [ null, %97 ], [ %127, %125 ], [ %131, %128 ], [ %261, %269 ], [ %261, %266 ], [ %290, %288 ], [ %294, %291 ], [ null, %283 ], [ null, %.thread236 ], [ null, %22 ], [ null, %.critedge.split.us.split.us ], [ null, %.critedge.split.us.split.split.us.split ], [ null, %.critedge.split.us.split.split.split ], [ null, %.critedge.split.split.us.split.us ], [ null, %.critedge.split.split.us.split ], [ null, %.critedge.split.split.split.us ], [ null, %.critedge.split.split.split ]
-  ret ptr %.0
+  %.0164 = phi ptr [ null, %.loopexit ], [ %37, %35 ], [ %41, %38 ], [ null, %29 ], [ null, %44 ], [ null, %48 ], [ null, %86 ], [ null, %102 ], [ null, %99 ], [ null, %97 ], [ %127, %125 ], [ %131, %128 ], [ %261, %269 ], [ %261, %266 ], [ %290, %288 ], [ %294, %291 ], [ null, %283 ], [ null, %.thread236 ], [ null, %22 ], [ null, %.critedge.split.us.split.us ], [ null, %.critedge.split.us.split.split.us.split ], [ null, %.critedge.split.us.split.split.split ], [ null, %.critedge.split.split.us.split.us ], [ null, %.critedge.split.split.us.split ], [ null, %.critedge.split.split.split.us ], [ null, %.critedge.split.split.split ]
+  ret ptr %.0164
 }
 
 declare i32 @dtrestore(ptr noundef, ptr noundef) local_unnamed_addr #1

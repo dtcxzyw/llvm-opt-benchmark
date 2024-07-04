@@ -78,13 +78,13 @@ define internal i32 @dissect_exablaze(ptr noundef %0, ptr nocapture noundef read
 
 9:                                                ; preds = %.preheader, %32
   %.not101 = phi i1 [ true, %.preheader ], [ false, %32 ]
-  %.077100 = phi i32 [ 0, %.preheader ], [ 4, %32 ]
-  %10 = or disjoint i32 %.077100, 16
+  %.076100 = phi i32 [ 0, %.preheader ], [ 4, %32 ]
+  %10 = or disjoint i32 %.076100, 16
   %11 = icmp ult i32 %6, %10
   br i1 %11, label %32, label %12
 
 12:                                               ; preds = %9
-  %13 = sub nuw i32 %6, %.077100
+  %13 = sub nuw i32 %6, %.076100
   %14 = add i32 %13, -12
   %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %14) #4
   %16 = add i32 %13, -11
@@ -165,8 +165,8 @@ define internal i32 @dissect_exablaze(ptr noundef %0, ptr nocapture noundef read
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %4, %54
-  %.0 = phi i32 [ %13, %54 ], [ 0, %4 ], [ 0, %32 ]
-  ret i32 %.0
+  %.077 = phi i32 [ %13, %54 ], [ 0, %4 ], [ 0, %32 ]
+  ret i32 %.077
 }
 
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1

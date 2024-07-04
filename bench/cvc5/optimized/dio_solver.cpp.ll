@@ -15309,9 +15309,9 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
   br label %_ZStplRKSt15_Deque_iteratorImRmPmEl.exit
 
 _ZStplRKSt15_Deque_iteratorImRmPmEl.exit:         ; preds = %if.then.i.i, %cond.end.i.i
+  %agg.tmp.sroa.6.0 = phi ptr [ %1, %if.then.i.i ], [ %add.ptr11.i.i, %cond.end.i.i ]
   %agg.tmp.sroa.4.0 = phi ptr [ %4, %if.then.i.i ], [ %add.ptr.i.i.i, %cond.end.i.i ]
   %agg.tmp.sroa.2.0 = phi ptr [ %6, %if.then.i.i ], [ %7, %cond.end.i.i ]
-  %agg.tmp.sroa.6.0 = phi ptr [ %1, %if.then.i.i ], [ %add.ptr11.i.i, %cond.end.i.i ]
   %storemerge.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %add.ptr15.i.i, %cond.end.i.i ]
   %cmp3.i.i = icmp ult ptr %agg.tmp.sroa.6.0, %0
   br i1 %cmp3.i.i, label %for.body.i.i, label %_ZNSt5dequeImSaImEE15_M_erase_at_endESt15_Deque_iteratorImRmPmE.exit

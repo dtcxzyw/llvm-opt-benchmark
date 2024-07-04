@@ -1320,16 +1320,16 @@ define double @N_VMinQuotient_Serial(ptr nocapture noundef readonly %0, ptr noca
 
 .lr.ph:                                           ; preds = %2, %20
   %.030 = phi double [ %.1, %20 ], [ 0x7FEFFFFFFFFFFFFF, %2 ]
-  %.02329 = phi i32 [ %.124, %20 ], [ 1, %2 ]
-  %.02528 = phi i64 [ %21, %20 ], [ 0, %2 ]
-  %11 = getelementptr inbounds double, ptr %9, i64 %.02528
+  %.02329 = phi i64 [ %21, %20 ], [ 0, %2 ]
+  %.02428 = phi i32 [ %.125, %20 ], [ 1, %2 ]
+  %11 = getelementptr inbounds double, ptr %9, i64 %.02329
   %12 = load double, ptr %11, align 8
   %13 = fcmp oeq double %12, 0.000000e+00
   br i1 %13, label %20, label %14
 
 14:                                               ; preds = %.lr.ph
-  %.not = icmp eq i32 %.02329, 0
-  %15 = getelementptr inbounds double, ptr %6, i64 %.02528
+  %.not = icmp eq i32 %.02428, 0
+  %15 = getelementptr inbounds double, ptr %6, i64 %.02329
   %16 = load double, ptr %15, align 8
   %17 = fdiv double %16, %12
   br i1 %.not, label %18, label %20
@@ -1340,9 +1340,9 @@ define double @N_VMinQuotient_Serial(ptr nocapture noundef readonly %0, ptr noca
   br label %20
 
 20:                                               ; preds = %14, %18, %.lr.ph
-  %.124 = phi i32 [ %.02329, %.lr.ph ], [ 0, %18 ], [ 0, %14 ]
+  %.125 = phi i32 [ %.02428, %.lr.ph ], [ 0, %18 ], [ 0, %14 ]
   %.1 = phi double [ %.030, %.lr.ph ], [ %.0., %18 ], [ %17, %14 ]
-  %21 = add nuw nsw i64 %.02528, 1
+  %21 = add nuw nsw i64 %.02329, 1
   %exitcond.not = icmp eq i64 %21, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
@@ -1464,20 +1464,20 @@ N_VDotProd_Serial.exit:                           ; preds = %.lr.ph.i, %6
   %25 = getelementptr inbounds i8, ptr %23, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = icmp sgt i32 %0, 0
-  br i1 %27, label %.lr.ph28, label %.loopexit
+  br i1 %27, label %.lr.ph29, label %.loopexit
 
-.lr.ph28:                                         ; preds = %22
+.lr.ph29:                                         ; preds = %22
   %28 = icmp sgt i64 %24, 0
   %wide.trip.count = zext nneg i32 %0 to i64
-  br i1 %28, label %.lr.ph.us, label %.lr.ph28.split.preheader
+  br i1 %28, label %.lr.ph.us, label %.lr.ph29.split.preheader
 
-.lr.ph28.split.preheader:                         ; preds = %.lr.ph28
+.lr.ph29.split.preheader:                         ; preds = %.lr.ph29
   %29 = shl nuw nsw i64 %wide.trip.count, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 %29, i1 false)
   br label %.loopexit
 
-.lr.ph.us:                                        ; preds = %.lr.ph28, %._crit_edge.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %.lr.ph28 ]
+.lr.ph.us:                                        ; preds = %.lr.ph29, %._crit_edge.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %.lr.ph29 ]
   %30 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
@@ -1489,23 +1489,23 @@ N_VDotProd_Serial.exit:                           ; preds = %.lr.ph.i, %6
 
 36:                                               ; preds = %.lr.ph.us, %36
   %37 = phi double [ 0.000000e+00, %.lr.ph.us ], [ %42, %36 ]
-  %.02325.us = phi i64 [ 0, %.lr.ph.us ], [ %43, %36 ]
-  %38 = getelementptr inbounds double, ptr %26, i64 %.02325.us
+  %.026.us = phi i64 [ 0, %.lr.ph.us ], [ %43, %36 ]
+  %38 = getelementptr inbounds double, ptr %26, i64 %.026.us
   %39 = load double, ptr %38, align 8
-  %40 = getelementptr inbounds double, ptr %34, i64 %.02325.us
+  %40 = getelementptr inbounds double, ptr %34, i64 %.026.us
   %41 = load double, ptr %40, align 8
   %42 = tail call double @llvm.fmuladd.f64(double %39, double %41, double %37)
   store double %42, ptr %35, align 8
-  %43 = add nuw nsw i64 %.02325.us, 1
+  %43 = add nuw nsw i64 %.026.us, 1
   %exitcond.not = icmp eq i64 %43, %24
   br i1 %exitcond.not, label %._crit_edge.us, label %36
 
 ._crit_edge.us:                                   ; preds = %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond32.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond32.not, label %.loopexit, label %.lr.ph.us
+  %exitcond33.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond33.not, label %.loopexit, label %.lr.ph.us
 
-.loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph28.split.preheader, %22, %N_VDotProd_Serial.exit
+.loopexit:                                        ; preds = %._crit_edge.us, %.lr.ph29.split.preheader, %22, %N_VDotProd_Serial.exit
   ret i32 0
 }
 
@@ -1795,97 +1795,97 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr nocapture no
 62:                                               ; preds = %56
   %63 = load double, ptr %1, align 8
   %64 = fcmp oeq double %63, 1.000000e+00
-  br i1 %64, label %.preheader, label %.preheader84
+  br i1 %64, label %.preheader, label %.preheader85
 
-.preheader84:                                     ; preds = %62
+.preheader85:                                     ; preds = %62
   %65 = icmp slt i64 %58, 1
-  br i1 %65, label %N_VScale_Serial.exit, label %.lr.ph97
+  br i1 %65, label %N_VScale_Serial.exit, label %.lr.ph98
 
 .preheader:                                       ; preds = %62
   %66 = icmp sgt i32 %0, 1
   %67 = icmp sgt i64 %58, 0
   %or.cond = select i1 %66, i1 %67, i1 false
-  br i1 %or.cond, label %.lr.ph104.us.preheader, label %N_VScale_Serial.exit
+  br i1 %or.cond, label %.lr.ph105.us.preheader, label %N_VScale_Serial.exit
 
-.lr.ph104.us.preheader:                           ; preds = %.preheader
-  %wide.trip.count131 = zext nneg i32 %0 to i64
-  br label %.lr.ph104.us
+.lr.ph105.us.preheader:                           ; preds = %.preheader
+  %wide.trip.count132 = zext nneg i32 %0 to i64
+  br label %.lr.ph105.us
 
-.lr.ph104.us:                                     ; preds = %.lr.ph104.us.preheader, %._crit_edge.us107
-  %indvars.iv128 = phi i64 [ 1, %.lr.ph104.us.preheader ], [ %indvars.iv.next129, %._crit_edge.us107 ]
-  %68 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv128
+.lr.ph105.us:                                     ; preds = %.lr.ph105.us.preheader, %._crit_edge.us108
+  %indvars.iv129 = phi i64 [ 1, %.lr.ph105.us.preheader ], [ %indvars.iv.next130, %._crit_edge.us108 ]
+  %68 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv129
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds double, ptr %1, i64 %indvars.iv128
+  %73 = getelementptr inbounds double, ptr %1, i64 %indvars.iv129
   br label %74
 
-74:                                               ; preds = %.lr.ph104.us, %74
-  %.075103.us = phi i64 [ 0, %.lr.ph104.us ], [ %81, %74 ]
+74:                                               ; preds = %.lr.ph105.us, %74
+  %.0104.us = phi i64 [ 0, %.lr.ph105.us ], [ %81, %74 ]
   %75 = load double, ptr %73, align 8
-  %76 = getelementptr inbounds double, ptr %72, i64 %.075103.us
+  %76 = getelementptr inbounds double, ptr %72, i64 %.0104.us
   %77 = load double, ptr %76, align 8
-  %78 = getelementptr inbounds double, ptr %60, i64 %.075103.us
+  %78 = getelementptr inbounds double, ptr %60, i64 %.0104.us
   %79 = load double, ptr %78, align 8
   %80 = tail call double @llvm.fmuladd.f64(double %75, double %77, double %79)
   store double %80, ptr %78, align 8
-  %81 = add nuw nsw i64 %.075103.us, 1
-  %exitcond127.not = icmp eq i64 %81, %58
-  br i1 %exitcond127.not, label %._crit_edge.us107, label %74
+  %81 = add nuw nsw i64 %.0104.us, 1
+  %exitcond128.not = icmp eq i64 %81, %58
+  br i1 %exitcond128.not, label %._crit_edge.us108, label %74
 
-._crit_edge.us107:                                ; preds = %74
-  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
-  %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
-  br i1 %exitcond132.not, label %N_VScale_Serial.exit, label %.lr.ph104.us
+._crit_edge.us108:                                ; preds = %74
+  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
+  %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count132
+  br i1 %exitcond133.not, label %N_VScale_Serial.exit, label %.lr.ph105.us
 
-.preheader82:                                     ; preds = %.lr.ph97
+.preheader83:                                     ; preds = %.lr.ph98
   %82 = icmp slt i32 %0, 2
   %brmerge = or i1 %82, %65
-  br i1 %brmerge, label %N_VScale_Serial.exit, label %.lr.ph99.us.preheader
+  br i1 %brmerge, label %N_VScale_Serial.exit, label %.lr.ph100.us.preheader
 
-.lr.ph99.us.preheader:                            ; preds = %.preheader82
-  %wide.trip.count125 = zext nneg i32 %0 to i64
-  br label %.lr.ph99.us
+.lr.ph100.us.preheader:                           ; preds = %.preheader83
+  %wide.trip.count126 = zext nneg i32 %0 to i64
+  br label %.lr.ph100.us
 
-.lr.ph99.us:                                      ; preds = %.lr.ph99.us.preheader, %._crit_edge.us102
-  %indvars.iv122 = phi i64 [ 1, %.lr.ph99.us.preheader ], [ %indvars.iv.next123, %._crit_edge.us102 ]
-  %83 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv122
+.lr.ph100.us:                                     ; preds = %.lr.ph100.us.preheader, %._crit_edge.us103
+  %indvars.iv123 = phi i64 [ 1, %.lr.ph100.us.preheader ], [ %indvars.iv.next124, %._crit_edge.us103 ]
+  %83 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv123
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds double, ptr %1, i64 %indvars.iv122
+  %88 = getelementptr inbounds double, ptr %1, i64 %indvars.iv123
   br label %89
 
-89:                                               ; preds = %.lr.ph99.us, %89
-  %.298.us = phi i64 [ 0, %.lr.ph99.us ], [ %96, %89 ]
+89:                                               ; preds = %.lr.ph100.us, %89
+  %.299.us = phi i64 [ 0, %.lr.ph100.us ], [ %96, %89 ]
   %90 = load double, ptr %88, align 8
-  %91 = getelementptr inbounds double, ptr %87, i64 %.298.us
+  %91 = getelementptr inbounds double, ptr %87, i64 %.299.us
   %92 = load double, ptr %91, align 8
-  %93 = getelementptr inbounds double, ptr %60, i64 %.298.us
+  %93 = getelementptr inbounds double, ptr %60, i64 %.299.us
   %94 = load double, ptr %93, align 8
   %95 = tail call double @llvm.fmuladd.f64(double %90, double %92, double %94)
   store double %95, ptr %93, align 8
-  %96 = add nuw nsw i64 %.298.us, 1
-  %exitcond121.not = icmp eq i64 %96, %58
-  br i1 %exitcond121.not, label %._crit_edge.us102, label %89
+  %96 = add nuw nsw i64 %.299.us, 1
+  %exitcond122.not = icmp eq i64 %96, %58
+  br i1 %exitcond122.not, label %._crit_edge.us103, label %89
 
-._crit_edge.us102:                                ; preds = %89
-  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
-  %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
-  br i1 %exitcond126.not, label %N_VScale_Serial.exit, label %.lr.ph99.us
+._crit_edge.us103:                                ; preds = %89
+  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
+  %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
+  br i1 %exitcond127.not, label %N_VScale_Serial.exit, label %.lr.ph100.us
 
-.lr.ph97:                                         ; preds = %.preheader84, %.lr.ph97
-  %.196 = phi i64 [ %101, %.lr.ph97 ], [ 0, %.preheader84 ]
+.lr.ph98:                                         ; preds = %.preheader85, %.lr.ph98
+  %.197 = phi i64 [ %101, %.lr.ph98 ], [ 0, %.preheader85 ]
   %97 = load double, ptr %1, align 8
-  %98 = getelementptr inbounds double, ptr %60, i64 %.196
+  %98 = getelementptr inbounds double, ptr %60, i64 %.197
   %99 = load double, ptr %98, align 8
   %100 = fmul double %97, %99
   store double %100, ptr %98, align 8
-  %101 = add nuw nsw i64 %.196, 1
-  %exitcond120.not = icmp eq i64 %101, %58
-  br i1 %exitcond120.not, label %.preheader82, label %.lr.ph97
+  %101 = add nuw nsw i64 %.197, 1
+  %exitcond121.not = icmp eq i64 %101, %58
+  br i1 %exitcond121.not, label %.preheader83, label %.lr.ph98
 
 102:                                              ; preds = %56
   %103 = load ptr, ptr %5, align 8
@@ -1894,17 +1894,17 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr nocapture no
   %106 = icmp slt i64 %58, 1
   br i1 %106, label %N_VScale_Serial.exit, label %.lr.ph
 
-.preheader85:                                     ; preds = %.lr.ph
+.preheader86:                                     ; preds = %.lr.ph
   %107 = icmp slt i32 %0, 2
-  %brmerge142 = or i1 %107, %106
-  br i1 %brmerge142, label %N_VScale_Serial.exit, label %.lr.ph93.us.preheader
+  %brmerge143 = or i1 %107, %106
+  br i1 %brmerge143, label %N_VScale_Serial.exit, label %.lr.ph94.us.preheader
 
-.lr.ph93.us.preheader:                            ; preds = %.preheader85
+.lr.ph94.us.preheader:                            ; preds = %.preheader86
   %wide.trip.count = zext nneg i32 %0 to i64
-  br label %.lr.ph93.us
+  br label %.lr.ph94.us
 
-.lr.ph93.us:                                      ; preds = %.lr.ph93.us.preheader, %._crit_edge.us
-  %indvars.iv = phi i64 [ 1, %.lr.ph93.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
+.lr.ph94.us:                                      ; preds = %.lr.ph94.us.preheader, %._crit_edge.us
+  %indvars.iv = phi i64 [ 1, %.lr.ph94.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
   %108 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %109 = load ptr, ptr %108, align 8
   %110 = load ptr, ptr %109, align 8
@@ -1913,37 +1913,37 @@ define noundef i32 @N_VLinearCombination_Serial(i32 noundef %0, ptr nocapture no
   %113 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
   br label %114
 
-114:                                              ; preds = %.lr.ph93.us, %114
-  %.492.us = phi i64 [ 0, %.lr.ph93.us ], [ %121, %114 ]
+114:                                              ; preds = %.lr.ph94.us, %114
+  %.493.us = phi i64 [ 0, %.lr.ph94.us ], [ %121, %114 ]
   %115 = load double, ptr %113, align 8
-  %116 = getelementptr inbounds double, ptr %112, i64 %.492.us
+  %116 = getelementptr inbounds double, ptr %112, i64 %.493.us
   %117 = load double, ptr %116, align 8
-  %118 = getelementptr inbounds double, ptr %60, i64 %.492.us
+  %118 = getelementptr inbounds double, ptr %60, i64 %.493.us
   %119 = load double, ptr %118, align 8
   %120 = tail call double @llvm.fmuladd.f64(double %115, double %117, double %119)
   store double %120, ptr %118, align 8
-  %121 = add nuw nsw i64 %.492.us, 1
-  %exitcond117.not = icmp eq i64 %121, %58
-  br i1 %exitcond117.not, label %._crit_edge.us, label %114
+  %121 = add nuw nsw i64 %.493.us, 1
+  %exitcond118.not = icmp eq i64 %121, %58
+  br i1 %exitcond118.not, label %._crit_edge.us, label %114
 
 ._crit_edge.us:                                   ; preds = %114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond119.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond119.not, label %N_VScale_Serial.exit, label %.lr.ph93.us
+  %exitcond120.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond120.not, label %N_VScale_Serial.exit, label %.lr.ph94.us
 
 .lr.ph:                                           ; preds = %102, %.lr.ph
-  %.391 = phi i64 [ %127, %.lr.ph ], [ 0, %102 ]
+  %.392 = phi i64 [ %127, %.lr.ph ], [ 0, %102 ]
   %122 = load double, ptr %1, align 8
-  %123 = getelementptr inbounds double, ptr %105, i64 %.391
+  %123 = getelementptr inbounds double, ptr %105, i64 %.392
   %124 = load double, ptr %123, align 8
   %125 = fmul double %122, %124
-  %126 = getelementptr inbounds double, ptr %60, i64 %.391
+  %126 = getelementptr inbounds double, ptr %60, i64 %.392
   store double %125, ptr %126, align 8
-  %127 = add nuw nsw i64 %.391, 1
+  %127 = add nuw nsw i64 %.392, 1
   %exitcond.not = icmp eq i64 %127, %58
-  br i1 %exitcond.not, label %.preheader85, label %.lr.ph
+  br i1 %exitcond.not, label %.preheader86, label %.lr.ph
 
-N_VScale_Serial.exit:                             ; preds = %.lr.ph.i, %.lr.ph.i33.i, %.lr.ph.i30.i, %.lr.ph.i.i, %._crit_edge.us, %._crit_edge.us102, %._crit_edge.us107, %.preheader85, %102, %.preheader82, %.preheader84, %.preheader, %37, %28, %18, %9, %50
+N_VScale_Serial.exit:                             ; preds = %.lr.ph.i, %.lr.ph.i33.i, %.lr.ph.i30.i, %.lr.ph.i.i, %._crit_edge.us, %._crit_edge.us103, %._crit_edge.us108, %.preheader86, %102, %.preheader83, %.preheader85, %.preheader, %37, %28, %18, %9, %50
   ret i32 0
 }
 
@@ -1967,13 +1967,13 @@ define noundef i32 @N_VScaleAddMulti_Serial(i32 noundef %0, ptr nocapture nounde
   %16 = icmp eq ptr %3, %4
   %17 = icmp sgt i32 %0, 0
   %18 = icmp sgt i64 %13, 0
-  %or.cond70 = select i1 %17, i1 %18, i1 false
-  br i1 %16, label %.preheader, label %.preheader48
+  %or.cond71 = select i1 %17, i1 %18, i1 false
+  br i1 %16, label %.preheader, label %.preheader49
 
-.preheader48:                                     ; preds = %11
-  br i1 %or.cond70, label %.lr.ph.us.preheader, label %.loopexit
+.preheader49:                                     ; preds = %11
+  br i1 %or.cond71, label %.lr.ph.us.preheader, label %.loopexit
 
-.lr.ph.us.preheader:                              ; preds = %.preheader48
+.lr.ph.us.preheader:                              ; preds = %.preheader49
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %.lr.ph.us
 
@@ -1993,60 +1993,60 @@ define noundef i32 @N_VScaleAddMulti_Serial(i32 noundef %0, ptr nocapture nounde
   br label %30
 
 30:                                               ; preds = %.lr.ph.us, %30
-  %.150.us = phi i64 [ 0, %.lr.ph.us ], [ %38, %30 ]
+  %.151.us = phi i64 [ 0, %.lr.ph.us ], [ %38, %30 ]
   %31 = load double, ptr %29, align 8
-  %32 = getelementptr inbounds double, ptr %15, i64 %.150.us
+  %32 = getelementptr inbounds double, ptr %15, i64 %.151.us
   %33 = load double, ptr %32, align 8
-  %34 = getelementptr inbounds double, ptr %23, i64 %.150.us
+  %34 = getelementptr inbounds double, ptr %23, i64 %.151.us
   %35 = load double, ptr %34, align 8
   %36 = tail call double @llvm.fmuladd.f64(double %31, double %33, double %35)
-  %37 = getelementptr inbounds double, ptr %28, i64 %.150.us
+  %37 = getelementptr inbounds double, ptr %28, i64 %.151.us
   store double %36, ptr %37, align 8
-  %38 = add nuw nsw i64 %.150.us, 1
+  %38 = add nuw nsw i64 %.151.us, 1
   %exitcond.not = icmp eq i64 %38, %13
   br i1 %exitcond.not, label %._crit_edge.us, label %30
 
 ._crit_edge.us:                                   ; preds = %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond62.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond62.not, label %.loopexit, label %.lr.ph.us
+  %exitcond63.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond63.not, label %.loopexit, label %.lr.ph.us
 
 .preheader:                                       ; preds = %11
-  br i1 %or.cond70, label %.lr.ph.us56.preheader, label %.loopexit
+  br i1 %or.cond71, label %.lr.ph.us57.preheader, label %.loopexit
 
-.lr.ph.us56.preheader:                            ; preds = %.preheader
-  %wide.trip.count67 = zext nneg i32 %0 to i64
-  br label %.lr.ph.us56
+.lr.ph.us57.preheader:                            ; preds = %.preheader
+  %wide.trip.count68 = zext nneg i32 %0 to i64
+  br label %.lr.ph.us57
 
-.lr.ph.us56:                                      ; preds = %.lr.ph.us56.preheader, %._crit_edge.us57
-  %indvars.iv64 = phi i64 [ 0, %.lr.ph.us56.preheader ], [ %indvars.iv.next65, %._crit_edge.us57 ]
-  %39 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv64
+.lr.ph.us57:                                      ; preds = %.lr.ph.us57.preheader, %._crit_edge.us58
+  %indvars.iv65 = phi i64 [ 0, %.lr.ph.us57.preheader ], [ %indvars.iv.next66, %._crit_edge.us58 ]
+  %39 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv65
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds double, ptr %1, i64 %indvars.iv64
+  %44 = getelementptr inbounds double, ptr %1, i64 %indvars.iv65
   br label %45
 
-45:                                               ; preds = %.lr.ph.us56, %45
-  %.04253.us = phi i64 [ 0, %.lr.ph.us56 ], [ %52, %45 ]
+45:                                               ; preds = %.lr.ph.us57, %45
+  %.054.us = phi i64 [ 0, %.lr.ph.us57 ], [ %52, %45 ]
   %46 = load double, ptr %44, align 8
-  %47 = getelementptr inbounds double, ptr %15, i64 %.04253.us
+  %47 = getelementptr inbounds double, ptr %15, i64 %.054.us
   %48 = load double, ptr %47, align 8
-  %49 = getelementptr inbounds double, ptr %43, i64 %.04253.us
+  %49 = getelementptr inbounds double, ptr %43, i64 %.054.us
   %50 = load double, ptr %49, align 8
   %51 = tail call double @llvm.fmuladd.f64(double %46, double %48, double %50)
   store double %51, ptr %49, align 8
-  %52 = add nuw nsw i64 %.04253.us, 1
-  %exitcond63.not = icmp eq i64 %52, %13
-  br i1 %exitcond63.not, label %._crit_edge.us57, label %45
+  %52 = add nuw nsw i64 %.054.us, 1
+  %exitcond64.not = icmp eq i64 %52, %13
+  br i1 %exitcond64.not, label %._crit_edge.us58, label %45
 
-._crit_edge.us57:                                 ; preds = %45
-  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
-  br i1 %exitcond68.not, label %.loopexit, label %.lr.ph.us56
+._crit_edge.us58:                                 ; preds = %45
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
+  br i1 %exitcond69.not, label %.loopexit, label %.lr.ph.us57
 
-.loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us57, %.preheader48, %.preheader, %7
+.loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us58, %.preheader49, %.preheader, %7
   ret i32 0
 }
 
@@ -2065,8 +2065,8 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
 12:                                               ; preds = %6
   %13 = fcmp oeq double %3, 1.000000e+00
   %14 = icmp eq ptr %5, %4
-  %or.cond121 = and i1 %13, %14
-  br i1 %or.cond121, label %15, label %16
+  %or.cond122 = and i1 %13, %14
+  br i1 %or.cond122, label %15, label %16
 
 15:                                               ; preds = %12
   tail call fastcc void @VaxpyVectorArray_Serial(i32 noundef %0, double noundef %1, ptr noundef %2, ptr noundef %4)
@@ -2075,8 +2075,8 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
 16:                                               ; preds = %12
   %17 = fcmp oeq double %1, 1.000000e+00
   %18 = icmp eq ptr %5, %2
-  %or.cond122 = and i1 %17, %18
-  br i1 %or.cond122, label %19, label %20
+  %or.cond123 = and i1 %17, %18
+  br i1 %or.cond123, label %19, label %20
 
 19:                                               ; preds = %16
   tail call fastcc void @VaxpyVectorArray_Serial(i32 noundef %0, double noundef %3, ptr noundef %4, ptr noundef %2)
@@ -2119,15 +2119,15 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
   br label %42
 
 42:                                               ; preds = %42, %.lr.ph.us.i
-  %.01819.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %49, %42 ]
-  %43 = getelementptr inbounds double, ptr %31, i64 %.01819.us.i
+  %.019.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %49, %42 ]
+  %43 = getelementptr inbounds double, ptr %31, i64 %.019.us.i
   %44 = load double, ptr %43, align 8
-  %45 = getelementptr inbounds double, ptr %36, i64 %.01819.us.i
+  %45 = getelementptr inbounds double, ptr %36, i64 %.019.us.i
   %46 = load double, ptr %45, align 8
   %47 = fadd double %44, %46
-  %48 = getelementptr inbounds double, ptr %41, i64 %.01819.us.i
+  %48 = getelementptr inbounds double, ptr %41, i64 %.019.us.i
   store double %47, ptr %48, align 8
-  %49 = add nuw nsw i64 %.01819.us.i, 1
+  %49 = add nuw nsw i64 %.019.us.i, 1
   %exitcond.not.i = icmp eq i64 %49, %24
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %42
 
@@ -2154,49 +2154,49 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
   %60 = load i64, ptr %59, align 8
   %61 = icmp sgt i32 %0, 0
   %62 = icmp sgt i64 %60, 0
-  %or.cond.i123 = select i1 %61, i1 %62, i1 false
-  br i1 %or.cond.i123, label %.lr.ph.us.preheader.i124, label %VSumVectorArray_Serial.exit
+  %or.cond.i124 = select i1 %61, i1 %62, i1 false
+  br i1 %or.cond.i124, label %.lr.ph.us.preheader.i125, label %VSumVectorArray_Serial.exit
 
-.lr.ph.us.preheader.i124:                         ; preds = %55
-  %wide.trip.count.i125 = zext nneg i32 %0 to i64
-  br label %.lr.ph.us.i126
+.lr.ph.us.preheader.i125:                         ; preds = %55
+  %wide.trip.count.i126 = zext nneg i32 %0 to i64
+  br label %.lr.ph.us.i127
 
-.lr.ph.us.i126:                                   ; preds = %._crit_edge.us.i130, %.lr.ph.us.preheader.i124
-  %indvars.iv.i127 = phi i64 [ 0, %.lr.ph.us.preheader.i124 ], [ %indvars.iv.next.i131, %._crit_edge.us.i130 ]
-  %63 = getelementptr inbounds ptr, ptr %56, i64 %indvars.iv.i127
+.lr.ph.us.i127:                                   ; preds = %._crit_edge.us.i131, %.lr.ph.us.preheader.i125
+  %indvars.iv.i128 = phi i64 [ 0, %.lr.ph.us.preheader.i125 ], [ %indvars.iv.next.i132, %._crit_edge.us.i131 ]
+  %63 = getelementptr inbounds ptr, ptr %56, i64 %indvars.iv.i128
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds ptr, ptr %57, i64 %indvars.iv.i127
+  %68 = getelementptr inbounds ptr, ptr %57, i64 %indvars.iv.i128
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.i127
+  %73 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.i128
   %74 = load ptr, ptr %73, align 8
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8
   br label %78
 
-78:                                               ; preds = %78, %.lr.ph.us.i126
-  %.01819.us.i128 = phi i64 [ 0, %.lr.ph.us.i126 ], [ %85, %78 ]
-  %79 = getelementptr inbounds double, ptr %67, i64 %.01819.us.i128
+78:                                               ; preds = %78, %.lr.ph.us.i127
+  %.019.us.i129 = phi i64 [ 0, %.lr.ph.us.i127 ], [ %85, %78 ]
+  %79 = getelementptr inbounds double, ptr %67, i64 %.019.us.i129
   %80 = load double, ptr %79, align 8
-  %81 = getelementptr inbounds double, ptr %72, i64 %.01819.us.i128
+  %81 = getelementptr inbounds double, ptr %72, i64 %.019.us.i129
   %82 = load double, ptr %81, align 8
   %83 = fsub double %80, %82
-  %84 = getelementptr inbounds double, ptr %77, i64 %.01819.us.i128
+  %84 = getelementptr inbounds double, ptr %77, i64 %.019.us.i129
   store double %83, ptr %84, align 8
-  %85 = add nuw nsw i64 %.01819.us.i128, 1
-  %exitcond.not.i129 = icmp eq i64 %85, %60
-  br i1 %exitcond.not.i129, label %._crit_edge.us.i130, label %78
+  %85 = add nuw nsw i64 %.019.us.i129, 1
+  %exitcond.not.i130 = icmp eq i64 %85, %60
+  br i1 %exitcond.not.i130, label %._crit_edge.us.i131, label %78
 
-._crit_edge.us.i130:                              ; preds = %78
-  %indvars.iv.next.i131 = add nuw nsw i64 %indvars.iv.i127, 1
-  %exitcond26.not.i132 = icmp eq i64 %indvars.iv.next.i131, %wide.trip.count.i125
-  br i1 %exitcond26.not.i132, label %VSumVectorArray_Serial.exit, label %.lr.ph.us.i126
+._crit_edge.us.i131:                              ; preds = %78
+  %indvars.iv.next.i132 = add nuw nsw i64 %indvars.iv.i128, 1
+  %exitcond26.not.i133 = icmp eq i64 %indvars.iv.next.i132, %wide.trip.count.i126
+  br i1 %exitcond26.not.i133, label %VSumVectorArray_Serial.exit, label %.lr.ph.us.i127
 
 86:                                               ; preds = %53
   %or.cond5 = or i1 %17, %13
@@ -2243,8 +2243,8 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
   %106 = load i64, ptr %105, align 8
   %107 = icmp sgt i32 %0, 0
   %108 = icmp sgt i64 %106, 0
-  %or.cond146 = select i1 %107, i1 %108, i1 false
-  br i1 %or.cond146, label %.lr.ph.us.preheader, label %VSumVectorArray_Serial.exit
+  %or.cond147 = select i1 %107, i1 %108, i1 false
+  br i1 %or.cond147, label %.lr.ph.us.preheader, label %VSumVectorArray_Serial.exit
 
 .lr.ph.us.preheader:                              ; preds = %103
   %wide.trip.count = zext nneg i32 %0 to i64
@@ -2270,25 +2270,25 @@ define noundef i32 @N_VLinearSumVectorArray_Serial(i32 noundef %0, double nounde
   br label %124
 
 124:                                              ; preds = %.lr.ph.us, %124
-  %.0115135.us = phi i64 [ 0, %.lr.ph.us ], [ %132, %124 ]
-  %125 = getelementptr inbounds double, ptr %113, i64 %.0115135.us
+  %.0136.us = phi i64 [ 0, %.lr.ph.us ], [ %132, %124 ]
+  %125 = getelementptr inbounds double, ptr %113, i64 %.0136.us
   %126 = load double, ptr %125, align 8
-  %127 = getelementptr inbounds double, ptr %118, i64 %.0115135.us
+  %127 = getelementptr inbounds double, ptr %118, i64 %.0136.us
   %128 = load double, ptr %127, align 8
   %129 = fmul double %128, %3
   %130 = tail call double @llvm.fmuladd.f64(double %1, double %126, double %129)
-  %131 = getelementptr inbounds double, ptr %123, i64 %.0115135.us
+  %131 = getelementptr inbounds double, ptr %123, i64 %.0136.us
   store double %130, ptr %131, align 8
-  %132 = add nuw nsw i64 %.0115135.us, 1
+  %132 = add nuw nsw i64 %.0136.us, 1
   %exitcond.not = icmp eq i64 %132, %106
   br i1 %exitcond.not, label %._crit_edge.us, label %124
 
 ._crit_edge.us:                                   ; preds = %124
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond143.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond143.not, label %VSumVectorArray_Serial.exit, label %.lr.ph.us
+  %exitcond144.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond144.not, label %VSumVectorArray_Serial.exit, label %.lr.ph.us
 
-VSumVectorArray_Serial.exit:                      ; preds = %._crit_edge.us, %._crit_edge.us.i130, %._crit_edge.us.i, %103, %55, %21, %102, %98, %92, %87, %19, %15, %8
+VSumVectorArray_Serial.exit:                      ; preds = %._crit_edge.us, %._crit_edge.us.i131, %._crit_edge.us.i, %103, %55, %21, %102, %98, %92, %87, %19, %15, %8
   ret i32 0
 }
 
@@ -2325,14 +2325,14 @@ define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef %0, double noun
   br label %21
 
 21:                                               ; preds = %.lr.ph.us64, %21
-  %.04561.us = phi i64 [ 0, %.lr.ph.us64 ], [ %27, %21 ]
-  %22 = getelementptr inbounds double, ptr %15, i64 %.04561.us
+  %.061.us = phi i64 [ 0, %.lr.ph.us64 ], [ %27, %21 ]
+  %22 = getelementptr inbounds double, ptr %15, i64 %.061.us
   %23 = load double, ptr %22, align 8
-  %24 = getelementptr inbounds double, ptr %20, i64 %.04561.us
+  %24 = getelementptr inbounds double, ptr %20, i64 %.061.us
   %25 = load double, ptr %24, align 8
   %26 = fadd double %23, %25
   store double %26, ptr %24, align 8
-  %27 = add nuw nsw i64 %.04561.us, 1
+  %27 = add nuw nsw i64 %.061.us, 1
   %exitcond79.not = icmp eq i64 %27, %7
   br i1 %exitcond79.not, label %._crit_edge.us65, label %21
 
@@ -2370,14 +2370,14 @@ define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef %0, double noun
   br label %42
 
 42:                                               ; preds = %.lr.ph.us, %42
-  %.24753.us = phi i64 [ 0, %.lr.ph.us ], [ %48, %42 ]
-  %43 = getelementptr inbounds double, ptr %36, i64 %.24753.us
+  %.253.us = phi i64 [ 0, %.lr.ph.us ], [ %48, %42 ]
+  %43 = getelementptr inbounds double, ptr %36, i64 %.253.us
   %44 = load double, ptr %43, align 8
-  %45 = getelementptr inbounds double, ptr %41, i64 %.24753.us
+  %45 = getelementptr inbounds double, ptr %41, i64 %.253.us
   %46 = load double, ptr %45, align 8
   %47 = tail call double @llvm.fmuladd.f64(double %1, double %44, double %46)
   store double %47, ptr %45, align 8
-  %48 = add nuw nsw i64 %.24753.us, 1
+  %48 = add nuw nsw i64 %.253.us, 1
   %exitcond.not = icmp eq i64 %48, %7
   br i1 %exitcond.not, label %._crit_edge.us, label %42
 
@@ -2408,14 +2408,14 @@ define internal fastcc void @VaxpyVectorArray_Serial(i32 noundef %0, double noun
   br label %59
 
 59:                                               ; preds = %.lr.ph.us59, %59
-  %.14656.us = phi i64 [ 0, %.lr.ph.us59 ], [ %65, %59 ]
-  %60 = getelementptr inbounds double, ptr %53, i64 %.14656.us
+  %.156.us = phi i64 [ 0, %.lr.ph.us59 ], [ %65, %59 ]
+  %60 = getelementptr inbounds double, ptr %53, i64 %.156.us
   %61 = load double, ptr %60, align 8
-  %62 = getelementptr inbounds double, ptr %58, i64 %.14656.us
+  %62 = getelementptr inbounds double, ptr %58, i64 %.156.us
   %63 = load double, ptr %62, align 8
   %64 = fsub double %63, %61
   store double %64, ptr %62, align 8
-  %65 = add nuw nsw i64 %.14656.us, 1
+  %65 = add nuw nsw i64 %.156.us, 1
   %exitcond73.not = icmp eq i64 %65, %7
   br i1 %exitcond73.not, label %._crit_edge.us60, label %59
 
@@ -2462,15 +2462,15 @@ define internal fastcc void @VLin1VectorArray_Serial(i32 noundef %0, double noun
   br label %26
 
 26:                                               ; preds = %.lr.ph.us, %26
-  %.01920.us = phi i64 [ 0, %.lr.ph.us ], [ %33, %26 ]
-  %27 = getelementptr inbounds double, ptr %15, i64 %.01920.us
+  %.020.us = phi i64 [ 0, %.lr.ph.us ], [ %33, %26 ]
+  %27 = getelementptr inbounds double, ptr %15, i64 %.020.us
   %28 = load double, ptr %27, align 8
-  %29 = getelementptr inbounds double, ptr %20, i64 %.01920.us
+  %29 = getelementptr inbounds double, ptr %20, i64 %.020.us
   %30 = load double, ptr %29, align 8
   %31 = tail call double @llvm.fmuladd.f64(double %1, double %28, double %30)
-  %32 = getelementptr inbounds double, ptr %25, i64 %.01920.us
+  %32 = getelementptr inbounds double, ptr %25, i64 %.020.us
   store double %31, ptr %32, align 8
-  %33 = add nuw nsw i64 %.01920.us, 1
+  %33 = add nuw nsw i64 %.020.us, 1
   %exitcond.not = icmp eq i64 %33, %8
   br i1 %exitcond.not, label %._crit_edge.us, label %26
 
@@ -2517,16 +2517,16 @@ define internal fastcc void @VLin2VectorArray_Serial(i32 noundef %0, double noun
   br label %26
 
 26:                                               ; preds = %.lr.ph.us, %26
-  %.01920.us = phi i64 [ 0, %.lr.ph.us ], [ %34, %26 ]
-  %27 = getelementptr inbounds double, ptr %15, i64 %.01920.us
+  %.020.us = phi i64 [ 0, %.lr.ph.us ], [ %34, %26 ]
+  %27 = getelementptr inbounds double, ptr %15, i64 %.020.us
   %28 = load double, ptr %27, align 8
-  %29 = getelementptr inbounds double, ptr %20, i64 %.01920.us
+  %29 = getelementptr inbounds double, ptr %20, i64 %.020.us
   %30 = load double, ptr %29, align 8
   %31 = fneg double %30
   %32 = tail call double @llvm.fmuladd.f64(double %1, double %28, double %31)
-  %33 = getelementptr inbounds double, ptr %25, i64 %.01920.us
+  %33 = getelementptr inbounds double, ptr %25, i64 %.020.us
   store double %32, ptr %33, align 8
-  %34 = add nuw nsw i64 %.01920.us, 1
+  %34 = add nuw nsw i64 %.020.us, 1
   %exitcond.not = icmp eq i64 %34, %8
   br i1 %exitcond.not, label %._crit_edge.us, label %26
 
@@ -2573,16 +2573,16 @@ define internal fastcc void @VScaleSumVectorArray_Serial(i32 noundef %0, double 
   br label %26
 
 26:                                               ; preds = %.lr.ph.us, %26
-  %.01920.us = phi i64 [ 0, %.lr.ph.us ], [ %34, %26 ]
-  %27 = getelementptr inbounds double, ptr %15, i64 %.01920.us
+  %.020.us = phi i64 [ 0, %.lr.ph.us ], [ %34, %26 ]
+  %27 = getelementptr inbounds double, ptr %15, i64 %.020.us
   %28 = load double, ptr %27, align 8
-  %29 = getelementptr inbounds double, ptr %20, i64 %.01920.us
+  %29 = getelementptr inbounds double, ptr %20, i64 %.020.us
   %30 = load double, ptr %29, align 8
   %31 = fadd double %28, %30
   %32 = fmul double %31, %1
-  %33 = getelementptr inbounds double, ptr %25, i64 %.01920.us
+  %33 = getelementptr inbounds double, ptr %25, i64 %.020.us
   store double %32, ptr %33, align 8
-  %34 = add nuw nsw i64 %.01920.us, 1
+  %34 = add nuw nsw i64 %.020.us, 1
   %exitcond.not = icmp eq i64 %34, %8
   br i1 %exitcond.not, label %._crit_edge.us, label %26
 
@@ -2629,16 +2629,16 @@ define internal fastcc void @VScaleDiffVectorArray_Serial(i32 noundef %0, double
   br label %26
 
 26:                                               ; preds = %.lr.ph.us, %26
-  %.01920.us = phi i64 [ 0, %.lr.ph.us ], [ %34, %26 ]
-  %27 = getelementptr inbounds double, ptr %15, i64 %.01920.us
+  %.020.us = phi i64 [ 0, %.lr.ph.us ], [ %34, %26 ]
+  %27 = getelementptr inbounds double, ptr %15, i64 %.020.us
   %28 = load double, ptr %27, align 8
-  %29 = getelementptr inbounds double, ptr %20, i64 %.01920.us
+  %29 = getelementptr inbounds double, ptr %20, i64 %.020.us
   %30 = load double, ptr %29, align 8
   %31 = fsub double %28, %30
   %32 = fmul double %31, %1
-  %33 = getelementptr inbounds double, ptr %25, i64 %.01920.us
+  %33 = getelementptr inbounds double, ptr %25, i64 %.020.us
   store double %32, ptr %33, align 8
-  %34 = add nuw nsw i64 %.01920.us, 1
+  %34 = add nuw nsw i64 %.020.us, 1
   %exitcond.not = icmp eq i64 %34, %8
   br i1 %exitcond.not, label %._crit_edge.us, label %26
 
@@ -2760,13 +2760,13 @@ define noundef i32 @N_VScaleVectorArray_Serial(i32 noundef %0, ptr nocapture nou
   %56 = icmp eq ptr %2, %3
   %57 = icmp sgt i32 %0, 0
   %58 = icmp sgt i64 %55, 0
-  %or.cond76 = select i1 %57, i1 %58, i1 false
-  br i1 %56, label %.preheader, label %.preheader46
+  %or.cond77 = select i1 %57, i1 %58, i1 false
+  br i1 %56, label %.preheader, label %.preheader47
 
-.preheader46:                                     ; preds = %52
-  br i1 %or.cond76, label %.lr.ph.us.preheader, label %N_VScale_Serial.exit
+.preheader47:                                     ; preds = %52
+  br i1 %or.cond77, label %.lr.ph.us.preheader, label %N_VScale_Serial.exit
 
-.lr.ph.us.preheader:                              ; preds = %.preheader46
+.lr.ph.us.preheader:                              ; preds = %.preheader47
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %.lr.ph.us
 
@@ -2786,56 +2786,56 @@ define noundef i32 @N_VScaleVectorArray_Serial(i32 noundef %0, ptr nocapture nou
   br label %70
 
 70:                                               ; preds = %.lr.ph.us, %70
-  %.148.us = phi i64 [ 0, %.lr.ph.us ], [ %76, %70 ]
+  %.149.us = phi i64 [ 0, %.lr.ph.us ], [ %76, %70 ]
   %71 = load double, ptr %69, align 8
-  %72 = getelementptr inbounds double, ptr %63, i64 %.148.us
+  %72 = getelementptr inbounds double, ptr %63, i64 %.149.us
   %73 = load double, ptr %72, align 8
   %74 = fmul double %71, %73
-  %75 = getelementptr inbounds double, ptr %68, i64 %.148.us
+  %75 = getelementptr inbounds double, ptr %68, i64 %.149.us
   store double %74, ptr %75, align 8
-  %76 = add nuw nsw i64 %.148.us, 1
+  %76 = add nuw nsw i64 %.149.us, 1
   %exitcond.not = icmp eq i64 %76, %55
   br i1 %exitcond.not, label %._crit_edge.us, label %70
 
 ._crit_edge.us:                                   ; preds = %70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond64.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond64.not, label %N_VScale_Serial.exit, label %.lr.ph.us
+  %exitcond65.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond65.not, label %N_VScale_Serial.exit, label %.lr.ph.us
 
 .preheader:                                       ; preds = %52
-  br i1 %or.cond76, label %.lr.ph.us54.preheader, label %N_VScale_Serial.exit
+  br i1 %or.cond77, label %.lr.ph.us55.preheader, label %N_VScale_Serial.exit
 
-.lr.ph.us54.preheader:                            ; preds = %.preheader
-  %wide.trip.count69 = zext nneg i32 %0 to i64
-  br label %.lr.ph.us54
+.lr.ph.us55.preheader:                            ; preds = %.preheader
+  %wide.trip.count70 = zext nneg i32 %0 to i64
+  br label %.lr.ph.us55
 
-.lr.ph.us54:                                      ; preds = %.lr.ph.us54.preheader, %._crit_edge.us55
-  %indvars.iv66 = phi i64 [ 0, %.lr.ph.us54.preheader ], [ %indvars.iv.next67, %._crit_edge.us55 ]
-  %77 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv66
+.lr.ph.us55:                                      ; preds = %.lr.ph.us55.preheader, %._crit_edge.us56
+  %indvars.iv67 = phi i64 [ 0, %.lr.ph.us55.preheader ], [ %indvars.iv.next68, %._crit_edge.us56 ]
+  %77 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv67
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds double, ptr %1, i64 %indvars.iv66
+  %82 = getelementptr inbounds double, ptr %1, i64 %indvars.iv67
   br label %83
 
-83:                                               ; preds = %.lr.ph.us54, %83
-  %.03651.us = phi i64 [ 0, %.lr.ph.us54 ], [ %88, %83 ]
+83:                                               ; preds = %.lr.ph.us55, %83
+  %.052.us = phi i64 [ 0, %.lr.ph.us55 ], [ %88, %83 ]
   %84 = load double, ptr %82, align 8
-  %85 = getelementptr inbounds double, ptr %81, i64 %.03651.us
+  %85 = getelementptr inbounds double, ptr %81, i64 %.052.us
   %86 = load double, ptr %85, align 8
   %87 = fmul double %84, %86
   store double %87, ptr %85, align 8
-  %88 = add nuw nsw i64 %.03651.us, 1
-  %exitcond65.not = icmp eq i64 %88, %55
-  br i1 %exitcond65.not, label %._crit_edge.us55, label %83
+  %88 = add nuw nsw i64 %.052.us, 1
+  %exitcond66.not = icmp eq i64 %88, %55
+  br i1 %exitcond66.not, label %._crit_edge.us56, label %83
 
-._crit_edge.us55:                                 ; preds = %83
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %N_VScale_Serial.exit, label %.lr.ph.us54
+._crit_edge.us56:                                 ; preds = %83
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
+  br i1 %exitcond71.not, label %N_VScale_Serial.exit, label %.lr.ph.us55
 
-N_VScale_Serial.exit:                             ; preds = %._crit_edge.us, %._crit_edge.us55, %.lr.ph.i, %.lr.ph.i33.i, %.lr.ph.i30.i, %.lr.ph.i.i, %.preheader46, %.preheader, %39, %30, %20, %11
+N_VScale_Serial.exit:                             ; preds = %._crit_edge.us, %._crit_edge.us56, %.lr.ph.i, %.lr.ph.i33.i, %.lr.ph.i30.i, %.lr.ph.i.i, %.preheader47, %.preheader, %39, %30, %20, %11
   ret i32 0
 }
 
@@ -2881,17 +2881,17 @@ define noundef i32 @N_VConstVectorArray_Serial(i32 noundef %0, double noundef %1
   br label %22
 
 22:                                               ; preds = %.lr.ph.us, %22
-  %.01619.us = phi i64 [ 0, %.lr.ph.us ], [ %24, %22 ]
-  %23 = getelementptr inbounds double, ptr %21, i64 %.01619.us
+  %.020.us = phi i64 [ 0, %.lr.ph.us ], [ %24, %22 ]
+  %23 = getelementptr inbounds double, ptr %21, i64 %.020.us
   store double %1, ptr %23, align 8
-  %24 = add nuw nsw i64 %.01619.us, 1
+  %24 = add nuw nsw i64 %.020.us, 1
   %exitcond.not = icmp eq i64 %24, %7
   br i1 %exitcond.not, label %._crit_edge.us, label %22
 
 ._crit_edge.us:                                   ; preds = %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond26.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond26.not, label %N_VConst_Serial.exit, label %.lr.ph.us
+  %exitcond27.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond27.not, label %N_VConst_Serial.exit, label %.lr.ph.us
 
 N_VConst_Serial.exit:                             ; preds = %._crit_edge.us, %.lr.ph.i, %14, %8
   ret i32 0
@@ -2948,32 +2948,32 @@ N_VWrmsNorm_Serial.exit:                          ; preds = %N_VWSqrSumLocal_Ser
   %31 = load ptr, ptr %5, align 8
   %32 = load i64, ptr %31, align 8
   %33 = icmp sgt i32 %0, 0
-  br i1 %33, label %.lr.ph43, label %.loopexit
+  br i1 %33, label %.lr.ph44, label %.loopexit
 
-.lr.ph43:                                         ; preds = %30
+.lr.ph44:                                         ; preds = %30
   %34 = icmp sgt i64 %32, 0
   %35 = sitofp i64 %32 to double
-  %wide.trip.count50 = zext nneg i32 %0 to i64
-  br i1 %34, label %.lr.ph.us, label %.lr.ph43.split.preheader
+  %wide.trip.count51 = zext nneg i32 %0 to i64
+  br i1 %34, label %.lr.ph.us, label %.lr.ph44.split.preheader
 
-.lr.ph43.split.preheader:                         ; preds = %.lr.ph43
+.lr.ph44.split.preheader:                         ; preds = %.lr.ph44
   %36 = fdiv double 0.000000e+00, %35
   %37 = fcmp ugt double %36, 0.000000e+00
-  br label %.lr.ph43.split
+  br label %.lr.ph44.split
 
-.lr.ph.us:                                        ; preds = %.lr.ph43, %51
-  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %51 ], [ 0, %.lr.ph43 ]
-  %38 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv47
+.lr.ph.us:                                        ; preds = %.lr.ph44, %51
+  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %51 ], [ 0, %.lr.ph44 ]
+  %38 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv48
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv47
+  %43 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv48
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds double, ptr %3, i64 %indvars.iv47
+  %48 = getelementptr inbounds double, ptr %3, i64 %indvars.iv48
   store double 0.000000e+00, ptr %48, align 8
   br label %53
 
@@ -2984,44 +2984,44 @@ N_VWrmsNorm_Serial.exit:                          ; preds = %N_VWSqrSumLocal_Ser
 51:                                               ; preds = %49, %._crit_edge.us
   %52 = phi double [ %50, %49 ], [ 0.000000e+00, %._crit_edge.us ]
   store double %52, ptr %48, align 8
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
-  br i1 %exitcond51.not, label %.loopexit, label %.lr.ph.us
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
+  %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
+  br i1 %exitcond52.not, label %.loopexit, label %.lr.ph.us
 
 53:                                               ; preds = %.lr.ph.us, %53
   %54 = phi double [ 0.000000e+00, %.lr.ph.us ], [ %60, %53 ]
-  %.03640.us = phi i64 [ 0, %.lr.ph.us ], [ %61, %53 ]
-  %55 = getelementptr inbounds double, ptr %42, i64 %.03640.us
+  %.041.us = phi i64 [ 0, %.lr.ph.us ], [ %61, %53 ]
+  %55 = getelementptr inbounds double, ptr %42, i64 %.041.us
   %56 = load double, ptr %55, align 8
-  %57 = getelementptr inbounds double, ptr %47, i64 %.03640.us
+  %57 = getelementptr inbounds double, ptr %47, i64 %.041.us
   %58 = load double, ptr %57, align 8
   %59 = fmul double %56, %58
   %60 = tail call double @llvm.fmuladd.f64(double %59, double %59, double %54)
   store double %60, ptr %48, align 8
-  %61 = add nuw nsw i64 %.03640.us, 1
-  %exitcond46.not = icmp eq i64 %61, %32
-  br i1 %exitcond46.not, label %._crit_edge.us, label %53
+  %61 = add nuw nsw i64 %.041.us, 1
+  %exitcond47.not = icmp eq i64 %61, %32
+  br i1 %exitcond47.not, label %._crit_edge.us, label %53
 
 ._crit_edge.us:                                   ; preds = %53
   %62 = fdiv double %60, %35
   %63 = fcmp ugt double %62, 0.000000e+00
   br i1 %63, label %49, label %51
 
-.lr.ph43.split:                                   ; preds = %.lr.ph43.split.preheader, %67
-  %indvars.iv = phi i64 [ 0, %.lr.ph43.split.preheader ], [ %indvars.iv.next, %67 ]
+.lr.ph44.split:                                   ; preds = %.lr.ph44.split.preheader, %67
+  %indvars.iv = phi i64 [ 0, %.lr.ph44.split.preheader ], [ %indvars.iv.next, %67 ]
   %64 = getelementptr inbounds double, ptr %3, i64 %indvars.iv
   br i1 %37, label %65, label %67
 
-65:                                               ; preds = %.lr.ph43.split
+65:                                               ; preds = %.lr.ph44.split
   %66 = tail call double @sqrt(double noundef %36) #20
   br label %67
 
-67:                                               ; preds = %.lr.ph43.split, %65
-  %68 = phi double [ %66, %65 ], [ 0.000000e+00, %.lr.ph43.split ]
+67:                                               ; preds = %.lr.ph44.split, %65
+  %68 = phi double [ %66, %65 ], [ 0.000000e+00, %.lr.ph44.split ]
   store double %68, ptr %64, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count50
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph43.split
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count51
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph44.split
 
 .loopexit:                                        ; preds = %67, %51, %30, %N_VWrmsNorm_Serial.exit
   ret i32 0
@@ -3094,32 +3094,32 @@ N_VWrmsNormMask_Serial.exit:                      ; preds = %N_VWSqrSumMaskLocal
   %43 = getelementptr inbounds i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = icmp sgt i32 %0, 0
-  br i1 %45, label %.lr.ph47, label %.loopexit
+  br i1 %45, label %.lr.ph48, label %.loopexit
 
-.lr.ph47:                                         ; preds = %39
+.lr.ph48:                                         ; preds = %39
   %46 = icmp sgt i64 %41, 0
   %47 = sitofp i64 %41 to double
-  %wide.trip.count54 = zext nneg i32 %0 to i64
-  br i1 %46, label %.lr.ph.us, label %.lr.ph47.split.preheader
+  %wide.trip.count55 = zext nneg i32 %0 to i64
+  br i1 %46, label %.lr.ph.us, label %.lr.ph48.split.preheader
 
-.lr.ph47.split.preheader:                         ; preds = %.lr.ph47
+.lr.ph48.split.preheader:                         ; preds = %.lr.ph48
   %48 = fdiv double 0.000000e+00, %47
   %49 = fcmp ugt double %48, 0.000000e+00
-  br label %.lr.ph47.split
+  br label %.lr.ph48.split
 
-.lr.ph.us:                                        ; preds = %.lr.ph47, %63
-  %indvars.iv51 = phi i64 [ %indvars.iv.next52, %63 ], [ 0, %.lr.ph47 ]
-  %50 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv51
+.lr.ph.us:                                        ; preds = %.lr.ph48, %63
+  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %63 ], [ 0, %.lr.ph48 ]
+  %50 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv52
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv51
+  %55 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv52
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds double, ptr %4, i64 %indvars.iv51
+  %60 = getelementptr inbounds double, ptr %4, i64 %indvars.iv52
   store double 0.000000e+00, ptr %60, align 8
   br label %65
 
@@ -3130,22 +3130,22 @@ N_VWrmsNormMask_Serial.exit:                      ; preds = %N_VWSqrSumMaskLocal
 63:                                               ; preds = %61, %._crit_edge.us
   %64 = phi double [ %62, %61 ], [ 0.000000e+00, %._crit_edge.us ]
   store double %64, ptr %60, align 8
-  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count54
-  br i1 %exitcond55.not, label %.loopexit, label %.lr.ph.us
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
+  br i1 %exitcond56.not, label %.loopexit, label %.lr.ph.us
 
 65:                                               ; preds = %.lr.ph.us, %77
   %66 = phi double [ 0.000000e+00, %.lr.ph.us ], [ %78, %77 ]
-  %.04044.us = phi i64 [ 0, %.lr.ph.us ], [ %79, %77 ]
-  %67 = getelementptr inbounds double, ptr %44, i64 %.04044.us
+  %.045.us = phi i64 [ 0, %.lr.ph.us ], [ %79, %77 ]
+  %67 = getelementptr inbounds double, ptr %44, i64 %.045.us
   %68 = load double, ptr %67, align 8
   %69 = fcmp ogt double %68, 0.000000e+00
   br i1 %69, label %70, label %77
 
 70:                                               ; preds = %65
-  %71 = getelementptr inbounds double, ptr %54, i64 %.04044.us
+  %71 = getelementptr inbounds double, ptr %54, i64 %.045.us
   %72 = load double, ptr %71, align 8
-  %73 = getelementptr inbounds double, ptr %59, i64 %.04044.us
+  %73 = getelementptr inbounds double, ptr %59, i64 %.045.us
   %74 = load double, ptr %73, align 8
   %75 = fmul double %72, %74
   %76 = tail call double @llvm.fmuladd.f64(double %75, double %75, double %66)
@@ -3154,30 +3154,30 @@ N_VWrmsNormMask_Serial.exit:                      ; preds = %N_VWSqrSumMaskLocal
 
 77:                                               ; preds = %70, %65
   %78 = phi double [ %76, %70 ], [ %66, %65 ]
-  %79 = add nuw nsw i64 %.04044.us, 1
-  %exitcond50.not = icmp eq i64 %79, %41
-  br i1 %exitcond50.not, label %._crit_edge.us, label %65
+  %79 = add nuw nsw i64 %.045.us, 1
+  %exitcond51.not = icmp eq i64 %79, %41
+  br i1 %exitcond51.not, label %._crit_edge.us, label %65
 
 ._crit_edge.us:                                   ; preds = %77
   %80 = fdiv double %78, %47
   %81 = fcmp ugt double %80, 0.000000e+00
   br i1 %81, label %61, label %63
 
-.lr.ph47.split:                                   ; preds = %.lr.ph47.split.preheader, %85
-  %indvars.iv = phi i64 [ 0, %.lr.ph47.split.preheader ], [ %indvars.iv.next, %85 ]
+.lr.ph48.split:                                   ; preds = %.lr.ph48.split.preheader, %85
+  %indvars.iv = phi i64 [ 0, %.lr.ph48.split.preheader ], [ %indvars.iv.next, %85 ]
   %82 = getelementptr inbounds double, ptr %4, i64 %indvars.iv
   br i1 %49, label %83, label %85
 
-83:                                               ; preds = %.lr.ph47.split
+83:                                               ; preds = %.lr.ph48.split
   %84 = tail call double @sqrt(double noundef %48) #20
   br label %85
 
-85:                                               ; preds = %.lr.ph47.split, %83
-  %86 = phi double [ %84, %83 ], [ 0.000000e+00, %.lr.ph47.split ]
+85:                                               ; preds = %.lr.ph48.split, %83
+  %86 = phi double [ %84, %83 ], [ 0.000000e+00, %.lr.ph48.split ]
   store double %86, ptr %82, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count54
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph47.split
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count55
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph48.split
 
 .loopexit:                                        ; preds = %85, %63, %39, %N_VWrmsNormMask_Serial.exit
   ret i32 0
@@ -3237,13 +3237,13 @@ define noundef i32 @N_VScaleAddMultiVectorArray_Serial(i32 noundef %0, i32 nound
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %20, %21
   %36 = icmp sgt i64 %32, 0
-  %or.cond70.i = select i1 %22, i1 %36, i1 false
-  br i1 %35, label %.preheader.i, label %.preheader48.i
+  %or.cond71.i = select i1 %22, i1 %36, i1 false
+  br i1 %35, label %.preheader.i, label %.preheader49.i
 
-.preheader48.i:                                   ; preds = %._crit_edge
-  br i1 %or.cond70.i, label %.lr.ph.us.preheader.i, label %N_VScaleAddMulti_Serial.exit
+.preheader49.i:                                   ; preds = %._crit_edge
+  br i1 %or.cond71.i, label %.lr.ph.us.preheader.i, label %N_VScaleAddMulti_Serial.exit
 
-.lr.ph.us.preheader.i:                            ; preds = %.preheader48.i
+.lr.ph.us.preheader.i:                            ; preds = %.preheader49.i
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %.lr.ph.us.i
 
@@ -3263,60 +3263,60 @@ define noundef i32 @N_VScaleAddMultiVectorArray_Serial(i32 noundef %0, i32 nound
   br label %48
 
 48:                                               ; preds = %48, %.lr.ph.us.i
-  %.150.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %56, %48 ]
+  %.151.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %56, %48 ]
   %49 = load double, ptr %47, align 8
-  %50 = getelementptr inbounds double, ptr %34, i64 %.150.us.i
+  %50 = getelementptr inbounds double, ptr %34, i64 %.151.us.i
   %51 = load double, ptr %50, align 8
-  %52 = getelementptr inbounds double, ptr %41, i64 %.150.us.i
+  %52 = getelementptr inbounds double, ptr %41, i64 %.151.us.i
   %53 = load double, ptr %52, align 8
   %54 = tail call double @llvm.fmuladd.f64(double %49, double %51, double %53)
-  %55 = getelementptr inbounds double, ptr %46, i64 %.150.us.i
+  %55 = getelementptr inbounds double, ptr %46, i64 %.151.us.i
   store double %54, ptr %55, align 8
-  %56 = add nuw nsw i64 %.150.us.i, 1
+  %56 = add nuw nsw i64 %.151.us.i, 1
   %exitcond.not.i = icmp eq i64 %56, %32
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %48
 
 ._crit_edge.us.i:                                 ; preds = %48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond62.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond62.not.i, label %N_VScaleAddMulti_Serial.exit, label %.lr.ph.us.i
+  %exitcond63.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond63.not.i, label %N_VScaleAddMulti_Serial.exit, label %.lr.ph.us.i
 
 .preheader.i:                                     ; preds = %._crit_edge
-  br i1 %or.cond70.i, label %.lr.ph.us56.preheader.i, label %N_VScaleAddMulti_Serial.exit
+  br i1 %or.cond71.i, label %.lr.ph.us57.preheader.i, label %N_VScaleAddMulti_Serial.exit
 
-.lr.ph.us56.preheader.i:                          ; preds = %.preheader.i
-  %wide.trip.count67.i = zext nneg i32 %1 to i64
-  br label %.lr.ph.us56.i
+.lr.ph.us57.preheader.i:                          ; preds = %.preheader.i
+  %wide.trip.count68.i = zext nneg i32 %1 to i64
+  br label %.lr.ph.us57.i
 
-.lr.ph.us56.i:                                    ; preds = %._crit_edge.us57.i, %.lr.ph.us56.preheader.i
-  %indvars.iv64.i = phi i64 [ 0, %.lr.ph.us56.preheader.i ], [ %indvars.iv.next65.i, %._crit_edge.us57.i ]
-  %57 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv64.i
+.lr.ph.us57.i:                                    ; preds = %._crit_edge.us58.i, %.lr.ph.us57.preheader.i
+  %indvars.iv65.i = phi i64 [ 0, %.lr.ph.us57.preheader.i ], [ %indvars.iv.next66.i, %._crit_edge.us58.i ]
+  %57 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv65.i
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds double, ptr %2, i64 %indvars.iv64.i
+  %62 = getelementptr inbounds double, ptr %2, i64 %indvars.iv65.i
   br label %63
 
-63:                                               ; preds = %63, %.lr.ph.us56.i
-  %.04253.us.i = phi i64 [ 0, %.lr.ph.us56.i ], [ %70, %63 ]
+63:                                               ; preds = %63, %.lr.ph.us57.i
+  %.054.us.i = phi i64 [ 0, %.lr.ph.us57.i ], [ %70, %63 ]
   %64 = load double, ptr %62, align 8
-  %65 = getelementptr inbounds double, ptr %34, i64 %.04253.us.i
+  %65 = getelementptr inbounds double, ptr %34, i64 %.054.us.i
   %66 = load double, ptr %65, align 8
-  %67 = getelementptr inbounds double, ptr %61, i64 %.04253.us.i
+  %67 = getelementptr inbounds double, ptr %61, i64 %.054.us.i
   %68 = load double, ptr %67, align 8
   %69 = tail call double @llvm.fmuladd.f64(double %64, double %66, double %68)
   store double %69, ptr %67, align 8
-  %70 = add nuw nsw i64 %.04253.us.i, 1
-  %exitcond63.not.i = icmp eq i64 %70, %32
-  br i1 %exitcond63.not.i, label %._crit_edge.us57.i, label %63
+  %70 = add nuw nsw i64 %.054.us.i, 1
+  %exitcond64.not.i = icmp eq i64 %70, %32
+  br i1 %exitcond64.not.i, label %._crit_edge.us58.i, label %63
 
-._crit_edge.us57.i:                               ; preds = %63
-  %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
-  %exitcond68.not.i = icmp eq i64 %indvars.iv.next65.i, %wide.trip.count67.i
-  br i1 %exitcond68.not.i, label %N_VScaleAddMulti_Serial.exit, label %.lr.ph.us56.i
+._crit_edge.us58.i:                               ; preds = %63
+  %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
+  %exitcond69.not.i = icmp eq i64 %indvars.iv.next66.i, %wide.trip.count68.i
+  br i1 %exitcond69.not.i, label %N_VScaleAddMulti_Serial.exit, label %.lr.ph.us57.i
 
-N_VScaleAddMulti_Serial.exit:                     ; preds = %._crit_edge.us.i, %._crit_edge.us57.i, %.preheader48.i, %.preheader.i
+N_VScaleAddMulti_Serial.exit:                     ; preds = %._crit_edge.us.i, %._crit_edge.us58.i, %.preheader49.i, %.preheader.i
   tail call void @free(ptr noundef %20) #20
   tail call void @free(ptr noundef %21) #20
   br label %.loopexit
@@ -3379,16 +3379,16 @@ N_VScaleAddMulti_Serial.exit:                     ; preds = %._crit_edge.us.i, %
   br label %104
 
 104:                                              ; preds = %104, %.lr.ph.us.us.us
-  %.18594.us.us.us = phi i64 [ 0, %.lr.ph.us.us.us ], [ %112, %104 ]
+  %.18394.us.us.us = phi i64 [ 0, %.lr.ph.us.us.us ], [ %112, %104 ]
   %105 = load double, ptr %103, align 8
-  %106 = getelementptr inbounds double, ptr %88, i64 %.18594.us.us.us
+  %106 = getelementptr inbounds double, ptr %88, i64 %.18394.us.us.us
   %107 = load double, ptr %106, align 8
-  %108 = getelementptr inbounds double, ptr %95, i64 %.18594.us.us.us
+  %108 = getelementptr inbounds double, ptr %95, i64 %.18394.us.us.us
   %109 = load double, ptr %108, align 8
   %110 = tail call double @llvm.fmuladd.f64(double %105, double %107, double %109)
-  %111 = getelementptr inbounds double, ptr %102, i64 %.18594.us.us.us
+  %111 = getelementptr inbounds double, ptr %102, i64 %.18394.us.us.us
   store double %110, ptr %111, align 8
-  %112 = add nuw nsw i64 %.18594.us.us.us, 1
+  %112 = add nuw nsw i64 %.18394.us.us.us, 1
   %exitcond.not = icmp eq i64 %112, %79
   br i1 %exitcond.not, label %._crit_edge.us.us.us, label %104
 
@@ -3432,15 +3432,15 @@ N_VScaleAddMulti_Serial.exit:                     ; preds = %._crit_edge.us.i, %
   br label %126
 
 126:                                              ; preds = %126, %.lr.ph104.us.us.us
-  %.084103.us.us.us = phi i64 [ 0, %.lr.ph104.us.us.us ], [ %133, %126 ]
+  %.082103.us.us.us = phi i64 [ 0, %.lr.ph104.us.us.us ], [ %133, %126 ]
   %127 = load double, ptr %125, align 8
-  %128 = getelementptr inbounds double, ptr %117, i64 %.084103.us.us.us
+  %128 = getelementptr inbounds double, ptr %117, i64 %.082103.us.us.us
   %129 = load double, ptr %128, align 8
-  %130 = getelementptr inbounds double, ptr %124, i64 %.084103.us.us.us
+  %130 = getelementptr inbounds double, ptr %124, i64 %.082103.us.us.us
   %131 = load double, ptr %130, align 8
   %132 = tail call double @llvm.fmuladd.f64(double %127, double %129, double %131)
   store double %132, ptr %130, align 8
-  %133 = add nuw nsw i64 %.084103.us.us.us, 1
+  %133 = add nuw nsw i64 %.082103.us.us.us, 1
   %exitcond130.not = icmp eq i64 %133, %79
   br i1 %exitcond130.not, label %._crit_edge.us.us.us114, label %126
 
@@ -3705,15 +3705,15 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
   br label %118
 
 118:                                              ; preds = %118, %.lr.ph179.us.us.us
-  %.0132177.us.us.us = phi i64 [ 0, %.lr.ph179.us.us.us ], [ %125, %118 ]
+  %.0128177.us.us.us = phi i64 [ 0, %.lr.ph179.us.us.us ], [ %125, %118 ]
   %119 = load double, ptr %117, align 8
-  %120 = getelementptr inbounds double, ptr %116, i64 %.0132177.us.us.us
+  %120 = getelementptr inbounds double, ptr %116, i64 %.0128177.us.us.us
   %121 = load double, ptr %120, align 8
-  %122 = getelementptr inbounds double, ptr %109, i64 %.0132177.us.us.us
+  %122 = getelementptr inbounds double, ptr %109, i64 %.0128177.us.us.us
   %123 = load double, ptr %122, align 8
   %124 = tail call double @llvm.fmuladd.f64(double %119, double %121, double %123)
   store double %124, ptr %122, align 8
-  %125 = add nuw nsw i64 %.0132177.us.us.us, 1
+  %125 = add nuw nsw i64 %.0128177.us.us.us, 1
   %exitcond229.not = icmp eq i64 %125, %94
   br i1 %exitcond229.not, label %._crit_edge180.us.us.us, label %118
 
@@ -3763,15 +3763,15 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
   br label %142
 
 142:                                              ; preds = %.lr.ph170.us, %142
-  %.2134168.us = phi i64 [ 0, %.lr.ph170.us ], [ %149, %142 ]
+  %.2130168.us = phi i64 [ 0, %.lr.ph170.us ], [ %149, %142 ]
   %143 = load double, ptr %141, align 8
-  %144 = getelementptr inbounds double, ptr %140, i64 %.2134168.us
+  %144 = getelementptr inbounds double, ptr %140, i64 %.2130168.us
   %145 = load double, ptr %144, align 8
-  %146 = getelementptr inbounds double, ptr %133, i64 %.2134168.us
+  %146 = getelementptr inbounds double, ptr %133, i64 %.2130168.us
   %147 = load double, ptr %146, align 8
   %148 = tail call double @llvm.fmuladd.f64(double %143, double %145, double %147)
   store double %148, ptr %146, align 8
-  %149 = add nuw nsw i64 %.2134168.us, 1
+  %149 = add nuw nsw i64 %.2130168.us, 1
   %exitcond218.not = icmp eq i64 %149, %94
   br i1 %exitcond218.not, label %._crit_edge171.us, label %142
 
@@ -3781,13 +3781,13 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
   br i1 %exitcond223.not, label %._crit_edge174, label %.lr.ph170.us
 
 .lr.ph167:                                        ; preds = %128, %.lr.ph167
-  %.1133165 = phi i64 [ %154, %.lr.ph167 ], [ 0, %128 ]
+  %.1129165 = phi i64 [ %154, %.lr.ph167 ], [ 0, %128 ]
   %150 = load double, ptr %2, align 8
-  %151 = getelementptr inbounds double, ptr %133, i64 %.1133165
+  %151 = getelementptr inbounds double, ptr %133, i64 %.1129165
   %152 = load double, ptr %151, align 8
   %153 = fmul double %150, %152
   store double %153, ptr %151, align 8
-  %154 = add nuw nsw i64 %.1133165, 1
+  %154 = add nuw nsw i64 %.1129165, 1
   %exitcond217.not = icmp eq i64 %154, %94
   br i1 %exitcond217.not, label %.preheader147, label %.lr.ph167
 
@@ -3845,14 +3845,14 @@ define noundef i32 @N_VLinearCombinationVectorArray_Serial(i32 noundef %0, i32 n
   br i1 %exitcond211.not, label %.critedge, label %.lr.ph158.us
 
 .lr.ph155:                                        ; preds = %155, %.lr.ph155
-  %.3135153 = phi i64 [ %188, %.lr.ph155 ], [ 0, %155 ]
+  %.3131153 = phi i64 [ %188, %.lr.ph155 ], [ 0, %155 ]
   %183 = load double, ptr %2, align 8
-  %184 = getelementptr inbounds double, ptr %161, i64 %.3135153
+  %184 = getelementptr inbounds double, ptr %161, i64 %.3131153
   %185 = load double, ptr %184, align 8
   %186 = fmul double %183, %185
-  %187 = getelementptr inbounds double, ptr %166, i64 %.3135153
+  %187 = getelementptr inbounds double, ptr %166, i64 %.3131153
   store double %186, ptr %187, align 8
-  %188 = add nuw nsw i64 %.3135153, 1
+  %188 = add nuw nsw i64 %.3131153, 1
   %exitcond205.not = icmp eq i64 %188, %94
   br i1 %exitcond205.not, label %.preheader150, label %.lr.ph155
 

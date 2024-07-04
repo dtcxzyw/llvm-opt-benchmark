@@ -1301,37 +1301,37 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %dec23 = phi i32 [ %dec, %for.inc ], [ %dec18, %for.body.preheader ]
-  %arg.addr.021 = phi i32 [ %inc, %for.inc ], [ %arg, %for.body.preheader ]
-  %status.020 = phi i32 [ %status.1, %for.inc ], [ 1, %for.body.preheader ]
-  %call1 = call i32 @lua_type(ptr noundef %L, i32 noundef %arg.addr.021) #10
+  %status.022 = phi i32 [ %status.1, %for.inc ], [ 1, %for.body.preheader ]
+  %arg.addr.020 = phi i32 [ %inc, %for.inc ], [ %arg, %for.body.preheader ]
+  %call1 = call i32 @lua_type(ptr noundef %L, i32 noundef %arg.addr.020) #10
   %cmp = icmp eq i32 %call1, 3
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %call2 = call i32 @lua_isinteger(ptr noundef %L, i32 noundef %arg.addr.021) #10
+  %call2 = call i32 @lua_isinteger(ptr noundef %L, i32 noundef %arg.addr.020) #10
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.then
-  %call4 = call i64 @lua_tointegerx(ptr noundef %L, i32 noundef %arg.addr.021, ptr noundef null) #10
+  %call4 = call i64 @lua_tointegerx(ptr noundef %L, i32 noundef %arg.addr.020, ptr noundef null) #10
   %call5 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %f, ptr noundef nonnull @.str.38, i64 noundef %call4)
   br label %cond.end
 
 cond.false:                                       ; preds = %if.then
-  %call6 = call double @lua_tonumberx(ptr noundef %L, i32 noundef %arg.addr.021, ptr noundef null) #10
+  %call6 = call double @lua_tonumberx(ptr noundef %L, i32 noundef %arg.addr.020, ptr noundef null) #10
   %call7 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %f, ptr noundef nonnull @.str.39, double noundef %call6)
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi i32 [ %call5, %cond.true ], [ %call7, %cond.false ]
-  %tobool8 = icmp ne i32 %status.020, 0
+  %tobool8 = icmp ne i32 %status.022, 0
   %cmp9 = icmp sgt i32 %cond, 0
   %1 = and i1 %tobool8, %cmp9
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %call10 = call ptr @luaL_checklstring(ptr noundef %L, i32 noundef %arg.addr.021, ptr noundef nonnull %l) #10
-  %tobool11.not = icmp eq i32 %status.020, 0
+  %call10 = call ptr @luaL_checklstring(ptr noundef %L, i32 noundef %arg.addr.020, ptr noundef nonnull %l) #10
+  %tobool11.not = icmp eq i32 %status.022, 0
   br i1 %tobool11.not, label %for.inc, label %land.rhs12
 
 land.rhs12:                                       ; preds = %if.else
@@ -1344,7 +1344,7 @@ land.rhs12:                                       ; preds = %if.else
 for.inc:                                          ; preds = %if.else, %land.rhs12, %cond.end
   %status.1.in = phi i1 [ %1, %cond.end ], [ false, %if.else ], [ %cmp14, %land.rhs12 ]
   %status.1 = zext i1 %status.1.in to i32
-  %inc = add nsw i32 %arg.addr.021, 1
+  %inc = add nsw i32 %arg.addr.020, 1
   %dec = add nsw i32 %dec23, -1
   %tobool.not = icmp eq i32 %dec23, 0
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !12

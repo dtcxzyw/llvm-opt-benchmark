@@ -2517,23 +2517,23 @@ define internal fastcc ptr @readfile(ptr nocapture noundef readonly %0, ptr noca
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.05168 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
+  %.05667 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %27 = getelementptr i8, ptr %20, i64 %indvars.iv
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, 10
   %30 = zext i1 %29 to i32
-  %spec.select = add i32 %.05168, %30
+  %spec.select = add i32 %.05667, %30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.051.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %.lr.ph ]
-  %31 = add i32 %.051.lcssa, 1
+  %.056.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %.lr.ph ]
+  %31 = add i32 %.056.lcssa, 1
   %32 = sext i32 %31 to i64
   %33 = shl nsw i64 %32, 3
   %34 = tail call ptr @pg_malloc(i64 noundef %33) #17
-  store i32 %.051.lcssa, ptr %1, align 4
+  store i32 %.056.lcssa, ptr %1, align 4
   %invariant.gep = getelementptr i8, ptr %20, i64 1
   br i1 %25, label %.lr.ph73.preheader, label %._crit_edge74
 
@@ -2543,8 +2543,8 @@ define internal fastcc ptr @readfile(ptr nocapture noundef readonly %0, ptr noca
 
 .lr.ph73:                                         ; preds = %.lr.ph73.preheader, %60
   %indvars.iv77 = phi i64 [ 0, %.lr.ph73.preheader ], [ %indvars.iv.next78, %60 ]
-  %.05271 = phi i32 [ 0, %.lr.ph73.preheader ], [ %.153, %60 ]
-  %.05669 = phi ptr [ %20, %.lr.ph73.preheader ], [ %.157, %60 ]
+  %.05171 = phi i32 [ 0, %.lr.ph73.preheader ], [ %.1, %60 ]
+  %.05469 = phi ptr [ %20, %.lr.ph73.preheader ], [ %.155, %60 ]
   %35 = getelementptr i8, ptr %20, i64 %indvars.iv77
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 10
@@ -2552,7 +2552,7 @@ define internal fastcc ptr @readfile(ptr nocapture noundef readonly %0, ptr noca
 
 38:                                               ; preds = %.lr.ph73
   %39 = ptrtoint ptr %35 to i64
-  %40 = ptrtoint ptr %.05669 to i64
+  %40 = ptrtoint ptr %.05469 to i64
   %41 = sub i64 %39, %40
   %42 = trunc i64 %41 to i32
   %43 = shl i64 %41, 32
@@ -2560,7 +2560,7 @@ define internal fastcc ptr @readfile(ptr nocapture noundef readonly %0, ptr noca
   %44 = ashr exact i64 %sext63, 32
   %45 = tail call ptr @pg_malloc(i64 noundef %44) #17
   %46 = ashr exact i64 %43, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 1 %.05669, i64 %46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 1 %.05469, i64 %46, i1 false)
   %47 = icmp sgt i32 %42, 0
   br i1 %47, label %48, label %55
 
@@ -2580,34 +2580,34 @@ define internal fastcc ptr @readfile(ptr nocapture noundef readonly %0, ptr noca
   %.pre-phi = phi i64 [ %.pre82, %48 ], [ %46, %38 ]
   %56 = getelementptr i8, ptr %45, i64 %.pre-phi
   store i8 0, ptr %56, align 1
-  %57 = add i32 %.05271, 1
-  %58 = sext i32 %.05271 to i64
+  %57 = add i32 %.05171, 1
+  %58 = sext i32 %.05171 to i64
   %59 = getelementptr ptr, ptr %34, i64 %58
   store ptr %45, ptr %59, align 8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv77
   br label %60
 
 60:                                               ; preds = %.lr.ph73, %55
-  %.157 = phi ptr [ %gep, %55 ], [ %.05669, %.lr.ph73 ]
-  %.153 = phi i32 [ %57, %55 ], [ %.05271, %.lr.ph73 ]
+  %.155 = phi ptr [ %gep, %55 ], [ %.05469, %.lr.ph73 ]
+  %.1 = phi i32 [ %57, %55 ], [ %.05171, %.lr.ph73 ]
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
   br i1 %exitcond81.not, label %._crit_edge74.loopexit, label %.lr.ph73, !llvm.loop !12
 
 ._crit_edge74.loopexit:                           ; preds = %60
-  %61 = sext i32 %.153 to i64
+  %61 = sext i32 %.1 to i64
   br label %._crit_edge74
 
 ._crit_edge74:                                    ; preds = %._crit_edge74.loopexit, %._crit_edge
-  %.052.lcssa = phi i64 [ 0, %._crit_edge ], [ %61, %._crit_edge74.loopexit ]
-  %62 = getelementptr ptr, ptr %34, i64 %.052.lcssa
+  %.051.lcssa = phi i64 [ 0, %._crit_edge ], [ %61, %._crit_edge74.loopexit ]
+  %62 = getelementptr ptr, ptr %34, i64 %.051.lcssa
   store ptr null, ptr %62, align 8
   tail call void @free(ptr noundef %20) #17
   br label %63
 
 63:                                               ; preds = %2, %._crit_edge74, %26, %15, %9
-  %.0 = phi ptr [ null, %9 ], [ %17, %15 ], [ null, %26 ], [ %34, %._crit_edge74 ], [ null, %2 ]
-  ret ptr %.0
+  %.050 = phi ptr [ null, %9 ], [ %17, %15 ], [ null, %26 ], [ %34, %._crit_edge74 ], [ null, %2 ]
+  ret ptr %.050
 }
 
 ; Function Attrs: nofree nounwind

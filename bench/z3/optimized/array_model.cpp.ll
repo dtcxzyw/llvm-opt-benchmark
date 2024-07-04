@@ -833,23 +833,23 @@ if.end.i.i19:                                     ; preds = %_ZNK3euf13th_euf_so
   br i1 %cmp4.not5.i.i, label %if.end18.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i19, %for.inc.i.i
-  %overhead.07.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i19 ]
-  %curr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %4, %if.end.i.i19 ]
-  %6 = load ptr, ptr %curr.06.i.i, align 8
+  %curr.07.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %4, %if.end.i.i19 ]
+  %overhead.06.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i19 ]
+  %6 = load ptr, ptr %curr.07.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.i.i.i, label %if.else.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %for.body.i.i
-  store ptr null, ptr %curr.06.i.i, align 8
+  store ptr null, ptr %curr.07.i.i, align 8
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %inc.i.i = add i32 %overhead.07.i.i, 1
+  %inc.i.i = add i32 %overhead.06.i.i, 1
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then5.i.i
-  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.07.i.i, %if.then5.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.06.i.i, i64 16
+  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.06.i.i, %if.then5.i.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.07.i.i, i64 16
   %cmp4.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
   br i1 %cmp4.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !12
 
@@ -2315,9 +2315,9 @@ if.end36:                                         ; preds = %_ZN14core_hashtable
   br label %for.body42
 
 for.body42:                                       ; preds = %if.end36, %for.inc50
-  %__begin1.sroa.5.0265 = phi ptr [ null, %if.end36 ], [ %spec.select, %for.inc50 ]
-  %__begin1.sroa.0.0264 = phi ptr [ %n, %if.end36 ], [ %128, %for.inc50 ]
-  %113 = load ptr, ptr %__begin1.sroa.0.0264, align 8
+  %__begin1.sroa.0.0265 = phi ptr [ %n, %if.end36 ], [ %128, %for.inc50 ]
+  %__begin1.sroa.5.0264 = phi ptr [ null, %if.end36 ], [ %spec.select, %for.inc50 ]
+  %113 = load ptr, ptr %__begin1.sroa.0.0265, align 8
   %114 = load i32, ptr %a, align 8
   %m_kind.i.i.i94 = getelementptr inbounds i8, ptr %113, i64 4
   %bf.load.i.i.i95 = load i32, ptr %m_kind.i.i.i94, align 4
@@ -2343,7 +2343,7 @@ _ZNK17array_recognizers8is_constEP4expr.exit:     ; preds = %land.rhs.i.i98
   br i1 %119, label %if.then47, label %for.inc50
 
 if.then47:                                        ; preds = %_ZNK17array_recognizers8is_constEP4expr.exit
-  %m_args.i106 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0264, i64 176
+  %m_args.i106 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0265, i64 176
   %120 = load ptr, ptr %m_args.i106, align 8
   %121 = load ptr, ptr %m_deps.i.i109, align 8
   %cmp.i.i.i.i110 = icmp eq ptr %121, null
@@ -2390,9 +2390,9 @@ _ZN8top_sortIN3euf5enodeEE3addEPS1_S3_.exit126:   ; preds = %_ZNK8top_sortIN3euf
   br label %for.inc50
 
 for.inc50:                                        ; preds = %land.rhs.i.i98, %for.body42, %_ZNK17array_recognizers8is_constEP4expr.exit, %_ZN8top_sortIN3euf5enodeEE3addEPS1_S3_.exit126
-  %tobool.not.i127 = icmp eq ptr %__begin1.sroa.5.0265, null
-  %spec.select = select i1 %tobool.not.i127, ptr %__begin1.sroa.0.0264, ptr %__begin1.sroa.5.0265
-  %m_next.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0264, i64 56
+  %tobool.not.i127 = icmp eq ptr %__begin1.sroa.5.0264, null
+  %spec.select = select i1 %tobool.not.i127, ptr %__begin1.sroa.0.0265, ptr %__begin1.sroa.5.0264
+  %m_next.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0265, i64 56
   %128 = load ptr, ptr %m_next.i, align 8
   %cmp.i.i93 = icmp ne ptr %spec.select, %n
   %cmp4.i.i = icmp ne ptr %128, %n
@@ -3375,9 +3375,9 @@ for.body.lr.ph:                                   ; preds = %_ZNK3euf13enode_par
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %else_value.0388 = phi ptr [ null, %for.body.lr.ph ], [ %else_value.1, %for.inc ]
-  %max_occ_num.0387 = phi i32 [ 0, %for.body.lr.ph ], [ %max_occ_num.1, %for.inc ]
-  %__begin2.0386 = phi ptr [ %79, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %82 = load ptr, ptr %__begin2.0386, align 8
+  %__begin2.0387 = phi ptr [ %79, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %max_occ_num.0386 = phi i32 [ 0, %for.body.lr.ph ], [ %max_occ_num.1, %for.inc ]
+  %82 = load ptr, ptr %__begin2.0387, align 8
   %83 = load ptr, ptr %82, align 8
   %84 = load i32, ptr %a, align 8
   %m_kind.i.i.i163 = getelementptr inbounds i8, ptr %83, i64 4
@@ -3528,15 +3528,15 @@ invoke.cont102:                                   ; preds = %for.body.i.i.i, %fo
 
 invoke.cont104:                                   ; preds = %invoke.cont102
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %cmp105 = icmp ugt i32 %inc, %max_occ_num.0387
-  %spec.select = call i32 @llvm.umax.i32(i32 %inc, i32 %max_occ_num.0387)
+  %cmp105 = icmp ugt i32 %inc, %max_occ_num.0386
+  %spec.select = call i32 @llvm.umax.i32(i32 %inc, i32 %max_occ_num.0386)
   %spec.select66 = select i1 %cmp105, ptr %.then.val.i, ptr %else_value.0388
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then93, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i, %land.rhs.i.i167, %for.body, %invoke.cont104, %invoke.cont83, %land.lhs.true85, %invoke.cont97
-  %max_occ_num.1 = phi i32 [ %max_occ_num.0387, %invoke.cont97 ], [ %max_occ_num.0387, %land.lhs.true85 ], [ %max_occ_num.0387, %invoke.cont83 ], [ %spec.select, %invoke.cont104 ], [ %max_occ_num.0387, %for.body ], [ %max_occ_num.0387, %land.rhs.i.i167 ], [ %max_occ_num.0387, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i ], [ %max_occ_num.0387, %if.then93 ]
+  %max_occ_num.1 = phi i32 [ %max_occ_num.0386, %invoke.cont97 ], [ %max_occ_num.0386, %land.lhs.true85 ], [ %max_occ_num.0386, %invoke.cont83 ], [ %spec.select, %invoke.cont104 ], [ %max_occ_num.0386, %for.body ], [ %max_occ_num.0386, %land.rhs.i.i167 ], [ %max_occ_num.0386, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i ], [ %max_occ_num.0386, %if.then93 ]
   %else_value.1 = phi ptr [ %else_value.0388, %invoke.cont97 ], [ %else_value.0388, %land.lhs.true85 ], [ %else_value.0388, %invoke.cont83 ], [ %spec.select66, %invoke.cont104 ], [ %else_value.0388, %for.body ], [ %else_value.0388, %land.rhs.i.i167 ], [ %else_value.0388, %_ZNK6vectorIP4exprLb0EjE3getEjRKS1_.exit.i ], [ %else_value.0388, %if.then93 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.0386, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.0387, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.i
   br i1 %cmp.not, label %for.end, label %for.body
 

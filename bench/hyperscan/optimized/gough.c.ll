@@ -164,8 +164,8 @@ if.then17.i:                                      ; preds = %if.end8.i
 
 while.body.i:                                     ; preds = %while.body.i.backedge, %while.body.i.preheader
   %24 = phi i32 [ %inc.i, %while.body.i.preheader ], [ %.be, %while.body.i.backedge ]
-  %cur_buf.i.0 = phi ptr [ %cond.i, %while.body.i.preheader ], [ %spec.select, %while.body.i.backedge ]
   %sp.i.0 = phi i64 [ %22, %while.body.i.preheader ], [ %local_ep.i.0, %while.body.i.backedge ]
+  %cur_buf.i.0 = phi ptr [ %cond.i, %while.body.i.preheader ], [ %spec.select, %while.body.i.backedge ]
   %idxprom34.i = zext i32 %24 to i64
   %location36.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i40, i64 0, i64 %idxprom34.i, i32 1
   %25 = load i64, ptr %location36.i, align 8
@@ -515,8 +515,8 @@ if.then16.i:                                      ; preds = %if.end7.i
 
 while.body.i:                                     ; preds = %while.body.i.backedge, %while.body.i.preheader
   %24 = phi i32 [ %inc.i, %while.body.i.preheader ], [ %.be, %while.body.i.backedge ]
-  %cur_buf.i.0 = phi ptr [ %cond.i, %while.body.i.preheader ], [ %spec.select, %while.body.i.backedge ]
   %sp.i.0 = phi i64 [ %22, %while.body.i.preheader ], [ %local_ep.i.0, %while.body.i.backedge ]
+  %cur_buf.i.0 = phi ptr [ %cond.i, %while.body.i.preheader ], [ %spec.select, %while.body.i.backedge ]
   %idxprom31.i = zext i32 %24 to i64
   %location33.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i37, i64 0, i64 %idxprom31.i, i32 1
   %25 = load i64, ptr %location33.i, align 8
@@ -864,8 +864,8 @@ if.then17.i:                                      ; preds = %if.end8.i
 
 while.body.i:                                     ; preds = %while.body.i.backedge, %while.body.i.preheader
   %24 = phi i32 [ %inc.i, %while.body.i.preheader ], [ %.be, %while.body.i.backedge ]
-  %cur_buf.i.0 = phi ptr [ %cond.i, %while.body.i.preheader ], [ %spec.select, %while.body.i.backedge ]
   %sp.i.0 = phi i64 [ %22, %while.body.i.preheader ], [ %local_ep.i.0, %while.body.i.backedge ]
+  %cur_buf.i.0 = phi ptr [ %cond.i, %while.body.i.preheader ], [ %spec.select, %while.body.i.backedge ]
   %idxprom34.i = zext i32 %24 to i64
   %location36.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i40, i64 0, i64 %idxprom34.i, i32 1
   %25 = load i64, ptr %location36.i, align 8
@@ -1238,8 +1238,8 @@ if.then16.i:                                      ; preds = %if.end7.i
 
 while.body.i:                                     ; preds = %while.body.i.backedge, %while.body.i.preheader
   %24 = phi i32 [ %inc.i, %while.body.i.preheader ], [ %.be, %while.body.i.backedge ]
-  %cur_buf.i.0 = phi ptr [ %cond.i, %while.body.i.preheader ], [ %spec.select, %while.body.i.backedge ]
   %sp.i.0 = phi i64 [ %22, %while.body.i.preheader ], [ %local_ep.i.0, %while.body.i.backedge ]
+  %cur_buf.i.0 = phi ptr [ %cond.i, %while.body.i.preheader ], [ %spec.select, %while.body.i.backedge ]
   %idxprom31.i = zext i32 %24 to i64
   %location33.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i37, i64 0, i64 %idxprom31.i, i32 1
   %25 = load i64, ptr %location33.i, align 8
@@ -1596,8 +1596,8 @@ if.end8.i:                                        ; preds = %cond.end.i33, %if.e
 
 while.body.i:                                     ; preds = %while.body.i.backedge, %if.end8.i
   %23 = phi i32 [ %inc.i, %if.end8.i ], [ %.be, %while.body.i.backedge ]
-  %cur_buf.i.0 = phi ptr [ %cond.i, %if.end8.i ], [ %spec.select, %while.body.i.backedge ]
   %sp.i.0 = phi i64 [ %22, %if.end8.i ], [ %local_ep.i.0, %while.body.i.backedge ]
+  %cur_buf.i.0 = phi ptr [ %cond.i, %if.end8.i ], [ %spec.select, %while.body.i.backedge ]
   %idxprom34.i = zext i32 %23 to i64
   %location36.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i43, i64 0, i64 %idxprom34.i, i32 1
   %24 = load i64, ptr %location36.i, align 8
@@ -1920,8 +1920,8 @@ if.end7.i:                                        ; preds = %cond.end.i31, %if.e
 
 while.body.i:                                     ; preds = %while.body.i.backedge, %if.end7.i
   %23 = phi i32 [ %inc.i, %if.end7.i ], [ %.be, %while.body.i.backedge ]
-  %cur_buf.i.0 = phi ptr [ %cond.i, %if.end7.i ], [ %spec.select, %while.body.i.backedge ]
   %sp.i.0 = phi i64 [ %22, %if.end7.i ], [ %local_ep.i.0, %while.body.i.backedge ]
+  %cur_buf.i.0 = phi ptr [ %cond.i, %if.end7.i ], [ %spec.select, %while.body.i.backedge ]
   %idxprom31.i = zext i32 %23 to i64
   %location33.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i40, i64 0, i64 %idxprom31.i, i32 1
   %24 = load i64, ptr %location33.i, align 8
@@ -2938,9 +2938,9 @@ without_accel.i:                                  ; preds = %entry, %if.end120.i
   %cached_accept_som.i.0 = phi i32 [ %cached_accept_som.i.5407, %if.end120.i ], [ 0, %entry ]
   %cached_accept_id.i.0 = phi i32 [ %cached_accept_id.i.5408, %if.end120.i ], [ 0, %entry ]
   %cached_accept_state.i.0 = phi i16 [ %cached_accept_state.i.5409, %if.end120.i ], [ 0, %entry ]
-  %min_accel_offset.i.0 = phi ptr [ %min_accel_offset.i.3, %if.end120.i ], [ %add.ptr.i, %entry ]
-  %c.i.0 = phi ptr [ %call114.i, %if.end120.i ], [ %buf, %entry ]
   %s.i.0 = phi i8 [ %67, %if.end120.i ], [ %0, %entry ]
+  %c.i.0 = phi ptr [ %call114.i, %if.end120.i ], [ %buf, %entry ]
+  %min_accel_offset.i.0 = phi ptr [ %min_accel_offset.i.3, %if.end120.i ], [ %add.ptr.i, %entry ]
   %cmp8.i314 = icmp ult ptr %c.i.0, %min_accel_offset.i.0
   %tobool11.i315 = icmp ne i8 %s.i.0, 0
   %7 = select i1 %cmp8.i314, i1 %tobool11.i315, i1 false
@@ -2957,11 +2957,11 @@ while.body.i.lr.ph:                               ; preds = %without_accel.i
   ]
 
 while.body.i.us:                                  ; preds = %while.body.i.lr.ph, %run_prog.exit.us
-  %s.i.1320.us = phi i8 [ %18, %run_prog.exit.us ], [ %s.i.0, %while.body.i.lr.ph ]
-  %c.i.1319.us = phi ptr [ %incdec.ptr.i.us, %run_prog.exit.us ], [ %c.i.0, %while.body.i.lr.ph ]
-  %conv10.i.us = zext i8 %s.i.1320.us to i32
-  %incdec.ptr.i.us = getelementptr inbounds i8, ptr %c.i.1319.us, i64 1
-  %8 = load i8, ptr %c.i.1319.us, align 1
+  %c.i.1320.us = phi ptr [ %incdec.ptr.i.us, %run_prog.exit.us ], [ %c.i.0, %while.body.i.lr.ph ]
+  %s.i.1319.us = phi i8 [ %18, %run_prog.exit.us ], [ %s.i.0, %while.body.i.lr.ph ]
+  %conv10.i.us = zext i8 %s.i.1319.us to i32
+  %incdec.ptr.i.us = getelementptr inbounds i8, ptr %c.i.1320.us, i64 1
+  %8 = load i8, ptr %c.i.1320.us, align 1
   %idxprom.i.us = zext i8 %8 to i64
   %arrayidx.i.us = getelementptr inbounds [256 x i8], ptr %remap.i, i64 0, i64 %idxprom.i.us
   %9 = load i8, ptr %arrayidx.i.us, align 1
@@ -3048,11 +3048,11 @@ run_prog.exit.us:                                 ; preds = %while.body.i61.us, 
   br i1 %19, label %while.body.i.us, label %with_accel.i, !llvm.loop !9
 
 while.body.i.us329:                               ; preds = %while.body.i.lr.ph, %if.end44.i.us381
-  %s.i.1320.us330 = phi i8 [ %30, %if.end44.i.us381 ], [ %s.i.0, %while.body.i.lr.ph ]
-  %c.i.1319.us331 = phi ptr [ %incdec.ptr.i.us336, %if.end44.i.us381 ], [ %c.i.0, %while.body.i.lr.ph ]
-  %conv10.i.us335 = zext i8 %s.i.1320.us330 to i32
-  %incdec.ptr.i.us336 = getelementptr inbounds i8, ptr %c.i.1319.us331, i64 1
-  %20 = load i8, ptr %c.i.1319.us331, align 1
+  %c.i.1320.us330 = phi ptr [ %incdec.ptr.i.us336, %if.end44.i.us381 ], [ %c.i.0, %while.body.i.lr.ph ]
+  %s.i.1319.us331 = phi i8 [ %30, %if.end44.i.us381 ], [ %s.i.0, %while.body.i.lr.ph ]
+  %conv10.i.us335 = zext i8 %s.i.1319.us331 to i32
+  %incdec.ptr.i.us336 = getelementptr inbounds i8, ptr %c.i.1320.us330, i64 1
+  %20 = load i8, ptr %c.i.1320.us330, align 1
   %idxprom.i.us337 = zext i8 %20 to i64
   %arrayidx.i.us338 = getelementptr inbounds [256 x i8], ptr %remap.i, i64 0, i64 %idxprom.i.us337
   %21 = load i8, ptr %arrayidx.i.us338, align 1
@@ -3144,14 +3144,14 @@ if.end44.i.us381:                                 ; preds = %run_prog.exit.us379
   br i1 %32, label %while.body.i.us329, label %with_accel.i, !llvm.loop !9
 
 while.body.i:                                     ; preds = %while.body.i.lr.ph, %if.end44.i
-  %s.i.1320 = phi i8 [ %43, %if.end44.i ], [ %s.i.0, %while.body.i.lr.ph ]
-  %c.i.1319 = phi ptr [ %incdec.ptr.i, %if.end44.i ], [ %c.i.0, %while.body.i.lr.ph ]
+  %c.i.1320 = phi ptr [ %incdec.ptr.i, %if.end44.i ], [ %c.i.0, %while.body.i.lr.ph ]
+  %s.i.1319 = phi i8 [ %43, %if.end44.i ], [ %s.i.0, %while.body.i.lr.ph ]
   %cached_accept_state.i.1318 = phi i16 [ %cached_accept_state.i.3, %if.end44.i ], [ %cached_accept_state.i.0, %while.body.i.lr.ph ]
   %cached_accept_id.i.1317 = phi i32 [ %cached_accept_id.i.3, %if.end44.i ], [ %cached_accept_id.i.0, %while.body.i.lr.ph ]
   %cached_accept_som.i.1316 = phi i32 [ %cached_accept_som.i.3, %if.end44.i ], [ %cached_accept_som.i.0, %while.body.i.lr.ph ]
-  %conv10.i = zext i8 %s.i.1320 to i32
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %c.i.1319, i64 1
-  %33 = load i8, ptr %c.i.1319, align 1
+  %conv10.i = zext i8 %s.i.1319 to i32
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %c.i.1320, i64 1
+  %33 = load i8, ptr %c.i.1320, align 1
   %idxprom.i = zext i8 %33 to i64
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr %remap.i, i64 0, i64 %idxprom.i
   %34 = load i8, ptr %arrayidx.i, align 1
@@ -3237,7 +3237,7 @@ run_prog.exit:                                    ; preds = %while.body.i61, %wh
   br i1 %cmp24.i.not, label %if.end44.i, label %if.then26.i
 
 if.then26.i:                                      ; preds = %run_prog.exit
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %c.i.1319 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %c.i.1320 to i64
   %add36.i = add i64 %add35.i, %sub.ptr.lhs.cast.i
   %cmp.i168.i = icmp eq i16 %cached_accept_state.i.1318, %44
   br i1 %cmp.i168.i, label %if.then.i224.i, label %cond.end15.i175.i
@@ -3338,9 +3338,9 @@ with_accel.i:                                     ; preds = %if.end44.i.us381, %
   %cached_accept_som.i.4 = phi i32 [ 0, %entry ], [ %cached_accept_som.i.0, %without_accel.i ], [ %cached_accept_som.i.3, %if.end44.i ], [ %cached_accept_som.i.0, %run_prog.exit.us ], [ %cached_accept_som.i.0, %if.end44.i.us381 ]
   %cached_accept_id.i.4 = phi i32 [ 0, %entry ], [ %cached_accept_id.i.0, %without_accel.i ], [ %cached_accept_id.i.3, %if.end44.i ], [ %cached_accept_id.i.0, %run_prog.exit.us ], [ %cached_accept_id.i.0, %if.end44.i.us381 ]
   %cached_accept_state.i.4 = phi i16 [ 0, %entry ], [ %cached_accept_state.i.0, %without_accel.i ], [ %cached_accept_state.i.3, %if.end44.i ], [ %cached_accept_state.i.0, %run_prog.exit.us ], [ %cached_accept_state.i.0, %if.end44.i.us381 ]
-  %min_accel_offset.i.1 = phi ptr [ %buf, %entry ], [ %min_accel_offset.i.0, %without_accel.i ], [ %min_accel_offset.i.0, %if.end44.i ], [ %min_accel_offset.i.0, %run_prog.exit.us ], [ %min_accel_offset.i.0, %if.end44.i.us381 ]
-  %c.i.2 = phi ptr [ %buf, %entry ], [ %c.i.0, %without_accel.i ], [ %incdec.ptr.i, %if.end44.i ], [ %incdec.ptr.i.us, %run_prog.exit.us ], [ %incdec.ptr.i.us336, %if.end44.i.us381 ]
   %s.i.2 = phi i8 [ %0, %entry ], [ %s.i.0, %without_accel.i ], [ %43, %if.end44.i ], [ %18, %run_prog.exit.us ], [ %30, %if.end44.i.us381 ]
+  %c.i.2 = phi ptr [ %buf, %entry ], [ %c.i.0, %without_accel.i ], [ %incdec.ptr.i, %if.end44.i ], [ %incdec.ptr.i.us, %run_prog.exit.us ], [ %incdec.ptr.i.us336, %if.end44.i.us381 ]
+  %min_accel_offset.i.1 = phi ptr [ %buf, %entry ], [ %min_accel_offset.i.0, %without_accel.i ], [ %min_accel_offset.i.0, %if.end44.i ], [ %min_accel_offset.i.0, %run_prog.exit.us ], [ %min_accel_offset.i.0, %if.end44.i.us381 ]
   %cmp46.i405 = icmp ult ptr %c.i.2, %add.ptr.i
   %tobool50.i406 = icmp ne i8 %s.i.2, 0
   %56 = select i1 %cmp46.i405, i1 %tobool50.i406, i1 false
@@ -3356,14 +3356,14 @@ while.body52.i.lr.ph:                             ; preds = %with_accel.i
   br label %while.body52.i
 
 while.body52.i:                                   ; preds = %while.body52.i.lr.ph, %if.end138.i
-  %s.i.3411 = phi i8 [ %s.i.2, %while.body52.i.lr.ph ], [ %67, %if.end138.i ]
-  %c.i.3410 = phi ptr [ %c.i.2, %while.body52.i.lr.ph ], [ %incdec.ptr55.i, %if.end138.i ]
+  %c.i.3411 = phi ptr [ %c.i.2, %while.body52.i.lr.ph ], [ %incdec.ptr55.i, %if.end138.i ]
+  %s.i.3410 = phi i8 [ %s.i.2, %while.body52.i.lr.ph ], [ %67, %if.end138.i ]
   %cached_accept_state.i.5409 = phi i16 [ %cached_accept_state.i.4, %while.body52.i.lr.ph ], [ %cached_accept_state.i.7, %if.end138.i ]
   %cached_accept_id.i.5408 = phi i32 [ %cached_accept_id.i.4, %while.body52.i.lr.ph ], [ %cached_accept_id.i.7, %if.end138.i ]
   %cached_accept_som.i.5407 = phi i32 [ %cached_accept_som.i.4, %while.body52.i.lr.ph ], [ %cached_accept_som.i.7, %if.end138.i ]
-  %conv49.i = zext i8 %s.i.3411 to i32
-  %incdec.ptr55.i = getelementptr inbounds i8, ptr %c.i.3410, i64 1
-  %57 = load i8, ptr %c.i.3410, align 1
+  %conv49.i = zext i8 %s.i.3410 to i32
+  %incdec.ptr55.i = getelementptr inbounds i8, ptr %c.i.3411, i64 1
+  %57 = load i8, ptr %c.i.3411, align 1
   %idxprom56.i = zext i8 %57 to i64
   %arrayidx57.i = getelementptr inbounds [256 x i8], ptr %remap54.i, i64 0, i64 %idxprom56.i
   %58 = load i8, ptr %arrayidx57.i, align 1
@@ -3457,7 +3457,7 @@ if.then81.i:                                      ; preds = %if.then73.i
   br i1 %cmp82.i, label %goughExec8_i.exit.sink.split.sink.split, label %if.end88.i
 
 if.end88.i:                                       ; preds = %if.then81.i
-  %sub.ptr.lhs.cast91.i = ptrtoint ptr %c.i.3410 to i64
+  %sub.ptr.lhs.cast91.i = ptrtoint ptr %c.i.3411 to i64
   %add95.i = add i64 %add94.i, %sub.ptr.lhs.cast91.i
   %cmp.i.i = icmp eq i16 %cached_accept_state.i.5409, %68
   br i1 %cmp.i.i, label %if.then.i.i, label %cond.end15.i.i
@@ -3598,7 +3598,7 @@ while.end139.i:                                   ; preds = %if.end138.i, %with_
 
 goughExec8_i.exit.sink.split.sink.split:          ; preds = %run_prog.exit.us379, %if.then81.i
   %.lcssa498.sink = phi i8 [ %67, %if.then81.i ], [ %30, %run_prog.exit.us379 ]
-  %add.ptr.i.sink.ph = phi ptr [ %c.i.3410, %if.then81.i ], [ %c.i.1319.us331, %run_prog.exit.us379 ]
+  %add.ptr.i.sink.ph = phi ptr [ %c.i.3411, %if.then81.i ], [ %c.i.1320.us330, %run_prog.exit.us379 ]
   store i8 %.lcssa498.sink, ptr %state, align 1
   br label %goughExec8_i.exit.sink.split
 
@@ -3894,9 +3894,9 @@ without_accel.i:                                  ; preds = %entry, %if.end156.i
   %cached_accept_som.i.0 = phi i32 [ %cached_accept_som.i.5403, %if.end156.i ], [ 0, %entry ]
   %cached_accept_id.i.0 = phi i32 [ %cached_accept_id.i.5404, %if.end156.i ], [ 0, %entry ]
   %cached_accept_state.i.0 = phi i16 [ %cached_accept_state.i.5405, %if.end156.i ], [ 0, %entry ]
-  %min_accel_offset.i.0 = phi ptr [ %min_accel_offset.i.3, %if.end156.i ], [ %add.ptr1.i, %entry ]
-  %c.i.0 = phi ptr [ %call150.i, %if.end156.i ], [ %buf, %entry ]
   %s.i.0 = phi i16 [ %conv174.i, %if.end156.i ], [ %4, %entry ]
+  %c.i.0 = phi ptr [ %call150.i, %if.end156.i ], [ %buf, %entry ]
+  %min_accel_offset.i.0 = phi ptr [ %min_accel_offset.i.3, %if.end156.i ], [ %add.ptr1.i, %entry ]
   %cmp8.i385 = icmp ult ptr %c.i.0, %min_accel_offset.i.0
   %tobool11.i387 = icmp ne i16 %s.i.0, 0
   %7 = select i1 %cmp8.i385, i1 %tobool11.i387, i1 false
@@ -3914,14 +3914,14 @@ while.body.i.lr.ph:                               ; preds = %without_accel.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.lr.ph, %if.end61.i
-  %s.i.1392 = phi i16 [ %s.i.0, %while.body.i.lr.ph ], [ %.pre-phi, %if.end61.i ]
-  %c.i.1391 = phi ptr [ %c.i.0, %while.body.i.lr.ph ], [ %incdec.ptr.i, %if.end61.i ]
+  %c.i.1392 = phi ptr [ %c.i.0, %while.body.i.lr.ph ], [ %incdec.ptr.i, %if.end61.i ]
+  %s.i.1391 = phi i16 [ %s.i.0, %while.body.i.lr.ph ], [ %.pre-phi, %if.end61.i ]
   %cached_accept_state.i.1390 = phi i16 [ %cached_accept_state.i.0, %while.body.i.lr.ph ], [ %cached_accept_state.i.3, %if.end61.i ]
   %cached_accept_id.i.1389 = phi i32 [ %cached_accept_id.i.0, %while.body.i.lr.ph ], [ %cached_accept_id.i.3, %if.end61.i ]
   %cached_accept_som.i.1388 = phi i32 [ %cached_accept_som.i.0, %while.body.i.lr.ph ], [ %cached_accept_som.i.3, %if.end61.i ]
-  %conv10.i393 = zext nneg i16 %s.i.1392 to i32
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %c.i.1391, i64 1
-  %8 = load i8, ptr %c.i.1391, align 1
+  %conv10.i393 = zext nneg i16 %s.i.1391 to i32
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %c.i.1392, i64 1
+  %8 = load i8, ptr %c.i.1392, align 1
   %idxprom.i = zext i8 %8 to i64
   %arrayidx.i = getelementptr inbounds [256 x i8], ptr %remap.i, i64 0, i64 %idxprom.i
   %9 = load i8, ptr %arrayidx.i, align 1
@@ -4000,7 +4000,7 @@ sw.epilog.i.i:                                    ; preds = %if.then.i347.i, %if
   br label %while.body.i.i
 
 run_prog.exit336.i:                               ; preds = %while.body.i.i, %while.body.i
-  %cmp18.i = icmp ult i16 %s.i.1392, %1
+  %cmp18.i = icmp ult i16 %s.i.1391, %1
   br i1 %cmp18.i, label %if.then20.i, label %if.else.i
 
 if.then20.i:                                      ; preds = %run_prog.exit336.i
@@ -4077,11 +4077,11 @@ if.then40.i:                                      ; preds = %if.end32.i
 if.then43.i:                                      ; preds = %if.then40.i
   %27 = and i16 %s.i.2, 16383
   store i16 %27, ptr %state, align 2
-  store ptr %c.i.1391, ptr %final_point, align 8
+  store ptr %c.i.1392, ptr %final_point, align 8
   br label %goughExec16_i.exit
 
 if.end48.i:                                       ; preds = %if.then40.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %c.i.1391 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %c.i.1392 to i64
   %add51.i = add i64 %add50.i, %sub.ptr.lhs.cast.i
   %and53.i = and i16 %s.i.2, 16383
   %cmp.i209.i = icmp eq i16 %and53.i, %cached_accept_state.i.1390
@@ -4184,9 +4184,9 @@ with_accel.i:                                     ; preds = %if.end61.i, %withou
   %cached_accept_som.i.4 = phi i32 [ 0, %entry ], [ %cached_accept_som.i.0, %without_accel.i ], [ %cached_accept_som.i.3, %if.end61.i ]
   %cached_accept_id.i.4 = phi i32 [ 0, %entry ], [ %cached_accept_id.i.0, %without_accel.i ], [ %cached_accept_id.i.3, %if.end61.i ]
   %cached_accept_state.i.4 = phi i16 [ 0, %entry ], [ %cached_accept_state.i.0, %without_accel.i ], [ %cached_accept_state.i.3, %if.end61.i ]
-  %min_accel_offset.i.1 = phi ptr [ %buf, %entry ], [ %min_accel_offset.i.0, %without_accel.i ], [ %min_accel_offset.i.0, %if.end61.i ]
-  %c.i.2 = phi ptr [ %buf, %entry ], [ %c.i.0, %without_accel.i ], [ %incdec.ptr.i, %if.end61.i ]
   %s.i.3 = phi i16 [ %4, %entry ], [ %s.i.0, %without_accel.i ], [ %.pre-phi, %if.end61.i ]
+  %c.i.2 = phi ptr [ %buf, %entry ], [ %c.i.0, %without_accel.i ], [ %incdec.ptr.i, %if.end61.i ]
+  %min_accel_offset.i.1 = phi ptr [ %buf, %entry ], [ %min_accel_offset.i.0, %without_accel.i ], [ %min_accel_offset.i.0, %if.end61.i ]
   %cmp66.i400 = icmp ult ptr %c.i.2, %add.ptr1.i
   %tobool70.i402 = icmp ne i16 %s.i.3, 0
   %39 = select i1 %cmp66.i400, i1 %tobool70.i402, i1 false
@@ -4204,14 +4204,14 @@ while.body72.i.lr.ph:                             ; preds = %with_accel.i
   br label %while.body72.i
 
 while.body72.i:                                   ; preds = %while.body72.i.lr.ph, %if.end176.i
-  %s.i.4407 = phi i16 [ %s.i.3, %while.body72.i.lr.ph ], [ %.pre-phi457, %if.end176.i ]
-  %c.i.3406 = phi ptr [ %c.i.2, %while.body72.i.lr.ph ], [ %incdec.ptr75.i, %if.end176.i ]
+  %c.i.3407 = phi ptr [ %c.i.2, %while.body72.i.lr.ph ], [ %incdec.ptr75.i, %if.end176.i ]
+  %s.i.4406 = phi i16 [ %s.i.3, %while.body72.i.lr.ph ], [ %.pre-phi457, %if.end176.i ]
   %cached_accept_state.i.5405 = phi i16 [ %cached_accept_state.i.4, %while.body72.i.lr.ph ], [ %cached_accept_state.i.7, %if.end176.i ]
   %cached_accept_id.i.5404 = phi i32 [ %cached_accept_id.i.4, %while.body72.i.lr.ph ], [ %cached_accept_id.i.7, %if.end176.i ]
   %cached_accept_som.i.5403 = phi i32 [ %cached_accept_som.i.4, %while.body72.i.lr.ph ], [ %cached_accept_som.i.7, %if.end176.i ]
-  %conv69.i408 = zext nneg i16 %s.i.4407 to i32
-  %incdec.ptr75.i = getelementptr inbounds i8, ptr %c.i.3406, i64 1
-  %40 = load i8, ptr %c.i.3406, align 1
+  %conv69.i408 = zext nneg i16 %s.i.4406 to i32
+  %incdec.ptr75.i = getelementptr inbounds i8, ptr %c.i.3407, i64 1
+  %40 = load i8, ptr %c.i.3407, align 1
   %idxprom76.i = zext i8 %40 to i64
   %arrayidx77.i = getelementptr inbounds [256 x i8], ptr %remap74.i, i64 0, i64 %idxprom76.i
   %41 = load i8, ptr %arrayidx77.i, align 1
@@ -4290,7 +4290,7 @@ sw.epilog.i371.i:                                 ; preds = %if.then.i389.i, %if
   br label %while.body.i358.i
 
 run_prog.exit.i:                                  ; preds = %while.body.i358.i, %while.body72.i
-  %cmp87.i = icmp ult i16 %s.i.4407, %1
+  %cmp87.i = icmp ult i16 %s.i.4406, %1
   br i1 %cmp87.i, label %if.then89.i, label %if.else94.i
 
 if.then89.i:                                      ; preds = %run_prog.exit.i
@@ -4363,11 +4363,11 @@ if.then112.i:                                     ; preds = %if.end103.i
 if.then115.i:                                     ; preds = %if.then112.i
   %59 = and i16 %s.i.5, 16383
   store i16 %59, ptr %state, align 2
-  store ptr %c.i.3406, ptr %final_point, align 8
+  store ptr %c.i.3407, ptr %final_point, align 8
   br label %goughExec16_i.exit
 
 if.end120.i:                                      ; preds = %if.then112.i
-  %sub.ptr.lhs.cast123.i = ptrtoint ptr %c.i.3406 to i64
+  %sub.ptr.lhs.cast123.i = ptrtoint ptr %c.i.3407 to i64
   %add127.i = add i64 %add126.i, %sub.ptr.lhs.cast123.i
   %and129.i = and i16 %s.i.5, 16383
   %cmp.i.i = icmp eq i16 %and129.i, %cached_accept_state.i.5405

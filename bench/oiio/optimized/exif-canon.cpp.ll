@@ -1010,19 +1010,19 @@ for.body.lr.ph.i:                                 ; preds = %_ZNSt6vectorItSaItE
   br label %for.body.outer.i
 
 for.body.outer.i:                                 ; preds = %for.inc.thread.i, %for.body.lr.ph.i
-  %anyfound.033.ph.i = phi i1 [ true, %for.inc.thread.i ], [ false, %for.body.lr.ph.i ]
-  %__begin2.032.ph.i.idx = phi i64 [ %__begin2.032.i.add, %for.inc.thread.i ], [ 0, %for.body.lr.ph.i ]
+  %__begin2.033.ph.i.idx = phi i64 [ %__begin2.033.i.add, %for.inc.thread.i ], [ 0, %for.body.lr.ph.i ]
+  %anyfound.032.ph.i = phi i1 [ true, %for.inc.thread.i ], [ false, %for.body.lr.ph.i ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.outer.i
-  %__begin2.032.i.idx = phi i64 [ %__begin2.032.i.add38, %for.inc.i ], [ %__begin2.032.ph.i.idx, %for.body.outer.i ]
-  %__begin2.032.i.ptr = getelementptr inbounds i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL25canon_focallength_indicesE, i64 %__begin2.032.i.idx
-  %13 = load i32, ptr %__begin2.032.i.ptr, align 8
+  %__begin2.033.i.idx = phi i64 [ %__begin2.033.i.add38, %for.inc.i ], [ %__begin2.033.ph.i.idx, %for.body.outer.i ]
+  %__begin2.033.i.ptr = getelementptr inbounds i8, ptr @_ZN18OpenImageIO_v2_6_03pvtL25canon_focallength_indicesE, i64 %__begin2.033.i.idx
+  %13 = load i32, ptr %__begin2.033.i.ptr, align 8
   %cmp7.i = icmp slt i32 %13, %conv6.i
   br i1 %cmp7.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %label.i = getelementptr inbounds i8, ptr %__begin2.032.i.ptr, i64 8
+  %label.i = getelementptr inbounds i8, ptr %__begin2.033.i.ptr, i64 8
   %14 = load ptr, ptr %label.i, align 8
   store ptr %14, ptr %agg.tmp.i, align 8
   %tobool.not.i.i33 = icmp eq ptr %14, null
@@ -1073,22 +1073,22 @@ if.then.i.i.i.i:                                  ; preds = %lpad9.i
   br label %eh.resume.i
 
 for.inc.i:                                        ; preds = %invoke.cont10.i, %for.body.i
-  %__begin2.032.i.add38 = add nsw i64 %__begin2.032.i.idx, 16
-  %cmp.not.i = icmp eq i64 %__begin2.032.i.add38, 64
+  %__begin2.033.i.add38 = add nsw i64 %__begin2.033.i.idx, 16
+  %cmp.not.i = icmp eq i64 %__begin2.033.i.add38, 64
   br i1 %cmp.not.i, label %for.end.i, label %for.body.i
 
 for.inc.thread.i:                                 ; preds = %if.then12.i
   %conv15.i = trunc i32 %call14.i to i16
-  %15 = load i32, ptr %__begin2.032.i.ptr, align 8
+  %15 = load i32, ptr %__begin2.033.i.ptr, align 8
   %conv17.i = sext i32 %15 to i64
   %add.ptr.i9.i = getelementptr inbounds i16, ptr %array.sroa.0.0.i, i64 %conv17.i
   store i16 %conv15.i, ptr %add.ptr.i9.i, align 2
-  %__begin2.032.i.add = add nsw i64 %__begin2.032.i.idx, 16
-  %cmp.not36.i = icmp eq i64 %__begin2.032.i.add, 64
+  %__begin2.033.i.add = add nsw i64 %__begin2.033.i.idx, 16
+  %cmp.not36.i = icmp eq i64 %__begin2.033.i.add, 64
   br i1 %cmp.not36.i, label %if.then21.i, label %for.body.outer.i
 
 for.end.i:                                        ; preds = %for.inc.i
-  br i1 %anyfound.033.ph.i, label %if.then21.i, label %if.end25.i
+  br i1 %anyfound.032.ph.i, label %if.then21.i, label %if.end25.i
 
 if.then21.i:                                      ; preds = %for.inc.thread.i, %for.end.i
   %sub.ptr.div.i14.i = ashr exact i64 %sub.ptr.sub.i.i, 1
@@ -1167,18 +1167,18 @@ for.body.lr.ph:                                   ; preds = %invoke.cont
   br label %for.body.outer
 
 for.body.outer:                                   ; preds = %for.inc.thread, %for.body.lr.ph
-  %anyfound.033.ph = phi i1 [ true, %for.inc.thread ], [ false, %for.body.lr.ph ]
-  %__begin2.032.ph = phi ptr [ %incdec.ptr35, %for.inc.thread ], [ %indices.coerce0, %for.body.lr.ph ]
+  %__begin2.033.ph = phi ptr [ %incdec.ptr35, %for.inc.thread ], [ %indices.coerce0, %for.body.lr.ph ]
+  %anyfound.032.ph = phi i1 [ true, %for.inc.thread ], [ false, %for.body.lr.ph ]
   br label %for.body
 
 for.body:                                         ; preds = %for.body.outer, %for.inc
-  %__begin2.032 = phi ptr [ %incdec.ptr, %for.inc ], [ %__begin2.032.ph, %for.body.outer ]
-  %3 = load i32, ptr %__begin2.032, align 8
+  %__begin2.033 = phi ptr [ %incdec.ptr, %for.inc ], [ %__begin2.033.ph, %for.body.outer ]
+  %3 = load i32, ptr %__begin2.033, align 8
   %cmp7 = icmp slt i32 %3, %conv6
   br i1 %cmp7, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %label = getelementptr inbounds i8, ptr %__begin2.032, i64 8
+  %label = getelementptr inbounds i8, ptr %__begin2.033, i64 8
   %4 = load ptr, ptr %label, align 8
   store ptr %4, ptr %agg.tmp, align 8
   %tobool.not.i = icmp eq ptr %4, null
@@ -1229,22 +1229,22 @@ if.then.i.i.i:                                    ; preds = %lpad9
   br label %eh.resume
 
 for.inc:                                          ; preds = %for.body, %invoke.cont10
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.032, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.033, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %0
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.inc.thread:                                   ; preds = %if.then12
   %conv15 = trunc i32 %call14 to i16
-  %5 = load i32, ptr %__begin2.032, align 8
+  %5 = load i32, ptr %__begin2.033, align 8
   %conv17 = sext i32 %5 to i64
   %add.ptr.i9 = getelementptr inbounds i16, ptr %array.sroa.0.0, i64 %conv17
   store i16 %conv15, ptr %add.ptr.i9, align 2
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %__begin2.032, i64 16
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %__begin2.033, i64 16
   %cmp.not36 = icmp eq ptr %incdec.ptr35, %0
   br i1 %cmp.not36, label %if.then21, label %for.body.outer
 
 for.end:                                          ; preds = %for.inc
-  br i1 %anyfound.033.ph, label %if.then21, label %if.end25
+  br i1 %anyfound.032.ph, label %if.then21, label %if.end25
 
 if.then21:                                        ; preds = %for.inc.thread, %for.end
   %sub.ptr.div.i14 = ashr exact i64 %sub.ptr.sub.i, 1

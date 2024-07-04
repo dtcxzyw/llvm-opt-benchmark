@@ -628,13 +628,13 @@ attach_info.exit:                                 ; preds = %assign_fph_pch.exit
   br label %271
 
 271:                                              ; preds = %attach_info.exit, %270, %251
-  %.039.in = phi ptr [ @data_handle, %270 ], [ @atm_untrunc_handle, %251 ], [ @ethwithfcs_handle, %attach_info.exit ]
-  %.038 = phi ptr [ null, %270 ], [ %5, %251 ], [ null, %attach_info.exit ]
-  %.037 = phi i16 [ %8, %270 ], [ %257, %251 ], [ %8, %attach_info.exit ]
-  %.039 = load ptr, ptr %.039.in, align 8
-  %272 = zext i16 %.037 to i32
+  %.039 = phi i16 [ %8, %270 ], [ %257, %251 ], [ %8, %attach_info.exit ]
+  %.038.in = phi ptr [ @data_handle, %270 ], [ @atm_untrunc_handle, %251 ], [ @ethwithfcs_handle, %attach_info.exit ]
+  %.037 = phi ptr [ null, %270 ], [ %5, %251 ], [ null, %attach_info.exit ]
+  %.038 = load ptr, ptr %.038.in, align 8
+  %272 = zext i16 %.039 to i32
   %273 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %272) #3
-  %274 = call i32 @call_dissector_with_data(ptr noundef %.039, ptr noundef %273, ptr noundef %1, ptr noundef %2, ptr noundef %.038) #3
+  %274 = call i32 @call_dissector_with_data(ptr noundef %.038, ptr noundef %273, ptr noundef %1, ptr noundef %2, ptr noundef %.037) #3
   %275 = call i32 @tvb_captured_length(ptr noundef %0) #3
   ret i32 %275
 }
@@ -717,7 +717,7 @@ define internal fastcc void @assign_rb_info(ptr noundef %0, ptr noundef %1, i16 
   br label %17
 
 17:                                               ; preds = %12, %5
-  %.0101 = phi ptr [ %8, %5 ], [ %14, %12 ]
+  %.0100 = phi ptr [ %8, %5 ], [ %14, %12 ]
   %.not109 = icmp eq ptr %11, null
   br i1 %.not109, label %18, label %23
 
@@ -730,25 +730,25 @@ define internal fastcc void @assign_rb_info(ptr noundef %0, ptr noundef %1, i16 
   br label %23
 
 23:                                               ; preds = %18, %17
-  %.0100 = phi ptr [ %11, %17 ], [ %20, %18 ]
+  %.099 = phi ptr [ %11, %17 ], [ %20, %18 ]
   %.not121 = icmp eq i8 %3, 0
   br i1 %.not121, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
-  %24 = getelementptr inbounds i8, ptr %.0100, i64 256
-  %25 = getelementptr inbounds i8, ptr %.0100, i64 320
-  %26 = getelementptr inbounds i8, ptr %.0100, i64 640
-  %27 = getelementptr inbounds i8, ptr %.0100, i64 896
-  %28 = getelementptr inbounds i8, ptr %.0100, i64 384
-  %29 = getelementptr inbounds i8, ptr %.0101, i64 256
+  %24 = getelementptr inbounds i8, ptr %.099, i64 256
+  %25 = getelementptr inbounds i8, ptr %.099, i64 320
+  %26 = getelementptr inbounds i8, ptr %.099, i64 640
+  %27 = getelementptr inbounds i8, ptr %.099, i64 896
+  %28 = getelementptr inbounds i8, ptr %.099, i64 384
+  %29 = getelementptr inbounds i8, ptr %.0100, i64 256
   %.not111 = icmp eq ptr %4, null
   %wide.trip.count = zext i8 %3 to i64
   br label %30
 
 30:                                               ; preds = %.lr.ph, %92
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %92 ]
-  %.099120 = phi i16 [ %2, %.lr.ph ], [ %93, %92 ]
-  %31 = zext i16 %.099120 to i32
+  %.0101120 = phi i16 [ %2, %.lr.ph ], [ %93, %92 ]
+  %31 = zext i16 %.0101120 to i32
   %32 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %31) #3
   %33 = add nuw nsw i32 %31, 4
   %34 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %33) #3
@@ -780,7 +780,7 @@ define internal fastcc void @assign_rb_info(ptr noundef %0, ptr noundef %1, i16 
   store i8 %53, ptr %54, align 1
   %55 = getelementptr [64 x i8], ptr %25, i64 0, i64 %indvars.iv
   store i8 %50, ptr %55, align 1
-  %56 = getelementptr [64 x i32], ptr %.0100, i64 0, i64 %indvars.iv
+  %56 = getelementptr [64 x i32], ptr %.099, i64 0, i64 %indvars.iv
   store i32 %32, ptr %56, align 4
   %57 = zext nneg i8 %40 to i32
   %58 = getelementptr [64 x i32], ptr %26, i64 0, i64 %indvars.iv
@@ -791,7 +791,7 @@ define internal fastcc void @assign_rb_info(ptr noundef %0, ptr noundef %1, i16 
   %61 = getelementptr [64 x i32], ptr %28, i64 0, i64 %indvars.iv
   store i32 0, ptr %61, align 4
   %62 = zext nneg i8 %38 to i32
-  %63 = getelementptr [64 x i32], ptr %.0101, i64 0, i64 %indvars.iv
+  %63 = getelementptr [64 x i32], ptr %.0100, i64 0, i64 %indvars.iv
   store i32 %62, ptr %63, align 4
   %64 = getelementptr [64 x i8], ptr %29, i64 0, i64 %indvars.iv
   store i8 %52, ptr %64, align 1
@@ -832,7 +832,7 @@ define internal fastcc void @assign_rb_info(ptr noundef %0, ptr noundef %1, i16 
   br label %92
 
 92:                                               ; preds = %73, %46
-  %93 = add i16 %.099120, 8
+  %93 = add i16 %.0101120, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond126.not, label %.loopexit, label %30, !llvm.loop !7

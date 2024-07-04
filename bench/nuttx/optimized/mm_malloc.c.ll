@@ -131,12 +131,12 @@ free_delaylist.exit:                              ; preds = %.lr.ph.i, %up_irq_r
   br label %.thread
 
 .thread:                                          ; preds = %22, %13, %58
-  %.050 = phi ptr [ %26, %58 ], [ null, %13 ], [ null, %22 ]
+  %.049 = phi ptr [ %26, %58 ], [ null, %13 ], [ null, %22 ]
   call void @mm_unlock(ptr noundef %0) #4
   br label %61
 
 61:                                               ; preds = %free_delaylist.exit, %.thread
-  %.0 = phi ptr [ %.050, %.thread ], [ null, %free_delaylist.exit ]
+  %.0 = phi ptr [ %.049, %.thread ], [ null, %free_delaylist.exit ]
   ret ptr %.0
 }
 

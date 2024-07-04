@@ -232,7 +232,7 @@ define range(i32 -1, 1) i32 @H5G__obj_create_real(ptr noundef %0, ptr noundef %1
   br label %29
 
 29:                                               ; preds = %18, %21, %25, %28
-  %.061 = phi i1 [ false, %28 ], [ true, %25 ], [ true, %21 ], [ true, %18 ]
+  %.063 = phi i1 [ false, %28 ], [ true, %25 ], [ true, %21 ], [ true, %18 ]
   %30 = getelementptr inbounds i8, ptr %2, i64 1
   %31 = load i8, ptr %30, align 1
   %32 = trunc i8 %31 to i1
@@ -250,7 +250,7 @@ define range(i32 -1, 1) i32 @H5G__obj_create_real(ptr noundef %0, ptr noundef %1
   br label %119
 
 40:                                               ; preds = %33, %29
-  br i1 %.061, label %41, label %.thread
+  br i1 %.063, label %41, label %.thread
 
 41:                                               ; preds = %40
   store i8 0, ptr %8, align 1
@@ -270,7 +270,7 @@ define range(i32 -1, 1) i32 @H5G__obj_create_real(ptr noundef %0, ptr noundef %1
   br label %49
 
 49:                                               ; preds = %47, %44, %41
-  %.063 = phi i64 [ %48, %47 ], [ 0, %44 ], [ 0, %41 ]
+  %.061 = phi i64 [ %48, %47 ], [ 0, %44 ], [ 0, %41 ]
   store i32 0, ptr %7, align 8
   %50 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 0, ptr %50, align 8
@@ -287,7 +287,7 @@ define range(i32 -1, 1) i32 @H5G__obj_create_real(ptr noundef %0, ptr noundef %1
   %58 = zext i16 %57 to i64
   %59 = call i64 @H5O_msg_size_f(ptr noundef %0, i64 noundef %10, i32 noundef 6, ptr noundef nonnull %7, i64 noundef %58) #4
   %60 = add i64 %43, %42
-  %61 = add i64 %60, %.063
+  %61 = add i64 %60, %.061
   %62 = getelementptr inbounds i8, ptr %1, i64 12
   %63 = load i16, ptr %62, align 4
   %64 = getelementptr inbounds i8, ptr %1, i64 6

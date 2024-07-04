@@ -718,8 +718,8 @@ Vec_IntFree.exit:                                 ; preds = %.critedge.thread, %
   br label %49
 
 49:                                               ; preds = %.critedge, %Vec_IntFree.exit
-  %.0 = phi ptr [ null, %Vec_IntFree.exit ], [ %2, %.critedge ]
-  ret ptr %.0
+  %.011 = phi ptr [ null, %Vec_IntFree.exit ], [ %2, %.critedge ]
+  ret ptr %.011
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1825,7 +1825,7 @@ Vec_IntGrow.exit.i147:                            ; preds = %177, %.critedge.thr
   br label %181
 
 181:                                              ; preds = %Vec_IntGrow.exit.i147, %167
-  %.098 = phi i32 [ %168, %167 ], [ %180, %Vec_IntGrow.exit.i147 ]
+  %.097 = phi i32 [ %168, %167 ], [ %180, %Vec_IntGrow.exit.i147 ]
   %182 = getelementptr i8, ptr %0, i64 36
   %.val116180 = load i32, ptr %182, align 4
   %183 = icmp sgt i32 %.val116180, 0
@@ -1839,7 +1839,7 @@ Vec_IntGrow.exit.i147:                            ; preds = %177, %.critedge.thr
 
 187:                                              ; preds = %.lr.ph183, %Vec_IntGrow.exit.i154
   %indvars.iv188 = phi i64 [ 0, %.lr.ph183 ], [ %indvars.iv.next189, %Vec_IntGrow.exit.i154 ]
-  %.199181 = phi i32 [ %.098, %.lr.ph183 ], [ %201, %Vec_IntGrow.exit.i154 ]
+  %.1182 = phi i32 [ %.097, %.lr.ph183 ], [ %201, %Vec_IntGrow.exit.i154 ]
   %.val117 = load ptr, ptr %184, align 8
   %188 = getelementptr inbounds i32, ptr %.val117, i64 %indvars.iv188
   %189 = load i32, ptr %188, align 4
@@ -1871,7 +1871,7 @@ Vec_IntGrow.exit.i154:                            ; preds = %196, %187
   store i32 %189, ptr %198, align 4
   %199 = load ptr, ptr %10, align 8
   %200 = getelementptr inbounds i8, ptr %199, i64 4
-  store i32 %.199181, ptr %200, align 4
+  store i32 %.1182, ptr %200, align 4
   store i32 2, ptr %8, align 4
   %201 = tail call i32 @Wlc_ObjCreate(ptr noundef nonnull %0, i32 noundef 28, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #10
   %.val109 = load ptr, ptr %185, align 8

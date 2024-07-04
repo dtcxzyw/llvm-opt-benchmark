@@ -479,8 +479,8 @@ define i32 @ADIOI_Agg_idx(i32 noundef %0, ptr nocapture noundef readonly %1) loc
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12, %._crit_edge.loopexit.split.loop.exit13, %2
-  %.0 = phi i32 [ -1, %2 ], [ %13, %._crit_edge.loopexit.split.loop.exit13 ], [ -1, %12 ]
-  ret i32 %.0
+  %.08 = phi i32 [ -1, %2 ], [ %13, %._crit_edge.loopexit.split.loop.exit13 ], [ -1, %12 ]
+  ret i32 %.08
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

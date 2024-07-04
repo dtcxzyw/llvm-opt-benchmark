@@ -310,14 +310,14 @@ define internal fastcc range(i32 -1, 2) i32 @parse_netscreen_packet(ptr noundef 
   br label %44
 
 44:                                               ; preds = %44, %.preheader82
-  %.058 = phi ptr [ %50, %44 ], [ %3, %.preheader82 ]
-  %45 = load i8, ptr %.058, align 1
+  %.057 = phi ptr [ %50, %44 ], [ %3, %.preheader82 ]
+  %45 = load i8, ptr %.057, align 1
   %46 = zext i8 %45 to i64
   %47 = getelementptr i16, ptr %43, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = and i16 %48, 256
   %.not = icmp eq i16 %49, 0
-  %50 = getelementptr i8, ptr %.058, i64 1
+  %50 = getelementptr i8, ptr %.057, i64 1
   br i1 %.not, label %51, label %44, !llvm.loop !6
 
 51:                                               ; preds = %44
@@ -334,7 +334,7 @@ define internal fastcc range(i32 -1, 2) i32 @parse_netscreen_packet(ptr noundef 
 
 57:                                               ; preds = %90, %53
   %indvars.iv.i = phi i64 [ 0, %53 ], [ %indvars.iv.next.i, %90 ]
-  %.07892.i = phi ptr [ %.058, %53 ], [ %91, %90 ]
+  %.07892.i = phi ptr [ %.057, %53 ], [ %91, %90 ]
   %58 = getelementptr i8, ptr %.07892.i, i64 1
   %59 = load i8, ptr %.07892.i, align 1
   %60 = add i8 %59, -48
@@ -571,8 +571,8 @@ info_line.exit:                                   ; preds = %95
   br label %152
 
 152:                                              ; preds = %112, %114, %116, %118, %151, %108, %25, %20
-  %.057 = phi i32 [ -1, %20 ], [ 0, %25 ], [ 1, %151 ], [ 0, %108 ], [ 0, %118 ], [ 0, %116 ], [ 0, %114 ], [ 0, %112 ]
-  ret i32 %.057
+  %.058 = phi i32 [ -1, %20 ], [ 0, %25 ], [ 1, %151 ], [ 0, %108 ], [ 0, %118 ], [ 0, %116 ], [ 0, %114 ], [ 0, %112 ]
+  ret i32 %.058
 }
 
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1

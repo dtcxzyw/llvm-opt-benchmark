@@ -1404,9 +1404,9 @@ entry:
   br i1 %tobool.not, label %while.body.i, label %if.else
 
 while.body.i:                                     ; preds = %entry, %if.else16.i
+  %line.0.i = phi ptr [ %line.1.i, %if.else16.i ], [ null, %entry ]
   %len.0.i = phi i64 [ %inc.i, %if.else16.i ], [ 0, %entry ]
   %maxlen.0.i = phi i64 [ %maxlen.1.i, %if.else16.i ], [ 0, %entry ]
-  %line.0.i = phi ptr [ %line.1.i, %if.else16.i ], [ null, %entry ]
   %cmp.i = icmp eq i64 %len.0.i, %maxlen.0.i
   br i1 %cmp.i, label %if.then.i, label %if.end8.i
 
@@ -1427,8 +1427,8 @@ if.then5.i:                                       ; preds = %if.then4.i
   br label %return
 
 if.end8.i:                                        ; preds = %if.then.i, %while.body.i
-  %maxlen.1.i = phi i64 [ %mul.i, %if.then.i ], [ %maxlen.0.i, %while.body.i ]
   %line.1.i = phi ptr [ %call.i, %if.then.i ], [ %line.0.i, %while.body.i ]
+  %maxlen.1.i = phi i64 [ %mul.i, %if.then.i ], [ %maxlen.0.i, %while.body.i ]
   %1 = load ptr, ptr @stdin, align 8
   %call9.i = tail call i32 @fgetc(ptr noundef %1)
   switch i32 %call9.i, label %if.else16.i [

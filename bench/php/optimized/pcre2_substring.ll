@@ -26,11 +26,11 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_byname(ptr nocapt
   br label %16
 
 16:                                               ; preds = %44, %.lr.ph.i
-  %.04657.i = phi i16 [ 0, %.lr.ph.i ], [ %.1.i, %44 ]
-  %.04756.i = phi i16 [ %12, %.lr.ph.i ], [ %.148.i, %44 ]
-  %17 = zext i16 %.04657.i to i32
-  %18 = zext i16 %.04756.i to i32
-  %19 = add nuw nsw i32 %18, %17
+  %.04557.i = phi i16 [ %12, %.lr.ph.i ], [ %.1.i, %44 ]
+  %.04656.i = phi i16 [ 0, %.lr.ph.i ], [ %.147.i, %44 ]
+  %17 = zext i16 %.04656.i to i32
+  %18 = zext i16 %.04557.i to i32
+  %19 = add nuw nsw i32 %17, %18
   %20 = lshr i32 %19, 1
   %21 = mul nuw nsw i32 %20, %15
   %narrow.i = add nuw i32 %21, 136
@@ -53,28 +53,28 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_byname(ptr nocapt
   br label %33
 
 33:                                               ; preds = %35, %25
-  %.045.idx.i = phi i64 [ %.add.i, %25 ], [ %.045.add.i, %35 ]
-  %34 = icmp sgt i64 %.045.idx.i, 136
+  %.044.idx.i = phi i64 [ %.add.i, %25 ], [ %.044.add.i, %35 ]
+  %34 = icmp sgt i64 %.044.idx.i, 136
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %33
-  %.045.add.i = sub nsw i64 %.045.idx.i, %32
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.045.add.i
+  %.044.add.i = sub nsw i64 %.044.idx.i, %32
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.044.add.i
   %36 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %gep.i) #6
   %.not.i = icmp eq i32 %36, 0
   br i1 %.not.i, label %33, label %37
 
 37:                                               ; preds = %35, %33
-  %.045.ptr.le.i = getelementptr inbounds i8, ptr %10, i64 %.045.idx.i
+  %.044.ptr.le.i = getelementptr inbounds i8, ptr %10, i64 %.044.idx.i
   br label %38
 
 38:                                               ; preds = %40, %37
-  %.044.i = phi ptr [ %.ptr54.i, %37 ], [ %41, %40 ]
-  %39 = icmp ult ptr %.044.i, %31
+  %.0.i = phi ptr [ %.ptr54.i, %37 ], [ %41, %40 ]
+  %39 = icmp ult ptr %.0.i, %31
   br i1 %39, label %40, label %php_pcre2_substring_nametable_scan.exit
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %.044.i, i64 %32
+  %41 = getelementptr inbounds i8, ptr %.0.i, i64 %32
   %42 = getelementptr inbounds i8, ptr %41, i64 2
   %43 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %42) #6
   %.not55.i = icmp eq i32 %43, 0
@@ -84,13 +84,13 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_copy_byname(ptr nocapt
   %45 = trunc nuw i32 %20 to i16
   %46 = icmp sgt i32 %23, 0
   %47 = add i16 %45, 1
-  %.148.i = select i1 %46, i16 %.04756.i, i16 %45
-  %.1.i = select i1 %46, i16 %47, i16 %.04657.i
-  %48 = icmp ugt i16 %.148.i, %.1.i
+  %.147.i = select i1 %46, i16 %47, i16 %.04656.i
+  %.1.i = select i1 %46, i16 %.04557.i, i16 %45
+  %48 = icmp ugt i16 %.1.i, %.147.i
   br i1 %48, label %16, label %php_pcre2_substring_copy_bynumber.exit
 
 php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
-  %.not40 = icmp ugt ptr %.045.ptr.le.i, %.044.i
+  %.not40 = icmp ugt ptr %.044.ptr.le.i, %.0.i
   br i1 %.not40, label %php_pcre2_substring_copy_bynumber.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %php_pcre2_substring_nametable_scan.exit
@@ -101,12 +101,12 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
   br label %53
 
 53:                                               ; preds = %.lr.ph, %102
-  %.01942 = phi ptr [ %.045.ptr.le.i, %.lr.ph ], [ %103, %102 ]
-  %.02041 = phi i32 [ -54, %.lr.ph ], [ %.1, %102 ]
-  %54 = load i8, ptr %.01942, align 1
+  %.042 = phi i32 [ -54, %.lr.ph ], [ %.1, %102 ]
+  %.01941 = phi ptr [ %.044.ptr.le.i, %.lr.ph ], [ %103, %102 ]
+  %54 = load i8, ptr %.01941, align 1
   %55 = zext i8 %54 to i32
   %56 = shl nuw nsw i32 %55, 8
-  %57 = getelementptr inbounds i8, ptr %.01942, i64 1
+  %57 = getelementptr inbounds i8, ptr %.01941, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = or disjoint i32 %56, %59
@@ -184,14 +184,14 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
   br label %php_pcre2_substring_copy_bynumber.exit
 
 102:                                              ; preds = %62, %53
-  %.1 = phi i32 [ %.02041, %53 ], [ -55, %62 ]
-  %103 = getelementptr inbounds i8, ptr %.01942, i64 %32
-  %.not = icmp ugt ptr %103, %.044.i
+  %.1 = phi i32 [ %.042, %53 ], [ -55, %62 ]
+  %103 = getelementptr inbounds i8, ptr %.01941, i64 %32
+  %.not = icmp ugt ptr %103, %.0.i
   br i1 %.not, label %php_pcre2_substring_copy_bynumber.exit, label %53
 
 php_pcre2_substring_copy_bynumber.exit:           ; preds = %44, %102, %php_pcre2_substring_nametable_scan.exit, %8, %97, %92, %._crit_edge.i.i, %82, %76, %72, %71, %4
-  %.0 = phi i32 [ -41, %4 ], [ 0, %97 ], [ -48, %92 ], [ -67, %._crit_edge.i.i ], [ -55, %82 ], [ -49, %76 ], [ %69, %72 ], [ -2, %71 ], [ -49, %8 ], [ -54, %php_pcre2_substring_nametable_scan.exit ], [ %.1, %102 ], [ -49, %44 ]
-  ret i32 %.0
+  %.020 = phi i32 [ -41, %4 ], [ 0, %97 ], [ -48, %92 ], [ -67, %._crit_edge.i.i ], [ -55, %82 ], [ -49, %76 ], [ %69, %72 ], [ -2, %71 ], [ -49, %8 ], [ -54, %php_pcre2_substring_nametable_scan.exit ], [ %.1, %102 ], [ -49, %44 ]
+  ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
@@ -209,11 +209,11 @@ define range(i32 -50, 65536) i32 @php_pcre2_substring_nametable_scan(ptr noundef
   br label %10
 
 10:                                               ; preds = %.lr.ph, %51
-  %.04657 = phi i16 [ 0, %.lr.ph ], [ %.1, %51 ]
-  %.04756 = phi i16 [ %6, %.lr.ph ], [ %.148, %51 ]
-  %11 = zext i16 %.04657 to i32
-  %12 = zext i16 %.04756 to i32
-  %13 = add nuw nsw i32 %11, %12
+  %.04557 = phi i16 [ %6, %.lr.ph ], [ %.1, %51 ]
+  %.04656 = phi i16 [ 0, %.lr.ph ], [ %.147, %51 ]
+  %11 = zext i16 %.04656 to i32
+  %12 = zext i16 %.04557 to i32
+  %13 = add nuw nsw i32 %12, %11
   %14 = lshr i32 %13, 1
   %15 = mul nuw nsw i32 %14, %9
   %narrow = add nuw i32 %15, 136
@@ -236,28 +236,28 @@ define range(i32 -50, 65536) i32 @php_pcre2_substring_nametable_scan(ptr noundef
   br label %27
 
 27:                                               ; preds = %29, %19
-  %.045.idx = phi i64 [ %.add, %19 ], [ %.045.add, %29 ]
-  %28 = icmp sgt i64 %.045.idx, 136
+  %.044.idx = phi i64 [ %.add, %19 ], [ %.044.add, %29 ]
+  %28 = icmp sgt i64 %.044.idx, 136
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %27
-  %.045.add = sub nsw i64 %.045.idx, %26
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.045.add
+  %.044.add = sub nsw i64 %.044.idx, %26
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.044.add
   %30 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %gep) #6
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %27, label %31
 
 31:                                               ; preds = %29, %27
-  %.045.ptr.le = getelementptr inbounds i8, ptr %0, i64 %.045.idx
+  %.044.ptr.le = getelementptr inbounds i8, ptr %0, i64 %.044.idx
   br label %32
 
 32:                                               ; preds = %34, %31
-  %.044 = phi ptr [ %.ptr54, %31 ], [ %35, %34 ]
-  %33 = icmp ult ptr %.044, %25
+  %.0 = phi ptr [ %.ptr54, %31 ], [ %35, %34 ]
+  %33 = icmp ult ptr %.0, %25
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %.044, i64 %26
+  %35 = getelementptr inbounds i8, ptr %.0, i64 %26
   %36 = getelementptr inbounds i8, ptr %35, i64 2
   %37 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %36) #6
   %.not55 = icmp eq i32 %37, 0
@@ -268,7 +268,7 @@ define range(i32 -50, 65536) i32 @php_pcre2_substring_nametable_scan(ptr noundef
   br i1 %39, label %40, label %50
 
 40:                                               ; preds = %38
-  %41 = icmp eq ptr %.045.ptr.le, %.044
+  %41 = icmp eq ptr %.044.ptr.le, %.0
   br i1 %41, label %42, label %.loopexit
 
 42:                                               ; preds = %40
@@ -282,22 +282,22 @@ define range(i32 -50, 65536) i32 @php_pcre2_substring_nametable_scan(ptr noundef
   br label %.loopexit
 
 50:                                               ; preds = %38
-  store ptr %.045.ptr.le, ptr %2, align 8
-  store ptr %.044, ptr %3, align 8
+  store ptr %.044.ptr.le, ptr %2, align 8
+  store ptr %.0, ptr %3, align 8
   br label %.loopexit
 
 51:                                               ; preds = %10
   %52 = trunc nuw i32 %14 to i16
   %53 = icmp sgt i32 %17, 0
   %54 = add i16 %52, 1
-  %.148 = select i1 %53, i16 %.04756, i16 %52
-  %.1 = select i1 %53, i16 %54, i16 %.04657
-  %55 = icmp ugt i16 %.148, %.1
+  %.147 = select i1 %53, i16 %54, i16 %.04656
+  %.1 = select i1 %53, i16 %.04557, i16 %52
+  %55 = icmp ugt i16 %.1, %.147
   br i1 %55, label %10, label %.loopexit
 
 .loopexit:                                        ; preds = %51, %4, %42, %40, %50
-  %.0 = phi i32 [ %9, %50 ], [ %49, %42 ], [ -50, %40 ], [ -49, %4 ], [ -49, %51 ]
-  ret i32 %.0
+  %.048 = phi i32 [ %9, %50 ], [ %49, %42 ], [ -50, %40 ], [ -49, %4 ], [ -49, %51 ]
+  ret i32 %.048
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -528,11 +528,11 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_byname(ptr noundef
   br label %16
 
 16:                                               ; preds = %44, %.lr.ph.i
-  %.04657.i = phi i16 [ 0, %.lr.ph.i ], [ %.1.i, %44 ]
-  %.04756.i = phi i16 [ %12, %.lr.ph.i ], [ %.148.i, %44 ]
-  %17 = zext i16 %.04657.i to i32
-  %18 = zext i16 %.04756.i to i32
-  %19 = add nuw nsw i32 %18, %17
+  %.04557.i = phi i16 [ %12, %.lr.ph.i ], [ %.1.i, %44 ]
+  %.04656.i = phi i16 [ 0, %.lr.ph.i ], [ %.147.i, %44 ]
+  %17 = zext i16 %.04656.i to i32
+  %18 = zext i16 %.04557.i to i32
+  %19 = add nuw nsw i32 %17, %18
   %20 = lshr i32 %19, 1
   %21 = mul nuw nsw i32 %20, %15
   %narrow.i = add nuw i32 %21, 136
@@ -555,28 +555,28 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_byname(ptr noundef
   br label %33
 
 33:                                               ; preds = %35, %25
-  %.045.idx.i = phi i64 [ %.add.i, %25 ], [ %.045.add.i, %35 ]
-  %34 = icmp sgt i64 %.045.idx.i, 136
+  %.044.idx.i = phi i64 [ %.add.i, %25 ], [ %.044.add.i, %35 ]
+  %34 = icmp sgt i64 %.044.idx.i, 136
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %33
-  %.045.add.i = sub nsw i64 %.045.idx.i, %32
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.045.add.i
+  %.044.add.i = sub nsw i64 %.044.idx.i, %32
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.044.add.i
   %36 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %gep.i) #6
   %.not.i = icmp eq i32 %36, 0
   br i1 %.not.i, label %33, label %37
 
 37:                                               ; preds = %35, %33
-  %.045.ptr.le.i = getelementptr inbounds i8, ptr %10, i64 %.045.idx.i
+  %.044.ptr.le.i = getelementptr inbounds i8, ptr %10, i64 %.044.idx.i
   br label %38
 
 38:                                               ; preds = %40, %37
-  %.044.i = phi ptr [ %.ptr54.i, %37 ], [ %41, %40 ]
-  %39 = icmp ult ptr %.044.i, %31
+  %.0.i = phi ptr [ %.ptr54.i, %37 ], [ %41, %40 ]
+  %39 = icmp ult ptr %.0.i, %31
   br i1 %39, label %40, label %php_pcre2_substring_nametable_scan.exit
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %.044.i, i64 %32
+  %41 = getelementptr inbounds i8, ptr %.0.i, i64 %32
   %42 = getelementptr inbounds i8, ptr %41, i64 2
   %43 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %42) #6
   %.not55.i = icmp eq i32 %43, 0
@@ -586,13 +586,13 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_get_byname(ptr noundef
   %45 = trunc nuw i32 %20 to i16
   %46 = icmp sgt i32 %23, 0
   %47 = add i16 %45, 1
-  %.148.i = select i1 %46, i16 %.04756.i, i16 %45
-  %.1.i = select i1 %46, i16 %47, i16 %.04657.i
-  %48 = icmp ugt i16 %.148.i, %.1.i
+  %.147.i = select i1 %46, i16 %47, i16 %.04656.i
+  %.1.i = select i1 %46, i16 %.04557.i, i16 %45
+  %48 = icmp ugt i16 %.1.i, %.147.i
   br i1 %48, label %16, label %php_pcre2_substring_get_bynumber.exit
 
 php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
-  %.not42 = icmp ugt ptr %.045.ptr.le.i, %.044.i
+  %.not42 = icmp ugt ptr %.044.ptr.le.i, %.0.i
   br i1 %.not42, label %php_pcre2_substring_get_bynumber.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %php_pcre2_substring_nametable_scan.exit
@@ -603,12 +603,12 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
   br label %53
 
 53:                                               ; preds = %.lr.ph, %106
-  %.01944 = phi ptr [ %.045.ptr.le.i, %.lr.ph ], [ %107, %106 ]
-  %.02043 = phi i32 [ -54, %.lr.ph ], [ %.1, %106 ]
-  %54 = load i8, ptr %.01944, align 1
+  %.044 = phi i32 [ -54, %.lr.ph ], [ %.1, %106 ]
+  %.01943 = phi ptr [ %.044.ptr.le.i, %.lr.ph ], [ %107, %106 ]
+  %54 = load i8, ptr %.01943, align 1
   %55 = zext i8 %54 to i32
   %56 = shl nuw nsw i32 %55, 8
-  %57 = getelementptr inbounds i8, ptr %.01944, i64 1
+  %57 = getelementptr inbounds i8, ptr %.01943, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = or disjoint i32 %56, %59
@@ -691,14 +691,14 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %40, %38
   br label %php_pcre2_substring_get_bynumber.exit
 
 106:                                              ; preds = %62, %53
-  %.1 = phi i32 [ %.02043, %53 ], [ -55, %62 ]
-  %107 = getelementptr inbounds i8, ptr %.01944, i64 %32
-  %.not = icmp ugt ptr %107, %.044.i
+  %.1 = phi i32 [ %.044, %53 ], [ -55, %62 ]
+  %107 = getelementptr inbounds i8, ptr %.01943, i64 %32
+  %.not = icmp ugt ptr %107, %.0.i
   br i1 %.not, label %php_pcre2_substring_get_bynumber.exit, label %53
 
 php_pcre2_substring_get_bynumber.exit:            ; preds = %44, %106, %php_pcre2_substring_nametable_scan.exit, %8, %99, %93, %._crit_edge.i.i, %83, %77, %73, %72, %4
-  %.0 = phi i32 [ -41, %4 ], [ 0, %99 ], [ -48, %93 ], [ -67, %._crit_edge.i.i ], [ -55, %83 ], [ -49, %77 ], [ %70, %73 ], [ -2, %72 ], [ -49, %8 ], [ -54, %php_pcre2_substring_nametable_scan.exit ], [ %.1, %106 ], [ -49, %44 ]
-  ret i32 %.0
+  %.020 = phi i32 [ -41, %4 ], [ 0, %99 ], [ -48, %93 ], [ -67, %._crit_edge.i.i ], [ -55, %83 ], [ -49, %77 ], [ %70, %73 ], [ -2, %72 ], [ -49, %8 ], [ -54, %php_pcre2_substring_nametable_scan.exit ], [ %.1, %106 ], [ -49, %44 ]
+  ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
@@ -854,11 +854,11 @@ define i32 @php_pcre2_substring_length_byname(ptr nocapture noundef readonly %0,
   br label %15
 
 15:                                               ; preds = %43, %.lr.ph.i
-  %.04657.i = phi i16 [ 0, %.lr.ph.i ], [ %.1.i, %43 ]
-  %.04756.i = phi i16 [ %11, %.lr.ph.i ], [ %.148.i, %43 ]
-  %16 = zext i16 %.04657.i to i32
-  %17 = zext i16 %.04756.i to i32
-  %18 = add nuw nsw i32 %17, %16
+  %.04557.i = phi i16 [ %11, %.lr.ph.i ], [ %.1.i, %43 ]
+  %.04656.i = phi i16 [ 0, %.lr.ph.i ], [ %.147.i, %43 ]
+  %16 = zext i16 %.04656.i to i32
+  %17 = zext i16 %.04557.i to i32
+  %18 = add nuw nsw i32 %16, %17
   %19 = lshr i32 %18, 1
   %20 = mul nuw nsw i32 %19, %14
   %narrow.i = add nuw i32 %20, 136
@@ -881,28 +881,28 @@ define i32 @php_pcre2_substring_length_byname(ptr nocapture noundef readonly %0,
   br label %32
 
 32:                                               ; preds = %34, %24
-  %.045.idx.i = phi i64 [ %.add.i, %24 ], [ %.045.add.i, %34 ]
-  %33 = icmp sgt i64 %.045.idx.i, 136
+  %.044.idx.i = phi i64 [ %.add.i, %24 ], [ %.044.add.i, %34 ]
+  %33 = icmp sgt i64 %.044.idx.i, 136
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
-  %.045.add.i = sub nsw i64 %.045.idx.i, %31
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.045.add.i
+  %.044.add.i = sub nsw i64 %.044.idx.i, %31
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.044.add.i
   %35 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %gep.i) #6
   %.not.i = icmp eq i32 %35, 0
   br i1 %.not.i, label %32, label %36
 
 36:                                               ; preds = %34, %32
-  %.045.ptr.le.i = getelementptr inbounds i8, ptr %9, i64 %.045.idx.i
+  %.044.ptr.le.i = getelementptr inbounds i8, ptr %9, i64 %.044.idx.i
   br label %37
 
 37:                                               ; preds = %39, %36
-  %.044.i = phi ptr [ %.ptr54.i, %36 ], [ %40, %39 ]
-  %38 = icmp ult ptr %.044.i, %30
+  %.0.i = phi ptr [ %.ptr54.i, %36 ], [ %40, %39 ]
+  %38 = icmp ult ptr %.0.i, %30
   br i1 %38, label %39, label %php_pcre2_substring_nametable_scan.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %.044.i, i64 %31
+  %40 = getelementptr inbounds i8, ptr %.0.i, i64 %31
   %41 = getelementptr inbounds i8, ptr %40, i64 2
   %42 = tail call i32 @_pcre2_strcmp_8(ptr noundef %1, ptr noundef nonnull %41) #6
   %.not55.i = icmp eq i32 %42, 0
@@ -912,13 +912,13 @@ define i32 @php_pcre2_substring_length_byname(ptr nocapture noundef readonly %0,
   %44 = trunc nuw i32 %19 to i16
   %45 = icmp sgt i32 %22, 0
   %46 = add i16 %44, 1
-  %.148.i = select i1 %45, i16 %.04756.i, i16 %44
-  %.1.i = select i1 %45, i16 %46, i16 %.04657.i
-  %47 = icmp ugt i16 %.148.i, %.1.i
+  %.147.i = select i1 %45, i16 %46, i16 %.04656.i
+  %.1.i = select i1 %45, i16 %.04557.i, i16 %44
+  %47 = icmp ugt i16 %.1.i, %.147.i
   br i1 %47, label %15, label %php_pcre2_substring_length_bynumber.exit
 
 php_pcre2_substring_nametable_scan.exit:          ; preds = %39, %37
-  %.not39 = icmp ugt ptr %.045.ptr.le.i, %.044.i
+  %.not39 = icmp ugt ptr %.044.ptr.le.i, %.0.i
   br i1 %.not39, label %php_pcre2_substring_length_bynumber.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %php_pcre2_substring_nametable_scan.exit
@@ -929,12 +929,12 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %39, %37
   br label %52
 
 52:                                               ; preds = %.lr.ph, %94
-  %.01841 = phi ptr [ %.045.ptr.le.i, %.lr.ph ], [ %95, %94 ]
-  %.01940 = phi i32 [ -54, %.lr.ph ], [ %.1, %94 ]
-  %53 = load i8, ptr %.01841, align 1
+  %.041 = phi i32 [ -54, %.lr.ph ], [ %.1, %94 ]
+  %.01840 = phi ptr [ %.044.ptr.le.i, %.lr.ph ], [ %95, %94 ]
+  %53 = load i8, ptr %.01840, align 1
   %54 = zext i8 %53 to i32
   %55 = shl nuw nsw i32 %54, 8
-  %56 = getelementptr inbounds i8, ptr %.01841, i64 1
+  %56 = getelementptr inbounds i8, ptr %.01840, i64 1
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i32
   %59 = or disjoint i32 %55, %58
@@ -1004,14 +1004,14 @@ php_pcre2_substring_nametable_scan.exit:          ; preds = %39, %37
   br label %php_pcre2_substring_length_bynumber.exit
 
 94:                                               ; preds = %61, %52
-  %.1 = phi i32 [ %.01940, %52 ], [ -55, %61 ]
-  %95 = getelementptr inbounds i8, ptr %.01841, i64 %31
-  %.not = icmp ugt ptr %95, %.044.i
+  %.1 = phi i32 [ %.041, %52 ], [ -55, %61 ]
+  %95 = getelementptr inbounds i8, ptr %.01840, i64 %31
+  %.not = icmp ugt ptr %95, %.0.i
   br i1 %.not, label %php_pcre2_substring_length_bynumber.exit, label %52
 
 php_pcre2_substring_length_bynumber.exit:         ; preds = %43, %94, %php_pcre2_substring_nametable_scan.exit, %7, %92, %91, %._crit_edge.i, %81, %75, %71, %70, %3
-  %.0 = phi i32 [ -41, %3 ], [ -2, %70 ], [ %68, %71 ], [ -49, %75 ], [ -55, %81 ], [ -67, %._crit_edge.i ], [ 0, %92 ], [ 0, %91 ], [ -49, %7 ], [ -54, %php_pcre2_substring_nametable_scan.exit ], [ %.1, %94 ], [ -49, %43 ]
-  ret i32 %.0
+  %.019 = phi i32 [ -41, %3 ], [ -2, %70 ], [ %68, %71 ], [ -49, %75 ], [ -55, %81 ], [ -67, %._crit_edge.i ], [ 0, %92 ], [ 0, %91 ], [ -49, %7 ], [ -54, %php_pcre2_substring_nametable_scan.exit ], [ %.1, %94 ], [ -49, %43 ]
+  ret i32 %.019
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1031,7 +1031,7 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr noundef %
   %10 = zext nneg i32 %5 to i64
   %11 = shl nuw nsw i64 %10, 3
   %12 = add nuw nsw i64 %11, 32
-  %.067101 = select i1 %.not100, i64 32, i64 %12
+  %.064101 = select i1 %.not100, i64 32, i64 %12
   br label %.lr.ph.preheader
 
 13:                                               ; preds = %7
@@ -1043,17 +1043,17 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr noundef %
   %18 = zext i16 %15 to i64
   %19 = shl nuw nsw i64 %18, 3
   %20 = add nuw nsw i64 %19, 32
-  %.067 = select i1 %.not, i64 32, i64 %20
+  %.064 = select i1 %.not, i64 32, i64 %20
   %.not93 = icmp eq i16 %15, 0
   br i1 %.not93, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread, %13
-  %.067107 = phi i64 [ %.067101, %.thread ], [ %.067, %13 ]
+  %.064107 = phi i64 [ %.064101, %.thread ], [ %.064, %13 ]
   %21 = phi i64 [ %11, %.thread ], [ %19, %13 ]
   %.not105 = phi i1 [ %.not100, %.thread ], [ %.not, %13 ]
   %22 = phi ptr [ %9, %.thread ], [ %17, %13 ]
-  %.070103 = phi i32 [ %5, %.thread ], [ %16, %13 ]
-  %23 = shl nuw nsw i32 %.070103, 1
+  %.067103 = phi i32 [ %5, %.thread ], [ %16, %13 ]
+  %23 = shl nuw nsw i32 %.067103, 1
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %0, i64 104
   %26 = getelementptr i8, ptr %0, i64 112
@@ -1061,20 +1061,20 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.16883 = phi i64 [ %.067107, %.lr.ph.preheader ], [ %.269, %.lr.ph ]
-  %27 = add i64 %.16883, 9
+  %.16584 = phi i64 [ %.064107, %.lr.ph.preheader ], [ %.266, %.lr.ph ]
+  %27 = add i64 %.16584, 9
   %28 = getelementptr i64, ptr %26, i64 %indvars.iv
   %29 = load i64, ptr %28, align 8
   %30 = getelementptr inbounds i64, ptr %25, i64 %indvars.iv
   %31 = load i64, ptr %30, align 8
   %32 = tail call i64 @llvm.usub.sat.i64(i64 %29, i64 %31)
-  %.269 = add i64 %27, %32
+  %.266 = add i64 %27, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %33 = icmp ult i64 %indvars.iv.next, %24
   br i1 %33, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %34 = add nuw nsw i32 %.070103, 1
+  %34 = add nuw nsw i32 %.067103, 1
   %35 = zext nneg i32 %34 to i64
   %36 = shl nuw nsw i64 %35, 3
   %37 = zext nneg i32 %23 to i64
@@ -1086,16 +1086,16 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr noundef %
   %.not106 = phi i1 [ %.not, %13 ], [ %.not105, %._crit_edge.loopexit ]
   %39 = phi ptr [ %17, %13 ], [ %22, %._crit_edge.loopexit ]
   %40 = phi i64 [ 0, %13 ], [ %37, %._crit_edge.loopexit ]
-  %.070104 = phi i64 [ 8, %13 ], [ %36, %._crit_edge.loopexit ]
-  %.168.lcssa = phi i64 [ %.067, %13 ], [ %.269, %._crit_edge.loopexit ]
-  %41 = tail call ptr @_pcre2_memctl_malloc_8(i64 noundef %.168.lcssa, ptr noundef nonnull %0) #6
+  %.067104 = phi i64 [ 8, %13 ], [ %36, %._crit_edge.loopexit ]
+  %.165.lcssa = phi i64 [ %.064, %13 ], [ %.266, %._crit_edge.loopexit ]
+  %41 = tail call ptr @_pcre2_memctl_malloc_8(i64 noundef %.165.lcssa, ptr noundef nonnull %0) #6
   %42 = icmp eq ptr %41, null
   br i1 %42, label %67, label %43
 
 43:                                               ; preds = %._crit_edge
   %44 = getelementptr inbounds i8, ptr %41, i64 24
   store ptr %44, ptr %1, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 %.070104
+  %45 = getelementptr inbounds i8, ptr %44, i64 %.067104
   br i1 %.not106, label %48, label %46
 
 46:                                               ; preds = %43
@@ -1104,8 +1104,8 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr noundef %
   br label %48
 
 48:                                               ; preds = %43, %46
-  %.065 = phi ptr [ %45, %46 ], [ null, %43 ]
-  %.061 = phi ptr [ %47, %46 ], [ %45, %43 ]
+  %.062 = phi ptr [ %45, %46 ], [ null, %43 ]
+  %.0 = phi ptr [ %47, %46 ], [ %45, %43 ]
   br i1 %.not93109, label %._crit_edge91, label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %48
@@ -1114,9 +1114,9 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr noundef %
 
 50:                                               ; preds = %.lr.ph90, %63
   %indvars.iv96 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next97, %63 ]
-  %.188 = phi ptr [ %.061, %.lr.ph90 ], [ %65, %63 ]
-  %.06287 = phi ptr [ %44, %.lr.ph90 ], [ %60, %63 ]
-  %.16685 = phi ptr [ %.065, %.lr.ph90 ], [ %.2, %63 ]
+  %.188 = phi ptr [ %.0, %.lr.ph90 ], [ %65, %63 ]
+  %.06187 = phi ptr [ %44, %.lr.ph90 ], [ %60, %63 ]
+  %.16386 = phi ptr [ %.062, %.lr.ph90 ], [ %.2, %63 ]
   %51 = or disjoint i64 %indvars.iv96, 1
   %52 = getelementptr inbounds i64, ptr %39, i64 %51
   %53 = load i64, ptr %52, align 8
@@ -1133,14 +1133,14 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr noundef %
   br label %59
 
 59:                                               ; preds = %56, %50
-  %60 = getelementptr inbounds i8, ptr %.06287, i64 8
-  store ptr %.188, ptr %.06287, align 8
-  %.not82 = icmp eq ptr %.16685, null
+  %60 = getelementptr inbounds i8, ptr %.06187, i64 8
+  store ptr %.188, ptr %.06187, align 8
+  %.not82 = icmp eq ptr %.16386, null
   br i1 %.not82, label %63, label %61
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %.16685, i64 8
-  store i64 %spec.select, ptr %.16685, align 8
+  %62 = getelementptr inbounds i8, ptr %.16386, i64 8
+  store i64 %spec.select, ptr %.16386, align 8
   br label %63
 
 63:                                               ; preds = %61, %59
@@ -1153,13 +1153,13 @@ define range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr noundef %
   br i1 %66, label %50, label %._crit_edge91
 
 ._crit_edge91:                                    ; preds = %63, %48
-  %.062.lcssa = phi ptr [ %44, %48 ], [ %60, %63 ]
-  store ptr null, ptr %.062.lcssa, align 8
+  %.061.lcssa = phi ptr [ %44, %48 ], [ %60, %63 ]
+  store ptr null, ptr %.061.lcssa, align 8
   br label %67
 
 67:                                               ; preds = %._crit_edge, %3, %._crit_edge91
-  %.0 = phi i32 [ 0, %._crit_edge91 ], [ %5, %3 ], [ -48, %._crit_edge ]
-  ret i32 %.0
+  %.070 = phi i32 [ 0, %._crit_edge91 ], [ %5, %3 ], [ -48, %._crit_edge ]
+  ret i32 %.070
 }
 
 ; Function Attrs: nounwind uwtable

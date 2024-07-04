@@ -801,21 +801,21 @@ for.body321.lr.ph:                                ; preds = %for.cond319.prehead
 
 for.body92:                                       ; preds = %for.body85, %for.inc315
   %indvars.iv471 = phi i64 [ %indvars.iv.next472, %for.inc315 ], [ 0, %for.body85 ]
-  %maxX.0402 = phi i32 [ %spec.select195, %for.inc315 ], [ 8, %for.body85 ]
+  %maxX.0401 = phi i32 [ %spec.select195, %for.inc315 ], [ 8, %for.body85 ]
   %currAcComp.1400 = phi ptr [ %currAcComp.2.lcssa, %for.inc315 ], [ %currAcComp.0433, %for.body85 ]
   %cmp94 = icmp eq i64 %indvars.iv471, %27
-  %spec.select195 = select i1 %cmp94, i32 %sub9, i32 %maxX.0402
+  %spec.select195 = select i1 %cmp94, i32 %sub9, i32 %maxX.0401
   br i1 %cmp.not.i.i.i.i, label %for.end237, label %for.body100
 
 for.body100:                                      ; preds = %for.body92, %for.inc235
-  %blockIsConstant.0395 = phi i8 [ %blockIsConstant.1, %for.inc235 ], [ 1, %for.body92 ]
-  %comp97.0394 = phi i64 [ %inc236, %for.inc235 ], [ 0, %for.body92 ]
+  %comp97.0395 = phi i64 [ %inc236, %for.inc235 ], [ 0, %for.body92 ]
+  %blockIsConstant.0394 = phi i8 [ %blockIsConstant.1, %for.inc235 ], [ 1, %for.body92 ]
   %currAcComp.2393 = phi ptr [ %currAcComp.4, %for.inc235 ], [ %currAcComp.1400, %for.body92 ]
   %30 = load ptr, ptr %halfZigBlock, align 8
-  %add.ptr.i233 = getelementptr inbounds %"class.Imf_3_2::SimdAlignedBuffer64", ptr %30, i64 %comp97.0394
+  %add.ptr.i233 = getelementptr inbounds %"class.Imf_3_2::SimdAlignedBuffer64", ptr %30, i64 %comp97.0395
   %31 = load ptr, ptr %add.ptr.i233, align 8
   %arrayidx122 = getelementptr inbounds i8, ptr %31, i64 16
-  %add.ptr.i234 = getelementptr inbounds ptr, ptr %currDcComp.sroa.0.0, i64 %comp97.0394
+  %add.ptr.i234 = getelementptr inbounds ptr, ptr %currDcComp.sroa.0.0, i64 %comp97.0395
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %arrayidx122, i8 0, i64 112, i1 false)
   %32 = load ptr, ptr %add.ptr.i234, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %32, i64 2
@@ -827,7 +827,7 @@ for.body100:                                      ; preds = %for.body92, %for.in
   %inc129 = add nsw i32 %35, 1
   store i32 %inc129, ptr %_packedDcCount, align 8
   %36 = load ptr, ptr %halfZigBlock, align 8
-  %add.ptr.i235 = getelementptr inbounds %"class.Imf_3_2::SimdAlignedBuffer64", ptr %36, i64 %comp97.0394
+  %add.ptr.i235 = getelementptr inbounds %"class.Imf_3_2::SimdAlignedBuffer64", ptr %36, i64 %comp97.0395
   %37 = load ptr, ptr %add.ptr.i235, align 8
   br label %while.body.i
 
@@ -923,7 +923,7 @@ lpad135:                                          ; preds = %lpad132.body
 
 if.then155:                                       ; preds = %invoke.cont133
   %46 = load ptr, ptr %halfZigBlock, align 8
-  %add.ptr.i242 = getelementptr inbounds %"class.Imf_3_2::SimdAlignedBuffer64", ptr %46, i64 %comp97.0394
+  %add.ptr.i242 = getelementptr inbounds %"class.Imf_3_2::SimdAlignedBuffer64", ptr %46, i64 %comp97.0395
   %47 = load ptr, ptr %add.ptr.i242, align 8
   %48 = load i16, ptr %47, align 2
   %49 = load ptr, ptr @imath_half_to_float_table, align 8
@@ -931,11 +931,11 @@ if.then155:                                       ; preds = %invoke.cont133
   %arrayidx.i.i = getelementptr inbounds %union.imath_half_uif, ptr %49, i64 %idxprom.i.i
   %50 = load float, ptr %arrayidx.i.i, align 4
   %51 = load ptr, ptr %_dctData, align 8
-  %add.ptr.i243 = getelementptr inbounds %"class.Imf_3_2::SimdAlignedBuffer64.23", ptr %51, i64 %comp97.0394
+  %add.ptr.i243 = getelementptr inbounds %"class.Imf_3_2::SimdAlignedBuffer64.23", ptr %51, i64 %comp97.0395
   %52 = load ptr, ptr %add.ptr.i243, align 8
   store float %50, ptr %52, align 4
   %53 = load ptr, ptr %_dctData, align 8
-  %add.ptr.i244 = getelementptr inbounds %"class.Imf_3_2::SimdAlignedBuffer64.23", ptr %53, i64 %comp97.0394
+  %add.ptr.i244 = getelementptr inbounds %"class.Imf_3_2::SimdAlignedBuffer64.23", ptr %53, i64 %comp97.0395
   %54 = load ptr, ptr %add.ptr.i244, align 8
   %55 = load float, ptr %54, align 4
   %mul.i = fmul float %55, 0x3FD6A09F40000000
@@ -955,10 +955,10 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
 if.else:                                          ; preds = %invoke.cont133
   %56 = load ptr, ptr @_ZN7Imf_3_212_GLOBAL__N_114fromHalfZigZagE, align 8
   %57 = load ptr, ptr %halfZigBlock, align 8
-  %add.ptr.i245 = getelementptr inbounds %"class.Imf_3_2::SimdAlignedBuffer64", ptr %57, i64 %comp97.0394
+  %add.ptr.i245 = getelementptr inbounds %"class.Imf_3_2::SimdAlignedBuffer64", ptr %57, i64 %comp97.0395
   %58 = load ptr, ptr %add.ptr.i245, align 8
   %59 = load ptr, ptr %_dctData, align 8
-  %add.ptr.i246 = getelementptr inbounds %"class.Imf_3_2::SimdAlignedBuffer64.23", ptr %59, i64 %comp97.0394
+  %add.ptr.i246 = getelementptr inbounds %"class.Imf_3_2::SimdAlignedBuffer64.23", ptr %59, i64 %comp97.0395
   %60 = load ptr, ptr %add.ptr.i246, align 8
   invoke void %56(ptr noundef %58, ptr noundef %60)
           to label %invoke.cont173 unwind label %lpad31.loopexit.split-lp.loopexit, !callees !12
@@ -966,7 +966,7 @@ if.else:                                          ; preds = %invoke.cont133
 invoke.cont173:                                   ; preds = %if.else
   %cmp174 = icmp slt i32 %lastNonZero.118.i, 2
   %61 = load ptr, ptr %_dctData, align 8
-  %add.ptr.i247 = getelementptr inbounds %"class.Imf_3_2::SimdAlignedBuffer64.23", ptr %61, i64 %comp97.0394
+  %add.ptr.i247 = getelementptr inbounds %"class.Imf_3_2::SimdAlignedBuffer64.23", ptr %61, i64 %comp97.0395
   %62 = load ptr, ptr %add.ptr.i247, align 8
   br i1 %cmp174, label %if.else222.invoke, label %if.else180
 
@@ -1002,8 +1002,8 @@ if.else222.invoke:                                ; preds = %if.else215, %if.els
           to label %for.inc235 unwind label %lpad31.loopexit.split-lp.loopexit, !callees !13
 
 for.inc235:                                       ; preds = %for.body.i, %if.else222.invoke
-  %blockIsConstant.1 = phi i8 [ 0, %if.else222.invoke ], [ %blockIsConstant.0395, %for.body.i ]
-  %inc236 = add nuw i64 %comp97.0394, 1
+  %blockIsConstant.1 = phi i8 [ 0, %if.else222.invoke ], [ %blockIsConstant.0394, %for.body.i ]
+  %inc236 = add nuw i64 %comp97.0395, 1
   %exitcond466.not = icmp eq i64 %inc236, %umax
   br i1 %exitcond466.not, label %for.end237, label %for.body100, !llvm.loop !14
 
@@ -2574,13 +2574,13 @@ for.body52.preheader:                             ; preds = %for.body43
 
 for.body52:                                       ; preds = %for.body52.preheader, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_t.exit
   %x.0370 = phi i32 [ %inc75, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_t.exit ], [ 0, %for.body52.preheader ]
-  %srcXdr.0369 = phi ptr [ %incdec.ptr.i.i.i, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_t.exit ], [ %29, %for.body52.preheader ]
-  %dstXdr.0368 = phi ptr [ %incdec.ptr1.i.i.i112, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_t.exit ], [ %tmpHalfBufferPtr.2372, %for.body52.preheader ]
+  %dstXdr.0369 = phi ptr [ %incdec.ptr1.i.i.i112, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_t.exit ], [ %tmpHalfBufferPtr.2372, %for.body52.preheader ]
+  %srcXdr.0368 = phi ptr [ %incdec.ptr.i.i.i, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_t.exit ], [ %29, %for.body52.preheader ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i)
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %for.body52
-  %incdec.ptr.i.i1.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %srcXdr.0369, %for.body52 ]
+  %incdec.ptr.i.i1.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i.i ], [ %srcXdr.0368, %for.body52 ]
   %n.addr.03.i.i.i = phi i32 [ %dec.i.i.i, %while.body.i.i.i ], [ 4, %for.body52 ]
   %c.addr.02.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %while.body.i.i.i ], [ %b.i, %for.body52 ]
   %dec.i.i.i = add nsw i32 %n.addr.03.i.i.i, -1
@@ -2690,7 +2690,7 @@ _ZN9Imath_3_24halfC2Ef.exit:                      ; preds = %if.then4.i.i, %if.e
   br label %while.body.i.i.i107
 
 while.body.i.i.i107:                              ; preds = %while.body.i.i.i107, %_ZN9Imath_3_24halfC2Ef.exit
-  %dstXdr.1 = phi ptr [ %dstXdr.0368, %_ZN9Imath_3_24halfC2Ef.exit ], [ %incdec.ptr1.i.i.i112, %while.body.i.i.i107 ]
+  %dstXdr.1 = phi ptr [ %dstXdr.0369, %_ZN9Imath_3_24halfC2Ef.exit ], [ %incdec.ptr1.i.i.i112, %while.body.i.i.i107 ]
   %n.addr.03.i.i.i108 = phi i32 [ 2, %_ZN9Imath_3_24halfC2Ef.exit ], [ %dec.i.i.i110, %while.body.i.i.i107 ]
   %c.addr.02.i.i.i109 = phi ptr [ %b.i106, %_ZN9Imath_3_24halfC2Ef.exit ], [ %incdec.ptr.i.i.i111, %while.body.i.i.i107 ]
   %dec.i.i.i110 = add nsw i32 %n.addr.03.i.i.i108, -1
@@ -9414,10 +9414,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %23 = phi ptr [ %22, %for.body.lr.ph ], [ %30, %for.inc ]
   %conv4286 = phi i64 [ 0, %for.body.lr.ph ], [ %conv42, %for.inc ]
   %chan.085 = phi i32 [ 0, %for.body.lr.ph ], [ %inc74, %for.inc ]
-  %maxOutBufferSize.084 = phi i64 [ 0, %for.body.lr.ph ], [ %maxOutBufferSize.1, %for.inc ]
-  %numLossyDctChans.083 = phi i64 [ 0, %for.body.lr.ph ], [ %numLossyDctChans.1, %for.inc ]
-  %rleBufferSize.082 = phi i64 [ 0, %for.body.lr.ph ], [ %rleBufferSize.1, %for.inc ]
-  %unknownBufferSize.081 = phi i64 [ 0, %for.body.lr.ph ], [ %unknownBufferSize.1, %for.inc ]
+  %rleBufferSize.084 = phi i64 [ 0, %for.body.lr.ph ], [ %rleBufferSize.1, %for.inc ]
+  %unknownBufferSize.083 = phi i64 [ 0, %for.body.lr.ph ], [ %unknownBufferSize.1, %for.inc ]
+  %numLossyDctChans.082 = phi i64 [ 0, %for.body.lr.ph ], [ %numLossyDctChans.1, %for.inc ]
+  %maxOutBufferSize.081 = phi i64 [ 0, %for.body.lr.ph ], [ %maxOutBufferSize.1, %for.inc ]
   %add.ptr.i = getelementptr inbounds %"struct.Imf_3_2::DwaCompressor::ChannelData", ptr %23, i64 %conv4286
   %compression = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   %24 = load i32, ptr %compression, align 8
@@ -9436,8 +9436,8 @@ lpad:                                             ; preds = %_ZN7Imf_3_211Channe
 sw.bb:                                            ; preds = %for.body
   %call51 = call i64 @exr_compress_max_buffer_size(i64 noundef %mul10)
   %.sroa.speculated = call i64 @llvm.umax.i64(i64 %add49, i64 %call51)
-  %add53 = add i64 %.sroa.speculated, %maxOutBufferSize.084
-  %inc = add i64 %numLossyDctChans.083, 1
+  %add53 = add i64 %.sroa.speculated, %maxOutBufferSize.081
+  %inc = add i64 %numLossyDctChans.082, 1
   br label %for.inc
 
 sw.bb54:                                          ; preds = %for.body
@@ -9446,7 +9446,7 @@ sw.bb54:                                          ; preds = %for.body
   %call59 = call noundef i32 @_ZN7Imf_3_213pixelTypeSizeENS_9PixelTypeE(i32 noundef %26)
   %conv60 = sext i32 %call59 to i64
   %mul61 = mul i64 %mul55, %conv60
-  %add62 = add i64 %mul61, %rleBufferSize.082
+  %add62 = add i64 %mul61, %rleBufferSize.084
   br label %for.inc
 
 sw.bb63:                                          ; preds = %for.body
@@ -9455,7 +9455,7 @@ sw.bb63:                                          ; preds = %for.body
   %call68 = call noundef i32 @_ZN7Imf_3_213pixelTypeSizeENS_9PixelTypeE(i32 noundef %27)
   %conv69 = sext i32 %call68 to i64
   %mul70 = mul i64 %mul41, %conv69
-  %add71 = add i64 %mul70, %unknownBufferSize.081
+  %add71 = add i64 %mul70, %unknownBufferSize.083
   br label %for.inc
 
 sw.default:                                       ; preds = %for.body
@@ -9474,10 +9474,10 @@ lpad72:                                           ; preds = %sw.default
   br label %eh.resume
 
 for.inc:                                          ; preds = %sw.bb, %sw.bb54, %sw.bb63
-  %unknownBufferSize.1 = phi i64 [ %add71, %sw.bb63 ], [ %unknownBufferSize.081, %sw.bb54 ], [ %unknownBufferSize.081, %sw.bb ]
-  %rleBufferSize.1 = phi i64 [ %rleBufferSize.082, %sw.bb63 ], [ %add62, %sw.bb54 ], [ %rleBufferSize.082, %sw.bb ]
-  %numLossyDctChans.1 = phi i64 [ %numLossyDctChans.083, %sw.bb63 ], [ %numLossyDctChans.083, %sw.bb54 ], [ %inc, %sw.bb ]
-  %maxOutBufferSize.1 = phi i64 [ %maxOutBufferSize.084, %sw.bb63 ], [ %maxOutBufferSize.084, %sw.bb54 ], [ %add53, %sw.bb ]
+  %maxOutBufferSize.1 = phi i64 [ %maxOutBufferSize.081, %sw.bb63 ], [ %maxOutBufferSize.081, %sw.bb54 ], [ %add53, %sw.bb ]
+  %numLossyDctChans.1 = phi i64 [ %numLossyDctChans.082, %sw.bb63 ], [ %numLossyDctChans.082, %sw.bb54 ], [ %inc, %sw.bb ]
+  %unknownBufferSize.1 = phi i64 [ %add71, %sw.bb63 ], [ %unknownBufferSize.083, %sw.bb54 ], [ %unknownBufferSize.083, %sw.bb ]
+  %rleBufferSize.1 = phi i64 [ %rleBufferSize.084, %sw.bb63 ], [ %add62, %sw.bb54 ], [ %rleBufferSize.084, %sw.bb ]
   %inc74 = add i32 %chan.085, 1
   %conv42 = zext i32 %inc74 to i64
   %29 = load ptr, ptr %_M_finish.i, align 8
@@ -9490,10 +9490,10 @@ for.inc:                                          ; preds = %sw.bb, %sw.bb54, %s
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !76
 
 for.end:                                          ; preds = %for.inc, %_ZN7Imf_3_211ChannelListD2Ev.exit
+  %maxOutBufferSize.0.lcssa = phi i64 [ 0, %_ZN7Imf_3_211ChannelListD2Ev.exit ], [ %maxOutBufferSize.1, %for.inc ]
+  %numLossyDctChans.0.lcssa = phi i64 [ 0, %_ZN7Imf_3_211ChannelListD2Ev.exit ], [ %numLossyDctChans.1, %for.inc ]
   %unknownBufferSize.0.lcssa = phi i64 [ 0, %_ZN7Imf_3_211ChannelListD2Ev.exit ], [ %unknownBufferSize.1, %for.inc ]
   %rleBufferSize.0.lcssa = phi i64 [ 0, %_ZN7Imf_3_211ChannelListD2Ev.exit ], [ %rleBufferSize.1, %for.inc ]
-  %numLossyDctChans.0.lcssa = phi i64 [ 0, %_ZN7Imf_3_211ChannelListD2Ev.exit ], [ %numLossyDctChans.1, %for.inc ]
-  %maxOutBufferSize.0.lcssa = phi i64 [ 0, %_ZN7Imf_3_211ChannelListD2Ev.exit ], [ %maxOutBufferSize.1, %for.inc ]
   %call75 = call i64 @exr_compress_max_buffer_size(i64 noundef %rleBufferSize.0.lcssa)
   %call77 = call i64 @exr_compress_max_buffer_size(i64 noundef %unknownBufferSize.0.lcssa)
   %_zip = getelementptr inbounds i8, ptr %this, i64 280
@@ -11544,8 +11544,8 @@ for.cond419.preheader.loopexit:                   ; preds = %_ZN7Imf_3_213DwaCom
 for.cond419.preheader:                            ; preds = %for.cond419.preheader.loopexit, %for.cond320.preheader
   %109 = phi ptr [ %87, %for.cond320.preheader ], [ %.pre563, %for.cond419.preheader.loopexit ]
   %110 = phi ptr [ %88, %for.cond320.preheader ], [ %.pre562, %for.cond419.preheader.loopexit ]
-  %packedDcBufferEnd.1.lcssa = phi ptr [ %45, %for.cond320.preheader ], [ %add.ptr399, %for.cond419.preheader.loopexit ]
   %packedAcBufferEnd.1.lcssa = phi ptr [ %44, %for.cond320.preheader ], [ %add.ptr394, %for.cond419.preheader.loopexit ]
+  %packedDcBufferEnd.1.lcssa = phi ptr [ %45, %for.cond320.preheader ], [ %add.ptr399, %for.cond419.preheader.loopexit ]
   %cmp423545.not = icmp eq ptr %110, %109
   br i1 %cmp423545.not, label %for.end574, label %invoke.cont427.lr.ph
 
@@ -11565,9 +11565,9 @@ invoke.cont427.lr.ph:                             ; preds = %for.cond419.prehead
 for.body324:                                      ; preds = %for.body324.lr.ph, %_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseD2Ev.exit
   %111 = phi ptr [ %90, %for.body324.lr.ph ], [ %147, %_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseD2Ev.exit ]
   %conv321525 = phi i64 [ 0, %for.body324.lr.ph ], [ %conv321, %_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseD2Ev.exit ]
-  %packedAcBufferEnd.1524 = phi ptr [ %44, %for.body324.lr.ph ], [ %add.ptr394, %_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseD2Ev.exit ]
+  %csc.0524 = phi i32 [ 0, %for.body324.lr.ph ], [ %inc416, %_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseD2Ev.exit ]
   %packedDcBufferEnd.1523 = phi ptr [ %45, %for.body324.lr.ph ], [ %add.ptr399, %_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseD2Ev.exit ]
-  %csc.0522 = phi i32 [ 0, %for.body324.lr.ph ], [ %inc416, %_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseD2Ev.exit ]
+  %packedAcBufferEnd.1522 = phi ptr [ %44, %for.body324.lr.ph ], [ %add.ptr394, %_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseD2Ev.exit ]
   %add.ptr.i227 = getelementptr inbounds %"struct.Imf_3_2::DwaCompressor::CscChannelSet", ptr %111, i64 %conv321525
   %112 = load i32, ptr %add.ptr.i227, align 4
   %arrayidx338 = getelementptr inbounds i8, ptr %add.ptr.i227, i64 8
@@ -11624,7 +11624,7 @@ if.end359:                                        ; preds = %lor.lhs.false349
   %add.ptr.i233 = getelementptr inbounds %"class.std::vector.24", ptr %123, i64 %conv340
   %add.ptr.i234 = getelementptr inbounds %"class.std::vector.24", ptr %123, i64 %conv345
   %add.ptr.i235 = getelementptr inbounds %"class.std::vector.24", ptr %123, i64 %conv351
-  %add.ptr367 = getelementptr inbounds i8, ptr %packedAcBufferEnd.1524, i64 %mul366
+  %add.ptr367 = getelementptr inbounds i8, ptr %packedAcBufferEnd.1522, i64 %mul366
   %width371 = getelementptr inbounds i8, ptr %add.ptr.i230, i64 52
   %124 = load i32, ptr %width371, align 4
   %height = getelementptr inbounds i8, ptr %add.ptr.i230, i64 56
@@ -11635,7 +11635,7 @@ if.end359:                                        ; preds = %lor.lhs.false349
   %127 = load i32, ptr %type382, align 4
   %type386 = getelementptr inbounds i8, ptr %add.ptr.i232, i64 44
   %128 = load i32, ptr %type386, align 4
-  invoke void @_ZN7Imf_3_213DwaCompressor18LossyDctDecoderCscC2ERSt6vectorIPcSaIS3_EES6_S6_S3_S3_S3_PKtiiNS_9PixelTypeES9_S9_(ptr noundef nonnull align 8 dereferenceable(136) %decoder, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i233, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i234, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i235, ptr noundef %packedAcBufferEnd.1524, ptr noundef %add.ptr367, ptr noundef %packedDcBufferEnd.1523, ptr noundef nonnull @_ZN7Imf_3_2L21dwaCompressorToLinearE, i32 noundef %124, i32 noundef %125, i32 noundef %126, i32 noundef %127, i32 noundef %128)
+  invoke void @_ZN7Imf_3_213DwaCompressor18LossyDctDecoderCscC2ERSt6vectorIPcSaIS3_EES6_S6_S3_S3_S3_PKtiiNS_9PixelTypeES9_S9_(ptr noundef nonnull align 8 dereferenceable(136) %decoder, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i233, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i234, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i235, ptr noundef %packedAcBufferEnd.1522, ptr noundef %add.ptr367, ptr noundef %packedDcBufferEnd.1523, ptr noundef nonnull @_ZN7Imf_3_2L21dwaCompressorToLinearE, i32 noundef %124, i32 noundef %125, i32 noundef %126, i32 noundef %127, i32 noundef %128)
           to label %invoke.cont387 unwind label %lpad280.loopexit.split-lp.loopexit
 
 invoke.cont387:                                   ; preds = %if.end359
@@ -11646,7 +11646,7 @@ invoke.cont412:                                   ; preds = %invoke.cont387
   %129 = load i32, ptr %_packedAcCount.i, align 4
   %conv392 = sext i32 %129 to i64
   %mul393 = shl nsw i64 %conv392, 1
-  %add.ptr394 = getelementptr inbounds i8, ptr %packedAcBufferEnd.1524, i64 %mul393
+  %add.ptr394 = getelementptr inbounds i8, ptr %packedAcBufferEnd.1522, i64 %mul393
   %130 = load i32, ptr %_packedDcCount.i, align 8
   %conv397 = sext i32 %130 to i64
   %mul398 = shl nsw i64 %conv397, 1
@@ -11767,7 +11767,7 @@ if.then.i.i.i14.i:                                ; preds = %invoke.cont.i12.i
   br label %_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseD2Ev.exit
 
 _ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseD2Ev.exit: ; preds = %invoke.cont.i12.i, %if.then.i.i.i14.i
-  %inc416 = add i32 %csc.0522, 1
+  %inc416 = add i32 %csc.0524, 1
   %conv321 = zext i32 %inc416 to i64
   %146 = load ptr, ptr %_M_finish.i222, align 8
   %147 = load ptr, ptr %_cscSets, align 8
@@ -11789,8 +11789,8 @@ invoke.cont427:                                   ; preds = %invoke.cont427.lr.p
   %150 = phi ptr [ %110, %invoke.cont427.lr.ph ], [ %244, %for.inc572 ]
   %conv420549 = phi i64 [ 0, %invoke.cont427.lr.ph ], [ %conv420, %for.inc572 ]
   %chan418.0548 = phi i32 [ 0, %invoke.cont427.lr.ph ], [ %inc573, %for.inc572 ]
-  %packedAcBufferEnd.2547 = phi ptr [ %packedAcBufferEnd.1.lcssa, %invoke.cont427.lr.ph ], [ %packedAcBufferEnd.4, %for.inc572 ]
-  %packedDcBufferEnd.2546 = phi ptr [ %packedDcBufferEnd.1.lcssa, %invoke.cont427.lr.ph ], [ %packedDcBufferEnd.4, %for.inc572 ]
+  %packedDcBufferEnd.2547 = phi ptr [ %packedDcBufferEnd.1.lcssa, %invoke.cont427.lr.ph ], [ %packedDcBufferEnd.4, %for.inc572 ]
+  %packedAcBufferEnd.2546 = phi ptr [ %packedAcBufferEnd.1.lcssa, %invoke.cont427.lr.ph ], [ %packedAcBufferEnd.4, %for.inc572 ]
   %div.i.i.i.i.i281476477478 = lshr i32 %chan418.0548, 6
   %div.i.i.i.i.i281476.zext = zext nneg i32 %div.i.i.i.i.i281476477478 to i64
   %add.ptr.i.i.i.i.i282 = getelementptr inbounds i64, ptr %decodedChannels.sroa.0.0450458571, i64 %div.i.i.i.i.i281476.zext
@@ -11837,13 +11837,13 @@ sw.bb440:                                         ; preds = %invoke.cont437
   %spec.store.select = select i1 %tobool441, ptr null, ptr @_ZN7Imf_3_2L21dwaCompressorToLinearE
   %155 = load ptr, ptr %rowPtrs, align 8
   %add.ptr.i293 = getelementptr inbounds %"class.std::vector.24", ptr %155, i64 %conv420549
-  %add.ptr448 = getelementptr inbounds i8, ptr %packedAcBufferEnd.2547, i64 %mul447
+  %add.ptr448 = getelementptr inbounds i8, ptr %packedAcBufferEnd.2546, i64 %mul447
   %width449 = getelementptr inbounds i8, ptr %add.ptr.i292, i64 52
   %156 = load i32, ptr %width449, align 4
   %height450 = getelementptr inbounds i8, ptr %add.ptr.i292, i64 56
   %157 = load i32, ptr %height450, align 8
   %158 = load i32, ptr %type436, align 4
-  invoke void @_ZN7Imf_3_213DwaCompressor15LossyDctDecoderC2ERSt6vectorIPcSaIS3_EES3_S3_S3_PKtiiNS_9PixelTypeE(ptr noundef nonnull align 8 dereferenceable(136) %decoder444, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i293, ptr noundef %packedAcBufferEnd.2547, ptr noundef %add.ptr448, ptr noundef %packedDcBufferEnd.2546, ptr noundef %spec.store.select, i32 noundef %156, i32 noundef %157, i32 noundef %158)
+  invoke void @_ZN7Imf_3_213DwaCompressor15LossyDctDecoderC2ERSt6vectorIPcSaIS3_EES3_S3_S3_PKtiiNS_9PixelTypeE(ptr noundef nonnull align 8 dereferenceable(136) %decoder444, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i293, ptr noundef %packedAcBufferEnd.2546, ptr noundef %add.ptr448, ptr noundef %packedDcBufferEnd.2547, ptr noundef %spec.store.select, i32 noundef %156, i32 noundef %157, i32 noundef %158)
           to label %invoke.cont452 unwind label %ehcleanup578.thread578
 
 invoke.cont452:                                   ; preds = %sw.bb440
@@ -11854,11 +11854,11 @@ invoke.cont454:                                   ; preds = %invoke.cont452
   %159 = load i32, ptr %_packedAcCount.i294, align 4
   %conv457 = sext i32 %159 to i64
   %mul458 = shl nsw i64 %conv457, 1
-  %add.ptr459 = getelementptr inbounds i8, ptr %packedAcBufferEnd.2547, i64 %mul458
+  %add.ptr459 = getelementptr inbounds i8, ptr %packedAcBufferEnd.2546, i64 %mul458
   %160 = load i32, ptr %_packedDcCount.i295, align 8
   %conv462 = sext i32 %160 to i64
   %mul463 = shl nsw i64 %conv462, 1
-  %add.ptr464 = getelementptr inbounds i8, ptr %packedDcBufferEnd.2546, i64 %mul463
+  %add.ptr464 = getelementptr inbounds i8, ptr %packedDcBufferEnd.2547, i64 %mul463
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i64 16), ptr %decoder444, align 8
   %161 = load ptr, ptr %_dctData.i391, align 8
   %162 = load ptr, ptr %_M_finish.i.i392, align 8
@@ -12383,8 +12383,8 @@ lpad564:                                          ; preds = %sw.default562
   br label %ehcleanup578.thread468
 
 invoke.cont569:                                   ; preds = %for.inc559, %for.inc517, %invoke.cont524, %for.cond467.preheader, %invoke.cont.i12.i424, %if.then.i.i.i14.i426
-  %packedDcBufferEnd.3 = phi ptr [ %add.ptr464, %invoke.cont.i12.i424 ], [ %add.ptr464, %if.then.i.i.i14.i426 ], [ %packedDcBufferEnd.2546, %for.cond467.preheader ], [ %packedDcBufferEnd.2546, %invoke.cont524 ], [ %packedDcBufferEnd.2546, %for.inc517 ], [ %packedDcBufferEnd.2546, %for.inc559 ]
-  %packedAcBufferEnd.3 = phi ptr [ %add.ptr459, %invoke.cont.i12.i424 ], [ %add.ptr459, %if.then.i.i.i14.i426 ], [ %packedAcBufferEnd.2547, %for.cond467.preheader ], [ %packedAcBufferEnd.2547, %invoke.cont524 ], [ %packedAcBufferEnd.2547, %for.inc517 ], [ %packedAcBufferEnd.2547, %for.inc559 ]
+  %packedAcBufferEnd.3 = phi ptr [ %add.ptr459, %invoke.cont.i12.i424 ], [ %add.ptr459, %if.then.i.i.i14.i426 ], [ %packedAcBufferEnd.2546, %for.cond467.preheader ], [ %packedAcBufferEnd.2546, %invoke.cont524 ], [ %packedAcBufferEnd.2546, %for.inc517 ], [ %packedAcBufferEnd.2546, %for.inc559 ]
+  %packedDcBufferEnd.3 = phi ptr [ %add.ptr464, %invoke.cont.i12.i424 ], [ %add.ptr464, %if.then.i.i.i14.i426 ], [ %packedDcBufferEnd.2547, %for.cond467.preheader ], [ %packedDcBufferEnd.2547, %invoke.cont524 ], [ %packedDcBufferEnd.2547, %for.inc517 ], [ %packedDcBufferEnd.2547, %for.inc559 ]
   %242 = load i64, ptr %add.ptr.i.i.i.i.i282, align 8
   %or.i360 = or i64 %242, %shl.i.i.i287
   store i64 %or.i360, ptr %add.ptr.i.i.i.i.i282, align 8
@@ -12395,8 +12395,8 @@ invoke.cont569:                                   ; preds = %for.inc559, %for.in
 for.inc572:                                       ; preds = %invoke.cont427, %invoke.cont569
   %243 = phi ptr [ %149, %invoke.cont427 ], [ %.pre565, %invoke.cont569 ]
   %244 = phi ptr [ %150, %invoke.cont427 ], [ %.pre564, %invoke.cont569 ]
-  %packedDcBufferEnd.4 = phi ptr [ %packedDcBufferEnd.2546, %invoke.cont427 ], [ %packedDcBufferEnd.3, %invoke.cont569 ]
-  %packedAcBufferEnd.4 = phi ptr [ %packedAcBufferEnd.2547, %invoke.cont427 ], [ %packedAcBufferEnd.3, %invoke.cont569 ]
+  %packedAcBufferEnd.4 = phi ptr [ %packedAcBufferEnd.2546, %invoke.cont427 ], [ %packedAcBufferEnd.3, %invoke.cont569 ]
+  %packedDcBufferEnd.4 = phi ptr [ %packedDcBufferEnd.2547, %invoke.cont427 ], [ %packedDcBufferEnd.3, %invoke.cont569 ]
   %inc573 = add i32 %chan418.0548, 1
   %conv420 = zext i32 %inc573 to i64
   %sub.ptr.lhs.cast.i277 = ptrtoint ptr %244 to i64

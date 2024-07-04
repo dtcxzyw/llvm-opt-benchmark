@@ -60,7 +60,7 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17h1caf3b9cd7a7fdeaE(ptr n
   br label %.outer
 
 .outer:                                           ; preds = %48, %3
-  %.017.ph = phi i64 [ %37, %48 ], [ 0, %3 ]
+  %.0.ph = phi i64 [ %37, %48 ], [ 0, %3 ]
   %12 = call noundef ptr @_ZN3std2io16default_read_buf17h78e09c2cca5c6181E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %._crit_edge, label %.lr.ph
@@ -116,14 +116,14 @@ default.unreachable:                              ; preds = %.lr.ph
 
 35:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h30f38759860d8f48E.exit"
   %36 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.017.ph, ptr %36, align 8
+  store i64 %.0.ph, ptr %36, align 8
   store i64 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %6)
   br label %47
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h30f38759860d8f48E.exit20": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h30f38759860d8f48E.exit"
-  %37 = add i64 %16, %.017.ph
+  %37 = add i64 %16, %.0.ph
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %38 = load i64, ptr %2, align 8, !alias.scope !10, !noalias !13, !noundef !4
   %39 = load i64, ptr %10, align 8, !alias.scope !10, !noalias !13, !noundef !4
@@ -200,7 +200,7 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17h281c6e6624094f88E(ptr n
   br label %.outer
 
 .outer:                                           ; preds = %38, %3
-  %.017.ph = phi i64 [ %39, %38 ], [ 0, %3 ]
+  %.0.ph = phi i64 [ %39, %38 ], [ 0, %3 ]
   %10 = call noundef ptr @"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17h41b11559358b0d8aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %._crit_edge, label %.lr.ph
@@ -256,7 +256,7 @@ default.unreachable:                              ; preds = %.lr.ph
 
 33:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h30f38759860d8f48E.exit"
   %34 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.017.ph, ptr %34, align 8
+  store i64 %.0.ph, ptr %34, align 8
   store i64 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %6)
@@ -271,7 +271,7 @@ default.unreachable:                              ; preds = %.lr.ph
   ret void
 
 38:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h30f38759860d8f48E.exit20"
-  %39 = add i64 %14, %.017.ph
+  %39 = add i64 %14, %.0.ph
   store i64 0, ptr %8, align 8
   br label %.outer
 
@@ -324,7 +324,7 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17hbb94f2d404f8e65eE(ptr n
   br label %.outer
 
 .outer:                                           ; preds = %38, %3
-  %.017.ph = phi i64 [ %39, %38 ], [ 0, %3 ]
+  %.0.ph = phi i64 [ %39, %38 ], [ 0, %3 ]
   %10 = call noundef ptr @"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17h2860d5c2cc23a10eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %._crit_edge, label %.lr.ph
@@ -380,7 +380,7 @@ default.unreachable:                              ; preds = %.lr.ph
 
 33:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h30f38759860d8f48E.exit"
   %34 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.017.ph, ptr %34, align 8
+  store i64 %.0.ph, ptr %34, align 8
   store i64 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %6)
@@ -395,7 +395,7 @@ default.unreachable:                              ; preds = %.lr.ph
   ret void
 
 38:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h30f38759860d8f48E.exit20"
-  %39 = add i64 %14, %.017.ph
+  %39 = add i64 %14, %.0.ph
   store i64 0, ptr %8, align 8
   br label %.outer
 
@@ -450,7 +450,7 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17hc75b278a159005ebE(ptr n
   br label %.outer
 
 .outer:                                           ; preds = %48, %3
-  %.017.ph = phi i64 [ %37, %48 ], [ 0, %3 ]
+  %.0.ph = phi i64 [ %37, %48 ], [ 0, %3 ]
   %12 = call noundef ptr @_ZN3std2io16default_read_buf17h51026356afca2438E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %._crit_edge, label %.lr.ph
@@ -506,14 +506,14 @@ default.unreachable:                              ; preds = %.lr.ph
 
 35:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h30f38759860d8f48E.exit"
   %36 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.017.ph, ptr %36, align 8
+  store i64 %.0.ph, ptr %36, align 8
   store i64 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %6)
   br label %47
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h30f38759860d8f48E.exit20": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h30f38759860d8f48E.exit"
-  %37 = add i64 %16, %.017.ph
+  %37 = add i64 %16, %.0.ph
   call void @llvm.experimental.noalias.scope.decl(metadata !55)
   %38 = load i64, ptr %2, align 8, !alias.scope !55, !noalias !58, !noundef !4
   %39 = load i64, ptr %10, align 8, !alias.scope !55, !noalias !58, !noundef !4
@@ -590,7 +590,7 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17hf0a39e05e7062c55E(ptr n
   br label %.outer
 
 .outer:                                           ; preds = %38, %3
-  %.017.ph = phi i64 [ %39, %38 ], [ 0, %3 ]
+  %.0.ph = phi i64 [ %39, %38 ], [ 0, %3 ]
   %10 = call noundef ptr @"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$8read_buf17h695e64e1e565c1f7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %._crit_edge, label %.lr.ph
@@ -646,7 +646,7 @@ default.unreachable:                              ; preds = %.lr.ph
 
 33:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h30f38759860d8f48E.exit"
   %34 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.017.ph, ptr %34, align 8
+  store i64 %.0.ph, ptr %34, align 8
   store i64 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %6)
@@ -661,7 +661,7 @@ default.unreachable:                              ; preds = %.lr.ph
   ret void
 
 38:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h30f38759860d8f48E.exit20"
-  %39 = add i64 %14, %.017.ph
+  %39 = add i64 %14, %.0.ph
   store i64 0, ptr %8, align 8
   br label %.outer
 

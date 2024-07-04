@@ -40,8 +40,8 @@ define noalias ptr @pmix_path_find(ptr noundef %0, ptr nocapture noundef readonl
 
 .preheader:                                       ; preds = %4
   %7 = load ptr, ptr %1, align 8
-  %.not66 = icmp eq ptr %7, null
-  br i1 %.not66, label %pmix_path_access.exit, label %.lr.ph
+  %.not65 = icmp eq ptr %7, null
+  br i1 %.not65, label %pmix_path_access.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %.not.i47 = icmp eq ptr %3, null
@@ -61,9 +61,9 @@ define noalias ptr @pmix_path_find(ptr noundef %0, ptr nocapture noundef readonl
   tail call void @free(ptr noundef nonnull %9) #13
   br label %pmix_path_access.exit
 
-14:                                               ; preds = %.lr.ph, %pmix_path_access.exit51
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %pmix_path_access.exit51 ]
-  %15 = phi ptr [ %7, %.lr.ph ], [ %69, %pmix_path_access.exit51 ]
+14:                                               ; preds = %.lr.ph, %pmix_path_access.exit50
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %pmix_path_access.exit50 ]
+  %15 = phi ptr [ %7, %.lr.ph ], [ %69, %pmix_path_access.exit50 ]
   %16 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %17 = load i8, ptr %15, align 1
   %18 = icmp eq i8 %17, 36
@@ -92,7 +92,7 @@ define noalias ptr @pmix_path_find(ptr noundef %0, ptr nocapture noundef readonl
 
 .lr.ph.i:                                         ; preds = %25, %38
   %28 = phi ptr [ %40, %38 ], [ %27, %25 ]
-  %.01218.i = phi ptr [ %39, %38 ], [ %3, %25 ]
+  %.018.i = phi ptr [ %39, %38 ], [ %3, %25 ]
   %29 = tail call i32 @strncmp(ptr noundef nonnull readonly %24, ptr noundef nonnull %28, i64 noundef %26) #14
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %38
@@ -109,7 +109,7 @@ define noalias ptr @pmix_path_find(ptr noundef %0, ptr nocapture noundef readonl
   br label %list_env_get.exit
 
 38:                                               ; preds = %31, %.lr.ph.i
-  %39 = getelementptr inbounds i8, ptr %.01218.i, i64 8
+  %39 = getelementptr inbounds i8, ptr %.018.i, i64 8
   %40 = load ptr, ptr %39, align 8
   %.not15.i = icmp eq ptr %40, null
   br i1 %.not15.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !4
@@ -119,30 +119,30 @@ define noalias ptr @pmix_path_find(ptr noundef %0, ptr nocapture noundef readonl
   br label %list_env_get.exit
 
 list_env_get.exit:                                ; preds = %35, %.loopexit.i
-  %.0.i = phi ptr [ %37, %35 ], [ %41, %.loopexit.i ]
+  %.012.i = phi ptr [ %37, %35 ], [ %41, %.loopexit.i ]
   br i1 %.not, label %42, label %.thread
 
 42:                                               ; preds = %list_env_get.exit
-  %.not46 = icmp eq ptr %.0.i, null
-  br i1 %.not46, label %pmix_path_access.exit51, label %43
+  %.not46 = icmp eq ptr %.012.i, null
+  br i1 %.not46, label %pmix_path_access.exit50, label %43
 
 .thread:                                          ; preds = %list_env_get.exit
   store i8 47, ptr %20, align 1
-  %.not4660 = icmp eq ptr %.0.i, null
-  br i1 %.not4660, label %pmix_path_access.exit51, label %48
+  %.not4659 = icmp eq ptr %.012.i, null
+  br i1 %.not4659, label %pmix_path_access.exit50, label %48
 
 43:                                               ; preds = %42
-  %44 = tail call noalias ptr (i32, ...) @pmix_os_path(i32 noundef 0, ptr noundef nonnull %.0.i, ptr noundef nonnull %0, ptr noundef null) #13
+  %44 = tail call noalias ptr (i32, ...) @pmix_os_path(i32 noundef 0, ptr noundef nonnull %.012.i, ptr noundef nonnull %0, ptr noundef null) #13
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %pmix_path_access.exit51, label %46
+  br i1 %45, label %pmix_path_access.exit50, label %46
 
 46:                                               ; preds = %43
   %47 = tail call i32 @access(ptr noundef nonnull %44, i32 noundef %2) #13
-  %.not.i49 = icmp eq i32 %47, 0
-  br i1 %.not.i49, label %pmix_path_access.exit, label %pmix_path_access.exit51.sink.split
+  %.not.i48 = icmp eq i32 %47, 0
+  br i1 %.not.i48, label %pmix_path_access.exit, label %pmix_path_access.exit50.sink.split
 
 48:                                               ; preds = %.thread
-  %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #14
+  %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.012.i) #14
   %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #14
   %51 = add i64 %49, 1
   %52 = add i64 %51, %50
@@ -151,39 +151,39 @@ list_env_get.exit:                                ; preds = %35, %.loopexit.i
   br i1 %54, label %pmix_path_access.exit, label %55
 
 55:                                               ; preds = %48
-  %56 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) %.0.i) #13
+  %56 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) %.012.i) #13
   %57 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) %20) #13
   %58 = tail call noalias ptr (i32, ...) @pmix_os_path(i32 noundef 0, ptr noundef nonnull %53, ptr noundef nonnull %0, ptr noundef null) #13
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %pmix_path_access.exit51.sink.split, label %60
+  br i1 %59, label %pmix_path_access.exit50.sink.split, label %60
 
 60:                                               ; preds = %55
   %61 = tail call i32 @access(ptr noundef nonnull %58, i32 noundef %2) #13
-  %.not.i53 = icmp eq i32 %61, 0
-  br i1 %.not.i53, label %pmix_path_access.exit51.sink.split, label %62
+  %.not.i52 = icmp eq i32 %61, 0
+  br i1 %.not.i52, label %pmix_path_access.exit50.sink.split, label %62
 
 62:                                               ; preds = %60
   tail call void @free(ptr noundef nonnull %58) #13
-  br label %pmix_path_access.exit51.sink.split
+  br label %pmix_path_access.exit50.sink.split
 
 63:                                               ; preds = %14
   %64 = tail call noalias ptr (i32, ...) @pmix_os_path(i32 noundef 0, ptr noundef nonnull %15, ptr noundef nonnull %0, ptr noundef null) #13
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %pmix_path_access.exit51, label %66
+  br i1 %65, label %pmix_path_access.exit50, label %66
 
 66:                                               ; preds = %63
   %67 = tail call i32 @access(ptr noundef nonnull %64, i32 noundef %2) #13
-  %.not.i57 = icmp eq i32 %67, 0
-  br i1 %.not.i57, label %pmix_path_access.exit, label %pmix_path_access.exit51.sink.split
+  %.not.i56 = icmp eq i32 %67, 0
+  br i1 %.not.i56, label %pmix_path_access.exit, label %pmix_path_access.exit50.sink.split
 
-pmix_path_access.exit51.sink.split:               ; preds = %66, %62, %60, %55, %46
+pmix_path_access.exit50.sink.split:               ; preds = %66, %62, %60, %55, %46
   %.sink = phi ptr [ %44, %46 ], [ %53, %55 ], [ %53, %60 ], [ %53, %62 ], [ %64, %66 ]
   %.1.ph = phi ptr [ null, %46 ], [ null, %55 ], [ %58, %60 ], [ null, %62 ], [ null, %66 ]
   tail call void @free(ptr noundef nonnull %.sink) #13
-  br label %pmix_path_access.exit51
+  br label %pmix_path_access.exit50
 
-pmix_path_access.exit51:                          ; preds = %pmix_path_access.exit51.sink.split, %63, %43, %.thread, %42
-  %.1 = phi ptr [ null, %42 ], [ null, %.thread ], [ null, %43 ], [ null, %63 ], [ %.1.ph, %pmix_path_access.exit51.sink.split ]
+pmix_path_access.exit50:                          ; preds = %pmix_path_access.exit50.sink.split, %63, %43, %.thread, %42
+  %.1 = phi ptr [ null, %42 ], [ null, %.thread ], [ null, %43 ], [ null, %63 ], [ %.1.ph, %pmix_path_access.exit50.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
   %69 = load ptr, ptr %68, align 8
@@ -192,8 +192,8 @@ pmix_path_access.exit51:                          ; preds = %pmix_path_access.ex
   %72 = and i1 %71, %70
   br i1 %72, label %14, label %pmix_path_access.exit, !llvm.loop !6
 
-pmix_path_access.exit:                            ; preds = %66, %46, %48, %pmix_path_access.exit51, %.preheader, %13, %11, %8
-  %.039 = phi ptr [ null, %13 ], [ null, %8 ], [ %9, %11 ], [ null, %.preheader ], [ %44, %46 ], [ %64, %66 ], [ null, %48 ], [ %.1, %pmix_path_access.exit51 ]
+pmix_path_access.exit:                            ; preds = %66, %46, %48, %pmix_path_access.exit50, %.preheader, %13, %11, %8
+  %.039 = phi ptr [ null, %13 ], [ null, %8 ], [ %9, %11 ], [ null, %.preheader ], [ %44, %46 ], [ %64, %66 ], [ null, %48 ], [ %.1, %pmix_path_access.exit50 ]
   ret ptr %.039
 }
 
@@ -263,7 +263,7 @@ define noalias ptr @pmix_path_findv(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 .lr.ph.i:                                         ; preds = %7, %17
   %9 = phi ptr [ %19, %17 ], [ %8, %7 ]
-  %.01218.i = phi ptr [ %18, %17 ], [ %2, %7 ]
+  %.018.i = phi ptr [ %18, %17 ], [ %2, %7 ]
   %10 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(5) @.str.1, ptr noundef nonnull dereferenceable(1) %9, i64 noundef 4) #14
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %17
@@ -279,7 +279,7 @@ list_env_get.exit.thread:                         ; preds = %12
   br label %21
 
 17:                                               ; preds = %12, %.lr.ph.i
-  %18 = getelementptr inbounds i8, ptr %.01218.i, i64 8
+  %18 = getelementptr inbounds i8, ptr %.018.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not15.i = icmp eq ptr %19, null
   br i1 %.not15.i, label %list_env_get.exit, label %.lr.ph.i, !llvm.loop !4
@@ -290,48 +290,48 @@ list_env_get.exit:                                ; preds = %17, %4, %7
   br i1 %.not24, label %path_env_load.exit, label %21
 
 21:                                               ; preds = %list_env_get.exit.thread, %list_env_get.exit
-  %.0.i29 = phi ptr [ %16, %list_env_get.exit.thread ], [ %20, %list_env_get.exit ]
-  %22 = load i8, ptr %.0.i29, align 1
+  %.012.i30 = phi ptr [ %16, %list_env_get.exit.thread ], [ %20, %list_env_get.exit ]
+  %22 = load i8, ptr %.012.i30, align 1
   %.not25.i = icmp eq i8 %22, 0
   br i1 %.not25.i, label %path_env_load.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %21, %30
   %23 = phi i8 [ %32, %30 ], [ %22, %21 ]
-  %.026.i = phi ptr [ %spec.select.i, %30 ], [ %.0.i29, %21 ]
+  %.026.i = phi ptr [ %spec.select.i, %30 ], [ %.012.i30, %21 ]
   br label %24
 
 24:                                               ; preds = %26, %.preheader.i
   %25 = phi i8 [ %.pr.i, %26 ], [ %23, %.preheader.i ]
-  %.018.i = phi ptr [ %27, %26 ], [ %.026.i, %.preheader.i ]
+  %.018.i26 = phi ptr [ %27, %26 ], [ %.026.i, %.preheader.i ]
   switch i8 %25, label %26 [
     i8 0, label %.critedge.i
     i8 58, label %.critedge.i
   ]
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %.018.i, i64 1
+  %27 = getelementptr inbounds i8, ptr %.018.i26, i64 1
   %.pr.i = load i8, ptr %27, align 1
   br label %24, !llvm.loop !7
 
 .critedge.i:                                      ; preds = %24, %24
-  %.not23.i = icmp eq ptr %.018.i, %.026.i
+  %.not23.i = icmp eq ptr %.018.i26, %.026.i
   br i1 %.not23.i, label %30, label %28
 
 28:                                               ; preds = %.critedge.i
-  store i8 0, ptr %.018.i, align 1
+  store i8 0, ptr %.018.i26, align 1
   %29 = call i32 @pmix_argv_append(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %.026.i) #13
-  store i8 %25, ptr %.018.i, align 1
+  store i8 %25, ptr %.018.i26, align 1
   br label %30
 
 30:                                               ; preds = %28, %.critedge.i
   %31 = phi i8 [ %25, %28 ], [ 1, %.critedge.i ]
-  %.1.i = phi ptr [ %.018.i, %28 ], [ %.026.i, %.critedge.i ]
+  %.1.i = phi ptr [ %.018.i26, %28 ], [ %.026.i, %.critedge.i ]
   %.not24.i = icmp ne i8 %31, 0
   %spec.select.idx.i = zext i1 %.not24.i to i64
   %spec.select.i = getelementptr inbounds i8, ptr %.1.i, i64 %spec.select.idx.i
   %32 = load i8, ptr %spec.select.i, align 1
-  %.not.i26 = icmp eq i8 %32, 0
-  br i1 %.not.i26, label %path_env_load.exit, label %.preheader.i, !llvm.loop !8
+  %.not.i27 = icmp eq i8 %32, 0
+  br i1 %.not.i27, label %path_env_load.exit, label %.preheader.i, !llvm.loop !8
 
 path_env_load.exit:                               ; preds = %30, %21, %list_env_get.exit
   %33 = icmp eq ptr %3, null
@@ -350,7 +350,7 @@ sub_0:                                            ; preds = %sub_0.preheader, %5
   %36 = phi i32 [ %34, %sub_0.preheader ], [ %57, %56 ]
   %37 = phi ptr [ %.pre, %sub_0.preheader ], [ %58, %56 ]
   %indvars.iv = phi i64 [ 0, %sub_0.preheader ], [ %indvars.iv.next, %56 ]
-  %.036 = phi i1 [ false, %sub_0.preheader ], [ %.1, %56 ]
+  %.037 = phi i1 [ false, %sub_0.preheader ], [ %.1, %56 ]
   %38 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
   %40 = load i8, ptr %39, align 1
@@ -380,16 +380,16 @@ sub_1:                                            ; preds = %sub_0
   %53 = getelementptr inbounds ptr, ptr %52, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %.loopexit, label %._crit_edge39
+  br i1 %55, label %.loopexit, label %._crit_edge40
 
-._crit_edge39:                                    ; preds = %48
-  %.pre40 = load i32, ptr %6, align 4
+._crit_edge40:                                    ; preds = %48
+  %.pre41 = load i32, ptr %6, align 4
   br label %56
 
-56:                                               ; preds = %._crit_edge39, %.tail
-  %57 = phi i32 [ %.pre40, %._crit_edge39 ], [ %36, %.tail ]
-  %58 = phi ptr [ %52, %._crit_edge39 ], [ %37, %.tail ]
-  %.1 = phi i1 [ true, %._crit_edge39 ], [ %.036, %.tail ]
+56:                                               ; preds = %._crit_edge40, %.tail
+  %57 = phi i32 [ %.pre41, %._crit_edge40 ], [ %36, %.tail ]
+  %58 = phi ptr [ %52, %._crit_edge40 ], [ %37, %.tail ]
+  %.1 = phi i1 [ true, %._crit_edge40 ], [ %.037, %.tail ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = sext i32 %57 to i64
   %60 = icmp slt i64 %indvars.iv.next, %59

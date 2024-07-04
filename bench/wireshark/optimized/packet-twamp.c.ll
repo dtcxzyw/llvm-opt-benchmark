@@ -446,7 +446,7 @@ define internal i32 @dissect_twamp_control(ptr noundef %0, ptr noundef %1, ptr n
   br label %25
 
 25:                                               ; preds = %17, %4
-  %.0314 = phi ptr [ %19, %17 ], [ %11, %4 ]
+  %.0315 = phi ptr [ %19, %17 ], [ %11, %4 ]
   %26 = tail call ptr @wmem_file_scope() #5
   %27 = load i32, ptr @proto_twamp_control, align 4
   %28 = tail call ptr @p_get_proto_data(ptr noundef %26, ptr noundef nonnull %1, i32 noundef %27, i32 noundef 0) #5
@@ -462,17 +462,17 @@ define internal i32 @dissect_twamp_control(ptr noundef %0, ptr noundef %1, ptr n
   %35 = getelementptr inbounds i8, ptr %1, i64 80
   %36 = load ptr, ptr %35, align 8
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %.0314, i64 4
+  %38 = getelementptr inbounds i8, ptr %.0315, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %37, %39
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %30
-  store i32 1, ptr %.0314, align 8
+  store i32 1, ptr %.0315, align 8
   br label %135
 
 42:                                               ; preds = %30
-  %43 = load i32, ptr %.0314, align 8
+  %43 = load i32, ptr %.0315, align 8
   switch i32 %43, label %135 [
     i32 1, label %44
     i32 2, label %45
@@ -484,19 +484,19 @@ define internal i32 @dissect_twamp_control(ptr noundef %0, ptr noundef %1, ptr n
   ]
 
 44:                                               ; preds = %42
-  store i32 2, ptr %.0314, align 8
+  store i32 2, ptr %.0315, align 8
   br label %135
 
 45:                                               ; preds = %42
-  store i32 3, ptr %.0314, align 8
+  store i32 3, ptr %.0315, align 8
   br label %135
 
 46:                                               ; preds = %42
-  store i32 4, ptr %.0314, align 8
+  store i32 4, ptr %.0315, align 8
   %47 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 12) #5
   store i16 %47, ptr %5, align 2
   %48 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 14) #5
-  %49 = getelementptr inbounds i8, ptr %.0314, i64 8
+  %49 = getelementptr inbounds i8, ptr %.0315, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = call ptr @g_slist_find_custom(ptr noundef %50, ptr noundef nonnull %5, ptr noundef nonnull @find_twamp_session_by_sender_port) #5
   %52 = icmp eq ptr %51, null
@@ -571,14 +571,14 @@ define internal i32 @dissect_twamp_control(ptr noundef %0, ptr noundef %1, ptr n
   br label %135
 
 94:                                               ; preds = %42
-  store i32 5, ptr %.0314, align 8
+  store i32 5, ptr %.0315, align 8
   %95 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %96 = icmp eq i8 %95, 0
   br i1 %96, label %97, label %135
 
 97:                                               ; preds = %94
   %98 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #5
-  %99 = getelementptr inbounds i8, ptr %.0314, i64 8
+  %99 = getelementptr inbounds i8, ptr %.0315, i64 8
   %100 = load ptr, ptr %99, align 8
   %101 = tail call ptr @g_slist_find_custom(ptr noundef %100, ptr noundef null, ptr noundef nonnull @find_twamp_session_by_first_accept_waiting) #5
   %102 = icmp eq ptr %101, null
@@ -627,33 +627,33 @@ define internal i32 @dissect_twamp_control(ptr noundef %0, ptr noundef %1, ptr n
   ]
 
 130:                                              ; preds = %128
-  store i32 6, ptr %.0314, align 8
+  store i32 6, ptr %.0315, align 8
   br label %135
 
 131:                                              ; preds = %128
-  store i32 9, ptr %.0314, align 8
+  store i32 9, ptr %.0315, align 8
   br label %135
 
 132:                                              ; preds = %128
-  store i32 4, ptr %.0314, align 8
+  store i32 4, ptr %.0315, align 8
   br label %135
 
 133:                                              ; preds = %42
-  store i32 7, ptr %.0314, align 8
+  store i32 7, ptr %.0315, align 8
   br label %135
 
 134:                                              ; preds = %42
-  store i32 9, ptr %.0314, align 8
+  store i32 9, ptr %.0315, align 8
   br label %135
 
 135:                                              ; preds = %42, %44, %89, %46, %132, %131, %130, %128, %134, %133, %94, %117, %103, %45, %41
-  %136 = load i32, ptr %.0314, align 8
+  %136 = load i32, ptr %.0315, align 8
   %137 = getelementptr inbounds i8, ptr %32, i64 4
   store i32 %136, ptr %137, align 4
   br label %138
 
 138:                                              ; preds = %135, %25
-  %.0315 = phi ptr [ %32, %135 ], [ %28, %25 ]
+  %.0314 = phi ptr [ %32, %135 ], [ %28, %25 ]
   %139 = getelementptr inbounds i8, ptr %1, i64 8
   %140 = load ptr, ptr %139, align 8
   call void @col_set_str(ptr noundef %140, i32 noundef 34, ptr noundef nonnull @.str.95) #5
@@ -662,7 +662,7 @@ define internal i32 @dissect_twamp_control(ptr noundef %0, ptr noundef %1, ptr n
   %143 = load i32, ptr @ett_twamp_control, align 4
   %144 = call ptr @proto_item_add_subtree(ptr noundef %142, i32 noundef %143) #5
   %145 = load ptr, ptr %139, align 8
-  %146 = getelementptr inbounds i8, ptr %.0315, i64 4
+  %146 = getelementptr inbounds i8, ptr %.0314, i64 4
   %147 = load i32, ptr %146, align 4
   %148 = call ptr @val_to_str_const(i32 noundef %147, ptr noundef nonnull @twamp_control_state_vals, ptr noundef nonnull @.str.119) #5
   call void @col_add_str(ptr noundef %145, i32 noundef 25, ptr noundef %148) #5

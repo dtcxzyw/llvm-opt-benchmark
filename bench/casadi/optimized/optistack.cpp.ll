@@ -14254,15 +14254,15 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit58:     ; preds = %_ZSt8_DestroyIPN6ca
 .lr.ph:                                           ; preds = %.preheader, %164
   %66 = phi ptr [ %165, %164 ], [ %65, %.preheader ]
   %67 = phi ptr [ %166, %164 ], [ %64, %.preheader ]
-  %.01770 = phi i64 [ %167, %164 ], [ 0, %.preheader ]
-  %68 = getelementptr inbounds double, ptr %66, i64 %.01770
+  %.070 = phi i64 [ %167, %164 ], [ 0, %.preheader ]
+  %68 = getelementptr inbounds double, ptr %66, i64 %.070
   %69 = load double, ptr %68, align 8
   %70 = load ptr, ptr %11, align 8
-  %71 = getelementptr inbounds double, ptr %70, i64 %.01770
+  %71 = getelementptr inbounds double, ptr %70, i64 %.070
   %72 = load double, ptr %71, align 8
   %73 = fsub double %69, %72
   %74 = load ptr, ptr %7, align 8
-  %75 = getelementptr inbounds double, ptr %74, i64 %.01770
+  %75 = getelementptr inbounds double, ptr %74, i64 %.070
   %76 = load double, ptr %75, align 8
   %77 = fsub double %76, %69
   %78 = fcmp olt double %73, %77
@@ -14280,7 +14280,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit58:     ; preds = %_ZSt8_DestroyIPN6ca
 
 84:                                               ; preds = %82
   %85 = load i64, ptr @_ZN6casadi13GlobalOptions11start_indexE, align 8
-  %86 = add nsw i64 %85, %.01770
+  %86 = add nsw i64 %85, %.070
   %87 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEx(ptr noundef nonnull align 8 dereferenceable(8) %83, i64 noundef %86)
           to label %88 unwind label %.loopexit
 
@@ -14316,7 +14316,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit58:     ; preds = %_ZSt8_DestroyIPN6ca
 
 106:                                              ; preds = %104
   %107 = load ptr, ptr %7, align 8
-  %108 = getelementptr inbounds double, ptr %107, i64 %.01770
+  %108 = getelementptr inbounds double, ptr %107, i64 %.070
   %109 = load double, ptr %108, align 8
   %110 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %105, double noundef %109)
           to label %111 unwind label %.loopexit
@@ -14327,7 +14327,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit58:     ; preds = %_ZSt8_DestroyIPN6ca
 
 113:                                              ; preds = %111
   %114 = load ptr, ptr %3, align 8
-  %115 = getelementptr inbounds double, ptr %114, i64 %.01770
+  %115 = getelementptr inbounds double, ptr %114, i64 %.070
   %116 = load double, ptr %115, align 8
   %117 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %112, double noundef %116)
           to label %118 unwind label %.loopexit
@@ -14338,7 +14338,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit58:     ; preds = %_ZSt8_DestroyIPN6ca
 
 120:                                              ; preds = %118
   %121 = load ptr, ptr %11, align 8
-  %122 = getelementptr inbounds double, ptr %121, i64 %.01770
+  %122 = getelementptr inbounds double, ptr %121, i64 %.070
   %123 = load double, ptr %122, align 8
   %124 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %119, double noundef %123)
           to label %125 unwind label %.loopexit
@@ -14368,7 +14368,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit58:     ; preds = %_ZSt8_DestroyIPN6ca
           to label %137 unwind label %.loopexit
 
 137:                                              ; preds = %135
-  invoke void @_ZNK6casadi12OptiAdvanced10g_describeB5cxx11Ex(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull align 8 dereferenceable(11) %0, i64 noundef %.01770)
+  invoke void @_ZNK6casadi12OptiAdvanced10g_describeB5cxx11Ex(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull align 8 dereferenceable(11) %0, i64 noundef %.070)
           to label %138 unwind label %.loopexit
 
 138:                                              ; preds = %137
@@ -14465,7 +14465,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit58:     ; preds = %_ZSt8_DestroyIPN6ca
 164:                                              ; preds = %.lr.ph, %142
   %165 = phi ptr [ %66, %.lr.ph ], [ %.pre71, %142 ]
   %166 = phi ptr [ %67, %.lr.ph ], [ %.pre, %142 ]
-  %167 = add nuw nsw i64 %.01770, 1
+  %167 = add nuw nsw i64 %.070, 1
   %168 = ptrtoint ptr %166 to i64
   %169 = ptrtoint ptr %165 to i64
   %170 = sub i64 %168, %169

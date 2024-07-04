@@ -259,10 +259,10 @@ define internal fastcc range(i32 0, 2) i32 @dissect_ipa(ptr noundef %0, ptr noun
 
 ._crit_edge:                                      ; preds = %.lr.ph, %dissect_ipaccess.exit
   %20 = phi i32 [ %17, %.lr.ph ], [ %136, %dissect_ipaccess.exit ]
-  %.07177 = phi i32 [ 3, %.lr.ph ], [ %.1, %dissect_ipaccess.exit ]
-  %.07276 = phi i32 [ 0, %.lr.ph ], [ %135, %dissect_ipaccess.exit ]
-  %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.07276) #2
-  %22 = add i32 %.07276, 2
+  %.077 = phi i32 [ 0, %.lr.ph ], [ %135, %dissect_ipaccess.exit ]
+  %.07176 = phi i32 [ 3, %.lr.ph ], [ %.1, %dissect_ipaccess.exit ]
+  %21 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.077) #2
+  %22 = add i32 %.077, 2
   %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %22) #2
   %24 = load ptr, ptr %14, align 8
   %25 = zext i8 %23 to i32
@@ -273,18 +273,18 @@ define internal fastcc range(i32 0, 2) i32 @dissect_ipa(ptr noundef %0, ptr noun
   %28 = icmp eq i32 %27, %20
   %narrow = select i1 %.not, i1 %28, i1 false
   %spec.select = zext i1 %narrow to i32
-  %.1 = add i32 %.07177, %spec.select
+  %.1 = add i32 %.07176, %spec.select
   %29 = load i32, ptr @proto_ipa, align 4
   %30 = add i32 %.1, %.pre
   %31 = tail call ptr @val_to_str(i32 noundef %25, ptr noundef nonnull @ipa_protocol_vals, ptr noundef nonnull @.str.86) #2
-  %32 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef %.07276, i32 noundef %30, ptr noundef nonnull @.str.87, ptr noundef %31) #2
+  %32 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef %.077, i32 noundef %30, ptr noundef nonnull @.str.87, ptr noundef %31) #2
   %33 = load i32, ptr @ett_ipa, align 4
   %34 = tail call ptr @proto_item_add_subtree(ptr noundef %32, i32 noundef %33) #2
   %35 = load i32, ptr @hf_ipa_data_len, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %35, ptr noundef %0, i32 noundef %.07276, i32 noundef 2, i32 noundef 0) #2
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %35, ptr noundef %0, i32 noundef %.077, i32 noundef 2, i32 noundef 0) #2
   %37 = load i32, ptr @hf_ipa_protocol, align 4
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %37, ptr noundef %0, i32 noundef %22, i32 noundef 1, i32 noundef 0) #2
-  %39 = add i32 %.1, %.07276
+  %39 = add i32 %.1, %.077
   %40 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %39, i32 noundef %.pre) #2
   switch i8 %23, label %130 [
     i8 -1, label %41
@@ -455,14 +455,14 @@ define internal fastcc range(i32 0, 2) i32 @dissect_ipa(ptr noundef %0, ptr noun
   br label %dissect_ipaccess.exit
 
 dissect_ipaccess.exit:                            ; preds = %81, %112, %109, %106, %101, %57, %45, %130, %132, %123, %126, %41, %43, %90, %87
-  %135 = add i32 %30, %.07276
+  %135 = add i32 %30, %.077
   %136 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %135) #2
   %137 = icmp sgt i32 %136, 0
   br i1 %137, label %._crit_edge, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %dissect_ipaccess.exit, %13, %7, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 1, %13 ], [ 1, %dissect_ipaccess.exit ]
-  ret i32 %.0
+  %.072 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 1, %13 ], [ 1, %dissect_ipaccess.exit ]
+  ret i32 %.072
 }
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1

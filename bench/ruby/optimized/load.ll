@@ -450,7 +450,7 @@ define internal fastcc void @rb_load_internal(i64 noundef %0, i64 noundef %1) un
   br label %18
 
 18:                                               ; preds = %.critedge, %12
-  %.027 = phi i64 [ %1, %12 ], [ %17, %.critedge ]
+  %.026 = phi i64 [ %1, %12 ], [ %17, %.critedge ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -468,8 +468,8 @@ define internal fastcc void @rb_load_internal(i64 noundef %0, i64 noundef %1) un
   %25 = tail call i64 @rb_vm_top_self() #21
   %26 = tail call i64 @rb_obj_clone(i64 noundef %25) #6
   store i64 %26, ptr %22, align 8
-  store i64 %.027, ptr %20, align 8
-  tail call void @rb_extend_object(i64 noundef %26, i64 noundef %.027) #6
+  store i64 %.026, ptr %20, align 8
+  tail call void @rb_extend_object(i64 noundef %26, i64 noundef %.026) #6
   store ptr %8, ptr %5, align 8
   %27 = getelementptr inbounds i8, ptr %6, i64 64
   store i32 0, ptr %27, align 8
@@ -1305,10 +1305,10 @@ RSTRING_PTR.exit120:                              ; preds = %69, %74
   br label %90
 
 90:                                               ; preds = %88, %.thread
-  %.085135 = phi i32 [ 0, %.thread ], [ %.fr, %88 ]
+  %.084135 = phi i32 [ 0, %.thread ], [ %.fr, %88 ]
   %91 = phi ptr [ @loadable_ext, %.thread ], [ %spec.select, %88 ]
   %92 = call i32 @rb_find_file_ext(ptr noundef nonnull %5, ptr noundef nonnull %91) #6
-  %93 = icmp eq i32 %.085135, 0
+  %93 = icmp eq i32 %.084135, 0
   %94 = icmp ne i32 %92, 1
   %or.cond7 = select i1 %93, i1 %94, i1 false
   br i1 %or.cond7, label %95, label %114
@@ -1430,8 +1430,8 @@ RSTRING_PTR.exit132:                              ; preds = %125, %131
   br label %148
 
 148:                                              ; preds = %144, %146, %84, %86, %80, %RSTRING_PTR.exit120, %55, %57, %24, %37, %RSTRING_PTR.exit112, %20, %22, %141, %RSTRING_PTR.exit128, %112
-  %.084 = phi i32 [ 115, %112 ], [ %143, %141 ], [ %123, %RSTRING_PTR.exit128 ], [ 114, %22 ], [ 114, %20 ], [ 114, %RSTRING_PTR.exit112 ], [ 114, %37 ], [ 0, %24 ], [ 115, %57 ], [ 115, %55 ], [ 115, %RSTRING_PTR.exit120 ], [ 115, %80 ], [ 114, %86 ], [ 114, %84 ], [ %.085135, %146 ], [ %.085135, %144 ]
-  ret i32 %.084
+  %.085 = phi i32 [ 115, %112 ], [ %143, %141 ], [ %123, %RSTRING_PTR.exit128 ], [ 114, %22 ], [ 114, %20 ], [ 114, %RSTRING_PTR.exit112 ], [ 114, %37 ], [ 0, %24 ], [ 115, %57 ], [ 115, %55 ], [ 115, %RSTRING_PTR.exit120 ], [ 115, %80 ], [ 114, %86 ], [ 114, %84 ], [ %.084135, %146 ], [ %.084135, %144 ]
+  ret i32 %.085
 }
 
 declare i64 @rb_id2sym(i64 noundef) local_unnamed_addr #1
@@ -2347,8 +2347,8 @@ define internal range(i32 0, 118) i32 @rb_feature_p(ptr noundef %0, ptr noundef 
   br label %20
 
 20:                                               ; preds = %18, %13
-  %.0113 = phi i64 [ %16, %13 ], [ %19, %18 ]
-  %.0105 = phi i32 [ %17, %13 ], [ 0, %18 ]
+  %.0106 = phi i64 [ %16, %13 ], [ %19, %18 ]
+  %.0103 = phi i32 [ %17, %13 ], [ 0, %18 ]
   %21 = getelementptr i8, ptr %0, i64 600
   %.val = load i64, ptr %21, align 8
   %22 = tail call fastcc ptr @get_loaded_features_index(ptr noundef %0)
@@ -2380,13 +2380,13 @@ define internal range(i32 0, 118) i32 @rb_feature_p(ptr noundef %0, ptr noundef 
   br label %38
 
 38:                                               ; preds = %.preheader152, %94
-  %.0106 = phi i64 [ %.3109, %94 ], [ 0, %.preheader152 ]
-  %.0104 = phi i64 [ %95, %94 ], [ 0, %.preheader152 ]
-  %.0102 = phi i32 [ %.2, %94 ], [ %4, %.preheader152 ]
+  %.0110 = phi i64 [ %.3113, %94 ], [ 0, %.preheader152 ]
+  %.0105 = phi i32 [ %.2, %94 ], [ %4, %.preheader152 ]
+  %.0102 = phi i64 [ %95, %94 ], [ 0, %.preheader152 ]
   br i1 %.not151, label %40, label %39
 
 39:                                               ; preds = %38
-  %.not130 = icmp eq i64 %.0104, 0
+  %.not130 = icmp eq i64 %.0102, 0
   br i1 %.not130, label %47, label %.loopexit
 
 40:                                               ; preds = %38
@@ -2398,16 +2398,16 @@ define internal range(i32 0, 118) i32 @rb_feature_p(ptr noundef %0, ptr noundef 
 
 rb_darray_size.exit:                              ; preds = %40, %41
   %43 = phi i64 [ %42, %41 ], [ 0, %40 ]
-  %.not129 = icmp ult i64 %.0104, %43
+  %.not129 = icmp ult i64 %.0102, %43
   br i1 %.not129, label %44, label %.loopexit
 
 44:                                               ; preds = %rb_darray_size.exit
-  %45 = getelementptr [0 x i64], ptr %32, i64 0, i64 %.0104
+  %45 = getelementptr [0 x i64], ptr %32, i64 0, i64 %.0102
   %46 = load i64, ptr %45, align 8
   br label %47
 
 47:                                               ; preds = %39, %44
-  %.0103 = phi i64 [ %46, %44 ], [ %30, %39 ]
+  %.0 = phi i64 [ %46, %44 ], [ %30, %39 ]
   %48 = load i64, ptr %33, align 8
   %49 = and i64 %48, 8192
   %.not.i.i = icmp eq i64 %49, 0
@@ -2419,7 +2419,7 @@ rb_darray_size.exit:                              ; preds = %40, %41
 
 RARRAY_AREF.exit:                                 ; preds = %47, %50
   %.0.i.i = phi ptr [ %51, %50 ], [ %34, %47 ]
-  %52 = getelementptr i64, ptr %.0.i.i, i64 %.0103
+  %52 = getelementptr i64, ptr %.0.i.i, i64 %.0
   %53 = load i64, ptr %52, align 8
   store i64 %53, ptr %7, align 8
   %54 = call ptr @rb_string_value_ptr(ptr noundef nonnull %7) #6
@@ -2427,20 +2427,20 @@ RARRAY_AREF.exit:                                 ; preds = %47, %50
   %56 = inttoptr i64 %55 to ptr
   %57 = getelementptr inbounds i8, ptr %56, i64 16
   %58 = load i64, ptr %57, align 8
-  %59 = icmp slt i64 %58, %.0113
+  %59 = icmp slt i64 %58, %.0106
   br i1 %59, label %94, label %60
 
 60:                                               ; preds = %RARRAY_AREF.exit
-  %61 = call i32 @strncmp(ptr noundef %54, ptr noundef %1, i64 noundef %.0113) #21
+  %61 = call i32 @strncmp(ptr noundef %54, ptr noundef %1, i64 noundef %.0106) #21
   %.not131 = icmp eq i32 %61, 0
   br i1 %.not131, label %74, label %62
 
 62:                                               ; preds = %60
-  %.not132 = icmp eq i32 %.0102, 0
+  %.not132 = icmp eq i32 %.0105, 0
   br i1 %.not132, label %63, label %94
 
 63:                                               ; preds = %62
-  %.not133 = icmp eq i64 %.0106, 0
+  %.not133 = icmp eq i64 %.0110, 0
   br i1 %.not133, label %64, label %66
 
 64:                                               ; preds = %63
@@ -2448,8 +2448,8 @@ RARRAY_AREF.exit:                                 ; preds = %47, %50
   br label %66
 
 66:                                               ; preds = %64, %63
-  %.1107 = phi i64 [ %.0106, %63 ], [ %65, %64 ]
-  %67 = call fastcc i64 @loaded_feature_path(ptr noundef %54, i64 noundef %58, ptr noundef %1, i64 noundef %.0113, i32 noundef %.0105, i64 noundef %.1107)
+  %.1111 = phi i64 [ %.0110, %63 ], [ %65, %64 ]
+  %67 = call fastcc i64 @loaded_feature_path(ptr noundef %54, i64 noundef %58, ptr noundef %1, i64 noundef %.0106, i32 noundef %.0103, i64 noundef %.1111)
   %.not134 = icmp eq i64 %67, 0
   br i1 %.not134, label %94, label %68
 
@@ -2462,10 +2462,10 @@ RARRAY_AREF.exit:                                 ; preds = %47, %50
   br label %74
 
 74:                                               ; preds = %68, %60
-  %.0110 = phi ptr [ %73, %68 ], [ %54, %60 ]
-  %.2108 = phi i64 [ %.1107, %68 ], [ %.0106, %60 ]
-  %.1 = phi i32 [ 1, %68 ], [ %.0102, %60 ]
-  %75 = getelementptr i8, ptr %.0110, i64 %.0113
+  %.2112 = phi i64 [ %.1111, %68 ], [ %.0110, %60 ]
+  %.0109 = phi ptr [ %73, %68 ], [ %54, %60 ]
+  %.1 = phi i32 [ 1, %68 ], [ %.0105, %60 ]
+  %75 = getelementptr i8, ptr %.0109, i64 %.0106
   %76 = load i8, ptr %75, align 1
   switch i8 %76, label %94 [
     i8 0, label %77
@@ -2511,14 +2511,14 @@ sub_2:                                            ; preds = %sub_1
   br i1 %93, label %.loopexit153, label %94
 
 94:                                               ; preds = %74, %.thread, %91, %77, %66, %62, %RARRAY_AREF.exit
-  %.3109 = phi i64 [ %.0106, %RARRAY_AREF.exit ], [ %.0106, %62 ], [ %.2108, %91 ], [ %.2108, %.thread ], [ %.2108, %77 ], [ %.1107, %66 ], [ %.2108, %74 ]
-  %.2 = phi i32 [ %.0102, %RARRAY_AREF.exit ], [ %.0102, %62 ], [ %.1, %91 ], [ %.1, %.thread ], [ %.1, %77 ], [ 0, %66 ], [ %.1, %74 ]
-  %95 = add nuw i64 %.0104, 1
+  %.3113 = phi i64 [ %.0110, %RARRAY_AREF.exit ], [ %.0110, %62 ], [ %.2112, %91 ], [ %.2112, %.thread ], [ %.2112, %77 ], [ %.1111, %66 ], [ %.2112, %74 ]
+  %.2 = phi i32 [ %.0105, %RARRAY_AREF.exit ], [ %.0105, %62 ], [ %.1, %91 ], [ %.1, %.thread ], [ %.1, %77 ], [ 0, %66 ], [ %.1, %74 ]
+  %95 = add nuw i64 %.0102, 1
   br label %38
 
 .loopexit:                                        ; preds = %39, %rb_darray_size.exit, %26, %20
-  %.4 = phi i64 [ 0, %26 ], [ 0, %20 ], [ %.0106, %rb_darray_size.exit ], [ %.0106, %39 ]
-  %.3 = phi i32 [ %4, %26 ], [ %4, %20 ], [ %.0102, %rb_darray_size.exit ], [ %.0102, %39 ]
+  %.4 = phi i64 [ 0, %26 ], [ 0, %20 ], [ %.0110, %rb_darray_size.exit ], [ %.0110, %39 ]
+  %.3 = phi i32 [ %4, %26 ], [ %4, %20 ], [ %.0105, %rb_darray_size.exit ], [ %.0105, %39 ]
   %96 = getelementptr i8, ptr %0, i64 640
   %.val147 = load ptr, ptr %96, align 8
   %.not137 = icmp eq i32 %.3, 0
@@ -2527,9 +2527,9 @@ sub_2:                                            ; preds = %sub_1
 97:                                               ; preds = %.loopexit
   store ptr %1, ptr %9, align 8
   %98 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %.0113, ptr %98, align 8
+  store i64 %.0106, ptr %98, align 8
   %99 = getelementptr inbounds i8, ptr %9, i64 16
-  store i32 %.0105, ptr %99, align 8
+  store i32 %.0103, ptr %99, align 8
   %.not138 = icmp eq i64 %.4, 0
   br i1 %.not138, label %100, label %102
 
@@ -2575,7 +2575,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not141, label %120, label %.loopexit153
 
 120:                                              ; preds = %118, %117
-  %121 = add i64 %.0113, 3
+  %121 = add i64 %.0106, 3
   %122 = call i64 @rb_str_tmp_new(i64 noundef %121) #6
   %123 = inttoptr i64 %122 to ptr
   %124 = load i64, ptr %123, align 8, !noalias !75
@@ -2590,21 +2590,21 @@ sub_2:                                            ; preds = %sub_1
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %127, %120
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %127 ], [ %126, %120 ]
-  %.not.i149 = icmp eq i64 %.0113, 0
+  %.not.i149 = icmp eq i64 %.0106, 0
   br i1 %.not.i149, label %ruby_nonempty_memcpy.exit, label %128
 
 128:                                              ; preds = %rbimpl_size_mul_or_raise.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i, ptr readonly align 1 %1, i64 %.0113, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.2.0.i, ptr readonly align 1 %1, i64 %.0106, i1 false)
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %128
-  %129 = getelementptr i8, ptr %.sroa.2.0.i, i64 %.0113
+  %129 = getelementptr i8, ptr %.sroa.2.0.i, i64 %.0106
   %130 = ptrtoint ptr %.sroa.2.0.i to i64
   br label %131
 
 131:                                              ; preds = %ruby_nonempty_memcpy.exit, %143
-  %.0111157 = phi i64 [ 0, %ruby_nonempty_memcpy.exit ], [ %144, %143 ]
-  %132 = getelementptr [3 x ptr], ptr @loadable_ext, i64 0, i64 %.0111157
+  %.0107157 = phi i64 [ 0, %ruby_nonempty_memcpy.exit ], [ %144, %143 ]
+  %132 = getelementptr [3 x ptr], ptr @loadable_ext, i64 0, i64 %.0107157
   %133 = load ptr, ptr %132, align 8
   %134 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %129, ptr noundef nonnull dereferenceable(1) %133, i64 noundef 4) #6
   %135 = call i32 @rb_st_get_key(ptr noundef %.val147, i64 noundef %130, ptr noundef nonnull %8) #6
@@ -2622,12 +2622,12 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   br label %141
 
 141:                                              ; preds = %138, %136
-  %.not145 = icmp eq i64 %.0111157, 0
+  %.not145 = icmp eq i64 %.0107157, 0
   %142 = select i1 %.not145, i32 114, i32 115
   br label %.loopexit153
 
 143:                                              ; preds = %131
-  %144 = add nuw nsw i64 %.0111157, 1
+  %144 = add nuw nsw i64 %.0107157, 1
   %exitcond = icmp eq i64 %144, 2
   br i1 %exitcond, label %.preheader, label %131, !llvm.loop !78
 
@@ -2636,8 +2636,8 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
 
 .preheader:                                       ; preds = %143, %145
   %146 = phi i1 [ false, %145 ], [ true, %143 ]
-  %.1112158 = phi i64 [ 1, %145 ], [ 0, %143 ]
-  %147 = getelementptr [2 x [4 x i8]], ptr @rb_feature_p.so_ext, i64 0, i64 %.1112158
+  %.1108158 = phi i64 [ 1, %145 ], [ 0, %143 ]
+  %147 = getelementptr [2 x [4 x i8]], ptr @rb_feature_p.so_ext, i64 0, i64 %.1108158
   %148 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %129, ptr noundef nonnull dereferenceable(1) %147, i64 noundef 4) #6
   %149 = call i32 @rb_st_get_key(ptr noundef %.val147, i64 noundef %130, ptr noundef nonnull %8) #6
   %.not143 = icmp eq i32 %149, 0
@@ -2672,8 +2672,8 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   br label %.loopexit153
 
 .loopexit153:                                     ; preds = %.thread, %79, %.tail, %77, %157, %150, %152, %118, %158, %155, %141
-  %.0 = phi i32 [ %160, %158 ], [ %142, %141 ], [ 0, %155 ], [ 0, %118 ], [ 115, %152 ], [ 115, %150 ], [ 117, %157 ], [ 114, %.thread ], [ 115, %79 ], [ 115, %.tail ], [ 117, %77 ]
-  ret i32 %.0
+  %.0104 = phi i32 [ %160, %158 ], [ %142, %141 ], [ 0, %155 ], [ 0, %118 ], [ 115, %152 ], [ 115, %150 ], [ 117, %157 ], [ 114, %.thread ], [ 115, %79 ], [ 115, %.tail ], [ 117, %77 ]
+  ret i32 %.0104
 }
 
 declare ptr @dln_symbol(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -3105,7 +3105,7 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit74
   br label %45
 
 45:                                               ; preds = %40, %RARRAY_AREF.exit
-  %.0 = phi i1 [ false, %RARRAY_AREF.exit ], [ %44, %40 ]
+  %.064 = phi i1 [ false, %RARRAY_AREF.exit ], [ %44, %40 ]
   %46 = tail call i64 @rb_get_path_check_to_string(i64 noundef %35) #6
   %47 = inttoptr i64 %46 to ptr
   %48 = load i64, ptr %47, align 8, !noalias !96
@@ -3120,7 +3120,7 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit74
 
 RSTRING_PTR.exit:                                 ; preds = %45, %51
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %51 ], [ %50, %45 ]
-  br i1 %.0, label %52, label %64
+  br i1 %.064, label %52, label %64
 
 52:                                               ; preds = %RSTRING_PTR.exit
   switch i32 %1, label %64 [
@@ -3172,7 +3172,7 @@ RARRAY_AREF.exit78:                               ; preds = %57, %60
 69:                                               ; preds = %68, %66, %64
   %70 = load i32, ptr %3, align 4
   %71 = icmp ne i32 %70, 0
-  %or.cond4.not = or i1 %.0, %71
+  %or.cond4.not = or i1 %.064, %71
   br i1 %or.cond4.not, label %73, label %72
 
 72:                                               ; preds = %69
@@ -3180,7 +3180,7 @@ RARRAY_AREF.exit78:                               ; preds = %57, %60
   br label %73
 
 73:                                               ; preds = %72, %69
-  br i1 %.0, label %74, label %76
+  br i1 %.064, label %74, label %76
 
 74:                                               ; preds = %73
   %75 = tail call i64 @rb_str_freeze(i64 noundef %35) #6
@@ -3710,8 +3710,8 @@ is_rbext_path.exit:                               ; preds = %RSTRING_PTR.exit.i,
   br label %RARRAY_AREF.exit45.us77
 
 RARRAY_AREF.exit45.us77:                          ; preds = %rb_darray_size.exit.us84, %.lr.ph.split.us
-  %.04176.us = phi i64 [ 0, %.lr.ph.split.us ], [ %90, %rb_darray_size.exit.us84 ]
-  %66 = getelementptr [0 x i64], ptr %58, i64 0, i64 %.04176.us
+  %.076.us = phi i64 [ 0, %.lr.ph.split.us ], [ %90, %rb_darray_size.exit.us84 ]
+  %66 = getelementptr [0 x i64], ptr %58, i64 0, i64 %.076.us
   %67 = load i64, ptr %66, align 8
   %68 = getelementptr i64, ptr %65, i64 %67
   %69 = load i64, ptr %68, align 8
@@ -3753,13 +3753,13 @@ is_rbext_path.exit51.us82:                        ; preds = %85, %82
   br i1 %89, label %rb_darray_size.exit.us84, label %rb_darray_size.exit.i
 
 rb_darray_size.exit.us84:                         ; preds = %is_rbext_path.exit51.us82
-  %90 = add nuw i64 %.04176.us, 1
+  %90 = add nuw i64 %.076.us, 1
   %exitcond106.not = icmp eq i64 %90, %62
   br i1 %exitcond106.not, label %.loopexit, label %RARRAY_AREF.exit45.us77, !llvm.loop !107
 
 RARRAY_AREF.exit45:                               ; preds = %.lr.ph, %rb_darray_size.exit
-  %.04176 = phi i64 [ %115, %rb_darray_size.exit ], [ 0, %.lr.ph ]
-  %91 = getelementptr [0 x i64], ptr %58, i64 0, i64 %.04176
+  %.076 = phi i64 [ %115, %rb_darray_size.exit ], [ 0, %.lr.ph ]
+  %91 = getelementptr [0 x i64], ptr %58, i64 0, i64 %.076
   %92 = load i64, ptr %91, align 8
   %93 = getelementptr i64, ptr %60, i64 %92
   %94 = load i64, ptr %93, align 8
@@ -3806,7 +3806,7 @@ is_rbext_path.exit51:                             ; preds = %107, %110
   br i1 %114, label %rb_darray_size.exit, label %rb_darray_size.exit.i
 
 rb_darray_size.exit:                              ; preds = %is_rbext_path.exit51
-  %115 = add nuw i64 %.04176, 1
+  %115 = add nuw i64 %.076, 1
   %exitcond.not = icmp eq i64 %115, %62
   br i1 %exitcond.not, label %.loopexit, label %RARRAY_AREF.exit45, !llvm.loop !107
 
@@ -3820,7 +3820,7 @@ rb_darray_size.exit:                              ; preds = %is_rbext_path.exit5
 
 rb_darray_size.exit.i:                            ; preds = %Check_Type.exit, %is_rbext_path.exit51, %Check_Type.exit.us79, %is_rbext_path.exit51.us82, %.loopexit.rb_darray_size.exit.i_crit_edge
   %116 = phi i64 [ %.pre, %.loopexit.rb_darray_size.exit.i_crit_edge ], [ %62, %is_rbext_path.exit51.us82 ], [ %62, %Check_Type.exit.us79 ], [ %62, %is_rbext_path.exit51 ], [ %62, %Check_Type.exit ]
-  %.070 = phi i64 [ -1, %.loopexit.rb_darray_size.exit.i_crit_edge ], [ %.04176.us, %is_rbext_path.exit51.us82 ], [ %.04176.us, %Check_Type.exit.us79 ], [ %.04176, %is_rbext_path.exit51 ], [ %.04176, %Check_Type.exit ]
+  %.04170 = phi i64 [ -1, %.loopexit.rb_darray_size.exit.i_crit_edge ], [ %.076.us, %is_rbext_path.exit51.us82 ], [ %.076.us, %Check_Type.exit.us79 ], [ %.076, %is_rbext_path.exit51 ], [ %.076, %Check_Type.exit ]
   %117 = getelementptr inbounds i8, ptr %55, i64 8
   %118 = load i64, ptr %117, align 8
   %.fr.i = freeze i64 %118
@@ -3846,7 +3846,7 @@ rb_darray_size.exit.i:                            ; preds = %Check_Type.exit, %i
   br label %rb_darray_resize_capa_impl.exit.i
 
 rb_darray_resize_capa_impl.exit.i:                ; preds = %126, %124, %.thread2.i
-  %.068 = phi i64 [ %.070, %.thread2.i ], [ %.070, %124 ], [ -1, %126 ]
+  %.04168 = phi i64 [ %.04170, %.thread2.i ], [ %.04170, %124 ], [ -1, %126 ]
   %128 = phi ptr [ %123, %.thread2.i ], [ %125, %124 ], [ %127, %126 ]
   %129 = phi i64 [ %122, %.thread2.i ], [ 1, %124 ], [ 1, %126 ]
   %130 = getelementptr inbounds i8, ptr %128, i64 8
@@ -3856,7 +3856,7 @@ rb_darray_resize_capa_impl.exit.i:                ; preds = %126, %124, %.thread
 
 rb_darray_ensure_space.exit:                      ; preds = %rb_darray_size.exit.i, %rb_darray_resize_capa_impl.exit.i
   %131 = phi i64 [ %.pre107, %rb_darray_resize_capa_impl.exit.i ], [ %116, %rb_darray_size.exit.i ]
-  %.069 = phi i64 [ %.068, %rb_darray_resize_capa_impl.exit.i ], [ %.070, %rb_darray_size.exit.i ]
+  %.04169 = phi i64 [ %.04168, %rb_darray_resize_capa_impl.exit.i ], [ %.04170, %rb_darray_size.exit.i ]
   %.064 = phi ptr [ %128, %rb_darray_resize_capa_impl.exit.i ], [ %55, %rb_darray_size.exit.i ]
   %132 = ashr i64 %8, 1
   %133 = getelementptr inbounds i8, ptr %.064, i64 16
@@ -3867,12 +3867,12 @@ rb_darray_ensure_space.exit:                      ; preds = %rb_darray_size.exit
   store i64 %136, ptr %.064, align 8
   %137 = ptrtoint ptr %.064 to i64
   store i64 %137, ptr %1, align 8
-  %138 = icmp sgt i64 %.069, -1
+  %138 = icmp sgt i64 %.04169, -1
   br i1 %138, label %rb_darray_size.exit54, label %148
 
 rb_darray_size.exit54:                            ; preds = %rb_darray_ensure_space.exit
   %139 = load i64, ptr %.064, align 8
-  %140 = xor i64 %.069, -1
+  %140 = xor i64 %.04169, -1
   %141 = add i64 %139, %140
   %142 = icmp ugt i64 %141, 2305843009213693951
   br i1 %142, label %143, label %rbimpl_size_mul_or_raise.exit
@@ -3882,7 +3882,7 @@ rb_darray_size.exit54:                            ; preds = %rb_darray_ensure_sp
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %rb_darray_size.exit54
-  %144 = getelementptr i64, ptr %133, i64 %.069
+  %144 = getelementptr i64, ptr %133, i64 %.04169
   %145 = getelementptr i8, ptr %144, i64 8
   %146 = shl nuw i64 %141, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %144, ptr align 8 %145, i64 %146, i1 false)
@@ -4246,30 +4246,30 @@ define internal fastcc i64 @loaded_feature_path(ptr noundef %0, i64 noundef %1, 
   br i1 %.not6274, label %.critedgethread-pre-split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16, %20
-  %.05375 = phi ptr [ %21, %20 ], [ %17, %16 ]
-  %18 = load i8, ptr %.05375, align 1
+  %.075 = phi ptr [ %21, %20 ], [ %17, %16 ]
+  %18 = load i8, ptr %.075, align 1
   %19 = and i8 %18, -2
   %switch = icmp eq i8 %19, 46
   br i1 %switch, label %.critedge, label %20
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr i8, ptr %.05375, i64 -1
+  %21 = getelementptr i8, ptr %.075, i64 -1
   %.not62 = icmp eq ptr %21, %0
   br i1 %.not62, label %.critedgethread-pre-split, label %.lr.ph, !llvm.loop !113
 
 .critedgethread-pre-split:                        ; preds = %20, %16
-  %.053.lcssa = phi ptr [ %17, %16 ], [ %0, %20 ]
-  %.pr = load i8, ptr %.053.lcssa, align 1
+  %.0.lcssa = phi ptr [ %17, %16 ], [ %0, %20 ]
+  %.pr = load i8, ptr %.0.lcssa, align 1
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.critedgethread-pre-split
-  %.05373 = phi ptr [ %.053.lcssa, %.critedgethread-pre-split ], [ %.05375, %.lr.ph ]
+  %.073 = phi ptr [ %.0.lcssa, %.critedgethread-pre-split ], [ %.075, %.lr.ph ]
   %22 = phi i8 [ %.pr, %.critedgethread-pre-split ], [ %18, %.lr.ph ]
   %.not65 = icmp eq i8 %22, 46
   br i1 %.not65, label %23, label %.loopexit
 
 23:                                               ; preds = %.critedge
-  %24 = ptrtoint ptr %.05373 to i64
+  %24 = ptrtoint ptr %.073 to i64
   %25 = ptrtoint ptr %0 to i64
   %26 = sub i64 %24, %25
   %27 = icmp slt i64 %26, %3
@@ -4277,7 +4277,7 @@ define internal fastcc i64 @loaded_feature_path(ptr noundef %0, i64 noundef %1, 
 
 28:                                               ; preds = %23
   %29 = sub i64 0, %3
-  %30 = getelementptr i8, ptr %.05373, i64 %29
+  %30 = getelementptr i8, ptr %.073, i64 %29
   %31 = tail call i32 @strncmp(ptr noundef %30, ptr noundef %2, i64 noundef %3) #21
   %.not66 = icmp eq i32 %31, 0
   br i1 %.not66, label %32, label %.loopexit
@@ -4287,12 +4287,12 @@ define internal fastcc i64 @loaded_feature_path(ptr noundef %0, i64 noundef %1, 
   br label %34
 
 34:                                               ; preds = %12, %32
-  %.054 = phi i64 [ %33, %32 ], [ %13, %12 ]
-  %35 = icmp sgt i64 %.054, 0
+  %.052 = phi i64 [ %33, %32 ], [ %13, %12 ]
+  %35 = icmp sgt i64 %.052, 0
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %34
-  %37 = getelementptr i8, ptr %0, i64 %.054
+  %37 = getelementptr i8, ptr %0, i64 %.052
   %38 = getelementptr i8, ptr %37, i64 -1
   %39 = load i8, ptr %38, align 1
   %.not67 = icmp eq i8 %39, 47
@@ -4305,14 +4305,14 @@ define internal fastcc i64 @loaded_feature_path(ptr noundef %0, i64 noundef %1, 
   ]
 
 41:                                               ; preds = %40
-  %42 = getelementptr i8, ptr %0, i64 %.054
+  %42 = getelementptr i8, ptr %0, i64 %.052
   %43 = getelementptr i8, ptr %42, i64 %3
   %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(4) @.str.4) #21
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %51, label %.loopexit
 
 46:                                               ; preds = %40
-  %47 = getelementptr i8, ptr %0, i64 %.054
+  %47 = getelementptr i8, ptr %0, i64 %.052
   %48 = getelementptr i8, ptr %47, i64 %3
   %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(4) @.str.17) #21
   %50 = icmp eq i32 %49, 0
@@ -4320,7 +4320,7 @@ define internal fastcc i64 @loaded_feature_path(ptr noundef %0, i64 noundef %1, 
 
 51:                                               ; preds = %40, %46, %41
   %52 = sext i1 %35 to i64
-  %spec.select = add nsw i64 %.054, %52
+  %spec.select = add nsw i64 %.052, %52
   %53 = inttoptr i64 %5 to ptr
   %54 = getelementptr inbounds i8, ptr %53, i64 16
   %55 = getelementptr inbounds i8, ptr %53, i64 32
@@ -4328,7 +4328,7 @@ define internal fastcc i64 @loaded_feature_path(ptr noundef %0, i64 noundef %1, 
   br label %56
 
 56:                                               ; preds = %76, %51
-  %.052 = phi i64 [ 0, %51 ], [ %77, %76 ]
+  %.053 = phi i64 [ 0, %51 ], [ %77, %76 ]
   %57 = load i64, ptr %53, align 8
   %58 = and i64 %57, 8192
   %.not.i = icmp eq i64 %58, 0
@@ -4336,13 +4336,13 @@ define internal fastcc i64 @loaded_feature_path(ptr noundef %0, i64 noundef %1, 
 
 rb_array_len.exit:                                ; preds = %56
   %59 = load i64, ptr %54, align 8
-  %60 = icmp slt i64 %.052, %59
+  %60 = icmp slt i64 %.053, %59
   br i1 %60, label %64, label %.loopexit
 
 rb_array_len.exit.thread:                         ; preds = %56
   %61 = lshr i64 %57, 15
   %62 = and i64 %61, 127
-  %63 = icmp ult i64 %.052, %62
+  %63 = icmp ult i64 %.053, %62
   br i1 %63, label %RARRAY_AREF.exit, label %.loopexit
 
 64:                                               ; preds = %rb_array_len.exit
@@ -4351,7 +4351,7 @@ rb_array_len.exit.thread:                         ; preds = %56
 
 RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit.thread, %64
   %.0.i.i = phi ptr [ %65, %64 ], [ %54, %rb_array_len.exit.thread ]
-  %66 = getelementptr i64, ptr %.0.i.i, i64 %.052
+  %66 = getelementptr i64, ptr %.0.i.i, i64 %.053
   %67 = load i64, ptr %66, align 8
   store i64 %67, ptr %7, align 8
   %68 = call ptr @rb_string_value_ptr(ptr noundef nonnull %7) #6
@@ -4371,12 +4371,12 @@ RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit.t
   br i1 %.not70, label %.loopexit, label %76
 
 76:                                               ; preds = %74, %RARRAY_AREF.exit
-  %77 = add nuw nsw i64 %.052, 1
+  %77 = add nuw nsw i64 %.053, 1
   br label %56, !llvm.loop !114
 
 .loopexit:                                        ; preds = %73, %74, %rb_array_len.exit.thread, %rb_array_len.exit, %41, %46, %36, %.critedge, %23, %28, %6
-  %.0 = phi i64 [ 0, %6 ], [ 0, %28 ], [ 0, %23 ], [ 0, %.critedge ], [ 0, %36 ], [ 0, %46 ], [ 0, %41 ], [ %69, %73 ], [ %69, %74 ], [ 0, %rb_array_len.exit.thread ], [ 0, %rb_array_len.exit ]
-  ret i64 %.0
+  %.054 = phi i64 [ 0, %6 ], [ 0, %28 ], [ 0, %23 ], [ 0, %.critedge ], [ 0, %36 ], [ 0, %46 ], [ 0, %41 ], [ %69, %73 ], [ %69, %74 ], [ 0, %rb_array_len.exit.thread ], [ 0, %rb_array_len.exit ]
+  ret i64 %.054
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

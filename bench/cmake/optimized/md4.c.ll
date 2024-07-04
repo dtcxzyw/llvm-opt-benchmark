@@ -29,10 +29,10 @@ define dso_local noundef i32 @Curl_md4it(ptr nocapture noundef writeonly %0, ptr
 
 MD4_Update.exit:                                  ; preds = %3, %12
   %.pre = phi i32 [ %.pre.pre, %12 ], [ %9, %3 ]
-  %.136.i = phi i64 [ %15, %12 ], [ %8, %3 ]
-  %.1.i = phi ptr [ %14, %12 ], [ %1, %3 ]
+  %.136.i = phi ptr [ %14, %12 ], [ %1, %3 ]
+  %.1.i = phi i64 [ %15, %12 ], [ %8, %3 ]
   %16 = getelementptr inbounds i8, ptr %4, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %16, ptr align 1 %.1.i, i64 %.136.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %16, ptr align 1 %.136.i, i64 %.1.i, i1 false)
   %17 = and i32 %.pre, 63
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %4, i64 24

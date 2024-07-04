@@ -159,22 +159,22 @@ define internal noundef i32 @dissect_mrdisc(ptr noundef %0, ptr noundef %1, ptr 
 
 .lr.ph.i:                                         ; preds = %25, %58
   %.in.i = phi i16 [ %34, %58 ], [ %30, %25 ]
-  %.071.i = phi i32 [ %.1.i, %58 ], [ 8, %25 ]
+  %.06771.i = phi i32 [ %.1.i, %58 ], [ 8, %25 ]
   %34 = add i16 %.in.i, -1
   %35 = load i32, ptr @hf_options, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %35, ptr noundef %0, i32 noundef %.071.i, i32 noundef -1, i32 noundef 0) #3
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %35, ptr noundef %0, i32 noundef %.06771.i, i32 noundef -1, i32 noundef 0) #3
   %37 = load i32, ptr @ett_options, align 4
   %38 = tail call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37) #3
-  %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.071.i) #3
+  %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.06771.i) #3
   %40 = load i32, ptr @hf_option, align 4
   %41 = zext i8 %39 to i32
-  %42 = tail call ptr @proto_tree_add_uint(ptr noundef %38, i32 noundef %40, ptr noundef %0, i32 noundef %.071.i, i32 noundef 1, i32 noundef %41) #3
-  %43 = add i32 %.071.i, 1
+  %42 = tail call ptr @proto_tree_add_uint(ptr noundef %38, i32 noundef %40, ptr noundef %0, i32 noundef %.06771.i, i32 noundef 1, i32 noundef %41) #3
+  %43 = add i32 %.06771.i, 1
   %44 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %43) #3
   %45 = load i32, ptr @hf_option_len, align 4
   %46 = zext i8 %44 to i32
   %47 = tail call ptr @proto_tree_add_uint(ptr noundef %38, i32 noundef %45, ptr noundef %0, i32 noundef %43, i32 noundef 1, i32 noundef %46) #3
-  %48 = add i32 %.071.i, 2
+  %48 = add i32 %.06771.i, 2
   switch i8 %39, label %57 [
     i8 1, label %49
     i8 2, label %53
@@ -203,7 +203,7 @@ define internal noundef i32 @dissect_mrdisc(ptr noundef %0, ptr noundef %1, ptr 
   %59 = load i32, ptr %hf_option_bytes.sink.i, align 4
   %60 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %59, ptr noundef %0, i32 noundef %48, i32 noundef %46, i32 noundef 0) #3
   %.1.i = add i32 %48, %46
-  %61 = sub i32 %.1.i, %.071.i
+  %61 = sub i32 %.1.i, %.06771.i
   tail call void @proto_item_set_len(ptr noundef %36, i32 noundef %61) #3
   %.not.i = icmp eq i16 %34, 0
   br i1 %.not.i, label %dissect_mrdisc_mra.exit, label %.lr.ph.i, !llvm.loop !4

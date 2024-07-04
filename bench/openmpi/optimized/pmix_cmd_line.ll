@@ -162,14 +162,14 @@ endswith.exit:                                    ; preds = %sub_2.i
   br i1 %.not143, label %115, label %.preheader200
 
 .preheader200:                                    ; preds = %62, %.preheader200
-  %.0115 = phi ptr [ %69, %.preheader200 ], [ %66, %62 ]
-  %67 = load i8, ptr %.0115, align 1
+  %.0113 = phi ptr [ %69, %.preheader200 ], [ %66, %62 ]
+  %67 = load i8, ptr %.0113, align 1
   %68 = icmp eq i8 %67, 45
-  %69 = getelementptr inbounds i8, ptr %.0115, i64 1
+  %69 = getelementptr inbounds i8, ptr %.0113, i64 1
   br i1 %68, label %.preheader200, label %70, !llvm.loop !4
 
 70:                                               ; preds = %.preheader200
-  %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0115, ptr noundef nonnull dereferenceable(8) @.str.2) #13
+  %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0113, ptr noundef nonnull dereferenceable(8) @.str.2) #13
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %75, label %sub_0
 
@@ -199,12 +199,12 @@ sub_0:                                            ; preds = %70
   br label %306
 
 .tail.thread:                                     ; preds = %sub_0
-  %81 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0115, ptr noundef nonnull dereferenceable(8) @.str.6) #13
+  %81 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0113, ptr noundef nonnull dereferenceable(8) @.str.6) #13
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %87, label %sub_0167
 
 .thread:                                          ; preds = %.tail
-  %83 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0115, ptr noundef nonnull dereferenceable(8) @.str.6) #13
+  %83 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0113, ptr noundef nonnull dereferenceable(8) @.str.6) #13
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %87, label %.tail166.thread.thread
 
@@ -234,17 +234,17 @@ sub_0167:                                         ; preds = %.tail.thread
   br label %306
 
 .tail166.thread:                                  ; preds = %sub_0167
-  %93 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0115, ptr noundef nonnull dereferenceable(5) @.str.8) #13
+  %93 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0113, ptr noundef nonnull dereferenceable(5) @.str.8) #13
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %101, label %sub_0171
 
 .tail166.thread.thread:                           ; preds = %.thread
-  %95 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0115, ptr noundef nonnull dereferenceable(5) @.str.8) #13
+  %95 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0113, ptr noundef nonnull dereferenceable(5) @.str.8) #13
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %101, label %.tail170.thread
 
 .thread290:                                       ; preds = %.tail166
-  %97 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0115, ptr noundef nonnull dereferenceable(5) @.str.8) #13
+  %97 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0113, ptr noundef nonnull dereferenceable(5) @.str.8) #13
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %101, label %.tail170.thread
 
@@ -275,14 +275,14 @@ sub_0171:                                         ; preds = %.tail166.thread
   br label %306
 
 .tail170.thread:                                  ; preds = %.tail166.thread.thread, %.thread290, %sub_0171, %.tail170
-  %108 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef %5, ptr noundef nonnull %.0115, i32 noundef 0) #12
+  %108 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef %5, ptr noundef nonnull %.0113, i32 noundef 0) #12
   store ptr %108, ptr %8, align 8
   %109 = icmp eq ptr %108, null
   br i1 %109, label %110, label %.sink.split
 
 110:                                              ; preds = %.tail170.thread
   %111 = load ptr, ptr @pmix_tool_basename, align 8
-  %112 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.10, i32 noundef 1, ptr noundef nonnull %.0115, ptr noundef %111) #12
+  %112 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.10, i32 noundef 1, ptr noundef nonnull %.0113, ptr noundef %111) #12
   store ptr %112, ptr %8, align 8
   %.not146 = icmp eq ptr %112, null
   br i1 %.not146, label %114, label %.sink.split
@@ -452,7 +452,7 @@ sub_1176:                                         ; preds = %sub_0175
   br label %189
 
 189:                                              ; preds = %173, %182, %187
-  %.1116 = phi ptr [ %186, %182 ], [ %188, %187 ], [ null, %173 ]
+  %.1 = phi ptr [ %186, %182 ], [ %188, %187 ], [ null, %173 ]
   %190 = load ptr, ptr %2, align 8
   %.not151224 = icmp eq ptr %190, null
   br i1 %.not151224, label %._crit_edge, label %.lr.ph226.preheader
@@ -486,12 +486,12 @@ sub_1176:                                         ; preds = %sub_0175
   br i1 %201, label %202, label %sub_0179
 
 202:                                              ; preds = %.lr.ph226._crit_edge
-  %.not152 = icmp eq ptr %.1116, null
+  %.not152 = icmp eq ptr %.1, null
   br i1 %.not152, label %.thread164, label %203
 
 203:                                              ; preds = %202
   %204 = load ptr, ptr @pmix_tool_basename, align 8
-  %205 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.15, i32 noundef 1, ptr noundef %204, i32 noundef %23, ptr noundef nonnull %.1116) #12
+  %205 = call ptr (ptr, ptr, i32, ...) @pmix_show_help_string(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.15, i32 noundef 1, ptr noundef %204, i32 noundef %23, ptr noundef nonnull %.1) #12
   store ptr %205, ptr %8, align 8
   %.not159 = icmp eq ptr %205, null
   br i1 %.not159, label %209, label %206
@@ -563,7 +563,7 @@ sub_1184:                                         ; preds = %sub_0183
 
 .thread164:                                       ; preds = %202, %.tail178, %.tail182, %231
   %237 = phi ptr [ %.pre, %231 ], [ %.lcssa328, %.tail182 ], [ %.lcssa328, %.tail178 ], [ %.lcssa328, %202 ]
-  %.2 = phi ptr [ %235, %231 ], [ %.1116, %.tail182 ], [ %.1116, %.tail178 ], [ null, %202 ]
+  %.2 = phi ptr [ %235, %231 ], [ %.1, %.tail182 ], [ %.1, %.tail178 ], [ null, %202 ]
   call void %check_store.(ptr noundef %237, ptr noundef %.2, ptr noundef %4) #12
   br label %293
 
@@ -737,8 +737,8 @@ sub_0197:                                         ; preds = %.loopexit
   br label %306
 
 306:                                              ; preds = %.loopexit.thread, %292, %276, %262, %254, %209, %141, %131, %124, %114, %107, %92, %80
-  %.0 = phi i32 [ 0, %.loopexit.thread ], [ -2, %209 ], [ -2, %276 ], [ -2, %292 ], [ 0, %254 ], [ -2, %262 ], [ -157, %141 ], [ -157, %80 ], [ -157, %92 ], [ -157, %107 ], [ -157, %114 ], [ -157, %124 ], [ -2, %131 ]
-  ret i32 %.0
+  %.0119 = phi i32 [ 0, %.loopexit.thread ], [ -2, %209 ], [ -2, %276 ], [ -2, %292 ], [ 0, %254 ], [ -2, %262 ], [ -157, %141 ], [ -157, %80 ], [ -157, %92 ], [ -157, %107 ], [ -157, %114 ], [ -157, %124 ], [ -2, %131 ]
+  ret i32 %.0119
 }
 
 declare noalias ptr @pmix_argv_copy_strip(ptr noundef) local_unnamed_addr #1

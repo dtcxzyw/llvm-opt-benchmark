@@ -3824,7 +3824,7 @@ for.cond.preheader:                               ; preds = %entry
 if.end5:                                          ; preds = %for.cond.preheader, %if.end12
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end12 ], [ 0, %for.cond.preheader ]
   %.pn = phi i32 [ %4, %if.end12 ], [ %1, %for.cond.preheader ]
-  %n.015 = phi i32 [ %add14, %if.end12 ], [ 0, %for.cond.preheader ]
+  %n.016 = phi i32 [ %add14, %if.end12 ], [ 0, %for.cond.preheader ]
   %2 = or disjoint i64 %indvars.iv, 1
   %arrayidx9 = getelementptr inbounds i32, ptr %0, i64 %2
   %3 = load i32, ptr %arrayidx9, align 4
@@ -3832,13 +3832,13 @@ if.end5:                                          ; preds = %for.cond.preheader,
   br i1 %cmp10, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end5
-  %add = add nsw i32 %n.015, %c
+  %add = add nsw i32 %n.016, %c
   %sub = sub i32 %add, %.pn
   br label %return
 
 if.end12:                                         ; preds = %if.end5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %sub13 = sub i32 %n.015, %.pn
+  %sub13 = sub i32 %n.016, %.pn
   %add14 = add i32 %sub13, %3
   %arrayidx = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next
   %4 = load i32, ptr %arrayidx, align 4
@@ -3871,23 +3871,23 @@ for.body.lr.ph:                                   ; preds = %if.then
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end ]
-  %index.addr.011 = phi i32 [ %index, %for.body.lr.ph ], [ %sub9, %if.end ]
+  %index.addr.010 = phi i32 [ %index, %for.body.lr.ph ], [ %sub9, %if.end ]
   %3 = or disjoint i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %4 = load i32, ptr %arrayidx, align 4
   %arrayidx6 = getelementptr inbounds i32, ptr %1, i64 %3
   %5 = load i32, ptr %arrayidx6, align 4
   %sub = sub nsw i32 %5, %4
-  %cmp7 = icmp slt i32 %index.addr.011, %sub
+  %cmp7 = icmp slt i32 %index.addr.010, %sub
   br i1 %cmp7, label %if.then8, label %if.end
 
 if.then8:                                         ; preds = %for.body
-  %add = add nsw i32 %4, %index.addr.011
+  %add = add nsw i32 %4, %index.addr.010
   br label %return
 
 if.end:                                           ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %sub9 = sub nsw i32 %index.addr.011, %sub
+  %sub9 = sub nsw i32 %index.addr.010, %sub
   %cmp2 = icmp ult i64 %indvars.iv.next, %2
   br i1 %cmp2, label %for.body, label %return, !llvm.loop !19
 
@@ -7637,8 +7637,8 @@ if.then:                                          ; preds = %land.lhs.true7, %_Z
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZNK6icu_7510UnicodeSet10hasStringsEv.exit, %land.lhs.true, %entry
-  %limit.0 = phi i32 [ %0, %_ZNK6icu_7510UnicodeSet10hasStringsEv.exit ], [ %dec, %if.then ], [ %and, %land.lhs.true ], [ %and, %entry ]
   %i.0 = phi i32 [ 0, %_ZNK6icu_7510UnicodeSet10hasStringsEv.exit ], [ 1, %if.then ], [ 0, %land.lhs.true ], [ 0, %entry ]
+  %limit.0 = phi i32 [ %0, %_ZNK6icu_7510UnicodeSet10hasStringsEv.exit ], [ %dec, %if.then ], [ %and, %land.lhs.true ], [ %and, %entry ]
   %cmp1077 = icmp slt i32 %i.0, %limit.0
   br i1 %cmp1077, label %while.body.lr.ph, label %while.end56
 

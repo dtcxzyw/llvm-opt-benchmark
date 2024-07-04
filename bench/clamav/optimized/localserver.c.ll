@@ -48,13 +48,13 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %11, label %.preheader, label %20
 
 12:                                               ; preds = %.preheader
-  %13 = add nuw nsw i32 %.05280, 1
+  %13 = add nuw nsw i32 %.05180, 1
   %exitcond.not = icmp eq i32 %13, %6
   br i1 %exitcond.not, label %17, label %.preheader
 
 .preheader:                                       ; preds = %10, %12
-  %.05280 = phi i32 [ %13, %12 ], [ 0, %10 ]
-  %14 = add nuw nsw i32 %.05280, 3
+  %.05180 = phi i32 [ %13, %12 ], [ 0, %10 ]
+  %14 = add nuw nsw i32 %.05180, 3
   %15 = tail call i32 @sd_is_socket(i32 noundef %14, i32 noundef 1, i32 noundef 1, i32 noundef 1) #12
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %.thread, label %12
@@ -98,28 +98,28 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
-  %.053.idx79 = phi i64 [ %.053.add, %37 ], [ %.add, %.lr.ph.preheader ]
-  %.05478 = phi i32 [ %38, %37 ], [ 0, %.lr.ph.preheader ]
-  %.053.ptr = getelementptr inbounds i8, ptr %2, i64 %.053.idx79
+  %.05279 = phi i32 [ %38, %37 ], [ 0, %.lr.ph.preheader ]
+  %.053.idx78 = phi i64 [ %.053.add, %37 ], [ %.add, %.lr.ph.preheader ]
+  %.053.ptr = getelementptr inbounds i8, ptr %2, i64 %.053.idx78
   %31 = load i8, ptr %.053.ptr, align 1
   %32 = icmp eq i8 %31, 47
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %.lr.ph
-  %34 = zext nneg i32 %.05478 to i64
+  %34 = zext nneg i32 %.05279 to i64
   %35 = sub i64 %30, %34
   %36 = call noalias ptr @strndup(ptr noundef nonnull %.ptr63, i64 noundef %35) #12
   br label %.loopexit
 
 37:                                               ; preds = %.lr.ph
-  %.053.add = add nsw i64 %.053.idx79, -1
-  %38 = add nuw nsw i32 %.05478, 1
+  %.053.add = add nsw i64 %.053.idx78, -1
+  %38 = add nuw nsw i32 %.05279, 1
   %.not62 = icmp eq i64 %.053.add, 2
   br i1 %.not62, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %37, %29, %33
-  %.051 = phi ptr [ %36, %33 ], [ null, %29 ], [ null, %37 ]
-  %39 = call i32 @stat(ptr noundef %.051, ptr noundef nonnull %4) #12
+  %.054 = phi ptr [ %36, %33 ], [ null, %29 ], [ null, %37 ]
+  %39 = call i32 @stat(ptr noundef %.054, ptr noundef nonnull %4) #12
   %.not65 = icmp eq i32 %39, 0
   br i1 %.not65, label %76, label %40
 
@@ -152,20 +152,20 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
   %58 = getelementptr inbounds i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.6, ptr noundef %59) #12
-  call void @free(ptr noundef %.051) #12
+  call void @free(ptr noundef %.054) #12
   br label %143
 
 61:                                               ; preds = %44, %48
   %.050 = phi i32 [ %53, %48 ], [ 511, %44 ]
   %62 = call i32 @umask(i32 noundef 9) #12
-  %63 = call i32 @mkdir(ptr noundef %.051, i32 noundef %.050) #12
+  %63 = call i32 @mkdir(ptr noundef %.054, i32 noundef %.050) #12
   %.not68 = icmp eq i32 %63, 0
   br i1 %.not68, label %72, label %64
 
 64:                                               ; preds = %61
   %65 = load i32, ptr %41, align 4
   %66 = call ptr @strerror(i32 noundef %65) #12
-  %67 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.7, ptr noundef %.051, ptr noundef %66) #12
+  %67 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.7, ptr noundef %.054, ptr noundef %66) #12
   %68 = load i32, ptr %41, align 4
   %69 = icmp eq i32 %68, 2
   br i1 %69, label %70, label %74
@@ -175,7 +175,7 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
   br label %74
 
 72:                                               ; preds = %61
-  %73 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %.051) #12
+  %73 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %.054) #12
   br label %74
 
 74:                                               ; preds = %64, %70, %72
@@ -183,7 +183,7 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
   br label %76
 
 76:                                               ; preds = %40, %74, %.loopexit
-  call void @free(ptr noundef %.051) #12
+  call void @free(ptr noundef %.054) #12
   br label %77
 
 77:                                               ; preds = %76, %27, %20

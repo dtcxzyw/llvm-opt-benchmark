@@ -95,8 +95,8 @@ define internal i32 @dissect_sir(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %8
 
 8:                                                ; preds = %.lr.ph, %checksum_data.exit69
-  %.05972 = phi i32 [ 0, %.lr.ph ], [ %92, %checksum_data.exit69 ]
-  %9 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.05972, i32 noundef -1, i8 noundef zeroext -64) #2
+  %.06072 = phi i32 [ 0, %.lr.ph ], [ %92, %checksum_data.exit69 ]
+  %9 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.06072, i32 noundef -1, i8 noundef zeroext -64) #2
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %.thread, label %11
 
@@ -113,13 +113,13 @@ define internal i32 @dissect_sir(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 16:                                               ; preds = %.thread
   %17 = getelementptr inbounds i8, ptr %1, i64 332
-  store i32 %.05972, ptr %17, align 4
+  store i32 %.06072, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %1, i64 336
   store i32 1, ptr %18, align 8
   br label %._crit_edge
 
 19:                                               ; preds = %11
-  %20 = sub i32 %9, %.05972
+  %20 = sub i32 %9, %.06072
   %21 = add nuw i32 %9, 1
   %22 = sub i32 %12, %21
   %23 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %21, i32 noundef %22, i32 noundef -1) #2
@@ -186,17 +186,17 @@ unescape_data.exit:                               ; preds = %19, %._crit_edge.i
 53:                                               ; preds = %48, %50
   %54 = phi i32 [ %52, %50 ], [ 0, %48 ]
   %55 = load i32, ptr @proto_sir, align 4
-  %reass.sub = sub i32 %12, %.05972
+  %reass.sub = sub i32 %12, %.06072
   %56 = add i32 %reass.sub, 1
-  %57 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %55, ptr noundef %0, i32 noundef %.05972, i32 noundef %56, ptr noundef nonnull @.str.23, i32 noundef %54) #2
+  %57 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %55, ptr noundef %0, i32 noundef %.06072, i32 noundef %56, ptr noundef nonnull @.str.23, i32 noundef %54) #2
   %58 = load i32, ptr @ett_sir, align 4
   %59 = tail call ptr @proto_item_add_subtree(ptr noundef %57, i32 noundef %58) #2
-  %.not65 = icmp eq i32 %9, %.05972
+  %.not65 = icmp eq i32 %9, %.06072
   br i1 %.not65, label %63, label %60
 
 60:                                               ; preds = %53
   %61 = load i32, ptr @hf_sir_preamble, align 4
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %61, ptr noundef %0, i32 noundef %.05972, i32 noundef %20, i32 noundef 0) #2
+  %62 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %61, ptr noundef %0, i32 noundef %.06072, i32 noundef %20, i32 noundef 0) #2
   br label %63
 
 63:                                               ; preds = %60, %53
@@ -239,9 +239,9 @@ checksum_data.exit:                               ; preds = %63, %71
   br label %checksum_data.exit69
 
 checksum_data.exit69:                             ; preds = %83, %80, %checksum_data.exit
-  %.060 = phi ptr [ %.0.i67, %checksum_data.exit ], [ %89, %83 ], [ %.026.i, %80 ]
+  %.059 = phi ptr [ %.0.i67, %checksum_data.exit ], [ %89, %83 ], [ %.026.i, %80 ]
   %90 = load ptr, ptr @irda_handle, align 8
-  %91 = tail call i32 @call_dissector(ptr noundef %90, ptr noundef %.060, ptr noundef %1, ptr noundef %2) #2
+  %91 = tail call i32 @call_dissector(ptr noundef %90, ptr noundef %.059, ptr noundef %1, ptr noundef %2) #2
   %92 = add nuw i32 %12, 1
   %93 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %92) #2
   %94 = icmp sgt i32 %93, 0

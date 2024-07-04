@@ -317,9 +317,9 @@ entry:
   br i1 %cmp.i.not82.i, label %for.cond12.preheader.i, label %for.body.i
 
 for.cond12.preheader.i:                           ; preds = %for.inc.i, %entry
+  %ref.tmp.sroa.0.0 = phi ptr [ null, %entry ], [ %ref.tmp.sroa.0.2, %for.inc.i ]
   %ref.tmp.sroa.8.0 = phi ptr [ null, %entry ], [ %ref.tmp.sroa.8.1, %for.inc.i ]
   %ref.tmp.sroa.13.0 = phi ptr [ null, %entry ], [ %ref.tmp.sroa.13.2, %for.inc.i ]
-  %ref.tmp.sroa.0.0 = phi ptr [ null, %entry ], [ %ref.tmp.sroa.0.2, %for.inc.i ]
   %cmp.not95.i = icmp slt i32 %call3, 1
   br i1 %cmp.not95.i, label %_ZN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder19CalculateSortedRunsERKNS_18VersionStorageInfoEi.exit, label %for.body13.lr.ph.i
 
@@ -329,8 +329,8 @@ for.body13.lr.ph.i:                               ; preds = %for.cond12.preheade
   br label %for.body13.i
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
-  %ref.tmp.sroa.13.1 = phi ptr [ %ref.tmp.sroa.13.2, %for.inc.i ], [ null, %entry ]
   %ref.tmp.sroa.0.1 = phi ptr [ %ref.tmp.sroa.0.2, %for.inc.i ], [ null, %entry ]
+  %ref.tmp.sroa.13.1 = phi ptr [ %ref.tmp.sroa.13.2, %for.inc.i ], [ null, %entry ]
   %add.ptr34.i.i87.i = phi ptr [ %add.ptr34.i.i86.i, %for.inc.i ], [ null, %entry ]
   %incdec.ptr.i.i84.i = phi ptr [ %ref.tmp.sroa.8.1, %for.inc.i ], [ null, %entry ]
   %__begin1.sroa.0.083.i = phi ptr [ %incdec.ptr.i10.i, %for.inc.i ], [ %7, %entry ]
@@ -425,9 +425,9 @@ _ZNSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZNSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE17_M_realloc_insertIJiRPNS0_12FileMetaDataEmRmRbEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %if.then.i.i
+  %ref.tmp.sroa.0.2 = phi ptr [ %cond.i19.i.i.i, %_ZNSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE17_M_realloc_insertIJiRPNS0_12FileMetaDataEmRmRbEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %ref.tmp.sroa.0.1, %if.then.i.i ]
   %__cur.0.lcssa.i.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE17_M_realloc_insertIJiRPNS0_12FileMetaDataEmRmRbEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i84.i, %if.then.i.i ]
   %ref.tmp.sroa.13.2 = phi ptr [ %add.ptr34.i.i.i, %_ZNSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE17_M_realloc_insertIJiRPNS0_12FileMetaDataEmRmRbEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %ref.tmp.sroa.13.1, %if.then.i.i ]
-  %ref.tmp.sroa.0.2 = phi ptr [ %cond.i19.i.i.i, %_ZNSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE17_M_realloc_insertIJiRPNS0_12FileMetaDataEmRmRbEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %ref.tmp.sroa.0.1, %if.then.i.i ]
   %add.ptr34.i.i86.i = phi ptr [ %add.ptr34.i.i.i, %_ZNSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE17_M_realloc_insertIJiRPNS0_12FileMetaDataEmRmRbEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %add.ptr34.i.i87.i, %if.then.i.i ]
   %ref.tmp.sroa.8.1 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.pn, i64 40
   %incdec.ptr.i10.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.083.i, i64 8
@@ -465,9 +465,9 @@ common.resume:                                    ; preds = %lpad2.i.i, %if.then
   resume { ptr, i32 } %common.resume.op
 
 for.body13.i:                                     ; preds = %for.inc43.i, %for.body13.lr.ph.i
+  %ref.tmp.sroa.0.3 = phi ptr [ %ref.tmp.sroa.0.0, %for.body13.lr.ph.i ], [ %ref.tmp.sroa.0.4, %for.inc43.i ]
   %ref.tmp.sroa.8.2 = phi ptr [ %ref.tmp.sroa.8.0, %for.body13.lr.ph.i ], [ %ref.tmp.sroa.8.3, %for.inc43.i ]
   %ref.tmp.sroa.13.3 = phi ptr [ %ref.tmp.sroa.13.0, %for.body13.lr.ph.i ], [ %ref.tmp.sroa.13.4, %for.inc43.i ]
-  %ref.tmp.sroa.0.3 = phi ptr [ %ref.tmp.sroa.0.0, %for.body13.lr.ph.i ], [ %ref.tmp.sroa.0.4, %for.inc43.i ]
   %13 = phi ptr [ %ref.tmp.sroa.8.0, %for.body13.lr.ph.i ], [ %24, %for.inc43.i ]
   %indvars.iv.i = phi i64 [ 1, %for.body13.lr.ph.i ], [ %indvars.iv.next.i, %for.inc43.i ]
   %14 = load ptr, ptr %files_.i.i, align 8, !noalias !4
@@ -479,22 +479,22 @@ for.body13.i:                                     ; preds = %for.inc43.i, %for.b
   br i1 %cmp.i15.not88.i, label %for.inc43.i, label %for.body23.i
 
 for.body23.i:                                     ; preds = %for.body13.i, %for.body23.i
-  %total_compensated_size.092.i = phi i64 [ %add.i, %for.body23.i ], [ 0, %for.body13.i ]
-  %__begin2.sroa.0.091.i = phi ptr [ %incdec.ptr.i17.i, %for.body23.i ], [ %15, %for.body13.i ]
-  %being_compacted14.090.i = phi i8 [ %spec.select.i, %for.body23.i ], [ 0, %for.body13.i ]
-  %total_size.089.i = phi i64 [ %add30.i, %for.body23.i ], [ 0, %for.body13.i ]
-  %17 = load ptr, ptr %__begin2.sroa.0.091.i, align 8, !noalias !4
+  %__begin2.sroa.0.092.i = phi ptr [ %incdec.ptr.i17.i, %for.body23.i ], [ %15, %for.body13.i ]
+  %being_compacted14.091.i = phi i8 [ %spec.select.i, %for.body23.i ], [ 0, %for.body13.i ]
+  %total_size.090.i = phi i64 [ %add30.i, %for.body23.i ], [ 0, %for.body13.i ]
+  %total_compensated_size.089.i = phi i64 [ %add.i, %for.body23.i ], [ 0, %for.body13.i ]
+  %17 = load ptr, ptr %__begin2.sroa.0.092.i, align 8, !noalias !4
   %compensated_file_size26.i = getelementptr inbounds i8, ptr %17, i64 120
   %18 = load i64, ptr %compensated_file_size26.i, align 8, !noalias !4
-  %add.i = add i64 %18, %total_compensated_size.092.i
+  %add.i = add i64 %18, %total_compensated_size.089.i
   %file_size.i16.i = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load i64, ptr %file_size.i16.i, align 8, !noalias !4
-  %add30.i = add i64 %19, %total_size.089.i
+  %add30.i = add i64 %19, %total_size.090.i
   %being_compacted31.i = getelementptr inbounds i8, ptr %17, i64 180
   %20 = load i8, ptr %being_compacted31.i, align 4, !noalias !4
   %tobool.i = trunc i8 %20 to i1
-  %spec.select.i = select i1 %tobool.i, i8 1, i8 %being_compacted14.090.i
-  %incdec.ptr.i17.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.091.i, i64 8
+  %spec.select.i = select i1 %tobool.i, i8 1, i8 %being_compacted14.091.i
+  %incdec.ptr.i17.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.092.i, i64 8
   %cmp.i15.not.i = icmp eq ptr %incdec.ptr.i17.i, %16
   br i1 %cmp.i15.not.i, label %for.end36.i, label %for.body23.i
 
@@ -591,18 +591,18 @@ _ZNSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3
   br label %for.inc43.i
 
 for.inc43.i:                                      ; preds = %_ZNSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE17_M_realloc_insertIJRiDnRmS8_RbEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %if.then.i21.i, %for.end36.i, %for.body13.i
+  %ref.tmp.sroa.0.4 = phi ptr [ %ref.tmp.sroa.0.3, %for.body13.i ], [ %ref.tmp.sroa.0.3, %for.end36.i ], [ %cond.i19.i.i45.i, %_ZNSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE17_M_realloc_insertIJRiDnRmS8_RbEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %ref.tmp.sroa.0.3, %if.then.i21.i ]
   %ref.tmp.sroa.8.3 = phi ptr [ %ref.tmp.sroa.8.2, %for.body13.i ], [ %ref.tmp.sroa.8.2, %for.end36.i ], [ %incdec.ptr.i.i60.i, %_ZNSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE17_M_realloc_insertIJRiDnRmS8_RbEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %incdec.ptr.i27.i, %if.then.i21.i ]
   %ref.tmp.sroa.13.4 = phi ptr [ %ref.tmp.sroa.13.3, %for.body13.i ], [ %ref.tmp.sroa.13.3, %for.end36.i ], [ %add.ptr34.i.i63.i, %_ZNSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE17_M_realloc_insertIJRiDnRmS8_RbEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %ref.tmp.sroa.13.3, %if.then.i21.i ]
-  %ref.tmp.sroa.0.4 = phi ptr [ %ref.tmp.sroa.0.3, %for.body13.i ], [ %ref.tmp.sroa.0.3, %for.end36.i ], [ %cond.i19.i.i45.i, %_ZNSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE17_M_realloc_insertIJRiDnRmS8_RbEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %ref.tmp.sroa.0.3, %if.then.i21.i ]
   %24 = phi ptr [ %13, %for.body13.i ], [ %13, %for.end36.i ], [ %incdec.ptr.i.i60.i, %_ZNSt6vectorIN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder9SortedRunESaIS3_EE17_M_realloc_insertIJRiDnRmS8_RbEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %incdec.ptr.i27.i, %if.then.i21.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder19CalculateSortedRunsERKNS_18VersionStorageInfoEi.exit, label %for.body13.i, !llvm.loop !17
 
 _ZN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder19CalculateSortedRunsERKNS_18VersionStorageInfoEi.exit: ; preds = %for.inc43.i, %for.cond12.preheader.i
+  %ref.tmp.sroa.0.5 = phi ptr [ %ref.tmp.sroa.0.0, %for.cond12.preheader.i ], [ %ref.tmp.sroa.0.4, %for.inc43.i ]
   %ref.tmp.sroa.8.4 = phi ptr [ %ref.tmp.sroa.8.0, %for.cond12.preheader.i ], [ %ref.tmp.sroa.8.3, %for.inc43.i ]
   %ref.tmp.sroa.13.5 = phi ptr [ %ref.tmp.sroa.13.0, %for.cond12.preheader.i ], [ %ref.tmp.sroa.13.4, %for.inc43.i ]
-  %ref.tmp.sroa.0.5 = phi ptr [ %ref.tmp.sroa.0.0, %for.cond12.preheader.i ], [ %ref.tmp.sroa.0.4, %for.inc43.i ]
   %sorted_runs_ = getelementptr inbounds i8, ptr %this, i64 24
   %25 = load ptr, ptr %sorted_runs_, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -1162,14 +1162,14 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %indvars.iv523.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next524.i.i, %for.inc.i.i ]
   %111 = phi ptr [ %100, %for.body.lr.ph.i.i ], [ %196, %for.inc.i.i ]
   %picked_start_idx.0491.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %picked_start_idx.2.i.i, %for.inc.i.i ]
-  %picked_end_idx.0490.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %picked_end_idx.2.i.i, %for.inc.i.i ]
-  %picked_fanout.0489.i.i = phi double [ %mul60.i, %for.body.lr.ph.i.i ], [ %picked_fanout.2.i.i, %for.inc.i.i ]
-  %start_idx.0488.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %start_idx.3.i.i, %for.inc.i.i ]
-  %bottom_end_idx.0487.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %bottom_end_idx.2416.i.i, %for.inc.i.i ]
-  %end_bottom_size_counted.0484.i.i = phi i8 [ 0, %for.body.lr.ph.i.i ], [ %end_bottom_size_counted.5.i.i, %for.inc.i.i ]
-  %bottom_size.0483.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %bottom_size.10.i.i, %for.inc.i.i ]
-  %non_bottom_size.0482.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %non_bottom_size.3.i.i, %for.inc.i.i ]
-  %bottom_start_idx.0481.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %bottom_start_idx.5.i.i, %for.inc.i.i ]
+  %end_bottom_size_counted.0488.i.i = phi i8 [ 0, %for.body.lr.ph.i.i ], [ %end_bottom_size_counted.5.i.i, %for.inc.i.i ]
+  %bottom_size.0487.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %bottom_size.10.i.i, %for.inc.i.i ]
+  %non_bottom_size.0486.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %non_bottom_size.3.i.i, %for.inc.i.i ]
+  %bottom_start_idx.0485.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %bottom_start_idx.5.i.i, %for.inc.i.i ]
+  %bottom_end_idx.0484.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %bottom_end_idx.2418.i.i, %for.inc.i.i ]
+  %start_idx.0483.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %start_idx.3.i.i, %for.inc.i.i ]
+  %picked_fanout.0482.i.i = phi double [ %mul60.i, %for.body.lr.ph.i.i ], [ %picked_fanout.2.i.i, %for.inc.i.i ]
+  %picked_end_idx.0481.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %picked_end_idx.2.i.i, %for.inc.i.i ]
   %add.ptr.i103.i.i = getelementptr inbounds ptr, ptr %111, i64 %indvars.iv523.i.i
   %112 = load ptr, ptr %add.ptr.i103.i.i, align 8
   %113 = load ptr, ptr %_M_finish.i104.i.i, align 8
@@ -1179,7 +1179,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %sub.ptr.sub.i107424.i.i = sub i64 %sub.ptr.lhs.cast.i105422.i.i, %sub.ptr.rhs.cast.i106423.i.i
   %sub.ptr.div.i108425.i.i = lshr exact i64 %sub.ptr.sub.i107424.i.i, 3
   %conv15426.i.i = trunc i64 %sub.ptr.div.i108425.i.i to i32
-  %cmp16427.i.i = icmp slt i32 %bottom_end_idx.0487.i.i, %conv15426.i.i
+  %cmp16427.i.i = icmp slt i32 %bottom_end_idx.0484.i.i, %conv15426.i.i
   br i1 %cmp16427.i.i, label %land.rhs.lr.ph.i.i, label %while.end.thread.i.i
 
 while.end.thread.i.i:                             ; preds = %for.body.i.i
@@ -1188,16 +1188,16 @@ while.end.thread.i.i:                             ; preds = %for.body.i.i
 
 land.rhs.lr.ph.i.i:                               ; preds = %for.body.i.i
   %smallest.i.i = getelementptr inbounds i8, ptr %112, i64 40
-  %116 = sext i32 %bottom_end_idx.0487.i.i to i64
+  %116 = sext i32 %bottom_end_idx.0484.i.i to i64
   br label %land.rhs.i62.i
 
 land.rhs.i62.i:                                   ; preds = %if.end24.i.i, %land.rhs.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %116, %land.rhs.lr.ph.i.i ], [ %indvars.iv.next.i.i, %if.end24.i.i ]
   %117 = phi ptr [ %114, %land.rhs.lr.ph.i.i ], [ %.pre.i.i, %if.end24.i.i ]
   %num_skipped.0431.i.i = phi i32 [ 0, %land.rhs.lr.ph.i.i ], [ %inc25.i.i, %if.end24.i.i ]
-  %bottom_end_idx.1430.i.i = phi i32 [ %bottom_end_idx.0487.i.i, %land.rhs.lr.ph.i.i ], [ %inc.i64.i, %if.end24.i.i ]
-  %end_bottom_size_counted.1429.i.i = phi i8 [ %end_bottom_size_counted.0484.i.i, %land.rhs.lr.ph.i.i ], [ 0, %if.end24.i.i ]
-  %bottom_size.1428.i.i = phi i64 [ %bottom_size.0483.i.i, %land.rhs.lr.ph.i.i ], [ %bottom_size.2.i.i, %if.end24.i.i ]
+  %end_bottom_size_counted.1430.i.i = phi i8 [ %end_bottom_size_counted.0488.i.i, %land.rhs.lr.ph.i.i ], [ 0, %if.end24.i.i ]
+  %bottom_size.1429.i.i = phi i64 [ %bottom_size.0487.i.i, %land.rhs.lr.ph.i.i ], [ %bottom_size.2.i.i, %if.end24.i.i ]
+  %bottom_end_idx.1428.i.i = phi i32 [ %bottom_end_idx.0484.i.i, %land.rhs.lr.ph.i.i ], [ %inc.i64.i, %if.end24.i.i ]
   %118 = load ptr, ptr %icmp_.i.i, align 8
   %add.ptr.i109.i.i = getelementptr inbounds ptr, ptr %117, i64 %indvars.iv.i.i
   %119 = load ptr, ptr %add.ptr.i109.i.i, align 8
@@ -1277,7 +1277,7 @@ _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.i.i: ; p
   br i1 %cmp20.i.i, label %while.body.i.i, label %while.end.loopexit.split.loop.exit563.i.i
 
 while.body.i.i:                                   ; preds = %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread.i.i
-  %tobool.i.i = trunc nuw i8 %end_bottom_size_counted.1429.i.i to i1
+  %tobool.i.i = trunc nuw i8 %end_bottom_size_counted.1430.i.i to i1
   %.pre.i.i = load ptr, ptr %arrayidx.i.i.i, align 8
   br i1 %tobool.i.i, label %if.end24.i.i, label %if.then21.i.i
 
@@ -1286,13 +1286,13 @@ if.then21.i.i:                                    ; preds = %while.body.i.i
   %127 = load ptr, ptr %add.ptr.i111.i.i, align 8
   %file_size.i.i89 = getelementptr inbounds i8, ptr %127, i64 16
   %128 = load i64, ptr %file_size.i.i89, align 8
-  %add.i63.i = add i64 %128, %bottom_size.1428.i.i
+  %add.i63.i = add i64 %128, %bottom_size.1429.i.i
   br label %if.end24.i.i
 
 if.end24.i.i:                                     ; preds = %if.then21.i.i, %while.body.i.i
-  %bottom_size.2.i.i = phi i64 [ %bottom_size.1428.i.i, %while.body.i.i ], [ %add.i63.i, %if.then21.i.i ]
+  %bottom_size.2.i.i = phi i64 [ %bottom_size.1429.i.i, %while.body.i.i ], [ %add.i63.i, %if.then21.i.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %inc.i64.i = add nsw i32 %bottom_end_idx.1430.i.i, 1
+  %inc.i64.i = add nsw i32 %bottom_end_idx.1428.i.i, 1
   %inc25.i.i = add nuw nsw i32 %num_skipped.0431.i.i, 1
   %129 = load ptr, ptr %_M_finish.i104.i.i, align 8
   %sub.ptr.lhs.cast.i105.i.i = ptrtoint ptr %129 to i64
@@ -1308,22 +1308,22 @@ while.end.loopexit.split.loop.exit563.i.i:        ; preds = %_ZNK7rocksdb21Inter
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %if.end24.i.i, %while.end.loopexit.split.loop.exit563.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread383.i.i
-  %bottom_size.1414.i.i = phi i64 [ %bottom_size.1428.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread383.i.i ], [ %bottom_size.1428.i.i, %while.end.loopexit.split.loop.exit563.i.i ], [ %bottom_size.2.i.i, %if.end24.i.i ]
-  %end_bottom_size_counted.1412.i.i = phi i8 [ %end_bottom_size_counted.1429.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread383.i.i ], [ %end_bottom_size_counted.1429.i.i, %while.end.loopexit.split.loop.exit563.i.i ], [ 0, %if.end24.i.i ]
-  %bottom_end_idx.1410.i.i = phi i32 [ %126, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread383.i.i ], [ %131, %while.end.loopexit.split.loop.exit563.i.i ], [ %inc.i64.i, %if.end24.i.i ]
+  %bottom_end_idx.1414.i.i = phi i32 [ %126, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread383.i.i ], [ %131, %while.end.loopexit.split.loop.exit563.i.i ], [ %inc.i64.i, %if.end24.i.i ]
+  %bottom_size.1412.i.i = phi i64 [ %bottom_size.1429.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread383.i.i ], [ %bottom_size.1429.i.i, %while.end.loopexit.split.loop.exit563.i.i ], [ %bottom_size.2.i.i, %if.end24.i.i ]
+  %end_bottom_size_counted.1410.i.i = phi i8 [ %end_bottom_size_counted.1430.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread383.i.i ], [ %end_bottom_size_counted.1430.i.i, %while.end.loopexit.split.loop.exit563.i.i ], [ 0, %if.end24.i.i ]
   %num_skipped.0408.i.i = phi i32 [ %num_skipped.0431.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread383.i.i ], [ %num_skipped.0431.i.i, %while.end.loopexit.split.loop.exit563.i.i ], [ %inc25.i.i, %if.end24.i.i ]
   %num_skipped.0408.fr.i.i = freeze i32 %num_skipped.0408.i.i
   %cmp26.i.i = icmp ugt i32 %num_skipped.0408.fr.i.i, 1
   %132 = trunc nuw nsw i64 %indvars.iv523.i.i to i32
-  %spec.select.i.i = select i1 %cmp26.i.i, i32 %132, i32 %start_idx.0488.i.i
+  %spec.select.i.i = select i1 %cmp26.i.i, i32 %132, i32 %start_idx.0483.i.i
   br label %133
 
 133:                                              ; preds = %while.end.i.i, %while.end.thread.i.i
   %134 = phi i32 [ %115, %while.end.thread.i.i ], [ %132, %while.end.i.i ]
-  %bottom_end_idx.1410548.i.i = phi i32 [ %bottom_end_idx.0487.i.i, %while.end.thread.i.i ], [ %bottom_end_idx.1410.i.i, %while.end.i.i ]
-  %end_bottom_size_counted.1412547.i.i = phi i8 [ %end_bottom_size_counted.0484.i.i, %while.end.thread.i.i ], [ %end_bottom_size_counted.1412.i.i, %while.end.i.i ]
-  %bottom_size.1414546.i.i = phi i64 [ %bottom_size.0483.i.i, %while.end.thread.i.i ], [ %bottom_size.1414.i.i, %while.end.i.i ]
-  %135 = phi i32 [ %start_idx.0488.i.i, %while.end.thread.i.i ], [ %spec.select.i.i, %while.end.i.i ]
+  %end_bottom_size_counted.1410548.i.i = phi i8 [ %end_bottom_size_counted.0488.i.i, %while.end.thread.i.i ], [ %end_bottom_size_counted.1410.i.i, %while.end.i.i ]
+  %bottom_size.1412547.i.i = phi i64 [ %bottom_size.0487.i.i, %while.end.thread.i.i ], [ %bottom_size.1412.i.i, %while.end.i.i ]
+  %bottom_end_idx.1414546.i.i = phi i32 [ %bottom_end_idx.0484.i.i, %while.end.thread.i.i ], [ %bottom_end_idx.1414.i.i, %while.end.i.i ]
+  %135 = phi i32 [ %start_idx.0483.i.i, %while.end.thread.i.i ], [ %spec.select.i.i, %while.end.i.i ]
   %136 = zext i32 %135 to i64
   %cmp29.i.i = icmp eq i64 %indvars.iv523.i.i, %136
   br i1 %cmp29.i.i, label %if.then30.i.i, label %if.end31.i.i
@@ -1332,10 +1332,10 @@ if.then30.i.i:                                    ; preds = %133
   br label %if.end31.i.i
 
 if.end31.i.i:                                     ; preds = %if.then30.i.i, %133
-  %bottom_start_idx.1.i.i = phi i32 [ %bottom_end_idx.1410548.i.i, %if.then30.i.i ], [ %bottom_start_idx.0481.i.i, %133 ]
-  %non_bottom_size.1.i.i = phi i64 [ 0, %if.then30.i.i ], [ %non_bottom_size.0482.i.i, %133 ]
-  %bottom_size.3.i.i = phi i64 [ 0, %if.then30.i.i ], [ %bottom_size.1414546.i.i, %133 ]
-  %end_bottom_size_counted.2.i.i = phi i8 [ 0, %if.then30.i.i ], [ %end_bottom_size_counted.1412547.i.i, %133 ]
+  %bottom_start_idx.1.i.i = phi i32 [ %bottom_end_idx.1414546.i.i, %if.then30.i.i ], [ %bottom_start_idx.0485.i.i, %133 ]
+  %non_bottom_size.1.i.i = phi i64 [ 0, %if.then30.i.i ], [ %non_bottom_size.0486.i.i, %133 ]
+  %bottom_size.3.i.i = phi i64 [ 0, %if.then30.i.i ], [ %bottom_size.1412547.i.i, %133 ]
+  %end_bottom_size_counted.2.i.i = phi i8 [ 0, %if.then30.i.i ], [ %end_bottom_size_counted.1410548.i.i, %133 ]
   %file_size33.i.i = getelementptr inbounds i8, ptr %112, i64 16
   %137 = load i64, ptr %file_size33.i.i, align 8
   %add34.i.i = add i64 %137, %non_bottom_size.1.i.i
@@ -1346,20 +1346,20 @@ if.end31.i.i:                                     ; preds = %if.then30.i.i, %133
   %sub.ptr.sub.i115441.i.i = sub i64 %sub.ptr.lhs.cast.i113439.i.i, %sub.ptr.rhs.cast.i114440.i.i
   %sub.ptr.div.i116442.i.i = lshr exact i64 %sub.ptr.sub.i115441.i.i, 3
   %conv37443.i.i = trunc i64 %sub.ptr.div.i116442.i.i to i32
-  %cmp38444.i.i = icmp slt i32 %bottom_end_idx.1410548.i.i, %conv37443.i.i
+  %cmp38444.i.i = icmp slt i32 %bottom_end_idx.1414546.i.i, %conv37443.i.i
   br i1 %cmp38444.i.i, label %land.rhs39.lr.ph.i.i, label %while.end67.i.i
 
 land.rhs39.lr.ph.i.i:                             ; preds = %if.end31.i.i
   %largest44.i.i = getelementptr inbounds i8, ptr %112, i64 72
-  %140 = sext i32 %bottom_end_idx.1410548.i.i to i64
+  %140 = sext i32 %bottom_end_idx.1414546.i.i to i64
   br label %land.rhs39.i.i
 
 land.rhs39.i.i:                                   ; preds = %if.end65.i.i, %land.rhs39.lr.ph.i.i
   %indvars.iv515.i.i = phi i64 [ %140, %land.rhs39.lr.ph.i.i ], [ %indvars.iv.next516.i.i, %if.end65.i.i ]
   %141 = phi ptr [ %139, %land.rhs39.lr.ph.i.i ], [ %160, %if.end65.i.i ]
-  %bottom_end_idx.2447.i.i = phi i32 [ %bottom_end_idx.1410548.i.i, %land.rhs39.lr.ph.i.i ], [ %inc66.i.i, %if.end65.i.i ]
-  %end_bottom_size_counted.3446.i.i = phi i8 [ %end_bottom_size_counted.2.i.i, %land.rhs39.lr.ph.i.i ], [ 0, %if.end65.i.i ]
-  %bottom_size.4445.i.i = phi i64 [ %bottom_size.3.i.i, %land.rhs39.lr.ph.i.i ], [ %bottom_size.5.i.i, %if.end65.i.i ]
+  %end_bottom_size_counted.3447.i.i = phi i8 [ %end_bottom_size_counted.2.i.i, %land.rhs39.lr.ph.i.i ], [ 0, %if.end65.i.i ]
+  %bottom_size.4446.i.i = phi i64 [ %bottom_size.3.i.i, %land.rhs39.lr.ph.i.i ], [ %bottom_size.5.i.i, %if.end65.i.i ]
+  %bottom_end_idx.2445.i.i = phi i32 [ %bottom_end_idx.1414546.i.i, %land.rhs39.lr.ph.i.i ], [ %inc66.i.i, %if.end65.i.i ]
   %142 = load ptr, ptr %icmp_.i.i, align 8
   %add.ptr.i117.i.i = getelementptr inbounds ptr, ptr %141, i64 %indvars.iv515.i.i
   %143 = load ptr, ptr %add.ptr.i117.i.i, align 8
@@ -1439,7 +1439,7 @@ _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit152.i.i: 
   br i1 %cmp46.i.i, label %while.body48.i.i, label %while.end67.loopexit.split.loop.exit572.i.i
 
 while.body48.i.i:                                 ; preds = %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit152.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit152.thread.i.i
-  %tobool49.i.i = trunc nuw i8 %end_bottom_size_counted.3446.i.i to i1
+  %tobool49.i.i = trunc nuw i8 %end_bottom_size_counted.3447.i.i to i1
   %.pre529.i.i = load ptr, ptr %arrayidx.i.i.i, align 8
   %add.ptr.i154.phi.trans.insert.i.i = getelementptr inbounds ptr, ptr %.pre529.i.i, i64 %indvars.iv515.i.i
   %.pre530.i.i = load ptr, ptr %add.ptr.i154.phi.trans.insert.i.i, align 8
@@ -1448,12 +1448,12 @@ while.body48.i.i:                                 ; preds = %_ZNK7rocksdb21Inter
 if.then50.i.i:                                    ; preds = %while.body48.i.i
   %file_size54.i.i = getelementptr inbounds i8, ptr %.pre530.i.i, i64 16
   %151 = load i64, ptr %file_size54.i.i, align 8
-  %add55.i.i = add i64 %151, %bottom_size.4445.i.i
+  %add55.i.i = add i64 %151, %bottom_size.4446.i.i
   br label %if.end56.i.i
 
 if.end56.i.i:                                     ; preds = %if.then50.i.i, %while.body48.i.i
-  %bottom_size.5.i.i = phi i64 [ %add55.i.i, %if.then50.i.i ], [ %bottom_size.4445.i.i, %while.body48.i.i ]
-  %end_bottom_size_counted.4.i.i = phi i8 [ 1, %if.then50.i.i ], [ %end_bottom_size_counted.3446.i.i, %while.body48.i.i ]
+  %bottom_size.5.i.i = phi i64 [ %add55.i.i, %if.then50.i.i ], [ %bottom_size.4446.i.i, %while.body48.i.i ]
+  %end_bottom_size_counted.4.i.i = phi i8 [ 1, %if.then50.i.i ], [ %end_bottom_size_counted.3447.i.i, %while.body48.i.i ]
   %152 = load ptr, ptr %icmp_.i.i, align 8
   %largest60.i.i = getelementptr inbounds i8, ptr %.pre530.i.i, i64 72
   %call.i.i.i157.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %largest60.i.i) #22
@@ -1532,7 +1532,7 @@ _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit189.i.i: 
 
 if.end65.i.i:                                     ; preds = %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit189.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit189.thread.i.i
   %indvars.iv.next516.i.i = add nsw i64 %indvars.iv515.i.i, 1
-  %inc66.i.i = add nsw i32 %bottom_end_idx.2447.i.i, 1
+  %inc66.i.i = add nsw i32 %bottom_end_idx.2445.i.i, 1
   %159 = load ptr, ptr %_M_finish.i104.i.i, align 8
   %160 = load ptr, ptr %arrayidx.i.i.i, align 8
   %sub.ptr.lhs.cast.i113.i.i = ptrtoint ptr %159 to i64
@@ -1552,9 +1552,9 @@ while.end67.loopexit.split.loop.exit572.i.i:      ; preds = %_ZNK7rocksdb21Inter
   br label %while.end67.i.i
 
 while.end67.i.i:                                  ; preds = %if.end65.i.i, %while.end67.loopexit.split.loop.exit572.i.i, %while.end67.loopexit.split.loop.exit568.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit152.thread388.i.i, %if.end31.i.i
-  %bottom_end_idx.2416.i.i = phi i32 [ %150, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit152.thread388.i.i ], [ %bottom_end_idx.1410548.i.i, %if.end31.i.i ], [ %162, %while.end67.loopexit.split.loop.exit568.i.i ], [ %163, %while.end67.loopexit.split.loop.exit572.i.i ], [ %inc66.i.i, %if.end65.i.i ]
-  %bottom_size.6.i.i = phi i64 [ %bottom_size.4445.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit152.thread388.i.i ], [ %bottom_size.3.i.i, %if.end31.i.i ], [ %bottom_size.5.i.i, %while.end67.loopexit.split.loop.exit568.i.i ], [ %bottom_size.4445.i.i, %while.end67.loopexit.split.loop.exit572.i.i ], [ %bottom_size.5.i.i, %if.end65.i.i ]
-  %end_bottom_size_counted.5.i.i = phi i8 [ %end_bottom_size_counted.3446.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit152.thread388.i.i ], [ %end_bottom_size_counted.2.i.i, %if.end31.i.i ], [ %end_bottom_size_counted.4.i.i, %while.end67.loopexit.split.loop.exit568.i.i ], [ %end_bottom_size_counted.3446.i.i, %while.end67.loopexit.split.loop.exit572.i.i ], [ 0, %if.end65.i.i ]
+  %bottom_end_idx.2418.i.i = phi i32 [ %150, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit152.thread388.i.i ], [ %bottom_end_idx.1414546.i.i, %if.end31.i.i ], [ %162, %while.end67.loopexit.split.loop.exit568.i.i ], [ %163, %while.end67.loopexit.split.loop.exit572.i.i ], [ %inc66.i.i, %if.end65.i.i ]
+  %bottom_size.6.i.i = phi i64 [ %bottom_size.4446.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit152.thread388.i.i ], [ %bottom_size.3.i.i, %if.end31.i.i ], [ %bottom_size.5.i.i, %while.end67.loopexit.split.loop.exit568.i.i ], [ %bottom_size.4446.i.i, %while.end67.loopexit.split.loop.exit572.i.i ], [ %bottom_size.5.i.i, %if.end65.i.i ]
+  %end_bottom_size_counted.5.i.i = phi i8 [ %end_bottom_size_counted.3447.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit152.thread388.i.i ], [ %end_bottom_size_counted.2.i.i, %if.end31.i.i ], [ %end_bottom_size_counted.4.i.i, %while.end67.loopexit.split.loop.exit568.i.i ], [ %end_bottom_size_counted.3447.i.i, %while.end67.loopexit.split.loop.exit572.i.i ], [ 0, %if.end65.i.i ]
   %add68.i.i = add i64 %bottom_size.6.i.i, %add34.i.i
   %cmp69.i.i = icmp ugt i64 %add68.i.i, %div80.i.i
   br i1 %cmp69.i.i, label %land.lhs.true.i61.i, label %lor.lhs.false.i.i
@@ -1581,9 +1581,9 @@ if.then75.i.i:                                    ; preds = %land.lhs.true.i61.i
   %conv76.i.i = uitofp i64 %bottom_size.6.i.i to double
   %conv77.i.i = uitofp i64 %add34.i.i to double
   %div78.i.i = fdiv double %conv76.i.i, %conv77.i.i
-  %cmp79.i.i = fcmp olt double %div78.i.i, %picked_fanout.0489.i.i
-  %picked_fanout.1.i.i = select i1 %cmp79.i.i, double %div78.i.i, double %picked_fanout.0489.i.i
-  %picked_end_idx.1.i.i = select i1 %cmp79.i.i, i32 %134, i32 %picked_end_idx.0490.i.i
+  %cmp79.i.i = fcmp olt double %div78.i.i, %picked_fanout.0482.i.i
+  %picked_end_idx.1.i.i = select i1 %cmp79.i.i, i32 %134, i32 %picked_end_idx.0481.i.i
+  %picked_fanout.1.i.i = select i1 %cmp79.i.i, double %div78.i.i, double %picked_fanout.0482.i.i
   %picked_start_idx.1.i.i = select i1 %cmp79.i.i, i32 %135, i32 %picked_start_idx.0491.i.i
   %167 = sext i32 %135 to i64
   %cmp86466.i.i = icmp sge i64 %indvars.iv523.i.i, %167
@@ -1591,21 +1591,21 @@ if.then75.i.i:                                    ; preds = %land.lhs.true.i61.i
   br i1 %168, label %while.body88.preheader.i.i, label %for.inc.i.i
 
 while.body88.preheader.i.i:                       ; preds = %if.then75.i.i
-  %169 = sext i32 %bottom_end_idx.2416.i.i to i64
-  %170 = add i32 %bottom_end_idx.2416.i.i, 1
+  %169 = sext i32 %bottom_end_idx.2418.i.i to i64
+  %170 = add i32 %bottom_end_idx.2418.i.i, 1
   br label %while.body88.i.i
 
 while.body88.i.i:                                 ; preds = %if.end120.i.i, %while.body88.preheader.i.i
   %indvars.iv520.i.i = phi i64 [ %167, %while.body88.preheader.i.i ], [ %indvars.iv.next521.i.i, %if.end120.i.i ]
-  %bottom_size.7469.i.i = phi i64 [ %bottom_size.6.i.i, %while.body88.preheader.i.i ], [ %bottom_size.9.i.i, %if.end120.i.i ]
-  %non_bottom_size.2468.i.i = phi i64 [ %add34.i.i, %while.body88.preheader.i.i ], [ %sub93.i.i, %if.end120.i.i ]
-  %bottom_start_idx.2467.i.i = phi i32 [ %bottom_start_idx.1.i.i, %while.body88.preheader.i.i ], [ %bottom_start_idx.4.i.i, %if.end120.i.i ]
+  %bottom_size.7470.i.i = phi i64 [ %bottom_size.6.i.i, %while.body88.preheader.i.i ], [ %bottom_size.9.i.i, %if.end120.i.i ]
+  %non_bottom_size.2469.i.i = phi i64 [ %add34.i.i, %while.body88.preheader.i.i ], [ %sub93.i.i, %if.end120.i.i ]
+  %bottom_start_idx.2468.i.i = phi i32 [ %bottom_start_idx.1.i.i, %while.body88.preheader.i.i ], [ %bottom_start_idx.4.i.i, %if.end120.i.i ]
   %171 = load ptr, ptr %arrayidx.i98.i.i, align 8
   %add.ptr.i195.i.i = getelementptr inbounds ptr, ptr %171, i64 %indvars.iv520.i.i
   %172 = load ptr, ptr %add.ptr.i195.i.i, align 8
   %file_size92.i.i = getelementptr inbounds i8, ptr %172, i64 16
   %173 = load i64, ptr %file_size92.i.i, align 8
-  %sub93.i.i = sub i64 %non_bottom_size.2468.i.i, %173
+  %sub93.i.i = sub i64 %non_bottom_size.2469.i.i, %173
   %indvars.iv.next521.i.i = add nsw i64 %indvars.iv520.i.i, 1
   %174 = load ptr, ptr %_M_finish.i.i.i76, align 8
   %sub.ptr.lhs.cast.i197.i.i = ptrtoint ptr %174 to i64
@@ -1614,19 +1614,19 @@ while.body88.i.i:                                 ; preds = %if.end120.i.i, %whi
   %sext538.i.i = shl i64 %sub.ptr.sub.i199.i.i, 29
   %175 = ashr i64 %sext538.i.i, 32
   %cmp97.i.i = icmp sge i64 %indvars.iv.next521.i.i, %175
-  %cmp100.not457.i.i = icmp sgt i32 %bottom_start_idx.2467.i.i, %bottom_end_idx.2416.i.i
+  %cmp100.not457.i.i = icmp sgt i32 %bottom_start_idx.2468.i.i, %bottom_end_idx.2418.i.i
   %or.cond504.i.i = select i1 %cmp97.i.i, i1 true, i1 %cmp100.not457.i.i
   br i1 %or.cond504.i.i, label %if.end120.i.i, label %land.rhs101.lr.ph.i.i
 
 land.rhs101.lr.ph.i.i:                            ; preds = %while.body88.i.i
-  %176 = sext i32 %bottom_start_idx.2467.i.i to i64
+  %176 = sext i32 %bottom_start_idx.2468.i.i to i64
   %.pre531.i.i = load ptr, ptr %arrayidx.i.i.i, align 8
   br label %land.rhs101.i.i
 
 land.rhs101.i.i:                                  ; preds = %while.body112.i.i, %land.rhs101.lr.ph.i.i
   %177 = phi ptr [ %.pre531.i.i, %land.rhs101.lr.ph.i.i ], [ %189, %while.body112.i.i ]
   %indvars.iv517.i.i = phi i64 [ %176, %land.rhs101.lr.ph.i.i ], [ %indvars.iv.next518.i.i, %while.body112.i.i ]
-  %bottom_size.8459.i.i = phi i64 [ %bottom_size.7469.i.i, %land.rhs101.lr.ph.i.i ], [ %sub117.i.i, %while.body112.i.i ]
+  %bottom_size.8459.i.i = phi i64 [ %bottom_size.7470.i.i, %land.rhs101.lr.ph.i.i ], [ %sub117.i.i, %while.body112.i.i ]
   %178 = load ptr, ptr %icmp_.i.i, align 8
   %add.ptr.i201.i.i = getelementptr inbounds ptr, ptr %177, i64 %indvars.iv517.i.i
   %179 = load ptr, ptr %add.ptr.i201.i.i, align 8
@@ -1725,8 +1725,8 @@ if.end120.loopexit.split.loop.exit.i.i:           ; preds = %_ZNK7rocksdb21Inter
   br label %if.end120.i.i
 
 if.end120.i.i:                                    ; preds = %while.body112.i.i, %if.end120.loopexit.split.loop.exit.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit237.thread395.i.i, %while.body88.i.i
-  %bottom_start_idx.4.i.i = phi i32 [ %bottom_start_idx.2467.i.i, %while.body88.i.i ], [ %188, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit237.thread395.i.i ], [ %192, %if.end120.loopexit.split.loop.exit.i.i ], [ %170, %while.body112.i.i ]
-  %bottom_size.9.i.i = phi i64 [ %bottom_size.7469.i.i, %while.body88.i.i ], [ %bottom_size.8459.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit237.thread395.i.i ], [ %bottom_size.8459.i.i, %if.end120.loopexit.split.loop.exit.i.i ], [ %sub117.i.i, %while.body112.i.i ]
+  %bottom_start_idx.4.i.i = phi i32 [ %bottom_start_idx.2468.i.i, %while.body88.i.i ], [ %188, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit237.thread395.i.i ], [ %192, %if.end120.loopexit.split.loop.exit.i.i ], [ %170, %while.body112.i.i ]
+  %bottom_size.9.i.i = phi i64 [ %bottom_size.7470.i.i, %while.body88.i.i ], [ %bottom_size.8459.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit237.thread395.i.i ], [ %bottom_size.8459.i.i, %if.end120.loopexit.split.loop.exit.i.i ], [ %sub117.i.i, %while.body112.i.i ]
   %add83.i.i = add i64 %bottom_size.9.i.i, %sub93.i.i
   %cmp84.i.i = icmp ugt i64 %add83.i.i, %div80.i.i
   %cmp86.i.i = icmp slt i64 %indvars.iv520.i.i, %indvars.iv523.i.i
@@ -1738,12 +1738,12 @@ for.inc.loopexit.i.i:                             ; preds = %if.end120.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.inc.loopexit.i.i, %if.then75.i.i, %land.lhs.true.i61.i, %lor.lhs.false.i.i
+  %picked_end_idx.2.i.i = phi i32 [ %picked_end_idx.0481.i.i, %land.lhs.true.i61.i ], [ %picked_end_idx.0481.i.i, %lor.lhs.false.i.i ], [ %picked_end_idx.1.i.i, %if.then75.i.i ], [ %picked_end_idx.1.i.i, %for.inc.loopexit.i.i ]
+  %picked_fanout.2.i.i = phi double [ %picked_fanout.0482.i.i, %land.lhs.true.i61.i ], [ %picked_fanout.0482.i.i, %lor.lhs.false.i.i ], [ %picked_fanout.1.i.i, %if.then75.i.i ], [ %picked_fanout.1.i.i, %for.inc.loopexit.i.i ]
+  %start_idx.3.i.i = phi i32 [ %135, %land.lhs.true.i61.i ], [ %135, %lor.lhs.false.i.i ], [ %135, %if.then75.i.i ], [ %194, %for.inc.loopexit.i.i ]
   %bottom_start_idx.5.i.i = phi i32 [ %bottom_start_idx.1.i.i, %land.lhs.true.i61.i ], [ %bottom_start_idx.1.i.i, %lor.lhs.false.i.i ], [ %bottom_start_idx.1.i.i, %if.then75.i.i ], [ %bottom_start_idx.4.i.i, %for.inc.loopexit.i.i ]
   %non_bottom_size.3.i.i = phi i64 [ 0, %land.lhs.true.i61.i ], [ %add34.i.i, %lor.lhs.false.i.i ], [ %add34.i.i, %if.then75.i.i ], [ %sub93.i.i, %for.inc.loopexit.i.i ]
   %bottom_size.10.i.i = phi i64 [ %bottom_size.6.i.i, %land.lhs.true.i61.i ], [ %bottom_size.6.i.i, %lor.lhs.false.i.i ], [ %bottom_size.6.i.i, %if.then75.i.i ], [ %bottom_size.9.i.i, %for.inc.loopexit.i.i ]
-  %start_idx.3.i.i = phi i32 [ %135, %land.lhs.true.i61.i ], [ %135, %lor.lhs.false.i.i ], [ %135, %if.then75.i.i ], [ %194, %for.inc.loopexit.i.i ]
-  %picked_fanout.2.i.i = phi double [ %picked_fanout.0489.i.i, %land.lhs.true.i61.i ], [ %picked_fanout.0489.i.i, %lor.lhs.false.i.i ], [ %picked_fanout.1.i.i, %if.then75.i.i ], [ %picked_fanout.1.i.i, %for.inc.loopexit.i.i ]
-  %picked_end_idx.2.i.i = phi i32 [ %picked_end_idx.0490.i.i, %land.lhs.true.i61.i ], [ %picked_end_idx.0490.i.i, %lor.lhs.false.i.i ], [ %picked_end_idx.1.i.i, %if.then75.i.i ], [ %picked_end_idx.1.i.i, %for.inc.loopexit.i.i ]
   %picked_start_idx.2.i.i = phi i32 [ %picked_start_idx.0491.i.i, %land.lhs.true.i61.i ], [ %picked_start_idx.0491.i.i, %lor.lhs.false.i.i ], [ %picked_start_idx.1.i.i, %if.then75.i.i ], [ %picked_start_idx.1.i.i, %for.inc.loopexit.i.i ]
   %indvars.iv.next524.i.i = add nuw nsw i64 %indvars.iv523.i.i, 1
   %195 = load ptr, ptr %_M_finish.i.i.i76, align 8
@@ -1757,8 +1757,8 @@ for.inc.i.i:                                      ; preds = %for.inc.loopexit.i.
   br i1 %cmp11.i.i, label %for.body.i.i, label %for.end.i56.i, !llvm.loop !29
 
 for.end.i56.i:                                    ; preds = %for.inc.i.i, %if.end.i53.i
-  %picked_fanout.0.lcssa.i.i = phi double [ %mul60.i, %if.end.i53.i ], [ %picked_fanout.2.i.i, %for.inc.i.i ]
   %picked_end_idx.0.lcssa.i.i = phi i32 [ 0, %if.end.i53.i ], [ %picked_end_idx.2.i.i, %for.inc.i.i ]
+  %picked_fanout.0.lcssa.i.i = phi double [ %mul60.i, %if.end.i53.i ], [ %picked_fanout.2.i.i, %for.inc.i.i ]
   %picked_start_idx.0.lcssa.i.i = phi i32 [ 0, %if.end.i53.i ], [ %picked_start_idx.2.i.i, %for.inc.i.i ]
   %cmp124.i.i = fcmp ult double %picked_fanout.0.lcssa.i.i, %mul60.i
   br i1 %cmp124.i.i, label %if.end126.i.i, label %_ZN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder31PickIncrementalForReduceSizeAmpEd.exit.thread.i
@@ -2622,15 +2622,15 @@ if.then53:                                        ; preds = %if.else
   br label %if.end101
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %num_sr_not_compacted.0288 = phi i32 [ %spec.select, %for.body ], [ 0, %for.body.preheader ]
-  %i.0287 = phi i64 [ %inc69, %for.body ], [ 0, %for.body.preheader ]
-  %being_compacted = getelementptr inbounds %"struct.rocksdb::(anonymous namespace)::UniversalCompactionBuilder::SortedRun", ptr %sorted_runs_.val23, i64 %i.0287, i32 5
+  %i.0288 = phi i64 [ %inc69, %for.body ], [ 0, %for.body.preheader ]
+  %num_sr_not_compacted.0287 = phi i32 [ %spec.select, %for.body ], [ 0, %for.body.preheader ]
+  %being_compacted = getelementptr inbounds %"struct.rocksdb::(anonymous namespace)::UniversalCompactionBuilder::SortedRun", ptr %sorted_runs_.val23, i64 %i.0288, i32 5
   %304 = load i8, ptr %being_compacted, align 8
   %305 = and i8 %304, 1
   %306 = xor i8 %305, 1
   %307 = zext nneg i8 %306 to i32
-  %spec.select = add i32 %num_sr_not_compacted.0288, %307
-  %inc69 = add nuw i64 %i.0287, 1
+  %spec.select = add i32 %num_sr_not_compacted.0287, %307
+  %inc69 = add nuw i64 %i.0288, 1
   %exitcond.not = icmp eq i64 %inc69, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !40
 
@@ -5882,35 +5882,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end14.i
-  %__value.addr.021.i = phi i32 [ %0, %if.end14.i ], [ %cond, %entry ]
-  %__n.020.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
-  %cmp3.i = icmp ult i32 %__value.addr.021.i, 100
+  %__n.021.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
+  %__value.addr.020.i = phi i32 [ %0, %if.end14.i ], [ %cond, %entry ]
+  %cmp3.i = icmp ult i32 %__value.addr.020.i, 100
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.020.i, 1
+  %add.i = add i32 %__n.021.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ult i32 %__value.addr.021.i, 1000
+  %cmp6.i = icmp ult i32 %__value.addr.020.i, 1000
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %add8.i = add i32 %__n.020.i, 2
+  %add8.i = add i32 %__n.021.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %cmp11.i = icmp ult i32 %__value.addr.021.i, 10000
+  %cmp11.i = icmp ult i32 %__value.addr.020.i, 10000
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %add13.i = add i32 %__n.020.i, 3
+  %add13.i = add i32 %__n.021.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end14.i:                                       ; preds = %if.end9.i
-  %0 = udiv i32 %__value.addr.021.i, 10000
-  %add17.i = add i32 %__n.020.i, 4
-  %cmp.i = icmp ult i32 %__value.addr.021.i, 100000
+  %0 = udiv i32 %__value.addr.020.i, 10000
+  %add17.i = add i32 %__n.021.i, 4
+  %cmp.i = icmp ult i32 %__value.addr.020.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !64
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i

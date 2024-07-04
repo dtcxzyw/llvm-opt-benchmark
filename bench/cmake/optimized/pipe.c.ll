@@ -210,8 +210,8 @@ define dso_local i32 @uv_pipe_open(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %18
 
 18:                                               ; preds = %.critedge22, %2, %14, %.critedge
-  %.0 = phi i32 [ %12, %.critedge ], [ %17, %14 ], [ -17, %2 ], [ %13, %.critedge22 ]
-  ret i32 %.0
+  %.016 = phi i32 [ %12, %.critedge ], [ %17, %14 ], [ -17, %2 ], [ %13, %.critedge22 ]
+  ret i32 %.016
 }
 
 declare i32 @uv__fd_exists(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -572,8 +572,8 @@ uv_pipe_getsockname.exit:                         ; preds = %15
   br i1 %.not, label %30, label %75
 
 30:                                               ; preds = %uv_pipe_getsockname.exit.thread, %uv_pipe_getsockname.exit
-  %.04650 = phi i64 [ %29, %uv_pipe_getsockname.exit.thread ], [ 0, %uv_pipe_getsockname.exit ]
-  %31 = call ptr @uv__malloc(i64 noundef %.04650) #11
+  %.049 = phi i64 [ %29, %uv_pipe_getsockname.exit.thread ], [ 0, %uv_pipe_getsockname.exit ]
+  %31 = call ptr @uv__malloc(i64 noundef %.049) #11
   %32 = icmp eq ptr %31, null
   br i1 %32, label %75, label %33
 
@@ -605,7 +605,7 @@ uv_pipe_getsockname.exit:                         ; preds = %15
 46:                                               ; preds = %44, %40
   %storemerge.in.i.i39 = phi i64 [ %45, %44 ], [ %43, %40 ]
   %47 = and i64 %storemerge.in.i.i39, 4294967295
-  %.not.i.i40 = icmp ult i64 %47, %.04650
+  %.not.i.i40 = icmp ult i64 %47, %.049
   br i1 %.not.i.i40, label %48, label %52
 
 48:                                               ; preds = %46
@@ -671,8 +671,8 @@ uv_pipe_getsockname.exit:                         ; preds = %15
   br label %75
 
 75:                                               ; preds = %71, %68, %30, %uv_pipe_getsockname.exit, %13, %2, %9, %67, %56, %52
-  %.0 = phi i32 [ %.0.i.i41, %52 ], [ %59, %56 ], [ 0, %67 ], [ -9, %9 ], [ -9, %2 ], [ -22, %13 ], [ %16, %uv_pipe_getsockname.exit ], [ -12, %30 ], [ %74, %71 ], [ 0, %68 ]
-  ret i32 %.0
+  %.030 = phi i32 [ %.0.i.i41, %52 ], [ %59, %56 ], [ 0, %67 ], [ -9, %9 ], [ -9, %2 ], [ -22, %13 ], [ %16, %uv_pipe_getsockname.exit ], [ -12, %30 ], [ %74, %71 ], [ 0, %68 ]
+  ret i32 %.030
 }
 
 declare ptr @uv__malloc(i64 noundef) local_unnamed_addr #1

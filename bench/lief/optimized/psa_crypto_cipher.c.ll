@@ -162,8 +162,8 @@ define internal fastcc i32 @psa_cipher_setup(ptr noundef %0, ptr nocapture nound
   br label %27
 
 27:                                               ; preds = %24, %20
-  %.059 = phi i32 [ %23, %20 ], [ %26, %24 ]
-  %.not63 = icmp eq i32 %.059, 0
+  %.0 = phi i32 [ %23, %20 ], [ %26, %24 ]
+  %.not63 = icmp eq i32 %.0, 0
   br i1 %.not63, label %28, label %60
 
 28:                                               ; preds = %27
@@ -235,13 +235,13 @@ define internal fastcc i32 @psa_cipher_setup(ptr noundef %0, ptr nocapture nound
   br label %60
 
 60:                                               ; preds = %30, %27, %14, %56
-  %.2 = phi i32 [ %15, %14 ], [ %.059, %27 ], [ %31, %30 ], [ 0, %56 ]
+  %.2 = phi i32 [ %15, %14 ], [ %.0, %27 ], [ %31, %30 ], [ 0, %56 ]
   %61 = call i32 @mbedtls_to_psa_error(i32 noundef %.2) #6
   br label %62
 
 62:                                               ; preds = %5, %60
-  %.0 = phi i32 [ %61, %60 ], [ -134, %5 ]
-  ret i32 %.0
+  %.059 = phi i32 [ %61, %60 ], [ -134, %5 ]
+  ret i32 %.059
 }
 
 ; Function Attrs: nounwind uwtable
@@ -350,26 +350,26 @@ define hidden i32 @mbedtls_psa_cipher_update(ptr noundef %0, ptr noundef %1, i64
   br label %51
 
 51:                                               ; preds = %46, %34, %31
-  %.053.i = phi ptr [ %48, %46 ], [ %3, %34 ], [ %3, %31 ]
-  %.051.i = phi i64 [ %38, %46 ], [ %38, %34 ], [ %2, %31 ]
-  %.049.i = phi ptr [ %39, %46 ], [ %39, %34 ], [ %1, %31 ]
-  %.not6368.i = icmp ult i64 %.051.i, %29
+  %.053.i = phi i64 [ %38, %46 ], [ %38, %34 ], [ %2, %31 ]
+  %.051.i = phi ptr [ %48, %46 ], [ %3, %34 ], [ %3, %31 ]
+  %.050.i = phi ptr [ %39, %46 ], [ %39, %34 ], [ %1, %31 ]
+  %.not6368.i = icmp ult i64 %.053.i, %29
   br i1 %.not6368.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %51, %54
-  %.171.i = phi ptr [ %56, %54 ], [ %.049.i, %51 ]
-  %.15270.i = phi i64 [ %55, %54 ], [ %.051.i, %51 ]
-  %.15469.i = phi ptr [ %58, %54 ], [ %.053.i, %51 ]
-  %52 = call i32 @mbedtls_cipher_update(ptr noundef nonnull %24, ptr noundef %.171.i, i64 noundef %29, ptr noundef %.15469.i, ptr noundef nonnull %7) #6
+  %.171.i = phi ptr [ %56, %54 ], [ %.050.i, %51 ]
+  %.15270.i = phi ptr [ %58, %54 ], [ %.051.i, %51 ]
+  %.15469.i = phi i64 [ %55, %54 ], [ %.053.i, %51 ]
+  %52 = call i32 @mbedtls_cipher_update(ptr noundef nonnull %24, ptr noundef %.171.i, i64 noundef %29, ptr noundef %.15270.i, ptr noundef nonnull %7) #6
   %53 = call i32 @mbedtls_to_psa_error(i32 noundef %52) #6
   %.not65.i = icmp eq i32 %53, 0
   br i1 %.not65.i, label %54, label %psa_cipher_update_ecb.exit
 
 54:                                               ; preds = %.lr.ph.i
-  %55 = sub i64 %.15270.i, %29
+  %55 = sub i64 %.15469.i, %29
   %56 = getelementptr inbounds i8, ptr %.171.i, i64 %29
   %57 = load i64, ptr %7, align 8
-  %58 = getelementptr inbounds i8, ptr %.15469.i, i64 %57
+  %58 = getelementptr inbounds i8, ptr %.15270.i, i64 %57
   %59 = load i64, ptr %5, align 8
   %60 = add i64 %59, %57
   store i64 %60, ptr %5, align 8
@@ -377,23 +377,23 @@ define hidden i32 @mbedtls_psa_cipher_update(ptr noundef %0, ptr noundef %1, i64
   br i1 %.not63.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %54, %51
-  %.152.lcssa.i = phi i64 [ %.051.i, %51 ], [ %55, %54 ]
-  %.1.lcssa.i = phi ptr [ %.049.i, %51 ], [ %56, %54 ]
-  %.not64.i = icmp eq i64 %.152.lcssa.i, 0
+  %.154.lcssa.i = phi i64 [ %.053.i, %51 ], [ %55, %54 ]
+  %.1.lcssa.i = phi ptr [ %.050.i, %51 ], [ %56, %54 ]
+  %.not64.i = icmp eq i64 %.154.lcssa.i, 0
   br i1 %.not64.i, label %psa_cipher_update_ecb.exit, label %61
 
 61:                                               ; preds = %._crit_edge.i
   %62 = getelementptr inbounds i8, ptr %0, i64 40
   %63 = load i64, ptr %32, align 8
   %64 = getelementptr inbounds [16 x i8], ptr %62, i64 0, i64 %63
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %64, ptr align 1 %.1.lcssa.i, i64 %.152.lcssa.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %64, ptr align 1 %.1.lcssa.i, i64 %.154.lcssa.i, i1 false)
   %65 = load i64, ptr %32, align 8
-  %66 = add i64 %65, %.152.lcssa.i
+  %66 = add i64 %65, %.154.lcssa.i
   store i64 %66, ptr %32, align 8
   br label %psa_cipher_update_ecb.exit
 
 psa_cipher_update_ecb.exit:                       ; preds = %.lr.ph.i, %25, %43, %._crit_edge.i, %61
-  %.050.i = phi i32 [ %45, %43 ], [ 0, %25 ], [ 0, %61 ], [ 0, %._crit_edge.i ], [ %53, %.lr.ph.i ]
+  %.049.i = phi i32 [ %45, %43 ], [ 0, %25 ], [ 0, %61 ], [ 0, %._crit_edge.i ], [ %53, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %72
 
@@ -406,7 +406,7 @@ psa_cipher_update_ecb.exit:                       ; preds = %.lr.ph.i, %25, %43,
   br label %72
 
 72:                                               ; preds = %67, %psa_cipher_update_ecb.exit, %20
-  %.023 = phi i32 [ -138, %20 ], [ %.050.i, %psa_cipher_update_ecb.exit ], [ %spec.select, %67 ]
+  %.023 = phi i32 [ -138, %20 ], [ %.049.i, %psa_cipher_update_ecb.exit ], [ %spec.select, %67 ]
   ret i32 %.023
 }
 

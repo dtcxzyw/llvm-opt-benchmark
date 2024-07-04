@@ -350,8 +350,8 @@ if.end74:                                         ; preds = %if.else70
   br label %if.end75
 
 if.end75:                                         ; preds = %if.end74, %if.end64
-  %target_shared_perms.0 = phi i64 [ 7, %if.end64 ], [ 4, %if.end74 ]
   %target_perms.1 = phi i64 [ %spec.select, %if.end64 ], [ 2, %if.end74 ]
+  %target_shared_perms.0 = phi i64 [ 7, %if.end64 ], [ 4, %if.end74 ]
   %aio_context = getelementptr inbounds i8, ptr %call45, i64 112
   %5 = load ptr, ptr %aio_context, align 8
   %call76 = tail call ptr @blk_new(ptr noundef %5, i64 noundef %target_perms.1, i64 noundef %target_shared_perms.0) #11
@@ -1814,17 +1814,17 @@ while.body.lr.ph.i:                               ; preds = %do.body.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %buf_size.017.i = phi i64 [ %26, %while.body.lr.ph.i ], [ %sub.i, %while.body.i ]
-  %buf.016.i = phi ptr [ %call99, %while.body.lr.ph.i ], [ %add.ptr.i, %while.body.i ]
-  store ptr null, ptr %buf.016.i, align 8
+  %buf.017.i = phi ptr [ %call99, %while.body.lr.ph.i ], [ %add.ptr.i, %while.body.i ]
+  %buf_size.016.i = phi i64 [ %26, %while.body.lr.ph.i ], [ %sub.i, %while.body.i ]
+  store ptr null, ptr %buf.017.i, align 8
   %27 = load ptr, ptr %sqh_last.i, align 8
-  store ptr %buf.016.i, ptr %27, align 8
-  store ptr %buf.016.i, ptr %sqh_last.i, align 8
+  store ptr %buf.017.i, ptr %27, align 8
+  store ptr %buf.017.i, ptr %sqh_last.i, align 8
   %28 = load i32, ptr %buf_free_count.i, align 8
   %inc.i = add i32 %28, 1
   store i32 %inc.i, ptr %buf_free_count.i, align 8
-  %sub.i = sub i64 %buf_size.017.i, %conv19.i
-  %add.ptr.i = getelementptr i8, ptr %buf.016.i, i64 %conv19.i
+  %sub.i = sub i64 %buf_size.016.i, %conv19.i
+  %add.ptr.i = getelementptr i8, ptr %buf.017.i, i64 %conv19.i
   %cmp8.not.i = icmp eq i64 %sub.i, 0
   br i1 %cmp8.not.i, label %mirror_free_init.exit, label %while.body.i, !llvm.loop !10
 

@@ -199,8 +199,8 @@ define ptr @cs_etree(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr
   br label %89
 
 89:                                               ; preds = %2, %3, %._crit_edge80, %22
-  %.0 = phi ptr [ %88, %._crit_edge80 ], [ %23, %22 ], [ null, %3 ], [ null, %2 ]
-  ret ptr %.0
+  %.065 = phi ptr [ %88, %._crit_edge80 ], [ %23, %22 ], [ null, %3 ], [ null, %2 ]
+  ret ptr %.065
 }
 
 declare ptr @cs_malloc(i32 noundef, i64 noundef) local_unnamed_addr #1

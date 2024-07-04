@@ -25,9 +25,9 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr nocapture noundef nonnull 
   br label %12
 
 12:                                               ; preds = %7, %8
-  %.0 = phi i64 [ 1, %8 ], [ 0, %7 ]
+  %.076 = phi i64 [ 1, %8 ], [ 0, %7 ]
   %13 = phi i32 [ %11, %8 ], [ 0, %7 ]
-  %14 = icmp ult i64 %.0, %4
+  %14 = icmp ult i64 %.076, %4
   %15 = icmp ne i64 %6, 0
   %16 = and i1 %14, %15
   br i1 %16, label %.lr.ph106, label %._crit_edge
@@ -40,8 +40,8 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr nocapture noundef nonnull 
 
 18:                                               ; preds = %.lr.ph106, %.critedge
   %19 = phi i32 [ %.pre, %.lr.ph106 ], [ %96, %.critedge ]
-  %.1105 = phi i64 [ %.0, %.lr.ph106 ], [ %.3, %.critedge ]
-  %.076104 = phi i64 [ 0, %.lr.ph106 ], [ %.379, %.critedge ]
+  %.074105 = phi i64 [ 0, %.lr.ph106 ], [ %.3, %.critedge ]
+  %.177104 = phi i64 [ %.076, %.lr.ph106 ], [ %.379, %.critedge ]
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %._crit_edge113
 
@@ -50,8 +50,8 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr nocapture noundef nonnull 
   br label %25
 
 21:                                               ; preds = %18
-  %22 = add nuw i64 %.1105, 1
-  %23 = getelementptr inbounds i8, ptr %3, i64 %.1105
+  %22 = add nuw i64 %.177104, 1
+  %23 = getelementptr inbounds i8, ptr %3, i64 %.177104
   %24 = load i8, ptr %23, align 1
   store i8 %24, ptr %0, align 8
   store i32 8, ptr %17, align 4
@@ -59,7 +59,7 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr nocapture noundef nonnull 
 
 25:                                               ; preds = %._crit_edge113, %21
   %26 = phi i8 [ %24, %21 ], [ %.pre114, %._crit_edge113 ]
-  %.2 = phi i64 [ %22, %21 ], [ %.1105, %._crit_edge113 ]
+  %.278 = phi i64 [ %22, %21 ], [ %.177104, %._crit_edge113 ]
   %27 = lshr i8 %26, 6
   switch i8 %27, label %default.unreachable115 [
     i8 0, label %28
@@ -69,41 +69,41 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr nocapture noundef nonnull 
   ]
 
 28:                                               ; preds = %25
-  %.not90 = icmp ult i64 %.2, %4
+  %.not90 = icmp ult i64 %.278, %4
   br i1 %.not90, label %29, label %.critedge
 
 29:                                               ; preds = %28
-  %30 = add nuw i64 %.2, 1
-  %31 = getelementptr inbounds i8, ptr %3, i64 %.2
+  %30 = add nuw i64 %.278, 1
+  %31 = getelementptr inbounds i8, ptr %3, i64 %.278
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
-  %34 = add nuw i64 %.076104, 1
-  %35 = getelementptr inbounds i32, ptr %5, i64 %.076104
+  %34 = add nuw i64 %.074105, 1
+  %35 = getelementptr inbounds i32, ptr %5, i64 %.074105
   store i32 %33, ptr %35, align 4
   br label %.critedge
 
 36:                                               ; preds = %25
-  %.not89 = icmp ult i64 %.2, %4
+  %.not89 = icmp ult i64 %.278, %4
   br i1 %.not89, label %37, label %.critedge
 
 37:                                               ; preds = %36
-  %38 = add nuw i64 %.2, 1
-  %39 = getelementptr inbounds i8, ptr %3, i64 %.2
+  %38 = add nuw i64 %.278, 1
+  %39 = getelementptr inbounds i8, ptr %3, i64 %.278
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i32
   %42 = or disjoint i32 %13, %41
-  %43 = add nuw i64 %.076104, 1
-  %44 = getelementptr inbounds i32, ptr %5, i64 %.076104
+  %43 = add nuw i64 %.074105, 1
+  %44 = getelementptr inbounds i32, ptr %5, i64 %.074105
   store i32 %42, ptr %44, align 4
   br label %.critedge
 
 45:                                               ; preds = %25
-  %46 = add i64 %.2, 1
+  %46 = add i64 %.278, 1
   %.not88 = icmp ult i64 %46, %4
   br i1 %.not88, label %47, label %.critedge
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %3, i64 %.2
+  %48 = getelementptr inbounds i8, ptr %3, i64 %.278
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i32
   %51 = getelementptr inbounds i8, ptr %3, i64 %46
@@ -111,19 +111,19 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr nocapture noundef nonnull 
   %53 = zext i8 %52 to i32
   %54 = shl nuw nsw i32 %53, 8
   %55 = or disjoint i32 %54, %50
-  %56 = add nuw i64 %.076104, 1
-  %57 = getelementptr inbounds i32, ptr %5, i64 %.076104
+  %56 = add nuw i64 %.074105, 1
+  %57 = getelementptr inbounds i32, ptr %5, i64 %.074105
   store i32 %55, ptr %57, align 4
-  %58 = add i64 %.2, 2
+  %58 = add i64 %.278, 2
   br label %.critedge
 
 59:                                               ; preds = %25
-  %.not85 = icmp ult i64 %.2, %4
+  %.not85 = icmp ult i64 %.278, %4
   br i1 %.not85, label %60, label %.critedge
 
 60:                                               ; preds = %59
-  %61 = add nuw i64 %.2, 1
-  %62 = getelementptr inbounds i8, ptr %3, i64 %.2
+  %61 = add nuw i64 %.278, 1
+  %62 = getelementptr inbounds i8, ptr %3, i64 %.278
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %.not86 = icmp sgt i8 %63, -1
@@ -134,10 +134,10 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr nocapture noundef nonnull 
   br i1 %.not87, label %66, label %.critedge
 
 66:                                               ; preds = %65
-  %67 = add nuw i64 %.2, 2
+  %67 = add nuw i64 %.278, 2
   %68 = getelementptr inbounds i8, ptr %3, i64 %61
   %69 = load i8, ptr %68, align 1
-  %70 = icmp ult i64 %.076104, %invariant.umin
+  %70 = icmp ult i64 %.074105, %invariant.umin
   br i1 %70, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %66
@@ -146,24 +146,24 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr nocapture noundef nonnull 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.07498 = phi i32 [ %78, %.lr.ph ], [ %72, %.lr.ph.preheader ]
-  %.17797 = phi i64 [ %79, %.lr.ph ], [ %.076104, %.lr.ph.preheader ]
-  %73 = getelementptr inbounds i8, ptr %1, i64 %.17797
+  %.098 = phi i32 [ %78, %.lr.ph ], [ %72, %.lr.ph.preheader ]
+  %.17597 = phi i64 [ %79, %.lr.ph ], [ %.074105, %.lr.ph.preheader ]
+  %73 = getelementptr inbounds i8, ptr %1, i64 %.17597
   %74 = load i8, ptr %73, align 1
   %.narrow = add i8 %74, %69
   %75 = zext i8 %.narrow to i32
   %76 = or disjoint i32 %13, %75
-  %77 = getelementptr inbounds i32, ptr %5, i64 %.17797
+  %77 = getelementptr inbounds i32, ptr %5, i64 %.17597
   store i32 %76, ptr %77, align 4
-  %78 = add nsw i32 %.07498, -1
-  %79 = add nuw i64 %.17797, 1
-  %80 = icmp ugt i32 %.07498, 1
+  %78 = add nsw i32 %.098, -1
+  %79 = add nuw i64 %.17597, 1
+  %80 = icmp ugt i32 %.098, 1
   %81 = icmp ult i64 %79, %invariant.umin
   %or.cond91 = select i1 %80, i1 %81, i1 false
   br i1 %or.cond91, label %.lr.ph, label %.critedge, !llvm.loop !4
 
 82:                                               ; preds = %60
-  %83 = icmp ult i64 %.076104, %invariant.umin
+  %83 = icmp ult i64 %.074105, %invariant.umin
   br i1 %83, label %.lr.ph102.preheader, label %.critedge
 
 .lr.ph102.preheader:                              ; preds = %82
@@ -171,16 +171,16 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr nocapture noundef nonnull 
   br label %.lr.ph102
 
 .lr.ph102:                                        ; preds = %.lr.ph102.preheader, %.lr.ph102
-  %.175101 = phi i32 [ %89, %.lr.ph102 ], [ %84, %.lr.ph102.preheader ]
-  %.278100 = phi i64 [ %90, %.lr.ph102 ], [ %.076104, %.lr.ph102.preheader ]
-  %85 = getelementptr inbounds i8, ptr %1, i64 %.278100
+  %.1101 = phi i32 [ %89, %.lr.ph102 ], [ %84, %.lr.ph102.preheader ]
+  %.2100 = phi i64 [ %90, %.lr.ph102 ], [ %.074105, %.lr.ph102.preheader ]
+  %85 = getelementptr inbounds i8, ptr %1, i64 %.2100
   %86 = load i8, ptr %85, align 1
   %87 = sext i8 %86 to i32
-  %88 = getelementptr inbounds i32, ptr %5, i64 %.278100
+  %88 = getelementptr inbounds i32, ptr %5, i64 %.2100
   store i32 %87, ptr %88, align 4
-  %89 = add nsw i32 %.175101, -1
-  %90 = add nuw i64 %.278100, 1
-  %91 = icmp ugt i32 %.175101, 1
+  %89 = add nsw i32 %.1101, -1
+  %90 = add nuw i64 %.2100, 1
+  %91 = icmp ugt i32 %.1101, 1
   %92 = icmp ult i64 %90, %invariant.umin
   %or.cond93 = select i1 %91, i1 %92, i1 false
   br i1 %or.cond93, label %.lr.ph102, label %.critedge, !llvm.loop !6
@@ -189,24 +189,24 @@ default.unreachable115:                           ; preds = %25
   unreachable
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph102, %66, %82, %65, %59, %45, %36, %28, %47, %37, %29
-  %.379 = phi i64 [ %.076104, %59 ], [ %.076104, %65 ], [ %.076104, %45 ], [ %56, %47 ], [ %.076104, %36 ], [ %43, %37 ], [ %.076104, %28 ], [ %34, %29 ], [ %.076104, %82 ], [ %.076104, %66 ], [ %90, %.lr.ph102 ], [ %79, %.lr.ph ]
-  %.3 = phi i64 [ %.2, %59 ], [ %61, %65 ], [ %.2, %45 ], [ %58, %47 ], [ %.2, %36 ], [ %38, %37 ], [ %.2, %28 ], [ %30, %29 ], [ %61, %82 ], [ %67, %66 ], [ %61, %.lr.ph102 ], [ %67, %.lr.ph ]
+  %.379 = phi i64 [ %.278, %59 ], [ %61, %65 ], [ %.278, %45 ], [ %58, %47 ], [ %.278, %36 ], [ %38, %37 ], [ %.278, %28 ], [ %30, %29 ], [ %61, %82 ], [ %67, %66 ], [ %61, %.lr.ph102 ], [ %67, %.lr.ph ]
+  %.3 = phi i64 [ %.074105, %59 ], [ %.074105, %65 ], [ %.074105, %45 ], [ %56, %47 ], [ %.074105, %36 ], [ %43, %37 ], [ %.074105, %28 ], [ %34, %29 ], [ %.074105, %82 ], [ %.074105, %66 ], [ %90, %.lr.ph102 ], [ %79, %.lr.ph ]
   %93 = load i8, ptr %0, align 8
   %94 = shl i8 %93, 2
   store i8 %94, ptr %0, align 8
   %95 = load i32, ptr %17, align 4
   %96 = add i32 %95, -2
   store i32 %96, ptr %17, align 4
-  %97 = icmp ult i64 %.3, %4
-  %98 = icmp ult i64 %.379, %6
+  %97 = icmp ult i64 %.379, %4
+  %98 = icmp ult i64 %.3, %6
   %99 = select i1 %97, i1 %98, i1 false
   br i1 %99, label %18, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.critedge, %12
-  %.076.lcssa = phi i64 [ 0, %12 ], [ %.379, %.critedge ]
+  %.074.lcssa = phi i64 [ 0, %12 ], [ %.3, %.critedge ]
   %.lcssa = phi i1 [ %15, %12 ], [ %98, %.critedge ]
   %100 = add i64 %6, -1
-  %101 = select i1 %.lcssa, i64 %.076.lcssa, i64 %100
+  %101 = select i1 %.lcssa, i64 %.074.lcssa, i64 %100
   %102 = getelementptr inbounds i32, ptr %5, i64 %101
   store i32 0, ptr %102, align 4
   ret void

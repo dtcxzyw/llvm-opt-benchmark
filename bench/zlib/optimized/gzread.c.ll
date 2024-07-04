@@ -854,8 +854,8 @@ do.body.preheader:                                ; preds = %if.end16
 
 do.body:                                          ; preds = %do.body.preheader, %if.end29
   %9 = phi i32 [ %sub49, %if.end29 ], [ %.pre, %do.body.preheader ]
-  %left.0 = phi i32 [ %sub55, %if.end29 ], [ %sub, %do.body.preheader ]
   %buf.addr.0 = phi ptr [ %add.ptr57, %if.end29 ], [ %buf, %do.body.preheader ]
+  %left.0 = phi i32 [ %sub55, %if.end29 ], [ %sub, %do.body.preheader ]
   %cmp19 = icmp eq i32 %9, 0
   br i1 %cmp19, label %land.lhs.true20, label %if.end29
 

@@ -2029,7 +2029,7 @@ define internal fastcc void @dissect_sapdiag_payload(ptr noundef %0, ptr noundef
 
 .lr.ph:                                           ; preds = %4, %71
   %.023 = phi i32 [ %.3, %71 ], [ %3, %4 ]
-  %.09422 = phi ptr [ %.195, %71 ], [ null, %4 ]
+  %.09322 = phi ptr [ %.194, %71 ], [ null, %4 ]
   %6 = load i32, ptr @hf_sapdiag_item, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef %.023, i32 noundef 1, i32 noundef 0) #2
   %8 = load i32, ptr @ett_sapdiag, align 4
@@ -2145,9 +2145,9 @@ get_appl_string.exit:                             ; preds = %.get_appl_string.ex
   br label %.thread14
 
 50:                                               ; preds = %get_appl_string.exit, %.lr.ph
-  %.0102.ph = phi i8 [ 0, %.lr.ph ], [ %30, %get_appl_string.exit ]
-  %.0101.ph = phi i8 [ 0, %.lr.ph ], [ %36, %get_appl_string.exit ]
-  %.099.ph = phi i32 [ 5, %.lr.ph ], [ 7, %get_appl_string.exit ]
+  %.0101.ph = phi i8 [ 0, %.lr.ph ], [ %30, %get_appl_string.exit ]
+  %.0100.ph = phi i8 [ 0, %.lr.ph ], [ %36, %get_appl_string.exit ]
+  %.098.ph = phi i32 [ 5, %.lr.ph ], [ 7, %get_appl_string.exit ]
   %.1.ph = phi i32 [ %13, %.lr.ph ], [ %43, %get_appl_string.exit ]
   %51 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.1.ph) #2
   %52 = load i32, ptr @hf_sapdiag_item_length_long, align 4
@@ -2156,16 +2156,16 @@ get_appl_string.exit:                             ; preds = %.get_appl_string.ex
   br label %.thread14
 
 .thread14:                                        ; preds = %get_appl_string.exit, %.lr.ph, %28, %27, %26, %25, %24, %22, %20, %19, %18, %17, %16, %50, %44
-  %.01018 = phi i8 [ %36, %44 ], [ %.0101.ph, %50 ], [ 0, %.lr.ph ], [ 0, %28 ], [ 0, %27 ], [ 0, %26 ], [ 0, %25 ], [ 0, %24 ], [ 0, %22 ], [ 0, %20 ], [ 0, %19 ], [ 0, %18 ], [ 0, %17 ], [ 0, %16 ], [ %36, %get_appl_string.exit ]
-  %.01026 = phi i8 [ %30, %44 ], [ %.0102.ph, %50 ], [ 0, %.lr.ph ], [ 0, %28 ], [ 0, %27 ], [ 0, %26 ], [ 0, %25 ], [ 0, %24 ], [ 0, %22 ], [ 0, %20 ], [ 0, %19 ], [ 0, %18 ], [ 0, %17 ], [ 0, %16 ], [ %30, %get_appl_string.exit ]
-  %.1100 = phi i32 [ 5, %44 ], [ %.099.ph, %50 ], [ 1, %.lr.ph ], [ 1, %28 ], [ 1, %27 ], [ 1, %26 ], [ 1, %25 ], [ 1, %24 ], [ 1, %22 ], [ 1, %20 ], [ 1, %19 ], [ 1, %18 ], [ 1, %17 ], [ 1, %16 ], [ 3, %get_appl_string.exit ]
-  %.197 = phi i32 [ %46, %44 ], [ %51, %50 ], [ 0, %.lr.ph ], [ 36, %28 ], [ 2, %27 ], [ 2, %26 ], [ 3, %25 ], [ 22, %24 ], [ 0, %22 ], [ 0, %20 ], [ 76, %19 ], [ 3, %18 ], [ 20, %17 ], [ 16, %16 ], [ 0, %get_appl_string.exit ]
-  %.195 = phi ptr [ %48, %44 ], [ %53, %50 ], [ %.09422, %.lr.ph ], [ %.09422, %28 ], [ %.09422, %27 ], [ %.09422, %26 ], [ %.09422, %25 ], [ %.09422, %24 ], [ %.09422, %22 ], [ %.09422, %20 ], [ %.09422, %19 ], [ %.09422, %18 ], [ %.09422, %17 ], [ %.09422, %16 ], [ %.09422, %get_appl_string.exit ]
+  %.01008 = phi i8 [ %36, %44 ], [ %.0100.ph, %50 ], [ 0, %.lr.ph ], [ 0, %28 ], [ 0, %27 ], [ 0, %26 ], [ 0, %25 ], [ 0, %24 ], [ 0, %22 ], [ 0, %20 ], [ 0, %19 ], [ 0, %18 ], [ 0, %17 ], [ 0, %16 ], [ %36, %get_appl_string.exit ]
+  %.01016 = phi i8 [ %30, %44 ], [ %.0101.ph, %50 ], [ 0, %.lr.ph ], [ 0, %28 ], [ 0, %27 ], [ 0, %26 ], [ 0, %25 ], [ 0, %24 ], [ 0, %22 ], [ 0, %20 ], [ 0, %19 ], [ 0, %18 ], [ 0, %17 ], [ 0, %16 ], [ %30, %get_appl_string.exit ]
+  %.199 = phi i32 [ 5, %44 ], [ %.098.ph, %50 ], [ 1, %.lr.ph ], [ 1, %28 ], [ 1, %27 ], [ 1, %26 ], [ 1, %25 ], [ 1, %24 ], [ 1, %22 ], [ 1, %20 ], [ 1, %19 ], [ 1, %18 ], [ 1, %17 ], [ 1, %16 ], [ 3, %get_appl_string.exit ]
+  %.196 = phi i32 [ %46, %44 ], [ %51, %50 ], [ 0, %.lr.ph ], [ 36, %28 ], [ 2, %27 ], [ 2, %26 ], [ 3, %25 ], [ 22, %24 ], [ 0, %22 ], [ 0, %20 ], [ 76, %19 ], [ 3, %18 ], [ 20, %17 ], [ 16, %16 ], [ 0, %get_appl_string.exit ]
+  %.194 = phi ptr [ %48, %44 ], [ %53, %50 ], [ %.09322, %.lr.ph ], [ %.09322, %28 ], [ %.09322, %27 ], [ %.09322, %26 ], [ %.09322, %25 ], [ %.09322, %24 ], [ %.09322, %22 ], [ %.09322, %20 ], [ %.09322, %19 ], [ %.09322, %18 ], [ %.09322, %17 ], [ %.09322, %16 ], [ %.09322, %get_appl_string.exit ]
   %.2 = phi i32 [ %49, %44 ], [ %54, %50 ], [ %13, %.lr.ph ], [ %13, %28 ], [ %13, %27 ], [ %13, %26 ], [ %13, %25 ], [ %13, %24 ], [ %13, %22 ], [ %13, %20 ], [ %13, %19 ], [ %13, %18 ], [ %13, %17 ], [ %13, %16 ], [ %43, %get_appl_string.exit ]
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.841, i32 noundef %.197) #2
-  %55 = add i32 %.197, %.1100
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.841, i32 noundef %.196) #2
+  %55 = add i32 %.196, %.199
   tail call void @proto_item_set_len(ptr noundef %7, i32 noundef %55) #2
-  %.not108 = icmp eq i32 %.197, 0
+  %.not108 = icmp eq i32 %.196, 0
   br i1 %.not108, label %71, label %56
 
 56:                                               ; preds = %.thread14
@@ -2174,25 +2174,25 @@ get_appl_string.exit:                             ; preds = %.get_appl_string.ex
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %56
-  %60 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.195, ptr noundef nonnull @ei_sapdiag_item_offset_invalid) #2
+  %60 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.194, ptr noundef nonnull @ei_sapdiag_item_offset_invalid) #2
   br label %.loopexit
 
 61:                                               ; preds = %56
-  %62 = icmp ult i32 %57, %.197
+  %62 = icmp ult i32 %57, %.196
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %61
-  %64 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.195, ptr noundef nonnull @ei_sapdiag_item_length_invalid) #2
+  %64 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.194, ptr noundef nonnull @ei_sapdiag_item_length_invalid) #2
   br label %65
 
 65:                                               ; preds = %63, %61
-  %.298 = phi i32 [ %57, %63 ], [ %.197, %61 ]
+  %.297 = phi i32 [ %57, %63 ], [ %.196, %61 ]
   %66 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %67 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %66, ptr noundef %0, i32 noundef %.2, i32 noundef %.298, i32 noundef 0) #2
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %66, ptr noundef %0, i32 noundef %.2, i32 noundef %.297, i32 noundef 0) #2
   %68 = load i32, ptr @ett_sapdiag, align 4
   %69 = tail call ptr @proto_item_add_subtree(ptr noundef %67, i32 noundef %68) #2
-  tail call fastcc void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr noundef %7, ptr noundef %69, i32 noundef %.2, i8 noundef zeroext %10, i8 noundef zeroext %.01026, i8 noundef zeroext %.01018, i32 noundef %.298)
-  %70 = add i32 %.298, %.2
+  tail call fastcc void @dissect_sapdiag_item(ptr noundef %0, ptr noundef %1, ptr noundef %7, ptr noundef %69, i32 noundef %.2, i8 noundef zeroext %10, i8 noundef zeroext %.01016, i8 noundef zeroext %.01008, i32 noundef %.297)
+  %70 = add i32 %.297, %.2
   br label %71
 
 71:                                               ; preds = %65, %.thread14
@@ -3283,15 +3283,15 @@ check_length.exit1758:                            ; preds = %785, %786
   br i1 %797, label %.lr.ph25, label %.critedge
 
 .lr.ph25:                                         ; preds = %791, %799
-  %.024 = phi i32 [ %802, %799 ], [ %796, %791 ]
-  %798 = tail call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %.024) #2
+  %.0166424 = phi i32 [ %802, %799 ], [ %796, %791 ]
+  %798 = tail call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %.0166424) #2
   %.not1681 = icmp eq i32 %798, 0
   br i1 %.not1681, label %.critedge, label %799
 
 799:                                              ; preds = %.lr.ph25
   %800 = load i32, ptr @hf_sapdiag_item_value, align 4
-  %801 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %800, i32 noundef %.024, ptr noundef nonnull @.str.1056)
-  %802 = add i32 %801, %.024
+  %801 = tail call fastcc i32 @add_item_value_stringz(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %800, i32 noundef %.0166424, ptr noundef nonnull @.str.1056)
+  %802 = add i32 %801, %.0166424
   %803 = icmp ult i32 %802, %792
   br i1 %803, label %.lr.ph25, label %.critedge, !llvm.loop !6
 
@@ -3410,20 +3410,20 @@ check_length.exit1770:                            ; preds = %839
   br label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %.lr.ph22.preheader, %849
-  %.121 = phi i32 [ %847, %849 ], [ %846, %.lr.ph22.preheader ]
-  %.0166420 = phi i8 [ %853, %849 ], [ %840, %.lr.ph22.preheader ]
-  %847 = add i32 %.121, 17
+  %.021 = phi i8 [ %853, %849 ], [ %840, %.lr.ph22.preheader ]
+  %.120 = phi i32 [ %847, %849 ], [ %846, %.lr.ph22.preheader ]
+  %847 = add i32 %.120, 17
   %848 = tail call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %847) #2
   %.not1678 = icmp eq i32 %848, 0
   br i1 %.not1678, label %.critedge133, label %849
 
 849:                                              ; preds = %.lr.ph22
-  %850 = add i32 %.121, 16
+  %850 = add i32 %.120, 16
   %851 = load i32, ptr @hf_sapdiag_item_value, align 4
-  tail call fastcc void @add_item_value_hexstring(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %851, i32 noundef %.121)
+  tail call fastcc void @add_item_value_hexstring(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %851, i32 noundef %.120)
   %852 = load i32, ptr @hf_sapdiag_item_value, align 4
   tail call fastcc void @add_item_value_uint8(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %852, i32 noundef %850, ptr noundef nonnull @.str.1065)
-  %853 = add i8 %.0166420, -1
+  %853 = add i8 %.021, -1
   %.not1677 = icmp eq i8 %853, 0
   br i1 %.not1677, label %.critedge133, label %.lr.ph22, !llvm.loop !7
 

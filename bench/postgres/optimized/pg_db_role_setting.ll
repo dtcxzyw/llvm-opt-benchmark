@@ -114,12 +114,12 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
   br label %65
 
 65:                                               ; preds = %63, %61
-  %.050 = phi ptr [ %62, %61 ], [ %64, %63 ]
-  %.not56 = icmp eq ptr %.050, null
+  %.0 = phi ptr [ %62, %61 ], [ %64, %63 ]
+  %.not56 = icmp eq ptr %.0, null
   br i1 %.not56, label %72, label %66
 
 66:                                               ; preds = %65
-  %67 = ptrtoint ptr %.050 to i64
+  %67 = ptrtoint ptr %.0 to i64
   %68 = getelementptr inbounds i8, ptr %9, i64 16
   store i64 %67, ptr %68, align 16
   %69 = load ptr, ptr %49, align 8

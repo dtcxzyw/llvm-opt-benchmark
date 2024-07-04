@@ -83,10 +83,10 @@ define i64 @ADIOI_TESTFS_SeekIndividual(ptr nocapture noundef %0, i64 noundef %1
 
 53:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %.04156 = phi i64 [ 0, %.lr.ph ], [ %56, %52 ]
+  %.056 = phi i64 [ 0, %.lr.ph ], [ %56, %52 ]
   %54 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8
-  %56 = add nsw i64 %55, %.04156
+  %56 = add nsw i64 %55, %.056
   %57 = icmp sgt i64 %56, %51
   br i1 %57, label %58, label %52
 
@@ -95,31 +95,31 @@ define i64 @ADIOI_TESTFS_SeekIndividual(ptr nocapture noundef %0, i64 noundef %1
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i64, ptr %60, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8
-  %63 = sub i64 %51, %.04156
+  %63 = sub i64 %51, %.056
   %64 = add i64 %63, %62
   br label %.loopexit
 
 .loopexit:                                        ; preds = %52, %41, %58
-  %.042 = phi i64 [ %64, %58 ], [ 0, %41 ], [ 0, %52 ]
+  %.040 = phi i64 [ %64, %58 ], [ 0, %41 ], [ 0, %52 ]
   %65 = getelementptr inbounds i8, ptr %0, i64 104
   %66 = load i64, ptr %65, align 8
   %sext51 = shl i64 %44, 32
   %67 = ashr exact i64 %sext51, 32
   %68 = load i64, ptr %10, align 8
   %69 = mul nsw i64 %68, %67
-  %70 = add i64 %66, %.042
+  %70 = add i64 %66, %.040
   %71 = add i64 %70, %69
   br label %72
 
 72:                                               ; preds = %.loopexit, %27
-  %.040 = phi i64 [ %31, %27 ], [ %71, %.loopexit ]
+  %.042 = phi i64 [ %31, %27 ], [ %71, %.loopexit ]
   %73 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %.040, ptr %73, align 8
+  store i64 %.042, ptr %73, align 8
   br label %74
 
 74:                                               ; preds = %72, %40
-  %.0 = phi i64 [ %.040, %72 ], [ 0, %40 ]
-  ret i64 %.0
+  %.041 = phi i64 [ %.042, %72 ], [ 0, %40 ]
+  ret i64 %.041
 }
 
 declare i32 @PMPI_Comm_size(ptr noundef, ptr noundef) local_unnamed_addr #1

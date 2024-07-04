@@ -486,22 +486,22 @@ define internal i32 @dissect_winsrepl_pdu(ptr noundef %0, ptr noundef %1, ptr no
   br label %130
 
 130:                                              ; preds = %151, %.lr.ph.i.i.i.i
-  %.032.i.i.i.i = phi i32 [ %129, %.lr.ph.i.i.i.i ], [ %143, %151 ]
-  %.03031.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i ], [ %152, %151 ]
+  %.032.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i ], [ %152, %151 ]
+  %.03031.i.i.i.i = phi i32 [ %129, %.lr.ph.i.i.i.i ], [ %143, %151 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
   br i1 %.not.i.i.i.i.i, label %dissect_winsrepl_wins_ip.exit.i.i.i.i, label %131
 
 131:                                              ; preds = %130
   %132 = load i32, ptr @ett_winsrepl_ip, align 4
-  %133 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %125, ptr noundef %0, i32 noundef %.032.i.i.i.i, i32 noundef 8, i32 noundef %132, ptr noundef nonnull %5, ptr noundef nonnull @.str.138, i32 noundef %.03031.i.i.i.i) #3
+  %133 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %125, ptr noundef %0, i32 noundef %.03031.i.i.i.i, i32 noundef 8, i32 noundef %132, ptr noundef nonnull %5, ptr noundef nonnull @.str.138, i32 noundef %.032.i.i.i.i) #3
   br label %dissect_winsrepl_wins_ip.exit.i.i.i.i
 
 dissect_winsrepl_wins_ip.exit.i.i.i.i:            ; preds = %131, %130
   %.0.i.i.i.i.i = phi ptr [ %133, %131 ], [ null, %130 ]
   %134 = load i32, ptr @hf_winsrepl_ip_owner, align 4
-  %135 = call ptr @proto_tree_add_item(ptr noundef %.0.i.i.i.i.i, i32 noundef %134, ptr noundef %0, i32 noundef %.032.i.i.i.i, i32 noundef 4, i32 noundef 0) #3
-  %136 = add i32 %.032.i.i.i.i, 4
+  %135 = call ptr @proto_tree_add_item(ptr noundef %.0.i.i.i.i.i, i32 noundef %134, ptr noundef %0, i32 noundef %.03031.i.i.i.i, i32 noundef 4, i32 noundef 0) #3
+  %136 = add i32 %.03031.i.i.i.i, 4
   %137 = call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %136) #3
   store i32 %137, ptr %7, align 4
   %138 = load i32, ptr @hf_winsrepl_ip_ip, align 4
@@ -510,7 +510,7 @@ dissect_winsrepl_wins_ip.exit.i.i.i.i:            ; preds = %131, %130
   %141 = load ptr, ptr %81, align 8
   %142 = call ptr @tvb_address_to_str(ptr noundef %141, ptr noundef %0, i32 noundef 2, i32 noundef %136) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %140, ptr noundef nonnull @.str.135, ptr noundef %142) #3
-  %143 = add i32 %.032.i.i.i.i, 8
+  %143 = add i32 %.03031.i.i.i.i, 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store i32 2, ptr %8, align 8
   store i32 4, ptr %82, align 4
@@ -518,7 +518,7 @@ dissect_winsrepl_wins_ip.exit.i.i.i.i:            ; preds = %131, %130
   store ptr null, ptr %84, align 8
   %144 = load ptr, ptr %81, align 8
   %145 = call ptr @address_to_str(ptr noundef %144, ptr noundef nonnull %8) #3
-  %146 = icmp eq i32 %.03031.i.i.i.i, 0
+  %146 = icmp eq i32 %.032.i.i.i.i, 0
   br i1 %146, label %147, label %149
 
 147:                                              ; preds = %dissect_winsrepl_wins_ip.exit.i.i.i.i
@@ -534,14 +534,14 @@ dissect_winsrepl_wins_ip.exit.i.i.i.i:            ; preds = %131, %130
   br label %151
 
 151:                                              ; preds = %149, %147
-  %152 = add nuw i32 %.03031.i.i.i.i, 1
+  %152 = add nuw i32 %.032.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i32 %152, %126
   br i1 %exitcond.not.i.i.i.i, label %dissect_winsrepl_wins_address_list.exit.i.i.i, label %130, !llvm.loop !4
 
 dissect_winsrepl_wins_address_list.exit.i.i.i:    ; preds = %151, %122
-  %.0.lcssa.i.i.i.i = phi i32 [ %129, %122 ], [ %143, %151 ]
+  %.030.lcssa.i.i.i.i = phi i32 [ %129, %122 ], [ %143, %151 ]
   %153 = load ptr, ptr %6, align 8
-  %154 = sub i32 %.0.lcssa.i.i.i.i, %113
+  %154 = sub i32 %.030.lcssa.i.i.i.i, %113
   call void @proto_item_set_len(ptr noundef %153, i32 noundef %154) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -549,7 +549,7 @@ dissect_winsrepl_wins_address_list.exit.i.i.i:    ; preds = %151, %122
   br label %155
 
 155:                                              ; preds = %dissect_winsrepl_wins_address_list.exit.i.i.i, %115
-  %.065.i.i.i = phi i32 [ %.0.lcssa.i.i.i.i, %dissect_winsrepl_wins_address_list.exit.i.i.i ], [ %121, %115 ]
+  %.065.i.i.i = phi i32 [ %.030.lcssa.i.i.i.i, %dissect_winsrepl_wins_address_list.exit.i.i.i ], [ %121, %115 ]
   %156 = load i32, ptr @hf_winsrepl_name_unknown, align 4
   %157 = call ptr @proto_tree_add_item(ptr noundef %.066.i.i.i, i32 noundef %156, ptr noundef %0, i32 noundef %.065.i.i.i, i32 noundef 4, i32 noundef 0) #3
   %158 = add i32 %.065.i.i.i, 4

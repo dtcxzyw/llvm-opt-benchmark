@@ -1559,12 +1559,12 @@ if.end13:                                         ; preds = %if.end9
   br i1 %tobool14.not85, label %land.lhs.true42, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end13, %for.inc
-  %cur_slot.090 = phi ptr [ %incdec.ptr, %for.inc ], [ %9, %if.end13 ]
-  %has_execution_slots.089 = phi i32 [ %has_execution_slots.1, %for.inc ], [ 0, %if.end13 ]
-  %multiple_interpreters.088 = phi ptr [ %multiple_interpreters.1, %for.inc ], [ null, %if.end13 ]
-  %has_multiple_interpreters_slot.087 = phi i32 [ %has_multiple_interpreters_slot.1, %for.inc ], [ 0, %if.end13 ]
-  %create.086 = phi ptr [ %create.1, %for.inc ], [ null, %if.end13 ]
-  %10 = load i32, ptr %cur_slot.090, align 8
+  %has_execution_slots.090 = phi i32 [ %has_execution_slots.1, %for.inc ], [ 0, %if.end13 ]
+  %multiple_interpreters.089 = phi ptr [ %multiple_interpreters.1, %for.inc ], [ null, %if.end13 ]
+  %has_multiple_interpreters_slot.088 = phi i32 [ %has_multiple_interpreters_slot.1, %for.inc ], [ 0, %if.end13 ]
+  %create.087 = phi ptr [ %create.1, %for.inc ], [ null, %if.end13 ]
+  %cur_slot.086 = phi ptr [ %incdec.ptr, %for.inc ], [ %9, %if.end13 ]
+  %10 = load i32, ptr %cur_slot.086, align 8
   switch i32 %10, label %sw.default [
     i32 0, label %for.end
     i32 1, label %sw.bb
@@ -1573,7 +1573,7 @@ land.rhs:                                         ; preds = %if.end13, %for.inc
   ]
 
 sw.bb:                                            ; preds = %land.rhs
-  %tobool17.not = icmp eq ptr %create.086, null
+  %tobool17.not = icmp eq ptr %create.087, null
   br i1 %tobool17.not, label %if.end20, label %if.then18
 
 if.then18:                                        ; preds = %sw.bb
@@ -1582,12 +1582,12 @@ if.then18:                                        ; preds = %sw.bb
   br label %error
 
 if.end20:                                         ; preds = %sw.bb
-  %value = getelementptr inbounds i8, ptr %cur_slot.090, i64 8
+  %value = getelementptr inbounds i8, ptr %cur_slot.086, i64 8
   %12 = load ptr, ptr %value, align 8
   br label %for.inc
 
 sw.bb22:                                          ; preds = %land.rhs
-  %tobool23.not = icmp eq i32 %has_multiple_interpreters_slot.087, 0
+  %tobool23.not = icmp eq i32 %has_multiple_interpreters_slot.088, 0
   br i1 %tobool23.not, label %if.end26, label %if.then24
 
 if.then24:                                        ; preds = %sw.bb22
@@ -1596,7 +1596,7 @@ if.then24:                                        ; preds = %sw.bb22
   br label %error
 
 if.end26:                                         ; preds = %sw.bb22
-  %value27 = getelementptr inbounds i8, ptr %cur_slot.090, i64 8
+  %value27 = getelementptr inbounds i8, ptr %cur_slot.086, i64 8
   %14 = load ptr, ptr %value27, align 8
   br label %for.inc
 
@@ -1606,19 +1606,19 @@ sw.default:                                       ; preds = %land.rhs
   br label %error
 
 for.inc:                                          ; preds = %land.rhs, %if.end20, %if.end26
-  %create.1 = phi ptr [ %create.086, %if.end26 ], [ %12, %if.end20 ], [ %create.086, %land.rhs ]
-  %has_multiple_interpreters_slot.1 = phi i32 [ 1, %if.end26 ], [ %has_multiple_interpreters_slot.087, %if.end20 ], [ %has_multiple_interpreters_slot.087, %land.rhs ]
-  %multiple_interpreters.1 = phi ptr [ %14, %if.end26 ], [ %multiple_interpreters.088, %if.end20 ], [ %multiple_interpreters.088, %land.rhs ]
-  %has_execution_slots.1 = phi i32 [ %has_execution_slots.089, %if.end26 ], [ %has_execution_slots.089, %if.end20 ], [ 1, %land.rhs ]
-  %incdec.ptr = getelementptr i8, ptr %cur_slot.090, i64 16
+  %create.1 = phi ptr [ %create.087, %if.end26 ], [ %12, %if.end20 ], [ %create.087, %land.rhs ]
+  %has_multiple_interpreters_slot.1 = phi i32 [ 1, %if.end26 ], [ %has_multiple_interpreters_slot.088, %if.end20 ], [ %has_multiple_interpreters_slot.088, %land.rhs ]
+  %multiple_interpreters.1 = phi ptr [ %14, %if.end26 ], [ %multiple_interpreters.089, %if.end20 ], [ %multiple_interpreters.089, %land.rhs ]
+  %has_execution_slots.1 = phi i32 [ %has_execution_slots.090, %if.end26 ], [ %has_execution_slots.090, %if.end20 ], [ 1, %land.rhs ]
+  %incdec.ptr = getelementptr i8, ptr %cur_slot.086, i64 16
   %tobool14.not = icmp eq ptr %incdec.ptr, null
   br i1 %tobool14.not, label %for.end, label %land.rhs, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %land.rhs
-  %create.0.lcssa = phi ptr [ %create.1, %for.inc ], [ %create.086, %land.rhs ]
-  %has_multiple_interpreters_slot.0.lcssa = phi i32 [ %has_multiple_interpreters_slot.1, %for.inc ], [ %has_multiple_interpreters_slot.087, %land.rhs ]
-  %multiple_interpreters.0.lcssa = phi ptr [ %multiple_interpreters.1, %for.inc ], [ %multiple_interpreters.088, %land.rhs ]
-  %has_execution_slots.0.lcssa = phi i32 [ %has_execution_slots.1, %for.inc ], [ %has_execution_slots.089, %land.rhs ]
+  %create.0.lcssa = phi ptr [ %create.1, %for.inc ], [ %create.087, %land.rhs ]
+  %has_multiple_interpreters_slot.0.lcssa = phi i32 [ %has_multiple_interpreters_slot.1, %for.inc ], [ %has_multiple_interpreters_slot.088, %land.rhs ]
+  %multiple_interpreters.0.lcssa = phi ptr [ %multiple_interpreters.1, %for.inc ], [ %multiple_interpreters.089, %land.rhs ]
+  %has_execution_slots.0.lcssa = phi i32 [ %has_execution_slots.1, %for.inc ], [ %has_execution_slots.090, %land.rhs ]
   %has_multiple_interpreters_slot.0.lcssa.fr = freeze i32 %has_multiple_interpreters_slot.0.lcssa
   %tobool30.not = icmp eq i32 %has_multiple_interpreters_slot.0.lcssa.fr, 0
   br i1 %tobool30.not, label %land.lhs.true42, label %16

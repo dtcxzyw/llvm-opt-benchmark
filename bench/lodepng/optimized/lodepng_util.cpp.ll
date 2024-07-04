@@ -2346,9 +2346,9 @@ if.end136:                                        ; preds = %for.body99, %for.bo
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end10, %if.then, %if.end136
+  %error.0 = phi i32 [ 1, %if.then ], [ %call17, %if.end10 ], [ 0, %if.end136 ]
   %data.0 = phi ptr [ null, %if.then ], [ %call.i, %if.end10 ], [ %call.i, %if.end136 ]
   %gammatable.1 = phi ptr [ null, %if.then ], [ null, %if.end10 ], [ %gammatable_r.0, %if.end136 ]
-  %error.0 = phi i32 [ 1, %if.then ], [ %call17, %if.end10 ], [ 0, %if.end136 ]
   %28 = load ptr, ptr %lut.i.i, align 8
   call void @free(ptr noundef %28) #26
   %29 = load ptr, ptr %lut.i3.i, align 8

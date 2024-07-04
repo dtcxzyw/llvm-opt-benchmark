@@ -1405,8 +1405,8 @@ if.else.i:                                        ; preds = %if.end9.i299
   br label %return
 
 if.end399:                                        ; preds = %if.end202, %if.else360, %if.else345, %if.end251, %check_argc.exit141, %check_argc.exit163, %get_color.exit, %check_argc.exit152, %check_argc.exit133, %_.exit, %check_argc.exit
-  %ret.0 = phi i32 [ 0, %check_argc.exit ], [ 0, %if.end251 ], [ 5, %_.exit ], [ %call260, %check_argc.exit133 ], [ %call276, %check_argc.exit141 ], [ %call284, %check_argc.exit152 ], [ %call294, %check_argc.exit163 ], [ 0, %get_color.exit ], [ 0, %if.else345 ], [ 0, %if.else360 ], [ 0, %if.end202 ]
   %value.0 = phi ptr [ null, %check_argc.exit ], [ null, %if.end251 ], [ %call258, %_.exit ], [ %call258, %check_argc.exit133 ], [ %call273, %check_argc.exit141 ], [ %call282, %check_argc.exit152 ], [ %call290, %check_argc.exit163 ], [ null, %get_color.exit ], [ null, %if.else345 ], [ null, %if.else360 ], [ null, %if.end202 ]
+  %ret.0 = phi i32 [ 0, %check_argc.exit ], [ 0, %if.end251 ], [ 5, %_.exit ], [ %call260, %check_argc.exit133 ], [ %call276, %check_argc.exit141 ], [ %call284, %check_argc.exit152 ], [ %call294, %check_argc.exit163 ], [ 0, %get_color.exit ], [ 0, %if.else345 ], [ 0, %if.else360 ], [ 0, %if.end202 ]
   call void @free(ptr noundef %value.0) #16
   br label %return
 

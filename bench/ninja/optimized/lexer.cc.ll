@@ -72,19 +72,19 @@ define dso_local noundef zeroext i1 @_ZN5Lexer5ErrorERKNSt7__cxx1112basic_string
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.03151 = phi i32 [ %.1, %.lr.ph ], [ 1, %3 ]
-  %.03750 = phi ptr [ %.138, %.lr.ph ], [ %13, %3 ]
-  %.03949 = phi ptr [ %20, %.lr.ph ], [ %13, %3 ]
-  %18 = load i8, ptr %.03949, align 1
+  %.03750 = phi ptr [ %20, %.lr.ph ], [ %13, %3 ]
+  %.03849 = phi ptr [ %.139, %.lr.ph ], [ %13, %3 ]
+  %18 = load i8, ptr %.03750, align 1
   %19 = icmp eq i8 %18, 10
-  %20 = getelementptr inbounds i8, ptr %.03949, i64 1
-  %.138 = select i1 %19, ptr %20, ptr %.03750
+  %20 = getelementptr inbounds i8, ptr %.03750, i64 1
+  %.139 = select i1 %19, ptr %20, ptr %.03849
   %21 = zext i1 %19 to i32
   %.1 = add nuw nsw i32 %.03151, %21
   %exitcond.not = icmp eq ptr %20, %15
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.pre-phi.in = phi ptr [ %13, %3 ], [ %.138, %.lr.ph ]
+  %.pre-phi.in = phi ptr [ %13, %3 ], [ %.139, %.lr.ph ]
   %.031.lcssa = phi i32 [ 1, %3 ], [ %.1, %.lr.ph ]
   %.pre-phi = ptrtoint ptr %.pre-phi.in to i64
   %.not = icmp eq ptr %15, null
@@ -429,8 +429,8 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr nocaptu
   br label %4
 
 4:                                                ; preds = %103, %1
-  %.0142 = phi ptr [ %3, %1 ], [ %104, %103 ]
-  %5 = load i8, ptr %.0142, align 1
+  %.0145 = phi ptr [ %3, %1 ], [ %104, %103 ]
+  %5 = load i8, ptr %.0145, align 1
   %.not.not = icmp eq i8 %5, 32
   br i1 %.not.not, label %.preheader, label %6
 
@@ -524,20 +524,20 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr nocaptu
   br i1 %36, label %90, label %.loopexit
 
 .loopexit:                                        ; preds = %13, %26, %16, %12, %35, %20, %19
-  %37 = getelementptr inbounds i8, ptr %.0142, i64 1
+  %37 = getelementptr inbounds i8, ptr %.0145, i64 1
   br label %.thread
 
 38:                                               ; preds = %12
   br label %242
 
 39:                                               ; preds = %13
-  %40 = getelementptr inbounds i8, ptr %.0142, i64 1
+  %40 = getelementptr inbounds i8, ptr %.0145, i64 1
   %41 = load i8, ptr %40, align 1
   %42 = icmp eq i8 %41, 10
   br i1 %42, label %242, label %.thread
 
 .preheader:                                       ; preds = %4, %.preheader
-  %.3 = phi ptr [ %43, %.preheader ], [ %.0142, %4 ]
+  %.3 = phi ptr [ %43, %.preheader ], [ %.0145, %4 ]
   %43 = getelementptr inbounds i8, ptr %.3, i64 1
   %44 = load i8, ptr %43, align 1
   %.not164.not = icmp eq i8 %44, 32
@@ -558,20 +558,20 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr nocaptu
   ]
 
 50:                                               ; preds = %13
-  %51 = getelementptr inbounds i8, ptr %.0142, i64 1
+  %51 = getelementptr inbounds i8, ptr %.0145, i64 1
   %52 = load i8, ptr %51, align 1
   %53 = icmp eq i8 %52, 0
   br i1 %53, label %.thread, label %102
 
 54:                                               ; preds = %30, %27, %26, %16, %20, %235, %225, %218, %187, %176, %169, %57, %33
-  %.0142345 = phi ptr [ %.0142344, %57 ], [ %.0142, %20 ], [ %.0142, %187 ], [ %.0142, %218 ], [ %.0142, %225 ], [ %.0142, %169 ], [ %.0142, %176 ], [ %.0142, %235 ], [ %.0142, %33 ], [ %.0142, %16 ], [ %.0142, %26 ], [ %.0142, %27 ], [ %.0142, %30 ]
-  %.5 = phi ptr [ %.6, %57 ], [ %.0142, %20 ], [ %188, %187 ], [ %219, %218 ], [ %226, %225 ], [ %170, %169 ], [ %177, %176 ], [ %236, %235 ], [ %.0142, %33 ], [ %.0142, %16 ], [ %.0142, %26 ], [ %.0142, %27 ], [ %.0142, %30 ]
+  %.0145345 = phi ptr [ %.0145344, %57 ], [ %.0145, %20 ], [ %.0145, %187 ], [ %.0145, %218 ], [ %.0145, %225 ], [ %.0145, %169 ], [ %.0145, %176 ], [ %.0145, %235 ], [ %.0145, %33 ], [ %.0145, %16 ], [ %.0145, %26 ], [ %.0145, %27 ], [ %.0145, %30 ]
+  %.5 = phi ptr [ %.6, %57 ], [ %.0145, %20 ], [ %188, %187 ], [ %219, %218 ], [ %226, %225 ], [ %170, %169 ], [ %177, %176 ], [ %236, %235 ], [ %.0145, %33 ], [ %.0145, %16 ], [ %.0145, %26 ], [ %.0145, %27 ], [ %.0145, %30 ]
   %55 = getelementptr inbounds i8, ptr %.5, i64 1
   %56 = load i8, ptr %55, align 1
   br label %57
 
 57:                                               ; preds = %232, %214, %210, %206, %202, %198, %194, %183, %165, %161, %157, %153, %149, %145, %141, %137, %133, %125, %121, %117, %113, %109, %105, %86, %82, %78, %74, %70, %66, %54
-  %.0142344 = phi ptr [ %.0142345, %54 ], [ %.0142, %157 ], [ %.0142, %133 ], [ %.0142, %105 ], [ %.0142, %66 ], [ %.0142, %206 ], [ %.0142, %194 ], [ %.0142, %161 ], [ %.0142, %137 ], [ %.0142, %109 ], [ %.0142, %70 ], [ %.0142, %210 ], [ %.0142, %198 ], [ %.0142, %165 ], [ %.0142, %141 ], [ %.0142, %113 ], [ %.0142, %74 ], [ %.0142, %145 ], [ %.0142, %117 ], [ %.0142, %78 ], [ %.0142, %149 ], [ %.0142, %121 ], [ %.0142, %82 ], [ %.0142, %232 ], [ %.0142, %214 ], [ %.0142, %202 ], [ %.0142, %183 ], [ %.0142, %153 ], [ %.0142, %125 ], [ %.0142, %86 ]
+  %.0145344 = phi ptr [ %.0145345, %54 ], [ %.0145, %157 ], [ %.0145, %133 ], [ %.0145, %105 ], [ %.0145, %66 ], [ %.0145, %206 ], [ %.0145, %194 ], [ %.0145, %161 ], [ %.0145, %137 ], [ %.0145, %109 ], [ %.0145, %70 ], [ %.0145, %210 ], [ %.0145, %198 ], [ %.0145, %165 ], [ %.0145, %141 ], [ %.0145, %113 ], [ %.0145, %74 ], [ %.0145, %145 ], [ %.0145, %117 ], [ %.0145, %78 ], [ %.0145, %149 ], [ %.0145, %121 ], [ %.0145, %82 ], [ %.0145, %232 ], [ %.0145, %214 ], [ %.0145, %202 ], [ %.0145, %183 ], [ %.0145, %153 ], [ %.0145, %125 ], [ %.0145, %86 ]
   %.6 = phi ptr [ %55, %54 ], [ %158, %157 ], [ %134, %133 ], [ %106, %105 ], [ %67, %66 ], [ %207, %206 ], [ %195, %194 ], [ %162, %161 ], [ %138, %137 ], [ %110, %109 ], [ %71, %70 ], [ %211, %210 ], [ %199, %198 ], [ %166, %165 ], [ %142, %141 ], [ %114, %113 ], [ %75, %74 ], [ %146, %145 ], [ %118, %117 ], [ %79, %78 ], [ %150, %149 ], [ %122, %121 ], [ %83, %82 ], [ %233, %232 ], [ %215, %214 ], [ %203, %202 ], [ %184, %183 ], [ %154, %153 ], [ %126, %125 ], [ %87, %86 ]
   %.0139 = phi i8 [ %56, %54 ], [ %159, %157 ], [ %135, %133 ], [ %107, %105 ], [ %68, %66 ], [ %208, %206 ], [ %196, %194 ], [ %163, %161 ], [ %139, %137 ], [ %111, %109 ], [ %72, %70 ], [ %212, %210 ], [ %200, %198 ], [ %167, %165 ], [ %143, %141 ], [ %115, %113 ], [ %76, %74 ], [ %147, %145 ], [ %119, %117 ], [ %80, %78 ], [ %151, %149 ], [ %123, %121 ], [ %84, %82 ], [ %234, %232 ], [ %216, %214 ], [ %204, %202 ], [ %185, %183 ], [ %155, %153 ], [ %127, %125 ], [ %88, %86 ]
   %58 = zext i8 %.0139 to i64
@@ -582,51 +582,51 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr nocaptu
   br i1 %.not163, label %.thread, label %54
 
 62:                                               ; preds = %16
-  %63 = getelementptr inbounds i8, ptr %.0142, i64 1
+  %63 = getelementptr inbounds i8, ptr %.0145, i64 1
   br label %.thread
 
 64:                                               ; preds = %19
-  %65 = getelementptr inbounds i8, ptr %.0142, i64 1
+  %65 = getelementptr inbounds i8, ptr %.0145, i64 1
   br label %.thread
 
 66:                                               ; preds = %26
-  %67 = getelementptr inbounds i8, ptr %.0142, i64 1
+  %67 = getelementptr inbounds i8, ptr %.0145, i64 1
   %68 = load i8, ptr %67, align 1
   %69 = icmp eq i8 %68, 117
   br i1 %69, label %105, label %57
 
 70:                                               ; preds = %27
-  %71 = getelementptr inbounds i8, ptr %.0142, i64 1
+  %71 = getelementptr inbounds i8, ptr %.0145, i64 1
   %72 = load i8, ptr %71, align 1
   %73 = icmp eq i8 %72, 101
   br i1 %73, label %109, label %57
 
 74:                                               ; preds = %27
-  %75 = getelementptr inbounds i8, ptr %.0142, i64 1
+  %75 = getelementptr inbounds i8, ptr %.0145, i64 1
   %76 = load i8, ptr %75, align 1
   %77 = icmp eq i8 %76, 110
   br i1 %77, label %113, label %57
 
 78:                                               ; preds = %30
-  %79 = getelementptr inbounds i8, ptr %.0142, i64 1
+  %79 = getelementptr inbounds i8, ptr %.0145, i64 1
   %80 = load i8, ptr %79, align 1
   %81 = icmp eq i8 %80, 111
   br i1 %81, label %117, label %57
 
 82:                                               ; preds = %30
-  %83 = getelementptr inbounds i8, ptr %.0142, i64 1
+  %83 = getelementptr inbounds i8, ptr %.0145, i64 1
   %84 = load i8, ptr %83, align 1
   %85 = icmp eq i8 %84, 117
   br i1 %85, label %121, label %57
 
 86:                                               ; preds = %33
-  %87 = getelementptr inbounds i8, ptr %.0142, i64 1
+  %87 = getelementptr inbounds i8, ptr %.0145, i64 1
   %88 = load i8, ptr %87, align 1
   %89 = icmp eq i8 %88, 117
   br i1 %89, label %125, label %57
 
 90:                                               ; preds = %35
-  %91 = getelementptr inbounds i8, ptr %.0142, i64 1
+  %91 = getelementptr inbounds i8, ptr %.0145, i64 1
   %92 = load i8, ptr %91, align 1
   switch i8 %92, label %.thread [
     i8 64, label %129
@@ -645,16 +645,16 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr nocaptu
   br label %.thread
 
 99:                                               ; preds = %102, %49
-  %.1146 = phi ptr [ %.2147, %102 ], [ %43, %49 ]
   %.8 = phi ptr [ %.9, %102 ], [ %43, %49 ]
+  %.1143 = phi ptr [ %.2144, %102 ], [ %43, %49 ]
   %.1 = phi i32 [ %.2, %102 ], [ 0, %49 ]
   %100 = getelementptr inbounds i8, ptr %.8, i64 1
   %101 = load i8, ptr %100, align 1
   br label %102
 
 102:                                              ; preds = %50, %99
-  %.2147 = phi ptr [ %.1146, %99 ], [ %51, %50 ]
   %.9 = phi ptr [ %100, %99 ], [ %51, %50 ]
+  %.2144 = phi ptr [ %.1143, %99 ], [ %51, %50 ]
   %.1140 = phi i8 [ %101, %99 ], [ %52, %50 ]
   %.2 = phi i32 [ %.1, %99 ], [ 1, %50 ]
   switch i8 %.1140, label %99 [
@@ -667,105 +667,105 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr nocaptu
   br label %4, !llvm.loop !11
 
 105:                                              ; preds = %66
-  %106 = getelementptr inbounds i8, ptr %.0142, i64 2
+  %106 = getelementptr inbounds i8, ptr %.0145, i64 2
   %107 = load i8, ptr %106, align 1
   %108 = icmp eq i8 %107, 105
   br i1 %108, label %133, label %57
 
 109:                                              ; preds = %70
-  %110 = getelementptr inbounds i8, ptr %.0142, i64 2
+  %110 = getelementptr inbounds i8, ptr %.0145, i64 2
   %111 = load i8, ptr %110, align 1
   %112 = icmp eq i8 %111, 102
   br i1 %112, label %137, label %57
 
 113:                                              ; preds = %74
-  %114 = getelementptr inbounds i8, ptr %.0142, i64 2
+  %114 = getelementptr inbounds i8, ptr %.0145, i64 2
   %115 = load i8, ptr %114, align 1
   %116 = icmp eq i8 %115, 99
   br i1 %116, label %141, label %57
 
 117:                                              ; preds = %78
-  %118 = getelementptr inbounds i8, ptr %.0142, i64 2
+  %118 = getelementptr inbounds i8, ptr %.0145, i64 2
   %119 = load i8, ptr %118, align 1
   %120 = icmp eq i8 %119, 111
   br i1 %120, label %145, label %57
 
 121:                                              ; preds = %82
-  %122 = getelementptr inbounds i8, ptr %.0142, i64 2
+  %122 = getelementptr inbounds i8, ptr %.0145, i64 2
   %123 = load i8, ptr %122, align 1
   %124 = icmp eq i8 %123, 108
   br i1 %124, label %149, label %57
 
 125:                                              ; preds = %86
-  %126 = getelementptr inbounds i8, ptr %.0142, i64 2
+  %126 = getelementptr inbounds i8, ptr %.0145, i64 2
   %127 = load i8, ptr %126, align 1
   %128 = icmp eq i8 %127, 98
   br i1 %128, label %153, label %57
 
 129:                                              ; preds = %90
-  %130 = getelementptr inbounds i8, ptr %.0142, i64 2
+  %130 = getelementptr inbounds i8, ptr %.0145, i64 2
   br label %.thread
 
 131:                                              ; preds = %90
-  %132 = getelementptr inbounds i8, ptr %.0142, i64 2
+  %132 = getelementptr inbounds i8, ptr %.0145, i64 2
   br label %.thread
 
 133:                                              ; preds = %105
-  %134 = getelementptr inbounds i8, ptr %.0142, i64 3
+  %134 = getelementptr inbounds i8, ptr %.0145, i64 3
   %135 = load i8, ptr %134, align 1
   %136 = icmp eq i8 %135, 108
   br i1 %136, label %157, label %57
 
 137:                                              ; preds = %109
-  %138 = getelementptr inbounds i8, ptr %.0142, i64 3
+  %138 = getelementptr inbounds i8, ptr %.0145, i64 3
   %139 = load i8, ptr %138, align 1
   %140 = icmp eq i8 %139, 97
   br i1 %140, label %161, label %57
 
 141:                                              ; preds = %113
-  %142 = getelementptr inbounds i8, ptr %.0142, i64 3
+  %142 = getelementptr inbounds i8, ptr %.0145, i64 3
   %143 = load i8, ptr %142, align 1
   %144 = icmp eq i8 %143, 108
   br i1 %144, label %165, label %57
 
 145:                                              ; preds = %117
-  %146 = getelementptr inbounds i8, ptr %.0142, i64 3
+  %146 = getelementptr inbounds i8, ptr %.0145, i64 3
   %147 = load i8, ptr %146, align 1
   %148 = icmp eq i8 %147, 108
   br i1 %148, label %169, label %57
 
 149:                                              ; preds = %121
-  %150 = getelementptr inbounds i8, ptr %.0142, i64 3
+  %150 = getelementptr inbounds i8, ptr %.0145, i64 3
   %151 = load i8, ptr %150, align 1
   %152 = icmp eq i8 %151, 101
   br i1 %152, label %176, label %57
 
 153:                                              ; preds = %125
-  %154 = getelementptr inbounds i8, ptr %.0142, i64 3
+  %154 = getelementptr inbounds i8, ptr %.0145, i64 3
   %155 = load i8, ptr %154, align 1
   %156 = icmp eq i8 %155, 110
   br i1 %156, label %183, label %57
 
 157:                                              ; preds = %133
-  %158 = getelementptr inbounds i8, ptr %.0142, i64 4
+  %158 = getelementptr inbounds i8, ptr %.0145, i64 4
   %159 = load i8, ptr %158, align 1
   %160 = icmp eq i8 %159, 100
   br i1 %160, label %187, label %57
 
 161:                                              ; preds = %137
-  %162 = getelementptr inbounds i8, ptr %.0142, i64 4
+  %162 = getelementptr inbounds i8, ptr %.0145, i64 4
   %163 = load i8, ptr %162, align 1
   %164 = icmp eq i8 %163, 117
   br i1 %164, label %194, label %57
 
 165:                                              ; preds = %141
-  %166 = getelementptr inbounds i8, ptr %.0142, i64 4
+  %166 = getelementptr inbounds i8, ptr %.0145, i64 4
   %167 = load i8, ptr %166, align 1
   %168 = icmp eq i8 %167, 117
   br i1 %168, label %198, label %57
 
 169:                                              ; preds = %145
-  %170 = getelementptr inbounds i8, ptr %.0142, i64 4
+  %170 = getelementptr inbounds i8, ptr %.0145, i64 4
   %171 = load i8, ptr %170, align 1
   %172 = zext i8 %171 to i64
   %173 = getelementptr inbounds [256 x i8], ptr @_ZZN5Lexer9ReadTokenEvE4yybm, i64 0, i64 %172
@@ -775,7 +775,7 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr nocaptu
   br i1 %.not155, label %.thread, label %54
 
 176:                                              ; preds = %149
-  %177 = getelementptr inbounds i8, ptr %.0142, i64 4
+  %177 = getelementptr inbounds i8, ptr %.0145, i64 4
   %178 = load i8, ptr %177, align 1
   %179 = zext i8 %178 to i64
   %180 = getelementptr inbounds [256 x i8], ptr @_ZZN5Lexer9ReadTokenEvE4yybm, i64 0, i64 %179
@@ -785,13 +785,13 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr nocaptu
   br i1 %.not154, label %.thread, label %54
 
 183:                                              ; preds = %153
-  %184 = getelementptr inbounds i8, ptr %.0142, i64 4
+  %184 = getelementptr inbounds i8, ptr %.0145, i64 4
   %185 = load i8, ptr %184, align 1
   %186 = icmp eq i8 %185, 105
   br i1 %186, label %202, label %57
 
 187:                                              ; preds = %157
-  %188 = getelementptr inbounds i8, ptr %.0142, i64 5
+  %188 = getelementptr inbounds i8, ptr %.0145, i64 5
   %189 = load i8, ptr %188, align 1
   %190 = zext i8 %189 to i64
   %191 = getelementptr inbounds [256 x i8], ptr @_ZZN5Lexer9ReadTokenEvE4yybm, i64 0, i64 %190
@@ -801,43 +801,43 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr nocaptu
   br i1 %.not160, label %.thread, label %54
 
 194:                                              ; preds = %161
-  %195 = getelementptr inbounds i8, ptr %.0142, i64 5
+  %195 = getelementptr inbounds i8, ptr %.0145, i64 5
   %196 = load i8, ptr %195, align 1
   %197 = icmp eq i8 %196, 108
   br i1 %197, label %206, label %57
 
 198:                                              ; preds = %165
-  %199 = getelementptr inbounds i8, ptr %.0142, i64 5
+  %199 = getelementptr inbounds i8, ptr %.0145, i64 5
   %200 = load i8, ptr %199, align 1
   %201 = icmp eq i8 %200, 100
   br i1 %201, label %210, label %57
 
 202:                                              ; preds = %183
-  %203 = getelementptr inbounds i8, ptr %.0142, i64 5
+  %203 = getelementptr inbounds i8, ptr %.0145, i64 5
   %204 = load i8, ptr %203, align 1
   %205 = icmp eq i8 %204, 110
   br i1 %205, label %214, label %57
 
 206:                                              ; preds = %194
-  %207 = getelementptr inbounds i8, ptr %.0142, i64 6
+  %207 = getelementptr inbounds i8, ptr %.0145, i64 6
   %208 = load i8, ptr %207, align 1
   %209 = icmp eq i8 %208, 116
   br i1 %209, label %218, label %57
 
 210:                                              ; preds = %198
-  %211 = getelementptr inbounds i8, ptr %.0142, i64 6
+  %211 = getelementptr inbounds i8, ptr %.0145, i64 6
   %212 = load i8, ptr %211, align 1
   %213 = icmp eq i8 %212, 101
   br i1 %213, label %225, label %57
 
 214:                                              ; preds = %202
-  %215 = getelementptr inbounds i8, ptr %.0142, i64 6
+  %215 = getelementptr inbounds i8, ptr %.0145, i64 6
   %216 = load i8, ptr %215, align 1
   %217 = icmp eq i8 %216, 106
   br i1 %217, label %232, label %57
 
 218:                                              ; preds = %206
-  %219 = getelementptr inbounds i8, ptr %.0142, i64 7
+  %219 = getelementptr inbounds i8, ptr %.0145, i64 7
   %220 = load i8, ptr %219, align 1
   %221 = zext i8 %220 to i64
   %222 = getelementptr inbounds [256 x i8], ptr @_ZZN5Lexer9ReadTokenEvE4yybm, i64 0, i64 %221
@@ -847,7 +847,7 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr nocaptu
   br i1 %.not158, label %.thread, label %54
 
 225:                                              ; preds = %210
-  %226 = getelementptr inbounds i8, ptr %.0142, i64 7
+  %226 = getelementptr inbounds i8, ptr %.0145, i64 7
   %227 = load i8, ptr %226, align 1
   %228 = zext i8 %227 to i64
   %229 = getelementptr inbounds [256 x i8], ptr @_ZZN5Lexer9ReadTokenEvE4yybm, i64 0, i64 %228
@@ -857,13 +857,13 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr nocaptu
   br i1 %.not157, label %.thread, label %54
 
 232:                                              ; preds = %214
-  %233 = getelementptr inbounds i8, ptr %.0142, i64 7
+  %233 = getelementptr inbounds i8, ptr %.0145, i64 7
   %234 = load i8, ptr %233, align 1
   %.not = icmp eq i8 %234, 97
   br i1 %.not, label %235, label %57
 
 235:                                              ; preds = %232
-  %236 = getelementptr inbounds i8, ptr %.0142, i64 8
+  %236 = getelementptr inbounds i8, ptr %.0145, i64 8
   %237 = load i8, ptr %236, align 1
   %238 = zext i8 %237 to i64
   %239 = getelementptr inbounds [256 x i8], ptr @_ZZN5Lexer9ReadTokenEvE4yybm, i64 0, i64 %238
@@ -873,20 +873,20 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr nocaptu
   br i1 %.not152, label %.thread, label %54
 
 242:                                              ; preds = %39, %93, %47, %12, %38
-  %.7.sink = phi ptr [ %.0142, %12 ], [ %43, %47 ], [ %.0142, %38 ], [ %94, %93 ], [ %40, %39 ]
+  %.7.sink = phi ptr [ %.0145, %12 ], [ %43, %47 ], [ %.0145, %38 ], [ %94, %93 ], [ %40, %39 ]
   %.0141 = phi i32 [ 15, %12 ], [ 8, %47 ], [ 8, %38 ], [ 8, %93 ], [ 8, %39 ]
   %243 = getelementptr inbounds i8, ptr %.7.sink, i64 1
   %244 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.0142, ptr %244, align 8
+  store ptr %.0145, ptr %244, align 8
   store ptr %243, ptr %2, align 8
   br label %_ZN5Lexer13EatWhitespaceEv.exit
 
 .thread:                                          ; preds = %50, %49, %97, %93, %62, %64, %129, %131, %39, %.loopexit, %47, %57, %90, %169, %176, %187, %218, %225, %235
-  %.0142342 = phi ptr [ %.0142, %235 ], [ %.0142, %225 ], [ %.0142, %218 ], [ %.0142, %187 ], [ %.0142, %176 ], [ %.0142, %169 ], [ %.0142, %90 ], [ %.0142344, %57 ], [ %.0142, %47 ], [ %.0142, %39 ], [ %.0142, %.loopexit ], [ %.0142, %131 ], [ %.0142, %129 ], [ %.0142, %64 ], [ %.0142, %62 ], [ %.0142, %93 ], [ %.0142, %97 ], [ %.0142, %49 ], [ %.0142, %50 ]
-  %.10.ph = phi ptr [ %236, %235 ], [ %226, %225 ], [ %219, %218 ], [ %188, %187 ], [ %177, %176 ], [ %170, %169 ], [ %91, %90 ], [ %.6, %57 ], [ %43, %47 ], [ %40, %39 ], [ %37, %.loopexit ], [ %132, %131 ], [ %130, %129 ], [ %65, %64 ], [ %63, %62 ], [ %43, %93 ], [ %.2147, %97 ], [ %51, %50 ], [ %43, %49 ]
+  %.0145342 = phi ptr [ %.0145, %235 ], [ %.0145, %225 ], [ %.0145, %218 ], [ %.0145, %187 ], [ %.0145, %176 ], [ %.0145, %169 ], [ %.0145, %90 ], [ %.0145344, %57 ], [ %.0145, %47 ], [ %.0145, %39 ], [ %.0145, %.loopexit ], [ %.0145, %131 ], [ %.0145, %129 ], [ %.0145, %64 ], [ %.0145, %62 ], [ %.0145, %93 ], [ %.0145, %97 ], [ %.0145, %49 ], [ %.0145, %50 ]
+  %.10.ph = phi ptr [ %236, %235 ], [ %226, %225 ], [ %219, %218 ], [ %188, %187 ], [ %177, %176 ], [ %170, %169 ], [ %91, %90 ], [ %.6, %57 ], [ %43, %47 ], [ %40, %39 ], [ %37, %.loopexit ], [ %132, %131 ], [ %130, %129 ], [ %65, %64 ], [ %63, %62 ], [ %43, %93 ], [ %.2144, %97 ], [ %51, %50 ], [ %43, %49 ]
   %.0141.ph = phi i32 [ 14, %235 ], [ 6, %225 ], [ 3, %218 ], [ 1, %187 ], [ 13, %176 ], [ 12, %169 ], [ 9, %90 ], [ 5, %57 ], [ 7, %47 ], [ 0, %39 ], [ 0, %.loopexit ], [ 10, %131 ], [ 11, %129 ], [ 4, %64 ], [ 2, %62 ], [ 7, %93 ], [ %spec.select, %97 ], [ 0, %50 ], [ 7, %49 ]
   %245 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.0142342, ptr %245, align 8
+  store ptr %.0145342, ptr %245, align 8
   br label %246
 
 246:                                              ; preds = %.backedge.i, %.thread
@@ -1038,8 +1038,8 @@ define dso_local noundef zeroext i1 @_ZN5Lexer9ReadIdentEPNSt7__cxx1112basic_str
   br label %_ZN5Lexer13EatWhitespaceEv.exit
 
 .preheader:                                       ; preds = %2, %.preheader
-  %.014 = phi ptr [ %11, %.preheader ], [ %4, %2 ]
-  %11 = getelementptr inbounds i8, ptr %.014, i64 1
+  %.0 = phi ptr [ %11, %.preheader ], [ %4, %2 ]
+  %11 = getelementptr inbounds i8, ptr %.0, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i64
   %14 = getelementptr inbounds [256 x i8], ptr @_ZZN5Lexer9ReadIdentEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4yybm, i64 0, i64 %13

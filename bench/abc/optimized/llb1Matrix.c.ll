@@ -198,14 +198,14 @@ define void @Llb_MtrPrint(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   br label %5
 
 5:                                                ; preds = %3, %2
-  %.021 = phi ptr [ %4, %3 ], [ null, %2 ]
+  %.022 = phi ptr [ %4, %3 ], [ null, %2 ]
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph30, label %._crit_edge31
 
 .lr.ph30:                                         ; preds = %5
-  %.not24 = icmp eq ptr %.021, null
+  %.not24 = icmp eq ptr %.022, null
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = getelementptr inbounds i8, ptr %0, i64 4
   %11 = getelementptr inbounds i8, ptr %0, i64 12
@@ -218,7 +218,7 @@ define void @Llb_MtrPrint(ptr nocapture noundef readonly %0, i32 noundef %1) loc
   br i1 %.not24, label %18, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i32, ptr %.021, i64 %indvars.iv33
+  %16 = getelementptr inbounds i32, ptr %.022, i64 %indvars.iv33
   %17 = load i32, ptr %16, align 4
   br label %18
 
@@ -293,11 +293,11 @@ Llb_MtrVarName.exit:                              ; preds = %28, %33, %37, %38
   br i1 %53, label %13, label %._crit_edge31, !llvm.loop !10
 
 ._crit_edge31:                                    ; preds = %._crit_edge, %5
-  %.not23 = icmp eq ptr %.021, null
+  %.not23 = icmp eq ptr %.022, null
   br i1 %.not23, label %55, label %54
 
 54:                                               ; preds = %._crit_edge31
-  tail call void @free(ptr noundef nonnull %.021) #17
+  tail call void @free(ptr noundef nonnull %.022) #17
   br label %55
 
 55:                                               ; preds = %._crit_edge31, %54

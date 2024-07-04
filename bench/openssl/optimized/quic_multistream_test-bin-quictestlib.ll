@@ -925,10 +925,10 @@ if.end16:                                         ; preds = %if.end, %if.then7, 
   br label %do.body
 
 do.body:                                          ; preds = %do.body.backedge, %if.end16
+  %rets.1 = phi i32 [ %rets.0, %if.end16 ], [ %rets.361, %do.body.backedge ]
   %abortctr.0 = phi i32 [ 0, %if.end16 ], [ %abortctr.1, %do.body.backedge ]
   %clienterr.0 = phi i32 [ 0, %if.end16 ], [ %clienterr.0.be, %do.body.backedge ]
   %servererr.0 = phi i32 [ 0, %if.end16 ], [ %servererr.0.be, %do.body.backedge ]
-  %rets.1 = phi i32 [ %rets.0, %if.end16 ], [ %rets.362, %do.body.backedge ]
   %retc.1 = phi i32 [ %retc.0, %if.end16 ], [ %retc.2, %do.body.backedge ]
   %tobool17 = icmp eq i32 %clienterr.0, 0
   %cmp18 = icmp slt i32 %retc.1, 1
@@ -965,8 +965,8 @@ if.then43:                                        ; preds = %if.else37
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then28, %if.then20, %if.else37, %if.then43, %if.then34, %do.body
-  %clienterr.1 = phi i32 [ 0, %if.then34 ], [ 1, %if.then43 ], [ 0, %if.else37 ], [ 0, %if.then20 ], [ %clienterr.0, %do.body ], [ 0, %if.then28 ]
   %rets.2 = phi i32 [ %rets.1, %if.then34 ], [ %rets.1, %if.then43 ], [ %rets.1, %if.else37 ], [ %rets.1, %if.then20 ], [ %rets.1, %do.body ], [ 1, %if.then28 ]
+  %clienterr.1 = phi i32 [ 0, %if.then34 ], [ 1, %if.then43 ], [ 0, %if.else37 ], [ 0, %if.then20 ], [ %clienterr.0, %do.body ], [ 0, %if.then28 ]
   %retc.2 = phi i32 [ 1, %if.then34 ], [ %call21, %if.then43 ], [ %call21, %if.else37 ], [ %call21, %if.then20 ], [ %retc.1, %do.body ], [ 1, %if.then28 ]
   %1 = load ptr, ptr @fake_now_lock, align 8
   %call.i50 = call i32 @CRYPTO_THREAD_write_lock(ptr noundef %1) #10
@@ -1021,8 +1021,8 @@ if.end68:                                         ; preds = %if.then62, %if.end5
 if.end73:                                         ; preds = %if.end68.thread, %if.end68
   %tobool7164 = phi i1 [ false, %if.end68.thread ], [ %tobool71, %if.end68 ]
   %tobool6963 = phi i1 [ %tobool6958, %if.end68.thread ], [ %tobool69, %if.end68 ]
-  %rets.362 = phi i32 [ %call66, %if.end68.thread ], [ %rets.2, %if.end68 ]
-  %servererr.161 = phi i32 [ 0, %if.end68.thread ], [ %servererr.1, %if.end68 ]
+  %servererr.162 = phi i32 [ 0, %if.end68.thread ], [ %servererr.1, %if.end68 ]
+  %rets.361 = phi i32 [ %call66, %if.end68.thread ], [ %rets.2, %if.end68 ]
   br i1 %cmp.not, label %if.end80, label %land.lhs.true76
 
 land.lhs.true76:                                  ; preds = %if.end73
@@ -1038,7 +1038,7 @@ if.end80:                                         ; preds = %land.lhs.true76, %i
   %abortctr.1 = phi i32 [ %inc, %land.lhs.true76 ], [ %abortctr.0, %if.end73 ]
   %cmp81 = icmp sgt i32 %retc.2, 0
   %or.cond5 = or i1 %cmp81, %tobool6963
-  %cmp85 = icmp sgt i32 %rets.362, 0
+  %cmp85 = icmp sgt i32 %rets.361, 0
   %or.cond6 = select i1 %cmp85, i1 true, i1 %tobool7164
   %or.cond48 = select i1 %or.cond5, i1 %or.cond6, i1 false
   br i1 %or.cond48, label %do.cond, label %if.then89
@@ -1061,7 +1061,7 @@ land.rhs:                                         ; preds = %lor.rhs
 
 do.body.backedge:                                 ; preds = %land.rhs, %do.cond
   %clienterr.0.be = phi i32 [ %clienterr.1, %land.rhs ], [ 0, %do.cond ]
-  %servererr.0.be = phi i32 [ 0, %land.rhs ], [ %servererr.161, %do.cond ]
+  %servererr.0.be = phi i32 [ 0, %land.rhs ], [ %servererr.162, %do.cond ]
   br label %do.body, !llvm.loop !5
 
 do.end:                                           ; preds = %lor.rhs

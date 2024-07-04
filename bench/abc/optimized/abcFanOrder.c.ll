@@ -237,14 +237,14 @@ Vec_StrGrow.exit:                                 ; preds = %Vec_IntSelectSortCo
   %98 = getelementptr inbounds i32, ptr %.val65108, i64 %indvars.iv
   %99 = load i32, ptr %98, align 4
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds i8, ptr %.05781.us, i64 %100
+  %101 = getelementptr inbounds i8, ptr %.05880.us, i64 %100
   %102 = load i8, ptr %101, align 1
   %103 = and i8 %102, -2
   %switch = icmp eq i8 %103, 48
   br i1 %switch, label %.sink.split, label %105
 
 .sink.split:                                      ; preds = %97
-  %104 = getelementptr inbounds i8, ptr %.05880.us, i64 %indvars.iv
+  %104 = getelementptr inbounds i8, ptr %.05781.us, i64 %indvars.iv
   store i8 %102, ptr %104, align 1
   br label %105
 
@@ -254,14 +254,14 @@ Vec_StrGrow.exit:                                 ; preds = %Vec_IntSelectSortCo
   br i1 %exitcond98.not, label %._crit_edge78.us, label %97, !llvm.loop !8
 
 .preheader.us:                                    ; preds = %.preheader72.us.preheader, %._crit_edge78.us
-  %.05781.us = phi ptr [ %107, %._crit_edge78.us ], [ %.val66, %.preheader72.us.preheader ]
-  %.05880.us = phi ptr [ %106, %._crit_edge78.us ], [ %24, %.preheader72.us.preheader ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.05880.us, i8 45, i64 %96, i1 false)
+  %.05781.us = phi ptr [ %106, %._crit_edge78.us ], [ %24, %.preheader72.us.preheader ]
+  %.05880.us = phi ptr [ %107, %._crit_edge78.us ], [ %.val66, %.preheader72.us.preheader ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.05781.us, i8 45, i64 %96, i1 false)
   br label %97
 
 ._crit_edge78.us:                                 ; preds = %105
-  %106 = getelementptr i8, ptr %.05880.us, i64 %95
-  %107 = getelementptr inbounds i8, ptr %.05781.us, i64 %95
+  %106 = getelementptr i8, ptr %.05781.us, i64 %95
+  %107 = getelementptr inbounds i8, ptr %.05880.us, i64 %95
   %108 = load i8, ptr %107, align 1
   %.not62.us = icmp eq i8 %108, 0
   br i1 %.not62.us, label %._crit_edge82, label %.preheader.us, !llvm.loop !9
@@ -912,14 +912,14 @@ Vec_StrGrow.exit:                                 ; preds = %Vec_StrSelectSortCo
   %107 = getelementptr inbounds i32, ptr %.val76, i64 %indvars.iv
   %108 = load i32, ptr %107, align 4
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds i8, ptr %.095.us, i64 %109
+  %110 = getelementptr inbounds i8, ptr %.06994.us, i64 %109
   %111 = load i8, ptr %110, align 1
   %112 = and i8 %111, -2
   %switch = icmp eq i8 %112, 48
   br i1 %switch, label %.sink.split, label %114
 
 .sink.split:                                      ; preds = %106
-  %113 = getelementptr inbounds i8, ptr %.06994.us, i64 %indvars.iv
+  %113 = getelementptr inbounds i8, ptr %.06895.us, i64 %indvars.iv
   store i8 %111, ptr %113, align 1
   br label %114
 
@@ -929,14 +929,14 @@ Vec_StrGrow.exit:                                 ; preds = %Vec_StrSelectSortCo
   br i1 %exitcond.not, label %._crit_edge.us, label %106, !llvm.loop !18
 
 .preheader.us:                                    ; preds = %.preheader89.us.preheader, %._crit_edge.us
-  %.095.us = phi ptr [ %116, %._crit_edge.us ], [ %.val78, %.preheader89.us.preheader ]
-  %.06994.us = phi ptr [ %115, %._crit_edge.us ], [ %36, %.preheader89.us.preheader ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.06994.us, i8 45, i64 %105, i1 false)
+  %.06895.us = phi ptr [ %115, %._crit_edge.us ], [ %36, %.preheader89.us.preheader ]
+  %.06994.us = phi ptr [ %116, %._crit_edge.us ], [ %.val78, %.preheader89.us.preheader ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.06895.us, i8 45, i64 %105, i1 false)
   br label %106
 
 ._crit_edge.us:                                   ; preds = %114
-  %115 = getelementptr i8, ptr %.06994.us, i64 %104
-  %116 = getelementptr inbounds i8, ptr %.095.us, i64 %104
+  %115 = getelementptr i8, ptr %.06895.us, i64 %104
+  %116 = getelementptr inbounds i8, ptr %.06994.us, i64 %104
   %117 = load i8, ptr %116, align 1
   %.not73.us = icmp eq i8 %117, 0
   br i1 %.not73.us, label %._crit_edge96, label %.preheader.us, !llvm.loop !19
@@ -1306,12 +1306,12 @@ Vec_IntFill.exit.thread:                          ; preds = %Vec_IntGrow.exit.i
   br label %.preheader116.us
 
 .preheader116.us:                                 ; preds = %.preheader116.us.preheader, %._crit_edge.us
-  %.082119.us = phi ptr [ %63, %._crit_edge.us ], [ %36, %.preheader116.us.preheader ]
+  %.083119.us = phi ptr [ %63, %._crit_edge.us ], [ %36, %.preheader116.us.preheader ]
   br label %55
 
 55:                                               ; preds = %.preheader116.us, %62
   %indvars.iv = phi i64 [ 0, %.preheader116.us ], [ %indvars.iv.next, %62 ]
-  %56 = getelementptr inbounds i8, ptr %.082119.us, i64 %indvars.iv
+  %56 = getelementptr inbounds i8, ptr %.083119.us, i64 %indvars.iv
   %57 = load i8, ptr %56, align 1
   %.not91.us = icmp eq i8 %57, 45
   br i1 %.not91.us, label %62, label %58
@@ -1330,7 +1330,7 @@ Vec_IntFill.exit.thread:                          ; preds = %Vec_IntGrow.exit.i
   br i1 %exitcond.not, label %._crit_edge.us, label %55, !llvm.loop !23
 
 ._crit_edge.us:                                   ; preds = %62
-  %63 = getelementptr inbounds i8, ptr %.082119.us, i64 %54
+  %63 = getelementptr inbounds i8, ptr %.083119.us, i64 %54
   %64 = load i8, ptr %63, align 1
   %.not89.us = icmp eq i8 %64, 0
   br i1 %.not89.us, label %._crit_edge120, label %.preheader116.us, !llvm.loop !24
@@ -1540,12 +1540,12 @@ Vec_StrGrow.exit:                                 ; preds = %Vec_StrSelectSortCo
   br label %.preheader115
 
 .preheader115:                                    ; preds = %.preheader115.lr.ph, %._crit_edge
-  %.183126 = phi ptr [ %.val96, %.preheader115.lr.ph ], [ %158, %._crit_edge ]
-  %.084125 = phi ptr [ %36, %.preheader115.lr.ph ], [ %157, %._crit_edge ]
+  %.082126 = phi ptr [ %36, %.preheader115.lr.ph ], [ %157, %._crit_edge ]
+  %.184125 = phi ptr [ %.val96, %.preheader115.lr.ph ], [ %158, %._crit_edge ]
   br i1 %49, label %.lr.ph123.preheader, label %._crit_edge
 
 .lr.ph123.preheader:                              ; preds = %.preheader115
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.084125, i8 45, i64 %148, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.082126, i8 45, i64 %148, i1 false)
   br label %.lr.ph123
 
 .lr.ph123:                                        ; preds = %.lr.ph123.preheader, %156
@@ -1553,14 +1553,14 @@ Vec_StrGrow.exit:                                 ; preds = %Vec_StrSelectSortCo
   %149 = getelementptr inbounds i32, ptr %.val94, i64 %indvars.iv141
   %150 = load i32, ptr %149, align 4
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds i8, ptr %.183126, i64 %151
+  %152 = getelementptr inbounds i8, ptr %.184125, i64 %151
   %153 = load i8, ptr %152, align 1
   %154 = and i8 %153, -2
   %switch = icmp eq i8 %154, 48
   br i1 %switch, label %.sink.split, label %156
 
 .sink.split:                                      ; preds = %.lr.ph123
-  %155 = getelementptr inbounds i8, ptr %.084125, i64 %indvars.iv141
+  %155 = getelementptr inbounds i8, ptr %.082126, i64 %indvars.iv141
   store i8 %153, ptr %155, align 1
   br label %156
 
@@ -1570,8 +1570,8 @@ Vec_StrGrow.exit:                                 ; preds = %Vec_StrSelectSortCo
   br i1 %exitcond145.not, label %._crit_edge, label %.lr.ph123, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %156, %.preheader115
-  %157 = getelementptr i8, ptr %.084125, i64 %147
-  %158 = getelementptr inbounds i8, ptr %.183126, i64 %147
+  %157 = getelementptr i8, ptr %.082126, i64 %147
+  %158 = getelementptr inbounds i8, ptr %.184125, i64 %147
   %159 = load i8, ptr %158, align 1
   %.not90 = icmp eq i8 %159, 0
   br i1 %.not90, label %._crit_edge127, label %.preheader115, !llvm.loop !29
@@ -1887,12 +1887,12 @@ Vec_IntFill.exit131.thread:                       ; preds = %Vec_IntGrow.exit.i1
 
 .preheader155.us:                                 ; preds = %.preheader155.us.preheader, %._crit_edge.us
   %.0160.us = phi i32 [ %77, %._crit_edge.us ], [ 0, %.preheader155.us.preheader ]
-  %.0101159.us = phi ptr [ %78, %._crit_edge.us ], [ %36, %.preheader155.us.preheader ]
+  %.0102159.us = phi ptr [ %78, %._crit_edge.us ], [ %36, %.preheader155.us.preheader ]
   br label %68
 
 68:                                               ; preds = %.preheader155.us, %76
   %indvars.iv = phi i64 [ 0, %.preheader155.us ], [ %indvars.iv.next, %76 ]
-  %69 = getelementptr inbounds i8, ptr %.0101159.us, i64 %indvars.iv
+  %69 = getelementptr inbounds i8, ptr %.0102159.us, i64 %indvars.iv
   %70 = load i8, ptr %69, align 1
   %.not110.us = icmp eq i8 %70, 45
   br i1 %.not110.us, label %76, label %71
@@ -1915,7 +1915,7 @@ Vec_IntFill.exit131.thread:                       ; preds = %Vec_IntGrow.exit.i1
 
 ._crit_edge.us:                                   ; preds = %76
   %77 = add nuw nsw i32 %.0160.us, 1
-  %78 = getelementptr inbounds i8, ptr %.0101159.us, i64 %67
+  %78 = getelementptr inbounds i8, ptr %.0102159.us, i64 %67
   %79 = load i8, ptr %78, align 1
   %.not108.us = icmp eq i8 %79, 0
   br i1 %.not108.us, label %.preheader156, label %.preheader155.us, !llvm.loop !33
@@ -2130,12 +2130,12 @@ Vec_StrGrow.exit:                                 ; preds = %Vec_IntSelectSortCo
   br label %.preheader154
 
 .preheader154:                                    ; preds = %.preheader154.lr.ph, %._crit_edge170
-  %.1102173 = phi ptr [ %.val117, %.preheader154.lr.ph ], [ %166, %._crit_edge170 ]
-  %.0103172 = phi ptr [ %36, %.preheader154.lr.ph ], [ %165, %._crit_edge170 ]
+  %.0101173 = phi ptr [ %36, %.preheader154.lr.ph ], [ %165, %._crit_edge170 ]
+  %.1103172 = phi ptr [ %.val117, %.preheader154.lr.ph ], [ %166, %._crit_edge170 ]
   br i1 %49, label %.lr.ph169.preheader, label %._crit_edge170
 
 .lr.ph169.preheader:                              ; preds = %.preheader154
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.0103172, i8 45, i64 %156, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.0101173, i8 45, i64 %156, i1 false)
   br label %.lr.ph169
 
 .lr.ph169:                                        ; preds = %.lr.ph169.preheader, %164
@@ -2143,14 +2143,14 @@ Vec_StrGrow.exit:                                 ; preds = %Vec_IntSelectSortCo
   %157 = getelementptr inbounds i32, ptr %.val113211, i64 %indvars.iv194
   %158 = load i32, ptr %157, align 4
   %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds i8, ptr %.1102173, i64 %159
+  %160 = getelementptr inbounds i8, ptr %.1103172, i64 %159
   %161 = load i8, ptr %160, align 1
   %162 = and i8 %161, -2
   %switch = icmp eq i8 %162, 48
   br i1 %switch, label %.sink.split, label %164
 
 .sink.split:                                      ; preds = %.lr.ph169
-  %163 = getelementptr inbounds i8, ptr %.0103172, i64 %indvars.iv194
+  %163 = getelementptr inbounds i8, ptr %.0101173, i64 %indvars.iv194
   store i8 %161, ptr %163, align 1
   br label %164
 
@@ -2160,8 +2160,8 @@ Vec_StrGrow.exit:                                 ; preds = %Vec_IntSelectSortCo
   br i1 %exitcond198.not, label %._crit_edge170, label %.lr.ph169, !llvm.loop !36
 
 ._crit_edge170:                                   ; preds = %164, %.preheader154
-  %165 = getelementptr i8, ptr %.0103172, i64 %155
-  %166 = getelementptr inbounds i8, ptr %.1102173, i64 %155
+  %165 = getelementptr i8, ptr %.0101173, i64 %155
+  %166 = getelementptr inbounds i8, ptr %.1103172, i64 %155
   %167 = load i8, ptr %166, align 1
   %.not109 = icmp eq i8 %167, 0
   br i1 %.not109, label %._crit_edge174, label %.preheader154, !llvm.loop !37
@@ -2562,8 +2562,8 @@ define void @Abc_NodeSortCubes(ptr nocapture noundef readonly %0, ptr nocapture 
   br label %13
 
 13:                                               ; preds = %.lr.ph, %Vec_PtrPush.exit
-  %.045 = phi ptr [ %6, %.lr.ph ], [ %43, %Vec_PtrPush.exit ]
-  %14 = getelementptr inbounds i8, ptr %.045, i64 %10
+  %.03445 = phi ptr [ %6, %.lr.ph ], [ %43, %Vec_PtrPush.exit ]
+  %14 = getelementptr inbounds i8, ptr %.03445, i64 %10
   store i8 0, ptr %14, align 1
   %15 = load i32, ptr %8, align 4
   %16 = load i32, ptr %1, align 8
@@ -2626,8 +2626,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store i32 %40, ptr %8, align 4
   %41 = sext i32 %39 to i64
   %42 = getelementptr inbounds ptr, ptr %38, i64 %41
-  store ptr %.045, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %.045, i64 %12
+  store ptr %.03445, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %.03445, i64 %12
   %44 = load i8, ptr %43, align 1
   %.not = icmp eq i8 %44, 0
   br i1 %.not, label %._crit_edge, label %13, !llvm.loop !44
@@ -2691,14 +2691,14 @@ Vec_StrGrow.exit:                                 ; preds = %Vec_PtrSort.exit, %
 
 68:                                               ; preds = %.lr.ph49, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next, %68 ]
-  %.03447 = phi ptr [ %.val39.pre53, %.lr.ph49 ], [ %72, %68 ]
+  %.03347 = phi ptr [ %.val39.pre53, %.lr.ph49 ], [ %72, %68 ]
   %.val38 = load ptr, ptr %65, align 8
   %69 = getelementptr inbounds ptr, ptr %.val38, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 %66
   store i8 32, ptr %71, align 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03447, ptr align 1 %70, i64 %67, i1 false)
-  %72 = getelementptr inbounds i8, ptr %.03447, i64 %67
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03347, ptr align 1 %70, i64 %67, i1 false)
+  %72 = getelementptr inbounds i8, ptr %.03347, i64 %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val36 = load i32, ptr %8, align 4
   %73 = sext i32 %.val36 to i64
@@ -2831,25 +2831,25 @@ define range(i32 0, 2) i32 @Abc_NodeMakeSCCFree(ptr nocapture noundef readonly %
 
 .lr.ph64.split.us:                                ; preds = %.lr.ph64, %._crit_edge.split.us.us
   %.062.us = phi i32 [ %.2.us.us, %._crit_edge.split.us.us ], [ 0, %.lr.ph64 ]
-  %.03660.us = phi ptr [ %13, %._crit_edge.split.us.us ], [ %3, %.lr.ph64 ]
-  %10 = getelementptr inbounds i8, ptr %.03660.us, i64 %6
+  %.03860.us = phi ptr [ %13, %._crit_edge.split.us.us ], [ %3, %.lr.ph64 ]
+  %10 = getelementptr inbounds i8, ptr %.03860.us, i64 %6
   %11 = getelementptr inbounds i8, ptr %10, i64 3
   %12 = load i8, ptr %11, align 1
   %.not4455.us = icmp eq i8 %12, 0
   br i1 %.not4455.us, label %._crit_edge65, label %.lr.ph.us
 
 ._crit_edge.split.us.us:                          ; preds = %.thread.us.us
-  %.phi.trans.insert69 = getelementptr inbounds i8, ptr %.03660.us, i64 %9
+  %.phi.trans.insert69 = getelementptr inbounds i8, ptr %.03860.us, i64 %9
   %.pre70 = load i8, ptr %.phi.trans.insert69, align 1
-  %13 = getelementptr inbounds i8, ptr %.03660.us, i64 %9
+  %13 = getelementptr inbounds i8, ptr %.03860.us, i64 %9
   %.not.us = icmp eq i8 %.pre70, 0
   br i1 %.not.us, label %._crit_edge65, label %.lr.ph64.split.us, !llvm.loop !47
 
 .lr.ph.us:                                        ; preds = %.lr.ph64.split.us, %.thread.us.us
   %14 = phi i8 [ %39, %.thread.us.us ], [ %12, %.lr.ph64.split.us ]
   %.158.us.us = phi i32 [ %.2.us.us, %.thread.us.us ], [ %.062.us, %.lr.ph64.split.us ]
-  %.04056.us.us = phi ptr [ %38, %.thread.us.us ], [ %11, %.lr.ph64.split.us ]
-  %15 = load i8, ptr %.03660.us, align 1
+  %.03756.us.us = phi ptr [ %38, %.thread.us.us ], [ %11, %.lr.ph64.split.us ]
+  %15 = load i8, ptr %.03860.us, align 1
   %16 = icmp eq i8 %15, 122
   %17 = icmp eq i8 %14, 122
   %or.cond.us.us = or i1 %17, %16
@@ -2859,9 +2859,9 @@ define range(i32 0, 2) i32 @Abc_NodeMakeSCCFree(ptr nocapture noundef readonly %
   %indvars.iv.i.us.us = phi i64 [ %indvars.iv.next.i.us.us, %30 ], [ 0, %.lr.ph.us ]
   %.027.i.us.us = phi i32 [ %.2.i.us.us, %30 ], [ 1, %.lr.ph.us ]
   %.01626.i.us.us = phi i32 [ %.218.i.us.us, %30 ], [ 1, %.lr.ph.us ]
-  %18 = getelementptr inbounds i8, ptr %.03660.us, i64 %indvars.iv.i.us.us
+  %18 = getelementptr inbounds i8, ptr %.03860.us, i64 %indvars.iv.i.us.us
   %19 = load i8, ptr %18, align 1
-  %20 = getelementptr inbounds i8, ptr %.04056.us.us, i64 %indvars.iv.i.us.us
+  %20 = getelementptr inbounds i8, ptr %.03756.us.us, i64 %indvars.iv.i.us.us
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %19, %21
   br i1 %22, label %30, label %23
@@ -2904,21 +2904,21 @@ Abc_CubeContain.exit.us.us:                       ; preds = %30
   br i1 %.not46.us.us, label %.thread.us.us, label %.thread.us.us.sink.split
 
 .thread.us.us.sink.split:                         ; preds = %37, %Abc_CubeContain.exit.us.us
-  %.03660.us.sink = phi ptr [ %.04056.us.us, %Abc_CubeContain.exit.us.us ], [ %.03660.us, %37 ]
-  store i8 122, ptr %.03660.us.sink, align 1
+  %.03860.us.sink = phi ptr [ %.03756.us.us, %Abc_CubeContain.exit.us.us ], [ %.03860.us, %37 ]
+  store i8 122, ptr %.03860.us.sink, align 1
   br label %.thread.us.us
 
 .thread.us.us:                                    ; preds = %25, %27, %.thread.us.us.sink.split, %37, %.lr.ph.us
   %.2.us.us = phi i32 [ %.158.us.us, %.lr.ph.us ], [ %35, %37 ], [ %35, %.thread.us.us.sink.split ], [ %.158.us.us, %27 ], [ %.158.us.us, %25 ]
-  %38 = getelementptr inbounds i8, ptr %.04056.us.us, i64 %9
+  %38 = getelementptr inbounds i8, ptr %.03756.us.us, i64 %9
   %39 = load i8, ptr %38, align 1
   %.not44.us.us = icmp eq i8 %39, 0
   br i1 %.not44.us.us, label %._crit_edge.split.us.us, label %.lr.ph.us, !llvm.loop !49
 
 .lr.ph64.split:                                   ; preds = %.lr.ph64, %._crit_edge.split
   %.062 = phi i32 [ %.2, %._crit_edge.split ], [ 0, %.lr.ph64 ]
-  %.03660 = phi ptr [ %50, %._crit_edge.split ], [ %3, %.lr.ph64 ]
-  %40 = getelementptr inbounds i8, ptr %.03660, i64 %6
+  %.03860 = phi ptr [ %50, %._crit_edge.split ], [ %3, %.lr.ph64 ]
+  %40 = getelementptr inbounds i8, ptr %.03860, i64 %6
   %41 = getelementptr inbounds i8, ptr %40, i64 3
   %42 = load i8, ptr %41, align 1
   %.not4455 = icmp eq i8 %42, 0
@@ -2927,8 +2927,8 @@ Abc_CubeContain.exit.us.us:                       ; preds = %30
 .lr.ph:                                           ; preds = %.lr.ph64.split, %.thread
   %43 = phi i8 [ %49, %.thread ], [ %42, %.lr.ph64.split ]
   %.158 = phi i32 [ %.2, %.thread ], [ %.062, %.lr.ph64.split ]
-  %.04056 = phi ptr [ %48, %.thread ], [ %41, %.lr.ph64.split ]
-  %44 = load i8, ptr %.03660, align 1
+  %.03756 = phi ptr [ %48, %.thread ], [ %41, %.lr.ph64.split ]
+  %44 = load i8, ptr %.03860, align 1
   %45 = icmp eq i8 %44, 122
   %46 = icmp eq i8 %43, 122
   %or.cond = or i1 %46, %45
@@ -2936,20 +2936,20 @@ Abc_CubeContain.exit.us.us:                       ; preds = %30
 
 Abc_CubeContain.exit.thread50:                    ; preds = %.lr.ph
   %47 = add nsw i32 %.158, 1
-  store i8 122, ptr %.04056, align 1
+  store i8 122, ptr %.03756, align 1
   br label %.thread
 
 .thread:                                          ; preds = %Abc_CubeContain.exit.thread50, %.lr.ph
   %.2 = phi i32 [ %.158, %.lr.ph ], [ %47, %Abc_CubeContain.exit.thread50 ]
-  %48 = getelementptr inbounds i8, ptr %.04056, i64 %9
+  %48 = getelementptr inbounds i8, ptr %.03756, i64 %9
   %49 = load i8, ptr %48, align 1
   %.not44 = icmp eq i8 %49, 0
   br i1 %.not44, label %._crit_edge.split, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge.split:                                ; preds = %.thread
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.03660, i64 %9
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.03860, i64 %9
   %.pre = load i8, ptr %.phi.trans.insert, align 1
-  %50 = getelementptr inbounds i8, ptr %.03660, i64 %9
+  %50 = getelementptr inbounds i8, ptr %.03860, i64 %9
   %.not = icmp eq i8 %.pre, 0
   br i1 %.not, label %._crit_edge65, label %.lr.ph64.split, !llvm.loop !47
 
@@ -2965,31 +2965,31 @@ Abc_CubeContain.exit.thread50:                    ; preds = %.lr.ph
   br label %56
 
 56:                                               ; preds = %60, %52
-  %.038 = phi ptr [ %53, %52 ], [ %.139, %60 ]
-  %.137 = phi ptr [ %3, %52 ], [ %61, %60 ]
-  %57 = load i8, ptr %.137, align 1
+  %.139 = phi ptr [ %3, %52 ], [ %61, %60 ]
+  %.035 = phi ptr [ %53, %52 ], [ %.136, %60 ]
+  %57 = load i8, ptr %.139, align 1
   switch i8 %57, label %58 [
     i8 0, label %62
     i8 122, label %60
   ]
 
 58:                                               ; preds = %56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.038, ptr nonnull align 1 %.137, i64 %55, i1 false)
-  %59 = getelementptr inbounds i8, ptr %.038, i64 %55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.035, ptr nonnull align 1 %.139, i64 %55, i1 false)
+  %59 = getelementptr inbounds i8, ptr %.035, i64 %55
   br label %60
 
 60:                                               ; preds = %56, %58
-  %.139 = phi ptr [ %59, %58 ], [ %.038, %56 ]
-  %61 = getelementptr inbounds i8, ptr %.137, i64 %55
+  %.136 = phi ptr [ %59, %58 ], [ %.035, %56 ]
+  %61 = getelementptr inbounds i8, ptr %.139, i64 %55
   br label %56, !llvm.loop !50
 
 62:                                               ; preds = %56
-  store i8 0, ptr %.038, align 1
+  store i8 0, ptr %.035, align 1
   br label %._crit_edge65.thread
 
 ._crit_edge65.thread:                             ; preds = %1, %._crit_edge65, %62
-  %.035 = phi i32 [ 1, %62 ], [ 0, %._crit_edge65 ], [ 0, %1 ]
-  ret i32 %.035
+  %.040 = phi i32 [ 1, %62 ], [ 0, %._crit_edge65 ], [ 0, %1 ]
+  ret i32 %.040
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -3015,27 +3015,27 @@ define void @Abc_NodeMakeDist1Free(ptr nocapture noundef readonly %0) local_unna
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %._crit_edge47.split.us.us
-  %.03449.us = phi ptr [ %13, %._crit_edge47.split.us.us ], [ %3, %.lr.ph.split.us.preheader ]
-  %10 = getelementptr inbounds i8, ptr %.03449.us, i64 %6
+  %.03649.us = phi ptr [ %13, %._crit_edge47.split.us.us ], [ %3, %.lr.ph.split.us.preheader ]
+  %10 = getelementptr inbounds i8, ptr %.03649.us, i64 %6
   %11 = getelementptr inbounds i8, ptr %10, i64 3
   %12 = load i8, ptr %11, align 1
   %.not3845.us = icmp eq i8 %12, 0
   br i1 %.not3845.us, label %._crit_edge, label %.preheader.us.us
 
 ._crit_edge47.split.us.us:                        ; preds = %.thread.us.us
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.03449.us, i64 %9
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.03649.us, i64 %9
   %.pre = load i8, ptr %.phi.trans.insert, align 1
-  %13 = getelementptr inbounds i8, ptr %.03449.us, i64 %9
+  %13 = getelementptr inbounds i8, ptr %.03649.us, i64 %9
   %.not.us = icmp eq i8 %.pre, 0
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !51
 
 .preheader.us.us:                                 ; preds = %.lr.ph.split.us, %.thread.us.us
-  %.03646.us.us = phi ptr [ %28, %.thread.us.us ], [ %11, %.lr.ph.split.us ]
+  %.03546.us.us = phi ptr [ %28, %.thread.us.us ], [ %11, %.lr.ph.split.us ]
   br label %30
 
 14:                                               ; preds = %._crit_edge.us.us
   %15 = sext i32 %spec.select40.us.us to i64
-  %16 = getelementptr inbounds i8, ptr %.03449.us, i64 %15
+  %16 = getelementptr inbounds i8, ptr %.03649.us, i64 %15
   %17 = load i8, ptr %16, align 1
   switch i8 %17, label %.thread.us.us [
     i8 48, label %22
@@ -3043,25 +3043,25 @@ define void @Abc_NodeMakeDist1Free(ptr nocapture noundef readonly %0) local_unna
   ]
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %.03646.us.us, i64 %15
+  %19 = getelementptr inbounds i8, ptr %.03546.us.us, i64 %15
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 48
   br i1 %21, label %26, label %.thread.us.us
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %.03646.us.us, i64 %15
+  %23 = getelementptr inbounds i8, ptr %.03546.us.us, i64 %15
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 49
   br i1 %25, label %26, label %.thread.us.us
 
 26:                                               ; preds = %22, %18
-  %27 = getelementptr inbounds i8, ptr %.03646.us.us, i64 %15
+  %27 = getelementptr inbounds i8, ptr %.03546.us.us, i64 %15
   store i8 45, ptr %27, align 1
   store i8 45, ptr %16, align 1
   br label %.thread.us.us
 
 .thread.us.us:                                    ; preds = %._crit_edge.us.us, %26, %22, %18, %14
-  %28 = getelementptr inbounds i8, ptr %.03646.us.us, i64 %9
+  %28 = getelementptr inbounds i8, ptr %.03546.us.us, i64 %9
   %29 = load i8, ptr %28, align 1
   %.not38.us.us = icmp eq i8 %29, 0
   br i1 %.not38.us.us, label %._crit_edge47.split.us.us, label %.preheader.us.us, !llvm.loop !52
@@ -3070,9 +3070,9 @@ define void @Abc_NodeMakeDist1Free(ptr nocapture noundef readonly %0) local_unna
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %.preheader.us.us ]
   %.043.us.us = phi i32 [ %spec.select40.us.us, %30 ], [ -1, %.preheader.us.us ]
   %.03242.us.us = phi i32 [ %spec.select.us.us, %30 ], [ 0, %.preheader.us.us ]
-  %31 = getelementptr inbounds i8, ptr %.03449.us, i64 %indvars.iv
+  %31 = getelementptr inbounds i8, ptr %.03649.us, i64 %indvars.iv
   %32 = load i8, ptr %31, align 1
-  %33 = getelementptr inbounds i8, ptr %.03646.us.us, i64 %indvars.iv
+  %33 = getelementptr inbounds i8, ptr %.03546.us.us, i64 %indvars.iv
   %34 = load i8, ptr %33, align 1
   %.not39.us.us = icmp ne i8 %32, %34
   %35 = zext i1 %.not39.us.us to i32
@@ -3124,26 +3124,26 @@ define range(i32 0, 2) i32 @Abc_NodeMakeLegit(ptr nocapture noundef readonly %0)
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %._crit_edge47.split.us.us.i, %.lr.ph.split.us.preheader.i
-  %.03449.us.i = phi ptr [ %.phi.trans.insert.i, %._crit_edge47.split.us.us.i ], [ %5, %.lr.ph.split.us.preheader.i ]
-  %11 = getelementptr inbounds i8, ptr %.03449.us.i, i64 %7
+  %.03649.us.i = phi ptr [ %.phi.trans.insert.i, %._crit_edge47.split.us.us.i ], [ %5, %.lr.ph.split.us.preheader.i ]
+  %11 = getelementptr inbounds i8, ptr %.03649.us.i, i64 %7
   %12 = getelementptr inbounds i8, ptr %11, i64 3
   %13 = load i8, ptr %12, align 1
   %.not3845.us.i = icmp eq i8 %13, 0
   br i1 %.not3845.us.i, label %Abc_NodeMakeDist1Free.exit, label %.preheader.us.us.i
 
 ._crit_edge47.split.us.us.i:                      ; preds = %.thread.us.us.i
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.03449.us.i, i64 %10
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.03649.us.i, i64 %10
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1
   %.not.us.i = icmp eq i8 %.pre.i, 0
   br i1 %.not.us.i, label %Abc_NodeMakeDist1Free.exit, label %.lr.ph.split.us.i, !llvm.loop !51
 
 .preheader.us.us.i:                               ; preds = %.lr.ph.split.us.i, %.thread.us.us.i
-  %.03646.us.us.i = phi ptr [ %28, %.thread.us.us.i ], [ %12, %.lr.ph.split.us.i ]
+  %.03546.us.us.i = phi ptr [ %28, %.thread.us.us.i ], [ %12, %.lr.ph.split.us.i ]
   br label %30
 
 14:                                               ; preds = %._crit_edge.us.us.i
   %15 = sext i32 %spec.select40.us.us.i to i64
-  %16 = getelementptr inbounds i8, ptr %.03449.us.i, i64 %15
+  %16 = getelementptr inbounds i8, ptr %.03649.us.i, i64 %15
   %17 = load i8, ptr %16, align 1
   switch i8 %17, label %.thread.us.us.i [
     i8 48, label %22
@@ -3151,25 +3151,25 @@ define range(i32 0, 2) i32 @Abc_NodeMakeLegit(ptr nocapture noundef readonly %0)
   ]
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %.03646.us.us.i, i64 %15
+  %19 = getelementptr inbounds i8, ptr %.03546.us.us.i, i64 %15
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 48
   br i1 %21, label %26, label %.thread.us.us.i
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %.03646.us.us.i, i64 %15
+  %23 = getelementptr inbounds i8, ptr %.03546.us.us.i, i64 %15
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 49
   br i1 %25, label %26, label %.thread.us.us.i
 
 26:                                               ; preds = %22, %18
-  %27 = getelementptr inbounds i8, ptr %.03646.us.us.i, i64 %15
+  %27 = getelementptr inbounds i8, ptr %.03546.us.us.i, i64 %15
   store i8 45, ptr %27, align 1
   store i8 45, ptr %16, align 1
   br label %.thread.us.us.i
 
 .thread.us.us.i:                                  ; preds = %._crit_edge.us.us.i, %26, %22, %18, %14
-  %28 = getelementptr inbounds i8, ptr %.03646.us.us.i, i64 %10
+  %28 = getelementptr inbounds i8, ptr %.03546.us.us.i, i64 %10
   %29 = load i8, ptr %28, align 1
   %.not38.us.us.i = icmp eq i8 %29, 0
   br i1 %.not38.us.us.i, label %._crit_edge47.split.us.us.i, label %.preheader.us.us.i, !llvm.loop !52
@@ -3178,9 +3178,9 @@ define range(i32 0, 2) i32 @Abc_NodeMakeLegit(ptr nocapture noundef readonly %0)
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %30 ], [ 0, %.preheader.us.us.i ]
   %.043.us.us.i = phi i32 [ %spec.select40.us.us.i, %30 ], [ -1, %.preheader.us.us.i ]
   %.03242.us.us.i = phi i32 [ %spec.select.us.us.i, %30 ], [ 0, %.preheader.us.us.i ]
-  %31 = getelementptr inbounds i8, ptr %.03449.us.i, i64 %indvars.iv.i
+  %31 = getelementptr inbounds i8, ptr %.03649.us.i, i64 %indvars.iv.i
   %32 = load i8, ptr %31, align 1
-  %33 = getelementptr inbounds i8, ptr %.03646.us.us.i, i64 %indvars.iv.i
+  %33 = getelementptr inbounds i8, ptr %.03546.us.us.i, i64 %indvars.iv.i
   %34 = load i8, ptr %33, align 1
   %.not39.us.us.i = icmp ne i8 %32, %34
   %35 = zext i1 %.not39.us.us.i to i32

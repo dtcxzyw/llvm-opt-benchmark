@@ -169,22 +169,22 @@ define internal i32 @dissect_btmesh_beacon_msg(ptr noundef %0, ptr noundef %1, p
   br i1 %7, label %.cont.thread, label %.cont
 
 .cont:                                            ; preds = %4
-  %.0130.sroa.gep131 = getelementptr inbounds i8, ptr %3, i64 4
-  %.else.val = load i32, ptr %.0130.sroa.gep131, align 4
+  %.0.sroa.gep131 = getelementptr inbounds i8, ptr %3, i64 4
+  %.else.val = load i32, ptr %.0.sroa.gep131, align 4
   %.not = icmp eq i32 %.else.val, 0
-  br i1 %.not, label %.cont.thread, label %.cont139
+  br i1 %.not, label %.cont.thread, label %.cont138
 
-.cont139:                                         ; preds = %.cont
-  %.else.val141 = load i32, ptr %3, align 4
-  %cond = icmp eq i32 %.else.val141, 3
+.cont138:                                         ; preds = %.cont
+  %.else.val140 = load i32, ptr %3, align 4
+  %cond = icmp eq i32 %.else.val140, 3
   br i1 %cond, label %18, label %.cont.thread
 
-18:                                               ; preds = %.cont139
+18:                                               ; preds = %.cont138
   %19 = load ptr, ptr %5, align 8
   tail call void @col_append_str(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.67) #2
   br label %.cont.thread
 
-.cont.thread:                                     ; preds = %4, %18, %.cont139, %.cont
+.cont.thread:                                     ; preds = %4, %18, %.cont138, %.cont
   switch i8 %12, label %84 [
     i8 0, label %20
     i8 1, label %63
@@ -225,8 +225,8 @@ define internal i32 @dissect_btmesh_beacon_msg(ptr noundef %0, ptr noundef %1, p
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %51, ptr noundef %0, i32 noundef 17, i32 noundef 2, i32 noundef 0) #2
   %53 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 17, i32 noundef 0) #2
   %54 = and i16 %53, 1920
-  %.not137 = icmp eq i16 %54, 0
-  br i1 %.not137, label %57, label %55
+  %.not136 = icmp eq i16 %54, 0
+  br i1 %.not136, label %57, label %55
 
 55:                                               ; preds = %20
   %56 = tail call ptr @proto_tree_add_expert(ptr noundef %26, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_beacon_rfu_not_zero, ptr noundef %0, i32 noundef 17, i32 noundef -1) #2
@@ -254,8 +254,8 @@ define internal i32 @dissect_btmesh_beacon_msg(ptr noundef %0, ptr noundef %1, p
   %72 = load i32, ptr @hf_btmesh_beacon_flags_rfu, align 4
   %73 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %72, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   %74 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not136 = icmp ult i8 %74, 4
-  br i1 %.not136, label %77, label %75
+  %.not135 = icmp ult i8 %74, 4
+  br i1 %.not135, label %77, label %75
 
 75:                                               ; preds = %63
   %76 = tail call ptr @proto_tree_add_expert(ptr noundef %67, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_beacon_rfu_not_zero, ptr noundef %0, i32 noundef 1, i32 noundef -1) #2
@@ -279,13 +279,13 @@ define internal i32 @dissect_btmesh_beacon_msg(ptr noundef %0, ptr noundef %1, p
   br label %90
 
 90:                                               ; preds = %57, %60, %84, %77
-  %.0 = phi i32 [ %89, %84 ], [ 22, %77 ], [ 23, %60 ], [ 19, %57 ]
-  %91 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0) #2
-  %.not138 = icmp eq i32 %91, 0
-  br i1 %.not138, label %94, label %92
+  %.0130 = phi i32 [ %89, %84 ], [ 22, %77 ], [ 23, %60 ], [ 19, %57 ]
+  %91 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0130) #2
+  %.not137 = icmp eq i32 %91, 0
+  br i1 %.not137, label %94, label %92
 
 92:                                               ; preds = %90
-  %93 = tail call ptr @proto_tree_add_expert(ptr noundef %11, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_beacon_unknown_payload, ptr noundef %0, i32 noundef %.0, i32 noundef -1) #2
+  %93 = tail call ptr @proto_tree_add_expert(ptr noundef %11, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_beacon_unknown_payload, ptr noundef %0, i32 noundef %.0130, i32 noundef -1) #2
   br label %94
 
 94:                                               ; preds = %92, %90

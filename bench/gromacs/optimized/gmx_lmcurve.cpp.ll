@@ -59,16 +59,16 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.047 = phi i32 [ %.148, %.preheader ], [ %15, %.preheader.preheader ]
-  %.046 = phi i32 [ %.1, %.preheader ], [ %7, %.preheader.preheader ]
-  %25 = add nsw i32 %.047, -1
+  %.048 = phi i32 [ %.149, %.preheader ], [ %7, %.preheader.preheader ]
+  %.045 = phi i32 [ %.1, %.preheader ], [ %15, %.preheader.preheader ]
+  %25 = add nsw i32 %.045, -1
   %26 = shl nuw i32 1, %25
-  %27 = and i32 %26, %.046
+  %27 = and i32 %26, %.048
   %28 = icmp ne i32 %27, 0
-  %.148 = select i1 %28, i32 %25, i32 %.047
   %29 = select i1 %28, i32 %26, i32 0
-  %.1 = sub nsw i32 %.046, %29
-  %30 = icmp sgt i32 %.148, 0
+  %.149 = sub nsw i32 %.048, %29
+  %.1 = select i1 %28, i32 %25, i32 %.045
+  %30 = icmp sgt i32 %.1, 0
   %31 = and i1 %28, %30
   br i1 %31, label %.preheader, label %32, !llvm.loop !5
 
@@ -77,11 +77,11 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
 
 .thread:                                          ; preds = %32
   %33 = tail call noundef i32 @_Z11effnNparamsi(i32 noundef %6)
-  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.148, i32 noundef %33)
+  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.1, i32 noundef %33)
   br label %.split.us.preheader
 
 .critedge.preheader:                              ; preds = %32, %.thread68
-  %.267 = phi i32 [ %15, %.thread68 ], [ %.148, %32 ]
+  %.267 = phi i32 [ %15, %.thread68 ], [ %.1, %32 ]
   %35 = zext nneg i32 %6 to i64
   %36 = getelementptr inbounds [12 x ptr], ptr @lmcurves, i64 0, i64 %35
   %37 = getelementptr inbounds i8, ptr %9, i64 8
@@ -90,7 +90,7 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   br label %.critedge
 
 .split.us.preheader:                              ; preds = %21, %.thread
-  %.264 = phi i32 [ %.148, %.thread ], [ %15, %21 ]
+  %.264 = phi i32 [ %.1, %.thread ], [ %15, %21 ]
   %40 = zext nneg i32 %6 to i64
   %41 = getelementptr inbounds [12 x ptr], ptr @lmcurves, i64 0, i64 %40
   %42 = getelementptr inbounds i8, ptr %9, i64 8
@@ -102,8 +102,8 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %.critedge.us
-  %.050.us = phi i32 [ %61, %.critedge.us ], [ 0, %.split.us.preheader ]
-  %.049.us = phi double [ %50, %.critedge.us ], [ 1.000000e+12, %.split.us.preheader ]
+  %.050.us = phi double [ %50, %.critedge.us ], [ 1.000000e+12, %.split.us.preheader ]
+  %.047.us = phi i32 [ %61, %.critedge.us ], [ 0, %.split.us.preheader ]
   %48 = load ptr, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %1, ptr %9, align 8
@@ -121,21 +121,21 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   %55 = getelementptr inbounds [0 x ptr], ptr @lm_infmsg, i64 0, i64 %54
   %56 = load ptr, ptr %55, align 8
   %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, double noundef %49, i32 noundef %51, i32 noundef %52, ptr noundef %56)
-  %58 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.050.us, double noundef %50)
+  %58 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.047.us, double noundef %50)
   %59 = call noundef i32 @_Z11effnNparamsi(i32 noundef %6)
   %60 = icmp sgt i32 %59, 0
   br i1 %60, label %.lr.ph.us, label %.critedge.us
 
 .critedge.us:                                     ; preds = %.lr.ph.us, %.split.us
   %putchar.us = call i32 @putchar(i32 10)
-  %61 = add nuw nsw i32 %.050.us, 1
-  %62 = fsub double %.049.us, %50
+  %61 = add nuw nsw i32 %.047.us, 1
+  %62 = fsub double %.050.us, %50
   %63 = call double @llvm.fabs.f64(double %62)
   %64 = load double, ptr %10, align 8
   %65 = fmul double %50, %64
   %66 = call double @llvm.fabs.f64(double %65)
   %67 = fcmp ogt double %63, %66
-  %68 = icmp ult i32 %.050.us, 99
+  %68 = icmp ult i32 %.047.us, 99
   %69 = select i1 %67, i1 %68, i1 false
   br i1 %69, label %.split.us, label %.split60.us, !llvm.loop !7
 
@@ -151,8 +151,8 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   br i1 %75, label %.lr.ph.us, label %.critedge.us, !llvm.loop !8
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
-  %.050 = phi i32 [ %79, %.critedge ], [ 0, %.critedge.preheader ]
-  %.049 = phi double [ %78, %.critedge ], [ 1.000000e+12, %.critedge.preheader ]
+  %.050 = phi double [ %78, %.critedge ], [ 1.000000e+12, %.critedge.preheader ]
+  %.047 = phi i32 [ %79, %.critedge ], [ 0, %.critedge.preheader ]
   %76 = load ptr, ptr %36, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   store ptr %1, ptr %9, align 8
@@ -163,14 +163,14 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   %77 = load double, ptr %20, align 8
   %78 = fmul double %77, %77
-  %79 = add nuw nsw i32 %.050, 1
-  %80 = fsub double %.049, %78
+  %79 = add nuw nsw i32 %.047, 1
+  %80 = fsub double %.050, %78
   %81 = call double @llvm.fabs.f64(double %80)
   %82 = load double, ptr %10, align 8
   %83 = fmul double %78, %82
   %84 = call double @llvm.fabs.f64(double %83)
   %85 = fcmp ogt double %81, %84
-  %86 = icmp ult i32 %.050, 99
+  %86 = icmp ult i32 %.047, 99
   %87 = select i1 %85, i1 %86, i1 false
   br i1 %87, label %.critedge, label %.split60.us, !llvm.loop !7
 

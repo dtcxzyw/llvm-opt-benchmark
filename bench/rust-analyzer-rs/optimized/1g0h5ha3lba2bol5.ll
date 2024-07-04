@@ -12537,8 +12537,8 @@ common.resume:                                    ; preds = %23, %120, %126, %15
   br label %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17hc9bc5c6fe8f774f3E.exit65"
 
 "_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17hc9bc5c6fe8f774f3E.exit65": ; preds = %128, %122, %"_ZN3hir15source_analyzer14SourceAnalyzer19resolve_prefix_expr28_$u7b$$u7b$closure$u7d$$u7d$17hca09b004564d57fbE.exit"
-  %.144 = phi i32 [ %spec.select, %"_ZN3hir15source_analyzer14SourceAnalyzer19resolve_prefix_expr28_$u7b$$u7b$closure$u7d$$u7d$17hca09b004564d57fbE.exit" ], [ %123, %122 ], [ %129, %128 ]
-  %.142 = phi i32 [ %spec.select55, %"_ZN3hir15source_analyzer14SourceAnalyzer19resolve_prefix_expr28_$u7b$$u7b$closure$u7d$$u7d$17hca09b004564d57fbE.exit" ], [ %124, %122 ], [ %130, %128 ]
+  %.146 = phi i32 [ %spec.select, %"_ZN3hir15source_analyzer14SourceAnalyzer19resolve_prefix_expr28_$u7b$$u7b$closure$u7d$$u7d$17hca09b004564d57fbE.exit" ], [ %123, %122 ], [ %129, %128 ]
+  %.144 = phi i32 [ %spec.select55, %"_ZN3hir15source_analyzer14SourceAnalyzer19resolve_prefix_expr28_$u7b$$u7b$closure$u7d$$u7d$17hca09b004564d57fbE.exit" ], [ %124, %122 ], [ %130, %128 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   %115 = call { i64, ptr } @_ZN6syntax3ast9generated5nodes10PrefixExpr4expr17h2036063932a9ff0fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
   %116 = extractvalue { i64, ptr } %115, 0
@@ -12625,7 +12625,7 @@ _ZN3hir15source_analyzer14SourceAnalyzer10ty_of_expr17h5c29a47e346057bfE.exit: ;
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %10)
-  call void @"_ZN6hir_ty7builder25TyBuilder$LT$$LP$$RP$$GT$13subst_for_def17h2ad8f472531e0cb2E"(ptr noalias nocapture noundef nonnull sret({ ptr, { { [4 x i64] }, i64 }, { { [4 x i64] }, i64 }, {} }) align 8 dereferenceable(88) %10, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %.144, ptr noundef null)
+  call void @"_ZN6hir_ty7builder25TyBuilder$LT$$LP$$RP$$GT$13subst_for_def17h2ad8f472531e0cb2E"(ptr noalias nocapture noundef nonnull sret({ ptr, { { [4 x i64] }, i64 }, { { [4 x i64] }, i64 }, {} }) align 8 dereferenceable(88) %10, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %.146, ptr noundef null)
   call void @llvm.experimental.noalias.scope.decl(metadata !2450)
   %155 = load ptr, ptr %150, align 8, !alias.scope !2450, !nonnull !4, !noundef !4
   %156 = atomicrmw add ptr %155, i64 1 monotonic, align 8, !noalias !2450
@@ -12648,7 +12648,7 @@ select.unfold:                                    ; preds = %149, %.noexc, %132,
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %10)
   %159 = call noundef nonnull ptr @"_ZN6hir_ty7builder25TyBuilder$LT$$LP$$RP$$GT$5build17h3f8775bcbdebae4cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %11)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %11)
-  %160 = call fastcc noundef i32 @_ZN3hir15source_analyzer14SourceAnalyzer32resolve_impl_method_or_trait_def17h384b04ff22a7e1b0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %.142, ptr noundef nonnull %159), !range !1286
+  %160 = call fastcc noundef i32 @_ZN3hir15source_analyzer14SourceAnalyzer32resolve_impl_method_or_trait_def17h384b04ff22a7e1b0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %.144, ptr noundef nonnull %159), !range !1286
   br label %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17hc9bc5c6fe8f774f3E.exit68"
 
 "_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17hc9bc5c6fe8f774f3E.exit68": ; preds = %128, %122, %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17hc9bc5c6fe8f774f3E.exit62", %4, %163, %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc02bc094d2540e22E.exit"
@@ -15555,8 +15555,8 @@ _ZN4core3ops8function6FnOnce9call_once17h8d961d7f88660c49E.exit.thread.i: ; pred
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %174, %.noexc220
-  %.sroa.042.0.i = phi i32 [ %182, %.noexc220 ], [ %173, %174 ]
   %.sroa.444.0.i = phi i32 [ %183, %.noexc220 ], [ %176, %174 ]
+  %.sroa.042.0.i = phi i32 [ %182, %.noexc220 ], [ %173, %174 ]
   %switch.cast704 = trunc i32 %.sroa.042.0.i to i24
   %switch.shiftamt705 = shl nuw nsw i24 %switch.cast704, 3
   %switch.downshift706 = lshr i24 525313, %switch.shiftamt705
@@ -18819,8 +18819,8 @@ define hidden noundef zeroext i1 @_ZN3hir15source_analyzer14SourceAnalyzer20is_u
   br label %50
 
 50:                                               ; preds = %40, %30
-  %.sroa.07.0 = phi i8 [ %47, %40 ], [ %37, %30 ]
   %.sroa.7.0 = phi i8 [ %49, %40 ], [ %39, %30 ]
+  %.sroa.07.0 = phi i8 [ %47, %40 ], [ %37, %30 ]
   %51 = icmp eq i8 %.sroa.07.0, 1
   %52 = add i8 %.sroa.7.0, -7
   %or.cond = icmp ult i8 %52, 2
@@ -21145,8 +21145,8 @@ define hidden void @"_ZN3hir15source_analyzer17resolve_hir_path_28_$u7b$$u7b$clo
   br i1 %47, label %50, label %.thread312
 
 48:                                               ; preds = %43, %50
-  %.sroa.10.sroa.7.0 = phi ptr [ %52, %50 ], [ null, %43 ]
   %.sroa.10.sroa.8.0 = phi ptr [ %53, %50 ], [ undef, %43 ]
+  %.sroa.10.sroa.7.0 = phi ptr [ %52, %50 ], [ null, %43 ]
   %49 = icmp eq i32 %.sroa.5167.sroa.0.0.copyload, 20
   br i1 %49, label %.thread312, label %76
 
@@ -21238,24 +21238,24 @@ define hidden void @"_ZN3hir15source_analyzer17resolve_hir_path_28_$u7b$$u7b$clo
   br label %76
 
 76:                                               ; preds = %.thread317, %48
-  %.sroa.10.sroa.0.sroa.0.0325 = phi i64 [ %.sroa.3.0.copyload, %.thread317 ], [ %.sroa.5167.sroa.4.0.copyload, %48 ]
-  %.sroa.0114.0324 = phi i32 [ %.sroa.0123.0.copyload, %.thread317 ], [ %.sroa.5167.sroa.0.0.copyload, %48 ]
+  %.sroa.0114.0325 = phi i32 [ %.sroa.0123.0.copyload, %.thread317 ], [ %.sroa.5167.sroa.0.0.copyload, %48 ]
+  %.sroa.10.sroa.7.0324 = phi ptr [ %74, %.thread317 ], [ %.sroa.10.sroa.7.0, %48 ]
   %.sroa.10.sroa.8.0323 = phi ptr [ %75, %.thread317 ], [ %.sroa.10.sroa.8.0, %48 ]
-  %.sroa.10.sroa.7.0322 = phi ptr [ %74, %.thread317 ], [ %.sroa.10.sroa.7.0, %48 ]
-  %.sroa.4190.4.extract.shift = lshr i64 %.sroa.10.sroa.0.sroa.0.0325, 32
+  %.sroa.10.sroa.0.sroa.0.0322 = phi i64 [ %.sroa.3.0.copyload, %.thread317 ], [ %.sroa.5167.sroa.4.0.copyload, %48 ]
+  %.sroa.4190.4.extract.shift = lshr i64 %.sroa.10.sroa.0.sroa.0.0322, 32
   %.sroa.4190.4.extract.trunc = trunc nuw i64 %.sroa.4190.4.extract.shift to i32
-  %.sroa.7.sroa.0.0.extract.trunc = trunc i64 %.sroa.10.sroa.0.sroa.0.0325 to i16
-  %.sroa.7.sroa.14.0.extract.shift199 = lshr i64 %.sroa.10.sroa.0.sroa.0.0325, 8
+  %.sroa.7.sroa.0.0.extract.trunc = trunc i64 %.sroa.10.sroa.0.sroa.0.0322 to i16
+  %.sroa.7.sroa.14.0.extract.shift199 = lshr i64 %.sroa.10.sroa.0.sroa.0.0322, 8
   %.sroa.7.sroa.14.0.extract.trunc = trunc i64 %.sroa.7.sroa.14.0.extract.shift199 to i16
-  %.sroa.7.sroa.15.0.extract.shift200 = lshr i64 %.sroa.10.sroa.0.sroa.0.0325, 16
+  %.sroa.7.sroa.15.0.extract.shift200 = lshr i64 %.sroa.10.sroa.0.sroa.0.0322, 16
   %.sroa.7.sroa.15.0.extract.trunc = trunc i64 %.sroa.7.sroa.15.0.extract.shift200 to i32
-  %.not = icmp ne ptr %.sroa.10.sroa.7.0322, null
-  %77 = icmp eq i32 %.sroa.0114.0324, 18
+  %.not = icmp ne ptr %.sroa.10.sroa.7.0324, null
+  %77 = icmp eq i32 %.sroa.0114.0325, 18
   %or.cond = and i1 %77, %.not
   br i1 %or.cond, label %81, label %78
 
 78:                                               ; preds = %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..TraitData$GT$$GT$17h76ec573641386595E.exit205", %76
-  %79 = add i32 %.sroa.0114.0324, -11
+  %79 = add i32 %.sroa.0114.0325, -11
   %80 = icmp ult i32 %79, 9
   %narrow = select i1 %80, i32 %79, i32 1
   switch i32 %narrow, label %20 [
@@ -21276,7 +21276,7 @@ define hidden void @"_ZN3hir15source_analyzer17resolve_hir_path_28_$u7b$$u7b$clo
   %.sroa.7.sroa.14.0.insert.ext40 = shl i32 %82, 8
   %.sroa.7.sroa.14.0.insert.shift41 = and i32 %.sroa.7.sroa.14.0.insert.ext40, 65280
   %.sroa.7.sroa.14.0.insert.insert43 = or disjoint i32 %.sroa.7.sroa.14.0.insert.shift41, %.sroa.7.sroa.15.0.insert.ext72
-  %83 = trunc i64 %.sroa.10.sroa.0.sroa.0.0325 to i32
+  %83 = trunc i64 %.sroa.10.sroa.0.sroa.0.0322 to i32
   %.sroa.7.sroa.0.0.insert.ext16 = and i32 %83, 255
   %.sroa.7.sroa.0.0.insert.insert18 = or disjoint i32 %.sroa.7.sroa.14.0.insert.insert43, %.sroa.7.sroa.0.0.insert.ext16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
@@ -21289,7 +21289,7 @@ define hidden void @"_ZN3hir15source_analyzer17resolve_hir_path_28_$u7b$$u7b$clo
   %90 = call noundef nonnull ptr %89(ptr noundef nonnull align 1 %85, i32 noundef %.sroa.7.sroa.0.0.insert.insert18)
   store ptr %90, ptr %11, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 8
-  %92 = invoke noundef i32 @_ZN7hir_def4data9TraitData23associated_type_by_name17h0bd3f717f00d6851E(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %91, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.10.sroa.7.0322)
+  %92 = invoke noundef i32 @_ZN7hir_def4data9TraitData23associated_type_by_name17h0bd3f717f00d6851E(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %91, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.10.sroa.7.0324)
           to label %101 unwind label %93
 
 93:                                               ; preds = %110, %102, %81
@@ -21383,7 +21383,7 @@ define hidden void @"_ZN3hir15source_analyzer17resolve_hir_path_28_$u7b$$u7b$clo
   %.sroa.7.sroa.14.0.insert.ext44 = shl i32 %122, 8
   %.sroa.7.sroa.14.0.insert.shift45 = and i32 %.sroa.7.sroa.14.0.insert.ext44, 65280
   %.sroa.7.sroa.14.0.insert.insert47 = or disjoint i32 %.sroa.7.sroa.14.0.insert.shift45, %.sroa.7.sroa.15.0.insert.ext76
-  %123 = trunc i64 %.sroa.10.sroa.0.sroa.0.0325 to i32
+  %123 = trunc i64 %.sroa.10.sroa.0.sroa.0.0322 to i32
   %.sroa.7.sroa.0.0.insert.ext19 = and i32 %123, 255
   %.sroa.7.sroa.0.0.insert.insert21 = or disjoint i32 %.sroa.7.sroa.14.0.insert.insert47, %.sroa.7.sroa.0.0.insert.ext19
   store i32 %.sroa.7.sroa.0.0.insert.insert21, ptr %.sroa.21, align 8
@@ -21395,10 +21395,10 @@ define hidden void @"_ZN3hir15source_analyzer17resolve_hir_path_28_$u7b$$u7b$clo
   %.sroa.7.sroa.14.0.insert.ext = shl i32 %125, 8
   %.sroa.7.sroa.14.0.insert.shift = and i32 %.sroa.7.sroa.14.0.insert.ext, 65280
   %.sroa.7.sroa.14.0.insert.insert = or disjoint i32 %.sroa.7.sroa.14.0.insert.shift, %.sroa.7.sroa.15.0.insert.ext
-  %126 = trunc i64 %.sroa.10.sroa.0.sroa.0.0325 to i32
+  %126 = trunc i64 %.sroa.10.sroa.0.sroa.0.0322 to i32
   %.sroa.7.sroa.0.0.insert.ext = and i32 %126, 255
   %.sroa.7.sroa.0.0.insert.insert = or disjoint i32 %.sroa.7.sroa.14.0.insert.insert, %.sroa.7.sroa.0.0.insert.ext
-  store i32 %.sroa.0114.0324, ptr %.sroa.21, align 8
+  store i32 %.sroa.0114.0325, ptr %.sroa.21, align 8
   %.sroa.21.4..sroa_idx341 = getelementptr inbounds i8, ptr %.sroa.21, i64 4
   store i32 %.sroa.7.sroa.0.0.insert.insert, ptr %.sroa.21.4..sroa_idx341, align 4
   %.sroa.21.8..sroa_idx343 = getelementptr inbounds i8, ptr %.sroa.21, i64 8
@@ -21411,7 +21411,7 @@ define hidden void @"_ZN3hir15source_analyzer17resolve_hir_path_28_$u7b$$u7b$clo
   %.sroa.7.sroa.14.0.insert.ext56 = shl i32 %128, 8
   %.sroa.7.sroa.14.0.insert.shift57 = and i32 %.sroa.7.sroa.14.0.insert.ext56, 65280
   %.sroa.7.sroa.14.0.insert.insert59 = or disjoint i32 %.sroa.7.sroa.14.0.insert.shift57, %.sroa.7.sroa.15.0.insert.ext88
-  %129 = trunc i64 %.sroa.10.sroa.0.sroa.0.0325 to i32
+  %129 = trunc i64 %.sroa.10.sroa.0.sroa.0.0322 to i32
   %.sroa.7.sroa.0.0.insert.ext28 = and i32 %129, 255
   %.sroa.7.sroa.0.0.insert.insert30 = or disjoint i32 %.sroa.7.sroa.14.0.insert.insert59, %.sroa.7.sroa.0.0.insert.ext28
   store i32 %.sroa.7.sroa.0.0.insert.insert30, ptr %.sroa.21, align 8
@@ -21423,7 +21423,7 @@ define hidden void @"_ZN3hir15source_analyzer17resolve_hir_path_28_$u7b$$u7b$clo
   %.sroa.7.sroa.14.0.insert.ext60 = shl i32 %131, 8
   %.sroa.7.sroa.14.0.insert.shift61 = and i32 %.sroa.7.sroa.14.0.insert.ext60, 65280
   %.sroa.7.sroa.14.0.insert.insert63 = or disjoint i32 %.sroa.7.sroa.14.0.insert.shift61, %.sroa.7.sroa.15.0.insert.ext92
-  %132 = trunc i64 %.sroa.10.sroa.0.sroa.0.0325 to i32
+  %132 = trunc i64 %.sroa.10.sroa.0.sroa.0.0322 to i32
   %.sroa.7.sroa.0.0.insert.ext31 = and i32 %132, 255
   %.sroa.7.sroa.0.0.insert.insert33 = or disjoint i32 %.sroa.7.sroa.14.0.insert.insert63, %.sroa.7.sroa.0.0.insert.ext31
   store i32 %.sroa.7.sroa.0.0.insert.insert33, ptr %.sroa.21, align 8
@@ -21439,7 +21439,7 @@ define hidden void @"_ZN3hir15source_analyzer17resolve_hir_path_28_$u7b$$u7b$clo
   %.sroa.7.sroa.14.0.insert.ext64 = shl i32 %136, 8
   %.sroa.7.sroa.14.0.insert.shift65 = and i32 %.sroa.7.sroa.14.0.insert.ext64, 65280
   %.sroa.7.sroa.14.0.insert.insert67 = or disjoint i32 %.sroa.7.sroa.14.0.insert.shift65, %.sroa.7.sroa.15.0.insert.ext96
-  %137 = trunc i64 %.sroa.10.sroa.0.sroa.0.0325 to i32
+  %137 = trunc i64 %.sroa.10.sroa.0.sroa.0.0322 to i32
   %.sroa.7.sroa.0.0.insert.ext34 = and i32 %137, 255
   %.sroa.7.sroa.0.0.insert.insert36 = or disjoint i32 %.sroa.7.sroa.14.0.insert.insert67, %.sroa.7.sroa.0.0.insert.ext34
   store i32 %.sroa.7.sroa.0.0.insert.insert36, ptr %.sroa.21, align 8
@@ -21451,7 +21451,7 @@ define hidden void @"_ZN3hir15source_analyzer17resolve_hir_path_28_$u7b$$u7b$clo
   %.sroa.7.sroa.14.0.insert.ext68 = shl i32 %139, 8
   %.sroa.7.sroa.14.0.insert.shift69 = and i32 %.sroa.7.sroa.14.0.insert.ext68, 65280
   %.sroa.7.sroa.14.0.insert.insert71 = or disjoint i32 %.sroa.7.sroa.14.0.insert.shift69, %.sroa.7.sroa.15.0.insert.ext100
-  %140 = trunc i64 %.sroa.10.sroa.0.sroa.0.0325 to i32
+  %140 = trunc i64 %.sroa.10.sroa.0.sroa.0.0322 to i32
   %.sroa.7.sroa.0.0.insert.ext37 = and i32 %140, 255
   %.sroa.7.sroa.0.0.insert.insert39 = or disjoint i32 %.sroa.7.sroa.14.0.insert.insert71, %.sroa.7.sroa.0.0.insert.ext37
   store i32 %.sroa.7.sroa.0.0.insert.insert39, ptr %.sroa.21, align 8
@@ -21468,7 +21468,7 @@ define hidden void @"_ZN3hir15source_analyzer17resolve_hir_path_28_$u7b$$u7b$clo
   %.sroa.7.sroa.14.0.insert.ext52 = shl i32 %143, 8
   %.sroa.7.sroa.14.0.insert.shift53 = and i32 %.sroa.7.sroa.14.0.insert.ext52, 65280
   %.sroa.7.sroa.14.0.insert.insert55 = or disjoint i32 %.sroa.7.sroa.14.0.insert.shift53, %.sroa.7.sroa.15.0.insert.ext84
-  %144 = trunc i64 %.sroa.10.sroa.0.sroa.0.0325 to i32
+  %144 = trunc i64 %.sroa.10.sroa.0.sroa.0.0322 to i32
   %.sroa.7.sroa.0.0.insert.ext25 = and i32 %144, 255
   %.sroa.7.sroa.0.0.insert.insert27 = or disjoint i32 %.sroa.7.sroa.14.0.insert.insert55, %.sroa.7.sroa.0.0.insert.ext25
   store i32 %.sroa.7.sroa.0.0.insert.insert27, ptr %.sroa.21, align 8
@@ -21488,7 +21488,7 @@ define hidden void @"_ZN3hir15source_analyzer17resolve_hir_path_28_$u7b$$u7b$clo
 
 146:                                              ; preds = %141
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  store ptr %.sroa.10.sroa.7.0322, ptr %7, align 8
+  store ptr %.sroa.10.sroa.7.0324, ptr %7, align 8
   %147 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %.sroa.10.sroa.8.0323, ptr %147, align 8
   %148 = getelementptr inbounds i8, ptr %1, i64 24
@@ -22029,8 +22029,8 @@ define internal fastcc void @_ZN3hir15source_analyzer26resolve_hir_path_qualifie
   br i1 %40, label %43, label %"_ZN3hir15source_analyzer26resolve_hir_path_qualifier28_$u7b$$u7b$closure$u7d$$u7d$17h9815e09804d874c2E.exit.thread"
 
 41:                                               ; preds = %43, %36
-  %.sroa.10.sroa.7.0.i = phi ptr [ %45, %43 ], [ null, %36 ]
   %.sroa.10.sroa.8.0.i = phi ptr [ %46, %43 ], [ undef, %36 ]
+  %.sroa.10.sroa.7.0.i = phi ptr [ %45, %43 ], [ null, %36 ]
   %42 = icmp eq i32 %.sroa.5167.sroa.0.0.copyload.i, 20
   br i1 %42, label %"_ZN3hir15source_analyzer26resolve_hir_path_qualifier28_$u7b$$u7b$closure$u7d$$u7d$17h9815e09804d874c2E.exit.thread", label %69
 
@@ -22118,24 +22118,24 @@ define internal fastcc void @_ZN3hir15source_analyzer26resolve_hir_path_qualifie
   br label %69
 
 69:                                               ; preds = %.thread317.i, %41
-  %.sroa.10.sroa.0.sroa.0.0325.i = phi i64 [ %.sroa.3.0.copyload.i, %.thread317.i ], [ %.sroa.5167.sroa.4.0.copyload.i, %41 ]
-  %.sroa.0114.0324.i = phi i32 [ %.sroa.0123.0.copyload.i, %.thread317.i ], [ %.sroa.5167.sroa.0.0.copyload.i, %41 ]
+  %.sroa.0114.0325.i = phi i32 [ %.sroa.0123.0.copyload.i, %.thread317.i ], [ %.sroa.5167.sroa.0.0.copyload.i, %41 ]
+  %.sroa.10.sroa.7.0324.i = phi ptr [ %67, %.thread317.i ], [ %.sroa.10.sroa.7.0.i, %41 ]
   %.sroa.10.sroa.8.0323.i = phi ptr [ %68, %.thread317.i ], [ %.sroa.10.sroa.8.0.i, %41 ]
-  %.sroa.10.sroa.7.0322.i = phi ptr [ %67, %.thread317.i ], [ %.sroa.10.sroa.7.0.i, %41 ]
-  %.sroa.4190.4.extract.shift.i = lshr i64 %.sroa.10.sroa.0.sroa.0.0325.i, 32
+  %.sroa.10.sroa.0.sroa.0.0322.i = phi i64 [ %.sroa.3.0.copyload.i, %.thread317.i ], [ %.sroa.5167.sroa.4.0.copyload.i, %41 ]
+  %.sroa.4190.4.extract.shift.i = lshr i64 %.sroa.10.sroa.0.sroa.0.0322.i, 32
   %.sroa.4190.4.extract.trunc.i = trunc nuw i64 %.sroa.4190.4.extract.shift.i to i32
-  %.sroa.7.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.10.sroa.0.sroa.0.0325.i to i16
-  %.sroa.7.sroa.14.0.extract.shift199.i = lshr i64 %.sroa.10.sroa.0.sroa.0.0325.i, 8
+  %.sroa.7.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.10.sroa.0.sroa.0.0322.i to i16
+  %.sroa.7.sroa.14.0.extract.shift199.i = lshr i64 %.sroa.10.sroa.0.sroa.0.0322.i, 8
   %.sroa.7.sroa.14.0.extract.trunc.i = trunc i64 %.sroa.7.sroa.14.0.extract.shift199.i to i16
-  %.sroa.7.sroa.15.0.extract.shift200.i = lshr i64 %.sroa.10.sroa.0.sroa.0.0325.i, 16
+  %.sroa.7.sroa.15.0.extract.shift200.i = lshr i64 %.sroa.10.sroa.0.sroa.0.0322.i, 16
   %.sroa.7.sroa.15.0.extract.trunc.i = trunc i64 %.sroa.7.sroa.15.0.extract.shift200.i to i32
-  %.not.i = icmp ne ptr %.sroa.10.sroa.7.0322.i, null
-  %70 = icmp eq i32 %.sroa.0114.0324.i, 18
+  %.not.i = icmp ne ptr %.sroa.10.sroa.7.0324.i, null
+  %70 = icmp eq i32 %.sroa.0114.0325.i, 18
   %or.cond.i = and i1 %70, %.not.i
   br i1 %or.cond.i, label %74, label %71
 
 71:                                               ; preds = %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..TraitData$GT$$GT$17h76ec573641386595E.exit205.i", %69
-  %72 = add i32 %.sroa.0114.0324.i, -11
+  %72 = add i32 %.sroa.0114.0325.i, -11
   %73 = icmp ult i32 %72, 9
   %narrow.i = select i1 %73, i32 %72, i32 1
   switch i32 %narrow.i, label %25 [
@@ -22156,7 +22156,7 @@ define internal fastcc void @_ZN3hir15source_analyzer26resolve_hir_path_qualifie
   %.sroa.7.sroa.14.0.insert.ext40.i = shl i32 %75, 8
   %.sroa.7.sroa.14.0.insert.shift41.i = and i32 %.sroa.7.sroa.14.0.insert.ext40.i, 65280
   %.sroa.7.sroa.14.0.insert.insert43.i = or disjoint i32 %.sroa.7.sroa.14.0.insert.shift41.i, %.sroa.7.sroa.15.0.insert.ext72.i
-  %76 = trunc i64 %.sroa.10.sroa.0.sroa.0.0325.i to i32
+  %76 = trunc i64 %.sroa.10.sroa.0.sroa.0.0322.i to i32
   %.sroa.7.sroa.0.0.insert.ext16.i = and i32 %76, 255
   %.sroa.7.sroa.0.0.insert.insert18.i = or disjoint i32 %.sroa.7.sroa.14.0.insert.insert43.i, %.sroa.7.sroa.0.0.insert.ext16.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17), !noalias !4458
@@ -22165,7 +22165,7 @@ define internal fastcc void @_ZN3hir15source_analyzer26resolve_hir_path_qualifie
   %79 = call noundef nonnull ptr %78(ptr noundef nonnull align 1 %1, i32 noundef %.sroa.7.sroa.0.0.insert.insert18.i), !noalias !4458
   store ptr %79, ptr %17, align 8, !noalias !4458
   %80 = getelementptr inbounds i8, ptr %79, i64 8
-  %81 = invoke noundef i32 @_ZN7hir_def4data9TraitData23associated_type_by_name17h0bd3f717f00d6851E(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %80, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.10.sroa.7.0322.i)
+  %81 = invoke noundef i32 @_ZN7hir_def4data9TraitData23associated_type_by_name17h0bd3f717f00d6851E(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %80, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.10.sroa.7.0324.i)
           to label %90 unwind label %82
 
 82:                                               ; preds = %99, %91, %74
@@ -22261,7 +22261,7 @@ define internal fastcc void @_ZN3hir15source_analyzer26resolve_hir_path_qualifie
   %.sroa.7.sroa.14.0.insert.ext44.i = shl i32 %110, 8
   %.sroa.7.sroa.14.0.insert.shift45.i = and i32 %.sroa.7.sroa.14.0.insert.ext44.i, 65280
   %.sroa.7.sroa.14.0.insert.insert47.i = or disjoint i32 %.sroa.7.sroa.14.0.insert.shift45.i, %.sroa.7.sroa.15.0.insert.ext76.i
-  %111 = trunc i64 %.sroa.10.sroa.0.sroa.0.0325.i to i32
+  %111 = trunc i64 %.sroa.10.sroa.0.sroa.0.0322.i to i32
   %.sroa.7.sroa.0.0.insert.ext19.i = and i32 %111, 255
   %.sroa.7.sroa.0.0.insert.insert21.i = or disjoint i32 %.sroa.7.sroa.14.0.insert.insert47.i, %.sroa.7.sroa.0.0.insert.ext19.i
   store i32 %.sroa.7.sroa.0.0.insert.insert21.i, ptr %.sroa.21.i, align 8, !noalias !4458
@@ -22273,10 +22273,10 @@ define internal fastcc void @_ZN3hir15source_analyzer26resolve_hir_path_qualifie
   %.sroa.7.sroa.14.0.insert.ext.i = shl i32 %113, 8
   %.sroa.7.sroa.14.0.insert.shift.i = and i32 %.sroa.7.sroa.14.0.insert.ext.i, 65280
   %.sroa.7.sroa.14.0.insert.insert.i = or disjoint i32 %.sroa.7.sroa.14.0.insert.shift.i, %.sroa.7.sroa.15.0.insert.ext.i
-  %114 = trunc i64 %.sroa.10.sroa.0.sroa.0.0325.i to i32
+  %114 = trunc i64 %.sroa.10.sroa.0.sroa.0.0322.i to i32
   %.sroa.7.sroa.0.0.insert.ext.i = and i32 %114, 255
   %.sroa.7.sroa.0.0.insert.insert.i = or disjoint i32 %.sroa.7.sroa.14.0.insert.insert.i, %.sroa.7.sroa.0.0.insert.ext.i
-  store i32 %.sroa.0114.0324.i, ptr %.sroa.21.i, align 8, !noalias !4458
+  store i32 %.sroa.0114.0325.i, ptr %.sroa.21.i, align 8, !noalias !4458
   %.sroa.21.i.4.i.4.i.4..sroa_idx51 = getelementptr inbounds i8, ptr %.sroa.21.i, i64 4
   store i32 %.sroa.7.sroa.0.0.insert.insert.i, ptr %.sroa.21.i.4.i.4.i.4..sroa_idx51, align 4, !noalias !4458
   %.sroa.21.i.8.i.8.i.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.21.i, i64 8
@@ -22289,7 +22289,7 @@ define internal fastcc void @_ZN3hir15source_analyzer26resolve_hir_path_qualifie
   %.sroa.7.sroa.14.0.insert.ext56.i = shl i32 %116, 8
   %.sroa.7.sroa.14.0.insert.shift57.i = and i32 %.sroa.7.sroa.14.0.insert.ext56.i, 65280
   %.sroa.7.sroa.14.0.insert.insert59.i = or disjoint i32 %.sroa.7.sroa.14.0.insert.shift57.i, %.sroa.7.sroa.15.0.insert.ext88.i
-  %117 = trunc i64 %.sroa.10.sroa.0.sroa.0.0325.i to i32
+  %117 = trunc i64 %.sroa.10.sroa.0.sroa.0.0322.i to i32
   %.sroa.7.sroa.0.0.insert.ext28.i = and i32 %117, 255
   %.sroa.7.sroa.0.0.insert.insert30.i = or disjoint i32 %.sroa.7.sroa.14.0.insert.insert59.i, %.sroa.7.sroa.0.0.insert.ext28.i
   store i32 %.sroa.7.sroa.0.0.insert.insert30.i, ptr %.sroa.21.i, align 8, !noalias !4458
@@ -22301,7 +22301,7 @@ define internal fastcc void @_ZN3hir15source_analyzer26resolve_hir_path_qualifie
   %.sroa.7.sroa.14.0.insert.ext60.i = shl i32 %119, 8
   %.sroa.7.sroa.14.0.insert.shift61.i = and i32 %.sroa.7.sroa.14.0.insert.ext60.i, 65280
   %.sroa.7.sroa.14.0.insert.insert63.i = or disjoint i32 %.sroa.7.sroa.14.0.insert.shift61.i, %.sroa.7.sroa.15.0.insert.ext92.i
-  %120 = trunc i64 %.sroa.10.sroa.0.sroa.0.0325.i to i32
+  %120 = trunc i64 %.sroa.10.sroa.0.sroa.0.0322.i to i32
   %.sroa.7.sroa.0.0.insert.ext31.i = and i32 %120, 255
   %.sroa.7.sroa.0.0.insert.insert33.i = or disjoint i32 %.sroa.7.sroa.14.0.insert.insert63.i, %.sroa.7.sroa.0.0.insert.ext31.i
   store i32 %.sroa.7.sroa.0.0.insert.insert33.i, ptr %.sroa.21.i, align 8, !noalias !4458
@@ -22317,7 +22317,7 @@ define internal fastcc void @_ZN3hir15source_analyzer26resolve_hir_path_qualifie
   %.sroa.7.sroa.14.0.insert.ext64.i = shl i32 %124, 8
   %.sroa.7.sroa.14.0.insert.shift65.i = and i32 %.sroa.7.sroa.14.0.insert.ext64.i, 65280
   %.sroa.7.sroa.14.0.insert.insert67.i = or disjoint i32 %.sroa.7.sroa.14.0.insert.shift65.i, %.sroa.7.sroa.15.0.insert.ext96.i
-  %125 = trunc i64 %.sroa.10.sroa.0.sroa.0.0325.i to i32
+  %125 = trunc i64 %.sroa.10.sroa.0.sroa.0.0322.i to i32
   %.sroa.7.sroa.0.0.insert.ext34.i = and i32 %125, 255
   %.sroa.7.sroa.0.0.insert.insert36.i = or disjoint i32 %.sroa.7.sroa.14.0.insert.insert67.i, %.sroa.7.sroa.0.0.insert.ext34.i
   store i32 %.sroa.7.sroa.0.0.insert.insert36.i, ptr %.sroa.21.i, align 8, !noalias !4458
@@ -22329,7 +22329,7 @@ define internal fastcc void @_ZN3hir15source_analyzer26resolve_hir_path_qualifie
   %.sroa.7.sroa.14.0.insert.ext68.i = shl i32 %127, 8
   %.sroa.7.sroa.14.0.insert.shift69.i = and i32 %.sroa.7.sroa.14.0.insert.ext68.i, 65280
   %.sroa.7.sroa.14.0.insert.insert71.i = or disjoint i32 %.sroa.7.sroa.14.0.insert.shift69.i, %.sroa.7.sroa.15.0.insert.ext100.i
-  %128 = trunc i64 %.sroa.10.sroa.0.sroa.0.0325.i to i32
+  %128 = trunc i64 %.sroa.10.sroa.0.sroa.0.0322.i to i32
   %.sroa.7.sroa.0.0.insert.ext37.i = and i32 %128, 255
   %.sroa.7.sroa.0.0.insert.insert39.i = or disjoint i32 %.sroa.7.sroa.14.0.insert.insert71.i, %.sroa.7.sroa.0.0.insert.ext37.i
   store i32 %.sroa.7.sroa.0.0.insert.insert39.i, ptr %.sroa.21.i, align 8, !noalias !4458
@@ -22346,7 +22346,7 @@ define internal fastcc void @_ZN3hir15source_analyzer26resolve_hir_path_qualifie
   %.sroa.7.sroa.14.0.insert.ext52.i = shl i32 %131, 8
   %.sroa.7.sroa.14.0.insert.shift53.i = and i32 %.sroa.7.sroa.14.0.insert.ext52.i, 65280
   %.sroa.7.sroa.14.0.insert.insert55.i = or disjoint i32 %.sroa.7.sroa.14.0.insert.shift53.i, %.sroa.7.sroa.15.0.insert.ext84.i
-  %132 = trunc i64 %.sroa.10.sroa.0.sroa.0.0325.i to i32
+  %132 = trunc i64 %.sroa.10.sroa.0.sroa.0.0322.i to i32
   %.sroa.7.sroa.0.0.insert.ext25.i = and i32 %132, 255
   %.sroa.7.sroa.0.0.insert.insert27.i = or disjoint i32 %.sroa.7.sroa.14.0.insert.insert55.i, %.sroa.7.sroa.0.0.insert.ext25.i
   store i32 %.sroa.7.sroa.0.0.insert.insert27.i, ptr %.sroa.21.i, align 8, !noalias !4458
@@ -22365,7 +22365,7 @@ define internal fastcc void @_ZN3hir15source_analyzer26resolve_hir_path_qualifie
 
 133:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !4458
-  store ptr %.sroa.10.sroa.7.0322.i, ptr %14, align 8, !noalias !4458
+  store ptr %.sroa.10.sroa.7.0324.i, ptr %14, align 8, !noalias !4458
   %134 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %.sroa.10.sroa.8.0323.i, ptr %134, align 8, !noalias !4458
   %135 = call i64 @_ZN7hir_def8resolver8Resolver11generic_def17h68846eefb6ac40d4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %3), !noalias !4458

@@ -547,9 +547,9 @@ define dso_local range(i64 0, 2) i64 @in_range_int8_int8(ptr nocapture noundef r
   br label %29
 
 29:                                               ; preds = %27, %25, %23
-  %.0.in = phi i1 [ %spec.select18, %23 ], [ %26, %25 ], [ %28, %27 ]
-  %.0 = zext i1 %.0.in to i64
-  ret i64 %.0
+  %.016.in = phi i1 [ %spec.select18, %23 ], [ %26, %25 ], [ %28, %27 ]
+  %.016 = zext i1 %.016.in to i64
+  ret i64 %.016
 }
 
 ; Function Attrs: cold
@@ -1035,8 +1035,8 @@ define dso_local i64 @int8inc_support(ptr nocapture noundef readonly %0) local_u
   br label %21
 
 21:                                               ; preds = %1, %19
-  %.0 = phi i64 [ %3, %19 ], [ 0, %1 ]
-  ret i64 %.0
+  %.012 = phi i64 [ %3, %19 ], [ 0, %1 ]
+  ret i64 %.012
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -1896,7 +1896,7 @@ list_length.exit:                                 ; preds = %is_funcclause.exit
   br label %31
 
 31:                                               ; preds = %list_length.exit, %26
-  %.037 = phi ptr [ %30, %26 ], [ null, %list_length.exit ]
+  %.0 = phi ptr [ %30, %26 ], [ null, %list_length.exit ]
   %32 = load i32, ptr %18, align 4
   %33 = icmp ne i32 %32, 7
   br i1 %33, label %38, label %34
@@ -1919,16 +1919,16 @@ list_length.exit:                                 ; preds = %is_funcclause.exit
   br i1 %44, label %is_funcclause.exit.thread.sink.split, label %45
 
 45:                                               ; preds = %41, %38
-  %.not = icmp eq ptr %.037, null
+  %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.thread, label %46
 
 46:                                               ; preds = %45
-  %47 = load i32, ptr %.037, align 4
+  %47 = load i32, ptr %.0, align 4
   %48 = icmp eq i32 %47, 7
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %.037, i64 32
+  %50 = getelementptr inbounds i8, ptr %.0, i64 32
   %51 = load i8, ptr %50, align 8
   %52 = trunc i8 %51 to i1
   br i1 %52, label %is_funcclause.exit.thread.sink.split, label %53
@@ -1945,12 +1945,12 @@ list_length.exit:                                 ; preds = %is_funcclause.exit
   br i1 %.not, label %.thread42, label %55
 
 55:                                               ; preds = %54
-  %56 = load i32, ptr %.037, align 4
+  %56 = load i32, ptr %.0, align 4
   %57 = icmp eq i32 %56, 7
   br i1 %57, label %58, label %is_funcclause.exit.thread
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %.037, i64 24
+  %59 = getelementptr inbounds i8, ptr %.0, i64 24
   %60 = load i64, ptr %59, align 8
   %61 = sitofp i64 %60 to double
   %.not45 = icmp eq i64 %60, 0
@@ -1977,8 +1977,8 @@ is_funcclause.exit.thread.sink.split:             ; preds = %34, %41, %49, %.thr
   br label %is_funcclause.exit.thread
 
 is_funcclause.exit.thread:                        ; preds = %is_funcclause.exit.thread.sink.split, %.thread, %53, %7, %is_funcclause.exit, %55, %58, %1
-  %.0 = phi i64 [ 0, %58 ], [ 0, %55 ], [ 0, %53 ], [ 0, %is_funcclause.exit ], [ 0, %1 ], [ 0, %7 ], [ 0, %.thread ], [ %3, %is_funcclause.exit.thread.sink.split ]
-  ret i64 %.0
+  %.037 = phi i64 [ 0, %58 ], [ 0, %55 ], [ 0, %53 ], [ 0, %is_funcclause.exit ], [ 0, %1 ], [ 0, %7 ], [ 0, %.thread ], [ %3, %is_funcclause.exit.thread.sink.split ]
+  ret i64 %.037
 }
 
 declare ptr @estimate_expression_value(ptr noundef, ptr noundef) local_unnamed_addr #1

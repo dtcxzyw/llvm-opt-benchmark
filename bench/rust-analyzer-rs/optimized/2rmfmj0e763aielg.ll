@@ -1052,21 +1052,21 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
   unreachable
 
 ._crit_edge:                                      ; preds = %42, %.preheader
-  %.032.lcssa = phi i64 [ 0, %.preheader ], [ %43, %42 ]
-  %22 = sub i64 %.032.lcssa, %2
+  %.034.lcssa = phi i64 [ 0, %.preheader ], [ %43, %42 ]
+  %22 = sub i64 %.034.lcssa, %2
   ret i64 %22
 
 23:                                               ; preds = %.lr.ph, %42
-  %.032105 = phi i64 [ 0, %.lr.ph ], [ %43, %42 ]
-  %24 = icmp ult i64 %.032105, %1
+  %.034105 = phi i64 [ 0, %.lr.ph ], [ %43, %42 ]
+  %24 = icmp ult i64 %.034105, %1
   call void @llvm.assume(i1 %24)
-  %25 = getelementptr inbounds i8, ptr %0, i64 %.032105
+  %25 = getelementptr inbounds i8, ptr %0, i64 %.034105
   %26 = load i8, ptr %25, align 1, !noundef !5
   %27 = icmp eq i8 %26, 10
   br i1 %27, label %28, label %38
 
 28:                                               ; preds = %23
-  %29 = trunc i64 %.032105 to i32
+  %29 = trunc i64 %.034105 to i32
   %30 = add i32 %20, %29
   %31 = load i64, ptr %12, align 8, !alias.scope !219, !noundef !5
   %32 = load i64, ptr %4, align 8, !alias.scope !219, !noundef !5
@@ -1091,7 +1091,7 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
 
 .sink.split:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf305d59fb8d87cabE.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h68892910732619c2E.exit"
   %.sink = phi ptr [ %161, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h68892910732619c2E.exit" ], [ %12, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf305d59fb8d87cabE.exit" ]
-  %.0.ph = phi i64 [ %.033, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h68892910732619c2E.exit" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf305d59fb8d87cabE.exit" ]
+  %.0.ph = phi i64 [ %.032, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h68892910732619c2E.exit" ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf305d59fb8d87cabE.exit" ]
   %40 = load i64, ptr %.sink, align 8, !noundef !5
   %41 = add i64 %40, 1
   store i64 %41, ptr %.sink, align 8
@@ -1099,12 +1099,12 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
 
 42:                                               ; preds = %.sink.split, %92, %38
   %.0 = phi i64 [ 1, %92 ], [ 1, %38 ], [ %.0.ph, %.sink.split ]
-  %43 = add i64 %.0, %.032105
+  %43 = add i64 %.0, %.034105
   %44 = icmp ult i64 %43, %2
   br i1 %44, label %23, label %._crit_edge
 
 45:                                               ; preds = %38
-  %46 = icmp eq i64 %.032105, 0
+  %46 = icmp eq i64 %.034105, 0
   br i1 %46, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.thread", label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i": ; preds = %45
@@ -1112,11 +1112,11 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
   br i1 %47, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i", label %48
 
 48:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"
-  call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %.032105, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.edb59cc71ceb91f03d7d1eaa33cee96c.43) #15
+  call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %.034105, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.edb59cc71ceb91f03d7d1eaa33cee96c.43) #15
   unreachable
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i"
-  %49 = sub i64 %1, %.032105
+  %49 = sub i64 %1, %.034105
   %50 = icmp eq i64 %49, 0
   br i1 %50, label %.thread, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.thread"
 
@@ -1187,8 +1187,8 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
   br label %.thread70.thread
 
 .thread70.thread:                                 ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.thread", %85, %87, %.thread70
-  %.033 = phi i64 [ 1, %.thread70 ], [ %., %87 ], [ 2, %85 ], [ 1, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.thread" ]
-  %89 = trunc i64 %.032105 to i32
+  %.032 = phi i64 [ 1, %.thread70 ], [ %., %87 ], [ 2, %85 ], [ 1, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.thread" ]
+  %89 = trunc i64 %.034105 to i32
   %90 = add i32 %89, %3
   %91 = load i64, ptr %12, align 8, !noundef !5
   %.not39 = icmp eq i64 %91, 0
@@ -1197,7 +1197,7 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
 92:                                               ; preds = %.thread70.thread, %95
   %.0.sroa.speculated = phi i32 [ 0, %.thread70.thread ], [ %.0.sroa.speculate.load.35, %95 ]
   %93 = sub i32 %90, %.0.sroa.speculated
-  %94 = icmp ugt i64 %.033, 1
+  %94 = icmp ugt i64 %.032, 1
   br i1 %94, label %99, label %42
 
 95:                                               ; preds = %.thread70.thread
@@ -1208,7 +1208,7 @@ define internal fastcc noundef i64 @_ZN10line_index27analyze_source_file_generic
   br label %92
 
 99:                                               ; preds = %92
-  %100 = trunc nuw nsw i64 %.033 to i32
+  %100 = trunc nuw nsw i64 %.032 to i32
   %101 = add i32 %93, %100
   %102 = trunc i64 %91 to i32
   call void @llvm.experimental.noalias.scope.decl(metadata !225)

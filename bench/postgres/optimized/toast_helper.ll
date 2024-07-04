@@ -284,8 +284,8 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr nocapture noundef r
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %30
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %30 ], [ 0, %.lr.ph.split.us ]
-  %.042.us.us = phi i32 [ %.1.us.us, %30 ], [ -1, %.lr.ph.split.us ]
-  %.03040.us.us = phi i32 [ %.131.us.us, %30 ], [ 24, %.lr.ph.split.us ]
+  %.02941.us.us = phi i32 [ %.1.us.us, %30 ], [ 24, %.lr.ph.split.us ]
+  %.03040.us.us = phi i32 [ %.131.us.us, %30 ], [ -1, %.lr.ph.split.us ]
   %12 = getelementptr %struct.ToastAttrInfo, ptr %10, i64 %indvars.iv69, i32 2
   %13 = load i8, ptr %12, align 4
   %14 = zext i8 %13 to i32
@@ -311,23 +311,23 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr nocapture noundef r
 25:                                               ; preds = %23
   %26 = getelementptr %struct.ToastAttrInfo, ptr %10, i64 %indvars.iv69, i32 1
   %27 = load i32, ptr %26, align 8
-  %28 = icmp sgt i32 %27, %.03040.us.us
-  %spec.select37.us.us = tail call i32 @llvm.smax.i32(i32 %27, i32 %.03040.us.us)
+  %28 = icmp sgt i32 %27, %.02941.us.us
   %29 = trunc nuw nsw i64 %indvars.iv69 to i32
-  %spec.select38.us.us = select i1 %28, i32 %29, i32 %.042.us.us
+  %spec.select37.us.us = select i1 %28, i32 %29, i32 %.03040.us.us
+  %spec.select38.us.us = tail call i32 @llvm.smax.i32(i32 %27, i32 %.02941.us.us)
   br label %30
 
 30:                                               ; preds = %25, %23, %16, %.lr.ph.split.us.split.us
   %.131.us.us = phi i32 [ %.03040.us.us, %.lr.ph.split.us.split.us ], [ %.03040.us.us, %16 ], [ %.03040.us.us, %23 ], [ %spec.select37.us.us, %25 ]
-  %.1.us.us = phi i32 [ %.042.us.us, %.lr.ph.split.us.split.us ], [ %.042.us.us, %16 ], [ %.042.us.us, %23 ], [ %spec.select38.us.us, %25 ]
+  %.1.us.us = phi i32 [ %.02941.us.us, %.lr.ph.split.us.split.us ], [ %.02941.us.us, %16 ], [ %.02941.us.us, %23 ], [ %spec.select38.us.us, %25 ]
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count77
   br i1 %exitcond73.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !7
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %51
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %51 ], [ 0, %.lr.ph.split.us ]
-  %.042.us = phi i32 [ %.1.us, %51 ], [ -1, %.lr.ph.split.us ]
-  %.03040.us = phi i32 [ %.131.us, %51 ], [ 24, %.lr.ph.split.us ]
+  %.02941.us = phi i32 [ %.1.us, %51 ], [ 24, %.lr.ph.split.us ]
+  %.03040.us = phi i32 [ %.131.us, %51 ], [ -1, %.lr.ph.split.us ]
   %31 = getelementptr %struct.ToastAttrInfo, ptr %10, i64 %indvars.iv74, i32 2
   %32 = load i8, ptr %31, align 4
   %33 = zext i8 %32 to i32
@@ -356,15 +356,15 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr nocapture noundef r
 46:                                               ; preds = %44
   %47 = getelementptr %struct.ToastAttrInfo, ptr %10, i64 %indvars.iv74, i32 1
   %48 = load i32, ptr %47, align 8
-  %49 = icmp sgt i32 %48, %.03040.us
-  %spec.select37.us = tail call i32 @llvm.smax.i32(i32 %48, i32 %.03040.us)
+  %49 = icmp sgt i32 %48, %.02941.us
   %50 = trunc nuw nsw i64 %indvars.iv74 to i32
-  %spec.select38.us = select i1 %49, i32 %50, i32 %.042.us
+  %spec.select37.us = select i1 %49, i32 %50, i32 %.03040.us
+  %spec.select38.us = tail call i32 @llvm.smax.i32(i32 %48, i32 %.02941.us)
   br label %51
 
 51:                                               ; preds = %46, %44, %35, %.lr.ph.split.us.split
   %.131.us = phi i32 [ %.03040.us, %.lr.ph.split.us.split ], [ %.03040.us, %35 ], [ %.03040.us, %44 ], [ %spec.select37.us, %46 ]
-  %.1.us = phi i32 [ %.042.us, %.lr.ph.split.us.split ], [ %.042.us, %35 ], [ %.042.us, %44 ], [ %spec.select38.us, %46 ]
+  %.1.us = phi i32 [ %.02941.us, %.lr.ph.split.us.split ], [ %.02941.us, %35 ], [ %.02941.us, %44 ], [ %spec.select38.us, %46 ]
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
   br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !7
@@ -374,8 +374,8 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr nocapture noundef r
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %69
   %indvars.iv = phi i64 [ %indvars.iv.next, %69 ], [ 0, %.lr.ph.split ]
-  %.042.us43 = phi i32 [ %.1.us51, %69 ], [ -1, %.lr.ph.split ]
-  %.03040.us45 = phi i32 [ %.131.us50, %69 ], [ 24, %.lr.ph.split ]
+  %.02941.us44 = phi i32 [ %.1.us51, %69 ], [ 24, %.lr.ph.split ]
+  %.03040.us45 = phi i32 [ %.131.us50, %69 ], [ -1, %.lr.ph.split ]
   %52 = getelementptr %struct.ToastAttrInfo, ptr %10, i64 %indvars.iv, i32 2
   %53 = load i8, ptr %52, align 4
   %54 = zext i8 %53 to i32
@@ -403,23 +403,23 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr nocapture noundef r
 64:                                               ; preds = %.critedge.us, %.critedge.us
   %65 = getelementptr %struct.ToastAttrInfo, ptr %10, i64 %indvars.iv, i32 1
   %66 = load i32, ptr %65, align 8
-  %67 = icmp sgt i32 %66, %.03040.us45
-  %spec.select37.us48 = tail call i32 @llvm.smax.i32(i32 %66, i32 %.03040.us45)
+  %67 = icmp sgt i32 %66, %.02941.us44
   %68 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select38.us49 = select i1 %67, i32 %68, i32 %.042.us43
+  %spec.select37.us48 = select i1 %67, i32 %68, i32 %.03040.us45
+  %spec.select38.us49 = tail call i32 @llvm.smax.i32(i32 %66, i32 %.02941.us44)
   br label %69
 
 69:                                               ; preds = %64, %.critedge.us, %56, %.lr.ph.split.split.us
   %.131.us50 = phi i32 [ %.03040.us45, %.lr.ph.split.split.us ], [ %.03040.us45, %56 ], [ %.03040.us45, %.critedge.us ], [ %spec.select37.us48, %64 ]
-  %.1.us51 = phi i32 [ %.042.us43, %.lr.ph.split.split.us ], [ %.042.us43, %56 ], [ %.042.us43, %.critedge.us ], [ %spec.select38.us49, %64 ]
+  %.1.us51 = phi i32 [ %.02941.us44, %.lr.ph.split.split.us ], [ %.02941.us44, %56 ], [ %.02941.us44, %.critedge.us ], [ %spec.select38.us49, %64 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count77
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !7
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %89
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %89 ], [ 0, %.lr.ph.split ]
-  %.042 = phi i32 [ %.1, %89 ], [ -1, %.lr.ph.split ]
-  %.03040 = phi i32 [ %.131, %89 ], [ 24, %.lr.ph.split ]
+  %.02941 = phi i32 [ %.1, %89 ], [ 24, %.lr.ph.split ]
+  %.03040 = phi i32 [ %.131, %89 ], [ -1, %.lr.ph.split ]
   %70 = getelementptr %struct.ToastAttrInfo, ptr %10, i64 %indvars.iv64, i32 2
   %71 = load i8, ptr %70, align 4
   %72 = zext i8 %71 to i32
@@ -450,22 +450,22 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr nocapture noundef r
 84:                                               ; preds = %.critedge, %.critedge
   %85 = getelementptr %struct.ToastAttrInfo, ptr %10, i64 %indvars.iv64, i32 1
   %86 = load i32, ptr %85, align 8
-  %87 = icmp sgt i32 %86, %.03040
-  %spec.select37 = tail call i32 @llvm.smax.i32(i32 %86, i32 %.03040)
+  %87 = icmp sgt i32 %86, %.02941
   %88 = trunc nuw nsw i64 %indvars.iv64 to i32
-  %spec.select38 = select i1 %87, i32 %88, i32 %.042
+  %spec.select37 = select i1 %87, i32 %88, i32 %.03040
+  %spec.select38 = tail call i32 @llvm.smax.i32(i32 %86, i32 %.02941)
   br label %89
 
 89:                                               ; preds = %84, %.critedge, %74, %.lr.ph.split.split
   %.131 = phi i32 [ %.03040, %.lr.ph.split.split ], [ %.03040, %74 ], [ %.03040, %.critedge ], [ %spec.select37, %84 ]
-  %.1 = phi i32 [ %.042, %.lr.ph.split.split ], [ %.042, %74 ], [ %.042, %.critedge ], [ %spec.select38, %84 ]
+  %.1 = phi i32 [ %.02941, %.lr.ph.split.split ], [ %.02941, %74 ], [ %.02941, %.critedge ], [ %spec.select38, %84 ]
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count77
   br i1 %exitcond68.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %69, %89, %30, %51, %3
-  %.0.lcssa = phi i32 [ -1, %3 ], [ %.1.us, %51 ], [ %.1.us.us, %30 ], [ %.1, %89 ], [ %.1.us51, %69 ]
-  ret i32 %.0.lcssa
+  %.030.lcssa = phi i32 [ -1, %3 ], [ %.131.us, %51 ], [ %.131.us.us, %30 ], [ %.131, %89 ], [ %.131.us50, %69 ]
+  ret i32 %.030.lcssa
 }
 
 ; Function Attrs: nounwind uwtable

@@ -6305,7 +6305,7 @@ for.body21.lr.ph:                                 ; preds = %if.then15
 
 for.body21:                                       ; preds = %for.body21.lr.ph, %for.inc37
   %indvars.iv428 = phi i64 [ 0, %for.body21.lr.ph ], [ %indvars.iv.next429, %for.inc37 ]
-  %idx.1413 = phi i32 [ %idx.0415, %for.body21.lr.ph ], [ %inc29, %for.inc37 ]
+  %idx.1412 = phi i32 [ %idx.0415, %for.body21.lr.ph ], [ %inc29, %for.inc37 ]
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %m_args.i, i64 0, i64 %indvars.iv428
   %54 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i.i.i.i98 = icmp eq ptr %54, null
@@ -6423,10 +6423,10 @@ invoke.cont25:                                    ; preds = %.noexc, %lor.lhs.fa
   %inc.i.i = add i32 %64, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   %65 = load ptr, ptr %m, align 8
-  %inc29 = add i32 %idx.1413, 1
+  %inc29 = add i32 %idx.1412, 1
   %m_bool_sort.i = getelementptr inbounds i8, ptr %65, i64 840
   %66 = load ptr, ptr %m_bool_sort.i, align 8
-  %call34 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %65, i32 noundef %idx.1413, ptr noundef %66)
+  %call34 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %65, i32 noundef %idx.1412, ptr noundef %66)
           to label %invoke.cont33 unwind label %lpad.loopexit395
 
 invoke.cont33:                                    ; preds = %invoke.cont25

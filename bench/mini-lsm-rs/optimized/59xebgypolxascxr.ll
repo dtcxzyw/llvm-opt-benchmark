@@ -7344,7 +7344,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN4moka3cht3map16bucket_ar
   br label %5
 
 5:                                                ; preds = %.noexc, %1
-  %.sroa.7.0 = phi i64 [ undef, %1 ], [ %.013, %.noexc ]
+  %.sroa.7.0 = phi i64 [ undef, %1 ], [ %.012, %.noexc ]
   %6 = phi i1 [ true, %1 ], [ false, %.noexc ]
   %7 = load atomic i64, ptr %4 acquire, align 8
   %8 = and i64 %7, -8
@@ -7400,13 +7400,13 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN4moka3cht3map16bucket_ar
   br label %.noexc
 
 .noexc:                                           ; preds = %17, %9
-  %.013 = phi i64 [ %18, %17 ], [ %.sroa.7.0, %9 ]
-  %19 = cmpxchg weak ptr %4, i64 0, i64 %.013 acq_rel monotonic, align 8
+  %.012 = phi i64 [ %18, %17 ], [ %.sroa.7.0, %9 ]
+  %19 = cmpxchg weak ptr %4, i64 0, i64 %.012 acq_rel monotonic, align 8
   %.sroa.18.0.in.i = extractvalue { i64, i1 } %19, 1
   br i1 %.sroa.18.0.in.i, label %20, label %5
 
 20:                                               ; preds = %.noexc
-  %21 = and i64 %.013, -8
+  %21 = and i64 %.012, -8
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %23, label %.thread
 
@@ -7445,7 +7445,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN4moka3cht3map16bucket_ar
   br label %5
 
 5:                                                ; preds = %.noexc, %1
-  %.sroa.7.0 = phi i64 [ undef, %1 ], [ %.013, %.noexc ]
+  %.sroa.7.0 = phi i64 [ undef, %1 ], [ %.012, %.noexc ]
   %6 = phi i1 [ true, %1 ], [ false, %.noexc ]
   %7 = load atomic i64, ptr %4 acquire, align 8
   %8 = and i64 %7, -8
@@ -7501,13 +7501,13 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN4moka3cht3map16bucket_ar
   br label %.noexc
 
 .noexc:                                           ; preds = %17, %9
-  %.013 = phi i64 [ %18, %17 ], [ %.sroa.7.0, %9 ]
-  %19 = cmpxchg weak ptr %4, i64 0, i64 %.013 acq_rel monotonic, align 8
+  %.012 = phi i64 [ %18, %17 ], [ %.sroa.7.0, %9 ]
+  %19 = cmpxchg weak ptr %4, i64 0, i64 %.012 acq_rel monotonic, align 8
   %.sroa.18.0.in.i = extractvalue { i64, i1 } %19, 1
   br i1 %.sroa.18.0.in.i, label %20, label %5
 
 20:                                               ; preds = %.noexc
-  %21 = and i64 %.013, -8
+  %21 = and i64 %.012, -8
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %23, label %.thread
 
@@ -7546,7 +7546,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN4moka3cht3map16bucket_ar
   br label %5
 
 5:                                                ; preds = %.noexc, %1
-  %.sroa.7.0 = phi i64 [ undef, %1 ], [ %.013, %.noexc ]
+  %.sroa.7.0 = phi i64 [ undef, %1 ], [ %.012, %.noexc ]
   %6 = phi i1 [ true, %1 ], [ false, %.noexc ]
   %7 = load atomic i64, ptr %4 acquire, align 8
   %8 = and i64 %7, -8
@@ -7602,13 +7602,13 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN4moka3cht3map16bucket_ar
   br label %.noexc
 
 .noexc:                                           ; preds = %17, %9
-  %.013 = phi i64 [ %18, %17 ], [ %.sroa.7.0, %9 ]
-  %19 = cmpxchg weak ptr %4, i64 0, i64 %.013 acq_rel monotonic, align 8
+  %.012 = phi i64 [ %18, %17 ], [ %.sroa.7.0, %9 ]
+  %19 = cmpxchg weak ptr %4, i64 0, i64 %.012 acq_rel monotonic, align 8
   %.sroa.18.0.in.i = extractvalue { i64, i1 } %19, 1
   br i1 %.sroa.18.0.in.i, label %20, label %5
 
 20:                                               ; preds = %.noexc
-  %21 = and i64 %.013, -8
+  %21 = and i64 %.012, -8
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %23, label %.thread
 
@@ -8731,7 +8731,7 @@ define internal fastcc void @"_ZN4moka9sync_base10base_cache22Inner$LT$K$C$V$C$S
   unreachable
 
 21:                                               ; preds = %23, %.thread5, %12
-  %.05 = phi i8 [ 2, %12 ], [ 2, %.thread5 ], [ %spec.select, %23 ]
+  %.0 = phi i8 [ 2, %12 ], [ 2, %.thread5 ], [ %spec.select, %23 ]
   %22 = icmp eq i64 %4, 1
   br i1 %22, label %24, label %29
 
@@ -8766,7 +8766,7 @@ define internal fastcc void @"_ZN4moka9sync_base10base_cache22Inner$LT$K$C$V$C$S
   br i1 %.not5.i14, label %42, label %.invoke
 
 29:                                               ; preds = %46, %42, %21
-  %.1 = phi i8 [ %.05, %21 ], [ 0, %42 ], [ %spec.select10, %46 ]
+  %.1 = phi i8 [ %.0, %21 ], [ 0, %42 ], [ %spec.select10, %46 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %1, ptr %7, align 8, !noalias !976
   %30 = getelementptr inbounds i8, ptr %0, i64 16
@@ -8819,7 +8819,7 @@ define internal fastcc void @"_ZN4moka9sync_base10base_cache22Inner$LT$K$C$V$C$S
   %.not.i23 = icmp ne i64 %.fca.0.extract, 0
   %47 = icmp ugt i64 %.fca.1.extract, %5
   %spec.select.i = select i1 %.not.i23, i1 %47, i1 false
-  %spec.select10 = select i1 %spec.select.i, i8 1, i8 %.05
+  %spec.select10 = select i1 %spec.select.i, i8 1, i8 %.0
   br label %29
 
 48:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h7eda9844bac99617E.llvm.885679253126787145.exit.i", %41, %.critedge.i
@@ -9340,7 +9340,7 @@ define hidden void @"_ZN4moka9sync_base10base_cache26BaseCache$LT$K$C$V$C$S$GT$1
           to label %46 unwind label %44
 
 39:                                               ; preds = %404, %71, %44
-  %.018 = phi i8 [ 1, %44 ], [ %.15, %404 ], [ 1, %71 ]
+  %.020 = phi i8 [ 1, %44 ], [ %.15, %404 ], [ 1, %71 ]
   %.pn43 = phi { ptr, i32 } [ %45, %44 ], [ %.pn39, %404 ], [ %.pn.pn, %71 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1070)
   call void @llvm.experimental.noalias.scope.decl(metadata !1073)
@@ -9989,7 +9989,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h6aa34676af3b2e79E.exit.i.i: ; pr
           to label %"_ZN4moka6common10concurrent23ValueEntry$LT$K$C$V$GT$13unset_q_nodes17ha8f9de5a8bb90dc5E.exit" unwind label %259
 
 "_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit82": ; preds = %303, %307, %428, %"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit95", %255
-  %.2 = phi i8 [ %.3, %255 ], [ %.13, %428 ], [ %.13, %"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit95" ], [ %.4, %307 ], [ %.4, %303 ]
+  %.222 = phi i8 [ %.3, %255 ], [ %.13, %428 ], [ %.13, %"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit95" ], [ %.4, %307 ], [ %.4, %303 ]
   %.pn35 = phi { ptr, i32 } [ %256, %255 ], [ %.pn30, %428 ], [ %.pn30, %"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit95" ], [ %.pn33, %307 ], [ %.pn33, %303 ]
   %250 = icmp eq ptr %storemerge, null
   br i1 %250, label %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h930e269860bae1f4E.exit76", label %251
@@ -10004,7 +10004,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h6aa34676af3b2e79E.exit.i.i: ; pr
           to label %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h930e269860bae1f4E.exit76" unwind label %301
 
 255:                                              ; preds = %292, %383, %237
-  %.3 = phi i8 [ %.11152, %383 ], [ 1, %237 ], [ %.6, %292 ]
+  %.3 = phi i8 [ %.11150, %383 ], [ 1, %237 ], [ %.6, %292 ]
   %256 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit82"
@@ -10108,7 +10108,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h6aa34676af3b2e79E.exit.i.i: ; pr
   br label %295
 
 295:                                              ; preds = %382, %310, %"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit"
-  %.7 = phi i8 [ 1, %310 ], [ %.11152, %382 ], [ %.6, %"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit" ]
+  %.7 = phi i8 [ 1, %310 ], [ %.11150, %382 ], [ %.6, %"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit" ]
   %296 = icmp eq ptr %storemerge, null
   br i1 %296, label %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h930e269860bae1f4E.exit80", label %297
 
@@ -10274,8 +10274,8 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h6aa34676af3b2e79E.exit.i.i: ; pr
   br label %366
 
 359:                                              ; preds = %376, %327
-  %.120 = phi i8 [ 0, %376 ], [ 1, %327 ]
   %.12 = phi i8 [ 1, %376 ], [ %.8, %327 ]
+  %.1 = phi i8 [ 0, %376 ], [ 1, %327 ]
   %.pn28 = phi { ptr, i32 } [ %377, %376 ], [ %.pn26, %327 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1166)
   call void @llvm.experimental.noalias.scope.decl(metadata !1169)
@@ -10291,8 +10291,8 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h6aa34676af3b2e79E.exit.i.i: ; pr
           to label %"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit95" unwind label %301
 
 366:                                              ; preds = %356, %373
-  %.11152 = phi i8 [ 1, %373 ], [ %.10, %356 ]
-  %.019150 = phi i8 [ 0, %373 ], [ 1, %356 ]
+  %.019152 = phi i8 [ 0, %373 ], [ 1, %356 ]
+  %.11150 = phi i8 [ 1, %373 ], [ %.10, %356 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
   call void @llvm.experimental.noalias.scope.decl(metadata !1173)
   call void @llvm.experimental.noalias.scope.decl(metadata !1176)
@@ -10321,10 +10321,10 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h6aa34676af3b2e79E.exit.i.i: ; pr
   br label %359
 
 "_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit95": ; preds = %359, %363, %379
-  %.221 = phi i8 [ %.019150, %379 ], [ %.120, %363 ], [ %.120, %359 ]
-  %.13 = phi i8 [ %.11152, %379 ], [ %.12, %363 ], [ %.12, %359 ]
+  %.13 = phi i8 [ %.11150, %379 ], [ %.12, %363 ], [ %.12, %359 ]
+  %.2 = phi i8 [ %.019152, %379 ], [ %.1, %363 ], [ %.1, %359 ]
   %.pn30 = phi { ptr, i32 } [ %380, %379 ], [ %.pn28, %363 ], [ %.pn28, %359 ]
-  %378 = trunc nuw i8 %.221 to i1
+  %378 = trunc nuw i8 %.2 to i1
   br i1 %378, label %428, label %"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit82"
 
 379:                                              ; preds = %370
@@ -10334,7 +10334,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h6aa34676af3b2e79E.exit.i.i: ; pr
 
 "_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit97": ; preds = %366, %370
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  %381 = trunc nuw i8 %.019150 to i1
+  %381 = trunc nuw i8 %.019152 to i1
   br i1 %381, label %383, label %382
 
 382:                                              ; preds = %383, %"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit97"
@@ -10346,7 +10346,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h6aa34676af3b2e79E.exit.i.i: ; pr
           to label %382 unwind label %255
 
 "_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h930e269860bae1f4E.exit76": ; preds = %251, %"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit82", %254, %387
-  %.14 = phi i8 [ %.7, %387 ], [ %.2, %254 ], [ %.2, %"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit82" ], [ %.2, %251 ]
+  %.14 = phi i8 [ %.7, %387 ], [ %.222, %254 ], [ %.222, %"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit82" ], [ %.222, %251 ]
   %.pn37 = phi { ptr, i32 } [ %388, %387 ], [ %.pn35, %254 ], [ %.pn35, %"_ZN4core3ptr161drop_in_place$LT$triomphe..arc..Arc$LT$moka..common..concurrent..ValueEntry$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$17hd77347798349483dE.exit82" ], [ %.pn35, %251 ]
   %384 = load ptr, ptr %24, align 8, !alias.scope !1180, !noundef !14
   %385 = icmp eq ptr %384, null
@@ -10450,7 +10450,7 @@ _ZN4moka3cht3map6bucket20defer_destroy_bucket17h6aa34676af3b2e79E.exit.i.i: ; pr
           to label %"_ZN4core3ptr67drop_in_place$LT$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$17h71b14420029919eaE.exit104" unwind label %420
 
 "_ZN4core3ptr67drop_in_place$LT$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$17h71b14420029919eaE.exit": ; preds = %39, %43, %420
-  %.17 = phi i8 [ %.7, %420 ], [ %.018, %43 ], [ %.018, %39 ]
+  %.17 = phi i8 [ %.7, %420 ], [ %.020, %43 ], [ %.020, %39 ]
   %.pn45 = phi { ptr, i32 } [ %421, %420 ], [ %.pn43, %43 ], [ %.pn43, %39 ]
   %419 = trunc nuw i8 %.17 to i1
   br i1 %419, label %434, label %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$GT$17ha404b2c984e46edaE.exit107"

@@ -20,8 +20,8 @@ define hidden ptr @pm_memchr(ptr noundef %0, i32 noundef %1, i64 noundef %2, i1 
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %15
-  %.02327 = phi i64 [ %20, %15 ], [ 0, %.preheader ]
-  %11 = getelementptr i8, ptr %0, i64 %.02327
+  %.027 = phi i64 [ %20, %15 ], [ 0, %.preheader ]
+  %11 = getelementptr i8, ptr %0, i64 %.027
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = icmp eq i32 %13, %1
@@ -29,10 +29,10 @@ define hidden ptr @pm_memchr(ptr noundef %0, i32 noundef %1, i64 noundef %2, i1 
 
 15:                                               ; preds = %.lr.ph
   %16 = load ptr, ptr %4, align 8
-  %17 = sub i64 %2, %.02327
+  %17 = sub i64 %2, %.027
   %18 = tail call i64 %16(ptr noundef nonnull %11, i64 noundef %17) #2
   %19 = icmp ne i64 %18, 0
-  %20 = add i64 %18, %.02327
+  %20 = add i64 %18, %.027
   %21 = icmp ult i64 %20, %2
   %or.cond33 = and i1 %19, %21
   br i1 %or.cond33, label %.lr.ph, label %.loopexit, !llvm.loop !7
@@ -42,8 +42,8 @@ define hidden ptr @pm_memchr(ptr noundef %0, i32 noundef %1, i64 noundef %2, i1 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %15, %.preheader, %22
-  %.0 = phi ptr [ %23, %22 ], [ null, %.preheader ], [ %11, %.lr.ph ], [ null, %15 ]
-  ret ptr %.0
+  %.023 = phi ptr [ %23, %22 ], [ null, %.preheader ], [ %11, %.lr.ph ], [ null, %15 ]
+  ret ptr %.023
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

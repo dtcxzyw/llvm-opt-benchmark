@@ -413,8 +413,8 @@ define internal { double, double } @_ZL15imw_p_e_inverse5PJ_XYP8PJconsts(double 
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.backedge, %3
-  %.0 = phi i32 [ 0, %3 ], [ %45, %.critedge2.backedge ]
   %.sroa.6.0 = phi double [ %10, %3 ], [ %.sroa.6.1, %.critedge2.backedge ]
+  %.0 = phi i32 [ 0, %3 ], [ %45, %.critedge2.backedge ]
   %.sroa.018.0 = phi double [ %12, %3 ], [ %.sroa.018.1, %.critedge2.backedge ]
   %14 = call fastcc { double, double } @_ZL7loc_for5PJ_LPP8PJconstsPd(double %.sroa.018.0, double %.sroa.6.0, ptr noundef %2, ptr noundef nonnull %4)
   %15 = extractvalue { double, double } %14, 0
@@ -584,8 +584,8 @@ define internal fastcc { double, double } @_ZL7loc_for5PJ_LPP8PJconstsPd(double 
   br i1 %59, label %72, label %60
 
 60:                                               ; preds = %.thread, %45
-  %.07583 = phi double [ %0, %.thread ], [ %52, %45 ]
-  %.07681 = phi double [ %44, %.thread ], [ %58, %45 ]
+  %.07683 = phi double [ %44, %.thread ], [ %58, %45 ]
+  %.07781 = phi double [ %0, %.thread ], [ %52, %45 ]
   %61 = getelementptr inbounds i8, ptr %6, i64 48
   %62 = load double, ptr %61, align 8
   %63 = fmul double %62, %0
@@ -600,17 +600,17 @@ define internal fastcc { double, double } @_ZL7loc_for5PJ_LPP8PJconstsPd(double 
   br label %72
 
 72:                                               ; preds = %45, %60
-  %.07584 = phi double [ %.07583, %60 ], [ %52, %45 ]
-  %.07682 = phi double [ %.07681, %60 ], [ %58, %45 ]
+  %.07684 = phi double [ %.07683, %60 ], [ %58, %45 ]
+  %.07782 = phi double [ %.07781, %60 ], [ %52, %45 ]
   %storemerge = phi double [ %71, %60 ], [ 0.000000e+00, %45 ]
-  %.077 = phi double [ %67, %60 ], [ %0, %45 ]
+  %.075 = phi double [ %67, %60 ], [ %0, %45 ]
   store double %storemerge, ptr %3, align 8
-  %73 = fsub double %.07584, %.077
-  %74 = fsub double %.07682, %storemerge
+  %73 = fsub double %.07782, %.075
+  %74 = fsub double %.07684, %storemerge
   %75 = fdiv double %73, %74
   %76 = fadd double %31, %39
   %77 = fsub double %76, %storemerge
-  %78 = tail call double @llvm.fmuladd.f64(double %75, double %77, double %.077)
+  %78 = tail call double @llvm.fmuladd.f64(double %75, double %77, double %.075)
   %79 = fmul double %31, %31
   %80 = tail call double @llvm.fmuladd.f64(double %75, double %75, double 1.000000e+00)
   %81 = fneg double %78

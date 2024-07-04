@@ -124,9 +124,9 @@ nxtask_restart.exit:                              ; preds = %37, %54
   br label %57
 
 55:                                               ; preds = %4, %1, %17, %19
-  %.0.i.ph.neg = phi i32 [ 3, %19 ], [ 3, %17 ], [ 38, %1 ], [ 38, %4 ]
+  %.049.i.ph.neg = phi i32 [ 3, %19 ], [ 3, %17 ], [ 38, %1 ], [ 38, %4 ]
   %56 = call ptr @__errno() #4
-  store i32 %.0.i.ph.neg, ptr %56, align 4
+  store i32 %.049.i.ph.neg, ptr %56, align 4
   br label %57
 
 57:                                               ; preds = %nxtask_restart.exit, %55

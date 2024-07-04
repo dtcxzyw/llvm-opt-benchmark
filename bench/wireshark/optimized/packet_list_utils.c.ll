@@ -42,11 +42,11 @@ define hidden range(i32 0, 2) i32 @right_justify_column(i32 noundef %0, ptr noun
 
 .lr.ph:                                           ; preds = %10, %38
   %.061 = phi i32 [ %.1, %38 ], [ 0, %10 ]
-  %.04760 = phi i32 [ %39, %38 ], [ 0, %10 ]
+  %.04660 = phi i32 [ %39, %38 ], [ 0, %10 ]
   %14 = load ptr, ptr %4, align 8
   %15 = getelementptr %struct.col_item_t, ptr %14, i64 %6, i32 5
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call ptr @g_slist_nth_data(ptr noundef %16, i32 noundef %.04760) #2
+  %17 = tail call ptr @g_slist_nth_data(ptr noundef %16, i32 noundef %.04660) #2
   %18 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 0
@@ -116,7 +116,7 @@ define hidden range(i32 0, 2) i32 @right_justify_column(i32 noundef %0, ptr noun
 
 38:                                               ; preds = %35, %32, %21, %27, %36
   %.1 = phi i32 [ %37, %36 ], [ %.061, %27 ], [ %.061, %21 ], [ %.061, %32 ], [ %.061, %35 ]
-  %39 = add nuw i32 %.04760, 1
+  %39 = add nuw i32 %.04660, 1
   %exitcond.not = icmp eq i32 %39, %13
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
@@ -129,8 +129,8 @@ define hidden range(i32 0, 2) i32 @right_justify_column(i32 noundef %0, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %9, %3, %2
-  %.046 = phi i32 [ 0, %2 ], [ 0, %3 ], [ 1, %9 ], [ %spec.select, %._crit_edge ], [ 0, %.lr.ph ]
-  ret i32 %.046
+  %.048 = phi i32 [ 0, %2 ], [ 0, %3 ], [ 1, %9 ], [ %spec.select, %._crit_edge ], [ 0, %.lr.ph ]
+  ret i32 %.048
 }
 
 declare i32 @g_slist_length(ptr noundef) local_unnamed_addr #1
@@ -163,11 +163,11 @@ define hidden range(i32 0, 2) i32 @resolve_column(i32 noundef %0, ptr noundef re
   br i1 %.not97, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %29
-  %.04046 = phi i32 [ %30, %29 ], [ 0, %9 ]
+  %.046 = phi i32 [ %30, %29 ], [ 0, %9 ]
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr %struct.col_item_t, ptr %13, i64 %6, i32 5
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call ptr @g_slist_nth_data(ptr noundef %15, i32 noundef %.04046) #2
+  %16 = tail call ptr @g_slist_nth_data(ptr noundef %15, i32 noundef %.046) #2
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 0
@@ -199,7 +199,7 @@ define hidden range(i32 0, 2) i32 @resolve_column(i32 noundef %0, ptr noundef re
   br i1 %28, label %switch.hole_check, label %29
 
 29:                                               ; preds = %switch.hole_check, %27, %24, %.lr.ph
-  %30 = add nuw i32 %.04046, 1
+  %30 = add nuw i32 %.046, 1
   %exitcond.not = icmp eq i32 %30, %12
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
@@ -210,8 +210,8 @@ switch.hole_check:                                ; preds = %27
   br i1 %switch.lobit, label %.loopexit, label %29
 
 .loopexit:                                        ; preds = %20, %20, %20, %20, %20, %20, %20, %29, %switch.hole_check, %9, %3, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %3 ], [ 0, %9 ], [ 1, %switch.hole_check ], [ 1, %20 ], [ 1, %20 ], [ 1, %20 ], [ 1, %20 ], [ 1, %20 ], [ 1, %20 ], [ 1, %20 ], [ 0, %29 ]
-  ret i32 %.0
+  %.041 = phi i32 [ 0, %2 ], [ 0, %3 ], [ 0, %9 ], [ 1, %switch.hole_check ], [ 1, %20 ], [ 1, %20 ], [ 1, %20 ], [ 1, %20 ], [ 1, %20 ], [ 1, %20 ], [ 1, %20 ], [ 0, %29 ]
+  ret i32 %.041
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

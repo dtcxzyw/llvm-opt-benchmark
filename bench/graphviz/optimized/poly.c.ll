@@ -1150,7 +1150,7 @@ transCopy.exit54:                                 ; preds = %transCopy.exit54.lo
   br i1 %or.cond3.i55, label %191, label %187
 
 187:                                              ; preds = %183
-  %188 = add nsw i32 %.073.i, 1
+  %188 = add nsw i32 %.075.i, 1
   %189 = add nsw i32 %.070.i, 1
   %190 = srem i32 %189, %121
   br label %211
@@ -1163,13 +1163,13 @@ transCopy.exit54:                                 ; preds = %transCopy.exit54.lo
   br i1 %185, label %194, label %198
 
 194:                                              ; preds = %193
-  %195 = add nsw i32 %.073.i, 1
+  %195 = add nsw i32 %.075.i, 1
   %196 = add nsw i32 %.070.i, 1
   %197 = srem i32 %196, %121
   br label %211
 
 198:                                              ; preds = %193
-  %199 = add nsw i32 %.075.i, 1
+  %199 = add nsw i32 %.073.i, 1
   %200 = add nsw i32 %.071.i, 1
   %201 = srem i32 %200, %120
   br label %211
@@ -1178,28 +1178,28 @@ transCopy.exit54:                                 ; preds = %transCopy.exit54.lo
   br i1 %186, label %203, label %207
 
 203:                                              ; preds = %202
-  %204 = add nsw i32 %.075.i, 1
+  %204 = add nsw i32 %.073.i, 1
   %205 = add nsw i32 %.071.i, 1
   %206 = srem i32 %205, %120
   br label %211
 
 207:                                              ; preds = %202
-  %208 = add nsw i32 %.073.i, 1
+  %208 = add nsw i32 %.075.i, 1
   %209 = add nsw i32 %.070.i, 1
   %210 = srem i32 %209, %121
   br label %211
 
 211:                                              ; preds = %207, %203, %198, %194, %187
-  %.176.i = phi i32 [ %.075.i, %194 ], [ %199, %198 ], [ %204, %203 ], [ %.075.i, %207 ], [ %.075.i, %187 ]
-  %.174.i = phi i32 [ %195, %194 ], [ %.073.i, %198 ], [ %.073.i, %203 ], [ %208, %207 ], [ %188, %187 ]
+  %.176.i = phi i32 [ %195, %194 ], [ %.075.i, %198 ], [ %.075.i, %203 ], [ %208, %207 ], [ %188, %187 ]
+  %.174.i = phi i32 [ %.073.i, %194 ], [ %199, %198 ], [ %204, %203 ], [ %.073.i, %207 ], [ %.073.i, %187 ]
   %.172.i = phi i32 [ %.071.i, %194 ], [ %201, %198 ], [ %206, %203 ], [ %.071.i, %207 ], [ %.071.i, %187 ]
   %.1.i = phi i32 [ %197, %194 ], [ %.070.i, %198 ], [ %.070.i, %203 ], [ %210, %207 ], [ %190, %187 ]
-  %212 = icmp slt i32 %.174.i, %121
-  %213 = icmp slt i32 %.176.i, %120
+  %212 = icmp slt i32 %.176.i, %121
+  %213 = icmp slt i32 %.174.i, %120
   %or.cond77.i = select i1 %212, i1 true, i1 %213
-  %214 = icmp slt i32 %.174.i, %126
+  %214 = icmp slt i32 %.176.i, %126
   %or.cond79.i = select i1 %or.cond77.i, i1 %214, i1 false
-  %215 = icmp slt i32 %.176.i, %127
+  %215 = icmp slt i32 %.174.i, %127
   %or.cond81.i = select i1 %or.cond79.i, i1 %215, i1 false
   br i1 %or.cond81.i, label %128, label %216
 
@@ -1415,8 +1415,8 @@ gv_calloc.exit:                                   ; preds = %12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %57, %47, %20, %.preheader, %._crit_edge.loopexit
-  %.036 = phi i32 [ 0, %.preheader ], [ %79, %._crit_edge.loopexit ], [ 0, %20 ], [ 1, %47 ], [ 1, %57 ]
-  ret i32 %.036
+  %.038 = phi i32 [ 0, %.preheader ], [ %79, %._crit_edge.loopexit ], [ 0, %20 ], [ 1, %47 ], [ 1, %57 ]
+  ret i32 %.038
 }
 
 ; Function Attrs: nofree nounwind

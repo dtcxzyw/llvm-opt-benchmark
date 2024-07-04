@@ -2350,8 +2350,8 @@ for.inc:                                          ; preds = %if.end66, %if.end69
 
 for.body76:                                       ; preds = %for.body76.preheader, %for.inc120
   %indvars.iv262 = phi i64 [ 0, %for.body76.preheader ], [ %indvars.iv.next263, %for.inc120 ]
-  %maxOverlap.0247 = phi i32 [ 0, %for.body76.preheader ], [ %maxOverlap.1, %for.inc120 ]
-  %maxDec.0246 = phi i32 [ 0, %for.body76.preheader ], [ %maxDec.1, %for.inc120 ]
+  %maxOverlap.0248 = phi i32 [ 0, %for.body76.preheader ], [ %maxOverlap.1, %for.inc120 ]
+  %maxDec.0247 = phi i32 [ 0, %for.body76.preheader ], [ %maxDec.1, %for.inc120 ]
   %arrayidx79 = getelementptr inbounds i8, ptr %spanBackLengths.0, i64 %indvars.iv262
   %45 = load i8, ptr %arrayidx79, align 1
   %conv80 = zext i8 %45 to i32
@@ -2400,20 +2400,20 @@ if.end93:                                         ; preds = %invoke.cont89
   %sub101 = sub nsw i32 %cond.i132, %overlap77.1
   %52 = sext i32 %cond.i132 to i64
   %cmp103233 = icmp sgt i32 %sub101, %pos.0
-  %cmp104234 = icmp slt i32 %overlap77.1, %maxOverlap.0247
+  %cmp104234 = icmp slt i32 %overlap77.1, %maxOverlap.0248
   %or.cond95235 = select i1 %cmp103233, i1 true, i1 %cmp104234
   br i1 %or.cond95235, label %for.inc120, label %if.end106.preheader
 
 if.end106.preheader:                              ; preds = %if.end93
   %53 = sext i32 %sub101 to i64
-  %54 = sext i32 %maxDec.0246 to i64
+  %54 = sext i32 %maxDec.0247 to i64
   %invariant.op = sub nsw i64 %7, %52
   br label %if.end106
 
 if.end106:                                        ; preds = %if.end106.preheader, %if.end116
   %indvars.iv = phi i64 [ %53, %if.end106.preheader ], [ %indvars.iv.next, %if.end116 ]
   %overlap77.2236 = phi i32 [ %overlap77.1, %if.end106.preheader ], [ %dec117, %if.end116 ]
-  %cmp107 = icmp sgt i32 %overlap77.2236, %maxOverlap.0247
+  %cmp107 = icmp sgt i32 %overlap77.2236, %maxOverlap.0248
   %cmp109 = icmp sgt i64 %indvars.iv, %54
   %or.cond96 = select i1 %cmp107, i1 true, i1 %cmp109
   br i1 %or.cond96, label %land.lhs.true110, label %if.end116
@@ -2478,7 +2478,7 @@ if.end116:                                        ; preds = %do.body.i.i136, %la
   %dec117 = add nsw i32 %overlap77.2236, -1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %cmp103 = icmp sge i64 %indvars.iv, %8
-  %cmp104 = icmp sle i32 %overlap77.2236, %maxOverlap.0247
+  %cmp104 = icmp sle i32 %overlap77.2236, %maxOverlap.0248
   %or.cond95 = select i1 %cmp103, i1 true, i1 %cmp104
   br i1 %or.cond95, label %for.inc120, label %if.end106, !llvm.loop !19
 
@@ -2495,8 +2495,8 @@ for.inc120.loopexit.split.loop.exit281:           ; preds = %invoke.cont112
   br label %for.inc120
 
 for.inc120:                                       ; preds = %if.end116, %for.inc120.loopexit.split.loop.exit, %for.inc120.loopexit.split.loop.exit278, %for.inc120.loopexit.split.loop.exit281, %if.end93, %invoke.cont89
-  %maxDec.1 = phi i32 [ %maxDec.0246, %invoke.cont89 ], [ %maxDec.0246, %if.end93 ], [ %67, %for.inc120.loopexit.split.loop.exit ], [ %68, %for.inc120.loopexit.split.loop.exit278 ], [ %69, %for.inc120.loopexit.split.loop.exit281 ], [ %maxDec.0246, %if.end116 ]
-  %maxOverlap.1 = phi i32 [ %maxOverlap.0247, %invoke.cont89 ], [ %maxOverlap.0247, %if.end93 ], [ %overlap77.2236, %for.inc120.loopexit.split.loop.exit ], [ %overlap77.2236, %for.inc120.loopexit.split.loop.exit278 ], [ %overlap77.2236, %for.inc120.loopexit.split.loop.exit281 ], [ %maxOverlap.0247, %if.end116 ]
+  %maxDec.1 = phi i32 [ %maxDec.0247, %invoke.cont89 ], [ %maxDec.0247, %if.end93 ], [ %67, %for.inc120.loopexit.split.loop.exit ], [ %68, %for.inc120.loopexit.split.loop.exit278 ], [ %69, %for.inc120.loopexit.split.loop.exit281 ], [ %maxDec.0247, %if.end116 ]
+  %maxOverlap.1 = phi i32 [ %maxOverlap.0248, %invoke.cont89 ], [ %maxOverlap.0248, %if.end93 ], [ %overlap77.2236, %for.inc120.loopexit.split.loop.exit ], [ %overlap77.2236, %for.inc120.loopexit.split.loop.exit278 ], [ %overlap77.2236, %for.inc120.loopexit.split.loop.exit281 ], [ %maxOverlap.0248, %if.end116 ]
   %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next263, %wide.trip.count
   br i1 %exitcond.not, label %for.end122, label %for.body76, !llvm.loop !20

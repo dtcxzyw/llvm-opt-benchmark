@@ -2546,7 +2546,7 @@ Gli_ManFinalize.exit:                             ; preds = %.lr.ph.i, %18, %Abc
   br i1 %33, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %Gli_ManSwitching.exit
-  %.058 = phi i32 [ %82, %Gli_ManSwitching.exit ], [ 0, %.preheader ]
+  %.02658 = phi i32 [ %82, %Gli_ManSwitching.exit ], [ 0, %.preheader ]
   call void @Gli_ManSetPiRandom(ptr noundef %0, float noundef %2)
   %34 = load i32, ptr %15, align 8
   %35 = icmp sgt i32 %34, 0
@@ -2636,7 +2636,7 @@ Gli_NodeComputeValue.exit.i:                      ; preds = %46, %41
 
 Gli_ManSwitching.exit:                            ; preds = %.lr.ph.i27, %74, %.lr.ph
   call void @Gli_ManGlitching(ptr noundef %0)
-  %82 = add nuw nsw i32 %.058, 1
+  %82 = add nuw nsw i32 %.02658, 1
   %exitcond65.not = icmp eq i32 %82, %1
   br i1 %exitcond65.not, label %.loopexit, label %.lr.ph, !llvm.loop !36
 
@@ -2656,7 +2656,7 @@ Gli_ManSwitching.exit:                            ; preds = %.lr.ph.i27, %74, %.
   br label %90
 
 90:                                               ; preds = %.lr.ph.us, %Gli_ManSwitching.exit49.us
-  %.02656.us = phi i32 [ 0, %.lr.ph.us ], [ %139, %Gli_ManSwitching.exit49.us ]
+  %.056.us = phi i32 [ 0, %.lr.ph.us ], [ %139, %Gli_ManSwitching.exit49.us ]
   call void @Gli_ManSetPiRandomSeq(ptr noundef %0, float noundef %2)
   %91 = load i32, ptr %15, align 8
   %92 = icmp sgt i32 %91, 0
@@ -2746,7 +2746,7 @@ Gli_NodeComputeValue.exit.i46.us:                 ; preds = %103, %98
 
 Gli_ManSwitching.exit49.us:                       ; preds = %.lr.ph.i31.us, %131, %90
   call void @Gli_ManGlitching(ptr noundef %0)
-  %139 = add nuw nsw i32 %.02656.us, 1
+  %139 = add nuw nsw i32 %.056.us, 1
   %exitcond63.not = icmp eq i32 %139, %88
   br i1 %exitcond63.not, label %._crit_edge.us, label %90, !llvm.loop !37
 

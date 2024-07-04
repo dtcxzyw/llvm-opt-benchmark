@@ -362,13 +362,13 @@ define ptr @Gia_ManAigSyn2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   br label %Vec_IntFreeP.exit
 
 Vec_IntFreeP.exit:                                ; preds = %.thread.i, %85, %78, %77
-  %.085 = phi ptr [ %58, %77 ], [ %20, %78 ], [ %20, %85 ], [ %20, %.thread.i ]
+  %.087 = phi ptr [ %58, %77 ], [ %20, %78 ], [ %20, %85 ], [ %20, %.thread.i ]
   store <2 x i32> %40, ptr %39, align 4
   store i32 %42, ptr %41, align 4
   br label %89
 
 89:                                               ; preds = %Vec_IntFreeP.exit, %34, %33
-  %.1 = phi ptr [ %.085, %Vec_IntFreeP.exit ], [ %20, %34 ], [ %20, %33 ]
+  %.1 = phi ptr [ %.087, %Vec_IntFreeP.exit ], [ %20, %34 ], [ %20, %33 ]
   %90 = call ptr @Gia_ManAreaBalance(ptr noundef %.1, i32 noundef 0, i32 noundef 1000000000, i32 noundef %7, i32 noundef 0) #15
   br i1 %.not90, label %92, label %91
 
@@ -2132,8 +2132,8 @@ define ptr @Gia_ManAigSynch2(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   br label %41
 
 41:                                               ; preds = %39, %37
-  %.078 = phi ptr [ %40, %39 ], [ %16, %37 ]
-  %42 = call ptr @Gia_ManAreaBalance(ptr noundef %.078, i32 noundef 0, i32 noundef 1000000000, i32 noundef 0, i32 noundef 0) #15
+  %.082 = phi ptr [ %40, %39 ], [ %16, %37 ]
+  %42 = call ptr @Gia_ManAreaBalance(ptr noundef %.082, i32 noundef 0, i32 noundef 1000000000, i32 noundef 0, i32 noundef 0) #15
   br i1 %.not, label %.thread, label %44
 
 .thread:                                          ; preds = %41
@@ -2185,12 +2185,12 @@ define ptr @Gia_ManAigSynch2(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   br label %61
 
 61:                                               ; preds = %59, %54
-  %.082 = phi ptr [ %47, %54 ], [ %57, %59 ]
-  %.080 = phi ptr [ %55, %54 ], [ %60, %59 ]
+  %.080 = phi ptr [ %47, %54 ], [ %57, %59 ]
+  %.079 = phi ptr [ %55, %54 ], [ %60, %59 ]
   br i1 %.not, label %63, label %62
 
 62:                                               ; preds = %61
-  call void @Gia_ManPrintStats(ptr noundef %.080, ptr noundef null) #15
+  call void @Gia_ManPrintStats(ptr noundef %.079, ptr noundef null) #15
   br label %63
 
 63:                                               ; preds = %62, %61
@@ -2200,22 +2200,22 @@ define ptr @Gia_ManAigSynch2(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   br i1 %.not92, label %69, label %65
 
 65:                                               ; preds = %63
-  %66 = call ptr @Gia_ManDupFromBarBufs(ptr noundef %.078)
-  call void @Gia_ManStop(ptr noundef %.078) #15
-  %67 = call ptr @Gia_ManDupFromBarBufs(ptr noundef %.082)
+  %66 = call ptr @Gia_ManDupFromBarBufs(ptr noundef %.082)
   call void @Gia_ManStop(ptr noundef %.082) #15
-  %68 = call ptr @Gia_ManDupFromBarBufs(ptr noundef %.080)
+  %67 = call ptr @Gia_ManDupFromBarBufs(ptr noundef %.080)
   call void @Gia_ManStop(ptr noundef %.080) #15
+  %68 = call ptr @Gia_ManDupFromBarBufs(ptr noundef %.079)
+  call void @Gia_ManStop(ptr noundef %.079) #15
   br label %69
 
 69:                                               ; preds = %65, %63
-  %.183 = phi ptr [ %67, %65 ], [ %.082, %63 ]
-  %.181 = phi ptr [ %68, %65 ], [ %.080, %63 ]
-  %.1 = phi ptr [ %66, %65 ], [ %.078, %63 ]
-  %70 = call ptr @Gia_ManAigSynch2Choices(ptr noundef %.1, ptr noundef %.183, ptr noundef %.181, ptr noundef nonnull %1)
-  call void @Gia_ManStop(ptr noundef %.1) #15
+  %.183 = phi ptr [ %66, %65 ], [ %.082, %63 ]
+  %.181 = phi ptr [ %67, %65 ], [ %.080, %63 ]
+  %.1 = phi ptr [ %68, %65 ], [ %.079, %63 ]
+  %70 = call ptr @Gia_ManAigSynch2Choices(ptr noundef %.183, ptr noundef %.181, ptr noundef %.1, ptr noundef nonnull %1)
   call void @Gia_ManStop(ptr noundef %.183) #15
   call void @Gia_ManStop(ptr noundef %.181) #15
+  call void @Gia_ManStop(ptr noundef %.1) #15
   %.val96 = load i32, ptr %64, align 8
   %.not93 = icmp eq i32 %.val96, 0
   br i1 %.not93, label %73, label %71
@@ -2226,18 +2226,18 @@ define ptr @Gia_ManAigSynch2(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   br label %73
 
 73:                                               ; preds = %71, %69
-  %.079 = phi ptr [ %72, %71 ], [ %70, %69 ]
-  %74 = load ptr, ptr %.079, align 8
+  %.078 = phi ptr [ %72, %71 ], [ %70, %69 ]
+  %74 = load ptr, ptr %.078, align 8
   %.not94 = icmp eq ptr %74, null
   br i1 %.not94, label %76, label %75
 
 75:                                               ; preds = %73
   call void @free(ptr noundef nonnull %74) #15
-  store ptr null, ptr %.079, align 8
+  store ptr null, ptr %.078, align 8
   br label %76
 
 76:                                               ; preds = %73, %75
-  %77 = getelementptr inbounds i8, ptr %.079, i64 8
+  %77 = getelementptr inbounds i8, ptr %.078, i64 8
   %78 = load ptr, ptr %77, align 8
   %.not95 = icmp eq ptr %78, null
   br i1 %.not95, label %80, label %79
@@ -2261,7 +2261,7 @@ define ptr @Gia_ManAigSynch2(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
 
 Abc_UtilStrsav.exit:                              ; preds = %80, %82
   %87 = phi ptr [ %85, %82 ], [ null, %80 ]
-  store ptr %87, ptr %.079, align 8
+  store ptr %87, ptr %.078, align 8
   %88 = getelementptr inbounds i8, ptr %0, i64 8
   %89 = load ptr, ptr %88, align 8
   %.not.i100 = icmp eq ptr %89, null
@@ -2277,11 +2277,11 @@ Abc_UtilStrsav.exit:                              ; preds = %80, %82
 Abc_UtilStrsav.exit101:                           ; preds = %Abc_UtilStrsav.exit, %90
   %95 = phi ptr [ %93, %90 ], [ null, %Abc_UtilStrsav.exit ]
   store ptr %95, ptr %77, align 8
-  call void @Gia_ManTransferTiming(ptr noundef nonnull %.079, ptr noundef nonnull %0) #15
+  call void @Gia_ManTransferTiming(ptr noundef nonnull %.078, ptr noundef nonnull %0) #15
   br label %96
 
 96:                                               ; preds = %Abc_UtilStrsav.exit101, %27
-  %.0 = phi ptr [ %16, %27 ], [ %.079, %Abc_UtilStrsav.exit101 ]
+  %.0 = phi ptr [ %16, %27 ], [ %.078, %Abc_UtilStrsav.exit101 ]
   ret ptr %.0
 }
 

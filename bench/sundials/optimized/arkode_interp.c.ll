@@ -719,14 +719,14 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Hermite(ptr noundef %0, ptr noun
   %53 = fadd double %2, 1.000000e+00
   %54 = fdiv double -1.000000e+00, %17
   %55 = fdiv double 1.000000e+00, %17
-  %.0336 = select i1 %51, double %53, double %55
   %.0335 = select i1 %51, double %52, double %54
+  %.0 = select i1 %51, double %53, double %55
   %56 = load ptr, ptr %1, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %0, i64 272
   %60 = load ptr, ptr %59, align 8
-  tail call void @N_VLinearSum(double noundef %.0335, ptr noundef %58, double noundef %.0336, ptr noundef %60, ptr noundef %5) #12
+  tail call void @N_VLinearSum(double noundef %.0335, ptr noundef %58, double noundef %.0, ptr noundef %60, ptr noundef %5) #12
   br label %502
 
 61:                                               ; preds = %43
@@ -1344,8 +1344,8 @@ arkInterpEvaluate.exit356:                        ; preds = %291
   br label %503
 
 503:                                              ; preds = %480, %306, %arkInterpEvaluate.exit356, %291, %arkInterpEvaluate.exit354, %268, %157, %arkInterpEvaluate.exit, %137, %81, %26, %6, %502, %501, %42, %39
-  %.0 = phi i32 [ -22, %39 ], [ 0, %42 ], [ -22, %501 ], [ 0, %502 ], [ -21, %6 ], [ -8, %26 ], [ -28, %81 ], [ -28, %137 ], [ -8, %arkInterpEvaluate.exit ], [ -8, %157 ], [ -28, %268 ], [ -8, %arkInterpEvaluate.exit354 ], [ -8, %291 ], [ -8, %arkInterpEvaluate.exit356 ], [ -8, %306 ], [ -28, %480 ]
-  ret i32 %.0
+  %.0336 = phi i32 [ -22, %39 ], [ 0, %42 ], [ -22, %501 ], [ 0, %502 ], [ -21, %6 ], [ -8, %26 ], [ -28, %81 ], [ -28, %137 ], [ -8, %arkInterpEvaluate.exit ], [ -8, %157 ], [ -28, %268 ], [ -8, %arkInterpEvaluate.exit354 ], [ -8, %291 ], [ -8, %arkInterpEvaluate.exit356 ], [ -8, %306 ], [ -28, %480 ]
+  ret i32 %.0336
 }
 
 declare i32 @arkResizeVec(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
@@ -1491,8 +1491,8 @@ define range(i32 -21, 1) i32 @arkInterpResize_Lagrange(ptr noundef %0, ptr nound
   br label %.loopexit20
 
 .loopexit20:                                      ; preds = %.lr.ph, %9, %7, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -21, %7 ], [ 0, %9 ], [ -20, %.lr.ph ]
-  ret i32 %.0
+  %.016 = phi i32 [ 0, %.loopexit ], [ -21, %7 ], [ 0, %9 ], [ -20, %.lr.ph ]
+  ret i32 %.016
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1985,8 +1985,8 @@ arkInterpFree.exit69:                             ; preds = %86
   br label %135
 
 135:                                              ; preds = %._crit_edge79, %3, %123, %arkInterpFree.exit69, %arkInterpFree.exit68, %arkInterpFree.exit
-  %.0 = phi i32 [ -20, %arkInterpFree.exit ], [ -20, %arkInterpFree.exit68 ], [ -20, %arkInterpFree.exit69 ], [ 0, %123 ], [ -21, %3 ], [ -28, %._crit_edge79 ]
-  ret i32 %.0
+  %.059 = phi i32 [ -20, %arkInterpFree.exit ], [ -20, %arkInterpFree.exit68 ], [ -20, %arkInterpFree.exit69 ], [ 0, %123 ], [ -21, %3 ], [ -28, %._crit_edge79 ]
+  ret i32 %.059
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2028,23 +2028,23 @@ define range(i32 -21, 1) i32 @arkInterpUpdate_Lagrange(ptr noundef readonly %0, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.05054 = phi double [ %28, %.lr.ph.preheader ], [ %.050., %.lr.ph ]
+  %.055 = phi double [ %28, %.lr.ph.preheader ], [ %.0., %.lr.ph ]
   %30 = getelementptr inbounds double, ptr %11, i64 %indvars.iv
   %31 = load double, ptr %30, align 8
   %32 = fsub double %2, %31
   %33 = tail call double @llvm.fabs.f64(double %32)
-  %34 = fcmp olt double %.05054, %33
-  %.050. = select i1 %34, double %.05054, double %33
+  %34 = fcmp olt double %.055, %33
+  %.0. = select i1 %34, double %.055, double %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
-  %.050.lcssa = phi double [ %28, %5 ], [ %.050., %.lr.ph ]
+  %.0.lcssa = phi double [ %28, %5 ], [ %.0., %.lr.ph ]
   %35 = load ptr, ptr %1, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 32
   %37 = load double, ptr %36, align 8
-  %38 = fcmp ugt double %.050.lcssa, %37
+  %38 = fcmp ugt double %.0.lcssa, %37
   br i1 %38, label %39, label %60
 
 39:                                               ; preds = %._crit_edge
@@ -2088,8 +2088,8 @@ define range(i32 -21, 1) i32 @arkInterpUpdate_Lagrange(ptr noundef readonly %0, 
   br label %60
 
 60:                                               ; preds = %._crit_edge, %3, %._crit_edge59
-  %.0 = phi i32 [ 0, %._crit_edge59 ], [ -21, %3 ], [ 0, %._crit_edge ]
-  ret i32 %.0
+  %.050 = phi i32 [ 0, %._crit_edge59 ], [ -21, %3 ], [ 0, %._crit_edge ]
+  ret i32 %.050
 }
 
 ; Function Attrs: nounwind uwtable

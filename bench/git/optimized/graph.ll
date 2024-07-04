@@ -1180,7 +1180,7 @@ for.body.lr.ph.i22:                               ; preds = %sw.bb2
 
 for.body.i24:                                     ; preds = %graph_line_addch.exit.i33, %for.body.lr.ph.i22
   %indvars.iv.i25 = phi i64 [ 0, %for.body.lr.ph.i22 ], [ %indvars.iv.next.i40, %graph_line_addch.exit.i33 ]
-  %seen_this.030.i = phi i32 [ 0, %for.body.lr.ph.i22 ], [ %seen_this.1.i, %graph_line_addch.exit.i33 ]
+  %seen_this.031.i = phi i32 [ 0, %for.body.lr.ph.i22 ], [ %seen_this.1.i, %graph_line_addch.exit.i33 ]
   %20 = load ptr, ptr %columns.i, align 8
   %arrayidx.i26 = getelementptr inbounds %struct.column, ptr %20, i64 %indvars.iv.i25
   %21 = load ptr, ptr %arrayidx.i26, align 8
@@ -1200,7 +1200,7 @@ if.then.i:                                        ; preds = %for.body.i24
   br label %if.end24.i
 
 if.else.i27:                                      ; preds = %for.body.i24
-  %tobool.not.i = icmp eq i32 %seen_this.030.i, 0
+  %tobool.not.i = icmp eq i32 %seen_this.031.i, 0
   br i1 %tobool.not.i, label %if.else21.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.else.i27
@@ -1240,7 +1240,7 @@ if.else21.i:                                      ; preds = %land.lhs.true16.i, 
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.else21.i, %if.then20.i, %if.else13.i, %if.then12.i, %if.then.i
-  %seen_this.1.i = phi i32 [ 1, %if.then.i ], [ 1, %if.then12.i ], [ 1, %if.else13.i ], [ 1, %if.then20.i ], [ %seen_this.030.i, %if.else21.i ]
+  %seen_this.1.i = phi i32 [ 1, %if.then.i ], [ 1, %if.then12.i ], [ 1, %if.else13.i ], [ 1, %if.then20.i ], [ %seen_this.031.i, %if.else21.i ]
   %30 = load ptr, ptr %line, align 8
   %31 = load i64, ptr %30, align 8
   %tobool.not.i.i.i.i28 = icmp eq i64 %31, 0
@@ -1335,7 +1335,7 @@ for.body.i53:                                     ; preds = %graph_line_addch.ex
   %47 = phi i64 [ 0, %for.body.lr.ph.i48 ], [ %inc.i47.i, %graph_line_addch.exit.i64 ]
   %indvars.iv.i54 = phi i64 [ 0, %for.body.lr.ph.i48 ], [ %indvars.iv.next.i70, %graph_line_addch.exit.i64 ]
   %48 = phi i32 [ %44, %for.body.lr.ph.i48 ], [ %121, %graph_line_addch.exit.i64 ]
-  %seen_this.0116.i = phi i32 [ 0, %for.body.lr.ph.i48 ], [ %seen_this.1.i60, %graph_line_addch.exit.i64 ]
+  %seen_this.0114.i = phi i32 [ 0, %for.body.lr.ph.i48 ], [ %seen_this.1.i60, %graph_line_addch.exit.i64 ]
   %49 = load ptr, ptr %columns.i49, align 8
   %arrayidx.i55 = getelementptr inbounds %struct.column, ptr %49, i64 %indvars.iv.i54
   %50 = zext i32 %48 to i64
@@ -1343,7 +1343,7 @@ for.body.i53:                                     ; preds = %graph_line_addch.ex
   br i1 %cmp2.i56, label %if.then.i84, label %if.end8.i
 
 if.then.i84:                                      ; preds = %for.body.i53
-  %tobool.not.i85 = icmp eq i32 %seen_this.0116.i, 0
+  %tobool.not.i85 = icmp eq i32 %seen_this.0114.i, 0
   br i1 %tobool.not.i85, label %if.end8.thread.i, label %for.end.i71
 
 if.end8.i:                                        ; preds = %for.body.i53
@@ -1567,7 +1567,7 @@ graph_line_write_column.exit.i:                   ; preds = %if.then10.i.i, %gra
   br i1 %exitcond.not.i.i, label %if.end50.i.loopexit, label %for.body.i.i, !llvm.loop !18
 
 if.else15.i:                                      ; preds = %if.end8.i
-  %tobool16.not.i = icmp eq i32 %seen_this.0116.i, 0
+  %tobool16.not.i = icmp eq i32 %seen_this.0114.i, 0
   br i1 %tobool16.not.i, label %if.else33.i, label %land.lhs.true.i58
 
 land.lhs.true.i58:                                ; preds = %if.else15.i
@@ -1626,7 +1626,7 @@ if.else46.i:                                      ; preds = %land.lhs.true40.i, 
 
 if.end50.sink.split.i:                            ; preds = %if.else46.i, %land.lhs.true40.i, %if.else31.i, %land.lhs.true28.i, %land.lhs.true.i58
   %.sink.i59 = phi i8 [ 124, %if.else46.i ], [ 124, %if.else31.i ], [ 92, %land.lhs.true.i58 ], [ 92, %land.lhs.true28.i ], [ 47, %land.lhs.true40.i ]
-  %seen_this.1.ph.i = phi i32 [ %seen_this.0116.i, %if.else46.i ], [ 1, %if.else31.i ], [ 1, %land.lhs.true.i58 ], [ 1, %land.lhs.true28.i ], [ %seen_this.0116.i, %land.lhs.true40.i ]
+  %seen_this.1.ph.i = phi i32 [ %seen_this.0114.i, %if.else46.i ], [ 1, %if.else31.i ], [ 1, %land.lhs.true.i58 ], [ 1, %land.lhs.true28.i ], [ %seen_this.0114.i, %land.lhs.true40.i ]
   call fastcc void @graph_line_write_column(ptr noundef nonnull %line, ptr noundef nonnull %arrayidx.i55, i8 noundef signext %.sink.i59)
   %.pre = load ptr, ptr %line, align 8
   br label %if.end50.i

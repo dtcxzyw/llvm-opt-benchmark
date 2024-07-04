@@ -5365,42 +5365,42 @@ call5.i.i.i.i.i.noexc:                            ; preds = %_ZNSt6vectorIbSaIbE
 for.body.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i.i.noexc, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
   %__n.025.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %sub.i.i.i.i, %call5.i.i.i.i.i.noexc ]
   %__first.sroa.5.024.i.i.i.i.i.i = phi i32 [ %spec.select19.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %__first.coerce1, %call5.i.i.i.i.i.noexc ]
-  %__first.sroa.0.023.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %__first.coerce0, %call5.i.i.i.i.i.noexc ]
-  %__result.sroa.0.022.i.i.i.i.i.i = phi ptr [ %__result.sroa.0.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %call5.i.i.i.i.i1, %call5.i.i.i.i.i.noexc ]
-  %__result.sroa.5.021.i.i.i.i.i.i = phi i32 [ %__result.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %call5.i.i.i.i.i.noexc ]
+  %__result.sroa.0.023.i.i.i.i.i.i = phi ptr [ %__result.sroa.0.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %call5.i.i.i.i.i1, %call5.i.i.i.i.i.noexc ]
+  %__result.sroa.5.022.i.i.i.i.i.i = phi i32 [ %__result.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %call5.i.i.i.i.i.noexc ]
+  %__first.sroa.0.021.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %__first.coerce0, %call5.i.i.i.i.i.noexc ]
   %sh_prom.i.i.i.i.i.i.i = zext nneg i32 %__first.sroa.5.024.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i.i
-  %3 = load i64, ptr %__first.sroa.0.023.i.i.i.i.i.i, align 8
+  %3 = load i64, ptr %__first.sroa.0.021.i.i.i.i.i.i, align 8
   %and.i.i.i.i.i.i.i.i = and i64 %3, %shl.i.i.i.i.i.i.i
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i.i, 0
-  %sh_prom.i4.i.i.i.i.i.i = zext nneg i32 %__result.sroa.5.021.i.i.i.i.i.i to i64
+  %sh_prom.i4.i.i.i.i.i.i = zext nneg i32 %__result.sroa.5.022.i.i.i.i.i.i to i64
   %shl.i5.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i4.i.i.i.i.i.i
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i
-  %4 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
+  %4 = load i64, ptr %__result.sroa.0.023.i.i.i.i.i.i, align 8
   %or.i.i.i.i.i.i.i = or i64 %4, %shl.i5.i.i.i.i.i.i
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i
   %not.i.i.i.i.i.i.i = xor i64 %shl.i5.i.i.i.i.i.i, -1
-  %5 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
+  %5 = load i64, ptr %__result.sroa.0.023.i.i.i.i.i.i, align 8
   %and.i.i.i.i.i.i.i = and i64 %5, %not.i.i.i.i.i.i.i
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %storemerge.i.i.i.i.i.i = phi i64 [ %and.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i ], [ %or.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ]
-  store i64 %storemerge.i.i.i.i.i.i, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
+  store i64 %storemerge.i.i.i.i.i.i, ptr %__result.sroa.0.023.i.i.i.i.i.i, align 8
   %inc.i.i.i.i.i.i.i.i = add i32 %__first.sroa.5.024.i.i.i.i.i.i, 1
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %__first.sroa.5.024.i.i.i.i.i.i, 63
   %spec.select.idx.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 8, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.023.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
+  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.021.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
   %spec.select19.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i32 0, i32 %inc.i.i.i.i.i.i.i.i
-  %inc.i.i7.i.i.i.i.i.i = add i32 %__result.sroa.5.021.i.i.i.i.i.i, 1
-  %cmp.i.i8.i.i.i.i.i.i = icmp eq i32 %__result.sroa.5.021.i.i.i.i.i.i, 63
+  %inc.i.i7.i.i.i.i.i.i = add i32 %__result.sroa.5.022.i.i.i.i.i.i, 1
+  %cmp.i.i8.i.i.i.i.i.i = icmp eq i32 %__result.sroa.5.022.i.i.i.i.i.i, 63
   %__result.sroa.5.1.i.i.i.i.i.i = select i1 %cmp.i.i8.i.i.i.i.i.i, i32 0, i32 %inc.i.i7.i.i.i.i.i.i
   %__result.sroa.0.1.idx.i.i.i.i.i.i = select i1 %cmp.i.i8.i.i.i.i.i.i, i64 8, i64 0
-  %__result.sroa.0.1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.022.i.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i.i
+  %__result.sroa.0.1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.023.i.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i.i
   %dec.i.i.i.i.i.i = add nsw i64 %__n.025.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i = icmp sgt i64 %__n.025.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %invoke.cont4, !llvm.loop !76
@@ -15495,23 +15495,23 @@ if.then.i137:                                     ; preds = %_ZN7testing15Assert
 
 if.end.i125:                                      ; preds = %if.then.i137, %_ZN7testing15AssertionResultD2Ev.exit122
   %38 = phi i8 [ %.pre.i141, %if.then.i137 ], [ %35, %_ZN7testing15AssertionResultD2Ev.exit122 ]
-  %offset.0.i126 = phi i64 [ %36, %if.then.i137 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit122 ]
-  %edge.addr.0.i127 = phi ptr [ %37, %if.then.i137 ], [ %call4.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit122 ]
+  %edge.addr.0.i126 = phi ptr [ %37, %if.then.i137 ], [ %call4.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit122 ]
+  %offset.0.i127 = phi i64 [ %36, %if.then.i137 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit122 ]
   %cmp.i128 = icmp ugt i8 %38, 5
   br i1 %cmp.i128, label %cond.true.i135, label %cond.false.i129
 
 cond.true.i135:                                   ; preds = %if.end.i125
-  %storage.i.i136 = getelementptr inbounds i8, ptr %edge.addr.0.i127, i64 13
+  %storage.i.i136 = getelementptr inbounds i8, ptr %edge.addr.0.i126, i64 13
   br label %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit142
 
 cond.false.i129:                                  ; preds = %if.end.i125
-  %base.i130 = getelementptr inbounds i8, ptr %edge.addr.0.i127, i64 16
+  %base.i130 = getelementptr inbounds i8, ptr %edge.addr.0.i126, i64 16
   %39 = load ptr, ptr %base.i130, align 8
   br label %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit142
 
 _ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit142: ; preds = %cond.true.i135, %cond.false.i129
   %storage.i.pn.i131 = phi ptr [ %storage.i.i136, %cond.true.i135 ], [ %39, %cond.false.i129 ]
-  %retval.sroa.3.0.i132 = getelementptr inbounds i8, ptr %storage.i.pn.i131, i64 %offset.0.i126
+  %retval.sroa.3.0.i132 = getelementptr inbounds i8, ptr %storage.i.pn.i131, i64 %offset.0.i127
   store i64 %34, ptr %ref.tmp67, align 8
   %40 = getelementptr inbounds i8, ptr %ref.tmp67, i64 8
   store ptr %retval.sroa.3.0.i132, ptr %40, align 8
@@ -15765,23 +15765,23 @@ if.then.i211:                                     ; preds = %invoke.cont114
 
 if.end.i199:                                      ; preds = %if.then.i211, %invoke.cont114
   %65 = phi i8 [ %.pre.i215, %if.then.i211 ], [ %63, %invoke.cont114 ]
-  %offset.0.i200 = phi i64 [ %.cast721, %if.then.i211 ], [ 0, %invoke.cont114 ]
-  %edge.addr.0.i201 = phi ptr [ %64, %if.then.i211 ], [ %call.i, %invoke.cont114 ]
+  %edge.addr.0.i200 = phi ptr [ %64, %if.then.i211 ], [ %call.i, %invoke.cont114 ]
+  %offset.0.i201 = phi i64 [ %.cast721, %if.then.i211 ], [ 0, %invoke.cont114 ]
   %cmp.i202 = icmp ugt i8 %65, 5
   br i1 %cmp.i202, label %cond.true.i209, label %cond.false.i203
 
 cond.true.i209:                                   ; preds = %if.end.i199
-  %storage.i.i210 = getelementptr inbounds i8, ptr %edge.addr.0.i201, i64 13
+  %storage.i.i210 = getelementptr inbounds i8, ptr %edge.addr.0.i200, i64 13
   br label %invoke.cont118
 
 cond.false.i203:                                  ; preds = %if.end.i199
-  %base.i204 = getelementptr inbounds i8, ptr %edge.addr.0.i201, i64 16
+  %base.i204 = getelementptr inbounds i8, ptr %edge.addr.0.i200, i64 16
   %66 = load ptr, ptr %base.i204, align 8
   br label %invoke.cont118
 
 invoke.cont118:                                   ; preds = %cond.false.i203, %cond.true.i209
   %storage.i.pn.i205 = phi ptr [ %storage.i.i210, %cond.true.i209 ], [ %66, %cond.false.i203 ]
-  %retval.sroa.3.0.i206 = getelementptr inbounds i8, ptr %storage.i.pn.i205, i64 %offset.0.i200
+  %retval.sroa.3.0.i206 = getelementptr inbounds i8, ptr %storage.i.pn.i205, i64 %offset.0.i201
   store ptr %retval.sroa.3.0.i206, ptr %ref.tmp115, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS_7MatcherIPKvEEEclIPKcEENS_15AssertionResultES9_RKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar110, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp111, ptr noundef nonnull @.str.156, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp115)
           to label %invoke.cont121 unwind label %lpad117
@@ -15971,23 +15971,23 @@ if.then.i277:                                     ; preds = %_ZN7testing15Assert
 
 if.end.i265:                                      ; preds = %if.then.i277, %_ZN7testing15AssertionResultD2Ev.exit262
   %100 = phi i8 [ %.pre.i281, %if.then.i277 ], [ %97, %_ZN7testing15AssertionResultD2Ev.exit262 ]
-  %offset.0.i266 = phi i64 [ %98, %if.then.i277 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit262 ]
-  %edge.addr.0.i267 = phi ptr [ %99, %if.then.i277 ], [ %call.i, %_ZN7testing15AssertionResultD2Ev.exit262 ]
+  %edge.addr.0.i266 = phi ptr [ %99, %if.then.i277 ], [ %call.i, %_ZN7testing15AssertionResultD2Ev.exit262 ]
+  %offset.0.i267 = phi i64 [ %98, %if.then.i277 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit262 ]
   %cmp.i268 = icmp ugt i8 %100, 5
   br i1 %cmp.i268, label %cond.true.i275, label %cond.false.i269
 
 cond.true.i275:                                   ; preds = %if.end.i265
-  %storage.i.i276 = getelementptr inbounds i8, ptr %edge.addr.0.i267, i64 13
+  %storage.i.i276 = getelementptr inbounds i8, ptr %edge.addr.0.i266, i64 13
   br label %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit282
 
 cond.false.i269:                                  ; preds = %if.end.i265
-  %base.i270 = getelementptr inbounds i8, ptr %edge.addr.0.i267, i64 16
+  %base.i270 = getelementptr inbounds i8, ptr %edge.addr.0.i266, i64 16
   %101 = load ptr, ptr %base.i270, align 8
   br label %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit282
 
 _ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit282: ; preds = %cond.true.i275, %cond.false.i269
   %storage.i.pn.i271 = phi ptr [ %storage.i.i276, %cond.true.i275 ], [ %101, %cond.false.i269 ]
-  %retval.sroa.3.0.i272 = getelementptr inbounds i8, ptr %storage.i.pn.i271, i64 %offset.0.i266
+  %retval.sroa.3.0.i272 = getelementptr inbounds i8, ptr %storage.i.pn.i271, i64 %offset.0.i267
   store i64 %96, ptr %ref.tmp153, align 8
   %102 = getelementptr inbounds i8, ptr %ref.tmp153, i64 8
   store ptr %retval.sroa.3.0.i272, ptr %102, align 8
@@ -16238,23 +16238,23 @@ if.then.i352:                                     ; preds = %invoke.cont202
 
 if.end.i340:                                      ; preds = %if.then.i352, %invoke.cont202
   %127 = phi i8 [ %.pre.i356, %if.then.i352 ], [ %124, %invoke.cont202 ]
-  %offset.0.i341 = phi i64 [ %125, %if.then.i352 ], [ 0, %invoke.cont202 ]
-  %edge.addr.0.i342 = phi ptr [ %126, %if.then.i352 ], [ %call.i75, %invoke.cont202 ]
+  %edge.addr.0.i341 = phi ptr [ %126, %if.then.i352 ], [ %call.i75, %invoke.cont202 ]
+  %offset.0.i342 = phi i64 [ %125, %if.then.i352 ], [ 0, %invoke.cont202 ]
   %cmp.i343 = icmp ugt i8 %127, 5
   br i1 %cmp.i343, label %cond.true.i350, label %cond.false.i344
 
 cond.true.i350:                                   ; preds = %if.end.i340
-  %storage.i.i351 = getelementptr inbounds i8, ptr %edge.addr.0.i342, i64 13
+  %storage.i.i351 = getelementptr inbounds i8, ptr %edge.addr.0.i341, i64 13
   br label %invoke.cont206
 
 cond.false.i344:                                  ; preds = %if.end.i340
-  %base.i345 = getelementptr inbounds i8, ptr %edge.addr.0.i342, i64 16
+  %base.i345 = getelementptr inbounds i8, ptr %edge.addr.0.i341, i64 16
   %128 = load ptr, ptr %base.i345, align 8
   br label %invoke.cont206
 
 invoke.cont206:                                   ; preds = %cond.false.i344, %cond.true.i350
   %storage.i.pn.i346 = phi ptr [ %storage.i.i351, %cond.true.i350 ], [ %128, %cond.false.i344 ]
-  %retval.sroa.3.0.i347 = getelementptr inbounds i8, ptr %storage.i.pn.i346, i64 %offset.0.i341
+  %retval.sroa.3.0.i347 = getelementptr inbounds i8, ptr %storage.i.pn.i346, i64 %offset.0.i342
   store ptr %retval.sroa.3.0.i347, ptr %ref.tmp203, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS_7MatcherIPKvEEEclIPKcEENS_15AssertionResultES9_RKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar196, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp197, ptr noundef nonnull @.str.159, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp203)
           to label %invoke.cont209 unwind label %lpad205
@@ -16443,23 +16443,23 @@ if.then.i418:                                     ; preds = %_ZN7testing15Assert
 
 if.end.i406:                                      ; preds = %if.then.i418, %_ZN7testing15AssertionResultD2Ev.exit403
   %162 = phi i8 [ %.pre.i422, %if.then.i418 ], [ %159, %_ZN7testing15AssertionResultD2Ev.exit403 ]
-  %offset.0.i407 = phi i64 [ %160, %if.then.i418 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit403 ]
-  %edge.addr.0.i408 = phi ptr [ %161, %if.then.i418 ], [ %call.i75, %_ZN7testing15AssertionResultD2Ev.exit403 ]
+  %edge.addr.0.i407 = phi ptr [ %161, %if.then.i418 ], [ %call.i75, %_ZN7testing15AssertionResultD2Ev.exit403 ]
+  %offset.0.i408 = phi i64 [ %160, %if.then.i418 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit403 ]
   %cmp.i409 = icmp ugt i8 %162, 5
   br i1 %cmp.i409, label %cond.true.i416, label %cond.false.i410
 
 cond.true.i416:                                   ; preds = %if.end.i406
-  %storage.i.i417 = getelementptr inbounds i8, ptr %edge.addr.0.i408, i64 13
+  %storage.i.i417 = getelementptr inbounds i8, ptr %edge.addr.0.i407, i64 13
   br label %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit423
 
 cond.false.i410:                                  ; preds = %if.end.i406
-  %base.i411 = getelementptr inbounds i8, ptr %edge.addr.0.i408, i64 16
+  %base.i411 = getelementptr inbounds i8, ptr %edge.addr.0.i407, i64 16
   %163 = load ptr, ptr %base.i411, align 8
   br label %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit423
 
 _ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit423: ; preds = %cond.true.i416, %cond.false.i410
   %storage.i.pn.i412 = phi ptr [ %storage.i.i417, %cond.true.i416 ], [ %163, %cond.false.i410 ]
-  %retval.sroa.3.0.i413 = getelementptr inbounds i8, ptr %storage.i.pn.i412, i64 %offset.0.i407
+  %retval.sroa.3.0.i413 = getelementptr inbounds i8, ptr %storage.i.pn.i412, i64 %offset.0.i408
   store i64 %158, ptr %ref.tmp241, align 8
   %164 = getelementptr inbounds i8, ptr %ref.tmp241, i64 8
   store ptr %retval.sroa.3.0.i413, ptr %164, align 8
@@ -16711,23 +16711,23 @@ if.then.i492:                                     ; preds = %invoke.cont291
 
 if.end.i480:                                      ; preds = %if.then.i492, %invoke.cont291
   %190 = phi i8 [ %.pre.i496, %if.then.i492 ], [ %187, %invoke.cont291 ]
-  %offset.0.i481 = phi i64 [ %188, %if.then.i492 ], [ 0, %invoke.cont291 ]
-  %edge.addr.0.i482 = phi ptr [ %189, %if.then.i492 ], [ %call.i77, %invoke.cont291 ]
+  %edge.addr.0.i481 = phi ptr [ %189, %if.then.i492 ], [ %call.i77, %invoke.cont291 ]
+  %offset.0.i482 = phi i64 [ %188, %if.then.i492 ], [ 0, %invoke.cont291 ]
   %cmp.i483 = icmp ugt i8 %190, 5
   br i1 %cmp.i483, label %cond.true.i490, label %cond.false.i484
 
 cond.true.i490:                                   ; preds = %if.end.i480
-  %storage.i.i491 = getelementptr inbounds i8, ptr %edge.addr.0.i482, i64 13
+  %storage.i.i491 = getelementptr inbounds i8, ptr %edge.addr.0.i481, i64 13
   br label %invoke.cont295
 
 cond.false.i484:                                  ; preds = %if.end.i480
-  %base.i485 = getelementptr inbounds i8, ptr %edge.addr.0.i482, i64 16
+  %base.i485 = getelementptr inbounds i8, ptr %edge.addr.0.i481, i64 16
   %191 = load ptr, ptr %base.i485, align 8
   br label %invoke.cont295
 
 invoke.cont295:                                   ; preds = %cond.false.i484, %cond.true.i490
   %storage.i.pn.i486 = phi ptr [ %storage.i.i491, %cond.true.i490 ], [ %191, %cond.false.i484 ]
-  %retval.sroa.3.0.i487 = getelementptr inbounds i8, ptr %storage.i.pn.i486, i64 %offset.0.i481
+  %retval.sroa.3.0.i487 = getelementptr inbounds i8, ptr %storage.i.pn.i486, i64 %offset.0.i482
   store ptr %retval.sroa.3.0.i487, ptr %ref.tmp292, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS_7MatcherIPKvEEEclIPKcEENS_15AssertionResultES9_RKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar284, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp285, ptr noundef nonnull @.str.163, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp292)
           to label %invoke.cont298 unwind label %lpad294
@@ -16916,23 +16916,23 @@ if.then.i558:                                     ; preds = %_ZN7testing15Assert
 
 if.end.i546:                                      ; preds = %if.then.i558, %_ZN7testing15AssertionResultD2Ev.exit543
   %225 = phi i8 [ %.pre.i562, %if.then.i558 ], [ %222, %_ZN7testing15AssertionResultD2Ev.exit543 ]
-  %offset.0.i547 = phi i64 [ %223, %if.then.i558 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit543 ]
-  %edge.addr.0.i548 = phi ptr [ %224, %if.then.i558 ], [ %call.i77, %_ZN7testing15AssertionResultD2Ev.exit543 ]
+  %edge.addr.0.i547 = phi ptr [ %224, %if.then.i558 ], [ %call.i77, %_ZN7testing15AssertionResultD2Ev.exit543 ]
+  %offset.0.i548 = phi i64 [ %223, %if.then.i558 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit543 ]
   %cmp.i549 = icmp ugt i8 %225, 5
   br i1 %cmp.i549, label %cond.true.i556, label %cond.false.i550
 
 cond.true.i556:                                   ; preds = %if.end.i546
-  %storage.i.i557 = getelementptr inbounds i8, ptr %edge.addr.0.i548, i64 13
+  %storage.i.i557 = getelementptr inbounds i8, ptr %edge.addr.0.i547, i64 13
   br label %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit563
 
 cond.false.i550:                                  ; preds = %if.end.i546
-  %base.i551 = getelementptr inbounds i8, ptr %edge.addr.0.i548, i64 16
+  %base.i551 = getelementptr inbounds i8, ptr %edge.addr.0.i547, i64 16
   %226 = load ptr, ptr %base.i551, align 8
   br label %_ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit563
 
 _ZN4absl13cord_internal8EdgeDataEPKNS0_7CordRepE.exit563: ; preds = %cond.true.i556, %cond.false.i550
   %storage.i.pn.i552 = phi ptr [ %storage.i.i557, %cond.true.i556 ], [ %226, %cond.false.i550 ]
-  %retval.sroa.3.0.i553 = getelementptr inbounds i8, ptr %storage.i.pn.i552, i64 %offset.0.i547
+  %retval.sroa.3.0.i553 = getelementptr inbounds i8, ptr %storage.i.pn.i552, i64 %offset.0.i548
   store i64 %221, ptr %ref.tmp330, align 8
   %227 = getelementptr inbounds i8, ptr %ref.tmp330, i64 8
   store ptr %retval.sroa.3.0.i553, ptr %227, align 8
@@ -21742,8 +21742,8 @@ _ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit: ; preds = %if.
   br label %for.body
 
 for.body:                                         ; preds = %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit, %_ZN7testing15AssertionResultD2Ev.exit152
-  %leaf.0247 = phi ptr [ %retval.0.i, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ], [ %55, %_ZN7testing15AssertionResultD2Ev.exit152 ]
-  %i.0246 = phi i64 [ 1, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ], [ %inc, %_ZN7testing15AssertionResultD2Ev.exit152 ]
+  %i.0247 = phi i64 [ 1, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ], [ %inc, %_ZN7testing15AssertionResultD2Ev.exit152 ]
+  %leaf.0246 = phi ptr [ %retval.0.i, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ], [ %55, %_ZN7testing15AssertionResultD2Ev.exit152 ]
   %flats.sroa.0.1245 = phi ptr [ %call5.i.i.i.i.i.i18, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ], [ %flats.sroa.0.2, %_ZN7testing15AssertionResultD2Ev.exit152 ]
   %flats.sroa.8.1244 = phi ptr [ %incdec.ptr.i.i.i, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ], [ %flats.sroa.8.2, %_ZN7testing15AssertionResultD2Ev.exit152 ]
   %flats.sroa.19.1243 = phi ptr [ %incdec.ptr.i.i.i, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ], [ %flats.sroa.19.2, %_ZN7testing15AssertionResultD2Ev.exit152 ]
@@ -21756,9 +21756,9 @@ invoke.cont6:                                     ; preds = %for.body
   br i1 %tobool.i, label %if.then.i, label %invoke.cont8
 
 if.then.i:                                        ; preds = %invoke.cont6
-  %cmp.i.i = icmp ne ptr %leaf.0247, null
+  %cmp.i.i = icmp ne ptr %leaf.0246, null
   call void @llvm.assume(i1 %cmp.i.i)
-  %refcount.i.i = getelementptr inbounds i8, ptr %leaf.0247, i64 8
+  %refcount.i.i = getelementptr inbounds i8, ptr %leaf.0246, i64 8
   %6 = atomicrmw add ptr %refcount.i.i, i32 2 monotonic, align 4
   %7 = load ptr, ptr %_M_finish.i.i.i, align 8
   %8 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
@@ -21766,7 +21766,7 @@ if.then.i:                                        ; preds = %invoke.cont6
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  store ptr %leaf.0247, ptr %7, align 8
+  store ptr %leaf.0246, ptr %7, align 8
   %incdec.ptr.i.i.i24 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %incdec.ptr.i.i.i24, ptr %_M_finish.i.i.i, align 8
   br label %invoke.cont8
@@ -21804,7 +21804,7 @@ cond.true.i.i.i.i.i:                              ; preds = %_ZNKSt6vectorIPN4ab
 _ZNSt12_Vector_baseIPN4absl13cord_internal7CordRepESaIS3_EE11_M_allocateEm.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i.i, %_ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %cond.i10.i.i.i.i = phi ptr [ null, %_ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %call5.i.i.i.i.i.i.i26, %cond.true.i.i.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i
-  store ptr %leaf.0247, ptr %add.ptr.i.i.i.i, align 8
+  store ptr %leaf.0246, ptr %add.ptr.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i.i.i
 
@@ -21830,7 +21830,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEv
   br label %invoke.cont8
 
 invoke.cont8:                                     ; preds = %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i, %if.then.i.i.i, %invoke.cont6
-  %call12 = invoke fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_111MakeHexFlatEm(i64 noundef %i.0246)
+  %call12 = invoke fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_111MakeHexFlatEm(i64 noundef %i.0247)
           to label %invoke.cont11 unwind label %lpad.loopexit
 
 invoke.cont11:                                    ; preds = %invoke.cont8
@@ -21912,11 +21912,11 @@ _ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i71: ; preds = %if.end.
   br i1 %15, label %if.then.i75, label %if.end.i69
 
 if.then.i75:                                      ; preds = %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i71, %invoke.cont13
-  %call1.i76 = invoke noundef ptr @_ZN4absl13cord_internal12CordRepBtree10AddCordRepILNS1_8EdgeTypeE1EEEPS1_S4_PNS0_7CordRepE(ptr noundef %leaf.0247, ptr noundef nonnull %12)
+  %call1.i76 = invoke noundef ptr @_ZN4absl13cord_internal12CordRepBtree10AddCordRepILNS1_8EdgeTypeE1EEEPS1_S4_PNS0_7CordRepE(ptr noundef %leaf.0246, ptr noundef nonnull %12)
           to label %invoke.cont23 unwind label %lpad.loopexit
 
 if.end.i69:                                       ; preds = %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i71, %if.end.i.i67
-  %call2.i78 = invoke noundef ptr @_ZN4absl13cord_internal12CordRepBtree10AppendSlowEPS1_PNS0_7CordRepE(ptr noundef %leaf.0247, ptr noundef nonnull %12)
+  %call2.i78 = invoke noundef ptr @_ZN4absl13cord_internal12CordRepBtree10AppendSlowEPS1_PNS0_7CordRepE(ptr noundef %leaf.0246, ptr noundef nonnull %12)
           to label %invoke.cont23 unwind label %lpad.loopexit
 
 invoke.cont23:                                    ; preds = %if.then.i75, %if.end.i69
@@ -22038,8 +22038,8 @@ invoke.cont63:                                    ; preds = %_ZN7testing15Assert
   %27 = load i8, ptr %call.i88, align 1
   %frombool.i.i = and i8 %27, 1
   store i8 %frombool.i.i, ptr %ref.tmp44, align 8
-  store ptr %leaf.0247, ptr %agg.tmp4590.sroa.5.0.ref.tmp44.sroa_idx, align 8
-  store ptr %leaf.0247, ptr %agg.tmp4590.sroa.6.0.ref.tmp44.sroa_idx, align 8
+  store ptr %leaf.0246, ptr %agg.tmp4590.sroa.5.0.ref.tmp44.sroa_idx, align 8
+  store ptr %leaf.0246, ptr %agg.tmp4590.sroa.6.0.ref.tmp44.sroa_idx, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ConditionalMatcherINS0_9NeMatcherIPN4absl13cord_internal12CordRepBtreeEEENS0_9EqMatcherIS7_EEEEEclIS7_EENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar43, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp44, ptr noundef nonnull @.str.173, ptr noundef nonnull align 8 dereferenceable(8) %result)
           to label %invoke.cont64 unwind label %lpad.loopexit
 
@@ -22335,7 +22335,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit152:         ; preds = %if.end110, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i151
   store ptr null, ptr %message_.i.i133, align 8
   %55 = load ptr, ptr %result, align 8
-  %inc = add nuw nsw i64 %i.0246, 1
+  %inc = add nuw nsw i64 %i.0247, 1
   %exitcond.not = icmp eq i64 %inc, 6
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !276
 
@@ -23732,8 +23732,8 @@ _ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit: ; preds = %if.
   br label %for.body
 
 for.body:                                         ; preds = %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit, %_ZN7testing15AssertionResultD2Ev.exit107
-  %leaf.0140 = phi ptr [ %retval.0.i, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ], [ %66, %_ZN7testing15AssertionResultD2Ev.exit107 ]
-  %i.0139 = phi i64 [ 1, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ], [ %inc, %_ZN7testing15AssertionResultD2Ev.exit107 ]
+  %i.0140 = phi i64 [ 1, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ], [ %inc, %_ZN7testing15AssertionResultD2Ev.exit107 ]
+  %leaf.0139 = phi ptr [ %retval.0.i, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ], [ %66, %_ZN7testing15AssertionResultD2Ev.exit107 ]
   %call.i22 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN7testing18WithParamInterfaceIbE8GetParamEv()
           to label %invoke.cont8 unwind label %lpad2.loopexit
 
@@ -23743,9 +23743,9 @@ invoke.cont8:                                     ; preds = %for.body
   br i1 %tobool.i, label %if.then.i, label %invoke.cont10
 
 if.then.i:                                        ; preds = %invoke.cont8
-  %cmp.i.i = icmp ne ptr %leaf.0140, null
+  %cmp.i.i = icmp ne ptr %leaf.0139, null
   call void @llvm.assume(i1 %cmp.i.i)
-  %refcount.i.i = getelementptr inbounds i8, ptr %leaf.0140, i64 8
+  %refcount.i.i = getelementptr inbounds i8, ptr %leaf.0139, i64 8
   %8 = atomicrmw add ptr %refcount.i.i, i32 2 monotonic, align 4
   %9 = load ptr, ptr %_M_finish.i.i.i, align 8
   %10 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
@@ -23753,7 +23753,7 @@ if.then.i:                                        ; preds = %invoke.cont8
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  store ptr %leaf.0140, ptr %9, align 8
+  store ptr %leaf.0139, ptr %9, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   br label %invoke.cont10
@@ -23791,7 +23791,7 @@ cond.true.i.i.i.i.i:                              ; preds = %_ZNKSt6vectorIPN4ab
 _ZNSt12_Vector_baseIPN4absl13cord_internal7CordRepESaIS3_EE11_M_allocateEm.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i.i, %_ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %cond.i10.i.i.i.i = phi ptr [ null, %_ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %call5.i.i.i.i.i.i.i24, %cond.true.i.i.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i
-  store ptr %leaf.0140, ptr %add.ptr.i.i.i.i, align 8
+  store ptr %leaf.0139, ptr %add.ptr.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i.i.i
 
@@ -23817,7 +23817,7 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEv
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i, %if.then.i.i.i, %invoke.cont8
-  %call14 = invoke fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_111MakeHexFlatEm(i64 noundef %i.0139)
+  %call14 = invoke fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_111MakeHexFlatEm(i64 noundef %i.0140)
           to label %invoke.cont13 unwind label %lpad2.loopexit
 
 invoke.cont13:                                    ; preds = %invoke.cont10
@@ -23846,11 +23846,11 @@ _ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i34: ; preds = %if.end.
   br i1 %17, label %if.then.i38, label %if.end.i32
 
 if.then.i38:                                      ; preds = %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i34, %invoke.cont15
-  %call1.i39 = invoke noundef ptr @_ZN4absl13cord_internal12CordRepBtree10AddCordRepILNS1_8EdgeTypeE0EEEPS1_S4_PNS0_7CordRepE(ptr noundef %leaf.0140, ptr noundef nonnull %14)
+  %call1.i39 = invoke noundef ptr @_ZN4absl13cord_internal12CordRepBtree10AddCordRepILNS1_8EdgeTypeE0EEEPS1_S4_PNS0_7CordRepE(ptr noundef %leaf.0139, ptr noundef nonnull %14)
           to label %invoke.cont25 unwind label %lpad2.loopexit
 
 if.end.i32:                                       ; preds = %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i34, %if.end.i.i30
-  %call2.i41 = invoke noundef ptr @_ZN4absl13cord_internal12CordRepBtree11PrependSlowEPS1_PNS0_7CordRepE(ptr noundef %leaf.0140, ptr noundef nonnull %14)
+  %call2.i41 = invoke noundef ptr @_ZN4absl13cord_internal12CordRepBtree11PrependSlowEPS1_PNS0_7CordRepE(ptr noundef %leaf.0139, ptr noundef nonnull %14)
           to label %invoke.cont25 unwind label %lpad2.loopexit
 
 invoke.cont25:                                    ; preds = %if.then.i38, %if.end.i32
@@ -23975,8 +23975,8 @@ invoke.cont65:                                    ; preds = %_ZN7testing15Assert
   %30 = load i8, ptr %call.i50, align 1
   %frombool.i.i = and i8 %30, 1
   store i8 %frombool.i.i, ptr %ref.tmp46, align 8
-  store ptr %leaf.0140, ptr %agg.tmp4752.sroa.5.0.ref.tmp46.sroa_idx, align 8
-  store ptr %leaf.0140, ptr %agg.tmp4752.sroa.6.0.ref.tmp46.sroa_idx, align 8
+  store ptr %leaf.0139, ptr %agg.tmp4752.sroa.5.0.ref.tmp46.sroa_idx, align 8
+  store ptr %leaf.0139, ptr %agg.tmp4752.sroa.6.0.ref.tmp46.sroa_idx, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ConditionalMatcherINS0_9NeMatcherIPN4absl13cord_internal12CordRepBtreeEEENS0_9EqMatcherIS7_EEEEEclIS7_EENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar45, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp46, ptr noundef nonnull @.str.173, ptr noundef nonnull align 8 dereferenceable(8) %result)
           to label %invoke.cont66 unwind label %lpad2.loopexit
 
@@ -24304,7 +24304,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit107:         ; preds = %if.end112, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i106
   store ptr null, ptr %message_.i.i88, align 8
   %66 = load ptr, ptr %result, align 8
-  %inc = add nuw nsw i64 %i.0139, 1
+  %inc = add nuw nsw i64 %i.0140, 1
   %exitcond.not = icmp eq i64 %inc, 6
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !341
 
@@ -25104,8 +25104,8 @@ _ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit: ; preds = %if.
   br label %for.body
 
 for.body:                                         ; preds = %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit, %_ZN7testing15AssertionResultD2Ev.exit136
-  %leaf.0172 = phi ptr [ %retval.0.i, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ], [ %78, %_ZN7testing15AssertionResultD2Ev.exit136 ]
-  %i.0171 = phi i64 [ 1, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ], [ %inc, %_ZN7testing15AssertionResultD2Ev.exit136 ]
+  %i.0172 = phi i64 [ 1, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ], [ %inc, %_ZN7testing15AssertionResultD2Ev.exit136 ]
+  %leaf.0171 = phi ptr [ %retval.0.i, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit ], [ %78, %_ZN7testing15AssertionResultD2Ev.exit136 ]
   %call.i25 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZN7testing18WithParamInterfaceIbE8GetParamEv()
           to label %invoke.cont8 unwind label %lpad2.loopexit
 
@@ -25115,9 +25115,9 @@ invoke.cont8:                                     ; preds = %for.body
   br i1 %tobool.i, label %if.then.i, label %invoke.cont10
 
 if.then.i:                                        ; preds = %invoke.cont8
-  %cmp.i.i = icmp ne ptr %leaf.0172, null
+  %cmp.i.i = icmp ne ptr %leaf.0171, null
   call void @llvm.assume(i1 %cmp.i.i)
-  %refcount.i.i = getelementptr inbounds i8, ptr %leaf.0172, i64 8
+  %refcount.i.i = getelementptr inbounds i8, ptr %leaf.0171, i64 8
   %8 = atomicrmw add ptr %refcount.i.i, i32 2 monotonic, align 4
   %9 = load ptr, ptr %_M_finish.i.i.i, align 8
   %10 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
@@ -25125,7 +25125,7 @@ if.then.i:                                        ; preds = %invoke.cont8
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  store ptr %leaf.0172, ptr %9, align 8
+  store ptr %leaf.0171, ptr %9, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
   br label %invoke.cont10
@@ -25163,7 +25163,7 @@ cond.true.i.i.i.i.i:                              ; preds = %_ZNKSt6vectorIPN4ab
 _ZNSt12_Vector_baseIPN4absl13cord_internal7CordRepESaIS3_EE11_M_allocateEm.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i.i, %_ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %cond.i10.i.i.i.i = phi ptr [ null, %_ZNKSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %call5.i.i.i.i.i.i.i27, %cond.true.i.i.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i.i, i64 %sub.ptr.div.i.i.i.i.i.i
-  store ptr %leaf.0172, ptr %add.ptr.i.i.i.i, align 8
+  store ptr %leaf.0171, ptr %add.ptr.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i.i.i
 
@@ -25189,12 +25189,12 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEv
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i, %if.then.i.i.i, %invoke.cont8
-  %rem = and i64 %i.0171, 1
+  %rem = and i64 %i.0172, 1
   %cmp12.not = icmp eq i64 %rem, 0
   br i1 %cmp12.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %invoke.cont10
-  %call15 = invoke fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_111MakeHexFlatEm(i64 noundef %i.0171)
+  %call15 = invoke fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_111MakeHexFlatEm(i64 noundef %i.0172)
           to label %invoke.cont14 unwind label %lpad2.loopexit
 
 invoke.cont14:                                    ; preds = %if.then
@@ -25223,11 +25223,11 @@ _ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i37: ; preds = %if.end.
   br i1 %17, label %if.then.i41, label %if.end.i35
 
 if.then.i41:                                      ; preds = %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i37, %invoke.cont16
-  %call1.i42 = invoke noundef ptr @_ZN4absl13cord_internal12CordRepBtree10AddCordRepILNS1_8EdgeTypeE0EEEPS1_S4_PNS0_7CordRepE(ptr noundef %leaf.0172, ptr noundef nonnull %14)
+  %call1.i42 = invoke noundef ptr @_ZN4absl13cord_internal12CordRepBtree10AddCordRepILNS1_8EdgeTypeE0EEEPS1_S4_PNS0_7CordRepE(ptr noundef %leaf.0171, ptr noundef nonnull %14)
           to label %invoke.cont33 unwind label %lpad2.loopexit
 
 if.end.i35:                                       ; preds = %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i37, %if.end.i.i33
-  %call2.i44 = invoke noundef ptr @_ZN4absl13cord_internal12CordRepBtree11PrependSlowEPS1_PNS0_7CordRepE(ptr noundef %leaf.0172, ptr noundef nonnull %14)
+  %call2.i44 = invoke noundef ptr @_ZN4absl13cord_internal12CordRepBtree11PrependSlowEPS1_PNS0_7CordRepE(ptr noundef %leaf.0171, ptr noundef nonnull %14)
           to label %invoke.cont33 unwind label %lpad2.loopexit
 
 lpad:                                             ; preds = %entry
@@ -25246,7 +25246,7 @@ lpad2.loopexit.split-lp:                          ; preds = %invoke.cont, %invok
   br label %ehcleanup126
 
 if.else:                                          ; preds = %invoke.cont10
-  %call22 = invoke fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_111MakeHexFlatEm(i64 noundef %i.0171)
+  %call22 = invoke fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_111MakeHexFlatEm(i64 noundef %i.0172)
           to label %invoke.cont21 unwind label %lpad2.loopexit
 
 invoke.cont21:                                    ; preds = %if.else
@@ -25307,11 +25307,11 @@ _ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i58: ; preds = %if.end.
   br i1 %30, label %if.then.i62, label %if.end.i56
 
 if.then.i62:                                      ; preds = %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i58, %_ZNSt5dequeIPN4absl13cord_internal7CordRepESaIS3_EE4backEv.exit
-  %call1.i64 = invoke noundef ptr @_ZN4absl13cord_internal12CordRepBtree10AddCordRepILNS1_8EdgeTypeE1EEEPS1_S4_PNS0_7CordRepE(ptr noundef %leaf.0172, ptr noundef nonnull %27)
+  %call1.i64 = invoke noundef ptr @_ZN4absl13cord_internal12CordRepBtree10AddCordRepILNS1_8EdgeTypeE1EEEPS1_S4_PNS0_7CordRepE(ptr noundef %leaf.0171, ptr noundef nonnull %27)
           to label %invoke.cont33 unwind label %lpad2.loopexit
 
 if.end.i56:                                       ; preds = %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i58, %if.end.i.i54
-  %call2.i66 = invoke noundef ptr @_ZN4absl13cord_internal12CordRepBtree10AppendSlowEPS1_PNS0_7CordRepE(ptr noundef %leaf.0172, ptr noundef nonnull %27)
+  %call2.i66 = invoke noundef ptr @_ZN4absl13cord_internal12CordRepBtree10AppendSlowEPS1_PNS0_7CordRepE(ptr noundef %leaf.0171, ptr noundef nonnull %27)
           to label %invoke.cont33 unwind label %lpad2.loopexit
 
 invoke.cont33:                                    ; preds = %if.then.i62, %if.end.i56, %if.then.i41, %if.end.i35
@@ -25421,8 +25421,8 @@ invoke.cont76:                                    ; preds = %_ZN7testing15Assert
   %42 = load i8, ptr %call.i76, align 1
   %frombool.i.i = and i8 %42, 1
   store i8 %frombool.i.i, ptr %ref.tmp57, align 8
-  store ptr %leaf.0172, ptr %agg.tmp5878.sroa.5.0.ref.tmp57.sroa_idx, align 8
-  store ptr %leaf.0172, ptr %agg.tmp5878.sroa.6.0.ref.tmp57.sroa_idx, align 8
+  store ptr %leaf.0171, ptr %agg.tmp5878.sroa.5.0.ref.tmp57.sroa_idx, align 8
+  store ptr %leaf.0171, ptr %agg.tmp5878.sroa.6.0.ref.tmp57.sroa_idx, align 8
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_18ConditionalMatcherINS0_9NeMatcherIPN4absl13cord_internal12CordRepBtreeEEENS0_9EqMatcherIS7_EEEEEclIS7_EENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar56, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp57, ptr noundef nonnull @.str.173, ptr noundef nonnull align 8 dereferenceable(8) %result)
           to label %invoke.cont77 unwind label %lpad2.loopexit
 
@@ -25750,7 +25750,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit136:         ; preds = %if.end123, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i135
   store ptr null, ptr %message_.i.i117, align 8
   %78 = load ptr, ptr %result, align 8
-  %inc = add nuw nsw i64 %i.0171, 1
+  %inc = add nuw nsw i64 %i.0172, 1
   %exitcond.not = icmp eq i64 %inc, 6
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !371
 
@@ -49792,29 +49792,29 @@ invoke.cont.preheader:                            ; preds = %entry
 
 invoke.cont:                                      ; preds = %invoke.cont.preheader, %for.inc
   %flats.sroa.0.0122 = phi ptr [ %flats.sroa.0.1, %for.inc ], [ null, %invoke.cont.preheader ]
-  %flats.sroa.9.0121 = phi ptr [ %flats.sroa.9.1, %for.inc ], [ null, %invoke.cont.preheader ]
-  %s.sroa.0.0120 = phi i64 [ %sub.i, %for.inc ], [ %0, %invoke.cont.preheader ]
-  %s.sroa.5.0119 = phi ptr [ %add.ptr.i, %for.inc ], [ %1, %invoke.cont.preheader ]
-  %flats.sroa.15.0118 = phi ptr [ %flats.sroa.15.1, %for.inc ], [ null, %invoke.cont.preheader ]
+  %s.sroa.0.0121 = phi i64 [ %sub.i, %for.inc ], [ %0, %invoke.cont.preheader ]
+  %s.sroa.5.0120 = phi ptr [ %add.ptr.i, %for.inc ], [ %1, %invoke.cont.preheader ]
+  %flats.sroa.15.0119 = phi ptr [ %flats.sroa.15.1, %for.inc ], [ null, %invoke.cont.preheader ]
+  %flats.sroa.9.0118 = phi ptr [ %flats.sroa.9.1, %for.inc ], [ null, %invoke.cont.preheader ]
   %call4.i.i.i22 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #33
           to label %invoke.cont4 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %s.sroa.0.0120, i64 3)
+  %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %s.sroa.0.0121, i64 3)
   %2 = getelementptr inbounds i8, ptr %call4.i.i.i22, i64 8
   store i64 25769803778, ptr %2, align 8
   store i64 %.sroa.speculated.i, ptr %call4.i.i.i22, align 8
   %storage.i.i = getelementptr inbounds i8, ptr %call4.i.i.i22, i64 13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %storage.i.i, ptr noundef nonnull align 1 dereferenceable(1) %s.sroa.5.0119, i64 %.sroa.speculated.i, i1 false)
-  %cmp.not.i.i = icmp eq ptr %flats.sroa.9.0121, %flats.sroa.15.0118
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %storage.i.i, ptr noundef nonnull align 1 dereferenceable(1) %s.sroa.5.0120, i64 %.sroa.speculated.i, i1 false)
+  %cmp.not.i.i = icmp eq ptr %flats.sroa.9.0118, %flats.sroa.15.0119
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont4
-  store ptr %call4.i.i.i22, ptr %flats.sroa.9.0121, align 8
+  store ptr %call4.i.i.i22, ptr %flats.sroa.9.0118, align 8
   br label %for.inc
 
 if.else.i.i:                                      ; preds = %invoke.cont4
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %flats.sroa.9.0121 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %flats.sroa.15.0119 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %flats.sroa.0.0122 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i23 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
@@ -49867,12 +49867,12 @@ _ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEv
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %if.then.i.i
-  %flats.sroa.15.1 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %flats.sroa.15.0118, %if.then.i.i ]
-  %add.ptr.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %flats.sroa.9.0121, %if.then.i.i ]
+  %add.ptr.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %flats.sroa.9.0118, %if.then.i.i ]
+  %flats.sroa.15.1 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %flats.sroa.15.0119, %if.then.i.i ]
   %flats.sroa.0.1 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIPN4absl13cord_internal7CordRepESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %flats.sroa.0.0122, %if.then.i.i ]
   %flats.sroa.9.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %s.sroa.5.0119, i64 3
-  %sub.i = add i64 %s.sroa.0.0120, -3
+  %add.ptr.i = getelementptr inbounds i8, ptr %s.sroa.5.0120, i64 3
+  %sub.i = add i64 %s.sroa.0.0121, -3
   %cmp.i = icmp eq i64 %sub.i, 0
   br i1 %cmp.i, label %invoke.cont8, label %invoke.cont, !llvm.loop !837
 
@@ -65504,8 +65504,8 @@ sw.bb12:                                          ; preds = %sw.bb5, %entry
   br i1 %cmp.i40, label %sw.bb19, label %return
 
 sw.bb19:                                          ; preds = %sw.bb12, %entry
-  %n2.2 = phi ptr [ %this, %entry ], [ %n2.1, %sw.bb12 ]
   %n1.1 = phi ptr [ %this, %entry ], [ %tree.1, %sw.bb12 ]
+  %n2.2 = phi ptr [ %this, %entry ], [ %n2.1, %sw.bb12 ]
   %tree.2 = phi ptr [ %this, %entry ], [ %8, %sw.bb12 ]
   %arrayidx.i1.i43 = getelementptr inbounds i8, ptr %tree.2, i64 15
   %10 = load i8, ptr %arrayidx.i1.i43, align 1

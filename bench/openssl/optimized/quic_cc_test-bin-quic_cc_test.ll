@@ -155,7 +155,7 @@ if.end33:                                         ; preds = %if.end18
   br i1 %tobool36.not, label %if.then95, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end33, %if.end85
-  %total_sent.058 = phi i64 [ %total_sent.1.lcssa, %if.end85 ], [ 0, %if.end33 ]
+  %total_sent.056 = phi i64 [ %total_sent.1.lcssa, %if.end85 ], [ 0, %if.end33 ]
   %call4350 = call i64 %4(ptr noundef %call1) #8
   %6 = load i64, ptr %mdpl, align 8
   %cond51 = call i64 @llvm.umin.i64(i64 %call4350, i64 %6)
@@ -172,7 +172,7 @@ for.cond:                                         ; preds = %net_sim_send.exit
 
 if.end53:                                         ; preds = %for.cond.preheader, %for.cond
   %cond54 = phi i64 [ %cond, %for.cond ], [ %cond51, %for.cond.preheader ]
-  %total_sent.153 = phi i64 [ %add, %for.cond ], [ %total_sent.058, %for.cond.preheader ]
+  %total_sent.153 = phi i64 [ %add, %for.cond ], [ %total_sent.056, %for.cond.preheader ]
   %8 = load i64, ptr @fake_time.0, align 8
   %retval.sroa.0.0.i.i = call i64 @llvm.uadd.sat.i64(i64 %8, i64 7000000)
   store i64 %retval.sroa.0.0.i.i, ptr @fake_time.0, align 8
@@ -256,7 +256,7 @@ net_sim_send.exit:                                ; preds = %if.end53, %if.end65
   br i1 %tobool58.not, label %if.then95, label %for.cond
 
 for.end:                                          ; preds = %for.cond, %for.cond.preheader
-  %total_sent.1.lcssa = phi i64 [ %total_sent.058, %for.cond.preheader ], [ %add, %for.cond ]
+  %total_sent.1.lcssa = phi i64 [ %total_sent.056, %for.cond.preheader ], [ %add, %for.cond ]
   %call61 = call fastcc i32 @net_sim_process(ptr noundef nonnull %sim, i64 noundef 1)
   %call62 = call i32 @test_int_gt(ptr noundef nonnull @.str.2, i32 noundef 414, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef %call61, i32 noundef 0) #8
   %tobool63.not = icmp eq i32 %call62, 0

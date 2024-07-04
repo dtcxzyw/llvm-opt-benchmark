@@ -1287,39 +1287,39 @@ define noundef i64 @_ZN12RtpAudioFile8readDataEPcx(ptr noundef nonnull align 8 d
 
 11:                                               ; preds = %3, %46
   %.021 = phi ptr [ %1, %3 ], [ %28, %46 ]
-  %.020 = phi i64 [ %2, %3 ], [ %27, %46 ]
-  %.018 = phi i64 [ 0, %3 ], [ %29, %46 ]
+  %.019 = phi i64 [ %2, %3 ], [ %27, %46 ]
+  %.0 = phi i64 [ 0, %3 ], [ %29, %46 ]
   %12 = load i64, ptr %6, align 8
   %13 = load i64, ptr %7, align 8
   %14 = load i64, ptr %5, align 8
   %.neg = sub i64 %12, %13
   %15 = add i64 %.neg, %14
-  %.020. = tail call i64 @llvm.smin.i64(i64 %15, i64 %.020)
+  %.019. = tail call i64 @llvm.smin.i64(i64 %15, i64 %.019)
   %16 = load i32, ptr %8, align 4
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %_ZN12RtpAudioFile13readFrameDataEPcx.exit, label %_ZN12RtpAudioFile13readFrameDataEPcx.exit.thread
 
 _ZN12RtpAudioFile13readFrameDataEPcx.exit.thread: ; preds = %11
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.021, i8 0, i64 %.020., i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.021, i8 0, i64 %.019., i1 false)
   %18 = load i64, ptr %7, align 8
-  %19 = add i64 %18, %.020.
+  %19 = add i64 %18, %.019.
   store i64 %19, ptr %7, align 8
   br label %25
 
 _ZN12RtpAudioFile13readFrameDataEPcx.exit:        ; preds = %11
   %20 = load ptr, ptr %9, align 8
-  %21 = tail call noundef i64 @_ZN9QIODevice4readEPcx(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef %.021, i64 noundef %.020.)
+  %21 = tail call noundef i64 @_ZN9QIODevice4readEPcx(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef %.021, i64 noundef %.019.)
   %22 = load i64, ptr %7, align 8
   %23 = add i64 %22, %21
   store i64 %23, ptr %7, align 8
-  %24 = icmp eq i64 %.020., %21
+  %24 = icmp eq i64 %.019., %21
   br i1 %24, label %25, label %48
 
 25:                                               ; preds = %_ZN12RtpAudioFile13readFrameDataEPcx.exit.thread, %_ZN12RtpAudioFile13readFrameDataEPcx.exit
   %26 = phi i64 [ %19, %_ZN12RtpAudioFile13readFrameDataEPcx.exit.thread ], [ %23, %_ZN12RtpAudioFile13readFrameDataEPcx.exit ]
-  %27 = sub i64 %.020, %.020.
-  %28 = getelementptr i8, ptr %.021, i64 %.020.
-  %29 = add i64 %.020., %.018
+  %27 = sub i64 %.019, %.019.
+  %28 = getelementptr i8, ptr %.021, i64 %.019.
+  %29 = add i64 %.019., %.0
   %30 = load i64, ptr %5, align 8
   %31 = load i64, ptr %6, align 8
   %32 = add i64 %31, %30
@@ -1351,8 +1351,8 @@ _ZN12RtpAudioFile13readFrameDataEPcx.exit:        ; preds = %11
   br i1 %47, label %48, label %11, !llvm.loop !7
 
 48:                                               ; preds = %_ZN12RtpAudioFile13readFrameDataEPcx.exit, %46, %39, %33
-  %.0 = phi i64 [ %29, %33 ], [ -1, %39 ], [ %29, %46 ], [ -1, %_ZN12RtpAudioFile13readFrameDataEPcx.exit ]
-  ret i64 %.0
+  %.020 = phi i64 [ %29, %33 ], [ -1, %39 ], [ %29, %46 ], [ -1, %_ZN12RtpAudioFile13readFrameDataEPcx.exit ]
+  ret i64 %.020
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

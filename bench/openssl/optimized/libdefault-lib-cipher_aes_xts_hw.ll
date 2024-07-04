@@ -119,8 +119,8 @@ if.end50:                                         ; preds = %if.else44, %if.then
   store ptr %AES_encrypt.sink, ptr %2, align 8
   %and = and i32 %0, 512
   %tobool.not = icmp eq i32 %and, 0
-  %.ossl_bsaes_xts_encrypt = select i1 %tobool.not, ptr null, ptr @ossl_bsaes_xts_encrypt
   %.ossl_bsaes_xts_decrypt = select i1 %tobool.not, ptr null, ptr @ossl_bsaes_xts_decrypt
+  %.ossl_bsaes_xts_encrypt = select i1 %tobool.not, ptr null, ptr @ossl_bsaes_xts_encrypt
   %add.ptr51 = getelementptr inbounds i8, ptr %key, i64 %div2940
   %ks253 = getelementptr inbounds i8, ptr %ctx, i64 440
   %call54 = tail call i32 @AES_set_encrypt_key(ptr noundef %add.ptr51, i32 noundef %conv45, ptr noundef nonnull %ks253) #5

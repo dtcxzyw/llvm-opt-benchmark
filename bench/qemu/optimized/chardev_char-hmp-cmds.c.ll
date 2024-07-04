@@ -210,8 +210,8 @@ if.end11:                                         ; preds = %if.end7
   br label %end
 
 end:                                              ; preds = %if.end7, %if.end11, %if.then6, %if.then
-  %ret.0 = phi ptr [ null, %if.then6 ], [ %call12, %if.end11 ], [ null, %if.end7 ], [ null, %if.then ]
   %backend.0 = phi ptr [ null, %if.then6 ], [ %call8, %if.end11 ], [ null, %if.end7 ], [ null, %if.then ]
+  %ret.0 = phi ptr [ null, %if.then6 ], [ %call12, %if.end11 ], [ null, %if.end7 ], [ null, %if.then ]
   call void @qapi_free_ChardevReturn(ptr noundef %ret.0) #3
   call void @qapi_free_ChardevBackend(ptr noundef %backend.0) #3
   call void @qemu_opts_del(ptr noundef %call2) #3

@@ -574,8 +574,8 @@ define ptr @Fxu_MatrixFindDouble(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %11 to i64
   %15 = getelementptr inbounds %struct.FxuListDouble, ptr %13, i64 %14
-  %.03653 = load ptr, ptr %15, align 8
-  %.not54 = icmp eq ptr %.03653, null
+  %.03553 = load ptr, ptr %15, align 8
+  %.not54 = icmp eq ptr %.03553, null
   br i1 %.not54, label %._crit_edge58, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %5
@@ -586,8 +586,8 @@ define ptr @Fxu_MatrixFindDouble(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %18
 
 18:                                               ; preds = %.lr.ph57, %77
-  %.03655 = phi ptr [ %.03653, %.lr.ph57 ], [ %.036, %77 ]
-  %19 = getelementptr inbounds i8, ptr %.03655, i64 16
+  %.03555 = phi ptr [ %.03553, %.lr.ph57 ], [ %.035, %77 ]
+  %19 = getelementptr inbounds i8, ptr %.03555, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %20, align 8
   %.not39 = icmp eq i32 %21, %3
@@ -720,8 +720,8 @@ Fxu_MatrixGetDoubleVars.exit:                     ; preds = %.lr.ph
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Fxu_MatrixGetDoubleVars.exit.preheader
-  %.035.lcssa = phi i32 [ 0, %Fxu_MatrixGetDoubleVars.exit.preheader ], [ %70, %._crit_edge.loopexit ]
-  %.not42 = icmp eq i32 %.035.lcssa, %3
+  %.036.lcssa = phi i32 [ 0, %Fxu_MatrixGetDoubleVars.exit.preheader ], [ %70, %._crit_edge.loopexit ]
+  %.not42 = icmp eq i32 %.036.lcssa, %3
   br i1 %.not42, label %.preheader, label %77
 
 .preheader:                                       ; preds = %Fxu_MatrixGetDoubleVars.exit, %._crit_edge
@@ -751,14 +751,14 @@ Fxu_MatrixGetDoubleVars.exit:                     ; preds = %.lr.ph
   br i1 %.not44, label %._crit_edge58, label %77
 
 77:                                               ; preds = %._crit_edge49, %._crit_edge, %22, %18
-  %78 = getelementptr inbounds i8, ptr %.03655, i64 48
-  %.036 = load ptr, ptr %78, align 8
-  %.not = icmp eq ptr %.036, null
+  %78 = getelementptr inbounds i8, ptr %.03555, i64 48
+  %.035 = load ptr, ptr %78, align 8
+  %.not = icmp eq ptr %.035, null
   br i1 %.not, label %._crit_edge58, label %18, !llvm.loop !16
 
 ._crit_edge58:                                    ; preds = %._crit_edge49, %77, %75, %5
-  %.036.lcssa = phi ptr [ null, %5 ], [ %.03655, %75 ], [ null, %77 ], [ %.03655, %._crit_edge49 ]
-  ret ptr %.036.lcssa
+  %.035.lcssa = phi ptr [ null, %5 ], [ %.03555, %75 ], [ null, %77 ], [ %.03555, %._crit_edge49 ]
+  ret ptr %.035.lcssa
 }
 
 declare i32 @Fxu_PairHashKeyArray(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -766,8 +766,8 @@ declare i32 @Fxu_PairHashKeyArray(ptr noundef, ptr noundef, ptr noundef, i32 nou
 ; Function Attrs: nounwind uwtable
 define range(i32 -10, 2147483646) i32 @Fxu_SelectSCD(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %.04796 = load ptr, ptr %5, align 8
-  %.not97 = icmp eq ptr %.04796, null
+  %.05396 = load ptr, ptr %5, align 8
+  %.not97 = icmp eq ptr %.05396, null
   br i1 %.not97, label %._crit_edge104, label %.lr.ph103
 
 .lr.ph103:                                        ; preds = %4
@@ -776,25 +776,25 @@ define range(i32 -10, 2147483646) i32 @Fxu_SelectSCD(ptr noundef %0, i32 noundef
   br label %8
 
 8:                                                ; preds = %.lr.ph103, %.loopexit
-  %.047101 = phi ptr [ %.04796, %.lr.ph103 ], [ %.047, %.loopexit ]
+  %.053101 = phi ptr [ %.05396, %.lr.ph103 ], [ %.053, %.loopexit ]
   %.0100 = phi i32 [ -10, %.lr.ph103 ], [ %.3, %.loopexit ]
   store ptr %6, ptr %7, align 8
   store ptr null, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %.047101, i64 24
-  %.05778 = load ptr, ptr %9, align 8
-  %.not6279 = icmp eq ptr %.05778, null
+  %9 = getelementptr inbounds i8, ptr %.053101, i64 24
+  %.05578 = load ptr, ptr %9, align 8
+  %.not6279 = icmp eq ptr %.05578, null
   br i1 %.not6279, label %.loopexit72, label %.preheader
 
 .preheader:                                       ; preds = %8, %._crit_edge
-  %.05781 = phi ptr [ %.057, %._crit_edge ], [ %.05778, %8 ]
-  %.056.in73 = getelementptr inbounds i8, ptr %.05781, i64 32
-  %.05674 = load ptr, ptr %.056.in73, align 8
-  %.not6975 = icmp eq ptr %.05674, null
+  %.05581 = phi ptr [ %.055, %._crit_edge ], [ %.05578, %8 ]
+  %.054.in73 = getelementptr inbounds i8, ptr %.05581, i64 32
+  %.05474 = load ptr, ptr %.054.in73, align 8
+  %.not6975 = icmp eq ptr %.05474, null
   br i1 %.not6975, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %16
-  %.05677 = phi ptr [ %.056, %16 ], [ %.05674, %.preheader ]
-  %10 = getelementptr inbounds i8, ptr %.05677, i64 16
+  %.05477 = phi ptr [ %.054, %16 ], [ %.05474, %.preheader ]
+  %10 = getelementptr inbounds i8, ptr %.05477, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 64
   %13 = load ptr, ptr %12, align 8
@@ -809,15 +809,15 @@ define range(i32 -10, 2147483646) i32 @Fxu_SelectSCD(ptr noundef %0, i32 noundef
   br label %16
 
 16:                                               ; preds = %.lr.ph, %14
-  %.056.in = getelementptr inbounds i8, ptr %.05677, i64 32
-  %.056 = load ptr, ptr %.056.in, align 8
-  %.not69 = icmp eq ptr %.056, null
+  %.054.in = getelementptr inbounds i8, ptr %.05477, i64 32
+  %.054 = load ptr, ptr %.054.in, align 8
+  %.not69 = icmp eq ptr %.054, null
   br i1 %.not69, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %16, %.preheader
-  %17 = getelementptr inbounds i8, ptr %.05781, i64 48
-  %.057 = load ptr, ptr %17, align 8
-  %.not62 = icmp eq ptr %.057, null
+  %17 = getelementptr inbounds i8, ptr %.05581, i64 48
+  %.055 = load ptr, ptr %17, align 8
+  %.not62 = icmp eq ptr %.055, null
   br i1 %.not62, label %._crit_edge82, label %.preheader, !llvm.loop !18
 
 ._crit_edge82:                                    ; preds = %._crit_edge
@@ -827,20 +827,20 @@ define range(i32 -10, 2147483646) i32 @Fxu_SelectSCD(ptr noundef %0, i32 noundef
 
 .lr.ph88:                                         ; preds = %._crit_edge82, %22
   %.187 = phi i32 [ %.2, %22 ], [ %.0100, %._crit_edge82 ]
-  %.05485 = phi ptr [ %24, %22 ], [ %.pre, %._crit_edge82 ]
-  %18 = tail call i32 @Fxu_SingleCountCoincidence(ptr noundef %0, ptr noundef nonnull %.047101, ptr noundef %.05485) #6
+  %.05785 = phi ptr [ %24, %22 ], [ %.pre, %._crit_edge82 ]
+  %18 = tail call i32 @Fxu_SingleCountCoincidence(ptr noundef %0, ptr noundef nonnull %.053101, ptr noundef %.05785) #6
   %19 = add nsw i32 %18, -2
   %20 = icmp slt i32 %.187, %19
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %.lr.ph88
-  store ptr %.047101, ptr %2, align 8
-  store ptr %.05485, ptr %3, align 8
+  store ptr %.053101, ptr %2, align 8
+  store ptr %.05785, ptr %3, align 8
   br label %22
 
 22:                                               ; preds = %.lr.ph88, %21
   %.2 = phi i32 [ %19, %21 ], [ %.187, %.lr.ph88 ]
-  %23 = getelementptr inbounds i8, ptr %.05485, i64 64
+  %23 = getelementptr inbounds i8, ptr %.05785, i64 64
   %24 = load ptr, ptr %23, align 8
   %.not64 = icmp eq ptr %24, inttoptr (i64 1 to ptr)
   br i1 %.not64, label %.loopexit72.loopexit, label %.lr.ph88, !llvm.loop !19
@@ -875,19 +875,19 @@ define range(i32 -10, 2147483646) i32 @Fxu_SelectSCD(ptr noundef %0, i32 noundef
   br i1 %.not68110, label %.loopexit, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
-  %.05892111 = phi ptr [ %33, %.lr.ph95 ], [ %30, %.lr.ph95.preheader ]
-  %32 = getelementptr inbounds i8, ptr %.05892111, i64 64
+  %.05693111 = phi ptr [ %33, %.lr.ph95 ], [ %30, %.lr.ph95.preheader ]
+  %32 = getelementptr inbounds i8, ptr %.05693111, i64 64
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %.05892111, i64 64
+  %34 = getelementptr inbounds i8, ptr %.05693111, i64 64
   store ptr null, ptr %34, align 8
   %.not68 = icmp eq ptr %33, inttoptr (i64 1 to ptr)
   br i1 %.not68, label %.loopexit, label %.lr.ph95, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph95, %.lr.ph95.preheader, %29, %.loopexit72
-  %35 = getelementptr inbounds i8, ptr %.047101, i64 56
+  %35 = getelementptr inbounds i8, ptr %.053101, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %.047 = load ptr, ptr %35, align 8
-  %.not = icmp eq ptr %.047, null
+  %.053 = load ptr, ptr %35, align 8
+  %.not = icmp eq ptr %.053, null
   br i1 %.not, label %._crit_edge104, label %8, !llvm.loop !21
 
 ._crit_edge104:                                   ; preds = %.loopexit, %4

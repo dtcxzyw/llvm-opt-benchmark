@@ -898,15 +898,15 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
 
 71:                                               ; preds = %68, %65
   %72 = tail call ptr @flatten_join_alias_vars_mutator(ptr noundef nonnull %62, ptr noundef nonnull %1)
-  %73 = tail call ptr @lappend(ptr noundef %.092, ptr noundef %72) #6
+  %73 = tail call ptr @lappend(ptr noundef %.093, ptr noundef %72) #6
   %74 = load ptr, ptr %54, align 8
   %75 = tail call ptr @copyObjectImpl(ptr noundef %74) #6
-  %76 = tail call ptr @lappend(ptr noundef %.093, ptr noundef %75) #6
+  %76 = tail call ptr @lappend(ptr noundef %.092, ptr noundef %75) #6
   br label %77
 
 77:                                               ; preds = %58, %71
-  %.194 = phi ptr [ %.093, %58 ], [ %76, %71 ]
-  %.1 = phi ptr [ %.092, %58 ], [ %73, %71 ]
+  %.194 = phi ptr [ %.093, %58 ], [ %73, %71 ]
+  %.1 = phi ptr [ %.092, %58 ], [ %76, %71 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %.split.split, !llvm.loop !5
 
@@ -916,7 +916,7 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
   %78 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 34, ptr %78, align 4
   %79 = getelementptr inbounds i8, ptr %78, i64 8
-  store ptr %.us-phi111, ptr %79, align 8
+  store ptr %.us-phi, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %0, i64 12
   %81 = load i32, ptr %80, align 4
   %82 = getelementptr inbounds i8, ptr %78, i64 16
@@ -924,7 +924,7 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
   %83 = getelementptr inbounds i8, ptr %78, i64 20
   store i32 2, ptr %83, align 4
   %84 = getelementptr inbounds i8, ptr %78, i64 24
-  store ptr %.us-phi, ptr %84, align 8
+  store ptr %.us-phi111, ptr %84, align 8
   %85 = load i32, ptr %40, align 4
   %86 = getelementptr inbounds i8, ptr %78, i64 32
   store i32 %85, ptr %86, align 8
@@ -1292,8 +1292,8 @@ tailrecurse.backedge:                             ; preds = %24, %27, %29, %31
   br i1 %or.cond.not, label %41, label %.thread44
 
 .thread44:                                        ; preds = %tailrecurse.backedge, %20, %17, %.lr.ph, %41, %2, %33, %.lr.ph56, %.thread42, %11, %5
-  %.0 = phi i1 [ true, %5 ], [ true, %11 ], [ false, %.thread42 ], [ true, %33 ], [ true, %.lr.ph56 ], [ false, %2 ], [ %44, %41 ], [ false, %.lr.ph ], [ false, %17 ], [ false, %20 ], [ false, %tailrecurse.backedge ]
-  ret i1 %.0
+  %.035 = phi i1 [ true, %5 ], [ true, %11 ], [ false, %.thread42 ], [ true, %33 ], [ true, %.lr.ph56 ], [ false, %2 ], [ %44, %41 ], [ false, %.lr.ph ], [ false, %17 ], [ false, %20 ], [ false, %tailrecurse.backedge ]
+  ret i1 %.035
 }
 
 ; Function Attrs: nounwind uwtable

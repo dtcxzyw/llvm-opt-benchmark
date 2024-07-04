@@ -2435,8 +2435,8 @@ sub_0.i:                                          ; preds = %119
   %122 = load i8, ptr %115, align 1
   %123 = zext i8 %122 to i32
   %124 = sub nsw i32 105, %123
-  %.not.i107 = icmp eq i8 %122, 105
-  br i1 %.not.i107, label %sub_1.i, label %.tail.i
+  %.not.i106 = icmp eq i8 %122, 105
+  br i1 %.not.i106, label %sub_1.i, label %.tail.i
 
 sub_1.i:                                          ; preds = %sub_0.i
   %125 = getelementptr inbounds i8, ptr %115, i64 1
@@ -2469,11 +2469,11 @@ sub_2.i:                                          ; preds = %sub_1.i
   br i1 %138, label %.thread157.i, label %140
 
 140:                                              ; preds = %136, %.thread.i
-  %.0118149.i = phi ptr [ %135, %.thread.i ], [ %115, %136 ]
-  %141 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0118149.i) #15
+  %.0115149.i = phi ptr [ %135, %.thread.i ], [ %115, %136 ]
+  %141 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0115149.i) #15
   %142 = trunc i64 %141 to i32
   %143 = add i32 %142, 1
-  %144 = call i32 @setsockopt(i32 noundef %106, i32 noundef 1, i32 noundef 25, ptr noundef nonnull %.0118149.i, i32 noundef %143) #13
+  %144 = call i32 @setsockopt(i32 noundef %106, i32 noundef 1, i32 noundef 25, ptr noundef nonnull %.0115149.i, i32 noundef %143) #13
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %146, label %151
 
@@ -2485,13 +2485,13 @@ sub_2.i:                                          ; preds = %sub_1.i
   br i1 %.not134.i, label %bindlocal.exit, label %150
 
 150:                                              ; preds = %146
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.21, ptr noundef nonnull %.0118149.i) #13
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.21, ptr noundef nonnull %.0115149.i) #13
   br label %bindlocal.exit
 
 151:                                              ; preds = %140
   %152 = getelementptr inbounds i8, ptr %105, i64 1140
   %153 = load i32, ptr %152, align 4
-  %154 = call i32 @Curl_if2ip(i32 noundef %102, i32 noundef %108, i32 noundef %153, ptr noundef nonnull %.0118149.i, ptr noundef nonnull %6, i32 noundef 256) #13
+  %154 = call i32 @Curl_if2ip(i32 noundef %102, i32 noundef %108, i32 noundef %153, ptr noundef nonnull %.0115149.i, ptr noundef nonnull %6, i32 noundef 256) #13
   switch i32 %154, label %162 [
     i32 0, label %155
     i32 1, label %261
@@ -2502,7 +2502,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   br i1 %134, label %156, label %.thread157.i
 
 156:                                              ; preds = %155
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.22, ptr noundef nonnull %.0118149.i) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.22, ptr noundef nonnull %.0115149.i) #13
   br label %.thread119
 
 157:                                              ; preds = %151
@@ -2513,14 +2513,14 @@ sub_2.i:                                          ; preds = %sub_1.i
   br i1 %.not132.i, label %.thread152.i, label %161
 
 161:                                              ; preds = %157
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.23, ptr noundef nonnull %.0118149.i, ptr noundef nonnull %6, i32 noundef %102) #13
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.23, ptr noundef nonnull %.0115149.i, ptr noundef nonnull %6, i32 noundef %102) #13
   br label %.thread152.i
 
 162:                                              ; preds = %151
   br i1 %134, label %209, label %.thread157.i
 
 .thread157.i:                                     ; preds = %162, %155, %136
-  %.0118150161.i = phi ptr [ %.0118149.i, %162 ], [ %139, %136 ], [ %.0118149.i, %155 ]
+  %.0115150161.i = phi ptr [ %.0115149.i, %162 ], [ %139, %136 ], [ %.0115149.i, %155 ]
   %163 = getelementptr inbounds i8, ptr %105, i64 1151
   %164 = load i8, ptr %163, align 1
   switch i32 %102, label %166 [
@@ -2537,7 +2537,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %166
 
 166:                                              ; preds = %.sink.split.i, %.thread157.i
-  %167 = call i32 @Curl_resolv(ptr noundef nonnull %1, ptr noundef nonnull %.0118150161.i, i32 noundef 80, i1 noundef zeroext false, ptr noundef nonnull %4) #13
+  %167 = call i32 @Curl_resolv(ptr noundef nonnull %1, ptr noundef nonnull %.0115150161.i, i32 noundef 80, i1 noundef zeroext false, ptr noundef nonnull %4) #13
   store i8 %164, ptr %163, align 1
   %168 = load ptr, ptr %4, align 8
   %.not135.i = icmp eq ptr %168, null
@@ -2557,7 +2557,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 4
   %178 = load i32, ptr %177, align 4
-  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0118150161.i, i32 noundef %102, ptr noundef nonnull %6, i32 noundef %178) #13
+  call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.24, ptr noundef nonnull %.0115150161.i, i32 noundef %102, ptr noundef nonnull %6, i32 noundef %178) #13
   br label %179
 
 179:                                              ; preds = %174, %169
@@ -2587,7 +2587,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %189
 
 189:                                              ; preds = %187, %185
-  %.0110.i = phi ptr [ %188, %187 ], [ null, %185 ]
+  %.0.i107 = phi ptr [ %188, %187 ], [ null, %185 ]
   %190 = getelementptr inbounds i8, ptr %3, i64 8
   %191 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %6, ptr noundef nonnull %190) #13
   %192 = icmp sgt i32 %191, 0
@@ -2598,11 +2598,11 @@ sub_2.i:                                          ; preds = %sub_1.i
   %194 = call zeroext i16 @htons(i16 noundef zeroext %110) #14
   %195 = getelementptr inbounds i8, ptr %3, i64 2
   store i16 %194, ptr %195, align 2
-  %.not140.i = icmp eq ptr %.0110.i, null
+  %.not140.i = icmp eq ptr %.0.i107, null
   br i1 %.not140.i, label %.thread171.i, label %196
 
 196:                                              ; preds = %193
-  %197 = call i64 @strtoul(ptr nocapture noundef nonnull %.0110.i, ptr noundef null, i32 noundef 10) #13
+  %197 = call i64 @strtoul(ptr nocapture noundef nonnull %.0.i107, ptr noundef null, i32 noundef 10) #13
   %198 = icmp ugt i64 %197, 4294967295
   br i1 %198, label %261, label %199
 
@@ -2626,12 +2626,12 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %.thread171.i
 
 209:                                              ; preds = %166, %162
-  %.0118150156166.i = phi ptr [ %.0118149.i, %162 ], [ %.0118150161.i, %166 ]
+  %.0115150156166.i = phi ptr [ %.0115149.i, %162 ], [ %.0115150161.i, %166 ]
   %210 = getelementptr inbounds i8, ptr %1, i64 4940
   %211 = load i32, ptr %210, align 4
   %212 = and i32 %211, -9
   store i32 %212, ptr %210, align 4
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0118150156166.i) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.25, ptr noundef nonnull %.0115150156166.i) #13
   br label %.thread119
 
 213:                                              ; preds = %119, %118
@@ -2655,9 +2655,9 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %.thread171.i
 
 .thread171.i:                                     ; preds = %217, %214, %213, %206, %202, %199, %193, %189, %.thread152.i
-  %.1.i = phi i32 [ 28, %214 ], [ 16, %217 ], [ 0, %213 ], [ 0, %.thread152.i ], [ 28, %189 ], [ 28, %199 ], [ 28, %193 ], [ 0, %202 ], [ 16, %206 ]
+  %.1119.i = phi i32 [ 28, %214 ], [ 16, %217 ], [ 0, %213 ], [ 0, %.thread152.i ], [ 28, %189 ], [ 28, %199 ], [ 28, %193 ], [ 0, %202 ], [ 16, %206 ]
   %220 = call i32 @setsockopt(i32 noundef %106, i32 noundef 0, i32 noundef 24, ptr noundef nonnull %5, i32 noundef 4) #13
-  %221 = call i32 @bind(i32 noundef %106, ptr noundef nonnull %3, i32 noundef %.1.i) #13
+  %221 = call i32 @bind(i32 noundef %106, ptr noundef nonnull %3, i32 noundef %.1119.i) #13
   %222 = icmp sgt i32 %221, -1
   br i1 %222, label %._crit_edge.i, label %.lr.ph.split.preheader.i
 
@@ -2668,7 +2668,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   br label %.lr.ph.split.i
 
 ._crit_edge.i:                                    ; preds = %253, %.thread171.i
-  %.0112.lcssa.i = phi i16 [ %110, %.thread171.i ], [ %indvars.i, %253 ]
+  %.0117.lcssa.i = phi i16 [ %110, %.thread171.i ], [ %indvars.i, %253 ]
   store i32 128, ptr %8, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %7, i8 0, i64 128, i1 false)
   %226 = call i32 @getsockname(i32 noundef %106, ptr noundef nonnull %7, ptr noundef nonnull %8) #13
@@ -2692,7 +2692,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   br i1 %.not144.i, label %239, label %237
 
 237:                                              ; preds = %233
-  %238 = zext i16 %.0112.lcssa.i to i32
+  %238 = zext i16 %.0117.lcssa.i to i32
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.27, i32 noundef %238) #13
   br label %239
 
@@ -2705,9 +2705,9 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 .lr.ph.split.i:                                   ; preds = %253, %.lr.ph.split.preheader.i
   %indvars.iv.i = phi i32 [ %225, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %253 ]
-  %.0119176.i = phi i32 [ %113, %.lr.ph.split.preheader.i ], [ %243, %253 ]
-  %243 = add nsw i32 %.0119176.i, -1
-  %244 = icmp sgt i32 %.0119176.i, 1
+  %.0116177.i = phi i32 [ %113, %.lr.ph.split.preheader.i ], [ %243, %253 ]
+  %243 = add nsw i32 %.0116177.i, -1
+  %244 = icmp sgt i32 %.0116177.i, 1
   br i1 %244, label %245, label %.split.us.i
 
 245:                                              ; preds = %.lr.ph.split.i
@@ -2731,7 +2731,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 253:                                              ; preds = %251, %248
   %254 = call zeroext i16 @ntohs(i16 noundef zeroext %indvars.i) #14
   store i16 %254, ptr %224, align 2
-  %255 = call i32 @bind(i32 noundef %106, ptr noundef nonnull %3, i32 noundef %.1.i) #13
+  %255 = call i32 @bind(i32 noundef %106, ptr noundef nonnull %3, i32 noundef %.1119.i) #13
   %256 = icmp sgt i32 %255, -1
   br i1 %256, label %._crit_edge.i, label %.lr.ph.split.i
 

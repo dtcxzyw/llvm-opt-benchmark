@@ -400,7 +400,7 @@ define internal fastcc void @sema_trace_decl_liveness(ptr noundef %0) unnamed_ad
   br i1 %16, label %tailrecurse.backedge, label %.lr.ph140
 
 tailrecurse.backedge:                             ; preds = %.backedge111, %.backedge108, %.preheader109, %.preheader106
-  %.064.lcssa.pn = phi ptr [ %11, %.preheader106 ], [ %64, %.preheader109 ], [ %.064.be, %.backedge108 ], [ %.0.i.be, %.backedge111 ]
+  %.064.lcssa.pn = phi ptr [ %11, %.preheader106 ], [ %64, %.preheader109 ], [ %.064.be, %.backedge108 ], [ %.021.i.be, %.backedge111 ]
   %.tr.be.in = getelementptr inbounds i8, ptr %.064.lcssa.pn, i64 56
   %.tr.be = load ptr, ptr %.tr.be.in, align 8
   %.not130 = icmp eq ptr %.tr.be, null
@@ -545,8 +545,8 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
   br i1 %65, label %tailrecurse.backedge, label %.lr.ph137
 
 .lr.ph137:                                        ; preds = %.preheader109, %.backedge111
-  %.0.i136 = phi ptr [ %.0.i.be, %.backedge111 ], [ %64, %.preheader109 ]
-  %66 = getelementptr inbounds i8, ptr %.0.i136, i64 8
+  %.021.i136 = phi ptr [ %.021.i.be, %.backedge111 ], [ %64, %.preheader109 ]
+  %66 = getelementptr inbounds i8, ptr %.021.i136, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = load i32, ptr %67, align 8
   switch i32 %68, label %sema_trace_func_liveness.exit [
@@ -559,9 +559,9 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
   ]
 
 .backedge111:                                     ; preds = %.lr.ph137, %.lr.ph137, %.lr.ph137, %.lr.ph137, %.lr.ph137, %.lr.ph137
-  %.0.i.be.in = getelementptr inbounds i8, ptr %67, i64 56
-  %.0.i.be = load ptr, ptr %.0.i.be.in, align 8
-  %69 = tail call zeroext i1 @type_is_user_defined(ptr noundef %.0.i.be) #3
+  %.021.i.be.in = getelementptr inbounds i8, ptr %67, i64 56
+  %.021.i.be = load ptr, ptr %.021.i.be.in, align 8
+  %69 = tail call zeroext i1 @type_is_user_defined(ptr noundef %.021.i.be) #3
   br i1 %69, label %tailrecurse.backedge, label %.lr.ph137
 
 70:                                               ; preds = %5
@@ -608,8 +608,8 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
   br i1 %85, label %._crit_edge151, label %.lr.ph150
 
 .lr.ph150:                                        ; preds = %.preheader104, %.backedge105
-  %.0.i88149 = phi ptr [ %.0.i88.be, %.backedge105 ], [ %84, %.preheader104 ]
-  %86 = getelementptr inbounds i8, ptr %.0.i88149, i64 8
+  %.021.i88149 = phi ptr [ %.021.i88.be, %.backedge105 ], [ %84, %.preheader104 ]
+  %86 = getelementptr inbounds i8, ptr %.021.i88149, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = load i32, ptr %87, align 8
   switch i32 %88, label %sema_trace_func_liveness.exit89 [
@@ -622,14 +622,14 @@ tailrecurse.backedge:                             ; preds = %.backedge111, %.bac
   ]
 
 .backedge105:                                     ; preds = %.lr.ph150, %.lr.ph150, %.lr.ph150, %.lr.ph150, %.lr.ph150, %.lr.ph150
-  %.0.i88.be.in = getelementptr inbounds i8, ptr %87, i64 56
-  %.0.i88.be = load ptr, ptr %.0.i88.be.in, align 8
-  %89 = tail call zeroext i1 @type_is_user_defined(ptr noundef %.0.i88.be) #3
+  %.021.i88.be.in = getelementptr inbounds i8, ptr %87, i64 56
+  %.021.i88.be = load ptr, ptr %.021.i88.be.in, align 8
+  %89 = tail call zeroext i1 @type_is_user_defined(ptr noundef %.021.i88.be) #3
   br i1 %89, label %._crit_edge151, label %.lr.ph150
 
 ._crit_edge151:                                   ; preds = %.backedge105, %.preheader104
-  %.0.i88.lcssa = phi ptr [ %84, %.preheader104 ], [ %.0.i88.be, %.backedge105 ]
-  %90 = getelementptr inbounds i8, ptr %.0.i88.lcssa, i64 56
+  %.021.i88.lcssa = phi ptr [ %84, %.preheader104 ], [ %.021.i88.be, %.backedge105 ]
+  %90 = getelementptr inbounds i8, ptr %.021.i88.lcssa, i64 56
   %91 = load ptr, ptr %90, align 8
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %91)
   br label %sema_trace_func_liveness.exit89
@@ -1244,8 +1244,8 @@ define internal fastcc void @sema_trace_expr_liveness(ptr noundef readonly %0) u
   br i1 %3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader216, %.backedge
-  %.0246 = phi ptr [ %.0.be, %.backedge ], [ %2, %.preheader216 ]
-  %4 = getelementptr inbounds i8, ptr %.0246, i64 8
+  %.0141246 = phi ptr [ %.0141.be, %.backedge ], [ %2, %.preheader216 ]
+  %4 = getelementptr inbounds i8, ptr %.0141246, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %.loopexit [
@@ -1258,14 +1258,14 @@ define internal fastcc void @sema_trace_expr_liveness(ptr noundef readonly %0) u
   ]
 
 .backedge:                                        ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %.0.be.in = getelementptr inbounds i8, ptr %5, i64 56
-  %.0.be = load ptr, ptr %.0.be.in, align 8
-  %7 = tail call zeroext i1 @type_is_user_defined(ptr noundef %.0.be) #3
+  %.0141.be.in = getelementptr inbounds i8, ptr %5, i64 56
+  %.0141.be = load ptr, ptr %.0141.be.in, align 8
+  %7 = tail call zeroext i1 @type_is_user_defined(ptr noundef %.0141.be) #3
   br i1 %7, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader216
-  %.0.lcssa = phi ptr [ %2, %.preheader216 ], [ %.0.be, %.backedge ]
-  %8 = getelementptr inbounds i8, ptr %.0.lcssa, i64 56
+  %.0141.lcssa = phi ptr [ %2, %.preheader216 ], [ %.0141.be, %.backedge ]
+  %8 = getelementptr inbounds i8, ptr %.0141.lcssa, i64 56
   %9 = load ptr, ptr %8, align 8
   tail call fastcc void @sema_trace_decl_liveness(ptr noundef %9)
   br label %.loopexit
@@ -2087,8 +2087,8 @@ define internal fastcc void @sema_trace_const_initializer_liveness(ptr nocapture
   br label %2
 
 2:                                                ; preds = %.backedge, %1
-  %.040 = phi ptr [ %0, %1 ], [ %.040.be, %.backedge ]
-  %3 = load i32, ptr %.040, align 8
+  %.042 = phi ptr [ %0, %1 ], [ %.042.be, %.backedge ]
+  %3 = load i32, ptr %.042, align 8
   switch i32 %3, label %46 [
     i32 0, label %.loopexit
     i32 6, label %.backedge
@@ -2100,14 +2100,14 @@ define internal fastcc void @sema_trace_const_initializer_liveness(ptr nocapture
   ]
 
 .backedge:                                        ; preds = %2, %2
-  %.040.be.in = getelementptr inbounds i8, ptr %.040, i64 16
-  %.040.be = load ptr, ptr %.040.be.in, align 8
+  %.042.be.in = getelementptr inbounds i8, ptr %.042, i64 16
+  %.042.be = load ptr, ptr %.042.be.in, align 8
   br label %2
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %.040, i64 8
+  %5 = getelementptr inbounds i8, ptr %.042, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.040, i64 16
+  %7 = getelementptr inbounds i8, ptr %.042, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 64
   %10 = load i32, ptr %9, align 8
@@ -2128,7 +2128,7 @@ define internal fastcc void @sema_trace_const_initializer_liveness(ptr nocapture
   br i1 %exitcond79.not, label %.loopexit, label %.lr.ph58, !llvm.loop !29
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %.040, i64 16
+  %15 = getelementptr inbounds i8, ptr %.042, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not45 = icmp eq ptr %16, null
   br i1 %.not45, label %.loopexit, label %17
@@ -2153,7 +2153,7 @@ define internal fastcc void @sema_trace_const_initializer_liveness(ptr nocapture
   br i1 %exitcond74.not, label %.loopexit, label %.lr.ph56, !llvm.loop !30
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %.040, i64 8
+  %23 = getelementptr inbounds i8, ptr %.042, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 56
   %26 = load ptr, ptr %25, align 8
@@ -2168,19 +2168,19 @@ define internal fastcc void @sema_trace_const_initializer_liveness(ptr nocapture
   br label %32
 
 32:                                               ; preds = %22, %29
-  %.039 = phi i32 [ %31, %29 ], [ 0, %22 ]
+  %.041 = phi i32 [ %31, %29 ], [ 0, %22 ]
   %33 = getelementptr inbounds i8, ptr %26, i64 24
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %34, 127
   %36 = icmp eq i64 %35, 25
-  %37 = icmp ne i32 %.039, 0
+  %37 = icmp ne i32 %.041, 0
   %or.cond = select i1 %36, i1 %37, i1 false
-  %spec.store.select = select i1 %or.cond, i32 1, i32 %.039
+  %spec.store.select = select i1 %or.cond, i32 1, i32 %.041
   %.not59 = icmp eq i32 %spec.store.select, 0
   br i1 %.not59, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %.040, i64 16
+  %38 = getelementptr inbounds i8, ptr %.042, i64 16
   %wide.trip.count = zext i32 %spec.store.select to i64
   br label %39
 
@@ -2195,7 +2195,7 @@ define internal fastcc void @sema_trace_const_initializer_liveness(ptr nocapture
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !31
 
 43:                                               ; preds = %2
-  %44 = getelementptr inbounds i8, ptr %.040, i64 16
+  %44 = getelementptr inbounds i8, ptr %.042, i64 16
   %45 = load ptr, ptr %44, align 8
   tail call fastcc void @sema_trace_expr_liveness(ptr noundef %45)
   br label %.loopexit

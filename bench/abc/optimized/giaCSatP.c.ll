@@ -1052,13 +1052,13 @@ CbsP_ManCheckLimits.exit80:                       ; preds = %67
   br label %CbsP_ManDecideHighest.exit
 
 CbsP_ManDecideHighest.exit:                       ; preds = %85, %82, %99, %96, %90, %76, %102, %105
-  %.055 = phi ptr [ %106, %105 ], [ null, %102 ], [ null, %76 ], [ null, %90 ], [ %.01012.i89, %96 ], [ %.1.i91, %99 ], [ %.01012.i, %82 ], [ %.1.i, %85 ]
+  %.056 = phi ptr [ %106, %105 ], [ null, %102 ], [ null, %76 ], [ null, %90 ], [ %.01012.i89, %96 ], [ %.1.i91, %99 ], [ %.01012.i, %82 ], [ %.1.i, %85 ]
   %107 = getelementptr inbounds i8, ptr %0, i64 184
   %108 = load ptr, ptr %107, align 8
-  %109 = load i64, ptr %.055, align 4
+  %109 = load i64, ptr %.056, align 4
   %110 = and i64 %109, 536870911
   %111 = sub nsw i64 0, %110
-  %112 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.055, i64 %111
+  %112 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.056, i64 %111
   %113 = getelementptr i8, ptr %108, i64 32
   %.val73 = load ptr, ptr %113, align 8
   %114 = getelementptr i8, ptr %108, i64 144
@@ -1074,7 +1074,7 @@ CbsP_ManDecideHighest.exit:                       ; preds = %85, %82, %99, %96, 
   %122 = lshr i64 %109, 32
   %123 = and i64 %122, 536870911
   %124 = sub nsw i64 0, %123
-  %125 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.055, i64 %124
+  %125 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.056, i64 %124
   %126 = ptrtoint ptr %125 to i64
   %127 = sub i64 %126, %116
   %128 = sdiv exact i64 %127, 12
@@ -1088,10 +1088,10 @@ CbsP_ManDecideHighest.exit:                       ; preds = %85, %82, %99, %96, 
   %133 = lshr i64 %109, %.
   %134 = and i64 %133, 1
   %135 = xor i64 %134, %.115
-  %.056.in = xor i64 %135, 1
-  %.056 = inttoptr i64 %.056.in to ptr
+  %.055.in = xor i64 %135, 1
+  %.055 = inttoptr i64 %.055.in to ptr
   %136 = add nsw i32 %1, 1
-  tail call fastcc void @CbsP_ManAssign(ptr noundef nonnull %0, ptr noundef %.056, i32 noundef %136, ptr noundef null, ptr noundef null)
+  tail call fastcc void @CbsP_ManAssign(ptr noundef nonnull %0, ptr noundef %.055, i32 noundef %136, ptr noundef null, ptr noundef null)
   %137 = tail call i32 @CbsP_ManSolve_rec(ptr noundef nonnull %0, i32 noundef %136)
   %.not66 = icmp eq i32 %137, 0
   br i1 %.not66, label %CbsP_ManCheckLimits.exit.thread, label %138
@@ -1212,8 +1212,8 @@ define internal fastcc ptr @CbsP_ManDecideMaxFF(ptr nocapture noundef readonly %
 
 11:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %.021 = phi ptr [ null, %.lr.ph ], [ %spec.select17, %14 ]
-  %.01220 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %14 ]
+  %.021 = phi i32 [ 0, %.lr.ph ], [ %spec.select17, %14 ]
+  %.01319 = phi ptr [ null, %.lr.ph ], [ %spec.select, %14 ]
   %12 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
@@ -1249,16 +1249,16 @@ define internal fastcc ptr @CbsP_ManDecideMaxFF(ptr nocapture noundef readonly %
   %36 = getelementptr inbounds i8, ptr %.val.val18, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = tail call noundef i32 @llvm.smax.i32(i32 %27, i32 %37)
-  %39 = icmp slt i32 %.01220, %38
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.01220, i32 %38)
-  %spec.select17 = select i1 %39, ptr %13, ptr %.021
+  %39 = icmp slt i32 %.021, %38
+  %spec.select = select i1 %39, ptr %13, ptr %.01319
+  %spec.select17 = tail call i32 @llvm.smax.i32(i32 %.021, i32 %38)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !11
 
 .critedge:                                        ; preds = %11, %14, %1
-  %.0.lcssa = phi ptr [ null, %1 ], [ %spec.select17, %14 ], [ %.021, %11 ]
-  ret ptr %.0.lcssa
+  %.013.lcssa = phi ptr [ null, %1 ], [ %spec.select, %14 ], [ %.01319, %11 ]
+  ret ptr %.013.lcssa
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable

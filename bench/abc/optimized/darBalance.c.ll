@@ -1982,8 +1982,8 @@ Vec_VecFree.exit220:                              ; preds = %.critedge.i208, %.c
   br label %277
 
 277:                                              ; preds = %Vec_VecFree.exit220, %276, %Vec_VecFree.exit205, %Vec_VecFree.exit, %101
-  %.0 = phi ptr [ null, %101 ], [ null, %Vec_VecFree.exit ], [ null, %Vec_VecFree.exit205 ], [ %5, %276 ], [ %5, %Vec_VecFree.exit220 ]
-  ret ptr %.0
+  %.0144 = phi ptr [ null, %101 ], [ null, %Vec_VecFree.exit ], [ null, %Vec_VecFree.exit205 ], [ %5, %276 ], [ %5, %Vec_VecFree.exit220 ]
+  ret ptr %.0144
 }
 
 declare ptr @Aig_ManStart(i32 noundef) local_unnamed_addr #3

@@ -58877,7 +58877,7 @@ select_registry.exit.thread:                      ; preds = %3, %select_registry
 
 .sink.split:                                      ; preds = %26, %13, %select_registry.exit.thread
   %.sink30 = phi ptr [ %12, %select_registry.exit.thread ], [ %25, %13 ], [ %32, %26 ]
-  %.017.ph = phi i32 [ 24, %select_registry.exit.thread ], [ 28, %13 ], [ 36, %26 ]
+  %.0.ph = phi i32 [ 24, %select_registry.exit.thread ], [ 28, %13 ], [ 36, %26 ]
   %34 = getelementptr inbounds i8, ptr %.sink30, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %.sink30, i64 16
@@ -58885,14 +58885,14 @@ select_registry.exit.thread:                      ; preds = %3, %select_registry
   br label %38
 
 38:                                               ; preds = %.sink.split, %26, %13, %select_registry.exit.thread
-  %.017 = phi i32 [ 0, %26 ], [ 0, %13 ], [ 0, %select_registry.exit.thread ], [ %.017.ph, %.sink.split ]
+  %.017 = phi ptr [ null, %26 ], [ null, %13 ], [ null, %select_registry.exit.thread ], [ %35, %.sink.split ]
   %.016 = phi ptr [ null, %26 ], [ null, %13 ], [ null, %select_registry.exit.thread ], [ %37, %.sink.split ]
-  %.0 = phi ptr [ null, %26 ], [ null, %13 ], [ null, %select_registry.exit.thread ], [ %35, %.sink.split ]
+  %.0 = phi i32 [ 0, %26 ], [ 0, %13 ], [ 0, %select_registry.exit.thread ], [ %.0.ph, %.sink.split ]
   %.not25 = icmp eq ptr %2, null
   br i1 %.not25, label %40, label %39
 
 39:                                               ; preds = %38
-  store i32 %.017, ptr %2, align 4
+  store i32 %.0, ptr %2, align 4
   br label %40
 
 40:                                               ; preds = %39, %38
@@ -58904,7 +58904,7 @@ select_registry.exit.thread:                      ; preds = %3, %select_registry
   br label %42
 
 42:                                               ; preds = %41, %40
-  ret ptr %.0
+  ret ptr %.017
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -58958,17 +58958,17 @@ select_registry.exit.thread:                      ; preds = %2, %select_registry
   unreachable
 
 17:                                               ; preds = %select_registry.exit, %select_registry.exit, %select_registry.exit.thread, %11
-  %.08 = phi ptr [ null, %select_registry.exit ], [ null, %select_registry.exit ], [ %15, %11 ], [ null, %select_registry.exit.thread ]
-  %.0 = phi ptr [ null, %select_registry.exit ], [ null, %select_registry.exit ], [ %13, %11 ], [ null, %select_registry.exit.thread ]
+  %.08 = phi ptr [ null, %select_registry.exit ], [ null, %select_registry.exit ], [ %13, %11 ], [ null, %select_registry.exit.thread ]
+  %.0 = phi ptr [ null, %select_registry.exit ], [ null, %select_registry.exit ], [ %15, %11 ], [ null, %select_registry.exit.thread ]
   %.not11 = icmp eq ptr %1, null
   br i1 %.not11, label %19, label %18
 
 18:                                               ; preds = %17
-  store ptr %.08, ptr %1, align 8
+  store ptr %.0, ptr %1, align 8
   br label %19
 
 19:                                               ; preds = %18, %17
-  ret ptr %.0
+  ret ptr %.08
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

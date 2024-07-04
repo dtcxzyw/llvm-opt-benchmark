@@ -500,8 +500,8 @@ for.end:                                          ; preds = %for.body
 
 for.body16:                                       ; preds = %for.end, %if.end
   %indvars.iv24 = phi i64 [ 0, %for.end ], [ %indvars.iv.next25, %if.end ]
-  %result.022 = phi i32 [ 0, %for.end ], [ %result.1, %if.end ]
-  %tobool17.not = icmp eq i32 %result.022, 0
+  %result.021 = phi i32 [ 0, %for.end ], [ %result.1, %if.end ]
+  %tobool17.not = icmp eq i32 %result.021, 0
   br i1 %tobool17.not, label %if.then18, label %if.end
 
 if.then18:                                        ; preds = %for.body16
@@ -518,7 +518,7 @@ if.then18:                                        ; preds = %for.body16
   br label %if.end
 
 if.end:                                           ; preds = %if.then18, %for.body16
-  %result.1 = phi i32 [ %result.022, %for.body16 ], [ %call31, %if.then18 ]
+  %result.1 = phi i32 [ %result.021, %for.body16 ], [ %call31, %if.then18 ]
   %arrayidx33 = getelementptr inbounds [3 x %struct.tempbuf], ptr %writebuf, i64 0, i64 %indvars.iv24
   call void @Curl_dyn_free(ptr noundef nonnull %arrayidx33) #9
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
@@ -691,11 +691,11 @@ if.end34:                                         ; preds = %land.lhs.true19, %c
   br i1 %tobool40.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.end34, %if.end54
-  %ptr.0166 = phi ptr [ %add.ptr, %if.end54 ], [ %optr, %if.end34 ]
-  %len.0165 = phi i64 [ %sub, %if.end54 ], [ %olen, %if.end34 ]
-  %cond39 = tail call i64 @llvm.umin.i64(i64 %len.0165, i64 16384)
+  %len.0166 = phi i64 [ %sub, %if.end54 ], [ %olen, %if.end34 ]
+  %ptr.0165 = phi ptr [ %add.ptr, %if.end54 ], [ %optr, %if.end34 ]
+  %cond39 = tail call i64 @llvm.umin.i64(i64 %len.0166, i64 16384)
   tail call void @Curl_set_in_callback(ptr noundef %data, i1 noundef zeroext true) #9
-  %call42 = tail call i64 %writebody.0(ptr noundef %ptr.0166, i64 noundef 1, i64 noundef %cond39, ptr noundef %1) #9
+  %call42 = tail call i64 %writebody.0(ptr noundef %ptr.0165, i64 noundef 1, i64 noundef %cond39, ptr noundef %1) #9
   tail call void @Curl_set_in_callback(ptr noundef %data, i1 noundef zeroext false) #9
   %cmp43 = icmp eq i64 %call42, 268435457
   br i1 %cmp43, label %if.then44, label %if.end50
@@ -784,7 +784,7 @@ if.end39.i89:                                     ; preds = %if.then22.i78, %if.
   %idxprom41.pre-phi.i90 = phi i64 [ %.pre.i100, %if.end20.if.end39_crit_edge.i99 ], [ %idxprom24.i81, %if.then22.i78 ]
   %tempwrite40.i91 = getelementptr inbounds i8, ptr %data, i64 3288
   %arrayidx42.i92 = getelementptr inbounds [3 x %struct.tempbuf], ptr %tempwrite40.i91, i64 0, i64 %idxprom41.pre-phi.i90
-  %call44.i93 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %arrayidx42.i92, ptr noundef %ptr.0166, i64 noundef %len.0165) #9
+  %call44.i93 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %arrayidx42.i92, ptr noundef %ptr.0165, i64 noundef %len.0166) #9
   %tobool45.not.i94 = icmp eq i32 %call44.i93, 0
   br i1 %tobool45.not.i94, label %if.end47.i96, label %return
 
@@ -803,8 +803,8 @@ if.then52:                                        ; preds = %if.end50
   br label %return
 
 if.end54:                                         ; preds = %if.end50
-  %add.ptr = getelementptr inbounds i8, ptr %ptr.0166, i64 %cond39
-  %sub = sub i64 %len.0165, %cond39
+  %add.ptr = getelementptr inbounds i8, ptr %ptr.0165, i64 %cond39
+  %sub = sub i64 %len.0166, %cond39
   %tobool35.not = icmp eq i64 %sub, 0
   br i1 %tobool35.not, label %while.end, label %while.body, !llvm.loop !10
 

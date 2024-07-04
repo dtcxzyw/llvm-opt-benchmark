@@ -284,14 +284,14 @@ define internal i32 @dissect_usbms_bot_control(ptr noundef %0, ptr noundef %1, p
   br i1 %17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %20
-  %.0334246 = phi ptr [ %21, %20 ], [ @setup_dissectors, %10 ]
-  %18 = getelementptr i8, ptr %.0334246, i64 24
+  %.0324246 = phi ptr [ %21, %20 ], [ @setup_dissectors, %10 ]
+  %18 = getelementptr i8, ptr %.0324246, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %.thread, label %20, !llvm.loop !4
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr i8, ptr %.0334246, i64 16
+  %21 = getelementptr i8, ptr %.0324246, i64 16
   %22 = load i8, ptr %21, align 8
   %23 = icmp eq i8 %22, %16
   br i1 %23, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -319,8 +319,8 @@ define internal i32 @dissect_usbms_bot_control(ptr noundef %0, ptr noundef %1, p
   br label %38
 
 38:                                               ; preds = %35, %._crit_edge
-  %.032 = phi i32 [ 1, %35 ], [ 0, %._crit_edge ]
-  tail call void %.lcssa(ptr noundef nonnull %1, ptr noundef %29, ptr noundef %0, i32 noundef %.032, i32 noundef %14, ptr noundef nonnull %8, ptr noundef nonnull %3) #3
+  %.034 = phi i32 [ 1, %35 ], [ 0, %._crit_edge ]
+  tail call void %.lcssa(ptr noundef nonnull %1, ptr noundef %29, ptr noundef %0, i32 noundef %.034, i32 noundef %14, ptr noundef nonnull %8, ptr noundef nonnull %3) #3
   %39 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   br label %.thread
 

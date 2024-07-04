@@ -50,7 +50,7 @@ define noundef i32 @cli_scanudf(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = icmp ult i64 %1, 32768
-  br i1 %5, label %.thread502, label %6
+  br i1 %5, label %.thread503, label %6
 
 6:                                                ; preds = %2
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #7
@@ -58,14 +58,14 @@ define noundef i32 @cli_scanudf(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   br label %8
 
 8:                                                ; preds = %6, %30
-  %.082817 = phi i64 [ 0, %6 ], [ %41, %30 ]
-  %.0385816 = phi i64 [ %1, %6 ], [ %40, %30 ]
+  %.094818 = phi i64 [ 0, %6 ], [ %41, %30 ]
+  %.0386817 = phi i64 [ %1, %6 ], [ %40, %30 ]
   %9 = load ptr, ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 104
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call ptr %11(ptr noundef %9, i64 noundef %.0385816, i64 noundef 2048, i32 noundef 1) #7
+  %12 = tail call ptr %11(ptr noundef %9, i64 noundef %.0386817, i64 noundef 2048, i32 noundef 1) #7
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.thread502, label %14
+  br i1 %13, label %.thread503, label %14
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds i8, ptr %12, i64 1
@@ -105,7 +105,7 @@ define noundef i32 @cli_scanudf(ptr noundef %0, i64 noundef %1) local_unnamed_ad
 
 29:                                               ; preds = %27
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %15) #7
-  br label %.loopexit557
+  br label %.loopexit558
 
 30:                                               ; preds = %27, %25, %23, %21, %19, %17, %14
   %.str.3.sink = phi ptr [ @.str.1, %14 ], [ @.str.3, %17 ], [ @.str.4, %19 ], [ @.str.5, %21 ], [ @.str.6, %23 ], [ @.str.7, %25 ], [ @.str.8, %27 ]
@@ -122,29 +122,29 @@ define noundef i32 @cli_scanudf(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   %38 = getelementptr inbounds i8, ptr %31, i64 128
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef %31, i64 noundef %37, i64 noundef 2048) #7
-  %40 = add i64 %.0385816, 2048
-  %41 = add nuw nsw i64 %.082817, 1
+  %40 = add i64 %.0386817, 2048
+  %41 = add nuw nsw i64 %.094818, 1
   %exitcond.not = icmp eq i64 %41, 3
-  br i1 %exitcond.not, label %.loopexit557, label %8
+  br i1 %exitcond.not, label %.loopexit558, label %8
 
-.loopexit557:                                     ; preds = %30, %29
-  %.0385814 = phi i64 [ %.0385816, %29 ], [ %40, %30 ]
+.loopexit558:                                     ; preds = %30, %29
+  %.0386815 = phi i64 [ %.0386817, %29 ], [ %40, %30 ]
   %42 = getelementptr inbounds i8, ptr %0, i64 16
   %43 = getelementptr inbounds i8, ptr %0, i64 48
   br label %44
 
-44:                                               ; preds = %findFileIdentifiers.exit.thread, %.loopexit557
-  %.1386 = phi i64 [ %.0385814, %.loopexit557 ], [ %561, %findFileIdentifiers.exit.thread ]
-  %.sroa.0334.0 = phi ptr [ null, %.loopexit557 ], [ %.sroa.0334.5, %findFileIdentifiers.exit.thread ]
-  %.sroa.8337.0 = phi i64 [ 0, %.loopexit557 ], [ %.sroa.8337.6, %findFileIdentifiers.exit.thread ]
-  %.sroa.0.0 = phi ptr [ null, %.loopexit557 ], [ %.sroa.0.5, %findFileIdentifiers.exit.thread ]
-  %.sroa.8.0 = phi i64 [ 0, %.loopexit557 ], [ %.sroa.8.6, %findFileIdentifiers.exit.thread ]
-  %.095 = phi ptr [ null, %.loopexit557 ], [ %.297, %findFileIdentifiers.exit.thread ]
-  %.092 = phi ptr [ null, %.loopexit557 ], [ %.294, %findFileIdentifiers.exit.thread ]
-  %.090 = phi ptr [ null, %.loopexit557 ], [ %.191, %findFileIdentifiers.exit.thread ]
-  %.087 = phi ptr [ null, %.loopexit557 ], [ %.188, %findFileIdentifiers.exit.thread ]
-  %.084 = phi i1 [ false, %.loopexit557 ], [ %.286, %findFileIdentifiers.exit.thread ]
-  br i1 %.084, label %358, label %45
+44:                                               ; preds = %findFileIdentifiers.exit.thread, %.loopexit558
+  %.1387 = phi i64 [ %.0386815, %.loopexit558 ], [ %561, %findFileIdentifiers.exit.thread ]
+  %.sroa.0334.0 = phi ptr [ null, %.loopexit558 ], [ %.sroa.0334.5, %findFileIdentifiers.exit.thread ]
+  %.sroa.8337.0 = phi i64 [ 0, %.loopexit558 ], [ %.sroa.8337.6, %findFileIdentifiers.exit.thread ]
+  %.sroa.0.0 = phi ptr [ null, %.loopexit558 ], [ %.sroa.0.5, %findFileIdentifiers.exit.thread ]
+  %.sroa.8.0 = phi i64 [ 0, %.loopexit558 ], [ %.sroa.8.6, %findFileIdentifiers.exit.thread ]
+  %.090 = phi ptr [ null, %.loopexit558 ], [ %.292, %findFileIdentifiers.exit.thread ]
+  %.087 = phi ptr [ null, %.loopexit558 ], [ %.289, %findFileIdentifiers.exit.thread ]
+  %.085 = phi ptr [ null, %.loopexit558 ], [ %.186, %findFileIdentifiers.exit.thread ]
+  %.082 = phi ptr [ null, %.loopexit558 ], [ %.183, %findFileIdentifiers.exit.thread ]
+  %.081 = phi i1 [ false, %.loopexit558 ], [ %.2, %findFileIdentifiers.exit.thread ]
+  br i1 %.081, label %358, label %45
 
 45:                                               ; preds = %44
   %.not.i.i = icmp eq ptr %.sroa.0334.0, null
@@ -180,19 +180,19 @@ freePointerList.exit.i135:                        ; preds = %51, %50
 54:                                               ; preds = %freePointerList.exit.i135
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.25) #7
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11) #7
-  br label %.thread463
+  br label %.thread464
 
 55:                                               ; preds = %freePointerList.exit.i135
   %56 = load ptr, ptr %7, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 104
   %58 = load ptr, ptr %57, align 8
-  %59 = call ptr %58(ptr noundef %56, i64 noundef %.1386, i64 noundef 2048, i32 noundef 1) #7
+  %59 = call ptr %58(ptr noundef %56, i64 noundef %.1387, i64 noundef 2048, i32 noundef 1) #7
   %.not30.i.i = icmp eq ptr %59, null
-  br i1 %.not30.i.i, label %.loopexit547, label %.preheader.i.i
+  br i1 %.not30.i.i, label %.loopexit548, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %55, %.critedge.i.i
   %60 = phi ptr [ %70, %.critedge.i.i ], [ %59, %55 ]
-  %.01523.i.i = phi i64 [ %66, %.critedge.i.i ], [ %.1386, %55 ]
+  %.01523.i.i = phi i64 [ %66, %.critedge.i.i ], [ %.1387, %55 ]
   br label %63
 
 61:                                               ; preds = %63
@@ -214,7 +214,7 @@ freePointerList.exit.i135:                        ; preds = %51, %50
   %69 = load ptr, ptr %68, align 8
   %70 = call ptr %69(ptr noundef %67, i64 noundef %66, i64 noundef 2048, i32 noundef 1) #7
   %.not31.i.i = icmp eq ptr %70, null
-  br i1 %.not31.i.i, label %.loopexit547, label %.preheader.i.i
+  br i1 %.not31.i.i, label %.loopexit548, label %.preheader.i.i
 
 71:                                               ; preds = %63
   %72 = load ptr, ptr %7, align 8
@@ -222,14 +222,14 @@ freePointerList.exit.i135:                        ; preds = %51, %50
   %74 = load ptr, ptr %73, align 8
   %75 = call ptr %74(ptr noundef %72, i64 noundef %.01523.i.i, i64 noundef 2048, i32 noundef 1) #7
   %76 = icmp eq ptr %75, null
-  br i1 %76, label %.loopexit547, label %77
+  br i1 %76, label %.loopexit548, label %77
 
 77:                                               ; preds = %71
   %.val.i139 = load i16, ptr %75, align 1
   %.not.i = icmp eq i16 %.val.i139, 1
-  br i1 %.not.i, label %getPrimaryVolumeDescriptor.exit, label %.loopexit547
+  br i1 %.not.i, label %getPrimaryVolumeDescriptor.exit, label %.loopexit548
 
-.loopexit547:                                     ; preds = %71, %77, %55, %.critedge.i.i
+.loopexit548:                                     ; preds = %71, %77, %55, %.critedge.i.i
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12) #7
   br label %562
 
@@ -252,7 +252,7 @@ getPrimaryVolumeDescriptor.exit:                  ; preds = %77
   %90 = load ptr, ptr %89, align 8
   %91 = call ptr %90(ptr noundef %88, i64 noundef %78, i64 noundef 2048, i32 noundef 1) #7
   %.not30.i.i143 = icmp eq ptr %91, null
-  br i1 %.not30.i.i143, label %.loopexit546, label %.preheader.i.i144
+  br i1 %.not30.i.i143, label %.loopexit547, label %.preheader.i.i144
 
 .preheader.i.i144:                                ; preds = %getPrimaryVolumeDescriptor.exit, %.critedge.i.i156
   %92 = phi ptr [ %102, %.critedge.i.i156 ], [ %91, %getPrimaryVolumeDescriptor.exit ]
@@ -278,7 +278,7 @@ getPrimaryVolumeDescriptor.exit:                  ; preds = %77
   %101 = load ptr, ptr %100, align 8
   %102 = call ptr %101(ptr noundef %99, i64 noundef %98, i64 noundef 2048, i32 noundef 1) #7
   %.not31.i.i157 = icmp eq ptr %102, null
-  br i1 %.not31.i.i157, label %.loopexit546, label %.preheader.i.i144
+  br i1 %.not31.i.i157, label %.loopexit547, label %.preheader.i.i144
 
 103:                                              ; preds = %95
   %104 = load ptr, ptr %7, align 8
@@ -286,14 +286,14 @@ getPrimaryVolumeDescriptor.exit:                  ; preds = %77
   %106 = load ptr, ptr %105, align 8
   %107 = call ptr %106(ptr noundef %104, i64 noundef %.01523.i.i145, i64 noundef 2048, i32 noundef 1) #7
   %108 = icmp eq ptr %107, null
-  br i1 %108, label %.loopexit546, label %109
+  br i1 %108, label %.loopexit547, label %109
 
 109:                                              ; preds = %103
   %.val.i148 = load i16, ptr %107, align 1
   %.not.i149 = icmp eq i16 %.val.i148, 4
-  br i1 %.not.i149, label %getImplementationUseVolumeDescriptor.exit, label %.loopexit546
+  br i1 %.not.i149, label %getImplementationUseVolumeDescriptor.exit, label %.loopexit547
 
-.loopexit546:                                     ; preds = %103, %109, %getPrimaryVolumeDescriptor.exit, %.critedge.i.i156
+.loopexit547:                                     ; preds = %103, %109, %getPrimaryVolumeDescriptor.exit, %.critedge.i.i156
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13) #7
   br label %562
 
@@ -304,7 +304,7 @@ getImplementationUseVolumeDescriptor.exit:        ; preds = %109
   %113 = load ptr, ptr %112, align 8
   %114 = call ptr %113(ptr noundef %111, i64 noundef %110, i64 noundef 2048, i32 noundef 1) #7
   %.not30.i.i158 = icmp eq ptr %114, null
-  br i1 %.not30.i.i158, label %.loopexit545, label %.preheader.i.i159
+  br i1 %.not30.i.i158, label %.loopexit546, label %.preheader.i.i159
 
 .preheader.i.i159:                                ; preds = %getImplementationUseVolumeDescriptor.exit, %.critedge.i.i171
   %115 = phi ptr [ %125, %.critedge.i.i171 ], [ %114, %getImplementationUseVolumeDescriptor.exit ]
@@ -330,7 +330,7 @@ getImplementationUseVolumeDescriptor.exit:        ; preds = %109
   %124 = load ptr, ptr %123, align 8
   %125 = call ptr %124(ptr noundef %122, i64 noundef %121, i64 noundef 2048, i32 noundef 1) #7
   %.not31.i.i172 = icmp eq ptr %125, null
-  br i1 %.not31.i.i172, label %.loopexit545, label %.preheader.i.i159
+  br i1 %.not31.i.i172, label %.loopexit546, label %.preheader.i.i159
 
 126:                                              ; preds = %118
   %127 = load ptr, ptr %7, align 8
@@ -338,14 +338,14 @@ getImplementationUseVolumeDescriptor.exit:        ; preds = %109
   %129 = load ptr, ptr %128, align 8
   %130 = call ptr %129(ptr noundef %127, i64 noundef %.01523.i.i160, i64 noundef 2048, i32 noundef 1) #7
   %131 = icmp eq ptr %130, null
-  br i1 %131, label %.loopexit545, label %132
+  br i1 %131, label %.loopexit546, label %132
 
 132:                                              ; preds = %126
   %.val.i163 = load i16, ptr %130, align 1
   %.not.i164 = icmp eq i16 %.val.i163, 6
-  br i1 %.not.i164, label %getLogicalVolumeDescriptor.exit, label %.loopexit545
+  br i1 %.not.i164, label %getLogicalVolumeDescriptor.exit, label %.loopexit546
 
-.loopexit545:                                     ; preds = %126, %132, %getImplementationUseVolumeDescriptor.exit, %.critedge.i.i171
+.loopexit546:                                     ; preds = %126, %132, %getImplementationUseVolumeDescriptor.exit, %.critedge.i.i171
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.14) #7
   br label %562
 
@@ -356,7 +356,7 @@ getLogicalVolumeDescriptor.exit:                  ; preds = %132
   %136 = load ptr, ptr %135, align 8
   %137 = call ptr %136(ptr noundef %134, i64 noundef %133, i64 noundef 2048, i32 noundef 1) #7
   %.not30.i.i173 = icmp eq ptr %137, null
-  br i1 %.not30.i.i173, label %.loopexit544, label %.preheader.i.i174
+  br i1 %.not30.i.i173, label %.loopexit545, label %.preheader.i.i174
 
 .preheader.i.i174:                                ; preds = %getLogicalVolumeDescriptor.exit, %.critedge.i.i186
   %138 = phi ptr [ %148, %.critedge.i.i186 ], [ %137, %getLogicalVolumeDescriptor.exit ]
@@ -382,7 +382,7 @@ getLogicalVolumeDescriptor.exit:                  ; preds = %132
   %147 = load ptr, ptr %146, align 8
   %148 = call ptr %147(ptr noundef %145, i64 noundef %144, i64 noundef 2048, i32 noundef 1) #7
   %.not31.i.i187 = icmp eq ptr %148, null
-  br i1 %.not31.i.i187, label %.loopexit544, label %.preheader.i.i174
+  br i1 %.not31.i.i187, label %.loopexit545, label %.preheader.i.i174
 
 149:                                              ; preds = %141
   %150 = load ptr, ptr %7, align 8
@@ -390,14 +390,14 @@ getLogicalVolumeDescriptor.exit:                  ; preds = %132
   %152 = load ptr, ptr %151, align 8
   %153 = call ptr %152(ptr noundef %150, i64 noundef %.01523.i.i175, i64 noundef 2048, i32 noundef 1) #7
   %154 = icmp eq ptr %153, null
-  br i1 %154, label %.loopexit544, label %155
+  br i1 %154, label %.loopexit545, label %155
 
 155:                                              ; preds = %149
   %.val.i178 = load i16, ptr %153, align 1
   %.not.i179 = icmp eq i16 %.val.i178, 5
-  br i1 %.not.i179, label %getPartitionDescriptor.exit, label %.loopexit544
+  br i1 %.not.i179, label %getPartitionDescriptor.exit, label %.loopexit545
 
-.loopexit544:                                     ; preds = %149, %155, %getLogicalVolumeDescriptor.exit, %.critedge.i.i186
+.loopexit545:                                     ; preds = %149, %155, %getLogicalVolumeDescriptor.exit, %.critedge.i.i186
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15) #7
   br label %562
 
@@ -420,7 +420,7 @@ getPartitionDescriptor.exit:                      ; preds = %155
   %168 = load ptr, ptr %167, align 8
   %169 = call ptr %168(ptr noundef %166, i64 noundef %156, i64 noundef 2048, i32 noundef 1) #7
   %.not30.i.i190 = icmp eq ptr %169, null
-  br i1 %.not30.i.i190, label %.loopexit543, label %.preheader.i.i191
+  br i1 %.not30.i.i190, label %.loopexit544, label %.preheader.i.i191
 
 .preheader.i.i191:                                ; preds = %getPartitionDescriptor.exit, %.critedge.i.i203
   %170 = phi ptr [ %180, %.critedge.i.i203 ], [ %169, %getPartitionDescriptor.exit ]
@@ -446,7 +446,7 @@ getPartitionDescriptor.exit:                      ; preds = %155
   %179 = load ptr, ptr %178, align 8
   %180 = call ptr %179(ptr noundef %177, i64 noundef %176, i64 noundef 2048, i32 noundef 1) #7
   %.not31.i.i204 = icmp eq ptr %180, null
-  br i1 %.not31.i.i204, label %.loopexit543, label %.preheader.i.i191
+  br i1 %.not31.i.i204, label %.loopexit544, label %.preheader.i.i191
 
 181:                                              ; preds = %173
   %182 = load ptr, ptr %7, align 8
@@ -454,14 +454,14 @@ getPartitionDescriptor.exit:                      ; preds = %155
   %184 = load ptr, ptr %183, align 8
   %185 = call ptr %184(ptr noundef %182, i64 noundef %.01523.i.i192, i64 noundef 2048, i32 noundef 1) #7
   %186 = icmp eq ptr %185, null
-  br i1 %186, label %.loopexit543, label %187
+  br i1 %186, label %.loopexit544, label %187
 
 187:                                              ; preds = %181
   %.val.i195 = load i16, ptr %185, align 1
   %.not.i196 = icmp eq i16 %.val.i195, 7
-  br i1 %.not.i196, label %getUnallocatedSpaceDescriptor.exit, label %.loopexit543
+  br i1 %.not.i196, label %getUnallocatedSpaceDescriptor.exit, label %.loopexit544
 
-.loopexit543:                                     ; preds = %181, %187, %getPartitionDescriptor.exit, %.critedge.i.i203
+.loopexit544:                                     ; preds = %181, %187, %getPartitionDescriptor.exit, %.critedge.i.i203
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16) #7
   br label %562
 
@@ -484,7 +484,7 @@ getUnallocatedSpaceDescriptor.exit:               ; preds = %187
   %200 = load ptr, ptr %199, align 8
   %201 = call ptr %200(ptr noundef %198, i64 noundef %188, i64 noundef 2048, i32 noundef 1) #7
   %.not30.i.i207 = icmp eq ptr %201, null
-  br i1 %.not30.i.i207, label %.loopexit542, label %.preheader.i.i208
+  br i1 %.not30.i.i207, label %.loopexit543, label %.preheader.i.i208
 
 .preheader.i.i208:                                ; preds = %getUnallocatedSpaceDescriptor.exit, %.critedge.i.i220
   %202 = phi ptr [ %212, %.critedge.i.i220 ], [ %201, %getUnallocatedSpaceDescriptor.exit ]
@@ -510,7 +510,7 @@ getUnallocatedSpaceDescriptor.exit:               ; preds = %187
   %211 = load ptr, ptr %210, align 8
   %212 = call ptr %211(ptr noundef %209, i64 noundef %208, i64 noundef 2048, i32 noundef 1) #7
   %.not31.i.i221 = icmp eq ptr %212, null
-  br i1 %.not31.i.i221, label %.loopexit542, label %.preheader.i.i208
+  br i1 %.not31.i.i221, label %.loopexit543, label %.preheader.i.i208
 
 213:                                              ; preds = %205
   %214 = load ptr, ptr %7, align 8
@@ -518,14 +518,14 @@ getUnallocatedSpaceDescriptor.exit:               ; preds = %187
   %216 = load ptr, ptr %215, align 8
   %217 = call ptr %216(ptr noundef %214, i64 noundef %.01523.i.i209, i64 noundef 2048, i32 noundef 1) #7
   %218 = icmp eq ptr %217, null
-  br i1 %218, label %.loopexit542, label %219
+  br i1 %218, label %.loopexit543, label %219
 
 219:                                              ; preds = %213
   %.val.i212 = load i16, ptr %217, align 1
   %.not.i213 = icmp eq i16 %.val.i212, 8
-  br i1 %.not.i213, label %getTerminatingDescriptor.exit, label %.loopexit542
+  br i1 %.not.i213, label %getTerminatingDescriptor.exit, label %.loopexit543
 
-.loopexit542:                                     ; preds = %213, %219, %getUnallocatedSpaceDescriptor.exit, %.critedge.i.i220
+.loopexit543:                                     ; preds = %213, %219, %getUnallocatedSpaceDescriptor.exit, %.critedge.i.i220
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17) #7
   br label %562
 
@@ -548,7 +548,7 @@ getTerminatingDescriptor.exit:                    ; preds = %219
   %232 = load ptr, ptr %231, align 8
   %233 = call ptr %232(ptr noundef %230, i64 noundef %220, i64 noundef 2048, i32 noundef 1) #7
   %.not30.i.i224 = icmp eq ptr %233, null
-  br i1 %.not30.i.i224, label %.loopexit541, label %.preheader.i.i225
+  br i1 %.not30.i.i224, label %.loopexit542, label %.preheader.i.i225
 
 .preheader.i.i225:                                ; preds = %getTerminatingDescriptor.exit, %.critedge.i.i237
   %234 = phi ptr [ %244, %.critedge.i.i237 ], [ %233, %getTerminatingDescriptor.exit ]
@@ -574,7 +574,7 @@ getTerminatingDescriptor.exit:                    ; preds = %219
   %243 = load ptr, ptr %242, align 8
   %244 = call ptr %243(ptr noundef %241, i64 noundef %240, i64 noundef 2048, i32 noundef 1) #7
   %.not31.i.i238 = icmp eq ptr %244, null
-  br i1 %.not31.i.i238, label %.loopexit541, label %.preheader.i.i225
+  br i1 %.not31.i.i238, label %.loopexit542, label %.preheader.i.i225
 
 245:                                              ; preds = %237
   %246 = load ptr, ptr %7, align 8
@@ -582,14 +582,14 @@ getTerminatingDescriptor.exit:                    ; preds = %219
   %248 = load ptr, ptr %247, align 8
   %249 = call ptr %248(ptr noundef %246, i64 noundef %.01523.i.i226, i64 noundef 2048, i32 noundef 1) #7
   %250 = icmp eq ptr %249, null
-  br i1 %250, label %.loopexit541, label %251
+  br i1 %250, label %.loopexit542, label %251
 
 251:                                              ; preds = %245
   %.val.i229 = load i16, ptr %249, align 1
   %.not.i230 = icmp eq i16 %.val.i229, 9
-  br i1 %.not.i230, label %getLogicalVolumeIntegrityDescriptor.exit, label %.loopexit541
+  br i1 %.not.i230, label %getLogicalVolumeIntegrityDescriptor.exit, label %.loopexit542
 
-.loopexit541:                                     ; preds = %245, %251, %getTerminatingDescriptor.exit, %.critedge.i.i237
+.loopexit542:                                     ; preds = %245, %251, %getTerminatingDescriptor.exit, %.critedge.i.i237
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18) #7
   br label %562
 
@@ -612,7 +612,7 @@ getLogicalVolumeIntegrityDescriptor.exit:         ; preds = %251
   %264 = load ptr, ptr %263, align 8
   %265 = call ptr %264(ptr noundef %262, i64 noundef %252, i64 noundef 2048, i32 noundef 1) #7
   %.not30.i.i241 = icmp eq ptr %265, null
-  br i1 %.not30.i.i241, label %.loopexit540, label %.preheader.i.i242
+  br i1 %.not30.i.i241, label %.loopexit541, label %.preheader.i.i242
 
 .preheader.i.i242:                                ; preds = %getLogicalVolumeIntegrityDescriptor.exit, %.critedge.i.i254
   %266 = phi ptr [ %276, %.critedge.i.i254 ], [ %265, %getLogicalVolumeIntegrityDescriptor.exit ]
@@ -638,7 +638,7 @@ getLogicalVolumeIntegrityDescriptor.exit:         ; preds = %251
   %275 = load ptr, ptr %274, align 8
   %276 = call ptr %275(ptr noundef %273, i64 noundef %272, i64 noundef 2048, i32 noundef 1) #7
   %.not31.i.i255 = icmp eq ptr %276, null
-  br i1 %.not31.i.i255, label %.loopexit540, label %.preheader.i.i242
+  br i1 %.not31.i.i255, label %.loopexit541, label %.preheader.i.i242
 
 277:                                              ; preds = %269
   %278 = load ptr, ptr %7, align 8
@@ -646,14 +646,14 @@ getLogicalVolumeIntegrityDescriptor.exit:         ; preds = %251
   %280 = load ptr, ptr %279, align 8
   %281 = call ptr %280(ptr noundef %278, i64 noundef %.01523.i.i243, i64 noundef 2048, i32 noundef 1) #7
   %282 = icmp eq ptr %281, null
-  br i1 %282, label %.loopexit540, label %283
+  br i1 %282, label %.loopexit541, label %283
 
 283:                                              ; preds = %277
   %.val.i246 = load i16, ptr %281, align 1
   %.not.i247 = icmp eq i16 %.val.i246, 8
-  br i1 %.not.i247, label %getTerminatingDescriptor.exit256, label %.loopexit540
+  br i1 %.not.i247, label %getTerminatingDescriptor.exit256, label %.loopexit541
 
-.loopexit540:                                     ; preds = %277, %283, %getLogicalVolumeIntegrityDescriptor.exit, %.critedge.i.i254
+.loopexit541:                                     ; preds = %277, %283, %getLogicalVolumeIntegrityDescriptor.exit, %.critedge.i.i254
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17) #7
   br label %562
 
@@ -676,7 +676,7 @@ getTerminatingDescriptor.exit256:                 ; preds = %283
   %296 = load ptr, ptr %295, align 8
   %297 = call ptr %296(ptr noundef %294, i64 noundef %284, i64 noundef 2048, i32 noundef 1) #7
   %.not30.i.i259 = icmp eq ptr %297, null
-  br i1 %.not30.i.i259, label %.loopexit539, label %.preheader.i.i260
+  br i1 %.not30.i.i259, label %.loopexit540, label %.preheader.i.i260
 
 .preheader.i.i260:                                ; preds = %getTerminatingDescriptor.exit256, %.critedge.i.i272
   %298 = phi ptr [ %308, %.critedge.i.i272 ], [ %297, %getTerminatingDescriptor.exit256 ]
@@ -702,7 +702,7 @@ getTerminatingDescriptor.exit256:                 ; preds = %283
   %307 = load ptr, ptr %306, align 8
   %308 = call ptr %307(ptr noundef %305, i64 noundef %304, i64 noundef 2048, i32 noundef 1) #7
   %.not31.i.i273 = icmp eq ptr %308, null
-  br i1 %.not31.i.i273, label %.loopexit539, label %.preheader.i.i260
+  br i1 %.not31.i.i273, label %.loopexit540, label %.preheader.i.i260
 
 309:                                              ; preds = %301
   %310 = load ptr, ptr %7, align 8
@@ -710,14 +710,14 @@ getTerminatingDescriptor.exit256:                 ; preds = %283
   %312 = load ptr, ptr %311, align 8
   %313 = call ptr %312(ptr noundef %310, i64 noundef %.01523.i.i261, i64 noundef 2048, i32 noundef 1) #7
   %314 = icmp eq ptr %313, null
-  br i1 %314, label %.loopexit539, label %315
+  br i1 %314, label %.loopexit540, label %315
 
 315:                                              ; preds = %309
   %.val.i264 = load i16, ptr %313, align 1
   %.not.i265 = icmp eq i16 %.val.i264, 2
-  br i1 %.not.i265, label %getAnchorVolumeDescriptorPointer.exit, label %.loopexit539
+  br i1 %.not.i265, label %getAnchorVolumeDescriptorPointer.exit, label %.loopexit540
 
-.loopexit539:                                     ; preds = %309, %315, %getTerminatingDescriptor.exit256, %.critedge.i.i272
+.loopexit540:                                     ; preds = %309, %315, %getTerminatingDescriptor.exit256, %.critedge.i.i272
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.19) #7
   br label %562
 
@@ -803,18 +803,18 @@ getFileSetDescriptor.exit:                        ; preds = %347
   br label %358
 
 358:                                              ; preds = %.loopexit, %getFileSetDescriptor.exit, %44
-  %.2387 = phi i64 [ %.1386, %44 ], [ %.0.i287.ph, %.loopexit ], [ %348, %getFileSetDescriptor.exit ]
+  %.2388 = phi i64 [ %.1387, %44 ], [ %.0.i287.ph, %.loopexit ], [ %348, %getFileSetDescriptor.exit ]
   %.sroa.0334.1 = phi ptr [ %.sroa.0334.0, %44 ], [ %47, %.loopexit ], [ %47, %getFileSetDescriptor.exit ]
   %.sroa.8337.2 = phi i64 [ %.sroa.8337.0, %44 ], [ 4398046511104, %.loopexit ], [ 4398046511104, %getFileSetDescriptor.exit ]
   %.sroa.0.1 = phi ptr [ %.sroa.0.0, %44 ], [ %52, %.loopexit ], [ %52, %getFileSetDescriptor.exit ]
   %.sroa.8.2 = phi i64 [ %.sroa.8.0, %44 ], [ 4398046511104, %.loopexit ], [ 4398046511104, %getFileSetDescriptor.exit ]
-  %.196 = phi ptr [ %.095, %44 ], [ %107, %.loopexit ], [ %107, %getFileSetDescriptor.exit ]
-  %.193 = phi ptr [ %.092, %44 ], [ %130, %.loopexit ], [ %130, %getFileSetDescriptor.exit ]
-  %.191 = phi ptr [ %.090, %44 ], [ %153, %.loopexit ], [ %153, %getFileSetDescriptor.exit ]
+  %.191 = phi ptr [ %.090, %44 ], [ %107, %.loopexit ], [ %107, %getFileSetDescriptor.exit ]
+  %.188 = phi ptr [ %.087, %44 ], [ %130, %.loopexit ], [ %130, %getFileSetDescriptor.exit ]
+  %.186 = phi ptr [ %.085, %44 ], [ %153, %.loopexit ], [ %153, %getFileSetDescriptor.exit ]
   %359 = load ptr, ptr %7, align 8
   %360 = getelementptr inbounds i8, ptr %359, i64 104
   %361 = load ptr, ptr %360, align 8
-  %362 = call ptr %361(ptr noundef %359, i64 noundef %.2387, i64 noundef 2048, i32 noundef 1) #7
+  %362 = call ptr %361(ptr noundef %359, i64 noundef %.2388, i64 noundef 2048, i32 noundef 1) #7
   %363 = icmp eq ptr %362, null
   br i1 %363, label %364, label %365
 
@@ -835,8 +835,8 @@ getFileSetDescriptor.exit:                        ; preds = %347
   ]
 
 367:                                              ; preds = %365
-  %.014.in.in22.i = load i16, ptr %362, align 1
-  %368 = icmp eq i16 %.014.in.in22.i, 257
+  %.013.in.in22.i = load i16, ptr %362, align 1
+  %368 = icmp eq i16 %.013.in.in22.i, 257
   br i1 %368, label %.lr.ph.i, label %findFileIdentifiers.exit.thread
 
 .lr.ph.i:                                         ; preds = %367
@@ -846,7 +846,7 @@ getFileSetDescriptor.exit:                        ; preds = %347
 370:                                              ; preds = %402, %.lr.ph.i
   %.sroa.0334.2 = phi ptr [ %.sroa.0334.1, %.lr.ph.i ], [ %.sroa.0334.3, %402 ]
   %.sroa.8337.3 = phi i64 [ %.sroa.8337.2, %.lr.ph.i ], [ %.sroa.8337.8.insert.insert, %402 ]
-  %.01323.i = phi ptr [ %362, %.lr.ph.i ], [ %403, %402 ]
+  %.01423.i = phi ptr [ %362, %.lr.ph.i ], [ %403, %402 ]
   %.sroa.8337.8.extract.trunc340 = trunc i64 %.sroa.8337.3 to i32
   %.sroa.8337.12.extract.shift = lshr i64 %.sroa.8337.3, 32
   %.sroa.8337.12.extract.trunc = trunc nuw i64 %.sroa.8337.12.extract.shift to i32
@@ -875,35 +875,35 @@ getFileSetDescriptor.exit:                        ; preds = %347
   %.sroa.8337.8.insert.insert = or disjoint i64 %.sroa.8337.8.insert.mask, %.sroa.8337.8.insert.ext
   %382 = and i64 %.sroa.8337.3, 4294967295
   %383 = getelementptr inbounds ptr, ptr %.sroa.0334.3, i64 %382
-  store ptr %.01323.i, ptr %383, align 8
-  %384 = ptrtoint ptr %.01323.i to i64
-  %385 = getelementptr i8, ptr %.01323.i, i64 19
-  %.013.val.i = load i8, ptr %385, align 1
-  %386 = getelementptr i8, ptr %.01323.i, i64 36
-  %.013.val18.i = load i16, ptr %386, align 1
-  %387 = zext i16 %.013.val18.i to i64
-  %388 = zext i8 %.013.val.i to i64
-  %389 = zext i16 %.013.val18.i to i32
-  %390 = zext i8 %.013.val.i to i32
+  store ptr %.01423.i, ptr %383, align 8
+  %384 = ptrtoint ptr %.01423.i to i64
+  %385 = getelementptr i8, ptr %.01423.i, i64 19
+  %.014.val.i = load i8, ptr %385, align 1
+  %386 = getelementptr i8, ptr %.01423.i, i64 36
+  %.014.val18.i = load i16, ptr %386, align 1
+  %387 = zext i16 %.014.val18.i to i64
+  %388 = zext i8 %.014.val.i to i64
+  %389 = zext i16 %.014.val18.i to i32
+  %390 = zext i8 %.014.val.i to i32
   %391 = add nuw nsw i32 %389, %390
   %392 = add nuw nsw i32 %391, 41
   %393 = and i32 %392, 262140
-  %reass.sub819 = sub nsw i32 %393, %391
-  %394 = add nsw i32 %reass.sub819, -38
+  %reass.sub820 = sub nsw i32 %393, %391
+  %394 = add nsw i32 %reass.sub820, -38
   %395 = zext i32 %394 to i64
   %396 = add nuw nsw i64 %388, 38
   %397 = add nuw nsw i64 %396, %387
   %398 = add nuw nsw i64 %397, %395
-  %reass.sub820 = sub i64 %384, %369
-  %399 = add i64 %reass.sub820, -2011
+  %reass.sub821 = sub i64 %384, %369
+  %399 = add i64 %reass.sub821, -2011
   %400 = add i64 %399, %398
   %401 = icmp ult i64 %400, -2049
   br i1 %401, label %findFileIdentifiers.exit.thread, label %402
 
 402:                                              ; preds = %380
-  %403 = getelementptr inbounds i8, ptr %.01323.i, i64 %398
-  %.014.in.in.i = load i16, ptr %403, align 1
-  %404 = icmp eq i16 %.014.in.in.i, 257
+  %403 = getelementptr inbounds i8, ptr %.01423.i, i64 %398
+  %.013.in.in.i = load i16, ptr %403, align 1
+  %404 = icmp eq i16 %.013.in.in.i, 257
   br i1 %404, label %370, label %findFileIdentifiers.exit.thread
 
 findFileIdentifiers.exit:                         ; preds = %373
@@ -911,8 +911,8 @@ findFileIdentifiers.exit:                         ; preds = %373
   br label %562
 
 405:                                              ; preds = %365
-  %.014.in.in21.i = load i16, ptr %362, align 1
-  %406 = icmp eq i16 %.014.in.in21.i, 261
+  %.013.in.in21.i = load i16, ptr %362, align 1
+  %406 = icmp eq i16 %.013.in.in21.i, 261
   br i1 %406, label %.lr.ph.i294, label %findFileIdentifiers.exit.thread
 
 .lr.ph.i294:                                      ; preds = %405
@@ -922,7 +922,7 @@ findFileIdentifiers.exit:                         ; preds = %373
 408:                                              ; preds = %432, %.lr.ph.i294
   %.sroa.0.2 = phi ptr [ %.sroa.0.1, %.lr.ph.i294 ], [ %.sroa.0.3, %432 ]
   %.sroa.8.3 = phi i64 [ %.sroa.8.2, %.lr.ph.i294 ], [ %.sroa.8.8.insert.insert, %432 ]
-  %.01322.i = phi ptr [ %362, %.lr.ph.i294 ], [ %433, %432 ]
+  %.01422.i = phi ptr [ %362, %.lr.ph.i294 ], [ %433, %432 ]
   %.sroa.8.8.extract.trunc327 = trunc i64 %.sroa.8.3 to i32
   %.sroa.8.12.extract.shift = lshr i64 %.sroa.8.3, 32
   %.sroa.8.12.extract.trunc = trunc nuw i64 %.sroa.8.12.extract.shift to i32
@@ -951,15 +951,15 @@ findFileIdentifiers.exit:                         ; preds = %373
   %.sroa.8.8.insert.insert = or disjoint i64 %.sroa.8.8.insert.mask, %.sroa.8.8.insert.ext
   %420 = and i64 %.sroa.8.3, 4294967295
   %421 = getelementptr inbounds ptr, ptr %.sroa.0.3, i64 %420
-  store ptr %.01322.i, ptr %421, align 8
-  %422 = ptrtoint ptr %.01322.i to i64
-  %423 = getelementptr i8, ptr %.01322.i, i64 168
-  %.013.val.i296 = load i32, ptr %423, align 1
-  %424 = getelementptr i8, ptr %.01322.i, i64 172
-  %.013.val18.i297 = load i32, ptr %424, align 1
-  %425 = zext i32 %.013.val.i296 to i64
+  store ptr %.01422.i, ptr %421, align 8
+  %422 = ptrtoint ptr %.01422.i to i64
+  %423 = getelementptr i8, ptr %.01422.i, i64 168
+  %.014.val.i296 = load i32, ptr %423, align 1
+  %424 = getelementptr i8, ptr %.01422.i, i64 172
+  %.014.val18.i297 = load i32, ptr %424, align 1
+  %425 = zext i32 %.014.val.i296 to i64
   %426 = add nuw nsw i64 %425, 176
-  %427 = zext i32 %.013.val18.i297 to i64
+  %427 = zext i32 %.014.val18.i297 to i64
   %428 = add nuw nsw i64 %426, %427
   %reass.sub = sub i64 %422, %407
   %429 = add i64 %reass.sub, -1873
@@ -968,9 +968,9 @@ findFileIdentifiers.exit:                         ; preds = %373
   br i1 %431, label %findFileIdentifiers.exit.thread, label %432
 
 432:                                              ; preds = %418
-  %433 = getelementptr inbounds i8, ptr %.01322.i, i64 %428
-  %.014.in.in.i299 = load i16, ptr %433, align 1
-  %434 = icmp eq i16 %.014.in.in.i299, 261
+  %433 = getelementptr inbounds i8, ptr %.01422.i, i64 %428
+  %.013.in.in.i299 = load i16, ptr %433, align 1
+  %434 = icmp eq i16 %.013.in.in.i299, 261
   br i1 %434, label %408, label %findFileIdentifiers.exit.thread
 
 findFileEntries.exit:                             ; preds = %411
@@ -983,20 +983,20 @@ findFileEntries.exit:                             ; preds = %411
   %.sroa.8337.8.extract.trunc = trunc i64 %.sroa.8337.2 to i32
   %spec.select = call i32 @llvm.umin.i32(i32 %.sroa.8.8.extract.trunc325, i32 %.sroa.8337.8.extract.trunc)
   %.0 = zext i32 %spec.select to i64
-  %.not821 = icmp eq i32 %spec.select, 0
-  br i1 %.not821, label %._crit_edge, label %.lr.ph
+  %.not822 = icmp eq i32 %spec.select, 0
+  br i1 %.not822, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %435
-  %436 = getelementptr i8, ptr %.193, i64 212
-  %437 = getelementptr inbounds i8, ptr %.191, i64 188
-  %438 = getelementptr inbounds i8, ptr %.191, i64 22
+  %436 = getelementptr i8, ptr %.188, i64 212
+  %437 = getelementptr inbounds i8, ptr %.186, i64 188
+  %438 = getelementptr inbounds i8, ptr %.186, i64 22
   br label %439
 
 439:                                              ; preds = %.lr.ph, %parseFileEntryDescriptor.exit
-  %.183818 = phi i64 [ 0, %.lr.ph ], [ %533, %parseFileEntryDescriptor.exit ]
-  %440 = getelementptr inbounds ptr, ptr %.sroa.0.1, i64 %.183818
+  %.195819 = phi i64 [ 0, %.lr.ph ], [ %533, %parseFileEntryDescriptor.exit ]
+  %440 = getelementptr inbounds ptr, ptr %.sroa.0.1, i64 %.195819
   %441 = load ptr, ptr %440, align 8
-  %442 = getelementptr inbounds ptr, ptr %.sroa.0334.1, i64 %.183818
+  %442 = getelementptr inbounds ptr, ptr %.sroa.0334.1, i64 %.195819
   %443 = load ptr, ptr %442, align 8
   %.val26.i = load i16, ptr %441, align 1
   %.not.i302 = icmp eq i16 %.val26.i, 261
@@ -1102,12 +1102,12 @@ default.unreachable:                              ; preds = %458
   unreachable
 
 491:                                              ; preds = %484, %473, %463
-  %.047.in.i.i = phi ptr [ %486, %484 ], [ %454, %473 ], [ %454, %463 ]
-  %.046.i.i = phi i32 [ %490, %484 ], [ %478, %473 ], [ %467, %463 ]
-  %.047.i.i = load i32, ptr %.047.in.i.i, align 1
+  %.047.i.i = phi i32 [ %490, %484 ], [ %478, %473 ], [ %467, %463 ]
+  %.046.in.i.i = phi ptr [ %486, %484 ], [ %454, %473 ], [ %454, %463 ]
+  %.046.i.i = load i32, ptr %.046.in.i.i, align 1
   %492 = load ptr, ptr %7, align 8
-  %493 = zext i32 %.046.i.i to i64
-  %494 = zext i32 %.047.i.i to i64
+  %493 = zext i32 %.047.i.i to i64
+  %494 = zext i32 %.046.i.i to i64
   %495 = getelementptr inbounds i8, ptr %492, i64 104
   %496 = load ptr, ptr %495, align 8
   %497 = call ptr %496(ptr noundef %492, i64 noundef %493, i64 noundef %494, i32 noundef 1) #7
@@ -1119,7 +1119,7 @@ default.unreachable:                              ; preds = %458
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i32 -1, ptr %3, align 4
   store ptr null, ptr %4, align 8
-  %500 = icmp eq i32 %.047.i.i, 0
+  %500 = icmp eq i32 %.046.i.i, 0
   br i1 %500, label %.thread.i.i.i, label %501
 
 .thread.i.i.i:                                    ; preds = %499
@@ -1214,13 +1214,13 @@ extractFile.exit.thread.i:                        ; preds = %extractFile.exit.i,
   br label %532
 
 532:                                              ; preds = %444, %447, %extractFile.exit.thread.i
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24, i64 noundef %.183818) #7
-  br label %.thread463
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24, i64 noundef %.195819) #7
+  br label %.thread464
 
 parseFileEntryDescriptor.exit:                    ; preds = %extractFile.exit.i, %extractFile.exit.thread33.i
-  %533 = add nuw nsw i64 %.183818, 1
-  %exitcond1093.not = icmp eq i64 %533, %.0
-  br i1 %exitcond1093.not, label %._crit_edge, label %439
+  %533 = add nuw nsw i64 %.195819, 1
+  %exitcond1094.not = icmp eq i64 %533, %.0
+  br i1 %exitcond1094.not, label %._crit_edge, label %439
 
 ._crit_edge:                                      ; preds = %parseFileEntryDescriptor.exit, %435
   %534 = load ptr, ptr %7, align 8
@@ -1228,7 +1228,7 @@ parseFileEntryDescriptor.exit:                    ; preds = %extractFile.exit.i,
   %.val.i306 = load ptr, ptr %535, align 8
   %536 = getelementptr i8, ptr %534, i64 72
   %.val3.i307 = load i64, ptr %536, align 8
-  %537 = ptrtoint ptr %.196 to i64
+  %537 = ptrtoint ptr %.191 to i64
   %538 = ptrtoint ptr %.val.i306 to i64
   %539 = add i64 %.val3.i307, %538
   %540 = sub i64 %537, %539
@@ -1240,7 +1240,7 @@ parseFileEntryDescriptor.exit:                    ; preds = %extractFile.exit.i,
   %.val.i308 = load ptr, ptr %544, align 8
   %545 = getelementptr i8, ptr %543, i64 72
   %.val3.i309 = load i64, ptr %545, align 8
-  %546 = ptrtoint ptr %.193 to i64
+  %546 = ptrtoint ptr %.188 to i64
   %547 = ptrtoint ptr %.val.i308 to i64
   %548 = add i64 %.val3.i309, %547
   %549 = sub i64 %546, %548
@@ -1266,48 +1266,48 @@ findFileIdentifiers.exit.thread:                  ; preds = %418, %432, %380, %4
   %.sroa.8337.6 = phi i64 [ %.sroa.8337.2, %._crit_edge ], [ %.sroa.8337.2, %365 ], [ %.sroa.8337.2, %365 ], [ %.sroa.8337.2, %365 ], [ %.sroa.8337.2, %367 ], [ %.sroa.8337.2, %405 ], [ %.sroa.8337.8.insert.insert, %402 ], [ %.sroa.8337.8.insert.insert, %380 ], [ %.sroa.8337.2, %432 ], [ %.sroa.8337.2, %418 ]
   %.sroa.0.5 = phi ptr [ %.sroa.0.1, %._crit_edge ], [ %.sroa.0.1, %365 ], [ %.sroa.0.1, %365 ], [ %.sroa.0.1, %365 ], [ %.sroa.0.1, %367 ], [ %.sroa.0.1, %405 ], [ %.sroa.0.1, %402 ], [ %.sroa.0.1, %380 ], [ %.sroa.0.3, %432 ], [ %.sroa.0.3, %418 ]
   %.sroa.8.6 = phi i64 [ %.sroa.8.2, %._crit_edge ], [ %.sroa.8.2, %365 ], [ %.sroa.8.2, %365 ], [ %.sroa.8.2, %365 ], [ %.sroa.8.2, %367 ], [ %.sroa.8.2, %405 ], [ %.sroa.8.2, %402 ], [ %.sroa.8.2, %380 ], [ %.sroa.8.8.insert.insert, %432 ], [ %.sroa.8.8.insert.insert, %418 ]
-  %.297 = phi ptr [ null, %._crit_edge ], [ %.196, %365 ], [ %.196, %365 ], [ %.196, %365 ], [ %.196, %367 ], [ %.196, %405 ], [ %.196, %402 ], [ %.196, %380 ], [ %.196, %432 ], [ %.196, %418 ]
-  %.294 = phi ptr [ null, %._crit_edge ], [ %.193, %365 ], [ %.193, %365 ], [ %.193, %365 ], [ %.193, %367 ], [ %.193, %405 ], [ %.193, %402 ], [ %.193, %380 ], [ %.193, %432 ], [ %.193, %418 ]
-  %.188 = phi ptr [ null, %._crit_edge ], [ %362, %365 ], [ %362, %365 ], [ %362, %365 ], [ %362, %367 ], [ %362, %405 ], [ %362, %402 ], [ %362, %380 ], [ %362, %432 ], [ %362, %418 ]
-  %.286 = phi i1 [ false, %._crit_edge ], [ true, %365 ], [ true, %365 ], [ true, %365 ], [ true, %367 ], [ true, %405 ], [ true, %402 ], [ true, %380 ], [ true, %432 ], [ true, %418 ]
-  %561 = add i64 %.2387, 2048
+  %.292 = phi ptr [ null, %._crit_edge ], [ %.191, %365 ], [ %.191, %365 ], [ %.191, %365 ], [ %.191, %367 ], [ %.191, %405 ], [ %.191, %402 ], [ %.191, %380 ], [ %.191, %432 ], [ %.191, %418 ]
+  %.289 = phi ptr [ null, %._crit_edge ], [ %.188, %365 ], [ %.188, %365 ], [ %.188, %365 ], [ %.188, %367 ], [ %.188, %405 ], [ %.188, %402 ], [ %.188, %380 ], [ %.188, %432 ], [ %.188, %418 ]
+  %.183 = phi ptr [ null, %._crit_edge ], [ %362, %365 ], [ %362, %365 ], [ %362, %365 ], [ %362, %367 ], [ %362, %405 ], [ %362, %402 ], [ %362, %380 ], [ %362, %432 ], [ %362, %418 ]
+  %.2 = phi i1 [ false, %._crit_edge ], [ true, %365 ], [ true, %365 ], [ true, %365 ], [ true, %367 ], [ true, %405 ], [ true, %402 ], [ true, %380 ], [ true, %432 ], [ true, %418 ]
+  %561 = add i64 %.2388, 2048
   br label %44
 
-562:                                              ; preds = %findFileEntries.exit, %findFileIdentifiers.exit, %364, %.loopexit539, %.loopexit540, %.loopexit541, %.loopexit542, %.loopexit543, %.loopexit544, %.loopexit545, %.loopexit546, %.loopexit547
-  %.sroa.0334.6 = phi ptr [ %.sroa.0334.1, %364 ], [ %.sroa.0334.1, %findFileEntries.exit ], [ %.sroa.0334.2, %findFileIdentifiers.exit ], [ %47, %.loopexit547 ], [ %47, %.loopexit546 ], [ %47, %.loopexit545 ], [ %47, %.loopexit544 ], [ %47, %.loopexit543 ], [ %47, %.loopexit542 ], [ %47, %.loopexit541 ], [ %47, %.loopexit540 ], [ %47, %.loopexit539 ]
-  %.sroa.0.6 = phi ptr [ %.sroa.0.1, %364 ], [ %.sroa.0.2, %findFileEntries.exit ], [ %.sroa.0.1, %findFileIdentifiers.exit ], [ %52, %.loopexit547 ], [ %52, %.loopexit546 ], [ %52, %.loopexit545 ], [ %52, %.loopexit544 ], [ %52, %.loopexit543 ], [ %52, %.loopexit542 ], [ %52, %.loopexit541 ], [ %52, %.loopexit540 ], [ %52, %.loopexit539 ]
-  %.398 = phi ptr [ %.196, %364 ], [ %.196, %findFileEntries.exit ], [ %.196, %findFileIdentifiers.exit ], [ %.095, %.loopexit547 ], [ null, %.loopexit546 ], [ %107, %.loopexit545 ], [ %107, %.loopexit544 ], [ %107, %.loopexit543 ], [ %107, %.loopexit542 ], [ %107, %.loopexit541 ], [ %107, %.loopexit540 ], [ %107, %.loopexit539 ]
-  %.3 = phi ptr [ %.193, %364 ], [ %.193, %findFileEntries.exit ], [ %.193, %findFileIdentifiers.exit ], [ %.092, %.loopexit547 ], [ %.092, %.loopexit546 ], [ null, %.loopexit545 ], [ %130, %.loopexit544 ], [ %130, %.loopexit543 ], [ %130, %.loopexit542 ], [ %130, %.loopexit541 ], [ %130, %.loopexit540 ], [ %130, %.loopexit539 ]
-  %.289 = phi ptr [ null, %364 ], [ %362, %findFileEntries.exit ], [ %362, %findFileIdentifiers.exit ], [ %.087, %.loopexit547 ], [ %.087, %.loopexit546 ], [ %.087, %.loopexit545 ], [ %.087, %.loopexit544 ], [ %.087, %.loopexit543 ], [ %.087, %.loopexit542 ], [ %.087, %.loopexit541 ], [ %.087, %.loopexit540 ], [ %.087, %.loopexit539 ]
-  %.2 = phi i32 [ 0, %364 ], [ 20, %findFileEntries.exit ], [ 20, %findFileIdentifiers.exit ], [ 0, %.loopexit547 ], [ 0, %.loopexit546 ], [ 0, %.loopexit545 ], [ 0, %.loopexit544 ], [ 0, %.loopexit543 ], [ 0, %.loopexit542 ], [ 0, %.loopexit541 ], [ 0, %.loopexit540 ], [ 0, %.loopexit539 ]
+562:                                              ; preds = %findFileEntries.exit, %findFileIdentifiers.exit, %364, %.loopexit540, %.loopexit541, %.loopexit542, %.loopexit543, %.loopexit544, %.loopexit545, %.loopexit546, %.loopexit547, %.loopexit548
+  %.sroa.0334.6 = phi ptr [ %.sroa.0334.1, %364 ], [ %.sroa.0334.1, %findFileEntries.exit ], [ %.sroa.0334.2, %findFileIdentifiers.exit ], [ %47, %.loopexit548 ], [ %47, %.loopexit547 ], [ %47, %.loopexit546 ], [ %47, %.loopexit545 ], [ %47, %.loopexit544 ], [ %47, %.loopexit543 ], [ %47, %.loopexit542 ], [ %47, %.loopexit541 ], [ %47, %.loopexit540 ]
+  %.sroa.0.6 = phi ptr [ %.sroa.0.1, %364 ], [ %.sroa.0.2, %findFileEntries.exit ], [ %.sroa.0.1, %findFileIdentifiers.exit ], [ %52, %.loopexit548 ], [ %52, %.loopexit547 ], [ %52, %.loopexit546 ], [ %52, %.loopexit545 ], [ %52, %.loopexit544 ], [ %52, %.loopexit543 ], [ %52, %.loopexit542 ], [ %52, %.loopexit541 ], [ %52, %.loopexit540 ]
+  %.298 = phi i32 [ 0, %364 ], [ 20, %findFileEntries.exit ], [ 20, %findFileIdentifiers.exit ], [ 0, %.loopexit548 ], [ 0, %.loopexit547 ], [ 0, %.loopexit546 ], [ 0, %.loopexit545 ], [ 0, %.loopexit544 ], [ 0, %.loopexit543 ], [ 0, %.loopexit542 ], [ 0, %.loopexit541 ], [ 0, %.loopexit540 ]
+  %.393 = phi ptr [ %.191, %364 ], [ %.191, %findFileEntries.exit ], [ %.191, %findFileIdentifiers.exit ], [ %.090, %.loopexit548 ], [ null, %.loopexit547 ], [ %107, %.loopexit546 ], [ %107, %.loopexit545 ], [ %107, %.loopexit544 ], [ %107, %.loopexit543 ], [ %107, %.loopexit542 ], [ %107, %.loopexit541 ], [ %107, %.loopexit540 ]
+  %.3 = phi ptr [ %.188, %364 ], [ %.188, %findFileEntries.exit ], [ %.188, %findFileIdentifiers.exit ], [ %.087, %.loopexit548 ], [ %.087, %.loopexit547 ], [ null, %.loopexit546 ], [ %130, %.loopexit545 ], [ %130, %.loopexit544 ], [ %130, %.loopexit543 ], [ %130, %.loopexit542 ], [ %130, %.loopexit541 ], [ %130, %.loopexit540 ]
+  %.284 = phi ptr [ null, %364 ], [ %362, %findFileEntries.exit ], [ %362, %findFileIdentifiers.exit ], [ %.082, %.loopexit548 ], [ %.082, %.loopexit547 ], [ %.082, %.loopexit546 ], [ %.082, %.loopexit545 ], [ %.082, %.loopexit544 ], [ %.082, %.loopexit543 ], [ %.082, %.loopexit542 ], [ %.082, %.loopexit541 ], [ %.082, %.loopexit540 ]
   %.not.i312 = icmp eq ptr %.sroa.0334.6, null
-  br i1 %.not.i312, label %freePointerList.exit, label %.thread463
+  br i1 %.not.i312, label %freePointerList.exit, label %.thread464
 
-.thread463:                                       ; preds = %54, %532, %562
-  %.2476 = phi i32 [ %.2, %562 ], [ 20, %54 ], [ 0, %532 ]
-  %.289475 = phi ptr [ %.289, %562 ], [ %.087, %54 ], [ %362, %532 ]
-  %.3474 = phi ptr [ %.3, %562 ], [ %.092, %54 ], [ %.193, %532 ]
-  %.398473 = phi ptr [ %.398, %562 ], [ %.095, %54 ], [ %.196, %532 ]
-  %.sroa.0.6472 = phi ptr [ %.sroa.0.6, %562 ], [ null, %54 ], [ %.sroa.0.1, %532 ]
-  %.sroa.0334.6471 = phi ptr [ %.sroa.0334.6, %562 ], [ %47, %54 ], [ %.sroa.0334.1, %532 ]
-  call void @free(ptr noundef nonnull %.sroa.0334.6471) #7
+.thread464:                                       ; preds = %54, %532, %562
+  %.284477 = phi ptr [ %.284, %562 ], [ %.082, %54 ], [ %362, %532 ]
+  %.3476 = phi ptr [ %.3, %562 ], [ %.087, %54 ], [ %.188, %532 ]
+  %.393475 = phi ptr [ %.393, %562 ], [ %.090, %54 ], [ %.191, %532 ]
+  %.298474 = phi i32 [ %.298, %562 ], [ 20, %54 ], [ 0, %532 ]
+  %.sroa.0.6473 = phi ptr [ %.sroa.0.6, %562 ], [ null, %54 ], [ %.sroa.0.1, %532 ]
+  %.sroa.0334.6472 = phi ptr [ %.sroa.0334.6, %562 ], [ %47, %54 ], [ %.sroa.0334.1, %532 ]
+  call void @free(ptr noundef nonnull %.sroa.0334.6472) #7
   br label %freePointerList.exit
 
-freePointerList.exit:                             ; preds = %49, %562, %.thread463
-  %.2456 = phi i32 [ %.2, %562 ], [ %.2476, %.thread463 ], [ 20, %49 ]
-  %.289455 = phi ptr [ %.289, %562 ], [ %.289475, %.thread463 ], [ %.087, %49 ]
-  %.3454 = phi ptr [ %.3, %562 ], [ %.3474, %.thread463 ], [ %.092, %49 ]
-  %.398453 = phi ptr [ %.398, %562 ], [ %.398473, %.thread463 ], [ %.095, %49 ]
-  %.sroa.0.6452 = phi ptr [ %.sroa.0.6, %562 ], [ %.sroa.0.6472, %.thread463 ], [ %.sroa.0.0, %49 ]
-  %.not.i313 = icmp eq ptr %.sroa.0.6452, null
+freePointerList.exit:                             ; preds = %49, %562, %.thread464
+  %.284457 = phi ptr [ %.284, %562 ], [ %.284477, %.thread464 ], [ %.082, %49 ]
+  %.3456 = phi ptr [ %.3, %562 ], [ %.3476, %.thread464 ], [ %.087, %49 ]
+  %.393455 = phi ptr [ %.393, %562 ], [ %.393475, %.thread464 ], [ %.090, %49 ]
+  %.298454 = phi i32 [ %.298, %562 ], [ %.298474, %.thread464 ], [ 20, %49 ]
+  %.sroa.0.6453 = phi ptr [ %.sroa.0.6, %562 ], [ %.sroa.0.6473, %.thread464 ], [ %.sroa.0.0, %49 ]
+  %.not.i313 = icmp eq ptr %.sroa.0.6453, null
   br i1 %.not.i313, label %freePointerList.exit314, label %563
 
 563:                                              ; preds = %freePointerList.exit
-  call void @free(ptr noundef nonnull %.sroa.0.6452) #7
+  call void @free(ptr noundef nonnull %.sroa.0.6453) #7
   br label %freePointerList.exit314
 
 freePointerList.exit314:                          ; preds = %freePointerList.exit, %563
-  %.not131 = icmp eq ptr %.398453, null
+  %.not131 = icmp eq ptr %.393455, null
   br i1 %.not131, label %574, label %564
 
 564:                                              ; preds = %freePointerList.exit314
@@ -1316,7 +1316,7 @@ freePointerList.exit314:                          ; preds = %freePointerList.exi
   %.val.i315 = load ptr, ptr %566, align 8
   %567 = getelementptr i8, ptr %565, i64 72
   %.val3.i316 = load i64, ptr %567, align 8
-  %568 = ptrtoint ptr %.398453 to i64
+  %568 = ptrtoint ptr %.393455 to i64
   %569 = ptrtoint ptr %.val.i315 to i64
   %570 = add i64 %.val3.i316, %569
   %571 = sub i64 %568, %570
@@ -1326,7 +1326,7 @@ freePointerList.exit314:                          ; preds = %freePointerList.exi
   br label %574
 
 574:                                              ; preds = %564, %freePointerList.exit314
-  %.not132 = icmp eq ptr %.3454, null
+  %.not132 = icmp eq ptr %.3456, null
   br i1 %.not132, label %585, label %575
 
 575:                                              ; preds = %574
@@ -1335,7 +1335,7 @@ freePointerList.exit314:                          ; preds = %freePointerList.exi
   %.val.i317 = load ptr, ptr %577, align 8
   %578 = getelementptr i8, ptr %576, i64 72
   %.val3.i318 = load i64, ptr %578, align 8
-  %579 = ptrtoint ptr %.3454 to i64
+  %579 = ptrtoint ptr %.3456 to i64
   %580 = ptrtoint ptr %.val.i317 to i64
   %581 = add i64 %.val3.i318, %580
   %582 = sub i64 %579, %581
@@ -1345,8 +1345,8 @@ freePointerList.exit314:                          ; preds = %freePointerList.exi
   br label %585
 
 585:                                              ; preds = %575, %574
-  %.not133 = icmp eq ptr %.289455, null
-  br i1 %.not133, label %.thread502, label %586
+  %.not133 = icmp eq ptr %.284457, null
+  br i1 %.not133, label %.thread503, label %586
 
 586:                                              ; preds = %585
   %587 = load ptr, ptr %7, align 8
@@ -1354,17 +1354,17 @@ freePointerList.exit314:                          ; preds = %freePointerList.exi
   %.val.i319 = load ptr, ptr %588, align 8
   %589 = getelementptr i8, ptr %587, i64 72
   %.val3.i320 = load i64, ptr %589, align 8
-  %590 = ptrtoint ptr %.289455 to i64
+  %590 = ptrtoint ptr %.284457 to i64
   %591 = ptrtoint ptr %.val.i319 to i64
   %592 = add i64 %.val3.i320, %591
   %593 = sub i64 %590, %592
   %594 = getelementptr inbounds i8, ptr %587, i64 128
   %595 = load ptr, ptr %594, align 8
   call void %595(ptr noundef %587, i64 noundef %593, i64 noundef 2048) #7
-  br label %.thread502
+  br label %.thread503
 
-.thread502:                                       ; preds = %8, %585, %586, %2
-  %.080 = phi i32 [ 0, %2 ], [ %.2456, %586 ], [ %.2456, %585 ], [ 0, %8 ]
+.thread503:                                       ; preds = %8, %585, %586, %2
+  %.080 = phi i32 [ 0, %2 ], [ %.298454, %586 ], [ %.298454, %585 ], [ 0, %8 ]
   ret i32 %.080
 }
 

@@ -541,8 +541,8 @@ define noundef float @_Z27trx_get_time_of_final_frameP11t_trxstatus(ptr nocaptur
   br label %45
 
 44:                                               ; preds = %11, %30
-  %.0 = phi float [ %16, %11 ], [ %31, %30 ]
-  ret float %.0
+  %.015 = phi float [ %16, %11 ], [ %31, %30 ]
+  ret float %.015
 
 45:                                               ; preds = %43, %28, %21
   %.pn20 = phi { ptr, i32 } [ %22, %21 ], [ %29, %28 ], [ %.pn.pn, %43 ]
@@ -1840,7 +1840,7 @@ define noundef zeroext i1 @_Z15read_next_framePK16gmx_output_env_tP11t_trxstatus
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.backedge, %3
-  %.086 = phi i8 [ 0, %3 ], [ %.187, %.critedge.backedge ]
+  %.084 = phi i8 [ 0, %3 ], [ %.185, %.critedge.backedge ]
   store i32 0, ptr %2, align 8
   store i8 0, ptr %14, align 4
   store i8 0, ptr %15, align 8
@@ -2178,10 +2178,10 @@ _ZNRSt8optionalIfE5valueEv.exit103:               ; preds = %_ZNRSt8optionalIfE5
   br label %300
 
 192:                                              ; preds = %154, %159, %49, %169, %164, %160, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit
-  %.187 = phi i8 [ %173, %169 ], [ %168, %164 ], [ %163, %160 ], [ %150, %154 ], [ %150, %159 ], [ %128, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %.086, %49 ], [ %.0.i, %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit ]
+  %.185 = phi i8 [ %173, %169 ], [ %168, %164 ], [ %163, %160 ], [ %150, %154 ], [ %150, %159 ], [ %128, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ %.084, %49 ], [ %.0.i, %_ZL14gmx_next_frameP11t_trxstatusP10t_trxframe.exit ]
   %193 = load float, ptr %29, align 4
   store float %193, ptr %12, align 4
-  %194 = trunc nuw i8 %.187 to i1
+  %194 = trunc nuw i8 %.185 to i1
   br i1 %194, label %195, label %.critedge.thread
 
 195:                                              ; preds = %192

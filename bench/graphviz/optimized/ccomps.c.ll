@@ -830,14 +830,14 @@ gv_calloc.exit:                                   ; preds = %8
   %.062 = phi ptr [ %.2, %42 ], [ %9, %._crit_edge ]
   %.03861 = phi i64 [ %.240, %42 ], [ 10, %._crit_edge ]
   %.14260 = phi ptr [ %43, %42 ], [ %21, %._crit_edge ]
-  %.04459 = phi i64 [ %.145, %42 ], [ 0, %._crit_edge ]
+  %.04359 = phi i64 [ %.144, %42 ], [ 0, %._crit_edge ]
   %.val47 = load ptr, ptr %15, align 8
   %22 = call zeroext i1 %.val47(ptr noundef nonnull %.14260, i32 noundef -1) #16
   br i1 %22, label %42, label %23
 
 23:                                               ; preds = %.lr.ph64
   call fastcc void @setPrefix(ptr noundef nonnull %4, ptr noundef %2)
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr nonnull poison, i64 noundef %.04459)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr nonnull poison, i64 noundef %.04359)
   %24 = call fastcc ptr @agxbuse(ptr noundef nonnull %4)
   %25 = call ptr @agsubg(ptr noundef %0, ptr noundef %24, i32 noundef 1) #16
   %26 = call ptr @agbindrec(ptr noundef %25, ptr noundef nonnull @.str.1, i32 noundef 408, i32 noundef 1) #16
@@ -858,7 +858,7 @@ gv_calloc.exit:                                   ; preds = %8
   br i1 %33, label %agxbfree.exit.sink.split, label %agxbfree.exit
 
 34:                                               ; preds = %23
-  %35 = icmp eq i64 %.04459, %.03861
+  %35 = icmp eq i64 %.04359, %.03861
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %34
@@ -869,13 +869,13 @@ gv_calloc.exit:                                   ; preds = %8
 39:                                               ; preds = %36, %34
   %.139 = phi i64 [ %37, %36 ], [ %.03861, %34 ]
   %.1 = phi ptr [ %38, %36 ], [ %.062, %34 ]
-  %40 = getelementptr inbounds ptr, ptr %.1, i64 %.04459
+  %40 = getelementptr inbounds ptr, ptr %.1, i64 %.04359
   store ptr %25, ptr %40, align 8
-  %41 = add i64 %.04459, 1
+  %41 = add i64 %.04359, 1
   br label %42
 
 42:                                               ; preds = %.lr.ph64, %39
-  %.145 = phi i64 [ %.04459, %.lr.ph64 ], [ %41, %39 ]
+  %.144 = phi i64 [ %.04359, %.lr.ph64 ], [ %41, %39 ]
   %.240 = phi i64 [ %.03861, %.lr.ph64 ], [ %.139, %39 ]
   %.2 = phi ptr [ %.062, %.lr.ph64 ], [ %.1, %39 ]
   %43 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.14260) #16
@@ -888,29 +888,29 @@ gv_calloc.exit:                                   ; preds = %8
 
 ._crit_edge65:                                    ; preds = %._crit_edge65.loopexit, %._crit_edge
   %44 = phi ptr [ null, %._crit_edge ], [ %.pre, %._crit_edge65.loopexit ]
-  %.044.lcssa = phi i64 [ 0, %._crit_edge ], [ %.145, %._crit_edge65.loopexit ]
+  %.043.lcssa = phi i64 [ 0, %._crit_edge ], [ %.144, %._crit_edge65.loopexit ]
   %.038.lcssa = phi i64 [ 10, %._crit_edge ], [ %.240, %._crit_edge65.loopexit ]
   %.0.lcssa = phi ptr [ %9, %._crit_edge ], [ %.2, %._crit_edge65.loopexit ]
   call void @free(ptr noundef %44) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  %45 = call fastcc ptr @gv_recalloc(ptr noundef %.0.lcssa, i64 noundef %.038.lcssa, i64 noundef %.044.lcssa, i64 noundef 8)
+  %45 = call fastcc ptr @gv_recalloc(ptr noundef %.0.lcssa, i64 noundef %.038.lcssa, i64 noundef %.043.lcssa, i64 noundef 8)
   %46 = getelementptr inbounds i8, ptr %4, i64 31
   %.val49 = load i8, ptr %46, align 1
   %47 = icmp eq i8 %.val49, -1
   br i1 %47, label %agxbfree.exit.sink.split, label %agxbfree.exit
 
 agxbfree.exit.sink.split:                         ; preds = %._crit_edge65, %29
-  %.044.lcssa.sink.ph = phi i64 [ 0, %29 ], [ %.044.lcssa, %._crit_edge65 ]
-  %.043.ph = phi ptr [ null, %29 ], [ %45, %._crit_edge65 ]
+  %.043.lcssa.sink.ph = phi i64 [ 0, %29 ], [ %.043.lcssa, %._crit_edge65 ]
+  %.045.ph = phi ptr [ null, %29 ], [ %45, %._crit_edge65 ]
   %.val48.sink = load ptr, ptr %4, align 8
   call void @free(ptr noundef %.val48.sink) #16
   br label %agxbfree.exit
 
 agxbfree.exit:                                    ; preds = %agxbfree.exit.sink.split, %._crit_edge65, %29, %3
-  %.044.lcssa.sink = phi i64 [ 0, %3 ], [ 0, %29 ], [ %.044.lcssa, %._crit_edge65 ], [ %.044.lcssa.sink.ph, %agxbfree.exit.sink.split ]
-  %.043 = phi ptr [ null, %3 ], [ null, %29 ], [ %45, %._crit_edge65 ], [ %.043.ph, %agxbfree.exit.sink.split ]
-  store i64 %.044.lcssa.sink, ptr %1, align 8
-  ret ptr %.043
+  %.043.lcssa.sink = phi i64 [ 0, %3 ], [ 0, %29 ], [ %.043.lcssa, %._crit_edge65 ], [ %.043.lcssa.sink.ph, %agxbfree.exit.sink.split ]
+  %.045 = phi ptr [ null, %3 ], [ null, %29 ], [ %45, %._crit_edge65 ], [ %.045.ph, %agxbfree.exit.sink.split ]
+  store i64 %.043.lcssa.sink, ptr %1, align 8
+  ret ptr %.045
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -946,28 +946,28 @@ define noundef ptr @cccomps(ptr noundef %0, ptr nocapture noundef writeonly %1, 
   br i1 %.not45.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8, %24
-  %.046.i = phi ptr [ %25, %24 ], [ %11, %8 ]
-  %12 = tail call ptr @aggetrec(ptr noundef nonnull %.046.i, ptr noundef nonnull @.str.4, i32 noundef 0) #16
+  %.03946.i = phi ptr [ %25, %24 ], [ %11, %8 ]
+  %12 = tail call ptr @aggetrec(ptr noundef nonnull %.03946.i, ptr noundef nonnull @.str.4, i32 noundef 0) #16
   %13 = getelementptr inbounds i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not44.i = icmp eq ptr %14, null
   br i1 %.not44.i, label %15, label %24
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = tail call ptr @agnameof(ptr noundef nonnull %.046.i) #16
+  %16 = tail call ptr @agnameof(ptr noundef nonnull %.03946.i) #16
   %17 = tail call ptr @agnode(ptr noundef %10, ptr noundef %16, i32 noundef 1) #16
   %18 = tail call ptr @agbindrec(ptr noundef %17, ptr noundef nonnull @.str.4, i32 noundef 32, i32 noundef 1) #16
   %19 = getelementptr inbounds i8, ptr %17, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 24
-  store ptr %.046.i, ptr %21, align 8
-  %22 = tail call ptr @aggetrec(ptr noundef nonnull %.046.i, ptr noundef nonnull @.str.4, i32 noundef 0) #16
+  store ptr %.03946.i, ptr %21, align 8
+  %22 = tail call ptr @aggetrec(ptr noundef nonnull %.03946.i, ptr noundef nonnull @.str.4, i32 noundef 0) #16
   %23 = getelementptr inbounds i8, ptr %22, i64 24
   store ptr %17, ptr %23, align 8
   br label %24
 
 24:                                               ; preds = %15, %.lr.ph.i
-  %25 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.046.i) #16
+  %25 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.03946.i) #16
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -986,12 +986,12 @@ define noundef ptr @cccomps(ptr noundef %0, ptr nocapture noundef writeonly %1, 
   br i1 %.not4347.i, label %._crit_edge51.i, label %.lr.ph50.i
 
 .lr.ph50.i:                                       ; preds = %.lr.ph55.i, %47
-  %.03948.i = phi ptr [ %48, %47 ], [ %30, %.lr.ph55.i ]
-  %31 = load i32, ptr %.03948.i, align 8
+  %.048.i = phi ptr [ %48, %47 ], [ %30, %.lr.ph55.i ]
+  %31 = load i32, ptr %.048.i, align 8
   %32 = and i32 %31, 3
   %33 = icmp eq i32 %32, 2
   %.idx.i = select i1 %33, i64 0, i64 -64
-  %34 = getelementptr inbounds i8, ptr %.03948.i, i64 %.idx.i
+  %34 = getelementptr inbounds i8, ptr %.048.i, i64 %.idx.i
   %35 = getelementptr inbounds i8, ptr %34, i64 56
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr @aggetrec(ptr noundef %36, ptr noundef nonnull @.str.4, i32 noundef 0) #16
@@ -1013,7 +1013,7 @@ define noundef ptr @cccomps(ptr noundef %0, ptr nocapture noundef writeonly %1, 
   br label %47
 
 47:                                               ; preds = %45, %43, %.lr.ph50.i
-  %48 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.03948.i) #16
+  %48 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.048.i) #16
   %.not43.i = icmp eq ptr %48, null
   br i1 %.not43.i, label %._crit_edge51.i, label %.lr.ph50.i
 
@@ -1066,15 +1066,15 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %57
   br i1 %.not72, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %gv_calloc.exit, %108
-  %.05774 = phi i64 [ %.1, %108 ], [ 0, %gv_calloc.exit ]
-  %.05873 = phi ptr [ %109, %108 ], [ %67, %gv_calloc.exit ]
+  %.05774 = phi ptr [ %109, %108 ], [ %67, %gv_calloc.exit ]
+  %.05873 = phi i64 [ %.1, %108 ], [ 0, %gv_calloc.exit ]
   %.val = load ptr, ptr %66, align 8
-  %68 = call zeroext i1 %.val(ptr noundef nonnull %.05873, i32 noundef -1) #16
+  %68 = call zeroext i1 %.val(ptr noundef nonnull %.05774, i32 noundef -1) #16
   br i1 %68, label %108, label %69
 
 69:                                               ; preds = %.lr.ph
   call fastcc void @setPrefix(ptr noundef nonnull %4, ptr noundef %2)
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr nonnull poison, i64 noundef %.05774)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr nonnull poison, i64 noundef %.05873)
   %70 = call fastcc ptr @agxbuse(ptr noundef nonnull %4)
   %71 = call ptr @agsubg(ptr noundef %10, ptr noundef %70, i32 noundef 1) #16
   %72 = call ptr @agsubg(ptr noundef %0, ptr noundef %70, i32 noundef 1) #16
@@ -1082,7 +1082,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %57
   %74 = call ptr @aggetrec(ptr noundef %72, ptr noundef nonnull @.str.3, i32 noundef 0) #16
   %75 = getelementptr inbounds i8, ptr %74, i64 16
   store i8 1, ptr %75, align 8
-  %76 = call fastcc i64 @dfs(ptr noundef %10, ptr noundef nonnull %.05873, ptr noundef %71, ptr noundef nonnull %5)
+  %76 = call fastcc i64 @dfs(ptr noundef %10, ptr noundef nonnull %.05774, ptr noundef %71, ptr noundef nonnull %5)
   %77 = icmp eq i64 %76, -1
   br i1 %77, label %78, label %83
 
@@ -1104,8 +1104,8 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %57
   br i1 %.not18.i, label %unionNodes.exit, label %.lr.ph20.i
 
 .lr.ph20.i:                                       ; preds = %83, %.loopexit.i
-  %.01419.i = phi ptr [ %98, %.loopexit.i ], [ %84, %83 ]
-  %85 = getelementptr inbounds i8, ptr %.01419.i, i64 16
+  %.019.i = phi ptr [ %98, %.loopexit.i ], [ %84, %83 ]
+  %85 = getelementptr inbounds i8, ptr %.019.i, i64 16
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 24
   %88 = load ptr, ptr %87, align 8
@@ -1124,21 +1124,21 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %57
   br i1 %.not1516.i, label %.loopexit.i, label %.lr.ph.i67
 
 .lr.ph.i67:                                       ; preds = %94, %.lr.ph.i67
-  %.017.i = phi ptr [ %97, %.lr.ph.i67 ], [ %95, %94 ]
-  %96 = call ptr @agsubnode(ptr noundef %72, ptr noundef nonnull %.017.i, i32 noundef 1) #16
-  %97 = call ptr @agnxtnode(ptr noundef nonnull %88, ptr noundef nonnull %.017.i) #16
+  %.01417.i = phi ptr [ %97, %.lr.ph.i67 ], [ %95, %94 ]
+  %96 = call ptr @agsubnode(ptr noundef %72, ptr noundef nonnull %.01417.i, i32 noundef 1) #16
+  %97 = call ptr @agnxtnode(ptr noundef nonnull %88, ptr noundef nonnull %.01417.i) #16
   %.not15.i = icmp eq ptr %97, null
   br i1 %.not15.i, label %.loopexit.i, label %.lr.ph.i67
 
 .loopexit.i:                                      ; preds = %.lr.ph.i67, %94, %92
-  %98 = call ptr @agnxtnode(ptr noundef %71, ptr noundef nonnull %.01419.i) #16
+  %98 = call ptr @agnxtnode(ptr noundef %71, ptr noundef nonnull %.019.i) #16
   %.not.i68 = icmp eq ptr %98, null
   br i1 %.not.i68, label %unionNodes.exit, label %.lr.ph20.i
 
 unionNodes.exit:                                  ; preds = %.loopexit.i, %83
   %99 = call i64 @graphviz_node_induce(ptr noundef %72, ptr noundef null) #16
   call fastcc void @subgInduce(ptr noundef %0, ptr noundef %72, i32 noundef 0)
-  %100 = getelementptr inbounds ptr, ptr %64, i64 %.05774
+  %100 = getelementptr inbounds ptr, ptr %64, i64 %.05873
   store ptr %72, ptr %100, align 8
   %101 = call i32 @agdelete(ptr noundef %10, ptr noundef %71) #16
   %102 = load i8, ptr @Verbose, align 1
@@ -1147,21 +1147,21 @@ unionNodes.exit:                                  ; preds = %.loopexit.i, %83
 
 103:                                              ; preds = %unionNodes.exit
   %104 = load ptr, ptr @stderr, align 8
-  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.5, i64 noundef %.05774, i64 noundef %76, i64 noundef %99) #18
+  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.5, i64 noundef %.05873, i64 noundef %76, i64 noundef %99) #18
   br label %106
 
 106:                                              ; preds = %103, %unionNodes.exit
-  %107 = add i64 %.05774, 1
+  %107 = add i64 %.05873, 1
   br label %108
 
 108:                                              ; preds = %.lr.ph, %106
-  %.1 = phi i64 [ %.05774, %.lr.ph ], [ %107, %106 ]
-  %109 = call ptr @agnxtnode(ptr noundef %10, ptr noundef nonnull %.05873) #16
+  %.1 = phi i64 [ %.05873, %.lr.ph ], [ %107, %106 ]
+  %109 = call ptr @agnxtnode(ptr noundef %10, ptr noundef nonnull %.05774) #16
   %.not = icmp eq ptr %109, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %108, %gv_calloc.exit
-  %.057.lcssa = phi i64 [ 0, %gv_calloc.exit ], [ %.1, %108 ]
+  %.058.lcssa = phi i64 [ 0, %gv_calloc.exit ], [ %.1, %108 ]
   %110 = load i8, ptr @Verbose, align 1
   %.not60 = icmp eq i8 %110, 0
   br i1 %.not60, label %117, label %111
@@ -1171,7 +1171,7 @@ unionNodes.exit:                                  ; preds = %.loopexit.i, %83
   %113 = call i32 @agnnodes(ptr noundef %0) #16
   %114 = call i32 @agnedges(ptr noundef %0) #16
   %115 = call ptr @agnameof(ptr noundef %0) #16
-  %116 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef nonnull @.str.6, i32 noundef %113, i32 noundef %114, i64 noundef %.057.lcssa, ptr noundef %115) #18
+  %116 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef nonnull @.str.6, i32 noundef %113, i32 noundef %114, i64 noundef %.058.lcssa, ptr noundef %115) #18
   br label %117
 
 117:                                              ; preds = %111, %._crit_edge
@@ -1180,23 +1180,23 @@ unionNodes.exit:                                  ; preds = %.loopexit.i, %83
   call void @agclean(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.4) #16
   %119 = load ptr, ptr %5, align 8
   call void @free(ptr noundef %119) #16
-  %120 = call fastcc ptr @gv_recalloc(ptr noundef %64, i64 noundef %51, i64 noundef %.057.lcssa, i64 noundef 8)
+  %120 = call fastcc ptr @gv_recalloc(ptr noundef %64, i64 noundef %51, i64 noundef %.058.lcssa, i64 noundef 8)
   %121 = getelementptr inbounds i8, ptr %4, i64 31
   %.val63 = load i8, ptr %121, align 1
   %122 = icmp eq i8 %.val63, -1
   br i1 %122, label %agxbfree.exit.sink.split, label %agxbfree.exit
 
 agxbfree.exit.sink.split:                         ; preds = %117, %78
-  %.057.lcssa.sink.ph = phi i64 [ 0, %78 ], [ %.057.lcssa, %117 ]
+  %.058.lcssa.sink.ph = phi i64 [ 0, %78 ], [ %.058.lcssa, %117 ]
   %.0.ph = phi ptr [ null, %78 ], [ %120, %117 ]
   %.val62.sink = load ptr, ptr %4, align 8
   call void @free(ptr noundef %.val62.sink) #16
   br label %agxbfree.exit
 
 agxbfree.exit:                                    ; preds = %agxbfree.exit.sink.split, %117, %78, %3
-  %.057.lcssa.sink = phi i64 [ 0, %3 ], [ 0, %78 ], [ %.057.lcssa, %117 ], [ %.057.lcssa.sink.ph, %agxbfree.exit.sink.split ]
+  %.058.lcssa.sink = phi i64 [ 0, %3 ], [ 0, %78 ], [ %.058.lcssa, %117 ], [ %.058.lcssa.sink.ph, %agxbfree.exit.sink.split ]
   %.0 = phi ptr [ null, %3 ], [ null, %78 ], [ %120, %117 ], [ %.0.ph, %agxbfree.exit.sink.split ]
-  store i64 %.057.lcssa.sink, ptr %1, align 8
+  store i64 %.058.lcssa.sink, ptr %1, align 8
   ret ptr %.0
 }
 

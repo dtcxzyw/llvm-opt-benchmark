@@ -6107,8 +6107,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
   br i1 %924, label %.loopexit2994, label %.preheader2995
 
 .preheader2995:                                   ; preds = %933, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit1288
-  %.08972996 = phi i64 [ %978, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit1288 ], [ 0, %933 ]
-  %935 = getelementptr inbounds [8 x ptr], ptr @_ZZN7glslang9TBuiltIns10initializeEi8EProfileRKNS_10SpvVersionEE10floatTypes, i64 0, i64 %.08972996
+  %.09022996 = phi i64 [ %978, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit1288 ], [ 0, %933 ]
+  %935 = getelementptr inbounds [8 x ptr], ptr @_ZZN7glslang9TBuiltIns10initializeEi8EProfileRKNS_10SpvVersionEE10floatTypes, i64 0, i64 %.09022996
   %936 = load ptr, ptr %935, align 8
   %937 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 256, ptr noundef %915, ptr noundef %936, ptr noundef %936) #16
   %938 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #16
@@ -6229,7 +6229,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
   %976 = load ptr, ptr %493, align 8
   %977 = getelementptr inbounds i8, ptr %976, i64 %943
   store i8 0, ptr %977, align 1
-  %978 = add nuw nsw i64 %.08972996, 1
+  %978 = add nuw nsw i64 %.09022996, 1
   %exitcond.not = icmp eq i64 %978, 8
   br i1 %exitcond.not, label %979, label %.preheader2995, !llvm.loop !13
 
@@ -17954,31 +17954,31 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
   br label %5692
 
 5692:                                             ; preds = %.preheader2985, %.loopexit
-  %.08993003 = phi i32 [ 1, %.preheader2985 ], [ %5716, %.loopexit ]
-  %5693 = and i32 %.08993003, 3
+  %.08983003 = phi i32 [ 1, %.preheader2985 ], [ %5716, %.loopexit ]
+  %5693 = and i32 %.08983003, 3
   %or.cond333 = icmp eq i32 %5693, 1
   %or.cond335 = and i1 %170, %or.cond333
   br i1 %or.cond335, label %.loopexit, label %5694
 
 5694:                                             ; preds = %5692
-  %5695 = icmp eq i32 %.08993003, 3
-  %5696 = add nsw i32 %.08993003, -5
+  %5695 = icmp eq i32 %.08983003, 3
+  %5696 = add nsw i32 %.08983003, -5
   %5697 = icmp ult i32 %5696, 2
   %or.cond339 = or i1 %5695, %5697
   %or.cond341 = and i1 %5689, %or.cond339
-  %5698 = icmp ne i32 %.08993003, 2
+  %5698 = icmp ne i32 %.08983003, 2
   %or.cond343 = and i1 %5686, %5698
   %or.cond3007 = or i1 %or.cond341, %or.cond343
   br i1 %or.cond3007, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %5694
-  %5699 = shl nuw nsw i32 %.08993003, 8
+  %5699 = shl nuw nsw i32 %.08983003, 8
   br label %5700
 
 5700:                                             ; preds = %.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit
   %5701 = phi i1 [ true, %.preheader ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit ]
-  %.08983002 = phi i64 [ 0, %.preheader ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit ]
-  %5702 = getelementptr inbounds [2 x i32], ptr @__const._ZN7glslang9TBuiltIns10initializeEi8EProfileRKNS_10SpvVersionE.bTypes, i64 0, i64 %.08983002
+  %.08973002 = phi i64 [ 0, %.preheader ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit ]
+  %5702 = getelementptr inbounds [2 x i32], ptr @__const._ZN7glslang9TBuiltIns10initializeEi8EProfileRKNS_10SpvVersionE.bTypes, i64 0, i64 %.08973002
   %5703 = load i32, ptr %5702, align 4
   %5704 = load i32, ptr %14, align 4
   %5705 = and i32 %5704, -2147483648
@@ -18008,7 +18008,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   br i1 %5701, label %5700, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit, %5694, %5692
-  %5716 = add nuw nsw i32 %.08993003, 1
+  %5716 = add nuw nsw i32 %.08983003, 1
   %exitcond3014.not = icmp eq i32 %5716, 7
   br i1 %exitcond3014.not, label %5717, label %5692, !llvm.loop !20
 
@@ -27544,7 +27544,7 @@ define void @_ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cx
 58:                                               ; preds = %5, %.loopexit1437
   %59 = phi i1 [ false, %5 ], [ true, %.loopexit1437 ]
   %60 = phi i1 [ true, %5 ], [ false, %.loopexit1437 ]
-  %.01449 = phi i32 [ 0, %5 ], [ 1, %.loopexit1437 ]
+  %.01511449 = phi i32 [ 0, %5 ], [ 1, %.loopexit1437 ]
   br i1 %59, label %61, label %63
 
 61:                                               ; preds = %58
@@ -27558,14 +27558,14 @@ define void @_ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cx
 
 63:                                               ; preds = %62, %58
   %64 = phi i1 [ %or.cond191, %62 ], [ false, %58 ]
-  %65 = add nuw nsw i32 %.01449, %.lobit165
+  %65 = add nuw nsw i32 %.01511449, %.lobit165
   %brmerge = or i1 %or.cond9, %59
   %66 = select i1 %64, i1 %19, i1 false
   br label %67
 
 67:                                               ; preds = %63, %.loopexit1436
   %.not171 = phi i1 [ true, %63 ], [ false, %.loopexit1436 ]
-  %.01511448 = phi i32 [ 0, %63 ], [ 1, %.loopexit1436 ]
+  %.01501448 = phi i32 [ 0, %63 ], [ 1, %.loopexit1436 ]
   br i1 %.not171, label %.critedge178, label %68
 
 68:                                               ; preds = %67
@@ -27579,12 +27579,12 @@ define void @_ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cx
 
 .critedge178:                                     ; preds = %69, %67
   %or.cond1400 = phi i1 [ false, %69 ], [ %12, %67 ]
-  %70 = or i32 %.01511448, %.01449
+  %70 = or i32 %.01501448, %.01511449
   br label %71
 
 71:                                               ; preds = %.critedge178, %.loopexit1435
   %.not175 = phi i1 [ true, %.critedge178 ], [ false, %.loopexit1435 ]
-  %.01501447 = phi i32 [ 0, %.critedge178 ], [ 1, %.loopexit1435 ]
+  %.01491447 = phi i32 [ 0, %.critedge178 ], [ 1, %.loopexit1435 ]
   br i1 %.not175, label %.critedge183, label %72
 
 72:                                               ; preds = %71
@@ -27606,16 +27606,16 @@ define void @_ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cx
   ]
 
 .critedge183:                                     ; preds = %.critedge181, %71
-  %75 = add nuw nsw i32 %.01501447, %.01511448
-  %76 = or i32 %.01501447, %.01511448
+  %75 = add nuw nsw i32 %.01491447, %.01501448
+  %76 = or i32 %.01491447, %.01501448
   %or.cond.not = icmp ne i32 %76, 0
   %or.cond1410 = select i1 %or.cond.not, i1 true, i1 %23
   br label %77
 
 77:                                               ; preds = %.critedge183, %.loopexit1434
   %.not160 = phi i1 [ true, %.critedge183 ], [ false, %.loopexit1434 ]
-  %.01491446 = phi i32 [ 0, %.critedge183 ], [ 1, %.loopexit1434 ]
-  %78 = add nuw nsw i32 %.01491446, %.01449
+  %.01481446 = phi i32 [ 0, %.critedge183 ], [ 1, %.loopexit1434 ]
+  %78 = add nuw nsw i32 %.01481446, %.01511449
   %79 = add nuw nsw i32 %75, %78
   %80 = icmp ugt i32 %79, 3
   br i1 %80, label %.loopexit1434, label %81
@@ -27638,8 +27638,8 @@ define void @_ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cx
 84:                                               ; preds = %.preheader1535, %.loopexit1433
   %85 = phi i1 [ true, %.loopexit1433 ], [ false, %.preheader1535 ]
   %86 = phi i1 [ false, %.loopexit1433 ], [ true, %.preheader1535 ]
-  %.01481445 = phi i32 [ 1, %.loopexit1433 ], [ 0, %.preheader1535 ]
-  %87 = add nuw nsw i32 %.01481445, %78
+  %.01471445 = phi i32 [ 1, %.loopexit1433 ], [ 0, %.preheader1535 ]
+  %87 = add nuw nsw i32 %.01471445, %78
   %88 = add nuw nsw i32 %75, %87
   %89 = icmp ugt i32 %88, 3
   br i1 %89, label %.loopexit1433, label %90
@@ -27658,7 +27658,7 @@ define void @_ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cx
   br i1 %or.cond1404, label %94, label %.loopexit1433
 
 94:                                               ; preds = %93, %92
-  %95 = or i32 %70, %.01481445
+  %95 = or i32 %70, %.01471445
   %or.cond13.not = icmp ne i32 %95, 0
   %brmerge1454 = or i1 %or.cond9, %or.cond13.not
   br label %96
@@ -27666,9 +27666,9 @@ define void @_ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cx
 96:                                               ; preds = %94, %.loopexit1432
   %.not162 = phi i1 [ false, %94 ], [ true, %.loopexit1432 ]
   %97 = phi i1 [ true, %94 ], [ false, %.loopexit1432 ]
-  %.01471444 = phi i32 [ 0, %94 ], [ 1, %.loopexit1432 ]
+  %.01461444 = phi i32 [ 0, %94 ], [ 1, %.loopexit1432 ]
   %98 = select i1 %.not162, i1 %or.cond1410, i1 false
-  %99 = add nuw nsw i32 %88, %.01471444
+  %99 = add nuw nsw i32 %88, %.01461444
   %100 = icmp ugt i32 %99, 3
   %or.cond = select i1 %98, i1 true, i1 %100
   br i1 %or.cond, label %.loopexit1432, label %.preheader
@@ -27686,15 +27686,15 @@ define void @_ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cx
   %105 = add nsw i32 %65, %spec.store.select
   %106 = icmp sgt i32 %105, 4
   %spec.select190 = select i1 %.not164.not, i32 %105, i32 4
-  %.0141 = select i1 %106, i32 %spec.select190, i32 %105
+  %.0140 = select i1 %106, i32 %spec.select190, i32 %105
   %narrow = select i1 %106, i1 %not..not164.not, i1 false
-  %.0142 = zext i1 %narrow to i8
+  %.0141 = zext i1 %narrow to i8
   br label %107
 
 107:                                              ; preds = %.preheader1460, %.loopexit1430
   %.not168 = phi i1 [ false, %.loopexit1430 ], [ true, %.preheader1460 ]
-  %.11441 = phi i32 [ %.2, %.loopexit1430 ], [ %.0141, %.preheader1460 ]
-  %.11431440 = phi i8 [ %.2144, %.loopexit1430 ], [ %.0142, %.preheader1460 ]
+  %.11441 = phi i32 [ %.2, %.loopexit1430 ], [ %.0140, %.preheader1460 ]
+  %.11421440 = phi i8 [ %.2143, %.loopexit1430 ], [ %.0141, %.preheader1460 ]
   br i1 %.not168, label %.critedge193, label %108
 
 108:                                              ; preds = %107
@@ -27704,8 +27704,8 @@ define void @_ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cx
   br i1 %.not164.not, label %.critedge193, label %110
 
 110:                                              ; preds = %109
-  %111 = trunc nuw i8 %.11431440 to i1
-  %spec.select194 = select i1 %111, i8 %.11431440, i8 1
+  %111 = trunc nuw i8 %.11421440 to i1
+  %spec.select194 = select i1 %111, i8 %.11421440, i8 1
   %not. = xor i1 %111, true
   %112 = sext i1 %not. to i32
   %spec.select195 = add nsw i32 %.11441, %112
@@ -27713,7 +27713,7 @@ define void @_ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cx
 
 .critedge193:                                     ; preds = %110, %107, %109
   %113 = phi i32 [ 3, %109 ], [ 3, %110 ], [ 1, %107 ]
-  %.2144 = phi i8 [ %.11431440, %109 ], [ %spec.select194, %110 ], [ %.11431440, %107 ]
+  %.2143 = phi i8 [ %.11421440, %109 ], [ %spec.select194, %110 ], [ %.11421440, %107 ]
   %.2 = phi i32 [ %.11441, %109 ], [ %spec.select195, %110 ], [ %.11441, %107 ]
   %114 = select i1 %85, i32 8, i32 %113
   %115 = icmp eq i32 %.2, 1
@@ -27721,7 +27721,7 @@ define void @_ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cx
   %117 = getelementptr inbounds [24 x ptr], ptr %36, i64 0, i64 %116
   %118 = sext i32 %.2 to i64
   %119 = getelementptr inbounds [5 x ptr], ptr %41, i64 0, i64 %118
-  %120 = trunc nuw i8 %.2144 to i1
+  %120 = trunc nuw i8 %.2143 to i1
   %switch.tableidx = add nsw i32 %114, -1
   %121 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table._ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEi8EProfile, i64 0, i64 %121
@@ -27730,19 +27730,19 @@ define void @_ZN7glslang9TBuiltIns20addSamplingFunctionsENS_8TSamplerERKNSt7__cx
 122:                                              ; preds = %.critedge193, %.loopexit
   %.not176 = phi i1 [ false, %.critedge193 ], [ true, %.loopexit ]
   %123 = phi i1 [ true, %.critedge193 ], [ false, %.loopexit ]
-  %.01391439 = phi i32 [ 0, %.critedge193 ], [ 1, %.loopexit ]
+  %.01381439 = phi i32 [ 0, %.critedge193 ], [ 1, %.loopexit ]
   %or.cond1457 = and i1 %.not176, %brmerge1454
   br i1 %or.cond1457, label %.loopexit1430, label %.critedge197
 
 .critedge197:                                     ; preds = %122
-  %124 = or i32 %.01391439, %.01501447
+  %124 = or i32 %.01381439, %.01491447
   %or.cond23.not = icmp eq i32 %124, 0
   %or.cond201 = or i1 %.not162, %or.cond23.not
   br label %125
 
 125:                                              ; preds = %.critedge197, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit
   %.not173 = phi i1 [ true, %.critedge197 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit ]
-  %.01381438 = phi i32 [ 0, %.critedge197 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit ]
+  %.01438 = phi i32 [ 0, %.critedge197 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit ]
   br i1 %.not173, label %127, label %126
 
 126:                                              ; preds = %125
@@ -28728,7 +28728,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
 
 439:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit285, %408
   %.pre1471 = phi i64 [ %.pre1471.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit285 ], [ %.pre1471.pre1498, %408 ]
-  %440 = or i32 %.01381438, %.01391439
+  %440 = or i32 %.01438, %.01381439
   %or.cond19.not = icmp eq i32 %440, 0
   br i1 %or.cond19.not, label %471, label %441
 

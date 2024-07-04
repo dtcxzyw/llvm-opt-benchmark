@@ -31,9 +31,9 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc28
   %test_num.036 = phi i32 [ 0, %entry ], [ %inc, %for.inc28 ]
-  %ok.035 = phi i32 [ 1, %entry ], [ %.us-phi, %for.inc28 ]
-  %__begin1.0.idx34 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.inc28 ]
-  %__begin1.0.ptr37 = getelementptr inbounds i8, ptr @_ZL16kRIPEMDTestCases, i64 %__begin1.0.idx34
+  %__begin1.0.idx35 = phi i64 [ 0, %entry ], [ %__begin1.0.add, %for.inc28 ]
+  %ok.034 = phi i32 [ 1, %entry ], [ %.us-phi, %for.inc28 ]
+  %__begin1.0.ptr37 = getelementptr inbounds i8, ptr @_ZL16kRIPEMDTestCases, i64 %__begin1.0.idx35
   %inc = add nuw nsw i32 %test_num.036, 1
   %0 = load ptr, ptr %__begin1.0.ptr37, align 16
   %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
@@ -43,9 +43,9 @@ for.body:                                         ; preds = %entry, %for.inc28
   br i1 %cmp929.not, label %if.end17, label %for.body3.us
 
 for.body3.us:                                     ; preds = %for.body, %for.inc.us
-  %ok.133.us = phi i32 [ %ok.2.us, %for.inc.us ], [ %ok.035, %for.body ]
-  %stride.031.us = phi i64 [ %inc26.us, %for.inc.us ], [ 0, %for.body ]
-  %cmp4.us = icmp eq i64 %stride.031.us, 0
+  %stride.032.us = phi i64 [ %inc26.us, %for.inc.us ], [ 0, %for.body ]
+  %ok.131.us = phi i32 [ %ok.2.us, %for.inc.us ], [ %ok.034, %for.body ]
+  %cmp4.us = icmp eq i64 %stride.032.us, 0
   br i1 %cmp4.us, label %if.then.us, label %if.else.us
 
 if.else.us:                                       ; preds = %for.body3.us
@@ -55,7 +55,7 @@ if.else.us:                                       ; preds = %for.body3.us
 for.body10.us:                                    ; preds = %if.else.us, %for.body10.us
   %done.030.us = phi i64 [ 0, %if.else.us ], [ %add.us, %for.body10.us ]
   %sub.us = sub i64 %call.fr, %done.030.us
-  %spec.select.us = call i64 @llvm.umin.i64(i64 %stride.031.us, i64 %sub.us)
+  %spec.select.us = call i64 @llvm.umin.i64(i64 %stride.032.us, i64 %sub.us)
   %arrayidx.us = getelementptr inbounds i8, ptr %0, i64 %done.030.us
   %call14.us = call i32 @RIPEMD160_Update(ptr noundef nonnull %ctx, ptr noundef %arrayidx.us, i64 noundef %spec.select.us)
   %add.us = add i64 %spec.select.us, %done.030.us
@@ -73,15 +73,15 @@ if.end17.us:                                      ; preds = %if.then.us, %for.co
 
 if.then22.us:                                     ; preds = %if.end17.us
   %1 = load ptr, ptr @stderr, align 8
-  %conv.us = trunc i64 %stride.031.us to i32
+  %conv.us = trunc i64 %stride.032.us to i32
   %call23.us = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef %inc, i32 noundef %conv.us) #11
   %2 = load ptr, ptr @stderr, align 8
   call void @hexdump(ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull %digest, i64 noundef 20)
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then22.us, %if.end17.us
-  %ok.2.us = phi i32 [ 0, %if.then22.us ], [ %ok.133.us, %if.end17.us ]
-  %inc26.us = add i64 %stride.031.us, 1
+  %ok.2.us = phi i32 [ 0, %if.then22.us ], [ %ok.131.us, %if.end17.us ]
+  %inc26.us = add i64 %stride.032.us, 1
   %cmp2.not.us = icmp ugt i64 %inc26.us, %call.fr
   br i1 %cmp2.not.us, label %for.inc28, label %for.body3.us, !llvm.loop !9
 
@@ -103,8 +103,8 @@ if.then22:                                        ; preds = %if.end17
   br label %for.inc28
 
 for.inc28:                                        ; preds = %for.inc.us, %if.end17, %if.then22
-  %.us-phi = phi i32 [ 0, %if.then22 ], [ %ok.035, %if.end17 ], [ %ok.2.us, %for.inc.us ]
-  %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx34, 32
+  %.us-phi = phi i32 [ 0, %if.then22 ], [ %ok.034, %if.end17 ], [ %ok.2.us, %for.inc.us ]
+  %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx35, 32
   %cmp.not = icmp eq i64 %__begin1.0.add, 256
   br i1 %cmp.not, label %for.end29, label %for.body
 

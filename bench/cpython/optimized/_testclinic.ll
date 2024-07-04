@@ -2999,9 +2999,9 @@ if.else59:                                        ; preds = %land.lhs.true55, %i
   br label %skip_optional
 
 skip_optional:                                    ; preds = %if.else41, %if.else16, %if.end, %if.else59
-  %c.0 = phi i8 [ 56, %if.end ], [ 56, %if.else16 ], [ 56, %if.else41 ], [ %conv60, %if.else59 ]
-  %b.0 = phi i8 [ 34, %if.end ], [ 34, %if.else16 ], [ %conv42, %if.else41 ], [ %conv42, %if.else59 ]
   %a.0 = phi i8 [ 12, %if.end ], [ %conv, %if.else16 ], [ %conv, %if.else41 ], [ %conv, %if.else59 ]
+  %b.0 = phi i8 [ 34, %if.end ], [ 34, %if.else16 ], [ %conv42, %if.else41 ], [ %conv42, %if.else59 ]
+  %c.0 = phi i8 [ 56, %if.end ], [ 56, %if.else16 ], [ 56, %if.else41 ], [ %conv60, %if.else59 ]
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %in.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %out.i)
   %call.i = tail call ptr @PyErr_Occurred() #9
@@ -4664,8 +4664,8 @@ if.end35.skip_optional_crit_edge:                 ; preds = %if.end35
 
 skip_optional:                                    ; preds = %if.end35.skip_optional_crit_edge, %if.end32, %if.end15, %if.end
   %7 = phi i64 [ 56, %if.end ], [ 56, %if.end15 ], [ 56, %if.end32 ], [ %.pre, %if.end35.skip_optional_crit_edge ]
-  %b.0 = phi i64 [ 34, %if.end ], [ 34, %if.end15 ], [ %ival19.024, %if.end32 ], [ %ival19.024, %if.end35.skip_optional_crit_edge ]
   %a.0 = phi i64 [ 12, %if.end ], [ %ival.020, %if.end15 ], [ %ival.020, %if.end32 ], [ %ival.020, %if.end35.skip_optional_crit_edge ]
+  %b.0 = phi i64 [ 34, %if.end ], [ 34, %if.end15 ], [ %ival19.024, %if.end32 ], [ %ival19.024, %if.end35.skip_optional_crit_edge ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %in.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %out.i)
   %call.i = call ptr @PyErr_Occurred() #9

@@ -64,8 +64,8 @@ entry:
 
 if.end:                                           ; preds = %entry, %sw.epilog
   %call171 = phi i32 [ %call, %sw.epilog ], [ %call167, %entry ]
-  %prefix.0170 = phi ptr [ %prefix.1, %sw.epilog ], [ @.str, %entry ]
-  %outf_name.0169 = phi ptr [ %outf_name.1, %sw.epilog ], [ null, %entry ]
+  %outf_name.0170 = phi ptr [ %outf_name.1, %sw.epilog ], [ null, %entry ]
+  %prefix.0169 = phi ptr [ %prefix.1, %sw.epilog ], [ @.str, %entry ]
   switch i32 %call171, label %usage [
     i32 111, label %sw.bb
     i32 112, label %sw.bb1
@@ -97,8 +97,8 @@ usage:                                            ; preds = %if.end, %entry, %wh
   br label %return
 
 sw.epilog:                                        ; preds = %sw.bb3, %sw.bb2, %sw.bb1, %sw.bb
-  %outf_name.1 = phi ptr [ %outf_name.0169, %sw.bb3 ], [ %outf_name.0169, %sw.bb2 ], [ %outf_name.0169, %sw.bb1 ], [ %0, %sw.bb ]
-  %prefix.1 = phi ptr [ %prefix.0170, %sw.bb3 ], [ %prefix.0170, %sw.bb2 ], [ %1, %sw.bb1 ], [ %prefix.0170, %sw.bb ]
+  %prefix.1 = phi ptr [ %prefix.0169, %sw.bb3 ], [ %prefix.0169, %sw.bb2 ], [ %1, %sw.bb1 ], [ %prefix.0169, %sw.bb ]
+  %outf_name.1 = phi ptr [ %outf_name.0170, %sw.bb3 ], [ %outf_name.0170, %sw.bb2 ], [ %outf_name.0170, %sw.bb1 ], [ %0, %sw.bb ]
   %call = tail call i32 @getopt(i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull @.str.1) #11
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %while.end, label %if.end
@@ -363,8 +363,8 @@ for.cond33.preheader.i:                           ; preds = %for.inc29.i, %if.en
   %e_phoff115126195.i = phi ptr [ %e_phoff115126.i, %if.end22.i ], [ %e_phoff.i.i, %if.end6.i ], [ %e_phoff115126.i, %for.inc29.i ]
   %59 = phi i16 [ %58, %if.end22.i ], [ %49, %if.end6.i ], [ %58, %for.inc29.i ]
   %add.ptr9129194.i = phi ptr [ %add.ptr9129.i, %if.end22.i ], [ %add.ptr9.i, %if.end6.i ], [ %add.ptr9129.i, %for.inc29.i ]
-  %dynsym_idx.0.lcssa.i = phi i32 [ 0, %if.end22.i ], [ 0, %if.end6.i ], [ %dynsym_idx.1.i, %for.inc29.i ]
   %symtab_idx.0.lcssa.i = phi i32 [ 0, %if.end22.i ], [ 0, %if.end6.i ], [ %symtab_idx.1.i, %for.inc29.i ]
+  %dynsym_idx.0.lcssa.i = phi i32 [ 0, %if.end22.i ], [ 0, %if.end6.i ], [ %dynsym_idx.1.i, %for.inc29.i ]
   %cmp34139.not.i = icmp eq i16 %59, 0
   br i1 %cmp34139.not.i, label %if.end187.i, label %for.body36.lr.ph.i
 
@@ -375,8 +375,8 @@ for.body36.lr.ph.i:                               ; preds = %for.cond33.preheade
 
 for.body27.i:                                     ; preds = %for.inc29.i, %for.body27.preheader.i
   %indvars.iv163.i = phi i64 [ 0, %for.body27.preheader.i ], [ %indvars.iv.next164.i, %for.inc29.i ]
-  %symtab_idx.0137.i = phi i32 [ 0, %for.body27.preheader.i ], [ %symtab_idx.1.i, %for.inc29.i ]
-  %dynsym_idx.0135.i = phi i32 [ 0, %for.body27.preheader.i ], [ %dynsym_idx.1.i, %for.inc29.i ]
+  %dynsym_idx.0136.i = phi i32 [ 0, %for.body27.preheader.i ], [ %dynsym_idx.1.i, %for.inc29.i ]
+  %symtab_idx.0135.i = phi i32 [ 0, %for.body27.preheader.i ], [ %symtab_idx.1.i, %for.inc29.i ]
   %sh_type.i = getelementptr inbounds %struct.Elf32_Shdr, ptr %add.ptr9129.i, i64 %indvars.iv163.i, i32 1
   %60 = load i32, ptr %sh_type.i, align 4
   switch i32 %60, label %for.inc29.i [
@@ -393,8 +393,8 @@ sw.bb28.i:                                        ; preds = %for.body27.i
   br label %for.inc29.i
 
 for.inc29.i:                                      ; preds = %sw.bb28.i, %sw.bb.i, %for.body27.i
-  %dynsym_idx.1.i = phi i32 [ %dynsym_idx.0135.i, %for.body27.i ], [ %62, %sw.bb28.i ], [ %dynsym_idx.0135.i, %sw.bb.i ]
-  %symtab_idx.1.i = phi i32 [ %symtab_idx.0137.i, %for.body27.i ], [ %symtab_idx.0137.i, %sw.bb28.i ], [ %61, %sw.bb.i ]
+  %symtab_idx.1.i = phi i32 [ %symtab_idx.0135.i, %for.body27.i ], [ %symtab_idx.0135.i, %sw.bb28.i ], [ %61, %sw.bb.i ]
+  %dynsym_idx.1.i = phi i32 [ %dynsym_idx.0136.i, %for.body27.i ], [ %62, %sw.bb28.i ], [ %dynsym_idx.0136.i, %sw.bb.i ]
   %indvars.iv.next164.i = add nuw nsw i64 %indvars.iv163.i, 1
   %exitcond167.not.i = icmp eq i64 %indvars.iv.next164.i, %wide.trip.count166.i
   br i1 %exitcond167.not.i, label %for.cond33.preheader.i, label %for.body27.i, !llvm.loop !9
@@ -484,9 +484,9 @@ for.inc84.i:                                      ; preds = %if.then80.i, %if.en
 
 for.body91.i:                                     ; preds = %for.inc84.i, %for.inc118.i
   %indvars.iv173.i = phi i64 [ %indvars.iv.next174.i, %for.inc118.i ], [ 0, %for.inc84.i ]
-  %dynamic_ofs.0149.i = phi i32 [ %dynamic_ofs.2.i, %for.inc118.i ], [ 0, %for.inc84.i ]
-  %dynamic_addr.0148.i = phi i32 [ %dynamic_addr.2.i, %for.inc118.i ], [ 0, %for.inc84.i ]
-  %errors.6146.i = phi i32 [ %errors.7.i, %for.inc118.i ], [ %errors.5.i, %for.inc84.i ]
+  %errors.6148.i = phi i32 [ %errors.7.i, %for.inc118.i ], [ %errors.5.i, %for.inc84.i ]
+  %dynamic_addr.0147.i = phi i32 [ %dynamic_addr.2.i, %for.inc118.i ], [ 0, %for.inc84.i ]
+  %dynamic_ofs.0146.i = phi i32 [ %dynamic_ofs.2.i, %for.inc118.i ], [ 0, %for.inc84.i ]
   %arrayidx93.i = getelementptr inbounds %struct.Elf32_Phdr, ptr %add.ptr116125196.i, i64 %indvars.iv173.i
   %79 = load i32, ptr %arrayidx93.i, align 4
   switch i32 %79, label %for.inc118.i [
@@ -506,9 +506,9 @@ sw.bb97.i:                                        ; preds = %for.body91.i
   br label %sw.epilog104.i
 
 sw.epilog104.i:                                   ; preds = %sw.bb97.i, %sw.bb96.i, %for.body91.i
+  %dynamic_ofs.1.i = phi i32 [ %80, %sw.bb97.i ], [ %dynamic_ofs.0146.i, %sw.bb96.i ], [ %dynamic_ofs.0146.i, %for.body91.i ]
+  %dynamic_addr.1.i = phi i32 [ %81, %sw.bb97.i ], [ %dynamic_addr.0147.i, %sw.bb96.i ], [ %dynamic_addr.0147.i, %for.body91.i ]
   %which.0.i = phi ptr [ @.str.30, %sw.bb97.i ], [ @.str.29, %sw.bb96.i ], [ @.str.28, %for.body91.i ]
-  %dynamic_addr.1.i = phi i32 [ %81, %sw.bb97.i ], [ %dynamic_addr.0148.i, %sw.bb96.i ], [ %dynamic_addr.0148.i, %for.body91.i ]
-  %dynamic_ofs.1.i = phi i32 [ %80, %sw.bb97.i ], [ %dynamic_ofs.0149.i, %sw.bb96.i ], [ %dynamic_ofs.0149.i, %for.body91.i ]
   %p_vaddr107.i = getelementptr inbounds i8, ptr %arrayidx93.i, i64 8
   %82 = load i32, ptr %p_vaddr107.i, align 4
   %p_filesz110.i = getelementptr inbounds i8, ptr %arrayidx93.i, i64 16
@@ -520,13 +520,13 @@ sw.epilog104.i:                                   ; preds = %sw.bb97.i, %sw.bb96
 if.then114.i:                                     ; preds = %sw.epilog104.i
   %84 = load ptr, ptr @stderr, align 8
   %call115.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef nonnull @.str.31, ptr noundef nonnull %which.0.i) #12
-  %inc116.i = add nsw i32 %errors.6146.i, 1
+  %inc116.i = add nsw i32 %errors.6148.i, 1
   br label %for.inc118.i
 
 for.inc118.i:                                     ; preds = %if.then114.i, %sw.epilog104.i, %for.body91.i
-  %errors.7.i = phi i32 [ %errors.6146.i, %for.body91.i ], [ %inc116.i, %if.then114.i ], [ %errors.6146.i, %sw.epilog104.i ]
-  %dynamic_addr.2.i = phi i32 [ %dynamic_addr.0148.i, %for.body91.i ], [ %dynamic_addr.1.i, %if.then114.i ], [ %dynamic_addr.1.i, %sw.epilog104.i ]
-  %dynamic_ofs.2.i = phi i32 [ %dynamic_ofs.0149.i, %for.body91.i ], [ %dynamic_ofs.1.i, %if.then114.i ], [ %dynamic_ofs.1.i, %sw.epilog104.i ]
+  %dynamic_ofs.2.i = phi i32 [ %dynamic_ofs.0146.i, %for.body91.i ], [ %dynamic_ofs.1.i, %if.then114.i ], [ %dynamic_ofs.1.i, %sw.epilog104.i ]
+  %dynamic_addr.2.i = phi i32 [ %dynamic_addr.0147.i, %for.body91.i ], [ %dynamic_addr.1.i, %if.then114.i ], [ %dynamic_addr.1.i, %sw.epilog104.i ]
+  %errors.7.i = phi i32 [ %errors.6148.i, %for.body91.i ], [ %inc116.i, %if.then114.i ], [ %errors.6148.i, %sw.epilog104.i ]
   %indvars.iv.next174.i = add nuw nsw i64 %indvars.iv173.i, 1
   %exitcond177.not.i = icmp eq i64 %indvars.iv.next174.i, %conv69.i
   br i1 %exitcond177.not.i, label %for.end120.i, label %for.body91.i, !llvm.loop !11
@@ -918,8 +918,8 @@ for.cond31.preheader.i:                           ; preds = %for.inc27.i, %if.en
   %e_phoff114124193.i = phi ptr [ %e_phoff114124.i, %if.end20.i ], [ %e_phoff.i.i132, %if.end5.i ], [ %e_phoff114124.i, %for.inc27.i ]
   %170 = phi i16 [ %169, %if.end20.i ], [ %148, %if.end5.i ], [ %169, %for.inc27.i ]
   %add.ptr7127192.i = phi ptr [ %add.ptr7127.i, %if.end20.i ], [ %add.ptr7.i, %if.end5.i ], [ %add.ptr7127.i, %for.inc27.i ]
-  %dynsym_idx.0.lcssa.i63 = phi i32 [ 0, %if.end20.i ], [ 0, %if.end5.i ], [ %dynsym_idx.1.i61, %for.inc27.i ]
-  %symtab_idx.0.lcssa.i64 = phi i32 [ 0, %if.end20.i ], [ 0, %if.end5.i ], [ %symtab_idx.1.i62, %for.inc27.i ]
+  %symtab_idx.0.lcssa.i63 = phi i32 [ 0, %if.end20.i ], [ 0, %if.end5.i ], [ %symtab_idx.1.i61, %for.inc27.i ]
+  %dynsym_idx.0.lcssa.i64 = phi i32 [ 0, %if.end20.i ], [ 0, %if.end5.i ], [ %dynsym_idx.1.i62, %for.inc27.i ]
   %cmp32137.not.i = icmp eq i16 %170, 0
   br i1 %cmp32137.not.i, label %if.end186.i, label %for.body34.lr.ph.i
 
@@ -930,8 +930,8 @@ for.body34.lr.ph.i:                               ; preds = %for.cond31.preheade
 
 for.body25.i:                                     ; preds = %for.inc27.i, %for.body25.preheader.i
   %indvars.iv161.i = phi i64 [ 0, %for.body25.preheader.i ], [ %indvars.iv.next162.i, %for.inc27.i ]
-  %symtab_idx.0135.i = phi i32 [ 0, %for.body25.preheader.i ], [ %symtab_idx.1.i62, %for.inc27.i ]
-  %dynsym_idx.0133.i = phi i32 [ 0, %for.body25.preheader.i ], [ %dynsym_idx.1.i61, %for.inc27.i ]
+  %dynsym_idx.0134.i = phi i32 [ 0, %for.body25.preheader.i ], [ %dynsym_idx.1.i62, %for.inc27.i ]
+  %symtab_idx.0133.i = phi i32 [ 0, %for.body25.preheader.i ], [ %symtab_idx.1.i61, %for.inc27.i ]
   %sh_type.i60 = getelementptr inbounds %struct.Elf64_Shdr, ptr %add.ptr7127.i, i64 %indvars.iv161.i, i32 1
   %171 = load i32, ptr %sh_type.i60, align 4
   switch i32 %171, label %for.inc27.i [
@@ -948,8 +948,8 @@ sw.bb26.i:                                        ; preds = %for.body25.i
   br label %for.inc27.i
 
 for.inc27.i:                                      ; preds = %sw.bb26.i, %sw.bb.i126, %for.body25.i
-  %dynsym_idx.1.i61 = phi i32 [ %dynsym_idx.0133.i, %for.body25.i ], [ %173, %sw.bb26.i ], [ %dynsym_idx.0133.i, %sw.bb.i126 ]
-  %symtab_idx.1.i62 = phi i32 [ %symtab_idx.0135.i, %for.body25.i ], [ %symtab_idx.0135.i, %sw.bb26.i ], [ %172, %sw.bb.i126 ]
+  %symtab_idx.1.i61 = phi i32 [ %symtab_idx.0133.i, %for.body25.i ], [ %symtab_idx.0133.i, %sw.bb26.i ], [ %172, %sw.bb.i126 ]
+  %dynsym_idx.1.i62 = phi i32 [ %dynsym_idx.0134.i, %for.body25.i ], [ %173, %sw.bb26.i ], [ %dynsym_idx.0134.i, %sw.bb.i126 ]
   %indvars.iv.next162.i = add nuw nsw i64 %indvars.iv161.i, 1
   %exitcond165.not.i = icmp eq i64 %indvars.iv.next162.i, %wide.trip.count164.i
   br i1 %exitcond165.not.i, label %for.cond31.preheader.i, label %for.body25.i, !llvm.loop !17
@@ -1043,9 +1043,9 @@ for.inc82.i:                                      ; preds = %if.then78.i, %if.en
 
 for.body89.i:                                     ; preds = %for.inc119.i, %for.body89.lr.ph.i
   %indvars.iv171.i = phi i64 [ 0, %for.body89.lr.ph.i ], [ %indvars.iv.next172.i, %for.inc119.i ]
-  %dynamic_ofs.0147.i = phi i32 [ 0, %for.body89.lr.ph.i ], [ %dynamic_ofs.2.i74, %for.inc119.i ]
-  %dynamic_addr.0146.i = phi i32 [ 0, %for.body89.lr.ph.i ], [ %dynamic_addr.2.i73, %for.inc119.i ]
-  %errors.6144.i = phi i32 [ %errors.5.i67, %for.body89.lr.ph.i ], [ %errors.7.i72, %for.inc119.i ]
+  %errors.6146.i = phi i32 [ %errors.5.i67, %for.body89.lr.ph.i ], [ %errors.7.i74, %for.inc119.i ]
+  %dynamic_addr.0145.i = phi i32 [ 0, %for.body89.lr.ph.i ], [ %dynamic_addr.2.i73, %for.inc119.i ]
+  %dynamic_ofs.0144.i = phi i32 [ 0, %for.body89.lr.ph.i ], [ %dynamic_ofs.2.i72, %for.inc119.i ]
   %arrayidx91.i = getelementptr inbounds %struct.Elf64_Phdr, ptr %add.ptr115123194.i, i64 %indvars.iv171.i
   %190 = load i32, ptr %arrayidx91.i, align 8
   switch i32 %190, label %for.inc119.i [
@@ -1067,9 +1067,9 @@ sw.bb95.i:                                        ; preds = %for.body89.i
   br label %sw.epilog104.i68
 
 sw.epilog104.i68:                                 ; preds = %sw.bb95.i, %sw.bb94.i, %for.body89.i
-  %which.0.i69 = phi ptr [ @.str.30, %sw.bb95.i ], [ @.str.29, %sw.bb94.i ], [ @.str.28, %for.body89.i ]
-  %dynamic_addr.1.i70 = phi i32 [ %conv103.i, %sw.bb95.i ], [ %dynamic_addr.0146.i, %sw.bb94.i ], [ %dynamic_addr.0146.i, %for.body89.i ]
-  %dynamic_ofs.1.i71 = phi i32 [ %conv99.i, %sw.bb95.i ], [ %dynamic_ofs.0147.i, %sw.bb94.i ], [ %dynamic_ofs.0147.i, %for.body89.i ]
+  %dynamic_ofs.1.i69 = phi i32 [ %conv99.i, %sw.bb95.i ], [ %dynamic_ofs.0144.i, %sw.bb94.i ], [ %dynamic_ofs.0144.i, %for.body89.i ]
+  %dynamic_addr.1.i70 = phi i32 [ %conv103.i, %sw.bb95.i ], [ %dynamic_addr.0145.i, %sw.bb94.i ], [ %dynamic_addr.0145.i, %for.body89.i ]
+  %which.0.i71 = phi ptr [ @.str.30, %sw.bb95.i ], [ @.str.29, %sw.bb94.i ], [ @.str.28, %for.body89.i ]
   %p_vaddr108.i = getelementptr inbounds i8, ptr %arrayidx91.i, i64 16
   %193 = load i64, ptr %p_vaddr108.i, align 8
   %p_filesz111.i = getelementptr inbounds i8, ptr %arrayidx91.i, i64 32
@@ -1080,20 +1080,20 @@ sw.epilog104.i68:                                 ; preds = %sw.bb95.i, %sw.bb94
 
 if.then115.i:                                     ; preds = %sw.epilog104.i68
   %195 = load ptr, ptr @stderr, align 8
-  %call116.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef nonnull @.str.31, ptr noundef nonnull %which.0.i69) #12
-  %inc117.i = add nsw i32 %errors.6144.i, 1
+  %call116.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %195, ptr noundef nonnull @.str.31, ptr noundef nonnull %which.0.i71) #12
+  %inc117.i = add nsw i32 %errors.6146.i, 1
   br label %for.inc119.i
 
 for.inc119.i:                                     ; preds = %if.then115.i, %sw.epilog104.i68, %for.body89.i
-  %errors.7.i72 = phi i32 [ %errors.6144.i, %for.body89.i ], [ %inc117.i, %if.then115.i ], [ %errors.6144.i, %sw.epilog104.i68 ]
-  %dynamic_addr.2.i73 = phi i32 [ %dynamic_addr.0146.i, %for.body89.i ], [ %dynamic_addr.1.i70, %if.then115.i ], [ %dynamic_addr.1.i70, %sw.epilog104.i68 ]
-  %dynamic_ofs.2.i74 = phi i32 [ %dynamic_ofs.0147.i, %for.body89.i ], [ %dynamic_ofs.1.i71, %if.then115.i ], [ %dynamic_ofs.1.i71, %sw.epilog104.i68 ]
+  %dynamic_ofs.2.i72 = phi i32 [ %dynamic_ofs.0144.i, %for.body89.i ], [ %dynamic_ofs.1.i69, %if.then115.i ], [ %dynamic_ofs.1.i69, %sw.epilog104.i68 ]
+  %dynamic_addr.2.i73 = phi i32 [ %dynamic_addr.0145.i, %for.body89.i ], [ %dynamic_addr.1.i70, %if.then115.i ], [ %dynamic_addr.1.i70, %sw.epilog104.i68 ]
+  %errors.7.i74 = phi i32 [ %errors.6146.i, %for.body89.i ], [ %inc117.i, %if.then115.i ], [ %errors.6146.i, %sw.epilog104.i68 ]
   %indvars.iv.next172.i = add nuw nsw i64 %indvars.iv171.i, 1
   %exitcond175.not.i = icmp eq i64 %indvars.iv.next172.i, %conv67.i
   br i1 %exitcond175.not.i, label %for.end121.i, label %for.body89.i, !llvm.loop !19
 
 for.end121.i:                                     ; preds = %for.inc119.i
-  %tobool122.not.i = icmp eq i32 %errors.7.i72, 0
+  %tobool122.not.i = icmp eq i32 %errors.7.i74, 0
   br i1 %tobool122.not.i, label %for.body129.lr.ph.i, label %if.then123.i
 
 for.body129.lr.ph.i:                              ; preds = %for.end121.i
@@ -1124,7 +1124,7 @@ for.end137.i:                                     ; preds = %for.body129.i
   br i1 %tobool138.not.i, label %if.end186.i, label %if.then139.i
 
 if.then139.i:                                     ; preds = %for.end137.i
-  %idx.ext140.i = zext i32 %dynamic_ofs.2.i74 to i64
+  %idx.ext140.i = zext i32 %dynamic_ofs.2.i72 to i64
   %add.ptr141.i = getelementptr inbounds i8, ptr %call20, i64 %idx.ext140.i
   %e_machine.i83 = getelementptr inbounds i8, ptr %call20, i64 18
   br label %do.body.i85
@@ -1249,11 +1249,11 @@ if.then184.i:                                     ; preds = %do.end.i93
   unreachable
 
 if.end186.i:                                      ; preds = %do.end.i93, %for.end137.i, %for.cond31.preheader.i
-  %tobool187.not.i = icmp eq i32 %dynsym_idx.0.lcssa.i63, 0
+  %tobool187.not.i = icmp eq i32 %dynsym_idx.0.lcssa.i64, 0
   br i1 %tobool187.not.i, label %if.end209.i, label %if.then188.i
 
 if.then188.i:                                     ; preds = %if.end186.i
-  %idxprom189.i = zext i32 %dynsym_idx.0.lcssa.i63 to i64
+  %idxprom189.i = zext i32 %dynsym_idx.0.lcssa.i64 to i64
   %arrayidx190.i = getelementptr inbounds %struct.Elf64_Shdr, ptr %add.ptr7127192.i, i64 %idxprom189.i
   %sh_offset.i94 = getelementptr inbounds i8, ptr %arrayidx190.i, i64 24
   %212 = load i64, ptr %sh_offset.i94, align 8
@@ -1280,15 +1280,15 @@ for.body199.i:                                    ; preds = %for.body199.i, %for
   br i1 %exitcond185.not.i, label %if.then207.i, label %for.body199.i, !llvm.loop !22
 
 if.then207.i:                                     ; preds = %for.body199.i, %if.then188.i
-  tail call fastcc void @elf64_search_symtab(ptr noundef %add.ptr7127192.i, i32 noundef %dynsym_idx.0.lcssa.i63, ptr noundef %call20, i1 noundef zeroext %need_bswap.0)
+  tail call fastcc void @elf64_search_symtab(ptr noundef %add.ptr7127192.i, i32 noundef %dynsym_idx.0.lcssa.i64, ptr noundef %call20, i1 noundef zeroext %need_bswap.0)
   br label %if.end209.i
 
 if.end209.i:                                      ; preds = %if.then207.i, %if.end186.i
-  %tobool210.not.i = icmp eq i32 %symtab_idx.0.lcssa.i64, 0
+  %tobool210.not.i = icmp eq i32 %symtab_idx.0.lcssa.i63, 0
   br i1 %tobool210.not.i, label %sw.epilog85, label %if.then211.i
 
 if.then211.i:                                     ; preds = %if.end209.i
-  tail call fastcc void @elf64_search_symtab(ptr noundef %add.ptr7127192.i, i32 noundef %symtab_idx.0.lcssa.i64, ptr noundef %call20, i1 noundef zeroext %need_bswap.0)
+  tail call fastcc void @elf64_search_symtab(ptr noundef %add.ptr7127192.i, i32 noundef %symtab_idx.0.lcssa.i63, ptr noundef %call20, i1 noundef zeroext %need_bswap.0)
   br label %sw.epilog85
 
 sw.default81:                                     ; preds = %sw.epilog73

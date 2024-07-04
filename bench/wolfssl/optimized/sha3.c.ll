@@ -144,15 +144,15 @@ for.cond59.preheader.us.preheader.i:              ; preds = %for.cond59.preheade
   br label %for.cond59.preheader.us.i
 
 for.cond59.preheader.us.i:                        ; preds = %for.cond59.for.end74_crit_edge.us.i, %for.cond59.preheader.us.preheader.i
-  %data.addr.155.us.i = phi ptr [ %add.ptr83.us.i, %for.cond59.for.end74_crit_edge.us.i ], [ %data.addr.0.i, %for.cond59.preheader.us.preheader.i ]
-  %blocks.054.us.i = phi i32 [ %dec.us.i, %for.cond59.for.end74_crit_edge.us.i ], [ %div.i, %for.cond59.preheader.us.preheader.i ]
+  %blocks.055.us.i = phi i32 [ %dec.us.i, %for.cond59.for.end74_crit_edge.us.i ], [ %div.i, %for.cond59.preheader.us.preheader.i ]
+  %data.addr.154.us.i = phi ptr [ %add.ptr83.us.i, %for.cond59.for.end74_crit_edge.us.i ], [ %data.addr.0.i, %for.cond59.preheader.us.preheader.i ]
   %len.addr.153.us.i = phi i32 [ %sub79.us.i, %for.cond59.for.end74_crit_edge.us.i ], [ %len.addr.0.i, %for.cond59.preheader.us.preheader.i ]
   br label %for.body63.us.i
 
 for.body63.us.i:                                  ; preds = %for.body63.us.i, %for.cond59.preheader.us.i
   %indvars.iv67.i = phi i64 [ 0, %for.cond59.preheader.us.i ], [ %indvars.iv.next68.i, %for.body63.us.i ]
   %6 = shl nuw nsw i64 %indvars.iv67.i, 3
-  %add.ptr66.us.i = getelementptr inbounds i8, ptr %data.addr.155.us.i, i64 %6
+  %add.ptr66.us.i = getelementptr inbounds i8, ptr %data.addr.154.us.i, i64 %6
   %7 = load i64, ptr %add.ptr66.us.i, align 1
   %arrayidx70.us.i = getelementptr inbounds [25 x i64], ptr %sha3, i64 0, i64 %indvars.iv67.i
   %8 = load i64, ptr %arrayidx70.us.i, align 8
@@ -165,19 +165,19 @@ for.body63.us.i:                                  ; preds = %for.body63.us.i, %f
 for.cond59.for.end74_crit_edge.us.i:              ; preds = %for.body63.us.i
   tail call fastcc void @BlockSha3(ptr noundef nonnull %sha3)
   %sub79.us.i = sub i32 %len.addr.153.us.i, %.pre74.i
-  %add.ptr83.us.i = getelementptr inbounds i8, ptr %data.addr.155.us.i, i64 %idx.ext82.i
-  %dec.us.i = add nsw i32 %blocks.054.us.i, -1
+  %add.ptr83.us.i = getelementptr inbounds i8, ptr %data.addr.154.us.i, i64 %idx.ext82.i
+  %dec.us.i = add nsw i32 %blocks.055.us.i, -1
   %cmp56.not.us.i = icmp eq i32 %dec.us.i, 0
   br i1 %cmp56.not.us.i, label %Sha3Update.exit, label %for.cond59.preheader.us.i, !llvm.loop !8
 
 for.cond59.preheader.i:                           ; preds = %for.cond59.preheader.lr.ph.i, %for.cond59.preheader.i
-  %data.addr.155.i = phi ptr [ %add.ptr83.i, %for.cond59.preheader.i ], [ %data.addr.0.i, %for.cond59.preheader.lr.ph.i ]
-  %blocks.054.i = phi i32 [ %dec.i, %for.cond59.preheader.i ], [ %div.i, %for.cond59.preheader.lr.ph.i ]
+  %blocks.055.i = phi i32 [ %dec.i, %for.cond59.preheader.i ], [ %div.i, %for.cond59.preheader.lr.ph.i ]
+  %data.addr.154.i = phi ptr [ %add.ptr83.i, %for.cond59.preheader.i ], [ %data.addr.0.i, %for.cond59.preheader.lr.ph.i ]
   %len.addr.153.i = phi i32 [ %sub79.i, %for.cond59.preheader.i ], [ %len.addr.0.i, %for.cond59.preheader.lr.ph.i ]
   tail call fastcc void @BlockSha3(ptr noundef nonnull %sha3)
   %sub79.i = sub nuw nsw i32 %len.addr.153.i, %.pre74.i
-  %add.ptr83.i = getelementptr inbounds i8, ptr %data.addr.155.i, i64 %idx.ext82.i
-  %dec.i = add nsw i32 %blocks.054.i, -1
+  %add.ptr83.i = getelementptr inbounds i8, ptr %data.addr.154.i, i64 %idx.ext82.i
+  %dec.i = add nsw i32 %blocks.055.i, -1
   %cmp56.not.i = icmp eq i32 %dec.i, 0
   br i1 %cmp56.not.i, label %Sha3Update.exit, label %for.cond59.preheader.i, !llvm.loop !8
 

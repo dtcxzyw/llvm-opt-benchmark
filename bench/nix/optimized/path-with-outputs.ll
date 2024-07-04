@@ -2182,8 +2182,8 @@ define void @_ZN3nix20parsePathWithOutputsB5cxx11ESt17basic_string_viewIcSt11cha
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %10, %.lr.ph.i.i
   %.033.i.i = phi i64 [ %1, %.lr.ph.i.i ], [ %13, %10 ]
-  %.02132.i.i = phi ptr [ %2, %.lr.ph.i.i ], [ %11, %10 ]
-  %8 = tail call ptr @memchr(ptr noundef %.02132.i.i, i32 noundef 33, i64 noundef %.033.i.i) #19
+  %.02032.i.i = phi ptr [ %2, %.lr.ph.i.i ], [ %11, %10 ]
+  %8 = tail call ptr @memchr(ptr noundef %.02032.i.i, i32 noundef 33, i64 noundef %.033.i.i) #19
   %.not26.i.i = icmp eq ptr %8, null
   br i1 %.not26.i.i, label %.critedge, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 

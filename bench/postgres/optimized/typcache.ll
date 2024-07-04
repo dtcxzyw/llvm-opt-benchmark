@@ -315,18 +315,18 @@ define dso_local ptr @lookup_type_cache(i32 noundef %0, i32 noundef %1) local_un
 
 .sink.split:                                      ; preds = %.loopexit, %95, %126
   %.sink520 = phi ptr [ %105, %126 ], [ %21, %95 ], [ %21, %.loopexit ]
-  %.0273.ph = phi ptr [ %16, %126 ], [ %44, %95 ], [ %44, %.loopexit ]
+  %.0274.ph = phi ptr [ %16, %126 ], [ %44, %95 ], [ %44, %.loopexit ]
   call void @ReleaseSysCache(ptr noundef nonnull %.sink520) #16
   br label %157
 
 157:                                              ; preds = %.sink.split, %98
-  %.0273 = phi ptr [ %16, %98 ], [ %.0273.ph, %.sink.split ]
+  %.0274 = phi ptr [ %16, %98 ], [ %.0274.ph, %.sink.split ]
   %158 = and i32 %1, 623
   %.not298 = icmp eq i32 %158, 0
   br i1 %.not298, label %177, label %159
 
 159:                                              ; preds = %157
-  %160 = getelementptr inbounds i8, ptr %.0273, i64 464
+  %160 = getelementptr inbounds i8, ptr %.0274, i64 464
   %161 = load i32, ptr %160, align 8
   %162 = and i32 %161, 2
   %.not299 = icmp eq i32 %162, 0
@@ -340,19 +340,19 @@ define dso_local ptr @lookup_type_cache(i32 noundef %0, i32 noundef %1) local_un
 
 166:                                              ; preds = %163
   %167 = call i32 @get_opclass_family(i32 noundef %165) #16
-  %168 = getelementptr inbounds i8, ptr %.0273, i64 32
+  %168 = getelementptr inbounds i8, ptr %.0274, i64 32
   store i32 %167, ptr %168, align 8
   %169 = call i32 @get_opclass_input_type(i32 noundef %165) #16
   br label %172
 
 170:                                              ; preds = %163
-  %171 = getelementptr inbounds i8, ptr %.0273, i64 32
+  %171 = getelementptr inbounds i8, ptr %.0274, i64 32
   store i32 0, ptr %171, align 8
   br label %172
 
 172:                                              ; preds = %170, %166
   %.sink = phi i32 [ 0, %170 ], [ %169, %166 ]
-  %173 = getelementptr inbounds i8, ptr %.0273, i64 36
+  %173 = getelementptr inbounds i8, ptr %.0274, i64 36
   store i32 %.sink, ptr %173, align 4
   %174 = load i32, ptr %160, align 8
   %175 = and i32 %174, -123
@@ -366,14 +366,14 @@ define dso_local ptr @lookup_type_cache(i32 noundef %0, i32 noundef %1) local_un
   br i1 %.not301, label %188, label %179
 
 179:                                              ; preds = %177
-  %180 = getelementptr inbounds i8, ptr %.0273, i64 464
+  %180 = getelementptr inbounds i8, ptr %.0274, i64 464
   %181 = load i32, ptr %180, align 8
   %182 = and i32 %181, 8
   %.not302 = icmp eq i32 %182, 0
   br i1 %.not302, label %183, label %188
 
 183:                                              ; preds = %179
-  %184 = getelementptr inbounds i8, ptr %.0273, i64 32
+  %184 = getelementptr inbounds i8, ptr %.0274, i64 32
   %185 = load i32, ptr %184, align 8
   %186 = icmp eq i32 %185, 0
   %187 = or i32 %1, 1024
@@ -381,13 +381,13 @@ define dso_local ptr @lookup_type_cache(i32 noundef %0, i32 noundef %1) local_un
   br label %188
 
 188:                                              ; preds = %183, %179, %177
-  %.0 = phi i32 [ %1, %179 ], [ %1, %177 ], [ %spec.select, %183 ]
-  %189 = and i32 %.0, 50320
+  %.0273 = phi i32 [ %1, %179 ], [ %1, %177 ], [ %spec.select, %183 ]
+  %189 = and i32 %.0273, 50320
   %.not303 = icmp eq i32 %189, 0
   br i1 %.not303, label %208, label %190
 
 190:                                              ; preds = %188
-  %191 = getelementptr inbounds i8, ptr %.0273, i64 464
+  %191 = getelementptr inbounds i8, ptr %.0274, i64 464
   %192 = load i32, ptr %191, align 8
   %193 = and i32 %192, 4
   %.not304 = icmp eq i32 %193, 0
@@ -401,19 +401,19 @@ define dso_local ptr @lookup_type_cache(i32 noundef %0, i32 noundef %1) local_un
 
 197:                                              ; preds = %194
   %198 = call i32 @get_opclass_family(i32 noundef %196) #16
-  %199 = getelementptr inbounds i8, ptr %.0273, i64 40
+  %199 = getelementptr inbounds i8, ptr %.0274, i64 40
   store i32 %198, ptr %199, align 8
   %200 = call i32 @get_opclass_input_type(i32 noundef %196) #16
   br label %203
 
 201:                                              ; preds = %194
-  %202 = getelementptr inbounds i8, ptr %.0273, i64 40
+  %202 = getelementptr inbounds i8, ptr %.0274, i64 40
   store i32 0, ptr %202, align 8
   br label %203
 
 203:                                              ; preds = %201, %197
   %.sink463 = phi i32 [ 0, %201 ], [ %200, %197 ]
-  %204 = getelementptr inbounds i8, ptr %.0273, i64 44
+  %204 = getelementptr inbounds i8, ptr %.0274, i64 44
   store i32 %.sink463, ptr %204, align 4
   %205 = load i32, ptr %191, align 8
   %206 = and i32 %205, -389
@@ -422,45 +422,45 @@ define dso_local ptr @lookup_type_cache(i32 noundef %0, i32 noundef %1) local_un
   br label %208
 
 208:                                              ; preds = %203, %190, %188
-  %209 = and i32 %.0, 33
+  %209 = and i32 %.0273, 33
   %.not306 = icmp eq i32 %209, 0
   br i1 %.not306, label %273, label %210
 
 210:                                              ; preds = %208
-  %211 = getelementptr inbounds i8, ptr %.0273, i64 464
+  %211 = getelementptr inbounds i8, ptr %.0274, i64 464
   %212 = load i32, ptr %211, align 8
   %213 = and i32 %212, 8
   %.not307 = icmp eq i32 %213, 0
   br i1 %.not307, label %214, label %273
 
 214:                                              ; preds = %210
-  %215 = getelementptr inbounds i8, ptr %.0273, i64 32
+  %215 = getelementptr inbounds i8, ptr %.0274, i64 32
   %216 = load i32, ptr %215, align 8
   %.not308 = icmp eq i32 %216, 0
   br i1 %.not308, label %.thread, label %217
 
 217:                                              ; preds = %214
-  %218 = getelementptr inbounds i8, ptr %.0273, i64 36
+  %218 = getelementptr inbounds i8, ptr %.0274, i64 36
   %219 = load i32, ptr %218, align 4
   %220 = call i32 @get_opfamily_member(i32 noundef %216, i32 noundef %219, i32 noundef %219, i16 noundef signext 3) #16
   %221 = icmp eq i32 %220, 0
   br i1 %221, label %.thread, label %228
 
 .thread:                                          ; preds = %214, %217
-  %222 = getelementptr inbounds i8, ptr %.0273, i64 40
+  %222 = getelementptr inbounds i8, ptr %.0274, i64 40
   %223 = load i32, ptr %222, align 8
   %.not309 = icmp eq i32 %223, 0
   br i1 %.not309, label %.thread413, label %224
 
 224:                                              ; preds = %.thread
-  %225 = getelementptr inbounds i8, ptr %.0273, i64 44
+  %225 = getelementptr inbounds i8, ptr %.0274, i64 44
   %226 = load i32, ptr %225, align 4
   %227 = call i32 @get_opfamily_member(i32 noundef %223, i32 noundef %226, i32 noundef %226, i16 noundef signext 1) #16
   br label %228
 
 228:                                              ; preds = %224, %217
-  %.1271 = phi i32 [ %227, %224 ], [ %220, %217 ]
-  switch i32 %.1271, label %.thread413 [
+  %.1270 = phi i32 [ %227, %224 ], [ %220, %217 ]
+  switch i32 %.1270, label %.thread413 [
     i32 1070, label %229
     i32 2988, label %259
   ]
@@ -472,7 +472,7 @@ define dso_local ptr @lookup_type_cache(i32 noundef %0, i32 noundef %1) local_un
   br i1 %.not.i, label %232, label %array_element_has_equality.exit
 
 232:                                              ; preds = %229
-  %233 = load i32, ptr %.0273, align 8
+  %233 = load i32, ptr %.0274, align 8
   %234 = call i32 @get_base_element_type(i32 noundef %233) #16
   %.not.i375 = icmp eq i32 %234, 0
   br i1 %.not.i375, label %.cache_array_element_properties.exit_crit_edge, label %235
@@ -547,7 +547,7 @@ array_element_has_equality.exit:                  ; preds = %229, %cache_array_e
   br i1 %.not.i354, label %262, label %record_fields_have_equality.exit
 
 262:                                              ; preds = %259
-  call fastcc void @cache_record_field_properties(ptr noundef nonnull %.0273)
+  call fastcc void @cache_record_field_properties(ptr noundef nonnull %.0274)
   %.pre = load i32, ptr %211, align 8
   br label %record_fields_have_equality.exit
 
@@ -559,19 +559,19 @@ record_fields_have_equality.exit:                 ; preds = %259, %262
   br label %.thread413
 
 .thread413:                                       ; preds = %array_element_has_equality.exit, %.thread, %record_fields_have_equality.exit, %228
-  %.2272 = phi i32 [ %.1271, %228 ], [ %spec.select346, %record_fields_have_equality.exit ], [ 0, %.thread ], [ %spec.select438, %array_element_has_equality.exit ]
-  %265 = getelementptr inbounds i8, ptr %.0273, i64 48
+  %.2271 = phi i32 [ %.1270, %228 ], [ %spec.select346, %record_fields_have_equality.exit ], [ 0, %.thread ], [ %spec.select438, %array_element_has_equality.exit ]
+  %265 = getelementptr inbounds i8, ptr %.0274, i64 48
   %266 = load i32, ptr %265, align 8
-  %.not310 = icmp eq i32 %266, %.2272
+  %.not310 = icmp eq i32 %266, %.2271
   br i1 %.not310, label %269, label %267
 
 267:                                              ; preds = %.thread413
-  %268 = getelementptr inbounds i8, ptr %.0273, i64 80
+  %268 = getelementptr inbounds i8, ptr %.0274, i64 80
   store i32 0, ptr %268, align 8
   br label %269
 
 269:                                              ; preds = %267, %.thread413
-  store i32 %.2272, ptr %265, align 8
+  store i32 %.2271, ptr %265, align 8
   %270 = load i32, ptr %211, align 8
   %271 = and i32 %270, -393
   %272 = or disjoint i32 %271, 8
@@ -579,25 +579,25 @@ record_fields_have_equality.exit:                 ; preds = %259, %262
   br label %273
 
 273:                                              ; preds = %269, %210, %208
-  %274 = and i32 %.0, 2
+  %274 = and i32 %.0273, 2
   %.not311 = icmp eq i32 %274, 0
   br i1 %.not311, label %323, label %275
 
 275:                                              ; preds = %273
-  %276 = getelementptr inbounds i8, ptr %.0273, i64 464
+  %276 = getelementptr inbounds i8, ptr %.0274, i64 464
   %277 = load i32, ptr %276, align 8
   %278 = and i32 %277, 16
   %.not312 = icmp eq i32 %278, 0
   br i1 %.not312, label %279, label %323
 
 279:                                              ; preds = %275
-  %280 = getelementptr inbounds i8, ptr %.0273, i64 32
+  %280 = getelementptr inbounds i8, ptr %.0274, i64 32
   %281 = load i32, ptr %280, align 8
   %.not313 = icmp eq i32 %281, 0
   br i1 %.not313, label %.thread415, label %282
 
 282:                                              ; preds = %279
-  %283 = getelementptr inbounds i8, ptr %.0273, i64 36
+  %283 = getelementptr inbounds i8, ptr %.0274, i64 36
   %284 = load i32, ptr %283, align 4
   %285 = call i32 @get_opfamily_member(i32 noundef %281, i32 noundef %284, i32 noundef %284, i16 noundef signext 1) #16
   %.pre469 = load i32, ptr %276, align 8
@@ -612,7 +612,7 @@ record_fields_have_equality.exit:                 ; preds = %259, %262
   br i1 %.not.i355, label %288, label %array_element_has_compare.exit
 
 288:                                              ; preds = %286
-  %289 = load i32, ptr %.0273, align 8
+  %289 = load i32, ptr %.0274, align 8
   %290 = call i32 @get_base_element_type(i32 noundef %289) #16
   %.not.i376 = icmp eq i32 %290, 0
   br i1 %.not.i376, label %.cache_array_element_properties.exit381_crit_edge, label %291
@@ -685,7 +685,7 @@ array_element_has_compare.exit:                   ; preds = %286, %cache_array_e
   br i1 %.not.i356, label %317, label %record_fields_have_compare.exit
 
 317:                                              ; preds = %315
-  call fastcc void @cache_record_field_properties(ptr noundef nonnull %.0273)
+  call fastcc void @cache_record_field_properties(ptr noundef nonnull %.0274)
   %.pre466 = load i32, ptr %276, align 8
   br label %record_fields_have_compare.exit
 
@@ -698,33 +698,33 @@ record_fields_have_compare.exit:                  ; preds = %315, %317
 
 .thread415:                                       ; preds = %282, %array_element_has_compare.exit, %279, %record_fields_have_compare.exit
   %320 = phi i32 [ %318, %record_fields_have_compare.exit ], [ %277, %279 ], [ %313, %array_element_has_compare.exit ], [ %.pre469, %282 ]
-  %.1269 = phi i32 [ %spec.select347, %record_fields_have_compare.exit ], [ 0, %279 ], [ %spec.select439, %array_element_has_compare.exit ], [ %285, %282 ]
-  %321 = getelementptr inbounds i8, ptr %.0273, i64 52
-  store i32 %.1269, ptr %321, align 4
+  %.1268 = phi i32 [ %spec.select347, %record_fields_have_compare.exit ], [ 0, %279 ], [ %spec.select439, %array_element_has_compare.exit ], [ %285, %282 ]
+  %321 = getelementptr inbounds i8, ptr %.0274, i64 52
+  store i32 %.1268, ptr %321, align 4
   %322 = or i32 %320, 16
   store i32 %322, ptr %276, align 8
   br label %323
 
 323:                                              ; preds = %.thread415, %275, %273
-  %324 = and i32 %.0, 4
+  %324 = and i32 %.0273, 4
   %.not314 = icmp eq i32 %324, 0
   br i1 %.not314, label %373, label %325
 
 325:                                              ; preds = %323
-  %326 = getelementptr inbounds i8, ptr %.0273, i64 464
+  %326 = getelementptr inbounds i8, ptr %.0274, i64 464
   %327 = load i32, ptr %326, align 8
   %328 = and i32 %327, 32
   %.not315 = icmp eq i32 %328, 0
   br i1 %.not315, label %329, label %373
 
 329:                                              ; preds = %325
-  %330 = getelementptr inbounds i8, ptr %.0273, i64 32
+  %330 = getelementptr inbounds i8, ptr %.0274, i64 32
   %331 = load i32, ptr %330, align 8
   %.not316 = icmp eq i32 %331, 0
   br i1 %.not316, label %.thread417, label %332
 
 332:                                              ; preds = %329
-  %333 = getelementptr inbounds i8, ptr %.0273, i64 36
+  %333 = getelementptr inbounds i8, ptr %.0274, i64 36
   %334 = load i32, ptr %333, align 4
   %335 = call i32 @get_opfamily_member(i32 noundef %331, i32 noundef %334, i32 noundef %334, i16 noundef signext 5) #16
   %.pre473 = load i32, ptr %326, align 8
@@ -739,7 +739,7 @@ record_fields_have_compare.exit:                  ; preds = %315, %317
   br i1 %.not.i357, label %338, label %array_element_has_compare.exit358
 
 338:                                              ; preds = %336
-  %339 = load i32, ptr %.0273, align 8
+  %339 = load i32, ptr %.0274, align 8
   %340 = call i32 @get_base_element_type(i32 noundef %339) #16
   %.not.i382 = icmp eq i32 %340, 0
   br i1 %.not.i382, label %.cache_array_element_properties.exit387_crit_edge, label %341
@@ -812,7 +812,7 @@ array_element_has_compare.exit358:                ; preds = %336, %cache_array_e
   br i1 %.not.i359, label %367, label %record_fields_have_compare.exit360
 
 367:                                              ; preds = %365
-  call fastcc void @cache_record_field_properties(ptr noundef nonnull %.0273)
+  call fastcc void @cache_record_field_properties(ptr noundef nonnull %.0274)
   %.pre470 = load i32, ptr %326, align 8
   br label %record_fields_have_compare.exit360
 
@@ -825,33 +825,33 @@ record_fields_have_compare.exit360:               ; preds = %365, %367
 
 .thread417:                                       ; preds = %332, %array_element_has_compare.exit358, %329, %record_fields_have_compare.exit360
   %370 = phi i32 [ %368, %record_fields_have_compare.exit360 ], [ %327, %329 ], [ %363, %array_element_has_compare.exit358 ], [ %.pre473, %332 ]
-  %.1267 = phi i32 [ %spec.select348, %record_fields_have_compare.exit360 ], [ 0, %329 ], [ %spec.select440, %array_element_has_compare.exit358 ], [ %335, %332 ]
-  %371 = getelementptr inbounds i8, ptr %.0273, i64 56
-  store i32 %.1267, ptr %371, align 8
+  %.1266 = phi i32 [ %spec.select348, %record_fields_have_compare.exit360 ], [ 0, %329 ], [ %spec.select440, %array_element_has_compare.exit358 ], [ %335, %332 ]
+  %371 = getelementptr inbounds i8, ptr %.0274, i64 56
+  store i32 %.1266, ptr %371, align 8
   %372 = or i32 %370, 32
   store i32 %372, ptr %326, align 8
   br label %373
 
 373:                                              ; preds = %.thread417, %325, %323
-  %374 = and i32 %.0, 72
+  %374 = and i32 %.0273, 72
   %.not317 = icmp eq i32 %374, 0
   br i1 %.not317, label %429, label %375
 
 375:                                              ; preds = %373
-  %376 = getelementptr inbounds i8, ptr %.0273, i64 464
+  %376 = getelementptr inbounds i8, ptr %.0274, i64 464
   %377 = load i32, ptr %376, align 8
   %378 = and i32 %377, 64
   %.not318 = icmp eq i32 %378, 0
   br i1 %.not318, label %379, label %429
 
 379:                                              ; preds = %375
-  %380 = getelementptr inbounds i8, ptr %.0273, i64 32
+  %380 = getelementptr inbounds i8, ptr %.0274, i64 32
   %381 = load i32, ptr %380, align 8
   %.not319 = icmp eq i32 %381, 0
   br i1 %.not319, label %.thread419, label %382
 
 382:                                              ; preds = %379
-  %383 = getelementptr inbounds i8, ptr %.0273, i64 36
+  %383 = getelementptr inbounds i8, ptr %.0274, i64 36
   %384 = load i32, ptr %383, align 4
   %385 = call i32 @get_opfamily_proc(i32 noundef %381, i32 noundef %384, i32 noundef %384, i16 noundef signext 1) #16
   switch i32 %385, label %.thread419 [
@@ -866,7 +866,7 @@ record_fields_have_compare.exit360:               ; preds = %365, %367
   br i1 %.not.i361, label %389, label %array_element_has_compare.exit362
 
 389:                                              ; preds = %386
-  %390 = load i32, ptr %.0273, align 8
+  %390 = load i32, ptr %.0274, align 8
   %391 = call i32 @get_base_element_type(i32 noundef %390) #16
   %.not.i388 = icmp eq i32 %391, 0
   br i1 %.not.i388, label %.cache_array_element_properties.exit393_crit_edge, label %392
@@ -941,7 +941,7 @@ array_element_has_compare.exit362:                ; preds = %386, %cache_array_e
   br i1 %.not.i363, label %419, label %record_fields_have_compare.exit364
 
 419:                                              ; preds = %416
-  call fastcc void @cache_record_field_properties(ptr noundef nonnull %.0273)
+  call fastcc void @cache_record_field_properties(ptr noundef nonnull %.0274)
   %.pre474 = load i32, ptr %376, align 8
   br label %record_fields_have_compare.exit364
 
@@ -953,50 +953,50 @@ record_fields_have_compare.exit364:               ; preds = %416, %419
   br label %.thread419
 
 .thread419:                                       ; preds = %array_element_has_compare.exit362, %379, %record_fields_have_compare.exit364, %382
-  %.1265 = phi i32 [ %385, %382 ], [ %spec.select349, %record_fields_have_compare.exit364 ], [ 0, %379 ], [ %spec.select441, %array_element_has_compare.exit362 ]
-  %422 = getelementptr inbounds i8, ptr %.0273, i64 60
+  %.1264 = phi i32 [ %385, %382 ], [ %spec.select349, %record_fields_have_compare.exit364 ], [ 0, %379 ], [ %spec.select441, %array_element_has_compare.exit362 ]
+  %422 = getelementptr inbounds i8, ptr %.0274, i64 60
   %423 = load i32, ptr %422, align 4
-  %.not320 = icmp eq i32 %423, %.1265
+  %.not320 = icmp eq i32 %423, %.1264
   br i1 %.not320, label %426, label %424
 
 424:                                              ; preds = %.thread419
-  %425 = getelementptr inbounds i8, ptr %.0273, i64 128
+  %425 = getelementptr inbounds i8, ptr %.0274, i64 128
   store i32 0, ptr %425, align 8
   br label %426
 
 426:                                              ; preds = %424, %.thread419
-  store i32 %.1265, ptr %422, align 4
+  store i32 %.1264, ptr %422, align 4
   %427 = load i32, ptr %376, align 8
   %428 = or i32 %427, 64
   store i32 %428, ptr %376, align 8
   br label %429
 
 429:                                              ; preds = %426, %375, %373
-  %430 = and i32 %.0, 144
+  %430 = and i32 %.0273, 144
   %.not321 = icmp eq i32 %430, 0
   br i1 %.not321, label %527, label %431
 
 431:                                              ; preds = %429
-  %432 = getelementptr inbounds i8, ptr %.0273, i64 464
+  %432 = getelementptr inbounds i8, ptr %.0274, i64 464
   %433 = load i32, ptr %432, align 8
   %434 = and i32 %433, 128
   %.not322 = icmp eq i32 %434, 0
   br i1 %.not322, label %435, label %527
 
 435:                                              ; preds = %431
-  %436 = getelementptr inbounds i8, ptr %.0273, i64 40
+  %436 = getelementptr inbounds i8, ptr %.0274, i64 40
   %437 = load i32, ptr %436, align 8
   %.not323 = icmp eq i32 %437, 0
   br i1 %.not323, label %.thread426, label %438
 
 438:                                              ; preds = %435
-  %439 = getelementptr inbounds i8, ptr %.0273, i64 48
+  %439 = getelementptr inbounds i8, ptr %.0274, i64 48
   %440 = load i32, ptr %439, align 8
   %.not324 = icmp eq i32 %440, 0
   br i1 %.not324, label %446, label %441
 
 441:                                              ; preds = %438
-  %442 = getelementptr inbounds i8, ptr %.0273, i64 44
+  %442 = getelementptr inbounds i8, ptr %.0274, i64 44
   %443 = load i32, ptr %442, align 4
   %444 = call i32 @get_opfamily_member(i32 noundef %437, i32 noundef %443, i32 noundef %443, i16 noundef signext 1) #16
   %445 = icmp eq i32 %440, %444
@@ -1008,7 +1008,7 @@ record_fields_have_compare.exit364:               ; preds = %416, %419
 
 446:                                              ; preds = %._crit_edge, %438
   %447 = phi i32 [ %.pre477, %._crit_edge ], [ %437, %438 ]
-  %448 = getelementptr inbounds i8, ptr %.0273, i64 44
+  %448 = getelementptr inbounds i8, ptr %.0274, i64 44
   %449 = load i32, ptr %448, align 4
   %450 = call i32 @get_opfamily_proc(i32 noundef %447, i32 noundef %449, i32 noundef %449, i16 noundef signext 1) #16
   switch i32 %450, label %.thread426 [
@@ -1025,7 +1025,7 @@ record_fields_have_compare.exit364:               ; preds = %416, %419
   br i1 %.not.i365, label %454, label %array_element_has_hashing.exit
 
 454:                                              ; preds = %451
-  %455 = load i32, ptr %.0273, align 8
+  %455 = load i32, ptr %.0274, align 8
   %456 = call i32 @get_base_element_type(i32 noundef %455) #16
   %.not.i394 = icmp eq i32 %456, 0
   br i1 %.not.i394, label %.cache_array_element_properties.exit399_crit_edge, label %457
@@ -1100,7 +1100,7 @@ array_element_has_hashing.exit:                   ; preds = %451, %cache_array_e
   br i1 %.not.i366, label %484, label %record_fields_have_hashing.exit
 
 484:                                              ; preds = %481
-  call fastcc void @cache_record_field_properties(ptr noundef nonnull %.0273)
+  call fastcc void @cache_record_field_properties(ptr noundef nonnull %.0274)
   %.pre482 = load i32, ptr %432, align 8
   br label %record_fields_have_hashing.exit
 
@@ -1118,19 +1118,19 @@ record_fields_have_hashing.exit:                  ; preds = %481, %484
   br i1 %.not.i367, label %490, label %range_element_has_hashing.exit
 
 490:                                              ; preds = %487
-  %491 = getelementptr inbounds i8, ptr %.0273, i64 280
+  %491 = getelementptr inbounds i8, ptr %.0274, i64 280
   %492 = load ptr, ptr %491, align 8
   %493 = icmp eq ptr %492, null
   br i1 %493, label %494, label %.thread423
 
 494:                                              ; preds = %490
-  %495 = getelementptr inbounds i8, ptr %.0273, i64 13
+  %495 = getelementptr inbounds i8, ptr %.0274, i64 13
   %496 = load i8, ptr %495, align 1
   %497 = icmp eq i8 %496, 114
   br i1 %497, label %498, label %.cache_range_element_properties.exit_crit_edge
 
 498:                                              ; preds = %494
-  call fastcc void @load_rangetype_info(ptr noundef nonnull %.0273)
+  call fastcc void @load_rangetype_info(ptr noundef nonnull %.0274)
   %.pr.pre = load ptr, ptr %491, align 8
   %.not.i400 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i400, label %.cache_range_element_properties.exit_crit_edge, label %.thread423
@@ -1183,7 +1183,7 @@ range_element_has_hashing.exit:                   ; preds = %487, %cache_range_e
   br i1 %.not.i368, label %517, label %multirange_element_has_hashing.exit
 
 517:                                              ; preds = %514
-  call fastcc void @cache_multirange_element_properties(ptr noundef nonnull %.0273)
+  call fastcc void @cache_multirange_element_properties(ptr noundef nonnull %.0274)
   %.pre478 = load i32, ptr %432, align 8
   br label %multirange_element_has_hashing.exit
 
@@ -1195,50 +1195,50 @@ multirange_element_has_hashing.exit:              ; preds = %514, %517
   br label %.thread426
 
 .thread426:                                       ; preds = %record_fields_have_hashing.exit, %array_element_has_hashing.exit, %446, %435, %441, %range_element_has_hashing.exit, %multirange_element_has_hashing.exit
-  %.2263 = phi i32 [ %spec.select351, %multirange_element_has_hashing.exit ], [ %spec.select350, %range_element_has_hashing.exit ], [ 0, %441 ], [ 0, %435 ], [ %spec.select442, %array_element_has_hashing.exit ], [ %spec.select443, %record_fields_have_hashing.exit ], [ %450, %446 ]
-  %520 = getelementptr inbounds i8, ptr %.0273, i64 64
+  %.2262 = phi i32 [ %spec.select351, %multirange_element_has_hashing.exit ], [ %spec.select350, %range_element_has_hashing.exit ], [ 0, %441 ], [ 0, %435 ], [ %spec.select442, %array_element_has_hashing.exit ], [ %spec.select443, %record_fields_have_hashing.exit ], [ %450, %446 ]
+  %520 = getelementptr inbounds i8, ptr %.0274, i64 64
   %521 = load i32, ptr %520, align 8
-  %.not325 = icmp eq i32 %521, %.2263
+  %.not325 = icmp eq i32 %521, %.2262
   br i1 %.not325, label %524, label %522
 
 522:                                              ; preds = %.thread426
-  %523 = getelementptr inbounds i8, ptr %.0273, i64 176
+  %523 = getelementptr inbounds i8, ptr %.0274, i64 176
   store i32 0, ptr %523, align 8
   br label %524
 
 524:                                              ; preds = %522, %.thread426
-  store i32 %.2263, ptr %520, align 8
+  store i32 %.2262, ptr %520, align 8
   %525 = load i32, ptr %432, align 8
   %526 = or i32 %525, 128
   store i32 %526, ptr %432, align 8
   br label %527
 
 527:                                              ; preds = %524, %431, %429
-  %528 = and i32 %.0, 49152
+  %528 = and i32 %.0273, 49152
   %.not326 = icmp eq i32 %528, 0
   br i1 %.not326, label %625, label %529
 
 529:                                              ; preds = %527
-  %530 = getelementptr inbounds i8, ptr %.0273, i64 464
+  %530 = getelementptr inbounds i8, ptr %.0274, i64 464
   %531 = load i32, ptr %530, align 8
   %532 = and i32 %531, 256
   %.not327 = icmp eq i32 %532, 0
   br i1 %.not327, label %533, label %625
 
 533:                                              ; preds = %529
-  %534 = getelementptr inbounds i8, ptr %.0273, i64 40
+  %534 = getelementptr inbounds i8, ptr %.0274, i64 40
   %535 = load i32, ptr %534, align 8
   %.not328 = icmp eq i32 %535, 0
   br i1 %.not328, label %.thread436, label %536
 
 536:                                              ; preds = %533
-  %537 = getelementptr inbounds i8, ptr %.0273, i64 48
+  %537 = getelementptr inbounds i8, ptr %.0274, i64 48
   %538 = load i32, ptr %537, align 8
   %.not329 = icmp eq i32 %538, 0
   br i1 %.not329, label %544, label %539
 
 539:                                              ; preds = %536
-  %540 = getelementptr inbounds i8, ptr %.0273, i64 44
+  %540 = getelementptr inbounds i8, ptr %.0274, i64 44
   %541 = load i32, ptr %540, align 4
   %542 = call i32 @get_opfamily_member(i32 noundef %535, i32 noundef %541, i32 noundef %541, i16 noundef signext 1) #16
   %543 = icmp eq i32 %538, %542
@@ -1250,7 +1250,7 @@ multirange_element_has_hashing.exit:              ; preds = %514, %517
 
 544:                                              ; preds = %._crit_edge485, %536
   %545 = phi i32 [ %.pre486, %._crit_edge485 ], [ %535, %536 ]
-  %546 = getelementptr inbounds i8, ptr %.0273, i64 44
+  %546 = getelementptr inbounds i8, ptr %.0274, i64 44
   %547 = load i32, ptr %546, align 4
   %548 = call i32 @get_opfamily_proc(i32 noundef %545, i32 noundef %547, i32 noundef %547, i16 noundef signext 2) #16
   switch i32 %548, label %.thread436 [
@@ -1267,7 +1267,7 @@ multirange_element_has_hashing.exit:              ; preds = %514, %517
   br i1 %.not.i369, label %552, label %array_element_has_extended_hashing.exit
 
 552:                                              ; preds = %549
-  %553 = load i32, ptr %.0273, align 8
+  %553 = load i32, ptr %.0274, align 8
   %554 = call i32 @get_base_element_type(i32 noundef %553) #16
   %.not.i402 = icmp eq i32 %554, 0
   br i1 %.not.i402, label %.cache_array_element_properties.exit407_crit_edge, label %555
@@ -1342,7 +1342,7 @@ array_element_has_extended_hashing.exit:          ; preds = %549, %cache_array_e
   br i1 %.not.i370, label %582, label %record_fields_have_extended_hashing.exit
 
 582:                                              ; preds = %579
-  call fastcc void @cache_record_field_properties(ptr noundef nonnull %.0273)
+  call fastcc void @cache_record_field_properties(ptr noundef nonnull %.0274)
   %.pre491 = load i32, ptr %530, align 8
   br label %record_fields_have_extended_hashing.exit
 
@@ -1360,19 +1360,19 @@ record_fields_have_extended_hashing.exit:         ; preds = %579, %582
   br i1 %.not.i371, label %588, label %range_element_has_extended_hashing.exit
 
 588:                                              ; preds = %585
-  %589 = getelementptr inbounds i8, ptr %.0273, i64 280
+  %589 = getelementptr inbounds i8, ptr %.0274, i64 280
   %590 = load ptr, ptr %589, align 8
   %591 = icmp eq ptr %590, null
   br i1 %591, label %592, label %.thread433
 
 592:                                              ; preds = %588
-  %593 = getelementptr inbounds i8, ptr %.0273, i64 13
+  %593 = getelementptr inbounds i8, ptr %.0274, i64 13
   %594 = load i8, ptr %593, align 1
   %595 = icmp eq i8 %594, 114
   br i1 %595, label %596, label %.cache_range_element_properties.exit411_crit_edge
 
 596:                                              ; preds = %592
-  call fastcc void @load_rangetype_info(ptr noundef nonnull %.0273)
+  call fastcc void @load_rangetype_info(ptr noundef nonnull %.0274)
   %.pr432.pre = load ptr, ptr %589, align 8
   %.not.i408 = icmp eq ptr %.pr432.pre, null
   br i1 %.not.i408, label %.cache_range_element_properties.exit411_crit_edge, label %.thread433
@@ -1425,7 +1425,7 @@ range_element_has_extended_hashing.exit:          ; preds = %585, %cache_range_e
   br i1 %.not.i372, label %615, label %multirange_element_has_extended_hashing.exit
 
 615:                                              ; preds = %612
-  call fastcc void @cache_multirange_element_properties(ptr noundef nonnull %.0273)
+  call fastcc void @cache_multirange_element_properties(ptr noundef nonnull %.0274)
   %.pre487 = load i32, ptr %530, align 8
   br label %multirange_element_has_extended_hashing.exit
 
@@ -1438,13 +1438,13 @@ multirange_element_has_extended_hashing.exit:     ; preds = %612, %615
 
 .thread436:                                       ; preds = %record_fields_have_extended_hashing.exit, %array_element_has_extended_hashing.exit, %544, %533, %539, %range_element_has_extended_hashing.exit, %multirange_element_has_extended_hashing.exit
   %.2 = phi i32 [ %spec.select353, %multirange_element_has_extended_hashing.exit ], [ %spec.select352, %range_element_has_extended_hashing.exit ], [ 0, %539 ], [ 0, %533 ], [ %spec.select444, %array_element_has_extended_hashing.exit ], [ %spec.select445, %record_fields_have_extended_hashing.exit ], [ %548, %544 ]
-  %618 = getelementptr inbounds i8, ptr %.0273, i64 68
+  %618 = getelementptr inbounds i8, ptr %.0274, i64 68
   %619 = load i32, ptr %618, align 4
   %.not330 = icmp eq i32 %619, %.2
   br i1 %.not330, label %622, label %620
 
 620:                                              ; preds = %.thread436
-  %621 = getelementptr inbounds i8, ptr %.0273, i64 224
+  %621 = getelementptr inbounds i8, ptr %.0274, i64 224
   store i32 0, ptr %621, align 8
   br label %622
 
@@ -1456,19 +1456,19 @@ multirange_element_has_extended_hashing.exit:     ; preds = %612, %615
   br label %625
 
 625:                                              ; preds = %622, %529, %527
-  %626 = and i32 %.0, 32
+  %626 = and i32 %.0273, 32
   %.not331 = icmp eq i32 %626, 0
   br i1 %.not331, label %639, label %627
 
 627:                                              ; preds = %625
-  %628 = getelementptr inbounds i8, ptr %.0273, i64 72
-  %629 = getelementptr inbounds i8, ptr %.0273, i64 80
+  %628 = getelementptr inbounds i8, ptr %.0274, i64 72
+  %629 = getelementptr inbounds i8, ptr %.0274, i64 80
   %630 = load i32, ptr %629, align 8
   %631 = icmp eq i32 %630, 0
   br i1 %631, label %632, label %639
 
 632:                                              ; preds = %627
-  %633 = getelementptr inbounds i8, ptr %.0273, i64 48
+  %633 = getelementptr inbounds i8, ptr %.0274, i64 48
   %634 = load i32, ptr %633, align 8
   %.not332 = icmp eq i32 %634, 0
   br i1 %.not332, label %639, label %635
@@ -1484,19 +1484,19 @@ multirange_element_has_extended_hashing.exit:     ; preds = %612, %615
   br label %639
 
 639:                                              ; preds = %635, %637, %632, %627, %625
-  %640 = and i32 %.0, 64
+  %640 = and i32 %.0273, 64
   %.not334 = icmp eq i32 %640, 0
   br i1 %.not334, label %651, label %641
 
 641:                                              ; preds = %639
-  %642 = getelementptr inbounds i8, ptr %.0273, i64 120
-  %643 = getelementptr inbounds i8, ptr %.0273, i64 128
+  %642 = getelementptr inbounds i8, ptr %.0274, i64 120
+  %643 = getelementptr inbounds i8, ptr %.0274, i64 128
   %644 = load i32, ptr %643, align 8
   %645 = icmp eq i32 %644, 0
   br i1 %645, label %646, label %651
 
 646:                                              ; preds = %641
-  %647 = getelementptr inbounds i8, ptr %.0273, i64 60
+  %647 = getelementptr inbounds i8, ptr %.0274, i64 60
   %648 = load i32, ptr %647, align 4
   %.not335 = icmp eq i32 %648, 0
   br i1 %.not335, label %651, label %649
@@ -1507,19 +1507,19 @@ multirange_element_has_extended_hashing.exit:     ; preds = %612, %615
   br label %651
 
 651:                                              ; preds = %649, %646, %641, %639
-  %652 = and i32 %.0, 128
+  %652 = and i32 %.0273, 128
   %.not336 = icmp eq i32 %652, 0
   br i1 %.not336, label %663, label %653
 
 653:                                              ; preds = %651
-  %654 = getelementptr inbounds i8, ptr %.0273, i64 168
-  %655 = getelementptr inbounds i8, ptr %.0273, i64 176
+  %654 = getelementptr inbounds i8, ptr %.0274, i64 168
+  %655 = getelementptr inbounds i8, ptr %.0274, i64 176
   %656 = load i32, ptr %655, align 8
   %657 = icmp eq i32 %656, 0
   br i1 %657, label %658, label %663
 
 658:                                              ; preds = %653
-  %659 = getelementptr inbounds i8, ptr %.0273, i64 64
+  %659 = getelementptr inbounds i8, ptr %.0274, i64 64
   %660 = load i32, ptr %659, align 8
   %.not337 = icmp eq i32 %660, 0
   br i1 %.not337, label %663, label %661
@@ -1530,19 +1530,19 @@ multirange_element_has_extended_hashing.exit:     ; preds = %612, %615
   br label %663
 
 663:                                              ; preds = %661, %658, %653, %651
-  %664 = and i32 %.0, 32768
+  %664 = and i32 %.0273, 32768
   %.not338 = icmp eq i32 %664, 0
   br i1 %.not338, label %675, label %665
 
 665:                                              ; preds = %663
-  %666 = getelementptr inbounds i8, ptr %.0273, i64 216
-  %667 = getelementptr inbounds i8, ptr %.0273, i64 224
+  %666 = getelementptr inbounds i8, ptr %.0274, i64 216
+  %667 = getelementptr inbounds i8, ptr %.0274, i64 224
   %668 = load i32, ptr %667, align 8
   %669 = icmp eq i32 %668, 0
   br i1 %669, label %670, label %675
 
 670:                                              ; preds = %665
-  %671 = getelementptr inbounds i8, ptr %.0273, i64 68
+  %671 = getelementptr inbounds i8, ptr %.0274, i64 68
   %672 = load i32, ptr %671, align 4
   %.not339 = icmp eq i32 %672, 0
   br i1 %.not339, label %675, label %673
@@ -1553,24 +1553,24 @@ multirange_element_has_extended_hashing.exit:     ; preds = %612, %615
   br label %675
 
 675:                                              ; preds = %673, %670, %665, %663
-  %676 = and i32 %.0, 256
+  %676 = and i32 %.0273, 256
   %.not340 = icmp eq i32 %676, 0
   br i1 %.not340, label %701, label %677
 
 677:                                              ; preds = %675
-  %678 = getelementptr inbounds i8, ptr %.0273, i64 264
+  %678 = getelementptr inbounds i8, ptr %.0274, i64 264
   %679 = load ptr, ptr %678, align 8
   %680 = icmp eq ptr %679, null
   br i1 %680, label %681, label %701
 
 681:                                              ; preds = %677
-  %682 = getelementptr inbounds i8, ptr %.0273, i64 13
+  %682 = getelementptr inbounds i8, ptr %.0274, i64 13
   %683 = load i8, ptr %682, align 1
   %684 = icmp eq i8 %683, 99
   br i1 %684, label %685, label %701
 
 685:                                              ; preds = %681
-  %686 = getelementptr inbounds i8, ptr %.0273, i64 16
+  %686 = getelementptr inbounds i8, ptr %.0274, i64 16
   %687 = load i32, ptr %686, align 8
   %.not.i373 = icmp eq i32 %687, 0
   br i1 %.not.i373, label %688, label %load_typcache_tupdesc.exit
@@ -1578,7 +1578,7 @@ multirange_element_has_extended_hashing.exit:     ; preds = %612, %615
 688:                                              ; preds = %685
   %689 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   call void @llvm.assume(i1 %689)
-  %690 = load i32, ptr %.0273, align 8
+  %690 = load i32, ptr %.0274, align 8
   %691 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %690) #16
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 887, ptr noundef nonnull @__func__.load_typcache_tupdesc) #16
   unreachable
@@ -1595,30 +1595,30 @@ load_typcache_tupdesc.exit:                       ; preds = %685
   %698 = load i64, ptr @tupledesc_id_counter, align 8
   %699 = add i64 %698, 1
   store i64 %699, ptr @tupledesc_id_counter, align 8
-  %700 = getelementptr inbounds i8, ptr %.0273, i64 272
+  %700 = getelementptr inbounds i8, ptr %.0274, i64 272
   store i64 %699, ptr %700, align 8
   call void @relation_close(ptr noundef %692, i32 noundef 1) #16
   br label %701
 
 701:                                              ; preds = %load_typcache_tupdesc.exit, %681, %677, %675
-  %702 = and i32 %.0, 2048
+  %702 = and i32 %.0273, 2048
   %.not341 = icmp eq i32 %702, 0
   br i1 %.not341, label %719, label %703
 
 703:                                              ; preds = %701
-  %704 = getelementptr inbounds i8, ptr %.0273, i64 13
+  %704 = getelementptr inbounds i8, ptr %.0274, i64 13
   %705 = load i8, ptr %704, align 1
   %706 = icmp eq i8 %705, 114
   br i1 %706, label %707, label %719
 
 707:                                              ; preds = %703
-  %708 = getelementptr inbounds i8, ptr %.0273, i64 280
+  %708 = getelementptr inbounds i8, ptr %.0274, i64 280
   %709 = load ptr, ptr %708, align 8
   %710 = icmp eq ptr %709, null
   br i1 %710, label %711, label %712
 
 711:                                              ; preds = %707
-  call fastcc void @load_rangetype_info(ptr noundef nonnull %.0273)
+  call fastcc void @load_rangetype_info(ptr noundef nonnull %.0274)
   br label %719
 
 712:                                              ; preds = %707
@@ -1634,24 +1634,24 @@ load_typcache_tupdesc.exit:                       ; preds = %685
   br label %719
 
 719:                                              ; preds = %711, %716, %712, %703, %701
-  %720 = and i32 %.0, 65536
+  %720 = and i32 %.0273, 65536
   %.not343 = icmp eq i32 %720, 0
   br i1 %.not343, label %737, label %721
 
 721:                                              ; preds = %719
-  %722 = getelementptr inbounds i8, ptr %.0273, i64 440
+  %722 = getelementptr inbounds i8, ptr %.0274, i64 440
   %723 = load ptr, ptr %722, align 8
   %724 = icmp eq ptr %723, null
   br i1 %724, label %725, label %737
 
 725:                                              ; preds = %721
-  %726 = getelementptr inbounds i8, ptr %.0273, i64 13
+  %726 = getelementptr inbounds i8, ptr %.0274, i64 13
   %727 = load i8, ptr %726, align 1
   %728 = icmp eq i8 %727, 109
   br i1 %728, label %729, label %737
 
 729:                                              ; preds = %725
-  %730 = load i32, ptr %.0273, align 8
+  %730 = load i32, ptr %.0274, align 8
   %731 = call i32 @get_multirange_range(i32 noundef %730) #16
   %.not.i374 = icmp eq i32 %731, 0
   br i1 %.not.i374, label %732, label %load_multirangetype_info.exit
@@ -1659,7 +1659,7 @@ load_typcache_tupdesc.exit:                       ; preds = %685
 732:                                              ; preds = %729
   %733 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   call void @llvm.assume(i1 %733)
-  %734 = load i32, ptr %.0273, align 8
+  %734 = load i32, ptr %.0274, align 8
   %735 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %734) #16
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 980, ptr noundef nonnull @__func__.load_multirangetype_info) #16
   unreachable
@@ -1670,24 +1670,24 @@ load_multirangetype_info.exit:                    ; preds = %729
   br label %737
 
 737:                                              ; preds = %load_multirangetype_info.exit, %725, %721, %719
-  %738 = and i32 %.0, 4096
+  %738 = and i32 %.0273, 4096
   %.not344 = icmp eq i32 %738, 0
   br i1 %.not344, label %751, label %739
 
 739:                                              ; preds = %737
-  %740 = getelementptr inbounds i8, ptr %.0273, i64 448
+  %740 = getelementptr inbounds i8, ptr %.0274, i64 448
   %741 = load i32, ptr %740, align 8
   %742 = icmp eq i32 %741, 0
   br i1 %742, label %743, label %751
 
 743:                                              ; preds = %739
-  %744 = getelementptr inbounds i8, ptr %.0273, i64 13
+  %744 = getelementptr inbounds i8, ptr %.0274, i64 13
   %745 = load i8, ptr %744, align 1
   %746 = icmp eq i8 %745, 100
   br i1 %746, label %747, label %751
 
 747:                                              ; preds = %743
-  %748 = getelementptr inbounds i8, ptr %.0273, i64 452
+  %748 = getelementptr inbounds i8, ptr %.0274, i64 452
   store i32 -1, ptr %748, align 4
   %749 = load i32, ptr %3, align 4
   %750 = call i32 @getBaseTypeAndTypmod(i32 noundef %749, ptr noundef nonnull %748) #16
@@ -1695,29 +1695,29 @@ load_multirangetype_info.exit:                    ; preds = %729
   br label %751
 
 751:                                              ; preds = %747, %743, %739, %737
-  %752 = and i32 %.0, 8192
+  %752 = and i32 %.0273, 8192
   %.not345 = icmp eq i32 %752, 0
   br i1 %.not345, label %763, label %753
 
 753:                                              ; preds = %751
-  %754 = getelementptr inbounds i8, ptr %.0273, i64 464
+  %754 = getelementptr inbounds i8, ptr %.0274, i64 464
   %755 = load i32, ptr %754, align 8
   %756 = and i32 %755, 524288
   %757 = icmp eq i32 %756, 0
   br i1 %757, label %758, label %763
 
 758:                                              ; preds = %753
-  %759 = getelementptr inbounds i8, ptr %.0273, i64 13
+  %759 = getelementptr inbounds i8, ptr %.0274, i64 13
   %760 = load i8, ptr %759, align 1
   %761 = icmp eq i8 %760, 100
   br i1 %761, label %762, label %763
 
 762:                                              ; preds = %758
-  call fastcc void @load_domaintype_info(ptr noundef nonnull %.0273)
+  call fastcc void @load_domaintype_info(ptr noundef nonnull %.0274)
   br label %763
 
 763:                                              ; preds = %762, %758, %753, %751
-  ret ptr %.0273
+  ret ptr %.0274
 }
 
 declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -2929,24 +2929,24 @@ define dso_local ptr @lookup_rowtype_tupdesc_domain(i32 noundef %0, i32 noundef 
   br label %30
 
 30:                                               ; preds = %19, %28
-  %.017 = phi ptr [ %29, %28 ], [ %21, %19 ]
-  %.not19 = icmp eq ptr %.017, null
+  %.0 = phi ptr [ %29, %28 ], [ %21, %19 ]
+  %.not19 = icmp eq ptr %.0, null
   br i1 %.not19, label %lookup_rowtype_tupdesc_noerror.exit, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %.017, i64 12
+  %32 = getelementptr inbounds i8, ptr %.0, i64 12
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %33, -1
   br i1 %34, label %lookup_rowtype_tupdesc_noerror.exit.sink.split, label %lookup_rowtype_tupdesc_noerror.exit
 
 lookup_rowtype_tupdesc_noerror.exit.sink.split:   ; preds = %31, %15
-  %.sink = phi ptr [ %14, %15 ], [ %.017, %31 ]
+  %.sink = phi ptr [ %14, %15 ], [ %.0, %31 ]
   tail call void @IncrTupleDescRefCount(ptr noundef nonnull %.sink) #16
   br label %lookup_rowtype_tupdesc_noerror.exit
 
 lookup_rowtype_tupdesc_noerror.exit:              ; preds = %lookup_rowtype_tupdesc_noerror.exit.sink.split, %15, %9, %30, %31
-  %.0 = phi ptr [ %.017, %31 ], [ null, %30 ], [ null, %9 ], [ %14, %15 ], [ %.sink, %lookup_rowtype_tupdesc_noerror.exit.sink.split ]
-  ret ptr %.0
+  %.017 = phi ptr [ %.0, %31 ], [ null, %30 ], [ null, %9 ], [ %14, %15 ], [ %.sink, %lookup_rowtype_tupdesc_noerror.exit.sink.split ]
+  ret ptr %.017
 }
 
 declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
@@ -3748,49 +3748,49 @@ define internal fastcc void @load_enum_cache_data(ptr nocapture noundef %0) unna
 
 .lr.ph:                                           ; preds = %11, %30
   %18 = phi ptr [ %38, %30 ], [ %17, %11 ]
-  %.0102 = phi ptr [ %.1, %30 ], [ %12, %11 ]
-  %.076101 = phi i32 [ %37, %30 ], [ 0, %11 ]
-  %.081100 = phi i32 [ %.182, %30 ], [ 64, %11 ]
+  %.086102 = phi i32 [ %.187, %30 ], [ 64, %11 ]
+  %.088101 = phi i32 [ %37, %30 ], [ 0, %11 ]
+  %.089100 = phi ptr [ %.190, %30 ], [ %12, %11 ]
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 22
   %22 = load i8, ptr %21, align 2
   %23 = zext i8 %22 to i64
   %24 = getelementptr i8, ptr %20, i64 %23
-  %.not98 = icmp slt i32 %.076101, %.081100
+  %.not98 = icmp slt i32 %.088101, %.086102
   br i1 %.not98, label %30, label %25
 
 25:                                               ; preds = %.lr.ph
-  %26 = shl i32 %.081100, 1
+  %26 = shl i32 %.086102, 1
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 3
-  %29 = call ptr @repalloc(ptr noundef %.0102, i64 noundef %28) #16
+  %29 = call ptr @repalloc(ptr noundef %.089100, i64 noundef %28) #16
   br label %30
 
 30:                                               ; preds = %25, %.lr.ph
-  %.182 = phi i32 [ %26, %25 ], [ %.081100, %.lr.ph ]
-  %.1 = phi ptr [ %29, %25 ], [ %.0102, %.lr.ph ]
+  %.190 = phi ptr [ %29, %25 ], [ %.089100, %.lr.ph ]
+  %.187 = phi i32 [ %26, %25 ], [ %.086102, %.lr.ph ]
   %31 = load i32, ptr %24, align 4
-  %32 = sext i32 %.076101 to i64
-  %33 = getelementptr %struct.EnumItem, ptr %.1, i64 %32
+  %32 = sext i32 %.088101 to i64
+  %33 = getelementptr %struct.EnumItem, ptr %.190, i64 %32
   store i32 %31, ptr %33, align 4
   %34 = getelementptr inbounds i8, ptr %24, i64 8
   %35 = load float, ptr %34, align 4
   %36 = getelementptr inbounds i8, ptr %33, i64 4
   store float %35, ptr %36, align 4
-  %37 = add i32 %.076101, 1
+  %37 = add i32 %.088101, 1
   %38 = call ptr @systable_getnext(ptr noundef %16) #16
   %.not95 = icmp eq ptr %38, null
   br i1 %.not95, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %30, %11
-  %.076.lcssa = phi i32 [ 0, %11 ], [ %37, %30 ]
-  %.0.lcssa = phi ptr [ %12, %11 ], [ %.1, %30 ]
+  %.089.lcssa = phi ptr [ %12, %11 ], [ %.190, %30 ]
+  %.088.lcssa = phi i32 [ 0, %11 ], [ %37, %30 ]
   call void @systable_endscan(ptr noundef %16) #16
   call void @table_close(ptr noundef %15, i32 noundef 1) #16
-  %39 = sext i32 %.076.lcssa to i64
-  call void @pg_qsort(ptr noundef %.0.lcssa, i64 noundef %39, i64 noundef 8, ptr noundef nonnull @enum_oid_cmp) #16
-  %40 = add i32 %.076.lcssa, -1
+  %39 = sext i32 %.088.lcssa to i64
+  call void @pg_qsort(ptr noundef %.089.lcssa, i64 noundef %39, i64 noundef 8, ptr noundef nonnull @enum_oid_cmp) #16
+  %40 = add i32 %.088.lcssa, -1
   %smax = call i32 @llvm.smax.i32(i32 %40, i32 0)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %41
@@ -3798,19 +3798,19 @@ define internal fastcc void @load_enum_cache_data(ptr nocapture noundef %0) unna
 41:                                               ; preds = %._crit_edge110, %._crit_edge
   %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge110 ], [ 0, %._crit_edge ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge110 ], [ 1, %._crit_edge ]
-  %.088 = phi ptr [ %.079.lcssa..088, %._crit_edge110 ], [ null, %._crit_edge ]
-  %.086 = phi i32 [ %..086, %._crit_edge110 ], [ 0, %._crit_edge ]
-  %.084 = phi i32 [ %.077.lcssa..084, %._crit_edge110 ], [ 1, %._crit_edge ]
+  %.083 = phi i32 [ %..083, %._crit_edge110 ], [ 0, %._crit_edge ]
+  %.081 = phi ptr [ %.076.lcssa..081, %._crit_edge110 ], [ null, %._crit_edge ]
+  %.079 = phi i32 [ %.074.lcssa..079, %._crit_edge110 ], [ 1, %._crit_edge ]
   %exitcond122.not = icmp eq i64 %indvars.iv119, %wide.trip.count
   br i1 %exitcond122.not, label %66, label %42
 
 42:                                               ; preds = %41
   %43 = call ptr @bms_make_singleton(i32 noundef 0) #16
-  %44 = getelementptr %struct.EnumItem, ptr %.0.lcssa, i64 %indvars.iv119
+  %44 = getelementptr %struct.EnumItem, ptr %.089.lcssa, i64 %indvars.iv119
   %45 = load i32, ptr %44, align 4
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %46 = trunc nuw i64 %indvars.iv.next120 to i32
-  %47 = icmp sgt i32 %.076.lcssa, %46
+  %47 = icmp sgt i32 %.088.lcssa, %46
   br i1 %47, label %.lr.ph109.preheader, label %._crit_edge110
 
 .lr.ph109.preheader:                              ; preds = %42
@@ -3820,10 +3820,10 @@ define internal fastcc void @load_enum_cache_data(ptr nocapture noundef %0) unna
 
 .lr.ph109:                                        ; preds = %.lr.ph109.preheader, %61
   %indvars.iv116 = phi i64 [ %indvars.iv, %.lr.ph109.preheader ], [ %indvars.iv.next117, %61 ]
-  %.074106 = phi float [ %49, %.lr.ph109.preheader ], [ %.175, %61 ]
-  %.077105 = phi i32 [ 1, %.lr.ph109.preheader ], [ %.178, %61 ]
-  %.079104 = phi ptr [ %43, %.lr.ph109.preheader ], [ %.180, %61 ]
-  %50 = getelementptr %struct.EnumItem, ptr %.0.lcssa, i64 %indvars.iv116
+  %.073106 = phi float [ %49, %.lr.ph109.preheader ], [ %.1, %61 ]
+  %.074105 = phi i32 [ 1, %.lr.ph109.preheader ], [ %.175, %61 ]
+  %.076104 = phi ptr [ %43, %.lr.ph109.preheader ], [ %.177, %61 ]
+  %50 = getelementptr %struct.EnumItem, ptr %.089.lcssa, i64 %indvars.iv116
   %51 = load i32, ptr %50, align 4
   %52 = sub i32 %51, %45
   %53 = icmp ugt i32 %52, 8191
@@ -3832,59 +3832,59 @@ define internal fastcc void @load_enum_cache_data(ptr nocapture noundef %0) unna
 54:                                               ; preds = %.lr.ph109
   %55 = getelementptr inbounds i8, ptr %50, i64 4
   %56 = load float, ptr %55, align 4
-  %57 = fcmp ogt float %56, %.074106
+  %57 = fcmp ogt float %56, %.073106
   br i1 %57, label %58, label %61
 
 58:                                               ; preds = %54
-  %59 = call ptr @bms_add_member(ptr noundef %.079104, i32 noundef %52) #16
-  %60 = add i32 %.077105, 1
+  %59 = call ptr @bms_add_member(ptr noundef %.076104, i32 noundef %52) #16
+  %60 = add i32 %.074105, 1
   br label %61
 
 61:                                               ; preds = %54, %58
-  %.180 = phi ptr [ %59, %58 ], [ %.079104, %54 ]
-  %.178 = phi i32 [ %60, %58 ], [ %.077105, %54 ]
-  %.175 = phi float [ %56, %58 ], [ %.074106, %54 ]
+  %.177 = phi ptr [ %59, %58 ], [ %.076104, %54 ]
+  %.175 = phi i32 [ %60, %58 ], [ %.074105, %54 ]
+  %.1 = phi float [ %56, %58 ], [ %.073106, %54 ]
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next117 to i32
-  %exitcond.not = icmp eq i32 %.076.lcssa, %lftr.wideiv
+  %exitcond.not = icmp eq i32 %.088.lcssa, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge110, label %.lr.ph109, !llvm.loop !15
 
 ._crit_edge110:                                   ; preds = %61, %.lr.ph109, %42
-  %.079.lcssa = phi ptr [ %43, %42 ], [ %.079104, %.lr.ph109 ], [ %.180, %61 ]
-  %.077.lcssa = phi i32 [ 1, %42 ], [ %.077105, %.lr.ph109 ], [ %.178, %61 ]
-  %62 = icmp sgt i32 %.077.lcssa, %.084
-  %.088..079.lcssa = select i1 %62, ptr %.088, ptr %.079.lcssa
-  %.079.lcssa..088 = select i1 %62, ptr %.079.lcssa, ptr %.088
-  %..086 = select i1 %62, i32 %45, i32 %.086
-  %.077.lcssa..084 = call i32 @llvm.smax.i32(i32 %.077.lcssa, i32 %.084)
-  call void @bms_free(ptr noundef %.088..079.lcssa) #16
+  %.076.lcssa = phi ptr [ %43, %42 ], [ %.076104, %.lr.ph109 ], [ %.177, %61 ]
+  %.074.lcssa = phi i32 [ 1, %42 ], [ %.074105, %.lr.ph109 ], [ %.175, %61 ]
+  %62 = icmp sgt i32 %.074.lcssa, %.079
+  %.081..076.lcssa = select i1 %62, ptr %.081, ptr %.076.lcssa
+  %..083 = select i1 %62, i32 %45, i32 %.083
+  %.076.lcssa..081 = select i1 %62, ptr %.076.lcssa, ptr %.081
+  %.074.lcssa..079 = call i32 @llvm.smax.i32(i32 %.074.lcssa, i32 %.079)
+  call void @bms_free(ptr noundef %.081..076.lcssa) #16
   %63 = trunc nuw nsw i64 %indvars.iv119 to i32
   %64 = xor i32 %63, -1
-  %65 = add i32 %.076.lcssa, %64
-  %.not96 = icmp slt i32 %.077.lcssa..084, %65
+  %65 = add i32 %.088.lcssa, %64
+  %.not96 = icmp slt i32 %.074.lcssa..079, %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %.not96, label %41, label %66, !llvm.loop !16
 
 66:                                               ; preds = %._crit_edge110, %41
-  %.290 = phi ptr [ %.079.lcssa..088, %._crit_edge110 ], [ %.088, %41 ]
-  %.2 = phi i32 [ %..086, %._crit_edge110 ], [ %.086, %41 ]
+  %.285 = phi i32 [ %..083, %._crit_edge110 ], [ %.083, %41 ]
+  %.2 = phi ptr [ %.076.lcssa..081, %._crit_edge110 ], [ %.081, %41 ]
   %67 = load ptr, ptr @CacheMemoryContext, align 8
   %68 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %67, ptr @CurrentMemoryContext, align 8
   %69 = shl nsw i64 %39, 3
   %70 = add nsw i64 %69, 20
   %71 = call ptr @palloc(i64 noundef %70) #16
-  store i32 %.2, ptr %71, align 8
-  %72 = call ptr @bms_copy(ptr noundef %.290) #16
+  store i32 %.285, ptr %71, align 8
+  %72 = call ptr @bms_copy(ptr noundef %.2) #16
   %73 = getelementptr inbounds i8, ptr %71, i64 8
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %71, i64 16
-  store i32 %.076.lcssa, ptr %74, align 8
+  store i32 %.088.lcssa, ptr %74, align 8
   %75 = getelementptr inbounds i8, ptr %71, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %75, ptr align 4 %.0.lcssa, i64 %69, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %75, ptr align 4 %.089.lcssa, i64 %69, i1 false)
   store ptr %68, ptr @CurrentMemoryContext, align 8
-  call void @pfree(ptr noundef %.0.lcssa) #16
-  call void @bms_free(ptr noundef %.290) #16
+  call void @pfree(ptr noundef %.089.lcssa) #16
+  call void @bms_free(ptr noundef %.2) #16
   %76 = getelementptr inbounds i8, ptr %0, i64 472
   %77 = load ptr, ptr %76, align 8
   %.not97 = icmp eq ptr %77, null
@@ -4036,7 +4036,7 @@ load_typcache_tupdesc.exit:                       ; preds = %15
 .lr.ph:                                           ; preds = %31, %58
   %36 = phi i32 [ %59, %58 ], [ %34, %31 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %31 ]
-  %.043 = phi i32 [ %.5, %58 ], [ 491520, %31 ]
+  %.03742 = phi i32 [ %.5, %58 ], [ 491520, %31 ]
   %37 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %33, i64 0, i64 %indvars.iv
   %38 = getelementptr inbounds i8, ptr %37, i64 95
   %39 = load i8, ptr %38, align 1
@@ -4050,8 +4050,8 @@ load_typcache_tupdesc.exit:                       ; preds = %15
   %45 = getelementptr inbounds i8, ptr %44, i64 48
   %46 = load i32, ptr %45, align 8
   %.not = icmp eq i32 %46, 0
-  %47 = and i32 %.043, -32769
-  %spec.select = select i1 %.not, i32 %47, i32 %.043
+  %47 = and i32 %.03742, -32769
+  %spec.select = select i1 %.not, i32 %47, i32 %.03742
   %48 = getelementptr inbounds i8, ptr %44, i64 60
   %49 = load i32, ptr %48, align 4
   %.not39 = icmp eq i32 %49, 0
@@ -4076,7 +4076,7 @@ load_typcache_tupdesc.exit:                       ; preds = %15
 
 58:                                               ; preds = %._crit_edge47, %.lr.ph
   %59 = phi i32 [ %36, %.lr.ph ], [ %.pre48, %._crit_edge47 ]
-  %.5 = phi i32 [ %.043, %.lr.ph ], [ %.4, %._crit_edge47 ]
+  %.5 = phi i32 [ %.03742, %.lr.ph ], [ %.4, %._crit_edge47 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next, %60

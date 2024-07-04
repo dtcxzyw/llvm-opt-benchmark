@@ -49,18 +49,18 @@ define i32 @FT_Get_WinFNT_Header(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %.fold.split
 
 .fold.split:                                      ; preds = %4, %17
-  %.020 = phi ptr [ %.0, %17 ], [ %8, %4 ]
-  %.not29 = icmp eq ptr %.020, null
+  %.019 = phi ptr [ %.0, %17 ], [ %8, %4 ]
+  %.not29 = icmp eq ptr %.019, null
   br i1 %.not29, label %.thread, label %21
 
 21:                                               ; preds = %.fold.split
-  %22 = load ptr, ptr %.020, align 8
+  %22 = load ptr, ptr %.019, align 8
   %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %1) #1
   br label %.thread
 
 .thread:                                          ; preds = %4, %21, %.fold.split, %3, %2
-  %.019 = phi i32 [ 35, %2 ], [ 6, %3 ], [ %23, %21 ], [ 6, %.fold.split ], [ 6, %4 ]
-  ret i32 %.019
+  %.021 = phi i32 [ 35, %2 ], [ 6, %3 ], [ %23, %21 ], [ 6, %.fold.split ], [ 6, %4 ]
+  ret i32 %.021
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

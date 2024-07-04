@@ -384,12 +384,12 @@ define void @_ZNK3nix3Pos12getCodeLinesEv(ptr dead_on_unwind noalias writable sr
   br label %25
 
 25:                                               ; preds = %59, %15
-  %.013 = phi i32 [ 0, %15 ], [ %28, %59 ]
+  %.012 = phi i32 [ 0, %15 ], [ %28, %59 ]
   %26 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %27 unwind label %.loopexit
 
 27:                                               ; preds = %25
-  %28 = add nuw nsw i32 %.013, 1
+  %28 = add nuw nsw i32 %.012, 1
   %29 = icmp slt i32 %28, %20
   br i1 %29, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIRS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIS5_ESB_IS5_NSt5decayISE_E4typeEEEEESt16is_constructibleIS5_JSE_EESt13is_assignableIS8_SE_EEERS6_E4typeEOSE_.exit, label %33
 
@@ -447,7 +447,7 @@ define void @_ZNK3nix3Pos12getCodeLinesEv(ptr dead_on_unwind noalias writable sr
           to label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIRS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIS5_ESB_IS5_NSt5decayISE_E4typeEEEEESt16is_constructibleIS5_JSE_EESt13is_assignableIS8_SE_EEERS6_E4typeEOSE_.exit.sink.split unwind label %.loopexit
 
 46:                                               ; preds = %40
-  %47 = icmp eq i32 %.013, %19
+  %47 = icmp eq i32 %.012, %19
   br i1 %47, label %48, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSIRS5_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIS5_ESB_IS5_NSt5decayISE_E4typeEEEEESt16is_constructibleIS5_JSE_EESt13is_assignableIS8_SE_EEERS6_E4typeEOSE_.exit
 
 48:                                               ; preds = %46

@@ -796,13 +796,13 @@ _ZN12_GLOBAL__N_120fitGlobalAtomIndicesERK10gmx_mtop_t.exit: ; preds = %_ZNSt6ve
   br label %185
 
 183:                                              ; preds = %178, %180
-  %.099 = phi i1 [ false, %180 ], [ true, %178 ]
+  %.0102 = phi i1 [ false, %180 ], [ true, %178 ]
   %184 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #23
   call void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #23
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %24) #23
-  br i1 %.099, label %185, label %186
+  br i1 %.0102, label %185, label %186
 
 185:                                              ; preds = %.thread270, %.thread265, %183
   %.pn.pn269 = phi { ptr, i32 } [ %181, %.thread265 ], [ %184, %183 ], [ %182, %.thread270 ]
@@ -1300,7 +1300,7 @@ _ZN9AtomRangeC2ERK10gmx_mtop_t.exit:              ; preds = %.noexc159
   br label %427
 
 427:                                              ; preds = %505, %_ZN9AtomRangeC2ERK10gmx_mtop_t.exit
-  %.0103 = phi double [ 0.000000e+00, %_ZN9AtomRangeC2ERK10gmx_mtop_t.exit ], [ %.1104, %505 ]
+  %.099 = phi double [ 0.000000e+00, %_ZN9AtomRangeC2ERK10gmx_mtop_t.exit ], [ %.1100, %505 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %28, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
@@ -1497,16 +1497,16 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i, %478
   %503 = fpext float %439 to double
-  %504 = fadd double %.0103, %503
+  %504 = fadd double %.099, %503
   br label %505
 
 505:                                              ; preds = %436, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit
-  %.1104 = phi double [ %504, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ], [ %.0103, %436 ]
+  %.1100 = phi double [ %504, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ], [ %.099, %436 ]
   %506 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZN12AtomIteratorppEv(ptr noundef nonnull align 8 dereferenceable(40) %28)
           to label %427 unwind label %.loopexit277
 
 507:                                              ; preds = %429
-  %508 = fdiv double 1.000000e+00, %.0103
+  %508 = fdiv double 1.000000e+00, %.099
   %509 = fptrunc double %508 to float
   %510 = load <2 x float>, ptr %26, align 8
   %511 = insertelement <2 x float> poison, float %509, i64 0
@@ -1581,7 +1581,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %544, label %.lr.ph321, label %._crit_edge322, !llvm.loop !17
 
 ._crit_edge322:                                   ; preds = %.lr.ph321, %533
-  %545 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.13, i64 noundef %531, double noundef %.0103) #23
+  %545 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.13, i64 noundef %531, double noundef %.099) #23
   br i1 %.not110, label %565, label %546
 
 .thread273:                                       ; preds = %532
@@ -2888,16 +2888,16 @@ define noundef float @_Z15calc_orires_devPK14gmx_multisim_tiPKiPK9t_iparamsN3gmx
   br label %62
 
 62:                                               ; preds = %.lr.ph, %76
-  %.0330439 = phi double [ 0.000000e+00, %.lr.ph ], [ %78, %76 ]
-  %.0332438 = phi i64 [ 0, %.lr.ph ], [ %79, %76 ]
+  %.0346439 = phi double [ 0.000000e+00, %.lr.ph ], [ %78, %76 ]
+  %.0347438 = phi i64 [ 0, %.lr.ph ], [ %79, %76 ]
   %.sroa.0402.0437 = phi ptr [ %43, %.lr.ph ], [ %80, %76 ]
   %63 = load i32, ptr %.sroa.0402.0437, align 4
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds %"class.gmx::BasicVector.195", ptr %4, i64 %64
   %66 = load ptr, ptr %61, align 8
-  %67 = getelementptr inbounds float, ptr %66, i64 %.0332438
+  %67 = getelementptr inbounds float, ptr %66, i64 %.0347438
   %68 = load float, ptr %67, align 4
-  %69 = getelementptr inbounds %"class.gmx::BasicVector.195", ptr %20, i64 %.0332438
+  %69 = getelementptr inbounds %"class.gmx::BasicVector.195", ptr %20, i64 %.0347438
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %69, ptr noundef nonnull align 4 dereferenceable(12) %65, i64 12, i1 false)
   br label %70
 
@@ -2915,8 +2915,8 @@ define noundef float @_Z15calc_orires_devPK14gmx_multisim_tiPKiPK9t_iparamsN3gmx
 
 76:                                               ; preds = %70
   %77 = fpext float %68 to double
-  %78 = fadd double %.0330439, %77
-  %79 = add nuw nsw i64 %.0332438, 1
+  %78 = fadd double %.0346439, %77
+  %79 = add nuw nsw i64 %.0347438, 1
   %80 = getelementptr inbounds i8, ptr %.sroa.0402.0437, i64 4
   %.not428 = icmp eq ptr %80, %44
   br i1 %.not428, label %._crit_edge.loopexit, label %62
@@ -2928,9 +2928,9 @@ define noundef float @_Z15calc_orires_devPK14gmx_multisim_tiPKiPK9t_iparamsN3gmx
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %59
   %82 = phi float [ 0.000000e+00, %59 ], [ %.pre554, %._crit_edge.loopexit ]
-  %.0330.lcssa = phi double [ 0.000000e+00, %59 ], [ %78, %._crit_edge.loopexit ]
+  %.0346.lcssa = phi double [ 0.000000e+00, %59 ], [ %78, %._crit_edge.loopexit ]
   %83 = phi <2 x float> [ zeroinitializer, %59 ], [ %81, %._crit_edge.loopexit ]
-  %84 = fdiv double 1.000000e+00, %.0330.lcssa
+  %84 = fdiv double 1.000000e+00, %.0346.lcssa
   %85 = fptrunc double %84 to float
   %86 = insertelement <2 x float> poison, float %85, i64 0
   %87 = shufflevector <2 x float> %86, <2 x float> poison, <2 x i32> zeroinitializer
@@ -3060,9 +3060,9 @@ define noundef float @_Z15calc_orires_devPK14gmx_multisim_tiPKiPK9t_iparamsN3gmx
 
 .lr.ph448:                                        ; preds = %142, %.lr.ph448
   %.0326446 = phi float [ %179, %.lr.ph448 ], [ %175, %142 ]
-  %.0341445 = phi i32 [ %180, %.lr.ph448 ], [ 0, %142 ]
+  %.0342445 = phi i32 [ %180, %.lr.ph448 ], [ 0, %142 ]
   %179 = fmul float %168, %.0326446
-  %180 = add nuw nsw i32 %.0341445, 1
+  %180 = add nuw nsw i32 %.0342445, 1
   %exitcond494.not = icmp eq i32 %180, %177
   br i1 %exitcond494.not, label %._crit_edge449, label %.lr.ph448, !llvm.loop !36
 
@@ -3425,8 +3425,8 @@ define noundef float @_Z15calc_orires_devPK14gmx_multisim_tiPKiPK9t_iparamsN3gmx
 388:                                              ; preds = %.lr.ph481, %480
   %389 = phi i64 [ %.pre559, %.lr.ph481 ], [ %481, %480 ]
   %indvars.iv547 = phi i64 [ 0, %.lr.ph481 ], [ %indvars.iv.next548, %480 ]
-  %.0328479 = phi float [ 0.000000e+00, %.lr.ph481 ], [ %491, %480 ]
-  %.0329478 = phi float [ 0.000000e+00, %.lr.ph481 ], [ %492, %480 ]
+  %.0332478 = phi float [ 0.000000e+00, %.lr.ph481 ], [ %491, %480 ]
+  %.0344477 = phi float [ 0.000000e+00, %.lr.ph481 ], [ %492, %480 ]
   %390 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv547
   %391 = load i32, ptr %390, align 4
   %392 = load i32, ptr %379, align 8
@@ -3539,8 +3539,8 @@ define noundef float @_Z15calc_orires_devPK14gmx_multisim_tiPKiPK9t_iparamsN3gmx
   %488 = getelementptr inbounds i8, ptr %395, i64 20
   %489 = load float, ptr %488, align 4
   %490 = fmul float %487, %487
-  %491 = call float @llvm.fmuladd.f32(float %489, float %490, float %.0328479)
-  %492 = fadd float %.0329478, %489
+  %491 = call float @llvm.fmuladd.f32(float %489, float %490, float %.0332478)
+  %492 = fadd float %.0344477, %489
   %indvars.iv.next548 = add nuw nsw i64 %indvars.iv547, 3
   %493 = icmp ult i64 %indvars.iv.next548, %387
   br i1 %493, label %388, label %._crit_edge482.loopexit, !llvm.loop !49
@@ -3741,7 +3741,7 @@ define noundef float @_Z6oriresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8
   br label %32
 
 32:                                               ; preds = %24, %20
-  %.096 = phi float [ %31, %24 ], [ %18, %20 ]
+  %.099 = phi float [ %31, %24 ], [ %18, %20 ]
   %33 = icmp sgt i32 %0, 0
   br i1 %33, label %.lr.ph116, label %.loopexit
 
@@ -3761,8 +3761,8 @@ define noundef float @_Z6oriresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8
 
 43:                                               ; preds = %.lr.ph116, %.split.us
   %indvars.iv130 = phi i64 [ 0, %.lr.ph116 ], [ %indvars.iv.next131, %.split.us ]
-  %.095114 = phi i32 [ 22, %.lr.ph116 ], [ %.1, %.split.us ]
-  %.0100112 = phi float [ 0.000000e+00, %.lr.ph116 ], [ %100, %.split.us ]
+  %.096113 = phi float [ 0.000000e+00, %.lr.ph116 ], [ %100, %.split.us ]
+  %.0100112 = phi i32 [ 22, %.lr.ph116 ], [ %.1101, %.split.us ]
   %44 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv130
   %45 = load i32, ptr %44, align 4
   %46 = getelementptr inbounds i8, ptr %44, i64 4
@@ -3798,7 +3798,7 @@ define noundef float @_Z6oriresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8
 
 68:                                               ; preds = %59, %56
   %69 = phi float [ %.pre134, %56 ], [ %67, %59 ]
-  %.1 = phi i32 [ %57, %56 ], [ %.095114, %59 ]
+  %.1101 = phi i32 [ %57, %56 ], [ %.0100112, %59 ]
   %70 = phi <2 x float> [ %58, %56 ], [ %62, %59 ]
   %71 = fmul <2 x float> %70, %70
   %72 = extractelement <2 x float> %71, i64 1
@@ -3815,7 +3815,7 @@ define noundef float @_Z6oriresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8
   %82 = load i32, ptr %81, align 4
   %83 = getelementptr inbounds i8, ptr %79, i64 20
   %84 = load float, ptr %83, align 4
-  %85 = fmul float %.096, %84
+  %85 = fmul float %.099, %84
   %86 = sext i32 %51 to i64
   %87 = load i64, ptr %37, align 8
   %88 = inttoptr i64 %87 to ptr
@@ -3828,7 +3828,7 @@ define noundef float @_Z6oriresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8
   %95 = fmul double %94, 5.000000e-01
   %96 = fmul float %93, %93
   %97 = fpext float %96 to double
-  %98 = fpext float %.0100112 to double
+  %98 = fpext float %.096113 to double
   %99 = call double @llvm.fmuladd.f64(double %95, double %97, double %98)
   %100 = fptrunc double %99 to float
   br i1 %23, label %101, label %114
@@ -3853,7 +3853,7 @@ define noundef float @_Z6oriresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8
   br label %114
 
 114:                                              ; preds = %101, %112, %109, %68
-  %.097 = phi float [ %113, %112 ], [ %110, %109 ], [ %93, %68 ], [ 0.000000e+00, %101 ]
+  %.098 = phi float [ %113, %112 ], [ %110, %109 ], [ %93, %68 ], [ 0.000000e+00, %101 ]
   %115 = getelementptr inbounds i8, ptr %79, i64 12
   %116 = load float, ptr %115, align 4
   %117 = fmul float %85, %116
@@ -3863,14 +3863,14 @@ define noundef float @_Z6oriresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8
 
 .lr.ph:                                           ; preds = %114, %.lr.ph
   %.094109 = phi i32 [ %121, %.lr.ph ], [ 0, %114 ]
-  %.098108 = phi float [ %120, %.lr.ph ], [ %118, %114 ]
-  %120 = fmul float %76, %.098108
+  %.097108 = phi float [ %120, %.lr.ph ], [ %118, %114 ]
+  %120 = fmul float %76, %.097108
   %121 = add nuw nsw i32 %.094109, 1
   %exitcond.not = icmp eq i32 %121, %82
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph, %114
-  %.098.lcssa = phi float [ %118, %114 ], [ %120, %.lr.ph ]
+  %.097.lcssa = phi float [ %118, %114 ], [ %120, %.lr.ph ]
   %122 = load ptr, ptr %39, align 8
   %123 = sext i32 %80 to i64
   %124 = getelementptr inbounds [3 x [3 x float]], ptr %122, i64 %123
@@ -3906,8 +3906,8 @@ define noundef float @_Z6oriresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8
   %152 = load float, ptr %151, align 4
   %153 = call float @llvm.fmuladd.f32(float %152, float %134, float %150)
   store float %153, ptr %41, align 4
-  %154 = fneg float %.098.lcssa
-  %155 = fmul float %.097, %154
+  %154 = fneg float %.097.lcssa
+  %155 = fmul float %.098, %154
   %156 = shl i32 %82, 1
   %157 = add i32 %156, 4
   %158 = sitofp i32 %157 to float
@@ -3922,7 +3922,7 @@ define noundef float @_Z6oriresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8
 .preheader:                                       ; preds = %176
   %165 = sext i32 %47 to i64
   %166 = sext i32 %49 to i64
-  %167 = sext i32 %.1 to i64
+  %167 = sext i32 %.1101 to i64
   br i1 %.not107, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
@@ -3987,8 +3987,8 @@ define noundef float @_Z6oriresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8
   br i1 %200, label %43, label %.loopexit, !llvm.loop !54
 
 .loopexit:                                        ; preds = %.split.us, %32, %14
-  %.1101 = phi float [ 0.000000e+00, %14 ], [ 0.000000e+00, %32 ], [ %100, %.split.us ]
-  ret float %.1101
+  %.1 = phi float [ 0.000000e+00, %14 ], [ 0.000000e+00, %32 ], [ %100, %.split.us ]
+  ret float %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

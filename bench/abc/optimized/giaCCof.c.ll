@@ -671,15 +671,15 @@ define range(i32 -1, 2) i32 @Gia_ManCofGetReachable(ptr noundef %0, i32 noundef 
   br label %.outer
 
 .outer:                                           ; preds = %Abc_Clock.exit27, %.preheader
-  %.022.ph = phi i32 [ %.val, %Abc_Clock.exit27 ], [ 0, %.preheader ]
-  %.020.ph = phi i32 [ %59, %Abc_Clock.exit27 ], [ 0, %.preheader ]
-  %.019.ph = phi i32 [ %37, %Abc_Clock.exit27 ], [ 0, %.preheader ]
-  %.018.ph = phi i32 [ %34, %Abc_Clock.exit27 ], [ %13, %.preheader ]
+  %.021.ph = phi i32 [ %.val, %Abc_Clock.exit27 ], [ 0, %.preheader ]
+  %.019.ph = phi i32 [ %59, %Abc_Clock.exit27 ], [ 0, %.preheader ]
+  %.018.ph = phi i32 [ %37, %Abc_Clock.exit27 ], [ 0, %.preheader ]
+  %.0.ph = phi i32 [ %34, %Abc_Clock.exit27 ], [ %13, %.preheader ]
   br label %20
 
 20:                                               ; preds = %.outer, %Abc_Clock.exit
-  %.018 = phi i32 [ %34, %Abc_Clock.exit ], [ %.018.ph, %.outer ]
-  switch i32 %.018, label %.loopexit [
+  %.0 = phi i32 [ %34, %Abc_Clock.exit ], [ %.0.ph, %.outer ]
+  switch i32 %.0, label %.loopexit [
     i32 1, label %21
     i32 0, label %.loopexit.loopexit
   ]
@@ -715,15 +715,15 @@ Abc_Clock.exit:                                   ; preds = %21, %24
   br i1 %.not, label %20, label %36, !llvm.loop !7
 
 36:                                               ; preds = %Abc_Clock.exit
-  %37 = add nuw nsw i32 %.019.ph, 1
+  %37 = add nuw nsw i32 %.018.ph, 1
   %38 = load ptr, ptr %18, align 8
   %39 = getelementptr i8, ptr %38, i64 24
   %.val25 = load i32, ptr %39, align 8
-  %40 = sub nsw i32 %.val25, %.022.ph
+  %40 = sub nsw i32 %.val25, %.021.ph
   %41 = load ptr, ptr %7, align 8
   %42 = call i32 @sat_solver_nconflicts(ptr noundef %41) #16
-  %43 = sub nsw i32 %42, %.020.ph
-  %44 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.019.ph, i32 noundef %40, i32 noundef %43)
+  %43 = sub nsw i32 %42, %.019.ph
+  %44 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.018.ph, i32 noundef %40, i32 noundef %43)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %45 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #16
   %46 = icmp slt i32 %45, 0
@@ -756,8 +756,8 @@ Abc_Clock.exit27:                                 ; preds = %36, %47
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %.loopexit.loopexit, %2
-  %.0 = phi i32 [ 1, %2 ], [ -1, %.loopexit.loopexit ], [ 0, %20 ]
-  ret i32 %.0
+  %.023 = phi i32 [ 1, %2 ], [ -1, %.loopexit.loopexit ], [ 0, %20 ]
+  ret i32 %.023
 }
 
 declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
@@ -863,17 +863,17 @@ Abc_Clock.exit75:                                 ; preds = %Abc_Clock.exit, %24
   br i1 %exitcond101.not, label %.critedge._crit_edge.loopexit, label %48, !llvm.loop !8
 
 48:                                               ; preds = %.lr.ph89, %47
-  %.088 = phi i32 [ 0, %.lr.ph89 ], [ %53, %47 ]
-  %.05487 = phi i32 [ 0, %.lr.ph89 ], [ %.1, %47 ]
+  %.088 = phi i32 [ 0, %.lr.ph89 ], [ %.1, %47 ]
+  %.05787 = phi i32 [ 0, %.lr.ph89 ], [ %53, %47 ]
   br i1 %.not62, label %51, label %49
 
 49:                                               ; preds = %48
-  %50 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.088)
+  %50 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.05787)
   br label %51
 
 51:                                               ; preds = %49, %48
   %52 = load ptr, ptr %34, align 8
-  %53 = add nuw nsw i32 %.088, 1
+  %53 = add nuw nsw i32 %.05787, 1
   %54 = call ptr @Gia_ManUnrollAdd(ptr noundef %52, i32 noundef %53) #16
   store ptr %54, ptr %46, align 8
   call void @Gia_ManCofExtendSolver(ptr noundef nonnull %28)
@@ -922,7 +922,7 @@ Abc_Clock.exit75:                                 ; preds = %Abc_Clock.exit, %24
 
 75:                                               ; preds = %69
   %76 = trunc nuw nsw i64 %indvars.iv to i32
-  %77 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.088)
+  %77 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.05787)
   %.pre = load ptr, ptr %46, align 8
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 16
   %.val70.pre = load i32, ptr %.phi.trans.insert, align 8
@@ -940,21 +940,21 @@ Abc_Clock.exit75:                                 ; preds = %Abc_Clock.exit, %24
 
 .critedge:                                        ; preds = %78, %58, %.lr.ph, %75
   %.pre-phi = phi i32 [ %64, %58 ], [ %64, %.lr.ph ], [ %.pre107, %75 ], [ %64, %78 ]
-  %.05783 = phi i32 [ 0, %58 ], [ 0, %.lr.ph ], [ %76, %75 ], [ %68, %78 ]
-  %.1 = phi i32 [ %.05487, %58 ], [ %.05487, %.lr.ph ], [ 1, %75 ], [ %.05487, %78 ]
-  %79 = icmp slt i32 %.05783, %.pre-phi
+  %.05683 = phi i32 [ 0, %58 ], [ 0, %.lr.ph ], [ %76, %75 ], [ %68, %78 ]
+  %.1 = phi i32 [ %.088, %58 ], [ %.088, %.lr.ph ], [ 1, %75 ], [ %.088, %78 ]
+  %79 = icmp slt i32 %.05683, %.pre-phi
   br i1 %79, label %.critedge._crit_edge.loopexit, label %47, !llvm.loop !8
 
 .critedge._crit_edge.loopexit:                    ; preds = %.critedge, %51, %47
-  %.0.lcssa.ph = phi i32 [ %1, %47 ], [ %.088, %51 ], [ %.088, %.critedge ]
-  %.156.ph = phi i32 [ 0, %47 ], [ %57, %51 ], [ 0, %.critedge ]
-  %.2.ph = phi i32 [ %.1, %47 ], [ %.05487, %51 ], [ %.1, %.critedge ]
+  %.057.lcssa.ph = phi i32 [ %1, %47 ], [ %.05787, %51 ], [ %.05787, %.critedge ]
+  %.155.ph = phi i32 [ 0, %47 ], [ %57, %51 ], [ 0, %.critedge ]
+  %.2.ph = phi i32 [ %.1, %47 ], [ %.088, %51 ], [ %.1, %.critedge ]
   %80 = icmp eq i32 %.2.ph, 0
   br label %.critedge._crit_edge
 
 .critedge._crit_edge:                             ; preds = %.critedge._crit_edge.loopexit, %44
-  %.0.lcssa = phi i32 [ 0, %44 ], [ %.0.lcssa.ph, %.critedge._crit_edge.loopexit ]
-  %.156 = phi i32 [ -1, %44 ], [ %.156.ph, %.critedge._crit_edge.loopexit ]
+  %.057.lcssa = phi i32 [ 0, %44 ], [ %.057.lcssa.ph, %.critedge._crit_edge.loopexit ]
+  %.155 = phi i32 [ -1, %44 ], [ %.155.ph, %.critedge._crit_edge.loopexit ]
   %.2 = phi i1 [ true, %44 ], [ %80, %.critedge._crit_edge.loopexit ]
   %.not66 = icmp eq i64 %21, 0
   br i1 %.not66, label %94, label %81
@@ -981,11 +981,11 @@ Abc_Clock.exit77:                                 ; preds = %81, %84
   br i1 %91, label %92, label %94
 
 92:                                               ; preds = %Abc_Clock.exit77
-  %93 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %3, i32 noundef %.0.lcssa)
+  %93 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %3, i32 noundef %.057.lcssa)
   br label %105
 
 94:                                               ; preds = %Abc_Clock.exit77, %.critedge._crit_edge
-  %95 = icmp eq i32 %.0.lcssa, %1
+  %95 = icmp eq i32 %.057.lcssa, %1
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %94
@@ -993,18 +993,18 @@ Abc_Clock.exit77:                                 ; preds = %81, %84
   br label %105
 
 98:                                               ; preds = %94
-  switch i32 %.156, label %105 [
+  switch i32 %.155, label %105 [
     i32 1, label %99
     i32 -1, label %102
   ]
 
 99:                                               ; preds = %98
-  %100 = add nsw i32 %.0.lcssa, -1
+  %100 = add nsw i32 %.057.lcssa, -1
   %101 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %100)
   br label %105
 
 102:                                              ; preds = %98
-  %103 = add nsw i32 %.0.lcssa, -1
+  %103 = add nsw i32 %.057.lcssa, -1
   %104 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %103)
   br label %105
 
@@ -1034,7 +1034,7 @@ Abc_Clock.exit79:                                 ; preds = %105, %108
   br i1 %.2, label %.sink.split, label %119
 
 .sink.split:                                      ; preds = %Abc_Clock.exit79
-  %118 = icmp eq i32 %.156, 1
+  %118 = icmp eq i32 %.155, 1
   %str.1.mux = select i1 %118, ptr @str.1, ptr @str
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %str.1.mux)
   br label %119

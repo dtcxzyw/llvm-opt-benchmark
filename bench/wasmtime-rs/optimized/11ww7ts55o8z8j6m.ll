@@ -1506,11 +1506,11 @@ define hidden void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha6
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h5630b3898d826c25E.exit": ; preds = %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$4grow17h30e01782bcf3b2ddE.exit.thread", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h5630b3898d826c25E.exit"
   %.sroa.8.058 = phi i64 [ %86, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h5630b3898d826c25E.exit" ], [ 0, %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$4grow17h30e01782bcf3b2ddE.exit.thread" ]
-  %83 = getelementptr inbounds i32, ptr %1, i64 %.sroa.8.058
-  %84 = load i32, ptr %83, align 4, !alias.scope !255, !noalias !258, !noundef !4
-  %85 = getelementptr inbounds i32, ptr %81, i64 %.sroa.8.058
+  %83 = getelementptr inbounds i32, ptr %81, i64 %.sroa.8.058
+  %84 = getelementptr inbounds i32, ptr %1, i64 %.sroa.8.058
+  %85 = load i32, ptr %84, align 4, !alias.scope !255, !noalias !258, !noundef !4
   %86 = add nuw nsw i64 %.sroa.8.058, 1
-  store i32 %84, ptr %85, align 4
+  store i32 %85, ptr %83, align 4
   %exitcond.not = icmp eq i64 %86, %.0.sroa.speculated.i.i.i
   br i1 %exitcond.not, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h5630b3898d826c25E.exit.thread", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h5630b3898d826c25E.exit"
 }

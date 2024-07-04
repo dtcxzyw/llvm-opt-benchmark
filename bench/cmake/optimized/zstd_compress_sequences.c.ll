@@ -38,7 +38,7 @@ define dso_local range(i64 -1, 72057594037927936) i64 @ZSTD_fseBitCost(ptr nocap
 
 18:                                               ; preds = %.preheader, %39
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %39 ]
-  %.01826 = phi i64 [ 0, %.preheader ], [ %.1, %39 ]
+  %.01925 = phi i64 [ 0, %.preheader ], [ %.1, %39 ]
   %19 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %10, i64 %indvars.iv, i32 1
   %20 = load i32, ptr %19, align 4
   %21 = lshr i32 %20, 16
@@ -63,11 +63,11 @@ define dso_local range(i64 -1, 72057594037927936) i64 @ZSTD_fseBitCost(ptr nocap
   %35 = zext i32 %31 to i64
   %36 = zext i32 %29 to i64
   %37 = mul nuw i64 %36, %35
-  %38 = add i64 %37, %.01826
+  %38 = add i64 %37, %.01925
   br label %39
 
 39:                                               ; preds = %18, %34
-  %.1 = phi i64 [ %.01826, %18 ], [ %38, %34 ]
+  %.1 = phi i64 [ %.01925, %18 ], [ %38, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %40, label %18, !llvm.loop !5
@@ -231,7 +231,7 @@ ZSTD_crossEntropyCost.exit:                       ; preds = %42
 
 73:                                               ; preds = %94, %.preheader.i
   %indvars.iv.i58 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i59, %94 ]
-  %.01826.i = phi i64 [ 0, %.preheader.i ], [ %.1.i, %94 ]
+  %.01925.i = phi i64 [ 0, %.preheader.i ], [ %.1.i, %94 ]
   %74 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %65, i64 %indvars.iv.i58, i32 1
   %75 = load i32, ptr %74, align 4
   %76 = lshr i32 %75, 16
@@ -256,11 +256,11 @@ ZSTD_crossEntropyCost.exit:                       ; preds = %42
   %90 = zext i32 %86 to i64
   %91 = zext i32 %84 to i64
   %92 = mul nuw i64 %91, %90
-  %93 = add i64 %92, %.01826.i
+  %93 = add i64 %92, %.01925.i
   br label %94
 
 94:                                               ; preds = %89, %73
-  %.1.i = phi i64 [ %.01826.i, %73 ], [ %93, %89 ]
+  %.1.i = phi i64 [ %.01925.i, %73 ], [ %93, %89 ]
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i58, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i59, %wide.trip.count.i57
   br i1 %exitcond.not.i, label %95, label %73, !llvm.loop !5
@@ -392,10 +392,10 @@ define dso_local i64 @ZSTD_buildCTable(ptr noundef %0, i64 noundef %1, ptr nound
   br label %41
 
 41:                                               ; preds = %29, %38
-  %.059 = phi i64 [ %40, %38 ], [ %8, %29 ]
-  %42 = icmp ugt i64 %.059, 2047
+  %.0 = phi i64 [ %40, %38 ], [ %8, %29 ]
+  %42 = icmp ugt i64 %.0, 2047
   %43 = zext i1 %42 to i32
-  %44 = tail call i64 @FSE_normalizeCount(ptr noundef %14, i32 noundef %30, ptr noundef nonnull %5, i64 noundef %.059, i32 noundef %6, i32 noundef %43) #7
+  %44 = tail call i64 @FSE_normalizeCount(ptr noundef %14, i32 noundef %30, ptr noundef nonnull %5, i64 noundef %.0, i32 noundef %6, i32 noundef %43) #7
   %45 = icmp ult i64 %44, -119
   br i1 %45, label %46, label %53
 
@@ -412,8 +412,8 @@ define dso_local i64 @ZSTD_buildCTable(ptr noundef %0, i64 noundef %1, ptr nound
   br label %53
 
 53:                                               ; preds = %16, %49, %46, %41, %26, %21, %17, %25, %23
-  %.0 = phi i64 [ 0, %25 ], [ 1, %23 ], [ %19, %17 ], [ -70, %21 ], [ %., %26 ], [ %44, %41 ], [ %47, %46 ], [ %.65, %49 ], [ -1, %16 ]
-  ret i64 %.0
+  %.059 = phi i64 [ 0, %25 ], [ 1, %23 ], [ %19, %17 ], [ -70, %21 ], [ %., %26 ], [ %44, %41 ], [ %47, %46 ], [ %.65, %49 ], [ -1, %16 ]
+  ret i64 %.059
 }
 
 declare i64 @FSE_buildCTable_rle(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2

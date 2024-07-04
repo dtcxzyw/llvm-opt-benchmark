@@ -569,7 +569,7 @@ define range(i32 0, 2) i32 @xSAT_SolverSimplify(ptr noundef %0) local_unnamed_ad
 22:                                               ; preds = %.lr.ph, %144
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %144 ]
   %23 = phi ptr [ %15, %.lr.ph ], [ %145, %144 ]
-  %.04181 = phi i32 [ 0, %.lr.ph ], [ %.1, %144 ]
+  %.082 = phi i32 [ 0, %.lr.ph ], [ %.1, %144 ]
   %24 = getelementptr i8, ptr %23, i64 8
   %.val45 = load ptr, ptr %24, align 8
   %25 = getelementptr inbounds i32, ptr %.val45, i64 %indvars.iv
@@ -767,14 +767,14 @@ xSAT_WatchListRemove.exit69:                      ; preds = %127
   br label %144
 
 .loopexit:                                        ; preds = %39, %xSAT_SolverReadClause.exit
-  %141 = add nsw i32 %.04181, 1
-  %142 = sext i32 %.04181 to i64
+  %141 = add nsw i32 %.082, 1
+  %142 = sext i32 %.082 to i64
   %143 = getelementptr inbounds i32, ptr %.val45, i64 %142
   store i32 %26, ptr %143, align 4
   br label %144
 
 144:                                              ; preds = %.loopexit, %xSAT_WatchListRemove.exit69, %xSAT_WatchListRemove.exit59
-  %.1 = phi i32 [ %.04181, %xSAT_WatchListRemove.exit59 ], [ %.04181, %xSAT_WatchListRemove.exit69 ], [ %141, %.loopexit ]
+  %.1 = phi i32 [ %.082, %xSAT_WatchListRemove.exit59 ], [ %.082, %xSAT_WatchListRemove.exit69 ], [ %141, %.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %145 = load ptr, ptr %14, align 8
   %146 = getelementptr i8, ptr %145, i64 4
@@ -785,9 +785,9 @@ xSAT_WatchListRemove.exit69:                      ; preds = %127
 
 .critedge:                                        ; preds = %144, %.preheader
   %.lcssa = phi ptr [ %15, %.preheader ], [ %145, %144 ]
-  %.041.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %144 ]
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %144 ]
   %149 = getelementptr i8, ptr %.lcssa, i64 4
-  store i32 %.041.lcssa, ptr %149, align 4
+  store i32 %.0.lcssa, ptr %149, align 4
   tail call void @xSAT_SolverRebuildOrderHeap(ptr noundef nonnull %0) #16
   %150 = load ptr, ptr %6, align 8
   %151 = getelementptr i8, ptr %150, i64 4
@@ -802,8 +802,8 @@ xSAT_WatchListRemove.exit69:                      ; preds = %127
   br label %157
 
 157:                                              ; preds = %3, %10, %1, %.critedge
-  %.0 = phi i32 [ 1, %.critedge ], [ 0, %1 ], [ 1, %10 ], [ 1, %3 ]
-  ret i32 %.0
+  %.041 = phi i32 [ 1, %.critedge ], [ 0, %1 ], [ 1, %10 ], [ 1, %3 ]
+  ret i32 %.041
 }
 
 declare i32 @xSAT_SolverPropagate(ptr noundef) local_unnamed_addr #5
@@ -1726,12 +1726,12 @@ define range(i32 0, 2) i32 @xSAT_SolverAddClause(ptr noundef %0, ptr noundef %1)
 18:                                               ; preds = %.lr.ph57, %39
   %.val3960 = phi i32 [ %.val3953, %.lr.ph57 ], [ %.val39, %39 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph57 ], [ %indvars.iv.next, %39 ]
-  %.03256 = phi i32 [ -2, %.lr.ph57 ], [ %.1, %39 ]
-  %.03454 = phi i32 [ 0, %.lr.ph57 ], [ %.135, %39 ]
+  %.056 = phi i32 [ -2, %.lr.ph57 ], [ %.1, %39 ]
+  %.03255 = phi i32 [ 0, %.lr.ph57 ], [ %.133, %39 ]
   %.val42 = load ptr, ptr %4, align 8
   %19 = getelementptr inbounds i32, ptr %.val42, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
-  %21 = xor i32 %20, %.03256
+  %21 = xor i32 %20, %.056
   %22 = icmp eq i32 %21, 1
   br i1 %22, label %.loopexit, label %23
 
@@ -1749,14 +1749,14 @@ define range(i32 0, 2) i32 @xSAT_SolverAddClause(ptr noundef %0, ptr noundef %1)
   br i1 %32, label %.loopexit, label %33
 
 33:                                               ; preds = %23
-  %.not37 = icmp ne i32 %20, %.03256
+  %.not37 = icmp ne i32 %20, %.056
   %34 = icmp eq i8 %29, 3
   %or.cond = and i1 %.not37, %34
   br i1 %or.cond, label %35, label %39
 
 35:                                               ; preds = %33
-  %36 = add nsw i32 %.03454, 1
-  %37 = sext i32 %.03454 to i64
+  %36 = add nsw i32 %.03255, 1
+  %37 = sext i32 %.03255 to i64
   %38 = getelementptr inbounds i32, ptr %.val42, i64 %37
   store i32 %20, ptr %38, align 4
   %.val39.pre = load i32, ptr %3, align 4
@@ -1764,16 +1764,16 @@ define range(i32 0, 2) i32 @xSAT_SolverAddClause(ptr noundef %0, ptr noundef %1)
 
 39:                                               ; preds = %35, %33
   %.val39 = phi i32 [ %.val39.pre, %35 ], [ %.val3960, %33 ]
-  %.135 = phi i32 [ %36, %35 ], [ %.03454, %33 ]
-  %.1 = phi i32 [ %20, %35 ], [ %.03256, %33 ]
+  %.133 = phi i32 [ %36, %35 ], [ %.03255, %33 ]
+  %.1 = phi i32 [ %20, %35 ], [ %.056, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = sext i32 %.val39 to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
   br i1 %41, label %18, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %39
-  store i32 %.135, ptr %3, align 4
-  switch i32 %.135, label %48 [
+  store i32 %.133, ptr %3, align 4
+  switch i32 %.133, label %48 [
     i32 0, label %.loopexit
     i32 1, label %42
   ]
@@ -1792,8 +1792,8 @@ define range(i32 0, 2) i32 @xSAT_SolverAddClause(ptr noundef %0, ptr noundef %1)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %23, %.critedge.thread, %.critedge, %48, %42
-  %.0 = phi i32 [ %47, %42 ], [ 1, %48 ], [ %.135, %.critedge ], [ 0, %.critedge.thread ], [ 1, %23 ], [ 1, %18 ]
-  ret i32 %.0
+  %.035 = phi i32 [ %47, %42 ], [ 1, %48 ], [ %.133, %.critedge ], [ 0, %.critedge.thread ], [ 1, %23 ], [ 1, %18 ]
+  ret i32 %.035
 }
 
 declare i32 @xSAT_SolverEnqueue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5

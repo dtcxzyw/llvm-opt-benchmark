@@ -61,13 +61,13 @@ define hidden { ptr, i64 } @"_ZN92_$LT$core..str..LinesMap$u20$as$u20$core..ops.
   %18 = extractvalue { ptr, i64 } %17, 0
   %.not7.i = icmp eq ptr %18, null
   %19 = extractvalue { ptr, i64 } %17, 1
-  %spec.select.i = select i1 %.not7.i, ptr %11, ptr %18
-  %spec.select8.i = select i1 %.not7.i, i64 %13, i64 %19
+  %spec.select.i = select i1 %.not7.i, i64 %13, i64 %19
+  %spec.select8.i = select i1 %.not7.i, ptr %11, ptr %18
   br label %"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17hfe64327bff831a03E.exit"
 
 "_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17hfe64327bff831a03E.exit": ; preds = %3, %12
-  %.sroa.01.0.i = phi ptr [ %1, %3 ], [ %spec.select.i, %12 ]
-  %.sroa.4.0.i = phi i64 [ %2, %3 ], [ %spec.select8.i, %12 ]
+  %.sroa.4.0.i = phi i64 [ %2, %3 ], [ %spec.select.i, %12 ]
+  %.sroa.01.0.i = phi ptr [ %1, %3 ], [ %spec.select8.i, %12 ]
   %20 = insertvalue { ptr, i64 } poison, ptr %.sroa.01.0.i, 0
   %21 = insertvalue { ptr, i64 } %20, i64 %.sroa.4.0.i, 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)

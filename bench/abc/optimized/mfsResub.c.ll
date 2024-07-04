@@ -1117,7 +1117,7 @@ Vec_PtrFillSimInfo.exit:                          ; preds = %30, %18
 75:                                               ; preds = %.lr.ph, %133
   %.val201500 = phi i32 [ %.val201313, %.lr.ph ], [ %.val201, %133 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %133 ]
-  %.0154315 = phi i32 [ 0, %.lr.ph ], [ %.1155, %133 ]
+  %.0152315 = phi i32 [ 0, %.lr.ph ], [ %.1153, %133 ]
   %.val204 = load ptr, ptr %1, align 8
   %.val205 = load ptr, ptr %70, align 8
   %76 = getelementptr i8, ptr %.val204, i64 32
@@ -1217,29 +1217,29 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %127 = load i32, ptr %126, align 4
   %128 = shl nsw i32 %127, 1
   %129 = or disjoint i32 %128, 1
-  %130 = add nsw i32 %.0154315, 1
-  %131 = sext i32 %.0154315 to i64
+  %130 = add nsw i32 %.0152315, 1
+  %131 = sext i32 %.0152315 to i64
   %132 = getelementptr inbounds [12 x i32], ptr %9, i64 0, i64 %131
   store i32 %129, ptr %132, align 4
   br label %133
 
 133:                                              ; preds = %75, %Vec_PtrPush.exit
   %.val201 = phi i32 [ %.val201500, %75 ], [ %.val200, %Vec_PtrPush.exit ]
-  %.1155 = phi i32 [ %.0154315, %75 ], [ %130, %Vec_PtrPush.exit ]
+  %.1153 = phi i32 [ %.0152315, %75 ], [ %130, %Vec_PtrPush.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %134 = sext i32 %.val201 to i64
   %135 = icmp slt i64 %indvars.iv.next, %134
   br i1 %135, label %75, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %133, %64
-  %.0154.lcssa = phi i32 [ 0, %64 ], [ %.1155, %133 ]
+  %.0152.lcssa = phi i32 [ 0, %64 ], [ %.1153, %133 ]
   %136 = getelementptr inbounds i8, ptr %0, i64 112
   %137 = load i32, ptr %136, align 8
   %138 = add nsw i32 %137, 1
   store i32 %138, ptr %136, align 8
   %139 = getelementptr inbounds i8, ptr %0, i64 168
   %140 = load ptr, ptr %139, align 8
-  %141 = sext i32 %.0154.lcssa to i64
+  %141 = sext i32 %.0152.lcssa to i64
   %142 = getelementptr inbounds i32, ptr %9, i64 %141
   %143 = load ptr, ptr %0, align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 20
@@ -1348,7 +1348,7 @@ Abc_NtkMfsTryResubOnce.exit:                      ; preds = %.critedge
 Abc_Clock.exit:                                   ; preds = %191, %200
   %.0.i.neg = phi i64 [ %.neg285, %200 ], [ 1, %191 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %204 = call ptr @Abc_NtkMfsInterplate(ptr noundef nonnull %0, ptr noundef nonnull %9, i32 noundef %.0154.lcssa) #10
+  %204 = call ptr @Abc_NtkMfsInterplate(ptr noundef nonnull %0, ptr noundef nonnull %9, i32 noundef %.0152.lcssa) #10
   %205 = icmp eq ptr %204, null
   br i1 %205, label %.loopexit288, label %206
 
@@ -1423,9 +1423,9 @@ Abc_Clock.exit226:                                ; preds = %Abc_NtkMfsUpdateNet
   br i1 %239, label %.lr.ph321, label %.preheader
 
 .preheader290:                                    ; preds = %.loopexit291, %.preheader290
-  %.1158317 = phi i32 [ %240, %.preheader290 ], [ 0, %.loopexit291 ]
+  %.1156317 = phi i32 [ %240, %.preheader290 ], [ 0, %.loopexit291 ]
   %putchar179 = call i32 @putchar(i32 32)
-  %240 = add nuw nsw i32 %.1158317, 1
+  %240 = add nuw nsw i32 %.1156317, 1
   %exitcond.not = icmp eq i32 %240, 11
   br i1 %exitcond.not, label %.preheader289, label %.preheader290, !llvm.loop !12
 
@@ -1435,10 +1435,10 @@ Abc_Clock.exit226:                                ; preds = %Abc_NtkMfsUpdateNet
   br i1 %241, label %.lr.ph324, label %._crit_edge
 
 .lr.ph321:                                        ; preds = %.preheader289, %.lr.ph321
-  %.2159320 = phi i32 [ %244, %.lr.ph321 ], [ 0, %.preheader289 ]
-  %242 = urem i32 %.2159320, 10
+  %.2157320 = phi i32 [ %244, %.lr.ph321 ], [ 0, %.preheader289 ]
+  %242 = urem i32 %.2157320, 10
   %243 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %242)
-  %244 = add nuw nsw i32 %.2159320, 1
+  %244 = add nuw nsw i32 %.2157320, 1
   %245 = load ptr, ptr %236, align 8
   %246 = getelementptr i8, ptr %245, i64 4
   %.val185 = load i32, ptr %246, align 4
@@ -1469,22 +1469,22 @@ Abc_Clock.exit226:                                ; preds = %Abc_NtkMfsUpdateNet
   %.pre503.pre = phi i32 [ %.pre503.pre.pre, %._crit_edge ], [ %235, %.loopexit291 ]
   %255 = getelementptr i8, ptr %0, i64 64
   %256 = getelementptr i8, ptr %0, i64 216
-  %257 = add nsw i32 %.0154.lcssa, 1
+  %257 = add nsw i32 %.0152.lcssa, 1
   %258 = sext i32 %257 to i64
   %259 = getelementptr inbounds [12 x i32], ptr %9, i64 0, i64 %258
-  %260 = add nsw i32 %.0154.lcssa, 2
+  %260 = add nsw i32 %.0152.lcssa, 2
   %261 = sext i32 %260 to i64
   %262 = getelementptr inbounds i32, ptr %9, i64 %261
   br label %263
 
 263:                                              ; preds = %.loopexit286, %254
   %.pre503 = phi i32 [ %.pre503.pre, %254 ], [ %564, %.loopexit286 ]
-  %.0160 = phi i32 [ -1, %254 ], [ %.4164, %.loopexit286 ]
-  %.0152 = phi i32 [ -1, %254 ], [ %.1153300, %.loopexit286 ]
+  %.0163 = phi i32 [ -1, %254 ], [ %.1164301, %.loopexit286 ]
+  %.0158 = phi i32 [ -1, %254 ], [ %.4162, %.loopexit286 ]
   br i1 %19, label %264, label %287
 
 264:                                              ; preds = %263
-  %265 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %.pre503, i32 noundef %.0152, i32 noundef %.0160)
+  %265 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %.pre503, i32 noundef %.0163, i32 noundef %.0158)
   %266 = load ptr, ptr %255, align 8
   %267 = getelementptr i8, ptr %266, i64 4
   %.val184325 = load i32, ptr %267, align 4
@@ -1750,23 +1750,23 @@ Abc_MfsObjProb.exit232:                           ; preds = %364, %370
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit514, %.loopexit.loopexit444, %.loopexit.loopexit441, %.loopexit.loopexit, %287
-  %.1153300 = phi i32 [ 1, %287 ], [ %378, %.loopexit.loopexit ], [ %380, %.loopexit.loopexit441 ], [ %382, %.loopexit.loopexit444 ], [ %384, %.loopexit.loopexit514 ]
-  %.4164 = phi i32 [ %.0160, %287 ], [ %379, %.loopexit.loopexit ], [ %381, %.loopexit.loopexit441 ], [ %383, %.loopexit.loopexit444 ], [ 0, %.loopexit.loopexit514 ]
-  %385 = icmp eq i32 %.1153300, %296
+  %.1164301 = phi i32 [ 1, %287 ], [ %378, %.loopexit.loopexit ], [ %380, %.loopexit.loopexit441 ], [ %382, %.loopexit.loopexit444 ], [ %384, %.loopexit.loopexit514 ]
+  %.4162 = phi i32 [ %.0158, %287 ], [ %379, %.loopexit.loopexit ], [ %381, %.loopexit.loopexit441 ], [ %383, %.loopexit.loopexit444 ], [ 0, %.loopexit.loopexit514 ]
+  %385 = icmp eq i32 %.1164301, %296
   br i1 %385, label %.loopexit288, label %386
 
 386:                                              ; preds = %.loopexit
   %387 = load ptr, ptr %152, align 8
   %388 = getelementptr i8, ptr %387, i64 8
   %.val212 = load ptr, ptr %388, align 8
-  %389 = sext i32 %.4164 to i64
+  %389 = sext i32 %.4162 to i64
   %390 = getelementptr inbounds i32, ptr %.val212, i64 %389
   %391 = load i32, ptr %390, align 4
   %392 = shl nsw i32 %391, 1
   %393 = or disjoint i32 %392, 1
   store i32 %393, ptr %142, align 4
   %.val211 = load ptr, ptr %388, align 8
-  %394 = zext nneg i32 %.1153300 to i64
+  %394 = zext nneg i32 %.1164301 to i64
   %395 = getelementptr inbounds i32, ptr %.val211, i64 %394
   %396 = load i32, ptr %395, align 4
   %397 = shl nsw i32 %396, 1
@@ -1852,7 +1852,7 @@ Abc_NtkMfsTryResubOnce.exit247:                   ; preds = %386
 444:                                              ; preds = %443
   %445 = getelementptr inbounds i8, ptr %1, i64 16
   %446 = load i32, ptr %445, align 8
-  %447 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %446, i32 noundef %2, i32 noundef %3, i32 noundef %.1153300, i32 noundef %.4164)
+  %447 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %446, i32 noundef %2, i32 noundef %3, i32 noundef %.1164301, i32 noundef %.4162)
   br label %448
 
 448:                                              ; preds = %444, %443

@@ -175,18 +175,18 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
 .sink.split:                                      ; preds = %19, %15
   %.sink60.sroa.phi = phi ptr [ %.sink60.sroa.gep, %15 ], [ %.sink60.sroa.gep61, %19 ]
   %.str.8.sink = phi ptr [ @.str.8, %15 ], [ @.str.3, %19 ]
-  %.054.ph = phi i32 [ 4, %15 ], [ 3, %19 ]
+  %.052.ph = phi i32 [ 4, %15 ], [ 3, %19 ]
   store ptr %.str.8.sink, ptr %.sink60.sroa.phi, align 8
   br label %20
 
 20:                                               ; preds = %.sink.split, %6
-  %.054 = phi i32 [ 1, %6 ], [ %.054.ph, %.sink.split ]
-  %21 = zext nneg i32 %.054 to i64
+  %.052 = phi i32 [ 1, %6 ], [ %.052.ph, %.sink.split ]
+  %21 = zext nneg i32 %.052 to i64
   %22 = getelementptr [6 x ptr], ptr %7, i64 0, i64 %21
   store ptr @.str.9, ptr %22, align 8
   %23 = getelementptr [6 x ptr], ptr %8, i64 0, i64 %21
   store ptr %4, ptr %23, align 8
-  %24 = add nuw nsw i32 %.054, 1
+  %24 = add nuw nsw i32 %.052, 1
   %25 = zext nneg i32 %24 to i64
   %26 = getelementptr [6 x ptr], ptr %7, i64 0, i64 %25
   store ptr null, ptr %26, align 8
@@ -200,8 +200,8 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
   br i1 %31, label %73, label %.preheader
 
 .preheader:                                       ; preds = %20, %46
-  %.052 = phi i32 [ %.1, %46 ], [ 2, %20 ]
-  %32 = icmp eq i32 %.052, 1
+  %.053 = phi i32 [ %.1, %46 ], [ 2, %20 ]
+  %32 = icmp eq i32 %.053, 1
   %. = select i1 %32, i32 2, i32 4
   %33 = load ptr, ptr @MyLatch, align 8
   %34 = or disjoint i32 %., 33
@@ -229,7 +229,7 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
   br label %46
 
 46:                                               ; preds = %41, %43
-  %.1 = phi i32 [ %45, %43 ], [ %.052, %41 ]
+  %.1 = phi i32 [ %45, %43 ], [ %.053, %41 ]
   switch i32 %.1, label %.preheader [
     i32 3, label %47
     i32 0, label %47
@@ -303,8 +303,8 @@ define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 
   br label %79
 
 79:                                               ; preds = %77, %71
-  %.0 = phi ptr [ null, %77 ], [ %28, %71 ]
-  ret ptr %.0
+  %.054 = phi ptr [ null, %77 ], [ %28, %71 ]
+  ret ptr %.054
 }
 
 ; Function Attrs: nounwind uwtable
@@ -802,13 +802,13 @@ define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr nocapture nounde
 
 .lr.ph26.i:                                       ; preds = %.lr.ph.i, %62
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %62 ], [ 0, %.lr.ph.i ]
-  %.0142224.i = phi i1 [ false, %62 ], [ true, %.lr.ph.i ]
+  %.02125.i = phi i1 [ false, %62 ], [ true, %.lr.ph.i ]
   %52 = load ptr, ptr %49, align 8
   %53 = getelementptr %union.ListCell, ptr %52, i64 %indvars.iv.i
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
-  br i1 %.0142224.i, label %58, label %57
+  br i1 %.02125.i, label %58, label %57
 
 57:                                               ; preds = %.lr.ph26.i
   call void @appendStringInfoChar(ptr noundef nonnull %3, i8 noundef signext 44) #12
@@ -1671,13 +1671,13 @@ define internal fastcc ptr @libpqrcv_PQexec(ptr noundef %0, ptr noundef %1) unna
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2, %15
-  %.012 = phi ptr [ %4, %15 ], [ null, %2 ]
+  %.0 = phi ptr [ %4, %15 ], [ null, %2 ]
   %4 = tail call fastcc ptr @libpqrcv_PQgetResult(ptr noundef %0)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %.preheader
-  tail call void @PQclear(ptr noundef %.012) #12
+  tail call void @PQclear(ptr noundef %.0) #12
   %7 = tail call i32 @PQresultStatus(ptr noundef nonnull %4) #12
   %8 = icmp eq i32 %7, 4
   br i1 %8, label %.loopexit, label %9
@@ -1698,8 +1698,8 @@ define internal fastcc ptr @libpqrcv_PQexec(ptr noundef %0, ptr noundef %1) unna
   br i1 %17, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %15, %12, %9, %6, %2
-  %.0 = phi ptr [ null, %2 ], [ %4, %15 ], [ %4, %12 ], [ %4, %9 ], [ %4, %6 ], [ %.012, %.preheader ]
-  ret ptr %.0
+  %.012 = phi ptr [ null, %2 ], [ %4, %15 ], [ %4, %12 ], [ %4, %9 ], [ %4, %6 ], [ %.0, %.preheader ]
+  ret ptr %.012
 }
 
 declare i32 @PQresultStatus(ptr noundef) local_unnamed_addr #3

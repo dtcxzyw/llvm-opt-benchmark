@@ -111,14 +111,14 @@ define ptr @Abc_NtkLutMinDecompose(ptr noundef %0, ptr nocapture noundef readonl
   br label %15
 
 .critedge.preheader:                              ; preds = %15, %5
-  %.074.lcssa = phi ptr [ null, %5 ], [ %17, %15 ]
+  %.076.lcssa = phi ptr [ null, %5 ], [ %17, %15 ]
   %12 = getelementptr i8, ptr %8, i64 4
   %.val84106 = load i32, ptr %12, align 4
   %13 = icmp sgt i32 %.val84106, 0
   br i1 %13, label %.lr.ph108, label %.critedge.preheader..critedge2_crit_edge
 
 .critedge.preheader..critedge2_crit_edge:         ; preds = %.critedge.preheader
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.074.lcssa, i64 20
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.076.lcssa, i64 20
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %.critedge2
 
@@ -219,7 +219,7 @@ define ptr @Abc_NtkLutMinDecompose(ptr noundef %0, ptr nocapture noundef readonl
 .critedge2:                                       ; preds = %.critedge4, %.critedge.preheader..critedge2_crit_edge
   %.val86117141 = phi i32 [ %.val84106, %.critedge.preheader..critedge2_crit_edge ], [ %.val84, %.critedge4 ]
   %68 = phi i32 [ %.pre, %.critedge.preheader..critedge2_crit_edge ], [ %65, %.critedge4 ]
-  %.1.lcssa = phi ptr [ %.074.lcssa, %.critedge.preheader..critedge2_crit_edge ], [ %32, %.critedge4 ]
+  %.177.lcssa = phi ptr [ %.076.lcssa, %.critedge.preheader..critedge2_crit_edge ], [ %32, %.critedge4 ]
   %69 = lshr i32 %68, 12
   %70 = icmp sgt i32 %69, %4
   br i1 %70, label %74, label %.preheader
@@ -246,7 +246,7 @@ define ptr @Abc_NtkLutMinDecompose(ptr noundef %0, ptr nocapture noundef readonl
 
 .critedge6.preheader:                             ; preds = %.critedge6.preheader.loopexit, %.preheader
   %.val86117 = phi i32 [ %.val86117141, %.preheader ], [ %.val86117.pre, %.critedge6.preheader.loopexit ]
-  %.2.lcssa = phi ptr [ %.1.lcssa, %.preheader ], [ %81, %.critedge6.preheader.loopexit ]
+  %.278.lcssa = phi ptr [ %.177.lcssa, %.preheader ], [ %81, %.critedge6.preheader.loopexit ]
   %77 = icmp sgt i32 %.val86117, 0
   br i1 %77, label %.lr.ph119, label %.critedge8
 
@@ -351,8 +351,8 @@ define ptr @Abc_NtkLutMinDecompose(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %135, label %88, label %.critedge8, !llvm.loop !10
 
 .critedge8:                                       ; preds = %.critedge10, %.critedge6.preheader
-  %.3.lcssa = phi ptr [ %.2.lcssa, %.critedge6.preheader ], [ %90, %.critedge10 ]
-  %136 = getelementptr inbounds i8, ptr %.3.lcssa, i64 64
+  %.379.lcssa = phi ptr [ %.278.lcssa, %.critedge6.preheader ], [ %90, %.critedge10 ]
+  %136 = getelementptr inbounds i8, ptr %.379.lcssa, i64 64
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds i8, ptr %8, i64 8
   %139 = load ptr, ptr %138, align 8
@@ -361,15 +361,15 @@ define ptr @Abc_NtkLutMinDecompose(ptr noundef %0, ptr nocapture noundef readonl
 
 Vec_PtrFree.exit.sink.split:                      ; preds = %.critedge8, %74
   %.sink = phi ptr [ %76, %74 ], [ %139, %.critedge8 ]
-  %.0.ph = phi ptr [ null, %74 ], [ %137, %.critedge8 ]
+  %.080.ph = phi ptr [ null, %74 ], [ %137, %.critedge8 ]
   tail call void @free(ptr noundef nonnull %.sink) #16
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %Vec_PtrFree.exit.sink.split, %.critedge8, %74
-  %.0 = phi ptr [ null, %74 ], [ %137, %.critedge8 ], [ %.0.ph, %Vec_PtrFree.exit.sink.split ]
+  %.080 = phi ptr [ null, %74 ], [ %137, %.critedge8 ], [ %.080.ph, %Vec_PtrFree.exit.sink.split ]
   tail call void @free(ptr noundef nonnull %8) #16
   tail call void @Abc_NtkDelete(ptr noundef %7) #16
-  ret ptr %.0
+  ret ptr %.080
 }
 
 declare ptr @Abc_NtkDfs(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1903,7 +1903,7 @@ Abc_Clock.exit149:                                ; preds = %267, %272
   br label %316
 
 316:                                              ; preds = %313, %299, %294, %Abc_Clock.exit149
-  %.0116 = phi ptr [ %315, %313 ], [ null, %299 ], [ null, %294 ], [ %292, %Abc_Clock.exit149 ]
+  %.0118 = phi ptr [ %315, %313 ], [ null, %299 ], [ null, %294 ], [ %292, %Abc_Clock.exit149 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %317 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #16
   %318 = icmp slt i32 %317, 0
@@ -1924,7 +1924,7 @@ Abc_Clock.exit151:                                ; preds = %316, %319
   %326 = load i64, ptr %89, align 8
   %327 = add nsw i64 %325, %326
   store i64 %327, ptr %89, align 8
-  %.not126 = icmp eq ptr %.0116, null
+  %.not126 = icmp eq ptr %.0118, null
   br i1 %.not126, label %353, label %328
 
 328:                                              ; preds = %Abc_Clock.exit151
@@ -1951,9 +1951,9 @@ Abc_Clock.exit151:                                ; preds = %316, %319
   br i1 %.not127, label %349, label %345
 
 345:                                              ; preds = %328
-  %346 = getelementptr i8, ptr %.0116, i64 20
-  %.0116.val = load i32, ptr %346, align 4
-  %347 = lshr i32 %.0116.val, 12
+  %346 = getelementptr i8, ptr %.0118, i64 20
+  %.0118.val = load i32, ptr %346, align 4
+  %347 = lshr i32 %.0118.val, 12
   %348 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %337, i32 noundef %347, i32 noundef %13)
   br label %349
 
@@ -1961,7 +1961,7 @@ Abc_Clock.exit151:                                ; preds = %316, %319
   %350 = load ptr, ptr %11, align 8
   %351 = getelementptr inbounds i8, ptr %0, i64 8240064
   %352 = load ptr, ptr %351, align 8
-  call void @Abc_NtkUpdate(ptr noundef %350, ptr noundef nonnull %.0116, ptr noundef %352) #16
+  call void @Abc_NtkUpdate(ptr noundef %350, ptr noundef nonnull %.0118, ptr noundef %352) #16
   br label %.loopexit
 
 353:                                              ; preds = %Abc_Clock.exit151, %._crit_edge167
@@ -2182,9 +2182,9 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
 
 94:                                               ; preds = %217, %86
   %.not210 = phi i1 [ %93, %86 ], [ false, %217 ]
-  %.0187 = phi i32 [ 1, %86 ], [ %218, %217 ]
-  %.0186 = phi ptr [ null, %86 ], [ %.1, %217 ]
-  %.0185 = phi i32 [ %87, %86 ], [ %.val243, %217 ]
+  %.0188 = phi ptr [ null, %86 ], [ %.1189, %217 ]
+  %.0185 = phi i32 [ 1, %86 ], [ %218, %217 ]
+  %.0 = phi i32 [ %87, %86 ], [ %.val243, %217 ]
   %.val247.pre300 = load ptr, ptr %89, align 8
   br i1 %.not210, label %Vec_VecExpand.exit, label %95
 
@@ -2273,12 +2273,12 @@ Vec_VecExpand.exit:                               ; preds = %._crit_edge.i, %95,
 126:                                              ; preds = %123, %Vec_VecExpand.exit
   %.val284 = phi i32 [ %.val247.val, %Vec_VecExpand.exit ], [ %.val284.pre, %123 ]
   %127 = phi ptr [ %.val247, %Vec_VecExpand.exit ], [ %.pre302, %123 ]
-  %.1 = phi ptr [ %.0186, %Vec_VecExpand.exit ], [ %125, %123 ]
+  %.1189 = phi ptr [ %.0188, %Vec_VecExpand.exit ], [ %125, %123 ]
   %128 = icmp sgt i32 %.val284, 0
   br i1 %128, label %.lr.ph288, label %.critedge
 
 .lr.ph288:                                        ; preds = %126
-  %.not.i = icmp eq ptr %.1, null
+  %.not.i = icmp eq ptr %.1189, null
   %129 = sext i32 %.val247.val to i64
   br label %130
 
@@ -2336,14 +2336,14 @@ Vec_VecExpand.exit:                               ; preds = %._crit_edge.i, %95,
   br i1 %.not.i, label %159, label %155
 
 155:                                              ; preds = %154
-  %156 = load i32, ptr %.1, align 4
+  %156 = load i32, ptr %.1189, align 4
   %157 = sext i32 %156 to i64
   %158 = icmp slt i64 %indvars.iv, %157
   br i1 %158, label %Extra_ProgressBarUpdate.exit, label %159
 
 159:                                              ; preds = %155, %154
   %160 = trunc nuw nsw i64 %indvars.iv to i32
-  call void @Extra_ProgressBarUpdate_int(ptr noundef %.1, i32 noundef %160, ptr noundef null) #16
+  call void @Extra_ProgressBarUpdate_int(ptr noundef %.1189, i32 noundef %160, ptr noundef null) #16
   br label %Extra_ProgressBarUpdate.exit
 
 Extra_ProgressBarUpdate.exit:                     ; preds = %159, %155, %152
@@ -2430,12 +2430,12 @@ Lpk_NodeHasChanged.exit.thread:                   ; preds = %179, %.preheader.i,
   br i1 %.not220, label %202, label %203
 
 202:                                              ; preds = %.critedge
-  call void @Extra_ProgressBarStop(ptr noundef %.1) #16
+  call void @Extra_ProgressBarStop(ptr noundef %.1189) #16
   br label %203
 
 203:                                              ; preds = %202, %.critedge
   %.val243 = load i32, ptr %59, align 4
-  %204 = sub nsw i32 %.0185, %.val243
+  %204 = sub nsw i32 %.0, %.val243
   %205 = sitofp i32 %204 to double
   %206 = fmul double %205, 1.000000e+02
   %207 = load i32, ptr %60, align 8
@@ -2457,7 +2457,7 @@ Lpk_NodeHasChanged.exit.thread:                   ; preds = %179, %.preheader.i,
   br i1 %.not222, label %217, label %219
 
 217:                                              ; preds = %215
-  %218 = add nuw nsw i32 %.0187, 1
+  %218 = add nuw nsw i32 %.0185, 1
   br label %94
 
 219:                                              ; preds = %215, %211, %203
@@ -2507,7 +2507,7 @@ Lpk_NodeHasChanged.exit.thread:                   ; preds = %179, %.preheader.i,
   %255 = load i32, ptr %254, align 4
   %256 = getelementptr inbounds i8, ptr %57, i64 8241808
   %257 = load i32, ptr %256, align 8
-  %258 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %247, i32 noundef %249, i32 noundef %251, i32 noundef %253, i32 noundef %255, i32 noundef %.0187, i32 noundef %257)
+  %258 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %247, i32 noundef %249, i32 noundef %251, i32 noundef %253, i32 noundef %255, i32 noundef %.0185, i32 noundef %257)
   %259 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14)
   %260 = load i32, ptr %35, align 4
   %.not224290 = icmp slt i32 %260, 3
@@ -2725,8 +2725,8 @@ Abc_Clock.exit262:                                ; preds = %._crit_edge294, %27
   br label %400
 
 400:                                              ; preds = %397, %399, %50
-  %.0 = phi i32 [ 0, %399 ], [ 0, %50 ], [ 1, %397 ]
-  ret i32 %.0
+  %.0187 = phi i32 [ 0, %399 ], [ 0, %50 ], [ 1, %397 ]
+  ret i32 %.0187
 }
 
 declare i32 @Abc_NtkSweep(ptr noundef, i32 noundef) local_unnamed_addr #1

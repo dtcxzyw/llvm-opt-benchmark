@@ -526,38 +526,38 @@ define noundef zeroext i1 @_ZN5mem_t10load_storeEmmPhb(ptr noundef nonnull align
   br i1 %4, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.02237.us = phi i64 [ %17, %.lr.ph.split.us ], [ %1, %.lr.ph ]
-  %.02336.us = phi ptr [ %18, %.lr.ph.split.us ], [ %3, %.lr.ph ]
-  %.02435.us = phi i64 [ %19, %.lr.ph.split.us ], [ %2, %.lr.ph ]
-  %11 = and i64 %.02237.us, 4095
+  %.02237.us = phi ptr [ %18, %.lr.ph.split.us ], [ %3, %.lr.ph ]
+  %.02336.us = phi i64 [ %19, %.lr.ph.split.us ], [ %2, %.lr.ph ]
+  %.02435.us = phi i64 [ %17, %.lr.ph.split.us ], [ %1, %.lr.ph ]
+  %11 = and i64 %.02435.us, 4095
   %12 = sub nuw nsw i64 4096, %11
-  %.sroa.speculated.us = tail call i64 @llvm.umin.i64(i64 %.02435.us, i64 %12)
+  %.sroa.speculated.us = tail call i64 @llvm.umin.i64(i64 %.02336.us, i64 %12)
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %.02237.us)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %.02336.us, i64 %.sroa.speculated.us, i1 false)
-  %17 = add i64 %.sroa.speculated.us, %.02237.us
-  %18 = getelementptr inbounds i8, ptr %.02336.us, i64 %.sroa.speculated.us
-  %19 = sub i64 %.02435.us, %.sroa.speculated.us
+  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %.02435.us)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %.02237.us, i64 %.sroa.speculated.us, i1 false)
+  %17 = add i64 %.sroa.speculated.us, %.02435.us
+  %18 = getelementptr inbounds i8, ptr %.02237.us, i64 %.sroa.speculated.us
+  %19 = sub i64 %.02336.us, %.sroa.speculated.us
   %.not.us = icmp eq i64 %19, 0
   br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.02237 = phi i64 [ %26, %.lr.ph.split ], [ %1, %.lr.ph ]
-  %.02336 = phi ptr [ %27, %.lr.ph.split ], [ %3, %.lr.ph ]
-  %.02435 = phi i64 [ %28, %.lr.ph.split ], [ %2, %.lr.ph ]
-  %20 = and i64 %.02237, 4095
+  %.02237 = phi ptr [ %27, %.lr.ph.split ], [ %3, %.lr.ph ]
+  %.02336 = phi i64 [ %28, %.lr.ph.split ], [ %2, %.lr.ph ]
+  %.02435 = phi i64 [ %26, %.lr.ph.split ], [ %1, %.lr.ph ]
+  %20 = and i64 %.02435, 4095
   %21 = sub nuw nsw i64 4096, %20
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %.02435, i64 %21)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %.02336, i64 %21)
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 40
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %.02237)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02336, ptr align 1 %25, i64 %.sroa.speculated, i1 false)
-  %26 = add i64 %.sroa.speculated, %.02237
-  %27 = getelementptr inbounds i8, ptr %.02336, i64 %.sroa.speculated
-  %28 = sub i64 %.02435, %.sroa.speculated
+  %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %.02435)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02237, ptr align 1 %25, i64 %.sroa.speculated, i1 false)
+  %26 = add i64 %.sroa.speculated, %.02435
+  %27 = getelementptr inbounds i8, ptr %.02237, i64 %.sroa.speculated
+  %28 = sub i64 %.02336, %.sroa.speculated
   %.not = icmp eq i64 %28, 0
   br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !8
 
@@ -854,20 +854,20 @@ define linkonce_odr noundef zeroext i1 @_ZN5mem_t4loadEmmPh(ptr noundef nonnull 
   br i1 %or.cond.not38.i, label %.lr.ph.split.i, label %_ZN5mem_t10load_storeEmmPhb.exit
 
 .lr.ph.split.i:                                   ; preds = %4, %.lr.ph.split.i
-  %.02237.i = phi i64 [ %16, %.lr.ph.split.i ], [ %1, %4 ]
-  %.02336.i = phi ptr [ %17, %.lr.ph.split.i ], [ %3, %4 ]
-  %.02435.i = phi i64 [ %18, %.lr.ph.split.i ], [ %2, %4 ]
-  %10 = and i64 %.02237.i, 4095
+  %.02237.i = phi ptr [ %17, %.lr.ph.split.i ], [ %3, %4 ]
+  %.02336.i = phi i64 [ %18, %.lr.ph.split.i ], [ %2, %4 ]
+  %.02435.i = phi i64 [ %16, %.lr.ph.split.i ], [ %1, %4 ]
+  %10 = and i64 %.02435.i, 4095
   %11 = sub nuw nsw i64 4096, %10
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %.02435.i, i64 %11)
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %.02336.i, i64 %11)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %.02237.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02336.i, ptr align 1 %15, i64 %.sroa.speculated.i, i1 false)
-  %16 = add i64 %.sroa.speculated.i, %.02237.i
-  %17 = getelementptr inbounds i8, ptr %.02336.i, i64 %.sroa.speculated.i
-  %18 = sub i64 %.02435.i, %.sroa.speculated.i
+  %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %.02435.i)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02237.i, ptr align 1 %15, i64 %.sroa.speculated.i, i1 false)
+  %16 = add i64 %.sroa.speculated.i, %.02435.i
+  %17 = getelementptr inbounds i8, ptr %.02237.i, i64 %.sroa.speculated.i
+  %18 = sub i64 %.02336.i, %.sroa.speculated.i
   %.not.i = icmp eq i64 %18, 0
   br i1 %.not.i, label %_ZN5mem_t10load_storeEmmPhb.exit, label %.lr.ph.split.i, !llvm.loop !8
 
@@ -888,20 +888,20 @@ define linkonce_odr noundef zeroext i1 @_ZN5mem_t5storeEmmPKh(ptr noundef nonnul
   br i1 %or.cond.not38.i, label %.lr.ph.split.us.i, label %_ZN5mem_t10load_storeEmmPhb.exit
 
 .lr.ph.split.us.i:                                ; preds = %4, %.lr.ph.split.us.i
-  %.02237.us.i = phi i64 [ %16, %.lr.ph.split.us.i ], [ %1, %4 ]
-  %.02336.us.i = phi ptr [ %17, %.lr.ph.split.us.i ], [ %3, %4 ]
-  %.02435.us.i = phi i64 [ %18, %.lr.ph.split.us.i ], [ %2, %4 ]
-  %10 = and i64 %.02237.us.i, 4095
+  %.02237.us.i = phi ptr [ %17, %.lr.ph.split.us.i ], [ %3, %4 ]
+  %.02336.us.i = phi i64 [ %18, %.lr.ph.split.us.i ], [ %2, %4 ]
+  %.02435.us.i = phi i64 [ %16, %.lr.ph.split.us.i ], [ %1, %4 ]
+  %10 = and i64 %.02435.us.i, 4095
   %11 = sub nuw nsw i64 4096, %10
-  %.sroa.speculated.us.i = tail call i64 @llvm.umin.i64(i64 %.02435.us.i, i64 %11)
+  %.sroa.speculated.us.i = tail call i64 @llvm.umin.i64(i64 %.02336.us.i, i64 %11)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %.02237.us.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %.02336.us.i, i64 %.sroa.speculated.us.i, i1 false)
-  %16 = add i64 %.sroa.speculated.us.i, %.02237.us.i
-  %17 = getelementptr inbounds i8, ptr %.02336.us.i, i64 %.sroa.speculated.us.i
-  %18 = sub i64 %.02435.us.i, %.sroa.speculated.us.i
+  %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %.02435.us.i)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %.02237.us.i, i64 %.sroa.speculated.us.i, i1 false)
+  %16 = add i64 %.sroa.speculated.us.i, %.02435.us.i
+  %17 = getelementptr inbounds i8, ptr %.02237.us.i, i64 %.sroa.speculated.us.i
+  %18 = sub i64 %.02336.us.i, %.sroa.speculated.us.i
   %.not.us.i = icmp eq i64 %18, 0
   br i1 %.not.us.i, label %_ZN5mem_t10load_storeEmmPhb.exit, label %.lr.ph.split.us.i, !llvm.loop !8
 

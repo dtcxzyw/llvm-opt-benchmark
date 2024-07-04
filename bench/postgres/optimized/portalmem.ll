@@ -125,8 +125,8 @@ define dso_local ptr @PortalGetPrimaryStmt(ptr nocapture noundef readonly %0) lo
   br i1 %15, label %.thread, label %9
 
 .thread:                                          ; preds = %10, %9, %.lr.ph, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %.lr.ph ], [ null, %9 ], [ %12, %10 ]
-  ret ptr %.0
+  %.09 = phi ptr [ null, %1 ], [ null, %.lr.ph ], [ null, %9 ], [ %12, %10 ]
+  ret ptr %.09
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1464,13 +1464,13 @@ define dso_local void @ForgetPortalSnapshots() local_unnamed_addr #0 {
   br i1 %.not12, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %12, %0
-  %.0.lcssa = phi i32 [ 0, %0 ], [ %.1, %12 ]
+  %.08.lcssa = phi i32 [ 0, %0 ], [ %.1, %12 ]
   %4 = call zeroext i1 @ActiveSnapshotSet() #7
   br i1 %4, label %.lr.ph15, label %._crit_edge
 
 .lr.ph:                                           ; preds = %0, %12
   %5 = phi ptr [ %13, %12 ], [ %3, %0 ]
-  %.013 = phi i32 [ %.1, %12 ], [ 0, %0 ]
+  %.0813 = phi i32 [ %.1, %12 ], [ 0, %0 ]
   %6 = getelementptr inbounds i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 168
@@ -1480,31 +1480,31 @@ define dso_local void @ForgetPortalSnapshots() local_unnamed_addr #0 {
 
 10:                                               ; preds = %.lr.ph
   store ptr null, ptr %8, align 8
-  %11 = add i32 %.013, 1
+  %11 = add i32 %.0813, 1
   br label %12
 
 12:                                               ; preds = %10, %.lr.ph
-  %.1 = phi i32 [ %11, %10 ], [ %.013, %.lr.ph ]
+  %.1 = phi i32 [ %11, %10 ], [ %.0813, %.lr.ph ]
   %13 = call ptr @hash_seq_search(ptr noundef nonnull %1) #7
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !17
 
 .lr.ph15:                                         ; preds = %.preheader, %.lr.ph15
-  %.0814 = phi i32 [ %14, %.lr.ph15 ], [ 0, %.preheader ]
+  %.014 = phi i32 [ %14, %.lr.ph15 ], [ 0, %.preheader ]
   call void @PopActiveSnapshot() #7
-  %14 = add i32 %.0814, 1
+  %14 = add i32 %.014, 1
   %15 = call zeroext i1 @ActiveSnapshotSet() #7
   br i1 %15, label %.lr.ph15, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph15, %.preheader
-  %.08.lcssa = phi i32 [ 0, %.preheader ], [ %14, %.lr.ph15 ]
-  %.not10 = icmp eq i32 %.0.lcssa, %.08.lcssa
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %14, %.lr.ph15 ]
+  %.not10 = icmp eq i32 %.08.lcssa, %.0.lcssa
   br i1 %.not10, label %19, label %16
 
 16:                                               ; preds = %._crit_edge
   %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %17)
-  %18 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22, i32 noundef %.0.lcssa, i32 noundef %.08.lcssa) #7
+  %18 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22, i32 noundef %.08.lcssa, i32 noundef %.0.lcssa) #7
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1290, ptr noundef nonnull @__func__.ForgetPortalSnapshots) #7
   unreachable
 

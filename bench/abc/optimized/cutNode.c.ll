@@ -467,27 +467,27 @@ Abc_Clock.exit82:                                 ; preds = %Vec_PtrFillExtra.ex
   br label %223
 
 223:                                              ; preds = %220, %217, %211
-  %.060.i = phi ptr [ %209, %211 ], [ %219, %217 ], [ %209, %220 ]
-  %.059.i = phi ptr [ %207, %211 ], [ %207, %217 ], [ %222, %220 ]
+  %.062.i = phi ptr [ %207, %211 ], [ %207, %217 ], [ %222, %220 ]
+  %.061.i = phi ptr [ %209, %211 ], [ %219, %217 ], [ %209, %220 ]
   %.0.i83 = phi i32 [ %212, %211 ], [ %202, %217 ], [ %205, %220 ]
-  %224 = load i32, ptr %.059.i, align 8
+  %224 = load i32, ptr %.062.i, align 8
   %225 = lshr i32 %224, 28
-  %226 = load i32, ptr %.060.i, align 8
+  %226 = load i32, ptr %.061.i, align 8
   %227 = lshr i32 %226, 28
   %228 = icmp ult i32 %225, %227
   br i1 %228, label %229, label %231
 
 229:                                              ; preds = %223
-  %230 = call ptr @Cut_CutMergeTwo(ptr noundef nonnull %0, ptr noundef nonnull %.060.i, ptr noundef nonnull %.059.i) #10
+  %230 = call ptr @Cut_CutMergeTwo(ptr noundef nonnull %0, ptr noundef nonnull %.061.i, ptr noundef nonnull %.062.i) #10
   br label %233
 
 231:                                              ; preds = %223
-  %232 = call ptr @Cut_CutMergeTwo(ptr noundef nonnull %0, ptr noundef nonnull %.059.i, ptr noundef nonnull %.060.i) #10
+  %232 = call ptr @Cut_CutMergeTwo(ptr noundef nonnull %0, ptr noundef nonnull %.062.i, ptr noundef nonnull %.061.i) #10
   br label %233
 
 233:                                              ; preds = %231, %229
-  %.061.i = phi ptr [ %230, %229 ], [ %232, %231 ]
-  %234 = icmp eq ptr %.061.i, null
+  %.059.i = phi ptr [ %230, %229 ], [ %232, %231 ]
+  %234 = icmp eq ptr %.059.i, null
   br i1 %234, label %235, label %245
 
 235:                                              ; preds = %233
@@ -506,7 +506,7 @@ Abc_Clock.exit82:                                 ; preds = %Vec_PtrFillExtra.ex
   br label %245
 
 245:                                              ; preds = %235, %233
-  %.162.i = phi ptr [ %237, %235 ], [ %.061.i, %233 ]
+  %.160.i = phi ptr [ %237, %235 ], [ %.059.i, %233 ]
   %.1.i84 = phi i32 [ %236, %235 ], [ %.0.i83, %233 ]
   %246 = load ptr, ptr %197, align 8
   %247 = getelementptr i8, ptr %246, i64 8
@@ -519,7 +519,7 @@ Abc_Clock.exit82:                                 ; preds = %Vec_PtrFillExtra.ex
   %252 = getelementptr i8, ptr %251, i64 8
   %.val74.i = load ptr, ptr %252, align 8
   %253 = getelementptr inbounds ptr, ptr %.val74.i, i64 %248
-  store ptr %.162.i, ptr %253, align 8
+  store ptr %.160.i, ptr %253, align 8
   %254 = getelementptr inbounds i8, ptr %0, i64 224
   %255 = load i32, ptr %254, align 8
   %256 = icmp slt i32 %255, %.1.i84
@@ -629,7 +629,7 @@ define void @Cut_NodeDoComputeCuts(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %53
 
 53:                                               ; preds = %50, %35
-  %.0111 = phi ptr [ %52, %50 ], [ null, %35 ]
+  %.0110 = phi ptr [ %52, %50 ], [ null, %35 ]
   %54 = and i32 %8, 2
   %.not120 = icmp eq i32 %54, 0
   br i1 %.not120, label %58, label %55
@@ -641,7 +641,7 @@ define void @Cut_NodeDoComputeCuts(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %58
 
 58:                                               ; preds = %55, %53
-  %.0110 = phi ptr [ %57, %55 ], [ null, %53 ]
+  %.0109 = phi ptr [ %57, %55 ], [ null, %53 ]
   br label %59
 
 59:                                               ; preds = %58, %63
@@ -662,68 +662,68 @@ define void @Cut_NodeDoComputeCuts(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %67
 
 67:                                               ; preds = %66, %71
-  %.0108151 = phi ptr [ %6, %66 ], [ %73, %71 ]
-  %68 = load i32, ptr %.0108151, align 8
+  %.0116151 = phi ptr [ %6, %66 ], [ %73, %71 ]
+  %68 = load i32, ptr %.0116151, align 8
   %69 = lshr i32 %68, 28
   %70 = icmp eq i32 %69, %.fr178
   br i1 %70, label %74, label %71
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %.0108151, i64 16
+  %72 = getelementptr inbounds i8, ptr %.0116151, i64 16
   %73 = load ptr, ptr %72, align 8
   %.not122 = icmp eq ptr %73, null
   br i1 %.not122, label %74, label %67, !llvm.loop !11
 
 74:                                               ; preds = %67, %71
-  %.0108.lcssa = phi ptr [ %.0108151, %67 ], [ null, %71 ]
+  %.0116.lcssa = phi ptr [ %.0116151, %67 ], [ null, %71 ]
   %.not123154 = icmp eq ptr %.0.lcssa, %5
   br i1 %.not123154, label %.preheader144, label %.preheader148.lr.ph
 
 .preheader148.lr.ph:                              ; preds = %74
-  %.not137152 = icmp eq ptr %.0108.lcssa, %6
+  %.not137152 = icmp eq ptr %.0116.lcssa, %6
   br i1 %.not137152, label %.preheader145.lr.ph, label %.preheader148
 
 .preheader148:                                    ; preds = %.preheader148.lr.ph, %._crit_edge
-  %.0113155 = phi ptr [ %81, %._crit_edge ], [ %5, %.preheader148.lr.ph ]
+  %.0112155 = phi ptr [ %81, %._crit_edge ], [ %5, %.preheader148.lr.ph ]
   br label %75
 
 .preheader147:                                    ; preds = %._crit_edge
-  %.not134156 = icmp eq ptr %.0108.lcssa, null
+  %.not134156 = icmp eq ptr %.0116.lcssa, null
   %or.cond196 = or i1 %.not123154, %.not134156
   br i1 %or.cond196, label %.preheader144, label %.preheader145.preheader
 
 .preheader145.lr.ph:                              ; preds = %.preheader148.lr.ph
-  %.not134156.old = icmp eq ptr %.0108.lcssa, null
+  %.not134156.old = icmp eq ptr %.0116.lcssa, null
   br i1 %.not134156.old, label %.preheader144, label %.preheader145.preheader
 
 .preheader145.preheader:                          ; preds = %.preheader147, %.preheader145.lr.ph
   br label %.preheader145
 
 75:                                               ; preds = %.preheader148, %77
-  %.0112153 = phi ptr [ %6, %.preheader148 ], [ %79, %77 ]
-  %76 = tail call fastcc i32 @Cut_CutProcessTwo(ptr noundef nonnull %0, ptr noundef %.0113155, ptr noundef %.0112153, ptr noundef %1)
+  %.0111153 = phi ptr [ %6, %.preheader148 ], [ %79, %77 ]
+  %76 = tail call fastcc i32 @Cut_CutProcessTwo(ptr noundef nonnull %0, ptr noundef %.0112155, ptr noundef %.0111153, ptr noundef %1)
   %.not138 = icmp eq i32 %76, 0
   br i1 %.not138, label %77, label %.loopexit140
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %.0112153, i64 16
+  %78 = getelementptr inbounds i8, ptr %.0111153, i64 16
   %79 = load ptr, ptr %78, align 8
-  %.not137 = icmp eq ptr %79, %.0108.lcssa
+  %.not137 = icmp eq ptr %79, %.0116.lcssa
   br i1 %.not137, label %._crit_edge, label %75, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %.0113155, i64 16
+  %80 = getelementptr inbounds i8, ptr %.0112155, i64 16
   %81 = load ptr, ptr %80, align 8
   %.not123 = icmp eq ptr %81, %.0.lcssa
   br i1 %.not123, label %.preheader147, label %.preheader148, !llvm.loop !13
 
 .preheader145:                                    ; preds = %.preheader145.preheader, %._crit_edge158
-  %.1114160 = phi ptr [ %94, %._crit_edge158 ], [ %5, %.preheader145.preheader ]
-  %82 = getelementptr inbounds i8, ptr %.1114160, i64 4
+  %.1113160 = phi ptr [ %94, %._crit_edge158 ], [ %5, %.preheader145.preheader ]
+  %82 = getelementptr inbounds i8, ptr %.1113160, i64 4
   br label %83
 
 .preheader144:                                    ; preds = %._crit_edge158, %74, %.preheader145.lr.ph, %.preheader147
-  %.not125164 = icmp eq ptr %.0108.lcssa, %6
+  %.not125164 = icmp eq ptr %.0116.lcssa, %6
   br i1 %.not125164, label %.preheader141, label %.preheader142.lr.ph
 
 .preheader142.lr.ph:                              ; preds = %.preheader144
@@ -731,7 +731,7 @@ define void @Cut_NodeDoComputeCuts(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not131161, label %._crit_edge174, label %.preheader142
 
 83:                                               ; preds = %.preheader145, %90
-  %.1157 = phi ptr [ %.0108.lcssa, %.preheader145 ], [ %92, %90 ]
+  %.1157 = phi ptr [ %.0116.lcssa, %.preheader145 ], [ %92, %90 ]
   %84 = load i32, ptr %82, align 4
   %85 = getelementptr inbounds i8, ptr %.1157, i64 4
   %86 = load i32, ptr %85, align 4
@@ -740,7 +740,7 @@ define void @Cut_NodeDoComputeCuts(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not135, label %88, label %90
 
 88:                                               ; preds = %83
-  %89 = tail call fastcc i32 @Cut_CutProcessTwo(ptr noundef nonnull %0, ptr noundef nonnull %.1114160, ptr noundef nonnull %.1157, ptr noundef %1)
+  %89 = tail call fastcc i32 @Cut_CutProcessTwo(ptr noundef nonnull %0, ptr noundef nonnull %.1113160, ptr noundef nonnull %.1157, ptr noundef %1)
   %.not136 = icmp eq i32 %89, 0
   br i1 %.not136, label %90, label %.loopexit140
 
@@ -751,7 +751,7 @@ define void @Cut_NodeDoComputeCuts(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not134, label %._crit_edge158, label %83, !llvm.loop !14
 
 ._crit_edge158:                                   ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %.1114160, i64 16
+  %93 = getelementptr inbounds i8, ptr %.1113160, i64 16
   %94 = load ptr, ptr %93, align 8
   %.not124 = icmp eq ptr %94, %.0.lcssa
   br i1 %.not124, label %.preheader144, label %.preheader145, !llvm.loop !15
@@ -763,7 +763,7 @@ define void @Cut_NodeDoComputeCuts(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 .preheader141:                                    ; preds = %._crit_edge163, %.preheader144
   %.not126171 = icmp eq ptr %.0.lcssa, null
-  %.not127167 = icmp eq ptr %.0108.lcssa, null
+  %.not127167 = icmp eq ptr %.0116.lcssa, null
   %or.cond197 = or i1 %.not126171, %.not127167
   br i1 %or.cond197, label %._crit_edge174, label %.preheader139.lr.ph.split
 
@@ -776,13 +776,13 @@ define void @Cut_NodeDoComputeCuts(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %.preheader139.us175
 
 .preheader139.us175:                              ; preds = %.preheader139.us175.preheader, %._crit_edge170.split.us.us
-  %.3116172.us176 = phi ptr [ %114, %._crit_edge170.split.us.us ], [ %.0.lcssa, %.preheader139.us175.preheader ]
-  %97 = getelementptr inbounds i8, ptr %.3116172.us176, i64 4
-  %98 = getelementptr inbounds i8, ptr %.3116172.us176, i64 24
+  %.3115172.us176 = phi ptr [ %114, %._crit_edge170.split.us.us ], [ %.0.lcssa, %.preheader139.us175.preheader ]
+  %97 = getelementptr inbounds i8, ptr %.3115172.us176, i64 4
+  %98 = getelementptr inbounds i8, ptr %.3115172.us176, i64 24
   br label %99
 
 99:                                               ; preds = %.loopexit.us.us, %.preheader139.us175
-  %.3168.us.us = phi ptr [ %.0108.lcssa, %.preheader139.us175 ], [ %110, %.loopexit.us.us ]
+  %.3168.us.us = phi ptr [ %.0116.lcssa, %.preheader139.us175 ], [ %110, %.loopexit.us.us ]
   %100 = load i32, ptr %97, align 4
   %101 = getelementptr inbounds i8, ptr %.3168.us.us, i64 4
   %102 = load i32, ptr %101, align 4
@@ -814,19 +814,19 @@ define void @Cut_NodeDoComputeCuts(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %104
 
 ..critedge_crit_edge.us.us:                       ; preds = %103
-  %112 = tail call fastcc i32 @Cut_CutProcessTwo(ptr noundef nonnull %0, ptr noundef nonnull %.3116172.us176, ptr noundef nonnull %.3168.us.us, ptr noundef %1)
+  %112 = tail call fastcc i32 @Cut_CutProcessTwo(ptr noundef nonnull %0, ptr noundef nonnull %.3115172.us176, ptr noundef nonnull %.3168.us.us, ptr noundef %1)
   %.not130.us.us = icmp eq i32 %112, 0
   br i1 %.not130.us.us, label %.loopexit.us.us, label %.loopexit140
 
 ._crit_edge170.split.us.us:                       ; preds = %.loopexit.us.us
-  %113 = getelementptr inbounds i8, ptr %.3116172.us176, i64 16
+  %113 = getelementptr inbounds i8, ptr %.3115172.us176, i64 16
   %114 = load ptr, ptr %113, align 8
   %.not126.us177 = icmp eq ptr %114, null
   br i1 %.not126.us177, label %._crit_edge174, label %.preheader139.us175, !llvm.loop !18
 
 115:                                              ; preds = %.preheader142, %122
-  %.2115162 = phi ptr [ %.0.lcssa, %.preheader142 ], [ %124, %122 ]
-  %116 = getelementptr inbounds i8, ptr %.2115162, i64 4
+  %.2114162 = phi ptr [ %.0.lcssa, %.preheader142 ], [ %124, %122 ]
+  %116 = getelementptr inbounds i8, ptr %.2114162, i64 4
   %117 = load i32, ptr %116, align 4
   %118 = load i32, ptr %95, align 4
   %119 = and i32 %118, %117
@@ -834,12 +834,12 @@ define void @Cut_NodeDoComputeCuts(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not132, label %120, label %122
 
 120:                                              ; preds = %115
-  %121 = tail call fastcc i32 @Cut_CutProcessTwo(ptr noundef nonnull %0, ptr noundef nonnull %.2115162, ptr noundef nonnull %.2165, ptr noundef %1)
+  %121 = tail call fastcc i32 @Cut_CutProcessTwo(ptr noundef nonnull %0, ptr noundef nonnull %.2114162, ptr noundef nonnull %.2165, ptr noundef %1)
   %.not133 = icmp eq i32 %121, 0
   br i1 %.not133, label %122, label %.loopexit140
 
 122:                                              ; preds = %120, %115
-  %123 = getelementptr inbounds i8, ptr %.2115162, i64 16
+  %123 = getelementptr inbounds i8, ptr %.2114162, i64 16
   %124 = load ptr, ptr %123, align 8
   %.not131 = icmp eq ptr %124, null
   br i1 %.not131, label %._crit_edge163, label %115, !llvm.loop !19
@@ -847,16 +847,16 @@ define void @Cut_NodeDoComputeCuts(ptr noundef %0, ptr noundef %1, i32 noundef %
 ._crit_edge163:                                   ; preds = %122
   %125 = getelementptr inbounds i8, ptr %.2165, i64 16
   %126 = load ptr, ptr %125, align 8
-  %.not125 = icmp eq ptr %126, %.0108.lcssa
+  %.not125 = icmp eq ptr %126, %.0116.lcssa
   br i1 %.not125, label %.preheader141, label %.preheader142, !llvm.loop !20
 
 .preheader139:                                    ; preds = %.preheader139.lr.ph.split, %._crit_edge170.split
-  %.3116172 = phi ptr [ %137, %._crit_edge170.split ], [ %.0.lcssa, %.preheader139.lr.ph.split ]
-  %127 = getelementptr inbounds i8, ptr %.3116172, i64 4
+  %.3115172 = phi ptr [ %137, %._crit_edge170.split ], [ %.0.lcssa, %.preheader139.lr.ph.split ]
+  %127 = getelementptr inbounds i8, ptr %.3115172, i64 4
   br label %128
 
 128:                                              ; preds = %.preheader139, %133
-  %.3168 = phi ptr [ %.0108.lcssa, %.preheader139 ], [ %135, %133 ]
+  %.3168 = phi ptr [ %.0116.lcssa, %.preheader139 ], [ %135, %133 ]
   %129 = load i32, ptr %127, align 4
   %130 = getelementptr inbounds i8, ptr %.3168, i64 4
   %131 = load i32, ptr %130, align 4
@@ -864,7 +864,7 @@ define void @Cut_NodeDoComputeCuts(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not128, label %.preheader, label %133
 
 .preheader:                                       ; preds = %128
-  %132 = tail call fastcc i32 @Cut_CutProcessTwo(ptr noundef nonnull %0, ptr noundef nonnull %.3116172, ptr noundef nonnull %.3168, ptr noundef %1)
+  %132 = tail call fastcc i32 @Cut_CutProcessTwo(ptr noundef nonnull %0, ptr noundef nonnull %.3115172, ptr noundef nonnull %.3168, ptr noundef %1)
   %.not130 = icmp eq i32 %132, 0
   br i1 %.not130, label %133, label %.loopexit140
 
@@ -875,7 +875,7 @@ define void @Cut_NodeDoComputeCuts(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not127, label %._crit_edge170.split, label %128, !llvm.loop !17
 
 ._crit_edge170.split:                             ; preds = %133
-  %136 = getelementptr inbounds i8, ptr %.3116172, i64 16
+  %136 = getelementptr inbounds i8, ptr %.3115172, i64 16
   %137 = load ptr, ptr %136, align 8
   %.not126 = icmp eq ptr %137, null
   br i1 %.not126, label %._crit_edge174, label %.preheader139, !llvm.loop !18
@@ -898,7 +898,7 @@ define void @Cut_NodeDoComputeCuts(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 145:                                              ; preds = %.loopexit140
   %146 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %.0111, ptr %146, align 8
+  store ptr %.0110, ptr %146, align 8
   br label %147
 
 147:                                              ; preds = %145, %.loopexit140
@@ -906,7 +906,7 @@ define void @Cut_NodeDoComputeCuts(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 148:                                              ; preds = %147
   %149 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %.0110, ptr %149, align 8
+  store ptr %.0109, ptr %149, align 8
   br label %150
 
 150:                                              ; preds = %26, %29, %148, %147
@@ -1224,7 +1224,7 @@ Cut_ListStart.exit:                               ; preds = %16
   br i1 %26, label %.lr.ph220, label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %.loopexit204, %Cut_ListStart.exit
-  %.0147.lcssa = phi ptr [ null, %Cut_ListStart.exit ], [ %.1148, %.loopexit204 ]
+  %.0144.lcssa = phi ptr [ null, %Cut_ListStart.exit ], [ %.1145, %.loopexit204 ]
   %27 = load ptr, ptr %22, align 8
   %28 = getelementptr i8, ptr %27, i64 4
   %.val190225 = load i32, ptr %28, align 4
@@ -1234,7 +1234,7 @@ Cut_ListStart.exit:                               ; preds = %16
 .lr.ph220:                                        ; preds = %Cut_ListStart.exit, %.loopexit204
   %indvars.iv269 = phi i64 [ %indvars.iv.next270, %.loopexit204 ], [ 1, %Cut_ListStart.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit204 ], [ 0, %Cut_ListStart.exit ]
-  %.0147217 = phi ptr [ %.1148, %.loopexit204 ], [ null, %Cut_ListStart.exit ]
+  %.0144217 = phi ptr [ %.1145, %.loopexit204 ], [ null, %Cut_ListStart.exit ]
   %.val182 = load ptr, ptr %19, align 8
   %30 = getelementptr inbounds i32, ptr %.val182, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
@@ -1265,7 +1265,7 @@ Cut_ListStart.exit:                               ; preds = %16
   br label %47
 
 47:                                               ; preds = %46, %36
-  %.1148 = phi ptr [ %32, %36 ], [ %.0147217, %46 ]
+  %.1145 = phi ptr [ %32, %36 ], [ %.0144217, %46 ]
   %.not171 = icmp eq ptr %34, null
   br i1 %.not171, label %.loopexit204, label %.lr.ph
 
@@ -1368,7 +1368,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 92:                                               ; preds = %._crit_edge, %86
   %.pre-phi = phi i32 [ %.pre290, %._crit_edge ], [ %51, %86 ]
   %93 = phi i32 [ %.pre, %._crit_edge ], [ %50, %86 ]
-  %94 = load i32, ptr %.1148, align 8
+  %94 = load i32, ptr %.1145, align 8
   %95 = xor i32 %93, %94
   %96 = shl i32 %95, 1
   %97 = and i32 %96, 8388608
@@ -1402,9 +1402,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not175, label %.preheader, label %.lr.ph246
 
 .preheader:                                       ; preds = %.lr.ph246, %115
-  %.0142247 = add nuw nsw i32 %116, 1
+  %.0247 = add nuw nsw i32 %116, 1
   %.val184248 = load i32, ptr %25, align 4
-  %117 = icmp slt i32 %.0142247, %.val184248
+  %117 = icmp slt i32 %.0247, %.val184248
   br i1 %117, label %.lr.ph250, label %.critedge2.preheader
 
 .lr.ph246:                                        ; preds = %115, %.lr.ph246
@@ -1504,7 +1504,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not163, label %151, label %192
 
 151:                                              ; preds = %149, %.lr.ph224
-  %152 = load i32, ptr %.0147.lcssa, align 8
+  %152 = load i32, ptr %.0144.lcssa, align 8
   %153 = load i32, ptr %.sink315, align 8
   %154 = xor i32 %153, %152
   %155 = shl i32 %154, 1
@@ -1540,11 +1540,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not164, label %.preheader201, label %.lr.ph232
 
 .preheader201:                                    ; preds = %.lr.ph232, %175
-  %.2144238 = add nuw nsw i32 %176, 1
+  %.2238 = add nuw nsw i32 %176, 1
   %177 = load ptr, ptr %22, align 8
   %178 = getelementptr i8, ptr %177, i64 4
   %.val191239 = load i32, ptr %178, align 4
-  %179 = icmp slt i32 %.2144238, %.val191239
+  %179 = icmp slt i32 %.2238, %.val191239
   br i1 %179, label %.lr.ph241, label %.critedge4
 
 .lr.ph232:                                        ; preds = %175, %.lr.ph232
@@ -1979,7 +1979,7 @@ Cut_ListStart.exit:                               ; preds = %18
   br label %36
 
 36:                                               ; preds = %34, %29
-  %.0189 = phi ptr [ %35, %34 ], [ %32, %29 ]
+  %.0184 = phi ptr [ %35, %34 ], [ %32, %29 ]
   %37 = getelementptr inbounds i8, ptr %0, i64 72
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 4
@@ -2021,27 +2021,27 @@ Cut_ListStart.exit:                               ; preds = %18
   br label %53
 
 53:                                               ; preds = %49, %47
-  %.0 = phi ptr [ %48, %47 ], [ %52, %49 ]
-  %54 = icmp eq ptr %.0, null
+  %.0195 = phi ptr [ %48, %47 ], [ %52, %49 ]
+  %54 = icmp eq ptr %.0195, null
   br i1 %54, label %.loopexit264, label %55
 
 55:                                               ; preds = %53
   br i1 %.not223, label %.lr.ph.preheader, label %56
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %.0, i64 16
+  %57 = getelementptr inbounds i8, ptr %.0195, i64 16
   %58 = load ptr, ptr %57, align 8
   store ptr null, ptr %57, align 8
   br i1 %46, label %59, label %69
 
 59:                                               ; preds = %56
-  %60 = load i32, ptr %.0, align 8
+  %60 = load i32, ptr %.0195, align 8
   %61 = lshr i32 %60, 28
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr inbounds [13 x ptr], ptr %17, i64 0, i64 %62
   %64 = load ptr, ptr %63, align 8
-  store ptr %.0, ptr %64, align 8
-  %65 = load i32, ptr %.0, align 8
+  store ptr %.0195, ptr %64, align 8
+  %65 = load i32, ptr %.0195, align 8
   %66 = lshr i32 %65, 28
   %67 = zext nneg i32 %66 to i64
   %68 = getelementptr inbounds [13 x ptr], ptr %17, i64 0, i64 %67
@@ -2049,7 +2049,7 @@ Cut_ListStart.exit:                               ; preds = %18
   br label %70
 
 69:                                               ; preds = %56
-  call void @Cut_CutRecycle(ptr noundef nonnull %0, ptr noundef nonnull %.0) #10
+  call void @Cut_CutRecycle(ptr noundef nonnull %0, ptr noundef nonnull %.0195) #10
   br label %70
 
 70:                                               ; preds = %59, %69
@@ -2057,7 +2057,7 @@ Cut_ListStart.exit:                               ; preds = %18
   br i1 %.not224, label %.loopexit264, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %55, %70
-  %.sink369.ph = phi ptr [ %.0, %55 ], [ %58, %70 ]
+  %.sink369.ph = phi ptr [ %.0195, %55 ], [ %58, %70 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %173
@@ -2179,7 +2179,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not232, label %127, label %173
 
 127:                                              ; preds = %115, %125, %123, %109
-  %128 = load i32, ptr %.0189, align 8
+  %128 = load i32, ptr %.0184, align 8
   %129 = load i32, ptr %.sink369, align 8
   %130 = xor i32 %129, %128
   %131 = shl i32 %130, 1
@@ -2215,9 +2215,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not233, label %.preheader, label %.lr.ph304
 
 .preheader:                                       ; preds = %.lr.ph304, %151
-  %.0184305 = add nuw nsw i32 %152, 1
+  %.0305 = add nuw nsw i32 %152, 1
   %.val242306 = load i32, ptr %40, align 4
-  %153 = icmp slt i32 %.0184305, %.val242306
+  %153 = icmp slt i32 %.0305, %.val242306
   br i1 %153, label %.lr.ph308, label %.critedge3.preheader
 
 .lr.ph304:                                        ; preds = %151, %.lr.ph304
@@ -2344,7 +2344,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not215, label %199, label %240
 
 199:                                              ; preds = %187, %197, %195, %.lr.ph282
-  %200 = load i32, ptr %.0189, align 8
+  %200 = load i32, ptr %.0184, align 8
   %201 = load i32, ptr %.sink372, align 8
   %202 = xor i32 %201, %200
   %203 = shl i32 %202, 1
@@ -2380,11 +2380,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not216, label %.preheader261, label %.lr.ph290
 
 .preheader261:                                    ; preds = %.lr.ph290, %223
-  %.2186296 = add nuw nsw i32 %224, 1
+  %.2296 = add nuw nsw i32 %224, 1
   %225 = load ptr, ptr %37, align 8
   %226 = getelementptr i8, ptr %225, i64 4
   %.val247297 = load i32, ptr %226, align 4
-  %227 = icmp slt i32 %.2186296, %.val247297
+  %227 = icmp slt i32 %.2296, %.val247297
   br i1 %227, label %.lr.ph299, label %.critedge5
 
 .lr.ph290:                                        ; preds = %223, %.lr.ph290

@@ -101,7 +101,7 @@ define hidden void @zim_Closure___invoke(ptr noundef %0, ptr noundef %1) #0 {
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %.0 = select i1 %.not, ptr null, ptr %8
+  %.041 = select i1 %.not, ptr null, ptr %8
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 134217728
@@ -115,7 +115,7 @@ define hidden void @zim_Closure___invoke(ptr noundef %0, ptr noundef %1) #0 {
 
 15:                                               ; preds = %2, %12
   %.044 = phi ptr [ %14, %12 ], [ null, %2 ]
-  %16 = tail call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull %5, ptr noundef %1, i32 noundef %7, ptr noundef %.0, ptr noundef %.044) #13
+  %16 = tail call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull %5, ptr noundef %1, i32 noundef %7, ptr noundef %.041, ptr noundef %.044) #13
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %18, label %20
 
@@ -207,11 +207,11 @@ define hidden void @zim_Closure_call(ptr noundef %0, ptr nocapture noundef write
   br label %27
 
 26:                                               ; preds = %13, %.critedge
-  %.0175 = phi i32 [ 1, %13 ], [ 9, %.critedge ]
-  %.0174 = phi i32 [ 0, %13 ], [ 18, %.critedge ]
-  %.0173 = phi ptr [ null, %13 ], [ %14, %.critedge ]
-  %.0172 = phi i32 [ 0, %13 ], [ 1, %.critedge ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0175, i32 noundef %.0172, ptr noundef null, i32 noundef %.0174, ptr noundef %.0173) #13
+  %.0175 = phi i32 [ 0, %13 ], [ 1, %.critedge ]
+  %.0174 = phi ptr [ null, %13 ], [ %14, %.critedge ]
+  %.0173 = phi i32 [ 0, %13 ], [ 18, %.critedge ]
+  %.0172 = phi i32 [ 1, %13 ], [ 9, %.critedge ]
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0172, i32 noundef %.0175, ptr noundef null, i32 noundef %.0173, ptr noundef %.0174) #13
   br label %136
 
 27:                                               ; preds = %17, %23
@@ -716,8 +716,8 @@ define internal fastcc void @do_closure_bind(ptr noundef %0, ptr nocapture %.0.v
   br label %.sink.split
 
 7:                                                ; preds = %4
-  %.not38 = icmp eq ptr %3, null
-  br i1 %.not38, label %28, label %8
+  %.not37 = icmp eq ptr %3, null
+  br i1 %.not37, label %28, label %8
 
 8:                                                ; preds = %7
   %9 = load ptr, ptr @zend_known_strings, align 8
@@ -760,13 +760,13 @@ define internal fastcc void @do_closure_bind(ptr noundef %0, ptr nocapture %.0.v
   br label %28
 
 28:                                               ; preds = %.sink.split, %7, %.critedge2
-  %.0 = phi ptr [ %22, %.critedge2 ], [ null, %7 ], [ %27, %.sink.split ]
-  %29 = tail call fastcc zeroext i1 @zend_valid_closure_binding(ptr noundef %.0.val, ptr noundef %1, ptr noundef %.0)
+  %.030 = phi ptr [ %22, %.critedge2 ], [ null, %7 ], [ %27, %.sink.split ]
+  %29 = tail call fastcc zeroext i1 @zend_valid_closure_binding(ptr noundef %.0.val, ptr noundef %1, ptr noundef %.030)
   br i1 %29, label %30, label %44
 
 30:                                               ; preds = %28
-  %.not39 = icmp eq ptr %1, null
-  br i1 %.not39, label %.split32, label %.split
+  %.not38 = icmp eq ptr %1, null
+  br i1 %.not38, label %.split32, label %.split
 
 .split:                                           ; preds = %30
   %31 = load ptr, ptr %1, align 8
@@ -777,7 +777,7 @@ define internal fastcc void @do_closure_bind(ptr noundef %0, ptr nocapture %.0.v
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 8388608
   %38 = icmp ne i32 %37, 0
-  tail call fastcc void @zend_create_closure_ex(ptr noundef %0, ptr noundef nonnull %34, ptr noundef %.0, ptr noundef %33, ptr noundef nonnull %1, i1 noundef zeroext %38)
+  tail call fastcc void @zend_create_closure_ex(ptr noundef %0, ptr noundef nonnull %34, ptr noundef %.030, ptr noundef %33, ptr noundef nonnull %1, i1 noundef zeroext %38)
   br label %44
 
 .split32:                                         ; preds = %30
@@ -786,7 +786,7 @@ define internal fastcc void @do_closure_bind(ptr noundef %0, ptr nocapture %.0.v
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 8388608
   %43 = icmp ne i32 %42, 0
-  tail call fastcc void @zend_create_closure_ex(ptr noundef %0, ptr noundef nonnull %39, ptr noundef %.0, ptr noundef %.0, ptr noundef null, i1 noundef zeroext %43)
+  tail call fastcc void @zend_create_closure_ex(ptr noundef %0, ptr noundef nonnull %39, ptr noundef %.030, ptr noundef %.030, ptr noundef null, i1 noundef zeroext %43)
   br label %44
 
 44:                                               ; preds = %.split, %.split32, %28, %24
@@ -863,10 +863,10 @@ define hidden void @zim_Closure_bindTo(ptr noundef %0, ptr noundef %1) #0 {
 
 .thread158:                                       ; preds = %25, %12, %11
   %.0169 = phi i32 [ 1, %11 ], [ 9, %12 ], [ 9, %25 ]
-  %.0105168 = phi i32 [ 0, %11 ], [ 19, %12 ], [ 33, %25 ]
-  %.0106167 = phi ptr [ null, %11 ], [ %13, %12 ], [ %18, %25 ]
-  %.0107166 = phi i32 [ 0, %11 ], [ 1, %12 ], [ 2, %25 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0169, i32 noundef %.0107166, ptr noundef null, i32 noundef %.0105168, ptr noundef %.0106167) #13
+  %.0104168 = phi i32 [ 0, %11 ], [ 19, %12 ], [ 33, %25 ]
+  %.0105167 = phi ptr [ null, %11 ], [ %13, %12 ], [ %18, %25 ]
+  %.0106166 = phi i32 [ 0, %11 ], [ 1, %12 ], [ 2, %25 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0169, i32 noundef %.0106166, ptr noundef null, i32 noundef %.0104168, ptr noundef %.0105167) #13
   br label %28
 
 .thread146:                                       ; preds = %..thread146_crit_edge, %24, %.critedge2, %.critedge.thread
@@ -1057,7 +1057,7 @@ define hidden void @zim_Closure_fromCallable(ptr noundef %0, ptr noundef %1) #0 
   br label %88
 
 88:                                               ; preds = %87, %86, %32
-  %.050.i = phi ptr [ %33, %32 ], [ %5, %86 ], [ %5, %87 ]
+  %.0.i = phi ptr [ %33, %32 ], [ %5, %86 ], [ %5, %87 ]
   %89 = getelementptr inbounds i8, ptr %3, i64 24
   %90 = load ptr, ptr %89, align 8
   %.not62.i = icmp eq ptr %90, null
@@ -1067,19 +1067,19 @@ define hidden void @zim_Closure_fromCallable(ptr noundef %0, ptr noundef %1) #0 
   store ptr %90, ptr %4, align 8
   %92 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 776, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %.050.i, i64 16
+  %93 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %3, i64 16
   %96 = load ptr, ptr %95, align 8
-  call fastcc void @zend_create_closure_ex(ptr noundef %1, ptr noundef nonnull %.050.i, ptr noundef %94, ptr noundef %96, ptr noundef nonnull %4, i1 noundef zeroext true)
+  call fastcc void @zend_create_closure_ex(ptr noundef %1, ptr noundef nonnull %.0.i, ptr noundef %94, ptr noundef %96, ptr noundef nonnull %4, i1 noundef zeroext true)
   br label %102
 
 97:                                               ; preds = %88
-  %98 = getelementptr inbounds i8, ptr %.050.i, i64 16
+  %98 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %3, i64 16
   %101 = load ptr, ptr %100, align 8
-  call fastcc void @zend_create_closure_ex(ptr noundef %1, ptr noundef nonnull %.050.i, ptr noundef %99, ptr noundef %101, ptr noundef null, i1 noundef zeroext true)
+  call fastcc void @zend_create_closure_ex(ptr noundef %1, ptr noundef nonnull %.0.i, ptr noundef %99, ptr noundef %101, ptr noundef null, i1 noundef zeroext true)
   br label %102
 
 102:                                              ; preds = %97, %91
@@ -1088,11 +1088,11 @@ define hidden void @zim_Closure_fromCallable(ptr noundef %0, ptr noundef %1) #0 
   %105 = load i32, ptr %104, align 4
   %106 = or i32 %105, 8388608
   store i32 %106, ptr %104, align 4
-  %107 = icmp eq ptr %.050.i, %5
+  %107 = icmp eq ptr %.0.i, %5
   br i1 %107, label %108, label %zend_create_closure_from_callable.exit.thread
 
 108:                                              ; preds = %102
-  %109 = getelementptr inbounds i8, ptr %.050.i, i64 8
+  %109 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds i8, ptr %110, i64 4
   %112 = load i32, ptr %111, align 4
@@ -1667,30 +1667,30 @@ define internal ptr @zend_closure_get_debug_info(ptr noundef %0, ptr nocapture n
   br label %85
 
 85:                                               ; preds = %.lr.ph, %109
-  %.0115141 = phi ptr [ %76, %.lr.ph ], [ %110, %109 ]
-  %86 = getelementptr inbounds i8, ptr %.0115141, i64 8
+  %.0117141 = phi ptr [ %76, %.lr.ph ], [ %110, %109 ]
+  %86 = getelementptr inbounds i8, ptr %.0117141, i64 8
   %87 = load i8, ptr %86, align 8
   %88 = icmp eq i8 %87, 0
   br i1 %88, label %109, label %89
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %.0115141, i64 24
+  %90 = getelementptr inbounds i8, ptr %.0117141, i64 24
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq i8 %87, 10
   br i1 %92, label %93, label %98
 
 93:                                               ; preds = %89
-  %94 = load ptr, ptr %.0115141, align 8
+  %94 = load ptr, ptr %.0117141, align 8
   %95 = load i32, ptr %94, align 4
   %96 = icmp eq i32 %95, 1
   %97 = getelementptr inbounds i8, ptr %94, i64 8
-  %spec.select = select i1 %96, ptr %97, ptr %.0115141
+  %spec.select = select i1 %96, ptr %97, ptr %.0117141
   br label %98
 
 98:                                               ; preds = %93, %89
-  %.0113 = phi ptr [ %.0115141, %89 ], [ %spec.select, %93 ]
-  %99 = load ptr, ptr %.0113, align 8
-  %100 = getelementptr inbounds i8, ptr %.0113, i64 8
+  %.0116 = phi ptr [ %.0117141, %89 ], [ %spec.select, %93 ]
+  %99 = load ptr, ptr %.0116, align 8
+  %100 = getelementptr inbounds i8, ptr %.0116, i64 8
   %101 = load i32, ptr %100, align 8
   store ptr %99, ptr %4, align 8
   store i32 %101, ptr %84, align 8
@@ -1710,7 +1710,7 @@ define internal ptr @zend_closure_get_debug_info(ptr noundef %0, ptr nocapture n
   br label %109
 
 109:                                              ; preds = %85, %106
-  %110 = getelementptr inbounds i8, ptr %.0115141, i64 32
+  %110 = getelementptr inbounds i8, ptr %.0117141, i64 32
   %.not127 = icmp eq ptr %110, %80
   br i1 %.not127, label %._crit_edge.loopexit, label %85
 
@@ -1795,7 +1795,7 @@ define internal ptr @zend_closure_get_debug_info(ptr noundef %0, ptr nocapture n
 
 .lr.ph146.split.us:                               ; preds = %.lr.ph146, %172
   %.0144.us = phi ptr [ %173, %172 ], [ %8, %.lr.ph146 ]
-  %.0116143.us = phi i32 [ %174, %172 ], [ 0, %.lr.ph146 ]
+  %.0115143.us = phi i32 [ %174, %172 ], [ 0, %.lr.ph146 ]
   %152 = load ptr, ptr %.0144.us, align 8, !nonnull !4, !noundef !4
   %153 = getelementptr inbounds i8, ptr %.0144.us, i64 16
   %154 = load i32, ptr %153, align 8
@@ -1804,7 +1804,7 @@ define internal ptr @zend_closure_get_debug_info(ptr noundef %0, ptr nocapture n
   %156 = select i1 %.not135.us, ptr @.str.28, ptr @.str.27
   %157 = getelementptr inbounds i8, ptr %152, i64 24
   %158 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.26, ptr noundef nonnull %156, ptr noundef nonnull %157) #13
-  %.not136.us = icmp ult i32 %.0116143.us, %144
+  %.not136.us = icmp ult i32 %.0115143.us, %144
   %159 = select i1 %.not136.us, ptr @.str.31, ptr @.str.30
   %160 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.29, ptr noundef nonnull %159) #13
   store ptr %160, ptr %5, align 8
@@ -1832,13 +1832,13 @@ define internal ptr @zend_closure_get_debug_info(ptr noundef %0, ptr nocapture n
 
 172:                                              ; preds = %171, %166, %.lr.ph146.split.us
   %173 = getelementptr inbounds i8, ptr %.0144.us, i64 32
-  %174 = add nuw i32 %.0116143.us, 1
+  %174 = add nuw i32 %.0115143.us, 1
   %exitcond150.not = icmp eq i32 %174, %spec.select139
   br i1 %exitcond150.not, label %._crit_edge147, label %.lr.ph146.split.us
 
 .lr.ph146.split:                                  ; preds = %.lr.ph146, %194
   %.0144 = phi ptr [ %195, %194 ], [ %8, %.lr.ph146 ]
-  %.0116143 = phi i32 [ %196, %194 ], [ 0, %.lr.ph146 ]
+  %.0115143 = phi i32 [ %196, %194 ], [ 0, %.lr.ph146 ]
   %175 = load ptr, ptr %.0144, align 8, !nonnull !4, !noundef !4
   %176 = getelementptr inbounds i8, ptr %.0144, i64 16
   %177 = load i32, ptr %176, align 8
@@ -1846,7 +1846,7 @@ define internal ptr @zend_closure_get_debug_info(ptr noundef %0, ptr nocapture n
   %.not134 = icmp eq i32 %178, 0
   %179 = select i1 %.not134, ptr @.str.28, ptr @.str.27
   %180 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.26, ptr noundef nonnull %179, ptr noundef nonnull %175) #13
-  %.not136 = icmp ult i32 %.0116143, %144
+  %.not136 = icmp ult i32 %.0115143, %144
   %181 = select i1 %.not136, ptr @.str.31, ptr @.str.30
   %182 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.29, ptr noundef nonnull %181) #13
   store ptr %182, ptr %5, align 8
@@ -1874,7 +1874,7 @@ define internal ptr @zend_closure_get_debug_info(ptr noundef %0, ptr nocapture n
 
 194:                                              ; preds = %188, %193, %.lr.ph146.split
   %195 = getelementptr inbounds i8, ptr %.0144, i64 32
-  %196 = add nuw i32 %.0116143, 1
+  %196 = add nuw i32 %.0115143, 1
   %exitcond.not = icmp eq i32 %196, %spec.select139
   br i1 %exitcond.not, label %._crit_edge147, label %.lr.ph146.split
 
@@ -1971,7 +1971,7 @@ define internal fastcc void @zend_create_closure_ex(ptr noundef %0, ptr nocaptur
   br label %16
 
 16:                                               ; preds = %12, %6
-  %.0199 = phi ptr [ %2, %6 ], [ %spec.select, %12 ]
+  %.0202 = phi ptr [ %2, %6 ], [ %spec.select, %12 ]
   %17 = load i8, ptr %1, align 8
   %18 = icmp eq i8 %17, 2
   %19 = getelementptr inbounds i8, ptr %9, i64 56
@@ -2062,9 +2062,9 @@ define internal fastcc void @zend_create_closure_ex(ptr noundef %0, ptr nocaptur
   br label %.sink.split248
 
 .sink.split248:                                   ; preds = %57, %.sink.split, %43, %40
-  %.0200.sink = phi ptr [ null, %40 ], [ %44, %43 ], [ %58, %57 ], [ %59, %.sink.split ]
+  %.0199.sink = phi ptr [ null, %40 ], [ %44, %43 ], [ %58, %57 ], [ %59, %.sink.split ]
   %65 = getelementptr inbounds i8, ptr %9, i64 152
-  store ptr %.0200.sink, ptr %65, align 8
+  store ptr %.0199.sink, ptr %65, align 8
   br label %66
 
 66:                                               ; preds = %.sink.split248, %45
@@ -2089,7 +2089,7 @@ define internal fastcc void @zend_create_closure_ex(ptr noundef %0, ptr nocaptur
 77:                                               ; preds = %75
   %78 = getelementptr inbounds i8, ptr %1, i64 16
   %79 = load ptr, ptr %78, align 8
-  %.not230 = icmp eq ptr %79, %.0199
+  %.not230 = icmp eq ptr %79, %.0202
   br i1 %.not230, label %80, label %127
 
 80:                                               ; preds = %77
@@ -2109,7 +2109,7 @@ define internal fastcc void @zend_create_closure_ex(ptr noundef %0, ptr nocaptur
 87:                                               ; preds = %.critedge
   %88 = getelementptr inbounds i8, ptr %1, i64 16
   %89 = load ptr, ptr %88, align 8
-  %90 = icmp eq ptr %89, %.0199
+  %90 = icmp eq ptr %89, %.0202
   %91 = and i32 %85, 128
   %.not233 = icmp eq i32 %91, 0
   %or.cond239 = or i1 %.not233, %90
@@ -2119,7 +2119,7 @@ define internal fastcc void @zend_create_closure_ex(ptr noundef %0, ptr nocaptur
   br i1 %90, label %94, label %93
 
 93:                                               ; preds = %92
-  store ptr %.0199, ptr %88, align 8
+  store ptr %.0202, ptr %88, align 8
   br label %94
 
 94:                                               ; preds = %93, %92
@@ -2185,18 +2185,18 @@ define internal fastcc void @zend_create_closure_ex(ptr noundef %0, ptr nocaptur
 
 134:                                              ; preds = %127, %119
   %storemerge = phi i32 [ %126, %119 ], [ %133, %127 ]
-  %.0201 = phi ptr [ %.0, %119 ], [ %131, %127 ]
+  %.0200 = phi ptr [ %.0, %119 ], [ %131, %127 ]
   store i32 %storemerge, ptr %20, align 4
   %135 = getelementptr inbounds i8, ptr %1, i64 76
   %136 = load i32, ptr %135, align 4
   %137 = sext i32 %136 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.0201, i8 0, i64 %137, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.0200, i8 0, i64 %137, i1 false)
   br label %138
 
 138:                                              ; preds = %80, %134
-  %.1202 = phi ptr [ %.0201, %134 ], [ %76, %80 ]
+  %.1 = phi ptr [ %.0200, %134 ], [ %76, %80 ]
   %139 = getelementptr inbounds i8, ptr %9, i64 112
-  store ptr %.1202, ptr %139, align 8
+  store ptr %.1, ptr %139, align 8
   br label %169
 
 140:                                              ; preds = %16
@@ -2258,10 +2258,10 @@ define internal fastcc void @zend_create_closure_ex(ptr noundef %0, ptr nocaptur
   %171 = getelementptr inbounds i8, ptr %9, i64 304
   store i32 0, ptr %171, align 8
   %172 = getelementptr inbounds i8, ptr %9, i64 72
-  store ptr %.0199, ptr %172, align 8
+  store ptr %.0202, ptr %172, align 8
   %173 = getelementptr inbounds i8, ptr %9, i64 312
   store ptr %3, ptr %173, align 8
-  %.not237 = icmp eq ptr %.0199, null
+  %.not237 = icmp eq ptr %.0202, null
   br i1 %.not237, label %188, label %174
 
 174:                                              ; preds = %169

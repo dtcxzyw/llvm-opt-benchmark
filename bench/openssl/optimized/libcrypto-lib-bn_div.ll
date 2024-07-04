@@ -220,21 +220,21 @@ for.body.lr.ph:                                   ; preds = %if.end61
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end126
   %i.0118 = phi i32 [ 0, %for.body.lr.ph ], [ %inc132, %for.end126 ]
-  %resp.0117 = phi ptr [ %arrayidx56, %for.body.lr.ph ], [ %incdec.ptr130, %for.end126 ]
-  %wnum.0116 = phi ptr [ %arrayidx27, %for.body.lr.ph ], [ %incdec.ptr, %for.end126 ]
-  %wnumtop.0114 = phi ptr [ %arrayidx31, %for.body.lr.ph ], [ %arrayidx65, %for.end126 ]
-  %19 = load i64, ptr %wnumtop.0114, align 8
-  %arrayidx65 = getelementptr inbounds i8, ptr %wnumtop.0114, i64 -8
+  %wnumtop.0116 = phi ptr [ %arrayidx31, %for.body.lr.ph ], [ %arrayidx65, %for.end126 ]
+  %wnum.0115 = phi ptr [ %arrayidx27, %for.body.lr.ph ], [ %incdec.ptr, %for.end126 ]
+  %resp.0114 = phi ptr [ %arrayidx56, %for.body.lr.ph ], [ %incdec.ptr130, %for.end126 ]
+  %19 = load i64, ptr %wnumtop.0116, align 8
+  %arrayidx65 = getelementptr inbounds i8, ptr %wnumtop.0116, i64 -8
   %20 = load i64, ptr %arrayidx65, align 8
   %cmp66 = icmp eq i64 %19, %14
   br i1 %cmp66, label %if.end104, label %if.else
 
 if.else:                                          ; preds = %for.body
-  %cmp69 = icmp eq ptr %wnumtop.0114, %wnum.0116
+  %cmp69 = icmp eq ptr %wnumtop.0116, %wnum.0115
   br i1 %cmp69, label %cond.end74, label %cond.false72
 
 cond.false72:                                     ; preds = %if.else
-  %arrayidx73 = getelementptr inbounds i8, ptr %wnumtop.0114, i64 -16
+  %arrayidx73 = getelementptr inbounds i8, ptr %wnumtop.0116, i64 -16
   %21 = load i64, ptr %arrayidx73, align 8
   br label %cond.end74
 
@@ -286,7 +286,7 @@ if.end104:                                        ; preds = %if.end92, %if.end97
   %25 = load ptr, ptr %call1, align 8
   %arrayidx110 = getelementptr inbounds i64, ptr %25, i64 %12
   store i64 %call107, ptr %arrayidx110, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %wnum.0116, i64 -8
+  %incdec.ptr = getelementptr inbounds i8, ptr %wnum.0115, i64 -8
   %26 = load ptr, ptr %call1, align 8
   %call113 = tail call i64 @bn_sub_words(ptr noundef nonnull %incdec.ptr, ptr noundef nonnull %incdec.ptr, ptr noundef %26, i32 noundef %add57) #3
   %sub114 = sub i64 %q.1, %call113
@@ -309,10 +309,10 @@ for.body119:                                      ; preds = %if.end104, %for.bod
 for.end126:                                       ; preds = %for.body119, %if.end104
   %30 = load ptr, ptr %call1, align 8
   %call128 = tail call i64 @bn_add_words(ptr noundef nonnull %incdec.ptr, ptr noundef nonnull %incdec.ptr, ptr noundef %30, i32 noundef %5) #3
-  %31 = load i64, ptr %wnumtop.0114, align 8
+  %31 = load i64, ptr %wnumtop.0116, align 8
   %add129 = add i64 %31, %call128
-  store i64 %add129, ptr %wnumtop.0114, align 8
-  %incdec.ptr130 = getelementptr inbounds i8, ptr %resp.0117, i64 -8
+  store i64 %add129, ptr %wnumtop.0116, align 8
+  %incdec.ptr130 = getelementptr inbounds i8, ptr %resp.0114, i64 -8
   store i64 %sub114, ptr %incdec.ptr130, align 8
   %inc132 = add nuw nsw i32 %i.0118, 1
   %exitcond120.not = icmp eq i32 %inc132, %sub24

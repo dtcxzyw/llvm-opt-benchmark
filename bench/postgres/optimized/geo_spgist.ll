@@ -293,7 +293,7 @@ define dso_local noundef i64 @spg_box_quad_inner_consistent(ptr nocapture nounde
   br label %15
 
 15:                                               ; preds = %1, %10
-  %.0133 = phi ptr [ %11, %10 ], [ %9, %1 ]
+  %.0135 = phi ptr [ %11, %10 ], [ %9, %1 ]
   %16 = getelementptr inbounds i8, ptr %4, i64 53
   %17 = load i8, ptr %16, align 1
   %18 = trunc i8 %17 to i1
@@ -342,9 +342,9 @@ define dso_local noundef i64 @spg_box_quad_inner_consistent(ptr nocapture nounde
 
 .lr.ph180:                                        ; preds = %38
   %44 = getelementptr inbounds i8, ptr %4, i64 8
-  %45 = getelementptr inbounds i8, ptr %.0133, i64 24
-  %46 = getelementptr inbounds i8, ptr %.0133, i64 32
-  %47 = getelementptr inbounds i8, ptr %.0133, i64 56
+  %45 = getelementptr inbounds i8, ptr %.0135, i64 24
+  %46 = getelementptr inbounds i8, ptr %.0135, i64 32
+  %47 = getelementptr inbounds i8, ptr %.0135, i64 56
   br label %48
 
 48:                                               ; preds = %.lr.ph180, %pointToRectBoxDistance.exit
@@ -354,7 +354,7 @@ define dso_local noundef i64 @spg_box_quad_inner_consistent(ptr nocapture nounde
   %51 = load i64, ptr %50, align 8
   %52 = inttoptr i64 %51 to ptr
   %53 = load double, ptr %52, align 8
-  %54 = load double, ptr %.0133, align 8
+  %54 = load double, ptr %.0135, align 8
   %55 = fcmp olt double %53, %54
   br i1 %55, label %56, label %58
 
@@ -569,9 +569,9 @@ spg_box_quad_get_scankey_bbox.exit:               ; preds = %128, %132
 
 186:                                              ; preds = %.lr.ph172, %443
   %187 = phi i32 [ 0, %.lr.ph172 ], [ %445, %443 ]
-  %.0137170 = phi i8 [ 0, %.lr.ph172 ], [ %444, %443 ]
+  %.0134170 = phi i8 [ 0, %.lr.ph172 ], [ %444, %443 ]
   %188 = tail call ptr @palloc(i64 noundef 64) #8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %188, ptr noundef nonnull readonly align 8 dereferenceable(64) %.0133, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %188, ptr noundef nonnull readonly align 8 dereferenceable(64) %.0135, i64 64, i1 false)
   %189 = and i32 %187, 8
   %190 = load double, ptr %106, align 8
   %191 = xor i32 %189, 8
@@ -988,7 +988,7 @@ overlap4D.exit.thread:                            ; preds = %372, %361, %350, %3
   br label %443
 
 443:                                              ; preds = %.loopexit157, %overlap4D.exit.thread
-  %444 = add i8 %.0137170, 1
+  %444 = add i8 %.0134170, 1
   %445 = zext i8 %444 to i32
   %446 = load i32, ptr %158, align 8
   %447 = icmp sgt i32 %446, %445

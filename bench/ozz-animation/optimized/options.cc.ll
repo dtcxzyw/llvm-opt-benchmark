@@ -476,15 +476,15 @@ _ZSt5countIPPN3ozz7options6OptionES3_ENSt15iterator_traitsIT_E15difference_typeE
   br label %31
 
 31:                                               ; preds = %31, %.lr.ph
-  %.06.i = phi ptr [ %15, %.lr.ph ], [ %37, %31 ]
-  %.0.i = phi ptr [ %30, %.lr.ph ], [ %32, %31 ]
-  %32 = getelementptr inbounds i8, ptr %.0.i, i64 1
-  %33 = load i8, ptr %.0.i, align 1
+  %.06.i = phi ptr [ %30, %.lr.ph ], [ %32, %31 ]
+  %.0.i = phi ptr [ %15, %.lr.ph ], [ %37, %31 ]
+  %32 = getelementptr inbounds i8, ptr %.06.i, i64 1
+  %33 = load i8, ptr %.06.i, align 1
   %34 = sext i8 %33 to i32
   %35 = tail call i32 @tolower(i32 noundef %34) #29
   %36 = and i32 %35, 255
-  %37 = getelementptr inbounds i8, ptr %.06.i, i64 1
-  %38 = load i8, ptr %.06.i, align 1
+  %37 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %38 = load i8, ptr %.0.i, align 1
   %39 = sext i8 %38 to i32
   %40 = tail call i32 @tolower(i32 noundef %39) #29
   %41 = and i32 %40, 255
@@ -1754,15 +1754,15 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3ozz7options11TypedOptionIbE9Pa
   br label %21
 
 21:                                               ; preds = %21, %.preheader37.i
-  %.06.i.i = phi ptr [ %20, %.preheader37.i ], [ %27, %21 ]
-  %.0.i.i = phi ptr [ %.025.i, %.preheader37.i ], [ %22, %21 ]
-  %22 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
-  %23 = load i8, ptr %.0.i.i, align 1
+  %.06.i.i = phi ptr [ %.025.i, %.preheader37.i ], [ %22, %21 ]
+  %.0.i.i = phi ptr [ %20, %.preheader37.i ], [ %27, %21 ]
+  %22 = getelementptr inbounds i8, ptr %.06.i.i, i64 1
+  %23 = load i8, ptr %.06.i.i, align 1
   %24 = sext i8 %23 to i32
   %25 = tail call i32 @tolower(i32 noundef %24) #29
   %26 = and i32 %25, 255
-  %27 = getelementptr inbounds i8, ptr %.06.i.i, i64 1
-  %28 = load i8, ptr %.06.i.i, align 1
+  %27 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %28 = load i8, ptr %.0.i.i, align 1
   %29 = sext i8 %28 to i32
   %30 = tail call i32 @tolower(i32 noundef %29) #29
   %31 = and i32 %30, 255
@@ -1786,15 +1786,15 @@ _ZN3ozz7options12_GLOBAL__N_17StrICmpEPKcS3_.exit.i: ; preds = %21
   br label %39
 
 39:                                               ; preds = %39, %.preheader.i
-  %.06.i34.i = phi ptr [ %38, %.preheader.i ], [ %45, %39 ]
-  %.0.i35.i = phi ptr [ %.025.i, %.preheader.i ], [ %40, %39 ]
-  %40 = getelementptr inbounds i8, ptr %.0.i35.i, i64 1
-  %41 = load i8, ptr %.0.i35.i, align 1
+  %.06.i34.i = phi ptr [ %.025.i, %.preheader.i ], [ %40, %39 ]
+  %.0.i35.i = phi ptr [ %38, %.preheader.i ], [ %45, %39 ]
+  %40 = getelementptr inbounds i8, ptr %.06.i34.i, i64 1
+  %41 = load i8, ptr %.06.i34.i, align 1
   %42 = sext i8 %41 to i32
   %43 = tail call i32 @tolower(i32 noundef %42) #29
   %44 = and i32 %43, 255
-  %45 = getelementptr inbounds i8, ptr %.06.i34.i, i64 1
-  %46 = load i8, ptr %.06.i34.i, align 1
+  %45 = getelementptr inbounds i8, ptr %.0.i35.i, i64 1
+  %46 = load i8, ptr %.0.i35.i, align 1
   %47 = sext i8 %46 to i32
   %48 = tail call i32 @tolower(i32 noundef %47) #29
   %49 = and i32 %48, 255
@@ -2029,18 +2029,18 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3ozz7options11TypedOptionIiE9Pa
   br i1 %10, label %.preheader.i, label %_ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pi.exit
 
 .preheader.i:                                     ; preds = %8, %.preheader.i
-  %.pn.i = phi ptr [ %.011.i, %.preheader.i ], [ %7, %8 ]
-  %.011.i = getelementptr inbounds i8, ptr %.pn.i, i64 1
-  %11 = load i8, ptr %.011.i, align 1
+  %.pn.i = phi ptr [ %.0.i, %.preheader.i ], [ %7, %8 ]
+  %.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 1
+  %11 = load i8, ptr %.0.i, align 1
   %12 = sext i8 %11 to i32
   %13 = tail call i32 @isspace(i32 noundef %12) #29
   %.not14.i = icmp eq i32 %13, 0
   br i1 %.not14.i, label %14, label %.preheader.i, !llvm.loop !14
 
 14:                                               ; preds = %.preheader.i
-  %15 = call i64 @strtol(ptr noundef nonnull %.011.i, ptr noundef nonnull %3, i32 noundef 10) #28
+  %15 = call i64 @strtol(ptr noundef nonnull %.0.i, ptr noundef nonnull %3, i32 noundef 10) #28
   %16 = load ptr, ptr %3, align 8
-  %.not15.i = icmp eq ptr %16, %.011.i
+  %.not15.i = icmp eq ptr %16, %.0.i
   br i1 %.not15.i, label %_ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pi.exit, label %17
 
 17:                                               ; preds = %14
@@ -2054,9 +2054,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3ozz7options11TypedOptionIiE9Pa
   br label %_ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pi.exit
 
 _ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pi.exit: ; preds = %2, %8, %14, %17, %20
-  %.0.i = phi i1 [ true, %20 ], [ false, %14 ], [ false, %17 ], [ false, %8 ], [ false, %2 ]
+  %.011.i = phi i1 [ true, %20 ], [ false, %14 ], [ false, %17 ], [ false, %8 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  ret i1 %.0.i
+  ret i1 %.011.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2173,18 +2173,18 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3ozz7options11TypedOptionIfE9Pa
   br i1 %10, label %.preheader.i, label %_ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pf.exit
 
 .preheader.i:                                     ; preds = %8, %.preheader.i
-  %.pn.i = phi ptr [ %.012.i, %.preheader.i ], [ %7, %8 ]
-  %.012.i = getelementptr inbounds i8, ptr %.pn.i, i64 1
-  %11 = load i8, ptr %.012.i, align 1
+  %.pn.i = phi ptr [ %.0.i, %.preheader.i ], [ %7, %8 ]
+  %.0.i = getelementptr inbounds i8, ptr %.pn.i, i64 1
+  %11 = load i8, ptr %.0.i, align 1
   %12 = sext i8 %11 to i32
   %13 = tail call i32 @isspace(i32 noundef %12) #29
   %.not15.i = icmp eq i32 %13, 0
   br i1 %.not15.i, label %14, label %.preheader.i, !llvm.loop !15
 
 14:                                               ; preds = %.preheader.i
-  %15 = call double @strtod(ptr noundef nonnull %.012.i, ptr noundef nonnull %3) #28
+  %15 = call double @strtod(ptr noundef nonnull %.0.i, ptr noundef nonnull %3) #28
   %16 = load ptr, ptr %3, align 8
-  %.not16.i = icmp eq ptr %16, %.012.i
+  %.not16.i = icmp eq ptr %16, %.0.i
   br i1 %.not16.i, label %_ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pf.exit, label %17
 
 17:                                               ; preds = %14
@@ -2198,9 +2198,9 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3ozz7options11TypedOptionIfE9Pa
   br label %_ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pf.exit
 
 _ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pf.exit: ; preds = %2, %8, %14, %17, %20
-  %.0.i = phi i1 [ true, %20 ], [ false, %14 ], [ false, %17 ], [ false, %8 ], [ false, %2 ]
+  %.012.i = phi i1 [ true, %20 ], [ false, %14 ], [ false, %17 ], [ false, %8 ], [ false, %2 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  ret i1 %.0.i
+  ret i1 %.012.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2579,7 +2579,7 @@ sub_2:                                            ; preds = %sub_1
   br label %.critedge
 
 .critedge:                                        ; preds = %37, %.critedge.loopexit.split.loop.exit164, %19
-  %.056.lcssa = phi i32 [ 0, %19 ], [ %38, %.critedge.loopexit.split.loop.exit164 ], [ %22, %37 ]
+  %.055.lcssa = phi i32 [ 0, %19 ], [ %38, %.critedge.loopexit.split.loop.exit164 ], [ %22, %37 ]
   %39 = getelementptr inbounds i8, ptr %0, i64 256
   %40 = load i32, ptr %39, align 8
   %41 = icmp sgt i32 %40, 0
@@ -2587,11 +2587,11 @@ sub_2:                                            ; preds = %sub_1
 
 .preheader98:                                     ; preds = %.lr.ph, %.critedge
   %42 = phi i32 [ %40, %.critedge ], [ %51, %.lr.ph ]
-  %43 = icmp eq i32 %.056.lcssa, 0
+  %43 = icmp eq i32 %.055.lcssa, 0
   br i1 %43, label %.loopexit99, label %.lr.ph115.preheader
 
 .lr.ph115.preheader:                              ; preds = %.preheader98
-  %44 = zext i32 %.056.lcssa to i64
+  %44 = zext i32 %.055.lcssa to i64
   br label %.lr.ph115
 
 .lr.ph:                                           ; preds = %.critedge, %.lr.ph
@@ -2689,7 +2689,7 @@ _ZN3ozz7options6Option5ParseEPKc.exit:            ; preds = %68
 
 _ZN3ozz7options6Option8ValidateEi.exit:           ; preds = %.loopexit99
   %93 = getelementptr inbounds i8, ptr %0, i64 352
-  %94 = tail call noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(40) %93, i32 noundef %.056.lcssa)
+  %94 = tail call noundef zeroext i1 %92(ptr noundef nonnull align 8 dereferenceable(40) %93, i32 noundef %.055.lcssa)
   br i1 %94, label %_ZN3ozz7options6Option8ValidateEi.exit.thread, label %.thread90
 
 _ZN3ozz7options6Option8ValidateEi.exit.thread:    ; preds = %.loopexit99, %_ZN3ozz7options6Option8ValidateEi.exit
@@ -2700,7 +2700,7 @@ _ZN3ozz7options6Option8ValidateEi.exit.thread:    ; preds = %.loopexit99, %_ZN3o
 
 _ZN3ozz7options6Option8ValidateEi.exit64:         ; preds = %_ZN3ozz7options6Option8ValidateEi.exit.thread
   %97 = getelementptr inbounds i8, ptr %0, i64 304
-  %98 = tail call noundef zeroext i1 %96(ptr noundef nonnull align 8 dereferenceable(40) %97, i32 noundef %.056.lcssa)
+  %98 = tail call noundef zeroext i1 %96(ptr noundef nonnull align 8 dereferenceable(40) %97, i32 noundef %.055.lcssa)
   %or.cond95 = and i1 %90, %98
   br i1 %or.cond95, label %99, label %.thread90
 
@@ -2784,7 +2784,7 @@ _ZN3ozz7options6Option8ValidateEi.exit64.thread:  ; preds = %_ZN3ozz7options6Opt
   br i1 %.not.i65, label %_ZN3ozz7options6Option8ValidateEi.exit67.thread, label %_ZN3ozz7options6Option8ValidateEi.exit67
 
 _ZN3ozz7options6Option8ValidateEi.exit67:         ; preds = %.lr.ph121
-  %138 = tail call noundef zeroext i1 %137(ptr noundef nonnull align 8 dereferenceable(40) %135, i32 noundef %.056.lcssa)
+  %138 = tail call noundef zeroext i1 %137(ptr noundef nonnull align 8 dereferenceable(40) %135, i32 noundef %.055.lcssa)
   br i1 %138, label %_ZN3ozz7options6Option8ValidateEi.exit67._ZN3ozz7options6Option8ValidateEi.exit67.thread_crit_edge, label %.thread90
 
 _ZN3ozz7options6Option8ValidateEi.exit67._ZN3ozz7options6Option8ValidateEi.exit67.thread_crit_edge: ; preds = %_ZN3ozz7options6Option8ValidateEi.exit67
@@ -2803,8 +2803,8 @@ _ZN3ozz7options6Option8ValidateEi.exit67.thread:  ; preds = %_ZN3ozz7options6Opt
   br label %.thread84
 
 .thread84:                                        ; preds = %_ZN3ozz7options6Option8ValidateEi.exit67.thread, %.preheader96, %.preheader, %.thread92, %.thread88, %.thread90, %3
-  %.052 = phi i32 [ 2, %3 ], [ 2, %.thread90 ], [ 1, %.thread88 ], [ 1, %.thread92 ], [ 0, %.preheader ], [ 0, %.preheader96 ], [ 0, %_ZN3ozz7options6Option8ValidateEi.exit67.thread ]
-  ret i32 %.052
+  %.056 = phi i32 [ 2, %3 ], [ 2, %.thread90 ], [ 1, %.thread88 ], [ 1, %.thread92 ], [ 0, %.preheader ], [ 0, %.preheader96 ], [ 0, %_ZN3ozz7options6Option8ValidateEi.exit67.thread ]
+  ret i32 %.056
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3814,23 +3814,23 @@ define internal fastcc noundef ptr @_ZN3ozz7options12_GLOBAL__N_111ParseOptionEP
   br i1 %.not.i, label %_ZN3ozz7options12_GLOBAL__N_18StrNICmpEPKcS3_m.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3, %.preheader.i
-  %.012.i = phi ptr [ %17, %.preheader.i ], [ %1, %3 ]
-  %.011.i = phi i64 [ %14, %.preheader.i ], [ %4, %3 ]
-  %.010.i = phi ptr [ %18, %.preheader.i ], [ %0, %3 ]
-  %6 = load i8, ptr %.010.i, align 1
+  %.011.i = phi ptr [ %18, %.preheader.i ], [ %0, %3 ]
+  %.010.i = phi ptr [ %17, %.preheader.i ], [ %1, %3 ]
+  %.0.i = phi i64 [ %14, %.preheader.i ], [ %4, %3 ]
+  %6 = load i8, ptr %.011.i, align 1
   %7 = sext i8 %6 to i32
   %8 = tail call i32 @tolower(i32 noundef %7) #29
   %9 = and i32 %8, 255
-  %10 = load i8, ptr %.012.i, align 1
+  %10 = load i8, ptr %.010.i, align 1
   %11 = sext i8 %10 to i32
   %12 = tail call i32 @tolower(i32 noundef %11) #29
   %13 = and i32 %12, 255
-  %14 = add i64 %.011.i, -1
+  %14 = add i64 %.0.i, -1
   %15 = icmp ne i64 %14, 0
   %16 = icmp ne i32 %9, 0
   %or.cond.i = select i1 %15, i1 %16, i1 false
-  %17 = getelementptr inbounds i8, ptr %.012.i, i64 1
-  %18 = getelementptr inbounds i8, ptr %.010.i, i64 1
+  %17 = getelementptr inbounds i8, ptr %.010.i, i64 1
+  %18 = getelementptr inbounds i8, ptr %.011.i, i64 1
   %19 = icmp eq i32 %9, %13
   %or.cond18.i = select i1 %or.cond.i, i1 %19, i1 false
   br i1 %or.cond18.i, label %.preheader.i, label %_ZN3ozz7options12_GLOBAL__N_18StrNICmpEPKcS3_m.exit, !llvm.loop !28
@@ -3844,23 +3844,23 @@ _ZN3ozz7options12_GLOBAL__N_18StrNICmpEPKcS3_m.exit.thread: ; preds = %3, %_ZN3o
   br i1 %.not.i13, label %_ZN3ozz7options12_GLOBAL__N_18StrNICmpEPKcS3_m.exit22.thread, label %.preheader.i14
 
 .preheader.i14:                                   ; preds = %_ZN3ozz7options12_GLOBAL__N_18StrNICmpEPKcS3_m.exit.thread, %.preheader.i14
-  %.012.i15 = phi ptr [ %32, %.preheader.i14 ], [ %2, %_ZN3ozz7options12_GLOBAL__N_18StrNICmpEPKcS3_m.exit.thread ]
-  %.011.i16 = phi i64 [ %29, %.preheader.i14 ], [ %5, %_ZN3ozz7options12_GLOBAL__N_18StrNICmpEPKcS3_m.exit.thread ]
-  %.010.i17 = phi ptr [ %33, %.preheader.i14 ], [ %20, %_ZN3ozz7options12_GLOBAL__N_18StrNICmpEPKcS3_m.exit.thread ]
-  %21 = load i8, ptr %.010.i17, align 1
+  %.011.i15 = phi ptr [ %33, %.preheader.i14 ], [ %20, %_ZN3ozz7options12_GLOBAL__N_18StrNICmpEPKcS3_m.exit.thread ]
+  %.010.i16 = phi ptr [ %32, %.preheader.i14 ], [ %2, %_ZN3ozz7options12_GLOBAL__N_18StrNICmpEPKcS3_m.exit.thread ]
+  %.0.i17 = phi i64 [ %29, %.preheader.i14 ], [ %5, %_ZN3ozz7options12_GLOBAL__N_18StrNICmpEPKcS3_m.exit.thread ]
+  %21 = load i8, ptr %.011.i15, align 1
   %22 = sext i8 %21 to i32
   %23 = tail call i32 @tolower(i32 noundef %22) #29
   %24 = and i32 %23, 255
-  %25 = load i8, ptr %.012.i15, align 1
+  %25 = load i8, ptr %.010.i16, align 1
   %26 = sext i8 %25 to i32
   %27 = tail call i32 @tolower(i32 noundef %26) #29
   %28 = and i32 %27, 255
-  %29 = add i64 %.011.i16, -1
+  %29 = add i64 %.0.i17, -1
   %30 = icmp ne i64 %29, 0
   %31 = icmp ne i32 %24, 0
   %or.cond.i18 = select i1 %30, i1 %31, i1 false
-  %32 = getelementptr inbounds i8, ptr %.012.i15, i64 1
-  %33 = getelementptr inbounds i8, ptr %.010.i17, i64 1
+  %32 = getelementptr inbounds i8, ptr %.010.i16, i64 1
+  %33 = getelementptr inbounds i8, ptr %.011.i15, i64 1
   %34 = icmp eq i32 %24, %28
   %cond.fr = freeze i1 %34
   %or.cond18.i19 = and i1 %or.cond.i18, %cond.fr
@@ -4013,28 +4013,28 @@ _ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit: ; preds = %20
   br i1 %27, label %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit
 
 _ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i
-  %.017.i = phi ptr [ %.1.i, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i ], [ %.tr6676, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit ]
-  %.01116.i = phi i64 [ %.112.i, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i ], [ %26, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit ]
-  %28 = lshr i64 %.01116.i, 1
-  %29 = getelementptr inbounds ptr, ptr %.017.i, i64 %28
+  %.017.i = phi i64 [ %.1.i, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i ], [ %26, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit ]
+  %.01116.i = phi ptr [ %.112.i, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i ], [ %.tr6676, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit ]
+  %28 = lshr i64 %.017.i, 1
+  %29 = getelementptr inbounds ptr, ptr %.01116.i, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %24, align 8
   %32 = tail call noundef zeroext i1 %5(ptr noundef %30, ptr noundef %31)
   %33 = getelementptr inbounds i8, ptr %29, i64 8
   %34 = xor i64 %28, -1
-  %35 = add nsw i64 %.01116.i, %34
-  %.112.i = select i1 %32, i64 %35, i64 %28
-  %.1.i = select i1 %32, ptr %33, ptr %.017.i
-  %36 = icmp sgt i64 %.112.i, 0
+  %35 = add nsw i64 %.017.i, %34
+  %.112.i = select i1 %32, ptr %33, ptr %.01116.i
+  %.1.i = select i1 %32, i64 %35, i64 %28
+  %36 = icmp sgt i64 %.1.i, 0
   br i1 %36, label %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !30
 
 _ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i
-  %.pre = ptrtoint ptr %.1.i to i64
+  %.pre = ptrtoint ptr %.112.i to i64
   br label %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit
 
 _ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit
   %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %22, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit ]
-  %.0.lcssa.i = phi ptr [ %.1.i, %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %.tr6676, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit ]
+  %.011.lcssa.i = phi ptr [ %.112.i, %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %.tr6676, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit ]
   %37 = sub i64 %.pre-phi, %22
   %38 = ashr exact i64 %37, 3
   br label %tailrecurse
@@ -4049,35 +4049,35 @@ _ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit44: ; preds = %20
   br i1 %44, label %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i46, label %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit
 
 _ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i46: ; preds = %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit44, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i46
-  %.017.i47 = phi ptr [ %.1.i52, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i46 ], [ %.tr74, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit44 ]
-  %.01116.i48 = phi i64 [ %.112.i51, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i46 ], [ %43, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit44 ]
-  %45 = lshr i64 %.01116.i48, 1
-  %46 = getelementptr inbounds ptr, ptr %.017.i47, i64 %45
+  %.017.i47 = phi i64 [ %.1.i52, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i46 ], [ %43, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit44 ]
+  %.01116.i48 = phi ptr [ %.112.i51, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i46 ], [ %.tr74, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit44 ]
+  %45 = lshr i64 %.017.i47, 1
+  %46 = getelementptr inbounds ptr, ptr %.01116.i48, i64 %45
   %47 = load ptr, ptr %40, align 8
   %48 = load ptr, ptr %46, align 8
   %49 = tail call noundef zeroext i1 %5(ptr noundef %47, ptr noundef %48)
   %50 = getelementptr inbounds i8, ptr %46, i64 8
   %51 = xor i64 %45, -1
-  %52 = add nsw i64 %.01116.i48, %51
-  %.112.i51 = select i1 %49, i64 %45, i64 %52
-  %.1.i52 = select i1 %49, ptr %.017.i47, ptr %50
-  %53 = icmp sgt i64 %.112.i51, 0
+  %52 = add nsw i64 %.017.i47, %51
+  %.112.i51 = select i1 %49, ptr %.01116.i48, ptr %50
+  %.1.i52 = select i1 %49, i64 %45, i64 %52
+  %53 = icmp sgt i64 %.1.i52, 0
   br i1 %53, label %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i46, label %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !31
 
 _ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i46
-  %.pre82 = ptrtoint ptr %.1.i52 to i64
+  %.pre82 = ptrtoint ptr %.112.i51 to i64
   br label %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit44
   %.pre-phi83 = phi i64 [ %.pre82, %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %41, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit44 ]
-  %.0.lcssa.i45 = phi ptr [ %.1.i52, %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %.tr74, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit44 ]
+  %.011.lcssa.i45 = phi ptr [ %.112.i51, %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %.tr74, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit44 ]
   %54 = sub i64 %.pre-phi83, %41
   %55 = ashr exact i64 %54, 3
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit, %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit
-  %.063 = phi ptr [ %24, %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ], [ %.0.lcssa.i45, %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ]
-  %.062 = phi ptr [ %.0.lcssa.i, %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ], [ %40, %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ]
+  %.063 = phi ptr [ %24, %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ], [ %.011.lcssa.i45, %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ]
+  %.062 = phi ptr [ %.011.lcssa.i, %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ], [ %40, %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ]
   %.038 = phi i64 [ %38, %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ], [ %39, %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ]
   %.0 = phi i64 [ %23, %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ], [ %55, %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ]
   %56 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN3ozz7options6OptionEEET_S6_S6_S6_St26random_access_iterator_tag(ptr noundef %.063, ptr noundef %.tr6676, ptr noundef %.062)
@@ -4096,22 +4096,22 @@ tailrecurse:                                      ; preds = %_ZSt13__upper_bound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt16__merge_adaptiveIPPN3ozz7options6OptionElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SB_SB_T0_SC_T1_SC_T2_(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, i64 %7) local_unnamed_addr #3 comdat {
   %9 = inttoptr i64 %7 to ptr
-  %.not119 = icmp sgt i64 %3, %4
-  %.not67120 = icmp sgt i64 %3, %6
-  %or.cond121 = or i1 %.not67120, %.not119
-  br i1 %or.cond121, label %.lr.ph, label %tailrecurse._crit_edge
+  %.not118 = icmp sgt i64 %3, %4
+  %.not67119 = icmp sgt i64 %3, %6
+  %or.cond120 = or i1 %.not67119, %.not118
+  br i1 %or.cond120, label %.lr.ph, label %tailrecurse._crit_edge
 
 .lr.ph:                                           ; preds = %8
   %10 = ptrtoint ptr %2 to i64
   br label %29
 
 tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit, %8
-  %.tr.lcssa = phi ptr [ %0, %8 ], [ %.0.i91, %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
-  %.tr105.lcssa = phi ptr [ %1, %8 ], [ %.0101, %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
-  %11 = ptrtoint ptr %.tr105.lcssa to i64
+  %.tr.lcssa = phi ptr [ %0, %8 ], [ %.0.i90, %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
+  %.tr104.lcssa = phi ptr [ %1, %8 ], [ %.0100, %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
+  %11 = ptrtoint ptr %.tr104.lcssa to i64
   %12 = ptrtoint ptr %.tr.lcssa to i64
   %13 = sub i64 %11, %12
-  %.not.i.i.i.i.i = icmp eq ptr %.tr105.lcssa, %.tr.lcssa
+  %.not.i.i.i.i.i = icmp eq ptr %.tr104.lcssa, %.tr.lcssa
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit, label %14
 
 14:                                               ; preds = %tailrecurse._crit_edge
@@ -4120,15 +4120,15 @@ tailrecurse._crit_edge:                           ; preds = %_ZSt17__rotate_adap
 
 _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit: ; preds = %tailrecurse._crit_edge, %14
   %15 = getelementptr inbounds i8, ptr %5, i64 %13
-  %16 = icmp ne ptr %.tr105.lcssa, %.tr.lcssa
-  %17 = icmp ne ptr %.tr105.lcssa, %2
+  %16 = icmp ne ptr %.tr104.lcssa, %.tr.lcssa
+  %17 = icmp ne ptr %.tr104.lcssa, %2
   %18 = and i1 %16, %17
   br i1 %18, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit, %.lr.ph.i
   %.024.i = phi ptr [ %22, %.lr.ph.i ], [ %.tr.lcssa, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit ]
   %.01823.i = phi ptr [ %.1.i, %.lr.ph.i ], [ %5, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit ]
-  %.01922.i = phi ptr [ %.120.i, %.lr.ph.i ], [ %.tr105.lcssa, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit ]
+  %.01922.i = phi ptr [ %.120.i, %.lr.ph.i ], [ %.tr104.lcssa, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit ]
   %19 = load ptr, ptr %.01922.i, align 8
   %20 = load ptr, ptr %.01823.i, align 8
   %21 = tail call noundef zeroext i1 %9(ptr noundef %19, ptr noundef %20)
@@ -4159,23 +4159,23 @@ _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i: ; preds = %._crit_edge.
   br label %_ZSt21__move_merge_adaptiveIPPN3ozz7options6OptionES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SB_T0_SC_T1_T2_.exit
 
 29:                                               ; preds = %.lr.ph, %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit
-  %.not128 = phi i1 [ %.not119, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
-  %.tr108127 = phi i64 [ %4, %.lr.ph ], [ %127, %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
-  %.tr107126 = phi i64 [ %3, %.lr.ph ], [ %96, %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
-  %.tr105124 = phi ptr [ %1, %.lr.ph ], [ %.0101, %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
-  %.tr122 = phi ptr [ %0, %.lr.ph ], [ %.0.i91, %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
-  %.not68 = icmp sgt i64 %.tr108127, %6
-  %30 = ptrtoint ptr %.tr105124 to i64
+  %.not127 = phi i1 [ %.not118, %.lr.ph ], [ %.not, %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
+  %.tr107126 = phi i64 [ %4, %.lr.ph ], [ %127, %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
+  %.tr106125 = phi i64 [ %3, %.lr.ph ], [ %96, %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
+  %.tr104123 = phi ptr [ %1, %.lr.ph ], [ %.0100, %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
+  %.tr121 = phi ptr [ %0, %.lr.ph ], [ %.0.i90, %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit ]
+  %.not68 = icmp sgt i64 %.tr107126, %6
+  %30 = ptrtoint ptr %.tr104123 to i64
   br i1 %.not68, label %61, label %31
 
 31:                                               ; preds = %29
   %32 = sub i64 %10, %30
-  %.not.i.i.i.i.i69 = icmp eq ptr %.tr105124, %2
+  %.not.i.i.i.i.i69 = icmp eq ptr %.tr104123, %2
   br i1 %.not.i.i.i.i.i69, label %_ZSt21__move_merge_adaptiveIPPN3ozz7options6OptionES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SB_T0_SC_T1_T2_.exit, label %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit70.thread
 
 _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit70.thread: ; preds = %31
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr105124, i64 %32, i1 false)
-  %33 = icmp eq ptr %.tr122, %.tr105124
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr104123, i64 %32, i1 false)
+  %33 = icmp eq ptr %.tr121, %.tr104123
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit70.thread
@@ -4191,7 +4191,7 @@ _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit70.thread: ; preds = %31
   br label %.outer
 
 .outer:                                           ; preds = %45, %37
-  %.026.i.ph.pn = phi ptr [ %.tr105124, %37 ], [ %.026.i.ph, %45 ]
+  %.026.i.ph.pn = phi ptr [ %.tr104123, %37 ], [ %.026.i.ph, %45 ]
   %.024.i71.ph = phi ptr [ %39, %37 ], [ %.024.i71, %45 ]
   %.0.i.ph = phi ptr [ %2, %37 ], [ %44, %45 ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -8
@@ -4209,7 +4209,7 @@ _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit70.thread: ; preds = %31
 45:                                               ; preds = %40
   %46 = load ptr, ptr %.026.i.ph, align 8
   store ptr %46, ptr %44, align 8
-  %47 = icmp eq ptr %.026.i.ph, %.tr122
+  %47 = icmp eq ptr %.026.i.ph, %.tr121
   br i1 %47, label %48, label %.outer, !llvm.loop !33
 
 48:                                               ; preds = %45
@@ -4238,85 +4238,85 @@ _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit70.thread: ; preds = %31
   br label %40, !llvm.loop !33
 
 61:                                               ; preds = %29
-  br i1 %.not128, label %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit, label %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit78
+  br i1 %.not127, label %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit, label %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit77
 
 _ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit: ; preds = %61
-  %62 = sdiv i64 %.tr107126, 2
-  %63 = getelementptr inbounds ptr, ptr %.tr122, i64 %62
+  %62 = sdiv i64 %.tr106125, 2
+  %63 = getelementptr inbounds ptr, ptr %.tr121, i64 %62
   %64 = sub i64 %10, %30
   %65 = ashr exact i64 %64, 3
   %66 = icmp sgt i64 %65, 0
   br i1 %66, label %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit
 
 _ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i
-  %.017.i = phi ptr [ %.1.i74, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i ], [ %.tr105124, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit ]
-  %.01116.i = phi i64 [ %.112.i, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i ], [ %65, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit ]
-  %67 = lshr i64 %.01116.i, 1
-  %68 = getelementptr inbounds ptr, ptr %.017.i, i64 %67
+  %.017.i = phi i64 [ %.1.i73, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i ], [ %65, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit ]
+  %.01116.i = phi ptr [ %.112.i, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i ], [ %.tr104123, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit ]
+  %67 = lshr i64 %.017.i, 1
+  %68 = getelementptr inbounds ptr, ptr %.01116.i, i64 %67
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %63, align 8
   %71 = tail call noundef zeroext i1 %9(ptr noundef %69, ptr noundef %70)
   %72 = getelementptr inbounds i8, ptr %68, i64 8
   %73 = xor i64 %67, -1
-  %74 = add nsw i64 %.01116.i, %73
-  %.112.i = select i1 %71, i64 %74, i64 %67
-  %.1.i74 = select i1 %71, ptr %72, ptr %.017.i
-  %75 = icmp sgt i64 %.112.i, 0
+  %74 = add nsw i64 %.017.i, %73
+  %.112.i = select i1 %71, ptr %72, ptr %.01116.i
+  %.1.i73 = select i1 %71, i64 %74, i64 %67
+  %75 = icmp sgt i64 %.1.i73, 0
   br i1 %75, label %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i, label %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !30
 
 _ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i
-  %.pre = ptrtoint ptr %.1.i74 to i64
+  %.pre = ptrtoint ptr %.112.i to i64
   br label %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit
 
 _ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit
   %.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %30, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit ]
-  %.0.lcssa.i73 = phi ptr [ %.1.i74, %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %.tr105124, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit ]
+  %.011.lcssa.i = phi ptr [ %.112.i, %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %.tr104123, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit ]
   %76 = sub i64 %.pre-phi, %30
   %77 = ashr exact i64 %76, 3
   br label %95
 
-_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit78: ; preds = %61
-  %78 = sdiv i64 %.tr108127, 2
-  %79 = getelementptr inbounds ptr, ptr %.tr105124, i64 %78
-  %80 = ptrtoint ptr %.tr122 to i64
+_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit77: ; preds = %61
+  %78 = sdiv i64 %.tr107126, 2
+  %79 = getelementptr inbounds ptr, ptr %.tr104123, i64 %78
+  %80 = ptrtoint ptr %.tr121 to i64
   %81 = sub i64 %30, %80
   %82 = ashr exact i64 %81, 3
   %83 = icmp sgt i64 %82, 0
-  br i1 %83, label %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i81, label %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit
+  br i1 %83, label %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i80, label %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit
 
-_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i81: ; preds = %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit78, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i81
-  %.017.i82 = phi ptr [ %.1.i87, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i81 ], [ %.tr122, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit78 ]
-  %.01116.i83 = phi i64 [ %.112.i86, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i81 ], [ %82, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit78 ]
-  %84 = lshr i64 %.01116.i83, 1
-  %85 = getelementptr inbounds ptr, ptr %.017.i82, i64 %84
+_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i80: ; preds = %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit77, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i80
+  %.017.i81 = phi i64 [ %.1.i86, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i80 ], [ %82, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit77 ]
+  %.01116.i82 = phi ptr [ %.112.i85, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i80 ], [ %.tr121, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit77 ]
+  %84 = lshr i64 %.017.i81, 1
+  %85 = getelementptr inbounds ptr, ptr %.01116.i82, i64 %84
   %86 = load ptr, ptr %79, align 8
   %87 = load ptr, ptr %85, align 8
   %88 = tail call noundef zeroext i1 %9(ptr noundef %86, ptr noundef %87)
   %89 = getelementptr inbounds i8, ptr %85, i64 8
   %90 = xor i64 %84, -1
-  %91 = add nsw i64 %.01116.i83, %90
-  %.112.i86 = select i1 %88, i64 %84, i64 %91
-  %.1.i87 = select i1 %88, ptr %.017.i82, ptr %89
-  %92 = icmp sgt i64 %.112.i86, 0
-  br i1 %92, label %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i81, label %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !31
+  %91 = add nsw i64 %.017.i81, %90
+  %.112.i85 = select i1 %88, ptr %.01116.i82, ptr %89
+  %.1.i86 = select i1 %88, i64 %84, i64 %91
+  %92 = icmp sgt i64 %.1.i86, 0
+  br i1 %92, label %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i80, label %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, !llvm.loop !31
 
-_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i81
-  %.pre137 = ptrtoint ptr %.1.i87 to i64
+_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit: ; preds = %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i80
+  %.pre136 = ptrtoint ptr %.112.i85 to i64
   br label %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit
 
-_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit78
-  %.pre-phi138 = phi i64 [ %.pre137, %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %80, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit78 ]
-  %.0.lcssa.i80 = phi ptr [ %.1.i87, %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %.tr122, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit78 ]
-  %93 = sub i64 %.pre-phi138, %80
+_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit77
+  %.pre-phi137 = phi i64 [ %.pre136, %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %80, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit77 ]
+  %.011.lcssa.i79 = phi ptr [ %.112.i85, %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit.loopexit ], [ %.tr121, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit77 ]
+  %93 = sub i64 %.pre-phi137, %80
   %94 = ashr exact i64 %93, 3
   br label %95
 
 95:                                               ; preds = %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit, %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit
-  %.0102 = phi ptr [ %63, %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ], [ %.0.lcssa.i80, %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ]
-  %.0101 = phi ptr [ %.0.lcssa.i73, %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ], [ %79, %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ]
+  %.0101 = phi ptr [ %63, %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ], [ %.011.lcssa.i79, %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ]
+  %.0100 = phi ptr [ %.011.lcssa.i, %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ], [ %79, %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ]
   %.063 = phi i64 [ %77, %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ], [ %78, %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ]
   %.0 = phi i64 [ %62, %_ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ], [ %94, %_ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterIPFbS3_S3_EEEET_SB_SB_RKT0_T1_.exit ]
-  %96 = sub nsw i64 %.tr107126, %.0
+  %96 = sub nsw i64 %.tr106125, %.0
   %97 = icmp sle i64 %96, %.063
   %.not.i = icmp sgt i64 %.063, %6
   %or.cond.i = or i1 %.not.i, %97
@@ -4327,38 +4327,38 @@ _ZSt13__upper_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Val_comp_iterI
   br i1 %.not35.i, label %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit, label %99
 
 99:                                               ; preds = %98
-  %100 = ptrtoint ptr %.0101 to i64
-  %101 = ptrtoint ptr %.tr105124 to i64
+  %100 = ptrtoint ptr %.0100 to i64
+  %101 = ptrtoint ptr %.tr104123 to i64
   %102 = sub i64 %100, %101
-  %.not.i.i.i.i.i.i88 = icmp eq ptr %.0101, %.tr105124
-  br i1 %.not.i.i.i.i.i.i88, label %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i89, label %103
+  %.not.i.i.i.i.i.i87 = icmp eq ptr %.0100, %.tr104123
+  br i1 %.not.i.i.i.i.i.i87, label %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i88, label %103
 
 103:                                              ; preds = %99
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr105124, i64 %102, i1 false)
-  br label %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i89
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.tr104123, i64 %102, i1 false)
+  br label %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i88
 
-_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i89: ; preds = %103, %99
-  %.not.i.i.i.i.i36.i = icmp eq ptr %.0102, %.tr105124
+_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i88: ; preds = %103, %99
+  %.not.i.i.i.i.i36.i = icmp eq ptr %.0101, %.tr104123
   br i1 %.not.i.i.i.i.i36.i, label %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i, label %104
 
-104:                                              ; preds = %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i89
-  %105 = ptrtoint ptr %.0102 to i64
+104:                                              ; preds = %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i88
+  %105 = ptrtoint ptr %.0101 to i64
   %106 = sub i64 %101, %105
   %107 = ashr exact i64 %106, 3
-  %.pre.i.i.i.i.i.i90 = sub nsw i64 0, %107
-  %108 = getelementptr inbounds ptr, ptr %.0101, i64 %.pre.i.i.i.i.i.i90
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %108, ptr align 8 %.0102, i64 %106, i1 false)
+  %.pre.i.i.i.i.i.i89 = sub nsw i64 0, %107
+  %108 = getelementptr inbounds ptr, ptr %.0100, i64 %.pre.i.i.i.i.i.i89
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %108, ptr align 8 %.0101, i64 %106, i1 false)
   br label %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i
 
-_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i: ; preds = %104, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i89
-  br i1 %.not.i.i.i.i.i.i88, label %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit38.i, label %109
+_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i: ; preds = %104, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i88
+  br i1 %.not.i.i.i.i.i.i87, label %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit38.i, label %109
 
 109:                                              ; preds = %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0102, ptr align 8 %5, i64 %102, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0101, ptr align 8 %5, i64 %102, i1 false)
   br label %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit38.i
 
 _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit38.i: ; preds = %109, %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i
-  %110 = getelementptr inbounds i8, ptr %.0102, i64 %102
+  %110 = getelementptr inbounds i8, ptr %.0101, i64 %102
   br label %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit
 
 111:                                              ; preds = %95
@@ -4366,28 +4366,28 @@ _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit38.i: ; preds = %109, %_ZSt
   br i1 %.not33.i, label %125, label %112
 
 112:                                              ; preds = %111
-  %.not34.i = icmp eq i64 %.0, %.tr107126
+  %.not34.i = icmp eq i64 %.0, %.tr106125
   br i1 %.not34.i, label %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit, label %113
 
 113:                                              ; preds = %112
-  %114 = ptrtoint ptr %.tr105124 to i64
-  %115 = ptrtoint ptr %.0102 to i64
+  %114 = ptrtoint ptr %.tr104123 to i64
+  %115 = ptrtoint ptr %.0101 to i64
   %116 = sub i64 %114, %115
-  %.not.i.i.i.i.i39.i = icmp eq ptr %.0102, %.tr105124
+  %.not.i.i.i.i.i39.i = icmp eq ptr %.0101, %.tr104123
   br i1 %.not.i.i.i.i.i39.i, label %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit40.i, label %117
 
 117:                                              ; preds = %113
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0102, i64 %116, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %5, ptr align 8 %.0101, i64 %116, i1 false)
   br label %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit40.i
 
 _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit40.i: ; preds = %117, %113
-  %.not.i.i.i.i.i41.i = icmp eq ptr %.0101, %.tr105124
+  %.not.i.i.i.i.i41.i = icmp eq ptr %.0100, %.tr104123
   br i1 %.not.i.i.i.i.i41.i, label %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit42.i, label %118
 
 118:                                              ; preds = %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit40.i
-  %119 = ptrtoint ptr %.0101 to i64
+  %119 = ptrtoint ptr %.0100 to i64
   %120 = sub i64 %119, %114
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0102, ptr align 8 %.tr105124, i64 %120, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0101, ptr align 8 %.tr104123, i64 %120, i1 false)
   br label %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit42.i
 
 _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit42.i: ; preds = %118, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit40.i
@@ -4396,22 +4396,22 @@ _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit42.i: ; preds = %118, %_ZSt
   br i1 %.not.i.i.i.i.i39.i, label %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit45.i, label %122
 
 122:                                              ; preds = %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit42.i
-  %123 = getelementptr inbounds ptr, ptr %.0101, i64 %.pre.i.i.i.i.i44.i
+  %123 = getelementptr inbounds ptr, ptr %.0100, i64 %.pre.i.i.i.i.i44.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %123, ptr align 8 %5, i64 %116, i1 false)
   br label %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit45.i
 
 _ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit45.i: ; preds = %122, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit42.i
-  %124 = getelementptr inbounds ptr, ptr %.0101, i64 %.pre.i.i.i.i.i44.i
+  %124 = getelementptr inbounds ptr, ptr %.0100, i64 %.pre.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit
 
 125:                                              ; preds = %111
-  %126 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN3ozz7options6OptionEEET_S6_S6_S6_St26random_access_iterator_tag(ptr noundef %.0102, ptr noundef %.tr105124, ptr noundef %.0101)
+  %126 = tail call noundef ptr @_ZNSt3_V28__rotateIPPN3ozz7options6OptionEEET_S6_S6_S6_St26random_access_iterator_tag(ptr noundef %.0101, ptr noundef %.tr104123, ptr noundef %.0100)
   br label %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit
 
 _ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit: ; preds = %98, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit38.i, %112, %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit45.i, %125
-  %.0.i91 = phi ptr [ %110, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit38.i ], [ %124, %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit45.i ], [ %126, %125 ], [ %.0102, %98 ], [ %.0101, %112 ]
-  tail call void @_ZSt16__merge_adaptiveIPPN3ozz7options6OptionElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SB_SB_T0_SC_T1_SC_T2_(ptr noundef %.tr122, ptr noundef %.0102, ptr noundef %.0.i91, i64 noundef %.0, i64 noundef %.063, ptr noundef %5, i64 noundef %6, i64 %7)
-  %127 = sub nsw i64 %.tr108127, %.063
+  %.0.i90 = phi ptr [ %110, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit38.i ], [ %124, %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit45.i ], [ %126, %125 ], [ %.0101, %98 ], [ %.0100, %112 ]
+  tail call void @_ZSt16__merge_adaptiveIPPN3ozz7options6OptionElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SB_SB_T0_SC_T1_SC_T2_(ptr noundef %.tr121, ptr noundef %.0101, ptr noundef %.0.i90, i64 noundef %.0, i64 noundef %.063, ptr noundef %5, i64 noundef %6, i64 %7)
+  %127 = sub nsw i64 %.tr107126, %.063
   %.not = icmp sgt i64 %96, %127
   %.not67 = icmp sgt i64 %96, %6
   %or.cond = or i1 %.not67, %.not

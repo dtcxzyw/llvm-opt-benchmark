@@ -1273,14 +1273,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit106.i:     ; preds = %321, %318
 
 .preheader.i.i:                                   ; preds = %421, %.preheader.i.i
   %indvars.iv245.i.i = phi i64 [ %indvars.iv.next246.i.i, %.preheader.i.i ], [ 0, %421 ]
-  %.0184217.i.i = phi float [ %427, %.preheader.i.i ], [ 0.000000e+00, %421 ]
+  %.0179218.i.i = phi float [ %427, %.preheader.i.i ], [ 0.000000e+00, %421 ]
   %422 = getelementptr inbounds [4 x ptr], ptr %70, i64 0, i64 %indvars.iv245.i.i
   %423 = load ptr, ptr %422, align 8
   %424 = getelementptr inbounds float, ptr %423, i64 %indvars.iv263.i.i
   %425 = load float, ptr %424, align 4
   %426 = call noundef float @sqrtf(float noundef %425) #17
   store float %426, ptr %424, align 4
-  %427 = fadd float %.0184217.i.i, %426
+  %427 = fadd float %.0179218.i.i, %426
   %indvars.iv.next246.i.i = add nuw nsw i64 %indvars.iv245.i.i, 1
   %exitcond248.not.i.i = icmp eq i64 %indvars.iv.next246.i.i, 4
   br i1 %exitcond248.not.i.i, label %428, label %.preheader.i.i, !llvm.loop !9
@@ -4561,10 +4561,10 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %26, %30
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv75 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next76, %._crit_edge.us ]
-  %.05163.us = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next71, %._crit_edge.us ]
+  %.05064.us = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next71, %._crit_edge.us ]
   %51 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv75
   %52 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv75
-  %sext = shl i64 %.05163.us, 32
+  %sext = shl i64 %.05064.us, 32
   %53 = ashr exact i64 %sext, 32
   br label %54
 

@@ -278,7 +278,7 @@ define internal i32 @dissect_smtp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %22
 
 22:                                               ; preds = %16, %4
-  %.0259 = phi ptr [ %15, %4 ], [ %18, %16 ]
+  %.0258 = phi ptr [ %15, %4 ], [ %18, %16 ]
   %23 = getelementptr inbounds i8, ptr %1, i64 288
   %24 = load i32, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %1, i64 292
@@ -324,24 +324,24 @@ define internal i32 @dissect_smtp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 .lr.ph329.split.us.preheader:                     ; preds = %32
   %47 = getelementptr inbounds i8, ptr %1, i64 328
-  %48 = getelementptr inbounds i8, ptr %.0259, i64 32
-  %49 = getelementptr inbounds i8, ptr %.0259, i64 4
+  %48 = getelementptr inbounds i8, ptr %.0258, i64 32
+  %49 = getelementptr inbounds i8, ptr %.0258, i64 4
   %50 = getelementptr inbounds i8, ptr %1, i64 20
-  %51 = getelementptr inbounds i8, ptr %.0259, i64 8
-  %52 = getelementptr inbounds i8, ptr %.0259, i64 20
+  %51 = getelementptr inbounds i8, ptr %.0258, i64 8
+  %52 = getelementptr inbounds i8, ptr %.0258, i64 20
   %53 = getelementptr inbounds i8, ptr %1, i64 408
   %54 = load ptr, ptr @g_ascii_table, align 8
-  %55 = getelementptr inbounds i8, ptr %.0259, i64 72
-  %56 = getelementptr inbounds i8, ptr %.0259, i64 60
-  %57 = getelementptr inbounds i8, ptr %.0259, i64 12
-  %58 = getelementptr inbounds i8, ptr %.0259, i64 36
-  %59 = getelementptr inbounds i8, ptr %.0259, i64 64
-  %60 = getelementptr inbounds i8, ptr %.0259, i64 56
-  %61 = getelementptr inbounds i8, ptr %.0259, i64 52
-  %62 = getelementptr inbounds i8, ptr %.0259, i64 48
-  %63 = getelementptr inbounds i8, ptr %.0259, i64 44
-  %64 = getelementptr inbounds i8, ptr %.0259, i64 40
-  %65 = getelementptr inbounds i8, ptr %.0259, i64 16
+  %55 = getelementptr inbounds i8, ptr %.0258, i64 72
+  %56 = getelementptr inbounds i8, ptr %.0258, i64 60
+  %57 = getelementptr inbounds i8, ptr %.0258, i64 12
+  %58 = getelementptr inbounds i8, ptr %.0258, i64 36
+  %59 = getelementptr inbounds i8, ptr %.0258, i64 64
+  %60 = getelementptr inbounds i8, ptr %.0258, i64 56
+  %61 = getelementptr inbounds i8, ptr %.0258, i64 52
+  %62 = getelementptr inbounds i8, ptr %.0258, i64 48
+  %63 = getelementptr inbounds i8, ptr %.0258, i64 44
+  %64 = getelementptr inbounds i8, ptr %.0258, i64 40
+  %65 = getelementptr inbounds i8, ptr %.0258, i64 16
   br label %.lr.ph329.split.us
 
 .lr.ph329.split.us:                               ; preds = %.lr.ph329.split.us.preheader, %321
@@ -394,7 +394,7 @@ define internal i32 @dissect_smtp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %89 = icmp eq i32 %88, 0
   %..us = zext i1 %89 to i32
   store i32 %..us, ptr %48, align 8
-  %90 = load i32, ptr %.0259, align 8
+  %90 = load i32, ptr %.0258, align 8
   %91 = icmp eq i32 %90, 2
   br i1 %91, label %260, label %92
 
@@ -454,35 +454,35 @@ define internal i32 @dissect_smtp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %121
 
 121:                                              ; preds = %119, %116, %112
-  %.0258.us = phi ptr [ %102, %112 ], [ %117, %116 ], [ %120, %119 ]
+  %.0257.us = phi ptr [ %102, %112 ], [ %117, %116 ], [ %120, %119 ]
   %.1255.us = phi i32 [ %115, %112 ], [ %.0254.us, %116 ], [ %.0254.us, %119 ]
   %122 = sext i32 %.1255.us to i64
-  %123 = getelementptr i8, ptr %.0258.us, i64 %122
-  %124 = icmp ult ptr %.0258.us, %123
+  %123 = getelementptr i8, ptr %.0257.us, i64 %122
+  %124 = icmp ult ptr %.0257.us, %123
   br i1 %124, label %.lr.ph.us, label %.critedge.us
 
 .lr.ph.us:                                        ; preds = %121, %126
-  %.0257322.us = phi ptr [ %127, %126 ], [ %.0258.us, %121 ]
-  %125 = load i8, ptr %.0257322.us, align 1
+  %.0256322.us = phi ptr [ %127, %126 ], [ %.0257.us, %121 ]
+  %125 = load i8, ptr %.0256322.us, align 1
   %.not278.us = icmp eq i8 %125, 32
   br i1 %.not278.us, label %.critedge.us, label %126
 
 126:                                              ; preds = %.lr.ph.us
-  %127 = getelementptr i8, ptr %.0257322.us, i64 1
+  %127 = getelementptr i8, ptr %.0256322.us, i64 1
   %exitcond.not = icmp eq ptr %127, %123
   br i1 %exitcond.not, label %.critedge.us, label %.lr.ph.us, !llvm.loop !4
 
 .critedge.us:                                     ; preds = %.lr.ph.us, %126, %121
-  %.0257.lcssa.us = phi ptr [ %.0258.us, %121 ], [ %123, %126 ], [ %.0257322.us, %.lr.ph.us ]
-  %128 = ptrtoint ptr %.0257.lcssa.us to i64
-  %129 = ptrtoint ptr %.0258.us to i64
+  %.0256.lcssa.us = phi ptr [ %.0257.us, %121 ], [ %123, %126 ], [ %.0256322.us, %.lr.ph.us ]
+  %128 = ptrtoint ptr %.0256.lcssa.us to i64
+  %129 = ptrtoint ptr %.0257.us to i64
   %130 = sub i64 %128, %129
   %131 = trunc i64 %130 to i32
   %132 = icmp eq i32 %131, 4
   br i1 %132, label %133, label %160
 
 133:                                              ; preds = %.critedge.us
-  %134 = load i8, ptr %.0258.us, align 1
+  %134 = load i8, ptr %.0257.us, align 1
   %135 = zext i8 %134 to i64
   %136 = getelementptr i16, ptr %54, i64 %135
   %137 = load i16, ptr %136, align 2
@@ -491,7 +491,7 @@ define internal i32 @dissect_smtp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i293.us, label %160, label %139
 
 139:                                              ; preds = %133
-  %140 = getelementptr i8, ptr %.0258.us, i64 1
+  %140 = getelementptr i8, ptr %.0257.us, i64 1
   %141 = load i8, ptr %140, align 1
   %142 = zext i8 %141 to i64
   %143 = getelementptr i16, ptr %54, i64 %142
@@ -501,7 +501,7 @@ define internal i32 @dissect_smtp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not14.i.us, label %160, label %146
 
 146:                                              ; preds = %139
-  %147 = getelementptr i8, ptr %.0258.us, i64 2
+  %147 = getelementptr i8, ptr %.0257.us, i64 2
   %148 = load i8, ptr %147, align 1
   %149 = zext i8 %148 to i64
   %150 = getelementptr i16, ptr %54, i64 %149
@@ -511,7 +511,7 @@ define internal i32 @dissect_smtp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not15.i.us, label %160, label %153
 
 153:                                              ; preds = %146
-  %154 = getelementptr i8, ptr %.0258.us, i64 3
+  %154 = getelementptr i8, ptr %.0257.us, i64 3
   %155 = load i8, ptr %154, align 1
   %156 = zext i8 %155 to i64
   %157 = getelementptr i16, ptr %54, i64 %156
@@ -535,7 +535,7 @@ define internal i32 @dissect_smtp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 167:                                              ; preds = %162
   %168 = load ptr, ptr %163, align 16
-  %169 = call i32 @g_ascii_strncasecmp(ptr noundef %.0258.us, ptr noundef %168, i64 noundef %161) #7
+  %169 = call i32 @g_ascii_strncasecmp(ptr noundef %.0257.us, ptr noundef %168, i64 noundef %161) #7
   %170 = icmp eq i32 %169, 0
   br i1 %170, label %.loopexit.us, label %171
 
@@ -577,7 +577,7 @@ line_is_smtp_command.exit.us:                     ; preds = %171
   br i1 %.not281.us, label %181, label %184
 
 181:                                              ; preds = %179
-  %182 = load i32, ptr %.0259, align 8
+  %182 = load i32, ptr %.0258, align 8
   %183 = icmp eq i32 %182, 0
   br label %184
 
@@ -593,55 +593,55 @@ line_is_smtp_command.exit.us:                     ; preds = %171
   br i1 %.not280.us, label %line_is_smtp_command.exit.thread317.us, label %188
 
 188:                                              ; preds = %.loopexit.us
-  %189 = call i32 @g_ascii_strncasecmp(ptr noundef %.0258.us, ptr noundef nonnull @.str.110, i64 noundef 4) #7
+  %189 = call i32 @g_ascii_strncasecmp(ptr noundef %.0257.us, ptr noundef nonnull @.str.110, i64 noundef 4) #7
   %190 = icmp eq i32 %189, 0
   br i1 %190, label %258, label %191
 
 191:                                              ; preds = %188
-  %192 = call i32 @g_ascii_strncasecmp(ptr noundef %.0258.us, ptr noundef nonnull @.str.111, i64 noundef 4) #7
+  %192 = call i32 @g_ascii_strncasecmp(ptr noundef %.0257.us, ptr noundef nonnull @.str.111, i64 noundef 4) #7
   %193 = icmp eq i32 %192, 0
   br i1 %193, label %231, label %194
 
 194:                                              ; preds = %191
-  %195 = call i32 @g_ascii_strncasecmp(ptr noundef %.0258.us, ptr noundef nonnull @.str.113, i64 noundef 4) #7
+  %195 = call i32 @g_ascii_strncasecmp(ptr noundef %.0257.us, ptr noundef nonnull @.str.113, i64 noundef 4) #7
   %196 = icmp eq i32 %195, 0
   br i1 %196, label %230, label %197
 
 197:                                              ; preds = %194
-  %198 = call i32 @g_ascii_strncasecmp(ptr noundef %.0258.us, ptr noundef nonnull @.str.114, i64 noundef 10) #7
+  %198 = call i32 @g_ascii_strncasecmp(ptr noundef %.0257.us, ptr noundef nonnull @.str.114, i64 noundef 10) #7
   %199 = icmp eq i32 %198, 0
   %200 = icmp slt i32 %.1255.us, 12
   %or.cond3.us = and i1 %200, %199
   br i1 %or.cond3.us, label %228, label %201
 
 201:                                              ; preds = %197
-  %202 = call i32 @g_ascii_strncasecmp(ptr noundef %.0258.us, ptr noundef nonnull @.str.114, i64 noundef 10) #7
+  %202 = call i32 @g_ascii_strncasecmp(ptr noundef %.0257.us, ptr noundef nonnull @.str.114, i64 noundef 10) #7
   %203 = icmp eq i32 %202, 0
   %204 = icmp sgt i32 %.1255.us, 11
   %or.cond5.us = and i1 %204, %203
   br i1 %or.cond5.us, label %226, label %205
 
 205:                                              ; preds = %201
-  %206 = call i32 @g_ascii_strncasecmp(ptr noundef %.0258.us, ptr noundef nonnull @.str.115, i64 noundef 10) #7
+  %206 = call i32 @g_ascii_strncasecmp(ptr noundef %.0257.us, ptr noundef nonnull @.str.115, i64 noundef 10) #7
   %207 = icmp eq i32 %206, 0
   %or.cond7.us = and i1 %200, %207
   br i1 %or.cond7.us, label %224, label %208
 
 208:                                              ; preds = %205
-  %209 = call i32 @g_ascii_strncasecmp(ptr noundef %.0258.us, ptr noundef nonnull @.str.115, i64 noundef 10) #7
+  %209 = call i32 @g_ascii_strncasecmp(ptr noundef %.0257.us, ptr noundef nonnull @.str.115, i64 noundef 10) #7
   %210 = icmp eq i32 %209, 0
   %or.cond9.us = and i1 %204, %210
   br i1 %or.cond9.us, label %222, label %211
 
 211:                                              ; preds = %208
-  %212 = call i32 @g_ascii_strncasecmp(ptr noundef %.0258.us, ptr noundef nonnull @.str.116, i64 noundef 9) #7
+  %212 = call i32 @g_ascii_strncasecmp(ptr noundef %.0257.us, ptr noundef nonnull @.str.116, i64 noundef 9) #7
   %213 = icmp eq i32 %212, 0
   %214 = icmp sgt i32 %.1255.us, 10
   %or.cond11.us = and i1 %214, %213
   br i1 %or.cond11.us, label %220, label %215
 
 215:                                              ; preds = %211
-  %216 = call i32 @g_ascii_strncasecmp(ptr noundef %.0258.us, ptr noundef nonnull @.str.117, i64 noundef 8) #7
+  %216 = call i32 @g_ascii_strncasecmp(ptr noundef %.0257.us, ptr noundef nonnull @.str.117, i64 noundef 8) #7
   %217 = icmp eq i32 %216, 0
   br i1 %217, label %219, label %218
 
@@ -650,13 +650,13 @@ line_is_smtp_command.exit.us:                     ; preds = %171
   br label %321
 
 219:                                              ; preds = %215
-  store i32 3, ptr %.0259, align 8
+  store i32 3, ptr %.0258, align 8
   store i16 0, ptr %.1328.us, align 8
   br label %321
 
 220:                                              ; preds = %211
   store i16 0, ptr %.1328.us, align 8
-  store i32 1, ptr %.0259, align 8
+  store i32 1, ptr %.0258, align 8
   store i32 10, ptr %49, align 4
   %221 = load i32, ptr %50, align 4
   store i32 %221, ptr %59, align 8
@@ -664,7 +664,7 @@ line_is_smtp_command.exit.us:                     ; preds = %171
 
 222:                                              ; preds = %208
   store i16 0, ptr %.1328.us, align 8
-  store i32 1, ptr %.0259, align 8
+  store i32 1, ptr %.0258, align 8
   store i32 7, ptr %49, align 4
   %223 = load i32, ptr %50, align 4
   store i32 %223, ptr %51, align 8
@@ -673,7 +673,7 @@ line_is_smtp_command.exit.us:                     ; preds = %171
 
 224:                                              ; preds = %205
   store i16 0, ptr %.1328.us, align 8
-  store i32 1, ptr %.0259, align 8
+  store i32 1, ptr %.0258, align 8
   store i32 6, ptr %49, align 4
   %225 = load i32, ptr %50, align 4
   store i32 %225, ptr %51, align 8
@@ -681,7 +681,7 @@ line_is_smtp_command.exit.us:                     ; preds = %171
 
 226:                                              ; preds = %201
   store i16 0, ptr %.1328.us, align 8
-  store i32 1, ptr %.0259, align 8
+  store i32 1, ptr %.0258, align 8
   store i32 3, ptr %49, align 4
   %227 = load i32, ptr %50, align 4
   store i32 %227, ptr %51, align 8
@@ -690,7 +690,7 @@ line_is_smtp_command.exit.us:                     ; preds = %171
 
 228:                                              ; preds = %197
   store i16 0, ptr %.1328.us, align 8
-  store i32 1, ptr %.0259, align 8
+  store i32 1, ptr %.0258, align 8
   store i32 1, ptr %49, align 4
   %229 = load i32, ptr %50, align 4
   store i32 %229, ptr %51, align 8
@@ -704,7 +704,7 @@ line_is_smtp_command.exit.us:                     ; preds = %171
   br label %321
 
 231:                                              ; preds = %191
-  %232 = getelementptr i8, ptr %.0258.us, i64 5
+  %232 = getelementptr i8, ptr %.0257.us, i64 5
   %233 = call i64 @strtoul(ptr nocapture noundef %232, ptr noundef null, i32 noundef 10) #7
   %234 = trunc i64 %233 to i32
   store i16 0, ptr %.1328.us, align 8
@@ -727,7 +727,7 @@ line_is_smtp_command.exit.us:                     ; preds = %171
   br i1 %cond.us, label %.thread316.us, label %242
 
 242:                                              ; preds = %241, %240
-  store i32 2, ptr %.0259, align 8
+  store i32 2, ptr %.0258, align 8
   %243 = load i32, ptr %11, align 4
   %244 = getelementptr inbounds i8, ptr %.1328.us, i64 8
   store i32 %243, ptr %244, align 8
@@ -757,12 +757,12 @@ append_pdu.exit295.us:                            ; preds = %242
   br label %257
 
 257:                                              ; preds = %.thread316.us, %240
-  store i32 1, ptr %.0259, align 8
+  store i32 1, ptr %.0258, align 8
   br label %321
 
 258:                                              ; preds = %188
   store i16 0, ptr %.1328.us, align 8
-  store i32 2, ptr %.0259, align 8
+  store i32 2, ptr %.0258, align 8
   store i32 1, ptr %58, align 4
   br label %321
 
@@ -818,7 +818,7 @@ append_pdu.exit290.us:                            ; preds = %267
   %284 = call i32 @tvb_reported_length(ptr noundef %0) #7
   %285 = getelementptr inbounds i8, ptr %280, i64 8
   store i32 %284, ptr %285, align 8
-  store i32 1, ptr %.0259, align 8
+  store i32 1, ptr %.0258, align 8
   br label %321
 
 286:                                              ; preds = %260
@@ -882,7 +882,7 @@ append_pdu.exit292.us:                            ; preds = %309
   %319 = call i32 @tvb_reported_length(ptr noundef %0) #7
   %320 = getelementptr inbounds i8, ptr %314, i64 8
   store i32 %319, ptr %320, align 8
-  store i32 1, ptr %.0259, align 8
+  store i32 1, ptr %.0258, align 8
   br label %321
 
 321:                                              ; preds = %append_pdu.exit292.us, %296, %286, %append_pdu.exit290.us, %line_is_smtp_command.exit.thread317.us, %258, %257, %append_pdu.exit295.us, %230, %228, %226, %224, %222, %220, %219, %218, %184, %177, %175, %173
@@ -974,43 +974,43 @@ append_pdu.exit292.us:                            ; preds = %309
   br i1 %.not285338, label %.critedge13, label %.lr.ph
 
 .lr.ph:                                           ; preds = %350
-  %354 = getelementptr inbounds i8, ptr %.0259, i64 12
+  %354 = getelementptr inbounds i8, ptr %.0258, i64 12
   %355 = getelementptr inbounds i8, ptr %1, i64 20
-  %356 = getelementptr inbounds i8, ptr %.0259, i64 16
-  %357 = getelementptr inbounds i8, ptr %.0259, i64 72
-  %358 = getelementptr inbounds i8, ptr %.0259, i64 60
+  %356 = getelementptr inbounds i8, ptr %.0258, i64 16
+  %357 = getelementptr inbounds i8, ptr %.0258, i64 72
+  %358 = getelementptr inbounds i8, ptr %.0258, i64 60
   %359 = getelementptr inbounds i8, ptr %1, i64 408
-  %360 = getelementptr inbounds i8, ptr %.0259, i64 52
-  %361 = getelementptr inbounds i8, ptr %.0259, i64 64
-  %362 = getelementptr inbounds i8, ptr %.0259, i64 56
-  %363 = getelementptr inbounds i8, ptr %.0259, i64 24
+  %360 = getelementptr inbounds i8, ptr %.0258, i64 52
+  %361 = getelementptr inbounds i8, ptr %.0258, i64 64
+  %362 = getelementptr inbounds i8, ptr %.0258, i64 56
+  %363 = getelementptr inbounds i8, ptr %.0258, i64 24
   %.not.i.i = icmp eq ptr %349, null
   %364 = getelementptr inbounds i8, ptr %1, i64 272
   br label %365
 
 365:                                              ; preds = %.lr.ph, %dissect_smtp_request.exit
   %.3340 = phi ptr [ %353, %.lr.ph ], [ %702, %dissect_smtp_request.exit ]
-  %.0256339 = phi i32 [ 0, %.lr.ph ], [ %700, %dissect_smtp_request.exit ]
-  %366 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0256339) #7
+  %.0259339 = phi i32 [ 0, %.lr.ph ], [ %700, %dissect_smtp_request.exit ]
+  %366 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0259339) #7
   %.not286 = icmp eq i32 %366, 0
   br i1 %.not286, label %.critedge13, label %367
 
 367:                                              ; preds = %365
   %368 = getelementptr inbounds i8, ptr %.3340, i64 8
   %369 = load i32, ptr %368, align 8
-  %.not287 = icmp sgt i32 %.0256339, %369
+  %.not287 = icmp sgt i32 %.0259339, %369
   br i1 %.not287, label %370, label %373
 
 370:                                              ; preds = %367
-  %371 = sext i32 %.0256339 to i64
+  %371 = sext i32 %.0259339 to i64
   %372 = sext i32 %369 to i64
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.119, i32 noundef 1314, i64 noundef %371, i64 noundef %372) #9
   unreachable
 
 373:                                              ; preds = %367
-  %374 = sub i32 %369, %.0256339
-  %375 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0256339, i32 noundef %374) #7
-  %.not318 = icmp eq i32 %.0256339, 0
+  %374 = sub i32 %369, %.0259339
+  %375 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0259339, i32 noundef %374) #7
+  %.not318 = icmp eq i32 %.0259339, 0
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 0, ptr %10, align 8
@@ -1103,10 +1103,10 @@ dissect_smtp_data.exit.i:                         ; preds = %.lr.ph.i.i, %.prehe
 
 416:                                              ; preds = %dissect_ntlm_auth.exit.i, %.lr.ph.i
   %.0348.i = phi ptr [ null, %.lr.ph.i ], [ %.5.i, %dissect_ntlm_auth.exit.i ]
-  %.0298347.i = phi i32 [ 0, %.lr.ph.i ], [ %674, %dissect_ntlm_auth.exit.i ]
-  %.0300346.i = phi ptr [ null, %.lr.ph.i ], [ %.1301.i, %dissect_ntlm_auth.exit.i ]
-  %417 = call i32 @tvb_find_line_end(ptr noundef %375, i32 noundef %.0298347.i, i32 noundef -1, ptr noundef nonnull %9, i32 noundef 0) #7
-  %418 = or i32 %.0298347.i, %.0256339
+  %.0298347.i = phi ptr [ null, %.lr.ph.i ], [ %.1299.i, %dissect_ntlm_auth.exit.i ]
+  %.0302346.i = phi i32 [ 0, %.lr.ph.i ], [ %674, %dissect_ntlm_auth.exit.i ]
+  %417 = call i32 @tvb_find_line_end(ptr noundef %375, i32 noundef %.0302346.i, i32 noundef -1, ptr noundef nonnull %9, i32 noundef 0) #7
+  %418 = or i32 %.0302346.i, %.0259339
   %or.cond.i = icmp eq i32 %418, 0
   %419 = load ptr, ptr %343, align 8
   %.str.125..str.126.i = select i1 %or.cond.i, ptr @.str.125, ptr @.str.126
@@ -1141,7 +1141,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %425, %422, %416
 
 434:                                              ; preds = %432
   %435 = load ptr, ptr %359, align 8
-  %436 = call ptr @tvb_get_string_enc(ptr noundef %435, ptr noundef %375, i32 noundef %.0298347.i, i32 noundef %417, i32 noundef 0) #7
+  %436 = call ptr @tvb_get_string_enc(ptr noundef %435, ptr noundef %375, i32 noundef %.0302346.i, i32 noundef %417, i32 noundef 0) #7
   %437 = sext i32 %417 to i64
   store i64 %437, ptr %10, align 8
   %438 = load i32, ptr @smtp_auth_parameter_decoding_enabled, align 4
@@ -1168,7 +1168,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %425, %422, %416
 
 447:                                              ; preds = %442, %.thread.i
   %448 = load ptr, ptr %359, align 8
-  %449 = call ptr @tvb_get_string_enc(ptr noundef %448, ptr noundef %375, i32 noundef %.0298347.i, i32 noundef %417, i32 noundef 0) #7
+  %449 = call ptr @tvb_get_string_enc(ptr noundef %448, ptr noundef %375, i32 noundef %.0302346.i, i32 noundef %417, i32 noundef 0) #7
   store i64 %437, ptr %10, align 8
   br label %450
 
@@ -1186,7 +1186,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %425, %422, %416
 
 455:                                              ; preds = %452, %450
   %456 = load i32, ptr @hf_smtp_username, align 4
-  %457 = call ptr @proto_tree_add_string(ptr noundef %349, i32 noundef %456, ptr noundef %375, i32 noundef %.0298347.i, i32 noundef %417, ptr noundef %.1.i) #7
+  %457 = call ptr @proto_tree_add_string(ptr noundef %349, i32 noundef %456, ptr noundef %375, i32 noundef %.0302346.i, i32 noundef %417, ptr noundef %.1.i) #7
   %458 = load ptr, ptr %343, align 8
   %459 = load ptr, ptr %359, align 8
   %460 = load i64, ptr %10, align 8
@@ -1205,7 +1205,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %425, %422, %416
 
 467:                                              ; preds = %465
   %468 = load ptr, ptr %359, align 8
-  %469 = call ptr @tvb_get_string_enc(ptr noundef %468, ptr noundef %375, i32 noundef %.0298347.i, i32 noundef %417, i32 noundef 0) #7
+  %469 = call ptr @tvb_get_string_enc(ptr noundef %468, ptr noundef %375, i32 noundef %.0302346.i, i32 noundef %417, i32 noundef 0) #7
   %470 = sext i32 %417 to i64
   store i64 %470, ptr %10, align 8
   %471 = load i32, ptr @smtp_auth_parameter_decoding_enabled, align 4
@@ -1232,14 +1232,14 @@ proto_item_set_hidden.exit.i:                     ; preds = %425, %422, %416
 
 480:                                              ; preds = %475, %.thread338.i
   %481 = load ptr, ptr %359, align 8
-  %482 = call ptr @tvb_get_string_enc(ptr noundef %481, ptr noundef %375, i32 noundef %.0298347.i, i32 noundef %417, i32 noundef 0) #7
+  %482 = call ptr @tvb_get_string_enc(ptr noundef %481, ptr noundef %375, i32 noundef %.0302346.i, i32 noundef %417, i32 noundef 0) #7
   store i64 %470, ptr %10, align 8
   br label %483
 
 483:                                              ; preds = %480, %475, %467, %465
   %.2.i = phi ptr [ %482, %480 ], [ %469, %475 ], [ %469, %467 ], [ %.0348.i, %465 ]
   %484 = load i32, ptr @hf_smtp_password, align 4
-  %485 = call ptr @proto_tree_add_string(ptr noundef %349, i32 noundef %484, ptr noundef %375, i32 noundef %.0298347.i, i32 noundef %417, ptr noundef %.2.i) #7
+  %485 = call ptr @proto_tree_add_string(ptr noundef %349, i32 noundef %484, ptr noundef %375, i32 noundef %.0302346.i, i32 noundef %417, ptr noundef %.2.i) #7
   %486 = load ptr, ptr %343, align 8
   %487 = load ptr, ptr %359, align 8
   %488 = load i64, ptr %10, align 8
@@ -1275,7 +1275,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %425, %422, %416
 
 507:                                              ; preds = %504
   %508 = load ptr, ptr %359, align 8
-  %509 = call ptr @tvb_get_string_enc(ptr noundef %508, ptr noundef %375, i32 noundef %.0298347.i, i32 noundef %417, i32 noundef 0) #7
+  %509 = call ptr @tvb_get_string_enc(ptr noundef %508, ptr noundef %375, i32 noundef %.0302346.i, i32 noundef %417, i32 noundef 0) #7
   %510 = sext i32 %417 to i64
   store i64 %510, ptr %10, align 8
   %511 = load i32, ptr @smtp_auth_parameter_decoding_enabled, align 4
@@ -1302,19 +1302,19 @@ proto_item_set_hidden.exit.i:                     ; preds = %425, %422, %416
 
 520:                                              ; preds = %515, %.thread340.i
   %521 = load ptr, ptr %359, align 8
-  %522 = call ptr @tvb_get_string_enc(ptr noundef %521, ptr noundef %375, i32 noundef %.0298347.i, i32 noundef %417, i32 noundef 0) #7
+  %522 = call ptr @tvb_get_string_enc(ptr noundef %521, ptr noundef %375, i32 noundef %.0302346.i, i32 noundef %417, i32 noundef 0) #7
   store i64 %510, ptr %10, align 8
   %523 = load ptr, ptr %343, align 8
   %524 = load ptr, ptr %359, align 8
   %525 = call ptr @format_text(ptr noundef %524, ptr noundef %522, i64 noundef %510) #7
   call void @col_append_str(ptr noundef %523, i32 noundef 25, ptr noundef %525) #7
   %526 = load i32, ptr @hf_smtp_command_line, align 4
-  %527 = call ptr @proto_tree_add_item(ptr noundef %349, i32 noundef %526, ptr noundef %375, i32 noundef %.0298347.i, i32 noundef %417, i32 noundef 0) #7
+  %527 = call ptr @proto_tree_add_item(ptr noundef %349, i32 noundef %526, ptr noundef %375, i32 noundef %.0302346.i, i32 noundef %417, i32 noundef 0) #7
   br label %dissect_ntlm_auth.exit.i
 
 528:                                              ; preds = %515
   %529 = load ptr, ptr %359, align 8
-  %530 = call ptr @tvb_get_string_enc(ptr noundef %529, ptr noundef %375, i32 noundef %.0298347.i, i32 noundef %417, i32 noundef 0) #7
+  %530 = call ptr @tvb_get_string_enc(ptr noundef %529, ptr noundef %375, i32 noundef %.0302346.i, i32 noundef %417, i32 noundef 0) #7
   %531 = call ptr @base64_to_tvb(ptr noundef %375, ptr noundef %530) #7
   %532 = call i32 @tvb_strneql(ptr noundef %531, i32 noundef 0, ptr noundef nonnull @.str.137, i64 noundef 7) #7
   %533 = icmp eq i32 %532, 0
@@ -1332,7 +1332,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %425, %422, %416
   %540 = call ptr @format_text(ptr noundef %539, ptr noundef %509, i64 noundef %510) #7
   call void @col_append_str(ptr noundef %538, i32 noundef 25, ptr noundef %540) #7
   %541 = load i32, ptr @hf_smtp_command_line, align 4
-  %542 = call ptr @proto_tree_add_item(ptr noundef %349, i32 noundef %541, ptr noundef %375, i32 noundef %.0298347.i, i32 noundef %417, i32 noundef 0) #7
+  %542 = call ptr @proto_tree_add_item(ptr noundef %349, i32 noundef %541, ptr noundef %375, i32 noundef %.0302346.i, i32 noundef %417, i32 noundef 0) #7
   br label %dissect_ntlm_auth.exit.i
 
 543:                                              ; preds = %504
@@ -1341,19 +1341,19 @@ proto_item_set_hidden.exit.i:                     ; preds = %425, %422, %416
   br i1 %545, label %546, label %547
 
 546:                                              ; preds = %543
-  call fastcc void @decode_plain_auth(ptr noundef %375, ptr noundef nonnull %1, ptr noundef %349, i32 noundef %.0298347.i, i32 noundef %417)
+  call fastcc void @decode_plain_auth(ptr noundef %375, ptr noundef nonnull %1, ptr noundef %349, i32 noundef %.0302346.i, i32 noundef %417)
   br label %dissect_ntlm_auth.exit.i
 
 547:                                              ; preds = %543
   %..i = call i32 @llvm.smin.i32(i32 %417, i32 4)
   %548 = load i32, ptr @hf_smtp_command_line, align 4
   %549 = load i32, ptr %9, align 4
-  %550 = sub i32 %549, %.0298347.i
-  %551 = call ptr @proto_tree_add_item(ptr noundef %349, i32 noundef %548, ptr noundef %375, i32 noundef %.0298347.i, i32 noundef %550, i32 noundef 0) #7
+  %550 = sub i32 %549, %.0302346.i
+  %551 = call ptr @proto_tree_add_item(ptr noundef %349, i32 noundef %548, ptr noundef %375, i32 noundef %.0302346.i, i32 noundef %550, i32 noundef 0) #7
   %552 = load i32, ptr @ett_smtp_cmdresp, align 4
   %553 = call ptr @proto_item_add_subtree(ptr noundef %551, i32 noundef %552) #7
   %554 = load i32, ptr @hf_smtp_req_command, align 4
-  %555 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %554, ptr noundef %375, i32 noundef %.0298347.i, i32 noundef %..i, i32 noundef 0) #7
+  %555 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %554, ptr noundef %375, i32 noundef %.0302346.i, i32 noundef %..i, i32 noundef 0) #7
   %556 = icmp sgt i32 %417, 5
   br i1 %556, label %557, label %.critedge328.i
 
@@ -1365,7 +1365,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %425, %422, %416
 
 561:                                              ; preds = %557
   %562 = load i32, ptr @hf_smtp_req_parameter, align 4
-  %563 = add i32 %.0298347.i, 5
+  %563 = add i32 %.0302346.i, 5
   %564 = add nsw i32 %417, -5
   %565 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %562, ptr noundef %375, i32 noundef %563, i32 noundef %564, i32 noundef 0) #7
   %566 = icmp ugt i32 %417, 10
@@ -1376,13 +1376,13 @@ proto_item_set_hidden.exit.i:                     ; preds = %425, %422, %416
   br i1 %568, label %569, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %567
-  %.pre.i = add i32 %.0298347.i, 11
+  %.pre.i = add i32 %.0302346.i, 11
   %.pre350.i = add nsw i32 %417, -11
   br label %587
 
 569:                                              ; preds = %567
   %570 = load ptr, ptr %359, align 8
-  %571 = add i32 %.0298347.i, 11
+  %571 = add i32 %.0302346.i, 11
   %572 = add nsw i32 %417, -11
   %573 = call ptr @tvb_get_string_enc(ptr noundef %570, ptr noundef %375, i32 noundef %571, i32 noundef %572, i32 noundef 0) #7
   %574 = zext nneg i32 %572 to i64
@@ -1423,7 +1423,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %425, %422, %416
   %589 = call ptr @proto_tree_add_string(ptr noundef %553, i32 noundef %588, ptr noundef %375, i32 noundef %.pre-phi.i, i32 noundef %.pre-phi351.i, ptr noundef %.3.i) #7
   %590 = load ptr, ptr %343, align 8
   %591 = load ptr, ptr %359, align 8
-  %592 = call ptr @tvb_format_text(ptr noundef %591, ptr noundef %375, i32 noundef %.0298347.i, i32 noundef 11) #7
+  %592 = call ptr @tvb_format_text(ptr noundef %591, ptr noundef %375, i32 noundef %.0302346.i, i32 noundef 11) #7
   call void @col_append_str(ptr noundef %590, i32 noundef 25, ptr noundef %592) #7
   %593 = load ptr, ptr %343, align 8
   %594 = load ptr, ptr %359, align 8
@@ -1439,7 +1439,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %425, %422, %416
 
 600:                                              ; preds = %597
   %601 = load i32, ptr @hf_smtp_req_parameter, align 4
-  %602 = add i32 %.0298347.i, 5
+  %602 = add i32 %.0302346.i, 5
   %603 = add nsw i32 %417, -5
   %604 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %601, ptr noundef %375, i32 noundef %602, i32 noundef %603, i32 noundef 0) #7
   %605 = icmp ugt i32 %417, 9
@@ -1447,7 +1447,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %425, %422, %416
 
 606:                                              ; preds = %600
   %607 = load ptr, ptr %359, align 8
-  %608 = add i32 %.0298347.i, 10
+  %608 = add i32 %.0302346.i, 10
   %609 = add nsw i32 %417, -10
   %610 = call ptr @tvb_get_string_enc(ptr noundef %607, ptr noundef %375, i32 noundef %608, i32 noundef %609, i32 noundef 0) #7
   %611 = zext nneg i32 %609 to i64
@@ -1480,7 +1480,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %425, %422, %416
   store i64 %611, ptr %10, align 8
   %624 = load ptr, ptr %343, align 8
   %625 = load ptr, ptr %359, align 8
-  %626 = call ptr @tvb_format_text(ptr noundef %625, ptr noundef %375, i32 noundef %.0298347.i, i32 noundef 10) #7
+  %626 = call ptr @tvb_format_text(ptr noundef %625, ptr noundef %375, i32 noundef %.0302346.i, i32 noundef 10) #7
   call void @col_append_str(ptr noundef %624, i32 noundef 25, ptr noundef %626) #7
   %627 = load ptr, ptr %343, align 8
   %628 = load ptr, ptr %359, align 8
@@ -1493,7 +1493,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %425, %422, %416
   %632 = call ptr @tvb_get_string_enc(ptr noundef %631, ptr noundef %375, i32 noundef %608, i32 noundef %609, i32 noundef 0) #7
   %633 = load ptr, ptr %343, align 8
   %634 = load ptr, ptr %359, align 8
-  %635 = call ptr @tvb_format_text(ptr noundef %634, ptr noundef %375, i32 noundef %.0298347.i, i32 noundef 10) #7
+  %635 = call ptr @tvb_format_text(ptr noundef %634, ptr noundef %375, i32 noundef %.0302346.i, i32 noundef 10) #7
   call void @col_append_str(ptr noundef %633, i32 noundef 25, ptr noundef %635) #7
   %636 = load ptr, ptr %359, align 8
   %637 = call ptr @format_text(ptr noundef %636, ptr noundef %632, i64 noundef %611) #7
@@ -1511,7 +1511,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %425, %422, %416
 644:                                              ; preds = %606
   %645 = load ptr, ptr %343, align 8
   %646 = load ptr, ptr %359, align 8
-  %647 = call ptr @tvb_format_text(ptr noundef %646, ptr noundef %375, i32 noundef %.0298347.i, i32 noundef 10) #7
+  %647 = call ptr @tvb_format_text(ptr noundef %646, ptr noundef %375, i32 noundef %.0302346.i, i32 noundef 10) #7
   call void @col_append_str(ptr noundef %645, i32 noundef 25, ptr noundef %647) #7
   %648 = load ptr, ptr %343, align 8
   %649 = load ptr, ptr %359, align 8
@@ -1523,7 +1523,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %425, %422, %416
   %651 = load i32, ptr %362, align 8
   %652 = icmp eq i32 %651, %559
   %653 = load i32, ptr @hf_smtp_req_parameter, align 4
-  %654 = add i32 %.0298347.i, 5
+  %654 = add i32 %.0302346.i, 5
   %655 = add nsw i32 %417, -5
   %656 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %653, ptr noundef %375, i32 noundef %654, i32 noundef %655, i32 noundef 0) #7
   %657 = load ptr, ptr %343, align 8
@@ -1531,22 +1531,22 @@ proto_item_set_hidden.exit.i:                     ; preds = %425, %422, %416
   br i1 %652, label %659, label %.critedge327.i
 
 659:                                              ; preds = %.critedge.i
-  %660 = call ptr @tvb_format_text(ptr noundef %658, ptr noundef %375, i32 noundef %.0298347.i, i32 noundef 11) #7
+  %660 = call ptr @tvb_format_text(ptr noundef %658, ptr noundef %375, i32 noundef %.0302346.i, i32 noundef 11) #7
   call void @col_append_str(ptr noundef %657, i32 noundef 25, ptr noundef %660) #7
-  %661 = add i32 %.0298347.i, 11
+  %661 = add i32 %.0302346.i, 11
   %662 = add nsw i32 %417, -11
   call fastcc void @decode_plain_auth(ptr noundef %375, ptr noundef nonnull %1, ptr noundef %553, i32 noundef %661, i32 noundef %662)
   br label %dissect_ntlm_auth.exit
 
 .critedge327.i:                                   ; preds = %.critedge.i
-  %663 = call ptr @tvb_format_text(ptr noundef %658, ptr noundef %375, i32 noundef %.0298347.i, i32 noundef %417) #7
+  %663 = call ptr @tvb_format_text(ptr noundef %658, ptr noundef %375, i32 noundef %.0302346.i, i32 noundef %417) #7
   call void @col_append_str(ptr noundef %657, i32 noundef 25, ptr noundef %663) #7
   br label %dissect_ntlm_auth.exit
 
 .critedge328.i:                                   ; preds = %547
   %664 = load ptr, ptr %343, align 8
   %665 = load ptr, ptr %359, align 8
-  %666 = call ptr @tvb_format_text(ptr noundef %665, ptr noundef %375, i32 noundef %.0298347.i, i32 noundef %417) #7
+  %666 = call ptr @tvb_format_text(ptr noundef %665, ptr noundef %375, i32 noundef %.0302346.i, i32 noundef %417) #7
   call void @col_append_str(ptr noundef %664, i32 noundef 25, ptr noundef %666) #7
   br label %dissect_ntlm_auth.exit
 
@@ -1568,7 +1568,7 @@ dissect_ntlm_auth.exit:                           ; preds = %641, %630, %.crited
   br label %dissect_ntlm_auth.exit.i
 
 dissect_ntlm_auth.exit.i:                         ; preds = %670, %668, %dissect_ntlm_auth.exit, %546, %537, %534, %528, %520, %483, %455
-  %.1301.i = phi ptr [ %.0300346.i, %455 ], [ %.0300346.i, %483 ], [ %.0300346.i, %520 ], [ %.0300346.i, %537 ], [ %.0300346.i, %546 ], [ %.0300346.i, %668 ], [ %673, %670 ], [ %.0300346.i, %dissect_ntlm_auth.exit ], [ %.0300346.i, %528 ], [ %.0300346.i, %534 ]
+  %.1299.i = phi ptr [ %.0298347.i, %455 ], [ %.0298347.i, %483 ], [ %.0298347.i, %520 ], [ %.0298347.i, %537 ], [ %.0298347.i, %546 ], [ %.0298347.i, %668 ], [ %673, %670 ], [ %.0298347.i, %dissect_ntlm_auth.exit ], [ %.0298347.i, %528 ], [ %.0298347.i, %534 ]
   %.5.i = phi ptr [ %.1.i, %455 ], [ %.2.i, %483 ], [ %522, %520 ], [ %509, %537 ], [ %.0348.i, %546 ], [ %.4.i, %668 ], [ %.4.i, %670 ], [ %.4.i, %dissect_ntlm_auth.exit ], [ %509, %528 ], [ %509, %534 ]
   %674 = load i32, ptr %9, align 4
   %675 = call i32 @tvb_offset_exists(ptr noundef %375, i32 noundef %674) #7
@@ -1576,8 +1576,8 @@ dissect_ntlm_auth.exit.i:                         ; preds = %670, %668, %dissect
   br i1 %.not.i296, label %.loopexit.i, label %416, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %dissect_ntlm_auth.exit.i, %411, %dissect_smtp_data.exit.i, %399, %390, %.preheader.i, %373
-  %.2302.i = phi ptr [ null, %373 ], [ null, %411 ], [ %397, %399 ], [ %397, %390 ], [ null, %dissect_smtp_data.exit.i ], [ null, %.preheader.i ], [ %.1301.i, %dissect_ntlm_auth.exit.i ]
-  %.1299.i = phi i32 [ 0, %373 ], [ 0, %411 ], [ 0, %399 ], [ 0, %390 ], [ 0, %dissect_smtp_data.exit.i ], [ 0, %.preheader.i ], [ %674, %dissect_ntlm_auth.exit.i ]
+  %.1303.i = phi i32 [ 0, %373 ], [ 0, %411 ], [ 0, %399 ], [ 0, %390 ], [ 0, %dissect_smtp_data.exit.i ], [ 0, %.preheader.i ], [ %674, %dissect_ntlm_auth.exit.i ]
+  %.2300.i = phi ptr [ null, %373 ], [ null, %411 ], [ %397, %399 ], [ %397, %390 ], [ null, %dissect_smtp_data.exit.i ], [ null, %.preheader.i ], [ %.1299.i, %dissect_ntlm_auth.exit.i ]
   %676 = load i32, ptr @smtp_data_desegment, align 4
   %.not324.i = icmp eq i32 %676, 0
   br i1 %.not324.i, label %dissect_smtp_request.exit, label %677
@@ -1594,7 +1594,7 @@ dissect_ntlm_auth.exit.i:                         ; preds = %670, %668, %dissect
   br i1 %683, label %684, label %dissect_smtp_request.exit
 
 684:                                              ; preds = %680, %677
-  %685 = call ptr @process_reassembled_data(ptr noundef %375, i32 noundef %.1299.i, ptr noundef %1, ptr noundef nonnull @.str.136, ptr noundef %.2302.i, ptr noundef nonnull @smtp_data_frag_items, ptr noundef null, ptr noundef %349) #7
+  %685 = call ptr @process_reassembled_data(ptr noundef %375, i32 noundef %.1303.i, ptr noundef %1, ptr noundef nonnull @.str.136, ptr noundef %.2300.i, ptr noundef nonnull @smtp_data_frag_items, ptr noundef null, ptr noundef %349) #7
   %.not325.i = icmp eq ptr %685, null
   br i1 %.not325.i, label %.sink.split.i, label %686
 
@@ -1612,12 +1612,12 @@ dissect_ntlm_auth.exit.i:                         ; preds = %670, %668, %dissect
   br i1 %.not.i.i, label %dissect_smtp_data.exit336.i, label %.preheader.i331.i
 
 .preheader.i331.i:                                ; preds = %690
-  %691 = call i32 @tvb_offset_exists(ptr noundef %375, i32 noundef %.1299.i) #7
+  %691 = call i32 @tvb_offset_exists(ptr noundef %375, i32 noundef %.1303.i) #7
   %.not89.i332.i = icmp eq i32 %691, 0
   br i1 %.not89.i332.i, label %dissect_smtp_data.exit336.i, label %.lr.ph.i333.i
 
 .lr.ph.i333.i:                                    ; preds = %.preheader.i331.i, %.lr.ph.i333.i
-  %.010.i334.i = phi i32 [ %697, %.lr.ph.i333.i ], [ %.1299.i, %.preheader.i331.i ]
+  %.010.i334.i = phi i32 [ %697, %.lr.ph.i333.i ], [ %.1303.i, %.preheader.i331.i ]
   %692 = call i32 @tvb_find_line_end(ptr noundef %375, i32 noundef %.010.i334.i, i32 noundef -1, ptr noundef nonnull %7, i32 noundef 0) #7
   %693 = load i32, ptr @hf_smtp_message, align 4
   %694 = load i32, ptr %7, align 4
@@ -1676,9 +1676,9 @@ proto_item_set_hidden.exit.i299:                  ; preds = %709, %706, %703
 
 .lr.ph.i300:                                      ; preds = %proto_item_set_hidden.exit.i299
   %714 = load ptr, ptr @g_ascii_table, align 8
-  %715 = getelementptr inbounds i8, ptr %.0259, i64 4
+  %715 = getelementptr inbounds i8, ptr %.0258, i64 4
   %716 = getelementptr inbounds i8, ptr %1, i64 20
-  %717 = getelementptr inbounds i8, ptr %.0259, i64 20
+  %717 = getelementptr inbounds i8, ptr %.0258, i64 20
   %718 = getelementptr inbounds i8, ptr %1, i64 408
   br label %719
 
@@ -1686,10 +1686,10 @@ proto_item_set_hidden.exit.i299:                  ; preds = %709, %706, %703
   %.0164.i = phi ptr [ null, %.lr.ph.i300 ], [ %.3.i301, %851 ]
   %.0131163.i = phi i32 [ 0, %.lr.ph.i300 ], [ %.3134.i, %851 ]
   %.0135162.i = phi i32 [ 0, %.lr.ph.i300 ], [ %.3138.i, %851 ]
-  %.0140161.i = phi ptr [ null, %.lr.ph.i300 ], [ %.3143.i, %851 ]
-  %.0144160.i = phi i32 [ 0, %.lr.ph.i300 ], [ %852, %851 ]
-  %720 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.0144160.i, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #7
-  %721 = icmp eq i32 %.0144160.i, 0
+  %.0140161.i = phi i32 [ 0, %.lr.ph.i300 ], [ %852, %851 ]
+  %.0141160.i = phi ptr [ null, %.lr.ph.i300 ], [ %.3144.i, %851 ]
+  %720 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.0140161.i, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #7
+  %721 = icmp eq i32 %.0140161.i, 0
   %722 = load ptr, ptr %343, align 8
   %.str.141..str.126.i = select i1 %721, ptr @.str.141, ptr @.str.126
   call void @col_append_str(ptr noundef %722, i32 noundef 25, ptr noundef nonnull %.str.141..str.126.i) #7
@@ -1697,10 +1697,10 @@ proto_item_set_hidden.exit.i299:                  ; preds = %709, %706, %703
   br i1 %723, label %724, label %851
 
 724:                                              ; preds = %719
-  %725 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0144160.i) #7
-  %726 = add i32 %.0144160.i, 1
+  %725 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0140161.i) #7
+  %726 = add i32 %.0140161.i, 1
   %727 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %726) #7
-  %728 = add i32 %.0144160.i, 2
+  %728 = add i32 %.0140161.i, 2
   %729 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %728) #7
   %730 = zext i8 %725 to i64
   %731 = getelementptr i16, ptr %714, i64 %730
@@ -1738,7 +1738,7 @@ proto_item_set_hidden.exit.i299:                  ; preds = %709, %706, %703
   br i1 %.not154.i, label %759, label %753
 
 753:                                              ; preds = %744
-  %754 = add i32 %.0144160.i, 3
+  %754 = add i32 %.0140161.i, 3
   %755 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %754) #7
   %756 = icmp eq i8 %755, 45
   br i1 %756, label %757, label %759
@@ -1758,7 +1758,7 @@ proto_item_set_hidden.exit.i299:                  ; preds = %709, %706, %703
 761:                                              ; preds = %759, %757
   %.1136.i = phi i32 [ %spec.store.select10.i, %759 ], [ %..i310, %757 ]
   %.1132.i = phi i32 [ %.0131163.i, %759 ], [ %..0131.i, %757 ]
-  %762 = load i32, ptr %.0259, align 8
+  %762 = load i32, ptr %.0258, align 8
   %763 = icmp eq i32 %762, 3
   br i1 %763, label %764, label %771
 
@@ -1773,7 +1773,7 @@ proto_item_set_hidden.exit.i299:                  ; preds = %709, %706, %703
   br label %770
 
 770:                                              ; preds = %766, %764
-  store i32 1, ptr %.0259, align 8
+  store i32 1, ptr %.0258, align 8
   br label %771
 
 771:                                              ; preds = %770, %761
@@ -1834,12 +1834,12 @@ proto_item_set_hidden.exit.i299:                  ; preds = %709, %706, %703
 786:                                              ; preds = %784
   %787 = load i32, ptr @hf_smtp_response, align 4
   %788 = load i32, ptr %5, align 4
-  %789 = sub i32 %788, %.0144160.i
-  %790 = call ptr @proto_tree_add_item(ptr noundef %349, i32 noundef %787, ptr noundef %0, i32 noundef %.0144160.i, i32 noundef %789, i32 noundef 0) #7
+  %789 = sub i32 %788, %.0140161.i
+  %790 = call ptr @proto_tree_add_item(ptr noundef %349, i32 noundef %787, ptr noundef %0, i32 noundef %.0140161.i, i32 noundef %789, i32 noundef 0) #7
   %791 = load i32, ptr @ett_smtp_cmdresp, align 4
   %792 = call ptr @proto_item_add_subtree(ptr noundef %790, i32 noundef %791) #7
   %793 = load i32, ptr @hf_smtp_rsp_code, align 4
-  %794 = call ptr @proto_tree_add_uint(ptr noundef %792, i32 noundef %793, ptr noundef %0, i32 noundef %.0144160.i, i32 noundef 3, i32 noundef %752) #7
+  %794 = call ptr @proto_tree_add_uint(ptr noundef %792, i32 noundef %793, ptr noundef %0, i32 noundef %.0140161.i, i32 noundef 3, i32 noundef %752) #7
   br label %798
 
 795:                                              ; preds = %784
@@ -1851,7 +1851,7 @@ proto_item_set_hidden.exit.i299:                  ; preds = %709, %706, %703
   br label %798
 
 798:                                              ; preds = %796, %795, %786
-  %.1141.i = phi ptr [ %792, %786 ], [ %.0140161.i, %796 ], [ %.0140161.i, %795 ]
+  %.1142.i = phi ptr [ %792, %786 ], [ %.0141160.i, %796 ], [ %.0141160.i, %795 ]
   %.1.i305 = phi ptr [ %794, %786 ], [ %.0164.i, %796 ], [ %.0164.i, %795 ]
   br i1 %.not154.i, label %846, label %799
 
@@ -1862,13 +1862,13 @@ proto_item_set_hidden.exit.i299:                  ; preds = %709, %706, %703
   br i1 %or.cond5.i, label %802, label %._crit_edge165.i
 
 ._crit_edge165.i:                                 ; preds = %799
-  %.pre.i306 = add i32 %.0144160.i, 4
+  %.pre.i306 = add i32 %.0140161.i, 4
   %.pre166.i = add nsw i32 %720, -4
   br label %837
 
 802:                                              ; preds = %799
   %803 = load ptr, ptr %718, align 8
-  %804 = add i32 %.0144160.i, 4
+  %804 = add i32 %.0140161.i, 4
   %805 = add nsw i32 %720, -4
   %806 = call ptr @tvb_get_string_enc(ptr noundef %803, ptr noundef %0, i32 noundef %804, i32 noundef %805, i32 noundef 0) #7
   %807 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %806) #8
@@ -1896,7 +1896,7 @@ proto_item_set_hidden.exit.i299:                  ; preds = %709, %706, %703
   %821 = load ptr, ptr %343, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %821, i32 noundef 25, ptr noundef nonnull @.str.143, i32 noundef 334) #7
   %822 = load i32, ptr @hf_smtp_rsp_parameter, align 4
-  %823 = call ptr @proto_tree_add_string(ptr noundef %.1141.i, i32 noundef %822, ptr noundef %0, i32 noundef %804, i32 noundef %805, ptr noundef %820) #7
+  %823 = call ptr @proto_tree_add_string(ptr noundef %.1142.i, i32 noundef %822, ptr noundef %0, i32 noundef %804, i32 noundef %805, ptr noundef %820) #7
   %824 = call ptr @base64_to_tvb(ptr noundef %0, ptr noundef %820) #7
   %825 = call i32 @tvb_strneql(ptr noundef %824, i32 noundef 0, ptr noundef nonnull @.str.137, i64 noundef 7) #7
   %826 = icmp eq i32 %825, 0
@@ -1905,12 +1905,12 @@ proto_item_set_hidden.exit.i299:                  ; preds = %709, %706, %703
 827:                                              ; preds = %818
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %824, ptr noundef nonnull @.str.138) #7
   %828 = load ptr, ptr @ntlmssp_handle, align 8
-  %829 = call i32 @call_dissector(ptr noundef %828, ptr noundef %824, ptr noundef nonnull %1, ptr noundef %.1141.i) #7
+  %829 = call i32 @call_dissector(ptr noundef %828, ptr noundef %824, ptr noundef nonnull %1, ptr noundef %.1142.i) #7
   br label %dissect_ntlm_auth.exit.i308
 
 830:                                              ; preds = %814
   %831 = load i32, ptr @hf_smtp_rsp_parameter, align 4
-  %832 = call ptr @proto_tree_add_string(ptr noundef %.1141.i, i32 noundef %831, ptr noundef %0, i32 noundef %804, i32 noundef %805, ptr noundef nonnull %806) #7
+  %832 = call ptr @proto_tree_add_string(ptr noundef %.1142.i, i32 noundef %831, ptr noundef %0, i32 noundef %804, i32 noundef %805, ptr noundef nonnull %806) #7
   %833 = load ptr, ptr %343, align 8
   %834 = load ptr, ptr %718, align 8
   %835 = load i64, ptr %6, align 8
@@ -1922,13 +1922,13 @@ proto_item_set_hidden.exit.i299:                  ; preds = %709, %706, %703
   %.pre-phi167.i = phi i32 [ %.pre166.i, %._crit_edge165.i ], [ %805, %809 ], [ %805, %802 ]
   %.pre-phi.i307 = phi i32 [ %.pre.i306, %._crit_edge165.i ], [ %804, %809 ], [ %804, %802 ]
   %838 = load i32, ptr @hf_smtp_rsp_parameter, align 4
-  %839 = call ptr @proto_tree_add_item(ptr noundef %.1141.i, i32 noundef %838, ptr noundef %0, i32 noundef %.pre-phi.i307, i32 noundef %.pre-phi167.i, i32 noundef 0) #7
+  %839 = call ptr @proto_tree_add_item(ptr noundef %.1142.i, i32 noundef %838, ptr noundef %0, i32 noundef %.pre-phi.i307, i32 noundef %.pre-phi167.i, i32 noundef 0) #7
   %840 = load ptr, ptr %343, align 8
   %841 = load ptr, ptr %718, align 8
   br i1 %or.cond3.i, label %842, label %844
 
 842:                                              ; preds = %837
-  %843 = call ptr @tvb_format_text(ptr noundef %841, ptr noundef %0, i32 noundef %.0144160.i, i32 noundef %720) #7
+  %843 = call ptr @tvb_format_text(ptr noundef %841, ptr noundef %0, i32 noundef %.0140161.i, i32 noundef %720) #7
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %840, i32 noundef 25, ptr noundef nonnull @.str.145, ptr noundef %843) #7
   br label %dissect_ntlm_auth.exit.i308
 
@@ -1940,12 +1940,12 @@ proto_item_set_hidden.exit.i299:                  ; preds = %709, %706, %703
 846:                                              ; preds = %798
   %847 = load ptr, ptr %343, align 8
   %848 = load ptr, ptr %718, align 8
-  %849 = call ptr @tvb_format_text(ptr noundef %848, ptr noundef %0, i32 noundef %.0144160.i, i32 noundef 3) #7
+  %849 = call ptr @tvb_format_text(ptr noundef %848, ptr noundef %0, i32 noundef %.0140161.i, i32 noundef 3) #7
   call void @col_append_str(ptr noundef %847, i32 noundef 25, ptr noundef %849) #7
   br label %dissect_ntlm_auth.exit.i308
 
 dissect_ntlm_auth.exit.i308:                      ; preds = %846, %844, %842, %830, %827, %818, %739, %734, %724
-  %.2142.i = phi ptr [ %.1141.i, %842 ], [ %.1141.i, %844 ], [ %.1141.i, %846 ], [ %.0140161.i, %739 ], [ %.0140161.i, %734 ], [ %.0140161.i, %724 ], [ %.1141.i, %827 ], [ %.1141.i, %818 ], [ %.1141.i, %830 ]
+  %.2143.i = phi ptr [ %.1142.i, %842 ], [ %.1142.i, %844 ], [ %.1142.i, %846 ], [ %.0141160.i, %739 ], [ %.0141160.i, %734 ], [ %.0141160.i, %724 ], [ %.1142.i, %827 ], [ %.1142.i, %818 ], [ %.1142.i, %830 ]
   %.2137.i = phi i32 [ %.1136.i, %842 ], [ %.1136.i, %844 ], [ %.1136.i, %846 ], [ %.0135162.i, %739 ], [ %.0135162.i, %734 ], [ %.0135162.i, %724 ], [ %.1136.i, %827 ], [ %.1136.i, %818 ], [ %.1136.i, %830 ]
   %.2133.i = phi i32 [ %.1132.i, %842 ], [ %.1132.i, %844 ], [ %.1132.i, %846 ], [ %.0131163.i, %739 ], [ %.0131163.i, %734 ], [ %.0131163.i, %724 ], [ %.1132.i, %827 ], [ %.1132.i, %818 ], [ %.1132.i, %830 ]
   %.2.i309 = phi ptr [ %.1.i305, %842 ], [ %.1.i305, %844 ], [ %.1.i305, %846 ], [ %.0164.i, %739 ], [ %.0164.i, %734 ], [ %.0164.i, %724 ], [ %.1.i305, %827 ], [ %.1.i305, %818 ], [ %.1.i305, %830 ]
@@ -1954,7 +1954,7 @@ dissect_ntlm_auth.exit.i308:                      ; preds = %846, %844, %842, %8
   br label %851
 
 851:                                              ; preds = %dissect_ntlm_auth.exit.i308, %719
-  %.3143.i = phi ptr [ %.2142.i, %dissect_ntlm_auth.exit.i308 ], [ %.0140161.i, %719 ]
+  %.3144.i = phi ptr [ %.2143.i, %dissect_ntlm_auth.exit.i308 ], [ %.0141160.i, %719 ]
   %.3138.i = phi i32 [ %spec.store.select.i, %dissect_ntlm_auth.exit.i308 ], [ %.0135162.i, %719 ]
   %.3134.i = phi i32 [ %.2133.i, %dissect_ntlm_auth.exit.i308 ], [ %.0131163.i, %719 ]
   %.3.i301 = phi ptr [ %.2.i309, %dissect_ntlm_auth.exit.i308 ], [ %.0164.i, %719 ]

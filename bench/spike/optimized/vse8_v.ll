@@ -324,21 +324,21 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 130:                                              ; preds = %.lr.ph, %.loopexit
   %.sroa.01.0129 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.2, %.loopexit ]
-  %.085128 = phi i64 [ 0, %.lr.ph ], [ %193, %.loopexit ]
+  %.083128 = phi i64 [ 0, %.lr.ph ], [ %193, %.loopexit ]
   %131 = load ptr, ptr %119, align 8
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 8
   %134 = load ptr, ptr %133, align 8
   %135 = call noundef i64 %134(ptr noundef nonnull align 8 dereferenceable(48) %131) #15
-  %136 = icmp ult i64 %.085128, %135
+  %136 = icmp ult i64 %.083128, %135
   br i1 %136, label %.loopexit, label %137
 
 137:                                              ; preds = %130
   br i1 %121, label %138, label %147
 
 138:                                              ; preds = %137
-  %139 = and i64 %.085128, 63
-  %140 = shl i64 %.085128, 26
+  %139 = and i64 %.083128, 63
+  %140 = shl i64 %.083128, 26
   %141 = ashr i64 %140, 32
   %142 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef 0, i64 noundef %141, i1 noundef zeroext false)
   %143 = load i64, ptr %142, align 8
@@ -349,20 +349,20 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 147:                                              ; preds = %138, %137
   %148 = load ptr, ptr %119, align 8
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %148, i64 noundef %.085128) #15
-  %149 = mul i64 %.085128, %8
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %148, i64 noundef %.083128) #15
+  %149 = mul i64 %.083128, %8
   %150 = add i64 %149, %20
   %151 = and i8 %.sroa.01.0129, -8
   br label %152
 
 152:                                              ; preds = %147, %.critedge
-  %.083127 = phi i64 [ 0, %147 ], [ %192, %.critedge ]
-  %153 = mul i64 %.083127, %85
+  %.0127 = phi i64 [ 0, %147 ], [ %192, %.critedge ]
+  %153 = mul i64 %.0127, %85
   %154 = add i64 %153, %22
-  %155 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef %154, i64 noundef %.085128, i1 noundef zeroext false)
+  %155 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef %154, i64 noundef %.083128, i1 noundef zeroext false)
   %156 = load i8, ptr %155, align 1
   %157 = load ptr, ptr %122, align 8
-  %158 = add i64 %150, %.083127
+  %158 = add i64 %150, %.0127
   %159 = lshr i64 %158, 12
   %160 = getelementptr inbounds i8, ptr %157, i64 41104
   %161 = and i64 %159, 255
@@ -427,13 +427,13 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %152
   br label %.critedge
 
 .critedge:                                        ; preds = %190, %183, %173, %170
-  %192 = add nuw nsw i64 %.083127, 1
-  %exitcond.not = icmp eq i64 %.083127, %7
+  %192 = add nuw nsw i64 %.0127, 1
+  %exitcond.not = icmp eq i64 %.0127, %7
   br i1 %exitcond.not, label %.loopexit, label %152, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.critedge, %138, %130
   %.sroa.01.2 = phi i8 [ %.sroa.01.0129, %130 ], [ %.sroa.01.0129, %138 ], [ %151, %.critedge ]
-  %193 = add nuw i64 %.085128, 1
+  %193 = add nuw i64 %.083128, 1
   %exitcond132.not = icmp eq i64 %193, %15
   br i1 %exitcond132.not, label %._crit_edge, label %130, !llvm.loop !7
 
@@ -708,21 +708,21 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 130:                                              ; preds = %.lr.ph, %.loopexit
   %.sroa.01.0129 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.2, %.loopexit ]
-  %.085128 = phi i64 [ 0, %.lr.ph ], [ %193, %.loopexit ]
+  %.083128 = phi i64 [ 0, %.lr.ph ], [ %193, %.loopexit ]
   %131 = load ptr, ptr %119, align 8
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 8
   %134 = load ptr, ptr %133, align 8
   %135 = call noundef i64 %134(ptr noundef nonnull align 8 dereferenceable(48) %131) #15
-  %136 = icmp ult i64 %.085128, %135
+  %136 = icmp ult i64 %.083128, %135
   br i1 %136, label %.loopexit, label %137
 
 137:                                              ; preds = %130
   br i1 %121, label %138, label %147
 
 138:                                              ; preds = %137
-  %139 = and i64 %.085128, 63
-  %140 = shl i64 %.085128, 26
+  %139 = and i64 %.083128, 63
+  %140 = shl i64 %.083128, 26
   %141 = ashr i64 %140, 32
   %142 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef 0, i64 noundef %141, i1 noundef zeroext false)
   %143 = load i64, ptr %142, align 8
@@ -733,20 +733,20 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 147:                                              ; preds = %138, %137
   %148 = load ptr, ptr %119, align 8
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %148, i64 noundef %.085128) #15
-  %149 = mul i64 %.085128, %8
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %148, i64 noundef %.083128) #15
+  %149 = mul i64 %.083128, %8
   %150 = add i64 %149, %20
   %151 = and i8 %.sroa.01.0129, -8
   br label %152
 
 152:                                              ; preds = %147, %.critedge
-  %.083127 = phi i64 [ 0, %147 ], [ %192, %.critedge ]
-  %153 = mul i64 %.083127, %85
+  %.0127 = phi i64 [ 0, %147 ], [ %192, %.critedge ]
+  %153 = mul i64 %.0127, %85
   %154 = add i64 %153, %22
-  %155 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef %154, i64 noundef %.085128, i1 noundef zeroext false)
+  %155 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef %154, i64 noundef %.083128, i1 noundef zeroext false)
   %156 = load i8, ptr %155, align 1
   %157 = load ptr, ptr %122, align 8
-  %158 = add i64 %150, %.083127
+  %158 = add i64 %150, %.0127
   %159 = lshr i64 %158, 12
   %160 = getelementptr inbounds i8, ptr %157, i64 41104
   %161 = and i64 %159, 255
@@ -811,13 +811,13 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %152
   br label %.critedge
 
 .critedge:                                        ; preds = %190, %183, %173, %170
-  %192 = add nuw nsw i64 %.083127, 1
-  %exitcond.not = icmp eq i64 %.083127, %7
+  %192 = add nuw nsw i64 %.0127, 1
+  %exitcond.not = icmp eq i64 %.0127, %7
   br i1 %exitcond.not, label %.loopexit, label %152, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.critedge, %138, %130
   %.sroa.01.2 = phi i8 [ %.sroa.01.0129, %130 ], [ %.sroa.01.0129, %138 ], [ %151, %.critedge ]
-  %193 = add nuw i64 %.085128, 1
+  %193 = add nuw i64 %.083128, 1
   %exitcond132.not = icmp eq i64 %193, %15
   br i1 %exitcond132.not, label %._crit_edge, label %130, !llvm.loop !9
 
@@ -1065,21 +1065,21 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 130:                                              ; preds = %.lr.ph, %.loopexit
   %.sroa.01.0129 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.2, %.loopexit ]
-  %.085128 = phi i64 [ 0, %.lr.ph ], [ %193, %.loopexit ]
+  %.083128 = phi i64 [ 0, %.lr.ph ], [ %193, %.loopexit ]
   %131 = load ptr, ptr %119, align 8
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 8
   %134 = load ptr, ptr %133, align 8
   %135 = call noundef i64 %134(ptr noundef nonnull align 8 dereferenceable(48) %131) #15
-  %136 = icmp ult i64 %.085128, %135
+  %136 = icmp ult i64 %.083128, %135
   br i1 %136, label %.loopexit, label %137
 
 137:                                              ; preds = %130
   br i1 %121, label %138, label %147
 
 138:                                              ; preds = %137
-  %139 = and i64 %.085128, 63
-  %140 = shl i64 %.085128, 26
+  %139 = and i64 %.083128, 63
+  %140 = shl i64 %.083128, 26
   %141 = ashr i64 %140, 32
   %142 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef 0, i64 noundef %141, i1 noundef zeroext false)
   %143 = load i64, ptr %142, align 8
@@ -1090,20 +1090,20 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 147:                                              ; preds = %138, %137
   %148 = load ptr, ptr %119, align 8
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %148, i64 noundef %.085128) #15
-  %149 = mul i64 %.085128, %8
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %148, i64 noundef %.083128) #15
+  %149 = mul i64 %.083128, %8
   %150 = add i64 %149, %20
   %151 = and i8 %.sroa.01.0129, -8
   br label %152
 
 152:                                              ; preds = %147, %.critedge
-  %.083127 = phi i64 [ 0, %147 ], [ %192, %.critedge ]
-  %153 = mul i64 %.083127, %85
+  %.0127 = phi i64 [ 0, %147 ], [ %192, %.critedge ]
+  %153 = mul i64 %.0127, %85
   %154 = add i64 %153, %22
-  %155 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef %154, i64 noundef %.085128, i1 noundef zeroext false)
+  %155 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef %154, i64 noundef %.083128, i1 noundef zeroext false)
   %156 = load i8, ptr %155, align 1
   %157 = load ptr, ptr %122, align 8
-  %158 = add i64 %150, %.083127
+  %158 = add i64 %150, %.0127
   %159 = lshr i64 %158, 12
   %160 = getelementptr inbounds i8, ptr %157, i64 41104
   %161 = and i64 %159, 255
@@ -1168,13 +1168,13 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %152
   br label %.critedge
 
 .critedge:                                        ; preds = %190, %183, %173, %170
-  %192 = add nuw nsw i64 %.083127, 1
-  %exitcond.not = icmp eq i64 %.083127, %7
+  %192 = add nuw nsw i64 %.0127, 1
+  %exitcond.not = icmp eq i64 %.0127, %7
   br i1 %exitcond.not, label %.loopexit, label %152, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.critedge, %138, %130
   %.sroa.01.2 = phi i8 [ %.sroa.01.0129, %130 ], [ %.sroa.01.0129, %138 ], [ %151, %.critedge ]
-  %193 = add nuw i64 %.085128, 1
+  %193 = add nuw i64 %.083128, 1
   %exitcond132.not = icmp eq i64 %193, %15
   br i1 %exitcond132.not, label %._crit_edge, label %130, !llvm.loop !11
 
@@ -1424,21 +1424,21 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 130:                                              ; preds = %.lr.ph, %.loopexit
   %.sroa.01.0129 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.2, %.loopexit ]
-  %.085128 = phi i64 [ 0, %.lr.ph ], [ %193, %.loopexit ]
+  %.083128 = phi i64 [ 0, %.lr.ph ], [ %193, %.loopexit ]
   %131 = load ptr, ptr %119, align 8
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 8
   %134 = load ptr, ptr %133, align 8
   %135 = call noundef i64 %134(ptr noundef nonnull align 8 dereferenceable(48) %131) #15
-  %136 = icmp ult i64 %.085128, %135
+  %136 = icmp ult i64 %.083128, %135
   br i1 %136, label %.loopexit, label %137
 
 137:                                              ; preds = %130
   br i1 %121, label %138, label %147
 
 138:                                              ; preds = %137
-  %139 = and i64 %.085128, 63
-  %140 = shl i64 %.085128, 26
+  %139 = and i64 %.083128, 63
+  %140 = shl i64 %.083128, 26
   %141 = ashr i64 %140, 32
   %142 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef 0, i64 noundef %141, i1 noundef zeroext false)
   %143 = load i64, ptr %142, align 8
@@ -1449,20 +1449,20 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 147:                                              ; preds = %138, %137
   %148 = load ptr, ptr %119, align 8
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %148, i64 noundef %.085128) #15
-  %149 = mul i64 %.085128, %8
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %148, i64 noundef %.083128) #15
+  %149 = mul i64 %.083128, %8
   %150 = add i64 %149, %20
   %151 = and i8 %.sroa.01.0129, -8
   br label %152
 
 152:                                              ; preds = %147, %.critedge
-  %.083127 = phi i64 [ 0, %147 ], [ %192, %.critedge ]
-  %153 = mul i64 %.083127, %85
+  %.0127 = phi i64 [ 0, %147 ], [ %192, %.critedge ]
+  %153 = mul i64 %.0127, %85
   %154 = add i64 %153, %22
-  %155 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef %154, i64 noundef %.085128, i1 noundef zeroext false)
+  %155 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef %154, i64 noundef %.083128, i1 noundef zeroext false)
   %156 = load i8, ptr %155, align 1
   %157 = load ptr, ptr %122, align 8
-  %158 = add i64 %150, %.083127
+  %158 = add i64 %150, %.0127
   %159 = lshr i64 %158, 12
   %160 = getelementptr inbounds i8, ptr %157, i64 41104
   %161 = and i64 %159, 255
@@ -1527,13 +1527,13 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %152
   br label %.critedge
 
 .critedge:                                        ; preds = %190, %183, %173, %170
-  %192 = add nuw nsw i64 %.083127, 1
-  %exitcond.not = icmp eq i64 %.083127, %7
+  %192 = add nuw nsw i64 %.0127, 1
+  %exitcond.not = icmp eq i64 %.0127, %7
   br i1 %exitcond.not, label %.loopexit, label %152, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.critedge, %138, %130
   %.sroa.01.2 = phi i8 [ %.sroa.01.0129, %130 ], [ %.sroa.01.0129, %138 ], [ %151, %.critedge ]
-  %193 = add nuw i64 %.085128, 1
+  %193 = add nuw i64 %.083128, 1
   %exitcond132.not = icmp eq i64 %193, %15
   br i1 %exitcond132.not, label %._crit_edge, label %130, !llvm.loop !13
 
@@ -1797,21 +1797,21 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 137:                                              ; preds = %.lr.ph, %.loopexit
   %.sroa.01.0133 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.2, %.loopexit ]
-  %.087132 = phi i64 [ 0, %.lr.ph ], [ %200, %.loopexit ]
+  %.085132 = phi i64 [ 0, %.lr.ph ], [ %200, %.loopexit ]
   %138 = load ptr, ptr %126, align 8
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 8
   %141 = load ptr, ptr %140, align 8
   %142 = call noundef i64 %141(ptr noundef nonnull align 8 dereferenceable(48) %138) #15
-  %143 = icmp ult i64 %.087132, %142
+  %143 = icmp ult i64 %.085132, %142
   br i1 %143, label %.loopexit, label %144
 
 144:                                              ; preds = %137
   br i1 %128, label %145, label %154
 
 145:                                              ; preds = %144
-  %146 = and i64 %.087132, 63
-  %147 = shl i64 %.087132, 26
+  %146 = and i64 %.085132, 63
+  %147 = shl i64 %.085132, 26
   %148 = ashr i64 %147, 32
   %149 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef 0, i64 noundef %148, i1 noundef zeroext false)
   %150 = load i64, ptr %149, align 8
@@ -1822,20 +1822,20 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 154:                                              ; preds = %145, %144
   %155 = load ptr, ptr %126, align 8
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %155, i64 noundef %.087132) #15
-  %156 = mul i64 %.087132, %8
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %155, i64 noundef %.085132) #15
+  %156 = mul i64 %.085132, %8
   %157 = add i64 %156, %27
   %158 = and i8 %.sroa.01.0133, -8
   br label %159
 
 159:                                              ; preds = %154, %.critedge
-  %.085131 = phi i64 [ 0, %154 ], [ %199, %.critedge ]
-  %160 = mul i64 %.085131, %92
+  %.0131 = phi i64 [ 0, %154 ], [ %199, %.critedge ]
+  %160 = mul i64 %.0131, %92
   %161 = add i64 %160, %29
-  %162 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef %161, i64 noundef %.087132, i1 noundef zeroext false)
+  %162 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef %161, i64 noundef %.085132, i1 noundef zeroext false)
   %163 = load i8, ptr %162, align 1
   %164 = load ptr, ptr %129, align 8
-  %165 = add i64 %157, %.085131
+  %165 = add i64 %157, %.0131
   %166 = lshr i64 %165, 12
   %167 = getelementptr inbounds i8, ptr %164, i64 41104
   %168 = and i64 %166, 255
@@ -1900,13 +1900,13 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %159
   br label %.critedge
 
 .critedge:                                        ; preds = %197, %190, %180, %177
-  %199 = add nuw nsw i64 %.085131, 1
-  %exitcond.not = icmp eq i64 %.085131, %7
+  %199 = add nuw nsw i64 %.0131, 1
+  %exitcond.not = icmp eq i64 %.0131, %7
   br i1 %exitcond.not, label %.loopexit, label %159, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.critedge, %145, %137
   %.sroa.01.2 = phi i8 [ %.sroa.01.0133, %137 ], [ %.sroa.01.0133, %145 ], [ %158, %.critedge ]
-  %200 = add nuw i64 %.087132, 1
+  %200 = add nuw i64 %.085132, 1
   %exitcond136.not = icmp eq i64 %200, %15
   br i1 %exitcond136.not, label %._crit_edge, label %137, !llvm.loop !15
 
@@ -2172,21 +2172,21 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 137:                                              ; preds = %.lr.ph, %.loopexit
   %.sroa.01.0133 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.2, %.loopexit ]
-  %.087132 = phi i64 [ 0, %.lr.ph ], [ %200, %.loopexit ]
+  %.085132 = phi i64 [ 0, %.lr.ph ], [ %200, %.loopexit ]
   %138 = load ptr, ptr %126, align 8
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 8
   %141 = load ptr, ptr %140, align 8
   %142 = call noundef i64 %141(ptr noundef nonnull align 8 dereferenceable(48) %138) #15
-  %143 = icmp ult i64 %.087132, %142
+  %143 = icmp ult i64 %.085132, %142
   br i1 %143, label %.loopexit, label %144
 
 144:                                              ; preds = %137
   br i1 %128, label %145, label %154
 
 145:                                              ; preds = %144
-  %146 = and i64 %.087132, 63
-  %147 = shl i64 %.087132, 26
+  %146 = and i64 %.085132, 63
+  %147 = shl i64 %.085132, 26
   %148 = ashr i64 %147, 32
   %149 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef 0, i64 noundef %148, i1 noundef zeroext false)
   %150 = load i64, ptr %149, align 8
@@ -2197,20 +2197,20 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 154:                                              ; preds = %145, %144
   %155 = load ptr, ptr %126, align 8
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %155, i64 noundef %.087132) #15
-  %156 = mul i64 %.087132, %8
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %155, i64 noundef %.085132) #15
+  %156 = mul i64 %.085132, %8
   %157 = add i64 %156, %27
   %158 = and i8 %.sroa.01.0133, -8
   br label %159
 
 159:                                              ; preds = %154, %.critedge
-  %.085131 = phi i64 [ 0, %154 ], [ %199, %.critedge ]
-  %160 = mul i64 %.085131, %92
+  %.0131 = phi i64 [ 0, %154 ], [ %199, %.critedge ]
+  %160 = mul i64 %.0131, %92
   %161 = add i64 %160, %29
-  %162 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef %161, i64 noundef %.087132, i1 noundef zeroext false)
+  %162 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef %161, i64 noundef %.085132, i1 noundef zeroext false)
   %163 = load i8, ptr %162, align 1
   %164 = load ptr, ptr %129, align 8
-  %165 = add i64 %157, %.085131
+  %165 = add i64 %157, %.0131
   %166 = lshr i64 %165, 12
   %167 = getelementptr inbounds i8, ptr %164, i64 41104
   %168 = and i64 %166, 255
@@ -2275,13 +2275,13 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %159
   br label %.critedge
 
 .critedge:                                        ; preds = %197, %190, %180, %177
-  %199 = add nuw nsw i64 %.085131, 1
-  %exitcond.not = icmp eq i64 %.085131, %7
+  %199 = add nuw nsw i64 %.0131, 1
+  %exitcond.not = icmp eq i64 %.0131, %7
   br i1 %exitcond.not, label %.loopexit, label %159, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.critedge, %145, %137
   %.sroa.01.2 = phi i8 [ %.sroa.01.0133, %137 ], [ %.sroa.01.0133, %145 ], [ %158, %.critedge ]
-  %200 = add nuw i64 %.087132, 1
+  %200 = add nuw i64 %.085132, 1
   %exitcond136.not = icmp eq i64 %200, %15
   br i1 %exitcond136.not, label %._crit_edge, label %137, !llvm.loop !17
 
@@ -2545,21 +2545,21 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 137:                                              ; preds = %.lr.ph, %.loopexit
   %.sroa.01.0133 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.2, %.loopexit ]
-  %.087132 = phi i64 [ 0, %.lr.ph ], [ %200, %.loopexit ]
+  %.085132 = phi i64 [ 0, %.lr.ph ], [ %200, %.loopexit ]
   %138 = load ptr, ptr %126, align 8
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 8
   %141 = load ptr, ptr %140, align 8
   %142 = call noundef i64 %141(ptr noundef nonnull align 8 dereferenceable(48) %138) #15
-  %143 = icmp ult i64 %.087132, %142
+  %143 = icmp ult i64 %.085132, %142
   br i1 %143, label %.loopexit, label %144
 
 144:                                              ; preds = %137
   br i1 %128, label %145, label %154
 
 145:                                              ; preds = %144
-  %146 = and i64 %.087132, 63
-  %147 = shl i64 %.087132, 26
+  %146 = and i64 %.085132, 63
+  %147 = shl i64 %.085132, 26
   %148 = ashr i64 %147, 32
   %149 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef 0, i64 noundef %148, i1 noundef zeroext false)
   %150 = load i64, ptr %149, align 8
@@ -2570,20 +2570,20 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 154:                                              ; preds = %145, %144
   %155 = load ptr, ptr %126, align 8
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %155, i64 noundef %.087132) #15
-  %156 = mul i64 %.087132, %8
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %155, i64 noundef %.085132) #15
+  %156 = mul i64 %.085132, %8
   %157 = add i64 %156, %27
   %158 = and i8 %.sroa.01.0133, -8
   br label %159
 
 159:                                              ; preds = %154, %.critedge
-  %.085131 = phi i64 [ 0, %154 ], [ %199, %.critedge ]
-  %160 = mul i64 %.085131, %92
+  %.0131 = phi i64 [ 0, %154 ], [ %199, %.critedge ]
+  %160 = mul i64 %.0131, %92
   %161 = add i64 %160, %29
-  %162 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef %161, i64 noundef %.087132, i1 noundef zeroext false)
+  %162 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef %161, i64 noundef %.085132, i1 noundef zeroext false)
   %163 = load i8, ptr %162, align 1
   %164 = load ptr, ptr %129, align 8
-  %165 = add i64 %157, %.085131
+  %165 = add i64 %157, %.0131
   %166 = lshr i64 %165, 12
   %167 = getelementptr inbounds i8, ptr %164, i64 41104
   %168 = and i64 %166, 255
@@ -2648,13 +2648,13 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %159
   br label %.critedge
 
 .critedge:                                        ; preds = %197, %190, %180, %177
-  %199 = add nuw nsw i64 %.085131, 1
-  %exitcond.not = icmp eq i64 %.085131, %7
+  %199 = add nuw nsw i64 %.0131, 1
+  %exitcond.not = icmp eq i64 %.0131, %7
   br i1 %exitcond.not, label %.loopexit, label %159, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.critedge, %145, %137
   %.sroa.01.2 = phi i8 [ %.sroa.01.0133, %137 ], [ %.sroa.01.0133, %145 ], [ %158, %.critedge ]
-  %200 = add nuw i64 %.087132, 1
+  %200 = add nuw i64 %.085132, 1
   %exitcond136.not = icmp eq i64 %200, %15
   br i1 %exitcond136.not, label %._crit_edge, label %137, !llvm.loop !19
 
@@ -2920,21 +2920,21 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 137:                                              ; preds = %.lr.ph, %.loopexit
   %.sroa.01.0133 = phi i8 [ undef, %.lr.ph ], [ %.sroa.01.2, %.loopexit ]
-  %.087132 = phi i64 [ 0, %.lr.ph ], [ %200, %.loopexit ]
+  %.085132 = phi i64 [ 0, %.lr.ph ], [ %200, %.loopexit ]
   %138 = load ptr, ptr %126, align 8
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 8
   %141 = load ptr, ptr %140, align 8
   %142 = call noundef i64 %141(ptr noundef nonnull align 8 dereferenceable(48) %138) #15
-  %143 = icmp ult i64 %.087132, %142
+  %143 = icmp ult i64 %.085132, %142
   br i1 %143, label %.loopexit, label %144
 
 144:                                              ; preds = %137
   br i1 %128, label %145, label %154
 
 145:                                              ; preds = %144
-  %146 = and i64 %.087132, 63
-  %147 = shl i64 %.087132, 26
+  %146 = and i64 %.085132, 63
+  %147 = shl i64 %.085132, 26
   %148 = ashr i64 %147, 32
   %149 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN12vectorUnit_t3eltImEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef 0, i64 noundef %148, i1 noundef zeroext false)
   %150 = load i64, ptr %149, align 8
@@ -2945,20 +2945,20 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 154:                                              ; preds = %145, %144
   %155 = load ptr, ptr %126, align 8
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %155, i64 noundef %.087132) #15
-  %156 = mul i64 %.087132, %8
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %155, i64 noundef %.085132) #15
+  %156 = mul i64 %.085132, %8
   %157 = add i64 %156, %27
   %158 = and i8 %.sroa.01.0133, -8
   br label %159
 
 159:                                              ; preds = %154, %.critedge
-  %.085131 = phi i64 [ 0, %154 ], [ %199, %.critedge ]
-  %160 = mul i64 %.085131, %92
+  %.0131 = phi i64 [ 0, %154 ], [ %199, %.critedge ]
+  %160 = mul i64 %.0131, %92
   %161 = add i64 %160, %29
-  %162 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef %161, i64 noundef %.087132, i1 noundef zeroext false)
+  %162 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN12vectorUnit_t3eltIhEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %9, i64 noundef %161, i64 noundef %.085132, i1 noundef zeroext false)
   %163 = load i8, ptr %162, align 1
   %164 = load ptr, ptr %129, align 8
-  %165 = add i64 %157, %.085131
+  %165 = add i64 %157, %.0131
   %166 = lshr i64 %165, 12
   %167 = getelementptr inbounds i8, ptr %164, i64 41104
   %168 = and i64 %166, 255
@@ -3023,13 +3023,13 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %159
   br label %.critedge
 
 .critedge:                                        ; preds = %197, %190, %180, %177
-  %199 = add nuw nsw i64 %.085131, 1
-  %exitcond.not = icmp eq i64 %.085131, %7
+  %199 = add nuw nsw i64 %.0131, 1
+  %exitcond.not = icmp eq i64 %.0131, %7
   br i1 %exitcond.not, label %.loopexit, label %159, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.critedge, %145, %137
   %.sroa.01.2 = phi i8 [ %.sroa.01.0133, %137 ], [ %.sroa.01.0133, %145 ], [ %158, %.critedge ]
-  %200 = add nuw i64 %.087132, 1
+  %200 = add nuw i64 %.085132, 1
   %exitcond136.not = icmp eq i64 %200, %15
   br i1 %exitcond136.not, label %._crit_edge, label %137, !llvm.loop !21
 

@@ -78,12 +78,12 @@ define i64 @cli_regerror(i32 noundef %0, ptr nocapture noundef readonly %1, ptr 
   br label %regatoi.exit
 
 .preheader:                                       ; preds = %4, %.preheader
-  %.017 = phi ptr [ %23, %.preheader ], [ @rerrs, %4 ]
-  %21 = load i32, ptr %.017, align 8
+  %.018 = phi ptr [ %23, %.preheader ], [ @rerrs, %4 ]
+  %21 = load i32, ptr %.018, align 8
   %.not = icmp eq i32 %21, 0
   %22 = icmp eq i32 %21, %6
   %or.cond = or i1 %.not, %22
-  %23 = getelementptr inbounds i8, ptr %.017, i64 24
+  %23 = getelementptr inbounds i8, ptr %.018, i64 24
   br i1 %or.cond, label %24, label %.preheader
 
 24:                                               ; preds = %.preheader
@@ -95,7 +95,7 @@ define i64 @cli_regerror(i32 noundef %0, ptr nocapture noundef readonly %1, ptr 
   br i1 %.not, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %.017, i64 8
+  %28 = getelementptr inbounds i8, ptr %.018, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = call i64 @cli_strlcpy(ptr noundef nonnull %5, ptr noundef %29, i64 noundef 50) #5
   br label %regatoi.exit
@@ -105,7 +105,7 @@ define i64 @cli_regerror(i32 noundef %0, ptr nocapture noundef readonly %1, ptr 
   br label %regatoi.exit
 
 33:                                               ; preds = %24
-  %34 = getelementptr inbounds i8, ptr %.017, i64 16
+  %34 = getelementptr inbounds i8, ptr %.018, i64 16
   %35 = load ptr, ptr %34, align 8
   br label %regatoi.exit
 
@@ -123,8 +123,8 @@ regatoi.exit:                                     ; preds = %.lr.ph, %._crit_edg
   br label %40
 
 40:                                               ; preds = %38, %36
-  %.018 = phi i64 [ %37, %36 ], [ %39, %38 ]
-  %41 = add i64 %.018, 1
+  %.017 = phi i64 [ %37, %36 ], [ %39, %38 ]
+  %41 = add i64 %.017, 1
   ret i64 %41
 }
 

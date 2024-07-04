@@ -451,8 +451,8 @@ define void @_ZN13grep_searcher8searcher15SearcherBuilder5build17hcf078266012f3a
   %.sroa.5.0.i22 = select i1 %.not.i.not, i64 undef, i64 %.05.i
   %37 = bitcast <8 x i8> %12 to <64 x i1>
   %38 = extractelement <64 x i1> %37, i64 40
-  %spec.select35 = select i1 %38, i64 0, i64 %8
-  %spec.select = select i1 %38, i64 0, i64 %6
+  %spec.select35 = select i1 %38, i64 0, i64 %6
+  %spec.select = select i1 %38, i64 0, i64 %8
   %trunc.i = trunc nuw i64 %9 to i1
   %.sroa.5.0.i = select i1 %trunc.i, i64 %11, i64 undef
   %39 = extractvalue { i64, ptr } %26, 1
@@ -461,9 +461,9 @@ define void @_ZN13grep_searcher8searcher15SearcherBuilder5build17hcf078266012f3a
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.0.i, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %spec.select, ptr %.sroa.3.0..sroa_idx, align 8
+  store i64 %spec.select35, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %spec.select35, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %spec.select, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %16, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40

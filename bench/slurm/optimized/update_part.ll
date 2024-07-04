@@ -173,8 +173,8 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %54
 
 54:                                               ; preds = %45, %52
-  %.0418 = phi i8 [ %51, %52 ], [ 0, %45 ]
   %.0417 = phi i32 [ %53, %52 ], [ %49, %45 ]
+  %.0 = phi i8 [ %51, %52 ], [ 0, %45 ]
   %55 = getelementptr inbounds i8, ptr %44, i64 1
   %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #6
   %57 = trunc i64 %56 to i32
@@ -613,8 +613,8 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br label %294
 
 294:                                              ; preds = %291, %289
-  %.0419 = phi i32 [ %293, %291 ], [ %57, %289 ]
-  %295 = call i32 @llvm.smax.i32(i32 %.0419, i32 1)
+  %.0416 = phi i32 [ %293, %291 ], [ %57, %289 ]
+  %295 = call i32 @llvm.smax.i32(i32 %.0416, i32 1)
   %296 = zext nneg i32 %295 to i64
   %297 = call i32 @xstrncasecmp(ptr noundef nonnull %55, ptr noundef nonnull @.str.17, i64 noundef %296) #5
   %298 = icmp eq i32 %297, 0
@@ -840,11 +840,11 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br i1 %.not450, label %405, label %409
 
 405:                                              ; preds = %403
-  %.not451 = icmp eq i8 %.0418, 0
+  %.not451 = icmp eq i8 %.0, 0
   br i1 %.not451, label %408, label %406
 
 406:                                              ; preds = %405
-  %407 = call ptr @scontrol_process_plus_minus(i8 noundef signext %.0418, ptr noundef nonnull %55, i1 noundef zeroext true) #5
+  %407 = call ptr @scontrol_process_plus_minus(i8 noundef signext %.0, ptr noundef nonnull %55, i1 noundef zeroext true) #5
   br label %408
 
 408:                                              ; preds = %405, %406
@@ -1045,8 +1045,8 @@ define dso_local range(i32 -1, 1) i32 @scontrol_parse_part_options(i32 noundef %
   br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !7
 
 .loopexit:                                        ; preds = %484, %.preheader, %479, %468, %459, %453, %444, %436, %397, %383, %377, %369, %361, %347, %337, %319, %275, %256, %235, %216, %197, %179, %159, %125, %114, %97, %86, %74, %62, %39, %7
-  %.0 = phi i32 [ -1, %74 ], [ -1, %86 ], [ -1, %97 ], [ -1, %114 ], [ -1, %159 ], [ -1, %216 ], [ -1, %235 ], [ -1, %256 ], [ -1, %275 ], [ -1, %337 ], [ -1, %361 ], [ -1, %479 ], [ -1, %468 ], [ -1, %459 ], [ -1, %453 ], [ -1, %444 ], [ -1, %436 ], [ -1, %397 ], [ -1, %383 ], [ -1, %377 ], [ -1, %369 ], [ -1, %347 ], [ -1, %319 ], [ -1, %197 ], [ -1, %179 ], [ -1, %125 ], [ -1, %62 ], [ -1, %39 ], [ -1, %7 ], [ 0, %.preheader ], [ 0, %484 ]
-  ret i32 %.0
+  %.0419 = phi i32 [ -1, %74 ], [ -1, %86 ], [ -1, %97 ], [ -1, %114 ], [ -1, %159 ], [ -1, %216 ], [ -1, %235 ], [ -1, %256 ], [ -1, %275 ], [ -1, %337 ], [ -1, %361 ], [ -1, %479 ], [ -1, %468 ], [ -1, %459 ], [ -1, %453 ], [ -1, %444 ], [ -1, %436 ], [ -1, %397 ], [ -1, %383 ], [ -1, %377 ], [ -1, %369 ], [ -1, %347 ], [ -1, %319 ], [ -1, %197 ], [ -1, %179 ], [ -1, %125 ], [ -1, %62 ], [ -1, %39 ], [ -1, %7 ], [ 0, %.preheader ], [ 0, %484 ]
+  ret i32 %.0419
 }
 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1

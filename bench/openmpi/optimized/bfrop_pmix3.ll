@@ -2975,8 +2975,8 @@ define internal i32 @pmix3_bfrop_unpack_modex(ptr noundef %0, ptr noundef %1, pt
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %23, %28, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %28 ], [ %27, %23 ], [ %20, %.lr.ph ]
-  ret i32 %.0
+  %.026 = phi i32 [ 0, %15 ], [ 0, %28 ], [ %27, %23 ], [ %20, %.lr.ph ]
+  ret i32 %.026
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
@@ -3229,8 +3229,8 @@ define internal i32 @pmix3_bfrop_unpack_array(ptr noundef %0, ptr noundef %1, pt
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %26, %31, %37, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %37 ], [ %36, %31 ], [ %28, %26 ]
-  ret i32 %.0
+  %.027 = phi i32 [ 0, %15 ], [ 0, %37 ], [ %36, %31 ], [ %28, %26 ]
+  ret i32 %.027
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
@@ -3284,9 +3284,9 @@ define internal range(i32 -32, 1) i32 @pmix3_bfrop_print_array(ptr nocapture nou
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %19, %32
-  %.01112 = phi i64 [ %34, %32 ], [ 0, %19 ]
+  %.012 = phi i64 [ %34, %32 ], [ 0, %19 ]
   %23 = load ptr, ptr %8, align 8
-  %24 = getelementptr inbounds %struct.pmix_info, ptr %21, i64 %.01112
+  %24 = getelementptr inbounds %struct.pmix_info, ptr %21, i64 %.012
   %25 = call i32 @pmix_bfrops_base_print_info(ptr noundef nonnull %6, ptr noundef %23, ptr noundef %24, i16 noundef zeroext 24) #14
   %26 = load ptr, ptr %5, align 8
   %27 = load ptr, ptr %6, align 8
@@ -3301,7 +3301,7 @@ define internal range(i32 -32, 1) i32 @pmix3_bfrop_print_array(ptr nocapture nou
 32:                                               ; preds = %.lr.ph
   %33 = load ptr, ptr %7, align 8
   store ptr %33, ptr %5, align 8
-  %34 = add nuw i64 %.01112, 1
+  %34 = add nuw i64 %.012, 1
   %35 = load i64, ptr %2, align 8
   %36 = icmp ult i64 %34, %35
   br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !12
@@ -3312,8 +3312,8 @@ define internal range(i32 -32, 1) i32 @pmix3_bfrop_print_array(ptr nocapture nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %._crit_edge, %17
-  %.0 = phi i32 [ -32, %17 ], [ 0, %._crit_edge ], [ -32, %4 ], [ -32, %.lr.ph ]
-  ret i32 %.0
+  %.011 = phi i32 [ -32, %17 ], [ 0, %._crit_edge ], [ -32, %4 ], [ -32, %.lr.ph ]
+  ret i32 %.011
 }
 
 declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #1

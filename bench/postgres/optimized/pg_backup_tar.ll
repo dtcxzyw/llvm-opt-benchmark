@@ -1224,18 +1224,18 @@ _tarReadRaw.exit.i:                               ; preds = %76, %73, %.thread.i
   unreachable
 
 120:                                              ; preds = %114, %99
-  %.025 = phi ptr [ %10, %99 ], [ %103, %114 ]
-  %121 = getelementptr inbounds i8, ptr %.025, i64 32
+  %.0 = phi ptr [ %10, %99 ], [ %103, %114 ]
+  %121 = getelementptr inbounds i8, ptr %.0, i64 32
   store i8 %2, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %7, i64 24
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %.025, i64 8
+  %124 = getelementptr inbounds i8, ptr %.0, i64 8
   store ptr %123, ptr %124, align 8
   br label %125
 
 125:                                              ; preds = %.thread, %120
-  %.0 = phi ptr [ %.025, %120 ], [ null, %.thread ]
-  ret ptr %.0
+  %.025 = phi ptr [ %.0, %120 ], [ null, %.thread ]
+  ret ptr %.025
 }
 
 declare void @ReadHead(ptr noundef) local_unnamed_addr #1
@@ -1324,14 +1324,14 @@ _tarWriteHeader.exit.i:                           ; preds = %26
   br i1 %.not342.i, label %._crit_edge.i, label %.lr.ph.i
 
 37:                                               ; preds = %.lr.ph.i
-  %38 = add i64 %.03.i, %40
+  %38 = add i64 %.0283.i, %40
   %39 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 32768, ptr noundef %15)
   %.not34.i = icmp eq i64 %39, 0
   br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 .lr.ph.i:                                         ; preds = %_tarWriteHeader.exit.i, %37
   %40 = phi i64 [ %39, %37 ], [ %36, %_tarWriteHeader.exit.i ]
-  %.03.i = phi i64 [ %38, %37 ], [ 0, %_tarWriteHeader.exit.i ]
+  %.0283.i = phi i64 [ %38, %37 ], [ 0, %_tarWriteHeader.exit.i ]
   %41 = load ptr, ptr %32, align 8
   %42 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef 1, i64 noundef %40, ptr noundef %41)
   %.not39.i = icmp eq i64 %42, %40
@@ -1343,7 +1343,7 @@ _tarWriteHeader.exit.i:                           ; preds = %26
   unreachable
 
 ._crit_edge.i:                                    ; preds = %37, %_tarWriteHeader.exit.i
-  %.0.lcssa.i = phi i64 [ 0, %_tarWriteHeader.exit.i ], [ %38, %37 ]
+  %.028.lcssa.i = phi i64 [ 0, %_tarWriteHeader.exit.i ], [ %38, %37 ]
   %44 = call i32 @feof(ptr noundef %15) #18
   %.not35.i = icmp eq i32 %44, 0
   br i1 %.not35.i, label %45, label %49
@@ -1375,28 +1375,28 @@ _tarWriteHeader.exit.i:                           ; preds = %26
 
 52:                                               ; preds = %49
   %53 = load i64, ptr %20, align 8
-  %.not38.i = icmp eq i64 %.0.lcssa.i, %53
+  %.not38.i = icmp eq i64 %.028.lcssa.i, %53
   br i1 %.not38.i, label %55, label %54
 
 54:                                               ; preds = %52
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.32, i64 noundef %.0.lcssa.i, i64 noundef %53) #18
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.32, i64 noundef %.028.lcssa.i, i64 noundef %53) #18
   call void @exit_nicely(i32 noundef 1) #19
   unreachable
 
 55:                                               ; preds = %52
-  %56 = add i64 %.0.lcssa.i, 511
+  %56 = add i64 %.028.lcssa.i, 511
   %57 = and i64 %56, -512
-  %58 = sub i64 %57, %.0.lcssa.i
-  %.not8.i = icmp eq i64 %57, %.0.lcssa.i
+  %58 = sub i64 %57, %.028.lcssa.i
+  %.not8.i = icmp eq i64 %57, %.028.lcssa.i
   br i1 %.not8.i, label %_tarAddFile.exit, label %.lr.ph6.i
 
 59:                                               ; preds = %.lr.ph6.i
-  %60 = add nuw i64 %.0284.i, 1
+  %60 = add nuw i64 %.04.i, 1
   %exitcond.not.i = icmp eq i64 %60, %58
   br i1 %exitcond.not.i, label %_tarAddFile.exit, label %.lr.ph6.i, !llvm.loop !14
 
 .lr.ph6.i:                                        ; preds = %55, %59
-  %.0284.i = phi i64 [ %60, %59 ], [ 0, %55 ]
+  %.04.i = phi i64 [ %60, %59 ], [ 0, %55 ]
   %61 = load ptr, ptr %32, align 8
   %62 = call i32 @fputc(i32 noundef 0, ptr noundef %61)
   %63 = icmp eq i32 %62, -1

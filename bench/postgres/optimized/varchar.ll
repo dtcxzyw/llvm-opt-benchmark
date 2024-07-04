@@ -60,13 +60,13 @@ define internal fastcc noundef ptr @bpchar_input(ptr noundef %0, i64 noundef %1,
   br i1 %14, label %.lr.ph, label %.loopexit
 
 15:                                               ; preds = %.lr.ph
-  %16 = add i64 %.03844, 1
+  %16 = add i64 %.044, 1
   %exitcond.not = icmp eq i64 %16, %1
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !5
 
 .lr.ph:                                           ; preds = %11, %15
-  %.03844 = phi i64 [ %16, %15 ], [ %13, %11 ]
-  %17 = getelementptr i8, ptr %0, i64 %.03844
+  %.044 = phi i64 [ %16, %15 ], [ %13, %11 ]
+  %17 = getelementptr i8, ptr %0, i64 %.044
   %18 = load i8, ptr %17, align 1
   %.not = icmp eq i8 %18, 32
   br i1 %.not, label %15, label %19
@@ -89,27 +89,27 @@ define internal fastcc noundef ptr @bpchar_input(ptr noundef %0, i64 noundef %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %11, %4, %24
-  %.040 = phi i64 [ %28, %24 ], [ %1, %4 ], [ %13, %11 ], [ %13, %15 ]
-  %.039 = phi i64 [ %1, %24 ], [ %1, %4 ], [ %13, %11 ], [ %13, %15 ]
-  %29 = add i64 %.040, 4
+  %.040 = phi i64 [ %1, %24 ], [ %1, %4 ], [ %13, %11 ], [ %13, %15 ]
+  %.038 = phi i64 [ %28, %24 ], [ %1, %4 ], [ %13, %11 ], [ %13, %15 ]
+  %29 = add i64 %.038, 4
   %30 = tail call ptr @palloc(i64 noundef %29) #12
   %31 = trunc i64 %29 to i32
   %32 = shl i32 %31, 2
   store i32 %32, ptr %30, align 4
   %33 = getelementptr inbounds i8, ptr %30, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr align 1 %0, i64 %.039, i1 false)
-  %34 = icmp ugt i64 %.040, %.039
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr align 1 %0, i64 %.040, i1 false)
+  %34 = icmp ugt i64 %.038, %.040
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %.loopexit
-  %36 = getelementptr i8, ptr %33, i64 %.039
-  %37 = sub i64 %.040, %.039
+  %36 = getelementptr i8, ptr %33, i64 %.040
+  %37 = sub i64 %.038, %.040
   tail call void @llvm.memset.p0.i64(ptr align 1 %36, i8 32, i64 %37, i1 false)
   br label %38
 
 38:                                               ; preds = %.loopexit, %35, %21, %19
-  %.0 = phi ptr [ null, %19 ], [ null, %21 ], [ %30, %35 ], [ %30, %.loopexit ]
-  ret ptr %.0
+  %.039 = phi ptr [ null, %19 ], [ null, %21 ], [ %30, %35 ], [ %30, %.loopexit ]
+  ret ptr %.039
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -263,30 +263,30 @@ define dso_local i64 @bpchar(ptr nocapture noundef readonly %0) local_unnamed_ad
   br label %.loopexit
 
 .loopexit:                                        ; preds = %47, %43, %54
-  %.055 = phi i32 [ %36, %54 ], [ %44, %43 ], [ %44, %47 ]
-  %.053 = phi i32 [ %56, %54 ], [ %44, %43 ], [ %44, %47 ]
-  %57 = add i32 %.053, 4
+  %.054 = phi i32 [ %56, %54 ], [ %44, %43 ], [ %44, %47 ]
+  %.053 = phi i32 [ %36, %54 ], [ %44, %43 ], [ %44, %47 ]
+  %57 = add i32 %.054, 4
   %58 = sext i32 %57 to i64
   %59 = tail call ptr @palloc(i64 noundef %58) #12
   %60 = shl i32 %57, 2
   store i32 %60, ptr %59, align 4
   %61 = getelementptr inbounds i8, ptr %59, i64 4
-  %62 = sext i32 %.055 to i64
+  %62 = sext i32 %.053 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull align 1 %38, i64 %62, i1 false)
-  %63 = icmp sgt i32 %.053, %.055
+  %63 = icmp sgt i32 %.054, %.053
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %.loopexit
   %65 = getelementptr i8, ptr %61, i64 %62
-  %66 = sub i32 %.053, %.055
+  %66 = sub i32 %.054, %.053
   %67 = sext i32 %66 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %65, i8 32, i64 %67, i1 false)
   br label %68
 
 68:                                               ; preds = %.loopexit, %64, %35, %1
-  %.0.in = phi ptr [ %5, %1 ], [ %5, %35 ], [ %59, %64 ], [ %59, %.loopexit ]
-  %.0 = ptrtoint ptr %.0.in to i64
-  ret i64 %.0
+  %.055.in = phi ptr [ %5, %1 ], [ %5, %35 ], [ %59, %64 ], [ %59, %.loopexit ]
+  %.055 = ptrtoint ptr %.055.in to i64
+  ret i64 %.055
 }
 
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
@@ -541,13 +541,13 @@ define internal fastcc ptr @varchar_input(ptr noundef %0, i64 noundef %1, i32 no
   br i1 %13, label %.lr.ph, label %.loopexit
 
 14:                                               ; preds = %.lr.ph
-  %15 = add i64 %.02125, 1
+  %15 = add i64 %.025, 1
   %exitcond.not = icmp eq i64 %15, %1
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %9, %14
-  %.02125 = phi i64 [ %15, %14 ], [ %12, %9 ]
-  %16 = getelementptr i8, ptr %0, i64 %.02125
+  %.025 = phi i64 [ %15, %14 ], [ %12, %9 ]
+  %16 = getelementptr i8, ptr %0, i64 %.025
   %17 = load i8, ptr %16, align 1
   %.not = icmp eq i8 %17, 32
   br i1 %.not, label %14, label %18
@@ -569,8 +569,8 @@ define internal fastcc ptr @varchar_input(ptr noundef %0, i64 noundef %1, i32 no
   br label %25
 
 25:                                               ; preds = %20, %18, %.loopexit
-  %.0 = phi ptr [ %24, %.loopexit ], [ null, %18 ], [ null, %20 ]
-  ret ptr %.0
+  %.021 = phi ptr [ %24, %.loopexit ], [ null, %18 ], [ null, %20 ]
+  ret ptr %.021
 }
 
 ; Function Attrs: nounwind uwtable
@@ -764,9 +764,9 @@ define dso_local i64 @varchar(ptr nocapture noundef readonly %0) local_unnamed_a
   br label %50
 
 50:                                               ; preds = %32, %.loopexit
-  %.0.in = phi ptr [ %49, %.loopexit ], [ %5, %32 ]
-  %.0 = ptrtoint ptr %.0.in to i64
-  ret i64 %.0
+  %.031.in = phi ptr [ %49, %.loopexit ], [ %5, %32 ]
+  %.031 = ptrtoint ptr %.031.in to i64
+  ret i64 %.031
 }
 
 declare ptr @cstring_to_text_with_len(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -2628,8 +2628,8 @@ bcTruelen.exit:                                   ; preds = %43, %.split.loop.ex
   br label %54
 
 54:                                               ; preds = %52, %bcTruelen.exit
-  %.0 = phi ptr [ null, %bcTruelen.exit ], [ %53, %52 ]
-  %55 = tail call zeroext i1 @pg_locale_deterministic(ptr noundef %.0) #12
+  %.029 = phi ptr [ null, %bcTruelen.exit ], [ %53, %52 ]
+  %55 = tail call zeroext i1 @pg_locale_deterministic(ptr noundef %.029) #12
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %54
@@ -2638,10 +2638,10 @@ bcTruelen.exit:                                   ; preds = %43, %.split.loop.ex
 
 58:                                               ; preds = %54
   %59 = sext i32 %.0.in.lcssa.i.i to i64
-  %60 = tail call i64 @pg_strnxfrm(ptr noundef null, i64 noundef 0, ptr noundef nonnull %16, i64 noundef %59, ptr noundef %.0) #12
+  %60 = tail call i64 @pg_strnxfrm(ptr noundef null, i64 noundef 0, ptr noundef nonnull %16, i64 noundef %59, ptr noundef %.029) #12
   %61 = add i64 %60, 1
   %62 = tail call ptr @palloc(i64 noundef %61) #12
-  %63 = tail call i64 @pg_strnxfrm(ptr noundef %62, i64 noundef %61, ptr noundef nonnull %16, i64 noundef %59, ptr noundef %.0) #12
+  %63 = tail call i64 @pg_strnxfrm(ptr noundef %62, i64 noundef %61, ptr noundef nonnull %16, i64 noundef %59, ptr noundef %.029) #12
   %.not33 = icmp eq i64 %63, %60
   br i1 %.not33, label %67, label %64
 
@@ -2659,7 +2659,7 @@ bcTruelen.exit:                                   ; preds = %43, %.split.loop.ex
   br label %70
 
 70:                                               ; preds = %56, %67
-  %.029.in = phi i32 [ %57, %56 ], [ %69, %67 ]
+  %.0.in = phi i32 [ %57, %56 ], [ %69, %67 ]
   %71 = load i64, ptr %2, align 8
   %72 = inttoptr i64 %71 to ptr
   %.not34 = icmp eq ptr %5, %72
@@ -2670,8 +2670,8 @@ bcTruelen.exit:                                   ; preds = %43, %.split.loop.ex
   br label %74
 
 74:                                               ; preds = %70, %73
-  %.029 = zext i32 %.029.in to i64
-  ret i64 %.029
+  %.0 = zext i32 %.0.in to i64
+  ret i64 %.0
 }
 
 declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
@@ -2774,8 +2774,8 @@ bcTruelen.exit:                                   ; preds = %43, %.split.loop.ex
   br label %54
 
 54:                                               ; preds = %52, %bcTruelen.exit
-  %.0 = phi ptr [ null, %bcTruelen.exit ], [ %53, %52 ]
-  %55 = tail call zeroext i1 @pg_locale_deterministic(ptr noundef %.0) #12
+  %.031 = phi ptr [ null, %bcTruelen.exit ], [ %53, %52 ]
+  %55 = tail call zeroext i1 @pg_locale_deterministic(ptr noundef %.031) #12
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %54
@@ -2786,10 +2786,10 @@ bcTruelen.exit:                                   ; preds = %43, %.split.loop.ex
 
 60:                                               ; preds = %54
   %61 = sext i32 %.0.in.lcssa.i.i to i64
-  %62 = tail call i64 @pg_strnxfrm(ptr noundef null, i64 noundef 0, ptr noundef nonnull %16, i64 noundef %61, ptr noundef %.0) #12
+  %62 = tail call i64 @pg_strnxfrm(ptr noundef null, i64 noundef 0, ptr noundef nonnull %16, i64 noundef %61, ptr noundef %.031) #12
   %63 = add i64 %62, 1
   %64 = tail call ptr @palloc(i64 noundef %63) #12
-  %65 = tail call i64 @pg_strnxfrm(ptr noundef %64, i64 noundef %63, ptr noundef nonnull %16, i64 noundef %61, ptr noundef %.0) #12
+  %65 = tail call i64 @pg_strnxfrm(ptr noundef %64, i64 noundef %63, ptr noundef nonnull %16, i64 noundef %61, ptr noundef %.031) #12
   %.not35 = icmp eq i64 %65, %62
   br i1 %.not35, label %69, label %66
 
@@ -2809,7 +2809,7 @@ bcTruelen.exit:                                   ; preds = %43, %.split.loop.ex
   br label %74
 
 74:                                               ; preds = %56, %69
-  %.031 = phi i64 [ %59, %56 ], [ %73, %69 ]
+  %.0 = phi i64 [ %59, %56 ], [ %73, %69 ]
   %75 = load i64, ptr %2, align 8
   %76 = inttoptr i64 %75 to ptr
   %.not36 = icmp eq ptr %5, %76
@@ -2820,7 +2820,7 @@ bcTruelen.exit:                                   ; preds = %43, %.split.loop.ex
   br label %78
 
 78:                                               ; preds = %74, %77
-  ret i64 %.031
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable

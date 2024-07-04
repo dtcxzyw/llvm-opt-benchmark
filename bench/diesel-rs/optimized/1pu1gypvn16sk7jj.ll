@@ -184,15 +184,15 @@ define internal fastcc void @"_ZN4core3ptr181drop_in_place$LT$hashbrown..scopegu
   br i1 %exitcond.not.i.i, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1667d9db5ff44a5eE.exit", label %9
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1667d9db5ff44a5eE.exit": ; preds = %26, %1, %4
-  %27 = getelementptr inbounds i8, ptr %.val2.i, i64 8
-  %28 = load i64, ptr %27, align 8, !noalias !30, !noundef !5
-  %29 = icmp ult i64 %28, 8
-  %30 = add i64 %28, 1
-  %31 = lshr i64 %30, 3
-  %32 = mul nuw i64 %31, 7
-  %.0.i.i = select i1 %29, i64 %28, i64 %32
-  %33 = icmp ne ptr %.val2.i, null
-  tail call void @llvm.assume(i1 %33)
+  %27 = icmp ne ptr %.val2.i, null
+  tail call void @llvm.assume(i1 %27)
+  %28 = getelementptr inbounds i8, ptr %.val2.i, i64 8
+  %29 = load i64, ptr %28, align 8, !noalias !30, !noundef !5
+  %30 = icmp ult i64 %29, 8
+  %31 = add i64 %29, 1
+  %32 = lshr i64 %31, 3
+  %33 = mul nuw i64 %32, 7
+  %.0.i.i = select i1 %30, i64 %29, i64 %33
   %34 = getelementptr inbounds i8, ptr %.val2.i, i64 24
   %35 = load i64, ptr %34, align 8, !noalias !30, !noundef !5
   %36 = getelementptr inbounds i8, ptr %.val2.i, i64 16
@@ -631,16 +631,16 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.
   br label %common.resume
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %159
-  %.sroa.1338.099 = phi i16 [ %75, %.preheader.lr.ph ], [ %94, %159 ]
-  %.sroa.936.098 = phi i64 [ %70, %.preheader.lr.ph ], [ %98, %159 ]
-  %.sroa.033.097 = phi ptr [ %71, %.preheader.lr.ph ], [ %.sroa.033.1.lcssa, %159 ]
-  %.sroa.534.096 = phi i64 [ 0, %.preheader.lr.ph ], [ %.sroa.534.1.lcssa, %159 ]
-  %.not.not.i90 = icmp eq i16 %.sroa.1338.099, 0
+  %.sroa.033.099 = phi ptr [ %71, %.preheader.lr.ph ], [ %.sroa.033.1.lcssa, %159 ]
+  %.sroa.534.098 = phi i64 [ 0, %.preheader.lr.ph ], [ %.sroa.534.1.lcssa, %159 ]
+  %.sroa.936.097 = phi i64 [ %70, %.preheader.lr.ph ], [ %98, %159 ]
+  %.sroa.1338.096 = phi i16 [ %75, %.preheader.lr.ph ], [ %94, %159 ]
+  %.not.not.i90 = icmp eq i16 %.sroa.1338.096, 0
   br i1 %.not.not.i90, label %.noexc2, label %._crit_edge
 
 .noexc2:                                          ; preds = %.preheader, %.noexc2
-  %.sroa.033.192 = phi ptr [ %87, %.noexc2 ], [ %.sroa.033.097, %.preheader ]
-  %.sroa.534.191 = phi i64 [ %91, %.noexc2 ], [ %.sroa.534.096, %.preheader ]
+  %.sroa.033.192 = phi ptr [ %87, %.noexc2 ], [ %.sroa.033.099, %.preheader ]
+  %.sroa.534.191 = phi i64 [ %91, %.noexc2 ], [ %.sroa.534.098, %.preheader ]
   %86 = icmp ne ptr %.sroa.033.192, null
   call void @llvm.assume(i1 %86)
   %87 = getelementptr inbounds i8, ptr %.sroa.033.192, i64 16
@@ -656,15 +656,15 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17hd4f1a1f609170bffE.exit.
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.sroa.534.1.lcssa = phi i64 [ %.sroa.534.096, %.preheader ], [ %91, %._crit_edge.loopexit ]
-  %.sroa.033.1.lcssa = phi ptr [ %.sroa.033.097, %.preheader ], [ %87, %._crit_edge.loopexit ]
-  %.sroa.1338.1.lcssa = phi i16 [ %.sroa.1338.099, %.preheader ], [ %92, %._crit_edge.loopexit ]
+  %.sroa.1338.1.lcssa = phi i16 [ %.sroa.1338.096, %.preheader ], [ %92, %._crit_edge.loopexit ]
+  %.sroa.534.1.lcssa = phi i64 [ %.sroa.534.098, %.preheader ], [ %91, %._crit_edge.loopexit ]
+  %.sroa.033.1.lcssa = phi ptr [ %.sroa.033.099, %.preheader ], [ %87, %._crit_edge.loopexit ]
   %93 = add i16 %.sroa.1338.1.lcssa, -1
   %94 = and i16 %93, %.sroa.1338.1.lcssa
   %95 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.1338.1.lcssa, i1 true)
   %96 = zext nneg i16 %95 to i64
   %97 = add i64 %.sroa.534.1.lcssa, %96
-  %98 = add i64 %.sroa.936.098, -1
+  %98 = add i64 %.sroa.936.097, -1
   call void @llvm.experimental.noalias.scope.decl(metadata !108)
   %99 = load ptr, ptr %0, align 8, !alias.scope !108, !noalias !109, !nonnull !5, !noundef !5
   %100 = sub nsw i64 0, %97

@@ -971,10 +971,10 @@ land.rhs50:                                       ; preds = %if.then48
   br label %if.end56
 
 if.end56:                                         ; preds = %land.rhs29, %if.then27, %if.then48, %land.rhs50, %if.then40, %land.lhs.true37
-  %tobool59 = phi i1 [ false, %if.then40 ], [ false, %land.lhs.true37 ], [ true, %land.rhs50 ], [ true, %if.then48 ], [ true, %if.then27 ], [ true, %land.rhs29 ]
-  %ok.2 = phi i32 [ %ok.0, %if.then40 ], [ %ok.0, %land.lhs.true37 ], [ %2, %land.rhs50 ], [ 0, %if.then48 ], [ 0, %if.then27 ], [ %1, %land.rhs29 ]
+  %ok.2 = phi i32 [ %ok.0, %if.then40 ], [ %ok.0, %land.lhs.true37 ], [ 0, %if.then48 ], [ %2, %land.rhs50 ], [ 0, %if.then27 ], [ %1, %land.rhs29 ]
+  %tobool59 = phi i1 [ false, %if.then40 ], [ false, %land.lhs.true37 ], [ true, %if.then48 ], [ true, %land.rhs50 ], [ true, %if.then27 ], [ true, %land.rhs29 ]
   %tobool57 = icmp ne i32 %ok.2, 0
-  %3 = and i1 %tobool59, %tobool57
+  %3 = and i1 %tobool57, %tobool59
   %land.ext61 = zext i1 %3 to i32
   br label %if.end62
 

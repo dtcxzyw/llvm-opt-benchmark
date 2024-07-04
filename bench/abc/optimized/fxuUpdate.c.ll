@@ -1029,15 +1029,15 @@ define internal fastcc void @Fxu_UpdateCleanOldSingles(ptr noundef %0) unnamed_a
   br label %5
 
 5:                                                ; preds = %23, %.lr.ph
-  %.02434 = phi ptr [ %3, %.lr.ph ], [ %.02533, %23 ]
-  %.02533.in = getelementptr inbounds i8, ptr %.02434, i64 40
-  %.02533 = load ptr, ptr %.02533.in, align 8
-  %6 = getelementptr inbounds i8, ptr %.02434, i64 16
+  %.02533 = phi ptr [ %3, %.lr.ph ], [ %.02434, %23 ]
+  %.02434.in = getelementptr inbounds i8, ptr %.02533, i64 40
+  %.02434 = load ptr, ptr %.02434.in, align 8
+  %6 = getelementptr inbounds i8, ptr %.02533, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
   %.not29 = icmp eq ptr %9, null
-  %10 = getelementptr inbounds i8, ptr %.02434, i64 24
+  %10 = getelementptr inbounds i8, ptr %.02533, i64 24
   %11 = load ptr, ptr %10, align 8
   br i1 %.not29, label %12, label %._crit_edge36
 
@@ -1054,21 +1054,21 @@ define internal fastcc void @Fxu_UpdateCleanOldSingles(ptr noundef %0) unnamed_a
 
 17:                                               ; preds = %._crit_edge36
   %18 = add nsw i32 %15, -2
-  %19 = getelementptr inbounds i8, ptr %.02434, i64 8
+  %19 = getelementptr inbounds i8, ptr %.02533, i64 8
   store i32 %18, ptr %19, align 8
   %20 = load ptr, ptr %4, align 8
-  tail call void @Fxu_HeapSingleUpdate(ptr noundef %20, ptr noundef nonnull %.02434) #7
+  tail call void @Fxu_HeapSingleUpdate(ptr noundef %20, ptr noundef nonnull %.02533) #7
   br label %23
 
 21:                                               ; preds = %._crit_edge36
   %22 = load ptr, ptr %4, align 8
-  tail call void @Fxu_HeapSingleDelete(ptr noundef %22, ptr noundef nonnull %.02434) #7
-  tail call void @Fxu_ListMatrixDelSingle(ptr noundef %0, ptr noundef nonnull %.02434) #7
-  tail call void @Fxu_MemRecycle(ptr noundef %0, ptr noundef nonnull %.02434, i32 noundef 48) #7
+  tail call void @Fxu_HeapSingleDelete(ptr noundef %22, ptr noundef nonnull %.02533) #7
+  tail call void @Fxu_ListMatrixDelSingle(ptr noundef %0, ptr noundef nonnull %.02533) #7
+  tail call void @Fxu_MemRecycle(ptr noundef %0, ptr noundef nonnull %.02533, i32 noundef 48) #7
   br label %23
 
 23:                                               ; preds = %12, %21, %17
-  %.not31 = icmp eq ptr %.02533, null
+  %.not31 = icmp eq ptr %.02434, null
   br i1 %.not31, label %._crit_edge, label %5, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %23, %1

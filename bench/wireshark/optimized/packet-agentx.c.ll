@@ -1286,13 +1286,13 @@ dissect_octet_string.exit:                        ; preds = %27, %29
   br label %57
 
 57:                                               ; preds = %49, %41, %dissect_octet_string.exit, %20, %12
-  %.045 = phi i32 [ %19, %12 ], [ %56, %49 ], [ %48, %41 ], [ %40, %dissect_octet_string.exit ], [ %23, %20 ]
-  %58 = add i32 %.045, 4
+  %.0 = phi i32 [ %19, %12 ], [ %56, %49 ], [ %48, %41 ], [ %40, %dissect_octet_string.exit ], [ %23, %20 ]
+  %58 = add i32 %.0, 4
   br label %59
 
 59:                                               ; preds = %11, %57
-  %.0 = phi i32 [ %58, %57 ], [ %3, %11 ]
-  ret i32 %.0
+  %.045 = phi i32 [ %58, %57 ], [ %3, %11 ]
+  ret i32 %.045
 }
 
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1

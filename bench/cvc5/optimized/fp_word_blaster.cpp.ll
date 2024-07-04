@@ -1052,12 +1052,12 @@ _ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EEC2ERKS5_.exi
   br i1 %cmp.not240, label %for.end, label %while.body.i.preheader
 
 while.body.i.preheader:                           ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EEC2ERKS5_.exit, %_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit129
-  %working.0242 = phi ptr [ %call38, %_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit129 ], [ %call8, %_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EEC2ERKS5_.exit ]
-  %i.0241 = phi i32 [ %dec, %_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit129 ], [ %call.i, %_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EEC2ERKS5_.exit ]
+  %i.0242 = phi i32 [ %dec, %_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit129 ], [ %call.i, %_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EEC2ERKS5_.exit ]
+  %working.0241 = phi ptr [ %call38, %_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit129 ], [ %call8, %_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EEC2ERKS5_.exit ]
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %while.body.i
-  %working.05.i = phi i32 [ %shr.i, %while.body.i ], [ %i.0241, %while.body.i.preheader ]
+  %working.05.i = phi i32 [ %shr.i, %while.body.i ], [ %i.0242, %while.body.i.preheader ]
   %i.04.i = phi i32 [ %inc.i, %while.body.i ], [ 0, %while.body.i.preheader ]
   %inc.i = add nuw nsw i32 %i.04.i, 1
   %shr.i = lshr i32 %working.05.i, 1
@@ -1069,7 +1069,7 @@ _ZN6symfpu15bitsToRepresentIjEET_S1_.exit:        ; preds = %while.body.i
           to label %invoke.cont18 unwind label %lpad6.loopexit
 
 invoke.cont18:                                    ; preds = %_ZN6symfpu15bitsToRepresentIjEET_S1_.exit
-  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EEC2Ejj(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp19, i32 noundef %inc.i, i32 noundef %i.0241)
+  invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EEC2Ejj(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp19, i32 noundef %inc.i, i32 noundef %i.0242)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont18
@@ -1162,7 +1162,7 @@ terminate.lpad.i.i.i84:                           ; preds = %if.then13.i.i.i.i83
   unreachable
 
 _ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit85: ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit74, %if.then.i.i.i.i77, %if.then13.i.i.i.i83
-  invoke void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE7extractEjj(ptr nonnull sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector") align 8 %ref.tmp30, ptr noundef nonnull align 8 dereferenceable(8) %working.0242, i32 noundef 0, i32 noundef 0)
+  invoke void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE7extractEjj(ptr nonnull sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector") align 8 %ref.tmp30, ptr noundef nonnull align 8 dereferenceable(8) %working.0241, i32 noundef 0, i32 noundef 0)
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit85
@@ -1201,11 +1201,11 @@ _ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit96:
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit96
-  invoke void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE6appendERKS5_(ptr nonnull sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector") align 8 %call38, ptr noundef nonnull align 8 dereferenceable(8) %working.0242, ptr noundef nonnull align 8 dereferenceable(8) %nextBit)
+  invoke void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE6appendERKS5_(ptr nonnull sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector") align 8 %call38, ptr noundef nonnull align 8 dereferenceable(8) %working.0241, ptr noundef nonnull align 8 dereferenceable(8) %nextBit)
           to label %delete.notnull unwind label %lpad39
 
 delete.notnull:                                   ; preds = %invoke.cont37
-  %32 = load ptr, ptr %working.0242, align 8
+  %32 = load ptr, ptr %working.0241, align 8
   %bf.load.i.i.i.i97 = load i64, ptr %32, align 8
   %33 = and i64 %bf.load.i.i.i.i97, 1152920405095219200
   %cmp.not.i.i.i.i98 = icmp eq i64 %33, 1152920405095219200
@@ -1232,7 +1232,7 @@ terminate.lpad.i.i.i106:                          ; preds = %if.then13.i.i.i.i10
   unreachable
 
 _ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit107: ; preds = %delete.notnull, %if.then.i.i.i.i99, %if.then13.i.i.i.i105
-  call void @_ZdlPv(ptr noundef nonnull %working.0242) #22
+  call void @_ZdlPv(ptr noundef nonnull %working.0241) #22
   %36 = load ptr, ptr %nextBit, align 8
   %bf.load.i.i.i.i108 = load i64, ptr %36, align 8
   %37 = and i64 %bf.load.i.i.i.i108, 1152920405095219200
@@ -1287,7 +1287,7 @@ terminate.lpad.i.i.i128:                          ; preds = %if.then13.i.i.i.i12
   unreachable
 
 _ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit129: ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit118, %if.then.i.i.i.i121, %if.then13.i.i.i.i127
-  %dec = add i32 %i.0241, -1
+  %dec = add i32 %i.0242, -1
   %cmp.not = icmp eq i32 %dec, 0
   br i1 %cmp.not, label %for.end, label %while.body.i.preheader, !llvm.loop !6
 
@@ -2023,8 +2023,8 @@ for.body.preheader:                               ; preds = %_ZN4cvc58internal6t
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit245
   %indvars.iv = phi i64 [ %28, %for.body.preheader ], [ %indvars.iv.next, %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit245 ]
-  %working.0427 = phi ptr [ %call7, %for.body.preheader ], [ %call71, %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit245 ]
-  %stickyBit.0425 = phi ptr [ %call11, %for.body.preheader ], [ %call52, %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit245 ]
+  %stickyBit.0426 = phi ptr [ %call11, %for.body.preheader ], [ %call52, %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit245 ]
+  %working.0425 = phi ptr [ %call7, %for.body.preheader ], [ %call71, %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit245 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars = trunc i64 %indvars.iv.next to i32
   invoke void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE7extractEjj(ptr nonnull sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector") align 8 %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(8) %shiftAmount, i32 noundef %indvars, i32 noundef %indvars)
@@ -2097,7 +2097,7 @@ _ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit122
   %notmask = shl nsw i64 -1, %sh_prom
   %37 = trunc i64 %notmask to i32
   %conv = xor i32 %37, -1
-  invoke void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE7extractEjj(ptr nonnull sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector") align 8 %ref.tmp37, ptr noundef nonnull align 8 dereferenceable(8) %working.0427, i32 noundef %conv, i32 noundef 0)
+  invoke void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE7extractEjj(ptr nonnull sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector") align 8 %ref.tmp37, ptr noundef nonnull align 8 dereferenceable(8) %working.0425, i32 noundef %conv, i32 noundef 0)
           to label %invoke.cont40 unwind label %lpad39
 
 invoke.cont40:                                    ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit122
@@ -2198,11 +2198,11 @@ _ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit155
           to label %invoke.cont51 unwind label %lpad50
 
 invoke.cont51:                                    ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit155
-  invoke void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionooERKS4_(ptr nonnull sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition") align 8 %call52, ptr noundef nonnull align 8 dereferenceable(8) %stickyBit.0425, ptr noundef nonnull align 8 dereferenceable(8) %stickyAccumulate)
+  invoke void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionooERKS4_(ptr nonnull sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicProposition") align 8 %call52, ptr noundef nonnull align 8 dereferenceable(8) %stickyBit.0426, ptr noundef nonnull align 8 dereferenceable(8) %stickyAccumulate)
           to label %delete.notnull unwind label %lpad53
 
 delete.notnull:                                   ; preds = %invoke.cont51
-  %50 = load ptr, ptr %stickyBit.0425, align 8
+  %50 = load ptr, ptr %stickyBit.0426, align 8
   %bf.load.i.i.i.i156 = load i64, ptr %50, align 8
   %51 = and i64 %bf.load.i.i.i.i156, 1152920405095219200
   %cmp.not.i.i.i.i157 = icmp eq i64 %51, 1152920405095219200
@@ -2229,7 +2229,7 @@ terminate.lpad.i.i.i165:                          ; preds = %if.then13.i.i.i.i16
   unreachable
 
 _ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit166: ; preds = %delete.notnull, %if.then.i.i.i.i158, %if.then13.i.i.i.i164
-  call void @_ZdlPv(ptr noundef nonnull %stickyBit.0425) #22
+  call void @_ZdlPv(ptr noundef nonnull %stickyBit.0426) #22
   invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EEC2Ejj(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp57, i32 noundef %call.i, i32 noundef 1)
           to label %invoke.cont58 unwind label %lpad50
 
@@ -2242,7 +2242,7 @@ invoke.cont61:                                    ; preds = %invoke.cont58
           to label %invoke.cont63 unwind label %lpad62
 
 invoke.cont63:                                    ; preds = %invoke.cont61
-  invoke void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE20signExtendRightShiftERKS5_(ptr nonnull sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector") align 8 %shifted, ptr noundef nonnull align 8 dereferenceable(8) %working.0427, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp56)
+  invoke void @_ZNK4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EE20signExtendRightShiftERKS5_(ptr nonnull sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector") align 8 %shifted, ptr noundef nonnull align 8 dereferenceable(8) %working.0425, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp56)
           to label %invoke.cont65 unwind label %lpad64
 
 invoke.cont65:                                    ; preds = %invoke.cont63
@@ -2331,11 +2331,11 @@ _ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit200
           to label %invoke.cont70 unwind label %lpad69
 
 invoke.cont70:                                    ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit200
-  invoke void @_ZN6symfpu3iteIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS5_17symbolicBitVectorILb0EEEE5iteOpERKS6_RKS8_SD_(ptr nonnull sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector") align 8 %call71, ptr noundef nonnull align 8 dereferenceable(8) %shiftEnabled, ptr noundef nonnull align 8 dereferenceable(8) %shifted, ptr noundef nonnull align 8 dereferenceable(8) %working.0427)
+  invoke void @_ZN6symfpu3iteIN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionENS5_17symbolicBitVectorILb0EEEE5iteOpERKS6_RKS8_SD_(ptr nonnull sret(%"class.cvc5::internal::theory::fp::symfpuSymbolic::symbolicBitVector") align 8 %call71, ptr noundef nonnull align 8 dereferenceable(8) %shiftEnabled, ptr noundef nonnull align 8 dereferenceable(8) %shifted, ptr noundef nonnull align 8 dereferenceable(8) %working.0425)
           to label %delete.notnull76 unwind label %lpad72
 
 delete.notnull76:                                 ; preds = %invoke.cont70
-  %66 = load ptr, ptr %working.0427, align 8
+  %66 = load ptr, ptr %working.0425, align 8
   %bf.load.i.i.i.i202 = load i64, ptr %66, align 8
   %67 = and i64 %bf.load.i.i.i.i202, 1152920405095219200
   %cmp.not.i.i.i.i203 = icmp eq i64 %67, 1152920405095219200
@@ -2362,7 +2362,7 @@ terminate.lpad.i.i.i211:                          ; preds = %if.then13.i.i.i.i21
   unreachable
 
 _ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EED2Ev.exit212: ; preds = %delete.notnull76, %if.then.i.i.i.i204, %if.then13.i.i.i.i210
-  call void @_ZdlPv(ptr noundef nonnull %working.0427) #22
+  call void @_ZdlPv(ptr noundef nonnull %working.0425) #22
   %70 = load ptr, ptr %shifted, align 8
   %bf.load.i.i.i.i213 = load i64, ptr %70, align 8
   %71 = and i64 %bf.load.i.i.i.i213, 1152920405095219200
@@ -2616,8 +2616,8 @@ ehcleanup80:                                      ; preds = %ehcleanup79, %ehcle
   br label %ehcleanup112
 
 for.end:                                          ; preds = %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit245, %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit100
-  %stickyBit.0.lcssa = phi ptr [ %call11, %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit100 ], [ %call52, %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit245 ]
   %working.0.lcssa = phi ptr [ %call7, %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit100 ], [ %call71, %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit245 ]
+  %stickyBit.0.lcssa = phi ptr [ %call11, %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit100 ], [ %call52, %_ZN4cvc58internal6theory2fp14symfpuSymbolic19symbolicPropositionD2Ev.exit245 ]
   invoke void @_ZN4cvc58internal6theory2fp14symfpuSymbolic17symbolicBitVectorILb0EEC2ERKNS3_19symbolicPropositionE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp82, ptr noundef nonnull align 8 dereferenceable(8) %stickyBit.0.lcssa)
           to label %invoke.cont83 unwind label %lpad5.loopexit.split-lp
 

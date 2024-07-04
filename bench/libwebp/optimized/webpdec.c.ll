@@ -433,21 +433,21 @@ DecodeWebP.exit:                                  ; preds = %103, %107
   br i1 %139, label %.preheader, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %116, %DecodeWebP.exit, %114
-  %.0106 = phi i32 [ %112, %DecodeWebP.exit ], [ 1, %114 ], [ 1, %116 ], [ 1, %.preheader.lr.ph ], [ 1, %._crit_edge ]
+  %.0107 = phi i32 [ %112, %DecodeWebP.exit ], [ 1, %114 ], [ 1, %116 ], [ 1, %.preheader.lr.ph ], [ 1, %._crit_edge ]
   br i1 %111, label %151, label %.thread131
 
 .thread131:                                       ; preds = %56, %53, %.loopexit
-  %.0107135 = phi i32 [ %110, %.loopexit ], [ 1, %53 ], [ 1, %56 ]
+  %.0106135 = phi i32 [ %110, %.loopexit ], [ 1, %53 ], [ 1, %56 ]
   %140 = load ptr, ptr @stderr, align 8
   %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %140, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6) #6
   %142 = load ptr, ptr @stderr, align 8
-  %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.1, i32 noundef %.0107135) #6
-  %or.cond.i127 = icmp ult i32 %.0107135, 8
+  %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.1, i32 noundef %.0106135) #6
+  %or.cond.i127 = icmp ult i32 %.0106135, 8
   br i1 %or.cond.i127, label %144, label %PrintWebPError.exit129
 
 144:                                              ; preds = %.thread131
   %145 = load ptr, ptr @stderr, align 8
-  %146 = zext nneg i32 %.0107135 to i64
+  %146 = zext nneg i32 %.0106135 to i64
   %147 = getelementptr inbounds [8 x ptr], ptr @kStatusMessages, i64 0, i64 %146
   %148 = load ptr, ptr %147, align 8
   %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef nonnull @.str.2, ptr noundef %148) #6
@@ -459,7 +459,7 @@ PrintWebPError.exit129:                           ; preds = %.thread131, %144
   br label %151
 
 151:                                              ; preds = %PrintWebPError.exit129, %.loopexit
-  %.1 = phi i32 [ 0, %PrintWebPError.exit129 ], [ %.0106, %.loopexit ]
+  %.1 = phi i32 [ 0, %PrintWebPError.exit129 ], [ %.0107, %.loopexit ]
   call void @WebPFreeDecBuffer(ptr noundef nonnull %9) #7
   %152 = icmp ne i32 %.1, 0
   %153 = icmp ne ptr %4, null

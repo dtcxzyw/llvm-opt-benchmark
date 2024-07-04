@@ -536,7 +536,7 @@ define noundef zeroext i1 @dfilter_compile_full(ptr noundef %0, ptr nocapture no
   br label %29
 
 29:                                               ; preds = %16, %27
-  %.018 = phi ptr [ %17, %16 ], [ %28, %27 ]
+  %.0 = phi ptr [ %17, %16 ], [ %28, %27 ]
   %30 = call noalias dereferenceable_or_null(88) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 88) #17
   %31 = call ptr @g_ptr_array_new_full(i32 noundef 0, ptr noundef nonnull @g_free) #18
   %32 = getelementptr inbounds i8, ptr %30, i64 24
@@ -558,7 +558,7 @@ dfwork_parse.exit.thread.i:                       ; preds = %29
 
 39:                                               ; preds = %29
   %40 = load ptr, ptr %7, align 8
-  %41 = call ptr @df_yy_scan_string(ptr noundef %.018, ptr noundef %40) #18
+  %41 = call ptr @df_yy_scan_string(ptr noundef %.0, ptr noundef %40) #18
   %42 = load ptr, ptr %7, align 8
   call void @df_yyset_extra(ptr noundef nonnull %30, ptr noundef %42) #18
   %43 = load i32, ptr %33, align 8
@@ -620,7 +620,7 @@ dfwork_parse.exit.i:                              ; preds = %52, %48
 67:                                               ; preds = %62
   %68 = load i32, ptr %33, align 8
   %69 = call noalias dereferenceable_or_null(120) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 120) #17
-  %70 = call noalias ptr @g_strdup(ptr noundef %.018) #18
+  %70 = call noalias ptr @g_strdup(ptr noundef %.0) #18
   %71 = getelementptr inbounds i8, ptr %69, i64 96
   store ptr %70, ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %69, i64 8
@@ -764,7 +764,7 @@ dfilter_new.exit.i.i:                             ; preds = %101, %96
 138:                                              ; preds = %134, %132
   %.033.i36 = phi ptr [ %.033.i37, %134 ], [ %.033.i, %132 ]
   %.034.i33 = phi ptr [ %.034.i34, %134 ], [ %.034.i, %132 ]
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 6, ptr noundef nonnull @.str.2, i64 noundef 571, ptr noundef nonnull @__func__.compile_filter, ptr noundef nonnull @.str.57, ptr noundef %.018) #18
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 6, ptr noundef nonnull @.str.2, i64 noundef 571, ptr noundef nonnull @__func__.compile_filter, ptr noundef nonnull @.str.57, ptr noundef %.0) #18
   %139 = call ptr (i32, ptr, ptr, ...) @df_error_new_printf(i32 noundef -1, ptr noundef null, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.58)
   br label %140
 
@@ -790,7 +790,7 @@ dfilter_new.exit.i.i:                             ; preds = %101, %96
 
 compile_filter.exit:                              ; preds = %66, %125, %142, %143
   %.0.i = phi ptr [ null, %66 ], [ %98, %125 ], [ null, %143 ], [ null, %142 ]
-  call void @g_free(ptr noundef %.018) #18
+  call void @g_free(ptr noundef %.0) #18
   %144 = load ptr, ptr %8, align 8
   %.not23 = icmp eq ptr %144, null
   br i1 %.not23, label %150, label %145
@@ -816,8 +816,8 @@ compile_filter.exit:                              ; preds = %66, %125, %142, %14
   br label %compile_failure.exit
 
 compile_failure.exit:                             ; preds = %147, %146, %24, %22, %21, %10, %12, %150
-  %.0 = phi i1 [ true, %150 ], [ false, %12 ], [ false, %10 ], [ false, %21 ], [ false, %22 ], [ false, %24 ], [ false, %146 ], [ false, %147 ]
-  ret i1 %.0
+  %.018 = phi i1 [ true, %150 ], [ false, %12 ], [ false, %10 ], [ false, %21 ], [ false, %22 ], [ false, %24 ], [ false, %146 ], [ false, %147 ]
+  ret i1 %.018
 }
 
 ; Function Attrs: nounwind uwtable

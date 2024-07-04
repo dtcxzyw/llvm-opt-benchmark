@@ -1281,7 +1281,7 @@ define dso_local void @AlterObjectOwner_internal(i32 noundef %0, i32 noundef %1,
   br label %33
 
 33:                                               ; preds = %28, %22
-  %.0 = phi i32 [ %32, %28 ], [ 0, %22 ]
+  %.079 = phi i32 [ %32, %28 ], [ 0, %22 ]
   %.not87 = icmp eq i32 %27, %2
   br i1 %.not87, label %89, label %34
 
@@ -1310,24 +1310,24 @@ define dso_local void @AlterObjectOwner_internal(i32 noundef %0, i32 noundef %1,
   br label %47
 
 47:                                               ; preds = %45, %40
-  %.079 = phi ptr [ %44, %40 ], [ %5, %45 ]
+  %.0 = phi ptr [ %44, %40 ], [ %5, %45 ]
   %48 = call i32 @get_object_type(i32 noundef %7, i32 noundef %1) #7
-  call void @aclcheck_error(i32 noundef 2, i32 noundef %48, ptr noundef %.079) #7
+  call void @aclcheck_error(i32 noundef 2, i32 noundef %48, ptr noundef %.0) #7
   br label %49
 
 49:                                               ; preds = %47, %36
   %50 = call i32 @GetUserId() #7
   call void @check_can_set_role(i32 noundef %50, i32 noundef %2) #7
-  %.not89 = icmp eq i32 %.0, 0
+  %.not89 = icmp eq i32 %.079, 0
   br i1 %.not89, label %55, label %51
 
 51:                                               ; preds = %49
-  %52 = call i32 @object_aclcheck(i32 noundef 2615, i32 noundef %.0, i32 noundef %2, i64 noundef 512) #7
+  %52 = call i32 @object_aclcheck(i32 noundef 2615, i32 noundef %.079, i32 noundef %2, i64 noundef 512) #7
   %.not90 = icmp eq i32 %52, 0
   br i1 %.not90, label %55, label %53
 
 53:                                               ; preds = %51
-  %54 = call ptr @get_namespace_name(i32 noundef %.0) #7
+  %54 = call ptr @get_namespace_name(i32 noundef %.079) #7
   call void @aclcheck_error(i32 noundef %52, i32 noundef 36, ptr noundef %54) #7
   br label %55
 

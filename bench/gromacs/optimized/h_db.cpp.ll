@@ -1279,10 +1279,10 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.preheader.i: ; preds = %309
   br label %.lr.ph.i.i.i55
 
 .lr.ph.i.i.i55:                                   ; preds = %342, %.lr.ph.preheader.i.i.i52
-  %.sroa.017.023.i.i.i56 = phi ptr [ %343, %342 ], [ %322, %.lr.ph.preheader.i.i.i52 ]
-  %.sroa.013.022.i.i.i57 = phi ptr [ %344, %342 ], [ %324, %.lr.ph.preheader.i.i.i52 ]
-  %.val.i.i.i.i58 = load i8, ptr %.sroa.017.023.i.i.i56, align 1
-  %.val1.i.i.i.i59 = load i8, ptr %.sroa.013.022.i.i.i57, align 1
+  %.sroa.013.023.i.i.i56 = phi ptr [ %344, %342 ], [ %324, %.lr.ph.preheader.i.i.i52 ]
+  %.sroa.017.022.i.i.i57 = phi ptr [ %343, %342 ], [ %322, %.lr.ph.preheader.i.i.i52 ]
+  %.val.i.i.i.i58 = load i8, ptr %.sroa.017.022.i.i.i57, align 1
+  %.val1.i.i.i.i59 = load i8, ptr %.sroa.013.023.i.i.i56, align 1
   %335 = sext i8 %.val.i.i.i.i58 to i32
   %336 = call i32 @toupper(i32 noundef %335) #24
   %337 = sext i8 %.val1.i.i.i.i59 to i32
@@ -1295,8 +1295,8 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.preheader.i: ; preds = %309
   br i1 %341, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP21MoleculePatchDatabaseSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_comp_iterIZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPS6_E3$_0EEEvT_T0_.exit", label %342
 
 342:                                              ; preds = %340
-  %343 = getelementptr inbounds i8, ptr %.sroa.017.023.i.i.i56, i64 1
-  %344 = getelementptr inbounds i8, ptr %.sroa.013.022.i.i.i57, i64 1
+  %343 = getelementptr inbounds i8, ptr %.sroa.017.022.i.i.i57, i64 1
+  %344 = getelementptr inbounds i8, ptr %.sroa.013.023.i.i.i56, i64 1
   %.not.i.i.i60 = icmp eq ptr %343, %spec.select.i.i.i.i50
   br i1 %.not.i.i.i60, label %._crit_edge.i.i.i61, label %.lr.ph.i.i.i55, !llvm.loop !30
 
@@ -1336,10 +1336,10 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.i:          ; preds = %_ZN21MoleculePatchD
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %366, %.lr.ph.preheader.i.i.i
-  %.sroa.017.023.i.i.i = phi ptr [ %367, %366 ], [ %346, %.lr.ph.preheader.i.i.i ]
-  %.sroa.013.022.i.i.i = phi ptr [ %368, %366 ], [ %348, %.lr.ph.preheader.i.i.i ]
-  %.val.i.i.i.i = load i8, ptr %.sroa.017.023.i.i.i, align 1
-  %.val1.i.i.i.i = load i8, ptr %.sroa.013.022.i.i.i, align 1
+  %.sroa.013.023.i.i.i = phi ptr [ %368, %366 ], [ %348, %.lr.ph.preheader.i.i.i ]
+  %.sroa.017.022.i.i.i = phi ptr [ %367, %366 ], [ %346, %.lr.ph.preheader.i.i.i ]
+  %.val.i.i.i.i = load i8, ptr %.sroa.017.022.i.i.i, align 1
+  %.val1.i.i.i.i = load i8, ptr %.sroa.013.023.i.i.i, align 1
   %359 = sext i8 %.val.i.i.i.i to i32
   %360 = call i32 @toupper(i32 noundef %359) #24
   %361 = sext i8 %.val1.i.i.i.i to i32
@@ -1352,8 +1352,8 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.i:          ; preds = %_ZN21MoleculePatchD
   br i1 %365, label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP21MoleculePatchDatabaseSt6vectorIS2_SaIS2_EEEENS0_5__ops14_Val_comp_iterIZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPS6_E3$_0EEEvT_T0_.exit", label %366
 
 366:                                              ; preds = %364
-  %367 = getelementptr inbounds i8, ptr %.sroa.017.023.i.i.i, i64 1
-  %368 = getelementptr inbounds i8, ptr %.sroa.013.022.i.i.i, i64 1
+  %367 = getelementptr inbounds i8, ptr %.sroa.017.022.i.i.i, i64 1
+  %368 = getelementptr inbounds i8, ptr %.sroa.013.023.i.i.i, i64 1
   %.not.i.i.i49 = icmp eq ptr %367, %spec.select.i.i.i.i
   br i1 %.not.i.i.i49, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !30
 
@@ -2363,10 +2363,10 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.i:          ; preds = %89
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %158, %.lr.ph.preheader.i.i.i.i.i
-  %.sroa.017.023.i.i.i.i.i = phi ptr [ %159, %158 ], [ %138, %.lr.ph.preheader.i.i.i.i.i ]
-  %.sroa.013.022.i.i.i.i.i = phi ptr [ %160, %158 ], [ %140, %.lr.ph.preheader.i.i.i.i.i ]
-  %.val.i.i.i.i.i.i = load i8, ptr %.sroa.017.023.i.i.i.i.i, align 1
-  %.val1.i.i.i.i.i.i = load i8, ptr %.sroa.013.022.i.i.i.i.i, align 1
+  %.sroa.013.023.i.i.i.i.i = phi ptr [ %160, %158 ], [ %140, %.lr.ph.preheader.i.i.i.i.i ]
+  %.sroa.017.022.i.i.i.i.i = phi ptr [ %159, %158 ], [ %138, %.lr.ph.preheader.i.i.i.i.i ]
+  %.val.i.i.i.i.i.i = load i8, ptr %.sroa.017.022.i.i.i.i.i, align 1
+  %.val1.i.i.i.i.i.i = load i8, ptr %.sroa.013.023.i.i.i.i.i, align 1
   %151 = sext i8 %.val.i.i.i.i.i.i to i32
   %152 = call i32 @toupper(i32 noundef %151) #24
   %153 = sext i8 %.val1.i.i.i.i.i.i to i32
@@ -2379,8 +2379,8 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.i:          ; preds = %89
   br i1 %157, label %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit.thread29.i.i.preheader", label %158
 
 158:                                              ; preds = %156
-  %159 = getelementptr inbounds i8, ptr %.sroa.017.023.i.i.i.i.i, i64 1
-  %160 = getelementptr inbounds i8, ptr %.sroa.013.022.i.i.i.i.i, i64 1
+  %159 = getelementptr inbounds i8, ptr %.sroa.017.022.i.i.i.i.i, i64 1
+  %160 = getelementptr inbounds i8, ptr %.sroa.013.023.i.i.i.i.i, i64 1
   %.not.i.i.i.i.i = icmp eq ptr %159, %spec.select.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i, label %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit.i.i", label %.lr.ph.i.i.i.i.i, !llvm.loop !30
 
@@ -2422,10 +2422,10 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.i:          ; preds = %89
   br label %.lr.ph.i.i.i13.i.i
 
 .lr.ph.i.i.i13.i.i:                               ; preds = %182, %.lr.ph.preheader.i.i.i10.i.i
-  %.sroa.017.023.i.i.i14.i.i = phi ptr [ %183, %182 ], [ %162, %.lr.ph.preheader.i.i.i10.i.i ]
-  %.sroa.013.022.i.i.i15.i.i = phi ptr [ %184, %182 ], [ %164, %.lr.ph.preheader.i.i.i10.i.i ]
-  %.val.i.i.i.i16.i.i = load i8, ptr %.sroa.017.023.i.i.i14.i.i, align 1
-  %.val1.i.i.i.i17.i.i = load i8, ptr %.sroa.013.022.i.i.i15.i.i, align 1
+  %.sroa.013.023.i.i.i14.i.i = phi ptr [ %184, %182 ], [ %164, %.lr.ph.preheader.i.i.i10.i.i ]
+  %.sroa.017.022.i.i.i15.i.i = phi ptr [ %183, %182 ], [ %162, %.lr.ph.preheader.i.i.i10.i.i ]
+  %.val.i.i.i.i16.i.i = load i8, ptr %.sroa.017.022.i.i.i15.i.i, align 1
+  %.val1.i.i.i.i17.i.i = load i8, ptr %.sroa.013.023.i.i.i14.i.i, align 1
   %175 = sext i8 %.val.i.i.i.i16.i.i to i32
   %176 = call i32 @toupper(i32 noundef %175) #24
   %177 = sext i8 %.val1.i.i.i.i17.i.i to i32
@@ -2438,8 +2438,8 @@ _ZN21MoleculePatchDatabaseC2EOS_.exit.i:          ; preds = %89
   br i1 %181, label %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit22.thread32.i.i", label %182
 
 182:                                              ; preds = %180
-  %183 = getelementptr inbounds i8, ptr %.sroa.017.023.i.i.i14.i.i, i64 1
-  %184 = getelementptr inbounds i8, ptr %.sroa.013.022.i.i.i15.i.i, i64 1
+  %183 = getelementptr inbounds i8, ptr %.sroa.017.022.i.i.i15.i.i, i64 1
+  %184 = getelementptr inbounds i8, ptr %.sroa.013.023.i.i.i14.i.i, i64 1
   %.not.i.i.i18.i.i = icmp eq ptr %183, %spec.select.i.i.i.i8.i.i
   br i1 %.not.i.i.i18.i.i, label %"_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaIS5_EEENK3$_0clERKS5_SB_.exit22.i.i", label %.lr.ph.i.i.i13.i.i, !llvm.loop !30
 
@@ -2867,10 +2867,10 @@ define internal fastcc noundef zeroext i1 @"_ZZL14read_h_db_fileRKNSt10filesyste
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %20, %.lr.ph.preheader.i.i
-  %.sroa.017.023.i.i = phi ptr [ %21, %20 ], [ %3, %.lr.ph.preheader.i.i ]
-  %.sroa.013.022.i.i = phi ptr [ %22, %20 ], [ %5, %.lr.ph.preheader.i.i ]
-  %.val.i.i.i = load i8, ptr %.sroa.017.023.i.i, align 1
-  %.val1.i.i.i = load i8, ptr %.sroa.013.022.i.i, align 1
+  %.sroa.013.023.i.i = phi ptr [ %22, %20 ], [ %5, %.lr.ph.preheader.i.i ]
+  %.sroa.017.022.i.i = phi ptr [ %21, %20 ], [ %3, %.lr.ph.preheader.i.i ]
+  %.val.i.i.i = load i8, ptr %.sroa.017.022.i.i, align 1
+  %.val1.i.i.i = load i8, ptr %.sroa.013.023.i.i, align 1
   %16 = sext i8 %.val.i.i.i to i32
   %17 = tail call i32 @toupper(i32 noundef %16) #24
   %18 = sext i8 %.val1.i.i.i to i32
@@ -2879,8 +2879,8 @@ define internal fastcc noundef zeroext i1 @"_ZZL14read_h_db_fileRKNSt10filesyste
   br i1 %or.cond.not, label %20, label %"_ZSt23lexicographical_compareIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_ZZL14read_h_db_fileRKNSt10filesystem7__cxx114pathEPSt6vectorI21MoleculePatchDatabaseSaISH_EEENK3$_0clERKSH_SN_EUlRS2_SO_E_EbT_SQ_T0_SR_T1_.exit.loopexit"
 
 20:                                               ; preds = %.lr.ph.i.i
-  %21 = getelementptr inbounds i8, ptr %.sroa.017.023.i.i, i64 1
-  %22 = getelementptr inbounds i8, ptr %.sroa.013.022.i.i, i64 1
+  %21 = getelementptr inbounds i8, ptr %.sroa.017.022.i.i, i64 1
+  %22 = getelementptr inbounds i8, ptr %.sroa.013.023.i.i, i64 1
   %.not.i.i = icmp eq ptr %21, %spec.select.i.i.i
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !30
 

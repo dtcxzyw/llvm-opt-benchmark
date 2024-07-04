@@ -36,10 +36,10 @@ define dso_local ptr @unicode_normalize(i32 noundef %0, ptr nocapture noundef re
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %14 = phi i32 [ %18, %.lr.ph ], [ %13, %2 ]
   %.066138 = phi i32 [ %16, %.lr.ph ], [ 0, %2 ]
-  %.068137 = phi ptr [ %17, %.lr.ph ], [ %1, %2 ]
+  %.074137 = phi ptr [ %17, %.lr.ph ], [ %1, %2 ]
   %15 = tail call fastcc i32 @get_decomposed_size(i32 noundef %14, i1 noundef zeroext %10)
   %16 = add i32 %15, %.066138
-  %17 = getelementptr i8, ptr %.068137, i64 4
+  %17 = getelementptr i8, ptr %.074137, i64 4
   %18 = load i32, ptr %17, align 4
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
@@ -62,9 +62,9 @@ define dso_local ptr @unicode_normalize(i32 noundef %0, ptr nocapture noundef re
 
 .lr.ph142:                                        ; preds = %24, %.lr.ph142
   %26 = phi i32 [ %28, %.lr.ph142 ], [ %25, %24 ]
-  %.169140 = phi ptr [ %27, %.lr.ph142 ], [ %1, %24 ]
+  %.175140 = phi ptr [ %27, %.lr.ph142 ], [ %1, %24 ]
   call fastcc void @decompose_code(i32 noundef %26, i1 noundef zeroext %10, ptr noundef nonnull %7, ptr noundef nonnull %8)
-  %27 = getelementptr i8, ptr %.169140, i64 4
+  %27 = getelementptr i8, ptr %.175140, i64 4
   %28 = load i32, ptr %27, align 4
   %.not84 = icmp eq i32 %28, 0
   br i1 %.not84, label %._crit_edge143, label %.lr.ph142, !llvm.loop !7
@@ -81,12 +81,12 @@ define dso_local ptr @unicode_normalize(i32 noundef %0, ptr nocapture noundef re
   br i1 %32, label %.lr.ph145, label %._crit_edge146
 
 .lr.ph145:                                        ; preds = %.preheader, %99
-  %.067144 = phi i32 [ %100, %99 ], [ 1, %.preheader ]
-  %33 = add i32 %.067144, -1
+  %.076144 = phi i32 [ %100, %99 ], [ 1, %.preheader ]
+  %33 = add i32 %.076144, -1
   %34 = sext i32 %33 to i64
   %35 = getelementptr i32, ptr %22, i64 %34
   %36 = load i32, ptr %35, align 4
-  %37 = sext i32 %.067144 to i64
+  %37 = sext i32 %.076144 to i64
   %38 = getelementptr i32, ptr %22, i64 %37
   %39 = load i32, ptr %38, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -205,14 +205,14 @@ get_canonical_class.exit99:                       ; preds = %88
 96:                                               ; preds = %get_canonical_class.exit99
   store i32 %39, ptr %35, align 4
   store i32 %36, ptr %38, align 4
-  %97 = icmp sgt i32 %.067144, 1
-  %98 = add nsw i32 %.067144, -2
-  %spec.select = select i1 %97, i32 %98, i32 %.067144
+  %97 = icmp sgt i32 %.076144, 1
+  %98 = add nsw i32 %.076144, -2
+  %spec.select = select i1 %97, i32 %98, i32 %.076144
   br label %99
 
 99:                                               ; preds = %get_canonical_class.exit99.thread, %96, %get_canonical_class.exit99
-  %.1 = phi i32 [ %.067144, %get_canonical_class.exit99 ], [ %spec.select, %96 ], [ %.067144, %get_canonical_class.exit99.thread ]
-  %100 = add i32 %.1, 1
+  %.177 = phi i32 [ %.076144, %get_canonical_class.exit99 ], [ %spec.select, %96 ], [ %.076144, %get_canonical_class.exit99.thread ]
+  %100 = add i32 %.177, 1
   %101 = icmp slt i32 %100, %.066.lcssa
   br i1 %101, label %.lr.ph145, label %._crit_edge146, !llvm.loop !9
 
@@ -235,10 +235,10 @@ get_canonical_class.exit99:                       ; preds = %88
 
 .lr.ph155:                                        ; preds = %.lr.ph155.preheader, %208
   %indvars.iv = phi i64 [ 1, %.lr.ph155.preheader ], [ %indvars.iv.next, %208 ]
-  %.070152 = phi i32 [ -1, %.lr.ph155.preheader ], [ %.171, %208 ]
-  %.072151 = phi i32 [ 0, %.lr.ph155.preheader ], [ %.173, %208 ]
-  %.074150 = phi i32 [ 1, %.lr.ph155.preheader ], [ %.175, %208 ]
-  %.076148 = phi i32 [ %105, %.lr.ph155.preheader ], [ %.177, %208 ]
+  %.067152 = phi i32 [ %105, %.lr.ph155.preheader ], [ %.1, %208 ]
+  %.068151 = phi i32 [ 1, %.lr.ph155.preheader ], [ %.169, %208 ]
+  %.070150 = phi i32 [ 0, %.lr.ph155.preheader ], [ %.171, %208 ]
+  %.072149 = phi i32 [ -1, %.lr.ph155.preheader ], [ %.173, %208 ]
   %106 = getelementptr i32, ptr %22, i64 %indvars.iv
   %107 = load i32, ptr %106, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
@@ -297,12 +297,12 @@ get_code_entry.exit.i110:                         ; preds = %129
 get_canonical_class.exit111:                      ; preds = %get_code_entry.exit.thread.i108, %get_code_entry.exit.i110
   %.0.i109 = phi i8 [ %134, %get_code_entry.exit.i110 ], [ 0, %get_code_entry.exit.thread.i108 ]
   %135 = zext i8 %.0.i109 to i32
-  %136 = icmp slt i32 %.070152, %135
+  %136 = icmp slt i32 %.072149, %135
   br i1 %136, label %137, label %203
 
 137:                                              ; preds = %get_canonical_class.exit111
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %138 = add i32 %.076148, -4352
+  %138 = add i32 %.067152, -4352
   %or.cond.i = icmp ult i32 %138, 19
   %139 = add i32 %107, -4449
   %140 = icmp ult i32 %139, 21
@@ -310,14 +310,14 @@ get_canonical_class.exit111:                      ; preds = %get_code_entry.exit
   br i1 %or.cond5.i, label %141, label %146
 
 141:                                              ; preds = %137
-  %142 = mul nuw nsw i32 %.076148, 21
+  %142 = mul nuw nsw i32 %.067152, 21
   %143 = add nuw nsw i32 %107, %142
   %144 = mul nuw nsw i32 %143, 28
   %145 = add nsw i32 %144, -2639516
   br label %200
 
 146:                                              ; preds = %137
-  %147 = add i32 %.076148, -44032
+  %147 = add i32 %.067152, -44032
   %or.cond7.i = icmp ult i32 %147, 11172
   br i1 %or.cond7.i, label %148, label %155
 
@@ -331,11 +331,11 @@ get_canonical_class.exit111:                      ; preds = %get_code_entry.exit
   br i1 %or.cond11.i, label %153, label %155
 
 153:                                              ; preds = %148
-  %154 = add nuw nsw i32 %151, %.076148
+  %154 = add nuw nsw i32 %151, %.067152
   br label %200
 
 155:                                              ; preds = %148, %146
-  %156 = zext i32 %.076148 to i64
+  %156 = zext i32 %.067152 to i64
   %157 = shl nuw i64 %156, 32
   %158 = zext i32 %107 to i64
   %159 = or disjoint i64 %157, %158
@@ -385,7 +385,7 @@ Recomp_hash_func.exit.i:                          ; preds = %161
   %189 = zext i16 %188 to i64
   %190 = getelementptr [5098 x i32], ptr @UnicodeDecomp_codepoints, i64 0, i64 %189
   %191 = load i32, ptr %190, align 4
-  %192 = icmp eq i32 %191, %.076148
+  %192 = icmp eq i32 %191, %.067152
   br i1 %192, label %193, label %recompose_code.exit
 
 193:                                              ; preds = %181
@@ -406,38 +406,38 @@ recompose_code.exit:                              ; preds = %Recomp_hash_func.ex
 200:                                              ; preds = %198, %153, %141
   %.1116.ph = phi i32 [ %145, %141 ], [ %154, %153 ], [ %199, %198 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %201 = sext i32 %.072151 to i64
+  %201 = sext i32 %.070150 to i64
   %202 = getelementptr i32, ptr %103, i64 %201
   store i32 %.1116.ph, ptr %202, align 4
   br label %208
 
 203:                                              ; preds = %recompose_code.exit, %get_canonical_class.exit111
   %204 = icmp eq i8 %.0.i109, 0
-  %205 = add i32 %.074150, 1
-  %206 = sext i32 %.074150 to i64
+  %205 = add i32 %.068151, 1
+  %206 = sext i32 %.068151 to i64
   %207 = getelementptr i32, ptr %103, i64 %206
   store i32 %107, ptr %207, align 4
-  %..076148 = select i1 %204, i32 %107, i32 %.076148
-  %.074150..072151 = select i1 %204, i32 %.074150, i32 %.072151
   %. = select i1 %204, i32 -1, i32 %135
+  %.068151..070150 = select i1 %204, i32 %.068151, i32 %.070150
+  %..067152 = select i1 %204, i32 %107, i32 %.067152
   br label %208
 
 208:                                              ; preds = %203, %200
-  %.177 = phi i32 [ %.1116.ph, %200 ], [ %..076148, %203 ]
-  %.175 = phi i32 [ %.074150, %200 ], [ %205, %203 ]
-  %.173 = phi i32 [ %.072151, %200 ], [ %.074150..072151, %203 ]
-  %.171 = phi i32 [ %.070152, %200 ], [ %., %203 ]
+  %.173 = phi i32 [ %.072149, %200 ], [ %., %203 ]
+  %.171 = phi i32 [ %.070150, %200 ], [ %.068151..070150, %203 ]
+  %.169 = phi i32 [ %.068151, %200 ], [ %205, %203 ]
+  %.1 = phi i32 [ %.1116.ph, %200 ], [ %..067152, %203 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge156.loopexit, label %.lr.ph155, !llvm.loop !11
 
 ._crit_edge156.loopexit:                          ; preds = %208
-  %209 = sext i32 %.175 to i64
+  %209 = sext i32 %.169 to i64
   br label %._crit_edge156
 
 ._crit_edge156:                                   ; preds = %._crit_edge156.loopexit, %104
-  %.074.lcssa = phi i64 [ 1, %104 ], [ %209, %._crit_edge156.loopexit ]
-  %210 = getelementptr i32, ptr %103, i64 %.074.lcssa
+  %.068.lcssa = phi i64 [ 1, %104 ], [ %209, %._crit_edge156.loopexit ]
+  %210 = getelementptr i32, ptr %103, i64 %.068.lcssa
   store i32 0, ptr %210, align 4
   br label %.sink.split
 
@@ -742,9 +742,9 @@ define dso_local range(i32 -1, 2) i32 @unicode_is_normalized_quickcheck(i32 noun
 
 .lr.ph:                                           ; preds = %.preheader, %qc_is_allowed.exit.thread
   %8 = phi i32 [ %97, %qc_is_allowed.exit.thread ], [ %7, %.preheader ]
-  %.02040 = phi i8 [ %.0.i30, %qc_is_allowed.exit.thread ], [ 0, %.preheader ]
-  %.02139 = phi i32 [ %.1, %qc_is_allowed.exit.thread ], [ 1, %.preheader ]
-  %.02238 = phi ptr [ %96, %qc_is_allowed.exit.thread ], [ %1, %.preheader ]
+  %.040 = phi ptr [ %96, %qc_is_allowed.exit.thread ], [ %1, %.preheader ]
+  %.02039 = phi i32 [ %.1, %qc_is_allowed.exit.thread ], [ 1, %.preheader ]
+  %.02138 = phi i8 [ %.0.i30, %qc_is_allowed.exit.thread ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %9 = tail call i32 @llvm.bswap.i32(i32 %8)
   store i32 %9, ptr %5, align 4
@@ -796,7 +796,7 @@ get_canonical_class.exit:                         ; preds = %30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %34 = getelementptr inbounds i8, ptr %32, i64 4
   %35 = load i8, ptr %34, align 4
-  %36 = icmp ugt i8 %.02040, %35
+  %36 = icmp ugt i8 %.02138, %35
   %37 = icmp ne i8 %35, 0
   %or.cond4 = and i1 %36, %37
   br i1 %or.cond4, label %.loopexit, label %38
@@ -926,15 +926,15 @@ qc_is_allowed.exit:                               ; preds = %91
   br label %qc_is_allowed.exit.thread
 
 qc_is_allowed.exit.thread:                        ; preds = %38, %91, %qc_is_allowed.exit, %95
-  %.1 = phi i32 [ -1, %95 ], [ %.02139, %qc_is_allowed.exit ], [ %.02139, %91 ], [ %.02139, %38 ]
-  %96 = getelementptr i8, ptr %.02238, i64 4
+  %.1 = phi i32 [ -1, %95 ], [ %.02039, %qc_is_allowed.exit ], [ %.02039, %91 ], [ %.02039, %38 ]
+  %96 = getelementptr i8, ptr %.040, i64 4
   %97 = load i32, ptr %96, align 4
   %.not = icmp eq i32 %97, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %get_canonical_class.exit, %qc_is_allowed.exit, %qc_is_allowed.exit.thread, %.preheader, %2
-  %.0 = phi i32 [ -1, %2 ], [ 1, %.preheader ], [ 0, %get_canonical_class.exit ], [ %94, %qc_is_allowed.exit ], [ %.1, %qc_is_allowed.exit.thread ]
-  ret i32 %.0
+  %.022 = phi i32 [ -1, %2 ], [ 1, %.preheader ], [ 0, %get_canonical_class.exit ], [ %94, %qc_is_allowed.exit ], [ %.1, %qc_is_allowed.exit.thread ]
+  ret i32 %.022
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

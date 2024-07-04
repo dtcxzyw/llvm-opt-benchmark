@@ -93,8 +93,8 @@ define internal range(i32 -1, 1) i32 @aes_ctr_update(ptr noundef %0, ptr nocaptu
 
 16:                                               ; preds = %.lr.ph, %55
   %.073 = phi i32 [ 0, %.lr.ph ], [ %65, %55 ]
-  %.04072 = phi i32 [ %10, %.lr.ph ], [ %59, %55 ]
-  %17 = icmp eq i32 %.04072, 16
+  %.03972 = phi i32 [ %10, %.lr.ph ], [ %59, %55 ]
+  %17 = icmp eq i32 %.03972, 16
   br i1 %17, label %.preheader78, label %55
 
 .preheader78:                                     ; preds = %16, %.preheader78
@@ -195,13 +195,13 @@ aes_ctr_encrypt_counter.exit59:                   ; preds = %aes_ctr_increase_co
   br i1 %.not47, label %55, label %._crit_edge.loopexit
 
 55:                                               ; preds = %54, %16
-  %.242 = phi i32 [ 0, %54 ], [ %.04072, %16 ]
+  %.241 = phi i32 [ 0, %54 ], [ %.03972, %16 ]
   %.2 = phi i32 [ %.1, %54 ], [ %.073, %16 ]
   %56 = zext i32 %.2 to i64
   %57 = getelementptr inbounds i8, ptr %1, i64 %56
   %58 = load i8, ptr %57, align 1
-  %59 = add i32 %.242, 1
-  %60 = zext i32 %.242 to i64
+  %59 = add i32 %.241, 1
+  %60 = zext i32 %.241 to i64
   %61 = getelementptr inbounds i8, ptr %8, i64 %60
   %62 = load i8, ptr %61, align 1
   %63 = xor i8 %62, %58
@@ -212,21 +212,21 @@ aes_ctr_encrypt_counter.exit59:                   ; preds = %aes_ctr_increase_co
   br i1 %66, label %16, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %54, %55
-  %.343.ph = phi i32 [ %59, %55 ], [ 0, %54 ]
+  %.342.ph = phi i32 [ %59, %55 ], [ 0, %54 ]
   %.3.ph = phi i32 [ %65, %55 ], [ %.1, %54 ]
   %67 = zext i32 %.3.ph to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
-  %.343 = phi i32 [ %10, %5 ], [ %.343.ph, %._crit_edge.loopexit ]
+  %.342 = phi i32 [ %10, %5 ], [ %.342.ph, %._crit_edge.loopexit ]
   %.3 = phi i64 [ 0, %5 ], [ %67, %._crit_edge.loopexit ]
-  store i32 %.343, ptr %9, align 4
+  store i32 %.342, ptr %9, align 4
   store i64 %.3, ptr %4, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %aes_ctr_encrypt_counter.exit, %aes_ctr_encrypt_counter.exit59, %aes_ctr_encrypt_counter.exit59.thread, %aes_ctr_encrypt_counter.exit.thread, %._crit_edge
-  %.039 = phi i32 [ 0, %._crit_edge ], [ -1, %aes_ctr_encrypt_counter.exit.thread ], [ -1, %aes_ctr_encrypt_counter.exit59.thread ], [ -1, %aes_ctr_encrypt_counter.exit59 ], [ -1, %aes_ctr_encrypt_counter.exit ]
-  ret i32 %.039
+  %.043 = phi i32 [ 0, %._crit_edge ], [ -1, %aes_ctr_encrypt_counter.exit.thread ], [ -1, %aes_ctr_encrypt_counter.exit59.thread ], [ -1, %aes_ctr_encrypt_counter.exit59 ], [ -1, %aes_ctr_encrypt_counter.exit ]
+  ret i32 %.043
 }
 
 ; Function Attrs: nounwind uwtable

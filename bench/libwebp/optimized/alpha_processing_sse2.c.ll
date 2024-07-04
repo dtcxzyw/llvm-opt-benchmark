@@ -147,19 +147,19 @@ define internal void @MultRow_SSE2(ptr noalias noundef %0, ptr noalias noundef %
 define internal void @ApplyAlphaMultiply_SSE2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #2 {
   %6 = add nsw i32 %3, -1
   %7 = icmp sgt i32 %3, 0
-  br i1 %7, label %.lr.ph191, label %._crit_edge192
+  br i1 %7, label %.lr.ph192, label %._crit_edge193
 
-.lr.ph191:                                        ; preds = %5
+.lr.ph192:                                        ; preds = %5
   %.not = icmp ne i32 %1, 0
   %.not177183 = icmp slt i32 %2, 4
   %8 = select i1 %.not, i64 0, i64 3
   %9 = zext i1 %.not to i64
   %10 = sext i32 %4 to i64
-  br i1 %.not, label %.preheader.us.preheader, label %.lr.ph191.split
+  br i1 %.not, label %.preheader.us.preheader, label %.lr.ph192.split
 
-.preheader.us.preheader:                          ; preds = %.lr.ph191
+.preheader.us.preheader:                          ; preds = %.lr.ph192
   %11 = sext i32 %2 to i64
-  %wide.trip.count223 = zext i32 %2 to i64
+  %wide.trip.count224 = zext i32 %2 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
@@ -168,9 +168,9 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr nocapture noundef %0, i32 noun
   br i1 %.not177183, label %.loopexit.us, label %.lr.ph185.us
 
 .lr.ph185.us:                                     ; preds = %.preheader.us, %.lr.ph185.us
-  %indvars.iv215 = phi i64 [ %indvars.iv.next216, %.lr.ph185.us ], [ 0, %.preheader.us ]
-  %indvars.iv213 = phi i64 [ %indvars.iv.next214, %.lr.ph185.us ], [ 4, %.preheader.us ]
-  %13 = getelementptr inbounds i32, ptr %.0189.us, i64 %indvars.iv215
+  %indvars.iv216 = phi i64 [ %indvars.iv.next217, %.lr.ph185.us ], [ 0, %.preheader.us ]
+  %indvars.iv214 = phi i64 [ %indvars.iv.next215, %.lr.ph185.us ], [ 4, %.preheader.us ]
+  %13 = getelementptr inbounds i32, ptr %.0189.us, i64 %indvars.iv216
   %14 = load <16 x i8>, ptr %13, align 1
   %15 = shufflevector <16 x i8> %14, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %16 = shufflevector <16 x i8> %14, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -190,20 +190,20 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr nocapture noundef %0, i32 noun
   %30 = lshr <8 x i16> %28, <i16 7, i16 7, i16 7, i16 7, i16 7, i16 7, i16 7, i16 7>
   %31 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %29, <8 x i16> %30)
   store <16 x i8> %31, ptr %13, align 1
-  %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 4
-  %.not177.us = icmp sgt i64 %indvars.iv.next214, %11
-  %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 4
+  %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 4
+  %.not177.us = icmp sgt i64 %indvars.iv.next215, %11
+  %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 4
   br i1 %.not177.us, label %.loopexit.us.loopexit, label %.lr.ph185.us, !llvm.loop !7
 
 ._crit_edge.us:                                   ; preds = %62, %.loopexit.us
   %32 = getelementptr inbounds i8, ptr %.0189.us, i64 %10
   %33 = add nsw i32 %12, -1
   %34 = icmp sgt i32 %12, 0
-  br i1 %34, label %.preheader.us, label %._crit_edge192, !llvm.loop !8
+  br i1 %34, label %.preheader.us, label %._crit_edge193, !llvm.loop !8
 
 35:                                               ; preds = %.lr.ph188.us, %62
-  %indvars.iv220 = phi i64 [ %67, %.lr.ph188.us ], [ %indvars.iv.next221, %62 ]
-  %36 = shl nsw i64 %indvars.iv220, 2
+  %indvars.iv221 = phi i64 [ %67, %.lr.ph188.us ], [ %indvars.iv.next222, %62 ]
+  %36 = shl nsw i64 %indvars.iv221, 2
   %37 = getelementptr inbounds i8, ptr %65, i64 %36
   %38 = load i8, ptr %37, align 1
   %.not178.us = icmp eq i8 %38, -1
@@ -238,12 +238,12 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr nocapture noundef %0, i32 noun
   br label %62
 
 62:                                               ; preds = %39, %35
-  %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
-  %exitcond224.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count223
-  br i1 %exitcond224.not, label %._crit_edge.us, label %35, !llvm.loop !9
+  %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
+  %exitcond225.not = icmp eq i64 %indvars.iv.next222, %wide.trip.count224
+  br i1 %exitcond225.not, label %._crit_edge.us, label %35, !llvm.loop !9
 
 .loopexit.us.loopexit:                            ; preds = %.lr.ph185.us
-  %63 = trunc nuw nsw i64 %indvars.iv213 to i32
+  %63 = trunc nuw nsw i64 %indvars.iv214 to i32
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %.loopexit.us.loopexit, %.preheader.us
@@ -257,35 +257,35 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr nocapture noundef %0, i32 noun
   %67 = zext nneg i32 %.1.lcssa.us to i64
   br label %35
 
-.lr.ph191.split:                                  ; preds = %.lr.ph191
-  br i1 %.not177183, label %.lr.ph191.split.split.us, label %.preheader179.preheader
+.lr.ph192.split:                                  ; preds = %.lr.ph192
+  br i1 %.not177183, label %.lr.ph192.split.split.us, label %.preheader179.preheader
 
-.preheader179.preheader:                          ; preds = %.lr.ph191.split
+.preheader179.preheader:                          ; preds = %.lr.ph192.split
   %68 = zext nneg i32 %2 to i64
   br label %.preheader179
 
-.lr.ph191.split.split.us:                         ; preds = %.lr.ph191.split
+.lr.ph192.split.split.us:                         ; preds = %.lr.ph192.split
   %69 = icmp sgt i32 %2, 0
-  br i1 %69, label %.preheader179.us.us.preheader, label %._crit_edge192
+  br i1 %69, label %.preheader179.us.us.preheader, label %._crit_edge193
 
-.preheader179.us.us.preheader:                    ; preds = %.lr.ph191.split.split.us
+.preheader179.us.us.preheader:                    ; preds = %.lr.ph192.split.split.us
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.preheader179.us.us
 
-.preheader179.us.us:                              ; preds = %.preheader179.us.us.preheader, %._crit_edge.us197.us
-  %70 = phi i32 [ %102, %._crit_edge.us197.us ], [ %6, %.preheader179.us.us.preheader ]
-  %.0189.us193.us = phi ptr [ %101, %._crit_edge.us197.us ], [ %0, %.preheader179.us.us.preheader ]
-  %71 = getelementptr inbounds i8, ptr %.0189.us193.us, i64 %8
-  %72 = getelementptr inbounds i8, ptr %.0189.us193.us, i64 %9
+.preheader179.us.us:                              ; preds = %.preheader179.us.us.preheader, %._crit_edge.us198.us
+  %70 = phi i32 [ %102, %._crit_edge.us198.us ], [ %6, %.preheader179.us.us.preheader ]
+  %.0189.us194.us = phi ptr [ %101, %._crit_edge.us198.us ], [ %0, %.preheader179.us.us.preheader ]
+  %71 = getelementptr inbounds i8, ptr %.0189.us194.us, i64 %8
+  %72 = getelementptr inbounds i8, ptr %.0189.us194.us, i64 %9
   br label %73
 
 73:                                               ; preds = %.preheader179.us.us, %100
-  %indvars.iv210 = phi i64 [ 0, %.preheader179.us.us ], [ %indvars.iv.next211, %100 ]
-  %74 = shl nsw i64 %indvars.iv210, 2
+  %indvars.iv211 = phi i64 [ 0, %.preheader179.us.us ], [ %indvars.iv.next212, %100 ]
+  %74 = shl nsw i64 %indvars.iv211, 2
   %75 = getelementptr inbounds i8, ptr %71, i64 %74
   %76 = load i8, ptr %75, align 1
-  %.not178.us195.us = icmp eq i8 %76, -1
-  br i1 %.not178.us195.us, label %100, label %77
+  %.not178.us196.us = icmp eq i8 %76, -1
+  br i1 %.not178.us196.us, label %100, label %77
 
 77:                                               ; preds = %73
   %78 = zext i8 %76 to i32
@@ -316,15 +316,15 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr nocapture noundef %0, i32 noun
   br label %100
 
 100:                                              ; preds = %77, %73
-  %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next211, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us197.us, label %73, !llvm.loop !9
+  %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next212, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge.us198.us, label %73, !llvm.loop !9
 
-._crit_edge.us197.us:                             ; preds = %100
-  %101 = getelementptr inbounds i8, ptr %.0189.us193.us, i64 %10
+._crit_edge.us198.us:                             ; preds = %100
+  %101 = getelementptr inbounds i8, ptr %.0189.us194.us, i64 %10
   %102 = add nsw i32 %70, -1
   %103 = icmp sgt i32 %70, 0
-  br i1 %103, label %.preheader179.us.us, label %._crit_edge192, !llvm.loop !8
+  br i1 %103, label %.preheader179.us.us, label %._crit_edge193, !llvm.loop !8
 
 .preheader179:                                    ; preds = %.preheader179.preheader, %._crit_edge
   %104 = phi i32 [ %159, %._crit_edge ], [ %6, %.preheader179.preheader ]
@@ -332,9 +332,9 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr nocapture noundef %0, i32 noun
   br label %105
 
 105:                                              ; preds = %.preheader179, %105
-  %indvars.iv202 = phi i64 [ 0, %.preheader179 ], [ %indvars.iv.next203, %105 ]
+  %indvars.iv203 = phi i64 [ 0, %.preheader179 ], [ %indvars.iv.next204, %105 ]
   %indvars.iv = phi i64 [ 4, %.preheader179 ], [ %indvars.iv.next, %105 ]
-  %106 = getelementptr inbounds i32, ptr %.0189, i64 %indvars.iv202
+  %106 = getelementptr inbounds i32, ptr %.0189, i64 %indvars.iv203
   %107 = load <16 x i8>, ptr %106, align 1
   %108 = shufflevector <16 x i8> %107, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %109 = shufflevector <16 x i8> %107, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
@@ -356,7 +356,7 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr nocapture noundef %0, i32 noun
   store <16 x i8> %124, ptr %106, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not176 = icmp ugt i64 %indvars.iv.next, %68
-  %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 4
+  %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 4
   br i1 %.not176, label %..loopexit180_crit_edge, label %105, !llvm.loop !10
 
 ..loopexit180_crit_edge:                          ; preds = %105
@@ -370,8 +370,8 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr nocapture noundef %0, i32 noun
   br label %129
 
 129:                                              ; preds = %.lr.ph188, %156
-  %indvars.iv207 = phi i64 [ %indvars.iv, %.lr.ph188 ], [ %indvars.iv.next208, %156 ]
-  %130 = shl nsw i64 %indvars.iv207, 2
+  %indvars.iv208 = phi i64 [ %indvars.iv, %.lr.ph188 ], [ %indvars.iv.next209, %156 ]
+  %130 = shl nsw i64 %indvars.iv208, 2
   %131 = getelementptr inbounds i8, ptr %127, i64 %130
   %132 = load i8, ptr %131, align 1
   %.not178 = icmp eq i8 %132, -1
@@ -406,17 +406,17 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr nocapture noundef %0, i32 noun
   br label %156
 
 156:                                              ; preds = %129, %133
-  %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
-  %157 = icmp ult i64 %indvars.iv.next208, %68
+  %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
+  %157 = icmp ult i64 %indvars.iv.next209, %68
   br i1 %157, label %129, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %156, %..loopexit180_crit_edge
   %158 = getelementptr inbounds i8, ptr %.0189, i64 %10
   %159 = add nsw i32 %104, -1
   %160 = icmp sgt i32 %104, 0
-  br i1 %160, label %.preheader179, label %._crit_edge192, !llvm.loop !8
+  br i1 %160, label %.preheader179, label %._crit_edge193, !llvm.loop !8
 
-._crit_edge192:                                   ; preds = %._crit_edge, %._crit_edge.us197.us, %._crit_edge.us, %.lr.ph191.split.split.us, %5
+._crit_edge193:                                   ; preds = %._crit_edge, %._crit_edge.us198.us, %._crit_edge.us, %.lr.ph192.split.split.us, %5
   ret void
 }
 
@@ -692,7 +692,7 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE2(ptr noalias nocapture nou
   %.07393.us = phi ptr [ %16, %._crit_edge.us ], [ %4, %.preheader81.us.preheader ]
   %.07492.us = phi i32 [ %.1.lcssa.us, %._crit_edge.us ], [ 255, %.preheader81.us.preheader ]
   %.07791.us = phi i32 [ %17, %._crit_edge.us ], [ 0, %.preheader81.us.preheader ]
-  %.07890.us = phi <2 x i64> [ %36, %._crit_edge.us ], [ <i64 -1, i64 0>, %.preheader81.us.preheader ]
+  %.07990.us = phi <2 x i64> [ %36, %._crit_edge.us ], [ <i64 -1, i64 0>, %.preheader81.us.preheader ]
   br label %25
 
 ._crit_edge.us:                                   ; preds = %.lr.ph88.us, %..preheader_crit_edge.us
@@ -720,10 +720,10 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE2(ptr noalias nocapture nou
 25:                                               ; preds = %.preheader81.us, %25
   %indvars.iv124 = phi i64 [ 8, %.preheader81.us ], [ %indvars.iv.next125, %25 ]
   %indvars.iv121 = phi i64 [ 0, %.preheader81.us ], [ %indvars.iv.next122, %25 ]
-  %.17983.us = phi <2 x i64> [ %.07890.us, %.preheader81.us ], [ %36, %25 ]
-  %.08082.us = phi ptr [ %.094.us, %.preheader81.us ], [ %37, %25 ]
-  %26 = load <4 x i32>, ptr %.08082.us, align 1
-  %27 = getelementptr inbounds i8, ptr %.08082.us, i64 16
+  %.07883.us = phi ptr [ %.094.us, %.preheader81.us ], [ %37, %25 ]
+  %.18082.us = phi <2 x i64> [ %.07990.us, %.preheader81.us ], [ %36, %25 ]
+  %26 = load <4 x i32>, ptr %.07883.us, align 1
+  %27 = getelementptr inbounds i8, ptr %.07883.us, i64 16
   %28 = load <4 x i32>, ptr %27, align 1
   %29 = and <4 x i32> %26, <i32 255, i32 255, i32 255, i32 255>
   %30 = and <4 x i32> %28, <i32 255, i32 255, i32 255, i32 255>
@@ -733,8 +733,8 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE2(ptr noalias nocapture nou
   %34 = getelementptr inbounds i8, ptr %.07393.us, i64 %indvars.iv121
   %35 = extractelement <2 x i64> %33, i64 0
   store i64 %35, ptr %34, align 1
-  %36 = and <2 x i64> %.17983.us, %33
-  %37 = getelementptr inbounds i8, ptr %.08082.us, i64 32
+  %36 = and <2 x i64> %.18082.us, %33
+  %37 = getelementptr inbounds i8, ptr %.07883.us, i64 32
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 8
   %38 = icmp ult i64 %indvars.iv.next122, %13
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 8
@@ -789,9 +789,9 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE2(ptr noalias nocapture nou
   br label %._crit_edge95
 
 ._crit_edge95:                                    ; preds = %._crit_edge.us108, %.preheader81.lr.ph.split, %._crit_edge95.loopexit, %6
-  %.078.lcssa = phi i32 [ 65535, %6 ], [ %55, %._crit_edge95.loopexit ], [ 65535, %.preheader81.lr.ph.split ], [ 65535, %._crit_edge.us108 ]
+  %.079.lcssa = phi i32 [ 65535, %6 ], [ %55, %._crit_edge95.loopexit ], [ 65535, %.preheader81.lr.ph.split ], [ 65535, %._crit_edge.us108 ]
   %.074.lcssa = phi i32 [ 255, %6 ], [ %.1.lcssa.us, %._crit_edge95.loopexit ], [ 255, %.preheader81.lr.ph.split ], [ %48, %._crit_edge.us108 ]
-  %56 = and i32 %.074.lcssa, %.078.lcssa
+  %56 = and i32 %.074.lcssa, %.079.lcssa
   %57 = icmp eq i32 %56, 255
   %58 = zext i1 %57 to i32
   ret i32 %58

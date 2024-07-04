@@ -1991,10 +1991,10 @@ for.end:                                          ; preds = %for.body141, %for.c
 
 for.body.i:                                       ; preds = %for.end, %for.inc.i
   %chi_square.017.i = phi double [ %chi_square.1.i, %for.inc.i ], [ 0.000000e+00, %for.end ]
-  %it.sroa.0.016.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %15, %for.end ]
-  %eit.sroa.0.015.i = phi ptr [ %incdec.ptr.i5.i, %for.inc.i ], [ %5, %for.end ]
-  %17 = load i32, ptr %eit.sroa.0.015.i, align 4
-  %18 = load i32, ptr %it.sroa.0.016.i, align 4
+  %eit.sroa.0.016.i = phi ptr [ %incdec.ptr.i5.i, %for.inc.i ], [ %5, %for.end ]
+  %it.sroa.0.015.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %15, %for.end ]
+  %17 = load i32, ptr %eit.sroa.0.016.i, align 4
+  %18 = load i32, ptr %it.sroa.0.015.i, align 4
   %cmp10.not.i = icmp eq i32 %18, %17
   br i1 %cmp10.not.i, label %for.inc.i, label %if.then11.i
 
@@ -2009,8 +2009,8 @@ if.then11.i:                                      ; preds = %for.body.i
 
 for.inc.i:                                        ; preds = %if.then11.i, %for.body.i
   %chi_square.1.i = phi double [ %add.i, %if.then11.i ], [ %chi_square.017.i, %for.body.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i, i64 4
-  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %eit.sroa.0.015.i, i64 4
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.015.i, i64 4
+  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %eit.sroa.0.016.i, i64 4
   %cmp.i.i = icmp ne ptr %incdec.ptr.i.i, %16
   %cmp.i4.i = icmp ne ptr %incdec.ptr.i5.i, %4
   %or.cond.i = select i1 %cmp.i.i, i1 %cmp.i4.i, i1 false
@@ -3711,24 +3711,24 @@ entry:
   br label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.body.i
-  %it.addr.014.i.idx = phi i64 [ %it.addr.014.i.add, %for.body.i ], [ 0, %entry ]
-  %eit.addr.013.i.idx = phi i64 [ %eit.addr.013.i.add, %for.body.i ], [ 0, %entry ]
-  %chi_square.012.i = phi double [ %chi_square.1.i, %for.body.i ], [ 0.000000e+00, %entry ]
-  %eit.addr.013.i.ptr = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_139ChiSquareTest_ChiSquareTwoIterator_Test8TestBodyEv.expected, i64 %eit.addr.013.i.idx
-  %it.addr.014.i.ptr = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_139ChiSquareTest_ChiSquareTwoIterator_Test8TestBodyEv.counts, i64 %it.addr.014.i.idx
-  %0 = load i32, ptr %it.addr.014.i.ptr, align 4
-  %1 = load double, ptr %eit.addr.013.i.ptr, align 8
+  %chi_square.014.i = phi double [ %chi_square.1.i, %for.body.i ], [ 0.000000e+00, %entry ]
+  %it.addr.013.i.idx = phi i64 [ %it.addr.013.i.add, %for.body.i ], [ 0, %entry ]
+  %eit.addr.012.i.idx = phi i64 [ %eit.addr.012.i.add, %for.body.i ], [ 0, %entry ]
+  %eit.addr.012.i.ptr = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_139ChiSquareTest_ChiSquareTwoIterator_Test8TestBodyEv.expected, i64 %eit.addr.012.i.idx
+  %it.addr.013.i.ptr = getelementptr inbounds i8, ptr @__const._ZN12_GLOBAL__N_139ChiSquareTest_ChiSquareTwoIterator_Test8TestBodyEv.counts, i64 %it.addr.013.i.idx
+  %0 = load i32, ptr %it.addr.013.i.ptr, align 4
+  %1 = load double, ptr %eit.addr.012.i.ptr, align 8
   %conv.i = sitofp i32 %0 to double
   %sub.i = fsub double %conv.i, %1
   %cmp3.i = fcmp une double %sub.i, 0.000000e+00
   %mul.i = fmul double %sub.i, %sub.i
   %div.i = fdiv double %mul.i, %1
-  %add.i = fadd double %chi_square.012.i, %div.i
-  %chi_square.1.i = select i1 %cmp3.i, double %add.i, double %chi_square.012.i
-  %it.addr.014.i.add = add nuw nsw i64 %it.addr.014.i.idx, 4
-  %eit.addr.013.i.add = add nuw nsw i64 %eit.addr.013.i.idx, 8
-  %cmp.i = icmp ne i64 %it.addr.014.i.add, 40
-  %cmp1.i = icmp ne i64 %eit.addr.013.i.add, 80
+  %add.i = fadd double %chi_square.014.i, %div.i
+  %chi_square.1.i = select i1 %cmp3.i, double %add.i, double %chi_square.014.i
+  %it.addr.013.i.add = add nuw nsw i64 %it.addr.013.i.idx, 4
+  %eit.addr.012.i.add = add nuw nsw i64 %eit.addr.012.i.idx, 8
+  %cmp.i = icmp ne i64 %it.addr.013.i.add, 40
+  %cmp1.i = icmp ne i64 %eit.addr.012.i.add, 80
   %2 = select i1 %cmp.i, i1 %cmp1.i, i1 false
   br i1 %2, label %for.body.i, label %_ZN4absl15random_internal9ChiSquareIPKiPKdEEdT_S6_T0_S7_.exit, !llvm.loop !11
 

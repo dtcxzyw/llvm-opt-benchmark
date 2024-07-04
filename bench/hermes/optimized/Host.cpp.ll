@@ -2127,8 +2127,8 @@ _ZN4llvh9StringRefC2EPKc.exit57.lr.ph:            ; preds = %if.end
 
 _ZN4llvh9StringRefC2EPKc.exit57:                  ; preds = %_ZN4llvh9StringRefC2EPKc.exit57.lr.ph, %for.inc
   %__begin1.0145 = phi ptr [ %15, %_ZN4llvh9StringRefC2EPKc.exit57.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %CurPhysicalId.0144 = phi i32 [ -1, %_ZN4llvh9StringRefC2EPKc.exit57.lr.ph ], [ %CurPhysicalId.5, %for.inc ]
-  %CurCoreId.0143 = phi i32 [ -1, %_ZN4llvh9StringRefC2EPKc.exit57.lr.ph ], [ %CurCoreId.3, %for.inc ]
+  %CurCoreId.0144 = phi i32 [ -1, %_ZN4llvh9StringRefC2EPKc.exit57.lr.ph ], [ %CurCoreId.3, %for.inc ]
+  %CurPhysicalId.0143 = phi i32 [ -1, %_ZN4llvh9StringRefC2EPKc.exit57.lr.ph ], [ %CurPhysicalId.5, %for.inc ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   %Length.i.i = getelementptr inbounds i8, ptr %__begin1.0145, i64 8
   %call.i.i71 = call noundef i64 @_ZNK4llvh9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %__begin1.0145, ptr nonnull @.str.232, i64 6, i64 noundef 0) #19
@@ -2250,8 +2250,8 @@ if.then30:                                        ; preds = %if.end.i.i
   %37 = add i64 %36, 2147483648
   %cmp.not.i = icmp ult i64 %37, 4294967296
   %conv.i108 = trunc i64 %36 to i32
-  %spec.select = select i1 %cmp.not.i, i32 %conv.i108, i32 %CurPhysicalId.0144
-  %CurPhysicalId.1 = select i1 %call.i106, i32 %CurPhysicalId.0144, i32 %spec.select
+  %spec.select = select i1 %cmp.not.i, i32 %conv.i108, i32 %CurPhysicalId.0143
+  %CurPhysicalId.1 = select i1 %call.i106, i32 %CurPhysicalId.0143, i32 %spec.select
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %LLVal.i)
   br label %if.end38
 
@@ -2267,14 +2267,14 @@ if.then36:                                        ; preds = %if.end.i.i175
   %39 = add i64 %38, 2147483648
   %cmp.not.i115 = icmp ult i64 %39, 4294967296
   %conv.i118 = trunc i64 %38 to i32
-  %spec.select138 = select i1 %cmp.not.i115, i32 %conv.i118, i32 %CurCoreId.0143
-  %CurCoreId.1 = select i1 %call.i113, i32 %CurCoreId.0143, i32 %spec.select138
+  %spec.select138 = select i1 %cmp.not.i115, i32 %conv.i118, i32 %CurCoreId.0144
+  %CurCoreId.1 = select i1 %call.i113, i32 %CurCoreId.0144, i32 %spec.select138
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %LLVal.i109)
   br label %if.end38
 
 if.end38:                                         ; preds = %if.end.i.i, %if.then30, %_ZNK4llvh9StringRef5splitEc.exit, %if.then36, %if.end.i.i175
-  %CurCoreId.2 = phi i32 [ %CurCoreId.0143, %_ZNK4llvh9StringRef5splitEc.exit ], [ %CurCoreId.1, %if.then36 ], [ %CurCoreId.0143, %if.end.i.i175 ], [ %CurCoreId.0143, %if.then30 ], [ %CurCoreId.0143, %if.end.i.i ]
-  %CurPhysicalId.4 = phi i32 [ %CurPhysicalId.0144, %_ZNK4llvh9StringRef5splitEc.exit ], [ %CurPhysicalId.0144, %if.then36 ], [ %CurPhysicalId.0144, %if.end.i.i175 ], [ %CurPhysicalId.1, %if.then30 ], [ %CurPhysicalId.0144, %if.end.i.i ]
+  %CurPhysicalId.4 = phi i32 [ %CurPhysicalId.0143, %_ZNK4llvh9StringRef5splitEc.exit ], [ %CurPhysicalId.0143, %if.then36 ], [ %CurPhysicalId.0143, %if.end.i.i175 ], [ %CurPhysicalId.1, %if.then30 ], [ %CurPhysicalId.0143, %if.end.i.i ]
+  %CurCoreId.2 = phi i32 [ %CurCoreId.0144, %_ZNK4llvh9StringRef5splitEc.exit ], [ %CurCoreId.1, %if.then36 ], [ %CurCoreId.0144, %if.end.i.i175 ], [ %CurCoreId.0144, %if.then30 ], [ %CurCoreId.0144, %if.end.i.i ]
   %cmp39 = icmp ne i32 %CurPhysicalId.4, -1
   %cmp41 = icmp ne i32 %CurCoreId.2, -1
   %or.cond = select i1 %cmp39, i1 %cmp41, i1 false
@@ -2290,8 +2290,8 @@ if.then42:                                        ; preds = %if.end38
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN4llvh9StringRefC2EPKc.exit77, %if.end38, %if.then42, %if.end.i149
-  %CurCoreId.3 = phi i32 [ -1, %if.then42 ], [ %CurCoreId.2, %if.end38 ], [ %CurCoreId.0143, %if.end.i149 ], [ %CurCoreId.0143, %_ZN4llvh9StringRefC2EPKc.exit77 ]
-  %CurPhysicalId.5 = phi i32 [ -1, %if.then42 ], [ %CurPhysicalId.4, %if.end38 ], [ %CurPhysicalId.0144, %if.end.i149 ], [ %CurPhysicalId.0144, %_ZN4llvh9StringRefC2EPKc.exit77 ]
+  %CurPhysicalId.5 = phi i32 [ -1, %if.then42 ], [ %CurPhysicalId.4, %if.end38 ], [ %CurPhysicalId.0143, %if.end.i149 ], [ %CurPhysicalId.0143, %_ZN4llvh9StringRefC2EPKc.exit77 ]
+  %CurCoreId.3 = phi i32 [ -1, %if.then42 ], [ %CurCoreId.2, %if.end38 ], [ %CurCoreId.0144, %if.end.i149 ], [ %CurCoreId.0144, %_ZN4llvh9StringRefC2EPKc.exit77 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0145, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %_ZN4llvh9StringRefC2EPKc.exit57

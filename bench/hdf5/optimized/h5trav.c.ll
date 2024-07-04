@@ -1546,8 +1546,8 @@ define internal range(i32 -1, 1) i32 @traverse_cb(i64 noundef %0, ptr noundef %1
   br label %29
 
 29:                                               ; preds = %.sink.split, %4
-  %.048 = phi ptr [ %1, %4 ], [ %26, %.sink.split ]
-  %.047 = phi ptr [ null, %4 ], [ %26, %.sink.split ]
+  %.048 = phi ptr [ null, %4 ], [ %26, %.sink.split ]
+  %.047 = phi ptr [ %1, %4 ], [ %26, %.sink.split ]
   %30 = load i32, ptr %2, align 8
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %93
@@ -1560,11 +1560,11 @@ define internal range(i32 -1, 1) i32 @traverse_cb(i64 noundef %0, ptr noundef %1
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %32
-  %.not61 = icmp eq ptr %.047, null
+  %.not61 = icmp eq ptr %.048, null
   br i1 %.not61, label %107, label %38
 
 38:                                               ; preds = %37
-  call void @free(ptr noundef nonnull %.047) #18
+  call void @free(ptr noundef nonnull %.048) #18
   br label %107
 
 39:                                               ; preds = %32
@@ -1648,14 +1648,14 @@ trav_token_add.exit:                              ; preds = %._crit_edge.i, %68
   %77 = getelementptr inbounds i8, ptr %44, i64 16
   %78 = getelementptr inbounds %struct.trav_addr_path_t, ptr %74, i64 %75
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull readonly align 8 dereferenceable(16) %45, i64 16, i1 false)
-  %79 = call noalias ptr @strdup(ptr noundef readonly %.048) #18
+  %79 = call noalias ptr @strdup(ptr noundef readonly %.047) #18
   %80 = load ptr, ptr %77, align 8
   %81 = getelementptr inbounds %struct.trav_addr_path_t, ptr %80, i64 %75, i32 1
   store ptr %79, ptr %81, align 8
   br label %82
 
 82:                                               ; preds = %trav_token_visited.exit, %trav_token_add.exit, %39
-  %.049 = phi ptr [ null, %trav_token_add.exit ], [ %62, %trav_token_visited.exit ], [ null, %39 ]
+  %.0 = phi ptr [ null, %trav_token_add.exit ], [ %62, %trav_token_visited.exit ], [ null, %39 ]
   %83 = getelementptr inbounds i8, ptr %3, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr %84, align 8
@@ -1665,16 +1665,16 @@ trav_token_add.exit:                              ; preds = %._crit_edge.i, %68
 86:                                               ; preds = %82
   %87 = getelementptr inbounds i8, ptr %84, i64 16
   %88 = load ptr, ptr %87, align 8
-  %89 = call i32 %85(ptr noundef %.048, ptr noundef nonnull %6, ptr noundef %.049, ptr noundef %88) #18
+  %89 = call i32 %85(ptr noundef %.047, ptr noundef nonnull %6, ptr noundef %.0, ptr noundef %88) #18
   %90 = icmp slt i32 %89, 0
   br i1 %90, label %91, label %105
 
 91:                                               ; preds = %86
-  %.not60 = icmp eq ptr %.047, null
+  %.not60 = icmp eq ptr %.048, null
   br i1 %.not60, label %107, label %92
 
 92:                                               ; preds = %91
-  call void @free(ptr noundef nonnull %.047) #18
+  call void @free(ptr noundef nonnull %.048) #18
   br label %107
 
 93:                                               ; preds = %29
@@ -1688,29 +1688,29 @@ trav_token_add.exit:                              ; preds = %._crit_edge.i, %68
 98:                                               ; preds = %93
   %99 = getelementptr inbounds i8, ptr %95, i64 16
   %100 = load ptr, ptr %99, align 8
-  %101 = tail call i32 %97(ptr noundef %.048, ptr noundef nonnull %2, ptr noundef %100) #18
+  %101 = tail call i32 %97(ptr noundef %.047, ptr noundef nonnull %2, ptr noundef %100) #18
   %102 = icmp slt i32 %101, 0
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %98
-  %.not57 = icmp eq ptr %.047, null
+  %.not57 = icmp eq ptr %.048, null
   br i1 %.not57, label %107, label %104
 
 104:                                              ; preds = %103
-  tail call void @free(ptr noundef nonnull %.047) #18
+  tail call void @free(ptr noundef nonnull %.048) #18
   br label %107
 
 105:                                              ; preds = %93, %98, %82, %86
-  %.not59 = icmp eq ptr %.047, null
+  %.not59 = icmp eq ptr %.048, null
   br i1 %.not59, label %107, label %106
 
 106:                                              ; preds = %105
-  call void @free(ptr noundef nonnull %.047) #18
+  call void @free(ptr noundef nonnull %.048) #18
   br label %107
 
 107:                                              ; preds = %105, %106, %103, %104, %91, %92, %37, %38, %20
-  %.0 = phi i32 [ -1, %20 ], [ -1, %38 ], [ -1, %37 ], [ -1, %92 ], [ -1, %91 ], [ -1, %104 ], [ -1, %103 ], [ 0, %106 ], [ 0, %105 ]
-  ret i32 %.0
+  %.049 = phi i32 [ -1, %20 ], [ -1, %38 ], [ -1, %37 ], [ -1, %92 ], [ -1, %91 ], [ -1, %104 ], [ -1, %103 ], [ 0, %106 ], [ 0, %105 ]
+  ret i32 %.049
 }
 
 declare i32 @H5Literate_by_name2(i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4

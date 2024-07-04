@@ -300,17 +300,17 @@ find_first_bit.exit:                              ; preds = %if.end4, %if.then.i
   br i1 %cmp611, label %do.body, label %while.end
 
 do.body:                                          ; preds = %find_first_bit.exit, %do.body
-  %value.013 = phi i64 [ %call9, %do.body ], [ %retval.0.i, %find_first_bit.exit ]
-  %tail.012 = phi ptr [ %5, %do.body ], [ %host_cpus, %find_first_bit.exit ]
+  %tail.013 = phi ptr [ %5, %do.body ], [ %host_cpus, %find_first_bit.exit ]
+  %value.012 = phi i64 [ %call9, %do.body ], [ %retval.0.i, %find_first_bit.exit ]
   %call7 = call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #9
-  store ptr %call7, ptr %tail.012, align 8
-  %conv = trunc i64 %value.013 to i16
+  store ptr %call7, ptr %tail.013, align 8
+  %conv = trunc i64 %value.012 to i16
   %value8 = getelementptr inbounds i8, ptr %call7, i64 8
   store i16 %conv, ptr %value8, align 8
-  %5 = load ptr, ptr %tail.012, align 8
+  %5 = load ptr, ptr %tail.013, align 8
   %6 = load ptr, ptr %bitmap, align 8
   %7 = load i64, ptr %nbits, align 8
-  %add = add nuw i64 %value.013, 1
+  %add = add nuw i64 %value.012, 1
   %call9 = call i64 @find_next_bit(ptr noundef %6, i64 noundef %7, i64 noundef %add) #8
   %8 = load i64, ptr %nbits, align 8
   %cmp6 = icmp ult i64 %call9, %8

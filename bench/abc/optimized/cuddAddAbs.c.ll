@@ -755,8 +755,8 @@ tailrecurse:                                      ; preds = %13
 
 67:                                               ; preds = %38, %60
   %.pre-phi115 = phi ptr [ %41, %38 ], [ %63, %60 ]
-  %.091 = phi ptr [ %36, %38 ], [ %57, %60 ]
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_addOrAbstract, ptr noundef nonnull %1, ptr noundef nonnull %.tr106110, ptr noundef nonnull %.091) #3
+  %.0 = phi ptr [ %36, %38 ], [ %57, %60 ]
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_addOrAbstract, ptr noundef nonnull %1, ptr noundef nonnull %.tr106110, ptr noundef nonnull %.0) #3
   %68 = getelementptr inbounds i8, ptr %.pre-phi115, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = add i32 %69, -1
@@ -818,8 +818,8 @@ tailrecurse:                                      ; preds = %13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %3, %71, %33, %.thread, %.thread104, %96, %83, %67, %59, %49
-  %.0 = phi ptr [ null, %49 ], [ null, %59 ], [ %.091, %67 ], [ null, %83 ], [ null, %96 ], [ %97, %.thread104 ], [ %24, %.thread ], [ null, %33 ], [ null, %71 ], [ %1, %3 ], [ %1, %tailrecurse ]
-  ret ptr %.0
+  %.091 = phi ptr [ null, %49 ], [ null, %59 ], [ %.0, %67 ], [ null, %83 ], [ null, %96 ], [ %97, %.thread104 ], [ %24, %.thread ], [ null, %33 ], [ null, %71 ], [ %1, %3 ], [ %1, %tailrecurse ]
+  ret ptr %.091
 }
 
 declare ptr @cuddAddApplyRecur(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

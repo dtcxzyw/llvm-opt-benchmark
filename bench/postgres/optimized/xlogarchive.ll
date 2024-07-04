@@ -220,8 +220,8 @@ define dso_local noundef zeroext i1 @RestoreArchivedFile(ptr noundef %0, ptr nou
   br label %102
 
 102:                                              ; preds = %68, %73, %100, %79
-  %.0 = phi i1 [ false, %100 ], [ true, %79 ], [ false, %73 ], [ false, %68 ]
-  ret i1 %.0
+  %.042 = phi i1 [ false, %100 ], [ true, %79 ], [ false, %73 ], [ false, %68 ]
+  ret i1 %.042
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

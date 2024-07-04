@@ -13,10 +13,10 @@ define float @expf(float noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = fcmp olt float %0, 0.000000e+00
   %5 = fneg float %0
-  %.022 = select i1 %4, float %5, float %0
-  %6 = fptoui float %.022 to i64
+  %.021 = select i1 %4, float %5, float %0
+  %6 = fptoui float %.021 to i64
   %7 = uitofp i64 %6 to float
-  %8 = fsub float %.022, %7
+  %8 = fsub float %.021, %7
   br label %9
 
 9:                                                ; preds = %3, %9
@@ -41,8 +41,8 @@ define float @expf(float noundef %0) local_unnamed_addr #0 {
   br label %20
 
 20:                                               ; preds = %15, %1, %18
-  %.021 = phi float [ %19, %18 ], [ 1.000000e+00, %1 ], [ %17, %15 ]
-  ret float %.021
+  %.022 = phi float [ %19, %18 ], [ 1.000000e+00, %1 ], [ %17, %15 ]
+  ret float %.022
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

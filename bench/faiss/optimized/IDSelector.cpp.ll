@@ -409,21 +409,21 @@ define void @_ZNK5faiss15IDSelectorRange22find_sorted_ids_boundsEmPKlPmS3_(ptr n
   br i1 %.not58, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader51, %.lr.ph
-  %.053 = phi i64 [ %..0, %.lr.ph ], [ 0, %.preheader51 ]
-  %.04152 = phi i64 [ %.041., %.lr.ph ], [ %1, %.preheader51 ]
-  %27 = add i64 %.053, %.04152
+  %.03953 = phi i64 [ %.039., %.lr.ph ], [ %1, %.preheader51 ]
+  %.04152 = phi i64 [ %..041, %.lr.ph ], [ 0, %.preheader51 ]
+  %27 = add i64 %.03953, %.04152
   %28 = lshr i64 %27, 1
   %29 = getelementptr inbounds i64, ptr %2, i64 %28
   %30 = load i64, ptr %29, align 8
   %.not48 = icmp slt i64 %30, %20
-  %.041. = select i1 %.not48, i64 %.04152, i64 %28
-  %..0 = select i1 %.not48, i64 %28, i64 %.053
-  %31 = add nuw i64 %..0, 1
-  %32 = icmp ugt i64 %.041., %31
+  %..041 = select i1 %.not48, i64 %28, i64 %.04152
+  %.039. = select i1 %.not48, i64 %.03953, i64 %28
+  %31 = add nuw i64 %..041, 1
+  %32 = icmp ugt i64 %.039., %31
   br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader51, %26
-  %storemerge = phi i64 [ 0, %26 ], [ 1, %.preheader51 ], [ %.041., %.lr.ph ]
+  %storemerge = phi i64 [ 0, %26 ], [ 1, %.preheader51 ], [ %.039., %.lr.ph ]
   store i64 %storemerge, ptr %3, align 8
   %33 = icmp eq i64 %storemerge, %1
   br i1 %33, label %40, label %34
@@ -445,22 +445,22 @@ define void @_ZNK5faiss15IDSelectorRange22find_sorted_ids_boundsEmPKlPmS3_(ptr n
   br label %47
 
 .lr.ph56:                                         ; preds = %.preheader, %.lr.ph56
-  %.03755 = phi i64 [ %.037., %.lr.ph56 ], [ %1, %.preheader ]
-  %.03954 = phi i64 [ %..039, %.lr.ph56 ], [ %storemerge, %.preheader ]
-  %41 = add i64 %.03755, %.03954
+  %.055 = phi i64 [ %.0., %.lr.ph56 ], [ %1, %.preheader ]
+  %.03754 = phi i64 [ %..037, %.lr.ph56 ], [ %storemerge, %.preheader ]
+  %41 = add i64 %.055, %.03754
   %42 = lshr i64 %41, 1
   %43 = getelementptr inbounds i64, ptr %2, i64 %42
   %44 = load i64, ptr %43, align 8
   %.not50 = icmp slt i64 %44, %37
-  %..039 = select i1 %.not50, i64 %42, i64 %.03954
-  %.037. = select i1 %.not50, i64 %.03755, i64 %42
-  %45 = add i64 %..039, 1
-  %46 = icmp ugt i64 %.037., %45
+  %..037 = select i1 %.not50, i64 %42, i64 %.03754
+  %.0. = select i1 %.not50, i64 %.055, i64 %42
+  %45 = add i64 %..037, 1
+  %46 = icmp ugt i64 %.0., %45
   br i1 %46, label %.lr.ph56, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph56, %.preheader
-  %.037.lcssa = phi i64 [ %1, %.preheader ], [ %.037., %.lr.ph56 ]
-  store i64 %.037.lcssa, ptr %4, align 8
+  %.0.lcssa = phi i64 [ %1, %.preheader ], [ %.0., %.lr.ph56 ]
+  store i64 %.0.lcssa, ptr %4, align 8
   br label %47
 
 47:                                               ; preds = %._crit_edge, %40, %25

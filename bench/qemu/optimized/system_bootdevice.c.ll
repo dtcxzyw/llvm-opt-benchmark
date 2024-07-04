@@ -942,8 +942,8 @@ entry:
 
 for.body:                                         ; preds = %entry, %if.end
   %i.024 = phi ptr [ %i.0, %if.end ], [ %i.020, %entry ]
-  %total.023 = phi i64 [ %add4, %if.end ], [ 0, %entry ]
-  %list.022 = phi ptr [ %call5, %if.end ], [ null, %entry ]
+  %list.023 = phi ptr [ %call5, %if.end ], [ null, %entry ]
+  %total.022 = phi i64 [ %add4, %if.end ], [ 0, %entry ]
   %dev = getelementptr inbounds i8, ptr %i.024, i64 16
   %0 = load ptr, ptr %dev, align 8
   %suffix = getelementptr inbounds i8, ptr %i.024, i64 24
@@ -956,21 +956,21 @@ for.body:                                         ; preds = %entry, %if.end
   %lsecs = getelementptr inbounds i8, ptr %i.024, i64 40
   %4 = load i32, ptr %lsecs, align 8
   %call1 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.9, ptr noundef %call, i32 noundef %2, i32 noundef %3, i32 noundef %4) #10
-  %tobool2.not = icmp eq i64 %total.023, 0
+  %tobool2.not = icmp eq i64 %total.022, 0
   br i1 %tobool2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %sub = add i64 %total.023, -1
-  %arrayidx = getelementptr i8, ptr %list.022, i64 %sub
+  %sub = add i64 %total.022, -1
+  %arrayidx = getelementptr i8, ptr %list.023, i64 %sub
   store i8 10, ptr %arrayidx, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
   %call3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call1) #13
   %add = add i64 %call3, 1
-  %add4 = add i64 %add, %total.023
-  %call5 = tail call ptr @g_realloc(ptr noundef %list.022, i64 noundef %add4) #10
-  %arrayidx6 = getelementptr i8, ptr %call5, i64 %total.023
+  %add4 = add i64 %add, %total.022
+  %call5 = tail call ptr @g_realloc(ptr noundef %list.023, i64 noundef %add4) #10
+  %arrayidx6 = getelementptr i8, ptr %call5, i64 %total.022
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx6, ptr align 1 %call1, i64 %add, i1 false)
   tail call void @g_free(ptr noundef %call1) #10
   tail call void @g_free(ptr noundef %call) #10
@@ -979,8 +979,8 @@ if.end:                                           ; preds = %if.then, %for.body
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %if.end, %entry
-  %list.0.lcssa = phi ptr [ null, %entry ], [ %call5, %if.end ]
   %total.0.lcssa = phi i64 [ 0, %entry ], [ %add4, %if.end ]
+  %list.0.lcssa = phi ptr [ null, %entry ], [ %call5, %if.end ]
   store i64 %total.0.lcssa, ptr %size, align 8
   ret ptr %list.0.lcssa
 }

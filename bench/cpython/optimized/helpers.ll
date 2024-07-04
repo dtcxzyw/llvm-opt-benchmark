@@ -460,9 +460,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %1 = phi i8 [ %2, %for.body.us ], [ %0, %for.body.lr.ph ]
   %current.041.us = phi ptr [ %incdec.ptr19.us, %for.body.us ], [ %call1, %for.body.lr.ph ]
-  %s.addr.040.us = phi ptr [ %incdec.ptr18.us, %for.body.us ], [ %s, %for.body.lr.ph ]
+  %s.addr.039.us = phi ptr [ %incdec.ptr18.us, %for.body.us ], [ %s, %for.body.lr.ph ]
   store i8 %1, ptr %current.041.us, align 1
-  %incdec.ptr18.us = getelementptr i8, ptr %s.addr.040.us, i64 1
+  %incdec.ptr18.us = getelementptr i8, ptr %s.addr.039.us, i64 1
   %incdec.ptr19.us = getelementptr i8, ptr %current.041.us, i64 1
   %2 = load i8, ptr %incdec.ptr18.us, align 1
   %tobool.not.us = icmp eq i8 %2, 0
@@ -476,20 +476,20 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %if.end11
   %3 = phi i8 [ %5, %if.end11 ], [ %0, %for.body.lr.ph ]
   %current.041 = phi ptr [ %incdec.ptr19, %if.end11 ], [ %call1, %for.body.lr.ph ]
-  %s.addr.040 = phi ptr [ %incdec.ptr18, %if.end11 ], [ %s, %for.body.lr.ph ]
-  %skip_next_lf.039 = phi i1 [ %cmp14, %if.end11 ], [ false, %for.body.lr.ph ]
+  %skip_next_lf.040 = phi i1 [ %cmp14, %if.end11 ], [ false, %for.body.lr.ph ]
+  %s.addr.039 = phi ptr [ %incdec.ptr18, %if.end11 ], [ %s, %for.body.lr.ph ]
   %cmp4 = icmp eq i8 %3, 10
-  %or.cond28 = and i1 %skip_next_lf.039, %cmp4
+  %or.cond28 = and i1 %skip_next_lf.040, %cmp4
   br i1 %or.cond28, label %if.then6, label %if.end11
 
 if.then6:                                         ; preds = %for.body
-  %incdec.ptr = getelementptr i8, ptr %s.addr.040, i64 1
+  %incdec.ptr = getelementptr i8, ptr %s.addr.039, i64 1
   %4 = load i8, ptr %incdec.ptr, align 1
   %tobool7.not = icmp eq i8 %4, 0
   br i1 %tobool7.not, label %if.end31, label %if.end11
 
 if.end11:                                         ; preds = %if.then6, %for.body
-  %s.addr.1 = phi ptr [ %incdec.ptr, %if.then6 ], [ %s.addr.040, %for.body ]
+  %s.addr.1 = phi ptr [ %incdec.ptr, %if.then6 ], [ %s.addr.039, %for.body ]
   %c.1 = phi i8 [ %4, %if.then6 ], [ %3, %for.body ]
   %cmp14 = icmp eq i8 %c.1, 13
   %spec.select = select i1 %cmp14, i8 10, i8 %c.1

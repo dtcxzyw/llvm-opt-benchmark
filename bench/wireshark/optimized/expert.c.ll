@@ -919,12 +919,12 @@ define internal fastcc ptr @expert_set_info_vformat(ptr noundef %0, ptr noundef 
   br label %18
 
 18:                                               ; preds = %15, %8
-  %.068 = phi ptr [ %17, %15 ], [ %0, %8 ]
-  %19 = icmp eq ptr %.068, null
+  %.069 = phi ptr [ %17, %15 ], [ %0, %8 ]
+  %19 = icmp eq ptr %.069, null
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %.068, i64 20
+  %21 = getelementptr inbounds i8, ptr %.069, i64 20
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %.thread, label %24
@@ -996,7 +996,7 @@ expert_set_item_flags.exit.thread94:              ; preds = %.lr.ph.i, %34, %tai
   br i1 %.not77, label %60, label %expert_set_item_flags.exit.thread
 
 expert_set_item_flags.exit.thread:                ; preds = %29, %28, %53, %expert_set_item_flags.exit.thread94
-  %57 = getelementptr inbounds i8, ptr %.068, i64 8
+  %57 = getelementptr inbounds i8, ptr %.069, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = tail call ptr @val_to_str(i32 noundef %3, ptr noundef nonnull @expert_severity_vals, ptr noundef nonnull @.str.63) #12
   tail call void @col_add_str(ptr noundef %58, i32 noundef 13, ptr noundef %59) #12
@@ -1016,8 +1016,8 @@ expert_set_item_flags.exit.thread:                ; preds = %29, %28, %53, %expe
   br label %66
 
 66:                                               ; preds = %63, %61
-  %.069 = phi i32 [ %62, %61 ], [ %65, %63 ]
-  %67 = icmp sgt i32 %.069, 239
+  %.068 = phi i32 [ %62, %61 ], [ %65, %63 ]
+  %67 = icmp sgt i32 %.068, 239
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %66
@@ -1174,7 +1174,7 @@ proto_item_set_generated.exit92:                  ; preds = %proto_item_set_gene
   br i1 %.not79, label %.thread, label %143
 
 143:                                              ; preds = %proto_item_set_generated.exit92
-  %144 = getelementptr inbounds i8, ptr %.068, i64 408
+  %144 = getelementptr inbounds i8, ptr %.069, i64 408
   %145 = load ptr, ptr %144, align 8
   %146 = call noalias ptr @wmem_alloc(ptr noundef %145, i64 noundef 40) #12
   %147 = load i32, ptr %21, align 4
@@ -1185,7 +1185,7 @@ proto_item_set_generated.exit92:                  ; preds = %proto_item_set_gene
   store i32 %3, ptr %149, align 8
   %150 = getelementptr inbounds i8, ptr %146, i64 12
   store i32 %4, ptr %150, align 4
-  %151 = load ptr, ptr %.068, align 8
+  %151 = load ptr, ptr %.069, align 8
   %152 = getelementptr inbounds i8, ptr %146, i64 16
   store ptr %151, ptr %152, align 8
   %153 = load ptr, ptr %144, align 8
@@ -1208,7 +1208,7 @@ proto_item_set_generated.exit92:                  ; preds = %proto_item_set_gene
   %161 = getelementptr inbounds i8, ptr %146, i64 32
   store ptr %.sink, ptr %161, align 8
   %162 = load i32, ptr @expert_tap, align 4
-  call void @tap_queue_packet(i32 noundef %162, ptr noundef nonnull %.068, ptr noundef nonnull %146) #12
+  call void @tap_queue_packet(i32 noundef %162, ptr noundef nonnull %.069, ptr noundef nonnull %146) #12
   br label %.thread
 
 .thread:                                          ; preds = %12, %proto_item_set_generated.exit92, %18, %20, %160

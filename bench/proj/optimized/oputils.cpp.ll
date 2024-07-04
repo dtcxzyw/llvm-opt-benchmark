@@ -241,13 +241,13 @@ define hidden void @_ZN5osgeo4proj9operation27createMethodMapNameEPSGCodeEi(ptr 
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 6:                                                ; preds = %.lr.ph
-  %7 = add nuw i64 %.089, 1
+  %7 = add nuw i64 %.09, 1
   %exitcond.not = icmp eq i64 %7, %5
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %2, %6
-  %.089 = phi i64 [ %7, %6 ], [ 0, %2 ]
-  %8 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodNameCode", ptr %4, i64 %.089
+  %.09 = phi i64 [ %7, %6 ], [ 0, %2 ]
+  %8 = getelementptr inbounds %"struct.osgeo::proj::operation::MethodNameCode", ptr %4, i64 %.09
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, %1
@@ -258,8 +258,8 @@ define hidden void @_ZN5osgeo4proj9operation27createMethodMapNameEPSGCodeEi(ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %2, %12
-  %.0 = phi ptr [ %13, %12 ], [ null, %2 ], [ null, %6 ]
-  call void @_ZN5osgeo4proj9operation21createMapNameEPSGCodeEPKci(ptr dead_on_unwind writable sret(%"class.osgeo::proj::util::PropertyMap") align 8 %0, ptr noundef %.0, i32 noundef %1)
+  %.08 = phi ptr [ %13, %12 ], [ null, %2 ], [ null, %6 ]
+  call void @_ZN5osgeo4proj9operation21createMapNameEPSGCodeEPKci(ptr dead_on_unwind writable sret(%"class.osgeo::proj::util::PropertyMap") align 8 %0, ptr noundef %.08, i32 noundef %1)
   ret void
 }
 
@@ -1498,7 +1498,7 @@ _ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %64
 
 64:                                               ; preds = %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit102.thread, %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit99.thread, %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit102, %39, %55, %47, %29
-  %.075 = phi ptr [ %30, %29 ], [ %40, %39 ], [ %48, %47 ], [ %56, %55 ], [ @.str.13, %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit102 ], [ @.str.13, %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit99.thread ], [ %.str.15..str.14, %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit102.thread ]
+  %.069 = phi ptr [ %30, %29 ], [ %40, %39 ], [ %48, %47 ], [ %56, %55 ], [ @.str.13, %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit102 ], [ @.str.13, %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit99.thread ], [ %.str.15..str.14, %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit102.thread ]
   invoke void @_ZNK5osgeo4proj9operation19CoordinateOperation9sourceCRSEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.49") align 8 %5, ptr noundef nonnull align 8 dereferenceable(72) %1)
           to label %65 unwind label %31
 
@@ -1558,18 +1558,18 @@ _ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %89
 
 89:                                               ; preds = %.lr.ph, %120
-  %.071161 = phi i64 [ 0, %.lr.ph ], [ %121, %120 ]
-  %.073160 = phi i1 [ false, %.lr.ph ], [ %.174, %120 ]
-  br i1 %.073160, label %90, label %98
+  %.065161 = phi i64 [ 0, %.lr.ph ], [ %121, %120 ]
+  %.067160 = phi i1 [ false, %.lr.ph ], [ %.168, %120 ]
+  br i1 %.067160, label %90, label %98
 
 90:                                               ; preds = %89
-  %91 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef %.071161) #20
+  %91 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef %.065161) #20
   %92 = load i8, ptr %91, align 1
   %93 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 noundef signext %92)
           to label %94 unwind label %.loopexit.split-lp.loopexit
 
 94:                                               ; preds = %90
-  %95 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef %.071161) #20
+  %95 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef %.065161) #20
   %96 = load i8, ptr %95, align 1
   %97 = icmp ne i8 %96, 39
   br label %120
@@ -1590,13 +1590,13 @@ _ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %.body
 
 98:                                               ; preds = %89
-  %99 = add i64 %.071161, 3
+  %99 = add i64 %.065161, 3
   %100 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #20
   %101 = icmp ult i64 %99, %100
   br i1 %101, label %102, label %113
 
 102:                                              ; preds = %98
-  %103 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef %.071161) #20
+  %103 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef %.065161) #20
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %103, ptr noundef nonnull dereferenceable(3) @.str.16, i64 3)
   %104 = icmp eq i32 %bcmp, 0
   br i1 %104, label %105, label %113
@@ -1623,22 +1623,22 @@ _ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_trait
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit: ; preds = %.noexc, %111
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
-  %112 = add i64 %.071161, 2
+  %112 = add i64 %.065161, 2
   br label %120
 
 113:                                              ; preds = %102, %98
-  %114 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef %.071161) #20
+  %114 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef %.065161) #20
   %115 = load i8, ptr %114, align 1
   %116 = icmp eq i8 %115, 39
-  %117 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef %.071161) #20
+  %117 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %22, i64 noundef %.065161) #20
   %118 = load i8, ptr %117, align 1
   %119 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 noundef signext %118)
           to label %120 unwind label %.loopexit.split-lp.loopexit
 
 120:                                              ; preds = %113, %94, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
-  %.174 = phi i1 [ false, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ], [ %97, %94 ], [ %116, %113 ]
-  %.172 = phi i64 [ %112, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ], [ %.071161, %94 ], [ %.071161, %113 ]
-  %121 = add i64 %.172, 1
+  %.168 = phi i1 [ false, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ], [ %97, %94 ], [ %116, %113 ]
+  %.166 = phi i64 [ %112, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ], [ %.065161, %94 ], [ %.065161, %113 ]
+  %121 = add i64 %.166, 1
   %122 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #20
   %123 = icmp ult i64 %121, %122
   br i1 %123, label %89, label %._crit_edge, !llvm.loop !6
@@ -1684,8 +1684,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %.lr.ph164
 
 .lr.ph164:                                        ; preds = %.lr.ph164.preheader, %196
-  %.070163 = phi i64 [ %141, %196 ], [ %140, %.lr.ph164.preheader ]
-  %141 = add i64 %.070163, -1
+  %.064163 = phi i64 [ %141, %196 ], [ %140, %.lr.ph164.preheader ]
+  %141 = add i64 %.064163, -1
   %142 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   br i1 %142, label %145, label %143
 
@@ -1849,7 +1849,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %or.cond, label %207, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread146
 
 207:                                              ; preds = %202
-  invoke void @_ZN5osgeo4proj9operation11buildOpNameB5cxx11EPKcRKSt10shared_ptrINS0_3crs3CRSEES9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef %.075, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  invoke void @_ZN5osgeo4proj9operation11buildOpNameB5cxx11EPKcRKSt10shared_ptrINS0_3crs3CRSEES9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef %.069, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %208 unwind label %227
 
 208:                                              ; preds = %207
@@ -1966,7 +1966,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %or.cond155, label %244, label %247
 
 244:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  invoke void @_ZN5osgeo4proj9operation11buildOpNameB5cxx11EPKcRKSt10shared_ptrINS0_3crs3CRSEES9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef %.075, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @_ZN5osgeo4proj9operation11buildOpNameB5cxx11EPKcRKSt10shared_ptrINS0_3crs3CRSEES9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef %.069, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %245 unwind label %227
 
 245:                                              ; preds = %244

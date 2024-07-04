@@ -283,7 +283,7 @@ transformContainerType.exit:                      ; preds = %.sink.split.i, %9, 
   br i1 %or.cond, label %.thread, label %25
 
 .thread:                                          ; preds = %25, %.lr.ph, %.preheader
-  %.0 = phi i1 [ false, %.preheader ], [ false, %.lr.ph ], [ %30, %25 ]
+  %.024 = phi i1 [ false, %.preheader ], [ false, %.lr.ph ], [ %30, %25 ]
   %31 = call noundef ptr @palloc0(i64 noundef 56) #7
   store i32 12, ptr %31, align 4
   %32 = getelementptr inbounds i8, ptr %31, i64 4
@@ -299,7 +299,7 @@ transformContainerType.exit:                      ; preds = %.sink.split.i, %9, 
   %38 = getelementptr inbounds i8, ptr %31, i64 48
   store ptr null, ptr %38, align 8
   %39 = load ptr, ptr %12, align 8
-  call void %39(ptr noundef nonnull %31, ptr noundef %4, ptr noundef %0, i1 noundef zeroext %.0, i1 noundef zeroext %5) #7
+  call void %39(ptr noundef nonnull %31, ptr noundef %4, ptr noundef %0, i1 noundef zeroext %.024, i1 noundef zeroext %5) #7
   %40 = getelementptr inbounds i8, ptr %31, i64 12
   %41 = load i32, ptr %40, align 4
   %.not29 = icmp eq i32 %41, 0
@@ -436,11 +436,11 @@ define dso_local ptr @make_const(ptr noundef %0, ptr nocapture noundef readonly 
   unreachable
 
 65:                                               ; preds = %24, %27, %48, %44, %39, %13
-  %.031 = phi i64 [ %59, %48 ], [ %47, %44 ], [ %43, %39 ], [ %37, %27 ], [ %16, %13 ], [ %20, %24 ]
-  %.030 = phi i32 [ 1560, %48 ], [ 705, %44 ], [ 16, %39 ], [ 1700, %27 ], [ 23, %13 ], [ %spec.select, %24 ]
-  %.029 = phi i32 [ -1, %48 ], [ -2, %44 ], [ 1, %39 ], [ -1, %27 ], [ 4, %13 ], [ %spec.select36, %24 ]
-  %.028 = phi i1 [ false, %48 ], [ false, %44 ], [ true, %39 ], [ false, %27 ], [ true, %13 ], [ true, %24 ]
-  %66 = call ptr @makeConst(i32 noundef %.030, i32 noundef -1, i32 noundef 0, i32 noundef %.029, i64 noundef %.031, i1 noundef zeroext false, i1 noundef zeroext %.028) #7
+  %.030 = phi i64 [ %59, %48 ], [ %47, %44 ], [ %43, %39 ], [ %37, %27 ], [ %16, %13 ], [ %20, %24 ]
+  %.029 = phi i32 [ 1560, %48 ], [ 705, %44 ], [ 16, %39 ], [ 1700, %27 ], [ 23, %13 ], [ %spec.select, %24 ]
+  %.028 = phi i32 [ -1, %48 ], [ -2, %44 ], [ 1, %39 ], [ -1, %27 ], [ 4, %13 ], [ %spec.select36, %24 ]
+  %.0 = phi i1 [ false, %48 ], [ false, %44 ], [ true, %39 ], [ false, %27 ], [ true, %13 ], [ true, %24 ]
+  %66 = call ptr @makeConst(i32 noundef %.029, i32 noundef -1, i32 noundef 0, i32 noundef %.028, i64 noundef %.030, i1 noundef zeroext false, i1 noundef zeroext %.0) #7
   br label %67
 
 67:                                               ; preds = %65, %8

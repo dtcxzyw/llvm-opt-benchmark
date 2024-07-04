@@ -53,10 +53,10 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %26 = icmp slt i64 %23, 0
   %.not111 = icmp eq i64 %24, 0
   %27 = zext i1 %.not111 to i8
-  %.098 = tail call i64 @llvm.abs.i64(i64 %23, i1 true)
-  %.095 = select i1 %26, i8 %27, i8 %25
-  %28 = trunc nuw nsw i64 %.098 to i16
-  %29 = icmp ugt i64 %.098, 255
+  %.097 = tail call i64 @llvm.abs.i64(i64 %23, i1 true)
+  %.094 = select i1 %26, i8 %27, i8 %25
+  %28 = trunc nuw nsw i64 %.097 to i16
+  %29 = icmp ugt i64 %.097, 255
   %30 = lshr i16 %28, 8
   %spec.select.i = select i1 %29, i16 %30, i16 %28
   %31 = zext nneg i16 %spec.select.i to i64
@@ -66,11 +66,11 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %35 = add i8 %34, %33
   %36 = sub i8 %spec.select, %35
   %37 = icmp slt i8 %36, 0
-  %.094 = select i1 %37, i8 %spec.select, i8 %35
-  %.092 = tail call i8 @llvm.smax.i8(i8 %36, i8 0)
-  %38 = sext i8 %.094 to i64
+  %.093 = select i1 %37, i8 %spec.select, i8 %35
+  %.091 = tail call i8 @llvm.smax.i8(i8 %36, i8 0)
+  %38 = sext i8 %.093 to i64
   %39 = and i64 %38, 4294967295
-  %40 = shl i64 %.098, %39
+  %40 = shl i64 %.097, %39
   br label %127
 
 41:                                               ; preds = %2
@@ -140,16 +140,16 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   br label %74
 
 74:                                               ; preds = %71, %60
-  %.196 = phi i8 [ %46, %60 ], [ %43, %71 ]
-  %.193.in = phi i8 [ %5, %60 ], [ %9, %71 ]
-  %.090.in = phi i64 [ %10, %60 ], [ %6, %71 ]
-  %.089 = phi i64 [ %62, %60 ], [ %73, %71 ]
-  %.088 = phi i8 [ %narrow, %60 ], [ %11, %71 ]
-  %.090 = or disjoint i64 %.090.in, 1024
-  %.193 = add nuw nsw i8 %.193.in, 19
-  %75 = zext nneg i8 %.088 to i64
-  %76 = shl nuw nsw i64 %.090, %75
-  %77 = sub nsw i64 %76, %.089
+  %.0101 = phi i8 [ %narrow, %60 ], [ %11, %71 ]
+  %.195 = phi i8 [ %46, %60 ], [ %43, %71 ]
+  %.192.in = phi i8 [ %5, %60 ], [ %9, %71 ]
+  %.089.in = phi i64 [ %10, %60 ], [ %6, %71 ]
+  %.088 = phi i64 [ %62, %60 ], [ %73, %71 ]
+  %.089 = or disjoint i64 %.089.in, 1024
+  %.192 = add nuw nsw i8 %.192.in, 19
+  %75 = zext nneg i8 %.0101 to i64
+  %76 = shl nuw nsw i64 %.089, %75
+  %77 = sub nsw i64 %76, %.088
   %78 = trunc i64 %77 to i32
   %79 = icmp ult i32 %78, 65536
   %80 = shl nuw i32 %78, 16
@@ -169,7 +169,7 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %90 = sext i8 %89 to i64
   %91 = and i64 %90, 4294967295
   %92 = shl i64 %77, %91
-  %93 = sub i8 %.193, %89
+  %93 = sub i8 %.192, %89
   %94 = lshr i64 %92, 16
   %95 = and i64 %92, 65535
   %.not119 = icmp eq i64 %95, 0
@@ -191,10 +191,10 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   br label %127
 
 104:                                              ; preds = %98, %96
-  %.091 = phi i64 [ %97, %96 ], [ %94, %98 ]
-  %105 = trunc nuw i8 %.196 to i1
+  %.090 = phi i64 [ %97, %96 ], [ %94, %98 ]
+  %105 = trunc nuw i8 %.195 to i1
   %106 = sext i8 %93 to i64
-  %107 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %105, i64 noundef %106, i64 noundef %.091) #3
+  %107 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %105, i64 noundef %106, i64 noundef %.090) #3
   br label %136
 
 108:                                              ; preds = %65, %48, %14
@@ -202,7 +202,7 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   br label %134
 
 110:                                              ; preds = %68, %53
-  %.099 = phi i64 [ %57, %53 ], [ %0, %68 ]
+  %.098 = phi i64 [ %57, %53 ], [ %0, %68 ]
   %111 = load i8, ptr @softfloat_roundingMode, align 1
   switch i8 %111, label %112 [
     i8 0, label %124
@@ -211,14 +211,14 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
 
 112:                                              ; preds = %110
   %113 = sext i8 %111 to i32
-  %114 = and i64 %.099, 32768
+  %114 = and i64 %.098, 32768
   %.not122 = icmp eq i64 %114, 0
   %115 = select i1 %.not122, i32 2, i32 3
   %116 = icmp eq i32 %115, %113
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %110, %112
-  %118 = add i64 %.099, -1
+  %118 = add i64 %.098, -1
   br label %124
 
 119:                                              ; preds = %112
@@ -226,22 +226,22 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   br i1 %120, label %121, label %124
 
 121:                                              ; preds = %119
-  %122 = add i64 %.099, -1
+  %122 = add i64 %.098, -1
   %123 = or i64 %122, 1
   br label %124
 
 124:                                              ; preds = %110, %117, %121, %119
-  %.1100 = phi i64 [ %118, %117 ], [ %123, %121 ], [ %.099, %119 ], [ %.099, %110 ]
+  %.199 = phi i64 [ %118, %117 ], [ %123, %121 ], [ %.098, %119 ], [ %.098, %110 ]
   %125 = load i8, ptr @softfloat_exceptionFlags, align 1
   %126 = or i8 %125, 1
   store i8 %126, ptr @softfloat_exceptionFlags, align 1
   br label %134
 
 127:                                              ; preds = %102, %22
-  %.297 = phi i8 [ %.196, %102 ], [ %.095, %22 ]
-  %.2 = phi i8 [ %93, %102 ], [ %.092, %22 ]
+  %.296 = phi i8 [ %.195, %102 ], [ %.094, %22 ]
+  %.2 = phi i8 [ %93, %102 ], [ %.091, %22 ]
   %.1 = phi i64 [ %103, %102 ], [ %40, %22 ]
-  %128 = zext nneg i8 %.297 to i64
+  %128 = zext nneg i8 %.296 to i64
   %129 = shl nuw nsw i64 %128, 15
   %130 = zext nneg i8 %.2 to i64
   %131 = shl nuw nsw i64 %130, 10
@@ -250,8 +250,8 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   br label %134
 
 134:                                              ; preds = %68, %65, %53, %127, %124, %108, %49, %18, %16
-  %.2101 = phi i64 [ %109, %108 ], [ %50, %49 ], [ %.1100, %124 ], [ %57, %53 ], [ %133, %127 ], [ %0, %65 ], [ %0, %68 ], [ 32256, %16 ], [ %21, %18 ]
-  %135 = trunc i64 %.2101 to i16
+  %.2100 = phi i64 [ %109, %108 ], [ %50, %49 ], [ %.199, %124 ], [ %57, %53 ], [ %133, %127 ], [ %0, %65 ], [ %0, %68 ], [ 32256, %16 ], [ %21, %18 ]
+  %135 = trunc i64 %.2100 to i16
   br label %136
 
 136:                                              ; preds = %134, %104

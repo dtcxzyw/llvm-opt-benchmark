@@ -2977,9 +2977,9 @@ define range(i32 -13, 1) i32 @mca_base_var_build_env(ptr noundef %0, ptr noundef
   br i1 %.not38, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %opal_pointer_array_get_item.exit.thread
-  %.02737 = phi i64 [ %78, %opal_pointer_array_get_item.exit.thread ], [ 0, %8 ]
+  %.037 = phi i64 [ %78, %opal_pointer_array_get_item.exit.thread ], [ 0, %8 ]
   store ptr null, ptr %5, align 8
-  %11 = trunc i64 %.02737 to i32
+  %11 = trunc i64 %.037 to i32
   %12 = icmp slt i32 %11, 0
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @mca_base_vars, i64 88), align 8
   %14 = icmp sle i32 %13, %11
@@ -2999,7 +2999,7 @@ define range(i32 -13, 1) i32 @mca_base_var_build_env(ptr noundef %0, ptr noundef
 21:                                               ; preds = %19, %16
   %22 = phi i8 [ %17, %16 ], [ %.pre.i, %19 ]
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_base_vars, i64 112), align 8
-  %24 = and i64 %.02737, 2147483647
+  %24 = and i64 %.037, 2147483647
   %25 = getelementptr inbounds ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = trunc i8 %22 to i1
@@ -3118,7 +3118,7 @@ mca_base_var_source_file.exit:                    ; preds = %62, %66, %67
   br label %opal_pointer_array_get_item.exit.thread
 
 opal_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph, %.thread, %74, %75, %43, %31, %36, %opal_pointer_array_get_item.exit
-  %78 = add nuw i64 %.02737, 1
+  %78 = add nuw i64 %.037, 1
   %exitcond.not = icmp eq i64 %78, %10
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
@@ -3135,8 +3135,8 @@ opal_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph, %.thread, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %opal_pointer_array_get_item.exit.thread, %8, %79, %82, %3
-  %.0 = phi i32 [ -1, %3 ], [ -13, %82 ], [ -13, %79 ], [ 0, %8 ], [ 0, %opal_pointer_array_get_item.exit.thread ]
-  ret i32 %.0
+  %.027 = phi i32 [ -1, %3 ], [ -13, %82 ], [ -13, %79 ], [ 0, %8 ], [ 0, %opal_pointer_array_get_item.exit.thread ]
+  ret i32 %.027
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4506,7 +4506,7 @@ source_name.exit:                                 ; preds = %96, %101, %103
   br label %166
 
 166:                                              ; preds = %161, %135
-  %.1106 = phi i32 [ 5, %161 ], [ 4, %135 ]
+  %.1 = phi i32 [ 5, %161 ], [ 4, %135 ]
   %167 = load ptr, ptr %114, align 8
   %.not139 = icmp ne ptr %167, null
   %168 = load i32, ptr %5, align 4
@@ -4515,20 +4515,20 @@ source_name.exit:                                 ; preds = %96, %101, %103
   br i1 %or.cond, label %.lr.ph220, label %.loopexit215
 
 .lr.ph220:                                        ; preds = %166, %183
-  %.0104219 = phi i32 [ %184, %183 ], [ 0, %166 ]
-  %.2107218 = phi i32 [ %.3, %183 ], [ %.1106, %166 ]
+  %.2219 = phi i32 [ %.3, %183 ], [ %.1, %166 ]
+  %.0105218 = phi i32 [ %184, %183 ], [ 0, %166 ]
   store ptr null, ptr %9, align 8
   %170 = load ptr, ptr %114, align 8
   %171 = getelementptr inbounds i8, ptr %170, i64 40
   %172 = load ptr, ptr %171, align 8
-  %173 = call i32 %172(ptr noundef %170, i32 noundef %.0104219, ptr noundef nonnull %10, ptr noundef nonnull %9) #22
+  %173 = call i32 %172(ptr noundef %170, i32 noundef %.0105218, ptr noundef nonnull %10, ptr noundef nonnull %9) #22
   %.not144 = icmp eq i32 %173, 0
   br i1 %.not144, label %174, label %183
 
 174:                                              ; preds = %.lr.ph220
   %175 = load ptr, ptr %1, align 8
-  %176 = add nsw i32 %.2107218, 1
-  %177 = sext i32 %.2107218 to i64
+  %176 = add nsw i32 %.2219, 1
+  %177 = sext i32 %.2219 to i64
   %178 = getelementptr inbounds ptr, ptr %175, i64 %177
   %179 = load ptr, ptr %7, align 8
   %180 = load i32, ptr %10, align 4
@@ -4537,14 +4537,14 @@ source_name.exit:                                 ; preds = %96, %101, %103
   br label %183
 
 183:                                              ; preds = %.lr.ph220, %174
-  %.3 = phi i32 [ %.2107218, %.lr.ph220 ], [ %176, %174 ]
-  %184 = add nuw nsw i32 %.0104219, 1
+  %.3 = phi i32 [ %.2219, %.lr.ph220 ], [ %176, %174 ]
+  %184 = add nuw nsw i32 %.0105218, 1
   %185 = load i32, ptr %5, align 4
   %186 = icmp slt i32 %184, %185
   br i1 %186, label %.lr.ph220, label %.loopexit215, !llvm.loop !20
 
 .loopexit215:                                     ; preds = %183, %166
-  %.4 = phi i32 [ %.1106, %166 ], [ %.3, %183 ]
+  %.4 = phi i32 [ %.1, %166 ], [ %.3, %183 ]
   %187 = load ptr, ptr %1, align 8
   %188 = sext i32 %.4 to i64
   %189 = getelementptr inbounds ptr, ptr %187, i64 %188
@@ -4598,7 +4598,7 @@ source_name.exit:                                 ; preds = %96, %101, %103
 
 .lr.ph223.split:                                  ; preds = %.lr.ph223.split.preheader, %var_get.exit159.thread
   %indvars.iv229 = phi i64 [ 0, %.lr.ph223.split.preheader ], [ %indvars.iv.next230, %var_get.exit159.thread ]
-  %.5221 = phi i32 [ %196, %.lr.ph223.split.preheader ], [ %.6, %var_get.exit159.thread ]
+  %.5222 = phi i32 [ %196, %.lr.ph223.split.preheader ], [ %.6, %var_get.exit159.thread ]
   %220 = getelementptr inbounds i32, ptr %.0103, i64 %indvars.iv229
   %221 = load i32, ptr %220, align 4
   %222 = load i8, ptr @mca_base_var_initialized, align 1
@@ -4641,8 +4641,8 @@ opal_pointer_array_get_item.exit.i156:            ; preds = %240, %233
 
 243:                                              ; preds = %opal_pointer_array_get_item.exit.i156
   %244 = load ptr, ptr %1, align 8
-  %245 = add nsw i32 %.5221, 1
-  %246 = sext i32 %.5221 to i64
+  %245 = add nsw i32 %.5222, 1
+  %246 = sext i32 %.5222 to i64
   %247 = getelementptr inbounds ptr, ptr %244, i64 %246
   %248 = load ptr, ptr %7, align 8
   %249 = getelementptr inbounds i8, ptr %238, i64 40
@@ -4651,7 +4651,7 @@ opal_pointer_array_get_item.exit.i156:            ; preds = %240, %233
   br label %var_get.exit159.thread
 
 var_get.exit159.thread:                           ; preds = %opal_pointer_array_get_item.exit.i156, %224, %.lr.ph223.split, %243
-  %.6 = phi i32 [ %245, %243 ], [ %.5221, %.lr.ph223.split ], [ %.5221, %224 ], [ %.5221, %opal_pointer_array_get_item.exit.i156 ]
+  %.6 = phi i32 [ %245, %243 ], [ %.5222, %.lr.ph223.split ], [ %.5222, %224 ], [ %.5222, %opal_pointer_array_get_item.exit.i156 ]
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
   %exitcond233.not = icmp eq i64 %indvars.iv.next230, %wide.trip.count232
   br i1 %exitcond233.not, label %.loopexit, label %.lr.ph223.split, !llvm.loop !21

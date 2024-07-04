@@ -2153,9 +2153,9 @@ _ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit: ; preds = %
 
 29:                                               ; preds = %35, %20
   %.pn.i.i = phi i64 [ %27, %20 ], [ %37, %35 ]
-  %.01519.i.i = phi i64 [ 0, %20 ], [ %36, %35 ]
-  %.01620.i.i = and i64 %.pn.i.i, %23
-  %30 = getelementptr inbounds %"struct.std::pair.376", ptr %28, i64 %.01620.i.i
+  %.019.i.i = phi i64 [ 0, %20 ], [ %36, %35 ]
+  %.01520.i.i = and i64 %.pn.i.i, %23
+  %30 = getelementptr inbounds %"struct.std::pair.376", ptr %28, i64 %.01520.i.i
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, %10
   br i1 %32, label %38, label %33
@@ -2165,8 +2165,8 @@ _ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit: ; preds = %
   br i1 %34, label %_ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit.thread, label %35
 
 35:                                               ; preds = %33
-  %36 = add i64 %.01519.i.i, 1
-  %37 = add i64 %36, %.01620.i.i
+  %36 = add i64 %.019.i.i, 1
+  %37 = add i64 %36, %.01520.i.i
   %.not.i.i = icmp ugt i64 %36, %23
   br i1 %.not.i.i, label %_ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit.thread, label %29, !llvm.loop !5
 
@@ -2225,9 +2225,9 @@ _ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit: ; preds = %
 
 29:                                               ; preds = %35, %20
   %.pn.i.i = phi i64 [ %27, %20 ], [ %37, %35 ]
-  %.01519.i.i = phi i64 [ 0, %20 ], [ %36, %35 ]
-  %.01620.i.i = and i64 %.pn.i.i, %23
-  %30 = getelementptr inbounds %"struct.std::pair.376", ptr %28, i64 %.01620.i.i
+  %.019.i.i = phi i64 [ 0, %20 ], [ %36, %35 ]
+  %.01520.i.i = and i64 %.pn.i.i, %23
+  %30 = getelementptr inbounds %"struct.std::pair.376", ptr %28, i64 %.01520.i.i
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, %10
   br i1 %32, label %38, label %33
@@ -2237,8 +2237,8 @@ _ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit: ; preds = %
   br i1 %34, label %_ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit.thread, label %35
 
 35:                                               ; preds = %33
-  %36 = add i64 %.01519.i.i, 1
-  %37 = add i64 %36, %.01620.i.i
+  %36 = add i64 %.019.i.i, 1
+  %37 = add i64 %36, %.01520.i.i
   %.not.i.i = icmp ugt i64 %36, %23
   br i1 %.not.i.i, label %_ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit.thread, label %29, !llvm.loop !5
 
@@ -3084,9 +3084,9 @@ _ZNSt8optionalIN4Luau7BindingEED2Ev.exit112:      ; preds = %51
 
 106:                                              ; preds = %112, %97
   %.pn.i.i = phi i64 [ %104, %97 ], [ %114, %112 ]
-  %.01519.i.i = phi i64 [ 0, %97 ], [ %113, %112 ]
-  %.01620.i.i = and i64 %.pn.i.i, %100
-  %107 = getelementptr inbounds %"struct.std::pair.376", ptr %105, i64 %.01620.i.i
+  %.019.i.i = phi i64 [ 0, %97 ], [ %113, %112 ]
+  %.01520.i.i = and i64 %.pn.i.i, %100
+  %107 = getelementptr inbounds %"struct.std::pair.376", ptr %105, i64 %.01520.i.i
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, %94
   br i1 %109, label %115, label %110
@@ -3096,8 +3096,8 @@ _ZNSt8optionalIN4Luau7BindingEED2Ev.exit112:      ; preds = %51
   br i1 %111, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit174, label %112
 
 112:                                              ; preds = %110
-  %113 = add i64 %.01519.i.i, 1
-  %114 = add i64 %113, %.01620.i.i
+  %113 = add i64 %.019.i.i, 1
+  %114 = add i64 %113, %.01520.i.i
   %.not.i.i = icmp ugt i64 %113, %100
   br i1 %.not.i.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit174, label %106, !llvm.loop !5
 
@@ -3825,9 +3825,9 @@ _ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit.i: ; preds =
 
 377:                                              ; preds = %383, %368
   %.pn.i.i.i = phi i64 [ %375, %368 ], [ %385, %383 ]
-  %.01519.i.i.i = phi i64 [ 0, %368 ], [ %384, %383 ]
-  %.01620.i.i.i = and i64 %.pn.i.i.i, %371
-  %378 = getelementptr inbounds %"struct.std::pair.376", ptr %376, i64 %.01620.i.i.i
+  %.019.i.i.i = phi i64 [ 0, %368 ], [ %384, %383 ]
+  %.01520.i.i.i = and i64 %.pn.i.i.i, %371
+  %378 = getelementptr inbounds %"struct.std::pair.376", ptr %376, i64 %.01520.i.i.i
   %379 = load ptr, ptr %378, align 8
   %380 = icmp eq ptr %379, %358
   br i1 %380, label %386, label %381
@@ -3837,8 +3837,8 @@ _ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit.i: ; preds =
   br i1 %382, label %.thread214, label %383
 
 383:                                              ; preds = %381
-  %384 = add i64 %.01519.i.i.i, 1
-  %385 = add i64 %384, %.01620.i.i.i
+  %384 = add i64 %.019.i.i.i, 1
+  %385 = add i64 %384, %.01520.i.i.i
   %.not.i.i.i178 = icmp ugt i64 %384, %371
   br i1 %.not.i.i.i178, label %.thread214, label %377, !llvm.loop !5
 
@@ -3986,9 +3986,9 @@ define internal fastcc void @_ZN4LuauL34checkOverloadedDocumentationSymbolERKNS_
 
 42:                                               ; preds = %48, %33
   %.pn.i.i = phi i64 [ %40, %33 ], [ %50, %48 ]
-  %.01519.i.i = phi i64 [ 0, %33 ], [ %49, %48 ]
-  %.01620.i.i = and i64 %.pn.i.i, %36
-  %43 = getelementptr inbounds %"struct.std::pair.324", ptr %41, i64 %.01620.i.i
+  %.019.i.i = phi i64 [ 0, %33 ], [ %49, %48 ]
+  %.01520.i.i = and i64 %.pn.i.i, %36
+  %43 = getelementptr inbounds %"struct.std::pair.324", ptr %41, i64 %.01520.i.i
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, %3
   br i1 %45, label %51, label %46
@@ -3998,8 +3998,8 @@ define internal fastcc void @_ZN4LuauL34checkOverloadedDocumentationSymbolERKNS_
   br i1 %47, label %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread, label %48
 
 48:                                               ; preds = %46
-  %49 = add i64 %.01519.i.i, 1
-  %50 = add i64 %49, %.01620.i.i
+  %49 = add i64 %.019.i.i, 1
+  %50 = add i64 %49, %.01520.i.i
   %.not.i.i18 = icmp ugt i64 %49, %36
   br i1 %.not.i.i18, label %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread, label %42, !llvm.loop !34
 
@@ -4153,40 +4153,40 @@ define linkonce_odr dso_local void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind
   br i1 %4, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %16
-  %.02229.i = phi i64 [ %17, %16 ], [ %1, %2 ]
-  %.02328.i = phi i32 [ %18, %16 ], [ 1, %2 ]
-  %5 = icmp ult i64 %.02229.i, 100
+  %.029.i = phi i32 [ %18, %16 ], [ 1, %2 ]
+  %.02328.i = phi i64 [ %17, %16 ], [ %1, %2 ]
+  %5 = icmp ult i64 %.02328.i, 100
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %.lr.ph.i
-  %7 = add i32 %.02328.i, 1
+  %7 = add i32 %.029.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = icmp ult i64 %.02229.i, 1000
+  %9 = icmp ult i64 %.02328.i, 1000
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = add i32 %.02328.i, 2
+  %11 = add i32 %.029.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 12:                                               ; preds = %8
-  %13 = icmp ult i64 %.02229.i, 10000
+  %13 = icmp ult i64 %.02328.i, 10000
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
-  %15 = add i32 %.02328.i, 3
+  %15 = add i32 %.029.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 16:                                               ; preds = %12
-  %17 = udiv i64 %.02229.i, 10000
-  %18 = add i32 %.02328.i, 4
-  %19 = icmp ult i64 %.02229.i, 100000
+  %17 = udiv i64 %.02328.i, 10000
+  %18 = add i32 %.029.i, 4
+  %19 = icmp ult i64 %.02328.i, 100000
   br i1 %19, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %.lr.ph.i, !llvm.loop !38
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %14
-  %.0.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
-  %20 = zext i32 %.0.i to i64
+  %.022.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
+  %20 = zext i32 %.022.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   %21 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %57

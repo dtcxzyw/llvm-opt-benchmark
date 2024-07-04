@@ -468,8 +468,8 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation12IKTwoBoneJob3RunEv(ptr 
   br label %_ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupEPDv4_fS9_.exit
 
 _ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupEPDv4_fS9_.exit: ; preds = %45, %340
-  %.040 = phi <4 x float> [ %355, %340 ], [ %315, %45 ]
-  %.0 = phi <4 x float> [ %359, %340 ], [ %311, %45 ]
+  %.040 = phi <4 x float> [ %359, %340 ], [ %311, %45 ]
+  %.0 = phi <4 x float> [ %355, %340 ], [ %315, %45 ]
   %360 = getelementptr inbounds i8, ptr %0, i64 104
   %361 = load ptr, ptr %360, align 8
   %.not = icmp eq ptr %361, null
@@ -499,8 +499,8 @@ _ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKCon
   %378 = insertelement <4 x float> poison, float %.scalar.i, i64 0
   %379 = shufflevector <4 x float> %378, <4 x float> poison, <4 x i32> zeroinitializer
   %380 = shufflevector <4 x float> %368, <4 x float> poison, <4 x i32> zeroinitializer
-  %381 = shufflevector <4 x float> %.040, <4 x float> %301, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
-  %382 = shufflevector <4 x float> %381, <4 x float> %.040, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %381 = shufflevector <4 x float> %.0, <4 x float> %301, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
+  %382 = shufflevector <4 x float> %381, <4 x float> %.0, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
   %383 = fsub <4 x float> %380, %382
   %384 = fmul <4 x float> %383, %379
   %385 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %384, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
@@ -589,7 +589,7 @@ _ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKCon
   %466 = fadd <4 x float> %462, %465
   %467 = fadd <4 x float> %282, %466
   %468 = fmul <4 x float> %467, %467
-  %469 = fmul <4 x float> %.0, %.0
+  %469 = fmul <4 x float> %.040, %.040
   %470 = shufflevector <4 x float> %469, <4 x float> %468, <2 x i32> <i32 0, i32 4>
   %471 = shufflevector <4 x float> %469, <4 x float> %468, <2 x i32> <i32 2, i32 6>
   %472 = fadd <2 x float> %470, %471
@@ -603,7 +603,7 @@ _ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKCon
   br i1 %478, label %518, label %479
 
 479:                                              ; preds = %367
-  %480 = fmul <4 x float> %.0, %467
+  %480 = fmul <4 x float> %.040, %467
   %shift56 = shufflevector <4 x float> %480, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %481 = fadd <4 x float> %480, %shift56
   %shift57 = shufflevector <4 x float> %480, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
@@ -637,9 +637,9 @@ _ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKCon
 
 498:                                              ; preds = %479
   %499 = shufflevector <4 x float> %467, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %500 = shufflevector <4 x float> %.0, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
+  %500 = shufflevector <4 x float> %.040, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
   %501 = fmul <4 x float> %500, %467
-  %502 = fmul <4 x float> %.0, %499
+  %502 = fmul <4 x float> %.040, %499
   %503 = fsub <4 x float> %501, %502
   %504 = shufflevector <4 x float> %503, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
   %505 = insertelement <4 x float> %504, float %.scalar.i21, i64 0
@@ -663,16 +663,16 @@ _ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKCon
 
 518:                                              ; preds = %507, %367
   %.sroa.0421.0.i = phi <4 x float> [ %517, %507 ], [ <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, %367 ]
-  %519 = fcmp ogt <4 x float> %.040, zeroinitializer
+  %519 = fcmp ogt <4 x float> %.0, zeroinitializer
   %520 = bitcast <4 x i1> %519 to i4
   %521 = and i4 %520, 1
   %.not.i22 = icmp eq i4 %521, 0
   br i1 %.not.i22, label %_ZN3ozz9animation12_GLOBAL__N_117ComputeStartJointERKNS0_12IKTwoBoneJobERKNS1_15IKConstantSetupERKNS_4math14SimdQuaternionEDv4_fSC_.exit, label %522
 
 522:                                              ; preds = %518
-  %523 = shufflevector <4 x float> %.0, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
+  %523 = shufflevector <4 x float> %.040, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
   %524 = shufflevector <4 x float> %428, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
-  %525 = fmul <4 x float> %.0, %524
+  %525 = fmul <4 x float> %.040, %524
   %526 = fmul <4 x float> %523, %428
   %527 = fsub <4 x float> %525, %526
   %528 = shufflevector <4 x float> %527, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
@@ -719,8 +719,8 @@ _ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKCon
   %566 = fadd <4 x float> %565, %shift61
   %shift62 = shufflevector <4 x float> %565, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %567 = fadd <4 x float> %shift62, %566
-  %568 = shufflevector <4 x float> %.040, <4 x float> %531, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
-  %569 = shufflevector <4 x float> %568, <4 x float> %.040, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %568 = shufflevector <4 x float> %.0, <4 x float> %531, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
+  %569 = shufflevector <4 x float> %568, <4 x float> %.0, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
   %570 = shufflevector <4 x float> %567, <4 x float> %569, <4 x i32> <i32 0, i32 poison, i32 7, i32 poison>
   %571 = shufflevector <4 x float> %569, <4 x float> %570, <4 x i32> <i32 0, i32 1, i32 4, i32 6>
   %572 = tail call noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> %571)
@@ -740,7 +740,7 @@ _ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKCon
   %584 = fadd <4 x float> %shift64, %583
   %585 = shufflevector <4 x float> %584, <4 x float> %582, <4 x i32> <i32 0, i32 5, i32 6, i32 7>
   %586 = shufflevector <4 x float> %577, <4 x float> poison, <4 x i32> zeroinitializer
-  %587 = fmul <4 x float> %.0, %586
+  %587 = fmul <4 x float> %.040, %586
   %588 = fmul <4 x float> %428, %564
   %shift65 = shufflevector <4 x float> %588, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %589 = fadd <4 x float> %588, %shift65

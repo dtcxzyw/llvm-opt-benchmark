@@ -72,8 +72,8 @@ if.then7:                                         ; preds = %entry
   br label %if.end9
 
 if.end9:                                          ; preds = %entry, %if.then7, %if.then
-  %sign.0 = phi i8 [ 0, %if.then ], [ 1, %if.then7 ], [ 0, %entry ]
   %s.addr.0 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr8, %if.then7 ], [ %s, %entry ]
+  %sign.0 = phi i8 [ 0, %if.then ], [ 1, %if.then7 ], [ 0, %entry ]
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %if.end9
@@ -1716,8 +1716,8 @@ if.then.i:                                        ; preds = %if.end131, %if.end1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.end131
-  %dp.0.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %25, %if.end131 ]
   %sign.0.i = phi ptr [ %25, %if.then.i ], [ null, %if.end131 ]
+  %dp.0.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %25, %if.end131 ]
   %27 = load ptr, ptr %call, align 8
   br label %while.cond.i
 
@@ -2201,8 +2201,8 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %ieee_invalid_done.026 = phi i32 [ 0, %entry ], [ %ieee_invalid_done.2, %for.inc ]
-  %nmemb.addr.024 = phi i32 [ %dec, %entry ], [ %nmemb.addr.1, %for.inc ]
-  %cp.023 = phi ptr [ %add.ptr, %entry ], [ %cp.1, %for.inc ]
+  %cp.024 = phi ptr [ %add.ptr, %entry ], [ %cp.1, %for.inc ]
+  %nmemb.addr.023 = phi i32 [ %dec, %entry ], [ %nmemb.addr.1, %for.inc ]
   %0 = trunc nuw nsw i64 %indvars.iv to i32
   %shl = shl nuw nsw i32 1, %0
   %and = and i32 %shl, %flags
@@ -2220,24 +2220,24 @@ if.then6:                                         ; preds = %if.then3
 
 if.end10:                                         ; preds = %if.then6, %if.then3
   %ieee_invalid_done.1 = phi i32 [ %ieee_invalid_done.026, %if.then3 ], [ 1, %if.then6 ]
-  %conv = sext i32 %nmemb.addr.024 to i64
+  %conv = sext i32 %nmemb.addr.023 to i64
   %arrayidx = getelementptr ptr, ptr %spec.store.select, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
-  %call = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %cp.023, i64 noundef %conv, ptr noundef nonnull @.str.13, ptr noundef %1) #18
+  %call = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %cp.024, i64 noundef %conv, ptr noundef nonnull @.str.13, ptr noundef %1) #18
   %cmp11 = icmp sgt i32 %call, -1
-  %cmp13.not = icmp slt i32 %call, %nmemb.addr.024
+  %cmp13.not = icmp slt i32 %call, %nmemb.addr.023
   %or.cond = select i1 %cmp11, i1 %cmp13.not, i1 false
   br i1 %or.cond, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.end10
   %idx.ext = zext nneg i32 %call to i64
-  %add.ptr17 = getelementptr i8, ptr %cp.023, i64 %idx.ext
-  %sub = sub nsw i32 %nmemb.addr.024, %call
+  %add.ptr17 = getelementptr i8, ptr %cp.024, i64 %idx.ext
+  %sub = sub nsw i32 %nmemb.addr.023, %call
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end16, %if.then6
-  %cp.1 = phi ptr [ %cp.023, %if.then6 ], [ %add.ptr17, %if.end16 ], [ %cp.023, %for.body ]
-  %nmemb.addr.1 = phi i32 [ %nmemb.addr.024, %if.then6 ], [ %sub, %if.end16 ], [ %nmemb.addr.024, %for.body ]
+  %nmemb.addr.1 = phi i32 [ %nmemb.addr.023, %if.then6 ], [ %sub, %if.end16 ], [ %nmemb.addr.023, %for.body ]
+  %cp.1 = phi ptr [ %cp.024, %if.then6 ], [ %add.ptr17, %if.end16 ], [ %cp.024, %for.body ]
   %ieee_invalid_done.2 = phi i32 [ 1, %if.then6 ], [ %ieee_invalid_done.1, %if.end16 ], [ %ieee_invalid_done.026, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15

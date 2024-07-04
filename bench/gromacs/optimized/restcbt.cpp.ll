@@ -300,11 +300,11 @@ define void @_Z23compute_factors_cbtdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2_S
   %77 = fneg float %74
   %78 = tail call float @llvm.fmuladd.f32(float %77, float %74, float 1.000000e+00)
   %79 = fcmp olt float %76, 0.000000e+00
-  %.0275 = select i1 %79, float 0.000000e+00, float %76
+  %.0276 = select i1 %79, float 0.000000e+00, float %76
   %80 = fcmp olt float %78, 0.000000e+00
-  %.0276 = select i1 %80, float 0.000000e+00, float %78
-  %sqrt279 = tail call float @llvm.sqrt.f32(float %.0275)
-  %sqrt = tail call float @llvm.sqrt.f32(float %.0276)
+  %.0275 = select i1 %80, float 0.000000e+00, float %78
+  %sqrt279 = tail call float @llvm.sqrt.f32(float %.0276)
+  %sqrt = tail call float @llvm.sqrt.f32(float %.0275)
   %81 = fdiv float %54, %.0273
   %82 = fdiv float %54, %.0274
   %83 = fneg float %.sroa.0.0.copyload
@@ -327,11 +327,11 @@ define void @_Z23compute_factors_cbtdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2_S
   %100 = fpext float %99 to double
   %101 = fadd double %95, %100
   %102 = fmul double %101, %85
-  %103 = fpext float %.0275 to double
+  %103 = fpext float %.0276 to double
   %104 = fmul double %102, %103
   %105 = fpext float %sqrt279 to double
   %106 = fmul double %104, %105
-  %107 = fpext float %.0276 to double
+  %107 = fpext float %.0275 to double
   %108 = fmul double %106, %107
   %109 = fpext float %sqrt to double
   %110 = fmul double %108, %109
@@ -482,7 +482,7 @@ define void @_Z23compute_factors_cbtdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2_S
   %234 = fdiv float %51, %42
   %235 = fmul float %71, %83
   %236 = fmul float %235, %192
-  %237 = fmul float %.0275, %236
+  %237 = fmul float %.0276, %236
   %238 = fmul float %sqrt279, %237
   %239 = fpext float %238 to double
   %240 = fmul double %239, -3.000000e+00
@@ -532,9 +532,9 @@ define void @_Z23compute_factors_cbtdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2_S
 
 275:                                              ; preds = %252
   %276 = fmul float %.sroa.0.0.copyload, %192
-  %277 = fmul float %.0275, %276
+  %277 = fmul float %.0276, %276
   %278 = fmul float %sqrt279, %277
-  %279 = fmul float %.0276, %278
+  %279 = fmul float %.0275, %278
   %280 = fmul float %sqrt, %279
   store float %280, ptr %15, align 4
   ret void

@@ -625,12 +625,12 @@ define internal fastcc range(i32 0, 2) i32 @wscbor_skip_next_item_internal(ptr n
   br i1 %.not58, label %thread-pre-split, label %.lr.ph
 
 27:                                               ; preds = %.lr.ph
-  %28 = add nuw i64 %.03955, 1
+  %28 = add nuw i64 %.03855, 1
   %exitcond.not = icmp eq i64 %28, %26
   br i1 %exitcond.not, label %thread-pre-split, label %.lr.ph, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %24, %27
-  %.03955 = phi i64 [ %28, %27 ], [ 0, %24 ]
+  %.03855 = phi i64 [ %28, %27 ], [ 0, %24 ]
   %29 = tail call fastcc i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   %.not41 = icmp eq i32 %29, 0
   br i1 %.not41, label %.loopexit, label %27
@@ -662,12 +662,12 @@ define internal fastcc range(i32 0, 2) i32 @wscbor_skip_next_item_internal(ptr n
   br i1 %.not59, label %thread-pre-split, label %.lr.ph57
 
 42:                                               ; preds = %45
-  %43 = add nuw i64 %.03856, 1
+  %43 = add nuw i64 %.056, 1
   %exitcond66.not = icmp eq i64 %43, %41
   br i1 %exitcond66.not, label %thread-pre-split, label %.lr.ph57, !llvm.loop !8
 
 .lr.ph57:                                         ; preds = %39, %42
-  %.03856 = phi i64 [ %43, %42 ], [ 0, %39 ]
+  %.056 = phi i64 [ %43, %42 ], [ 0, %39 ]
   %44 = tail call fastcc i32 @wscbor_skip_next_item_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   %.not44 = icmp eq i32 %44, 0
   br i1 %.not44, label %.loopexit, label %45
@@ -710,8 +710,8 @@ wscbor_is_indefinite_break.exit:                  ; preds = %47, %50
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %45, %.lr.ph57, %35, %58, %11
-  %.0 = phi i32 [ 0, %11 ], [ %60, %58 ], [ 0, %35 ], [ 0, %.lr.ph57 ], [ 0, %45 ], [ 0, %20 ], [ 0, %.lr.ph ]
-  ret i32 %.0
+  %.039 = phi i32 [ 0, %11 ], [ %60, %58 ], [ 0, %35 ], [ 0, %.lr.ph57 ], [ 0, %45 ], [ 0, %20 ], [ 0, %.lr.ph ]
+  ret i32 %.039
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1301,17 +1301,17 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.preheader
 
 .preheader:                                       ; preds = %switch.lookup, %22
-  %.03133.ph = phi i64 [ %23, %22 ], [ 0, %switch.lookup ]
+  %.03033.ph = phi i64 [ %23, %22 ], [ 0, %switch.lookup ]
   br label %24
 
 24:                                               ; preds = %.preheader, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ %20, %.preheader ]
-  %.03133 = phi i64 [ %27, %24 ], [ %.03133.ph, %.preheader ]
+  %.03033 = phi i64 [ %27, %24 ], [ %.03033.ph, %.preheader ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %25 = trunc i64 %.03133 to i8
+  %25 = trunc i64 %.03033 to i8
   %26 = getelementptr i8, ptr %21, i64 %indvars.iv.next
   store i8 %25, ptr %26, align 1
-  %27 = lshr i64 %.03133, 8
+  %27 = lshr i64 %.03033, 8
   %28 = icmp ugt i64 %indvars.iv, 1
   br i1 %28, label %24, label %29, !llvm.loop !9
 

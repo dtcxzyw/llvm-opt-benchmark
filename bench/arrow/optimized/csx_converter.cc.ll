@@ -858,8 +858,8 @@ for.cond145.preheader.i:                          ; preds = %invoke.cont185.i, %
   %cond.i141.pn.i = phi ptr [ %cond.i141.i, %for.cond145.preheader.lr.ph.i ], [ %indptr.0396.i, %invoke.cont185.i ]
   %values.0395.i = phi ptr [ %cond.i131.i, %for.cond145.preheader.lr.ph.i ], [ %values.1.lcssa.i, %invoke.cont185.i ]
   %indices.0394.i = phi ptr [ %cond.i159.i, %for.cond145.preheader.lr.ph.i ], [ %indices.1.lcssa.i, %invoke.cont185.i ]
-  %k.0393.i = phi i64 [ 0, %for.cond145.preheader.lr.ph.i ], [ %k.1.lcssa.i, %invoke.cont185.i ]
-  %i.0392.i = phi i64 [ 0, %for.cond145.preheader.lr.ph.i ], [ %inc189.i, %invoke.cont185.i ]
+  %i.0393.i = phi i64 [ 0, %for.cond145.preheader.lr.ph.i ], [ %inc189.i, %invoke.cont185.i ]
+  %k.0392.i = phi i64 [ 0, %for.cond145.preheader.lr.ph.i ], [ %k.1.lcssa.i, %invoke.cont185.i ]
   %coords.sroa.0.0391.i = phi ptr [ %call5.i.i.i.i2.i.i162.i, %for.cond145.preheader.lr.ph.i ], [ %coords.sroa.0.1.lcssa.i, %invoke.cont185.i ]
   %coords.sroa.23.0390.i = phi ptr [ %add.ptr.i.i.i.i, %for.cond145.preheader.lr.ph.i ], [ %coords.sroa.23.1.lcssa.i, %invoke.cont185.i ]
   %coords.sroa.9.0389.i = phi ptr [ %add.ptr.i.i.i.i, %for.cond145.preheader.lr.ph.i ], [ %coords.sroa.9.1.lcssa.i, %invoke.cont185.i ]
@@ -869,8 +869,8 @@ for.cond145.preheader.i:                          ; preds = %invoke.cont185.i, %
 for.body147.i:                                    ; preds = %for.cond145.preheader.i, %for.inc.i
   %values.1380.i = phi ptr [ %values.2.i, %for.inc.i ], [ %values.0395.i, %for.cond145.preheader.i ]
   %indices.1378.i = phi ptr [ %indices.2.i, %for.inc.i ], [ %indices.0394.i, %for.cond145.preheader.i ]
-  %k.1376.i = phi i64 [ %k.2.i, %for.inc.i ], [ %k.0393.i, %for.cond145.preheader.i ]
-  %j.0375.i = phi i64 [ %inc184.i, %for.inc.i ], [ 0, %for.cond145.preheader.i ]
+  %j.0377.i = phi i64 [ %inc184.i, %for.inc.i ], [ 0, %for.cond145.preheader.i ]
+  %k.1375.i = phi i64 [ %k.2.i, %for.inc.i ], [ %k.0392.i, %for.cond145.preheader.i ]
   %coords.sroa.0.1374.i = phi ptr [ %coords.sroa.0.5.i, %for.inc.i ], [ %coords.sroa.0.0391.i, %for.cond145.preheader.i ]
   %coords.sroa.23.1373.i = phi ptr [ %coords.sroa.23.4.i, %for.inc.i ], [ %coords.sroa.23.0390.i, %for.cond145.preheader.i ]
   %coords.sroa.9.1372.i = phi ptr [ %coords.sroa.9.4.i, %for.inc.i ], [ %coords.sroa.9.0389.i, %for.cond145.preheader.i ]
@@ -883,8 +883,8 @@ for.body147.i:                                    ; preds = %for.cond145.prehead
   br i1 %cmp149.i, label %if.then150.i, label %if.else154.i
 
 if.then150.i:                                     ; preds = %for.body147.i
-  store i64 %i.0392.i, ptr %ref.tmp151.i, align 8, !noalias !4
-  store i64 %j.0375.i, ptr %arrayinit.element.ptr.i, align 8, !noalias !4
+  store i64 %i.0393.i, ptr %ref.tmp151.i, align 8, !noalias !4
+  store i64 %j.0377.i, ptr %arrayinit.element.ptr.i, align 8, !noalias !4
   br i1 %cmp.i275.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then150.i
@@ -975,8 +975,8 @@ if.then.i.i.i170.i:                               ; preds = %lpad141.i
   br label %ehcleanup.i
 
 if.else154.i:                                     ; preds = %for.body147.i
-  store i64 %j.0375.i, ptr %ref.tmp156.i, align 8, !noalias !4
-  store i64 %i.0392.i, ptr %arrayinit.element158.ptr.i, align 8, !noalias !4
+  store i64 %j.0377.i, ptr %ref.tmp156.i, align 8, !noalias !4
+  store i64 %i.0393.i, ptr %arrayinit.element158.ptr.i, align 8, !noalias !4
   br i1 %cmp.i275.i, label %if.then.i327.i, label %if.else.i293.i
 
 if.then.i327.i:                                   ; preds = %if.else154.i
@@ -1154,20 +1154,20 @@ _ZSt8__copy_nIPKhiPhET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i: ; preds
   br label %invoke.cont176.i
 
 invoke.cont176.i:                                 ; preds = %_ZSt8__copy_nIPKhiPhET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i, %if.then174.i
-  invoke void @_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli(ptr noundef %indices.1378.i, i64 noundef %j.0375.i, i32 noundef %call10.i5)
+  invoke void @_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli(ptr noundef %indices.1378.i, i64 noundef %j.0377.i, i32 noundef %call10.i5)
           to label %invoke.cont180.i unwind label %lpad141.loopexit.i
 
 invoke.cont180.i:                                 ; preds = %invoke.cont176.i
   %add.ptr179.i = getelementptr inbounds i8, ptr %values.1380.i, i64 %conv52.i
   %add.ptr182.i = getelementptr inbounds i8, ptr %indices.1378.i, i64 %conv82.i
-  %inc.i = add nsw i64 %k.1376.i, 1
+  %inc.i = add nsw i64 %k.1375.i, 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %invoke.cont180.i, %invoke.cont172.i, %sw.bb25.i.i.i.i.i.i, %for.end.i.i.i.i.i.i
-  %k.2.i = phi i64 [ %inc.i, %invoke.cont180.i ], [ %k.1376.i, %invoke.cont172.i ], [ %k.1376.i, %for.end.i.i.i.i.i.i ], [ %k.1376.i, %sw.bb25.i.i.i.i.i.i ]
+  %k.2.i = phi i64 [ %inc.i, %invoke.cont180.i ], [ %k.1375.i, %invoke.cont172.i ], [ %k.1375.i, %for.end.i.i.i.i.i.i ], [ %k.1375.i, %sw.bb25.i.i.i.i.i.i ]
   %indices.2.i = phi ptr [ %add.ptr182.i, %invoke.cont180.i ], [ %indices.1378.i, %invoke.cont172.i ], [ %indices.1378.i, %for.end.i.i.i.i.i.i ], [ %indices.1378.i, %sw.bb25.i.i.i.i.i.i ]
   %values.2.i = phi ptr [ %add.ptr179.i, %invoke.cont180.i ], [ %values.1380.i, %invoke.cont172.i ], [ %values.1380.i, %for.end.i.i.i.i.i.i ], [ %values.1380.i, %sw.bb25.i.i.i.i.i.i ]
-  %inc184.i = add nuw nsw i64 %j.0375.i, 1
+  %inc184.i = add nuw nsw i64 %j.0377.i, 1
   %exitcond.not.i = icmp eq i64 %inc184.i, %28
   br i1 %exitcond.not.i, label %for.end.i, label %for.body147.i, !llvm.loop !42
 
@@ -1175,14 +1175,14 @@ for.end.i:                                        ; preds = %for.inc.i, %for.con
   %coords.sroa.9.1.lcssa.i = phi ptr [ %coords.sroa.9.0389.i, %for.cond145.preheader.i ], [ %coords.sroa.9.4.i, %for.inc.i ]
   %coords.sroa.23.1.lcssa.i = phi ptr [ %coords.sroa.23.0390.i, %for.cond145.preheader.i ], [ %coords.sroa.23.4.i, %for.inc.i ]
   %coords.sroa.0.1.lcssa.i = phi ptr [ %coords.sroa.0.0391.i, %for.cond145.preheader.i ], [ %coords.sroa.0.5.i, %for.inc.i ]
-  %k.1.lcssa.i = phi i64 [ %k.0393.i, %for.cond145.preheader.i ], [ %k.2.i, %for.inc.i ]
+  %k.1.lcssa.i = phi i64 [ %k.0392.i, %for.cond145.preheader.i ], [ %k.2.i, %for.inc.i ]
   %indices.1.lcssa.i = phi ptr [ %indices.0394.i, %for.cond145.preheader.i ], [ %indices.2.i, %for.inc.i ]
   %values.1.lcssa.i = phi ptr [ %values.0395.i, %for.cond145.preheader.i ], [ %values.2.i, %for.inc.i ]
   invoke void @_ZN5arrow8internal26SparseTensorConverterMixin11AssignIndexEPhli(ptr noundef %indptr.0396.i, i64 noundef %k.1.lcssa.i, i32 noundef %call10.i5)
           to label %invoke.cont185.i unwind label %lpad141.loopexit.split-lp.i
 
 invoke.cont185.i:                                 ; preds = %for.end.i
-  %inc189.i = add nuw nsw i64 %i.0392.i, 1
+  %inc189.i = add nuw nsw i64 %i.0393.i, 1
   %exitcond404.not.i = icmp eq i64 %inc189.i, %27
   br i1 %exitcond404.not.i, label %for.end190.i, label %for.cond145.preheader.i, !llvm.loop !43
 

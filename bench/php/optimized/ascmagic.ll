@@ -162,9 +162,9 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
   br label %.lr.ph.i228
 
 .lr.ph.i228:                                      ; preds = %29, %125
-  %.06372.i = phi i64 [ %126, %125 ], [ 0, %29 ]
+  %.072.i = phi i64 [ %126, %125 ], [ 0, %29 ]
   %.06471.i = phi ptr [ %.5.i, %125 ], [ %26, %29 ]
-  %32 = getelementptr inbounds i64, ptr %2, i64 %.06372.i
+  %32 = getelementptr inbounds i64, ptr %2, i64 %.072.i
   %33 = load i64, ptr %32, align 8
   %34 = icmp ult i64 %33, 128
   br i1 %34, label %35, label %42
@@ -319,7 +319,7 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
 
 125:                                              ; preds = %119, %39
   %.5.i = phi ptr [ %41, %39 ], [ %124, %119 ]
-  %126 = add nuw i64 %.06372.i, 1
+  %126 = add nuw i64 %.072.i, 1
   %exitcond.not.i = icmp eq i64 %126, %3
   br i1 %exitcond.not.i, label %encode_utf8.exit, label %.lr.ph.i228
 
@@ -347,9 +347,9 @@ encode_utf8.exit:                                 ; preds = %125
 
 139:                                              ; preds = %encode_utf8.exit, %trim_nuls.exit
   %140 = phi i32 [ %134, %encode_utf8.exit ], [ %14, %trim_nuls.exit ]
-  %.1199 = phi i32 [ %., %encode_utf8.exit ], [ -1, %trim_nuls.exit ]
-  %.1197 = phi i32 [ %.224, %encode_utf8.exit ], [ 0, %trim_nuls.exit ]
-  %.0 = phi ptr [ %26, %encode_utf8.exit ], [ null, %trim_nuls.exit ]
+  %.1198 = phi i32 [ %., %encode_utf8.exit ], [ -1, %trim_nuls.exit ]
+  %.1196 = phi i32 [ %.224, %encode_utf8.exit ], [ 0, %trim_nuls.exit ]
+  %.0193 = phi ptr [ %26, %encode_utf8.exit ], [ null, %trim_nuls.exit ]
   %141 = and i32 %140, 16779264
   %.not210 = icmp eq i32 %141, 0
   br i1 %.not210, label %.preheader, label %encode_utf8.exit.thread
@@ -359,66 +359,66 @@ encode_utf8.exit:                                 ; preds = %125
   br i1 %.not258, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %150
-  %.0175251 = phi i64 [ %.1176, %150 ], [ 0, %.preheader ]
-  %.0177250 = phi i64 [ %.3, %150 ], [ -1, %.preheader ]
-  %.0180249 = phi i64 [ %.1181, %150 ], [ 0, %.preheader ]
-  %.0182248 = phi i64 [ %.1183, %150 ], [ 0, %.preheader ]
-  %.0184247 = phi i64 [ %.2186, %150 ], [ 0, %.preheader ]
-  %.0187246 = phi i64 [ %.2189, %150 ], [ 0, %.preheader ]
-  %.0190245 = phi i32 [ %152, %150 ], [ 0, %.preheader ]
-  %.0191244 = phi i32 [ %.1192, %150 ], [ 0, %.preheader ]
-  %.0193243 = phi i32 [ %spec.select227, %150 ], [ 0, %.preheader ]
-  %.0195242 = phi i64 [ %161, %150 ], [ 0, %.preheader ]
-  %142 = getelementptr inbounds i64, ptr %2, i64 %.0195242
+  %.0251 = phi i64 [ %.1, %150 ], [ 0, %.preheader ]
+  %.0175250 = phi i64 [ %.3, %150 ], [ -1, %.preheader ]
+  %.0178249 = phi i64 [ %.1179, %150 ], [ 0, %.preheader ]
+  %.0180248 = phi i64 [ %.1181, %150 ], [ 0, %.preheader ]
+  %.0182247 = phi i64 [ %.2184, %150 ], [ 0, %.preheader ]
+  %.0185246 = phi i64 [ %.2187, %150 ], [ 0, %.preheader ]
+  %.0188245 = phi i32 [ %152, %150 ], [ 0, %.preheader ]
+  %.0189244 = phi i32 [ %.1190, %150 ], [ 0, %.preheader ]
+  %.0191243 = phi i32 [ %spec.select227, %150 ], [ 0, %.preheader ]
+  %.0200242 = phi i64 [ %161, %150 ], [ 0, %.preheader ]
+  %142 = getelementptr inbounds i64, ptr %2, i64 %.0200242
   %143 = load i64, ptr %142, align 8
   %144 = icmp eq i64 %143, 10
-  %145 = zext nneg i32 %.0190245 to i64
+  %145 = zext nneg i32 %.0188245 to i64
   br i1 %144, label %146, label %149
 
 146:                                              ; preds = %.lr.ph
-  %.1188 = add i64 %.0187246, %145
-  %147 = xor i32 %.0190245, 1
+  %.1186 = add i64 %.0185246, %145
+  %147 = xor i32 %.0188245, 1
   %148 = zext nneg i32 %147 to i64
-  %.1185 = add i64 %.0184247, %148
+  %.1183 = add i64 %.0182247, %148
   br label %150
 
 149:                                              ; preds = %.lr.ph
-  %spec.select = add i64 %.0182248, %145
+  %spec.select = add i64 %.0180248, %145
   br label %150
 
 150:                                              ; preds = %149, %146
-  %.2189 = phi i64 [ %.1188, %146 ], [ %.0187246, %149 ]
-  %.2186 = phi i64 [ %.1185, %146 ], [ %.0184247, %149 ]
-  %.1183 = phi i64 [ %.0182248, %146 ], [ %spec.select, %149 ]
-  %.1178 = phi i64 [ %.0195242, %146 ], [ %.0177250, %149 ]
+  %.2187 = phi i64 [ %.1186, %146 ], [ %.0185246, %149 ]
+  %.2184 = phi i64 [ %.1183, %146 ], [ %.0182247, %149 ]
+  %.1181 = phi i64 [ %.0180248, %146 ], [ %spec.select, %149 ]
+  %.1176 = phi i64 [ %.0200242, %146 ], [ %.0175250, %149 ]
   %151 = icmp eq i64 %143, 13
   %152 = zext i1 %151 to i32
   %153 = icmp eq i64 %143, 133
   %154 = zext i1 %153 to i64
-  %.1181 = add i64 %.0180249, %154
+  %.1179 = add i64 %.0178249, %154
   %155 = or i1 %153, %151
-  %.3 = select i1 %155, i64 %.0195242, i64 %.1178
+  %.3 = select i1 %155, i64 %.0200242, i64 %.1176
   %156 = add i64 %.3, 300
-  %157 = icmp ugt i64 %.0195242, %156
-  %158 = sub i64 %.0195242, %.3
-  %spec.select226 = call i64 @llvm.umax.i64(i64 %158, i64 %.0175251)
-  %.1176 = select i1 %157, i64 %spec.select226, i64 %.0175251
+  %157 = icmp ugt i64 %.0200242, %156
+  %158 = sub i64 %.0200242, %.3
+  %spec.select226 = call i64 @llvm.umax.i64(i64 %158, i64 %.0251)
+  %.1 = select i1 %157, i64 %spec.select226, i64 %.0251
   %159 = icmp eq i64 %143, 27
-  %spec.select227 = select i1 %159, i32 1, i32 %.0193243
+  %spec.select227 = select i1 %159, i32 1, i32 %.0191243
   %160 = icmp eq i64 %143, 8
-  %.1192 = select i1 %160, i32 1, i32 %.0191244
-  %161 = add nuw i64 %.0195242, 1
+  %.1190 = select i1 %160, i32 1, i32 %.0189244
+  %161 = add nuw i64 %.0200242, 1
   %exitcond.not = icmp eq i64 %161, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %150, %.preheader
-  %.0193.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select227, %150 ]
-  %.0191.lcssa = phi i32 [ 0, %.preheader ], [ %.1192, %150 ]
-  %.0187.lcssa = phi i64 [ 0, %.preheader ], [ %.2189, %150 ]
-  %.0184.lcssa = phi i64 [ 0, %.preheader ], [ %.2186, %150 ]
-  %.0182.lcssa = phi i64 [ 0, %.preheader ], [ %.1183, %150 ]
+  %.0191.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select227, %150 ]
+  %.0189.lcssa = phi i32 [ 0, %.preheader ], [ %.1190, %150 ]
+  %.0185.lcssa = phi i64 [ 0, %.preheader ], [ %.2187, %150 ]
+  %.0182.lcssa = phi i64 [ 0, %.preheader ], [ %.2184, %150 ]
   %.0180.lcssa = phi i64 [ 0, %.preheader ], [ %.1181, %150 ]
-  %.0175.lcssa = phi i64 [ 0, %.preheader ], [ %.1176, %150 ]
+  %.0178.lcssa = phi i64 [ 0, %.preheader ], [ %.1179, %150 ]
+  %.0.lcssa = phi i64 [ 0, %.preheader ], [ %.1, %150 ]
   %162 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(7) @.str) #8
   %163 = icmp eq i32 %162, 0
   br i1 %163, label %encode_utf8.exit.thread, label %164
@@ -444,7 +444,7 @@ encode_utf8.exit:                                 ; preds = %125
   br i1 %172, label %encode_utf8.exit.thread, label %173
 
 173:                                              ; preds = %169
-  %.not220 = icmp eq i32 %.1197, 0
+  %.not220 = icmp eq i32 %.1196, 0
   br i1 %.not220, label %177, label %174
 
 174:                                              ; preds = %173
@@ -500,27 +500,27 @@ encode_utf8.exit:                                 ; preds = %125
   br i1 %197, label %encode_utf8.exit.thread, label %198
 
 198:                                              ; preds = %195, %194
-  %.not214 = icmp eq i64 %.0175.lcssa, 0
+  %.not214 = icmp eq i64 %.0.lcssa, 0
   br i1 %.not214, label %202, label %199
 
 199:                                              ; preds = %198
-  %200 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i64 noundef %.0175.lcssa) #6
+  %200 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i64 noundef %.0.lcssa) #6
   %201 = icmp eq i32 %200, -1
   br i1 %201, label %encode_utf8.exit.thread, label %202
 
 202:                                              ; preds = %199, %198
-  %203 = icmp eq i64 %.0187.lcssa, 0
-  %204 = icmp eq i64 %.0182.lcssa, 0
+  %203 = icmp eq i64 %.0185.lcssa, 0
+  %204 = icmp eq i64 %.0180.lcssa, 0
   %or.cond = select i1 %203, i1 %204, i1 false
-  %205 = icmp eq i64 %.0180.lcssa, 0
+  %205 = icmp eq i64 %.0178.lcssa, 0
   %or.cond3 = select i1 %or.cond, i1 %205, i1 false
-  %206 = icmp eq i64 %.0184.lcssa, 0
+  %206 = icmp eq i64 %.0182.lcssa, 0
   %or.cond5 = select i1 %or.cond3, i1 %206, i1 false
-  %207 = icmp ne i64 %.0187.lcssa, 0
+  %207 = icmp ne i64 %.0185.lcssa, 0
   %or.cond7 = select i1 %or.cond5, i1 true, i1 %207
-  %208 = icmp ne i64 %.0182.lcssa, 0
+  %208 = icmp ne i64 %.0180.lcssa, 0
   %or.cond9 = select i1 %or.cond7, i1 true, i1 %208
-  %209 = icmp ne i64 %.0180.lcssa, 0
+  %209 = icmp ne i64 %.0178.lcssa, 0
   %or.cond11 = select i1 %or.cond9, i1 true, i1 %209
   br i1 %or.cond11, label %210, label %248
 
@@ -546,7 +546,7 @@ encode_utf8.exit:                                 ; preds = %125
   br i1 %220, label %encode_utf8.exit.thread, label %221
 
 221:                                              ; preds = %218
-  %222 = icmp ne i64 %.0184.lcssa, 0
+  %222 = icmp ne i64 %.0182.lcssa, 0
   %or.cond19 = select i1 %208, i1 true, i1 %222
   %or.cond21 = select i1 %or.cond19, i1 true, i1 %209
   br i1 %or.cond21, label %223, label %.critedge
@@ -565,7 +565,7 @@ encode_utf8.exit:                                 ; preds = %125
   br i1 %229, label %encode_utf8.exit.thread, label %230
 
 230:                                              ; preds = %227
-  %231 = icmp ne i64 %.0184.lcssa, 0
+  %231 = icmp ne i64 %.0182.lcssa, 0
   %or.cond23 = select i1 %231, i1 true, i1 %209
   br i1 %or.cond23, label %232, label %.critedge
 
@@ -604,7 +604,7 @@ encode_utf8.exit:                                 ; preds = %125
   br i1 %247, label %encode_utf8.exit.thread, label %248
 
 248:                                              ; preds = %.critedge, %202
-  %.not216 = icmp eq i32 %.0193.lcssa, 0
+  %.not216 = icmp eq i32 %.0191.lcssa, 0
   br i1 %.not216, label %252, label %249
 
 249:                                              ; preds = %248
@@ -613,7 +613,7 @@ encode_utf8.exit:                                 ; preds = %125
   br i1 %251, label %encode_utf8.exit.thread, label %252
 
 252:                                              ; preds = %249, %248
-  %.not217 = icmp eq i32 %.0191.lcssa, 0
+  %.not217 = icmp eq i32 %.0189.lcssa, 0
   br i1 %.not217, label %256, label %253
 
 253:                                              ; preds = %252
@@ -625,18 +625,18 @@ encode_utf8.exit:                                 ; preds = %125
   br label %encode_utf8.exit.thread
 
 encode_utf8.exit.thread:                          ; preds = %35, %44, %54, %65, %75, %84, %169, %._crit_edge, %139, %253, %249, %.critedge, %.thread232, %240, %236, %232, %227, %223, %218, %214, %210, %199, %195, %191, %188, %181, %183, %185, %177, %174, %256, %136
-  %.2200 = phi i32 [ %138, %136 ], [ %.1199, %174 ], [ %.1199, %177 ], [ 1, %256 ], [ %.1199, %188 ], [ %.1199, %191 ], [ %.1199, %195 ], [ %.1199, %199 ], [ %.1199, %210 ], [ %.1199, %214 ], [ %.1199, %.critedge ], [ %.1199, %249 ], [ %.1199, %253 ], [ %.1199, %218 ], [ %.1199, %223 ], [ %.1199, %227 ], [ %.1199, %232 ], [ %.1199, %236 ], [ %.1199, %240 ], [ %.1199, %.thread232 ], [ %.1199, %181 ], [ %.1199, %183 ], [ %.1199, %185 ], [ 0, %139 ], [ 0, %._crit_edge ], [ 1, %169 ], [ 0, %84 ], [ 0, %75 ], [ 0, %65 ], [ 0, %54 ], [ 0, %44 ], [ 0, %35 ]
-  %.1 = phi ptr [ %26, %136 ], [ %.0, %174 ], [ %.0, %177 ], [ %.0, %256 ], [ %.0, %188 ], [ %.0, %191 ], [ %.0, %195 ], [ %.0, %199 ], [ %.0, %210 ], [ %.0, %214 ], [ %.0, %.critedge ], [ %.0, %249 ], [ %.0, %253 ], [ %.0, %218 ], [ %.0, %223 ], [ %.0, %227 ], [ %.0, %232 ], [ %.0, %236 ], [ %.0, %240 ], [ %.0, %.thread232 ], [ %.0, %181 ], [ %.0, %183 ], [ %.0, %185 ], [ %.0, %139 ], [ %.0, %._crit_edge ], [ %.0, %169 ], [ %26, %84 ], [ %26, %75 ], [ %26, %65 ], [ %26, %54 ], [ %26, %44 ], [ %26, %35 ]
-  %.not223 = icmp eq ptr %.1, null
+  %.2199 = phi i32 [ %138, %136 ], [ %.1198, %174 ], [ %.1198, %177 ], [ 1, %256 ], [ %.1198, %188 ], [ %.1198, %191 ], [ %.1198, %195 ], [ %.1198, %199 ], [ %.1198, %210 ], [ %.1198, %214 ], [ %.1198, %.critedge ], [ %.1198, %249 ], [ %.1198, %253 ], [ %.1198, %218 ], [ %.1198, %223 ], [ %.1198, %227 ], [ %.1198, %232 ], [ %.1198, %236 ], [ %.1198, %240 ], [ %.1198, %.thread232 ], [ %.1198, %181 ], [ %.1198, %183 ], [ %.1198, %185 ], [ 0, %139 ], [ 0, %._crit_edge ], [ 1, %169 ], [ 0, %84 ], [ 0, %75 ], [ 0, %65 ], [ 0, %54 ], [ 0, %44 ], [ 0, %35 ]
+  %.1194 = phi ptr [ %26, %136 ], [ %.0193, %174 ], [ %.0193, %177 ], [ %.0193, %256 ], [ %.0193, %188 ], [ %.0193, %191 ], [ %.0193, %195 ], [ %.0193, %199 ], [ %.0193, %210 ], [ %.0193, %214 ], [ %.0193, %.critedge ], [ %.0193, %249 ], [ %.0193, %253 ], [ %.0193, %218 ], [ %.0193, %223 ], [ %.0193, %227 ], [ %.0193, %232 ], [ %.0193, %236 ], [ %.0193, %240 ], [ %.0193, %.thread232 ], [ %.0193, %181 ], [ %.0193, %183 ], [ %.0193, %185 ], [ %.0193, %139 ], [ %.0193, %._crit_edge ], [ %.0193, %169 ], [ %26, %84 ], [ %26, %75 ], [ %26, %65 ], [ %26, %54 ], [ %26, %44 ], [ %26, %35 ]
+  %.not223 = icmp eq ptr %.1194, null
   br i1 %.not223, label %.thread235, label %257
 
 257:                                              ; preds = %encode_utf8.exit.thread
-  call void @_efree(ptr noundef nonnull %.1) #6
+  call void @_efree(ptr noundef nonnull %.1194) #6
   br label %.thread235
 
 .thread235:                                       ; preds = %19, %7, %28, %257, %encode_utf8.exit.thread
-  %.2200239 = phi i32 [ %.2200, %257 ], [ %.2200, %encode_utf8.exit.thread ], [ -1, %28 ], [ 0, %7 ], [ 0, %19 ]
-  ret i32 %.2200239
+  %.2199239 = phi i32 [ %.2199, %257 ], [ %.2199, %encode_utf8.exit.thread ], [ -1, %28 ], [ 0, %7 ], [ 0, %19 ]
+  ret i32 %.2199239
 }
 
 declare void @_efree(ptr noundef) local_unnamed_addr #2

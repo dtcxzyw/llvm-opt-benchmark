@@ -236,8 +236,8 @@ define dso_local noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocaptur
   br i1 %47, label %sub_0, label %._crit_edge.thread
 
 sub_0:                                            ; preds = %2, %245
-  %.088326 = phi i32 [ %246, %245 ], [ 1, %2 ]
-  %48 = sext i32 %.088326 to i64
+  %.0105326 = phi i32 [ %246, %245 ], [ 1, %2 ]
+  %48 = sext i32 %.0105326 to i64
   %49 = getelementptr inbounds ptr, ptr %1, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = load i8, ptr %50, align 1
@@ -319,16 +319,16 @@ sub_2286:                                         ; preds = %sub_1285
 .tail283:                                         ; preds = %sub_1285, %sub_2286
   %83 = phi i32 [ %78, %sub_1285 ], [ %82, %sub_2286 ]
   %.not130 = icmp eq i32 %83, 0
-  %84 = icmp slt i32 %.088326, %46
+  %84 = icmp slt i32 %.0105326, %46
   %or.cond151 = select i1 %.not130, i1 %84, i1 false
   br i1 %or.cond151, label %86, label %sub_0289
 
 .tail283.thread:                                  ; preds = %sub_0284
-  %85 = icmp slt i32 %.088326, %46
+  %85 = icmp slt i32 %.0105326, %46
   br label %.tail288
 
 86:                                               ; preds = %.tail283
-  %87 = add nsw i32 %.088326, 1
+  %87 = add nsw i32 %.0105326, 1
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds ptr, ptr %1, i64 %88
   %90 = load ptr, ptr %89, align 8
@@ -361,7 +361,7 @@ sub_2291:                                         ; preds = %sub_1290
   br i1 %or.cond152, label %102, label %108
 
 102:                                              ; preds = %.tail288
-  %103 = add nsw i32 %.088326, 1
+  %103 = add nsw i32 %.0105326, 1
   %104 = sext i32 %103 to i64
   %105 = getelementptr inbounds ptr, ptr %1, i64 %104
   %106 = load ptr, ptr %105, align 8
@@ -384,7 +384,7 @@ sub_2291:                                         ; preds = %sub_1290
   br i1 %or.cond153, label %113, label %134
 
 113:                                              ; preds = %111
-  %114 = add nsw i32 %.088326, 1
+  %114 = add nsw i32 %.0105326, 1
   %115 = sext i32 %114 to i64
   %116 = getelementptr inbounds ptr, ptr %1, i64 %115
   %117 = load ptr, ptr %116, align 8
@@ -462,7 +462,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %or.cond154, label %136, label %157
 
 136:                                              ; preds = %134
-  %137 = add nsw i32 %.088326, 1
+  %137 = add nsw i32 %.0105326, 1
   %138 = sext i32 %137 to i64
   %139 = getelementptr inbounds ptr, ptr %1, i64 %138
   %140 = load ptr, ptr %139, align 8
@@ -540,7 +540,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit164: ;
   br i1 %or.cond155, label %159, label %180
 
 159:                                              ; preds = %157
-  %160 = add nsw i32 %.088326, 1
+  %160 = add nsw i32 %.0105326, 1
   %161 = sext i32 %160 to i64
   %162 = getelementptr inbounds ptr, ptr %1, i64 %161
   %163 = load ptr, ptr %162, align 8
@@ -618,7 +618,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit169: ;
   br i1 %or.cond156, label %182, label %203
 
 182:                                              ; preds = %180
-  %183 = add nsw i32 %.088326, 1
+  %183 = add nsw i32 %.0105326, 1
   %184 = sext i32 %183 to i64
   %185 = getelementptr inbounds ptr, ptr %1, i64 %184
   %186 = load ptr, ptr %185, align 8
@@ -696,7 +696,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit174: ;
   br i1 %or.cond157, label %205, label %223
 
 205:                                              ; preds = %203
-  %206 = add nsw i32 %.088326, 1
+  %206 = add nsw i32 %.0105326, 1
   %207 = sext i32 %206 to i64
   %208 = getelementptr inbounds ptr, ptr %1, i64 %207
   %209 = load ptr, ptr %208, align 8
@@ -768,7 +768,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit179: ;
   br i1 %or.cond158, label %225, label %239
 
 225:                                              ; preds = %223
-  %226 = add nsw i32 %.088326, 1
+  %226 = add nsw i32 %.0105326, 1
   %227 = sext i32 %226 to i64
   %228 = getelementptr inbounds ptr, ptr %1, i64 %227
   %229 = load ptr, ptr %228, align 8
@@ -821,8 +821,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit179: ;
   br label %245
 
 245:                                              ; preds = %231, %237, %234, %102, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit169, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit179, %241, %244, %242, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit174, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit164, %110, %86
-  %.189 = phi i32 [ %.088326, %242 ], [ %.088326, %244 ], [ %.088326, %241 ], [ %206, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit179 ], [ %183, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit174 ], [ %160, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit169 ], [ %137, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit164 ], [ %114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ], [ %.088326, %110 ], [ %103, %102 ], [ %87, %86 ], [ %226, %234 ], [ %226, %237 ], [ %226, %231 ]
-  %246 = add nsw i32 %.189, 1
+  %.1106 = phi i32 [ %.0105326, %242 ], [ %.0105326, %244 ], [ %.0105326, %241 ], [ %206, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit179 ], [ %183, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit174 ], [ %160, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit169 ], [ %137, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit164 ], [ %114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ], [ %.0105326, %110 ], [ %103, %102 ], [ %87, %86 ], [ %226, %234 ], [ %226, %237 ], [ %226, %231 ]
+  %246 = add nsw i32 %.1106, 1
   %247 = icmp slt i32 %246, %0
   br i1 %247, label %sub_0, label %._crit_edge, !llvm.loop !5
 
@@ -1066,7 +1066,7 @@ _ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.
 
 319:                                              ; preds = %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit, %_ZN5draco7OptionsD2Ev.exit
   %.sroa.0226.3 = phi ptr [ %316, %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit ], [ %.sroa.0226.0344, %_ZN5draco7OptionsD2Ev.exit ]
-  %.195 = phi ptr [ null, %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit ], [ %.sroa.0226.0344, %_ZN5draco7OptionsD2Ev.exit ]
+  %.189 = phi ptr [ null, %_ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.exit ], [ %.sroa.0226.0344, %_ZN5draco7OptionsD2Ev.exit ]
   %320 = load i32, ptr %34, align 4
   %321 = icmp slt i32 %320, 0
   br i1 %321, label %322, label %323
@@ -1386,12 +1386,12 @@ _ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.
 
 461:                                              ; preds = %460, %457, %455, %454
   %putchar.i = call i32 @putchar(i32 10)
-  %.not = icmp eq ptr %.195, null
+  %.not = icmp eq ptr %.189, null
   br i1 %.not, label %.thread, label %462
 
 462:                                              ; preds = %461
-  %463 = getelementptr inbounds i8, ptr %.195, i64 192
-  %464 = getelementptr inbounds i8, ptr %.195, i64 200
+  %463 = getelementptr inbounds i8, ptr %.189, i64 192
+  %464 = getelementptr inbounds i8, ptr %.189, i64 200
   %465 = load ptr, ptr %464, align 8
   %466 = load ptr, ptr %463, align 8
   %467 = ptrtoint ptr %465 to i64
@@ -1407,7 +1407,7 @@ _ZN5draco8StatusOrISt10unique_ptrINS_10PointCloudESt14default_deleteIS2_EEED2Ev.
           to label %474 unwind label %557
 
 474:                                              ; preds = %472
-  invoke void @_ZN5draco13ExpertEncoderC1ERKNS_4MeshE(ptr noundef nonnull align 8 dereferenceable(184) %473, ptr noundef nonnull align 8 dereferenceable(216) %.195)
+  invoke void @_ZN5draco13ExpertEncoderC1ERKNS_4MeshE(ptr noundef nonnull align 8 dereferenceable(184) %473, ptr noundef nonnull align 8 dereferenceable(216) %.189)
           to label %_ZNSt10unique_ptrIN5draco13ExpertEncoderESt14default_deleteIS1_EE5resetEPS1_.exit unwind label %475
 
 475:                                              ; preds = %474

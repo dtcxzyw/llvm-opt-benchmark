@@ -66,8 +66,8 @@ define void @dsyr2k_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .preheader:                                       ; preds = %.preheader.preheader, %51
   %indvars.iv579 = phi i64 [ 2, %.preheader.preheader ], [ %indvars.iv.next580, %51 ]
-  %.0278414 = phi i32 [ 1, %.preheader.preheader ], [ %52, %51 ]
-  %43 = add nsw i32 %.0278414, -1
+  %.0282414 = phi i32 [ 1, %.preheader.preheader ], [ %52, %51 ]
+  %43 = add nsw i32 %.0282414, -1
   %44 = mul nsw i32 %43, %17
   %45 = add i32 %44, -1
   br label %46
@@ -84,15 +84,15 @@ define void @dsyr2k_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %exitcond578.not, label %51, label %46, !llvm.loop !4
 
 51:                                               ; preds = %46
-  %52 = add nuw nsw i32 %.0278414, 1
+  %52 = add nuw nsw i32 %.0282414, 1
   %indvars.iv.next580 = add nuw nsw i64 %indvars.iv579, 1
   %exitcond583.not = icmp eq i64 %indvars.iv.next580, %wide.trip.count582
   br i1 %exitcond583.not, label %.loopexit, label %.preheader, !llvm.loop !6
 
 .preheader322:                                    ; preds = %.preheader322.preheader, %63
   %indvars.iv567 = phi i64 [ 2, %.preheader322.preheader ], [ %indvars.iv.next568, %63 ]
-  %.1279411 = phi i32 [ 1, %.preheader322.preheader ], [ %64, %63 ]
-  %53 = add nsw i32 %.1279411, -1
+  %.1283411 = phi i32 [ 1, %.preheader322.preheader ], [ %64, %63 ]
+  %53 = add nsw i32 %.1283411, -1
   %54 = mul nsw i32 %53, %17
   %55 = add i32 %54, -1
   br label %56
@@ -111,7 +111,7 @@ define void @dsyr2k_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %exitcond566.not, label %63, label %56, !llvm.loop !7
 
 63:                                               ; preds = %56
-  %64 = add nuw nsw i32 %.1279411, 1
+  %64 = add nuw nsw i32 %.1283411, 1
   %indvars.iv.next568 = add nuw nsw i64 %indvars.iv567, 1
   %exitcond571.not = icmp eq i64 %indvars.iv.next568, %wide.trip.count570
   br i1 %exitcond571.not, label %.loopexit, label %.preheader322, !llvm.loop !8
@@ -544,19 +544,19 @@ define void @dsyr2k_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 239:                                              ; preds = %.preheader345, %239
   %indvars.iv453 = phi i64 [ 1, %.preheader345 ], [ %indvars.iv.next454, %239 ]
-  %.0290364 = phi double [ 0.000000e+00, %.preheader345 ], [ %243, %239 ]
-  %.0292363 = phi double [ 0.000000e+00, %.preheader345 ], [ %246, %239 ]
+  %.0365 = phi double [ 0.000000e+00, %.preheader345 ], [ %246, %239 ]
+  %.0278364 = phi double [ 0.000000e+00, %.preheader345 ], [ %243, %239 ]
   %240 = add nsw i64 %indvars.iv453, -1
   %gep615 = getelementptr double, ptr %invariant.gep614, i64 %240
   %241 = load double, ptr %gep615, align 8
   %gep617 = getelementptr double, ptr %invariant.gep616, i64 %240
   %242 = load double, ptr %gep617, align 8
-  %243 = tail call double @llvm.fmuladd.f64(double %241, double %242, double %.0290364)
+  %243 = tail call double @llvm.fmuladd.f64(double %241, double %242, double %.0278364)
   %gep619 = getelementptr double, ptr %invariant.gep618, i64 %240
   %244 = load double, ptr %gep619, align 8
   %gep621 = getelementptr double, ptr %invariant.gep620, i64 %240
   %245 = load double, ptr %gep621, align 8
-  %246 = tail call double @llvm.fmuladd.f64(double %244, double %245, double %.0292363)
+  %246 = tail call double @llvm.fmuladd.f64(double %244, double %245, double %.0365)
   %indvars.iv.next454 = add nuw nsw i64 %indvars.iv453, 1
   %exitcond457.not = icmp eq i64 %indvars.iv.next454, %wide.trip.count456
   br i1 %exitcond457.not, label %._crit_edge366, label %239, !llvm.loop !24
@@ -565,7 +565,7 @@ define void @dsyr2k_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %214, label %247, label %254
 
 247:                                              ; preds = %._crit_edge366
-  %248 = fadd double %246, %243
+  %248 = fadd double %243, %246
   %249 = fmul double %18, %248
   %250 = trunc nuw nsw i64 %indvars.iv458 to i32
   %251 = add i32 %223, %250
@@ -580,7 +580,7 @@ define void @dsyr2k_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %257 = sext i32 %256 to i64
   %258 = getelementptr inbounds double, ptr %10, i64 %257
   %259 = load double, ptr %258, align 8
-  %260 = fadd double %246, %243
+  %260 = fadd double %243, %246
   %261 = fmul double %18, %260
   %262 = tail call double @llvm.fmuladd.f64(double %19, double %259, double %261)
   store double %262, ptr %258, align 8
@@ -650,19 +650,19 @@ define void @dsyr2k_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 283:                                              ; preds = %.preheader349, %283
   %indvars.iv = phi i64 [ 1, %.preheader349 ], [ %indvars.iv.next, %283 ]
-  %.1291355 = phi double [ 0.000000e+00, %.preheader349 ], [ %287, %283 ]
-  %.1293354 = phi double [ 0.000000e+00, %.preheader349 ], [ %290, %283 ]
+  %.1356 = phi double [ 0.000000e+00, %.preheader349 ], [ %290, %283 ]
+  %.1279355 = phi double [ 0.000000e+00, %.preheader349 ], [ %287, %283 ]
   %284 = add nsw i64 %indvars.iv, -1
   %gep = getelementptr double, ptr %invariant.gep, i64 %284
   %285 = load double, ptr %gep, align 8
   %gep609 = getelementptr double, ptr %invariant.gep608, i64 %284
   %286 = load double, ptr %gep609, align 8
-  %287 = tail call double @llvm.fmuladd.f64(double %285, double %286, double %.1291355)
+  %287 = tail call double @llvm.fmuladd.f64(double %285, double %286, double %.1279355)
   %gep611 = getelementptr double, ptr %invariant.gep610, i64 %284
   %288 = load double, ptr %gep611, align 8
   %gep613 = getelementptr double, ptr %invariant.gep612, i64 %284
   %289 = load double, ptr %gep613, align 8
-  %290 = tail call double @llvm.fmuladd.f64(double %288, double %289, double %.1293354)
+  %290 = tail call double @llvm.fmuladd.f64(double %288, double %289, double %.1356)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %283, !llvm.loop !27
@@ -671,7 +671,7 @@ define void @dsyr2k_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %207, label %291, label %298
 
 291:                                              ; preds = %._crit_edge
-  %292 = fadd double %290, %287
+  %292 = fadd double %287, %290
   %293 = fmul double %18, %292
   %294 = trunc nuw nsw i64 %indvars.iv435 to i32
   %295 = add i32 %267, %294
@@ -686,7 +686,7 @@ define void @dsyr2k_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %301 = sext i32 %300 to i64
   %302 = getelementptr inbounds double, ptr %10, i64 %301
   %303 = load double, ptr %302, align 8
-  %304 = fadd double %290, %287
+  %304 = fadd double %287, %290
   %305 = fmul double %18, %304
   %306 = tail call double @llvm.fmuladd.f64(double %19, double %303, double %305)
   store double %306, ptr %302, align 8

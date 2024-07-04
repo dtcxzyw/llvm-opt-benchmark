@@ -125,12 +125,12 @@ define internal noundef i32 @dissect_armagetronad(ptr noundef %0, ptr nocapture 
   br i1 %6, label %.lr.ph.i, label %is_armagetronad_packet.exit
 
 .lr.ph.i:                                         ; preds = %4, %13
-  %.01113.i = phi i32 [ %14, %13 ], [ 0, %4 ]
-  %7 = add i32 %.01113.i, 4
+  %.013.i = phi i32 [ %14, %13 ], [ 0, %4 ]
+  %7 = add i32 %.013.i, 4
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #2
   %9 = zext i16 %8 to i32
   %10 = shl nuw nsw i32 %9, 1
-  %11 = add i32 %.01113.i, 6
+  %11 = add i32 %.013.i, 6
   %12 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %11, i32 noundef %10) #2
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %is_armagetronad_packet.exit.thread, label %13
@@ -142,8 +142,8 @@ define internal noundef i32 @dissect_armagetronad(ptr noundef %0, ptr nocapture 
   br i1 %16, label %.lr.ph.i, label %is_armagetronad_packet.exit, !llvm.loop !4
 
 is_armagetronad_packet.exit:                      ; preds = %13, %4
-  %.011.lcssa.i = phi i32 [ 0, %4 ], [ %14, %13 ]
-  %17 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.011.lcssa.i) #2
+  %.0.lcssa.i = phi i32 [ 0, %4 ], [ %14, %13 ]
+  %17 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0.lcssa.i) #2
   %.not = icmp eq i32 %17, 2
   br i1 %.not, label %18, label %is_armagetronad_packet.exit.thread
 
@@ -165,15 +165,15 @@ is_armagetronad_packet.exit:                      ; preds = %13, %4
   br i1 %30, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %18
-  %.not.i33 = icmp eq ptr %21, null
+  %.not.i32 = icmp eq ptr %21, null
   br label %31
 
 31:                                               ; preds = %.lr.ph, %add_message.exit
-  %.02936 = phi i32 [ 0, %.lr.ph ], [ %64, %add_message.exit ]
-  %32 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.02936) #2
-  %33 = add i32 %.02936, 2
+  %.02835 = phi i32 [ 0, %.lr.ph ], [ %64, %add_message.exit ]
+  %32 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.02835) #2
+  %33 = add i32 %.02835, 2
   %34 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %33) #2
-  %35 = add i32 %.02936, 4
+  %35 = add i32 %.02835, 4
   %36 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %35) #2
   %37 = zext i16 %36 to i32
   %38 = shl nuw nsw i32 %37, 1
@@ -185,21 +185,21 @@ is_armagetronad_packet.exit:                      ; preds = %13, %4
   br i1 %41, label %44, label %46
 
 44:                                               ; preds = %31
-  %45 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %28, i32 noundef %42, ptr noundef %0, i32 noundef %.02936, i32 noundef %43, ptr noundef nonnull @.str.74, i32 noundef %37) #2
+  %45 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %28, i32 noundef %42, ptr noundef %0, i32 noundef %.02835, i32 noundef %43, ptr noundef nonnull @.str.74, i32 noundef %37) #2
   br label %49
 
 46:                                               ; preds = %31
   %47 = zext i16 %34 to i32
-  %48 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %28, i32 noundef %42, ptr noundef %0, i32 noundef %.02936, i32 noundef %43, ptr noundef nonnull @.str.75, i32 noundef %47, ptr noundef %40) #2
+  %48 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %28, i32 noundef %42, ptr noundef %0, i32 noundef %.02835, i32 noundef %43, ptr noundef nonnull @.str.75, i32 noundef %47, ptr noundef %40) #2
   br label %49
 
 49:                                               ; preds = %46, %44
-  %.0.i32 = phi ptr [ %45, %44 ], [ %48, %46 ]
+  %.0.i = phi ptr [ %45, %44 ], [ %48, %46 ]
   %50 = load i32, ptr @ett_message, align 4
-  %51 = tail call ptr @proto_item_add_subtree(ptr noundef %.0.i32, i32 noundef %50) #2
+  %51 = tail call ptr @proto_item_add_subtree(ptr noundef %.0.i, i32 noundef %50) #2
   %52 = load i32, ptr @hf_armagetronad_descriptor_id, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %52, ptr noundef %0, i32 noundef %.02936, i32 noundef 2, i32 noundef 0) #2
-  br i1 %.not.i33, label %55, label %54
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %52, ptr noundef %0, i32 noundef %.02835, i32 noundef 2, i32 noundef 0) #2
+  br i1 %.not.i32, label %55, label %54
 
 54:                                               ; preds = %49
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef nonnull %21, ptr noundef nonnull @.str.76, ptr noundef %40) #2
@@ -214,22 +214,22 @@ is_armagetronad_packet.exit:                      ; preds = %13, %4
   br i1 %.not.i.i, label %add_message.exit, label %60
 
 60:                                               ; preds = %55
-  %61 = add i32 %.02936, 6
+  %61 = add i32 %.02835, 6
   %62 = load i32, ptr @hf_armagetronad_data, align 4
   %63 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %51, i32 noundef %62, ptr noundef %0, i32 noundef %61, i32 noundef %38, i32 noundef 0) #2
   br label %add_message.exit
 
 add_message.exit:                                 ; preds = %55, %60
-  %64 = add i32 %43, %.02936
+  %64 = add i32 %43, %.02835
   %65 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %64) #2
   %66 = icmp sgt i32 %65, 2
   br i1 %66, label %31, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %add_message.exit, %18
-  %.029.lcssa = phi i32 [ 0, %18 ], [ %64, %add_message.exit ]
-  %67 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.029.lcssa) #2
+  %.028.lcssa = phi i32 [ 0, %18 ], [ %64, %add_message.exit ]
+  %67 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.028.lcssa) #2
   %68 = load i32, ptr @hf_armagetronad_sender_id, align 4
-  %69 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %68, ptr noundef %0, i32 noundef %.029.lcssa, i32 noundef 2, i32 noundef 0) #2
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %68, ptr noundef %0, i32 noundef %.028.lcssa, i32 noundef 2, i32 noundef 0) #2
   %70 = tail call i64 @wmem_strbuf_get_len(ptr noundef %21) #2
   %71 = add i64 %70, -2
   %.not31 = icmp eq i64 %71, 0
@@ -245,17 +245,17 @@ add_message.exit:                                 ; preds = %55, %60
   br label %76
 
 76:                                               ; preds = %73, %72
-  %.028 = phi ptr [ %21, %72 ], [ %75, %73 ]
+  %.0 = phi ptr [ %21, %72 ], [ %75, %73 ]
   %77 = load ptr, ptr %22, align 8
-  %78 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.028) #2
+  %78 = tail call ptr @wmem_strbuf_get_str(ptr noundef %.0) #2
   %79 = zext i16 %67 to i32
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %77, i32 noundef 25, ptr noundef nonnull @.str.72, ptr noundef %78, i32 noundef %79) #2
-  %80 = add i32 %.029.lcssa, 2
+  %80 = add i32 %.028.lcssa, 2
   br label %is_armagetronad_packet.exit.thread
 
 is_armagetronad_packet.exit.thread:               ; preds = %.lr.ph.i, %is_armagetronad_packet.exit, %76
-  %.0 = phi i32 [ %80, %76 ], [ 0, %is_armagetronad_packet.exit ], [ 0, %.lr.ph.i ]
-  ret i32 %.0
+  %.029 = phi i32 [ %80, %76 ], [ 0, %is_armagetronad_packet.exit ], [ 0, %.lr.ph.i ]
+  ret i32 %.029
 }
 
 ; Function Attrs: nounwind uwtable

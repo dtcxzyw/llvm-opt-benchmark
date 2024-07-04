@@ -260,17 +260,17 @@ PredictLine_C.exit.thread.i:                      ; preds = %5
   br label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %PredictLine_C.exit.i, %PredictLine_C.exit62.loopexit.us.i
-  %.14867.us.i.pn = phi ptr [ %.14867.us.i, %PredictLine_C.exit62.loopexit.us.i ], [ %4, %PredictLine_C.exit.i ]
+  %.14667.us.i.pn = phi ptr [ %.14667.us.i, %PredictLine_C.exit62.loopexit.us.i ], [ %4, %PredictLine_C.exit.i ]
   %.166.us.i.pn = phi ptr [ %.166.us.i, %PredictLine_C.exit62.loopexit.us.i ], [ %0, %PredictLine_C.exit.i ]
-  %.14465.us.i = phi i32 [ %32, %PredictLine_C.exit62.loopexit.us.i ], [ 1, %PredictLine_C.exit.i ]
+  %.14864.us.i = phi i32 [ %32, %PredictLine_C.exit62.loopexit.us.i ], [ 1, %PredictLine_C.exit.i ]
   %.166.us.i = getelementptr inbounds i8, ptr %.166.us.i.pn, i64 %17
-  %.14867.us.i = getelementptr inbounds i8, ptr %.14867.us.i.pn, i64 %17
+  %.14667.us.i = getelementptr inbounds i8, ptr %.14667.us.i.pn, i64 %17
   %21 = load i8, ptr %.166.us.i, align 1
   %22 = load i8, ptr %.166.us.i.pn, align 1
   %23 = sub i8 %21, %22
-  store i8 %23, ptr %.14867.us.i, align 1
+  store i8 %23, ptr %.14667.us.i, align 1
   %24 = getelementptr inbounds i8, ptr %.166.us.i, i64 1
-  %25 = getelementptr inbounds i8, ptr %.14867.us.i, i64 1
+  %25 = getelementptr inbounds i8, ptr %.14667.us.i, i64 1
   br label %.lr.ph.i58.us.i
 
 .lr.ph.i58.us.i:                                  ; preds = %.lr.ph.i58.us.i, %.lr.ph.split.us.i
@@ -287,21 +287,21 @@ PredictLine_C.exit.thread.i:                      ; preds = %5
   br i1 %exitcond.not.i61.us.i, label %PredictLine_C.exit62.loopexit.us.i, label %.lr.ph.i58.us.i, !llvm.loop !8
 
 PredictLine_C.exit62.loopexit.us.i:               ; preds = %.lr.ph.i58.us.i
-  %32 = add nuw nsw i32 %.14465.us.i, 1
+  %32 = add nuw nsw i32 %.14864.us.i, 1
   %exitcond69.not.i = icmp eq i32 %32, %2
   br i1 %exitcond69.not.i, label %DoHorizontalFilter_C.exit, label %.lr.ph.split.us.i, !llvm.loop !9
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i, %.lr.ph.split.preheader.i
-  %.14867.i.pn = phi ptr [ %.14867.i, %.lr.ph.split.i ], [ %4, %.lr.ph.split.preheader.i ]
+  %.14667.i.pn = phi ptr [ %.14667.i, %.lr.ph.split.i ], [ %4, %.lr.ph.split.preheader.i ]
   %.166.i.pn = phi ptr [ %.166.i, %.lr.ph.split.i ], [ %0, %.lr.ph.split.preheader.i ]
-  %.14465.i = phi i32 [ %36, %.lr.ph.split.i ], [ 1, %.lr.ph.split.preheader.i ]
+  %.14864.i = phi i32 [ %36, %.lr.ph.split.i ], [ 1, %.lr.ph.split.preheader.i ]
   %.166.i = getelementptr inbounds i8, ptr %.166.i.pn, i64 %20
-  %.14867.i = getelementptr inbounds i8, ptr %.14867.i.pn, i64 %20
+  %.14667.i = getelementptr inbounds i8, ptr %.14667.i.pn, i64 %20
   %33 = load i8, ptr %.166.i, align 1
   %34 = load i8, ptr %.166.i.pn, align 1
   %35 = sub i8 %33, %34
-  store i8 %35, ptr %.14867.i, align 1
-  %36 = add nuw nsw i32 %.14465.i, 1
+  store i8 %35, ptr %.14667.i, align 1
+  %36 = add nuw nsw i32 %.14864.i, 1
   %exitcond.not.i = icmp eq i32 %36, %2
   br i1 %exitcond.not.i, label %DoHorizontalFilter_C.exit, label %.lr.ph.split.i, !llvm.loop !9
 
@@ -347,11 +347,11 @@ PredictLine_C.exit.i:                             ; preds = %.lr.ph.i.i, %5
   br i1 %19, label %.lr.ph.preheader.i45.us.i, label %DoVerticalFilter_C.exit
 
 .lr.ph.preheader.i45.us.i:                        ; preds = %.lr.ph.i, %PredictLine_C.exit51.loopexit.us.i
-  %.14358.us.pn.i = phi ptr [ %.14358.us.i, %PredictLine_C.exit51.loopexit.us.i ], [ %4, %.lr.ph.i ]
+  %.14158.us.pn.i = phi ptr [ %.14158.us.i, %PredictLine_C.exit51.loopexit.us.i ], [ %4, %.lr.ph.i ]
   %.157.us.pn.i = phi ptr [ %.157.us.i, %PredictLine_C.exit51.loopexit.us.i ], [ %0, %.lr.ph.i ]
-  %.13956.us.i = phi i32 [ %26, %PredictLine_C.exit51.loopexit.us.i ], [ 1, %.lr.ph.i ]
+  %.14355.us.i = phi i32 [ %26, %PredictLine_C.exit51.loopexit.us.i ], [ 1, %.lr.ph.i ]
   %.157.us.i = getelementptr i8, ptr %.157.us.pn.i, i64 %17
-  %.14358.us.i = getelementptr inbounds i8, ptr %.14358.us.pn.i, i64 %17
+  %.14158.us.i = getelementptr inbounds i8, ptr %.14158.us.pn.i, i64 %17
   br label %.lr.ph.i47.us.i
 
 .lr.ph.i47.us.i:                                  ; preds = %.lr.ph.i47.us.i, %.lr.ph.preheader.i45.us.i
@@ -361,14 +361,14 @@ PredictLine_C.exit.i:                             ; preds = %.lr.ph.i.i, %5
   %22 = getelementptr inbounds i8, ptr %.157.us.pn.i, i64 %indvars.iv.i48.us.i
   %23 = load i8, ptr %22, align 1
   %24 = sub i8 %21, %23
-  %25 = getelementptr inbounds i8, ptr %.14358.us.i, i64 %indvars.iv.i48.us.i
+  %25 = getelementptr inbounds i8, ptr %.14158.us.i, i64 %indvars.iv.i48.us.i
   store i8 %24, ptr %25, align 1
   %indvars.iv.next.i49.us.i = add nuw nsw i64 %indvars.iv.i48.us.i, 1
   %exitcond.not.i50.us.i = icmp eq i64 %indvars.iv.next.i49.us.i, %wide.trip.count.i46.i
   br i1 %exitcond.not.i50.us.i, label %PredictLine_C.exit51.loopexit.us.i, label %.lr.ph.i47.us.i, !llvm.loop !8
 
 PredictLine_C.exit51.loopexit.us.i:               ; preds = %.lr.ph.i47.us.i
-  %26 = add nuw nsw i32 %.13956.us.i, 1
+  %26 = add nuw nsw i32 %.14355.us.i, 1
   %exitcond.not.i = icmp eq i32 %26, %2
   br i1 %exitcond.not.i, label %DoVerticalFilter_C.exit, label %.lr.ph.preheader.i45.us.i, !llvm.loop !10
 
@@ -421,15 +421,15 @@ PredictLine_C.exit.thread.i:                      ; preds = %5
   br label %.lr.ph76.split.us.i
 
 .lr.ph76.split.us.i:                              ; preds = %PredictLine_C.exit69._crit_edge.us.i, %.lr.ph76.split.us.preheader.i
-  %.16075.us.i.pn = phi ptr [ %.16075.us.i, %PredictLine_C.exit69._crit_edge.us.i ], [ %4, %.lr.ph76.split.us.preheader.i ]
+  %.16275.us.i.pn = phi ptr [ %.16275.us.i, %PredictLine_C.exit69._crit_edge.us.i ], [ %4, %.lr.ph76.split.us.preheader.i ]
   %.174.us.i.pn = phi ptr [ %.174.us.i, %PredictLine_C.exit69._crit_edge.us.i ], [ %0, %.lr.ph76.split.us.preheader.i ]
   %.15873.us.i = phi i32 [ %40, %PredictLine_C.exit69._crit_edge.us.i ], [ 1, %.lr.ph76.split.us.preheader.i ]
   %.174.us.i = getelementptr inbounds i8, ptr %.174.us.i.pn, i64 %17
-  %.16075.us.i = getelementptr inbounds i8, ptr %.16075.us.i.pn, i64 %17
+  %.16275.us.i = getelementptr inbounds i8, ptr %.16275.us.i.pn, i64 %17
   %21 = load i8, ptr %.174.us.i, align 1
   %22 = load i8, ptr %.174.us.i.pn, align 1
   %23 = sub i8 %21, %22
-  store i8 %23, ptr %.16075.us.i, align 1
+  store i8 %23, ptr %.16275.us.i, align 1
   %invariant.gep = getelementptr i8, ptr %.174.us.i, i64 -1
   %invariant.gep6 = getelementptr i8, ptr %.174.us.i.pn, i64 -1
   br label %PredictLine_C.exit69.us.i
@@ -453,7 +453,7 @@ PredictLine_C.exit69.us.i:                        ; preds = %PredictLine_C.exit6
   %36 = load i8, ptr %35, align 1
   %37 = trunc nuw i32 %34 to i8
   %38 = sub i8 %36, %37
-  %39 = getelementptr inbounds i8, ptr %.16075.us.i, i64 %indvars.iv.i
+  %39 = getelementptr inbounds i8, ptr %.16275.us.i, i64 %indvars.iv.i
   store i8 %38, ptr %39, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond79.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -465,15 +465,15 @@ PredictLine_C.exit69._crit_edge.us.i:             ; preds = %PredictLine_C.exit6
   br i1 %exitcond80.not.i, label %DoGradientFilter_C.exit, label %.lr.ph76.split.us.i, !llvm.loop !12
 
 .lr.ph76.split.i:                                 ; preds = %.lr.ph76.split.i, %.lr.ph76.split.preheader.i
-  %.16075.i.pn = phi ptr [ %.16075.i, %.lr.ph76.split.i ], [ %4, %.lr.ph76.split.preheader.i ]
+  %.16275.i.pn = phi ptr [ %.16275.i, %.lr.ph76.split.i ], [ %4, %.lr.ph76.split.preheader.i ]
   %.174.i.pn = phi ptr [ %.174.i, %.lr.ph76.split.i ], [ %0, %.lr.ph76.split.preheader.i ]
   %.15873.i = phi i32 [ %44, %.lr.ph76.split.i ], [ 1, %.lr.ph76.split.preheader.i ]
   %.174.i = getelementptr inbounds i8, ptr %.174.i.pn, i64 %20
-  %.16075.i = getelementptr inbounds i8, ptr %.16075.i.pn, i64 %20
+  %.16275.i = getelementptr inbounds i8, ptr %.16275.i.pn, i64 %20
   %41 = load i8, ptr %.174.i, align 1
   %42 = load i8, ptr %.174.i.pn, align 1
   %43 = sub i8 %41, %42
-  store i8 %43, ptr %.16075.i, align 1
+  store i8 %43, ptr %.16275.i, align 1
   %44 = add nuw nsw i32 %.15873.i, 1
   %exitcond.not.i = icmp eq i32 %44, %2
   br i1 %exitcond.not.i, label %DoGradientFilter_C.exit, label %.lr.ph76.split.i, !llvm.loop !12

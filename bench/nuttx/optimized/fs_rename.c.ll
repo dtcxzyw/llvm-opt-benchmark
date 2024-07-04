@@ -111,7 +111,7 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
   br label %59
 
 59:                                               ; preds = %76, %.lr.ph.i
-  %.0343.i = phi ptr [ %48, %.lr.ph.i ], [ %.1.i, %76 ]
+  %.0343.i = phi ptr [ %48, %.lr.ph.i ], [ %.135.i, %76 ]
   %60 = load i32, ptr %58, align 8
   %61 = and i32 %60, 61440
   %62 = icmp eq i32 %61, 16384
@@ -146,11 +146,11 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
   br label %76
 
 76:                                               ; preds = %74, %63
-  %.1.i = phi ptr [ %75, %74 ], [ %64, %63 ]
+  %.135.i = phi ptr [ %75, %74 ], [ %64, %63 ]
   %77 = load ptr, ptr %34, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 192
   %79 = load ptr, ptr %78, align 8
-  %80 = call i32 %79(ptr noundef nonnull %25, ptr noundef %.1.i, ptr noundef nonnull %8) #6
+  %80 = call i32 %79(ptr noundef nonnull %25, ptr noundef %.135.i, ptr noundef nonnull %8) #6
   %81 = icmp sgt i32 %80, -1
   br i1 %81, label %59, label %.loopexit.i
 
@@ -174,7 +174,7 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %76, %92, %88, %.preheader.i, %52
-  %.2.i = phi ptr [ %.0343.i, %92 ], [ %.0343.i, %88 ], [ %48, %52 ], [ %48, %.preheader.i ], [ %.1.i, %76 ]
+  %.2.i = phi ptr [ %.0343.i, %92 ], [ %.0343.i, %88 ], [ %48, %52 ], [ %48, %.preheader.i ], [ %.135.i, %76 ]
   %94 = load ptr, ptr %34, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 184
   %96 = load ptr, ptr %95, align 8
@@ -182,12 +182,12 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
   br label %98
 
 98:                                               ; preds = %.loopexit.i, %82, %73, %49, %45
-  %.035.i = phi i32 [ -12, %73 ], [ %86, %82 ], [ %97, %.loopexit.i ], [ -18, %45 ], [ 0, %49 ]
+  %.0.i = phi i32 [ -12, %73 ], [ %86, %82 ], [ %97, %.loopexit.i ], [ -18, %45 ], [ 0, %49 ]
   call void @inode_release(ptr noundef %47) #6
   br label %99
 
 99:                                               ; preds = %98, %39
-  %.136.i = phi i32 [ %43, %39 ], [ %.035.i, %98 ]
+  %.1.i = phi i32 [ %43, %39 ], [ %.0.i, %98 ]
   %100 = load ptr, ptr %41, align 8
   %.not47.i = icmp eq ptr %100, null
   br i1 %.not47.i, label %102, label %101
@@ -207,7 +207,7 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
   br label %mountptrename.exit
 
 mountptrename.exit:                               ; preds = %33, %102, %104
-  %.0.i = phi i32 [ -38, %33 ], [ %.136.i, %104 ], [ %.136.i, %102 ]
+  %.036.i = phi i32 [ -38, %33 ], [ %.1.i, %104 ], [ %.1.i, %102 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8)
@@ -381,7 +381,7 @@ pseudorename.exit:                                ; preds = %172, %174
   br label %175
 
 175:                                              ; preds = %pseudorename.exit, %mountptrename.exit
-  %.0 = phi i32 [ %.0.i, %mountptrename.exit ], [ %.1.i25, %pseudorename.exit ]
+  %.0 = phi i32 [ %.036.i, %mountptrename.exit ], [ %.1.i25, %pseudorename.exit ]
   call void @inode_release(ptr noundef %25) #6
   br label %176
 

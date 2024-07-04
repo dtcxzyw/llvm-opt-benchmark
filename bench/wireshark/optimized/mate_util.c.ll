@@ -355,8 +355,8 @@ define hidden void @rename_avpl(ptr nocapture noundef %0, ptr noundef %1) local_
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @insert_avp(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
-  %.01722 = load ptr, ptr %3, align 8
-  %4 = load ptr, ptr %.01722, align 8
+  %.022 = load ptr, ptr %3, align 8
+  %4 = load ptr, ptr %.022, align 8
   %.not23 = icmp eq ptr %4, null
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
@@ -368,7 +368,7 @@ define hidden range(i32 0, 2) i32 @insert_avp(ptr nocapture noundef %0, ptr noun
 
 8:                                                ; preds = %.lr.ph, %.thread
   %9 = phi ptr [ %4, %.lr.ph ], [ %30, %.thread ]
-  %.01724 = phi ptr [ %.01722, %.lr.ph ], [ %.017, %.thread ]
+  %.024 = phi ptr [ %.022, %.lr.ph ], [ %.0, %.thread ]
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %10) #14
   %12 = icmp eq i32 %11, 0
@@ -400,19 +400,19 @@ define hidden range(i32 0, 2) i32 @insert_avp(ptr nocapture noundef %0, ptr noun
   br i1 %28, label %._crit_edge, label %.thread
 
 .thread:                                          ; preds = %21, %19, %27
-  %29 = getelementptr inbounds i8, ptr %.01724, i64 8
-  %.017 = load ptr, ptr %29, align 8
-  %30 = load ptr, ptr %.017, align 8
+  %29 = getelementptr inbounds i8, ptr %.024, i64 8
+  %.0 = load ptr, ptr %29, align 8
+  %30 = load ptr, ptr %.0, align 8
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %._crit_edge, label %8, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.thread, %13, %27, %2
-  %.017.lcssa = phi ptr [ %.01722, %2 ], [ %.01724, %27 ], [ %.01724, %13 ], [ %.017, %.thread ]
+  %.0.lcssa = phi ptr [ %.022, %2 ], [ %.024, %27 ], [ %.024, %13 ], [ %.0, %.thread ]
   %31 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #13
   store ptr %1, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 8
-  store ptr %.017.lcssa, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %.017.lcssa, i64 16
+  store ptr %.0.lcssa, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %.0.lcssa, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %31, i64 16
   store ptr %34, ptr %35, align 8
@@ -426,8 +426,8 @@ define hidden range(i32 0, 2) i32 @insert_avp(ptr nocapture noundef %0, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %._crit_edge
-  %.0 = phi i32 [ 1, %._crit_edge ], [ 0, %21 ]
-  ret i32 %.0
+  %.017 = phi i32 [ 1, %._crit_edge ], [ 0, %21 ]
+  ret i32 %.017
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -761,9 +761,9 @@ define hidden void @merge_avpl(ptr nocapture noundef %0, ptr nocapture noundef r
 
 10:                                               ; preds = %.lr.ph, %85
   %11 = phi ptr [ %6, %.lr.ph ], [ %86, %85 ]
-  %.047 = phi ptr [ %8, %.lr.ph ], [ %.1, %85 ]
-  %.03046 = phi ptr [ %5, %.lr.ph ], [ %.131, %85 ]
-  %12 = load ptr, ptr %.047, align 8
+  %.047 = phi ptr [ %5, %.lr.ph ], [ %.1, %85 ]
+  %.03046 = phi ptr [ %8, %.lr.ph ], [ %.131, %85 ]
+  %12 = load ptr, ptr %.03046, align 8
   %.not37 = icmp eq ptr %12, null
   br i1 %.not37, label %.lr.ph54, label %13
 
@@ -775,7 +775,7 @@ define hidden void @merge_avpl(ptr nocapture noundef %0, ptr nocapture noundef r
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %.047, i64 8
+  %19 = getelementptr inbounds i8, ptr %.03046, i64 8
   %20 = load ptr, ptr %19, align 8
   br label %85
 
@@ -809,8 +809,8 @@ insert_avp_before_node.exit:                      ; preds = %22, %24
   %37 = phi ptr [ %25, %24 ], [ %11, %22 ]
   store ptr %37, ptr %23, align 8
   %38 = getelementptr inbounds i8, ptr %23, i64 8
-  store ptr %.047, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %.047, i64 16
+  store ptr %.03046, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %.03046, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %23, i64 16
   store ptr %40, ptr %41, align 8
@@ -820,7 +820,7 @@ insert_avp_before_node.exit:                      ; preds = %22, %24
   %43 = load i32, ptr %9, align 8
   %44 = add i32 %43, 1
   store i32 %44, ptr %9, align 8
-  %45 = getelementptr inbounds i8, ptr %.03046, i64 8
+  %45 = getelementptr inbounds i8, ptr %.047, i64 8
   %46 = load ptr, ptr %45, align 8
   br label %85
 
@@ -834,7 +834,7 @@ insert_avp_before_node.exit:                      ; preds = %22, %24
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %.047, i64 8
+  %55 = getelementptr inbounds i8, ptr %.03046, i64 8
   %56 = load ptr, ptr %55, align 8
   br label %85
 
@@ -867,8 +867,8 @@ insert_avp_before_node.exit42:                    ; preds = %58, %60
   %72 = phi ptr [ %61, %60 ], [ %11, %58 ]
   store ptr %72, ptr %59, align 8
   %73 = getelementptr inbounds i8, ptr %59, i64 8
-  store ptr %.047, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %.047, i64 16
+  store ptr %.03046, ptr %73, align 8
+  %74 = getelementptr inbounds i8, ptr %.03046, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %59, i64 16
   store ptr %75, ptr %76, align 8
@@ -878,35 +878,35 @@ insert_avp_before_node.exit42:                    ; preds = %58, %60
   %78 = load i32, ptr %9, align 8
   %79 = add i32 %78, 1
   store i32 %79, ptr %9, align 8
-  %80 = getelementptr inbounds i8, ptr %.03046, i64 8
+  %80 = getelementptr inbounds i8, ptr %.047, i64 8
   %81 = load ptr, ptr %80, align 8
   br label %85
 
 82:                                               ; preds = %57
-  %83 = getelementptr inbounds i8, ptr %.03046, i64 8
+  %83 = getelementptr inbounds i8, ptr %.047, i64 8
   %84 = load ptr, ptr %83, align 8
   br label %85
 
 85:                                               ; preds = %insert_avp_before_node.exit, %insert_avp_before_node.exit42, %82, %54, %18
-  %.131 = phi ptr [ %.03046, %18 ], [ %46, %insert_avp_before_node.exit ], [ %.03046, %54 ], [ %81, %insert_avp_before_node.exit42 ], [ %84, %82 ]
-  %.1 = phi ptr [ %20, %18 ], [ %.047, %insert_avp_before_node.exit ], [ %56, %54 ], [ %.047, %insert_avp_before_node.exit42 ], [ %.047, %82 ]
-  %86 = load ptr, ptr %.131, align 8
+  %.131 = phi ptr [ %20, %18 ], [ %.03046, %insert_avp_before_node.exit ], [ %56, %54 ], [ %.03046, %insert_avp_before_node.exit42 ], [ %.03046, %82 ]
+  %.1 = phi ptr [ %.047, %18 ], [ %46, %insert_avp_before_node.exit ], [ %.047, %54 ], [ %81, %insert_avp_before_node.exit42 ], [ %84, %82 ]
+  %86 = load ptr, ptr %.1, align 8
   %.not = icmp eq ptr %86, null
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !11
 
 .lr.ph54:                                         ; preds = %10
   %.not.i43 = icmp eq i32 %2, 0
-  %87 = getelementptr inbounds i8, ptr %.047, i64 16
+  %87 = getelementptr inbounds i8, ptr %.03046, i64 16
   %88 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %.not.i43, label %insert_avp_before_node.exit44.us, label %insert_avp_before_node.exit44
 
 insert_avp_before_node.exit44.us:                 ; preds = %.lr.ph54, %insert_avp_before_node.exit44.us
   %89 = phi ptr [ %99, %insert_avp_before_node.exit44.us ], [ %11, %.lr.ph54 ]
-  %.253.us = phi ptr [ %98, %insert_avp_before_node.exit44.us ], [ %.03046, %.lr.ph54 ]
+  %.253.us = phi ptr [ %98, %insert_avp_before_node.exit44.us ], [ %.047, %.lr.ph54 ]
   %90 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #13
   store ptr %89, ptr %90, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 8
-  store ptr %.047, ptr %91, align 8
+  store ptr %.03046, ptr %91, align 8
   %92 = load ptr, ptr %87, align 8
   %93 = getelementptr inbounds i8, ptr %90, i64 16
   store ptr %92, ptr %93, align 8
@@ -924,7 +924,7 @@ insert_avp_before_node.exit44.us:                 ; preds = %.lr.ph54, %insert_a
 
 insert_avp_before_node.exit44:                    ; preds = %.lr.ph54, %insert_avp_before_node.exit44
   %100 = phi ptr [ %122, %insert_avp_before_node.exit44 ], [ %11, %.lr.ph54 ]
-  %.253 = phi ptr [ %121, %insert_avp_before_node.exit44 ], [ %.03046, %.lr.ph54 ]
+  %.253 = phi ptr [ %121, %insert_avp_before_node.exit44 ], [ %.047, %.lr.ph54 ]
   %101 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #13
   %102 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #13
   %103 = load ptr, ptr @avp_strings, align 8
@@ -943,7 +943,7 @@ insert_avp_before_node.exit44:                    ; preds = %.lr.ph54, %insert_a
   store i8 %112, ptr %113, align 8
   store ptr %102, ptr %101, align 8
   %114 = getelementptr inbounds i8, ptr %101, i64 8
-  store ptr %.047, ptr %114, align 8
+  store ptr %.03046, ptr %114, align 8
   %115 = load ptr, ptr %87, align 8
   %116 = getelementptr inbounds i8, ptr %101, i64 16
   store ptr %115, ptr %116, align 8
@@ -1258,9 +1258,9 @@ define hidden noundef ptr @new_avpl_loose_match(ptr noundef %0, ptr nocapture no
 
 19:                                               ; preds = %.lr.ph, %73
   %20 = phi ptr [ %16, %.lr.ph ], [ %74, %73 ]
-  %.02539 = phi ptr [ %18, %.lr.ph ], [ %.1, %73 ]
-  %.02638 = phi ptr [ %15, %.lr.ph ], [ %.127, %73 ]
-  %21 = load ptr, ptr %.02539, align 8
+  %.02539 = phi ptr [ %15, %.lr.ph ], [ %.1, %73 ]
+  %.02638 = phi ptr [ %18, %.lr.ph ], [ %.127, %73 ]
+  %21 = load ptr, ptr %.02638, align 8
   %.not32 = icmp eq ptr %21, null
   br i1 %.not32, label %.critedge, label %22
 
@@ -1272,7 +1272,7 @@ define hidden noundef ptr @new_avpl_loose_match(ptr noundef %0, ptr nocapture no
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %.02539, i64 8
+  %28 = getelementptr inbounds i8, ptr %.02638, i64 8
   %29 = load ptr, ptr %28, align 8
   br label %73
 
@@ -1281,21 +1281,21 @@ define hidden noundef ptr @new_avpl_loose_match(ptr noundef %0, ptr nocapture no
   br i1 %.not33, label %.preheader, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %.02638, i64 8
+  %32 = getelementptr inbounds i8, ptr %.02539, i64 8
   %33 = load ptr, ptr %32, align 8
   br label %73
 
 .preheader:                                       ; preds = %30, %66
   %34 = phi ptr [ %65, %66 ], [ %21, %30 ]
   %35 = phi ptr [ %68, %66 ], [ %20, %30 ]
-  %.0 = phi ptr [ %64, %66 ], [ %.02539, %30 ]
+  %.0 = phi ptr [ %64, %66 ], [ %.02638, %30 ]
   %36 = tail call ptr @match_avp(ptr noundef nonnull %35, ptr noundef nonnull %34)
   %.not34 = icmp eq ptr %36, null
   br i1 %.not34, label %62, label %37
 
 37:                                               ; preds = %.preheader
   %38 = load ptr, ptr %13, align 8
-  %39 = load ptr, ptr %.02638, align 8
+  %39 = load ptr, ptr %.02539, align 8
   %40 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #13
   br i1 %.not.i36, label %insert_avp_before_node.exit, label %41
 
@@ -1343,20 +1343,20 @@ insert_avp_before_node.exit:                      ; preds = %37, %41
 
 66:                                               ; preds = %62
   %67 = load ptr, ptr %65, align 8
-  %68 = load ptr, ptr %.02638, align 8
+  %68 = load ptr, ptr %.02539, align 8
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %67, %69
   br i1 %70, label %.preheader, label %.critedge2, !llvm.loop !15
 
 .critedge2:                                       ; preds = %62, %66, %insert_avp_before_node.exit
-  %71 = getelementptr inbounds i8, ptr %.02638, i64 8
+  %71 = getelementptr inbounds i8, ptr %.02539, i64 8
   %72 = load ptr, ptr %71, align 8
   br label %73
 
 73:                                               ; preds = %31, %.critedge2, %27
-  %.127 = phi ptr [ %.02638, %27 ], [ %33, %31 ], [ %72, %.critedge2 ]
-  %.1 = phi ptr [ %29, %27 ], [ %.02539, %31 ], [ %.02539, %.critedge2 ]
-  %74 = load ptr, ptr %.127, align 8
+  %.127 = phi ptr [ %29, %27 ], [ %.02638, %31 ], [ %.02638, %.critedge2 ]
+  %.1 = phi ptr [ %.02539, %27 ], [ %33, %31 ], [ %72, %.critedge2 ]
+  %74 = load ptr, ptr %.1, align 8
   %.not = icmp eq ptr %74, null
   br i1 %.not, label %.critedge, label %19, !llvm.loop !16
 
@@ -1397,10 +1397,10 @@ define hidden noundef ptr @new_avpl_pairs_match(ptr noundef %0, ptr nocapture no
 
 20:                                               ; preds = %.lr.ph, %73
   %21 = phi ptr [ %19, %.lr.ph ], [ %74, %73 ]
-  %.04082 = phi ptr [ null, %.lr.ph ], [ %.270, %73 ]
-  %.04281 = phi ptr [ %16, %.lr.ph ], [ %.24469, %73 ]
-  %.04580 = phi ptr [ %18, %.lr.ph ], [ %.14668, %73 ]
-  %22 = load ptr, ptr %.04580, align 8
+  %.03982 = phi ptr [ null, %.lr.ph ], [ %.270, %73 ]
+  %.04181 = phi ptr [ %16, %.lr.ph ], [ %.24369, %73 ]
+  %.04480 = phi ptr [ %18, %.lr.ph ], [ %.14568, %73 ]
+  %22 = load ptr, ptr %.04480, align 8
   %.not52 = icmp eq ptr %22, null
   br i1 %.not52, label %.critedge, label %23
 
@@ -1416,20 +1416,20 @@ define hidden noundef ptr @new_avpl_pairs_match(ptr noundef %0, ptr nocapture no
   br i1 %.not53, label %31, label %.thread
 
 .thread:                                          ; preds = %28
-  %29 = getelementptr inbounds i8, ptr %.04281, i64 8
+  %29 = getelementptr inbounds i8, ptr %.04181, i64 8
   %30 = load ptr, ptr %29, align 8
   br label %73
 
 31:                                               ; preds = %28
-  %32 = load ptr, ptr %.04281, align 8
-  %33 = load ptr, ptr %.04580, align 8
+  %32 = load ptr, ptr %.04181, align 8
+  %33 = load ptr, ptr %.04480, align 8
   %34 = tail call ptr @match_avp(ptr noundef %32, ptr noundef %33)
   %.not54 = icmp eq ptr %34, null
   br i1 %.not54, label %64, label %35
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %14, align 8
-  %37 = load ptr, ptr %.04281, align 8
+  %37 = load ptr, ptr %.04181, align 8
   %38 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #13
   br i1 %.not.i62, label %.thread85, label %39
 
@@ -1466,19 +1466,19 @@ define hidden noundef ptr @new_avpl_pairs_match(ptr noundef %0, ptr nocapture no
   %58 = load i32, ptr %11, align 8
   %59 = add i32 %58, 1
   store i32 %59, ptr %11, align 8
-  %60 = load ptr, ptr %.04580, align 8
+  %60 = load ptr, ptr %.04480, align 8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %.04281, i64 8
+  %62 = getelementptr inbounds i8, ptr %.04181, i64 8
   %63 = load ptr, ptr %62, align 8
-  %.146.in89 = getelementptr inbounds i8, ptr %.04580, i64 8
-  %.14690 = load ptr, ptr %.146.in89, align 8
+  %.145.in89 = getelementptr inbounds i8, ptr %.04480, i64 8
+  %.14590 = load ptr, ptr %.145.in89, align 8
   br label %73
 
 64:                                               ; preds = %31, %23
-  %65 = load ptr, ptr %.04580, align 8
+  %65 = load ptr, ptr %.04480, align 8
   %66 = load ptr, ptr %65, align 8
-  %.146.in = getelementptr inbounds i8, ptr %.04580, i64 8
-  %.146 = load ptr, ptr %.146.in, align 8
+  %.145.in = getelementptr inbounds i8, ptr %.04480, i64 8
+  %.145 = load ptr, ptr %.145.in, align 8
   %.not55 = icmp eq ptr %66, null
   br i1 %.not55, label %73, label %67
 
@@ -1486,34 +1486,34 @@ define hidden noundef ptr @new_avpl_pairs_match(ptr noundef %0, ptr nocapture no
   br i1 %.not56, label %68, label %.critedge.thread
 
 68:                                               ; preds = %67
-  %.not57 = icmp eq ptr %.04082, %66
+  %.not57 = icmp eq ptr %.03982, %66
   br i1 %.not57, label %73, label %69
 
 69:                                               ; preds = %68
-  %70 = load ptr, ptr %.146, align 8
+  %70 = load ptr, ptr %.145, align 8
   %.not58 = icmp eq ptr %70, null
   br i1 %.not58, label %.critedge.thread, label %71
 
 71:                                               ; preds = %69
   %72 = load ptr, ptr %70, align 8
-  %.not59 = icmp eq ptr %72, %.04082
+  %.not59 = icmp eq ptr %72, %.03982
   br i1 %.not59, label %73, label %.critedge.thread
 
 73:                                               ; preds = %.thread85, %.thread, %71, %68, %64
-  %.270 = phi ptr [ %.04082, %.thread ], [ %.04082, %71 ], [ %.04082, %68 ], [ %.04082, %64 ], [ %61, %.thread85 ]
-  %.24469 = phi ptr [ %30, %.thread ], [ %.04281, %71 ], [ %.04281, %68 ], [ %.04281, %64 ], [ %63, %.thread85 ]
-  %.14668 = phi ptr [ %.04580, %.thread ], [ %.146, %71 ], [ %.146, %68 ], [ %.146, %64 ], [ %.14690, %.thread85 ]
-  %74 = load ptr, ptr %.24469, align 8
+  %.270 = phi ptr [ %.03982, %.thread ], [ %.03982, %71 ], [ %.03982, %68 ], [ %.03982, %64 ], [ %61, %.thread85 ]
+  %.24369 = phi ptr [ %30, %.thread ], [ %.04181, %71 ], [ %.04181, %68 ], [ %.04181, %64 ], [ %63, %.thread85 ]
+  %.14568 = phi ptr [ %.04480, %.thread ], [ %.145, %71 ], [ %.145, %68 ], [ %.145, %64 ], [ %.14590, %.thread85 ]
+  %74 = load ptr, ptr %.24369, align 8
   %.not = icmp eq ptr %74, null
   br i1 %.not, label %.critedge, label %20, !llvm.loop !17
 
 .critedge:                                        ; preds = %20, %73, %5
-  %.045.lcssa = phi ptr [ %18, %5 ], [ %.14668, %73 ], [ %.04580, %20 ]
+  %.044.lcssa = phi ptr [ %18, %5 ], [ %.14568, %73 ], [ %.04480, %20 ]
   %.not77 = icmp eq i32 %3, 0
   br i1 %.not77, label %select.unfold, label %75
 
 75:                                               ; preds = %.critedge
-  %76 = load ptr, ptr %.045.lcssa, align 8
+  %76 = load ptr, ptr %.044.lcssa, align 8
   %.not60 = icmp eq ptr %76, null
   br i1 %.not60, label %select.unfold, label %.critedge.thread
 
@@ -1522,8 +1522,8 @@ define hidden noundef ptr @new_avpl_pairs_match(ptr noundef %0, ptr nocapture no
   br label %select.unfold
 
 select.unfold:                                    ; preds = %75, %.critedge, %.critedge.thread
-  %.037 = phi ptr [ null, %.critedge.thread ], [ %8, %.critedge ], [ %8, %75 ]
-  ret ptr %.037
+  %.047 = phi ptr [ null, %.critedge.thread ], [ %8, %.critedge ], [ %8, %75 ]
+  ret ptr %.047
 }
 
 declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -1962,9 +1962,9 @@ default.unreachable196:                           ; preds = %37
   %22 = phi i32 [ %17, %.lr.ph ], [ %41, %.backedge ]
   %.0165 = phi i32 [ 0, %.lr.ph ], [ %.0.be, %.backedge ]
   %.0113164 = phi ptr [ null, %.lr.ph ], [ %.0113.be, %.backedge ]
-  %.0116163 = phi i8 [ 63, %.lr.ph ], [ %.0116.be, %.backedge ]
-  %.0117162 = phi i32 [ 0, %.lr.ph ], [ %.0117.be, %.backedge ]
-  %.0118161 = phi i32 [ 1, %.lr.ph ], [ %spec.select, %.backedge ]
+  %.0115163 = phi i8 [ 63, %.lr.ph ], [ %.0115.be, %.backedge ]
+  %.0116162 = phi i32 [ 1, %.lr.ph ], [ %spec.select, %.backedge ]
+  %.0117161 = phi i32 [ 0, %.lr.ph ], [ %.0117.be, %.backedge ]
   %23 = tail call i32 @feof(ptr noundef nonnull %16) #12
   %.not123 = icmp eq i32 %23, 0
   br i1 %.not123, label %30, label %24
@@ -1978,7 +1978,7 @@ default.unreachable196:                           ; preds = %37
   %27 = tail call ptr @__errno_location() #16
   %28 = load i32, ptr %27, align 4
   tail call void @report_read_failure(ptr noundef %0, i32 noundef %28) #12
-  %29 = tail call ptr (ptr, ptr, ptr, i32, ptr, ...) @load_loal_error(ptr noundef nonnull %16, ptr noundef nonnull %2, ptr noundef %.0113164, i32 noundef %.0118161, ptr noundef nonnull @.str.14, ptr noundef %0)
+  %29 = tail call ptr (ptr, ptr, ptr, i32, ptr, ...) @load_loal_error(ptr noundef nonnull %16, ptr noundef nonnull %2, ptr noundef %.0113164, i32 noundef %.0116162, ptr noundef nonnull @.str.14, ptr noundef %0)
   br label %124
 
 30:                                               ; preds = %20
@@ -1986,8 +1986,8 @@ default.unreachable196:                           ; preds = %37
   %31 = ashr exact i32 %sext, 24
   %32 = icmp eq i32 %sext, 167772160
   %33 = zext i1 %32 to i32
-  %spec.select = add i32 %.0118161, %33
-  %34 = icmp sgt i32 %.0117162, 8190
+  %spec.select = add i32 %.0116162, %33
+  %34 = icmp sgt i32 %.0117161, 8190
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %30
@@ -2004,7 +2004,7 @@ default.unreachable196:                           ; preds = %37
   ], !llvm.loop !22
 
 38:                                               ; preds = %37
-  %spec.select129 = select i1 %32, i32 0, i32 %.0117162
+  %spec.select129 = select i1 %32, i32 0, i32 %.0117161
   %spec.select130 = select i1 %32, i32 0, i32 4
   br label %.backedge
 
@@ -2084,8 +2084,8 @@ default.unreachable196:                           ; preds = %37
   br label %.backedge
 
 .backedge:                                        ; preds = %97, %108, %73, %78, %55, %55, %56, %58, %40, %43, %52, %61, %62, %79, %82, %91, %115, %39, %38
-  %.0117.be = phi i32 [ %116, %115 ], [ %94, %91 ], [ %83, %82 ], [ 0, %79 ], [ 0, %62 ], [ 1, %61 ], [ %.0117162, %52 ], [ 1, %43 ], [ %.0117162, %40 ], [ %spec.select129, %38 ], [ 0, %39 ], [ 0, %58 ], [ 0, %56 ], [ 0, %55 ], [ 0, %55 ], [ 0, %78 ], [ 0, %73 ], [ 0, %108 ], [ 0, %97 ]
-  %.0116.be = phi i8 [ %.0116163, %115 ], [ %.0116163, %91 ], [ %.0116163, %82 ], [ %21, %79 ], [ %.0116163, %62 ], [ %.0116163, %61 ], [ %.0116163, %52 ], [ %.0116163, %43 ], [ %.0116163, %40 ], [ %.0116163, %38 ], [ %.0116163, %39 ], [ %.0116163, %58 ], [ %.0116163, %56 ], [ %.0116163, %55 ], [ %.0116163, %55 ], [ 63, %78 ], [ 63, %73 ], [ %.0116163, %108 ], [ %.0116163, %97 ]
+  %.0117.be = phi i32 [ %116, %115 ], [ %94, %91 ], [ %83, %82 ], [ 0, %79 ], [ 0, %62 ], [ 1, %61 ], [ %.0117161, %52 ], [ 1, %43 ], [ %.0117161, %40 ], [ %spec.select129, %38 ], [ 0, %39 ], [ 0, %58 ], [ 0, %56 ], [ 0, %55 ], [ 0, %55 ], [ 0, %78 ], [ 0, %73 ], [ 0, %108 ], [ 0, %97 ]
+  %.0115.be = phi i8 [ %.0115163, %115 ], [ %.0115163, %91 ], [ %.0115163, %82 ], [ %21, %79 ], [ %.0115163, %62 ], [ %.0115163, %61 ], [ %.0115163, %52 ], [ %.0115163, %43 ], [ %.0115163, %40 ], [ %.0115163, %38 ], [ %.0115163, %39 ], [ %.0115163, %58 ], [ %.0115163, %56 ], [ %.0115163, %55 ], [ %.0115163, %55 ], [ 63, %78 ], [ 63, %73 ], [ %.0115163, %108 ], [ %.0115163, %97 ]
   %.0113.be = phi ptr [ %.0113164, %115 ], [ %.0113164, %91 ], [ %.0113164, %82 ], [ %.0113164, %79 ], [ %.0113164, %62 ], [ %.0113164, %61 ], [ %.0113164, %52 ], [ %45, %43 ], [ %.0113164, %40 ], [ %.0113164, %38 ], [ %.0113164, %39 ], [ %.0113164, %58 ], [ %.0113164, %56 ], [ %.0113164, %55 ], [ %.0113164, %55 ], [ %.0113164, %78 ], [ %.0113164, %73 ], [ %.0113164, %108 ], [ %.0113164, %97 ]
   %.0.be = phi i32 [ 3, %115 ], [ 3, %91 ], [ 2, %82 ], [ 3, %79 ], [ 0, %62 ], [ 2, %61 ], [ 4, %52 ], [ 2, %43 ], [ 0, %40 ], [ %spec.select130, %38 ], [ 0, %39 ], [ 1, %58 ], [ 1, %56 ], [ 1, %55 ], [ 1, %55 ], [ 1, %78 ], [ 1, %73 ], [ 1, %108 ], [ 1, %97 ]
   %41 = tail call i32 @fgetc(ptr noundef nonnull %16)
@@ -2308,7 +2308,7 @@ default.unreachable196:                           ; preds = %37
   ]
 
 73:                                               ; preds = %72
-  %74 = sext i32 %.0117162 to i64
+  %74 = sext i32 %.0117161 to i64
   %75 = getelementptr i8, ptr %10, i64 %74
   store i8 0, ptr %75, align 1
   store i8 0, ptr %11, align 1
@@ -2322,14 +2322,14 @@ default.unreachable196:                           ; preds = %37
   br label %.backedge
 
 79:                                               ; preds = %72, %72, %72, %72, %72, %72, %72, %72, %72, %72
-  %80 = sext i32 %.0117162 to i64
+  %80 = sext i32 %.0117161 to i64
   %81 = getelementptr i8, ptr %10, i64 %80
   store i8 0, ptr %81, align 1
   br label %.backedge
 
 82:                                               ; preds = %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72
-  %83 = add nsw i32 %.0117162, 1
-  %84 = sext i32 %.0117162 to i64
+  %83 = add nsw i32 %.0117161, 1
+  %84 = sext i32 %.0117161 to i64
   %85 = getelementptr i8, ptr %10, i64 %84
   store i8 %21, ptr %85, align 1
   br label %.backedge
@@ -2352,14 +2352,14 @@ default.unreachable196:                           ; preds = %37
 91:                                               ; preds = %90
   %92 = tail call i32 @fgetc(ptr noundef nonnull %16)
   %93 = trunc i32 %92 to i8
-  %94 = add nsw i32 %.0117162, 1
-  %95 = sext i32 %.0117162 to i64
+  %94 = add nsw i32 %.0117161, 1
+  %95 = sext i32 %.0117161 to i64
   %96 = getelementptr i8, ptr %11, i64 %95
   store i8 %93, ptr %96, align 1
   br label %.backedge
 
 97:                                               ; preds = %90
-  %98 = sext i32 %.0117162 to i64
+  %98 = sext i32 %.0117161 to i64
   %99 = getelementptr i8, ptr %11, i64 %98
   store i8 0, ptr %99, align 1
   %100 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #13
@@ -2371,7 +2371,7 @@ default.unreachable196:                           ; preds = %37
   %105 = getelementptr inbounds i8, ptr %100, i64 8
   store ptr %104, ptr %105, align 8
   %106 = getelementptr inbounds i8, ptr %100, i64 16
-  store i8 %.0116163, ptr %106, align 8
+  store i8 %.0115163, ptr %106, align 8
   %107 = tail call i32 @insert_avp(ptr noundef %.0113164, ptr noundef nonnull %100)
   %.not124 = icmp eq i32 %107, 0
   br i1 %.not124, label %108, label %.backedge
@@ -2391,8 +2391,8 @@ default.unreachable196:                           ; preds = %37
   br label %124
 
 115:                                              ; preds = %90
-  %116 = add nsw i32 %.0117162, 1
-  %117 = sext i32 %.0117162 to i64
+  %116 = add nsw i32 %.0117161, 1
+  %117 = sext i32 %.0117161 to i64
   %118 = getelementptr i8, ptr %11, i64 %117
   store i8 %21, ptr %118, align 1
   br label %.backedge
@@ -2409,11 +2409,11 @@ default.unreachable196:                           ; preds = %37
   br label %124
 
 124:                                              ; preds = %13, %26, %35, %53, %70, %86, %88, %113, %120, %.loopexit
-  %.0114 = phi ptr [ %2, %.loopexit ], [ %29, %26 ], [ %36, %35 ], [ %114, %113 ], [ %89, %88 ], [ %87, %86 ], [ %71, %70 ], [ %54, %53 ], [ %123, %120 ], [ %14, %13 ]
+  %.0118 = phi ptr [ %2, %.loopexit ], [ %29, %26 ], [ %36, %35 ], [ %114, %113 ], [ %89, %88 ], [ %87, %86 ], [ %71, %70 ], [ %54, %53 ], [ %123, %120 ], [ %14, %13 ]
   tail call void @g_free(ptr noundef %9) #12
   tail call void @g_free(ptr noundef %10) #12
   tail call void @g_free(ptr noundef %11) #12
-  ret ptr %.0114
+  ret ptr %.0118
 }
 
 ; Function Attrs: allocsize(0)

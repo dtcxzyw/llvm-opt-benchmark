@@ -648,13 +648,13 @@ for.body10.lr.ph:                                 ; preds = %for.end
 
 for.body10:                                       ; preds = %for.body10.lr.ph, %for.inc27
   %indvars.iv = phi i64 [ 0, %for.body10.lr.ph ], [ %indvars.iv.next, %for.inc27 ]
-  %curBufferSize.023 = phi i32 [ 4, %for.body10.lr.ph ], [ %curBufferSize.1, %for.inc27 ]
-  %idxprom11 = sext i32 %curBufferSize.023 to i64
+  %curBufferSize.022 = phi i32 [ 4, %for.body10.lr.ph ], [ %curBufferSize.1, %for.inc27 ]
+  %idxprom11 = sext i32 %curBufferSize.022 to i64
   %arrayidx12 = getelementptr inbounds i8, ptr %destBuffer, i64 %idxprom11
   %2 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds %struct.b3KernelArgData, ptr %2, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %arrayidx12, ptr noundef nonnull align 16 dereferenceable(32) %arrayidx.i, i64 32, i1 false)
-  %add16 = add i32 %curBufferSize.023, 32
+  %add16 = add i32 %curBufferSize.022, 32
   %3 = load i32, ptr %arrayidx12, align 16
   %cmp18 = icmp eq i32 %3, 1
   br i1 %cmp18, label %if.then, label %for.inc27

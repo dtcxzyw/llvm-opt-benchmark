@@ -1064,11 +1064,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit150:                 ; preds = %.loopexit291, %.loo
 
 .lr.ph673:                                        ; preds = %359, %452
   %364 = phi ptr [ %453, %452 ], [ %363, %359 ]
-  %.sroa.0230.0668 = phi ptr [ %.sroa.0230.1, %452 ], [ %361, %359 ]
+  %.sroa.0230.0665 = phi ptr [ %.sroa.0230.1, %452 ], [ %361, %359 ]
   br i1 %.not113, label %365, label %.critedge
 
 365:                                              ; preds = %.lr.ph673
-  %366 = load ptr, ptr %.sroa.0230.0668, align 8
+  %366 = load ptr, ptr %.sroa.0230.0665, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   br i1 %.not.i153, label %367, label %.lr.ph.i155
 
@@ -1111,21 +1111,21 @@ _ZL15count_hydrogensPPPciN3gmx8ArrayRefIKiEE.exit161: ; preds = %.lr.ph.i155
   br i1 %.not289, label %450, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph673, %_ZL15count_hydrogensPPPciN3gmx8ArrayRefIKiEE.exit161
-  %382 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2aiEv(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0230.0668)
+  %382 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2aiEv(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0230.0665)
   %383 = load i32, ptr %382, align 4
-  %384 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2ajEv(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0230.0668)
+  %384 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2ajEv(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0230.0665)
   %385 = load i32, ptr %384, align 4
   %386 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
   %387 = getelementptr inbounds i8, ptr %386, i64 8
   store i32 %383, ptr %386, align 4
   %.sroa.2218.0..sroa_idx = getelementptr inbounds i8, ptr %386, i64 4
   store i32 %385, ptr %.sroa.2218.0..sroa_idx, align 4
-  %388 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2c0Ev(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0230.0668)
+  %388 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2c0Ev(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0230.0665)
           to label %389 unwind label %441
 
 389:                                              ; preds = %.critedge
   %390 = load float, ptr %388, align 4
-  %391 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2c2Ev(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0230.0668)
+  %391 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2c2Ev(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0230.0665)
           to label %392 unwind label %441
 
 392:                                              ; preds = %389
@@ -1183,7 +1183,7 @@ _ZN17InteractionOfTypeD2Ev.exit178:               ; preds = %402, %404
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #17
   %405 = load ptr, ptr %360, align 8
-  %406 = ptrtoint ptr %.sroa.0230.0668 to i64
+  %406 = ptrtoint ptr %.sroa.0230.0665 to i64
   %407 = ptrtoint ptr %405 to i64
   %408 = sub i64 %406, %407
   %409 = getelementptr inbounds i8, ptr %405, i64 %408
@@ -1301,7 +1301,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit203:                 ; preds = %_ZNSt12_Vector_base
   br label %common.resume
 
 450:                                              ; preds = %_ZL15count_hydrogensPPPciN3gmx8ArrayRefIKiEE.exit161
-  %451 = getelementptr inbounds i8, ptr %.sroa.0230.0668, i64 104
+  %451 = getelementptr inbounds i8, ptr %.sroa.0230.0665, i64 104
   br label %452
 
 452:                                              ; preds = %450, %_ZNSt6vectorIiSaIiEED2Ev.exit197

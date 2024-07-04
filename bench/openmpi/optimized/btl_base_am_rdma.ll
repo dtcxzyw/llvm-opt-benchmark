@@ -934,17 +934,17 @@ define internal fastcc void @am_rdma_retry_operation(ptr noundef %0) unnamed_add
 am_rdma_copy_to_segments.exit.i:                  ; preds = %34, %70
   %73 = phi ptr [ %43, %70 ], [ %38, %34 ]
   %74 = phi ptr [ %41, %70 ], [ %36, %34 ]
-  %.037.i = phi ptr [ %57, %70 ], [ %8, %34 ]
-  %75 = getelementptr inbounds i8, ptr %.037.i, i64 72
+  %.0.i = phi ptr [ %57, %70 ], [ %8, %34 ]
+  %75 = getelementptr inbounds i8, ptr %.0.i, i64 72
   store ptr null, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %74, i64 192
   %77 = load ptr, ptr %76, align 8
-  %78 = tail call i32 %77(ptr noundef %74, ptr noundef %73, ptr noundef nonnull %.037.i, i8 noundef zeroext 18) #9
+  %78 = tail call i32 %77(ptr noundef %74, ptr noundef %73, ptr noundef nonnull %.0.i, i8 noundef zeroext 18) #9
   %.not41.i = icmp ult i32 %78, 2
   br i1 %.not41.i, label %am_rdma_respond.exit.thread, label %79
 
 79:                                               ; preds = %am_rdma_copy_to_segments.exit.i
-  store ptr %.037.i, ptr %7, align 8
+  store ptr %.0.i, ptr %7, align 8
   br label %am_rdma_respond.exit.thread7
 
 am_rdma_respond.exit:                             ; preds = %15, %21, %27
@@ -1498,17 +1498,17 @@ am_rdma_copy_from_segments.exit:                  ; preds = %.lr.ph.i47, %108, %
   br label %am_rdma_copy_to_segments.exit.i
 
 am_rdma_copy_to_segments.exit.i:                  ; preds = %146, %am_rdma_copy_from_segments.exit
-  %.037.i = phi ptr [ %133, %146 ], [ %117, %am_rdma_copy_from_segments.exit ]
-  %149 = getelementptr inbounds i8, ptr %.037.i, i64 72
+  %.0.i48 = phi ptr [ %133, %146 ], [ %117, %am_rdma_copy_from_segments.exit ]
+  %149 = getelementptr inbounds i8, ptr %.0.i48, i64 72
   store ptr null, ptr %149, align 8
   %150 = getelementptr inbounds i8, ptr %0, i64 192
   %151 = load ptr, ptr %150, align 8
-  %152 = tail call i32 %151(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.037.i, i8 noundef zeroext 18) #9
+  %152 = tail call i32 %151(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0.i48, i8 noundef zeroext 18) #9
   %.not41.i = icmp ult i32 %152, 2
   br i1 %.not41.i, label %am_rdma_respond.exit, label %153
 
 153:                                              ; preds = %am_rdma_copy_to_segments.exit.i
-  store ptr %.037.i, ptr %2, align 8
+  store ptr %.0.i48, ptr %2, align 8
   br label %am_rdma_respond.exit
 
 am_rdma_respond.exit:                             ; preds = %153, %am_rdma_copy_to_segments.exit.i, %129, %am_rdma_alloc_operation.exit, %opal_thread_add_fetch_32.exit, %93
@@ -1627,22 +1627,22 @@ define internal fastcc i32 @am_rdma_respond(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %72, label %.lr.ph.i, label %am_rdma_copy_to_segments.exit, !llvm.loop !12
 
 am_rdma_copy_to_segments.exit:                    ; preds = %.lr.ph.i, %57, %37, %5
-  %.037 = phi ptr [ %24, %37 ], [ %6, %5 ], [ %24, %57 ], [ %24, %.lr.ph.i ]
-  %73 = getelementptr inbounds i8, ptr %.037, i64 72
+  %.0 = phi ptr [ %24, %37 ], [ %6, %5 ], [ %24, %57 ], [ %24, %.lr.ph.i ]
+  %73 = getelementptr inbounds i8, ptr %.0, i64 72
   store ptr null, ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %0, i64 192
   %75 = load ptr, ptr %74, align 8
-  %76 = tail call i32 %75(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.037, i8 noundef zeroext 18) #9
+  %76 = tail call i32 %75(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0, i8 noundef zeroext 18) #9
   %.not41 = icmp ult i32 %76, 2
   br i1 %.not41, label %78, label %77
 
 77:                                               ; preds = %am_rdma_copy_to_segments.exit
-  store ptr %.037, ptr %2, align 8
+  store ptr %.0, ptr %2, align 8
   br label %78
 
 78:                                               ; preds = %am_rdma_copy_to_segments.exit, %77, %18
-  %.0 = phi i32 [ -2, %18 ], [ %76, %77 ], [ 0, %am_rdma_copy_to_segments.exit ]
-  ret i32 %.0
+  %.037 = phi i32 [ -2, %18 ], [ %76, %77 ], [ 0, %am_rdma_copy_to_segments.exit ]
+  ret i32 %.037
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -1712,17 +1712,17 @@ define internal void @am_rdma_rdma_complete(ptr noundef %0, ptr nocapture readno
   br label %am_rdma_copy_to_segments.exit.i
 
 am_rdma_copy_to_segments.exit.i:                  ; preds = %44, %7
-  %.037.i = phi ptr [ %31, %44 ], [ %15, %7 ]
-  %47 = getelementptr inbounds i8, ptr %.037.i, i64 72
+  %.0.i = phi ptr [ %31, %44 ], [ %15, %7 ]
+  %47 = getelementptr inbounds i8, ptr %.0.i, i64 72
   store ptr null, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %10, i64 192
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call i32 %49(ptr noundef %10, ptr noundef %12, ptr noundef nonnull %.037.i, i8 noundef zeroext 18) #9
+  %50 = tail call i32 %49(ptr noundef %10, ptr noundef %12, ptr noundef nonnull %.0.i, i8 noundef zeroext 18) #9
   %.not41.i = icmp ult i32 %50, 2
   br i1 %.not41.i, label %am_rdma_respond.exit, label %51
 
 51:                                               ; preds = %am_rdma_copy_to_segments.exit.i
-  store ptr %.037.i, ptr %13, align 8
+  store ptr %.0.i, ptr %13, align 8
   br label %52
 
 52:                                               ; preds = %27, %51

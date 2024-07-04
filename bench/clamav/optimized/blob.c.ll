@@ -451,7 +451,7 @@ define range(i32 -1, 1) i32 @blobAddData(ptr noundef %0, ptr noundef readonly %1
   br label %28
 
 28:                                               ; preds = %23, %20
-  %.035 = phi i32 [ %27, %23 ], [ %21, %20 ]
+  %.0 = phi i32 [ %27, %23 ], [ %21, %20 ]
   %29 = getelementptr inbounds i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
@@ -478,7 +478,7 @@ define range(i32 -1, 1) i32 @blobAddData(ptr noundef %0, ptr noundef readonly %1
   unreachable
 
 42:                                               ; preds = %37
-  %43 = sext i32 %.035 to i64
+  %43 = sext i32 %.0 to i64
   store i64 %43, ptr %38, align 8
   %44 = tail call ptr @cli_max_malloc(i64 noundef %43) #16
   store ptr %44, ptr %29, align 8
@@ -499,7 +499,7 @@ define range(i32 -1, 1) i32 @blobAddData(ptr noundef %0, ptr noundef readonly %1
   br i1 %53, label %54, label %.thread
 
 54:                                               ; preds = %47
-  %55 = sext i32 %.035 to i64
+  %55 = sext i32 %.0 to i64
   %56 = add nsw i64 %49, %55
   %57 = tail call ptr @cli_max_realloc(ptr noundef nonnull %30, i64 noundef %56) #16
   %58 = icmp eq ptr %57, null
@@ -524,8 +524,8 @@ define range(i32 -1, 1) i32 @blobAddData(ptr noundef %0, ptr noundef readonly %1
   br label %68
 
 68:                                               ; preds = %54, %7, %.thread, %46
-  %.0 = phi i32 [ -1, %46 ], [ 0, %.thread ], [ 0, %7 ], [ -1, %54 ]
-  ret i32 %.0
+  %.035 = phi i32 [ -1, %46 ], [ 0, %.thread ], [ 0, %7 ], [ -1, %54 ]
+  ret i32 %.035
 }
 
 declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #3

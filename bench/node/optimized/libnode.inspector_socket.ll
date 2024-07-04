@@ -2349,15 +2349,15 @@ if.then46.i.i:                                    ; preds = %if.end41.i.i
   br i1 %cmp59.i.i, label %_ZN4node9inspector12_GLOBAL__N_119decode_frame_hybi17ERKSt6vectorIcSaIcEEbPiPS4_Pb.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.then46.i.i, %for.body.i.i
-  %payload_length64.057.i.i = phi i64 [ %or.i.i, %for.body.i.i ], [ 0, %if.then46.i.i ]
-  %i.056.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %if.then46.i.i ]
+  %i.057.i.i = phi i32 [ %inc.i.i, %for.body.i.i ], [ 0, %if.then46.i.i ]
+  %payload_length64.056.i.i = phi i64 [ %or.i.i, %for.body.i.i ], [ 0, %if.then46.i.i ]
   %it.sroa.0.055.i.i = phi ptr [ %incdec.ptr.i32.i.i, %for.body.i.i ], [ %incdec.ptr.i27.i.i, %if.then46.i.i ]
-  %shl.i.i = shl i64 %payload_length64.057.i.i, 8
+  %shl.i.i = shl i64 %payload_length64.056.i.i, 8
   %incdec.ptr.i32.i.i = getelementptr inbounds i8, ptr %it.sroa.0.055.i.i, i64 1
   %7 = load i8, ptr %it.sroa.0.055.i.i, align 1
   %conv67.i.i = zext i8 %7 to i64
   %or.i.i = or disjoint i64 %shl.i.i, %conv67.i.i
-  %inc.i.i = add nuw nsw i32 %i.056.i.i, 1
+  %inc.i.i = add nuw nsw i32 %i.057.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc.i.i, %extended_payload_length_size.0.i.i
   br i1 %exitcond.not.i.i, label %if.end68.i.i, label %for.body.i.i, !llvm.loop !21
 

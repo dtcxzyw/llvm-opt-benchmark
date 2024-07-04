@@ -297,11 +297,11 @@ if.then79.i:                                      ; preds = %if.else77.i
   br label %if.then8.critedge
 
 if.then8.critedge:                                ; preds = %if.then12.i, %if.end40.i, %lor.lhs.false.i, %if.then15.i, %if.end5, %if.end.i, %newpass_bags.exit.i, %if.then79.i, %if.else77.i
-  %newsafes.045.i.ph = phi ptr [ null, %if.end5 ], [ null, %if.end.i ], [ %call1.i, %newpass_bags.exit.i ], [ %call1.i, %if.then79.i ], [ %call1.i, %if.else77.i ], [ %call1.i, %if.then15.i ], [ %call1.i, %lor.lhs.false.i ], [ %call1.i, %if.end40.i ], [ %call1.i, %if.then12.i ]
-  %bags.343.i.ph = phi ptr [ null, %if.end5 ], [ null, %if.end.i ], [ %bags.1.i, %newpass_bags.exit.i ], [ null, %if.then79.i ], [ null, %if.else77.i ], [ null, %if.then12.i ], [ %bags.1.i, %if.end40.i ], [ %bags.1.i, %lor.lhs.false.i ], [ %call16.i, %if.then15.i ]
-  call void @OPENSSL_sk_pop_free(ptr noundef %bags.343.i.ph, ptr noundef nonnull @PKCS12_SAFEBAG_free) #3
+  %bags.345.i.ph = phi ptr [ null, %if.end5 ], [ null, %if.end.i ], [ %bags.1.i, %newpass_bags.exit.i ], [ null, %if.then79.i ], [ null, %if.else77.i ], [ %call16.i, %if.then15.i ], [ %bags.1.i, %lor.lhs.false.i ], [ %bags.1.i, %if.end40.i ], [ null, %if.then12.i ]
+  %newsafes.043.i.ph = phi ptr [ null, %if.end5 ], [ null, %if.end.i ], [ %call1.i, %newpass_bags.exit.i ], [ %call1.i, %if.then79.i ], [ %call1.i, %if.else77.i ], [ %call1.i, %if.then15.i ], [ %call1.i, %lor.lhs.false.i ], [ %call1.i, %if.end40.i ], [ %call1.i, %if.then12.i ]
+  call void @OPENSSL_sk_pop_free(ptr noundef %bags.345.i.ph, ptr noundef nonnull @PKCS12_SAFEBAG_free) #3
   call void @OPENSSL_sk_pop_free(ptr noundef %call.i, ptr noundef nonnull @PKCS7_free) #3
-  call void @OPENSSL_sk_pop_free(ptr noundef %newsafes.045.i.ph, ptr noundef nonnull @PKCS7_free) #3
+  call void @OPENSSL_sk_pop_free(ptr noundef %newsafes.043.i.ph, ptr noundef nonnull @PKCS7_free) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pbe_nid.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pbe_iter.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %pbe_saltlen.i)

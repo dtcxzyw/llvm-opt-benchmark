@@ -232,20 +232,20 @@ opal_show_help_yy_create_buffer.exit:             ; preds = %40
 
 .backedge133:                                     ; preds = %.backedge133.backedge, %61
   %yy_state_ptr.promoted = phi ptr [ %73, %61 ], [ %yy_state_ptr.promoted.be, %.backedge133.backedge ]
-  %.056 = phi ptr [ %62, %61 ], [ %.056.be, %.backedge133.backedge ]
-  %.054 = phi ptr [ %62, %61 ], [ %.054.be, %.backedge133.backedge ]
-  %.049 = phi i32 [ %71, %61 ], [ %.049.be, %.backedge133.backedge ]
+  %.055 = phi i32 [ %71, %61 ], [ %.055.be, %.backedge133.backedge ]
+  %.053 = phi ptr [ %62, %61 ], [ %.053.be, %.backedge133.backedge ]
+  %.051 = phi ptr [ %62, %61 ], [ %.051.be, %.backedge133.backedge ]
   br label %74
 
 74:                                               ; preds = %._crit_edge, %.backedge133
   %75 = phi ptr [ %yy_state_ptr.promoted, %.backedge133 ], [ %110, %._crit_edge ]
-  %.157 = phi ptr [ %.056, %.backedge133 ], [ %111, %._crit_edge ]
-  %.1 = phi i32 [ %.049, %.backedge133 ], [ %109, %._crit_edge ]
-  %76 = load i8, ptr %.157, align 1
+  %.156 = phi i32 [ %.055, %.backedge133 ], [ %109, %._crit_edge ]
+  %.154 = phi ptr [ %.053, %.backedge133 ], [ %111, %._crit_edge ]
+  %76 = load i8, ptr %.154, align 1
   %77 = zext i8 %76 to i64
   %78 = getelementptr inbounds [256 x i8], ptr @yy_ec, i64 0, i64 %77
   %79 = load i8, ptr %78, align 1
-  %80 = sext i32 %.1 to i64
+  %80 = sext i32 %.156 to i64
   %81 = getelementptr inbounds [30 x i16], ptr @yy_base, i64 0, i64 %80
   %82 = load i16, ptr %81, align 2
   %83 = sext i16 %82 to i64
@@ -254,13 +254,13 @@ opal_show_help_yy_create_buffer.exit:             ; preds = %40
   %86 = getelementptr inbounds [37 x i16], ptr @yy_chk, i64 0, i64 %85
   %87 = load i16, ptr %86, align 2
   %88 = sext i16 %87 to i32
-  %.not76216 = icmp eq i32 %.1, %88
+  %.not76216 = icmp eq i32 %.156, %88
   br i1 %.not76216, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %74, %98
   %89 = phi i64 [ %103, %98 ], [ %84, %74 ]
   %90 = phi i64 [ %99, %98 ], [ %80, %74 ]
-  %.050217 = phi i8 [ %.151, %98 ], [ %79, %74 ]
+  %.0217 = phi i8 [ %.1, %98 ], [ %79, %74 ]
   %91 = getelementptr inbounds [30 x i16], ptr @yy_def, i64 0, i64 %90
   %92 = load i16, ptr %91, align 2
   %93 = lshr i64 1791834, %90
@@ -274,12 +274,12 @@ opal_show_help_yy_create_buffer.exit:             ; preds = %40
   br label %98
 
 98:                                               ; preds = %95, %.lr.ph
-  %.151 = phi i8 [ %97, %95 ], [ %.050217, %.lr.ph ]
+  %.1 = phi i8 [ %97, %95 ], [ %.0217, %.lr.ph ]
   %99 = sext i16 %92 to i64
   %100 = getelementptr inbounds [30 x i16], ptr @yy_base, i64 0, i64 %99
   %101 = load i16, ptr %100, align 2
   %102 = sext i16 %101 to i64
-  %103 = zext i8 %.151 to i64
+  %103 = zext i8 %.1 to i64
   %104 = add nsw i64 %102, %103
   %105 = getelementptr inbounds [37 x i16], ptr @yy_chk, i64 0, i64 %104
   %106 = load i16, ptr %105, align 2
@@ -294,7 +294,7 @@ opal_show_help_yy_create_buffer.exit:             ; preds = %40
   %110 = getelementptr inbounds i8, ptr %75, i64 4
   store ptr %110, ptr @yy_state_ptr, align 8
   store i32 %109, ptr %75, align 4
-  %111 = getelementptr inbounds i8, ptr %.157, i64 1
+  %111 = getelementptr inbounds i8, ptr %.154, i64 1
   %112 = zext nneg i16 %108 to i64
   %113 = lshr i64 6596736, %112
   %114 = and i64 %113, 1
@@ -307,8 +307,8 @@ opal_show_help_yy_create_buffer.exit:             ; preds = %40
 
 .preheader:                                       ; preds = %.preheader.backedge, %.preheader.preheader
   %115 = phi ptr [ %.pre338, %.preheader.preheader ], [ %.be, %.preheader.backedge ]
-  %.258 = phi ptr [ %111, %.preheader.preheader ], [ %.258.be, %.preheader.backedge ]
-  %.155 = phi ptr [ %.054, %.preheader.preheader ], [ %.155.be, %.preheader.backedge ]
+  %.2 = phi ptr [ %111, %.preheader.preheader ], [ %.2.be, %.preheader.backedge ]
+  %.152 = phi ptr [ %.051, %.preheader.preheader ], [ %.152.be, %.preheader.backedge ]
   %116 = getelementptr inbounds i8, ptr %115, i64 -4
   store ptr %116, ptr @yy_state_ptr, align 8
   %117 = load i32, ptr %116, align 4
@@ -323,20 +323,20 @@ opal_show_help_yy_create_buffer.exit:             ; preds = %40
   %123 = phi i32 [ %yy_looking_for_trail_begin.promoted, %.preheader ], [ %152, %151 ]
   %yy_state_ptr.promoted219222 = phi ptr [ %116, %.preheader ], [ %125, %151 ]
   %storemerge = phi i32 [ %121, %.preheader ], [ %153, %151 ]
-  %.359 = phi ptr [ %.258, %.preheader ], [ %.460, %151 ]
-  %.3 = phi i32 [ %117, %.preheader ], [ %.4, %151 ]
+  %.358 = phi i32 [ %117, %.preheader ], [ %.459, %151 ]
+  %.3 = phi ptr [ %.2, %.preheader ], [ %.4, %151 ]
   br label %124
 
 124:                                              ; preds = %154, %122
   %125 = phi ptr [ %yy_state_ptr.promoted219222, %122 ], [ %156, %154 ]
   %storemerge78 = phi i32 [ %storemerge, %122 ], [ %161, %154 ]
-  %.460 = phi ptr [ %.359, %122 ], [ %155, %154 ]
-  %.4 = phi i32 [ %.3, %122 ], [ %157, %154 ]
+  %.459 = phi i32 [ %.358, %122 ], [ %157, %154 ]
+  %.4 = phi ptr [ %.3, %122 ], [ %155, %154 ]
   %.not79 = icmp eq i32 %storemerge78, 0
   br i1 %.not79, label %154, label %126
 
 126:                                              ; preds = %124
-  %127 = add nsw i32 %.4, 1
+  %127 = add nsw i32 %.459, 1
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds [24 x i16], ptr @yy_accept, i64 0, i64 %128
   %130 = load i16, ptr %129, align 2
@@ -376,7 +376,7 @@ opal_show_help_yy_create_buffer.exit:             ; preds = %40
   br label %151
 
 150:                                              ; preds = %145
-  store ptr %.460, ptr @yy_full_match, align 8
+  store ptr %.4, ptr @yy_full_match, align 8
   store ptr %125, ptr @yy_full_state, align 8
   br label %162
 
@@ -386,7 +386,7 @@ opal_show_help_yy_create_buffer.exit:             ; preds = %40
   br label %122
 
 154:                                              ; preds = %126, %124
-  %155 = getelementptr inbounds i8, ptr %.460, i64 -1
+  %155 = getelementptr inbounds i8, ptr %.4, i64 -1
   %156 = getelementptr inbounds i8, ptr %125, i64 -4
   store ptr %156, ptr @yy_state_ptr, align 8
   %157 = load i32, ptr %156, align 4
@@ -397,23 +397,23 @@ opal_show_help_yy_create_buffer.exit:             ; preds = %40
   br label %124
 
 162:                                              ; preds = %150, %143
-  %.052 = phi i32 [ %144, %143 ], [ %137, %150 ]
-  store ptr %.155, ptr @opal_show_help_yytext, align 8
-  %163 = ptrtoint ptr %.460 to i64
-  %164 = ptrtoint ptr %.155 to i64
+  %.049 = phi i32 [ %144, %143 ], [ %137, %150 ]
+  store ptr %.152, ptr @opal_show_help_yytext, align 8
+  %163 = ptrtoint ptr %.4 to i64
+  %164 = ptrtoint ptr %.152 to i64
   %165 = sub i64 %163, %164
   %166 = trunc i64 %165 to i32
   store i32 %166, ptr @opal_show_help_yyleng, align 4
-  %167 = load i8, ptr %.460, align 1
+  %167 = load i8, ptr %.4, align 1
   store i8 %167, ptr @yy_hold_char, align 1
-  store i8 0, ptr %.460, align 1
-  store ptr %.460, ptr @yy_c_buf_p, align 8
+  store i8 0, ptr %.4, align 1
+  store ptr %.4, ptr @yy_c_buf_p, align 8
   br label %168
 
 168:                                              ; preds = %yy_get_next_buffer.exit.thread, %162
-  %169 = phi ptr [ %.460, %162 ], [ %506, %yy_get_next_buffer.exit.thread ]
-  %.153 = phi i32 [ %.052, %162 ], [ %510, %yy_get_next_buffer.exit.thread ]
-  switch i32 %.153, label %620 [
+  %169 = phi ptr [ %.4, %162 ], [ %506, %yy_get_next_buffer.exit.thread ]
+  %.150 = phi i32 [ %.049, %162 ], [ %510, %yy_get_next_buffer.exit.thread ]
+  switch i32 %.150, label %620 [
     i32 1, label %170
     i32 2, label %186
     i32 3, label %189
@@ -481,10 +481,10 @@ opal_show_help_yy_create_buffer.exit:             ; preds = %40
 
 206:                                              ; preds = %168
   %207 = load i8, ptr @yy_hold_char, align 1
-  store i8 %207, ptr %.460, align 1
-  %208 = getelementptr inbounds i8, ptr %.460, i64 -1
+  store i8 %207, ptr %.4, align 1
+  %208 = getelementptr inbounds i8, ptr %.4, i64 -1
   store ptr %208, ptr @yy_c_buf_p, align 8
-  store ptr %.155, ptr @opal_show_help_yytext, align 8
+  store ptr %.152, ptr @opal_show_help_yytext, align 8
   %209 = ptrtoint ptr %208 to i64
   %210 = sub i64 %209, %164
   %211 = trunc i64 %210 to i32
@@ -528,7 +528,7 @@ opal_show_help_yy_create_buffer.exit:             ; preds = %40
 234:                                              ; preds = %168
   %235 = load ptr, ptr @opal_show_help_yytext, align 8
   %236 = load i8, ptr @yy_hold_char, align 1
-  store i8 %236, ptr %.460, align 1
+  store i8 %236, ptr %.4, align 1
   %237 = load ptr, ptr @yy_buffer_stack, align 8
   %238 = load i64, ptr @yy_buffer_stack_top, align 8
   %239 = getelementptr inbounds ptr, ptr %237, i64 %238
@@ -744,14 +744,14 @@ yy_try_NUL_trans.exit:                            ; preds = %._crit_edge.i89
   br i1 %360, label %.lr.ph.i93, label %._crit_edge.i91
 
 .lr.ph.i93:                                       ; preds = %356, %.lr.ph.i93
-  %.03756.i = phi i32 [ %364, %.lr.ph.i93 ], [ 0, %356 ]
-  %.03855.i = phi ptr [ %363, %.lr.ph.i93 ], [ %255, %356 ]
-  %.03954.i = phi ptr [ %361, %.lr.ph.i93 ], [ %343, %356 ]
-  %361 = getelementptr inbounds i8, ptr %.03954.i, i64 1
-  %362 = load i8, ptr %.03954.i, align 1
-  %363 = getelementptr inbounds i8, ptr %.03855.i, i64 1
-  store i8 %362, ptr %.03855.i, align 1
-  %364 = add nuw nsw i32 %.03756.i, 1
+  %.03656.i = phi i32 [ %364, %.lr.ph.i93 ], [ 0, %356 ]
+  %.03755.i = phi ptr [ %361, %.lr.ph.i93 ], [ %343, %356 ]
+  %.03854.i = phi ptr [ %363, %.lr.ph.i93 ], [ %255, %356 ]
+  %361 = getelementptr inbounds i8, ptr %.03755.i, i64 1
+  %362 = load i8, ptr %.03755.i, align 1
+  %363 = getelementptr inbounds i8, ptr %.03854.i, i64 1
+  store i8 %362, ptr %.03854.i, align 1
+  %364 = add nuw nsw i32 %.03656.i, 1
   %exitcond.not.i94 = icmp eq i32 %364, %359
   br i1 %exitcond.not.i94, label %._crit_edge.loopexit.i, label %.lr.ph.i93, !llvm.loop !10
 
@@ -824,7 +824,7 @@ yy_try_NUL_trans.exit:                            ; preds = %._crit_edge.i89
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %384, %.critedge.split.loop.exit.i
-  %.033.lcssa.i = phi i32 [ %394, %.critedge.split.loop.exit.i ], [ %377, %384 ]
+  %.0.lcssa.i = phi i32 [ %394, %.critedge.split.loop.exit.i ], [ %377, %384 ]
   switch i32 %383, label %.loopexit.i [
     i32 10, label %.loopexit.thread70.i
     i32 -1, label %407
@@ -838,8 +838,8 @@ yy_try_NUL_trans.exit:                            ; preds = %._crit_edge.i89
   %399 = getelementptr inbounds i8, ptr %398, i64 8
   %400 = load ptr, ptr %399, align 8
   %401 = getelementptr inbounds i8, ptr %400, i64 %380
-  %402 = add nuw nsw i32 %.033.lcssa.i, 1
-  %403 = zext nneg i32 %.033.lcssa.i to i64
+  %402 = add nuw nsw i32 %.0.lcssa.i, 1
+  %403 = zext nneg i32 %.0.lcssa.i to i64
   %404 = getelementptr inbounds i8, ptr %401, i64 %403
   store i8 10, ptr %404, align 1
   store i32 %402, ptr @yy_n_chars, align 4
@@ -926,14 +926,14 @@ yy_try_NUL_trans.exit:                            ; preds = %._crit_edge.i89
   br label %467
 
 .loopexit.i:                                      ; preds = %407, %.critedge.i
-  store i32 %.033.lcssa.i, ptr @yy_n_chars, align 4
+  store i32 %.0.lcssa.i, ptr @yy_n_chars, align 4
   %450 = load ptr, ptr @yy_buffer_stack, align 8
   %451 = load i64, ptr @yy_buffer_stack_top, align 8
   %452 = getelementptr inbounds ptr, ptr %450, i64 %451
   %453 = load ptr, ptr %452, align 8
   %454 = getelementptr inbounds i8, ptr %453, i64 28
-  store i32 %.033.lcssa.i, ptr %454, align 4
-  %455 = icmp eq i32 %.033.lcssa.i, 0
+  store i32 %.0.lcssa.i, ptr %454, align 4
+  %455 = icmp eq i32 %.0.lcssa.i, 0
   br i1 %455, label %457, label %467
 
 .sink.split.i:                                    ; preds = %.loopexit.thread68.i, %.thread53.i
@@ -968,8 +968,8 @@ yy_try_NUL_trans.exit:                            ; preds = %._crit_edge.i89
 467:                                              ; preds = %463, %461, %.loopexit.i, %.loopexit.thread.i, %.loopexit.thread70.i
   %468 = phi i64 [ %.pre65.i, %461 ], [ %458, %463 ], [ %451, %.loopexit.i ], [ %446, %.loopexit.thread.i ], [ %396, %.loopexit.thread70.i ]
   %469 = phi ptr [ %.pre64.i, %461 ], [ %459, %463 ], [ %450, %.loopexit.i ], [ %445, %.loopexit.thread.i ], [ %395, %.loopexit.thread70.i ]
-  %470 = phi i32 [ %.pre63.i, %461 ], [ 0, %463 ], [ %.033.lcssa.i, %.loopexit.i ], [ %.pr.ph.i, %.loopexit.thread.i ], [ %402, %.loopexit.thread70.i ]
-  %.036.i = phi i32 [ 1, %461 ], [ 2, %463 ], [ 0, %.loopexit.i ], [ 0, %.loopexit.thread.i ], [ 0, %.loopexit.thread70.i ]
+  %470 = phi i32 [ %.pre63.i, %461 ], [ 0, %463 ], [ %.0.lcssa.i, %.loopexit.i ], [ %.pr.ph.i, %.loopexit.thread.i ], [ %402, %.loopexit.thread70.i ]
+  %.035.i = phi i32 [ 1, %461 ], [ 2, %463 ], [ 0, %.loopexit.i ], [ 0, %.loopexit.thread.i ], [ 0, %.loopexit.thread70.i ]
   %471 = add nsw i32 %470, %359
   %472 = getelementptr inbounds ptr, ptr %469, i64 %468
   %473 = load ptr, ptr %472, align 8
@@ -1023,7 +1023,7 @@ yy_get_next_buffer.exit:                          ; preds = %467, %490
   %504 = getelementptr inbounds i8, ptr %503, i64 8
   %505 = load ptr, ptr %504, align 8
   store ptr %505, ptr @opal_show_help_yytext, align 8
-  switch i32 %.036.i, label %default.unreachable354 [
+  switch i32 %.035.i, label %default.unreachable354 [
     i32 1, label %yy_get_next_buffer.exit.thread
     i32 0, label %511
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread131_crit_edge
@@ -1149,9 +1149,9 @@ yy_get_next_buffer.exit.thread:                   ; preds = %353, %yy_get_next_b
 
 .backedge133.backedge:                            ; preds = %._crit_edge26.i109, %511, %340
   %yy_state_ptr.promoted.be = phi ptr [ %338, %340 ], [ %567, %._crit_edge26.i109 ], [ %526, %511 ]
-  %.056.be = phi ptr [ %341, %340 ], [ %516, %._crit_edge26.i109 ], [ %516, %511 ]
-  %.054.be = phi ptr [ %339, %340 ], [ %.pre342, %._crit_edge26.i109 ], [ %527, %511 ]
-  %.049.be = phi i32 [ %337, %340 ], [ %566, %._crit_edge26.i109 ], [ %524, %511 ]
+  %.055.be = phi i32 [ %337, %340 ], [ %566, %._crit_edge26.i109 ], [ %524, %511 ]
+  %.053.be = phi ptr [ %341, %340 ], [ %516, %._crit_edge26.i109 ], [ %516, %511 ]
+  %.051.be = phi ptr [ %339, %340 ], [ %.pre342, %._crit_edge26.i109 ], [ %527, %511 ]
   br label %.backedge133
 
 yy_get_next_buffer.exit.thread131:                ; preds = %353, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread131_crit_edge
@@ -1247,8 +1247,8 @@ yy_get_next_buffer.exit.thread131:                ; preds = %353, %yy_get_next_b
 
 .preheader.backedge:                              ; preds = %._crit_edge26.i125, %yy_get_next_buffer.exit.thread131, %yy_try_NUL_trans.exit, %yy_try_NUL_trans.exit.thread
   %.be = phi ptr [ %313, %yy_try_NUL_trans.exit.thread ], [ %338, %yy_try_NUL_trans.exit ], [ %577, %yy_get_next_buffer.exit.thread131 ], [ %618, %._crit_edge26.i125 ]
-  %.258.be = phi ptr [ %264, %yy_try_NUL_trans.exit.thread ], [ %264, %yy_try_NUL_trans.exit ], [ %571, %yy_get_next_buffer.exit.thread131 ], [ %571, %._crit_edge26.i125 ]
-  %.155.be = phi ptr [ %334, %yy_try_NUL_trans.exit.thread ], [ %339, %yy_try_NUL_trans.exit ], [ %578, %yy_get_next_buffer.exit.thread131 ], [ %.pre349, %._crit_edge26.i125 ]
+  %.2.be = phi ptr [ %264, %yy_try_NUL_trans.exit.thread ], [ %264, %yy_try_NUL_trans.exit ], [ %571, %yy_get_next_buffer.exit.thread131 ], [ %571, %._crit_edge26.i125 ]
+  %.152.be = phi ptr [ %334, %yy_try_NUL_trans.exit.thread ], [ %339, %yy_try_NUL_trans.exit ], [ %578, %yy_get_next_buffer.exit.thread131 ], [ %.pre349, %._crit_edge26.i125 ]
   br label %.preheader
 
 620:                                              ; preds = %168
@@ -1260,7 +1260,7 @@ default.unreachable354:                           ; preds = %yy_get_next_buffer.
 
 .loopexit.sink.split.sink.split:                  ; preds = %206, %186
   %.sink = phi i32 [ %187, %186 ], [ %213, %206 ]
-  %.0.ph.ph = phi i32 [ 2, %186 ], [ 3, %206 ]
+  %.060.ph.ph = phi i32 [ 2, %186 ], [ 3, %206 ]
   %621 = load ptr, ptr @opal_show_help_yytext, align 8
   %622 = zext nneg i32 %.sink to i64
   %623 = getelementptr i8, ptr %621, i64 %622
@@ -1277,13 +1277,13 @@ default.unreachable354:                           ; preds = %yy_get_next_buffer.
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %206, %186
-  %.0.ph = phi i32 [ 2, %186 ], [ 3, %206 ], [ %.0.ph.ph, %.loopexit.sink.split.sink.split ]
+  %.060.ph = phi i32 [ 2, %186 ], [ 3, %206 ], [ %.060.ph.ph, %.loopexit.sink.split.sink.split ]
   store i32 3, ptr @yy_start, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %168, %168, %.loopexit.sink.split
-  %.0 = phi i32 [ %.0.ph, %.loopexit.sink.split ], [ 0, %168 ], [ 0, %168 ]
-  ret i32 %.0
+  %.060 = phi i32 [ %.060.ph, %.loopexit.sink.split ], [ 0, %168 ], [ 0, %168 ]
+  ret i32 %.060
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable

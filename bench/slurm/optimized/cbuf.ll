@@ -642,7 +642,7 @@ define dso_local range(i32 -1, 1) i32 @cbuf_opt_get(ptr noundef %0, i32 noundef 
   br label %18
 
 18:                                               ; preds = %13, %16
-  %.011 = phi i32 [ 0, %13 ], [ -1, %16 ]
+  %.0 = phi i32 [ 0, %13 ], [ -1, %16 ]
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not15 = icmp eq i32 %19, 0
   br i1 %.not15, label %22, label %20
@@ -654,8 +654,8 @@ define dso_local range(i32 -1, 1) i32 @cbuf_opt_get(ptr noundef %0, i32 noundef 
   unreachable
 
 22:                                               ; preds = %18, %5
-  %.0 = phi i32 [ -1, %5 ], [ %.011, %18 ]
-  ret i32 %.0
+  %.011 = phi i32 [ -1, %5 ], [ %.0, %18 ]
+  ret i32 %.011
 }
 
 ; Function Attrs: nounwind uwtable
@@ -739,17 +739,17 @@ define dso_local i32 @cbuf_drop(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %14 = getelementptr inbounds i8, ptr %0, i64 56
   %15 = load i32, ptr %14, align 8
   %. = tail call i32 @llvm.smin.i32(i32 %15, i32 %1)
-  %.018 = select i1 %13, i32 %15, i32 %.
-  %16 = icmp sgt i32 %.018, 0
+  %.0 = select i1 %13, i32 %15, i32 %.
+  %16 = icmp sgt i32 %.0, 0
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds i8, ptr %0, i64 56
-  %19 = sub nsw i32 %15, %.018
+  %19 = sub nsw i32 %15, %.0
   store i32 %19, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 72
   %21 = load i32, ptr %20, align 8
-  %22 = add nsw i32 %21, %.018
+  %22 = add nsw i32 %21, %.0
   %23 = getelementptr inbounds i8, ptr %0, i64 52
   %24 = load i32, ptr %23, align 4
   %25 = add nsw i32 %24, 1
@@ -769,8 +769,8 @@ define dso_local i32 @cbuf_drop(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   unreachable
 
 31:                                               ; preds = %27, %6, %4
-  %.0 = phi i32 [ -1, %4 ], [ 0, %6 ], [ %.018, %27 ]
-  ret i32 %.0
+  %.018 = phi i32 [ -1, %4 ], [ 0, %6 ], [ %.0, %27 ]
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1137,17 +1137,17 @@ define dso_local range(i32 -2147483646, -2147483648) i32 @cbuf_rewind(ptr nounde
   %22 = srem i32 %21, %20
   %23 = icmp eq i32 %1, -1
   %24 = tail call i32 @llvm.smin.i32(i32 %22, i32 %1)
-  %.027 = select i1 %23, i32 %22, i32 %24
-  %25 = icmp sgt i32 %.027, 0
+  %.0 = select i1 %23, i32 %22, i32 %24
+  %25 = icmp sgt i32 %.0, 0
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %12
   %27 = getelementptr inbounds i8, ptr %0, i64 56
   %28 = load i32, ptr %27, align 8
-  %29 = add nsw i32 %28, %.027
+  %29 = add nsw i32 %28, %.0
   store i32 %29, ptr %27, align 8
   %30 = add i32 %20, %14
-  %31 = sub i32 %30, %.027
+  %31 = sub i32 %30, %.0
   %32 = srem i32 %31, %20
   store i32 %32, ptr %13, align 8
   br label %33
@@ -1164,8 +1164,8 @@ define dso_local range(i32 -2147483646, -2147483648) i32 @cbuf_rewind(ptr nounde
   unreachable
 
 37:                                               ; preds = %33, %6, %4
-  %.0 = phi i32 [ -1, %4 ], [ 0, %6 ], [ %.027, %33 ]
-  ret i32 %.0
+  %.027 = phi i32 [ -1, %4 ], [ 0, %6 ], [ %.0, %33 ]
+  ret i32 %.027
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1304,7 +1304,7 @@ cbuf_grow.exit:                                   ; preds = %17, %52
 
 55:                                               ; preds = %cbuf_grow.exit, %13, %5
   %56 = phi i32 [ %53, %cbuf_grow.exit ], [ %8, %13 ], [ %8, %5 ]
-  %.088 = phi i32 [ %54, %cbuf_grow.exit ], [ %11, %13 ], [ %11, %5 ]
+  %.087 = phi i32 [ %54, %cbuf_grow.exit ], [ %11, %13 ], [ %11, %5 ]
   %57 = getelementptr inbounds i8, ptr %0, i64 60
   %58 = load i32, ptr %57, align 4
   switch i32 %58, label %66 [
@@ -1340,21 +1340,21 @@ cbuf_grow.exit:                                   ; preds = %17, %52
   br label %70
 
 70:                                               ; preds = %.preheader, %84
-  %.085 = phi i32 [ %.186, %84 ], [ %.089, %.preheader ]
+  %.084 = phi i32 [ %.185, %84 ], [ %.089, %.preheader ]
   %.0 = phi i32 [ %.1, %84 ], [ %68, %.preheader ]
   %71 = load i32, ptr %7, align 4
   %reass.sub = sub i32 %71, %.0
   %72 = add i32 %reass.sub, 1
-  %.085. = call i32 @llvm.smin.i32(i32 %.085, i32 %72)
+  %.084. = call i32 @llvm.smin.i32(i32 %.084, i32 %72)
   %73 = load ptr, ptr %69, align 8
   %74 = sext i32 %.0 to i64
   %75 = getelementptr inbounds i8, ptr %73, i64 %74
-  %76 = call i32 %2(ptr noundef %75, ptr noundef %3, i32 noundef %.085.) #15, !callees !12
+  %76 = call i32 %2(ptr noundef %75, ptr noundef %3, i32 noundef %.084.) #15, !callees !12
   %77 = icmp sgt i32 %76, 0
   br i1 %77, label %78, label %84
 
 78:                                               ; preds = %70
-  %79 = sub nsw i32 %.085, %76
+  %79 = sub nsw i32 %.084, %76
   %80 = add nsw i32 %76, %.0
   %81 = load i32, ptr %7, align 4
   %82 = add nsw i32 %81, 1
@@ -1362,18 +1362,18 @@ cbuf_grow.exit:                                   ; preds = %17, %52
   br label %84
 
 84:                                               ; preds = %78, %70
-  %.186 = phi i32 [ %79, %78 ], [ %.085, %70 ]
+  %.185 = phi i32 [ %79, %78 ], [ %.084, %70 ]
   %.1 = phi i32 [ %83, %78 ], [ %.0, %70 ]
-  %85 = icmp eq i32 %.085., %76
-  %86 = icmp sgt i32 %.186, 0
+  %85 = icmp eq i32 %.084., %76
+  %86 = icmp sgt i32 %.185, 0
   %or.cond = select i1 %85, i1 %86, i1 false
   br i1 %or.cond, label %70, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %84, %66
-  %.287 = phi i32 [ %.089, %66 ], [ %.186, %84 ]
+  %.286 = phi i32 [ %.089, %66 ], [ %.185, %84 ]
   %.083 = phi i32 [ 0, %66 ], [ %76, %84 ]
   %.2 = phi i32 [ %68, %66 ], [ %.1, %84 ]
-  %87 = sub nsw i32 %.089, %.287
+  %87 = sub nsw i32 %.089, %.286
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %117, label %89
 
@@ -1396,7 +1396,7 @@ cbuf_grow.exit:                                   ; preds = %17, %52
   %.106 = call i32 @llvm.smin.i32(i32 %102, i32 %97)
   store i32 %.106, ptr %9, align 8
   store i32 %.2, ptr %67, align 4
-  %103 = sub nsw i32 %.088, %100
+  %103 = sub nsw i32 %.087, %100
   %104 = icmp sgt i32 %87, %103
   br i1 %104, label %105, label %109
 
@@ -1410,7 +1410,7 @@ cbuf_grow.exit:                                   ; preds = %17, %52
 
 109:                                              ; preds = %105, %91
   %110 = phi i32 [ %108, %105 ], [ %95, %91 ]
-  %111 = icmp sgt i32 %87, %.088
+  %111 = icmp sgt i32 %87, %.087
   br i1 %111, label %112, label %113
 
 112:                                              ; preds = %109
@@ -1422,14 +1422,14 @@ cbuf_grow.exit:                                   ; preds = %17, %52
   br i1 %.not, label %117, label %114
 
 114:                                              ; preds = %113
-  %115 = sub nsw i32 %87, %.088
+  %115 = sub nsw i32 %87, %.087
   %116 = call i32 @llvm.smax.i32(i32 %115, i32 0)
   store i32 %116, ptr %4, align 4
   br label %117
 
 117:                                              ; preds = %113, %114, %.loopexit, %63
-  %.084 = phi i32 [ -1, %63 ], [ %.083, %.loopexit ], [ %87, %114 ], [ %87, %113 ]
-  ret i32 %.084
+  %.088 = phi i32 [ -1, %63 ], [ %.083, %.loopexit ], [ %87, %114 ], [ %87, %113 ]
+  ret i32 %.088
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -2029,15 +2029,15 @@ cbuf_replayer.exit:                               ; preds = %59, %28, %23
   br label %67
 
 67:                                               ; preds = %63, %cbuf_replayer.exit
-  %.038 = phi i32 [ %64, %63 ], [ %27, %cbuf_replayer.exit ]
-  %68 = zext nneg i32 %.038 to i64
+  %.037 = phi i32 [ %64, %63 ], [ %27, %cbuf_replayer.exit ]
+  %68 = zext nneg i32 %.037 to i64
   %69 = getelementptr inbounds i8, ptr %1, i64 %68
   store i8 0, ptr %69, align 1
   %70 = add nsw i32 %24, %20
   br label %71
 
 71:                                               ; preds = %18, %67
-  %.037 = phi i32 [ %70, %67 ], [ %20, %18 ]
+  %.038 = phi i32 [ %70, %67 ], [ %20, %18 ]
   %72 = call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not46 = icmp eq i32 %72, 0
   br i1 %.not46, label %75, label %73
@@ -2049,7 +2049,7 @@ cbuf_replayer.exit:                               ; preds = %59, %28, %23
   unreachable
 
 75:                                               ; preds = %71, %12, %10
-  %.0 = phi i32 [ -1, %10 ], [ 0, %12 ], [ %.037, %71 ]
+  %.0 = phi i32 [ -1, %10 ], [ 0, %12 ], [ %.038, %71 ]
   ret i32 %.0
 }
 
@@ -2163,7 +2163,7 @@ define dso_local i32 @cbuf_write_line(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %24
 
 24:                                               ; preds = %17, %22
-  %.053 = phi i32 [ %23, %22 ], [ %15, %17 ]
+  %.054 = phi i32 [ %23, %22 ], [ %15, %17 ]
   %25 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #15
   %.not67 = icmp eq i32 %25, 0
   br i1 %.not67, label %28, label %26
@@ -2180,7 +2180,7 @@ define dso_local i32 @cbuf_write_line(ptr noundef %0, ptr noundef %1, ptr nounde
   %31 = getelementptr inbounds i8, ptr %0, i64 56
   %32 = load i32, ptr %31, align 8
   %33 = sub nsw i32 %30, %32
-  %34 = icmp sgt i32 %.053, %33
+  %34 = icmp sgt i32 %.054, %33
   br i1 %34, label %35, label %75
 
 35:                                               ; preds = %28
@@ -2190,7 +2190,7 @@ define dso_local i32 @cbuf_write_line(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %38, label %39, label %75
 
 39:                                               ; preds = %35
-  %40 = sub nsw i32 %.053, %33
+  %40 = sub nsw i32 %.054, %33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %41 = getelementptr inbounds i8, ptr %0, i64 40
   %42 = load i32, ptr %41, align 8
@@ -2261,7 +2261,7 @@ cbuf_grow.exit:                                   ; preds = %39, %74
   %79 = load i32, ptr %29, align 4
   %80 = load i32, ptr %31, align 8
   %81 = sub nsw i32 %79, %80
-  %82 = icmp sgt i32 %.053, %81
+  %82 = icmp sgt i32 %.054, %81
   br i1 %82, label %83, label %90
 
 83:                                               ; preds = %78
@@ -2271,7 +2271,7 @@ cbuf_grow.exit:                                   ; preds = %39, %74
 
 85:                                               ; preds = %75
   %86 = load i32, ptr %29, align 4
-  %87 = icmp sgt i32 %.053, %86
+  %87 = icmp sgt i32 %.054, %86
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %85
@@ -2280,16 +2280,16 @@ cbuf_grow.exit:                                   ; preds = %39, %74
   br label %.thread
 
 90:                                               ; preds = %75, %85, %78
-  %91 = icmp sgt i32 %.053, 0
+  %91 = icmp sgt i32 %.054, 0
   br i1 %91, label %92, label %.thread
 
 92:                                               ; preds = %90
   %93 = load i32, ptr %29, align 4
-  %94 = icmp sgt i32 %.053, %93
+  %94 = icmp sgt i32 %.054, %93
   br i1 %94, label %95, label %100
 
 95:                                               ; preds = %92
-  %96 = sub nsw i32 %.053, %93
+  %96 = sub nsw i32 %.054, %93
   %97 = sub nsw i32 %15, %96
   %98 = sext i32 %96 to i64
   %99 = getelementptr inbounds i8, ptr %1, i64 %98
@@ -2297,20 +2297,20 @@ cbuf_grow.exit:                                   ; preds = %39, %74
   br label %100
 
 100:                                              ; preds = %95, %92
-  %.056 = phi i32 [ %97, %95 ], [ %15, %92 ]
-  %.054 = phi i32 [ %96, %95 ], [ 0, %92 ]
-  %101 = icmp sgt i32 %.056, 0
+  %.053 = phi i32 [ %97, %95 ], [ %15, %92 ]
+  %.0 = phi i32 [ %96, %95 ], [ 0, %92 ]
+  %101 = icmp sgt i32 %.053, 0
   br i1 %101, label %102, label %106
 
 102:                                              ; preds = %100
-  %103 = call fastcc i32 @cbuf_writer(ptr noundef nonnull %0, i32 noundef %.056, ptr noundef nonnull @cbuf_get_mem, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  %103 = call fastcc i32 @cbuf_writer(ptr noundef nonnull %0, i32 noundef %.053, ptr noundef nonnull @cbuf_get_mem, ptr noundef nonnull %6, ptr noundef nonnull %5)
   %104 = load i32, ptr %5, align 4
-  %105 = add nsw i32 %104, %.054
+  %105 = add nsw i32 %104, %.0
   br label %106
 
 106:                                              ; preds = %102, %100
-  %.155 = phi i32 [ %105, %102 ], [ %.054, %100 ]
-  %107 = zext nneg i32 %.053 to i64
+  %.1 = phi i32 [ %105, %102 ], [ %.0, %100 ]
+  %107 = zext nneg i32 %.054 to i64
   %108 = getelementptr i8, ptr %1, i64 %107
   %109 = getelementptr i8, ptr %108, i64 -1
   %110 = load i8, ptr %109, align 1
@@ -2320,12 +2320,12 @@ cbuf_grow.exit:                                   ; preds = %39, %74
 111:                                              ; preds = %106
   %112 = call fastcc i32 @cbuf_writer(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @cbuf_get_mem, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %113 = load i32, ptr %5, align 4
-  %114 = add nsw i32 %113, %.155
+  %114 = add nsw i32 %113, %.1
   br label %.thread
 
 .thread:                                          ; preds = %88, %83, %90, %111, %106
-  %.171 = phi i32 [ %.053, %111 ], [ %.053, %106 ], [ %.053, %90 ], [ -1, %83 ], [ -1, %88 ]
-  %.2 = phi i32 [ %114, %111 ], [ %.155, %106 ], [ 0, %90 ], [ 0, %83 ], [ 0, %88 ]
+  %.15571 = phi i32 [ %.054, %111 ], [ %.054, %106 ], [ %.054, %90 ], [ -1, %83 ], [ -1, %88 ]
+  %.2 = phi i32 [ %114, %111 ], [ %.1, %106 ], [ 0, %90 ], [ 0, %83 ], [ 0, %88 ]
   %115 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #15
   %.not69 = icmp eq i32 %115, 0
   br i1 %.not69, label %118, label %116
@@ -2344,8 +2344,8 @@ cbuf_grow.exit:                                   ; preds = %39, %74
   br label %120
 
 120:                                              ; preds = %118, %119, %11
-  %.0 = phi i32 [ -1, %11 ], [ %.171, %119 ], [ %.171, %118 ]
-  ret i32 %.0
+  %.056 = phi i32 [ -1, %11 ], [ %.15571, %119 ], [ %.15571, %118 ]
+  ret i32 %.056
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -2460,7 +2460,7 @@ cbuf_put_fd.exit.thread:                          ; preds = %39, %43, %cbuf_put_
   br label %cbuf_reader.exit
 
 cbuf_reader.exit:                                 ; preds = %.loopexit.i, %19, %17
-  %.015 = phi i32 [ 0, %17 ], [ 0, %19 ], [ %.034..i, %.loopexit.i ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %19 ], [ %.034..i, %.loopexit.i ]
   %53 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not19 = icmp eq i32 %53, 0
   br i1 %.not19, label %56, label %54
@@ -2472,8 +2472,8 @@ cbuf_reader.exit:                                 ; preds = %.loopexit.i, %19, %
   unreachable
 
 56:                                               ; preds = %cbuf_reader.exit, %6
-  %.0 = phi i32 [ -1, %6 ], [ %.015, %cbuf_reader.exit ]
-  ret i32 %.0
+  %.015 = phi i32 [ -1, %6 ], [ %.0, %cbuf_reader.exit ]
+  ret i32 %.015
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2600,7 +2600,7 @@ cbuf_reader.exit:                                 ; preds = %cbuf_put_fd.exit.th
   br label %cbuf_reader.exit.thread
 
 cbuf_reader.exit.thread:                          ; preds = %19, %17, %54, %cbuf_reader.exit
-  %.018 = phi i32 [ %.034..i, %54 ], [ %.034..i, %cbuf_reader.exit ], [ 0, %17 ], [ 0, %19 ]
+  %.0 = phi i32 [ %.034..i, %54 ], [ %.034..i, %cbuf_reader.exit ], [ 0, %17 ], [ 0, %19 ]
   %64 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not23 = icmp eq i32 %64, 0
   br i1 %.not23, label %67, label %65
@@ -2612,8 +2612,8 @@ cbuf_reader.exit.thread:                          ; preds = %19, %17, %54, %cbuf
   unreachable
 
 67:                                               ; preds = %cbuf_reader.exit.thread, %6
-  %.0 = phi i32 [ -1, %6 ], [ %.018, %cbuf_reader.exit.thread ]
-  ret i32 %.0
+  %.018 = phi i32 [ -1, %6 ], [ %.0, %cbuf_reader.exit.thread ]
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2736,7 +2736,7 @@ cbuf_put_fd.exit.thread:                          ; preds = %51, %55, %cbuf_put_
   br label %cbuf_replayer.exit
 
 cbuf_replayer.exit:                               ; preds = %.loopexit.i, %22, %20
-  %.016 = phi i32 [ 0, %20 ], [ 0, %22 ], [ %.041..i, %.loopexit.i ]
+  %.0 = phi i32 [ 0, %20 ], [ 0, %22 ], [ %.041..i, %.loopexit.i ]
   %65 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not20 = icmp eq i32 %65, 0
   br i1 %.not20, label %68, label %66
@@ -2748,8 +2748,8 @@ cbuf_replayer.exit:                               ; preds = %.loopexit.i, %22, %
   unreachable
 
 68:                                               ; preds = %cbuf_replayer.exit, %6
-  %.0 = phi i32 [ -1, %6 ], [ %.016, %cbuf_replayer.exit ]
-  ret i32 %.0
+  %.016 = phi i32 [ -1, %6 ], [ %.0, %cbuf_replayer.exit ]
+  ret i32 %.016
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2799,17 +2799,17 @@ define dso_local i32 @cbuf_write_from_fd(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %24, label %.thread, label %25
 
 25:                                               ; preds = %18, %16
-  %.019 = phi i32 [ %23, %18 ], [ %2, %16 ]
-  %26 = icmp sgt i32 %.019, 0
+  %.020 = phi i32 [ %23, %18 ], [ %2, %16 ]
+  %26 = icmp sgt i32 %.020, 0
   br i1 %26, label %.thread, label %28
 
 .thread:                                          ; preds = %18, %25
-  %.01928 = phi i32 [ %.019, %25 ], [ 1000, %18 ]
-  %27 = call fastcc i32 @cbuf_writer(ptr noundef %0, i32 noundef %.01928, ptr noundef nonnull @cbuf_get_fd, ptr noundef nonnull %5, ptr noundef %3)
+  %.02028 = phi i32 [ %.020, %25 ], [ 1000, %18 ]
+  %27 = call fastcc i32 @cbuf_writer(ptr noundef %0, i32 noundef %.02028, ptr noundef nonnull @cbuf_get_fd, ptr noundef nonnull %5, ptr noundef %3)
   br label %28
 
 28:                                               ; preds = %25, %.thread
-  %.020 = phi i32 [ %27, %.thread ], [ 0, %25 ]
+  %.0 = phi i32 [ %27, %.thread ], [ 0, %25 ]
   %29 = call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not26 = icmp eq i32 %29, 0
   br i1 %.not26, label %32, label %30
@@ -2821,8 +2821,8 @@ define dso_local i32 @cbuf_write_from_fd(ptr noundef %0, i32 noundef %1, i32 nou
   unreachable
 
 32:                                               ; preds = %28, %10
-  %.0 = phi i32 [ -1, %10 ], [ %.020, %28 ]
-  ret i32 %.0
+  %.019 = phi i32 [ -1, %10 ], [ %.0, %28 ]
+  ret i32 %.019
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -2924,16 +2924,16 @@ define dso_local i32 @cbuf_copy(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br label %34
 
 34:                                               ; preds = %31, %29
-  %.034 = phi i32 [ %33, %31 ], [ %2, %29 ]
-  %35 = icmp sgt i32 %.034, 0
+  %.035 = phi i32 [ %33, %31 ], [ %2, %29 ]
+  %35 = icmp sgt i32 %.035, 0
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %34
-  %37 = tail call fastcc i32 @cbuf_copier(ptr noundef %0, ptr noundef %1, i32 noundef %.034, ptr noundef %3)
+  %37 = tail call fastcc i32 @cbuf_copier(ptr noundef %0, ptr noundef %1, i32 noundef %.035, ptr noundef %3)
   br label %38
 
 38:                                               ; preds = %34, %36
-  %.035 = phi i32 [ %37, %36 ], [ 0, %34 ]
+  %.0 = phi i32 [ %37, %36 ], [ 0, %34 ]
   %39 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not50 = icmp eq i32 %39, 0
   br i1 %.not50, label %42, label %40
@@ -2961,8 +2961,8 @@ define dso_local i32 @cbuf_copy(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br label %47
 
 47:                                               ; preds = %.sink.split, %42, %9
-  %.0 = phi i32 [ 0, %9 ], [ %.035, %42 ], [ -1, %.sink.split ]
-  ret i32 %.0
+  %.034 = phi i32 [ 0, %9 ], [ %.0, %42 ], [ -1, %.sink.split ]
+  ret i32 %.034
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3054,7 +3054,7 @@ cbuf_grow.exit:                                   ; preds = %20, %55
 
 58:                                               ; preds = %cbuf_grow.exit, %16, %9
   %59 = phi i32 [ %56, %cbuf_grow.exit ], [ %11, %16 ], [ %11, %9 ]
-  %.0104 = phi i32 [ %57, %cbuf_grow.exit ], [ %14, %16 ], [ %14, %9 ]
+  %.0103 = phi i32 [ %57, %cbuf_grow.exit ], [ %14, %16 ], [ %14, %9 ]
   %60 = getelementptr inbounds i8, ptr %1, i64 60
   %61 = load i32, ptr %60, align 4
   switch i32 %61, label %69 [
@@ -3111,9 +3111,9 @@ cbuf_grow.exit:                                   ; preds = %20, %55
   br label %88
 
 88:                                               ; preds = %81, %74
-  %.0105 = phi i32 [ %75, %81 ], [ %.0106, %74 ]
+  %.0104 = phi i32 [ %75, %81 ], [ %.0106, %74 ]
   %.0101 = phi i32 [ %87, %81 ], [ %77, %74 ]
-  %89 = icmp sgt i32 %.0105, 0
+  %89 = icmp sgt i32 %.0104, 0
   br i1 %89, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %88
@@ -3128,13 +3128,13 @@ cbuf_grow.exit:                                   ; preds = %20, %55
   %95 = phi i32 [ %.pre137, %.lr.ph ], [ %107, %93 ]
   %.0135 = phi i32 [ %79, %.lr.ph ], [ %113, %93 ]
   %.1134 = phi i32 [ %.0101, %.lr.ph ], [ %109, %93 ]
-  %.0103133 = phi i32 [ %.0105, %.lr.ph ], [ %114, %93 ]
+  %.0102133 = phi i32 [ %.0104, %.lr.ph ], [ %114, %93 ]
   %reass.sub = sub i32 %95, %.1134
   %96 = add i32 %reass.sub, 1
   %reass.sub136 = sub i32 %94, %.0135
   %97 = add i32 %reass.sub136, 1
   %.124 = call i32 @llvm.smin.i32(i32 %96, i32 %97)
-  %98 = call i32 @llvm.smin.i32(i32 %.124, i32 %.0103133)
+  %98 = call i32 @llvm.smin.i32(i32 %.124, i32 %.0102133)
   %99 = load ptr, ptr %91, align 8
   %100 = sext i32 %.0135 to i64
   %101 = getelementptr inbounds i8, ptr %99, i64 %100
@@ -3151,7 +3151,7 @@ cbuf_grow.exit:                                   ; preds = %20, %55
   %111 = load i32, ptr %10, align 4
   %112 = add nsw i32 %111, 1
   %113 = srem i32 %110, %112
-  %114 = sub nsw i32 %.0103133, %98
+  %114 = sub nsw i32 %.0102133, %98
   %115 = icmp sgt i32 %114, 0
   br i1 %115, label %93, label %._crit_edge, !llvm.loop !16
 
@@ -3168,12 +3168,12 @@ cbuf_grow.exit:                                   ; preds = %20, %55
   %123 = add nsw i32 %121, %122
   %124 = srem i32 %123, %122
   %125 = load i32, ptr %12, align 8
-  %126 = add nsw i32 %125, %.0105
+  %126 = add nsw i32 %125, %.0104
   %.125 = call i32 @llvm.smin.i32(i32 %126, i32 %111)
   store i32 %.125, ptr %12, align 8
   store i32 %113, ptr %78, align 4
-  %127 = sub nsw i32 %.0104, %124
-  %128 = icmp sgt i32 %.0105, %127
+  %127 = sub nsw i32 %.0103, %124
+  %128 = icmp sgt i32 %.0104, %127
   br i1 %128, label %129, label %133
 
 129:                                              ; preds = %116
@@ -3186,7 +3186,7 @@ cbuf_grow.exit:                                   ; preds = %20, %55
 
 133:                                              ; preds = %129, %116
   %134 = phi i32 [ %132, %129 ], [ %120, %116 ]
-  %135 = icmp sgt i32 %.0105, %.0104
+  %135 = icmp sgt i32 %.0104, %.0103
   br i1 %135, label %136, label %._crit_edge.thread
 
 136:                                              ; preds = %133
@@ -3194,8 +3194,8 @@ cbuf_grow.exit:                                   ; preds = %20, %55
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %88, %._crit_edge, %136, %133, %4, %66
-  %.0102 = phi i32 [ -1, %66 ], [ 0, %4 ], [ %.0106, %133 ], [ %.0106, %136 ], [ %.0106, %._crit_edge ], [ %.0106, %88 ]
-  ret i32 %.0102
+  %.0105 = phi i32 [ -1, %66 ], [ 0, %4 ], [ %.0106, %133 ], [ %.0106, %136 ], [ %.0106, %._crit_edge ], [ %.0106, %88 ]
+  ret i32 %.0105
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3275,12 +3275,12 @@ define dso_local i32 @cbuf_move(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br label %34
 
 34:                                               ; preds = %31, %29
-  %.037 = phi i32 [ %33, %31 ], [ %2, %29 ]
-  %35 = icmp sgt i32 %.037, 0
+  %.038 = phi i32 [ %33, %31 ], [ %2, %29 ]
+  %35 = icmp sgt i32 %.038, 0
   br i1 %35, label %36, label %50
 
 36:                                               ; preds = %34
-  %37 = tail call fastcc i32 @cbuf_copier(ptr noundef %0, ptr noundef %1, i32 noundef %.037, ptr noundef %3)
+  %37 = tail call fastcc i32 @cbuf_copier(ptr noundef %0, ptr noundef %1, i32 noundef %.038, ptr noundef %3)
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %39, label %50
 
@@ -3300,7 +3300,7 @@ define dso_local i32 @cbuf_move(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br label %50
 
 50:                                               ; preds = %34, %39, %36
-  %.038 = phi i32 [ %37, %39 ], [ %37, %36 ], [ 0, %34 ]
+  %.0 = phi i32 [ %37, %39 ], [ %37, %36 ], [ 0, %34 ]
   %51 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
   %.not54 = icmp eq i32 %51, 0
   br i1 %.not54, label %54, label %52
@@ -3328,8 +3328,8 @@ define dso_local i32 @cbuf_move(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br label %59
 
 59:                                               ; preds = %.sink.split, %54, %9
-  %.0 = phi i32 [ 0, %9 ], [ %.038, %54 ], [ -1, %.sink.split ]
-  ret i32 %.0
+  %.037 = phi i32 [ 0, %9 ], [ %.0, %54 ], [ -1, %.sink.split ]
+  ret i32 %.037
 }
 
 ; Function Attrs: nofree

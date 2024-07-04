@@ -63,39 +63,39 @@ define internal i64 @x86_code(ptr nocapture noundef %0, i32 noundef %1, i1 nound
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %.outer
-  %.091.ph125 = phi i32 [ %9, %8 ], [ %.3, %.outer ]
-  %.092.ph124 = phi i64 [ 0, %8 ], [ %.193, %.outer ]
-  %.195.ph123 = phi i32 [ %spec.select, %8 ], [ %27, %.outer ]
-  %15 = trunc i64 %.092.ph124 to i32
+  %.090.ph125 = phi i64 [ 0, %8 ], [ %.1, %.outer ]
+  %.192.ph124 = phi i32 [ %spec.select, %8 ], [ %27, %.outer ]
+  %.093.ph123 = phi i32 [ %9, %8 ], [ %.3, %.outer ]
+  %15 = trunc i64 %.090.ph125 to i32
   %16 = add i32 %15, %1
-  %17 = sub i32 %16, %.195.ph123
+  %17 = sub i32 %16, %.192.ph124
   br label %18
 
 18:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i32 [ %17, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %.092104 = phi i64 [ %.092.ph124, %.lr.ph ], [ %23, %22 ]
-  %19 = getelementptr inbounds i8, ptr %3, i64 %.092104
+  %.090104 = phi i64 [ %.090.ph125, %.lr.ph ], [ %23, %22 ]
+  %19 = getelementptr inbounds i8, ptr %3, i64 %.090104
   %20 = load i8, ptr %19, align 1
   %21 = add i8 %20, 22
   %or.cond = icmp ult i8 %21, -2
   br i1 %or.cond, label %22, label %24
 
 22:                                               ; preds = %18
-  %23 = add nuw i64 %.092104, 1
-  %.not.not = icmp ult i64 %.092104, %14
+  %23 = add nuw i64 %.090104, 1
+  %.not.not = icmp ult i64 %.090104, %14
   %indvars.iv.next = add i32 %indvars.iv, 1
   br i1 %.not.not, label %18, label %.outer._crit_edge.loopexit, !llvm.loop !5
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %3, i64 %.092104
-  %26 = trunc i64 %.092104 to i32
+  %25 = getelementptr inbounds i8, ptr %3, i64 %.090104
+  %26 = trunc i64 %.090104 to i32
   %27 = add i32 %26, %1
-  %28 = sub i32 %27, %.195.ph123
+  %28 = sub i32 %27, %.192.ph124
   %29 = icmp ugt i32 %28, 5
   br i1 %29, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %24
-  %.not126 = icmp eq i32 %27, %.195.ph123
+  %.not126 = icmp eq i32 %27, %.192.ph124
   br i1 %.not126, label %.loopexit, label %.lr.ph112.preheader
 
 .lr.ph112.preheader:                              ; preds = %.preheader
@@ -103,16 +103,16 @@ define internal i64 @x86_code(ptr nocapture noundef %0, i32 noundef %1, i1 nound
   br label %.lr.ph112
 
 .lr.ph112:                                        ; preds = %.lr.ph112.preheader, %.lr.ph112
-  %.090111 = phi i32 [ %32, %.lr.ph112 ], [ 0, %.lr.ph112.preheader ]
-  %.1110 = phi i32 [ %31, %.lr.ph112 ], [ %.091.ph125, %.lr.ph112.preheader ]
-  %30 = shl i32 %.1110, 1
+  %.089111 = phi i32 [ %32, %.lr.ph112 ], [ 0, %.lr.ph112.preheader ]
+  %.194110 = phi i32 [ %31, %.lr.ph112 ], [ %.093.ph123, %.lr.ph112.preheader ]
+  %30 = shl i32 %.194110, 1
   %31 = and i32 %30, 238
-  %32 = add nuw nsw i32 %.090111, 1
+  %32 = add nuw nsw i32 %.089111, 1
   %exitcond.not = icmp eq i32 %32, %umax134
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph112, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph112, %.preheader, %24
-  %.2 = phi i32 [ 0, %24 ], [ %.091.ph125, %.preheader ], [ %31, %.lr.ph112 ]
+  %.2 = phi i32 [ 0, %24 ], [ %.093.ph123, %.preheader ], [ %31, %.lr.ph112 ]
   %33 = getelementptr i8, ptr %25, i64 4
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
@@ -149,9 +149,9 @@ define internal i64 @x86_code(ptr nocapture noundef %0, i32 noundef %1, i1 nound
   %60 = or disjoint i32 %56, %59
   %61 = add i32 %27, 5
   %62 = sub i32 -5, %27
-  %.088.p = select i1 %2, i32 %61, i32 %62
+  %.0.p = select i1 %2, i32 %61, i32 %62
   %63 = icmp eq i32 %.2, 0
-  %.088114 = add i32 %60, %.088.p
+  %.0114 = add i32 %60, %.0.p
   br i1 %63, label %._crit_edge118, label %.lr.ph117
 
 .lr.ph117:                                        ; preds = %45
@@ -167,8 +167,8 @@ define internal i64 @x86_code(ptr nocapture noundef %0, i32 noundef %1, i1 nound
   br label %72
 
 72:                                               ; preds = %74, %.lr.ph117
-  %.088115 = phi i32 [ %.088114, %.lr.ph117 ], [ %.088, %74 ]
-  %73 = lshr i32 %.088115, %68
+  %.0115 = phi i32 [ %.0114, %.lr.ph117 ], [ %.0, %74 ]
+  %73 = lshr i32 %.0115, %68
   %trunc = trunc i32 %73 to i8
   switch i8 %trunc, label %._crit_edge118 [
     i8 -1, label %74
@@ -176,56 +176,56 @@ define internal i64 @x86_code(ptr nocapture noundef %0, i32 noundef %1, i1 nound
   ]
 
 74:                                               ; preds = %72, %72
-  %75 = xor i32 %.088115, %71
+  %75 = xor i32 %.0115, %71
   %76 = xor i32 %75, -1
-  %.088 = add i32 %.088.p, %76
+  %.0 = add i32 %.0.p, %76
   br label %72
 
 ._crit_edge118:                                   ; preds = %72, %45
-  %.088.lcssa = phi i32 [ %.088114, %45 ], [ %.088115, %72 ]
-  %77 = shl i32 %.088.lcssa, 7
+  %.0.lcssa = phi i32 [ %.0114, %45 ], [ %.0115, %72 ]
+  %77 = shl i32 %.0.lcssa, 7
   %78 = ashr i32 %77, 31
   %79 = trunc nsw i32 %78 to i8
   store i8 %79, ptr %33, align 1
-  %80 = lshr i32 %.088.lcssa, 16
+  %80 = lshr i32 %.0.lcssa, 16
   %81 = trunc i32 %80 to i8
   store i8 %81, ptr %47, align 1
-  %82 = lshr i32 %.088.lcssa, 8
+  %82 = lshr i32 %.0.lcssa, 8
   %83 = trunc i32 %82 to i8
   store i8 %83, ptr %52, align 1
-  %84 = trunc i32 %.088.lcssa to i8
+  %84 = trunc i32 %.0.lcssa to i8
   store i8 %84, ptr %57, align 1
-  %85 = add nuw i64 %.092104, 5
+  %85 = add nuw i64 %.090104, 5
   br label %.outer
 
 86:                                               ; preds = %.loopexit, %37
   %spec.select100.v = phi i32 [ 1, %.loopexit ], [ 17, %37 ]
-  %87 = add nuw i64 %.092104, 1
+  %87 = add nuw i64 %.090104, 1
   %spec.select100 = or i32 %spec.select100.v, %.2
   br label %.outer
 
 .outer:                                           ; preds = %86, %._crit_edge118
-  %.193 = phi i64 [ %85, %._crit_edge118 ], [ %87, %86 ]
   %.3 = phi i32 [ 0, %._crit_edge118 ], [ %spec.select100, %86 ]
-  %.not103 = icmp ugt i64 %.193, %14
+  %.1 = phi i64 [ %85, %._crit_edge118 ], [ %87, %86 ]
+  %.not103 = icmp ugt i64 %.1, %14
   br i1 %.not103, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !5
 
 .outer._crit_edge.loopexit:                       ; preds = %22
-  %umax.le = tail call i64 @llvm.umax.i64(i64 %.092.ph124, i64 %14)
+  %umax.le = tail call i64 @llvm.umax.i64(i64 %.090.ph125, i64 %14)
   %88 = add i64 %umax.le, 1
   br label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.outer, %.outer._crit_edge.loopexit
-  %.195.ph.lcssa = phi i32 [ %.195.ph123, %.outer._crit_edge.loopexit ], [ %27, %.outer ]
-  %.091.ph.lcssa = phi i32 [ %.091.ph125, %.outer._crit_edge.loopexit ], [ %.3, %.outer ]
-  %.092.lcssa = phi i64 [ %88, %.outer._crit_edge.loopexit ], [ %.193, %.outer ]
-  store i32 %.091.ph.lcssa, ptr %0, align 4
-  store i32 %.195.ph.lcssa, ptr %6, align 4
+  %.093.ph.lcssa = phi i32 [ %.093.ph123, %.outer._crit_edge.loopexit ], [ %.3, %.outer ]
+  %.192.ph.lcssa = phi i32 [ %.192.ph124, %.outer._crit_edge.loopexit ], [ %27, %.outer ]
+  %.090.lcssa = phi i64 [ %88, %.outer._crit_edge.loopexit ], [ %.1, %.outer ]
+  store i32 %.093.ph.lcssa, ptr %0, align 4
+  store i32 %.192.ph.lcssa, ptr %6, align 4
   br label %89
 
 89:                                               ; preds = %5, %.outer._crit_edge
-  %.0 = phi i64 [ %.092.lcssa, %.outer._crit_edge ], [ 0, %5 ]
-  ret i64 %.0
+  %.095 = phi i64 [ %.090.lcssa, %.outer._crit_edge ], [ 0, %5 ]
+  ret i64 %.095
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

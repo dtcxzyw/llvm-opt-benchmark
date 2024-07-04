@@ -85,7 +85,7 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %gv_calloc.exit50, %32, %._crit_edge
-  %.046 = phi ptr [ %33, %32 ], [ null, %._crit_edge ], [ null, %gv_calloc.exit50 ]
+  %.0 = phi ptr [ %33, %32 ], [ null, %._crit_edge ], [ null, %gv_calloc.exit50 ]
   %34 = call ptr @SparseMatrix_new(i32 noundef %0, i32 noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #11
   %35 = load i32, ptr %4, align 4
   %36 = icmp sgt i32 %35, 0
@@ -94,10 +94,10 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit
 .lr.ph54:                                         ; preds = %._crit_edge.thread, %.lr.ph54
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.lr.ph54 ], [ 0, %._crit_edge.thread ]
   %37 = shl nuw nsw i64 %indvars.iv62, 1
-  %38 = getelementptr inbounds i32, ptr %.046, i64 %37
+  %38 = getelementptr inbounds i32, ptr %.0, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = or disjoint i64 %37, 1
-  %41 = getelementptr inbounds i32, ptr %.046, i64 %40
+  %41 = getelementptr inbounds i32, ptr %.0, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %34, i32 noundef %39, i32 noundef %42, ptr noundef nonnull %3) #11
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
@@ -133,7 +133,7 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit
   call void @SparseMatrix_delete(ptr noundef %34) #11
   %53 = call ptr @SparseMatrix_symmetrize(ptr noundef %52, i1 noundef zeroext false) #11
   call void @SparseMatrix_delete(ptr noundef %52) #11
-  call void @free(ptr noundef %.046) #11
+  call void @free(ptr noundef %.0) #11
   call void @free(ptr noundef %11) #11
   call void @free(ptr noundef %17) #11
   ret ptr %53

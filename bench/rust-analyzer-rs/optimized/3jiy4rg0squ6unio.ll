@@ -50477,10 +50477,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit85.
 
 250:                                              ; preds = %201, %204, %.noexc101
   %.sroa.042.i.sroa.0.0 = phi i64 [ %.sroa.042.i.sroa.0.0.copyload187, %201 ], [ %.sroa.042.i.sroa.0.0.copyload186, %.noexc101 ], [ %.sroa.042.i.sroa.0.0.copyload, %204 ]
-  %.sroa.11.0.i = phi i32 [ undef, %201 ], [ -32603, %.noexc101 ], [ %.sroa.937.0.copyload.i, %204 ]
-  %.sroa.4.0.i = phi i64 [ -9223372036854775808, %201 ], [ %.sroa.041.sroa.0.0.copyload.i, %.noexc101 ], [ %.sroa.033.0.copyload.i, %204 ]
   %.sroa.1348.0.i = phi i64 [ -9223372036854775808, %201 ], [ -9223372036854775803, %.noexc101 ], [ -9223372036854775803, %204 ]
   %.sroa.745.sroa.0.0.i = phi ptr [ undef, %201 ], [ %.sroa.041.sroa.4.sroa.0.0.copyload.i, %.noexc101 ], [ %.sroa.7.0.copyload.i, %204 ]
+  %.sroa.11.0.i = phi i32 [ undef, %201 ], [ -32603, %.noexc101 ], [ %.sroa.937.0.copyload.i, %204 ]
+  %.sroa.4.0.i = phi i64 [ -9223372036854775808, %201 ], [ %.sroa.041.sroa.0.0.copyload.i, %.noexc101 ], [ %.sroa.033.0.copyload.i, %204 ]
   %.sroa.745.sroa.3.0.i = phi i64 [ undef, %201 ], [ %.sroa.041.sroa.4.sroa.4.0.copyload.i, %.noexc101 ], [ %.sroa.9.0.copyload.i, %204 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.042.i.sroa.8, i64 16, i1 false), !noalias !10741
   %251 = icmp eq i64 %.sroa.042.i.sroa.0.0, -9223372036854775807
@@ -51488,10 +51488,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
 
 243:                                              ; preds = %194, %197, %.noexc96
   %.sroa.042.i.sroa.0.0 = phi i64 [ %.sroa.042.i.sroa.0.0.copyload177, %194 ], [ %.sroa.042.i.sroa.0.0.copyload176, %.noexc96 ], [ %.sroa.042.i.sroa.0.0.copyload, %197 ]
-  %.sroa.11.0.i = phi i32 [ undef, %194 ], [ -32603, %.noexc96 ], [ %.sroa.937.0.copyload.i, %197 ]
-  %.sroa.4.0.i = phi i64 [ -9223372036854775808, %194 ], [ %.sroa.041.sroa.0.0.copyload.i, %.noexc96 ], [ %.sroa.033.0.copyload.i, %197 ]
   %.sroa.1348.0.i = phi i64 [ -9223372036854775808, %194 ], [ -9223372036854775803, %.noexc96 ], [ -9223372036854775803, %197 ]
   %.sroa.745.sroa.0.0.i = phi ptr [ undef, %194 ], [ %.sroa.041.sroa.4.sroa.0.0.copyload.i, %.noexc96 ], [ %.sroa.7.0.copyload.i, %197 ]
+  %.sroa.11.0.i = phi i32 [ undef, %194 ], [ -32603, %.noexc96 ], [ %.sroa.937.0.copyload.i, %197 ]
+  %.sroa.4.0.i = phi i64 [ -9223372036854775808, %194 ], [ %.sroa.041.sroa.0.0.copyload.i, %.noexc96 ], [ %.sroa.033.0.copyload.i, %197 ]
   %.sroa.745.sroa.3.0.i = phi i64 [ undef, %194 ], [ %.sroa.041.sroa.4.sroa.4.0.copyload.i, %.noexc96 ], [ %.sroa.9.0.copyload.i, %197 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.042.i.sroa.8, i64 16, i1 false), !noalias !10829
   %244 = icmp eq i64 %.sroa.042.i.sroa.0.0, -9223372036854775807
@@ -52488,10 +52488,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
 
 243:                                              ; preds = %194, %197, %.noexc96
   %.sroa.042.i.sroa.0.0 = phi i64 [ %.sroa.042.i.sroa.0.0.copyload177, %194 ], [ %.sroa.042.i.sroa.0.0.copyload176, %.noexc96 ], [ %.sroa.042.i.sroa.0.0.copyload, %197 ]
-  %.sroa.11.0.i = phi i32 [ undef, %194 ], [ -32603, %.noexc96 ], [ %.sroa.937.0.copyload.i, %197 ]
-  %.sroa.4.0.i = phi i64 [ -9223372036854775808, %194 ], [ %.sroa.041.sroa.0.0.copyload.i, %.noexc96 ], [ %.sroa.033.0.copyload.i, %197 ]
   %.sroa.1348.0.i = phi i64 [ -9223372036854775808, %194 ], [ -9223372036854775803, %.noexc96 ], [ -9223372036854775803, %197 ]
   %.sroa.745.sroa.0.0.i = phi ptr [ undef, %194 ], [ %.sroa.041.sroa.4.sroa.0.0.copyload.i, %.noexc96 ], [ %.sroa.7.0.copyload.i, %197 ]
+  %.sroa.11.0.i = phi i32 [ undef, %194 ], [ -32603, %.noexc96 ], [ %.sroa.937.0.copyload.i, %197 ]
+  %.sroa.4.0.i = phi i64 [ -9223372036854775808, %194 ], [ %.sroa.041.sroa.0.0.copyload.i, %.noexc96 ], [ %.sroa.033.0.copyload.i, %197 ]
   %.sroa.745.sroa.3.0.i = phi i64 [ undef, %194 ], [ %.sroa.041.sroa.4.sroa.4.0.copyload.i, %.noexc96 ], [ %.sroa.9.0.copyload.i, %197 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.042.i.sroa.8, i64 16, i1 false), !noalias !10917
   %244 = icmp eq i64 %.sroa.042.i.sroa.0.0, -9223372036854775807
@@ -53488,10 +53488,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
 
 243:                                              ; preds = %194, %197, %.noexc96
   %.sroa.042.i.sroa.0.0 = phi i64 [ %.sroa.042.i.sroa.0.0.copyload177, %194 ], [ %.sroa.042.i.sroa.0.0.copyload176, %.noexc96 ], [ %.sroa.042.i.sroa.0.0.copyload, %197 ]
-  %.sroa.11.0.i = phi i32 [ undef, %194 ], [ -32603, %.noexc96 ], [ %.sroa.937.0.copyload.i, %197 ]
-  %.sroa.4.0.i = phi i64 [ -9223372036854775808, %194 ], [ %.sroa.041.sroa.0.0.copyload.i, %.noexc96 ], [ %.sroa.033.0.copyload.i, %197 ]
   %.sroa.1348.0.i = phi i64 [ -9223372036854775808, %194 ], [ -9223372036854775803, %.noexc96 ], [ -9223372036854775803, %197 ]
   %.sroa.745.sroa.0.0.i = phi ptr [ undef, %194 ], [ %.sroa.041.sroa.4.sroa.0.0.copyload.i, %.noexc96 ], [ %.sroa.7.0.copyload.i, %197 ]
+  %.sroa.11.0.i = phi i32 [ undef, %194 ], [ -32603, %.noexc96 ], [ %.sroa.937.0.copyload.i, %197 ]
+  %.sroa.4.0.i = phi i64 [ -9223372036854775808, %194 ], [ %.sroa.041.sroa.0.0.copyload.i, %.noexc96 ], [ %.sroa.033.0.copyload.i, %197 ]
   %.sroa.745.sroa.3.0.i = phi i64 [ undef, %194 ], [ %.sroa.041.sroa.4.sroa.4.0.copyload.i, %.noexc96 ], [ %.sroa.9.0.copyload.i, %197 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.042.i.sroa.8, i64 16, i1 false), !noalias !11005
   %244 = icmp eq i64 %.sroa.042.i.sroa.0.0, -9223372036854775807
@@ -54488,10 +54488,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
 
 243:                                              ; preds = %194, %197, %.noexc96
   %.sroa.042.i.sroa.0.0 = phi i64 [ %.sroa.042.i.sroa.0.0.copyload177, %194 ], [ %.sroa.042.i.sroa.0.0.copyload176, %.noexc96 ], [ %.sroa.042.i.sroa.0.0.copyload, %197 ]
-  %.sroa.11.0.i = phi i32 [ undef, %194 ], [ -32603, %.noexc96 ], [ %.sroa.937.0.copyload.i, %197 ]
-  %.sroa.4.0.i = phi i64 [ -9223372036854775808, %194 ], [ %.sroa.041.sroa.0.0.copyload.i, %.noexc96 ], [ %.sroa.033.0.copyload.i, %197 ]
   %.sroa.1348.0.i = phi i64 [ -9223372036854775808, %194 ], [ -9223372036854775803, %.noexc96 ], [ -9223372036854775803, %197 ]
   %.sroa.745.sroa.0.0.i = phi ptr [ undef, %194 ], [ %.sroa.041.sroa.4.sroa.0.0.copyload.i, %.noexc96 ], [ %.sroa.7.0.copyload.i, %197 ]
+  %.sroa.11.0.i = phi i32 [ undef, %194 ], [ -32603, %.noexc96 ], [ %.sroa.937.0.copyload.i, %197 ]
+  %.sroa.4.0.i = phi i64 [ -9223372036854775808, %194 ], [ %.sroa.041.sroa.0.0.copyload.i, %.noexc96 ], [ %.sroa.033.0.copyload.i, %197 ]
   %.sroa.745.sroa.3.0.i = phi i64 [ undef, %194 ], [ %.sroa.041.sroa.4.sroa.4.0.copyload.i, %.noexc96 ], [ %.sroa.9.0.copyload.i, %197 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.042.i.sroa.8, i64 16, i1 false), !noalias !11093
   %244 = icmp eq i64 %.sroa.042.i.sroa.0.0, -9223372036854775807
@@ -55559,9 +55559,9 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit80.
   %.sroa.19.0.i = phi ptr [ undef, %.noexc99 ], [ undef, %226 ], [ %210, %221 ]
   %.sroa.16.0.i = phi i64 [ undef, %.noexc99 ], [ undef, %226 ], [ %209, %221 ]
   %.sroa.1350.0.i = phi i64 [ -9223372036854775803, %.noexc99 ], [ -9223372036854775803, %226 ], [ -9223372036854775805, %221 ]
+  %.sroa.747.sroa.0.0.i = phi ptr [ %.sroa.043.sroa.4.sroa.0.0.copyload.i, %.noexc99 ], [ %.sroa.7.0.copyload.i, %226 ], [ undef, %221 ]
   %.sroa.11.0.i = phi i32 [ -32603, %.noexc99 ], [ %.sroa.939.0.copyload.i, %226 ], [ undef, %221 ]
   %.sroa.4.0.i = phi i64 [ %.sroa.043.sroa.0.0.copyload.i, %.noexc99 ], [ %.sroa.035.0.copyload.i, %226 ], [ -9223372036854775808, %221 ]
-  %.sroa.747.sroa.0.0.i = phi ptr [ %.sroa.043.sroa.4.sroa.0.0.copyload.i, %.noexc99 ], [ %.sroa.7.0.copyload.i, %226 ], [ undef, %221 ]
   %.sroa.747.sroa.3.0.i = phi i64 [ %.sroa.043.sroa.4.sroa.4.0.copyload.i, %.noexc99 ], [ %.sroa.9.0.copyload.i, %226 ], [ undef, %221 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.044.i.sroa.8, i64 16, i1 false), !noalias !11245
   %270 = icmp eq i64 %.sroa.044.i.sroa.0.0, -9223372036854775807
@@ -98026,9 +98026,9 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h000
   %.sroa.19.0.i = phi ptr [ %49, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.16.0.i = phi i64 [ %48, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.1350.0.i = phi i64 [ -9223372036854775805, %60 ], [ -9223372036854775803, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ -9223372036854775803, %66 ]
+  %.sroa.747.sroa.0.0.i = phi ptr [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.7.0.copyload.i, %66 ]
   %.sroa.11.0.i = phi i32 [ undef, %60 ], [ -32603, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.939.0.copyload.i, %66 ]
   %.sroa.4.0.i = phi i64 [ -9223372036854775808, %60 ], [ %.sroa.043.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.035.0.copyload.i, %66 ]
-  %.sroa.747.sroa.0.0.i = phi ptr [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.7.0.copyload.i, %66 ]
   %.sroa.747.sroa.3.0.i = phi i64 [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.4.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.9.0.copyload.i, %66 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.044.i, i64 24, i1 false), !noalias !15351
   %.sroa.4.0..sroa_idx45.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -98568,9 +98568,9 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h026
   %.sroa.19.0.i = phi ptr [ %49, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.16.0.i = phi i64 [ %48, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.1350.0.i = phi i64 [ -9223372036854775805, %60 ], [ -9223372036854775803, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ -9223372036854775803, %66 ]
+  %.sroa.747.sroa.0.0.i = phi ptr [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.7.0.copyload.i, %66 ]
   %.sroa.11.0.i = phi i32 [ undef, %60 ], [ -32603, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.939.0.copyload.i, %66 ]
   %.sroa.4.0.i = phi i64 [ -9223372036854775808, %60 ], [ %.sroa.043.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.035.0.copyload.i, %66 ]
-  %.sroa.747.sroa.0.0.i = phi ptr [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.7.0.copyload.i, %66 ]
   %.sroa.747.sroa.3.0.i = phi i64 [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.4.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.9.0.copyload.i, %66 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.044.i, i64 24, i1 false), !noalias !15427
   %.sroa.4.0..sroa_idx45.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -100627,9 +100627,9 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h191
   %.sroa.19.0.i = phi ptr [ %49, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.16.0.i = phi i64 [ %48, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.1350.0.i = phi i64 [ -9223372036854775805, %60 ], [ -9223372036854775803, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ -9223372036854775803, %66 ]
+  %.sroa.747.sroa.0.0.i = phi ptr [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.7.0.copyload.i, %66 ]
   %.sroa.11.0.i = phi i32 [ undef, %60 ], [ -32603, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.939.0.copyload.i, %66 ]
   %.sroa.4.0.i = phi i64 [ -9223372036854775808, %60 ], [ %.sroa.043.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.035.0.copyload.i, %66 ]
-  %.sroa.747.sroa.0.0.i = phi ptr [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.7.0.copyload.i, %66 ]
   %.sroa.747.sroa.3.0.i = phi i64 [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.4.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.9.0.copyload.i, %66 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.044.i, i64 24, i1 false), !noalias !15684
   %.sroa.4.0..sroa_idx45.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -106884,9 +106884,9 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h619
   %.sroa.19.0.i = phi ptr [ %49, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.16.0.i = phi i64 [ %48, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.1350.0.i = phi i64 [ -9223372036854775805, %60 ], [ -9223372036854775803, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ -9223372036854775803, %66 ]
+  %.sroa.747.sroa.0.0.i = phi ptr [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.7.0.copyload.i, %66 ]
   %.sroa.11.0.i = phi i32 [ undef, %60 ], [ -32603, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.939.0.copyload.i, %66 ]
   %.sroa.4.0.i = phi i64 [ -9223372036854775808, %60 ], [ %.sroa.043.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.035.0.copyload.i, %66 ]
-  %.sroa.747.sroa.0.0.i = phi ptr [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.7.0.copyload.i, %66 ]
   %.sroa.747.sroa.3.0.i = phi i64 [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.4.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.9.0.copyload.i, %66 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.044.i, i64 24, i1 false), !noalias !16499
   %.sroa.4.0..sroa_idx45.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -112629,9 +112629,9 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17h7b8
   %.sroa.19.0.i = phi ptr [ %49, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.16.0.i = phi i64 [ %48, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.1350.0.i = phi i64 [ -9223372036854775805, %60 ], [ -9223372036854775803, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ -9223372036854775803, %66 ]
+  %.sroa.747.sroa.0.0.i = phi ptr [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.7.0.copyload.i, %66 ]
   %.sroa.11.0.i = phi i32 [ undef, %60 ], [ -32603, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.939.0.copyload.i, %66 ]
   %.sroa.4.0.i = phi i64 [ -9223372036854775808, %60 ], [ %.sroa.043.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.035.0.copyload.i, %66 ]
-  %.sroa.747.sroa.0.0.i = phi ptr [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.7.0.copyload.i, %66 ]
   %.sroa.747.sroa.3.0.i = phi i64 [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.4.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.9.0.copyload.i, %66 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.044.i, i64 24, i1 false), !noalias !17245
   %.sroa.4.0..sroa_idx45.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -116203,9 +116203,9 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17haf3
   %.sroa.19.0.i = phi ptr [ %49, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.16.0.i = phi i64 [ %48, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.1350.0.i = phi i64 [ -9223372036854775805, %60 ], [ -9223372036854775803, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ -9223372036854775803, %66 ]
+  %.sroa.747.sroa.0.0.i = phi ptr [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.7.0.copyload.i, %66 ]
   %.sroa.11.0.i = phi i32 [ undef, %60 ], [ -32603, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.939.0.copyload.i, %66 ]
   %.sroa.4.0.i = phi i64 [ -9223372036854775808, %60 ], [ %.sroa.043.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.035.0.copyload.i, %66 ]
-  %.sroa.747.sroa.0.0.i = phi ptr [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.7.0.copyload.i, %66 ]
   %.sroa.747.sroa.3.0.i = phi i64 [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.4.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.9.0.copyload.i, %66 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.044.i, i64 24, i1 false), !noalias !17681
   %.sroa.4.0..sroa_idx45.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -117277,9 +117277,9 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17hb95
   %.sroa.19.0.i = phi ptr [ %49, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.16.0.i = phi i64 [ %48, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.1350.0.i = phi i64 [ -9223372036854775805, %60 ], [ -9223372036854775803, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ -9223372036854775803, %66 ]
+  %.sroa.747.sroa.0.0.i = phi ptr [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.7.0.copyload.i, %66 ]
   %.sroa.11.0.i = phi i32 [ undef, %60 ], [ -32603, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.939.0.copyload.i, %66 ]
   %.sroa.4.0.i = phi i64 [ -9223372036854775808, %60 ], [ %.sroa.043.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.035.0.copyload.i, %66 ]
-  %.sroa.747.sroa.0.0.i = phi ptr [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.7.0.copyload.i, %66 ]
   %.sroa.747.sroa.3.0.i = phi i64 [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.4.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.9.0.copyload.i, %66 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.044.i, i64 24, i1 false), !noalias !17832
   %.sroa.4.0..sroa_idx45.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -117819,9 +117819,9 @@ define hidden void @_ZN13rust_analyzer8dispatch25thread_result_to_response17hc40
   %.sroa.19.0.i = phi ptr [ %49, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.16.0.i = phi i64 [ %48, %60 ], [ undef, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ undef, %66 ]
   %.sroa.1350.0.i = phi i64 [ -9223372036854775805, %60 ], [ -9223372036854775803, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ -9223372036854775803, %66 ]
+  %.sroa.747.sroa.0.0.i = phi ptr [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.7.0.copyload.i, %66 ]
   %.sroa.11.0.i = phi i32 [ undef, %60 ], [ -32603, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.939.0.copyload.i, %66 ]
   %.sroa.4.0.i = phi i64 [ -9223372036854775808, %60 ], [ %.sroa.043.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.035.0.copyload.i, %66 ]
-  %.sroa.747.sroa.0.0.i = phi ptr [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.0.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.7.0.copyload.i, %66 ]
   %.sroa.747.sroa.3.0.i = phi i64 [ undef, %60 ], [ %.sroa.043.sroa.4.sroa.4.0.copyload.i, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h016f13738273c594E.exit.i" ], [ %.sroa.9.0.copyload.i, %66 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.044.i, i64 24, i1 false), !noalias !17908
   %.sroa.4.0..sroa_idx45.i = getelementptr inbounds i8, ptr %0, i64 24

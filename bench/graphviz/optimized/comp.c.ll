@@ -86,7 +86,7 @@ gv_alloc.exit:                                    ; preds = %20
 
 .lr.ph:                                           ; preds = %gv_alloc.exit, %57
   %48 = phi ptr [ %60, %57 ], [ %47, %gv_alloc.exit ]
-  %.075110 = phi ptr [ %58, %57 ], [ %19, %gv_alloc.exit ]
+  %.071110 = phi ptr [ %58, %57 ], [ %19, %gv_alloc.exit ]
   %49 = getelementptr inbounds i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 164
@@ -102,25 +102,25 @@ gv_alloc.exit:                                    ; preds = %20
   br label %57
 
 57:                                               ; preds = %.lr.ph, %56
-  %58 = getelementptr inbounds i8, ptr %.075110, i64 24
-  %59 = getelementptr inbounds i8, ptr %.075110, i64 32
+  %58 = getelementptr inbounds i8, ptr %.071110, i64 24
+  %59 = getelementptr inbounds i8, ptr %.071110, i64 32
   %60 = load ptr, ptr %59, align 8
   %.not85 = icmp eq ptr %60, null
   br i1 %.not85, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %57, %gv_alloc.exit, %gv_calloc.exit
-  %.076 = phi i64 [ 0, %gv_calloc.exit ], [ 1, %gv_alloc.exit ], [ 1, %57 ]
-  %.073 = phi ptr [ null, %gv_calloc.exit ], [ %24, %gv_alloc.exit ], [ %24, %57 ]
+  %.074 = phi ptr [ null, %gv_calloc.exit ], [ %24, %gv_alloc.exit ], [ %24, %57 ]
+  %.072 = phi i64 [ 0, %gv_calloc.exit ], [ 1, %gv_alloc.exit ], [ 1, %57 ]
   %61 = call ptr @agfstnode(ptr noundef %0) #7
   %.not86111 = icmp eq ptr %61, null
   br i1 %.not86111, label %._crit_edge, label %.lr.ph116
 
 .lr.ph116:                                        ; preds = %.loopexit, %90
-  %.0115 = phi ptr [ %91, %90 ], [ %61, %.loopexit ]
-  %.070114 = phi i32 [ %.171, %90 ], [ 0, %.loopexit ]
-  %.174113 = phi ptr [ %.3, %90 ], [ %.073, %.loopexit ]
-  %.177112 = phi i64 [ %.379, %90 ], [ %.076, %.loopexit ]
-  %62 = getelementptr inbounds i8, ptr %.0115, i64 16
+  %.0115 = phi i32 [ %.1, %90 ], [ 0, %.loopexit ]
+  %.173114 = phi i64 [ %.3, %90 ], [ %.072, %.loopexit ]
+  %.175113 = phi ptr [ %.377, %90 ], [ %.074, %.loopexit ]
+  %.079112 = phi ptr [ %91, %90 ], [ %61, %.loopexit ]
+  %62 = getelementptr inbounds i8, ptr %.079112, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 164
   %65 = load i32, ptr %64, align 4
@@ -137,13 +137,13 @@ gv_alloc.exit:                                    ; preds = %20
   br i1 %.not94, label %72, label %90
 
 72:                                               ; preds = %69
-  %.not95 = icmp eq ptr %.174113, null
+  %.not95 = icmp eq ptr %.175113, null
   br i1 %.not95, label %73, label %89
 
 73:                                               ; preds = %72
   %74 = call ptr @agnameof(ptr noundef %0) #7
   %75 = load i64, ptr @C_cnt, align 8
-  %76 = add i64 %75, %.177112
+  %76 = add i64 %75, %.173114
   %77 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str, ptr noundef %74, i64 noundef %76) #7
   %78 = call ptr @agsubg(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 1) #7
   %79 = call ptr @agbindrec(ptr noundef %78, ptr noundef nonnull @.str.1, i32 noundef 408, i32 noundef 1) #7
@@ -158,7 +158,7 @@ gv_alloc.exit:                                    ; preds = %20
   unreachable
 
 gv_alloc.exit97:                                  ; preds = %73
-  %85 = add i64 %.177112, 1
+  %85 = add i64 %.173114, 1
   %86 = getelementptr inbounds i8, ptr %78, i64 16
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 160
@@ -166,28 +166,28 @@ gv_alloc.exit97:                                  ; preds = %73
   br label %89
 
 89:                                               ; preds = %gv_alloc.exit97, %72
-  %.278 = phi i64 [ %.177112, %72 ], [ %85, %gv_alloc.exit97 ]
-  %.2 = phi ptr [ %.174113, %72 ], [ %78, %gv_alloc.exit97 ]
-  call fastcc void @dfs(ptr noundef %0, ptr noundef nonnull %.0115, ptr noundef nonnull %.2, ptr noundef nonnull %14)
+  %.276 = phi ptr [ %.175113, %72 ], [ %78, %gv_alloc.exit97 ]
+  %.2 = phi i64 [ %.173114, %72 ], [ %85, %gv_alloc.exit97 ]
+  call fastcc void @dfs(ptr noundef %0, ptr noundef nonnull %.079112, ptr noundef nonnull %.276, ptr noundef nonnull %14)
   br label %90
 
 90:                                               ; preds = %69, %.lr.ph116, %89
-  %.379 = phi i64 [ %.177112, %.lr.ph116 ], [ %.177112, %69 ], [ %.278, %89 ]
-  %.3 = phi ptr [ %.174113, %.lr.ph116 ], [ %.174113, %69 ], [ %.2, %89 ]
-  %.171 = phi i32 [ %.070114, %.lr.ph116 ], [ %.070114, %69 ], [ 1, %89 ]
-  %91 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0115) #7
+  %.377 = phi ptr [ %.175113, %.lr.ph116 ], [ %.175113, %69 ], [ %.276, %89 ]
+  %.3 = phi i64 [ %.173114, %.lr.ph116 ], [ %.173114, %69 ], [ %.2, %89 ]
+  %.1 = phi i32 [ %.0115, %.lr.ph116 ], [ %.0115, %69 ], [ 1, %89 ]
+  %91 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.079112) #7
   %.not86 = icmp eq ptr %91, null
   br i1 %.not86, label %._crit_edge, label %.lr.ph116
 
 ._crit_edge:                                      ; preds = %90, %.loopexit
-  %.177.lcssa = phi i64 [ %.076, %.loopexit ], [ %.379, %90 ]
-  %.174.lcssa = phi ptr [ %.073, %.loopexit ], [ %.3, %90 ]
-  %.070.lcssa = phi i32 [ 0, %.loopexit ], [ %.171, %90 ]
-  %.not87 = icmp eq ptr %.174.lcssa, null
+  %.175.lcssa = phi ptr [ %.074, %.loopexit ], [ %.377, %90 ]
+  %.173.lcssa = phi i64 [ %.072, %.loopexit ], [ %.3, %90 ]
+  %.0.lcssa = phi i32 [ 0, %.loopexit ], [ %.1, %90 ]
+  %.not87 = icmp eq ptr %.175.lcssa, null
   br i1 %.not87, label %94, label %92
 
 92:                                               ; preds = %._crit_edge
-  %93 = call i64 @graphviz_node_induce(ptr noundef nonnull %.174.lcssa, ptr noundef null) #7
+  %93 = call i64 @graphviz_node_induce(ptr noundef nonnull %.175.lcssa, ptr noundef null) #7
   br label %94
 
 94:                                               ; preds = %92, %._crit_edge
@@ -196,9 +196,9 @@ gv_alloc.exit97:                                  ; preds = %73
   br i1 %.not88119, label %._crit_edge124, label %.lr.ph123
 
 .lr.ph123:                                        ; preds = %94, %120
-  %.1121 = phi ptr [ %121, %120 ], [ %95, %94 ]
-  %.480120 = phi i64 [ %.5, %120 ], [ %.177.lcssa, %94 ]
-  %96 = getelementptr inbounds i8, ptr %.1121, i64 16
+  %.4121 = phi i64 [ %.5, %120 ], [ %.173.lcssa, %94 ]
+  %.180120 = phi ptr [ %121, %120 ], [ %95, %94 ]
+  %96 = getelementptr inbounds i8, ptr %.180120, i64 16
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 164
   %99 = load i32, ptr %98, align 4
@@ -211,7 +211,7 @@ gv_alloc.exit97:                                  ; preds = %73
 103:                                              ; preds = %.lr.ph123
   %104 = call ptr @agnameof(ptr noundef %0) #7
   %105 = load i64, ptr @C_cnt, align 8
-  %106 = add i64 %105, %.480120
+  %106 = add i64 %105, %.4121
   %107 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.2, ptr noundef %104, i64 noundef %106) #7
   %108 = call ptr @agsubg(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 1) #7
   %109 = call ptr @agbindrec(ptr noundef %108, ptr noundef nonnull @.str.1, i32 noundef 408, i32 noundef 1) #7
@@ -226,32 +226,32 @@ gv_alloc.exit97:                                  ; preds = %73
   unreachable
 
 gv_alloc.exit98:                                  ; preds = %103
-  %115 = add i64 %.480120, 1
+  %115 = add i64 %.4121, 1
   %116 = getelementptr inbounds i8, ptr %108, i64 16
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 160
   store ptr %110, ptr %118, align 8
-  call fastcc void @dfs(ptr noundef %0, ptr noundef nonnull %.1121, ptr noundef %108, ptr noundef nonnull %14)
+  call fastcc void @dfs(ptr noundef %0, ptr noundef nonnull %.180120, ptr noundef %108, ptr noundef nonnull %14)
   %119 = call i64 @graphviz_node_induce(ptr noundef %108, ptr noundef null) #7
   br label %120
 
 120:                                              ; preds = %.lr.ph123, %gv_alloc.exit98
-  %.5 = phi i64 [ %.480120, %.lr.ph123 ], [ %115, %gv_alloc.exit98 ]
-  %121 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.1121) #7
+  %.5 = phi i64 [ %.4121, %.lr.ph123 ], [ %115, %gv_alloc.exit98 ]
+  %121 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.180120) #7
   %.not88 = icmp eq ptr %121, null
   br i1 %.not88, label %._crit_edge124, label %.lr.ph123
 
 ._crit_edge124:                                   ; preds = %120, %94
-  %.480.lcssa = phi i64 [ %.177.lcssa, %94 ], [ %.5, %120 ]
+  %.4.lcssa = phi i64 [ %.173.lcssa, %94 ], [ %.5, %120 ]
   call void @free(ptr noundef %14) #7
   %122 = load i64, ptr @C_cnt, align 8
-  %123 = add i64 %122, %.480.lcssa
+  %123 = add i64 %122, %.4.lcssa
   store i64 %123, ptr @C_cnt, align 8
   %.not89 = icmp eq ptr %1, null
   br i1 %.not89, label %125, label %124
 
 124:                                              ; preds = %._crit_edge124
-  store i64 %.480.lcssa, ptr %1, align 8
+  store i64 %.4.lcssa, ptr %1, align 8
   br label %125
 
 125:                                              ; preds = %124, %._crit_edge124
@@ -259,11 +259,11 @@ gv_alloc.exit98:                                  ; preds = %103
   br i1 %.not90, label %127, label %126
 
 126:                                              ; preds = %125
-  store i32 %.070.lcssa, ptr %2, align 4
+  store i32 %.0.lcssa, ptr %2, align 4
   br label %127
 
 127:                                              ; preds = %126, %125
-  %128 = add i64 %.480.lcssa, 1
+  %128 = add i64 %.4.lcssa, 1
   %.not.i99 = icmp eq i64 %128, 0
   br i1 %.not.i99, label %.thread.i102, label %130
 
@@ -300,17 +300,17 @@ gv_calloc.exit103:                                ; preds = %.thread.i102, %134
   br i1 %.not91126, label %._crit_edge130, label %.lr.ph129
 
 .lr.ph129:                                        ; preds = %gv_calloc.exit103, %.lr.ph129
-  %.072128 = phi ptr [ %143, %.lr.ph129 ], [ %141, %gv_calloc.exit103 ]
-  %.4127 = phi ptr [ %144, %.lr.ph129 ], [ %142, %gv_calloc.exit103 ]
-  %143 = getelementptr inbounds i8, ptr %.072128, i64 8
-  store ptr %.4127, ptr %.072128, align 8
-  %144 = call ptr @agnxtsubg(ptr noundef nonnull %.4127) #7
+  %.070128 = phi ptr [ %143, %.lr.ph129 ], [ %141, %gv_calloc.exit103 ]
+  %.478127 = phi ptr [ %144, %.lr.ph129 ], [ %142, %gv_calloc.exit103 ]
+  %143 = getelementptr inbounds i8, ptr %.070128, i64 8
+  store ptr %.478127, ptr %.070128, align 8
+  %144 = call ptr @agnxtsubg(ptr noundef nonnull %.478127) #7
   %.not91 = icmp eq ptr %144, null
   br i1 %.not91, label %._crit_edge130, label %.lr.ph129
 
 ._crit_edge130:                                   ; preds = %.lr.ph129, %gv_calloc.exit103
-  %.072.lcssa = phi ptr [ %141, %gv_calloc.exit103 ], [ %143, %.lr.ph129 ]
-  store ptr null, ptr %.072.lcssa, align 8
+  %.070.lcssa = phi ptr [ %141, %gv_calloc.exit103 ], [ %143, %.lr.ph129 ]
+  store ptr null, ptr %.070.lcssa, align 8
   ret ptr %141
 }
 

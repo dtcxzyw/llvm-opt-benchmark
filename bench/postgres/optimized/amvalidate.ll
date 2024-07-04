@@ -489,7 +489,7 @@ define dso_local zeroext i1 @check_amproc_signature(i32 noundef %0, i32 noundef 
   br label %32
 
 32:                                               ; preds = %25, %31
-  %.0 = phi i1 [ false, %31 ], [ true, %25 ]
+  %.025 = phi i1 [ false, %31 ], [ true, %25 ]
   call void @llvm.va_start.p0(ptr nonnull %6)
   %33 = icmp sgt i32 %4, 0
   br i1 %33, label %.lr.ph, label %._crit_edge
@@ -521,7 +521,7 @@ define dso_local zeroext i1 @check_amproc_signature(i32 noundef %0, i32 noundef 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us.split.us.preheader, %48
   %42 = phi ptr [ %.pre, %.lr.ph.split.us.split.us.preheader ], [ %43, %48 ]
   %indvars.iv40 = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %indvars.iv.next41, %48 ]
-  %.134.us.us = phi i1 [ %.0, %.lr.ph.split.us.split.us.preheader ], [ %.2.us.us, %48 ]
+  %.132.us.us = phi i1 [ %.025, %.lr.ph.split.us.split.us.preheader ], [ %.2.us.us, %48 ]
   %43 = getelementptr i8, ptr %42, i64 8
   store ptr %43, ptr %34, align 8
   %.not30.us.us = icmp slt i64 %indvars.iv40, %41
@@ -532,11 +532,11 @@ define dso_local zeroext i1 @check_amproc_signature(i32 noundef %0, i32 noundef 
   %46 = getelementptr [0 x i32], ptr %37, i64 0, i64 %indvars.iv40
   %47 = load i32, ptr %46, align 4
   %.not31.us.us = icmp eq i32 %45, %47
-  %spec.select = select i1 %.not31.us.us, i1 %.134.us.us, i1 false
+  %spec.select = select i1 %.not31.us.us, i1 %.132.us.us, i1 false
   br label %48
 
 48:                                               ; preds = %44, %.lr.ph.split.us.split.us
-  %.2.us.us = phi i1 [ %.134.us.us, %.lr.ph.split.us.split.us ], [ %spec.select, %44 ]
+  %.2.us.us = phi i1 [ %.132.us.us, %.lr.ph.split.us.split.us ], [ %spec.select, %44 ]
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count46
   br i1 %exitcond43.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !7
@@ -544,7 +544,7 @@ define dso_local zeroext i1 @check_amproc_signature(i32 noundef %0, i32 noundef 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %67
   %49 = phi i32 [ %59, %67 ], [ %39, %.lr.ph.split.us ]
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %67 ], [ 0, %.lr.ph.split.us ]
-  %.134.us = phi i1 [ %.2.us, %67 ], [ %.0, %.lr.ph.split.us ]
+  %.132.us = phi i1 [ %.2.us, %67 ], [ %.025, %.lr.ph.split.us ]
   %50 = icmp ult i32 %49, 41
   br i1 %50, label %54, label %51
 
@@ -574,18 +574,18 @@ define dso_local zeroext i1 @check_amproc_signature(i32 noundef %0, i32 noundef 
   %65 = getelementptr [0 x i32], ptr %37, i64 0, i64 %indvars.iv44
   %66 = load i32, ptr %65, align 4
   %.not31.us = icmp eq i32 %64, %66
-  %spec.select36 = select i1 %.not31.us, i1 %.134.us, i1 false
+  %spec.select36 = select i1 %.not31.us, i1 %.132.us, i1 false
   br label %67
 
 67:                                               ; preds = %63, %58
-  %.2.us = phi i1 [ %.134.us, %58 ], [ %spec.select36, %63 ]
+  %.2.us = phi i1 [ %.132.us, %58 ], [ %spec.select36, %63 ]
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count46
   br i1 %exitcond47.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %87
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %87 ]
-  %.134 = phi i1 [ %.0, %.lr.ph.split.preheader ], [ %.2, %87 ]
+  %.132 = phi i1 [ %.025, %.lr.ph.split.preheader ], [ %.2, %87 ]
   %68 = load i32, ptr %6, align 16
   %69 = icmp ult i32 %68, 41
   br i1 %69, label %70, label %75
@@ -616,17 +616,17 @@ define dso_local zeroext i1 @check_amproc_signature(i32 noundef %0, i32 noundef 
   %84 = getelementptr [0 x i32], ptr %37, i64 0, i64 %indvars.iv
   %85 = load i32, ptr %84, align 4
   %86 = call zeroext i1 @IsBinaryCoercible(i32 noundef %83, i32 noundef %85) #7
-  %spec.select37 = select i1 %86, i1 %.134, i1 false
+  %spec.select37 = select i1 %86, i1 %.132, i1 false
   br label %87
 
 87:                                               ; preds = %82, %78
-  %.2 = phi i1 [ %.134, %78 ], [ %spec.select37, %82 ]
+  %.2 = phi i1 [ %.132, %78 ], [ %spec.select37, %82 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %87, %48, %67, %32
-  %.1.lcssa = phi i1 [ %.0, %32 ], [ %.2.us, %67 ], [ %.2.us.us, %48 ], [ %.2, %87 ]
+  %.1.lcssa = phi i1 [ %.025, %32 ], [ %.2.us, %67 ], [ %.2.us.us, %48 ], [ %.2, %87 ]
   call void @llvm.va_end.p0(ptr nonnull %6)
   call void @ReleaseSysCache(ptr noundef nonnull %8) #7
   ret i1 %.1.lcssa

@@ -1658,10 +1658,10 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit: ; preds = %56
   br label %129
 
 129:                                              ; preds = %129, %117
-  %.069.i = phi i32 [ %125, %117 ], [ %132, %129 ]
-  %130 = sub nsw i32 %.069.i, %126
-  %131 = call noundef float @_Z20calcVerletBufferSizeRK10gmx_mtop_tfRK10t_inputrecfiifRK18VerletbufListSetup(ptr noundef nonnull align 8 dereferenceable(768) %2, float noundef %3, ptr noundef nonnull align 8 dereferenceable(856) %1, float noundef %.0.i, i32 noundef %.069.i, i32 noundef %130, float noundef -1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %10)
-  %132 = add nsw i32 %.069.i, %128
+  %.067.i = phi i32 [ %125, %117 ], [ %132, %129 ]
+  %130 = sub nsw i32 %.067.i, %126
+  %131 = call noundef float @_Z20calcVerletBufferSizeRK10gmx_mtop_tfRK10t_inputrecfiifRK18VerletbufListSetup(ptr noundef nonnull align 8 dereferenceable(768) %2, float noundef %3, ptr noundef nonnull align 8 dereferenceable(856) %1, float noundef %.0.i, i32 noundef %.067.i, i32 noundef %130, float noundef -1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %10)
+  %132 = add nsw i32 %.067.i, %128
   %133 = load i32, ptr %103, align 8
   %134 = icmp slt i32 %132, %133
   %135 = fcmp oeq float %131, %123
@@ -1673,11 +1673,11 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit: ; preds = %56
 
 138:                                              ; preds = %137
   %139 = add i32 %133, -1
-  %140 = add i32 %139, %.069.i
-  %141 = sdiv i32 %140, %.069.i
+  %140 = add i32 %139, %.067.i
+  %141 = sdiv i32 %140, %.067.i
   %142 = add i32 %141, %139
   %143 = sdiv i32 %142, %141
-  %144 = icmp slt i32 %143, %.069.i
+  %144 = icmp slt i32 %143, %.067.i
   br i1 %144, label %145, label %148
 
 145:                                              ; preds = %138
@@ -1686,8 +1686,8 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit: ; preds = %56
   br label %148
 
 148:                                              ; preds = %145, %138, %137
+  %.069.i = phi i32 [ %.067.i, %137 ], [ %143, %145 ], [ %.067.i, %138 ]
   %.068.i = phi float [ %131, %137 ], [ %147, %145 ], [ %131, %138 ]
-  %.067.i = phi i32 [ %.069.i, %137 ], [ %143, %145 ], [ %.069.i, %138 ]
   %149 = call noundef float @_Z33nbnxmPairlistVolumeRadiusIncreasebf(i1 noundef zeroext %52, float noundef %3)
   %150 = fadd float %.068.i, %149
   %151 = fpext float %150 to double
@@ -1700,13 +1700,13 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit: ; preds = %56
 
 157:                                              ; preds = %148
   %158 = load i32, ptr %110, align 4
-  %159 = icmp slt i32 %.067.i, %158
+  %159 = icmp slt i32 %.069.i, %158
   %160 = zext i1 %159 to i8
   store i8 %160, ptr %42, align 1
   br i1 %159, label %161, label %_ZL35setDynamicPairlistPruningParametersRK10t_inputrecRK10gmx_mtop_tfbRK18VerletbufListSetupbRK19interaction_const_tP14PairlistParams.exit.thread
 
 161:                                              ; preds = %157
-  store i32 %.067.i, ptr %124, align 4
+  store i32 %.069.i, ptr %124, align 4
   br label %_ZL35setDynamicPairlistPruningParametersRK10t_inputrecRK10gmx_mtop_tfbRK18VerletbufListSetupbRK19interaction_const_tP14PairlistParams.exit
 
 .critedge.i:                                      ; preds = %148
@@ -2094,17 +2094,17 @@ _ZL41supportsDynamicPairlistGenerationIntervalRK10t_inputrec.exit144: ; preds = 
   br label %297
 
 297:                                              ; preds = %295, %290
-  %.086 = phi float [ %296, %295 ], [ -1.000000e+00, %290 ]
+  %.0 = phi float [ %296, %295 ], [ -1.000000e+00, %290 ]
   %298 = getelementptr inbounds i8, ptr %5, i64 24
   %299 = load i32, ptr %298, align 4
   %not. = xor i1 %52, true
   %.neg = sext i1 %not. to i32
   %300 = add i32 %299, %.neg
-  %301 = invoke noundef float @_Z20calcVerletBufferSizeRK10gmx_mtop_tfRK10t_inputrecfiifRK18VerletbufListSetup(ptr noundef nonnull align 8 dereferenceable(768) %2, float noundef %3, ptr noundef nonnull align 8 dereferenceable(856) %1, float noundef %.086, i32 noundef %299, i32 noundef %300, float noundef -1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %25)
+  %301 = invoke noundef float @_Z20calcVerletBufferSizeRK10gmx_mtop_tfRK10t_inputrecfiifRK18VerletbufListSetup(ptr noundef nonnull align 8 dereferenceable(768) %2, float noundef %3, ptr noundef nonnull align 8 dereferenceable(856) %1, float noundef %.0, i32 noundef %299, i32 noundef %300, float noundef -1.000000e+00, ptr noundef nonnull align 4 dereferenceable(8) %25)
           to label %302 unwind label %226
 
 302:                                              ; preds = %297, %287
-  %.087 = phi float [ %286, %287 ], [ %301, %297 ]
+  %.086 = phi float [ %286, %287 ], [ %301, %297 ]
   %303 = getelementptr inbounds i8, ptr %1, i64 324
   %304 = load float, ptr %303, align 4
   %305 = fpext float %304 to double
@@ -2175,7 +2175,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit154: ;
   %322 = getelementptr inbounds i8, ptr %5, i64 24
   %323 = load i32, ptr %322, align 4
   %324 = load i32, ptr %283, align 8
-  invoke fastcc void @_ZL15formatListSetupRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiff(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(32) %31, i32 noundef %323, i32 noundef %324, float noundef %.087, float noundef %194)
+  invoke fastcc void @_ZL15formatListSetupRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiff(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(32) %31, i32 noundef %323, i32 noundef %324, float noundef %.086, float noundef %194)
           to label %325 unwind label %338
 
 325:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit154
@@ -2553,41 +2553,41 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   br i1 %5, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %17
-  %.02230.i = phi i32 [ %18, %17 ], [ %4, %2 ]
-  %.02329.i = phi i32 [ %19, %17 ], [ 1, %2 ]
-  %6 = icmp ult i32 %.02230.i, 100
+  %.030.i = phi i32 [ %19, %17 ], [ 1, %2 ]
+  %.02329.i = phi i32 [ %18, %17 ], [ %4, %2 ]
+  %6 = icmp ult i32 %.02329.i, 100
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = add i32 %.02329.i, 1
+  %8 = add i32 %.030.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = icmp ult i32 %.02230.i, 1000
+  %10 = icmp ult i32 %.02329.i, 1000
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = add i32 %.02329.i, 2
+  %12 = add i32 %.030.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 13:                                               ; preds = %9
-  %14 = icmp ult i32 %.02230.i, 10000
+  %14 = icmp ult i32 %.02329.i, 10000
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = add i32 %.02329.i, 3
+  %16 = add i32 %.030.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 17:                                               ; preds = %13
-  %18 = udiv i32 %.02230.i, 10000
-  %19 = add i32 %.02329.i, 4
-  %20 = icmp ult i32 %.02230.i, 100000
+  %18 = udiv i32 %.02329.i, 10000
+  %19 = add i32 %.030.i, 4
+  %20 = icmp ult i32 %.02329.i, 100000
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !10
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.022.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
-  %21 = add i32 %.0.i, %.lobit
+  %21 = add i32 %.022.i, %.lobit
   %22 = zext i32 %21 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21
   %23 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -2618,7 +2618,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br i1 %29, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %28
-  %30 = add i32 %.0.i, -1
+  %30 = add i32 %.022.i, -1
   br label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %.lr.ph.i12, %.lr.ph.preheader.i

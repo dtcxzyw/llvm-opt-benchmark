@@ -2423,11 +2423,11 @@ define internal void @_ZNK5faiss24ProductAdditiveQuantizer15decode_unpackedEPKiP
 
 .lr.ph54:                                         ; preds = %.lr.ph58.split, %._crit_edge
   %32 = phi i64 [ %64, %._crit_edge ], [ %26, %.lr.ph58.split ]
-  %.04252 = phi i64 [ %65, %._crit_edge ], [ 0, %.lr.ph58.split ]
+  %.04352 = phi i64 [ %69, %._crit_edge ], [ 0, %.lr.ph58.split ]
   %.04451 = phi i64 [ %68, %._crit_edge ], [ 0, %.lr.ph58.split ]
-  %.04550 = phi i64 [ %69, %._crit_edge ], [ 0, %.lr.ph58.split ]
+  %.04550 = phi i64 [ %65, %._crit_edge ], [ 0, %.lr.ph58.split ]
   %33 = load ptr, ptr %20, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %.04550
+  %34 = getelementptr inbounds ptr, ptr %33, i64 %.04352
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %6, align 8
   %37 = load i64, ptr %21, align 8
@@ -2445,7 +2445,7 @@ define internal void @_ZNK5faiss24ProductAdditiveQuantizer15decode_unpackedEPKiP
 
 44:                                               ; preds = %.lr.ph, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
-  %45 = add i64 %indvars.iv, %.04252
+  %45 = add i64 %indvars.iv, %.04550
   %46 = getelementptr inbounds i32, ptr %31, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = load ptr, ptr %22, align 8
@@ -2482,11 +2482,11 @@ define internal void @_ZNK5faiss24ProductAdditiveQuantizer15decode_unpackedEPKiP
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph54
   %64 = phi i64 [ %32, %.lr.ph54 ], [ %.pre, %._crit_edge.loopexit ]
   %.lcssa = phi i64 [ 0, %.lr.ph54 ], [ %62, %._crit_edge.loopexit ]
-  %65 = add i64 %.lcssa, %.04252
+  %65 = add i64 %.lcssa, %.04550
   %66 = getelementptr inbounds i8, ptr %35, i64 8
   %67 = load i64, ptr %66, align 8
   %68 = add i64 %67, %.04451
-  %69 = add nuw i64 %.04550, 1
+  %69 = add nuw i64 %.04352, 1
   %70 = icmp ult i64 %69, %64
   br i1 %70, label %.lr.ph54, label %._crit_edge55.loopexit, !llvm.loop !23
 
@@ -2570,12 +2570,12 @@ define internal void @_ZNK5faiss24ProductAdditiveQuantizer6decodeEPKhPfm.omp_out
 
 .lr.ph59:                                         ; preds = %.lr.ph63.split, %._crit_edge
   %32 = phi i64 [ %103, %._crit_edge ], [ %26, %.lr.ph63.split ]
-  %.04057 = phi i64 [ %104, %._crit_edge ], [ 0, %.lr.ph63.split ]
+  %.04157 = phi i64 [ %108, %._crit_edge ], [ 0, %.lr.ph63.split ]
   %.04256 = phi i64 [ %107, %._crit_edge ], [ 0, %.lr.ph63.split ]
-  %.04355 = phi i64 [ %108, %._crit_edge ], [ 0, %.lr.ph63.split ]
+  %.04355 = phi i64 [ %104, %._crit_edge ], [ 0, %.lr.ph63.split ]
   %.sroa.3.054 = phi i64 [ %.sroa.3.1.lcssa, %._crit_edge ], [ 0, %.lr.ph63.split ]
   %33 = load ptr, ptr %20, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %.04355
+  %34 = getelementptr inbounds ptr, ptr %33, i64 %.04157
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %5, align 8
   %37 = load i64, ptr %21, align 8
@@ -2675,7 +2675,7 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %58, %._crit_edge.i
   %86 = load ptr, ptr %22, align 8
   %87 = load i64, ptr %44, align 8
   %88 = load ptr, ptr %23, align 8
-  %89 = getelementptr i64, ptr %88, i64 %.04057
+  %89 = getelementptr i64, ptr %88, i64 %.04355
   %90 = getelementptr i64, ptr %89, i64 %indvars.iv
   %91 = load i64, ptr %90, align 8
   %sext = shl i64 %.0.i, 32
@@ -2709,11 +2709,11 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %58, %._crit_edge.i
   %103 = phi i64 [ %32, %.lr.ph59 ], [ %.pre, %._crit_edge.loopexit ]
   %.sroa.3.1.lcssa = phi i64 [ %.sroa.3.054, %.lr.ph59 ], [ %.sroa.3.2, %._crit_edge.loopexit ]
   %.lcssa48 = phi i64 [ 0, %.lr.ph59 ], [ %101, %._crit_edge.loopexit ]
-  %104 = add i64 %.lcssa48, %.04057
+  %104 = add i64 %.lcssa48, %.04355
   %105 = getelementptr inbounds i8, ptr %35, i64 8
   %106 = load i64, ptr %105, align 8
   %107 = add i64 %106, %.04256
-  %108 = add nuw i64 %.04355, 1
+  %108 = add nuw i64 %.04157, 1
   %109 = icmp ult i64 %108, %103
   br i1 %109, label %.lr.ph59, label %._crit_edge60.loopexit, !llvm.loop !26
 

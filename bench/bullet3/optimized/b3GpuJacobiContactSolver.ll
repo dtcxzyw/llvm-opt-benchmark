@@ -2091,8 +2091,8 @@ if.then115:                                       ; preds = %invoke.cont111
   br label %if.end126
 
 if.end126:                                        ; preds = %if.then115, %invoke.cont111
-  %davAPtr.0 = phi ptr [ %arrayidx.i279, %if.then115 ], [ %zero, %invoke.cont111 ]
   %dlvAPtr.0 = phi ptr [ %arrayidx.i276, %if.then115 ], [ %zero, %invoke.cont111 ]
+  %davAPtr.0 = phi ptr [ %arrayidx.i279, %if.then115 ], [ %zero, %invoke.cont111 ]
   %m_invMass127 = getelementptr inbounds i8, ptr %arrayidx110, i64 68
   %53 = load float, ptr %m_invMass127, align 4
   %tobool128 = fcmp une float %53, 0.000000e+00
@@ -2111,8 +2111,8 @@ if.then129:                                       ; preds = %if.end126
   br label %if.end140
 
 if.end140:                                        ; preds = %if.then129, %if.end126
-  %davBPtr.0 = phi ptr [ %arrayidx.i291, %if.then129 ], [ %zero, %if.end126 ]
   %dlvBPtr.0 = phi ptr [ %arrayidx.i288, %if.then129 ], [ %zero, %if.end126 ]
+  %davBPtr.0 = phi ptr [ %arrayidx.i291, %if.then129 ], [ %zero, %if.end126 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %minRambdaDt, i8 0, i64 16, i1 false)
   %m_linVel = getelementptr inbounds i8, ptr %arrayidx108, i64 32
   %m_angVel = getelementptr inbounds i8, ptr %arrayidx108, i64 48

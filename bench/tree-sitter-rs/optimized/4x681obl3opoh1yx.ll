@@ -1091,15 +1091,15 @@ define hidden void @"_ZN16tree_sitter_tags17TagsConfiguration3new28_$u7b$$u7b$cl
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ac13cee5d34ee38E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ac13cee5d34ee38E.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ac13cee5d34ee38E.exit.lr.ph", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit100.thread"
-  %.sroa.0108.0152 = phi ptr [ %42, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ac13cee5d34ee38E.exit.lr.ph" ], [ %48, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit100.thread" ]
-  %48 = getelementptr inbounds i8, ptr %.sroa.0108.0152, i64 32
-  %49 = getelementptr inbounds i8, ptr %.sroa.0108.0152, i64 24
+  %.sroa.0108.0153 = phi ptr [ %42, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ac13cee5d34ee38E.exit.lr.ph" ], [ %48, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit100.thread" ]
+  %48 = getelementptr inbounds i8, ptr %.sroa.0108.0153, i64 32
+  %49 = getelementptr inbounds i8, ptr %.sroa.0108.0153, i64 24
   %50 = load i64, ptr %49, align 8, !noundef !12
   %.not73 = icmp eq i64 %50, 0
   br i1 %.not73, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit100.thread", label %51
 
 51:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ac13cee5d34ee38E.exit"
-  %52 = getelementptr inbounds i8, ptr %.sroa.0108.0152, i64 16
+  %52 = getelementptr inbounds i8, ptr %.sroa.0108.0153, i64 16
   %53 = load ptr, ptr %52, align 8, !nonnull !12, !align !72, !noundef !12
   %54 = load ptr, ptr %53, align 8, !alias.scope !209, !noalias !212, !noundef !12
   %.not147 = icmp eq ptr %54, null
@@ -1122,8 +1122,8 @@ define hidden void @"_ZN16tree_sitter_tags17TagsConfiguration3new28_$u7b$$u7b$cl
   br i1 %60, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ac13cee5d34ee38E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9ac13cee5d34ee38E.exit"
 
 61:                                               ; preds = %"_ZN71_$LT$tree_sitter..QueryPredicateArg$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2cbfd0ce4343ade2E.exit"
-  %62 = load ptr, ptr %.sroa.0108.0152, align 8, !nonnull !12, !align !16, !noundef !12
-  %63 = getelementptr inbounds i8, ptr %.sroa.0108.0152, i64 8
+  %62 = load ptr, ptr %.sroa.0108.0153, align 8, !nonnull !12, !align !16, !noundef !12
+  %63 = getelementptr inbounds i8, ptr %.sroa.0108.0153, i64 8
   %64 = load i64, ptr %63, align 8, !noundef !12
   %.not156 = icmp eq i64 %50, 1
   %65 = getelementptr inbounds i8, ptr %53, i64 16

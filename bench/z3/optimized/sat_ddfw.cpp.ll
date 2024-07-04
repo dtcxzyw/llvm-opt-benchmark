@@ -4817,9 +4817,9 @@ if.end.i.i:                                       ; preds = %if.then16
   br i1 %cmp4.not6.i.i, label %if.end18.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.inc.i.i
-  %overhead.08.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i ]
-  %curr.07.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %6, %if.end.i.i ]
-  %m_state.i.i.i = getelementptr inbounds i8, ptr %curr.07.i.i, i64 4
+  %curr.08.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %6, %if.end.i.i ]
+  %overhead.07.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i ]
+  %m_state.i.i.i = getelementptr inbounds i8, ptr %curr.08.i.i, i64 4
   %8 = load i32, ptr %m_state.i.i.i, align 4
   %cmp.i.i.i = icmp eq i32 %8, 0
   br i1 %cmp.i.i.i, label %if.else.i.i, label %if.then5.i.i
@@ -4829,12 +4829,12 @@ if.then5.i.i:                                     ; preds = %for.body.i.i
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %inc.i.i = add i32 %overhead.08.i.i, 1
+  %inc.i.i = add i32 %overhead.07.i.i, 1
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then5.i.i
-  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.08.i.i, %if.then5.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.07.i.i, i64 16
+  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.07.i.i, %if.then5.i.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.08.i.i, i64 16
   %cmp4.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
   br i1 %cmp4.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !28
 
@@ -6210,9 +6210,9 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %sum_pos.040 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %sum_pos.1, %for.inc ]
   %n.039 = phi i32 [ 1, %for.body.lr.ph ], [ %n.1, %for.inc ]
-  %v0.038 = phi i32 [ 2147483647, %for.body.lr.ph ], [ %v0.1, %for.inc ]
-  %__begin2.037 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %2 = load i32, ptr %__begin2.037, align 4
+  %__begin2.038 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %v0.037 = phi i32 [ 2147483647, %for.body.lr.ph ], [ %v0.1, %for.inc ]
+  %2 = load i32, ptr %__begin2.038, align 4
   %3 = load ptr, ptr %m_vars.i, align 8
   %idxprom.i.i = zext i32 %2 to i64
   %m_reward.i = getelementptr inbounds %"struct.sat::ddfw::var_info", ptr %3, i64 %idxprom.i.i, i32 1
@@ -6241,14 +6241,14 @@ land.lhs.true8:                                   ; preds = %if.else
   %inc = add i32 %n.039, 1
   %rem = urem i32 %and.i, %n.039
   %cmp10 = icmp eq i32 %rem, 0
-  %spec.select = select i1 %cmp10, i32 %2, i32 %v0.038
+  %spec.select = select i1 %cmp10, i32 %2, i32 %v0.037
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true8, %if.then, %if.else
-  %v0.1 = phi i32 [ %v0.038, %if.then ], [ %v0.038, %if.else ], [ %spec.select, %land.lhs.true8 ]
+  %v0.1 = phi i32 [ %v0.037, %if.then ], [ %v0.037, %if.else ], [ %spec.select, %land.lhs.true8 ]
   %n.1 = phi i32 [ %n.039, %if.then ], [ %n.039, %if.else ], [ %inc, %land.lhs.true8 ]
   %sum_pos.1 = phi double [ %add, %if.then ], [ %sum_pos.040, %if.else ], [ %sum_pos.040, %land.lhs.true8 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.037, i64 4
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.038, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -6356,9 +6356,9 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %sum_pos.040 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %sum_pos.1, %for.inc ]
   %n.039 = phi i32 [ 1, %for.body.lr.ph ], [ %n.1, %for.inc ]
-  %v0.038 = phi i32 [ 2147483647, %for.body.lr.ph ], [ %v0.1, %for.inc ]
-  %__begin2.037 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %2 = load i32, ptr %__begin2.037, align 4
+  %__begin2.038 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %v0.037 = phi i32 [ 2147483647, %for.body.lr.ph ], [ %v0.1, %for.inc ]
+  %2 = load i32, ptr %__begin2.038, align 4
   %3 = load ptr, ptr %m_vars.i.i, align 8
   %idxprom.i.i.i = zext i32 %2 to i64
   %m_external.i.i = getelementptr inbounds %"struct.sat::ddfw::var_info", ptr %3, i64 %idxprom.i.i.i, i32 5
@@ -6408,14 +6408,14 @@ land.lhs.true8:                                   ; preds = %if.else
   %inc = add i32 %n.039, 1
   %rem = urem i32 %and.i, %n.039
   %cmp10 = icmp eq i32 %rem, 0
-  %spec.select = select i1 %cmp10, i32 %2, i32 %v0.038
+  %spec.select = select i1 %cmp10, i32 %2, i32 %v0.037
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true8, %if.then, %if.else
-  %v0.1 = phi i32 [ %v0.038, %if.then ], [ %v0.038, %if.else ], [ %spec.select, %land.lhs.true8 ]
+  %v0.1 = phi i32 [ %v0.037, %if.then ], [ %v0.037, %if.else ], [ %spec.select, %land.lhs.true8 ]
   %n.1 = phi i32 [ %n.039, %if.then ], [ %n.039, %if.else ], [ %inc, %land.lhs.true8 ]
   %sum_pos.1 = phi double [ %add, %if.then ], [ %sum_pos.040, %if.else ], [ %sum_pos.040, %land.lhs.true8 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.037, i64 4
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.038, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 

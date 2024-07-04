@@ -36,11 +36,11 @@ define void @dlartg_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph:                                           ; preds = %17, %.lr.ph
   %.0119 = phi i32 [ %21, %.lr.ph ], [ 0, %17 ]
-  %.0102118 = phi double [ %22, %.lr.ph ], [ %12, %17 ]
-  %.0108117 = phi double [ %23, %.lr.ph ], [ %6, %17 ]
+  %.0106118 = phi double [ %23, %.lr.ph ], [ %6, %17 ]
+  %.0108117 = phi double [ %22, %.lr.ph ], [ %12, %17 ]
   %21 = add nuw nsw i32 %.0119, 1
-  %22 = fmul double %.0102118, 0x21A0000000000000
-  %23 = fmul double %.0108117, 0x21A0000000000000
+  %22 = fmul double %.0108117, 0x21A0000000000000
+  %23 = fmul double %.0106118, 0x21A0000000000000
   %24 = tail call noundef double @llvm.fabs.f64(double %22)
   %25 = tail call noundef double @llvm.fabs.f64(double %23)
   %26 = fcmp ogt double %24, %25
@@ -63,10 +63,10 @@ define void @dlartg_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 34:                                               ; preds = %.lr.ph124, %34
   %35 = phi double [ %.promoted, %.lr.ph124 ], [ %36, %34 ]
-  %.0104122 = phi i32 [ 0, %.lr.ph124 ], [ %37, %34 ]
+  %.0102122 = phi i32 [ 0, %.lr.ph124 ], [ %37, %34 ]
   %36 = fmul double %35, 0x5E40000000000000
-  %37 = add nuw nsw i32 %.0104122, 1
-  %exitcond.not = icmp eq i32 %.0104122, %.0119
+  %37 = add nuw nsw i32 %.0102122, 1
+  %exitcond.not = icmp eq i32 %.0102122, %.0119
   br i1 %exitcond.not, label %..loopexit115_crit_edge, label %34, !llvm.loop !6
 
 38:                                               ; preds = %17
@@ -75,11 +75,11 @@ define void @dlartg_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph128:                                        ; preds = %38, %.lr.ph128
   %.1127 = phi i32 [ %40, %.lr.ph128 ], [ 0, %38 ]
-  %.1103126 = phi double [ %41, %.lr.ph128 ], [ %12, %38 ]
-  %.1109125 = phi double [ %42, %.lr.ph128 ], [ %6, %38 ]
+  %.1107126 = phi double [ %42, %.lr.ph128 ], [ %6, %38 ]
+  %.1109125 = phi double [ %41, %.lr.ph128 ], [ %12, %38 ]
   %40 = add nuw nsw i32 %.1127, 1
-  %41 = fmul double %.1103126, 0x5E40000000000000
-  %42 = fmul double %.1109125, 0x5E40000000000000
+  %41 = fmul double %.1109125, 0x5E40000000000000
+  %42 = fmul double %.1107126, 0x5E40000000000000
   %43 = tail call noundef double @llvm.fabs.f64(double %41)
   %44 = tail call noundef double @llvm.fabs.f64(double %42)
   %45 = fcmp ogt double %43, %44
@@ -102,10 +102,10 @@ define void @dlartg_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 53:                                               ; preds = %.lr.ph135, %53
   %54 = phi double [ %.promoted136, %.lr.ph135 ], [ %55, %53 ]
-  %.1105133 = phi i32 [ 0, %.lr.ph135 ], [ %56, %53 ]
+  %.1103133 = phi i32 [ 0, %.lr.ph135 ], [ %56, %53 ]
   %55 = fmul double %54, 0x21A0000000000000
-  %56 = add nuw nsw i32 %.1105133, 1
-  %exitcond146.not = icmp eq i32 %.1105133, %.1127
+  %56 = add nuw nsw i32 %.1103133, 1
+  %exitcond146.not = icmp eq i32 %.1103133, %.1127
   br i1 %exitcond146.not, label %..loopexit_crit_edge, label %53, !llvm.loop !8
 
 57:                                               ; preds = %38

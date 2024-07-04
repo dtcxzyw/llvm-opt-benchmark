@@ -634,94 +634,94 @@ define void @KeccakP1600_Permute_Nrounds(ptr nocapture noundef %0, i32 noundef %
   br label %234
 
 234:                                              ; preds = %74, %2
-  %.0896 = phi i64 [ %103, %74 ], [ %5, %2 ]
-  %.0894 = phi i64 [ %106, %74 ], [ %7, %2 ]
-  %.0892 = phi i64 [ %109, %74 ], [ %9, %2 ]
-  %.0890 = phi i64 [ %112, %74 ], [ %11, %2 ]
-  %.0888 = phi i64 [ %125, %74 ], [ %13, %2 ]
-  %.0886 = phi i64 [ %128, %74 ], [ %15, %2 ]
-  %.0884 = phi i64 [ %131, %74 ], [ %17, %2 ]
-  %.0882 = phi i64 [ %134, %74 ], [ %19, %2 ]
-  %.0880 = phi i64 [ %137, %74 ], [ %21, %2 ]
-  %.0878 = phi i64 [ %150, %74 ], [ %23, %2 ]
-  %.0876 = phi i64 [ %153, %74 ], [ %25, %2 ]
-  %.0874 = phi i64 [ %156, %74 ], [ %27, %2 ]
-  %.0872 = phi i64 [ %159, %74 ], [ %29, %2 ]
-  %.0870 = phi i64 [ %162, %74 ], [ %31, %2 ]
-  %.0868 = phi i64 [ %175, %74 ], [ %33, %2 ]
-  %.0866 = phi i64 [ %178, %74 ], [ %35, %2 ]
-  %.0864 = phi i64 [ %181, %74 ], [ %37, %2 ]
-  %.0862 = phi i64 [ %184, %74 ], [ %39, %2 ]
-  %.0860 = phi i64 [ %187, %74 ], [ %41, %2 ]
-  %.0858 = phi i64 [ %200, %74 ], [ %43, %2 ]
-  %.0856 = phi i64 [ %207, %74 ], [ %45, %2 ]
-  %.0854 = phi i64 [ %214, %74 ], [ %47, %2 ]
-  %.0852 = phi i64 [ %221, %74 ], [ %49, %2 ]
-  %.0850 = phi i64 [ %228, %74 ], [ %51, %2 ]
-  %.0848 = phi i64 [ %204, %74 ], [ %55, %2 ]
-  %.0846 = phi i64 [ %211, %74 ], [ %59, %2 ]
-  %.0844 = phi i64 [ %218, %74 ], [ %63, %2 ]
-  %.0842 = phi i64 [ %225, %74 ], [ %67, %2 ]
-  %.0840 = phi i64 [ %232, %74 ], [ %71, %2 ]
-  %.0838 = phi i32 [ %233, %74 ], [ %72, %2 ]
-  %.0 = phi i64 [ %100, %74 ], [ %3, %2 ]
-  %235 = icmp ult i32 %.0838, 24
+  %.0896 = phi i64 [ %100, %74 ], [ %3, %2 ]
+  %.0894 = phi i64 [ %103, %74 ], [ %5, %2 ]
+  %.0892 = phi i64 [ %106, %74 ], [ %7, %2 ]
+  %.0890 = phi i64 [ %109, %74 ], [ %9, %2 ]
+  %.0888 = phi i64 [ %112, %74 ], [ %11, %2 ]
+  %.0886 = phi i64 [ %125, %74 ], [ %13, %2 ]
+  %.0884 = phi i64 [ %128, %74 ], [ %15, %2 ]
+  %.0882 = phi i64 [ %131, %74 ], [ %17, %2 ]
+  %.0880 = phi i64 [ %134, %74 ], [ %19, %2 ]
+  %.0878 = phi i64 [ %137, %74 ], [ %21, %2 ]
+  %.0876 = phi i64 [ %150, %74 ], [ %23, %2 ]
+  %.0874 = phi i64 [ %153, %74 ], [ %25, %2 ]
+  %.0872 = phi i64 [ %156, %74 ], [ %27, %2 ]
+  %.0870 = phi i64 [ %159, %74 ], [ %29, %2 ]
+  %.0868 = phi i64 [ %162, %74 ], [ %31, %2 ]
+  %.0866 = phi i64 [ %175, %74 ], [ %33, %2 ]
+  %.0864 = phi i64 [ %178, %74 ], [ %35, %2 ]
+  %.0862 = phi i64 [ %181, %74 ], [ %37, %2 ]
+  %.0860 = phi i64 [ %184, %74 ], [ %39, %2 ]
+  %.0858 = phi i64 [ %187, %74 ], [ %41, %2 ]
+  %.0856 = phi i64 [ %200, %74 ], [ %43, %2 ]
+  %.0854 = phi i64 [ %207, %74 ], [ %45, %2 ]
+  %.0852 = phi i64 [ %214, %74 ], [ %47, %2 ]
+  %.0850 = phi i64 [ %221, %74 ], [ %49, %2 ]
+  %.0848 = phi i64 [ %228, %74 ], [ %51, %2 ]
+  %.0846 = phi i64 [ %204, %74 ], [ %55, %2 ]
+  %.0844 = phi i64 [ %211, %74 ], [ %59, %2 ]
+  %.0842 = phi i64 [ %218, %74 ], [ %63, %2 ]
+  %.0840 = phi i64 [ %225, %74 ], [ %67, %2 ]
+  %.0838 = phi i64 [ %232, %74 ], [ %71, %2 ]
+  %.0 = phi i32 [ %233, %74 ], [ %72, %2 ]
+  %235 = icmp ult i32 %.0, 24
   br i1 %235, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %234
-  %236 = zext nneg i32 %.0838 to i64
+  %236 = zext nneg i32 %.0 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %236, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.1928 = phi i64 [ %.0, %.lr.ph.preheader ], [ %419, %.lr.ph ]
-  %.1841926 = phi i64 [ %.0840, %.lr.ph.preheader ], [ %551, %.lr.ph ]
-  %.1843925 = phi i64 [ %.0842, %.lr.ph.preheader ], [ %544, %.lr.ph ]
-  %.1845924 = phi i64 [ %.0844, %.lr.ph.preheader ], [ %537, %.lr.ph ]
-  %.1847923 = phi i64 [ %.0846, %.lr.ph.preheader ], [ %530, %.lr.ph ]
-  %.1849922 = phi i64 [ %.0848, %.lr.ph.preheader ], [ %524, %.lr.ph ]
-  %.1851921 = phi i64 [ %.0850, %.lr.ph.preheader ], [ %547, %.lr.ph ]
-  %.1853920 = phi i64 [ %.0852, %.lr.ph.preheader ], [ %540, %.lr.ph ]
-  %.1855919 = phi i64 [ %.0854, %.lr.ph.preheader ], [ %533, %.lr.ph ]
-  %.1857918 = phi i64 [ %.0856, %.lr.ph.preheader ], [ %527, %.lr.ph ]
-  %.1859917 = phi i64 [ %.0858, %.lr.ph.preheader ], [ %520, %.lr.ph ]
-  %.1861916 = phi i64 [ %.0860, %.lr.ph.preheader ], [ %507, %.lr.ph ]
-  %.1863915 = phi i64 [ %.0862, %.lr.ph.preheader ], [ %504, %.lr.ph ]
-  %.1865914 = phi i64 [ %.0864, %.lr.ph.preheader ], [ %501, %.lr.ph ]
-  %.1867913 = phi i64 [ %.0866, %.lr.ph.preheader ], [ %498, %.lr.ph ]
-  %.1869912 = phi i64 [ %.0868, %.lr.ph.preheader ], [ %495, %.lr.ph ]
-  %.1871911 = phi i64 [ %.0870, %.lr.ph.preheader ], [ %482, %.lr.ph ]
-  %.1873910 = phi i64 [ %.0872, %.lr.ph.preheader ], [ %479, %.lr.ph ]
-  %.1875909 = phi i64 [ %.0874, %.lr.ph.preheader ], [ %476, %.lr.ph ]
-  %.1877908 = phi i64 [ %.0876, %.lr.ph.preheader ], [ %473, %.lr.ph ]
-  %.1879907 = phi i64 [ %.0878, %.lr.ph.preheader ], [ %470, %.lr.ph ]
-  %.1881906 = phi i64 [ %.0880, %.lr.ph.preheader ], [ %457, %.lr.ph ]
-  %.1883905 = phi i64 [ %.0882, %.lr.ph.preheader ], [ %454, %.lr.ph ]
-  %.1885904 = phi i64 [ %.0884, %.lr.ph.preheader ], [ %451, %.lr.ph ]
-  %.1887903 = phi i64 [ %.0886, %.lr.ph.preheader ], [ %447, %.lr.ph ]
-  %.1889902 = phi i64 [ %.0888, %.lr.ph.preheader ], [ %444, %.lr.ph ]
-  %.1891901 = phi i64 [ %.0890, %.lr.ph.preheader ], [ %431, %.lr.ph ]
-  %.1893900 = phi i64 [ %.0892, %.lr.ph.preheader ], [ %428, %.lr.ph ]
-  %.1895899 = phi i64 [ %.0894, %.lr.ph.preheader ], [ %425, %.lr.ph ]
-  %.1897898 = phi i64 [ %.0896, %.lr.ph.preheader ], [ %422, %.lr.ph ]
-  %237 = tail call i64 @llvm.fshl.i64(i64 %.1847923, i64 %.1847923, i64 1)
-  %238 = xor i64 %.1841926, %237
-  %239 = tail call i64 @llvm.fshl.i64(i64 %.1845924, i64 %.1845924, i64 1)
-  %240 = xor i64 %239, %.1849922
-  %241 = tail call i64 @llvm.fshl.i64(i64 %.1843925, i64 %.1843925, i64 1)
-  %242 = xor i64 %241, %.1847923
-  %243 = tail call i64 @llvm.fshl.i64(i64 %.1841926, i64 %.1841926, i64 1)
-  %244 = xor i64 %243, %.1845924
-  %245 = tail call i64 @llvm.fshl.i64(i64 %.1849922, i64 %.1849922, i64 1)
-  %246 = xor i64 %.1843925, %245
-  %247 = xor i64 %.1928, %238
-  %248 = xor i64 %240, %.1887903
+  %.1839927 = phi i64 [ %.0838, %.lr.ph.preheader ], [ %551, %.lr.ph ]
+  %.1841926 = phi i64 [ %.0840, %.lr.ph.preheader ], [ %544, %.lr.ph ]
+  %.1843925 = phi i64 [ %.0842, %.lr.ph.preheader ], [ %537, %.lr.ph ]
+  %.1845924 = phi i64 [ %.0844, %.lr.ph.preheader ], [ %530, %.lr.ph ]
+  %.1847923 = phi i64 [ %.0846, %.lr.ph.preheader ], [ %524, %.lr.ph ]
+  %.1849922 = phi i64 [ %.0848, %.lr.ph.preheader ], [ %547, %.lr.ph ]
+  %.1851921 = phi i64 [ %.0850, %.lr.ph.preheader ], [ %540, %.lr.ph ]
+  %.1853920 = phi i64 [ %.0852, %.lr.ph.preheader ], [ %533, %.lr.ph ]
+  %.1855919 = phi i64 [ %.0854, %.lr.ph.preheader ], [ %527, %.lr.ph ]
+  %.1857918 = phi i64 [ %.0856, %.lr.ph.preheader ], [ %520, %.lr.ph ]
+  %.1859917 = phi i64 [ %.0858, %.lr.ph.preheader ], [ %507, %.lr.ph ]
+  %.1861916 = phi i64 [ %.0860, %.lr.ph.preheader ], [ %504, %.lr.ph ]
+  %.1863915 = phi i64 [ %.0862, %.lr.ph.preheader ], [ %501, %.lr.ph ]
+  %.1865914 = phi i64 [ %.0864, %.lr.ph.preheader ], [ %498, %.lr.ph ]
+  %.1867913 = phi i64 [ %.0866, %.lr.ph.preheader ], [ %495, %.lr.ph ]
+  %.1869912 = phi i64 [ %.0868, %.lr.ph.preheader ], [ %482, %.lr.ph ]
+  %.1871911 = phi i64 [ %.0870, %.lr.ph.preheader ], [ %479, %.lr.ph ]
+  %.1873910 = phi i64 [ %.0872, %.lr.ph.preheader ], [ %476, %.lr.ph ]
+  %.1875909 = phi i64 [ %.0874, %.lr.ph.preheader ], [ %473, %.lr.ph ]
+  %.1877908 = phi i64 [ %.0876, %.lr.ph.preheader ], [ %470, %.lr.ph ]
+  %.1879907 = phi i64 [ %.0878, %.lr.ph.preheader ], [ %457, %.lr.ph ]
+  %.1881906 = phi i64 [ %.0880, %.lr.ph.preheader ], [ %454, %.lr.ph ]
+  %.1883905 = phi i64 [ %.0882, %.lr.ph.preheader ], [ %451, %.lr.ph ]
+  %.1885904 = phi i64 [ %.0884, %.lr.ph.preheader ], [ %447, %.lr.ph ]
+  %.1887903 = phi i64 [ %.0886, %.lr.ph.preheader ], [ %444, %.lr.ph ]
+  %.1889902 = phi i64 [ %.0888, %.lr.ph.preheader ], [ %431, %.lr.ph ]
+  %.1891901 = phi i64 [ %.0890, %.lr.ph.preheader ], [ %428, %.lr.ph ]
+  %.1893900 = phi i64 [ %.0892, %.lr.ph.preheader ], [ %425, %.lr.ph ]
+  %.1895899 = phi i64 [ %.0894, %.lr.ph.preheader ], [ %422, %.lr.ph ]
+  %.1897898 = phi i64 [ %.0896, %.lr.ph.preheader ], [ %419, %.lr.ph ]
+  %237 = tail call i64 @llvm.fshl.i64(i64 %.1845924, i64 %.1845924, i64 1)
+  %238 = xor i64 %.1839927, %237
+  %239 = tail call i64 @llvm.fshl.i64(i64 %.1843925, i64 %.1843925, i64 1)
+  %240 = xor i64 %239, %.1847923
+  %241 = tail call i64 @llvm.fshl.i64(i64 %.1841926, i64 %.1841926, i64 1)
+  %242 = xor i64 %241, %.1845924
+  %243 = tail call i64 @llvm.fshl.i64(i64 %.1839927, i64 %.1839927, i64 1)
+  %244 = xor i64 %243, %.1843925
+  %245 = tail call i64 @llvm.fshl.i64(i64 %.1847923, i64 %.1847923, i64 1)
+  %246 = xor i64 %.1841926, %245
+  %247 = xor i64 %238, %.1897898
+  %248 = xor i64 %240, %.1885904
   %249 = tail call i64 @llvm.fshl.i64(i64 %248, i64 %248, i64 44)
-  %250 = xor i64 %242, %.1875909
+  %250 = xor i64 %242, %.1873910
   %251 = tail call i64 @llvm.fshl.i64(i64 %250, i64 %250, i64 43)
-  %252 = xor i64 %244, %.1863915
+  %252 = xor i64 %244, %.1861916
   %253 = tail call i64 @llvm.fshl.i64(i64 %252, i64 %252, i64 21)
-  %254 = xor i64 %246, %.1851921
+  %254 = xor i64 %246, %.1849922
   %255 = tail call i64 @llvm.fshl.i64(i64 %254, i64 %254, i64 14)
   %256 = xor i64 %249, -1
   %257 = and i64 %251, %256
@@ -741,15 +741,15 @@ define void @KeccakP1600_Permute_Nrounds(ptr nocapture noundef %0, i32 noundef %
   %271 = xor i64 %247, -1
   %272 = and i64 %249, %271
   %273 = xor i64 %272, %255
-  %274 = xor i64 %244, %.1893900
+  %274 = xor i64 %244, %.1891901
   %275 = tail call i64 @llvm.fshl.i64(i64 %274, i64 %274, i64 28)
-  %276 = xor i64 %246, %.1881906
+  %276 = xor i64 %246, %.1879907
   %277 = tail call i64 @llvm.fshl.i64(i64 %276, i64 %276, i64 20)
-  %278 = xor i64 %238, %.1879907
+  %278 = xor i64 %238, %.1877908
   %279 = tail call i64 @llvm.fshl.i64(i64 %278, i64 %278, i64 3)
-  %280 = xor i64 %240, %.1867913
+  %280 = xor i64 %240, %.1865914
   %281 = tail call i64 @llvm.fshl.i64(i64 %280, i64 %280, i64 45)
-  %282 = xor i64 %242, %.1855919
+  %282 = xor i64 %242, %.1853920
   %283 = tail call i64 @llvm.fshl.i64(i64 %282, i64 %282, i64 61)
   %284 = xor i64 %277, -1
   %285 = and i64 %279, %284
@@ -766,15 +766,15 @@ define void @KeccakP1600_Permute_Nrounds(ptr nocapture noundef %0, i32 noundef %
   %296 = xor i64 %275, -1
   %297 = and i64 %277, %296
   %298 = xor i64 %297, %283
-  %299 = xor i64 %240, %.1897898
+  %299 = xor i64 %240, %.1895899
   %300 = tail call i64 @llvm.fshl.i64(i64 %299, i64 %299, i64 1)
-  %301 = xor i64 %242, %.1885904
+  %301 = xor i64 %242, %.1883905
   %302 = tail call i64 @llvm.fshl.i64(i64 %301, i64 %301, i64 6)
-  %303 = xor i64 %244, %.1873910
+  %303 = xor i64 %244, %.1871911
   %304 = tail call i64 @llvm.fshl.i64(i64 %303, i64 %303, i64 25)
-  %305 = xor i64 %246, %.1861916
+  %305 = xor i64 %246, %.1859917
   %306 = tail call i64 @llvm.fshl.i64(i64 %305, i64 %305, i64 8)
-  %307 = xor i64 %238, %.1859917
+  %307 = xor i64 %238, %.1857918
   %308 = tail call i64 @llvm.fshl.i64(i64 %307, i64 %307, i64 18)
   %309 = xor i64 %302, -1
   %310 = and i64 %304, %309
@@ -791,15 +791,15 @@ define void @KeccakP1600_Permute_Nrounds(ptr nocapture noundef %0, i32 noundef %
   %321 = xor i64 %300, -1
   %322 = and i64 %302, %321
   %323 = xor i64 %322, %308
-  %324 = xor i64 %246, %.1891901
+  %324 = xor i64 %246, %.1889902
   %325 = tail call i64 @llvm.fshl.i64(i64 %324, i64 %324, i64 27)
-  %326 = xor i64 %238, %.1889902
+  %326 = xor i64 %238, %.1887903
   %327 = tail call i64 @llvm.fshl.i64(i64 %326, i64 %326, i64 36)
-  %328 = xor i64 %240, %.1877908
+  %328 = xor i64 %240, %.1875909
   %329 = tail call i64 @llvm.fshl.i64(i64 %328, i64 %328, i64 10)
-  %330 = xor i64 %242, %.1865914
+  %330 = xor i64 %242, %.1863915
   %331 = tail call i64 @llvm.fshl.i64(i64 %330, i64 %330, i64 15)
-  %332 = xor i64 %244, %.1853920
+  %332 = xor i64 %244, %.1851921
   %333 = tail call i64 @llvm.fshl.i64(i64 %332, i64 %332, i64 56)
   %334 = xor i64 %327, -1
   %335 = and i64 %329, %334
@@ -816,15 +816,15 @@ define void @KeccakP1600_Permute_Nrounds(ptr nocapture noundef %0, i32 noundef %
   %346 = xor i64 %325, -1
   %347 = and i64 %327, %346
   %348 = xor i64 %333, %347
-  %349 = xor i64 %242, %.1895899
+  %349 = xor i64 %242, %.1893900
   %350 = tail call i64 @llvm.fshl.i64(i64 %349, i64 %349, i64 62)
-  %351 = xor i64 %244, %.1883905
+  %351 = xor i64 %244, %.1881906
   %352 = tail call i64 @llvm.fshl.i64(i64 %351, i64 %351, i64 55)
-  %353 = xor i64 %246, %.1871911
+  %353 = xor i64 %246, %.1869912
   %354 = tail call i64 @llvm.fshl.i64(i64 %353, i64 %353, i64 39)
-  %355 = xor i64 %238, %.1869912
+  %355 = xor i64 %238, %.1867913
   %356 = tail call i64 @llvm.fshl.i64(i64 %355, i64 %355, i64 41)
-  %357 = xor i64 %240, %.1857918
+  %357 = xor i64 %240, %.1855919
   %358 = tail call i64 @llvm.fshl.i64(i64 %357, i64 %357, i64 2)
   %359 = xor i64 %352, -1
   %360 = and i64 %354, %359
@@ -1024,56 +1024,56 @@ define void @KeccakP1600_Permute_Nrounds(ptr nocapture noundef %0, i32 noundef %
   br i1 %552, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %234
-  %.1897.lcssa = phi i64 [ %.0896, %234 ], [ %422, %.lr.ph ]
-  %.1895.lcssa = phi i64 [ %.0894, %234 ], [ %425, %.lr.ph ]
-  %.1893.lcssa = phi i64 [ %.0892, %234 ], [ %428, %.lr.ph ]
-  %.1891.lcssa = phi i64 [ %.0890, %234 ], [ %431, %.lr.ph ]
-  %.1889.lcssa = phi i64 [ %.0888, %234 ], [ %444, %.lr.ph ]
-  %.1887.lcssa = phi i64 [ %.0886, %234 ], [ %447, %.lr.ph ]
-  %.1885.lcssa = phi i64 [ %.0884, %234 ], [ %451, %.lr.ph ]
-  %.1883.lcssa = phi i64 [ %.0882, %234 ], [ %454, %.lr.ph ]
-  %.1881.lcssa = phi i64 [ %.0880, %234 ], [ %457, %.lr.ph ]
-  %.1879.lcssa = phi i64 [ %.0878, %234 ], [ %470, %.lr.ph ]
-  %.1877.lcssa = phi i64 [ %.0876, %234 ], [ %473, %.lr.ph ]
-  %.1875.lcssa = phi i64 [ %.0874, %234 ], [ %476, %.lr.ph ]
-  %.1873.lcssa = phi i64 [ %.0872, %234 ], [ %479, %.lr.ph ]
-  %.1871.lcssa = phi i64 [ %.0870, %234 ], [ %482, %.lr.ph ]
-  %.1869.lcssa = phi i64 [ %.0868, %234 ], [ %495, %.lr.ph ]
-  %.1867.lcssa = phi i64 [ %.0866, %234 ], [ %498, %.lr.ph ]
-  %.1865.lcssa = phi i64 [ %.0864, %234 ], [ %501, %.lr.ph ]
-  %.1863.lcssa = phi i64 [ %.0862, %234 ], [ %504, %.lr.ph ]
-  %.1861.lcssa = phi i64 [ %.0860, %234 ], [ %507, %.lr.ph ]
-  %.1859.lcssa = phi i64 [ %.0858, %234 ], [ %520, %.lr.ph ]
-  %.1857.lcssa = phi i64 [ %.0856, %234 ], [ %527, %.lr.ph ]
-  %.1855.lcssa = phi i64 [ %.0854, %234 ], [ %533, %.lr.ph ]
-  %.1853.lcssa = phi i64 [ %.0852, %234 ], [ %540, %.lr.ph ]
-  %.1851.lcssa = phi i64 [ %.0850, %234 ], [ %547, %.lr.ph ]
-  %.1.lcssa = phi i64 [ %.0, %234 ], [ %419, %.lr.ph ]
-  store i64 %.1.lcssa, ptr %0, align 8
-  store i64 %.1897.lcssa, ptr %4, align 8
-  store i64 %.1895.lcssa, ptr %6, align 8
-  store i64 %.1893.lcssa, ptr %8, align 8
-  store i64 %.1891.lcssa, ptr %10, align 8
-  store i64 %.1889.lcssa, ptr %12, align 8
-  store i64 %.1887.lcssa, ptr %14, align 8
-  store i64 %.1885.lcssa, ptr %16, align 8
-  store i64 %.1883.lcssa, ptr %18, align 8
-  store i64 %.1881.lcssa, ptr %20, align 8
-  store i64 %.1879.lcssa, ptr %22, align 8
-  store i64 %.1877.lcssa, ptr %24, align 8
-  store i64 %.1875.lcssa, ptr %26, align 8
-  store i64 %.1873.lcssa, ptr %28, align 8
-  store i64 %.1871.lcssa, ptr %30, align 8
-  store i64 %.1869.lcssa, ptr %32, align 8
-  store i64 %.1867.lcssa, ptr %34, align 8
-  store i64 %.1865.lcssa, ptr %36, align 8
-  store i64 %.1863.lcssa, ptr %38, align 8
-  store i64 %.1861.lcssa, ptr %40, align 8
-  store i64 %.1859.lcssa, ptr %42, align 8
-  store i64 %.1857.lcssa, ptr %44, align 8
-  store i64 %.1855.lcssa, ptr %46, align 8
-  store i64 %.1853.lcssa, ptr %48, align 8
-  store i64 %.1851.lcssa, ptr %50, align 8
+  %.1897.lcssa = phi i64 [ %.0896, %234 ], [ %419, %.lr.ph ]
+  %.1895.lcssa = phi i64 [ %.0894, %234 ], [ %422, %.lr.ph ]
+  %.1893.lcssa = phi i64 [ %.0892, %234 ], [ %425, %.lr.ph ]
+  %.1891.lcssa = phi i64 [ %.0890, %234 ], [ %428, %.lr.ph ]
+  %.1889.lcssa = phi i64 [ %.0888, %234 ], [ %431, %.lr.ph ]
+  %.1887.lcssa = phi i64 [ %.0886, %234 ], [ %444, %.lr.ph ]
+  %.1885.lcssa = phi i64 [ %.0884, %234 ], [ %447, %.lr.ph ]
+  %.1883.lcssa = phi i64 [ %.0882, %234 ], [ %451, %.lr.ph ]
+  %.1881.lcssa = phi i64 [ %.0880, %234 ], [ %454, %.lr.ph ]
+  %.1879.lcssa = phi i64 [ %.0878, %234 ], [ %457, %.lr.ph ]
+  %.1877.lcssa = phi i64 [ %.0876, %234 ], [ %470, %.lr.ph ]
+  %.1875.lcssa = phi i64 [ %.0874, %234 ], [ %473, %.lr.ph ]
+  %.1873.lcssa = phi i64 [ %.0872, %234 ], [ %476, %.lr.ph ]
+  %.1871.lcssa = phi i64 [ %.0870, %234 ], [ %479, %.lr.ph ]
+  %.1869.lcssa = phi i64 [ %.0868, %234 ], [ %482, %.lr.ph ]
+  %.1867.lcssa = phi i64 [ %.0866, %234 ], [ %495, %.lr.ph ]
+  %.1865.lcssa = phi i64 [ %.0864, %234 ], [ %498, %.lr.ph ]
+  %.1863.lcssa = phi i64 [ %.0862, %234 ], [ %501, %.lr.ph ]
+  %.1861.lcssa = phi i64 [ %.0860, %234 ], [ %504, %.lr.ph ]
+  %.1859.lcssa = phi i64 [ %.0858, %234 ], [ %507, %.lr.ph ]
+  %.1857.lcssa = phi i64 [ %.0856, %234 ], [ %520, %.lr.ph ]
+  %.1855.lcssa = phi i64 [ %.0854, %234 ], [ %527, %.lr.ph ]
+  %.1853.lcssa = phi i64 [ %.0852, %234 ], [ %533, %.lr.ph ]
+  %.1851.lcssa = phi i64 [ %.0850, %234 ], [ %540, %.lr.ph ]
+  %.1849.lcssa = phi i64 [ %.0848, %234 ], [ %547, %.lr.ph ]
+  store i64 %.1897.lcssa, ptr %0, align 8
+  store i64 %.1895.lcssa, ptr %4, align 8
+  store i64 %.1893.lcssa, ptr %6, align 8
+  store i64 %.1891.lcssa, ptr %8, align 8
+  store i64 %.1889.lcssa, ptr %10, align 8
+  store i64 %.1887.lcssa, ptr %12, align 8
+  store i64 %.1885.lcssa, ptr %14, align 8
+  store i64 %.1883.lcssa, ptr %16, align 8
+  store i64 %.1881.lcssa, ptr %18, align 8
+  store i64 %.1879.lcssa, ptr %20, align 8
+  store i64 %.1877.lcssa, ptr %22, align 8
+  store i64 %.1875.lcssa, ptr %24, align 8
+  store i64 %.1873.lcssa, ptr %26, align 8
+  store i64 %.1871.lcssa, ptr %28, align 8
+  store i64 %.1869.lcssa, ptr %30, align 8
+  store i64 %.1867.lcssa, ptr %32, align 8
+  store i64 %.1865.lcssa, ptr %34, align 8
+  store i64 %.1863.lcssa, ptr %36, align 8
+  store i64 %.1861.lcssa, ptr %38, align 8
+  store i64 %.1859.lcssa, ptr %40, align 8
+  store i64 %.1857.lcssa, ptr %42, align 8
+  store i64 %.1855.lcssa, ptr %44, align 8
+  store i64 %.1853.lcssa, ptr %46, align 8
+  store i64 %.1851.lcssa, ptr %48, align 8
+  store i64 %.1849.lcssa, ptr %50, align 8
   ret void
 }
 

@@ -3433,9 +3433,9 @@ _ZNK22cmNinjaTargetGenerator14MapToNinjaPathEv.exit: ; preds = %.loopexit82
   br i1 %.not7.i, label %.loopexit81, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK22cmNinjaTargetGenerator14MapToNinjaPathEv.exit, %.noexc44
-  %.sroa.04.09.i = phi ptr [ %50, %.noexc44 ], [ %43, %_ZNK22cmNinjaTargetGenerator14MapToNinjaPathEv.exit ]
-  %.sroa.01.08.i = phi ptr [ %51, %.noexc44 ], [ %41, %_ZNK22cmNinjaTargetGenerator14MapToNinjaPathEv.exit ]
-  %48 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK22cmGlobalNinjaGenerator18ConvertToNinjaPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2808) %47, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04.09.i)
+  %.sroa.01.09.i = phi ptr [ %51, %.noexc44 ], [ %41, %_ZNK22cmNinjaTargetGenerator14MapToNinjaPathEv.exit ]
+  %.sroa.04.08.i = phi ptr [ %50, %.noexc44 ], [ %43, %_ZNK22cmNinjaTargetGenerator14MapToNinjaPathEv.exit ]
+  %48 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK22cmGlobalNinjaGenerator18ConvertToNinjaPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2808) %47, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04.08.i)
           to label %.noexc43 unwind label %.loopexit.split-lp74.loopexit
 
 .noexc43:                                         ; preds = %.lr.ph.i
@@ -3443,10 +3443,10 @@ _ZNK22cmNinjaTargetGenerator14MapToNinjaPathEv.exit: ; preds = %.loopexit82
           to label %.noexc44 unwind label %.loopexit.split-lp74.loopexit
 
 .noexc44:                                         ; preds = %.noexc43
-  %49 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.08.i, ptr noundef nonnull align 8 dereferenceable(32) %6) #24
+  %49 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.09.i, ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
-  %50 = getelementptr inbounds i8, ptr %.sroa.04.09.i, i64 32
-  %51 = getelementptr inbounds i8, ptr %.sroa.01.08.i, i64 32
+  %50 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 32
+  %51 = getelementptr inbounds i8, ptr %.sroa.01.09.i, i64 32
   %.not.i = icmp eq ptr %50, %44
   br i1 %.not.i, label %.loopexit81, label %.lr.ph.i, !llvm.loop !158
 
@@ -8298,12 +8298,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit435: ;
   br label %1009
 
 1009:                                             ; preds = %1031, %995
-  %.0170569 = phi i1 [ true, %995 ], [ %.1171, %1031 ]
-  %.0173.idx568 = phi i64 [ 0, %995 ], [ %.0173.add, %1031 ]
-  %.0173.ptr = getelementptr inbounds i8, ptr @_ZZN22cmNinjaTargetGenerator16WriteCompileRuleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS_12WithScanningEE12compileModes, i64 %.0173.idx568
-  %.sroa.0508.0.copyload = load i64, ptr %.0173.ptr, align 8
-  %.sroa.3.0..0173.sroa_idx = getelementptr inbounds i8, ptr %.0173.ptr, i64 8
-  %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..0173.sroa_idx, align 8
+  %.0171569 = phi i1 [ true, %995 ], [ %.1172, %1031 ]
+  %.0174.idx568 = phi i64 [ 0, %995 ], [ %.0174.add, %1031 ]
+  %.0174.ptr = getelementptr inbounds i8, ptr @_ZZN22cmNinjaTargetGenerator16WriteCompileRuleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS_12WithScanningEE12compileModes, i64 %.0174.idx568
+  %.sroa.0508.0.copyload = load i64, ptr %.0174.ptr, align 8
+  %.sroa.3.0..0174.sroa_idx = getelementptr inbounds i8, ptr %.0174.ptr, i64 8
+  %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..0174.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15)
   store i64 5, ptr %15, align 8, !alias.scope !731, !noalias !734
   store ptr @.str.102, ptr %.sroa.2.0..sroa_idx.i.i440, align 8, !alias.scope !731, !noalias !734
@@ -8381,11 +8381,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit435: ;
   br label %1032
 
 1031:                                             ; preds = %1014, %1025
-  %.1171 = phi i1 [ false, %1025 ], [ %.0170569, %1014 ]
+  %.1172 = phi i1 [ false, %1025 ], [ %.0171569, %1014 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %141) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %140) #24
-  %.0173.add = add nuw nsw i64 %.0173.idx568, 16
-  %.not202 = icmp eq i64 %.0173.add, 64
+  %.0174.add = add nuw nsw i64 %.0174.idx568, 16
+  %.not202 = icmp eq i64 %.0174.add, 64
   %or.cond = select i1 %1013, i1 true, i1 %.not202
   br i1 %or.cond, label %1033, label %1009
 
@@ -8395,7 +8395,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit435: ;
   br label %1167
 
 1033:                                             ; preds = %1031
-  br i1 %.1171, label %1034, label %1056
+  br i1 %.1172, label %1034, label %1056
 
 1034:                                             ; preds = %1033
   %1035 = load ptr, ptr %176, align 8
@@ -15520,8 +15520,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit595: ;
   br label %.body597
 
 929:                                              ; preds = %914, %906
-  %.0281 = phi i32 [ %905, %906 ], [ %918, %914 ]
-  %930 = icmp ne i32 %.0281, 1
+  %.0283 = phi i32 [ %905, %906 ], [ %918, %914 ]
+  %930 = icmp ne i32 %.0283, 1
   %931 = and i1 %875, %930
   br i1 %931, label %932, label %945
 
@@ -17176,8 +17176,8 @@ _ZNK22cmNinjaTargetGenerator14MapToNinjaPathEv.exit767: ; preds = %1428
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK22cmNinjaTargetGenerator14MapToNinjaPathEv.exit767, %.noexc770
-  %.sroa.04.09.i = phi ptr [ %1433, %.noexc770 ], [ %1424, %_ZNK22cmNinjaTargetGenerator14MapToNinjaPathEv.exit767 ]
-  %1431 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK22cmGlobalNinjaGenerator18ConvertToNinjaPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2808) %1430, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04.09.i)
+  %.sroa.01.09.i = phi ptr [ %1433, %.noexc770 ], [ %1424, %_ZNK22cmNinjaTargetGenerator14MapToNinjaPathEv.exit767 ]
+  %1431 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK22cmGlobalNinjaGenerator18ConvertToNinjaPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2808) %1430, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.09.i)
           to label %.noexc769 unwind label %.loopexit910
 
 .noexc769:                                        ; preds = %.lr.ph.i
@@ -17185,9 +17185,9 @@ _ZNK22cmNinjaTargetGenerator14MapToNinjaPathEv.exit767: ; preds = %1428
           to label %.noexc770 unwind label %.loopexit910
 
 .noexc770:                                        ; preds = %.noexc769
-  %1432 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04.09.i, ptr noundef nonnull align 8 dereferenceable(32) %7) #24
+  %1432 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.09.i, ptr noundef nonnull align 8 dereferenceable(32) %7) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
-  %1433 = getelementptr i8, ptr %.sroa.04.09.i, i64 32
+  %1433 = getelementptr i8, ptr %.sroa.01.09.i, i64 32
   %.not.i768 = icmp eq ptr %1433, %1426
   br i1 %.not.i768, label %1434, label %.lr.ph.i, !llvm.loop !1241
 
@@ -17425,8 +17425,8 @@ _ZNK22cmNinjaTargetGenerator14MapToNinjaPathEv.exit810: ; preds = %_ZN6cmListD2E
   br i1 %.not7.i811, label %.loopexit908, label %.lr.ph.i812
 
 .lr.ph.i812:                                      ; preds = %_ZNK22cmNinjaTargetGenerator14MapToNinjaPathEv.exit810, %.noexc818
-  %.sroa.04.09.i813 = phi ptr [ %1504, %.noexc818 ], [ %1497, %_ZNK22cmNinjaTargetGenerator14MapToNinjaPathEv.exit810 ]
-  %1502 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK22cmGlobalNinjaGenerator18ConvertToNinjaPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2808) %1501, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04.09.i813)
+  %.sroa.01.09.i813 = phi ptr [ %1504, %.noexc818 ], [ %1497, %_ZNK22cmNinjaTargetGenerator14MapToNinjaPathEv.exit810 ]
+  %1502 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK22cmGlobalNinjaGenerator18ConvertToNinjaPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2808) %1501, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.09.i813)
           to label %.noexc817 unwind label %.loopexit
 
 .noexc817:                                        ; preds = %.lr.ph.i812
@@ -17434,9 +17434,9 @@ _ZNK22cmNinjaTargetGenerator14MapToNinjaPathEv.exit810: ; preds = %_ZN6cmListD2E
           to label %.noexc818 unwind label %.loopexit
 
 .noexc818:                                        ; preds = %.noexc817
-  %1503 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04.09.i813, ptr noundef nonnull align 8 dereferenceable(32) %6) #24
+  %1503 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.09.i813, ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
-  %1504 = getelementptr i8, ptr %.sroa.04.09.i813, i64 32
+  %1504 = getelementptr i8, ptr %.sroa.01.09.i813, i64 32
   %.not.i815 = icmp eq ptr %1504, %1499
   br i1 %.not.i815, label %.loopexit908, label %.lr.ph.i812, !llvm.loop !1241
 
@@ -19151,28 +19151,28 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %566
 
 566:                                              ; preds = %564, %553
-  %.1138 = phi i1 [ %565, %564 ], [ false, %553 ]
+  %.1134 = phi i1 [ %565, %564 ], [ false, %553 ]
   %.pn164.pn.pn = phi { ptr, i32 } [ %.pn164.pn, %564 ], [ %554, %553 ]
   call void @_ZN19cmListFileBacktraceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %65) #24
   br label %567
 
 567:                                              ; preds = %566, %551
-  %.2139 = phi i1 [ %.1138, %566 ], [ false, %551 ]
-  %.0133 = phi ptr [ %365, %566 ], [ %360, %551 ]
+  %.0139 = phi ptr [ %365, %566 ], [ %360, %551 ]
+  %.2135 = phi i1 [ %.1134, %566 ], [ false, %551 ]
   %.pn164.pn.pn.pn = phi { ptr, i32 } [ %.pn164.pn.pn, %566 ], [ %552, %551 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #24
   br label %568
 
 568:                                              ; preds = %549, %567
-  %.3140 = phi i1 [ %.2139, %567 ], [ false, %549 ]
-  %.1134 = phi ptr [ %.0133, %567 ], [ %360, %549 ]
+  %.1140 = phi ptr [ %.0139, %567 ], [ %360, %549 ]
+  %.3136 = phi i1 [ %.2135, %567 ], [ false, %549 ]
   %.pn164.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn164.pn.pn.pn, %567 ], [ %550, %549 ]
   call void @_ZN19cmListFileBacktraceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %63) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #24
-  br i1 %.3140, label %.loopexit518, label %.preheader
+  br i1 %.3136, label %.loopexit518, label %.preheader
 
 .preheader:                                       ; preds = %568, %.preheader
-  %569 = phi ptr [ %570, %.preheader ], [ %.1134, %568 ]
+  %569 = phi ptr [ %570, %.preheader ], [ %.1140, %568 ]
   %570 = getelementptr inbounds i8, ptr %569, i64 -48
   call void @_ZN2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %570) #24
   %571 = icmp eq ptr %570, %61

@@ -4050,7 +4050,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_tra
           to label %.preheader108 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .preheader108:                                    ; preds = %57, %.preheader108.backedge
-  %.073 = phi i8 [ %.073.be, %.preheader108.backedge ], [ 0, %57 ]
+  %.072 = phi i8 [ %.072.be, %.preheader108.backedge ], [ 0, %57 ]
   %59 = invoke fastcc noundef signext i8 @_ZN5YosysL9next_charEv()
           to label %60 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4065,7 +4065,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_tra
           to label %.loopexit111 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 62:                                               ; preds = %60
-  %63 = icmp ne i8 %.073, 42
+  %63 = icmp ne i8 %.072, 42
   %64 = icmp ne i8 %59, 47
   %or.cond11 = or i1 %63, %64
   br i1 %or.cond11, label %65, label %.preheader108.backedge
@@ -4075,7 +4075,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_tra
           to label %.preheader108.backedge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .preheader108.backedge:                           ; preds = %65, %62
-  %.073.be = phi i8 [ 42, %62 ], [ %59, %65 ]
+  %.072.be = phi i8 [ 42, %62 ], [ %59, %65 ]
   br label %.preheader108, !llvm.loop !37
 
 .loopexit111:                                     ; preds = %60, %61
@@ -4087,8 +4087,8 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_tra
           to label %.preheader116 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .preheader116:                                    ; preds = %68, %77
-  %.072 = phi i32 [ %.1, %77 ], [ 0, %68 ]
-  %.071 = phi i8 [ %70, %77 ], [ 0, %68 ]
+  %.071 = phi i32 [ %.1, %77 ], [ 0, %68 ]
+  %.070 = phi i8 [ %70, %77 ], [ 0, %68 ]
   %70 = invoke fastcc noundef signext i8 @_ZN5YosysL9next_charEv()
           to label %71 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4099,7 +4099,7 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_tra
   ]
 
 72:                                               ; preds = %71
-  %73 = add nsw i32 %.072, 1
+  %73 = add nsw i32 %.071, 1
   %74 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 noundef signext 32)
           to label %77 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4108,14 +4108,14 @@ _ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_tra
           to label %77 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 77:                                               ; preds = %75, %72
-  %.1 = phi i32 [ %73, %72 ], [ %.072, %75 ]
-  %78 = icmp eq i8 %.071, 42
+  %.1 = phi i32 [ %73, %72 ], [ %.071, %75 ]
+  %78 = icmp eq i8 %.070, 42
   %79 = icmp eq i8 %70, 47
   %or.cond14 = and i1 %78, %79
   br i1 %or.cond14, label %.preheader165, label %.preheader116, !llvm.loop !38
 
 .preheader165:                                    ; preds = %71, %77
-  %.3.ph = phi i32 [ %.072, %71 ], [ %.1, %77 ]
+  %.3.ph = phi i32 [ %.071, %71 ], [ %.1, %77 ]
   br label %80
 
 80:                                               ; preds = %.preheader165, %82

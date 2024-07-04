@@ -91,8 +91,8 @@ define dso_local noundef ptr @get_ENR(ptr noundef readonly %0, ptr nocapture nou
   br i1 %17, label %.thread, label %11
 
 .thread:                                          ; preds = %12, %11, %4, %.lr.ph, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %4 ], [ null, %.lr.ph ], [ %14, %12 ], [ null, %11 ]
-  ret ptr %.0
+  %.011 = phi ptr [ null, %2 ], [ null, %4 ], [ null, %.lr.ph ], [ %14, %12 ], [ null, %11 ]
+  ret ptr %.011
 }
 
 ; Function Attrs: nounwind uwtable

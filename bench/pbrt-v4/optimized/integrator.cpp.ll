@@ -1433,7 +1433,7 @@ lpad303:                                          ; preds = %if.then383.invoke, 
 
 if.end310:                                        ; preds = %if.then307, %invoke.cont300
   %94 = load ptr, ptr %ptr.i, align 8
-  invoke void @_ZN4pbrt12LightSampler6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pstd4spanIKNS_5LightEEENS9_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull sret(%"class.pbrt::LightSampler") align 8 %ref.tmp311, ptr noundef nonnull align 8 dereferenceable(32) %lightSamplerName, ptr %94, i64 %89, ptr nonnull %6)
+  invoke void @_ZN4pbrt12LightSampler6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pstd4spanIKNS_5LightEEENS9_3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull sret(%"class.pbrt::LightSampler") align 8 %ref.tmp311, ptr noundef nonnull align 8 dereferenceable(32) %lightSamplerName, ptr %94, i64 %89, ptr %6)
           to label %invoke.cont317 unwind label %lpad303
 
 invoke.cont317:                                   ; preds = %if.end310
@@ -1781,7 +1781,7 @@ _ZN4pbrt3LogIJRiS1_EEEvNS_8LogLevelEPKciS4_DpOT_.exit: ; preds = %_ZN4pbrt12Stri
 
 land.end411:                                      ; preds = %_ZN4pbrt3LogIJRiS1_EEEvNS_8LogLevelEPKciS4_DpOT_.exit, %invoke.cont390
   %135 = phi i32 [ %.pre412, %_ZN4pbrt3LogIJRiS1_EEEvNS_8LogLevelEPKciS4_DpOT_.exit ], [ %mul, %invoke.cont390 ]
-  invoke void @_ZN4pbrt3SOAINS_16PixelSampleStateEEC2EiN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp412, i32 noundef %135, ptr nonnull %6)
+  invoke void @_ZN4pbrt3SOAINS_16PixelSampleStateEEC2EiN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(400) %ref.tmp412, i32 noundef %135, ptr %6)
           to label %invoke.cont416 unwind label %lpad303
 
 invoke.cont416:                                   ; preds = %land.end411
@@ -23121,12 +23121,12 @@ for.body.lr.ph.i.i.i:                             ; preds = %entry
 
 for.body.i.i.i:                                   ; preds = %for.end.i.i.i, %for.body.lr.ph.i.i.i
   %indvars.iv82.i.i.i = phi i64 [ 0, %for.body.lr.ph.i.i.i ], [ %indvars.iv.next83.i.i.i, %for.end.i.i.i ]
-  %__begin2.sroa.7.079.i.i.i = phi i32 [ %b.sroa.4.0.extract.trunc.i.i.i, %for.body.lr.ph.i.i.i ], [ %__begin2.sroa.7.1.i.i.i, %for.end.i.i.i ]
-  %__begin2.sroa.0.078.i.i.i = phi i32 [ %b.sroa.0.0.extract.trunc.i.i.i, %for.body.lr.ph.i.i.i ], [ %__begin2.sroa.0.1.i.i.i, %for.end.i.i.i ]
+  %__begin2.sroa.0.079.i.i.i = phi i32 [ %b.sroa.0.0.extract.trunc.i.i.i, %for.body.lr.ph.i.i.i ], [ %__begin2.sroa.0.1.i.i.i, %for.end.i.i.i ]
+  %__begin2.sroa.7.078.i.i.i = phi i32 [ %b.sroa.4.0.extract.trunc.i.i.i, %for.body.lr.ph.i.i.i ], [ %__begin2.sroa.7.1.i.i.i, %for.end.i.i.i ]
   %4 = load i32, ptr %__functor.val, align 4
-  %add.i.i.i.i = add nsw i32 %4, %__begin2.sroa.0.078.i.i.i
+  %add.i.i.i.i = add nsw i32 %4, %__begin2.sroa.0.079.i.i.i
   %5 = load i32, ptr %y.i8.i.i.i, align 4
-  %add4.i.i.i.i = add nsw i32 %5, %__begin2.sroa.7.079.i.i.i
+  %add4.i.i.i.i = add nsw i32 %5, %__begin2.sroa.7.078.i.i.i
   %6 = load i64, ptr %film.i.i.i, align 8
   %and.i.i.i.i.i.i = and i64 %6, 144115188075855871
   %7 = inttoptr i64 %and.i.i.i.i.i.i to ptr
@@ -23341,11 +23341,11 @@ _ZN4pbrt3RGBixEi.exit.i.i.i:                      ; preds = %if.end4.i.i.i.i, %i
 
 for.end.i.i.i:                                    ; preds = %_ZN4pbrt3RGBixEi.exit.i.i.i
   %indvars.iv.next83.i.i.i = add nuw nsw i64 %indvars.iv82.i.i.i, 1
-  %inc.i.i.i.i.i = add nsw i32 %__begin2.sroa.0.078.i.i.i, 1
+  %inc.i.i.i.i.i = add nsw i32 %__begin2.sroa.0.079.i.i.i, 1
   %cmp.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i, %b.sroa.5.8.extract.trunc.i.i.i
-  %__begin2.sroa.0.1.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %b.sroa.0.0.extract.trunc.i.i.i, i32 %inc.i.i.i.i.i
   %inc10.i.i.i.i.i = zext i1 %cmp.i.i.i.i.i to i32
-  %__begin2.sroa.7.1.i.i.i = add nsw i32 %__begin2.sroa.7.079.i.i.i, %inc10.i.i.i.i.i
+  %__begin2.sroa.7.1.i.i.i = add nsw i32 %__begin2.sroa.7.078.i.i.i, %inc10.i.i.i.i.i
+  %__begin2.sroa.0.1.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %b.sroa.0.0.extract.trunc.i.i.i, i32 %inc.i.i.i.i.i
   %cmp.not.i.i.i.i.i = icmp ne i32 %__begin2.sroa.0.1.i.i.i, %b.sroa.0.0.extract.trunc.i.i.i
   %cmp4.i.i.i.i.i = icmp ne i32 %__begin2.sroa.7.1.i.i.i, %1
   %42 = select i1 %cmp.not.i.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i.i

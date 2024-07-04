@@ -2166,8 +2166,8 @@ define hidden void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   br label %14
 
 .loopexit:                                        ; preds = %70, %72, %74
-  %.013.i = phi i64 [ 1, %70 ], [ %..i, %74 ], [ 2, %72 ]
-  %13 = add i64 %.013.i, %16
+  %.012.i = phi i64 [ 1, %70 ], [ %..i, %74 ], [ 2, %72 ]
+  %13 = add i64 %.012.i, %16
   store i64 %13, ptr %4, align 8, !alias.scope !262, !noalias !265
   br label %14
 

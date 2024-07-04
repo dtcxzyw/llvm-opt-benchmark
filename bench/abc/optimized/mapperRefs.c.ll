@@ -241,7 +241,7 @@ define float @Map_CutGetAreaFlow(ptr nocapture noundef %0, i32 noundef %1) local
 
 16:                                               ; preds = %.lr.ph, %Map_NodeReadRefPhaseEst.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Map_NodeReadRefPhaseEst.exit ]
-  %.03235 = phi float [ %11, %.lr.ph ], [ %48, %Map_NodeReadRefPhaseEst.exit ]
+  %.03135 = phi float [ %11, %.lr.ph ], [ %48, %Map_NodeReadRefPhaseEst.exit ]
   %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = shl nuw i32 1, %17
   %19 = and i32 %18, %9
@@ -264,8 +264,8 @@ define float @Map_CutGetAreaFlow(ptr nocapture noundef %0, i32 noundef %1) local
 
 33:                                               ; preds = %28, %16
   %.pre-phi = phi i64 [ %30, %28 ], [ %24, %16 ]
-  %.031 = phi ptr [ %32, %28 ], [ %26, %16 ]
-  %34 = getelementptr inbounds i8, ptr %.031, i64 80
+  %.032 = phi ptr [ %32, %28 ], [ %26, %16 ]
+  %34 = getelementptr inbounds i8, ptr %.032, i64 80
   %35 = getelementptr inbounds [2 x %struct.Map_MatchStruct_t_], ptr %34, i64 0, i64 %.pre-phi, i32 5
   %36 = load float, ptr %35, align 4
   %37 = load ptr, ptr %23, align 8
@@ -293,16 +293,16 @@ Map_NodeReadRefPhaseEst.exit:                     ; preds = %41, %44
   %46 = fcmp oeq float %.0.i, 0.000000e+00
   %.030 = select i1 %46, float 1.000000e+00, float %.0.i
   %47 = fdiv float %36, %.030
-  %48 = fadd float %.03235, %47
+  %48 = fadd float %.03135, %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %Map_NodeReadRefPhaseEst.exit, %2
-  %.032.lcssa = phi float [ %11, %2 ], [ %48, %Map_NodeReadRefPhaseEst.exit ]
+  %.031.lcssa = phi float [ %11, %2 ], [ %48, %Map_NodeReadRefPhaseEst.exit ]
   %49 = getelementptr inbounds i8, ptr %5, i64 36
-  store float %.032.lcssa, ptr %49, align 4
-  ret float %.032.lcssa
+  store float %.031.lcssa, ptr %49, align 4
+  ret float %.031.lcssa
 }
 
 ; Function Attrs: nounwind uwtable

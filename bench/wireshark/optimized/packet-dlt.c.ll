@@ -588,19 +588,19 @@ expert_dlt_buffer_too_short.exit:                 ; preds = %18, %19
   br label %63
 
 63:                                               ; preds = %57, %22
-  %.0149 = phi i32 [ %62, %57 ], [ %55, %22 ]
+  %.0148 = phi i32 [ %62, %57 ], [ %55, %22 ]
   %64 = and i32 %24, 8
   %.not151 = icmp eq i32 %64, 0
   br i1 %.not151, label %69, label %65
 
 65:                                               ; preds = %63
   %66 = load i32, ptr @hf_dlt_session_id, align 4
-  %67 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %66, ptr noundef %0, i32 noundef %.0149, i32 noundef 4, i32 noundef 0) #7
-  %68 = add nuw nsw i32 %.0149, 4
+  %67 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %66, ptr noundef %0, i32 noundef %.0148, i32 noundef 4, i32 noundef 0) #7
+  %68 = add nuw nsw i32 %.0148, 4
   br label %69
 
 69:                                               ; preds = %65, %63
-  %.1 = phi i32 [ %68, %65 ], [ %.0149, %63 ]
+  %.1 = phi i32 [ %68, %65 ], [ %.0148, %63 ]
   %70 = and i32 %24, 16
   %.not152 = icmp eq i32 %70, 0
   br i1 %.not152, label %78, label %71
@@ -660,9 +660,9 @@ expert_dlt_buffer_too_short.exit:                 ; preds = %18, %19
 116:                                              ; preds = %79, %78
   %or.cond = phi i1 [ %115, %79 ], [ false, %78 ]
   %.3 = phi i32 [ %114, %79 ], [ %.2, %78 ]
-  %.0147 = phi i8 [ %96, %79 ], [ 0, %78 ]
-  %.0146 = phi i8 [ %93, %79 ], [ 0, %78 ]
-  %.0145 = phi i8 [ %105, %79 ], [ 0, %78 ]
+  %.0146 = phi i8 [ %96, %79 ], [ 0, %78 ]
+  %.0145 = phi i8 [ %93, %79 ], [ 0, %78 ]
+  %.0 = phi i8 [ %105, %79 ], [ 0, %78 ]
   %117 = load i32, ptr @hf_dlt_payload, align 4
   %118 = zext i16 %52 to i32
   %119 = sub i32 %118, %.3
@@ -690,16 +690,16 @@ expert_dlt_buffer_too_short.exit:                 ; preds = %18, %19
   br label %133
 
 133:                                              ; preds = %130, %127
-  %.064.i = phi i32 [ %129, %127 ], [ %132, %130 ]
+  %.063.i = phi i32 [ %129, %127 ], [ %132, %130 ]
   %.0.i = phi ptr [ %128, %127 ], [ %131, %130 ]
   %134 = add i32 %.3, 4
-  switch i8 %.0147, label %296 [
+  switch i8 %.0146, label %296 [
     i8 3, label %135
     i8 0, label %283
   ]
 
 135:                                              ; preds = %133
-  switch i8 %.0146, label %296 [
+  switch i8 %.0145, label %296 [
     i8 38, label %136
     i8 22, label %136
   ]
@@ -710,17 +710,17 @@ expert_dlt_buffer_too_short.exit:                 ; preds = %18, %19
   br i1 %138, label %dissect_dlt_non_verbose_payload.exit, label %139
 
 139:                                              ; preds = %136
-  %140 = call ptr @try_val_to_str(i32 noundef %.064.i, ptr noundef nonnull @dlt_service) #7
+  %140 = call ptr @try_val_to_str(i32 noundef %.063.i, ptr noundef nonnull @dlt_service) #7
   %141 = icmp eq ptr %140, null
   %142 = load ptr, ptr %13, align 8
   br i1 %141, label %143, label %144
 
 143:                                              ; preds = %139
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %142, i32 noundef 25, ptr noundef nonnull @.str.169, i32 noundef %.064.i) #7
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %142, i32 noundef 25, ptr noundef nonnull @.str.169, i32 noundef %.063.i) #7
   br label %145
 
 144:                                              ; preds = %139
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %142, i32 noundef 25, ptr noundef nonnull @.str.170, ptr noundef nonnull %140, i32 noundef %.064.i) #7
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %142, i32 noundef 25, ptr noundef nonnull @.str.170, ptr noundef nonnull %140, i32 noundef %.063.i) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0.i, ptr noundef nonnull @.str.171, ptr noundef nonnull %140) #7
   br label %145
 
@@ -738,13 +738,13 @@ expert_dlt_buffer_too_short.exit:                 ; preds = %18, %19
   br i1 %149, label %dissect_dlt_non_verbose_payload_message.exit.i, label %150
 
 150:                                              ; preds = %145
-  switch i8 %.0146, label %278 [
+  switch i8 %.0145, label %278 [
     i8 22, label %151
     i8 38, label %192
   ]
 
 151:                                              ; preds = %150
-  switch i32 %.064.i, label %278 [
+  switch i32 %.063.i, label %278 [
     i32 1, label %152
     i32 2, label %161
     i32 3, label %170
@@ -806,7 +806,7 @@ expert_dlt_buffer_too_short.exit:                 ; preds = %18, %19
   br label %dissect_dlt_non_verbose_payload_message.exit.i
 
 192:                                              ; preds = %150
-  switch i32 %.064.i, label %278 [
+  switch i32 %.063.i, label %278 [
     i32 1, label %193
     i32 2, label %193
     i32 5, label %193
@@ -843,33 +843,33 @@ expert_dlt_buffer_too_short.exit:                 ; preds = %18, %19
 
 .lr.ph178.i.i:                                    ; preds = %196, %253
   %.0161176.i.i = phi i32 [ %254, %253 ], [ 0, %196 ]
-  %.0164175.i.i = phi i32 [ %.3.i.i, %253 ], [ 3, %196 ]
+  %.0165175.i.i = phi i32 [ %.3.i.i, %253 ], [ 3, %196 ]
   %207 = load i32, ptr @hf_dlt_service_application_id, align 4
-  %208 = call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %207, ptr noundef %146, i32 noundef %.0164175.i.i, i32 noundef 4, i32 noundef 0) #7
-  %209 = add i32 %.0164175.i.i, 4
+  %208 = call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %207, ptr noundef %146, i32 noundef %.0165175.i.i, i32 noundef 4, i32 noundef 0) #7
+  %209 = add i32 %.0165175.i.i, 4
   %210 = load i32, ptr @ett_dlt_service_app_id, align 4
   %211 = call ptr @proto_item_add_subtree(ptr noundef %208, i32 noundef %210) #7
   %212 = load i32, ptr @hf_dlt_service_count, align 4
   %213 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %211, i32 noundef %212, ptr noundef %146, i32 noundef %209, i32 noundef 2, i32 noundef %spec.select.i.i, ptr noundef nonnull %10) #7
-  %214 = add i32 %.0164175.i.i, 6
+  %214 = add i32 %.0165175.i.i, 6
   %215 = load i32, ptr %10, align 4
   %.not182.i.i = icmp eq i32 %215, 0
   br i1 %.not182.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph178.i.i, %238
   %.0174.i.i = phi i32 [ %239, %238 ], [ 0, %.lr.ph178.i.i ]
-  %.1173.i.i = phi i32 [ %.2.i.i, %238 ], [ %214, %.lr.ph178.i.i ]
+  %.1166173.i.i = phi i32 [ %.2.i.i, %238 ], [ %214, %.lr.ph178.i.i ]
   %216 = load i32, ptr @hf_dlt_service_context_id, align 4
-  %217 = call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %216, ptr noundef %146, i32 noundef %.1173.i.i, i32 noundef 4, i32 noundef 0) #7
+  %217 = call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %216, ptr noundef %146, i32 noundef %.1166173.i.i, i32 noundef 4, i32 noundef 0) #7
   %218 = load i32, ptr @ett_dlt_service_ctx_id, align 4
   %219 = call ptr @proto_item_add_subtree(ptr noundef %217, i32 noundef %218) #7
-  %220 = add i32 %.1173.i.i, 4
+  %220 = add i32 %.1166173.i.i, 4
   %221 = load i32, ptr @hf_dlt_service_log_level, align 4
   %222 = call ptr @proto_tree_add_item(ptr noundef %219, i32 noundef %221, ptr noundef %146, i32 noundef %220, i32 noundef 1, i32 noundef %spec.select.i.i) #7
-  %223 = add i32 %.1173.i.i, 5
+  %223 = add i32 %.1166173.i.i, 5
   %224 = load i32, ptr @hf_dlt_service_trace_status, align 4
   %225 = call ptr @proto_tree_add_item(ptr noundef %219, i32 noundef %224, ptr noundef %146, i32 noundef %223, i32 noundef 1, i32 noundef %spec.select.i.i) #7
-  %226 = add i32 %.1173.i.i, 6
+  %226 = add i32 %.1166173.i.i, 6
   %227 = load i32, ptr %8, align 4
   %228 = icmp eq i32 %227, 7
   br i1 %228, label %229, label %238
@@ -877,7 +877,7 @@ expert_dlt_buffer_too_short.exit:                 ; preds = %18, %19
 229:                                              ; preds = %.lr.ph.i.i
   %230 = load i32, ptr @hf_dlt_service_count, align 4
   %231 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %211, i32 noundef %230, ptr noundef %146, i32 noundef %226, i32 noundef 2, i32 noundef %spec.select.i.i, ptr noundef nonnull %7) #7
-  %232 = add i32 %.1173.i.i, 8
+  %232 = add i32 %.1166173.i.i, 8
   %233 = load i32, ptr @hf_dlt_service_ctx_desc, align 4
   %234 = load i32, ptr %7, align 4
   %235 = call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %233, ptr noundef %146, i32 noundef %232, i32 noundef %234, i32 noundef 0) #7
@@ -893,15 +893,15 @@ expert_dlt_buffer_too_short.exit:                 ; preds = %18, %19
   br i1 %241, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !6
 
 ._crit_edge.i.i:                                  ; preds = %238, %.lr.ph178.i.i
-  %.1.lcssa.i.i = phi i32 [ %214, %.lr.ph178.i.i ], [ %.2.i.i, %238 ]
+  %.1166.lcssa.i.i = phi i32 [ %214, %.lr.ph178.i.i ], [ %.2.i.i, %238 ]
   %242 = load i32, ptr %8, align 4
   %243 = icmp eq i32 %242, 7
   br i1 %243, label %244, label %253
 
 244:                                              ; preds = %._crit_edge.i.i
   %245 = load i32, ptr @hf_dlt_service_count, align 4
-  %246 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %203, i32 noundef %245, ptr noundef %146, i32 noundef %.1.lcssa.i.i, i32 noundef 2, i32 noundef %spec.select.i.i, ptr noundef nonnull %7) #7
-  %247 = add i32 %.1.lcssa.i.i, 2
+  %246 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %203, i32 noundef %245, ptr noundef %146, i32 noundef %.1166.lcssa.i.i, i32 noundef 2, i32 noundef %spec.select.i.i, ptr noundef nonnull %7) #7
+  %247 = add i32 %.1166.lcssa.i.i, 2
   %248 = load i32, ptr @hf_dlt_service_app_desc, align 4
   %249 = load i32, ptr %7, align 4
   %250 = call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %248, ptr noundef %146, i32 noundef %247, i32 noundef %249, i32 noundef 0) #7
@@ -910,7 +910,7 @@ expert_dlt_buffer_too_short.exit:                 ; preds = %18, %19
   br label %253
 
 253:                                              ; preds = %244, %._crit_edge.i.i
-  %.3.i.i = phi i32 [ %252, %244 ], [ %.1.lcssa.i.i, %._crit_edge.i.i ]
+  %.3.i.i = phi i32 [ %252, %244 ], [ %.1166.lcssa.i.i, %._crit_edge.i.i ]
   %254 = add nuw i32 %.0161176.i.i, 1
   %255 = load i32, ptr %9, align 4
   %256 = icmp ult i32 %254, %255
@@ -953,9 +953,9 @@ expert_dlt_buffer_too_short.exit:                 ; preds = %18, %19
   br label %278
 
 278:                                              ; preds = %275, %192, %170, %151, %150
-  %.0165.i.i = phi i1 [ true, %151 ], [ true, %170 ], [ true, %192 ], [ %277, %275 ], [ true, %150 ]
+  %.0163.i.i = phi i1 [ true, %151 ], [ true, %170 ], [ true, %192 ], [ %277, %275 ], [ true, %150 ]
   %279 = icmp sgt i32 %148, 0
-  %or.cond.i.i = and i1 %279, %.0165.i.i
+  %or.cond.i.i = and i1 %279, %.0163.i.i
   br i1 %or.cond.i.i, label %280, label %dissect_dlt_non_verbose_payload_message.exit.i
 
 280:                                              ; preds = %278
@@ -974,13 +974,13 @@ dissect_dlt_non_verbose_payload_message.exit.i:   ; preds = %280, %278, %259, %.
   %284 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %134) #7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   %285 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 %.064.i, ptr %285, align 8
+  store i32 %.063.i, ptr %285, align 8
   %286 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 %27, ptr %286, align 4
   %287 = getelementptr inbounds i8, ptr %6, i64 16
   store i8 0, ptr %287, align 8
   %288 = getelementptr inbounds i8, ptr %6, i64 17
-  store i8 %.0146, ptr %288, align 1
+  store i8 %.0145, ptr %288, align 1
   store ptr %125, ptr %6, align 8
   %289 = load ptr, ptr @heur_subdissector_list, align 8
   %290 = call i32 @dissector_try_heuristic(ptr noundef %289, ptr noundef %284, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @heur_dtbl_entry, ptr noundef nonnull %6) #7
@@ -1008,29 +1008,29 @@ expert_dlt_unsupported_non_verbose_msg_type.exit.i: ; preds = %297, %296
   br label %dissect_dlt_non_verbose_payload.exit
 
 300:                                              ; preds = %116
-  %301 = zext i8 %.0145 to i32
-  %.not.i155 = icmp eq i8 %.0145, 0
+  %301 = zext i8 %.0 to i32
+  %.not.i155 = icmp eq i8 %.0, 0
   br i1 %.not.i155, label %dissect_dlt_verbose_payload.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %300
   %.not.i.i.not = icmp eq i32 %.lobit, 0
   %302 = getelementptr inbounds i8, ptr %1, i64 408
-  %.not.i45.i104.i.i = icmp eq ptr %0, null
+  %.not.i45.i102.i.i = icmp eq ptr %0, null
   br label %303
 
 303:                                              ; preds = %dissect_dlt_verbose_parameter.exit.i, %.lr.ph.i
-  %.01316.i = phi i32 [ %.3, %.lr.ph.i ], [ %587, %dissect_dlt_verbose_parameter.exit.i ]
-  %.01415.i = phi i32 [ 0, %.lr.ph.i ], [ %588, %dissect_dlt_verbose_parameter.exit.i ]
-  %304 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.01316.i) #7
+  %.01318.i = phi i32 [ 0, %.lr.ph.i ], [ %588, %dissect_dlt_verbose_parameter.exit.i ]
+  %.01415.i = phi i32 [ %.3, %.lr.ph.i ], [ %587, %dissect_dlt_verbose_parameter.exit.i ]
+  %304 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.01415.i) #7
   %305 = icmp slt i32 %304, 4
   br i1 %305, label %306, label %311
 
 306:                                              ; preds = %303
-  %307 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.01316.i) #7
-  br i1 %.not.i45.i104.i.i, label %expert_dlt_parsing_error.exit.i.i, label %308
+  %307 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.01415.i) #7
+  br i1 %.not.i45.i102.i.i, label %expert_dlt_parsing_error.exit.i.i, label %308
 
 308:                                              ; preds = %306
-  %309 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_parsing_error, ptr noundef nonnull %0, i32 noundef %.01316.i, i32 noundef %307) #7
+  %309 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_parsing_error, ptr noundef nonnull %0, i32 noundef %.01415.i, i32 noundef %307) #7
   br label %expert_dlt_parsing_error.exit.i.i
 
 expert_dlt_parsing_error.exit.i.i:                ; preds = %308, %306
@@ -1042,17 +1042,17 @@ expert_dlt_parsing_error.exit.i.i:                ; preds = %308, %306
   br i1 %.not.i.i.not, label %312, label %314
 
 312:                                              ; preds = %311
-  %313 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.01316.i) #7
+  %313 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.01415.i) #7
   br label %316
 
 314:                                              ; preds = %311
-  %315 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.01316.i) #7
+  %315 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.01415.i) #7
   br label %316
 
 316:                                              ; preds = %314, %312
-  %.079.i.i = phi i32 [ %313, %312 ], [ %315, %314 ]
-  %317 = add i32 %.01316.i, 4
-  %318 = and i32 %.079.i.i, 15
+  %.078.i.i = phi i32 [ %313, %312 ], [ %315, %314 ]
+  %317 = add i32 %.01415.i, 4
+  %318 = and i32 %.078.i.i, 15
   %switch.tableidx = add nsw i32 %318, -1
   %319 = icmp ult i32 %switch.tableidx, 5
   br i1 %319, label %switch.lookup, label %323
@@ -1066,8 +1066,8 @@ switch.lookup:                                    ; preds = %316
   br i1 %322, label %dissect_dlt_verbose_parameter.exit.i, label %323
 
 323:                                              ; preds = %316, %switch.lookup
-  %.078110.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %316 ]
-  %324 = and i32 %.079.i.i, -229392
+  %.0108.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %316 ]
+  %324 = and i32 %.078.i.i, -229392
   switch i32 %324, label %580 [
     i32 16, label %325
     i32 32, label %342
@@ -1078,7 +1078,7 @@ switch.lookup:                                    ; preds = %316
   ]
 
 325:                                              ; preds = %323
-  %.not.i82.i.i = icmp eq i32 %.078110.i.i, 1
+  %.not.i82.i.i = icmp eq i32 %.0108.i.i, 1
   br i1 %.not.i82.i.i, label %326, label %329
 
 326:                                              ; preds = %325
@@ -1087,7 +1087,7 @@ switch.lookup:                                    ; preds = %316
   br i1 %328, label %329, label %333
 
 329:                                              ; preds = %326, %325
-  br i1 %.not.i45.i104.i.i, label %expert_dlt_buffer_too_short.exit.i.i.i, label %330
+  br i1 %.not.i45.i102.i.i, label %expert_dlt_buffer_too_short.exit.i.i.i, label %330
 
 330:                                              ; preds = %329
   %331 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_buffer_too_short, ptr noundef nonnull %0, i32 noundef %317, i32 noundef 0) #7
@@ -1127,14 +1127,14 @@ dissect_dlt_verbose_parameter_bool.exit.i.i:      ; preds = %340, %339, %338, %e
 
 342:                                              ; preds = %323
   %343 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %317) #7
-  %344 = icmp slt i32 %343, %.078110.i.i
+  %344 = icmp slt i32 %343, %.0108.i.i
   br i1 %344, label %dissect_dlt_verbose_parameter_int.exit.i.i, label %345
 
 345:                                              ; preds = %342
   br i1 %.not.i.i.not, label %346, label %370
 
 346:                                              ; preds = %345
-  switch i32 %.078110.i.i, label %366 [
+  switch i32 %.0108.i.i, label %366 [
     i32 1, label %347
     i32 2, label %352
     i32 4, label %357
@@ -1169,10 +1169,10 @@ dissect_dlt_verbose_parameter_bool.exit.i.i:      ; preds = %340, %339, %338, %e
   br label %394
 
 366:                                              ; preds = %346
-  br i1 %.not.i45.i104.i.i, label %expert_dlt_unsupported_length_datatype.exit.i.i.i, label %367
+  br i1 %.not.i45.i102.i.i, label %expert_dlt_unsupported_length_datatype.exit.i.i.i, label %367
 
 367:                                              ; preds = %366
-  %368 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef %.078110.i.i) #7
+  %368 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef %.0108.i.i) #7
   br label %expert_dlt_unsupported_length_datatype.exit.i.i.i
 
 expert_dlt_unsupported_length_datatype.exit.i.i.i: ; preds = %367, %366
@@ -1181,7 +1181,7 @@ expert_dlt_unsupported_length_datatype.exit.i.i.i: ; preds = %367, %366
   br label %394
 
 370:                                              ; preds = %345
-  switch i32 %.078110.i.i, label %390 [
+  switch i32 %.0108.i.i, label %390 [
     i32 1, label %371
     i32 2, label %376
     i32 4, label %381
@@ -1216,10 +1216,10 @@ expert_dlt_unsupported_length_datatype.exit.i.i.i: ; preds = %367, %366
   br label %394
 
 390:                                              ; preds = %370
-  br i1 %.not.i45.i104.i.i, label %expert_dlt_unsupported_length_datatype.exit62.i.i.i, label %391
+  br i1 %.not.i45.i102.i.i, label %expert_dlt_unsupported_length_datatype.exit62.i.i.i, label %391
 
 391:                                              ; preds = %390
-  %392 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef %.078110.i.i) #7
+  %392 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef %.0108.i.i) #7
   br label %expert_dlt_unsupported_length_datatype.exit62.i.i.i
 
 expert_dlt_unsupported_length_datatype.exit62.i.i.i: ; preds = %391, %390
@@ -1234,17 +1234,17 @@ expert_dlt_unsupported_length_datatype.exit62.i.i.i: ; preds = %391, %390
   br label %dissect_dlt_verbose_parameter_int.exit.i.i
 
 dissect_dlt_verbose_parameter_int.exit.i.i:       ; preds = %394, %342
-  %.059.i.i.i = phi i32 [ %.078110.i.i, %394 ], [ 0, %342 ]
+  %.059.i.i.i = phi i32 [ %.0108.i.i, %394 ], [ 0, %342 ]
   %396 = add i32 %.059.i.i.i, %317
   br label %584
 
 397:                                              ; preds = %323
   %398 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %317) #7
-  %399 = icmp slt i32 %398, %.078110.i.i
+  %399 = icmp slt i32 %398, %.0108.i.i
   br i1 %399, label %400, label %404
 
 400:                                              ; preds = %397
-  br i1 %.not.i45.i104.i.i, label %expert_dlt_buffer_too_short.exit.i90.i.i, label %401
+  br i1 %.not.i45.i102.i.i, label %expert_dlt_buffer_too_short.exit.i90.i.i, label %401
 
 401:                                              ; preds = %400
   %402 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_buffer_too_short, ptr noundef nonnull %0, i32 noundef %317, i32 noundef 0) #7
@@ -1259,7 +1259,7 @@ expert_dlt_buffer_too_short.exit.i90.i.i:         ; preds = %401, %400
   br i1 %.not.i.i.not, label %405, label %429
 
 405:                                              ; preds = %404
-  switch i32 %.078110.i.i, label %425 [
+  switch i32 %.0108.i.i, label %425 [
     i32 1, label %406
     i32 2, label %411
     i32 4, label %416
@@ -1294,10 +1294,10 @@ expert_dlt_buffer_too_short.exit.i90.i.i:         ; preds = %401, %400
   br label %453
 
 425:                                              ; preds = %405
-  br i1 %.not.i45.i104.i.i, label %expert_dlt_unsupported_length_datatype.exit.i88.i.i, label %426
+  br i1 %.not.i45.i102.i.i, label %expert_dlt_unsupported_length_datatype.exit.i88.i.i, label %426
 
 426:                                              ; preds = %425
-  %427 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef %.078110.i.i) #7
+  %427 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef %.0108.i.i) #7
   br label %expert_dlt_unsupported_length_datatype.exit.i88.i.i
 
 expert_dlt_unsupported_length_datatype.exit.i88.i.i: ; preds = %426, %425
@@ -1306,7 +1306,7 @@ expert_dlt_unsupported_length_datatype.exit.i88.i.i: ; preds = %426, %425
   br label %453
 
 429:                                              ; preds = %404
-  switch i32 %.078110.i.i, label %449 [
+  switch i32 %.0108.i.i, label %449 [
     i32 1, label %430
     i32 2, label %435
     i32 4, label %440
@@ -1341,10 +1341,10 @@ expert_dlt_unsupported_length_datatype.exit.i88.i.i: ; preds = %426, %425
   br label %453
 
 449:                                              ; preds = %429
-  br i1 %.not.i45.i104.i.i, label %expert_dlt_unsupported_length_datatype.exit67.i.i.i, label %450
+  br i1 %.not.i45.i102.i.i, label %expert_dlt_unsupported_length_datatype.exit67.i.i.i, label %450
 
 450:                                              ; preds = %449
-  %451 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef %.078110.i.i) #7
+  %451 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef %.0108.i.i) #7
   br label %expert_dlt_unsupported_length_datatype.exit67.i.i.i
 
 expert_dlt_unsupported_length_datatype.exit67.i.i.i: ; preds = %450, %449
@@ -1359,17 +1359,17 @@ expert_dlt_unsupported_length_datatype.exit67.i.i.i: ; preds = %450, %449
   br label %dissect_dlt_verbose_parameter_uint.exit.i.i
 
 dissect_dlt_verbose_parameter_uint.exit.i.i:      ; preds = %453, %expert_dlt_buffer_too_short.exit.i90.i.i
-  %.063.i.i.i = phi i32 [ 0, %expert_dlt_buffer_too_short.exit.i90.i.i ], [ %.078110.i.i, %453 ]
+  %.063.i.i.i = phi i32 [ 0, %expert_dlt_buffer_too_short.exit.i90.i.i ], [ %.0108.i.i, %453 ]
   %455 = add i32 %.063.i.i.i, %317
   br label %584
 
 456:                                              ; preds = %323
   %457 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %317) #7
-  %458 = icmp slt i32 %457, %.078110.i.i
+  %458 = icmp slt i32 %457, %.0108.i.i
   br i1 %458, label %459, label %463
 
 459:                                              ; preds = %456
-  br i1 %.not.i45.i104.i.i, label %expert_dlt_buffer_too_short.exit.i95.i.i, label %460
+  br i1 %.not.i45.i102.i.i, label %expert_dlt_buffer_too_short.exit.i95.i.i, label %460
 
 460:                                              ; preds = %459
   %461 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_buffer_too_short, ptr noundef nonnull %0, i32 noundef %317, i32 noundef 0) #7
@@ -1381,7 +1381,7 @@ expert_dlt_buffer_too_short.exit.i95.i.i:         ; preds = %460, %459
   br label %dissect_dlt_verbose_parameter_float.exit.i.i
 
 463:                                              ; preds = %456
-  %464 = add nsw i32 %.078110.i.i, -2
+  %464 = add nsw i32 %.0108.i.i, -2
   %465 = call i32 @llvm.fshl.i32(i32 %464, i32 %464, i32 31)
   br i1 %.not.i.i.not, label %466, label %480
 
@@ -1405,10 +1405,10 @@ expert_dlt_buffer_too_short.exit.i95.i.i:         ; preds = %460, %459
   br label %494
 
 476:                                              ; preds = %466
-  br i1 %.not.i45.i104.i.i, label %expert_dlt_unsupported_length_datatype.exit.i93.i.i, label %477
+  br i1 %.not.i45.i102.i.i, label %expert_dlt_unsupported_length_datatype.exit.i93.i.i, label %477
 
 477:                                              ; preds = %476
-  %478 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef %.078110.i.i) #7
+  %478 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef %.0108.i.i) #7
   br label %expert_dlt_unsupported_length_datatype.exit.i93.i.i
 
 expert_dlt_unsupported_length_datatype.exit.i93.i.i: ; preds = %477, %476
@@ -1436,10 +1436,10 @@ expert_dlt_unsupported_length_datatype.exit.i93.i.i: ; preds = %477, %476
   br label %494
 
 490:                                              ; preds = %480
-  br i1 %.not.i45.i104.i.i, label %expert_dlt_unsupported_length_datatype.exit47.i.i.i, label %491
+  br i1 %.not.i45.i102.i.i, label %expert_dlt_unsupported_length_datatype.exit47.i.i.i, label %491
 
 491:                                              ; preds = %490
-  %492 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef %.078110.i.i) #7
+  %492 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_length_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef %.0108.i.i) #7
   br label %expert_dlt_unsupported_length_datatype.exit47.i.i.i
 
 expert_dlt_unsupported_length_datatype.exit47.i.i.i: ; preds = %491, %490
@@ -1454,7 +1454,7 @@ expert_dlt_unsupported_length_datatype.exit47.i.i.i: ; preds = %491, %490
   br label %dissect_dlt_verbose_parameter_float.exit.i.i
 
 dissect_dlt_verbose_parameter_float.exit.i.i:     ; preds = %494, %expert_dlt_buffer_too_short.exit.i95.i.i
-  %.043.i.i.i = phi i32 [ 0, %expert_dlt_buffer_too_short.exit.i95.i.i ], [ %.078110.i.i, %494 ]
+  %.043.i.i.i = phi i32 [ 0, %expert_dlt_buffer_too_short.exit.i95.i.i ], [ %.0108.i.i, %494 ]
   %496 = add i32 %.043.i.i.i, %317
   br label %584
 
@@ -1466,13 +1466,13 @@ dissect_dlt_verbose_parameter_float.exit.i.i:     ; preds = %494, %expert_dlt_bu
   br i1 %499, label %500, label %504
 
 500:                                              ; preds = %497
-  br i1 %.not.i45.i104.i.i, label %expert_dlt_buffer_too_short.exit.i100.i.i, label %501
+  br i1 %.not.i45.i102.i.i, label %expert_dlt_buffer_too_short.exit.i99.i.i, label %501
 
 501:                                              ; preds = %500
   %502 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_buffer_too_short, ptr noundef nonnull %0, i32 noundef %317, i32 noundef 0) #7
-  br label %expert_dlt_buffer_too_short.exit.i100.i.i
+  br label %expert_dlt_buffer_too_short.exit.i99.i.i
 
-expert_dlt_buffer_too_short.exit.i100.i.i:        ; preds = %501, %500
+expert_dlt_buffer_too_short.exit.i99.i.i:         ; preds = %501, %500
   %503 = load ptr, ptr %13, align 8
   call void @col_append_str(ptr noundef %503, i32 noundef 25, ptr noundef nonnull @.str.156) #7
   br label %dissect_dlt_verbose_parameter_string.exit.i.i
@@ -1489,15 +1489,15 @@ expert_dlt_buffer_too_short.exit.i100.i.i:        ; preds = %501, %500
   br label %509
 
 509:                                              ; preds = %507, %505
-  %.062.i.i.i = phi i16 [ %506, %505 ], [ %508, %507 ]
-  %510 = add i32 %.01316.i, 6
+  %.061.i.i.i = phi i16 [ %506, %505 ], [ %508, %507 ]
+  %510 = add i32 %.01415.i, 6
   %511 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %510) #7
-  %512 = zext i16 %.062.i.i.i to i32
+  %512 = zext i16 %.061.i.i.i to i32
   %513 = icmp slt i32 %511, %512
   br i1 %513, label %514, label %518
 
 514:                                              ; preds = %509
-  br i1 %.not.i45.i104.i.i, label %expert_dlt_buffer_too_short.exit66.i.i.i, label %515
+  br i1 %.not.i45.i102.i.i, label %expert_dlt_buffer_too_short.exit66.i.i.i, label %515
 
 515:                                              ; preds = %514
   %516 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_buffer_too_short, ptr noundef nonnull %0, i32 noundef %510, i32 noundef 0) #7
@@ -1509,12 +1509,12 @@ expert_dlt_buffer_too_short.exit66.i.i.i:         ; preds = %515, %514
   br label %dissect_dlt_verbose_parameter_string.exit.i.i
 
 518:                                              ; preds = %509
-  %519 = and i32 %.079.i.i, 196608
+  %519 = and i32 %.078.i.i, 196608
   %or.cond.not.i.i.i = icmp eq i32 %519, 0
   br i1 %or.cond.not.i.i.i, label %524, label %520
 
 520:                                              ; preds = %518
-  br i1 %.not.i45.i104.i.i, label %expert_dlt_unsupported_string_coding.exit.i.i.i, label %521
+  br i1 %.not.i45.i102.i.i, label %expert_dlt_unsupported_string_coding.exit.i.i.i, label %521
 
 521:                                              ; preds = %520
   %522 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_string_coding, ptr noundef nonnull %0, i32 noundef %510, i32 noundef %512) #7
@@ -1528,7 +1528,7 @@ expert_dlt_unsupported_string_coding.exit.i.i.i:  ; preds = %521, %520
 524:                                              ; preds = %518
   %525 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %510, i32 noundef %512) #7
   %526 = load ptr, ptr %302, align 8
-  %527 = lshr i32 %.079.i.i, 14
+  %527 = lshr i32 %.078.i.i, 14
   %..i.i.i = and i32 %527, 2
   %528 = call ptr @tvb_get_stringz_enc(ptr noundef %526, ptr noundef %525, i32 noundef 0, ptr noundef nonnull %5, i32 noundef %..i.i.i) #7
   %529 = icmp ne ptr %528, null
@@ -1566,7 +1566,7 @@ sanitize_buffer.exit.i.i.i:                       ; preds = %536
   br label %544
 
 540:                                              ; preds = %524
-  br i1 %.not.i45.i104.i.i, label %expert_dlt_parsing_error.exit.i.i.i, label %541
+  br i1 %.not.i45.i102.i.i, label %expert_dlt_parsing_error.exit.i.i.i, label %541
 
 541:                                              ; preds = %540
   %542 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef nonnull %1, ptr noundef nonnull @ei_dlt_parsing_error, ptr noundef nonnull %0, i32 noundef %510, i32 noundef %512) #7
@@ -1581,10 +1581,10 @@ expert_dlt_parsing_error.exit.i.i.i:              ; preds = %541, %540
   %545 = add nuw nsw i32 %512, 2
   br label %dissect_dlt_verbose_parameter_string.exit.i.i
 
-dissect_dlt_verbose_parameter_string.exit.i.i:    ; preds = %544, %expert_dlt_unsupported_string_coding.exit.i.i.i, %expert_dlt_buffer_too_short.exit66.i.i.i, %expert_dlt_buffer_too_short.exit.i100.i.i
-  %.0.i97.i.i = phi i32 [ 0, %expert_dlt_buffer_too_short.exit.i100.i.i ], [ 2, %expert_dlt_buffer_too_short.exit66.i.i.i ], [ -1, %expert_dlt_unsupported_string_coding.exit.i.i.i ], [ %545, %544 ]
+dissect_dlt_verbose_parameter_string.exit.i.i:    ; preds = %544, %expert_dlt_unsupported_string_coding.exit.i.i.i, %expert_dlt_buffer_too_short.exit66.i.i.i, %expert_dlt_buffer_too_short.exit.i99.i.i
+  %.062.i.i.i = phi i32 [ 0, %expert_dlt_buffer_too_short.exit.i99.i.i ], [ 2, %expert_dlt_buffer_too_short.exit66.i.i.i ], [ -1, %expert_dlt_unsupported_string_coding.exit.i.i.i ], [ %545, %544 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %546 = add i32 %.0.i97.i.i, %317
+  %546 = add i32 %.062.i.i.i, %317
   br label %584
 
 547:                                              ; preds = %323
@@ -1593,13 +1593,13 @@ dissect_dlt_verbose_parameter_string.exit.i.i:    ; preds = %544, %expert_dlt_un
   br i1 %549, label %550, label %554
 
 550:                                              ; preds = %547
-  br i1 %.not.i45.i104.i.i, label %expert_dlt_buffer_too_short.exit.i106.i.i, label %551
+  br i1 %.not.i45.i102.i.i, label %expert_dlt_buffer_too_short.exit.i104.i.i, label %551
 
 551:                                              ; preds = %550
   %552 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_buffer_too_short, ptr noundef nonnull %0, i32 noundef %317, i32 noundef 0) #7
-  br label %expert_dlt_buffer_too_short.exit.i106.i.i
+  br label %expert_dlt_buffer_too_short.exit.i104.i.i
 
-expert_dlt_buffer_too_short.exit.i106.i.i:        ; preds = %551, %550
+expert_dlt_buffer_too_short.exit.i104.i.i:        ; preds = %551, %550
   %553 = load ptr, ptr %13, align 8
   call void @col_append_str(ptr noundef %553, i32 noundef 25, ptr noundef nonnull @.str.156) #7
   br label %dissect_dlt_verbose_parameter_raw_data.exit.i.i
@@ -1616,15 +1616,15 @@ expert_dlt_buffer_too_short.exit.i106.i.i:        ; preds = %551, %550
   br label %559
 
 559:                                              ; preds = %557, %555
-  %.043.i102.i.i = phi i16 [ %556, %555 ], [ %558, %557 ]
-  %560 = add i32 %.01316.i, 6
+  %.042.i.i.i = phi i16 [ %556, %555 ], [ %558, %557 ]
+  %560 = add i32 %.01415.i, 6
   %561 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %560) #7
-  %562 = zext i16 %.043.i102.i.i to i32
+  %562 = zext i16 %.042.i.i.i to i32
   %563 = icmp slt i32 %561, %562
   br i1 %563, label %564, label %568
 
 564:                                              ; preds = %559
-  br i1 %.not.i45.i104.i.i, label %expert_dlt_buffer_too_short.exit46.i.i.i, label %565
+  br i1 %.not.i45.i102.i.i, label %expert_dlt_buffer_too_short.exit46.i.i.i, label %565
 
 565:                                              ; preds = %564
   %566 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_buffer_too_short, ptr noundef nonnull %0, i32 noundef %560, i32 noundef 0) #7
@@ -1639,9 +1639,9 @@ expert_dlt_buffer_too_short.exit46.i.i.i:         ; preds = %565, %564
   %569 = load i32, ptr @hf_dlt_rawd, align 4
   %570 = call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %569, ptr noundef %0, i32 noundef %560, i32 noundef %562, i32 noundef 0) #7
   %571 = load ptr, ptr %302, align 8
-  %572 = zext i16 %.043.i102.i.i to i64
+  %572 = zext i16 %.042.i.i.i to i64
   %573 = call ptr @tvb_memdup(ptr noundef %571, ptr noundef %0, i32 noundef %560, i64 noundef %572) #7
-  %.not48.i.i.i = icmp eq i16 %.043.i102.i.i, 0
+  %.not48.i.i.i = icmp eq i16 %.042.i.i.i, 0
   br i1 %.not48.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %568, %.lr.ph.i.i.i
@@ -1659,13 +1659,13 @@ expert_dlt_buffer_too_short.exit46.i.i.i:         ; preds = %565, %564
   %578 = add nuw nsw i32 %562, 2
   br label %dissect_dlt_verbose_parameter_raw_data.exit.i.i
 
-dissect_dlt_verbose_parameter_raw_data.exit.i.i:  ; preds = %._crit_edge.i.i.i, %expert_dlt_buffer_too_short.exit46.i.i.i, %expert_dlt_buffer_too_short.exit.i106.i.i
-  %.0.i103.i.i = phi i32 [ 0, %expert_dlt_buffer_too_short.exit.i106.i.i ], [ 2, %expert_dlt_buffer_too_short.exit46.i.i.i ], [ %578, %._crit_edge.i.i.i ]
-  %579 = add i32 %.0.i103.i.i, %317
+dissect_dlt_verbose_parameter_raw_data.exit.i.i:  ; preds = %._crit_edge.i.i.i, %expert_dlt_buffer_too_short.exit46.i.i.i, %expert_dlt_buffer_too_short.exit.i104.i.i
+  %.043.i101.i.i = phi i32 [ 0, %expert_dlt_buffer_too_short.exit.i104.i.i ], [ 2, %expert_dlt_buffer_too_short.exit46.i.i.i ], [ %578, %._crit_edge.i.i.i ]
+  %579 = add i32 %.043.i101.i.i, %317
   br label %584
 
 580:                                              ; preds = %323
-  br i1 %.not.i45.i104.i.i, label %expert_dlt_unsupported_parameter.exit.i.i, label %581
+  br i1 %.not.i45.i102.i.i, label %expert_dlt_unsupported_parameter.exit.i.i, label %581
 
 581:                                              ; preds = %580
   %582 = call ptr @proto_tree_add_expert(ptr noundef %122, ptr noundef %1, ptr noundef nonnull @ei_dlt_unsupported_datatype, ptr noundef nonnull %0, i32 noundef %317, i32 noundef 0) #7
@@ -1678,23 +1678,23 @@ expert_dlt_unsupported_parameter.exit.i.i:        ; preds = %581, %580
 
 584:                                              ; preds = %expert_dlt_unsupported_parameter.exit.i.i, %dissect_dlt_verbose_parameter_raw_data.exit.i.i, %dissect_dlt_verbose_parameter_string.exit.i.i, %dissect_dlt_verbose_parameter_float.exit.i.i, %dissect_dlt_verbose_parameter_uint.exit.i.i, %dissect_dlt_verbose_parameter_int.exit.i.i, %dissect_dlt_verbose_parameter_bool.exit.i.i
   %.080.i.i = phi i32 [ %317, %expert_dlt_unsupported_parameter.exit.i.i ], [ %579, %dissect_dlt_verbose_parameter_raw_data.exit.i.i ], [ %546, %dissect_dlt_verbose_parameter_string.exit.i.i ], [ %496, %dissect_dlt_verbose_parameter_float.exit.i.i ], [ %455, %dissect_dlt_verbose_parameter_uint.exit.i.i ], [ %396, %dissect_dlt_verbose_parameter_int.exit.i.i ], [ %341, %dissect_dlt_verbose_parameter_bool.exit.i.i ]
-  %585 = sub i32 %.080.i.i, %.01316.i
+  %585 = sub i32 %.080.i.i, %.01415.i
   %586 = icmp ult i32 %585, 5
   %..i.i = select i1 %586, i32 0, i32 %585
   br label %dissect_dlt_verbose_parameter.exit.i
 
 dissect_dlt_verbose_parameter.exit.i:             ; preds = %584, %switch.lookup, %expert_dlt_parsing_error.exit.i.i
-  %.0.i.i = phi i32 [ -1, %expert_dlt_parsing_error.exit.i.i ], [ -1, %switch.lookup ], [ %..i.i, %584 ]
-  %587 = add i32 %.0.i.i, %.01316.i
-  %588 = add nuw nsw i32 %.01415.i, 1
-  %589 = icmp ugt i32 %.0.i.i, 4
+  %.079.i.i = phi i32 [ -1, %expert_dlt_parsing_error.exit.i.i ], [ -1, %switch.lookup ], [ %..i.i, %584 ]
+  %587 = add i32 %.079.i.i, %.01415.i
+  %588 = add nuw nsw i32 %.01318.i, 1
+  %589 = icmp ugt i32 %.079.i.i, 4
   %590 = icmp ult i32 %588, %301
   %591 = select i1 %589, i1 %590, i1 false
   br i1 %591, label %303, label %dissect_dlt_verbose_payload.exit, !llvm.loop !10
 
 dissect_dlt_verbose_payload.exit:                 ; preds = %dissect_dlt_verbose_parameter.exit.i, %300
-  %.013.lcssa.i = phi i32 [ %.3, %300 ], [ %587, %dissect_dlt_verbose_parameter.exit.i ]
-  %592 = sub i32 %.013.lcssa.i, %.3
+  %.014.lcssa.i = phi i32 [ %.3, %300 ], [ %587, %dissect_dlt_verbose_parameter.exit.i ]
+  %592 = sub i32 %.014.lcssa.i, %.3
   br label %dissect_dlt_non_verbose_payload.exit
 
 dissect_dlt_non_verbose_payload.exit:             ; preds = %expert_dlt_unsupported_non_verbose_msg_type.exit.i, %292, %283, %dissect_dlt_non_verbose_payload_message.exit.i, %136, %dissect_dlt_verbose_payload.exit
@@ -1706,8 +1706,8 @@ dissect_dlt_non_verbose_payload.exit:             ; preds = %expert_dlt_unsuppor
   br label %595
 
 595:                                              ; preds = %dissect_dlt_non_verbose_payload.exit, %expert_dlt_buffer_too_short.exit
-  %.0 = phi i32 [ %12, %expert_dlt_buffer_too_short.exit ], [ %594, %dissect_dlt_non_verbose_payload.exit ]
-  ret i32 %.0
+  %.0149 = phi i32 [ %12, %expert_dlt_buffer_too_short.exit ], [ %594, %dissect_dlt_non_verbose_payload.exit ]
+  ret i32 %.0149
 }
 
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #3

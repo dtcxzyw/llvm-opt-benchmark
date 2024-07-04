@@ -756,8 +756,8 @@ for.body195.lr.ph.i:                              ; preds = %for.cond192.prehead
   br label %for.body195.i
 
 for.body.i:                                       ; preds = %_ZN5arrow8internal12_GLOBAL__N_114IncrementIndexERSt6vectorIlSaIlEERKS4_S7_.exit.i, %for.body.lr.ph.i
-  %values.0859.i = phi ptr [ %cond.i150.i, %for.body.lr.ph.i ], [ %values.1.i, %_ZN5arrow8internal12_GLOBAL__N_114IncrementIndexERSt6vectorIlSaIlEERKS4_S7_.exit.i ]
-  %n.0858.i = phi i64 [ %call97.i, %for.body.lr.ph.i ], [ %dec.i, %_ZN5arrow8internal12_GLOBAL__N_114IncrementIndexERSt6vectorIlSaIlEERKS4_S7_.exit.i ]
+  %n.0860.i = phi i64 [ %call97.i, %for.body.lr.ph.i ], [ %dec.i, %_ZN5arrow8internal12_GLOBAL__N_114IncrementIndexERSt6vectorIlSaIlEERKS4_S7_.exit.i ]
+  %values.0858.i = phi ptr [ %cond.i150.i, %for.body.lr.ph.i ], [ %values.1.i, %_ZN5arrow8internal12_GLOBAL__N_114IncrementIndexERSt6vectorIlSaIlEERKS4_S7_.exit.i ]
   %previous_coord.sroa.16.1856.i = phi ptr [ %previous_coord.sroa.16.0.i, %for.body.lr.ph.i ], [ %previous_coord.sroa.16.3.i, %_ZN5arrow8internal12_GLOBAL__N_114IncrementIndexERSt6vectorIlSaIlEERKS4_S7_.exit.i ]
   %previous_coord.sroa.10.0854.i = phi ptr [ %previous_coord.sroa.16.0.i, %for.body.lr.ph.i ], [ %previous_coord.sroa.10.1.i, %_ZN5arrow8internal12_GLOBAL__N_114IncrementIndexERSt6vectorIlSaIlEERKS4_S7_.exit.i ]
   %previous_coord.sroa.0.2853.i = phi ptr [ %previous_coord.sroa.0.0.i, %for.body.lr.ph.i ], [ %previous_coord.sroa.0.4.i, %_ZN5arrow8internal12_GLOBAL__N_114IncrementIndexERSt6vectorIlSaIlEERKS4_S7_.exit.i ]
@@ -880,11 +880,11 @@ if.then105.i:                                     ; preds = %invoke.cont103.i
   br i1 %cmp.i203.i, label %invoke.cont106.i, label %_ZSt8__copy_nIPKhiPhET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i
 
 _ZSt8__copy_nIPKhiPhET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i: ; preds = %if.then105.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %values.0859.i, ptr align 1 %add.ptr.i, i64 %idx.ext.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %values.0858.i, ptr align 1 %add.ptr.i, i64 %idx.ext.i.i.i, i1 false)
   br label %invoke.cont106.i
 
 invoke.cont106.i:                                 ; preds = %_ZSt8__copy_nIPKhiPhET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i, %if.then105.i
-  %add.ptr109.i = getelementptr inbounds i8, ptr %values.0859.i, i64 %conv46.i
+  %add.ptr109.i = getelementptr inbounds i8, ptr %values.0858.i, i64 %conv46.i
   br i1 %cmp.not.i.i.i.i152.i, label %for.end.i, label %for.body112.i
 
 for.body112.i:                                    ; preds = %invoke.cont106.i, %for.inc.i
@@ -1104,7 +1104,7 @@ if.end187.i:                                      ; preds = %_ZNSt6vectorIlSaIlE
   %previous_coord.sroa.0.4.i = phi ptr [ %previous_coord.sroa.0.3.i, %_ZNSt6vectorIlSaIlEEaSERKS1_.exit.i ], [ %previous_coord.sroa.0.2853.i, %invoke.cont103.i ], [ %previous_coord.sroa.0.2853.i, %for.end.i.i.i.i.i.i ], [ %previous_coord.sroa.0.2853.i, %sw.bb25.i.i.i.i.i.i ]
   %previous_coord.sroa.10.1.i = phi ptr [ %add.ptr72.i.i, %_ZNSt6vectorIlSaIlEEaSERKS1_.exit.i ], [ %previous_coord.sroa.10.0854.i, %invoke.cont103.i ], [ %previous_coord.sroa.10.0854.i, %for.end.i.i.i.i.i.i ], [ %previous_coord.sroa.10.0854.i, %sw.bb25.i.i.i.i.i.i ]
   %previous_coord.sroa.16.3.i = phi ptr [ %previous_coord.sroa.16.2.i, %_ZNSt6vectorIlSaIlEEaSERKS1_.exit.i ], [ %previous_coord.sroa.16.1856.i, %invoke.cont103.i ], [ %previous_coord.sroa.16.1856.i, %for.end.i.i.i.i.i.i ], [ %previous_coord.sroa.16.1856.i, %sw.bb25.i.i.i.i.i.i ]
-  %values.1.i = phi ptr [ %add.ptr109.i, %_ZNSt6vectorIlSaIlEEaSERKS1_.exit.i ], [ %values.0859.i, %invoke.cont103.i ], [ %values.0859.i, %for.end.i.i.i.i.i.i ], [ %values.0859.i, %sw.bb25.i.i.i.i.i.i ]
+  %values.1.i = phi ptr [ %add.ptr109.i, %_ZNSt6vectorIlSaIlEEaSERKS1_.exit.i ], [ %values.0858.i, %invoke.cont103.i ], [ %values.0858.i, %for.end.i.i.i.i.i.i ], [ %values.0858.i, %sw.bb25.i.i.i.i.i.i ]
   %100 = load ptr, ptr %_M_finish.i.i393.i, align 8
   %101 = load ptr, ptr %shape_.i199.i, align 8
   %sub.ptr.lhs.cast.i.i394.i = ptrtoint ptr %100 to i64
@@ -1152,8 +1152,8 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   br i1 %cmp6.i.i, label %land.rhs.i.i, label %_ZN5arrow8internal12_GLOBAL__N_114IncrementIndexERSt6vectorIlSaIlEERKS4_S7_.exit.i, !llvm.loop !49
 
 _ZN5arrow8internal12_GLOBAL__N_114IncrementIndexERSt6vectorIlSaIlEERKS4_S7_.exit.i: ; preds = %while.body.i.i, %land.rhs.i.i, %if.end187.i
-  %dec.i = add nsw i64 %n.0858.i, -1
-  %cmp98.i = icmp sgt i64 %n.0858.i, 1
+  %dec.i = add nsw i64 %n.0860.i, -1
+  %cmp98.i = icmp sgt i64 %n.0860.i, 1
   br i1 %cmp98.i, label %for.body.i, label %for.cond192.preheader.i, !llvm.loop !50
 
 for.body195.i:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit491.i, %for.body195.lr.ph.i

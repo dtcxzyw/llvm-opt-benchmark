@@ -151,8 +151,8 @@ define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noca
   br label %41
 
 41:                                               ; preds = %27, %18
-  %.175 = phi i64 [ 0, %18 ], [ %spec.select, %27 ]
-  %42 = add nuw nsw i64 %.175, %3
+  %.174 = phi i64 [ 0, %18 ], [ %spec.select, %27 ]
+  %42 = add nuw nsw i64 %.174, %3
   %43 = lshr i64 %42, 3
   %44 = add nuw nsw i64 %43, 1
   %45 = mul nuw nsw i64 %43, 6
@@ -181,11 +181,11 @@ define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noca
   br label %57
 
 57:                                               ; preds = %.lr.ph, %calc_a_xor_t.exit
-  %.072103 = phi ptr [ %51, %.lr.ph ], [ %spec.select94, %calc_a_xor_t.exit ]
-  %.073102 = phi i64 [ 1, %.lr.ph ], [ %74, %calc_a_xor_t.exit ]
+  %.0103 = phi ptr [ %51, %.lr.ph ], [ %spec.select94, %calc_a_xor_t.exit ]
+  %.072102 = phi i64 [ 1, %.lr.ph ], [ %74, %calc_a_xor_t.exit ]
   %58 = load i64, ptr %4, align 1
   store i64 %58, ptr %10, align 16
-  %59 = load i64, ptr %.072103, align 1
+  %59 = load i64, ptr %.0103, align 1
   store i64 %59, ptr %53, align 8
   %60 = call i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %9, ptr noundef nonnull %8) #9
   %.not89 = icmp eq i32 %60, 0
@@ -200,7 +200,7 @@ define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noca
   %.05.i = phi i64 [ 0, %61 ], [ %71, %63 ]
   %64 = shl nuw nsw i64 %.05.i, 3
   %65 = sub nuw nsw i64 56, %64
-  %66 = lshr i64 %.073102, %65
+  %66 = lshr i64 %.072102, %65
   %67 = getelementptr inbounds i8, ptr %4, i64 %.05.i
   %68 = load i8, ptr %67, align 1
   %69 = trunc i64 %66 to i8
@@ -212,12 +212,12 @@ define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noca
 
 calc_a_xor_t.exit:                                ; preds = %63
   %72 = load i64, ptr %54, align 8
-  store i64 %72, ptr %.072103, align 1
-  %73 = getelementptr inbounds i8, ptr %.072103, i64 8
+  store i64 %72, ptr %.0103, align 1
+  %73 = getelementptr inbounds i8, ptr %.0103, i64 8
   %.not90 = icmp ult ptr %73, %56
   %spec.select94 = select i1 %.not90, ptr %73, ptr %51
-  %74 = add nuw i64 %.073102, 1
-  %exitcond.not = icmp eq i64 %.073102, %umax
+  %74 = add nuw i64 %.072102, 1
+  %exitcond.not = icmp eq i64 %.072102, %umax
   br i1 %exitcond.not, label %.loopexit, label %57, !llvm.loop !6
 
 .loopexit:                                        ; preds = %calc_a_xor_t.exit, %48
@@ -238,8 +238,8 @@ calc_a_xor_t.exit:                                ; preds = %63
   br label %78
 
 78:                                               ; preds = %20, %15, %12, %77
-  %.0 = phi i32 [ %.299, %77 ], [ -24832, %12 ], [ -24832, %15 ], [ -24832, %20 ]
-  ret i32 %.0
+  %.077 = phi i32 [ %.299, %77 ], [ -24832, %12 ], [ -24832, %15 ], [ -24832, %20 ]
+  ret i32 %.077
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -355,17 +355,17 @@ define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr no
   br label %65
 
 65:                                               ; preds = %40, %65
-  %.05894 = phi i64 [ 0, %40 ], [ %74, %65 ]
+  %.05794 = phi i64 [ 0, %40 ], [ %74, %65 ]
   %66 = phi i8 [ 0, %40 ], [ %73, %65 ]
   %67 = phi i8 [ 0, %40 ], [ %71, %65 ]
-  %.not77 = icmp ult i64 %.05894, %63
-  %68 = getelementptr i8, ptr %gep91, i64 %.05894
+  %.not77 = icmp ult i64 %.05794, %63
+  %68 = getelementptr i8, ptr %gep91, i64 %.05794
   %69 = load i8, ptr %68, align 1
   %70 = select i1 %.not77, i8 %69, i8 0
   %71 = or i8 %67, %70
   %72 = select i1 %.not77, i8 0, i8 %69
   %73 = or i8 %66, %72
-  %74 = add nuw nsw i64 %.05894, 1
+  %74 = add nuw nsw i64 %.05794, 1
   %exitcond.not = icmp eq i64 %74, 8
   br i1 %exitcond.not, label %75, label %65, !llvm.loop !7
 
@@ -405,8 +405,8 @@ select.unfold:                                    ; preds = %select.unfold.sink.
   br label %81
 
 81:                                               ; preds = %26, %16, %7, %select.unfold
-  %.0 = phi i32 [ %.489, %select.unfold ], [ -24832, %7 ], [ -24832, %16 ], [ -24832, %26 ]
-  ret i32 %.0
+  %.059 = phi i32 [ %.489, %select.unfold ], [ -24832, %7 ], [ -24832, %16 ], [ -24832, %26 ]
+  ret i32 %.059
 }
 
 ; Function Attrs: nounwind uwtable
@@ -487,8 +487,8 @@ calc_a_xor_t.exit:                                ; preds = %21
   br label %41
 
 41:                                               ; preds = %6, %40
-  %.033 = phi i32 [ %32, %40 ], [ -24832, %6 ]
-  ret i32 %.033
+  %.035 = phi i32 [ %32, %40 ], [ -24832, %6 ]
+  ret i32 %.035
 }
 
 declare i32 @mbedtls_ct_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3

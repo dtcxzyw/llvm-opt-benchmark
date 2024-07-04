@@ -190,13 +190,13 @@ define range(i32 -1, 1) i32 @zend_load_extension_handle(ptr noundef %0, ptr noun
   br label %60
 
 60:                                               ; preds = %61, %58
-  %.07.in.i = phi ptr [ @zend_extensions, %58 ], [ %.07.i, %61 ]
-  %.07.i = load ptr, ptr %.07.in.i, align 8
-  %.not.i = icmp eq ptr %.07.i, null
+  %.0.in.i = phi ptr [ @zend_extensions, %58 ], [ %.0.i, %61 ]
+  %.0.i = load ptr, ptr %.0.in.i, align 8
+  %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %zend_get_extension.exit.thread, label %61
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %.07.i, i64 16
+  %62 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull readonly dereferenceable(1) %59) #17
   %.not8.i = icmp eq i32 %64, 0
@@ -297,25 +297,25 @@ define ptr @zend_get_extension(ptr nocapture noundef readonly %0) local_unnamed_
   br label %2
 
 2:                                                ; preds = %3, %1
-  %.07.in = phi ptr [ @zend_extensions, %1 ], [ %.07, %3 ]
-  %.07 = load ptr, ptr %.07.in, align 8
-  %.not = icmp eq ptr %.07, null
+  %.0.in = phi ptr [ @zend_extensions, %1 ], [ %.0, %3 ]
+  %.0 = load ptr, ptr %.0.in, align 8
+  %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.split.loop.exit, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %.07, i64 16
+  %4 = getelementptr inbounds i8, ptr %.0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #17
   %.not8 = icmp eq i32 %6, 0
   br i1 %.not8, label %.split.loop.exit.split.loop.exit12, label %2
 
 .split.loop.exit.split.loop.exit12:               ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %.07, i64 16
+  %7 = getelementptr inbounds i8, ptr %.0, i64 16
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %2, %.split.loop.exit.split.loop.exit12
-  %.0 = phi ptr [ %7, %.split.loop.exit.split.loop.exit12 ], [ null, %2 ]
-  ret ptr %.0
+  %.07 = phi ptr [ %7, %.split.loop.exit.split.loop.exit12 ], [ null, %2 ]
+  ret ptr %.07
 }
 
 ; Function Attrs: nounwind uwtable
@@ -627,37 +627,37 @@ define void @zend_init_internal_run_time_cache() local_unnamed_addr #0 {
   br i1 %.not178197, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %28
-  %.0164199 = phi i64 [ %.1, %28 ], [ %8, %4 ]
-  %.0166198 = phi ptr [ %29, %28 ], [ %11, %4 ]
-  %19 = getelementptr inbounds i8, ptr %.0166198, i64 8
+  %.0164199 = phi ptr [ %29, %28 ], [ %11, %4 ]
+  %.0166198 = phi i64 [ %.1167, %28 ], [ %8, %4 ]
+  %19 = getelementptr inbounds i8, ptr %.0164199, i64 8
   %20 = load i8, ptr %19, align 8
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %28, label %22
 
 22:                                               ; preds = %.lr.ph
-  %23 = load ptr, ptr %.0166198, align 8
+  %23 = load ptr, ptr %.0164199, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 92
   %25 = load i32, ptr %24, align 4
   %26 = zext i32 %25 to i64
-  %27 = add i64 %.0164199, %26
+  %27 = add i64 %.0166198, %26
   br label %28
 
 28:                                               ; preds = %.lr.ph, %22
-  %.1 = phi i64 [ %.0164199, %.lr.ph ], [ %27, %22 ]
-  %29 = getelementptr inbounds i8, ptr %.0166198, i64 32
+  %.1167 = phi i64 [ %.0166198, %.lr.ph ], [ %27, %22 ]
+  %29 = getelementptr inbounds i8, ptr %.0164199, i64 32
   %.not178 = icmp eq ptr %29, %15
   br i1 %.not178, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %28, %4
-  %.0164.lcssa = phi i64 [ %8, %4 ], [ %.1, %28 ]
-  %30 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %.0164.lcssa) #18, !srcloc !4
+  %.0166.lcssa = phi i64 [ %8, %4 ], [ %.1167, %28 ]
+  %30 = tail call { i64, i64 } asm "mulq $3\0A\09adc $$0,$1", "=&{ax},=&{dx},%0,rm,~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %.0166.lcssa) #18, !srcloc !4
   %31 = extractvalue { i64, i64 } %30, 0
   %32 = extractvalue { i64, i64 } %30, 1
   %.not179.not = icmp eq i64 %32, 0
   br i1 %.not179.not, label %34, label %33
 
 33:                                               ; preds = %._crit_edge
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.14, i64 noundef %3, i64 noundef %.0164.lcssa) #19
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.14, i64 noundef %3, i64 noundef %.0166.lcssa) #19
   unreachable
 
 34:                                               ; preds = %._crit_edge
@@ -696,8 +696,8 @@ define void @zend_init_internal_run_time_cache() local_unnamed_addr #0 {
   br label %56
 
 56:                                               ; preds = %46, %44
-  %.0 = phi ptr [ %36, %44 ], [ %51, %46 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.0, i8 0, i64 %31, i1 false)
+  %.0161 = phi ptr [ %36, %44 ], [ %51, %46 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.0161, i8 0, i64 %31, i1 false)
   %57 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 56), align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
@@ -714,15 +714,15 @@ define void @zend_init_internal_run_time_cache() local_unnamed_addr #0 {
   br i1 %.not182200, label %._crit_edge205, label %.lr.ph204
 
 .lr.ph204:                                        ; preds = %56, %86
-  %.0167202 = phi ptr [ %.1168, %86 ], [ %.0, %56 ]
-  %.0169201 = phi ptr [ %87, %86 ], [ %59, %56 ]
-  %67 = getelementptr inbounds i8, ptr %.0169201, i64 8
+  %.0162202 = phi ptr [ %87, %86 ], [ %59, %56 ]
+  %.0163201 = phi ptr [ %.1, %86 ], [ %.0161, %56 ]
+  %67 = getelementptr inbounds i8, ptr %.0162202, i64 8
   %68 = load i8, ptr %67, align 8
   %69 = icmp eq i8 %68, 0
   br i1 %69, label %86, label %70
 
 70:                                               ; preds = %.lr.ph204
-  %71 = load ptr, ptr %.0169201, align 8
+  %71 = load ptr, ptr %.0162202, align 8
   %72 = load i8, ptr %71, align 8
   %.not190 = icmp eq i8 %72, 1
   br i1 %.not190, label %73, label %86
@@ -748,18 +748,18 @@ define void @zend_init_internal_run_time_cache() local_unnamed_addr #0 {
 
 84:                                               ; preds = %78, %.thread
   %.sink = phi ptr [ %81, %.thread ], [ %74, %78 ]
-  store ptr %.0167202, ptr %.sink, align 8
-  %85 = getelementptr inbounds i8, ptr %.0167202, i64 %3
+  store ptr %.0163201, ptr %.sink, align 8
+  %85 = getelementptr inbounds i8, ptr %.0163201, i64 %3
   br label %86
 
 86:                                               ; preds = %.thread, %70, %78, %84, %.lr.ph204
-  %.1168 = phi ptr [ %.0167202, %.lr.ph204 ], [ %.0167202, %70 ], [ %85, %84 ], [ %.0167202, %78 ], [ %.0167202, %.thread ]
-  %87 = getelementptr inbounds i8, ptr %.0169201, i64 32
+  %.1 = phi ptr [ %.0163201, %.lr.ph204 ], [ %.0163201, %70 ], [ %85, %84 ], [ %.0163201, %78 ], [ %.0163201, %.thread ]
+  %87 = getelementptr inbounds i8, ptr %.0162202, i64 32
   %.not182 = icmp eq ptr %87, %63
   br i1 %.not182, label %._crit_edge205, label %.lr.ph204
 
 ._crit_edge205:                                   ; preds = %86, %56
-  %.0167.lcssa = phi ptr [ %.0, %56 ], [ %.1168, %86 ]
+  %.0163.lcssa = phi ptr [ %.0161, %56 ], [ %.1, %86 ]
   %88 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 64), align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8
@@ -776,15 +776,15 @@ define void @zend_init_internal_run_time_cache() local_unnamed_addr #0 {
   br i1 %.not184213, label %.loopexit196, label %.lr.ph217
 
 .lr.ph217:                                        ; preds = %._crit_edge205, %.loopexit
-  %.0165215 = phi ptr [ %133, %.loopexit ], [ %90, %._crit_edge205 ]
-  %.2214 = phi ptr [ %.5, %.loopexit ], [ %.0167.lcssa, %._crit_edge205 ]
-  %98 = getelementptr inbounds i8, ptr %.0165215, i64 8
+  %.0160215 = phi ptr [ %133, %.loopexit ], [ %90, %._crit_edge205 ]
+  %.2214 = phi ptr [ %.5, %.loopexit ], [ %.0163.lcssa, %._crit_edge205 ]
+  %98 = getelementptr inbounds i8, ptr %.0160215, i64 8
   %99 = load i8, ptr %98, align 8
   %100 = icmp eq i8 %99, 0
   br i1 %100, label %.loopexit, label %101
 
 101:                                              ; preds = %.lr.ph217
-  %102 = load ptr, ptr %.0165215, align 8
+  %102 = load ptr, ptr %.0160215, align 8
   %103 = getelementptr inbounds i8, ptr %102, i64 80
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %102, i64 88
@@ -800,15 +800,15 @@ define void @zend_init_internal_run_time_cache() local_unnamed_addr #0 {
   br i1 %.not186207, label %.loopexit, label %.lr.ph211
 
 .lr.ph211:                                        ; preds = %101, %131
-  %.0161209 = phi ptr [ %132, %131 ], [ %104, %101 ]
+  %.0209 = phi ptr [ %132, %131 ], [ %104, %101 ]
   %.3208 = phi ptr [ %.4, %131 ], [ %.2214, %101 ]
-  %112 = getelementptr inbounds i8, ptr %.0161209, i64 8
+  %112 = getelementptr inbounds i8, ptr %.0209, i64 8
   %113 = load i8, ptr %112, align 8
   %114 = icmp eq i8 %113, 0
   br i1 %114, label %131, label %115
 
 115:                                              ; preds = %.lr.ph211
-  %116 = load ptr, ptr %.0161209, align 8
+  %116 = load ptr, ptr %.0209, align 8
   %117 = load i8, ptr %116, align 8
   %.not187 = icmp eq i8 %117, 1
   br i1 %.not187, label %118, label %131
@@ -840,13 +840,13 @@ define void @zend_init_internal_run_time_cache() local_unnamed_addr #0 {
 
 131:                                              ; preds = %.thread194, %115, %123, %129, %.lr.ph211
   %.4 = phi ptr [ %.3208, %.lr.ph211 ], [ %.3208, %115 ], [ %130, %129 ], [ %.3208, %123 ], [ %.3208, %.thread194 ]
-  %132 = getelementptr inbounds i8, ptr %.0161209, i64 32
+  %132 = getelementptr inbounds i8, ptr %.0209, i64 32
   %.not186 = icmp eq ptr %132, %108
   br i1 %.not186, label %.loopexit, label %.lr.ph211
 
 .loopexit:                                        ; preds = %131, %101, %.lr.ph217
   %.5 = phi ptr [ %.2214, %.lr.ph217 ], [ %.2214, %101 ], [ %.4, %131 ]
-  %133 = getelementptr inbounds i8, ptr %.0165215, i64 32
+  %133 = getelementptr inbounds i8, ptr %.0160215, i64 32
   %.not184 = icmp eq ptr %133, %94
   br i1 %.not184, label %.loopexit196, label %.lr.ph217
 

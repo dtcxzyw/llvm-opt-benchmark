@@ -98,9 +98,9 @@ define hidden range(i32 -1, 2) i32 @observer_open(ptr noundef %0, ptr noundef %1
   br label %31
 
 31:                                               ; preds = %.lr.ph, %66
-  %.082123 = phi i32 [ 36, %.lr.ph ], [ %.1, %66 ]
-  %.083122 = phi i32 [ 0, %.lr.ph ], [ %67, %66 ]
-  %32 = add i32 %.082123, 4
+  %.0123 = phi i32 [ 0, %.lr.ph ], [ %67, %66 ]
+  %.082122 = phi i32 [ 36, %.lr.ph ], [ %.1, %66 ]
+  %32 = add i32 %.082122, 4
   %33 = icmp ugt i32 %32, %20
   br i1 %33, label %34, label %36
 
@@ -132,7 +132,7 @@ define hidden range(i32 -1, 2) i32 @observer_open(ptr noundef %0, ptr noundef %1
 46:                                               ; preds = %39
   %47 = zext i16 %41 to i32
   %48 = add nsw i32 %47, -4
-  %49 = add i32 %.082123, %47
+  %49 = add i32 %.082122, %47
   %50 = icmp ugt i32 %49, %20
   br i1 %50, label %51, label %53
 
@@ -163,7 +163,7 @@ define hidden range(i32 -1, 2) i32 @observer_open(ptr noundef %0, ptr noundef %1
   br i1 %.not101, label %.loopexit, label %60
 
 60:                                               ; preds = %57
-  %61 = add i32 %.082123, 8
+  %61 = add i32 %.082122, 8
   br label %66
 
 62:                                               ; preds = %53
@@ -178,7 +178,7 @@ define hidden range(i32 -1, 2) i32 @observer_open(ptr noundef %0, ptr noundef %1
 
 66:                                               ; preds = %62, %63, %60
   %.1 = phi i32 [ %61, %60 ], [ %49, %63 ], [ %49, %62 ]
-  %67 = add nuw nsw i32 %.083122, 1
+  %67 = add nuw nsw i32 %.0123, 1
   %68 = load i8, ptr %28, align 1
   %69 = zext i8 %68 to i32
   %70 = icmp ult i32 %67, %69
@@ -290,8 +290,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.loopexit
 
 .loopexit:                                        ; preds = %63, %57, %36, %switch.lookup, %78, %81, %71, %11, %9, %112, %110, %observer_to_wtap_encap.exit, %85, %55, %51, %43, %34, %22
-  %.0 = phi i32 [ -1, %22 ], [ -1, %34 ], [ -1, %43 ], [ -1, %51 ], [ -1, %55 ], [ -1, %85 ], [ -1, %observer_to_wtap_encap.exit ], [ -1, %110 ], [ 1, %112 ], [ %., %9 ], [ 0, %11 ], [ -1, %71 ], [ -1, %81 ], [ -1, %78 ], [ -1, %switch.lookup ], [ -1, %36 ], [ -1, %57 ], [ -1, %63 ]
-  ret i32 %.0
+  %.083 = phi i32 [ -1, %22 ], [ -1, %34 ], [ -1, %43 ], [ -1, %51 ], [ -1, %55 ], [ -1, %85 ], [ -1, %observer_to_wtap_encap.exit ], [ -1, %110 ], [ 1, %112 ], [ %., %9 ], [ 0, %11 ], [ -1, %71 ], [ -1, %81 ], [ -1, %78 ], [ -1, %switch.lookup ], [ -1, %36 ], [ -1, %57 ], [ -1, %63 ]
+  ret i32 %.083
 }
 
 declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -649,7 +649,7 @@ define internal fastcc i32 @read_packet_header(ptr nocapture noundef readonly %0
 
 40:                                               ; preds = %.lr.ph, %75
   %.1117 = phi i32 [ 0, %.lr.ph ], [ %77, %75 ]
-  %.099116 = phi i32 [ 48, %.lr.ph ], [ %76, %75 ]
+  %.098116 = phi i32 [ 48, %.lr.ph ], [ %76, %75 ]
   %41 = call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 4, ptr noundef %4, ptr noundef %5) #13
   %.not106 = icmp eq i32 %41, 0
   br i1 %.not106, label %.loopexit, label %42
@@ -748,7 +748,7 @@ define internal fastcc i32 @read_packet_header(ptr nocapture noundef readonly %0
 
 75:                                               ; preds = %72, %73, %56, %.sink.split
   %.sink133 = phi i32 [ 12, %.sink.split ], [ 12, %56 ], [ %45, %73 ], [ %45, %72 ]
-  %76 = add i32 %.099116, %.sink133
+  %76 = add i32 %.098116, %.sink133
   %77 = add nuw nsw i32 %.1117, 1
   %78 = load i8, ptr %26, align 2
   %79 = zext i8 %78 to i32
@@ -756,8 +756,8 @@ define internal fastcc i32 @read_packet_header(ptr nocapture noundef readonly %0
   br i1 %80, label %40, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %40, %54, %73, %75, %25, %10, %52, %46, %.thread, %17
-  %.0 = phi i32 [ 0, %17 ], [ -1, %.thread ], [ -1, %46 ], [ -1, %52 ], [ %., %10 ], [ 48, %25 ], [ -1, %40 ], [ -1, %54 ], [ -1, %73 ], [ %76, %75 ]
-  ret i32 %.0
+  %.0100 = phi i32 [ 0, %17 ], [ -1, %.thread ], [ -1, %46 ], [ -1, %52 ], [ %., %10 ], [ 48, %25 ], [ -1, %40 ], [ -1, %54 ], [ -1, %73 ], [ %76, %75 ]
+  ret i32 %.0100
 }
 
 ; Function Attrs: nounwind uwtable

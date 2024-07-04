@@ -916,15 +916,15 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly %0, i32 nound
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %.055.us = phi ptr [ %15, %.lr.ph.split.us ], [ null, %.lr.ph ]
-  %.03554.us = phi i32 [ %.136.us, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %.03355.us = phi ptr [ %15, %.lr.ph.split.us ], [ null, %.lr.ph ]
+  %.03753.us = phi i32 [ %.138.us, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr %union.ListCell, ptr %11, i64 %indvars.iv85
   %13 = load ptr, ptr %12, align 8
   %14 = call ptr @GetLockConflicts(ptr noundef %13, i32 noundef %1, ptr noundef %.) #7
-  %15 = call ptr @lappend(ptr noundef %.055.us, ptr noundef %14) #7
+  %15 = call ptr @lappend(ptr noundef %.03355.us, ptr noundef %14) #7
   %16 = load i32, ptr %4, align 4
-  %.136.us = add i32 %16, %.03554.us
+  %.138.us = add i32 %16, %.03753.us
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %17 = load i32, ptr %8, align 4
   %18 = sext i32 %17 to i64
@@ -933,12 +933,12 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly %0, i32 nound
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %.055 = phi ptr [ %23, %.lr.ph.split ], [ null, %.lr.ph ]
+  %.03355 = phi ptr [ %23, %.lr.ph.split ], [ null, %.lr.ph ]
   %19 = load ptr, ptr %10, align 8
   %20 = getelementptr %union.ListCell, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = call ptr @GetLockConflicts(ptr noundef %21, i32 noundef %1, ptr noundef %.) #7
-  %23 = call ptr @lappend(ptr noundef %.055, ptr noundef %22) #7
+  %23 = call ptr @lappend(ptr noundef %.03355, ptr noundef %22) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %8, align 4
   %25 = sext i32 %24 to i64
@@ -946,12 +946,12 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly %0, i32 nound
   br i1 %.not, label %.lr.ph.split, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph.split.us
-  %26 = sext i32 %.136.us to i64
+  %26 = sext i32 %.138.us to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %._crit_edge.loopexit
-  %.035.lcssa = phi i64 [ %26, %._crit_edge.loopexit ], [ 0, %.lr.ph.split ]
-  %.0.lcssa = phi ptr [ %15, %._crit_edge.loopexit ], [ %23, %.lr.ph.split ]
+  %.037.lcssa = phi i64 [ %26, %._crit_edge.loopexit ], [ 0, %.lr.ph.split ]
+  %.033.lcssa = phi ptr [ %15, %._crit_edge.loopexit ], [ %23, %.lr.ph.split ]
   br i1 %2, label %27, label %.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader
@@ -962,18 +962,18 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly %0, i32 nound
   br label %._crit_edge70.thread96
 
 27:                                               ; preds = %._crit_edge
-  call void @pgstat_progress_update_param(i32 noundef 3, i64 noundef %.035.lcssa) #7
-  %28 = getelementptr inbounds i8, ptr %.0.lcssa, i64 4
-  %.not41 = icmp eq ptr %.0.lcssa, null
+  call void @pgstat_progress_update_param(i32 noundef 3, i64 noundef %.037.lcssa) #7
+  %28 = getelementptr inbounds i8, ptr %.033.lcssa, i64 4
+  %.not41 = icmp eq ptr %.033.lcssa, null
   br i1 %.not41, label %._crit_edge70.thread96, label %.lr.ph69.split.us.split
 
 .thread:                                          ; preds = %._crit_edge
-  %29 = getelementptr inbounds i8, ptr %.0.lcssa, i64 4
-  %.not4195 = icmp eq ptr %.0.lcssa, null
+  %29 = getelementptr inbounds i8, ptr %.033.lcssa, i64 4
+  %.not4195 = icmp eq ptr %.033.lcssa, null
   br i1 %.not4195, label %._crit_edge70.thread, label %.lr.ph69.split.split
 
 .lr.ph69.split.us.split:                          ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %.0.lcssa, i64 16
+  %30 = getelementptr inbounds i8, ptr %.033.lcssa, i64 16
   %31 = load i32, ptr %28, align 4
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph79, label %._crit_edge70.thread96
@@ -981,7 +981,7 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly %0, i32 nound
 .lr.ph79:                                         ; preds = %.lr.ph69.split.us.split, %._crit_edge63.split.us.us
   %33 = phi i32 [ %39, %._crit_edge63.split.us.us ], [ %31, %.lr.ph69.split.us.split ]
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %._crit_edge63.split.us.us ], [ 0, %.lr.ph69.split.us.split ]
-  %.03766.us78 = phi i32 [ %.138.lcssa.us, %._crit_edge63.split.us.us ], [ 0, %.lr.ph69.split.us.split ]
+  %.03566.us78 = phi i32 [ %.136.lcssa.us, %._crit_edge63.split.us.us ], [ 0, %.lr.ph69.split.us.split ]
   %34 = load ptr, ptr %30, align 8
   %35 = getelementptr %union.ListCell, ptr %34, i64 %indvars.iv91
   %36 = load ptr, ptr %35, align 8
@@ -996,16 +996,16 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly %0, i32 nound
 
 ._crit_edge63.split.us.us:                        ; preds = %._crit_edge63.split.us.us.loopexit, %.lr.ph79
   %39 = phi i32 [ %33, %.lr.ph79 ], [ %.pre94, %._crit_edge63.split.us.us.loopexit ]
-  %.138.lcssa.us = phi i32 [ %.03766.us78, %.lr.ph79 ], [ %51, %._crit_edge63.split.us.us.loopexit ]
+  %.136.lcssa.us = phi i32 [ %.03566.us78, %.lr.ph79 ], [ %51, %._crit_edge63.split.us.us.loopexit ]
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next92, %40
   br i1 %41, label %.lr.ph79, label %._crit_edge70
 
 .lr.ph62.us:                                      ; preds = %.lr.ph79, %48
-  %.03360.us.us = phi ptr [ %53, %48 ], [ %36, %.lr.ph79 ]
-  %.13859.us.us = phi i32 [ %51, %48 ], [ %.03766.us78, %.lr.ph79 ]
-  %42 = load i32, ptr %.03360.us.us, align 4
+  %.060.us.us = phi ptr [ %53, %48 ], [ %36, %.lr.ph79 ]
+  %.13659.us.us = phi i32 [ %51, %48 ], [ %.03566.us78, %.lr.ph79 ]
+  %42 = load i32, ptr %.060.us.us, align 4
   %43 = call ptr @ProcNumberGetProc(i32 noundef %42) #7
   %.not44.us.us = icmp eq ptr %43, null
   br i1 %.not44.us.us, label %48, label %44
@@ -1018,19 +1018,19 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly %0, i32 nound
   br label %48
 
 48:                                               ; preds = %44, %.lr.ph62.us
-  %49 = load i64, ptr %.03360.us.us, align 4
+  %49 = load i64, ptr %.060.us.us, align 4
   %50 = call zeroext i1 @VirtualXactLock(i64 %49, i1 noundef zeroext true) #7
-  %51 = add i32 %.13859.us.us, 1
+  %51 = add i32 %.13659.us.us, 1
   %52 = sext i32 %51 to i64
   call void @pgstat_progress_update_param(i32 noundef 4, i64 noundef %52) #7
-  %53 = getelementptr i8, ptr %.03360.us.us, i64 8
-  %54 = getelementptr i8, ptr %.03360.us.us, i64 12
+  %53 = getelementptr i8, ptr %.060.us.us, i64 8
+  %54 = getelementptr i8, ptr %.060.us.us, i64 12
   %55 = load i32, ptr %54, align 4
   %.not43.us.us = icmp eq i32 %55, 0
   br i1 %.not43.us.us, label %._crit_edge63.split.us.us.loopexit, label %.lr.ph62.us, !llvm.loop !8
 
 .lr.ph69.split.split:                             ; preds = %.thread
-  %56 = getelementptr inbounds i8, ptr %.0.lcssa, i64 16
+  %56 = getelementptr inbounds i8, ptr %.033.lcssa, i64 16
   %57 = load i32, ptr %29, align 4
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %.lr.ph76, label %._crit_edge70.thread
@@ -1047,11 +1047,11 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly %0, i32 nound
   br i1 %.not4358, label %._crit_edge63.split, label %.lr.ph62
 
 .lr.ph62:                                         ; preds = %.lr.ph76, %.lr.ph62
-  %.03360 = phi ptr [ %67, %.lr.ph62 ], [ %62, %.lr.ph76 ]
-  %65 = load i64, ptr %.03360, align 4
+  %.060 = phi ptr [ %67, %.lr.ph62 ], [ %62, %.lr.ph76 ]
+  %65 = load i64, ptr %.060, align 4
   %66 = call zeroext i1 @VirtualXactLock(i64 %65, i1 noundef zeroext true) #7
-  %67 = getelementptr i8, ptr %.03360, i64 8
-  %68 = getelementptr i8, ptr %.03360, i64 12
+  %67 = getelementptr i8, ptr %.060, i64 8
+  %68 = getelementptr i8, ptr %.060, i64 12
   %69 = load i32, ptr %68, align 4
   %.not43 = icmp eq i32 %69, 0
   br i1 %.not43, label %._crit_edge63.split.loopexit, label %.lr.ph62, !llvm.loop !8
@@ -1071,15 +1071,15 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly %0, i32 nound
   br i1 %2, label %._crit_edge70.thread96, label %._crit_edge70.thread
 
 ._crit_edge70.thread96:                           ; preds = %27, %.thread107, %.lr.ph69.split.us.split, %._crit_edge70
-  %.0.lcssa102 = phi ptr [ %.0.lcssa, %._crit_edge70 ], [ %.0.lcssa, %.lr.ph69.split.us.split ], [ null, %.thread107 ], [ null, %27 ]
+  %.033.lcssa102 = phi ptr [ %.033.lcssa, %._crit_edge70 ], [ %.033.lcssa, %.lr.ph69.split.us.split ], [ null, %.thread107 ], [ null, %27 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) @__const.WaitForLockersMultiple.index, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @pgstat_progress_update_multi_param(i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   br label %._crit_edge70.thread
 
 ._crit_edge70.thread:                             ; preds = %._crit_edge.thread, %.lr.ph69.split.split, %.thread, %._crit_edge70.thread96, %._crit_edge70
-  %.0.lcssa101 = phi ptr [ %.0.lcssa102, %._crit_edge70.thread96 ], [ %.0.lcssa, %._crit_edge70 ], [ %.0.lcssa, %.lr.ph69.split.split ], [ null, %.thread ], [ null, %._crit_edge.thread ]
-  call void @list_free_deep(ptr noundef %.0.lcssa101) #7
+  %.033.lcssa101 = phi ptr [ %.033.lcssa102, %._crit_edge70.thread96 ], [ %.033.lcssa, %._crit_edge70 ], [ %.033.lcssa, %.lr.ph69.split.split ], [ null, %.thread ], [ null, %._crit_edge.thread ]
+  call void @list_free_deep(ptr noundef %.033.lcssa101) #7
   br label %73
 
 73:                                               ; preds = %3, %._crit_edge70.thread

@@ -1636,11 +1636,11 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   br label %588
 
 587:                                              ; preds = %"_ZN106_$LT$$RF$mut$u20$moka..common..deque..Deque$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6da23f966c12c72fE.exit.i"
-  %.not23.i73 = icmp eq i64 %.01945.i, 0
+  %.not23.i73 = icmp eq i64 %.045.i, 0
   br i1 %.not23.i73, label %.critedge.i74, label %.thread38.i
 
 588:                                              ; preds = %602, %.noexc77
-  %.01945.i = phi i64 [ 0, %.noexc77 ], [ %.120.i, %602 ]
+  %.045.i = phi i64 [ 0, %.noexc77 ], [ %.1.i, %602 ]
   %589 = load i64, ptr %132, align 8, !range !239, !alias.scope !286, !noalias !289, !noundef !7
   %.not.i.i = icmp eq i64 %589, 0
   br i1 %.not.i.i, label %590, label %..thread.i_crit_edge.i
@@ -1694,8 +1694,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
           to label %604 unwind label %.body.thread35.loopexit.i
 
 602:                                              ; preds = %691, %604, %593
-  %.120.i = phi i64 [ %.01945.i, %593 ], [ %697, %691 ], [ %.01945.i, %604 ]
-  %603 = icmp ult i64 %.120.i, 500
+  %.1.i = phi i64 [ %.045.i, %593 ], [ %697, %691 ], [ %.045.i, %604 ]
+  %603 = icmp ult i64 %.1.i, 500
   br i1 %603, label %588, label %698
 
 604:                                              ; preds = %598
@@ -1848,11 +1848,11 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   %696 = add i64 %695, 1
   store i64 %696, ptr %581, align 8, !alias.scope !331, !noalias !334
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %62), !noalias !286
-  %697 = add nuw nsw i64 %.01945.i, 1
+  %697 = add nuw nsw i64 %.045.i, 1
   br label %602
 
 698:                                              ; preds = %602
-  %699 = icmp eq i64 %.120.i, 500
+  %699 = icmp eq i64 %.1.i, 500
   br i1 %699, label %700, label %.thread38.i
 
 700:                                              ; preds = %698
@@ -1881,10 +1881,10 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
           to label %.thread38.i unwind label %.body.thread35.loopexit.split-lp.i
 
 .thread38.i:                                      ; preds = %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17h13a3d88bc0389638E.exit.i.i", %698, %587
-  %.022.i = phi i1 [ false, %698 ], [ false, %587 ], [ %.0.i.i.i.i70, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17h13a3d88bc0389638E.exit.i.i" ]
+  %.019.i = phi i1 [ false, %698 ], [ false, %587 ], [ %.0.i.i.i.i70, %"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$4peek28_$u7b$$u7b$closure$u7d$$u7d$17h13a3d88bc0389638E.exit.i.i" ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %61), !noalias !286
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false), !noalias !286
-  invoke void @"_ZN4moka9sync_base11invalidator28Invalidator$LT$K$C$V$C$S$GT$11submit_task17h2d40d1ddac5310f8E"(ptr noundef nonnull align 8 %493, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %61, i1 noundef zeroext %.022.i)
+  invoke void @"_ZN4moka9sync_base11invalidator28Invalidator$LT$K$C$V$C$S$GT$11submit_task17h2d40d1ddac5310f8E"(ptr noundef nonnull align 8 %493, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %61, i1 noundef zeroext %.019.i)
           to label %.noexc78 unwind label %502
 
 .noexc78:                                         ; preds = %.thread38.i
@@ -5964,8 +5964,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fa
   br label %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h9f883162a325c292E.exit"
 
 "_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h9f883162a325c292E.exit": ; preds = %3, %5
-  %.sroa.0.0.i.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i.i, %3 ]
   %.sroa.3.0.i.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i.i, %3 ]
+  %.sroa.0.0.i.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i.i, %3 ]
   store i64 1, ptr %0, align 8, !noalias !1087
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.0.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !1087
@@ -6155,8 +6155,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fa
   br label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17haacf06836707e9ceE.llvm.18053240611608392576.exit"
 
 "_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17haacf06836707e9ceE.llvm.18053240611608392576.exit": ; preds = %6, %8
-  %.sroa.0.0.i.i.i = phi i64 [ %10, %8 ], [ %.sroa.5.0.copyload.i.i.i, %6 ]
   %.sroa.3.0.i.i.i = phi i64 [ %11, %8 ], [ %.sroa.6.0.copyload.i.i.i, %6 ]
+  %.sroa.0.0.i.i.i = phi i64 [ %10, %8 ], [ %.sroa.5.0.copyload.i.i.i, %6 ]
   store i64 1, ptr %0, align 8, !noalias !1129
   store i64 %.sroa.0.0.i.i.i, ptr %4, align 8, !noalias !1129
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 16

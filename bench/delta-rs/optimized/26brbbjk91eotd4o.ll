@@ -4523,11 +4523,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %127
   br i1 %.not.i.i.i.i35, label %347, label %351
 
 .lr.ph.i.i.i:                                     ; preds = %329, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i.i"
-  %.022.i13.i.i.i = phi i16 [ %336, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i.i" ], [ %332, %329 ]
-  %333 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i13.i.i.i, i1 true)
+  %.0.i13.i.i.i = phi i16 [ %336, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i.i" ], [ %332, %329 ]
+  %333 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i13.i.i.i, i1 true)
   %334 = zext nneg i16 %333 to i64
-  %335 = add i16 %.022.i13.i.i.i, -1
-  %336 = and i16 %335, %.022.i13.i.i.i
+  %335 = add i16 %.0.i13.i.i.i, -1
+  %336 = and i16 %335, %.0.i13.i.i.i
   %337 = add i64 %.sroa.0.021.i.i.i.i, %334
   %338 = and i64 %337, %.val4.i.i.i
   %339 = sub nsw i64 0, %338
@@ -5086,11 +5086,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %127
   br i1 %.not.i.i.i.i102, label %632, label %636
 
 .lr.ph.i.i.i96:                                   ; preds = %614, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i.i99"
-  %.022.i13.i.i.i97 = phi i16 [ %621, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i.i99" ], [ %617, %614 ]
-  %618 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i13.i.i.i97, i1 true)
+  %.0.i13.i.i.i97 = phi i16 [ %621, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i.i99" ], [ %617, %614 ]
+  %618 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i13.i.i.i97, i1 true)
   %619 = zext nneg i16 %618 to i64
-  %620 = add i16 %.022.i13.i.i.i97, -1
-  %621 = and i16 %620, %.022.i13.i.i.i97
+  %620 = add i16 %.0.i13.i.i.i97, -1
+  %621 = and i16 %620, %.0.i13.i.i.i97
   %622 = add i64 %.sroa.0.021.i.i.i.i93, %619
   %623 = and i64 %622, %.val4.i.i.i86
   %624 = sub nsw i64 0, %623

@@ -1043,9 +1043,9 @@ Pla_ManHashCubes2.exit:                           ; preds = %.critedge2.i, %Abc_
 
 100:                                              ; preds = %.lr.ph178, %._crit_edge
   %101 = phi i32 [ %49, %.lr.ph178 ], [ %401, %._crit_edge ]
-  %.0177 = phi i32 [ 0, %.lr.ph178 ], [ %400, %._crit_edge ]
+  %.061177 = phi i32 [ 0, %.lr.ph178 ], [ %400, %._crit_edge ]
   %.val10.i = load ptr, ptr %52, align 8
-  %102 = and i32 %101, %.0177
+  %102 = and i32 %101, %.061177
   %103 = zext nneg i32 %102 to i64
   %104 = getelementptr inbounds %struct.Tab_Obj_t_, ptr %.val10.i, i64 %103
   %105 = load i32, ptr %104, align 4
@@ -1737,9 +1737,9 @@ Vec_IntEqual.exit.thread:                         ; preds = %277, %Vec_IntCopySk
   br i1 %399, label %179, label %.loopexit, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.loopexit, %100, %Tab_ManHashCollect.exit
-  %400 = add nuw nsw i32 %.0177, 1
+  %400 = add nuw nsw i32 %.061177, 1
   %401 = load i32, ptr %47, align 8
-  %.not.not = icmp slt i32 %.0177, %401
+  %.not.not = icmp slt i32 %.061177, %401
   br i1 %.not.not, label %100, label %._crit_edge179.loopexit, !llvm.loop !20
 
 ._crit_edge179.loopexit:                          ; preds = %._crit_edge

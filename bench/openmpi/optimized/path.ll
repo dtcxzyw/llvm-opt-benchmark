@@ -41,17 +41,17 @@ define noalias ptr @opal_path_find(ptr noundef %0, ptr nocapture noundef readonl
 
 .preheader:                                       ; preds = %4
   %11 = load ptr, ptr %1, align 8
-  %.not74 = icmp eq ptr %11, null
-  br i1 %.not74, label %.loopexit, label %.lr.ph
+  %.not73 = icmp eq ptr %11, null
+  br i1 %.not73, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %12 = getelementptr inbounds i8, ptr %5, i64 24
   %13 = and i32 %2, 1
-  %.not21.i60 = icmp ne i32 %13, 0
+  %.not21.i59 = icmp ne i32 %13, 0
   %14 = and i32 %2, 4
-  %.not23.i63 = icmp ne i32 %14, 0
+  %.not23.i62 = icmp ne i32 %14, 0
   %15 = and i32 %2, 2
-  %.not25.i66 = icmp ne i32 %15, 0
+  %.not25.i65 = icmp ne i32 %15, 0
   %.not.i39 = icmp eq ptr %3, null
   %16 = getelementptr inbounds i8, ptr %6, i64 24
   br label %35
@@ -138,7 +138,7 @@ opal_path_access.exit:                            ; preds = %17, %32, %.sink.spl
 
 .lr.ph.i:                                         ; preds = %46, %59
   %49 = phi ptr [ %61, %59 ], [ %48, %46 ]
-  %.01218.i = phi ptr [ %60, %59 ], [ %3, %46 ]
+  %.018.i = phi ptr [ %60, %59 ], [ %3, %46 ]
   %50 = call i32 @strncmp(ptr noundef nonnull readonly %45, ptr noundef nonnull %49, i64 noundef %47) #15
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %59
@@ -155,7 +155,7 @@ opal_path_access.exit:                            ; preds = %17, %32, %.sink.spl
   br label %list_env_get.exit
 
 59:                                               ; preds = %52, %.lr.ph.i
-  %60 = getelementptr inbounds i8, ptr %.01218.i, i64 8
+  %60 = getelementptr inbounds i8, ptr %.018.i, i64 8
   %61 = load ptr, ptr %60, align 8
   %.not15.i = icmp eq ptr %61, null
   br i1 %.not15.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !4
@@ -165,67 +165,67 @@ opal_path_access.exit:                            ; preds = %17, %32, %.sink.spl
   br label %list_env_get.exit
 
 list_env_get.exit:                                ; preds = %56, %.loopexit.i
-  %.0.i40 = phi ptr [ %58, %56 ], [ %62, %.loopexit.i ]
+  %.012.i = phi ptr [ %58, %56 ], [ %62, %.loopexit.i ]
   br i1 %.not, label %63, label %.thread
 
 63:                                               ; preds = %list_env_get.exit
-  %.not38 = icmp eq ptr %.0.i40, null
+  %.not38 = icmp eq ptr %.012.i, null
   br i1 %.not38, label %102, label %64
 
 .thread:                                          ; preds = %list_env_get.exit
   store i8 47, ptr %41, align 1
-  %.not3870 = icmp eq ptr %.0.i40, null
-  br i1 %.not3870, label %102, label %81
+  %.not3869 = icmp eq ptr %.012.i, null
+  br i1 %.not3869, label %102, label %81
 
 64:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
-  %65 = load i8, ptr %.0.i40, align 1
+  %65 = load i8, ptr %.012.i, align 1
   %66 = icmp ne i8 %65, 47
   %67 = zext i1 %66 to i32
-  %68 = call noalias ptr (i32, ...) @opal_os_path(i32 noundef %67, ptr noundef nonnull %.0.i40, ptr noundef nonnull %0, ptr noundef null) #14
+  %68 = call noalias ptr (i32, ...) @opal_os_path(i32 noundef %67, ptr noundef nonnull %.012.i, ptr noundef nonnull %0, ptr noundef null) #14
   %69 = icmp eq ptr %68, null
-  br i1 %69, label %opal_path_access.exit54, label %70
+  br i1 %69, label %opal_path_access.exit53, label %70
 
 70:                                               ; preds = %64
   %71 = call i32 @stat(ptr noundef nonnull %68, ptr noundef nonnull %6) #14
-  %.not.i41 = icmp eq i32 %71, 0
-  br i1 %.not.i41, label %72, label %.sink.split.i42
+  %.not.i40 = icmp eq i32 %71, 0
+  br i1 %.not.i40, label %72, label %.sink.split.i41
 
 72:                                               ; preds = %70
   %73 = load i32, ptr %16, align 8
   %74 = and i32 %73, 40960
-  %or.cond.i44 = icmp eq i32 %74, 0
-  br i1 %or.cond.i44, label %.sink.split.i42, label %75
+  %or.cond.i43 = icmp eq i32 %74, 0
+  br i1 %or.cond.i43, label %.sink.split.i41, label %75
 
 75:                                               ; preds = %72
   %76 = and i32 %73, 64
-  %.not22.i46 = icmp eq i32 %76, 0
-  %or.cond27.i47 = and i1 %.not21.i60, %.not22.i46
-  br i1 %or.cond27.i47, label %.sink.split.i42, label %77
+  %.not22.i45 = icmp eq i32 %76, 0
+  %or.cond27.i46 = and i1 %.not21.i59, %.not22.i45
+  br i1 %or.cond27.i46, label %.sink.split.i41, label %77
 
 77:                                               ; preds = %75
   %78 = and i32 %73, 256
-  %.not24.i49 = icmp eq i32 %78, 0
-  %or.cond28.i50 = and i1 %.not23.i63, %.not24.i49
-  br i1 %or.cond28.i50, label %.sink.split.i42, label %79
+  %.not24.i48 = icmp eq i32 %78, 0
+  %or.cond28.i49 = and i1 %.not23.i62, %.not24.i48
+  br i1 %or.cond28.i49, label %.sink.split.i41, label %79
 
 79:                                               ; preds = %77
   %80 = and i32 %73, 128
-  %.not26.i52 = icmp eq i32 %80, 0
-  %or.cond29.i53 = and i1 %.not25.i66, %.not26.i52
-  br i1 %or.cond29.i53, label %.sink.split.i42, label %opal_path_access.exit54
+  %.not26.i51 = icmp eq i32 %80, 0
+  %or.cond29.i52 = and i1 %.not25.i65, %.not26.i51
+  br i1 %or.cond29.i52, label %.sink.split.i41, label %opal_path_access.exit53
 
-.sink.split.i42:                                  ; preds = %79, %77, %75, %72, %70
+.sink.split.i41:                                  ; preds = %79, %77, %75, %72, %70
   call void @free(ptr noundef nonnull %68) #14
-  br label %opal_path_access.exit54
+  br label %opal_path_access.exit53
 
-opal_path_access.exit54:                          ; preds = %64, %79, %.sink.split.i42
-  %.0.i43 = phi ptr [ null, %64 ], [ %68, %79 ], [ null, %.sink.split.i42 ]
+opal_path_access.exit53:                          ; preds = %64, %79, %.sink.split.i41
+  %.0.i42 = phi ptr [ null, %64 ], [ %68, %79 ], [ null, %.sink.split.i41 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
   br label %102
 
 81:                                               ; preds = %.thread
-  %82 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.1, ptr noundef nonnull %.0.i40, ptr noundef nonnull %41) #14
+  %82 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.1, ptr noundef nonnull %.012.i, ptr noundef nonnull %41) #14
   %83 = load ptr, ptr %8, align 8
   %84 = call noalias ptr @opal_path_access(ptr noundef nonnull %0, ptr noundef %83, i32 noundef %2)
   %85 = load ptr, ptr %8, align 8
@@ -238,48 +238,48 @@ opal_path_access.exit54:                          ; preds = %64, %79, %.sink.spl
   %88 = zext i1 %87 to i32
   %89 = call noalias ptr (i32, ...) @opal_os_path(i32 noundef %88, ptr noundef nonnull %36, ptr noundef nonnull %0, ptr noundef null) #14
   %90 = icmp eq ptr %89, null
-  br i1 %90, label %opal_path_access.exit69, label %91
+  br i1 %90, label %opal_path_access.exit68, label %91
 
 91:                                               ; preds = %86
   %92 = call i32 @stat(ptr noundef nonnull %89, ptr noundef nonnull %5) #14
-  %.not.i56 = icmp eq i32 %92, 0
-  br i1 %.not.i56, label %93, label %.sink.split.i57
+  %.not.i55 = icmp eq i32 %92, 0
+  br i1 %.not.i55, label %93, label %.sink.split.i56
 
 93:                                               ; preds = %91
   %94 = load i32, ptr %12, align 8
   %95 = and i32 %94, 40960
-  %or.cond.i59 = icmp eq i32 %95, 0
-  br i1 %or.cond.i59, label %.sink.split.i57, label %96
+  %or.cond.i58 = icmp eq i32 %95, 0
+  br i1 %or.cond.i58, label %.sink.split.i56, label %96
 
 96:                                               ; preds = %93
   %97 = and i32 %94, 64
-  %.not22.i61 = icmp eq i32 %97, 0
-  %or.cond27.i62 = and i1 %.not21.i60, %.not22.i61
-  br i1 %or.cond27.i62, label %.sink.split.i57, label %98
+  %.not22.i60 = icmp eq i32 %97, 0
+  %or.cond27.i61 = and i1 %.not21.i59, %.not22.i60
+  br i1 %or.cond27.i61, label %.sink.split.i56, label %98
 
 98:                                               ; preds = %96
   %99 = and i32 %94, 256
-  %.not24.i64 = icmp eq i32 %99, 0
-  %or.cond28.i65 = and i1 %.not23.i63, %.not24.i64
-  br i1 %or.cond28.i65, label %.sink.split.i57, label %100
+  %.not24.i63 = icmp eq i32 %99, 0
+  %or.cond28.i64 = and i1 %.not23.i62, %.not24.i63
+  br i1 %or.cond28.i64, label %.sink.split.i56, label %100
 
 100:                                              ; preds = %98
   %101 = and i32 %94, 128
-  %.not26.i67 = icmp eq i32 %101, 0
-  %or.cond29.i68 = and i1 %.not25.i66, %.not26.i67
-  br i1 %or.cond29.i68, label %.sink.split.i57, label %opal_path_access.exit69
+  %.not26.i66 = icmp eq i32 %101, 0
+  %or.cond29.i67 = and i1 %.not25.i65, %.not26.i66
+  br i1 %or.cond29.i67, label %.sink.split.i56, label %opal_path_access.exit68
 
-.sink.split.i57:                                  ; preds = %100, %98, %96, %93, %91
+.sink.split.i56:                                  ; preds = %100, %98, %96, %93, %91
   call void @free(ptr noundef nonnull %89) #14
-  br label %opal_path_access.exit69
+  br label %opal_path_access.exit68
 
-opal_path_access.exit69:                          ; preds = %86, %100, %.sink.split.i57
-  %.0.i58 = phi ptr [ null, %86 ], [ %89, %100 ], [ null, %.sink.split.i57 ]
+opal_path_access.exit68:                          ; preds = %86, %100, %.sink.split.i56
+  %.0.i57 = phi ptr [ null, %86 ], [ %89, %100 ], [ null, %.sink.split.i56 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %5)
   br label %102
 
-102:                                              ; preds = %.thread, %63, %81, %opal_path_access.exit54, %opal_path_access.exit69
-  %.1 = phi ptr [ %84, %81 ], [ %.0.i43, %opal_path_access.exit54 ], [ null, %63 ], [ %.0.i58, %opal_path_access.exit69 ], [ null, %.thread ]
+102:                                              ; preds = %.thread, %63, %81, %opal_path_access.exit53, %opal_path_access.exit68
+  %.1 = phi ptr [ %84, %81 ], [ %.0.i42, %opal_path_access.exit53 ], [ null, %63 ], [ %.0.i57, %opal_path_access.exit68 ], [ null, %.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %103 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
   %104 = load ptr, ptr %103, align 8
@@ -289,8 +289,8 @@ opal_path_access.exit69:                          ; preds = %86, %100, %.sink.sp
   br i1 %107, label %35, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %102, %.preheader, %opal_path_access.exit
-  %.032 = phi ptr [ %.0.i, %opal_path_access.exit ], [ null, %.preheader ], [ %.1, %102 ]
-  ret ptr %.032
+  %.033 = phi ptr [ %.0.i, %opal_path_access.exit ], [ null, %.preheader ], [ %.1, %102 ]
+  ret ptr %.033
 }
 
 ; Function Attrs: nounwind uwtable
@@ -384,7 +384,7 @@ define noalias ptr @opal_path_findv(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 .lr.ph.i:                                         ; preds = %7, %17
   %9 = phi ptr [ %19, %17 ], [ %8, %7 ]
-  %.01218.i = phi ptr [ %18, %17 ], [ %2, %7 ]
+  %.018.i = phi ptr [ %18, %17 ], [ %2, %7 ]
   %10 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(5) @.str.2, ptr noundef nonnull dereferenceable(1) %9, i64 noundef 4) #15
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %17
@@ -400,7 +400,7 @@ list_env_get.exit.thread:                         ; preds = %12
   br label %21
 
 17:                                               ; preds = %12, %.lr.ph.i
-  %18 = getelementptr inbounds i8, ptr %.01218.i, i64 8
+  %18 = getelementptr inbounds i8, ptr %.018.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not15.i = icmp eq ptr %19, null
   br i1 %.not15.i, label %list_env_get.exit, label %.lr.ph.i, !llvm.loop !4
@@ -411,48 +411,48 @@ list_env_get.exit:                                ; preds = %17, %4, %7
   br i1 %.not24, label %path_env_load.exit, label %21
 
 21:                                               ; preds = %list_env_get.exit.thread, %list_env_get.exit
-  %.0.i29 = phi ptr [ %16, %list_env_get.exit.thread ], [ %20, %list_env_get.exit ]
-  %22 = load i8, ptr %.0.i29, align 1
+  %.012.i30 = phi ptr [ %16, %list_env_get.exit.thread ], [ %20, %list_env_get.exit ]
+  %22 = load i8, ptr %.012.i30, align 1
   %.not25.i = icmp eq i8 %22, 0
   br i1 %.not25.i, label %path_env_load.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %21, %30
   %23 = phi i8 [ %32, %30 ], [ %22, %21 ]
-  %.026.i = phi ptr [ %spec.select.i, %30 ], [ %.0.i29, %21 ]
+  %.026.i = phi ptr [ %spec.select.i, %30 ], [ %.012.i30, %21 ]
   br label %24
 
 24:                                               ; preds = %26, %.preheader.i
   %25 = phi i8 [ %.pr.i, %26 ], [ %23, %.preheader.i ]
-  %.018.i = phi ptr [ %27, %26 ], [ %.026.i, %.preheader.i ]
+  %.018.i26 = phi ptr [ %27, %26 ], [ %.026.i, %.preheader.i ]
   switch i8 %25, label %26 [
     i8 0, label %.critedge.i
     i8 58, label %.critedge.i
   ]
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %.018.i, i64 1
+  %27 = getelementptr inbounds i8, ptr %.018.i26, i64 1
   %.pr.i = load i8, ptr %27, align 1
   br label %24, !llvm.loop !7
 
 .critedge.i:                                      ; preds = %24, %24
-  %.not23.i = icmp eq ptr %.018.i, %.026.i
+  %.not23.i = icmp eq ptr %.018.i26, %.026.i
   br i1 %.not23.i, label %30, label %28
 
 28:                                               ; preds = %.critedge.i
-  store i8 0, ptr %.018.i, align 1
+  store i8 0, ptr %.018.i26, align 1
   %29 = call i32 @opal_argv_append(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %.026.i) #14
-  store i8 %25, ptr %.018.i, align 1
+  store i8 %25, ptr %.018.i26, align 1
   br label %30
 
 30:                                               ; preds = %28, %.critedge.i
   %31 = phi i8 [ %25, %28 ], [ 1, %.critedge.i ]
-  %.1.i = phi ptr [ %.018.i, %28 ], [ %.026.i, %.critedge.i ]
+  %.1.i = phi ptr [ %.018.i26, %28 ], [ %.026.i, %.critedge.i ]
   %.not24.i = icmp ne i8 %31, 0
   %spec.select.idx.i = zext i1 %.not24.i to i64
   %spec.select.i = getelementptr inbounds i8, ptr %.1.i, i64 %spec.select.idx.i
   %32 = load i8, ptr %spec.select.i, align 1
-  %.not.i26 = icmp eq i8 %32, 0
-  br i1 %.not.i26, label %path_env_load.exit, label %.preheader.i, !llvm.loop !8
+  %.not.i27 = icmp eq i8 %32, 0
+  br i1 %.not.i27, label %path_env_load.exit, label %.preheader.i, !llvm.loop !8
 
 path_env_load.exit:                               ; preds = %30, %21, %list_env_get.exit
   %33 = icmp eq ptr %3, null
@@ -471,7 +471,7 @@ sub_0:                                            ; preds = %sub_0.preheader, %5
   %36 = phi i32 [ %34, %sub_0.preheader ], [ %57, %56 ]
   %37 = phi ptr [ %.pre, %sub_0.preheader ], [ %58, %56 ]
   %indvars.iv = phi i64 [ 0, %sub_0.preheader ], [ %indvars.iv.next, %56 ]
-  %.036 = phi i1 [ false, %sub_0.preheader ], [ %.1, %56 ]
+  %.037 = phi i1 [ false, %sub_0.preheader ], [ %.1, %56 ]
   %38 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
   %40 = load i8, ptr %39, align 1
@@ -501,16 +501,16 @@ sub_1:                                            ; preds = %sub_0
   %53 = getelementptr inbounds ptr, ptr %52, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %.loopexit, label %._crit_edge39
+  br i1 %55, label %.loopexit, label %._crit_edge40
 
-._crit_edge39:                                    ; preds = %48
-  %.pre40 = load i32, ptr %6, align 4
+._crit_edge40:                                    ; preds = %48
+  %.pre41 = load i32, ptr %6, align 4
   br label %56
 
-56:                                               ; preds = %._crit_edge39, %.tail
-  %57 = phi i32 [ %.pre40, %._crit_edge39 ], [ %36, %.tail ]
-  %58 = phi ptr [ %52, %._crit_edge39 ], [ %37, %.tail ]
-  %.1 = phi i1 [ true, %._crit_edge39 ], [ %.036, %.tail ]
+56:                                               ; preds = %._crit_edge40, %.tail
+  %57 = phi i32 [ %.pre41, %._crit_edge40 ], [ %36, %.tail ]
+  %58 = phi ptr [ %52, %._crit_edge40 ], [ %37, %.tail ]
+  %.1 = phi i1 [ true, %._crit_edge40 ], [ %.037, %.tail ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = sext i32 %57 to i64
   %60 = icmp slt i64 %indvars.iv.next, %59
@@ -627,7 +627,7 @@ define noundef zeroext i1 @opal_path_nfs(ptr nocapture noundef readonly %0, ptr 
   br label %6
 
 6:                                                ; preds = %.backedge, %2
-  %.052 = phi i32 [ 5, %2 ], [ %.052.be, %.backedge ]
+  %.050 = phi i32 [ 5, %2 ], [ %.050.be, %.backedge ]
   %7 = call i32 @statfs(ptr noundef %5, ptr noundef nonnull %3) #14
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %9, label %.critedge.preheader
@@ -636,13 +636,13 @@ define noundef zeroext i1 @opal_path_nfs(ptr nocapture noundef readonly %0, ptr 
   %10 = tail call ptr @__errno_location() #17
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 116
-  %13 = add nsw i32 %.052, -1
-  %14 = icmp ugt i32 %.052, 1
+  %13 = add nsw i32 %.050, -1
+  %14 = icmp ugt i32 %.050, 1
   %or.cond66 = select i1 %12, i1 %14, i1 false
   br i1 %or.cond66, label %.backedge, label %.critedge.preheader
 
 .backedge:                                        ; preds = %9, %48
-  %.052.be = phi i32 [ %13, %9 ], [ 5, %48 ]
+  %.050.be = phi i32 [ %13, %9 ], [ 5, %48 ]
   br label %6, !llvm.loop !10
 
 .critedge.preheader:                              ; preds = %9, %6
@@ -823,13 +823,13 @@ opal_check_mtab.exit.thread:                      ; preds = %50, %._crit_edge.i,
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %79, %.split82.us, %47, %37
   %.sink = phi ptr [ null, %37 ], [ null, %47 ], [ null, %.split82.us ], [ null, %79 ], [ %83, %.sink.split.sink.split ]
-  %.050.ph = phi i1 [ false, %37 ], [ false, %47 ], [ false, %.split82.us ], [ false, %79 ], [ true, %.sink.split.sink.split ]
+  %.052.ph = phi i1 [ false, %37 ], [ false, %47 ], [ false, %.split82.us ], [ false, %79 ], [ true, %.sink.split.sink.split ]
   store ptr %.sink, ptr %1, align 8
   br label %84
 
 84:                                               ; preds = %.sink.split, %opal_check_mtab.exit.thread, %79, %77, %.split82.us, %47, %37
-  %.050 = phi i1 [ false, %37 ], [ false, %47 ], [ false, %.split82.us ], [ true, %77 ], [ false, %79 ], [ true, %opal_check_mtab.exit.thread ], [ %.050.ph, %.sink.split ]
-  ret i1 %.050
+  %.052 = phi i1 [ false, %37 ], [ false, %47 ], [ false, %.split82.us ], [ true, %77 ], [ false, %79 ], [ true, %opal_check_mtab.exit.thread ], [ %.052.ph, %.sink.split ]
+  ret i1 %.052
 }
 
 ; Function Attrs: nounwind

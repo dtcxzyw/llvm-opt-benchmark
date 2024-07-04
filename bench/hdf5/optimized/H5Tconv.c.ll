@@ -388,34 +388,34 @@ define range(i32 -1, 1) i32 @H5T__conv_order(ptr noundef readonly %0, ptr nounde
   br i1 %or.cond87, label %.loopexit, label %.preheader.us
 
 .preheader.us:                                    ; preds = %105, %._crit_edge.us
-  %.06180.us = phi ptr [ %128, %._crit_edge.us ], [ %7, %105 ]
-  %.06379.us = phi i64 [ %127, %._crit_edge.us ], [ 0, %105 ]
+  %.06280.us = phi i64 [ %127, %._crit_edge.us ], [ 0, %105 ]
+  %.06379.us = phi ptr [ %128, %._crit_edge.us ], [ %7, %105 ]
   br label %112
 
 112:                                              ; preds = %.preheader.us, %112
-  %.06278.us = phi i64 [ 0, %.preheader.us ], [ %118, %112 ]
-  %113 = getelementptr inbounds i8, ptr %.06180.us, i64 %.06278.us
+  %.06178.us = phi i64 [ 0, %.preheader.us ], [ %118, %112 ]
+  %113 = getelementptr inbounds i8, ptr %.06379.us, i64 %.06178.us
   %114 = load i8, ptr %113, align 1
   %115 = load ptr, ptr %110, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 16
   %117 = load i64, ptr %116, align 8
-  %118 = add nuw nsw i64 %.06278.us, 1
+  %118 = add nuw nsw i64 %.06178.us, 1
   %119 = sub i64 %117, %118
-  %120 = getelementptr inbounds i8, ptr %.06180.us, i64 %119
+  %120 = getelementptr inbounds i8, ptr %.06379.us, i64 %119
   %121 = load i8, ptr %120, align 1
   store i8 %121, ptr %113, align 1
   %122 = load ptr, ptr %110, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 16
   %124 = load i64, ptr %123, align 8
   %125 = sub i64 %124, %118
-  %126 = getelementptr inbounds i8, ptr %.06180.us, i64 %125
+  %126 = getelementptr inbounds i8, ptr %.06379.us, i64 %125
   store i8 %114, ptr %126, align 1
   %exitcond.not = icmp eq i64 %118, %111
   br i1 %exitcond.not, label %._crit_edge.us, label %112
 
 ._crit_edge.us:                                   ; preds = %112
-  %127 = add nuw i64 %.06379.us, 1
-  %128 = getelementptr inbounds i8, ptr %.06180.us, i64 %.
+  %127 = add nuw i64 %.06280.us, 1
+  %128 = getelementptr inbounds i8, ptr %.06379.us, i64 %.
   %exitcond84.not = icmp eq i64 %127, %4
   br i1 %exitcond84.not, label %.loopexit, label %.preheader.us
 

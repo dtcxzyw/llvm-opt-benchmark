@@ -36,11 +36,11 @@ define void @sormqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %33 = icmp eq i8 %32, 78
   %34 = load i32, ptr %11, align 4
   %35 = icmp eq i32 %34, -1
-  %.0122.in = select i1 %spec.select, ptr %3, ptr %2
-  %.0121.in = select i1 %spec.select, ptr %2, ptr %3
+  %.0121.in = select i1 %spec.select, ptr %3, ptr %2
+  %.0120.in = select i1 %spec.select, ptr %2, ptr %3
+  %.0120 = load i32, ptr %.0120.in, align 4
   %.0121 = load i32, ptr %.0121.in, align 4
-  %.0122 = load i32, ptr %.0122.in, align 4
-  %36 = shl nsw i32 %.0121, 5
+  %36 = shl nsw i32 %.0120, 5
   %37 = sitofp i32 %36 to float
   store float %37, ptr %10, align 4
   %38 = load i32, ptr %12, align 4
@@ -65,7 +65,7 @@ define void @sormqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %48, label %.sink.split, label %49
 
 49:                                               ; preds = %46
-  store i32 %.0121, ptr %20, align 4
+  store i32 %.0120, ptr %20, align 4
   %50 = icmp sgt i32 %.fr134, 32
   br i1 %50, label %51, label %.thread
 
@@ -75,13 +75,13 @@ define void @sormqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %53, label %54, label %.thread
 
 54:                                               ; preds = %51
-  %55 = sdiv i32 %52, %.0121
+  %55 = sdiv i32 %52, %.0120
   %56 = icmp slt i32 %55, 2
   br i1 %56, label %57, label %.thread
 
 .thread:                                          ; preds = %49, %51, %54
-  %.0123137 = phi i32 [ %55, %54 ], [ 32, %51 ], [ 32, %49 ]
-  %.not = icmp slt i32 %.0123137, %.fr134
+  %.0122137 = phi i32 [ %55, %54 ], [ 32, %51 ], [ 32, %49 ]
+  %.not = icmp slt i32 %.0122137, %.fr134
   br i1 %.not, label %58, label %57
 
 57:                                               ; preds = %.thread, %54
@@ -103,15 +103,15 @@ switch.early.test:                                ; preds = %58
 
 .thread149:                                       ; preds = %switch.early.test, %switch.early.test, %59
   %60 = add nsw i32 %.fr134, -1
-  %61 = urem i32 %60, %.0123137
+  %61 = urem i32 %60, %.0122137
   %62 = sub nsw i32 %.fr134, %61
-  %63 = sub nsw i32 0, %.0123137
+  %63 = sub nsw i32 0, %.0122137
   br label %64
 
 64:                                               ; preds = %59, %switch.early.test, %.thread149
-  %.0130 = phi i32 [ %62, %.thread149 ], [ 1, %switch.early.test ], [ 1, %59 ]
-  %.0129 = phi i32 [ 1, %.thread149 ], [ %.fr134, %switch.early.test ], [ %.fr134, %59 ]
-  %.0128 = phi i32 [ %63, %.thread149 ], [ %.0123137, %switch.early.test ], [ %.0123137, %59 ]
+  %.0129 = phi i32 [ %62, %.thread149 ], [ 1, %switch.early.test ], [ 1, %59 ]
+  %.0128 = phi i32 [ 1, %.thread149 ], [ %.fr134, %switch.early.test ], [ %.fr134, %59 ]
+  %.0127 = phi i32 [ %63, %.thread149 ], [ %.0122137, %switch.early.test ], [ %.0122137, %59 ]
   switch i8 %.fr138, label %66 [
     i8 108, label %65
     i8 76, label %65
@@ -126,17 +126,17 @@ switch.early.test:                                ; preds = %58
   br label %67
 
 67:                                               ; preds = %66, %65
-  %.0125 = phi i64 [ 0, %65 ], [ 1, %66 ]
-  %.0124 = phi i32 [ 1, %65 ], [ 0, %66 ]
-  %68 = icmp slt i32 %.0128, 0
-  %.0120.neg139 = sub nsw i32 0, %.0130
-  %69 = icmp sge i32 %.0130, %.0129
-  %70 = icmp sle i32 %.0130, %.0129
+  %.0124 = phi i64 [ 0, %65 ], [ 1, %66 ]
+  %.0123 = phi i32 [ 1, %65 ], [ 0, %66 ]
+  %68 = icmp slt i32 %.0127, 0
+  %.0130.neg139 = sub nsw i32 0, %.0129
+  %69 = icmp sge i32 %.0129, %.0128
+  %70 = icmp sle i32 %.0129, %.0128
   %71 = select i1 %68, i1 %69, i1 %70
   br i1 %71, label %.lr.ph, label %.sink.split
 
 .lr.ph:                                           ; preds = %67
-  %72 = add i32 %.0122, 1
+  %72 = add i32 %.0121, 1
   %73 = add i32 %22, 1
   switch i8 %.fr138, label %.lr.ph.split.preheader [
     i8 108, label %.lr.ph.split.us
@@ -144,31 +144,31 @@ switch.early.test:                                ; preds = %58
   ]
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %74 = sext i32 %.0130 to i64
-  %75 = sext i32 %.0128 to i64
-  %76 = zext nneg i32 %.0129 to i64
+  %74 = sext i32 %.0129 to i64
+  %75 = sext i32 %.0127 to i64
+  %76 = zext nneg i32 %.0128 to i64
   %77 = sext i32 %26 to i64
-  %invariant.gep152 = getelementptr float, ptr %28, i64 %.0125
+  %invariant.gep152 = getelementptr float, ptr %28, i64 %.0124
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph
-  %78 = mul nuw nsw i32 %.0124, %26
-  %79 = sext i32 %.0130 to i64
-  %80 = sext i32 %.0128 to i64
-  %81 = zext nneg i32 %.0129 to i64
+  %78 = mul nuw nsw i32 %.0123, %26
+  %79 = sext i32 %.0129 to i64
+  %80 = sext i32 %.0127 to i64
+  %81 = zext nneg i32 %.0128 to i64
   %82 = sext i32 %78 to i64
   %invariant.gep = getelementptr float, ptr %28, i64 %82
   br label %83
 
 83:                                               ; preds = %83, %.lr.ph.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %83 ], [ %79, %.lr.ph.split.us ]
-  %.0120.neg143.us = phi i32 [ %.0120.neg.us, %83 ], [ %.0120.neg139, %.lr.ph.split.us ]
+  %.0130.neg143.us = phi i32 [ %.0130.neg.us, %83 ], [ %.0130.neg139, %.lr.ph.split.us ]
   %84 = load i32, ptr %4, align 4
-  %85 = add i32 %.0120.neg143.us, 1
+  %85 = add i32 %.0130.neg143.us, 1
   %86 = add i32 %85, %84
-  %87 = call i32 @llvm.smin.i32(i32 %.0123137, i32 %86)
+  %87 = call i32 @llvm.smin.i32(i32 %.0122137, i32 %86)
   store i32 %87, ptr %16, align 4
-  %88 = add i32 %72, %.0120.neg143.us
+  %88 = add i32 %72, %.0130.neg143.us
   store i32 %88, ptr %14, align 4
   %89 = trunc nsw i64 %indvars.iv to i32
   %90 = mul i32 %73, %89
@@ -183,7 +183,7 @@ switch.early.test:                                ; preds = %58
   call void @slarfb_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %16, ptr noundef %92, ptr noundef nonnull %6, ptr noundef nonnull %15, ptr noundef nonnull %21, ptr noundef %gep, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %20)
   %indvars.iv.next = add nsw i64 %indvars.iv, %80
   %96 = trunc nsw i64 %indvars.iv.next to i32
-  %.0120.neg.us = sub i32 0, %96
+  %.0130.neg.us = sub i32 0, %96
   %97 = icmp sge i64 %indvars.iv.next, %81
   %98 = icmp sle i64 %indvars.iv.next, %81
   %99 = select i1 %68, i1 %97, i1 %98
@@ -191,13 +191,13 @@ switch.early.test:                                ; preds = %58
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv146 = phi i64 [ %74, %.lr.ph.split.preheader ], [ %indvars.iv.next147, %.lr.ph.split ]
-  %.0120.neg143 = phi i32 [ %.0120.neg139, %.lr.ph.split.preheader ], [ %.0120.neg, %.lr.ph.split ]
+  %.0130.neg143 = phi i32 [ %.0130.neg139, %.lr.ph.split.preheader ], [ %.0130.neg, %.lr.ph.split ]
   %100 = load i32, ptr %4, align 4
-  %101 = add i32 %.0120.neg143, 1
+  %101 = add i32 %.0130.neg143, 1
   %102 = add i32 %101, %100
-  %103 = call i32 @llvm.smin.i32(i32 %.0123137, i32 %102)
+  %103 = call i32 @llvm.smin.i32(i32 %.0122137, i32 %102)
   store i32 %103, ptr %16, align 4
-  %104 = add i32 %72, %.0120.neg143
+  %104 = add i32 %72, %.0130.neg143
   store i32 %104, ptr %14, align 4
   %105 = trunc nsw i64 %indvars.iv146 to i32
   %106 = mul i32 %73, %105
@@ -213,7 +213,7 @@ switch.early.test:                                ; preds = %58
   call void @slarfb_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %16, ptr noundef %108, ptr noundef nonnull %6, ptr noundef nonnull %15, ptr noundef nonnull %21, ptr noundef %gep153, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %20)
   %indvars.iv.next147 = add nsw i64 %indvars.iv146, %75
   %113 = trunc nsw i64 %indvars.iv.next147 to i32
-  %.0120.neg = sub i32 0, %113
+  %.0130.neg = sub i32 0, %113
   %114 = icmp sge i64 %indvars.iv.next147, %76
   %115 = icmp sle i64 %indvars.iv.next147, %76
   %116 = select i1 %68, i1 %114, i1 %115

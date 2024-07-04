@@ -112,7 +112,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
   br i1 %.not164, label %.preheader149, label %.lr.ph
 
 31:                                               ; preds = %.lr.ph
-  %32 = add i32 %.1131157, 1
+  %32 = add i32 %.1135157, 1
   %33 = zext i32 %32 to i64
   %34 = icmp ugt i64 %30, %33
   br i1 %34, label %.lr.ph, label %.preheader149, !llvm.loop !6
@@ -124,7 +124,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
 
 .lr.ph:                                           ; preds = %26, %31
   %36 = phi i64 [ %33, %31 ], [ 0, %26 ]
-  %.1131157 = phi i32 [ %32, %31 ], [ 0, %26 ]
+  %.1135157 = phi i32 [ %32, %31 ], [ 0, %26 ]
   %37 = getelementptr inbounds i8, ptr %.sroa.01.0..sroa.01.0..cast, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = sext i8 %38 to i32
@@ -196,7 +196,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
   br label %.loopexit150
 
 .loopexit150:                                     ; preds = %.loopexit150.loopexit, %.preheader149, %23
-  %.1134 = phi i32 [ 0, %23 ], [ 0, %.preheader149 ], [ %66, %.loopexit150.loopexit ]
+  %.1131 = phi i32 [ 0, %23 ], [ 0, %.preheader149 ], [ %66, %.loopexit150.loopexit ]
   %67 = load ptr, ptr %8, align 8
   %68 = tail call noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef %67, ptr noundef nonnull @.str.2)
   %.not143 = icmp eq ptr %68, null
@@ -252,7 +252,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
   br i1 %exitcond180.not, label %.loopexit, label %70, !llvm.loop !9
 
 .loopexit:                                        ; preds = %81, %.loopexit150
-  %.2135 = phi i32 [ %.1134, %.loopexit150 ], [ 3, %81 ]
+  %.2132 = phi i32 [ %.1131, %.loopexit150 ], [ 3, %81 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.loopexit, %95
@@ -288,7 +288,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_axisswapP8PJconsts(p
   br i1 %exitcond188.not, label %96, label %.preheader, !llvm.loop !11
 
 96:                                               ; preds = %95
-  switch i32 %.2135, label %126 [
+  switch i32 %.2132, label %126 [
     i32 4, label %.sink.split
     i32 3, label %97
     i32 2, label %108

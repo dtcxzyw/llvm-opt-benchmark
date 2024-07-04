@@ -76,9 +76,9 @@ define dso_local range(i32 -1, 1) i32 @mpir_set_multi_name(i32 noundef %0, ptr n
   br label %135
 
 15:                                               ; preds = %.lr.ph66, %.backedge
-  %.041.shrunk65 = phi i1 [ false, %.lr.ph66 ], [ %.040, %.backedge ]
-  %.04264 = phi i32 [ 0, %.lr.ph66 ], [ %16, %.backedge ]
-  %16 = add nuw nsw i32 %.04264, 1
+  %.040.shrunk65 = phi i1 [ false, %.lr.ph66 ], [ %.039, %.backedge ]
+  %.04164 = phi i32 [ 0, %.lr.ph66 ], [ %16, %.backedge ]
+  %16 = add nuw nsw i32 %.04164, 1
   %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #11
   %18 = trunc i64 %17 to i32
   %19 = icmp ugt i32 %18, 16382
@@ -119,8 +119,8 @@ define dso_local range(i32 -1, 1) i32 @mpir_set_multi_name(i32 noundef %0, ptr n
   br label %38
 
 38:                                               ; preds = %31, %24, %.thread
-  %.040 = phi i1 [ false, %.thread ], [ true, %24 ], [ true, %31 ]
-  br i1 %.041.shrunk65, label %.backedge, label %.preheader
+  %.039 = phi i1 [ false, %.thread ], [ true, %24 ], [ true, %31 ]
+  br i1 %.040.shrunk65, label %.backedge, label %.preheader
 
 .preheader:                                       ; preds = %38
   %39 = load i8, ptr %4, align 16
@@ -134,7 +134,7 @@ define dso_local range(i32 -1, 1) i32 @mpir_set_multi_name(i32 noundef %0, ptr n
 
 42:                                               ; preds = %.lr.ph62, %48
   %43 = phi i8 [ %39, %.lr.ph62 ], [ %50, %48 ]
-  %.03961 = phi ptr [ %4, %.lr.ph62 ], [ %49, %48 ]
+  %.04261 = phi ptr [ %4, %.lr.ph62 ], [ %49, %48 ]
   %44 = sext i8 %43 to i64
   %45 = getelementptr inbounds i16, ptr %41, i64 %44
   %46 = load i16, ptr %45, align 2
@@ -143,7 +143,7 @@ define dso_local range(i32 -1, 1) i32 @mpir_set_multi_name(i32 noundef %0, ptr n
   br i1 %.not50, label %.critedge, label %48
 
 48:                                               ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %.03961, i64 1
+  %49 = getelementptr inbounds i8, ptr %.04261, i64 1
   %50 = load i8, ptr %49, align 1
   %cond = icmp eq i8 %50, 0
   br i1 %cond, label %.backedge, label %42, !llvm.loop !9
@@ -153,7 +153,7 @@ define dso_local range(i32 -1, 1) i32 @mpir_set_multi_name(i32 noundef %0, ptr n
   br i1 %cond76, label %.backedge, label %51
 
 51:                                               ; preds = %.critedge
-  %52 = call ptr @strtok_r(ptr noundef nonnull %.03961, ptr noundef nonnull @.str.3, ptr noundef nonnull %5) #10
+  %52 = call ptr @strtok_r(ptr noundef nonnull %.04261, ptr noundef nonnull @.str.3, ptr noundef nonnull %5) #10
   %53 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %5) #10
   %54 = icmp ne ptr %52, null
   %55 = icmp ne ptr %53, null
@@ -538,9 +538,9 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr noc
   br i1 %29, label %.lr.ph108, label %.loopexit
 
 30:                                               ; preds = %.lr.ph106, %.backedge
-  %.050.shrunk105 = phi i1 [ false, %.lr.ph106 ], [ %.049, %.backedge ]
-  %.053104 = phi i32 [ 0, %.lr.ph106 ], [ %31, %.backedge ]
-  %31 = add nuw nsw i32 %.053104, 1
+  %.049.shrunk105 = phi i1 [ false, %.lr.ph106 ], [ %.0, %.backedge ]
+  %.052104 = phi i32 [ 0, %.lr.ph106 ], [ %31, %.backedge ]
+  %31 = add nuw nsw i32 %.052104, 1
   %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #11
   %33 = trunc i64 %32 to i32
   %34 = icmp ugt i32 %33, 16382
@@ -580,8 +580,8 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr noc
   br label %52
 
 52:                                               ; preds = %45, %38, %.thread
-  %.049 = phi i1 [ false, %.thread ], [ true, %38 ], [ true, %45 ]
-  br i1 %.050.shrunk105, label %.backedge, label %.preheader76
+  %.0 = phi i1 [ false, %.thread ], [ true, %38 ], [ true, %45 ]
+  br i1 %.049.shrunk105, label %.backedge, label %.preheader76
 
 .preheader76:                                     ; preds = %52
   %53 = load i8, ptr %4, align 16
@@ -595,7 +595,7 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr noc
 
 56:                                               ; preds = %.lr.ph, %62
   %57 = phi i8 [ %53, %.lr.ph ], [ %64, %62 ]
-  %.054102 = phi ptr [ %4, %.lr.ph ], [ %63, %62 ]
+  %.053102 = phi ptr [ %4, %.lr.ph ], [ %63, %62 ]
   %58 = sext i8 %57 to i64
   %59 = getelementptr inbounds i16, ptr %55, i64 %58
   %60 = load i16, ptr %59, align 2
@@ -604,7 +604,7 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr noc
   br i1 %.not64, label %.critedge, label %62
 
 62:                                               ; preds = %56
-  %63 = getelementptr inbounds i8, ptr %.054102, i64 1
+  %63 = getelementptr inbounds i8, ptr %.053102, i64 1
   %64 = load i8, ptr %63, align 1
   %cond = icmp eq i8 %64, 0
   br i1 %cond, label %.backedge, label %56, !llvm.loop !16
@@ -614,7 +614,7 @@ define dso_local range(i32 -1, 1) i32 @verify_multi_name(ptr noundef %0, ptr noc
   br i1 %cond134, label %.backedge, label %65
 
 65:                                               ; preds = %.critedge
-  %66 = call ptr @strtok_r(ptr noundef nonnull %.054102, ptr noundef nonnull @.str.3, ptr noundef nonnull %5) #10
+  %66 = call ptr @strtok_r(ptr noundef nonnull %.053102, ptr noundef nonnull @.str.3, ptr noundef nonnull %5) #10
   %67 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %5) #10
   %68 = icmp ne ptr %66, null
   %69 = icmp ne ptr %67, null
@@ -813,7 +813,7 @@ _validate_ranks.exit:                             ; preds = %75
   br i1 %151, label %.lr.ph108, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %148, %.preheader, %145, %139, %.loopexit78, %70, %35
-  %.051 = phi i32 [ -1, %35 ], [ -1, %.loopexit78 ], [ -1, %139 ], [ -1, %70 ], [ -1, %145 ], [ 0, %.preheader ], [ 0, %148 ]
+  %.050 = phi i32 [ -1, %35 ], [ -1, %.loopexit78 ], [ -1, %139 ], [ -1, %70 ], [ -1, %145 ], [ 0, %.preheader ], [ 0, %148 ]
   %152 = call i32 @fclose(ptr noundef nonnull %17)
   %153 = load ptr, ptr %7, align 8
   %.not67 = icmp eq ptr %153, null
@@ -824,8 +824,8 @@ _validate_ranks.exit:                             ; preds = %75
   br label %155
 
 155:                                              ; preds = %.loopexit, %154, %19, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %19 ], [ %.051, %154 ], [ %.051, %.loopexit ]
-  ret i32 %.0
+  %.054 = phi i32 [ -1, %11 ], [ -1, %19 ], [ %.050, %154 ], [ %.050, %.loopexit ]
+  ret i32 %.054
 }
 
 declare ptr @bit_alloc(i64 noundef) local_unnamed_addr #2

@@ -372,11 +372,11 @@ define range(i32 0, 2) i32 @isMatrixNUnitary(ptr nocapture noundef readonly byva
   %25 = fneg double %18
   %26 = insertelement <2 x double> poison, double %24, i64 0
   %27 = shufflevector <2 x double> %26, <2 x double> poison, <2 x i32> zeroinitializer
-  %28 = insertelement <2 x double> poison, double %22, i64 0
-  %29 = insertelement <2 x double> %28, double %25, i64 1
+  %28 = insertelement <2 x double> poison, double %25, i64 0
+  %29 = insertelement <2 x double> %28, double %22, i64 1
   %30 = fmul <2 x double> %27, %29
-  %31 = insertelement <2 x double> poison, double %18, i64 0
-  %32 = insertelement <2 x double> %31, double %22, i64 1
+  %31 = insertelement <2 x double> poison, double %22, i64 0
+  %32 = insertelement <2 x double> %31, double %18, i64 1
   %33 = insertelement <2 x double> poison, double %20, i64 0
   %34 = shufflevector <2 x double> %33, <2 x double> poison, <2 x i32> zeroinitializer
   %35 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %32, <2 x double> %34, <2 x double> %30)
@@ -393,10 +393,10 @@ define range(i32 0, 2) i32 @isMatrixNUnitary(ptr nocapture noundef readonly byva
 ._crit_edge.us.us:                                ; preds = %15
   %38 = icmp eq i64 %indvars.iv59, %indvars.iv54
   %39 = uitofp i1 %38 to double
-  %40 = extractelement <2 x double> %36, i64 0
+  %40 = extractelement <2 x double> %36, i64 1
   %41 = fsub double %40, %39
   %42 = fmul double %41, %41
-  %43 = extractelement <2 x double> %36, i64 1
+  %43 = extractelement <2 x double> %36, i64 0
   %44 = tail call double @llvm.fmuladd.f64(double %43, double %43, double %42)
   %45 = fcmp ogt double %44, 1.000000e-26
   br i1 %45, label %.loopexit, label %37
@@ -688,24 +688,24 @@ define range(i32 0, 2) i32 @areUniqueQubits(ptr nocapture noundef readonly %0, i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
-  %.01011 = phi i64 [ 0, %.lr.ph.preheader ], [ %10, %9 ]
+  %.0911 = phi i64 [ 0, %.lr.ph.preheader ], [ %10, %9 ]
   %4 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   %6 = zext nneg i32 %5 to i64
   %7 = shl nuw i64 1, %6
-  %8 = and i64 %7, %.01011
+  %8 = and i64 %7, %.0911
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %9, label %._crit_edge
 
 9:                                                ; preds = %.lr.ph
-  %10 = or i64 %7, %.01011
+  %10 = or i64 %7, %.0911
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9, %2
-  %.09 = phi i32 [ 1, %2 ], [ 1, %9 ], [ 0, %.lr.ph ]
-  ret i32 %.09
+  %.010 = phi i32 [ 1, %2 ], [ 1, %9 ], [ 0, %.lr.ph ]
+  ret i32 %.010
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
@@ -939,17 +939,17 @@ validateTarget.exit.i:                            ; preds = %15, %.lr.ph.i
 
 .lr.ph.i.i:                                       ; preds = %validateTarget.exit.i, %21
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %21 ], [ 0, %validateTarget.exit.i ]
-  %.01011.i.i = phi i64 [ %22, %21 ], [ 0, %validateTarget.exit.i ]
+  %.0911.i.i = phi i64 [ %22, %21 ], [ 0, %validateTarget.exit.i ]
   %16 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i.i
   %17 = load i32, ptr %16, align 4
   %18 = zext nneg i32 %17 to i64
   %19 = shl nuw i64 1, %18
-  %20 = and i64 %19, %.01011.i.i
+  %20 = and i64 %19, %.0911.i.i
   %.not.i.i = icmp eq i64 %20, 0
   br i1 %.not.i.i, label %21, label %areUniqueQubits.exit.i
 
 21:                                               ; preds = %.lr.ph.i.i
-  %22 = or i64 %19, %.01011.i.i
+  %22 = or i64 %19, %.0911.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i
   br i1 %exitcond.not.i.i, label %validateMultiTargets.exit, label %.lr.ph.i.i
@@ -1004,17 +1004,17 @@ validateTarget.exit:                              ; preds = %.lr.ph, %12
 
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %18 ]
-  %.01011.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %19, %18 ]
+  %.0911.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %19, %18 ]
   %13 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 4
   %15 = zext nneg i32 %14 to i64
   %16 = shl nuw i64 1, %15
-  %17 = and i64 %16, %.01011.i
+  %17 = and i64 %16, %.0911.i
   %.not.i = icmp eq i64 %17, 0
   br i1 %.not.i, label %18, label %areUniqueQubits.exit
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = or i64 %16, %.01011.i
+  %19 = or i64 %16, %.0911.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %QuESTAssert.exit, label %.lr.ph.i
@@ -1376,17 +1376,17 @@ validateControl.exit:                             ; preds = %.lr.ph, %12
 
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %18 ]
-  %.01011.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %19, %18 ]
+  %.0911.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %19, %18 ]
   %13 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 4
   %15 = zext nneg i32 %14 to i64
   %16 = shl nuw i64 1, %15
-  %17 = and i64 %16, %.01011.i
+  %17 = and i64 %16, %.0911.i
   %.not.i = icmp eq i64 %17, 0
   br i1 %.not.i, label %18, label %areUniqueQubits.exit
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = or i64 %16, %.01011.i
+  %19 = or i64 %16, %.0911.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %QuESTAssert.exit, label %.lr.ph.i
@@ -1444,17 +1444,17 @@ QuESTAssert.exit16:                               ; preds = %.lr.ph, %14
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %20 ]
-  %.01011.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %21, %20 ]
+  %.0911.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %21, %20 ]
   %15 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4
   %17 = zext nneg i32 %16 to i64
   %18 = shl nuw i64 1, %17
-  %19 = and i64 %18, %.01011.i
+  %19 = and i64 %18, %.0911.i
   %.not.i17 = icmp eq i64 %19, 0
   br i1 %.not.i17, label %20, label %areUniqueQubits.exit
 
 20:                                               ; preds = %.lr.ph.i
-  %21 = or i64 %18, %.01011.i
+  %21 = or i64 %18, %.0911.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %QuESTAssert.exit19, label %.lr.ph.i
@@ -1515,17 +1515,17 @@ validateControl.exit.i:                           ; preds = %16, %.lr.ph.i
 
 .lr.ph.i.i:                                       ; preds = %validateControl.exit.i, %22
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %22 ], [ 0, %validateControl.exit.i ]
-  %.01011.i.i = phi i64 [ %23, %22 ], [ 0, %validateControl.exit.i ]
+  %.0911.i.i = phi i64 [ %23, %22 ], [ 0, %validateControl.exit.i ]
   %17 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i.i
   %18 = load i32, ptr %17, align 4
   %19 = zext nneg i32 %18 to i64
   %20 = shl nuw i64 1, %19
-  %21 = and i64 %20, %.01011.i.i
+  %21 = and i64 %20, %.0911.i.i
   %.not.i.i = icmp eq i64 %21, 0
   br i1 %.not.i.i, label %22, label %areUniqueQubits.exit.i
 
 22:                                               ; preds = %.lr.ph.i.i
-  %23 = or i64 %20, %.01011.i.i
+  %23 = or i64 %20, %.0911.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i
   br i1 %exitcond.not.i.i, label %validateMultiControls.exit, label %.lr.ph.i.i
@@ -1600,17 +1600,17 @@ validateControl.exit.i:                           ; preds = %14, %.lr.ph.i
 
 .lr.ph.i.i:                                       ; preds = %validateControl.exit.i, %20
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %20 ], [ 0, %validateControl.exit.i ]
-  %.01011.i.i = phi i64 [ %21, %20 ], [ 0, %validateControl.exit.i ]
+  %.0911.i.i = phi i64 [ %21, %20 ], [ 0, %validateControl.exit.i ]
   %15 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i.i
   %16 = load i32, ptr %15, align 4
   %17 = zext nneg i32 %16 to i64
   %18 = shl nuw i64 1, %17
-  %19 = and i64 %18, %.01011.i.i
+  %19 = and i64 %18, %.0911.i.i
   %.not.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i, label %20, label %areUniqueQubits.exit.i
 
 20:                                               ; preds = %.lr.ph.i.i
-  %21 = or i64 %18, %.01011.i.i
+  %21 = or i64 %18, %.0911.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i
   br i1 %exitcond.not.i.i, label %validateMultiControls.exit, label %.lr.ph.i.i
@@ -1654,17 +1654,17 @@ validateTarget.exit.i:                            ; preds = %29, %.lr.ph.i18
 
 .lr.ph.i.i25:                                     ; preds = %validateTarget.exit.i, %35
   %indvars.iv.i.i26 = phi i64 [ %indvars.iv.next.i.i30, %35 ], [ 0, %validateTarget.exit.i ]
-  %.01011.i.i27 = phi i64 [ %36, %35 ], [ 0, %validateTarget.exit.i ]
+  %.0911.i.i27 = phi i64 [ %36, %35 ], [ 0, %validateTarget.exit.i ]
   %30 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i.i26
   %31 = load i32, ptr %30, align 4
   %32 = zext nneg i32 %31 to i64
   %33 = shl nuw i64 1, %32
-  %34 = and i64 %33, %.01011.i.i27
+  %34 = and i64 %33, %.0911.i.i27
   %.not.i.i28 = icmp eq i64 %34, 0
   br i1 %.not.i.i28, label %35, label %areUniqueQubits.exit.i29
 
 35:                                               ; preds = %.lr.ph.i.i25
-  %36 = or i64 %33, %.01011.i.i27
+  %36 = or i64 %33, %.0911.i.i27
   %indvars.iv.next.i.i30 = add nuw nsw i64 %indvars.iv.i.i26, 1
   %exitcond.not.i.i31 = icmp eq i64 %indvars.iv.next.i.i30, %wide.trip.count.i17
   br i1 %exitcond.not.i.i31, label %validateMultiTargets.exit, label %.lr.ph.i.i25
@@ -2016,11 +2016,11 @@ validateMultiQubitMatrix.exit:                    ; preds = %validateMultiQubitM
   %31 = fneg double %24
   %32 = insertelement <2 x double> poison, double %30, i64 0
   %33 = shufflevector <2 x double> %32, <2 x double> poison, <2 x i32> zeroinitializer
-  %34 = insertelement <2 x double> poison, double %28, i64 0
-  %35 = insertelement <2 x double> %34, double %31, i64 1
+  %34 = insertelement <2 x double> poison, double %31, i64 0
+  %35 = insertelement <2 x double> %34, double %28, i64 1
   %36 = fmul <2 x double> %33, %35
-  %37 = insertelement <2 x double> poison, double %24, i64 0
-  %38 = insertelement <2 x double> %37, double %28, i64 1
+  %37 = insertelement <2 x double> poison, double %28, i64 0
+  %38 = insertelement <2 x double> %37, double %24, i64 1
   %39 = insertelement <2 x double> poison, double %26, i64 0
   %40 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> zeroinitializer
   %41 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %38, <2 x double> %40, <2 x double> %36)
@@ -2037,10 +2037,10 @@ validateMultiQubitMatrix.exit:                    ; preds = %validateMultiQubitM
 ._crit_edge.us.us.i:                              ; preds = %21
   %44 = icmp eq i64 %indvars.iv59.i, %indvars.iv54.i
   %45 = uitofp i1 %44 to double
-  %46 = extractelement <2 x double> %42, i64 0
+  %46 = extractelement <2 x double> %42, i64 1
   %47 = fsub double %46, %45
   %48 = fmul double %47, %47
-  %49 = extractelement <2 x double> %42, i64 1
+  %49 = extractelement <2 x double> %42, i64 0
   %50 = tail call double @llvm.fmuladd.f64(double %49, double %49, double %48)
   %51 = fcmp ogt double %50, 1.000000e-26
   br i1 %51, label %isMatrixNUnitary.exit, label %43
@@ -3379,17 +3379,17 @@ QuESTAssert.exit30:                               ; preds = %.lr.ph, %24
 
 .lr.ph.i:                                         ; preds = %35, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %35 ]
-  %.01011.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %36, %35 ]
+  %.0911.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %36, %35 ]
   %30 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
   %31 = load i32, ptr %30, align 4
   %32 = zext nneg i32 %31 to i64
   %33 = shl nuw i64 1, %32
-  %34 = and i64 %33, %.01011.i
+  %34 = and i64 %33, %.0911.i
   %.not.i31 = icmp eq i64 %34, 0
   br i1 %.not.i31, label %35, label %areUniqueQubits.exit
 
 35:                                               ; preds = %.lr.ph.i
-  %36 = or i64 %33, %.01011.i
+  %36 = or i64 %33, %.0911.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %QuESTAssert.exit33, label %.lr.ph.i
@@ -3414,22 +3414,22 @@ define void @validatePhaseFuncTerms(i32 noundef %0, i32 noundef %1, ptr nocaptur
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.04670 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
+  %.04969 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
   %.05068 = phi i32 [ 0, %.lr.ph.preheader ], [ %.151, %.lr.ph ]
   %11 = getelementptr inbounds double, ptr %3, i64 %indvars.iv
   %12 = load double, ptr %11, align 8
   %13 = tail call double @llvm.floor.f64(double %12)
   %14 = fcmp une double %13, %12
-  %.1 = select i1 %14, i32 1, i32 %.04670
+  %.151 = select i1 %14, i32 1, i32 %.05068
   %15 = fcmp olt double %12, 0.000000e+00
-  %.151 = select i1 %15, i32 1, i32 %.05068
+  %.1 = select i1 %15, i32 1, i32 %.04969
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %16 = icmp eq i32 %.151, 0
-  %17 = icmp ne i32 %.1, 0
+  %16 = icmp eq i32 %.1, 0
+  %17 = icmp ne i32 %.151, 0
   br i1 %16, label %.split, label %.preheader67
 
 .preheader67:                                     ; preds = %._crit_edge
@@ -3738,9 +3738,9 @@ QuESTAssert.exit:                                 ; preds = %6, %8
   br label %.preheader53.us
 
 .preheader53.us:                                  ; preds = %.preheader53.us.preheader, %._crit_edge.us
-  %.03959.us = phi i32 [ %25, %._crit_edge.us ], [ 0, %.preheader53.us.preheader ]
-  %.04058.us = phi i64 [ %24, %._crit_edge.us ], [ 0, %.preheader53.us.preheader ]
-  %sext = shl i64 %.04058.us, 32
+  %.03859.us = phi i32 [ %25, %._crit_edge.us ], [ 0, %.preheader53.us.preheader ]
+  %.03958.us = phi i64 [ %24, %._crit_edge.us ], [ 0, %.preheader53.us.preheader ]
+  %sext = shl i64 %.03958.us, 32
   %12 = ashr exact i64 %sext, 32
   br label %13
 
@@ -3772,7 +3772,7 @@ QuESTAssert.exit48.us:                            ; preds = %23, %13
 
 ._crit_edge.us:                                   ; preds = %QuESTAssert.exit48.us
   %24 = add nsw i64 %12, %11
-  %25 = add nuw nsw i32 %.03959.us, 1
+  %25 = add nuw nsw i32 %.03859.us, 1
   %exitcond76.not = icmp eq i32 %25, %4
   br i1 %exitcond76.not, label %.loopexit, label %.preheader53.us
 

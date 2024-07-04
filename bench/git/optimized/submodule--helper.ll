@@ -2288,9 +2288,9 @@ if.then288:                                       ; preds = %land.lhs.true285
 for.body.i:                                       ; preds = %if.then288, %for.inc.i
   %12 = phi i32 [ %17, %for.inc.i ], [ %11, %if.then288 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.then288 ]
-  %active_modules.sroa.11.025.i = phi i32 [ %active_modules.sroa.11.1.i, %for.inc.i ], [ 0, %if.then288 ]
-  %active_modules.sroa.5.024.i = phi i32 [ %active_modules.sroa.5.3.i, %for.inc.i ], [ 0, %if.then288 ]
-  %active_modules.sroa.0.023.i = phi ptr [ %active_modules.sroa.0.2.i, %for.inc.i ], [ null, %if.then288 ]
+  %active_modules.sroa.11.026.i = phi i32 [ %active_modules.sroa.11.1.i, %for.inc.i ], [ 0, %if.then288 ]
+  %active_modules.sroa.5.025.i = phi i32 [ %active_modules.sroa.5.3.i, %for.inc.i ], [ 0, %if.then288 ]
+  %active_modules.sroa.0.024.i = phi ptr [ %active_modules.sroa.0.2.i, %for.inc.i ], [ null, %if.then288 ]
   %13 = load ptr, ptr %list278, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv.i
   %14 = load ptr, ptr %arrayidx.i, align 8
@@ -2301,15 +2301,15 @@ for.body.i:                                       ; preds = %if.then288, %for.in
   br i1 %tobool.not.i, label %for.inc.i, label %do.body.i
 
 do.body.i:                                        ; preds = %for.body.i
-  %add.i = add nsw i32 %active_modules.sroa.11.025.i, 1
-  %cmp2.not.i = icmp slt i32 %active_modules.sroa.11.025.i, %active_modules.sroa.5.024.i
+  %add.i = add nsw i32 %active_modules.sroa.11.026.i, 1
+  %cmp2.not.i = icmp slt i32 %active_modules.sroa.11.026.i, %active_modules.sroa.5.025.i
   br i1 %cmp2.not.i, label %do.end.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %do.body.i
-  %16 = mul i32 %active_modules.sroa.5.024.i, 3
+  %16 = mul i32 %active_modules.sroa.5.025.i, 3
   %mul.i = add i32 %16, 48
   %div.i = sdiv i32 %mul.i, 2
-  %cmp8.not.i = icmp sgt i32 %div.i, %active_modules.sroa.11.025.i
+  %cmp8.not.i = icmp sgt i32 %div.i, %active_modules.sroa.11.026.i
   %div.add.i = select i1 %cmp8.not.i, i32 %div.i, i32 %add.i
   %conv.i = sext i32 %div.add.i to i64
   %mul.ov.i.i = icmp slt i32 %div.add.i, 0
@@ -2321,13 +2321,13 @@ if.then.i.i:                                      ; preds = %if.then3.i
 
 st_mult.exit.i:                                   ; preds = %if.then3.i
   %mul.i.i = shl nuw nsw i64 %conv.i, 3
-  %call22.i = call ptr @xrealloc(ptr noundef %active_modules.sroa.0.023.i, i64 noundef %mul.i.i) #19
+  %call22.i = call ptr @xrealloc(ptr noundef %active_modules.sroa.0.024.i, i64 noundef %mul.i.i) #19
   br label %do.end.i
 
 do.end.i:                                         ; preds = %st_mult.exit.i, %do.body.i
-  %active_modules.sroa.0.1.i = phi ptr [ %call22.i, %st_mult.exit.i ], [ %active_modules.sroa.0.023.i, %do.body.i ]
-  %active_modules.sroa.5.2.i = phi i32 [ %div.add.i, %st_mult.exit.i ], [ %active_modules.sroa.5.024.i, %do.body.i ]
-  %idxprom27.i = sext i32 %active_modules.sroa.11.025.i to i64
+  %active_modules.sroa.0.1.i = phi ptr [ %call22.i, %st_mult.exit.i ], [ %active_modules.sroa.0.024.i, %do.body.i ]
+  %active_modules.sroa.5.2.i = phi i32 [ %div.add.i, %st_mult.exit.i ], [ %active_modules.sroa.5.025.i, %do.body.i ]
+  %idxprom27.i = sext i32 %active_modules.sroa.11.026.i to i64
   %arrayidx28.i = getelementptr inbounds ptr, ptr %active_modules.sroa.0.1.i, i64 %idxprom27.i
   store ptr %14, ptr %arrayidx28.i, align 8
   %.pre71 = load i32, ptr %nr.i, align 4
@@ -2335,9 +2335,9 @@ do.end.i:                                         ; preds = %st_mult.exit.i, %do
 
 for.inc.i:                                        ; preds = %do.end.i, %for.body.i
   %17 = phi i32 [ %.pre71, %do.end.i ], [ %12, %for.body.i ]
-  %active_modules.sroa.0.2.i = phi ptr [ %active_modules.sroa.0.1.i, %do.end.i ], [ %active_modules.sroa.0.023.i, %for.body.i ]
-  %active_modules.sroa.5.3.i = phi i32 [ %active_modules.sroa.5.2.i, %do.end.i ], [ %active_modules.sroa.5.024.i, %for.body.i ]
-  %active_modules.sroa.11.1.i = phi i32 [ %add.i, %do.end.i ], [ %active_modules.sroa.11.025.i, %for.body.i ]
+  %active_modules.sroa.0.2.i = phi ptr [ %active_modules.sroa.0.1.i, %do.end.i ], [ %active_modules.sroa.0.024.i, %for.body.i ]
+  %active_modules.sroa.5.3.i = phi i32 [ %active_modules.sroa.5.2.i, %do.end.i ], [ %active_modules.sroa.5.025.i, %for.body.i ]
+  %active_modules.sroa.11.1.i = phi i32 [ %add.i, %do.end.i ], [ %active_modules.sroa.11.026.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %18 = sext i32 %17 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %18
@@ -4028,9 +4028,9 @@ if.then11:                                        ; preds = %land.lhs.true
 for.body.i:                                       ; preds = %if.then11, %for.inc.i
   %2 = phi i32 [ %7, %for.inc.i ], [ %1, %if.then11 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.then11 ]
-  %active_modules.sroa.11.025.i = phi i32 [ %active_modules.sroa.11.1.i, %for.inc.i ], [ 0, %if.then11 ]
-  %active_modules.sroa.5.024.i = phi i32 [ %active_modules.sroa.5.3.i, %for.inc.i ], [ 0, %if.then11 ]
-  %active_modules.sroa.0.023.i = phi ptr [ %active_modules.sroa.0.2.i, %for.inc.i ], [ null, %if.then11 ]
+  %active_modules.sroa.11.026.i = phi i32 [ %active_modules.sroa.11.1.i, %for.inc.i ], [ 0, %if.then11 ]
+  %active_modules.sroa.5.025.i = phi i32 [ %active_modules.sroa.5.3.i, %for.inc.i ], [ 0, %if.then11 ]
+  %active_modules.sroa.0.024.i = phi ptr [ %active_modules.sroa.0.2.i, %for.inc.i ], [ null, %if.then11 ]
   %3 = load ptr, ptr %list, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.i
   %4 = load ptr, ptr %arrayidx.i, align 8
@@ -4041,15 +4041,15 @@ for.body.i:                                       ; preds = %if.then11, %for.inc
   br i1 %tobool.not.i, label %for.inc.i, label %do.body.i
 
 do.body.i:                                        ; preds = %for.body.i
-  %add.i = add nsw i32 %active_modules.sroa.11.025.i, 1
-  %cmp2.not.i = icmp slt i32 %active_modules.sroa.11.025.i, %active_modules.sroa.5.024.i
+  %add.i = add nsw i32 %active_modules.sroa.11.026.i, 1
+  %cmp2.not.i = icmp slt i32 %active_modules.sroa.11.026.i, %active_modules.sroa.5.025.i
   br i1 %cmp2.not.i, label %do.end.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %do.body.i
-  %6 = mul i32 %active_modules.sroa.5.024.i, 3
+  %6 = mul i32 %active_modules.sroa.5.025.i, 3
   %mul.i = add i32 %6, 48
   %div.i = sdiv i32 %mul.i, 2
-  %cmp8.not.i = icmp sgt i32 %div.i, %active_modules.sroa.11.025.i
+  %cmp8.not.i = icmp sgt i32 %div.i, %active_modules.sroa.11.026.i
   %div.add.i = select i1 %cmp8.not.i, i32 %div.i, i32 %add.i
   %conv.i = sext i32 %div.add.i to i64
   %mul.ov.i.i = icmp slt i32 %div.add.i, 0
@@ -4061,13 +4061,13 @@ if.then.i.i:                                      ; preds = %if.then3.i
 
 st_mult.exit.i:                                   ; preds = %if.then3.i
   %mul.i.i = shl nuw nsw i64 %conv.i, 3
-  %call22.i = call ptr @xrealloc(ptr noundef %active_modules.sroa.0.023.i, i64 noundef %mul.i.i) #19
+  %call22.i = call ptr @xrealloc(ptr noundef %active_modules.sroa.0.024.i, i64 noundef %mul.i.i) #19
   br label %do.end.i
 
 do.end.i:                                         ; preds = %st_mult.exit.i, %do.body.i
-  %active_modules.sroa.0.1.i = phi ptr [ %call22.i, %st_mult.exit.i ], [ %active_modules.sroa.0.023.i, %do.body.i ]
-  %active_modules.sroa.5.2.i = phi i32 [ %div.add.i, %st_mult.exit.i ], [ %active_modules.sroa.5.024.i, %do.body.i ]
-  %idxprom27.i = sext i32 %active_modules.sroa.11.025.i to i64
+  %active_modules.sroa.0.1.i = phi ptr [ %call22.i, %st_mult.exit.i ], [ %active_modules.sroa.0.024.i, %do.body.i ]
+  %active_modules.sroa.5.2.i = phi i32 [ %div.add.i, %st_mult.exit.i ], [ %active_modules.sroa.5.025.i, %do.body.i ]
+  %idxprom27.i = sext i32 %active_modules.sroa.11.026.i to i64
   %arrayidx28.i = getelementptr inbounds ptr, ptr %active_modules.sroa.0.1.i, i64 %idxprom27.i
   store ptr %4, ptr %arrayidx28.i, align 8
   %.pre = load i32, ptr %nr.i, align 4
@@ -4075,9 +4075,9 @@ do.end.i:                                         ; preds = %st_mult.exit.i, %do
 
 for.inc.i:                                        ; preds = %do.end.i, %for.body.i
   %7 = phi i32 [ %.pre, %do.end.i ], [ %2, %for.body.i ]
-  %active_modules.sroa.0.2.i = phi ptr [ %active_modules.sroa.0.1.i, %do.end.i ], [ %active_modules.sroa.0.023.i, %for.body.i ]
-  %active_modules.sroa.5.3.i = phi i32 [ %active_modules.sroa.5.2.i, %do.end.i ], [ %active_modules.sroa.5.024.i, %for.body.i ]
-  %active_modules.sroa.11.1.i = phi i32 [ %add.i, %do.end.i ], [ %active_modules.sroa.11.025.i, %for.body.i ]
+  %active_modules.sroa.0.2.i = phi ptr [ %active_modules.sroa.0.1.i, %do.end.i ], [ %active_modules.sroa.0.024.i, %for.body.i ]
+  %active_modules.sroa.5.3.i = phi i32 [ %active_modules.sroa.5.2.i, %do.end.i ], [ %active_modules.sroa.5.025.i, %for.body.i ]
+  %active_modules.sroa.11.1.i = phi i32 [ %add.i, %do.end.i ], [ %active_modules.sroa.11.026.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %8 = sext i32 %7 to i64
   %cmp.i = icmp slt i64 %indvars.iv.next.i, %8
@@ -6071,8 +6071,8 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %to_free.0 = phi ptr [ null, %entry ], [ %call5, %if.then ]
   %clone_data_path.0 = phi ptr [ %3, %entry ], [ %call5, %if.then ]
+  %to_free.0 = phi ptr [ null, %entry ], [ %call5, %if.then ]
   %5 = load ptr, ptr %name, align 8
   %call7 = call i32 @validate_submodule_git_dir(ptr noundef %call.i, ptr noundef %5) #19
   %cmp = icmp slt i32 %call7, 0
@@ -8562,8 +8562,8 @@ if.else23:                                        ; preds = %land.lhs.true, %if.
   br label %if.end26
 
 if.end26:                                         ; preds = %get_up_path.exit, %if.else, %if.else23
-  %super_config_url.0 = phi ptr [ %call17, %get_up_path.exit ], [ %call21, %if.else ], [ %call25, %if.else23 ]
   %sub_origin_url.0 = phi ptr [ %call15, %get_up_path.exit ], [ %call19, %if.else ], [ %call24, %if.else23 ]
+  %super_config_url.0 = phi ptr [ %call17, %get_up_path.exit ], [ %call21, %if.else ], [ %call25, %if.else23 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %sb.i30)
   %tobool.i = icmp ne ptr %prefix, null
   %tobool1.i = icmp ne ptr %super_prefix, null
@@ -9053,8 +9053,8 @@ if.end63.sink.split:                              ; preds = %if.end42, %if.end52
   br label %if.end63
 
 if.end63:                                         ; preds = %if.end63.sink.split, %if.end52
-  %tobool86 = phi i1 [ false, %if.end52 ], [ %cmp44, %if.end63.sink.split ]
   %src_abbrev.1 = phi ptr [ %call51, %if.end52 ], [ %call57, %if.end63.sink.split ]
+  %tobool86 = phi i1 [ false, %if.end52 ], [ %cmp44, %if.end63.sink.split ]
   %mod_dst64 = getelementptr inbounds i8, ptr %p, i64 4
   %16 = load i32, ptr %mod_dst64, align 4
   %and65 = and i32 %16, 61440
@@ -9081,8 +9081,8 @@ if.end83.sink.split:                              ; preds = %if.then68, %if.else
   br label %if.end83
 
 if.end83:                                         ; preds = %if.end83.sink.split, %if.then68
-  %tobool88 = phi i1 [ false, %if.then68 ], [ %cmp66, %if.end83.sink.split ]
   %dst_abbrev.0 = phi ptr [ %call72, %if.then68 ], [ %call77, %if.end83.sink.split ]
+  %tobool88 = phi i1 [ false, %if.then68 ], [ %cmp66, %if.end83.sink.split ]
   %sm_path84 = getelementptr inbounds i8, ptr %p, i64 88
   %18 = load ptr, ptr %sm_path84, align 8
   %prefix = getelementptr inbounds i8, ptr %info, i64 16

@@ -695,8 +695,8 @@ do.end234:                                        ; preds = %vaarg.end94, %vaarg
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i, %do.end234
-  %i.0.i.i = phi i32 [ %dec.i.i, %do.body.i.i ], [ 64, %do.end234 ]
   %x.addr.0.i.i = phi i64 [ %div.i.i, %do.body.i.i ], [ %spec.select.i, %do.end234 ]
+  %i.0.i.i = phi i32 [ %dec.i.i, %do.body.i.i ], [ 64, %do.end234 ]
   %dec.i.i = add i32 %i.0.i.i, -1
   %rem.i.i = urem i64 %x.addr.0.i.i, 10
   %arrayidx1.i.i = getelementptr inbounds [11 x i8], ptr @.str, i64 0, i64 %rem.i.i
@@ -1189,8 +1189,8 @@ do.end734:                                        ; preds = %vaarg.end607, %vaar
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %do.end734
-  %i.0.i = phi i32 [ %dec.i, %do.body.i ], [ 64, %do.end734 ]
   %x.addr.0.i = phi i64 [ %div.i, %do.body.i ], [ %val579.0, %do.end734 ]
+  %i.0.i = phi i32 [ %dec.i, %do.body.i ], [ 64, %do.end734 ]
   %dec.i = add i32 %i.0.i, -1
   %rem.i = urem i64 %x.addr.0.i, 10
   %arrayidx1.i = getelementptr inbounds [11 x i8], ptr @.str, i64 0, i64 %rem.i

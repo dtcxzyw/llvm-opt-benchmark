@@ -377,7 +377,7 @@ cond.end:                                         ; preds = %entry
   br i1 %tobool1.not31, label %while.cond16.preheader, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %cond.end.thread, %cond.end
-  %min_commit_date.033.ph = phi i64 [ 0, %cond.end ], [ %1, %cond.end.thread ]
+  %min_commit_date.032.ph = phi i64 [ 0, %cond.end ], [ %1, %cond.end.thread ]
   br label %while.body
 
 while.cond16.preheader:                           ; preds = %if.end15, %cond.end
@@ -389,60 +389,60 @@ while.cond16.preheader:                           ; preds = %if.end15, %cond.end
 
 while.body:                                       ; preds = %while.body.preheader, %if.end15
   %min_generation.034 = phi i64 [ %min_generation.1, %if.end15 ], [ 9223372036854775807, %while.body.preheader ]
-  %min_commit_date.033 = phi i64 [ %min_commit_date.2, %if.end15 ], [ %min_commit_date.033.ph, %while.body.preheader ]
-  %from_iter.032 = phi ptr [ %7, %if.end15 ], [ %from, %while.body.preheader ]
-  %2 = load ptr, ptr %from_iter.032, align 8
+  %from_iter.033 = phi ptr [ %7, %if.end15 ], [ %from, %while.body.preheader ]
+  %min_commit_date.032 = phi i64 [ %min_commit_date.2, %if.end15 ], [ %min_commit_date.032.ph, %while.body.preheader ]
+  %2 = load ptr, ptr %from_iter.033, align 8
   call void @add_object_array(ptr noundef %2, ptr noundef null, ptr noundef nonnull %from_objs) #11
   %3 = load ptr, ptr @the_repository, align 8
-  %4 = load ptr, ptr %from_iter.032, align 8
+  %4 = load ptr, ptr %from_iter.033, align 8
   %call.i = call i32 @repo_parse_commit_gently(ptr noundef %3, ptr noundef %4, i32 noundef 0) #11
   %tobool4.not = icmp eq i32 %call.i, 0
   br i1 %tobool4.not, label %if.then, label %if.end15
 
 if.then:                                          ; preds = %while.body
-  %5 = load ptr, ptr %from_iter.032, align 8
+  %5 = load ptr, ptr %from_iter.033, align 8
   %date6 = getelementptr inbounds i8, ptr %5, i64 40
   %6 = load i64, ptr %date6, align 8
-  %spec.select = call i64 @llvm.umin.i64(i64 %6, i64 %min_commit_date.033)
+  %spec.select = call i64 @llvm.umin.i64(i64 %6, i64 %min_commit_date.032)
   %call11 = call i64 @commit_graph_generation(ptr noundef %5) #11
   %spec.select28 = call i64 @llvm.umin.i64(i64 %call11, i64 %min_generation.034)
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then, %while.body
-  %min_commit_date.2 = phi i64 [ %min_commit_date.033, %while.body ], [ %spec.select, %if.then ]
+  %min_commit_date.2 = phi i64 [ %min_commit_date.032, %while.body ], [ %spec.select, %if.then ]
   %min_generation.1 = phi i64 [ %min_generation.034, %while.body ], [ %spec.select28, %if.then ]
-  %next = getelementptr inbounds i8, ptr %from_iter.032, i64 8
+  %next = getelementptr inbounds i8, ptr %from_iter.033, i64 8
   %7 = load ptr, ptr %next, align 8
   %tobool1.not = icmp eq ptr %7, null
   br i1 %tobool1.not, label %while.cond16.preheader, label %while.body, !llvm.loop !16
 
 while.body18:                                     ; preds = %while.cond16.preheader, %if.end36
   %min_generation.239 = phi i64 [ %min_generation.3, %if.end36 ], [ %min_generation.0.lcssa, %while.cond16.preheader ]
-  %min_commit_date.338 = phi i64 [ %min_commit_date.5, %if.end36 ], [ %min_commit_date.0.lcssa, %while.cond16.preheader ]
-  %to_iter.037 = phi ptr [ %13, %if.end36 ], [ %to, %while.cond16.preheader ]
+  %to_iter.038 = phi ptr [ %13, %if.end36 ], [ %to, %while.cond16.preheader ]
+  %min_commit_date.337 = phi i64 [ %min_commit_date.5, %if.end36 ], [ %min_commit_date.0.lcssa, %while.cond16.preheader ]
   %8 = load ptr, ptr @the_repository, align 8
-  %9 = load ptr, ptr %to_iter.037, align 8
+  %9 = load ptr, ptr %to_iter.038, align 8
   %call.i30 = call i32 @repo_parse_commit_gently(ptr noundef %8, ptr noundef %9, i32 noundef 0) #11
   %tobool21.not = icmp eq i32 %call.i30, 0
   br i1 %tobool21.not, label %if.then22, label %if.end36
 
 if.then22:                                        ; preds = %while.body18
-  %10 = load ptr, ptr %to_iter.037, align 8
+  %10 = load ptr, ptr %to_iter.038, align 8
   %date25 = getelementptr inbounds i8, ptr %10, i64 40
   %11 = load i64, ptr %date25, align 8
-  %spec.select27 = call i64 @llvm.umin.i64(i64 %11, i64 %min_commit_date.338)
+  %spec.select27 = call i64 @llvm.umin.i64(i64 %11, i64 %min_commit_date.337)
   %call32 = call i64 @commit_graph_generation(ptr noundef %10) #11
   %spec.select29 = call i64 @llvm.umin.i64(i64 %call32, i64 %min_generation.239)
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then22, %while.body18
-  %min_commit_date.5 = phi i64 [ %min_commit_date.338, %while.body18 ], [ %spec.select27, %if.then22 ]
+  %min_commit_date.5 = phi i64 [ %min_commit_date.337, %while.body18 ], [ %spec.select27, %if.then22 ]
   %min_generation.3 = phi i64 [ %min_generation.239, %while.body18 ], [ %spec.select29, %if.then22 ]
-  %12 = load ptr, ptr %to_iter.037, align 8
+  %12 = load ptr, ptr %to_iter.038, align 8
   %bf.load = load i32, ptr %12, align 8
   %bf.set = or i32 %bf.load, 2097152
   store i32 %bf.set, ptr %12, align 8
-  %next40 = getelementptr inbounds i8, ptr %to_iter.037, i64 8
+  %next40 = getelementptr inbounds i8, ptr %to_iter.038, i64 8
   %13 = load ptr, ptr %next40, align 8
   %tobool17.not = icmp eq ptr %13, null
   br i1 %tobool17.not, label %while.end41, label %while.body18, !llvm.loop !17
@@ -1043,8 +1043,8 @@ for.body78.lr.ph.i:                               ; preds = %for.end71.i
 for.body78.i:                                     ; preds = %while.end183.i, %for.body78.lr.ph.i
   %indvars.iv168.i = phi i64 [ %14, %for.body78.lr.ph.i ], [ %indvars.iv.next169.i, %while.end183.i ]
   %min_gen_pos.0148.i = phi i32 [ 0, %for.body78.lr.ph.i ], [ %min_gen_pos.1.lcssa.i, %while.end183.i ]
-  %count_still_independent.0147.i = phi i32 [ %cnt, %for.body78.lr.ph.i ], [ %count_still_independent.3.i, %while.end183.i ]
-  %min_generation.0146.i = phi i64 [ %call4.i, %for.body78.lr.ph.i ], [ %min_generation.1.lcssa.i, %while.end183.i ]
+  %min_generation.0147.i = phi i64 [ %call4.i, %for.body78.lr.ph.i ], [ %min_generation.1.lcssa.i, %while.end183.i ]
+  %count_still_independent.0146.i = phi i32 [ %cnt, %for.body78.lr.ph.i ], [ %count_still_independent.3.i, %while.end183.i ]
   store ptr null, ptr %stack.i, align 8
   %arrayidx80.i = getelementptr inbounds ptr, ptr %walk_start.1.lcssa.i, i64 %indvars.iv168.i
   %15 = load ptr, ptr %arrayidx80.i, align 8
@@ -1060,8 +1060,8 @@ for.body78.i:                                     ; preds = %while.end183.i, %fo
 while.body95.i:                                   ; preds = %for.body78.i, %while.cond93.backedge.i
   %18 = phi ptr [ %30, %while.cond93.backedge.i ], [ %17, %for.body78.i ]
   %min_gen_pos.1136.i = phi i32 [ %min_gen_pos.3.i, %while.cond93.backedge.i ], [ %min_gen_pos.0148.i, %for.body78.i ]
-  %count_still_independent.1135.i = phi i32 [ %count_still_independent.2.i, %while.cond93.backedge.i ], [ %count_still_independent.0147.i, %for.body78.i ]
-  %min_generation.1134.i = phi i64 [ %min_generation.2.i, %while.cond93.backedge.i ], [ %min_generation.0146.i, %for.body78.i ]
+  %min_generation.1135.i = phi i64 [ %min_generation.2.i, %while.cond93.backedge.i ], [ %min_generation.0147.i, %for.body78.i ]
+  %count_still_independent.1134.i = phi i32 [ %count_still_independent.2.i, %while.cond93.backedge.i ], [ %count_still_independent.0146.i, %for.body78.i ]
   %19 = load ptr, ptr %18, align 8
   %call.i97.i = call i32 @repo_parse_commit_gently(ptr noundef %r, ptr noundef %19, i32 noundef 0) #11
   %bf.load100.i = load i32, ptr %19, align 8
@@ -1072,8 +1072,8 @@ while.body95.i:                                   ; preds = %for.body78.i, %whil
 if.then104.i:                                     ; preds = %while.body95.i
   %bf.set113.i = and i32 %bf.load100.i, -8388609
   store i32 %bf.set113.i, ptr %19, align 8
-  %dec.i = add nsw i32 %count_still_independent.1135.i, -1
-  %cmp114.i = icmp slt i32 %count_still_independent.1135.i, 3
+  %dec.i = add nsw i32 %count_still_independent.1134.i, -1
+  %cmp114.i = icmp slt i32 %count_still_independent.1134.i, 3
   br i1 %cmp114.i, label %if.then104.while.end183.loopexit_crit_edge.i, label %if.end117.i
 
 if.then104.while.end183.loopexit_crit_edge.i:     ; preds = %if.then104.i
@@ -1160,8 +1160,8 @@ while.end141.i:                                   ; preds = %while.end141.loopex
   br label %if.end146.i
 
 if.end146.i:                                      ; preds = %while.end141.i, %oideq.exit.i, %while.body95.i
-  %min_generation.2.i = phi i64 [ %call144.i, %while.end141.i ], [ %min_generation.1134.i, %oideq.exit.i ], [ %min_generation.1134.i, %while.body95.i ]
-  %count_still_independent.2.i = phi i32 [ %dec.i, %while.end141.i ], [ %dec.i, %oideq.exit.i ], [ %count_still_independent.1135.i, %while.body95.i ]
+  %count_still_independent.2.i = phi i32 [ %dec.i, %while.end141.i ], [ %dec.i, %oideq.exit.i ], [ %count_still_independent.1134.i, %while.body95.i ]
+  %min_generation.2.i = phi i64 [ %call144.i, %while.end141.i ], [ %min_generation.1135.i, %oideq.exit.i ], [ %min_generation.1135.i, %while.body95.i ]
   %min_gen_pos.3.i = phi i32 [ %min_gen_pos.2.lcssa.i, %while.end141.i ], [ %min_gen_pos.1136.i, %oideq.exit.i ], [ %min_gen_pos.1136.i, %while.body95.i ]
   %call147.i = call i64 @commit_graph_generation(ptr noundef nonnull %19) #11
   %cmp148.i = icmp ult i64 %call147.i, %min_generation.2.i
@@ -1209,9 +1209,9 @@ if.then180.i:                                     ; preds = %if.end176.i, %if.en
 
 while.end183.i:                                   ; preds = %while.cond93.backedge.i, %if.then104.while.end183.loopexit_crit_edge.i, %for.body78.i
   %34 = phi ptr [ null, %for.body78.i ], [ %.pre184.pre.i, %if.then104.while.end183.loopexit_crit_edge.i ], [ null, %while.cond93.backedge.i ]
-  %min_generation.1.lcssa.i = phi i64 [ %min_generation.0146.i, %for.body78.i ], [ %min_generation.1134.i, %if.then104.while.end183.loopexit_crit_edge.i ], [ %min_generation.2.i, %while.cond93.backedge.i ]
+  %min_generation.1.lcssa.i = phi i64 [ %min_generation.0147.i, %for.body78.i ], [ %min_generation.1135.i, %if.then104.while.end183.loopexit_crit_edge.i ], [ %min_generation.2.i, %while.cond93.backedge.i ]
   %min_gen_pos.1.lcssa.i = phi i32 [ %min_gen_pos.0148.i, %for.body78.i ], [ %min_gen_pos.1136.i, %if.then104.while.end183.loopexit_crit_edge.i ], [ %min_gen_pos.3.i, %while.cond93.backedge.i ]
-  %count_still_independent.3.i = phi i32 [ %count_still_independent.0147.i, %for.body78.i ], [ 1, %if.then104.while.end183.loopexit_crit_edge.i ], [ %count_still_independent.2.i, %while.cond93.backedge.i ]
+  %count_still_independent.3.i = phi i32 [ %count_still_independent.0146.i, %for.body78.i ], [ 1, %if.then104.while.end183.loopexit_crit_edge.i ], [ %count_still_independent.2.i, %while.cond93.backedge.i ]
   call void @free_commit_list(ptr noundef %34) #11
   %indvars.iv.next169.i = add nsw i64 %indvars.iv168.i, -1
   %cmp74.i = icmp sgt i64 %indvars.iv168.i, 0
@@ -1307,7 +1307,7 @@ for.body11.i:                                     ; preds = %for.body.i15, %for.
 for.body20.i:                                     ; preds = %for.body11.i, %for.inc43.i
   %indvars.iv79.i = phi i64 [ %indvars.iv.next80.i, %for.inc43.i ], [ 0, %for.body11.i ]
   %min_generation.068.i = phi i64 [ %min_generation.1.i, %for.inc43.i ], [ %call14.i, %for.body11.i ]
-  %filled.066.i = phi i32 [ %filled.1.i, %for.inc43.i ], [ 0, %for.body11.i ]
+  %filled.067.i = phi i32 [ %filled.1.i, %for.inc43.i ], [ 0, %for.body11.i ]
   %cmp21.i = icmp eq i64 %indvars.iv89.i, %indvars.iv79.i
   br i1 %cmp21.i, label %for.inc43.i, label %lor.lhs.false.i
 
@@ -1318,13 +1318,13 @@ lor.lhs.false.i:                                  ; preds = %for.body20.i
   br i1 %tobool26.not.i, label %if.end28.i, label %for.inc43.i
 
 if.end28.i:                                       ; preds = %lor.lhs.false.i
-  %idxprom29.i = sext i32 %filled.066.i to i64
+  %idxprom29.i = sext i32 %filled.067.i to i64
   %arrayidx30.i = getelementptr inbounds i32, ptr %call5.i, i64 %idxprom29.i
   %44 = trunc nuw nsw i64 %indvars.iv79.i to i32
   store i32 %44, ptr %arrayidx30.i, align 4
   %arrayidx32.i = getelementptr inbounds ptr, ptr %array, i64 %indvars.iv79.i
   %45 = load ptr, ptr %arrayidx32.i, align 8
-  %inc33.i = add nsw i32 %filled.066.i, 1
+  %inc33.i = add nsw i32 %filled.067.i, 1
   %arrayidx35.i = getelementptr inbounds ptr, ptr %call.i, i64 %idxprom29.i
   store ptr %45, ptr %arrayidx35.i, align 8
   %call38.i = tail call i64 @commit_graph_generation(ptr noundef %45) #11
@@ -1332,7 +1332,7 @@ if.end28.i:                                       ; preds = %lor.lhs.false.i
   br label %for.inc43.i
 
 for.inc43.i:                                      ; preds = %if.end28.i, %lor.lhs.false.i, %for.body20.i
-  %filled.1.i = phi i32 [ %filled.066.i, %for.body20.i ], [ %filled.066.i, %lor.lhs.false.i ], [ %inc33.i, %if.end28.i ]
+  %filled.1.i = phi i32 [ %filled.067.i, %for.body20.i ], [ %filled.067.i, %lor.lhs.false.i ], [ %inc33.i, %if.end28.i ]
   %min_generation.1.i = phi i64 [ %min_generation.068.i, %for.body20.i ], [ %min_generation.068.i, %lor.lhs.false.i ], [ %spec.select.i, %if.end28.i ]
   %indvars.iv.next80.i = add nuw nsw i64 %indvars.iv79.i, 1
   %exitcond83.not.i = icmp eq i64 %indvars.iv.next80.i, %wide.trip.count.i14
@@ -1400,7 +1400,7 @@ for.body85.preheader.i:                           ; preds = %for.inc78.i
 
 for.body85.i:                                     ; preds = %for.inc96.i, %for.body85.preheader.i
   %indvars.iv94.i = phi i64 [ 0, %for.body85.preheader.i ], [ %indvars.iv.next95.i, %for.inc96.i ]
-  %filled.275.i = phi i32 [ 0, %for.body85.preheader.i ], [ %filled.3.i, %for.inc96.i ]
+  %filled.276.i = phi i32 [ 0, %for.body85.preheader.i ], [ %filled.3.i, %for.inc96.i ]
   %arrayidx87.i = getelementptr inbounds i8, ptr %call2.i10, i64 %indvars.iv94.i
   %53 = load i8, ptr %arrayidx87.i, align 1
   %tobool88.not.i = icmp eq i8 %53, 0
@@ -1409,14 +1409,14 @@ for.body85.i:                                     ; preds = %for.inc96.i, %for.b
 if.then89.i:                                      ; preds = %for.body85.i
   %arrayidx91.i = getelementptr inbounds ptr, ptr %call.i, i64 %indvars.iv94.i
   %54 = load ptr, ptr %arrayidx91.i, align 8
-  %inc92.i = add nsw i32 %filled.275.i, 1
-  %idxprom93.i = sext i32 %filled.275.i to i64
+  %inc92.i = add nsw i32 %filled.276.i, 1
+  %idxprom93.i = sext i32 %filled.276.i to i64
   %arrayidx94.i = getelementptr inbounds ptr, ptr %array, i64 %idxprom93.i
   store ptr %54, ptr %arrayidx94.i, align 8
   br label %for.inc96.i
 
 for.inc96.i:                                      ; preds = %if.then89.i, %for.body85.i
-  %filled.3.i = phi i32 [ %filled.275.i, %for.body85.i ], [ %inc92.i, %if.then89.i ]
+  %filled.3.i = phi i32 [ %filled.276.i, %for.body85.i ], [ %inc92.i, %if.then89.i ]
   %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
   %exitcond98.not.i = icmp eq i64 %indvars.iv.next95.i, %wide.trip.count.i14
   br i1 %exitcond98.not.i, label %remove_redundant_no_gen.exit, label %for.body85.i, !llvm.loop !43
@@ -1554,14 +1554,14 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not114.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then, %for.body.i
-  %cutoff.0116.i = phi i64 [ %spec.select.i, %for.body.i ], [ 9223372036854775807, %if.then ]
-  %p.0115.i = phi ptr [ %2, %for.body.i ], [ %list, %if.then ]
-  %0 = load ptr, ptr %p.0115.i, align 8
+  %p.0116.i = phi ptr [ %2, %for.body.i ], [ %list, %if.then ]
+  %cutoff.0115.i = phi i64 [ %spec.select.i, %for.body.i ], [ 9223372036854775807, %if.then ]
+  %0 = load ptr, ptr %p.0116.i, align 8
   %1 = load ptr, ptr @the_repository, align 8
   tail call void @load_commit_graph_info(ptr noundef %1, ptr noundef %0) #11
   %call.i = tail call i64 @commit_graph_generation(ptr noundef %0) #11
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %call.i, i64 %cutoff.0116.i)
-  %next.i = getelementptr inbounds i8, ptr %p.0115.i, i64 8
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %call.i, i64 %cutoff.0115.i)
+  %next.i = getelementptr inbounds i8, ptr %p.0116.i, i64 8
   %2 = load ptr, ptr %next.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !44
@@ -2188,16 +2188,16 @@ entry:
   br i1 %cmp36, label %for.body, label %for.cond11.preheader
 
 for.cond11.preheader:                             ; preds = %for.inc, %entry
-  %num_to_find.0.lcssa = phi i32 [ 0, %entry ], [ %num_to_find.1, %for.inc ]
   %min_generation.0.lcssa = phi i64 [ 9223372036854775807, %entry ], [ %spec.select, %for.inc ]
+  %num_to_find.0.lcssa = phi i32 [ 0, %entry ], [ %num_to_find.1, %for.inc ]
   %cmp1241 = icmp sgt i32 %nr_from, 0
   br i1 %cmp1241, label %for.body13, label %while.cond.preheader
 
 for.body:                                         ; preds = %entry, %for.inc
-  %item.039 = phi ptr [ %incdec.ptr, %for.inc ], [ %to, %entry ]
+  %num_to_find.039 = phi i32 [ %num_to_find.1, %for.inc ], [ 0, %entry ]
   %min_generation.038 = phi i64 [ %spec.select, %for.inc ], [ 9223372036854775807, %entry ]
-  %num_to_find.037 = phi i32 [ %num_to_find.1, %for.inc ], [ 0, %entry ]
-  %0 = load ptr, ptr %item.039, align 8
+  %item.037 = phi ptr [ %incdec.ptr, %for.inc ], [ %to, %entry ]
+  %0 = load ptr, ptr %item.037, align 8
   %1 = load ptr, ptr @the_repository, align 8
   %call.i = tail call i32 @repo_parse_commit_gently(ptr noundef %1, ptr noundef %0, i32 noundef 0) #11
   %call3 = tail call i64 @commit_graph_generation(ptr noundef %0) #11
@@ -2210,12 +2210,12 @@ for.body:                                         ; preds = %entry, %for.inc
 if.then5:                                         ; preds = %for.body
   %bf.set = or disjoint i32 %bf.load, 1048576
   store i32 %bf.set, ptr %0, align 8
-  %inc = add nsw i32 %num_to_find.037, 1
+  %inc = add nsw i32 %num_to_find.039, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then5
-  %num_to_find.1 = phi i32 [ %num_to_find.037, %for.body ], [ %inc, %if.then5 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %item.039, i64 8
+  %num_to_find.1 = phi i32 [ %num_to_find.039, %for.body ], [ %inc, %if.then5 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %item.037, i64 8
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp, label %for.body, label %for.cond11.preheader, !llvm.loop !52
 
@@ -2842,17 +2842,17 @@ while.body:                                       ; preds = %sane_qsort.exit, %w
 
 while.body17:                                     ; preds = %while.body17.lr.ph, %if.end110
   %7 = phi ptr [ %3, %while.body17.lr.ph ], [ %22, %if.end110 ]
-  %min_generation_index.078 = phi i64 [ 0, %while.body17.lr.ph ], [ %min_generation_index.1.lcssa, %if.end110 ]
-  %min_generation.077 = phi i64 [ %2, %while.body17.lr.ph ], [ %min_generation.1.lcssa, %if.end110 ]
+  %min_generation.078 = phi i64 [ %2, %while.body17.lr.ph ], [ %min_generation.1.lcssa, %if.end110 ]
+  %min_generation_index.077 = phi i64 [ 0, %while.body17.lr.ph ], [ %min_generation_index.1.lcssa, %if.end110 ]
   %8 = load ptr, ptr %7, align 8
   %call19 = call i64 @commit_graph_generation(ptr noundef %8) #11
-  %cmp2166 = icmp ult i64 %min_generation_index.078, %tips_nr
+  %cmp2166 = icmp ult i64 %min_generation_index.077, %tips_nr
   br i1 %cmp2166, label %for.body23, label %for.end72
 
 for.body23:                                       ; preds = %while.body17, %for.inc70
-  %j.069 = phi i64 [ %inc71, %for.inc70 ], [ %min_generation_index.078, %while.body17 ]
-  %min_generation_index.168 = phi i64 [ %min_generation_index.2, %for.inc70 ], [ %min_generation_index.078, %while.body17 ]
-  %min_generation.167 = phi i64 [ %min_generation.2, %for.inc70 ], [ %min_generation.077, %while.body17 ]
+  %j.069 = phi i64 [ %inc71, %for.inc70 ], [ %min_generation_index.077, %while.body17 ]
+  %min_generation.168 = phi i64 [ %min_generation.2, %for.inc70 ], [ %min_generation.078, %while.body17 ]
+  %min_generation_index.167 = phi i64 [ %min_generation_index.2, %for.inc70 ], [ %min_generation_index.077, %while.body17 ]
   %arrayidx24 = getelementptr inbounds %struct.commit_and_index, ptr %call, i64 %j.069
   %generation25 = getelementptr inbounds i8, ptr %arrayidx24, i64 16
   %9 = load i64, ptr %generation25, align 8
@@ -2873,7 +2873,7 @@ if.then34:                                        ; preds = %if.end29
   %bf.load = load i32, ptr %12, align 8
   %bf.set = or i32 %bf.load, %bf.value56
   store i32 %bf.set, ptr %12, align 8
-  %cmp39 = icmp eq i64 %j.069, %min_generation_index.168
+  %cmp39 = icmp eq i64 %j.069, %min_generation_index.167
   br i1 %cmp39, label %if.then41, label %for.inc70
 
 if.then41:                                        ; preds = %if.then34
@@ -2905,15 +2905,15 @@ if.end63:                                         ; preds = %land.rhs
   br label %for.inc70
 
 for.inc70:                                        ; preds = %if.end29, %if.end63, %if.then34
-  %min_generation.2 = phi i64 [ %16, %if.end63 ], [ %min_generation.167, %if.then34 ], [ %min_generation.167, %if.end29 ]
-  %min_generation_index.2 = phi i64 [ %conv44, %if.end63 ], [ %min_generation_index.168, %if.then34 ], [ %min_generation_index.168, %if.end29 ]
+  %min_generation_index.2 = phi i64 [ %conv44, %if.end63 ], [ %min_generation_index.167, %if.then34 ], [ %min_generation_index.167, %if.end29 ]
+  %min_generation.2 = phi i64 [ %16, %if.end63 ], [ %min_generation.168, %if.then34 ], [ %min_generation.168, %if.end29 ]
   %inc71 = add i64 %j.069, 1
   %exitcond82.not = icmp eq i64 %inc71, %tips_nr
   br i1 %exitcond82.not, label %for.end72, label %for.body23, !llvm.loop !66
 
 for.end72:                                        ; preds = %for.inc70, %for.body23, %while.body17
-  %min_generation.1.lcssa = phi i64 [ %min_generation.077, %while.body17 ], [ %min_generation.167, %for.body23 ], [ %min_generation.2, %for.inc70 ]
-  %min_generation_index.1.lcssa = phi i64 [ %min_generation_index.078, %while.body17 ], [ %min_generation_index.168, %for.body23 ], [ %min_generation_index.2, %for.inc70 ]
+  %min_generation_index.1.lcssa = phi i64 [ %min_generation_index.077, %while.body17 ], [ %min_generation_index.167, %for.body23 ], [ %min_generation_index.2, %for.inc70 ]
+  %min_generation.1.lcssa = phi i64 [ %min_generation.078, %while.body17 ], [ %min_generation.168, %for.body23 ], [ %min_generation.2, %for.inc70 ]
   %parents = getelementptr inbounds i8, ptr %8, i64 48
   %p.073 = load ptr, ptr %parents, align 8
   %tobool74.not.not74 = icmp eq ptr %p.073, null

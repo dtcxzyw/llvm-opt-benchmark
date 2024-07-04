@@ -60,16 +60,16 @@ define internal fastcc noundef i32 @MPL_shm_seg_create_attach_templ(ptr nocaptur
   br i1 %13, label %MPLI_shm_ghnd_alloc.exit, label %14
 
 14:                                               ; preds = %11, %8
-  %.039 = phi ptr [ %6, %11 ], [ %5, %8 ]
-  %.0.in = phi i32 [ %12, %11 ], [ %9, %8 ]
-  %.0 = sext i32 %.0.in to i64
-  store i64 %.0, ptr %0, align 8
+  %.041.in = phi i32 [ %12, %11 ], [ %9, %8 ]
+  %.0 = phi ptr [ %6, %11 ], [ %5, %8 ]
+  %.041 = sext i32 %.041.in to i64
+  store i64 %.041, ptr %0, align 8
   %15 = add nsw i64 %1, -1
-  %16 = call i64 @lseek(i32 noundef %.0.in, i64 noundef %15, i32 noundef 0) #9
+  %16 = call i64 @lseek(i32 noundef %.041.in, i64 noundef %15, i32 noundef 0) #9
   br label %17
 
 17:                                               ; preds = %21, %14
-  %18 = call i64 @write(i32 noundef %.0.in, ptr noundef nonnull @.str, i64 noundef 1) #9
+  %18 = call i64 @write(i32 noundef %.041.in, ptr noundef nonnull @.str, i64 noundef 1) #9
   %19 = and i64 %18, 4294967295
   %20 = icmp eq i64 %19, 4294967295
   br i1 %20, label %21, label %.critedge
@@ -98,7 +98,7 @@ define internal fastcc noundef i32 @MPL_shm_seg_create_attach_templ(ptr nocaptur
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, -257
   store i32 %33, ptr %31, align 8
-  %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %30, i64 noundef 50, ptr noundef nonnull @.str.1, ptr noundef nonnull %.039) #9
+  %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %30, i64 noundef 50, ptr noundef nonnull @.str.1, ptr noundef nonnull %.0) #9
   %.not51 = icmp eq i32 %34, 0
   br i1 %.not51, label %MPLI_shm_ghnd_alloc.exit, label %44
 
@@ -210,9 +210,9 @@ MPLI_shm_ghnd_alloc.exit:                         ; preds = %27, %check_valid_fi
   br label %MPLI_shm_lhnd_close.exit
 
 MPLI_shm_lhnd_close.exit:                         ; preds = %80, %76, %MPLI_shm_ghnd_alloc.exit
-  %.040 = phi i32 [ 0, %MPLI_shm_ghnd_alloc.exit ], [ 9, %76 ], [ 0, %80 ]
+  %.039 = phi i32 [ 0, %MPLI_shm_ghnd_alloc.exit ], [ 9, %76 ], [ 0, %80 ]
   %.not56 = icmp eq i32 %.2, 0
-  %81 = select i1 %.not56, i32 %.040, i32 %.2
+  %81 = select i1 %.not56, i32 %.039, i32 %.2
   ret i32 %81
 }
 
@@ -258,9 +258,9 @@ MPLI_shm_ghnd_alloc.exit.i.thread:                ; preds = %2, %MPLI_shm_ghnd_a
 
 MPL_shm_seg_create_attach_templ.exit:             ; preds = %MPLI_shm_ghnd_alloc.exit.i, %MPLI_shm_ghnd_alloc.exit.i.thread, %16
   %.2.i5 = phi i32 [ %.2.i, %MPLI_shm_ghnd_alloc.exit.i ], [ %.2.i4, %MPLI_shm_ghnd_alloc.exit.i.thread ], [ %.2.i4, %16 ]
-  %.040.i = phi i32 [ 0, %MPLI_shm_ghnd_alloc.exit.i ], [ 9, %MPLI_shm_ghnd_alloc.exit.i.thread ], [ 0, %16 ]
+  %.039.i = phi i32 [ 0, %MPLI_shm_ghnd_alloc.exit.i ], [ 9, %MPLI_shm_ghnd_alloc.exit.i.thread ], [ 0, %16 ]
   %.not56.i = icmp eq i32 %.2.i5, 0
-  %17 = select i1 %.not56.i, i32 %.040.i, i32 %.2.i5
+  %17 = select i1 %.not56.i, i32 %.039.i, i32 %.2.i5
   ret i32 %17
 }
 
@@ -316,9 +316,9 @@ MPLI_shm_ghnd_alloc.exit.i:                       ; preds = %13, %6
   br label %MPL_shm_seg_create_attach_templ.exit
 
 MPL_shm_seg_create_attach_templ.exit:             ; preds = %MPLI_shm_ghnd_alloc.exit.i, %20, %24
-  %.040.i = phi i32 [ 0, %MPLI_shm_ghnd_alloc.exit.i ], [ 9, %20 ], [ 0, %24 ]
+  %.039.i = phi i32 [ 0, %MPLI_shm_ghnd_alloc.exit.i ], [ 9, %20 ], [ 0, %24 ]
   %.not56.i = icmp eq i32 %.2.i, 0
-  %25 = select i1 %.not56.i, i32 %.040.i, i32 %.2.i
+  %25 = select i1 %.not56.i, i32 %.039.i, i32 %.2.i
   ret i32 %25
 }
 

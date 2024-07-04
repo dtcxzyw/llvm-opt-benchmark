@@ -141,8 +141,8 @@ define i32 @mca_coll_basic_gatherv_intra(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !4
 
 .loopexit:                                        ; preds = %67, %.thread, %56, %.thread.us, %25, %22, %14, %18
-  %.0 = phi i32 [ %21, %18 ], [ 0, %14 ], [ 0, %22 ], [ 0, %25 ], [ %.1.us, %56 ], [ 0, %.thread.us ], [ %71, %67 ], [ 0, %.thread ]
-  ret i32 %.0
+  %.047 = phi i32 [ %21, %18 ], [ 0, %14 ], [ 0, %22 ], [ 0, %25 ], [ %.1.us, %56 ], [ 0, %.thread.us ], [ %71, %67 ], [ 0, %.thread ]
+  ret i32 %.047
 }
 
 declare i32 @ompi_datatype_sndrcv(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

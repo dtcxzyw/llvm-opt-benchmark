@@ -208,8 +208,8 @@ if.end17.i:                                       ; preds = %if.end13.i
   br i1 %cmp18.i, label %while.end.i, label %while.body.i
 
 while.end.i:                                      ; preds = %if.end17.i, %if.end13.i, %if.end9.i, %if.then8.i
+  %cmp23.i = phi i1 [ true, %if.then8.i ], [ false, %if.end13.i ], [ true, %if.end17.i ], [ false, %if.end9.i ]
   %buf.1.i = phi ptr [ %buf.0.lcssa.i, %if.then8.i ], [ %call622.i, %if.end9.i ], [ %call622.i, %if.end13.i ], [ %call622.i, %if.end17.i ]
-  %cmp23.i = phi i1 [ true, %if.then8.i ], [ true, %if.end17.i ], [ false, %if.end13.i ], [ false, %if.end9.i ]
   call void @PyEval_RestoreThread(ptr noundef %call2.i) #4
   %3 = load ptr, ptr %p.i, align 8
   %cmp21.i = icmp eq ptr %3, null
@@ -349,8 +349,8 @@ if.end22.i:                                       ; preds = %if.end18.i
   br i1 %cmp23.i, label %while.end.i, label %while.body.i
 
 while.end.i:                                      ; preds = %if.end22.i, %if.end18.i, %if.end14.i, %if.then13.i
-  %cmp28.i = phi i1 [ true, %if.then13.i ], [ false, %if.end18.i ], [ true, %if.end22.i ], [ false, %if.end14.i ]
   %buf.1.i = phi ptr [ %buf.0.lcssa.i, %if.then13.i ], [ %call1121.i, %if.end14.i ], [ %call1121.i, %if.end18.i ], [ %call1121.i, %if.end22.i ]
+  %cmp28.i = phi i1 [ true, %if.then13.i ], [ true, %if.end22.i ], [ false, %if.end18.i ], [ false, %if.end14.i ]
   call void @PyEval_RestoreThread(ptr noundef %call6.i) #4
   %6 = load ptr, ptr %p.i, align 8
   %cmp26.i = icmp eq ptr %6, null
@@ -373,8 +373,8 @@ if.end33.i:                                       ; preds = %while.end.i
   br label %out.i
 
 out.i:                                            ; preds = %if.end33.i, %if.else.i, %if.then29.i, %if.end.i
-  %retval1.0.i = phi ptr [ null, %if.end.i ], [ null, %if.then29.i ], [ null, %if.else.i ], [ %call34.i, %if.end33.i ]
   %buf.2.i = phi ptr [ null, %if.end.i ], [ %buf.1.i, %if.then29.i ], [ %buf.1.i, %if.else.i ], [ %buf.1.i, %if.end33.i ]
+  %retval1.0.i = phi ptr [ null, %if.end.i ], [ null, %if.then29.i ], [ null, %if.else.i ], [ %call34.i, %if.end33.i ]
   call void @PyMem_RawFree(ptr noundef %buf.2.i) #4
   %8 = load i64, ptr %call.i, align 8
   %9 = and i64 %8, 2147483648

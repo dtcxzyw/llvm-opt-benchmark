@@ -222,20 +222,20 @@ land.lhs.true:                                    ; preds = %for.end
   br i1 %or.cond, label %if.end143, label %invoke.cont24
 
 invoke.cont24:                                    ; preds = %land.lhs.true, %invoke.cont24
-  %numSplits.0310 = phi i32 [ %spec.select, %invoke.cont24 ], [ 0, %land.lhs.true ]
-  %a17.0309 = phi i32 [ %inc31, %invoke.cont24 ], [ 0, %land.lhs.true ]
-  %div.i.i.i.i.i39271272276 = lshr i32 %a17.0309, 6
+  %a17.0310 = phi i32 [ %inc31, %invoke.cont24 ], [ 0, %land.lhs.true ]
+  %numSplits.0309 = phi i32 [ %spec.select, %invoke.cont24 ], [ 0, %land.lhs.true ]
+  %div.i.i.i.i.i39271272276 = lshr i32 %a17.0310, 6
   %div.i.i.i.i.i39271.zext = zext nneg i32 %div.i.i.i.i.i39271272276 to i64
   %add.ptr.i.i.i.i.i40 = getelementptr inbounds i64, ptr %call5.i.i.i.i1.i.i, i64 %div.i.i.i.i.i39271.zext
-  %11 = and i32 %a17.0309, 63
+  %11 = and i32 %a17.0310, 63
   %conv4.i.i.i.i.i44 = zext nneg i32 %11 to i64
   %shl.i.i.i45 = shl nuw i64 1, %conv4.i.i.i.i.i44
   %12 = load i64, ptr %add.ptr.i.i.i.i.i40, align 8
   %and.i49 = and i64 %12, %shl.i.i.i45
   %tobool.i.not = icmp ne i64 %and.i49, 0
   %inc28 = zext i1 %tobool.i.not to i32
-  %spec.select = add nuw nsw i32 %numSplits.0310, %inc28
-  %inc31 = add nuw i32 %a17.0309, 1
+  %spec.select = add nuw nsw i32 %numSplits.0309, %inc28
+  %inc31 = add nuw i32 %a17.0310, 1
   %exitcond.not = icmp eq i32 %inc31, %6
   br i1 %exitcond.not, label %if.end33, label %invoke.cont24, !llvm.loop !6
 
@@ -302,9 +302,9 @@ invoke.cont50.lr.ph:                              ; preds = %invoke.cont38
 
 invoke.cont50:                                    ; preds = %invoke.cont50.lr.ph, %_ZNSt6vectorISt4pairIP6aiMeshPK6aiBoneESaIS6_EED2Ev.exit194
   %indvars.iv343 = phi i64 [ 0, %invoke.cont50.lr.ph ], [ %indvars.iv.next344, %_ZNSt6vectorISt4pairIP6aiMeshPK6aiBoneESaIS6_EED2Ev.exit194 ]
-  %meshes.sroa.0.0328 = phi ptr [ null, %invoke.cont50.lr.ph ], [ %meshes.sroa.0.5, %_ZNSt6vectorISt4pairIP6aiMeshPK6aiBoneESaIS6_EED2Ev.exit194 ]
+  %meshes.sroa.23.0328 = phi ptr [ null, %invoke.cont50.lr.ph ], [ %meshes.sroa.23.4, %_ZNSt6vectorISt4pairIP6aiMeshPK6aiBoneESaIS6_EED2Ev.exit194 ]
   %meshes.sroa.11.0327 = phi ptr [ null, %invoke.cont50.lr.ph ], [ %meshes.sroa.11.4, %_ZNSt6vectorISt4pairIP6aiMeshPK6aiBoneESaIS6_EED2Ev.exit194 ]
-  %meshes.sroa.23.0326 = phi ptr [ null, %invoke.cont50.lr.ph ], [ %meshes.sroa.23.4, %_ZNSt6vectorISt4pairIP6aiMeshPK6aiBoneESaIS6_EED2Ev.exit194 ]
+  %meshes.sroa.0.0326 = phi ptr [ null, %invoke.cont50.lr.ph ], [ %meshes.sroa.0.5, %_ZNSt6vectorISt4pairIP6aiMeshPK6aiBoneESaIS6_EED2Ev.exit194 ]
   %17 = load ptr, ptr %mMeshes44, align 8
   %arrayidx46 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv343
   %18 = load ptr, ptr %arrayidx46, align 8
@@ -328,7 +328,7 @@ lpad49.loopexit:                                  ; preds = %cond.true71, %cond.
   br label %lpad49
 
 lpad49.loopexit.split-lp.loopexit:                ; preds = %cond.true.i.i.i175, %cond.true.i.i.i140, %invoke.cont100, %if.then99, %for.end96, %if.then53
-  %meshes.sroa.0.1.ph.ph = phi ptr [ %meshes.sroa.0.0328, %cond.true.i.i.i175 ], [ %meshes.sroa.0.0328, %cond.true.i.i.i140 ], [ %meshes.sroa.0.3, %invoke.cont100 ], [ %meshes.sroa.0.3, %if.then99 ], [ %meshes.sroa.0.3, %for.end96 ], [ %meshes.sroa.0.0328, %if.then53 ]
+  %meshes.sroa.0.1.ph.ph = phi ptr [ %meshes.sroa.0.0326, %cond.true.i.i.i175 ], [ %meshes.sroa.0.0326, %cond.true.i.i.i140 ], [ %meshes.sroa.0.3, %invoke.cont100 ], [ %meshes.sroa.0.3, %if.then99 ], [ %meshes.sroa.0.3, %for.end96 ], [ %meshes.sroa.0.0326, %if.then53 ]
   %lpad.loopexit279 = landingpad { ptr, i32 }
           cleanup
   %.pre347 = load ptr, ptr %newMeshes, align 8
@@ -336,14 +336,14 @@ lpad49.loopexit.split-lp.loopexit:                ; preds = %cond.true.i.i.i175,
 
 lpad49.loopexit.split-lp.loopexit.split-lp:       ; preds = %if.then.i.i.i112.invoke, %if.then.i.i.i188.invoke
   %20 = phi ptr [ %41, %if.then.i.i.i188.invoke ], [ %23, %if.then.i.i.i112.invoke ]
-  %meshes.sroa.0.1.ph.ph278 = phi ptr [ %meshes.sroa.0.0328, %if.then.i.i.i188.invoke ], [ %meshes.sroa.0.2319, %if.then.i.i.i112.invoke ]
+  %meshes.sroa.0.1.ph.ph278 = phi ptr [ %meshes.sroa.0.0326, %if.then.i.i.i188.invoke ], [ %meshes.sroa.0.2317, %if.then.i.i.i112.invoke ]
   %lpad.loopexit.split-lp280 = landingpad { ptr, i32 }
           cleanup
   br label %lpad49
 
 lpad49:                                           ; preds = %lpad49.loopexit.split-lp.loopexit, %lpad49.loopexit.split-lp.loopexit.split-lp, %lpad49.loopexit
   %21 = phi ptr [ %23, %lpad49.loopexit ], [ %.pre347, %lpad49.loopexit.split-lp.loopexit ], [ %20, %lpad49.loopexit.split-lp.loopexit.split-lp ]
-  %meshes.sroa.0.1 = phi ptr [ %meshes.sroa.0.2319, %lpad49.loopexit ], [ %meshes.sroa.0.1.ph.ph, %lpad49.loopexit.split-lp.loopexit ], [ %meshes.sroa.0.1.ph.ph278, %lpad49.loopexit.split-lp.loopexit.split-lp ]
+  %meshes.sroa.0.1 = phi ptr [ %meshes.sroa.0.2317, %lpad49.loopexit ], [ %meshes.sroa.0.1.ph.ph, %lpad49.loopexit.split-lp.loopexit ], [ %meshes.sroa.0.1.ph.ph278, %lpad49.loopexit.split-lp.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad49.loopexit ], [ %lpad.loopexit279, %lpad49.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp280, %lpad49.loopexit.split-lp.loopexit.split-lp ]
   %tobool.not.i.i.i64 = icmp eq ptr %21, null
   br i1 %tobool.not.i.i.i64, label %ehcleanup, label %if.then.i.i.i65
@@ -368,9 +368,9 @@ for.body63:                                       ; preds = %for.body63.preheade
   %23 = phi ptr [ %35, %invoke.cont88 ], [ %.pre, %for.body63.preheader ]
   %conv60321 = phi i64 [ %conv60, %invoke.cont88 ], [ 0, %for.body63.preheader ]
   %b.0320 = phi i32 [ %inc95, %invoke.cont88 ], [ 0, %for.body63.preheader ]
-  %meshes.sroa.0.2319 = phi ptr [ %meshes.sroa.0.3, %invoke.cont88 ], [ %meshes.sroa.0.0328, %for.body63.preheader ]
+  %meshes.sroa.23.1319 = phi ptr [ %meshes.sroa.23.2, %invoke.cont88 ], [ %meshes.sroa.23.0328, %for.body63.preheader ]
   %meshes.sroa.11.1318 = phi ptr [ %meshes.sroa.11.2, %invoke.cont88 ], [ %meshes.sroa.11.0327, %for.body63.preheader ]
-  %meshes.sroa.23.1317 = phi ptr [ %meshes.sroa.23.2, %invoke.cont88 ], [ %meshes.sroa.23.0326, %for.body63.preheader ]
+  %meshes.sroa.0.2317 = phi ptr [ %meshes.sroa.0.3, %invoke.cont88 ], [ %meshes.sroa.0.0326, %for.body63.preheader ]
   %second = getelementptr inbounds %"struct.std::pair", ptr %23, i64 %conv60321, i32 1
   %24 = load ptr, ptr %second, align 8
   %tobool66.not = icmp eq ptr %24, null
@@ -385,7 +385,7 @@ cond.true71:                                      ; preds = %for.body63
 cond.end75:                                       ; preds = %for.body63, %cond.true71
   %cond76 = phi ptr [ %call.i69, %cond.true71 ], [ null, %for.body63 ]
   %sub.ptr.lhs.cast.i71 = ptrtoint ptr %meshes.sroa.11.1318 to i64
-  %sub.ptr.rhs.cast.i72 = ptrtoint ptr %meshes.sroa.0.2319 to i64
+  %sub.ptr.rhs.cast.i72 = ptrtoint ptr %meshes.sroa.0.2317 to i64
   %sub.ptr.sub.i73 = sub i64 %sub.ptr.lhs.cast.i71, %sub.ptr.rhs.cast.i72
   %sub.ptr.div.i74 = ashr exact i64 %sub.ptr.sub.i73, 3
   %conv79 = trunc i64 %sub.ptr.div.i74 to i32
@@ -467,7 +467,7 @@ _ZNSt6vectorISt4pairIjP6aiNodeESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx1
 
 invoke.cont84:                                    ; preds = %_ZNSt6vectorISt4pairIjP6aiNodeESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i77
   %add.ptr.i86 = getelementptr inbounds %"struct.std::pair", ptr %23, i64 %conv60321
-  %cmp.not.i89 = icmp eq ptr %meshes.sroa.11.1318, %meshes.sroa.23.1317
+  %cmp.not.i89 = icmp eq ptr %meshes.sroa.11.1318, %meshes.sroa.23.1319
   br i1 %cmp.not.i89, label %if.else.i92, label %if.then.i90
 
 if.then.i90:                                      ; preds = %invoke.cont84
@@ -509,16 +509,16 @@ _ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %cond.tr
   br i1 %cmp.i.i.i.i.i107, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i105, ptr align 8 %meshes.sroa.0.2319, i64 %sub.ptr.sub.i73, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i105, ptr align 8 %meshes.sroa.0.2317, i64 %sub.ptr.sub.i73, i1 false)
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
 
 _ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i108 = getelementptr inbounds i8, ptr %cond.i10.i.i105, i64 %sub.ptr.sub.i73
-  %tobool.not.i.i.i110 = icmp eq ptr %meshes.sroa.0.2319, null
+  %tobool.not.i.i.i110 = icmp eq ptr %meshes.sroa.0.2317, null
   br i1 %tobool.not.i.i.i110, label %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
-  call void @_ZdlPv(ptr noundef nonnull %meshes.sroa.0.2319) #19
+  call void @_ZdlPv(ptr noundef nonnull %meshes.sroa.0.2317) #19
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
@@ -526,9 +526,9 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_
   br label %invoke.cont88
 
 invoke.cont88:                                    ; preds = %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i90
-  %meshes.sroa.23.2 = phi ptr [ %add.ptr19.i.i111, %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %meshes.sroa.23.1317, %if.then.i90 ]
+  %meshes.sroa.0.3 = phi ptr [ %cond.i10.i.i105, %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %meshes.sroa.0.2317, %if.then.i90 ]
   %add.ptr.i.i.i.i.i108.pn = phi ptr [ %add.ptr.i.i.i.i.i108, %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %meshes.sroa.11.1318, %if.then.i90 ]
-  %meshes.sroa.0.3 = phi ptr [ %cond.i10.i.i105, %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %meshes.sroa.0.2319, %if.then.i90 ]
+  %meshes.sroa.23.2 = phi ptr [ %add.ptr19.i.i111, %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %meshes.sroa.23.1319, %if.then.i90 ]
   %meshes.sroa.11.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i108.pn, i64 8
   %35 = load ptr, ptr %newMeshes, align 8
   %add.ptr.i116 = getelementptr inbounds %"struct.std::pair", ptr %35, i64 %conv60321
@@ -580,7 +580,7 @@ if.else:                                          ; preds = %invoke.cont50, %if.
   %42 = load ptr, ptr %mSubMeshIndices, align 8
   %add.ptr.i117 = getelementptr inbounds %"class.std::vector.19", ptr %42, i64 %indvars.iv343
   %sub.ptr.lhs.cast.i119 = ptrtoint ptr %meshes.sroa.11.0327 to i64
-  %sub.ptr.rhs.cast.i120 = ptrtoint ptr %meshes.sroa.0.0328 to i64
+  %sub.ptr.rhs.cast.i120 = ptrtoint ptr %meshes.sroa.0.0326 to i64
   %sub.ptr.sub.i121 = sub i64 %sub.ptr.lhs.cast.i119, %sub.ptr.rhs.cast.i120
   %sub.ptr.div.i122 = ashr exact i64 %sub.ptr.sub.i121, 3
   %conv110 = trunc i64 %sub.ptr.div.i122 to i32
@@ -659,7 +659,7 @@ _ZNSt6vectorISt4pairIjP6aiNodeESaIS3_EE17_M_realloc_insertIJjS2_EEEvN9__gnu_cxx1
   br label %invoke.cont112
 
 invoke.cont112:                                   ; preds = %_ZNSt6vectorISt4pairIjP6aiNodeESaIS3_EE17_M_realloc_insertIJjS2_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i126
-  %cmp.not.i160 = icmp eq ptr %meshes.sroa.11.0327, %meshes.sroa.23.0326
+  %cmp.not.i160 = icmp eq ptr %meshes.sroa.11.0327, %meshes.sroa.23.0328
   br i1 %cmp.not.i160, label %if.else.i163, label %if.then.i161
 
 if.then.i161:                                     ; preds = %invoke.cont112
@@ -700,17 +700,17 @@ _ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i.i177: ; preds = %cond
   br i1 %cmp.i.i.i.i.i180, label %if.then.i.i.i.i.i187, label %_ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i181
 
 if.then.i.i.i.i.i187:                             ; preds = %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i.i177
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i178, ptr align 8 %meshes.sroa.0.0328, i64 %sub.ptr.sub.i121, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i178, ptr align 8 %meshes.sroa.0.0326, i64 %sub.ptr.sub.i121, i1 false)
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i181
 
 _ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i181: ; preds = %if.then.i.i.i.i.i187, %_ZNSt12_Vector_baseIP6aiMeshSaIS1_EE11_M_allocateEm.exit.i.i177
   %add.ptr.i.i.i.i.i182 = getelementptr inbounds i8, ptr %cond.i10.i.i178, i64 %sub.ptr.sub.i121
   %incdec.ptr.i.i183 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i182, i64 8
-  %tobool.not.i.i.i184 = icmp eq ptr %meshes.sroa.0.0328, null
+  %tobool.not.i.i.i184 = icmp eq ptr %meshes.sroa.0.0326, null
   br i1 %tobool.not.i.i.i184, label %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i18.i.i185
 
 if.then.i18.i.i185:                               ; preds = %_ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i181
-  call void @_ZdlPv(ptr noundef nonnull %meshes.sroa.0.0328) #19
+  call void @_ZdlPv(ptr noundef nonnull %meshes.sroa.0.0326) #19
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i185, %_ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i181
@@ -718,9 +718,9 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal
   br label %if.end115
 
 if.end115:                                        ; preds = %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i161, %if.end104, %delete.notnull
-  %meshes.sroa.23.4 = phi ptr [ %meshes.sroa.23.2, %if.end104 ], [ %meshes.sroa.23.2, %delete.notnull ], [ %add.ptr19.i.i186, %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %meshes.sroa.23.0326, %if.then.i161 ]
+  %meshes.sroa.0.5 = phi ptr [ %meshes.sroa.0.3, %if.end104 ], [ %meshes.sroa.0.3, %delete.notnull ], [ %cond.i10.i.i178, %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %meshes.sroa.0.0326, %if.then.i161 ]
   %meshes.sroa.11.4 = phi ptr [ %meshes.sroa.11.2, %if.end104 ], [ %meshes.sroa.11.2, %delete.notnull ], [ %incdec.ptr.i.i183, %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %incdec.ptr.i162, %if.then.i161 ]
-  %meshes.sroa.0.5 = phi ptr [ %meshes.sroa.0.3, %if.end104 ], [ %meshes.sroa.0.3, %delete.notnull ], [ %cond.i10.i.i178, %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %meshes.sroa.0.0328, %if.then.i161 ]
+  %meshes.sroa.23.4 = phi ptr [ %meshes.sroa.23.2, %if.end104 ], [ %meshes.sroa.23.2, %delete.notnull ], [ %add.ptr19.i.i186, %_ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %meshes.sroa.23.0328, %if.then.i161 ]
   %49 = load ptr, ptr %newMeshes, align 8
   %tobool.not.i.i.i192 = icmp eq ptr %49, null
   br i1 %tobool.not.i.i.i192, label %_ZNSt6vectorISt4pairIP6aiMeshPK6aiBoneESaIS6_EED2Ev.exit194, label %if.then.i.i.i193
@@ -737,8 +737,8 @@ _ZNSt6vectorISt4pairIP6aiMeshPK6aiBoneESaIS6_EED2Ev.exit194: ; preds = %if.end11
   br i1 %cmp42, label %invoke.cont50, label %for.end118, !llvm.loop !18
 
 for.end118:                                       ; preds = %_ZNSt6vectorISt4pairIP6aiMeshPK6aiBoneESaIS6_EED2Ev.exit194, %invoke.cont38
-  %meshes.sroa.11.0.lcssa = phi ptr [ null, %invoke.cont38 ], [ %meshes.sroa.11.4, %_ZNSt6vectorISt4pairIP6aiMeshPK6aiBoneESaIS6_EED2Ev.exit194 ]
   %meshes.sroa.0.0.lcssa = phi ptr [ null, %invoke.cont38 ], [ %meshes.sroa.0.5, %_ZNSt6vectorISt4pairIP6aiMeshPK6aiBoneESaIS6_EED2Ev.exit194 ]
+  %meshes.sroa.11.0.lcssa = phi ptr [ null, %invoke.cont38 ], [ %meshes.sroa.11.4, %_ZNSt6vectorISt4pairIP6aiMeshPK6aiBoneESaIS6_EED2Ev.exit194 ]
   %sub.ptr.lhs.cast.i196 = ptrtoint ptr %meshes.sroa.11.0.lcssa to i64
   %sub.ptr.rhs.cast.i197 = ptrtoint ptr %meshes.sroa.0.0.lcssa to i64
   %sub.ptr.sub.i198 = sub i64 %sub.ptr.lhs.cast.i196, %sub.ptr.rhs.cast.i197
@@ -870,7 +870,7 @@ for.cond9.preheader:                              ; preds = %for.cond9.preheader
   %5 = phi i32 [ %1, %for.cond9.preheader.lr.ph ], [ %25, %invoke.cont64 ]
   %6 = phi ptr [ %0, %for.cond9.preheader.lr.ph ], [ %26, %invoke.cont64 ]
   %indvars.iv199 = phi i64 [ 0, %for.cond9.preheader.lr.ph ], [ %indvars.iv.next200, %invoke.cont64 ]
-  %isInterstitialRequired.0189 = phi i1 [ false, %for.cond9.preheader.lr.ph ], [ %spec.select, %invoke.cont64 ]
+  %isInterstitialRequired.0188 = phi i1 [ false, %for.cond9.preheader.lr.ph ], [ %spec.select, %invoke.cont64 ]
   %arrayidx183 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv199
   %7 = load ptr, ptr %arrayidx183, align 8
   %mNumWeights184 = getelementptr inbounds i8, ptr %7, i64 1028
@@ -985,7 +985,7 @@ invoke.cont64:                                    ; preds = %for.cond9.preheader
   %27 = load i64, ptr %add.ptr.i.i.i.i.i70, align 8
   %and.i79 = and i64 %27, %shl.i.i.i75.pre-phi
   %tobool.i80.not = icmp eq i64 %and.i79, 0
-  %spec.select = select i1 %tobool.i80.not, i1 true, i1 %isInterstitialRequired.0189
+  %spec.select = select i1 %tobool.i80.not, i1 true, i1 %isInterstitialRequired.0188
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %28 = zext i32 %25 to i64
   %cmp = icmp ult i64 %indvars.iv.next200, %28

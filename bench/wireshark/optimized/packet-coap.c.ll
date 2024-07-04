@@ -487,7 +487,7 @@ define hidden i32 @dissect_coap_options(ptr noundef %0, ptr noundef %1, ptr noun
 
 63:                                               ; preds = %460, %.lr.ph
   %.02460 = phi i32 [ 1, %.lr.ph ], [ %463, %460 ]
-  %.02559 = phi i32 [ %3, %.lr.ph ], [ %.0.i, %460 ]
+  %.02559 = phi i32 [ %3, %.lr.ph ], [ %.0314.i, %460 ]
   %.05458 = phi i32 [ 0, %.lr.ph ], [ %.1, %460 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
   %64 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02559) #9
@@ -523,12 +523,12 @@ define hidden i32 @dissect_coap_options(ptr noundef %0, ptr noundef %1, ptr noun
   br label %81
 
 81:                                               ; preds = %79, %74, %69
-  %.0315.i = phi i32 [ %80, %79 ], [ %78, %74 ], [ %73, %69 ]
-  %.0312.i = phi i32 [ 0, %79 ], [ %68, %74 ], [ %68, %69 ]
+  %.0315.i = phi i32 [ %68, %79 ], [ %77, %74 ], [ %72, %69 ]
+  %.0312.i = phi i32 [ %80, %79 ], [ %78, %74 ], [ %73, %69 ]
+  %.0309.i = phi i32 [ 0, %79 ], [ %68, %74 ], [ %68, %69 ]
   %82 = phi i1 [ false, %79 ], [ true, %74 ], [ true, %69 ]
-  %.0311.i = phi i32 [ 0, %79 ], [ 2, %74 ], [ 1, %69 ]
-  %.0309.i = phi i32 [ %68, %79 ], [ %77, %74 ], [ %72, %69 ]
-  %83 = add i32 %.0315.i, %.05458
+  %.0.i = phi i32 [ 0, %79 ], [ 2, %74 ], [ 1, %69 ]
+  %83 = add i32 %.0312.i, %.05458
   %84 = and i32 %65, 15
   switch i32 %84, label %95 [
     i32 13, label %85
@@ -537,27 +537,27 @@ define hidden i32 @dissect_coap_options(ptr noundef %0, ptr noundef %1, ptr noun
   ]
 
 85:                                               ; preds = %81
-  %86 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0309.i) #9
+  %86 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0315.i) #9
   %87 = zext i8 %86 to i32
-  %88 = add i32 %.0309.i, 1
+  %88 = add i32 %.0315.i, 1
   %89 = add nuw nsw i32 %87, 13
   br label %95
 
 90:                                               ; preds = %81
-  %91 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0309.i) #9
+  %91 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0315.i) #9
   %92 = zext i16 %91 to i32
-  %93 = add i32 %.0309.i, 2
+  %93 = add i32 %.0315.i, 2
   %94 = add nuw nsw i32 %92, 269
   br label %95
 
 95:                                               ; preds = %90, %85, %81
-  %.0314.i = phi i32 [ %.0309.i, %90 ], [ %.0309.i, %85 ], [ 0, %81 ]
+  %.1.i = phi i32 [ %93, %90 ], [ %88, %85 ], [ %.0315.i, %81 ]
+  %.0313.i = phi i32 [ %94, %90 ], [ %89, %85 ], [ %84, %81 ]
+  %.0311.i = phi i32 [ %.0315.i, %90 ], [ %.0315.i, %85 ], [ 0, %81 ]
   %96 = phi i1 [ true, %90 ], [ true, %85 ], [ false, %81 ]
-  %.0313.i = phi i32 [ 2, %90 ], [ 1, %85 ], [ 0, %81 ]
-  %.0310.i = phi i32 [ %94, %90 ], [ %89, %85 ], [ %84, %81 ]
-  %.1.i = phi i32 [ %93, %90 ], [ %88, %85 ], [ %.0309.i, %81 ]
+  %.0310.i = phi i32 [ 2, %90 ], [ 1, %85 ], [ 0, %81 ]
   %97 = sub i32 %4, %.1.i
-  %98 = icmp sgt i32 %.0310.i, %97
+  %98 = icmp sgt i32 %.0313.i, %97
   br i1 %98, label %dissect_coap_options_main.exit.thread, label %99
 
 99:                                               ; preds = %95
@@ -569,7 +569,7 @@ define hidden i32 @dissect_coap_options(ptr noundef %0, ptr noundef %1, ptr noun
   %105 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 56, ptr noundef nonnull @.str.232, i32 noundef %100, ptr noundef %104) #9
   %106 = load i32, ptr %12, align 4
   %107 = sub i32 %.1.i, %.02559
-  %108 = add i32 %107, %.0310.i
+  %108 = add i32 %107, %.0313.i
   %109 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %106, ptr noundef %0, i32 noundef %.02559, i32 noundef %108, ptr noundef nonnull %10) #9
   %110 = load i32, ptr %13, align 4
   %111 = call ptr @proto_item_add_subtree(ptr noundef %109, i32 noundef %110) #9
@@ -605,15 +605,15 @@ define hidden i32 @dissect_coap_options(ptr noundef %0, ptr noundef %1, ptr noun
   %124 = getelementptr [29 x %struct.coap_option_range_t], ptr @coi, i64 0, i64 %123
   %125 = getelementptr inbounds i8, ptr %124, i64 4
   %126 = load i32, ptr %125, align 4
-  %127 = icmp sgt i32 %126, %.0310.i
+  %127 = icmp sgt i32 %126, %.0313.i
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %124, i64 8
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
-  %128 = icmp slt i32 %.pre.i.i, %.0310.i
+  %128 = icmp slt i32 %.pre.i.i, %.0313.i
   %or.cond35.i.i = select i1 %127, i1 true, i1 %128
   br i1 %or.cond35.i.i, label %.thread._crit_edge.i.i, label %coap_opt_check.exit.i
 
 .thread._crit_edge.i.i:                           ; preds = %.thread.i.i
-  %129 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %111, ptr noundef nonnull %16, ptr noundef nonnull @.str.253, i32 noundef %.0310.i, i32 noundef %126, i32 noundef %.pre.i.i) #9
+  %129 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %111, ptr noundef nonnull %16, ptr noundef nonnull @.str.253, i32 noundef %.0313.i, i32 noundef %126, i32 noundef %.pre.i.i) #9
   br label %coap_opt_check.exit.i
 
 coap_opt_check.exit.i:                            ; preds = %.thread._crit_edge.i.i, %.thread.i.i, %121, %119
@@ -633,23 +633,23 @@ coap_opt_check.exit.i:                            ; preds = %.thread._crit_edge.
   %141 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %140, ptr noundef %0, i32 noundef %.02559, i32 noundef 1, i32 noundef 0) #9
   %142 = load i32, ptr %19, align 4
   %143 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %142, ptr noundef %0, i32 noundef %.02559, i32 noundef 1, i32 noundef 0) #9
-  %144 = icmp ne i32 %.0312.i, 0
+  %144 = icmp ne i32 %.0309.i, 0
   %or.cond.i = and i1 %144, %82
   br i1 %or.cond.i, label %145, label %148
 
 145:                                              ; preds = %coap_opt_check.exit.i
   %146 = load i32, ptr %20, align 4
-  %147 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %146, ptr noundef %0, i32 noundef %.0312.i, i32 noundef %.0311.i, i32 noundef 0) #9
+  %147 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %146, ptr noundef %0, i32 noundef %.0309.i, i32 noundef %.0.i, i32 noundef 0) #9
   br label %148
 
 148:                                              ; preds = %145, %coap_opt_check.exit.i
-  %149 = icmp ne i32 %.0314.i, 0
+  %149 = icmp ne i32 %.0311.i, 0
   %or.cond5.i = and i1 %149, %96
   br i1 %or.cond5.i, label %150, label %153
 
 150:                                              ; preds = %148
   %151 = load i32, ptr %21, align 4
-  %152 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %151, ptr noundef %0, i32 noundef %.0314.i, i32 noundef %.0313.i, i32 noundef 0) #9
+  %152 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %151, ptr noundef %0, i32 noundef %.0311.i, i32 noundef %.0310.i, i32 noundef 0) #9
   br label %153
 
 153:                                              ; preds = %150, %148
@@ -687,7 +687,7 @@ coap_opt_check.exit.i:                            ; preds = %.thread._crit_edge.
 
 154:                                              ; preds = %153
   %155 = load i32, ptr %60, align 4
-  switch i32 %.0310.i, label %coap_get_opt_uint.exit.i49 [
+  switch i32 %.0313.i, label %coap_get_opt_uint.exit.i49 [
     i32 0, label %dissect_coap_opt_ctype.exit
     i32 4, label %164
     i32 1, label %156
@@ -717,33 +717,33 @@ coap_get_opt_uint.exit.i49:                       ; preds = %154
   br label %dissect_coap_opt_ctype.exit
 
 dissect_coap_opt_ctype.exit:                      ; preds = %154, %156, %159, %162, %164, %coap_get_opt_uint.exit.i49
-  %.0.i.sink.i = phi i32 [ %.0310.i, %154 ], [ %165, %164 ], [ %163, %162 ], [ %161, %159 ], [ %158, %156 ], [ -1, %coap_get_opt_uint.exit.i49 ]
+  %.0.i.sink.i = phi i32 [ %.0313.i, %154 ], [ %165, %164 ], [ %163, %162 ], [ %161, %159 ], [ %158, %156 ], [ -1, %coap_get_opt_uint.exit.i49 ]
   store i32 %.0.i.sink.i, ptr %61, align 8
   %166 = call ptr @val_to_str(i32 noundef %.0.i.sink.i, ptr noundef nonnull @vals_ctype, ptr noundef nonnull @.str.254) #9
   store ptr %166, ptr %6, align 8
-  %167 = call ptr @proto_tree_add_string(ptr noundef %111, i32 noundef %155, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, ptr noundef %166) #9
+  %167 = call ptr @proto_tree_add_string(ptr noundef %111, i32 noundef %155, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, ptr noundef %166) #9
   %168 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %109, ptr noundef nonnull @.str.255, ptr noundef %168) #9
   br label %dissect_coap_opt_object_security.exit
 
 169:                                              ; preds = %153
   %170 = load i32, ptr %59, align 4
-  call fastcc void @dissect_coap_opt_uint(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef %170)
+  call fastcc void @dissect_coap_opt_uint(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef %170)
   br label %dissect_coap_opt_object_security.exit
 
 171:                                              ; preds = %153
   %172 = load i32, ptr %58, align 4
-  %173 = icmp eq i32 %.0310.i, 0
+  %173 = icmp eq i32 %.0313.i, 0
   br i1 %173, label %dissect_coap_opt_proxy_uri.exit, label %174
 
 174:                                              ; preds = %171
   %175 = load ptr, ptr %28, align 8
-  %176 = call ptr @tvb_get_string_enc(ptr noundef %175, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef 0) #9
+  %176 = call ptr @tvb_get_string_enc(ptr noundef %175, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef 0) #9
   br label %dissect_coap_opt_proxy_uri.exit
 
 dissect_coap_opt_proxy_uri.exit:                  ; preds = %171, %174
   %.0.i48 = phi ptr [ %176, %174 ], [ @.str.316, %171 ]
-  %177 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %172, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef 0) #9
+  %177 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %172, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef 0) #9
   %178 = load ptr, ptr %28, align 8
   %179 = call ptr @format_text_string(ptr noundef %178, ptr noundef %.0.i48) #9
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %109, ptr noundef nonnull @.str.255, ptr noundef %179) #9
@@ -751,17 +751,17 @@ dissect_coap_opt_proxy_uri.exit:                  ; preds = %171, %174
 
 180:                                              ; preds = %153
   %181 = load i32, ptr %57, align 4
-  %182 = icmp eq i32 %.0310.i, 0
+  %182 = icmp eq i32 %.0313.i, 0
   br i1 %182, label %dissect_coap_opt_proxy_scheme.exit, label %183
 
 183:                                              ; preds = %180
   %184 = load ptr, ptr %28, align 8
-  %185 = call ptr @tvb_get_string_enc(ptr noundef %184, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef 0) #9
+  %185 = call ptr @tvb_get_string_enc(ptr noundef %184, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef 0) #9
   br label %dissect_coap_opt_proxy_scheme.exit
 
 dissect_coap_opt_proxy_scheme.exit:               ; preds = %180, %183
   %.0.i47 = phi ptr [ %185, %183 ], [ @.str.316, %180 ]
-  %186 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %181, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef 0) #9
+  %186 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %181, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef 0) #9
   %187 = load ptr, ptr %28, align 8
   %188 = call ptr @format_text_string(ptr noundef %187, ptr noundef %.0.i47) #9
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %109, ptr noundef nonnull @.str.255, ptr noundef %188) #9
@@ -769,22 +769,22 @@ dissect_coap_opt_proxy_scheme.exit:               ; preds = %180, %183
 
 189:                                              ; preds = %153
   %190 = load i32, ptr %56, align 4
-  call fastcc void @dissect_coap_opt_uint(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef %190)
+  call fastcc void @dissect_coap_opt_uint(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef %190)
   br label %dissect_coap_opt_object_security.exit
 
 191:                                              ; preds = %153
   %192 = load i32, ptr %55, align 4
-  %193 = icmp eq i32 %.0310.i, 0
+  %193 = icmp eq i32 %.0313.i, 0
   br i1 %193, label %dissect_coap_opt_hex_string.exit46, label %194
 
 194:                                              ; preds = %191
   %195 = load ptr, ptr %28, align 8
-  %196 = call ptr @tvb_bytes_to_str_punct(ptr noundef %195, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i8 noundef signext 32) #9
+  %196 = call ptr @tvb_bytes_to_str_punct(ptr noundef %195, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i8 noundef signext 32) #9
   br label %dissect_coap_opt_hex_string.exit46
 
 dissect_coap_opt_hex_string.exit46:               ; preds = %191, %194
   %.0.i45 = phi ptr [ %196, %194 ], [ @.str.316, %191 ]
-  %197 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %192, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef 0) #9
+  %197 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %192, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef 0) #9
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %109, ptr noundef nonnull @.str.255, ptr noundef %.0.i45) #9
   br label %dissect_coap_opt_object_security.exit
 
@@ -792,7 +792,7 @@ dissect_coap_opt_hex_string.exit46:               ; preds = %191, %194
   %199 = load i32, ptr %54, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %200 = load ptr, ptr %28, align 8
-  %201 = call ptr @proto_tree_add_item_ret_string(ptr noundef %111, i32 noundef %199, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef 0, ptr noundef %200, ptr noundef nonnull %9) #9
+  %201 = call ptr @proto_tree_add_item_ret_string(ptr noundef %111, i32 noundef %199, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef 0, ptr noundef %200, ptr noundef nonnull %9) #9
   %202 = load ptr, ptr %28, align 8
   %203 = load ptr, ptr %9, align 8
   %204 = call ptr @format_text_string(ptr noundef %202, ptr noundef %203) #9
@@ -808,17 +808,17 @@ dissect_coap_opt_hex_string.exit46:               ; preds = %191, %194
 
 209:                                              ; preds = %153
   %210 = load i32, ptr %53, align 4
-  %211 = icmp eq i32 %.0310.i, 0
+  %211 = icmp eq i32 %.0313.i, 0
   br i1 %211, label %dissect_coap_opt_location_path.exit, label %212
 
 212:                                              ; preds = %209
   %213 = load ptr, ptr %28, align 8
-  %214 = call ptr @tvb_get_string_enc(ptr noundef %213, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef 0) #9
+  %214 = call ptr @tvb_get_string_enc(ptr noundef %213, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef 0) #9
   br label %dissect_coap_opt_location_path.exit
 
 dissect_coap_opt_location_path.exit:              ; preds = %209, %212
   %.0.i44 = phi ptr [ %214, %212 ], [ @.str.316, %209 ]
-  %215 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %210, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef 0) #9
+  %215 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %210, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef 0) #9
   %216 = load ptr, ptr %28, align 8
   %217 = call ptr @format_text_string(ptr noundef %216, ptr noundef %.0.i44) #9
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %109, ptr noundef nonnull @.str.255, ptr noundef %217) #9
@@ -826,7 +826,7 @@ dissect_coap_opt_location_path.exit:              ; preds = %209, %212
 
 218:                                              ; preds = %153
   %219 = load i32, ptr %52, align 4
-  switch i32 %.0310.i, label %230 [
+  switch i32 %.0313.i, label %230 [
     i32 0, label %dissect_coap_opt_uri_port.exit
     i32 4, label %228
     i32 1, label %220
@@ -856,8 +856,8 @@ dissect_coap_opt_location_path.exit:              ; preds = %209, %212
   br label %dissect_coap_opt_uri_port.exit
 
 dissect_coap_opt_uri_port.exit:                   ; preds = %218, %220, %223, %226, %228, %230
-  %.0.i43 = phi i32 [ %.0310.i, %218 ], [ -1, %230 ], [ %229, %228 ], [ %227, %226 ], [ %225, %223 ], [ %222, %220 ]
-  %231 = call ptr @proto_tree_add_uint(ptr noundef %111, i32 noundef %219, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef %.0.i43) #9
+  %.0.i43 = phi i32 [ %.0313.i, %218 ], [ -1, %230 ], [ %229, %228 ], [ %227, %226 ], [ %225, %223 ], [ %222, %220 ]
+  %231 = call ptr @proto_tree_add_uint(ptr noundef %111, i32 noundef %219, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef %.0.i43) #9
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %109, ptr noundef nonnull @.str.315, i32 noundef %.0.i43) #9
   %232 = load ptr, ptr %39, align 8
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %232, ptr noundef nonnull @.str.319, i32 noundef %.0.i43) #9
@@ -865,17 +865,17 @@ dissect_coap_opt_uri_port.exit:                   ; preds = %218, %220, %223, %2
 
 233:                                              ; preds = %153
   %234 = load i32, ptr %51, align 4
-  %235 = icmp eq i32 %.0310.i, 0
+  %235 = icmp eq i32 %.0313.i, 0
   br i1 %235, label %dissect_coap_opt_location_query.exit, label %236
 
 236:                                              ; preds = %233
   %237 = load ptr, ptr %28, align 8
-  %238 = call ptr @tvb_get_string_enc(ptr noundef %237, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef 0) #9
+  %238 = call ptr @tvb_get_string_enc(ptr noundef %237, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef 0) #9
   br label %dissect_coap_opt_location_query.exit
 
 dissect_coap_opt_location_query.exit:             ; preds = %233, %236
   %.0.i41 = phi ptr [ %238, %236 ], [ @.str.316, %233 ]
-  %239 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %234, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef 0) #9
+  %239 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %234, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef 0) #9
   %240 = load ptr, ptr %28, align 8
   %241 = call ptr @format_text_string(ptr noundef %240, ptr noundef %.0.i41) #9
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %109, ptr noundef nonnull @.str.255, ptr noundef %241) #9
@@ -909,7 +909,7 @@ dissect_coap_opt_location_query.exit:             ; preds = %233, %236
   %258 = load ptr, ptr %41, align 8
   %259 = getelementptr inbounds i8, ptr %258, i64 60
   store i32 0, ptr %259, align 4
-  %260 = icmp eq i32 %.0310.i, 0
+  %260 = icmp eq i32 %.0313.i, 0
   br i1 %260, label %261, label %262
 
 261:                                              ; preds = %242
@@ -931,7 +931,7 @@ dissect_coap_opt_location_query.exit:             ; preds = %233, %236
   %274 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %273, ptr noundef %0, i32 noundef %.1.i, i32 noundef 1, i32 noundef 0) #9
   %275 = and i8 %263, 7
   %276 = add i32 %.1.i, 1
-  %277 = trunc i32 %.0310.i to i8
+  %277 = trunc i32 %.0313.i to i8
   %278 = add i8 %277, -1
   %.not.i38 = icmp ult i8 %263, 32
   br i1 %.not.i38, label %281, label %279
@@ -1080,19 +1080,19 @@ dissect_coap_opt_location_query.exit:             ; preds = %233, %236
   %370 = load i32, ptr %38, align 4
   %371 = load ptr, ptr %39, align 8
   call void @wmem_strbuf_append_c(ptr noundef %371, i8 noundef signext 47) #9
-  %372 = icmp eq i32 %.0310.i, 0
+  %372 = icmp eq i32 %.0313.i, 0
   br i1 %372, label %dissect_coap_opt_uri_path.exit, label %373
 
 373:                                              ; preds = %369
   %374 = load ptr, ptr %28, align 8
-  %375 = call ptr @tvb_get_string_enc(ptr noundef %374, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef 0) #9
+  %375 = call ptr @tvb_get_string_enc(ptr noundef %374, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef 0) #9
   %376 = load ptr, ptr %39, align 8
   call void @wmem_strbuf_append(ptr noundef %376, ptr noundef %375) #9
   br label %dissect_coap_opt_uri_path.exit
 
 dissect_coap_opt_uri_path.exit:                   ; preds = %369, %373
   %.0.i37 = phi ptr [ %375, %373 ], [ @.str.316, %369 ]
-  %377 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %370, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef 0) #9
+  %377 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %370, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef 0) #9
   %378 = load ptr, ptr %28, align 8
   %379 = call ptr @format_text_string(ptr noundef %378, ptr noundef %.0.i37) #9
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %109, ptr noundef nonnull @.str.255, ptr noundef %379) #9
@@ -1103,22 +1103,22 @@ dissect_coap_opt_uri_path.exit:                   ; preds = %369, %373
 
 381:                                              ; preds = %380
   %382 = load i32, ptr %37, align 4
-  call fastcc void @dissect_coap_opt_uint(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef %382)
+  call fastcc void @dissect_coap_opt_uint(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef %382)
   br label %dissect_coap_opt_object_security.exit
 
 383:                                              ; preds = %380
   %384 = load i32, ptr %36, align 4
-  call fastcc void @dissect_coap_opt_uint(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef %384)
+  call fastcc void @dissect_coap_opt_uint(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef %384)
   br label %dissect_coap_opt_object_security.exit
 
 385:                                              ; preds = %153
   %386 = load i32, ptr %34, align 4
-  call fastcc void @dissect_coap_opt_uint(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef %386)
+  call fastcc void @dissect_coap_opt_uint(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef %386)
   br label %dissect_coap_opt_object_security.exit
 
 387:                                              ; preds = %153
   %388 = load i32, ptr %33, align 4
-  switch i32 %.0310.i, label %coap_get_opt_uint.exit.i [
+  switch i32 %.0313.i, label %coap_get_opt_uint.exit.i [
     i32 0, label %dissect_coap_opt_accept.exit
     i32 4, label %397
     i32 1, label %389
@@ -1151,23 +1151,23 @@ coap_get_opt_uint.exit.i:                         ; preds = %397, %395, %392, %3
 
 dissect_coap_opt_accept.exit:                     ; preds = %387, %coap_get_opt_uint.exit.i
   %.0.i36 = phi ptr [ %399, %coap_get_opt_uint.exit.i ], [ @.str.316, %387 ]
-  %400 = call ptr @proto_tree_add_string(ptr noundef %111, i32 noundef %388, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, ptr noundef %.0.i36) #9
+  %400 = call ptr @proto_tree_add_string(ptr noundef %111, i32 noundef %388, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, ptr noundef %.0.i36) #9
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %109, ptr noundef nonnull @.str.255, ptr noundef %.0.i36) #9
   br label %dissect_coap_opt_object_security.exit
 
 401:                                              ; preds = %153
   %402 = load i32, ptr %32, align 4
-  %403 = icmp eq i32 %.0310.i, 0
+  %403 = icmp eq i32 %.0313.i, 0
   br i1 %403, label %dissect_coap_opt_hex_string.exit35, label %404
 
 404:                                              ; preds = %401
   %405 = load ptr, ptr %28, align 8
-  %406 = call ptr @tvb_bytes_to_str_punct(ptr noundef %405, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i8 noundef signext 32) #9
+  %406 = call ptr @tvb_bytes_to_str_punct(ptr noundef %405, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i8 noundef signext 32) #9
   br label %dissect_coap_opt_hex_string.exit35
 
 dissect_coap_opt_hex_string.exit35:               ; preds = %401, %404
   %.0.i34 = phi ptr [ %406, %404 ], [ @.str.316, %401 ]
-  %407 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %402, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef 0) #9
+  %407 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %402, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef 0) #9
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %109, ptr noundef nonnull @.str.255, ptr noundef %.0.i34) #9
   br label %dissect_coap_opt_object_security.exit
 
@@ -1178,19 +1178,19 @@ dissect_coap_opt_hex_string.exit35:               ; preds = %401, %404
   %412 = icmp eq i64 %411, 0
   %413 = select i1 %412, i8 63, i8 38
   call void @wmem_strbuf_append_c(ptr noundef %410, i8 noundef signext %413) #9
-  %414 = icmp eq i32 %.0310.i, 0
+  %414 = icmp eq i32 %.0313.i, 0
   br i1 %414, label %dissect_coap_opt_uri_query.exit, label %415
 
 415:                                              ; preds = %408
   %416 = load ptr, ptr %28, align 8
-  %417 = call ptr @tvb_get_string_enc(ptr noundef %416, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef 0) #9
+  %417 = call ptr @tvb_get_string_enc(ptr noundef %416, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef 0) #9
   %418 = load ptr, ptr %31, align 8
   call void @wmem_strbuf_append(ptr noundef %418, ptr noundef %417) #9
   br label %dissect_coap_opt_uri_query.exit
 
 dissect_coap_opt_uri_query.exit:                  ; preds = %408, %415
   %.0.i33 = phi ptr [ %417, %415 ], [ @.str.316, %408 ]
-  %419 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %409, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef 0) #9
+  %419 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %409, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef 0) #9
   %420 = load ptr, ptr %28, align 8
   %421 = call ptr @format_text_string(ptr noundef %420, ptr noundef %.0.i33) #9
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %109, ptr noundef nonnull @.str.255, ptr noundef %421) #9
@@ -1198,94 +1198,94 @@ dissect_coap_opt_uri_query.exit:                  ; preds = %408, %415
 
 422:                                              ; preds = %153
   %423 = load i32, ptr %29, align 4
-  %424 = icmp eq i32 %.0310.i, 0
+  %424 = icmp eq i32 %.0313.i, 0
   br i1 %424, label %dissect_coap_opt_hex_string.exit32, label %425
 
 425:                                              ; preds = %422
   %426 = load ptr, ptr %28, align 8
-  %427 = call ptr @tvb_bytes_to_str_punct(ptr noundef %426, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i8 noundef signext 32) #9
+  %427 = call ptr @tvb_bytes_to_str_punct(ptr noundef %426, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i8 noundef signext 32) #9
   br label %dissect_coap_opt_hex_string.exit32
 
 dissect_coap_opt_hex_string.exit32:               ; preds = %422, %425
   %.0.i31 = phi ptr [ %427, %425 ], [ @.str.316, %422 ]
-  %428 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %423, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef 0) #9
+  %428 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %423, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef 0) #9
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %109, ptr noundef nonnull @.str.255, ptr noundef %.0.i31) #9
   br label %dissect_coap_opt_object_security.exit
 
 429:                                              ; preds = %153
   %430 = load i32, ptr %27, align 4
-  %431 = icmp eq i32 %.0310.i, 0
+  %431 = icmp eq i32 %.0313.i, 0
   br i1 %431, label %dissect_coap_opt_hex_string.exit30, label %432
 
 432:                                              ; preds = %429
   %433 = load ptr, ptr %28, align 8
-  %434 = call ptr @tvb_bytes_to_str_punct(ptr noundef %433, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i8 noundef signext 32) #9
+  %434 = call ptr @tvb_bytes_to_str_punct(ptr noundef %433, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i8 noundef signext 32) #9
   br label %dissect_coap_opt_hex_string.exit30
 
 dissect_coap_opt_hex_string.exit30:               ; preds = %429, %432
   %.0.i29 = phi ptr [ %434, %432 ], [ @.str.316, %429 ]
-  %435 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %430, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef 0) #9
+  %435 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %430, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef 0) #9
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %109, ptr noundef nonnull @.str.255, ptr noundef %.0.i29) #9
   br label %dissect_coap_opt_object_security.exit
 
 436:                                              ; preds = %153
   %437 = load i32, ptr %26, align 4
-  call fastcc void @dissect_coap_opt_uint(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef %437)
+  call fastcc void @dissect_coap_opt_uint(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef %437)
   br label %dissect_coap_opt_object_security.exit
 
 438:                                              ; preds = %153
   store i32 2, ptr %25, align 4
-  call fastcc void @dissect_coap_opt_block(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0310.i, ptr noundef %6, ptr noundef nonnull %7)
+  call fastcc void @dissect_coap_opt_block(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0313.i, ptr noundef %6, ptr noundef nonnull %7)
   br label %dissect_coap_opt_object_security.exit
 
 439:                                              ; preds = %153
   store i32 1, ptr %25, align 4
-  call fastcc void @dissect_coap_opt_block(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0310.i, ptr noundef %6, ptr noundef nonnull %7)
+  call fastcc void @dissect_coap_opt_block(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0313.i, ptr noundef %6, ptr noundef nonnull %7)
   br label %dissect_coap_opt_object_security.exit
 
 440:                                              ; preds = %153
   store i32 2, ptr %25, align 4
-  call fastcc void @dissect_coap_opt_block(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0310.i, ptr noundef %6, ptr noundef nonnull %7)
+  call fastcc void @dissect_coap_opt_block(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0313.i, ptr noundef %6, ptr noundef nonnull %7)
   br label %dissect_coap_opt_object_security.exit
 
 441:                                              ; preds = %153
   store i32 1, ptr %25, align 4
-  call fastcc void @dissect_coap_opt_block(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0310.i, ptr noundef %6, ptr noundef nonnull %7)
+  call fastcc void @dissect_coap_opt_block(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0313.i, ptr noundef %6, ptr noundef nonnull %7)
   br label %dissect_coap_opt_object_security.exit
 
 442:                                              ; preds = %153
   %443 = load i32, ptr %24, align 4
-  call fastcc void @dissect_coap_opt_uint(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef %443)
+  call fastcc void @dissect_coap_opt_uint(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef %443)
   br label %dissect_coap_opt_object_security.exit
 
 444:                                              ; preds = %153
   %445 = load i32, ptr %23, align 4
-  call fastcc void @dissect_coap_opt_ocf_version(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef %445)
+  call fastcc void @dissect_coap_opt_ocf_version(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef %445)
   br label %dissect_coap_opt_object_security.exit
 
 446:                                              ; preds = %153
   %447 = load i32, ptr %22, align 4
-  call fastcc void @dissect_coap_opt_ocf_version(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef %447)
+  call fastcc void @dissect_coap_opt_ocf_version(ptr noundef %0, ptr noundef %109, ptr noundef %111, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef %447)
   br label %dissect_coap_opt_object_security.exit
 
 448:                                              ; preds = %153
   %449 = load i32, ptr %62, align 4
-  %450 = icmp eq i32 %.0310.i, 0
+  %450 = icmp eq i32 %.0313.i, 0
   br i1 %450, label %dissect_coap_opt_hex_string.exit, label %451
 
 451:                                              ; preds = %448
   %452 = load ptr, ptr %28, align 8
-  %453 = call ptr @tvb_bytes_to_str_punct(ptr noundef %452, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i8 noundef signext 32) #9
+  %453 = call ptr @tvb_bytes_to_str_punct(ptr noundef %452, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i8 noundef signext 32) #9
   br label %dissect_coap_opt_hex_string.exit
 
 dissect_coap_opt_hex_string.exit:                 ; preds = %448, %451
   %.0.i28 = phi ptr [ %453, %451 ], [ @.str.316, %448 ]
-  %454 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %449, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0310.i, i32 noundef 0) #9
+  %454 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %449, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.0313.i, i32 noundef 0) #9
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %109, ptr noundef nonnull @.str.255, ptr noundef %.0.i28) #9
   br label %dissect_coap_opt_object_security.exit
 
 dissect_coap_opt_object_security.exit:            ; preds = %367, %261, %dissect_coap_opt_hex_string.exit, %446, %444, %442, %441, %440, %439, %438, %436, %dissect_coap_opt_hex_string.exit30, %dissect_coap_opt_hex_string.exit32, %dissect_coap_opt_uri_query.exit, %dissect_coap_opt_hex_string.exit35, %dissect_coap_opt_accept.exit, %385, %383, %381, %dissect_coap_opt_uri_path.exit, %dissect_coap_opt_location_query.exit, %dissect_coap_opt_uri_port.exit, %dissect_coap_opt_location_path.exit, %198, %dissect_coap_opt_hex_string.exit46, %189, %dissect_coap_opt_proxy_scheme.exit, %dissect_coap_opt_proxy_uri.exit, %169, %dissect_coap_opt_ctype.exit, %153, %153
-  %455 = add i32 %.1.i, %.0310.i
+  %455 = add i32 %.0313.i, %.1.i
   br label %dissect_coap_options_main.exit
 
 dissect_coap_options_main.exit.thread:            ; preds = %95, %81, %67
@@ -1297,17 +1297,17 @@ dissect_coap_options_main.exit.thread:            ; preds = %95, %81, %67
 
 dissect_coap_options_main.exit:                   ; preds = %63, %dissect_coap_opt_object_security.exit
   %.1 = phi i32 [ %.05458, %63 ], [ %83, %dissect_coap_opt_object_security.exit ]
-  %.0.i = phi i32 [ %.02559, %63 ], [ %455, %dissect_coap_opt_object_security.exit ]
+  %.0314.i = phi i32 [ %.02559, %63 ], [ %455, %dissect_coap_opt_object_security.exit ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
-  %458 = icmp eq i32 %.0.i, -1
+  %458 = icmp eq i32 %.0314.i, -1
   br i1 %458, label %.loopexit, label %459
 
 459:                                              ; preds = %dissect_coap_options_main.exit
-  %.not = icmp slt i32 %.0.i, %4
+  %.not = icmp slt i32 %.0314.i, %4
   br i1 %.not, label %460, label %.loopexit
 
 460:                                              ; preds = %459
-  %461 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0.i) #9
+  %461 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0314.i) #9
   %462 = icmp eq i8 %461, -1
   %463 = add i32 %.02460, 1
   br i1 %462, label %464, label %63
@@ -1315,12 +1315,12 @@ dissect_coap_options_main.exit:                   ; preds = %63, %dissect_coap_o
 464:                                              ; preds = %460
   %465 = getelementptr inbounds i8, ptr %7, i64 40
   %466 = load i32, ptr %465, align 4
-  %467 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %466, ptr noundef %0, i32 noundef %.0.i, i32 noundef 1, i32 noundef 0) #9
-  %468 = add nuw i32 %.0.i, 1
+  %467 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %466, ptr noundef %0, i32 noundef %.0314.i, i32 noundef 1, i32 noundef 0) #9
+  %468 = add nuw i32 %.0314.i, 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %dissect_coap_options_main.exit, %459, %8, %dissect_coap_options_main.exit.thread, %464
-  %.0 = phi i32 [ %468, %464 ], [ -1, %dissect_coap_options_main.exit.thread ], [ %3, %8 ], [ %.0.i, %459 ], [ -1, %dissect_coap_options_main.exit ]
+  %.0 = phi i32 [ %468, %464 ], [ -1, %dissect_coap_options_main.exit.thread ], [ %3, %8 ], [ %.0314.i, %459 ], [ -1, %dissect_coap_options_main.exit ]
   ret i32 %.0
 }
 
@@ -1794,8 +1794,8 @@ define internal fastcc i32 @dissect_coap_message(ptr noundef %0, ptr noundef %1,
   br label %17
 
 17:                                               ; preds = %12, %5
-  %.0320 = phi ptr [ %14, %12 ], [ %10, %5 ]
-  %18 = getelementptr inbounds i8, ptr %.0320, i64 40
+  %.0316 = phi ptr [ %14, %12 ], [ %10, %5 ]
+  %18 = getelementptr inbounds i8, ptr %.0316, i64 40
   store i32 %4, ptr %18, align 8
   %19 = icmp eq i32 %4, 0
   br i1 %19, label %20, label %28
@@ -1898,9 +1898,9 @@ coap_frame_length.exit:                           ; preds = %39, %46, %53
 
 74:                                               ; preds = %62, %28
   %.1449 = phi i32 [ %.0448.ph, %62 ], [ 0, %28 ]
-  %.0319 = phi i32 [ %65, %62 ], [ %29, %28 ]
-  store ptr @.str.8, ptr %.0320, align 8
-  %75 = getelementptr inbounds i8, ptr %.0320, i64 8
+  %.0318 = phi i32 [ %65, %62 ], [ %29, %28 ]
+  store ptr @.str.8, ptr %.0316, align 8
+  %75 = getelementptr inbounds i8, ptr %.0316, i64 8
   store i32 -1, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %1, i64 8
   %77 = load ptr, ptr %76, align 8
@@ -1952,9 +1952,9 @@ coap_frame_length.exit:                           ; preds = %39, %46, %53
 
 111:                                              ; preds = %74, %107
   %.2 = phi i32 [ %.1449, %74 ], [ 1, %107 ]
-  %.0312 = phi i32 [ %.0319, %74 ], [ %110, %107 ]
+  %.0310 = phi i32 [ %.0318, %74 ], [ %110, %107 ]
   %112 = load i32, ptr @hf_coap_length, align 4
-  %113 = tail call ptr @proto_tree_add_uint(ptr noundef %82, i32 noundef %112, ptr noundef %0, i32 noundef 0, i32 noundef %.2, i32 noundef %.0312) #9
+  %113 = tail call ptr @proto_tree_add_uint(ptr noundef %82, i32 noundef %112, ptr noundef %0, i32 noundef 0, i32 noundef %.2, i32 noundef %.0310) #9
   %114 = load i32, ptr @hf_coap_token_len, align 4
   %115 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %82, i32 noundef %114, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #9
   %116 = load i32, ptr @dissect_coap_hf, align 4
@@ -1972,29 +1972,29 @@ coap_frame_length.exit:                           ; preds = %39, %46, %53
 124:                                              ; preds = %111, %83
   %.0450 = phi i32 [ %119, %111 ], [ 4, %83 ]
   %.0447.in = phi i8 [ %118, %111 ], [ %95, %83 ]
-  %.0314 = phi i32 [ 0, %111 ], [ %99, %83 ]
-  %.0311 = phi i8 [ -1, %111 ], [ %90, %83 ]
+  %.0321 = phi i8 [ -1, %111 ], [ %90, %83 ]
+  %.0319 = phi i32 [ 0, %111 ], [ %99, %83 ]
   %.0447 = lshr i8 %.0447.in, 5
-  %125 = getelementptr inbounds i8, ptr %.0320, i64 12
+  %125 = getelementptr inbounds i8, ptr %.0316, i64 12
   store i32 0, ptr %125, align 4
-  %126 = getelementptr inbounds i8, ptr %.0320, i64 16
+  %126 = getelementptr inbounds i8, ptr %.0316, i64 16
   store i32 -1, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %.0320, i64 20
+  %127 = getelementptr inbounds i8, ptr %.0316, i64 20
   store i32 0, ptr %127, align 4
   %128 = getelementptr inbounds i8, ptr %1, i64 408
   %129 = load ptr, ptr %128, align 8
   %130 = call noalias ptr @wmem_strbuf_new(ptr noundef %129, ptr noundef nonnull @.str.8) #9
-  %131 = getelementptr inbounds i8, ptr %.0320, i64 24
+  %131 = getelementptr inbounds i8, ptr %.0316, i64 24
   store ptr %130, ptr %131, align 8
   %132 = load ptr, ptr %128, align 8
   %133 = call noalias ptr @wmem_strbuf_new(ptr noundef %132, ptr noundef nonnull @.str.8) #9
-  %134 = getelementptr inbounds i8, ptr %.0320, i64 32
+  %134 = getelementptr inbounds i8, ptr %.0316, i64 32
   store ptr %133, ptr %134, align 8
   %135 = load ptr, ptr %128, align 8
   %136 = call noalias ptr @wmem_alloc0(ptr noundef %135, i64 noundef 64) #9
-  %137 = getelementptr inbounds i8, ptr %.0320, i64 48
+  %137 = getelementptr inbounds i8, ptr %.0316, i64 48
   store ptr %136, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %.0320, i64 44
+  %138 = getelementptr inbounds i8, ptr %.0316, i64 44
   store i32 0, ptr %138, align 4
   %139 = load i32, ptr %6, align 4
   %.not345 = icmp eq i32 %139, 0
@@ -2013,8 +2013,8 @@ coap_frame_length.exit:                           ; preds = %39, %46, %53
 
 149:                                              ; preds = %140, %124
   %.1451 = phi i32 [ %.0450, %124 ], [ %148, %140 ]
-  %.0321 = phi ptr [ null, %124 ], [ %143, %140 ]
-  %150 = call i32 @dissect_coap_options(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %82, i32 noundef %.1451, i32 noundef %.0319, i8 noundef zeroext %.0447, ptr noundef nonnull %.0320, ptr noundef nonnull @dissect_coap_hf)
+  %.0317 = phi ptr [ null, %124 ], [ %143, %140 ]
+  %150 = call i32 @dissect_coap_options(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %82, i32 noundef %.1451, i32 noundef %.0318, i8 noundef zeroext %.0447, ptr noundef nonnull %.0316, ptr noundef nonnull @dissect_coap_hf)
   %151 = icmp eq i32 %150, -1
   br i1 %151, label %152, label %154
 
@@ -2097,15 +2097,15 @@ find_or_create_conversation_noaddrb.exit:         ; preds = %168, %172, %173, %1
   br label %194
 
 194:                                              ; preds = %188, %find_or_create_conversation_noaddrb.exit
-  %.0318 = phi ptr [ %187, %find_or_create_conversation_noaddrb.exit ], [ %190, %188 ]
-  %195 = icmp ne ptr %.0321, null
+  %.0315 = phi ptr [ %187, %find_or_create_conversation_noaddrb.exit ], [ %190, %188 ]
+  %195 = icmp ne ptr %.0317, null
   %196 = icmp ne i8 %.0447.in, 0
   %or.cond29 = select i1 %195, i1 %196, i1 false
   br i1 %or.cond29, label %197, label %368
 
 197:                                              ; preds = %194
-  %198 = load ptr, ptr %.0318, align 8
-  %199 = call ptr @wmem_map_lookup(ptr noundef %198, ptr noundef nonnull %.0321) #9
+  %198 = load ptr, ptr %.0315, align 8
+  %199 = call ptr @wmem_map_lookup(ptr noundef %198, ptr noundef nonnull %.0317) #9
   %.not347 = icmp eq ptr %199, null
   br i1 %.not347, label %200, label %270
 
@@ -2211,8 +2211,8 @@ find_or_create_conversation_noaddrb.exit:         ; preds = %168, %172, %173, %1
   br label %267
 
 267:                                              ; preds = %252, %256, %219
-  %268 = load ptr, ptr %.0318, align 8
-  %269 = call ptr @wmem_map_insert(ptr noundef %268, ptr noundef nonnull %.0321, ptr noundef nonnull %209) #9
+  %268 = load ptr, ptr %.0315, align 8
+  %269 = call ptr @wmem_map_insert(ptr noundef %268, ptr noundef nonnull %.0317, ptr noundef nonnull %209) #9
   br label %333
 
 270:                                              ; preds = %197
@@ -2318,9 +2318,9 @@ find_or_create_conversation_noaddrb.exit:         ; preds = %168, %172, %173, %1
   br label %333
 
 333:                                              ; preds = %325, %279, %270, %267
-  %.0316.ph = phi ptr [ %209, %267 ], [ %199, %270 ], [ %199, %279 ], [ %199, %325 ]
-  %334 = load ptr, ptr %.0316.ph, align 8
-  %335 = zext nneg i32 %.0314 to i64
+  %.0313.ph = phi ptr [ %209, %267 ], [ %199, %270 ], [ %199, %279 ], [ %199, %325 ]
+  %334 = load ptr, ptr %.0313.ph, align 8
+  %335 = zext nneg i32 %.0319 to i64
   %336 = inttoptr i64 %335 to ptr
   %337 = call ptr @wmem_map_lookup(ptr noundef %334, ptr noundef %336) #9
   %338 = getelementptr inbounds i8, ptr %1, i64 80
@@ -2338,24 +2338,24 @@ find_or_create_conversation_noaddrb.exit:         ; preds = %168, %172, %173, %1
 344:                                              ; preds = %343
   %345 = call ptr @wmem_file_scope() #9
   %346 = call noalias ptr @wmem_alloc0(ptr noundef %345, i64 noundef 24) #9
-  %347 = load ptr, ptr %.0316.ph, align 8
+  %347 = load ptr, ptr %.0313.ph, align 8
   %348 = call ptr @wmem_map_insert(ptr noundef %347, ptr noundef %336, ptr noundef %346) #9
   br label %349
 
 349:                                              ; preds = %344, %343
-  %.0315 = phi ptr [ %337, %343 ], [ %346, %344 ]
+  %.0312 = phi ptr [ %337, %343 ], [ %346, %344 ]
   br i1 %155, label %350, label %358
 
 350:                                              ; preds = %349
-  %351 = load i32, ptr %.0315, align 8
+  %351 = load i32, ptr %.0312, align 8
   %352 = icmp eq i32 %351, 0
   br i1 %352, label %353, label %368
 
 353:                                              ; preds = %350
   %354 = getelementptr inbounds i8, ptr %1, i64 20
   %355 = load i32, ptr %354, align 4
-  store i32 %355, ptr %.0315, align 8
-  %356 = getelementptr inbounds i8, ptr %.0315, i64 8
+  store i32 %355, ptr %.0312, align 8
+  %356 = getelementptr inbounds i8, ptr %.0312, i64 8
   %357 = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %356, ptr noundef nonnull align 8 dereferenceable(16) %357, i64 16, i1 false)
   br label %368
@@ -2367,7 +2367,7 @@ find_or_create_conversation_noaddrb.exit:         ; preds = %168, %172, %173, %1
   br i1 %or.cond8, label %361, label %368
 
 361:                                              ; preds = %358
-  %362 = getelementptr inbounds i8, ptr %.0315, i64 4
+  %362 = getelementptr inbounds i8, ptr %.0312, i64 4
   %363 = load i32, ptr %362, align 4
   %364 = icmp eq i32 %363, 0
   br i1 %364, label %365, label %368
@@ -2379,9 +2379,9 @@ find_or_create_conversation_noaddrb.exit:         ; preds = %168, %172, %173, %1
   br label %368
 
 368:                                              ; preds = %200, %333, %358, %365, %361, %350, %353, %194
-  %.1317 = phi ptr [ %.0316.ph, %333 ], [ %.0316.ph, %353 ], [ %.0316.ph, %350 ], [ %.0316.ph, %365 ], [ %.0316.ph, %361 ], [ %.0316.ph, %358 ], [ null, %194 ], [ null, %200 ]
-  %.1 = phi ptr [ %337, %333 ], [ %.0315, %353 ], [ %.0315, %350 ], [ %.0315, %365 ], [ %.0315, %361 ], [ %.0315, %358 ], [ null, %194 ], [ null, %200 ]
-  %369 = icmp sgt i32 %.0319, %150
+  %.1314 = phi ptr [ %.0313.ph, %333 ], [ %.0313.ph, %353 ], [ %.0313.ph, %350 ], [ %.0313.ph, %365 ], [ %.0313.ph, %361 ], [ %.0313.ph, %358 ], [ null, %194 ], [ null, %200 ]
+  %.1 = phi ptr [ %337, %333 ], [ %.0312, %353 ], [ %.0312, %350 ], [ %.0312, %365 ], [ %.0312, %361 ], [ %.0312, %358 ], [ null, %194 ], [ null, %200 ]
+  %369 = icmp sgt i32 %.0318, %150
   br i1 %369, label %370, label %393
 
 370:                                              ; preds = %368
@@ -2390,12 +2390,12 @@ find_or_create_conversation_noaddrb.exit:         ; preds = %168, %172, %173, %1
   br i1 %372, label %373, label %374
 
 373:                                              ; preds = %370
-  call void @dissect_coap_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %82, ptr noundef %2, i32 noundef %150, i32 noundef %.0319, i8 noundef zeroext %.0447, ptr noundef nonnull %.0320, ptr noundef nonnull @dissect_coap_hf, i32 noundef 0)
+  call void @dissect_coap_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %82, ptr noundef %2, i32 noundef %150, i32 noundef %.0318, i8 noundef zeroext %.0447, ptr noundef nonnull %.0316, ptr noundef nonnull @dissect_coap_hf, i32 noundef 0)
   br label %393
 
 374:                                              ; preds = %370
   %375 = load i32, ptr @hf_block_payload, align 4
-  %376 = sub i32 %.0319, %150
+  %376 = sub i32 %.0318, %150
   %377 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %82, i32 noundef %375, ptr noundef %0, i32 noundef %150, i32 noundef %376, ptr noundef null, ptr noundef nonnull @.str.47) #9
   %378 = load i32, ptr @hf_block_length, align 4
   %379 = call ptr @proto_tree_add_uint(ptr noundef %82, i32 noundef %378, ptr noundef %0, i32 noundef %150, i32 noundef 0, i32 noundef %376) #9
@@ -2425,7 +2425,7 @@ proto_item_set_generated.exit:                    ; preds = %374, %380, %383
 
 391:                                              ; preds = %proto_item_set_generated.exit
   %392 = call i32 @tvb_reported_length(ptr noundef nonnull %390) #9
-  call void @dissect_coap_payload(ptr noundef nonnull %390, ptr noundef nonnull %1, ptr noundef %82, ptr noundef %2, i32 noundef 0, i32 noundef %392, i8 noundef zeroext %.0447, ptr noundef nonnull %.0320, ptr noundef nonnull @dissect_coap_hf, i32 noundef 0)
+  call void @dissect_coap_payload(ptr noundef nonnull %390, ptr noundef nonnull %1, ptr noundef %82, ptr noundef %2, i32 noundef 0, i32 noundef %392, i8 noundef zeroext %.0447, ptr noundef nonnull %.0316, ptr noundef nonnull @dissect_coap_hf, i32 noundef 0)
   br label %393
 
 393:                                              ; preds = %373, %391, %proto_item_set_generated.exit, %368
@@ -2433,7 +2433,7 @@ proto_item_set_generated.exit:                    ; preds = %374, %380, %383
 
 394:                                              ; preds = %393
   %395 = load ptr, ptr %76, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %395, i32 noundef 25, ptr noundef nonnull @.str.336, ptr noundef nonnull %.0321) #9
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %395, i32 noundef 25, ptr noundef nonnull @.str.336, ptr noundef nonnull %.0317) #9
   br label %396
 
 396:                                              ; preds = %394, %393
@@ -2549,7 +2549,7 @@ proto_item_set_generated.exit378:                 ; preds = %430, %427, %415, %4
   br label %proto_item_set_generated.exit381
 
 proto_item_set_generated.exit381:                 ; preds = %455, %452, %449, %446
-  %or.cond17 = icmp ult i8 %.0311, 2
+  %or.cond17 = icmp ult i8 %.0321, 2
   br i1 %or.cond17, label %459, label %514
 
 459:                                              ; preds = %proto_item_set_generated.exit381
@@ -2627,7 +2627,7 @@ proto_item_set_generated.exit387:                 ; preds = %476, %479, %482
   br label %proto_item_set_generated.exit390
 
 proto_item_set_generated.exit390:                 ; preds = %493, %490, %proto_item_set_generated.exit387, %474
-  %or.cond23 = icmp ult i8 %.0311, 2
+  %or.cond23 = icmp ult i8 %.0321, 2
   br i1 %or.cond23, label %497, label %514
 
 497:                                              ; preds = %proto_item_set_generated.exit390
@@ -2668,7 +2668,7 @@ proto_item_set_generated.exit390:                 ; preds = %493, %490, %proto_i
   br label %514
 
 514:                                              ; preds = %.sink.split, %proto_item_set_generated.exit381, %459, %497, %proto_item_set_generated.exit390, %471, %444
-  %.not370 = icmp ne ptr %.1317, null
+  %.not370 = icmp ne ptr %.1314, null
   %515 = add nsw i8 %.0447, -2
   %or.cond26 = icmp ult i8 %515, 4
   %or.cond459 = select i1 %.not370, i1 %or.cond26, i1 false
@@ -2680,7 +2680,7 @@ proto_item_set_generated.exit390:                 ; preds = %493, %490, %proto_i
   br i1 %.not371, label %proto_item_set_generated.exit402, label %518
 
 518:                                              ; preds = %516
-  %519 = getelementptr inbounds i8, ptr %.1317, i64 16
+  %519 = getelementptr inbounds i8, ptr %.1314, i64 16
   %520 = load ptr, ptr %519, align 8
   %.not372 = icmp eq ptr %520, null
   br i1 %.not372, label %proto_item_set_generated.exit402, label %521
@@ -2770,7 +2770,7 @@ proto_item_set_generated.exit399:                 ; preds = %proto_item_set_gene
   br label %proto_item_set_generated.exit402
 
 proto_item_set_generated.exit402:                 ; preds = %565, %562, %557, %514, %516, %518, %152, %68, %coap_frame_length.exit
-  %.0 = phi i32 [ %61, %coap_frame_length.exit ], [ %73, %68 ], [ %153, %152 ], [ %.0319, %518 ], [ %.0319, %516 ], [ %.0319, %514 ], [ %.0319, %557 ], [ %.0319, %562 ], [ %.0319, %565 ]
+  %.0 = phi i32 [ %61, %coap_frame_length.exit ], [ %73, %68 ], [ %153, %152 ], [ %.0318, %518 ], [ %.0318, %516 ], [ %.0318, %514 ], [ %.0318, %557 ], [ %.0318, %562 ], [ %.0318, %565 ]
   ret i32 %.0
 }
 

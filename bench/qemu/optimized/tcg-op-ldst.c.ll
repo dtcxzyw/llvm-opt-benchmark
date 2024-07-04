@@ -292,8 +292,8 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then, %land.lhs.true, %tcg_canonicalize_memop.exit
-  %oi.0 = phi i32 [ %or.i19, %land.lhs.true ], [ %or.i21, %if.then ], [ %or.i19, %tcg_canonicalize_memop.exit ]
   %memop.addr.1 = phi i32 [ %op.addr.3.i, %land.lhs.true ], [ %spec.select, %if.then ], [ %op.addr.3.i, %tcg_canonicalize_memop.exit ]
+  %oi.0 = phi i32 [ %or.i19, %land.lhs.true ], [ %or.i21, %if.then ], [ %or.i19, %tcg_canonicalize_memop.exit ]
   %9 = load ptr, ptr %0, align 8
   %plugin_insn.i = getelementptr inbounds i8, ptr %9, i64 224
   %10 = load ptr, ptr %plugin_insn.i, align 8
@@ -489,8 +489,8 @@ sw.epilog:                                        ; preds = %sw.bb5, %sw.bb
   br label %if.end
 
 if.end:                                           ; preds = %sw.epilog, %land.lhs.true, %tcg_canonicalize_memop.exit
-  %swap.0 = phi ptr [ null, %land.lhs.true ], [ %call3, %sw.epilog ], [ null, %tcg_canonicalize_memop.exit ]
   %val.addr.0 = phi ptr [ %val, %land.lhs.true ], [ %call3, %sw.epilog ], [ %val, %tcg_canonicalize_memop.exit ]
+  %swap.0 = phi ptr [ null, %land.lhs.true ], [ %call3, %sw.epilog ], [ null, %tcg_canonicalize_memop.exit ]
   %oi.0 = phi i32 [ %or.i15, %land.lhs.true ], [ %or.i17, %sw.epilog ], [ %or.i15, %tcg_canonicalize_memop.exit ]
   %6 = load ptr, ptr %0, align 8
   %addr_type = getelementptr inbounds i8, ptr %6, i64 60
@@ -670,8 +670,8 @@ if.then:                                          ; preds = %land.lhs.true
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then, %land.lhs.true, %tcg_canonicalize_memop.exit
-  %oi.0 = phi i32 [ %or.i23, %land.lhs.true ], [ %or.i25, %if.then ], [ %or.i23, %tcg_canonicalize_memop.exit ]
   %memop.addr.1 = phi i32 [ %op.addr.3.i, %land.lhs.true ], [ %memop.addr.0, %if.then ], [ %op.addr.3.i, %tcg_canonicalize_memop.exit ]
+  %oi.0 = phi i32 [ %or.i23, %land.lhs.true ], [ %or.i25, %if.then ], [ %or.i23, %tcg_canonicalize_memop.exit ]
   %9 = load ptr, ptr %0, align 8
   %plugin_insn.i = getelementptr inbounds i8, ptr %9, i64 224
   %10 = load ptr, ptr %plugin_insn.i, align 8
@@ -874,8 +874,8 @@ sw.epilog:                                        ; preds = %sw.bb6, %sw.bb5, %s
   br label %if.end
 
 if.end:                                           ; preds = %sw.epilog, %land.lhs.true, %tcg_canonicalize_memop.exit
-  %swap.0 = phi ptr [ null, %land.lhs.true ], [ %call3, %sw.epilog ], [ null, %tcg_canonicalize_memop.exit ]
   %val.addr.0 = phi ptr [ %val, %land.lhs.true ], [ %call3, %sw.epilog ], [ %val, %tcg_canonicalize_memop.exit ]
+  %swap.0 = phi ptr [ null, %land.lhs.true ], [ %call3, %sw.epilog ], [ null, %tcg_canonicalize_memop.exit ]
   %oi.0 = phi i32 [ %or.i17, %land.lhs.true ], [ %or.i19, %sw.epilog ], [ %or.i17, %tcg_canonicalize_memop.exit ]
   %6 = load ptr, ptr %0, align 8
   %addr_type = getelementptr inbounds i8, ptr %6, i64 60

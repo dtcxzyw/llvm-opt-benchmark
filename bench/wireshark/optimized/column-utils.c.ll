@@ -328,13 +328,13 @@ define i32 @col_get_writable(ptr noundef readonly %0, i32 noundef %1) local_unna
   br label %23
 
 21:                                               ; preds = %23
-  %22 = add i32 %.01723, 1
+  %22 = add i32 %.023, 1
   %.not = icmp sgt i32 %22, %18
   br i1 %.not, label %.loopexit, label %23, !llvm.loop !9
 
 23:                                               ; preds = %.lr.ph, %21
-  %.01723 = phi i32 [ %13, %.lr.ph ], [ %22, %21 ]
-  %24 = sext i32 %.01723 to i64
+  %.023 = phi i32 [ %13, %.lr.ph ], [ %22, %21 ]
+  %24 = sext i32 %.023 to i64
   %25 = getelementptr %struct.col_item_t, ptr %20, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
@@ -349,8 +349,8 @@ define i32 @col_get_writable(ptr noundef readonly %0, i32 noundef %1) local_unna
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %4, %6, %.preheader, %8, %2, %30
-  %.0 = phi i32 [ %32, %30 ], [ 0, %2 ], [ 0, %8 ], [ 0, %.preheader ], [ 0, %6 ], [ %.pre, %4 ], [ 0, %21 ]
-  ret i32 %.0
+  %.017 = phi i32 [ %32, %30 ], [ 0, %2 ], [ 0, %8 ], [ 0, %.preheader ], [ 0, %6 ], [ %.pre, %4 ], [ 0, %21 ]
+  ret i32 %.017
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -457,13 +457,13 @@ define void @col_set_fence(ptr noundef readonly %0, i32 noundef %1) local_unname
   br label %23
 
 21:                                               ; preds = %23
-  %22 = add i32 %.01723.i, 1
+  %22 = add i32 %.023.i, 1
   %.not.i = icmp sgt i32 %22, %18
   br i1 %.not.i, label %col_get_writable.exit.thread, label %23, !llvm.loop !9
 
 23:                                               ; preds = %21, %.lr.ph.i
-  %.01723.i = phi i32 [ %13, %.lr.ph.i ], [ %22, %21 ]
-  %24 = sext i32 %.01723.i to i64
+  %.023.i = phi i32 [ %13, %.lr.ph.i ], [ %22, %21 ]
+  %24 = sext i32 %.023.i to i64
   %25 = getelementptr %struct.col_item_t, ptr %20, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
@@ -478,8 +478,8 @@ define void @col_set_fence(ptr noundef readonly %0, i32 noundef %1) local_unname
   br label %col_get_writable.exit
 
 col_get_writable.exit:                            ; preds = %4, %30
-  %.0.i = phi i32 [ %32, %30 ], [ %.pre.i, %4 ]
-  %.not = icmp eq i32 %.0.i, 0
+  %.017.i = phi i32 [ %32, %30 ], [ %.pre.i, %4 ]
+  %.not = icmp eq i32 %.017.i, 0
   br i1 %.not, label %col_get_writable.exit.thread, label %33
 
 33:                                               ; preds = %col_get_writable.exit
@@ -579,13 +579,13 @@ define void @col_clear_fence(ptr noundef readonly %0, i32 noundef %1) local_unna
   br label %23
 
 21:                                               ; preds = %23
-  %22 = add i32 %.01723.i, 1
+  %22 = add i32 %.023.i, 1
   %.not.i = icmp sgt i32 %22, %18
   br i1 %.not.i, label %col_get_writable.exit.thread, label %23, !llvm.loop !9
 
 23:                                               ; preds = %21, %.lr.ph.i
-  %.01723.i = phi i32 [ %13, %.lr.ph.i ], [ %22, %21 ]
-  %24 = sext i32 %.01723.i to i64
+  %.023.i = phi i32 [ %13, %.lr.ph.i ], [ %22, %21 ]
+  %24 = sext i32 %.023.i to i64
   %25 = getelementptr %struct.col_item_t, ptr %20, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
@@ -600,8 +600,8 @@ define void @col_clear_fence(ptr noundef readonly %0, i32 noundef %1) local_unna
   br label %col_get_writable.exit
 
 col_get_writable.exit:                            ; preds = %4, %30
-  %.0.i = phi i32 [ %32, %30 ], [ %.pre.i, %4 ]
-  %.not = icmp eq i32 %.0.i, 0
+  %.017.i = phi i32 [ %32, %30 ], [ %.pre.i, %4 ]
+  %.not = icmp eq i32 %.017.i, 0
   br i1 %.not, label %col_get_writable.exit.thread, label %33
 
 33:                                               ; preds = %col_get_writable.exit
@@ -684,9 +684,9 @@ define ptr @col_get_text(ptr noundef readonly %0, i32 noundef %1) local_unnamed_
   br label %16
 
 16:                                               ; preds = %.lr.ph, %26
-  %.01523 = phi ptr [ null, %.lr.ph ], [ %.1, %26 ]
-  %.01622 = phi i32 [ %8, %.lr.ph ], [ %27, %26 ]
-  %17 = sext i32 %.01622 to i64
+  %.023 = phi ptr [ null, %.lr.ph ], [ %.1, %26 ]
+  %.01522 = phi i32 [ %8, %.lr.ph ], [ %27, %26 ]
+  %17 = sext i32 %.01522 to i64
   %18 = getelementptr %struct.col_item_t, ptr %15, i64 %17
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
@@ -701,14 +701,14 @@ define ptr @col_get_text(ptr noundef readonly %0, i32 noundef %1) local_unnamed_
   br label %26
 
 26:                                               ; preds = %16, %23
-  %.1 = phi ptr [ %25, %23 ], [ %.01523, %16 ]
-  %27 = add i32 %.01622, 1
+  %.1 = phi ptr [ %25, %23 ], [ %.023, %16 ]
+  %27 = add i32 %.01522, 1
   %.not19 = icmp sgt i32 %27, %13
   br i1 %.not19, label %.loopexit, label %16, !llvm.loop !13
 
 .loopexit:                                        ; preds = %26, %.preheader, %2, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %2 ], [ null, %.preheader ], [ %.1, %26 ]
-  ret ptr %.0
+  %.016 = phi ptr [ null, %3 ], [ null, %2 ], [ null, %.preheader ], [ %.1, %26 ]
+  ret ptr %.016
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -749,13 +749,13 @@ define void @col_clear(ptr noundef readonly %0, i32 noundef %1) local_unnamed_ad
   br label %23
 
 21:                                               ; preds = %23
-  %22 = add i32 %.01723.i, 1
+  %22 = add i32 %.023.i, 1
   %.not.i = icmp sgt i32 %22, %18
   br i1 %.not.i, label %col_get_writable.exit.thread, label %23, !llvm.loop !9
 
 23:                                               ; preds = %21, %.lr.ph.i
-  %.01723.i = phi i32 [ %13, %.lr.ph.i ], [ %22, %21 ]
-  %24 = sext i32 %.01723.i to i64
+  %.023.i = phi i32 [ %13, %.lr.ph.i ], [ %22, %21 ]
+  %24 = sext i32 %.023.i to i64
   %25 = getelementptr %struct.col_item_t, ptr %20, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
@@ -770,8 +770,8 @@ define void @col_clear(ptr noundef readonly %0, i32 noundef %1) local_unnamed_ad
   br label %col_get_writable.exit
 
 col_get_writable.exit:                            ; preds = %4, %30
-  %.0.i = phi i32 [ %32, %30 ], [ %.pre.i, %4 ]
-  %.not = icmp eq i32 %.0.i, 0
+  %.017.i = phi i32 [ %32, %30 ], [ %.pre.i, %4 ]
+  %.not = icmp eq i32 %.017.i, 0
   br i1 %.not, label %col_get_writable.exit.thread, label %33
 
 33:                                               ; preds = %col_get_writable.exit
@@ -1103,13 +1103,13 @@ define void @col_append_lstr(ptr noundef readonly %0, i32 noundef %1, ptr nounde
   br label %25
 
 23:                                               ; preds = %25
-  %24 = add i32 %.01723.i, 1
+  %24 = add i32 %.023.i, 1
   %.not.i = icmp sgt i32 %24, %20
   br i1 %.not.i, label %col_get_writable.exit.thread, label %25, !llvm.loop !9
 
 25:                                               ; preds = %23, %.lr.ph.i
-  %.01723.i = phi i32 [ %15, %.lr.ph.i ], [ %24, %23 ]
-  %26 = sext i32 %.01723.i to i64
+  %.023.i = phi i32 [ %15, %.lr.ph.i ], [ %24, %23 ]
+  %26 = sext i32 %.023.i to i64
   %27 = getelementptr %struct.col_item_t, ptr %22, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
@@ -1124,8 +1124,8 @@ define void @col_append_lstr(ptr noundef readonly %0, i32 noundef %1, ptr nounde
   br label %col_get_writable.exit
 
 col_get_writable.exit:                            ; preds = %6, %32
-  %.0.i = phi i32 [ %34, %32 ], [ %.pre.i, %6 ]
-  %.not = icmp eq i32 %.0.i, 0
+  %.017.i = phi i32 [ %34, %32 ], [ %.pre.i, %6 ]
+  %.not = icmp eq i32 %.017.i, 0
   br i1 %.not, label %col_get_writable.exit.thread, label %35
 
 35:                                               ; preds = %col_get_writable.exit
@@ -1155,9 +1155,9 @@ col_get_writable.exit:                            ; preds = %6, %32
 
 51:                                               ; preds = %.lr.ph, %91
   %52 = phi ptr [ %45, %.lr.ph ], [ %92, %91 ]
-  %.03351 = phi i32 [ %40, %.lr.ph ], [ %93, %91 ]
+  %.03251 = phi i32 [ %40, %.lr.ph ], [ %93, %91 ]
   %53 = load ptr, ptr %48, align 8
-  %54 = sext i32 %.03351 to i64
+  %54 = sext i32 %.03251 to i64
   %55 = getelementptr %struct.col_item_t, ptr %53, i64 %54
   %56 = getelementptr inbounds i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
@@ -1191,12 +1191,12 @@ col_get_writable.exit:                            ; preds = %6, %32
   br label %72
 
 72:                                               ; preds = %88, %71
-  %.032 = phi ptr [ %2, %71 ], [ %90, %88 ]
-  %.0 = phi i64 [ %70, %71 ], [ %75, %88 ]
-  %73 = icmp eq ptr %.032, null
-  %spec.store.select = select i1 %73, ptr @.str.2, ptr %.032
+  %.034 = phi i64 [ %70, %71 ], [ %75, %88 ]
+  %.0 = phi ptr [ %2, %71 ], [ %90, %88 ]
+  %73 = icmp eq ptr %.0, null
+  %spec.store.select = select i1 %73, ptr @.str.2, ptr %.0
   %74 = load ptr, ptr %63, align 8
-  %75 = call i64 @ws_label_strcpy(ptr noundef %74, i64 noundef %., i64 noundef %.0, ptr noundef nonnull %spec.store.select, i32 noundef 0) #16
+  %75 = call i64 @ws_label_strcpy(ptr noundef %74, i64 noundef %., i64 noundef %.034, ptr noundef nonnull %spec.store.select, i32 noundef 0) #16
   %76 = icmp ult i64 %75, %.
   br i1 %76, label %77, label %.critedge
 
@@ -1232,7 +1232,7 @@ col_get_writable.exit:                            ; preds = %6, %32
 
 91:                                               ; preds = %51, %.critedge
   %92 = phi ptr [ %52, %51 ], [ %.pre, %.critedge ]
-  %93 = add i32 %.03351, 1
+  %93 = add i32 %.03251, 1
   %94 = getelementptr i32, ptr %92, i64 %38
   %95 = load i32, ptr %94, align 4
   %.not41 = icmp sgt i32 %93, %95
@@ -1364,13 +1364,13 @@ define void @col_append_fstr(ptr noundef readonly %0, i32 noundef %1, ptr nocapt
   br label %25
 
 23:                                               ; preds = %25
-  %24 = add i32 %.01723.i, 1
+  %24 = add i32 %.023.i, 1
   %.not.i = icmp sgt i32 %24, %20
   br i1 %.not.i, label %col_get_writable.exit.thread, label %25, !llvm.loop !9
 
 25:                                               ; preds = %23, %.lr.ph.i
-  %.01723.i = phi i32 [ %15, %.lr.ph.i ], [ %24, %23 ]
-  %26 = sext i32 %.01723.i to i64
+  %.023.i = phi i32 [ %15, %.lr.ph.i ], [ %24, %23 ]
+  %26 = sext i32 %.023.i to i64
   %27 = getelementptr %struct.col_item_t, ptr %22, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
@@ -1385,8 +1385,8 @@ define void @col_append_fstr(ptr noundef readonly %0, i32 noundef %1, ptr nocapt
   br label %col_get_writable.exit
 
 col_get_writable.exit:                            ; preds = %6, %32
-  %.0.i = phi i32 [ %34, %32 ], [ %.pre.i, %6 ]
-  %.not = icmp eq i32 %.0.i, 0
+  %.017.i = phi i32 [ %34, %32 ], [ %.pre.i, %6 ]
+  %.not = icmp eq i32 %.017.i, 0
   br i1 %.not, label %col_get_writable.exit.thread, label %35
 
 35:                                               ; preds = %col_get_writable.exit
@@ -1442,9 +1442,9 @@ define internal fastcc void @col_do_append_fstr(ptr nocapture noundef readonly %
   br label %25
 
 25:                                               ; preds = %.lr.ph, %58
-  %.03850 = phi i32 [ %17, %.lr.ph ], [ %59, %58 ]
+  %.050 = phi i32 [ %17, %.lr.ph ], [ %59, %58 ]
   %26 = load ptr, ptr %22, align 8
-  %27 = sext i32 %.03850 to i64
+  %27 = sext i32 %.050 to i64
   %28 = getelementptr %struct.col_item_t, ptr %26, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
@@ -1480,8 +1480,8 @@ define internal fastcc void @col_do_append_fstr(ptr nocapture noundef readonly %
   br label %48
 
 48:                                               ; preds = %45, %41
-  %.0 = phi i64 [ %47, %45 ], [ %43, %41 ]
-  %49 = icmp ult i64 %.0, %.
+  %.038 = phi i64 [ %47, %45 ], [ %43, %41 ]
+  %49 = icmp ult i64 %.038, %.
   br i1 %49, label %50, label %58
 
 50:                                               ; preds = %48
@@ -1498,11 +1498,11 @@ define internal fastcc void @col_do_append_fstr(ptr nocapture noundef readonly %
 
 55:                                               ; preds = %53, %50
   %56 = load ptr, ptr %36, align 8
-  %57 = call i64 @ws_label_strcpy(ptr noundef %56, i64 noundef %., i64 noundef %.0, ptr noundef nonnull %6, i32 noundef 0) #16
+  %57 = call i64 @ws_label_strcpy(ptr noundef %56, i64 noundef %., i64 noundef %.038, ptr noundef nonnull %6, i32 noundef 0) #16
   br label %58
 
 58:                                               ; preds = %25, %55, %48
-  %59 = add i32 %.03850, 1
+  %59 = add i32 %.050, 1
   %60 = load ptr, ptr %18, align 8
   %61 = getelementptr i32, ptr %60, i64 %15
   %62 = load i32, ptr %61, align 4
@@ -1552,13 +1552,13 @@ define void @col_append_sep_fstr(ptr noundef readonly %0, i32 noundef %1, ptr no
   br label %26
 
 24:                                               ; preds = %26
-  %25 = add i32 %.01723.i, 1
+  %25 = add i32 %.023.i, 1
   %.not.i = icmp sgt i32 %25, %21
   br i1 %.not.i, label %col_get_writable.exit.thread, label %26, !llvm.loop !9
 
 26:                                               ; preds = %24, %.lr.ph.i
-  %.01723.i = phi i32 [ %16, %.lr.ph.i ], [ %25, %24 ]
-  %27 = sext i32 %.01723.i to i64
+  %.023.i = phi i32 [ %16, %.lr.ph.i ], [ %25, %24 ]
+  %27 = sext i32 %.023.i to i64
   %28 = getelementptr %struct.col_item_t, ptr %23, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
@@ -1573,8 +1573,8 @@ define void @col_append_sep_fstr(ptr noundef readonly %0, i32 noundef %1, ptr no
   br label %col_get_writable.exit
 
 col_get_writable.exit:                            ; preds = %7, %33
-  %.0.i = phi i32 [ %35, %33 ], [ %.pre.i, %7 ]
-  %.not = icmp eq i32 %.0.i, 0
+  %.017.i = phi i32 [ %35, %33 ], [ %.pre.i, %7 ]
+  %.not = icmp eq i32 %.017.i, 0
   br i1 %.not, label %col_get_writable.exit.thread, label %36
 
 36:                                               ; preds = %col_get_writable.exit
@@ -1639,13 +1639,13 @@ define void @col_prepend_fstr(ptr noundef readonly %0, i32 noundef %1, ptr nocap
   br label %27
 
 25:                                               ; preds = %27
-  %26 = add i32 %.01723.i, 1
+  %26 = add i32 %.023.i, 1
   %.not.i = icmp sgt i32 %26, %22
   br i1 %.not.i, label %col_get_writable.exit.thread, label %27, !llvm.loop !9
 
 27:                                               ; preds = %25, %.lr.ph.i
-  %.01723.i = phi i32 [ %17, %.lr.ph.i ], [ %26, %25 ]
-  %28 = sext i32 %.01723.i to i64
+  %.023.i = phi i32 [ %17, %.lr.ph.i ], [ %26, %25 ]
+  %28 = sext i32 %.023.i to i64
   %29 = getelementptr %struct.col_item_t, ptr %24, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -1660,8 +1660,8 @@ define void @col_prepend_fstr(ptr noundef readonly %0, i32 noundef %1, ptr nocap
   br label %col_get_writable.exit
 
 col_get_writable.exit:                            ; preds = %8, %34
-  %.0.i = phi i32 [ %36, %34 ], [ %.pre.i, %8 ]
-  %.not = icmp eq i32 %.0.i, 0
+  %.017.i = phi i32 [ %36, %34 ], [ %.pre.i, %8 ]
+  %.not = icmp eq i32 %.017.i, 0
   br i1 %.not, label %col_get_writable.exit.thread, label %37
 
 37:                                               ; preds = %col_get_writable.exit
@@ -1690,9 +1690,9 @@ col_get_writable.exit:                            ; preds = %8, %34
 
 52:                                               ; preds = %.lr.ph, %86
   %53 = phi ptr [ %47, %.lr.ph ], [ %87, %86 ]
-  %.048 = phi i32 [ %42, %.lr.ph ], [ %88, %86 ]
+  %.03548 = phi i32 [ %42, %.lr.ph ], [ %88, %86 ]
   %54 = load ptr, ptr %50, align 8
-  %55 = sext i32 %.048 to i64
+  %55 = sext i32 %.03548 to i64
   %56 = getelementptr %struct.col_item_t, ptr %54, i64 %55
   %57 = getelementptr inbounds i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
@@ -1714,7 +1714,7 @@ col_get_writable.exit:                            ; preds = %8, %34
   br label %68
 
 68:                                               ; preds = %61, %66
-  %.035 = phi ptr [ %5, %66 ], [ %63, %61 ]
+  %.034 = phi ptr [ %5, %66 ], [ %63, %61 ]
   call void @llvm.va_start.p0(ptr nonnull %4)
   %69 = call i32 @vsnprintf(ptr noundef nonnull %6, i64 noundef 4096, ptr noundef %2, ptr noundef nonnull %4) #16
   %70 = sext i32 %69 to i64
@@ -1743,7 +1743,7 @@ col_get_writable.exit:                            ; preds = %8, %34
   br label %83
 
 83:                                               ; preds = %79, %73
-  %84 = call i64 @ws_label_strcpy(ptr noundef %.pre, i64 noundef %., i64 noundef %75, ptr noundef %.035, i32 noundef 0) #16
+  %84 = call i64 @ws_label_strcpy(ptr noundef %.pre, i64 noundef %., i64 noundef %75, ptr noundef %.034, i32 noundef 0) #16
   %85 = load ptr, ptr %64, align 8
   store ptr %85, ptr %62, align 8
   %.pre51 = load ptr, ptr %46, align 8
@@ -1751,7 +1751,7 @@ col_get_writable.exit:                            ; preds = %8, %34
 
 86:                                               ; preds = %52, %83
   %87 = phi ptr [ %53, %52 ], [ %.pre51, %83 ]
-  %88 = add i32 %.048, 1
+  %88 = add i32 %.03548, 1
   %89 = getelementptr i32, ptr %87, i64 %40
   %90 = load i32, ptr %89, align 4
   %.not39 = icmp sgt i32 %88, %90
@@ -1807,13 +1807,13 @@ define void @col_prepend_fence_fstr(ptr noundef readonly %0, i32 noundef %1, ptr
   br label %27
 
 25:                                               ; preds = %27
-  %26 = add i32 %.01723.i, 1
+  %26 = add i32 %.023.i, 1
   %.not.i = icmp sgt i32 %26, %22
   br i1 %.not.i, label %col_get_writable.exit.thread, label %27, !llvm.loop !9
 
 27:                                               ; preds = %25, %.lr.ph.i
-  %.01723.i = phi i32 [ %17, %.lr.ph.i ], [ %26, %25 ]
-  %28 = sext i32 %.01723.i to i64
+  %.023.i = phi i32 [ %17, %.lr.ph.i ], [ %26, %25 ]
+  %28 = sext i32 %.023.i to i64
   %29 = getelementptr %struct.col_item_t, ptr %24, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -1828,8 +1828,8 @@ define void @col_prepend_fence_fstr(ptr noundef readonly %0, i32 noundef %1, ptr
   br label %col_get_writable.exit
 
 col_get_writable.exit:                            ; preds = %8, %34
-  %.0.i = phi i32 [ %36, %34 ], [ %.pre.i, %8 ]
-  %.not = icmp eq i32 %.0.i, 0
+  %.017.i = phi i32 [ %36, %34 ], [ %.pre.i, %8 ]
+  %.not = icmp eq i32 %.017.i, 0
   br i1 %.not, label %col_get_writable.exit.thread, label %37
 
 37:                                               ; preds = %col_get_writable.exit
@@ -1858,9 +1858,9 @@ col_get_writable.exit:                            ; preds = %8, %34
 
 52:                                               ; preds = %.lr.ph, %84
   %53 = phi ptr [ %47, %.lr.ph ], [ %85, %84 ]
-  %.050 = phi i32 [ %42, %.lr.ph ], [ %86, %84 ]
+  %.03750 = phi i32 [ %42, %.lr.ph ], [ %86, %84 ]
   %54 = load ptr, ptr %50, align 8
-  %55 = sext i32 %.050 to i64
+  %55 = sext i32 %.03750 to i64
   %56 = getelementptr %struct.col_item_t, ptr %54, i64 %55
   %57 = getelementptr inbounds i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
@@ -1882,7 +1882,7 @@ col_get_writable.exit:                            ; preds = %8, %34
   br label %68
 
 68:                                               ; preds = %61, %66
-  %.037 = phi ptr [ %5, %66 ], [ %63, %61 ]
+  %.036 = phi ptr [ %5, %66 ], [ %63, %61 ]
   call void @llvm.va_start.p0(ptr nonnull %4)
   %69 = call i32 @vsnprintf(ptr noundef nonnull %6, i64 noundef 4096, ptr noundef %2, ptr noundef nonnull %4) #16
   %70 = sext i32 %69 to i64
@@ -1905,7 +1905,7 @@ col_get_writable.exit:                            ; preds = %8, %34
   %81 = call i32 @llvm.smax.i32(i32 %77, i32 0)
   %storemerge = add i32 %81, %80
   store i32 %storemerge, ptr %76, align 8
-  %82 = call i64 @ws_label_strcpy(ptr noundef %78, i64 noundef %., i64 noundef %75, ptr noundef %.037, i32 noundef 0) #16
+  %82 = call i64 @ws_label_strcpy(ptr noundef %78, i64 noundef %., i64 noundef %75, ptr noundef %.036, i32 noundef 0) #16
   %83 = load ptr, ptr %64, align 8
   store ptr %83, ptr %62, align 8
   %.pre = load ptr, ptr %46, align 8
@@ -1913,7 +1913,7 @@ col_get_writable.exit:                            ; preds = %8, %34
 
 84:                                               ; preds = %52, %73
   %85 = phi ptr [ %53, %52 ], [ %.pre, %73 ]
-  %86 = add i32 %.050, 1
+  %86 = add i32 %.03750, 1
   %87 = getelementptr i32, ptr %85, i64 %40
   %88 = load i32, ptr %87, align 4
   %.not41 = icmp sgt i32 %86, %88
@@ -1961,13 +1961,13 @@ define void @col_add_str(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2
   br label %24
 
 22:                                               ; preds = %24
-  %23 = add i32 %.01723.i, 1
+  %23 = add i32 %.023.i, 1
   %.not.i = icmp sgt i32 %23, %19
   br i1 %.not.i, label %col_get_writable.exit.thread, label %24, !llvm.loop !9
 
 24:                                               ; preds = %22, %.lr.ph.i
-  %.01723.i = phi i32 [ %14, %.lr.ph.i ], [ %23, %22 ]
-  %25 = sext i32 %.01723.i to i64
+  %.023.i = phi i32 [ %14, %.lr.ph.i ], [ %23, %22 ]
+  %25 = sext i32 %.023.i to i64
   %26 = getelementptr %struct.col_item_t, ptr %21, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
@@ -1982,8 +1982,8 @@ define void @col_add_str(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2
   br label %col_get_writable.exit
 
 col_get_writable.exit:                            ; preds = %5, %31
-  %.0.i = phi i32 [ %33, %31 ], [ %.pre.i, %5 ]
-  %.not = icmp eq i32 %.0.i, 0
+  %.017.i = phi i32 [ %33, %31 ], [ %.pre.i, %5 ]
+  %.not = icmp eq i32 %.017.i, 0
   br i1 %.not, label %col_get_writable.exit.thread, label %34
 
 34:                                               ; preds = %col_get_writable.exit
@@ -2011,9 +2011,9 @@ col_get_writable.exit:                            ; preds = %5, %31
 
 48:                                               ; preds = %.lr.ph, %77
   %49 = phi ptr [ %44, %.lr.ph ], [ %78, %77 ]
-  %.040 = phi i32 [ %39, %.lr.ph ], [ %79, %77 ]
+  %.02840 = phi i32 [ %39, %.lr.ph ], [ %79, %77 ]
   %50 = load ptr, ptr %47, align 8
-  %51 = sext i32 %.040 to i64
+  %51 = sext i32 %.02840 to i64
   %52 = getelementptr %struct.col_item_t, ptr %50, i64 %51
   %53 = getelementptr inbounds i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
@@ -2060,7 +2060,7 @@ col_get_writable.exit:                            ; preds = %5, %31
 
 77:                                               ; preds = %48, %72
   %78 = phi ptr [ %49, %48 ], [ %.pre43, %72 ]
-  %79 = add i32 %.040, 1
+  %79 = add i32 %.02840, 1
   %80 = getelementptr i32, ptr %78, i64 %37
   %81 = load i32, ptr %80, align 4
   %.not31 = icmp sgt i32 %79, %81
@@ -2116,13 +2116,13 @@ define void @col_set_str(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2
   br label %26
 
 24:                                               ; preds = %26
-  %25 = add i32 %.01723.i, 1
+  %25 = add i32 %.023.i, 1
   %.not.i = icmp sgt i32 %25, %21
   br i1 %.not.i, label %col_get_writable.exit.thread, label %26, !llvm.loop !9
 
 26:                                               ; preds = %24, %.lr.ph.i
-  %.01723.i = phi i32 [ %16, %.lr.ph.i ], [ %25, %24 ]
-  %27 = sext i32 %.01723.i to i64
+  %.023.i = phi i32 [ %16, %.lr.ph.i ], [ %25, %24 ]
+  %27 = sext i32 %.023.i to i64
   %28 = getelementptr %struct.col_item_t, ptr %23, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
@@ -2137,8 +2137,8 @@ define void @col_set_str(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2
   br label %col_get_writable.exit
 
 col_get_writable.exit:                            ; preds = %7, %33
-  %.0.i = phi i32 [ %35, %33 ], [ %.pre.i, %7 ]
-  %.not34 = icmp eq i32 %.0.i, 0
+  %.017.i = phi i32 [ %35, %33 ], [ %.pre.i, %7 ]
+  %.not34 = icmp eq i32 %.017.i, 0
   br i1 %.not34, label %col_get_writable.exit.thread, label %36
 
 36:                                               ; preds = %col_get_writable.exit
@@ -2165,9 +2165,9 @@ col_get_writable.exit:                            ; preds = %7, %33
   br label %50
 
 50:                                               ; preds = %.lr.ph, %77
-  %.044 = phi i32 [ %41, %.lr.ph ], [ %78, %77 ]
+  %.03044 = phi i32 [ %41, %.lr.ph ], [ %78, %77 ]
   %51 = load ptr, ptr %49, align 8
-  %52 = sext i32 %.044 to i64
+  %52 = sext i32 %.03044 to i64
   %53 = getelementptr %struct.col_item_t, ptr %51, i64 %52
   %54 = getelementptr inbounds i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
@@ -2211,7 +2211,7 @@ col_get_writable.exit:                            ; preds = %7, %33
   br label %77
 
 77:                                               ; preds = %50, %76, %69
-  %78 = add i32 %.044, 1
+  %78 = add i32 %.03044, 1
   %79 = load ptr, ptr %45, align 8
   %80 = getelementptr i32, ptr %79, i64 %39
   %81 = load i32, ptr %80, align 4
@@ -2264,13 +2264,13 @@ define void @col_add_lstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef %
   br label %25
 
 23:                                               ; preds = %25
-  %24 = add i32 %.01723.i, 1
+  %24 = add i32 %.023.i, 1
   %.not.i = icmp sgt i32 %24, %20
   br i1 %.not.i, label %col_get_writable.exit.thread, label %25, !llvm.loop !9
 
 25:                                               ; preds = %23, %.lr.ph.i
-  %.01723.i = phi i32 [ %15, %.lr.ph.i ], [ %24, %23 ]
-  %26 = sext i32 %.01723.i to i64
+  %.023.i = phi i32 [ %15, %.lr.ph.i ], [ %24, %23 ]
+  %26 = sext i32 %.023.i to i64
   %27 = getelementptr %struct.col_item_t, ptr %22, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
@@ -2285,8 +2285,8 @@ define void @col_add_lstr(ptr noundef readonly %0, i32 noundef %1, ptr noundef %
   br label %col_get_writable.exit
 
 col_get_writable.exit:                            ; preds = %6, %32
-  %.0.i = phi i32 [ %34, %32 ], [ %.pre.i, %6 ]
-  %.not = icmp eq i32 %.0.i, 0
+  %.017.i = phi i32 [ %34, %32 ], [ %.pre.i, %6 ]
+  %.not = icmp eq i32 %.017.i, 0
   br i1 %.not, label %col_get_writable.exit.thread, label %35
 
 35:                                               ; preds = %col_get_writable.exit
@@ -2316,9 +2316,9 @@ col_get_writable.exit:                            ; preds = %6, %32
 
 51:                                               ; preds = %.lr.ph, %97
   %52 = phi ptr [ %45, %.lr.ph ], [ %98, %97 ]
-  %.051 = phi i32 [ %40, %.lr.ph ], [ %99, %97 ]
+  %.03551 = phi i32 [ %40, %.lr.ph ], [ %99, %97 ]
   %53 = load ptr, ptr %48, align 8
-  %54 = sext i32 %.051 to i64
+  %54 = sext i32 %.03551 to i64
   %55 = getelementptr %struct.col_item_t, ptr %53, i64 %54
   %56 = getelementptr inbounds i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
@@ -2361,12 +2361,12 @@ col_get_writable.exit:                            ; preds = %6, %32
   br label %78
 
 78:                                               ; preds = %94, %76
-  %.035 = phi i64 [ %63, %76 ], [ %81, %94 ]
-  %.033 = phi ptr [ %2, %76 ], [ %96, %94 ]
-  %79 = icmp eq ptr %.033, null
-  %spec.store.select = select i1 %79, ptr @.str.2, ptr %.033
+  %.034 = phi i64 [ %63, %76 ], [ %81, %94 ]
+  %.0 = phi ptr [ %2, %76 ], [ %96, %94 ]
+  %79 = icmp eq ptr %.0, null
+  %spec.store.select = select i1 %79, ptr @.str.2, ptr %.0
   %80 = load ptr, ptr %77, align 8
-  %81 = call i64 @ws_label_strcpy(ptr noundef %80, i64 noundef %., i64 noundef %.035, ptr noundef nonnull %spec.store.select, i32 noundef 0) #16
+  %81 = call i64 @ws_label_strcpy(ptr noundef %80, i64 noundef %., i64 noundef %.034, ptr noundef nonnull %spec.store.select, i32 noundef 0) #16
   %82 = icmp ult i64 %81, %.
   br i1 %82, label %83, label %.critedge
 
@@ -2402,7 +2402,7 @@ col_get_writable.exit:                            ; preds = %6, %32
 
 97:                                               ; preds = %51, %.critedge
   %98 = phi ptr [ %52, %51 ], [ %.pre, %.critedge ]
-  %99 = add i32 %.051, 1
+  %99 = add i32 %.03551, 1
   %100 = getelementptr i32, ptr %98, i64 %38
   %101 = load i32, ptr %100, align 4
   %.not41 = icmp sgt i32 %99, %101
@@ -2452,13 +2452,13 @@ define void @col_add_fstr(ptr noundef readonly %0, i32 noundef %1, ptr nocapture
   br label %26
 
 24:                                               ; preds = %26
-  %25 = add i32 %.01723.i, 1
+  %25 = add i32 %.023.i, 1
   %.not.i = icmp sgt i32 %25, %21
   br i1 %.not.i, label %col_get_writable.exit.thread, label %26, !llvm.loop !9
 
 26:                                               ; preds = %24, %.lr.ph.i
-  %.01723.i = phi i32 [ %16, %.lr.ph.i ], [ %25, %24 ]
-  %27 = sext i32 %.01723.i to i64
+  %.023.i = phi i32 [ %16, %.lr.ph.i ], [ %25, %24 ]
+  %27 = sext i32 %.023.i to i64
   %28 = getelementptr %struct.col_item_t, ptr %23, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
@@ -2473,8 +2473,8 @@ define void @col_add_fstr(ptr noundef readonly %0, i32 noundef %1, ptr nocapture
   br label %col_get_writable.exit
 
 col_get_writable.exit:                            ; preds = %7, %33
-  %.0.i = phi i32 [ %35, %33 ], [ %.pre.i, %7 ]
-  %.not = icmp eq i32 %.0.i, 0
+  %.017.i = phi i32 [ %35, %33 ], [ %.pre.i, %7 ]
+  %.not = icmp eq i32 %.017.i, 0
   br i1 %.not, label %col_get_writable.exit.thread, label %36
 
 36:                                               ; preds = %col_get_writable.exit
@@ -2505,9 +2505,9 @@ col_get_writable.exit:                            ; preds = %7, %33
 
 53:                                               ; preds = %.lr.ph, %87
   %54 = phi ptr [ %46, %.lr.ph ], [ %88, %87 ]
-  %.044 = phi i32 [ %41, %.lr.ph ], [ %89, %87 ]
+  %.03144 = phi i32 [ %41, %.lr.ph ], [ %89, %87 ]
   %55 = load ptr, ptr %49, align 8
-  %56 = sext i32 %.044 to i64
+  %56 = sext i32 %.03144 to i64
   %57 = getelementptr %struct.col_item_t, ptr %55, i64 %56
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
@@ -2565,7 +2565,7 @@ col_get_writable.exit:                            ; preds = %7, %33
 
 87:                                               ; preds = %53, %81
   %88 = phi ptr [ %54, %53 ], [ %.pre, %81 ]
-  %89 = add i32 %.044, 1
+  %89 = add i32 %.03144, 1
   %90 = getelementptr i32, ptr %88, i64 %39
   %91 = load i32, ptr %90, align 4
   %.not34 = icmp sgt i32 %89, %91
@@ -2613,13 +2613,13 @@ define void @col_append_str(ptr noundef readonly %0, i32 noundef %1, ptr noundef
   br label %24
 
 22:                                               ; preds = %24
-  %23 = add i32 %.01723.i, 1
+  %23 = add i32 %.023.i, 1
   %.not.i = icmp sgt i32 %23, %19
   br i1 %.not.i, label %col_do_append_str.exit, label %24, !llvm.loop !9
 
 24:                                               ; preds = %22, %.lr.ph.i
-  %.01723.i = phi i32 [ %14, %.lr.ph.i ], [ %23, %22 ]
-  %25 = sext i32 %.01723.i to i64
+  %.023.i = phi i32 [ %14, %.lr.ph.i ], [ %23, %22 ]
+  %25 = sext i32 %.023.i to i64
   %26 = getelementptr %struct.col_item_t, ptr %21, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
@@ -2634,8 +2634,8 @@ define void @col_append_str(ptr noundef readonly %0, i32 noundef %1, ptr noundef
   br label %col_get_writable.exit
 
 col_get_writable.exit:                            ; preds = %5, %31
-  %.0.i = phi i32 [ %33, %31 ], [ %.pre.i, %5 ]
-  %.not = icmp eq i32 %.0.i, 0
+  %.017.i = phi i32 [ %33, %31 ], [ %.pre.i, %5 ]
+  %.not = icmp eq i32 %.017.i, 0
   br i1 %.not, label %col_do_append_str.exit, label %34
 
 34:                                               ; preds = %col_get_writable.exit
@@ -2663,9 +2663,9 @@ col_get_writable.exit:                            ; preds = %5, %31
 
 .lr.ph.split.us.i:                                ; preds = %67, %.lr.ph.i6
   %48 = phi ptr [ %68, %67 ], [ %44, %.lr.ph.i6 ]
-  %.034.us.i = phi i32 [ %69, %67 ], [ %39, %.lr.ph.i6 ]
+  %.02734.us.i = phi i32 [ %69, %67 ], [ %39, %.lr.ph.i6 ]
   %49 = load ptr, ptr %47, align 8
-  %50 = sext i32 %.034.us.i to i64
+  %50 = sext i32 %.02734.us.i to i64
   %51 = getelementptr %struct.col_item_t, ptr %49, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
@@ -2696,7 +2696,7 @@ col_get_writable.exit:                            ; preds = %5, %31
 
 67:                                               ; preds = %64, %.lr.ph.split.us.i
   %68 = phi ptr [ %.pre39.i, %64 ], [ %48, %.lr.ph.split.us.i ]
-  %69 = add i32 %.034.us.i, 1
+  %69 = add i32 %.02734.us.i, 1
   %70 = getelementptr i32, ptr %68, i64 %37
   %71 = load i32, ptr %70, align 4
   %.not.us.i = icmp sgt i32 %69, %71
@@ -2744,13 +2744,13 @@ define void @col_append_sep_str(ptr noundef readonly %0, i32 noundef %1, ptr nou
   br label %25
 
 23:                                               ; preds = %25
-  %24 = add i32 %.01723.i, 1
+  %24 = add i32 %.023.i, 1
   %.not.i = icmp sgt i32 %24, %20
   br i1 %.not.i, label %col_do_append_str.exit, label %25, !llvm.loop !9
 
 25:                                               ; preds = %23, %.lr.ph.i
-  %.01723.i = phi i32 [ %15, %.lr.ph.i ], [ %24, %23 ]
-  %26 = sext i32 %.01723.i to i64
+  %.023.i = phi i32 [ %15, %.lr.ph.i ], [ %24, %23 ]
+  %26 = sext i32 %.023.i to i64
   %27 = getelementptr %struct.col_item_t, ptr %22, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
@@ -2765,8 +2765,8 @@ define void @col_append_sep_str(ptr noundef readonly %0, i32 noundef %1, ptr nou
   br label %col_get_writable.exit
 
 col_get_writable.exit:                            ; preds = %6, %32
-  %.0.i = phi i32 [ %34, %32 ], [ %.pre.i, %6 ]
-  %.not = icmp eq i32 %.0.i, 0
+  %.017.i = phi i32 [ %34, %32 ], [ %.pre.i, %6 ]
+  %.not = icmp eq i32 %.017.i, 0
   br i1 %.not, label %col_do_append_str.exit, label %35
 
 35:                                               ; preds = %col_get_writable.exit
@@ -2796,9 +2796,9 @@ col_get_writable.exit:                            ; preds = %6, %32
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i8, %74
   %50 = phi ptr [ %75, %74 ], [ %46, %.lr.ph.i8 ]
-  %.034.i = phi i32 [ %76, %74 ], [ %40, %.lr.ph.i8 ]
+  %.02734.i = phi i32 [ %76, %74 ], [ %40, %.lr.ph.i8 ]
   %51 = load ptr, ptr %49, align 8
-  %52 = sext i32 %.034.i to i64
+  %52 = sext i32 %.02734.i to i64
   %53 = getelementptr %struct.col_item_t, ptr %51, i64 %52
   %54 = getelementptr inbounds i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
@@ -2840,7 +2840,7 @@ col_get_writable.exit:                            ; preds = %6, %32
 
 74:                                               ; preds = %71, %.lr.ph.split.i
   %75 = phi ptr [ %50, %.lr.ph.split.i ], [ %.pre38.i, %71 ]
-  %76 = add i32 %.034.i, 1
+  %76 = add i32 %.02734.i, 1
   %77 = getelementptr i32, ptr %75, i64 %38
   %78 = load i32, ptr %77, align 4
   %.not.i10 = icmp sgt i32 %76, %78
@@ -3484,7 +3484,7 @@ define internal fastcc void @set_time_hour_min_sec(ptr nocapture noundef readonl
   %4 = icmp sgt i64 %.0.val, -1
   %spec.select = tail call i64 @llvm.abs.i64(i64 %.0.val, i1 false)
   %5 = icmp sgt i32 %.8.val, -1
-  %.053 = tail call i32 @llvm.abs.i32(i32 %.8.val, i1 false)
+  %.052 = tail call i32 @llvm.abs.i32(i32 %.8.val, i1 false)
   %6 = and i1 %4, %5
   %.1 = select i1 %6, ptr @.str.1, ptr @.str.25
   %7 = icmp sgt i64 %spec.select, 3599
@@ -3519,8 +3519,8 @@ define internal fastcc void @set_time_hour_min_sec(ptr nocapture noundef readonl
   br label %25
 
 25:                                               ; preds = %18, %22, %8
-  %.049 = phi i32 [ %15, %8 ], [ %21, %18 ], [ %24, %22 ]
-  %26 = icmp slt i32 %.049, 0
+  %.0 = phi i32 [ %15, %8 ], [ %21, %18 ], [ %24, %22 ]
+  %26 = icmp slt i32 %.0, 0
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %25
@@ -3528,11 +3528,11 @@ define internal fastcc void @set_time_hour_min_sec(ptr nocapture noundef readonl
   br label %54
 
 28:                                               ; preds = %25
-  %29 = icmp ugt i32 %.049, 2047
+  %29 = icmp ugt i32 %.0, 2047
   br i1 %29, label %54, label %30
 
 30:                                               ; preds = %28
-  %31 = zext nneg i32 %.049 to i64
+  %31 = zext nneg i32 %.0 to i64
   %32 = getelementptr i8, ptr %1, i64 %31
   %33 = sub nuw nsw i64 2048, %31
   %34 = tail call i32 @timestamp_get_precision() #16
@@ -3562,7 +3562,7 @@ get_frame_timestamp_precision.exit:               ; preds = %36, %42
 
 45:                                               ; preds = %get_frame_timestamp_precision.exit
   %spec.store.select.i = tail call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i, i32 9)
-  %46 = tail call i32 @format_fractional_part_nsecs(ptr noundef %32, i64 noundef %33, i32 noundef %.053, ptr noundef %2, i32 noundef %spec.store.select.i) #16
+  %46 = tail call i32 @format_fractional_part_nsecs(ptr noundef %32, i64 noundef %33, i32 noundef %.052, ptr noundef %2, i32 noundef %spec.store.select.i) #16
   %47 = zext i32 %46 to i64
   %.not64 = icmp ugt i64 %33, %47
   br i1 %.not64, label %48, label %54
@@ -3574,9 +3574,9 @@ get_frame_timestamp_precision.exit:               ; preds = %36, %42
   br label %52
 
 52:                                               ; preds = %48, %get_frame_timestamp_precision.exit
-  %.051 = phi ptr [ %50, %48 ], [ %32, %get_frame_timestamp_precision.exit ]
-  %.050 = phi i64 [ %51, %48 ], [ %33, %get_frame_timestamp_precision.exit ]
-  %53 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.051, i64 noundef %.050, ptr noundef nonnull @.str.28) #16
+  %.050 = phi ptr [ %50, %48 ], [ %32, %get_frame_timestamp_precision.exit ]
+  %.049 = phi i64 [ %51, %48 ], [ %33, %get_frame_timestamp_precision.exit ]
+  %53 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.050, i64 noundef %.049, ptr noundef nonnull @.str.28) #16
   br label %54
 
 54:                                               ; preds = %45, %28, %52, %27
@@ -3621,13 +3621,13 @@ define void @col_set_time(ptr noundef readonly %0, i32 noundef %1, ptr noundef %
   br label %25
 
 23:                                               ; preds = %25
-  %24 = add i32 %.01723.i, 1
+  %24 = add i32 %.023.i, 1
   %.not.i = icmp sgt i32 %24, %20
   br i1 %.not.i, label %col_get_writable.exit.thread, label %25, !llvm.loop !9
 
 25:                                               ; preds = %23, %.lr.ph.i
-  %.01723.i = phi i32 [ %15, %.lr.ph.i ], [ %24, %23 ]
-  %26 = sext i32 %.01723.i to i64
+  %.023.i = phi i32 [ %15, %.lr.ph.i ], [ %24, %23 ]
+  %26 = sext i32 %.023.i to i64
   %27 = getelementptr %struct.col_item_t, ptr %22, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
@@ -3642,8 +3642,8 @@ define void @col_set_time(ptr noundef readonly %0, i32 noundef %1, ptr noundef %
   br label %col_get_writable.exit
 
 col_get_writable.exit:                            ; preds = %6, %32
-  %.0.i = phi i32 [ %34, %32 ], [ %.pre.i, %6 ]
-  %.not = icmp eq i32 %.0.i, 0
+  %.017.i = phi i32 [ %34, %32 ], [ %.pre.i, %6 ]
+  %.not = icmp eq i32 %.017.i, 0
   br i1 %.not, label %col_get_writable.exit.thread, label %35
 
 35:                                               ; preds = %col_get_writable.exit
@@ -3660,8 +3660,8 @@ col_get_writable.exit:                            ; preds = %6, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr i32, ptr %43, i64 %38
   %45 = load i32, ptr %44, align 4
-  %.not2431 = icmp sgt i32 %40, %45
-  br i1 %.not2431, label %col_get_writable.exit.thread, label %.lr.ph
+  %.not2430 = icmp sgt i32 %40, %45
+  br i1 %.not2430, label %col_get_writable.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %46 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3671,9 +3671,9 @@ col_get_writable.exit:                            ; preds = %6, %32
 
 49:                                               ; preds = %.lr.ph, %75
   %50 = phi ptr [ %43, %.lr.ph ], [ %76, %75 ]
-  %.032 = phi i32 [ %40, %.lr.ph ], [ %77, %75 ]
+  %.031 = phi i32 [ %40, %.lr.ph ], [ %77, %75 ]
   %51 = load ptr, ptr %46, align 8
-  %52 = sext i32 %.032 to i64
+  %52 = sext i32 %.031 to i64
   %53 = getelementptr %struct.col_item_t, ptr %51, i64 %52
   %54 = getelementptr inbounds i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
@@ -3698,8 +3698,8 @@ col_get_writable.exit:                            ; preds = %6, %32
   unreachable
 
 get_default_timestamp_precision.exit:             ; preds = %58, %63
-  %.0.i26 = phi i32 [ %61, %63 ], [ 9, %58 ]
-  %spec.store.select.i = tail call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i26, i32 9)
+  %.0.i = phi i32 [ %61, %63 ], [ 9, %58 ]
+  %spec.store.select.i = tail call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %.0.i, i32 9)
   tail call void @display_signed_time(ptr noundef %60, i64 noundef 2048, ptr noundef %2, i32 noundef %spec.store.select.i) #16
   %66 = load ptr, ptr %59, align 8
   %67 = getelementptr inbounds i8, ptr %53, i64 56
@@ -3717,7 +3717,7 @@ get_default_timestamp_precision.exit:             ; preds = %58, %63
 
 75:                                               ; preds = %49, %get_default_timestamp_precision.exit
   %76 = phi ptr [ %50, %49 ], [ %.pre, %get_default_timestamp_precision.exit ]
-  %77 = add i32 %.032, 1
+  %77 = add i32 %.031, 1
   %78 = getelementptr i32, ptr %76, i64 %38
   %79 = load i32, ptr %78, align 4
   %.not24 = icmp sgt i32 %77, %79

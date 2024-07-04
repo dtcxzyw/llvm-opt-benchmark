@@ -3637,22 +3637,22 @@ define range(i32 -1, 1) i32 @cpu_freq_verify_govlist(ptr noundef %0, ptr nocaptu
   br label %27
 
 .preheader:                                       ; preds = %8, %22
-  %.010 = phi ptr [ %25, %22 ], [ %10, %8 ]
+  %.0 = phi ptr [ %25, %22 ], [ %10, %8 ]
   %14 = call i32 @get_log_level() #11
   %15 = icmp sgt i32 %14, 6
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %.preheader
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.74, ptr noundef nonnull %.010) #11
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.74, ptr noundef nonnull %.0) #11
   br label %17
 
 17:                                               ; preds = %16, %.preheader
-  %18 = call fastcc i32 @_cpu_freq_check_gov(ptr noundef nonnull %.010, i32 noundef 0)
+  %18 = call fastcc i32 @_cpu_freq_check_gov(ptr noundef nonnull %.0, i32 noundef 0)
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %17
-  %21 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.75, ptr noundef nonnull %.010) #11
+  %21 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.75, ptr noundef nonnull %.0) #11
   br label %27
 
 22:                                               ; preds = %17
@@ -3668,8 +3668,8 @@ define range(i32 -1, 1) i32 @cpu_freq_verify_govlist(ptr noundef %0, ptr nocaptu
   br label %27
 
 27:                                               ; preds = %26, %20, %12, %6
-  %.0 = phi i32 [ -1, %6 ], [ -1, %12 ], [ -1, %20 ], [ 0, %26 ]
-  ret i32 %.0
+  %.010 = phi i32 [ -1, %6 ], [ -1, %12 ], [ -1, %20 ], [ 0, %26 ]
+  ret i32 %.010
 }
 
 ; Function Attrs: nounwind uwtable

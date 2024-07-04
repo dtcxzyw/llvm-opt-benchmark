@@ -1166,7 +1166,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit279:      ; preds = %338, %343
 
 404:                                              ; preds = %.lr.ph408, %416
   %indvars.iv458 = phi i64 [ 0, %.lr.ph408 ], [ %indvars.iv.next459.pre-phi, %416 ]
-  %.0206406 = phi i32 [ 0, %.lr.ph408 ], [ %.1207, %416 ]
+  %.0205406 = phi i32 [ 0, %.lr.ph408 ], [ %.1206, %416 ]
   %gep494 = getelementptr double, ptr %invariant.gep493, i64 %indvars.iv458
   %405 = load double, ptr %gep494, align 8
   %406 = fcmp une double %405, 0.000000e+00
@@ -1177,7 +1177,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit279:      ; preds = %338, %343
   br label %416
 
 407:                                              ; preds = %404
-  %408 = add nsw i32 %.0206406, %213
+  %408 = add nsw i32 %.0205406, %213
   %409 = sext i32 %408 to i64
   %410 = getelementptr inbounds i32, ptr %395, i64 %409
   store i32 %403, ptr %410, align 4
@@ -1187,17 +1187,17 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit279:      ; preds = %338, %343
   store i32 %413, ptr %412, align 4
   %414 = getelementptr inbounds double, ptr %219, i64 %409
   store double %405, ptr %414, align 8
-  %415 = add nsw i32 %.0206406, 1
+  %415 = add nsw i32 %.0205406, 1
   br label %416
 
 416:                                              ; preds = %._crit_edge473, %407
   %indvars.iv.next459.pre-phi = phi i64 [ %.pre, %._crit_edge473 ], [ %411, %407 ]
-  %.1207 = phi i32 [ %.0206406, %._crit_edge473 ], [ %415, %407 ]
+  %.1206 = phi i32 [ %.0205406, %._crit_edge473 ], [ %415, %407 ]
   %exitcond462.not = icmp eq i64 %indvars.iv.next459.pre-phi, %wide.trip.count461
   br i1 %exitcond462.not, label %._crit_edge409, label %404, !llvm.loop !18
 
 ._crit_edge409:                                   ; preds = %416, %.preheader362
-  %.0206.lcssa = phi i32 [ 0, %.preheader362 ], [ %.1207, %416 ]
+  %.0205.lcssa = phi i32 [ 0, %.preheader362 ], [ %.1206, %416 ]
   %.sroa.speculated.i282 = call noundef i32 @llvm.smax.i32(i32 %403, i32 %212)
   store i32 %.sroa.speculated.i282, ptr %29, align 4
   %417 = zext nneg i32 %.sroa.speculated.i282 to i64
@@ -1220,7 +1220,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit279:      ; preds = %338, %343
           to label %430 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 430:                                              ; preds = %424
-  %431 = add nsw i32 %.0206.lcssa, %213
+  %431 = add nsw i32 %.0205.lcssa, %213
   store i32 %431, ptr %30, align 4
   %432 = getelementptr inbounds i8, ptr %0, i64 96
   %433 = load ptr, ptr %432, align 8

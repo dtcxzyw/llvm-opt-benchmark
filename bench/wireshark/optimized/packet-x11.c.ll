@@ -26920,11 +26920,11 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
   br label %61
 
 61:                                               ; preds = %.loopexit76.i, %.lr.ph.i
-  %.06689.i = phi ptr [ %58, %.lr.ph.i ], [ %79, %.loopexit76.i ]
-  %.06788.i = phi i32 [ %59, %.lr.ph.i ], [ %78, %.loopexit76.i ]
-  %62 = load ptr, ptr %.06689.i, align 8
+  %.06589.i = phi ptr [ %58, %.lr.ph.i ], [ %79, %.loopexit76.i ]
+  %.06688.i = phi i32 [ %59, %.lr.ph.i ], [ %78, %.loopexit76.i ]
+  %62 = load ptr, ptr %.06589.i, align 8
   %63 = icmp ne ptr %62, null
-  %64 = icmp ult i32 %.06788.i, 256
+  %64 = icmp ult i32 %.06688.i, 256
   %or.cond.i = select i1 %63, i1 %64, i1 false
   br i1 %or.cond.i, label %.preheader75.i, label %.critedge.i
 
@@ -26943,14 +26943,14 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
 
 70:                                               ; preds = %.preheader75.i
   %71 = getelementptr inbounds i8, ptr %66, i64 8
-  store i32 %.06788.i, ptr %66, align 8
-  %72 = load ptr, ptr %.06689.i, align 8
+  store i32 %.06688.i, ptr %66, align 8
+  %72 = load ptr, ptr %.06589.i, align 8
   store ptr %72, ptr %71, align 8
   br label %.loopexit76.i
 
 73:                                               ; preds = %.preheader75.i
   %74 = load i32, ptr %66, align 8
-  %75 = icmp eq i32 %74, %.06788.i
+  %75 = icmp eq i32 %74, %.06688.i
   br i1 %75, label %76, label %65
 
 76:                                               ; preds = %73
@@ -26959,8 +26959,8 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
   br label %.loopexit76.i
 
 .loopexit76.i:                                    ; preds = %65, %76, %70
-  %78 = add nuw nsw i32 %.06788.i, 1
-  %79 = getelementptr i8, ptr %.06689.i, i64 8
+  %78 = add nuw nsw i32 %.06688.i, 1
+  %79 = getelementptr i8, ptr %.06589.i, i64 8
   %.not.i = icmp eq ptr %79, null
   br i1 %.not.i, label %.critedge.i, label %61, !llvm.loop !18
 
@@ -26979,8 +26979,8 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
 
 86:                                               ; preds = %.loopexit74.i, %.lr.ph97.i
   %indvars.iv112.i = phi i64 [ %85, %.lr.ph97.i ], [ %indvars.iv.next113.i, %.loopexit74.i ]
-  %.06595.i = phi ptr [ %82, %.lr.ph97.i ], [ %110, %.loopexit74.i ]
-  %87 = load ptr, ptr %.06595.i, align 8
+  %.06496.i = phi ptr [ %82, %.lr.ph97.i ], [ %110, %.loopexit74.i ]
+  %87 = load ptr, ptr %.06496.i, align 8
   %88 = icmp ne ptr %87, null
   %89 = icmp ult i64 %indvars.iv112.i, 128
   %or.cond5.i = select i1 %88, i1 %89, i1 false
@@ -27003,7 +27003,7 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
   %96 = getelementptr inbounds i8, ptr %91, i64 8
   %97 = trunc nuw i64 %indvars.iv112.i to i32
   store i32 %97, ptr %91, align 8
-  %98 = load ptr, ptr %.06595.i, align 8
+  %98 = load ptr, ptr %.06496.i, align 8
   store ptr %98, ptr %96, align 8
   br label %.loopexit74.i
 
@@ -27021,11 +27021,11 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
 .loopexit74.i:                                    ; preds = %90, %103, %95
   %105 = load ptr, ptr %84, align 8
   %106 = inttoptr i64 %indvars.iv112.i to ptr
-  %107 = getelementptr inbounds i8, ptr %.06595.i, i64 8
+  %107 = getelementptr inbounds i8, ptr %.06496.i, i64 8
   %108 = load ptr, ptr %107, align 8
   %109 = tail call ptr @wmem_map_insert(ptr noundef %105, ptr noundef %106, ptr noundef %108) #10
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
-  %110 = getelementptr i8, ptr %.06595.i, i64 16
+  %110 = getelementptr i8, ptr %.06496.i, i64 16
   %.not70.i = icmp eq ptr %110, null
   br i1 %.not70.i, label %.critedge2.i, label %86, !llvm.loop !20
 
@@ -27994,15 +27994,15 @@ define internal fastcc range(i32 -1, 2) i32 @x_endian_match(ptr noundef %0, i32 
   br i1 %.not63, label %consistentWithOrder.exit.thread53, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %consistentWithOrder.exit.thread
-  %.01564 = phi i32 [ %314, %consistentWithOrder.exit.thread ], [ 0, %2 ]
-  %4 = or disjoint i32 %.01564, 2
+  %.01464 = phi i32 [ %314, %consistentWithOrder.exit.thread ], [ 0, %2 ]
+  %4 = or disjoint i32 %.01464, 2
   %5 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %4, i32 noundef %1) #10
   %.not17 = icmp eq i16 %5, 0
   br i1 %.not17, label %consistentWithOrder.exit.thread53, label %6
 
 6:                                                ; preds = %.lr.ph
   %7 = zext i16 %5 to i32
-  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.01564) #10
+  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.01464) #10
   switch i8 %8, label %consistentWithOrder.exit.thread [
     i8 1, label %9
     i8 2, label %30
@@ -28126,12 +28126,12 @@ define internal fastcc range(i32 -1, 2) i32 @x_endian_match(ptr noundef %0, i32 
   ]
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01564, i32 noundef 32) #10
+  %10 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01464, i32 noundef 32) #10
   %.not137.i = icmp eq i32 %10, 0
   br i1 %.not137.i, label %consistentWithOrder.exit.thread, label %11
 
 11:                                               ; preds = %9
-  %12 = add i32 %.01564, 28
+  %12 = add i32 %.01464, 28
   br label %.lr.ph.i43
 
 .lr.ph.i43:                                       ; preds = %.lr.ph.i43, %11
@@ -28162,12 +28162,12 @@ numberOfBitSet.exit49:                            ; preds = %.lr.ph.i43
   br label %consistentWithOrder.exit
 
 30:                                               ; preds = %6, %6
-  %31 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01564, i32 noundef 12) #10
+  %31 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01464, i32 noundef 12) #10
   %.not136.i = icmp eq i32 %31, 0
   br i1 %.not136.i, label %consistentWithOrder.exit.thread, label %32
 
 32:                                               ; preds = %30
-  %33 = add i32 %.01564, 8
+  %33 = add i32 %.01464, 8
   br label %.lr.ph.i36
 
 .lr.ph.i36:                                       ; preds = %.lr.ph.i36, %32
@@ -28208,12 +28208,12 @@ numberOfBitSet.exit42:                            ; preds = %.lr.ph.i36
   br label %consistentWithOrder.exit
 
 57:                                               ; preds = %6
-  %58 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01564, i32 noundef 10) #10
+  %58 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01464, i32 noundef 10) #10
   %.not135.i = icmp eq i32 %58, 0
   br i1 %.not135.i, label %consistentWithOrder.exit.thread, label %59
 
 59:                                               ; preds = %57
-  %60 = add i32 %.01564, 8
+  %60 = add i32 %.01464, 8
   br label %.lr.ph.i29
 
 .lr.ph.i29:                                       ; preds = %.lr.ph.i29, %59
@@ -28244,12 +28244,12 @@ numberOfBitSet.exit35:                            ; preds = %.lr.ph.i29
   br label %consistentWithOrder.exit
 
 78:                                               ; preds = %6, %6
-  %79 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01564, i32 noundef 6) #10
+  %79 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01464, i32 noundef 6) #10
   %.not134.i = icmp eq i32 %79, 0
   br i1 %.not134.i, label %consistentWithOrder.exit.thread, label %80
 
 80:                                               ; preds = %78
-  %81 = add i32 %.01564, 4
+  %81 = add i32 %.01464, 4
   %82 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %81, i32 noundef %1) #10
   %83 = lshr i16 %82, 2
   %84 = and i16 %82, 3
@@ -28263,7 +28263,7 @@ numberOfBitSet.exit35:                            ; preds = %.lr.ph.i29
   br label %consistentWithOrder.exit
 
 89:                                               ; preds = %6
-  %90 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01564, i32 noundef 17) #10
+  %90 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01464, i32 noundef 17) #10
   %.not132.i = icmp eq i32 %90, 0
   br i1 %.not132.i, label %consistentWithOrder.exit.thread, label %91
 
@@ -28276,14 +28276,14 @@ numberOfBitSet.exit35:                            ; preds = %.lr.ph.i29
   ]
 
 93:                                               ; preds = %91, %91, %91
-  %94 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01564, i32 noundef 24) #10
+  %94 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01464, i32 noundef 24) #10
   %.not133.i = icmp eq i32 %94, 0
   br i1 %.not133.i, label %consistentWithOrder.exit.thread, label %95
 
 95:                                               ; preds = %93
   %96 = icmp eq i8 %92, 8
   %97 = icmp eq i8 %92, 16
-  %98 = add i32 %.01564, 20
+  %98 = add i32 %.01464, 20
   %99 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %98, i32 noundef %1) #10
   %100 = select i1 %97, i32 1, i32 2
   %101 = select i1 %96, i32 0, i32 %100
@@ -28319,12 +28319,12 @@ numberOfBitSet.exit35:                            ; preds = %.lr.ph.i29
   br label %consistentWithOrder.exit
 
 121:                                              ; preds = %6, %6, %6
-  %122 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01564, i32 noundef 10) #10
+  %122 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01464, i32 noundef 10) #10
   %.not131.i = icmp eq i32 %122, 0
   br i1 %.not131.i, label %consistentWithOrder.exit.thread, label %123
 
 123:                                              ; preds = %121
-  %124 = add i32 %.01564, 8
+  %124 = add i32 %.01464, 8
   %125 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %124, i32 noundef %1) #10
   %126 = lshr i16 %125, 2
   %127 = and i16 %125, 3
@@ -28343,12 +28343,12 @@ numberOfBitSet.exit35:                            ; preds = %.lr.ph.i29
   br label %consistentWithOrder.exit
 
 135:                                              ; preds = %6, %6, %6
-  %136 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01564, i32 noundef 8) #10
+  %136 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01464, i32 noundef 8) #10
   %.not130.i = icmp eq i32 %136, 0
   br i1 %.not130.i, label %consistentWithOrder.exit.thread, label %137
 
 137:                                              ; preds = %135
-  %138 = add i32 %.01564, 6
+  %138 = add i32 %.01464, 6
   %139 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %138, i32 noundef %1) #10
   %140 = lshr i16 %139, 2
   %141 = and i16 %139, 3
@@ -28366,14 +28366,14 @@ numberOfBitSet.exit35:                            ; preds = %.lr.ph.i29
   br i1 %147, label %consistentWithOrder.exit.thread53, label %148
 
 148:                                              ; preds = %146
-  %149 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01564, i32 noundef 8) #10
+  %149 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01464, i32 noundef 8) #10
   %.not129.i = icmp eq i32 %149, 0
   br i1 %.not129.i, label %consistentWithOrder.exit.thread, label %150
 
 150:                                              ; preds = %148
   %151 = shl nuw nsw i32 %7, 2
   %152 = add nsw i32 %151, -8
-  %153 = add i32 %.01564, 4
+  %153 = add i32 %.01464, 4
   %154 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %153, i32 noundef %1) #10
   %155 = zext i16 %154 to i32
   %156 = icmp ult i32 %152, %155
@@ -28384,7 +28384,7 @@ numberOfBitSet.exit35:                            ; preds = %.lr.ph.i29
   br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph.i26.preheader
 
 .lr.ph.i26.preheader:                             ; preds = %.preheader.i
-  %157 = add i32 %.01564, 8
+  %157 = add i32 %.01464, 8
   br label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %.lr.ph.i26.preheader, %167
@@ -28425,12 +28425,12 @@ numberOfBitSet.exit35:                            ; preds = %.lr.ph.i29
   br label %consistentWithOrder.exit
 
 171:                                              ; preds = %6
-  %172 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01564, i32 noundef 16) #10
+  %172 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01464, i32 noundef 16) #10
   %.not128.i = icmp eq i32 %172, 0
   br i1 %.not128.i, label %consistentWithOrder.exit.thread, label %173
 
 173:                                              ; preds = %171
-  %174 = add i32 %.01564, 12
+  %174 = add i32 %.01464, 12
   br label %.lr.ph.i20
 
 .lr.ph.i20:                                       ; preds = %.lr.ph.i20, %173
@@ -28461,12 +28461,12 @@ numberOfBitSet.exit25:                            ; preds = %.lr.ph.i20
   br label %consistentWithOrder.exit
 
 192:                                              ; preds = %6
-  %193 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01564, i32 noundef 12) #10
+  %193 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01464, i32 noundef 12) #10
   %.not127.i = icmp eq i32 %193, 0
   br i1 %.not127.i, label %consistentWithOrder.exit.thread, label %194
 
 194:                                              ; preds = %192
-  %195 = add i32 %.01564, 10
+  %195 = add i32 %.01464, 10
   %196 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %195, i32 noundef %1) #10
   %197 = lshr i16 %196, 2
   %198 = and i16 %196, 3
@@ -28552,12 +28552,12 @@ numberOfBitSet.exit25:                            ; preds = %.lr.ph.i20
   br label %consistentWithOrder.exit
 
 243:                                              ; preds = %6
-  %244 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01564, i32 noundef 14) #10
+  %244 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01464, i32 noundef 14) #10
   %.not126.i = icmp eq i32 %244, 0
   br i1 %.not126.i, label %consistentWithOrder.exit.thread, label %245
 
 245:                                              ; preds = %243
-  %246 = add i32 %.01564, 12
+  %246 = add i32 %.01464, 12
   %247 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %246, i32 noundef %1) #10
   %248 = lshr i16 %247, 2
   %249 = and i16 %247, 3
@@ -28576,7 +28576,7 @@ numberOfBitSet.exit25:                            ; preds = %.lr.ph.i20
   br label %consistentWithOrder.exit
 
 257:                                              ; preds = %6
-  %258 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01564, i32 noundef 6) #10
+  %258 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01464, i32 noundef 6) #10
   %.not125.i = icmp eq i32 %258, 0
   br i1 %.not125.i, label %consistentWithOrder.exit.thread, label %259
 
@@ -28592,12 +28592,12 @@ numberOfBitSet.exit25:                            ; preds = %.lr.ph.i20
   br label %consistentWithOrder.exit
 
 268:                                              ; preds = %6
-  %269 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01564, i32 noundef 6) #10
+  %269 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01464, i32 noundef 6) #10
   %.not124.i = icmp eq i32 %269, 0
   br i1 %.not124.i, label %consistentWithOrder.exit.thread, label %270
 
 270:                                              ; preds = %268
-  %271 = add i32 %.01564, 4
+  %271 = add i32 %.01464, 4
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %270
@@ -28628,12 +28628,12 @@ numberOfBitSet.exit:                              ; preds = %.lr.ph.i
   br label %consistentWithOrder.exit
 
 289:                                              ; preds = %6
-  %290 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01564, i32 noundef 10) #10
+  %290 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.01464, i32 noundef 10) #10
   %.not.i = icmp eq i32 %290, 0
   br i1 %.not.i, label %consistentWithOrder.exit.thread, label %291
 
 291:                                              ; preds = %289
-  %292 = add i32 %.01564, 8
+  %292 = add i32 %.01464, 8
   %293 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %292, i32 noundef %1) #10
   %294 = zext i16 %293 to i32
   %295 = add nuw nsw i32 %294, 3
@@ -28670,14 +28670,14 @@ consistentWithOrder.exit:                         ; preds = %203, %._crit_edge.i
 
 consistentWithOrder.exit.thread:                  ; preds = %.lr.ph.i26, %165, %6, %289, %268, %257, %243, %192, %171, %148, %135, %121, %93, %89, %78, %57, %30, %9, %consistentWithOrder.exit
   %313 = shl nuw nsw i32 %7, 2
-  %314 = add i32 %313, %.01564
+  %314 = add i32 %313, %.01464
   %315 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %314, i32 noundef 4) #10
   %.not = icmp eq i32 %315, 0
   br i1 %.not, label %consistentWithOrder.exit.thread53, label %.lr.ph, !llvm.loop !24
 
 consistentWithOrder.exit.thread53:                ; preds = %.lr.ph, %consistentWithOrder.exit, %consistentWithOrder.exit.thread, %203, %91, %146, %215, %237, %150, %162, %2
-  %.0 = phi i32 [ 0, %2 ], [ -1, %162 ], [ -1, %.lr.ph ], [ -1, %consistentWithOrder.exit ], [ 1, %consistentWithOrder.exit.thread ], [ -1, %203 ], [ -1, %91 ], [ -1, %146 ], [ -1, %215 ], [ -1, %237 ], [ -1, %150 ]
-  ret i32 %.0
+  %.015 = phi i32 [ 0, %2 ], [ -1, %162 ], [ -1, %.lr.ph ], [ -1, %consistentWithOrder.exit ], [ 1, %consistentWithOrder.exit.thread ], [ -1, %203 ], [ -1, %91 ], [ -1, %146 ], [ -1, %215 ], [ -1, %237 ], [ -1, %150 ]
+  ret i32 %.015
 }
 
 declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
@@ -29188,14 +29188,14 @@ define internal fastcc void @listOfKeycode(ptr noundef %0, ptr nocapture noundef
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %15 = phi i32 [ %34, %._crit_edge.us ], [ %.pre41, %.lr.ph.us.preheader ]
-  %.034.us = phi i64 [ %32, %._crit_edge.us ], [ 0, %.lr.ph.us.preheader ]
+  %.03034.us = phi i64 [ %32, %._crit_edge.us ], [ 0, %.lr.ph.us.preheader ]
   %16 = load i32, ptr @hf_x11_keycodes_item, align 4
   %17 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %11, i32 noundef %16, ptr noundef %0, i32 noundef %15, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.14686) #10
   %18 = tail call ptr @wmem_file_scope() #10
   %19 = tail call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef %13) #10
-  %20 = getelementptr ptr, ptr %4, i64 %.034.us
+  %20 = getelementptr ptr, ptr %4, i64 %.03034.us
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr [8 x ptr], ptr @modifiers, i64 0, i64 %.034.us
+  %21 = getelementptr [8 x ptr], ptr @modifiers, i64 0, i64 %.03034.us
   br label %22
 
 22:                                               ; preds = %.lr.ph.us, %._crit_edge
@@ -29223,7 +29223,7 @@ define internal fastcc void @listOfKeycode(ptr noundef %0, ptr nocapture noundef
   br i1 %exitcond39.not, label %._crit_edge.us, label %22, !llvm.loop !30
 
 ._crit_edge.us:                                   ; preds = %._crit_edge
-  %32 = add nuw nsw i64 %.034.us, 1
+  %32 = add nuw nsw i64 %.03034.us, 1
   %33 = load i32, ptr %1, align 4
   %34 = add i32 %33, %5
   store i32 %34, ptr %1, align 4
@@ -29232,14 +29232,14 @@ define internal fastcc void @listOfKeycode(ptr noundef %0, ptr nocapture noundef
 
 .split:                                           ; preds = %6, %.split
   %35 = phi i32 [ %43, %.split ], [ %.pre41, %6 ]
-  %.034 = phi i64 [ %41, %.split ], [ 0, %6 ]
+  %.03034 = phi i64 [ %41, %.split ], [ 0, %6 ]
   %36 = load i32, ptr @hf_x11_keycodes_item, align 4
   %37 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %11, i32 noundef %36, ptr noundef %0, i32 noundef %35, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.14686) #10
   %38 = tail call ptr @wmem_file_scope() #10
   %39 = tail call noalias ptr @wmem_alloc(ptr noundef %38, i64 noundef %13) #10
-  %40 = getelementptr ptr, ptr %4, i64 %.034
+  %40 = getelementptr ptr, ptr %4, i64 %.03034
   store ptr %39, ptr %40, align 8
-  %41 = add nuw nsw i64 %.034, 1
+  %41 = add nuw nsw i64 %.03034, 1
   %42 = load i32, ptr %1, align 4
   %43 = add i32 %42, %5
   store i32 %43, ptr %1, align 4
@@ -34228,9 +34228,9 @@ define internal fastcc void @string16(ptr noundef %0, ptr nocapture noundef %1, 
 
 .lr.ph.i21:                                       ; preds = %.loopexit, %25
   %.in.i = phi i32 [ %19, %25 ], [ %5, %.loopexit ]
-  %.012.i = phi i32 [ %26, %25 ], [ %14, %.loopexit ]
+  %.01012.i = phi i32 [ %26, %25 ], [ %14, %.loopexit ]
   %19 = add i32 %.in.i, -1
-  %20 = add i32 %.012.i, 1
+  %20 = add i32 %.01012.i, 1
   %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %20) #10
   %22 = icmp sgt i8 %21, -1
   br i1 %22, label %23, label %24
@@ -34244,7 +34244,7 @@ define internal fastcc void @string16(ptr noundef %0, ptr nocapture noundef %1, 
   br label %25
 
 25:                                               ; preds = %24, %23
-  %26 = add i32 %.012.i, 2
+  %26 = add i32 %.01012.i, 2
   %.not.i22 = icmp eq i32 %19, 0
   br i1 %.not.i22, label %tvb_get_ascii_string16.exit, label %.lr.ph.i21, !llvm.loop !43
 
@@ -35013,16 +35013,16 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr nocapture nounde
   br i1 %.not106, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %12
-  %.0112.us = phi i32 [ %18, %12 ], [ %8, %.lr.ph ]
-  %.099111.us = phi i32 [ %14, %12 ], [ 0, %.lr.ph ]
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0112.us) #10
-  %11 = add nsw i32 %.0112.us, 1
+  %.0112.us = phi i32 [ %14, %12 ], [ 0, %.lr.ph ]
+  %.099111.us = phi i32 [ %18, %12 ], [ %8, %.lr.ph ]
+  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.099111.us) #10
+  %11 = add nsw i32 %.099111.us, 1
   %.not.us = icmp eq i8 %10, 0
   br i1 %.not.us, label %._crit_edge, label %12
 
 12:                                               ; preds = %.lr.ph.split.us
   %13 = zext i8 %10 to i32
-  %14 = add i32 %.099111.us, 1
+  %14 = add i32 %.0112.us, 1
   %15 = icmp eq i8 %10, -1
   %16 = add nuw nsw i32 %13, 1
   %17 = select i1 %15, i32 4, i32 %16
@@ -35031,16 +35031,16 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr nocapture nounde
   br i1 %19, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !50
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %22
-  %.0112 = phi i32 [ %28, %22 ], [ %8, %.lr.ph ]
-  %.099111 = phi i32 [ %24, %22 ], [ 0, %.lr.ph ]
-  %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0112) #10
-  %21 = add nsw i32 %.0112, 1
+  %.0112 = phi i32 [ %24, %22 ], [ 0, %.lr.ph ]
+  %.099111 = phi i32 [ %28, %22 ], [ %8, %.lr.ph ]
+  %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.099111) #10
+  %21 = add nsw i32 %.099111, 1
   %.not = icmp eq i8 %20, 0
   br i1 %.not, label %._crit_edge, label %22
 
 22:                                               ; preds = %.lr.ph.split
   %23 = zext i8 %20 to i32
-  %24 = add i32 %.099111, 1
+  %24 = add i32 %.0112, 1
   %25 = icmp eq i8 %20, -1
   %reass.add = shl nuw nsw i32 %23, 1
   %26 = or disjoint i32 %reass.add, 1
@@ -35050,18 +35050,18 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr nocapture nounde
   br i1 %29, label %.lr.ph.split, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %22, %.lr.ph.split, %12, %.lr.ph.split.us, %7
-  %.099.lcssa = phi i32 [ 0, %7 ], [ %.099111.us, %.lr.ph.split.us ], [ %14, %12 ], [ %.099111, %.lr.ph.split ], [ %24, %22 ]
-  %.1 = phi i32 [ %8, %7 ], [ %11, %.lr.ph.split.us ], [ %18, %12 ], [ %21, %.lr.ph.split ], [ %28, %22 ]
+  %.0.lcssa = phi i32 [ 0, %7 ], [ %.0112.us, %.lr.ph.split.us ], [ %14, %12 ], [ %.0112, %.lr.ph.split ], [ %24, %22 ]
+  %.1100 = phi i32 [ %8, %7 ], [ %11, %.lr.ph.split.us ], [ %18, %12 ], [ %21, %.lr.ph.split ], [ %28, %22 ]
   %30 = load i32, ptr %1, align 4
-  %31 = sub i32 %.1, %30
+  %31 = sub i32 %.1100, %30
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %30, i32 noundef %31, i32 noundef %6) #10
   %33 = load i32, ptr @ett_x11_list_of_text_item, align 4
   %34 = tail call ptr @proto_item_add_subtree(ptr noundef %32, i32 noundef %33) #10
-  %.not103120 = icmp eq i32 %.099.lcssa, 0
+  %.not103120 = icmp eq i32 %.0.lcssa, 0
   br i1 %.not103120, label %._crit_edge123, label %.lr.ph122
 
 .lr.ph122:                                        ; preds = %._crit_edge
-  %35 = add i32 %.099.lcssa, -1
+  %35 = add i32 %.0.lcssa, -1
   %.not104 = icmp eq i32 %4, 0
   %.pre130 = load i32, ptr %1, align 4
   br i1 %.not104, label %.lr.ph122.split.us, label %.lr.ph122.split
@@ -35169,10 +35169,10 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr nocapture nounde
 
 .lr.ph.i107:                                      ; preds = %.loopexit, %106
   %.in.i = phi i32 [ %100, %106 ], [ %78, %.loopexit ]
-  %.012.i.in = phi i32 [ %.012.i, %106 ], [ %95, %.loopexit ]
-  %.012.i = add i32 %.012.i.in, 2
+  %.01012.i.in = phi i32 [ %.01012.i, %106 ], [ %95, %.loopexit ]
+  %.01012.i = add i32 %.01012.i.in, 2
   %100 = add nsw i32 %.in.i, -1
-  %101 = add i32 %.012.i.in, 3
+  %101 = add i32 %.01012.i.in, 3
   %102 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %101) #10
   %103 = icmp sgt i8 %102, -1
   br i1 %103, label %104, label %105
@@ -41223,7 +41223,7 @@ define internal fastcc void @dispatch_glx_render(ptr noundef %0, ptr noundef %1,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5590
   %8 = phi i32 [ %5591, %5590 ], [ %.pre, %.lr.ph.preheader ]
-  %.03064 = phi i32 [ %5592, %5590 ], [ %5, %.lr.ph.preheader ]
+  %.018433064 = phi i32 [ %5592, %5590 ], [ %5, %.lr.ph.preheader ]
   %9 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %8, i32 noundef %4) #10
   %10 = zext i16 %9 to i32
   %11 = load i32, ptr %2, align 4
@@ -41251,7 +41251,7 @@ define internal fastcc void @dispatch_glx_render(ptr noundef %0, ptr noundef %1,
 
 .thread:                                          ; preds = %.lr.ph
   %30 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %22, ptr noundef nonnull @ei_x11_request_length) #10
-  %31 = add nsw i32 %.03064, -4
+  %31 = add nsw i32 %.018433064, -4
   %32 = load i32, ptr %2, align 4
   %33 = add i32 %32, %31
   br label %5575
@@ -50164,7 +50164,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
   %5576 = phi i32 [ %33, %.thread ], [ %36, %34 ]
   %5577 = phi i32 [ %32, %.thread ], [ %28, %34 ]
   %5578 = phi i32 [ %31, %.thread ], [ %35, %34 ]
-  %.018432880 = phi i32 [ %.03064, %.thread ], [ %10, %34 ]
+  %.02880 = phi i32 [ %.018433064, %.thread ], [ %10, %34 ]
   %5579 = load i32, ptr @hf_x11_undecoded, align 4
   %5580 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %5579, ptr noundef %0, i32 noundef %5577, i32 noundef %5578, i32 noundef 0) #10
   br label %mesa_CallLists.exit.sink.split
@@ -50172,7 +50172,7 @@ listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i2516, %40
 mesa_CallLists.exit.sink.split:                   ; preds = %53, %62, %listOfInt16.exit.i, %listOfCard16.exit.i, %listOfCard16.exit164.i, %158, %180, %190, %37, %194, %197, %200, %256, %303, %328, %375, %400, %403, %410, %417, %424, %431, %694, %701, %708, %715, %1001, %1008, %1011, %1036, %1061, %1064, %1071, %1104, %1137, %1162, %1187, %1194, %1197, %1230, %1263, %1266, %1273, %1305, %1320, %1323, %1356, %1389, %1449, %1513, %1546, %1579, %1612, %1645, %1678, %1681, %1684, %1687, %1690, %1693, %1708, %1711, %1726, %1729, %1732, %1735, %1750, %1753, %1756, %1763, %1766, %1769, %1940, %1951, %1962, %1985, %2008, %2015, %2044, %2055, %2058, %2077, %2084, %2091, %2098, %2101, %2112, %2123, %2126, %2133, %2140, %2213, %2216, %2235, %2283, %2290, %2335, %2360, %2383, %2398, %2413, %2424, %2435, %2446, %2457, %2472, %2479, %2490, %2493, %2545, %2564, %2567, %2578, %2589, %2600, %2791, %2820, %2853, %2890, %2919, %2956, %3001, %3019, %3026, %3047, %3054, %3101, %3197, %3216, %3288, %3372, %3401, %3455, %3458, %3473, %3488, %3491, %3551, %3619, %3671, %3727, %3760, %3793, %3812, %3835, %3867, %3882, %3893, %3896, %3899, %3967, %4043, %4079, %4106, %4137, %4160, %4191, %4226, %4233, %4240, %4287, %4312, %4327, %4334, %4359, %4384, %4407, %4446, %4461, %4505, %4612, %4627, %4683, %4739, %4795, %5066, %5117, %5184, %5187, %5212, %5219, %5226, %5248, %5285, %5352, %5408, %5464, %5520, %5527, %5572, %5575
   %.sink191.i.sink = phi i32 [ %5578, %5575 ], [ 4, %5572 ], [ %spec.store.select.i.i2862, %5527 ], [ 4, %5520 ], [ 8, %5464 ], [ 4, %5408 ], [ 2, %5352 ], [ 4, %5285 ], [ 4, %5248 ], [ 4, %5226 ], [ 8, %5219 ], [ 4, %5212 ], [ 4, %5187 ], [ 4, %5184 ], [ %spec.store.select.i.i2755, %5117 ], [ %spec.store.select.i.i2744, %5066 ], [ 4, %4795 ], [ 8, %4739 ], [ 4, %4683 ], [ 2, %4627 ], [ 4, %4612 ], [ %spec.store.select.i.i2584, %4505 ], [ 4, %4461 ], [ 4, %4446 ], [ 1, %4407 ], [ 4, %4384 ], [ 4, %4359 ], [ 4, %4334 ], [ 4, %4327 ], [ 4, %4312 ], [ 3, %4287 ], [ 3, %4240 ], [ 8, %4233 ], [ 4, %4226 ], [ 4, %4191 ], [ 4, %4160 ], [ 4, %4137 ], [ 4, %4106 ], [ 4, %4079 ], [ 4, %4043 ], [ %spec.store.select.i.i2513, %3967 ], [ %spec.store.select.i.i2512, %3899 ], [ 4, %3896 ], [ 4, %3893 ], [ 1, %3882 ], [ 1, %3867 ], [ %spec.store.select.i.i2511, %3835 ], [ 4, %3812 ], [ 4, %3793 ], [ 4, %3760 ], [ 4, %3727 ], [ %spec.store.select.i.i2494, %3671 ], [ %spec.store.select.i.i2493, %3619 ], [ %spec.store.select.i.i2492, %3551 ], [ %spec.store.select.i.i2491, %3491 ], [ 4, %3488 ], [ 4, %3473 ], [ 1, %3458 ], [ 4, %3455 ], [ 4, %3401 ], [ 4, %3372 ], [ %spec.store.select.i.i2463, %3288 ], [ %spec.store.select.i.i2462, %3216 ], [ 4, %3197 ], [ %spec.store.select.i.i2445, %3101 ], [ 4, %3054 ], [ 1, %3047 ], [ 4, %3026 ], [ 4, %3019 ], [ 1, %3001 ], [ %spec.store.select.i.i2419, %2956 ], [ %spec.store.select.i.i2418, %2919 ], [ %spec.store.select.i.i2417, %2890 ], [ %spec.store.select.i.i2416, %2853 ], [ %spec.store.select.i.i2415, %2820 ], [ %spec.store.select.i.i2414, %2791 ], [ 2, %2600 ], [ 4, %2589 ], [ 4, %2578 ], [ 8, %2567 ], [ 4, %2564 ], [ 4, %2545 ], [ %spec.store.select.i.i2345, %2493 ], [ 1, %2490 ], [ 4, %2479 ], [ 4, %2472 ], [ 4, %2457 ], [ 4, %2446 ], [ 8, %2435 ], [ 4, %2424 ], [ 8, %2413 ], [ 4, %2398 ], [ 8, %2383 ], [ 8, %2360 ], [ 4, %2335 ], [ 8, %2290 ], [ 8, %2283 ], [ %spec.store.select.i.i2324, %2235 ], [ 4, %2216 ], [ 4, %2213 ], [ 4, %2140 ], [ 4, %2133 ], [ 4, %2126 ], [ 4, %2123 ], [ 4, %2112 ], [ 4, %2101 ], [ 4, %2098 ], [ 4, %2091 ], [ 4, %2084 ], [ 4, %2077 ], [ 4, %2058 ], [ 4, %2055 ], [ 4, %2044 ], [ 4, %2015 ], [ 8, %2008 ], [ 4, %1985 ], [ 8, %1962 ], [ 4, %1951 ], [ 8, %1940 ], [ 4, %1769 ], [ 4, %1766 ], [ 4, %1763 ], [ 4, %1756 ], [ 4, %1753 ], [ 1, %1750 ], [ 1, %1735 ], [ 4, %1732 ], [ 8, %1729 ], [ 4, %1726 ], [ 4, %1711 ], [ 4, %1708 ], [ 4, %1693 ], [ 4, %1690 ], [ 4, %1687 ], [ 4, %1684 ], [ 4, %1681 ], [ 4, %1678 ], [ 4, %1645 ], [ 4, %1612 ], [ 8, %1579 ], [ 4, %1546 ], [ 4, %1513 ], [ %spec.store.select.i.i2217, %1449 ], [ %spec.store.select.i.i2216, %1389 ], [ 4, %1356 ], [ 4, %1323 ], [ 4, %1320 ], [ 4, %1305 ], [ %spec.store.select.i.i2199, %1273 ], [ 4, %1266 ], [ 4, %1263 ], [ 4, %1230 ], [ 4, %1197 ], [ 4, %1194 ], [ 2, %1187 ], [ 4, %1162 ], [ 4, %1137 ], [ 4, %1104 ], [ 4, %1071 ], [ 4, %1064 ], [ 4, %1061 ], [ 4, %1036 ], [ 4, %1011 ], [ 4, %1008 ], [ 4, %1001 ], [ 2, %715 ], [ 4, %708 ], [ 4, %701 ], [ 8, %694 ], [ 3, %431 ], [ 2, %424 ], [ 4, %417 ], [ 4, %410 ], [ 8, %403 ], [ 1, %400 ], [ 4, %375 ], [ 4, %328 ], [ 3, %303 ], [ 3, %256 ], [ %spec.store.select.i.i1847, %200 ], [ 4, %197 ], [ 4, %194 ], [ 4, %37 ], [ %192, %190 ], [ %188, %180 ], [ %166, %158 ], [ %156, %listOfCard16.exit164.i ], [ %103, %listOfCard16.exit.i ], [ %86, %listOfInt16.exit.i ], [ %69, %62 ], [ %60, %53 ]
   %.ph = phi i32 [ %5576, %5575 ], [ %36, %5572 ], [ %36, %5527 ], [ %36, %5520 ], [ %36, %5464 ], [ %36, %5408 ], [ %36, %5352 ], [ %36, %5285 ], [ %36, %5248 ], [ %36, %5226 ], [ %36, %5219 ], [ %36, %5212 ], [ %36, %5187 ], [ %36, %5184 ], [ %36, %5117 ], [ %36, %5066 ], [ %36, %4795 ], [ %36, %4739 ], [ %36, %4683 ], [ %36, %4627 ], [ %36, %4612 ], [ %36, %4505 ], [ %36, %4461 ], [ %36, %4446 ], [ %36, %4407 ], [ %36, %4384 ], [ %36, %4359 ], [ %36, %4334 ], [ %36, %4327 ], [ %36, %4312 ], [ %36, %4287 ], [ %36, %4240 ], [ %36, %4233 ], [ %36, %4226 ], [ %36, %4191 ], [ %36, %4160 ], [ %36, %4137 ], [ %36, %4106 ], [ %36, %4079 ], [ %36, %4043 ], [ %36, %3967 ], [ %36, %3899 ], [ %36, %3896 ], [ %36, %3893 ], [ %36, %3882 ], [ %36, %3867 ], [ %36, %3835 ], [ %36, %3812 ], [ %36, %3793 ], [ %36, %3760 ], [ %36, %3727 ], [ %36, %3671 ], [ %36, %3619 ], [ %36, %3551 ], [ %36, %3491 ], [ %36, %3488 ], [ %36, %3473 ], [ %36, %3458 ], [ %36, %3455 ], [ %36, %3401 ], [ %36, %3372 ], [ %36, %3288 ], [ %36, %3216 ], [ %36, %3197 ], [ %36, %3101 ], [ %36, %3054 ], [ %36, %3047 ], [ %36, %3026 ], [ %36, %3019 ], [ %36, %3001 ], [ %36, %2956 ], [ %36, %2919 ], [ %36, %2890 ], [ %36, %2853 ], [ %36, %2820 ], [ %36, %2791 ], [ %36, %2600 ], [ %36, %2589 ], [ %36, %2578 ], [ %36, %2567 ], [ %36, %2564 ], [ %36, %2545 ], [ %36, %2493 ], [ %36, %2490 ], [ %36, %2479 ], [ %36, %2472 ], [ %36, %2457 ], [ %36, %2446 ], [ %36, %2435 ], [ %36, %2424 ], [ %36, %2413 ], [ %36, %2398 ], [ %36, %2383 ], [ %36, %2360 ], [ %36, %2335 ], [ %36, %2290 ], [ %36, %2283 ], [ %36, %2235 ], [ %36, %2216 ], [ %36, %2213 ], [ %36, %2140 ], [ %36, %2133 ], [ %36, %2126 ], [ %36, %2123 ], [ %36, %2112 ], [ %36, %2101 ], [ %36, %2098 ], [ %36, %2091 ], [ %36, %2084 ], [ %36, %2077 ], [ %36, %2058 ], [ %36, %2055 ], [ %36, %2044 ], [ %36, %2015 ], [ %36, %2008 ], [ %36, %1985 ], [ %36, %1962 ], [ %36, %1951 ], [ %36, %1940 ], [ %36, %1769 ], [ %36, %1766 ], [ %36, %1763 ], [ %36, %1756 ], [ %36, %1753 ], [ %36, %1750 ], [ %36, %1735 ], [ %36, %1732 ], [ %36, %1729 ], [ %36, %1726 ], [ %36, %1711 ], [ %36, %1708 ], [ %36, %1693 ], [ %36, %1690 ], [ %36, %1687 ], [ %36, %1684 ], [ %36, %1681 ], [ %36, %1678 ], [ %36, %1645 ], [ %36, %1612 ], [ %36, %1579 ], [ %36, %1546 ], [ %36, %1513 ], [ %36, %1449 ], [ %36, %1389 ], [ %36, %1356 ], [ %36, %1323 ], [ %36, %1320 ], [ %36, %1305 ], [ %36, %1273 ], [ %36, %1266 ], [ %36, %1263 ], [ %36, %1230 ], [ %36, %1197 ], [ %36, %1194 ], [ %36, %1187 ], [ %36, %1162 ], [ %36, %1137 ], [ %36, %1104 ], [ %36, %1071 ], [ %36, %1064 ], [ %36, %1061 ], [ %36, %1036 ], [ %36, %1011 ], [ %36, %1008 ], [ %36, %1001 ], [ %36, %715 ], [ %36, %708 ], [ %36, %701 ], [ %36, %694 ], [ %36, %431 ], [ %36, %424 ], [ %36, %417 ], [ %36, %410 ], [ %36, %403 ], [ %36, %400 ], [ %36, %375 ], [ %36, %328 ], [ %36, %303 ], [ %36, %256 ], [ %36, %200 ], [ %36, %197 ], [ %36, %194 ], [ %36, %37 ], [ %36, %190 ], [ %36, %180 ], [ %36, %158 ], [ %36, %listOfCard16.exit164.i ], [ %36, %listOfCard16.exit.i ], [ %36, %listOfInt16.exit.i ], [ %36, %62 ], [ %36, %53 ]
-  %.018432879.ph = phi i32 [ %.018432880, %5575 ], [ %10, %5572 ], [ %10, %5527 ], [ %10, %5520 ], [ %10, %5464 ], [ %10, %5408 ], [ %10, %5352 ], [ %10, %5285 ], [ %10, %5248 ], [ %10, %5226 ], [ %10, %5219 ], [ %10, %5212 ], [ %10, %5187 ], [ %10, %5184 ], [ %10, %5117 ], [ %10, %5066 ], [ %10, %4795 ], [ %10, %4739 ], [ %10, %4683 ], [ %10, %4627 ], [ %10, %4612 ], [ %10, %4505 ], [ %10, %4461 ], [ %10, %4446 ], [ %10, %4407 ], [ %10, %4384 ], [ %10, %4359 ], [ %10, %4334 ], [ %10, %4327 ], [ %10, %4312 ], [ %10, %4287 ], [ %10, %4240 ], [ %10, %4233 ], [ %10, %4226 ], [ %10, %4191 ], [ %10, %4160 ], [ %10, %4137 ], [ %10, %4106 ], [ %10, %4079 ], [ %10, %4043 ], [ %10, %3967 ], [ %10, %3899 ], [ %10, %3896 ], [ %10, %3893 ], [ %10, %3882 ], [ %10, %3867 ], [ %10, %3835 ], [ %10, %3812 ], [ %10, %3793 ], [ %10, %3760 ], [ %10, %3727 ], [ %10, %3671 ], [ %10, %3619 ], [ %10, %3551 ], [ %10, %3491 ], [ %10, %3488 ], [ %10, %3473 ], [ %10, %3458 ], [ %10, %3455 ], [ %10, %3401 ], [ %10, %3372 ], [ %10, %3288 ], [ %10, %3216 ], [ %10, %3197 ], [ %10, %3101 ], [ %10, %3054 ], [ %10, %3047 ], [ %10, %3026 ], [ %10, %3019 ], [ %10, %3001 ], [ %10, %2956 ], [ %10, %2919 ], [ %10, %2890 ], [ %10, %2853 ], [ %10, %2820 ], [ %10, %2791 ], [ %10, %2600 ], [ %10, %2589 ], [ %10, %2578 ], [ %10, %2567 ], [ %10, %2564 ], [ %10, %2545 ], [ %10, %2493 ], [ %10, %2490 ], [ %10, %2479 ], [ %10, %2472 ], [ %10, %2457 ], [ %10, %2446 ], [ %10, %2435 ], [ %10, %2424 ], [ %10, %2413 ], [ %10, %2398 ], [ %10, %2383 ], [ %10, %2360 ], [ %10, %2335 ], [ %10, %2290 ], [ %10, %2283 ], [ %10, %2235 ], [ %10, %2216 ], [ %10, %2213 ], [ %10, %2140 ], [ %10, %2133 ], [ %10, %2126 ], [ %10, %2123 ], [ %10, %2112 ], [ %10, %2101 ], [ %10, %2098 ], [ %10, %2091 ], [ %10, %2084 ], [ %10, %2077 ], [ %10, %2058 ], [ %10, %2055 ], [ %10, %2044 ], [ %10, %2015 ], [ %10, %2008 ], [ %10, %1985 ], [ %10, %1962 ], [ %10, %1951 ], [ %10, %1940 ], [ %10, %1769 ], [ %10, %1766 ], [ %10, %1763 ], [ %10, %1756 ], [ %10, %1753 ], [ %10, %1750 ], [ %10, %1735 ], [ %10, %1732 ], [ %10, %1729 ], [ %10, %1726 ], [ %10, %1711 ], [ %10, %1708 ], [ %10, %1693 ], [ %10, %1690 ], [ %10, %1687 ], [ %10, %1684 ], [ %10, %1681 ], [ %10, %1678 ], [ %10, %1645 ], [ %10, %1612 ], [ %10, %1579 ], [ %10, %1546 ], [ %10, %1513 ], [ %10, %1449 ], [ %10, %1389 ], [ %10, %1356 ], [ %10, %1323 ], [ %10, %1320 ], [ %10, %1305 ], [ %10, %1273 ], [ %10, %1266 ], [ %10, %1263 ], [ %10, %1230 ], [ %10, %1197 ], [ %10, %1194 ], [ %10, %1187 ], [ %10, %1162 ], [ %10, %1137 ], [ %10, %1104 ], [ %10, %1071 ], [ %10, %1064 ], [ %10, %1061 ], [ %10, %1036 ], [ %10, %1011 ], [ %10, %1008 ], [ %10, %1001 ], [ %10, %715 ], [ %10, %708 ], [ %10, %701 ], [ %10, %694 ], [ %10, %431 ], [ %10, %424 ], [ %10, %417 ], [ %10, %410 ], [ %10, %403 ], [ %10, %400 ], [ %10, %375 ], [ %10, %328 ], [ %10, %303 ], [ %10, %256 ], [ %10, %200 ], [ %10, %197 ], [ %10, %194 ], [ %10, %37 ], [ %10, %190 ], [ %10, %180 ], [ %10, %158 ], [ %10, %listOfCard16.exit164.i ], [ %10, %listOfCard16.exit.i ], [ %10, %listOfInt16.exit.i ], [ %10, %62 ], [ %10, %53 ]
+  %.02879.ph = phi i32 [ %.02880, %5575 ], [ %10, %5572 ], [ %10, %5527 ], [ %10, %5520 ], [ %10, %5464 ], [ %10, %5408 ], [ %10, %5352 ], [ %10, %5285 ], [ %10, %5248 ], [ %10, %5226 ], [ %10, %5219 ], [ %10, %5212 ], [ %10, %5187 ], [ %10, %5184 ], [ %10, %5117 ], [ %10, %5066 ], [ %10, %4795 ], [ %10, %4739 ], [ %10, %4683 ], [ %10, %4627 ], [ %10, %4612 ], [ %10, %4505 ], [ %10, %4461 ], [ %10, %4446 ], [ %10, %4407 ], [ %10, %4384 ], [ %10, %4359 ], [ %10, %4334 ], [ %10, %4327 ], [ %10, %4312 ], [ %10, %4287 ], [ %10, %4240 ], [ %10, %4233 ], [ %10, %4226 ], [ %10, %4191 ], [ %10, %4160 ], [ %10, %4137 ], [ %10, %4106 ], [ %10, %4079 ], [ %10, %4043 ], [ %10, %3967 ], [ %10, %3899 ], [ %10, %3896 ], [ %10, %3893 ], [ %10, %3882 ], [ %10, %3867 ], [ %10, %3835 ], [ %10, %3812 ], [ %10, %3793 ], [ %10, %3760 ], [ %10, %3727 ], [ %10, %3671 ], [ %10, %3619 ], [ %10, %3551 ], [ %10, %3491 ], [ %10, %3488 ], [ %10, %3473 ], [ %10, %3458 ], [ %10, %3455 ], [ %10, %3401 ], [ %10, %3372 ], [ %10, %3288 ], [ %10, %3216 ], [ %10, %3197 ], [ %10, %3101 ], [ %10, %3054 ], [ %10, %3047 ], [ %10, %3026 ], [ %10, %3019 ], [ %10, %3001 ], [ %10, %2956 ], [ %10, %2919 ], [ %10, %2890 ], [ %10, %2853 ], [ %10, %2820 ], [ %10, %2791 ], [ %10, %2600 ], [ %10, %2589 ], [ %10, %2578 ], [ %10, %2567 ], [ %10, %2564 ], [ %10, %2545 ], [ %10, %2493 ], [ %10, %2490 ], [ %10, %2479 ], [ %10, %2472 ], [ %10, %2457 ], [ %10, %2446 ], [ %10, %2435 ], [ %10, %2424 ], [ %10, %2413 ], [ %10, %2398 ], [ %10, %2383 ], [ %10, %2360 ], [ %10, %2335 ], [ %10, %2290 ], [ %10, %2283 ], [ %10, %2235 ], [ %10, %2216 ], [ %10, %2213 ], [ %10, %2140 ], [ %10, %2133 ], [ %10, %2126 ], [ %10, %2123 ], [ %10, %2112 ], [ %10, %2101 ], [ %10, %2098 ], [ %10, %2091 ], [ %10, %2084 ], [ %10, %2077 ], [ %10, %2058 ], [ %10, %2055 ], [ %10, %2044 ], [ %10, %2015 ], [ %10, %2008 ], [ %10, %1985 ], [ %10, %1962 ], [ %10, %1951 ], [ %10, %1940 ], [ %10, %1769 ], [ %10, %1766 ], [ %10, %1763 ], [ %10, %1756 ], [ %10, %1753 ], [ %10, %1750 ], [ %10, %1735 ], [ %10, %1732 ], [ %10, %1729 ], [ %10, %1726 ], [ %10, %1711 ], [ %10, %1708 ], [ %10, %1693 ], [ %10, %1690 ], [ %10, %1687 ], [ %10, %1684 ], [ %10, %1681 ], [ %10, %1678 ], [ %10, %1645 ], [ %10, %1612 ], [ %10, %1579 ], [ %10, %1546 ], [ %10, %1513 ], [ %10, %1449 ], [ %10, %1389 ], [ %10, %1356 ], [ %10, %1323 ], [ %10, %1320 ], [ %10, %1305 ], [ %10, %1273 ], [ %10, %1266 ], [ %10, %1263 ], [ %10, %1230 ], [ %10, %1197 ], [ %10, %1194 ], [ %10, %1187 ], [ %10, %1162 ], [ %10, %1137 ], [ %10, %1104 ], [ %10, %1071 ], [ %10, %1064 ], [ %10, %1061 ], [ %10, %1036 ], [ %10, %1011 ], [ %10, %1008 ], [ %10, %1001 ], [ %10, %715 ], [ %10, %708 ], [ %10, %701 ], [ %10, %694 ], [ %10, %431 ], [ %10, %424 ], [ %10, %417 ], [ %10, %410 ], [ %10, %403 ], [ %10, %400 ], [ %10, %375 ], [ %10, %328 ], [ %10, %303 ], [ %10, %256 ], [ %10, %200 ], [ %10, %197 ], [ %10, %194 ], [ %10, %37 ], [ %10, %190 ], [ %10, %180 ], [ %10, %158 ], [ %10, %listOfCard16.exit164.i ], [ %10, %listOfCard16.exit.i ], [ %10, %listOfInt16.exit.i ], [ %10, %62 ], [ %10, %53 ]
   %5581 = load i32, ptr %2, align 4
   %5582 = add i32 %5581, %.sink191.i.sink
   store i32 %5582, ptr %2, align 4
@@ -50180,7 +50180,7 @@ mesa_CallLists.exit.sink.split:                   ; preds = %53, %62, %listOfInt
 
 mesa_CallLists.exit:                              ; preds = %.lr.ph.i.i2873, %.lr.ph.i.i2866, %.lr.ph.i.i2858, %.lr.ph.i.i2853, %.lr.ph.i.i2848, %.lr.ph.i.i2841, %.lr.ph.i.i2836, %.lr.ph.i.i2831, %.lr.ph.i.i2824, %.lr.ph.i.i2819, %.lr.ph.i.i2814, %.lr.ph.i.i2807, %.lr.ph.i.i2802, %.lr.ph.i.i2797, %.lr.ph.i.i2792, %.lr.ph.i.i2787, %.lr.ph.i.i2782, %.lr.ph.i.i2777, %.lr.ph.i.i2772, %.lr.ph.i.i2764, %.lr.ph.i.i2758, %.lr.ph.i.i2751, %.lr.ph.i.i2746, %.lr.ph.i.i2740, %.lr.ph.i.i2733, %.lr.ph.i.i2726, %.lr.ph.i.i2719, %.lr.ph.i.i2712, %.lr.ph.i.i2705, %.lr.ph.i.i2698, %.lr.ph.i.i2691, %.lr.ph.i.i2684, %.lr.ph.i.i2677, %.lr.ph.i.i2670, %.lr.ph.i.i2663, %.lr.ph.i.i2656, %.lr.ph.i.i2651, %.lr.ph.i.i2646, %.lr.ph.i.i2639, %.lr.ph.i.i2634, %.lr.ph.i.i2629, %.lr.ph.i.i2622, %.lr.ph.i.i2617, %.lr.ph.i.i2612, %.lr.ph.i.i2605, %.lr.ph.i.i2598, %.lr.ph.i.i2591, %.lr.ph.i.i2586, %.lr.ph.i.i2580, %.lr.ph.i.i2573, %.lr.ph.i.i2568, %.lr.ph.i.i2560, %.lr.ph.i.i2550, %.lr.ph.i.i2545, %.lr.ph.i.i2540, %.lr.ph.i.i2535, %.lr.ph.i.i2530, %.lr.ph.i.i2525, %.lr.ph.i20.i, %.lr.ph.i.i2507, %.lr.ph.i.i2499, %.lr.ph.i.i2487, %.lr.ph.i.i2482, %.lr.ph.i.i2475, %.lr.ph.i.i2467, %.lr.ph.i.i2458, %.lr.ph.i.i2450, %.lr.ph.i.i2441, %.lr.ph.i.i2434, %.lr.ph.i.i2428, %.lr.ph.i.i2421, %.lr.ph.i.i2410, %.lr.ph.i.i2405, %.lr.ph.i.i2400, %.lr.ph.i.i2395, %.lr.ph.i.i2390, %.lr.ph.i.i2385, %.lr.ph.i.i2380, %.lr.ph.i.i2375, %.lr.ph.i.i2370, %.lr.ph.i.i2365, %.lr.ph.i.i2360, %.lr.ph.i.i2355, %.lr.ph.i.i2341, %.lr.ph.i.i2336, %.lr.ph.i.i2331, %.lr.ph.i.i2326, %.lr.ph.i.i2320, %.lr.ph.i.i2314, %.lr.ph.i.i2307, %.lr.ph.i.i2300, %.lr.ph.i.i2295, %.lr.ph.i.i2286, %.lr.ph.i.i2278, %.lr.ph.i.i2270, %.lr.ph.i.i2262, %.lr.ph.i.i2254, %.lr.ph.i.i2246, %.lr.ph.i.i2238, %.lr.ph.i.i2230, %.lr.ph.i.i2222, %.lr.ph.i.i2212, %.lr.ph.i.i2204, %.lr.ph.i.i2195, %.lr.ph.i.i2187, %.lr.ph.i.i2179, %.lr.ph.i.i2171, %.lr.ph.i.i2163, %.lr.ph.i.i2155, %.lr.ph.i.i2147, %.lr.ph.i.i2139, %.lr.ph.i.i2133, %.lr.ph.i.i2128, %.lr.ph.i.i2123, %.lr.ph.i.i2118, %.lr.ph.i.i2113, %.lr.ph.i.i2108, %.lr.ph.i.i2103, %.lr.ph.i.i2098, %.lr.ph.i.i2093, %.lr.ph.i.i2088, %.lr.ph.i.i2083, %.lr.ph.i.i2078, %.lr.ph.i.i2073, %.lr.ph.i.i2068, %.lr.ph.i.i2063, %.lr.ph.i.i2058, %.lr.ph.i.i2053, %.lr.ph.i.i2048, %.lr.ph.i.i2043, %.lr.ph.i.i2038, %.lr.ph.i.i2033, %.lr.ph.i.i2028, %.lr.ph.i.i2023, %.lr.ph.i.i2018, %.lr.ph.i.i2013, %.lr.ph.i8.i2001, %.lr.ph.i8.i1992, %.lr.ph.i8.i1984, %.lr.ph.i8.i, %.lr.ph.i.i1971, %.lr.ph.i.i1967, %.lr.ph.i.i1963, %.lr.ph.i.i1959, %.lr.ph.i.i1954, %.lr.ph.i.i1950, %.lr.ph.i.i1946, %.lr.ph.i.i1942, %.lr.ph.i.i1937, %.lr.ph.i.i1933, %.lr.ph.i.i1929, %.lr.ph.i.i1925, %.lr.ph.i.i1920, %.lr.ph.i.i1916, %.lr.ph.i.i1912, %.lr.ph.i.i1908, %.lr.ph.i.i1895, %.lr.ph.i.i1891, %.lr.ph.i.i1886, %.lr.ph.i.i1882, %.lr.ph.i.i1878, %.lr.ph.i.i1874, %.lr.ph.i.i1869, %.lr.ph.i.i1865, %.lr.ph.i.i1860, %.lr.ph.i.i1856, %.lr.ph.i.i1852, %.lr.ph.i.i1848, %.lr.ph.i168.i, %.lr.ph.i155.i, %.lr.ph.i149.i, %.lr.ph.i143.i, %mesa_CallLists.exit.sink.split, %5554, %5536, %5194, %5044, %5022, %5000, %4978, %4956, %4934, %4912, %4890, %4868, %4846, %4824, %4802, %4586, %4560, %4487, %4366, %4341, %listOfCard32.exit.i, %3771, %3738, %3426, %3408, %3375, %3175, %3153, %3079, %3057, %34, %3029, %34, %34, %34, %2191, %2169, %2147, %1890, %1840, %1806, %1772, %34, %34, %34, %1656, %1623, %1590, %1557, %1524, %1367, %1334, %1241, %1208, %1169, %1144, %1115, %1082, %1043, %1018, %34, %168, %129, %117, %105
   %5583 = phi i32 [ %36, %105 ], [ %36, %117 ], [ %36, %129 ], [ %36, %168 ], [ %36, %34 ], [ %36, %1018 ], [ %36, %1043 ], [ %36, %1082 ], [ %36, %1115 ], [ %36, %1144 ], [ %36, %1169 ], [ %36, %1208 ], [ %36, %1241 ], [ %36, %1334 ], [ %36, %1367 ], [ %36, %1524 ], [ %36, %1557 ], [ %36, %1590 ], [ %36, %1623 ], [ %36, %1656 ], [ %36, %34 ], [ %36, %34 ], [ %36, %34 ], [ %36, %1772 ], [ %36, %1806 ], [ %36, %1840 ], [ %36, %1890 ], [ %36, %2147 ], [ %36, %2169 ], [ %36, %2191 ], [ %36, %34 ], [ %36, %34 ], [ %36, %34 ], [ %36, %3029 ], [ %36, %34 ], [ %36, %3057 ], [ %36, %3079 ], [ %36, %3153 ], [ %36, %3175 ], [ %36, %3375 ], [ %36, %3408 ], [ %36, %3426 ], [ %36, %3738 ], [ %36, %3771 ], [ %36, %listOfCard32.exit.i ], [ %36, %4341 ], [ %36, %4366 ], [ %36, %4487 ], [ %36, %4560 ], [ %36, %4586 ], [ %36, %4802 ], [ %36, %4824 ], [ %36, %4846 ], [ %36, %4868 ], [ %36, %4890 ], [ %36, %4912 ], [ %36, %4934 ], [ %36, %4956 ], [ %36, %4978 ], [ %36, %5000 ], [ %36, %5022 ], [ %36, %5044 ], [ %36, %5194 ], [ %36, %5536 ], [ %36, %5554 ], [ %.ph, %mesa_CallLists.exit.sink.split ], [ %36, %.lr.ph.i143.i ], [ %36, %.lr.ph.i149.i ], [ %36, %.lr.ph.i155.i ], [ %36, %.lr.ph.i168.i ], [ %36, %.lr.ph.i.i1848 ], [ %36, %.lr.ph.i.i1852 ], [ %36, %.lr.ph.i.i1856 ], [ %36, %.lr.ph.i.i1860 ], [ %36, %.lr.ph.i.i1865 ], [ %36, %.lr.ph.i.i1869 ], [ %36, %.lr.ph.i.i1874 ], [ %36, %.lr.ph.i.i1878 ], [ %36, %.lr.ph.i.i1882 ], [ %36, %.lr.ph.i.i1886 ], [ %36, %.lr.ph.i.i1891 ], [ %36, %.lr.ph.i.i1895 ], [ %36, %.lr.ph.i.i1908 ], [ %36, %.lr.ph.i.i1912 ], [ %36, %.lr.ph.i.i1916 ], [ %36, %.lr.ph.i.i1920 ], [ %36, %.lr.ph.i.i1925 ], [ %36, %.lr.ph.i.i1929 ], [ %36, %.lr.ph.i.i1933 ], [ %36, %.lr.ph.i.i1937 ], [ %36, %.lr.ph.i.i1942 ], [ %36, %.lr.ph.i.i1946 ], [ %36, %.lr.ph.i.i1950 ], [ %36, %.lr.ph.i.i1954 ], [ %36, %.lr.ph.i.i1959 ], [ %36, %.lr.ph.i.i1963 ], [ %36, %.lr.ph.i.i1967 ], [ %36, %.lr.ph.i.i1971 ], [ %36, %.lr.ph.i8.i ], [ %36, %.lr.ph.i8.i1984 ], [ %36, %.lr.ph.i8.i1992 ], [ %36, %.lr.ph.i8.i2001 ], [ %36, %.lr.ph.i.i2013 ], [ %36, %.lr.ph.i.i2018 ], [ %36, %.lr.ph.i.i2023 ], [ %36, %.lr.ph.i.i2028 ], [ %36, %.lr.ph.i.i2033 ], [ %36, %.lr.ph.i.i2038 ], [ %36, %.lr.ph.i.i2043 ], [ %36, %.lr.ph.i.i2048 ], [ %36, %.lr.ph.i.i2053 ], [ %36, %.lr.ph.i.i2058 ], [ %36, %.lr.ph.i.i2063 ], [ %36, %.lr.ph.i.i2068 ], [ %36, %.lr.ph.i.i2073 ], [ %36, %.lr.ph.i.i2078 ], [ %36, %.lr.ph.i.i2083 ], [ %36, %.lr.ph.i.i2088 ], [ %36, %.lr.ph.i.i2093 ], [ %36, %.lr.ph.i.i2098 ], [ %36, %.lr.ph.i.i2103 ], [ %36, %.lr.ph.i.i2108 ], [ %36, %.lr.ph.i.i2113 ], [ %36, %.lr.ph.i.i2118 ], [ %36, %.lr.ph.i.i2123 ], [ %36, %.lr.ph.i.i2128 ], [ %36, %.lr.ph.i.i2133 ], [ %36, %.lr.ph.i.i2139 ], [ %36, %.lr.ph.i.i2147 ], [ %36, %.lr.ph.i.i2155 ], [ %36, %.lr.ph.i.i2163 ], [ %36, %.lr.ph.i.i2171 ], [ %36, %.lr.ph.i.i2179 ], [ %36, %.lr.ph.i.i2187 ], [ %36, %.lr.ph.i.i2195 ], [ %36, %.lr.ph.i.i2204 ], [ %36, %.lr.ph.i.i2212 ], [ %36, %.lr.ph.i.i2222 ], [ %36, %.lr.ph.i.i2230 ], [ %36, %.lr.ph.i.i2238 ], [ %36, %.lr.ph.i.i2246 ], [ %36, %.lr.ph.i.i2254 ], [ %36, %.lr.ph.i.i2262 ], [ %36, %.lr.ph.i.i2270 ], [ %36, %.lr.ph.i.i2278 ], [ %36, %.lr.ph.i.i2286 ], [ %36, %.lr.ph.i.i2295 ], [ %36, %.lr.ph.i.i2300 ], [ %36, %.lr.ph.i.i2307 ], [ %36, %.lr.ph.i.i2314 ], [ %36, %.lr.ph.i.i2320 ], [ %36, %.lr.ph.i.i2326 ], [ %36, %.lr.ph.i.i2331 ], [ %36, %.lr.ph.i.i2336 ], [ %36, %.lr.ph.i.i2341 ], [ %36, %.lr.ph.i.i2355 ], [ %36, %.lr.ph.i.i2360 ], [ %36, %.lr.ph.i.i2365 ], [ %36, %.lr.ph.i.i2370 ], [ %36, %.lr.ph.i.i2375 ], [ %36, %.lr.ph.i.i2380 ], [ %36, %.lr.ph.i.i2385 ], [ %36, %.lr.ph.i.i2390 ], [ %36, %.lr.ph.i.i2395 ], [ %36, %.lr.ph.i.i2400 ], [ %36, %.lr.ph.i.i2405 ], [ %36, %.lr.ph.i.i2410 ], [ %36, %.lr.ph.i.i2421 ], [ %36, %.lr.ph.i.i2428 ], [ %36, %.lr.ph.i.i2434 ], [ %36, %.lr.ph.i.i2441 ], [ %36, %.lr.ph.i.i2450 ], [ %36, %.lr.ph.i.i2458 ], [ %36, %.lr.ph.i.i2467 ], [ %36, %.lr.ph.i.i2475 ], [ %36, %.lr.ph.i.i2482 ], [ %36, %.lr.ph.i.i2487 ], [ %36, %.lr.ph.i.i2499 ], [ %36, %.lr.ph.i.i2507 ], [ %36, %.lr.ph.i20.i ], [ %36, %.lr.ph.i.i2525 ], [ %36, %.lr.ph.i.i2530 ], [ %36, %.lr.ph.i.i2535 ], [ %36, %.lr.ph.i.i2540 ], [ %36, %.lr.ph.i.i2545 ], [ %36, %.lr.ph.i.i2550 ], [ %36, %.lr.ph.i.i2560 ], [ %36, %.lr.ph.i.i2568 ], [ %36, %.lr.ph.i.i2573 ], [ %36, %.lr.ph.i.i2580 ], [ %36, %.lr.ph.i.i2586 ], [ %36, %.lr.ph.i.i2591 ], [ %36, %.lr.ph.i.i2598 ], [ %36, %.lr.ph.i.i2605 ], [ %36, %.lr.ph.i.i2612 ], [ %36, %.lr.ph.i.i2617 ], [ %36, %.lr.ph.i.i2622 ], [ %36, %.lr.ph.i.i2629 ], [ %36, %.lr.ph.i.i2634 ], [ %36, %.lr.ph.i.i2639 ], [ %36, %.lr.ph.i.i2646 ], [ %36, %.lr.ph.i.i2651 ], [ %36, %.lr.ph.i.i2656 ], [ %36, %.lr.ph.i.i2663 ], [ %36, %.lr.ph.i.i2670 ], [ %36, %.lr.ph.i.i2677 ], [ %36, %.lr.ph.i.i2684 ], [ %36, %.lr.ph.i.i2691 ], [ %36, %.lr.ph.i.i2698 ], [ %36, %.lr.ph.i.i2705 ], [ %36, %.lr.ph.i.i2712 ], [ %36, %.lr.ph.i.i2719 ], [ %36, %.lr.ph.i.i2726 ], [ %36, %.lr.ph.i.i2733 ], [ %36, %.lr.ph.i.i2740 ], [ %36, %.lr.ph.i.i2746 ], [ %36, %.lr.ph.i.i2751 ], [ %36, %.lr.ph.i.i2758 ], [ %36, %.lr.ph.i.i2764 ], [ %36, %.lr.ph.i.i2772 ], [ %36, %.lr.ph.i.i2777 ], [ %36, %.lr.ph.i.i2782 ], [ %36, %.lr.ph.i.i2787 ], [ %36, %.lr.ph.i.i2792 ], [ %36, %.lr.ph.i.i2797 ], [ %36, %.lr.ph.i.i2802 ], [ %36, %.lr.ph.i.i2807 ], [ %36, %.lr.ph.i.i2814 ], [ %36, %.lr.ph.i.i2819 ], [ %36, %.lr.ph.i.i2824 ], [ %36, %.lr.ph.i.i2831 ], [ %36, %.lr.ph.i.i2836 ], [ %36, %.lr.ph.i.i2841 ], [ %36, %.lr.ph.i.i2848 ], [ %36, %.lr.ph.i.i2853 ], [ %36, %.lr.ph.i.i2858 ], [ %36, %.lr.ph.i.i2866 ], [ %36, %.lr.ph.i.i2873 ]
-  %.018432879 = phi i32 [ %10, %105 ], [ %10, %117 ], [ %10, %129 ], [ %10, %168 ], [ %10, %34 ], [ %10, %1018 ], [ %10, %1043 ], [ %10, %1082 ], [ %10, %1115 ], [ %10, %1144 ], [ %10, %1169 ], [ %10, %1208 ], [ %10, %1241 ], [ %10, %1334 ], [ %10, %1367 ], [ %10, %1524 ], [ %10, %1557 ], [ %10, %1590 ], [ %10, %1623 ], [ %10, %1656 ], [ %10, %34 ], [ %10, %34 ], [ %10, %34 ], [ %10, %1772 ], [ %10, %1806 ], [ %10, %1840 ], [ %10, %1890 ], [ %10, %2147 ], [ %10, %2169 ], [ %10, %2191 ], [ %10, %34 ], [ %10, %34 ], [ %10, %34 ], [ %10, %3029 ], [ %10, %34 ], [ %10, %3057 ], [ %10, %3079 ], [ %10, %3153 ], [ %10, %3175 ], [ %10, %3375 ], [ %10, %3408 ], [ %10, %3426 ], [ %10, %3738 ], [ %10, %3771 ], [ %10, %listOfCard32.exit.i ], [ %10, %4341 ], [ %10, %4366 ], [ %10, %4487 ], [ %10, %4560 ], [ %10, %4586 ], [ %10, %4802 ], [ %10, %4824 ], [ %10, %4846 ], [ %10, %4868 ], [ %10, %4890 ], [ %10, %4912 ], [ %10, %4934 ], [ %10, %4956 ], [ %10, %4978 ], [ %10, %5000 ], [ %10, %5022 ], [ %10, %5044 ], [ %10, %5194 ], [ %10, %5536 ], [ %10, %5554 ], [ %.018432879.ph, %mesa_CallLists.exit.sink.split ], [ %10, %.lr.ph.i143.i ], [ %10, %.lr.ph.i149.i ], [ %10, %.lr.ph.i155.i ], [ %10, %.lr.ph.i168.i ], [ %10, %.lr.ph.i.i1848 ], [ %10, %.lr.ph.i.i1852 ], [ %10, %.lr.ph.i.i1856 ], [ %10, %.lr.ph.i.i1860 ], [ %10, %.lr.ph.i.i1865 ], [ %10, %.lr.ph.i.i1869 ], [ %10, %.lr.ph.i.i1874 ], [ %10, %.lr.ph.i.i1878 ], [ %10, %.lr.ph.i.i1882 ], [ %10, %.lr.ph.i.i1886 ], [ %10, %.lr.ph.i.i1891 ], [ %10, %.lr.ph.i.i1895 ], [ %10, %.lr.ph.i.i1908 ], [ %10, %.lr.ph.i.i1912 ], [ %10, %.lr.ph.i.i1916 ], [ %10, %.lr.ph.i.i1920 ], [ %10, %.lr.ph.i.i1925 ], [ %10, %.lr.ph.i.i1929 ], [ %10, %.lr.ph.i.i1933 ], [ %10, %.lr.ph.i.i1937 ], [ %10, %.lr.ph.i.i1942 ], [ %10, %.lr.ph.i.i1946 ], [ %10, %.lr.ph.i.i1950 ], [ %10, %.lr.ph.i.i1954 ], [ %10, %.lr.ph.i.i1959 ], [ %10, %.lr.ph.i.i1963 ], [ %10, %.lr.ph.i.i1967 ], [ %10, %.lr.ph.i.i1971 ], [ %10, %.lr.ph.i8.i ], [ %10, %.lr.ph.i8.i1984 ], [ %10, %.lr.ph.i8.i1992 ], [ %10, %.lr.ph.i8.i2001 ], [ %10, %.lr.ph.i.i2013 ], [ %10, %.lr.ph.i.i2018 ], [ %10, %.lr.ph.i.i2023 ], [ %10, %.lr.ph.i.i2028 ], [ %10, %.lr.ph.i.i2033 ], [ %10, %.lr.ph.i.i2038 ], [ %10, %.lr.ph.i.i2043 ], [ %10, %.lr.ph.i.i2048 ], [ %10, %.lr.ph.i.i2053 ], [ %10, %.lr.ph.i.i2058 ], [ %10, %.lr.ph.i.i2063 ], [ %10, %.lr.ph.i.i2068 ], [ %10, %.lr.ph.i.i2073 ], [ %10, %.lr.ph.i.i2078 ], [ %10, %.lr.ph.i.i2083 ], [ %10, %.lr.ph.i.i2088 ], [ %10, %.lr.ph.i.i2093 ], [ %10, %.lr.ph.i.i2098 ], [ %10, %.lr.ph.i.i2103 ], [ %10, %.lr.ph.i.i2108 ], [ %10, %.lr.ph.i.i2113 ], [ %10, %.lr.ph.i.i2118 ], [ %10, %.lr.ph.i.i2123 ], [ %10, %.lr.ph.i.i2128 ], [ %10, %.lr.ph.i.i2133 ], [ %10, %.lr.ph.i.i2139 ], [ %10, %.lr.ph.i.i2147 ], [ %10, %.lr.ph.i.i2155 ], [ %10, %.lr.ph.i.i2163 ], [ %10, %.lr.ph.i.i2171 ], [ %10, %.lr.ph.i.i2179 ], [ %10, %.lr.ph.i.i2187 ], [ %10, %.lr.ph.i.i2195 ], [ %10, %.lr.ph.i.i2204 ], [ %10, %.lr.ph.i.i2212 ], [ %10, %.lr.ph.i.i2222 ], [ %10, %.lr.ph.i.i2230 ], [ %10, %.lr.ph.i.i2238 ], [ %10, %.lr.ph.i.i2246 ], [ %10, %.lr.ph.i.i2254 ], [ %10, %.lr.ph.i.i2262 ], [ %10, %.lr.ph.i.i2270 ], [ %10, %.lr.ph.i.i2278 ], [ %10, %.lr.ph.i.i2286 ], [ %10, %.lr.ph.i.i2295 ], [ %10, %.lr.ph.i.i2300 ], [ %10, %.lr.ph.i.i2307 ], [ %10, %.lr.ph.i.i2314 ], [ %10, %.lr.ph.i.i2320 ], [ %10, %.lr.ph.i.i2326 ], [ %10, %.lr.ph.i.i2331 ], [ %10, %.lr.ph.i.i2336 ], [ %10, %.lr.ph.i.i2341 ], [ %10, %.lr.ph.i.i2355 ], [ %10, %.lr.ph.i.i2360 ], [ %10, %.lr.ph.i.i2365 ], [ %10, %.lr.ph.i.i2370 ], [ %10, %.lr.ph.i.i2375 ], [ %10, %.lr.ph.i.i2380 ], [ %10, %.lr.ph.i.i2385 ], [ %10, %.lr.ph.i.i2390 ], [ %10, %.lr.ph.i.i2395 ], [ %10, %.lr.ph.i.i2400 ], [ %10, %.lr.ph.i.i2405 ], [ %10, %.lr.ph.i.i2410 ], [ %10, %.lr.ph.i.i2421 ], [ %10, %.lr.ph.i.i2428 ], [ %10, %.lr.ph.i.i2434 ], [ %10, %.lr.ph.i.i2441 ], [ %10, %.lr.ph.i.i2450 ], [ %10, %.lr.ph.i.i2458 ], [ %10, %.lr.ph.i.i2467 ], [ %10, %.lr.ph.i.i2475 ], [ %10, %.lr.ph.i.i2482 ], [ %10, %.lr.ph.i.i2487 ], [ %10, %.lr.ph.i.i2499 ], [ %10, %.lr.ph.i.i2507 ], [ %10, %.lr.ph.i20.i ], [ %10, %.lr.ph.i.i2525 ], [ %10, %.lr.ph.i.i2530 ], [ %10, %.lr.ph.i.i2535 ], [ %10, %.lr.ph.i.i2540 ], [ %10, %.lr.ph.i.i2545 ], [ %10, %.lr.ph.i.i2550 ], [ %10, %.lr.ph.i.i2560 ], [ %10, %.lr.ph.i.i2568 ], [ %10, %.lr.ph.i.i2573 ], [ %10, %.lr.ph.i.i2580 ], [ %10, %.lr.ph.i.i2586 ], [ %10, %.lr.ph.i.i2591 ], [ %10, %.lr.ph.i.i2598 ], [ %10, %.lr.ph.i.i2605 ], [ %10, %.lr.ph.i.i2612 ], [ %10, %.lr.ph.i.i2617 ], [ %10, %.lr.ph.i.i2622 ], [ %10, %.lr.ph.i.i2629 ], [ %10, %.lr.ph.i.i2634 ], [ %10, %.lr.ph.i.i2639 ], [ %10, %.lr.ph.i.i2646 ], [ %10, %.lr.ph.i.i2651 ], [ %10, %.lr.ph.i.i2656 ], [ %10, %.lr.ph.i.i2663 ], [ %10, %.lr.ph.i.i2670 ], [ %10, %.lr.ph.i.i2677 ], [ %10, %.lr.ph.i.i2684 ], [ %10, %.lr.ph.i.i2691 ], [ %10, %.lr.ph.i.i2698 ], [ %10, %.lr.ph.i.i2705 ], [ %10, %.lr.ph.i.i2712 ], [ %10, %.lr.ph.i.i2719 ], [ %10, %.lr.ph.i.i2726 ], [ %10, %.lr.ph.i.i2733 ], [ %10, %.lr.ph.i.i2740 ], [ %10, %.lr.ph.i.i2746 ], [ %10, %.lr.ph.i.i2751 ], [ %10, %.lr.ph.i.i2758 ], [ %10, %.lr.ph.i.i2764 ], [ %10, %.lr.ph.i.i2772 ], [ %10, %.lr.ph.i.i2777 ], [ %10, %.lr.ph.i.i2782 ], [ %10, %.lr.ph.i.i2787 ], [ %10, %.lr.ph.i.i2792 ], [ %10, %.lr.ph.i.i2797 ], [ %10, %.lr.ph.i.i2802 ], [ %10, %.lr.ph.i.i2807 ], [ %10, %.lr.ph.i.i2814 ], [ %10, %.lr.ph.i.i2819 ], [ %10, %.lr.ph.i.i2824 ], [ %10, %.lr.ph.i.i2831 ], [ %10, %.lr.ph.i.i2836 ], [ %10, %.lr.ph.i.i2841 ], [ %10, %.lr.ph.i.i2848 ], [ %10, %.lr.ph.i.i2853 ], [ %10, %.lr.ph.i.i2858 ], [ %10, %.lr.ph.i.i2866 ], [ %10, %.lr.ph.i.i2873 ]
+  %.02879 = phi i32 [ %10, %105 ], [ %10, %117 ], [ %10, %129 ], [ %10, %168 ], [ %10, %34 ], [ %10, %1018 ], [ %10, %1043 ], [ %10, %1082 ], [ %10, %1115 ], [ %10, %1144 ], [ %10, %1169 ], [ %10, %1208 ], [ %10, %1241 ], [ %10, %1334 ], [ %10, %1367 ], [ %10, %1524 ], [ %10, %1557 ], [ %10, %1590 ], [ %10, %1623 ], [ %10, %1656 ], [ %10, %34 ], [ %10, %34 ], [ %10, %34 ], [ %10, %1772 ], [ %10, %1806 ], [ %10, %1840 ], [ %10, %1890 ], [ %10, %2147 ], [ %10, %2169 ], [ %10, %2191 ], [ %10, %34 ], [ %10, %34 ], [ %10, %34 ], [ %10, %3029 ], [ %10, %34 ], [ %10, %3057 ], [ %10, %3079 ], [ %10, %3153 ], [ %10, %3175 ], [ %10, %3375 ], [ %10, %3408 ], [ %10, %3426 ], [ %10, %3738 ], [ %10, %3771 ], [ %10, %listOfCard32.exit.i ], [ %10, %4341 ], [ %10, %4366 ], [ %10, %4487 ], [ %10, %4560 ], [ %10, %4586 ], [ %10, %4802 ], [ %10, %4824 ], [ %10, %4846 ], [ %10, %4868 ], [ %10, %4890 ], [ %10, %4912 ], [ %10, %4934 ], [ %10, %4956 ], [ %10, %4978 ], [ %10, %5000 ], [ %10, %5022 ], [ %10, %5044 ], [ %10, %5194 ], [ %10, %5536 ], [ %10, %5554 ], [ %.02879.ph, %mesa_CallLists.exit.sink.split ], [ %10, %.lr.ph.i143.i ], [ %10, %.lr.ph.i149.i ], [ %10, %.lr.ph.i155.i ], [ %10, %.lr.ph.i168.i ], [ %10, %.lr.ph.i.i1848 ], [ %10, %.lr.ph.i.i1852 ], [ %10, %.lr.ph.i.i1856 ], [ %10, %.lr.ph.i.i1860 ], [ %10, %.lr.ph.i.i1865 ], [ %10, %.lr.ph.i.i1869 ], [ %10, %.lr.ph.i.i1874 ], [ %10, %.lr.ph.i.i1878 ], [ %10, %.lr.ph.i.i1882 ], [ %10, %.lr.ph.i.i1886 ], [ %10, %.lr.ph.i.i1891 ], [ %10, %.lr.ph.i.i1895 ], [ %10, %.lr.ph.i.i1908 ], [ %10, %.lr.ph.i.i1912 ], [ %10, %.lr.ph.i.i1916 ], [ %10, %.lr.ph.i.i1920 ], [ %10, %.lr.ph.i.i1925 ], [ %10, %.lr.ph.i.i1929 ], [ %10, %.lr.ph.i.i1933 ], [ %10, %.lr.ph.i.i1937 ], [ %10, %.lr.ph.i.i1942 ], [ %10, %.lr.ph.i.i1946 ], [ %10, %.lr.ph.i.i1950 ], [ %10, %.lr.ph.i.i1954 ], [ %10, %.lr.ph.i.i1959 ], [ %10, %.lr.ph.i.i1963 ], [ %10, %.lr.ph.i.i1967 ], [ %10, %.lr.ph.i.i1971 ], [ %10, %.lr.ph.i8.i ], [ %10, %.lr.ph.i8.i1984 ], [ %10, %.lr.ph.i8.i1992 ], [ %10, %.lr.ph.i8.i2001 ], [ %10, %.lr.ph.i.i2013 ], [ %10, %.lr.ph.i.i2018 ], [ %10, %.lr.ph.i.i2023 ], [ %10, %.lr.ph.i.i2028 ], [ %10, %.lr.ph.i.i2033 ], [ %10, %.lr.ph.i.i2038 ], [ %10, %.lr.ph.i.i2043 ], [ %10, %.lr.ph.i.i2048 ], [ %10, %.lr.ph.i.i2053 ], [ %10, %.lr.ph.i.i2058 ], [ %10, %.lr.ph.i.i2063 ], [ %10, %.lr.ph.i.i2068 ], [ %10, %.lr.ph.i.i2073 ], [ %10, %.lr.ph.i.i2078 ], [ %10, %.lr.ph.i.i2083 ], [ %10, %.lr.ph.i.i2088 ], [ %10, %.lr.ph.i.i2093 ], [ %10, %.lr.ph.i.i2098 ], [ %10, %.lr.ph.i.i2103 ], [ %10, %.lr.ph.i.i2108 ], [ %10, %.lr.ph.i.i2113 ], [ %10, %.lr.ph.i.i2118 ], [ %10, %.lr.ph.i.i2123 ], [ %10, %.lr.ph.i.i2128 ], [ %10, %.lr.ph.i.i2133 ], [ %10, %.lr.ph.i.i2139 ], [ %10, %.lr.ph.i.i2147 ], [ %10, %.lr.ph.i.i2155 ], [ %10, %.lr.ph.i.i2163 ], [ %10, %.lr.ph.i.i2171 ], [ %10, %.lr.ph.i.i2179 ], [ %10, %.lr.ph.i.i2187 ], [ %10, %.lr.ph.i.i2195 ], [ %10, %.lr.ph.i.i2204 ], [ %10, %.lr.ph.i.i2212 ], [ %10, %.lr.ph.i.i2222 ], [ %10, %.lr.ph.i.i2230 ], [ %10, %.lr.ph.i.i2238 ], [ %10, %.lr.ph.i.i2246 ], [ %10, %.lr.ph.i.i2254 ], [ %10, %.lr.ph.i.i2262 ], [ %10, %.lr.ph.i.i2270 ], [ %10, %.lr.ph.i.i2278 ], [ %10, %.lr.ph.i.i2286 ], [ %10, %.lr.ph.i.i2295 ], [ %10, %.lr.ph.i.i2300 ], [ %10, %.lr.ph.i.i2307 ], [ %10, %.lr.ph.i.i2314 ], [ %10, %.lr.ph.i.i2320 ], [ %10, %.lr.ph.i.i2326 ], [ %10, %.lr.ph.i.i2331 ], [ %10, %.lr.ph.i.i2336 ], [ %10, %.lr.ph.i.i2341 ], [ %10, %.lr.ph.i.i2355 ], [ %10, %.lr.ph.i.i2360 ], [ %10, %.lr.ph.i.i2365 ], [ %10, %.lr.ph.i.i2370 ], [ %10, %.lr.ph.i.i2375 ], [ %10, %.lr.ph.i.i2380 ], [ %10, %.lr.ph.i.i2385 ], [ %10, %.lr.ph.i.i2390 ], [ %10, %.lr.ph.i.i2395 ], [ %10, %.lr.ph.i.i2400 ], [ %10, %.lr.ph.i.i2405 ], [ %10, %.lr.ph.i.i2410 ], [ %10, %.lr.ph.i.i2421 ], [ %10, %.lr.ph.i.i2428 ], [ %10, %.lr.ph.i.i2434 ], [ %10, %.lr.ph.i.i2441 ], [ %10, %.lr.ph.i.i2450 ], [ %10, %.lr.ph.i.i2458 ], [ %10, %.lr.ph.i.i2467 ], [ %10, %.lr.ph.i.i2475 ], [ %10, %.lr.ph.i.i2482 ], [ %10, %.lr.ph.i.i2487 ], [ %10, %.lr.ph.i.i2499 ], [ %10, %.lr.ph.i.i2507 ], [ %10, %.lr.ph.i20.i ], [ %10, %.lr.ph.i.i2525 ], [ %10, %.lr.ph.i.i2530 ], [ %10, %.lr.ph.i.i2535 ], [ %10, %.lr.ph.i.i2540 ], [ %10, %.lr.ph.i.i2545 ], [ %10, %.lr.ph.i.i2550 ], [ %10, %.lr.ph.i.i2560 ], [ %10, %.lr.ph.i.i2568 ], [ %10, %.lr.ph.i.i2573 ], [ %10, %.lr.ph.i.i2580 ], [ %10, %.lr.ph.i.i2586 ], [ %10, %.lr.ph.i.i2591 ], [ %10, %.lr.ph.i.i2598 ], [ %10, %.lr.ph.i.i2605 ], [ %10, %.lr.ph.i.i2612 ], [ %10, %.lr.ph.i.i2617 ], [ %10, %.lr.ph.i.i2622 ], [ %10, %.lr.ph.i.i2629 ], [ %10, %.lr.ph.i.i2634 ], [ %10, %.lr.ph.i.i2639 ], [ %10, %.lr.ph.i.i2646 ], [ %10, %.lr.ph.i.i2651 ], [ %10, %.lr.ph.i.i2656 ], [ %10, %.lr.ph.i.i2663 ], [ %10, %.lr.ph.i.i2670 ], [ %10, %.lr.ph.i.i2677 ], [ %10, %.lr.ph.i.i2684 ], [ %10, %.lr.ph.i.i2691 ], [ %10, %.lr.ph.i.i2698 ], [ %10, %.lr.ph.i.i2705 ], [ %10, %.lr.ph.i.i2712 ], [ %10, %.lr.ph.i.i2719 ], [ %10, %.lr.ph.i.i2726 ], [ %10, %.lr.ph.i.i2733 ], [ %10, %.lr.ph.i.i2740 ], [ %10, %.lr.ph.i.i2746 ], [ %10, %.lr.ph.i.i2751 ], [ %10, %.lr.ph.i.i2758 ], [ %10, %.lr.ph.i.i2764 ], [ %10, %.lr.ph.i.i2772 ], [ %10, %.lr.ph.i.i2777 ], [ %10, %.lr.ph.i.i2782 ], [ %10, %.lr.ph.i.i2787 ], [ %10, %.lr.ph.i.i2792 ], [ %10, %.lr.ph.i.i2797 ], [ %10, %.lr.ph.i.i2802 ], [ %10, %.lr.ph.i.i2807 ], [ %10, %.lr.ph.i.i2814 ], [ %10, %.lr.ph.i.i2819 ], [ %10, %.lr.ph.i.i2824 ], [ %10, %.lr.ph.i.i2831 ], [ %10, %.lr.ph.i.i2836 ], [ %10, %.lr.ph.i.i2841 ], [ %10, %.lr.ph.i.i2848 ], [ %10, %.lr.ph.i.i2853 ], [ %10, %.lr.ph.i.i2858 ], [ %10, %.lr.ph.i.i2866 ], [ %10, %.lr.ph.i.i2873 ]
   %5584 = load i32, ptr %2, align 4
   %5585 = icmp slt i32 %5584, %5583
   br i1 %5585, label %5586, label %5590
@@ -50194,7 +50194,7 @@ mesa_CallLists.exit:                              ; preds = %.lr.ph.i.i2873, %.l
 
 5590:                                             ; preds = %5586, %mesa_CallLists.exit
   %5591 = phi i32 [ %5583, %5586 ], [ %5584, %mesa_CallLists.exit ]
-  %5592 = sub nsw i32 %.03064, %.018432879
+  %5592 = sub nsw i32 %.018433064, %.02879
   %5593 = icmp sgt i32 %5592, 3
   br i1 %5593, label %.lr.ph, label %._crit_edge, !llvm.loop !63
 
@@ -61411,17 +61411,17 @@ struct_render_PICTFORMINFO.exit:                  ; preds = %.lr.ph.i, %5
   br i1 %124, label %.lr.ph.i.i, label %struct_size_render_PICTSCREEN.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i77, %.lr.ph.i.i
-  %.014.i.i = phi i32 [ %132, %.lr.ph.i.i ], [ 0, %.lr.ph.i77 ]
-  %.01213.i.i = phi i32 [ %133, %.lr.ph.i.i ], [ 0, %.lr.ph.i77 ]
+  %.014.i.i = phi i32 [ %133, %.lr.ph.i.i ], [ 0, %.lr.ph.i77 ]
+  %.01213.i.i = phi i32 [ %132, %.lr.ph.i.i ], [ 0, %.lr.ph.i77 ]
   %125 = load i32, ptr %2, align 4
-  %126 = add i32 %.014.i.i, 10
+  %126 = add i32 %.01213.i.i, 10
   %127 = add i32 %126, %125
   %128 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %127, i32 noundef %4) #10
   %129 = zext i16 %128 to i32
   %130 = shl nuw nsw i32 %129, 3
-  %131 = add i32 %.014.i.i, 8
+  %131 = add i32 %.01213.i.i, 8
   %132 = add i32 %131, %130
-  %133 = add nuw nsw i32 %.01213.i.i, 1
+  %133 = add nuw nsw i32 %.014.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %133, %123
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !80
 
@@ -61430,8 +61430,8 @@ struct_render_PICTFORMINFO.exit:                  ; preds = %.lr.ph.i, %5
   br label %struct_size_render_PICTSCREEN.exit.i
 
 struct_size_render_PICTSCREEN.exit.i:             ; preds = %._crit_edge.loopexit.i.i, %.lr.ph.i77
-  %.0.lcssa.i.i = phi i32 [ 8, %.lr.ph.i77 ], [ %134, %._crit_edge.loopexit.i.i ]
-  %135 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %122, ptr noundef %0, i32 noundef %121, i32 noundef %.0.lcssa.i.i, i32 noundef 0) #10
+  %.012.lcssa.i.i = phi i32 [ 8, %.lr.ph.i77 ], [ %134, %._crit_edge.loopexit.i.i ]
+  %135 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %122, ptr noundef %0, i32 noundef %121, i32 noundef %.012.lcssa.i.i, i32 noundef 0) #10
   %136 = load i32, ptr @ett_x11_rectangle, align 4
   %137 = tail call ptr @proto_item_add_subtree(ptr noundef %135, i32 noundef %136) #10
   %138 = load i32, ptr %2, align 4

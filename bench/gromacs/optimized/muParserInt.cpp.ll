@@ -1731,13 +1731,13 @@ define noundef range(i32 0, 2) i32 @_ZN2mu9ParserInt8IsBinValEPKcPiPd(ptr nocapt
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %.preheader ]
   %9 = phi i8 [ %16, %.lr.ph ], [ %7, %.preheader ]
-  %.02632 = phi i32 [ %14, %.lr.ph ], [ 0, %.preheader ]
-  %.02731 = phi i32 [ %19, %.lr.ph ], [ 0, %.preheader ]
+  %.02532 = phi i32 [ %19, %.lr.ph ], [ 0, %.preheader ]
+  %.02731 = phi i32 [ %14, %.lr.ph ], [ 0, %.preheader ]
   %10 = icmp eq i8 %9, 49
   %11 = zext i1 %10 to i32
-  %12 = sub nuw nsw i32 31, %.02731
+  %12 = sub nuw nsw i32 31, %.02532
   %13 = shl nuw i32 %11, %12
-  %14 = or i32 %13, %.02632
+  %14 = or i32 %13, %.02731
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next
   %16 = load i8, ptr %15, align 1
@@ -1787,8 +1787,8 @@ define noundef range(i32 0, 2) i32 @_ZN2mu9ParserInt8IsBinValEPKcPiPd(ptr nocapt
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.preheader, %3, %27
-  %.025 = phi i32 [ 1, %27 ], [ 0, %3 ], [ 0, %.preheader ]
-  ret i32 %.025
+  %.026 = phi i32 [ 1, %27 ], [ 0, %3 ], [ 0, %.preheader ]
+  ret i32 %.026
 
 34:                                               ; preds = %23, %25
   %35 = phi { ptr, i32 } [ %24, %23 ], [ %26, %25 ]

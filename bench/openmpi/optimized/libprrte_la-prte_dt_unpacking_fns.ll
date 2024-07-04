@@ -293,7 +293,7 @@ pmix_obj_run_destructors.exit591:                 ; preds = %.lr.ph.i588, %103
   br label %753
 
 116:                                              ; preds = %.lr.ph, %237
-  %.0464750 = phi i32 [ 0, %.lr.ph ], [ %245, %237 ]
+  %.0750 = phi i32 [ 0, %.lr.ph ], [ %245, %237 ]
   %117 = load i64, ptr getelementptr inbounds (i8, ptr @prte_attribute_t_class, i64 56), align 8
   %118 = call noalias noundef ptr @malloc(i64 noundef %117) #9
   %119 = load i32, ptr @pmix_class_init_epoch, align 4
@@ -590,7 +590,7 @@ pmix_obj_run_destructors.exit622:                 ; preds = %.lr.ph.i619, %221
   %243 = load volatile i64, ptr %90, align 8
   %244 = add i64 %243, 1
   store volatile i64 %244, ptr %90, align 8
-  %245 = add nuw nsw i32 %.0464750, 1
+  %245 = add nuw nsw i32 %.0750, 1
   %246 = load i32, ptr %4, align 4
   %247 = icmp slt i32 %245, %246
   br i1 %247, label %116, label %._crit_edge, !llvm.loop !7
@@ -1814,8 +1814,8 @@ pmix_obj_run_destructors.exit719:                 ; preds = %.lr.ph.i716, %739
   br label %753
 
 753:                                              ; preds = %752, %750, %722, %680, %653, %623, %596, %568, %533, %504, %476, %441, %412, %378, %352, %310, %272, %235, %183, %114, %82, %54, %pmix_obj_new_tma.exit.thread
-  %.0 = phi i32 [ -2, %pmix_obj_new_tma.exit.thread ], [ %55, %54 ], [ %83, %82 ], [ %115, %114 ], [ %184, %183 ], [ %236, %235 ], [ %273, %272 ], [ %311, %310 ], [ %353, %352 ], [ %379, %378 ], [ %413, %412 ], [ %442, %441 ], [ %477, %476 ], [ %505, %504 ], [ %534, %533 ], [ %569, %568 ], [ %597, %596 ], [ %624, %623 ], [ %654, %653 ], [ %681, %680 ], [ %723, %722 ], [ %751, %750 ], [ 0, %752 ]
-  ret i32 %.0
+  %.0464 = phi i32 [ -2, %pmix_obj_new_tma.exit.thread ], [ %55, %54 ], [ %83, %82 ], [ %115, %114 ], [ %184, %183 ], [ %236, %235 ], [ %273, %272 ], [ %311, %310 ], [ %353, %352 ], [ %379, %378 ], [ %413, %412 ], [ %442, %441 ], [ %477, %476 ], [ %505, %504 ], [ %534, %533 ], [ %569, %568 ], [ %597, %596 ], [ %624, %623 ], [ %654, %653 ], [ %681, %680 ], [ %723, %722 ], [ %751, %750 ], [ 0, %752 ]
+  ret i32 %.0464
 }
 
 ; Function Attrs: nounwind uwtable

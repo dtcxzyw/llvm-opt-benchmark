@@ -587,7 +587,7 @@ clause_fetch.exit.lr.ph:                          ; preds = %.preheader
 clause_fetch.exit:                                ; preds = %clause_fetch.exit.lr.ph, %50
   %indvars.iv = phi i64 [ 0, %clause_fetch.exit.lr.ph ], [ %indvars.iv.next, %50 ]
   %20 = phi ptr [ %15, %clause_fetch.exit.lr.ph ], [ %51, %50 ]
-  %.03041 = phi i32 [ 0, %clause_fetch.exit.lr.ph ], [ %.1, %50 ]
+  %.042 = phi i32 [ 0, %clause_fetch.exit.lr.ph ], [ %.1, %50 ]
   %21 = getelementptr i8, ptr %20, i64 8
   %.val34 = load ptr, ptr %21, align 8
   %22 = getelementptr inbounds i32, ptr %.val34, i64 %indvars.iv
@@ -641,14 +641,14 @@ clause_is_satisfied.exit:                         ; preds = %33
   br label %50
 
 .loopexit:                                        ; preds = %32, %clause_fetch.exit
-  %47 = add i32 %.03041, 1
-  %48 = zext i32 %.03041 to i64
+  %47 = add i32 %.042, 1
+  %48 = zext i32 %.042 to i64
   %49 = getelementptr inbounds i32, ptr %.val34, i64 %48
   store i32 %23, ptr %49, align 4
   br label %50
 
 50:                                               ; preds = %clause_is_satisfied.exit, %.loopexit
-  %.1 = phi i32 [ %.03041, %clause_is_satisfied.exit ], [ %47, %.loopexit ]
+  %.1 = phi i32 [ %.042, %clause_is_satisfied.exit ], [ %47, %.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load ptr, ptr %14, align 8
   %52 = getelementptr i8, ptr %51, i64 4
@@ -659,9 +659,9 @@ clause_is_satisfied.exit:                         ; preds = %33
 
 .critedge:                                        ; preds = %50, %.preheader
   %.lcssa39 = phi ptr [ %15, %.preheader ], [ %51, %50 ]
-  %.030.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %50 ]
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %50 ]
   %55 = getelementptr i8, ptr %.lcssa39, i64 4
-  store i32 %.030.lcssa, ptr %55, align 4
+  store i32 %.0.lcssa, ptr %55, align 4
   tail call fastcc void @solver_rebuild_order(ptr noundef nonnull %0)
   %56 = load ptr, ptr %6, align 8
   %57 = getelementptr i8, ptr %56, i64 4
@@ -676,8 +676,8 @@ clause_is_satisfied.exit:                         ; preds = %33
   br label %63
 
 63:                                               ; preds = %3, %10, %1, %.critedge
-  %.0 = phi i32 [ 1, %.critedge ], [ 0, %1 ], [ 1, %10 ], [ 1, %3 ]
-  ret i32 %.0
+  %.030 = phi i32 [ 1, %.critedge ], [ 0, %1 ], [ 1, %10 ], [ 1, %3 ]
+  ret i32 %.030
 }
 
 declare i32 @solver_propagate(ptr noundef) local_unnamed_addr #8
@@ -1968,10 +1968,10 @@ define range(i32 0, 2) i32 @satoko_add_clause(ptr noundef %0, ptr noundef %1, i3
 
 19:                                               ; preds = %.lr.ph54, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next, %61 ]
-  %.04051 = phi i32 [ -1, %.lr.ph54 ], [ %.1, %61 ]
+  %.03952 = phi i32 [ -1, %.lr.ph54 ], [ %.1, %61 ]
   %20 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
-  %22 = xor i32 %21, %.04051
+  %22 = xor i32 %21, %.03952
   %23 = icmp eq i32 %22, 1
   br i1 %23, label %.loopexit, label %24
 
@@ -1989,7 +1989,7 @@ define range(i32 0, 2) i32 @satoko_add_clause(ptr noundef %0, ptr noundef %1, i3
   br i1 %32, label %.loopexit, label %33
 
 33:                                               ; preds = %24
-  %.not42 = icmp ne i32 %21, %.04051
+  %.not42 = icmp ne i32 %21, %.03952
   %34 = icmp eq i8 %31, 3
   %or.cond = and i1 %.not42, %34
   br i1 %or.cond, label %35, label %61
@@ -2046,7 +2046,7 @@ vec_uint_push_back.exit:                          ; preds = %35, %46, %vec_uint_
   br label %61
 
 61:                                               ; preds = %vec_uint_push_back.exit, %33
-  %.1 = phi i32 [ %21, %vec_uint_push_back.exit ], [ %.04051, %33 ]
+  %.1 = phi i32 [ %21, %vec_uint_push_back.exit ], [ %.03952, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge55, label %19, !llvm.loop !19
@@ -3036,8 +3036,8 @@ satoko_solve_assumptions_limit.exit102:           ; preds = %._crit_edge135, %17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph141, %.preheader, %._crit_edge139, %satoko_solve_assumptions_limit.exit
-  %.0 = phi i32 [ %24, %satoko_solve_assumptions_limit.exit ], [ %202, %._crit_edge139 ], [ %85, %.preheader ], [ %85, %.lr.ph141 ]
-  ret i32 %.0
+  %.083 = phi i32 [ %24, %satoko_solve_assumptions_limit.exit ], [ %202, %._crit_edge139 ], [ %85, %.preheader ], [ %85, %.lr.ph141 ]
+  ret i32 %.083
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -3650,8 +3650,8 @@ define void @satoko_write_dimacs(ptr nocapture noundef readonly %0, ptr noundef 
   br label %22
 
 22:                                               ; preds = %20, %18
-  %.0 = phi ptr [ %19, %18 ], [ %21, %20 ]
-  %23 = icmp eq ptr %.0, null
+  %.048 = phi ptr [ %19, %18 ], [ %21, %20 ]
+  %23 = icmp eq ptr %.048, null
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %22
@@ -3662,7 +3662,7 @@ define void @satoko_write_dimacs(ptr nocapture noundef readonly %0, ptr noundef 
   %.not50 = icmp eq i32 %2, 0
   %26 = select i1 %.not50, i32 0, i32 %.val55
   %27 = add i32 %14, %26
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %.0, ptr noundef nonnull @.str.3, i32 noundef %.val64, i32 noundef %27) #27
+  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %.048, ptr noundef nonnull @.str.3, i32 noundef %.val64, i32 noundef %27) #27
   %29 = getelementptr inbounds i8, ptr %0, i64 104
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr i8, ptr %30, i64 4
@@ -3695,7 +3695,7 @@ define void @satoko_write_dimacs(ptr nocapture noundef readonly %0, ptr noundef 
   %40 = add nuw nsw i64 %indvars.iv93, 1
   %41 = trunc nuw i64 %40 to i32
   %42 = select i1 %37, i32 %39, i32 %41
-  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %.0, ptr noundef nonnull @.str.5, i32 noundef %42) #27
+  %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %.048, ptr noundef nonnull @.str.5, i32 noundef %42) #27
   %.pre102 = load ptr, ptr %29, align 8
   br label %44
 
@@ -3723,7 +3723,7 @@ define void @satoko_write_dimacs(ptr nocapture noundef readonly %0, ptr noundef 
   %55 = trunc nuw i64 %indvars.iv to i32
   %56 = sub nsw i32 0, %55
   %57 = select i1 %54, i32 %56, i32 %55
-  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %.0, ptr noundef nonnull @.str.4, i32 noundef %57) #27
+  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %.048, ptr noundef nonnull @.str.4, i32 noundef %57) #27
   %.pre = load ptr, ptr %29, align 8
   br label %59
 
@@ -3787,7 +3787,7 @@ clause_fetch.exit:                                ; preds = %69, %72
   %86 = add nuw nsw i32 %84, %68
   %87 = sub nsw i32 0, %86
   %88 = select i1 %.not15.i, i32 %86, i32 %87
-  %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %.0, ptr noundef nonnull @.str.12, i32 noundef %88) #27
+  %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %.048, ptr noundef nonnull @.str.12, i32 noundef %88) #27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %90 = load i32, ptr %78, align 4
   %91 = zext i32 %90 to i64
@@ -3798,11 +3798,11 @@ clause_fetch.exit:                                ; preds = %69, %72
   br i1 %.not52, label %93, label %95
 
 93:                                               ; preds = %._crit_edge.i
-  %94 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 2, i64 1, ptr nonnull %.0)
+  %94 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 2, i64 1, ptr nonnull %.048)
   br label %clause_dump.exit
 
 95:                                               ; preds = %._crit_edge.i
-  %fputc.i = tail call i32 @fputc(i32 10, ptr nonnull %.0)
+  %fputc.i = tail call i32 @fputc(i32 10, ptr nonnull %.048)
   br label %clause_dump.exit
 
 clause_dump.exit:                                 ; preds = %93, %95
@@ -3867,7 +3867,7 @@ clause_fetch.exit68:                              ; preds = %105, %108
   %122 = add nuw nsw i32 %120, %104
   %123 = sub nsw i32 0, %122
   %124 = select i1 %.not15.i72, i32 %122, i32 %123
-  %125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %.0, ptr noundef nonnull @.str.12, i32 noundef %124) #27
+  %125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %.048, ptr noundef nonnull @.str.12, i32 noundef %124) #27
   %indvars.iv.next.i73 = add nuw nsw i64 %indvars.iv.i71, 1
   %126 = load i32, ptr %114, align 4
   %127 = zext i32 %126 to i64
@@ -3878,11 +3878,11 @@ clause_fetch.exit68:                              ; preds = %105, %108
   br i1 %.not51, label %129, label %131
 
 129:                                              ; preds = %._crit_edge.i74
-  %130 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 2, i64 1, ptr nonnull %.0)
+  %130 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 2, i64 1, ptr nonnull %.048)
   br label %clause_dump.exit77
 
 131:                                              ; preds = %._crit_edge.i74
-  %fputc.i76 = tail call i32 @fputc(i32 10, ptr nonnull %.0)
+  %fputc.i76 = tail call i32 @fputc(i32 10, ptr nonnull %.048)
   br label %clause_dump.exit77
 
 clause_dump.exit77:                               ; preds = %129, %131
@@ -3891,7 +3891,7 @@ clause_dump.exit77:                               ; preds = %129, %131
   br i1 %exitcond.not, label %.loopexit, label %105, !llvm.loop !42
 
 .loopexit:                                        ; preds = %clause_dump.exit77, %100, %._crit_edge84
-  %132 = tail call i32 @fclose(ptr noundef nonnull %.0)
+  %132 = tail call i32 @fclose(ptr noundef nonnull %.048)
   br label %133
 
 133:                                              ; preds = %.loopexit, %24

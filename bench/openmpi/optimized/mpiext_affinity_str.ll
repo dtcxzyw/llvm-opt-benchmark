@@ -196,9 +196,9 @@ hwloc_get_obj_by_type.exit.i:                     ; preds = %56
   br i1 %.not107.i, label %get_rsrc_exists.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %hwloc_get_obj_by_type.exit.i, %hwloc_get_obj_inside_cpuset_by_type.exit.thread.i
-  %.052109.i = phi i1 [ false, %hwloc_get_obj_inside_cpuset_by_type.exit.thread.i ], [ true, %hwloc_get_obj_by_type.exit.i ]
-  %.053108.i = phi ptr [ %195, %hwloc_get_obj_inside_cpuset_by_type.exit.thread.i ], [ %59, %hwloc_get_obj_by_type.exit.i ]
-  br i1 %.052109.i, label %64, label %60
+  %.052109.i = phi ptr [ %195, %hwloc_get_obj_inside_cpuset_by_type.exit.thread.i ], [ %59, %hwloc_get_obj_by_type.exit.i ]
+  %.053108.i = phi i1 [ false, %hwloc_get_obj_inside_cpuset_by_type.exit.thread.i ], [ true, %hwloc_get_obj_by_type.exit.i ]
+  br i1 %.053108.i, label %64, label %60
 
 60:                                               ; preds = %.lr.ph.i
   %61 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
@@ -207,14 +207,14 @@ hwloc_get_obj_by_type.exit.i:                     ; preds = %56
   br label %64
 
 64:                                               ; preds = %60, %.lr.ph.i
-  %65 = getelementptr inbounds i8, ptr %.053108.i, i64 16
+  %65 = getelementptr inbounds i8, ptr %.052109.i, i64 16
   %66 = load i32, ptr %65, align 8
   %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 1022, ptr noundef nonnull @.str.7, i32 noundef %66) #13
   %68 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
   %69 = sub i64 1023, %68
   %70 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull %5, i64 noundef %69) #13
   %71 = load ptr, ptr @opal_hwloc_topology, align 8
-  %72 = getelementptr inbounds i8, ptr %.053108.i, i64 184
+  %72 = getelementptr inbounds i8, ptr %.052109.i, i64 184
   %73 = load ptr, ptr %72, align 8
   %74 = tail call i32 @hwloc_get_type_depth(ptr noundef %71, i32 noundef 2) #13
   switch i32 %74, label %76 [
@@ -495,7 +495,7 @@ hwloc_get_nbobjs_inside_cpuset_by_type.exit100.i: ; preds = %181, %173, %172, %1
   br label %hwloc_get_obj_inside_cpuset_by_type.exit.thread.i
 
 hwloc_get_obj_inside_cpuset_by_type.exit.thread.i: ; preds = %95, %190, %155, %.critedge.i21, %122, %118, %88, %hwloc_get_nbobjs_inside_cpuset_by_type.exit.i
-  %194 = getelementptr inbounds i8, ptr %.053108.i, i64 56
+  %194 = getelementptr inbounds i8, ptr %.052109.i, i64 56
   %195 = load ptr, ptr %194, align 8
   %.not.i20 = icmp eq ptr %195, null
   br i1 %.not.i20, label %get_rsrc_exists.exit, label %.lr.ph.i, !llvm.loop !10
@@ -562,8 +562,8 @@ opal_pointer_array_get_item.exit.i:               ; preds = %217, %211, %.lr.ph.
   br label %ompi_errcode_get_mpi_code.exit
 
 ompi_errcode_get_mpi_code.exit:                   ; preds = %200, %196, %.preheader.i, %222
-  %.0.i = phi i32 [ %50, %196 ], [ %224, %222 ], [ 14, %.preheader.i ], [ 14, %200 ]
-  %225 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.0.i, ptr noundef nonnull @FUNC_NAME) #13
+  %.010.i = phi i32 [ %50, %196 ], [ %224, %222 ], [ 14, %.preheader.i ], [ 14, %200 ]
+  %225 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.010.i, ptr noundef nonnull @FUNC_NAME) #13
   br label %get_layout_exists.exit
 
 226:                                              ; preds = %8
@@ -946,8 +946,8 @@ opal_pointer_array_get_item.exit.i61:             ; preds = %386, %380, %.lr.ph.
   br label %ompi_errcode_get_mpi_code.exit65
 
 ompi_errcode_get_mpi_code.exit65:                 ; preds = %369, %.preheader.i56, %391
-  %.0.i57 = phi i32 [ %393, %391 ], [ 14, %.preheader.i56 ], [ 14, %369 ]
-  %394 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.0.i57, ptr noundef nonnull @FUNC_NAME) #13
+  %.010.i57 = phi i32 [ %393, %391 ], [ 14, %.preheader.i56 ], [ 14, %369 ]
+  %394 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.010.i57, ptr noundef nonnull @FUNC_NAME) #13
   br label %get_layout_exists.exit
 
 395:                                              ; preds = %8

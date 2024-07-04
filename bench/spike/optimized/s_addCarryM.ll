@@ -12,12 +12,12 @@ define zeroext i8 @softfloat_addCarryM(i8 noundef zeroext %0, ptr nocapture noun
 
 9:                                                ; preds = %9, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %5 ]
-  %.0 = phi i8 [ %.1, %9 ], [ %3, %5 ]
+  %.017 = phi i8 [ %.1, %9 ], [ %3, %5 ]
   %10 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
-  %14 = zext i8 %.0 to i32
+  %14 = zext i8 %.017 to i32
   %15 = add i32 %11, %14
   %16 = add i32 %15, %13
   %17 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
@@ -25,7 +25,7 @@ define zeroext i8 @softfloat_addCarryM(i8 noundef zeroext %0, ptr nocapture noun
   %.not = icmp eq i32 %16, %11
   %18 = icmp ult i32 %16, %11
   %19 = zext i1 %18 to i8
-  %.1 = select i1 %.not, i8 %.0, i8 %19
+  %.1 = select i1 %.not, i8 %.017, i8 %19
   %20 = icmp eq i64 %indvars.iv, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %20, label %21, label %9

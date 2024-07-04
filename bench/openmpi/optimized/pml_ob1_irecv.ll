@@ -1873,7 +1873,7 @@ opal_obj_run_destructors.exit81:                  ; preds = %.lr.ph.i78, %132
   br label %140
 
 140:                                              ; preds = %opal_thread_add_fetch_32.exit76, %opal_obj_run_destructors.exit81
-  %.054 = phi ptr [ null, %opal_obj_run_destructors.exit81 ], [ %9, %opal_thread_add_fetch_32.exit76 ]
+  %.0 = phi ptr [ null, %opal_obj_run_destructors.exit81 ], [ %9, %opal_thread_add_fetch_32.exit76 ]
   %141 = getelementptr inbounds i8, ptr %11, i64 528
   store volatile i32 0, ptr %141, align 8
   %142 = getelementptr inbounds i8, ptr %11, i64 532
@@ -1891,7 +1891,7 @@ opal_obj_run_destructors.exit81:                  ; preds = %.lr.ph.i78, %132
   store volatile i32 2, ptr %28, align 8
   store i64 %18, ptr %17, align 8
   %146 = load i32, ptr %120, align 8
-  %147 = getelementptr inbounds i8, ptr %.054, i64 312
+  %147 = getelementptr inbounds i8, ptr %.0, i64 312
   %148 = load ptr, ptr %147, align 8
   %149 = getelementptr inbounds i8, ptr %148, i64 224
   %150 = load i64, ptr %149, align 8
@@ -1913,7 +1913,7 @@ opal_obj_run_destructors.exit81:                  ; preds = %.lr.ph.i78, %132
   br i1 %159, label %160, label %mca_pml_ob1_peer_lookup.exit
 
 160:                                              ; preds = %153
-  %161 = tail call ptr @mca_pml_ob1_peer_create(ptr noundef nonnull %.054, ptr noundef nonnull %148, i32 noundef %146) #7
+  %161 = tail call ptr @mca_pml_ob1_peer_create(ptr noundef nonnull %.0, ptr noundef nonnull %148, i32 noundef %146) #7
   %.pre.i = load ptr, ptr %154, align 8
   br label %mca_pml_ob1_peer_lookup.exit
 
@@ -2221,11 +2221,11 @@ ompi_request_cancel.exit:                         ; preds = %312, %315
   br label %317
 
 317:                                              ; preds = %ompi_request_cancel.exit, %308
-  %.0 = phi i32 [ 75, %ompi_request_cancel.exit ], [ %310, %308 ]
+  %.054 = phi i32 [ 75, %ompi_request_cancel.exit ], [ %310, %308 ]
   %318 = getelementptr inbounds i8, ptr %.pre94, i64 120
   %319 = load ptr, ptr %318, align 8
   %320 = call i32 %319(ptr noundef nonnull %6) #7
-  ret i32 %.0
+  ret i32 %.054
 }
 
 declare i32 @opal_free_list_grow_st(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1

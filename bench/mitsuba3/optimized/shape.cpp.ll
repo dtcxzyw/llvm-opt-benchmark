@@ -8101,20 +8101,20 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_4pairINS_12basic_strin
   %36 = ashr exact i64 %35, 5
   %37 = sub nsw i64 0, %36
   %38 = getelementptr inbounds %"struct.std::__1::pair.215", ptr %25, i64 %37
-  %.not29.i.i = icmp eq ptr %32, %31
-  br i1 %.not29.i.i, label %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPKN7mitsuba6ObjectEEERNS5_ISC_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
+  %.not28.i.i = icmp eq ptr %32, %31
+  br i1 %.not28.i.i, label %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPKN7mitsuba6ObjectEEERNS5_ISC_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %24, %.lr.ph.i.i
-  %.031.i.i = phi ptr [ %42, %.lr.ph.i.i ], [ %32, %24 ]
-  %.02830.i.i = phi ptr [ %43, %.lr.ph.i.i ], [ %38, %24 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.02830.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.031.i.i, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.031.i.i, i8 0, i64 24, i1 false)
-  %39 = getelementptr inbounds i8, ptr %.02830.i.i, i64 24
-  %40 = getelementptr inbounds i8, ptr %.031.i.i, i64 24
+  %.030.i.i = phi ptr [ %42, %.lr.ph.i.i ], [ %32, %24 ]
+  %.02729.i.i = phi ptr [ %43, %.lr.ph.i.i ], [ %38, %24 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.02729.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.030.i.i, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.030.i.i, i8 0, i64 24, i1 false)
+  %39 = getelementptr inbounds i8, ptr %.02729.i.i, i64 24
+  %40 = getelementptr inbounds i8, ptr %.030.i.i, i64 24
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %.031.i.i, i64 32
-  %43 = getelementptr inbounds i8, ptr %.02830.i.i, i64 32
+  %42 = getelementptr inbounds i8, ptr %.030.i.i, i64 32
+  %43 = getelementptr inbounds i8, ptr %.02729.i.i, i64 32
   %.not.i.i = icmp eq ptr %42, %31
   br i1 %.not.i.i, label %.lr.ph.i.i.i, label %.lr.ph.i.i, !llvm.loop !194
 

@@ -311,10 +311,10 @@ define internal i32 @dissect_cbsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %43
 
 43:                                               ; preds = %350, %.lr.ph.i
-  %.0149177.i = phi i8 [ 1, %.lr.ph.i ], [ %.1.i, %350 ]
-  %.0152176.i = phi i32 [ 4, %.lr.ph.i ], [ %351, %350 ]
-  %44 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0152176.i) #4
-  %45 = add i32 %.0152176.i, 1
+  %.0151177.i = phi i32 [ 4, %.lr.ph.i ], [ %351, %350 ]
+  %.0152176.i = phi i8 [ 1, %.lr.ph.i ], [ %.1.i, %350 ]
+  %44 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0151177.i) #4
+  %45 = add i32 %.0151177.i, 1
   %46 = zext i8 %44 to i64
   %47 = getelementptr [256 x %struct.tlv_def], ptr @cbsp_att_tlvdef, i64 0, i64 %46
   %48 = load i32, ptr %47, align 4
@@ -342,26 +342,26 @@ define internal i32 @dissect_cbsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %59
 
 59:                                               ; preds = %56, %53, %49, %43
-  %.0151.i = phi i32 [ %58, %56 ], [ %55, %53 ], [ %52, %49 ], [ 1, %43 ]
+  %.0150.i = phi i32 [ %58, %56 ], [ %55, %53 ], [ %52, %49 ], [ 1, %43 ]
   %.not.i = phi i1 [ false, %56 ], [ true, %53 ], [ true, %49 ], [ true, %43 ]
-  %.0150.i = phi i32 [ 2, %56 ], [ 0, %53 ], [ 0, %49 ], [ 0, %43 ]
-  %60 = add nuw nsw i32 %.0151.i, 1
-  %61 = add nuw nsw i32 %60, %.0150.i
+  %.0149.i = phi i32 [ 2, %56 ], [ 0, %53 ], [ 0, %49 ], [ 0, %43 ]
+  %60 = add nuw nsw i32 %.0150.i, 1
+  %61 = add nuw nsw i32 %60, %.0149.i
   %62 = load i32, ptr @ett_cbsp_ie, align 4
   %63 = zext i8 %44 to i32
   %64 = call ptr @val_to_str(i32 noundef %63, ptr noundef nonnull @cbsp_iei_names, ptr noundef nonnull @.str.142) #4
-  %65 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %35, ptr noundef %0, i32 noundef %.0152176.i, i32 noundef %61, i32 noundef %62, ptr noundef nonnull %18, ptr noundef nonnull @.str.141, ptr noundef %64) #4
+  %65 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %35, ptr noundef %0, i32 noundef %.0151177.i, i32 noundef %61, i32 noundef %62, ptr noundef nonnull %18, ptr noundef nonnull @.str.141, ptr noundef %64) #4
   %66 = load i32, ptr @hf_cbsp_iei, align 4
-  %67 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %66, ptr noundef %0, i32 noundef %.0152176.i, i32 noundef 1, i32 noundef 0) #4
+  %67 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %66, ptr noundef %0, i32 noundef %.0151177.i, i32 noundef 1, i32 noundef 0) #4
   br i1 %.not.i, label %71, label %68
 
 68:                                               ; preds = %59
   %69 = load i32, ptr @hf_cbsp_ie_len, align 4
-  %70 = call ptr @proto_tree_add_uint(ptr noundef %65, i32 noundef %69, ptr noundef %0, i32 noundef %45, i32 noundef %.0150.i, i32 noundef %.0151.i) #4
+  %70 = call ptr @proto_tree_add_uint(ptr noundef %65, i32 noundef %69, ptr noundef %0, i32 noundef %45, i32 noundef %.0149.i, i32 noundef %.0150.i) #4
   br label %71
 
 71:                                               ; preds = %68, %59
-  %72 = add i32 %.0150.i, %45
+  %72 = add i32 %.0149.i, %45
   switch i8 %44, label %347 [
     i8 1, label %73
     i8 2, label %91
@@ -395,10 +395,10 @@ define internal i32 @dissect_cbsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %76 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %75, ptr noundef %0, i32 noundef %72, i32 noundef 1, i32 noundef 0) #4
   %77 = load i32, ptr @hf_cbsp_cb_msg_page, align 4
   %78 = add i32 %72, 1
-  %79 = add nsw i32 %.0151.i, -1
+  %79 = add nsw i32 %.0150.i, -1
   %80 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %77, ptr noundef %0, i32 noundef %78, i32 noundef %79, i32 noundef 0) #4
   %81 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %78, i32 noundef %79) #4
-  %82 = call ptr @dissect_cbs_data(i8 noundef zeroext %.0149177.i, ptr noundef %81, ptr noundef %65, ptr noundef %1, i32 noundef 0) #4
+  %82 = call ptr @dissect_cbs_data(i8 noundef zeroext %.0152176.i, ptr noundef %81, ptr noundef %65, ptr noundef %1, i32 noundef 0) #4
   %.not.i.i = icmp eq ptr %65, null
   br i1 %.not.i.i, label %dissect_cbsp_content_ie.exit.i, label %83
 
@@ -419,7 +419,7 @@ dissect_cbsp_content_ie.exit.i:                   ; preds = %83, %73
 
 91:                                               ; preds = %71
   %92 = load i32, ptr @hf_cbsp_old_serial_nr, align 4
-  %93 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %92, ptr noundef %0, i32 noundef %72, i32 noundef %.0151.i, i32 noundef 0, ptr noundef nonnull %19) #4
+  %93 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %92, ptr noundef %0, i32 noundef %72, i32 noundef %.0150.i, i32 noundef 0, ptr noundef nonnull %19) #4
   %94 = load ptr, ptr %18, align 8
   %95 = load i32, ptr %19, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %94, ptr noundef nonnull @.str.143, i32 noundef %95) #4
@@ -427,7 +427,7 @@ dissect_cbsp_content_ie.exit.i:                   ; preds = %83, %73
 
 96:                                               ; preds = %71
   %97 = load i32, ptr @hf_cbsp_new_serial_nr, align 4
-  %98 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %97, ptr noundef %0, i32 noundef %72, i32 noundef %.0151.i, i32 noundef 0, ptr noundef nonnull %19) #4
+  %98 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %97, ptr noundef %0, i32 noundef %72, i32 noundef %.0150.i, i32 noundef 0, ptr noundef nonnull %19) #4
   %99 = load ptr, ptr %18, align 8
   %100 = load i32, ptr %19, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %99, ptr noundef nonnull @.str.143, i32 noundef %100) #4
@@ -435,7 +435,7 @@ dissect_cbsp_content_ie.exit.i:                   ; preds = %83, %73
 
 101:                                              ; preds = %71
   %102 = load i32, ptr @hf_cbsp_category, align 4
-  %103 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %102, ptr noundef %0, i32 noundef %72, i32 noundef %.0151.i, i32 noundef 0, ptr noundef nonnull %19) #4
+  %103 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %102, ptr noundef %0, i32 noundef %72, i32 noundef %.0150.i, i32 noundef 0, ptr noundef nonnull %19) #4
   %104 = load ptr, ptr %18, align 8
   %105 = load i32, ptr %19, align 4
   %106 = call ptr @val_to_str_const(i32 noundef %105, ptr noundef nonnull @cbsp_category_names, ptr noundef nonnull @.str.145) #4
@@ -456,7 +456,7 @@ dissect_cbsp_content_ie.exit.i:                   ; preds = %83, %73
 
 115:                                              ; preds = %71
   %116 = load i32, ptr @hf_cbsp_num_bcast_req, align 4
-  %117 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %116, ptr noundef %0, i32 noundef %72, i32 noundef %.0151.i, i32 noundef 0, ptr noundef nonnull %19) #4
+  %117 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %116, ptr noundef %0, i32 noundef %72, i32 noundef %.0150.i, i32 noundef 0, ptr noundef nonnull %19) #4
   %118 = load ptr, ptr %18, align 8
   %119 = load i32, ptr %19, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %118, ptr noundef nonnull @.str.146, i32 noundef %119) #4
@@ -464,7 +464,7 @@ dissect_cbsp_content_ie.exit.i:                   ; preds = %83, %73
 
 120:                                              ; preds = %71
   %121 = load i32, ptr @hf_cbsp_cause, align 4
-  %122 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %121, ptr noundef %0, i32 noundef %72, i32 noundef %.0151.i, i32 noundef 0, ptr noundef nonnull %19) #4
+  %122 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %121, ptr noundef %0, i32 noundef %72, i32 noundef %.0150.i, i32 noundef 0, ptr noundef nonnull %19) #4
   %123 = load ptr, ptr %18, align 8
   %124 = load i32, ptr %19, align 4
   %125 = call ptr @val_to_str_const(i32 noundef %124, ptr noundef nonnull @cbsp_cause_vals, ptr noundef nonnull @.str.145) #4
@@ -473,7 +473,7 @@ dissect_cbsp_content_ie.exit.i:                   ; preds = %83, %73
 
 126:                                              ; preds = %71
   %127 = load i32, ptr @hf_cbsp_dcs, align 4
-  %128 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %127, ptr noundef %0, i32 noundef %72, i32 noundef %.0151.i, i32 noundef 0, ptr noundef nonnull %19) #4
+  %128 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %127, ptr noundef %0, i32 noundef %72, i32 noundef %.0150.i, i32 noundef 0, ptr noundef nonnull %19) #4
   %129 = load i32, ptr @ett_cbsp_cbs_data_coding, align 4
   %130 = call ptr @proto_item_add_subtree(ptr noundef %65, i32 noundef %129) #4
   %131 = trunc i32 %72 to i16
@@ -485,12 +485,12 @@ dissect_cbsp_content_ie.exit.i:                   ; preds = %83, %73
 
 135:                                              ; preds = %71
   %136 = load i32, ptr @hf_cbsp_recovery_ind, align 4
-  %137 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %136, ptr noundef %0, i32 noundef %72, i32 noundef %.0151.i, i32 noundef 0) #4
+  %137 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %136, ptr noundef %0, i32 noundef %72, i32 noundef %.0150.i, i32 noundef 0) #4
   br label %350
 
 138:                                              ; preds = %71
   %139 = load i32, ptr @hf_cbsp_msg_id, align 4
-  %140 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %139, ptr noundef %0, i32 noundef %72, i32 noundef %.0151.i, i32 noundef 0, ptr noundef nonnull %19) #4
+  %140 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %139, ptr noundef %0, i32 noundef %72, i32 noundef %.0150.i, i32 noundef 0, ptr noundef nonnull %19) #4
   %141 = load ptr, ptr %18, align 8
   %142 = load i32, ptr %19, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %141, ptr noundef nonnull @.str.143, i32 noundef %142) #4
@@ -498,7 +498,7 @@ dissect_cbsp_content_ie.exit.i:                   ; preds = %83, %73
 
 143:                                              ; preds = %71
   %144 = load i32, ptr @hf_cbsp_emerg_ind, align 4
-  %145 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %144, ptr noundef %0, i32 noundef %72, i32 noundef %.0151.i, i32 noundef 0, ptr noundef nonnull %19) #4
+  %145 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %144, ptr noundef %0, i32 noundef %72, i32 noundef %.0150.i, i32 noundef 0, ptr noundef nonnull %19) #4
   %146 = load ptr, ptr %18, align 8
   %147 = load i32, ptr %19, align 4
   %148 = call ptr @val_to_str_const(i32 noundef %147, ptr noundef nonnull @cbsp_emerg_ind_vals, ptr noundef nonnull @.str.145) #4
@@ -507,12 +507,12 @@ dissect_cbsp_content_ie.exit.i:                   ; preds = %83, %73
 
 149:                                              ; preds = %71
   %150 = load i32, ptr @hf_cbsp_warn_type, align 4
-  %151 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %150, ptr noundef %0, i32 noundef %72, i32 noundef %.0151.i, i32 noundef 0) #4
+  %151 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %150, ptr noundef %0, i32 noundef %72, i32 noundef %.0150.i, i32 noundef 0) #4
   br label %350
 
 152:                                              ; preds = %71
   %153 = load i32, ptr @hf_cbsp_channel_ind, align 4
-  %154 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %153, ptr noundef %0, i32 noundef %72, i32 noundef %.0151.i, i32 noundef 0, ptr noundef nonnull %19) #4
+  %154 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %153, ptr noundef %0, i32 noundef %72, i32 noundef %.0150.i, i32 noundef 0, ptr noundef nonnull %19) #4
   %155 = load ptr, ptr %18, align 8
   %156 = load i32, ptr %19, align 4
   %157 = call ptr @val_to_str_const(i32 noundef %156, ptr noundef nonnull @cbsp_chan_ind_vals, ptr noundef nonnull @.str.145) #4
@@ -521,7 +521,7 @@ dissect_cbsp_content_ie.exit.i:                   ; preds = %83, %73
 
 158:                                              ; preds = %71
   %159 = load i32, ptr @hf_cbsp_num_of_pages, align 4
-  %160 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %159, ptr noundef %0, i32 noundef %72, i32 noundef %.0151.i, i32 noundef 0, ptr noundef nonnull %19) #4
+  %160 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %159, ptr noundef %0, i32 noundef %72, i32 noundef %.0150.i, i32 noundef 0, ptr noundef nonnull %19) #4
   %161 = load ptr, ptr %18, align 8
   %162 = load i32, ptr %19, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %161, ptr noundef nonnull @.str.146, i32 noundef %162) #4
@@ -529,17 +529,17 @@ dissect_cbsp_content_ie.exit.i:                   ; preds = %83, %73
 
 163:                                              ; preds = %71
   %164 = load i32, ptr @hf_cbsp_sched_period, align 4
-  %165 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %164, ptr noundef %0, i32 noundef %72, i32 noundef %.0151.i, i32 noundef 0) #4
+  %165 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %164, ptr noundef %0, i32 noundef %72, i32 noundef %.0150.i, i32 noundef 0) #4
   br label %350
 
 166:                                              ; preds = %71
   %167 = load i32, ptr @hf_cbsp_num_of_res_slots, align 4
-  %168 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %167, ptr noundef %0, i32 noundef %72, i32 noundef %.0151.i, i32 noundef 0) #4
+  %168 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %167, ptr noundef %0, i32 noundef %72, i32 noundef %.0150.i, i32 noundef 0) #4
   br label %350
 
 169:                                              ; preds = %71
   %170 = load i32, ptr @hf_cbsp_bcast_msg_type, align 4
-  %171 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %170, ptr noundef %0, i32 noundef %72, i32 noundef %.0151.i, i32 noundef 0, ptr noundef nonnull %19) #4
+  %171 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %170, ptr noundef %0, i32 noundef %72, i32 noundef %.0150.i, i32 noundef 0, ptr noundef nonnull %19) #4
   %172 = load ptr, ptr %18, align 8
   %173 = load i32, ptr %19, align 4
   %174 = call ptr @val_to_str_const(i32 noundef %173, ptr noundef nonnull @cbsp_bcast_msg_type_vals, ptr noundef nonnull @.str.145) #4
@@ -591,7 +591,7 @@ dissect_cbsp_content_ie.exit.i:                   ; preds = %83, %73
 cbsp_warn_period_to_secs.exit.i:                  ; preds = %196, %194, %191, %186, %181, %175
   %.0.i.i = phi i32 [ %183, %181 ], [ %188, %186 ], [ %193, %191 ], [ %198, %196 ], [ %177, %175 ], [ -1, %194 ]
   %199 = load i32, ptr @hf_cbsp_warning_period, align 4
-  %200 = call ptr @proto_tree_add_uint(ptr noundef %65, i32 noundef %199, ptr noundef %0, i32 noundef %72, i32 noundef %.0151.i, i32 noundef %.0.i.i) #4
+  %200 = call ptr @proto_tree_add_uint(ptr noundef %65, i32 noundef %199, ptr noundef %0, i32 noundef %72, i32 noundef %.0150.i, i32 noundef %.0.i.i) #4
   %201 = load ptr, ptr %18, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %201, ptr noundef nonnull @.str.148, i32 noundef %.0.i.i) #4
   br label %350
@@ -641,7 +641,7 @@ cbsp_warn_period_to_secs.exit.i:                  ; preds = %196, %194, %191, %1
 cbsp_warn_period_to_secs.exit155.i:               ; preds = %223, %221, %218, %213, %208, %202
   %.0.i154.i = phi i32 [ %210, %208 ], [ %215, %213 ], [ %220, %218 ], [ %225, %223 ], [ %204, %202 ], [ -1, %221 ]
   %226 = load i32, ptr @hf_cbsp_keepalive_period, align 4
-  %227 = call ptr @proto_tree_add_uint(ptr noundef %65, i32 noundef %226, ptr noundef %0, i32 noundef %72, i32 noundef %.0151.i, i32 noundef %.0.i154.i) #4
+  %227 = call ptr @proto_tree_add_uint(ptr noundef %65, i32 noundef %226, ptr noundef %0, i32 noundef %72, i32 noundef %.0150.i, i32 noundef %.0.i154.i) #4
   %228 = load ptr, ptr %18, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %228, ptr noundef nonnull @.str.148, i32 noundef %.0.i154.i) #4
   br label %350
@@ -655,7 +655,7 @@ cbsp_warn_period_to_secs.exit155.i:               ; preds = %223, %221, %218, %2
   %233 = load i32, ptr %15, align 4
   %234 = and i32 %233, 15
   store i32 %234, ptr %15, align 4
-  %235 = icmp ugt i32 %.0151.i, 1
+  %235 = icmp ugt i32 %.0150.i, 1
   br i1 %235, label %.lr.ph.preheader.i.i, label %dissect_cell_id_list_ie.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %229
@@ -692,7 +692,7 @@ cell_id_len.exit.i.i:                             ; preds = %.lr.ph.i.i, %switch
   %249 = add i32 %246, %.029.i.i
   %250 = add i32 %.02428.i.i, 1
   %251 = sub i32 %249, %72
-  %252 = icmp ult i32 %251, %.0151.i
+  %252 = icmp ult i32 %251, %.0150.i
   br i1 %252, label %.lr.ph.i.i, label %cell_id_len.exit._crit_edge.loopexit.i.i, !llvm.loop !4
 
 cell_id_len.exit._crit_edge.loopexit.i.i:         ; preds = %248, %cell_id_len.exit.i.i
@@ -720,7 +720,7 @@ dissect_cell_id_list_ie.exit.i:                   ; preds = %cell_id_len.exit._c
   %259 = load i32, ptr %11, align 4
   %260 = and i32 %259, 15
   store i32 %260, ptr %11, align 4
-  %261 = icmp ugt i32 %.0151.i, 1
+  %261 = icmp ugt i32 %.0150.i, 1
   br i1 %261, label %.lr.ph.preheader.i156.i, label %dissect_bc_compl_list_ie.exit.i
 
 .lr.ph.preheader.i156.i:                          ; preds = %255
@@ -768,7 +768,7 @@ cell_id_len.exit.i158.i:                          ; preds = %.lr.ph.i157.i, %swi
   %284 = add i32 %.03136.i.i, 1
   %.0.i160.i = add i32 %274, 3
   %285 = sub i32 %.0.i160.i, %72
-  %286 = icmp ult i32 %285, %.0151.i
+  %286 = icmp ult i32 %285, %.0150.i
   br i1 %286, label %.lr.ph.i157.i, label %cell_id_len.exit._crit_edge.loopexit.i161.i, !llvm.loop !6
 
 cell_id_len.exit._crit_edge.loopexit.i161.i:      ; preds = %273, %cell_id_len.exit.i158.i
@@ -791,7 +791,7 @@ dissect_bc_compl_list_ie.exit.i:                  ; preds = %cell_id_len.exit._c
   %290 = load ptr, ptr %18, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %.not.i163.i = icmp eq i32 %.0151.i, 0
+  %.not.i163.i = icmp eq i32 %.0150.i, 0
   br i1 %.not.i163.i, label %dissect_failure_list_ie.exit.i, label %.lr.ph.i164.i
 
 .lr.ph.i164.i:                                    ; preds = %289, %303
@@ -831,7 +831,7 @@ cell_id_len.exit.i166.i:                          ; preds = %.lr.ph.i164.i, %swi
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %308, ptr noundef nonnull @.str.164, ptr noundef %310) #4
   %311 = add i32 %.03034.i.i, 1
   %312 = sub i32 %306, %72
-  %313 = icmp ult i32 %312, %.0151.i
+  %313 = icmp ult i32 %312, %.0150.i
   br i1 %313, label %.lr.ph.i164.i, label %dissect_failure_list_ie.exit.i, !llvm.loop !7
 
 dissect_failure_list_ie.exit.i:                   ; preds = %303, %cell_id_len.exit.i166.i, %289
@@ -852,7 +852,7 @@ dissect_failure_list_ie.exit.i:                   ; preds = %303, %cell_id_len.e
   %318 = load i32, ptr %5, align 4
   %319 = and i32 %318, 15
   store i32 %319, ptr %5, align 4
-  %320 = icmp ugt i32 %.0151.i, 1
+  %320 = icmp ugt i32 %.0150.i, 1
   br i1 %320, label %.lr.ph.preheader.i169.i, label %dissect_rr_load_list_ie.exit.i
 
 .lr.ph.preheader.i169.i:                          ; preds = %314
@@ -899,7 +899,7 @@ cell_id_len.exit.i171.i:                          ; preds = %.lr.ph.i170.i, %swi
   %342 = add i32 %.03035.i.i, 1
   %.0.i173.i = add i32 %333, 2
   %343 = sub i32 %.0.i173.i, %72
-  %344 = icmp ult i32 %343, %.0151.i
+  %344 = icmp ult i32 %343, %.0150.i
   br i1 %344, label %.lr.ph.i170.i, label %cell_id_len.exit._crit_edge.loopexit.i174.i, !llvm.loop !8
 
 cell_id_len.exit._crit_edge.loopexit.i174.i:      ; preds = %332, %cell_id_len.exit.i171.i
@@ -920,12 +920,12 @@ dissect_rr_load_list_ie.exit.i:                   ; preds = %cell_id_len.exit._c
 
 347:                                              ; preds = %71
   %348 = load i32, ptr @hf_cbsp_ie_payload, align 4
-  %349 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %348, ptr noundef %0, i32 noundef %72, i32 noundef %.0151.i, i32 noundef 0) #4
+  %349 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %348, ptr noundef %0, i32 noundef %72, i32 noundef %.0150.i, i32 noundef 0) #4
   br label %350
 
 350:                                              ; preds = %347, %dissect_rr_load_list_ie.exit.i, %dissect_failure_list_ie.exit.i, %dissect_bc_compl_list_ie.exit.i, %dissect_cell_id_list_ie.exit.i, %cbsp_warn_period_to_secs.exit155.i, %cbsp_warn_period_to_secs.exit.i, %169, %166, %163, %158, %152, %149, %143, %138, %135, %126, %120, %115, %107, %101, %96, %91, %dissect_cbsp_content_ie.exit.i
-  %.1.i = phi i8 [ %.0149177.i, %347 ], [ %.0149177.i, %dissect_rr_load_list_ie.exit.i ], [ %.0149177.i, %dissect_failure_list_ie.exit.i ], [ %.0149177.i, %dissect_bc_compl_list_ie.exit.i ], [ %.0149177.i, %dissect_cell_id_list_ie.exit.i ], [ %.0149177.i, %cbsp_warn_period_to_secs.exit155.i ], [ %.0149177.i, %cbsp_warn_period_to_secs.exit.i ], [ %.0149177.i, %169 ], [ %.0149177.i, %166 ], [ %.0149177.i, %163 ], [ %.0149177.i, %158 ], [ %.0149177.i, %152 ], [ %.0149177.i, %149 ], [ %.0149177.i, %143 ], [ %.0149177.i, %138 ], [ %.0149177.i, %135 ], [ %132, %126 ], [ %.0149177.i, %120 ], [ %.0149177.i, %115 ], [ %.0149177.i, %107 ], [ %.0149177.i, %101 ], [ %.0149177.i, %96 ], [ %.0149177.i, %91 ], [ %.0149177.i, %dissect_cbsp_content_ie.exit.i ]
-  %351 = add i32 %72, %.0151.i
+  %.1.i = phi i8 [ %.0152176.i, %347 ], [ %.0152176.i, %dissect_rr_load_list_ie.exit.i ], [ %.0152176.i, %dissect_failure_list_ie.exit.i ], [ %.0152176.i, %dissect_bc_compl_list_ie.exit.i ], [ %.0152176.i, %dissect_cell_id_list_ie.exit.i ], [ %.0152176.i, %cbsp_warn_period_to_secs.exit155.i ], [ %.0152176.i, %cbsp_warn_period_to_secs.exit.i ], [ %.0152176.i, %169 ], [ %.0152176.i, %166 ], [ %.0152176.i, %163 ], [ %.0152176.i, %158 ], [ %.0152176.i, %152 ], [ %.0152176.i, %149 ], [ %.0152176.i, %143 ], [ %.0152176.i, %138 ], [ %.0152176.i, %135 ], [ %132, %126 ], [ %.0152176.i, %120 ], [ %.0152176.i, %115 ], [ %.0152176.i, %107 ], [ %.0152176.i, %101 ], [ %.0152176.i, %96 ], [ %.0152176.i, %91 ], [ %.0152176.i, %dissect_cbsp_content_ie.exit.i ]
+  %351 = add i32 %72, %.0150.i
   %352 = add i32 %351, -4
   %353 = icmp slt i32 %352, %40
   br i1 %353, label %43, label %dissect_cbsp_tlvs.exit, !llvm.loop !9

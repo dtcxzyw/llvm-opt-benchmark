@@ -82,10 +82,10 @@ for.body:                                         ; preds = %entry, %for.inc
   %format.0153 = phi ptr [ %format.1, %for.inc ], [ null, %entry ]
   %style.0152 = phi i32 [ %style.1, %for.inc ], [ 2, %entry ]
   %tz.0151 = phi ptr [ %tz.1, %for.inc ], [ null, %entry ]
-  %printUsage.0150 = phi i32 [ %printUsage.1, %for.inc ], [ 0, %entry ]
-  %optInd.0149 = phi i32 [ %inc125, %for.inc ], [ 1, %entry ]
-  %printVersion.0148 = phi i32 [ %printVersion.1, %for.inc ], [ 0, %entry ]
-  %idxprom = sext i32 %optInd.0149 to i64
+  %optInd.0150 = phi i32 [ %inc125, %for.inc ], [ 1, %entry ]
+  %printVersion.0149 = phi i32 [ %printVersion.1, %for.inc ], [ 0, %entry ]
+  %printUsage.0148 = phi i32 [ %printUsage.1, %for.inc ], [ 0, %entry ]
+  %idxprom = sext i32 %optInd.0150 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %1 = load i8, ptr %0, align 1
@@ -308,7 +308,7 @@ lor.lhs.false48:                                  ; preds = %if.else45.tail
   br i1 %cmp50, label %if.then51, label %sub_0127
 
 if.then51:                                        ; preds = %lor.lhs.false48, %if.else45.tail
-  %add = add nsw i32 %optInd.0149, 1
+  %add = add nsw i32 %optInd.0150, 1
   %cmp52 = icmp slt i32 %add, %argc
   br i1 %cmp52, label %if.then53, label %for.inc
 
@@ -341,7 +341,7 @@ if.else56.tail:                                   ; preds = %sub_1128, %sub_2129
   br i1 %cmp58, label %if.then59, label %sub_0131
 
 if.then59:                                        ; preds = %if.else56.tail
-  %add60 = add nsw i32 %optInd.0149, 1
+  %add60 = add nsw i32 %optInd.0150, 1
   %cmp61 = icmp slt i32 %add60, %argc
   br i1 %cmp61, label %if.then62, label %for.inc
 
@@ -374,7 +374,7 @@ if.else67.tail:                                   ; preds = %sub_0127, %sub_0131
   br i1 %cmp69, label %if.then70, label %sub_0135
 
 if.then70:                                        ; preds = %if.else67.tail
-  %add71 = add nsw i32 %optInd.0149, 1
+  %add71 = add nsw i32 %optInd.0150, 1
   %cmp72 = icmp slt i32 %add71, %argc
   br i1 %cmp72, label %if.then73, label %for.inc
 
@@ -407,7 +407,7 @@ if.else78.tail:                                   ; preds = %sub_1136, %sub_2137
   br i1 %cmp80, label %if.then81, label %sub_0139
 
 if.then81:                                        ; preds = %if.else78.tail
-  %add82 = add nsw i32 %optInd.0149, 1
+  %add82 = add nsw i32 %optInd.0150, 1
   %cmp83 = icmp slt i32 %add82, %argc
   br i1 %cmp83, label %if.then84, label %for.inc
 
@@ -440,7 +440,7 @@ if.else89.tail:                                   ; preds = %sub_0135, %sub_0139
   br i1 %cmp91, label %if.then92, label %sub_0143
 
 if.then92:                                        ; preds = %if.else89.tail
-  %add93 = add nsw i32 %optInd.0149, 1
+  %add93 = add nsw i32 %optInd.0150, 1
   %cmp94 = icmp slt i32 %add93, %argc
   br i1 %cmp94, label %if.then95, label %for.inc
 
@@ -480,9 +480,9 @@ if.then108:                                       ; preds = %if.else100.tail
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else38.tail, %lor.lhs.false41, %if.else31.tail, %lor.lhs.false34, %if.else24.tail, %lor.lhs.false27, %if.else17.tail, %lor.lhs.false20, %if.else10.tail, %lor.lhs.false13, %if.else.tail, %lor.lhs.false6, %for.body.tail, %lor.lhs.false, %if.then62, %if.then59, %if.then84, %if.then81, %if.then92, %if.then95, %if.then108, %if.then70, %if.then73, %if.then51, %if.then53
-  %printVersion.1 = phi i32 [ %printVersion.0148, %if.then53 ], [ %printVersion.0148, %if.then51 ], [ %printVersion.0148, %if.then62 ], [ %printVersion.0148, %if.then59 ], [ %printVersion.0148, %if.then73 ], [ %printVersion.0148, %if.then70 ], [ %printVersion.0148, %if.then84 ], [ %printVersion.0148, %if.then81 ], [ %printVersion.0148, %if.then95 ], [ %printVersion.0148, %if.then92 ], [ %printVersion.0148, %if.then108 ], [ 1, %lor.lhs.false ], [ 1, %for.body.tail ], [ %printVersion.0148, %lor.lhs.false6 ], [ %printVersion.0148, %if.else.tail ], [ %printVersion.0148, %lor.lhs.false13 ], [ %printVersion.0148, %if.else10.tail ], [ %printVersion.0148, %lor.lhs.false20 ], [ %printVersion.0148, %if.else17.tail ], [ %printVersion.0148, %lor.lhs.false27 ], [ %printVersion.0148, %if.else24.tail ], [ %printVersion.0148, %lor.lhs.false34 ], [ %printVersion.0148, %if.else31.tail ], [ %printVersion.0148, %lor.lhs.false41 ], [ %printVersion.0148, %if.else38.tail ]
-  %optInd.1 = phi i32 [ %add, %if.then53 ], [ %optInd.0149, %if.then51 ], [ %add60, %if.then62 ], [ %optInd.0149, %if.then59 ], [ %add71, %if.then73 ], [ %optInd.0149, %if.then70 ], [ %add82, %if.then84 ], [ %optInd.0149, %if.then81 ], [ %add93, %if.then95 ], [ %optInd.0149, %if.then92 ], [ %optInd.0149, %if.then108 ], [ %optInd.0149, %lor.lhs.false ], [ %optInd.0149, %for.body.tail ], [ %optInd.0149, %lor.lhs.false6 ], [ %optInd.0149, %if.else.tail ], [ %optInd.0149, %lor.lhs.false13 ], [ %optInd.0149, %if.else10.tail ], [ %optInd.0149, %lor.lhs.false20 ], [ %optInd.0149, %if.else17.tail ], [ %optInd.0149, %lor.lhs.false27 ], [ %optInd.0149, %if.else24.tail ], [ %optInd.0149, %lor.lhs.false34 ], [ %optInd.0149, %if.else31.tail ], [ %optInd.0149, %lor.lhs.false41 ], [ %optInd.0149, %if.else38.tail ]
-  %printUsage.1 = phi i32 [ %printUsage.0150, %if.then53 ], [ %printUsage.0150, %if.then51 ], [ %printUsage.0150, %if.then62 ], [ %printUsage.0150, %if.then59 ], [ %printUsage.0150, %if.then73 ], [ %printUsage.0150, %if.then70 ], [ %printUsage.0150, %if.then84 ], [ %printUsage.0150, %if.then81 ], [ %printUsage.0150, %if.then95 ], [ %printUsage.0150, %if.then92 ], [ 1, %if.then108 ], [ %printUsage.0150, %lor.lhs.false ], [ %printUsage.0150, %for.body.tail ], [ 1, %lor.lhs.false6 ], [ 1, %if.else.tail ], [ %printUsage.0150, %lor.lhs.false13 ], [ %printUsage.0150, %if.else10.tail ], [ %printUsage.0150, %lor.lhs.false20 ], [ %printUsage.0150, %if.else17.tail ], [ %printUsage.0150, %lor.lhs.false27 ], [ %printUsage.0150, %if.else24.tail ], [ %printUsage.0150, %lor.lhs.false34 ], [ %printUsage.0150, %if.else31.tail ], [ %printUsage.0150, %lor.lhs.false41 ], [ %printUsage.0150, %if.else38.tail ]
+  %printUsage.1 = phi i32 [ %printUsage.0148, %if.then53 ], [ %printUsage.0148, %if.then51 ], [ %printUsage.0148, %if.then62 ], [ %printUsage.0148, %if.then59 ], [ %printUsage.0148, %if.then73 ], [ %printUsage.0148, %if.then70 ], [ %printUsage.0148, %if.then84 ], [ %printUsage.0148, %if.then81 ], [ %printUsage.0148, %if.then95 ], [ %printUsage.0148, %if.then92 ], [ 1, %if.then108 ], [ %printUsage.0148, %lor.lhs.false ], [ %printUsage.0148, %for.body.tail ], [ 1, %lor.lhs.false6 ], [ 1, %if.else.tail ], [ %printUsage.0148, %lor.lhs.false13 ], [ %printUsage.0148, %if.else10.tail ], [ %printUsage.0148, %lor.lhs.false20 ], [ %printUsage.0148, %if.else17.tail ], [ %printUsage.0148, %lor.lhs.false27 ], [ %printUsage.0148, %if.else24.tail ], [ %printUsage.0148, %lor.lhs.false34 ], [ %printUsage.0148, %if.else31.tail ], [ %printUsage.0148, %lor.lhs.false41 ], [ %printUsage.0148, %if.else38.tail ]
+  %printVersion.1 = phi i32 [ %printVersion.0149, %if.then53 ], [ %printVersion.0149, %if.then51 ], [ %printVersion.0149, %if.then62 ], [ %printVersion.0149, %if.then59 ], [ %printVersion.0149, %if.then73 ], [ %printVersion.0149, %if.then70 ], [ %printVersion.0149, %if.then84 ], [ %printVersion.0149, %if.then81 ], [ %printVersion.0149, %if.then95 ], [ %printVersion.0149, %if.then92 ], [ %printVersion.0149, %if.then108 ], [ 1, %lor.lhs.false ], [ 1, %for.body.tail ], [ %printVersion.0149, %lor.lhs.false6 ], [ %printVersion.0149, %if.else.tail ], [ %printVersion.0149, %lor.lhs.false13 ], [ %printVersion.0149, %if.else10.tail ], [ %printVersion.0149, %lor.lhs.false20 ], [ %printVersion.0149, %if.else17.tail ], [ %printVersion.0149, %lor.lhs.false27 ], [ %printVersion.0149, %if.else24.tail ], [ %printVersion.0149, %lor.lhs.false34 ], [ %printVersion.0149, %if.else31.tail ], [ %printVersion.0149, %lor.lhs.false41 ], [ %printVersion.0149, %if.else38.tail ]
+  %optInd.1 = phi i32 [ %add, %if.then53 ], [ %optInd.0150, %if.then51 ], [ %add60, %if.then62 ], [ %optInd.0150, %if.then59 ], [ %add71, %if.then73 ], [ %optInd.0150, %if.then70 ], [ %add82, %if.then84 ], [ %optInd.0150, %if.then81 ], [ %add93, %if.then95 ], [ %optInd.0150, %if.then92 ], [ %optInd.0150, %if.then108 ], [ %optInd.0150, %lor.lhs.false ], [ %optInd.0150, %for.body.tail ], [ %optInd.0150, %lor.lhs.false6 ], [ %optInd.0150, %if.else.tail ], [ %optInd.0150, %lor.lhs.false13 ], [ %optInd.0150, %if.else10.tail ], [ %optInd.0150, %lor.lhs.false20 ], [ %optInd.0150, %if.else17.tail ], [ %optInd.0150, %lor.lhs.false27 ], [ %optInd.0150, %if.else24.tail ], [ %optInd.0150, %lor.lhs.false34 ], [ %optInd.0150, %if.else31.tail ], [ %optInd.0150, %lor.lhs.false41 ], [ %optInd.0150, %if.else38.tail ]
   %tz.1 = phi ptr [ %tz.0151, %if.then53 ], [ %tz.0151, %if.then51 ], [ %tz.0151, %if.then62 ], [ %tz.0151, %if.then59 ], [ %tz.0151, %if.then73 ], [ %tz.0151, %if.then70 ], [ %tz.0151, %if.then84 ], [ %tz.0151, %if.then81 ], [ %tz.0151, %if.then95 ], [ %tz.0151, %if.then92 ], [ %tz.0151, %if.then108 ], [ %tz.0151, %lor.lhs.false ], [ %tz.0151, %for.body.tail ], [ %tz.0151, %lor.lhs.false6 ], [ %tz.0151, %if.else.tail ], [ @GMT_ID, %lor.lhs.false13 ], [ @GMT_ID, %if.else10.tail ], [ %tz.0151, %lor.lhs.false20 ], [ %tz.0151, %if.else17.tail ], [ %tz.0151, %lor.lhs.false27 ], [ %tz.0151, %if.else24.tail ], [ %tz.0151, %lor.lhs.false34 ], [ %tz.0151, %if.else31.tail ], [ %tz.0151, %lor.lhs.false41 ], [ %tz.0151, %if.else38.tail ]
   %style.1 = phi i32 [ %style.0152, %if.then53 ], [ %style.0152, %if.then51 ], [ %style.0152, %if.then62 ], [ %style.0152, %if.then59 ], [ %style.0152, %if.then73 ], [ %style.0152, %if.then70 ], [ %style.0152, %if.then84 ], [ %style.0152, %if.then81 ], [ %style.0152, %if.then95 ], [ %style.0152, %if.then92 ], [ %style.0152, %if.then108 ], [ %style.0152, %lor.lhs.false ], [ %style.0152, %for.body.tail ], [ %style.0152, %lor.lhs.false6 ], [ %style.0152, %if.else.tail ], [ %style.0152, %lor.lhs.false13 ], [ %style.0152, %if.else10.tail ], [ 0, %lor.lhs.false20 ], [ 0, %if.else17.tail ], [ 1, %lor.lhs.false27 ], [ 1, %if.else24.tail ], [ 2, %lor.lhs.false34 ], [ 2, %if.else31.tail ], [ 3, %lor.lhs.false41 ], [ 3, %if.else38.tail ]
   %format.1 = phi ptr [ %68, %if.then53 ], [ %format.0153, %if.then51 ], [ %format.0153, %if.then62 ], [ %format.0153, %if.then59 ], [ %format.0153, %if.then73 ], [ %format.0153, %if.then70 ], [ %format.0153, %if.then84 ], [ %format.0153, %if.then81 ], [ %format.0153, %if.then95 ], [ %format.0153, %if.then92 ], [ %format.0153, %if.then108 ], [ %format.0153, %lor.lhs.false ], [ %format.0153, %for.body.tail ], [ %format.0153, %lor.lhs.false6 ], [ %format.0153, %if.else.tail ], [ %format.0153, %lor.lhs.false13 ], [ %format.0153, %if.else10.tail ], [ %format.0153, %lor.lhs.false20 ], [ %format.0153, %if.else17.tail ], [ %format.0153, %lor.lhs.false27 ], [ %format.0153, %if.else24.tail ], [ %format.0153, %lor.lhs.false34 ], [ %format.0153, %if.else31.tail ], [ %format.0153, %lor.lhs.false41 ], [ %format.0153, %if.else38.tail ]
@@ -495,8 +495,8 @@ for.inc:                                          ; preds = %if.else38.tail, %lo
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %if.else100.tail
-  %printVersion.0.lcssa = phi i32 [ %printVersion.1, %for.inc ], [ %printVersion.0148, %if.else100.tail ]
-  %printUsage.0.lcssa = phi i32 [ %printUsage.1, %for.inc ], [ %printUsage.0150, %if.else100.tail ]
+  %printUsage.0.lcssa = phi i32 [ %printUsage.1, %for.inc ], [ %printUsage.0148, %if.else100.tail ]
+  %printVersion.0.lcssa = phi i32 [ %printVersion.1, %for.inc ], [ %printVersion.0149, %if.else100.tail ]
   %tz.0.lcssa = phi ptr [ %tz.1, %for.inc ], [ %tz.0151, %if.else100.tail ]
   %style.0.lcssa = phi i32 [ %style.1, %for.inc ], [ %style.0152, %if.else100.tail ]
   %format.0.lcssa = phi ptr [ %format.1, %for.inc ], [ %format.0153, %if.else100.tail ]

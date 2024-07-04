@@ -311,16 +311,16 @@ Abc_Clock.exit:
   br i1 %.not113, label %._crit_edge, label %.critedge
 
 ._crit_edge:                                      ; preds = %.critedge, %Abc_Clock.exit
-  %.073.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %spec.select, %.critedge ]
-  %.072.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %24, %.critedge ]
+  %.072.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %spec.select, %.critedge ]
+  %.0.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %24, %.critedge ]
   call void @stmm_free_gen(ptr noundef %8) #17
-  %10 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.072.lcssa)
+  %10 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.0.lcssa)
   %11 = load ptr, ptr @s_pManRwrExp5.body, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 20
   %13 = load i32, ptr %12, align 4
   %14 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %13)
-  %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.073.lcssa)
-  %16 = add nuw i32 %.073.lcssa, 1
+  %15 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.072.lcssa)
+  %16 = add nuw i32 %.072.lcssa, 1
   %17 = zext i32 %16 to i64
   %18 = shl nuw nsw i64 %17, 2
   %calloc = call ptr @calloc(i64 1, i64 %18)
@@ -332,18 +332,18 @@ Abc_Clock.exit:
   br i1 %.not79117, label %._crit_edge118, label %.critedge2
 
 .critedge:                                        ; preds = %Abc_Clock.exit, %.critedge
-  %.072115 = phi i32 [ %24, %.critedge ], [ 0, %Abc_Clock.exit ]
-  %.073114 = phi i32 [ %spec.select, %.critedge ], [ 0, %Abc_Clock.exit ]
+  %.0115 = phi i32 [ %24, %.critedge ], [ 0, %Abc_Clock.exit ]
+  %.072114 = phi i32 [ %spec.select, %.critedge ], [ 0, %Abc_Clock.exit ]
   %23 = load i32, ptr %3, align 4
-  %24 = add nsw i32 %23, %.072115
-  %spec.select = call i32 @llvm.smax.i32(i32 %.073114, i32 %23)
+  %24 = add nsw i32 %23, %.0115
+  %spec.select = call i32 @llvm.smax.i32(i32 %.072114, i32 %23)
   %25 = call i32 @stmm_gen(ptr noundef %8, ptr noundef nonnull %4, ptr noundef nonnull %3) #17
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %._crit_edge, label %.critedge, !llvm.loop !9
 
 ._crit_edge118:                                   ; preds = %.critedge2, %._crit_edge
   call void @stmm_free_gen(ptr noundef %21) #17
-  %.not80119 = icmp slt i32 %.073.lcssa, 1
+  %.not80119 = icmp slt i32 %.072.lcssa, 1
   br i1 %.not80119, label %._crit_edge122, label %.lr.ph
 
 .critedge2:                                       ; preds = %._crit_edge, %.critedge2

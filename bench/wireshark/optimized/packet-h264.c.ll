@@ -1297,13 +1297,13 @@ define internal fastcc void @dissect_h264_sei_rbsp(ptr noundef %0, ptr noundef %
 
 49:                                               ; preds = %49, %46
   %indvars.iv156.i.i.i = phi i32 [ 0, %46 ], [ %indvars.iv.next157.i.i.i, %49 ]
-  %.0133146.i.i.i = phi i32 [ %44, %46 ], [ %54, %49 ]
+  %.0131146.i.i.i = phi i32 [ %44, %46 ], [ %54, %49 ]
   %50 = load i32, ptr @hf_h264_sei_ms_lpb, align 4
-  %51 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %50, ptr noundef %1, i32 noundef %.0133146.i.i.i, i32 noundef 1, i32 noundef 0) #6
+  %51 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %50, ptr noundef %1, i32 noundef %.0131146.i.i.i, i32 noundef 1, i32 noundef 0) #6
   %52 = shl nuw nsw i32 %indvars.iv156.i.i.i, 3
   %53 = or disjoint i32 %52, 7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %51, ptr noundef nonnull @.str.429, i32 noundef %53, i32 noundef %52) #6
-  %54 = add nsw i32 %.0133146.i.i.i, 1
+  %54 = add nsw i32 %.0131146.i.i.i, 1
   %indvars.iv.next157.i.i.i = add nuw nsw i32 %indvars.iv156.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %indvars.iv.next157.i.i.i, 8
   br i1 %exitcond.not.i.i.i, label %55, label %49, !llvm.loop !7
@@ -1312,7 +1312,7 @@ define internal fastcc void @dissect_h264_sei_rbsp(ptr noundef %0, ptr noundef %
   %56 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %54) #6
   %57 = load i32, ptr @hf_h264_sei_ms_layout_p, align 4
   %58 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %57, ptr noundef %1, i32 noundef %54, i32 noundef 1, i32 noundef 0) #6
-  %59 = add i32 %.0133146.i.i.i, 2
+  %59 = add i32 %.0131146.i.i.i, 2
   %60 = icmp eq i8 %56, 1
   br i1 %60, label %61, label %h264_user_data_unregistered.exit.i.i
 
@@ -1320,7 +1320,7 @@ define internal fastcc void @dissect_h264_sei_rbsp(ptr noundef %0, ptr noundef %
   %62 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %59) #6
   %63 = load i32, ptr @hf_h264_sei_ms_layout_ldsize, align 4
   %64 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %63, ptr noundef %1, i32 noundef %59, i32 noundef 1, i32 noundef 0) #6
-  %65 = add i32 %.0133146.i.i.i, 3
+  %65 = add i32 %.0131146.i.i.i, 3
   %66 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %65) #6
   %67 = zext i8 %62 to i32
   %.not140.i.i.i = icmp eq i32 %66, %67
@@ -1338,37 +1338,37 @@ define internal fastcc void @dissect_h264_sei_rbsp(ptr noundef %0, ptr noundef %
   br i1 %73, label %.lr.ph150.i.i.i, label %h264_user_data_unregistered.exit.i.i
 
 .lr.ph150.i.i.i:                                  ; preds = %71, %.lr.ph150.i.i.i
-  %.0131149.i.i.i = phi i8 [ %75, %.lr.ph150.i.i.i ], [ 0, %71 ]
-  %.1134148.i.i.i = phi i32 [ %102, %.lr.ph150.i.i.i ], [ %65, %71 ]
+  %.1149.i.i.i = phi i32 [ %102, %.lr.ph150.i.i.i ], [ %65, %71 ]
+  %.0133148.i.i.i = phi i8 [ %75, %.lr.ph150.i.i.i ], [ 0, %71 ]
   %74 = load i32, ptr @ett_h264_ms_layer_description, align 4
-  %75 = add i8 %.0131149.i.i.i, 1
+  %75 = add i8 %.0133148.i.i.i, 1
   %76 = zext i8 %75 to i32
-  %77 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %.1134148.i.i.i, i32 noundef 16, i32 noundef %74, ptr noundef null, ptr noundef nonnull @.str.431, i32 noundef %76) #6
+  %77 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %.1149.i.i.i, i32 noundef 16, i32 noundef %74, ptr noundef null, ptr noundef nonnull @.str.431, i32 noundef %76) #6
   %78 = load i32, ptr @hf_h264_sei_ms_layer_desc_coded_width, align 4
-  %79 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %78, ptr noundef %1, i32 noundef %.1134148.i.i.i, i32 noundef 2, i32 noundef 0) #6
+  %79 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %78, ptr noundef %1, i32 noundef %.1149.i.i.i, i32 noundef 2, i32 noundef 0) #6
   %80 = load i32, ptr @hf_h264_sei_ms_layer_desc_coded_height, align 4
-  %81 = add i32 %.1134148.i.i.i, 2
+  %81 = add i32 %.1149.i.i.i, 2
   %82 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %80, ptr noundef %1, i32 noundef %81, i32 noundef 2, i32 noundef 0) #6
   %83 = load i32, ptr @hf_h264_sei_ms_layer_desc_display_width, align 4
-  %84 = add i32 %.1134148.i.i.i, 4
+  %84 = add i32 %.1149.i.i.i, 4
   %85 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %83, ptr noundef %1, i32 noundef %84, i32 noundef 2, i32 noundef 0) #6
   %86 = load i32, ptr @hf_h264_sei_ms_layer_desc_display_height, align 4
-  %87 = add i32 %.1134148.i.i.i, 6
+  %87 = add i32 %.1149.i.i.i, 6
   %88 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %86, ptr noundef %1, i32 noundef %87, i32 noundef 2, i32 noundef 0) #6
   %89 = load i32, ptr @hf_h264_sei_ms_layer_desc_bitrate, align 4
-  %90 = add i32 %.1134148.i.i.i, 8
+  %90 = add i32 %.1149.i.i.i, 8
   %91 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %89, ptr noundef %1, i32 noundef %90, i32 noundef 4, i32 noundef 0) #6
   %92 = load i32, ptr @hf_h264_sei_ms_layer_desc_frame_rate, align 4
-  %93 = add i32 %.1134148.i.i.i, 12
+  %93 = add i32 %.1149.i.i.i, 12
   %94 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %92, ptr noundef %1, i32 noundef %93, i32 noundef 1, i32 noundef 0) #6
   %95 = load i32, ptr @hf_h264_sei_ms_layer_desc_layer_type, align 4
   %96 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %95, ptr noundef %1, i32 noundef %93, i32 noundef 1, i32 noundef 0) #6
   %97 = load i32, ptr @hf_h264_sei_ms_layer_desc_prid, align 4
-  %98 = add i32 %.1134148.i.i.i, 13
+  %98 = add i32 %.1149.i.i.i, 13
   %99 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %97, ptr noundef %1, i32 noundef %98, i32 noundef 1, i32 noundef 0) #6
   %100 = load i32, ptr @hf_h264_sei_ms_layer_desc_cb, align 4
   %101 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %100, ptr noundef %1, i32 noundef %98, i32 noundef 1, i32 noundef 0) #6
-  %102 = add i32 %.1134148.i.i.i, 16
+  %102 = add i32 %.1149.i.i.i, 16
   %103 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %102) #6
   %104 = icmp sgt i32 %103, 15
   br i1 %104, label %.lr.ph150.i.i.i, label %h264_user_data_unregistered.exit.i.i, !llvm.loop !8
@@ -1395,27 +1395,27 @@ define internal fastcc void @dissect_h264_sei_rbsp(ptr noundef %0, ptr noundef %
 
 .lr.ph.i.i.i:                                     ; preds = %107, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i32 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %107 ]
+  %.2145.i.i.i = phi i32 [ %134, %.lr.ph.i.i.i ], [ %116, %107 ]
   %.0132144.i.i.i = phi i8 [ %133, %.lr.ph.i.i.i ], [ %110, %107 ]
-  %.2143.i.i.i = phi i32 [ %134, %.lr.ph.i.i.i ], [ %116, %107 ]
   %117 = load i32, ptr @ett_h264_ms_crop_data, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i32 %indvars.iv.i.i.i, 1
-  %118 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %.2143.i.i.i, i32 noundef 9, i32 noundef %117, ptr noundef null, ptr noundef nonnull @.str.434, i32 noundef %indvars.iv.next.i.i.i) #6
+  %118 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %.2145.i.i.i, i32 noundef 9, i32 noundef %117, ptr noundef null, ptr noundef nonnull @.str.434, i32 noundef %indvars.iv.next.i.i.i) #6
   %119 = load i32, ptr @hf_h264_sei_ms_crop_confidence_level, align 4
-  %120 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %119, ptr noundef %1, i32 noundef %.2143.i.i.i, i32 noundef 1, i32 noundef 0) #6
+  %120 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %119, ptr noundef %1, i32 noundef %.2145.i.i.i, i32 noundef 1, i32 noundef 0) #6
   %121 = load i32, ptr @hf_h264_sei_ms_crop_frame_left_offset, align 4
-  %122 = add nsw i32 %.2143.i.i.i, 1
+  %122 = add nsw i32 %.2145.i.i.i, 1
   %123 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %121, ptr noundef %1, i32 noundef %122, i32 noundef 2, i32 noundef 0) #6
   %124 = load i32, ptr @hf_h264_sei_ms_crop_frame_right_offset, align 4
-  %125 = add nsw i32 %.2143.i.i.i, 3
+  %125 = add nsw i32 %.2145.i.i.i, 3
   %126 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %124, ptr noundef %1, i32 noundef %125, i32 noundef 2, i32 noundef 0) #6
   %127 = load i32, ptr @hf_h264_sei_ms_crop_frame_top_offset, align 4
-  %128 = add nsw i32 %.2143.i.i.i, 5
+  %128 = add nsw i32 %.2145.i.i.i, 5
   %129 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %127, ptr noundef %1, i32 noundef %128, i32 noundef 2, i32 noundef 0) #6
   %130 = load i32, ptr @hf_h264_sei_ms_crop_frame_bottom_offset, align 4
-  %131 = add nsw i32 %.2143.i.i.i, 7
+  %131 = add nsw i32 %.2145.i.i.i, 7
   %132 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %130, ptr noundef %1, i32 noundef %131, i32 noundef 2, i32 noundef 0) #6
   %133 = add i8 %.0132144.i.i.i, -1
-  %134 = add nsw i32 %.2143.i.i.i, 9
+  %134 = add nsw i32 %.2145.i.i.i, 9
   %.not.i.i.i = icmp eq i8 %133, 0
   br i1 %.not.i.i.i, label %h264_user_data_unregistered.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
@@ -2232,12 +2232,12 @@ define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 .split110:                                        ; preds = %4, %.split
   %.sink = phi i32 [ 2, %.split ], [ 1, %4 ]
-  %.0107 = phi i8 [ %43, %.split ], [ %13, %4 ]
+  %.0 = phi i8 [ %43, %.split ], [ %13, %4 ]
   %51 = tail call fastcc ptr @dissect_h265_unescap_nal_unit(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.sink)
   %52 = load i32, ptr @ett_h264_stream, align 4
   %53 = tail call ptr @proto_tree_add_subtree(ptr noundef %20, ptr noundef %0, i32 noundef %.sink, i32 noundef -1, i32 noundef %52, ptr noundef null, ptr noundef nonnull @.str.579) #6
   tail call void @increment_dissection_depth(ptr noundef nonnull %1) #6
-  switch i8 %.0107, label %dissect_h264_prefix.exit [
+  switch i8 %.0, label %dissect_h264_prefix.exit [
     i8 1, label %54
     i8 3, label %64
     i8 4, label %70
@@ -2401,7 +2401,7 @@ define internal i32 @dissect_h264(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %137, label %.lr.ph129, label %dissect_h264_prefix.exit
 
 .lr.ph129:                                        ; preds = %132
-  %138 = icmp eq i8 %.0107, 26
+  %138 = icmp eq i8 %.0, 26
   %. = select i1 %138, i32 5, i32 6
   br label %139
 
@@ -2637,8 +2637,8 @@ dissect_h264_prefix.exit:                         ; preds = %129, %164, %278, %1
   br label %282
 
 282:                                              ; preds = %47, %49, %dissect_h264_prefix.exit
-  %.0 = phi i32 [ %281, %dissect_h264_prefix.exit ], [ 1, %49 ], [ 1, %47 ]
-  ret i32 %.0
+  %.0107 = phi i32 [ %281, %dissect_h264_prefix.exit ], [ 1, %49 ], [ 1, %47 ]
+  ret i32 %.0107
 }
 
 declare ptr @register_dissector_with_description(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -2924,8 +2924,8 @@ define internal fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %0, ptr noc
   %indvars.iv338 = phi i32 [ 0, %.preheader314 ], [ %indvars.iv.next339, %51 ]
   %indvars.iv = phi i32 [ %31, %.preheader314 ], [ %indvars.iv.next, %51 ]
   %.1243318 = phi i32 [ %30, %.preheader314 ], [ %48, %51 ]
-  %.0254317 = phi i32 [ -1, %.preheader314 ], [ %50, %51 ]
-  %.0255316 = phi i32 [ %26, %.preheader314 ], [ %49, %51 ]
+  %.0254317 = phi i32 [ %26, %.preheader314 ], [ %49, %51 ]
+  %.0255316 = phi i32 [ -1, %.preheader314 ], [ %50, %51 ]
   %.not283 = icmp ne i32 %.1243318, 0
   %39 = and i32 %.1243318, 3
   %.not284 = icmp eq i32 %39, 0
@@ -2947,11 +2947,11 @@ define internal fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %0, ptr noc
   br label %46
 
 46:                                               ; preds = %44, %42
-  %47 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %3, i32 noundef %.0255316, i32 noundef 1) #6
+  %47 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %3, i32 noundef %.0254317, i32 noundef 1) #6
   %.not286 = icmp eq i8 %47, 0
   %48 = add i32 %.1243318, 1
-  %49 = add i32 %.0255316, 1
-  %50 = add i32 %.0254317, 1
+  %49 = add i32 %.0254317, 1
+  %50 = add i32 %.0255316, 1
   br i1 %.not286, label %51, label %53
 
 51:                                               ; preds = %46
@@ -3077,7 +3077,7 @@ define internal fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %0, ptr noc
 
 105:                                              ; preds = %104
   %106 = and i32 %50, 2147483616
-  %107 = add i32 %106, %49
+  %107 = add i32 %49, %106
   %108 = and i32 %50, 31
   %109 = tail call i32 @tvb_get_bits32(ptr noundef %3, i32 noundef %107, i32 noundef %108, i32 noundef 0) #6
   %110 = and i32 %109, 1
@@ -3150,37 +3150,37 @@ define internal fastcc i32 @dissect_h264_exp_golomb_code(ptr noundef %0, ptr noc
 
 select.unfold.thread:                             ; preds = %115, %117
   %.1250.ph = phi i32 [ 1, %115 ], [ 0, %117 ]
-  %.1248.ph = phi i32 [ %spec.select298, %115 ], [ 0, %117 ]
-  %142 = add i32 %50, %49
+  %.1247.ph = phi i32 [ %spec.select298, %115 ], [ 0, %117 ]
+  %142 = add i32 %49, %50
   br label %.lr.ph322.preheader
 
 select.unfold:                                    ; preds = %137, %139, %130
-  %.1248 = phi i32 [ %138, %137 ], [ %141, %139 ], [ 0, %130 ]
-  %143 = add i32 %50, %49
-  %144 = icmp ult i32 %.0254317, 2147483647
+  %.1247 = phi i32 [ %138, %137 ], [ %141, %139 ], [ 0, %130 ]
+  %143 = add i32 %49, %50
+  %144 = icmp ult i32 %.0255316, 2147483647
   br i1 %144, label %.lr.ph322.preheader, label %.preheader
 
 .lr.ph322.preheader:                              ; preds = %select.unfold.thread, %select.unfold
   %145 = phi i32 [ %142, %select.unfold.thread ], [ %143, %select.unfold ]
-  %.1248352 = phi i32 [ %.1248.ph, %select.unfold.thread ], [ %.1248, %select.unfold ]
+  %.1247352 = phi i32 [ %.1247.ph, %select.unfold.thread ], [ %.1247, %select.unfold ]
   %.1250350 = phi i32 [ %.1250.ph, %select.unfold.thread ], [ %.0249, %select.unfold ]
   %.0251349 = phi i32 [ -2147483648, %select.unfold.thread ], [ %132, %select.unfold ]
   %.0253348 = phi i32 [ -1, %select.unfold.thread ], [ %134, %select.unfold ]
   br label %.lr.ph322
 
 146:                                              ; preds = %105, %115
-  %.1248.ph.ph = phi i32 [ %., %105 ], [ %spec.select298, %115 ]
-  %147 = add i32 %50, %49
+  %.1247.ph.ph = phi i32 [ %., %105 ], [ %spec.select298, %115 ]
+  %147 = add i32 %49, %50
   store i32 %147, ptr %4, align 4
   %148 = ashr i32 %147, 3
   %reass.sub333 = sub nsw i32 %148, %8
   %149 = add nsw i32 %reass.sub333, 1
-  %150 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %0, i32 noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %149, i32 noundef -1, ptr noundef nonnull @.str.424, i32 noundef %50, i32 noundef %.1248.ph.ph) #6
+  %150 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %0, i32 noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef %149, i32 noundef -1, ptr noundef nonnull @.str.424, i32 noundef %50, i32 noundef %.1247.ph.ph) #6
   %151 = tail call ptr @expert_add_info(ptr noundef null, ptr noundef %150, ptr noundef nonnull @ei_h264_oversized_exp_golomb_code) #6
   br label %216
 
 152:                                              ; preds = %117, %104
-  %153 = add i32 %50, %49
+  %153 = add i32 %49, %50
   store i32 %153, ptr %4, align 4
   %154 = ashr i32 %153, 3
   %reass.sub = sub nsw i32 %154, %8
@@ -3191,7 +3191,7 @@ select.unfold:                                    ; preds = %137, %139, %130
 
 .preheader:                                       ; preds = %167, %select.unfold
   %158 = phi i32 [ %143, %select.unfold ], [ %145, %167 ]
-  %.1248351 = phi i32 [ %.1248, %select.unfold ], [ %.1248352, %167 ]
+  %.1247351 = phi i32 [ %.1247, %select.unfold ], [ %.1247352, %167 ]
   %.0253347 = phi i32 [ %134, %select.unfold ], [ %.0253348, %167 ]
   %.3.lcssa = phi i32 [ %48, %select.unfold ], [ %indvars.iv, %167 ]
   %159 = and i32 %.3.lcssa, 7
@@ -3304,7 +3304,7 @@ select.unfold:                                    ; preds = %137, %139, %130
 
 204:                                              ; preds = %200
   %205 = tail call ptr @val_to_str_const(i32 noundef %.0253347, ptr noundef nonnull %203, ptr noundef nonnull @.str.2) #6
-  %206 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format(ptr noundef %0, i32 noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef 1, i32 noundef %.0253347, ptr noundef nonnull @.str.418, ptr noundef nonnull %29, ptr noundef %205, i32 noundef %.1248351) #6
+  %206 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format(ptr noundef %0, i32 noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef 1, i32 noundef %.0253347, ptr noundef nonnull @.str.418, ptr noundef nonnull %29, ptr noundef %205, i32 noundef %.1247351) #6
   br label %213
 
 207:                                              ; preds = %200
@@ -3314,7 +3314,7 @@ select.unfold:                                    ; preds = %137, %139, %130
   br i1 %cond2, label %210, label %212
 
 210:                                              ; preds = %207
-  %211 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format(ptr noundef %0, i32 noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef 1, i32 noundef %.0253347, ptr noundef nonnull @.str.419, ptr noundef nonnull %29, i32 noundef %.1248351) #6
+  %211 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format(ptr noundef %0, i32 noundef %2, ptr noundef %3, i32 noundef %8, i32 noundef 1, i32 noundef %.0253347, ptr noundef nonnull @.str.419, ptr noundef nonnull %29, i32 noundef %.1247351) #6
   br label %213
 
 212:                                              ; preds = %207
@@ -3334,8 +3334,8 @@ select.unfold:                                    ; preds = %137, %139, %130
   br label %216
 
 216:                                              ; preds = %._crit_edge331, %90, %98, %96, %71, %82, %76, %215, %213, %152, %146
-  %.0245 = phi i32 [ %.1248.ph.ph, %146 ], [ -1, %152 ], [ %.0253347, %215 ], [ %.1248351, %213 ], [ 0, %76 ], [ 0, %82 ], [ 0, %71 ], [ 0, %96 ], [ 0, %98 ], [ 0, %90 ], [ 0, %._crit_edge331 ]
-  ret i32 %.0245
+  %.0248 = phi i32 [ %.1247.ph.ph, %146 ], [ -1, %152 ], [ %.0253347, %215 ], [ %.1247351, %213 ], [ 0, %76 ], [ 0, %82 ], [ 0, %71 ], [ 0, %96 ], [ 0, %98 ], [ 0, %90 ], [ 0, %._crit_edge331 ]
+  ret i32 %.0248
 }
 
 declare ptr @proto_registrar_get_nth(i32 noundef) local_unnamed_addr #1
@@ -3436,46 +3436,46 @@ define internal fastcc noundef ptr @dissect_h265_unescap_nal_unit(ptr noundef %0
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %21
-  %.040 = phi i32 [ %26, %21 ], [ %2, %3 ]
-  %.03239 = phi i32 [ %27, %21 ], [ 0, %3 ]
-  %.03438 = phi i32 [ %23, %21 ], [ 0, %3 ]
-  %10 = add i32 %.03239, 2
+  %.040 = phi i32 [ %27, %21 ], [ 0, %3 ]
+  %.03239 = phi i32 [ %23, %21 ], [ 0, %3 ]
+  %.03438 = phi i32 [ %26, %21 ], [ %2, %3 ]
+  %10 = add i32 %.040, 2
   %11 = icmp slt i32 %10, %4
   br i1 %11, label %12, label %21
 
 12:                                               ; preds = %.lr.ph
-  %13 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %.040) #6
+  %13 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %.03438) #6
   %14 = icmp eq i32 %13, 3
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %12
-  %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.040) #6
-  %17 = add i32 %.03438, 1
-  %18 = sext i32 %.03438 to i64
+  %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.03438) #6
+  %17 = add i32 %.03239, 1
+  %18 = sext i32 %.03239 to i64
   %19 = getelementptr i8, ptr %8, i64 %18
   store i8 %16, ptr %19, align 1
-  %20 = add i32 %.040, 1
+  %20 = add i32 %.03438, 1
   br label %21
 
 21:                                               ; preds = %.lr.ph, %12, %15
-  %.sink46 = phi i32 [ %20, %15 ], [ %.040, %12 ], [ %.040, %.lr.ph ]
+  %.sink46 = phi i32 [ %20, %15 ], [ %.03438, %12 ], [ %.03438, %.lr.ph ]
   %.sink45 = phi i32 [ 2, %15 ], [ 1, %12 ], [ 1, %.lr.ph ]
-  %.sink44 = phi i32 [ %17, %15 ], [ %.03438, %12 ], [ %.03438, %.lr.ph ]
+  %.sink44 = phi i32 [ %17, %15 ], [ %.03239, %12 ], [ %.03239, %.lr.ph ]
   %.sink = phi i32 [ 3, %15 ], [ 1, %12 ], [ 1, %.lr.ph ]
-  %.133 = phi i32 [ %10, %15 ], [ %.03239, %12 ], [ %.03239, %.lr.ph ]
+  %.1 = phi i32 [ %10, %15 ], [ %.040, %12 ], [ %.040, %.lr.ph ]
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.sink46) #6
-  %23 = add i32 %.03438, %.sink45
+  %23 = add i32 %.03239, %.sink45
   %24 = sext i32 %.sink44 to i64
   %25 = getelementptr i8, ptr %8, i64 %24
   store i8 %22, ptr %25, align 1
-  %26 = add i32 %.040, %.sink
-  %27 = add i32 %.133, 1
+  %26 = add i32 %.03438, %.sink
+  %27 = add i32 %.1, 1
   %28 = icmp slt i32 %27, %4
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %21, %3
-  %.034.lcssa = phi i32 [ 0, %3 ], [ %23, %21 ]
-  %29 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %8, i32 noundef %.034.lcssa, i32 noundef %.034.lcssa) #6
+  %.032.lcssa = phi i32 [ 0, %3 ], [ %23, %21 ]
+  %29 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %8, i32 noundef %.032.lcssa, i32 noundef %.032.lcssa) #6
   tail call void @add_new_data_source(ptr noundef %1, ptr noundef %29, ptr noundef nonnull @.str.603) #6
   ret ptr %29
 }

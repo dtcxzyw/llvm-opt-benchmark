@@ -125,36 +125,36 @@ define range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1
   br i1 %.not73, label %61, label %.loopexit
 
 61:                                               ; preds = %37, %58, %46, %24
-  %.062 = phi i64 [ %26, %24 ], [ %48, %58 ], [ %48, %46 ], [ %2, %37 ]
   %.061 = phi ptr [ %25, %24 ], [ %47, %58 ], [ %47, %46 ], [ %1, %37 ]
-  %.not7682 = icmp eq i64 %.062, 0
+  %.0 = phi i64 [ %26, %24 ], [ %48, %58 ], [ %48, %46 ], [ %2, %37 ]
+  %.not7682 = icmp eq i64 %.0, 0
   br i1 %.not7682, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread, %61
-  %.06199 = phi ptr [ %25, %.thread ], [ %.061, %61 ]
-  %.06298 = phi i64 [ %26, %.thread ], [ %.062, %61 ]
+  %.099 = phi i64 [ %26, %.thread ], [ %.0, %61 ]
+  %.06198 = phi ptr [ %25, %.thread ], [ %.061, %61 ]
   %62 = getelementptr inbounds i8, ptr %0, i64 216
   %63 = getelementptr inbounds i8, ptr %0, i64 448
   br label %64
 
 64:                                               ; preds = %.lr.ph, %83
-  %.184 = phi ptr [ %.06199, %.lr.ph ], [ %71, %83 ]
-  %.16383 = phi i64 [ %.06298, %.lr.ph ], [ %72, %83 ]
-  %65 = call i64 @llvm.umin.i64(i64 %.16383, i64 8192)
+  %.184 = phi i64 [ %.099, %.lr.ph ], [ %72, %83 ]
+  %.16283 = phi ptr [ %.06198, %.lr.ph ], [ %71, %83 ]
+  %65 = call i64 @llvm.umin.i64(i64 %.184, i64 8192)
   %66 = trunc nuw nsw i64 %65 to i32
   %67 = call i32 @KeccakWidth1600_12rounds_SpongeInitialize(ptr noundef nonnull %0, i32 noundef 1344, i32 noundef 256) #3
   %.not77 = icmp eq i32 %67, 0
   br i1 %.not77, label %68, label %.loopexit
 
 68:                                               ; preds = %64
-  %69 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %0, ptr noundef %.184, i64 noundef %65) #3
+  %69 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %0, ptr noundef %.16283, i64 noundef %65) #3
   %.not78 = icmp eq i32 %69, 0
   br i1 %.not78, label %70, label %.loopexit
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %.184, i64 %65
-  %72 = sub i64 %.16383, %65
-  %73 = icmp ugt i64 %.16383, 8191
+  %71 = getelementptr inbounds i8, ptr %.16283, i64 %65
+  %72 = sub i64 %.184, %65
+  %73 = icmp ugt i64 %.184, 8191
   br i1 %73, label %74, label %82
 
 74:                                               ; preds = %70
@@ -184,8 +184,8 @@ define range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef %1
   br i1 %.not76, label %.loopexit, label %64, !llvm.loop !6
 
 .loopexit:                                        ; preds = %64, %68, %74, %78, %80, %83, %61, %58, %56, %52, %38, %31, %15, %3
-  %.0 = phi i32 [ 1, %3 ], [ 1, %15 ], [ 1, %31 ], [ 1, %38 ], [ 1, %52 ], [ 1, %56 ], [ 1, %58 ], [ 0, %61 ], [ 1, %64 ], [ 1, %68 ], [ 1, %74 ], [ 1, %78 ], [ 1, %80 ], [ 0, %83 ]
-  ret i32 %.0
+  %.063 = phi i32 [ 1, %3 ], [ 1, %15 ], [ 1, %31 ], [ 1, %38 ], [ 1, %52 ], [ 1, %56 ], [ 1, %58 ], [ 0, %61 ], [ 1, %64 ], [ 1, %68 ], [ 1, %74 ], [ 1, %78 ], [ 1, %80 ], [ 0, %83 ]
+  ret i32 %.063
 }
 
 declare i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1

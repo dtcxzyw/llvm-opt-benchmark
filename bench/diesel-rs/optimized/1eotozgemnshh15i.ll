@@ -174,9 +174,9 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define zeroext i1 @"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h3c94194854c64a15E"(ptr nocapture readnone align 1 %0, i32 %1) unnamed_addr #3 {
   %3 = add i32 %1, -58
-  %.0.i = icmp ult i32 %3, -10
+  %.05.i = icmp ult i32 %3, -10
   %4 = icmp ne i32 %1, 95
-  %spec.select.i = and i1 %4, %.0.i
+  %spec.select.i = and i1 %4, %.05.i
   ret i1 %spec.select.i
 }
 

@@ -35,15 +35,15 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %switch.masked, label %.preheader, label %.preheader258
 
 .preheader:                                       ; preds = %14, %29
-  %.0221266 = phi i32 [ %.0221, %29 ], [ 2, %14 ]
+  %.0223266 = phi i32 [ %.0223, %29 ], [ 2, %14 ]
   br label %15
 
 15:                                               ; preds = %.preheader, %24
-  %.0223264 = phi i32 [ %.0221266, %.preheader ], [ %19, %24 ]
-  %16 = zext nneg i32 %.0223264 to i64
+  %.0221264 = phi i32 [ %.0223266, %.preheader ], [ %19, %24 ]
+  %16 = zext nneg i32 %.0221264 to i64
   %17 = getelementptr inbounds i32, ptr %7, i64 %16
   %18 = load i32, ptr %17, align 4
-  %19 = add nsw i32 %.0223264, -1
+  %19 = add nsw i32 %.0221264, -1
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds i32, ptr %7, i64 %20
   %22 = load i32, ptr %21, align 4
@@ -59,24 +59,24 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %28 = load i32, ptr %27, align 4
   store i32 %28, ptr %25, align 4
   store i32 %26, ptr %27, align 4
-  %.not251.not = icmp sgt i32 %.0223264, 2
+  %.not251.not = icmp sgt i32 %.0221264, 2
   br i1 %.not251.not, label %15, label %29, !llvm.loop !4
 
 29:                                               ; preds = %15, %24
-  %.0221 = add nuw i32 %.0221266, 1
-  %exitcond268.not = icmp eq i32 %.0221266, %10
+  %.0223 = add nuw i32 %.0223266, 1
+  %exitcond268.not = icmp eq i32 %.0223266, %10
   br i1 %exitcond268.not, label %.thread255, label %.preheader, !llvm.loop !6
 
 .preheader258:                                    ; preds = %14, %44
-  %.1222263 = phi i32 [ %.1222, %44 ], [ 2, %14 ]
+  %.1224263 = phi i32 [ %.1224, %44 ], [ 2, %14 ]
   br label %30
 
 30:                                               ; preds = %.preheader258, %39
-  %.1224261 = phi i32 [ %.1222263, %.preheader258 ], [ %34, %39 ]
-  %31 = zext nneg i32 %.1224261 to i64
+  %.1222261 = phi i32 [ %.1224263, %.preheader258 ], [ %34, %39 ]
+  %31 = zext nneg i32 %.1222261 to i64
   %32 = getelementptr inbounds i32, ptr %7, i64 %31
   %33 = load i32, ptr %32, align 4
-  %34 = add nsw i32 %.1224261, -1
+  %34 = add nsw i32 %.1222261, -1
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds i32, ptr %7, i64 %35
   %37 = load i32, ptr %36, align 4
@@ -92,12 +92,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %43 = load i32, ptr %42, align 4
   store i32 %43, ptr %40, align 4
   store i32 %41, ptr %42, align 4
-  %.not249.not = icmp sgt i32 %.1224261, 2
+  %.not249.not = icmp sgt i32 %.1222261, 2
   br i1 %.not249.not, label %30, label %44, !llvm.loop !7
 
 44:                                               ; preds = %30, %39
-  %.1222 = add nuw i32 %.1222263, 1
-  %exitcond.not = icmp eq i32 %.1222263, %10
+  %.1224 = add nuw i32 %.1224263, 1
+  %exitcond.not = icmp eq i32 %.1224263, %10
   br i1 %exitcond.not, label %.thread255, label %.preheader258, !llvm.loop !8
 
 .thread255.sink.split:                            ; preds = %switch.hole_check, %5, %switch.lookup

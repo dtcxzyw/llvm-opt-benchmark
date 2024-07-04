@@ -4622,11 +4622,11 @@ if.then109:                                       ; preds = %if.end107
 
 for.cond113.outer:                                ; preds = %if.end221, %if.then109
   %26 = phi i32 [ %.pre, %if.end221 ], [ 1, %if.then109 ]
-  %err.14.ph = phi i32 [ %err.20, %if.end221 ], [ 0, %if.then109 ]
-  %x.2.ph = phi i32 [ %.us-phi190, %if.end221 ], [ 0, %if.then109 ]
-  %nibble.0.ph = phi i32 [ %.us-phi191, %if.end221 ], [ 3, %if.then109 ]
-  %bitbufB.0.ph = phi i32 [ %.us-phi195, %if.end221 ], [ %conv112, %if.then109 ]
   %bitbufA.0.ph = phi i32 [ %.us-phi194, %if.end221 ], [ %conv, %if.then109 ]
+  %bitbufB.0.ph = phi i32 [ %.us-phi195, %if.end221 ], [ %conv112, %if.then109 ]
+  %nibble.0.ph = phi i32 [ %.us-phi190, %if.end221 ], [ 3, %if.then109 ]
+  %err.14.ph = phi i32 [ %err.20, %if.end221 ], [ 0, %if.then109 ]
+  %x.2.ph = phi i32 [ %.us-phi191, %if.end221 ], [ 0, %if.then109 ]
   %.fr = freeze i32 %26
   %cmp146 = icmp eq i32 %.fr, 1
   br i1 %cmp146, label %for.cond113, label %for.cond113.outer.split.us
@@ -4634,7 +4634,7 @@ for.cond113.outer:                                ; preds = %if.end221, %if.then
 for.cond113.outer.split.us:                       ; preds = %for.cond113.outer
   %cmp114.us = icmp slt i32 %x.2.ph, %cond
   %cmp116.us = icmp ne i32 %nibble.0.ph, 3
-  %27 = or i1 %cmp114.us, %cmp116.us
+  %27 = or i1 %cmp116.us, %cmp114.us
   br i1 %27, label %for.body118.us, label %if.end223
 
 for.body118.us:                                   ; preds = %for.cond113.outer.split.us
@@ -4658,10 +4658,10 @@ if.end126.us:                                     ; preds = %if.then122.us
   br label %if.end134.us
 
 if.end134.us:                                     ; preds = %if.end126.us, %for.body118.us
-  %x.3.us = phi i32 [ %inc133.us, %if.end126.us ], [ %x.2.ph, %for.body118.us ]
-  %nibble.1.us = phi i32 [ 0, %if.end126.us ], [ %inc119.us, %for.body118.us ]
-  %bitbufB.1.us = phi i32 [ %conv132.us, %if.end126.us ], [ %bitbufB.0.ph, %for.body118.us ]
   %bitbufA.1.us = phi i32 [ %conv129.us, %if.end126.us ], [ %bitbufA.0.ph, %for.body118.us ]
+  %bitbufB.1.us = phi i32 [ %conv132.us, %if.end126.us ], [ %bitbufB.0.ph, %for.body118.us ]
+  %nibble.1.us = phi i32 [ 0, %if.end126.us ], [ %inc119.us, %for.body118.us ]
+  %x.3.us = phi i32 [ %inc133.us, %if.end126.us ], [ %x.2.ph, %for.body118.us ]
   %shr.us = lshr i32 %bitbufA.1.us, 6
   %and.us = and i32 %shr.us, 3
   %shr135.us = lshr i32 %bitbufB.1.us, 6
@@ -4673,13 +4673,13 @@ if.end134.us:                                     ; preds = %if.end126.us, %for.
   br label %if.end149
 
 for.cond113:                                      ; preds = %for.cond113.outer, %if.end134
-  %x.2 = phi i32 [ %x.3, %if.end134 ], [ %x.2.ph, %for.cond113.outer ]
-  %nibble.0 = phi i32 [ %nibble.1, %if.end134 ], [ %nibble.0.ph, %for.cond113.outer ]
-  %bitbufB.0 = phi i32 [ %and140, %if.end134 ], [ %bitbufB.0.ph, %for.cond113.outer ]
   %bitbufA.0 = phi i32 [ %and138, %if.end134 ], [ %bitbufA.0.ph, %for.cond113.outer ]
+  %bitbufB.0 = phi i32 [ %and140, %if.end134 ], [ %bitbufB.0.ph, %for.cond113.outer ]
+  %nibble.0 = phi i32 [ %nibble.1, %if.end134 ], [ %nibble.0.ph, %for.cond113.outer ]
+  %x.2 = phi i32 [ %x.3, %if.end134 ], [ %x.2.ph, %for.cond113.outer ]
   %cmp114 = icmp slt i32 %x.2, %cond
   %cmp116 = icmp ne i32 %nibble.0, 3
-  %30 = or i1 %cmp114, %cmp116
+  %30 = or i1 %cmp116, %cmp114
   br i1 %30, label %for.body118, label %if.end223
 
 for.body118:                                      ; preds = %for.cond113
@@ -4703,10 +4703,10 @@ if.end126:                                        ; preds = %if.then122
   br label %if.end134
 
 if.end134:                                        ; preds = %if.end126, %for.body118
-  %x.3 = phi i32 [ %inc133, %if.end126 ], [ %x.2, %for.body118 ]
-  %nibble.1 = phi i32 [ 0, %if.end126 ], [ %inc119, %for.body118 ]
-  %bitbufB.1 = phi i32 [ %conv132, %if.end126 ], [ %bitbufB.0, %for.body118 ]
   %bitbufA.1 = phi i32 [ %conv129, %if.end126 ], [ %bitbufA.0, %for.body118 ]
+  %bitbufB.1 = phi i32 [ %conv132, %if.end126 ], [ %bitbufB.0, %for.body118 ]
+  %nibble.1 = phi i32 [ 0, %if.end126 ], [ %inc119, %for.body118 ]
+  %x.3 = phi i32 [ %inc133, %if.end126 ], [ %x.2, %for.body118 ]
   %shr = lshr i32 %bitbufA.1, 6
   %and = and i32 %shr, 3
   %shr135 = lshr i32 %bitbufB.1, 6
@@ -4721,8 +4721,8 @@ if.end134:                                        ; preds = %if.end126, %for.bod
   br i1 %or.cond6, label %for.cond113, label %if.end149, !llvm.loop !23
 
 if.end149:                                        ; preds = %if.end134, %if.end134.us
-  %.us-phi190 = phi i32 [ %x.3.us, %if.end134.us ], [ %x.3, %if.end134 ]
-  %.us-phi191 = phi i32 [ %nibble.1.us, %if.end134.us ], [ %nibble.1, %if.end134 ]
+  %.us-phi190 = phi i32 [ %nibble.1.us, %if.end134.us ], [ %nibble.1, %if.end134 ]
+  %.us-phi191 = phi i32 [ %x.3.us, %if.end134.us ], [ %x.3, %if.end134 ]
   %.us-phi192 = phi i32 [ %and.us, %if.end134.us ], [ %and, %if.end134 ]
   %.us-phi193 = phi i32 [ %and136.us, %if.end134.us ], [ %and136, %if.end134 ]
   %.us-phi194 = phi i32 [ %and138.us, %if.end134.us ], [ %and138, %if.end134 ]
@@ -4754,7 +4754,7 @@ if.end163:                                        ; preds = %if.then160, %if.end
 
 if.then169:                                       ; preds = %if.end163
   %shl170 = shl nuw nsw i32 %.us-phi193, 2
-  %add171 = or disjoint i32 %.us-phi192, %shl170
+  %add171 = or disjoint i32 %shl170, %.us-phi192
   %35 = load i32, ptr %first, align 4
   %cmp172 = icmp eq i32 %35, 1
   br i1 %cmp172, label %if.then174, label %if.else208

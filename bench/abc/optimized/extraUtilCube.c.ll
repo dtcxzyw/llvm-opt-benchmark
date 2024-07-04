@@ -336,19 +336,19 @@ Abc_Clock.exit140:                                ; preds = %Abc_Clock.exit138, 
 
 .preheader149:                                    ; preds = %Abc_Clock.exit140, %Abc_Clock.exit147
   %.1170 = phi i32 [ 2, %Abc_Clock.exit140 ], [ %197, %Abc_Clock.exit147 ]
-  %.1115169 = phi i32 [ 10, %Abc_Clock.exit140 ], [ %.2116.lcssa, %Abc_Clock.exit147 ]
-  %.0120167 = phi i32 [ 1, %Abc_Clock.exit140 ], [ %.1115169, %Abc_Clock.exit147 ]
-  %150 = icmp slt i32 %.0120167, %.1115169
+  %.1112169 = phi i32 [ 10, %Abc_Clock.exit140 ], [ %.2.lcssa, %Abc_Clock.exit147 ]
+  %.0114167 = phi i32 [ 1, %Abc_Clock.exit140 ], [ %.1112169, %Abc_Clock.exit147 ]
+  %150 = icmp slt i32 %.0114167, %.1112169
   br i1 %150, label %.preheader.preheader, label %._crit_edge
 
 .preheader.preheader:                             ; preds = %.preheader149
-  %151 = sext i32 %.0120167 to i64
-  %wide.trip.count = sext i32 %.1115169 to i64
+  %151 = sext i32 %.0114167 to i64
+  %wide.trip.count = sext i32 %.1112169 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %184
   %indvars.iv202 = phi i64 [ %151, %.preheader.preheader ], [ %indvars.iv.next203, %184 ]
-  %.2116165 = phi i32 [ %.1115169, %.preheader.preheader ], [ %spec.select, %184 ]
+  %.2166 = phi i32 [ %.1112169, %.preheader.preheader ], [ %spec.select, %184 ]
   %.idx208 = mul i64 %indvars.iv202, 24
   br label %153
 
@@ -359,11 +359,11 @@ Abc_Clock.exit140:                                ; preds = %Abc_Clock.exit138, 
 
 153:                                              ; preds = %.preheader, %152
   %indvars.iv198 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next199, %152 ]
-  %.3117163 = phi i32 [ %.2116165, %.preheader ], [ %spec.select, %152 ]
+  %.3164 = phi i32 [ %.2166, %.preheader ], [ %spec.select, %152 ]
   %.val = load ptr, ptr %10, align 8
   %154 = getelementptr inbounds i8, ptr %.val, i64 %.idx208
   %155 = getelementptr inbounds [9 x [24 x i8]], ptr %7, i64 0, i64 %indvars.iv198
-  %156 = mul nsw i32 %.3117163, 6
+  %156 = mul nsw i32 %.3164, 6
   %157 = sext i32 %156 to i64
   %158 = getelementptr inbounds i32, ptr %.val, i64 %157
   br label %159
@@ -382,10 +382,10 @@ Abc_Clock.exit140:                                ; preds = %Abc_Clock.exit138, 
   br i1 %exitcond.not.i143, label %Abc_StatePerm.exit, label %159, !llvm.loop !14
 
 Abc_StatePerm.exit:                               ; preds = %159
-  %166 = call fastcc i32 @Hsh_IntManAdd(ptr noundef nonnull %11, i32 noundef %.3117163)
-  %167 = icmp eq i32 %166, %.3117163
+  %166 = call fastcc i32 @Hsh_IntManAdd(ptr noundef nonnull %11, i32 noundef %.3164)
+  %167 = icmp eq i32 %166, %.3164
   %168 = zext i1 %167 to i32
-  %spec.select = add nsw i32 %.3117163, %168
+  %spec.select = add nsw i32 %.3164, %168
   %169 = icmp eq i32 %spec.select, 4194304
   br i1 %169, label %170, label %152
 
@@ -421,8 +421,8 @@ Abc_Clock.exit145:                                ; preds = %170, %174
   br i1 %exitcond205.not, label %._crit_edge, label %.preheader, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %184, %.preheader149
-  %.2116.lcssa = phi i32 [ %.1115169, %.preheader149 ], [ %spec.select, %184 ]
-  %185 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.1170, i32 noundef %.2116.lcssa)
+  %.2.lcssa = phi i32 [ %.1112169, %.preheader149 ], [ %spec.select, %184 ]
+  %185 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.1170, i32 noundef %.2.lcssa)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
   %186 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #17
   %187 = icmp slt i32 %186, 0
@@ -446,7 +446,7 @@ Abc_Clock.exit147:                                ; preds = %._crit_edge, %188
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, double noundef %196)
   %197 = add nuw nsw i32 %.1170, 1
   %198 = icmp ugt i32 %.1170, 99
-  %199 = icmp eq i32 %.1115169, %.2116.lcssa
+  %199 = icmp eq i32 %.1112169, %.2.lcssa
   %or.cond = or i1 %198, %199
   br i1 %or.cond, label %200, label %.preheader149, !llvm.loop !16
 
@@ -1387,19 +1387,19 @@ Abc_Clock.exit144:                                ; preds = %Abc_Clock.exit142, 
 
 .preheader:                                       ; preds = %Abc_Clock.exit144, %Abc_Clock.exit151
   %.1173 = phi i32 [ 2, %Abc_Clock.exit144 ], [ %579, %Abc_Clock.exit151 ]
-  %.0116172 = phi i32 [ 1, %Abc_Clock.exit144 ], [ %.0117171, %Abc_Clock.exit151 ]
-  %.0117171 = phi i32 [ 10, %Abc_Clock.exit144 ], [ %.2120.lcssa, %Abc_Clock.exit151 ]
-  %444 = icmp slt i32 %.0116172, %.0117171
+  %.1114172 = phi i32 [ 10, %Abc_Clock.exit144 ], [ %.2.lcssa, %Abc_Clock.exit151 ]
+  %.0116170 = phi i32 [ 1, %Abc_Clock.exit144 ], [ %.1114172, %Abc_Clock.exit151 ]
+  %444 = icmp slt i32 %.0116170, %.1114172
   br i1 %444, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %445 = sext i32 %.0116172 to i64
-  %wide.trip.count = sext i32 %.0117171 to i64
+  %445 = sext i32 %.0116170 to i64
+  %wide.trip.count = sext i32 %.1114172 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %566
   %indvars.iv201 = phi i64 [ %445, %.lr.ph.preheader ], [ %indvars.iv.next202, %566 ]
-  %.2120168 = phi i32 [ %.0117171, %.lr.ph.preheader ], [ %.4122, %566 ]
+  %.2169 = phi i32 [ %.1114172, %.lr.ph.preheader ], [ %.4, %566 ]
   %.idx = mul i64 %indvars.iv201, 24
   %446 = getelementptr inbounds i8, ptr %calloc.i, i64 %.idx
   br label %448
@@ -1411,8 +1411,8 @@ Abc_Clock.exit144:                                ; preds = %Abc_Clock.exit142, 
 
 448:                                              ; preds = %.lr.ph, %447
   %indvars.iv197 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next198, %447 ]
-  %.3121166 = phi i32 [ %.2120168, %.lr.ph ], [ %.4122, %447 ]
-  %449 = mul nsw i32 %.3121166, 6
+  %.3167 = phi i32 [ %.2169, %.lr.ph ], [ %.4, %447 ]
+  %449 = mul nsw i32 %.3167, 6
   %450 = sext i32 %449 to i64
   %451 = getelementptr inbounds i32, ptr %calloc.i, i64 %450
   %452 = getelementptr inbounds [9 x [24 x i8]], ptr %7, i64 0, i64 %indvars.iv197
@@ -1525,12 +1525,12 @@ Abc_StatePerm.exit:                               ; preds = %453
 547:                                              ; preds = %Abc_StatePerm.exit
   %548 = xor i64 %543, %545
   store i64 %548, ptr %542, align 8
-  %549 = add nsw i32 %.3121166, 1
+  %549 = add nsw i32 %.3167, 1
   br label %550
 
 550:                                              ; preds = %547, %Abc_StatePerm.exit
-  %.4122 = phi i32 [ %.3121166, %Abc_StatePerm.exit ], [ %549, %547 ]
-  %551 = icmp eq i32 %.4122, 4194304
+  %.4 = phi i32 [ %.3167, %Abc_StatePerm.exit ], [ %549, %547 ]
+  %551 = icmp eq i32 %.4, 4194304
   br i1 %551, label %552, label %447
 
 552:                                              ; preds = %550
@@ -1565,8 +1565,8 @@ Abc_Clock.exit149:                                ; preds = %552, %556
   br i1 %exitcond204.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %566, %.preheader
-  %.2120.lcssa = phi i32 [ %.0117171, %.preheader ], [ %.4122, %566 ]
-  %567 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.1173, i32 noundef %.2120.lcssa)
+  %.2.lcssa = phi i32 [ %.1114172, %.preheader ], [ %.4, %566 ]
+  %567 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.1173, i32 noundef %.2.lcssa)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
   %568 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #17
   %569 = icmp slt i32 %568, 0
@@ -1590,7 +1590,7 @@ Abc_Clock.exit151:                                ; preds = %._crit_edge, %570
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, double noundef %578)
   %579 = add nuw nsw i32 %.1173, 1
   %580 = icmp ugt i32 %.1173, 99
-  %581 = icmp eq i32 %.0117171, %.2120.lcssa
+  %581 = icmp eq i32 %.1114172, %.2.lcssa
   %or.cond = or i1 %580, %581
   br i1 %or.cond, label %582, label %.preheader, !llvm.loop !28
 

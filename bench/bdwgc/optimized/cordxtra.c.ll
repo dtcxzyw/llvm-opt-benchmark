@@ -368,7 +368,7 @@ define i32 @CORD_ncmp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nounde
   br label %16
 
 16:                                               ; preds = %.lr.ph, %100
-  %.02647 = phi i64 [ 0, %.lr.ph ], [ %.1, %100 ]
+  %.02747 = phi i64 [ 0, %.lr.ph ], [ %.128, %100 ]
   %17 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %17, 1431655765
   %18 = load i32, ptr %9, align 8
@@ -474,14 +474,14 @@ define i32 @CORD_ncmp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nounde
   br label %71
 
 71:                                               ; preds = %70, %69
-  %72 = add nuw i64 %.02647, 1
+  %72 = add nuw i64 %.02747, 1
   br label %100
 
 73:                                               ; preds = %27
   %spec.select = call i64 @llvm.umin.i64(i64 %25, i64 %30)
-  %74 = add i64 %spec.select, %.02647
+  %74 = add i64 %spec.select, %.02747
   %75 = call i64 @llvm.usub.sat.i64(i64 %74, i64 %4)
-  %.128 = sub i64 %spec.select, %75
+  %.1 = sub i64 %spec.select, %75
   %76 = load ptr, ptr %12, align 16
   %77 = load i64, ptr %13, align 8
   %78 = sub i64 %24, %77
@@ -490,15 +490,15 @@ define i32 @CORD_ncmp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nounde
   %81 = load i64, ptr %15, align 8
   %82 = sub i64 %29, %81
   %83 = getelementptr inbounds i8, ptr %80, i64 %82
-  %84 = call i32 @strncmp(ptr noundef %79, ptr noundef %83, i64 noundef %.128) #20
+  %84 = call i32 @strncmp(ptr noundef %79, ptr noundef %83, i64 noundef %.1) #20
   %.not42 = icmp eq i32 %84, 0
   br i1 %.not42, label %85, label %.loopexit
 
 85:                                               ; preds = %73
-  %86 = add nsw i64 %.128, -1
+  %86 = add nsw i64 %.1, -1
   %87 = add i64 %86, %24
   store i64 %87, ptr %6, align 16
-  %88 = add i64 %.128, %24
+  %88 = add i64 %.1, %24
   %89 = icmp ult i64 %88, %23
   br i1 %89, label %90, label %91
 
@@ -517,7 +517,7 @@ define i32 @CORD_ncmp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nounde
   %94 = phi i64 [ %.pre, %91 ], [ %29, %90 ]
   %95 = add i64 %94, %86
   store i64 %95, ptr %7, align 16
-  %96 = add i64 %94, %.128
+  %96 = add i64 %94, %.1
   %97 = icmp ult i64 %96, %93
   br i1 %97, label %98, label %99
 
@@ -530,8 +530,8 @@ define i32 @CORD_ncmp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 nounde
   br label %100
 
 100:                                              ; preds = %98, %99, %71
-  %.1 = phi i64 [ %72, %71 ], [ %74, %98 ], [ %74, %99 ]
-  %101 = icmp ult i64 %.1, %4
+  %.128 = phi i64 [ %72, %71 ], [ %74, %98 ], [ %74, %99 ]
+  %101 = icmp ult i64 %.128, %4
   br i1 %101, label %16, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %21, %73, %100, %5, %53, %19
@@ -1443,25 +1443,25 @@ define internal range(i32 0, 2) i32 @CORD_batched_fill_proc(ptr nocapture nounde
   br label %8
 
 8:                                                ; preds = %11, %2
-  %.016 = phi i64 [ %4, %2 ], [ %13, %11 ]
+  %.015 = phi i64 [ %4, %2 ], [ %13, %11 ]
   %.0 = phi ptr [ %0, %2 ], [ %12, %11 ]
   %9 = load i8, ptr %.0, align 1
-  %10 = getelementptr inbounds i8, ptr %7, i64 %.016
+  %10 = getelementptr inbounds i8, ptr %7, i64 %.015
   store i8 %9, ptr %10, align 1
   %.not = icmp eq i8 %9, 0
   br i1 %.not, label %14, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %.0, i64 1
-  %13 = add i64 %.016, 1
+  %13 = add i64 %.015, 1
   %.not18 = icmp ult i64 %13, %5
   br i1 %.not18, label %8, label %14, !llvm.loop !10
 
 14:                                               ; preds = %8, %11
-  %storemerge = phi i64 [ %13, %11 ], [ %.016, %8 ]
-  %.015 = phi i32 [ 1, %11 ], [ 0, %8 ]
+  %storemerge = phi i64 [ %13, %11 ], [ %.015, %8 ]
+  %.016 = phi i32 [ 1, %11 ], [ 0, %8 ]
   store i64 %storemerge, ptr %3, align 8
-  ret i32 %.015
+  ret i32 %.016
 }
 
 ; Function Attrs: nofree nounwind

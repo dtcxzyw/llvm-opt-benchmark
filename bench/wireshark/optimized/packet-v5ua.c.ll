@@ -530,7 +530,7 @@ dissect_common_header.exit.i:                     ; preds = %65, %64
   %79 = icmp ult i16 %72, 5
   %80 = add nuw nsw i32 %75, 4
   %spec.select.i.i = select i1 %79, i32 %80, i32 %75
-  %.029.i.i = select i1 %77, i32 %78, i32 %spec.select.i.i
+  %.030.i.i = select i1 %77, i32 %78, i32 %spec.select.i.i
   %81 = load i32, ptr @msg_class, align 4
   %or.cond.i.i = icmp ult i32 %81, 2
   %82 = icmp eq i32 %81, 9
@@ -539,7 +539,7 @@ dissect_common_header.exit.i:                     ; preds = %65, %64
   %84 = icmp slt i32 %83, 11
   %or.cond5.i.i = select i1 %or.cond3.i.i, i1 %84, i1 false
   %85 = load i32, ptr @msg_length, align 4
-  %spec.select34.i.i = select i1 %or.cond5.i.i, i32 %85, i32 %.029.i.i
+  %spec.select34.i.i = select i1 %or.cond5.i.i, i32 %85, i32 %.030.i.i
   br label %86
 
 86:                                               ; preds = %76, %70
@@ -548,8 +548,8 @@ dissect_common_header.exit.i:                     ; preds = %65, %64
   %88 = and i32 %87, -4
   %.not33.i.i = icmp slt i32 %71, %.1.i.i
   %89 = call i32 @llvm.smin.i32(i32 %88, i32 %71)
-  %.030.i.i = select i1 %.not33.i.i, i32 %88, i32 %89
-  %90 = call ptr @tvb_new_subset_length(ptr noundef %67, i32 noundef %.02.i.i, i32 noundef %.030.i.i) #4
+  %.029.i.i = select i1 %.not33.i.i, i32 %88, i32 %89
+  %90 = call ptr @tvb_new_subset_length(ptr noundef %67, i32 noundef %.02.i.i, i32 noundef %.029.i.i) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %91 = call zeroext i16 @tvb_get_ntohs(ptr noundef %90, i32 noundef 0) #4
   %92 = call zeroext i16 @tvb_get_ntohs(ptr noundef %90, i32 noundef 2) #4
@@ -561,8 +561,8 @@ dissect_common_header.exit.i:                     ; preds = %65, %64
 
 95:                                               ; preds = %86
   %96 = icmp eq i16 %91, 1
-  %.0.v.i.i.i = select i1 %96, i16 8, i16 4
-  %.0.i.i.i = add i16 %.0.v.i.i.i, %92
+  %.0115.v.i.i.i = select i1 %96, i16 8, i16 4
+  %.0115.i.i.i = add i16 %.0115.v.i.i.i, %92
   %97 = load i32, ptr @msg_class, align 4
   %or.cond4.i.i.i = icmp ult i32 %97, 2
   %98 = icmp eq i32 %97, 9
@@ -578,7 +578,7 @@ dissect_common_header.exit.i:                     ; preds = %65, %64
   br label %104
 
 104:                                              ; preds = %101, %95, %86
-  %.1.i.i.i = phi i16 [ %103, %101 ], [ %.0.i.i.i, %95 ], [ %92, %86 ]
+  %.1.i.i.i = phi i16 [ %103, %101 ], [ %.0115.i.i.i, %95 ], [ %92, %86 ]
   %105 = call i32 @tvb_reported_length(ptr noundef %90) #4
   %106 = zext i16 %.1.i.i.i to i32
   %107 = trunc i32 %105 to i16
@@ -718,8 +718,8 @@ dissect_draft_tei_status_parameter.exit.i.i:      ; preds = %151, %144
 173:                                              ; preds = %170
   %174 = call ptr @tvb_new_subset_length(ptr noundef %90, i32 noundef %166, i32 noundef %169) #4
   %175 = load ptr, ptr %9, align 8
-  %.b.i36.i.i = load i1, ptr @iua_version, align 4
-  %..i.i.i = select i1 %.b.i36.i.i, i32 0, i32 4
+  %.b.i35.i.i = load i1, ptr @iua_version, align 4
+  %..i.i.i = select i1 %.b.i35.i.i, i32 0, i32 4
   %176 = call zeroext i8 @tvb_get_guint8(ptr noundef %174, i32 noundef %..i.i.i) #4
   %177 = icmp eq i8 %176, 72
   %178 = call zeroext i16 @tvb_get_ntohs(ptr noundef %174, i32 noundef 2) #4
@@ -752,14 +752,14 @@ dissect_draft_tei_status_parameter.exit.i.i:      ; preds = %151, %144
   br label %194
 
 194:                                              ; preds = %190, %188
-  %.0.i35.i.i = phi i32 [ %193, %190 ], [ 4, %188 ]
+  %.0.i.i.i = phi i32 [ %193, %190 ], [ 4, %188 ]
   %195 = load i32, ptr @hf_release_reason, align 4
-  %196 = call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %195, ptr noundef %90, i32 noundef %.0.i35.i.i, i32 noundef 4, i32 noundef 0) #4
+  %196 = call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %195, ptr noundef %90, i32 noundef %.0.i.i.i, i32 noundef 4, i32 noundef 0) #4
   %.b.i.i.i = load i1, ptr @iua_version, align 4
   br i1 %.b.i.i.i, label %dissect_release_reason_parameter.exit.i.i.i, label %197
 
 197:                                              ; preds = %194
-  %198 = call i32 @tvb_get_ntohl(ptr noundef %90, i32 noundef %.0.i35.i.i) #4
+  %198 = call i32 @tvb_get_ntohl(ptr noundef %90, i32 noundef %.0.i.i.i) #4
   %199 = call ptr @val_to_str_const(i32 noundef %198, ptr noundef nonnull @release_reason_values, ptr noundef nonnull @.str.240) #4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %189, ptr noundef nonnull @.str.162, ptr noundef %199) #4
   br label %dissect_release_reason_parameter.exit.i.i.i
@@ -1066,7 +1066,7 @@ dissect_release_reason_parameter.exit.i.i.i:      ; preds = %dissect_unknown_par
 
 dissect_parameter.exit.i.i:                       ; preds = %378, %dissect_release_reason_parameter.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %381 = add i32 %.030.i.i, %.02.i.i
+  %381 = add i32 %.029.i.i, %.02.i.i
   %382 = call i32 @tvb_reported_length_remaining(ptr noundef %67, i32 noundef %381) #4
   %.not.i21.i = icmp eq i32 %382, 0
   br i1 %.not.i21.i, label %dissect_parameters.exit.i, label %70, !llvm.loop !7

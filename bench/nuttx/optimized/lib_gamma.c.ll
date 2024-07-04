@@ -82,7 +82,7 @@ define double @tgamma(double noundef %0) local_unnamed_addr #0 {
   %44 = fadd double %43, 0xC0161945B9800000
   %45 = fadd double %41, 0xC0161945B9800000
   %46 = fsub double %45, %40
-  %.050 = select i1 %42, double %44, double %46
+  %.049 = select i1 %42, double %44, double %46
   %47 = fadd double %40, -5.000000e-01
   %48 = fcmp olt double %40, 8.000000e+00
   br i1 %48, label %.preheader.i.preheader, label %.preheader25.i.preheader
@@ -179,27 +179,27 @@ sinpi.exit:                                       ; preds = %91, %93, %95, %98
   %101 = fmul double %40, %.0.i
   %102 = fmul double %76, %101
   %103 = fdiv double 0xC00921FB54442D18, %102
-  %104 = fneg double %.050
+  %104 = fneg double %.049
   %105 = fneg double %47
   br label %106
 
 106:                                              ; preds = %sinpi.exit, %s.exit
-  %.1 = phi double [ %104, %sinpi.exit ], [ %.050, %s.exit ]
-  %.049 = phi double [ %105, %sinpi.exit ], [ %47, %s.exit ]
-  %.048 = phi double [ %103, %sinpi.exit ], [ %76, %s.exit ]
+  %.1 = phi double [ %104, %sinpi.exit ], [ %.049, %s.exit ]
+  %.048 = phi double [ %105, %sinpi.exit ], [ %47, %s.exit ]
+  %.0 = phi double [ %103, %sinpi.exit ], [ %76, %s.exit ]
   %107 = fmul double %.1, 0x40181945B9800000
-  %108 = fmul double %107, %.048
+  %108 = fmul double %107, %.0
   %109 = fdiv double %108, %41
-  %110 = fadd double %.048, %109
-  %111 = fmul double %.049, 5.000000e-01
+  %110 = fadd double %.0, %109
+  %111 = fmul double %.048, 5.000000e-01
   %112 = tail call double @pow(double noundef %41, double noundef %111) #6
   %113 = fmul double %112, %110
   %114 = fmul double %112, %113
   br label %115
 
 115:                                              ; preds = %29, %17, %106, %37, %20, %12, %8
-  %.0 = phi double [ %9, %8 ], [ %13, %12 ], [ %25, %20 ], [ %38, %37 ], [ %114, %106 ], [ 0x7FF8000000000000, %17 ], [ %., %29 ]
-  ret double %.0
+  %.050 = phi double [ %9, %8 ], [ %13, %12 ], [ %25, %20 ], [ %38, %37 ], [ %114, %106 ], [ 0x7FF8000000000000, %17 ], [ %., %29 ]
+  ret double %.050
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

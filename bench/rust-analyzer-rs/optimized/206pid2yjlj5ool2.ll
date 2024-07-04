@@ -1852,8 +1852,8 @@ define hidden void @_ZN7ide_ssr8matching7Matcher9try_match17h42afc2c25e2e9283E(p
   br label %59
 
 59:                                               ; preds = %.thread165, %47
-  %.sroa.6.sroa.0.0152177.ph = phi i32 [ %42, %47 ], [ %.sroa.0139.0.copyload, %.thread165 ]
-  %.sroa.6.sroa.6.0155175.ph = phi i32 [ %44, %47 ], [ %.sroa.4140.0.copyload, %.thread165 ]
+  %.sroa.6.sroa.6.0152177.ph = phi i32 [ %44, %47 ], [ %.sroa.4140.0.copyload, %.thread165 ]
+  %.sroa.6.sroa.0.0155175.ph = phi i32 [ %42, %47 ], [ %.sroa.0139.0.copyload, %.thread165 ]
   %.sroa.6.sroa.7.0158173.ph = phi i32 [ 19, %47 ], [ %.sroa.5141.0.copyload, %.thread165 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !142)
   %60 = load i32, ptr %28, align 8, !range !121, !alias.scope !142, !noalias !145, !noundef !4
@@ -1869,8 +1869,8 @@ define hidden void @_ZN7ide_ssr8matching7Matcher9try_match17h42afc2c25e2e9283E(p
 64:                                               ; preds = %61
   %65 = getelementptr inbounds i8, ptr %28, i64 4
   %66 = load i32, ptr %65, align 4, !alias.scope !142, !noalias !145, !noundef !4
-  %67 = icmp ult i32 %66, %.sroa.6.sroa.0.0152177.ph
-  %68 = icmp ne i32 %66, %.sroa.6.sroa.0.0152177.ph
+  %67 = icmp ult i32 %66, %.sroa.6.sroa.0.0155175.ph
+  %68 = icmp ne i32 %66, %.sroa.6.sroa.0.0155175.ph
   %..i.i = zext i1 %68 to i8
   %.012.i.i = select i1 %67, i8 -1, i8 %..i.i
   switch i8 %.012.i.i, label %_ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit.thread.i [
@@ -1881,7 +1881,7 @@ define hidden void @_ZN7ide_ssr8matching7Matcher9try_match17h42afc2c25e2e9283E(p
 _ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit.i: ; preds = %64, %64
   %69 = getelementptr inbounds i8, ptr %28, i64 8
   %70 = load i32, ptr %69, align 8, !alias.scope !142, !noalias !145, !noundef !4
-  %.not.i.not.i = icmp ugt i32 %.sroa.6.sroa.6.0155175.ph, %70
+  %.not.i.not.i = icmp ugt i32 %.sroa.6.sroa.6.0152177.ph, %70
   br i1 %.not.i.not.i, label %_ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit.thread.i, label %_ZN7ide_ssr8matching7Matcher14validate_range17h0fb193d19247ab9cE.exit.thread
 
 _ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit.thread.i: ; preds = %_ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit.i, %64, %61
@@ -1932,9 +1932,9 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit: ; preds = %_ZN7ide_ss
   %86 = getelementptr inbounds i8, ptr %1, i64 112
   %87 = load i64, ptr %86, align 8, !noundef !4
   %88 = getelementptr inbounds i8, ptr %23, i64 112
-  store i32 %.sroa.6.sroa.0.0152177.ph, ptr %88, align 8
+  store i32 %.sroa.6.sroa.0.0155175.ph, ptr %88, align 8
   %.sroa.4.0..sroa_idx126 = getelementptr inbounds i8, ptr %23, i64 116
-  store i32 %.sroa.6.sroa.6.0155175.ph, ptr %.sroa.4.0..sroa_idx126, align 4
+  store i32 %.sroa.6.sroa.6.0152177.ph, ptr %.sroa.4.0..sroa_idx126, align 4
   %.sroa.5127.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 120
   store i32 %.sroa.6.sroa.7.0158173.ph, ptr %.sroa.5127.0..sroa_idx, align 8
   %89 = getelementptr inbounds i8, ptr %23, i64 24
@@ -2479,9 +2479,9 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i65.i: ; preds = %221
   br label %250
 
 245:                                              ; preds = %235, %187
-  %.sroa.0128.0 = phi i64 [ %.sroa.6.sroa.0.0.ph.i, %187 ], [ %.sroa.624.sroa.4.0.ph.i, %235 ]
-  %.sroa.6129.0 = phi ptr [ %.sroa.6.sroa.6.0.ph.i, %187 ], [ %.sroa.624.sroa.6.0.ph.i, %235 ]
   %.sroa.9.0 = phi i64 [ 30, %187 ], [ 53, %235 ]
+  %.sroa.6129.0 = phi ptr [ %.sroa.6.sroa.6.0.ph.i, %187 ], [ %.sroa.624.sroa.6.0.ph.i, %235 ]
+  %.sroa.0128.0 = phi i64 [ %.sroa.6.sroa.0.0.ph.i, %187 ], [ %.sroa.624.sroa.4.0.ph.i, %235 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %18)
   %246 = icmp eq i64 %.sroa.0128.0, -9223372036854775807
@@ -3353,8 +3353,8 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit: ; preds = %218
           to label %338 unwind label %.thread367.i
 
 336:                                              ; preds = %338, %330
-  %.sroa.0294.0.i = phi i64 [ %339, %338 ], [ 36, %330 ]
   %.sroa.6.0318.i = phi ptr [ %340, %338 ], [ undef, %330 ]
+  %.sroa.0294.0.i = phi i64 [ %339, %338 ], [ 36, %330 ]
   %337 = invoke { i64, ptr } @_ZN6syntax3ast9generated5nodes14MethodCallExpr8receiver17h5d8f18aa45ee631cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %65)
           to label %343 unwind label %396, !noalias !375
 
@@ -9254,7 +9254,7 @@ default.unreachable:                              ; preds = %468
   br label %378
 
 378:                                              ; preds = %.thread566, %369
-  %.sroa.640.sroa.6.0564572 = phi i32 [ %.sroa.4131.0.copyload, %.thread566 ], [ 19, %369 ]
+  %.sroa.640.sroa.6.0560573 = phi i32 [ %.sroa.4131.0.copyload, %.thread566 ], [ 19, %369 ]
   %379 = invoke { i32, i32 } @"_ZN5rowan3api125_$LT$impl$u20$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$L$GT$$C$rowan..api..SyntaxToken$LT$L$GT$$GT$$GT$10text_range17h30739e1a0a6c68b0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %44)
           to label %390 unwind label %.loopexit623
 
@@ -9318,7 +9318,7 @@ default.unreachable:                              ; preds = %468
   call void @llvm.experimental.noalias.scope.decl(metadata !1932)
   store i32 %.0.sroa.speculated.i.i, ptr %95, align 8, !alias.scope !1935
   store i32 %.0.sroa.speculated.i2.i, ptr %.sroa.5500.0..sroa_idx, align 4, !alias.scope !1935
-  store i32 %.sroa.640.sroa.6.0564572, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !1935
+  store i32 %.sroa.640.sroa.6.0560573, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !1935
   store i64 0, ptr %36, align 8, !alias.scope !1937, !noalias !1932
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1937, !noalias !1932
   store i8 0, ptr %96, align 4, !alias.scope !1937, !noalias !1932

@@ -4118,16 +4118,16 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %60
 
 60:                                               ; preds = %89, %57
-  %.026 = phi i32 [ 0, %57 ], [ %90, %89 ]
+  %.019 = phi i32 [ 0, %57 ], [ %90, %89 ]
   %61 = invoke noundef i32 @_ZNK24cmCustomCommandGenerator19GetNumberOfCommandsEv(ptr noundef nonnull align 8 dereferenceable(352) %1)
           to label %62 unwind label %66
 
 62:                                               ; preds = %60
-  %.not30 = icmp eq i32 %.026, %61
+  %.not30 = icmp eq i32 %.019, %61
   br i1 %.not30, label %99, label %63
 
 63:                                               ; preds = %62
-  invoke void @_ZNK24cmCustomCommandGenerator10GetCommandB5cxx11Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %.026)
+  invoke void @_ZNK24cmCustomCommandGenerator10GetCommandB5cxx11Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %.019)
           to label %64 unwind label %66
 
 64:                                               ; preds = %63
@@ -4181,12 +4181,12 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #22
   %87 = load ptr, ptr %58, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 -32
-  invoke void @_ZNK24cmCustomCommandGenerator15AppendArgumentsEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %.026, ptr noundef nonnull align 8 dereferenceable(32) %88)
+  invoke void @_ZNK24cmCustomCommandGenerator15AppendArgumentsEjRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %.019, ptr noundef nonnull align 8 dereferenceable(32) %88)
           to label %89 unwind label %91
 
 89:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit42, %64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #22
-  %90 = add i32 %.026, 1
+  %90 = add i32 %.019, 1
   br label %60, !llvm.loop !50
 
 91:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit42, %74, %68

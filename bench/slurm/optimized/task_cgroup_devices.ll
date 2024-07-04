@@ -147,8 +147,8 @@ define i32 @task_cgroup_devices_create(ptr noundef %0) local_unnamed_addr #0 {
   br label %37
 
 37:                                               ; preds = %34, %13, %28, %8
-  %.0 = phi i32 [ -1, %8 ], [ %36, %34 ], [ -1, %13 ], [ -1, %28 ]
-  ret i32 %.0
+  %.024 = phi i32 [ -1, %8 ], [ %36, %34 ], [ -1, %13 ], [ -1, %28 ]
+  ret i32 %.024
 }
 
 declare i32 @cgroup_g_step_create(i32 noundef, ptr noundef) local_unnamed_addr #1

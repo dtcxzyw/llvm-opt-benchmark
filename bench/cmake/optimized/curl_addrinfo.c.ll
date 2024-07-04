@@ -39,15 +39,15 @@ define dso_local i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not, label %.preheader, label %59
 
 .preheader:                                       ; preds = %4
-  %.05885 = load ptr, ptr %5, align 8
-  %.not7186 = icmp eq ptr %.05885, null
+  %.06185 = load ptr, ptr %5, align 8
+  %.not7186 = icmp eq ptr %.06185, null
   br i1 %.not7186, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %52
-  %.05889 = phi ptr [ %.058, %52 ], [ %.05885, %.preheader ]
-  %.05988 = phi ptr [ %.160, %52 ], [ null, %.preheader ]
-  %.06187 = phi ptr [ %.2, %52 ], [ null, %.preheader ]
-  %7 = getelementptr inbounds i8, ptr %.05889, i64 32
+  %.06189 = phi ptr [ %.061, %52 ], [ %.06185, %.preheader ]
+  %.05788 = phi ptr [ %.158, %52 ], [ null, %.preheader ]
+  %.05987 = phi ptr [ %.2, %52 ], [ null, %.preheader ]
+  %7 = getelementptr inbounds i8, ptr %.06189, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not72 = icmp eq ptr %8, null
   br i1 %.not72, label %12, label %9
@@ -59,7 +59,7 @@ define dso_local i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr no
 
 12:                                               ; preds = %.lr.ph, %9
   %13 = phi i64 [ %11, %9 ], [ 0, %.lr.ph ]
-  %14 = getelementptr inbounds i8, ptr %.05889, i64 4
+  %14 = getelementptr inbounds i8, ptr %.06189, i64 4
   %15 = load i32, ptr %14, align 4
   switch i32 %15, label %52 [
     i32 2, label %17
@@ -70,42 +70,42 @@ define dso_local i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr no
   br label %17
 
 17:                                               ; preds = %12, %16
-  %.057 = phi i64 [ 28, %16 ], [ 16, %12 ]
-  %18 = getelementptr inbounds i8, ptr %.05889, i64 24
+  %.056 = phi i64 [ 28, %16 ], [ 16, %12 ]
+  %18 = getelementptr inbounds i8, ptr %.06189, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not73 = icmp eq ptr %19, null
   br i1 %.not73, label %52, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %.05889, i64 16
+  %21 = getelementptr inbounds i8, ptr %.06189, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
-  %24 = icmp ugt i64 %.057, %23
+  %24 = icmp ugt i64 %.056, %23
   br i1 %24, label %52, label %25
 
 25:                                               ; preds = %20
   %26 = load ptr, ptr @Curl_cmalloc, align 8
   %27 = add i64 %13, 48
-  %28 = add i64 %27, %.057
+  %28 = add i64 %27, %.056
   %29 = call ptr %26(i64 noundef %28) #7
   %.not75 = icmp eq ptr %29, null
   br i1 %.not75, label %._crit_edge.thread110, label %30
 
 30:                                               ; preds = %25
-  %31 = load i32, ptr %.05889, align 8
+  %31 = load i32, ptr %.06189, align 8
   store i32 %31, ptr %29, align 8
   %32 = load i32, ptr %14, align 4
   %33 = getelementptr inbounds i8, ptr %29, i64 4
   store i32 %32, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %.05889, i64 8
+  %34 = getelementptr inbounds i8, ptr %.06189, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %29, i64 8
   store i32 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.05889, i64 12
+  %37 = getelementptr inbounds i8, ptr %.06189, i64 12
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds i8, ptr %29, i64 12
   store i32 %38, ptr %39, align 4
-  %40 = trunc nuw nsw i64 %.057 to i32
+  %40 = trunc nuw nsw i64 %.056 to i32
   %41 = getelementptr inbounds i8, ptr %29, i64 16
   store i32 %40, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %29, i64 32
@@ -114,34 +114,34 @@ define dso_local i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
   store ptr %44, ptr %42, align 8
   %45 = load ptr, ptr %18, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %44, ptr noundef nonnull align 2 dereferenceable(1) %45, i64 %.057, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %44, ptr noundef nonnull align 2 dereferenceable(1) %45, i64 %.056, i1 false)
   %.not79 = icmp eq i64 %13, 0
   br i1 %.not79, label %49, label %46
 
 46:                                               ; preds = %30
-  %47 = getelementptr inbounds i8, ptr %44, i64 %.057
+  %47 = getelementptr inbounds i8, ptr %44, i64 %.056
   store ptr %47, ptr %43, align 8
   %48 = load ptr, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr align 1 %48, i64 %13, i1 false)
   br label %49
 
 49:                                               ; preds = %46, %30
-  %.not80 = icmp eq ptr %.06187, null
-  %spec.select = select i1 %.not80, ptr %29, ptr %.06187
-  %.not81 = icmp eq ptr %.05988, null
+  %.not80 = icmp eq ptr %.05987, null
+  %spec.select = select i1 %.not80, ptr %29, ptr %.05987
+  %.not81 = icmp eq ptr %.05788, null
   br i1 %.not81, label %52, label %50
 
 50:                                               ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %.05988, i64 40
+  %51 = getelementptr inbounds i8, ptr %.05788, i64 40
   store ptr %29, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %49, %50, %12, %17, %20
-  %.2 = phi ptr [ %.06187, %20 ], [ %.06187, %17 ], [ %.06187, %12 ], [ %spec.select, %50 ], [ %spec.select, %49 ]
-  %.160 = phi ptr [ %.05988, %20 ], [ %.05988, %17 ], [ %.05988, %12 ], [ %29, %50 ], [ %29, %49 ]
-  %53 = getelementptr inbounds i8, ptr %.05889, i64 40
-  %.058 = load ptr, ptr %53, align 8
-  %.not71 = icmp eq ptr %.058, null
+  %.2 = phi ptr [ %.05987, %20 ], [ %.05987, %17 ], [ %.05987, %12 ], [ %spec.select, %50 ], [ %spec.select, %49 ]
+  %.158 = phi ptr [ %.05788, %20 ], [ %.05788, %17 ], [ %.05788, %12 ], [ %29, %50 ], [ %29, %49 ]
+  %53 = getelementptr inbounds i8, ptr %.06189, i64 40
+  %.061 = load ptr, ptr %53, align 8
+  %.not71 = icmp eq ptr %.061, null
   br i1 %.not71, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %52
@@ -163,11 +163,11 @@ define dso_local i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr no
   br label %.thread
 
 55:                                               ; preds = %._crit_edge.thread110, %.thread120
-  %.not5.i = icmp eq ptr %.06187, null
+  %.not5.i = icmp eq ptr %.05987, null
   br i1 %.not5.i, label %Curl_freeaddrinfo.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %55, %.lr.ph.i
-  %.06.i = phi ptr [ %57, %.lr.ph.i ], [ %.06187, %55 ]
+  %.06.i = phi ptr [ %57, %.lr.ph.i ], [ %.05987, %55 ]
   %56 = getelementptr inbounds i8, ptr %.06.i, i64 40
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr @Curl_cfree, align 8
@@ -176,20 +176,20 @@ define dso_local i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not.i, label %Curl_freeaddrinfo.exit, label %.lr.ph.i, !llvm.loop !5
 
 .thread:                                          ; preds = %._crit_edge, %54, %.preheader
-  %.061.lcssa101107 = phi ptr [ %.2, %54 ], [ null, %.preheader ], [ %.2, %._crit_edge ]
-  %.not78 = icmp eq ptr %.061.lcssa101107, null
+  %.059.lcssa101107 = phi ptr [ %.2, %54 ], [ null, %.preheader ], [ %.2, %._crit_edge ]
+  %.not78 = icmp eq ptr %.059.lcssa101107, null
   %spec.select84 = select i1 %.not78, i32 -2, i32 0
   br label %Curl_freeaddrinfo.exit
 
 Curl_freeaddrinfo.exit:                           ; preds = %.lr.ph.i, %55, %.thread
-  %.3 = phi ptr [ %.061.lcssa101107, %.thread ], [ null, %55 ], [ null, %.lr.ph.i ]
+  %.3 = phi ptr [ %.059.lcssa101107, %.thread ], [ null, %55 ], [ null, %.lr.ph.i ]
   %.1 = phi i32 [ %spec.select84, %.thread ], [ -10, %55 ], [ -10, %.lr.ph.i ]
   store ptr %.3, ptr %3, align 8
   br label %59
 
 59:                                               ; preds = %4, %Curl_freeaddrinfo.exit
-  %.0 = phi i32 [ %.1, %Curl_freeaddrinfo.exit ], [ %6, %4 ]
-  ret i32 %.0
+  %.062 = phi i32 [ %.1, %Curl_freeaddrinfo.exit ], [ %6, %4 ]
+  ret i32 %.062
 }
 
 declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -223,7 +223,7 @@ define dso_local ptr @Curl_he2ai(ptr noundef readonly %0, i32 noundef %1) local_
 8:                                                ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
   %9 = phi ptr [ %5, %.lr.ph ], [ %47, %44 ]
-  %.04764 = phi ptr [ null, %.lr.ph ], [ %17, %44 ]
+  %.04963 = phi ptr [ null, %.lr.ph ], [ %17, %44 ]
   %.05062 = phi ptr [ null, %.lr.ph ], [ %spec.select, %44 ]
   %10 = load ptr, ptr %0, align 8
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #8
@@ -249,11 +249,11 @@ define dso_local ptr @Curl_he2ai(ptr noundef readonly %0, i32 noundef %1) local_
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr align 1 %24, i64 %19, i1 false)
   %.not57 = icmp eq ptr %.05062, null
   %spec.select = select i1 %.not57, ptr %17, ptr %.05062
-  %.not58 = icmp eq ptr %.04764, null
+  %.not58 = icmp eq ptr %.04963, null
   br i1 %.not58, label %27, label %25
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %.04764, i64 40
+  %26 = getelementptr inbounds i8, ptr %.04963, i64 40
   store ptr %17, ptr %26, align 8
   br label %27
 
@@ -316,8 +316,8 @@ define dso_local ptr @Curl_he2ai(ptr noundef readonly %0, i32 noundef %1) local_
   br i1 %.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !5
 
 .critedge:                                        ; preds = %44, %.lr.ph.i, %.preheader, %48, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %48 ], [ null, %.preheader ], [ null, %.lr.ph.i ], [ %spec.select, %44 ]
-  ret ptr %.0
+  %.046 = phi ptr [ null, %2 ], [ null, %48 ], [ null, %.preheader ], [ null, %.lr.ph.i ], [ %spec.select, %44 ]
+  ret ptr %.046
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
@@ -354,7 +354,7 @@ define dso_local ptr @Curl_ip2addr(i32 noundef %0, ptr nocapture noundef readonl
   br label %16
 
 16:                                               ; preds = %14, %11
-  %.032 = phi ptr [ %15, %14 ], [ %12, %11 ]
+  %.031 = phi ptr [ %15, %14 ], [ %12, %11 ]
   %.0 = phi i32 [ 16, %14 ], [ 4, %11 ]
   store ptr %9, ptr %6, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 8
@@ -366,27 +366,27 @@ define dso_local ptr @Curl_ip2addr(i32 noundef %0, ptr nocapture noundef readonl
   %20 = getelementptr inbounds i8, ptr %6, i64 48
   %21 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %20, ptr %21, align 8
-  store ptr %.032, ptr %20, align 8
+  store ptr %.031, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %6, i64 56
   store ptr null, ptr %22, align 8
   %23 = tail call ptr @Curl_he2ai(ptr noundef nonnull %6, i32 noundef %3)
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %10, %16
-  %.031.ph.ph = phi ptr [ %23, %16 ], [ null, %10 ]
+  %.032.ph.ph = phi ptr [ %23, %16 ], [ null, %10 ]
   %24 = load ptr, ptr @Curl_cfree, align 8
   tail call void %24(ptr noundef nonnull %9) #7
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %7
-  %.031.ph = phi ptr [ null, %7 ], [ %.031.ph.ph, %.sink.split.sink.split ]
+  %.032.ph = phi ptr [ null, %7 ], [ %.032.ph.ph, %.sink.split.sink.split ]
   %25 = load ptr, ptr @Curl_cfree, align 8
   tail call void %25(ptr noundef nonnull %6) #7
   br label %26
 
 26:                                               ; preds = %.sink.split, %4
-  %.031 = phi ptr [ null, %4 ], [ %.031.ph, %.sink.split ]
-  ret ptr %.031
+  %.032 = phi ptr [ null, %4 ], [ %.032.ph, %.sink.split ]
+  ret ptr %.032
 }
 
 ; Function Attrs: nounwind uwtable

@@ -413,8 +413,8 @@ define internal range(i32 -1, 1) i32 @hwloc_opencl_discover(ptr nocapture nounde
   br label %193
 
 193:                                              ; preds = %._crit_edge177, %190, %33, %27, %30, %26, %26, %2, %48
-  %.086 = phi i32 [ -1, %48 ], [ 0, %2 ], [ -1, %26 ], [ -1, %26 ], [ -1, %30 ], [ -1, %27 ], [ -1, %33 ], [ 0, %190 ], [ 0, %._crit_edge177 ]
-  ret i32 %.086
+  %.087 = phi i32 [ -1, %48 ], [ 0, %2 ], [ -1, %26 ], [ -1, %26 ], [ -1, %30 ], [ -1, %27 ], [ -1, %33 ], [ 0, %190 ], [ 0, %._crit_edge177 ]
+  ret i32 %.087
 }
 
 declare i32 @hwloc_topology_get_type_filter(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2

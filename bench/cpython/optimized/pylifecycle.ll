@@ -5526,16 +5526,16 @@ if.end.i:                                         ; preds = %if.end45
   br i1 %cmp.i, label %if.then.i48.sink.split, label %if.then.i48
 
 if.then.i48.sink.split:                           ; preds = %if.end.i, %if.end.i53, %if.end.i62
-  %res.sroa.5.0.ph.ph = phi ptr [ @.str.187, %if.end.i62 ], [ @.str.187, %if.end.i53 ], [ null, %if.end.i ]
-  %res.sroa.4.0.ph.ph = phi ptr [ @__func__.init_sys_streams, %if.end.i62 ], [ @__func__.init_sys_streams, %if.end.i53 ], [ null, %if.end.i ]
   %res.sroa.0.0.ph.ph = phi i32 [ 1, %if.end.i62 ], [ 1, %if.end.i53 ], [ 0, %if.end.i ]
+  %res.sroa.4.0.ph.ph = phi ptr [ @__func__.init_sys_streams, %if.end.i62 ], [ @__func__.init_sys_streams, %if.end.i53 ], [ null, %if.end.i ]
+  %res.sroa.5.0.ph.ph = phi ptr [ @.str.187, %if.end.i62 ], [ @.str.187, %if.end.i53 ], [ null, %if.end.i ]
   call void @_Py_Dealloc(ptr noundef nonnull %call25) #19
   br label %if.then.i48
 
 if.then.i48:                                      ; preds = %if.then.i48.sink.split, %if.end6, %Py_DECREF.exit94, %Py_DECREF.exit85, %if.then40, %if.end.i62, %if.then44, %if.end.i53, %if.end.i, %if.end45
-  %res.sroa.5.0.ph = phi ptr [ @.str.187, %if.end6 ], [ @.str.187, %Py_DECREF.exit94 ], [ @.str.187, %Py_DECREF.exit85 ], [ @.str.187, %if.then40 ], [ @.str.187, %if.end.i62 ], [ @.str.187, %if.then44 ], [ @.str.187, %if.end.i53 ], [ null, %if.end.i ], [ null, %if.end45 ], [ %res.sroa.5.0.ph.ph, %if.then.i48.sink.split ]
-  %res.sroa.4.0.ph = phi ptr [ @__func__.init_sys_streams, %if.end6 ], [ @__func__.init_sys_streams, %Py_DECREF.exit94 ], [ @__func__.init_sys_streams, %Py_DECREF.exit85 ], [ @__func__.init_sys_streams, %if.then40 ], [ @__func__.init_sys_streams, %if.end.i62 ], [ @__func__.init_sys_streams, %if.then44 ], [ @__func__.init_sys_streams, %if.end.i53 ], [ null, %if.end.i ], [ null, %if.end45 ], [ %res.sroa.4.0.ph.ph, %if.then.i48.sink.split ]
   %res.sroa.0.0.ph = phi i32 [ 1, %if.end6 ], [ 1, %Py_DECREF.exit94 ], [ 1, %Py_DECREF.exit85 ], [ 1, %if.then40 ], [ 1, %if.end.i62 ], [ 1, %if.then44 ], [ 1, %if.end.i53 ], [ 0, %if.end.i ], [ 0, %if.end45 ], [ %res.sroa.0.0.ph.ph, %if.then.i48.sink.split ]
+  %res.sroa.4.0.ph = phi ptr [ @__func__.init_sys_streams, %if.end6 ], [ @__func__.init_sys_streams, %Py_DECREF.exit94 ], [ @__func__.init_sys_streams, %Py_DECREF.exit85 ], [ @__func__.init_sys_streams, %if.then40 ], [ @__func__.init_sys_streams, %if.end.i62 ], [ @__func__.init_sys_streams, %if.then44 ], [ @__func__.init_sys_streams, %if.end.i53 ], [ null, %if.end.i ], [ null, %if.end45 ], [ %res.sroa.4.0.ph.ph, %if.then.i48.sink.split ]
+  %res.sroa.5.0.ph = phi ptr [ @.str.187, %if.end6 ], [ @.str.187, %Py_DECREF.exit94 ], [ @.str.187, %Py_DECREF.exit85 ], [ @.str.187, %if.then40 ], [ @.str.187, %if.end.i62 ], [ @.str.187, %if.then44 ], [ @.str.187, %if.end.i53 ], [ null, %if.end.i ], [ null, %if.end45 ], [ %res.sroa.5.0.ph.ph, %if.then.i48.sink.split ]
   %24 = load i64, ptr %call4, align 8
   %25 = and i64 %24, 2147483648
   %cmp.i2.not.i49 = icmp eq i64 %25, 0
@@ -5552,16 +5552,16 @@ if.then1.i.i54:                                   ; preds = %if.end.i.i51
   br label %Py_XDECREF.exit55
 
 Py_XDECREF.exit55:                                ; preds = %if.end, %if.then.i48, %if.end.i.i51, %if.then1.i.i54
-  %res.sroa.0.064 = phi i32 [ %res.sroa.0.0.ph, %if.then.i48 ], [ %res.sroa.0.0.ph, %if.end.i.i51 ], [ %res.sroa.0.0.ph, %if.then1.i.i54 ], [ 1, %if.end ]
+  %res.sroa.5.064 = phi ptr [ %res.sroa.5.0.ph, %if.then.i48 ], [ %res.sroa.5.0.ph, %if.end.i.i51 ], [ %res.sroa.5.0.ph, %if.then1.i.i54 ], [ @.str.187, %if.end ]
   %res.sroa.4.062 = phi ptr [ %res.sroa.4.0.ph, %if.then.i48 ], [ %res.sroa.4.0.ph, %if.end.i.i51 ], [ %res.sroa.4.0.ph, %if.then1.i.i54 ], [ @__func__.init_sys_streams, %if.end ]
-  %res.sroa.5.060 = phi ptr [ %res.sroa.5.0.ph, %if.then.i48 ], [ %res.sroa.5.0.ph, %if.end.i.i51 ], [ %res.sroa.5.0.ph, %if.then1.i.i54 ], [ @.str.187, %if.end ]
-  store i32 %res.sroa.0.064, ptr %agg.result, align 8
+  %res.sroa.0.060 = phi i32 [ %res.sroa.0.0.ph, %if.then.i48 ], [ %res.sroa.0.0.ph, %if.end.i.i51 ], [ %res.sroa.0.0.ph, %if.then1.i.i54 ], [ 1, %if.end ]
+  store i32 %res.sroa.0.060, ptr %agg.result, align 8
   %res.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 4
   store i32 0, ptr %res.sroa.3.0.agg.result.sroa_idx, align 4
   %res.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %res.sroa.4.062, ptr %res.sroa.4.0.agg.result.sroa_idx, align 8
   %res.sroa.5.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %res.sroa.5.060, ptr %res.sroa.5.0.agg.result.sroa_idx, align 8
+  store ptr %res.sroa.5.064, ptr %res.sroa.5.0.agg.result.sroa_idx, align 8
   %res.sroa.6.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 24
   store i32 0, ptr %res.sroa.6.0.agg.result.sroa_idx, align 8
   %res.sroa.7.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 28

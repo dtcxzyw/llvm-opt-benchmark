@@ -249,24 +249,24 @@ define dso_local void @add_file_to_manifest(ptr noundef %0, ptr noundef %1, i64 
   br label %.lr.ph.i46
 
 .lr.ph.i46:                                       ; preds = %.lr.ph.i46.preheader, %.lr.ph.i46
-  %.020.i = phi ptr [ %104, %.lr.ph.i46 ], [ %1, %.lr.ph.i46.preheader ]
-  %.01519.i = phi ptr [ %103, %.lr.ph.i46 ], [ %90, %.lr.ph.i46.preheader ]
-  %91 = load i8, ptr %.020.i, align 1
+  %.020.i = phi ptr [ %103, %.lr.ph.i46 ], [ %90, %.lr.ph.i46.preheader ]
+  %.01519.i = phi ptr [ %104, %.lr.ph.i46 ], [ %1, %.lr.ph.i46.preheader ]
+  %91 = load i8, ptr %.01519.i, align 1
   %92 = lshr i8 %91, 4
   %93 = and i8 %91, 15
   %94 = icmp ult i8 %91, -96
   %95 = or disjoint i8 %92, 48
   %96 = add nuw nsw i8 %92, 87
   %97 = select i1 %94, i8 %95, i8 %96
-  %98 = getelementptr i8, ptr %.01519.i, i64 1
-  store i8 %97, ptr %.01519.i, align 1
+  %98 = getelementptr i8, ptr %.020.i, i64 1
+  store i8 %97, ptr %.020.i, align 1
   %99 = icmp ult i8 %93, 10
   %100 = or disjoint i8 %93, 48
   %101 = add nuw nsw i8 %93, 87
   %102 = select i1 %99, i8 %100, i8 %101
-  %103 = getelementptr i8, ptr %.01519.i, i64 2
+  %103 = getelementptr i8, ptr %.020.i, i64 2
   store i8 %102, ptr %98, align 1
-  %104 = getelementptr i8, ptr %.020.i, i64 1
+  %104 = getelementptr i8, ptr %.01519.i, i64 1
   %exitcond.not.i = icmp eq ptr %104, %86
   br i1 %exitcond.not.i, label %hex_encode.exit.loopexit, label %.lr.ph.i46, !llvm.loop !7
 
@@ -331,24 +331,24 @@ escape_json.exit:                                 ; preds = %72, %71, %hex_encod
   br label %.lr.ph.i48
 
 .lr.ph.i48:                                       ; preds = %.lr.ph.i48.preheader, %.lr.ph.i48
-  %.020.i49 = phi ptr [ %148, %.lr.ph.i48 ], [ %6, %.lr.ph.i48.preheader ]
-  %.01519.i50 = phi ptr [ %147, %.lr.ph.i48 ], [ %134, %.lr.ph.i48.preheader ]
-  %135 = load i8, ptr %.020.i49, align 1
+  %.020.i49 = phi ptr [ %147, %.lr.ph.i48 ], [ %134, %.lr.ph.i48.preheader ]
+  %.01519.i50 = phi ptr [ %148, %.lr.ph.i48 ], [ %6, %.lr.ph.i48.preheader ]
+  %135 = load i8, ptr %.01519.i50, align 1
   %136 = lshr i8 %135, 4
   %137 = and i8 %135, 15
   %138 = icmp ult i8 %135, -96
   %139 = or disjoint i8 %136, 48
   %140 = add nuw nsw i8 %136, 87
   %141 = select i1 %138, i8 %139, i8 %140
-  %142 = getelementptr i8, ptr %.01519.i50, i64 1
-  store i8 %141, ptr %.01519.i50, align 1
+  %142 = getelementptr i8, ptr %.020.i49, i64 1
+  store i8 %141, ptr %.020.i49, align 1
   %143 = icmp ult i8 %137, 10
   %144 = or disjoint i8 %137, 48
   %145 = add nuw nsw i8 %137, 87
   %146 = select i1 %143, i8 %144, i8 %145
-  %147 = getelementptr i8, ptr %.01519.i50, i64 2
+  %147 = getelementptr i8, ptr %.020.i49, i64 2
   store i8 %146, ptr %142, align 1
-  %148 = getelementptr i8, ptr %.020.i49, i64 1
+  %148 = getelementptr i8, ptr %.01519.i50, i64 1
   %exitcond.not.i51 = icmp eq ptr %148, %130
   br i1 %exitcond.not.i51, label %hex_encode.exit52.loopexit, label %.lr.ph.i48, !llvm.loop !7
 
@@ -526,24 +526,24 @@ define dso_local void @finalize_manifest(ptr noundef %0, ptr noundef readonly %1
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.020.i = phi ptr [ %44, %.lr.ph.i ], [ %3, %.lr.ph.i.preheader ]
-  %.01519.i = phi ptr [ %43, %.lr.ph.i ], [ %30, %.lr.ph.i.preheader ]
-  %31 = load i8, ptr %.020.i, align 1
+  %.020.i = phi ptr [ %43, %.lr.ph.i ], [ %30, %.lr.ph.i.preheader ]
+  %.01519.i = phi ptr [ %44, %.lr.ph.i ], [ %3, %.lr.ph.i.preheader ]
+  %31 = load i8, ptr %.01519.i, align 1
   %32 = lshr i8 %31, 4
   %33 = and i8 %31, 15
   %34 = icmp ult i8 %31, -96
   %35 = or disjoint i8 %32, 48
   %36 = add nuw nsw i8 %32, 87
   %37 = select i1 %34, i8 %35, i8 %36
-  %38 = getelementptr i8, ptr %.01519.i, i64 1
-  store i8 %37, ptr %.01519.i, align 1
+  %38 = getelementptr i8, ptr %.020.i, i64 1
+  store i8 %37, ptr %.020.i, align 1
   %39 = icmp ult i8 %33, 10
   %40 = or disjoint i8 %33, 48
   %41 = add nuw nsw i8 %33, 87
   %42 = select i1 %39, i8 %40, i8 %41
-  %43 = getelementptr i8, ptr %.01519.i, i64 2
+  %43 = getelementptr i8, ptr %.020.i, i64 2
   store i8 %42, ptr %38, align 1
-  %44 = getelementptr i8, ptr %.020.i, i64 1
+  %44 = getelementptr i8, ptr %.01519.i, i64 1
   %exitcond.not.i = icmp eq ptr %44, %26
   br i1 %exitcond.not.i, label %hex_encode.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
 

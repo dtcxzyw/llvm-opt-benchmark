@@ -240,18 +240,18 @@ define internal { double, double } @_ZL13qsc_e_inverse5PJ_XYP8PJconsts(double %0
   br label %28
 
 28:                                               ; preds = %3, %17, %26, %23
+  %.0116 = phi double [ %18, %17 ], [ %25, %23 ], [ %27, %26 ], [ %9, %3 ]
   %29 = phi i1 [ true, %17 ], [ false, %23 ], [ false, %26 ], [ false, %3 ]
   %30 = phi i1 [ false, %17 ], [ true, %23 ], [ false, %26 ], [ false, %3 ]
   %31 = phi i1 [ false, %17 ], [ false, %23 ], [ true, %26 ], [ false, %3 ]
-  %.0 = phi double [ %18, %17 ], [ %25, %23 ], [ %27, %26 ], [ %9, %3 ]
-  %32 = tail call double @tan(double noundef %.0) #8
+  %32 = tail call double @tan(double noundef %.0116) #8
   %33 = fmul double %32, 0x3FD0C152382D7365
   %34 = tail call double @sin(double noundef %33) #8
   %35 = tail call double @cos(double noundef %33) #8
   %36 = fadd double %35, 0xBFE6A09E667F3BCC
   %37 = fdiv double %34, %36
   %38 = tail call double @atan(double noundef %37) #8
-  %39 = tail call double @cos(double noundef %.0) #8
+  %39 = tail call double @cos(double noundef %.0116) #8
   %40 = tail call double @tan(double noundef %8) #8
   %41 = tail call double @cos(double noundef %38) #8
   %42 = fdiv double 1.000000e+00, %41
@@ -274,7 +274,7 @@ define internal { double, double } @_ZL13qsc_e_inverse5PJ_XYP8PJconsts(double %0
   br label %55
 
 55:                                               ; preds = %28, %52, %54
-  %.0116 = phi double [ 1.000000e+00, %54 ], [ %50, %52 ], [ -1.000000e+00, %28 ]
+  %.0115 = phi double [ 1.000000e+00, %54 ], [ %50, %52 ], [ -1.000000e+00, %28 ]
   %56 = load i32, ptr %5, align 8
   switch i32 %56, label %83 [
     i32 4, label %57
@@ -282,7 +282,7 @@ define internal { double, double } @_ZL13qsc_e_inverse5PJ_XYP8PJconsts(double %0
   ]
 
 57:                                               ; preds = %55
-  %58 = tail call double @acos(double noundef %.0116) #8
+  %58 = tail call double @acos(double noundef %.0115) #8
   %59 = fsub double 0x3FF921FB54442D18, %58
   br i1 %or.cond.not, label %60, label %62
 
@@ -307,7 +307,7 @@ define internal { double, double } @_ZL13qsc_e_inverse5PJ_XYP8PJconsts(double %0
   br label %_ZL26qsc_shift_longitude_origindd.exit
 
 69:                                               ; preds = %55
-  %70 = tail call double @acos(double noundef %.0116) #8
+  %70 = tail call double @acos(double noundef %.0115) #8
   %71 = fadd double %70, 0xBFF921FB54442D18
   br i1 %or.cond.not, label %72, label %74
 
@@ -336,7 +336,7 @@ define internal { double, double } @_ZL13qsc_e_inverse5PJ_XYP8PJconsts(double %0
   br label %_ZL26qsc_shift_longitude_origindd.exit
 
 83:                                               ; preds = %55
-  %84 = fmul double %.0116, %.0116
+  %84 = fmul double %.0115, %.0115
   %85 = fcmp ult double %84, 1.000000e+00
   br i1 %85, label %86, label %91
 
@@ -348,8 +348,8 @@ define internal { double, double } @_ZL13qsc_e_inverse5PJ_XYP8PJconsts(double %0
   br label %91
 
 91:                                               ; preds = %83, %86
-  %.0111 = phi double [ %90, %86 ], [ 0.000000e+00, %83 ]
-  %92 = tail call double @llvm.fmuladd.f64(double %.0111, double %.0111, double %84)
+  %.0 = phi double [ %90, %86 ], [ 0.000000e+00, %83 ]
+  %92 = tail call double @llvm.fmuladd.f64(double %.0, double %.0, double %84)
   %93 = fcmp ult double %92, 1.000000e+00
   br i1 %93, label %94, label %97
 
@@ -359,31 +359,31 @@ define internal { double, double } @_ZL13qsc_e_inverse5PJ_XYP8PJconsts(double %0
   br label %97
 
 97:                                               ; preds = %91, %94
-  %.0112 = phi double [ %96, %94 ], [ 0.000000e+00, %91 ]
+  %.0111 = phi double [ %96, %94 ], [ 0.000000e+00, %91 ]
   br i1 %29, label %98, label %100
 
 98:                                               ; preds = %97
-  %99 = fneg double %.0111
+  %99 = fneg double %.0
   br label %107
 
 100:                                              ; preds = %97
   br i1 %30, label %101, label %104
 
 101:                                              ; preds = %100
-  %102 = fneg double %.0112
-  %103 = fneg double %.0111
+  %102 = fneg double %.0111
+  %103 = fneg double %.0
   br label %107
 
 104:                                              ; preds = %100
   br i1 %31, label %105, label %107
 
 105:                                              ; preds = %104
-  %106 = fneg double %.0112
+  %106 = fneg double %.0111
   br label %107
 
 107:                                              ; preds = %101, %105, %104, %98
-  %.1113 = phi double [ %99, %98 ], [ %102, %101 ], [ %.0111, %105 ], [ %.0112, %104 ]
-  %.1 = phi double [ %.0112, %98 ], [ %103, %101 ], [ %106, %105 ], [ %.0111, %104 ]
+  %.1112 = phi double [ %99, %98 ], [ %102, %101 ], [ %.0, %105 ], [ %.0111, %104 ]
+  %.1 = phi double [ %.0111, %98 ], [ %103, %101 ], [ %106, %105 ], [ %.0, %104 ]
   %108 = load i32, ptr %5, align 8
   switch i32 %108, label %116 [
     i32 1, label %109
@@ -392,25 +392,25 @@ define internal { double, double } @_ZL13qsc_e_inverse5PJ_XYP8PJconsts(double %0
   ]
 
 109:                                              ; preds = %107
-  %110 = fneg double %.1113
+  %110 = fneg double %.1112
   br label %116
 
 111:                                              ; preds = %107
-  %112 = fneg double %.0116
-  %113 = fneg double %.1113
+  %112 = fneg double %.0115
+  %113 = fneg double %.1112
   br label %116
 
 114:                                              ; preds = %107
-  %115 = fneg double %.0116
+  %115 = fneg double %.0115
   br label %116
 
 116:                                              ; preds = %107, %111, %114, %109
-  %.0114 = phi double [ %110, %109 ], [ %112, %111 ], [ %.1113, %114 ], [ %.0116, %107 ]
-  %.2 = phi double [ %.0116, %109 ], [ %113, %111 ], [ %115, %114 ], [ %.1113, %107 ]
+  %.0113 = phi double [ %110, %109 ], [ %112, %111 ], [ %.1112, %114 ], [ %.0115, %107 ]
+  %.2 = phi double [ %.0115, %109 ], [ %113, %111 ], [ %115, %114 ], [ %.1112, %107 ]
   %117 = fneg double %.1
   %118 = tail call double @acos(double noundef %117) #8
   %119 = fadd double %118, 0xBFF921FB54442D18
-  %120 = tail call double @atan2(double noundef %.2, double noundef %.0114) #8
+  %120 = tail call double @atan2(double noundef %.2, double noundef %.0113) #8
   %121 = load i32, ptr %5, align 8
   switch i32 %121, label %_ZL26qsc_shift_longitude_origindd.exit [
     i32 1, label %122
@@ -529,7 +529,7 @@ define internal { double, double } @_ZL13qsc_e_forward5PJ_LPP8PJconsts(double %0
   br label %15
 
 15:                                               ; preds = %3, %9
-  %.0 = phi double [ %14, %9 ], [ %1, %3 ]
+  %.095 = phi double [ %14, %9 ], [ %1, %3 ]
   %16 = load i32, ptr %5, align 8
   switch i32 %16, label %_ZL26qsc_shift_longitude_origindd.exit [
     i32 4, label %17
@@ -540,7 +540,7 @@ define internal { double, double } @_ZL13qsc_e_forward5PJ_LPP8PJconsts(double %0
   ]
 
 17:                                               ; preds = %15
-  %18 = fsub double 0x3FF921FB54442D18, %.0
+  %18 = fsub double 0x3FF921FB54442D18, %.095
   %19 = fcmp oge double %0, 0x3FE921FB54442D18
   %20 = fcmp ole double %0, 0x4002D97C7F3321D2
   %or.cond = and i1 %19, %20
@@ -573,7 +573,7 @@ define internal { double, double } @_ZL13qsc_e_forward5PJ_LPP8PJconsts(double %0
   br label %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit
 
 34:                                               ; preds = %15
-  %35 = fadd double %.0, 0x3FF921FB54442D18
+  %35 = fadd double %.095, 0x3FF921FB54442D18
   %36 = fcmp oge double %0, 0x3FE921FB54442D18
   %37 = fcmp ole double %0, 0x4002D97C7F3321D2
   %or.cond7 = and i1 %36, %37
@@ -661,11 +661,11 @@ define internal { double, double } @_ZL13qsc_e_forward5PJ_LPP8PJconsts(double %0
   br label %_ZL26qsc_shift_longitude_origindd.exit
 
 _ZL26qsc_shift_longitude_origindd.exit:           ; preds = %78, %76, %74, %69, %67, %65, %60, %58, %56, %15
-  %.092 = phi double [ %0, %15 ], [ %57, %56 ], [ %61, %60 ], [ %54, %58 ], [ %66, %65 ], [ %70, %69 ], [ %63, %67 ], [ %75, %74 ], [ %79, %78 ], [ %72, %76 ]
-  %80 = tail call double @sin(double noundef %.0) #8
-  %81 = tail call double @cos(double noundef %.0) #8
-  %82 = tail call double @sin(double noundef %.092) #8
-  %83 = tail call double @cos(double noundef %.092) #8
+  %.094 = phi double [ %0, %15 ], [ %57, %56 ], [ %61, %60 ], [ %54, %58 ], [ %66, %65 ], [ %70, %69 ], [ %63, %67 ], [ %75, %74 ], [ %79, %78 ], [ %72, %76 ]
+  %80 = tail call double @sin(double noundef %.095) #8
+  %81 = tail call double @cos(double noundef %.095) #8
+  %82 = tail call double @sin(double noundef %.094) #8
+  %83 = tail call double @cos(double noundef %.094) #8
   %84 = fmul double %81, %83
   %85 = fmul double %81, %82
   %86 = load i32, ptr %5, align 8
@@ -830,8 +830,8 @@ _ZL26qsc_shift_longitude_origindd.exit:           ; preds = %78, %76, %74, %69, 
 
 _ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit: ; preds = %_ZL26qsc_shift_longitude_origindd.exit, %169, %166, %161, %150, %154, %148, %145, %140, %128, %132, %126, %123, %118, %107, %110, %105, %102, %97, %87, %90, %29, %43, %50, %48, %38, %21, %32, %26
   %.4 = phi i32 [ 0, %38 ], [ 1, %43 ], [ 2, %48 ], [ 3, %50 ], [ 0, %21 ], [ 1, %26 ], [ 2, %32 ], [ 3, %29 ], [ 1, %97 ], [ 2, %102 ], [ 3, %105 ], [ 0, %87 ], [ 0, %90 ], [ 1, %118 ], [ 2, %123 ], [ 3, %126 ], [ 0, %107 ], [ 0, %110 ], [ 1, %140 ], [ 2, %145 ], [ 3, %148 ], [ 0, %128 ], [ 0, %132 ], [ 1, %161 ], [ 2, %166 ], [ 3, %169 ], [ 0, %150 ], [ 0, %154 ], [ 0, %_ZL26qsc_shift_longitude_origindd.exit ]
-  %.094 = phi double [ %35, %38 ], [ %35, %43 ], [ %35, %48 ], [ %35, %50 ], [ %18, %21 ], [ %18, %26 ], [ %18, %32 ], [ %18, %29 ], [ %88, %97 ], [ %88, %102 ], [ %88, %105 ], [ %88, %87 ], [ %88, %90 ], [ %108, %118 ], [ %108, %123 ], [ %108, %126 ], [ %108, %107 ], [ %108, %110 ], [ %130, %140 ], [ %130, %145 ], [ %130, %148 ], [ %130, %128 ], [ %130, %132 ], [ %152, %161 ], [ %152, %166 ], [ %152, %169 ], [ %152, %150 ], [ %152, %154 ], [ 0.000000e+00, %_ZL26qsc_shift_longitude_origindd.exit ]
   %.093 = phi double [ %39, %38 ], [ %44, %43 ], [ %49, %48 ], [ %52, %50 ], [ %22, %21 ], [ %28, %26 ], [ %33, %32 ], [ %0, %29 ], [ %98, %97 ], [ %104, %102 ], [ %106, %105 ], [ 0.000000e+00, %87 ], [ %91, %90 ], [ %119, %118 ], [ %125, %123 ], [ %127, %126 ], [ 0.000000e+00, %107 ], [ %112, %110 ], [ %141, %140 ], [ %147, %145 ], [ %149, %148 ], [ 0.000000e+00, %128 ], [ %134, %132 ], [ %162, %161 ], [ %168, %166 ], [ %170, %169 ], [ 0.000000e+00, %150 ], [ %155, %154 ], [ 0.000000e+00, %_ZL26qsc_shift_longitude_origindd.exit ]
+  %.092 = phi double [ %35, %38 ], [ %35, %43 ], [ %35, %48 ], [ %35, %50 ], [ %18, %21 ], [ %18, %26 ], [ %18, %32 ], [ %18, %29 ], [ %88, %97 ], [ %88, %102 ], [ %88, %105 ], [ %88, %87 ], [ %88, %90 ], [ %108, %118 ], [ %108, %123 ], [ %108, %126 ], [ %108, %107 ], [ %108, %110 ], [ %130, %140 ], [ %130, %145 ], [ %130, %148 ], [ %130, %128 ], [ %130, %132 ], [ %152, %161 ], [ %152, %166 ], [ %152, %169 ], [ %152, %150 ], [ %152, %154 ], [ 0.000000e+00, %_ZL26qsc_shift_longitude_origindd.exit ]
   %171 = tail call double @sin(double noundef %.093) #8
   %172 = fmul double %171, 0x3FE6A09E667F3BCD
   %173 = tail call double @acos(double noundef %172) #8
@@ -839,7 +839,7 @@ _ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit: ; preds = %_ZL26qsc_shi
   %175 = fadd double %174, 0xBFF921FB54442D18
   %176 = fmul double %175, 0x400E8EC8A4AEACC4
   %177 = tail call double @atan(double noundef %176) #8
-  %178 = tail call double @cos(double noundef %.094) #8
+  %178 = tail call double @cos(double noundef %.092) #8
   %179 = fsub double 1.000000e+00, %178
   %180 = tail call double @cos(double noundef %177) #8
   %181 = tail call double @cos(double noundef %177) #8
@@ -875,10 +875,10 @@ default.unreachable:                              ; preds = %_ZL24qsc_fwd_equat_
   unreachable
 
 197:                                              ; preds = %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit, %193, %195, %191
-  %.095 = phi double [ %192, %191 ], [ %194, %193 ], [ %196, %195 ], [ %177, %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit ]
-  %198 = tail call double @cos(double noundef %.095) #8
+  %.0 = phi double [ %192, %191 ], [ %194, %193 ], [ %196, %195 ], [ %177, %_ZL24qsc_fwd_equat_face_thetadddPN9pj_qsc_ns4AreaE.exit ]
+  %198 = tail call double @cos(double noundef %.0) #8
   %199 = fmul double %190, %198
-  %200 = tail call double @sin(double noundef %.095) #8
+  %200 = tail call double @sin(double noundef %.0) #8
   %201 = fmul double %190, %200
   %.fca.0.insert = insertvalue { double, double } poison, double %199, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %201, 1

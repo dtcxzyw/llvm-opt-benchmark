@@ -62,8 +62,8 @@ if.then7:                                         ; preds = %if.end
 
 if.end17:                                         ; preds = %if.then7, %if.end
   %13 = phi ptr [ %.pre, %if.then7 ], [ %add.ptr, %if.end ]
-  %keylen.addr.0 = phi i32 [ %12, %if.then7 ], [ %keylen, %if.end ]
   %key.addr.0 = phi ptr [ %add.ptr14, %if.then7 ], [ %key, %if.end ]
+  %keylen.addr.0 = phi i32 [ %12, %if.then7 ], [ %keylen, %if.end ]
   %14 = load ptr, ptr %hashparams, align 8
   %call20 = tail call i32 %14(ptr noundef %13) #2
   %15 = load ptr, ptr %hashparams, align 8
@@ -87,22 +87,22 @@ for.body41.lr.ph:                                 ; preds = %for.cond36.preheade
   br label %for.body41
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %key.addr.145 = phi ptr [ %key.addr.0, %for.body.lr.ph ], [ %incdec.ptr, %for.body ]
-  %i.044 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %18 = load i8, ptr %key.addr.145, align 1
+  %i.045 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %key.addr.144 = phi ptr [ %key.addr.0, %for.body.lr.ph ], [ %incdec.ptr, %for.body ]
+  %18 = load i8, ptr %key.addr.144, align 1
   %19 = xor i8 %18, 54
   store i8 %19, ptr %b, align 1
   %20 = load ptr, ptr %hmac_hupdate29, align 8
   %21 = load ptr, ptr %hmac_hashctxt1, align 8
   call void %20(ptr noundef %21, ptr noundef nonnull %b, i32 noundef 1) #2
-  %incdec.ptr = getelementptr inbounds i8, ptr %key.addr.145, i64 1
-  %22 = load i8, ptr %key.addr.145, align 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %key.addr.144, i64 1
+  %22 = load i8, ptr %key.addr.144, align 1
   %23 = xor i8 %22, 92
   store i8 %23, ptr %b, align 1
   %24 = load ptr, ptr %hmac_hupdate29, align 8
   %25 = load ptr, ptr %hmac_hashctxt2, align 8
   call void %24(ptr noundef %25, ptr noundef nonnull %b, i32 noundef 1) #2
-  %inc = add nuw nsw i64 %i.044, 1
+  %inc = add nuw nsw i64 %i.045, 1
   %exitcond.not = icmp eq i64 %inc, %conv24
   br i1 %exitcond.not, label %for.cond36.preheader, label %for.body, !llvm.loop !4
 

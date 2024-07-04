@@ -399,21 +399,21 @@ if.then.i:                                        ; preds = %skip_optional
   br i1 %cmp41.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.then.i, %while.body.i
-  %value.addr.04.i = phi i32 [ %conv6.i, %while.body.i ], [ %value.0, %if.then.i ]
-  %len2.03.i = phi i64 [ %sub.i, %while.body.i ], [ %data.val6, %if.then.i ]
-  %buf.02.i = phi ptr [ %add.ptr.i, %while.body.i ], [ %data.val, %if.then.i ]
-  %conv.i = zext i32 %value.addr.04.i to i64
-  %call5.i = call i64 @adler32(i64 noundef %conv.i, ptr noundef %buf.02.i, i32 noundef -1) #6
+  %len2.04.i = phi i64 [ %sub.i, %while.body.i ], [ %data.val6, %if.then.i ]
+  %buf.03.i = phi ptr [ %add.ptr.i, %while.body.i ], [ %data.val, %if.then.i ]
+  %value.addr.02.i = phi i32 [ %conv6.i, %while.body.i ], [ %value.0, %if.then.i ]
+  %conv.i = zext i32 %value.addr.02.i to i64
+  %call5.i = call i64 @adler32(i64 noundef %conv.i, ptr noundef %buf.03.i, i32 noundef -1) #6
   %conv6.i = trunc i64 %call5.i to i32
-  %add.ptr.i = getelementptr i8, ptr %buf.02.i, i64 4294967295
-  %sub.i = add nsw i64 %len2.03.i, -4294967295
+  %add.ptr.i = getelementptr i8, ptr %buf.03.i, i64 4294967295
+  %sub.i = add nsw i64 %len2.04.i, -4294967295
   %cmp4.i = icmp ugt i64 %sub.i, 4294967295
   br i1 %cmp4.i, label %while.body.i, label %while.end.i, !llvm.loop !4
 
 while.end.i:                                      ; preds = %while.body.i, %if.then.i
+  %value.addr.0.lcssa.i = phi i32 [ %value.0, %if.then.i ], [ %conv6.i, %while.body.i ]
   %buf.0.lcssa.i = phi ptr [ %data.val, %if.then.i ], [ %add.ptr.i, %while.body.i ]
   %len2.0.lcssa.i = phi i64 [ %data.val6, %if.then.i ], [ %sub.i, %while.body.i ]
-  %value.addr.0.lcssa.i = phi i32 [ %value.0, %if.then.i ], [ %conv6.i, %while.body.i ]
   %conv7.i = zext i32 %value.addr.0.lcssa.i to i64
   %conv8.i = trunc nuw i64 %len2.0.lcssa.i to i32
   %call9.i = call i64 @adler32(i64 noundef %conv7.i, ptr noundef %buf.0.lcssa.i, i32 noundef %conv8.i) #6
@@ -1093,21 +1093,21 @@ if.then.i:                                        ; preds = %skip_optional
   br i1 %cmp41.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.then.i, %while.body.i
-  %value.addr.04.i = phi i32 [ %conv6.i, %while.body.i ], [ %value.0, %if.then.i ]
-  %len2.03.i = phi i64 [ %sub.i, %while.body.i ], [ %data.val7, %if.then.i ]
-  %buf.02.i = phi ptr [ %add.ptr.i, %while.body.i ], [ %data.val, %if.then.i ]
-  %conv.i = zext i32 %value.addr.04.i to i64
-  %call5.i = call i64 @crc32(i64 noundef %conv.i, ptr noundef %buf.02.i, i32 noundef 1073741824) #6
+  %len2.04.i = phi i64 [ %sub.i, %while.body.i ], [ %data.val7, %if.then.i ]
+  %buf.03.i = phi ptr [ %add.ptr.i, %while.body.i ], [ %data.val, %if.then.i ]
+  %value.addr.02.i = phi i32 [ %conv6.i, %while.body.i ], [ %value.0, %if.then.i ]
+  %conv.i = zext i32 %value.addr.02.i to i64
+  %call5.i = call i64 @crc32(i64 noundef %conv.i, ptr noundef %buf.03.i, i32 noundef 1073741824) #6
   %conv6.i = trunc i64 %call5.i to i32
-  %add.ptr.i = getelementptr i8, ptr %buf.02.i, i64 1073741824
-  %sub.i = add nsw i64 %len2.03.i, -1073741824
+  %add.ptr.i = getelementptr i8, ptr %buf.03.i, i64 1073741824
+  %sub.i = add nsw i64 %len2.04.i, -1073741824
   %cmp4.i = icmp ugt i64 %sub.i, 1073741824
   br i1 %cmp4.i, label %while.body.i, label %while.end.i, !llvm.loop !8
 
 while.end.i:                                      ; preds = %while.body.i, %if.then.i
+  %value.addr.0.lcssa.i = phi i32 [ %value.0, %if.then.i ], [ %conv6.i, %while.body.i ]
   %buf.0.lcssa.i = phi ptr [ %data.val, %if.then.i ], [ %add.ptr.i, %while.body.i ]
   %len2.0.lcssa.i = phi i64 [ %data.val7, %if.then.i ], [ %sub.i, %while.body.i ]
-  %value.addr.0.lcssa.i = phi i32 [ %value.0, %if.then.i ], [ %conv6.i, %while.body.i ]
   %conv7.i = zext i32 %value.addr.0.lcssa.i to i64
   %conv8.i = trunc nuw nsw i64 %len2.0.lcssa.i to i32
   %call9.i = call i64 @crc32(i64 noundef %conv7.i, ptr noundef %buf.0.lcssa.i, i32 noundef %conv8.i) #6
@@ -5047,8 +5047,8 @@ if.end46.i.i:                                     ; preds = %if.else42.i.i, %if.
 
 do.body.i.i.i:                                    ; preds = %land.rhs.i.i.i, %if.end46.i.i
   %25 = phi i64 [ %.pre.i.i.i, %if.end46.i.i ], [ %31, %land.rhs.i.i.i ]
-  %err.0.i.i.i = phi i32 [ 0, %if.end46.i.i ], [ %err.2.i.i.i, %land.rhs.i.i.i ]
   %obuflen.1.i.i.i = phi i64 [ %obuflen.0.i.i.i, %if.end46.i.i ], [ %retval.0.i46.i.i.i, %land.rhs.i.i.i ]
+  %err.0.i.i.i = phi i32 [ 0, %if.end46.i.i ], [ %err.2.i.i.i, %land.rhs.i.i.i ]
   %spec.select4.i.i.i.i = call i64 @llvm.umin.i64(i64 %25, i64 4294967295)
   %spec.select.i.i.i.i = trunc nuw i64 %spec.select4.i.i.i.i to i32
   store i32 %spec.select.i.i.i.i, ptr %avail_in.i.i.i.i, align 8
@@ -5057,8 +5057,8 @@ do.body.i.i.i:                                    ; preds = %land.rhs.i.i.i, %if
   br label %do.body6.i.i.i
 
 do.body6.i.i.i:                                   ; preds = %do.cond.i.i.i, %do.body.i.i.i
-  %err.1.i.i.i = phi i32 [ %err.0.i.i.i, %do.body.i.i.i ], [ %call19.i.i.i, %do.cond.i.i.i ]
   %obuflen.2.i.i.i = phi i64 [ %obuflen.1.i.i.i, %do.body.i.i.i ], [ %length.addr.0.i.i.i.i, %do.cond.i.i.i ]
+  %err.1.i.i.i = phi i32 [ %err.0.i.i.i, %do.body.i.i.i ], [ %call19.i.i.i, %do.cond.i.i.i ]
   %26 = load ptr, ptr %return_value.i.i.i, align 8
   %cmp.i38.i.i.i = icmp eq ptr %26, null
   br i1 %cmp.i38.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i

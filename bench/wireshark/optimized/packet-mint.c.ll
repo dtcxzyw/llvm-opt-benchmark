@@ -447,9 +447,9 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
 
 109:                                              ; preds = %76, %108, %107, %106, %105
   %110 = phi i1 [ false, %108 ], [ true, %107 ], [ true, %106 ], [ false, %105 ], [ true, %76 ]
-  %.0246 = phi i32 [ 0, %108 ], [ 4, %107 ], [ 8, %106 ], [ 0, %105 ], [ 12, %76 ]
-  %.0245.in = phi ptr [ @hf_mint_router_type_unknown, %108 ], [ @hf_mint_router_type_psnp, %107 ], [ @hf_mint_router_type_lsp, %106 ], [ @hf_mint_router_type_helo, %105 ], [ @hf_mint_router_type_csnp, %76 ]
-  %.0245 = load i32, ptr %.0245.in, align 4
+  %.0245 = phi i32 [ 0, %108 ], [ 4, %107 ], [ 8, %106 ], [ 0, %105 ], [ 12, %76 ]
+  %.0.in = phi ptr [ @hf_mint_router_type_unknown, %108 ], [ @hf_mint_router_type_psnp, %107 ], [ @hf_mint_router_type_lsp, %106 ], [ @hf_mint_router_type_helo, %105 ], [ @hf_mint_router_type_csnp, %76 ]
+  %.0 = load i32, ptr %.0.in, align 4
   %111 = icmp ugt i8 %94, 12
   br i1 %111, label %112, label %118
 
@@ -462,15 +462,15 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
   br label %118
 
 118:                                              ; preds = %112, %109
-  %.0 = phi i32 [ %117, %112 ], [ %104, %109 ]
+  %.0246 = phi i32 [ %117, %112 ], [ %104, %109 ]
   %119 = add i32 %4, -2
-  %120 = icmp ult i32 %.0, %119
+  %120 = icmp ult i32 %.0246, %119
   br i1 %120, label %.lr.ph268, label %.loopexit258
 
 .lr.ph268:                                        ; preds = %118, %.loopexit
-  %.1267 = phi i32 [ %.4, %.loopexit ], [ %.0, %118 ]
+  %.1267 = phi i32 [ %.4, %.loopexit ], [ %.0246, %118 ]
   %121 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1267) #4
-  %122 = tail call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %.0245, ptr noundef %0, i32 noundef %.1267, i32 noundef 1, i32 noundef 0) #4
+  %122 = tail call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %.0, ptr noundef %0, i32 noundef %.1267, i32 noundef 1, i32 noundef 0) #4
   %123 = add nuw i32 %.1267, 1
   %124 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %123) #4
   %125 = icmp eq i8 %121, 1
@@ -507,8 +507,8 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
 .lr.ph265:                                        ; preds = %.preheader, %.lr.ph265
   %.3264 = phi i32 [ %143, %.lr.ph265 ], [ %135, %.preheader ]
   %141 = load i32, ptr @hf_mint_router_element, align 4
-  %142 = tail call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %141, ptr noundef %0, i32 noundef %.3264, i32 noundef %.0246, i32 noundef 0) #4
-  %143 = add i32 %.3264, %.0246
+  %142 = tail call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %141, ptr noundef %0, i32 noundef %.3264, i32 noundef %.0245, i32 noundef 0) #4
+  %143 = add i32 %.3264, %.0245
   %144 = icmp ult i32 %143, %137
   br i1 %144, label %.lr.ph265, label %.loopexit, !llvm.loop !4
 
@@ -598,7 +598,7 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
   br label %.loopexit258
 
 .loopexit258:                                     ; preds = %.lr.ph, %187, %132, %.loopexit, %163, %118, %56, %72, %42, %52, %195, %149
-  %.6 = phi i32 [ %199, %195 ], [ %162, %149 ], [ %75, %72 ], [ %70, %56 ], [ %55, %52 ], [ %50, %42 ], [ %.0, %118 ], [ %174, %163 ], [ %135, %132 ], [ %.4, %.loopexit ], [ %183, %.lr.ph ], [ %185, %187 ]
+  %.6 = phi i32 [ %199, %195 ], [ %162, %149 ], [ %75, %72 ], [ %70, %56 ], [ %55, %52 ], [ %50, %42 ], [ %.0246, %118 ], [ %174, %163 ], [ %135, %132 ], [ %.4, %.loopexit ], [ %183, %.lr.ph ], [ %185, %187 ]
   %200 = load i32, ptr @ett_mint, align 4
   tail call void @tree_expanded_set(i32 noundef %200, i32 noundef 1) #4
   %201 = load i32, ptr @ett_mint_ethshim, align 4

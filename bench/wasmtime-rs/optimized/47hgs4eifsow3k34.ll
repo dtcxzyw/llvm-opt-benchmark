@@ -3306,13 +3306,13 @@ _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc0719
   ret ptr %.0
 
 _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc071995E.exit: ; preds = %.lr.ph.split.split, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i"
-  %.06.i = phi ptr [ %117, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i" ], [ %.fr, %.lr.ph.split.split ]
+  %.05.i = phi ptr [ %117, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h232ee2f6099422afE.exit.i" ], [ %.fr, %.lr.ph.split.split ]
   %119 = getelementptr inbounds i8, ptr %.sroa.020.029, i64 8
   %120 = load i32, ptr %119, align 4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !406)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %120, ptr %5, align 4, !noalias !406
-  %121 = invoke { i64, i64 } @_ZN16wasmtime_runtime9component9resources13ResourceTable27handle_index_to_table_index17h57fa8acdec2479b2E.llvm.7252875092725274804(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.06.i, i32 noundef %120)
+  %121 = invoke { i64, i64 } @_ZN16wasmtime_runtime9component9resources13ResourceTable27handle_index_to_table_index17h57fa8acdec2479b2E.llvm.7252875092725274804(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.05.i, i32 noundef %120)
           to label %.noexc13 unwind label %.loopexit.split.split
 
 .noexc13:                                         ; preds = %_ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc071995E.exit
@@ -3322,7 +3322,7 @@ _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc0719
 
 123:                                              ; preds = %.noexc13
   %124 = extractvalue { i64, i64 } %121, 1
-  %125 = getelementptr inbounds i8, ptr %.06.i, i64 16
+  %125 = getelementptr inbounds i8, ptr %.05.i, i64 16
   %126 = load i64, ptr %125, align 8, !alias.scope !409, !noundef !4
   %127 = icmp ugt i64 %126, %124
   br i1 %127, label %134, label %.thread.i
@@ -3346,7 +3346,7 @@ _ZN16wasmtime_runtime9component9resources14ResourceTables5table17h6dd34da4fc0719
           to label %140 unwind label %.loopexit.split-lp
 
 134:                                              ; preds = %123
-  %135 = getelementptr inbounds i8, ptr %.06.i, i64 8
+  %135 = getelementptr inbounds i8, ptr %.05.i, i64 8
   %136 = load ptr, ptr %135, align 8, !alias.scope !409, !nonnull !4
   %137 = getelementptr inbounds { i32, [3 x i32] }, ptr %136, i64 %124
   %138 = load i32, ptr %137, align 8, !range !412, !noundef !4

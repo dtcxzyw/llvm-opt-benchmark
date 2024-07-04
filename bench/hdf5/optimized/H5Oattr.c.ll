@@ -373,8 +373,8 @@ define internal ptr @H5O__attr_shared_decode(ptr noundef %0, ptr noundef %1, i32
   %157 = icmp ult i8 %156, 2
   %158 = add nuw nsw i64 %82, 7
   %159 = and i64 %158, 131064
-  %.0212.i = select i1 %157, i64 %159, i64 %82
-  %.not244.i = icmp eq i64 %.0212.i, 0
+  %.0213.i = select i1 %157, i64 %159, i64 %82
+  %.not244.i = icmp eq i64 %.0213.i, 0
   br i1 %.not244.i, label %171, label %160
 
 160:                                              ; preds = %155
@@ -385,7 +385,7 @@ define internal ptr @H5O__attr_shared_decode(ptr noundef %0, ptr noundef %1, i32
   %163 = ptrtoint ptr %.1211.i to i64
   %164 = add i64 %32, 1
   %165 = sub i64 %164, %163
-  %166 = icmp ugt i64 %.0212.i, %165
+  %166 = icmp ugt i64 %.0213.i, %165
   br i1 %166, label %167, label %171
 
 167:                                              ; preds = %162, %160
@@ -395,7 +395,7 @@ define internal ptr @H5O__attr_shared_decode(ptr noundef %0, ptr noundef %1, i32
   br label %.thread.i
 
 171:                                              ; preds = %162, %155
-  %172 = getelementptr inbounds i8, ptr %.1211.i, i64 %.0212.i
+  %172 = getelementptr inbounds i8, ptr %.1211.i, i64 %.0213.i
   %173 = load i64, ptr %96, align 8
   %.not245.i = icmp eq i64 %173, 0
   br i1 %.not245.i, label %185, label %174
@@ -441,8 +441,8 @@ define internal ptr @H5O__attr_shared_decode(ptr noundef %0, ptr noundef %1, i32
   %201 = load i64, ptr %200, align 8
   %202 = add i64 %201, 7
   %203 = and i64 %202, -8
-  %.1213.i = select i1 %199, i64 %203, i64 %201
-  %.not247.i = icmp eq i64 %.1213.i, 0
+  %.1214.i = select i1 %199, i64 %203, i64 %201
+  %.not247.i = icmp eq i64 %.1214.i, 0
   br i1 %.not247.i, label %215, label %204
 
 204:                                              ; preds = %197
@@ -453,7 +453,7 @@ define internal ptr @H5O__attr_shared_decode(ptr noundef %0, ptr noundef %1, i32
   %207 = ptrtoint ptr %172 to i64
   %208 = add i64 %32, 1
   %209 = sub i64 %208, %207
-  %210 = icmp ugt i64 %.1213.i, %209
+  %210 = icmp ugt i64 %.1214.i, %209
   br i1 %210, label %211, label %215
 
 211:                                              ; preds = %206, %204
@@ -463,7 +463,7 @@ define internal ptr @H5O__attr_shared_decode(ptr noundef %0, ptr noundef %1, i32
   br label %.thread.i
 
 215:                                              ; preds = %206, %197
-  %216 = getelementptr inbounds i8, ptr %172, i64 %.1213.i
+  %216 = getelementptr inbounds i8, ptr %172, i64 %.1214.i
   %217 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5S_t_reg_free_list) #11
   %218 = getelementptr inbounds i8, ptr %190, i64 40
   store ptr %217, ptr %218, align 8
@@ -530,8 +530,8 @@ define internal ptr @H5O__attr_shared_decode(ptr noundef %0, ptr noundef %1, i32
   %259 = load i64, ptr %258, align 8
   %260 = add i64 %259, 7
   %261 = and i64 %260, -8
-  %.2214.i = select i1 %257, i64 %261, i64 %259
-  %.not250.i = icmp eq i64 %.2214.i, 0
+  %.2215.i = select i1 %257, i64 %261, i64 %259
+  %.not250.i = icmp eq i64 %.2215.i, 0
   br i1 %.not250.i, label %273, label %262
 
 262:                                              ; preds = %255
@@ -542,7 +542,7 @@ define internal ptr @H5O__attr_shared_decode(ptr noundef %0, ptr noundef %1, i32
   %265 = ptrtoint ptr %216 to i64
   %266 = add i64 %32, 1
   %267 = sub i64 %266, %265
-  %268 = icmp ugt i64 %.2214.i, %267
+  %268 = icmp ugt i64 %.2215.i, %267
   br i1 %268, label %269, label %273
 
 269:                                              ; preds = %264, %262
@@ -552,7 +552,7 @@ define internal ptr @H5O__attr_shared_decode(ptr noundef %0, ptr noundef %1, i32
   br label %.thread.i
 
 273:                                              ; preds = %264, %255
-  %274 = getelementptr inbounds i8, ptr %216, i64 %.2214.i
+  %274 = getelementptr inbounds i8, ptr %216, i64 %.2215.i
   %275 = getelementptr inbounds i8, ptr %244, i64 24
   %276 = load ptr, ptr %275, align 8
   %277 = tail call i64 @H5T_get_size(ptr noundef %276) #11
@@ -645,7 +645,7 @@ define internal ptr @H5O__attr_shared_decode(ptr noundef %0, ptr noundef %1, i32
   br i1 %.not254.i, label %.thread292.i, label %.thread.i
 
 .thread.i:                                        ; preds = %322, %313, %305, %293, %287, %279, %269, %251, %234, %220, %211, %193, %181, %167, %151, %144, %135, %118, %103, %89, %71, %61, %53, %44, %36
-  %.0215.ph.ph286.i = phi ptr [ null, %322 ], [ %247, %313 ], [ %247, %305 ], [ %247, %293 ], [ %247, %287 ], [ %247, %279 ], [ %247, %269 ], [ %247, %251 ], [ null, %234 ], [ null, %220 ], [ null, %211 ], [ null, %193 ], [ null, %181 ], [ null, %167 ], [ null, %151 ], [ null, %144 ], [ null, %135 ], [ null, %118 ], [ null, %103 ], [ null, %89 ], [ null, %71 ], [ null, %61 ], [ null, %53 ], [ null, %44 ], [ null, %36 ]
+  %.0212.ph.ph286.i = phi ptr [ null, %322 ], [ %247, %313 ], [ %247, %305 ], [ %247, %293 ], [ %247, %287 ], [ %247, %279 ], [ %247, %269 ], [ %247, %251 ], [ null, %234 ], [ null, %220 ], [ null, %211 ], [ null, %193 ], [ null, %181 ], [ null, %167 ], [ null, %151 ], [ null, %144 ], [ null, %135 ], [ null, %118 ], [ null, %103 ], [ null, %89 ], [ null, %71 ], [ null, %61 ], [ null, %53 ], [ null, %44 ], [ null, %36 ]
   %326 = tail call i32 @H5A__shared_free(ptr noundef nonnull %20) #11
   %327 = icmp slt i32 %326, 0
   br i1 %327, label %328, label %333
@@ -662,11 +662,11 @@ define internal ptr @H5O__attr_shared_decode(ptr noundef %0, ptr noundef %1, i32
 
 333:                                              ; preds = %328, %.thread.i
   %334 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5A_t_reg_free_list, ptr noundef nonnull %20) #11
-  %.not255.i = icmp eq ptr %.0215.ph.ph286.i, null
+  %.not255.i = icmp eq ptr %.0212.ph.ph286.i, null
   br i1 %.not255.i, label %340, label %335
 
 335:                                              ; preds = %333
-  %336 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_extent_t_reg_free_list, ptr noundef nonnull %.0215.ph.ph286.i) #11
+  %336 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_extent_t_reg_free_list, ptr noundef nonnull %.0212.ph.ph286.i) #11
   br label %340
 
 H5O__attr_decode.exit:                            ; preds = %297, %317

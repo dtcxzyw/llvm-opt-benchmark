@@ -562,8 +562,8 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   br i1 %68, label %.lr.ph.i, label %.loopexit116.i, !llvm.loop !17
 
 .loopexit116.i:                                   ; preds = %.lr.ph.i, %.lr.ph
-  %.0114.i = phi ptr [ null, %.lr.ph ], [ %64, %.lr.ph.i ]
-  %.0113.i = phi ptr [ null, %.lr.ph ], [ %60, %.lr.ph.i ]
+  %.0114.i = phi ptr [ null, %.lr.ph ], [ %60, %.lr.ph.i ]
+  %.0113.i = phi ptr [ null, %.lr.ph ], [ %64, %.lr.ph.i ]
   %69 = icmp slt i32 %26, %29
   br i1 %69, label %.lr.ph119.i, label %._crit_edge.i
 
@@ -661,10 +661,10 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   %148 = getelementptr inbounds i32, ptr %55, i64 %147
   %149 = load i32, ptr %148, align 4
   %150 = add nsw i32 %146, %149
-  %151 = getelementptr inbounds i32, ptr %.0113.i, i64 %indvars.iv132.i
+  %151 = getelementptr inbounds i32, ptr %.0114.i, i64 %indvars.iv132.i
   store i32 %150, ptr %151, align 4
   %152 = sext i32 %150 to i64
-  %153 = getelementptr inbounds i32, ptr %.0114.i, i64 %152
+  %153 = getelementptr inbounds i32, ptr %.0113.i, i64 %152
   %154 = load i32, ptr %153, align 4
   %155 = add nsw i32 %154, 1
   store i32 %155, ptr %153, align 4
@@ -684,13 +684,13 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   br i1 %158, label %.lr.ph121.preheader.i, label %._crit_edge122.i
 
 .lr.ph121.preheader.i:                            ; preds = %.preheader.i
-  %.pre.i = load i32, ptr %.0114.i, align 4
+  %.pre.i = load i32, ptr %.0113.i, align 4
   br label %.lr.ph121.i
 
 .lr.ph121.i:                                      ; preds = %.lr.ph121.i, %.lr.ph121.preheader.i
   %159 = phi i32 [ %.pre.i, %.lr.ph121.preheader.i ], [ %162, %.lr.ph121.i ]
   %indvars.iv135.i = phi i64 [ 1, %.lr.ph121.preheader.i ], [ %indvars.iv.next136.i, %.lr.ph121.i ]
-  %160 = getelementptr inbounds i32, ptr %.0114.i, i64 %indvars.iv135.i
+  %160 = getelementptr inbounds i32, ptr %.0113.i, i64 %indvars.iv135.i
   %161 = load i32, ptr %160, align 4
   %162 = add nsw i32 %161, %159
   store i32 %162, ptr %160, align 4
@@ -707,7 +707,7 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   %168 = getelementptr inbounds %struct.AtomToThreadMap, ptr %167, i64 %indvars.iv, i32 2
   %169 = add nsw i32 %.lcssa.i, -1
   %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds i32, ptr %.0114.i, i64 %170
+  %171 = getelementptr inbounds i32, ptr %.0113.i, i64 %170
   %172 = load i32, ptr %171, align 4
   %173 = sext i32 %172 to i64
   invoke void @_ZNSt6vectorIiN3gmx30DefaultInitializationAllocatorIiSaIiEEEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %168, i64 noundef %173)
@@ -726,15 +726,15 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   %indvars.iv138.i = phi i64 [ %176, %.lr.ph125.preheader.i ], [ %indvars.iv.next139.i, %.lr.ph125.i ]
   %indvars.iv.next139.i = add nsw i64 %indvars.iv138.i, -1
   %177 = add nsw i64 %indvars.iv138.i, -2
-  %178 = getelementptr inbounds i32, ptr %.0114.i, i64 %177
+  %178 = getelementptr inbounds i32, ptr %.0113.i, i64 %177
   %179 = load i32, ptr %178, align 4
-  %180 = getelementptr inbounds i32, ptr %.0114.i, i64 %indvars.iv.next139.i
+  %180 = getelementptr inbounds i32, ptr %.0113.i, i64 %indvars.iv.next139.i
   store i32 %179, ptr %180, align 4
   %181 = icmp ugt i64 %indvars.iv138.i, 2
   br i1 %181, label %.lr.ph125.i, label %._crit_edge126.i, !llvm.loop !20
 
 ._crit_edge126.i:                                 ; preds = %.lr.ph125.i, %.noexc
-  store i32 0, ptr %.0114.i, align 4
+  store i32 0, ptr %.0113.i, align 4
   br i1 %69, label %.lr.ph129.i, label %_ZL22calc_interpolation_idxPK9gmx_pme_tP11PmeAtomCommiRK10pmegrids_tii.exit
 
 .lr.ph129.i:                                      ; preds = %._crit_edge126.i
@@ -749,7 +749,7 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   %186 = getelementptr inbounds i32, ptr %185, i64 %indvars.iv141.i
   %187 = load i32, ptr %186, align 4
   %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds i32, ptr %.0114.i, i64 %188
+  %189 = getelementptr inbounds i32, ptr %.0113.i, i64 %188
   %190 = load i32, ptr %189, align 4
   %191 = add nsw i32 %190, 1
   store i32 %191, ptr %189, align 4
@@ -2307,12 +2307,12 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
 
 108:                                              ; preds = %._crit_edge308.i, %.lr.ph317.i
   %109 = phi i32 [ %85, %.lr.ph317.i ], [ %303, %._crit_edge308.i ]
-  %.0193315.i = phi i1 [ true, %.lr.ph317.i ], [ %.1194.lcssa.i, %._crit_edge308.i ]
-  %.0196314.i = phi i1 [ true, %.lr.ph317.i ], [ %.1197.lcssa.i, %._crit_edge308.i ]
-  %.0201313.i = phi i1 [ true, %.lr.ph317.i ], [ %.1202.lcssa.i, %._crit_edge308.i ]
-  %.0209312.i = phi i32 [ 0, %.lr.ph317.i ], [ %304, %._crit_edge308.i ]
+  %.0187315.i = phi i1 [ true, %.lr.ph317.i ], [ %.1.lcssa.i, %._crit_edge308.i ]
+  %.0188314.i = phi i1 [ true, %.lr.ph317.i ], [ %.1189.lcssa.i, %._crit_edge308.i ]
+  %.0193313.i = phi i1 [ true, %.lr.ph317.i ], [ %.1194.lcssa.i, %._crit_edge308.i ]
+  %.0206312.i = phi i32 [ 0, %.lr.ph317.i ], [ %304, %._crit_edge308.i ]
   %110 = load i32, ptr %49, align 8
-  %111 = add nsw i32 %110, %.0209312.i
+  %111 = add nsw i32 %110, %.0206312.i
   %112 = icmp slt i32 %111, 0
   br i1 %112, label %113, label %118
 
@@ -2324,12 +2324,12 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   br label %118
 
 118:                                              ; preds = %113, %108
-  %.0212.i = phi i32 [ %115, %113 ], [ %111, %108 ]
-  %.0208.i = phi i32 [ %86, %113 ], [ 0, %108 ]
-  %.0191.i = phi i1 [ %117, %113 ], [ false, %108 ]
-  %cond.fr.i = freeze i1 %.0191.i
+  %.0203.i = phi i32 [ %115, %113 ], [ %111, %108 ]
+  %.0200.i = phi i32 [ %86, %113 ], [ 0, %108 ]
+  %.0185.i = phi i1 [ %117, %113 ], [ false, %108 ]
+  %cond.fr.i = freeze i1 %.0185.i
   %119 = load i32, ptr %88, align 4
-  %120 = mul nsw i32 %119, %.0212.i
+  %120 = mul nsw i32 %119, %.0203.i
   %121 = load i32, ptr %89, align 4
   %122 = mul nsw i32 %120, %121
   %123 = sext i32 %122 to i64
@@ -2337,7 +2337,7 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   %125 = getelementptr inbounds %struct.pmegrid_t, ptr %124, i64 %123
   %126 = getelementptr inbounds i8, ptr %125, i64 24
   %127 = load i32, ptr %126, align 8
-  %128 = add i32 %127, %.0208.i
+  %128 = add i32 %127, %.0200.i
   %129 = load i32, ptr %90, align 4
   %.not221301.i = icmp slt i32 %129, 0
   br i1 %.not221301.i, label %._crit_edge308.i, label %.lr.ph307.i
@@ -2353,12 +2353,12 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   br label %135
 
 135:                                              ; preds = %._crit_edge.i, %.lr.ph307.i
-  %.1194305.i = phi i1 [ %.0193315.i, %.lr.ph307.i ], [ %.2195.lcssa.i, %._crit_edge.i ]
-  %.1197304.i = phi i1 [ %.0196314.i, %.lr.ph307.i ], [ %.2198.lcssa.i, %._crit_edge.i ]
-  %.1202303.i = phi i1 [ %.0201313.i, %.lr.ph307.i ], [ %.2203.lcssa.i, %._crit_edge.i ]
-  %.0214302.i = phi i32 [ 0, %.lr.ph307.i ], [ %300, %._crit_edge.i ]
+  %.1305.i = phi i1 [ %.0187315.i, %.lr.ph307.i ], [ %.2.lcssa.i, %._crit_edge.i ]
+  %.1189304.i = phi i1 [ %.0188314.i, %.lr.ph307.i ], [ %.2190.lcssa.i, %._crit_edge.i ]
+  %.1194303.i = phi i1 [ %.0193313.i, %.lr.ph307.i ], [ %.2195.lcssa.i, %._crit_edge.i ]
+  %.0205302.i = phi i32 [ 0, %.lr.ph307.i ], [ %300, %._crit_edge.i ]
   %136 = load i32, ptr %91, align 4
-  %137 = add nsw i32 %136, %.0214302.i
+  %137 = add nsw i32 %136, %.0205302.i
   %138 = icmp slt i32 %137, 0
   br i1 %138, label %139, label %144
 
@@ -2370,18 +2370,18 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   br label %144
 
 144:                                              ; preds = %139, %135
-  %.0211.i = phi i32 [ %141, %139 ], [ %137, %135 ]
-  %.0207.i = phi i32 [ %92, %139 ], [ 0, %135 ]
-  %.0190.i = phi i1 [ %143, %139 ], [ false, %135 ]
-  %cond.fr241.i = freeze i1 %.0190.i
+  %.0202.i = phi i32 [ %141, %139 ], [ %137, %135 ]
+  %.0199.i = phi i32 [ %92, %139 ], [ 0, %135 ]
+  %.0184.i = phi i1 [ %143, %139 ], [ false, %135 ]
+  %cond.fr241.i = freeze i1 %.0184.i
   %145 = load i32, ptr %89, align 4
-  %146 = mul nsw i32 %145, %.0211.i
+  %146 = mul nsw i32 %145, %.0202.i
   %147 = sext i32 %146 to i64
   %148 = load ptr, ptr %47, align 8
   %149 = getelementptr inbounds %struct.pmegrid_t, ptr %148, i64 %147
   %150 = getelementptr inbounds i8, ptr %149, i64 28
   %151 = load i32, ptr %150, align 4
-  %152 = add i32 %151, %.0207.i
+  %152 = add i32 %151, %.0199.i
   %153 = load i32, ptr %94, align 8
   %.not222282.i = icmp slt i32 %153, 0
   br i1 %.not222282.i, label %._crit_edge.i, label %.lr.ph.i
@@ -2394,7 +2394,7 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   %156 = load i32, ptr %155, align 4
   %157 = add i32 %156, %152
   %.sroa.speculated229.i = call i32 @llvm.smin.i32(i32 %154, i32 %157)
-  %158 = or i32 %.0214302.i, %.0209312.i
+  %158 = or i32 %.0205302.i, %.0206312.i
   %brmerge.i = or i1 %cond.fr.i, %cond.fr241.i
   %159 = icmp slt i32 %81, %.sroa.speculated229.i
   %wide.trip.count349.i = sext i32 %.sroa.speculated229.i to i64
@@ -2405,12 +2405,12 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   br label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.loopexit251.us.i
-  %.2195286.us.i = phi i1 [ %.4.us.i, %.loopexit251.us.i ], [ %.1194305.i, %.lr.ph.i ]
-  %.2198285.us.i = phi i1 [ %.4200.us.i, %.loopexit251.us.i ], [ %.1197304.i, %.lr.ph.i ]
-  %.2203284.us.i = phi i1 [ %.4205.us.i, %.loopexit251.us.i ], [ %.1202303.i, %.lr.ph.i ]
-  %.0213283.us.i = phi i32 [ %208, %.loopexit251.us.i ], [ 0, %.lr.ph.i ]
+  %.2286.us.i = phi i1 [ %.4.us.i, %.loopexit251.us.i ], [ %.1305.i, %.lr.ph.i ]
+  %.2190285.us.i = phi i1 [ %.4192.us.i, %.loopexit251.us.i ], [ %.1189304.i, %.lr.ph.i ]
+  %.2195284.us.i = phi i1 [ %.4197.us.i, %.loopexit251.us.i ], [ %.1194303.i, %.lr.ph.i ]
+  %.0204283.us.i = phi i32 [ %208, %.loopexit251.us.i ], [ 0, %.lr.ph.i ]
   %160 = load i32, ptr %95, align 8
-  %161 = add nsw i32 %160, %.0213283.us.i
+  %161 = add nsw i32 %160, %.0204283.us.i
   %162 = icmp slt i32 %161, 0
   br i1 %162, label %163, label %166
 
@@ -2420,29 +2420,29 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   br label %166
 
 166:                                              ; preds = %163, %.lr.ph.split.us.i
-  %.0210.us.i = phi i32 [ %165, %163 ], [ %161, %.lr.ph.split.us.i ]
-  %.0206.us.i = phi i32 [ %96, %163 ], [ 0, %.lr.ph.split.us.i ]
-  %167 = sext i32 %.0210.us.i to i64
+  %.0201.us.i = phi i32 [ %165, %163 ], [ %161, %.lr.ph.split.us.i ]
+  %.0198.us.i = phi i32 [ %96, %163 ], [ 0, %.lr.ph.split.us.i ]
+  %167 = sext i32 %.0201.us.i to i64
   %168 = load ptr, ptr %47, align 8
   %169 = getelementptr inbounds %struct.pmegrid_t, ptr %168, i64 %167
   %170 = getelementptr inbounds i8, ptr %169, i64 32
   %171 = load i32, ptr %170, align 8
-  %172 = add i32 %171, %.0206.us.i
+  %172 = add i32 %171, %.0198.us.i
   %173 = getelementptr inbounds i8, ptr %169, i64 20
   %174 = load i32, ptr %173, align 4
   %175 = add i32 %172, %174
   %.sroa.speculated.us.i = call i32 @llvm.smin.i32(i32 %97, i32 %175)
-  %176 = or i32 %.0213283.us.i, %158
+  %176 = or i32 %.0204283.us.i, %158
   %or.cond3.us.i = icmp eq i32 %176, 0
   br i1 %or.cond3.us.i, label %.loopexit251.us.i, label %177
 
 177:                                              ; preds = %166
   %178 = load i32, ptr %88, align 4
-  %179 = mul nsw i32 %178, %.0212.i
-  %180 = add nsw i32 %179, %.0211.i
+  %179 = mul nsw i32 %178, %.0203.i
+  %180 = add nsw i32 %179, %.0202.i
   %181 = load i32, ptr %89, align 4
   %182 = mul nsw i32 %180, %181
-  %183 = add nsw i32 %182, %.0210.us.i
+  %183 = add nsw i32 %182, %.0201.us.i
   %184 = sext i32 %183 to i64
   %185 = getelementptr inbounds %struct.pmegrid_t, ptr %168, i64 %184
   %186 = getelementptr inbounds i8, ptr %185, i64 56
@@ -2473,22 +2473,22 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   br label %207
 
 207:                                              ; preds = %203, %192, %177
-  %.3204.us.i = phi i1 [ %.2203284.us.i, %203 ], [ %.2203284.us.i, %192 ], [ false, %177 ]
-  %.3199.us.i = phi i1 [ %.2198285.us.i, %203 ], [ false, %192 ], [ %.2198285.us.i, %177 ]
-  %.3.us.i = phi i1 [ false, %203 ], [ %.2195286.us.i, %192 ], [ %.2195286.us.i, %177 ]
-  %.0192.in.us.i = phi i1 [ %.2195286.us.i, %203 ], [ %.2198285.us.i, %192 ], [ %.2203284.us.i, %177 ]
-  %.0183.us.i = phi i32 [ %202, %203 ], [ %202, %192 ], [ %43, %177 ]
+  %.0214.us.i = phi i32 [ %202, %203 ], [ %202, %192 ], [ %43, %177 ]
+  %.3196.us.i = phi i1 [ %.2195284.us.i, %203 ], [ %.2195284.us.i, %192 ], [ false, %177 ]
+  %.3191.us.i = phi i1 [ %.2190285.us.i, %203 ], [ false, %192 ], [ %.2190285.us.i, %177 ]
+  %.3.us.i = phi i1 [ false, %203 ], [ %.2286.us.i, %192 ], [ %.2286.us.i, %177 ]
+  %.0186.in.us.i = phi i1 [ %.2286.us.i, %203 ], [ %.2190285.us.i, %192 ], [ %.2195284.us.i, %177 ]
   %.0.us.i = phi ptr [ %206, %203 ], [ %36, %192 ], [ %34, %177 ]
   br i1 %134, label %.preheader249.lr.ph.us.i, label %.loopexit251.us.i
 
 .loopexit251.us.i:                                ; preds = %._crit_edge.split.split.us.us.us.us.i, %._crit_edge.split.us.split.us.us.us.us.us.i, %.preheader249.lr.ph.split.us.split.us.us.i, %.preheader249.lr.ph.split.us.split.us296.i, %.preheader249.lr.ph.us.i, %207, %166
-  %.4205.us.i = phi i1 [ %.2203284.us.i, %166 ], [ %.3204.us.i, %207 ], [ %.3204.us.i, %.preheader249.lr.ph.us.i ], [ %.3204.us.i, %.preheader249.lr.ph.split.us.split.us296.i ], [ %.3204.us.i, %.preheader249.lr.ph.split.us.split.us.us.i ], [ %.3204.us.i, %._crit_edge.split.us.split.us.us.us.us.us.i ], [ %.3204.us.i, %._crit_edge.split.split.us.us.us.us.i ]
-  %.4200.us.i = phi i1 [ %.2198285.us.i, %166 ], [ %.3199.us.i, %207 ], [ %.3199.us.i, %.preheader249.lr.ph.us.i ], [ %.3199.us.i, %.preheader249.lr.ph.split.us.split.us296.i ], [ %.3199.us.i, %.preheader249.lr.ph.split.us.split.us.us.i ], [ %.3199.us.i, %._crit_edge.split.us.split.us.us.us.us.us.i ], [ %.3199.us.i, %._crit_edge.split.split.us.us.us.us.i ]
-  %.4.us.i = phi i1 [ %.2195286.us.i, %166 ], [ %.3.us.i, %207 ], [ %.3.us.i, %.preheader249.lr.ph.us.i ], [ %.3.us.i, %.preheader249.lr.ph.split.us.split.us296.i ], [ %.3.us.i, %.preheader249.lr.ph.split.us.split.us.us.i ], [ %.3.us.i, %._crit_edge.split.us.split.us.us.us.us.us.i ], [ %.3.us.i, %._crit_edge.split.split.us.us.us.us.i ]
-  %208 = add nsw i32 %.0213283.us.i, -1
+  %.4197.us.i = phi i1 [ %.2195284.us.i, %166 ], [ %.3196.us.i, %207 ], [ %.3196.us.i, %.preheader249.lr.ph.us.i ], [ %.3196.us.i, %.preheader249.lr.ph.split.us.split.us296.i ], [ %.3196.us.i, %.preheader249.lr.ph.split.us.split.us.us.i ], [ %.3196.us.i, %._crit_edge.split.us.split.us.us.us.us.us.i ], [ %.3196.us.i, %._crit_edge.split.split.us.us.us.us.i ]
+  %.4192.us.i = phi i1 [ %.2190285.us.i, %166 ], [ %.3191.us.i, %207 ], [ %.3191.us.i, %.preheader249.lr.ph.us.i ], [ %.3191.us.i, %.preheader249.lr.ph.split.us.split.us296.i ], [ %.3191.us.i, %.preheader249.lr.ph.split.us.split.us.us.i ], [ %.3191.us.i, %._crit_edge.split.us.split.us.us.us.us.us.i ], [ %.3191.us.i, %._crit_edge.split.split.us.us.us.us.i ]
+  %.4.us.i = phi i1 [ %.2286.us.i, %166 ], [ %.3.us.i, %207 ], [ %.3.us.i, %.preheader249.lr.ph.us.i ], [ %.3.us.i, %.preheader249.lr.ph.split.us.split.us296.i ], [ %.3.us.i, %.preheader249.lr.ph.split.us.split.us.us.i ], [ %.3.us.i, %._crit_edge.split.us.split.us.us.us.us.us.i ], [ %.3.us.i, %._crit_edge.split.split.us.us.us.us.i ]
+  %208 = add nsw i32 %.0204283.us.i, -1
   %209 = load i32, ptr %94, align 8
   %210 = sub nsw i32 0, %209
-  %.not222.us.not.i = icmp sgt i32 %.0213283.us.i, %210
+  %.not222.us.not.i = icmp sgt i32 %.0204283.us.i, %210
   br i1 %.not222.us.not.i, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !54
 
 .preheader249.lr.ph.us.i:                         ; preds = %207
@@ -2496,13 +2496,13 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   br i1 %159, label %.preheader249.lr.ph.split.us.us.i, label %.loopexit251.us.i
 
 .preheader249.lr.ph.split.us.us.i:                ; preds = %.preheader249.lr.ph.us.i
-  br i1 %.0192.in.us.i, label %.preheader249.lr.ph.split.us.split.us.us.i, label %.preheader249.lr.ph.split.us.split.us296.i
+  br i1 %.0186.in.us.i, label %.preheader249.lr.ph.split.us.split.us.us.i, label %.preheader249.lr.ph.split.us.split.us296.i
 
 .preheader249.lr.ph.split.us.split.us296.i:       ; preds = %.preheader249.lr.ph.split.us.us.i
   br i1 %211, label %.preheader249.us.us280.us.preheader.i, label %.loopexit251.us.i
 
 .preheader249.us.us280.us.preheader.i:            ; preds = %.preheader249.lr.ph.split.us.split.us296.i
-  %212 = sext i32 %.0183.us.i to i64
+  %212 = sext i32 %.0214.us.i to i64
   %wide.trip.count344.i = sext i32 %.sroa.speculated.us.i to i64
   br label %.preheader249.us.us280.us.i
 
@@ -2510,7 +2510,7 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   br i1 %211, label %.preheader249.us.us.us.us.preheader.i, label %.loopexit251.us.i
 
 .preheader249.us.us.us.us.preheader.i:            ; preds = %.preheader249.lr.ph.split.us.split.us.us.i
-  %213 = sext i32 %.0183.us.i to i64
+  %213 = sext i32 %.0214.us.i to i64
   %wide.trip.count362.i = sext i32 %.sroa.speculated.us.i to i64
   br label %.preheader249.us.us.us.us.i
 
@@ -2602,9 +2602,9 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %.loopexit253.i
   %248 = phi i32 [ %297, %.loopexit253.i ], [ %153, %.lr.ph.split.i.preheader ]
-  %.0213283.i = phi i32 [ %298, %.loopexit253.i ], [ 0, %.lr.ph.split.i.preheader ]
+  %.0204283.i = phi i32 [ %298, %.loopexit253.i ], [ 0, %.lr.ph.split.i.preheader ]
   %249 = load i32, ptr %95, align 8
-  %250 = add nsw i32 %249, %.0213283.i
+  %250 = add nsw i32 %249, %.0204283.i
   %251 = icmp slt i32 %250, 0
   br i1 %251, label %252, label %255
 
@@ -2614,29 +2614,29 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   br label %255
 
 255:                                              ; preds = %252, %.lr.ph.split.i
-  %.0210.i = phi i32 [ %254, %252 ], [ %250, %.lr.ph.split.i ]
-  %.0206.i = phi i32 [ %96, %252 ], [ 0, %.lr.ph.split.i ]
-  %256 = sext i32 %.0210.i to i64
+  %.0201.i = phi i32 [ %254, %252 ], [ %250, %.lr.ph.split.i ]
+  %.0198.i = phi i32 [ %96, %252 ], [ 0, %.lr.ph.split.i ]
+  %256 = sext i32 %.0201.i to i64
   %257 = load ptr, ptr %47, align 8
   %258 = getelementptr inbounds %struct.pmegrid_t, ptr %257, i64 %256
   %259 = getelementptr inbounds i8, ptr %258, i64 32
   %260 = load i32, ptr %259, align 8
-  %261 = add i32 %260, %.0206.i
+  %261 = add i32 %260, %.0198.i
   %262 = getelementptr inbounds i8, ptr %258, i64 20
   %263 = load i32, ptr %262, align 4
   %264 = add i32 %261, %263
   %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %97, i32 %264)
-  %265 = or i32 %.0213283.i, %158
+  %265 = or i32 %.0204283.i, %158
   %or.cond3.i = icmp eq i32 %265, 0
   br i1 %or.cond3.i, label %.loopexit253.i, label %.preheader252.i
 
 .preheader252.i:                                  ; preds = %255
   %266 = load i32, ptr %88, align 4
-  %267 = mul nsw i32 %266, %.0212.i
-  %268 = add nsw i32 %267, %.0211.i
+  %267 = mul nsw i32 %266, %.0203.i
+  %268 = add nsw i32 %267, %.0202.i
   %269 = load i32, ptr %89, align 4
   %270 = mul nsw i32 %268, %269
-  %271 = add nsw i32 %270, %.0210.i
+  %271 = add nsw i32 %270, %.0201.i
   %272 = sext i32 %271 to i64
   %273 = getelementptr inbounds %struct.pmegrid_t, ptr %257, i64 %272
   %274 = getelementptr inbounds i8, ptr %273, i64 56
@@ -2703,19 +2703,19 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
 
 .loopexit253.i:                                   ; preds = %.loopexit253.loopexit.i, %.preheader252.i, %255
   %297 = phi i32 [ %.pre.i, %.loopexit253.loopexit.i ], [ %248, %.preheader252.i ], [ %248, %255 ]
-  %298 = add nsw i32 %.0213283.i, -1
+  %298 = add nsw i32 %.0204283.i, -1
   %299 = sub nsw i32 0, %297
-  %.not222.not.i = icmp sgt i32 %.0213283.i, %299
+  %.not222.not.i = icmp sgt i32 %.0204283.i, %299
   br i1 %.not222.not.i, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !54
 
 ._crit_edge.i:                                    ; preds = %.loopexit253.i, %.loopexit251.us.i, %144
-  %.2203.lcssa.i = phi i1 [ %.1202303.i, %144 ], [ %.4205.us.i, %.loopexit251.us.i ], [ %.1202303.i, %.loopexit253.i ]
-  %.2198.lcssa.i = phi i1 [ %.1197304.i, %144 ], [ %.4200.us.i, %.loopexit251.us.i ], [ %.1197304.i, %.loopexit253.i ]
-  %.2195.lcssa.i = phi i1 [ %.1194305.i, %144 ], [ %.4.us.i, %.loopexit251.us.i ], [ %.1194305.i, %.loopexit253.i ]
-  %300 = add nsw i32 %.0214302.i, -1
+  %.2195.lcssa.i = phi i1 [ %.1194303.i, %144 ], [ %.4197.us.i, %.loopexit251.us.i ], [ %.1194303.i, %.loopexit253.i ]
+  %.2190.lcssa.i = phi i1 [ %.1189304.i, %144 ], [ %.4192.us.i, %.loopexit251.us.i ], [ %.1189304.i, %.loopexit253.i ]
+  %.2.lcssa.i = phi i1 [ %.1305.i, %144 ], [ %.4.us.i, %.loopexit251.us.i ], [ %.1305.i, %.loopexit253.i ]
+  %300 = add nsw i32 %.0205302.i, -1
   %301 = load i32, ptr %90, align 4
   %302 = sub nsw i32 0, %301
-  %.not221.not.i = icmp sgt i32 %.0214302.i, %302
+  %.not221.not.i = icmp sgt i32 %.0205302.i, %302
   br i1 %.not221.not.i, label %135, label %._crit_edge308.loopexit.i, !llvm.loop !62
 
 ._crit_edge308.loopexit.i:                        ; preds = %._crit_edge.i
@@ -2724,12 +2724,12 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
 
 ._crit_edge308.i:                                 ; preds = %._crit_edge308.loopexit.i, %118
   %303 = phi i32 [ %109, %118 ], [ %.pre375.i, %._crit_edge308.loopexit.i ]
-  %.1202.lcssa.i = phi i1 [ %.0201313.i, %118 ], [ %.2203.lcssa.i, %._crit_edge308.loopexit.i ]
-  %.1197.lcssa.i = phi i1 [ %.0196314.i, %118 ], [ %.2198.lcssa.i, %._crit_edge308.loopexit.i ]
-  %.1194.lcssa.i = phi i1 [ %.0193315.i, %118 ], [ %.2195.lcssa.i, %._crit_edge308.loopexit.i ]
-  %304 = add nsw i32 %.0209312.i, -1
+  %.1194.lcssa.i = phi i1 [ %.0193313.i, %118 ], [ %.2195.lcssa.i, %._crit_edge308.loopexit.i ]
+  %.1189.lcssa.i = phi i1 [ %.0188314.i, %118 ], [ %.2190.lcssa.i, %._crit_edge308.loopexit.i ]
+  %.1.lcssa.i = phi i1 [ %.0187315.i, %118 ], [ %.2.lcssa.i, %._crit_edge308.loopexit.i ]
+  %304 = add nsw i32 %.0206312.i, -1
   %305 = sub nsw i32 0, %303
-  %.not.not.i = icmp sgt i32 %.0209312.i, %305
+  %.not.not.i = icmp sgt i32 %.0206312.i, %305
   br i1 %.not.not.i, label %108, label %.loopexit, !llvm.loop !63
 
 306:                                              ; preds = %30

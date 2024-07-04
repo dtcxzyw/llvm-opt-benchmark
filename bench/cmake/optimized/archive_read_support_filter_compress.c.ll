@@ -387,8 +387,8 @@ tailrecurse:                                      ; preds = %28
   br label %65
 
 65:                                               ; preds = %56, %55
-  %.069 = phi i32 [ %64, %56 ], [ %8, %55 ]
-  %66 = icmp sgt i32 %.069, 255
+  %.068 = phi i32 [ %64, %56 ], [ %8, %55 ]
+  %66 = icmp sgt i32 %.068, 255
   br i1 %66, label %.lr.ph89, label %._crit_edge
 
 .lr.ph89:                                         ; preds = %65
@@ -398,7 +398,7 @@ tailrecurse:                                      ; preds = %28
   br label %70
 
 70:                                               ; preds = %.lr.ph89, %70
-  %.188 = phi i32 [ %.069, %.lr.ph89 ], [ %78, %70 ]
+  %.188 = phi i32 [ %.068, %.lr.ph89 ], [ %78, %70 ]
   %71 = zext nneg i32 %.188 to i64
   %72 = getelementptr inbounds [65536 x i8], ptr %67, i64 0, i64 %71
   %73 = load i8, ptr %72, align 1
@@ -413,7 +413,7 @@ tailrecurse:                                      ; preds = %28
   br i1 %79, label %70, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %70, %65
-  %.1.lcssa = phi i32 [ %.069, %65 ], [ %78, %70 ]
+  %.1.lcssa = phi i32 [ %.068, %65 ], [ %78, %70 ]
   %80 = getelementptr inbounds i8, ptr %10, i64 84
   store i32 %.1.lcssa, ptr %80, align 4
   %81 = trunc i32 %.1.lcssa to i8
@@ -488,8 +488,8 @@ tailrecurse:                                      ; preds = %28
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse, %30, %1, %120, %52
-  %.068 = phi i32 [ -30, %52 ], [ 0, %120 ], [ %6, %1 ], [ %32, %30 ], [ %40, %tailrecurse ]
-  ret i32 %.068
+  %.069 = phi i32 [ -30, %52 ], [ 0, %120 ], [ %6, %1 ], [ %32, %30 ], [ %40, %tailrecurse ]
+  ret i32 %.069
 }
 
 ; Function Attrs: nounwind uwtable
@@ -520,7 +520,7 @@ define internal i64 @compress_filter_read(ptr nocapture noundef readonly %0, ptr
   br label %17
 
 17:                                               ; preds = %.lr.ph, %31
-  %.02330 = phi ptr [ %10, %.lr.ph ], [ %.1, %31 ]
+  %.030 = phi ptr [ %10, %.lr.ph ], [ %.1, %31 ]
   %18 = load i32, ptr %5, align 4
   %.not27 = icmp eq i32 %18, 0
   br i1 %.not27, label %19, label %.critedge
@@ -534,8 +534,8 @@ define internal i64 @compress_filter_read(ptr nocapture noundef readonly %0, ptr
   %23 = getelementptr inbounds i8, ptr %20, i64 -1
   store ptr %23, ptr %15, align 8
   %24 = load i8, ptr %23, align 1
-  %25 = getelementptr inbounds i8, ptr %.02330, i64 1
-  store i8 %24, ptr %.02330, align 1
+  %25 = getelementptr inbounds i8, ptr %.030, i64 1
+  store i8 %24, ptr %.030, align 1
   br label %31
 
 26:                                               ; preds = %19
@@ -554,21 +554,21 @@ define internal i64 @compress_filter_read(ptr nocapture noundef readonly %0, ptr
   br label %36
 
 31:                                               ; preds = %26, %28, %22
-  %.1 = phi ptr [ %25, %22 ], [ %.02330, %28 ], [ %.02330, %26 ]
+  %.1 = phi ptr [ %25, %22 ], [ %.030, %28 ], [ %.030, %26 ]
   %32 = icmp ult ptr %.1, %13
   br i1 %32, label %17, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %17, %31, %8
-  %.023.lcssa = phi ptr [ %10, %8 ], [ %.1, %31 ], [ %.02330, %17 ]
+  %.0.lcssa = phi ptr [ %10, %8 ], [ %.1, %31 ], [ %.030, %17 ]
   store ptr %10, ptr %1, align 8
-  %33 = ptrtoint ptr %.023.lcssa to i64
+  %33 = ptrtoint ptr %.0.lcssa to i64
   %34 = ptrtoint ptr %10 to i64
   %35 = sub i64 %33, %34
   br label %36
 
 36:                                               ; preds = %.critedge, %29, %7
-  %.0 = phi i64 [ 0, %7 ], [ %30, %29 ], [ %35, %.critedge ]
-  ret i64 %.0
+  %.023 = phi i64 [ 0, %7 ], [ %30, %29 ], [ %35, %.critedge ]
+  ret i64 %.023
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable

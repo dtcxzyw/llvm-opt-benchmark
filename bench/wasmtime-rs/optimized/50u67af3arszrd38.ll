@@ -770,8 +770,8 @@ define hidden noundef ptr @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT
   br label %15
 
 15:                                               ; preds = %2, %12
-  %.03 = phi ptr [ %14, %12 ], [ null, %2 ]
-  ret ptr %.03
+  %.0 = phi ptr [ %14, %12 ], [ null, %2 ]
+  ret ptr %.0
 
 "_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h67ac981022dd0e80E.exit": ; preds = %16
   resume { ptr, i32 } %17
@@ -838,8 +838,8 @@ define hidden noundef ptr @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT
   br label %15
 
 15:                                               ; preds = %2, %12
-  %.03 = phi ptr [ %14, %12 ], [ null, %2 ]
-  ret ptr %.03
+  %.0 = phi ptr [ %14, %12 ], [ null, %2 ]
+  ret ptr %.0
 
 "_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h67ac981022dd0e80E.exit": ; preds = %16
   resume { ptr, i32 } %17
@@ -906,8 +906,8 @@ define hidden noundef ptr @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT
   br label %15
 
 15:                                               ; preds = %2, %12
-  %.03 = phi ptr [ %14, %12 ], [ null, %2 ]
-  ret ptr %.03
+  %.0 = phi ptr [ %14, %12 ], [ null, %2 ]
+  ret ptr %.0
 
 "_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h67ac981022dd0e80E.exit": ; preds = %16
   resume { ptr, i32 } %17
@@ -974,8 +974,8 @@ define hidden noundef ptr @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT
   br label %15
 
 15:                                               ; preds = %2, %12
-  %.03 = phi ptr [ %14, %12 ], [ null, %2 ]
-  ret ptr %.03
+  %.0 = phi ptr [ %14, %12 ], [ null, %2 ]
+  ret ptr %.0
 
 "_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h67ac981022dd0e80E.exit": ; preds = %16
   resume { ptr, i32 } %17
@@ -1042,8 +1042,8 @@ define hidden noundef ptr @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT
   br label %15
 
 15:                                               ; preds = %2, %12
-  %.03 = phi ptr [ %14, %12 ], [ null, %2 ]
-  ret ptr %.03
+  %.0 = phi ptr [ %14, %12 ], [ null, %2 ]
+  ret ptr %.0
 
 "_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h67ac981022dd0e80E.exit": ; preds = %16
   resume { ptr, i32 } %17
@@ -1110,8 +1110,8 @@ define hidden noundef ptr @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT
   br label %15
 
 15:                                               ; preds = %2, %12
-  %.03 = phi ptr [ %14, %12 ], [ null, %2 ]
-  ret ptr %.03
+  %.0 = phi ptr [ %14, %12 ], [ null, %2 ]
+  ret ptr %.0
 
 "_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17h67ac981022dd0e80E.exit": ; preds = %16
   resume { ptr, i32 } %17

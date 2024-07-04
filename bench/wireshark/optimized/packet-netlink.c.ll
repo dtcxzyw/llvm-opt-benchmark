@@ -234,19 +234,19 @@ define internal fastcc i32 @dissect_netlink_attributes_common(ptr noundef %0, i3
   br label %28
 
 28:                                               ; preds = %.lr.ph, %96
-  %.0135 = phi i32 [ %24, %.lr.ph ], [ %98, %96 ]
+  %.0118135 = phi i32 [ %24, %.lr.ph ], [ %98, %96 ]
   %.0119134 = phi i32 [ %25, %.lr.ph ], [ %99, %96 ]
-  %29 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.0135, i32 noundef %17) #5
+  %29 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.0118135, i32 noundef %17) #5
   %30 = icmp ult i16 %29, 4
   br i1 %30, label %._crit_edge, label %31
 
 31:                                               ; preds = %28
   %32 = zext i16 %29 to i32
   %33 = call i32 @llvm.umin.i32(i32 %.0119134, i32 %32)
-  %34 = call ptr @proto_tree_add_subtree(ptr noundef %6, ptr noundef %0, i32 noundef %.0135, i32 noundef %33, i32 noundef %2, ptr noundef nonnull %11, ptr noundef nonnull @.str.117) #5
+  %34 = call ptr @proto_tree_add_subtree(ptr noundef %6, ptr noundef %0, i32 noundef %.0118135, i32 noundef %33, i32 noundef %2, ptr noundef nonnull %11, ptr noundef nonnull @.str.117) #5
   %35 = load i32, ptr @hf_netlink_attr_len, align 4
-  %36 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %35, ptr noundef %0, i32 noundef %.0135, i32 noundef 2, i32 noundef %17) #5
-  %37 = add i32 %.0135, 2
+  %36 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %35, ptr noundef %0, i32 noundef %.0118135, i32 noundef 2, i32 noundef %17) #5
+  %37 = add i32 %.0118135, 2
   %38 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %37, i32 noundef %17) #5
   %39 = zext i16 %38 to i32
   br i1 %27, label %40, label %79
@@ -262,7 +262,7 @@ define internal fastcc i32 @dissect_netlink_attributes_common(ptr noundef %0, i3
   %48 = load i32, ptr @hf_netlink_attr_type_net_byteorder, align 4
   %49 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %48, ptr noundef %0, i32 noundef %37, i32 noundef 2, i32 noundef %17) #5
   %50 = call ptr @proto_tree_add_uint(ptr noundef %45, i32 noundef %1, ptr noundef %0, i32 noundef %37, i32 noundef 2, i32 noundef %41) #5
-  %51 = add i32 %.0135, 4
+  %51 = add i32 %.0118135, 4
   %.not128 = icmp sgt i16 %38, -1
   br i1 %.not128, label %53, label %52
 
@@ -293,14 +293,14 @@ define internal fastcc i32 @dissect_netlink_attributes_common(ptr noundef %0, i3
   br label %65
 
 65:                                               ; preds = %63, %61
-  %.0118 = phi ptr [ %62, %61 ], [ %64, %63 ]
-  %.not131 = icmp eq ptr %.0118, null
+  %.0 = phi ptr [ %62, %61 ], [ %64, %63 ]
+  %.not131 = icmp eq ptr %.0, null
   br i1 %.not131, label %68, label %66
 
 66:                                               ; preds = %65
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %43, ptr noundef nonnull @.str.119, ptr noundef nonnull %.0118, i32 noundef %41) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %43, ptr noundef nonnull @.str.119, ptr noundef nonnull %.0, i32 noundef %41) #5
   %67 = load ptr, ptr %11, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef nonnull @.str.120, ptr noundef nonnull %.0118) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef nonnull @.str.120, ptr noundef nonnull %.0) #5
   br label %68
 
 68:                                               ; preds = %65, %66, %53
@@ -333,7 +333,7 @@ define internal fastcc i32 @dissect_netlink_attributes_common(ptr noundef %0, i3
 79:                                               ; preds = %31
   %80 = load i32, ptr @hf_netlink_attr_index, align 4
   %81 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %80, ptr noundef %0, i32 noundef %37, i32 noundef 2, i32 noundef %17) #5
-  %82 = add i32 %.0135, 4
+  %82 = add i32 %.0118135, 4
   %83 = load ptr, ptr %11, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %83, ptr noundef nonnull @.str.121, i32 noundef %39) #5
   %84 = add nsw i32 %33, -4
@@ -363,8 +363,8 @@ define internal fastcc i32 @dissect_netlink_attributes_common(ptr noundef %0, i3
   br i1 %100, label %28, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %96, %28, %23
-  %.0.lcssa = phi i32 [ %24, %23 ], [ %.0135, %28 ], [ %98, %96 ]
-  ret i32 %.0.lcssa
+  %.0118.lcssa = phi i32 [ %24, %23 ], [ %.0118135, %28 ], [ %98, %96 ]
+  ret i32 %.0118.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -572,7 +572,7 @@ define internal i32 @dissect_netlink(ptr noundef %0, ptr noundef %1, ptr noundef
   %29 = sub i32 %20, %21
   %30 = select i1 %27, i32 %28, i32 %29
   %31 = icmp ult i32 %26, %30
-  %.099 = select i1 %31, i32 0, i32 -2147483648
+  %.098 = select i1 %31, i32 0, i32 -2147483648
   %32 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 16) #5
   %33 = icmp sgt i32 %32, 15
   br i1 %33, label %.lr.ph, label %.loopexit
@@ -585,24 +585,24 @@ define internal i32 @dissect_netlink(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %38
 
 38:                                               ; preds = %.lr.ph, %73
-  %.098109 = phi i32 [ 16, %.lr.ph ], [ %40, %73 ]
-  %39 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.098109, i32 noundef %.099) #5
-  %40 = add i32 %39, %.098109
+  %.099109 = phi i32 [ 16, %.lr.ph ], [ %40, %73 ]
+  %39 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.099109, i32 noundef %.098) #5
+  %40 = add i32 %39, %.099109
   %41 = icmp ult i32 %39, 16
   br i1 %41, label %42, label %47
 
 42:                                               ; preds = %38
   %43 = load i32, ptr @ett_netlink_msghdr, align 4
-  %44 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.098109, i32 noundef 4, i32 noundef %43, ptr noundef null, ptr noundef nonnull @.str.4) #5
+  %44 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.099109, i32 noundef 4, i32 noundef %43, ptr noundef null, ptr noundef nonnull @.str.4) #5
   %45 = load i32, ptr @hf_netlink_hdr_len, align 4
-  %46 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %45, ptr noundef %0, i32 noundef %.098109, i32 noundef 4, i32 noundef %.099) #5
+  %46 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %45, ptr noundef %0, i32 noundef %.099109, i32 noundef 4, i32 noundef %.098) #5
   br label %.loopexit
 
 47:                                               ; preds = %38
-  %48 = add i32 %.098109, 4
-  %49 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %48, i32 noundef %.099) #5
-  %50 = add i32 %.098109, 12
-  %51 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %50, i32 noundef %.099) #5
+  %48 = add i32 %.099109, 4
+  %49 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %48, i32 noundef %.098) #5
+  %50 = add i32 %.099109, 12
+  %51 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %50, i32 noundef %.098) #5
   %52 = icmp ne i32 %51, 0
   %spec.select = zext i1 %52 to i32
   store i32 %spec.select, ptr %34, align 4
@@ -613,9 +613,9 @@ define internal i32 @dissect_netlink(ptr noundef %0, ptr noundef %1, ptr noundef
 
 55:                                               ; preds = %47
   store i32 1247464654, ptr %5, align 4
-  store i32 %.099, ptr %35, align 4
+  store i32 %.098, ptr %35, align 4
   store i16 %49, ptr %36, align 4
-  %56 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.098109, i32 noundef %39) #5
+  %56 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.099109, i32 noundef %39) #5
   %57 = load ptr, ptr @netlink_dissector_table, align 8
   %58 = call i32 @dissector_try_uint_new(ptr noundef %57, i32 noundef %37, ptr noundef %56, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %5) #5
   %.not106 = icmp eq i32 %58, 0
@@ -623,16 +623,16 @@ define internal i32 @dissect_netlink(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .critedge:                                        ; preds = %47, %55
   %59 = load i32, ptr @ett_netlink_msg, align 4
-  %60 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.098109, i32 noundef %39, i32 noundef %59, ptr noundef null, ptr noundef nonnull @.str.128) #5
-  %61 = call i32 @dissect_netlink_header(ptr noundef %0, ptr noundef %60, i32 noundef %.098109, i32 noundef %.099, i32 noundef -1, ptr noundef null)
+  %60 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.099109, i32 noundef %39, i32 noundef %59, ptr noundef null, ptr noundef nonnull @.str.128) #5
+  %61 = call i32 @dissect_netlink_header(ptr noundef %0, ptr noundef %60, i32 noundef %.099109, i32 noundef %.098, i32 noundef -1, ptr noundef null)
   %62 = icmp eq i16 %49, 2
   br i1 %62, label %63, label %68
 
 63:                                               ; preds = %.critedge
   %64 = load i32, ptr @hf_netlink_error, align 4
-  %65 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %64, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef %.099) #5
+  %65 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %64, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef %.098) #5
   %66 = add i32 %61, 4
-  %67 = call i32 @dissect_netlink_header(ptr noundef %0, ptr noundef %60, i32 noundef %66, i32 noundef %.099, i32 noundef -1, ptr noundef null)
+  %67 = call i32 @dissect_netlink_header(ptr noundef %0, ptr noundef %60, i32 noundef %66, i32 noundef %.098, i32 noundef -1, ptr noundef null)
   br label %73
 
 68:                                               ; preds = %.critedge
@@ -650,7 +650,7 @@ define internal i32 @dissect_netlink(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %75, label %38, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %73, %7, %42, %4
-  %.0 = phi i32 [ 0, %4 ], [ %.098109, %42 ], [ 16, %7 ], [ %40, %73 ]
+  %.0 = phi i32 [ 0, %4 ], [ %.099109, %42 ], [ 16, %7 ], [ %40, %73 ]
   ret i32 %.0
 }
 

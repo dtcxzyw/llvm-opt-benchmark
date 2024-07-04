@@ -237,7 +237,7 @@ if.then1.i:                                       ; preds = %if.end.i
 
 if.then.i:                                        ; preds = %Py_DECREF.exit74, %while.end, %Py_DECREF.exit65, %if.end55, %if.then1.i, %if.end.i, %_Py_NewRef.exit, %if.end17
   %repr.079 = phi ptr [ null, %if.end17 ], [ null, %_Py_NewRef.exit ], [ null, %while.end ], [ null, %Py_DECREF.exit65 ], [ %call56, %if.end55 ], [ %call56, %if.then1.i ], [ %call56, %if.end.i ], [ null, %Py_DECREF.exit74 ]
-  %keys_iter.073 = phi ptr [ null, %if.end17 ], [ null, %_Py_NewRef.exit ], [ %call18, %while.end ], [ %call18, %Py_DECREF.exit65 ], [ %call18, %if.end55 ], [ %call18, %if.then1.i ], [ %call18, %if.end.i ], [ %call18, %Py_DECREF.exit74 ]
+  %keys_iter.077 = phi ptr [ null, %if.end17 ], [ null, %_Py_NewRef.exit ], [ %call18, %while.end ], [ %call18, %Py_DECREF.exit65 ], [ %call18, %if.end55 ], [ %call18, %if.then1.i ], [ %call18, %if.end.i ], [ %call18, %Py_DECREF.exit74 ]
   %16 = load i64, ptr %call9, align 8
   %17 = and i64 %16, 2147483648
   %cmp.i2.not.i = icmp eq i64 %17, 0
@@ -290,23 +290,23 @@ if.then1.i.i58:                                   ; preds = %if.end.i.i55
   br label %Py_XDECREF.exit59
 
 Py_XDECREF.exit59:                                ; preds = %Py_XDECREF.exit50, %if.then.i52, %if.end.i.i55, %if.then1.i.i58
-  %cmp.not.i60 = icmp eq ptr %keys_iter.073, null
+  %cmp.not.i60 = icmp eq ptr %keys_iter.077, null
   br i1 %cmp.not.i60, label %Py_XDECREF.exit68, label %if.then.i61
 
 if.then.i61:                                      ; preds = %Py_XDECREF.exit59
-  %22 = load i64, ptr %keys_iter.073, align 8
+  %22 = load i64, ptr %keys_iter.077, align 8
   %23 = and i64 %22, 2147483648
   %cmp.i2.not.i62 = icmp eq i64 %23, 0
   br i1 %cmp.i2.not.i62, label %if.end.i.i64, label %Py_XDECREF.exit68
 
 if.end.i.i64:                                     ; preds = %if.then.i61
   %dec.i.i65 = add i64 %22, -1
-  store i64 %dec.i.i65, ptr %keys_iter.073, align 8
+  store i64 %dec.i.i65, ptr %keys_iter.077, align 8
   %cmp.i.i66 = icmp eq i64 %dec.i.i65, 0
   br i1 %cmp.i.i66, label %if.then1.i.i67, label %Py_XDECREF.exit68
 
 if.then1.i.i67:                                   ; preds = %if.end.i.i64
-  tail call void @_Py_Dealloc(ptr noundef nonnull %keys_iter.073) #2
+  tail call void @_Py_Dealloc(ptr noundef nonnull %keys_iter.077) #2
   br label %Py_XDECREF.exit68
 
 Py_XDECREF.exit68:                                ; preds = %if.end, %Py_XDECREF.exit59, %if.then.i61, %if.end.i.i64, %if.then1.i.i67

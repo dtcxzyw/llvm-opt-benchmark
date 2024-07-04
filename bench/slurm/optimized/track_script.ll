@@ -585,7 +585,7 @@ define internal range(i32 -1, 1) i32 @_script_killed(ptr noundef %0, ptr nocaptu
   br label %20
 
 20:                                               ; preds = %16, %11
-  %.015 = phi i8 [ 0, %11 ], [ %spec.select, %16 ]
+  %.0 = phi i8 [ 0, %11 ], [ %spec.select, %16 ]
   %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #8
   %.not19 = icmp eq i32 %21, 0
   br i1 %.not19, label %24, label %22
@@ -598,12 +598,12 @@ define internal range(i32 -1, 1) i32 @_script_killed(ptr noundef %0, ptr nocaptu
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %1, i64 12
-  store i8 %.015, ptr %25, align 4
+  store i8 %.0, ptr %25, align 4
   br label %26
 
 26:                                               ; preds = %2, %24
-  %.0 = phi i32 [ -1, %24 ], [ 0, %2 ]
-  ret i32 %.0
+  %.015 = phi i32 [ -1, %24 ], [ 0, %2 ]
+  ret i32 %.015
 }
 
 ; Function Attrs: nounwind uwtable

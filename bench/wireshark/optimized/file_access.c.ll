@@ -790,7 +790,7 @@ sub_1:                                            ; preds = %sub_0
 
 .thread:                                          ; preds = %31, %35
   %38 = phi i1 [ %36, %35 ], [ false, %31 ]
-  %.0152172 = phi i32 [ 0, %35 ], [ 1, %31 ]
+  %.0154172 = phi i32 [ 0, %35 ], [ 1, %31 ]
   %39 = tail call ptr @__errno_location() #25
   store i32 12, ptr %39, align 4
   %40 = tail call noalias dereferenceable_or_null(184) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 184) #26
@@ -858,7 +858,7 @@ sub_1:                                            ; preds = %sub_0
 
 64:                                               ; preds = %56, %62
   %65 = getelementptr inbounds i8, ptr %40, i64 16
-  store i32 %.0152172, ptr %65, align 8
+  store i32 %.0154172, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %40, i64 128
   %67 = getelementptr inbounds i8, ptr %40, i64 148
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %66, i8 0, i64 20, i1 false)
@@ -1357,16 +1357,16 @@ define internal fastcc noalias ptr @get_file_extension(ptr noundef %0) unnamed_a
   br label %11
 
 11:                                               ; preds = %11, %8
-  %.035 = phi i64 [ 0, %8 ], [ %14, %11 ]
-  %12 = getelementptr ptr, ptr %10, i64 %.035
+  %.034 = phi i64 [ 0, %8 ], [ %14, %11 ]
+  %12 = getelementptr ptr, ptr %10, i64 %.034
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
-  %14 = add i64 %.035, 1
+  %14 = add i64 %.034, 1
   br i1 %.not, label %15, label %11, !llvm.loop !18
 
 15:                                               ; preds = %11
-  %16 = getelementptr ptr, ptr %10, i64 %.035
-  switch i64 %.035, label %19 [
+  %16 = getelementptr ptr, ptr %10, i64 %.034
+  switch i64 %.034, label %19 [
     i64 0, label %17
     i64 1, label %18
   ]
@@ -1394,7 +1394,7 @@ define internal fastcc noalias ptr @get_file_extension(ptr noundef %0) unnamed_a
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %.lr.ph
-  %27 = icmp eq i64 %.035, 2
+  %27 = icmp eq i64 %.034, 2
   tail call void @g_slist_free(ptr noundef nonnull %20) #22
   br i1 %27, label %28, label %29
 
@@ -1422,8 +1422,8 @@ define internal fastcc noalias ptr @get_file_extension(ptr noundef %0) unnamed_a
   br label %37
 
 37:                                               ; preds = %1, %._crit_edge, %29, %28, %18, %17, %7
-  %.034 = phi ptr [ null, %7 ], [ null, %17 ], [ null, %18 ], [ null, %28 ], [ %32, %29 ], [ %36, %._crit_edge ], [ null, %1 ]
-  ret ptr %.034
+  %.035 = phi ptr [ null, %7 ], [ null, %17 ], [ null, %18 ], [ null, %28 ], [ %32, %29 ], [ %36, %._crit_edge ], [ null, %1 ]
+  ret ptr %.035
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
@@ -1754,8 +1754,8 @@ define i32 @wtap_name_to_file_type_subtype(ptr noundef %0) local_unnamed_addr #0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15, %._crit_edge.loopexit.split.loop.exit18, %1
-  %.09 = phi i32 [ -1, %1 ], [ %16, %._crit_edge.loopexit.split.loop.exit18 ], [ -1, %15 ]
-  ret i32 %.09
+  %.010 = phi i32 [ -1, %1 ], [ %16, %._crit_edge.loopexit.split.loop.exit18 ], [ -1, %15 ]
+  ret i32 %.010
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1929,13 +1929,13 @@ wtap_dump_can_open.exit:                          ; preds = %5
   br i1 %.not32.i, label %wtap_dump_can_open.exit.thread, label %.lr.ph.i
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = add nuw i64 %.02529.i, 1
+  %22 = add nuw i64 %.02429.i, 1
   %exitcond.not.i = icmp eq i64 %22, %18
   br i1 %exitcond.not.i, label %wtap_dump_can_open.exit.thread, label %.lr.ph.i, !llvm.loop !24
 
 .lr.ph.i:                                         ; preds = %15, %21
-  %.02529.i = phi i64 [ %22, %21 ], [ 0, %15 ]
-  %23 = getelementptr %struct.supported_block_type, ptr %20, i64 %.02529.i
+  %.02429.i = phi i64 [ %22, %21 ], [ 0, %15 ]
+  %23 = getelementptr %struct.supported_block_type, ptr %20, i64 %.02429.i
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %21
@@ -1992,13 +1992,13 @@ wtap_file_type_subtype_supports_option.exit:      ; preds = %.lr.ph31.i
   br i1 %.not32.i24, label %wtap_dump_can_open.exit.thread, label %.lr.ph.i25
 
 51:                                               ; preds = %.lr.ph.i25
-  %52 = add nuw i64 %.02529.i26, 1
+  %52 = add nuw i64 %.02429.i26, 1
   %exitcond.not.i27 = icmp eq i64 %52, %48
   br i1 %exitcond.not.i27, label %wtap_dump_can_open.exit.thread, label %.lr.ph.i25, !llvm.loop !24
 
 .lr.ph.i25:                                       ; preds = %.thread55, %51
-  %.02529.i26 = phi i64 [ %52, %51 ], [ 0, %.thread55 ]
-  %53 = getelementptr %struct.supported_block_type, ptr %50, i64 %.02529.i26
+  %.02429.i26 = phi i64 [ %52, %51 ], [ 0, %.thread55 ]
+  %53 = getelementptr %struct.supported_block_type, ptr %50, i64 %.02429.i26
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %54, 1
   br i1 %55, label %56, label %51
@@ -2055,13 +2055,13 @@ wtap_file_type_subtype_supports_option.exit32:    ; preds = %.lr.ph31.i29
   br i1 %.not32.i35, label %wtap_dump_can_open.exit.thread, label %.lr.ph.i36
 
 81:                                               ; preds = %.lr.ph.i36
-  %82 = add nuw i64 %.02529.i37, 1
+  %82 = add nuw i64 %.02429.i37, 1
   %exitcond.not.i38 = icmp eq i64 %82, %78
   br i1 %exitcond.not.i38, label %wtap_dump_can_open.exit.thread, label %.lr.ph.i36, !llvm.loop !24
 
 .lr.ph.i36:                                       ; preds = %.thread59, %81
-  %.02529.i37 = phi i64 [ %82, %81 ], [ 0, %.thread59 ]
-  %83 = getelementptr %struct.supported_block_type, ptr %80, i64 %.02529.i37
+  %.02429.i37 = phi i64 [ %82, %81 ], [ 0, %.thread59 ]
+  %83 = getelementptr %struct.supported_block_type, ptr %80, i64 %.02429.i37
   %84 = load i32, ptr %83, align 8
   %85 = icmp eq i32 %84, 5
   br i1 %85, label %86, label %81
@@ -2700,13 +2700,13 @@ define i32 @wtap_file_type_subtype_supports_option(i32 noundef %0, i32 noundef %
   br i1 %.not32, label %.loopexit, label %.lr.ph
 
 17:                                               ; preds = %.lr.ph
-  %18 = add nuw i64 %.02529, 1
+  %18 = add nuw i64 %.02429, 1
   %exitcond.not = icmp eq i64 %18, %14
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 .lr.ph:                                           ; preds = %9, %17
-  %.02529 = phi i64 [ %18, %17 ], [ 0, %9 ]
-  %19 = getelementptr %struct.supported_block_type, ptr %16, i64 %.02529
+  %.02429 = phi i64 [ %18, %17 ], [ 0, %9 ]
+  %19 = getelementptr %struct.supported_block_type, ptr %16, i64 %.02429
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, %1
   br i1 %21, label %22, label %17
@@ -2743,8 +2743,8 @@ define i32 @wtap_file_type_subtype_supports_option(i32 noundef %0, i32 noundef %
   br i1 %exitcond37.not, label %.loopexit, label %.lr.ph31, !llvm.loop !25
 
 .loopexit:                                        ; preds = %17, %37, %9, %26, %22, %3, %5, %34
-  %.024 = phi i32 [ %36, %34 ], [ 0, %5 ], [ 0, %3 ], [ 0, %22 ], [ 0, %26 ], [ 0, %9 ], [ 0, %37 ], [ 0, %17 ]
-  ret i32 %.024
+  %.025 = phi i32 [ %36, %34 ], [ 0, %5 ], [ 0, %3 ], [ 0, %22 ], [ 0, %26 ], [ 0, %9 ], [ 0, %37 ], [ 0, %17 ]
+  ret i32 %.025
 }
 
 ; Function Attrs: nounwind uwtable

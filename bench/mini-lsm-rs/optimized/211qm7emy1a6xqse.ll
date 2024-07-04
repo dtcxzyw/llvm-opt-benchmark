@@ -1666,16 +1666,16 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 7:                                                ; preds = %.backedge, %2
   %.040 = phi i32 [ 0, %2 ], [ %.040.be, %.backedge ]
-  %.015 = phi i64 [ %3, %2 ], [ %.015.be, %.backedge ]
+  %.017 = phi i64 [ %3, %2 ], [ %.017.be, %.backedge ]
   %.014.in = phi i64 [ %5, %2 ], [ %.014.in.be, %.backedge ]
-  %8 = lshr i64 %.015, 1
+  %8 = lshr i64 %.017, 1
   %9 = and i64 %8, 31
   %10 = icmp eq i64 %9, 31
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %7
-  %12 = add i64 %.015, 2
-  %13 = and i64 %.015, 1
+  %12 = add i64 %.017, 2
+  %13 = and i64 %.017, 1
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %23, label %32
 
@@ -1695,7 +1695,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 .backedge:                                        ; preds = %.thread.i, %.thread.i25, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit
   %.pn.in = phi i1 [ %18, %.thread.i ], [ %40, %.thread.i25 ], [ %53, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ]
-  %.015.be = phi i64 [ %19, %.thread.i ], [ %41, %.thread.i25 ], [ %48, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ]
+  %.017.be = phi i64 [ %19, %.thread.i ], [ %41, %.thread.i25 ], [ %48, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ]
   %.014.in.be = phi i64 [ %20, %.thread.i ], [ %42, %.thread.i25 ], [ %52, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ]
   %.pn = zext i1 %.pn.in to i32
   %.040.be = add nuw nsw i32 %.040, %.pn
@@ -1717,7 +1717,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %23
-  %.not.unshifted = xor i64 %24, %.015
+  %.not.unshifted = xor i64 %24, %.017
   %.not = icmp ugt i64 %.not.unshifted, 63
   %28 = zext i1 %.not to i64
   %spec.select = or disjoint i64 %12, %28
@@ -1729,7 +1729,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
   br i1 %31, label %36, label %34
 
 32:                                               ; preds = %27, %11
-  %.016 = phi i64 [ %12, %11 ], [ %spec.select, %27 ]
+  %.015 = phi i64 [ %12, %11 ], [ %spec.select, %27 ]
   %33 = icmp eq i64 %.014.in, 0
   br i1 %33, label %37, label %45
 
@@ -1765,7 +1765,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
   br i1 %44, label %.preheader.i26, label %.thread.i25
 
 45:                                               ; preds = %32
-  %46 = cmpxchg weak ptr %0, i64 %.015, i64 %.016 seq_cst acquire, align 8
+  %46 = cmpxchg weak ptr %0, i64 %.017, i64 %.015 seq_cst acquire, align 8
   %47 = extractvalue { i64, i1 } %46, 1
   %48 = extractvalue { i64, i1 } %46, 0
   br i1 %47, label %49, label %51
@@ -1825,7 +1825,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %5
 "_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$9wait_next17hb0e931bccb1b8825E.exit": ; preds = %.thread.i.i, %57
   %.lcssa.i = phi i64 [ %58, %57 ], [ %64, %.thread.i.i ]
   %.0.i.i = inttoptr i64 %.lcssa.i to ptr
-  %68 = and i64 %.016, -2
+  %68 = and i64 %.015, -2
   %69 = add i64 %68, 2
   %70 = load atomic i64, ptr %.0.i.i monotonic, align 8
   %71 = icmp ne i64 %70, 0
@@ -1853,16 +1853,16 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 7:                                                ; preds = %.backedge, %2
   %.040 = phi i32 [ 0, %2 ], [ %.040.be, %.backedge ]
-  %.015 = phi i64 [ %3, %2 ], [ %.015.be, %.backedge ]
+  %.017 = phi i64 [ %3, %2 ], [ %.017.be, %.backedge ]
   %.014.in = phi i64 [ %5, %2 ], [ %.014.in.be, %.backedge ]
-  %8 = lshr i64 %.015, 1
+  %8 = lshr i64 %.017, 1
   %9 = and i64 %8, 31
   %10 = icmp eq i64 %9, 31
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %7
-  %12 = add i64 %.015, 2
-  %13 = and i64 %.015, 1
+  %12 = add i64 %.017, 2
+  %13 = and i64 %.017, 1
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %23, label %32
 
@@ -1882,7 +1882,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 .backedge:                                        ; preds = %.thread.i, %.thread.i25, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit
   %.pn.in = phi i1 [ %18, %.thread.i ], [ %40, %.thread.i25 ], [ %53, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ]
-  %.015.be = phi i64 [ %19, %.thread.i ], [ %41, %.thread.i25 ], [ %48, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ]
+  %.017.be = phi i64 [ %19, %.thread.i ], [ %41, %.thread.i25 ], [ %48, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ]
   %.014.in.be = phi i64 [ %20, %.thread.i ], [ %42, %.thread.i25 ], [ %52, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ]
   %.pn = zext i1 %.pn.in to i32
   %.040.be = add nuw nsw i32 %.040, %.pn
@@ -1904,7 +1904,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %23
-  %.not.unshifted = xor i64 %24, %.015
+  %.not.unshifted = xor i64 %24, %.017
   %.not = icmp ugt i64 %.not.unshifted, 63
   %28 = zext i1 %.not to i64
   %spec.select = or disjoint i64 %12, %28
@@ -1916,7 +1916,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
   br i1 %31, label %36, label %34
 
 32:                                               ; preds = %27, %11
-  %.016 = phi i64 [ %12, %11 ], [ %spec.select, %27 ]
+  %.015 = phi i64 [ %12, %11 ], [ %spec.select, %27 ]
   %33 = icmp eq i64 %.014.in, 0
   br i1 %33, label %37, label %45
 
@@ -1952,7 +1952,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
   br i1 %44, label %.preheader.i26, label %.thread.i25
 
 45:                                               ; preds = %32
-  %46 = cmpxchg weak ptr %0, i64 %.015, i64 %.016 seq_cst acquire, align 8
+  %46 = cmpxchg weak ptr %0, i64 %.017, i64 %.015 seq_cst acquire, align 8
   %47 = extractvalue { i64, i1 } %46, 1
   %48 = extractvalue { i64, i1 } %46, 0
   br i1 %47, label %49, label %51
@@ -2012,7 +2012,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %5
 "_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$9wait_next17h4a7c0a0d474a7e7eE.exit": ; preds = %.thread.i.i, %57
   %.lcssa.i = phi i64 [ %58, %57 ], [ %64, %.thread.i.i ]
   %.0.i.i = inttoptr i64 %.lcssa.i to ptr
-  %68 = and i64 %.016, -2
+  %68 = and i64 %.015, -2
   %69 = add i64 %68, 2
   %70 = load atomic i64, ptr %.0.i.i monotonic, align 8
   %71 = icmp ne i64 %70, 0
@@ -2040,16 +2040,16 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 7:                                                ; preds = %.backedge, %2
   %.040 = phi i32 [ 0, %2 ], [ %.040.be, %.backedge ]
-  %.015 = phi i64 [ %3, %2 ], [ %.015.be, %.backedge ]
+  %.017 = phi i64 [ %3, %2 ], [ %.017.be, %.backedge ]
   %.014.in = phi i64 [ %5, %2 ], [ %.014.in.be, %.backedge ]
-  %8 = lshr i64 %.015, 1
+  %8 = lshr i64 %.017, 1
   %9 = and i64 %8, 31
   %10 = icmp eq i64 %9, 31
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %7
-  %12 = add i64 %.015, 2
-  %13 = and i64 %.015, 1
+  %12 = add i64 %.017, 2
+  %13 = and i64 %.017, 1
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %23, label %32
 
@@ -2069,7 +2069,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 .backedge:                                        ; preds = %.thread.i, %.thread.i25, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit
   %.pn.in = phi i1 [ %18, %.thread.i ], [ %40, %.thread.i25 ], [ %53, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ]
-  %.015.be = phi i64 [ %19, %.thread.i ], [ %41, %.thread.i25 ], [ %48, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ]
+  %.017.be = phi i64 [ %19, %.thread.i ], [ %41, %.thread.i25 ], [ %48, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ]
   %.014.in.be = phi i64 [ %20, %.thread.i ], [ %42, %.thread.i25 ], [ %52, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ]
   %.pn = zext i1 %.pn.in to i32
   %.040.be = add nuw nsw i32 %.040, %.pn
@@ -2091,7 +2091,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %23
-  %.not.unshifted = xor i64 %24, %.015
+  %.not.unshifted = xor i64 %24, %.017
   %.not = icmp ugt i64 %.not.unshifted, 63
   %28 = zext i1 %.not to i64
   %spec.select = or disjoint i64 %12, %28
@@ -2103,7 +2103,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
   br i1 %31, label %36, label %34
 
 32:                                               ; preds = %27, %11
-  %.016 = phi i64 [ %12, %11 ], [ %spec.select, %27 ]
+  %.015 = phi i64 [ %12, %11 ], [ %spec.select, %27 ]
   %33 = icmp eq i64 %.014.in, 0
   br i1 %33, label %37, label %45
 
@@ -2139,7 +2139,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
   br i1 %44, label %.preheader.i26, label %.thread.i25
 
 45:                                               ; preds = %32
-  %46 = cmpxchg weak ptr %0, i64 %.015, i64 %.016 seq_cst acquire, align 8
+  %46 = cmpxchg weak ptr %0, i64 %.017, i64 %.015 seq_cst acquire, align 8
   %47 = extractvalue { i64, i1 } %46, 1
   %48 = extractvalue { i64, i1 } %46, 0
   br i1 %47, label %49, label %51
@@ -2200,7 +2200,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %5
 "_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$9wait_next17h010643a13cbf335bE.exit": ; preds = %.thread.i.i, %57
   %.lcssa.i = phi i64 [ %59, %57 ], [ %65, %.thread.i.i ]
   %.0.i.i = inttoptr i64 %.lcssa.i to ptr
-  %69 = and i64 %.016, -2
+  %69 = and i64 %.015, -2
   %70 = add i64 %69, 2
   %71 = getelementptr inbounds i8, ptr %.0.i.i, i64 992
   %72 = load atomic i64, ptr %71 monotonic, align 8
@@ -2229,16 +2229,16 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 7:                                                ; preds = %.backedge, %2
   %.040 = phi i32 [ 0, %2 ], [ %.040.be, %.backedge ]
-  %.015 = phi i64 [ %3, %2 ], [ %.015.be, %.backedge ]
+  %.017 = phi i64 [ %3, %2 ], [ %.017.be, %.backedge ]
   %.014.in = phi i64 [ %5, %2 ], [ %.014.in.be, %.backedge ]
-  %8 = lshr i64 %.015, 1
+  %8 = lshr i64 %.017, 1
   %9 = and i64 %8, 31
   %10 = icmp eq i64 %9, 31
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %7
-  %12 = add i64 %.015, 2
-  %13 = and i64 %.015, 1
+  %12 = add i64 %.017, 2
+  %13 = and i64 %.017, 1
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %23, label %32
 
@@ -2258,7 +2258,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 .backedge:                                        ; preds = %.thread.i, %.thread.i25, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit
   %.pn.in = phi i1 [ %18, %.thread.i ], [ %40, %.thread.i25 ], [ %53, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ]
-  %.015.be = phi i64 [ %19, %.thread.i ], [ %41, %.thread.i25 ], [ %48, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ]
+  %.017.be = phi i64 [ %19, %.thread.i ], [ %41, %.thread.i25 ], [ %48, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ]
   %.014.in.be = phi i64 [ %20, %.thread.i ], [ %42, %.thread.i25 ], [ %52, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ]
   %.pn = zext i1 %.pn.in to i32
   %.040.be = add nuw nsw i32 %.040, %.pn
@@ -2280,7 +2280,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %23
-  %.not.unshifted = xor i64 %24, %.015
+  %.not.unshifted = xor i64 %24, %.017
   %.not = icmp ugt i64 %.not.unshifted, 63
   %28 = zext i1 %.not to i64
   %spec.select = or disjoint i64 %12, %28
@@ -2292,7 +2292,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
   br i1 %31, label %36, label %34
 
 32:                                               ; preds = %27, %11
-  %.016 = phi i64 [ %12, %11 ], [ %spec.select, %27 ]
+  %.015 = phi i64 [ %12, %11 ], [ %spec.select, %27 ]
   %33 = icmp eq i64 %.014.in, 0
   br i1 %33, label %37, label %45
 
@@ -2328,7 +2328,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
   br i1 %44, label %.preheader.i26, label %.thread.i25
 
 45:                                               ; preds = %32
-  %46 = cmpxchg weak ptr %0, i64 %.015, i64 %.016 seq_cst acquire, align 8
+  %46 = cmpxchg weak ptr %0, i64 %.017, i64 %.015 seq_cst acquire, align 8
   %47 = extractvalue { i64, i1 } %46, 1
   %48 = extractvalue { i64, i1 } %46, 0
   br i1 %47, label %49, label %51
@@ -2388,7 +2388,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %5
 "_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$9wait_next17heba06b17e29442e7E.exit": ; preds = %.thread.i.i, %57
   %.lcssa.i = phi i64 [ %58, %57 ], [ %64, %.thread.i.i ]
   %.0.i.i = inttoptr i64 %.lcssa.i to ptr
-  %68 = and i64 %.016, -2
+  %68 = and i64 %.015, -2
   %69 = add i64 %68, 2
   %70 = load atomic i64, ptr %.0.i.i monotonic, align 8
   %71 = icmp ne i64 %70, 0
@@ -2416,16 +2416,16 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 7:                                                ; preds = %.backedge, %2
   %.040 = phi i32 [ 0, %2 ], [ %.040.be, %.backedge ]
-  %.015 = phi i64 [ %3, %2 ], [ %.015.be, %.backedge ]
+  %.017 = phi i64 [ %3, %2 ], [ %.017.be, %.backedge ]
   %.014.in = phi i64 [ %5, %2 ], [ %.014.in.be, %.backedge ]
-  %8 = lshr i64 %.015, 1
+  %8 = lshr i64 %.017, 1
   %9 = and i64 %8, 31
   %10 = icmp eq i64 %9, 31
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %7
-  %12 = add i64 %.015, 2
-  %13 = and i64 %.015, 1
+  %12 = add i64 %.017, 2
+  %13 = and i64 %.017, 1
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %23, label %32
 
@@ -2445,7 +2445,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
 
 .backedge:                                        ; preds = %.thread.i, %.thread.i25, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit
   %.pn.in = phi i1 [ %18, %.thread.i ], [ %40, %.thread.i25 ], [ %53, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ]
-  %.015.be = phi i64 [ %19, %.thread.i ], [ %41, %.thread.i25 ], [ %48, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ]
+  %.017.be = phi i64 [ %19, %.thread.i ], [ %41, %.thread.i25 ], [ %48, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ]
   %.014.in.be = phi i64 [ %20, %.thread.i ], [ %42, %.thread.i25 ], [ %52, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ]
   %.pn = zext i1 %.pn.in to i32
   %.040.be = add nuw nsw i32 %.040, %.pn
@@ -2467,7 +2467,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %23
-  %.not.unshifted = xor i64 %24, %.015
+  %.not.unshifted = xor i64 %24, %.017
   %.not = icmp ugt i64 %.not.unshifted, 63
   %28 = zext i1 %.not to i64
   %spec.select = or disjoint i64 %12, %28
@@ -2479,7 +2479,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
   br i1 %31, label %36, label %34
 
 32:                                               ; preds = %27, %11
-  %.016 = phi i64 [ %12, %11 ], [ %spec.select, %27 ]
+  %.015 = phi i64 [ %12, %11 ], [ %spec.select, %27 ]
   %33 = icmp eq i64 %.014.in, 0
   br i1 %33, label %37, label %45
 
@@ -2515,7 +2515,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors4list16Channel$
   br i1 %44, label %.preheader.i26, label %.thread.i25
 
 45:                                               ; preds = %32
-  %46 = cmpxchg weak ptr %0, i64 %.015, i64 %.016 seq_cst acquire, align 8
+  %46 = cmpxchg weak ptr %0, i64 %.017, i64 %.015 seq_cst acquire, align 8
   %47 = extractvalue { i64, i1 } %46, 1
   %48 = extractvalue { i64, i1 } %46, 0
   br i1 %47, label %49, label %51
@@ -2575,7 +2575,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit: ; preds = %5
 "_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$9wait_next17haf9bb0c63d844a1eE.exit": ; preds = %.thread.i.i, %57
   %.lcssa.i = phi i64 [ %58, %57 ], [ %64, %.thread.i.i ]
   %.0.i.i = inttoptr i64 %.lcssa.i to ptr
-  %68 = and i64 %.016, -2
+  %68 = and i64 %.015, -2
   %69 = add i64 %68, 2
   %70 = load atomic i64, ptr %.0.i.i monotonic, align 8
   %71 = icmp ne i64 %70, 0

@@ -1854,7 +1854,7 @@ ehcleanup:                                        ; preds = %new.cont
   br i1 %new.isnull.not, label %common.resume, label %ehcleanup21.thread59
 
 ehcleanup21.thread59:                             ; preds = %lpad15, %ehcleanup
-  %.pn3851.ph = phi { ptr, i32 } [ %8, %ehcleanup ], [ %7, %lpad15 ]
+  %.pn3853.ph = phi { ptr, i32 } [ %8, %ehcleanup ], [ %7, %lpad15 ]
   %9 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %9) #16, !srcloc !8
   br label %common.resume
@@ -1984,7 +1984,7 @@ lpad2.i:                                          ; preds = %invoke.cont.i
   br label %ehcleanup.i
 
 common.resume:                                    ; preds = %ehcleanup53, %ehcleanup87, %cleanup.action23, %ehcleanup21.thread59, %lpad15, %ehcleanup, %ehcleanup.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %10, %cleanup.action23 ], [ %.pn35.pn, %ehcleanup53 ], [ %.pn33, %ehcleanup87 ], [ %.pn3851.ph, %ehcleanup21.thread59 ], [ %8, %ehcleanup ], [ %7, %lpad15 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %10, %cleanup.action23 ], [ %.pn35.pn, %ehcleanup53 ], [ %.pn33, %ehcleanup87 ], [ %.pn3853.ph, %ehcleanup21.thread59 ], [ %8, %ehcleanup ], [ %7, %lpad15 ]
   resume { ptr, i32 } %common.resume.op
 
 ehcleanup.i:                                      ; preds = %lpad2.i, %lpad.i

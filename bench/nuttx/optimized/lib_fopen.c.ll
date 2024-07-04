@@ -57,25 +57,25 @@ define noalias ptr @fdopen(i32 noundef %0, ptr nocapture noundef readonly %1) lo
 
 26:                                               ; preds = %22, %15
   %.pre-phi = phi i64 [ %24, %22 ], [ %.pre, %15 ]
-  %.041 = phi ptr [ %25, %22 ], [ %9, %15 ]
-  %27 = getelementptr inbounds i8, ptr %.041, i64 128
-  %28 = getelementptr inbounds i8, ptr %.041, i64 96
+  %.040 = phi ptr [ %25, %22 ], [ %9, %15 ]
+  %27 = getelementptr inbounds i8, ptr %.040, i64 128
+  %28 = getelementptr inbounds i8, ptr %.040, i64 96
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %.041, i64 192
-  %30 = getelementptr inbounds i8, ptr %.041, i64 104
+  %29 = getelementptr inbounds i8, ptr %.040, i64 192
+  %30 = getelementptr inbounds i8, ptr %.040, i64 104
   store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %.041, i64 112
+  %31 = getelementptr inbounds i8, ptr %.040, i64 112
   store ptr %27, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %.041, i64 120
+  %32 = getelementptr inbounds i8, ptr %.040, i64 120
   store ptr %27, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %.041, i64 194
+  %33 = getelementptr inbounds i8, ptr %.040, i64 194
   store i8 12, ptr %33, align 2
   %34 = inttoptr i64 %.pre-phi to ptr
-  %35 = getelementptr inbounds i8, ptr %.041, i64 88
+  %35 = getelementptr inbounds i8, ptr %.040, i64 88
   store ptr %34, ptr %35, align 8
   %36 = trunc i32 %4 to i16
   store i16 %36, ptr %29, align 8
-  %37 = getelementptr inbounds i8, ptr %.041, i64 56
+  %37 = getelementptr inbounds i8, ptr %.040, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 32, i1 false)
   br label %41
 
@@ -87,8 +87,8 @@ define noalias ptr @fdopen(i32 noundef %0, ptr nocapture noundef readonly %1) lo
   br label %41
 
 41:                                               ; preds = %2, %38, %26
-  %.040 = phi ptr [ null, %38 ], [ %.041, %26 ], [ null, %2 ]
-  ret ptr %.040
+  %.041 = phi ptr [ null, %38 ], [ %.040, %26 ], [ null, %2 ]
+  ret ptr %.041
 }
 
 declare ptr @lib_get_streams() local_unnamed_addr #1

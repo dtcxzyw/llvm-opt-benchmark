@@ -258,18 +258,18 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %125, label %64, label %.critedge2.preheader, !llvm.loop !6
 
 126:                                              ; preds = %.critedge2.preheader, %.critedge2
-  %.0151275 = phi i32 [ 0, %.critedge2.preheader ], [ %271, %.critedge2 ]
+  %.0159275 = phi i32 [ 0, %.critedge2.preheader ], [ %271, %.critedge2 ]
   br i1 %.not162, label %.preheader, label %127
 
 127:                                              ; preds = %126
-  %128 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.0151275)
+  %128 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.0159275)
   br label %.preheader
 
 .preheader:                                       ; preds = %127, %126
   br label %129
 
 129:                                              ; preds = %.preheader, %._crit_edge
-  %.1155 = phi i32 [ %.3157, %._crit_edge ], [ 0, %.preheader ]
+  %.1152 = phi i32 [ %.3154, %._crit_edge ], [ 0, %.preheader ]
   %.val172 = load i32, ptr %58, align 4
   %130 = icmp sgt i32 %.val172, 4
   br i1 %130, label %.lr.ph266.preheader, label %._crit_edge.thread
@@ -281,8 +281,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph266:                                        ; preds = %.lr.ph266.preheader, %199
   %indvars.iv287 = phi i64 [ %132, %.lr.ph266.preheader ], [ %indvars.iv.next288, %199 ]
-  %.0152264 = phi i32 [ 0, %.lr.ph266.preheader ], [ %.1153, %199 ]
-  %.2156263 = phi i32 [ %.1155, %.lr.ph266.preheader ], [ %.3157, %199 ]
+  %.2153264 = phi i32 [ %.1152, %.lr.ph266.preheader ], [ %.3154, %199 ]
+  %.0157263 = phi i32 [ 0, %.lr.ph266.preheader ], [ %.1158, %199 ]
   %indvars.iv.next288 = add nsw i64 %indvars.iv287, -1
   %133 = mul nuw nsw i64 %indvars.iv.next288, 5
   %.val178 = load ptr, ptr %59, align 8
@@ -406,17 +406,17 @@ Vec_IntPush.exit232:                              ; preds = %.Vec_IntGrow.exit10
   br label %199
 
 199:                                              ; preds = %.lr.ph266, %142, %191, %Vec_IntPush.exit232
-  %.3157 = phi i32 [ 1, %191 ], [ 1, %Vec_IntPush.exit232 ], [ %.2156263, %142 ], [ %.2156263, %.lr.ph266 ]
-  %.1153 = phi i32 [ 1, %191 ], [ 1, %Vec_IntPush.exit232 ], [ %.0152264, %142 ], [ %.0152264, %.lr.ph266 ]
+  %.1158 = phi i32 [ 1, %191 ], [ 1, %Vec_IntPush.exit232 ], [ %.0157263, %142 ], [ %.0157263, %.lr.ph266 ]
+  %.3154 = phi i32 [ 1, %191 ], [ 1, %Vec_IntPush.exit232 ], [ %.2153264, %142 ], [ %.2153264, %.lr.ph266 ]
   %200 = icmp ugt i64 %indvars.iv287, 1
   br i1 %200, label %.lr.ph266, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %199
-  %.not163 = icmp eq i32 %.1153, 0
+  %.not163 = icmp eq i32 %.1158, 0
   br i1 %.not163, label %._crit_edge.thread, label %129, !llvm.loop !8
 
 ._crit_edge.thread:                               ; preds = %129, %._crit_edge
-  %.2156.lcssa305 = phi i32 [ %.3157, %._crit_edge ], [ %.1155, %129 ]
+  %.2153.lcssa305 = phi i32 [ %.3154, %._crit_edge ], [ %.1152, %129 ]
   %.val173 = load i32, ptr %61, align 4
   %201 = icmp sgt i32 %.val173, 1
   br i1 %201, label %.lr.ph272.preheader, label %.critedge2
@@ -428,7 +428,7 @@ Vec_IntPush.exit232:                              ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph272:                                        ; preds = %.lr.ph272.preheader, %269
   %indvars.iv290 = phi i64 [ %203, %.lr.ph272.preheader ], [ %indvars.iv.next291, %269 ]
-  %.4158269 = phi i32 [ %.2156.lcssa305, %.lr.ph272.preheader ], [ %.5159, %269 ]
+  %.4155269 = phi i32 [ %.2153.lcssa305, %.lr.ph272.preheader ], [ %.5156, %269 ]
   %indvars.iv.next291 = add nsw i64 %indvars.iv290, -1
   %204 = shl nuw nsw i64 %indvars.iv.next291, 1
   %.val188 = load ptr, ptr %62, align 8
@@ -550,14 +550,14 @@ Vec_IntPush.exit239:                              ; preds = %.Vec_IntGrow.exit10
   br label %269
 
 269:                                              ; preds = %.lr.ph272, %213, %260, %Vec_IntPush.exit239
-  %.5159 = phi i32 [ 1, %260 ], [ 1, %Vec_IntPush.exit239 ], [ %.4158269, %213 ], [ %.4158269, %.lr.ph272 ]
+  %.5156 = phi i32 [ 1, %260 ], [ 1, %Vec_IntPush.exit239 ], [ %.4155269, %213 ], [ %.4155269, %.lr.ph272 ]
   %270 = icmp ugt i64 %indvars.iv290, 1
   br i1 %270, label %.lr.ph272, label %.critedge2, !llvm.loop !9
 
 .critedge2:                                       ; preds = %269, %._crit_edge.thread
-  %.4158.lcssa = phi i32 [ %.2156.lcssa305, %._crit_edge.thread ], [ %.5159, %269 ]
-  %271 = add nuw nsw i32 %.0151275, 1
-  %.not = icmp eq i32 %.4158.lcssa, 0
+  %.4155.lcssa = phi i32 [ %.2153.lcssa305, %._crit_edge.thread ], [ %.5156, %269 ]
+  %271 = add nuw nsw i32 %.0159275, 1
+  %.not = icmp eq i32 %.4155.lcssa, 0
   br i1 %.not, label %272, label %126, !llvm.loop !10
 
 272:                                              ; preds = %.critedge2

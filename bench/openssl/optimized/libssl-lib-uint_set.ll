@@ -270,14 +270,14 @@ land.rhs:                                         ; preds = %while.body
   br i1 %cmp.i122.not, label %while.end, label %while.body, !llvm.loop !7
 
 while.body:                                       ; preds = %land.rhs.lr.ph, %land.rhs
-  %zprev.0186263 = phi ptr [ %zprev.0.val, %land.rhs ], [ %z.0.val, %land.rhs.lr.ph ]
-  %24 = getelementptr i8, ptr %zprev.0186263, i64 8
+  %zprev.0187263 = phi ptr [ %zprev.0.val, %land.rhs ], [ %z.0.val, %land.rhs.lr.ph ]
+  %24 = getelementptr i8, ptr %zprev.0187263, i64 8
   %zprev.0.val = load ptr, ptr %24, align 8
   %cmp84.not = icmp eq ptr %zprev.0.val, null
   br i1 %cmp84.not, label %while.end, label %land.rhs, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %land.rhs, %land.rhs.lr.ph
-  %z.1.lcssa.ph = phi ptr [ %z.0184, %land.rhs.lr.ph ], [ %zprev.0186263, %land.rhs ], [ %zprev.0186263, %while.body ]
+  %z.1.lcssa.ph = phi ptr [ %z.0184, %land.rhs.lr.ph ], [ %zprev.0187263, %land.rhs ], [ %zprev.0187263, %while.body ]
   %range90.phi.trans.insert = getelementptr inbounds i8, ptr %z.1.lcssa.ph, i64 16
   %.pre = load i64, ptr %range90.phi.trans.insert, align 8
   %cond.i124 = tail call noundef i64 @llvm.umin.i64(i64 %0, i64 %.pre)

@@ -471,8 +471,8 @@ MemoryContextCheckSize.exit.i:                    ; preds = %10, %8
   br label %75
 
 75:                                               ; preds = %75, %.lr.ph.i
-  %.07386.i = phi i64 [ %69, %.lr.ph.i ], [ %90, %75 ]
-  %76 = add i64 %.07386.i, -8
+  %.07486.i = phi i64 [ %69, %.lr.ph.i ], [ %90, %75 ]
+  %76 = add i64 %.07486.i, -8
   %77 = icmp ugt i64 %76, 8
   %78 = trunc i64 %76 to i32
   %79 = add i32 %78, -1
@@ -491,7 +491,7 @@ MemoryContextCheckSize.exit.i:                    ; preds = %10, %8
   %88 = add i64 %.070.i, 8
   %89 = getelementptr i8, ptr %87, i64 %88
   store ptr %89, ptr %65, align 8
-  %90 = sub i64 %.07386.i, %88
+  %90 = sub i64 %.07486.i, %88
   %91 = sext i32 %.0.i35 to i64
   %92 = ptrtoint ptr %87 to i64
   %93 = sub i64 %92, %74
@@ -521,20 +521,20 @@ MemoryContextCheckSize.exit.i:                    ; preds = %10, %8
   br label %109
 
 109:                                              ; preds = %109, %._crit_edge.i
-  %.074.i = phi i64 [ %104, %._crit_edge.i ], [ %111, %109 ]
-  %110 = icmp ult i64 %.074.i, %108
-  %111 = shl i64 %.074.i, 1
+  %.073.i = phi i64 [ %104, %._crit_edge.i ], [ %111, %109 ]
+  %110 = icmp ult i64 %.073.i, %108
+  %111 = shl i64 %.073.i, 1
   br i1 %110, label %109, label %112, !llvm.loop !11
 
 112:                                              ; preds = %109
-  %113 = tail call noalias ptr @malloc(i64 noundef %.074.i) #15
+  %113 = tail call noalias ptr @malloc(i64 noundef %.073.i) #15
   %114 = icmp eq ptr %113, null
-  %115 = icmp ugt i64 %.074.i, 1048576
+  %115 = icmp ugt i64 %.073.i, 1048576
   %116 = and i1 %115, %114
   br i1 %116, label %.lr.ph89.i, label %._crit_edge90.i
 
 .lr.ph89.i:                                       ; preds = %112, %119
-  %.187.i = phi i64 [ %117, %119 ], [ %.074.i, %112 ]
+  %.187.i = phi i64 [ %117, %119 ], [ %.073.i, %112 ]
   %117 = lshr i64 %.187.i, 1
   %118 = icmp ult i64 %117, %108
   br i1 %118, label %.thread.i, label %119
@@ -547,7 +547,7 @@ MemoryContextCheckSize.exit.i:                    ; preds = %10, %8
   br i1 %123, label %.lr.ph89.i, label %._crit_edge90.i, !llvm.loop !12
 
 ._crit_edge90.i:                                  ; preds = %119, %112
-  %.1.lcssa.i = phi i64 [ %.074.i, %112 ], [ %117, %119 ]
+  %.1.lcssa.i = phi i64 [ %.073.i, %112 ], [ %117, %119 ]
   %.072.lcssa.i = phi ptr [ %113, %112 ], [ %120, %119 ]
   %.lcssa.i = phi i1 [ %114, %112 ], [ %121, %119 ]
   br i1 %.lcssa.i, label %.thread.i, label %125
@@ -897,43 +897,43 @@ define dso_local zeroext i1 @AllocSetIsEmpty(ptr nocapture noundef readonly %0) 
 define dso_local void @AllocSetStats(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca [200 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 80
-  %.04454 = load ptr, ptr %7, align 8
-  %.not55 = icmp eq ptr %.04454, null
+  %.04354 = load ptr, ptr %7, align 8
+  %.not55 = icmp eq ptr %.04354, null
   br i1 %.not55, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %5
-  %.047.lcssa = phi i64 [ 200, %5 ], [ %15, %.lr.ph ]
-  %.045.lcssa = phi i64 [ 0, %5 ], [ %20, %.lr.ph ]
+  %.045.lcssa = phi i64 [ 200, %5 ], [ %15, %.lr.ph ]
+  %.044.lcssa = phi i64 [ 0, %5 ], [ %20, %.lr.ph ]
   %.0.lcssa = phi i64 [ 0, %5 ], [ %9, %.lr.ph ]
   %8 = getelementptr inbounds i8, ptr %0, i64 88
   br label %22
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
-  %.04459 = phi ptr [ %.044, %.lr.ph ], [ %.04454, %5 ]
+  %.04359 = phi ptr [ %.043, %.lr.ph ], [ %.04354, %5 ]
   %.058 = phi i64 [ %9, %.lr.ph ], [ 0, %5 ]
-  %.04557 = phi i64 [ %20, %.lr.ph ], [ 0, %5 ]
-  %.04756 = phi i64 [ %15, %.lr.ph ], [ 200, %5 ]
+  %.04457 = phi i64 [ %20, %.lr.ph ], [ 0, %5 ]
+  %.04556 = phi i64 [ %15, %.lr.ph ], [ 200, %5 ]
   %9 = add i64 %.058, 1
-  %10 = getelementptr inbounds i8, ptr %.04459, i64 32
+  %10 = getelementptr inbounds i8, ptr %.04359, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
-  %13 = ptrtoint ptr %.04459 to i64
-  %14 = sub i64 %.04756, %13
+  %13 = ptrtoint ptr %.04359 to i64
+  %14 = sub i64 %.04556, %13
   %15 = add i64 %14, %12
-  %16 = getelementptr inbounds i8, ptr %.04459, i64 24
+  %16 = getelementptr inbounds i8, ptr %.04359, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
-  %19 = add i64 %.04557, %12
+  %19 = add i64 %.04457, %12
   %20 = sub i64 %19, %18
-  %21 = getelementptr inbounds i8, ptr %.04459, i64 16
-  %.044 = load ptr, ptr %21, align 8
-  %.not = icmp eq ptr %.044, null
+  %21 = getelementptr inbounds i8, ptr %.04359, i64 16
+  %.043 = load ptr, ptr %21, align 8
+  %.not = icmp eq ptr %.043, null
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !13
 
 22:                                               ; preds = %.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %.04272 = phi i64 [ 0, %.preheader ], [ %.1.lcssa, %._crit_edge ]
-  %.14670 = phi i64 [ %.045.lcssa, %.preheader ], [ %.2.lcssa, %._crit_edge ]
+  %.171 = phi i64 [ %.044.lcssa, %.preheader ], [ %.2.lcssa, %._crit_edge ]
+  %.04670 = phi i64 [ 0, %.preheader ], [ %.147.lcssa, %._crit_edge ]
   %23 = getelementptr [11 x ptr], ptr %8, i64 0, i64 %indvars.iv
   %.04162 = load ptr, ptr %23, align 8
   %.not5263 = icmp eq ptr %.04162, null
@@ -946,18 +946,18 @@ define dso_local void @AllocSetStats(ptr noundef %0, ptr noundef readonly %1, pt
 
 26:                                               ; preds = %.lr.ph67, %26
   %.04166 = phi ptr [ %.04162, %.lr.ph67 ], [ %.041, %26 ]
-  %.165 = phi i64 [ %.04272, %.lr.ph67 ], [ %28, %26 ]
-  %.264 = phi i64 [ %.14670, %.lr.ph67 ], [ %29, %26 ]
+  %.265 = phi i64 [ %.171, %.lr.ph67 ], [ %29, %26 ]
+  %.14764 = phi i64 [ %.04670, %.lr.ph67 ], [ %28, %26 ]
   %27 = getelementptr i8, ptr %.04166, i64 8
-  %28 = add i64 %.165, 1
-  %29 = add i64 %25, %.264
+  %28 = add i64 %.14764, 1
+  %29 = add i64 %25, %.265
   %.041 = load ptr, ptr %27, align 8
   %.not52 = icmp eq ptr %.041, null
   br i1 %.not52, label %._crit_edge, label %26, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %26, %22
-  %.2.lcssa = phi i64 [ %.14670, %22 ], [ %29, %26 ]
-  %.1.lcssa = phi i64 [ %.04272, %22 ], [ %28, %26 ]
+  %.147.lcssa = phi i64 [ %.04670, %22 ], [ %28, %26 ]
+  %.2.lcssa = phi i64 [ %.171, %22 ], [ %29, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
   br i1 %exitcond.not, label %30, label %22, !llvm.loop !15
@@ -967,8 +967,8 @@ define dso_local void @AllocSetStats(ptr noundef %0, ptr noundef readonly %1, pt
   br i1 %.not50, label %34, label %31
 
 31:                                               ; preds = %30
-  %32 = sub i64 %.047.lcssa, %.2.lcssa
-  %33 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 200, ptr noundef nonnull @.str.4, i64 noundef %.047.lcssa, i64 noundef %.0.lcssa, i64 noundef %.2.lcssa, i64 noundef %.1.lcssa, i64 noundef %32) #14
+  %32 = sub i64 %.045.lcssa, %.2.lcssa
+  %33 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 200, ptr noundef nonnull @.str.4, i64 noundef %.045.lcssa, i64 noundef %.0.lcssa, i64 noundef %.2.lcssa, i64 noundef %.147.lcssa, i64 noundef %32) #14
   call void %1(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %6, i1 noundef zeroext %4) #14
   br label %34
 
@@ -982,11 +982,11 @@ define dso_local void @AllocSetStats(ptr noundef %0, ptr noundef readonly %1, pt
   store i64 %37, ptr %3, align 8
   %38 = getelementptr inbounds i8, ptr %3, i64 8
   %39 = load i64, ptr %38, align 8
-  %40 = add i64 %39, %.1.lcssa
+  %40 = add i64 %39, %.147.lcssa
   store i64 %40, ptr %38, align 8
   %41 = getelementptr inbounds i8, ptr %3, i64 16
   %42 = load i64, ptr %41, align 8
-  %43 = add i64 %42, %.047.lcssa
+  %43 = add i64 %42, %.045.lcssa
   store i64 %43, ptr %41, align 8
   %44 = getelementptr inbounds i8, ptr %3, i64 24
   %45 = load i64, ptr %44, align 8

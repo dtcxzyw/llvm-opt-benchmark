@@ -495,7 +495,7 @@ _nodeid_from_layout.exit:                         ; preds = %._crit_edge.i, %71,
   br label %_msg_thr_create.exit
 
 _msg_thr_create.exit:                             ; preds = %160, %191, %193
-  %.0.i = phi ptr [ null, %160 ], [ %130, %193 ], [ %130, %191 ]
+  %.021.i = phi ptr [ null, %160 ], [ %130, %193 ], [ %130, %191 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -524,15 +524,15 @@ _msg_thr_create.exit:                             ; preds = %160, %191, %193
 209:                                              ; preds = %203, %_msg_thr_create.exit
   %210 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 40), align 8
   %211 = getelementptr inbounds i8, ptr %210, i64 8
-  %212 = getelementptr inbounds i8, ptr %.0.i, i64 120
+  %212 = getelementptr inbounds i8, ptr %.021.i, i64 120
   %213 = load i16, ptr %212, align 8
-  %214 = getelementptr inbounds i8, ptr %.0.i, i64 128
+  %214 = getelementptr inbounds i8, ptr %.021.i, i64 128
   %215 = load ptr, ptr %214, align 8
   %216 = getelementptr inbounds i8, ptr %200, i64 128
   %217 = load i32, ptr %216, align 8
   %218 = getelementptr inbounds i8, ptr %200, i64 144
   %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds i8, ptr %.0.i, i64 88
+  %220 = getelementptr inbounds i8, ptr %.021.i, i64 88
   %221 = load ptr, ptr %220, align 8
   %.sroa.0.0.copyload = load i64, ptr %211, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %210, i64 16
@@ -576,11 +576,11 @@ _msg_thr_create.exit:                             ; preds = %160, %191, %193
   br label %240
 
 240:                                              ; preds = %237, %209
-  %.0.i48 = phi ptr [ %239, %237 ], [ %236, %209 ]
+  %.0.i = phi ptr [ %239, %237 ], [ %236, %209 ]
   %241 = getelementptr inbounds i8, ptr %45, i64 32
   %242 = load ptr, ptr %241, align 8
   call void @fwd_set_alias_addrs(ptr noundef %242) #14
-  %243 = call ptr @slurm_send_recv_msgs(ptr noundef %.0.i48, ptr noundef nonnull %3, i32 noundef %224) #14
+  %243 = call ptr @slurm_send_recv_msgs(ptr noundef %.0.i, ptr noundef nonnull %3, i32 noundef %224) #14
   %244 = icmp eq ptr %243, null
   br i1 %244, label %245, label %247
 
@@ -602,50 +602,50 @@ _attach_to_tasks.exit:                            ; preds = %245, %247
   %249 = trunc i8 %248 to i1
   %250 = load i32, ptr @MPIR_proctable_size, align 4
   %251 = icmp sgt i32 %250, 0
-  %or.cond63 = select i1 %249, i1 %251, i1 false
-  br i1 %or.cond63, label %.lr.ph.i50, label %_mpir_dump_proctable.exit
+  %or.cond62 = select i1 %249, i1 %251, i1 false
+  br i1 %or.cond62, label %.lr.ph.i49, label %_mpir_dump_proctable.exit
 
-.lr.ph.i50:                                       ; preds = %_attach_to_tasks.exit, %263
-  %indvars.iv.i51 = phi i64 [ %indvars.iv.next.i52, %263 ], [ 0, %_attach_to_tasks.exit ]
+.lr.ph.i49:                                       ; preds = %_attach_to_tasks.exit, %263
+  %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i51, %263 ], [ 0, %_attach_to_tasks.exit ]
   %252 = load ptr, ptr @MPIR_proctable, align 8
   %253 = call i32 @get_log_level() #14
   %254 = icmp sgt i32 %253, 2
   br i1 %254, label %255, label %263
 
-255:                                              ; preds = %.lr.ph.i50
-  %256 = getelementptr inbounds %struct.MPIR_PROCDESC, ptr %252, i64 %indvars.iv.i51
+255:                                              ; preds = %.lr.ph.i49
+  %256 = getelementptr inbounds %struct.MPIR_PROCDESC, ptr %252, i64 %indvars.iv.i50
   %257 = load ptr, ptr %256, align 8
   %258 = getelementptr inbounds i8, ptr %256, i64 16
   %259 = load i32, ptr %258, align 8
   %260 = getelementptr inbounds i8, ptr %256, i64 8
   %261 = load ptr, ptr %260, align 8
-  %262 = trunc nuw nsw i64 %indvars.iv.i51 to i32
+  %262 = trunc nuw nsw i64 %indvars.iv.i50 to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.47, i32 noundef %262, ptr noundef %257, i32 noundef %259, ptr noundef %261) #14
   br label %263
 
-263:                                              ; preds = %255, %.lr.ph.i50
-  %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i51, 1
+263:                                              ; preds = %255, %.lr.ph.i49
+  %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i50, 1
   %264 = load i32, ptr @MPIR_proctable_size, align 4
   %265 = sext i32 %264 to i64
-  %266 = icmp slt i64 %indvars.iv.next.i52, %265
-  br i1 %266, label %.lr.ph.i50, label %_mpir_dump_proctable.exit, !llvm.loop !11
+  %266 = icmp slt i64 %indvars.iv.next.i51, %265
+  br i1 %266, label %.lr.ph.i49, label %_mpir_dump_proctable.exit, !llvm.loop !11
 
 _mpir_dump_proctable.exit:                        ; preds = %263, %_attach_to_tasks.exit
-  %267 = call i32 @pthread_mutex_lock(ptr noundef %.0.i) #14
-  %.not.i53 = icmp eq i32 %267, 0
-  br i1 %.not.i53, label %.preheader.i54, label %275
+  %267 = call i32 @pthread_mutex_lock(ptr noundef %.021.i) #14
+  %.not.i52 = icmp eq i32 %267, 0
+  br i1 %.not.i52, label %.preheader.i53, label %275
 
-.preheader.i54:                                   ; preds = %_mpir_dump_proctable.exit
-  %268 = getelementptr inbounds i8, ptr %.0.i, i64 96
+.preheader.i53:                                   ; preds = %_mpir_dump_proctable.exit
+  %268 = getelementptr inbounds i8, ptr %.021.i, i64 96
   %269 = load ptr, ptr %268, align 8
   %270 = call i32 @bit_set_count(ptr noundef %269) #14
   %271 = load ptr, ptr %220, align 8
   %272 = call i32 @bit_set_count(ptr noundef %271) #14
   %273 = icmp slt i32 %270, %272
-  br i1 %273, label %.lr.ph.i56, label %._crit_edge.i55
+  br i1 %273, label %.lr.ph.i55, label %._crit_edge.i54
 
-.lr.ph.i56:                                       ; preds = %.preheader.i54
-  %274 = getelementptr inbounds i8, ptr %.0.i, i64 40
+.lr.ph.i55:                                       ; preds = %.preheader.i53
+  %274 = getelementptr inbounds i8, ptr %.021.i, i64 40
   br label %277
 
 275:                                              ; preds = %_mpir_dump_proctable.exit
@@ -654,8 +654,8 @@ _mpir_dump_proctable.exit:                        ; preds = %263, %_attach_to_ta
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.18, i32 noundef 491, ptr noundef nonnull @__func__._msg_thr_wait) #16
   unreachable
 
-277:                                              ; preds = %282, %.lr.ph.i56
-  %278 = call i32 @pthread_cond_wait(ptr noundef nonnull %274, ptr noundef nonnull %.0.i) #14
+277:                                              ; preds = %282, %.lr.ph.i55
+  %278 = call i32 @pthread_cond_wait(ptr noundef nonnull %274, ptr noundef nonnull %.021.i) #14
   %.not14.i = icmp eq i32 %278, 0
   br i1 %.not14.i, label %282, label %279
 
@@ -671,27 +671,27 @@ _mpir_dump_proctable.exit:                        ; preds = %263, %_attach_to_ta
   %285 = load ptr, ptr %220, align 8
   %286 = call i32 @bit_set_count(ptr noundef %285) #14
   %287 = icmp slt i32 %284, %286
-  br i1 %287, label %277, label %._crit_edge.i55, !llvm.loop !12
+  br i1 %287, label %277, label %._crit_edge.i54, !llvm.loop !12
 
-._crit_edge.i55:                                  ; preds = %282, %.preheader.i54
-  %288 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %.0.i) #14
+._crit_edge.i54:                                  ; preds = %282, %.preheader.i53
+  %288 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %.021.i) #14
   %.not13.i = icmp eq i32 %288, 0
   br i1 %.not13.i, label %_msg_thr_wait.exit, label %289
 
-289:                                              ; preds = %._crit_edge.i55
+289:                                              ; preds = %._crit_edge.i54
   %290 = tail call ptr @__errno_location() #17
   store i32 %288, ptr %290, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.18, i32 noundef 496, ptr noundef nonnull @__func__._msg_thr_wait) #16
   unreachable
 
-_msg_thr_wait.exit:                               ; preds = %._crit_edge.i55
-  %291 = getelementptr inbounds i8, ptr %.0.i, i64 104
+_msg_thr_wait.exit:                               ; preds = %._crit_edge.i54
+  %291 = getelementptr inbounds i8, ptr %.021.i, i64 104
   %292 = load ptr, ptr %291, align 8
   %293 = call i32 @eio_signal_shutdown(ptr noundef %292) #14
-  %294 = getelementptr inbounds i8, ptr %.0.i, i64 112
+  %294 = getelementptr inbounds i8, ptr %.021.i, i64 112
   %295 = load i64, ptr %294, align 8
-  %.not.i57 = icmp eq i64 %295, 0
-  br i1 %.not.i57, label %.thread.i, label %296
+  %.not.i56 = icmp eq i64 %295, 0
+  br i1 %.not.i56, label %.thread.i, label %296
 
 296:                                              ; preds = %_msg_thr_wait.exit
   %297 = call i32 @pthread_join(i64 noundef %295, ptr noundef null) #14
@@ -708,7 +708,7 @@ _msg_thr_wait.exit:                               ; preds = %._crit_edge.i55
 .thread.i:                                        ; preds = %298, %296, %_msg_thr_wait.exit
   %301 = load ptr, ptr %291, align 8
   call void @eio_handle_destroy(ptr noundef %301) #14
-  %302 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %.0.i) #14
+  %302 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %.021.i) #14
   %.not22.i = icmp eq i32 %302, 0
   br i1 %.not22.i, label %305, label %303
 
@@ -719,7 +719,7 @@ _msg_thr_wait.exit:                               ; preds = %._crit_edge.i55
   unreachable
 
 305:                                              ; preds = %.thread.i
-  %306 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %306 = getelementptr inbounds i8, ptr %.021.i, i64 40
   %307 = call i32 @pthread_cond_destroy(ptr noundef nonnull %306) #14
   %.not23.i = icmp eq i32 %307, 0
   br i1 %.not23.i, label %311, label %308
@@ -756,23 +756,23 @@ _msg_thr_destroy.exit:                            ; preds = %314, %316
   call void @client_io_handler_destroy(ptr noundef %200) #14
   %317 = load i32, ptr @MPIR_proctable_size, align 4
   %318 = icmp sgt i32 %317, 0
-  br i1 %318, label %.lr.ph.i59, label %_mpir_cleanup.exit
+  br i1 %318, label %.lr.ph.i58, label %_mpir_cleanup.exit
 
-.lr.ph.i59:                                       ; preds = %_msg_thr_destroy.exit, %.lr.ph.i59
-  %indvars.iv.i60 = phi i64 [ %indvars.iv.next.i61, %.lr.ph.i59 ], [ 0, %_msg_thr_destroy.exit ]
+.lr.ph.i58:                                       ; preds = %_msg_thr_destroy.exit, %.lr.ph.i58
+  %indvars.iv.i59 = phi i64 [ %indvars.iv.next.i60, %.lr.ph.i58 ], [ 0, %_msg_thr_destroy.exit ]
   %319 = load ptr, ptr @MPIR_proctable, align 8
-  %320 = getelementptr inbounds %struct.MPIR_PROCDESC, ptr %319, i64 %indvars.iv.i60
+  %320 = getelementptr inbounds %struct.MPIR_PROCDESC, ptr %319, i64 %indvars.iv.i59
   call void @slurm_xfree(ptr noundef %320) #14
   %321 = load ptr, ptr @MPIR_proctable, align 8
-  %322 = getelementptr inbounds %struct.MPIR_PROCDESC, ptr %321, i64 %indvars.iv.i60, i32 1
+  %322 = getelementptr inbounds %struct.MPIR_PROCDESC, ptr %321, i64 %indvars.iv.i59, i32 1
   call void @slurm_xfree(ptr noundef nonnull %322) #14
-  %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i60, 1
+  %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i59, 1
   %323 = load i32, ptr @MPIR_proctable_size, align 4
   %324 = sext i32 %323 to i64
-  %325 = icmp slt i64 %indvars.iv.next.i61, %324
-  br i1 %325, label %.lr.ph.i59, label %_mpir_cleanup.exit, !llvm.loop !13
+  %325 = icmp slt i64 %indvars.iv.next.i60, %324
+  br i1 %325, label %.lr.ph.i58, label %_mpir_cleanup.exit, !llvm.loop !13
 
-_mpir_cleanup.exit:                               ; preds = %.lr.ph.i59, %_msg_thr_destroy.exit
+_mpir_cleanup.exit:                               ; preds = %.lr.ph.i58, %_msg_thr_destroy.exit
   call void @slurm_xfree(ptr noundef nonnull @MPIR_proctable) #14
   %326 = load i32, ptr @global_rc, align 4
   ret i32 %326

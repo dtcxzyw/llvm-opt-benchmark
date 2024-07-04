@@ -17152,10 +17152,10 @@ while.body.i:                                     ; preds = %while.body.lr.ph.i,
   br i1 %cmp.i18.i.i.i.i.i.i.i.i.not.i, label %_ZNKSt4lessISt3setIN4cvc58internal12NodeTemplateILb0EEES_IS4_ESaIS4_EEEclERKS7_SA_.exit.i, label %for.body.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %while.body.i, %for.inc.i.i.i.i.i.i.i.i.i
-  %__first1.sroa.0.022.i.i.i.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i ], [ %2, %while.body.i ]
-  %__first2.sroa.0.021.i.i.i.i.i.i.i.i.i = phi ptr [ %call.i9.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i ], [ %1, %while.body.i ]
-  %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.022.i.i.i.i.i.i.i.i.i, i64 32
-  %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.021.i.i.i.i.i.i.i.i.i, i64 32
+  %__first2.sroa.0.022.i.i.i.i.i.i.i.i.i = phi ptr [ %call.i9.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i ], [ %1, %while.body.i ]
+  %__first1.sroa.0.021.i.i.i.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i ], [ %2, %while.body.i ]
+  %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.021.i.i.i.i.i.i.i.i.i, i64 32
+  %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.022.i.i.i.i.i.i.i.i.i, i64 32
   %3 = load ptr, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %bf.load.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %3, align 8
   %bf.clear.i.i.i.i.i.i.i.i.i.i.i = and i64 %bf.load.i.i.i.i.i.i.i.i.i.i.i, 1099511627775
@@ -17170,16 +17170,16 @@ if.end.i.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i8.i.i.i.i.i.i.i.i.i, label %if.end.i, label %for.inc.i.i.i.i.i.i.i.i.i
 
 for.inc.i.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.i.i.i
-  %call.i.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.022.i.i.i.i.i.i.i.i.i) #25
-  %call.i9.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.021.i.i.i.i.i.i.i.i.i) #25
+  %call.i.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.021.i.i.i.i.i.i.i.i.i) #25
+  %call.i9.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.022.i.i.i.i.i.i.i.i.i) #25
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp ne ptr %call.i.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp ne ptr %call.i9.i.i.i.i.i.i.i.i.i, %add.ptr.i4.i.i.i.i
   %or.cond.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %_ZNKSt4lessISt3setIN4cvc58internal12NodeTemplateILb0EEES_IS4_ESaIS4_EEEclERKS7_SA_.exit.i, !llvm.loop !388
 
 _ZNKSt4lessISt3setIN4cvc58internal12NodeTemplateILb0EEES_IS4_ESaIS4_EEEclERKS7_SA_.exit.i: ; preds = %for.inc.i.i.i.i.i.i.i.i.i, %while.body.i
-  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %1, %while.body.i ], [ %call.i9.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i ]
   %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %2, %while.body.i ], [ %call.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i ]
+  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %1, %while.body.i ], [ %call.i9.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i ]
   %cmp.i10.i.i.i.i.i.i.i.i.i = icmp eq ptr %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i
   %cmp.i11.i.i.i.i.i.i.i.i.i = icmp ne ptr %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i, %add.ptr.i4.i.i.i.i
   %spec.select.i.i.i.i.i.i.i.i.i = select i1 %cmp.i10.i.i.i.i.i.i.i.i.i, i1 %cmp.i11.i.i.i.i.i.i.i.i.i, i1 false
@@ -17210,10 +17210,10 @@ lor.lhs.false:                                    ; preds = %_ZNSt8_Rb_treeISt3s
   br i1 %or.cond20.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %_ZNKSt4lessISt3setIN4cvc58internal12NodeTemplateILb0EEES_IS4_ESaIS4_EEEclERKS7_SA_.exit
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %lor.lhs.false, %for.inc.i.i.i.i.i.i.i.i
-  %__first1.sroa.0.022.i.i.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %1, %lor.lhs.false ]
-  %__first2.sroa.0.021.i.i.i.i.i.i.i.i = phi ptr [ %call.i9.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %5, %lor.lhs.false ]
-  %_M_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.022.i.i.i.i.i.i.i.i, i64 32
-  %_M_storage.i.i1.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.021.i.i.i.i.i.i.i.i, i64 32
+  %__first2.sroa.0.022.i.i.i.i.i.i.i.i = phi ptr [ %call.i9.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %5, %lor.lhs.false ]
+  %__first1.sroa.0.021.i.i.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %1, %lor.lhs.false ]
+  %_M_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.021.i.i.i.i.i.i.i.i, i64 32
+  %_M_storage.i.i1.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.022.i.i.i.i.i.i.i.i, i64 32
   %6 = load ptr, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i.i, align 8
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i64, ptr %6, align 8
   %bf.clear.i.i.i.i.i.i.i.i.i.i = and i64 %bf.load.i.i.i.i.i.i.i.i.i.i, 1099511627775
@@ -17228,16 +17228,16 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i8.i.i.i.i.i.i.i.i, label %cond.false, label %for.inc.i.i.i.i.i.i.i.i
 
 for.inc.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.i.i
-  %call.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.022.i.i.i.i.i.i.i.i) #25
-  %call.i9.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.021.i.i.i.i.i.i.i.i) #25
+  %call.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.021.i.i.i.i.i.i.i.i) #25
+  %call.i9.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.022.i.i.i.i.i.i.i.i) #25
   %cmp.i.i.i.i.i.i.i.i.i = icmp ne ptr %call.i.i.i.i.i.i.i.i.i, %add.ptr.i4.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i.i3 = icmp ne ptr %call.i9.i.i.i.i.i.i.i.i, %add.ptr.i4.i.i.i
   %or.cond.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i.i.i3, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %_ZNKSt4lessISt3setIN4cvc58internal12NodeTemplateILb0EEES_IS4_ESaIS4_EEEclERKS7_SA_.exit, !llvm.loop !388
 
 _ZNKSt4lessISt3setIN4cvc58internal12NodeTemplateILb0EEES_IS4_ESaIS4_EEEclERKS7_SA_.exit: ; preds = %for.inc.i.i.i.i.i.i.i.i, %lor.lhs.false
-  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %5, %lor.lhs.false ], [ %call.i9.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ]
   %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %1, %lor.lhs.false ], [ %call.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ]
+  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %5, %lor.lhs.false ], [ %call.i9.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ]
   %cmp.i10.i.i.i.i.i.i.i.i = icmp eq ptr %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i, %add.ptr.i4.i.i.i.i
   %cmp.i11.i.i.i.i.i.i.i.i = icmp ne ptr %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i, %add.ptr.i4.i.i.i
   %spec.select.i.i.i.i.i.i.i.i = select i1 %cmp.i10.i.i.i.i.i.i.i.i, i1 %cmp.i11.i.i.i.i.i.i.i.i, i1 false
@@ -17301,10 +17301,10 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.i.i19.i.i.i.i.i.i.i.i.not, label %_ZNKSt4lessISt3setIN4cvc58internal12NodeTemplateILb0EEES_IS4_ESaIS4_EEEclERKS7_SA_.exit, label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %while.body, %for.inc.i.i.i.i.i.i.i.i
-  %__first1.sroa.0.022.i.i.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %0, %while.body ]
-  %__first2.sroa.0.021.i.i.i.i.i.i.i.i = phi ptr [ %call.i9.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %2, %while.body ]
-  %_M_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.022.i.i.i.i.i.i.i.i, i64 32
-  %_M_storage.i.i1.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.021.i.i.i.i.i.i.i.i, i64 32
+  %__first2.sroa.0.022.i.i.i.i.i.i.i.i = phi ptr [ %call.i9.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %2, %while.body ]
+  %__first1.sroa.0.021.i.i.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %0, %while.body ]
+  %_M_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.021.i.i.i.i.i.i.i.i, i64 32
+  %_M_storage.i.i1.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.022.i.i.i.i.i.i.i.i, i64 32
   %3 = load ptr, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i.i, align 8
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i64, ptr %3, align 8
   %bf.clear.i.i.i.i.i.i.i.i.i.i = and i64 %bf.load.i.i.i.i.i.i.i.i.i.i, 1099511627775
@@ -17319,16 +17319,16 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i8.i.i.i.i.i.i.i.i, label %cond.false, label %for.inc.i.i.i.i.i.i.i.i
 
 for.inc.i.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i.i.i.i.i
-  %call.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.022.i.i.i.i.i.i.i.i) #25
-  %call.i9.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.021.i.i.i.i.i.i.i.i) #25
+  %call.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.021.i.i.i.i.i.i.i.i) #25
+  %call.i9.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.022.i.i.i.i.i.i.i.i) #25
   %cmp.i.i.i.i.i.i.i.i.i = icmp ne ptr %call.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp ne ptr %call.i9.i.i.i.i.i.i.i.i, %add.ptr.i4.i.i.i
   %or.cond.i.i.i.i.i.i.i.i = and i1 %cmp.i.i.i.i.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %_ZNKSt4lessISt3setIN4cvc58internal12NodeTemplateILb0EEES_IS4_ESaIS4_EEEclERKS7_SA_.exit, !llvm.loop !388
 
 _ZNKSt4lessISt3setIN4cvc58internal12NodeTemplateILb0EEES_IS4_ESaIS4_EEEclERKS7_SA_.exit: ; preds = %for.inc.i.i.i.i.i.i.i.i, %while.body
-  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %2, %while.body ], [ %call.i9.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ]
   %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %0, %while.body ], [ %call.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ]
+  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %2, %while.body ], [ %call.i9.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ]
   %cmp.i10.i.i.i.i.i.i.i.i = icmp eq ptr %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i
   %cmp.i11.i.i.i.i.i.i.i.i = icmp ne ptr %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i, %add.ptr.i4.i.i.i
   %spec.select.i.i.i.i.i.i.i.i = and i1 %cmp.i10.i.i.i.i.i.i.i.i, %cmp.i11.i.i.i.i.i.i.i.i
@@ -17376,10 +17376,10 @@ if.end12:                                         ; preds = %while.body.us.us, %
   br i1 %or.cond20.i.i.i.i.i.i.i.i10, label %for.body.i.i.i.i.i.i.i.i18, label %_ZNKSt4lessISt3setIN4cvc58internal12NodeTemplateILb0EEES_IS4_ESaIS4_EEEclERKS7_SA_.exit36
 
 for.body.i.i.i.i.i.i.i.i18:                       ; preds = %if.end12, %for.inc.i.i.i.i.i.i.i.i30
-  %__first1.sroa.0.022.i.i.i.i.i.i.i.i19 = phi ptr [ %call.i.i.i.i.i.i.i.i.i31, %for.inc.i.i.i.i.i.i.i.i30 ], [ %6, %if.end12 ]
-  %__first2.sroa.0.021.i.i.i.i.i.i.i.i20 = phi ptr [ %call.i9.i.i.i.i.i.i.i.i32, %for.inc.i.i.i.i.i.i.i.i30 ], [ %7, %if.end12 ]
-  %_M_storage.i.i.i.i.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %__first1.sroa.0.022.i.i.i.i.i.i.i.i19, i64 32
-  %_M_storage.i.i1.i.i.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__first2.sroa.0.021.i.i.i.i.i.i.i.i20, i64 32
+  %__first2.sroa.0.022.i.i.i.i.i.i.i.i19 = phi ptr [ %call.i9.i.i.i.i.i.i.i.i32, %for.inc.i.i.i.i.i.i.i.i30 ], [ %7, %if.end12 ]
+  %__first1.sroa.0.021.i.i.i.i.i.i.i.i20 = phi ptr [ %call.i.i.i.i.i.i.i.i.i31, %for.inc.i.i.i.i.i.i.i.i30 ], [ %6, %if.end12 ]
+  %_M_storage.i.i.i.i.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %__first1.sroa.0.021.i.i.i.i.i.i.i.i20, i64 32
+  %_M_storage.i.i1.i.i.i.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %__first2.sroa.0.022.i.i.i.i.i.i.i.i19, i64 32
   %8 = load ptr, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i.i21, align 8
   %bf.load.i.i.i.i.i.i.i.i.i.i23 = load i64, ptr %8, align 8
   %bf.clear.i.i.i.i.i.i.i.i.i.i24 = and i64 %bf.load.i.i.i.i.i.i.i.i.i.i23, 1099511627775
@@ -17394,18 +17394,18 @@ if.end.i.i.i.i.i.i.i.i28:                         ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i8.i.i.i.i.i.i.i.i29, label %if.end18, label %for.inc.i.i.i.i.i.i.i.i30
 
 for.inc.i.i.i.i.i.i.i.i30:                        ; preds = %if.end.i.i.i.i.i.i.i.i28
-  %call.i.i.i.i.i.i.i.i.i31 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.022.i.i.i.i.i.i.i.i19) #25
-  %call.i9.i.i.i.i.i.i.i.i32 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.021.i.i.i.i.i.i.i.i20) #25
+  %call.i.i.i.i.i.i.i.i.i31 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.021.i.i.i.i.i.i.i.i20) #25
+  %call.i9.i.i.i.i.i.i.i.i32 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.022.i.i.i.i.i.i.i.i19) #25
   %cmp.i.i.i.i.i.i.i.i.i33 = icmp ne ptr %call.i.i.i.i.i.i.i.i.i31, %add.ptr.i.i.i.i5
   %cmp.i.i.i.i.i.i.i.i.i.i34 = icmp ne ptr %call.i9.i.i.i.i.i.i.i.i32, %add.ptr.i4.i.i.i7
   %or.cond.i.i.i.i.i.i.i.i35 = select i1 %cmp.i.i.i.i.i.i.i.i.i33, i1 %cmp.i.i.i.i.i.i.i.i.i.i34, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i.i35, label %for.body.i.i.i.i.i.i.i.i18, label %_ZNKSt4lessISt3setIN4cvc58internal12NodeTemplateILb0EEES_IS4_ESaIS4_EEEclERKS7_SA_.exit36, !llvm.loop !388
 
 _ZNKSt4lessISt3setIN4cvc58internal12NodeTemplateILb0EEES_IS4_ESaIS4_EEEclERKS7_SA_.exit36: ; preds = %for.inc.i.i.i.i.i.i.i.i30, %if.end12
-  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i12 = phi ptr [ %7, %if.end12 ], [ %call.i9.i.i.i.i.i.i.i.i32, %for.inc.i.i.i.i.i.i.i.i30 ]
-  %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i13 = phi ptr [ %6, %if.end12 ], [ %call.i.i.i.i.i.i.i.i.i31, %for.inc.i.i.i.i.i.i.i.i30 ]
-  %cmp.i10.i.i.i.i.i.i.i.i14 = icmp eq ptr %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i13, %add.ptr.i.i.i.i5
-  %cmp.i11.i.i.i.i.i.i.i.i15 = icmp ne ptr %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i12, %add.ptr.i4.i.i.i7
+  %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i12 = phi ptr [ %6, %if.end12 ], [ %call.i.i.i.i.i.i.i.i.i31, %for.inc.i.i.i.i.i.i.i.i30 ]
+  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i13 = phi ptr [ %7, %if.end12 ], [ %call.i9.i.i.i.i.i.i.i.i32, %for.inc.i.i.i.i.i.i.i.i30 ]
+  %cmp.i10.i.i.i.i.i.i.i.i14 = icmp eq ptr %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i12, %add.ptr.i.i.i.i5
+  %cmp.i11.i.i.i.i.i.i.i.i15 = icmp ne ptr %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i13, %add.ptr.i4.i.i.i7
   %spec.select.i.i.i.i.i.i.i.i16 = select i1 %cmp.i10.i.i.i.i.i.i.i.i14, i1 %cmp.i11.i.i.i.i.i.i.i.i15, i1 false
   br i1 %spec.select.i.i.i.i.i.i.i.i16, label %return, label %if.end18
 
@@ -17442,10 +17442,10 @@ lor.rhs:                                          ; preds = %entry
   br i1 %or.cond20.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %lor.rhs, %for.inc.i.i.i.i.i.i.i.i
-  %__first1.sroa.0.022.i.i.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %0, %lor.rhs ]
-  %__first2.sroa.0.021.i.i.i.i.i.i.i.i = phi ptr [ %call.i9.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %1, %lor.rhs ]
-  %_M_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.022.i.i.i.i.i.i.i.i, i64 32
-  %_M_storage.i.i1.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.021.i.i.i.i.i.i.i.i, i64 32
+  %__first2.sroa.0.022.i.i.i.i.i.i.i.i = phi ptr [ %call.i9.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %1, %lor.rhs ]
+  %__first1.sroa.0.021.i.i.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ], [ %0, %lor.rhs ]
+  %_M_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.021.i.i.i.i.i.i.i.i, i64 32
+  %_M_storage.i.i1.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.022.i.i.i.i.i.i.i.i, i64 32
   %2 = load ptr, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i.i, align 8
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i64, ptr %2, align 8
   %bf.clear.i.i.i.i.i.i.i.i.i.i = and i64 %bf.load.i.i.i.i.i.i.i.i.i.i, 1099511627775
@@ -17456,16 +17456,16 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %lor.rhs, %for.inc.i
   br i1 %or.cond5.not, label %for.inc.i.i.i.i.i.i.i.i, label %lor.end.loopexit
 
 for.inc.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i.i.i.i.i
-  %call.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.022.i.i.i.i.i.i.i.i) #25
-  %call.i9.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.021.i.i.i.i.i.i.i.i) #25
+  %call.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.021.i.i.i.i.i.i.i.i) #25
+  %call.i9.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.022.i.i.i.i.i.i.i.i) #25
   %cmp.i.i.i.i.i.i.i.i.i = icmp ne ptr %call.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp ne ptr %call.i9.i.i.i.i.i.i.i.i, %add.ptr.i4.i.i.i
   %or.cond.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i.i.i, !llvm.loop !388
 
 for.end.i.i.i.i.i.i.i.i:                          ; preds = %for.inc.i.i.i.i.i.i.i.i, %lor.rhs
-  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %1, %lor.rhs ], [ %call.i9.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ]
   %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %0, %lor.rhs ], [ %call.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ]
+  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %1, %lor.rhs ], [ %call.i9.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i ]
   %cmp.i10.i.i.i.i.i.i.i.i = icmp eq ptr %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i
   %cmp.i11.i.i.i.i.i.i.i.i = icmp ne ptr %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i, %add.ptr.i4.i.i.i
   %spec.select.i.i.i.i.i.i.i.i = select i1 %cmp.i10.i.i.i.i.i.i.i.i, i1 %cmp.i11.i.i.i.i.i.i.i.i, i1 false

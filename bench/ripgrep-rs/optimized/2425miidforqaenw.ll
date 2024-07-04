@@ -1358,13 +1358,13 @@ _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit.i78: ; preds = %273
   br label %278
 
 278:                                              ; preds = %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit.i78, %269, %268, %265
-  %.165.i = phi i64 [ 0, %265 ], [ 1, %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit.i78 ], [ 1, %268 ], [ 1, %269 ]
+  %.166.i = phi i64 [ 0, %265 ], [ 1, %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit.i78 ], [ 1, %268 ], [ 1, %269 ]
   %.1.i = phi i8 [ 0, %265 ], [ 1, %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit.i78 ], [ 0, %268 ], [ 0, %269 ]
-  %.not77.i = icmp ult i64 %.165.i, %.val5.i
+  %.not77.i = icmp ult i64 %.166.i, %.val5.i
   br i1 %.not77.i, label %279, label %.loopexit
 
 279:                                              ; preds = %278
-  %280 = getelementptr inbounds { i64, [3 x i64] }, ptr %.val.i, i64 %.165.i
+  %280 = getelementptr inbounds { i64, [3 x i64] }, ptr %.val.i, i64 %.166.i
   %281 = load i64, ptr %280, align 8, !range !34, !noalias !175, !noundef !8
   %282 = icmp eq i64 %281, -9223372036854775806
   br i1 %282, label %283, label %289
@@ -1376,11 +1376,11 @@ _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit.i78: ; preds = %273
   br i1 %286, label %.loopexit, label %287
 
 287:                                              ; preds = %283
-  %288 = add nuw nsw i64 %.165.i, 1
+  %288 = add nuw nsw i64 %.166.i, 1
   br label %289
 
 289:                                              ; preds = %287, %279
-  %.062.i = phi i64 [ %288, %287 ], [ %.165.i, %279 ]
+  %.062.i = phi i64 [ %288, %287 ], [ %.166.i, %279 ]
   %290 = icmp ugt i64 %.062.i, %.val5.i
   br i1 %290, label %293, label %291
 
@@ -3365,7 +3365,7 @@ _ZN7globset4glob6Parser4bump17h42da4adbebf2ad1fE.exit135.i: ; preds = %_ZN7globs
   br label %341
 
 _ZN7globset4glob6Parser4bump17h42da4adbebf2ad1fE.exit130.i: ; preds = %_ZN7globset4glob6Parser4bump17h42da4adbebf2ad1fE.exit135.i, %_ZN7globset4glob6Parser4peek17h0a8ecf91c4cf37b8E.exit251.i.i
-  %.0213.ph.i.i = phi i1 [ true, %_ZN7globset4glob6Parser4bump17h42da4adbebf2ad1fE.exit135.i ], [ false, %_ZN7globset4glob6Parser4peek17h0a8ecf91c4cf37b8E.exit251.i.i ]
+  %.0214.ph.i.i = phi i1 [ true, %_ZN7globset4glob6Parser4bump17h42da4adbebf2ad1fE.exit135.i ], [ false, %_ZN7globset4glob6Parser4peek17h0a8ecf91c4cf37b8E.exit251.i.i ]
   %337 = load i32, ptr %71, align 4, !range !495, !alias.scope !375, !noalias !444, !noundef !8
   store i32 %337, ptr %70, align 8, !alias.scope !375, !noalias !444
   store i32 1114113, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !375, !noalias !444
@@ -3382,7 +3382,7 @@ _ZN7globset4glob6Parser4bump17h42da4adbebf2ad1fE.exit130.i: ; preds = %_ZN7globs
 
 341:                                              ; preds = %_ZN7globset4glob6Parser4bump17h42da4adbebf2ad1fE.exit130.i, %.thread303.i.i
   %342 = phi ptr [ %336, %.thread303.i.i ], [ %340, %_ZN7globset4glob6Parser4bump17h42da4adbebf2ad1fE.exit130.i ]
-  %.0213307.i.i = phi i1 [ true, %.thread303.i.i ], [ %.0213.ph.i.i, %_ZN7globset4glob6Parser4bump17h42da4adbebf2ad1fE.exit130.i ]
+  %.0214307.i.i = phi i1 [ true, %.thread303.i.i ], [ %.0214.ph.i.i, %_ZN7globset4glob6Parser4bump17h42da4adbebf2ad1fE.exit130.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !543)
   %343 = getelementptr inbounds i8, ptr %342, i64 16
   %344 = load i64, ptr %343, align 8, !alias.scope !543, !noalias !546, !noundef !8
@@ -3506,7 +3506,7 @@ _ZN7globset4glob6Parser9pop_token17h78b7ae67609e5859E.exit.i.i: ; preds = %353
 380:                                              ; preds = %_ZN7globset4glob6Parser9pop_token17h78b7ae67609e5859E.exit.i.i, %_ZN7globset4glob6Parser9pop_token17h78b7ae67609e5859E.exit.thread.i.i
   %.sroa.5262.0320.i.i = phi i64 [ %.sroa.0.0.copyload7.i.i.i, %_ZN7globset4glob6Parser9pop_token17h78b7ae67609e5859E.exit.thread.i.i ], [ %362, %_ZN7globset4glob6Parser9pop_token17h78b7ae67609e5859E.exit.i.i ]
   %.sroa.9.0276318.i.i = phi i64 [ %.sroa.9.16.copyload.i.i, %_ZN7globset4glob6Parser9pop_token17h78b7ae67609e5859E.exit.thread.i.i ], [ %.val6.i.i.i, %_ZN7globset4glob6Parser9pop_token17h78b7ae67609e5859E.exit.i.i ]
-  %.0213306314.i.i = phi i1 [ %.0213307.i.i, %_ZN7globset4glob6Parser9pop_token17h78b7ae67609e5859E.exit.thread.i.i ], [ %.0213.ph.i.i, %_ZN7globset4glob6Parser9pop_token17h78b7ae67609e5859E.exit.i.i ]
+  %.0214306314.i.i = phi i1 [ %.0214307.i.i, %_ZN7globset4glob6Parser9pop_token17h78b7ae67609e5859E.exit.thread.i.i ], [ %.0214.ph.i.i, %_ZN7globset4glob6Parser9pop_token17h78b7ae67609e5859E.exit.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.779.sroa.8.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11265.i.i, i64 16, i1 false), !noalias !440
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.11265.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5274.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.779.sroa.8.i.i, i64 16, i1 false), !noalias !440
@@ -3527,7 +3527,7 @@ _ZN7globset4glob6Parser9pop_token17h78b7ae67609e5859E.exit.i.i: ; preds = %353
   br label %.noexc72
 
 385:                                              ; preds = %380
-  br i1 %.0213306314.i.i, label %406, label %405
+  br i1 %.0214306314.i.i, label %406, label %405
 
 386:                                              ; preds = %380
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %32), !noalias !440
@@ -3804,14 +3804,14 @@ _ZN7globset4glob6Parser9pop_token17h78b7ae67609e5859E.exit.i.i: ; preds = %353
 .thread.i:                                        ; preds = %465, %425, %468, %468
   %472 = phi i32 [ %466, %468 ], [ %466, %468 ], [ 91, %425 ], [ 91, %465 ]
   %473 = phi i32 [ 1114113, %468 ], [ 1114113, %468 ], [ 1114112, %425 ], [ %466, %465 ]
-  %.056.i.i = phi i8 [ 1, %468 ], [ 1, %468 ], [ 0, %425 ], [ 0, %465 ]
+  %.059.i.i = phi i8 [ 1, %468 ], [ 1, %468 ], [ 0, %425 ], [ 0, %465 ]
   br label %474
 
 474:                                              ; preds = %_ZN7globset4glob6Parser11parse_class17add_to_last_range17h16228b86d2f972a6E.exit.thread.i.i, %.thread.i
   %475 = phi i32 [ %472, %.thread.i ], [ %.pre.i, %_ZN7globset4glob6Parser11parse_class17add_to_last_range17h16228b86d2f972a6E.exit.thread.i.i ]
   %476 = phi i32 [ %473, %.thread.i ], [ %.pre.i.i, %_ZN7globset4glob6Parser11parse_class17add_to_last_range17h16228b86d2f972a6E.exit.thread.i.i ]
-  %.059.i.i = phi i8 [ 0, %.thread.i ], [ %.1.i101.i, %_ZN7globset4glob6Parser11parse_class17add_to_last_range17h16228b86d2f972a6E.exit.thread.i.i ]
-  %.057.i.i = phi i1 [ true, %.thread.i ], [ false, %_ZN7globset4glob6Parser11parse_class17add_to_last_range17h16228b86d2f972a6E.exit.thread.i.i ]
+  %.060.i.i = phi i8 [ 0, %.thread.i ], [ %.1.i101.i, %_ZN7globset4glob6Parser11parse_class17add_to_last_range17h16228b86d2f972a6E.exit.thread.i.i ]
+  %.055.i.i = phi i1 [ true, %.thread.i ], [ false, %_ZN7globset4glob6Parser11parse_class17add_to_last_range17h16228b86d2f972a6E.exit.thread.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !600)
   store i32 %475, ptr %70, align 8, !alias.scope !603, !noalias !598
   store i32 1114113, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !603, !noalias !598
@@ -3954,17 +3954,17 @@ _ZN7globset4glob6Parser9pop_token17h78b7ae67609e5859E.exit.i.i: ; preds = %353
   br label %_ZN7globset4glob6Parser11parse_class17h3a954081e70407b3E.exit.i
 
 536:                                              ; preds = %518
-  %537 = trunc nuw i8 %.059.i.i to i1
+  %537 = trunc nuw i8 %.060.i.i to i1
   br i1 %537, label %597, label %592
 
 538:                                              ; preds = %518
-  br i1 %.057.i.i, label %542, label %540
+  br i1 %.055.i.i, label %542, label %540
 
 539:                                              ; preds = %518
-  br i1 %.057.i.i, label %567, label %564
+  br i1 %.055.i.i, label %567, label %564
 
 540:                                              ; preds = %538
-  %541 = trunc nuw i8 %.059.i.i to i1
+  %541 = trunc nuw i8 %.060.i.i to i1
   br i1 %541, label %548, label %547
 
 542:                                              ; preds = %538
@@ -3984,7 +3984,7 @@ _ZN7globset4glob6Parser9pop_token17h78b7ae67609e5859E.exit.i.i: ; preds = %353
 547:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0f95d43fde287d57E.exit78.i.i", %540
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17), !noalias !566
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !noalias !566
-  store i8 %.056.i.i, ptr %81, align 8, !noalias !566
+  store i8 %.059.i.i, ptr %81, align 8, !noalias !566
   invoke fastcc void @_ZN7globset4glob6Parser10push_token17hf73883dfeb8a602cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %52, ptr noalias noundef nonnull align 8 dereferenceable(80) %57, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %17)
           to label %.noexc74 unwind label %.loopexit130
 
@@ -4022,7 +4022,7 @@ _ZN7globset4glob6Parser9pop_token17h78b7ae67609e5859E.exit.i.i: ; preds = %353
 
 _ZN7globset4glob6Parser11parse_class17add_to_last_range17h16228b86d2f972a6E.exit.thread.sink.split.i.i: ; preds = %.noexc84.i.i, %592, %.noexc80.i.i, %567, %.noexc.i.i, %542
   %.sink244.i.i = phi i64 [ %.pre.i79.i.i, %.noexc80.i.i ], [ %568, %567 ], [ %.pre.i83.i.i, %.noexc84.i.i ], [ %593, %592 ], [ %.pre.i.i.i, %.noexc.i.i ], [ %543, %542 ]
-  %.1.ph.i.i = phi i8 [ %.059.i.i, %.noexc80.i.i ], [ %.059.i.i, %567 ], [ 0, %.noexc84.i.i ], [ 0, %592 ], [ %.059.i.i, %.noexc.i.i ], [ %.059.i.i, %542 ]
+  %.1.ph.i.i = phi i8 [ %.060.i.i, %.noexc80.i.i ], [ %.060.i.i, %567 ], [ 0, %.noexc84.i.i ], [ 0, %592 ], [ %.060.i.i, %.noexc.i.i ], [ %.060.i.i, %542 ]
   %559 = load ptr, ptr %79, align 8, !noalias !566, !nonnull !8, !noundef !8
   %560 = getelementptr inbounds { i32, i32 }, ptr %559, i64 %.sink244.i.i
   store i32 %.1.i71.i.i, ptr %560, align 4, !noalias !599
@@ -4040,7 +4040,7 @@ _ZN7globset4glob6Parser11parse_class17add_to_last_range17h16228b86d2f972a6E.exit
   br label %474
 
 564:                                              ; preds = %539
-  %565 = trunc nuw i8 %.059.i.i to i1
+  %565 = trunc nuw i8 %.060.i.i to i1
   %566 = load i64, ptr %80, align 8, !noalias !566, !noundef !8
   %.not68.i.i = icmp eq i64 %566, 0
   br i1 %565, label %573, label %572

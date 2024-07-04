@@ -2100,9 +2100,9 @@ for.body:                                         ; preds = %if.end57
   br i1 %cmp.i28.not, label %if.end57, label %if.then21, !llvm.loop !113
 
 if.then21:                                        ; preds = %for.body, %for.body.preheader
-  %prev.sroa.0.0104.lcssa = phi ptr [ %16, %for.body.preheader ], [ %it.sroa.0.0103117, %for.body ]
-  %it.sroa.0.0103.lcssa = phi ptr [ %17, %for.body.preheader ], [ %incdec.ptr.i58, %for.body ]
-  %index = getelementptr inbounds i8, ptr %it.sroa.0.0103.lcssa, i64 32
+  %it.sroa.0.0104.lcssa = phi ptr [ %17, %for.body.preheader ], [ %incdec.ptr.i58, %for.body ]
+  %prev.sroa.0.0103.lcssa = phi ptr [ %16, %for.body.preheader ], [ %it.sroa.0.0104117, %for.body ]
+  %index = getelementptr inbounds i8, ptr %it.sroa.0.0104.lcssa, i64 32
   %18 = load i32, ptr %index, align 8
   %19 = load i32, ptr %table_.i, align 8
   %cmp.i29 = icmp ult i32 %19, %18
@@ -2221,26 +2221,26 @@ lpad33:                                           ; preds = %invoke.cont32
 
 if.end40:                                         ; preds = %if.then.i.i.i47, %if.then.i.i45, %_ZN9grpc_core5SliceD2Ev.exit43, %if.else.i.i, %if.then.i.i31
   %37 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i52.not = icmp eq ptr %prev.sroa.0.0104.lcssa, %37
+  %cmp.i52.not = icmp eq ptr %prev.sroa.0.0103.lcssa, %37
   br i1 %cmp.i52.not, label %if.end49, label %if.then46
 
 if.then46:                                        ; preds = %if.end40
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__tmp.sroa.4.sroa.0.i)
-  %ref.tmp.i.i.sroa.0.0.copyload.i = load ptr, ptr %prev.sroa.0.0104.lcssa, align 8
-  %ref.tmp.i.i.sroa.4.0.__a.sroa_idx.i = getelementptr inbounds i8, ptr %prev.sroa.0.0104.lcssa, i64 8
+  %ref.tmp.i.i.sroa.0.0.copyload.i = load ptr, ptr %prev.sroa.0.0103.lcssa, align 8
+  %ref.tmp.i.i.sroa.4.0.__a.sroa_idx.i = getelementptr inbounds i8, ptr %prev.sroa.0.0103.lcssa, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.4.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i.sroa.4.0.__a.sroa_idx.i, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %prev.sroa.0.0104.lcssa, i8 0, i64 32, i1 false), !noalias !122
-  %index3.i.i = getelementptr inbounds i8, ptr %prev.sroa.0.0104.lcssa, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %prev.sroa.0.0103.lcssa, i8 0, i64 32, i1 false), !noalias !122
+  %index3.i.i = getelementptr inbounds i8, ptr %prev.sroa.0.0103.lcssa, i64 32
   %38 = load i32, ptr %index3.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %prev.sroa.0.0104.lcssa, ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0103.lcssa, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0103.lcssa, i8 0, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %prev.sroa.0.0103.lcssa, ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0104.lcssa, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.0104.lcssa, i8 0, i64 32, i1 false)
   %39 = load i32, ptr %index, align 8
   store i32 %39, ptr %index3.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__tmp.i.i.i.i5.sroa.4.i)
-  %__tmp.i.i.i.i5.sroa.0.0.copyload.i = load ptr, ptr %it.sroa.0.0103.lcssa, align 8
-  %__tmp.i.i.i.i5.sroa.4.0.__b.sroa_idx.i = getelementptr inbounds i8, ptr %it.sroa.0.0103.lcssa, i64 8
+  %__tmp.i.i.i.i5.sroa.0.0.copyload.i = load ptr, ptr %it.sroa.0.0104.lcssa, align 8
+  %__tmp.i.i.i.i5.sroa.4.0.__b.sroa_idx.i = getelementptr inbounds i8, ptr %it.sroa.0.0104.lcssa, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i.i.i5.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i.i.i5.sroa.4.0.__b.sroa_idx.i, i64 24, i1 false)
-  store ptr %ref.tmp.i.i.sroa.0.0.copyload.i, ptr %it.sroa.0.0103.lcssa, align 8
+  store ptr %ref.tmp.i.i.sroa.0.0.copyload.i, ptr %it.sroa.0.0104.lcssa, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i.i.i5.sroa.4.0.__b.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.4.sroa.0.i, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__tmp.sroa.4.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %__tmp.i.i.i.i5.sroa.4.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %__tmp.i.i.i.i5.sroa.4.i)
@@ -2317,8 +2317,8 @@ _ZNSt6vectorIN9grpc_core20hpack_encoder_detail10SliceIndex10ValueIndexESaIS3_EE8
   br i1 %cmp.i.i53, label %return, label %land.rhs, !llvm.loop !125
 
 if.end57:                                         ; preds = %for.body.preheader, %for.body
-  %it.sroa.0.0103117 = phi ptr [ %incdec.ptr.i58, %for.body ], [ %17, %for.body.preheader ]
-  %incdec.ptr.i58 = getelementptr inbounds i8, ptr %it.sroa.0.0103117, i64 40
+  %it.sroa.0.0104117 = phi ptr [ %incdec.ptr.i58, %for.body ], [ %17, %for.body.preheader ]
+  %incdec.ptr.i58 = getelementptr inbounds i8, ptr %it.sroa.0.0104117, i64 40
   %56 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i58, %56
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body, !llvm.loop !113

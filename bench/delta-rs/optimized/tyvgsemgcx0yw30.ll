@@ -6487,8 +6487,8 @@ default.unreachable939:                           ; preds = %262, %237, %226, %1
   %.sroa.762.i.sroa.0.0.i = phi ptr [ %.sroa.1030.sroa.10.i.sroa.0.0.copyload.i, %450 ], [ %.sroa.6.i.sroa.6.i.sroa.0.0.copyload129.i, %443 ], [ %.sroa.749.i.sroa.0.0.copyload.i, %448 ]
   %.sroa.762.i.sroa.6.0.i = phi ptr [ %.sroa.1030.sroa.10.i.sroa.8.0.copyload.i, %450 ], [ %.sroa.6.i.sroa.6.i.sroa.7.0.copyload130.i, %443 ], [ %.sroa.749.i.sroa.8.0.copyload.i, %448 ]
   %.sroa.762.i.sroa.7.0.i = phi i64 [ %.sroa.1030.sroa.10.i.sroa.9.0.copyload.i, %450 ], [ %.sroa.6.i.sroa.6.i.sroa.9.0.copyload131.i, %443 ], [ %.sroa.749.i.sroa.10.0.copyload.i, %448 ]
-  %.sroa.060.0.i.i = phi i64 [ 3, %450 ], [ %.sroa.04.0.copyload.i.i.i, %443 ], [ 3, %448 ]
   %.sroa.4.0.i.i = phi i64 [ %.sroa.1030.sroa.0.0.copyload.i.i, %450 ], [ %.sroa.6.i.sroa.0.0.copyload71.i.i, %443 ], [ %.sroa.048.0.copyload.i.i, %448 ]
+  %.sroa.060.0.i.i = phi i64 [ 3, %450 ], [ %.sroa.04.0.copyload.i.i.i, %443 ], [ 3, %448 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.974.sroa.7.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.762.i.sroa.8.i.sroa.11, i64 24, i1 false), !noalias !1099
   %.sroa.762.i.sroa.8.i.sroa.11.48.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.762.i.sroa.8.i.sroa.11, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.974.sroa.7.sroa.8.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.762.i.sroa.8.i.sroa.11.48.i.sroa_idx, i64 24, i1 false), !noalias !1099
@@ -7477,8 +7477,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr70drop
   br label %721
 
 .loopexit.i.i.i.i.i:                              ; preds = %778, %776, %774
-  %.013.i.i.i.i.i.i = phi i64 [ 1, %774 ], [ %..i.i.i.i.i.i, %778 ], [ 2, %776 ]
-  %720 = add i64 %.013.i.i.i.i.i.i, %.sroa.4.1.i.i.i
+  %.012.i.i.i.i.i.i = phi i64 [ 1, %774 ], [ %..i.i.i.i.i.i, %778 ], [ 2, %776 ]
+  %720 = add i64 %.012.i.i.i.i.i.i, %.sroa.4.1.i.i.i
   br label %721
 
 721:                                              ; preds = %.loopexit.i.i.i.i.i, %.lr.ph106.i.i.i.i.i

@@ -2148,12 +2148,12 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   %26 = phi i64 [ %.pre, %.lr.ph146 ], [ %152, %.loopexit ]
   %27 = phi i64 [ %.pre, %.lr.ph146 ], [ %153, %.loopexit ]
   %28 = phi i64 [ %.pre, %.lr.ph146 ], [ %154, %.loopexit ]
-  %.0145 = phi i64 [ %21, %.lr.ph146 ], [ %155, %.loopexit ]
+  %.0109145 = phi i64 [ %21, %.lr.ph146 ], [ %155, %.loopexit ]
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds float, ptr %29, i64 %.0145
+  %30 = getelementptr inbounds float, ptr %29, i64 %.0109145
   %31 = load float, ptr %30, align 4
   %32 = load ptr, ptr %4, align 8
-  %33 = mul nsw i64 %28, %.0145
+  %33 = mul nsw i64 %28, %.0109145
   %34 = getelementptr inbounds float, ptr %32, i64 %33
   %35 = load ptr, ptr %6, align 8
   %36 = getelementptr inbounds i64, ptr %35, i64 %33
@@ -2166,12 +2166,12 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   br i1 %39, label %.lr.ph143, label %.loopexit
 
 .lr.ph143:                                        ; preds = %.preheader, %.lr.ph143
-  %.0103142 = phi i64 [ %42, %.lr.ph143 ], [ 0, %.preheader ]
-  %40 = getelementptr inbounds i64, ptr %36, i64 %.0103142
+  %.0142 = phi i64 [ %42, %.lr.ph143 ], [ 0, %.preheader ]
+  %40 = getelementptr inbounds i64, ptr %36, i64 %.0142
   store i64 -1, ptr %40, align 8
-  %41 = getelementptr inbounds float, ptr %34, i64 %.0103142
+  %41 = getelementptr inbounds float, ptr %34, i64 %.0142
   store float 0x7FF0000000000000, ptr %41, align 4
-  %42 = add nuw nsw i64 %.0103142, 1
+  %42 = add nuw nsw i64 %.0142, 1
   %43 = load i64, ptr %5, align 8
   %44 = icmp slt i64 %42, %43
   br i1 %44, label %.lr.ph143, label %.loopexit, !llvm.loop !5
@@ -2199,34 +2199,34 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   br i1 %59, label %.lr.ph, label %.preheader119
 
 .preheader119:                                    ; preds = %.lr.ph, %.preheader123
+  %.0102.lcssa = phi i64 [ 0, %.preheader123 ], [ %.0102., %.lr.ph ]
   %.096.lcssa = phi i64 [ %37, %.preheader123 ], [ %..096, %.lr.ph ]
-  %.095.lcssa = phi i64 [ 0, %.preheader123 ], [ %.095., %.lr.ph ]
   %60 = icmp sgt i64 %28, 0
   br i1 %60, label %.lr.ph135, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader123, %.lr.ph
-  %.095130 = phi i64 [ %.095., %.lr.ph ], [ 0, %.preheader123 ]
-  %.096129 = phi i64 [ %..096, %.lr.ph ], [ %37, %.preheader123 ]
-  %61 = add nuw nsw i64 %.095130, %.096129
+  %.096130 = phi i64 [ %..096, %.lr.ph ], [ %37, %.preheader123 ]
+  %.0102129 = phi i64 [ %.0102., %.lr.ph ], [ 0, %.preheader123 ]
+  %61 = add nuw nsw i64 %.096130, %.0102129
   %62 = lshr i64 %61, 1
   %63 = getelementptr inbounds i64, ptr %47, i64 %62
   %64 = load i64, ptr %63, align 8
   %65 = getelementptr inbounds float, ptr %46, i64 %64
   %66 = load float, ptr %65, align 4
   %67 = fcmp ugt float %66, %31
-  %..096 = select i1 %67, i64 %62, i64 %.096129
-  %.095. = select i1 %67, i64 %.095130, i64 %62
-  %68 = add nuw nsw i64 %.095., 1
+  %.0102. = select i1 %67, i64 %.0102129, i64 %62
+  %..096 = select i1 %67, i64 %62, i64 %.096130
+  %68 = add nuw nsw i64 %.0102., 1
   %69 = icmp slt i64 %68, %..096
   br i1 %69, label %.lr.ph, label %.preheader119, !llvm.loop !7
 
 .lr.ph135:                                        ; preds = %.preheader119, %98
-  %.2134 = phi i64 [ %.3, %98 ], [ %.095.lcssa, %.preheader119 ]
+  %.095134 = phi i64 [ %85, %98 ], [ 0, %.preheader119 ]
   %.298133 = phi i64 [ %.399, %98 ], [ %.096.lcssa, %.preheader119 ]
-  %.0104132 = phi i64 [ %85, %98 ], [ 0, %.preheader119 ]
+  %.2104132 = phi i64 [ %.3105, %98 ], [ %.0102.lcssa, %.preheader119 ]
   %70 = load ptr, ptr %8, align 8
   %71 = load ptr, ptr %23, align 8
-  %72 = getelementptr inbounds i64, ptr %71, i64 %.2134
+  %72 = getelementptr inbounds i64, ptr %71, i64 %.2104132
   %73 = load i64, ptr %72, align 8
   %74 = getelementptr inbounds float, ptr %70, i64 %73
   %75 = load float, ptr %74, align 4
@@ -2237,19 +2237,19 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   %80 = fsub float %31, %75
   %81 = fsub float %79, %31
   %82 = fcmp olt float %80, %81
-  %83 = getelementptr inbounds float, ptr %34, i64 %.0104132
-  %84 = getelementptr inbounds i64, ptr %36, i64 %.0104132
-  %85 = add nuw nsw i64 %.0104132, 1
+  %83 = getelementptr inbounds float, ptr %34, i64 %.095134
+  %84 = getelementptr inbounds i64, ptr %36, i64 %.095134
+  %85 = add nuw nsw i64 %.095134, 1
   br i1 %82, label %86, label %92
 
 86:                                               ; preds = %.lr.ph135
   store float %80, ptr %83, align 4
   %87 = load ptr, ptr %23, align 8
-  %88 = getelementptr inbounds i64, ptr %87, i64 %.2134
+  %88 = getelementptr inbounds i64, ptr %87, i64 %.2104132
   %89 = load i64, ptr %88, align 8
   store i64 %89, ptr %84, align 8
-  %90 = add nsw i64 %.2134, -1
-  %91 = icmp slt i64 %.2134, 1
+  %90 = add nsw i64 %.2104132, -1
+  %91 = icmp slt i64 %.2104132, 1
   br i1 %91, label %.loopexit122.loopexit, label %98
 
 92:                                               ; preds = %.lr.ph135
@@ -2264,8 +2264,8 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   br i1 %.not116, label %98, label %.loopexit121.loopexit
 
 98:                                               ; preds = %92, %86
+  %.3105 = phi i64 [ %90, %86 ], [ %.2104132, %92 ]
   %.399 = phi i64 [ %.298133, %86 ], [ %96, %92 ]
-  %.3 = phi i64 [ %90, %86 ], [ %.2134, %92 ]
   %99 = load i64, ptr %5, align 8
   %100 = icmp slt i64 %85, %99
   br i1 %100, label %.lr.ph135, label %.loopexit, !llvm.loop !8
@@ -2277,45 +2277,45 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
 .loopexit122:                                     ; preds = %.loopexit122.loopexit, %45
   %101 = phi i64 [ %25, %45 ], [ %.pre157, %.loopexit122.loopexit ]
   %102 = phi i64 [ %26, %45 ], [ %.pre157, %.loopexit122.loopexit ]
-  %.2106 = phi i64 [ 0, %45 ], [ %85, %.loopexit122.loopexit ]
   %.4100 = phi i64 [ 0, %45 ], [ %.298133, %.loopexit122.loopexit ]
-  %103 = icmp slt i64 %.2106, %102
+  %.2 = phi i64 [ 0, %45 ], [ %85, %.loopexit122.loopexit ]
+  %103 = icmp slt i64 %.2, %102
   br i1 %103, label %.lr.ph141, label %.loopexit
 
 .lr.ph141:                                        ; preds = %.loopexit122, %121
-  %.5101140 = phi i64 [ %.6102, %121 ], [ %.4100, %.loopexit122 ]
-  %.3107139 = phi i64 [ %123, %121 ], [ %.2106, %.loopexit122 ]
+  %.3140 = phi i64 [ %123, %121 ], [ %.2, %.loopexit122 ]
+  %.5101139 = phi i64 [ %.6, %121 ], [ %.4100, %.loopexit122 ]
   %104 = load i64, ptr %22, align 8
-  %105 = icmp slt i64 %.5101140, %104
+  %105 = icmp slt i64 %.5101139, %104
   br i1 %105, label %106, label %119
 
 106:                                              ; preds = %.lr.ph141
   %107 = load ptr, ptr %8, align 8
   %108 = load ptr, ptr %23, align 8
-  %109 = getelementptr inbounds i64, ptr %108, i64 %.5101140
+  %109 = getelementptr inbounds i64, ptr %108, i64 %.5101139
   %110 = load i64, ptr %109, align 8
   %111 = getelementptr inbounds float, ptr %107, i64 %110
   %112 = load float, ptr %111, align 4
   %113 = fsub float %112, %31
-  %114 = getelementptr inbounds float, ptr %34, i64 %.3107139
+  %114 = getelementptr inbounds float, ptr %34, i64 %.3140
   store float %113, ptr %114, align 4
   %115 = load ptr, ptr %23, align 8
-  %116 = getelementptr inbounds i64, ptr %115, i64 %.5101140
+  %116 = getelementptr inbounds i64, ptr %115, i64 %.5101139
   %117 = load i64, ptr %116, align 8
-  %118 = add nsw i64 %.5101140, 1
+  %118 = add nsw i64 %.5101139, 1
   br label %121
 
 119:                                              ; preds = %.lr.ph141
-  %120 = getelementptr inbounds float, ptr %34, i64 %.3107139
+  %120 = getelementptr inbounds float, ptr %34, i64 %.3140
   store float 0x7FF0000000000000, ptr %120, align 4
   br label %121
 
 121:                                              ; preds = %119, %106
   %.sink = phi i64 [ %117, %106 ], [ -1, %119 ]
-  %.6102 = phi i64 [ %118, %106 ], [ %.5101140, %119 ]
-  %122 = getelementptr inbounds i64, ptr %36, i64 %.3107139
+  %.6 = phi i64 [ %118, %106 ], [ %.5101139, %119 ]
+  %122 = getelementptr inbounds i64, ptr %36, i64 %.3140
   store i64 %.sink, ptr %122, align 8
-  %123 = add nsw i64 %.3107139, 1
+  %123 = add nsw i64 %.3140, 1
   %124 = load i64, ptr %5, align 8
   %125 = icmp slt i64 %123, %124
   br i1 %125, label %.lr.ph141, label %.loopexit, !llvm.loop !9
@@ -2328,44 +2328,44 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   %126 = phi i64 [ %25, %52 ], [ %.pre156, %.loopexit121.loopexit ]
   %127 = phi i64 [ %26, %52 ], [ %.pre156, %.loopexit121.loopexit ]
   %128 = phi i64 [ %27, %52 ], [ %.pre156, %.loopexit121.loopexit ]
-  %.4108 = phi i64 [ 0, %52 ], [ %85, %.loopexit121.loopexit ]
-  %.4 = phi i64 [ %53, %52 ], [ %.2134, %.loopexit121.loopexit ]
-  %129 = icmp slt i64 %.4108, %128
+  %.4106 = phi i64 [ %53, %52 ], [ %.2104132, %.loopexit121.loopexit ]
+  %.4 = phi i64 [ 0, %52 ], [ %85, %.loopexit121.loopexit ]
+  %129 = icmp slt i64 %.4, %128
   br i1 %129, label %.lr.ph138, label %.loopexit
 
 .lr.ph138:                                        ; preds = %.loopexit121, %146
-  %.5137 = phi i64 [ %.6, %146 ], [ %.4, %.loopexit121 ]
-  %.5109136 = phi i64 [ %148, %146 ], [ %.4108, %.loopexit121 ]
-  %130 = icmp sgt i64 %.5137, -1
+  %.5137 = phi i64 [ %148, %146 ], [ %.4, %.loopexit121 ]
+  %.5107136 = phi i64 [ %.6108, %146 ], [ %.4106, %.loopexit121 ]
+  %130 = icmp sgt i64 %.5107136, -1
   br i1 %130, label %131, label %144
 
 131:                                              ; preds = %.lr.ph138
   %132 = load ptr, ptr %8, align 8
   %133 = load ptr, ptr %23, align 8
-  %134 = getelementptr inbounds i64, ptr %133, i64 %.5137
+  %134 = getelementptr inbounds i64, ptr %133, i64 %.5107136
   %135 = load i64, ptr %134, align 8
   %136 = getelementptr inbounds float, ptr %132, i64 %135
   %137 = load float, ptr %136, align 4
   %138 = fsub float %31, %137
-  %139 = getelementptr inbounds float, ptr %34, i64 %.5109136
+  %139 = getelementptr inbounds float, ptr %34, i64 %.5137
   store float %138, ptr %139, align 4
   %140 = load ptr, ptr %23, align 8
-  %141 = getelementptr inbounds i64, ptr %140, i64 %.5137
+  %141 = getelementptr inbounds i64, ptr %140, i64 %.5107136
   %142 = load i64, ptr %141, align 8
-  %143 = add nsw i64 %.5137, -1
+  %143 = add nsw i64 %.5107136, -1
   br label %146
 
 144:                                              ; preds = %.lr.ph138
-  %145 = getelementptr inbounds float, ptr %34, i64 %.5109136
+  %145 = getelementptr inbounds float, ptr %34, i64 %.5137
   store float 0x7FF0000000000000, ptr %145, align 4
   br label %146
 
 146:                                              ; preds = %144, %131
   %.sink155 = phi i64 [ %142, %131 ], [ -1, %144 ]
-  %.6 = phi i64 [ %143, %131 ], [ %.5137, %144 ]
-  %147 = getelementptr inbounds i64, ptr %36, i64 %.5109136
+  %.6108 = phi i64 [ %143, %131 ], [ %.5107136, %144 ]
+  %147 = getelementptr inbounds i64, ptr %36, i64 %.5137
   store i64 %.sink155, ptr %147, align 8
-  %148 = add nsw i64 %.5109136, 1
+  %148 = add nsw i64 %.5137, 1
   %149 = load i64, ptr %5, align 8
   %150 = icmp slt i64 %148, %149
   br i1 %150, label %.lr.ph138, label %.loopexit, !llvm.loop !10
@@ -2375,9 +2375,9 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   %152 = phi i64 [ %26, %.preheader119 ], [ %127, %.loopexit121 ], [ %102, %.loopexit122 ], [ %25, %.preheader ], [ %43, %.lr.ph143 ], [ %124, %121 ], [ %149, %146 ], [ %99, %98 ]
   %153 = phi i64 [ %27, %.preheader119 ], [ %128, %.loopexit121 ], [ %102, %.loopexit122 ], [ %25, %.preheader ], [ %43, %.lr.ph143 ], [ %124, %121 ], [ %149, %146 ], [ %99, %98 ]
   %154 = phi i64 [ %28, %.preheader119 ], [ %128, %.loopexit121 ], [ %102, %.loopexit122 ], [ %25, %.preheader ], [ %43, %.lr.ph143 ], [ %124, %121 ], [ %149, %146 ], [ %99, %98 ]
-  %155 = add nsw i64 %.0145, 1
+  %155 = add nsw i64 %.0109145, 1
   %156 = load i64, ptr %11, align 8
-  %.not.not = icmp slt i64 %.0145, %156
+  %.not.not = icmp slt i64 %.0109145, %156
   br i1 %.not.not, label %24, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.loopexit, %16

@@ -1798,14 +1798,14 @@ for.body.preheader.i:                             ; preds = %if.then69
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %f.014.i = phi ptr [ %f.0.i, %for.body.i ], [ %f.010.i, %for.body.preheader.i ]
-  %minf.013.i = phi ptr [ %minf.1.i, %for.body.i ], [ %50, %for.body.preheader.i ]
-  %mind.012.i = phi float [ %mind.1.i, %for.body.i ], [ %mul.i85, %for.body.preheader.i ]
+  %mind.013.i = phi float [ %mind.1.i, %for.body.i ], [ %mul.i85, %for.body.preheader.i ]
+  %minf.012.i = phi ptr [ %minf.1.i, %for.body.i ], [ %50, %for.body.preheader.i ]
   %d3.i = getelementptr inbounds i8, ptr %f.014.i, i64 16
   %52 = load float, ptr %d3.i, align 8
   %mul5.i = fmul float %52, %52
-  %cmp.i86 = fcmp olt float %mul5.i, %mind.012.i
-  %mind.1.i = select i1 %cmp.i86, float %mul5.i, float %mind.012.i
-  %minf.1.i = select i1 %cmp.i86, ptr %f.014.i, ptr %minf.013.i
+  %cmp.i86 = fcmp olt float %mul5.i, %mind.013.i
+  %minf.1.i = select i1 %cmp.i86, ptr %f.014.i, ptr %minf.012.i
+  %mind.1.i = select i1 %cmp.i86, float %mul5.i, float %mind.013.i
   %f.0.in.i = getelementptr inbounds i8, ptr %f.014.i, i64 80
   %f.0.i = load ptr, ptr %f.0.in.i, align 8
   %tobool.not.i87 = icmp eq ptr %f.0.i, null
@@ -1939,7 +1939,7 @@ for.body101:                                      ; preds = %for.cond98.preheade
   %call108 = call noundef zeroext i1 @_ZN12gjkepa2_impl3EPA6expandEjPNS_3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonE(ptr noundef nonnull align 8 dereferenceable(28800) %this, i32 noundef %inc91, ptr noundef nonnull %arrayidx90, ptr noundef %67, i32 noundef %conv107, ptr noundef nonnull align 8 dereferenceable(20) %horizon)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp99 = icmp ult i64 %indvars.iv, 2
-  %69 = and i1 %cmp99, %call108
+  %69 = and i1 %call108, %cmp99
   br i1 %69, label %for.body101, label %for.end, !llvm.loop !25
 
 for.end:                                          ; preds = %for.body101
@@ -2025,21 +2025,21 @@ for.body.preheader.i161:                          ; preds = %_ZN12gjkepa2_impl3E
 
 for.body.i164:                                    ; preds = %for.body.i164, %for.body.preheader.i161
   %f.014.i165 = phi ptr [ %f.0.i174, %for.body.i164 ], [ %f.010.i159, %for.body.preheader.i161 ]
-  %minf.013.i166 = phi ptr [ %minf.1.i172, %for.body.i164 ], [ %80, %for.body.preheader.i161 ]
-  %mind.012.i167 = phi float [ %mind.1.i171, %for.body.i164 ], [ %mul.i163, %for.body.preheader.i161 ]
+  %mind.013.i166 = phi float [ %mind.1.i172, %for.body.i164 ], [ %mul.i163, %for.body.preheader.i161 ]
+  %minf.012.i167 = phi ptr [ %minf.1.i171, %for.body.i164 ], [ %80, %for.body.preheader.i161 ]
   %d3.i168 = getelementptr inbounds i8, ptr %f.014.i165, i64 16
   %82 = load float, ptr %d3.i168, align 8
   %mul5.i169 = fmul float %82, %82
-  %cmp.i170 = fcmp olt float %mul5.i169, %mind.012.i167
-  %mind.1.i171 = select i1 %cmp.i170, float %mul5.i169, float %mind.012.i167
-  %minf.1.i172 = select i1 %cmp.i170, ptr %f.014.i165, ptr %minf.013.i166
+  %cmp.i170 = fcmp olt float %mul5.i169, %mind.013.i166
+  %minf.1.i171 = select i1 %cmp.i170, ptr %f.014.i165, ptr %minf.012.i167
+  %mind.1.i172 = select i1 %cmp.i170, float %mul5.i169, float %mind.013.i166
   %f.0.in.i173 = getelementptr inbounds i8, ptr %f.014.i165, i64 80
   %f.0.i174 = load ptr, ptr %f.0.in.i173, align 8
   %tobool.not.i175 = icmp eq ptr %f.0.i174, null
   br i1 %tobool.not.i175, label %_ZN12gjkepa2_impl3EPA8findbestEv.exit177, label %for.body.i164, !llvm.loop !23
 
 _ZN12gjkepa2_impl3EPA8findbestEv.exit177:         ; preds = %for.body.i164, %_ZN12gjkepa2_impl3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit156
-  %minf.0.lcssa.i176 = phi ptr [ %80, %_ZN12gjkepa2_impl3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit156 ], [ %minf.1.i172, %for.body.i164 ]
+  %minf.0.lcssa.i176 = phi ptr [ %80, %_ZN12gjkepa2_impl3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit156 ], [ %minf.1.i171, %for.body.i164 ]
   %83 = load <4 x float>, ptr %minf.0.lcssa.i176, align 8
   %outer.sroa.6353.0.minf.0.lcssa.i176.sroa_idx = getelementptr inbounds i8, ptr %minf.0.lcssa.i176, i64 16
   %outer.sroa.6353.0.copyload354 = load float, ptr %outer.sroa.6353.0.minf.0.lcssa.i176.sroa_idx, align 8

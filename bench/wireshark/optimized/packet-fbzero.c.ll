@@ -281,10 +281,10 @@ define internal noundef i32 @dissect_fb_zero(ptr noundef %0, ptr noundef %1, ptr
 .lr.ph275.i.i.i:                                  ; preds = %50, %244
   %.0217273.i.i.i = phi i32 [ %108, %244 ], [ %66, %50 ]
   %.0218272.i.i.i = phi i32 [ %245, %244 ], [ %62, %50 ]
-  %.0219271.i.i.i = phi i32 [ %.4.i.i.i, %244 ], [ 0, %50 ]
-  %.0220270.i.i.i = phi i32 [ %.1221249.i.i.i, %244 ], [ 0, %50 ]
-  %.0222269.i.i.i = phi i32 [ %.1223248.i.i.i, %244 ], [ 0, %50 ]
-  %.0224268.i.i.i = phi i32 [ %.2226247.i.i.i, %244 ], [ 1, %50 ]
+  %.0219271.i.i.i = phi i32 [ %.2249.i.i.i, %244 ], [ 1, %50 ]
+  %.0220270.i.i.i = phi i32 [ %.1221248.i.i.i, %244 ], [ 0, %50 ]
+  %.0222269.i.i.i = phi i32 [ %.1223247.i.i.i, %244 ], [ 0, %50 ]
+  %.0224268.i.i.i = phi i32 [ %.4.i.i.i, %244 ], [ 0, %50 ]
   %69 = load i32, ptr @hf_fb_zero_tags, align 4
   %70 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %69, ptr noundef %0, i32 noundef %.0217273.i.i.i, i32 noundef 8, i32 noundef 0) #3
   %71 = load i32, ptr @ett_fb_zero_tag_value, align 4
@@ -302,16 +302,16 @@ define internal noundef i32 @dissect_fb_zero(ptr noundef %0, ptr noundef %1, ptr
   %81 = load i32, ptr @hf_fb_zero_tag_offset_end, align 4
   %82 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %72, i32 noundef %81, ptr noundef %0, i32 noundef %80, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %5) #3
   %83 = load i32, ptr %5, align 4
-  %84 = icmp ult i32 %83, %.0219271.i.i.i
+  %84 = icmp ult i32 %83, %.0224268.i.i.i
   br i1 %84, label %proto_item_set_generated.exit.thread.i.i.i, label %86
 
 proto_item_set_generated.exit.thread.i.i.i:       ; preds = %.lr.ph275.i.i.i
-  %85 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %82, ptr noundef nonnull @ei_fb_zero_tag_offset_end_invalid, ptr noundef nonnull @.str.83, i32 noundef %83, i32 noundef %.0219271.i.i.i) #3
+  %85 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %82, ptr noundef nonnull @ei_fb_zero_tag_offset_end_invalid, ptr noundef nonnull @.str.83, i32 noundef %83, i32 noundef %.0224268.i.i.i) #3
   br label %107
 
 86:                                               ; preds = %.lr.ph275.i.i.i
-  %87 = sub i32 %83, %.0219271.i.i.i
-  %88 = add i32 %.0219271.i.i.i, %68
+  %87 = sub i32 %83, %.0224268.i.i.i
+  %88 = add i32 %.0224268.i.i.i, %68
   %89 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %88, i32 noundef %87) #3
   %.not234.i.i.i = icmp eq i32 %89, 0
   br i1 %.not234.i.i.i, label %90, label %93
@@ -322,8 +322,8 @@ proto_item_set_generated.exit.thread.i.i.i:       ; preds = %.lr.ph275.i.i.i
   br label %93
 
 93:                                               ; preds = %90, %86
-  %.1225.i.i.i = phi i32 [ %.0224268.i.i.i, %86 ], [ 0, %90 ]
-  %94 = add i32 %87, %.0220270.i.i.i
+  %.1.i.i.i = phi i32 [ %.0219271.i.i.i, %86 ], [ 0, %90 ]
+  %94 = add i32 %87, %.0222269.i.i.i
   %95 = load i32, ptr @hf_fb_zero_tag_length, align 4
   %96 = call ptr @proto_tree_add_uint(ptr noundef %72, i32 noundef %95, ptr noundef %0, i32 noundef %80, i32 noundef 4, i32 noundef %87) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef nonnull @.str.85, i32 noundef %87) #3
@@ -344,7 +344,7 @@ proto_item_set_generated.exit.thread.i.i.i:       ; preds = %.lr.ph275.i.i.i
   br label %proto_item_set_generated.exit.i.i.i
 
 proto_item_set_generated.exit.i.i.i:              ; preds = %100, %97, %93
-  %.not235.i.i.i = icmp eq i32 %.1225.i.i.i, 0
+  %.not235.i.i.i = icmp eq i32 %.1.i.i.i, 0
   br i1 %.not235.i.i.i, label %107, label %104
 
 104:                                              ; preds = %proto_item_set_generated.exit.i.i.i
@@ -354,9 +354,9 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %100, %97, %93
 
 107:                                              ; preds = %104, %proto_item_set_generated.exit.i.i.i, %proto_item_set_generated.exit.thread.i.i.i
   %.not235250.i.i.i = phi i1 [ true, %proto_item_set_generated.exit.thread.i.i.i ], [ false, %104 ], [ true, %proto_item_set_generated.exit.i.i.i ]
-  %.1221249.i.i.i = phi i32 [ %.0220270.i.i.i, %proto_item_set_generated.exit.thread.i.i.i ], [ %94, %104 ], [ %94, %proto_item_set_generated.exit.i.i.i ]
-  %.1223248.i.i.i = phi i32 [ %.0222269.i.i.i, %proto_item_set_generated.exit.thread.i.i.i ], [ %87, %104 ], [ %87, %proto_item_set_generated.exit.i.i.i ]
-  %.2226247.i.i.i = phi i32 [ 0, %proto_item_set_generated.exit.thread.i.i.i ], [ %.1225.i.i.i, %104 ], [ 0, %proto_item_set_generated.exit.i.i.i ]
+  %.2249.i.i.i = phi i32 [ 0, %proto_item_set_generated.exit.thread.i.i.i ], [ %.1.i.i.i, %104 ], [ 0, %proto_item_set_generated.exit.i.i.i ]
+  %.1221248.i.i.i = phi i32 [ %.0220270.i.i.i, %proto_item_set_generated.exit.thread.i.i.i ], [ %87, %104 ], [ %87, %proto_item_set_generated.exit.i.i.i ]
+  %.1223247.i.i.i = phi i32 [ %.0222269.i.i.i, %proto_item_set_generated.exit.thread.i.i.i ], [ %94, %104 ], [ %94, %proto_item_set_generated.exit.i.i.i ]
   %108 = add i32 %.0217273.i.i.i, 8
   switch i32 %76, label %234 [
     i32 1397639424, label %109
@@ -376,34 +376,34 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %100, %97, %93
 
 110:                                              ; preds = %109
   %111 = load i32, ptr @hf_fb_zero_tag_sni, align 4
-  %112 = add i32 %.0219271.i.i.i, %68
+  %112 = add i32 %.0224268.i.i.i, %68
   %113 = load ptr, ptr %40, align 8
-  %114 = call ptr @proto_tree_add_item_ret_string(ptr noundef %72, i32 noundef %111, ptr noundef %0, i32 noundef %112, i32 noundef %.1223248.i.i.i, i32 noundef 0, ptr noundef %113, ptr noundef nonnull %6) #3
+  %114 = call ptr @proto_tree_add_item_ret_string(ptr noundef %72, i32 noundef %111, ptr noundef %0, i32 noundef %112, i32 noundef %.1221248.i.i.i, i32 noundef 0, ptr noundef %113, ptr noundef nonnull %6) #3
   %115 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef nonnull @.str.86, ptr noundef %115) #3
-  %116 = add i32 %.1223248.i.i.i, %.0219271.i.i.i
+  %116 = add i32 %.1221248.i.i.i, %.0224268.i.i.i
   br label %244
 
 117:                                              ; preds = %107
   br i1 %.not235250.i.i.i, label %244, label %118
 
 118:                                              ; preds = %117
-  %.not242.i.i.i = icmp eq i32 %.1223248.i.i.i, 4
+  %.not242.i.i.i = icmp eq i32 %.1221248.i.i.i, 4
   br i1 %.not242.i.i.i, label %122, label %119
 
 119:                                              ; preds = %118
-  %120 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %17, ptr noundef nonnull @ei_fb_zero_length_invalid, ptr noundef nonnull @.str.87, i32 noundef %.1223248.i.i.i) #3
-  %121 = add i32 %.1223248.i.i.i, %.0219271.i.i.i
+  %120 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %17, ptr noundef nonnull @ei_fb_zero_length_invalid, ptr noundef nonnull @.str.87, i32 noundef %.1221248.i.i.i) #3
+  %121 = add i32 %.1221248.i.i.i, %.0224268.i.i.i
   br label %244
 
 122:                                              ; preds = %118
   %123 = load i32, ptr @hf_fb_zero_tag_vers, align 4
-  %124 = add i32 %.0219271.i.i.i, %68
+  %124 = add i32 %.0224268.i.i.i, %68
   %125 = load ptr, ptr %40, align 8
   %126 = call ptr @proto_tree_add_item_ret_string(ptr noundef %72, i32 noundef %123, ptr noundef %0, i32 noundef %124, i32 noundef 4, i32 noundef 0, ptr noundef %125, ptr noundef nonnull %6) #3
   %127 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef nonnull @.str.86, ptr noundef %127) #3
-  %128 = add i32 %.0219271.i.i.i, 4
+  %128 = add i32 %.0224268.i.i.i, 4
   br label %244
 
 129:                                              ; preds = %107
@@ -411,9 +411,9 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %100, %97, %93
 
 130:                                              ; preds = %129
   %131 = load i32, ptr @hf_fb_zero_tag_sno, align 4
-  %132 = add i32 %.0219271.i.i.i, %68
-  %133 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %131, ptr noundef %0, i32 noundef %132, i32 noundef %.1223248.i.i.i, i32 noundef 0) #3
-  %134 = add i32 %.1223248.i.i.i, %.0219271.i.i.i
+  %132 = add i32 %.0224268.i.i.i, %68
+  %133 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %131, ptr noundef %0, i32 noundef %132, i32 noundef %.1221248.i.i.i, i32 noundef 0) #3
+  %134 = add i32 %.1221248.i.i.i, %.0224268.i.i.i
   br label %244
 
 135:                                              ; preds = %107
@@ -421,14 +421,14 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %100, %97, %93
 
 .preheader.i.i.i:                                 ; preds = %135
   %136 = load i32, ptr %5, align 4
-  %137 = sub i32 %136, %.0219271.i.i.i
+  %137 = sub i32 %136, %.0224268.i.i.i
   %138 = icmp ugt i32 %137, 3
   br i1 %138, label %.lr.ph263.i.i.i, label %._crit_edge264.i.i.i
 
 .lr.ph263.i.i.i:                                  ; preds = %.preheader.i.i.i, %.lr.ph263.i.i.i
-  %.1262.i.i.i = phi i32 [ %146, %.lr.ph263.i.i.i ], [ %.0219271.i.i.i, %.preheader.i.i.i ]
+  %.1225262.i.i.i = phi i32 [ %146, %.lr.ph263.i.i.i ], [ %.0224268.i.i.i, %.preheader.i.i.i ]
   %139 = load i32, ptr @hf_fb_zero_tag_aead, align 4
-  %140 = add i32 %.1262.i.i.i, %68
+  %140 = add i32 %.1225262.i.i.i, %68
   %141 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %139, ptr noundef %0, i32 noundef %140, i32 noundef 4, i32 noundef 0) #3
   %142 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %140) #3
   %143 = call ptr @val_to_str_const(i32 noundef %142, ptr noundef nonnull @tag_aead_vals, ptr noundef nonnull @.str.6) #3
@@ -436,20 +436,20 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %100, %97, %93
   %144 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %140) #3
   %145 = call ptr @val_to_str_const(i32 noundef %144, ptr noundef nonnull @tag_aead_vals, ptr noundef nonnull @.str.6) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef nonnull @.str.88, ptr noundef %145) #3
-  %146 = add i32 %.1262.i.i.i, 4
+  %146 = add i32 %.1225262.i.i.i, 4
   %147 = load i32, ptr %5, align 4
   %148 = sub i32 %147, %146
   %149 = icmp ugt i32 %148, 3
   br i1 %149, label %.lr.ph263.i.i.i, label %._crit_edge264.i.i.i, !llvm.loop !4
 
 ._crit_edge264.i.i.i:                             ; preds = %.lr.ph263.i.i.i, %.preheader.i.i.i
-  %.1.lcssa.i.i.i = phi i32 [ %.0219271.i.i.i, %.preheader.i.i.i ], [ %146, %.lr.ph263.i.i.i ]
+  %.1225.lcssa.i.i.i = phi i32 [ %.0224268.i.i.i, %.preheader.i.i.i ], [ %146, %.lr.ph263.i.i.i ]
   %.lcssa253.i.i.i = phi i32 [ %136, %.preheader.i.i.i ], [ %147, %.lr.ph263.i.i.i ]
-  %.not241.i.i.i = icmp eq i32 %.lcssa253.i.i.i, %.1.lcssa.i.i.i
+  %.not241.i.i.i = icmp eq i32 %.lcssa253.i.i.i, %.1225.lcssa.i.i.i
   br i1 %.not241.i.i.i, label %244, label %150
 
 150:                                              ; preds = %._crit_edge264.i.i.i
-  %151 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %17, ptr noundef nonnull @ei_fb_zero_length_invalid, ptr noundef nonnull @.str.89, i32 noundef %.1223248.i.i.i) #3
+  %151 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %17, ptr noundef nonnull @ei_fb_zero_length_invalid, ptr noundef nonnull @.str.89, i32 noundef %.1221248.i.i.i) #3
   %152 = load i32, ptr %5, align 4
   br label %244
 
@@ -458,95 +458,95 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %100, %97, %93
 
 154:                                              ; preds = %153
   %155 = load i32, ptr @hf_fb_zero_tag_scid, align 4
-  %156 = add i32 %.0219271.i.i.i, %68
-  %157 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %155, ptr noundef %0, i32 noundef %156, i32 noundef %.1223248.i.i.i, i32 noundef 0) #3
-  %158 = add i32 %.1223248.i.i.i, %.0219271.i.i.i
+  %156 = add i32 %.0224268.i.i.i, %68
+  %157 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %155, ptr noundef %0, i32 noundef %156, i32 noundef %.1221248.i.i.i, i32 noundef 0) #3
+  %158 = add i32 %.1221248.i.i.i, %.0224268.i.i.i
   br label %244
 
 159:                                              ; preds = %107
   br i1 %.not235250.i.i.i, label %244, label %160
 
 160:                                              ; preds = %159
-  %.not240.i.i.i = icmp eq i32 %.1223248.i.i.i, 4
+  %.not240.i.i.i = icmp eq i32 %.1221248.i.i.i, 4
   br i1 %.not240.i.i.i, label %164, label %161
 
 161:                                              ; preds = %160
-  %162 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %17, ptr noundef nonnull @ei_fb_zero_length_invalid, ptr noundef nonnull @.str.87, i32 noundef %.1223248.i.i.i) #3
-  %163 = add i32 %.1223248.i.i.i, %.0219271.i.i.i
+  %162 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %17, ptr noundef nonnull @ei_fb_zero_length_invalid, ptr noundef nonnull @.str.87, i32 noundef %.1221248.i.i.i) #3
+  %163 = add i32 %.1221248.i.i.i, %.0224268.i.i.i
   br label %244
 
 164:                                              ; preds = %160
   %165 = load i32, ptr @hf_fb_zero_tag_time, align 4
-  %166 = add i32 %.0219271.i.i.i, %68
+  %166 = add i32 %.0224268.i.i.i, %68
   %167 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %165, ptr noundef %0, i32 noundef %166, i32 noundef 4, i32 noundef -2147483648) #3
   %168 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %166) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef nonnull @.str.90, i32 noundef %168) #3
-  %169 = add i32 %.0219271.i.i.i, 4
+  %169 = add i32 %.0224268.i.i.i, 4
   br label %244
 
 170:                                              ; preds = %107
   br i1 %.not235250.i.i.i, label %244, label %171
 
 171:                                              ; preds = %170
-  %.not239.i.i.i = icmp eq i32 %.1223248.i.i.i, 4
+  %.not239.i.i.i = icmp eq i32 %.1221248.i.i.i, 4
   br i1 %.not239.i.i.i, label %175, label %172
 
 172:                                              ; preds = %171
-  %173 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %17, ptr noundef nonnull @ei_fb_zero_length_invalid, ptr noundef nonnull @.str.87, i32 noundef %.1223248.i.i.i) #3
-  %174 = add i32 %.1223248.i.i.i, %.0219271.i.i.i
+  %173 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %17, ptr noundef nonnull @ei_fb_zero_length_invalid, ptr noundef nonnull @.str.87, i32 noundef %.1221248.i.i.i) #3
+  %174 = add i32 %.1221248.i.i.i, %.0224268.i.i.i
   br label %244
 
 175:                                              ; preds = %171
   %176 = load i32, ptr @hf_fb_zero_tag_alpn, align 4
-  %177 = add i32 %.0219271.i.i.i, %68
+  %177 = add i32 %.0224268.i.i.i, %68
   %178 = load ptr, ptr %40, align 8
   %179 = call ptr @proto_tree_add_item_ret_string(ptr noundef %72, i32 noundef %176, ptr noundef %0, i32 noundef %177, i32 noundef 4, i32 noundef 0, ptr noundef %178, ptr noundef nonnull %6) #3
   %180 = load ptr, ptr %6, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef nonnull @.str.86, ptr noundef %180) #3
-  %181 = add i32 %.0219271.i.i.i, 4
+  %181 = add i32 %.0224268.i.i.i, 4
   br label %244
 
 182:                                              ; preds = %107
   br i1 %.not235250.i.i.i, label %244, label %183
 
 183:                                              ; preds = %182
-  %184 = icmp slt i32 %.1223248.i.i.i, 2
+  %184 = icmp slt i32 %.1221248.i.i.i, 2
   br i1 %184, label %185, label %188
 
 185:                                              ; preds = %183
-  %186 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %17, ptr noundef nonnull @ei_fb_zero_length_invalid, ptr noundef nonnull @.str.91, i32 noundef %.1223248.i.i.i) #3
-  %187 = add i32 %.1223248.i.i.i, %.0219271.i.i.i
+  %186 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %17, ptr noundef nonnull @ei_fb_zero_length_invalid, ptr noundef nonnull @.str.91, i32 noundef %.1221248.i.i.i) #3
+  %187 = add i32 %.1221248.i.i.i, %.0224268.i.i.i
   br label %244
 
 188:                                              ; preds = %183
   %189 = load i32, ptr @hf_fb_zero_tag_pubs, align 4
-  %190 = add i32 %.0219271.i.i.i, %68
+  %190 = add i32 %.0224268.i.i.i, %68
   %191 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %189, ptr noundef %0, i32 noundef %190, i32 noundef 2, i32 noundef -2147483648) #3
-  %192 = add i32 %.0219271.i.i.i, 2
+  %192 = add i32 %.0224268.i.i.i, 2
   %193 = load i32, ptr %5, align 4
   %194 = sub i32 %193, %192
   %195 = icmp ugt i32 %194, 2
   br i1 %195, label %.lr.ph258.i.i.i, label %._crit_edge259.i.i.i
 
 .lr.ph258.i.i.i:                                  ; preds = %188, %.lr.ph258.i.i.i
-  %.2256.i.i.i = phi i32 [ %199, %.lr.ph258.i.i.i ], [ %192, %188 ]
+  %.2226256.i.i.i = phi i32 [ %199, %.lr.ph258.i.i.i ], [ %192, %188 ]
   %196 = load i32, ptr @hf_fb_zero_tag_pubs, align 4
-  %197 = add i32 %.2256.i.i.i, %68
+  %197 = add i32 %.2226256.i.i.i, %68
   %198 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %196, ptr noundef %0, i32 noundef %197, i32 noundef 3, i32 noundef -2147483648) #3
-  %199 = add i32 %.2256.i.i.i, 3
+  %199 = add i32 %.2226256.i.i.i, 3
   %200 = load i32, ptr %5, align 4
   %201 = sub i32 %200, %199
   %202 = icmp ugt i32 %201, 2
   br i1 %202, label %.lr.ph258.i.i.i, label %._crit_edge259.i.i.i, !llvm.loop !6
 
 ._crit_edge259.i.i.i:                             ; preds = %.lr.ph258.i.i.i, %188
-  %.2.lcssa.i.i.i = phi i32 [ %192, %188 ], [ %199, %.lr.ph258.i.i.i ]
+  %.2226.lcssa.i.i.i = phi i32 [ %192, %188 ], [ %199, %.lr.ph258.i.i.i ]
   %.lcssa252.i.i.i = phi i32 [ %193, %188 ], [ %200, %.lr.ph258.i.i.i ]
-  %.not238.i.i.i = icmp eq i32 %.lcssa252.i.i.i, %.2.lcssa.i.i.i
+  %.not238.i.i.i = icmp eq i32 %.lcssa252.i.i.i, %.2226.lcssa.i.i.i
   br i1 %.not238.i.i.i, label %244, label %203
 
 203:                                              ; preds = %._crit_edge259.i.i.i
-  %204 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %17, ptr noundef nonnull @ei_fb_zero_length_invalid, ptr noundef nonnull @.str.92, i32 noundef %.1223248.i.i.i) #3
+  %204 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %17, ptr noundef nonnull @ei_fb_zero_length_invalid, ptr noundef nonnull @.str.92, i32 noundef %.1221248.i.i.i) #3
   %205 = load i32, ptr %5, align 4
   br label %244
 
@@ -555,12 +555,12 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %100, %97, %93
 
 .preheader251.i.i.i:                              ; preds = %206
   %207 = load i32, ptr %5, align 4
-  %208 = sub i32 %207, %.0219271.i.i.i
+  %208 = sub i32 %207, %.0224268.i.i.i
   %209 = icmp ugt i32 %208, 3
   br i1 %209, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader251.i.i.i, %.lr.ph.i.i.i
-  %.3254.i.i.i = phi i32 [ %217, %.lr.ph.i.i.i ], [ %.0219271.i.i.i, %.preheader251.i.i.i ]
+  %.3254.i.i.i = phi i32 [ %217, %.lr.ph.i.i.i ], [ %.0224268.i.i.i, %.preheader251.i.i.i ]
   %210 = load i32, ptr @hf_fb_zero_tag_kexs, align 4
   %211 = add i32 %.3254.i.i.i, %68
   %212 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %210, ptr noundef %0, i32 noundef %211, i32 noundef 4, i32 noundef 0) #3
@@ -577,13 +577,13 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %100, %97, %93
   br i1 %220, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !7
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader251.i.i.i
-  %.3.lcssa.i.i.i = phi i32 [ %.0219271.i.i.i, %.preheader251.i.i.i ], [ %217, %.lr.ph.i.i.i ]
+  %.3.lcssa.i.i.i = phi i32 [ %.0224268.i.i.i, %.preheader251.i.i.i ], [ %217, %.lr.ph.i.i.i ]
   %.lcssa.i.i.i = phi i32 [ %207, %.preheader251.i.i.i ], [ %218, %.lr.ph.i.i.i ]
   %.not237.i.i.i = icmp eq i32 %.lcssa.i.i.i, %.3.lcssa.i.i.i
   br i1 %.not237.i.i.i, label %244, label %221
 
 221:                                              ; preds = %._crit_edge.i.i.i
-  %222 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %17, ptr noundef nonnull @ei_fb_zero_length_invalid, ptr noundef nonnull @.str.89, i32 noundef %.1223248.i.i.i) #3
+  %222 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %17, ptr noundef nonnull @ei_fb_zero_length_invalid, ptr noundef nonnull @.str.89, i32 noundef %.1221248.i.i.i) #3
   %223 = load i32, ptr %5, align 4
   br label %244
 
@@ -591,19 +591,19 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %100, %97, %93
   br i1 %.not235250.i.i.i, label %244, label %225
 
 225:                                              ; preds = %224
-  %.not236.i.i.i = icmp eq i32 %.1223248.i.i.i, 32
+  %.not236.i.i.i = icmp eq i32 %.1221248.i.i.i, 32
   br i1 %.not236.i.i.i, label %229, label %226
 
 226:                                              ; preds = %225
-  %227 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %17, ptr noundef nonnull @ei_fb_zero_length_invalid, ptr noundef nonnull @.str.93, i32 noundef %.1223248.i.i.i) #3
-  %228 = add i32 %.1223248.i.i.i, %.0219271.i.i.i
+  %227 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %17, ptr noundef nonnull @ei_fb_zero_length_invalid, ptr noundef nonnull @.str.93, i32 noundef %.1221248.i.i.i) #3
+  %228 = add i32 %.1221248.i.i.i, %.0224268.i.i.i
   br label %244
 
 229:                                              ; preds = %225
   %230 = load i32, ptr @hf_fb_zero_tag_nonc, align 4
-  %231 = add i32 %.0219271.i.i.i, %68
+  %231 = add i32 %.0224268.i.i.i, %68
   %232 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %230, ptr noundef %0, i32 noundef %231, i32 noundef 32, i32 noundef 0) #3
-  %233 = add i32 %.0219271.i.i.i, 32
+  %233 = add i32 %.0224268.i.i.i, 32
   br label %244
 
 234:                                              ; preds = %107
@@ -615,26 +615,26 @@ proto_item_set_generated.exit.i.i.i:              ; preds = %100, %97, %93
 
 239:                                              ; preds = %234
   %240 = load i32, ptr @hf_fb_zero_tag_unknown, align 4
-  %241 = add i32 %.0219271.i.i.i, %68
-  %242 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %240, ptr noundef %0, i32 noundef %241, i32 noundef %.1223248.i.i.i, i32 noundef 0) #3
-  %243 = add i32 %.1223248.i.i.i, %.0219271.i.i.i
+  %241 = add i32 %.0224268.i.i.i, %68
+  %242 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %240, ptr noundef %0, i32 noundef %241, i32 noundef %.1221248.i.i.i, i32 noundef 0) #3
+  %243 = add i32 %.1221248.i.i.i, %.0224268.i.i.i
   br label %244
 
 244:                                              ; preds = %239, %234, %229, %226, %224, %221, %._crit_edge.i.i.i, %206, %203, %._crit_edge259.i.i.i, %185, %182, %175, %172, %170, %164, %161, %159, %154, %153, %150, %._crit_edge264.i.i.i, %135, %130, %129, %122, %119, %117, %110, %109
-  %.4.i.i.i = phi i32 [ %243, %239 ], [ %.0219271.i.i.i, %234 ], [ %228, %226 ], [ %233, %229 ], [ %.0219271.i.i.i, %224 ], [ %223, %221 ], [ %.3.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %.0219271.i.i.i, %206 ], [ %187, %185 ], [ %205, %203 ], [ %.2.lcssa.i.i.i, %._crit_edge259.i.i.i ], [ %.0219271.i.i.i, %182 ], [ %174, %172 ], [ %181, %175 ], [ %.0219271.i.i.i, %170 ], [ %163, %161 ], [ %169, %164 ], [ %.0219271.i.i.i, %159 ], [ %158, %154 ], [ %.0219271.i.i.i, %153 ], [ %152, %150 ], [ %.1.lcssa.i.i.i, %._crit_edge264.i.i.i ], [ %.0219271.i.i.i, %135 ], [ %134, %130 ], [ %.0219271.i.i.i, %129 ], [ %121, %119 ], [ %128, %122 ], [ %.0219271.i.i.i, %117 ], [ %116, %110 ], [ %.0219271.i.i.i, %109 ]
+  %.4.i.i.i = phi i32 [ %243, %239 ], [ %.0224268.i.i.i, %234 ], [ %228, %226 ], [ %233, %229 ], [ %.0224268.i.i.i, %224 ], [ %223, %221 ], [ %.3.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %.0224268.i.i.i, %206 ], [ %187, %185 ], [ %205, %203 ], [ %.2226.lcssa.i.i.i, %._crit_edge259.i.i.i ], [ %.0224268.i.i.i, %182 ], [ %174, %172 ], [ %181, %175 ], [ %.0224268.i.i.i, %170 ], [ %163, %161 ], [ %169, %164 ], [ %.0224268.i.i.i, %159 ], [ %158, %154 ], [ %.0224268.i.i.i, %153 ], [ %152, %150 ], [ %.1225.lcssa.i.i.i, %._crit_edge264.i.i.i ], [ %.0224268.i.i.i, %135 ], [ %134, %130 ], [ %.0224268.i.i.i, %129 ], [ %121, %119 ], [ %128, %122 ], [ %.0224268.i.i.i, %117 ], [ %116, %110 ], [ %.0224268.i.i.i, %109 ]
   %245 = add nsw i32 %.0218272.i.i.i, -1
   %.not.i.i.i = icmp eq i32 %245, 0
   br i1 %.not.i.i.i, label %._crit_edge276.i.i.i, label %.lr.ph275.i.i.i, !llvm.loop !8
 
 ._crit_edge276.i.i.i:                             ; preds = %244, %50
-  %.0220.lcssa.i.i.i = phi i32 [ 0, %50 ], [ %.1221249.i.i.i, %244 ]
+  %.0222.lcssa.i.i.i = phi i32 [ 0, %50 ], [ %.1223247.i.i.i, %244 ]
   %.0217.lcssa.i.i.i = phi i32 [ %66, %50 ], [ %108, %244 ]
-  %246 = add i32 %.0217.lcssa.i.i.i, %.0220.lcssa.i.i.i
+  %246 = add i32 %.0217.lcssa.i.i.i, %.0222.lcssa.i.i.i
   %.not233.i.i.i = icmp ugt i32 %246, %.0217.lcssa.i.i.i
   br i1 %.not233.i.i.i, label %dissect_fb_zero_tag.exit.i.i, label %247
 
 247:                                              ; preds = %._crit_edge276.i.i.i
-  %248 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %17, ptr noundef nonnull @ei_fb_zero_length_invalid, ptr noundef nonnull @.str.95, i32 noundef %.0220.lcssa.i.i.i) #3
+  %248 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %17, ptr noundef nonnull @ei_fb_zero_length_invalid, ptr noundef nonnull @.str.95, i32 noundef %.0222.lcssa.i.i.i) #3
   %249 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0217.lcssa.i.i.i) #3
   %250 = add i32 %249, %.0217.lcssa.i.i.i
   br label %dissect_fb_zero_tag.exit.i.i

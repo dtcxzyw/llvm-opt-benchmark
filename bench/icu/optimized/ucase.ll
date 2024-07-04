@@ -1265,9 +1265,9 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp8.i, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.cond.preheader, %if.else.us
-  %start.038.us = phi i32 [ %start.1.us, %if.else.us ], [ 0, %while.cond.preheader ]
-  %limit.037.us = phi i32 [ %limit.1.us, %if.else.us ], [ 73, %while.cond.preheader ]
-  %add.us = add nsw i32 %start.038.us, %limit.037.us
+  %limit.038.us = phi i32 [ %limit.1.us, %if.else.us ], [ 73, %while.cond.preheader ]
+  %start.037.us = phi i32 [ %start.1.us, %if.else.us ], [ 0, %while.cond.preheader ]
+  %add.us = add nsw i32 %limit.038.us, %start.037.us
   %div.us = sdiv i32 %add.us, 2
   %mul.us = mul nsw i32 %div.us, 5
   %idx.ext12.us = sext i32 %mul.us to i64
@@ -1301,15 +1301,15 @@ if.else.us:                                       ; preds = %do.body.i.us, %if.e
   %retval.0.i32.us = phi i32 [ %sub3.i.us, %if.end.i.us ], [ 1, %do.body.i.us ]
   %cmp32.us = icmp slt i32 %retval.0.i32.us, 0
   %add35.us = add nsw i32 %div.us, 1
-  %limit.1.us = select i1 %cmp32.us, i32 %div.us, i32 %limit.037.us
-  %start.1.us = select i1 %cmp32.us, i32 %start.038.us, i32 %add35.us
+  %start.1.us = select i1 %cmp32.us, i32 %start.037.us, i32 %add35.us
+  %limit.1.us = select i1 %cmp32.us, i32 %div.us, i32 %limit.038.us
   %cmp11.us = icmp slt i32 %start.1.us, %limit.1.us
   br i1 %cmp11.us, label %while.body.us, label %return, !llvm.loop !10
 
 while.body:                                       ; preds = %while.cond.preheader, %if.else
-  %start.038 = phi i32 [ %start.1, %if.else ], [ 0, %while.cond.preheader ]
-  %limit.037 = phi i32 [ %limit.1, %if.else ], [ 73, %while.cond.preheader ]
-  %add = add nsw i32 %start.038, %limit.037
+  %limit.038 = phi i32 [ %limit.1, %if.else ], [ 73, %while.cond.preheader ]
+  %start.037 = phi i32 [ %start.1, %if.else ], [ 0, %while.cond.preheader ]
+  %add = add nsw i32 %limit.038, %start.037
   %div = sdiv i32 %add, 2
   %mul = mul nsw i32 %div, 5
   %idx.ext12 = sext i32 %mul to i64
@@ -1395,8 +1395,8 @@ if.else:                                          ; preds = %do.body.i, %_ZL9str
   %retval.0.i32 = phi i32 [ %retval.0.i, %_ZL9strcmpMaxPKDsiS0_i.exit ], [ 1, %do.body.i ]
   %cmp32 = icmp slt i32 %retval.0.i32, 0
   %add35 = add nsw i32 %div, 1
-  %limit.1 = select i1 %cmp32, i32 %div, i32 %limit.037
-  %start.1 = select i1 %cmp32, i32 %start.038, i32 %add35
+  %start.1 = select i1 %cmp32, i32 %start.037, i32 %add35
+  %limit.1 = select i1 %cmp32, i32 %div, i32 %limit.038
   %cmp11 = icmp slt i32 %start.1, %limit.1
   br i1 %cmp11, label %while.body, label %return, !llvm.loop !10
 

@@ -437,11 +437,11 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %32, %.lr.ph
-  %.04862 = phi i8 [ %.narrow, %.lr.ph ], [ 0, %32 ]
-  %.05061 = phi i32 [ %39, %.lr.ph ], [ 0, %32 ]
-  %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.05061) #4
-  %.narrow = add i8 %38, %.04862
-  %39 = add nuw nsw i32 %.05061, 1
+  %.04762 = phi i32 [ %39, %.lr.ph ], [ 0, %32 ]
+  %.04861 = phi i8 [ %.narrow, %.lr.ph ], [ 0, %32 ]
+  %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.04762) #4
+  %.narrow = add i8 %38, %.04861
+  %39 = add nuw nsw i32 %.04762, 1
   %exitcond.not = icmp eq i32 %39, %20
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6
 
@@ -459,7 +459,7 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr nocapture noundef readonly
 
 43:                                               ; preds = %.thread56, %._crit_edge
   %44 = phi ptr [ %25, %.thread56 ], [ %41, %._crit_edge ]
-  %.04759 = phi i16 [ 0, %.thread56 ], [ %36, %._crit_edge ]
+  %.04959 = phi i16 [ 0, %.thread56 ], [ %36, %._crit_edge ]
   %45 = load ptr, ptr %44, align 8
   %46 = and i32 %13, 255
   %47 = tail call ptr @val_to_str(i32 noundef %46, ptr noundef nonnull @vals_hdr_OC, ptr noundef nonnull @.str.267) #4
@@ -468,7 +468,7 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr nocapture noundef readonly
 
 48:                                               ; preds = %.thread, %._crit_edge
   %49 = phi ptr [ %30, %.thread ], [ %41, %._crit_edge ]
-  %.04755 = phi i16 [ 0, %.thread ], [ %36, %._crit_edge ]
+  %.04955 = phi i16 [ 0, %.thread ], [ %36, %._crit_edge ]
   %50 = load ptr, ptr %49, align 8
   %51 = and i32 %13, 255
   %52 = tail call ptr @val_to_str(i32 noundef %51, ptr noundef nonnull @vals_hdr_OC, ptr noundef nonnull @.str.267) #4
@@ -477,7 +477,7 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr nocapture noundef readonly
 
 53:                                               ; preds = %48, %43
   %.pre-phi = phi i32 [ %51, %48 ], [ %46, %43 ]
-  %.04754 = phi i16 [ %.04755, %48 ], [ %.04759, %43 ]
+  %.04954 = phi i16 [ %.04955, %48 ], [ %.04959, %43 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %54 = load i32, ptr @proto_cimd, align 4
   %55 = add nuw i32 %6, 1
@@ -555,7 +555,7 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr nocapture noundef readonly
 
 97:                                               ; preds = %.critedge.i
   %98 = load i32, ptr @hf_cimd_checksum_indicator, align 4
-  %99 = zext i16 %.04754 to i32
+  %99 = zext i16 %.04954 to i32
   %100 = call ptr @proto_tree_add_uint(ptr noundef %58, i32 noundef %98, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef %99) #4
   br label %dissect_cimd_operation.exit
 
@@ -565,8 +565,8 @@ dissect_cimd_operation.exit:                      ; preds = %.critedge.i, %97
   br label %102
 
 102:                                              ; preds = %4, %dissect_cimd_operation.exit
-  %.0 = phi i32 [ %101, %dissect_cimd_operation.exit ], [ 0, %4 ]
-  ret i32 %.0
+  %.050 = phi i32 [ %101, %dissect_cimd_operation.exit ], [ 0, %4 ]
+  ret i32 %.050
 }
 
 ; Function Attrs: nounwind uwtable

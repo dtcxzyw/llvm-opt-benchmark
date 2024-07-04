@@ -61,7 +61,7 @@ define ptr @Abc_NtkMiter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   br label %16
 
 16:                                               ; preds = %13, %11
-  %.024 = phi ptr [ %14, %13 ], [ %0, %11 ]
+  %.025 = phi ptr [ %14, %13 ], [ %0, %11 ]
   %17 = phi i1 [ %15, %13 ], [ false, %11 ]
   %.val31 = load i32, ptr %1, align 8
   %.not33 = icmp eq i32 %.val31, 3
@@ -80,7 +80,7 @@ define ptr @Abc_NtkMiter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
 23:                                               ; preds = %20, %18
   %.026 = phi ptr [ %21, %20 ], [ %1, %18 ]
   %24 = phi i1 [ %22, %20 ], [ false, %18 ]
-  %25 = icmp ne ptr %.024, null
+  %25 = icmp ne ptr %.025, null
   %26 = icmp ne ptr %.026, null
   %or.cond = select i1 %25, i1 %26, i1 false
   br i1 %or.cond, label %27, label %603
@@ -88,7 +88,7 @@ define ptr @Abc_NtkMiter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
 27:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %8)
   %28 = tail call ptr @Abc_NtkAlloc(i32 noundef 3, i32 noundef 3, i32 noundef 1) #16
-  %29 = getelementptr inbounds i8, ptr %.024, i64 8
+  %29 = getelementptr inbounds i8, ptr %.025, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %.026, i64 8
   %32 = load ptr, ptr %31, align 8
@@ -96,8 +96,8 @@ define ptr @Abc_NtkMiter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   %34 = call ptr @Extra_UtilStrsav(ptr noundef nonnull %8) #16
   %35 = getelementptr inbounds i8, ptr %28, i64 8
   store ptr %34, ptr %35, align 8
-  call fastcc void @Abc_NtkMiterPrepare(ptr noundef nonnull %.024, ptr noundef nonnull %.026, ptr noundef %28, i32 noundef %2, i32 noundef %3, i32 noundef %5)
-  %36 = getelementptr inbounds i8, ptr %.024, i64 32
+  call fastcc void @Abc_NtkMiterPrepare(ptr noundef nonnull %.025, ptr noundef nonnull %.026, ptr noundef %28, i32 noundef %2, i32 noundef %3, i32 noundef %5)
+  %36 = getelementptr inbounds i8, ptr %.025, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr i8, ptr %37, i64 4
   %.val20.i.i = load i32, ptr %38, align 4
@@ -267,7 +267,7 @@ Abc_NtkMiterAddOne.exit42.i:                      ; preds = %125, %Abc_NtkMiterA
   br i1 %.not.i43.i, label %.preheader.i.i, label %.preheader246.i.i
 
 .preheader246.i.i:                                ; preds = %Abc_NtkMiterAddOne.exit42.i
-  %134 = getelementptr i8, ptr %.024, i64 64
+  %134 = getelementptr i8, ptr %.025, i64 64
   %.val119248.i.i = load ptr, ptr %134, align 8
   %135 = getelementptr i8, ptr %.val119248.i.i, i64 4
   %.val119.val249.i.i = load i32, ptr %135, align 4
@@ -466,7 +466,7 @@ Vec_PtrPush.exit170.us.i.i:                       ; preds = %Vec_PtrGrow.exit.i1
   br i1 %230, label %.lr.ph.split.us.i.i, label %.critedge.i.i, !llvm.loop !6
 
 .preheader.i.i:                                   ; preds = %Abc_NtkMiterAddOne.exit42.i
-  %231 = getelementptr i8, ptr %.024, i64 48
+  %231 = getelementptr i8, ptr %.025, i64 48
   %.val125252.i.i = load ptr, ptr %231, align 8
   %232 = getelementptr i8, ptr %.val125252.i.i, i64 4
   %.val125.val253.i.i = load i32, ptr %232, align 4
@@ -736,7 +736,7 @@ Vec_PtrPush.exit212.us.i.i:                       ; preds = %Vec_PtrGrow.exit.i2
   br i1 %370, label %.lr.ph.split.i.i, label %.critedge.i.i, !llvm.loop !6
 
 .critedge2.preheader.i.i:                         ; preds = %.lr.ph256.split.i.i, %Vec_PtrPush.exit212.us.i.i, %.preheader.i.i
-  %371 = getelementptr inbounds i8, ptr %.024, i64 80
+  %371 = getelementptr inbounds i8, ptr %.025, i64 80
   %372 = load ptr, ptr %371, align 8
   %373 = getelementptr i8, ptr %372, i64 4
   %.val113257.i.i = load i32, ptr %373, align 4
@@ -964,7 +964,7 @@ Vec_PtrPush.exit212.us.i.i:                       ; preds = %Vec_PtrGrow.exit.i2
   br label %595
 
 Vec_PtrAlloc.exit.i.i:                            ; preds = %.critedge.i.i
-  %496 = getelementptr i8, ptr %.024, i64 64
+  %496 = getelementptr i8, ptr %.025, i64 64
   %.val118.i.i = load ptr, ptr %496, align 8
   %497 = getelementptr i8, ptr %.val118.i.i, i64 4
   %.val118.val.i.i = load i32, ptr %497, align 4
@@ -1221,11 +1221,11 @@ Abc_NtkMiterInt.exit:                             ; preds = %Abc_NtkMiterFinaliz
   br label %603
 
 603:                                              ; preds = %Abc_NtkMiterInt.exit, %23
-  %.025 = phi ptr [ %.0.i, %Abc_NtkMiterInt.exit ], [ null, %23 ]
+  %.0 = phi ptr [ %.0.i, %Abc_NtkMiterInt.exit ], [ null, %23 ]
   br i1 %17, label %604, label %605
 
 604:                                              ; preds = %603
-  call void @Abc_NtkDelete(ptr noundef %.024) #16
+  call void @Abc_NtkDelete(ptr noundef %.025) #16
   br label %605
 
 605:                                              ; preds = %604, %603
@@ -1236,8 +1236,8 @@ Abc_NtkMiterInt.exit:                             ; preds = %Abc_NtkMiterFinaliz
   br label %607
 
 607:                                              ; preds = %605, %606, %6
-  %.0 = phi ptr [ null, %6 ], [ %.025, %606 ], [ %.025, %605 ]
-  ret ptr %.0
+  %.024 = phi ptr [ null, %6 ], [ %.0, %606 ], [ %.0, %605 ]
+  ret ptr %.024
 }
 
 declare i32 @Abc_NtkCompareSignals(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -3631,13 +3631,13 @@ define noalias noundef ptr @Abc_NtkReadNodeNames(ptr noundef %0, ptr noundef %1)
   br i1 %.not1921, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph24, %Vec_PtrPush.exit
-  %.01622 = phi ptr [ %51, %Vec_PtrPush.exit ], [ %15, %.lr.ph24 ]
-  %16 = call ptr @Abc_NtkFindNode(ptr noundef %0, ptr noundef nonnull %.01622) #16
+  %.022 = phi ptr [ %51, %Vec_PtrPush.exit ], [ %15, %.lr.ph24 ]
+  %16 = call ptr @Abc_NtkFindNode(ptr noundef %0, ptr noundef nonnull %.022) #16
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %.lr.ph
-  %19 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef nonnull %.01622)
+  %19 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef nonnull %.022)
   %20 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %Vec_PtrFree.exit, label %21
@@ -3722,8 +3722,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %53
 
 53:                                               ; preds = %._crit_edge, %Vec_PtrFree.exit, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %Vec_PtrFree.exit ], [ %9, %._crit_edge ]
-  ret ptr %.0
+  %.016 = phi ptr [ null, %6 ], [ null, %Vec_PtrFree.exit ], [ %9, %._crit_edge ]
+  ret ptr %.016
 }
 
 ; Function Attrs: nofree nounwind

@@ -2205,38 +2205,38 @@ for.body23.lr.ph:                                 ; preds = %PyUnicode_DATA.exit
   ]
 
 for.body23.us:                                    ; preds = %for.body23.lr.ph, %for.body23.us
-  %char_idx.081.us = phi i64 [ %inc28.us, %for.body23.us ], [ 0, %for.body23.lr.ph ]
-  %dot_count.080.us = phi i32 [ %spec.select.us, %for.body23.us ], [ 0, %for.body23.lr.ph ]
-  %arrayidx.i.us = getelementptr i8, ptr %retval.0.i, i64 %char_idx.081.us
+  %dot_count.081.us = phi i32 [ %spec.select.us, %for.body23.us ], [ 0, %for.body23.lr.ph ]
+  %char_idx.080.us = phi i64 [ %inc28.us, %for.body23.us ], [ 0, %for.body23.lr.ph ]
+  %arrayidx.i.us = getelementptr i8, ptr %retval.0.i, i64 %char_idx.080.us
   %13 = load i8, ptr %arrayidx.i.us, align 1
   %cmp25.us = icmp eq i8 %13, 46
   %inc.us = zext i1 %cmp25.us to i32
-  %spec.select.us = add i32 %dot_count.080.us, %inc.us
-  %inc28.us = add nuw nsw i64 %char_idx.081.us, 1
+  %spec.select.us = add i32 %dot_count.081.us, %inc.us
+  %inc28.us = add nuw nsw i64 %char_idx.080.us, 1
   %exitcond121.not = icmp eq i64 %inc28.us, %.val52
   br i1 %exitcond121.not, label %for.end, label %for.body23.us, !llvm.loop !7
 
 for.body23.us83:                                  ; preds = %for.body23.lr.ph, %for.body23.us83
-  %char_idx.081.us84 = phi i64 [ %inc28.us91, %for.body23.us83 ], [ 0, %for.body23.lr.ph ]
-  %dot_count.080.us85 = phi i32 [ %spec.select.us90, %for.body23.us83 ], [ 0, %for.body23.lr.ph ]
-  %arrayidx4.i.us = getelementptr i16, ptr %retval.0.i, i64 %char_idx.081.us84
+  %dot_count.081.us84 = phi i32 [ %spec.select.us90, %for.body23.us83 ], [ 0, %for.body23.lr.ph ]
+  %char_idx.080.us85 = phi i64 [ %inc28.us91, %for.body23.us83 ], [ 0, %for.body23.lr.ph ]
+  %arrayidx4.i.us = getelementptr i16, ptr %retval.0.i, i64 %char_idx.080.us85
   %14 = load i16, ptr %arrayidx4.i.us, align 2
   %cmp25.us88 = icmp eq i16 %14, 46
   %inc.us89 = zext i1 %cmp25.us88 to i32
-  %spec.select.us90 = add i32 %dot_count.080.us85, %inc.us89
-  %inc28.us91 = add nuw nsw i64 %char_idx.081.us84, 1
+  %spec.select.us90 = add i32 %dot_count.081.us84, %inc.us89
+  %inc28.us91 = add nuw nsw i64 %char_idx.080.us85, 1
   %exitcond.not = icmp eq i64 %inc28.us91, %.val52
   br i1 %exitcond.not, label %for.end, label %for.body23.us83, !llvm.loop !7
 
 for.body23:                                       ; preds = %for.body23.lr.ph, %for.body23
-  %char_idx.081 = phi i64 [ %inc28, %for.body23 ], [ 0, %for.body23.lr.ph ]
-  %dot_count.080 = phi i32 [ %spec.select, %for.body23 ], [ 0, %for.body23.lr.ph ]
-  %arrayidx7.i = getelementptr i32, ptr %retval.0.i, i64 %char_idx.081
+  %dot_count.081 = phi i32 [ %spec.select, %for.body23 ], [ 0, %for.body23.lr.ph ]
+  %char_idx.080 = phi i64 [ %inc28, %for.body23 ], [ 0, %for.body23.lr.ph ]
+  %arrayidx7.i = getelementptr i32, ptr %retval.0.i, i64 %char_idx.080
   %15 = load i32, ptr %arrayidx7.i, align 4
   %cmp25 = icmp eq i32 %15, 46
   %inc = zext i1 %cmp25 to i32
-  %spec.select = add i32 %dot_count.080, %inc
-  %inc28 = add nuw nsw i64 %char_idx.081, 1
+  %spec.select = add i32 %dot_count.081, %inc
+  %inc28 = add nuw nsw i64 %char_idx.080, 1
   %exitcond122.not = icmp eq i64 %inc28, %.val52
   br i1 %exitcond122.not, label %for.end, label %for.body23, !llvm.loop !7
 
@@ -2658,29 +2658,29 @@ for.body.lr.ph.i:                                 ; preds = %Py_INCREF.exit.i
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %Py_DECREF.exit.i
-  %inc.i = add nuw nsw i64 %name_idx.020.i, 1
+  %inc.i = add nuw nsw i64 %name_idx.021.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %attr.val.i
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !11
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
-  %obj.addr.021.i = phi ptr [ %obj, %for.body.lr.ph.i ], [ %call2.i, %for.cond.i ]
-  %name_idx.020.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
-  %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %name_idx.020.i
+  %name_idx.021.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
+  %obj.addr.020.i = phi ptr [ %obj, %for.body.lr.ph.i ], [ %call2.i, %for.cond.i ]
+  %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %name_idx.021.i
   %6 = load ptr, ptr %arrayidx.i, align 8
-  %call2.i = tail call ptr @PyObject_GetAttr(ptr noundef nonnull %obj.addr.021.i, ptr noundef %6) #4
-  %7 = load i64, ptr %obj.addr.021.i, align 8
+  %call2.i = tail call ptr @PyObject_GetAttr(ptr noundef nonnull %obj.addr.020.i, ptr noundef %6) #4
+  %7 = load i64, ptr %obj.addr.020.i, align 8
   %8 = and i64 %7, 2147483648
   %cmp.i15.not.i = icmp eq i64 %8, 0
   br i1 %cmp.i15.not.i, label %if.end.i11.i, label %Py_DECREF.exit.i
 
 if.end.i11.i:                                     ; preds = %for.body.i
   %dec.i.i = add i64 %7, -1
-  store i64 %dec.i.i, ptr %obj.addr.021.i, align 8
+  store i64 %dec.i.i, ptr %obj.addr.020.i, align 8
   %cmp.i12.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i12.i, label %if.then1.i.i, label %Py_DECREF.exit.i
 
 if.then1.i.i:                                     ; preds = %if.end.i11.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %obj.addr.021.i) #4
+  tail call void @_Py_Dealloc(ptr noundef nonnull %obj.addr.020.i) #4
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i, %if.end.i11.i, %for.body.i
@@ -2737,29 +2737,29 @@ for.body.lr.ph.i27:                               ; preds = %Py_INCREF.exit.i25
   br label %for.body.i29
 
 for.cond.i37:                                     ; preds = %Py_DECREF.exit.i35
-  %inc.i38 = add nuw nsw i64 %name_idx.020.i31, 1
+  %inc.i38 = add nuw nsw i64 %name_idx.021.i30, 1
   %exitcond.not.i39 = icmp eq i64 %inc.i38, %attr.val.i21
   br i1 %exitcond.not.i39, label %if.end15, label %for.body.i29, !llvm.loop !11
 
 for.body.i29:                                     ; preds = %for.cond.i37, %for.body.lr.ph.i27
-  %obj.addr.021.i30 = phi ptr [ %obj, %for.body.lr.ph.i27 ], [ %call2.i33, %for.cond.i37 ]
-  %name_idx.020.i31 = phi i64 [ 0, %for.body.lr.ph.i27 ], [ %inc.i38, %for.cond.i37 ]
-  %arrayidx.i32 = getelementptr [1 x ptr], ptr %ob_item.i28, i64 0, i64 %name_idx.020.i31
+  %name_idx.021.i30 = phi i64 [ 0, %for.body.lr.ph.i27 ], [ %inc.i38, %for.cond.i37 ]
+  %obj.addr.020.i31 = phi ptr [ %obj, %for.body.lr.ph.i27 ], [ %call2.i33, %for.cond.i37 ]
+  %arrayidx.i32 = getelementptr [1 x ptr], ptr %ob_item.i28, i64 0, i64 %name_idx.021.i30
   %14 = load ptr, ptr %arrayidx.i32, align 8
-  %call2.i33 = tail call ptr @PyObject_GetAttr(ptr noundef nonnull %obj.addr.021.i30, ptr noundef %14) #4
-  %15 = load i64, ptr %obj.addr.021.i30, align 8
+  %call2.i33 = tail call ptr @PyObject_GetAttr(ptr noundef nonnull %obj.addr.020.i31, ptr noundef %14) #4
+  %15 = load i64, ptr %obj.addr.020.i31, align 8
   %16 = and i64 %15, 2147483648
   %cmp.i15.not.i34 = icmp eq i64 %16, 0
   br i1 %cmp.i15.not.i34, label %if.end.i11.i40, label %Py_DECREF.exit.i35
 
 if.end.i11.i40:                                   ; preds = %for.body.i29
   %dec.i.i41 = add i64 %15, -1
-  store i64 %dec.i.i41, ptr %obj.addr.021.i30, align 8
+  store i64 %dec.i.i41, ptr %obj.addr.020.i31, align 8
   %cmp.i12.i42 = icmp eq i64 %dec.i.i41, 0
   br i1 %cmp.i12.i42, label %if.then1.i.i43, label %Py_DECREF.exit.i35
 
 if.then1.i.i43:                                   ; preds = %if.end.i11.i40
-  tail call void @_Py_Dealloc(ptr noundef nonnull %obj.addr.021.i30) #4
+  tail call void @_Py_Dealloc(ptr noundef nonnull %obj.addr.020.i31) #4
   br label %Py_DECREF.exit.i35
 
 Py_DECREF.exit.i35:                               ; preds = %if.then1.i.i43, %if.end.i11.i40, %for.body.i29

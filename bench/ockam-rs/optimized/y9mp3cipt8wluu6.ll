@@ -2145,11 +2145,11 @@ default.unreachable108:                           ; preds = %38, %19
   br i1 %57, label %91, label %92
 
 .body45:                                          ; preds = %72, %59, %49
-  %.139.lpad-body = phi i1 [ false, %49 ], [ %60, %59 ], [ false, %72 ]
+  %.136.lpad-body = phi i1 [ false, %49 ], [ %60, %59 ], [ false, %72 ]
   %eh.lpad-body = phi { ptr, i32 } [ %50, %49 ], [ %61, %59 ], [ %73, %72 ]
   %58 = load i64, ptr %3, align 8, !range !94
   %.not = icmp eq i64 %58, 3
-  %or.cond43 = select i1 %.139.lpad-body, i1 true, i1 %.not
+  %or.cond43 = select i1 %.136.lpad-body, i1 true, i1 %.not
   br i1 %or.cond43, label %.thread, label %157
 
 59:                                               ; preds = %139, %88

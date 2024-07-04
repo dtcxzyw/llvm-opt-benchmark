@@ -390,7 +390,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %166
   br i1 %185, label %.lr.ph155, label %.loopexit
 
 .lr.ph155:                                        ; preds = %183, %187
-  %.086153 = phi i32 [ %196, %187 ], [ 1, %183 ]
+  %.085153 = phi i32 [ %196, %187 ], [ 1, %183 ]
   %186 = call i32 @prte_node_copy(ptr noundef nonnull %3, ptr noundef nonnull %.0.i129) #11
   %.not119 = icmp eq i32 %186, 0
   br i1 %.not119, label %187, label %pmix_list_remove_first.exit.thread
@@ -406,7 +406,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %166
   %194 = load ptr, ptr %3, align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 144
   store i32 %193, ptr %195, align 8
-  %196 = add nuw nsw i32 %.086153, 1
+  %196 = add nuw nsw i32 %.085153, 1
   %197 = load i32, ptr getelementptr inbounds (i8, ptr @prte_ras_base, i64 20), align 4
   %198 = icmp slt i32 %196, %197
   br i1 %198, label %.lr.ph155, label %.loopexit, !llvm.loop !8
@@ -626,8 +626,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %238, %
   br i1 %314, label %pmix_list_remove_first.exit.thread, label %79, !llvm.loop !11
 
 pmix_list_remove_first.exit.thread:               ; preds = %.loopexit, %.lr.ph147, %.lr.ph155, %pmix_pointer_array_get_item.exit.thread, %228, %227, %31, %26, %2
-  %.085 = phi i32 [ 0, %2 ], [ %30, %26 ], [ %30, %31 ], [ -43, %227 ], [ %223, %228 ], [ 0, %pmix_pointer_array_get_item.exit.thread ], [ %186, %.lr.ph155 ], [ %303, %.lr.ph147 ], [ 0, %.loopexit ]
-  ret i32 %.085
+  %.086 = phi i32 [ 0, %2 ], [ %30, %26 ], [ %30, %31 ], [ -43, %227 ], [ %223, %228 ], [ 0, %pmix_pointer_array_get_item.exit.thread ], [ %186, %.lr.ph155 ], [ %303, %.lr.ph147 ], [ 0, %.loopexit ]
+  ret i32 %.086
 }
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1

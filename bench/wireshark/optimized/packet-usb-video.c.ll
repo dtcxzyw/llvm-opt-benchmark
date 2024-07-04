@@ -970,30 +970,30 @@ define internal range(i32 0, 256) i32 @dissect_usb_vid_descriptor(ptr noundef %0
   br label %._crit_edge155.i
 
 ._crit_edge155.i:                                 ; preds = %38, %36
-  %.0135.i = phi ptr [ %41, %38 ], [ null, %36 ]
-  %42 = call ptr @dissect_usb_descriptor_header(ptr noundef %.0135.i, ptr noundef %10, i32 noundef 0, ptr noundef nonnull @vid_descriptor_type_vals_ext) #4
+  %.0134.i = phi ptr [ %41, %38 ], [ null, %36 ]
+  %42 = call ptr @dissect_usb_descriptor_header(ptr noundef %.0134.i, ptr noundef %10, i32 noundef 0, ptr noundef nonnull @vid_descriptor_type_vals_ext) #4
   %43 = load i32, ptr @hf_usb_vid_control_ifdesc_subtype, align 4
-  %44 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %43, ptr noundef %10, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #4
+  %44 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %43, ptr noundef %10, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #4
   %45 = icmp eq i8 %37, 1
   br i1 %45, label %46, label %62
 
 46:                                               ; preds = %._crit_edge155.i
   %47 = load i32, ptr @hf_usb_vid_control_ifdesc_bcdUVC, align 4
-  %48 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %47, ptr noundef %10, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648) #4
+  %48 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %47, ptr noundef %10, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648) #4
   %49 = load i32, ptr @hf_usb_vid_ifdesc_wTotalLength, align 4
-  %50 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %49, ptr noundef %10, i32 noundef 5, i32 noundef 2, i32 noundef -2147483648) #4
+  %50 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %49, ptr noundef %10, i32 noundef 5, i32 noundef 2, i32 noundef -2147483648) #4
   %51 = load i32, ptr @hf_usb_vid_control_ifdesc_dwClockFrequency, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %51, ptr noundef %10, i32 noundef 7, i32 noundef 4, i32 noundef -2147483648) #4
+  %52 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %51, ptr noundef %10, i32 noundef 7, i32 noundef 4, i32 noundef -2147483648) #4
   %53 = call zeroext i8 @tvb_get_guint8(ptr noundef %10, i32 noundef 11) #4
   %54 = load i32, ptr @hf_usb_vid_control_ifdesc_bInCollection, align 4
-  %55 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %54, ptr noundef %10, i32 noundef 11, i32 noundef 1, i32 noundef -2147483648) #4
+  %55 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %54, ptr noundef %10, i32 noundef 11, i32 noundef 1, i32 noundef -2147483648) #4
   %56 = zext i8 %53 to i32
   %.not143.i = icmp eq i8 %53, 0
   br i1 %.not143.i, label %60, label %57
 
 57:                                               ; preds = %46
   %58 = load i32, ptr @hf_usb_vid_control_ifdesc_baInterfaceNr, align 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %58, ptr noundef %10, i32 noundef 12, i32 noundef %56, i32 noundef 0) #4
+  %59 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %58, ptr noundef %10, i32 noundef 12, i32 noundef %56, i32 noundef 0) #4
   br label %60
 
 60:                                               ; preds = %57, %46
@@ -1011,56 +1011,56 @@ define internal range(i32 0, 256) i32 @dissect_usb_vid_descriptor(ptr noundef %0
   %67 = call zeroext i8 @tvb_get_guint8(ptr noundef %10, i32 noundef 3) #4
   %68 = call zeroext i16 @tvb_get_letohs(ptr noundef %10, i32 noundef 4) #4
   %69 = load i32, ptr @hf_usb_vid_control_ifdesc_terminal_id, align 4
-  %70 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %69, ptr noundef %10, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #4
+  %70 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %69, ptr noundef %10, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #4
   %71 = load i32, ptr @hf_usb_vid_control_ifdesc_terminal_type, align 4
-  %72 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %71, ptr noundef %10, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #4
+  %72 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %71, ptr noundef %10, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #4
   %73 = load i32, ptr @hf_usb_vid_control_ifdesc_assoc_terminal, align 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %73, ptr noundef %10, i32 noundef 6, i32 noundef 1, i32 noundef -2147483648) #4
+  %74 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %73, ptr noundef %10, i32 noundef 6, i32 noundef 1, i32 noundef -2147483648) #4
   br i1 %66, label %75, label %78
 
 75:                                               ; preds = %65
   %76 = load i32, ptr @hf_usb_vid_control_ifdesc_src_id, align 4
-  %77 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %76, ptr noundef %10, i32 noundef 7, i32 noundef 1, i32 noundef -2147483648) #4
+  %77 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %76, ptr noundef %10, i32 noundef 7, i32 noundef 1, i32 noundef -2147483648) #4
   br label %78
 
 78:                                               ; preds = %75, %65
-  %.0132.i = phi i32 [ 8, %75 ], [ 7, %65 ]
+  %.0131.i = phi i32 [ 8, %75 ], [ 7, %65 ]
   %79 = load i32, ptr @hf_usb_vid_control_ifdesc_iTerminal, align 4
-  %80 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %79, ptr noundef %10, i32 noundef %.0132.i, i32 noundef 1, i32 noundef -2147483648) #4
-  %81 = add nuw nsw i32 %.0132.i, 1
+  %80 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %79, ptr noundef %10, i32 noundef %.0131.i, i32 noundef 1, i32 noundef -2147483648) #4
+  %81 = add nuw nsw i32 %.0131.i, 1
   %82 = icmp eq i16 %68, 513
   %or.cond149.i = select i1 %63, i1 %82, i1 false
   br i1 %or.cond149.i, label %83, label %dissect_usb_video_camera_terminal.exit.i
 
 83:                                               ; preds = %78
   %84 = load i32, ptr @hf_usb_vid_cam_objective_focal_len_min, align 4
-  %85 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %84, ptr noundef %10, i32 noundef %81, i32 noundef 2, i32 noundef -2147483648) #4
-  %86 = add nuw nsw i32 %.0132.i, 3
+  %85 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %84, ptr noundef %10, i32 noundef %81, i32 noundef 2, i32 noundef -2147483648) #4
+  %86 = add nuw nsw i32 %.0131.i, 3
   %87 = load i32, ptr @hf_usb_vid_cam_objective_focal_len_max, align 4
-  %88 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %87, ptr noundef %10, i32 noundef %86, i32 noundef 2, i32 noundef -2147483648) #4
-  %89 = add nuw nsw i32 %.0132.i, 5
+  %88 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %87, ptr noundef %10, i32 noundef %86, i32 noundef 2, i32 noundef -2147483648) #4
+  %89 = add nuw nsw i32 %.0131.i, 5
   %90 = load i32, ptr @hf_usb_vid_cam_ocular_focal_len, align 4
-  %91 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %90, ptr noundef %10, i32 noundef %89, i32 noundef 2, i32 noundef -2147483648) #4
-  %92 = add nuw nsw i32 %.0132.i, 7
+  %91 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %90, ptr noundef %10, i32 noundef %89, i32 noundef 2, i32 noundef -2147483648) #4
+  %92 = add nuw nsw i32 %.0131.i, 7
   %93 = load i32, ptr @ett_camera_controls, align 4
   %94 = call zeroext i8 @tvb_get_guint8(ptr noundef %10, i32 noundef %92) #4
   %95 = load i32, ptr @hf_usb_vid_bControlSize, align 4
-  %96 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %95, ptr noundef %10, i32 noundef %92, i32 noundef 1, i32 noundef -2147483648) #4
-  %97 = add nuw nsw i32 %.0132.i, 8
+  %96 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %95, ptr noundef %10, i32 noundef %92, i32 noundef 1, i32 noundef -2147483648) #4
+  %97 = add nuw nsw i32 %.0131.i, 8
   %.not.i.i.i = icmp eq i8 %94, 0
   br i1 %.not.i.i.i, label %dissect_usb_video_camera_terminal.exit.i, label %98
 
 98:                                               ; preds = %83
   %99 = zext i8 %94 to i32
   %100 = load i32, ptr @hf_usb_vid_bmControl, align 4
-  %101 = call ptr @proto_tree_add_bitmask_len(ptr noundef %.0135.i, ptr noundef %10, i32 noundef %97, i32 noundef %99, i32 noundef %100, i32 noundef %93, ptr noundef nonnull @dissect_usb_video_camera_terminal.control_bits, ptr noundef nonnull @ei_usb_vid_bitmask_len, i32 noundef -2147483648) #4
+  %101 = call ptr @proto_tree_add_bitmask_len(ptr noundef %.0134.i, ptr noundef %10, i32 noundef %97, i32 noundef %99, i32 noundef %100, i32 noundef %93, ptr noundef nonnull @dissect_usb_video_camera_terminal.control_bits, ptr noundef nonnull @ei_usb_vid_bitmask_len, i32 noundef -2147483648) #4
   %102 = add nuw nsw i32 %97, %99
   br label %dissect_usb_video_camera_terminal.exit.i
 
 103:                                              ; preds = %62
   %104 = call zeroext i8 @tvb_get_guint8(ptr noundef %10, i32 noundef 3) #4
   %105 = load i32, ptr @hf_usb_vid_control_ifdesc_unit_id, align 4
-  %106 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %105, ptr noundef %10, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #4
+  %106 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %105, ptr noundef %10, i32 noundef 3, i32 noundef 1, i32 noundef -2147483648) #4
   switch i8 %37, label %176 [
     i8 5, label %107
     i8 4, label %131
@@ -1070,27 +1070,27 @@ define internal range(i32 0, 256) i32 @dissect_usb_vid_descriptor(ptr noundef %0
 
 107:                                              ; preds = %103
   %108 = load i32, ptr @hf_usb_vid_control_ifdesc_src_id, align 4
-  %109 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %108, ptr noundef %10, i32 noundef 4, i32 noundef 1, i32 noundef -2147483648) #4
+  %109 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %108, ptr noundef %10, i32 noundef 4, i32 noundef 1, i32 noundef -2147483648) #4
   %110 = load i32, ptr @hf_usb_vid_max_multiplier, align 4
-  %111 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %110, ptr noundef %10, i32 noundef 5, i32 noundef 2, i32 noundef -2147483648) #4
+  %111 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %110, ptr noundef %10, i32 noundef 5, i32 noundef 2, i32 noundef -2147483648) #4
   %112 = load i32, ptr @ett_processing_controls, align 4
   %113 = call zeroext i8 @tvb_get_guint8(ptr noundef %10, i32 noundef 7) #4
   %114 = load i32, ptr @hf_usb_vid_bControlSize, align 4
-  %115 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %114, ptr noundef %10, i32 noundef 7, i32 noundef 1, i32 noundef -2147483648) #4
+  %115 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %114, ptr noundef %10, i32 noundef 7, i32 noundef 1, i32 noundef -2147483648) #4
   %.not.i.i150.i = icmp eq i8 %113, 0
   br i1 %.not.i.i150.i, label %dissect_bmControl.exit.i.i, label %116
 
 116:                                              ; preds = %107
   %117 = zext i8 %113 to i32
   %118 = load i32, ptr @hf_usb_vid_bmControl, align 4
-  %119 = call ptr @proto_tree_add_bitmask_len(ptr noundef %.0135.i, ptr noundef %10, i32 noundef 8, i32 noundef %117, i32 noundef %118, i32 noundef %112, ptr noundef nonnull @dissect_usb_video_processing_unit.control_bits, ptr noundef nonnull @ei_usb_vid_bitmask_len, i32 noundef -2147483648) #4
+  %119 = call ptr @proto_tree_add_bitmask_len(ptr noundef %.0134.i, ptr noundef %10, i32 noundef 8, i32 noundef %117, i32 noundef %118, i32 noundef %112, ptr noundef nonnull @dissect_usb_video_processing_unit.control_bits, ptr noundef nonnull @ei_usb_vid_bitmask_len, i32 noundef -2147483648) #4
   %120 = add nuw nsw i32 %117, 8
   br label %dissect_bmControl.exit.i.i
 
 dissect_bmControl.exit.i.i:                       ; preds = %116, %107
   %.0.i.i151.i = phi i32 [ %120, %116 ], [ 8, %107 ]
   %121 = load i32, ptr @hf_usb_vid_iProcessing, align 4
-  %122 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %121, ptr noundef %10, i32 noundef %.0.i.i151.i, i32 noundef 1, i32 noundef -2147483648) #4
+  %122 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %121, ptr noundef %10, i32 noundef %.0.i.i151.i, i32 noundef 1, i32 noundef -2147483648) #4
   %123 = add nuw nsw i32 %.0.i.i151.i, 1
   %124 = call i32 @tvb_reported_length_remaining(ptr noundef %10, i32 noundef %123) #4
   %125 = icmp sgt i32 %124, 0
@@ -1099,46 +1099,46 @@ dissect_bmControl.exit.i.i:                       ; preds = %116, %107
 126:                                              ; preds = %dissect_bmControl.exit.i.i
   %127 = load i32, ptr @hf_usb_vid_proc_standards, align 4
   %128 = load i32, ptr @ett_video_standards, align 4
-  %129 = call ptr @proto_tree_add_bitmask(ptr noundef %.0135.i, ptr noundef %10, i32 noundef %123, i32 noundef %127, i32 noundef %128, ptr noundef nonnull @dissect_usb_video_processing_unit.standard_bits, i32 noundef 0) #4
+  %129 = call ptr @proto_tree_add_bitmask(ptr noundef %.0134.i, ptr noundef %10, i32 noundef %123, i32 noundef %127, i32 noundef %128, ptr noundef nonnull @dissect_usb_video_processing_unit.standard_bits, i32 noundef 0) #4
   %130 = add nuw nsw i32 %.0.i.i151.i, 2
   br label %dissect_usb_video_camera_terminal.exit.i
 
 131:                                              ; preds = %103
   %132 = call zeroext i8 @tvb_get_guint8(ptr noundef %10, i32 noundef 4) #4
   %133 = load i32, ptr @hf_usb_vid_num_inputs, align 4
-  %134 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %133, ptr noundef %10, i32 noundef 4, i32 noundef 1, i32 noundef -2147483648) #4
+  %134 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %133, ptr noundef %10, i32 noundef 4, i32 noundef 1, i32 noundef -2147483648) #4
   %.not.i.i = icmp eq i8 %132, 0
   br i1 %.not.i.i, label %dissect_usb_video_selector_unit.exit.i, label %135
 
 135:                                              ; preds = %131
   %136 = zext i8 %132 to i32
   %137 = load i32, ptr @hf_usb_vid_sources, align 4
-  %138 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %137, ptr noundef %10, i32 noundef 5, i32 noundef %136, i32 noundef 0) #4
+  %138 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %137, ptr noundef %10, i32 noundef 5, i32 noundef %136, i32 noundef 0) #4
   %139 = add nuw nsw i32 %136, 5
   br label %dissect_usb_video_selector_unit.exit.i
 
 dissect_usb_video_selector_unit.exit.i:           ; preds = %135, %131
   %.0.i152.i = phi i32 [ %139, %135 ], [ 5, %131 ]
   %140 = load i32, ptr @hf_usb_vid_iSelector, align 4
-  %141 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %140, ptr noundef %10, i32 noundef %.0.i152.i, i32 noundef 1, i32 noundef -2147483648) #4
+  %141 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %140, ptr noundef %10, i32 noundef %.0.i152.i, i32 noundef 1, i32 noundef -2147483648) #4
   %142 = add nuw nsw i32 %.0.i152.i, 1
   br label %dissect_usb_video_camera_terminal.exit.i
 
 143:                                              ; preds = %103
   %144 = load i32, ptr @hf_usb_vid_exten_guid, align 4
-  %145 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %144, ptr noundef %10, i32 noundef 4, i32 noundef 16, i32 noundef -2147483648) #4
+  %145 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %144, ptr noundef %10, i32 noundef 4, i32 noundef 16, i32 noundef -2147483648) #4
   %146 = load i32, ptr @hf_usb_vid_exten_num_controls, align 4
-  %147 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %146, ptr noundef %10, i32 noundef 20, i32 noundef 1, i32 noundef -2147483648) #4
+  %147 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %146, ptr noundef %10, i32 noundef 20, i32 noundef 1, i32 noundef -2147483648) #4
   %148 = call zeroext i8 @tvb_get_guint8(ptr noundef %10, i32 noundef 21) #4
   %149 = load i32, ptr @hf_usb_vid_num_inputs, align 4
-  %150 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %149, ptr noundef %10, i32 noundef 21, i32 noundef 1, i32 noundef -2147483648) #4
+  %150 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %149, ptr noundef %10, i32 noundef 21, i32 noundef 1, i32 noundef -2147483648) #4
   %.not.i153.i = icmp eq i8 %148, 0
   br i1 %.not.i153.i, label %156, label %151
 
 151:                                              ; preds = %143
   %152 = zext i8 %148 to i32
   %153 = load i32, ptr @hf_usb_vid_sources, align 4
-  %154 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %153, ptr noundef %10, i32 noundef 22, i32 noundef %152, i32 noundef 0) #4
+  %154 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %153, ptr noundef %10, i32 noundef 22, i32 noundef %152, i32 noundef 0) #4
   %155 = add nuw nsw i32 %152, 22
   br label %156
 
@@ -1146,7 +1146,7 @@ dissect_usb_video_selector_unit.exit.i:           ; preds = %135, %131
   %.0.i154.i = phi i32 [ %155, %151 ], [ 22, %143 ]
   %157 = call zeroext i8 @tvb_get_guint8(ptr noundef %10, i32 noundef %.0.i154.i) #4
   %158 = load i32, ptr @hf_usb_vid_bControlSize, align 4
-  %159 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %158, ptr noundef %10, i32 noundef %.0.i154.i, i32 noundef 1, i32 noundef -2147483648) #4
+  %159 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %158, ptr noundef %10, i32 noundef %.0.i154.i, i32 noundef 1, i32 noundef -2147483648) #4
   %160 = add nuw nsw i32 %.0.i154.i, 1
   %161 = zext i8 %157 to i32
   %.not44.i.i = icmp eq i8 %157, 0
@@ -1160,12 +1160,12 @@ dissect_usb_video_selector_unit.exit.i:           ; preds = %135, %131
 
 165:                                              ; preds = %162
   %166 = load i32, ptr @hf_usb_vid_bmControl, align 4
-  %167 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %166, ptr noundef %10, i32 noundef %160, i32 noundef %161, i32 noundef -2147483648) #4
+  %167 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %166, ptr noundef %10, i32 noundef %160, i32 noundef %161, i32 noundef -2147483648) #4
   br label %171
 
 168:                                              ; preds = %162
   %169 = load i32, ptr @hf_usb_vid_bmControl_bytes, align 4
-  %170 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %.0135.i, i32 noundef %169, ptr noundef %10, i32 noundef %160, i32 noundef %161, ptr noundef null, ptr noundef nonnull @.str.387) #4
+  %170 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %.0134.i, i32 noundef %169, ptr noundef %10, i32 noundef %160, i32 noundef %161, ptr noundef null, ptr noundef nonnull @.str.387) #4
   br label %171
 
 171:                                              ; preds = %168, %165
@@ -1175,7 +1175,7 @@ dissect_usb_video_selector_unit.exit.i:           ; preds = %135, %131
 dissect_usb_video_extension_unit.exit.i:          ; preds = %171, %156
   %.1.i.i = phi i32 [ %172, %171 ], [ %160, %156 ]
   %173 = load i32, ptr @hf_usb_vid_iExtension, align 4
-  %174 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %173, ptr noundef %10, i32 noundef %.1.i.i, i32 noundef 1, i32 noundef -2147483648) #4
+  %174 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %173, ptr noundef %10, i32 noundef %.1.i.i, i32 noundef 1, i32 noundef -2147483648) #4
   %175 = add nuw nsw i32 %.1.i.i, 1
   br label %dissect_usb_video_camera_terminal.exit.i
 
@@ -1184,8 +1184,8 @@ dissect_usb_video_extension_unit.exit.i:          ; preds = %171, %156
   br label %dissect_usb_video_camera_terminal.exit.i
 
 dissect_usb_video_camera_terminal.exit.i:         ; preds = %176, %dissect_usb_video_extension_unit.exit.i, %dissect_usb_video_selector_unit.exit.i, %126, %dissect_bmControl.exit.i.i, %103, %98, %83, %78, %60
-  %.0134.i = phi i8 [ 0, %60 ], [ %104, %dissect_usb_video_selector_unit.exit.i ], [ %104, %dissect_usb_video_extension_unit.exit.i ], [ %104, %176 ], [ %104, %103 ], [ %67, %78 ], [ %67, %83 ], [ %67, %98 ], [ %104, %dissect_bmControl.exit.i.i ], [ %104, %126 ]
-  %.0133.i = phi i16 [ 0, %60 ], [ 0, %dissect_usb_video_selector_unit.exit.i ], [ 0, %dissect_usb_video_extension_unit.exit.i ], [ 0, %176 ], [ 0, %103 ], [ %68, %78 ], [ 513, %83 ], [ 513, %98 ], [ 0, %dissect_bmControl.exit.i.i ], [ 0, %126 ]
+  %.0133.i = phi i8 [ 0, %60 ], [ %104, %dissect_usb_video_selector_unit.exit.i ], [ %104, %dissect_usb_video_extension_unit.exit.i ], [ %104, %176 ], [ %104, %103 ], [ %67, %78 ], [ %67, %83 ], [ %67, %98 ], [ %104, %dissect_bmControl.exit.i.i ], [ %104, %126 ]
+  %.0132.i = phi i16 [ 0, %60 ], [ 0, %dissect_usb_video_selector_unit.exit.i ], [ 0, %dissect_usb_video_extension_unit.exit.i ], [ 0, %176 ], [ 0, %103 ], [ %68, %78 ], [ 513, %83 ], [ 513, %98 ], [ 0, %dissect_bmControl.exit.i.i ], [ 0, %126 ]
   %.2.i = phi i32 [ %61, %60 ], [ %142, %dissect_usb_video_selector_unit.exit.i ], [ %175, %dissect_usb_video_extension_unit.exit.i ], [ 4, %176 ], [ 4, %103 ], [ %81, %78 ], [ %97, %83 ], [ %102, %98 ], [ %123, %dissect_bmControl.exit.i.i ], [ %130, %126 ]
   %178 = icmp ult i32 %.2.i, %9
   br i1 %178, label %179, label %183
@@ -1193,12 +1193,12 @@ dissect_usb_video_camera_terminal.exit.i:         ; preds = %176, %dissect_usb_v
 179:                                              ; preds = %dissect_usb_video_camera_terminal.exit.i
   %180 = load i32, ptr @hf_usb_vid_descriptor_data, align 4
   %181 = sub nsw i32 %9, %.2.i
-  %182 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %180, ptr noundef %10, i32 noundef %.2.i, i32 noundef %181, i32 noundef 0) #4
+  %182 = call ptr @proto_tree_add_item(ptr noundef %.0134.i, i32 noundef %180, ptr noundef %10, i32 noundef %.2.i, i32 noundef %181, i32 noundef 0) #4
   br label %183
 
 183:                                              ; preds = %179, %dissect_usb_video_camera_terminal.exit.i
-  %184 = zext i8 %.0134.i to i32
-  %.not144.i = icmp eq i8 %.0134.i, 0
+  %184 = zext i8 %.0133.i to i32
+  %.not144.i = icmp eq i8 %.0133.i, 0
   br i1 %.not144.i, label %187, label %185
 
 185:                                              ; preds = %183
@@ -1241,7 +1241,7 @@ dissect_usb_video_camera_terminal.exit.i:         ; preds = %176, %dissect_usb_v
 
 203:                                              ; preds = %._crit_edge.i, %194
   %204 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %198, %194 ]
-  %.0131.i = phi ptr [ %193, %._crit_edge.i ], [ %196, %194 ]
+  %.0135.i = phi ptr [ %193, %._crit_edge.i ], [ %196, %194 ]
   %205 = call ptr @wmem_tree_lookup32(ptr noundef %204, i32 noundef %184) #4
   %.not148.i = icmp eq ptr %205, null
   br i1 %.not148.i, label %206, label %dissect_usb_video_control_interface_descriptor.exit
@@ -1249,12 +1249,12 @@ dissect_usb_video_camera_terminal.exit.i:         ; preds = %176, %dissect_usb_v
 206:                                              ; preds = %203
   %207 = call ptr @wmem_file_scope() #4
   %208 = call noalias ptr @wmem_alloc(ptr noundef %207, i64 noundef 4) #4
-  store i8 %.0134.i, ptr %208, align 2
+  store i8 %.0133.i, ptr %208, align 2
   %209 = getelementptr inbounds i8, ptr %208, i64 1
   store i8 %37, ptr %209, align 1
   %210 = getelementptr inbounds i8, ptr %208, i64 2
-  store i16 %.0133.i, ptr %210, align 2
-  %211 = load ptr, ptr %.0131.i, align 8
+  store i16 %.0132.i, ptr %210, align 2
+  %211 = load ptr, ptr %.0135.i, align 8
   call void @wmem_tree_insert32(ptr noundef %211, i32 noundef %184, ptr noundef nonnull %208) #4
   br label %dissect_usb_video_control_interface_descriptor.exit
 
@@ -2043,15 +2043,15 @@ define internal fastcc void @dissect_usb_vid_control_value(ptr noundef %0, ptr n
   br label %10
 
 10:                                               ; preds = %4, %9, %8, %7, %6
-  %.035.in = phi ptr [ @hf_usb_vid_control_cur, %9 ], [ @hf_usb_vid_control_res, %8 ], [ @hf_usb_vid_control_max, %7 ], [ @hf_usb_vid_control_min, %6 ], [ @hf_usb_vid_control_default, %4 ]
-  %.0 = phi ptr [ @.str.569, %9 ], [ @.str.42, %8 ], [ @.str.568, %7 ], [ @.str.567, %6 ], [ @.str.566, %4 ]
-  %.035 = load i32, ptr %.035.in, align 4
+  %.035 = phi ptr [ @.str.569, %9 ], [ @.str.42, %8 ], [ @.str.568, %7 ], [ @.str.567, %6 ], [ @.str.566, %4 ]
+  %.0.in = phi ptr [ @hf_usb_vid_control_cur, %9 ], [ @hf_usb_vid_control_res, %8 ], [ @hf_usb_vid_control_max, %7 ], [ @hf_usb_vid_control_min, %6 ], [ @hf_usb_vid_control_default, %4 ]
+  %.0 = load i32, ptr %.0.in, align 4
   %11 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #4
-  %.not = icmp eq i32 %.035, -1
+  %.not = icmp eq i32 %.0, -1
   br i1 %.not, label %.thread44, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call ptr @proto_registrar_get_nth(i32 noundef %.035) #4
+  %13 = tail call ptr @proto_registrar_get_nth(i32 noundef %.0) #4
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8
   switch i32 %15, label %16 [
@@ -2084,14 +2084,14 @@ define internal fastcc void @dissect_usb_vid_control_value(ptr noundef %0, ptr n
   br i1 %18, label %19, label %.thread44
 
 19:                                               ; preds = %17
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %.035, ptr noundef %1, i32 noundef %2, i32 noundef %11, i32 noundef -2147483648) #4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %.0, ptr noundef %1, i32 noundef %2, i32 noundef %11, i32 noundef -2147483648) #4
   br label %24
 
 .thread44:                                        ; preds = %10, %.thread, %17
-  %.04148 = phi ptr [ %.0, %17 ], [ %.0, %10 ], [ @.str.491, %.thread ]
+  %.0354048 = phi ptr [ %.035, %17 ], [ %.035, %10 ], [ @.str.491, %.thread ]
   %21 = phi i32 [ %11, %17 ], [ %11, %10 ], [ %5, %.thread ]
   %22 = load i32, ptr @hf_usb_vid_control_value, align 4
-  %23 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %0, i32 noundef %22, ptr noundef %1, i32 noundef %2, i32 noundef %21, ptr noundef null, ptr noundef nonnull @.str.573, ptr noundef nonnull %.04148) #4
+  %23 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %0, i32 noundef %22, ptr noundef %1, i32 noundef %2, i32 noundef %21, ptr noundef null, ptr noundef nonnull @.str.573, ptr noundef nonnull %.0354048) #4
   br label %24
 
 24:                                               ; preds = %.thread44, %19

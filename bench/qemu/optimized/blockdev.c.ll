@@ -868,9 +868,9 @@ do.end:                                           ; preds = %entry
   br i1 %tobool.not7, label %for.end, label %for.body
 
 for.body:                                         ; preds = %do.end, %for.inc
-  %max_bus.09 = phi i32 [ %max_bus.1, %for.inc ], [ -1, %do.end ]
-  %blk.08 = phi ptr [ %call10, %for.inc ], [ %call1, %do.end ]
-  %call2 = tail call ptr @blk_legacy_dinfo(ptr noundef nonnull %blk.08) #13
+  %blk.09 = phi ptr [ %call10, %for.inc ], [ %call1, %do.end ]
+  %max_bus.08 = phi i32 [ %max_bus.1, %for.inc ], [ -1, %do.end ]
+  %call2 = tail call ptr @blk_legacy_dinfo(ptr noundef nonnull %blk.09) #13
   %tobool3.not = icmp eq ptr %call2, null
   br i1 %tobool3.not, label %for.inc, label %land.lhs.true
 
@@ -882,12 +882,12 @@ land.lhs.true:                                    ; preds = %for.body
 land.lhs.true5:                                   ; preds = %land.lhs.true
   %bus = getelementptr inbounds i8, ptr %call2, i64 4
   %1 = load i32, ptr %bus, align 4
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %1, i32 %max_bus.09)
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %1, i32 %max_bus.08)
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true5, %for.body, %land.lhs.true
-  %max_bus.1 = phi i32 [ %max_bus.09, %land.lhs.true ], [ %max_bus.09, %for.body ], [ %spec.select, %land.lhs.true5 ]
-  %call10 = tail call ptr @blk_next(ptr noundef nonnull %blk.08) #13
+  %max_bus.1 = phi i32 [ %max_bus.08, %land.lhs.true ], [ %max_bus.08, %for.body ], [ %spec.select, %land.lhs.true5 ]
+  %call10 = tail call ptr @blk_next(ptr noundef nonnull %blk.09) #13
   %tobool.not = icmp eq ptr %call10, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !10
 
@@ -1200,8 +1200,8 @@ cond.true.i138:                                   ; preds = %if.end113
   br label %if.end116
 
 if.end116:                                        ; preds = %cond.true.i138, %if.end96
-  %unit_id.0 = phi i32 [ %conv100, %if.end96 ], [ %rem.i, %cond.true.i138 ]
   %bus_id.0 = phi i32 [ %conv98, %if.end96 ], [ %div.i, %cond.true.i138 ]
+  %unit_id.0 = phi i32 [ %conv100, %if.end96 ], [ %rem.i, %cond.true.i138 ]
   %cmp117 = icmp eq i32 %unit_id.0, -1
   br i1 %cmp117, label %while.cond.preheader, label %if.end131
 
@@ -1218,8 +1218,8 @@ if.else.i:                                        ; preds = %while.body, %while.
   unreachable
 
 do.end.i:                                         ; preds = %do.end.i.lr.ph, %while.body
-  %bus_id.1210 = phi i32 [ %bus_id.0, %do.end.i.lr.ph ], [ %bus_id.2, %while.body ]
-  %unit_id.1209 = phi i32 [ 0, %do.end.i.lr.ph ], [ %unit_id.2, %while.body ]
+  %unit_id.1210 = phi i32 [ 0, %do.end.i.lr.ph ], [ %unit_id.2, %while.body ]
+  %bus_id.1209 = phi i32 [ %bus_id.0, %do.end.i.lr.ph ], [ %bus_id.2, %while.body ]
   %call1.i141 = call ptr @blk_next(ptr noundef null) #13
   %tobool.not7.i = icmp eq ptr %call1.i141, null
   br i1 %tobool.not7.i, label %if.end131, label %for.body.i
@@ -1238,13 +1238,13 @@ land.lhs.true.i:                                  ; preds = %for.body.i
 land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
   %bus6.i = getelementptr inbounds i8, ptr %call2.i, i64 4
   %11 = load i32, ptr %bus6.i, align 4
-  %cmp7.i = icmp eq i32 %11, %bus_id.1210
+  %cmp7.i = icmp eq i32 %11, %bus_id.1209
   br i1 %cmp7.i, label %land.lhs.true8.i, label %for.inc.i
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true5.i
   %unit9.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   %12 = load i32, ptr %unit9.i, align 8
-  %cmp10.i = icmp eq i32 %12, %unit_id.1209
+  %cmp10.i = icmp eq i32 %12, %unit_id.1210
   br i1 %cmp10.i, label %while.body, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true8.i, %land.lhs.true5.i, %land.lhs.true.i, %for.body.i
@@ -1253,19 +1253,19 @@ for.inc.i:                                        ; preds = %land.lhs.true8.i, %
   br i1 %tobool.not.i142, label %if.end131, label %for.body.i, !llvm.loop !8
 
 while.body:                                       ; preds = %land.lhs.true8.i
-  %inc123 = add i32 %unit_id.1209, 1
+  %inc123 = add i32 %unit_id.1210, 1
   %cmp126.not = icmp sge i32 %inc123, %9
   %or.cond131.not = and i1 %tobool124.not, %cmp126.not
+  %inc129 = zext i1 %or.cond131.not to i32
+  %bus_id.2 = add i32 %bus_id.1209, %inc129
   %sub = select i1 %cmp126.not, i32 %9, i32 0
   %unit_id.2 = sub i32 %inc123, %sub
-  %inc129 = zext i1 %or.cond131.not to i32
-  %bus_id.2 = add i32 %bus_id.1210, %inc129
   %call.i140 = call zeroext i1 @qemu_in_main_thread() #13
   br i1 %call.i140, label %do.end.i, label %if.else.i, !llvm.loop !15
 
 if.end131:                                        ; preds = %do.end.i, %for.inc.i, %if.end116
-  %unit_id.3 = phi i32 [ %unit_id.0, %if.end116 ], [ %unit_id.1209, %for.inc.i ], [ %unit_id.1209, %do.end.i ]
-  %bus_id.3 = phi i32 [ %bus_id.0, %if.end116 ], [ %bus_id.1210, %for.inc.i ], [ %bus_id.1210, %do.end.i ]
+  %bus_id.3 = phi i32 [ %bus_id.0, %if.end116 ], [ %bus_id.1209, %for.inc.i ], [ %bus_id.1209, %do.end.i ]
+  %unit_id.3 = phi i32 [ %unit_id.0, %if.end116 ], [ %unit_id.1210, %for.inc.i ], [ %unit_id.1210, %do.end.i ]
   %tobool132.not = icmp eq i32 %9, 0
   %cmp134.not = icmp slt i32 %unit_id.3, %9
   %or.cond132 = or i1 %tobool132.not, %cmp134.not
@@ -1278,8 +1278,8 @@ if.then136:                                       ; preds = %if.end131
 
 if.end138:                                        ; preds = %if.end113, %if.end131
   %tobool132.not191 = phi i1 [ %tobool132.not, %if.end131 ], [ true, %if.end113 ]
-  %bus_id.3189 = phi i32 [ %bus_id.3, %if.end131 ], [ 0, %if.end113 ]
-  %unit_id.3187 = phi i32 [ %unit_id.3, %if.end131 ], [ %conv102, %if.end113 ]
+  %unit_id.3189 = phi i32 [ %unit_id.3, %if.end131 ], [ %conv102, %if.end113 ]
+  %bus_id.3187 = phi i32 [ %bus_id.3, %if.end131 ], [ 0, %if.end113 ]
   %call.i144 = call zeroext i1 @qemu_in_main_thread() #13
   br i1 %call.i144, label %do.end.i146, label %if.else.i145
 
@@ -1306,13 +1306,13 @@ land.lhs.true.i153:                               ; preds = %for.body.i149
 land.lhs.true5.i159:                              ; preds = %land.lhs.true.i153
   %bus6.i160 = getelementptr inbounds i8, ptr %call2.i151, i64 4
   %14 = load i32, ptr %bus6.i160, align 4
-  %cmp7.i161 = icmp eq i32 %14, %bus_id.3189
+  %cmp7.i161 = icmp eq i32 %14, %bus_id.3187
   br i1 %cmp7.i161, label %land.lhs.true8.i162, label %for.inc.i155
 
 land.lhs.true8.i162:                              ; preds = %land.lhs.true5.i159
   %unit9.i163 = getelementptr inbounds i8, ptr %call2.i151, i64 8
   %15 = load i32, ptr %unit9.i163, align 8
-  %cmp10.i164 = icmp eq i32 %15, %unit_id.3187
+  %cmp10.i164 = icmp eq i32 %15, %unit_id.3189
   br i1 %cmp10.i164, label %if.then142, label %for.inc.i155
 
 for.inc.i155:                                     ; preds = %land.lhs.true8.i162, %land.lhs.true5.i159, %land.lhs.true.i153, %for.body.i149
@@ -1321,7 +1321,7 @@ for.inc.i155:                                     ; preds = %land.lhs.true8.i162
   br i1 %tobool.not.i157, label %if.end143, label %for.body.i149, !llvm.loop !8
 
 if.then142:                                       ; preds = %land.lhs.true8.i162
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 950, ptr noundef nonnull @__func__.drive_new, ptr noundef nonnull @.str.69, i32 noundef %bus_id.3189, i32 noundef %unit_id.3187, i32 noundef %conv102) #13
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 950, ptr noundef nonnull @__func__.drive_new, ptr noundef nonnull @.str.69, i32 noundef %bus_id.3187, i32 noundef %unit_id.3189, i32 noundef %conv102) #13
   br label %fail
 
 if.end143:                                        ; preds = %for.inc.i155, %do.end.i146
@@ -1338,11 +1338,11 @@ if.then147:                                       ; preds = %if.end143
   br i1 %tobool132.not191, label %if.else163, label %if.then159
 
 if.then159:                                       ; preds = %if.then147
-  %call162 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.73, ptr noundef %17, i32 noundef %bus_id.3189, ptr noundef nonnull %spec.select, i32 noundef %unit_id.3187) #13
+  %call162 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.73, ptr noundef %17, i32 noundef %bus_id.3187, ptr noundef nonnull %spec.select, i32 noundef %unit_id.3189) #13
   br label %if.end167
 
 if.else163:                                       ; preds = %if.then147
-  %call166 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.74, ptr noundef %17, ptr noundef nonnull %spec.select, i32 noundef %unit_id.3187) #13
+  %call166 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.74, ptr noundef %17, ptr noundef nonnull %spec.select, i32 noundef %unit_id.3189) #13
   br label %if.end167
 
 if.end167:                                        ; preds = %if.else163, %if.then159
@@ -1423,9 +1423,9 @@ if.end232:                                        ; preds = %if.end228
   store ptr %all_opts, ptr %opts, align 8
   store i32 %type.1, ptr %call233, align 8
   %bus = getelementptr inbounds i8, ptr %call233, i64 4
-  store i32 %bus_id.3189, ptr %bus, align 4
+  store i32 %bus_id.3187, ptr %bus, align 4
   %unit = getelementptr inbounds i8, ptr %call233, i64 8
-  store i32 %unit_id.3187, ptr %unit, align 8
+  store i32 %unit_id.3189, ptr %unit, align 8
   %call235 = call ptr @blk_set_legacy_dinfo(ptr noundef nonnull %call229, ptr noundef nonnull %call233) #13
   switch i32 %type.1, label %fail.thread [
     i32 1, label %sw.bb
@@ -2771,9 +2771,9 @@ do.body.i.i:                                      ; preds = %sw.bb.i
   unreachable
 
 sw.epilog.i.i:                                    ; preds = %sw.bb3.i.i, %sw.bb.i.i
-  %new_image_file.0.i.i = phi ptr [ %13, %sw.bb3.i.i ], [ null, %sw.bb.i.i ]
-  %snapshot_ref.0.i.i = phi ptr [ null, %sw.bb3.i.i ], [ %9, %sw.bb.i.i ]
   %node_name.0.i.i = phi ptr [ %12, %sw.bb3.i.i ], [ %8, %sw.bb.i.i ]
+  %snapshot_ref.0.i.i = phi ptr [ null, %sw.bb3.i.i ], [ %9, %sw.bb.i.i ]
+  %new_image_file.0.i.i = phi ptr [ %13, %sw.bb3.i.i ], [ null, %sw.bb.i.i ]
   %device.0.i.i = phi ptr [ %11, %sw.bb3.i.i ], [ %8, %sw.bb.i.i ]
   %call9.i.i = call ptr @bdrv_lookup_bs(ptr noundef %device.0.i.i, ptr noundef %node_name.0.i.i, ptr noundef nonnull %local_err) #13
   store ptr %call9.i.i, ptr %call.i.i, align 8
@@ -3094,9 +3094,9 @@ if.end31.i.i:                                     ; preds = %if.end31thread-pre-
   %55 = phi i32 [ %.pr.i.i, %if.end31thread-pre-split.i.i ], [ 1, %if.then28.i43.i ], [ %53, %if.end22.i.i ]
   %source.0.i.i = phi ptr [ %54, %if.end31thread-pre-split.i.i ], [ null, %if.then28.i43.i ], [ null, %if.end22.i.i ]
   %cmp33.i.i = icmp eq i32 %55, 2
-  %spec.select.v.i.i = select i1 %cmp33.i.i, i32 258, i32 2
-  %spec.select.i.i = or i32 %spec.select.v.i.i, %52
-  %spec.select68.i.i = select i1 %cmp33.i.i, ptr %call5.i.i, ptr %source.0.i.i
+  %spec.select.i.i = select i1 %cmp33.i.i, ptr %call5.i.i, ptr %source.0.i.i
+  %spec.select68.v.i.i = select i1 %cmp33.i.i, i32 258, i32 2
+  %spec.select68.i.i = or i32 %spec.select68.v.i.i, %52
   call void @bdrv_graph_rdunlock_main_loop() #13
   %call37.i.i = call i64 @bdrv_getlength(ptr noundef nonnull %call5.i.i) #13
   %cmp38.i.i = icmp slt i64 %call37.i.i, 0
@@ -3123,12 +3123,12 @@ if.else47.i.i:                                    ; preds = %if.then44.i.i
   unreachable
 
 if.end48.i37.i:                                   ; preds = %if.then44.i.i
-  %tobool49.not.i.i = icmp eq ptr %spec.select68.i.i, null
+  %tobool49.not.i.i = icmp eq ptr %spec.select.i.i, null
   br i1 %tobool49.not.i.i, label %if.else54.i.i, label %if.then50.i.i
 
 if.then50.i.i:                                    ; preds = %if.end48.i37.i
   call void @bdrv_graph_rdlock_main_loop() #13
-  %call51.i.i = call ptr @bdrv_skip_implicit_filters(ptr noundef nonnull %spec.select68.i.i) #13
+  %call51.i.i = call ptr @bdrv_skip_implicit_filters(ptr noundef nonnull %spec.select.i.i) #13
   call void @bdrv_refresh_filename(ptr noundef %call51.i.i) #13
   call void @bdrv_graph_rdunlock_main_loop() #13
   %target.i.i = getelementptr inbounds i8, ptr %44, i64 88
@@ -3137,13 +3137,13 @@ if.then50.i.i:                                    ; preds = %if.end48.i37.i
   %drv52.i.i = getelementptr inbounds i8, ptr %call51.i.i, i64 16
   %59 = load ptr, ptr %drv52.i.i, align 8
   %60 = load ptr, ptr %59, align 8
-  call void @bdrv_img_create(ptr noundef %58, ptr noundef nonnull %format.0.i.i, ptr noundef nonnull %filename.i38.i, ptr noundef %60, ptr noundef null, i64 noundef %call37.i.i, i32 noundef %spec.select.i.i, i1 noundef zeroext false, ptr noundef nonnull %local_err.i32.i) #13
+  call void @bdrv_img_create(ptr noundef %58, ptr noundef nonnull %format.0.i.i, ptr noundef nonnull %filename.i38.i, ptr noundef %60, ptr noundef null, i64 noundef %call37.i.i, i32 noundef %spec.select68.i.i, i1 noundef zeroext false, ptr noundef nonnull %local_err.i32.i) #13
   br label %if.end57.i.i
 
 if.else54.i.i:                                    ; preds = %if.end48.i37.i
   %target55.i.i = getelementptr inbounds i8, ptr %44, i64 88
   %61 = load ptr, ptr %target55.i.i, align 8
-  call void @bdrv_img_create(ptr noundef %61, ptr noundef nonnull %format.0.i.i, ptr noundef null, ptr noundef null, ptr noundef null, i64 noundef %call37.i.i, i32 noundef %spec.select.i.i, i1 noundef zeroext false, ptr noundef nonnull %local_err.i32.i) #13
+  call void @bdrv_img_create(ptr noundef %61, ptr noundef nonnull %format.0.i.i, ptr noundef null, ptr noundef null, ptr noundef null, i64 noundef %call37.i.i, i32 noundef %spec.select68.i.i, i1 noundef zeroext false, ptr noundef nonnull %local_err.i32.i) #13
   br label %if.end57.i.i
 
 if.end57.i.i:                                     ; preds = %if.else54.i.i, %if.then50.i.i, %if.end40.i.i
@@ -3172,7 +3172,7 @@ if.end64.i.i:                                     ; preds = %if.then63.i.i, %if.
   call void @aio_context_acquire(ptr noundef %call65.i.i) #13
   %target66.i.i = getelementptr inbounds i8, ptr %44, i64 88
   %63 = load ptr, ptr %target66.i.i, align 8
-  %call67.i.i = call ptr @bdrv_open(ptr noundef %63, ptr noundef null, ptr noundef %call61.i.i, i32 noundef %spec.select.i.i, ptr noundef nonnull %local_err) #13
+  %call67.i.i = call ptr @bdrv_open(ptr noundef %63, ptr noundef null, ptr noundef %call61.i.i, i32 noundef %spec.select68.i.i, ptr noundef nonnull %local_err) #13
   %call68.i.i = call ptr @qemu_get_aio_context() #13
   call void @aio_context_release(ptr noundef %call68.i.i) #13
   %tobool69.not.i.i = icmp eq ptr %call67.i.i, null

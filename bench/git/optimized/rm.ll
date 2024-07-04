@@ -307,7 +307,7 @@ for.body90.lr.ph:                                 ; preds = %if.then85
 
 for.body90:                                       ; preds = %for.body90.lr.ph, %for.inc125
   %indvars.iv124 = phi i64 [ 0, %for.body90.lr.ph ], [ %indvars.iv.next125, %for.inc125 ]
-  %seen_any.0103 = phi i32 [ 0, %for.body90.lr.ph ], [ %seen_any.2, %for.inc125 ]
+  %seen_any.0105 = phi i32 [ 0, %for.body90.lr.ph ], [ %seen_any.2, %for.inc125 ]
   %skip_worktree_seen.0102 = phi ptr [ null, %for.body90.lr.ph ], [ %skip_worktree_seen.3, %for.inc125 ]
   %27 = load ptr, ptr %items, align 8
   %original93 = getelementptr inbounds %struct.pathspec_item, ptr %27, i64 %indvars.iv124, i32 1
@@ -353,7 +353,7 @@ if.else108:                                       ; preds = %matches_skip_worktr
 
 if.end112:                                        ; preds = %for.body90, %if.then106
   %skip_worktree_seen.2 = phi ptr [ %skip_worktree_seen.1, %if.then106 ], [ %skip_worktree_seen.0102, %for.body90 ]
-  %seen_any.1 = phi i32 [ %seen_any.0103, %if.then106 ], [ 1, %for.body90 ]
+  %seen_any.1 = phi i32 [ %seen_any.0105, %if.then106 ], [ 1, %for.body90 ]
   %33 = load i32, ptr @recursive, align 4
   %tobool113.not = icmp eq i32 %33, 0
   br i1 %tobool113.not, label %land.lhs.true114, label %for.inc125
@@ -373,7 +373,7 @@ if.then120:                                       ; preds = %land.lhs.true114
 
 for.inc125:                                       ; preds = %if.end112, %land.lhs.true114, %if.else98
   %skip_worktree_seen.3 = phi ptr [ %skip_worktree_seen.2, %land.lhs.true114 ], [ %skip_worktree_seen.2, %if.end112 ], [ %skip_worktree_seen.0102, %if.else98 ]
-  %seen_any.2 = phi i32 [ %seen_any.1, %land.lhs.true114 ], [ %seen_any.1, %if.end112 ], [ %seen_any.0103, %if.else98 ]
+  %seen_any.2 = phi i32 [ %seen_any.1, %land.lhs.true114 ], [ %seen_any.1, %if.end112 ], [ %seen_any.0105, %if.else98 ]
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %36 = load i32, ptr %pathspec, align 8
   %37 = sext i32 %36 to i64
@@ -1008,8 +1008,8 @@ for.body181.lr.ph:                                ; preds = %if.then175
 
 for.body181:                                      ; preds = %for.body181.lr.ph, %for.inc208
   %indvars.iv130 = phi i64 [ 0, %for.body181.lr.ph ], [ %indvars.iv.next131, %for.inc208 ]
-  %gitmodules_modified.0111 = phi i32 [ 0, %for.body181.lr.ph ], [ %gitmodules_modified.1, %for.inc208 ]
-  %tobool205.not.not110 = phi i1 [ false, %for.body181.lr.ph ], [ true, %for.inc208 ]
+  %gitmodules_modified.0112 = phi i32 [ 0, %for.body181.lr.ph ], [ %gitmodules_modified.1, %for.inc208 ]
+  %tobool205.not.not111 = phi i1 [ false, %for.body181.lr.ph ], [ true, %for.inc208 ]
   %110 = load ptr, ptr @list.2, align 8
   %arrayidx184 = getelementptr inbounds %struct.anon.0, ptr %110, i64 %indvars.iv130
   %111 = load ptr, ptr %arrayidx184, align 8
@@ -1043,13 +1043,13 @@ if.then193:                                       ; preds = %strbuf_setlen.exit
 if.end195:                                        ; preds = %strbuf_setlen.exit
   %call196 = call i32 @remove_path_from_gitmodules(ptr noundef %111) #13
   %tobool197.not = icmp eq i32 %call196, 0
-  %spec.select = select i1 %tobool197.not, i32 1, i32 %gitmodules_modified.0111
+  %spec.select = select i1 %tobool197.not, i32 1, i32 %gitmodules_modified.0112
   br label %for.inc208
 
 if.end200:                                        ; preds = %for.body181
   %call201 = call i32 @remove_path(ptr noundef %111) #13
   %tobool202.not = icmp eq i32 %call201, 0
-  %brmerge = or i1 %tobool205.not.not110, %tobool202.not
+  %brmerge = or i1 %tobool205.not.not111, %tobool202.not
   br i1 %brmerge, label %for.inc208, label %if.then206
 
 if.then206:                                       ; preds = %if.end200
@@ -1057,7 +1057,7 @@ if.then206:                                       ; preds = %if.end200
   unreachable
 
 for.inc208:                                       ; preds = %if.end195, %if.end200
-  %gitmodules_modified.1 = phi i32 [ %spec.select, %if.end195 ], [ %gitmodules_modified.0111, %if.end200 ]
+  %gitmodules_modified.1 = phi i32 [ %spec.select, %if.end195 ], [ %gitmodules_modified.0112, %if.end200 ]
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %114 = load i32, ptr @list.0, align 8
   %115 = sext i32 %114 to i64

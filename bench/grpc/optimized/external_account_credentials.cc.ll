@@ -11015,8 +11015,8 @@ call3.i.i.noexc:                                  ; preds = %if.end.i.i
   br label %_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_8ByStringEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i
 
 _ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_8ByStringEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i: ; preds = %call3.i.i.noexc, %if.then.i.i
-  %retval.sroa.0.0.i.i = phi i64 [ 0, %if.then.i.i ], [ %9, %call3.i.i.noexc ]
   %retval.sroa.3.0.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %10, %call3.i.i.noexc ]
+  %retval.sroa.0.0.i.i = phi i64 [ 0, %if.then.i.i ], [ %9, %call3.i.i.noexc ]
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %retval.sroa.0.0.copyload.i.i
   %cmp7.i = icmp eq ptr %retval.sroa.3.0.i.i, %add.ptr.i
   br i1 %cmp7.i, label %if.then8.i, label %if.end10.i
@@ -11165,8 +11165,8 @@ call3.i.i.noexc:                                  ; preds = %if.end.i.i
   br label %_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_8ByStringEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i
 
 _ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_8ByStringEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i: ; preds = %call3.i.i.noexc, %if.then.i.i
-  %retval.sroa.0.0.i.i = phi i64 [ 0, %if.then.i.i ], [ %8, %call3.i.i.noexc ]
   %retval.sroa.3.0.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %9, %call3.i.i.noexc ]
+  %retval.sroa.0.0.i.i = phi i64 [ 0, %if.then.i.i ], [ %8, %call3.i.i.noexc ]
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i, i64 %retval.sroa.0.0.copyload.i
   %cmp7.i = icmp eq ptr %retval.sroa.3.0.i.i, %add.ptr.i
   br i1 %cmp7.i, label %if.then8.i, label %if.end10.i

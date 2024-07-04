@@ -2497,19 +2497,19 @@ define internal fastcc i32 @dissect_openflow_message_v5(ptr noundef %0, ptr noun
 
 47:                                               ; preds = %44, %40
   %.pn.i.i = phi i32 [ %42, %40 ], [ %45, %44 ]
-  %.0.i.i = add nsw i32 %.pn.i.i, %37
+  %.042.i.i = add nsw i32 %.pn.i.i, %37
   %.not.i.i = icmp eq i16 %33, %31
   br i1 %.not.i.i, label %dissect_openflow_hello_element_v5.exit.i, label %48
 
 48:                                               ; preds = %47
   %49 = zext i16 %34 to i32
   %50 = load i32, ptr @hf_openflow_v5_hello_element_pad, align 4
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %50, ptr noundef %0, i32 noundef %.0.i.i, i32 noundef %49, i32 noundef 0) #4
-  %52 = add nsw i32 %.0.i.i, %49
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %50, ptr noundef %0, i32 noundef %.042.i.i, i32 noundef %49, i32 noundef 0) #4
+  %52 = add nsw i32 %.042.i.i, %49
   br label %dissect_openflow_hello_element_v5.exit.i
 
 dissect_openflow_hello_element_v5.exit.i:         ; preds = %48, %47
-  %.1.i.i = phi i32 [ %52, %48 ], [ %.0.i.i, %47 ]
+  %.1.i.i = phi i32 [ %52, %48 ], [ %.042.i.i, %47 ]
   %53 = icmp slt i32 %.1.i.i, %11
   br i1 %53, label %.lr.ph.i, label %dissect_openflow_hello_v5.exit, !llvm.loop !4
 

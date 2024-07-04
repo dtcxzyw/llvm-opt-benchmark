@@ -265,8 +265,8 @@ Vec_IntStart.exit.i:                              ; preds = %34, %Vec_IntAlloc.e
 .lr.ph.i:                                         ; preds = %Vec_IntStart.exit.i, %79
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %79 ], [ 0, %Vec_IntStart.exit.i ]
   %38 = phi ptr [ %80, %79 ], [ %.val35.i, %Vec_IntStart.exit.i ]
-  %.02551.i = phi i32 [ %.2.i, %79 ], [ 0, %Vec_IntStart.exit.i ]
-  %.02650.i = phi i32 [ %.228.i, %79 ], [ 0, %Vec_IntStart.exit.i ]
+  %.052.i = phi i32 [ %.2.i, %79 ], [ 0, %Vec_IntStart.exit.i ]
+  %.02551.i = phi i32 [ %.227.i, %79 ], [ 0, %Vec_IntStart.exit.i ]
   %39 = getelementptr i8, ptr %38, i64 8
   %.val34.val.i = load ptr, ptr %39, align 8
   %40 = getelementptr inbounds ptr, ptr %.val34.val.i, i64 %indvars.iv.i
@@ -280,7 +280,7 @@ Vec_IntStart.exit.i:                              ; preds = %34, %Vec_IntAlloc.e
   %45 = and i32 %.val36.i, 15
   %.not.i = icmp eq i32 %45, 7
   %46 = zext i1 %.not.i to i32
-  %spec.select.i = add nsw i32 %.02650.i, %46
+  %spec.select.i = add nsw i32 %.02551.i, %46
   %47 = add nsw i32 %45, -5
   %narrow.i.i = icmp ult i32 %47, -2
   br i1 %narrow.i.i, label %60, label %48
@@ -305,13 +305,13 @@ Vec_IntStart.exit.i:                              ; preds = %34, %Vec_IntAlloc.e
 
 57:                                               ; preds = %48
   %58 = call i32 @Abc_NodeMffcSize(ptr noundef nonnull %54) #12
-  %59 = add nsw i32 %58, %.02551.i
+  %59 = add nsw i32 %58, %.052.i
   %.val38.pre.i = load i32, ptr %44, align 4
   br label %60
 
 60:                                               ; preds = %57, %48, %43
   %.val38.i = phi i32 [ %.val38.pre.i, %57 ], [ %.val36.i, %48 ], [ %.val36.i, %43 ]
-  %.1.i = phi i32 [ %59, %57 ], [ %.02551.i, %48 ], [ %.02551.i, %43 ]
+  %.1.i = phi i32 [ %59, %57 ], [ %.052.i, %48 ], [ %.052.i, %43 ]
   %61 = and i32 %.val38.i, 15
   %.not48.i = icmp eq i32 %61, 7
   br i1 %.not48.i, label %62, label %79
@@ -348,8 +348,8 @@ Vec_IntStart.exit.i:                              ; preds = %34, %Vec_IntAlloc.e
   br label %79
 
 79:                                               ; preds = %74, %72, %65, %62, %60, %.lr.ph.i
-  %.228.i = phi i32 [ %.02650.i, %.lr.ph.i ], [ %spec.select.i, %65 ], [ %spec.select.i, %74 ], [ %spec.select.i, %72 ], [ %spec.select.i, %62 ], [ %spec.select.i, %60 ]
-  %.2.i = phi i32 [ %.02551.i, %.lr.ph.i ], [ %.1.i, %65 ], [ %70, %74 ], [ %70, %72 ], [ %.1.i, %62 ], [ %.1.i, %60 ]
+  %.227.i = phi i32 [ %.02551.i, %.lr.ph.i ], [ %spec.select.i, %65 ], [ %spec.select.i, %74 ], [ %spec.select.i, %72 ], [ %spec.select.i, %62 ], [ %spec.select.i, %60 ]
+  %.2.i = phi i32 [ %.052.i, %.lr.ph.i ], [ %.1.i, %65 ], [ %70, %74 ], [ %70, %72 ], [ %.1.i, %62 ], [ %.1.i, %60 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %80 = load ptr, ptr %15, align 8
   %81 = getelementptr i8, ptr %80, i64 4
@@ -359,9 +359,9 @@ Vec_IntStart.exit.i:                              ; preds = %34, %Vec_IntAlloc.e
   br i1 %83, label %.lr.ph.i, label %Abc_NtkGetNodeAttributes.exit, !llvm.loop !7
 
 Abc_NtkGetNodeAttributes.exit:                    ; preds = %79, %Vec_IntStart.exit.i
-  %.026.lcssa.i = phi i32 [ 0, %Vec_IntStart.exit.i ], [ %.228.i, %79 ]
-  %.025.lcssa.i = phi i32 [ 0, %Vec_IntStart.exit.i ], [ %.2.i, %79 ]
-  %84 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.026.lcssa.i, i32 noundef %.025.lcssa.i)
+  %.025.lcssa.i = phi i32 [ 0, %Vec_IntStart.exit.i ], [ %.227.i, %79 ]
+  %.0.lcssa.i = phi i32 [ 0, %Vec_IntStart.exit.i ], [ %.2.i, %79 ]
+  %84 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.025.lcssa.i, i32 noundef %.0.lcssa.i)
   call void @Cut_ManSetNodeAttrs(ptr noundef %18, ptr noundef nonnull %27) #12
   br label %85
 

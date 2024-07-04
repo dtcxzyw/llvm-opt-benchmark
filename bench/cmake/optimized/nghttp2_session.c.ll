@@ -304,15 +304,15 @@ define internal fastcc i32 @session_new(ptr nocapture noundef %0, ptr nocapture 
   br label %10
 
 10:                                               ; preds = %8, %6
-  %.0120 = phi ptr [ %9, %8 ], [ %5, %6 ]
-  %11 = tail call ptr @nghttp2_mem_calloc(ptr noundef %.0120, i64 noundef 1, i64 noundef 2880) #19
+  %.0122 = phi ptr [ %9, %8 ], [ %5, %6 ]
+  %11 = tail call ptr @nghttp2_mem_calloc(ptr noundef %.0122, i64 noundef 1, i64 noundef 2880) #19
   store ptr %11, ptr %0, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %11, i64 2528
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %.0120, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %.0122, i64 40, i1 false)
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 2528
   %17 = getelementptr inbounds i8, ptr %15, i64 32
@@ -567,7 +567,7 @@ define internal fastcc i32 @session_new(ptr nocapture noundef %0, ptr nocapture 
   br label %154
 
 154:                                              ; preds = %151, %148
-  %.0119 = phi i64 [ %153, %151 ], [ 4096, %148 ]
+  %.0118 = phi i64 [ %153, %151 ], [ 4096, %148 ]
   %155 = and i32 %149, 1024
   %.not146 = icmp eq i32 %155, 0
   br i1 %.not146, label %164, label %156
@@ -663,7 +663,7 @@ define internal fastcc i32 @session_new(ptr nocapture noundef %0, ptr nocapture 
   br label %203
 
 203:                                              ; preds = %192, %195, %198, %43
-  %.1 = phi i64 [ %.0119, %198 ], [ %.0119, %195 ], [ %.0119, %192 ], [ 4096, %43 ]
+  %.1 = phi i64 [ %.0118, %198 ], [ %.0118, %195 ], [ %.0118, %192 ], [ 4096, %43 ]
   %204 = load ptr, ptr %0, align 8
   %205 = getelementptr inbounds i8, ptr %204, i64 992
   %206 = tail call i32 @nghttp2_hd_deflate_init2(ptr noundef nonnull %205, i64 noundef %.1, ptr noundef nonnull %16) #19
@@ -749,12 +749,12 @@ define internal fastcc i32 @session_new(ptr nocapture noundef %0, ptr nocapture 
   br label %249
 
 249:                                              ; preds = %.preheader, %249
-  %.0118161 = phi i64 [ %253, %249 ], [ 0, %.preheader ]
+  %.0161 = phi i64 [ %253, %249 ], [ 0, %.preheader ]
   %250 = load ptr, ptr %0, align 8
   %251 = getelementptr inbounds i8, ptr %250, i64 328
-  %252 = getelementptr inbounds [8 x %struct.anon], ptr %251, i64 0, i64 %.0118161
+  %252 = getelementptr inbounds [8 x %struct.anon], ptr %251, i64 0, i64 %.0161
   tail call void @nghttp2_pq_init(ptr noundef nonnull %252, ptr noundef nonnull @stream_less, ptr noundef nonnull %16) #19
-  %253 = add nuw nsw i64 %.0118161, 1
+  %253 = add nuw nsw i64 %.0161, 1
   %exitcond.not = icmp eq i64 %253, 8
   br i1 %exitcond.not, label %.loopexit, label %249, !llvm.loop !5
 
@@ -763,28 +763,28 @@ define internal fastcc i32 @session_new(ptr nocapture noundef %0, ptr nocapture 
   br label %255
 
 255:                                              ; preds = %211, %254
-  %.0121 = phi i32 [ %213, %211 ], [ %222, %254 ]
+  %.0120 = phi i32 [ %213, %211 ], [ %222, %254 ]
   %256 = load ptr, ptr %0, align 8
   %257 = getelementptr inbounds i8, ptr %256, i64 2104
   tail call void @nghttp2_hd_inflate_free(ptr noundef nonnull %257) #19
   br label %258
 
 258:                                              ; preds = %207, %255
-  %.1122 = phi i32 [ %210, %207 ], [ %.0121, %255 ]
+  %.1121 = phi i32 [ %210, %207 ], [ %.0120, %255 ]
   %259 = load ptr, ptr %0, align 8
   %260 = getelementptr inbounds i8, ptr %259, i64 992
   tail call void @nghttp2_hd_deflate_free(ptr noundef nonnull %260) #19
   br label %261
 
 261:                                              ; preds = %203, %258
-  %.2 = phi i32 [ %206, %203 ], [ %.1122, %258 ]
+  %.2 = phi i32 [ %206, %203 ], [ %.1121, %258 ]
   %262 = load ptr, ptr %0, align 8
   tail call void @nghttp2_mem_free(ptr noundef nonnull %16, ptr noundef %262) #19
   br label %.loopexit
 
 .loopexit:                                        ; preds = %249, %261, %10
-  %.0 = phi i32 [ %.2, %261 ], [ -901, %10 ], [ 0, %249 ]
-  ret i32 %.0
+  %.0119 = phi i32 [ %.2, %261 ], [ -901, %10 ], [ 0, %249 ]
+  ret i32 %.0119
 }
 
 ; Function Attrs: nounwind uwtable
@@ -862,20 +862,20 @@ define dso_local void @nghttp2_session_del(ptr noundef %0) local_unnamed_addr #1
   br label %11
 
 inflight_settings_del.exit:                       ; preds = %3, %inflight_settings_del.exit
-  %.045 = phi ptr [ %8, %inflight_settings_del.exit ], [ %6, %3 ]
-  %8 = load ptr, ptr %.045, align 8
-  %9 = getelementptr inbounds i8, ptr %.045, i64 8
+  %.02945 = phi ptr [ %8, %inflight_settings_del.exit ], [ %6, %3 ]
+  %8 = load ptr, ptr %.02945, align 8
+  %9 = getelementptr inbounds i8, ptr %.02945, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @nghttp2_mem_free(ptr noundef nonnull %4, ptr noundef %10) #19
-  tail call void @nghttp2_mem_free(ptr noundef nonnull %4, ptr noundef nonnull %.045) #19
+  tail call void @nghttp2_mem_free(ptr noundef nonnull %4, ptr noundef nonnull %.02945) #19
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.preheader, label %inflight_settings_del.exit, !llvm.loop !7
 
 11:                                               ; preds = %.preheader, %11
-  %.02946 = phi i64 [ 0, %.preheader ], [ %13, %11 ]
-  %12 = getelementptr inbounds [8 x %struct.anon], ptr %7, i64 0, i64 %.02946
+  %.046 = phi i64 [ 0, %.preheader ], [ %13, %11 ]
+  %12 = getelementptr inbounds [8 x %struct.anon], ptr %7, i64 0, i64 %.046
   tail call void @nghttp2_pq_free(ptr noundef nonnull %12) #19
-  %13 = add nuw nsw i64 %.02946, 1
+  %13 = add nuw nsw i64 %.046, 1
   %exitcond.not = icmp eq i64 %13, 8
   br i1 %exitcond.not, label %14, label %11, !llvm.loop !8
 
@@ -1339,7 +1339,7 @@ session_no_rfc7540_pri_no_fallback.exit:          ; preds = %29
   br i1 %41, label %161, label %session_no_rfc7540_pri_no_fallback.exit.thread
 
 session_no_rfc7540_pri_no_fallback.exit.thread:   ; preds = %29, %39, %14, %35, %session_no_rfc7540_pri_no_fallback.exit
-  %.093 = phi ptr [ %9, %35 ], [ %9, %session_no_rfc7540_pri_no_fallback.exit ], [ %9, %14 ], [ %40, %39 ], [ %9, %29 ]
+  %.092 = phi ptr [ %9, %35 ], [ %9, %session_no_rfc7540_pri_no_fallback.exit ], [ %9, %14 ], [ %40, %39 ], [ %9, %29 ]
   %42 = getelementptr inbounds i8, ptr %0, i64 2842
   %43 = load i8, ptr %42, align 2
   %44 = icmp eq i8 %43, 1
@@ -1376,7 +1376,7 @@ session_no_rfc7540_pri_no_fallback.exit125.thread: ; preds = %session_no_rfc7540
 
 58:                                               ; preds = %57, %53
   %59 = phi i8 [ %.pre, %57 ], [ %43, %53 ]
-  %.089 = phi ptr [ %7, %57 ], [ %3, %53 ]
+  %.0 = phi ptr [ %7, %57 ], [ %3, %53 ]
   %60 = icmp eq i8 %59, 1
   %61 = or i8 %spec.select, 16
   %spec.select120 = select i1 %60, i8 %61, i8 %spec.select
@@ -1429,7 +1429,7 @@ session_detect_idle_stream.exit.thread140:        ; preds = %session_is_new_peer
   br i1 %.not101.not.not, label %81, label %161
 
 81:                                               ; preds = %80
-  call void @nghttp2_mem_free(ptr noundef nonnull %8, ptr noundef nonnull %.093) #19
+  call void @nghttp2_mem_free(ptr noundef nonnull %8, ptr noundef nonnull %.092) #19
   br label %161
 
 .critedge:                                        ; preds = %64
@@ -1443,8 +1443,8 @@ session_detect_idle_stream.exit.thread:           ; preds = %session_is_new_peer
 
 83:                                               ; preds = %58, %62, %.critedge, %session_detect_idle_stream.exit.thread, %session_detect_idle_stream.exit.thread140
   %.195 = phi i8 [ %spec.select, %.critedge ], [ %spec.select, %session_detect_idle_stream.exit.thread ], [ %spec.select, %session_detect_idle_stream.exit.thread140 ], [ %spec.select, %62 ], [ %spec.select120, %58 ]
-  %.091 = phi ptr [ %65, %.critedge ], [ %65, %session_detect_idle_stream.exit.thread ], [ %78, %session_detect_idle_stream.exit.thread140 ], [ null, %62 ], [ null, %58 ]
-  %.1 = phi ptr [ %3, %.critedge ], [ %7, %session_detect_idle_stream.exit.thread ], [ %3, %session_detect_idle_stream.exit.thread140 ], [ %3, %62 ], [ %.089, %58 ]
+  %.090 = phi ptr [ %65, %.critedge ], [ %65, %session_detect_idle_stream.exit.thread ], [ %78, %session_detect_idle_stream.exit.thread140 ], [ null, %62 ], [ null, %58 ]
+  %.1 = phi ptr [ %3, %.critedge ], [ %7, %session_detect_idle_stream.exit.thread ], [ %3, %session_detect_idle_stream.exit.thread140 ], [ %3, %62 ], [ %.0, %58 ]
   %84 = icmp eq i32 %4, 4
   %85 = zext i1 %84 to i8
   %spec.select121 = or i8 %.195, %85
@@ -1457,7 +1457,7 @@ session_detect_idle_stream.exit.thread:           ; preds = %session_is_new_peer
   %90 = load i32, ptr %89, align 4
   %91 = getelementptr inbounds i8, ptr %0, i64 2808
   %92 = load i32, ptr %91, align 4
-  call void @nghttp2_stream_init(ptr noundef nonnull %.093, i32 noundef %1, i8 noundef zeroext %spec.select121, i32 noundef %4, i32 noundef %88, i32 noundef %90, i32 noundef %92, ptr noundef %5, ptr noundef nonnull %8) #19
+  call void @nghttp2_stream_init(ptr noundef nonnull %.092, i32 noundef %1, i8 noundef zeroext %spec.select121, i32 noundef %4, i32 noundef %88, i32 noundef %90, i32 noundef %92, ptr noundef %5, ptr noundef nonnull %8) #19
   %93 = load i8, ptr %42, align 2
   %94 = icmp eq i8 %93, 1
   br i1 %94, label %session_no_rfc7540_pri_no_fallback.exit128, label %session_no_rfc7540_pri_no_fallback.exit128.thread
@@ -1473,30 +1473,30 @@ session_no_rfc7540_pri_no_fallback.exit128:       ; preds = %86
   %99 = load i64, ptr %98, align 8
   %100 = add i64 %99, 1
   store i64 %100, ptr %98, align 8
-  %101 = getelementptr inbounds i8, ptr %.093, i64 88
+  %101 = getelementptr inbounds i8, ptr %.092, i64 88
   store i64 %99, ptr %101, align 8
   br label %session_no_rfc7540_pri_no_fallback.exit128.thread
 
 session_no_rfc7540_pri_no_fallback.exit128.thread: ; preds = %86, %97, %session_no_rfc7540_pri_no_fallback.exit128
-  %102 = call i32 @nghttp2_map_insert(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %.093) #19
+  %102 = call i32 @nghttp2_map_insert(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %.092) #19
   %.not114 = icmp eq i32 %102, 0
   br i1 %.not114, label %111, label %103
 
 103:                                              ; preds = %session_no_rfc7540_pri_no_fallback.exit128.thread
-  call void @nghttp2_stream_free(ptr noundef nonnull %.093) #19
-  call void @nghttp2_mem_free(ptr noundef nonnull %8, ptr noundef nonnull %.093) #19
+  call void @nghttp2_stream_free(ptr noundef nonnull %.092) #19
+  call void @nghttp2_mem_free(ptr noundef nonnull %8, ptr noundef nonnull %.092) #19
   br label %161
 
 104:                                              ; preds = %83
-  %105 = getelementptr inbounds i8, ptr %.093, i64 216
+  %105 = getelementptr inbounds i8, ptr %.092, i64 216
   store i8 %spec.select121, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %.093, i64 204
+  %106 = getelementptr inbounds i8, ptr %.092, i64 204
   store i32 %4, ptr %106, align 4
   %107 = getelementptr inbounds i8, ptr %.1, i64 4
   %108 = load i32, ptr %107, align 4
-  %109 = getelementptr inbounds i8, ptr %.093, i64 192
+  %109 = getelementptr inbounds i8, ptr %.092, i64 192
   store i32 %108, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %.093, i64 144
+  %110 = getelementptr inbounds i8, ptr %.092, i64 144
   store ptr %5, ptr %110, align 8
   br label %111
 
@@ -1519,11 +1519,11 @@ nghttp2_session_is_my_stream_id.exit:             ; preds = %112
   br i1 %.not115, label %nghttp2_session_is_my_stream_id.exit.thread, label %118
 
 118:                                              ; preds = %nghttp2_session_is_my_stream_id.exit
-  call void @nghttp2_stream_shutdown(ptr noundef nonnull %.093, i32 noundef 1) #19
+  call void @nghttp2_stream_shutdown(ptr noundef nonnull %.092, i32 noundef 1) #19
   br label %147
 
 nghttp2_session_is_my_stream_id.exit.thread:      ; preds = %112, %nghttp2_session_is_my_stream_id.exit
-  call void @nghttp2_stream_shutdown(ptr noundef nonnull %.093, i32 noundef 2) #19
+  call void @nghttp2_stream_shutdown(ptr noundef nonnull %.092, i32 noundef 2) #19
   %119 = getelementptr inbounds i8, ptr %0, i64 2640
   %120 = load i64, ptr %119, align 8
   %121 = add i64 %120, 1
@@ -1538,19 +1538,19 @@ nghttp2_session_is_my_stream_id.exit.thread:      ; preds = %112, %nghttp2_sessi
 
 125:                                              ; preds = %122
   %126 = getelementptr inbounds i8, ptr %124, i64 136
-  store ptr %.093, ptr %126, align 8
+  store ptr %.092, ptr %126, align 8
   %127 = load ptr, ptr %123, align 8
-  %128 = getelementptr inbounds i8, ptr %.093, i64 128
+  %128 = getelementptr inbounds i8, ptr %.092, i64 128
   store ptr %127, ptr %128, align 8
   br label %nghttp2_session_keep_idle_stream.exit
 
 129:                                              ; preds = %122
   %130 = getelementptr inbounds i8, ptr %0, i64 2592
-  store ptr %.093, ptr %130, align 8
+  store ptr %.092, ptr %130, align 8
   br label %nghttp2_session_keep_idle_stream.exit
 
 nghttp2_session_keep_idle_stream.exit:            ; preds = %125, %129
-  store ptr %.093, ptr %123, align 8
+  store ptr %.092, ptr %123, align 8
   %131 = getelementptr inbounds i8, ptr %0, i64 2664
   %132 = load i64, ptr %131, align 8
   %133 = add i64 %132, 1
@@ -1584,7 +1584,7 @@ nghttp2_session_is_my_stream_id.exit135.thread:   ; preds = %134, %nghttp2_sessi
   br label %147
 
 147:                                              ; preds = %140, %nghttp2_session_is_my_stream_id.exit135.thread, %118, %nghttp2_session_is_my_stream_id.exit.thread, %nghttp2_session_keep_idle_stream.exit
-  %148 = getelementptr inbounds i8, ptr %.093, i64 216
+  %148 = getelementptr inbounds i8, ptr %.092, i64 216
   %149 = load i8, ptr %148, align 8
   %150 = and i8 %149, 16
   %.not117 = icmp eq i8 %150, 0
@@ -1594,27 +1594,27 @@ nghttp2_session_is_my_stream_id.exit135.thread:   ; preds = %134, %nghttp2_sessi
   %152 = load i32, ptr %.1, align 4
   %153 = icmp eq i32 %152, 0
   %154 = getelementptr inbounds i8, ptr %0, i64 32
-  %spec.select122 = select i1 %153, ptr %154, ptr %.091
+  %spec.select122 = select i1 %153, ptr %154, ptr %.090
   %155 = getelementptr inbounds i8, ptr %.1, i64 8
   %156 = load i8, ptr %155, align 4
   %.not118 = icmp eq i8 %156, 0
   br i1 %.not118, label %159, label %157
 
 157:                                              ; preds = %151
-  %158 = call i32 @nghttp2_stream_dep_insert(ptr noundef %spec.select122, ptr noundef nonnull %.093) #19
+  %158 = call i32 @nghttp2_stream_dep_insert(ptr noundef %spec.select122, ptr noundef nonnull %.092) #19
   %.not119 = icmp eq i32 %158, 0
   br i1 %.not119, label %160, label %161
 
 159:                                              ; preds = %151
-  call void @nghttp2_stream_dep_add(ptr noundef %spec.select122, ptr noundef nonnull %.093) #19
+  call void @nghttp2_stream_dep_add(ptr noundef %spec.select122, ptr noundef nonnull %.092) #19
   br label %160
 
 160:                                              ; preds = %157, %159
   br label %161
 
 161:                                              ; preds = %157, %147, %80, %81, %39, %16, %160, %103
-  %.0 = phi ptr [ null, %103 ], [ %.093, %160 ], [ null, %16 ], [ null, %39 ], [ null, %81 ], [ null, %80 ], [ %.093, %147 ], [ null, %157 ]
-  ret ptr %.0
+  %.093 = phi ptr [ null, %103 ], [ %.092, %160 ], [ null, %16 ], [ null, %39 ], [ null, %81 ], [ null, %80 ], [ %.092, %147 ], [ null, %157 ]
+  ret ptr %.093
 }
 
 declare i32 @nghttp2_stream_dep_find_ancestor(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -3590,13 +3590,13 @@ session_prep_frame.exit.thread.thread:            ; preds = %308, %session_prep_
   br label %362
 
 362:                                              ; preds = %351, %356, %359
-  %.0145 = phi i32 [ 2, %359 ], [ %358, %356 ], [ 7, %351 ]
-  %.0144 = phi i32 [ %361, %359 ], [ %353, %356 ], [ %353, %351 ]
-  %.not176 = icmp eq i32 %.0144, 0
+  %.0147 = phi i32 [ %361, %359 ], [ %353, %356 ], [ %353, %351 ]
+  %.0146 = phi i32 [ 2, %359 ], [ %358, %356 ], [ 7, %351 ]
+  %.not176 = icmp eq i32 %.0147, 0
   br i1 %.not176, label %.thread208, label %363
 
 363:                                              ; preds = %362
-  %364 = tail call i32 @nghttp2_session_close_stream(ptr noundef nonnull %0, i32 noundef %.0144, i32 noundef %.0145)
+  %364 = tail call i32 @nghttp2_session_close_stream(ptr noundef nonnull %0, i32 noundef %.0147, i32 noundef %.0146)
   %365 = icmp sgt i32 %364, -901
   br i1 %365, label %.thread208, label %366
 
@@ -3695,14 +3695,14 @@ session_call_before_frame_send.exit:              ; preds = %385
 
 400:                                              ; preds = %394, %396
   %.sink = phi i64 [ 8, %396 ], [ 40, %394 ]
-  %.0147 = phi i32 [ 7, %396 ], [ 2, %394 ]
+  %.0144 = phi i32 [ 7, %396 ], [ 2, %394 ]
   %401 = getelementptr inbounds i8, ptr %33, i64 %.sink
-  %.0146 = load i32, ptr %401, align 8
-  %.not168 = icmp eq i32 %.0146, 0
+  %.0145 = load i32, ptr %401, align 8
+  %.not168 = icmp eq i32 %.0145, 0
   br i1 %.not168, label %.thread220, label %402
 
 402:                                              ; preds = %400
-  %403 = tail call i32 @nghttp2_session_close_stream(ptr noundef nonnull %0, i32 noundef %.0146, i32 noundef %.0147)
+  %403 = tail call i32 @nghttp2_session_close_stream(ptr noundef nonnull %0, i32 noundef %.0145, i32 noundef %.0144)
   %404 = icmp sgt i32 %403, -901
   br i1 %404, label %.thread220, label %405
 
@@ -6125,9 +6125,9 @@ inflight_settings_del.exit:                       ; preds = %53
   br label %115
 
 115:                                              ; preds = %.lr.ph, %191
-  %.0115181 = phi i64 [ 0, %.lr.ph ], [ %192, %191 ]
+  %.0181 = phi i64 [ 0, %.lr.ph ], [ %192, %191 ]
   %116 = load ptr, ptr %102, align 8
-  %117 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %116, i64 %.0115181
+  %117 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %116, i64 %.0181
   %118 = load i32, ptr %117, align 4
   switch i32 %118, label %191 [
     i32 1, label %119
@@ -6303,7 +6303,7 @@ inflight_settings_del.exit:                       ; preds = %53
   br label %191
 
 191:                                              ; preds = %115, %128, %139, %140, %156, %164, %165, %180, %190
-  %192 = add nuw i64 %.0115181, 1
+  %192 = add nuw i64 %.0181, 1
   %193 = load i64, ptr %100, align 8
   %194 = icmp ult i64 %192, %193
   br i1 %194, label %115, label %._crit_edge, !llvm.loop !17
@@ -6378,8 +6378,8 @@ inflight_settings_del.exit:                       ; preds = %53
   br label %session_handle_invalid_connection.exit
 
 session_handle_invalid_connection.exit:           ; preds = %149, %226, %222, %93, %89, %72, %67, %63, %59, %50, %45, %41, %37, %24, %19, %15, %11, %215, %124, %82, %217, %188, %184, %178, %171, %162, %154, %147, %137, %133, %126, %84
-  %.0 = phi i32 [ %85, %84 ], [ %185, %184 ], [ %189, %188 ], [ %172, %171 ], [ %179, %178 ], [ %163, %162 ], [ %148, %147 ], [ %155, %154 ], [ %134, %133 ], [ %138, %137 ], [ %127, %126 ], [ %218, %217 ], [ %79, %82 ], [ %123, %124 ], [ %214, %215 ], [ -902, %11 ], [ 0, %24 ], [ 0, %15 ], [ %23, %19 ], [ -902, %37 ], [ 0, %50 ], [ 0, %41 ], [ %49, %45 ], [ -902, %59 ], [ 0, %72 ], [ 0, %63 ], [ %71, %67 ], [ 0, %93 ], [ -902, %89 ], [ 0, %226 ], [ -902, %222 ], [ %151, %149 ]
-  ret i32 %.0
+  %.0115 = phi i32 [ %85, %84 ], [ %185, %184 ], [ %189, %188 ], [ %172, %171 ], [ %179, %178 ], [ %163, %162 ], [ %148, %147 ], [ %155, %154 ], [ %134, %133 ], [ %138, %137 ], [ %127, %126 ], [ %218, %217 ], [ %79, %82 ], [ %123, %124 ], [ %214, %215 ], [ -902, %11 ], [ 0, %24 ], [ 0, %15 ], [ %23, %19 ], [ -902, %37 ], [ 0, %50 ], [ 0, %41 ], [ %49, %45 ], [ -902, %59 ], [ 0, %72 ], [ 0, %63 ], [ %71, %67 ], [ 0, %93 ], [ -902, %89 ], [ 0, %226 ], [ -902, %222 ], [ %151, %149 ]
+  ret i32 %.0115
 }
 
 declare i32 @nghttp2_hd_deflate_change_table_size(ptr noundef, i64 noundef) local_unnamed_addr #3
@@ -6421,8 +6421,8 @@ define dso_local i32 @nghttp2_session_add_settings(ptr noundef %0, i8 noundef ze
 
 .lr.ph:                                           ; preds = %.preheader, %30
   %.0123 = phi i8 [ %.1, %30 ], [ %6, %.preheader ]
-  %.085122 = phi i64 [ %31, %30 ], [ 0, %.preheader ]
-  %18 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %2, i64 %.085122
+  %.084122 = phi i64 [ %31, %30 ], [ 0, %.preheader ]
+  %18 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %2, i64 %.084122
   %19 = load i32, ptr %18, align 4
   %.not103 = icmp eq i32 %19, 9
   br i1 %.not103, label %20, label %30
@@ -6446,7 +6446,7 @@ define dso_local i32 @nghttp2_session_add_settings(ptr noundef %0, i8 noundef ze
 
 30:                                               ; preds = %26, %.lr.ph, %22
   %.1 = phi i8 [ %.0123, %.lr.ph ], [ %25, %22 ], [ %.0123, %26 ]
-  %31 = add nuw i64 %.085122, 1
+  %31 = add nuw i64 %.084122, 1
   %exitcond.not = icmp eq i64 %31, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
@@ -6470,7 +6470,7 @@ define dso_local i32 @nghttp2_session_add_settings(ptr noundef %0, i8 noundef ze
   br label %.loopexit118
 
 39:                                               ; preds = %34, %35
-  %.087 = phi ptr [ %36, %35 ], [ null, %34 ]
+  %.086 = phi ptr [ %36, %35 ], [ null, %34 ]
   br i1 %.not, label %40, label %51
 
 40:                                               ; preds = %39
@@ -6504,14 +6504,14 @@ inflight_settings_new.exit:                       ; preds = %43, %47
   br label %51
 
 50:                                               ; preds = %46, %40
-  tail call void @nghttp2_mem_free(ptr noundef nonnull %7, ptr noundef %.087) #19
+  tail call void @nghttp2_mem_free(ptr noundef nonnull %7, ptr noundef %.086) #19
   tail call void @nghttp2_mem_free(ptr noundef nonnull %7, ptr noundef nonnull %32) #19
   br label %.loopexit118
 
 51:                                               ; preds = %inflight_settings_new.exit, %39
   %.0112 = phi ptr [ %41, %inflight_settings_new.exit ], [ null, %39 ]
   tail call void @nghttp2_outbound_item_init(ptr noundef nonnull %32) #19
-  tail call void @nghttp2_frame_settings_init(ptr noundef nonnull %32, i8 noundef zeroext %1, ptr noundef %.087, i64 noundef %3) #19
+  tail call void @nghttp2_frame_settings_init(ptr noundef nonnull %32, i8 noundef zeroext %1, ptr noundef %.086, i64 noundef %3) #19
   %52 = tail call i32 @nghttp2_session_add_item(ptr noundef %0, ptr noundef nonnull %32)
   %.not99 = icmp eq i32 %52, 0
   br i1 %.not99, label %57, label %53
@@ -6560,13 +6560,13 @@ session_append_inflight_settings.exit:            ; preds = %64
   br i1 %.not137145, label %.loopexit, label %.lr.ph127
 
 67:                                               ; preds = %.lr.ph127
-  %68 = add i64 %.186125, -1
+  %68 = add i64 %.185125, -1
   %.not100 = icmp eq i64 %68, 0
   br i1 %.not100, label %.lr.ph131.preheader, label %.lr.ph127, !llvm.loop !20
 
 .lr.ph127:                                        ; preds = %66, %67
-  %.186125 = phi i64 [ %68, %67 ], [ %3, %66 ]
-  %69 = getelementptr %struct.nghttp2_settings_entry, ptr %2, i64 %.186125
+  %.185125 = phi i64 [ %68, %67 ], [ %3, %66 ]
+  %69 = getelementptr %struct.nghttp2_settings_entry, ptr %2, i64 %.185125
   %70 = getelementptr i8, ptr %69, i64 -8
   %71 = load i32, ptr %70, align 4
   %72 = icmp eq i32 %71, 3
@@ -6634,8 +6634,8 @@ session_append_inflight_settings.exit:            ; preds = %64
   br label %.loopexit118
 
 .loopexit118:                                     ; preds = %26, %.thread, %._crit_edge, %15, %10, %9, %.loopexit, %inflight_settings_del.exit, %50, %38
-  %.084 = phi i32 [ -901, %38 ], [ -901, %50 ], [ %52, %inflight_settings_del.exit ], [ 0, %.loopexit ], [ -501, %9 ], [ -904, %10 ], [ -501, %15 ], [ -901, %._crit_edge ], [ -501, %.thread ], [ -501, %26 ]
-  ret i32 %.084
+  %.087 = phi i32 [ -901, %38 ], [ -901, %50 ], [ %52, %inflight_settings_del.exit ], [ 0, %.loopexit ], [ -501, %9 ], [ -904, %10 ], [ -501, %15 ], [ -901, %._crit_edge ], [ -501, %.thread ], [ -501, %26 ]
+  ret i32 %.087
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10172,26 +10172,26 @@ session_call_on_header.exit.i:                    ; preds = %806, %790, %session
   br i1 %or.cond.i, label %inflate_header_block.exit.thread1097, label %nghttp2_session_get_stream.exit100.split.split.i
 
 inflate_header_block.exit.thread:                 ; preds = %699, %.thread.i, %nghttp2_session_terminate_session.exit.i, %nghttp2_session_get_stream.exit100.split.us.i, %806, %nghttp2_session_get_stream.exit100.split.split.us.i
-  %.073.i.ph = phi i32 [ %675, %nghttp2_session_get_stream.exit100.split.split.us.i ], [ -902, %806 ], [ %661, %nghttp2_session_get_stream.exit100.split.us.i ], [ %702, %699 ], [ %781, %.thread.i ], [ %.fr.i935, %nghttp2_session_terminate_session.exit.i ]
+  %.074.i.ph = phi i32 [ %675, %nghttp2_session_get_stream.exit100.split.split.us.i ], [ -902, %806 ], [ %661, %nghttp2_session_get_stream.exit100.split.us.i ], [ %702, %699 ], [ %781, %.thread.i ], [ %.fr.i935, %nghttp2_session_terminate_session.exit.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %.loopexit
 
 inflate_header_block.exit.thread1041:             ; preds = %668, %748, %682, %.split130.us.i, %nghttp2_session_terminate_session.exit.i, %710, %704
   %.6995.ph = phi i64 [ %.4993, %.split130.us.i ], [ %.3992, %nghttp2_session_terminate_session.exit.i ], [ %.3992, %710 ], [ %.3992, %704 ], [ %679, %682 ], [ %717, %748 ], [ %665, %668 ]
-  %.073.i.ph1040 = phi i32 [ 0, %.split130.us.i ], [ -523, %nghttp2_session_terminate_session.exit.i ], [ -523, %710 ], [ -523, %704 ], [ 0, %682 ], [ %.0.i105.i, %748 ], [ 0, %668 ]
+  %.074.i.ph1040 = phi i32 [ 0, %.split130.us.i ], [ -523, %nghttp2_session_terminate_session.exit.i ], [ -523, %710 ], [ -523, %704 ], [ 0, %682 ], [ %.0.i105.i, %748 ], [ 0, %668 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %819
 
 inflate_header_block.exit.thread1091:             ; preds = %748, %session_call_on_invalid_header.exit.thread113.i, %nghttp2_session_get_stream.exit100.split.split.i
-  %.073.i.ph1090 = phi i32 [ %689, %nghttp2_session_get_stream.exit100.split.split.i ], [ %764, %session_call_on_invalid_header.exit.thread113.i ], [ -902, %748 ]
+  %.074.i.ph1090 = phi i32 [ %689, %nghttp2_session_get_stream.exit100.split.split.i ], [ %764, %session_call_on_invalid_header.exit.thread113.i ], [ -902, %748 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %.loopexit
 
 inflate_header_block.exit.thread1097:             ; preds = %806, %806, %810
-  %.073.i.ph1096 = phi i32 [ 0, %810 ], [ %.0.i107.i, %806 ], [ %.0.i107.i, %806 ]
+  %.074.i.ph1096 = phi i32 [ 0, %810 ], [ %.0.i107.i, %806 ], [ %.0.i107.i, %806 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %819
@@ -10206,19 +10206,19 @@ inflate_header_block.exit:                        ; preds = %.thread.i
   br i1 %817, label %819, label %.loopexit
 
 .loopexit:                                        ; preds = %inflate_header_block.exit, %inflate_header_block.exit.thread1091, %inflate_header_block.exit.thread
-  %.073.i1038 = phi i32 [ %.073.i.ph, %inflate_header_block.exit.thread ], [ %.073.i.ph1090, %inflate_header_block.exit.thread1091 ], [ %816, %inflate_header_block.exit ]
-  %818 = sext i32 %.073.i1038 to i64
+  %.074.i1038 = phi i32 [ %.074.i.ph, %inflate_header_block.exit.thread ], [ %.074.i.ph1090, %inflate_header_block.exit.thread1091 ], [ %816, %inflate_header_block.exit ]
+  %818 = sext i32 %.074.i1038 to i64
   br label %nghttp2_session_want_read.exit.thread
 
 819:                                              ; preds = %inflate_header_block.exit.thread1097, %inflate_header_block.exit.thread1041, %inflate_header_block.exit
-  %.073.i1046 = phi i32 [ %.073.i.ph1040, %inflate_header_block.exit.thread1041 ], [ -521, %inflate_header_block.exit ], [ %.073.i.ph1096, %inflate_header_block.exit.thread1097 ]
+  %.074.i1046 = phi i32 [ %.074.i.ph1040, %inflate_header_block.exit.thread1041 ], [ -521, %inflate_header_block.exit ], [ %.074.i.ph1096, %inflate_header_block.exit.thread1097 ]
   %.69951045 = phi i64 [ %.6995.ph, %inflate_header_block.exit.thread1041 ], [ %717, %inflate_header_block.exit ], [ %717, %inflate_header_block.exit.thread1097 ]
   %820 = load i32, ptr %30, align 8
   %821 = icmp eq i32 %820, 15
   br i1 %821, label %nghttp2_session_want_read.exit.thread, label %822
 
 822:                                              ; preds = %819
-  switch i32 %.073.i1046, label %842 [
+  switch i32 %.074.i1046, label %842 [
     i32 -526, label %823
     i32 -521, label %830
   ]
@@ -10260,7 +10260,7 @@ inflate_header_block.exit:                        ; preds = %.thread.i
   %844 = load i64, ptr %31, align 8
   %845 = sub i64 %844, %..i929
   store i64 %845, ptr %31, align 8
-  %846 = icmp eq i32 %.073.i1046, -523
+  %846 = icmp eq i32 %.074.i1046, -523
   br i1 %846, label %847, label %855
 
 847:                                              ; preds = %842
@@ -11380,15 +11380,15 @@ define internal range(i32 -902, 1) i32 @session_call_error_callback(ptr noundef 
   br label %37
 
 37:                                               ; preds = %31, %26
-  %.030 = phi i32 [ %30, %26 ], [ %36, %31 ]
+  %.0 = phi i32 [ %30, %26 ], [ %36, %31 ]
   call void @nghttp2_mem_free(ptr noundef nonnull %11, ptr noundef nonnull %17) #19
-  %.not37 = icmp eq i32 %.030, 0
+  %.not37 = icmp eq i32 %.0, 0
   %. = select i1 %.not37, i32 0, i32 -902
   br label %38
 
 38:                                               ; preds = %37, %14, %10, %7, %22
-  %.0 = phi i32 [ 0, %22 ], [ 0, %7 ], [ -901, %10 ], [ -901, %14 ], [ %., %37 ]
-  ret i32 %.0
+  %.030 = phi i32 [ 0, %22 ], [ 0, %7 ], [ -901, %10 ], [ -901, %14 ], [ %., %37 ]
+  ret i32 %.030
 }
 
 declare void @nghttp2_frame_unpack_frame_hd(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -11687,8 +11687,8 @@ nghttp2_session_get_stream.exit59:                ; preds = %30
   br label %50
 
 50:                                               ; preds = %46, %48, %40, %38
-  %.044 = phi i32 [ %47, %46 ], [ %49, %48 ], [ %41, %40 ], [ %39, %38 ]
-  %51 = icmp eq i32 %.044, 0
+  %.043 = phi i32 [ %47, %46 ], [ %49, %48 ], [ %41, %40 ], [ %39, %38 ]
+  %51 = icmp eq i32 %.043, 0
   br i1 %51, label %.thread, label %.thread77
 
 .thread:                                          ; preds = %35, %50
@@ -11889,8 +11889,8 @@ nghttp2_session_close_stream_if_shut_rdwr.exit.thread.i: ; preds = %nghttp2_sess
   br label %session_end_stream_headers_received.exit
 
 session_end_stream_headers_received.exit:         ; preds = %11, %11, %79, %65, %1, %7, %nghttp2_session_close_stream_if_shut_rdwr.exit.thread.i, %nghttp2_session_close_stream_if_shut_rdwr.exit.i, %session_update_stream_priority.exit.thread.i, %129, %83, %session_handle_invalid_stream2.exit.thread, %72, %76, %session_handle_invalid_stream2.exit
-  %.043 = phi i32 [ %61, %session_handle_invalid_stream2.exit ], [ 0, %76 ], [ 0, %72 ], [ 0, %session_handle_invalid_stream2.exit.thread ], [ 0, %83 ], [ 0, %session_update_stream_priority.exit.thread.i ], [ %130, %129 ], [ 0, %nghttp2_session_close_stream_if_shut_rdwr.exit.thread.i ], [ %.fr.i, %nghttp2_session_close_stream_if_shut_rdwr.exit.i ], [ 0, %7 ], [ 0, %1 ], [ 0, %11 ], [ -902, %65 ], [ -902, %79 ], [ 0, %11 ]
-  ret i32 %.043
+  %.044 = phi i32 [ %61, %session_handle_invalid_stream2.exit ], [ 0, %76 ], [ 0, %72 ], [ 0, %session_handle_invalid_stream2.exit.thread ], [ 0, %83 ], [ 0, %session_update_stream_priority.exit.thread.i ], [ %130, %129 ], [ 0, %nghttp2_session_close_stream_if_shut_rdwr.exit.thread.i ], [ %.fr.i, %nghttp2_session_close_stream_if_shut_rdwr.exit.i ], [ 0, %7 ], [ 0, %1 ], [ 0, %11 ], [ -902, %65 ], [ -902, %79 ], [ 0, %11 ]
+  ret i32 %.044
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12335,7 +12335,7 @@ nghttp2_session_enforce_flow_control_limits.exit: ; preds = %31, %.thread.i
   br label %51
 
 51:                                               ; preds = %36, %49, %45, %6
-  %.077 = phi i64 [ %2, %6 ], [ %34, %49 ], [ %34, %36 ], [ %2, %45 ]
+  %.078 = phi i64 [ %2, %6 ], [ %34, %49 ], [ %34, %36 ], [ %2, %45 ]
   %.pn = phi ptr [ %9, %6 ], [ %50, %49 ], [ %9, %36 ], [ %9, %45 ]
   store i32 0, ptr %7, align 4
   %52 = getelementptr inbounds i8, ptr %4, i64 8
@@ -12346,7 +12346,7 @@ nghttp2_session_enforce_flow_control_limits.exit: ; preds = %31, %.thread.i
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %0, i64 2568
   %59 = load ptr, ptr %58, align 8
-  %60 = call i64 %53(ptr noundef nonnull %0, i32 noundef %55, ptr noundef %57, i64 noundef %.077, ptr noundef nonnull %7, ptr noundef %4, ptr noundef %59) #19
+  %60 = call i64 %53(ptr noundef nonnull %0, i32 noundef %55, ptr noundef %57, i64 noundef %.078, ptr noundef nonnull %7, ptr noundef %4, ptr noundef %59) #19
   switch i64 %60, label %63 [
     i64 -508, label %61
     i64 -521, label %61
@@ -12359,7 +12359,7 @@ nghttp2_session_enforce_flow_control_limits.exit: ; preds = %31, %.thread.i
 
 63:                                               ; preds = %51
   %64 = icmp slt i64 %60, 0
-  %65 = icmp ult i64 %.077, %60
+  %65 = icmp ult i64 %.078, %60
   %or.cond = or i1 %64, %65
   br i1 %or.cond, label %121, label %66
 
@@ -12416,8 +12416,8 @@ nghttp2_session_enforce_flow_control_limits.exit: ; preds = %31, %.thread.i
   %93 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 0, ptr %93, align 8
   %94 = add nuw i64 %60, 256
-  %.077. = call i64 @llvm.umin.i64(i64 %.077, i64 %94)
-  %.not.i = icmp ugt i64 %.077, %60
+  %.078. = call i64 @llvm.umin.i64(i64 %.078, i64 %94)
+  %.not.i = icmp ugt i64 %.078, %60
   br i1 %.not.i, label %95, label %session_call_select_padding.exit
 
 95:                                               ; preds = %92
@@ -12428,10 +12428,10 @@ nghttp2_session_enforce_flow_control_limits.exit: ; preds = %31, %.thread.i
 
 98:                                               ; preds = %95
   %99 = load ptr, ptr %58, align 8
-  %100 = call i64 %97(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %.077., ptr noundef %99) #19
+  %100 = call i64 %97(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %.078., ptr noundef %99) #19
   %101 = load i64, ptr %3, align 8
   %102 = icmp slt i64 %100, %101
-  %103 = icmp sgt i64 %100, %.077.
+  %103 = icmp sgt i64 %100, %.078.
   %or.cond.i = or i1 %103, %102
   %spec.select.i94 = select i1 %or.cond.i, i64 -902, i64 %100
   br label %session_call_select_padding.exit
@@ -13106,10 +13106,10 @@ define internal fastcc i32 @nghttp2_session_upgrade_internal(ptr noundef %0, ptr
   br label %39
 
 39:                                               ; preds = %35, %29
-  %.031 = phi i32 [ %34, %29 ], [ %38, %35 ]
+  %.0 = phi i32 [ %34, %29 ], [ %38, %35 ]
   %40 = load ptr, ptr %6, align 8
   call void @nghttp2_mem_free(ptr noundef nonnull %9, ptr noundef %40) #19
-  %.not39 = icmp eq i32 %.031, 0
+  %.not39 = icmp eq i32 %.0, 0
   br i1 %.not39, label %41, label %56
 
 41:                                               ; preds = %39
@@ -13145,8 +13145,8 @@ define internal fastcc i32 @nghttp2_session_upgrade_internal(ptr noundef %0, ptr
   br label %56
 
 56:                                               ; preds = %48, %51, %41, %39, %25, %21, %.thread, %12, %15
-  %.0 = phi i32 [ -505, %15 ], [ -505, %12 ], [ -501, %.thread ], [ -537, %21 ], [ %26, %25 ], [ %.031, %39 ], [ -901, %41 ], [ 0, %51 ], [ 0, %48 ]
-  ret i32 %.0
+  %.031 = phi i32 [ -505, %15 ], [ -505, %12 ], [ -501, %.thread ], [ -537, %21 ], [ %26, %25 ], [ %.0, %39 ], [ -901, %41 ], [ 0, %51 ], [ 0, %48 ]
+  ret i32 %.031
 }
 
 ; Function Attrs: nounwind uwtable

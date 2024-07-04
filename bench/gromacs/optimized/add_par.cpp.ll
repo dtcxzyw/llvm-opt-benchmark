@@ -1887,15 +1887,15 @@ define noundef range(i32 0, -1) i32 @_Z12search_jtypeRK17PreprocessResiduePKcb(p
   br label %18
 
 18:                                               ; preds = %13, %17
-  %.049 = phi i32 [ 1, %17 ], [ 2, %13 ]
+  %.055 = phi i32 [ 1, %17 ], [ 2, %13 ]
   %19 = getelementptr inbounds i8, ptr %4, i64 1
   %20 = getelementptr inbounds i8, ptr %0, i64 88
-  %21 = add nsw i32 %.049, -1
+  %21 = add nsw i32 %.055, -1
   br label %22
 
 22:                                               ; preds = %18, %.loopexit
   %.04878 = phi i32 [ 0, %18 ], [ %60, %.loopexit ]
-  %.05177 = phi i64 [ 0, %18 ], [ %.354, %.loopexit ]
+  %.04977 = phi i64 [ 0, %18 ], [ %.3, %.loopexit ]
   %23 = icmp eq i32 %.04878, 1
   br i1 %23, label %24, label %25
 
@@ -1915,8 +1915,8 @@ define noundef range(i32 0, -1) i32 @_Z12search_jtypeRK17PreprocessResiduePKcb(p
 
 .lr.ph72.split.us:                                ; preds = %.lr.ph72, %._crit_edge.us
   %indvars.iv86 = phi i64 [ %indvars.iv.next87, %._crit_edge.us ], [ 0, %.lr.ph72 ]
-  %.169.us = phi i32 [ %spec.select58.us, %._crit_edge.us ], [ -1, %.lr.ph72 ]
-  %.15268.us = phi i64 [ %spec.select.us, %._crit_edge.us ], [ %.05177, %.lr.ph72 ]
+  %.169.us = phi i64 [ %spec.select58.us, %._crit_edge.us ], [ %.04977, %.lr.ph72 ]
+  %.15268.us = phi i32 [ %spec.select.us, %._crit_edge.us ], [ -1, %.lr.ph72 ]
   %29 = load ptr, ptr %20, align 8
   %30 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv86
   %31 = load ptr, ptr %30, align 8
@@ -1933,20 +1933,20 @@ define noundef range(i32 0, -1) i32 @_Z12search_jtypeRK17PreprocessResiduePKcb(p
   br i1 %.not80, label %._crit_edge.us, label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %35, %47
-  %.05565.us = phi i64 [ %48, %47 ], [ 0, %35 ]
-  %38 = getelementptr inbounds [12 x i8], ptr %4, i64 0, i64 %.05565.us
+  %.05065.us = phi i64 [ %48, %47 ], [ 0, %35 ]
+  %38 = getelementptr inbounds [12 x i8], ptr %4, i64 0, i64 %.05065.us
   %39 = load i8, ptr %38, align 1
-  %40 = getelementptr inbounds i8, ptr %32, i64 %.05565.us
+  %40 = getelementptr inbounds i8, ptr %32, i64 %.05065.us
   %41 = load i8, ptr %40, align 1
   %.not57.us = icmp eq i8 %39, %41
   br i1 %.not57.us, label %47, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %47, %.lr.ph.us, %35
-  %.055.lcssa.us = phi i64 [ 0, %35 ], [ %.05565.us, %.lr.ph.us ], [ %.sroa.speculated.us, %47 ]
-  %42 = icmp ugt i64 %.055.lcssa.us, %.15268.us
-  %spec.select.us = call i64 @llvm.umax.i64(i64 %.055.lcssa.us, i64 %.15268.us)
+  %.050.lcssa.us = phi i64 [ 0, %35 ], [ %.05065.us, %.lr.ph.us ], [ %.sroa.speculated.us, %47 ]
+  %42 = icmp ugt i64 %.050.lcssa.us, %.169.us
   %43 = trunc nuw nsw i64 %indvars.iv86 to i32
-  %spec.select58.us = select i1 %42, i32 %43, i32 %.169.us
+  %spec.select.us = select i1 %42, i32 %43, i32 %.15268.us
+  %spec.select58.us = call i64 @llvm.umax.i64(i64 %.050.lcssa.us, i64 %.169.us)
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %44 = call noundef i32 @_ZNK17PreprocessResidue5natomEv(ptr noundef nonnull align 8 dereferenceable(344) %0)
   %45 = sext i32 %44 to i64
@@ -1954,7 +1954,7 @@ define noundef range(i32 0, -1) i32 @_Z12search_jtypeRK17PreprocessResiduePKcb(p
   br i1 %46, label %.lr.ph72.split.us, label %.loopexit, !llvm.loop !55
 
 47:                                               ; preds = %.lr.ph.us
-  %48 = add nuw i64 %.05565.us, 1
+  %48 = add nuw i64 %.05065.us, 1
   %exitcond.not = icmp eq i64 %48, %.sroa.speculated.us
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !56
 
@@ -1982,11 +1982,11 @@ define noundef range(i32 0, -1) i32 @_Z12search_jtypeRK17PreprocessResiduePKcb(p
   br i1 %59, label %.lr.ph72.split, label %.loopexit, !llvm.loop !55
 
 .loopexit:                                        ; preds = %56, %._crit_edge.us, %25, %.split.us
-  %.354 = phi i64 [ %55, %.split.us ], [ %.05177, %25 ], [ %spec.select.us, %._crit_edge.us ], [ %.05177, %56 ]
-  %.3 = phi i32 [ %.us-phi, %.split.us ], [ -1, %25 ], [ %spec.select58.us, %._crit_edge.us ], [ -1, %56 ]
+  %.354 = phi i32 [ %.us-phi, %.split.us ], [ -1, %25 ], [ %spec.select.us, %._crit_edge.us ], [ -1, %56 ]
+  %.3 = phi i64 [ %55, %.split.us ], [ %.04977, %25 ], [ %spec.select58.us, %._crit_edge.us ], [ %.04977, %56 ]
   %60 = add nuw nsw i32 %.04878, 1
-  %61 = icmp ult i32 %60, %.049
-  %62 = icmp eq i32 %.3, -1
+  %61 = icmp ult i32 %60, %.055
+  %62 = icmp eq i32 %.354, -1
   %63 = select i1 %61, i1 %62, i1 false
   br i1 %63, label %22, label %64, !llvm.loop !57
 
@@ -2009,13 +2009,13 @@ define noundef range(i32 0, -1) i32 @_Z12search_jtypeRK17PreprocessResiduePKcb(p
 
 70:                                               ; preds = %64
   %71 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #20
-  %.not = icmp eq i64 %.354, %71
+  %.not = icmp eq i64 %.3, %71
   br i1 %.not, label %82, label %72
 
 72:                                               ; preds = %70
   call void @_ZNSt10filesystem7__cxx114pathC2IA131_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(131) @.str, i8 noundef zeroext 2)
   %73 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
-  %74 = sext i32 %.3 to i64
+  %74 = sext i32 %.354 to i64
   %75 = load ptr, ptr %20, align 8
   %76 = getelementptr inbounds ptr, ptr %75, i64 %74
   %77 = load ptr, ptr %76, align 8
@@ -2032,7 +2032,7 @@ define noundef range(i32 0, -1) i32 @_Z12search_jtypeRK17PreprocessResiduePKcb(p
   br label %83
 
 82:                                               ; preds = %70
-  ret i32 %.3
+  ret i32 %.354
 
 83:                                               ; preds = %80, %68
   %.sink = phi ptr [ %6, %80 ], [ %5, %68 ]

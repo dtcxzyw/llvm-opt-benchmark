@@ -261,7 +261,7 @@ list_length.exit:                                 ; preds = %89, %95
   br i1 %143, label %.lr.ph255, label %._crit_edge203
 
 .lr.ph255:                                        ; preds = %.lr.ph202, %.critedge
-  %.0143200254 = phi ptr [ %303, %.critedge ], [ null, %.lr.ph202 ]
+  %.0144199254 = phi ptr [ %303, %.critedge ], [ null, %.lr.ph202 ]
   %indvars.iv221253 = phi i64 [ %indvars.iv.next222, %.critedge ], [ 0, %.lr.ph202 ]
   %144 = load ptr, ptr %136, align 8
   %145 = getelementptr %union.ListCell, ptr %144, i64 %indvars.iv221253
@@ -481,17 +481,17 @@ setNamespaceForMergeWhen.exit:                    ; preds = %212, %187, %.lr.ph.
   br label %241
 
 241:                                              ; preds = %226, %236
-  %.0144 = phi ptr [ %240, %236 ], [ null, %226 ]
+  %.0143 = phi ptr [ %240, %236 ], [ null, %226 ]
   %242 = load ptr, ptr %100, align 8
   %243 = getelementptr inbounds i8, ptr %242, i64 24
   %244 = load ptr, ptr %243, align 8
   %245 = load ptr, ptr %4, align 8
   %246 = getelementptr inbounds i8, ptr %245, i64 4
-  %.not162 = icmp eq ptr %.0144, null
+  %.not162 = icmp eq ptr %.0143, null
   %.not163 = icmp eq ptr %229, null
   %.not164 = icmp eq ptr %245, null
-  %247 = getelementptr inbounds i8, ptr %.0144, i64 4
-  %248 = getelementptr inbounds i8, ptr %.0144, i64 16
+  %247 = getelementptr inbounds i8, ptr %.0143, i64 4
+  %248 = getelementptr inbounds i8, ptr %.0143, i64 16
   %249 = getelementptr inbounds i8, ptr %229, i64 4
   %250 = getelementptr inbounds i8, ptr %229, i64 16
   %251 = getelementptr inbounds i8, ptr %245, i64 16
@@ -587,7 +587,7 @@ setNamespaceForMergeWhen.exit:                    ; preds = %212, %187, %.lr.ph.
   br label %.critedge
 
 .critedge:                                        ; preds = %275, %270, %.critedge.sink.split, %241, %setNamespaceForMergeWhen.exit
-  %303 = call ptr @lappend(ptr noundef %.0143200254, ptr noundef nonnull %147) #5
+  %303 = call ptr @lappend(ptr noundef %.0144199254, ptr noundef nonnull %147) #5
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221253, 1
   %304 = load i32, ptr %135, align 4
   %305 = sext i32 %304 to i64
@@ -595,9 +595,9 @@ setNamespaceForMergeWhen.exit:                    ; preds = %212, %187, %.lr.ph.
   br i1 %306, label %.lr.ph255, label %._crit_edge203
 
 ._crit_edge203:                                   ; preds = %.critedge, %.lr.ph202, %119
-  %.0143.lcssa = phi ptr [ null, %119 ], [ null, %.lr.ph202 ], [ %303, %.critedge ]
+  %.0144.lcssa = phi ptr [ null, %119 ], [ null, %.lr.ph202 ], [ %303, %.critedge ]
   %307 = getelementptr inbounds i8, ptr %5, i64 88
-  store ptr %.0143.lcssa, ptr %307, align 8
+  store ptr %.0144.lcssa, ptr %307, align 8
   %308 = getelementptr inbounds i8, ptr %5, i64 128
   store ptr null, ptr %308, align 8
   %309 = getelementptr inbounds i8, ptr %5, i64 46

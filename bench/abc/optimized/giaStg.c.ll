@@ -734,9 +734,9 @@ Gia_ManPrintStateEncoding.exit:                   ; preds = %.critedge.thread.i,
   br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %Gia_ManPrintStateEncoding.exit, %.lr.ph
-  %.0264 = phi i32 [ %36, %.lr.ph ], [ 0, %Gia_ManPrintStateEncoding.exit ]
+  %.0116264 = phi i32 [ %36, %.lr.ph ], [ 0, %Gia_ManPrintStateEncoding.exit ]
   tail call fastcc void @Gia_ManAppendCi(ptr noundef nonnull %32)
-  %36 = add nuw nsw i32 %.0264, 1
+  %36 = add nuw nsw i32 %.0116264, 1
   %exitcond298.not = icmp eq i32 %36, %34
   br i1 %exitcond298.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
@@ -762,27 +762,27 @@ Gia_ManPrintStateEncoding.exit:                   ; preds = %.critedge.thread.i,
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %Vec_IntPush.exit
-  %.1269 = phi i32 [ 0, %.preheader.lr.ph ], [ %80, %Vec_IntPush.exit ]
+  %.1117269 = phi i32 [ 0, %.preheader.lr.ph ], [ %80, %Vec_IntPush.exit ]
   br i1 %44, label %.lr.ph267, label %._crit_edge268
 
 .lr.ph267:                                        ; preds = %.preheader
-  %45 = xor i32 %.1269, -1
+  %45 = xor i32 %.1117269, -1
   br label %46
 
 46:                                               ; preds = %.lr.ph267, %46
-  %.0112266 = phi i32 [ 0, %.lr.ph267 ], [ %47, %46 ]
-  %.0116265 = phi i32 [ 1, %.lr.ph267 ], [ %52, %46 ]
-  %47 = add nuw nsw i32 %.0112266, 1
-  %48 = lshr i32 %45, %.0112266
+  %.0266 = phi i32 [ 1, %.lr.ph267 ], [ %52, %46 ]
+  %.0114265 = phi i32 [ 0, %.lr.ph267 ], [ %47, %46 ]
+  %47 = add nuw nsw i32 %.0114265, 1
+  %48 = lshr i32 %45, %.0114265
   %49 = and i32 %48, 1
   %50 = shl nuw nsw i32 %47, 1
   %51 = or disjoint i32 %50, %49
-  %52 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %32, i32 noundef %.0116265, i32 noundef %51) #15
+  %52 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %32, i32 noundef %.0266, i32 noundef %51) #15
   %exitcond299.not = icmp eq i32 %47, %1
   br i1 %exitcond299.not, label %._crit_edge268, label %46, !llvm.loop !30
 
 ._crit_edge268:                                   ; preds = %46, %.preheader
-  %.0116.lcssa = phi i32 [ 1, %.preheader ], [ %52, %46 ]
+  %.0.lcssa = phi i32 [ 1, %.preheader ], [ %52, %46 ]
   %53 = load i32, ptr %39, align 4
   %54 = load i32, ptr %38, align 8
   %55 = icmp eq i32 %53, %54
@@ -843,8 +843,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %77, ptr %39, align 4
   %78 = sext i32 %53 to i64
   %79 = getelementptr inbounds i32, ptr %76, i64 %78
-  store i32 %.0116.lcssa, ptr %79, align 4
-  %80 = add nuw nsw i32 %.1269, 1
+  store i32 %.0.lcssa, ptr %79, align 4
+  %80 = add nuw nsw i32 %.1117269, 1
   %exitcond300.not = icmp eq i32 %80, %smax
   br i1 %exitcond300.not, label %._crit_edge270, label %.preheader, !llvm.loop !31
 
@@ -895,7 +895,7 @@ Vec_IntAlloc.exit:                                ; preds = %._crit_edge270, %84
 
 100:                                              ; preds = %.lr.ph275, %100
   %indvars.iv = phi i64 [ 0, %.lr.ph275 ], [ %indvars.iv.next, %100 ]
-  %.1117273 = phi i32 [ 1, %.lr.ph275 ], [ %108, %100 ]
+  %.1273 = phi i32 [ 1, %.lr.ph275 ], [ %108, %100 ]
   %.val138 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds i32, ptr %.val138, i64 %indvars.iv
   %102 = load i32, ptr %101, align 4
@@ -904,7 +904,7 @@ Vec_IntAlloc.exit:                                ; preds = %._crit_edge270, %84
   %105 = zext i1 %104 to i32
   %106 = shl nsw i32 %103, 1
   %107 = or disjoint i32 %106, %105
-  %108 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %32, i32 noundef %.1117273, i32 noundef %107) #15
+  %108 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %32, i32 noundef %.1273, i32 noundef %107) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val130 = load i32, ptr %97, align 4
   %109 = sext i32 %.val130 to i64
@@ -912,7 +912,7 @@ Vec_IntAlloc.exit:                                ; preds = %._crit_edge270, %84
   br i1 %110, label %100, label %.critedge2, !llvm.loop !32
 
 .critedge2:                                       ; preds = %100, %94
-  %.1117.lcssa = phi i32 [ 1, %94 ], [ %108, %100 ]
+  %.1.lcssa = phi i32 [ 1, %94 ], [ %108, %100 ]
   %111 = load i32, ptr %83, align 4
   %112 = load i32, ptr %81, align 8
   %113 = icmp eq i32 %111, %112
@@ -973,7 +973,7 @@ Vec_IntPush.exit149:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %135, ptr %83, align 4
   %136 = sext i32 %111 to i64
   %137 = getelementptr inbounds i32, ptr %134, i64 %136
-  store i32 %.1117.lcssa, ptr %137, align 4
+  store i32 %.1.lcssa, ptr %137, align 4
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
   %.val123 = load i32, ptr %90, align 4
   %138 = sext i32 %.val123 to i64
@@ -1973,9 +1973,9 @@ define ptr @Gia_ManStgOneHot(ptr nocapture noundef readonly %0, i32 noundef %1, 
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.0180 = phi i32 [ %9, %.lr.ph ], [ 0, %4 ]
+  %.086180 = phi i32 [ %9, %.lr.ph ], [ 0, %4 ]
   tail call fastcc void @Gia_ManAppendCi(ptr noundef nonnull %5)
-  %9 = add nuw nsw i32 %.0180, 1
+  %9 = add nuw nsw i32 %.086180, 1
   %exitcond.not = icmp eq i32 %9, %7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
@@ -2001,27 +2001,27 @@ define ptr @Gia_ManStgOneHot(ptr nocapture noundef readonly %0, i32 noundef %1, 
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %Vec_IntPush.exit
-  %.1185 = phi i32 [ 0, %.preheader.lr.ph ], [ %53, %Vec_IntPush.exit ]
+  %.187185 = phi i32 [ 0, %.preheader.lr.ph ], [ %53, %Vec_IntPush.exit ]
   br i1 %17, label %.lr.ph183, label %._crit_edge184
 
 .lr.ph183:                                        ; preds = %.preheader
-  %18 = xor i32 %.1185, -1
+  %18 = xor i32 %.187185, -1
   br label %19
 
 19:                                               ; preds = %.lr.ph183, %19
-  %.085182 = phi i32 [ 0, %.lr.ph183 ], [ %20, %19 ]
-  %.087181 = phi i32 [ 1, %.lr.ph183 ], [ %25, %19 ]
-  %20 = add nuw nsw i32 %.085182, 1
-  %21 = lshr i32 %18, %.085182
+  %.0182 = phi i32 [ 1, %.lr.ph183 ], [ %25, %19 ]
+  %.085181 = phi i32 [ 0, %.lr.ph183 ], [ %20, %19 ]
+  %20 = add nuw nsw i32 %.085181, 1
+  %21 = lshr i32 %18, %.085181
   %22 = and i32 %21, 1
   %23 = shl nuw nsw i32 %20, 1
   %24 = or disjoint i32 %23, %22
-  %25 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %5, i32 noundef %.087181, i32 noundef %24) #15
+  %25 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %5, i32 noundef %.0182, i32 noundef %24) #15
   %exitcond204.not = icmp eq i32 %20, %1
   br i1 %exitcond204.not, label %._crit_edge184, label %19, !llvm.loop !41
 
 ._crit_edge184:                                   ; preds = %19, %.preheader
-  %.087.lcssa = phi i32 [ 1, %.preheader ], [ %25, %19 ]
+  %.0.lcssa = phi i32 [ 1, %.preheader ], [ %25, %19 ]
   %26 = load i32, ptr %12, align 4
   %27 = load i32, ptr %11, align 8
   %28 = icmp eq i32 %26, %27
@@ -2082,8 +2082,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %50, ptr %12, align 4
   %51 = sext i32 %26 to i64
   %52 = getelementptr inbounds i32, ptr %49, i64 %51
-  store i32 %.087.lcssa, ptr %52, align 4
-  %53 = add nuw nsw i32 %.1185, 1
+  store i32 %.0.lcssa, ptr %52, align 4
+  %53 = add nuw nsw i32 %.187185, 1
   %exitcond205.not = icmp eq i32 %53, %smax
   br i1 %exitcond205.not, label %._crit_edge186, label %.preheader, !llvm.loop !42
 

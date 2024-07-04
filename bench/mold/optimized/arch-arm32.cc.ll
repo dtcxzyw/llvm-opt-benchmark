@@ -6290,8 +6290,8 @@ if.then:                                          ; preds = %while.body
   br i1 %cmp23.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.then, %while.body.i.i.i.i
-  %__holeIndex.addr.024.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %while.body.i.i.i.i ], [ %div13.i.i.i, %if.then ]
-  %add.i.i.i.i = shl i64 %__holeIndex.addr.024.i.i.i.i, 1
+  %__secondChild.024.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %while.body.i.i.i.i ], [ %div13.i.i.i, %if.then ]
+  %add.i.i.i.i = shl i64 %__secondChild.024.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
   %add.ptr.i.i.i.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %mul.i.i.i.i
   %sub1.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
@@ -6301,32 +6301,32 @@ while.body.i.i.i.i:                               ; preds = %if.then, %while.bod
   %cmp.i.i.i.i.i.i = icmp ult i32 %add.ptr.val.i.i.i.i, %add.ptr2.val.i.i.i.i
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 %sub1.i.i.i.i, i64 %mul.i.i.i.i
   %add.ptr3.i.i.i.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %spec.select.i.i.i.i
-  %add.ptr4.i.i.i.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %__holeIndex.addr.024.i.i.i.i
+  %add.ptr4.i.i.i.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %__secondChild.024.i.i.i.i
   %0 = load i64, ptr %add.ptr3.i.i.i.i, align 1
   store i64 %0, ptr %add.ptr4.i.i.i.i, align 1
   %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i13.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !32
 
 while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i, %if.then
-  %__holeIndex.addr.0.lcssa.i.i.i.i = phi i64 [ %div13.i.i.i, %if.then ], [ %spec.select.i.i.i.i, %while.body.i.i.i.i ]
+  %__secondChild.0.lcssa.i.i.i.i = phi i64 [ %div13.i.i.i, %if.then ], [ %spec.select.i.i.i.i, %while.body.i.i.i.i ]
   %1 = and i64 %sub.ptr.sub26, 8
   %cmp5.i.i.i.i = icmp eq i64 %1, 0
   %div7.i.i.i.i = ashr exact i64 %sub.i.i.i, 1
-  %cmp8.i.i.i.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i.i, %div7.i.i.i.i
+  %cmp8.i.i.i.i = icmp eq i64 %__secondChild.0.lcssa.i.i.i.i, %div7.i.i.i.i
   %or.cond.i.i.i = select i1 %cmp5.i.i.i.i, i1 %cmp8.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i, label %if.then9.i.i.i.i, label %if.end16.i.i.i.i
 
 if.then9.i.i.i.i:                                 ; preds = %while.end.i.i.i.i
-  %add10.i.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i.i, 1
+  %add10.i.i.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i.i.i, 1
   %sub12.i.i.i.i = or disjoint i64 %add10.i.i.i.i, 1
   %add.ptr13.i.i.i.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %sub12.i.i.i.i
-  %add.ptr14.i.i.i.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i.i
+  %add.ptr14.i.i.i.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %__secondChild.0.lcssa.i.i.i.i
   %2 = load i64, ptr %add.ptr13.i.i.i.i, align 1
   store i64 %2, ptr %add.ptr14.i.i.i.i, align 1
   br label %if.end16.i.i.i.i
 
 if.end16.i.i.i.i:                                 ; preds = %if.then9.i.i.i.i, %while.end.i.i.i.i
-  %__holeIndex.addr.1.i.i.i.i = phi i64 [ %sub12.i.i.i.i, %if.then9.i.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i.i, %while.end.i.i.i.i ]
+  %__holeIndex.addr.1.i.i.i.i = phi i64 [ %sub12.i.i.i.i, %if.then9.i.i.i.i ], [ %__secondChild.0.lcssa.i.i.i.i, %while.end.i.i.i.i ]
   %__value.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %__value.sroa.0.0.copyload10.i.i.i to i32
   %cmp3.i.i.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i.i, %div13.i.i.i
   br i1 %cmp3.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %"_ZSt13__adjust_heapIPZN4mold3elf23fixup_arm_exidx_sectionERNS1_7ContextINS1_5ARM32EEEE5EntrylS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23fixup_arm_exidx_sectionES5_E3$_1EEEvT_T0_SE_T1_T2_.exit.i.i.i"
@@ -6372,8 +6372,8 @@ if.end8.split.us.i.i.i:                           ; preds = %if.end8.split.lr.ph
   br i1 %cmp23.i16.not.us.i.i.i, label %"_ZSt13__adjust_heapIPZN4mold3elf23fixup_arm_exidx_sectionERNS1_7ContextINS1_5ARM32EEEE5EntrylS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23fixup_arm_exidx_sectionES5_E3$_1EEEvT_T0_SE_T1_T2_.exit60.us.i.i.i", label %while.body.i46.us.i.i.i
 
 while.body.i46.us.i.i.i:                          ; preds = %if.end8.split.us.i.i.i, %while.body.i46.us.i.i.i
-  %__holeIndex.addr.024.i47.us.i.i.i = phi i64 [ %spec.select.i56.us.i.i.i, %while.body.i46.us.i.i.i ], [ %dec.us.i.i.i, %if.end8.split.us.i.i.i ]
-  %add.i48.us.i.i.i = shl i64 %__holeIndex.addr.024.i47.us.i.i.i, 1
+  %__secondChild.024.i47.us.i.i.i = phi i64 [ %spec.select.i56.us.i.i.i, %while.body.i46.us.i.i.i ], [ %dec.us.i.i.i, %if.end8.split.us.i.i.i ]
+  %add.i48.us.i.i.i = shl i64 %__secondChild.024.i47.us.i.i.i, 1
   %mul.i49.us.i.i.i = add i64 %add.i48.us.i.i.i, 2
   %add.ptr.i50.us.i.i.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %mul.i49.us.i.i.i
   %sub1.i51.us.i.i.i = or disjoint i64 %add.i48.us.i.i.i, 1
@@ -6383,7 +6383,7 @@ while.body.i46.us.i.i.i:                          ; preds = %if.end8.split.us.i.
   %cmp.i.i.i55.us.i.i.i = icmp ult i32 %add.ptr.val.i53.us.i.i.i, %add.ptr2.val.i54.us.i.i.i
   %spec.select.i56.us.i.i.i = select i1 %cmp.i.i.i55.us.i.i.i, i64 %sub1.i51.us.i.i.i, i64 %mul.i49.us.i.i.i
   %add.ptr3.i57.us.i.i.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %spec.select.i56.us.i.i.i
-  %add.ptr4.i58.us.i.i.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %__holeIndex.addr.024.i47.us.i.i.i
+  %add.ptr4.i58.us.i.i.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %__secondChild.024.i47.us.i.i.i
   %4 = load i64, ptr %add.ptr3.i57.us.i.i.i, align 1
   store i64 %4, ptr %add.ptr4.i58.us.i.i.i, align 1
   %cmp.i59.us.i.i.i = icmp slt i64 %spec.select.i56.us.i.i.i, %div.i13.i.i.i
@@ -6425,8 +6425,8 @@ if.end8.split.i.i.i:                              ; preds = %"_ZSt13__adjust_hea
   br i1 %cmp23.i16.not.i.i.i, label %while.end.i17.i.i.i, label %while.body.i46.i.i.i
 
 while.body.i46.i.i.i:                             ; preds = %if.end8.split.i.i.i, %while.body.i46.i.i.i
-  %__holeIndex.addr.024.i47.i.i.i = phi i64 [ %spec.select.i56.i.i.i, %while.body.i46.i.i.i ], [ %dec.i.i.i, %if.end8.split.i.i.i ]
-  %add.i48.i.i.i = shl i64 %__holeIndex.addr.024.i47.i.i.i, 1
+  %__secondChild.024.i47.i.i.i = phi i64 [ %spec.select.i56.i.i.i, %while.body.i46.i.i.i ], [ %dec.i.i.i, %if.end8.split.i.i.i ]
+  %add.i48.i.i.i = shl i64 %__secondChild.024.i47.i.i.i, 1
   %mul.i49.i.i.i = add i64 %add.i48.i.i.i, 2
   %add.ptr.i50.i.i.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %mul.i49.i.i.i
   %sub1.i51.i.i.i = or disjoint i64 %add.i48.i.i.i, 1
@@ -6436,15 +6436,15 @@ while.body.i46.i.i.i:                             ; preds = %if.end8.split.i.i.i
   %cmp.i.i.i55.i.i.i = icmp ult i32 %add.ptr.val.i53.i.i.i, %add.ptr2.val.i54.i.i.i
   %spec.select.i56.i.i.i = select i1 %cmp.i.i.i55.i.i.i, i64 %sub1.i51.i.i.i, i64 %mul.i49.i.i.i
   %add.ptr3.i57.i.i.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %spec.select.i56.i.i.i
-  %add.ptr4.i58.i.i.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %__holeIndex.addr.024.i47.i.i.i
+  %add.ptr4.i58.i.i.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %__secondChild.024.i47.i.i.i
   %6 = load i64, ptr %add.ptr3.i57.i.i.i, align 1
   store i64 %6, ptr %add.ptr4.i58.i.i.i, align 1
   %cmp.i59.i.i.i = icmp slt i64 %spec.select.i56.i.i.i, %div.i13.i.i.i
   br i1 %cmp.i59.i.i.i, label %while.body.i46.i.i.i, label %while.end.i17.i.i.i, !llvm.loop !32
 
 while.end.i17.i.i.i:                              ; preds = %while.body.i46.i.i.i, %if.end8.split.i.i.i
-  %__holeIndex.addr.0.lcssa.i18.i.i.i = phi i64 [ %dec.i.i.i, %if.end8.split.i.i.i ], [ %spec.select.i56.i.i.i, %while.body.i46.i.i.i ]
-  %cmp8.i40.i.i.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i18.i.i.i, %div7.i.i.i.i
+  %__secondChild.0.lcssa.i18.i.i.i = phi i64 [ %dec.i.i.i, %if.end8.split.i.i.i ], [ %spec.select.i56.i.i.i, %while.body.i46.i.i.i ]
+  %cmp8.i40.i.i.i = icmp eq i64 %__secondChild.0.lcssa.i18.i.i.i, %div7.i.i.i.i
   br i1 %cmp8.i40.i.i.i, label %if.then9.i41.i.i.i, label %if.end16.i21.i.i.i
 
 if.then9.i41.i.i.i:                               ; preds = %while.end.i17.i.i.i
@@ -6453,7 +6453,7 @@ if.then9.i41.i.i.i:                               ; preds = %while.end.i17.i.i.i
   br label %if.end16.i21.i.i.i
 
 if.end16.i21.i.i.i:                               ; preds = %if.then9.i41.i.i.i, %while.end.i17.i.i.i
-  %__holeIndex.addr.1.i22.i.i.i = phi i64 [ %sub12.i43.i.i.i, %if.then9.i41.i.i.i ], [ %__holeIndex.addr.0.lcssa.i18.i.i.i, %while.end.i17.i.i.i ]
+  %__holeIndex.addr.1.i22.i.i.i = phi i64 [ %sub12.i43.i.i.i, %if.then9.i41.i.i.i ], [ %__secondChild.0.lcssa.i18.i.i.i, %while.end.i17.i.i.i ]
   %__value.sroa.0.0.extract.trunc.i.i23.i.i.i = trunc i64 %__value.sroa.0.0.copyload12.i.i.i to i32
   %cmp3.i.i24.not.i.i.i = icmp slt i64 %__holeIndex.addr.1.i22.i.i.i, %__parent.05.i.i.i
   br i1 %cmp3.i.i24.not.i.i.i, label %"_ZSt13__adjust_heapIPZN4mold3elf23fixup_arm_exidx_sectionERNS1_7ContextINS1_5ARM32EEEE5EntrylS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23fixup_arm_exidx_sectionES5_E3$_1EEEvT_T0_SE_T1_T2_.exit60.i.i.i", label %land.rhs.i.i27.i.i.i
@@ -6499,8 +6499,8 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
   br i1 %cmp23.i.i.i10.i, label %while.body.i.i.i40.i, label %while.end.i.i.i11.i
 
 while.body.i.i.i40.i:                             ; preds = %while.body.i.i, %while.body.i.i.i40.i
-  %__holeIndex.addr.024.i.i.i41.i = phi i64 [ %spec.select.i.i.i50.i, %while.body.i.i.i40.i ], [ 0, %while.body.i.i ]
-  %add.i.i.i42.i = shl i64 %__holeIndex.addr.024.i.i.i41.i, 1
+  %__secondChild.024.i.i.i41.i = phi i64 [ %spec.select.i.i.i50.i, %while.body.i.i.i40.i ], [ 0, %while.body.i.i ]
+  %add.i.i.i42.i = shl i64 %__secondChild.024.i.i.i41.i, 1
   %mul.i.i.i43.i = add i64 %add.i.i.i42.i, 2
   %add.ptr.i.i.i44.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %mul.i.i.i43.i
   %sub1.i.i.i45.i = or disjoint i64 %add.i.i.i42.i, 1
@@ -6510,14 +6510,14 @@ while.body.i.i.i40.i:                             ; preds = %while.body.i.i, %wh
   %cmp.i.i.i.i.i49.i = icmp ult i32 %add.ptr.val.i.i.i47.i, %add.ptr2.val.i.i.i48.i
   %spec.select.i.i.i50.i = select i1 %cmp.i.i.i.i.i49.i, i64 %sub1.i.i.i45.i, i64 %mul.i.i.i43.i
   %add.ptr3.i.i.i51.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %spec.select.i.i.i50.i
-  %add.ptr4.i.i.i52.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %__holeIndex.addr.024.i.i.i41.i
+  %add.ptr4.i.i.i52.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %__secondChild.024.i.i.i41.i
   %10 = load i64, ptr %add.ptr3.i.i.i51.i, align 1
   store i64 %10, ptr %add.ptr4.i.i.i52.i, align 1
   %cmp.i.i.i53.i = icmp slt i64 %spec.select.i.i.i50.i, %div.i.i.i9.i
   br i1 %cmp.i.i.i53.i, label %while.body.i.i.i40.i, label %while.end.i.i.i11.i, !llvm.loop !32
 
 while.end.i.i.i11.i:                              ; preds = %while.body.i.i.i40.i, %while.body.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i12.i = phi i64 [ 0, %while.body.i.i ], [ %spec.select.i.i.i50.i, %while.body.i.i.i40.i ]
+  %__secondChild.0.lcssa.i.i.i12.i = phi i64 [ 0, %while.body.i.i ], [ %spec.select.i.i.i50.i, %while.body.i.i.i40.i ]
   %11 = and i64 %sub.ptr.sub.i.i6.i, 8
   %cmp5.i.i.i13.i = icmp eq i64 %11, 0
   br i1 %cmp5.i.i.i13.i, label %land.lhs.true.i.i.i.i, label %if.end16.i.i.i14.i
@@ -6525,20 +6525,20 @@ while.end.i.i.i11.i:                              ; preds = %while.body.i.i.i40.
 land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i11.i
   %sub6.i.i.i32.i = add nsw i64 %sub.ptr.div.i.i7.i, -2
   %div7.i.i.i33.i = ashr exact i64 %sub6.i.i.i32.i, 1
-  %cmp8.i.i.i34.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i12.i, %div7.i.i.i33.i
+  %cmp8.i.i.i34.i = icmp eq i64 %__secondChild.0.lcssa.i.i.i12.i, %div7.i.i.i33.i
   br i1 %cmp8.i.i.i34.i, label %if.then9.i.i.i35.i, label %if.end16.i.i.i14.i
 
 if.then9.i.i.i35.i:                               ; preds = %land.lhs.true.i.i.i.i
-  %add10.i.i.i36.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i12.i, 1
+  %add10.i.i.i36.i = shl nsw i64 %__secondChild.0.lcssa.i.i.i12.i, 1
   %sub12.i.i.i37.i = or disjoint i64 %add10.i.i.i36.i, 1
   %add.ptr13.i.i.i38.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %sub12.i.i.i37.i
-  %add.ptr14.i.i.i39.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i12.i
+  %add.ptr14.i.i.i39.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %__secondChild.0.lcssa.i.i.i12.i
   %12 = load i64, ptr %add.ptr13.i.i.i38.i, align 1
   store i64 %12, ptr %add.ptr14.i.i.i39.i, align 1
   br label %if.end16.i.i.i14.i
 
 if.end16.i.i.i14.i:                               ; preds = %if.then9.i.i.i35.i, %land.lhs.true.i.i.i.i, %while.end.i.i.i11.i
-  %__holeIndex.addr.1.i.i.i15.i = phi i64 [ %sub12.i.i.i37.i, %if.then9.i.i.i35.i ], [ %__holeIndex.addr.0.lcssa.i.i.i12.i, %land.lhs.true.i.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i12.i, %while.end.i.i.i11.i ]
+  %__holeIndex.addr.1.i.i.i15.i = phi i64 [ %sub12.i.i.i37.i, %if.then9.i.i.i35.i ], [ %__secondChild.0.lcssa.i.i.i12.i, %land.lhs.true.i.i.i.i ], [ %__secondChild.0.lcssa.i.i.i12.i, %while.end.i.i.i11.i ]
   %__value.sroa.0.0.extract.trunc.i.i.i.i16.i = trunc i64 %__value.sroa.0.0.copyload.i.i4.i to i32
   %cmp3.i.i.i.i17.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i15.i, 0
   br i1 %cmp3.i.i.i.i17.i, label %land.rhs.i.i.i.i22.i, label %"_ZSt10__pop_heapIPZN4mold3elf23fixup_arm_exidx_sectionERNS1_7ContextINS1_5ARM32EEEE5EntryN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23fixup_arm_exidx_sectionES5_E3$_1EEEvT_SD_SD_RT0_.exit.i18.i"
@@ -7394,8 +7394,8 @@ for.cond.i.preheader:                             ; preds = %if.then.i, %"_ZNK3t
 
 for.cond.i:                                       ; preds = %for.cond.i.preheader, %if.end15.i
   %.val21.i = phi i32 [ %.val21.pre.i, %if.end15.i ], [ %.val21.i.ph, %for.cond.i.preheader ]
-  %j.0.i = phi i64 [ %dec.i, %if.end15.i ], [ %j.0.i.ph, %for.cond.i.preheader ]
   %i.0.i = phi i64 [ %inc.i, %if.end15.i ], [ 0, %for.cond.i.preheader ]
+  %j.0.i = phi i64 [ %dec.i, %if.end15.i ], [ %j.0.i.ph, %for.cond.i.preheader ]
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %for.cond.i

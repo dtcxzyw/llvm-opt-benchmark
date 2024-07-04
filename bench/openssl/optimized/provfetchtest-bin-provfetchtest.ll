@@ -128,12 +128,12 @@ sw.epilog:                                        ; preds = %lor.lhs.false46, %s
   br label %err
 
 err:                                              ; preds = %if.end15, %sw.bb38, %lor.lhs.false46, %sw.bb30, %sw.bb22, %sw.bb, %if.end, %lor.lhs.false, %lor.lhs.false10, %entry, %sw.epilog
+  %dummyprov.0 = phi ptr [ %call11, %if.end15 ], [ %call11, %sw.epilog ], [ %call11, %lor.lhs.false46 ], [ %call11, %sw.bb38 ], [ %call11, %sw.bb30 ], [ %call11, %sw.bb22 ], [ %call11, %sw.bb ], [ %call11, %lor.lhs.false10 ], [ null, %lor.lhs.false ], [ null, %if.end ], [ null, %entry ]
   %nullprov.0 = phi ptr [ %call7, %if.end15 ], [ %call7, %sw.epilog ], [ %call7, %lor.lhs.false46 ], [ %call7, %sw.bb38 ], [ %call7, %sw.bb30 ], [ %call7, %sw.bb22 ], [ %call7, %sw.bb ], [ %call7, %lor.lhs.false10 ], [ %call7, %lor.lhs.false ], [ null, %if.end ], [ null, %entry ]
   %decoder.1 = phi ptr [ null, %if.end15 ], [ %decoder.0, %sw.epilog ], [ null, %lor.lhs.false46 ], [ null, %sw.bb38 ], [ null, %sw.bb30 ], [ null, %sw.bb22 ], [ %call17, %sw.bb ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false ], [ null, %if.end ], [ null, %entry ]
   %encoder.1 = phi ptr [ null, %if.end15 ], [ %encoder.0, %sw.epilog ], [ null, %lor.lhs.false46 ], [ null, %sw.bb38 ], [ null, %sw.bb30 ], [ %call25, %sw.bb22 ], [ null, %sw.bb ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false ], [ null, %if.end ], [ null, %entry ]
   %loader.1 = phi ptr [ null, %if.end15 ], [ %loader.0, %sw.epilog ], [ null, %lor.lhs.false46 ], [ null, %sw.bb38 ], [ %call33, %sw.bb30 ], [ null, %sw.bb22 ], [ null, %sw.bb ], [ null, %lor.lhs.false10 ], [ null, %lor.lhs.false ], [ null, %if.end ], [ null, %entry ]
   %testresult.0 = phi i32 [ 0, %if.end15 ], [ 1, %sw.epilog ], [ 0, %lor.lhs.false46 ], [ 0, %sw.bb38 ], [ 0, %sw.bb30 ], [ 0, %sw.bb22 ], [ 0, %sw.bb ], [ 0, %lor.lhs.false10 ], [ 0, %lor.lhs.false ], [ 0, %if.end ], [ 0, %entry ]
-  %dummyprov.0 = phi ptr [ %call11, %if.end15 ], [ %call11, %sw.epilog ], [ %call11, %lor.lhs.false46 ], [ %call11, %sw.bb38 ], [ %call11, %sw.bb30 ], [ %call11, %sw.bb22 ], [ %call11, %sw.bb ], [ %call11, %lor.lhs.false10 ], [ null, %lor.lhs.false ], [ null, %if.end ], [ null, %entry ]
   call void @OSSL_DECODER_free(ptr noundef %decoder.1) #5
   call void @OSSL_ENCODER_free(ptr noundef %encoder.1) #5
   call void @OSSL_STORE_LOADER_free(ptr noundef %loader.1) #5

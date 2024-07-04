@@ -863,13 +863,13 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
   br label %.preheader76
 
 93:                                               ; preds = %._crit_edge.i
-  %94 = add nuw nsw i32 %.04478, 1
+  %94 = add nuw nsw i32 %.04178, 1
   %exitcond85.not = icmp eq i32 %94, 13
   br i1 %exitcond85.not, label %.preheader, label %.preheader76, !llvm.loop !14
 
 .preheader76:                                     ; preds = %.preheader76.preheader, %93
-  %.04478 = phi i32 [ %94, %93 ], [ 1, %.preheader76.preheader ]
-  %95 = icmp ult i32 %.04478, 3
+  %.04178 = phi i32 [ %94, %93 ], [ 1, %.preheader76.preheader ]
+  %95 = icmp ult i32 %.04178, 3
   br i1 %95, label %96, label %.loopexit.i
 
 96:                                               ; preds = %.preheader76
@@ -892,7 +892,7 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
   %101 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 32), align 8
   %102 = getelementptr inbounds ptr, ptr %101, i64 %indvars.iv.i60
   %103 = load ptr, ptr %102, align 8
-  tail call void @sema_analyze_stage(ptr noundef %103, i32 noundef %.04478)
+  tail call void @sema_analyze_stage(ptr noundef %103, i32 noundef %.04178)
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i60, 1
   %exitcond.not.i62 = icmp eq i64 %indvars.iv.next.i61, %wide.trip.count.i58
   br i1 %exitcond.not.i62, label %.loopexit.i, label %.lr.ph.i59, !llvm.loop !15
@@ -917,7 +917,7 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
   %108 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 24), align 8
   %109 = getelementptr inbounds ptr, ptr %108, i64 %indvars.iv31.i
   %110 = load ptr, ptr %109, align 8
-  tail call void @sema_analyze_stage(ptr noundef %110, i32 noundef %.04478)
+  tail call void @sema_analyze_stage(ptr noundef %110, i32 noundef %.04178)
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count34.i
   br i1 %exitcond35.not.i, label %._crit_edge.i, label %.lr.ph27.i, !llvm.loop !16
@@ -948,7 +948,7 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
 
 .lr.ph81:                                         ; preds = %.lr.ph81.preheader, %.thread
   %indvars.iv86 = phi i64 [ 0, %.lr.ph81.preheader ], [ %indvars.iv.next87, %.thread ]
-  %.04379 = phi i1 [ false, %.lr.ph81.preheader ], [ %.1, %.thread ]
+  %.04079 = phi i1 [ false, %.lr.ph81.preheader ], [ %.1, %.thread ]
   %117 = getelementptr inbounds ptr, ptr %113, i64 %indvars.iv86
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 112
@@ -967,7 +967,7 @@ analyze_generic_module.exit:                      ; preds = %register_generic_de
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph81, %121, %124
-  %.1 = phi i1 [ true, %124 ], [ %.04379, %121 ], [ %.04379, %.lr.ph81 ]
+  %.1 = phi i1 [ true, %124 ], [ %.04079, %121 ], [ %.04079, %.lr.ph81 ]
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count88
   br i1 %exitcond89.not, label %._crit_edge, label %.lr.ph81, !llvm.loop !17
@@ -1397,7 +1397,7 @@ define dso_local void @sema_context_init(ptr nocapture noundef writeonly %0, ptr
   br label %global_context_acquire_locals_list.exit
 
 global_context_acquire_locals_list.exit:          ; preds = %.critedge.i, %11, %16
-  %.014.i = phi ptr [ %10, %.critedge.i ], [ null, %11 ], [ %15, %16 ]
+  %.013.i = phi ptr [ %10, %.critedge.i ], [ null, %11 ], [ %15, %16 ]
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 96), align 8
   %.not.i5 = icmp eq ptr %18, null
   br i1 %.not.i5, label %.critedge.i8, label %19
@@ -1430,7 +1430,7 @@ global_context_acquire_locals_list.exit:          ; preds = %.critedge.i, %11, %
   br label %global_context_acquire_locals_list.exit9
 
 global_context_acquire_locals_list.exit9:         ; preds = %.critedge.i8, %26, %31
-  %.014.i7 = phi ptr [ %25, %.critedge.i8 ], [ null, %26 ], [ %30, %31 ]
+  %.013.i7 = phi ptr [ %25, %.critedge.i8 ], [ null, %26 ], [ %30, %31 ]
   store ptr null, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1439,11 +1439,11 @@ global_context_acquire_locals_list.exit9:         ; preds = %.critedge.i8, %26, 
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.4.0..sroa_idx, i8 0, i64 192, i1 false)
   %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 216
-  store ptr %.014.i, ptr %.sroa.41.0..sroa_idx, align 8
+  store ptr %.013.i, ptr %.sroa.41.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i8 0, i64 16, i1 false)
   %.sroa.52.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 240
-  store ptr %.014.i7, ptr %.sroa.52.0..sroa_idx, align 8
+  store ptr %.013.i7, ptr %.sroa.52.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.6.0..sroa_idx, i8 0, i64 56, i1 false)
   ret void
@@ -1483,8 +1483,8 @@ define dso_local ptr @global_context_acquire_locals_list() local_unnamed_addr #0
   br label %vec_resize.exit
 
 vec_resize.exit:                                  ; preds = %14, %9, %.critedge
-  %.014 = phi ptr [ %8, %.critedge ], [ null, %9 ], [ %13, %14 ]
-  ret ptr %.014
+  %.013 = phi ptr [ %8, %.critedge ], [ null, %9 ], [ %13, %14 ]
+  ret ptr %.013
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -1748,7 +1748,7 @@ define dso_local noundef ptr @context_transform_for_eval(ptr noundef readonly %0
   br label %global_context_acquire_locals_list.exit.i
 
 global_context_acquire_locals_list.exit.i:        ; preds = %21, %16, %.critedge.i.i
-  %.014.i.i = phi ptr [ %15, %.critedge.i.i ], [ null, %16 ], [ %20, %21 ]
+  %.013.i.i = phi ptr [ %15, %.critedge.i.i ], [ null, %16 ], [ %20, %21 ]
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 96), align 8
   %.not.i5.i = icmp eq ptr %23, null
   br i1 %.not.i5.i, label %.critedge.i8.i, label %24
@@ -1781,7 +1781,7 @@ global_context_acquire_locals_list.exit.i:        ; preds = %21, %16, %.critedge
   br label %sema_context_init.exit
 
 sema_context_init.exit:                           ; preds = %.critedge.i8.i, %31, %36
-  %.014.i7.i = phi ptr [ %30, %.critedge.i8.i ], [ null, %31 ], [ %35, %36 ]
+  %.013.i7.i = phi ptr [ %30, %.critedge.i8.i ], [ null, %31 ], [ %35, %36 ]
   store ptr null, ptr %1, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %2, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -1790,11 +1790,11 @@ sema_context_init.exit:                           ; preds = %.critedge.i8.i, %31
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.4.0..sroa_idx.i, i8 0, i64 192, i1 false)
   %.sroa.41.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 216
-  store ptr %.014.i.i, ptr %.sroa.41.0..sroa_idx.i, align 8
+  store ptr %.013.i.i, ptr %.sroa.41.0..sroa_idx.i, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 224
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i, i8 0, i64 16, i1 false)
   %.sroa.52.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 240
-  store ptr %.014.i7.i, ptr %.sroa.52.0..sroa_idx.i, align 8
+  store ptr %.013.i7.i, ptr %.sroa.52.0..sroa_idx.i, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.6.0..sroa_idx.i, i8 0, i64 56, i1 false)
   %38 = getelementptr inbounds i8, ptr %0, i64 16

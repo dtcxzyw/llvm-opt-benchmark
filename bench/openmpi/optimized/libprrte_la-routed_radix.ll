@@ -256,23 +256,23 @@ define void @prte_rml_compute_routing_tree() local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %.lr.ph, %3
-  %.04676 = phi i32 [ 1, %.lr.ph ], [ %5, %3 ]
-  %.04775 = phi i32 [ 1, %.lr.ph ], [ %4, %3 ]
-  %4 = mul nsw i32 %2, %.04775
-  %5 = add nsw i32 %4, %.04676
+  %.076 = phi i32 [ 1, %.lr.ph ], [ %4, %3 ]
+  %.04475 = phi i32 [ 1, %.lr.ph ], [ %5, %3 ]
+  %4 = mul nsw i32 %2, %.076
+  %5 = add nsw i32 %4, %.04475
   %.not = icmp sgt i32 %5, %1
   br i1 %.not, label %._crit_edge, label %3, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %3, %0
-  %.047.lcssa = phi i32 [ 1, %0 ], [ %4, %3 ]
-  %.046.lcssa = phi i32 [ 1, %0 ], [ %5, %3 ]
+  %.044.lcssa = phi i32 [ 1, %0 ], [ %5, %3 ]
+  %.0.lcssa = phi i32 [ 1, %0 ], [ %4, %3 ]
   %6 = icmp eq i32 %1, 0
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %._crit_edge
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 840), align 8
-  %9 = sdiv i32 %.047.lcssa, %8
-  %10 = sub nsw i32 %.046.lcssa, %.047.lcssa
+  %9 = sdiv i32 %.0.lcssa, %8
+  %10 = sub nsw i32 %.044.lcssa, %.0.lcssa
   %11 = sub nsw i32 %1, %10
   %12 = srem i32 %11, %9
   %13 = sub i32 %10, %9
@@ -421,8 +421,8 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i65, %65, %1
   %78 = trunc i64 %77 to i32
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %75, i32 noundef %76, i32 noundef %78) #9
   %79 = tail call ptr @prte_get_job_data_object(ptr noundef nonnull @prte_process_info) #9
-  %.083 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 808), align 8
-  %.not5684 = icmp eq ptr %.083, getelementptr inbounds (i8, ptr @prte_rml_base, i64 688)
+  %.04783 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_rml_base, i64 808), align 8
+  %.not5684 = icmp eq ptr %.04783, getelementptr inbounds (i8, ptr @prte_rml_base, i64 688)
   br i1 %.not5684, label %.loopexit73, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %74
@@ -430,9 +430,9 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i65, %65, %1
   br label %81
 
 81:                                               ; preds = %.lr.ph87, %.loopexit
-  %.085 = phi ptr [ %.083, %.lr.ph87 ], [ %.0, %.loopexit ]
+  %.04785 = phi ptr [ %.04783, %.lr.ph87 ], [ %.047, %.loopexit ]
   %82 = load ptr, ptr %80, align 8
-  %83 = getelementptr inbounds i8, ptr %.085, i64 144
+  %83 = getelementptr inbounds i8, ptr %.04785, i64 144
   %84 = load i32, ptr %83, align 8
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %pmix_pointer_array_get_item.exit.thread, label %86
@@ -482,29 +482,29 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %81, %86, %99, %95, 
   br i1 %112, label %.lr.ph82, label %.loopexit
 
 .lr.ph82:                                         ; preds = %105
-  %113 = getelementptr inbounds i8, ptr %.085, i64 152
+  %113 = getelementptr inbounds i8, ptr %.04785, i64 152
   br label %114
 
 114:                                              ; preds = %.lr.ph82, %118
-  %.04480 = phi i32 [ 0, %.lr.ph82 ], [ %119, %118 ]
-  %115 = tail call zeroext i1 @pmix_bitmap_is_set_bit(ptr noundef nonnull %113, i32 noundef %.04480) #9
+  %.04680 = phi i32 [ 0, %.lr.ph82 ], [ %119, %118 ]
+  %115 = tail call zeroext i1 @pmix_bitmap_is_set_bit(ptr noundef nonnull %113, i32 noundef %.04680) #9
   br i1 %115, label %116, label %118
 
 116:                                              ; preds = %114
   %117 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #9
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %117, i32 noundef %.04480) #9
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %117, i32 noundef %.04680) #9
   br label %118
 
 118:                                              ; preds = %114, %116
-  %119 = add nuw nsw i32 %.04480, 1
+  %119 = add nuw nsw i32 %.04680, 1
   %120 = load i32, ptr getelementptr inbounds (i8, ptr @prte_process_info, i64 792), align 8
   %121 = icmp slt i32 %119, %120
   br i1 %121, label %114, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %118, %105, %pmix_pointer_array_get_item.exit.thread
-  %122 = getelementptr inbounds i8, ptr %.085, i64 120
-  %.0 = load ptr, ptr %122, align 8
-  %.not56 = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @prte_rml_base, i64 688)
+  %122 = getelementptr inbounds i8, ptr %.04785, i64 120
+  %.047 = load ptr, ptr %122, align 8
+  %.not56 = icmp eq ptr %.047, getelementptr inbounds (i8, ptr @prte_rml_base, i64 688)
   br i1 %.not56, label %.loopexit73, label %81, !llvm.loop !12
 
 .loopexit73:                                      ; preds = %.loopexit, %74, %pmix_obj_run_constructors.exit

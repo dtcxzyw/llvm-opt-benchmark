@@ -364,26 +364,26 @@ get_current_executable_path.exit:                 ; preds = %12, %15, %18, %20, 
   br i1 %.not7484, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %77
-  %.06385 = phi ptr [ %spec.select78, %77 ], [ %57, %.preheader ]
-  %59 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.06385, i32 noundef 58) #19
+  %.06585 = phi ptr [ %spec.select78, %77 ], [ %57, %.preheader ]
+  %59 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.06585, i32 noundef 58) #19
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %.lr.ph
-  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.06385) #19
-  %63 = getelementptr i8, ptr %.06385, i64 %62
+  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.06585) #19
+  %63 = getelementptr i8, ptr %.06585, i64 %62
   br label %64
 
 64:                                               ; preds = %61, %.lr.ph
-  %.064 = phi ptr [ %63, %61 ], [ %59, %.lr.ph ]
-  %65 = ptrtoint ptr %.064 to i64
-  %66 = ptrtoint ptr %.06385 to i64
+  %.063 = phi ptr [ %63, %61 ], [ %59, %.lr.ph ]
+  %65 = ptrtoint ptr %.063 to i64
+  %66 = ptrtoint ptr %.06585 to i64
   %67 = sub i64 %65, %66
   %68 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #19
   %69 = add i64 %68, 2
   %70 = add i64 %69, %67
   %71 = tail call noalias ptr @g_malloc(i64 noundef %70) #22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %71, ptr nonnull align 1 %.06385, i64 %67, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %71, ptr nonnull align 1 %.06585, i64 %67, i1 false)
   %72 = getelementptr i8, ptr %71, i64 %67
   store i8 0, ptr %72, align 1
   %73 = tail call i64 @g_strlcat(ptr noundef %71, ptr noundef nonnull @.str.10, i64 noundef %70) #20
@@ -393,10 +393,10 @@ get_current_executable_path.exit:                 ; preds = %12, %15, %18, %20, 
   br i1 %76, label %.loopexit, label %77
 
 77:                                               ; preds = %64
-  %78 = load i8, ptr %.064, align 1
+  %78 = load i8, ptr %.063, align 1
   %79 = icmp eq i8 %78, 58
   %spec.select78.idx = zext i1 %79 to i64
-  %spec.select78 = getelementptr i8, ptr %.064, i64 %spec.select78.idx
+  %spec.select78 = getelementptr i8, ptr %.063, i64 %spec.select78.idx
   tail call void @g_free(ptr noundef nonnull %71) #20
   %80 = load i8, ptr %spec.select78, align 1
   %.not74 = icmp eq i8 %80, 0

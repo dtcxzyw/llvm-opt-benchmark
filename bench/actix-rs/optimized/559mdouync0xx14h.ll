@@ -1971,14 +1971,14 @@ _ZN19brotli_decompressor6decode25ReadCodeLengthCodeLengths17h117518c5aac4f147E.e
   br label %.backedge
 
 .preheader91:                                     ; preds = %_ZN19brotli_decompressor6decode25ReadCodeLengthCodeLengths17h117518c5aac4f147E.exit, %228
-  %.sroa.7.0190 = phi i64 [ %229, %228 ], [ 0, %_ZN19brotli_decompressor6decode25ReadCodeLengthCodeLengths17h117518c5aac4f147E.exit ]
-  %.sroa.070.0.idx189 = phi i64 [ %.sroa.070.0.add, %228 ], [ 128, %_ZN19brotli_decompressor6decode25ReadCodeLengthCodeLengths17h117518c5aac4f147E.exit ]
-  %.sroa.070.0.ptr = getelementptr inbounds i8, ptr %6, i64 %.sroa.070.0.idx189
-  %221 = trunc i64 %.sroa.7.0190 to i32
+  %.sroa.070.0.idx190 = phi i64 [ %.sroa.070.0.add, %228 ], [ 128, %_ZN19brotli_decompressor6decode25ReadCodeLengthCodeLengths17h117518c5aac4f147E.exit ]
+  %.sroa.7.0189 = phi i64 [ %229, %228 ], [ 0, %_ZN19brotli_decompressor6decode25ReadCodeLengthCodeLengths17h117518c5aac4f147E.exit ]
+  %.sroa.070.0.ptr = getelementptr inbounds i8, ptr %6, i64 %.sroa.070.0.idx190
+  %221 = trunc i64 %.sroa.7.0189 to i32
   %222 = add i32 %221, -16
   store i32 %222, ptr %.sroa.070.0.ptr, align 4
   %223 = load i64, ptr %30, align 8, !noundef !15
-  %224 = add i64 %223, %.sroa.7.0190
+  %224 = add i64 %223, %.sroa.7.0189
   %225 = shl i64 %224, 32
   %sext = add i64 %225, -68719476736
   %226 = ashr exact i64 %sext, 32
@@ -1986,8 +1986,8 @@ _ZN19brotli_decompressor6decode25ReadCodeLengthCodeLengths17h117518c5aac4f147E.e
   br i1 %227, label %228, label %232, !prof !303
 
 228:                                              ; preds = %.preheader91
-  %229 = add nuw nsw i64 %.sroa.7.0190, 1
-  %.sroa.070.0.add = add nuw nsw i64 %.sroa.070.0.idx189, 4
+  %229 = add nuw nsw i64 %.sroa.7.0189, 1
+  %.sroa.070.0.add = add nuw nsw i64 %.sroa.070.0.idx190, 4
   %230 = getelementptr inbounds [720 x i16], ptr %invariant.gep, i64 0, i64 %226
   store i16 -1, ptr %230, align 2
   %231 = icmp eq i64 %.sroa.070.0.add, 192
@@ -9070,8 +9070,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   br label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h134065e4512c35d6E.llvm.11440381710838953987.exit"
 
 "_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h134065e4512c35d6E.llvm.11440381710838953987.exit": ; preds = %3, %5
-  %.sroa.0.0.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i, %3 ]
   %.sroa.3.0.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i, %3 ]
+  %.sroa.0.0.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i, %3 ]
   store i64 1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -9102,8 +9102,8 @@ define hidden { i64, i64 } @"_ZN3std4hash6random11RandomState3new4KEYS7__getit28
   br label %8
 
 8:                                                ; preds = %2, %4
-  %.sroa.0.0 = phi i64 [ %6, %4 ], [ %.sroa.5.0.copyload, %2 ]
   %.sroa.3.0 = phi i64 [ %7, %4 ], [ %.sroa.6.0.copyload, %2 ]
+  %.sroa.0.0 = phi i64 [ %6, %4 ], [ %.sroa.5.0.copyload, %2 ]
   %9 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
   ret { i64, i64 } %10
@@ -9578,19 +9578,19 @@ _ZN4core4hash6Hasher11write_isize17hf6c7417ff732a3f3E.exit8.i.i.i.i: ; preds = %
   br label %.outer212
 
 .outer212:                                        ; preds = %"_ZN113_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$$RF$http..header..name..HeaderName$GT$$GT$2eq17h3dc5c47ad4e3b110E.exit.thread", %.loopexit93
-  %.058.ph = phi i64 [ %165, %"_ZN113_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$$RF$http..header..name..HeaderName$GT$$GT$2eq17h3dc5c47ad4e3b110E.exit.thread" ], [ 0, %.loopexit93 ]
-  %.054.ph = phi i64 [ %166, %"_ZN113_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$$RF$http..header..name..HeaderName$GT$$GT$2eq17h3dc5c47ad4e3b110E.exit.thread" ], [ %133, %.loopexit93 ]
+  %.058.ph = phi i64 [ %166, %"_ZN113_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$$RF$http..header..name..HeaderName$GT$$GT$2eq17h3dc5c47ad4e3b110E.exit.thread" ], [ %133, %.loopexit93 ]
+  %.055.ph = phi i64 [ %165, %"_ZN113_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$$RF$http..header..name..HeaderName$GT$$GT$2eq17h3dc5c47ad4e3b110E.exit.thread" ], [ 0, %.loopexit93 ]
   %139 = load i64, ptr %135, align 8, !noundef !15
   br label %140
 
 140:                                              ; preds = %.outer212, %140
-  %.054 = phi i64 [ 0, %140 ], [ %.054.ph, %.outer212 ]
-  %141 = icmp ult i64 %.054, %139
+  %.058 = phi i64 [ 0, %140 ], [ %.058.ph, %.outer212 ]
+  %141 = icmp ult i64 %.058, %139
   br i1 %141, label %142, label %140
 
 142:                                              ; preds = %140
   %143 = load ptr, ptr %134, align 8, !nonnull !15, !align !63, !noundef !15
-  %144 = getelementptr inbounds [0 x { i16, i16 }], ptr %143, i64 0, i64 %.054
+  %144 = getelementptr inbounds [0 x { i16, i16 }], ptr %143, i64 0, i64 %.058
   %145 = load i16, ptr %144, align 2, !noundef !15
   %.not.not = icmp eq i16 %145, -1
   br i1 %.not.not, label %278, label %146
@@ -9602,10 +9602,10 @@ _ZN4core4hash6Hasher11write_isize17hf6c7417ff732a3f3E.exit8.i.i.i.i: ; preds = %
   %150 = load i16, ptr %130, align 8, !noundef !15
   %151 = and i16 %150, %149
   %152 = zext i16 %151 to i64
-  %153 = sub i64 %.054, %152
+  %153 = sub i64 %.058, %152
   %154 = zext i16 %150 to i64
   %155 = and i64 %153, %154
-  %.not = icmp uge i64 %155, %.058.ph
+  %.not = icmp uge i64 %155, %.055.ph
   br i1 %.not, label %156, label %158
 
 156:                                              ; preds = %146
@@ -9613,10 +9613,10 @@ _ZN4core4hash6Hasher11write_isize17hf6c7417ff732a3f3E.exit8.i.i.i.i: ; preds = %
   br i1 %157, label %162, label %"_ZN113_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$$RF$http..header..name..HeaderName$GT$$GT$2eq17h3dc5c47ad4e3b110E.exit.thread"
 
 158:                                              ; preds = %146
-  %159 = icmp ugt i64 %.058.ph, 511
+  %159 = icmp ugt i64 %.055.ph, 511
   %160 = load i64, ptr %0, align 8, !range !1207
   %161 = icmp ne i64 %160, 2
-  %.057 = select i1 %159, i1 %161, i1 false
+  %.054 = select i1 %159, i1 %161, i1 false
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   invoke void @"_ZN112_$LT$http..header..name..HeaderName$u20$as$u20$core..convert..From$LT$$RF$http..header..name..HeaderName$GT$$GT$4from17h9a22a5fb2360c87fE"(ptr noalias nocapture noundef nonnull sret({ { ptr, [3 x i64] } }) align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 %1)
           to label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17ha0f3599308db859eE.exit" unwind label %.loopexit.split-lp
@@ -9627,8 +9627,8 @@ _ZN4core4hash6Hasher11write_isize17hf6c7417ff732a3f3E.exit8.i.i.i.i: ; preds = %
   br i1 %164, label %167, label %.invoke, !prof !303
 
 "_ZN113_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$$RF$http..header..name..HeaderName$GT$$GT$2eq17h3dc5c47ad4e3b110E.exit.thread": ; preds = %167, %176, %"_ZN113_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$LT$$RF$http..header..name..HeaderName$GT$$GT$2eq17h3dc5c47ad4e3b110E.exit", %156
-  %165 = add nuw nsw i64 %.058.ph, 1
-  %166 = add i64 %.054, 1
+  %165 = add nuw nsw i64 %.055.ph, 1
+  %166 = add nuw i64 %.058, 1
   br label %.outer212
 
 167:                                              ; preds = %162
@@ -9858,7 +9858,7 @@ _ZN4http6header3map12append_value17hee05c08292a4f442E.exit: ; preds = %"_ZN5allo
   %.09.i.i.ph = phi i64 [ %270, %269 ], [ 0, %258 ]
   %.sroa.4.0.i.i.ph = phi i16 [ %271, %269 ], [ %129, %258 ]
   %.sroa.0.0.i.i.ph = phi i16 [ %266, %269 ], [ %261, %258 ]
-  %.0.i.i.ph = phi i64 [ %272, %269 ], [ %.054, %258 ]
+  %.0.i.i.ph = phi i64 [ %272, %269 ], [ %.058, %258 ]
   br label %262
 
 262:                                              ; preds = %.outer, %262
@@ -9885,7 +9885,7 @@ _ZN4http6header3map19do_insert_phase_two17h1435585878cd4442E.exit.i: ; preds = %
   store i16 %.sroa.0.0.i.i.ph, ptr %265, align 2, !alias.scope !1376, !noalias !1373
   store i16 %.sroa.4.0.i.i.ph, ptr %268, align 2, !alias.scope !1376, !noalias !1373
   %273 = icmp ugt i64 %.09.i.i.ph, 127
-  %or.cond.i = or i1 %.057, %273
+  %or.cond.i = or i1 %.054, %273
   %274 = load i64, ptr %0, align 8, !range !1207, !alias.scope !1370, !noalias !1373
   %275 = icmp eq i64 %274, 0
   %or.cond2.i = select i1 %or.cond.i, i1 %275, i1 false
@@ -9921,20 +9921,20 @@ _ZN4http6header3map19do_insert_phase_two17h1435585878cd4442E.exit.i: ; preds = %
 
 281:                                              ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17ha0f3599308db859eE.exit76"
   %282 = load i64, ptr %135, align 8, !noundef !15
-  %283 = icmp ult i64 %.054, %282
+  %283 = icmp ult i64 %.058, %282
   br i1 %283, label %284, label %289, !prof !303
 
 284:                                              ; preds = %281
   %285 = trunc i64 %279 to i16
   %286 = load ptr, ptr %134, align 8, !nonnull !15, !align !63, !noundef !15
-  %287 = getelementptr inbounds [0 x { i16, i16 }], ptr %286, i64 0, i64 %.054
+  %287 = getelementptr inbounds [0 x { i16, i16 }], ptr %286, i64 0, i64 %.058
   store i16 %285, ptr %287, align 2
   %288 = getelementptr inbounds i8, ptr %287, i64 2
   store i16 %129, ptr %288, align 2
   br label %290
 
 289:                                              ; preds = %281
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.054, i64 noundef %282, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c491ee7cdb5b0dcb09cc1dfe7ba29da7.153) #23
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.058, i64 noundef %282, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c491ee7cdb5b0dcb09cc1dfe7ba29da7.153) #23
   unreachable
 
 290:                                              ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17ha0f3599308db859eE.exit76", %277, %.thread92, %_ZN4http6header3map12append_value17hee05c08292a4f442E.exit, %284
@@ -10024,19 +10024,19 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_insert217h3946
   br label %.outer218
 
 .outer218:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h363c0353619c26cdE.llvm.11440381710838953987.exit.thread", %14
-  %.058.ph = phi i64 [ %48, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h363c0353619c26cdE.llvm.11440381710838953987.exit.thread" ], [ 0, %14 ]
-  %.054.ph = phi i64 [ %49, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h363c0353619c26cdE.llvm.11440381710838953987.exit.thread" ], [ %19, %14 ]
+  %.058.ph = phi i64 [ %49, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h363c0353619c26cdE.llvm.11440381710838953987.exit.thread" ], [ %19, %14 ]
+  %.055.ph = phi i64 [ %48, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h363c0353619c26cdE.llvm.11440381710838953987.exit.thread" ], [ 0, %14 ]
   %25 = load i64, ptr %21, align 8, !noundef !15
   br label %26
 
 26:                                               ; preds = %.outer218, %26
-  %.054 = phi i64 [ 0, %26 ], [ %.054.ph, %.outer218 ]
-  %27 = icmp ult i64 %.054, %25
+  %.058 = phi i64 [ 0, %26 ], [ %.058.ph, %.outer218 ]
+  %27 = icmp ult i64 %.058, %25
   br i1 %27, label %28, label %26
 
 28:                                               ; preds = %26
   %29 = load ptr, ptr %20, align 8, !nonnull !15, !align !63, !noundef !15
-  %30 = getelementptr inbounds [0 x { i16, i16 }], ptr %29, i64 0, i64 %.054
+  %30 = getelementptr inbounds [0 x { i16, i16 }], ptr %29, i64 0, i64 %.058
   %31 = load i16, ptr %30, align 2, !noundef !15
   %.not.not = icmp eq i16 %31, -1
   br i1 %.not.not, label %251, label %33
@@ -10051,10 +10051,10 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_insert217h3946
   %37 = load i16, ptr %16, align 8, !noundef !15
   %38 = and i16 %37, %36
   %39 = zext i16 %38 to i64
-  %40 = sub i64 %.054, %39
+  %40 = sub i64 %.058, %39
   %41 = zext i16 %37 to i64
   %42 = and i64 %40, %41
-  %.not = icmp ult i64 %42, %.058.ph
+  %.not = icmp ult i64 %42, %.055.ph
   br i1 %.not, label %.noexc72, label %43
 
 43:                                               ; preds = %33
@@ -10067,8 +10067,8 @@ define hidden void @"_ZN4http6header3map18HeaderMap$LT$T$GT$11try_insert217h3946
   br i1 %47, label %50, label %66, !prof !303
 
 "_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h363c0353619c26cdE.llvm.11440381710838953987.exit.thread": ; preds = %50, %59, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h363c0353619c26cdE.llvm.11440381710838953987.exit", %43
-  %48 = add nuw nsw i64 %.058.ph, 1
-  %49 = add i64 %.054, 1
+  %48 = add nuw nsw i64 %.055.ph, 1
+  %49 = add nuw i64 %.058, 1
   br label %.outer218
 
 50:                                               ; preds = %45
@@ -10497,10 +10497,10 @@ _ZN4http6header3map18remove_extra_value17h3a3ea2da7e461603E.exit.i.i: ; preds = 
   br label %250
 
 .noexc72:                                         ; preds = %33
-  %224 = icmp ugt i64 %.058.ph, 511
+  %224 = icmp ugt i64 %.055.ph, 511
   %225 = load i64, ptr %1, align 8, !range !1207
   %226 = icmp ne i64 %225, 2
-  %.057 = select i1 %224, i1 %226, i1 false
+  %.054 = select i1 %224, i1 %226, i1 false
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
@@ -10519,7 +10519,7 @@ _ZN4http6header3map18remove_extra_value17h3a3ea2da7e461603E.exit.i.i: ; preds = 
   %.09.i.i.ph = phi i64 [ %241, %240 ], [ 0, %229 ]
   %.sroa.4.0.i.i.ph = phi i16 [ %242, %240 ], [ %15, %229 ]
   %.sroa.0.0.i.i.ph = phi i16 [ %237, %240 ], [ %232, %229 ]
-  %.0.i.i.ph = phi i64 [ %243, %240 ], [ %.054, %229 ]
+  %.0.i.i.ph = phi i64 [ %243, %240 ], [ %.058, %229 ]
   br label %233
 
 233:                                              ; preds = %.outer, %233
@@ -10546,7 +10546,7 @@ _ZN4http6header3map19do_insert_phase_two17h1435585878cd4442E.exit.i: ; preds = %
   store i16 %.sroa.0.0.i.i.ph, ptr %236, align 2, !alias.scope !1490, !noalias !1487
   store i16 %.sroa.4.0.i.i.ph, ptr %239, align 2, !alias.scope !1490, !noalias !1487
   %244 = icmp ugt i64 %.09.i.i.ph, 127
-  %or.cond.i = or i1 %.057, %244
+  %or.cond.i = or i1 %.054, %244
   %245 = load i64, ptr %1, align 8, !range !1207, !alias.scope !1484, !noalias !1487
   %246 = icmp eq i64 %245, 0
   %or.cond2.i = select i1 %or.cond.i, i1 %246, i1 false
@@ -10590,7 +10590,7 @@ _ZN4http6header3map19do_insert_phase_two17h1435585878cd4442E.exit.i: ; preds = %
 
 254:                                              ; preds = %251
   %255 = load i64, ptr %21, align 8, !noundef !15
-  %256 = icmp ult i64 %.054, %255
+  %256 = icmp ult i64 %.058, %255
   br i1 %256, label %.critedge, label %263, !prof !303
 
 257:                                              ; preds = %251
@@ -10601,7 +10601,7 @@ _ZN4http6header3map19do_insert_phase_two17h1435585878cd4442E.exit.i: ; preds = %
 .critedge:                                        ; preds = %254
   %259 = trunc i64 %252 to i16
   %260 = load ptr, ptr %20, align 8, !nonnull !15, !align !63, !noundef !15
-  %261 = getelementptr inbounds [0 x { i16, i16 }], ptr %260, i64 0, i64 %.054
+  %261 = getelementptr inbounds [0 x { i16, i16 }], ptr %260, i64 0, i64 %.058
   store i16 %259, ptr %261, align 2
   %262 = getelementptr inbounds i8, ptr %261, i64 2
   store i16 %15, ptr %262, align 2
@@ -10610,7 +10610,7 @@ _ZN4http6header3map19do_insert_phase_two17h1435585878cd4442E.exit.i: ; preds = %
   br label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hf3b9be62e8ca47a5E.exit"
 
 263:                                              ; preds = %254
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.054, i64 noundef %255, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c491ee7cdb5b0dcb09cc1dfe7ba29da7.157) #23
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.058, i64 noundef %255, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c491ee7cdb5b0dcb09cc1dfe7ba29da7.157) #23
   unreachable
 
 "_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hf3b9be62e8ca47a5E.exit": ; preds = %288, %.thread99, %248, %257, %267, %264, %.critedge, %250

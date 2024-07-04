@@ -29,9 +29,9 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr 
   br label %18
 
 18:                                               ; preds = %13, %67
-  %.06184 = phi i32 [ 0, %13 ], [ %.2, %67 ]
-  %.06283 = phi i32 [ %2, %13 ], [ %.163, %67 ]
-  %19 = zext nneg i32 %.06184 to i64
+  %.084 = phi i32 [ 0, %13 ], [ %.2, %67 ]
+  %.06483 = phi i32 [ %2, %13 ], [ %.165, %67 ]
+  %19 = zext nneg i32 %.084 to i64
   %20 = getelementptr inbounds i32, ptr %3, i64 %19
   %21 = load i32, ptr %20, align 4
   %.pre = sext i32 %21 to i64
@@ -108,7 +108,7 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr 
 .thread:                                          ; preds = %.lr.ph
   %60 = trunc nsw i64 %indvars.iv to i32
   store i32 %60, ptr %50, align 4
-  %61 = add nuw nsw i32 %.06184, 1
+  %61 = add nuw nsw i32 %.084, 1
   %62 = zext nneg i32 %61 to i64
   br label %67
 
@@ -118,15 +118,15 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %63, %48
-  %64 = add nsw i32 %.06184, -1
-  %65 = add nsw i32 %.06283, -1
+  %64 = add nsw i32 %.084, -1
+  %65 = add nsw i32 %.06483, -1
   %66 = sext i32 %65 to i64
   br label %67
 
 67:                                               ; preds = %.thread, %._crit_edge
   %.sink91 = phi i64 [ %62, %.thread ], [ %66, %._crit_edge ]
   %.lcssa.sink = phi i32 [ %55, %.thread ], [ %21, %._crit_edge ]
-  %.163 = phi i32 [ %.06283, %.thread ], [ %65, %._crit_edge ]
+  %.165 = phi i32 [ %.06483, %.thread ], [ %65, %._crit_edge ]
   %.2 = phi i32 [ %61, %.thread ], [ %64, %._crit_edge ]
   %68 = getelementptr inbounds i32, ptr %3, i64 %.sink91
   store i32 %.lcssa.sink, ptr %68, align 4
@@ -134,8 +134,8 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr 
   br i1 %69, label %18, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %67, %6, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %6 ], [ %.163, %67 ]
-  ret i32 %.0
+  %.063 = phi i32 [ -1, %7 ], [ -1, %6 ], [ %.165, %67 ]
+  ret i32 %.063
 }
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

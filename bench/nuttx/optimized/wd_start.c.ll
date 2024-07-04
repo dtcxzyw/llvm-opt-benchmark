@@ -75,7 +75,7 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
 
 .lr.ph127:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %31 = phi ptr [ %37, %.lr.ph ], [ %24, %.lr.ph.preheader ]
-  %.06794126 = phi ptr [ %31, %.lr.ph ], [ %19, %.lr.ph.preheader ]
+  %.06993126 = phi ptr [ %31, %.lr.ph ], [ %19, %.lr.ph.preheader ]
   %32 = phi i64 [ %35, %.lr.ph ], [ %22, %.lr.ph.preheader ]
   %33 = getelementptr inbounds i8, ptr %31, i64 24
   %34 = load i64, ptr %33, align 8
@@ -89,42 +89,42 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
   br i1 %.not83, label %.critedge, label %.lr.ph127, !llvm.loop !8
 
 .critedge:                                        ; preds = %.lr.ph127, %.lr.ph, %.lr.ph.preheader, %.preheader
-  %.069.lcssa = phi ptr [ %19, %.preheader ], [ %19, %.lr.ph.preheader ], [ %.06794126, %.lr.ph ], [ %.06794126, %.lr.ph127 ]
-  %.067.lcssa = phi ptr [ %19, %.preheader ], [ %19, %.lr.ph.preheader ], [ %31, %.lr.ph ], [ %31, %.lr.ph127 ]
+  %.069.lcssa = phi ptr [ %19, %.preheader ], [ %19, %.lr.ph.preheader ], [ %31, %.lr.ph ], [ %31, %.lr.ph127 ]
+  %.067.lcssa = phi ptr [ %19, %.preheader ], [ %19, %.lr.ph.preheader ], [ %.06993126, %.lr.ph ], [ %.06993126, %.lr.ph127 ]
   %.lcssa = phi i64 [ %22, %.preheader ], [ %22, %.lr.ph.preheader ], [ %35, %.lr.ph ], [ %35, %.lr.ph127 ]
   %.not84101 = icmp sgt i64 %.lcssa, %17
   br i1 %.not84101, label %.critedge.._crit_edge_crit_edge, label %.lr.ph104
 
 .critedge.._crit_edge_crit_edge:                  ; preds = %.critedge
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.067.lcssa, i64 24
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.069.lcssa, i64 24
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br label %._crit_edge
 
 .lr.ph104:                                        ; preds = %.critedge, %39
-  %.168103 = phi ptr [ %38, %39 ], [ %.067.lcssa, %.critedge ]
-  %.172102 = phi i64 [ %42, %39 ], [ %.lcssa, %.critedge ]
-  %38 = load ptr, ptr %.168103, align 8
+  %.1103 = phi i64 [ %42, %39 ], [ %.lcssa, %.critedge ]
+  %.170102 = phi ptr [ %38, %39 ], [ %.069.lcssa, %.critedge ]
+  %38 = load ptr, ptr %.170102, align 8
   %.not85 = icmp eq ptr %38, null
   br i1 %.not85, label %53, label %39
 
 39:                                               ; preds = %.lr.ph104
   %40 = getelementptr inbounds i8, ptr %38, i64 24
   %41 = load i64, ptr %40, align 8
-  %42 = add nsw i64 %41, %.172102
+  %42 = add nsw i64 %41, %.1103
   %.not84 = icmp sgt i64 %42, %17
   br i1 %.not84, label %._crit_edge, label %.lr.ph104, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %39, %.critedge.._crit_edge_crit_edge
   %43 = phi i64 [ %.pre, %.critedge.._crit_edge_crit_edge ], [ %41, %39 ]
-  %.172.lcssa = phi i64 [ %.lcssa, %.critedge.._crit_edge_crit_edge ], [ %42, %39 ]
-  %.170.lcssa = phi ptr [ %.069.lcssa, %.critedge.._crit_edge_crit_edge ], [ %.168103, %39 ]
-  %.168.lcssa = phi ptr [ %.067.lcssa, %.critedge.._crit_edge_crit_edge ], [ %38, %39 ]
-  %44 = getelementptr inbounds i8, ptr %.168.lcssa, i64 24
-  %.neg = sub i64 %43, %.172.lcssa
+  %.170.lcssa = phi ptr [ %.069.lcssa, %.critedge.._crit_edge_crit_edge ], [ %38, %39 ]
+  %.168.lcssa = phi ptr [ %.067.lcssa, %.critedge.._crit_edge_crit_edge ], [ %.170102, %39 ]
+  %.1.lcssa = phi i64 [ %.lcssa, %.critedge.._crit_edge_crit_edge ], [ %42, %39 ]
+  %44 = getelementptr inbounds i8, ptr %.170.lcssa, i64 24
+  %.neg = sub i64 %43, %.1.lcssa
   %45 = add i64 %.neg, %17
   %46 = sub nsw i64 %43, %45
   store i64 %46, ptr %44, align 8
-  %47 = icmp eq ptr %.168.lcssa, %19
+  %47 = icmp eq ptr %.170.lcssa, %19
   br i1 %47, label %48, label %52
 
 48:                                               ; preds = %._crit_edge
@@ -142,11 +142,11 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
   br label %59
 
 52:                                               ; preds = %._crit_edge
-  call void @sq_addafter(ptr noundef nonnull %.170.lcssa, ptr noundef %0, ptr noundef nonnull @g_wdactivelist) #4
+  call void @sq_addafter(ptr noundef nonnull %.168.lcssa, ptr noundef %0, ptr noundef nonnull @g_wdactivelist) #4
   br label %59
 
 53:                                               ; preds = %.lr.ph104
-  %54 = sub nsw i64 %17, %.172102
+  %54 = sub nsw i64 %17, %.1103
   store ptr null, ptr %0, align 8
   %55 = load ptr, ptr @g_wdactivelist, align 8
   %.not87 = icmp eq ptr %55, null
@@ -164,9 +164,9 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
   br label %59
 
 59:                                               ; preds = %52, %51, %57, %56, %29, %28
-  %.1 = phi i64 [ %17, %29 ], [ %17, %28 ], [ %45, %51 ], [ %45, %52 ], [ %54, %57 ], [ %54, %56 ]
+  %.172 = phi i64 [ %17, %29 ], [ %17, %28 ], [ %45, %51 ], [ %45, %52 ], [ %54, %57 ], [ %54, %56 ]
   %60 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.1, ptr %60, align 8
+  store i64 %.172, ptr %60, align 8
   call void @nxsched_resume_timer() #4
   %61 = and i64 %10, 512
   %.not.i = icmp eq i64 %61, 0
@@ -177,8 +177,8 @@ define range(i32 -22, 1) i32 @wd_start(ptr noundef %0, i64 noundef %1, ptr nound
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %62, %59, %4
-  %.0 = phi i32 [ -22, %4 ], [ 0, %59 ], [ 0, %62 ]
-  ret i32 %.0
+  %.066 = phi i32 [ -22, %4 ], [ 0, %59 ], [ 0, %62 ]
+  ret i32 %.066
 }
 
 declare i32 @wd_cancel(ptr noundef) local_unnamed_addr #1

@@ -53,14 +53,14 @@ define void @Lpk_CreateVarOrder(ptr nocapture noundef readonly %0, ptr nocapture
   br label %18
 
 .critedge2.preheader:                             ; preds = %36, %.preheader47
-  %.039.lcssa = phi i32 [ 0, %.preheader47 ], [ %.140, %36 ]
-  %.035.lcssa = phi i32 [ 0, %.preheader47 ], [ %.136, %36 ]
+  %.040.lcssa = phi i32 [ 0, %.preheader47 ], [ %.141, %36 ]
+  %.037.lcssa = phi i32 [ 0, %.preheader47 ], [ %.138, %36 ]
   br label %49
 
 18:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %.03550 = phi i32 [ 0, %.lr.ph ], [ %.136, %36 ]
-  %.03949 = phi i32 [ 0, %.lr.ph ], [ %.140, %36 ]
+  %.03750 = phi i32 [ 0, %.lr.ph ], [ %.138, %36 ]
+  %.04048 = phi i32 [ 0, %.lr.ph ], [ %.141, %36 ]
   %19 = getelementptr inbounds [0 x i16], ptr %16, i64 0, i64 %indvars.iv
   %20 = load i16, ptr %19, align 2
   %21 = lshr i16 %20, 1
@@ -69,8 +69,8 @@ define void @Lpk_CreateVarOrder(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %.not45, label %23, label %27
 
 23:                                               ; preds = %18
-  %24 = add nsw i32 %.03949, 1
-  %25 = sext i32 %.03949 to i64
+  %24 = add nsw i32 %.03750, 1
+  %25 = sext i32 %.03750 to i64
   %26 = getelementptr inbounds [16 x i32], ptr %3, i64 0, i64 %25
   store i32 %22, ptr %26, align 4
   br label %36
@@ -89,25 +89,25 @@ define void @Lpk_CreateVarOrder(ptr nocapture noundef readonly %0, ptr nocapture
 
 Kit_DsdLitSupport.exit:                           ; preds = %27, %29
   %34 = phi i32 [ %33, %29 ], [ 0, %27 ]
-  %35 = or i32 %34, %.03550
+  %35 = or i32 %34, %.04048
   br label %36
 
 36:                                               ; preds = %23, %Kit_DsdLitSupport.exit
-  %.140 = phi i32 [ %24, %23 ], [ %.03949, %Kit_DsdLitSupport.exit ]
-  %.136 = phi i32 [ %.03550, %23 ], [ %35, %Kit_DsdLitSupport.exit ]
+  %.141 = phi i32 [ %.04048, %23 ], [ %35, %Kit_DsdLitSupport.exit ]
+  %.138 = phi i32 [ %24, %23 ], [ %.03750, %Kit_DsdLitSupport.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge2.preheader, label %18, !llvm.loop !4
 
 .preheader46:                                     ; preds = %.critedge2
-  %37 = icmp sgt i32 %.039.lcssa, 0
-  %38 = icmp sgt i32 %.138, 0
+  %37 = icmp sgt i32 %.037.lcssa, 0
+  %38 = icmp sgt i32 %.136, 0
   %or.cond = select i1 %37, i1 %38, i1 false
   br i1 %or.cond, label %.preheader.us.preheader, label %._crit_edge57
 
 .preheader.us.preheader:                          ; preds = %.preheader46
-  %wide.trip.count74 = zext nneg i32 %.039.lcssa to i64
-  %wide.trip.count69 = zext nneg i32 %.138 to i64
+  %wide.trip.count74 = zext nneg i32 %.037.lcssa to i64
+  %wide.trip.count69 = zext nneg i32 %.136 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
@@ -137,21 +137,21 @@ Kit_DsdLitSupport.exit:                           ; preds = %27, %29
 
 49:                                               ; preds = %.critedge2.preheader, %.critedge2
   %.053 = phi i32 [ 0, %.critedge2.preheader ], [ %56, %.critedge2 ]
-  %.03752 = phi i32 [ 0, %.critedge2.preheader ], [ %.138, %.critedge2 ]
+  %.03552 = phi i32 [ 0, %.critedge2.preheader ], [ %.136, %.critedge2 ]
   %50 = shl nuw nsw i32 1, %.053
-  %51 = and i32 %50, %.035.lcssa
+  %51 = and i32 %50, %.040.lcssa
   %.not43 = icmp eq i32 %51, 0
   br i1 %.not43, label %.critedge2, label %52
 
 52:                                               ; preds = %49
-  %53 = add nsw i32 %.03752, 1
-  %54 = sext i32 %.03752 to i64
+  %53 = add nsw i32 %.03552, 1
+  %54 = sext i32 %.03552 to i64
   %55 = getelementptr inbounds [16 x i32], ptr %4, i64 0, i64 %54
   store i32 %.053, ptr %55, align 4
   br label %.critedge2
 
 .critedge2:                                       ; preds = %49, %52
-  %.138 = phi i32 [ %53, %52 ], [ %.03752, %49 ]
+  %.136 = phi i32 [ %53, %52 ], [ %.03552, %49 ]
   %56 = add nuw nsw i32 %.053, 1
   %exitcond65.not = icmp eq i32 %56, 16
   br i1 %exitcond65.not, label %.preheader46, label %49, !llvm.loop !8
@@ -987,15 +987,15 @@ define ptr @Lpk_MapTreeMulti(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr
 
 .preheader165:                                    ; preds = %4, %33
   %indvars.iv217 = phi i64 [ 0, %4 ], [ %indvars.iv.next218, %33 ]
-  %.0142168 = phi i32 [ 0, %4 ], [ %28, %33 ]
+  %.0169 = phi i32 [ 0, %4 ], [ %28, %33 ]
   br label %26
 
 26:                                               ; preds = %.preheader165, %26
   %indvars.iv = phi i64 [ 0, %.preheader165 ], [ %indvars.iv.next, %26 ]
-  %.1143166 = phi i32 [ %.0142168, %.preheader165 ], [ %28, %26 ]
+  %.1167 = phi i32 [ %.0169, %.preheader165 ], [ %28, %26 ]
   %27 = load ptr, ptr %10, align 16
-  %28 = add nsw i32 %.1143166, 1
-  %29 = shl i32 %.1143166, %25
+  %28 = add nsw i32 %.1167, 1
+  %29 = shl i32 %.1167, %25
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds i32, ptr %27, i64 %30
   %32 = getelementptr inbounds [4 x [8 x ptr]], ptr %10, i64 0, i64 %indvars.iv217, i64 %indvars.iv

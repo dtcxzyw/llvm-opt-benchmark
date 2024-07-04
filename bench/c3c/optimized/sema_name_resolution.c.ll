@@ -60,20 +60,20 @@ define dso_local noundef ptr @sema_decl_stack_resolve_symbol(ptr noundef readnon
   br label %4
 
 4:                                                ; preds = %6, %1
-  %.07 = phi ptr [ %2, %1 ], [ %7, %6 ]
-  %5 = icmp ugt ptr %.07, %3
+  %.0 = phi ptr [ %2, %1 ], [ %7, %6 ]
+  %5 = icmp ugt ptr %.0, %3
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %.07, i64 -8
+  %7 = getelementptr inbounds i8, ptr %.0, i64 -8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %0
   br i1 %10, label %11, label %4, !llvm.loop !7
 
 11:                                               ; preds = %4, %6
-  %.0 = phi ptr [ %8, %6 ], [ null, %4 ]
-  ret ptr %.0
+  %.07 = phi ptr [ %8, %6 ], [ null, %4 ]
+  ret ptr %.07
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
@@ -123,22 +123,22 @@ define dso_local noundef ptr @sema_decl_stack_find_decl_member(ptr nocapture nou
   br label %7
 
 7:                                                ; preds = %9, %2
-  %.07.i = phi ptr [ %5, %2 ], [ %10, %9 ]
-  %8 = icmp ugt ptr %.07.i, %6
+  %.0.i = phi ptr [ %5, %2 ], [ %10, %9 ]
+  %8 = icmp ugt ptr %.0.i, %6
   br i1 %8, label %9, label %sema_decl_stack_resolve_symbol.exit
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %.07.i, i64 -8
+  %10 = getelementptr inbounds i8, ptr %.0.i, i64 -8
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %1
   br i1 %13, label %sema_decl_stack_resolve_symbol.exit, label %7, !llvm.loop !7
 
 sema_decl_stack_resolve_symbol.exit:              ; preds = %7, %9
-  %.0.i = phi ptr [ %11, %9 ], [ null, %7 ]
+  %.07.i = phi ptr [ %11, %9 ], [ null, %7 ]
   store ptr %6, ptr getelementptr inbounds (i8, ptr @global_context, i64 524696), align 8
   store ptr %3, ptr getelementptr inbounds (i8, ptr @global_context, i64 524688), align 8
-  ret ptr %.0.i
+  ret ptr %.07.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -519,8 +519,8 @@ sema_find_decl_in_module.exit.thread:             ; preds = %29, %33, %24, %matc
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %matches_subpath.exit.thread13.i, %sema_find_decl_in_module.exit.thread, %sema_find_decl_in_module.exit.us, %sema_find_decl_in_module.exit.thread.us, %3, %4
-  %.015 = phi ptr [ null, %4 ], [ null, %3 ], [ null, %sema_find_decl_in_module.exit.thread.us ], [ %11, %sema_find_decl_in_module.exit.us ], [ null, %sema_find_decl_in_module.exit.thread ], [ %37, %matches_subpath.exit.thread13.i ]
-  ret ptr %.015
+  %.016 = phi ptr [ null, %4 ], [ null, %3 ], [ null, %sema_find_decl_in_module.exit.thread.us ], [ %11, %sema_find_decl_in_module.exit.us ], [ null, %sema_find_decl_in_module.exit.thread ], [ %37, %matches_subpath.exit.thread13.i ]
+  ret ptr %.016
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -564,8 +564,8 @@ define dso_local noundef ptr @sema_find_extension_method_in_list(ptr noundef rea
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %12, %21, %3, %4
-  %.015 = phi ptr [ null, %4 ], [ null, %3 ], [ null, %21 ], [ %10, %12 ]
-  ret ptr %.015
+  %.016 = phi ptr [ null, %4 ], [ null, %3 ], [ null, %21 ], [ %10, %12 ]
+  ret ptr %.016
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -633,7 +633,7 @@ sema_find_extension_method_in_list.exit:          ; preds = %21
   br label %.thread
 
 .thread:                                          ; preds = %30, %37, %32, %13, %10
-  %.042.ph = phi ptr [ %19, %32 ], [ null, %37 ], [ null, %13 ], [ null, %10 ], [ null, %30 ]
+  %.041.ph = phi ptr [ %19, %32 ], [ null, %37 ], [ null, %13 ], [ null, %10 ], [ null, %30 ]
   %38 = icmp eq i32 %5, 2
   %39 = select i1 %38, i32 0, i32 %5
   br label %42
@@ -644,7 +644,7 @@ sema_find_extension_method_in_list.exit:          ; preds = %21
 
 42:                                               ; preds = %.thread, %40
   %spec.store.select = phi i32 [ %39, %.thread ], [ %5, %40 ]
-  %.04253 = phi ptr [ %.042.ph, %.thread ], [ %19, %40 ]
+  %.04153 = phi ptr [ %.041.ph, %.thread ], [ %19, %40 ]
   %43 = getelementptr inbounds i8, ptr %0, i64 88
   %44 = load ptr, ptr %43, align 8
   %.not46 = icmp eq ptr %44, null
@@ -662,7 +662,7 @@ sema_find_extension_method_in_list.exit:          ; preds = %21
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %53
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %53 ]
-  %.157 = phi ptr [ %.04253, %.lr.ph.preheader ], [ %.2, %53 ]
+  %.157 = phi ptr [ %.04153, %.lr.ph.preheader ], [ %.2, %53 ]
   %48 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8
   %50 = tail call ptr @sema_resolve_method_in_module(ptr noundef %49, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %spec.store.select)
@@ -684,8 +684,8 @@ sema_find_extension_method_in_list.exit:          ; preds = %21
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %53, %42, %45, %40, %6, %52
-  %.040 = phi ptr [ %.157, %52 ], [ null, %6 ], [ %19, %40 ], [ %.04253, %45 ], [ %.04253, %42 ], [ %.2, %53 ]
-  ret ptr %.040
+  %.042 = phi ptr [ %.157, %52 ], [ null, %6 ], [ %19, %40 ], [ %.04153, %45 ], [ %.04153, %42 ], [ %.2, %53 ]
+  ret ptr %.042
 }
 
 ; Function Attrs: nounwind uwtable
@@ -761,8 +761,8 @@ define dso_local ptr @sema_resolve_method(ptr noundef %0, ptr nocapture noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph46, %._crit_edge
-  %.036 = phi ptr [ %33, %._crit_edge ], [ %28, %.lr.ph46 ], [ %18, %.lr.ph ]
-  ret ptr %.036
+  %.037 = phi ptr [ %33, %._crit_edge ], [ %28, %.lr.ph46 ], [ %18, %.lr.ph ]
+  ret ptr %.037
 }
 
 ; Function Attrs: nounwind uwtable
@@ -779,7 +779,7 @@ define dso_local ptr @sema_resolve_type_method(ptr noundef %0, ptr noundef %1, p
   br label %13
 
 13:                                               ; preds = %10, %5
-  %.066 = phi ptr [ %12, %10 ], [ %1, %5 ]
+  %.068 = phi ptr [ %12, %10 ], [ %1, %5 ]
   store ptr null, ptr %6, align 8
   store ptr null, ptr %7, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 224
@@ -814,7 +814,7 @@ define dso_local ptr @sema_resolve_type_method(ptr noundef %0, ptr noundef %1, p
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = icmp eq ptr %31, %.066
+  %32 = icmp eq ptr %31, %.068
   br i1 %32, label %sema_find_extension_method_in_list.exit.thread, label %33
 
 33:                                               ; preds = %24, %20
@@ -824,7 +824,7 @@ define dso_local ptr @sema_resolve_type_method(ptr noundef %0, ptr noundef %1, p
 
 sema_find_extension_method_in_list.exit:          ; preds = %33, %13, %16
   %34 = load ptr, ptr %0, align 8
-  %35 = call ptr @sema_resolve_method_in_module(ptr noundef %34, ptr noundef %.066, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 2)
+  %35 = call ptr @sema_resolve_method_in_module(ptr noundef %34, ptr noundef %.068, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 2)
   %.pre = load ptr, ptr %7, align 8
   %.not81 = icmp eq ptr %.pre, null
   br i1 %.not81, label %sema_find_extension_method_in_list.exit.thread, label %36
@@ -834,7 +834,7 @@ sema_find_extension_method_in_list.exit:          ; preds = %33, %13, %16
   br label %.thread107
 
 sema_find_extension_method_in_list.exit.thread:   ; preds = %24, %sema_find_extension_method_in_list.exit
-  %.067136 = phi ptr [ %35, %sema_find_extension_method_in_list.exit ], [ %22, %24 ]
+  %.066136 = phi ptr [ %35, %sema_find_extension_method_in_list.exit ], [ %22, %24 ]
   %37 = getelementptr inbounds i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8
   %.not82 = icmp eq ptr %38, null
@@ -852,7 +852,7 @@ sema_find_extension_method_in_list.exit.thread:   ; preds = %24, %sema_find_exte
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %61 ]
-  %.1124 = phi ptr [ %.067136, %.lr.ph.preheader ], [ %.2, %61 ]
+  %.1123 = phi ptr [ %.066136, %.lr.ph.preheader ], [ %.2, %61 ]
   %42 = load ptr, ptr %37, align 8
   %43 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
@@ -869,12 +869,12 @@ sema_find_extension_method_in_list.exit.thread:   ; preds = %24, %sema_find_exte
   %52 = load i8, ptr %51, align 8
   %53 = trunc i8 %52 to i1
   %54 = select i1 %53, i32 3, i32 1
-  %55 = call ptr @sema_resolve_method_in_module(ptr noundef nonnull %46, ptr noundef %.066, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %54)
+  %55 = call ptr @sema_resolve_method_in_module(ptr noundef nonnull %46, ptr noundef %.068, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %54)
   %.not89 = icmp eq ptr %55, null
   br i1 %.not89, label %61, label %56
 
 56:                                               ; preds = %50
-  %.not90 = icmp eq ptr %.1124, null
+  %.not90 = icmp eq ptr %.1123, null
   br i1 %.not90, label %58, label %57
 
 57:                                               ; preds = %56
@@ -891,19 +891,19 @@ sema_find_extension_method_in_list.exit.thread:   ; preds = %24, %sema_find_exte
   br label %.thread107
 
 61:                                               ; preds = %58, %50, %.lr.ph
-  %.2 = phi ptr [ %.1124, %.lr.ph ], [ %55, %58 ], [ %.1124, %50 ]
+  %.2 = phi ptr [ %.1123, %.lr.ph ], [ %55, %58 ], [ %.1123, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %61, %sema_find_extension_method_in_list.exit.thread, %39
-  %.1.lcssa = phi ptr [ %.067136, %39 ], [ %.067136, %sema_find_extension_method_in_list.exit.thread ], [ %.2, %61 ]
+  %.1.lcssa = phi ptr [ %.066136, %39 ], [ %.066136, %sema_find_extension_method_in_list.exit.thread ], [ %.2, %61 ]
   %.not83 = icmp eq ptr %.1.lcssa, null
   br i1 %.not83, label %62, label %65
 
 62:                                               ; preds = %._crit_edge
   %63 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), align 8
-  %64 = call ptr @sema_resolve_method_in_module(ptr noundef %63, ptr noundef %.066, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1)
+  %64 = call ptr @sema_resolve_method_in_module(ptr noundef %63, ptr noundef %.068, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 1)
   br label %65
 
 65:                                               ; preds = %62, %._crit_edge
@@ -953,7 +953,7 @@ sema_find_extension_method_in_list.exit.thread:   ; preds = %24, %sema_find_exte
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8
-  %89 = icmp eq ptr %88, %.066
+  %89 = icmp eq ptr %88, %.068
   br i1 %89, label %.thread107, label %90
 
 90:                                               ; preds = %81, %77
@@ -971,14 +971,14 @@ sema_find_extension_method_in_list.exit.thread:   ; preds = %24, %sema_find_exte
   br label %.thread107
 
 .loopexit:                                        ; preds = %90, %73, %71
-  %93 = load i32, ptr %.066, align 8
+  %93 = load i32, ptr %.068, align 8
   switch i32 %93, label %.thread107 [
     i32 33, label %94
     i32 37, label %100
   ]
 
 94:                                               ; preds = %.loopexit
-  %95 = getelementptr inbounds i8, ptr %.066, i64 56
+  %95 = getelementptr inbounds i8, ptr %.068, i64 56
   %96 = load ptr, ptr %95, align 8
   %97 = tail call ptr @type_get_inferred_array(ptr noundef %96) #10
   %98 = tail call ptr @sema_resolve_type_method(ptr noundef %0, ptr noundef %97, ptr noundef %2, ptr noundef %3, ptr noundef %4)
@@ -990,7 +990,7 @@ sema_find_extension_method_in_list.exit.thread:   ; preds = %24, %sema_find_exte
   br label %.thread107
 
 100:                                              ; preds = %.loopexit
-  %101 = getelementptr inbounds i8, ptr %.066, i64 56
+  %101 = getelementptr inbounds i8, ptr %.068, i64 56
   %102 = load ptr, ptr %101, align 8
   %103 = tail call ptr @type_get_inferred_vector(ptr noundef %102) #10
   %104 = tail call ptr @sema_resolve_type_method(ptr noundef %0, ptr noundef %103, ptr noundef %2, ptr noundef %3, ptr noundef %4)
@@ -1002,8 +1002,8 @@ sema_find_extension_method_in_list.exit.thread:   ; preds = %24, %sema_find_exte
   br label %.thread107
 
 .thread107:                                       ; preds = %81, %91, %92, %105, %100, %94, %99, %.loopexit, %69, %60, %57, %36
-  %.065 = phi ptr [ %35, %36 ], [ %.1124, %57 ], [ %55, %60 ], [ %.3, %69 ], [ %98, %99 ], [ null, %94 ], [ %104, %105 ], [ null, %100 ], [ null, %.loopexit ], [ %.3, %92 ], [ %.3, %91 ], [ %79, %81 ]
-  ret ptr %.065
+  %.067 = phi ptr [ %35, %36 ], [ %.1123, %57 ], [ %55, %60 ], [ %.3, %69 ], [ %98, %99 ], [ null, %94 ], [ %104, %105 ], [ null, %100 ], [ null, %.loopexit ], [ %.3, %92 ], [ %.3, %91 ], [ %79, %81 ]
+  ret ptr %.067
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1341,7 +1341,7 @@ define internal fastcc ptr @sema_find_decl_in_private_imports(ptr noundef readon
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %sema_find_decl_in_module.exit.thread.us
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %sema_find_decl_in_module.exit.thread.us ], [ 0, %.lr.ph ]
-  %.03350.us = phi ptr [ %.1.us, %sema_find_decl_in_module.exit.thread.us ], [ null, %.lr.ph ]
+  %.03349.us = phi ptr [ %.1.us, %sema_find_decl_in_module.exit.thread.us ], [ null, %.lr.ph ]
   %15 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv55
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -1365,11 +1365,11 @@ sema_find_decl_in_module.exit.us:                 ; preds = %23
   br i1 %.not38.us, label %sema_find_decl_in_module.exit.thread.us, label %28
 
 28:                                               ; preds = %sema_find_decl_in_module.exit.us
-  %.not39.us = icmp eq ptr %.03350.us, null
+  %.not39.us = icmp eq ptr %.03349.us, null
   br i1 %.not39.us, label %39, label %29
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %.03350.us, i64 24
+  %30 = getelementptr inbounds i8, ptr %.03349.us, i64 24
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %31, 262144
   %.not41.us = icmp eq i64 %32, 0
@@ -1398,14 +1398,14 @@ sema_find_decl_in_module.exit.us:                 ; preds = %23
   br label %sema_find_decl_in_module.exit.thread.us
 
 sema_find_decl_in_module.exit.thread.us:          ; preds = %39, %.thread48.us, %38, %36, %sema_find_decl_in_module.exit.us, %23, %.lr.ph.split.us
-  %.1.us = phi ptr [ %.03350.us, %.lr.ph.split.us ], [ %.03350.us, %.thread48.us ], [ %27, %38 ], [ %.03350.us, %36 ], [ %27, %39 ], [ %.03350.us, %sema_find_decl_in_module.exit.us ], [ %.03350.us, %23 ]
+  %.1.us = phi ptr [ %.03349.us, %.lr.ph.split.us ], [ %.03349.us, %.thread48.us ], [ %27, %38 ], [ %.03349.us, %36 ], [ %27, %39 ], [ %.03349.us, %sema_find_decl_in_module.exit.us ], [ %.03349.us, %23 ]
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
   br i1 %exitcond59.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !22
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %sema_find_decl_in_module.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %sema_find_decl_in_module.exit.thread ], [ 0, %.lr.ph ]
-  %.03350 = phi ptr [ %.1, %sema_find_decl_in_module.exit.thread ], [ null, %.lr.ph ]
+  %.03349 = phi ptr [ %.1, %sema_find_decl_in_module.exit.thread ], [ null, %.lr.ph ]
   %40 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 96
@@ -1470,7 +1470,7 @@ matches_subpath.exit.thread13.i:                  ; preds = %matches_subpath.exi
   br i1 %.not38, label %sema_find_decl_in_module.exit.thread, label %77
 
 77:                                               ; preds = %matches_subpath.exit.thread13.i
-  %.not39 = icmp eq ptr %.03350, null
+  %.not39 = icmp eq ptr %.03349, null
   br i1 %.not39, label %78, label %.thread48
 
 .thread48:                                        ; preds = %77
@@ -1482,7 +1482,7 @@ matches_subpath.exit.thread13.i:                  ; preds = %matches_subpath.exi
   br label %sema_find_decl_in_module.exit.thread
 
 sema_find_decl_in_module.exit.thread:             ; preds = %68, %72, %63, %matches_subpath.exit.i, %52, %matches_subpath.exit.thread13.i, %48, %.lr.ph.split, %78, %.thread48
-  %.1 = phi ptr [ %.03350, %.lr.ph.split ], [ %.03350, %.thread48 ], [ %76, %78 ], [ %.03350, %matches_subpath.exit.thread13.i ], [ %.03350, %48 ], [ %.03350, %52 ], [ %.03350, %matches_subpath.exit.i ], [ %.03350, %63 ], [ %.03350, %72 ], [ %.03350, %68 ]
+  %.1 = phi ptr [ %.03349, %.lr.ph.split ], [ %.03349, %.thread48 ], [ %76, %78 ], [ %.03349, %matches_subpath.exit.thread13.i ], [ %.03349, %48 ], [ %.03349, %52 ], [ %.03349, %matches_subpath.exit.i ], [ %.03349, %63 ], [ %.03349, %72 ], [ %.03349, %68 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count58
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
@@ -1685,9 +1685,9 @@ matches_subpath.exit.thread107:                   ; preds = %62, %63, %matches_s
 
 101:                                              ; preds = %.lr.ph, %matches_subpath.exit94.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %matches_subpath.exit94.thread ]
-  %.063138 = phi ptr [ null, %.lr.ph ], [ %.1, %matches_subpath.exit94.thread ]
-  %.064137 = phi ptr [ null, %.lr.ph ], [ %.165, %matches_subpath.exit94.thread ]
-  %.066136 = phi ptr [ null, %.lr.ph ], [ %.167, %matches_subpath.exit94.thread ]
+  %.061138 = phi ptr [ null, %.lr.ph ], [ %.1, %matches_subpath.exit94.thread ]
+  %.062137 = phi ptr [ null, %.lr.ph ], [ %.163, %matches_subpath.exit94.thread ]
+  %.064136 = phi ptr [ null, %.lr.ph ], [ %.165, %matches_subpath.exit94.thread ]
   %102 = getelementptr inbounds ptr, ptr %95, i64 %indvars.iv
   %103 = load ptr, ptr %102, align 8
   %.phi.trans.insert145 = getelementptr i8, ptr %103, i64 56
@@ -1739,7 +1739,7 @@ matches_subpath.exit94.thread110:                 ; preds = %101, %104, %matches
   br i1 %127, label %128, label %matches_subpath.exit94.thread
 
 128:                                              ; preds = %matches_subpath.exit94.thread110
-  %.not79 = icmp eq ptr %.064137, null
+  %.not79 = icmp eq ptr %.062137, null
   br i1 %.not79, label %145, label %129
 
 129:                                              ; preds = %128
@@ -1750,14 +1750,14 @@ matches_subpath.exit94.thread110:                 ; preds = %101, %104, %matches
   br i1 %.not.i95, label %137, label %133
 
 133:                                              ; preds = %129
-  %134 = getelementptr inbounds i8, ptr %.063138, i64 24
+  %134 = getelementptr inbounds i8, ptr %.061138, i64 24
   %135 = load i64, ptr %134, align 8
   %136 = and i64 %135, 262144
   %.not4.i = icmp eq i64 %136, 0
   br i1 %.not4.i, label %matches_subpath.exit94.thread, label %137
 
 137:                                              ; preds = %133, %129
-  %138 = getelementptr inbounds i8, ptr %.063138, i64 56
+  %138 = getelementptr inbounds i8, ptr %.061138, i64 56
   %139 = load ptr, ptr %138, align 8
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 64
@@ -1770,12 +1770,12 @@ sema_first_is_preferred.exit:                     ; preds = %137
   %144 = load ptr, ptr %143, align 8
   %.fr = freeze ptr %144
   %.not6.i = icmp eq ptr %.fr, null
-  %spec.select = select i1 %.not6.i, ptr null, ptr %.064137
-  %spec.select133 = select i1 %.not6.i, ptr %103, ptr %.063138
+  %spec.select = select i1 %.not6.i, ptr null, ptr %.062137
+  %spec.select133 = select i1 %.not6.i, ptr %103, ptr %.061138
   br label %matches_subpath.exit94.thread
 
 145:                                              ; preds = %128
-  %.not80 = icmp eq ptr %.063138, null
+  %.not80 = icmp eq ptr %.061138, null
   br i1 %.not80, label %matches_subpath.exit94.thread, label %146
 
 146:                                              ; preds = %145
@@ -1786,14 +1786,14 @@ sema_first_is_preferred.exit:                     ; preds = %137
   br i1 %.not.i96, label %150, label %154
 
 150:                                              ; preds = %146
-  %151 = getelementptr inbounds i8, ptr %.063138, i64 24
+  %151 = getelementptr inbounds i8, ptr %.061138, i64 24
   %152 = load i64, ptr %151, align 8
   %153 = and i64 %152, 262144
   %.not4.i97 = icmp eq i64 %153, 0
   br i1 %.not4.i97, label %matches_subpath.exit94.thread, label %154
 
 154:                                              ; preds = %150, %146
-  %155 = getelementptr inbounds i8, ptr %.063138, i64 56
+  %155 = getelementptr inbounds i8, ptr %.061138, i64 56
   %156 = load ptr, ptr %155, align 8
   %157 = load ptr, ptr %156, align 8
   %158 = getelementptr inbounds i8, ptr %157, i64 64
@@ -1809,7 +1809,7 @@ sema_first_is_preferred.exit100:                  ; preds = %154
   br i1 %.not6.i99, label %matches_subpath.exit94.thread, label %sema_first_is_preferred.exit100.thread120
 
 sema_first_is_preferred.exit100.thread120:        ; preds = %154, %sema_first_is_preferred.exit100
-  %162 = getelementptr inbounds i8, ptr %.063138, i64 24
+  %162 = getelementptr inbounds i8, ptr %.061138, i64 24
   %163 = load i64, ptr %162, align 8
   %164 = and i64 %163, 262144
   %.not.i101 = icmp eq i64 %164, 0
@@ -1824,32 +1824,32 @@ sema_first_is_preferred.exit100.thread120:        ; preds = %154, %sema_first_is
 
 sema_first_is_preferred.exit105:                  ; preds = %165
   %.not6.i104 = icmp eq ptr %.fr132, null
-  %spec.select134 = select i1 %.not6.i104, ptr null, ptr %.063138
-  %spec.select135 = select i1 %.not6.i104, ptr %.063138, ptr %103
+  %spec.select134 = select i1 %.not6.i104, ptr null, ptr %.061138
+  %spec.select135 = select i1 %.not6.i104, ptr %.061138, ptr %103
   br label %matches_subpath.exit94.thread
 
 matches_subpath.exit94.thread:                    ; preds = %sema_first_is_preferred.exit105, %sema_first_is_preferred.exit, %sema_first_is_preferred.exit100.thread120, %165, %150, %133, %137, %119, %123, %111, %sema_first_is_preferred.exit100, %matches_subpath.exit94.thread110, %145, %matches_subpath.exit94
-  %.167 = phi ptr [ %.066136, %145 ], [ %.066136, %matches_subpath.exit94 ], [ %103, %matches_subpath.exit94.thread110 ], [ %.066136, %sema_first_is_preferred.exit100 ], [ %.066136, %111 ], [ %.066136, %123 ], [ %.066136, %119 ], [ %.066136, %137 ], [ %.066136, %133 ], [ %.066136, %150 ], [ %.066136, %165 ], [ %.066136, %sema_first_is_preferred.exit100.thread120 ], [ %.066136, %sema_first_is_preferred.exit ], [ %.066136, %sema_first_is_preferred.exit105 ]
-  %.165 = phi ptr [ null, %145 ], [ %.064137, %matches_subpath.exit94 ], [ %.064137, %matches_subpath.exit94.thread110 ], [ null, %sema_first_is_preferred.exit100 ], [ %.064137, %111 ], [ %.064137, %123 ], [ %.064137, %119 ], [ %.064137, %137 ], [ null, %133 ], [ null, %150 ], [ %.063138, %165 ], [ null, %sema_first_is_preferred.exit100.thread120 ], [ %spec.select, %sema_first_is_preferred.exit ], [ %spec.select134, %sema_first_is_preferred.exit105 ]
-  %.1 = phi ptr [ %103, %145 ], [ %.063138, %matches_subpath.exit94 ], [ %.063138, %matches_subpath.exit94.thread110 ], [ %103, %sema_first_is_preferred.exit100 ], [ %.063138, %111 ], [ %.063138, %123 ], [ %.063138, %119 ], [ %.063138, %137 ], [ %103, %133 ], [ %103, %150 ], [ %103, %165 ], [ %.063138, %sema_first_is_preferred.exit100.thread120 ], [ %spec.select133, %sema_first_is_preferred.exit ], [ %spec.select135, %sema_first_is_preferred.exit105 ]
+  %.165 = phi ptr [ %.064136, %145 ], [ %.064136, %matches_subpath.exit94 ], [ %103, %matches_subpath.exit94.thread110 ], [ %.064136, %sema_first_is_preferred.exit100 ], [ %.064136, %111 ], [ %.064136, %123 ], [ %.064136, %119 ], [ %.064136, %137 ], [ %.064136, %133 ], [ %.064136, %150 ], [ %.064136, %165 ], [ %.064136, %sema_first_is_preferred.exit100.thread120 ], [ %.064136, %sema_first_is_preferred.exit ], [ %.064136, %sema_first_is_preferred.exit105 ]
+  %.163 = phi ptr [ null, %145 ], [ %.062137, %matches_subpath.exit94 ], [ %.062137, %matches_subpath.exit94.thread110 ], [ null, %sema_first_is_preferred.exit100 ], [ %.062137, %111 ], [ %.062137, %123 ], [ %.062137, %119 ], [ %.062137, %137 ], [ null, %133 ], [ null, %150 ], [ %.061138, %165 ], [ null, %sema_first_is_preferred.exit100.thread120 ], [ %spec.select, %sema_first_is_preferred.exit ], [ %spec.select134, %sema_first_is_preferred.exit105 ]
+  %.1 = phi ptr [ %103, %145 ], [ %.061138, %matches_subpath.exit94 ], [ %.061138, %matches_subpath.exit94.thread110 ], [ %103, %sema_first_is_preferred.exit100 ], [ %.061138, %111 ], [ %.061138, %123 ], [ %.061138, %119 ], [ %.061138, %137 ], [ %103, %133 ], [ %103, %150 ], [ %103, %165 ], [ %.061138, %sema_first_is_preferred.exit100.thread120 ], [ %spec.select133, %sema_first_is_preferred.exit ], [ %spec.select135, %sema_first_is_preferred.exit105 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %101, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %matches_subpath.exit94.thread, %93, %96
-  %.066.lcssa = phi ptr [ null, %96 ], [ null, %93 ], [ %.167, %matches_subpath.exit94.thread ]
   %.064.lcssa = phi ptr [ null, %96 ], [ null, %93 ], [ %.165, %matches_subpath.exit94.thread ]
-  %.063.lcssa = phi ptr [ null, %96 ], [ null, %93 ], [ %.1, %matches_subpath.exit94.thread ]
-  store ptr %.064.lcssa, ptr %3, align 8
+  %.062.lcssa = phi ptr [ null, %96 ], [ null, %93 ], [ %.163, %matches_subpath.exit94.thread ]
+  %.061.lcssa = phi ptr [ null, %96 ], [ null, %93 ], [ %.1, %matches_subpath.exit94.thread ]
+  store ptr %.062.lcssa, ptr %3, align 8
   %168 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr null, ptr %168, align 8
   %169 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %.066.lcssa, ptr %169, align 8
+  store ptr %.064.lcssa, ptr %169, align 8
   br label %matches_subpath.exit.thread
 
 matches_subpath.exit.thread:                      ; preds = %80, %84, %71, %matches_subpath.exit, %11, %12, %sema_is_path_found.exit, %._crit_edge, %91, %89
-  %.061 = phi ptr [ %58, %91 ], [ null, %89 ], [ %.063.lcssa, %._crit_edge ], [ null, %sema_is_path_found.exit ], [ null, %12 ], [ null, %11 ], [ null, %matches_subpath.exit ], [ null, %71 ], [ null, %84 ], [ null, %80 ]
-  ret ptr %.061
+  %.067 = phi ptr [ %58, %91 ], [ null, %89 ], [ %.061.lcssa, %._crit_edge ], [ null, %sema_is_path_found.exit ], [ null, %12 ], [ null, %11 ], [ null, %matches_subpath.exit ], [ null, %71 ], [ null, %84 ], [ null, %80 ]
+  ret ptr %.067
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2013,8 +2013,8 @@ define dso_local ptr @sema_find_symbol(ptr nocapture noundef readonly %0, ptr no
   br label %14
 
 14:                                               ; preds = %.thread93, %11, %9
-  %.057 = phi ptr [ %10, %9 ], [ %7, %11 ], [ null, %.thread93 ]
-  ret ptr %.057
+  %.061 = phi ptr [ %10, %9 ], [ %7, %11 ], [ null, %.thread93 ]
+  ret ptr %.061
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -2042,21 +2042,21 @@ define dso_local noundef ptr @sema_find_label_symbol(ptr nocapture noundef reado
   br label %14
 
 14:                                               ; preds = %15, %8
-  %.012 = phi i64 [ %13, %8 ], [ %16, %15 ]
-  %.not16 = icmp slt i64 %.012, %11
+  %.0 = phi i64 [ %13, %8 ], [ %16, %15 ]
+  %.not16 = icmp slt i64 %.0, %11
   br i1 %.not16, label %.loopexit, label %15
 
 15:                                               ; preds = %14
-  %16 = add nsw i64 %.012, -1
-  %17 = getelementptr inbounds ptr, ptr %4, i64 %.012
+  %16 = add nsw i64 %.0, -1
+  %17 = getelementptr inbounds ptr, ptr %4, i64 %.0
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %1
   br i1 %20, label %.loopexit, label %14, !llvm.loop !25
 
 .loopexit:                                        ; preds = %14, %15, %2, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %2 ], [ null, %14 ], [ %18, %15 ]
-  ret ptr %.0
+  %.012 = phi ptr [ null, %5 ], [ null, %2 ], [ null, %14 ], [ %18, %15 ]
+  ret ptr %.012
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -2078,21 +2078,21 @@ define dso_local noundef ptr @sema_find_label_symbol_anywhere(ptr nocapture noun
   br label %11
 
 11:                                               ; preds = %13, %8
-  %.011 = phi i64 [ %10, %8 ], [ %14, %13 ]
-  %12 = icmp sgt i64 %.011, -1
+  %.0 = phi i64 [ %10, %8 ], [ %14, %13 ]
+  %12 = icmp sgt i64 %.0, -1
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %11
-  %14 = add nsw i64 %.011, -1
-  %15 = getelementptr inbounds ptr, ptr %4, i64 %.011
+  %14 = add nsw i64 %.0, -1
+  %15 = getelementptr inbounds ptr, ptr %4, i64 %.0
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, %1
   br i1 %18, label %.loopexit, label %11, !llvm.loop !26
 
 .loopexit:                                        ; preds = %11, %13, %2, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %2 ], [ null, %11 ], [ %16, %13 ]
-  ret ptr %.0
+  %.011 = phi ptr [ null, %5 ], [ null, %2 ], [ null, %11 ], [ %16, %13 ]
+  ret ptr %.011
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2125,13 +2125,13 @@ define dso_local zeroext i1 @sema_symbol_is_defined_in_scope(ptr nocapture nound
 
 11:                                               ; preds = %.thread109
   call fastcc void @sema_report_error_on_decl(ptr noundef %7, ptr noundef nonnull %3)
-  %.066.pre = load ptr, ptr @poisoned_decl, align 8
-  %.not86 = icmp eq ptr %.066.pre, null
+  %.071.pre = load ptr, ptr @poisoned_decl, align 8
+  %.not86 = icmp eq ptr %.071.pre, null
   br i1 %.not86, label %.thread116, label %12
 
 12:                                               ; preds = %.thread119, %11
-  %.066122 = phi ptr [ %7, %.thread119 ], [ %.066.pre, %11 ]
-  %13 = getelementptr inbounds i8, ptr %.066122, i64 56
+  %.071122 = phi ptr [ %7, %.thread119 ], [ %.071.pre, %11 ]
+  %13 = getelementptr inbounds i8, ptr %.071122, i64 56
   %14 = load ptr, ptr %13, align 8
   %.not87 = icmp eq ptr %14, null
   %. = select i1 %.not87, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %14
@@ -2143,7 +2143,7 @@ define dso_local zeroext i1 @sema_symbol_is_defined_in_scope(ptr nocapture nound
   br i1 %19, label %.thread116, label %20
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %.066122, i64 24
+  %21 = getelementptr inbounds i8, ptr %.071122, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = trunc i64 %22 to i32
   %24 = and i32 %23, 127
@@ -2158,8 +2158,8 @@ define dso_local zeroext i1 @sema_symbol_is_defined_in_scope(ptr nocapture nound
   br label %.thread116
 
 .thread116:                                       ; preds = %.thread109, %20, %12, %11, %25
-  %.067 = phi i1 [ %27, %25 ], [ false, %11 ], [ true, %12 ], [ true, %20 ], [ false, %.thread109 ]
-  ret i1 %.067
+  %.065 = phi i1 [ %27, %25 ], [ false, %11 ], [ true, %12 ], [ true, %20 ], [ false, %.thread109 ]
+  ret i1 %.065
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2362,33 +2362,33 @@ matches_subpath.exit79.thread:                    ; preds = %76, %80, %68, %matc
   br label %94
 
 94:                                               ; preds = %12, %92
-  %.059 = phi ptr [ %13, %12 ], [ %93, %92 ]
-  %.not73 = icmp ne ptr %.059, null
+  %.061 = phi ptr [ %13, %12 ], [ %93, %92 ]
+  %.not73 = icmp ne ptr %.061, null
   %95 = load ptr, ptr %4, align 8
   %.not74 = icmp eq ptr %95, null
   %or.cond = select i1 %.not73, i1 %.not74, i1 false
   br i1 %or.cond, label %100, label %.thread94
 
 .thread94:                                        ; preds = %16, %14, %94
-  %.05999 = phi ptr [ %.059, %94 ], [ null, %14 ], [ null, %16 ]
+  %.06199 = phi ptr [ %.061, %94 ], [ null, %14 ], [ null, %16 ]
   %96 = load i8, ptr %11, align 1
   %97 = trunc i8 %96 to i1
   br i1 %97, label %103, label %98
 
 98:                                               ; preds = %.thread94
-  call fastcc void @sema_report_error_on_decl(ptr noundef %.05999, ptr noundef nonnull %4)
+  call fastcc void @sema_report_error_on_decl(ptr noundef %.06199, ptr noundef nonnull %4)
   %99 = load ptr, ptr @poisoned_decl, align 8
   br label %103
 
 100:                                              ; preds = %94
   %101 = getelementptr inbounds i8, ptr %0, i64 16
   %102 = load ptr, ptr %101, align 8
-  tail call void @unit_register_external_symbol(ptr noundef %102, ptr noundef nonnull %.059) #10
+  tail call void @unit_register_external_symbol(ptr noundef %102, ptr noundef nonnull %.061) #10
   br label %103
 
 103:                                              ; preds = %.thread94, %19, %100, %98, %90
-  %.058 = phi ptr [ %99, %98 ], [ %.059, %100 ], [ %91, %90 ], [ null, %19 ], [ null, %.thread94 ]
-  ret ptr %.058
+  %.062 = phi ptr [ %99, %98 ], [ %.061, %100 ], [ %91, %90 ], [ null, %19 ], [ null, %.thread94 ]
+  ret ptr %.062
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2590,33 +2590,33 @@ matches_subpath.exit79.thread:                    ; preds = %77, %81, %69, %matc
   br label %95
 
 95:                                               ; preds = %13, %93
-  %.059 = phi ptr [ %14, %13 ], [ %94, %93 ]
-  %.not73 = icmp ne ptr %.059, null
+  %.062 = phi ptr [ %14, %13 ], [ %94, %93 ]
+  %.not73 = icmp ne ptr %.062, null
   %96 = load ptr, ptr %5, align 8
   %.not74 = icmp eq ptr %96, null
   %or.cond = select i1 %.not73, i1 %.not74, i1 false
   br i1 %or.cond, label %101, label %.thread94
 
 .thread94:                                        ; preds = %17, %15, %95
-  %.05999 = phi ptr [ %.059, %95 ], [ null, %15 ], [ null, %17 ]
+  %.06299 = phi ptr [ %.062, %95 ], [ null, %15 ], [ null, %17 ]
   %97 = load i8, ptr %12, align 1
   %98 = trunc i8 %97 to i1
   br i1 %98, label %104, label %99
 
 99:                                               ; preds = %.thread94
-  call fastcc void @sema_report_error_on_decl(ptr noundef %.05999, ptr noundef nonnull %5)
+  call fastcc void @sema_report_error_on_decl(ptr noundef %.06299, ptr noundef nonnull %5)
   %100 = load ptr, ptr @poisoned_decl, align 8
   br label %104
 
 101:                                              ; preds = %95
   %102 = getelementptr inbounds i8, ptr %0, i64 16
   %103 = load ptr, ptr %102, align 8
-  tail call void @unit_register_external_symbol(ptr noundef %103, ptr noundef nonnull %.059) #10
+  tail call void @unit_register_external_symbol(ptr noundef %103, ptr noundef nonnull %.062) #10
   br label %104
 
 104:                                              ; preds = %.thread94, %20, %101, %99, %91
-  %.058 = phi ptr [ %100, %99 ], [ %.059, %101 ], [ %92, %91 ], [ null, %20 ], [ null, %.thread94 ]
-  ret ptr %.058
+  %.061 = phi ptr [ %100, %99 ], [ %.062, %101 ], [ %92, %91 ], [ null, %20 ], [ null, %.thread94 ]
+  ret ptr %.061
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -2787,7 +2787,7 @@ sema_find_ct_local.exit:                          ; preds = %.lr.ph.i
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, %6
-  br i1 %82, label %sema_find_local.exit.thread78, label %78
+  br i1 %82, label %sema_find_local.exit.thread77, label %78
 
 83:                                               ; preds = %.critedge
   %84 = getelementptr inbounds i8, ptr %0, i64 240
@@ -2807,13 +2807,13 @@ sema_find_ct_local.exit:                          ; preds = %.lr.ph.i
   br label %95
 
 92:                                               ; preds = %95
-  %93 = add nsw i64 %.02026.i, -1
-  %94 = icmp sgt i64 %.02026.i, 0
+  %93 = add nsw i64 %.026.i, -1
+  %94 = icmp sgt i64 %.026.i, 0
   br i1 %94, label %95, label %sema_find_local.exit.thread, !llvm.loop !32
 
 95:                                               ; preds = %92, %89
-  %.02026.i = phi i64 [ %91, %89 ], [ %93, %92 ]
-  %96 = getelementptr inbounds ptr, ptr %85, i64 %.02026.i
+  %.026.i = phi i64 [ %91, %89 ], [ %93, %92 ]
+  %96 = getelementptr inbounds ptr, ptr %85, i64 %.026.i
   %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, %6
@@ -2824,13 +2824,13 @@ sema_find_ct_local.exit:                          ; preds = %.lr.ph.i
   %102 = load i64, ptr %101, align 8
   %103 = and i64 %102, 127
   %104 = icmp eq i64 %103, 26
-  br i1 %104, label %105, label %sema_find_local.exit.thread78
+  br i1 %104, label %105, label %sema_find_local.exit.thread77
 
 105:                                              ; preds = %100
   %106 = getelementptr inbounds i8, ptr %97, i64 80
   %107 = load i32, ptr %106, align 8
   %trunc.i = trunc i32 %107 to i8
-  switch i8 %trunc.i, label %sema_find_local.exit.thread78 [
+  switch i8 %trunc.i, label %sema_find_local.exit.thread77 [
     i8 9, label %sema_find_local.exit.thread
     i8 10, label %sema_find_local.exit
   ]
@@ -2839,11 +2839,11 @@ sema_find_local.exit:                             ; preds = %105
   %108 = getelementptr inbounds i8, ptr %97, i64 88
   %109 = load ptr, ptr %108, align 8
   %.not62 = icmp eq ptr %109, null
-  br i1 %.not62, label %sema_find_local.exit.thread, label %sema_find_local.exit.thread78
+  br i1 %.not62, label %sema_find_local.exit.thread, label %sema_find_local.exit.thread77
 
-sema_find_local.exit.thread78:                    ; preds = %.lr.ph.i.i, %100, %105, %sema_find_local.exit
-  %.0.i6981 = phi ptr [ %109, %sema_find_local.exit ], [ %97, %105 ], [ %97, %100 ], [ %80, %.lr.ph.i.i ]
-  %110 = getelementptr inbounds i8, ptr %.0.i6981, i64 56
+sema_find_local.exit.thread77:                    ; preds = %.lr.ph.i.i, %100, %105, %sema_find_local.exit
+  %.020.i80 = phi ptr [ %109, %sema_find_local.exit ], [ %97, %105 ], [ %97, %100 ], [ %80, %.lr.ph.i.i ]
+  %110 = getelementptr inbounds i8, ptr %.020.i80, i64 56
   %111 = load ptr, ptr %110, align 8
   %.not63 = icmp eq ptr %111, null
   %. = select i1 %.not63, ptr getelementptr inbounds (i8, ptr @global_context, i64 16), ptr %111
@@ -2852,20 +2852,20 @@ sema_find_local.exit.thread78:                    ; preds = %.lr.ph.i.i, %100, %
   %114 = icmp eq ptr %112, %113
   br i1 %114, label %119, label %115
 
-115:                                              ; preds = %sema_find_local.exit.thread78
-  %116 = getelementptr inbounds i8, ptr %.0.i6981, i64 24
+115:                                              ; preds = %sema_find_local.exit.thread77
+  %116 = getelementptr inbounds i8, ptr %.020.i80, i64 24
   %117 = load i64, ptr %116, align 8
   %118 = and i64 %117, 262144
   %.not64 = icmp eq i64 %118, 0
   br i1 %.not64, label %sema_find_local.exit.thread, label %119
 
-119:                                              ; preds = %115, %sema_find_local.exit.thread78
-  tail call void @sema_shadow_error(ptr noundef nonnull %1, ptr noundef nonnull %.0.i6981) #10
+119:                                              ; preds = %115, %sema_find_local.exit.thread77
+  tail call void @sema_shadow_error(ptr noundef nonnull %1, ptr noundef nonnull %.020.i80) #10
   %120 = load i64, ptr %8, align 8
   %121 = and i64 %120, -1024
   %122 = or disjoint i64 %121, 256
   store i64 %122, ptr %8, align 8
-  %123 = getelementptr inbounds i8, ptr %.0.i6981, i64 24
+  %123 = getelementptr inbounds i8, ptr %.020.i80, i64 24
   %124 = load i64, ptr %123, align 8
   %125 = and i64 %124, -1024
   %126 = or disjoint i64 %125, 256
@@ -2878,8 +2878,8 @@ sema_find_local.exit.thread:                      ; preds = %92, %78, %73, %75, 
   store i64 %128, ptr %8, align 8
   %129 = getelementptr inbounds i8, ptr %0, i64 240
   %130 = load ptr, ptr %129, align 8
-  %.not.i70 = icmp eq ptr %130, null
-  br i1 %.not.i70, label %.thread.i, label %134
+  %.not.i69 = icmp eq ptr %130, null
+  br i1 %.not.i69, label %.thread.i, label %134
 
 .thread.i:                                        ; preds = %sema_find_local.exit.thread
   %131 = getelementptr inbounds i8, ptr %0, i64 264
@@ -2904,10 +2904,10 @@ sema_find_local.exit.thread:                      ; preds = %92, %78, %73, %75, 
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %167, %.preheader.preheader.i
-  %.02634.i = phi i64 [ %175, %167 ], [ %.037.i, %.preheader.preheader.i ]
+  %.02534.i = phi i64 [ %175, %167 ], [ %.037.i, %.preheader.preheader.i ]
   %143 = load ptr, ptr %129, align 8
-  %.not.i.i71 = icmp eq ptr %143, null
-  br i1 %.not.i.i71, label %144, label %147
+  %.not.i.i70 = icmp eq ptr %143, null
+  br i1 %.not.i.i70, label %144, label %147
 
 144:                                              ; preds = %.preheader.i
   %145 = tail call ptr @calloc_arena(i64 noundef 72) #10
@@ -2960,9 +2960,9 @@ sema_find_local.exit.thread:                      ; preds = %92, %78, %73, %75, 
   %173 = zext i32 %172 to i64
   %174 = getelementptr inbounds ptr, ptr %170, i64 %173
   store ptr %1, ptr %174, align 8
-  %175 = add nuw nsw i64 %.02634.i, 1
-  %exitcond.not.i72 = icmp eq i64 %.02634.i, %141
-  br i1 %exitcond.not.i72, label %sema_append_local.exit, label %.preheader.i, !llvm.loop !33
+  %175 = add nuw nsw i64 %.02534.i, 1
+  %exitcond.not.i71 = icmp eq i64 %.02534.i, %141
+  br i1 %exitcond.not.i71, label %sema_append_local.exit, label %.preheader.i, !llvm.loop !33
 
 176:                                              ; preds = %134
   %177 = getelementptr inbounds ptr, ptr %130, i64 %140
@@ -2977,8 +2977,8 @@ sema_append_local.exit:                           ; preds = %167, %176
   br label %181
 
 181:                                              ; preds = %sema_find_ct_local.exit, %61, %2, %sema_append_local.exit, %119
-  %.055 = phi i1 [ true, %sema_append_local.exit ], [ false, %119 ], [ true, %2 ], [ true, %61 ], [ false, %sema_find_ct_local.exit ]
-  ret i1 %.055
+  %.054 = phi i1 [ true, %sema_append_local.exit ], [ false, %119 ], [ true, %2 ], [ true, %61 ], [ false, %sema_find_ct_local.exit ]
+  ret i1 %.054
 }
 
 declare void @sema_shadow_error(ptr noundef, ptr noundef) local_unnamed_addr #5
@@ -3032,7 +3032,7 @@ define dso_local void @sema_unwrap_var(ptr nocapture noundef %0, ptr noundef %1)
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %55, %.preheader.preheader.i
-  %.02634.i = phi i64 [ %63, %55 ], [ %.037.i, %.preheader.preheader.i ]
+  %.02534.i = phi i64 [ %63, %55 ], [ %.037.i, %.preheader.preheader.i ]
   %31 = load ptr, ptr %17, align 8
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %32, label %35
@@ -3088,8 +3088,8 @@ define dso_local void @sema_unwrap_var(ptr nocapture noundef %0, ptr noundef %1)
   %61 = zext i32 %60 to i64
   %62 = getelementptr inbounds ptr, ptr %58, i64 %61
   store ptr %3, ptr %62, align 8
-  %63 = add nuw nsw i64 %.02634.i, 1
-  %exitcond.not.i = icmp eq i64 %.02634.i, %29
+  %63 = add nuw nsw i64 %.02534.i, 1
+  %exitcond.not.i = icmp eq i64 %.02534.i, %29
   br i1 %exitcond.not.i, label %sema_append_local.exit, label %.preheader.i, !llvm.loop !33
 
 64:                                               ; preds = %22
@@ -3137,7 +3137,7 @@ define dso_local void @sema_rewrap_var(ptr nocapture noundef %0, ptr nocapture n
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %43, %.preheader.preheader.i
-  %.02634.i = phi i64 [ %51, %43 ], [ %.037.i, %.preheader.preheader.i ]
+  %.02534.i = phi i64 [ %51, %43 ], [ %.037.i, %.preheader.preheader.i ]
   %19 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %20, label %23
@@ -3193,8 +3193,8 @@ define dso_local void @sema_rewrap_var(ptr nocapture noundef %0, ptr nocapture n
   %49 = zext i32 %48 to i64
   %50 = getelementptr inbounds ptr, ptr %46, i64 %49
   store ptr %4, ptr %50, align 8
-  %51 = add nuw nsw i64 %.02634.i, 1
-  %exitcond.not.i = icmp eq i64 %.02634.i, %17
+  %51 = add nuw nsw i64 %.02534.i, 1
+  %exitcond.not.i = icmp eq i64 %.02534.i, %17
   br i1 %exitcond.not.i, label %sema_append_local.exit, label %.preheader.i, !llvm.loop !33
 
 52:                                               ; preds = %10
@@ -3252,7 +3252,7 @@ define dso_local void @sema_erase_var(ptr nocapture noundef %0, ptr nocapture no
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %50, %.preheader.preheader.i
-  %.02634.i = phi i64 [ %58, %50 ], [ %.037.i, %.preheader.preheader.i ]
+  %.02534.i = phi i64 [ %58, %50 ], [ %.037.i, %.preheader.preheader.i ]
   %26 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %27, label %30
@@ -3308,8 +3308,8 @@ define dso_local void @sema_erase_var(ptr nocapture noundef %0, ptr nocapture no
   %56 = zext i32 %55 to i64
   %57 = getelementptr inbounds ptr, ptr %53, i64 %56
   store ptr %3, ptr %57, align 8
-  %58 = add nuw nsw i64 %.02634.i, 1
-  %exitcond.not.i = icmp eq i64 %.02634.i, %24
+  %58 = add nuw nsw i64 %.02534.i, 1
+  %exitcond.not.i = icmp eq i64 %.02534.i, %24
   br i1 %exitcond.not.i, label %sema_append_local.exit, label %.preheader.i, !llvm.loop !33
 
 59:                                               ; preds = %17
@@ -3373,7 +3373,7 @@ define dso_local void @sema_erase_unwrapped(ptr nocapture noundef %0, ptr nounde
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %54, %.preheader.preheader.i
-  %.02634.i = phi i64 [ %62, %54 ], [ %.037.i, %.preheader.preheader.i ]
+  %.02534.i = phi i64 [ %62, %54 ], [ %.037.i, %.preheader.preheader.i ]
   %30 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %31, label %34
@@ -3429,8 +3429,8 @@ define dso_local void @sema_erase_unwrapped(ptr nocapture noundef %0, ptr nounde
   %60 = zext i32 %59 to i64
   %61 = getelementptr inbounds ptr, ptr %57, i64 %60
   store ptr %3, ptr %61, align 8
-  %62 = add nuw nsw i64 %.02634.i, 1
-  %exitcond.not.i = icmp eq i64 %.02634.i, %28
+  %62 = add nuw nsw i64 %.02534.i, 1
+  %exitcond.not.i = icmp eq i64 %.02534.i, %28
   br i1 %exitcond.not.i, label %sema_append_local.exit, label %.preheader.i, !llvm.loop !33
 
 63:                                               ; preds = %21
@@ -3459,39 +3459,39 @@ define internal fastcc noundef zeroext i1 @decl_is_visible(ptr nocapture noundef
   br i1 %3, label %.loopexit, label %.preheader4
 
 .preheader4:                                      ; preds = %1, %.preheader4
-  %.058 = phi ptr [ %5, %.preheader4 ], [ %.56.val.0.val, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.058, i64 64
+  %.060 = phi ptr [ %5, %.preheader4 ], [ %.56.val.0.val, %1 ]
+  %4 = getelementptr inbounds i8, ptr %.060, i64 64
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.preheader3, label %.preheader4, !llvm.loop !34
 
 .preheader3:                                      ; preds = %.preheader4, %.preheader3
-  %.059 = phi ptr [ %7, %.preheader3 ], [ %2, %.preheader4 ]
-  %6 = getelementptr inbounds i8, ptr %.059, i64 64
+  %.061 = phi ptr [ %7, %.preheader3 ], [ %2, %.preheader4 ]
+  %6 = getelementptr inbounds i8, ptr %.061, i64 64
   %7 = load ptr, ptr %6, align 8
   %.not79 = icmp eq ptr %7, null
   br i1 %.not79, label %8, label %.preheader3, !llvm.loop !35
 
 8:                                                ; preds = %.preheader3
-  %9 = getelementptr inbounds i8, ptr %.058, i64 80
+  %9 = getelementptr inbounds i8, ptr %.060, i64 80
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %.059, i64 80
+  %11 = getelementptr inbounds i8, ptr %.061, i64 80
   %12 = load ptr, ptr %11, align 8
   %.not80 = icmp eq ptr %10, %12
   br i1 %.not80, label %13, label %.critedge
 
 13:                                               ; preds = %8
-  %14 = load ptr, ptr %.058, align 8
+  %14 = load ptr, ptr %.060, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load i32, ptr %15, align 8
-  %17 = load ptr, ptr %.059, align 8
+  %17 = load ptr, ptr %.061, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load i32, ptr %18, align 8
   %20 = icmp ult i32 %16, %19
   %21 = select i1 %20, ptr %14, ptr %17
-  %spec.select = select i1 %20, ptr %.058, ptr %.059
+  %spec.select = select i1 %20, ptr %.060, ptr %.061
   %22 = select i1 %20, ptr %17, ptr %14
-  %spec.select86 = select i1 %20, ptr %.059, ptr %.058
+  %spec.select86 = select i1 %20, ptr %.061, ptr %.060
   %23 = getelementptr inbounds i8, ptr %21, i64 16
   %24 = load i32, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %22, i64 16
@@ -3523,15 +3523,15 @@ define internal fastcc noundef zeroext i1 @decl_is_visible(ptr nocapture noundef
   br label %36
 
 36:                                               ; preds = %.lr.ph8, %41
-  %.0627 = phi ptr [ %.56.val.0.val, %.lr.ph8 ], [ %43, %41 ]
-  %37 = load ptr, ptr %.0627, align 8
+  %.0597 = phi ptr [ %.56.val.0.val, %.lr.ph8 ], [ %43, %41 ]
+  %37 = load ptr, ptr %.0597, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, %35
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %.0627, i64 72
+  %42 = getelementptr inbounds i8, ptr %.0597, i64 72
   %43 = load ptr, ptr %42, align 8
   %.not81 = icmp eq ptr %43, null
   br i1 %.not81, label %._crit_edge9, label %36, !llvm.loop !37
@@ -3549,8 +3549,8 @@ define internal fastcc noundef zeroext i1 @decl_is_visible(ptr nocapture noundef
   br i1 %.not23, label %.loopexit, label %.lr.ph17
 
 .lr.ph17:                                         ; preds = %46, %.critedge90
-  %.06115 = phi i32 [ %86, %.critedge90 ], [ 0, %46 ]
-  %49 = zext i32 %.06115 to i64
+  %.05815 = phi i32 [ %86, %.critedge90 ], [ 0, %46 ]
+  %49 = zext i32 %.05815 to i64
   %50 = getelementptr inbounds ptr, ptr %45, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 96
@@ -3559,49 +3559,49 @@ define internal fastcc noundef zeroext i1 @decl_is_visible(ptr nocapture noundef
   br i1 %54, label %.loopexit, label %.preheader1
 
 .preheader1:                                      ; preds = %.lr.ph17, %.preheader1
-  %.064 = phi ptr [ %56, %.preheader1 ], [ %53, %.lr.ph17 ]
-  %55 = getelementptr inbounds i8, ptr %.064, i64 64
+  %.067 = phi ptr [ %56, %.preheader1 ], [ %53, %.lr.ph17 ]
+  %55 = getelementptr inbounds i8, ptr %.067, i64 64
   %56 = load ptr, ptr %55, align 8
   %.not83 = icmp eq ptr %56, null
   br i1 %.not83, label %.preheader, label %.preheader1, !llvm.loop !38
 
 .preheader:                                       ; preds = %.preheader1, %.preheader
-  %.068 = phi ptr [ %58, %.preheader ], [ %.56.val.0.val, %.preheader1 ]
-  %57 = getelementptr inbounds i8, ptr %.068, i64 64
+  %.065 = phi ptr [ %58, %.preheader ], [ %.56.val.0.val, %.preheader1 ]
+  %57 = getelementptr inbounds i8, ptr %.065, i64 64
   %58 = load ptr, ptr %57, align 8
   %.not84 = icmp eq ptr %58, null
   br i1 %.not84, label %59, label %.preheader, !llvm.loop !39
 
 59:                                               ; preds = %.preheader
-  %60 = getelementptr inbounds i8, ptr %.064, i64 80
+  %60 = getelementptr inbounds i8, ptr %.067, i64 80
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %.068, i64 80
+  %62 = getelementptr inbounds i8, ptr %.065, i64 80
   %63 = load ptr, ptr %62, align 8
   %.not85 = icmp eq ptr %61, %63
   br i1 %.not85, label %64, label %.critedge90
 
 64:                                               ; preds = %59
-  %65 = load ptr, ptr %.064, align 8
+  %65 = load ptr, ptr %.067, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 16
   %67 = load i32, ptr %66, align 8
-  %68 = load ptr, ptr %.068, align 8
+  %68 = load ptr, ptr %.065, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 16
   %70 = load i32, ptr %69, align 8
   %71 = icmp ult i32 %67, %70
-  %72 = select i1 %71, ptr %65, ptr %68
-  %spec.select87 = select i1 %71, ptr %.064, ptr %.068
-  %73 = select i1 %71, ptr %68, ptr %65
-  %spec.select88 = select i1 %71, ptr %.068, ptr %.064
-  %74 = getelementptr inbounds i8, ptr %72, i64 16
+  %72 = select i1 %71, ptr %68, ptr %65
+  %spec.select87 = select i1 %71, ptr %.065, ptr %.067
+  %73 = select i1 %71, ptr %65, ptr %68
+  %spec.select88 = select i1 %71, ptr %.067, ptr %.065
+  %74 = getelementptr inbounds i8, ptr %73, i64 16
   %75 = load i32, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %73, i64 16
+  %76 = getelementptr inbounds i8, ptr %72, i64 16
   %77 = load i32, ptr %76, align 8
   %78 = icmp ugt i32 %77, %75
   br i1 %78, label %.lr.ph12, label %._crit_edge13
 
 .lr.ph12:                                         ; preds = %64, %.lr.ph12
-  %.26610 = phi ptr [ %80, %.lr.ph12 ], [ %spec.select88, %64 ]
-  %79 = getelementptr inbounds i8, ptr %.26610, i64 72
+  %.26910 = phi ptr [ %80, %.lr.ph12 ], [ %spec.select87, %64 ]
+  %79 = getelementptr inbounds i8, ptr %.26910, i64 72
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 16
@@ -3610,18 +3610,18 @@ define internal fastcc noundef zeroext i1 @decl_is_visible(ptr nocapture noundef
   br i1 %84, label %.lr.ph12, label %._crit_edge13, !llvm.loop !40
 
 ._crit_edge13:                                    ; preds = %.lr.ph12, %64
-  %.266.lcssa = phi ptr [ %spec.select88, %64 ], [ %80, %.lr.ph12 ]
-  %85 = icmp eq ptr %.266.lcssa, %spec.select87
+  %.269.lcssa = phi ptr [ %spec.select87, %64 ], [ %80, %.lr.ph12 ]
+  %85 = icmp eq ptr %.269.lcssa, %spec.select88
   br i1 %85, label %.loopexit, label %.critedge90
 
 .critedge90:                                      ; preds = %59, %._crit_edge13
-  %86 = add nuw i32 %.06115, 1
+  %86 = add nuw i32 %.05815, 1
   %exitcond.not = icmp eq i32 %86, %48
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph17, !llvm.loop !41
 
 .loopexit:                                        ; preds = %36, %.lr.ph17, %._crit_edge13, %.critedge90, %._crit_edge9, %46, %._crit_edge, %1
-  %.067 = phi i1 [ true, %1 ], [ true, %._crit_edge ], [ false, %46 ], [ false, %._crit_edge9 ], [ true, %.lr.ph17 ], [ true, %._crit_edge13 ], [ false, %.critedge90 ], [ true, %36 ]
-  ret i1 %.067
+  %.063 = phi i1 [ true, %1 ], [ true, %._crit_edge ], [ false, %46 ], [ false, %._crit_edge9 ], [ true, %.lr.ph17 ], [ true, %._crit_edge13 ], [ false, %.critedge90 ], [ true, %36 ]
+  ret i1 %.063
 }
 
 declare ptr @decl_to_name(ptr noundef) local_unnamed_addr #5
@@ -3768,13 +3768,13 @@ define internal fastcc ptr @sema_resolve_no_path_symbol(ptr nocapture noundef re
   br label %29
 
 26:                                               ; preds = %29
-  %27 = add nsw i64 %.02026.i, -1
-  %28 = icmp sgt i64 %.02026.i, 0
+  %27 = add nsw i64 %.026.i, -1
+  %28 = icmp sgt i64 %.026.i, 0
   br i1 %28, label %29, label %sema_find_local.exit.thread, !llvm.loop !32
 
 29:                                               ; preds = %26, %23
-  %.02026.i = phi i64 [ %25, %23 ], [ %27, %26 ]
-  %30 = getelementptr inbounds ptr, ptr %19, i64 %.02026.i
+  %.026.i = phi i64 [ %25, %23 ], [ %27, %26 ]
+  %30 = getelementptr inbounds ptr, ptr %19, i64 %.026.i
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, %4

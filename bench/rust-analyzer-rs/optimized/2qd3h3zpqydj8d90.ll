@@ -851,14 +851,14 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit.thread.sink.split"
 
 "_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit.thread.sink.split": ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit", %19
-  %.012.ph = phi i1 [ false, %19 ], [ true, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit" ]
+  %.011.ph = phi i1 [ false, %19 ], [ true, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit" ]
   %20 = add i64 %12, 2
   store i64 %20, ptr %11, align 8
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit.thread"
 
 "_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit.thread": ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit.thread.sink.split", %5, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit"
   %21 = phi i64 [ %13, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit" ], [ %13, %5 ], [ %20, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit.thread.sink.split" ]
-  %.012 = phi i1 [ true, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit" ], [ true, %5 ], [ %.012.ph, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit.thread.sink.split" ]
+  %.011 = phi i1 [ true, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit" ], [ true, %5 ], [ %.011.ph, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit.thread.sink.split" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !210)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !213)
   %22 = icmp ult i64 %21, %15
@@ -903,7 +903,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   ret void
 
 "_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit29": ; preds = %35, %.critedge25
-  %.01047 = phi i32 [ %81, %.critedge25 ], [ %36, %35 ]
+  %.01247 = phi i32 [ %81, %.critedge25 ], [ %36, %35 ]
   %38 = phi i64 [ %43, %.critedge25 ], [ %27, %35 ]
   %39 = getelementptr inbounds [0 x i8], ptr %24, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1, !noalias !221, !noundef !7
@@ -912,22 +912,22 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   br i1 %or.cond1, label %42, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit29.thread"
 
 "_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit29.thread": ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit29", %.critedge25, %35
-  %.010.lcssa = phi i32 [ %36, %35 ], [ %81, %.critedge25 ], [ %.01047, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit29" ]
-  br i1 %.012, label %48, label %46
+  %.012.lcssa = phi i32 [ %36, %35 ], [ %81, %.critedge25 ], [ %.01247, %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit29" ]
+  br i1 %.011, label %48, label %46
 
 42:                                               ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit29"
   %43 = add nuw i64 %38, 1
   store i64 %43, ptr %11, align 8, !alias.scope !231
   %44 = zext nneg i8 %41 to i32
-  %45 = icmp sgt i32 %.01047, 214748363
+  %45 = icmp sgt i32 %.01247, 214748363
   br i1 %45, label %78, label %.critedge25
 
 46:                                               ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit29.thread"
-  %47 = tail call i32 @llvm.ssub.sat.i32(i32 %4, i32 %.010.lcssa)
+  %47 = tail call i32 @llvm.ssub.sat.i32(i32 %4, i32 %.012.lcssa)
   br label %50
 
 48:                                               ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit29.thread"
-  %49 = tail call i32 @llvm.sadd.sat.i32(i32 %4, i32 %.010.lcssa)
+  %49 = tail call i32 @llvm.sadd.sat.i32(i32 %4, i32 %.012.lcssa)
   br label %50
 
 50:                                               ; preds = %48, %46
@@ -1007,20 +1007,20 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   br label %37
 
 78:                                               ; preds = %42
-  %.not = icmp ne i32 %.01047, 214748364
+  %.not = icmp ne i32 %.01247, 214748364
   %79 = icmp ugt i8 %41, 7
   %or.cond26 = or i1 %.not, %79
   br i1 %or.cond26, label %82, label %.critedge25
 
 .critedge25:                                      ; preds = %78, %42
-  %80 = mul i32 %.01047, 10
+  %80 = mul i32 %.01247, 10
   %81 = add i32 %80, %44
   %exitcond.not = icmp eq i64 %43, %15
   br i1 %exitcond.not, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit29.thread", label %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17hbfe3242124d17f6aE.exit29"
 
 82:                                               ; preds = %78
   %83 = icmp eq i64 %3, 0
-  tail call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_exponent_overflow17ha120358b030318daE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i1 noundef zeroext %2, i1 noundef zeroext %83, i1 noundef zeroext %.012)
+  tail call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_exponent_overflow17ha120358b030318daE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, i1 noundef zeroext %2, i1 noundef zeroext %83, i1 noundef zeroext %.011)
   br label %37
 }
 
@@ -1059,11 +1059,11 @@ define hidden void @"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace
 
 ._crit_edge:                                      ; preds = %9, %13, %2
   %15 = phi i8 [ 0, %2 ], [ 0, %13 ], [ 1, %9 ]
-  %.sroa.5.0.i.i5 = phi i8 [ undef, %2 ], [ %12, %13 ], [ %12, %9 ]
+  %.sroa.5.0.i.i6 = phi i8 [ undef, %2 ], [ %12, %13 ], [ %12, %9 ]
   %16 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %15, ptr %16, align 1
   %17 = getelementptr inbounds i8, ptr %0, i64 2
-  store i8 %.sroa.5.0.i.i5, ptr %17, align 2
+  store i8 %.sroa.5.0.i.i6, ptr %17, align 2
   store i8 0, ptr %0, align 8
   ret void
 }
@@ -9599,10 +9599,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %"_ZN172_$LT$proc_macro_api..msg.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$proc_macro_api..msg..ServerConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h6cbc27802fda547dE.exit"
 
 "_ZN172_$LT$proc_macro_api..msg.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$proc_macro_api..msg..ServerConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h6cbc27802fda547dE.exit": ; preds = %.lr.ph.i.i.i.i, %.loopexit38.i.i.i, %69, %66
-  %.sroa.4.0 = phi i8 [ %68, %66 ], [ undef, %69 ], [ undef, %.loopexit38.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
-  %.sroa.572.0 = phi ptr [ undef, %66 ], [ %71, %69 ], [ %64, %.loopexit38.i.i.i ], [ undef, %.lr.ph.i.i.i.i ]
-  %72 = phi i1 [ true, %66 ], [ false, %69 ], [ false, %.loopexit38.i.i.i ], [ true, %.lr.ph.i.i.i.i ]
-  %storemerge.i = phi i8 [ 0, %66 ], [ 1, %69 ], [ 1, %.loopexit38.i.i.i ], [ 0, %.lr.ph.i.i.i.i ]
+  %.sroa.572.0 = phi ptr [ undef, %66 ], [ %64, %.loopexit38.i.i.i ], [ %71, %69 ], [ undef, %.lr.ph.i.i.i.i ]
+  %.sroa.4.0 = phi i8 [ %68, %66 ], [ undef, %.loopexit38.i.i.i ], [ undef, %69 ], [ 0, %.lr.ph.i.i.i.i ]
+  %72 = phi i1 [ true, %66 ], [ false, %.loopexit38.i.i.i ], [ false, %69 ], [ true, %.lr.ph.i.i.i.i ]
+  %storemerge.i = phi i8 [ 0, %66 ], [ 1, %.loopexit38.i.i.i ], [ 1, %69 ], [ 0, %.lr.ph.i.i.i.i ]
   %73 = load i8, ptr %44, align 8, !range !1071, !noundef !7
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %83, label %79
@@ -9655,13 +9655,13 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 91:                                               ; preds = %89, %92
   %.019 = phi i1 [ %93, %92 ], [ false, %89 ]
-  %.sroa.123.0 = phi ptr [ %.018, %92 ], [ undef, %89 ]
+  %.sroa.123.0 = phi ptr [ %.016, %92 ], [ undef, %89 ]
   %.sroa.02.0 = phi i1 [ true, %92 ], [ false, %89 ]
   %brmerge = or i1 %72, %trunc27
   br i1 %brmerge, label %94, label %96
 
 92:                                               ; preds = %87, %89
-  %.018 = phi ptr [ %84, %89 ], [ %.sroa.572.0, %87 ]
+  %.016 = phi ptr [ %84, %89 ], [ %.sroa.572.0, %87 ]
   %93 = xor i1 %trunc27, true
   br label %91
 
@@ -10100,13 +10100,13 @@ _ZN5serde2de9MapAccess10next_value17h7e101aeec5b60f44E.exit.i: ; preds = %183
 
 214:                                              ; preds = %212, %215
   %.0 = phi i1 [ %216, %215 ], [ false, %212 ]
-  %.sroa.123.2 = phi ptr [ %.023, %215 ], [ undef, %212 ]
+  %.sroa.123.2 = phi ptr [ %.021, %215 ], [ undef, %212 ]
   %.sroa.02.2 = phi i1 [ true, %215 ], [ false, %212 ]
   %brmerge43 = or i1 %197, %trunc25
   br i1 %brmerge43, label %217, label %219
 
 215:                                              ; preds = %210, %212
-  %.023 = phi ptr [ %207, %212 ], [ %.sroa.579.0, %210 ]
+  %.021 = phi ptr [ %207, %212 ], [ %.sroa.579.0, %210 ]
   %216 = xor i1 %trunc25, true
   br label %214
 

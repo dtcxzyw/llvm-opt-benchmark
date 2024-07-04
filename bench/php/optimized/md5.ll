@@ -141,11 +141,11 @@ define hidden void @zif_md5(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   br i1 %.fr, label %.thread224, label %.thread231
 
 .thread231:                                       ; preds = %25, %17, %10
-  %.0200240 = phi i32 [ 1, %17 ], [ 0, %10 ], [ 2, %25 ]
-  %.0201239 = phi i32 [ 9, %17 ], [ 1, %10 ], [ 9, %25 ]
-  %.0202238 = phi ptr [ %12, %17 ], [ null, %10 ], [ %26, %25 ]
-  %.0203237 = phi i32 [ 4, %17 ], [ 0, %10 ], [ 2, %25 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0201239, i32 noundef %.0200240, ptr noundef null, i32 noundef %.0203237, ptr noundef %.0202238) #11
+  %.0199240 = phi i32 [ 9, %17 ], [ 1, %10 ], [ 9, %25 ]
+  %.0200239 = phi i32 [ 4, %17 ], [ 0, %10 ], [ 2, %25 ]
+  %.0201238 = phi ptr [ %12, %17 ], [ null, %10 ], [ %26, %25 ]
+  %.0202237 = phi i32 [ 1, %17 ], [ 0, %10 ], [ 2, %25 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0199240, i32 noundef %.0202237, ptr noundef null, i32 noundef %.0200239, ptr noundef %.0201238) #11
   br label %76
 
 .thread224:                                       ; preds = %25, %.thread220, %19
@@ -172,10 +172,10 @@ define hidden void @zif_md5(ptr noundef %0, ptr nocapture noundef writeonly %1) 
   br label %PHP_MD5Update.exit
 
 PHP_MD5Update.exit:                               ; preds = %.thread224, %39
-  %.135.i = phi i64 [ %42, %39 ], [ %33, %.thread224 ]
-  %.1.i = phi ptr [ %41, %39 ], [ %31, %.thread224 ]
+  %.135.i = phi ptr [ %41, %39 ], [ %31, %.thread224 ]
+  %.1.i = phi i64 [ %42, %39 ], [ %33, %.thread224 ]
   %43 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %43, ptr nonnull align 1 %.1.i, i64 %.135.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %43, ptr nonnull align 1 %.135.i, i64 %.1.i, i1 false)
   call void @PHP_MD5Final(ptr noundef nonnull %6, ptr noundef nonnull %5)
   %44 = load i8, ptr %4, align 1
   %45 = trunc i8 %44 to i1
@@ -302,22 +302,22 @@ define void @PHP_MD5Update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local
   br label %29
 
 29:                                               ; preds = %25, %._crit_edge
-  %.034 = phi i64 [ %27, %25 ], [ %2, %._crit_edge ]
-  %.0 = phi ptr [ %26, %25 ], [ %1, %._crit_edge ]
-  %30 = icmp ugt i64 %.034, 63
+  %.034 = phi ptr [ %26, %25 ], [ %1, %._crit_edge ]
+  %.0 = phi i64 [ %27, %25 ], [ %2, %._crit_edge ]
+  %30 = icmp ugt i64 %.0, 63
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %29
-  %32 = and i64 %.034, -64
-  %33 = tail call fastcc ptr @body(ptr noundef nonnull %0, ptr noundef %.0, i64 noundef %32)
-  %34 = and i64 %.034, 63
+  %32 = and i64 %.0, -64
+  %33 = tail call fastcc ptr @body(ptr noundef nonnull %0, ptr noundef %.034, i64 noundef %32)
+  %34 = and i64 %.0, 63
   br label %35
 
 35:                                               ; preds = %31, %29
-  %.135 = phi i64 [ %34, %31 ], [ %.034, %29 ]
-  %.1 = phi ptr [ %33, %31 ], [ %.0, %29 ]
+  %.135 = phi ptr [ %33, %31 ], [ %.034, %29 ]
+  %.1 = phi i64 [ %34, %31 ], [ %.0, %29 ]
   %36 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %36, ptr align 1 %.1, i64 %.135, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %36, ptr align 1 %.135, i64 %.1, i1 false)
   br label %37
 
 37:                                               ; preds = %35, %24
@@ -551,11 +551,11 @@ thread-pre-split:                                 ; preds = %18
   br i1 %cond.fr249, label %.thread273, label %.thread262
 
 .thread262:                                       ; preds = %34, %18, %22, %11
-  %.0229272 = phi i32 [ 9, %18 ], [ 9, %22 ], [ 1, %11 ], [ 9, %34 ]
-  %.0230271 = phi i32 [ 1, %18 ], [ 1, %22 ], [ 0, %11 ], [ 2, %34 ]
-  %.0231270 = phi i32 [ 16, %18 ], [ 16, %22 ], [ 0, %11 ], [ 2, %34 ]
-  %.0232269 = phi ptr [ %13, %18 ], [ %13, %22 ], [ null, %11 ], [ %35, %34 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0229272, i32 noundef %.0230271, ptr noundef null, i32 noundef %.0231270, ptr noundef %.0232269) #11
+  %.0226272 = phi i32 [ 9, %18 ], [ 9, %22 ], [ 1, %11 ], [ 9, %34 ]
+  %.0227271 = phi i32 [ 16, %18 ], [ 16, %22 ], [ 0, %11 ], [ 2, %34 ]
+  %.0228270 = phi ptr [ %13, %18 ], [ %13, %22 ], [ null, %11 ], [ %35, %34 ]
+  %.0229269 = phi i32 [ 1, %18 ], [ 1, %22 ], [ 0, %11 ], [ 2, %34 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0226272, i32 noundef %.0229269, ptr noundef null, i32 noundef %.0227271, ptr noundef %.0228270) #11
   br label %118
 
 .thread273:                                       ; preds = %34, %.thread281, %27
@@ -622,21 +622,21 @@ thread-pre-split:                                 ; preds = %18
   br label %72
 
 72:                                               ; preds = %68, %47
-  %.034.i = phi i64 [ %70, %68 ], [ %48, %47 ]
-  %.0.i = phi ptr [ %69, %68 ], [ %5, %47 ]
-  %73 = icmp ugt i64 %.034.i, 63
+  %.034.i = phi ptr [ %69, %68 ], [ %5, %47 ]
+  %.0.i = phi i64 [ %70, %68 ], [ %48, %47 ]
+  %73 = icmp ugt i64 %.0.i, 63
   br i1 %73, label %74, label %78
 
 74:                                               ; preds = %72
-  %75 = and i64 %.034.i, -64
-  %76 = call fastcc ptr @body(ptr noundef nonnull %7, ptr noundef %.0.i, i64 noundef %75)
-  %77 = and i64 %.034.i, 63
+  %75 = and i64 %.0.i, -64
+  %76 = call fastcc ptr @body(ptr noundef nonnull %7, ptr noundef %.034.i, i64 noundef %75)
+  %77 = and i64 %.0.i, 63
   br label %78
 
 78:                                               ; preds = %74, %72
-  %.135.i = phi i64 [ %77, %74 ], [ %.034.i, %72 ]
-  %.1.i = phi ptr [ %76, %74 ], [ %.0.i, %72 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr align 1 %.1.i, i64 %.135.i, i1 false)
+  %.135.i = phi ptr [ %76, %74 ], [ %.034.i, %72 ]
+  %.1.i = phi i64 [ %77, %74 ], [ %.0.i, %72 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr align 1 %.135.i, i64 %.1.i, i1 false)
   br label %PHP_MD5Update.exit
 
 PHP_MD5Update.exit:                               ; preds = %67, %78

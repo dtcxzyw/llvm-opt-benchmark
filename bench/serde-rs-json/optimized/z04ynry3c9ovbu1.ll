@@ -1073,8 +1073,8 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h6b2
   br label %30
 
 .loopexit.i.i:                                    ; preds = %90, %88, %86
-  %.016.i.i.i = phi i64 [ 1, %86 ], [ %..i.i.i, %90 ], [ 2, %88 ]
-  %29 = add i64 %.016.i.i.i, %32
+  %.015.i.i.i = phi i64 [ 1, %86 ], [ %..i.i.i, %90 ], [ 2, %88 ]
+  %29 = add i64 %.015.i.i.i, %32
   br label %30
 
 30:                                               ; preds = %.loopexit.i.i, %.lr.ph125.i.i

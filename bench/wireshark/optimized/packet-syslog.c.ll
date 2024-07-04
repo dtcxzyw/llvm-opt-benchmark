@@ -216,9 +216,9 @@ define internal i32 @dissect_syslog(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %35
 
 35:                                               ; preds = %.critedge, %4
+  %.092 = phi i32 [ %33, %.critedge ], [ -1, %4 ]
   %.2 = phi i32 [ %spec.select, %.critedge ], [ 0, %4 ]
-  %.089 = phi i32 [ %33, %.critedge ], [ -1, %4 ]
-  %.088 = phi i32 [ %34, %.critedge ], [ -1, %4 ]
+  %.089 = phi i32 [ %34, %.critedge ], [ -1, %4 ]
   %.1 = phi i32 [ %.0.lcssa, %.critedge ], [ -1, %4 ]
   %36 = tail call i32 @tvb_ensure_captured_length_remaining(ptr noundef %0, i32 noundef %.2) #4
   %37 = getelementptr inbounds i8, ptr %1, i64 408
@@ -227,8 +227,8 @@ define internal i32 @dissect_syslog(ptr noundef %0, ptr noundef %1, ptr noundef 
   %40 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2) #4
   %41 = sub i32 %40, %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %42 = icmp eq i32 %.089, 16
-  %43 = icmp eq i32 %.088, 7
+  %42 = icmp eq i32 %.092, 16
+  %43 = icmp eq i32 %.089, 7
   %or.cond.i = and i1 %42, %43
   br i1 %or.cond.i, label %44, label %mtp3_msu_present.exit.thread
 
@@ -293,8 +293,8 @@ mtp3_msu_present.exit:                            ; preds = %58
   br i1 %67, label %69, label %72
 
 69:                                               ; preds = %66
-  %70 = call ptr @val_to_str_const(i32 noundef %.089, ptr noundef nonnull @short_facility_vals, ptr noundef nonnull @.str.69) #4
-  %71 = call ptr @val_to_str_const(i32 noundef %.088, ptr noundef nonnull @short_level_vals, ptr noundef nonnull @.str.69) #4
+  %70 = call ptr @val_to_str_const(i32 noundef %.092, ptr noundef nonnull @short_facility_vals, ptr noundef nonnull @.str.69) #4
+  %71 = call ptr @val_to_str_const(i32 noundef %.089, ptr noundef nonnull @short_level_vals, ptr noundef nonnull @.str.69) #4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %68, i32 noundef 25, ptr noundef nonnull @.str.68, ptr noundef %70, ptr noundef %71, ptr noundef %39) #4
   br label %73
 
@@ -304,7 +304,7 @@ mtp3_msu_present.exit:                            ; preds = %58
 
 73:                                               ; preds = %69, %72, %mtp3_msu_present.exit
   %74 = phi i1 [ true, %69 ], [ true, %72 ], [ false, %mtp3_msu_present.exit ]
-  %.0.i100 = phi ptr [ null, %69 ], [ null, %72 ], [ %64, %mtp3_msu_present.exit ]
+  %.021.i100 = phi ptr [ null, %69 ], [ null, %72 ], [ %64, %mtp3_msu_present.exit ]
   %.not95 = icmp eq ptr %2, null
   br i1 %.not95, label %proto_item_set_generated.exit, label %75
 
@@ -320,8 +320,8 @@ mtp3_msu_present.exit:                            ; preds = %58
   br label %92
 
 82:                                               ; preds = %75
-  %83 = call ptr @val_to_str_const(i32 noundef %.089, ptr noundef nonnull @short_facility_vals, ptr noundef nonnull @.str.69) #4
-  %84 = call ptr @val_to_str_const(i32 noundef %.088, ptr noundef nonnull @short_level_vals, ptr noundef nonnull @.str.69) #4
+  %83 = call ptr @val_to_str_const(i32 noundef %.092, ptr noundef nonnull @short_facility_vals, ptr noundef nonnull @.str.69) #4
+  %84 = call ptr @val_to_str_const(i32 noundef %.089, ptr noundef nonnull @short_level_vals, ptr noundef nonnull @.str.69) #4
   %85 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %77, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.70, ptr noundef %83, ptr noundef %84, ptr noundef %39) #4
   %86 = load i32, ptr @ett_syslog, align 4
   %87 = call ptr @proto_item_add_subtree(ptr noundef %85, i32 noundef %86) #4
@@ -501,7 +501,7 @@ mtp3_msu_present.exit:                            ; preds = %58
   br label %dissect_syslog_message.exit
 
 dissect_syslog_message.exit:                      ; preds = %92, %.loopexit.i, %175, %171, %167, %163, %159, %155, %149, %142, %129, %122, %117, %106, %102, %153
-  %cond = icmp eq ptr %.0.i100, null
+  %cond = icmp eq ptr %.021.i100, null
   br i1 %cond, label %217, label %204
 
 204:                                              ; preds = %dissect_syslog_message.exit
@@ -528,7 +528,7 @@ proto_item_set_generated.exit:                    ; preds = %210, %207, %204, %7
 
 214:                                              ; preds = %proto_item_set_generated.exit
   %215 = load ptr, ptr @mtp_handle, align 8
-  %216 = call i32 @call_dissector(ptr noundef %215, ptr noundef nonnull %.0.i100, ptr noundef %1, ptr noundef %2) #4
+  %216 = call i32 @call_dissector(ptr noundef %215, ptr noundef nonnull %.021.i100, ptr noundef %1, ptr noundef %2) #4
   br label %217
 
 217:                                              ; preds = %dissect_syslog_message.exit, %214, %proto_item_set_generated.exit

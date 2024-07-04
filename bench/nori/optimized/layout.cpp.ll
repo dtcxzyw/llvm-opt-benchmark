@@ -325,8 +325,8 @@ define hidden void @_ZNK7nanogui9BoxLayout14perform_layoutEP10NVGcontextPNS_6Wid
   br label %44
 
 44:                                               ; preds = %38, %42, %28, %18
+  %.041 = phi i32 [ %26, %28 ], [ %41, %38 ], [ %26, %42 ], [ %26, %18 ]
   %.040 = phi i32 [ 0, %28 ], [ 0, %38 ], [ %37, %42 ], [ 0, %18 ]
-  %.0 = phi i32 [ %26, %28 ], [ %41, %38 ], [ %26, %42 ], [ %26, %18 ]
   %45 = getelementptr inbounds i8, ptr %2, i64 64
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %2, i64 72
@@ -350,8 +350,8 @@ define hidden void @_ZNK7nanogui9BoxLayout14perform_layoutEP10NVGcontextPNS_6Wid
   br label %61
 
 61:                                               ; preds = %.lr.ph, %118
-  %.167 = phi i32 [ %.0, %.lr.ph ], [ %.3, %118 ]
-  %.04166 = phi i1 [ true, %.lr.ph ], [ %.243, %118 ]
+  %.067 = phi i1 [ true, %.lr.ph ], [ %.2, %118 ]
+  %.14266 = phi i32 [ %.041, %.lr.ph ], [ %.3, %118 ]
   %.sroa.054.065 = phi ptr [ %46, %.lr.ph ], [ %119, %118 ]
   %62 = load ptr, ptr %.sroa.054.065, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 88
@@ -361,8 +361,8 @@ define hidden void @_ZNK7nanogui9BoxLayout14perform_layoutEP10NVGcontextPNS_6Wid
 
 66:                                               ; preds = %61
   %67 = load i32, ptr %49, align 8
-  %68 = select i1 %.04166, i32 0, i32 %67
-  %.2 = add nsw i32 %68, %.167
+  %68 = select i1 %.067, i32 0, i32 %67
+  %.243 = add nsw i32 %68, %.14266
   %69 = load ptr, ptr %62, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 96
   %71 = load ptr, ptr %70, align 8
@@ -382,7 +382,7 @@ define hidden void @_ZNK7nanogui9BoxLayout14perform_layoutEP10NVGcontextPNS_6Wid
   store i32 %.in49.sroa.speculated, ptr %50, align 4
   store i32 0, ptr %7, align 8
   store i32 %.040, ptr %51, align 4
-  store i32 %.2, ptr %53, align 4
+  store i32 %.243, ptr %53, align 4
   %76 = load i8, ptr %54, align 8
   switch i8 %76, label %108 [
     i8 0, label %77
@@ -452,12 +452,12 @@ define hidden void @_ZNK7nanogui9BoxLayout14perform_layoutEP10NVGcontextPNS_6Wid
   %115 = load ptr, ptr %114, align 8
   tail call void %115(ptr noundef nonnull align 8 dereferenceable(140) %62, ptr noundef %1)
   %116 = load i32, ptr %60, align 4
-  %117 = add nsw i32 %116, %.2
+  %117 = add nsw i32 %116, %.243
   br label %118
 
 118:                                              ; preds = %61, %108
-  %.243 = phi i1 [ false, %108 ], [ %.04166, %61 ]
-  %.3 = phi i32 [ %117, %108 ], [ %.167, %61 ]
+  %.3 = phi i32 [ %117, %108 ], [ %.14266, %61 ]
+  %.2 = phi i1 [ false, %108 ], [ %.067, %61 ]
   %119 = getelementptr inbounds i8, ptr %.sroa.054.065, i64 8
   %.not60 = icmp eq ptr %119, %48
   br i1 %.not60, label %._crit_edge, label %61
@@ -510,8 +510,8 @@ define hidden i64 @_ZNK7nanogui11GroupLayout14preferred_sizeEP10NVGcontextPKNS_6
 
 26:                                               ; preds = %.lr.ph, %58
   %.163 = phi i32 [ %.0, %.lr.ph ], [ %.3, %58 ]
-  %.02462 = phi i1 [ true, %.lr.ph ], [ %.125, %58 ]
-  %.02661 = phi i1 [ false, %.lr.ph ], [ %.127, %58 ]
+  %.02462 = phi i1 [ false, %.lr.ph ], [ %.125, %58 ]
+  %.02661 = phi i1 [ true, %.lr.ph ], [ %.127, %58 ]
   %.05460 = phi i32 [ %6, %.lr.ph ], [ %.155, %58 ]
   %.sroa.046.059 = phi ptr [ %22, %.lr.ph ], [ %59, %58 ]
   %27 = load ptr, ptr %.sroa.046.059, align 8
@@ -522,7 +522,7 @@ define hidden i64 @_ZNK7nanogui11GroupLayout14preferred_sizeEP10NVGcontextPKNS_6
 
 31:                                               ; preds = %26
   %32 = tail call ptr @__dynamic_cast(ptr nonnull %27, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui5LabelE, i64 0) #16
-  br i1 %.02462, label %37, label %33
+  br i1 %.02661, label %37, label %33
 
 33:                                               ; preds = %31
   %34 = icmp eq ptr %32, null
@@ -550,7 +550,7 @@ define hidden i64 @_ZNK7nanogui11GroupLayout14preferred_sizeEP10NVGcontextPKNS_6
   %.not33 = icmp eq i32 %44, 0
   %.in34.sroa.speculated = select i1 %.not33, i32 %.sroa.244.0.extract.trunc, i32 %44
   %45 = icmp eq ptr %32, null
-  %46 = and i1 %.02661, %45
+  %46 = and i1 %.02462, %45
   %47 = add nsw i32 %.in34.sroa.speculated, %.2
   %48 = load i32, ptr %4, align 4
   %49 = shl nsw i32 %48, 1
@@ -569,8 +569,8 @@ define hidden i64 @_ZNK7nanogui11GroupLayout14preferred_sizeEP10NVGcontextPKNS_6
 
 58:                                               ; preds = %37, %54, %26
   %.155 = phi i32 [ %.sroa.speculated, %37 ], [ %.sroa.speculated, %54 ], [ %.05460, %26 ]
-  %.127 = phi i1 [ %.02661, %37 ], [ %57, %54 ], [ %.02661, %26 ]
-  %.125 = phi i1 [ false, %37 ], [ false, %54 ], [ %.02462, %26 ]
+  %.127 = phi i1 [ false, %37 ], [ false, %54 ], [ %.02661, %26 ]
+  %.125 = phi i1 [ %.02462, %37 ], [ %57, %54 ], [ %.02462, %26 ]
   %.3 = phi i32 [ %47, %37 ], [ %47, %54 ], [ %.163, %26 ]
   %59 = getelementptr inbounds i8, ptr %.sroa.046.059, i64 8
   %.not57 = icmp eq ptr %59, %24
@@ -640,8 +640,8 @@ define hidden void @_ZNK7nanogui11GroupLayout14perform_layoutEP10NVGcontextPNS_6
 
 32:                                               ; preds = %.lr.ph, %71
   %.167 = phi i32 [ %.0, %.lr.ph ], [ %.3, %71 ]
-  %.03266 = phi i1 [ true, %.lr.ph ], [ %.133, %71 ]
-  %.03465 = phi i1 [ false, %.lr.ph ], [ %.135, %71 ]
+  %.03266 = phi i1 [ false, %.lr.ph ], [ %.133, %71 ]
+  %.03465 = phi i1 [ true, %.lr.ph ], [ %.135, %71 ]
   %.sroa.056.064 = phi ptr [ %27, %.lr.ph ], [ %72, %71 ]
   %33 = load ptr, ptr %.sroa.056.064, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 88
@@ -651,7 +651,7 @@ define hidden void @_ZNK7nanogui11GroupLayout14perform_layoutEP10NVGcontextPNS_6
 
 37:                                               ; preds = %32
   %38 = tail call ptr @__dynamic_cast(ptr nonnull %33, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui5LabelE, i64 0) #16
-  br i1 %.03266, label %43, label %39
+  br i1 %.03465, label %43, label %39
 
 39:                                               ; preds = %37
   %40 = icmp eq ptr %38, null
@@ -664,7 +664,7 @@ define hidden void @_ZNK7nanogui11GroupLayout14perform_layoutEP10NVGcontextPNS_6
 43:                                               ; preds = %39, %37
   %.2 = phi i32 [ %.167, %37 ], [ %42, %39 ]
   %44 = icmp eq ptr %38, null
-  %45 = select i1 %.03465, i1 %44, i1 false
+  %45 = select i1 %.03266, i1 %44, i1 false
   %46 = load i32, ptr %30, align 8
   %47 = select i1 %45, i32 %46, i32 0
   %48 = add i32 %31, %47
@@ -713,8 +713,8 @@ define hidden void @_ZNK7nanogui11GroupLayout14perform_layoutEP10NVGcontextPNS_6
   br label %71
 
 71:                                               ; preds = %43, %67, %32
-  %.135 = phi i1 [ %70, %67 ], [ %.03465, %43 ], [ %.03465, %32 ]
-  %.133 = phi i1 [ false, %67 ], [ false, %43 ], [ %.03266, %32 ]
+  %.135 = phi i1 [ false, %67 ], [ false, %43 ], [ %.03465, %32 ]
+  %.133 = phi i1 [ %70, %67 ], [ %.03266, %43 ], [ %.03266, %32 ]
   %.3 = phi i32 [ %66, %67 ], [ %66, %43 ], [ %.167, %32 ]
   %72 = getelementptr inbounds i8, ptr %.sroa.056.064, i64 8
   %.not59 = icmp eq ptr %72, %29
@@ -1222,32 +1222,32 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %21
   br label %72
 
 72:                                               ; preds = %72, %.lr.ph.split.us
-  %.098157.us = phi i32 [ %62, %.lr.ph.split.us ], [ %75, %72 ]
+  %.0105157.us = phi i32 [ %62, %.lr.ph.split.us ], [ %75, %72 ]
   %.sroa.0129.0156.us = phi ptr [ %63, %.lr.ph.split.us ], [ %76, %72 ]
   %73 = load i32, ptr %.sroa.0129.0156.us, align 4
-  %74 = add nsw i32 %73, %.098157.us
+  %74 = add nsw i32 %73, %.0105157.us
   %75 = add nsw i32 %71, %74
   %76 = getelementptr inbounds i8, ptr %.sroa.0129.0156.us, i64 4
   %.not147.us = icmp eq ptr %76, %65
   br i1 %.not147.us, label %._crit_edge, label %72
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.098157 = phi i32 [ %78, %.lr.ph.split ], [ %62, %.lr.ph ]
+  %.0105157 = phi i32 [ %78, %.lr.ph.split ], [ %62, %.lr.ph ]
   %.sroa.0129.0156 = phi ptr [ %79, %.lr.ph.split ], [ %63, %.lr.ph ]
   %77 = load i32, ptr %.sroa.0129.0156, align 4
-  %78 = add nsw i32 %77, %.098157
+  %78 = add nsw i32 %77, %.0105157
   %79 = getelementptr inbounds i8, ptr %.sroa.0129.0156, i64 4
   %.not147 = icmp eq ptr %79, %65
   br i1 %.not147, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %72, %58
-  %.098.lcssa = phi i32 [ %62, %58 ], [ %75, %72 ], [ %78, %.lr.ph.split ]
+  %.0105.lcssa = phi i32 [ %62, %58 ], [ %75, %72 ], [ %78, %.lr.ph.split ]
   %80 = load i32, ptr %indvars.iv186.sroa.phi234, align 4
-  %81 = icmp slt i32 %.098.lcssa, %80
+  %81 = icmp slt i32 %.0105.lcssa, %80
   br i1 %81, label %82, label %.critedge
 
 82:                                               ; preds = %._crit_edge
-  %83 = sub nsw i32 %80, %.098.lcssa
+  %83 = sub nsw i32 %80, %.0105.lcssa
   %84 = load i32, ptr %indvars.iv186.sroa.phi228, align 4
   %85 = sdiv i32 %83, %84
   %86 = mul nsw i32 %85, %84
@@ -1281,15 +1281,15 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %21
 
 .lr.ph164:                                        ; preds = %.lr.ph164.preheader, %.lr.ph164
   %indvars.iv183 = phi i64 [ 0, %.lr.ph164.preheader ], [ %indvars.iv.next184, %.lr.ph164 ]
-  %.099163 = phi i32 [ %.recomposed, %.lr.ph164.preheader ], [ %98, %.lr.ph164 ]
+  %.0103162 = phi i32 [ %.recomposed, %.lr.ph164.preheader ], [ %98, %.lr.ph164 ]
   %94 = load ptr, ptr %indvars.iv186.sroa.phi231, align 8
   %95 = getelementptr inbounds i32, ptr %94, i64 %indvars.iv183
   %96 = load i32, ptr %95, align 4
   %97 = add nsw i32 %96, 1
   store i32 %97, ptr %95, align 4
-  %98 = add nsw i32 %.099163, -1
+  %98 = add nsw i32 %.0103162, -1
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
-  %99 = icmp ugt i32 %.099163, 1
+  %99 = icmp ugt i32 %.0103162, 1
   %100 = icmp ult i64 %indvars.iv.next184, %89
   %or.cond = select i1 %99, i1 %100, i1 false
   br i1 %or.cond, label %.lr.ph164, label %.critedge, !llvm.loop !11
@@ -1348,12 +1348,12 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit119.critedge:    ; preds = %.critedge
 
 .preheader.lr.ph.us:                              ; preds = %.preheader.lr.ph.us.preheader, %._crit_edge169.us
   %indvars.iv199 = phi i64 [ 0, %.preheader.lr.ph.us.preheader ], [ %indvars.iv.next200, %._crit_edge169.us ]
-  %.0103171.us = phi i64 [ 0, %.preheader.lr.ph.us.preheader ], [ %137, %._crit_edge169.us ]
+  %.0100171.us = phi i64 [ 0, %.preheader.lr.ph.us.preheader ], [ %137, %._crit_edge169.us ]
   store i32 %122, ptr %123, align 4
   br label %.preheader.us
 
 135:                                              ; preds = %.preheader.us, %136
-  %.2.us = phi i64 [ %137, %136 ], [ %.1104167.us, %.preheader.us ]
+  %.2.us = phi i64 [ %137, %136 ], [ %.1167.us, %.preheader.us ]
   %.not112.us = icmp ult i64 %.2.us, %114
   br i1 %.not112.us, label %136, label %.loopexit.preheader
 
@@ -1419,8 +1419,8 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit119.critedge:    ; preds = %.critedge
 
 169:                                              ; preds = %220, %149
   %170 = phi i1 [ true, %149 ], [ false, %220 ]
-  %.0100166.us = phi i32 [ 0, %149 ], [ 1, %220 ]
-  %171 = add nsw i32 %.0100166.us, %102
+  %.0166.us = phi i32 [ 0, %149 ], [ 1, %220 ]
+  %171 = add nsw i32 %.0166.us, %102
   %172 = srem i32 %171, 2
   %.v = select i1 %170, i64 %indvars.iv194, i64 %indvars.iv199
   %173 = trunc i64 %.v to i32
@@ -1499,7 +1499,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit119.critedge:    ; preds = %.critedge
 .preheader.us:                                    ; preds = %.preheader.lr.ph.us, %162
   %221 = phi i32 [ %122, %.preheader.lr.ph.us ], [ %168, %162 ]
   %indvars.iv194 = phi i64 [ 0, %.preheader.lr.ph.us ], [ %indvars.iv.next195, %162 ]
-  %.1104167.us = phi i64 [ %.0103171.us, %.preheader.lr.ph.us ], [ %137, %162 ]
+  %.1167.us = phi i64 [ %.0100171.us, %.preheader.lr.ph.us ], [ %137, %162 ]
   br label %135
 
 ._crit_edge169.us:                                ; preds = %162
@@ -2160,20 +2160,20 @@ _ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.critedge:   ; preds = %28, %25, %_ZN7nanog
   br label %.sink.split
 
 95:                                               ; preds = %91, %92
-  %.0112 = phi i1 [ false, %92 ], [ true, %91 ]
+  %.0111 = phi i1 [ false, %92 ], [ true, %91 ]
   %96 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
-  br i1 %.0112, label %.sink.split, label %197
+  br i1 %.0111, label %.sink.split, label %197
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %108
   %97 = phi i8 [ %61, %.lr.ph.preheader ], [ %109, %108 ]
   %98 = phi i8 [ %74, %.lr.ph.preheader ], [ %110, %108 ]
   %99 = phi ptr [ %79, %.lr.ph.preheader ], [ %111, %108 ]
   %indvars.iv = phi i64 [ %86, %.lr.ph.preheader ], [ %indvars.iv.next, %108 ]
-  %.0115183 = phi i32 [ 0, %.lr.ph.preheader ], [ %114, %108 ]
-  %.0116182 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %118, %108 ]
+  %.0109182 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %118, %108 ]
+  %.0110181 = phi i32 [ 0, %.lr.ph.preheader ], [ %114, %108 ]
   %100 = load ptr, ptr %44, align 8
   %101 = getelementptr inbounds i32, ptr %100, i64 %indvars.iv
   %102 = load i32, ptr %101, align 4
@@ -2198,11 +2198,11 @@ _ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.critedge:   ; preds = %28, %25, %_ZN7nanog
   %111 = phi ptr [ %.pre, %105 ], [ %99, %.lr.ph ]
   %112 = getelementptr inbounds i32, ptr %111, i64 %indvars.iv
   %113 = load i32, ptr %112, align 4
-  %114 = add nsw i32 %113, %.0115183
+  %114 = add nsw i32 %113, %.0110181
   %115 = load ptr, ptr %45, align 8
   %116 = getelementptr inbounds float, ptr %115, i64 %indvars.iv
   %117 = load float, ptr %116, align 4
-  %118 = fadd float %.0116182, %117
+  %118 = fadd float %.0109182, %117
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %119 = zext i8 %110 to i32
   %120 = zext i8 %109 to i32
@@ -2253,12 +2253,12 @@ _ZN7nanogui5ArrayIiLm2EEmIERKS1_.exit.critedge:   ; preds = %28, %25, %_ZN7nanog
   br label %.sink.split
 
 133:                                              ; preds = %129, %130
-  %.0119 = phi i1 [ false, %130 ], [ true, %129 ]
+  %.0107 = phi i1 [ false, %130 ], [ true, %129 ]
   %134 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
-  br i1 %.0119, label %.sink.split, label %197
+  br i1 %.0107, label %.sink.split, label %197
 
 135:                                              ; preds = %124
   %136 = sub nsw i32 %73, %114
@@ -2660,7 +2660,7 @@ _ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit: ; pr
   br label %134
 
 134:                                              ; preds = %132, %130, %126, %119
-  %.061 = phi i32 [ %109, %119 ], [ %131, %130 ], [ %129, %126 ], [ %109, %132 ]
+  %.059 = phi i32 [ %109, %119 ], [ %131, %130 ], [ %129, %126 ], [ %109, %132 ]
   %.0 = phi i32 [ %124, %119 ], [ %124, %130 ], [ %124, %126 ], [ %133, %132 ]
   %135 = getelementptr inbounds i8, ptr %68, i64 40
   %136 = load i32, ptr %135, align 4
@@ -2674,7 +2674,7 @@ _ZNSt6vectorIiSaIiEE6insertEN9__gnu_cxx17__normal_iteratorIPKiS1_EEOi.exit: ; pr
   %140 = load i32, ptr %.sroa_idx123, align 4
   store i32 %139, ptr %.sroa.0, align 8
   store i32 %140, ptr %.sroa.3, align 4
-  store i32 %.061, ptr %indvars.iv.sroa.phi125, align 4
+  store i32 %.059, ptr %indvars.iv.sroa.phi125, align 4
   store i32 %.0, ptr %indvars.iv.sroa.phi, align 4
   %.sroa.0130.0..sroa.0130.0. = load i32, ptr %.sroa.0130, align 8
   %.sroa.3131.0..sroa.3131.4. = load i32, ptr %.sroa.3131, align 4

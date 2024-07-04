@@ -2219,7 +2219,7 @@ tree_current_is_symblic_link_target.exit.i.i.i:   ; preds = %473
   br label %492
 
 492:                                              ; preds = %490, %486
-  %.037.i.i.i = phi i32 [ %491, %490 ], [ 0, %486 ]
+  %.0.i.i.i = phi i32 [ %491, %490 ], [ 0, %486 ]
   %493 = call i32 @close(i32 noundef %484) #17
   %494 = icmp eq i32 %488, -1
   br label %504
@@ -2239,12 +2239,12 @@ tree_current_is_symblic_link_target.exit.thread.i.i.i: ; preds = %462, %tree_cur
   br label %504
 
 504:                                              ; preds = %501, %492
-  %.039.i.i.i = phi i1 [ %494, %492 ], [ false, %501 ]
-  %.038.i.i.i = phi i32 [ %487, %492 ], [ %497, %501 ]
-  %.1.i.i.i = phi i32 [ %.037.i.i.i, %492 ], [ %503, %501 ]
+  %.038.i.i.i = phi i1 [ %494, %492 ], [ false, %501 ]
+  %.037.i.i.i = phi i32 [ %487, %492 ], [ %497, %501 ]
+  %.1.i.i.i = phi i32 [ %.0.i.i.i, %492 ], [ %503, %501 ]
   %505 = icmp eq i32 %.1.i.i.i, -1
-  %or.cond.i.i218.i = select i1 %.039.i.i.i, i1 true, i1 %505
-  %506 = icmp eq i32 %.038.i.i.i, -1
+  %or.cond.i.i218.i = select i1 %.038.i.i.i, i1 true, i1 %505
+  %506 = icmp eq i32 %.037.i.i.i, -1
   %or.cond3.i.i.i = or i1 %506, %or.cond.i.i218.i
   br i1 %or.cond3.i.i.i, label %509, label %515
 
@@ -2889,13 +2889,13 @@ tree_enter_initial_dir.exit:                      ; preds = %51, %46, %42, %16
   br label %80
 
 80:                                               ; preds = %80, %73
-  %.140.i = phi i64 [ %spec.select..i, %73 ], [ %82, %80 ]
-  %81 = icmp ult i64 %.140.i, 65536
-  %82 = add i64 %.140.i, %spec.select..0.i
+  %.139.i = phi i64 [ %spec.select..i, %73 ], [ %82, %80 ]
+  %81 = icmp ult i64 %.139.i, 65536
+  %82 = add i64 %.139.i, %spec.select..0.i
   br i1 %81, label %80, label %.loopexit.i, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %80, %67
-  %.pn.i = phi i64 [ %72, %67 ], [ %.140.i, %80 ]
+  %.pn.i = phi i64 [ %72, %67 ], [ %.139.i, %80 ]
   %.2.i = add i64 %.pn.i, %spec.select.i
   %83 = tail call noalias ptr @malloc(i64 noundef %.2.i) #23
   store ptr %83, ptr %64, align 8
@@ -2990,8 +2990,8 @@ setup_suitable_read_buffer.exit.thread:           ; preds = %60, %85, %tree_ente
   br label %163
 
 135:                                              ; preds = %125, %126
-  %.097 = phi i64 [ %129, %126 ], [ 0, %125 ]
-  %136 = icmp ne i64 %.097, 0
+  %.096 = phi i64 [ %129, %126 ], [ 0, %125 ]
+  %136 = icmp ne i64 %.096, 0
   %or.cond = or i1 %104, %136
   br i1 %or.cond, label %138, label %137
 
@@ -3002,15 +3002,15 @@ setup_suitable_read_buffer.exit.thread:           ; preds = %60, %85, %tree_ente
 138:                                              ; preds = %135
   %139 = load ptr, ptr %97, align 8
   store ptr %139, ptr %1, align 8
-  store i64 %.097, ptr %2, align 8
+  store i64 %.096, ptr %2, align 8
   %140 = load i64, ptr %107, align 8
   store i64 %140, ptr %3, align 8
-  %141 = add nsw i64 %140, %.097
+  %141 = add nsw i64 %140, %.096
   store i64 %141, ptr %107, align 8
   %142 = load i64, ptr %13, align 8
-  %143 = sub nsw i64 %142, %.097
+  %143 = sub nsw i64 %142, %.096
   store i64 %143, ptr %13, align 8
-  %144 = icmp eq i64 %142, %.097
+  %144 = icmp eq i64 %142, %.096
   br i1 %144, label %145, label %148
 
 145:                                              ; preds = %138
@@ -3025,11 +3025,11 @@ setup_suitable_read_buffer.exit.thread:           ; preds = %60, %85, %tree_ente
   %149 = load ptr, ptr %101, align 8
   %150 = getelementptr inbounds i8, ptr %149, i64 8
   %151 = load i64, ptr %150, align 8
-  %152 = add nsw i64 %151, %.097
+  %152 = add nsw i64 %151, %.096
   store i64 %152, ptr %150, align 8
   %153 = load ptr, ptr %101, align 8
   %154 = load i64, ptr %153, align 8
-  %155 = sub nsw i64 %154, %.097
+  %155 = sub nsw i64 %154, %.096
   store i64 %155, ptr %153, align 8
   %156 = load ptr, ptr %101, align 8
   %157 = load i64, ptr %156, align 8
@@ -3047,7 +3047,7 @@ setup_suitable_read_buffer.exit.thread:           ; preds = %60, %85, %tree_ente
   br label %171
 
 163:                                              ; preds = %9, %12, %137, %131, %114, %92, %.thread
-  %.096 = phi i32 [ -25, %.thread ], [ -30, %92 ], [ -30, %114 ], [ -30, %131 ], [ 1, %137 ], [ 1, %12 ], [ 1, %9 ]
+  %.097 = phi i32 [ -25, %.thread ], [ -30, %92 ], [ -30, %114 ], [ -30, %131 ], [ 1, %137 ], [ 1, %12 ], [ 1, %9 ]
   store ptr null, ptr %1, align 8
   store i64 0, ptr %2, align 8
   %164 = getelementptr inbounds i8, ptr %6, i64 536
@@ -3065,7 +3065,7 @@ setup_suitable_read_buffer.exit.thread:           ; preds = %60, %85, %tree_ente
   br label %171
 
 171:                                              ; preds = %163, %169, %148, %159, %161, %4
-  %.093 = phi i32 [ -30, %4 ], [ 0, %161 ], [ 0, %159 ], [ 0, %148 ], [ %.096, %169 ], [ %.096, %163 ]
+  %.093 = phi i32 [ -30, %4 ], [ 0, %161 ], [ 0, %159 ], [ 0, %148 ], [ %.097, %169 ], [ %.097, %163 ]
   ret i32 %.093
 }
 
@@ -3485,8 +3485,8 @@ define internal fastcc range(i32 -2, 1) i32 @tree_ascend(ptr nocapture noundef %
   br label %13
 
 13:                                               ; preds = %11, %8
-  %.0 = phi i32 [ %10, %8 ], [ %12, %11 ]
-  %14 = icmp slt i32 %.0, 0
+  %.018 = phi i32 [ %10, %8 ], [ %12, %11 ]
+  %14 = icmp slt i32 %.018, 0
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %13
@@ -3497,7 +3497,7 @@ define internal fastcc range(i32 -2, 1) i32 @tree_ascend(ptr nocapture noundef %
   br label %35
 
 19:                                               ; preds = %13
-  store i32 %.0, ptr %3, align 8
+  store i32 %.018, ptr %3, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, -65
@@ -3526,8 +3526,8 @@ define internal fastcc range(i32 -2, 1) i32 @tree_ascend(ptr nocapture noundef %
   br label %35
 
 35:                                               ; preds = %31, %15
-  %.018 = phi i32 [ -2, %15 ], [ 0, %31 ]
-  ret i32 %.018
+  %.0 = phi i32 [ -2, %15 ], [ 0, %31 ]
+  ret i32 %.0
 }
 
 declare ptr @fdopendir(i32 noundef) local_unnamed_addr #1

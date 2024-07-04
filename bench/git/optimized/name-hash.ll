@@ -146,15 +146,15 @@ for.cond19.preheader.i:                           ; preds = %for.cond.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.cond.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %for.cond.preheader.i ]
-  %k_start.047.i = phi i32 [ %spec.select.i, %for.cond.i ], [ 0, %for.cond.preheader.i ]
+  %k_start.046.i = phi i32 [ %spec.select.i, %for.cond.i ], [ 0, %for.cond.preheader.i ]
   %add.ptr.i = getelementptr inbounds %struct.lazy_dir_thread_data, ptr %call3.i, i64 %indvars.iv.i
   %istate6.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   store ptr %istate, ptr %istate6.i, align 8
   %lazy_entries7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 16
   store ptr %call.i18, ptr %lazy_entries7.i, align 8
   %k_start8.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
-  store i32 %k_start.047.i, ptr %k_start8.i, align 8
-  %add9.i = add nsw i32 %k_start.047.i, %div.i19
+  store i32 %k_start.046.i, ptr %k_start8.i, align 8
+  %add9.i = add nsw i32 %k_start.046.i, %div.i19
   %12 = load i32, ptr %cache_nr, align 4
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %add9.i, i32 %12)
   %k_end.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 28
@@ -557,13 +557,13 @@ while.cond1.preheader.lr.ph:                      ; preds = %entry
 
 while.cond1.preheader:                            ; preds = %while.cond1.preheader.lr.ph, %if.end22
   %1 = phi i8 [ %0, %while.cond1.preheader.lr.ph ], [ %.pre, %if.end22 ]
-  %startPtr.023 = phi ptr [ %name, %while.cond1.preheader.lr.ph ], [ %startPtr.1, %if.end22 ]
-  %ptr.022 = phi ptr [ %name, %while.cond1.preheader.lr.ph ], [ %incdec.ptr21, %if.end22 ]
+  %ptr.023 = phi ptr [ %name, %while.cond1.preheader.lr.ph ], [ %incdec.ptr21, %if.end22 ]
+  %startPtr.022 = phi ptr [ %name, %while.cond1.preheader.lr.ph ], [ %startPtr.1, %if.end22 ]
   br label %while.cond1
 
 while.cond1:                                      ; preds = %while.cond1.preheader, %while.body5
   %2 = phi i8 [ %.pr, %while.body5 ], [ %1, %while.cond1.preheader ]
-  %ptr.1 = phi ptr [ %incdec.ptr, %while.body5 ], [ %ptr.022, %while.cond1.preheader ]
+  %ptr.1 = phi ptr [ %incdec.ptr, %while.body5 ], [ %ptr.023, %while.cond1.preheader ]
   switch i8 %2, label %while.body5 [
     i8 47, label %if.then
     i8 0, label %while.end23
@@ -591,16 +591,16 @@ if.then:                                          ; preds = %while.cond1
 
 if.then12:                                        ; preds = %if.then
   %name13 = getelementptr inbounds i8, ptr %call.i.i, i64 32
-  %sub.ptr.lhs.cast14 = ptrtoint ptr %startPtr.023 to i64
+  %sub.ptr.lhs.cast14 = ptrtoint ptr %startPtr.022 to i64
   %sub.ptr.sub16 = sub i64 %sub.ptr.lhs.cast14, %sub.ptr.rhs.cast
   %add.ptr = getelementptr inbounds i8, ptr %name13, i64 %sub.ptr.sub16
   %sub.ptr.sub19 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast14
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %startPtr.023, ptr nonnull align 1 %add.ptr, i64 %sub.ptr.sub19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %startPtr.022, ptr nonnull align 1 %add.ptr, i64 %sub.ptr.sub19, i1 false)
   %add.ptr20 = getelementptr inbounds i8, ptr %ptr.1, i64 1
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then, %if.then12
-  %startPtr.1 = phi ptr [ %add.ptr20, %if.then12 ], [ %startPtr.023, %if.then ]
+  %startPtr.1 = phi ptr [ %add.ptr20, %if.then12 ], [ %startPtr.022, %if.then ]
   %incdec.ptr21 = getelementptr inbounds i8, ptr %ptr.1, i64 1
   %.pre = load i8, ptr %incdec.ptr21, align 1
   %tobool.not = icmp eq i8 %.pre, 0
@@ -1116,11 +1116,11 @@ if.else9.i:                                       ; preds = %if.else.i
   br i1 %cmp18.i, label %handle_range_dir.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.else9.i, %if.end44.i
-  %begin.0.i112 = phi i32 [ %begin.1.i, %if.end44.i ], [ %k.0114, %if.else9.i ]
-  %end.0.i111 = phi i32 [ %end.1.i, %if.end44.i ], [ %k_end, %if.else9.i ]
-  %sub24.i = sub nsw i32 %end.0.i111, %begin.0.i112
+  %end.0.i112 = phi i32 [ %end.1.i, %if.end44.i ], [ %k_end, %if.else9.i ]
+  %begin.0.i111 = phi i32 [ %begin.1.i, %if.end44.i ], [ %k.0114, %if.else9.i ]
+  %sub24.i = sub nsw i32 %end.0.i112, %begin.0.i111
   %shr.i = ashr i32 %sub24.i, 1
-  %add25.i = add nsw i32 %shr.i, %begin.0.i112
+  %add25.i = add nsw i32 %shr.i, %begin.0.i111
   %idxprom28.i = sext i32 %add25.i to i64
   %arrayidx29.i = getelementptr inbounds ptr, ptr %28, i64 %idxprom28.i
   %34 = load ptr, ptr %arrayidx29.i, align 8
@@ -1142,8 +1142,8 @@ if.else43.i:                                      ; preds = %if.else39.i
   unreachable
 
 if.end44.i:                                       ; preds = %if.else39.i, %if.then37.i
-  %end.1.i = phi i32 [ %end.0.i111, %if.then37.i ], [ %add25.i, %if.else39.i ]
-  %begin.1.i = phi i32 [ %add38.i, %if.then37.i ], [ %begin.0.i112, %if.else39.i ]
+  %begin.1.i = phi i32 [ %add38.i, %if.then37.i ], [ %begin.0.i111, %if.else39.i ]
+  %end.1.i = phi i32 [ %end.0.i112, %if.then37.i ], [ %add25.i, %if.else39.i ]
   %cmp22.i = icmp slt i32 %begin.1.i, %end.1.i
   br i1 %cmp22.i, label %while.body.i, label %handle_range_dir.exit, !llvm.loop !20
 

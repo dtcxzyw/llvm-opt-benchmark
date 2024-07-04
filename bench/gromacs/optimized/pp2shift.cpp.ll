@@ -151,10 +151,10 @@ define void @_Z12do_pp2shiftsP8_IO_FILEiN3gmx8ArrayRefIK7t_dlistEEPPf(ptr nounde
 
 65:                                               ; preds = %.lr.ph, %_ZL11interpolateffP11t_shiftdata.exit79
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL11interpolateffP11t_shiftdata.exit79 ]
-  %.0112 = phi float [ 0.000000e+00, %.lr.ph ], [ %123, %_ZL11interpolateffP11t_shiftdata.exit79 ]
-  %.050111 = phi float [ 0.000000e+00, %.lr.ph ], [ %175, %_ZL11interpolateffP11t_shiftdata.exit79 ]
-  %.052109 = phi float [ 0.000000e+00, %.lr.ph ], [ %279, %_ZL11interpolateffP11t_shiftdata.exit79 ]
-  %.053108 = phi float [ 0.000000e+00, %.lr.ph ], [ %227, %_ZL11interpolateffP11t_shiftdata.exit79 ]
+  %.050111 = phi float [ 0.000000e+00, %.lr.ph ], [ %279, %_ZL11interpolateffP11t_shiftdata.exit79 ]
+  %.051110 = phi float [ 0.000000e+00, %.lr.ph ], [ %227, %_ZL11interpolateffP11t_shiftdata.exit79 ]
+  %.052109 = phi float [ 0.000000e+00, %.lr.ph ], [ %175, %_ZL11interpolateffP11t_shiftdata.exit79 ]
+  %.053108 = phi float [ 0.000000e+00, %.lr.ph ], [ %123, %_ZL11interpolateffP11t_shiftdata.exit79 ]
   %66 = getelementptr inbounds float, ptr %41, i64 %indvars.iv
   %67 = load float, ptr %66, align 4
   %68 = getelementptr inbounds float, ptr %44, i64 %indvars.iv
@@ -228,7 +228,7 @@ _ZL11interpolateffP11t_shiftdata.exit:            ; preds = %.lr.ph49.i, %.prehe
   %120 = load float, ptr %119, align 4
   %121 = fmul float %88, %120
   %122 = tail call noundef float @llvm.fmuladd.f32(float %121, float %90, float %118)
-  %123 = fadd float %.0112, %122
+  %123 = fadd float %.053108, %122
   br i1 %70, label %.lr.ph.i61, label %.preheader.i56
 
 .preheader.i56:                                   ; preds = %.lr.ph.i61, %_ZL11interpolateffP11t_shiftdata.exit
@@ -296,7 +296,7 @@ _ZL11interpolateffP11t_shiftdata.exit63:          ; preds = %.lr.ph49.i59, %.pre
   %172 = load float, ptr %171, align 4
   %173 = fmul float %140, %172
   %174 = tail call noundef float @llvm.fmuladd.f32(float %173, float %142, float %170)
-  %175 = fadd float %.050111, %174
+  %175 = fadd float %.052109, %174
   br i1 %70, label %.lr.ph.i69, label %.preheader.i64
 
 .preheader.i64:                                   ; preds = %.lr.ph.i69, %_ZL11interpolateffP11t_shiftdata.exit63
@@ -364,7 +364,7 @@ _ZL11interpolateffP11t_shiftdata.exit71:          ; preds = %.lr.ph49.i67, %.pre
   %224 = load float, ptr %223, align 4
   %225 = fmul float %192, %224
   %226 = tail call noundef float @llvm.fmuladd.f32(float %225, float %194, float %222)
-  %227 = fadd float %.053108, %226
+  %227 = fadd float %.051110, %226
   br i1 %70, label %.lr.ph.i77, label %.preheader.i72
 
 .preheader.i72:                                   ; preds = %.lr.ph.i77, %_ZL11interpolateffP11t_shiftdata.exit71
@@ -432,23 +432,23 @@ _ZL11interpolateffP11t_shiftdata.exit79:          ; preds = %.lr.ph49.i75, %.pre
   %276 = load float, ptr %275, align 4
   %277 = fmul float %244, %276
   %278 = tail call noundef float @llvm.fmuladd.f32(float %277, float %246, float %274)
-  %279 = fadd float %.052109, %278
+  %279 = fadd float %.050111, %278
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZL11interpolateffP11t_shiftdata.exit79, %34
-  %.053.lcssa = phi float [ 0.000000e+00, %34 ], [ %227, %_ZL11interpolateffP11t_shiftdata.exit79 ]
-  %.052.lcssa = phi float [ 0.000000e+00, %34 ], [ %279, %_ZL11interpolateffP11t_shiftdata.exit79 ]
-  %.050.lcssa = phi float [ 0.000000e+00, %34 ], [ %175, %_ZL11interpolateffP11t_shiftdata.exit79 ]
-  %.0.lcssa = phi float [ 0.000000e+00, %34 ], [ %123, %_ZL11interpolateffP11t_shiftdata.exit79 ]
-  %280 = fdiv float %.0.lcssa, %29
+  %.053.lcssa = phi float [ 0.000000e+00, %34 ], [ %123, %_ZL11interpolateffP11t_shiftdata.exit79 ]
+  %.052.lcssa = phi float [ 0.000000e+00, %34 ], [ %175, %_ZL11interpolateffP11t_shiftdata.exit79 ]
+  %.051.lcssa = phi float [ 0.000000e+00, %34 ], [ %227, %_ZL11interpolateffP11t_shiftdata.exit79 ]
+  %.050.lcssa = phi float [ 0.000000e+00, %34 ], [ %279, %_ZL11interpolateffP11t_shiftdata.exit79 ]
+  %280 = fdiv float %.053.lcssa, %29
   %281 = fpext float %280 to double
-  %282 = fdiv float %.052.lcssa, %29
+  %282 = fdiv float %.050.lcssa, %29
   %283 = fpext float %282 to double
-  %284 = fdiv float %.053.lcssa, %29
+  %284 = fdiv float %.051.lcssa, %29
   %285 = fpext float %284 to double
-  %286 = fdiv float %.050.lcssa, %29
+  %286 = fdiv float %.052.lcssa, %29
   %287 = fpext float %286 to double
   %288 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %.sroa.0.0117, double noundef %281, double noundef %283, double noundef %285, double noundef %287) #13
   br label %289

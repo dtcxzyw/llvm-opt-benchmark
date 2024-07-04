@@ -1312,7 +1312,7 @@ tailrecurse.i:                                    ; preds = %376, %106
   br label %417
 
 417:                                              ; preds = %406, %415, %414, %391
-  %.0110 = phi i32 [ 20, %391 ], [ 52, %406 ], [ 52, %415 ], [ 52, %414 ]
+  %.0111 = phi i32 [ 20, %391 ], [ 52, %406 ], [ 52, %415 ], [ 52, %414 ]
   %418 = load ptr, ptr @cipher_hd_system, align 8
   call void @gcry_cipher_close(ptr noundef %418) #5
   br label %dissect_solaredge_devicedata.exit
@@ -1322,7 +1322,7 @@ tailrecurse.i:                                    ; preds = %376, %106
   br label %dissect_solaredge_devicedata.exit
 
 dissect_solaredge_devicedata.exit:                ; preds = %374, %378, %417, %387, %382, %419, %104
-  %.1 = phi i32 [ %420, %419 ], [ 20, %378 ], [ %.0110, %417 ], [ 20, %387 ], [ 20, %382 ], [ %105, %104 ], [ 20, %374 ]
+  %.1 = phi i32 [ %420, %419 ], [ 20, %378 ], [ %.0111, %417 ], [ 20, %387 ], [ 20, %382 ], [ %105, %104 ], [ 20, %374 ]
   %421 = add nuw nsw i32 %28, 20
   %422 = load i32, ptr @hf_solaredge_crc_type, align 4
   %423 = load i32, ptr @hf_solaredge_crc_status_type, align 4

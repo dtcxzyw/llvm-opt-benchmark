@@ -2617,13 +2617,13 @@ _ZN5cmsys13RegExpCompile4regcEc.exit55:           ; preds = %_ZN5cmsys13RegExpCo
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %113 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ %105, %.lr.ph ]
-  %.034.in81 = phi i32 [ %.034, %.lr.ph.splitthread-pre-split ], [ %102, %.lr.ph ]
-  %.034 = add nuw nsw i32 %.034.in81, 1
+  %.031.in81 = phi i32 [ %.031, %.lr.ph.splitthread-pre-split ], [ %102, %.lr.ph ]
+  %.031 = add nuw nsw i32 %.031.in81, 1
   %.not.i56 = icmp eq ptr %113, @_ZN5cmsysL8regdummyE
   br i1 %.not.i56, label %117, label %114
 
 114:                                              ; preds = %.lr.ph.split
-  %115 = trunc nuw i32 %.034 to i8
+  %115 = trunc nuw i32 %.031 to i8
   %116 = getelementptr inbounds i8, ptr %113, i64 1
   store ptr %116, ptr %85, align 8
   store i8 %115, ptr %113, align 1
@@ -2636,7 +2636,7 @@ _ZN5cmsys13RegExpCompile4regcEc.exit55:           ; preds = %_ZN5cmsys13RegExpCo
   br label %_ZN5cmsys13RegExpCompile4regcEc.exit57
 
 _ZN5cmsys13RegExpCompile4regcEc.exit57:           ; preds = %114, %117
-  %exitcond.not = icmp eq i32 %.034, %103
+  %exitcond.not = icmp eq i32 %.031, %103
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %_ZN5cmsys13RegExpCompile4regcEc.exit57
@@ -2847,7 +2847,7 @@ _ZN5cmsys13RegExpCompile4regcEc.exit66:           ; preds = %175, %177
   br label %201
 
 201:                                              ; preds = %197, %.thread, %.thread76
-  %.03174 = phi i32 [ %185, %.thread76 ], [ 1, %.thread ], [ %198, %197 ]
+  %.074 = phi i32 [ %185, %.thread76 ], [ 1, %.thread ], [ %198, %197 ]
   %202 = phi i32 [ %196, %.thread76 ], [ %190, %.thread ], [ %spec.select, %197 ]
   store i32 %202, ptr %1, align 4
   %203 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2879,9 +2879,9 @@ _ZN5cmsys13RegExpCompile4regcEc.exit66:           ; preds = %175, %177
   %215 = phi ptr [ %209, %.lr.ph83.thread ], [ %213, %.lr.ph83 ]
   %.promoted85 = load ptr, ptr %0, align 8
   %.promoted87 = load i64, ptr %215, align 8
-  %216 = add nsw i32 %.03174, -1
+  %216 = add nsw i32 %.074, -1
   %217 = zext nneg i32 %216 to i64
-  %218 = zext nneg i32 %.03174 to i64
+  %218 = zext nneg i32 %.074 to i64
   %219 = add i64 %.promoted87, %217
   %scevgep = getelementptr i8, ptr %.promoted85, i64 %218
   %220 = add i64 %219, 1
@@ -2891,7 +2891,7 @@ _ZN5cmsys13RegExpCompile4regcEc.exit66:           ; preds = %175, %177
 
 .lr.ph83.split:                                   ; preds = %.lr.ph83, %_ZN5cmsys13RegExpCompile4regcEc.exit69
   %221 = phi ptr [ %.pr99, %_ZN5cmsys13RegExpCompile4regcEc.exit69 ], [ %212, %.lr.ph83 ]
-  %.182 = phi i32 [ %230, %_ZN5cmsys13RegExpCompile4regcEc.exit69 ], [ %.03174, %.lr.ph83 ]
+  %.182 = phi i32 [ %230, %_ZN5cmsys13RegExpCompile4regcEc.exit69 ], [ %.074, %.lr.ph83 ]
   %222 = load ptr, ptr %0, align 8
   %223 = getelementptr inbounds i8, ptr %222, i64 1
   store ptr %223, ptr %0, align 8
@@ -2935,8 +2935,8 @@ _ZN5cmsys13RegExpCompile4regcEc.exit69:           ; preds = %224, %227
   br label %_ZN5cmsys13RegExpCompile7regnodeEc.exit
 
 _ZN5cmsys13RegExpCompile7regnodeEc.exit:          ; preds = %234, %232, %27, %23, %15, %11, %_ZN5cmsys13RegExpCompile7regnodeEc.exit51, %140, %147, %_ZN5cmsys13RegExpCompile4regcEc.exit66, %144, %187, %157, %153, %152, %139, %112
-  %.0 = phi ptr [ null, %187 ], [ null, %157 ], [ null, %153 ], [ null, %152 ], [ null, %112 ], [ null, %139 ], [ null, %144 ], [ %160, %_ZN5cmsys13RegExpCompile4regcEc.exit66 ], [ %145, %147 ], [ %.032, %140 ], [ %33, %_ZN5cmsys13RegExpCompile7regnodeEc.exit51 ], [ @_ZN5cmsysL8regdummyE, %11 ], [ %9, %15 ], [ @_ZN5cmsysL8regdummyE, %23 ], [ %21, %27 ], [ %204, %232 ], [ %204, %234 ]
-  ret ptr %.0
+  %.034 = phi ptr [ null, %187 ], [ null, %157 ], [ null, %153 ], [ null, %152 ], [ null, %112 ], [ null, %139 ], [ null, %144 ], [ %160, %_ZN5cmsys13RegExpCompile4regcEc.exit66 ], [ %145, %147 ], [ %.032, %140 ], [ %33, %_ZN5cmsys13RegExpCompile7regnodeEc.exit51 ], [ @_ZN5cmsysL8regdummyE, %11 ], [ %9, %15 ], [ @_ZN5cmsysL8regdummyE, %23 ], [ %21, %27 ], [ %204, %232 ], [ %204, %234 ]
+  ret ptr %.034
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -3237,17 +3237,17 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN5cmsys10RegExpFind8regmatchEPKc
   br label %5
 
 5:                                                ; preds = %.lr.ph, %139
-  %.04491 = phi ptr [ %1, %.lr.ph ], [ %.047, %139 ]
+  %.04691 = phi ptr [ %1, %.lr.ph ], [ %.045, %139 ]
   %6 = phi ptr [ %.promoted, %.lr.ph ], [ %140, %139 ]
-  %7 = icmp eq ptr %.04491, @_ZN5cmsysL8regdummyE
+  %7 = icmp eq ptr %.04691, @_ZN5cmsysL8regdummyE
   br i1 %7, label %_ZN5cmsysL7regnextEPKc.exitthread-pre-split, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %.04491, i64 1
+  %9 = getelementptr inbounds i8, ptr %.04691, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = shl nuw nsw i32 %11, 8
-  %13 = getelementptr inbounds i8, ptr %.04491, i64 2
+  %13 = getelementptr inbounds i8, ptr %.04691, i64 2
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = or disjoint i32 %12, %15
@@ -3255,23 +3255,23 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN5cmsys10RegExpFind8regmatchEPKc
   br i1 %17, label %_ZN5cmsysL7regnextEPKc.exitthread-pre-split, label %18
 
 18:                                               ; preds = %8
-  %19 = load i8, ptr %.04491, align 1
+  %19 = load i8, ptr %.04691, align 1
   %20 = icmp eq i8 %19, 7
   %21 = zext nneg i32 %16 to i64
   br i1 %20, label %22, label %25
 
 22:                                               ; preds = %18
   %23 = sub nsw i64 0, %21
-  %24 = getelementptr inbounds i8, ptr %.04491, i64 %23
+  %24 = getelementptr inbounds i8, ptr %.04691, i64 %23
   br label %_ZN5cmsysL7regnextEPKc.exitthread-pre-split
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds i8, ptr %.04491, i64 %21
+  %26 = getelementptr inbounds i8, ptr %.04691, i64 %21
   br label %_ZN5cmsysL7regnextEPKc.exit
 
 _ZN5cmsysL7regnextEPKc.exitthread-pre-split:      ; preds = %22, %8, %5
   %.0.i.ph = phi ptr [ null, %8 ], [ null, %5 ], [ %24, %22 ]
-  %.pr = load i8, ptr %.04491, align 1
+  %.pr = load i8, ptr %.04691, align 1
   br label %_ZN5cmsysL7regnextEPKc.exit
 
 _ZN5cmsysL7regnextEPKc.exit:                      ; preds = %_ZN5cmsysL7regnextEPKc.exitthread-pre-split, %25
@@ -3376,7 +3376,7 @@ _ZN5cmsysL7regnextEPKc.exit:                      ; preds = %_ZN5cmsysL7regnextE
   br label %139
 
 36:                                               ; preds = %_ZN5cmsysL7regnextEPKc.exit
-  %37 = getelementptr inbounds i8, ptr %.04491, i64 3
+  %37 = getelementptr inbounds i8, ptr %.04691, i64 3
   %38 = load i8, ptr %37, align 1
   %39 = load i8, ptr %6, align 1
   %.not61 = icmp eq i8 %38, %39
@@ -3404,7 +3404,7 @@ _ZN5cmsysL7regnextEPKc.exit:                      ; preds = %_ZN5cmsysL7regnextE
 
 50:                                               ; preds = %47
   %51 = sext i8 %48 to i32
-  %52 = getelementptr inbounds i8, ptr %.04491, i64 3
+  %52 = getelementptr inbounds i8, ptr %.04691, i64 3
   %53 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %52, i32 noundef %51) #16
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.critedge, label %55
@@ -3421,7 +3421,7 @@ _ZN5cmsysL7regnextEPKc.exit:                      ; preds = %_ZN5cmsysL7regnextE
 
 60:                                               ; preds = %57
   %61 = sext i8 %58 to i32
-  %62 = getelementptr inbounds i8, ptr %.04491, i64 3
+  %62 = getelementptr inbounds i8, ptr %.04691, i64 3
   %63 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %62, i32 noundef %61) #16
   %.not60 = icmp eq ptr %63, null
   br i1 %.not60, label %64, label %.critedge
@@ -3475,11 +3475,11 @@ _ZN5cmsysL7regnextEPKc.exit:                      ; preds = %_ZN5cmsysL7regnextE
   br i1 %.not55, label %.preheader, label %90
 
 90:                                               ; preds = %88
-  %91 = getelementptr inbounds i8, ptr %.04491, i64 3
+  %91 = getelementptr inbounds i8, ptr %.04691, i64 3
   br label %139
 
 .preheader:                                       ; preds = %88, %_ZN5cmsysL7regnextEPKc.exit67
-  %.1 = phi ptr [ %.0.i66, %_ZN5cmsysL7regnextEPKc.exit67 ], [ %.04491, %88 ]
+  %.1 = phi ptr [ %.0.i66, %_ZN5cmsysL7regnextEPKc.exit67 ], [ %.04691, %88 ]
   %92 = getelementptr inbounds i8, ptr %.1, i64 3
   %93 = tail call noundef i32 @_ZN5cmsys10RegExpFind8regmatchEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %92)
   %.not56 = icmp eq i32 %93, 0
@@ -3525,16 +3525,16 @@ _ZN5cmsysL7regnextEPKc.exit67:                    ; preds = %96
   br label %119
 
 119:                                              ; preds = %115, %112
-  %.046 = phi i32 [ %118, %115 ], [ 0, %112 ]
+  %.044 = phi i32 [ %118, %115 ], [ 0, %112 ]
   %120 = icmp ne i8 %27, 10
   %121 = zext i1 %120 to i32
-  %122 = getelementptr inbounds i8, ptr %.04491, i64 3
+  %122 = getelementptr inbounds i8, ptr %.04691, i64 3
   %123 = tail call noundef i32 @_ZN5cmsys10RegExpFind9regrepeatEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %122)
   %.not5392 = icmp slt i32 %123, %121
   br i1 %.not5392, label %.critedge, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %119
-  %124 = icmp eq i32 %.046, 0
+  %124 = icmp eq i32 %.044, 0
   %125 = zext nneg i32 %123 to i64
   %126 = zext i1 %120 to i64
   br i1 %124, label %.lr.ph95.split.us, label %.lr.ph95.split.preheader
@@ -3561,7 +3561,7 @@ _ZN5cmsysL7regnextEPKc.exit67:                    ; preds = %96
   %indvars.iv = phi i64 [ %125, %.lr.ph95.split.preheader ], [ %indvars.iv.next, %136 ]
   %131 = load i8, ptr %130, align 1
   %132 = sext i8 %131 to i32
-  %133 = icmp eq i32 %.046, %132
+  %133 = icmp eq i32 %.044, %132
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %.lr.ph95.split
@@ -3582,8 +3582,8 @@ _ZN5cmsysL7regnextEPKc.exit67:                    ; preds = %96
 
 139:                                              ; preds = %_ZN5cmsysL7regnextEPKc.exit, %_ZN5cmsysL7regnextEPKc.exit, %29, %28, %90, %64, %55, %45, %34
   %140 = phi ptr [ %6, %90 ], [ %6, %_ZN5cmsysL7regnextEPKc.exit ], [ %6, %_ZN5cmsysL7regnextEPKc.exit ], [ %65, %64 ], [ %56, %55 ], [ %46, %45 ], [ %35, %34 ], [ %6, %29 ], [ %6, %28 ]
-  %.047 = phi ptr [ %91, %90 ], [ %.0.i, %_ZN5cmsysL7regnextEPKc.exit ], [ %.0.i, %_ZN5cmsysL7regnextEPKc.exit ], [ %.0.i, %64 ], [ %.0.i, %55 ], [ %.0.i, %45 ], [ %.0.i, %34 ], [ %.0.i, %29 ], [ %.0.i, %28 ]
-  %.not = icmp eq ptr %.047, null
+  %.045 = phi ptr [ %91, %90 ], [ %.0.i, %_ZN5cmsysL7regnextEPKc.exit ], [ %.0.i, %_ZN5cmsysL7regnextEPKc.exit ], [ %.0.i, %64 ], [ %.0.i, %55 ], [ %.0.i, %45 ], [ %.0.i, %34 ], [ %.0.i, %29 ], [ %.0.i, %28 ]
+  %.not = icmp eq ptr %.045, null
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %139, %2
@@ -3591,8 +3591,8 @@ _ZN5cmsysL7regnextEPKc.exit67:                    ; preds = %96
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN5cmsysL7regnextEPKc.exit, %57, %60, %47, %50, %43, %36, %31, %29, %28, %134, %136, %.lr.ph95.split.us, %128, %96, %94, %_ZN5cmsysL7regnextEPKc.exit67, %.preheader, %119, %77, %79, %87, %66, %68, %76, %._crit_edge, %138
-  %.0 = phi i32 [ 0, %138 ], [ 0, %._crit_edge ], [ 1, %76 ], [ 1, %68 ], [ 0, %66 ], [ 1, %87 ], [ 1, %79 ], [ 0, %77 ], [ 0, %119 ], [ 0, %96 ], [ 0, %94 ], [ 0, %_ZN5cmsysL7regnextEPKc.exit67 ], [ 1, %.preheader ], [ 1, %.lr.ph95.split.us ], [ 0, %128 ], [ 1, %134 ], [ 0, %136 ], [ 1, %_ZN5cmsysL7regnextEPKc.exit ], [ 0, %57 ], [ 0, %60 ], [ 0, %47 ], [ 0, %50 ], [ 0, %43 ], [ 0, %36 ], [ 0, %31 ], [ 0, %29 ], [ 0, %28 ]
-  ret i32 %.0
+  %.047 = phi i32 [ 0, %138 ], [ 0, %._crit_edge ], [ 1, %76 ], [ 1, %68 ], [ 0, %66 ], [ 1, %87 ], [ 1, %79 ], [ 0, %77 ], [ 0, %119 ], [ 0, %96 ], [ 0, %94 ], [ 0, %_ZN5cmsysL7regnextEPKc.exit67 ], [ 1, %.preheader ], [ 1, %.lr.ph95.split.us ], [ 0, %128 ], [ 1, %134 ], [ 0, %136 ], [ 1, %_ZN5cmsysL7regnextEPKc.exit ], [ 0, %57 ], [ 0, %60 ], [ 0, %47 ], [ 0, %50 ], [ 0, %43 ], [ 0, %36 ], [ 0, %31 ], [ 0, %29 ], [ 0, %28 ]
+  ret i32 %.047
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
@@ -3632,10 +3632,10 @@ define dso_local noundef i32 @_ZN5cmsys10RegExpFind9regrepeatEPKc(ptr nocapture 
   br label %.critedge
 
 .lr.ph55:                                         ; preds = %.preheader, %.lr.ph55
-  %.02454 = phi ptr [ %17, %.lr.ph55 ], [ %3, %.preheader ]
-  %.02553 = phi i32 [ %16, %.lr.ph55 ], [ 0, %.preheader ]
-  %16 = add nuw nsw i32 %.02553, 1
-  %17 = getelementptr inbounds i8, ptr %.02454, i64 1
+  %.054 = phi ptr [ %17, %.lr.ph55 ], [ %3, %.preheader ]
+  %.02453 = phi i32 [ %16, %.lr.ph55 ], [ 0, %.preheader ]
+  %16 = add nuw nsw i32 %.02453, 1
+  %17 = getelementptr inbounds i8, ptr %.054, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %8, %18
   br i1 %19, label %.lr.ph55, label %.critedge, !llvm.loop !27
@@ -3643,14 +3643,14 @@ define dso_local noundef i32 @_ZN5cmsys10RegExpFind9regrepeatEPKc(ptr nocapture 
 .lr.ph47:                                         ; preds = %.preheader33, %23
   %20 = phi i8 [ %26, %23 ], [ %7, %.preheader33 ]
   %.146 = phi ptr [ %25, %23 ], [ %3, %.preheader33 ]
-  %.12645 = phi i32 [ %24, %23 ], [ 0, %.preheader33 ]
+  %.12545 = phi i32 [ %24, %23 ], [ 0, %.preheader33 ]
   %21 = sext i8 %20 to i32
   %22 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef %21) #16
   %.not32 = icmp eq ptr %22, null
   br i1 %.not32, label %.critedge, label %23
 
 23:                                               ; preds = %.lr.ph47
-  %24 = add nuw nsw i32 %.12645, 1
+  %24 = add nuw nsw i32 %.12545, 1
   %25 = getelementptr inbounds i8, ptr %.146, i64 1
   %26 = load i8, ptr %25, align 1
   %.not31 = icmp eq i8 %26, 0
@@ -3659,14 +3659,14 @@ define dso_local noundef i32 @_ZN5cmsys10RegExpFind9regrepeatEPKc(ptr nocapture 
 .lr.ph:                                           ; preds = %.preheader35, %31
   %27 = phi i8 [ %34, %31 ], [ %6, %.preheader35 ]
   %.239 = phi ptr [ %33, %31 ], [ %3, %.preheader35 ]
-  %.22738 = phi i32 [ %32, %31 ], [ 0, %.preheader35 ]
+  %.22638 = phi i32 [ %32, %31 ], [ 0, %.preheader35 ]
   %28 = sext i8 %27 to i32
   %29 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef %28) #16
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %.critedge
 
 31:                                               ; preds = %.lr.ph
-  %32 = add nuw nsw i32 %.22738, 1
+  %32 = add nuw nsw i32 %.22638, 1
   %33 = getelementptr inbounds i8, ptr %.239, i64 1
   %34 = load i8, ptr %33, align 1
   %.not = icmp eq i8 %34, 0
@@ -3677,14 +3677,14 @@ define dso_local noundef i32 @_ZN5cmsys10RegExpFind9regrepeatEPKc(ptr nocapture 
   br label %36
 
 .critedge:                                        ; preds = %31, %.lr.ph, %23, %.lr.ph47, %.lr.ph55, %.preheader35, %.preheader33, %.preheader, %11
-  %.328 = phi i32 [ %13, %11 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ 0, %.preheader35 ], [ %16, %.lr.ph55 ], [ %24, %23 ], [ %.12645, %.lr.ph47 ], [ %32, %31 ], [ %.22738, %.lr.ph ]
+  %.327 = phi i32 [ %13, %11 ], [ 0, %.preheader ], [ 0, %.preheader33 ], [ 0, %.preheader35 ], [ %16, %.lr.ph55 ], [ %24, %23 ], [ %.12545, %.lr.ph47 ], [ %32, %31 ], [ %.22638, %.lr.ph ]
   %.3 = phi ptr [ %15, %11 ], [ %3, %.preheader ], [ %3, %.preheader33 ], [ %3, %.preheader35 ], [ %17, %.lr.ph55 ], [ %25, %23 ], [ %.146, %.lr.ph47 ], [ %33, %31 ], [ %.239, %.lr.ph ]
   store ptr %.3, ptr %0, align 8
   br label %36
 
 36:                                               ; preds = %.critedge, %35
-  %.0 = phi i32 [ 0, %35 ], [ %.328, %.critedge ]
-  ret i32 %.0
+  %.028 = phi i32 [ 0, %35 ], [ %.327, %.critedge ]
+  ret i32 %.028
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

@@ -205,8 +205,8 @@ define void @"_ZN6uu_seq11numberparse86_$LT$impl$u20$core..str..traits..FromStr$
   br label %39
 
 .loopexit.i.i:                                    ; preds = %99, %97, %95
-  %.013.i.i.i = phi i64 [ 1, %95 ], [ %..i.i.i, %99 ], [ 2, %97 ]
-  %38 = add i64 %.013.i.i.i, %40
+  %.012.i.i.i = phi i64 [ 1, %95 ], [ %..i.i.i, %99 ], [ 2, %97 ]
+  %38 = add i64 %.012.i.i.i, %40
   br label %39
 
 39:                                               ; preds = %.loopexit.i.i, %.lr.ph106.i.i

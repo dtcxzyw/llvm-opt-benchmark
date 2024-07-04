@@ -146,8 +146,8 @@ if.else81:                                        ; preds = %if.else77
   br label %if.end84
 
 if.end84:                                         ; preds = %if.then79, %if.else81, %if.then75
-  %event_wait69.0 = phi i64 [ %sub76, %if.then75 ], [ %call82, %if.else81 ], [ %call80, %if.then79 ]
   %is_stats_interval_triggered.0 = phi i1 [ false, %if.then75 ], [ true, %if.else81 ], [ false, %if.then79 ]
+  %event_wait69.0 = phi i64 [ %sub76, %if.then75 ], [ %call82, %if.else81 ], [ %call80, %if.then79 ]
   store i64 %event_wait69.0, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_stats_interval_event_wait.i342, align 8
   %spec.select114 = tail call i64 @llvm.umin.i64(i64 %event_wait69.0, i64 %wait.0)
   br label %if.end90

@@ -2599,10 +2599,10 @@ while.body.i10:                                   ; preds = %while.body, %_ZSt12
 
 while.body.i24:                                   ; preds = %while.body.i10, %if.end.i
   %__result.addr.046.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %__result.addr.030.i, %while.body.i10 ]
-  %__first1.sroa.0.045.i = phi ptr [ %__first1.sroa.0.1.i, %if.end.i ], [ %__first.sroa.0.029.i, %while.body.i10 ]
-  %__first2.sroa.0.044.i = phi ptr [ %__first2.sroa.0.1.i, %if.end.i ], [ %add.ptr.i.i11, %while.body.i10 ]
-  %call.val.i.i = load double, ptr %__first2.sroa.0.044.i, align 8
-  %call3.val.i.i = load double, ptr %__first1.sroa.0.045.i, align 8
+  %__first2.sroa.0.045.i = phi ptr [ %__first2.sroa.0.1.i, %if.end.i ], [ %add.ptr.i.i11, %while.body.i10 ]
+  %__first1.sroa.0.044.i = phi ptr [ %__first1.sroa.0.1.i, %if.end.i ], [ %__first.sroa.0.029.i, %while.body.i10 ]
+  %call.val.i.i = load double, ptr %__first2.sroa.0.045.i, align 8
+  %call3.val.i.i = load double, ptr %__first1.sroa.0.044.i, align 8
   %cmp.i.i.i = fcmp olt double %call.val.i.i, %call3.val.i.i
   %fields_.i.i = getelementptr inbounds i8, ptr %__result.addr.046.i, i64 8
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.046.i, i64 16
@@ -2611,14 +2611,14 @@ while.body.i24:                                   ; preds = %while.body.i10, %if
 
 if.then.i:                                        ; preds = %while.body.i24
   store double %call.val.i.i, ptr %__result.addr.046.i, align 8
-  %fields_3.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.044.i, i64 8
+  %fields_3.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.045.i, i64 8
   %0 = load ptr, ptr %fields_.i.i, align 8
   %1 = load ptr, ptr %fields_3.i.i, align 8
   store ptr %1, ptr %fields_.i.i, align 8
-  %_M_finish.i2.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.044.i, i64 16
+  %_M_finish.i2.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.045.i, i64 16
   %2 = load ptr, ptr %_M_finish.i2.i.i.i.i.i, align 8
   store ptr %2, ptr %_M_finish.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.044.i, i64 24
+  %_M_end_of_storage.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.045.i, i64 24
   %3 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i, align 8
   store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -2630,19 +2630,19 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i
   br label %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit.i
 
 _ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit.i: ; preds = %if.then.i.i.i.i.i.i.i, %if.then.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.044.i, i64 32
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.045.i, i64 32
   br label %if.end.i
 
 if.else.i:                                        ; preds = %while.body.i24
   store double %call3.val.i.i, ptr %__result.addr.046.i, align 8
-  %fields_3.i8.i = getelementptr inbounds i8, ptr %__first1.sroa.0.045.i, i64 8
+  %fields_3.i8.i = getelementptr inbounds i8, ptr %__first1.sroa.0.044.i, i64 8
   %4 = load ptr, ptr %fields_.i.i, align 8
   %5 = load ptr, ptr %fields_3.i8.i, align 8
   store ptr %5, ptr %fields_.i.i, align 8
-  %_M_finish.i2.i.i.i.i11.i = getelementptr inbounds i8, ptr %__first1.sroa.0.045.i, i64 16
+  %_M_finish.i2.i.i.i.i11.i = getelementptr inbounds i8, ptr %__first1.sroa.0.044.i, i64 16
   %6 = load ptr, ptr %_M_finish.i2.i.i.i.i11.i, align 8
   store ptr %6, ptr %_M_finish.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i4.i.i.i.i12.i = getelementptr inbounds i8, ptr %__first1.sroa.0.045.i, i64 24
+  %_M_end_of_storage.i4.i.i.i.i12.i = getelementptr inbounds i8, ptr %__first1.sroa.0.044.i, i64 24
   %7 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i12.i, align 8
   store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i13.i = icmp eq ptr %4, null
@@ -2654,12 +2654,12 @@ if.then.i.i.i.i.i.i14.i:                          ; preds = %if.else.i
   br label %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit15.i
 
 _ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit15.i: ; preds = %if.then.i.i.i.i.i.i14.i, %if.else.i
-  %incdec.ptr.i16.i = getelementptr inbounds i8, ptr %__first1.sroa.0.045.i, i64 32
+  %incdec.ptr.i16.i = getelementptr inbounds i8, ptr %__first1.sroa.0.044.i, i64 32
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit15.i, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit.i
-  %__first2.sroa.0.1.i = phi ptr [ %incdec.ptr.i.i, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit.i ], [ %__first2.sroa.0.044.i, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit15.i ]
-  %__first1.sroa.0.1.i = phi ptr [ %__first1.sroa.0.045.i, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit.i ], [ %incdec.ptr.i16.i, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit15.i ]
+  %__first1.sroa.0.1.i = phi ptr [ %__first1.sroa.0.044.i, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit.i ], [ %incdec.ptr.i16.i, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit15.i ]
+  %__first2.sroa.0.1.i = phi ptr [ %incdec.ptr.i.i, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit.i ], [ %__first2.sroa.0.045.i, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit15.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__result.addr.046.i, i64 32
   %cmp.i.i = icmp ne ptr %__first1.sroa.0.1.i, %add.ptr.i.i11
   %cmp.i6.i = icmp ne ptr %__first2.sroa.0.1.i, %add.ptr.i12.i
@@ -3747,10 +3747,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %if.end
   %__result.addr.046 = phi ptr [ %incdec.ptr, %if.end ], [ %__result, %entry ]
-  %__first1.sroa.0.045 = phi ptr [ %__first1.sroa.0.1, %if.end ], [ %__first1.coerce, %entry ]
-  %__first2.sroa.0.044 = phi ptr [ %__first2.sroa.0.1, %if.end ], [ %__first2.coerce, %entry ]
-  %call.val.i = load double, ptr %__first2.sroa.0.044, align 8
-  %call3.val.i = load double, ptr %__first1.sroa.0.045, align 8
+  %__first2.sroa.0.045 = phi ptr [ %__first2.sroa.0.1, %if.end ], [ %__first2.coerce, %entry ]
+  %__first1.sroa.0.044 = phi ptr [ %__first1.sroa.0.1, %if.end ], [ %__first1.coerce, %entry ]
+  %call.val.i = load double, ptr %__first2.sroa.0.045, align 8
+  %call3.val.i = load double, ptr %__first1.sroa.0.044, align 8
   %cmp.i.i = fcmp olt double %call.val.i, %call3.val.i
   %fields_.i = getelementptr inbounds i8, ptr %__result.addr.046, i64 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.046, i64 16
@@ -3759,14 +3759,14 @@ while.body:                                       ; preds = %entry, %if.end
 
 if.then:                                          ; preds = %while.body
   store double %call.val.i, ptr %__result.addr.046, align 8
-  %fields_3.i = getelementptr inbounds i8, ptr %__first2.sroa.0.044, i64 8
+  %fields_3.i = getelementptr inbounds i8, ptr %__first2.sroa.0.045, i64 8
   %0 = load ptr, ptr %fields_.i, align 8
   %1 = load ptr, ptr %fields_3.i, align 8
   store ptr %1, ptr %fields_.i, align 8
-  %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.044, i64 16
+  %_M_finish.i2.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.045, i64 16
   %2 = load ptr, ptr %_M_finish.i2.i.i.i.i, align 8
   store ptr %2, ptr %_M_finish.i.i.i.i.i, align 8
-  %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.044, i64 24
+  %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.045, i64 24
   %3 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
   store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -3778,19 +3778,19 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then
   br label %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit
 
 _ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit: ; preds = %if.then, %if.then.i.i.i.i.i.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first2.sroa.0.044, i64 32
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first2.sroa.0.045, i64 32
   br label %if.end
 
 if.else:                                          ; preds = %while.body
   store double %call3.val.i, ptr %__result.addr.046, align 8
-  %fields_3.i8 = getelementptr inbounds i8, ptr %__first1.sroa.0.045, i64 8
+  %fields_3.i8 = getelementptr inbounds i8, ptr %__first1.sroa.0.044, i64 8
   %4 = load ptr, ptr %fields_.i, align 8
   %5 = load ptr, ptr %fields_3.i8, align 8
   store ptr %5, ptr %fields_.i, align 8
-  %_M_finish.i2.i.i.i.i11 = getelementptr inbounds i8, ptr %__first1.sroa.0.045, i64 16
+  %_M_finish.i2.i.i.i.i11 = getelementptr inbounds i8, ptr %__first1.sroa.0.044, i64 16
   %6 = load ptr, ptr %_M_finish.i2.i.i.i.i11, align 8
   store ptr %6, ptr %_M_finish.i.i.i.i.i, align 8
-  %_M_end_of_storage.i4.i.i.i.i12 = getelementptr inbounds i8, ptr %__first1.sroa.0.045, i64 24
+  %_M_end_of_storage.i4.i.i.i.i12 = getelementptr inbounds i8, ptr %__first1.sroa.0.044, i64 24
   %7 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i12, align 8
   store ptr %7, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i13 = icmp eq ptr %4, null
@@ -3802,12 +3802,12 @@ if.then.i.i.i.i.i.i14:                            ; preds = %if.else
   br label %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit15
 
 _ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit15: ; preds = %if.else, %if.then.i.i.i.i.i.i14
-  %incdec.ptr.i16 = getelementptr inbounds i8, ptr %__first1.sroa.0.045, i64 32
+  %incdec.ptr.i16 = getelementptr inbounds i8, ptr %__first1.sroa.0.044, i64 32
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit15, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit
-  %__first2.sroa.0.1 = phi ptr [ %incdec.ptr.i, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit ], [ %__first2.sroa.0.044, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit15 ]
-  %__first1.sroa.0.1 = phi ptr [ %__first1.sroa.0.045, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit ], [ %incdec.ptr.i16, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit15 ]
+  %__first1.sroa.0.1 = phi ptr [ %__first1.sroa.0.044, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit ], [ %incdec.ptr.i16, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit15 ]
+  %__first2.sroa.0.1 = phi ptr [ %incdec.ptr.i, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit ], [ %__first2.sroa.0.045, %_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_110FieldGroupaSEOS4_.exit15 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__result.addr.046, i64 32
   %cmp.i = icmp ne ptr %__first1.sroa.0.1, %__last1.coerce
   %cmp.i6 = icmp ne ptr %__first2.sroa.0.1, %__last2.coerce
@@ -3815,8 +3815,8 @@ if.end:                                           ; preds = %_ZN6google8protobuf
   br i1 %or.cond, label %while.body, label %while.end, !llvm.loop !37
 
 while.end:                                        ; preds = %if.end, %entry
-  %__first2.sroa.0.0.lcssa = phi ptr [ %__first2.coerce, %entry ], [ %__first2.sroa.0.1, %if.end ]
   %__first1.sroa.0.0.lcssa = phi ptr [ %__first1.coerce, %entry ], [ %__first1.sroa.0.1, %if.end ]
+  %__first2.sroa.0.0.lcssa = phi ptr [ %__first2.coerce, %entry ], [ %__first2.sroa.0.1, %if.end ]
   %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %incdec.ptr, %if.end ]
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__last1.coerce to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %__first1.sroa.0.0.lcssa to i64

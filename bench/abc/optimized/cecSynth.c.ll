@@ -1120,8 +1120,8 @@ define i32 @Gia_TransferMappedClasses(ptr nocapture noundef readonly %0, ptr noc
   br i1 %31, label %.lr.ph, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %28, %.lr.ph, %.preheader, %3
-  %.025 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ %.1, %28 ], [ %.032, %.lr.ph ]
-  ret i32 %.025
+  %.026 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ %.1, %28 ], [ %.032, %.lr.ph ]
+  ret i32 %.026
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
@@ -1393,7 +1393,7 @@ Abc_Clock.exit:                                   ; preds = %.critedge, %13
   br i1 %exitcond.not, label %Gia_TransferMappedClasses.exit, label %.lr.ph.i, !llvm.loop !15
 
 Gia_TransferMappedClasses.exit:                   ; preds = %87, %.lr.ph.i.preheader, %62, %.preheader.i
-  %.025.i = phi i32 [ 0, %62 ], [ 0, %.preheader.i ], [ 0, %.lr.ph.i.preheader ], [ %.1.i, %87 ]
+  %.026.i = phi i32 [ 0, %62 ], [ 0, %.preheader.i ], [ 0, %.lr.ph.i.preheader ], [ %.1.i, %87 ]
   %88 = load i32, ptr %38, align 4
   %.not73 = icmp eq i32 %88, 0
   br i1 %.not73, label %105, label %89
@@ -1418,7 +1418,7 @@ Gia_TransferMappedClasses.exit:                   ; preds = %87, %.lr.ph.i.prehe
   %102 = xor i32 %101, -1
   %103 = add i32 %97, %102
   %104 = trunc nuw nsw i64 %indvars.iv to i32
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, i32 noundef %104, i32 noundef %.val75, i32 noundef %93, i32 noundef %94, i32 noundef %95, i32 noundef %103, i32 noundef %.025.i)
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, i32 noundef %104, i32 noundef %.val75, i32 noundef %93, i32 noundef %94, i32 noundef %95, i32 noundef %103, i32 noundef %.026.i)
   br label %105
 
 105:                                              ; preds = %Gia_TransferMappedClasses.exit, %89, %39

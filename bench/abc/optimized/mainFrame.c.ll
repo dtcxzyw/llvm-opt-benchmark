@@ -1769,31 +1769,31 @@ define void @Abc_FrameSetCurrentNetwork(ptr noundef %0, ptr noundef %1) local_un
   br label %16
 
 16:                                               ; preds = %6, %14
-  %.020 = phi i32 [ %15, %14 ], [ 1, %6 ]
-  %.027 = load ptr, ptr %3, align 8
-  %.not28 = icmp eq ptr %.027, null
+  %.0 = phi i32 [ %15, %14 ], [ 1, %6 ]
+  %.02327 = load ptr, ptr %3, align 8
+  %.not28 = icmp eq ptr %.02327, null
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16, %.lr.ph
-  %.031 = phi ptr [ %.0, %.lr.ph ], [ %.027, %16 ]
-  %.02130 = phi i32 [ %17, %.lr.ph ], [ 0, %16 ]
-  %.02329 = phi ptr [ %.031, %.lr.ph ], [ null, %16 ]
-  %17 = add nuw nsw i32 %.02130, 1
-  %18 = getelementptr i8, ptr %.031, i64 160
-  %.0 = load ptr, ptr %18, align 8
-  %.not = icmp eq ptr %.0, null
+  %.02331 = phi ptr [ %.023, %.lr.ph ], [ %.02327, %16 ]
+  %.02030 = phi i32 [ %17, %.lr.ph ], [ 0, %16 ]
+  %.02229 = phi ptr [ %.02331, %.lr.ph ], [ null, %16 ]
+  %17 = add nuw nsw i32 %.02030, 1
+  %18 = getelementptr i8, ptr %.02331, i64 160
+  %.023 = load ptr, ptr %18, align 8
+  %.not = icmp eq ptr %.023, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
-  %.023.lcssa = phi ptr [ null, %16 ], [ %.031, %.lr.ph ]
-  %.022.lcssa = phi ptr [ null, %16 ], [ %.02329, %.lr.ph ]
-  %.021.lcssa = phi i32 [ -1, %16 ], [ %.02130, %.lr.ph ]
-  %19 = icmp sgt i32 %.021.lcssa, %.020
+  %.022.lcssa = phi ptr [ null, %16 ], [ %.02331, %.lr.ph ]
+  %.021.lcssa = phi ptr [ null, %16 ], [ %.02229, %.lr.ph ]
+  %.020.lcssa = phi i32 [ -1, %16 ], [ %.02030, %.lr.ph ]
+  %19 = icmp sgt i32 %.020.lcssa, %.0
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %._crit_edge
-  tail call void @Abc_NtkDelete(ptr noundef %.023.lcssa) #18
-  %21 = getelementptr inbounds i8, ptr %.022.lcssa, i64 160
+  tail call void @Abc_NtkDelete(ptr noundef %.022.lcssa) #18
+  %21 = getelementptr inbounds i8, ptr %.021.lcssa, i64 160
   store ptr null, ptr %21, align 8
   br label %22
 

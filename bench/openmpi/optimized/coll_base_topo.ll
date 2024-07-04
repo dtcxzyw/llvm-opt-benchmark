@@ -194,14 +194,14 @@ calculate_num_nodes_up_to_level.exit:             ; preds = %._crit_edge92, %pow
   br label %68
 
 68:                                               ; preds = %.lr.ph96, %68
-  %.06295 = phi i32 [ %spec.select, %.lr.ph96 ], [ %69, %68 ]
-  %69 = sub nsw i32 %.06295, %67
+  %.06495 = phi i32 [ %spec.select, %.lr.ph96 ], [ %69, %68 ]
+  %69 = sub nsw i32 %.06495, %67
   %.not72 = icmp slt i32 %69, %.0.i
   br i1 %.not72, label %.loopexit, label %68, !llvm.loop !8
 
 .loopexit:                                        ; preds = %68, %.preheader, %calculate_num_nodes_up_to_level.exit
-  %.1 = phi i32 [ 0, %calculate_num_nodes_up_to_level.exit ], [ %spec.select, %.preheader ], [ %69, %68 ]
-  %70 = add nsw i32 %.1, %2
+  %.165 = phi i32 [ 0, %calculate_num_nodes_up_to_level.exit ], [ %spec.select, %.preheader ], [ %69, %68 ]
+  %70 = add nsw i32 %.165, %2
   %71 = srem i32 %70, %.val.val
   store i32 %71, ptr %13, align 4
   br label %72
@@ -277,13 +277,13 @@ define noalias noundef ptr @ompi_coll_base_topo_build_in_order_bintree(ptr nocap
   %29 = phi i32 [ %46, %45 ], [ %13, %6 ]
   %.05874 = phi i32 [ %.1, %45 ], [ %9, %6 ]
   %.05973 = phi i32 [ %.160, %45 ], [ 0, %6 ]
-  %.06172 = phi i32 [ %.162, %45 ], [ %.val.val, %6 ]
-  %.06371 = phi i32 [ %.164, %45 ], [ %.val68, %6 ]
-  %30 = icmp sgt i32 %.06371, %.05676
+  %.06172 = phi i32 [ %.162, %45 ], [ %.val68, %6 ]
+  %.06371 = phi i32 [ %.164, %45 ], [ %.val.val, %6 ]
+  %30 = icmp sgt i32 %.06172, %.05676
   br i1 %30, label %31, label %41
 
 31:                                               ; preds = %.lr.ph
-  %32 = icmp eq i32 %.06371, %.05775
+  %32 = icmp eq i32 %.06172, %.05775
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
@@ -293,14 +293,14 @@ define noalias noundef ptr @ompi_coll_base_topo_build_in_order_bintree(ptr nocap
 
 35:                                               ; preds = %33, %31
   %36 = xor i32 %29, -1
-  %37 = add i32 %.06172, %36
+  %37 = add i32 %.06371, %36
   %38 = add nsw i32 %.05973, %29
-  %39 = sub nsw i32 %.06371, %29
+  %39 = sub nsw i32 %.06172, %29
   %40 = add nsw i32 %37, -1
   br label %45
 
 41:                                               ; preds = %.lr.ph
-  %42 = icmp eq i32 %.06371, %.05676
+  %42 = icmp eq i32 %.06172, %.05676
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %41
@@ -309,19 +309,19 @@ define noalias noundef ptr @ompi_coll_base_topo_build_in_order_bintree(ptr nocap
   br label %45
 
 45:                                               ; preds = %41, %43, %35
-  %.164 = phi i32 [ %39, %35 ], [ %.05676, %43 ], [ %.06371, %41 ]
-  %.162 = phi i32 [ %37, %35 ], [ %29, %43 ], [ %29, %41 ]
+  %.164 = phi i32 [ %37, %35 ], [ %29, %43 ], [ %29, %41 ]
+  %.162 = phi i32 [ %39, %35 ], [ %.05676, %43 ], [ %.06172, %41 ]
   %.160 = phi i32 [ %38, %35 ], [ %.05973, %43 ], [ %.05973, %41 ]
   %.1 = phi i32 [ %40, %35 ], [ %.05676, %43 ], [ %.05676, %41 ]
-  %46 = ashr i32 %.162, 1
-  %47 = icmp sgt i32 %.162, 1
+  %46 = ashr i32 %.164, 1
+  %47 = icmp sgt i32 %.164, 1
   %48 = add nsw i32 %.1, -1
   %49 = icmp sgt i32 %.1, 1
   %50 = add nsw i32 %46, -1
   %.057 = select i1 %47, i32 %48, i32 -1
   %51 = and i1 %47, %49
   %.056 = select i1 %51, i32 %50, i32 -1
-  %52 = icmp eq i32 %.164, %.1
+  %52 = icmp eq i32 %.162, %.1
   br i1 %52, label %._crit_edge, label %.lr.ph
 
 condstore.split:                                  ; preds = %23, %26
@@ -488,9 +488,9 @@ define noalias noundef ptr @ompi_coll_base_topo_build_in_order_bmtree(ptr nocapt
   br i1 %18, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %17, %35
-  %.04560 = phi i32 [ %.1, %35 ], [ 0, %17 ]
-  %.04659 = phi i32 [ %36, %35 ], [ 1, %17 ]
-  %19 = xor i32 %.04659, %8
+  %.04560 = phi i32 [ %36, %35 ], [ 1, %17 ]
+  %.04659 = phi i32 [ %.1, %35 ], [ 0, %17 ]
+  %19 = xor i32 %.04560, %8
   %20 = icmp slt i32 %19, %8
   br i1 %20, label %21, label %25
 
@@ -508,10 +508,10 @@ define noalias noundef ptr @ompi_coll_base_topo_build_in_order_bmtree(ptr nocapt
 27:                                               ; preds = %25
   %28 = add nsw i32 %19, %1
   %29 = srem i32 %28, %.val.val
-  %30 = sext i32 %.04560 to i64
+  %30 = sext i32 %.04659 to i64
   %31 = getelementptr inbounds [0 x i32], ptr %13, i64 0, i64 %30
   store i32 %29, ptr %31, align 4
-  %32 = add nsw i32 %.04560, 1
+  %32 = add nsw i32 %.04659, 1
   %33 = icmp eq i32 %32, 32
   br i1 %33, label %34, label %35
 
@@ -520,14 +520,14 @@ define noalias noundef ptr @ompi_coll_base_topo_build_in_order_bmtree(ptr nocapt
   br label %38
 
 35:                                               ; preds = %25, %27
-  %.1 = phi i32 [ %32, %27 ], [ %.04560, %25 ]
-  %36 = shl i32 %.04659, 1
+  %.1 = phi i32 [ %32, %27 ], [ %.04659, %25 ]
+  %36 = shl i32 %.04560, 1
   %37 = icmp slt i32 %36, %.val.val
   br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %35, %17, %21
-  %.04556 = phi i32 [ %.04560, %21 ], [ 0, %17 ], [ %.1, %35 ]
-  store i32 %.04556, ptr %12, align 4
+  %.04656 = phi i32 [ %.04659, %21 ], [ 0, %17 ], [ %.1, %35 ]
+  store i32 %.04656, ptr %12, align 4
   store i32 %1, ptr %9, align 4
   br label %38
 
@@ -548,17 +548,17 @@ define noalias noundef ptr @ompi_coll_base_topo_build_kmtree(ptr nocapture nound
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.06476 = phi i32 [ %8, %.lr.ph ], [ 0, %3 ]
-  %.06575 = phi i32 [ %9, %.lr.ph ], [ 1, %3 ]
-  %8 = add nuw nsw i32 %.06476, 1
-  %9 = mul nsw i32 %.06575, %2
+  %.06476 = phi i32 [ %9, %.lr.ph ], [ 1, %3 ]
+  %.06575 = phi i32 [ %8, %.lr.ph ], [ 0, %3 ]
+  %8 = add nuw nsw i32 %.06575, 1
+  %9 = mul nsw i32 %.06476, %2
   %10 = icmp slt i32 %9, %.val.val
   br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.064.lcssa = phi i32 [ 0, %3 ], [ %8, %.lr.ph ]
+  %.065.lcssa = phi i32 [ 0, %3 ], [ %8, %.lr.ph ]
   %11 = add nsw i32 %2, -1
-  %12 = mul nsw i32 %.064.lcssa, %11
+  %12 = mul nsw i32 %.065.lcssa, %11
   %13 = sub i32 %.val.val, %1
   %14 = add i32 %13, %.val70
   %15 = srem i32 %14, %.val.val
@@ -734,37 +734,37 @@ define noalias noundef ptr @ompi_coll_base_topo_build_chain(i32 noundef %0, ptr 
   %.not146 = icmp ne i32 %41, 0
   %42 = add nsw i32 %spec.store.select1., 1
   %43 = zext i1 %.not146 to i32
-  %.0131 = add nsw i32 %40, %43
-  %.0130 = select i1 %.not146, i32 %41, i32 %42
+  %.0129 = add nsw i32 %40, %43
+  %.0128 = select i1 %.not146, i32 %41, i32 %42
   %.not147 = icmp eq i32 %.0125.fr, 0
   br i1 %.not147, label %71, label %44
 
 44:                                               ; preds = %39
   %45 = add i32 %.0125.fr, -1
-  %46 = mul nsw i32 %.0131, %.0130
+  %46 = mul nsw i32 %.0129, %.0128
   %.fr155 = freeze i32 %46
   %.not149 = icmp sgt i32 %.0125.fr, %.fr155
   br i1 %.not149, label %49, label %47
 
 47:                                               ; preds = %44
-  %48 = srem i32 %45, %.0131
+  %48 = srem i32 %45, %.0129
   br label %53
 
 49:                                               ; preds = %44
   %50 = sub i32 %45, %.fr155
-  %51 = add nsw i32 %.0131, -1
+  %51 = add nsw i32 %.0129, -1
   %52 = srem i32 %50, %51
   br label %53
 
 53:                                               ; preds = %49, %47
   %.pn = phi i32 [ %48, %47 ], [ %52, %49 ]
-  %.0128 = phi i32 [ %.0131, %47 ], [ %51, %49 ]
+  %.0126 = phi i32 [ %.0129, %47 ], [ %51, %49 ]
   %54 = icmp eq i32 %.pn, 0
   %spec.select164 = select i1 %54, i32 0, i32 %45
   %55 = getelementptr inbounds i8, ptr %7, i64 12
   %56 = xor i32 %.pn, -1
   %57 = add i32 %.0125.fr, %56
-  %58 = add i32 %57, %.0128
+  %58 = add i32 %57, %.0126
   %59 = icmp eq i32 %.0125.fr, %58
   br i1 %59, label %.thread, label %60
 
@@ -806,7 +806,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_chain(i32 noundef %0, ptr 
   br i1 %75, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %71
-  %76 = sext i32 %.0130 to i64
+  %76 = sext i32 %.0128 to i64
   %wide.trip.count = zext nneg i32 %spec.store.select1. to i64
   br label %.lr.ph
 
@@ -816,7 +816,7 @@ define noalias noundef ptr @ompi_coll_base_topo_build_chain(i32 noundef %0, ptr 
   %78 = getelementptr inbounds [0 x i32], ptr %13, i64 0, i64 %indvars.iv
   %79 = icmp sgt i64 %indvars.iv, %76
   %80 = sext i1 %79 to i32
-  %81 = add i32 %.0131, %80
+  %81 = add i32 %.0129, %80
   %spec.select = add i32 %81, %77
   %82 = srem i32 %spec.select, %.val.val
   store i32 %82, ptr %78, align 4

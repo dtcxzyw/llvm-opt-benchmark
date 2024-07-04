@@ -25,9 +25,9 @@ define void @irq_dispatch(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br label %11
 
 11:                                               ; preds = %4, %8, %2
-  %.08 = phi ptr [ %10, %8 ], [ null, %4 ], [ null, %2 ]
-  %.0 = phi ptr [ %7, %8 ], [ @irq_unexpected_isr, %4 ], [ @irq_unexpected_isr, %2 ]
-  %12 = tail call i32 %.0(i32 noundef %0, ptr noundef %1, ptr noundef %.08) #2
+  %.08 = phi ptr [ %7, %8 ], [ @irq_unexpected_isr, %4 ], [ @irq_unexpected_isr, %2 ]
+  %.0 = phi ptr [ %10, %8 ], [ null, %4 ], [ null, %2 ]
+  %12 = tail call i32 %.08(i32 noundef %0, ptr noundef %1, ptr noundef %.0) #2
   ret void
 }
 

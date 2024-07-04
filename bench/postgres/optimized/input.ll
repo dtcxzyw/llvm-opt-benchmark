@@ -594,7 +594,7 @@ define dso_local noundef zeroext i1 @printHistory(ptr noundef %0, i16 noundef ze
   br label %26
 
 12:                                               ; preds = %8, %5
-  %.014 = phi ptr [ %7, %5 ], [ %9, %8 ]
+  %.013 = phi ptr [ %7, %5 ], [ %9, %8 ]
   %13 = tail call i32 @history_set_pos(i32 noundef 0) #8
   %14 = tail call ptr @previous_history() #8
   %15 = tail call i32 @history_set_pos(i32 noundef 0) #8
@@ -608,17 +608,17 @@ define dso_local noundef zeroext i1 @printHistory(ptr noundef %0, i16 noundef ze
   br i1 %.not18, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.01221.us = phi ptr [ %19, %.lr.ph.split.us ], [ %16, %.lr.ph ]
-  %17 = load ptr, ptr %.01221.us, align 8
-  %18 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.014, ptr noundef nonnull @.str.10, ptr noundef %17) #8
+  %.021.us = phi ptr [ %19, %.lr.ph.split.us ], [ %16, %.lr.ph ]
+  %17 = load ptr, ptr %.021.us, align 8
+  %18 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.013, ptr noundef nonnull @.str.10, ptr noundef %17) #8
   %19 = tail call ptr @next_history() #8
   %.not19.us = icmp eq ptr %19, null
   br i1 %.not19.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.01221 = phi ptr [ %22, %.lr.ph.split ], [ %16, %.lr.ph ]
-  %20 = load ptr, ptr %.01221, align 8
-  %21 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.014, ptr noundef nonnull @.str.10, ptr noundef %20) #8
+  %.021 = phi ptr [ %22, %.lr.ph.split ], [ %16, %.lr.ph ]
+  %20 = load ptr, ptr %.021, align 8
+  %21 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.013, ptr noundef nonnull @.str.10, ptr noundef %20) #8
   %22 = tail call ptr @previous_history() #8
   %.not19 = icmp eq ptr %22, null
   br i1 %.not19, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
@@ -627,16 +627,16 @@ define dso_local noundef zeroext i1 @printHistory(ptr noundef %0, i16 noundef ze
   br i1 %4, label %23, label %24
 
 23:                                               ; preds = %._crit_edge
-  tail call void @ClosePager(ptr noundef %.014) #8
+  tail call void @ClosePager(ptr noundef %.013) #8
   br label %26
 
 24:                                               ; preds = %._crit_edge
-  %25 = tail call i32 @fclose(ptr noundef %.014)
+  %25 = tail call i32 @fclose(ptr noundef %.013)
   br label %26
 
 26:                                               ; preds = %23, %24, %2, %11
-  %.0 = phi i1 [ false, %11 ], [ false, %2 ], [ true, %24 ], [ true, %23 ]
-  ret i1 %.0
+  %.014 = phi i1 [ false, %11 ], [ false, %2 ], [ true, %24 ], [ true, %23 ]
+  ret i1 %.014
 }
 
 declare ptr @PageOutput(i32 noundef, ptr noundef) local_unnamed_addr #1

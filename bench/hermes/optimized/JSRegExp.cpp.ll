@@ -2991,17 +2991,17 @@ for.body.preheader:                               ; preds = %_ZNK6hermes2vm10Str
 
 for.body:                                         ; preds = %for.body.preheader, %sw.epilog
   %isBackslashed.0243 = phi i1 [ %54, %sw.epilog ], [ false, %for.body.preheader ]
-  %__begin2.sroa.5.0242 = phi ptr [ %__begin2.sroa.5.1, %sw.epilog ], [ %retval.sroa.3.0.i253, %for.body.preheader ]
-  %__begin2.sroa.0.0241 = phi ptr [ %__begin2.sroa.0.1, %sw.epilog ], [ %retval.sroa.0.0.i255, %for.body.preheader ]
+  %__begin2.sroa.0.0242 = phi ptr [ %__begin2.sroa.0.1, %sw.epilog ], [ %retval.sroa.0.0.i255, %for.body.preheader ]
+  %__begin2.sroa.5.0241 = phi ptr [ %__begin2.sroa.5.1, %sw.epilog ], [ %retval.sroa.3.0.i253, %for.body.preheader ]
   br i1 %tobool.not.i.i85237, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %for.body
-  %21 = load i8, ptr %__begin2.sroa.0.0241, align 1
+  %21 = load i8, ptr %__begin2.sroa.0.0242, align 1
   %22 = sext i8 %21 to i16
   br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit
 
 cond.false.i:                                     ; preds = %for.body
-  %23 = load i16, ptr %__begin2.sroa.5.0242, align 2
+  %23 = load i16, ptr %__begin2.sroa.5.0241, align 2
   br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit
 
 _ZNK6hermes2vm10StringView14const_iteratordeEv.exit: ; preds = %cond.true.i, %cond.false.i
@@ -3256,9 +3256,9 @@ sw.epilog:                                        ; preds = %_ZN6hermes2vm12Smal
   %cmp = icmp eq i16 %cond.i, 92
   %lnot = xor i1 %isBackslashed.0243, true
   %54 = select i1 %cmp, i1 %lnot, i1 false
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0241, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0242, i64 1
+  %__begin2.sroa.5.1 = getelementptr inbounds i8, ptr %__begin2.sroa.5.0241, i64 %__begin2.sroa.5.1.idx
   %__begin2.sroa.0.1 = select i1 %tobool.not.i.i85237, ptr null, ptr %incdec.ptr.i
-  %__begin2.sroa.5.1 = getelementptr inbounds i8, ptr %__begin2.sroa.5.0242, i64 %__begin2.sroa.5.1.idx
   %.sink.i.i = select i1 %tobool.not.i.i85237, ptr %__begin2.sroa.5.1, ptr %incdec.ptr.i
   %cmp5.i.i.not = icmp eq ptr %.sink.i.i, %.sroa.speculated239
   br i1 %cmp5.i.i.not, label %for.end, label %for.body

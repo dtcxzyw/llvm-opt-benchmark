@@ -122,13 +122,13 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %.split.loop.exit128
 
 .split.loop.exit128:                              ; preds = %.preheader95, %.split.loop.exit
-  %.084.in.lcssa = phi i32 [ %66, %.split.loop.exit ], [ %60, %.preheader95 ]
-  %.084.lcssa = phi i32 [ %67, %.split.loop.exit ], [ %smax, %.preheader95 ]
-  %68 = icmp eq i32 %.084.lcssa, %52
+  %.083.in.lcssa = phi i32 [ %66, %.split.loop.exit ], [ %60, %.preheader95 ]
+  %.083.lcssa = phi i32 [ %67, %.split.loop.exit ], [ %smax, %.preheader95 ]
+  %68 = icmp eq i32 %.083.lcssa, %52
   br i1 %68, label %70, label %.preheader
 
 .preheader:                                       ; preds = %.split.loop.exit128
-  %69 = zext i32 %.084.in.lcssa to i64
+  %69 = zext i32 %.083.in.lcssa to i64
   %.not8997 = icmp ugt i64 %indvars.iv114, %69
   br i1 %.not8997, label %.loopexit, label %.lr.ph99
 
@@ -137,14 +137,14 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %.thread
 
 71:                                               ; preds = %.lr.ph99
-  %72 = add nsw i32 %.08398, -1
-  %73 = sext i32 %.08398 to i64
+  %72 = add nsw i32 %.098, -1
+  %73 = sext i32 %.098 to i64
   %.not89.not = icmp slt i64 %indvars.iv114, %73
   br i1 %.not89.not, label %.lr.ph99, label %.loopexit.loopexit, !llvm.loop !7
 
 .lr.ph99:                                         ; preds = %.preheader, %71
-  %.08398 = phi i32 [ %72, %71 ], [ %.084.in.lcssa, %.preheader ]
-  %74 = tail call double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %.08398, i32 noundef 1) #7
+  %.098 = phi i32 [ %72, %71 ], [ %.083.in.lcssa, %.preheader ]
+  %74 = tail call double @reoReorderSwapAdjacentVars(ptr noundef %0, i32 noundef %.098, i32 noundef 1) #7
   %75 = load i32, ptr %40, align 4
   %76 = icmp sgt i32 %75, 10000
   br i1 %76, label %77, label %71
@@ -247,8 +247,8 @@ define noundef ptr @reoShuffle(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %.thread
 
 .thread:                                          ; preds = %77, %70, %._crit_edge112, %113, %5
-  %.0 = phi ptr [ %2, %5 ], [ %86, %113 ], [ null, %._crit_edge112 ], [ null, %70 ], [ null, %77 ]
-  ret ptr %.0
+  %.086 = phi ptr [ %2, %5 ], [ %86, %113 ], [ null, %._crit_edge112 ], [ null, %70 ], [ null, %77 ]
+  ret ptr %.086
 }
 
 declare i32 @Cudd_SupportSize(ptr noundef, ptr noundef) local_unnamed_addr #1

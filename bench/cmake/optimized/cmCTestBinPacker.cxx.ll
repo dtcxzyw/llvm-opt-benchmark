@@ -2481,8 +2481,8 @@ _ZSt22__chunk_insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iterator
   %.val1.i.i.i17 = load i32, ptr %90, align 8
   %91 = icmp slt i32 %.val.i.i.i16, %.val1.i.i.i17
   %.sink.i = select i1 %91, ptr %86, ptr %88
-  %.sroa.046.1.i = select i1 %91, ptr %85, ptr %.sroa.046.061.i
   %.sroa.048.1.i = select i1 %91, ptr %.ptr.i62.i, ptr %87
+  %.sroa.046.1.i = select i1 %91, ptr %85, ptr %.sroa.046.061.i
   store ptr %.sink.i, ptr %.024.i63.i, align 8
   %92 = getelementptr inbounds i8, ptr %.024.i63.i, i64 8
   %.not.i.i18 = icmp eq ptr %.sroa.048.1.i, %83
@@ -4289,10 +4289,10 @@ define linkonce_odr dso_local void @_ZNSt3_V28__rotateISt16reverse_iteratorIN9__
 
 .lr.ph55:                                         ; preds = %.lr.ph55.preheader, %.lr.ph55
   %.0453 = phi i64 [ %34, %.lr.ph55 ], [ 0, %.lr.ph55.preheader ]
-  %.sroa.022.152 = phi ptr [ %32, %.lr.ph55 ], [ %.sroa.022.0, %.lr.ph55.preheader ]
-  %.sroa.021.051 = phi ptr [ %33, %.lr.ph55 ], [ %31, %.lr.ph55.preheader ]
-  %32 = getelementptr inbounds i8, ptr %.sroa.022.152, i64 -32
-  %33 = getelementptr inbounds i8, ptr %.sroa.021.051, i64 -32
+  %.sroa.021.052 = phi ptr [ %33, %.lr.ph55 ], [ %31, %.lr.ph55.preheader ]
+  %.sroa.022.151 = phi ptr [ %32, %.lr.ph55 ], [ %.sroa.022.0, %.lr.ph55.preheader ]
+  %32 = getelementptr inbounds i8, ptr %.sroa.022.151, i64 -32
+  %33 = getelementptr inbounds i8, ptr %.sroa.021.052, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %33) #17
   %34 = add nuw nsw i64 %.0453, 1
   %exitcond59.not = icmp eq i64 %34, %26
@@ -4561,8 +4561,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %85 = sub i32 %82, %84
   %86 = icmp ult i32 %80, %85
   %. = select i1 %86, ptr %44, ptr %45
-  %..sroa.065.093 = select i1 %86, ptr %44, ptr %.sroa.065.093
   %.ptr.i94. = select i1 %86, ptr %.ptr.i94, ptr %45
+  %..sroa.065.093 = select i1 %86, ptr %44, ptr %.sroa.065.093
   %87 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.024.i2495, ptr noundef nonnull align 8 dereferenceable(32) %.) #17
   %88 = getelementptr inbounds i8, ptr %.024.i2495, i64 32
   %.not.i26 = icmp eq ptr %.ptr.i94., %41
@@ -7538,8 +7538,8 @@ _ZSt22__chunk_insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iterator
   %.val1.i.i.i17 = load i32, ptr %90, align 8
   %91 = icmp slt i32 %.val.i.i.i16, %.val1.i.i.i17
   %.sink.i = select i1 %91, ptr %86, ptr %88
-  %.sroa.046.1.i = select i1 %91, ptr %85, ptr %.sroa.046.061.i
   %.sroa.048.1.i = select i1 %91, ptr %.ptr.i62.i, ptr %87
+  %.sroa.046.1.i = select i1 %91, ptr %85, ptr %.sroa.046.061.i
   store ptr %.sink.i, ptr %.024.i63.i, align 8
   %92 = getelementptr inbounds i8, ptr %.024.i63.i, i64 8
   %.not.i.i18 = icmp eq ptr %.sroa.048.1.i, %83
@@ -9076,8 +9076,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %85 = sub i32 %82, %84
   %86 = icmp ult i32 %80, %85
   %. = select i1 %86, ptr %44, ptr %45
-  %..sroa.065.093 = select i1 %86, ptr %44, ptr %.sroa.065.093
   %.ptr.i94. = select i1 %86, ptr %.ptr.i94, ptr %45
+  %..sroa.065.093 = select i1 %86, ptr %44, ptr %.sroa.065.093
   %87 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.024.i2495, ptr noundef nonnull align 8 dereferenceable(32) %.) #17
   %88 = getelementptr inbounds i8, ptr %.024.i2495, i64 32
   %.not.i26 = icmp eq ptr %.ptr.i94., %41

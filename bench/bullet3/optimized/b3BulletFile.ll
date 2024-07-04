@@ -884,8 +884,8 @@ while.body.preheader:                             ; preds = %if.end
 
 while.body:                                       ; preds = %while.body.preheader, %if.end85
   %3 = phi i32 [ %64, %if.end85 ], [ %.old, %while.body.preheader ]
-  %seek.0 = phi i32 [ %call80, %if.end85 ], [ %call, %while.body.preheader ]
   %dataPtr.0 = phi ptr [ %add.ptr78, %if.end85 ], [ %add.ptr, %while.body.preheader ]
+  %seek.0 = phi i32 [ %call80, %if.end85 ], [ %call, %while.body.preheader ]
   %cmp10 = icmp ne i32 %3, 1213612625
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp10
   br i1 %or.cond, label %if.then11, label %if.else74

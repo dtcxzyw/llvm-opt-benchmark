@@ -77,20 +77,20 @@ define range(i32 -12, 1) i32 @circbuf_resize(ptr nocapture noundef %0, i64 nound
 21:                                               ; preds = %19
   %22 = sub i64 %11, %20
   %23 = urem i64 %20, %4
-  %.029.i.i.i = tail call i64 @llvm.umin.i64(i64 %22, i64 %.0)
+  %.028.i.i.i = tail call i64 @llvm.umin.i64(i64 %22, i64 %.0)
   %24 = sub i64 %4, %23
-  %.028.i.i.i = tail call i64 @llvm.umin.i64(i64 %.029.i.i.i, i64 %24)
+  %.0.i.i.i = tail call i64 @llvm.umin.i64(i64 %.028.i.i.i, i64 %24)
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 %23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr align 1 %26, i64 %.028.i.i.i, i1 false)
-  %27 = getelementptr inbounds i8, ptr %8, i64 %.028.i.i.i
-  %28 = sub i64 %.029.i.i.i, %.028.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr align 1 %26, i64 %.0.i.i.i, i1 false)
+  %27 = getelementptr inbounds i8, ptr %8, i64 %.0.i.i.i
+  %28 = sub i64 %.028.i.i.i, %.0.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %25, i64 %28, i1 false)
   br label %circbuf_read.exit
 
 circbuf_read.exit:                                ; preds = %19, %21
-  %.0.i.i.i = phi i64 [ %.029.i.i.i, %21 ], [ 0, %19 ]
-  %29 = add i64 %20, %.0.i.i.i
+  %.029.i.i.i = phi i64 [ %.028.i.i.i, %21 ], [ 0, %19 ]
+  %29 = add i64 %20, %.029.i.i.i
   store i64 %29, ptr %12, align 8
   br label %30
 
@@ -149,25 +149,25 @@ define i64 @circbuf_read(ptr nocapture noundef %0, ptr nocapture noundef writeon
   %10 = load i64, ptr %9, align 8
   %11 = sub i64 %10, %8
   %12 = urem i64 %8, %5
-  %.029.i.i = tail call i64 @llvm.umin.i64(i64 %11, i64 %2)
+  %.028.i.i = tail call i64 @llvm.umin.i64(i64 %11, i64 %2)
   %13 = sub i64 %5, %12
-  %.028.i.i = tail call i64 @llvm.umin.i64(i64 %.029.i.i, i64 %13)
+  %.0.i.i = tail call i64 @llvm.umin.i64(i64 %.028.i.i, i64 %13)
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 %12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %15, i64 %.028.i.i, i1 false)
-  %16 = getelementptr inbounds i8, ptr %1, i64 %.028.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %15, i64 %.0.i.i, i1 false)
+  %16 = getelementptr inbounds i8, ptr %1, i64 %.0.i.i
   %17 = load ptr, ptr %0, align 8
-  %18 = sub i64 %.029.i.i, %.028.i.i
+  %18 = sub i64 %.028.i.i, %.0.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %17, i64 %18, i1 false)
   br label %circbuf_peek.exit
 
 circbuf_peek.exit:                                ; preds = %3, %6
-  %.0.i.i = phi i64 [ %.029.i.i, %6 ], [ 0, %3 ]
+  %.029.i.i = phi i64 [ %.028.i.i, %6 ], [ 0, %3 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 24
   %20 = load i64, ptr %19, align 8
-  %21 = add i64 %20, %.0.i.i
+  %21 = add i64 %20, %.029.i.i
   store i64 %21, ptr %19, align 8
-  ret i64 %.0.i.i
+  ret i64 %.029.i.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -269,21 +269,21 @@ define i64 @circbuf_peekat(ptr nocapture noundef readonly %0, i64 noundef %1, pt
   %spec.select = select i1 %14, i64 %12, i64 %1
   %15 = sub i64 %9, %spec.select
   %16 = urem i64 %spec.select, %6
-  %.029 = tail call i64 @llvm.umin.i64(i64 %15, i64 %3)
+  %.028 = tail call i64 @llvm.umin.i64(i64 %15, i64 %3)
   %17 = sub i64 %6, %16
-  %.028 = tail call i64 @llvm.umin.i64(i64 %.029, i64 %17)
+  %.0 = tail call i64 @llvm.umin.i64(i64 %.028, i64 %17)
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %19, i64 %.028, i1 false)
-  %20 = getelementptr inbounds i8, ptr %2, i64 %.028
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %19, i64 %.0, i1 false)
+  %20 = getelementptr inbounds i8, ptr %2, i64 %.0
   %21 = load ptr, ptr %0, align 8
-  %22 = sub i64 %.029, %.028
+  %22 = sub i64 %.028, %.0
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr align 1 %21, i64 %22, i1 false)
   br label %23
 
 23:                                               ; preds = %4, %7
-  %.0 = phi i64 [ %.029, %7 ], [ 0, %4 ]
-  ret i64 %.0
+  %.029 = phi i64 [ %.028, %7 ], [ 0, %4 ]
+  ret i64 %.029
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -303,21 +303,21 @@ define i64 @circbuf_peek(ptr nocapture noundef readonly %0, ptr nocapture nounde
   %10 = load i64, ptr %9, align 8
   %11 = sub i64 %10, %8
   %12 = urem i64 %8, %5
-  %.029.i = tail call i64 @llvm.umin.i64(i64 %11, i64 %2)
+  %.028.i = tail call i64 @llvm.umin.i64(i64 %11, i64 %2)
   %13 = sub i64 %5, %12
-  %.028.i = tail call i64 @llvm.umin.i64(i64 %.029.i, i64 %13)
+  %.0.i = tail call i64 @llvm.umin.i64(i64 %.028.i, i64 %13)
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 %12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %15, i64 %.028.i, i1 false)
-  %16 = getelementptr inbounds i8, ptr %1, i64 %.028.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %15, i64 %.0.i, i1 false)
+  %16 = getelementptr inbounds i8, ptr %1, i64 %.0.i
   %17 = load ptr, ptr %0, align 8
-  %18 = sub i64 %.029.i, %.028.i
+  %18 = sub i64 %.028.i, %.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %17, i64 %18, i1 false)
   br label %circbuf_peekat.exit
 
 circbuf_peekat.exit:                              ; preds = %3, %6
-  %.0.i = phi i64 [ %.029.i, %6 ], [ 0, %3 ]
-  ret i64 %.0.i
+  %.029.i = phi i64 [ %.028.i, %6 ], [ 0, %3 ]
+  ret i64 %.029.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -337,13 +337,13 @@ define i64 @circbuf_write(ptr nocapture noundef %0, ptr nocapture noundef readon
   %12 = urem i64 %8, %5
   %spec.select = tail call i64 @llvm.umin.i64(i64 %11, i64 %2)
   %13 = sub i64 %5, %12
-  %.024 = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %13)
+  %.0 = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %13)
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 %12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %1, i64 %.024, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %1, i64 %.0, i1 false)
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 %.024
-  %18 = sub i64 %spec.select, %.024
+  %17 = getelementptr inbounds i8, ptr %1, i64 %.0
+  %18 = sub i64 %spec.select, %.0
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %17, i64 %18, i1 false)
   %19 = load i64, ptr %7, align 8
   %20 = add i64 %19, %spec.select
@@ -351,8 +351,8 @@ define i64 @circbuf_write(ptr nocapture noundef %0, ptr nocapture noundef readon
   br label %21
 
 21:                                               ; preds = %3, %6
-  %.0 = phi i64 [ %spec.select, %6 ], [ 0, %3 ]
-  ret i64 %.0
+  %.025 = phi i64 [ %spec.select, %6 ], [ 0, %3 ]
+  ret i64 %.025
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -363,42 +363,42 @@ define i64 @circbuf_overwrite(ptr nocapture noundef %0, ptr nocapture noundef re
   br i1 %.not, label %27, label %6
 
 6:                                                ; preds = %3
-  %.041.idx = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 %5)
-  %.041 = getelementptr inbounds i8, ptr %1, i64 %.041.idx
-  %.040 = tail call i64 @llvm.umin.i64(i64 %5, i64 %2)
+  %.040.idx = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 %5)
+  %.040 = getelementptr inbounds i8, ptr %1, i64 %.040.idx
+  %.039 = tail call i64 @llvm.umin.i64(i64 %5, i64 %2)
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8
   %.neg.i = sub i64 %5, %8
   %11 = add i64 %.neg.i, %10
-  %12 = icmp ugt i64 %.040, %11
-  %13 = add i64 %.041.idx, %.040
+  %12 = icmp ugt i64 %.039, %11
+  %13 = add i64 %.040.idx, %.039
   %14 = sub i64 %13, %11
-  %.039 = select i1 %12, i64 %14, i64 0
-  %15 = add i64 %8, %.041.idx
+  %.038 = select i1 %12, i64 %14, i64 0
+  %15 = add i64 %8, %.040.idx
   store i64 %15, ptr %7, align 8
   %16 = urem i64 %15, %5
   %17 = sub i64 %5, %16
-  %.037 = tail call i64 @llvm.umin.i64(i64 %.040, i64 %17)
+  %.0 = tail call i64 @llvm.umin.i64(i64 %.039, i64 %17)
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %.041, i64 %.037, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %.040, i64 %.0, i1 false)
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %.041, i64 %.037
-  %22 = sub i64 %.040, %.037
+  %21 = getelementptr inbounds i8, ptr %.040, i64 %.0
+  %22 = sub i64 %.039, %.0
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr align 1 %21, i64 %22, i1 false)
   %23 = load i64, ptr %7, align 8
-  %24 = add i64 %23, %.040
+  %24 = add i64 %23, %.039
   store i64 %24, ptr %7, align 8
   %25 = load i64, ptr %9, align 8
-  %26 = add i64 %25, %.039
+  %26 = add i64 %25, %.038
   store i64 %26, ptr %9, align 8
   br label %27
 
 27:                                               ; preds = %3, %6
-  %.0 = phi i64 [ %.039, %6 ], [ 0, %3 ]
-  ret i64 %.0
+  %.041 = phi i64 [ %.038, %6 ], [ 0, %3 ]
+  ret i64 %.041
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

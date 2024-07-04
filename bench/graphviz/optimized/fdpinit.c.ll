@@ -59,9 +59,9 @@ gv_calloc.exit:                                   ; preds = %9
 
 .lr.ph:                                           ; preds = %gv_calloc.exit, %init_node.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %init_node.exit ], [ 0, %gv_calloc.exit ]
-  %.02733 = phi ptr [ %51, %init_node.exit ], [ %20, %gv_calloc.exit ]
-  tail call void @common_init_node(ptr noundef nonnull %.02733) #8
-  %21 = tail call ptr @agraphof(ptr noundef nonnull %.02733) #8
+  %.02833 = phi ptr [ %51, %init_node.exit ], [ %20, %gv_calloc.exit ]
+  tail call void @common_init_node(ptr noundef nonnull %.02833) #8
+  %21 = tail call ptr @agraphof(ptr noundef nonnull %.02833) #8
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 232
@@ -81,29 +81,29 @@ gv_calloc.exit:                                   ; preds = %9
   unreachable
 
 init_node.exit:                                   ; preds = %.lr.ph
-  %34 = getelementptr inbounds i8, ptr %.02733, i64 16
+  %34 = getelementptr inbounds i8, ptr %.02833, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 176
   store ptr %28, ptr %36, align 8
-  %37 = tail call ptr @agraphof(ptr noundef nonnull %.02733) #8
+  %37 = tail call ptr @agraphof(ptr noundef nonnull %.02833) #8
   %38 = getelementptr inbounds i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 132
   %41 = load i32, ptr %40, align 4
   %42 = and i32 %41, 1
   %43 = icmp ne i32 %42, 0
-  tail call void @gv_nodesize(ptr noundef nonnull %.02733, i1 noundef zeroext %43) #8
+  tail call void @gv_nodesize(ptr noundef nonnull %.02833, i1 noundef zeroext %43) #8
   %44 = load ptr, ptr %17, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 184
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv
-  store ptr %.02733, ptr %47, align 8
+  store ptr %.02833, ptr %47, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load ptr, ptr %34, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 164
   %50 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %50, ptr %49, align 4
-  %51 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.02733) #8
+  %51 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.02833) #8
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -120,23 +120,23 @@ init_node.exit:                                   ; preds = %.lr.ph
   br i1 %.not3035, label %._crit_edge39, label %.lr.ph38
 
 .lr.ph38:                                         ; preds = %.lr.ph43, %.lr.ph38
-  %.02836 = phi ptr [ %68, %.lr.ph38 ], [ %54, %.lr.ph43 ]
-  %55 = tail call ptr @agbindrec(ptr noundef nonnull %.02836, ptr noundef nonnull @.str.4, i32 noundef 240, i32 noundef 1) #8
+  %.02736 = phi ptr [ %68, %.lr.ph38 ], [ %54, %.lr.ph43 ]
+  %55 = tail call ptr @agbindrec(ptr noundef nonnull %.02736, ptr noundef nonnull @.str.4, i32 noundef 240, i32 noundef 1) #8
   %56 = load ptr, ptr @E_weight, align 8
-  %57 = tail call double @late_double(ptr noundef nonnull %.02836, ptr noundef %56, double noundef 1.000000e+00, double noundef 0.000000e+00) #8
-  %58 = getelementptr inbounds i8, ptr %.02836, i64 16
+  %57 = tail call double @late_double(ptr noundef nonnull %.02736, ptr noundef %56, double noundef 1.000000e+00, double noundef 0.000000e+00) #8
+  %58 = getelementptr inbounds i8, ptr %.02736, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 176
   store double %57, ptr %60, align 8
   %61 = load ptr, ptr @fdp_parms, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 32
   %63 = load double, ptr %62, align 8
-  %64 = tail call double @late_double(ptr noundef nonnull %.02836, ptr noundef %52, double noundef %63, double noundef 0.000000e+00) #8
+  %64 = tail call double @late_double(ptr noundef nonnull %.02736, ptr noundef %52, double noundef %63, double noundef 0.000000e+00) #8
   %65 = load ptr, ptr %58, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 184
   store double %64, ptr %66, align 8
-  %67 = tail call i32 @common_init_edge(ptr noundef nonnull %.02836) #8
-  %68 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02836) #8
+  %67 = tail call i32 @common_init_edge(ptr noundef nonnull %.02736) #8
+  %68 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02736) #8
   %.not30 = icmp eq ptr %68, null
   br i1 %.not30, label %._crit_edge39, label %.lr.ph38
 

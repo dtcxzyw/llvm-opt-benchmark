@@ -11936,50 +11936,50 @@ define internal fastcc noundef i32 @cigi3_3_add_symbol_circle_definition(ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.05971 = phi i32 [ %27, %.lr.ph.preheader ], [ %58, %.lr.ph ]
+  %.05871 = phi i32 [ %27, %.lr.ph.preheader ], [ %58, %.lr.ph ]
   %29 = getelementptr [9 x i32], ptr @hf_cigi3_3_symbol_circle_definition_center_u, i64 0, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   %.b65 = load i1, ptr @cigi_byte_order, align 4
   %31 = select i1 %.b65, i32 -2147483648, i32 0
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %30, ptr noundef %0, i32 noundef %.05971, i32 noundef 4, i32 noundef %31) #2
-  %33 = add i32 %.05971, 4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %30, ptr noundef %0, i32 noundef %.05871, i32 noundef 4, i32 noundef %31) #2
+  %33 = add i32 %.05871, 4
   %34 = getelementptr [9 x i32], ptr @hf_cigi3_3_symbol_circle_definition_center_v, i64 0, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %.b64 = load i1, ptr @cigi_byte_order, align 4
   %36 = select i1 %.b64, i32 -2147483648, i32 0
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %35, ptr noundef %0, i32 noundef %33, i32 noundef 4, i32 noundef %36) #2
-  %38 = add i32 %.05971, 8
+  %38 = add i32 %.05871, 8
   %39 = getelementptr [9 x i32], ptr @hf_cigi3_3_symbol_circle_definition_radius, i64 0, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4
   %.b63 = load i1, ptr @cigi_byte_order, align 4
   %41 = select i1 %.b63, i32 -2147483648, i32 0
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %40, ptr noundef %0, i32 noundef %38, i32 noundef 4, i32 noundef %41) #2
-  %43 = add i32 %.05971, 12
+  %43 = add i32 %.05871, 12
   %44 = getelementptr [9 x i32], ptr @hf_cigi3_3_symbol_circle_definition_inner_radius, i64 0, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
   %.b62 = load i1, ptr @cigi_byte_order, align 4
   %46 = select i1 %.b62, i32 -2147483648, i32 0
   %47 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %45, ptr noundef %0, i32 noundef %43, i32 noundef 4, i32 noundef %46) #2
-  %48 = add i32 %.05971, 16
+  %48 = add i32 %.05871, 16
   %49 = getelementptr [9 x i32], ptr @hf_cigi3_3_symbol_circle_definition_start_angle, i64 0, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4
   %.b61 = load i1, ptr @cigi_byte_order, align 4
   %51 = select i1 %.b61, i32 -2147483648, i32 0
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %50, ptr noundef %0, i32 noundef %48, i32 noundef 4, i32 noundef %51) #2
-  %53 = add i32 %.05971, 20
+  %53 = add i32 %.05871, 20
   %54 = getelementptr [9 x i32], ptr @hf_cigi3_3_symbol_circle_definition_end_angle, i64 0, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4
   %.b = load i1, ptr @cigi_byte_order, align 4
   %56 = select i1 %.b, i32 -2147483648, i32 0
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %55, ptr noundef %0, i32 noundef %53, i32 noundef 4, i32 noundef %56) #2
-  %58 = add i32 %.05971, 24
+  %58 = add i32 %.05871, 24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %3
-  %.058 = phi i32 [ -1, %3 ], [ %27, %7 ], [ %58, %.lr.ph ]
-  ret i32 %.058
+  %.059 = phi i32 [ -1, %3 ], [ %27, %7 ], [ %58, %.lr.ph ]
+  ret i32 %.059
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12027,26 +12027,26 @@ define internal fastcc noundef i32 @cigi3_3_add_symbol_line_definition(ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.03947 = phi i32 [ %29, %.lr.ph.preheader ], [ %40, %.lr.ph ]
+  %.03847 = phi i32 [ %29, %.lr.ph.preheader ], [ %40, %.lr.ph ]
   %31 = getelementptr [29 x i32], ptr @hf_cigi3_3_symbol_line_definition_vertex_u, i64 0, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %.b41 = load i1, ptr @cigi_byte_order, align 4
   %33 = select i1 %.b41, i32 -2147483648, i32 0
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %32, ptr noundef %0, i32 noundef %.03947, i32 noundef 4, i32 noundef %33) #2
-  %35 = add i32 %.03947, 4
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %32, ptr noundef %0, i32 noundef %.03847, i32 noundef 4, i32 noundef %33) #2
+  %35 = add i32 %.03847, 4
   %36 = getelementptr [29 x i32], ptr @hf_cigi3_3_symbol_line_definition_vertex_v, i64 0, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4
   %.b = load i1, ptr @cigi_byte_order, align 4
   %38 = select i1 %.b, i32 -2147483648, i32 0
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %37, ptr noundef %0, i32 noundef %35, i32 noundef 4, i32 noundef %38) #2
-  %40 = add i32 %.03947, 8
+  %40 = add i32 %.03847, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %3
-  %.038 = phi i32 [ -1, %3 ], [ %29, %7 ], [ %40, %.lr.ph ]
-  ret i32 %.038
+  %.039 = phi i32 [ -1, %3 ], [ %29, %7 ], [ %40, %.lr.ph ]
+  ret i32 %.039
 }
 
 ; Function Attrs: nounwind uwtable

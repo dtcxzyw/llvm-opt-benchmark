@@ -636,14 +636,14 @@ ReadHeader.exit:                                  ; preds = %222
   br i1 %or.cond13, label %.lr.ph160.split.us.split.us, label %.lr.ph160.split.us.split
 
 .lr.ph160.split.us.split.us:                      ; preds = %.lr.ph160.split.us, %.lr.ph160.split.us.split.us
-  %.0106159.us.us = phi i64 [ %287, %.lr.ph160.split.us.split.us ], [ %.0.i, %.lr.ph160.split.us ]
-  %.0107157.us.us = phi ptr [ %288, %.lr.ph160.split.us.split.us ], [ %267, %.lr.ph160.split.us ]
-  %.0109156.us.us = phi i32 [ %289, %.lr.ph160.split.us.split.us ], [ 0, %.lr.ph160.split.us ]
-  %286 = getelementptr inbounds i8, ptr %0, i64 %.0106159.us.us
-  %287 = add i64 %.0106159.us.us, %272
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0107157.us.us, ptr align 1 %286, i64 %284, i1 false)
-  %288 = getelementptr inbounds i8, ptr %.0107157.us.us, i64 %261
-  %289 = add nuw nsw i32 %.0109156.us.us, 1
+  %.0103159.us.us = phi i64 [ %287, %.lr.ph160.split.us.split.us ], [ %.0.i, %.lr.ph160.split.us ]
+  %.0104157.us.us = phi ptr [ %288, %.lr.ph160.split.us.split.us ], [ %267, %.lr.ph160.split.us ]
+  %.0107156.us.us = phi i32 [ %289, %.lr.ph160.split.us.split.us ], [ 0, %.lr.ph160.split.us ]
+  %286 = getelementptr inbounds i8, ptr %0, i64 %.0103159.us.us
+  %287 = add i64 %.0103159.us.us, %272
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0104157.us.us, ptr align 1 %286, i64 %284, i1 false)
+  %288 = getelementptr inbounds i8, ptr %.0104157.us.us, i64 %261
+  %289 = add nuw nsw i32 %.0107156.us.us, 1
   %exitcond262.not = icmp eq i32 %289, %264
   br i1 %exitcond262.not, label %._crit_edge, label %.lr.ph160.split.us.split.us, !llvm.loop !8
 
@@ -655,10 +655,10 @@ ReadHeader.exit:                                  ; preds = %222
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %..loopexit_crit_edge.us.us
-  %.0106159.us.us186 = phi i64 [ %307, %..loopexit_crit_edge.us.us ], [ %.0.i, %.preheader.us.us.preheader ]
-  %.0107157.us.us187 = phi ptr [ %308, %..loopexit_crit_edge.us.us ], [ %267, %.preheader.us.us.preheader ]
-  %.0109156.us.us188 = phi i32 [ %309, %..loopexit_crit_edge.us.us ], [ 0, %.preheader.us.us.preheader ]
-  %290 = getelementptr inbounds i8, ptr %0, i64 %.0106159.us.us186
+  %.0103159.us.us186 = phi i64 [ %307, %..loopexit_crit_edge.us.us ], [ %.0.i, %.preheader.us.us.preheader ]
+  %.0104157.us.us187 = phi ptr [ %308, %..loopexit_crit_edge.us.us ], [ %267, %.preheader.us.us.preheader ]
+  %.0107156.us.us188 = phi i32 [ %309, %..loopexit_crit_edge.us.us ], [ 0, %.preheader.us.us.preheader ]
+  %290 = getelementptr inbounds i8, ptr %0, i64 %.0103159.us.us186
   br label %291
 
 291:                                              ; preds = %.preheader.us.us, %291
@@ -667,28 +667,28 @@ ReadHeader.exit:                                  ; preds = %222
   %293 = getelementptr inbounds i8, ptr %290, i64 %292
   %294 = load i8, ptr %293, align 1
   %295 = mul nuw nsw i64 %indvars.iv256, 3
-  %296 = getelementptr inbounds i8, ptr %.0107157.us.us187, i64 %295
+  %296 = getelementptr inbounds i8, ptr %.0104157.us.us187, i64 %295
   store i8 %294, ptr %296, align 1
   %297 = or disjoint i64 %292, 1
   %298 = getelementptr inbounds i8, ptr %290, i64 %297
   %299 = load i8, ptr %298, align 1
   %300 = add nuw nsw i64 %295, 1
-  %301 = getelementptr inbounds i8, ptr %.0107157.us.us187, i64 %300
+  %301 = getelementptr inbounds i8, ptr %.0104157.us.us187, i64 %300
   store i8 %299, ptr %301, align 1
   %302 = or disjoint i64 %292, 2
   %303 = getelementptr inbounds i8, ptr %290, i64 %302
   %304 = load i8, ptr %303, align 1
   %305 = add nuw nsw i64 %295, 2
-  %306 = getelementptr inbounds i8, ptr %.0107157.us.us187, i64 %305
+  %306 = getelementptr inbounds i8, ptr %.0104157.us.us187, i64 %305
   store i8 %304, ptr %306, align 1
   %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
   %exitcond260.not = icmp eq i64 %indvars.iv.next257, %wide.trip.count259
   br i1 %exitcond260.not, label %..loopexit_crit_edge.us.us, label %291, !llvm.loop !9
 
 ..loopexit_crit_edge.us.us:                       ; preds = %291
-  %307 = add i64 %.0106159.us.us186, %272
-  %308 = getelementptr inbounds i8, ptr %.0107157.us.us187, i64 %261
-  %309 = add nuw nsw i32 %.0109156.us.us188, 1
+  %307 = add i64 %.0103159.us.us186, %272
+  %308 = getelementptr inbounds i8, ptr %.0104157.us.us187, i64 %261
+  %309 = add nuw nsw i32 %.0107156.us.us188, 1
   %exitcond261.not = icmp eq i32 %309, %264
   br i1 %exitcond261.not, label %._crit_edge, label %.preheader.us.us, !llvm.loop !8
 
@@ -710,10 +710,10 @@ ReadHeader.exit:                                  ; preds = %222
   br i1 %or.cond16, label %.lr.ph.us.us.us.us.us, label %.lr.ph.us.us.us.us
 
 .lr.ph.us.us.us.us.us:                            ; preds = %.lr.ph160.split.split.us.split.us.split.us.split.us, %..loopexit134_crit_edge.us.split.us.split.us.us.us.split.us.split.us184.us
-  %.0106159.us161.us.us.us.us = phi i64 [ %331, %..loopexit134_crit_edge.us.split.us.split.us.us.us.split.us.split.us184.us ], [ %.0.i, %.lr.ph160.split.split.us.split.us.split.us.split.us ]
-  %.0107157.us162.us.us.us.us = phi ptr [ %332, %..loopexit134_crit_edge.us.split.us.split.us.us.us.split.us.split.us184.us ], [ %267, %.lr.ph160.split.split.us.split.us.split.us.split.us ]
-  %.0109156.us163.us.us.us.us = phi i32 [ %333, %..loopexit134_crit_edge.us.split.us.split.us.us.us.split.us.split.us184.us ], [ 0, %.lr.ph160.split.split.us.split.us.split.us.split.us ]
-  %311 = getelementptr inbounds i8, ptr %0, i64 %.0106159.us161.us.us.us.us
+  %.0103159.us161.us.us.us.us = phi i64 [ %331, %..loopexit134_crit_edge.us.split.us.split.us.us.us.split.us.split.us184.us ], [ %.0.i, %.lr.ph160.split.split.us.split.us.split.us.split.us ]
+  %.0104157.us162.us.us.us.us = phi ptr [ %332, %..loopexit134_crit_edge.us.split.us.split.us.us.us.split.us.split.us184.us ], [ %267, %.lr.ph160.split.split.us.split.us.split.us.split.us ]
+  %.0107156.us163.us.us.us.us = phi i32 [ %333, %..loopexit134_crit_edge.us.split.us.split.us.us.us.split.us.split.us184.us ], [ 0, %.lr.ph160.split.split.us.split.us.split.us.split.us ]
+  %311 = getelementptr inbounds i8, ptr %0, i64 %.0103159.us161.us.us.us.us
   br label %312
 
 312:                                              ; preds = %.lr.ph.us.us.us.us.us, %330
@@ -737,7 +737,7 @@ ReadHeader.exit:                                  ; preds = %222
   %spec.store.select.us.us.us.us.us.us.us183.us = call i32 @llvm.umin.i32(i32 %325, i32 255)
   %326 = trunc nuw i32 %spec.store.select.us.us.us.us.us.us.us183.us to i8
   %327 = sext i32 %.0102153.us.us.us.us.us.us.us181.us to i64
-  %328 = getelementptr inbounds i8, ptr %.0107157.us162.us.us.us.us, i64 %327
+  %328 = getelementptr inbounds i8, ptr %.0104157.us162.us.us.us.us, i64 %327
   store i8 %326, ptr %328, align 1
   %329 = add nsw i32 %.0102153.us.us.us.us.us.us.us181.us, 1
   br label %330
@@ -749,17 +749,17 @@ ReadHeader.exit:                                  ; preds = %222
   br i1 %exitcond254.not, label %..loopexit134_crit_edge.us.split.us.split.us.us.us.split.us.split.us184.us, label %312, !llvm.loop !10
 
 ..loopexit134_crit_edge.us.split.us.split.us.us.us.split.us.split.us184.us: ; preds = %330
-  %331 = add i64 %.0106159.us161.us.us.us.us, %272
-  %332 = getelementptr inbounds i8, ptr %.0107157.us162.us.us.us.us, i64 %261
-  %333 = add nuw nsw i32 %.0109156.us163.us.us.us.us, 1
+  %331 = add i64 %.0103159.us161.us.us.us.us, %272
+  %332 = getelementptr inbounds i8, ptr %.0104157.us162.us.us.us.us, i64 %261
+  %333 = add nuw nsw i32 %.0107156.us163.us.us.us.us, 1
   %exitcond255.not = icmp eq i32 %333, %264
   br i1 %exitcond255.not, label %._crit_edge, label %.lr.ph.us.us.us.us.us, !llvm.loop !8
 
 .lr.ph.us.us.us.us:                               ; preds = %.lr.ph160.split.split.us.split.us.split.us.split.us, %..loopexit134_crit_edge.us.split.us.split.us.us.us.split.us.split.us.us
-  %.0106159.us161.us.us.us = phi i64 [ %348, %..loopexit134_crit_edge.us.split.us.split.us.us.us.split.us.split.us.us ], [ %.0.i, %.lr.ph160.split.split.us.split.us.split.us.split.us ]
-  %.0107157.us162.us.us.us = phi ptr [ %349, %..loopexit134_crit_edge.us.split.us.split.us.us.us.split.us.split.us.us ], [ %267, %.lr.ph160.split.split.us.split.us.split.us.split.us ]
-  %.0109156.us163.us.us.us = phi i32 [ %350, %..loopexit134_crit_edge.us.split.us.split.us.us.us.split.us.split.us.us ], [ 0, %.lr.ph160.split.split.us.split.us.split.us.split.us ]
-  %334 = getelementptr inbounds i8, ptr %0, i64 %.0106159.us161.us.us.us
+  %.0103159.us161.us.us.us = phi i64 [ %348, %..loopexit134_crit_edge.us.split.us.split.us.us.us.split.us.split.us.us ], [ %.0.i, %.lr.ph160.split.split.us.split.us.split.us.split.us ]
+  %.0104157.us162.us.us.us = phi ptr [ %349, %..loopexit134_crit_edge.us.split.us.split.us.us.us.split.us.split.us.us ], [ %267, %.lr.ph160.split.split.us.split.us.split.us.split.us ]
+  %.0107156.us163.us.us.us = phi i32 [ %350, %..loopexit134_crit_edge.us.split.us.split.us.us.us.split.us.split.us.us ], [ 0, %.lr.ph160.split.split.us.split.us.split.us.split.us ]
+  %334 = getelementptr inbounds i8, ptr %0, i64 %.0103159.us161.us.us.us
   br label %335
 
 335:                                              ; preds = %335, %.lr.ph.us.us.us.us
@@ -776,24 +776,24 @@ ReadHeader.exit:                                  ; preds = %222
   %345 = or disjoint i32 %340, %344
   %spec.store.select.us.us.us.us.us.us.us.us = call i32 @llvm.umin.i32(i32 %345, i32 255)
   %346 = trunc nuw i32 %spec.store.select.us.us.us.us.us.us.us.us to i8
-  %347 = getelementptr inbounds i8, ptr %.0107157.us162.us.us.us, i64 %indvars.iv242
+  %347 = getelementptr inbounds i8, ptr %.0104157.us162.us.us.us, i64 %indvars.iv242
   store i8 %346, ptr %347, align 1
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %exitcond248.not = icmp eq i64 %indvars.iv.next243, %wide.trip.count253
   br i1 %exitcond248.not, label %..loopexit134_crit_edge.us.split.us.split.us.us.us.split.us.split.us.us, label %335, !llvm.loop !10
 
 ..loopexit134_crit_edge.us.split.us.split.us.us.us.split.us.split.us.us: ; preds = %335
-  %348 = add i64 %.0106159.us161.us.us.us, %272
-  %349 = getelementptr inbounds i8, ptr %.0107157.us162.us.us.us, i64 %261
-  %350 = add nuw nsw i32 %.0109156.us163.us.us.us, 1
+  %348 = add i64 %.0103159.us161.us.us.us, %272
+  %349 = getelementptr inbounds i8, ptr %.0104157.us162.us.us.us, i64 %261
+  %350 = add nuw nsw i32 %.0107156.us163.us.us.us, 1
   %exitcond249.not = icmp eq i32 %350, %264
   br i1 %exitcond249.not, label %._crit_edge, label %.lr.ph.us.us.us.us, !llvm.loop !8
 
 .lr.ph.us.us.us:                                  ; preds = %.lr.ph160.split.split.us.split.us.split.us, %..loopexit134_crit_edge.us.split.us.split.us.us.us.split
-  %.0106159.us161.us.us = phi i64 [ %374, %..loopexit134_crit_edge.us.split.us.split.us.us.us.split ], [ %.0.i, %.lr.ph160.split.split.us.split.us.split.us ]
-  %.0107157.us162.us.us = phi ptr [ %375, %..loopexit134_crit_edge.us.split.us.split.us.us.us.split ], [ %267, %.lr.ph160.split.split.us.split.us.split.us ]
-  %.0109156.us163.us.us = phi i32 [ %376, %..loopexit134_crit_edge.us.split.us.split.us.us.us.split ], [ 0, %.lr.ph160.split.split.us.split.us.split.us ]
-  %351 = getelementptr inbounds i8, ptr %0, i64 %.0106159.us161.us.us
+  %.0103159.us161.us.us = phi i64 [ %374, %..loopexit134_crit_edge.us.split.us.split.us.us.us.split ], [ %.0.i, %.lr.ph160.split.split.us.split.us.split.us ]
+  %.0104157.us162.us.us = phi ptr [ %375, %..loopexit134_crit_edge.us.split.us.split.us.us.us.split ], [ %267, %.lr.ph160.split.split.us.split.us.split.us ]
+  %.0107156.us163.us.us = phi i32 [ %376, %..loopexit134_crit_edge.us.split.us.split.us.us.us.split ], [ 0, %.lr.ph160.split.split.us.split.us.split.us ]
+  %351 = getelementptr inbounds i8, ptr %0, i64 %.0103159.us161.us.us
   br label %352
 
 352:                                              ; preds = %373, %.lr.ph.us.us.us
@@ -821,7 +821,7 @@ ReadHeader.exit:                                  ; preds = %222
   %spec.store.select.us.us.us.us.us = call i32 @llvm.umin.i32(i32 %368, i32 255)
   %369 = trunc nuw i32 %spec.store.select.us.us.us.us.us to i8
   %370 = sext i32 %.0102153.us.us.us.us.us to i64
-  %371 = getelementptr inbounds i8, ptr %.0107157.us162.us.us, i64 %370
+  %371 = getelementptr inbounds i8, ptr %.0104157.us162.us.us, i64 %370
   store i8 %369, ptr %371, align 1
   %372 = add nsw i32 %.0102153.us.us.us.us.us, 1
   br label %373
@@ -833,9 +833,9 @@ ReadHeader.exit:                                  ; preds = %222
   br i1 %exitcond240.not, label %..loopexit134_crit_edge.us.split.us.split.us.us.us.split, label %352, !llvm.loop !10
 
 ..loopexit134_crit_edge.us.split.us.split.us.us.us.split: ; preds = %373
-  %374 = add i64 %.0106159.us161.us.us, %272
-  %375 = getelementptr inbounds i8, ptr %.0107157.us162.us.us, i64 %261
-  %376 = add nuw nsw i32 %.0109156.us163.us.us, 1
+  %374 = add i64 %.0103159.us161.us.us, %272
+  %375 = getelementptr inbounds i8, ptr %.0104157.us162.us.us, i64 %261
+  %376 = add nuw nsw i32 %.0107156.us163.us.us, 1
   %exitcond241.not = icmp eq i32 %376, %264
   br i1 %exitcond241.not, label %._crit_edge, label %.lr.ph.us.us.us, !llvm.loop !8
 
@@ -846,10 +846,10 @@ ReadHeader.exit:                                  ; preds = %222
   br i1 %or.cond16, label %.lr.ph.us.us.us172.us, label %.lr.ph.us.us.us172
 
 .lr.ph.us.us.us172.us:                            ; preds = %.lr.ph160.split.split.us.split.us.split.split.us, %..loopexit134_crit_edge.us.split.us.split.us170.split.us.split.us178.us
-  %.0106159.us161.us.us173.us = phi i64 [ %388, %..loopexit134_crit_edge.us.split.us.split.us170.split.us.split.us178.us ], [ %.0.i, %.lr.ph160.split.split.us.split.us.split.split.us ]
-  %.0107157.us162.us.us174.us = phi ptr [ %389, %..loopexit134_crit_edge.us.split.us.split.us170.split.us.split.us178.us ], [ %267, %.lr.ph160.split.split.us.split.us.split.split.us ]
-  %.0109156.us163.us.us175.us = phi i32 [ %390, %..loopexit134_crit_edge.us.split.us.split.us170.split.us.split.us178.us ], [ 0, %.lr.ph160.split.split.us.split.us.split.split.us ]
-  %377 = getelementptr inbounds i8, ptr %0, i64 %.0106159.us161.us.us173.us
+  %.0103159.us161.us.us173.us = phi i64 [ %388, %..loopexit134_crit_edge.us.split.us.split.us170.split.us.split.us178.us ], [ %.0.i, %.lr.ph160.split.split.us.split.us.split.split.us ]
+  %.0104157.us162.us.us174.us = phi ptr [ %389, %..loopexit134_crit_edge.us.split.us.split.us170.split.us.split.us178.us ], [ %267, %.lr.ph160.split.split.us.split.us.split.split.us ]
+  %.0107156.us163.us.us175.us = phi i32 [ %390, %..loopexit134_crit_edge.us.split.us.split.us170.split.us.split.us178.us ], [ 0, %.lr.ph160.split.split.us.split.us.split.split.us ]
+  %377 = getelementptr inbounds i8, ptr %0, i64 %.0103159.us161.us.us173.us
   br label %378
 
 378:                                              ; preds = %.lr.ph.us.us.us172.us, %387
@@ -863,7 +863,7 @@ ReadHeader.exit:                                  ; preds = %222
   %382 = getelementptr inbounds i8, ptr %377, i64 %indvars.iv230
   %383 = load i8, ptr %382, align 1
   %384 = sext i32 %.0102153.us.us.us164.us.us176.us to i64
-  %385 = getelementptr inbounds i8, ptr %.0107157.us162.us.us174.us, i64 %384
+  %385 = getelementptr inbounds i8, ptr %.0104157.us162.us.us174.us, i64 %384
   store i8 %383, ptr %385, align 1
   %386 = add nsw i32 %.0102153.us.us.us164.us.us176.us, 1
   br label %387
@@ -875,29 +875,29 @@ ReadHeader.exit:                                  ; preds = %222
   br i1 %exitcond234.not, label %..loopexit134_crit_edge.us.split.us.split.us170.split.us.split.us178.us, label %378, !llvm.loop !10
 
 ..loopexit134_crit_edge.us.split.us.split.us170.split.us.split.us178.us: ; preds = %387
-  %388 = add i64 %.0106159.us161.us.us173.us, %272
-  %389 = getelementptr inbounds i8, ptr %.0107157.us162.us.us174.us, i64 %261
-  %390 = add nuw nsw i32 %.0109156.us163.us.us175.us, 1
+  %388 = add i64 %.0103159.us161.us.us173.us, %272
+  %389 = getelementptr inbounds i8, ptr %.0104157.us162.us.us174.us, i64 %261
+  %390 = add nuw nsw i32 %.0107156.us163.us.us175.us, 1
   %exitcond235.not = icmp eq i32 %390, %264
   br i1 %exitcond235.not, label %._crit_edge, label %.lr.ph.us.us.us172.us, !llvm.loop !8
 
 .lr.ph.us.us.us172:                               ; preds = %.lr.ph160.split.split.us.split.us.split.split.us, %.lr.ph.us.us.us172
-  %.0106159.us161.us.us173 = phi i64 [ %391, %.lr.ph.us.us.us172 ], [ %.0.i, %.lr.ph160.split.split.us.split.us.split.split.us ]
-  %.0107157.us162.us.us174 = phi ptr [ %392, %.lr.ph.us.us.us172 ], [ %267, %.lr.ph160.split.split.us.split.us.split.split.us ]
-  %.0109156.us163.us.us175 = phi i32 [ %393, %.lr.ph.us.us.us172 ], [ 0, %.lr.ph160.split.split.us.split.us.split.split.us ]
-  %scevgep = getelementptr i8, ptr %0, i64 %.0106159.us161.us.us173
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0107157.us162.us.us174, ptr align 1 %scevgep, i64 %wide.trip.count253, i1 false)
-  %391 = add i64 %.0106159.us161.us.us173, %272
-  %392 = getelementptr inbounds i8, ptr %.0107157.us162.us.us174, i64 %261
-  %393 = add nuw nsw i32 %.0109156.us163.us.us175, 1
+  %.0103159.us161.us.us173 = phi i64 [ %391, %.lr.ph.us.us.us172 ], [ %.0.i, %.lr.ph160.split.split.us.split.us.split.split.us ]
+  %.0104157.us162.us.us174 = phi ptr [ %392, %.lr.ph.us.us.us172 ], [ %267, %.lr.ph160.split.split.us.split.us.split.split.us ]
+  %.0107156.us163.us.us175 = phi i32 [ %393, %.lr.ph.us.us.us172 ], [ 0, %.lr.ph160.split.split.us.split.us.split.split.us ]
+  %scevgep = getelementptr i8, ptr %0, i64 %.0103159.us161.us.us173
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0104157.us162.us.us174, ptr align 1 %scevgep, i64 %wide.trip.count253, i1 false)
+  %391 = add i64 %.0103159.us161.us.us173, %272
+  %392 = getelementptr inbounds i8, ptr %.0104157.us162.us.us174, i64 %261
+  %393 = add nuw nsw i32 %.0107156.us163.us.us175, 1
   %exitcond229.not = icmp eq i32 %393, %264
   br i1 %exitcond229.not, label %._crit_edge, label %.lr.ph.us.us.us172, !llvm.loop !8
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph160.split.split.us.split.us.split, %..loopexit134_crit_edge.us.split.us.split.us170.split
-  %.0106159.us161.us = phi i64 [ %410, %..loopexit134_crit_edge.us.split.us.split.us170.split ], [ %.0.i, %.lr.ph160.split.split.us.split.us.split ]
-  %.0107157.us162.us = phi ptr [ %411, %..loopexit134_crit_edge.us.split.us.split.us170.split ], [ %267, %.lr.ph160.split.split.us.split.us.split ]
-  %.0109156.us163.us = phi i32 [ %412, %..loopexit134_crit_edge.us.split.us.split.us170.split ], [ 0, %.lr.ph160.split.split.us.split.us.split ]
-  %394 = getelementptr inbounds i8, ptr %0, i64 %.0106159.us161.us
+  %.0103159.us161.us = phi i64 [ %410, %..loopexit134_crit_edge.us.split.us.split.us170.split ], [ %.0.i, %.lr.ph160.split.split.us.split.us.split ]
+  %.0104157.us162.us = phi ptr [ %411, %..loopexit134_crit_edge.us.split.us.split.us170.split ], [ %267, %.lr.ph160.split.split.us.split.us.split ]
+  %.0107156.us163.us = phi i32 [ %412, %..loopexit134_crit_edge.us.split.us.split.us170.split ], [ 0, %.lr.ph160.split.split.us.split.us.split ]
+  %394 = getelementptr inbounds i8, ptr %0, i64 %.0103159.us161.us
   br label %395
 
 395:                                              ; preds = %.lr.ph.us.us, %409
@@ -918,7 +918,7 @@ ReadHeader.exit:                                  ; preds = %222
   %spec.store.select.us.us.us167 = call i32 @llvm.umin.i32(i32 %404, i32 255)
   %405 = trunc nuw i32 %spec.store.select.us.us.us167 to i8
   %406 = sext i32 %.0102153.us.us.us164 to i64
-  %407 = getelementptr inbounds i8, ptr %.0107157.us162.us, i64 %406
+  %407 = getelementptr inbounds i8, ptr %.0104157.us162.us, i64 %406
   store i8 %405, ptr %407, align 1
   %408 = add nsw i32 %.0102153.us.us.us164, 1
   br label %409
@@ -930,17 +930,17 @@ ReadHeader.exit:                                  ; preds = %222
   br i1 %exitcond222.not, label %..loopexit134_crit_edge.us.split.us.split.us170.split, label %395, !llvm.loop !10
 
 ..loopexit134_crit_edge.us.split.us.split.us170.split: ; preds = %409
-  %410 = add i64 %.0106159.us161.us, %272
-  %411 = getelementptr inbounds i8, ptr %.0107157.us162.us, i64 %261
-  %412 = add nuw nsw i32 %.0109156.us163.us, 1
+  %410 = add i64 %.0103159.us161.us, %272
+  %411 = getelementptr inbounds i8, ptr %.0104157.us162.us, i64 %261
+  %412 = add nuw nsw i32 %.0107156.us163.us, 1
   %exitcond223.not = icmp eq i32 %412, %264
   br i1 %exitcond223.not, label %._crit_edge, label %.lr.ph.us.us, !llvm.loop !8
 
 .lr.ph.us:                                        ; preds = %.lr.ph160.split.split.us, %..loopexit134_crit_edge.us.split
-  %.0106159.us161 = phi i64 [ %454, %..loopexit134_crit_edge.us.split ], [ %.0.i, %.lr.ph160.split.split.us ]
-  %.0107157.us162 = phi ptr [ %455, %..loopexit134_crit_edge.us.split ], [ %267, %.lr.ph160.split.split.us ]
-  %.0109156.us163 = phi i32 [ %456, %..loopexit134_crit_edge.us.split ], [ 0, %.lr.ph160.split.split.us ]
-  %413 = getelementptr inbounds i8, ptr %0, i64 %.0106159.us161
+  %.0103159.us161 = phi i64 [ %454, %..loopexit134_crit_edge.us.split ], [ %.0.i, %.lr.ph160.split.split.us ]
+  %.0104157.us162 = phi ptr [ %455, %..loopexit134_crit_edge.us.split ], [ %267, %.lr.ph160.split.split.us ]
+  %.0107156.us163 = phi i32 [ %456, %..loopexit134_crit_edge.us.split ], [ 0, %.lr.ph160.split.split.us ]
+  %413 = getelementptr inbounds i8, ptr %0, i64 %.0103159.us161
   br label %414
 
 414:                                              ; preds = %.lr.ph.us, %453
@@ -996,11 +996,11 @@ ReadHeader.exit:                                  ; preds = %222
   %443 = trunc nuw i32 %spec.store.select.us to i8
   %444 = add nsw i32 %.0102153.us, 2
   %445 = sext i32 %444 to i64
-  %446 = getelementptr inbounds i8, ptr %.0107157.us162, i64 %445
+  %446 = getelementptr inbounds i8, ptr %.0104157.us162, i64 %445
   store i8 %443, ptr %446, align 1
   %447 = add nsw i32 %.0102153.us, 1
   %448 = sext i32 %447 to i64
-  %449 = getelementptr inbounds i8, ptr %.0107157.us162, i64 %448
+  %449 = getelementptr inbounds i8, ptr %.0104157.us162, i64 %448
   store i8 %443, ptr %449, align 1
   br label %.sink.split
 
@@ -1008,7 +1008,7 @@ ReadHeader.exit:                                  ; preds = %222
   %.sink287 = phi i8 [ %443, %442 ], [ %441, %440 ]
   %.sink = phi i32 [ 3, %442 ], [ 1, %440 ]
   %450 = sext i32 %.0102153.us to i64
-  %451 = getelementptr inbounds i8, ptr %.0107157.us162, i64 %450
+  %451 = getelementptr inbounds i8, ptr %.0104157.us162, i64 %450
   store i8 %.sink287, ptr %451, align 1
   %452 = add nsw i32 %.0102153.us, %.sink
   br label %453
@@ -1020,9 +1020,9 @@ ReadHeader.exit:                                  ; preds = %222
   br i1 %exitcond.not, label %..loopexit134_crit_edge.us.split, label %414, !llvm.loop !10
 
 ..loopexit134_crit_edge.us.split:                 ; preds = %453
-  %454 = add i64 %.0106159.us161, %272
-  %455 = getelementptr inbounds i8, ptr %.0107157.us162, i64 %261
-  %456 = add nuw nsw i32 %.0109156.us163, 1
+  %454 = add i64 %.0103159.us161, %272
+  %455 = getelementptr inbounds i8, ptr %.0104157.us162, i64 %261
+  %456 = add nuw nsw i32 %.0107156.us163, 1
   %exitcond217.not = icmp eq i32 %456, %264
   br i1 %exitcond217.not, label %._crit_edge, label %.lr.ph.us, !llvm.loop !8
 
@@ -1049,10 +1049,10 @@ ReadHeader.exit:                                  ; preds = %222
   br label %466
 
 466:                                              ; preds = %464, %263, %256, %237, %253, %242, %234, %229
-  %.0108 = phi ptr [ null, %229 ], [ null, %234 ], [ null, %237 ], [ null, %242 ], [ null, %253 ], [ null, %263 ], [ %267, %464 ], [ null, %256 ]
-  %.0103 = phi i32 [ 0, %229 ], [ 0, %234 ], [ 0, %237 ], [ 0, %242 ], [ 0, %253 ], [ 0, %263 ], [ %spec.store.select20, %464 ], [ 0, %256 ]
-  call void @free(ptr noundef %.0108) #12
-  ret i32 %.0103
+  %.0106 = phi i32 [ 0, %229 ], [ 0, %234 ], [ 0, %237 ], [ 0, %242 ], [ 0, %253 ], [ 0, %263 ], [ %spec.store.select20, %464 ], [ 0, %256 ]
+  %.0105 = phi ptr [ null, %229 ], [ null, %234 ], [ null, %237 ], [ null, %242 ], [ null, %253 ], [ null, %263 ], [ %267, %464 ], [ null, %256 ]
+  call void @free(ptr noundef %.0105) #12
+  ret i32 %.0106
 }
 
 ; Function Attrs: nofree nounwind

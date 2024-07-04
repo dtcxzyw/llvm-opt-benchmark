@@ -110,8 +110,8 @@ define i32 @ompi_fcoll_base_coll_allgatherv_array(ptr noundef %0, i32 noundef %1
   br label %45
 
 45:                                               ; preds = %39, %37, %.loopexit, %41
-  %.049 = phi i32 [ 0, %41 ], [ %36, %.loopexit ], [ %38, %37 ], [ %40, %39 ]
-  ret i32 %.049
+  %.050 = phi i32 [ 0, %41 ], [ %36, %.loopexit ], [ %38, %37 ], [ %40, %39 ]
+  ret i32 %.050
 }
 
 ; Function Attrs: nounwind uwtable
@@ -258,8 +258,8 @@ define i32 @ompi_fcoll_base_coll_gatherv_array(ptr noundef %0, i32 noundef %1, p
   br label %81
 
 81:                                               ; preds = %22, %16, %._crit_edge, %.split.us, %18
-  %.0 = phi i32 [ %21, %18 ], [ %.us-phi, %.split.us ], [ %80, %._crit_edge ], [ 0, %16 ], [ -2, %22 ]
-  ret i32 %.0
+  %.061 = phi i32 [ %21, %18 ], [ %.us-phi, %.split.us ], [ %80, %._crit_edge ], [ 0, %16 ], [ -2, %22 ]
+  ret i32 %.061
 }
 
 declare i32 @ompi_datatype_create_indexed(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -331,8 +331,8 @@ define i32 @ompi_fcoll_base_coll_bcast_array(ptr noundef %0, i32 noundef %1, ptr
   br label %37
 
 37:                                               ; preds = %16, %._crit_edge, %33, %12
-  %.0 = phi i32 [ %15, %12 ], [ %32, %33 ], [ %36, %._crit_edge ], [ -2, %16 ]
-  ret i32 %.0
+  %.037 = phi i32 [ %15, %12 ], [ %32, %33 ], [ %36, %._crit_edge ], [ -2, %16 ]
+  ret i32 %.037
 }
 
 declare i32 @ompi_datatype_destroy(ptr noundef) local_unnamed_addr #1
@@ -531,8 +531,8 @@ define i32 @ompi_fcoll_base_coll_scatterv_array(ptr noundef %0, ptr nocapture no
   br label %99
 
 99:                                               ; preds = %22, %16, %18, %._crit_edge, %.split.us
-  %.0 = phi i32 [ %.us-phi, %.split.us ], [ %98, %._crit_edge ], [ %21, %18 ], [ 0, %16 ], [ -2, %22 ]
-  ret i32 %.0
+  %.061 = phi i32 [ %.us-phi, %.split.us ], [ %98, %._crit_edge ], [ %21, %18 ], [ 0, %16 ], [ -2, %22 ]
+  ret i32 %.061
 }
 
 ; Function Attrs: nounwind uwtable
@@ -571,8 +571,8 @@ define i32 @ompi_fcoll_base_coll_allgather_array(ptr noundef %0, i32 noundef %1,
   br label %31
 
 31:                                               ; preds = %25, %28
-  %.031 = phi i32 [ %30, %28 ], [ %26, %25 ]
-  ret i32 %.031
+  %.0 = phi i32 [ %30, %28 ], [ %26, %25 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -616,7 +616,7 @@ define i32 @ompi_fcoll_base_coll_gather_array(ptr noundef %0, i32 noundef %1, pt
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %40
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %40 ], [ 0, %.lr.ph ]
-  %.05060.us = phi ptr [ %41, %40 ], [ %3, %.lr.ph ]
+  %.04960.us = phi ptr [ %41, %40 ], [ %3, %.lr.ph ]
   %32 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv66
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, %.val
@@ -630,19 +630,19 @@ define i32 @ompi_fcoll_base_coll_gather_array(ptr noundef %0, i32 noundef %1, pt
 36:                                               ; preds = %.lr.ph.split.us
   %37 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %38 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv66
-  %39 = tail call i32 %37(ptr noundef %.05060.us, i64 noundef %25, ptr noundef %5, i32 noundef %33, i32 noundef 100, ptr noundef %9, ptr noundef nonnull %38) #4
+  %39 = tail call i32 %37(ptr noundef %.04960.us, i64 noundef %25, ptr noundef %5, i32 noundef %33, i32 noundef 100, ptr noundef %9, ptr noundef nonnull %38) #4
   %.not58.us = icmp eq i32 %39, 0
   br i1 %.not58.us, label %40, label %.split.us
 
 40:                                               ; preds = %.thread, %36
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %41 = getelementptr inbounds i8, ptr %.05060.us, i64 %26
+  %41 = getelementptr inbounds i8, ptr %.04960.us, i64 %26
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
   br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ %indvars.iv.next, %52 ], [ 0, %.lr.ph ]
-  %.05060 = phi ptr [ %53, %52 ], [ %3, %.lr.ph ]
+  %.04960 = phi ptr [ %53, %52 ], [ %3, %.lr.ph ]
   %42 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, %.val
@@ -650,13 +650,13 @@ define i32 @ompi_fcoll_base_coll_gather_array(ptr noundef %0, i32 noundef %1, pt
   br i1 %44, label %46, label %48
 
 46:                                               ; preds = %.lr.ph.split
-  %47 = tail call i32 @ompi_datatype_sndrcv(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.05060, i32 noundef %4, ptr noundef %5) #4
+  %47 = tail call i32 @ompi_datatype_sndrcv(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.04960, i32 noundef %4, ptr noundef %5) #4
   store ptr @ompi_request_null, ptr %45, align 8
   br label %51
 
 48:                                               ; preds = %.lr.ph.split
   %49 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
-  %50 = tail call i32 %49(ptr noundef %.05060, i64 noundef %25, ptr noundef %5, i32 noundef %43, i32 noundef 100, ptr noundef %9, ptr noundef nonnull %45) #4
+  %50 = tail call i32 %49(ptr noundef %.04960, i64 noundef %25, ptr noundef %5, i32 noundef %43, i32 noundef 100, ptr noundef %9, ptr noundef nonnull %45) #4
   br label %51
 
 51:                                               ; preds = %48, %46
@@ -671,7 +671,7 @@ define i32 @ompi_fcoll_base_coll_gather_array(ptr noundef %0, i32 noundef %1, pt
 
 52:                                               ; preds = %51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = getelementptr inbounds i8, ptr %.05060, i64 %26
+  %53 = getelementptr inbounds i8, ptr %.04960, i64 %26
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count69
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
 
@@ -682,8 +682,8 @@ define i32 @ompi_fcoll_base_coll_gather_array(ptr noundef %0, i32 noundef %1, pt
   br label %56
 
 56:                                               ; preds = %19, %._crit_edge, %.split.us, %15
-  %.049 = phi i32 [ %18, %15 ], [ %.us-phi, %.split.us ], [ %55, %._crit_edge ], [ -2, %19 ]
-  ret i32 %.049
+  %.051 = phi i32 [ %18, %15 ], [ %.us-phi, %.split.us ], [ %55, %._crit_edge ], [ -2, %19 ]
+  ret i32 %.051
 }
 
 declare i32 @opal_datatype_commit(ptr noundef) local_unnamed_addr #1

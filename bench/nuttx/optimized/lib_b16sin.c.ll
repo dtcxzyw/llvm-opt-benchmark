@@ -10,8 +10,8 @@ define i32 @b16sin(i32 noundef %0) local_unnamed_addr #0 {
   %4 = icmp sgt i32 %0, 205887
   %5 = add nsw i32 %0, -411771
   %spec.select = select i1 %4, i32 %5, i32 %0
-  %.019 = select i1 %2, i32 %3, i32 %spec.select
-  %6 = sext i32 %.019 to i64
+  %.020 = select i1 %2, i32 %3, i32 %spec.select
+  %6 = sext i32 %.020 to i64
   %7 = mul nsw i64 %6, 83443
   %8 = add nsw i64 %7, 32768
   %9 = lshr i64 %8, 16
@@ -24,7 +24,7 @@ define i32 @b16sin(i32 noundef %0) local_unnamed_addr #0 {
   %16 = add nsw i64 %15, 32768
   %17 = lshr i64 %16, 16
   %18 = trunc i64 %17 to i32
-  %19 = icmp slt i32 %.019, 0
+  %19 = icmp slt i32 %.020, 0
   %20 = sub i32 0, %18
   %.0.p = select i1 %19, i32 %18, i32 %20
   %.0 = add i32 %.0.p, %10
@@ -35,8 +35,8 @@ define i32 @b16sin(i32 noundef %0) local_unnamed_addr #0 {
   %25 = trunc i64 %24 to i32
   %26 = icmp slt i32 %.0, 0
   %27 = sub nsw i32 0, %25
-  %.020 = select i1 %26, i32 %27, i32 %25
-  %28 = sub nsw i32 %.020, %.0
+  %.019 = select i1 %26, i32 %27, i32 %25
+  %28 = sub nsw i32 %.019, %.0
   %29 = sext i32 %28 to i64
   %30 = mul nsw i64 %29, 14746
   %31 = add nsw i64 %30, 32768

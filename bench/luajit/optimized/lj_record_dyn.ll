@@ -745,9 +745,9 @@ for.inc:                                          ; preds = %cond.false, %for.bo
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
   %11 = phi i64 [ %2, %while.body.lr.ph ], [ %16, %if.end ]
-  %rbase.addr.0212 = phi i32 [ %rbase, %while.body.lr.ph ], [ %dec19, %if.end ]
+  %frame.0212 = phi ptr [ %add.ptr, %while.body.lr.ph ], [ %add.ptr23, %if.end ]
   %gotresults.addr.0211 = phi i64 [ %gotresults, %while.body.lr.ph ], [ %inc14, %if.end ]
-  %frame.0210 = phi ptr [ %add.ptr, %while.body.lr.ph ], [ %add.ptr23, %if.end ]
+  %rbase.addr.0210 = phi i32 [ %rbase, %while.body.lr.ph ], [ %dec19, %if.end ]
   %12 = load i32, ptr %framedepth, align 4
   %dec = add nsw i32 %12, -1
   store i32 %dec, ptr %framedepth, align 4
@@ -770,15 +770,15 @@ if.end:                                           ; preds = %while.body
   %idx.neg = sub nsw i64 0, %idx.ext
   %add.ptr17 = getelementptr inbounds i32, ptr %14, i64 %idx.neg
   store ptr %add.ptr17, ptr %base16, align 8
-  %add15 = add i32 %rbase.addr.0212, -1
+  %add15 = add i32 %rbase.addr.0210, -1
   %dec19 = add i32 %add15, %conv11
   %idxprom = zext i32 %dec19 to i64
   %arrayidx20 = getelementptr inbounds i32, ptr %add.ptr17, i64 %idxprom
   store i32 33587197, ptr %arrayidx20, align 4
-  %15 = load i64, ptr %frame.0210, align 8
+  %15 = load i64, ptr %frame.0212, align 8
   %and21 = and i64 %15, -8
   %idx.neg22 = sub i64 0, %and21
-  %add.ptr23 = getelementptr inbounds i8, ptr %frame.0210, i64 %idx.neg22
+  %add.ptr23 = getelementptr inbounds i8, ptr %frame.0212, i64 %idx.neg22
   store i8 1, ptr %needsnap, align 1
   %16 = load i64, ptr %add.ptr23, align 8
   %and = and i64 %16, 6
@@ -786,9 +786,9 @@ if.end:                                           ; preds = %while.body
   br i1 %cmp9, label %while.body, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %if.end, %while.cond.preheader
-  %frame.0.lcssa = phi ptr [ %add.ptr, %while.cond.preheader ], [ %add.ptr23, %if.end ]
-  %gotresults.addr.0.lcssa = phi i64 [ %gotresults, %while.cond.preheader ], [ %inc14, %if.end ]
   %rbase.addr.0.lcssa = phi i32 [ %rbase, %while.cond.preheader ], [ %dec19, %if.end ]
+  %gotresults.addr.0.lcssa = phi i64 [ %gotresults, %while.cond.preheader ], [ %inc14, %if.end ]
+  %frame.0.lcssa = phi ptr [ %add.ptr, %while.cond.preheader ], [ %add.ptr23, %if.end ]
   %.lcssa = phi i64 [ %2, %while.cond.preheader ], [ %16, %if.end ]
   %framedepth24 = getelementptr inbounds i8, ptr %J, i64 252
   %17 = load i32, ptr %framedepth24, align 4
@@ -900,8 +900,8 @@ if.end71:                                         ; preds = %if.then62
 if.end82:                                         ; preds = %if.end71, %if.end58
   %28 = phi i32 [ %dec67, %if.end71 ], [ %17, %if.end58 ]
   %29 = phi i64 [ %.pre, %if.end71 ], [ %.lcssa, %if.end58 ]
-  %frame.1 = phi ptr [ %add.ptr81, %if.end71 ], [ %frame.0.lcssa, %if.end58 ]
   %rbase.addr.1 = phi i32 [ %add72, %if.end71 ], [ %rbase.addr.0.lcssa, %if.end58 ]
+  %frame.1 = phi ptr [ %add.ptr81, %if.end71 ], [ %frame.0.lcssa, %if.end58 ]
   %and83 = and i64 %29, 3
   %cmp84 = icmp eq i64 %and83, 0
   br i1 %cmp84, label %if.then86, label %if.else221
@@ -2687,8 +2687,8 @@ if.else339:                                       ; preds = %if.then329
   br label %if.end352
 
 if.end352:                                        ; preds = %if.else308, %if.then331, %if.else339, %if.end326, %if.end262, %if.end302
-  %keybarrier.0.shrunk = phi i1 [ false, %if.end302 ], [ %107, %if.end262 ], [ %111, %if.else339 ], [ %111, %if.then331 ], [ %111, %if.end326 ], [ false, %if.else308 ]
   %xref.0 = phi i32 [ %call306, %if.end302 ], [ %retval.0.i256, %if.end262 ], [ %retval.0.i256, %if.else339 ], [ %retval.0.i256, %if.then331 ], [ %retval.0.i256, %if.end326 ], [ %retval.0.i256, %if.else308 ]
+  %keybarrier.0.shrunk = phi i1 [ false, %if.end302 ], [ %107, %if.end262 ], [ %111, %if.else339 ], [ %111, %if.then331 ], [ %111, %if.end326 ], [ false, %if.else308 ]
   %116 = load i32, ptr %val, align 8
   %shr354 = lshr i32 %116, 24
   %and355 = and i32 %shr354, 31
@@ -3486,8 +3486,8 @@ cond.end182:                                      ; preds = %sw.bb168, %cond.fal
   br label %sw.epilog185
 
 sw.epilog185:                                     ; preds = %sw.epilog157, %cond.end182, %sw.bb166
-  %rc.0 = phi i32 [ %and160, %sw.epilog157 ], [ %and160, %cond.end182 ], [ %shr159, %sw.bb166 ]
   %rb.0 = phi i32 [ %shr158, %sw.epilog157 ], [ %cond183, %cond.end182 ], [ 0, %sw.bb166 ]
+  %rc.0 = phi i32 [ %and160, %sw.epilog157 ], [ %and160, %cond.end182 ], [ %shr159, %sw.bb166 ]
   %86 = lshr i16 %65, 7
   %87 = and i16 %86, 15
   switch i16 %87, label %sw.epilog247 [
@@ -3802,8 +3802,8 @@ if.else327:                                       ; preds = %if.else
   br i1 %or.cond485, label %if.end343, label %sw.epilog957
 
 if.end343.thread:                                 ; preds = %if.then316, %if.then324
-  %rc.2.ph = phi i32 [ %call326, %if.then324 ], [ %rc.1, %if.then316 ]
   %ra.1.ph = phi i32 [ %ra.0, %if.then324 ], [ %call318, %if.then316 ]
+  %rc.2.ph = phi i32 [ %call326, %if.then324 ], [ %rc.1, %if.then316 ]
   tail call fastcc void @rec_comp_prep(ptr noundef nonnull %J)
   br label %if.then348
 
@@ -3817,8 +3817,8 @@ if.end343:                                        ; preds = %if.else327, %if.the
   ]
 
 if.then348:                                       ; preds = %if.end343.thread, %if.end343
-  %ra.1589 = phi i32 [ %ra.1.ph, %if.end343.thread ], [ %ra.0, %if.end343 ]
-  %rc.2588 = phi i32 [ %rc.2.ph, %if.end343.thread ], [ %rc.1, %if.end343 ]
+  %rc.2589 = phi i32 [ %rc.2.ph, %if.end343.thread ], [ %rc.1, %if.end343 ]
+  %ra.1588 = phi i32 [ %ra.1.ph, %if.end343.thread ], [ %ra.0, %if.end343 ]
   %and349 = shl i32 %64, 2
   %111 = and i32 %and349, 4
   %spec.select = xor i32 %111, %and136
@@ -3865,10 +3865,10 @@ if.else393:                                       ; preds = %if.end343
   br label %sw.epilog957
 
 if.end396:                                        ; preds = %if.then348, %if.then366, %if.then379
+  %ra.2 = phi i32 [ %call391, %if.then379 ], [ %ra.0, %if.then366 ], [ %ra.1588, %if.then348 ]
+  %rc.3 = phi i32 [ %call392, %if.then379 ], [ %rc.1, %if.then366 ], [ %rc.2589, %if.then348 ]
   %ta.1 = phi i32 [ 147, %if.then379 ], [ 147, %if.then366 ], [ 142, %if.then348 ]
-  %rc.3 = phi i32 [ %call392, %if.then379 ], [ %rc.1, %if.then366 ], [ %rc.2588, %if.then348 ]
   %irop.2 = phi i32 [ %spec.select487, %if.then379 ], [ %spec.select486, %if.then366 ], [ %spec.select500, %if.then348 ]
-  %ra.2 = phi i32 [ %call391, %if.then379 ], [ %ra.0, %if.then366 ], [ %ra.1589, %if.then348 ]
   %shl397 = shl nuw nsw i32 %irop.2, 8
   %or399 = or disjoint i32 %shl397, %ta.1
   %conv400 = trunc nuw i32 %or399 to i16
@@ -4069,8 +4069,8 @@ sw.bb551:                                         ; preds = %sw.epilog247, %sw.e
   br i1 %cmp564, label %recmod, label %sw.bb568
 
 sw.bb568:                                         ; preds = %sw.bb551, %sw.epilog247, %sw.epilog247, %sw.epilog247, %sw.epilog247, %sw.epilog247, %sw.epilog247, %sw.epilog247, %sw.epilog247
-  %rc.5 = phi i32 [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rb.0, %sw.bb551 ]
   %rb.1 = phi i32 [ %rb.0, %sw.epilog247 ], [ %rb.0, %sw.epilog247 ], [ %rb.0, %sw.epilog247 ], [ %rb.0, %sw.epilog247 ], [ %rb.0, %sw.epilog247 ], [ %rb.0, %sw.epilog247 ], [ %rb.0, %sw.epilog247 ], [ %rb.0, %sw.epilog247 ], [ %rc.1, %sw.bb551 ]
+  %rc.5 = phi i32 [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rb.0, %sw.bb551 ]
   %134 = lshr i16 %65, 11
   %shr572 = zext nneg i16 %134 to i32
   %shr573 = lshr i32 %rb.1, 24
@@ -4103,8 +4103,8 @@ if.else598:                                       ; preds = %land.lhs.true582, %
   br label %if.end986
 
 recmod:                                           ; preds = %sw.epilog247, %sw.epilog247, %sw.bb551
-  %rc.6 = phi i32 [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rb.0, %sw.bb551 ]
   %rb.2 = phi i32 [ %rb.0, %sw.epilog247 ], [ %rb.0, %sw.epilog247 ], [ %rc.1, %sw.bb551 ]
+  %rc.6 = phi i32 [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rb.0, %sw.bb551 ]
   %shr602 = lshr i32 %rb.2, 24
   %and603 = and i32 %shr602, 30
   %sub604 = add nsw i32 %and603, -14
@@ -4679,8 +4679,8 @@ sw.bb956:                                         ; preds = %sw.default951, %sw.
   unreachable
 
 sw.epilog957:                                     ; preds = %switch.early.test, %sw.epilog247, %sw.bb938, %if.then942, %sw.bb882, %if.then886, %sw.bb875, %if.then879, %while.end, %if.then693, %sw.epilog247, %sw.epilog247, %sw.epilog247, %sw.bb657, %if.then661, %if.then648, %if.then621, %if.then592, %if.then541, %if.then516, %if.then523, %sw.bb473, %if.then480, %if.else453, %if.then456, %if.then445, %land.lhs.true275, %if.end396, %if.else327, %if.then954, %sw.bb950, %sw.bb948, %sw.bb947, %sw.bb946, %sw.bb945, %rec_loop.exit584, %sw.bb912, %sw.bb903, %rec_loop.exit, %sw.bb899, %sw.bb897, %sw.bb892, %sw.bb872, %sw.bb857, %sw.bb854, %sw.bb839, %cond.end804, %sw.bb741, %sw.bb739, %sw.bb729, %sw.bb726, %sw.bb723, %sw.bb710, %sw.bb708, %sw.bb706, %sw.bb697, %sw.bb670, %sw.bb655, %sw.bb503, %if.end497, %if.then416, %if.else393, %if.then255
-  %rc.10 = phi i32 [ %rc.1, %if.then954 ], [ %rc.1, %sw.bb950 ], [ %rc.1, %sw.bb948 ], [ %rc.1, %sw.bb947 ], [ %rc.1, %sw.bb946 ], [ %rc.1, %sw.bb945 ], [ %rc.1, %if.then942 ], [ %rc.1, %sw.bb938 ], [ %rc.1, %rec_loop.exit584 ], [ %rc.1, %sw.bb912 ], [ %rc.1, %sw.bb903 ], [ %rc.1, %rec_loop.exit ], [ %rc.1, %sw.bb899 ], [ %rc.1, %sw.bb897 ], [ %rc.1, %sw.bb892 ], [ %rc.1, %if.then886 ], [ %rc.1, %sw.bb882 ], [ %rc.1, %if.then879 ], [ %rc.1, %sw.bb875 ], [ %rc.9, %sw.bb872 ], [ %rc.1, %sw.bb857 ], [ %rc.8, %sw.bb854 ], [ %rc.7, %sw.bb839 ], [ %rc.1, %cond.end804 ], [ %call751, %sw.bb741 ], [ %call.i, %sw.bb739 ], [ %rc.1, %sw.bb729 ], [ %call728, %sw.bb726 ], [ %call725, %sw.bb723 ], [ %call718, %sw.bb710 ], [ %rc.1, %sw.bb708 ], [ %call707, %sw.bb706 ], [ %call705, %sw.bb697 ], [ %rc.1, %if.then693 ], [ %rc.1, %while.end ], [ %call673, %sw.bb670 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %if.then661 ], [ %rc.1, %sw.bb657 ], [ %call656, %sw.bb655 ], [ %call651, %if.then648 ], [ %call624, %if.then621 ], [ %call597, %if.then592 ], [ %call543, %if.then541 ], [ %call518, %if.then516 ], [ %call525, %if.then523 ], [ %cond511, %sw.bb503 ], [ %rc.1, %if.end497 ], [ %rc.4, %if.then480 ], [ %rc.4, %sw.bb473 ], [ %rc.1, %if.then416 ], [ %rc.1, %if.then445 ], [ %rc.1, %if.then456 ], [ %rc.1, %if.else453 ], [ %rc.1, %if.then255 ], [ %rc.1, %land.lhs.true275 ], [ %rc.3, %if.end396 ], [ %rc.1, %if.else393 ], [ %rc.1, %if.else327 ], [ %rc.1, %switch.early.test ]
   %ra.5 = phi i32 [ %ra.0, %if.then954 ], [ %ra.0, %sw.bb950 ], [ %ra.0, %sw.bb948 ], [ %ra.0, %sw.bb947 ], [ %ra.0, %sw.bb946 ], [ %ra.0, %sw.bb945 ], [ %ra.0, %if.then942 ], [ %ra.0, %sw.bb938 ], [ %ra.0, %rec_loop.exit584 ], [ %ra.0, %sw.bb912 ], [ %ra.0, %sw.bb903 ], [ %ra.0, %rec_loop.exit ], [ %ra.0, %sw.bb899 ], [ %ra.0, %sw.bb897 ], [ %ra.0, %sw.bb892 ], [ %ra.0, %if.then886 ], [ %ra.0, %sw.bb882 ], [ %ra.0, %if.then879 ], [ %ra.0, %sw.bb875 ], [ %ra.0, %sw.bb872 ], [ %ra.0, %sw.bb857 ], [ %ra.0, %sw.bb854 ], [ %ra.0, %sw.bb839 ], [ %ra.0, %cond.end804 ], [ %ra.0, %sw.bb741 ], [ %ra.0, %sw.bb739 ], [ %ra.0, %sw.bb729 ], [ %ra.0, %sw.bb726 ], [ %ra.0, %sw.bb723 ], [ %ra.0, %sw.bb710 ], [ %ra.0, %sw.bb708 ], [ %ra.0, %sw.bb706 ], [ %ra.0, %sw.bb697 ], [ %ra.4.lcssa, %if.then693 ], [ %ra.4.lcssa, %while.end ], [ %ra.0, %sw.bb670 ], [ %ra.0, %sw.epilog247 ], [ %ra.0, %sw.epilog247 ], [ %ra.0, %sw.epilog247 ], [ %ra.0, %sw.epilog247 ], [ %ra.0, %if.then661 ], [ %ra.0, %sw.bb657 ], [ %ra.0, %sw.bb655 ], [ %ra.0, %if.then648 ], [ %ra.0, %if.then621 ], [ %ra.0, %if.then592 ], [ %ra.0, %if.then541 ], [ %ra.0, %if.then516 ], [ %ra.0, %if.then523 ], [ %ra.0, %sw.bb503 ], [ %ra.3, %if.end497 ], [ %ra.0, %if.then480 ], [ %ra.0, %sw.bb473 ], [ %ra.0, %if.then416 ], [ %ra.0, %if.then445 ], [ %ra.0, %if.then456 ], [ %ra.0, %if.else453 ], [ %ra.0, %if.then255 ], [ %ra.0, %land.lhs.true275 ], [ %ra.2, %if.end396 ], [ %ra.0, %if.else393 ], [ %ra.0, %if.else327 ], [ %ra.0, %switch.early.test ]
+  %rc.10 = phi i32 [ %rc.1, %if.then954 ], [ %rc.1, %sw.bb950 ], [ %rc.1, %sw.bb948 ], [ %rc.1, %sw.bb947 ], [ %rc.1, %sw.bb946 ], [ %rc.1, %sw.bb945 ], [ %rc.1, %if.then942 ], [ %rc.1, %sw.bb938 ], [ %rc.1, %rec_loop.exit584 ], [ %rc.1, %sw.bb912 ], [ %rc.1, %sw.bb903 ], [ %rc.1, %rec_loop.exit ], [ %rc.1, %sw.bb899 ], [ %rc.1, %sw.bb897 ], [ %rc.1, %sw.bb892 ], [ %rc.1, %if.then886 ], [ %rc.1, %sw.bb882 ], [ %rc.1, %if.then879 ], [ %rc.1, %sw.bb875 ], [ %rc.9, %sw.bb872 ], [ %rc.1, %sw.bb857 ], [ %rc.8, %sw.bb854 ], [ %rc.7, %sw.bb839 ], [ %rc.1, %cond.end804 ], [ %call751, %sw.bb741 ], [ %call.i, %sw.bb739 ], [ %rc.1, %sw.bb729 ], [ %call728, %sw.bb726 ], [ %call725, %sw.bb723 ], [ %call718, %sw.bb710 ], [ %rc.1, %sw.bb708 ], [ %call707, %sw.bb706 ], [ %call705, %sw.bb697 ], [ %rc.1, %if.then693 ], [ %rc.1, %while.end ], [ %call673, %sw.bb670 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %sw.epilog247 ], [ %rc.1, %if.then661 ], [ %rc.1, %sw.bb657 ], [ %call656, %sw.bb655 ], [ %call651, %if.then648 ], [ %call624, %if.then621 ], [ %call597, %if.then592 ], [ %call543, %if.then541 ], [ %call518, %if.then516 ], [ %call525, %if.then523 ], [ %cond511, %sw.bb503 ], [ %rc.1, %if.end497 ], [ %rc.4, %if.then480 ], [ %rc.4, %sw.bb473 ], [ %rc.1, %if.then416 ], [ %rc.1, %if.then445 ], [ %rc.1, %if.then456 ], [ %rc.1, %if.else453 ], [ %rc.1, %if.then255 ], [ %rc.1, %land.lhs.true275 ], [ %rc.3, %if.end396 ], [ %rc.1, %if.else393 ], [ %rc.1, %if.else327 ], [ %rc.1, %switch.early.test ]
   %cmp962 = icmp eq i16 %66, 1
   %tobool965 = icmp ne i32 %rc.10, 0
   %or.cond7 = select i1 %cmp962, i1 %tobool965, i1 false

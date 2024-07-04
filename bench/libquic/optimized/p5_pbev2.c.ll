@@ -502,8 +502,8 @@ if.end29:                                         ; preds = %if.end26
   br label %err
 
 err:                                              ; preds = %if.end26, %if.end29, %if.then25, %if.then18, %if.then13, %if.then
-  %rv.0 = phi i32 [ 0, %if.then ], [ 0, %if.then13 ], [ 0, %if.then18 ], [ 0, %if.then25 ], [ %call33, %if.end29 ], [ 0, %if.end26 ]
   %pbe2param.0 = phi ptr [ null, %if.then ], [ %call.i, %if.then13 ], [ %call.i, %if.then18 ], [ %call.i, %if.then25 ], [ %call.i, %if.end29 ], [ %call.i, %if.end26 ]
+  %rv.0 = phi i32 [ 0, %if.then ], [ 0, %if.then13 ], [ 0, %if.then18 ], [ 0, %if.then25 ], [ %call33, %if.end29 ], [ 0, %if.end26 ]
   call void @ASN1_item_free(ptr noundef %pbe2param.0, ptr noundef nonnull @PBE2PARAM_it) #4
   ret i32 %rv.0
 }

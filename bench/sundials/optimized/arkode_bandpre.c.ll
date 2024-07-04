@@ -403,12 +403,12 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
   br i1 %.not177.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %82, %113
-  %.0138162.i = phi i64 [ %117, %113 ], [ %84, %82 ]
-  %85 = getelementptr inbounds double, ptr %41, i64 %.0138162.i
+  %.0162.i = phi i64 [ %117, %113 ], [ %84, %82 ]
+  %85 = getelementptr inbounds double, ptr %41, i64 %.0162.i
   %86 = load double, ptr %85, align 8
   %87 = tail call double @llvm.fabs.f64(double %86)
   %88 = fmul double %57, %87
-  %89 = getelementptr inbounds double, ptr %38, i64 %.0138162.i
+  %89 = getelementptr inbounds double, ptr %38, i64 %.0162.i
   %90 = load double, ptr %89, align 8
   %91 = fdiv double %73, %90
   %92 = fcmp ogt double %88, %91
@@ -418,7 +418,7 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
   br i1 %.not159.i, label %113, label %94
 
 94:                                               ; preds = %.lr.ph.i
-  %95 = getelementptr inbounds double, ptr %50, i64 %.0138162.i
+  %95 = getelementptr inbounds double, ptr %50, i64 %.0162.i
   %96 = load double, ptr %95, align 8
   %97 = tail call double @llvm.fabs.f64(double %96)
   %98 = fcmp oeq double %97, 1.000000e+00
@@ -449,12 +449,12 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
   br label %113
 
 113:                                              ; preds = %111, %107, %105, %103, %99, %.lr.ph.i
-  %.0135.i = phi double [ %104, %103 ], [ %.160.i, %99 ], [ %112, %111 ], [ %.160.i, %107 ], [ %.160.i, %105 ], [ %.160.i, %.lr.ph.i ]
-  %114 = getelementptr inbounds double, ptr %42, i64 %.0138162.i
+  %.0137.i = phi double [ %104, %103 ], [ %.160.i, %99 ], [ %112, %111 ], [ %.160.i, %107 ], [ %.160.i, %105 ], [ %.160.i, %.lr.ph.i ]
+  %114 = getelementptr inbounds double, ptr %42, i64 %.0162.i
   %115 = load double, ptr %114, align 8
-  %116 = fadd double %.0135.i, %115
+  %116 = fadd double %.0137.i, %115
   store double %116, ptr %114, align 8
-  %117 = add nsw i64 %.0138162.i, %79
+  %117 = add nsw i64 %.0162.i, %79
   %118 = load i64, ptr %6, align 8
   %119 = icmp slt i64 %117, %118
   br i1 %119, label %.lr.ph.i, label %._crit_edge.i
@@ -474,17 +474,17 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
   br i1 %.not178.i, label %._crit_edge170.i, label %.lr.ph169.i
 
 .lr.ph169.i:                                      ; preds = %.preheader.i, %._crit_edge167.i
-  %.1139168.i = phi i64 [ %176, %._crit_edge167.i ], [ %84, %.preheader.i ]
-  %125 = getelementptr inbounds double, ptr %41, i64 %.1139168.i
+  %.1168.i = phi i64 [ %176, %._crit_edge167.i ], [ %84, %.preheader.i ]
+  %125 = getelementptr inbounds double, ptr %41, i64 %.1168.i
   %126 = load double, ptr %125, align 8
-  %127 = getelementptr inbounds double, ptr %42, i64 %.1139168.i
+  %127 = getelementptr inbounds double, ptr %42, i64 %.1168.i
   store double %126, ptr %127, align 8
   %128 = load ptr, ptr %10, align 8
-  %129 = tail call ptr @SUNBandMatrix_Column(ptr noundef %128, i64 noundef %.1139168.i) #7
+  %129 = tail call ptr @SUNBandMatrix_Column(ptr noundef %128, i64 noundef %.1168.i) #7
   %130 = load double, ptr %125, align 8
   %131 = tail call double @llvm.fabs.f64(double %130)
   %132 = fmul double %57, %131
-  %133 = getelementptr inbounds double, ptr %38, i64 %.1139168.i
+  %133 = getelementptr inbounds double, ptr %38, i64 %.1168.i
   %134 = load double, ptr %133, align 8
   %135 = fdiv double %73, %134
   %136 = fcmp ogt double %132, %135
@@ -494,7 +494,7 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
   br i1 %.not157.i, label %157, label %138
 
 138:                                              ; preds = %.lr.ph169.i
-  %139 = getelementptr inbounds double, ptr %50, i64 %.1139168.i
+  %139 = getelementptr inbounds double, ptr %50, i64 %.1168.i
   %140 = load double, ptr %139, align 8
   %141 = tail call double @llvm.fabs.f64(double %140)
   %142 = fcmp oeq double %141, 1.000000e+00
@@ -525,13 +525,13 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
   br label %157
 
 157:                                              ; preds = %155, %151, %149, %147, %143, %.lr.ph169.i
-  %.1.i = phi double [ %148, %147 ], [ %.161.i, %143 ], [ %156, %155 ], [ %.161.i, %151 ], [ %.161.i, %149 ], [ %.161.i, %.lr.ph169.i ]
-  %158 = fdiv double 1.000000e+00, %.1.i
+  %.1138.i = phi double [ %148, %147 ], [ %.161.i, %143 ], [ %156, %155 ], [ %.161.i, %151 ], [ %.161.i, %149 ], [ %.161.i, %.lr.ph169.i ]
+  %158 = fdiv double 1.000000e+00, %.1138.i
   %159 = load i64, ptr %76, align 8
-  %160 = sub nsw i64 %.1139168.i, %159
+  %160 = sub nsw i64 %.1168.i, %159
   %spec.select.i = tail call i64 @llvm.smax.i64(i64 %160, i64 0)
   %161 = load i64, ptr %74, align 8
-  %162 = add nsw i64 %161, %.1139168.i
+  %162 = add nsw i64 %161, %.1168.i
   %163 = load i64, ptr %6, align 8
   %164 = add nsw i64 %163, -1
   %165 = tail call i64 @llvm.smin.i64(i64 %162, i64 %164)
@@ -539,18 +539,18 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
   br i1 %.not158163.i, label %._crit_edge167.i, label %.lr.ph166.i
 
 .lr.ph166.i:                                      ; preds = %157, %.lr.ph166.i
-  %.0137164.i = phi i64 [ %174, %.lr.ph166.i ], [ %spec.select.i, %157 ]
-  %166 = getelementptr inbounds double, ptr %40, i64 %.0137164.i
+  %.0135164.i = phi i64 [ %174, %.lr.ph166.i ], [ %spec.select.i, %157 ]
+  %166 = getelementptr inbounds double, ptr %40, i64 %.0135164.i
   %167 = load double, ptr %166, align 8
-  %168 = getelementptr inbounds double, ptr %39, i64 %.0137164.i
+  %168 = getelementptr inbounds double, ptr %39, i64 %.0135164.i
   %169 = load double, ptr %168, align 8
   %170 = fsub double %167, %169
   %171 = fmul double %158, %170
-  %172 = sub nsw i64 %.0137164.i, %.1139168.i
+  %172 = sub nsw i64 %.0135164.i, %.1168.i
   %173 = getelementptr inbounds double, ptr %129, i64 %172
   store double %171, ptr %173, align 8
-  %174 = add nuw nsw i64 %.0137164.i, 1
-  %.not158.not.i = icmp slt i64 %.0137164.i, %165
+  %174 = add nuw nsw i64 %.0135164.i, 1
+  %.not158.not.i = icmp slt i64 %.0135164.i, %165
   br i1 %.not158.not.i, label %.lr.ph166.i, label %._crit_edge167.loopexit.i
 
 ._crit_edge167.loopexit.i:                        ; preds = %.lr.ph166.i
@@ -559,7 +559,7 @@ define internal i32 @ARKBandPrecSetup(double noundef %0, ptr noundef %1, ptr nou
 
 ._crit_edge167.i:                                 ; preds = %._crit_edge167.loopexit.i, %157
   %175 = phi i64 [ %.pre179.i, %._crit_edge167.loopexit.i ], [ %163, %157 ]
-  %176 = add nsw i64 %.1139168.i, %79
+  %176 = add nsw i64 %.1168.i, %79
   %177 = icmp slt i64 %176, %175
   br i1 %177, label %.lr.ph169.i, label %._crit_edge170.i
 

@@ -855,26 +855,26 @@ define noalias noundef ptr @Ssw_SmlCheckOutputSavePattern(ptr nocapture noundef 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %18, %._crit_edge.loopexit.split.loop.exit, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %19, %._crit_edge.loopexit.split.loop.exit ], [ %11, %18 ]
-  %20 = zext nneg i32 %.0.lcssa to i64
+  %.029.lcssa = phi i32 [ 0, %2 ], [ %19, %._crit_edge.loopexit.split.loop.exit ], [ %11, %18 ]
+  %20 = zext nneg i32 %.029.lcssa to i64
   %21 = getelementptr inbounds i32, ptr %14, i64 %20
   %22 = load i32, ptr %21, align 4
   br label %23
 
 23:                                               ; preds = %._crit_edge, %26
-  %.02938 = phi i32 [ 0, %._crit_edge ], [ %27, %26 ]
-  %24 = shl nuw i32 1, %.02938
+  %.038 = phi i32 [ 0, %._crit_edge ], [ %27, %26 ]
+  %24 = shl nuw i32 1, %.038
   %25 = and i32 %22, %24
   %.not30 = icmp eq i32 %25, 0
   br i1 %.not30, label %26, label %28
 
 26:                                               ; preds = %23
-  %27 = add nuw nsw i32 %.02938, 1
+  %27 = add nuw nsw i32 %.038, 1
   %exitcond43.not = icmp eq i32 %27, 32
   br i1 %exitcond43.not, label %28, label %23, !llvm.loop !21
 
 28:                                               ; preds = %23, %26
-  %.029.lcssa = phi i32 [ %.02938, %23 ], [ 32, %26 ]
+  %.0.lcssa = phi i32 [ %.038, %23 ], [ 32, %26 ]
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr i8, ptr %29, i64 136
   %.val33 = load i32, ptr %30, align 8
@@ -892,12 +892,12 @@ define noalias noundef ptr @Ssw_SmlCheckOutputSavePattern(ptr nocapture noundef 
 .lr.ph41:                                         ; preds = %28
   %39 = getelementptr i8, ptr %36, i64 8
   %.val31 = load ptr, ptr %39, align 8
-  %40 = lshr i32 %.029.lcssa, 5
-  %41 = add nuw i32 %40, %.0.lcssa
+  %40 = lshr i32 %.0.lcssa, 5
+  %41 = add nuw i32 %40, %.029.lcssa
   %42 = and i32 %41, 134217727
   %43 = zext nneg i32 %42 to i64
   %invariant.gep = getelementptr i32, ptr %9, i64 %43
-  %44 = and i32 %.029.lcssa, 31
+  %44 = and i32 %.0.lcssa, 31
   %wide.trip.count47 = zext nneg i32 %.val to i64
   br label %45
 
@@ -1016,26 +1016,26 @@ Ssw_SmlObjIsConstWord.exit:                       ; preds = %.lr.ph.i.us
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %31, %._crit_edge.loopexit.split.loop.exit.i, %Ssw_SmlObjIsConstWord.exit
-  %.0.lcssa.i = phi i32 [ 0, %Ssw_SmlObjIsConstWord.exit ], [ %32, %._crit_edge.loopexit.split.loop.exit.i ], [ %9, %31 ]
-  %33 = zext nneg i32 %.0.lcssa.i to i64
+  %.029.lcssa.i = phi i32 [ 0, %Ssw_SmlObjIsConstWord.exit ], [ %32, %._crit_edge.loopexit.split.loop.exit.i ], [ %9, %31 ]
+  %33 = zext nneg i32 %.029.lcssa.i to i64
   %34 = getelementptr inbounds i32, ptr %24, i64 %33
   %35 = load i32, ptr %34, align 4
   br label %36
 
 36:                                               ; preds = %39, %._crit_edge.i
-  %.02938.i = phi i32 [ 0, %._crit_edge.i ], [ %40, %39 ]
-  %37 = shl nuw i32 1, %.02938.i
+  %.038.i = phi i32 [ 0, %._crit_edge.i ], [ %40, %39 ]
+  %37 = shl nuw i32 1, %.038.i
   %38 = and i32 %37, %35
   %.not30.i = icmp eq i32 %38, 0
   br i1 %.not30.i, label %39, label %41
 
 39:                                               ; preds = %36
-  %40 = add nuw nsw i32 %.02938.i, 1
+  %40 = add nuw nsw i32 %.038.i, 1
   %exitcond43.not.i = icmp eq i32 %40, 32
   br i1 %exitcond43.not.i, label %41, label %36, !llvm.loop !21
 
 41:                                               ; preds = %39, %36
-  %.029.lcssa.i = phi i32 [ %.02938.i, %36 ], [ 32, %39 ]
+  %.0.lcssa.i = phi i32 [ %.038.i, %36 ], [ 32, %39 ]
   %42 = getelementptr i8, ptr %2, i64 136
   %.val33.i = load i32, ptr %42, align 8
   %43 = add nsw i32 %.val33.i, 1
@@ -1052,12 +1052,12 @@ Ssw_SmlObjIsConstWord.exit:                       ; preds = %.lr.ph.i.us
 .lr.ph41.i:                                       ; preds = %41
   %51 = getelementptr i8, ptr %48, i64 8
   %.val31.i = load ptr, ptr %51, align 8
-  %52 = lshr i32 %.029.lcssa.i, 5
-  %53 = add nuw i32 %52, %.0.lcssa.i
+  %52 = lshr i32 %.0.lcssa.i, 5
+  %53 = add nuw i32 %52, %.029.lcssa.i
   %54 = and i32 %53, 134217727
   %55 = zext nneg i32 %54 to i64
   %invariant.gep.i = getelementptr i32, ptr %7, i64 %55
-  %56 = and i32 %.029.lcssa.i, 31
+  %56 = and i32 %.0.lcssa.i, 31
   %wide.trip.count47.i = zext nneg i32 %.val.i to i64
   br label %57
 
@@ -1518,18 +1518,18 @@ Ssw_SmlObjAssignConst.exit79:                     ; preds = %Ssw_SmlObjAssignCon
 .lr.ph95.split:                                   ; preds = %.lr.ph95, %Ssw_SmlObjAssignConst.exit84
   %148 = phi ptr [ %182, %Ssw_SmlObjAssignConst.exit84 ], [ %98, %.lr.ph95 ]
   %149 = phi i32 [ %183, %Ssw_SmlObjAssignConst.exit84 ], [ %103, %.lr.ph95 ]
-  %.06394 = phi i32 [ %158, %Ssw_SmlObjAssignConst.exit84 ], [ 0, %.lr.ph95 ]
+  %.094 = phi i32 [ %158, %Ssw_SmlObjAssignConst.exit84 ], [ 0, %.lr.ph95 ]
   %150 = getelementptr inbounds i8, ptr %148, i64 16
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr i8, ptr %148, i64 108
   %.val68 = load i32, ptr %152, align 4
-  %153 = add nsw i32 %.val68, %.06394
+  %153 = add nsw i32 %.val68, %.094
   %154 = getelementptr i8, ptr %151, i64 8
   %.val65 = load ptr, ptr %154, align 8
   %155 = sext i32 %153 to i64
   %156 = getelementptr inbounds ptr, ptr %.val65, i64 %155
   %157 = load ptr, ptr %156, align 8
-  %158 = add nuw nsw i32 %.06394, 1
+  %158 = add nuw nsw i32 %.094, 1
   %159 = getelementptr inbounds i8, ptr %157, i64 36
   %160 = load i32, ptr %159, align 4
   %161 = load i32, ptr %101, align 4
@@ -1542,7 +1542,7 @@ Ssw_SmlObjAssignConst.exit79:                     ; preds = %Ssw_SmlObjAssignCon
 .lr.ph.i80:                                       ; preds = %.lr.ph95.split
   %166 = load i32, ptr %3, align 4
   %167 = mul nsw i32 %166, %81
-  %168 = add nsw i32 %167, %.06394
+  %168 = add nsw i32 %167, %.094
   %169 = ashr i32 %168, 5
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds i32, ptr %1, i64 %170

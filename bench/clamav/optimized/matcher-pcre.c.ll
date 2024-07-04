@@ -80,12 +80,12 @@ define void @cli_pcre_perf_print() local_unnamed_addr #0 {
   br label %10
 
 10:                                               ; preds = %9, %35
-  %.049 = phi ptr [ %1, %9 ], [ %.1, %35 ]
-  %.03448 = phi i32 [ 0, %9 ], [ %.236, %35 ]
-  %.03747 = phi i32 [ 0, %9 ], [ %.138, %35 ]
-  %.03946 = phi i32 [ 0, %9 ], [ %36, %35 ]
+  %.03349 = phi i32 [ 0, %9 ], [ %.2, %35 ]
+  %.03448 = phi i32 [ 0, %9 ], [ %.135, %35 ]
+  %.03647 = phi i32 [ 0, %9 ], [ %36, %35 ]
+  %.03746 = phi ptr [ %1, %9 ], [ %.138, %35 ]
   %11 = load ptr, ptr @p_sigevents, align 8
-  %12 = shl nuw nsw i32 %.03946, 1
+  %12 = shl nuw nsw i32 %.03647, 1
   %13 = call ptr @cli_event_get_name(ptr noundef %11, i32 noundef %12) #12
   %14 = load ptr, ptr @p_sigevents, align 8
   call void @cli_event_get(ptr noundef %14, i32 noundef %12, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
@@ -111,37 +111,37 @@ define void @cli_pcre_perf_print() local_unnamed_addr #0 {
 
 22:                                               ; preds = %18, %19
   %23 = phi ptr [ %13, %19 ], [ @.str.2, %18 ]
-  %.033 = phi i32 [ %21, %19 ], [ 0, %18 ]
-  %spec.select = call i32 @llvm.smax.i32(i32 %.033, i32 %.03448)
-  store ptr %23, ptr %.049, align 8
+  %.0 = phi i32 [ %21, %19 ], [ 0, %18 ]
+  %spec.select = call i32 @llvm.smax.i32(i32 %.0, i32 %.03349)
+  store ptr %23, ptr %.03746, align 8
   %24 = load i64, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %.049, i64 8
+  %25 = getelementptr inbounds i8, ptr %.03746, i64 8
   store i64 %24, ptr %25, align 8
   %26 = zext i32 %15 to i64
-  %27 = getelementptr inbounds i8, ptr %.049, i64 16
+  %27 = getelementptr inbounds i8, ptr %.03746, i64 16
   store i64 %26, ptr %27, align 8
   %28 = load ptr, ptr @p_sigevents, align 8
   %29 = or disjoint i32 %12, 1
   call void @cli_event_get(ptr noundef %28, i32 noundef %29, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
   %30 = load i32, ptr %3, align 4
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds i8, ptr %.049, i64 24
+  %32 = getelementptr inbounds i8, ptr %.03746, i64 24
   store i64 %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %.049, i64 32
-  %34 = add nsw i32 %.03747, 1
+  %33 = getelementptr inbounds i8, ptr %.03746, i64 32
+  %34 = add nsw i32 %.03448, 1
   br label %35
 
 35:                                               ; preds = %16, %17, %22
-  %.138 = phi i32 [ %34, %22 ], [ %.03747, %17 ], [ %.03747, %16 ]
-  %.236 = phi i32 [ %spec.select, %22 ], [ %.03448, %17 ], [ %.03448, %16 ]
-  %.1 = phi ptr [ %33, %22 ], [ %.049, %17 ], [ %.049, %16 ]
-  %36 = add nuw nsw i32 %.03946, 1
+  %.138 = phi ptr [ %33, %22 ], [ %.03746, %17 ], [ %.03746, %16 ]
+  %.135 = phi i32 [ %34, %22 ], [ %.03448, %17 ], [ %.03448, %16 ]
+  %.2 = phi i32 [ %spec.select, %22 ], [ %.03349, %17 ], [ %.03349, %16 ]
+  %36 = add nuw nsw i32 %.03647, 1
   %exitcond.not = icmp eq i32 %36, 64
   br i1 %exitcond.not, label %37, label %10
 
 37:                                               ; preds = %35
-  %spec.store.select = call i32 @llvm.smax.i32(i32 %.236, i32 15)
-  %38 = sext i32 %.138 to i64
+  %spec.store.select = call i32 @llvm.smax.i32(i32 %.2, i32 15)
+  %38 = sext i32 %.135 to i64
   call void @cli_qsort(ptr noundef nonnull %1, i64 noundef %38, i64 noundef 32, ptr noundef nonnull @sigelem_comp) #12
   call void (ptr, ptr, ...) @cli_infomsg(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %spec.store.select, ptr noundef nonnull @.str.4, i32 noundef 8, ptr noundef nonnull @.str.5, i32 noundef 8, ptr noundef nonnull @.str.6, i32 noundef 12, ptr noundef nonnull @.str.7, i32 noundef 9, ptr noundef nonnull @.str.8) #12
   call void (ptr, ptr, ...) @cli_infomsg(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %spec.store.select, ptr noundef nonnull @.str.9, i32 noundef 8, ptr noundef nonnull @.str.10, i32 noundef 8, ptr noundef nonnull @.str.11, i32 noundef 12, ptr noundef nonnull @.str.12, i32 noundef 9, ptr noundef nonnull @.str.13) #12
@@ -152,18 +152,18 @@ define void @cli_pcre_perf_print() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %37, %.lr.ph
   %41 = phi i64 [ %52, %.lr.ph ], [ %40, %37 ]
-  %.251 = phi ptr [ %50, %.lr.ph ], [ %1, %37 ]
-  %42 = load ptr, ptr %.251, align 8
-  %43 = getelementptr inbounds i8, ptr %.251, i64 24
+  %.23951 = phi ptr [ %50, %.lr.ph ], [ %1, %37 ]
+  %42 = load ptr, ptr %.23951, align 8
+  %43 = getelementptr inbounds i8, ptr %.23951, i64 24
   %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %.251, i64 8
+  %45 = getelementptr inbounds i8, ptr %.23951, i64 8
   %46 = load i64, ptr %45, align 8
   %47 = uitofp i64 %46 to double
   %48 = uitofp i64 %41 to double
   %49 = fdiv double %47, %48
   call void (ptr, ptr, ...) @cli_infomsg(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef %spec.store.select, ptr noundef %42, i32 noundef 8, i64 noundef %41, i32 noundef 8, i64 noundef %44, i32 noundef 12, i64 noundef %46, i32 noundef 9, double noundef %49) #12
-  %50 = getelementptr inbounds i8, ptr %.251, i64 32
-  %51 = getelementptr inbounds i8, ptr %.251, i64 48
+  %50 = getelementptr inbounds i8, ptr %.23951, i64 32
+  %51 = getelementptr inbounds i8, ptr %.23951, i64 48
   %52 = load i64, ptr %51, align 8
   %.not = icmp eq i64 %52, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -977,8 +977,8 @@ define i32 @cli_pcre_recaloff(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br i1 %80, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %75, %.preheader, %4, %64, %33, %27, %20
-  %.0 = phi i32 [ %63, %64 ], [ 20, %33 ], [ 20, %27 ], [ 0, %20 ], [ 2, %4 ], [ 0, %.preheader ], [ 0, %75 ]
-  ret i32 %.0
+  %.063 = phi i32 [ %63, %64 ], [ 20, %33 ], [ 20, %27 ], [ 0, %20 ], [ 2, %4 ], [ 0, %.preheader ], [ 0, %75 ]
+  ret i32 %.063
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
@@ -1243,11 +1243,11 @@ cli_pcre_qoff.exit.thread:                        ; preds = %71, %.sink.split.i,
   br label %109
 
 109:                                              ; preds = %103, %107
-  %.0110 = phi i32 [ %108, %107 ], [ %spec.select158, %103 ]
+  %.0105 = phi i32 [ %108, %107 ], [ %spec.select158, %103 ]
   %110 = getelementptr inbounds i8, ptr %34, i64 104
   %111 = zext i32 %spec.select214 to i64
   %112 = getelementptr inbounds i8, ptr %0, i64 %111
-  %113 = zext i32 %.0110 to i64
+  %113 = zext i32 %.0105 to i64
   %114 = icmp eq i32 %67, 0
   %or.cond9 = select i1 %114, i1 %100, i1 false
   %115 = getelementptr inbounds i8, ptr %34, i64 108
@@ -1370,20 +1370,20 @@ cli_pcre_qoff.exit.thread:                        ; preds = %71, %.sink.split.i,
   br i1 %.not152, label %172, label %.critedge
 
 172:                                              ; preds = %149, %169, %170, %159
-  %.1106 = phi i32 [ 0, %149 ], [ 0, %159 ], [ 0, %170 ], [ 1, %169 ]
+  %.1108 = phi i32 [ 0, %149 ], [ 0, %159 ], [ 0, %170 ], [ 1, %169 ]
   %173 = load i32, ptr %29, align 8
-  %174 = icmp ult i32 %173, %.0110
+  %174 = icmp ult i32 %173, %.0105
   %or.cond = select i1 %118, i1 %174, i1 false
   br i1 %or.cond, label %119, label %.critedge
 
 .critedge:                                        ; preds = %136, %172, %170, %149, %125, %158, %143, %121
-  %.2107 = phi i32 [ 21, %121 ], [ 0, %143 ], [ 20, %158 ], [ 0, %136 ], [ %171, %170 ], [ %.1106, %172 ], [ %154, %149 ], [ %126, %125 ]
+  %.2109 = phi i32 [ 21, %121 ], [ 0, %143 ], [ 20, %158 ], [ 0, %136 ], [ %171, %170 ], [ %.1108, %172 ], [ %154, %149 ], [ %126, %125 ]
   %.2103 = phi i32 [ %.1102, %121 ], [ %131, %143 ], [ %131, %158 ], [ %131, %136 ], [ %131, %170 ], [ %131, %172 ], [ %131, %149 ], [ %.1102, %125 ]
   %175 = icmp slt i32 %.2103, 0
   %176 = load i32, ptr %9, align 8
   %177 = icmp ne i32 %176, 0
   %or.cond14 = select i1 %175, i1 %177, i1 false
-  %spec.select = select i1 %or.cond14, i32 %176, i32 %.2107
+  %spec.select = select i1 %or.cond14, i32 %176, i32 %.2109
   %.not155 = icmp eq i32 %spec.select, 0
   br i1 %.not155, label %cli_pcre_qoff.exit, label %.critedge._crit_edge
 
@@ -1402,8 +1402,8 @@ cli_pcre_qoff.exit:                               ; preds = %71, %.critedge, %cl
   br label %181
 
 181:                                              ; preds = %8, %15, %22, %.critedge._crit_edge
-  %.0104 = phi i32 [ %.5.ph, %.critedge._crit_edge ], [ 0, %22 ], [ 0, %15 ], [ 0, %8 ]
-  ret i32 %.0104
+  %.0106 = phi i32 [ %.5.ph, %.critedge._crit_edge ], [ 0, %22 ], [ 0, %15 ], [ 0, %8 ]
+  ret i32 %.0106
 }
 
 declare i32 @cli_checktimelimit(ptr noundef) local_unnamed_addr #1

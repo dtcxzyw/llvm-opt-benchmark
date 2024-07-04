@@ -2273,25 +2273,25 @@ define hidden i32 @samr_dissect_struct_lsa_Strings(ptr noundef %0, i32 noundef %
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_lsa_Strings, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_lsa_Strings_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_samr_lsa_Strings_names, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_lsa_Strings_names_, i32 noundef 2, ptr noundef nonnull @.str.973, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_lsa_Strings_names_, i32 noundef 2, ptr noundef nonnull @.str.973, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -2433,25 +2433,25 @@ define hidden i32 @samr_dissect_struct_SamEntry(ptr noundef %0, i32 noundef %1, 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_SamEntry, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_SamEntry_idx, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_samr_samr_SamEntry_name, align 4
-  %35 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -2514,25 +2514,25 @@ define hidden i32 @samr_dissect_struct_SamArray(ptr noundef %0, i32 noundef %1, 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_SamArray, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_SamArray_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_samr_samr_SamArray_entries, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_SamArray_entries_, i32 noundef 2, ptr noundef nonnull @.str.974, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_SamArray_entries_, i32 noundef 2, ptr noundef nonnull @.str.974, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -2686,31 +2686,31 @@ define hidden i32 @samr_dissect_struct_DomInfo1(ptr noundef %0, i32 noundef %1, 
   %or.cond = or i1 %.not50, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.048 = select i1 %or.cond, i32 %1, i32 %13
   %.not51 = icmp eq ptr %3, null
   br i1 %.not51, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.048, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_samr_samr_DomInfo1, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.048 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.047 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.047 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_samr_samr_DomInfo1_min_password_length, align 4
-  %20 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.048, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_samr_samr_DomInfo1_password_history_length, align 4
-  %22 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %22 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
   %23 = load i32, ptr @hf_samr_samr_DomInfo1_password_properties, align 4
-  %24 = tail call i32 @samr_dissect_bitmap_PasswordProperties(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 poison)
+  %24 = tail call i32 @samr_dissect_bitmap_PasswordProperties(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 poison)
   %25 = load i32, ptr @hf_samr_samr_DomInfo1_max_password_age, align 4
-  %26 = tail call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #5
+  %26 = tail call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #5
   %27 = load i32, ptr @hf_samr_samr_DomInfo1_min_password_age, align 4
-  %28 = tail call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #5
-  %29 = sub i32 %28, %.0
-  tail call void @proto_item_set_len(ptr noundef %.048, i32 noundef %29) #5
+  %28 = tail call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #5
+  %29 = sub i32 %28, %.048
+  tail call void @proto_item_set_len(ptr noundef %.047, i32 noundef %29) #5
   %30 = getelementptr inbounds i8, ptr %4, i64 72
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 96
@@ -2775,49 +2775,49 @@ define hidden i32 @samr_dissect_struct_DomGeneralInformation(ptr noundef %0, i32
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.092 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not98 = icmp eq ptr %3, null
   br i1 %.not98, label %33, label %29
 
 29:                                               ; preds = %28
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.092, i32 noundef -1, i32 noundef 0) #5
   %31 = load i32, ptr @ett_samr_samr_DomGeneralInformation, align 4
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #5
   br label %33
 
 33:                                               ; preds = %29, %28
-  %.092 = phi ptr [ %30, %29 ], [ null, %28 ]
-  %.091 = phi ptr [ %32, %29 ], [ null, %28 ]
+  %.091 = phi ptr [ %30, %29 ], [ null, %28 ]
+  %.0 = phi ptr [ %32, %29 ], [ null, %28 ]
   %34 = load i32, ptr @hf_samr_samr_DomGeneralInformation_force_logoff_time, align 4
-  %35 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.091, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34) #5
+  %35 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %.092, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34) #5
   %36 = load i32, ptr @hf_samr_samr_DomGeneralInformation_oem_information, align 4
-  %37 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.091, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %36) #5
+  %37 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %36) #5
   %38 = load i32, ptr @hf_samr_samr_DomGeneralInformation_domain_name, align 4
-  %39 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.091, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %38) #5
+  %39 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %38) #5
   %40 = load i32, ptr @hf_samr_samr_DomGeneralInformation_primary, align 4
-  %41 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.091, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %40) #5
+  %41 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %40) #5
   %42 = load i32, ptr @hf_samr_samr_DomGeneralInformation_sequence_num, align 4
-  %43 = tail call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.091, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, ptr noundef null) #5
+  %43 = tail call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, ptr noundef null) #5
   %44 = load i32, ptr @hf_samr_samr_DomGeneralInformation_domain_server_state, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 0, ptr %10, align 4
-  %45 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.091, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, ptr noundef nonnull %10) #5
+  %45 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, ptr noundef nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %46 = load i32, ptr @hf_samr_samr_DomGeneralInformation_role, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %47 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.091, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, ptr noundef nonnull %9) #5
+  %47 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %48 = load i32, ptr @hf_samr_samr_DomGeneralInformation_unknown3, align 4
-  %49 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.091, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %48, i32 noundef 0) #5
+  %49 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %48, i32 noundef 0) #5
   %50 = load i32, ptr @hf_samr_samr_DomGeneralInformation_num_users, align 4
-  %51 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.091, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 noundef 0) #5
+  %51 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 noundef 0) #5
   %52 = load i32, ptr @hf_samr_samr_DomGeneralInformation_num_groups, align 4
-  %53 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.091, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 noundef 0) #5
+  %53 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 noundef 0) #5
   %54 = load i32, ptr @hf_samr_samr_DomGeneralInformation_num_aliases, align 4
-  %55 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.091, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, i32 noundef 0) #5
-  %56 = sub i32 %55, %.0
-  call void @proto_item_set_len(ptr noundef %.092, i32 noundef %56) #5
+  %55 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, i32 noundef 0) #5
+  %56 = sub i32 %55, %.092
+  call void @proto_item_set_len(ptr noundef %.091, i32 noundef %56) #5
   %57 = load ptr, ptr %11, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 96
   %59 = load i32, ptr %58, align 8
@@ -2854,23 +2854,23 @@ define hidden i32 @samr_dissect_struct_DomInfo3(ptr noundef %0, i32 noundef %1, 
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_samr_samr_DomInfo3, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_samr_samr_DomInfo3_force_logoff_time, align 4
-  %20 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19) #5
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #5
+  %20 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19) #5
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #5
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -2933,23 +2933,23 @@ define hidden i32 @samr_dissect_struct_DomOEMInformation(ptr noundef %0, i32 nou
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_DomOEMInformation, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_DomOEMInformation_oem_information, align 4
-  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
+  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -3012,23 +3012,23 @@ define hidden i32 @samr_dissect_struct_DomInfo5(ptr noundef %0, i32 noundef %1, 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_DomInfo5, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_DomInfo5_domain_name, align 4
-  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
+  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -3091,23 +3091,23 @@ define hidden i32 @samr_dissect_struct_DomInfo6(ptr noundef %0, i32 noundef %1, 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_DomInfo6, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_DomInfo6_primary, align 4
-  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
+  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -3145,26 +3145,26 @@ define hidden i32 @samr_dissect_struct_DomInfo7(ptr noundef %0, i32 noundef %1, 
   %or.cond = or i1 %.not26, %.not
   %13 = and i32 %1, -4
   %14 = add i32 %13, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %14
+  %.024 = select i1 %or.cond, i32 %1, i32 %14
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #5
   %17 = load i32, ptr @ett_samr_samr_DomInfo7, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #5
   br label %19
 
 19:                                               ; preds = %15, %8
-  %.024 = phi ptr [ %16, %15 ], [ null, %8 ]
-  %.023 = phi ptr [ %18, %15 ], [ null, %8 ]
+  %.023 = phi ptr [ %16, %15 ], [ null, %8 ]
+  %.0 = phi ptr [ %18, %15 ], [ null, %8 ]
   %20 = load i32, ptr @hf_samr_samr_DomInfo7_role, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %9) #5
+  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %22 = sub i32 %21, %.0
-  call void @proto_item_set_len(ptr noundef %.024, i32 noundef %22) #5
+  %22 = sub i32 %21, %.024
+  call void @proto_item_set_len(ptr noundef %.023, i32 noundef %22) #5
   %23 = getelementptr inbounds i8, ptr %4, i64 72
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 96
@@ -3201,25 +3201,25 @@ define hidden i32 @samr_dissect_struct_DomInfo8(ptr noundef %0, i32 noundef %1, 
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_samr_samr_DomInfo8, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_samr_samr_DomInfo8_sequence_num, align 4
-  %20 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #5
+  %20 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #5
   %21 = load i32, ptr @hf_samr_samr_DomInfo8_domain_create_time, align 4
-  %22 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21) #5
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
+  %22 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21) #5
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #5
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -3257,26 +3257,26 @@ define hidden i32 @samr_dissect_struct_DomInfo9(ptr noundef %0, i32 noundef %1, 
   %or.cond = or i1 %.not26, %.not
   %13 = and i32 %1, -4
   %14 = add i32 %13, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %14
+  %.024 = select i1 %or.cond, i32 %1, i32 %14
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #5
   %17 = load i32, ptr @ett_samr_samr_DomInfo9, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #5
   br label %19
 
 19:                                               ; preds = %15, %8
-  %.024 = phi ptr [ %16, %15 ], [ null, %8 ]
-  %.023 = phi ptr [ %18, %15 ], [ null, %8 ]
+  %.023 = phi ptr [ %16, %15 ], [ null, %8 ]
+  %.0 = phi ptr [ %18, %15 ], [ null, %8 ]
   %20 = load i32, ptr @hf_samr_samr_DomInfo9_domain_server_state, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %9) #5
+  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %22 = sub i32 %21, %.0
-  call void @proto_item_set_len(ptr noundef %.024, i32 noundef %22) #5
+  %22 = sub i32 %21, %.024
+  call void @proto_item_set_len(ptr noundef %.023, i32 noundef %22) #5
   %23 = getelementptr inbounds i8, ptr %4, i64 72
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 96
@@ -3313,29 +3313,29 @@ define hidden i32 @samr_dissect_struct_DomGeneralInformation2(ptr noundef %0, i3
   %or.cond = or i1 %.not44, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.042 = select i1 %or.cond, i32 %1, i32 %13
   %.not45 = icmp eq ptr %3, null
   br i1 %.not45, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.042, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_samr_samr_DomGeneralInformation2, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.042 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.041 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.041 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_samr_samr_DomGeneralInformation2_general, align 4
-  %20 = tail call i32 @samr_dissect_struct_DomGeneralInformation(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %20 = tail call i32 @samr_dissect_struct_DomGeneralInformation(ptr noundef %0, i32 noundef %.042, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = load i32, ptr @hf_samr_samr_DomGeneralInformation2_lockout_duration, align 4
-  %22 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
+  %22 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
   %23 = load i32, ptr @hf_samr_samr_DomGeneralInformation2_lockout_window, align 4
-  %24 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #5
+  %24 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #5
   %25 = load i32, ptr @hf_samr_samr_DomGeneralInformation2_lockout_threshold, align 4
-  %26 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
-  %27 = sub i32 %26, %.0
-  tail call void @proto_item_set_len(ptr noundef %.042, i32 noundef %27) #5
+  %26 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
+  %27 = sub i32 %26, %.042
+  tail call void @proto_item_set_len(ptr noundef %.041, i32 noundef %27) #5
   %28 = getelementptr inbounds i8, ptr %4, i64 72
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 96
@@ -3372,27 +3372,27 @@ define hidden i32 @samr_dissect_struct_DomInfo12(ptr noundef %0, i32 noundef %1,
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.036 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_samr_samr_DomInfo12, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_samr_samr_DomInfo12_lockout_duration, align 4
-  %20 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #5
+  %20 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #5
   %21 = load i32, ptr @hf_samr_samr_DomInfo12_lockout_window, align 4
-  %22 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
+  %22 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
   %23 = load i32, ptr @hf_samr_samr_DomInfo12_lockout_threshold, align 4
-  %24 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
-  %25 = sub i32 %24, %.0
-  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #5
+  %24 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
+  %25 = sub i32 %24, %.036
+  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %25) #5
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 96
@@ -3429,27 +3429,27 @@ define hidden i32 @samr_dissect_struct_DomInfo13(ptr noundef %0, i32 noundef %1,
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.036 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_samr_samr_DomInfo13, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_samr_samr_DomInfo13_sequence_num, align 4
-  %20 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #5
+  %20 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #5
   %21 = load i32, ptr @hf_samr_samr_DomInfo13_domain_create_time, align 4
-  %22 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21) #5
+  %22 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21) #5
   %23 = load i32, ptr @hf_samr_samr_DomInfo13_modified_count_at_last_promotion, align 4
-  %24 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #5
-  %25 = sub i32 %24, %.0
-  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #5
+  %24 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #5
+  %25 = sub i32 %24, %.036
+  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %25) #5
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 96
@@ -3512,25 +3512,25 @@ define hidden i32 @samr_dissect_struct_Ids(ptr noundef %0, i32 noundef %1, ptr n
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_Ids, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_Ids_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_samr_rid, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_Ids_ids_, i32 noundef 2, ptr noundef nonnull @.str.975, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_Ids_ids_, i32 noundef 2, ptr noundef nonnull @.str.975, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -3636,29 +3636,29 @@ define hidden i32 @samr_dissect_struct_GroupInfoAll(ptr noundef %0, i32 noundef 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.050 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.050, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_GroupInfoAll, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.050 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.049 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.049 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_GroupInfoAll_name, align 4
-  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.050, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
   %34 = load i32, ptr @hf_samr_samr_GroupInfoAll_attributes, align 4
-  %35 = tail call i32 @samr_dissect_bitmap_GroupAttrs(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %35 = tail call i32 @samr_dissect_bitmap_GroupAttrs(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
   %36 = load i32, ptr @hf_samr_samr_GroupInfoAll_num_members, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
   %38 = load i32, ptr @hf_samr_samr_GroupInfoAll_description, align 4
-  %39 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %38) #5
-  %40 = sub i32 %39, %.0
-  tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #5
+  %39 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %38) #5
+  %40 = sub i32 %39, %.050
+  tail call void @proto_item_set_len(ptr noundef %.049, i32 noundef %40) #5
   %41 = load ptr, ptr %9, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
@@ -3695,23 +3695,23 @@ define hidden i32 @samr_dissect_struct_GroupInfoAttributes(ptr noundef %0, i32 n
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_samr_samr_GroupInfoAttributes, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_samr_samr_GroupInfoAttributes_attributes, align 4
-  %20 = tail call i32 @samr_dissect_bitmap_GroupAttrs(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #5
+  %20 = tail call i32 @samr_dissect_bitmap_GroupAttrs(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #5
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -3774,23 +3774,23 @@ define hidden i32 @samr_dissect_struct_GroupInfoDescription(ptr noundef %0, i32 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_GroupInfoDescription, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_GroupInfoDescription_description, align 4
-  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
+  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -3877,27 +3877,27 @@ define hidden i32 @samr_dissect_struct_RidTypeArray(ptr noundef %0, i32 noundef 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_RidTypeArray, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_RidTypeArray_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_samr_rid, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_RidTypeArray_rids_, i32 noundef 2, ptr noundef nonnull @.str.976, i32 noundef %34) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_RidTypeArray_rids_, i32 noundef 2, ptr noundef nonnull @.str.976, i32 noundef %34) #5
   %36 = load i32, ptr @hf_samr_samr_RidTypeArray_types, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_RidTypeArray_types_, i32 noundef 2, ptr noundef nonnull @.str.977, i32 noundef %36) #5
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_RidTypeArray_types_, i32 noundef 2, ptr noundef nonnull @.str.977, i32 noundef %36) #5
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -3960,27 +3960,27 @@ define hidden i32 @samr_dissect_struct_AliasInfoAll(ptr noundef %0, i32 noundef 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_AliasInfoAll, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_AliasInfoAll_name, align 4
-  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
   %34 = load i32, ptr @hf_samr_samr_AliasInfoAll_num_members, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_samr_samr_AliasInfoAll_description, align 4
-  %37 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %36) #5
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %36) #5
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -4091,31 +4091,31 @@ define hidden i32 @samr_dissect_struct_UserInfo1(ptr noundef %0, i32 noundef %1,
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.056 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not62 = icmp eq ptr %3, null
   br i1 %.not62, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.056, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_UserInfo1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.056 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.055 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.055 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_UserInfo1_account_name, align 4
-  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.056, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
   %34 = load i32, ptr @hf_samr_samr_UserInfo1_full_name, align 4
-  %35 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %34) #5
+  %35 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %34) #5
   %36 = load i32, ptr @hf_samr_samr_UserInfo1_primary_gid, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
   %38 = load i32, ptr @hf_samr_samr_UserInfo1_description, align 4
-  %39 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %38) #5
+  %39 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %38) #5
   %40 = load i32, ptr @hf_samr_samr_UserInfo1_comment, align 4
-  %41 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %40) #5
-  %42 = sub i32 %41, %.0
-  tail call void @proto_item_set_len(ptr noundef %.056, i32 noundef %42) #5
+  %41 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %40) #5
+  %42 = sub i32 %41, %.056
+  tail call void @proto_item_set_len(ptr noundef %.055, i32 noundef %42) #5
   %43 = load ptr, ptr %9, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
@@ -4178,29 +4178,29 @@ define hidden i32 @samr_dissect_struct_UserInfo2(ptr noundef %0, i32 noundef %1,
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.050 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.050, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_UserInfo2, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.050 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.049 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.049 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_UserInfo2_comment, align 4
-  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.050, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
   %34 = load i32, ptr @hf_samr_samr_UserInfo2_reserved, align 4
-  %35 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %34) #5
+  %35 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %34) #5
   %36 = load i32, ptr @hf_samr_samr_UserInfo2_country_code, align 4
-  %37 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
+  %37 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
   %38 = load i32, ptr @hf_samr_samr_UserInfo2_code_page, align 4
-  %39 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
-  %40 = sub i32 %39, %.0
-  tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #5
+  %39 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
+  %40 = sub i32 %39, %.050
+  tail call void @proto_item_set_len(ptr noundef %.049, i32 noundef %40) #5
   %41 = load ptr, ptr %9, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
@@ -4263,25 +4263,25 @@ define hidden i32 @samr_dissect_struct_LogonHours(ptr noundef %0, i32 noundef %1
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_LogonHours, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_LogonHours_units_per_week, align 4
-  %33 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_samr_samr_LogonHours_bits, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_LogonHours_bits_, i32 noundef 2, ptr noundef nonnull @.str.978, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_LogonHours_bits_, i32 noundef 2, ptr noundef nonnull @.str.978, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4344,57 +4344,57 @@ define hidden i32 @samr_dissect_struct_UserInfo3(ptr noundef %0, i32 noundef %1,
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0134 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not140 = icmp eq ptr %3, null
   br i1 %.not140, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0134, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_UserInfo3, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.0134 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0133 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.0133 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_UserInfo3_account_name, align 4
-  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0134, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
   %34 = load i32, ptr @hf_samr_samr_UserInfo3_full_name, align 4
-  %35 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %34) #5
+  %35 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %34) #5
   %36 = load i32, ptr @hf_samr_rid, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
   %38 = load i32, ptr @hf_samr_samr_UserInfo3_primary_gid, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
   %40 = load i32, ptr @hf_samr_samr_UserInfo3_home_directory, align 4
-  %41 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %40) #5
+  %41 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %40) #5
   %42 = load i32, ptr @hf_samr_samr_UserInfo3_home_drive, align 4
-  %43 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %42) #5
+  %43 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %42) #5
   %44 = load i32, ptr @hf_samr_samr_UserInfo3_logon_script, align 4
-  %45 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %44) #5
+  %45 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %44) #5
   %46 = load i32, ptr @hf_samr_samr_UserInfo3_profile_path, align 4
-  %47 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %46) #5
+  %47 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %46) #5
   %48 = load i32, ptr @hf_samr_samr_UserInfo3_workstations, align 4
-  %49 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %48) #5
+  %49 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %48) #5
   %50 = load i32, ptr @hf_samr_samr_UserInfo3_last_logon, align 4
-  %51 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50) #5
+  %51 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50) #5
   %52 = load i32, ptr @hf_samr_samr_UserInfo3_last_logoff, align 4
-  %53 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52) #5
+  %53 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52) #5
   %54 = load i32, ptr @hf_samr_samr_UserInfo3_last_password_change, align 4
-  %55 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54) #5
+  %55 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54) #5
   %56 = load i32, ptr @hf_samr_samr_UserInfo3_allow_password_change, align 4
-  %57 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56) #5
+  %57 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56) #5
   %58 = load i32, ptr @hf_samr_samr_UserInfo3_force_password_change, align 4
-  %59 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58) #5
+  %59 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58) #5
   %60 = load i32, ptr @hf_samr_samr_UserInfo3_logon_hours, align 4
-  %61 = tail call i32 @samr_dissect_struct_LogonHours(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, i32 poison)
+  %61 = tail call i32 @samr_dissect_struct_LogonHours(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, i32 poison)
   %62 = load i32, ptr @hf_samr_samr_UserInfo3_bad_password_count, align 4
-  %63 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %61, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, i32 noundef 0) #5
+  %63 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %61, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, i32 noundef 0) #5
   %64 = load i32, ptr @hf_samr_samr_UserInfo3_logon_count, align 4
-  %65 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, i32 noundef 0) #5
+  %65 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, i32 noundef 0) #5
   %66 = load i32, ptr @hf_samr_samr_UserInfo3_acct_flags, align 4
-  %67 = tail call i32 @samr_dissect_bitmap_AcctFlags(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %66, i32 poison)
-  %68 = sub i32 %67, %.0
-  tail call void @proto_item_set_len(ptr noundef %.0134, i32 noundef %68) #5
+  %67 = tail call i32 @samr_dissect_bitmap_AcctFlags(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %66, i32 poison)
+  %68 = sub i32 %67, %.0134
+  tail call void @proto_item_set_len(ptr noundef %.0133, i32 noundef %68) #5
   %69 = load ptr, ptr %9, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 96
   %71 = load i32, ptr %70, align 8
@@ -4457,23 +4457,23 @@ define hidden i32 @samr_dissect_struct_UserInfo4(ptr noundef %0, i32 noundef %1,
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_UserInfo4, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_UserInfo4_logon_hours, align 4
-  %33 = tail call i32 @samr_dissect_struct_LogonHours(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
+  %33 = tail call i32 @samr_dissect_struct_LogonHours(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -4536,57 +4536,57 @@ define hidden i32 @samr_dissect_struct_UserInfo5(ptr noundef %0, i32 noundef %1,
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0134 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not140 = icmp eq ptr %3, null
   br i1 %.not140, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0134, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_UserInfo5, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.0134 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0133 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.0133 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_UserInfo5_account_name, align 4
-  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0134, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
   %34 = load i32, ptr @hf_samr_samr_UserInfo5_full_name, align 4
-  %35 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %34) #5
+  %35 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %34) #5
   %36 = load i32, ptr @hf_samr_rid, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
   %38 = load i32, ptr @hf_samr_samr_UserInfo5_primary_gid, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
   %40 = load i32, ptr @hf_samr_samr_UserInfo5_home_directory, align 4
-  %41 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %40) #5
+  %41 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %40) #5
   %42 = load i32, ptr @hf_samr_samr_UserInfo5_home_drive, align 4
-  %43 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %42) #5
+  %43 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %42) #5
   %44 = load i32, ptr @hf_samr_samr_UserInfo5_logon_script, align 4
-  %45 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %44) #5
+  %45 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %44) #5
   %46 = load i32, ptr @hf_samr_samr_UserInfo5_profile_path, align 4
-  %47 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %46) #5
+  %47 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %46) #5
   %48 = load i32, ptr @hf_samr_samr_UserInfo5_description, align 4
-  %49 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %48) #5
+  %49 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %48) #5
   %50 = load i32, ptr @hf_samr_samr_UserInfo5_workstations, align 4
-  %51 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %50) #5
+  %51 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %50) #5
   %52 = load i32, ptr @hf_samr_samr_UserInfo5_last_logon, align 4
-  %53 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52) #5
+  %53 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52) #5
   %54 = load i32, ptr @hf_samr_samr_UserInfo5_last_logoff, align 4
-  %55 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54) #5
+  %55 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54) #5
   %56 = load i32, ptr @hf_samr_samr_UserInfo5_logon_hours, align 4
-  %57 = tail call i32 @samr_dissect_struct_LogonHours(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, i32 poison)
+  %57 = tail call i32 @samr_dissect_struct_LogonHours(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, i32 poison)
   %58 = load i32, ptr @hf_samr_samr_UserInfo5_bad_password_count, align 4
-  %59 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, i32 noundef 0) #5
+  %59 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, i32 noundef 0) #5
   %60 = load i32, ptr @hf_samr_samr_UserInfo5_logon_count, align 4
-  %61 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, i32 noundef 0) #5
+  %61 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, i32 noundef 0) #5
   %62 = load i32, ptr @hf_samr_samr_UserInfo5_last_password_change, align 4
-  %63 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %61, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62) #5
+  %63 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %61, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62) #5
   %64 = load i32, ptr @hf_samr_samr_UserInfo5_acct_expiry, align 4
-  %65 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64) #5
+  %65 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64) #5
   %66 = load i32, ptr @hf_samr_samr_UserInfo5_acct_flags, align 4
-  %67 = tail call i32 @samr_dissect_bitmap_AcctFlags(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.0133, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %66, i32 poison)
-  %68 = sub i32 %67, %.0
-  tail call void @proto_item_set_len(ptr noundef %.0134, i32 noundef %68) #5
+  %67 = tail call i32 @samr_dissect_bitmap_AcctFlags(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %66, i32 poison)
+  %68 = sub i32 %67, %.0134
+  tail call void @proto_item_set_len(ptr noundef %.0133, i32 noundef %68) #5
   %69 = load ptr, ptr %9, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 96
   %71 = load i32, ptr %70, align 8
@@ -4649,25 +4649,25 @@ define hidden i32 @samr_dissect_struct_UserInfo6(ptr noundef %0, i32 noundef %1,
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_UserInfo6, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_UserInfo6_account_name, align 4
-  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
   %34 = load i32, ptr @hf_samr_samr_UserInfo6_full_name, align 4
-  %35 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4730,23 +4730,23 @@ define hidden i32 @samr_dissect_struct_UserInfo7(ptr noundef %0, i32 noundef %1,
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_UserInfo7, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_UserInfo7_account_name, align 4
-  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
+  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -4809,23 +4809,23 @@ define hidden i32 @samr_dissect_struct_UserInfo8(ptr noundef %0, i32 noundef %1,
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_UserInfo8, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_UserInfo8_full_name, align 4
-  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
+  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -4862,23 +4862,23 @@ define hidden i32 @samr_dissect_struct_UserInfo9(ptr noundef %0, i32 noundef %1,
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_samr_samr_UserInfo9, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_samr_samr_UserInfo9_primary_gid, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #5
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -4941,25 +4941,25 @@ define hidden i32 @samr_dissect_struct_UserInfo10(ptr noundef %0, i32 noundef %1
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_UserInfo10, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_UserInfo10_home_directory, align 4
-  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
   %34 = load i32, ptr @hf_samr_samr_UserInfo10_home_drive, align 4
-  %35 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -5022,23 +5022,23 @@ define hidden i32 @samr_dissect_struct_UserInfo11(ptr noundef %0, i32 noundef %1
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_UserInfo11, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_UserInfo11_logon_script, align 4
-  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
+  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -5101,23 +5101,23 @@ define hidden i32 @samr_dissect_struct_UserInfo12(ptr noundef %0, i32 noundef %1
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_UserInfo12, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_UserInfo12_profile_path, align 4
-  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
+  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -5180,23 +5180,23 @@ define hidden i32 @samr_dissect_struct_UserInfo13(ptr noundef %0, i32 noundef %1
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_UserInfo13, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_UserInfo13_description, align 4
-  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
+  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -5259,23 +5259,23 @@ define hidden i32 @samr_dissect_struct_UserInfo14(ptr noundef %0, i32 noundef %1
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_UserInfo14, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_UserInfo14_workstations, align 4
-  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
+  %33 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -5312,23 +5312,23 @@ define hidden i32 @samr_dissect_struct_UserInfo16(ptr noundef %0, i32 noundef %1
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_samr_samr_UserInfo16, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_samr_samr_UserInfo16_acct_flags, align 4
-  %20 = tail call i32 @samr_dissect_bitmap_AcctFlags(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #5
+  %20 = tail call i32 @samr_dissect_bitmap_AcctFlags(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #5
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -5365,23 +5365,23 @@ define hidden i32 @samr_dissect_struct_UserInfo17(ptr noundef %0, i32 noundef %1
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_samr_samr_UserInfo17, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_samr_samr_UserInfo17_acct_expiry, align 4
-  %20 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19) #5
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #5
+  %20 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19) #5
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #5
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -5551,23 +5551,23 @@ define hidden i32 @samr_dissect_struct_UserInfo20(ptr noundef %0, i32 noundef %1
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_UserInfo20, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_UserInfo20_parameters, align 4
-  %33 = tail call i32 @lsarpc_dissect_struct_lsa_BinaryString(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
+  %33 = tail call i32 @lsarpc_dissect_struct_lsa_BinaryString(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %32) #5
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -5673,89 +5673,89 @@ define hidden i32 @samr_dissect_struct_UserInfo21(ptr noundef %0, i32 noundef %1
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0230 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not236 = icmp eq ptr %3, null
   br i1 %.not236, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0230, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_UserInfo21, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.0230 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0229 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.0229 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_UserInfo21_last_logon, align 4
-  %33 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %.0230, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32) #5
   %34 = load i32, ptr @hf_samr_samr_UserInfo21_last_logoff, align 4
-  %35 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34) #5
+  %35 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34) #5
   %36 = load i32, ptr @hf_samr_samr_UserInfo21_last_password_change, align 4
-  %37 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36) #5
+  %37 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36) #5
   %38 = load i32, ptr @hf_samr_samr_UserInfo21_acct_expiry, align 4
-  %39 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38) #5
+  %39 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38) #5
   %40 = load i32, ptr @hf_samr_samr_UserInfo21_allow_password_change, align 4
-  %41 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40) #5
+  %41 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40) #5
   %42 = load i32, ptr @hf_samr_samr_UserInfo21_force_password_change, align 4
-  %43 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42) #5
+  %43 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42) #5
   %44 = load i32, ptr @hf_samr_samr_UserInfo21_account_name, align 4
-  %45 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %44) #5
+  %45 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %44) #5
   %46 = load i32, ptr @hf_samr_samr_UserInfo21_full_name, align 4
-  %47 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %46) #5
+  %47 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %46) #5
   %48 = load i32, ptr @hf_samr_samr_UserInfo21_home_directory, align 4
-  %49 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %48) #5
+  %49 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %48) #5
   %50 = load i32, ptr @hf_samr_samr_UserInfo21_home_drive, align 4
-  %51 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %50) #5
+  %51 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %50) #5
   %52 = load i32, ptr @hf_samr_samr_UserInfo21_logon_script, align 4
-  %53 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %52) #5
+  %53 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %52) #5
   %54 = load i32, ptr @hf_samr_samr_UserInfo21_profile_path, align 4
-  %55 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %54) #5
+  %55 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %54) #5
   %56 = load i32, ptr @hf_samr_samr_UserInfo21_description, align 4
-  %57 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %56) #5
+  %57 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %56) #5
   %58 = load i32, ptr @hf_samr_samr_UserInfo21_workstations, align 4
-  %59 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %58) #5
+  %59 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %58) #5
   %60 = load i32, ptr @hf_samr_samr_UserInfo21_comment, align 4
-  %61 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %60) #5
+  %61 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %60) #5
   %62 = load i32, ptr @hf_samr_samr_UserInfo21_parameters, align 4
-  %63 = tail call i32 @lsarpc_dissect_struct_lsa_BinaryString(ptr noundef %0, i32 noundef %61, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %62) #5
+  %63 = tail call i32 @lsarpc_dissect_struct_lsa_BinaryString(ptr noundef %0, i32 noundef %61, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %62) #5
   %64 = load i32, ptr @hf_samr_samr_UserInfo21_lm_owf_password, align 4
-  %65 = tail call i32 @lsarpc_dissect_struct_lsa_BinaryString(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %64) #5
+  %65 = tail call i32 @lsarpc_dissect_struct_lsa_BinaryString(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %64) #5
   %66 = load i32, ptr @hf_samr_samr_UserInfo21_nt_owf_password, align 4
-  %67 = tail call i32 @lsarpc_dissect_struct_lsa_BinaryString(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %66) #5
+  %67 = tail call i32 @lsarpc_dissect_struct_lsa_BinaryString(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %66) #5
   %68 = load i32, ptr @hf_samr_samr_UserInfo21_private_data, align 4
-  %69 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %67, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %68) #5
+  %69 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %67, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %68) #5
   %70 = load i32, ptr @hf_samr_samr_UserInfo21_buf_count, align 4
-  %71 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %69, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %70, i32 noundef 0) #5
+  %71 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %69, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %70, i32 noundef 0) #5
   %72 = load i32, ptr @hf_samr_samr_UserInfo21_buffer, align 4
-  %73 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %71, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_UserInfo21_buffer_, i32 noundef 2, ptr noundef nonnull @.str.979, i32 noundef %72) #5
+  %73 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %71, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_UserInfo21_buffer_, i32 noundef 2, ptr noundef nonnull @.str.979, i32 noundef %72) #5
   %74 = load i32, ptr @hf_samr_rid, align 4
-  %75 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %74, i32 noundef 0) #5
+  %75 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %74, i32 noundef 0) #5
   %76 = load i32, ptr @hf_samr_samr_UserInfo21_primary_gid, align 4
-  %77 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %75, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %76, i32 noundef 0) #5
+  %77 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %75, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %76, i32 noundef 0) #5
   %78 = load i32, ptr @hf_samr_samr_UserInfo21_acct_flags, align 4
-  %79 = tail call i32 @samr_dissect_bitmap_AcctFlags(ptr noundef %0, i32 noundef %77, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %78, i32 poison)
+  %79 = tail call i32 @samr_dissect_bitmap_AcctFlags(ptr noundef %0, i32 noundef %77, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %78, i32 poison)
   %80 = load i32, ptr @hf_samr_samr_UserInfo21_fields_present, align 4
-  %81 = tail call i32 @samr_dissect_bitmap_FieldsPresent(ptr noundef %0, i32 noundef %79, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %80, i32 poison)
+  %81 = tail call i32 @samr_dissect_bitmap_FieldsPresent(ptr noundef %0, i32 noundef %79, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %80, i32 poison)
   %82 = load i32, ptr @hf_samr_samr_UserInfo21_logon_hours, align 4
-  %83 = tail call i32 @samr_dissect_struct_LogonHours(ptr noundef %0, i32 noundef %81, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %82, i32 poison)
+  %83 = tail call i32 @samr_dissect_struct_LogonHours(ptr noundef %0, i32 noundef %81, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %82, i32 poison)
   %84 = load i32, ptr @hf_samr_samr_UserInfo21_bad_password_count, align 4
-  %85 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %83, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %84, i32 noundef 0) #5
+  %85 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %83, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %84, i32 noundef 0) #5
   %86 = load i32, ptr @hf_samr_samr_UserInfo21_logon_count, align 4
-  %87 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %85, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %86, i32 noundef 0) #5
+  %87 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %85, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %86, i32 noundef 0) #5
   %88 = load i32, ptr @hf_samr_samr_UserInfo21_country_code, align 4
-  %89 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %87, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %88, i32 noundef 0) #5
+  %89 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %87, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %88, i32 noundef 0) #5
   %90 = load i32, ptr @hf_samr_samr_UserInfo21_code_page, align 4
-  %91 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %89, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %90, i32 noundef 0) #5
+  %91 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %89, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %90, i32 noundef 0) #5
   %92 = load i32, ptr @hf_samr_samr_UserInfo21_lm_password_set, align 4
-  %93 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %91, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %92, i32 noundef 0) #5
+  %93 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %91, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %92, i32 noundef 0) #5
   %94 = load i32, ptr @hf_samr_samr_UserInfo21_nt_password_set, align 4
-  %95 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %93, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %94, i32 noundef 0) #5
+  %95 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %93, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %94, i32 noundef 0) #5
   %96 = load i32, ptr @hf_samr_samr_UserInfo21_password_expired, align 4
-  %97 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %95, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %96, i32 noundef 0) #5
+  %97 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %95, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %96, i32 noundef 0) #5
   %98 = load i32, ptr @hf_samr_samr_UserInfo21_private_data_sensitive, align 4
-  %99 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %97, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %98, i32 noundef 0) #5
-  %100 = sub i32 %99, %.0
-  tail call void @proto_item_set_len(ptr noundef %.0230, i32 noundef %100) #5
+  %99 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %97, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %98, i32 noundef 0) #5
+  %100 = sub i32 %99, %.0230
+  tail call void @proto_item_set_len(ptr noundef %.0229, i32 noundef %100) #5
   %101 = load ptr, ptr %9, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 96
   %103 = load i32, ptr %102, align 8
@@ -5849,21 +5849,21 @@ define hidden i32 @samr_dissect_struct_UserInfo23(ptr noundef %0, i32 noundef %1
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %.thread, label %29
 
 .thread:                                          ; preds = %26
   %27 = load i32, ptr @hf_samr_samr_UserInfo23_info, align 4
-  %28 = tail call i32 @samr_dissect_struct_UserInfo21(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef null, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 poison)
+  %28 = tail call i32 @samr_dissect_struct_UserInfo21(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef null, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 poison)
   br label %40
 
 29:                                               ; preds = %26
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %31 = load i32, ptr @ett_samr_samr_UserInfo23, align 4
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #5
   %33 = load i32, ptr @hf_samr_samr_UserInfo23_info, align 4
-  %34 = tail call i32 @samr_dissect_struct_UserInfo21(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %32, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 poison)
+  %34 = tail call i32 @samr_dissect_struct_UserInfo21(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %32, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 poison)
   %.not.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i, label %40, label %35
 
@@ -5876,7 +5876,7 @@ define hidden i32 @samr_dissect_struct_UserInfo23(ptr noundef %0, i32 noundef %1
 
 40:                                               ; preds = %.thread, %35, %29
   %41 = phi i32 [ %34, %35 ], [ %34, %29 ], [ %28, %.thread ]
-  %.03853 = phi ptr [ %30, %35 ], [ %30, %29 ], [ null, %.thread ]
+  %.03753 = phi ptr [ %30, %35 ], [ %30, %29 ], [ null, %.thread ]
   %.016.i.i = phi ptr [ %37, %35 ], [ null, %29 ], [ null, %.thread ]
   %.0.i.i = phi ptr [ %39, %35 ], [ null, %29 ], [ null, %.thread ]
   br label %42
@@ -5893,8 +5893,8 @@ define hidden i32 @samr_dissect_struct_UserInfo23(ptr noundef %0, i32 noundef %1
 samr_dissect_element_UserInfo23_password.exit:    ; preds = %42
   %46 = sub i32 %44, %41
   tail call void @proto_item_set_len(ptr noundef %.016.i.i, i32 noundef %46) #5
-  %47 = sub i32 %44, %.0
-  tail call void @proto_item_set_len(ptr noundef %.03853, i32 noundef %47) #5
+  %47 = sub i32 %44, %.038
+  tail call void @proto_item_set_len(ptr noundef %.03753, i32 noundef %47) #5
   %48 = load ptr, ptr %9, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 96
   %50 = load i32, ptr %49, align 8
@@ -6033,21 +6033,21 @@ define hidden i32 @samr_dissect_struct_UserInfo25(ptr noundef %0, i32 noundef %1
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %.thread, label %29
 
 .thread:                                          ; preds = %26
   %27 = load i32, ptr @hf_samr_samr_UserInfo25_info, align 4
-  %28 = tail call i32 @samr_dissect_struct_UserInfo21(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef null, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 poison)
+  %28 = tail call i32 @samr_dissect_struct_UserInfo21(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef null, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 poison)
   br label %40
 
 29:                                               ; preds = %26
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %31 = load i32, ptr @ett_samr_samr_UserInfo25, align 4
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #5
   %33 = load i32, ptr @hf_samr_samr_UserInfo25_info, align 4
-  %34 = tail call i32 @samr_dissect_struct_UserInfo21(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %32, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 poison)
+  %34 = tail call i32 @samr_dissect_struct_UserInfo21(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %32, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 poison)
   %.not.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i, label %40, label %35
 
@@ -6060,7 +6060,7 @@ define hidden i32 @samr_dissect_struct_UserInfo25(ptr noundef %0, i32 noundef %1
 
 40:                                               ; preds = %.thread, %35, %29
   %41 = phi i32 [ %34, %35 ], [ %34, %29 ], [ %28, %.thread ]
-  %.03853 = phi ptr [ %30, %35 ], [ %30, %29 ], [ null, %.thread ]
+  %.03753 = phi ptr [ %30, %35 ], [ %30, %29 ], [ null, %.thread ]
   %.016.i.i = phi ptr [ %37, %35 ], [ null, %29 ], [ null, %.thread ]
   %.0.i.i = phi ptr [ %39, %35 ], [ null, %29 ], [ null, %.thread ]
   br label %42
@@ -6077,8 +6077,8 @@ define hidden i32 @samr_dissect_struct_UserInfo25(ptr noundef %0, i32 noundef %1
 samr_dissect_element_UserInfo25_password.exit:    ; preds = %42
   %46 = sub i32 %44, %41
   tail call void @proto_item_set_len(ptr noundef %.016.i.i, i32 noundef %46) #5
-  %47 = sub i32 %44, %.0
-  tail call void @proto_item_set_len(ptr noundef %.03853, i32 noundef %47) #5
+  %47 = sub i32 %44, %.038
+  tail call void @proto_item_set_len(ptr noundef %.03753, i32 noundef %47) #5
   %48 = load ptr, ptr %9, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 96
   %50 = load i32, ptr %49, align 8
@@ -6160,26 +6160,26 @@ define hidden i32 @samr_dissect_struct_EncryptedPasswordAES(ptr noundef %0, i32 
   %or.cond = or i1 %.not50, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.048 = select i1 %or.cond, i32 %1, i32 %13
   %.not51 = icmp eq ptr %3, null
   br i1 %.not51, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.048, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_samr_samr_EncryptedPasswordAES, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.048 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.047 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.047 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   br label %19
 
 19:                                               ; preds = %19, %18
   %.010.i = phi i32 [ 0, %18 ], [ %22, %19 ]
-  %.089.i = phi i32 [ %.0, %18 ], [ %21, %19 ]
+  %.089.i = phi i32 [ %.048, %18 ], [ %21, %19 ]
   %20 = load i32, ptr @hf_samr_samr_EncryptedPasswordAES_auth_data, align 4
-  %21 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.047, ptr noundef %4, ptr noundef %5, i32 noundef %20, i32 noundef 0) #5
+  %21 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %20, i32 noundef 0) #5
   %22 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %22, 64
   br i1 %exitcond.not.i, label %samr_dissect_element_EncryptedPasswordAES_auth_data.exit, label %19, !llvm.loop !8
@@ -6188,20 +6188,20 @@ samr_dissect_element_EncryptedPasswordAES_auth_data.exit: ; preds = %19, %samr_d
   %.010.i56 = phi i32 [ %25, %samr_dissect_element_EncryptedPasswordAES_auth_data.exit ], [ 0, %19 ]
   %.089.i57 = phi i32 [ %24, %samr_dissect_element_EncryptedPasswordAES_auth_data.exit ], [ %21, %19 ]
   %23 = load i32, ptr @hf_samr_samr_EncryptedPasswordAES_salt, align 4
-  %24 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i57, ptr noundef %2, ptr noundef %.047, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
+  %24 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i57, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
   %25 = add nuw nsw i32 %.010.i56, 1
   %exitcond.not.i58 = icmp eq i32 %25, 16
   br i1 %exitcond.not.i58, label %samr_dissect_element_EncryptedPasswordAES_salt.exit, label %samr_dissect_element_EncryptedPasswordAES_auth_data.exit, !llvm.loop !9
 
 samr_dissect_element_EncryptedPasswordAES_salt.exit: ; preds = %samr_dissect_element_EncryptedPasswordAES_auth_data.exit
   %26 = load i32, ptr @hf_samr_samr_EncryptedPasswordAES_cipher_len, align 4
-  %27 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.047, ptr noundef %4, ptr noundef %5, i32 noundef %26, i32 noundef 0) #5
+  %27 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %26, i32 noundef 0) #5
   %28 = load i32, ptr @hf_samr_samr_EncryptedPasswordAES_cipher, align 4
-  %29 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.047, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_EncryptedPasswordAES_cipher_, i32 noundef 2, ptr noundef nonnull @.str.980, i32 noundef %28) #5
+  %29 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_EncryptedPasswordAES_cipher_, i32 noundef 2, ptr noundef nonnull @.str.980, i32 noundef %28) #5
   %30 = load i32, ptr @hf_samr_samr_EncryptedPasswordAES_PBKDF2Iterations, align 4
-  %31 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.047, ptr noundef %4, ptr noundef %5, i32 noundef %30, ptr noundef null) #5
-  %32 = sub i32 %31, %.0
-  tail call void @proto_item_set_len(ptr noundef %.048, i32 noundef %32) #5
+  %31 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %30, ptr noundef null) #5
+  %32 = sub i32 %31, %.048
+  tail call void @proto_item_set_len(ptr noundef %.047, i32 noundef %32) #5
   %33 = getelementptr inbounds i8, ptr %4, i64 72
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 96
@@ -6238,25 +6238,25 @@ define hidden i32 @samr_dissect_struct_UserInfo31(ptr noundef %0, i32 noundef %1
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_samr_samr_UserInfo31, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_samr_samr_UserInfo31_password, align 4
-  %20 = tail call i32 @samr_dissect_struct_EncryptedPasswordAES(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %20 = tail call i32 @samr_dissect_struct_EncryptedPasswordAES(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = load i32, ptr @hf_samr_samr_UserInfo31_password_expired, align 4
-  %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
+  %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #5
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -6293,25 +6293,25 @@ define hidden i32 @samr_dissect_struct_UserInfo32(ptr noundef %0, i32 noundef %1
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_samr_samr_UserInfo32, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_samr_samr_UserInfo32_info, align 4
-  %20 = tail call i32 @samr_dissect_struct_UserInfo21(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %20 = tail call i32 @samr_dissect_struct_UserInfo21(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = load i32, ptr @hf_samr_samr_UserInfo32_password, align 4
-  %22 = tail call i32 @samr_dissect_struct_EncryptedPasswordAES(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
+  %22 = tail call i32 @samr_dissect_struct_EncryptedPasswordAES(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #5
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -6348,25 +6348,25 @@ define hidden i32 @samr_dissect_struct_RidWithAttribute(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_samr_samr_RidWithAttribute, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_samr_rid, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_samr_samr_RidWithAttribute_attributes, align 4
-  %22 = tail call i32 @samr_dissect_bitmap_GroupAttrs(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
+  %22 = tail call i32 @samr_dissect_bitmap_GroupAttrs(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #5
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -6429,25 +6429,25 @@ define hidden i32 @samr_dissect_struct_RidWithAttributeArray(ptr noundef %0, i32
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_RidWithAttributeArray, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_RidWithAttributeArray_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_samr_samr_RidWithAttributeArray_rids, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_RidWithAttributeArray_rids_, i32 noundef 2, ptr noundef nonnull @.str.981, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_RidWithAttributeArray_rids_, i32 noundef 2, ptr noundef nonnull @.str.981, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -6510,33 +6510,33 @@ define hidden i32 @samr_dissect_struct_DispEntryGeneral(ptr noundef %0, i32 noun
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.062 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not68 = icmp eq ptr %3, null
   br i1 %.not68, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.062, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_DispEntryGeneral, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.062 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.061 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.061 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_DispEntryGeneral_idx, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.062, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_samr_rid, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_samr_samr_DispEntryGeneral_acct_flags, align 4
-  %37 = tail call i32 @samr_dissect_bitmap_AcctFlags(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
+  %37 = tail call i32 @samr_dissect_bitmap_AcctFlags(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
   %38 = load i32, ptr @hf_samr_samr_DispEntryGeneral_account_name, align 4
-  %39 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %38) #5
+  %39 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %38) #5
   %40 = load i32, ptr @hf_samr_samr_DispEntryGeneral_description, align 4
-  %41 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %40) #5
+  %41 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %40) #5
   %42 = load i32, ptr @hf_samr_samr_DispEntryGeneral_full_name, align 4
-  %43 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %42) #5
-  %44 = sub i32 %43, %.0
-  tail call void @proto_item_set_len(ptr noundef %.062, i32 noundef %44) #5
+  %43 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %42) #5
+  %44 = sub i32 %43, %.062
+  tail call void @proto_item_set_len(ptr noundef %.061, i32 noundef %44) #5
   %45 = load ptr, ptr %9, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 96
   %47 = load i32, ptr %46, align 8
@@ -6599,25 +6599,25 @@ define hidden i32 @samr_dissect_struct_DispInfoGeneral(ptr noundef %0, i32 nound
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_DispInfoGeneral, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_DispInfoGeneral_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_samr_samr_DispInfoGeneral_entries, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_DispInfoGeneral_entries_, i32 noundef 2, ptr noundef nonnull @.str.982, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_DispInfoGeneral_entries_, i32 noundef 2, ptr noundef nonnull @.str.982, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -6680,31 +6680,31 @@ define hidden i32 @samr_dissect_struct_DispEntryFull(ptr noundef %0, i32 noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.056 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not62 = icmp eq ptr %3, null
   br i1 %.not62, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.056, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_DispEntryFull, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.056 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.055 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.055 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_DispEntryFull_idx, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.056, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_samr_rid, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_samr_samr_DispEntryFull_acct_flags, align 4
-  %37 = tail call i32 @samr_dissect_bitmap_AcctFlags(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
+  %37 = tail call i32 @samr_dissect_bitmap_AcctFlags(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
   %38 = load i32, ptr @hf_samr_samr_DispEntryFull_account_name, align 4
-  %39 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %38) #5
+  %39 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %38) #5
   %40 = load i32, ptr @hf_samr_samr_DispEntryFull_description, align 4
-  %41 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %40) #5
-  %42 = sub i32 %41, %.0
-  tail call void @proto_item_set_len(ptr noundef %.056, i32 noundef %42) #5
+  %41 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %40) #5
+  %42 = sub i32 %41, %.056
+  tail call void @proto_item_set_len(ptr noundef %.055, i32 noundef %42) #5
   %43 = load ptr, ptr %9, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
@@ -6767,25 +6767,25 @@ define hidden i32 @samr_dissect_struct_DispInfoFull(ptr noundef %0, i32 noundef 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_DispInfoFull, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_DispInfoFull_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_samr_samr_DispInfoFull_entries, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_DispInfoFull_entries_, i32 noundef 2, ptr noundef nonnull @.str.983, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_DispInfoFull_entries_, i32 noundef 2, ptr noundef nonnull @.str.983, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -6848,31 +6848,31 @@ define hidden i32 @samr_dissect_struct_DispEntryFullGroup(ptr noundef %0, i32 no
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.056 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not62 = icmp eq ptr %3, null
   br i1 %.not62, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.056, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_DispEntryFullGroup, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.056 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.055 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.055 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_DispEntryFullGroup_idx, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.056, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_samr_rid, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_samr_samr_DispEntryFullGroup_acct_flags, align 4
-  %37 = tail call i32 @samr_dissect_bitmap_GroupAttrs(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
+  %37 = tail call i32 @samr_dissect_bitmap_GroupAttrs(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
   %38 = load i32, ptr @hf_samr_samr_DispEntryFullGroup_account_name, align 4
-  %39 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %38) #5
+  %39 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %38) #5
   %40 = load i32, ptr @hf_samr_samr_DispEntryFullGroup_description, align 4
-  %41 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %40) #5
-  %42 = sub i32 %41, %.0
-  tail call void @proto_item_set_len(ptr noundef %.056, i32 noundef %42) #5
+  %41 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %40) #5
+  %42 = sub i32 %41, %.056
+  tail call void @proto_item_set_len(ptr noundef %.055, i32 noundef %42) #5
   %43 = load ptr, ptr %9, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
@@ -6935,25 +6935,25 @@ define hidden i32 @samr_dissect_struct_DispInfoFullGroups(ptr noundef %0, i32 no
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_DispInfoFullGroups, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_DispInfoFullGroups_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_samr_samr_DispInfoFullGroups_entries, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_DispInfoFullGroups_entries_, i32 noundef 2, ptr noundef nonnull @.str.984, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_DispInfoFullGroups_entries_, i32 noundef 2, ptr noundef nonnull @.str.984, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -7016,25 +7016,25 @@ define hidden i32 @samr_dissect_struct_DispEntryAscii(ptr noundef %0, i32 nounde
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_DispEntryAscii, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_DispEntryAscii_idx, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_samr_samr_DispEntryAscii_account_name, align 4
-  %35 = tail call i32 @dissect_ndr_counted_ascii_string(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_counted_ascii_string(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -7097,25 +7097,25 @@ define hidden i32 @samr_dissect_struct_DispInfoAscii(ptr noundef %0, i32 noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_DispInfoAscii, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_DispInfoAscii_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_samr_samr_DispInfoAscii_entries, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_DispInfoAscii_entries_, i32 noundef 2, ptr noundef nonnull @.str.985, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_DispInfoAscii_entries_, i32 noundef 2, ptr noundef nonnull @.str.985, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -7176,25 +7176,25 @@ define hidden i32 @samr_dissect_struct_PwInfo(ptr noundef %0, i32 noundef %1, pt
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_samr_samr_PwInfo, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_samr_samr_PwInfo_min_password_length, align 4
-  %20 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_samr_samr_PwInfo_password_properties, align 4
-  %22 = tail call i32 @samr_dissect_bitmap_PasswordProperties(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
+  %22 = tail call i32 @samr_dissect_bitmap_PasswordProperties(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #5
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -7306,28 +7306,28 @@ define hidden i32 @samr_dissect_struct_userPwdChangeFailureInformation(ptr nound
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.038 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %30 = load i32, ptr @ett_samr_userPwdChangeFailureInformation, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #5
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.038 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.037 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.037 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_samr_userPwdChangeFailureInformation_extendedFailureReason, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %34 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #5
+  %34 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %35 = load i32, ptr @hf_samr_userPwdChangeFailureInformation_filterModuleName, align 4
-  %36 = call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %35) #5
-  %37 = sub i32 %36, %.0
-  call void @proto_item_set_len(ptr noundef %.038, i32 noundef %37) #5
+  %36 = call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %35) #5
+  %37 = sub i32 %36, %.038
+  call void @proto_item_set_len(ptr noundef %.037, i32 noundef %37) #5
   %38 = load ptr, ptr %10, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 96
   %40 = load i32, ptr %39, align 8
@@ -7390,31 +7390,31 @@ define hidden i32 @samr_dissect_struct_ConnectInfo1(ptr noundef %0, i32 noundef 
   %or.cond = or i1 %.not32, %.not
   %14 = and i32 %1, -4
   %15 = add i32 %14, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %15
+  %.030 = select i1 %or.cond, i32 %1, i32 %15
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %20, label %16
 
 16:                                               ; preds = %8
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #5
   %18 = load i32, ptr @ett_samr_samr_ConnectInfo1, align 4
   %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #5
   br label %20
 
 20:                                               ; preds = %16, %8
-  %.030 = phi ptr [ %17, %16 ], [ null, %8 ]
-  %.029 = phi ptr [ %19, %16 ], [ null, %8 ]
+  %.029 = phi ptr [ %17, %16 ], [ null, %8 ]
+  %.0 = phi ptr [ %19, %16 ], [ null, %8 ]
   %21 = load i32, ptr @hf_samr_samr_ConnectInfo1_client_version, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 0, ptr %10, align 4
-  %22 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %10) #5
+  %22 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %23 = load i32, ptr @hf_samr_samr_ConnectInfo1_supported_features, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %24 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %9) #5
+  %24 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %25 = sub i32 %24, %.0
-  call void @proto_item_set_len(ptr noundef %.030, i32 noundef %25) #5
+  %25 = sub i32 %24, %.030
+  call void @proto_item_set_len(ptr noundef %.029, i32 noundef %25) #5
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 96
@@ -7568,25 +7568,25 @@ define hidden i32 @samr_dissect_struct_ValidationBlob(ptr noundef %0, i32 nounde
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_samr_samr_ValidationBlob, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_samr_samr_ValidationBlob_length, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_samr_samr_ValidationBlob_data, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_ValidationBlob_data_, i32 noundef 2, ptr noundef nonnull @.str.986, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_ValidationBlob_data_, i32 noundef 2, ptr noundef nonnull @.str.986, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -7623,35 +7623,35 @@ define hidden i32 @samr_dissect_struct_ValidatePasswordInfo(ptr noundef %0, i32 
   %or.cond = or i1 %.not62, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.060 = select i1 %or.cond, i32 %1, i32 %13
   %.not63 = icmp eq ptr %3, null
   br i1 %.not63, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.060, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_samr_samr_ValidatePasswordInfo, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.060 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.059 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.059 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_samr_samr_ValidatePasswordInfo_fields_present, align 4
-  %20 = tail call i32 @samr_dissect_bitmap_ValidateFieldsPresent(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %20 = tail call i32 @samr_dissect_bitmap_ValidateFieldsPresent(ptr noundef %0, i32 noundef %.060, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = load i32, ptr @hf_samr_samr_ValidatePasswordInfo_last_password_change, align 4
-  %22 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21) #5
+  %22 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21) #5
   %23 = load i32, ptr @hf_samr_samr_ValidatePasswordInfo_bad_password_time, align 4
-  %24 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23) #5
+  %24 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23) #5
   %25 = load i32, ptr @hf_samr_samr_ValidatePasswordInfo_lockout_time, align 4
-  %26 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25) #5
+  %26 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25) #5
   %27 = load i32, ptr @hf_samr_samr_ValidatePasswordInfo_bad_pwd_count, align 4
-  %28 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #5
+  %28 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #5
   %29 = load i32, ptr @hf_samr_samr_ValidatePasswordInfo_pwd_history_len, align 4
-  %30 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #5
+  %30 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #5
   %31 = load i32, ptr @hf_samr_samr_ValidatePasswordInfo_pwd_history, align 4
-  %32 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_ValidatePasswordInfo_pwd_history_, i32 noundef 2, ptr noundef nonnull @.str.987, i32 noundef %31) #5
-  %33 = sub i32 %32, %.0
-  tail call void @proto_item_set_len(ptr noundef %.060, i32 noundef %33) #5
+  %32 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @samr_dissect_element_ValidatePasswordInfo_pwd_history_, i32 noundef 2, ptr noundef nonnull @.str.987, i32 noundef %31) #5
+  %33 = sub i32 %32, %.060
+  tail call void @proto_item_set_len(ptr noundef %.059, i32 noundef %33) #5
   %34 = getelementptr inbounds i8, ptr %4, i64 72
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
@@ -7689,28 +7689,28 @@ define hidden i32 @samr_dissect_struct_ValidatePasswordRepCtr(ptr noundef %0, i3
   %or.cond = or i1 %.not32, %.not
   %13 = and i32 %1, -8
   %14 = add i32 %13, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %14
+  %.030 = select i1 %or.cond, i32 %1, i32 %14
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #5
   %17 = load i32, ptr @ett_samr_samr_ValidatePasswordRepCtr, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #5
   br label %19
 
 19:                                               ; preds = %15, %8
-  %.030 = phi ptr [ %16, %15 ], [ null, %8 ]
-  %.029 = phi ptr [ %18, %15 ], [ null, %8 ]
+  %.029 = phi ptr [ %16, %15 ], [ null, %8 ]
+  %.0 = phi ptr [ %18, %15 ], [ null, %8 ]
   %20 = load i32, ptr @hf_samr_samr_ValidatePasswordRepCtr_info, align 4
-  %21 = tail call i32 @samr_dissect_struct_ValidatePasswordInfo(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, i32 poison)
+  %21 = tail call i32 @samr_dissect_struct_ValidatePasswordInfo(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, i32 poison)
   %22 = load i32, ptr @hf_samr_samr_ValidatePasswordRepCtr_status, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %23 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %9) #5
+  %23 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %24 = sub i32 %23, %.0
-  call void @proto_item_set_len(ptr noundef %.030, i32 noundef %24) #5
+  %24 = sub i32 %23, %.030
+  call void @proto_item_set_len(ptr noundef %.029, i32 noundef %24) #5
   %25 = getelementptr inbounds i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 96
@@ -7747,33 +7747,33 @@ define hidden i32 @samr_dissect_struct_ValidatePasswordReq3(ptr noundef %0, i32 
   %or.cond = or i1 %.not56, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.054 = select i1 %or.cond, i32 %1, i32 %13
   %.not57 = icmp eq ptr %3, null
   br i1 %.not57, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.054, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_samr_samr_ValidatePasswordReq3, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.054 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.053 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.053 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_samr_samr_ValidatePasswordReq3_info, align 4
-  %20 = tail call i32 @samr_dissect_struct_ValidatePasswordInfo(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %20 = tail call i32 @samr_dissect_struct_ValidatePasswordInfo(ptr noundef %0, i32 noundef %.054, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = load i32, ptr @hf_samr_samr_ValidatePasswordReq3_password, align 4
-  %22 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %21) #5
+  %22 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %21) #5
   %23 = load i32, ptr @hf_samr_samr_ValidatePasswordReq3_account, align 4
-  %24 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %23) #5
+  %24 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %23) #5
   %25 = load i32, ptr @hf_samr_samr_ValidatePasswordReq3_hash, align 4
-  %26 = tail call i32 @samr_dissect_struct_ValidationBlob(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
+  %26 = tail call i32 @samr_dissect_struct_ValidationBlob(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
   %27 = load i32, ptr @hf_samr_samr_ValidatePasswordReq3_pwd_must_change_at_next_logon, align 4
-  %28 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #5
+  %28 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #5
   %29 = load i32, ptr @hf_samr_samr_ValidatePasswordReq3_clear_lockout, align 4
-  %30 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #5
-  %31 = sub i32 %30, %.0
-  tail call void @proto_item_set_len(ptr noundef %.054, i32 noundef %31) #5
+  %30 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #5
+  %31 = sub i32 %30, %.054
+  tail call void @proto_item_set_len(ptr noundef %.053, i32 noundef %31) #5
   %32 = getelementptr inbounds i8, ptr %4, i64 72
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 96
@@ -7810,31 +7810,31 @@ define hidden i32 @samr_dissect_struct_ValidatePasswordReq2(ptr noundef %0, i32 
   %or.cond = or i1 %.not50, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.048 = select i1 %or.cond, i32 %1, i32 %13
   %.not51 = icmp eq ptr %3, null
   br i1 %.not51, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.048, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_samr_samr_ValidatePasswordReq2, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.048 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.047 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.047 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_samr_samr_ValidatePasswordReq2_info, align 4
-  %20 = tail call i32 @samr_dissect_struct_ValidatePasswordInfo(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %20 = tail call i32 @samr_dissect_struct_ValidatePasswordInfo(ptr noundef %0, i32 noundef %.048, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = load i32, ptr @hf_samr_samr_ValidatePasswordReq2_password, align 4
-  %22 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %21) #5
+  %22 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %21) #5
   %23 = load i32, ptr @hf_samr_samr_ValidatePasswordReq2_account, align 4
-  %24 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %23) #5
+  %24 = tail call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %23) #5
   %25 = load i32, ptr @hf_samr_samr_ValidatePasswordReq2_hash, align 4
-  %26 = tail call i32 @samr_dissect_struct_ValidationBlob(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
+  %26 = tail call i32 @samr_dissect_struct_ValidationBlob(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
   %27 = load i32, ptr @hf_samr_samr_ValidatePasswordReq2_password_matched, align 4
-  %28 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #5
-  %29 = sub i32 %28, %.0
-  tail call void @proto_item_set_len(ptr noundef %.048, i32 noundef %29) #5
+  %28 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #5
+  %29 = sub i32 %28, %.048
+  tail call void @proto_item_set_len(ptr noundef %.047, i32 noundef %29) #5
   %30 = getelementptr inbounds i8, ptr %4, i64 72
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 96
@@ -7871,25 +7871,25 @@ define hidden i32 @samr_dissect_struct_ValidatePasswordReq1(ptr noundef %0, i32 
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_samr_samr_ValidatePasswordReq1, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_samr_samr_ValidatePasswordReq1_info, align 4
-  %20 = tail call i32 @samr_dissect_struct_ValidatePasswordInfo(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %20 = tail call i32 @samr_dissect_struct_ValidatePasswordInfo(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = load i32, ptr @hf_samr_samr_ValidatePasswordReq1_password_matched, align 4
-  %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
+  %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #5
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -11370,8 +11370,8 @@ define internal fastcc i32 @samr_dissect_DomainInfo(ptr noundef %0, i32 noundef 
   br label %13
 
 13:                                               ; preds = %10, %7
-  %.089 = phi ptr [ %12, %10 ], [ null, %7 ]
-  %14 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.089, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
+  %.0 = phi ptr [ %12, %10 ], [ null, %7 ]
+  %14 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not91 = icmp ne i32 %16, 0
@@ -11380,7 +11380,7 @@ define internal fastcc i32 @samr_dissect_DomainInfo(ptr noundef %0, i32 noundef 
   %or.cond = select i1 %.not91, i1 true, i1 %.not92
   %18 = and i32 %14, -8
   %19 = add i32 %18, 8
-  %.0 = select i1 %or.cond, i32 %14, i32 %19
+  %.089 = select i1 %or.cond, i32 %14, i32 %19
   %20 = load i16, ptr %9, align 2
   switch i16 %20, label %57 [
     i16 1, label %21
@@ -11399,66 +11399,66 @@ define internal fastcc i32 @samr_dissect_DomainInfo(ptr noundef %0, i32 noundef 
 
 21:                                               ; preds = %13
   %22 = load i32, ptr @hf_samr_samr_DomainInfo_info1, align 4
-  %23 = call i32 @samr_dissect_struct_DomInfo1(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
+  %23 = call i32 @samr_dissect_struct_DomInfo1(ptr noundef %0, i32 noundef %.089, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
   br label %57
 
 24:                                               ; preds = %13
   %25 = load i32, ptr @hf_samr_samr_DomainInfo_general, align 4
-  %26 = call i32 @samr_dissect_struct_DomGeneralInformation(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
+  %26 = call i32 @samr_dissect_struct_DomGeneralInformation(ptr noundef %0, i32 noundef %.089, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
   br label %57
 
 27:                                               ; preds = %13
   %28 = load i32, ptr @hf_samr_samr_DomainInfo_info3, align 4
-  %29 = call i32 @samr_dissect_struct_DomInfo3(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 poison)
+  %29 = call i32 @samr_dissect_struct_DomInfo3(ptr noundef %0, i32 noundef %.089, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 poison)
   br label %57
 
 30:                                               ; preds = %13
   %31 = load i32, ptr @hf_samr_samr_DomainInfo_oem, align 4
-  %32 = call i32 @samr_dissect_struct_DomOEMInformation(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 poison)
+  %32 = call i32 @samr_dissect_struct_DomOEMInformation(ptr noundef %0, i32 noundef %.089, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 poison)
   br label %57
 
 33:                                               ; preds = %13
   %34 = load i32, ptr @hf_samr_samr_DomainInfo_info5, align 4
-  %35 = call i32 @samr_dissect_struct_DomInfo5(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %35 = call i32 @samr_dissect_struct_DomInfo5(ptr noundef %0, i32 noundef %.089, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
   br label %57
 
 36:                                               ; preds = %13
   %37 = load i32, ptr @hf_samr_samr_DomainInfo_info6, align 4
-  %38 = call i32 @samr_dissect_struct_DomInfo6(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 poison)
+  %38 = call i32 @samr_dissect_struct_DomInfo6(ptr noundef %0, i32 noundef %.089, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 poison)
   br label %57
 
 39:                                               ; preds = %13
   %40 = load i32, ptr @hf_samr_samr_DomainInfo_info7, align 4
-  %41 = call i32 @samr_dissect_struct_DomInfo7(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 poison)
+  %41 = call i32 @samr_dissect_struct_DomInfo7(ptr noundef %0, i32 noundef %.089, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 poison)
   br label %57
 
 42:                                               ; preds = %13
   %43 = load i32, ptr @hf_samr_samr_DomainInfo_info8, align 4
-  %44 = call i32 @samr_dissect_struct_DomInfo8(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 poison)
+  %44 = call i32 @samr_dissect_struct_DomInfo8(ptr noundef %0, i32 noundef %.089, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 poison)
   br label %57
 
 45:                                               ; preds = %13
   %46 = load i32, ptr @hf_samr_samr_DomainInfo_info9, align 4
-  %47 = call i32 @samr_dissect_struct_DomInfo9(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 poison)
+  %47 = call i32 @samr_dissect_struct_DomInfo9(ptr noundef %0, i32 noundef %.089, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 poison)
   br label %57
 
 48:                                               ; preds = %13
   %49 = load i32, ptr @hf_samr_samr_DomainInfo_general2, align 4
-  %50 = call i32 @samr_dissect_struct_DomGeneralInformation2(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %49, i32 poison)
+  %50 = call i32 @samr_dissect_struct_DomGeneralInformation2(ptr noundef %0, i32 noundef %.089, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %49, i32 poison)
   br label %57
 
 51:                                               ; preds = %13
   %52 = load i32, ptr @hf_samr_samr_DomainInfo_info12, align 4
-  %53 = call i32 @samr_dissect_struct_DomInfo12(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 poison)
+  %53 = call i32 @samr_dissect_struct_DomInfo12(ptr noundef %0, i32 noundef %.089, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 poison)
   br label %57
 
 54:                                               ; preds = %13
   %55 = load i32, ptr @hf_samr_samr_DomainInfo_info13, align 4
-  %56 = call i32 @samr_dissect_struct_DomInfo13(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %55, i32 poison)
+  %56 = call i32 @samr_dissect_struct_DomInfo13(ptr noundef %0, i32 noundef %.089, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %55, i32 poison)
   br label %57
 
 57:                                               ; preds = %54, %51, %48, %45, %42, %39, %36, %33, %30, %27, %24, %21, %13
-  %.1 = phi i32 [ %.0, %13 ], [ %56, %54 ], [ %53, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.1 = phi i32 [ %.089, %13 ], [ %56, %54 ], [ %53, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
   %58 = load ptr, ptr %8, align 8
   %59 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %58, i32 noundef %59) #5
@@ -11805,8 +11805,8 @@ define internal fastcc i32 @samr_dissect_GroupInfo(ptr noundef %0, i32 noundef %
   br label %13
 
 13:                                               ; preds = %10, %7
-  %.051 = phi ptr [ %12, %10 ], [ null, %7 ]
-  %14 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.051, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
+  %.0 = phi ptr [ %12, %10 ], [ null, %7 ]
+  %14 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -11841,7 +11841,7 @@ define internal fastcc i32 @samr_dissect_GroupInfo(ptr noundef %0, i32 noundef %
   br label %32
 
 32:                                               ; preds = %27, %29, %22, %24
-  %.0 = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.051 = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %9, align 4
   switch i32 %33, label %49 [
     i32 1, label %34
@@ -11853,31 +11853,31 @@ define internal fastcc i32 @samr_dissect_GroupInfo(ptr noundef %0, i32 noundef %
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_samr_samr_GroupInfo_all, align 4
-  %36 = call i32 @samr_dissect_struct_GroupInfoAll(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.051, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @samr_dissect_struct_GroupInfoAll(ptr noundef %0, i32 noundef %.051, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %49
 
 37:                                               ; preds = %32
   %38 = load i32, ptr @hf_samr_samr_GroupInfo_name, align 4
-  %39 = call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.051, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %38) #5
+  %39 = call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.051, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %38) #5
   br label %49
 
 40:                                               ; preds = %32
   %41 = load i32, ptr @hf_samr_samr_GroupInfo_attributes, align 4
-  %42 = call i32 @samr_dissect_struct_GroupInfoAttributes(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.051, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 poison)
+  %42 = call i32 @samr_dissect_struct_GroupInfoAttributes(ptr noundef %0, i32 noundef %.051, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 poison)
   br label %49
 
 43:                                               ; preds = %32
   %44 = load i32, ptr @hf_samr_samr_GroupInfo_description, align 4
-  %45 = call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.051, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %44) #5
+  %45 = call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.051, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %44) #5
   br label %49
 
 46:                                               ; preds = %32
   %47 = load i32, ptr @hf_samr_samr_GroupInfo_all2, align 4
-  %48 = call i32 @samr_dissect_struct_GroupInfoAll(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.051, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %47, i32 poison)
+  %48 = call i32 @samr_dissect_struct_GroupInfoAll(ptr noundef %0, i32 noundef %.051, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %47, i32 poison)
   br label %49
 
 49:                                               ; preds = %46, %43, %40, %37, %34, %32
-  %.1 = phi i32 [ %.0, %32 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
+  %.1 = phi i32 [ %.051, %32 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
   %50 = load ptr, ptr %8, align 8
   %51 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %50, i32 noundef %51) #5
@@ -11996,8 +11996,8 @@ define internal fastcc i32 @samr_dissect_AliasInfo(ptr noundef %0, i32 noundef %
   br label %13
 
 13:                                               ; preds = %10, %7
-  %.039 = phi ptr [ %12, %10 ], [ null, %7 ]
-  %14 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.039, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
+  %.0 = phi ptr [ %12, %10 ], [ null, %7 ]
+  %14 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -12032,7 +12032,7 @@ define internal fastcc i32 @samr_dissect_AliasInfo(ptr noundef %0, i32 noundef %
   br label %32
 
 32:                                               ; preds = %27, %29, %22, %24
-  %.0 = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.039 = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %9, align 4
   switch i32 %33, label %43 [
     i32 1, label %34
@@ -12042,21 +12042,21 @@ define internal fastcc i32 @samr_dissect_AliasInfo(ptr noundef %0, i32 noundef %
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_samr_samr_AliasInfo_all, align 4
-  %36 = call i32 @samr_dissect_struct_AliasInfoAll(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.039, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @samr_dissect_struct_AliasInfoAll(ptr noundef %0, i32 noundef %.039, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %43
 
 37:                                               ; preds = %32
   %38 = load i32, ptr @hf_samr_samr_AliasInfo_name, align 4
-  %39 = call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.039, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %38) #5
+  %39 = call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.039, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %38) #5
   br label %43
 
 40:                                               ; preds = %32
   %41 = load i32, ptr @hf_samr_samr_AliasInfo_description, align 4
-  %42 = call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.039, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %41) #5
+  %42 = call i32 @dissect_ndr_lsa_String(ptr noundef %0, i32 noundef %.039, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 0, i32 noundef %41) #5
   br label %43
 
 43:                                               ; preds = %40, %37, %34, %32
-  %.1 = phi i32 [ %.0, %32 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
+  %.1 = phi i32 [ %.039, %32 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
   %44 = load ptr, ptr %8, align 8
   %45 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %44, i32 noundef %45) #5
@@ -12179,8 +12179,8 @@ define internal fastcc i32 @samr_dissect_UserInfo(ptr noundef %0, i32 noundef %1
   br label %13
 
 13:                                               ; preds = %10, %7
-  %.0167 = phi ptr [ %12, %10 ], [ null, %7 ]
-  %14 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0167, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
+  %.0 = phi ptr [ %12, %10 ], [ null, %7 ]
+  %14 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not169 = icmp ne i32 %16, 0
@@ -12189,7 +12189,7 @@ define internal fastcc i32 @samr_dissect_UserInfo(ptr noundef %0, i32 noundef %1
   %or.cond = select i1 %.not169, i1 true, i1 %.not170
   %18 = and i32 %14, -8
   %19 = add i32 %18, 8
-  %.0 = select i1 %or.cond, i32 %14, i32 %19
+  %.0167 = select i1 %or.cond, i32 %14, i32 %19
   %20 = load i16, ptr %9, align 2
   switch i16 %20, label %96 [
     i16 1, label %21
@@ -12221,131 +12221,131 @@ define internal fastcc i32 @samr_dissect_UserInfo(ptr noundef %0, i32 noundef %1
 
 21:                                               ; preds = %13
   %22 = load i32, ptr @hf_samr_samr_UserInfo_info1, align 4
-  %23 = call i32 @samr_dissect_struct_UserInfo1(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
+  %23 = call i32 @samr_dissect_struct_UserInfo1(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
   br label %96
 
 24:                                               ; preds = %13
   %25 = load i32, ptr @hf_samr_samr_UserInfo_info2, align 4
-  %26 = call i32 @samr_dissect_struct_UserInfo2(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
+  %26 = call i32 @samr_dissect_struct_UserInfo2(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
   br label %96
 
 27:                                               ; preds = %13
   %28 = load i32, ptr @hf_samr_samr_UserInfo_info3, align 4
-  %29 = call i32 @samr_dissect_struct_UserInfo3(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 poison)
+  %29 = call i32 @samr_dissect_struct_UserInfo3(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 poison)
   br label %96
 
 30:                                               ; preds = %13
   %31 = load i32, ptr @hf_samr_samr_UserInfo_info4, align 4
-  %32 = call i32 @samr_dissect_struct_UserInfo4(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 poison)
+  %32 = call i32 @samr_dissect_struct_UserInfo4(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 poison)
   br label %96
 
 33:                                               ; preds = %13
   %34 = load i32, ptr @hf_samr_samr_UserInfo_info5, align 4
-  %35 = call i32 @samr_dissect_struct_UserInfo5(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %35 = call i32 @samr_dissect_struct_UserInfo5(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
   br label %96
 
 36:                                               ; preds = %13
   %37 = load i32, ptr @hf_samr_samr_UserInfo_info6, align 4
-  %38 = call i32 @samr_dissect_struct_UserInfo6(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 poison)
+  %38 = call i32 @samr_dissect_struct_UserInfo6(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 poison)
   br label %96
 
 39:                                               ; preds = %13
   %40 = load i32, ptr @hf_samr_samr_UserInfo_info7, align 4
-  %41 = call i32 @samr_dissect_struct_UserInfo7(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 poison)
+  %41 = call i32 @samr_dissect_struct_UserInfo7(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 poison)
   br label %96
 
 42:                                               ; preds = %13
   %43 = load i32, ptr @hf_samr_samr_UserInfo_info8, align 4
-  %44 = call i32 @samr_dissect_struct_UserInfo8(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 poison)
+  %44 = call i32 @samr_dissect_struct_UserInfo8(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 poison)
   br label %96
 
 45:                                               ; preds = %13
   %46 = load i32, ptr @hf_samr_samr_UserInfo_info9, align 4
-  %47 = call i32 @samr_dissect_struct_UserInfo9(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 poison)
+  %47 = call i32 @samr_dissect_struct_UserInfo9(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 poison)
   br label %96
 
 48:                                               ; preds = %13
   %49 = load i32, ptr @hf_samr_samr_UserInfo_info10, align 4
-  %50 = call i32 @samr_dissect_struct_UserInfo10(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %49, i32 poison)
+  %50 = call i32 @samr_dissect_struct_UserInfo10(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %49, i32 poison)
   br label %96
 
 51:                                               ; preds = %13
   %52 = load i32, ptr @hf_samr_samr_UserInfo_info11, align 4
-  %53 = call i32 @samr_dissect_struct_UserInfo11(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 poison)
+  %53 = call i32 @samr_dissect_struct_UserInfo11(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 poison)
   br label %96
 
 54:                                               ; preds = %13
   %55 = load i32, ptr @hf_samr_samr_UserInfo_info12, align 4
-  %56 = call i32 @samr_dissect_struct_UserInfo12(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %55, i32 poison)
+  %56 = call i32 @samr_dissect_struct_UserInfo12(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %55, i32 poison)
   br label %96
 
 57:                                               ; preds = %13
   %58 = load i32, ptr @hf_samr_samr_UserInfo_info13, align 4
-  %59 = call i32 @samr_dissect_struct_UserInfo13(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, i32 poison)
+  %59 = call i32 @samr_dissect_struct_UserInfo13(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, i32 poison)
   br label %96
 
 60:                                               ; preds = %13
   %61 = load i32, ptr @hf_samr_samr_UserInfo_info14, align 4
-  %62 = call i32 @samr_dissect_struct_UserInfo14(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %61, i32 poison)
+  %62 = call i32 @samr_dissect_struct_UserInfo14(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %61, i32 poison)
   br label %96
 
 63:                                               ; preds = %13
   %64 = load i32, ptr @hf_samr_samr_UserInfo_info16, align 4
-  %65 = call i32 @samr_dissect_struct_UserInfo16(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, i32 poison)
+  %65 = call i32 @samr_dissect_struct_UserInfo16(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, i32 poison)
   br label %96
 
 66:                                               ; preds = %13
   %67 = load i32, ptr @hf_samr_samr_UserInfo_info17, align 4
-  %68 = call i32 @samr_dissect_struct_UserInfo17(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %67, i32 poison)
+  %68 = call i32 @samr_dissect_struct_UserInfo17(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %67, i32 poison)
   br label %96
 
 69:                                               ; preds = %13
   %70 = load i32, ptr @hf_samr_samr_UserInfo_info18, align 4
-  %71 = call i32 @samr_dissect_struct_UserInfo18(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %70, i32 poison)
+  %71 = call i32 @samr_dissect_struct_UserInfo18(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %70, i32 poison)
   br label %96
 
 72:                                               ; preds = %13
   %73 = load i32, ptr @hf_samr_samr_UserInfo_info20, align 4
-  %74 = call i32 @samr_dissect_struct_UserInfo20(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %73, i32 poison)
+  %74 = call i32 @samr_dissect_struct_UserInfo20(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %73, i32 poison)
   br label %96
 
 75:                                               ; preds = %13
   %76 = load i32, ptr @hf_samr_samr_UserInfo_info21, align 4
-  %77 = call i32 @samr_dissect_struct_UserInfo21(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %76, i32 poison)
+  %77 = call i32 @samr_dissect_struct_UserInfo21(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %76, i32 poison)
   br label %96
 
 78:                                               ; preds = %13
   %79 = load i32, ptr @hf_samr_samr_UserInfo_info23, align 4
-  %80 = call i32 @samr_dissect_struct_UserInfo23(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %79, i32 poison)
+  %80 = call i32 @samr_dissect_struct_UserInfo23(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %79, i32 poison)
   br label %96
 
 81:                                               ; preds = %13
   %82 = load i32, ptr @hf_samr_samr_UserInfo_info24, align 4
-  %83 = call i32 @samr_dissect_struct_UserInfo24(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %82, i32 poison)
+  %83 = call i32 @samr_dissect_struct_UserInfo24(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %82, i32 poison)
   br label %96
 
 84:                                               ; preds = %13
   %85 = load i32, ptr @hf_samr_samr_UserInfo_info25, align 4
-  %86 = call i32 @samr_dissect_struct_UserInfo25(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %85, i32 poison)
+  %86 = call i32 @samr_dissect_struct_UserInfo25(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %85, i32 poison)
   br label %96
 
 87:                                               ; preds = %13
   %88 = load i32, ptr @hf_samr_samr_UserInfo_info26, align 4
-  %89 = call i32 @samr_dissect_struct_UserInfo26(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %88, i32 poison)
+  %89 = call i32 @samr_dissect_struct_UserInfo26(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %88, i32 poison)
   br label %96
 
 90:                                               ; preds = %13
   %91 = load i32, ptr @hf_samr_samr_UserInfo_info31, align 4
-  %92 = call i32 @samr_dissect_struct_UserInfo31(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %91, i32 poison)
+  %92 = call i32 @samr_dissect_struct_UserInfo31(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %91, i32 poison)
   br label %96
 
 93:                                               ; preds = %13
   %94 = load i32, ptr @hf_samr_samr_UserInfo_info32, align 4
-  %95 = call i32 @samr_dissect_struct_UserInfo32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0167, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %94, i32 poison)
+  %95 = call i32 @samr_dissect_struct_UserInfo32(ptr noundef %0, i32 noundef %.0167, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %94, i32 poison)
   br label %96
 
 96:                                               ; preds = %93, %90, %87, %84, %81, %78, %75, %72, %69, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39, %36, %33, %30, %27, %24, %21, %13
-  %.1 = phi i32 [ %.0, %13 ], [ %95, %93 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %59, %57 ], [ %56, %54 ], [ %53, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.1 = phi i32 [ %.0167, %13 ], [ %95, %93 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ], [ %59, %57 ], [ %56, %54 ], [ %53, %51 ], [ %50, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
   %97 = load ptr, ptr %8, align 8
   %98 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %97, i32 noundef %98) #5
@@ -12628,8 +12628,8 @@ define internal fastcc i32 @samr_dissect_DispInfo(ptr noundef %0, i32 noundef %1
   br label %13
 
 13:                                               ; preds = %10, %7
-  %.051 = phi ptr [ %12, %10 ], [ null, %7 ]
-  %14 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.051, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
+  %.0 = phi ptr [ %12, %10 ], [ null, %7 ]
+  %14 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -12664,7 +12664,7 @@ define internal fastcc i32 @samr_dissect_DispInfo(ptr noundef %0, i32 noundef %1
   br label %32
 
 32:                                               ; preds = %27, %29, %22, %24
-  %.0 = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.051 = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i16, ptr %9, align 2
   switch i16 %33, label %49 [
     i16 1, label %34
@@ -12676,31 +12676,31 @@ define internal fastcc i32 @samr_dissect_DispInfo(ptr noundef %0, i32 noundef %1
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_samr_samr_DispInfo_info1, align 4
-  %36 = call i32 @samr_dissect_struct_DispInfoGeneral(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.051, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @samr_dissect_struct_DispInfoGeneral(ptr noundef %0, i32 noundef %.051, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %49
 
 37:                                               ; preds = %32
   %38 = load i32, ptr @hf_samr_samr_DispInfo_info2, align 4
-  %39 = call i32 @samr_dissect_struct_DispInfoFull(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.051, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
+  %39 = call i32 @samr_dissect_struct_DispInfoFull(ptr noundef %0, i32 noundef %.051, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
   br label %49
 
 40:                                               ; preds = %32
   %41 = load i32, ptr @hf_samr_samr_DispInfo_info3, align 4
-  %42 = call i32 @samr_dissect_struct_DispInfoFullGroups(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.051, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 poison)
+  %42 = call i32 @samr_dissect_struct_DispInfoFullGroups(ptr noundef %0, i32 noundef %.051, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 poison)
   br label %49
 
 43:                                               ; preds = %32
   %44 = load i32, ptr @hf_samr_samr_DispInfo_info4, align 4
-  %45 = call i32 @samr_dissect_struct_DispInfoAscii(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.051, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 poison)
+  %45 = call i32 @samr_dissect_struct_DispInfoAscii(ptr noundef %0, i32 noundef %.051, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 poison)
   br label %49
 
 46:                                               ; preds = %32
   %47 = load i32, ptr @hf_samr_samr_DispInfo_info5, align 4
-  %48 = call i32 @samr_dissect_struct_DispInfoAscii(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.051, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %47, i32 poison)
+  %48 = call i32 @samr_dissect_struct_DispInfoAscii(ptr noundef %0, i32 noundef %.051, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %47, i32 poison)
   br label %49
 
 49:                                               ; preds = %46, %43, %40, %37, %34, %32
-  %.1 = phi i32 [ %.0, %32 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
+  %.1 = phi i32 [ %.051, %32 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
   %50 = load ptr, ptr %8, align 8
   %51 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %50, i32 noundef %51) #5
@@ -13504,8 +13504,8 @@ define internal fastcc i32 @samr_dissect_ConnectInfo(ptr noundef %0, i32 noundef
   br label %13
 
 13:                                               ; preds = %10, %7
-  %.023 = phi ptr [ %12, %10 ], [ null, %7 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.023, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
+  %.0 = phi ptr [ %12, %10 ], [ null, %7 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not25 = icmp ne i32 %16, 0
@@ -13514,18 +13514,18 @@ define internal fastcc i32 @samr_dissect_ConnectInfo(ptr noundef %0, i32 noundef
   %or.cond = select i1 %.not25, i1 true, i1 %.not26
   %18 = and i32 %14, -4
   %19 = add i32 %18, 4
-  %.0 = select i1 %or.cond, i32 %14, i32 %19
+  %.023 = select i1 %or.cond, i32 %14, i32 %19
   %20 = load i32, ptr %9, align 4
   %cond = icmp eq i32 %20, 1
   br i1 %cond, label %21, label %24
 
 21:                                               ; preds = %13
   %22 = load i32, ptr @hf_samr_samr_ConnectInfo_info1, align 4
-  %23 = call i32 @samr_dissect_struct_ConnectInfo1(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
+  %23 = call i32 @samr_dissect_struct_ConnectInfo1(ptr noundef %0, i32 noundef %.023, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
   br label %24
 
 24:                                               ; preds = %13, %21
-  %.1 = phi i32 [ %23, %21 ], [ %.0, %13 ]
+  %.1 = phi i32 [ %23, %21 ], [ %.023, %13 ]
   %25 = load ptr, ptr %8, align 8
   %26 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %25, i32 noundef %26) #5
@@ -13629,8 +13629,8 @@ define internal i32 @samr_dissect_element_ValidatePassword_req_(ptr noundef %0, 
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.035.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.035.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not37.i = icmp ne i32 %16, 0
@@ -13639,7 +13639,7 @@ define internal i32 @samr_dissect_element_ValidatePassword_req_(ptr noundef %0, 
   %or.cond.i = select i1 %.not37.i, i1 true, i1 %.not38.i
   %18 = and i32 %14, -8
   %19 = add i32 %18, 8
-  %.0.i = select i1 %or.cond.i, i32 %14, i32 %19
+  %.035.i = select i1 %or.cond.i, i32 %14, i32 %19
   %20 = load i16, ptr %8, align 2
   switch i16 %20, label %samr_dissect_ValidatePasswordReq.exit [
     i16 1, label %21
@@ -13649,21 +13649,21 @@ define internal i32 @samr_dissect_element_ValidatePassword_req_(ptr noundef %0, 
 
 21:                                               ; preds = %13
   %22 = load i32, ptr @hf_samr_samr_ValidatePasswordReq_req1, align 4
-  %23 = call i32 @samr_dissect_struct_ValidatePasswordReq1(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.035.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
+  %23 = call i32 @samr_dissect_struct_ValidatePasswordReq1(ptr noundef %0, i32 noundef %.035.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
   br label %samr_dissect_ValidatePasswordReq.exit
 
 24:                                               ; preds = %13
   %25 = load i32, ptr @hf_samr_samr_ValidatePasswordReq_req2, align 4
-  %26 = call i32 @samr_dissect_struct_ValidatePasswordReq2(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.035.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
+  %26 = call i32 @samr_dissect_struct_ValidatePasswordReq2(ptr noundef %0, i32 noundef %.035.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
   br label %samr_dissect_ValidatePasswordReq.exit
 
 27:                                               ; preds = %13
   %28 = load i32, ptr @hf_samr_samr_ValidatePasswordReq_req3, align 4
-  %29 = call i32 @samr_dissect_struct_ValidatePasswordReq3(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.035.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 poison)
+  %29 = call i32 @samr_dissect_struct_ValidatePasswordReq3(ptr noundef %0, i32 noundef %.035.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 poison)
   br label %samr_dissect_ValidatePasswordReq.exit
 
 samr_dissect_ValidatePasswordReq.exit:            ; preds = %13, %21, %24, %27
-  %.1.i = phi i32 [ %.0.i, %13 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.1.i = phi i32 [ %.035.i, %13 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
   %30 = load ptr, ptr %7, align 8
   %31 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %30, i32 noundef %31) #5
@@ -13696,8 +13696,8 @@ define internal i32 @samr_dissect_element_ValidatePassword_rep__(ptr noundef %0,
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.035.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.035.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not37.i = icmp ne i32 %16, 0
@@ -13706,7 +13706,7 @@ define internal i32 @samr_dissect_element_ValidatePassword_rep__(ptr noundef %0,
   %or.cond.i = select i1 %.not37.i, i1 true, i1 %.not38.i
   %18 = and i32 %14, -8
   %19 = add i32 %18, 8
-  %.0.i = select i1 %or.cond.i, i32 %14, i32 %19
+  %.035.i = select i1 %or.cond.i, i32 %14, i32 %19
   %20 = load i16, ptr %8, align 2
   %switch.tableidx = add i16 %20, -1
   %21 = icmp ult i16 %switch.tableidx, 3
@@ -13717,11 +13717,11 @@ switch.lookup:                                    ; preds = %13
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.samr_dissect_element_ValidatePassword_rep__, i64 0, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   %23 = load i32, ptr %switch.load, align 4
-  %24 = call i32 @samr_dissect_struct_ValidatePasswordRepCtr(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.035.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 poison)
+  %24 = call i32 @samr_dissect_struct_ValidatePasswordRepCtr(ptr noundef %0, i32 noundef %.035.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 poison)
   br label %samr_dissect_ValidatePasswordRep.exit
 
 samr_dissect_ValidatePasswordRep.exit:            ; preds = %13, %switch.lookup
-  %.1.i = phi i32 [ %.0.i, %13 ], [ %24, %switch.lookup ]
+  %.1.i = phi i32 [ %.035.i, %13 ], [ %24, %switch.lookup ]
   %25 = load ptr, ptr %7, align 8
   %26 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %25, i32 noundef %26) #5

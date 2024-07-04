@@ -122,18 +122,18 @@ define void @Extra_BitMatrixPrint(ptr nocapture noundef %0) local_unnamed_addr #
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %indvars.iv = phi i32 [ 1, %.preheader.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %.022 = phi i32 [ 0, %.preheader.lr.ph ], [ %11, %._crit_edge ]
+  %.01322 = phi i32 [ 0, %.preheader.lr.ph ], [ %11, %._crit_edge ]
   br label %8
 
 8:                                                ; preds = %.preheader, %8
-  %.01320 = phi i32 [ 0, %.preheader ], [ %9, %8 ]
+  %.020 = phi i32 [ 0, %.preheader ], [ %9, %8 ]
   %putchar19 = tail call i32 @putchar(i32 32)
-  %9 = add nuw nsw i32 %.01320, 1
+  %9 = add nuw nsw i32 %.020, 1
   %exitcond.not = icmp eq i32 %9, %indvars.iv
   br i1 %exitcond.not, label %10, label %8, !llvm.loop !6
 
 10:                                               ; preds = %8
-  %11 = add nuw nsw i32 %.022, 1
+  %11 = add nuw nsw i32 %.01322, 1
   %12 = icmp slt i32 %11, %3
   br i1 %12, label %.lr.ph, label %._crit_edge
 
@@ -145,8 +145,8 @@ define void @Extra_BitMatrixPrint(ptr nocapture noundef %0) local_unnamed_addr #
   %15 = load ptr, ptr %0, align 8
   %16 = load i32, ptr %6, align 8
   %17 = load i32, ptr %7, align 4
-  %..i = tail call i32 @llvm.smin.i32(i32 %.022, i32 %.121)
-  %.26.i = tail call i32 @llvm.smax.i32(i32 %.022, i32 %.121)
+  %..i = tail call i32 @llvm.smin.i32(i32 %.01322, i32 %.121)
+  %.26.i = tail call i32 @llvm.smax.i32(i32 %.01322, i32 %.121)
   %18 = zext nneg i32 %..i to i64
   %19 = getelementptr inbounds ptr, ptr %15, i64 %18
   %20 = load ptr, ptr %19, align 8

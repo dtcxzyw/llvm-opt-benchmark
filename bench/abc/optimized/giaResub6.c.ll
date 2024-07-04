@@ -1437,8 +1437,8 @@ define i32 @Res6_FindBestDiv(ptr nocapture noundef readonly %0, ptr noundef writ
 
 9:                                                ; preds = %.lr.ph, %Res6_FindGetCost.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Res6_FindGetCost.exit ]
-  %.01422 = phi i32 [ 1000000000, %.lr.ph ], [ %spec.select20, %Res6_FindGetCost.exit ]
-  %.01521 = phi i32 [ -1, %.lr.ph ], [ %spec.select, %Res6_FindGetCost.exit ]
+  %.023 = phi i32 [ 1000000000, %.lr.ph ], [ %spec.select20, %Res6_FindGetCost.exit ]
+  %.01422 = phi i32 [ -1, %.lr.ph ], [ %spec.select, %Res6_FindGetCost.exit ]
   %10 = load i32, ptr %6, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph.i, label %Res6_FindGetCost.exit
@@ -1499,9 +1499,9 @@ Res6_FindGetCost.exit:                            ; preds = %23, %9
   %.0.lcssa.i = phi i32 [ 0, %9 ], [ %53, %23 ]
   %.pre-phi = trunc i64 %indvars.iv to i32
   %54 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %.pre-phi, i32 noundef %.0.lcssa.i)
-  %.not19 = icmp slt i32 %.01422, %.0.lcssa.i
-  %spec.select = select i1 %.not19, i32 %.01521, i32 %.pre-phi
-  %spec.select20 = tail call i32 @llvm.smin.i32(i32 %.01422, i32 %.0.lcssa.i)
+  %.not19 = icmp slt i32 %.023, %.0.lcssa.i
+  %spec.select = select i1 %.not19, i32 %.01422, i32 %.pre-phi
+  %spec.select20 = tail call i32 @llvm.smin.i32(i32 %.023, i32 %.0.lcssa.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %3, align 4
   %56 = shl nsw i32 %55, 1
@@ -1510,17 +1510,17 @@ Res6_FindGetCost.exit:                            ; preds = %23, %9
   br i1 %58, label %9, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %Res6_FindGetCost.exit, %2
-  %.015.lcssa = phi i32 [ -1, %2 ], [ %spec.select, %Res6_FindGetCost.exit ]
-  %.014.lcssa = phi i32 [ 1000000000, %2 ], [ %spec.select20, %Res6_FindGetCost.exit ]
+  %.014.lcssa = phi i32 [ -1, %2 ], [ %spec.select, %Res6_FindGetCost.exit ]
+  %.0.lcssa = phi i32 [ 1000000000, %2 ], [ %spec.select20, %Res6_FindGetCost.exit ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %60, label %59
 
 59:                                               ; preds = %._crit_edge
-  store i32 %.014.lcssa, ptr %1, align 4
+  store i32 %.0.lcssa, ptr %1, align 4
   br label %60
 
 60:                                               ; preds = %59, %._crit_edge
-  ret i32 %.015.lcssa
+  ret i32 %.014.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

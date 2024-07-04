@@ -468,17 +468,17 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end4
-  %offset.addr.012 = phi i64 [ %offset, %while.body.lr.ph ], [ %add, %if.end4 ]
-  %qiov_offset.addr.011 = phi i64 [ %qiov_offset, %while.body.lr.ph ], [ %add5, %if.end4 ]
-  %bytes.addr.010 = phi i64 [ %bytes, %while.body.lr.ph ], [ %sub, %if.end4 ]
-  %call = call ptr @cbw_snapshot_read_lock(ptr noundef %bs, i64 noundef %offset.addr.012, i64 noundef %bytes.addr.010, ptr noundef nonnull %cur_bytes, ptr noundef nonnull %file)
+  %qiov_offset.addr.012 = phi i64 [ %qiov_offset, %while.body.lr.ph ], [ %add5, %if.end4 ]
+  %bytes.addr.011 = phi i64 [ %bytes, %while.body.lr.ph ], [ %sub, %if.end4 ]
+  %offset.addr.010 = phi i64 [ %offset, %while.body.lr.ph ], [ %add, %if.end4 ]
+  %call = call ptr @cbw_snapshot_read_lock(ptr noundef %bs, i64 noundef %offset.addr.010, i64 noundef %bytes.addr.011, ptr noundef nonnull %cur_bytes, ptr noundef nonnull %file)
   %tobool1.not = icmp eq ptr %call, null
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %while.body
   %0 = load ptr, ptr %file, align 8
   %1 = load i64, ptr %cur_bytes, align 8
-  %call2 = call i32 @bdrv_co_preadv_part(ptr noundef %0, i64 noundef %offset.addr.012, i64 noundef %1, ptr noundef %qiov, i64 noundef %qiov_offset.addr.011, i32 noundef 0) #7
+  %call2 = call i32 @bdrv_co_preadv_part(ptr noundef %0, i64 noundef %offset.addr.010, i64 noundef %1, ptr noundef %qiov, i64 noundef %qiov_offset.addr.012, i32 noundef 0) #7
   %2 = load ptr, ptr %opaque.i, align 8
   %3 = load i64, ptr %call, align 8
   %cmp.i = icmp eq i64 %3, -1
@@ -508,9 +508,9 @@ cbw_snapshot_read_unlock.exit:                    ; preds = %if.then.i, %glib_au
 
 if.end4:                                          ; preds = %cbw_snapshot_read_unlock.exit
   %5 = load i64, ptr %cur_bytes, align 8
-  %sub = sub i64 %bytes.addr.010, %5
-  %add = add i64 %5, %offset.addr.012
-  %add5 = add i64 %5, %qiov_offset.addr.011
+  %sub = sub i64 %bytes.addr.011, %5
+  %add = add i64 %5, %offset.addr.010
+  %add5 = add i64 %5, %qiov_offset.addr.012
   %tobool.not = icmp eq i64 %sub, 0
   br i1 %tobool.not, label %return, label %while.body, !llvm.loop !5
 

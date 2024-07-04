@@ -1683,8 +1683,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %106, label %27, label %.critedge, !llvm.loop !21
 
 .critedge:                                        ; preds = %101, %.preheader, %4
-  %.036 = phi float [ %19, %4 ], [ %19, %.preheader ], [ %.2, %101 ]
-  ret float %.036
+  %.037 = phi float [ %19, %4 ], [ %19, %.preheader ], [ %.2, %101 ]
+  ret float %.037
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)

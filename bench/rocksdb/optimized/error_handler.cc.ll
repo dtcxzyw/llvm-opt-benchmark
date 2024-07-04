@@ -3522,8 +3522,8 @@ if.end105:                                        ; preds = %invoke.cont66
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont100.invoke, %invoke.cont82, %if.then.i48, %if.then76, %if.end105
-  %resume_count.1 = phi i32 [ %dec, %if.end105 ], [ %resume_count.0, %if.then76 ], [ %resume_count.0, %if.then.i48 ], [ %resume_count.0, %invoke.cont82 ], [ %resume_count.0, %invoke.cont100.invoke ]
   %cond = phi i1 [ true, %if.end105 ], [ false, %if.then76 ], [ false, %if.then.i48 ], [ false, %invoke.cont82 ], [ false, %invoke.cont100.invoke ]
+  %resume_count.1 = phi i32 [ %dec, %if.end105 ], [ %resume_count.0, %if.then76 ], [ %resume_count.0, %if.then.i48 ], [ %resume_count.0, %invoke.cont82 ], [ %resume_count.0, %invoke.cont100.invoke ]
   %42 = load ptr, ptr %state_.i61, align 8
   %cmp.not.i.i62 = icmp eq ptr %42, null
   br i1 %cmp.not.i.i62, label %_ZN7rocksdb6StatusD2Ev.exit64, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i63

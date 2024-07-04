@@ -490,8 +490,8 @@ valid_ctrl_field.exit.thread:                     ; preds = %25, %28, %valid_ctr
   br label %dissect_zvt_serial.exit
 
 dissect_zvt_serial.exit:                          ; preds = %51, %62
-  %.027 = phi i32 [ %63, %62 ], [ %61, %51 ]
-  %64 = icmp slt i32 %.027, 0
+  %.026 = phi i32 [ %63, %62 ], [ %61, %51 ]
+  %64 = icmp slt i32 %.026, 0
   br i1 %64, label %dissect_zvt_serial.exit.thread, label %dissect_zvt_serial.exit.thread33
 
 dissect_zvt_serial.exit.thread:                   ; preds = %46, %dissect_zvt_serial.exit
@@ -499,13 +499,13 @@ dissect_zvt_serial.exit.thread:                   ; preds = %46, %dissect_zvt_se
   br label %dissect_zvt_serial.exit.thread33
 
 dissect_zvt_serial.exit.thread33:                 ; preds = %41, %dissect_zvt_serial.exit.thread, %dissect_zvt_serial.exit
-  %.1 = phi i32 [ %65, %dissect_zvt_serial.exit.thread ], [ %.027, %dissect_zvt_serial.exit ], [ 1, %41 ]
+  %.1 = phi i32 [ %65, %dissect_zvt_serial.exit.thread ], [ %.026, %dissect_zvt_serial.exit ], [ 1, %41 ]
   tail call void @proto_item_set_len(ptr noundef %38, i32 noundef %.1) #5
   br label %66
 
 66:                                               ; preds = %22, %valid_ctrl_field.exit, %dissect_zvt_serial.exit.thread33
-  %.026 = phi i32 [ %.1, %dissect_zvt_serial.exit.thread33 ], [ 0, %valid_ctrl_field.exit ], [ 0, %22 ]
-  ret i32 %.026
+  %.027 = phi i32 [ %.1, %dissect_zvt_serial.exit.thread33 ], [ 0, %valid_ctrl_field.exit ], [ 0, %22 ]
+  ret i32 %.027
 }
 
 ; Function Attrs: nounwind uwtable
@@ -981,20 +981,20 @@ define internal fastcc i32 @dissect_zvt_tlv_seq(ptr noundef %0, i32 noundef %1, 
   br label %12
 
 12:                                               ; preds = %8, %6
-  %.041 = phi ptr [ %5, %6 ], [ %11, %8 ]
+  %.040 = phi ptr [ %5, %6 ], [ %11, %8 ]
   %13 = zext i16 %2 to i32
   %.not74 = icmp eq i16 %2, 0
   br i1 %.not74, label %dissect_zvt_tlv_tag.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %.backedge
   %14 = phi i32 [ %76, %.backedge ], [ 0, %12 ]
-  %.04072 = phi i32 [ %.040.be, %.backedge ], [ %1, %12 ]
+  %.04172 = phi i32 [ %.041.be, %.backedge ], [ %1, %12 ]
   %.071 = phi i16 [ %.163, %.backedge ], [ 0, %12 ]
   %15 = load i32, ptr @ett_zvt_tlv_dat_obj, align 4
-  %16 = call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %0, i32 noundef %.04072, i32 noundef -1, i32 noundef %15, ptr noundef nonnull %7, ptr noundef nonnull @.str.175) #5
-  %17 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.04072) #5
+  %16 = call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %0, i32 noundef %.04172, i32 noundef -1, i32 noundef %15, ptr noundef nonnull %7, ptr noundef nonnull @.str.175) #5
+  %17 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.04172) #5
   %18 = zext i8 %17 to i32
-  %19 = add i32 %.04072, 1
+  %19 = add i32 %.04172, 1
   %20 = and i32 %18, 31
   %21 = icmp eq i32 %20, 31
   br i1 %21, label %.preheader.i, label %dissect_zvt_tlv_tag.exit
@@ -1002,7 +1002,7 @@ define internal fastcc i32 @dissect_zvt_tlv_seq(ptr noundef %0, i32 noundef %1, 
 .preheader.i:                                     ; preds = %.lr.ph, %24
   %.035.i = phi i32 [ %29, %24 ], [ %18, %.lr.ph ]
   %.034.i = phi i32 [ %30, %24 ], [ %19, %.lr.ph ]
-  %22 = sub i32 %.034.i, %.04072
+  %22 = sub i32 %.034.i, %.04172
   %23 = icmp ugt i32 %22, 4
   br i1 %23, label %dissect_zvt_tlv_tag.exit.thread, label %24
 
@@ -1020,15 +1020,15 @@ dissect_zvt_tlv_tag.exit:                         ; preds = %24, %.lr.ph
   %.136.i = phi i32 [ %18, %.lr.ph ], [ %29, %24 ]
   %.1.i = phi i32 [ %19, %.lr.ph ], [ %30, %24 ]
   %31 = load i32, ptr @hf_zvt_tlv_tag, align 4
-  %32 = sub i32 %.1.i, %.04072
+  %32 = sub i32 %.1.i, %.04172
   %33 = call ptr @val_to_str_ext_const(i32 noundef %.136.i, ptr noundef nonnull @tlv_tags_ext, ptr noundef nonnull @.str.174) #5
-  %34 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %16, i32 noundef %31, ptr noundef %0, i32 noundef %.04072, i32 noundef %32, i32 noundef %.136.i, ptr noundef nonnull @.str.176, ptr noundef %33, i32 noundef %.136.i) #5
+  %34 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %16, i32 noundef %31, ptr noundef %0, i32 noundef %.04172, i32 noundef %32, i32 noundef %.136.i, ptr noundef nonnull @.str.176, ptr noundef %33, i32 noundef %.136.i) #5
   %35 = load i32, ptr @ett_zvt_tlv_tag, align 4
   %36 = call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35) #5
   %37 = load i32, ptr @hf_zvt_tlv_tag_class, align 4
-  %38 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %0, i32 noundef %.04072, i32 noundef 1, i32 noundef 0) #5
+  %38 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %0, i32 noundef %.04172, i32 noundef 1, i32 noundef 0) #5
   %39 = load i32, ptr @hf_zvt_tlv_tag_type, align 4
-  %40 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %39, ptr noundef %0, i32 noundef %.04072, i32 noundef 1, i32 noundef 0) #5
+  %40 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %39, ptr noundef %0, i32 noundef %.04172, i32 noundef 1, i32 noundef 0) #5
   %41 = icmp slt i32 %32, 1
   br i1 %41, label %dissect_zvt_tlv_tag.exit.thread, label %42
 
@@ -1096,7 +1096,7 @@ dissect_zvt_tlv_len.exit:                         ; preds = %.dissect_zvt_tlv_le
   br i1 %.not50, label %74, label %72
 
 72:                                               ; preds = %69
-  %73 = call i32 %71(ptr noundef %0, i32 noundef %59, i32 noundef %.pre-phi, ptr noundef %3, ptr noundef %16, ptr noundef nonnull %.041) #5
+  %73 = call i32 %71(ptr noundef %0, i32 noundef %59, i32 noundef %.pre-phi, ptr noundef %3, ptr noundef %16, ptr noundef nonnull %.040) #5
   br label %74
 
 74:                                               ; preds = %72, %69, %64
@@ -1104,8 +1104,8 @@ dissect_zvt_tlv_len.exit:                         ; preds = %.dissect_zvt_tlv_le
   br label %.backedge
 
 .backedge:                                        ; preds = %74, %dissect_zvt_tlv_len.exit
-  %.040.be = phi i32 [ %59, %dissect_zvt_tlv_len.exit ], [ %75, %74 ]
-  %76 = sub i32 %.040.be, %1
+  %.041.be = phi i32 [ %59, %dissect_zvt_tlv_len.exit ], [ %75, %74 ]
+  %76 = sub i32 %.041.be, %1
   %77 = icmp slt i32 %76, %13
   br i1 %77, label %.lr.ph, label %dissect_zvt_tlv_tag.exit.thread, !llvm.loop !10
 
@@ -1195,11 +1195,11 @@ declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_zvt_apdu(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_zvt_apdu(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1) #5
   %7 = icmp slt i32 %6, 3
-  br i1 %7, label %157, label %8
+  br i1 %7, label %155, label %8
 
 8:                                                ; preds = %4
   %9 = add nuw nsw i32 %1, 2
@@ -1214,14 +1214,14 @@ define internal fastcc noundef i32 @dissect_zvt_apdu(ptr noundef %0, i32 noundef
   br label %16
 
 16:                                               ; preds = %13, %8
-  %.0106 = phi i16 [ %15, %13 ], [ %11, %8 ]
   %.0105 = phi i32 [ 3, %13 ], [ 1, %8 ]
+  %.0103 = phi i16 [ %15, %13 ], [ %11, %8 ]
   %17 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1) #5
   %18 = add nuw nsw i32 %.0105, 2
-  %19 = zext i16 %.0106 to i32
+  %19 = zext i16 %.0103 to i32
   %20 = add nuw nsw i32 %18, %19
   %21 = icmp slt i32 %17, %20
-  br i1 %21, label %157, label %22
+  br i1 %21, label %155, label %22
 
 22:                                               ; preds = %16
   %23 = load i32, ptr @ett_zvt_apdu, align 4
@@ -1356,10 +1356,10 @@ define internal fastcc noundef i32 @dissect_zvt_apdu(ptr noundef %0, i32 noundef
   br label %.critedge
 
 .critedge:                                        ; preds = %88, %85, %82, %53, %50, %46, %26, %92, %79, %75, %70, %44
-  %.0107 = phi i16 [ 0, %44 ], [ %58, %79 ], [ %58, %75 ], [ %58, %70 ], [ %58, %92 ], [ 0, %26 ], [ 0, %46 ], [ 0, %50 ], [ 0, %53 ], [ %58, %82 ], [ %58, %85 ], [ %58, %88 ]
+  %.0104 = phi i16 [ 0, %44 ], [ %58, %79 ], [ %58, %75 ], [ %58, %70 ], [ %58, %92 ], [ 0, %26 ], [ 0, %46 ], [ 0, %50 ], [ 0, %53 ], [ %58, %82 ], [ %58, %85 ], [ %58, %88 ]
   %.0 = phi ptr [ %39, %44 ], [ %74, %79 ], [ %74, %75 ], [ null, %70 ], [ %94, %92 ], [ null, %26 ], [ %39, %46 ], [ %39, %50 ], [ %39, %53 ], [ %74, %82 ], [ %74, %85 ], [ %74, %88 ]
   %100 = load ptr, ptr @apdu_table, align 8
-  %101 = zext i16 %.0107 to i64
+  %101 = zext i16 %.0104 to i64
   %102 = inttoptr i64 %101 to ptr
   %103 = call ptr @g_hash_table_lookup(ptr noundef %100, ptr noundef %102) #5
   %104 = load i32, ptr @hf_zvt_len, align 4
@@ -1448,7 +1448,7 @@ define internal fastcc noundef i32 @dissect_zvt_apdu(ptr noundef %0, i32 noundef
   br label %zvt_set_addresses.exit
 
 zvt_set_addresses.exit:                           ; preds = %112, %114, %126, %134, %.thread.sink.split.i
-  %.not122 = icmp eq i16 %.0106, 0
+  %.not122 = icmp eq i16 %.0103, 0
   br i1 %.not122, label %153, label %145
 
 145:                                              ; preds = %zvt_set_addresses.exit
@@ -1461,7 +1461,7 @@ zvt_set_addresses.exit:                           ; preds = %112, %114, %126, %1
   br i1 %.not123, label %150, label %149
 
 149:                                              ; preds = %146
-  call void %148(ptr noundef %0, i32 noundef %113, i16 noundef zeroext %.0106, ptr noundef nonnull %2, ptr noundef %24, ptr noundef %.0) #5
+  call void %148(ptr noundef %0, i32 noundef %113, i16 noundef zeroext %.0103, ptr noundef nonnull %2, ptr noundef %24, ptr noundef %.0) #5
   br label %153
 
 150:                                              ; preds = %146, %145
@@ -1471,14 +1471,12 @@ zvt_set_addresses.exit:                           ; preds = %112, %114, %126, %1
 
 153:                                              ; preds = %149, %150, %zvt_set_addresses.exit
   %154 = load ptr, ptr %5, align 8
-  %155 = sub i32 %19, %1
-  %156 = add i32 %155, %113
-  call void @proto_item_set_len(ptr noundef %154, i32 noundef %156) #5
-  br label %157
+  call void @proto_item_set_len(ptr noundef %154, i32 noundef %20) #5
+  br label %155
 
-157:                                              ; preds = %16, %4, %153
-  %.0103 = phi i32 [ %156, %153 ], [ -1, %4 ], [ -1, %16 ]
-  ret i32 %.0103
+155:                                              ; preds = %16, %4, %153
+  %.0106 = phi i32 [ %20, %153 ], [ -1, %4 ], [ -1, %16 ]
+  ret i32 %.0106
 }
 
 declare ptr @try_val_to_str_ext(i32 noundef, ptr noundef) local_unnamed_addr #1

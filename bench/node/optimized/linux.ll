@@ -2346,17 +2346,17 @@ while.end:                                        ; preds = %while.body, %if.end
   %sqflags.i = getelementptr inbounds i8, ptr %0, i64 368
   br label %for.cond.outer
 
-for.cond.outer:                                   ; preds = %if.then140, %while.end
-  %count.0.ph = phi i32 [ %dec, %if.then140 ], [ 48, %while.end ]
-  %real_timeout.0.ph = phi i32 [ %real_timeout.0.ph103, %if.then140 ], [ %timeout, %while.end ]
-  %reset_timeout.1.ph = phi i32 [ 0, %if.then140 ], [ %and5, %while.end ]
-  %timeout.addr.1.ph = phi i32 [ 0, %if.then140 ], [ %timeout., %while.end ]
+for.cond.outer:                                   ; preds = %if.end156, %while.end
+  %real_timeout.0.ph = phi i32 [ %conv160, %if.end156 ], [ %timeout, %while.end ]
+  %count.0.ph = phi i32 [ %count.0.ph103, %if.end156 ], [ 48, %while.end ]
+  %reset_timeout.1.ph = phi i32 [ 0, %if.end156 ], [ %and5, %while.end ]
+  %timeout.addr.1.ph = phi i32 [ %conv160, %if.end156 ], [ %timeout., %while.end ]
   br label %for.cond.outer102
 
-for.cond.outer102:                                ; preds = %for.cond.outer, %if.end156
-  %real_timeout.0.ph103 = phi i32 [ %real_timeout.0.ph, %for.cond.outer ], [ %conv160, %if.end156 ]
-  %reset_timeout.1.ph104 = phi i32 [ %reset_timeout.1.ph, %for.cond.outer ], [ 0, %if.end156 ]
-  %timeout.addr.1.ph105 = phi i32 [ %timeout.addr.1.ph, %for.cond.outer ], [ %conv160, %if.end156 ]
+for.cond.outer102:                                ; preds = %for.cond.outer, %if.then140
+  %count.0.ph103 = phi i32 [ %count.0.ph, %for.cond.outer ], [ %dec, %if.then140 ]
+  %reset_timeout.1.ph104 = phi i32 [ %reset_timeout.1.ph, %for.cond.outer ], [ 0, %if.then140 ]
+  %timeout.addr.1.ph105 = phi i32 [ %timeout.addr.1.ph, %for.cond.outer ], [ 0, %if.then140 ]
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.outer102, %update_timeout
@@ -2464,9 +2464,9 @@ for.body.preheader:                               ; preds = %if.end64
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %have_iou_events.0119 = phi i32 [ 0, %for.body.preheader ], [ %have_iou_events.1, %for.inc ]
-  %nevents.0118 = phi i32 [ 0, %for.body.preheader ], [ %nevents.1, %for.inc ]
-  %have_signals.0117 = phi i32 [ 0, %for.body.preheader ], [ %have_signals.2, %for.inc ]
+  %nevents.0119 = phi i32 [ 0, %for.body.preheader ], [ %nevents.1, %for.inc ]
+  %have_signals.0118 = phi i32 [ 0, %for.body.preheader ], [ %have_signals.2, %for.inc ]
+  %have_iou_events.0117 = phi i32 [ 0, %for.body.preheader ], [ %have_iou_events.1, %for.inc ]
   %add.ptr70 = getelementptr inbounds %struct.epoll_event, ptr %events, i64 %indvars.iv
   %data71 = getelementptr inbounds i8, ptr %add.ptr70, i64 4
   %32 = load i32, ptr %data71, align 4
@@ -2489,8 +2489,8 @@ if.then77:                                        ; preds = %if.end74
   br i1 %cmp.not25.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then77, %sw.epilog.i
-  %i.027.i = phi i32 [ %inc3.i, %sw.epilog.i ], [ %35, %if.then77 ]
-  %and.i = and i32 %i.027.i, %38
+  %i.026.i = phi i32 [ %inc3.i, %sw.epilog.i ], [ %35, %if.then77 ]
+  %and.i = and i32 %i.026.i, %38
   %idxprom.i = zext i32 %and.i to i64
   %arrayidx.i = getelementptr inbounds %struct.uv__io_uring_cqe, ptr %39, i64 %idxprom.i
   %40 = load i64, ptr %arrayidx.i, align 8
@@ -2621,7 +2621,7 @@ sw.epilog.i:                                      ; preds = %uv__iou_fs_statx_po
   %cb.i = getelementptr inbounds i8, ptr %41, i64 80
   %67 = load ptr, ptr %cb.i, align 8
   call void %67(ptr noundef nonnull %41) #18
-  %inc3.i = add i32 %i.027.i, 1
+  %inc3.i = add i32 %i.026.i, 1
   %cmp.not.i = icmp eq i32 %inc3.i, %37
   br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i
 
@@ -2771,22 +2771,22 @@ if.else102:                                       ; preds = %if.then99
   br label %if.end104
 
 if.end104:                                        ; preds = %if.then99, %if.else102
-  %have_signals.1 = phi i32 [ %have_signals.0117, %if.else102 ], [ 1, %if.then99 ]
-  %inc = add nsw i32 %nevents.0118, 1
+  %have_signals.1 = phi i32 [ %have_signals.0118, %if.else102 ], [ 1, %if.then99 ]
+  %inc = add nsw i32 %nevents.0119, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end81, %if.then.i, %if.then29.i, %if.else.i, %do.body26.i, %do.body18.i, %if.end104, %for.body
-  %have_signals.2 = phi i32 [ %have_signals.0117, %for.body ], [ %have_signals.1, %if.end104 ], [ %have_signals.0117, %do.body18.i ], [ %have_signals.0117, %do.body26.i ], [ %have_signals.0117, %if.else.i ], [ %have_signals.0117, %if.then29.i ], [ %have_signals.0117, %if.then.i ], [ %have_signals.0117, %if.end81 ]
-  %nevents.1 = phi i32 [ %nevents.0118, %for.body ], [ %inc, %if.end104 ], [ %nevents.0118, %do.body18.i ], [ %nevents.0118, %do.body26.i ], [ %nevents.0118, %if.else.i ], [ %nevents.0118, %if.then29.i ], [ %nevents.0118, %if.then.i ], [ %nevents.0118, %if.end81 ]
-  %have_iou_events.1 = phi i32 [ %have_iou_events.0119, %for.body ], [ %have_iou_events.0119, %if.end104 ], [ 1, %do.body18.i ], [ 1, %do.body26.i ], [ %have_iou_events.0119, %if.else.i ], [ %have_iou_events.0119, %if.then29.i ], [ %have_iou_events.0119, %if.then.i ], [ %have_iou_events.0119, %if.end81 ]
+  %have_iou_events.1 = phi i32 [ %have_iou_events.0117, %for.body ], [ %have_iou_events.0117, %if.end104 ], [ 1, %do.body18.i ], [ 1, %do.body26.i ], [ %have_iou_events.0117, %if.else.i ], [ %have_iou_events.0117, %if.then29.i ], [ %have_iou_events.0117, %if.then.i ], [ %have_iou_events.0117, %if.end81 ]
+  %have_signals.2 = phi i32 [ %have_signals.0118, %for.body ], [ %have_signals.1, %if.end104 ], [ %have_signals.0118, %do.body18.i ], [ %have_signals.0118, %do.body26.i ], [ %have_signals.0118, %if.else.i ], [ %have_signals.0118, %if.then29.i ], [ %have_signals.0118, %if.then.i ], [ %have_signals.0118, %if.end81 ]
+  %nevents.1 = phi i32 [ %nevents.0119, %for.body ], [ %inc, %if.end104 ], [ %nevents.0119, %do.body18.i ], [ %nevents.0119, %do.body26.i ], [ %nevents.0119, %if.else.i ], [ %nevents.0119, %if.then29.i ], [ %nevents.0119, %if.then.i ], [ %nevents.0119, %if.end81 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %do.body107, label %for.body
 
 do.body107:                                       ; preds = %for.inc, %if.end64
+  %have_iou_events.0.lcssa = phi i32 [ 0, %if.end64 ], [ %have_iou_events.1, %for.inc ]
   %have_signals.0.lcssa = phi i32 [ 0, %if.end64 ], [ %have_signals.2, %for.inc ]
   %nevents.0.lcssa = phi i32 [ 0, %if.end64 ], [ %nevents.1, %for.inc ]
-  %have_iou_events.0.lcssa = phi i32 [ 0, %if.end64 ], [ %have_iou_events.1, %for.inc ]
   %conv = sext i32 %nevents.0.lcssa to i64
   %101 = load ptr, ptr %internal_fields, align 8
   %events109 = getelementptr inbounds i8, ptr %101, i64 16
@@ -2817,7 +2817,7 @@ if.then124:                                       ; preds = %if.end121
 
 if.end128:                                        ; preds = %if.then124, %if.end121
   store ptr null, ptr %inv66, align 8
-  %106 = or i32 %have_iou_events.0.lcssa, %have_signals.0.lcssa
+  %106 = or i32 %have_signals.0.lcssa, %have_iou_events.0.lcssa
   %or.cond1.not = icmp eq i32 %106, 0
   br i1 %or.cond1.not, label %if.end137, label %for.end165
 
@@ -2827,10 +2827,10 @@ if.end137:                                        ; preds = %if.end128
 
 if.then140:                                       ; preds = %if.end137
   %cmp142 = icmp ne i32 %call42, 1024
-  %dec = add nsw i32 %count.0.ph, -1
+  %dec = add nsw i32 %count.0.ph103, -1
   %cmp144.not = icmp eq i32 %dec, 0
   %or.cond89 = select i1 %cmp142, i1 true, i1 %cmp144.not
-  br i1 %or.cond89, label %for.end165, label %for.cond.outer
+  br i1 %or.cond89, label %for.end165, label %for.cond.outer102
 
 update_timeout:                                   ; preds = %if.then56, %if.end137
   %timeout.addr.3 = phi i32 [ %timeout.addr.2, %if.end137 ], [ %.timeout.mux, %if.then56 ]
@@ -2843,11 +2843,11 @@ if.end156:                                        ; preds = %update_timeout
   %107 = load i64, ptr %time, align 8
   %sub.neg = sub i64 %2, %107
   %108 = trunc i64 %sub.neg to i32
-  %conv160 = add i32 %real_timeout.0.ph103, %108
+  %conv160 = add i32 %real_timeout.0.ph, %108
   %cmp161 = icmp slt i32 %conv160, 1
-  br i1 %cmp161, label %for.end165, label %for.cond.outer102
+  br i1 %cmp161, label %for.end165, label %for.cond.outer
 
-for.end165:                                       ; preds = %if.then140, %if.end156, %update_timeout, %if.end128, %if.then26
+for.end165:                                       ; preds = %if.end156, %if.then140, %update_timeout, %if.end128, %if.then26
   %109 = load i32, ptr %ringfd, align 8
   %cmp167.not = icmp eq i32 %109, -1
   br i1 %cmp167.not, label %if.end177, label %while.cond170.preheader
@@ -4851,8 +4851,8 @@ if.end61.i.i:                                     ; preds = %if.then44.i.i, %do.
   br label %do.body77.i.i
 
 do.body77.i.i:                                    ; preds = %if.end61.i.i, %if.end.i.i
-  %parent.0.i.i = phi ptr [ %elm.addr.0116.i.i, %if.end61.i.i ], [ %10, %if.end.i.i ]
   %elm.addr.1.i.i = phi ptr [ %10, %if.end61.i.i ], [ %elm.addr.0116.i.i, %if.end.i.i ]
+  %parent.0.i.i = phi ptr [ %elm.addr.0116.i.i, %if.end61.i.i ], [ %10, %if.end.i.i ]
   %rbe_color79.i.i = getelementptr inbounds i8, ptr %parent.0.i.i, i64 24
   store i32 0, ptr %rbe_color79.i.i, align 8
   %rbe_color81.i.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -4951,8 +4951,8 @@ if.end200.i.i:                                    ; preds = %if.then181.i.i, %do
   br label %do.body216.i.i
 
 do.body216.i.i:                                   ; preds = %if.end200.i.i, %if.end155.i.i
-  %parent.1.i.i = phi ptr [ %elm.addr.0116.i.i, %if.end200.i.i ], [ %10, %if.end155.i.i ]
   %elm.addr.2.i.i = phi ptr [ %10, %if.end200.i.i ], [ %elm.addr.0116.i.i, %if.end155.i.i ]
+  %parent.1.i.i = phi ptr [ %elm.addr.0116.i.i, %if.end200.i.i ], [ %10, %if.end155.i.i ]
   %rbe_color218.i.i = getelementptr inbounds i8, ptr %parent.1.i.i, i64 24
   store i32 0, ptr %rbe_color218.i.i, align 8
   %rbe_color220.i.i = getelementptr inbounds i8, ptr %12, i64 24

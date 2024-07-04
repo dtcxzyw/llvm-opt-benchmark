@@ -1259,7 +1259,7 @@ _ZN7QStringD2Ev.exit39:                           ; preds = %_ZN7QStringD2Ev.exi
   br label %55
 
 55:                                               ; preds = %192, %_ZN7QStringD2Ev.exit39
-  %.023 = phi i32 [ 1, %_ZN7QStringD2Ev.exit39 ], [ %193, %192 ]
+  %.015 = phi i32 [ 1, %_ZN7QStringD2Ev.exit39 ], [ %193, %192 ]
   %56 = load ptr, ptr %15, align 8
   %57 = invoke noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable(48) %56)
           to label %58 unwind label %.loopexit.split-lp.loopexit
@@ -1270,7 +1270,7 @@ _ZN7QStringD2Ev.exit39:                           ; preds = %_ZN7QStringD2Ev.exi
   %61 = select i1 %57, ptr %60, ptr null
   %62 = getelementptr inbounds i8, ptr %61, i64 80
   %63 = load i32, ptr %62, align 8
-  %.not26 = icmp ugt i32 %.023, %63
+  %.not26 = icmp ugt i32 %.015, %63
   br i1 %.not26, label %.loopexit131, label %64
 
 64:                                               ; preds = %58
@@ -1284,7 +1284,7 @@ _ZN7QStringD2Ev.exit39:                           ; preds = %_ZN7QStringD2Ev.exi
   %70 = select i1 %66, ptr %69, ptr null
   %71 = getelementptr inbounds i8, ptr %70, i64 280
   %72 = load ptr, ptr %71, align 8
-  %73 = invoke ptr @frame_data_sequence_find(ptr noundef %72, i32 noundef %.023)
+  %73 = invoke ptr @frame_data_sequence_find(ptr noundef %72, i32 noundef %.015)
           to label %74 unwind label %.loopexit.split-lp.loopexit
 
 74:                                               ; preds = %67
@@ -1312,7 +1312,7 @@ _ZN7QStringD2Ev.exit39:                           ; preds = %_ZN7QStringD2Ev.exi
   br i1 %.not144, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %85 = zext i32 %.023 to i64
+  %85 = zext i32 %.015 to i64
   br label %86
 
 86:                                               ; preds = %.lr.ph, %_ZN7QStringD2Ev.exit77
@@ -1704,7 +1704,7 @@ _ZN7QStringD2Ev.exit77:                           ; preds = %141, %_ZN17QArrayDa
           to label %192 unwind label %.loopexit.split-lp.loopexit
 
 192:                                              ; preds = %.loopexit
-  %193 = add i32 %.023, 1
+  %193 = add i32 %.015, 1
   br label %55, !llvm.loop !12
 
 .loopexit131:                                     ; preds = %58, %31

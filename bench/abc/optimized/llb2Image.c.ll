@@ -159,13 +159,13 @@ Vec_IntStart.exit133:                             ; preds = %Vec_IntAlloc.exit.t
   br label %56
 
 56:                                               ; preds = %.lr.ph178, %56
-  %.097177 = phi ptr [ %53, %.lr.ph178 ], [ %61, %56 ]
-  %57 = load i32, ptr %.097177, align 8
+  %.096177 = phi ptr [ %53, %.lr.ph178 ], [ %61, %56 ]
+  %57 = load i32, ptr %.096177, align 8
   %.val117 = load ptr, ptr %55, align 8
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i32, ptr %.val117, i64 %58
   store i32 1, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %.097177, i64 16
+  %60 = getelementptr inbounds i8, ptr %.096177, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = tail call ptr @Cudd_ReadOne(ptr noundef %44) #12
   %.not104 = icmp eq ptr %61, %62
@@ -1293,7 +1293,7 @@ Aig_ManObj.exit.lr.ph:                            ; preds = %3
 
 Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.ph, %Aig_ManObj.exit
   %indvars.iv = phi i64 [ 0, %Aig_ManObj.exit.lr.ph ], [ %indvars.iv.next, %Aig_ManObj.exit ]
-  %.026 = phi ptr [ %6, %Aig_ManObj.exit.lr.ph ], [ %19, %Aig_ManObj.exit ]
+  %.02025 = phi ptr [ %6, %Aig_ManObj.exit.lr.ph ], [ %19, %Aig_ManObj.exit ]
   %.val21 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i32, ptr %.val21, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
@@ -1306,9 +1306,9 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.
   %17 = getelementptr i8, ptr %16, i64 36
   %.val22 = load i32, ptr %17, align 4
   %18 = tail call ptr @Cudd_bddIthVar(ptr noundef %2, i32 noundef %.val22) #12
-  %19 = tail call ptr @Cudd_bddAnd(ptr noundef %2, ptr noundef %.026, ptr noundef %18) #12
+  %19 = tail call ptr @Cudd_bddAnd(ptr noundef %2, ptr noundef %.02025, ptr noundef %18) #12
   tail call void @Cudd_Ref(ptr noundef %19) #12
-  tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.026) #12
+  tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.02025) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %7, align 4
   %20 = sext i32 %.val to i64
@@ -1316,10 +1316,10 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.
   br i1 %21, label %Aig_ManObj.exit, label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %Aig_ManObj.exit, %3
-  %.0.lcssa = phi ptr [ %6, %3 ], [ %19, %Aig_ManObj.exit ]
-  tail call void @Cudd_Deref(ptr noundef %.0.lcssa) #12
+  %.020.lcssa = phi ptr [ %6, %3 ], [ %19, %Aig_ManObj.exit ]
+  tail call void @Cudd_Deref(ptr noundef %.020.lcssa) #12
   store i64 %5, ptr %4, align 8
-  ret ptr %.0.lcssa
+  ret ptr %.020.lcssa
 }
 
 declare void @Cudd_Deref(ptr noundef) local_unnamed_addr #1
@@ -1604,7 +1604,7 @@ Abc_Clock.exit:                                   ; preds = %11, %18
 
 40:                                               ; preds = %.lr.ph, %.critedge124
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge124 ]
-  %.1151 = phi ptr [ %.0113, %.lr.ph ], [ %66, %.critedge124 ]
+  %.1150 = phi ptr [ %.0113, %.lr.ph ], [ %66, %.critedge124 ]
   %.val130 = load ptr, ptr %36, align 8
   %41 = getelementptr inbounds ptr, ptr %.val130, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8
@@ -1656,12 +1656,12 @@ Abc_Clock.exit134:                                ; preds = %40, %45
   %64 = load ptr, ptr %63, align 8
   %65 = call ptr @Llb_ImgComputeCube(ptr noundef %0, ptr noundef %64, ptr noundef %2)
   call void @Cudd_Ref(ptr noundef %65) #12
-  %66 = call ptr @Cudd_bddAndAbstract(ptr noundef %2, ptr noundef %.1151, ptr noundef nonnull %54, ptr noundef %65) #12
+  %66 = call ptr @Cudd_bddAndAbstract(ptr noundef %2, ptr noundef %.1150, ptr noundef nonnull %54, ptr noundef %65) #12
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %62
-  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.1151) #12
+  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.1150) #12
   call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %65) #12
   call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef nonnull %54) #12
   br label %.loopexit
@@ -1671,16 +1671,16 @@ Abc_Clock.exit134:                                ; preds = %40, %45
   br i1 %.not120, label %.thread, label %70
 
 .thread:                                          ; preds = %69
-  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.1151) #12
+  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.1150) #12
   call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %65) #12
   call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef nonnull %54) #12
   br label %.critedge124
 
 70:                                               ; preds = %69
-  %71 = call i32 @Cudd_DagSize(ptr noundef %.1151) #12
+  %71 = call i32 @Cudd_DagSize(ptr noundef %.1150) #12
   %72 = call i32 @Cudd_DagSize(ptr noundef nonnull %66) #12
   %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %71, i32 noundef %72)
-  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.1151) #12
+  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.1150) #12
   call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %65) #12
   call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef nonnull %54) #12
   %74 = call i32 @Cudd_SupportSize(ptr noundef %2, ptr noundef nonnull %66) #12
@@ -1785,8 +1785,8 @@ Abc_Clock.exit138:                                ; preds = %100, %106
   br label %.loopexit
 
 .loopexit:                                        ; preds = %51, %.critedge128, %68, %31
-  %.0 = phi ptr [ null, %68 ], [ %.sink170, %.critedge128 ], [ null, %31 ], [ null, %51 ]
-  ret ptr %.0
+  %.0114 = phi ptr [ null, %68 ], [ %.sink170, %.critedge128 ], [ null, %31 ], [ null, %51 ]
+  ret ptr %.0114
 }
 
 declare ptr @Llb_DriverPhaseCube(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

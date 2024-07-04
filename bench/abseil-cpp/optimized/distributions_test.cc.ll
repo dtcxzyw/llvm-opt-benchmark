@@ -13213,8 +13213,8 @@ cond.false29:                                     ; preds = %if.else
   br label %if.end33
 
 if.end33:                                         ; preds = %if.else, %if.then5, %cond.false29, %cond.false
-  %top_e.0 = phi i64 [ %sub10, %cond.false ], [ %conv30, %cond.false29 ], [ -1, %if.then5 ], [ -1, %if.else ]
   %base_e.0 = phi i64 [ %shl, %cond.false ], [ %cond23, %cond.false29 ], [ %shl, %if.then5 ], [ %cond23, %if.else ]
+  %top_e.0 = phi i64 [ %sub10, %cond.false ], [ %conv30, %cond.false29 ], [ -1, %if.then5 ], [ -1, %if.else ]
   %range_.i = getelementptr inbounds i8, ptr %p, i64 24
   %6 = load i64, ptr %range_.i, align 8
   %spec.select = tail call i64 @llvm.umin.i64(i64 %base_e.0, i64 %6)

@@ -260,7 +260,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr nocapture n
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %._crit_edge ]
   %18 = phi ptr [ @.str, %3 ], [ %57, %._crit_edge ]
   %19 = phi ptr [ @PGTYPESdate_fmt_asc.mapping, %3 ], [ %56, %._crit_edge ]
-  %.sroa.0.074 = phi ptr [ undef, %3 ], [ %.sroa.0.1.lcssa, %._crit_edge ]
+  %.sroa.0.073 = phi ptr [ undef, %3 ], [ %.sroa.0.1.lcssa, %._crit_edge ]
   %20 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %18) #13
   %.not5571 = icmp eq ptr %20, null
   br i1 %.not5571, label %._crit_edge, label %.lr.ph
@@ -272,7 +272,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr nocapture n
 
 23:                                               ; preds = %.lr.ph, %54
   %24 = phi ptr [ %20, %.lr.ph ], [ %55, %54 ]
-  %.sroa.0.172 = phi ptr [ %.sroa.0.074, %.lr.ph ], [ %.sroa.0.262, %54 ]
+  %.sroa.0.172 = phi ptr [ %.sroa.0.073, %.lr.ph ], [ %.sroa.0.262, %54 ]
   switch i32 %22, label %38 [
     i32 2, label %.sink.split
     i32 1, label %25
@@ -356,7 +356,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr nocapture n
   br i1 %.not55, label %._crit_edge, label %23, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %54, %.preheader
-  %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.074, %.preheader ], [ %.sroa.0.262, %54 ]
+  %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.073, %.preheader ], [ %.sroa.0.262, %54 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = getelementptr [7 x %struct.anon], ptr @PGTYPESdate_fmt_asc.mapping, i64 0, i64 %indvars.iv.next
   %57 = load ptr, ptr %56, align 16
@@ -390,10 +390,10 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   %or.cond = and i1 %7, %8
   %9 = icmp ne ptr %1, null
   %or.cond3 = and i1 %9, %or.cond
-  %.3195.sroa.gep270 = getelementptr inbounds i8, ptr %5, i64 4
-  %.3195.sroa.gep271 = getelementptr inbounds i8, ptr %5, i64 8
-  %.3195.sroa.gep278 = getelementptr inbounds i8, ptr %4, i64 8
-  %.3195.sroa.gep279 = getelementptr inbounds i8, ptr %4, i64 16
+  %.3.sroa.gep270 = getelementptr inbounds i8, ptr %5, i64 4
+  %.3.sroa.gep271 = getelementptr inbounds i8, ptr %5, i64 8
+  %.3.sroa.gep278 = getelementptr inbounds i8, ptr %4, i64 8
+  %.3.sroa.gep279 = getelementptr inbounds i8, ptr %4, i64 16
   br i1 %or.cond3, label %12, label %10
 
 10:                                               ; preds = %3
@@ -440,7 +440,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   br label %31
 
 31:                                               ; preds = %29, %27, %25, %23
-  %.0184 = phi ptr [ @.str.10, %23 ], [ %.str.11..str.12, %25 ], [ @.str.13, %27 ], [ %.str.14..str.15, %29 ]
+  %.0199 = phi ptr [ @.str.10, %23 ], [ %.str.11..str.12, %25 ], [ @.str.13, %27 ], [ %.str.14..str.15, %29 ]
   %32 = load i8, ptr %2, align 1
   %.not.not237 = icmp eq i8 %32, 0
   br i1 %.not.not237, label %.critedge, label %.lr.ph
@@ -451,7 +451,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   br label %40
 
 35:                                               ; preds = %40
-  %36 = add i32 %.0185238, 1
+  %36 = add i32 %.0194238, 1
   %37 = zext i32 %36 to i64
   %38 = getelementptr i8, ptr %2, i64 %37
   %39 = load i8, ptr %38, align 1
@@ -460,7 +460,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
 
 40:                                               ; preds = %.lr.ph, %35
   %41 = phi i8 [ %32, %.lr.ph ], [ %39, %35 ]
-  %.0185238 = phi i32 [ 0, %.lr.ph ], [ %36, %35 ]
+  %.0194238 = phi i32 [ 0, %.lr.ph ], [ %36, %35 ]
   %42 = zext i8 %41 to i64
   %43 = getelementptr i16, ptr %34, i64 %42
   %44 = load i16, ptr %43, align 2
@@ -500,7 +500,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   br label %72
 
 58:                                               ; preds = %53
-  %59 = load i8, ptr %.0184, align 1
+  %59 = load i8, ptr %.0199, align 1
   %60 = icmp eq i8 %59, 121
   br i1 %60, label %61, label %64
 
@@ -513,7 +513,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   br label %72
 
 64:                                               ; preds = %58
-  %65 = getelementptr i8, ptr %.0184, i64 1
+  %65 = getelementptr i8, ptr %.0199, i64 1
   %66 = load i8, ptr %65, align 1
   %67 = icmp eq i8 %66, 121
   store i32 2, ptr %6, align 4
@@ -579,10 +579,10 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
 .lr.ph241:                                        ; preds = %.preheader235, %.lr.ph241
   %98 = phi i8 [ %104, %.lr.ph241 ], [ %97, %.preheader235 ]
   %99 = phi ptr [ %103, %.lr.ph241 ], [ %96, %.preheader235 ]
-  %.2240 = phi i32 [ %101, %.lr.ph241 ], [ 0, %.preheader235 ]
+  %.2196240 = phi i32 [ %101, %.lr.ph241 ], [ 0, %.preheader235 ]
   %100 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %98) #11
   store i8 %100, ptr %99, align 1
-  %101 = add i32 %.2240, 1
+  %101 = add i32 %.2196240, 1
   %102 = zext i32 %101 to i64
   %103 = getelementptr i8, ptr %96, i64 %102
   %104 = load i8, ptr %103, align 1
@@ -590,8 +590,8 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   br i1 %.not218, label %.loopexit, label %.lr.ph241, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph241, %.preheader235, %92
-  %.0191 = phi ptr [ %52, %92 ], [ %96, %.preheader235 ], [ %96, %.lr.ph241 ]
-  %105 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0191) #13
+  %.0188 = phi ptr [ %52, %92 ], [ %96, %.preheader235 ], [ %96, %.lr.ph241 ]
+  %105 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0188) #13
   %.not259 = icmp eq i64 %105, 0
   br i1 %.not259, label %.thread289, label %.lr.ph247
 
@@ -602,26 +602,26 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
 
 108:                                              ; preds = %.lr.ph247, %127
   %109 = phi i64 [ 0, %.lr.ph247 ], [ %129, %127 ]
-  %.3246 = phi i32 [ 0, %.lr.ph247 ], [ %128, %127 ]
-  %.0192245 = phi i32 [ 0, %.lr.ph247 ], [ %.1193, %127 ]
-  %.1198244 = phi i32 [ 0, %.lr.ph247 ], [ %.2199, %127 ]
-  %110 = getelementptr i8, ptr %.0191, i64 %109
+  %.0189246 = phi i32 [ 0, %.lr.ph247 ], [ %.1190, %127 ]
+  %.1192245 = phi i32 [ 0, %.lr.ph247 ], [ %.2193, %127 ]
+  %.3197244 = phi i32 [ 0, %.lr.ph247 ], [ %128, %127 ]
+  %110 = getelementptr i8, ptr %.0188, i64 %109
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i64
   %113 = getelementptr i16, ptr %107, i64 %112
   %114 = load i16, ptr %113, align 2
   %115 = and i16 %114, 2048
   %116 = icmp eq i16 %115, 0
-  %117 = icmp ne i32 %.1198244, 0
+  %117 = icmp ne i32 %.1192245, 0
   %or.cond11 = select i1 %116, i1 %117, i1 false
   br i1 %or.cond11, label %118, label %123
 
 118:                                              ; preds = %108
-  %119 = add i32 %.3246, -1
-  %120 = sext i32 %.0192245 to i64
+  %119 = add i32 %.3197244, -1
+  %120 = sext i32 %.0189246 to i64
   %121 = getelementptr [3 x [2 x i32]], ptr %4, i64 0, i64 %120, i64 1
   store i32 %119, ptr %121, align 4
-  %122 = add i32 %.0192245, 1
+  %122 = add i32 %.0189246, 1
   br label %127
 
 123:                                              ; preds = %108
@@ -629,43 +629,43 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   br i1 %or.cond13, label %127, label %124
 
 124:                                              ; preds = %123
-  %125 = sext i32 %.0192245 to i64
+  %125 = sext i32 %.0189246 to i64
   %126 = getelementptr [3 x [2 x i32]], ptr %4, i64 0, i64 %125
-  store i32 %.3246, ptr %126, align 8
+  store i32 %.3197244, ptr %126, align 8
   br label %127
 
 127:                                              ; preds = %118, %124, %123
-  %.2199 = phi i32 [ 0, %118 ], [ %.1198244, %123 ], [ 1, %124 ]
-  %.1193 = phi i32 [ %122, %118 ], [ %.0192245, %123 ], [ %.0192245, %124 ]
-  %128 = add i32 %.3246, 1
+  %.2193 = phi i32 [ 0, %118 ], [ %.1192245, %123 ], [ 1, %124 ]
+  %.1190 = phi i32 [ %122, %118 ], [ %.0189246, %123 ], [ %.0189246, %124 ]
+  %128 = add i32 %.3197244, 1
   %129 = zext i32 %128 to i64
   %130 = icmp ugt i64 %105, %129
   br i1 %130, label %108, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %127
-  %.not220 = icmp eq i32 %.2199, 0
+  %.not220 = icmp eq i32 %.2193, 0
   br i1 %.not220, label %135, label %131
 
 131:                                              ; preds = %._crit_edge
-  %132 = sext i32 %.1193 to i64
+  %132 = sext i32 %.1190 to i64
   %133 = getelementptr [3 x [2 x i32]], ptr %4, i64 0, i64 %132, i64 1
-  store i32 %.3246, ptr %133, align 4
-  %134 = add i32 %.1193, 1
+  store i32 %.3197244, ptr %133, align 4
+  %134 = add i32 %.1190, 1
   br label %135
 
 135:                                              ; preds = %131, %._crit_edge
-  %.2194 = phi i32 [ %134, %131 ], [ %.1193, %._crit_edge ]
-  %136 = icmp slt i32 %.2194, 2
+  %.2 = phi i32 [ %134, %131 ], [ %.1190, %._crit_edge ]
+  %136 = icmp slt i32 %.2, 2
   br i1 %136, label %.thread289, label %138
 
 .thread289:                                       ; preds = %.loopexit, %135
-  tail call void @free(ptr noundef nonnull %.0191) #11
+  tail call void @free(ptr noundef nonnull %.0188) #11
   %137 = tail call ptr @__errno_location() #12
   store i32 312, ptr %137, align 4
   br label %245
 
 138:                                              ; preds = %135
-  %.not221 = icmp eq i32 %.2194, 3
+  %.not221 = icmp eq i32 %.2, 3
   br i1 %.not221, label %196, label %139
 
 139:                                              ; preds = %138
@@ -679,13 +679,13 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   br i1 %.not223251, label %.thread, label %.preheader
 
 142:                                              ; preds = %139
-  tail call void @free(ptr noundef nonnull %.0191) #11
+  tail call void @free(ptr noundef nonnull %.0188) #11
   br label %245
 
 .preheader:                                       ; preds = %.preheader234, %181
   %143 = phi ptr [ %184, %181 ], [ @pgtypes_date_months, %.preheader234 ]
   %.0253 = phi ptr [ %.1, %181 ], [ @pgtypes_date_months, %.preheader234 ]
-  %.4252 = phi i32 [ %182, %181 ], [ 0, %.preheader234 ]
+  %.4198252 = phi i32 [ %182, %181 ], [ 0, %.preheader234 ]
   br label %144
 
 144:                                              ; preds = %144, %.preheader
@@ -703,27 +703,27 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   br i1 %or.cond258, label %144, label %151, !llvm.loop !10
 
 151:                                              ; preds = %144
-  %152 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0191, ptr noundef nonnull dereferenceable(1) %140) #13
+  %152 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0188, ptr noundef nonnull dereferenceable(1) %140) #13
   %.not225 = icmp eq ptr %152, null
   br i1 %.not225, label %173, label %153
 
 153:                                              ; preds = %151
   %154 = ptrtoint ptr %152 to i64
-  %155 = ptrtoint ptr %.0191 to i64
+  %155 = ptrtoint ptr %.0188 to i64
   %156 = sub i64 %154, %155
   %157 = trunc i64 %156 to i32
   %158 = load i32, ptr %4, align 16
   %159 = icmp sgt i32 %158, %157
-  %160 = load i32, ptr %.3195.sroa.gep278, align 8
+  %160 = load i32, ptr %.3.sroa.gep278, align 8
   br i1 %159, label %161, label %167
 
 161:                                              ; preds = %153
-  store i32 %160, ptr %.3195.sroa.gep279, align 16
+  store i32 %160, ptr %.3.sroa.gep279, align 16
   %162 = getelementptr inbounds i8, ptr %4, i64 12
   %163 = load i32, ptr %162, align 4
   %164 = getelementptr inbounds i8, ptr %4, i64 20
   store i32 %163, ptr %164, align 4
-  store i32 %158, ptr %.3195.sroa.gep278, align 8
+  store i32 %158, ptr %.3.sroa.gep278, align 8
   %165 = getelementptr inbounds i8, ptr %4, i64 4
   %166 = load i32, ptr %165, align 4
   store i32 %166, ptr %162, align 4
@@ -734,7 +734,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   br i1 %168, label %169, label %186
 
 169:                                              ; preds = %167
-  store i32 %160, ptr %.3195.sroa.gep279, align 16
+  store i32 %160, ptr %.3.sroa.gep279, align 16
   %170 = getelementptr inbounds i8, ptr %4, i64 12
   %171 = load i32, ptr %170, align 4
   %172 = getelementptr inbounds i8, ptr %4, i64 20
@@ -746,17 +746,17 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   br i1 %174, label %175, label %181
 
 175:                                              ; preds = %173
-  %176 = add i32 %.4252, 1
+  %176 = add i32 %.4198252, 1
   %177 = zext i32 %176 to i64
   %178 = getelementptr ptr, ptr @pgtypes_date_months, i64 %177
   %179 = load ptr, ptr %178, align 8
   %180 = icmp eq ptr %179, null
-  %spec.select231 = select i1 %180, i32 -1, i32 %.4252
+  %spec.select231 = select i1 %180, i32 -1, i32 %.4198252
   %spec.select232 = select i1 %180, ptr @months, ptr @pgtypes_date_months
   br label %181
 
 181:                                              ; preds = %175, %173
-  %.5 = phi i32 [ %.4252, %173 ], [ %spec.select231, %175 ]
+  %.5 = phi i32 [ %.4198252, %173 ], [ %spec.select231, %175 ]
   %.1 = phi ptr [ %.0253, %173 ], [ %spec.select232, %175 ]
   %182 = add i32 %.5, 1
   %183 = zext i32 %182 to i64
@@ -766,42 +766,42 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   br i1 %.not223, label %.thread, label %.preheader, !llvm.loop !11
 
 186:                                              ; preds = %161, %169, %167
-  %.3195.sroa.phi = phi ptr [ %5, %161 ], [ %.3195.sroa.gep270, %169 ], [ %.3195.sroa.gep271, %167 ]
-  %.3195.sroa.phi276 = phi ptr [ %4, %161 ], [ %.3195.sroa.gep278, %169 ], [ %.3195.sroa.gep279, %167 ]
-  %.3195 = phi i64 [ 0, %161 ], [ 1, %169 ], [ 2, %167 ]
-  store i32 %157, ptr %.3195.sroa.phi276, align 8
+  %.3.sroa.phi = phi ptr [ %5, %161 ], [ %.3.sroa.gep270, %169 ], [ %.3.sroa.gep271, %167 ]
+  %.3.sroa.phi276 = phi ptr [ %4, %161 ], [ %.3.sroa.gep278, %169 ], [ %.3.sroa.gep279, %167 ]
+  %.3 = phi i64 [ 0, %161 ], [ 1, %169 ], [ 2, %167 ]
+  store i32 %157, ptr %.3.sroa.phi276, align 8
   %187 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %140) #13
   %188 = add i64 %187, %156
   %189 = trunc i64 %188 to i32
   %190 = add i32 %189, -1
-  %191 = getelementptr i8, ptr %.3195.sroa.phi276, i64 4
+  %191 = getelementptr i8, ptr %.3.sroa.phi276, i64 4
   store i32 %190, ptr %191, align 4
-  %192 = add i32 %.4252, 1
-  store i32 %192, ptr %.3195.sroa.phi, align 4
-  %193 = getelementptr i8, ptr %.0184, i64 %.3195
+  %192 = add i32 %.4198252, 1
+  store i32 %192, ptr %.3.sroa.phi, align 4
+  %193 = getelementptr i8, ptr %.0199, i64 %.3
   %194 = load i8, ptr %193, align 1
   %.not227 = icmp eq i8 %194, 109
   %spec.store.select294 = select i1 %.not227, i32 %192, i32 -1
-  store i32 %spec.store.select294, ptr %.3195.sroa.phi, align 4
+  store i32 %spec.store.select294, ptr %.3.sroa.phi, align 4
   tail call void @free(ptr noundef nonnull %140) #11
   br label %196
 
 .thread:                                          ; preds = %181, %.preheader234
   tail call void @free(ptr noundef nonnull %140) #11
-  tail call void @free(ptr noundef %.0191) #11
+  tail call void @free(ptr noundef %.0188) #11
   %195 = tail call ptr @__errno_location() #12
   store i32 313, ptr %195, align 4
   br label %245
 
 196:                                              ; preds = %186, %138
-  %invariant.gep = getelementptr i8, ptr %.0191, i64 1
+  %invariant.gep = getelementptr i8, ptr %.0188, i64 1
   br label %197
 
 197:                                              ; preds = %196, %220
   %indvars.iv266 = phi i64 [ 0, %196 ], [ %indvars.iv.next267, %220 ]
-  %.sroa.0.0256 = phi i32 [ 0, %196 ], [ %.sroa.0.1, %220 ]
-  %.sroa.7.0255 = phi i32 [ 0, %196 ], [ %.sroa.7.1, %220 ]
-  %.sroa.17.0254 = phi i32 [ 0, %196 ], [ %.sroa.17.1, %220 ]
+  %.sroa.0.0257 = phi i32 [ 0, %196 ], [ %.sroa.0.1, %220 ]
+  %.sroa.7.0256 = phi i32 [ 0, %196 ], [ %.sroa.7.1, %220 ]
+  %.sroa.17.0255 = phi i32 [ 0, %196 ], [ %.sroa.17.1, %220 ]
   %198 = getelementptr [3 x [2 x i32]], ptr %4, i64 0, i64 %indvars.iv266
   %199 = getelementptr i8, ptr %198, i64 4
   %200 = load i32, ptr %199, align 4
@@ -818,7 +818,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   store i32 0, ptr %206, align 4
   %207 = load i32, ptr %198, align 8
   %208 = sext i32 %207 to i64
-  %209 = getelementptr i8, ptr %.0191, i64 %208
+  %209 = getelementptr i8, ptr %.0188, i64 %208
   %210 = tail call i64 @strtol(ptr nocapture noundef %209, ptr noundef null, i32 noundef 10) #11
   %211 = trunc i64 %210 to i32
   %212 = load i32, ptr %206, align 4
@@ -829,7 +829,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
 
 213:                                              ; preds = %205, %197
   %214 = phi i32 [ %spec.store.select, %205 ], [ %203, %197 ]
-  %215 = getelementptr i8, ptr %.0184, i64 %indvars.iv266
+  %215 = getelementptr i8, ptr %.0199, i64 %indvars.iv266
   %216 = load i8, ptr %215, align 1
   switch i8 %216, label %220 [
     i8 100, label %217
@@ -847,15 +847,15 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   br label %220
 
 220:                                              ; preds = %213, %217, %219, %218
-  %.sroa.17.1 = phi i32 [ %.sroa.17.0254, %217 ], [ %.sroa.17.0254, %218 ], [ %214, %219 ], [ %.sroa.17.0254, %213 ]
-  %.sroa.7.1 = phi i32 [ %.sroa.7.0255, %217 ], [ %214, %218 ], [ %.sroa.7.0255, %219 ], [ %.sroa.7.0255, %213 ]
-  %.sroa.0.1 = phi i32 [ %214, %217 ], [ %.sroa.0.0256, %218 ], [ %.sroa.0.0256, %219 ], [ %.sroa.0.0256, %213 ]
+  %.sroa.17.1 = phi i32 [ %.sroa.17.0255, %217 ], [ %.sroa.17.0255, %218 ], [ %214, %219 ], [ %.sroa.17.0255, %213 ]
+  %.sroa.7.1 = phi i32 [ %.sroa.7.0256, %217 ], [ %214, %218 ], [ %.sroa.7.0256, %219 ], [ %.sroa.7.0256, %213 ]
+  %.sroa.0.1 = phi i32 [ %214, %217 ], [ %.sroa.0.0257, %218 ], [ %.sroa.0.0257, %219 ], [ %.sroa.0.0257, %213 ]
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
   %exitcond269.not = icmp eq i64 %indvars.iv.next267, 3
   br i1 %exitcond269.not, label %221, label %197, !llvm.loop !12
 
 221:                                              ; preds = %220
-  tail call void @free(ptr noundef nonnull %.0191) #11
+  tail call void @free(ptr noundef nonnull %.0188) #11
   %222 = add i32 %.sroa.0.1, -32
   %or.cond16 = icmp ult i32 %222, -31
   br i1 %or.cond16, label %223, label %225
@@ -911,8 +911,8 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   br label %245
 
 245:                                              ; preds = %95, %50, %240, %238, %233, %227, %223, %.thread, %142, %.thread289, %48, %19, %10
-  %.0182 = phi i32 [ -1, %48 ], [ -1, %.thread289 ], [ -1, %223 ], [ -1, %227 ], [ -1, %233 ], [ -1, %238 ], [ 0, %240 ], [ -1, %.thread ], [ -1, %142 ], [ -1, %19 ], [ -1, %10 ], [ -1, %50 ], [ -1, %95 ]
-  ret i32 %.0182
+  %.0183 = phi i32 [ -1, %48 ], [ -1, %.thread289 ], [ -1, %223 ], [ -1, %227 ], [ -1, %233 ], [ -1, %238 ], [ 0, %240 ], [ -1, %.thread ], [ -1, %142 ], [ -1, %19 ], [ -1, %10 ], [ -1, %50 ], [ -1, %95 ]
+  ret i32 %.0183
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)

@@ -445,24 +445,24 @@ define ptr @sockaddr_to_string(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br label %15
 
 15:                                               ; preds = %.sink.split, %2
-  %.016.shrunk = phi i16 [ 0, %2 ], [ %14, %.sink.split ]
-  %.016 = zext i16 %.016.shrunk to i32
+  %.0.shrunk = phi i16 [ 0, %2 ], [ %14, %.sink.split ]
+  %.0 = zext i16 %.0.shrunk to i32
   %16 = tail call ptr @xgetnameinfo(ptr noundef nonnull %0, i32 noundef %1) #6
   store ptr %16, ptr %4, align 8
   %17 = icmp ne ptr %16, null
-  %18 = icmp ne i16 %.016.shrunk, 0
+  %18 = icmp ne i16 %.0.shrunk, 0
   %or.cond = select i1 %17, i1 %18, i1 false
   br i1 %or.cond, label %19, label %20
 
 19:                                               ; preds = %15
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.11, ptr noundef nonnull %16, i32 noundef %.016) #6
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.11, ptr noundef nonnull %16, i32 noundef %.0) #6
   br label %22
 
 20:                                               ; preds = %15
   br i1 %18, label %21, label %22
 
 21:                                               ; preds = %20
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.12, i32 noundef %.016) #6
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.12, i32 noundef %.0) #6
   br label %22
 
 22:                                               ; preds = %20, %21, %19
@@ -472,8 +472,8 @@ define ptr @sockaddr_to_string(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br label %24
 
 24:                                               ; preds = %8, %22, %11
-  %.0 = phi ptr [ %12, %11 ], [ %23, %22 ], [ null, %8 ]
-  ret ptr %.0
+  %.016 = phi ptr [ %12, %11 ], [ %23, %22 ], [ null, %8 ]
+  ret ptr %.016
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)

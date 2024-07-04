@@ -581,19 +581,19 @@ define noundef double @_ZN6SolverclEiPd(ptr noundef nonnull align 8 dereferencea
   br i1 %or.cond223, label %.preheader154.us, label %.loopexit149
 
 .preheader154.us:                                 ; preds = %37, %..loopexit155_crit_edge.us
-  %.0123162.us.in = phi i32 [ %.0123162.us, %..loopexit155_crit_edge.us ], [ %24, %37 ]
-  %.0124161.us = phi i64 [ %indvars.iv.next208, %..loopexit155_crit_edge.us ], [ 0, %37 ]
-  %.0123162.us = add nsw i32 %.0123162.us.in, -1
-  %sext = shl i64 %.0124161.us, 32
+  %.0121162.us.in = phi i32 [ %.0121162.us, %..loopexit155_crit_edge.us ], [ %24, %37 ]
+  %.0122161.us = phi i64 [ %indvars.iv.next208, %..loopexit155_crit_edge.us ], [ 0, %37 ]
+  %.0121162.us = add nsw i32 %.0121162.us.in, -1
+  %sext = shl i64 %.0122161.us, 32
   %47 = ashr exact i64 %sext, 32
   br label %48
 
 48:                                               ; preds = %.preheader154.us, %48
   %indvars.iv207 = phi i64 [ %47, %.preheader154.us ], [ %indvars.iv.next208, %48 ]
-  %.0122158.us = phi i32 [ 0, %.preheader154.us ], [ %70, %48 ]
+  %.0120158.us = phi i32 [ 0, %.preheader154.us ], [ %70, %48 ]
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 408
-  %51 = call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef %.0122158.us, i32 noundef %.0123162.us)
+  %51 = call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef %.0120158.us, i32 noundef %.0121162.us)
   call void @_ZN6QColor6setRgbEj(ptr noundef nonnull align 4 dereferenceable(14) %5, i32 noundef %51) #21
   %52 = call noundef i32 @_ZNK6QColor3redEv(ptr noundef nonnull align 4 dereferenceable(14) %5) #21
   %53 = sitofp i32 %52 to float
@@ -616,12 +616,12 @@ define noundef double @_ZN6SolverclEiPd(ptr noundef nonnull align 8 dereferencea
   %69 = add nsw i32 %68, 1
   store i32 %69, ptr %67, align 4
   %indvars.iv.next208 = add nsw i64 %indvars.iv207, 1
-  %70 = add nuw nsw i32 %.0122158.us, 1
+  %70 = add nuw nsw i32 %.0120158.us, 1
   %exitcond210.not = icmp eq i32 %70, %22
   br i1 %exitcond210.not, label %..loopexit155_crit_edge.us, label %48, !llvm.loop !11
 
 ..loopexit155_crit_edge.us:                       ; preds = %48
-  %71 = icmp sgt i32 %.0123162.us.in, 1
+  %71 = icmp sgt i32 %.0121162.us.in, 1
   br i1 %71, label %.preheader154.us, label %.preheader, !llvm.loop !12
 
 .preheader:                                       ; preds = %..loopexit155_crit_edge.us
@@ -677,12 +677,12 @@ define noundef double @_ZN6SolverclEiPd(ptr noundef nonnull align 8 dereferencea
 
 102:                                              ; preds = %100, %88
   %103 = phi ptr [ %91, %88 ], [ %.pre, %100 ]
-  %.0114 = phi double [ 0.000000e+00, %88 ], [ %101, %100 ]
+  %.0 = phi double [ 0.000000e+00, %88 ], [ %101, %100 ]
   %104 = getelementptr inbounds i8, ptr %0, i64 364
   %105 = getelementptr inbounds i8, ptr %103, i64 400
-  store double %.0114, ptr %105, align 8
+  store double %.0, ptr %105, align 8
   %106 = fsub double 1.000000e+00, %90
-  %107 = fmul double %106, %.0114
+  %107 = fmul double %106, %.0
   %108 = call double @llvm.fmuladd.f64(double %90, double %.6, double %107)
   %109 = getelementptr inbounds i8, ptr %0, i64 368
   %110 = load i32, ptr %104, align 4
@@ -974,12 +974,12 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit: ; preds = %_ZNK3
   %172 = load float, ptr %25, align 4
   %173 = fdiv float %.sroa.0.4.vec.extract.i, %172
   %174 = fadd float %173, %.sink108
-  %175 = extractelement <2 x double> %168, i64 1
-  %.sroa.3.0.in = fmul double %175, 2.000000e+00
-  %.sroa.3.0 = fptrunc double %.sroa.3.0.in to float
-  %176 = extractelement <2 x double> %168, i64 0
-  %.sroa.086.0.in = fmul double %176, 2.000000e+00
+  %175 = extractelement <2 x double> %168, i64 0
+  %.sroa.086.0.in = fmul double %175, 2.000000e+00
   %.sroa.086.0 = fptrunc double %.sroa.086.0.in to float
+  %176 = extractelement <2 x double> %168, i64 1
+  %.sroa.3.0.in = fmul double %176, 2.000000e+00
+  %.sroa.3.0 = fptrunc double %.sroa.3.0.in to float
   %177 = fsub float %171, %.sroa.086.0
   %178 = fsub float %174, %.sroa.3.0
   %179 = fmul float %178, %178
@@ -5729,32 +5729,32 @@ define void @_ZN6Solver5valueEPdS0_iiPv(ptr nocapture noundef readonly %0, ptr n
 
 .lr.ph153:                                        ; preds = %.lr.ph153.preheader, %.lr.ph153
   %indvars.iv173 = phi i64 [ 0, %.lr.ph153.preheader ], [ %indvars.iv.next174, %.lr.ph153 ]
-  %.0110150 = phi double [ 0.000000e+00, %.lr.ph153.preheader ], [ %77, %.lr.ph153 ]
+  %.0108150 = phi double [ 0.000000e+00, %.lr.ph153.preheader ], [ %77, %.lr.ph153 ]
   %75 = getelementptr inbounds double, ptr %1, i64 %indvars.iv173
   %76 = load double, ptr %75, align 8
-  %77 = fadd double %.0110150, %76
+  %77 = fadd double %.0108150, %76
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count176
   br i1 %exitcond177.not, label %._crit_edge154, label %.lr.ph153, !llvm.loop !148
 
 ._crit_edge154:                                   ; preds = %.lr.ph153, %.loopexit130
-  %.0110.lcssa = phi double [ 0.000000e+00, %.loopexit130 ], [ %77, %.lr.ph153 ]
+  %.0108.lcssa = phi double [ 0.000000e+00, %.loopexit130 ], [ %77, %.lr.ph153 ]
   %78 = getelementptr inbounds i8, ptr %4, i64 344
   %79 = load double, ptr %78, align 8
   %80 = fcmp oeq double %79, 0.000000e+00
-  %81 = select i1 %80, double %.0110.lcssa, double %79
+  %81 = select i1 %80, double %.0108.lcssa, double %79
   %82 = fcmp oeq double %81, 1.000000e+20
   %83 = or i1 %80, %82
   br i1 %83, label %84, label %85
 
 84:                                               ; preds = %._crit_edge154
-  %simplifycfg.merge = select i1 %82, double %.0110.lcssa, double %81
+  %simplifycfg.merge = select i1 %82, double %.0108.lcssa, double %81
   store double %simplifycfg.merge, ptr %78, align 8
   br label %85
 
 85:                                               ; preds = %._crit_edge154, %84
   %86 = getelementptr inbounds i8, ptr %4, i64 352
-  store double %.0110.lcssa, ptr %86, align 8
+  store double %.0108.lcssa, ptr %86, align 8
   ret void
 }
 
@@ -5904,12 +5904,12 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
   %38 = tail call noundef float @sqrtf(float noundef %.sink) #21
   %39 = fpext float %38 to double
   %40 = fadd double %36, %39
-  %.038 = fptrunc double %40 to float
-  %41 = fcmp ult float %.038, 0.000000e+00
+  %.039 = fptrunc double %40 to float
+  %41 = fcmp ult float %.039, 0.000000e+00
   br i1 %41, label %65, label %42
 
 42:                                               ; preds = %25
-  %43 = tail call noundef float @sqrtf(float noundef %.038) #21
+  %43 = tail call noundef float @sqrtf(float noundef %.039) #21
   %44 = fadd float %33, %43
   %45 = tail call noundef float @powf(float noundef %44, float noundef 0x3FD5555560000000) #21
   %46 = fcmp ult float %33, %43
@@ -5930,8 +5930,8 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
   br label %57
 
 57:                                               ; preds = %50, %48
-  %.039 = phi float [ %49, %48 ], [ %56, %50 ]
-  %58 = fadd float %45, %.039
+  %.038 = phi float [ %49, %48 ], [ %56, %50 ]
+  %58 = fadd float %45, %.038
   %59 = fcmp olt float %58, 0.000000e+00
   br i1 %59, label %60, label %78
 
@@ -5943,7 +5943,7 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
   br label %78
 
 65:                                               ; preds = %25
-  %66 = fneg float %.038
+  %66 = fneg float %.039
   %67 = tail call noundef float @sqrtf(float noundef %66) #21
   %68 = tail call noundef float @hypotf(float noundef %33, float noundef %67) #21
   %69 = tail call noundef float @powf(float noundef %68, float noundef 0x3FD5555560000000) #21

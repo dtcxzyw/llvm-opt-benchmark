@@ -2093,8 +2093,8 @@ _ZN5alloc11collections5btree4node13move_to_slice17h433752c0168e9576E.exit.i.i: ;
   br label %.loopexit76
 
 .loopexit76:                                      ; preds = %108, %122
-  %.sroa.053.0 = phi ptr [ %116, %122 ], [ %106, %108 ]
   %.sroa.655.0 = phi i64 [ %125, %122 ], [ %109, %108 ]
+  %.sroa.053.0 = phi ptr [ %116, %122 ], [ %106, %108 ]
   %127 = add i64 %.sroa.655.0, -1
   %128 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h1096145ac0aabd55E.llvm.1845134153835457127"()
           to label %.noexc30 unwind label %.loopexit82
@@ -2602,8 +2602,8 @@ _ZN5alloc11collections5btree4node13move_to_slice17h99908208a70d8de4E.exit.i.i: ;
   br label %.loopexit75
 
 .loopexit75:                                      ; preds = %106, %120
-  %.sroa.053.0 = phi ptr [ %114, %120 ], [ %104, %106 ]
   %.sroa.655.0 = phi i64 [ %123, %120 ], [ %107, %106 ]
+  %.sroa.053.0 = phi ptr [ %114, %120 ], [ %104, %106 ]
   %125 = add i64 %.sroa.655.0, -1
   %126 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h9d8d250edf594086E.llvm.1845134153835457127"()
           to label %.noexc32 unwind label %.loopexit81
@@ -3080,8 +3080,8 @@ _ZN5alloc11collections5btree4node13move_to_slice17h3a52ae849d54f1adE.exit.i.i: ;
   br label %.loopexit78
 
 .loopexit78:                                      ; preds = %110, %124
-  %.sroa.055.0 = phi ptr [ %118, %124 ], [ %108, %110 ]
   %.sroa.657.0 = phi i64 [ %127, %124 ], [ %111, %110 ]
+  %.sroa.055.0 = phi ptr [ %118, %124 ], [ %108, %110 ]
   %129 = add i64 %.sroa.657.0, -1
   %130 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17hde7a82b577a9ab34E.llvm.1845134153835457127"()
           to label %.noexc30 unwind label %.loopexit84
@@ -3568,8 +3568,8 @@ _ZN5alloc11collections5btree4node13move_to_slice17hda64d34a0a01d709E.exit.i.i: ;
   br label %.loopexit75
 
 .loopexit75:                                      ; preds = %101, %115
-  %.sroa.053.0 = phi ptr [ %109, %115 ], [ %99, %101 ]
   %.sroa.655.0 = phi i64 [ %118, %115 ], [ %102, %101 ]
+  %.sroa.053.0 = phi ptr [ %109, %115 ], [ %99, %101 ]
   %120 = add i64 %.sroa.655.0, -1
   %121 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h6de201fd83512fe0E.llvm.1845134153835457127"()
           to label %.noexc30 unwind label %.loopexit81

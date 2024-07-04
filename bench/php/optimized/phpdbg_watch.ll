@@ -1320,10 +1320,10 @@ phpdbg_activate_watchpoint.exit:                  ; preds = %30, %37
   br label %63
 
 .thread:                                          ; preds = %40, %phpdbg_activate_watchpoint.exit
-  %.037 = phi ptr [ %11, %phpdbg_activate_watchpoint.exit ], [ %42, %40 ]
+  %.036 = phi ptr [ %11, %phpdbg_activate_watchpoint.exit ], [ %42, %40 ]
   %49 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %.037, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %.037, i64 32
+  store ptr %.036, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %.036, i64 32
   %51 = getelementptr inbounds i8, ptr %1, i64 112
   %52 = load ptr, ptr %51, align 8
   store ptr %1, ptr %5, align 8
@@ -1351,8 +1351,8 @@ phpdbg_activate_watchpoint.exit:                  ; preds = %30, %37
   br label %63
 
 63:                                               ; preds = %58, %62, %47
-  %.036 = phi ptr [ %48, %47 ], [ %1, %62 ], [ %1, %58 ]
-  ret ptr %.036
+  %.037 = phi ptr [ %48, %47 ], [ %1, %62 ], [ %1, %58 ]
+  ret ptr %.037
 }
 
 declare ptr @phpdbg_btree_find(ptr noundef, i64 noundef) local_unnamed_addr #2
@@ -1447,9 +1447,9 @@ define hidden void @phpdbg_recurse_watch_element(ptr noundef %0) local_unnamed_a
   br label %7
 
 7:                                                ; preds = %.preheader, %7
-  %.070.in = phi ptr [ %.070, %7 ], [ %4, %.preheader ]
-  %.070 = load ptr, ptr %.070.in, align 8
-  %8 = getelementptr inbounds i8, ptr %.070, i64 8
+  %.072.in = phi ptr [ %.072, %7 ], [ %4, %.preheader ]
+  %.072 = load ptr, ptr %.072.in, align 8
+  %8 = getelementptr inbounds i8, ptr %.072, i64 8
   %9 = load i8, ptr %8, align 8
   switch i8 %9, label %.loopexit97 [
     i8 12, label %7
@@ -1457,12 +1457,12 @@ define hidden void @phpdbg_recurse_watch_element(ptr noundef %0) local_unnamed_a
   ]
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr %.070, align 8
+  %11 = load ptr, ptr %.072, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   br label %.loopexit97
 
 .loopexit97:                                      ; preds = %7, %10
-  %.1 = phi ptr [ %12, %10 ], [ %.070, %7 ]
+  %.173 = phi ptr [ %12, %10 ], [ %.072, %7 ]
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not87 = icmp eq ptr %14, null
@@ -1473,7 +1473,7 @@ define hidden void @phpdbg_recurse_watch_element(ptr noundef %0) local_unnamed_a
   br label %16
 
 16:                                               ; preds = %15, %.loopexit97
-  %17 = getelementptr inbounds i8, ptr %.1, i64 8
+  %17 = getelementptr inbounds i8, ptr %.173, i64 8
   %18 = load i8, ptr %17, align 8
   %.off = add i8 %18, -7
   %switch = icmp ult i8 %.off, 2
@@ -1481,7 +1481,7 @@ define hidden void @phpdbg_recurse_watch_element(ptr noundef %0) local_unnamed_a
 
 19:                                               ; preds = %16
   %switch93 = icmp eq i8 %18, 8
-  %20 = load ptr, ptr %.1, align 8
+  %20 = load ptr, ptr %.173, align 8
   br i1 %switch93, label %21, label %27
 
 21:                                               ; preds = %19
@@ -1563,7 +1563,7 @@ phpdbg_is_recursively_watched.exit:               ; preds = %35
   ]
 
 61:                                               ; preds = %58
-  %62 = load ptr, ptr %.1, align 8
+  %62 = load ptr, ptr %.173, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 104
@@ -1572,7 +1572,7 @@ phpdbg_is_recursively_watched.exit:               ; preds = %35
   br label %70
 
 68:                                               ; preds = %58
-  %69 = load ptr, ptr %.1, align 8
+  %69 = load ptr, ptr %.173, align 8
   br label %70
 
 70:                                               ; preds = %68, %61
@@ -1629,45 +1629,45 @@ phpdbg_add_ht_watch_element.exit:                 ; preds = %58, %70, %72
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %115
-  %.071103 = phi i32 [ %116, %115 ], [ %95, %.lr.ph.preheader ]
-  %.072102 = phi ptr [ %.173, %115 ], [ %97, %.lr.ph.preheader ]
-  %.075101 = phi i32 [ %.176, %115 ], [ 0, %.lr.ph.preheader ]
-  %.077100 = phi ptr [ %.178, %115 ], [ null, %.lr.ph.preheader ]
+  %.070103 = phi i32 [ %116, %115 ], [ %95, %.lr.ph.preheader ]
+  %.071102 = phi ptr [ %.1, %115 ], [ %97, %.lr.ph.preheader ]
+  %.074101 = phi i32 [ %.175, %115 ], [ 0, %.lr.ph.preheader ]
+  %.076100 = phi ptr [ %.177, %115 ], [ null, %.lr.ph.preheader ]
   %98 = load i32, ptr %93, align 8
   %99 = and i32 %98, 4
   %.not86 = icmp eq i32 %99, 0
   br i1 %.not86, label %104, label %100
 
 100:                                              ; preds = %.lr.ph
-  %101 = getelementptr inbounds i8, ptr %.072102, i64 16
-  %102 = zext i32 %.075101 to i64
-  %103 = add i32 %.075101, 1
+  %101 = getelementptr inbounds i8, ptr %.071102, i64 16
+  %102 = zext i32 %.074101 to i64
+  %103 = add i32 %.074101, 1
   br label %110
 
 104:                                              ; preds = %.lr.ph
-  %105 = getelementptr inbounds i8, ptr %.072102, i64 32
-  %106 = getelementptr inbounds i8, ptr %.072102, i64 16
+  %105 = getelementptr inbounds i8, ptr %.071102, i64 32
+  %106 = getelementptr inbounds i8, ptr %.071102, i64 16
   %107 = load i64, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %.072102, i64 24
+  %108 = getelementptr inbounds i8, ptr %.071102, i64 24
   %109 = load ptr, ptr %108, align 8
   br label %110
 
 110:                                              ; preds = %104, %100
-  %.178 = phi ptr [ %.077100, %100 ], [ %109, %104 ]
-  %.176 = phi i32 [ %103, %100 ], [ %.075101, %104 ]
-  %.074 = phi i64 [ %102, %100 ], [ %107, %104 ]
-  %.173 = phi ptr [ %101, %100 ], [ %105, %104 ]
-  %111 = getelementptr inbounds i8, ptr %.072102, i64 8
+  %.078 = phi i64 [ %102, %100 ], [ %107, %104 ]
+  %.177 = phi ptr [ %.076100, %100 ], [ %109, %104 ]
+  %.175 = phi i32 [ %103, %100 ], [ %.074101, %104 ]
+  %.1 = phi ptr [ %101, %100 ], [ %105, %104 ]
+  %111 = getelementptr inbounds i8, ptr %.071102, i64 8
   %112 = load i8, ptr %111, align 8
   %113 = icmp eq i8 %112, 0
   br i1 %113, label %115, label %114
 
 114:                                              ; preds = %110
-  tail call void @phpdbg_add_recursive_watch_from_ht(ptr noundef %0, i64 noundef %.074, ptr noundef %.178, ptr noundef nonnull %.072102)
+  tail call void @phpdbg_add_recursive_watch_from_ht(ptr noundef %0, i64 noundef %.078, ptr noundef %.177, ptr noundef nonnull %.071102)
   br label %115
 
 115:                                              ; preds = %110, %114
-  %116 = add i32 %.071103, -1
+  %116 = add i32 %.070103, -1
   %.not = icmp eq i32 %116, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -2556,8 +2556,8 @@ phpdbg_add_ht_watch_element.exit:                 ; preds = %phpdbg_print_watch_
   br label %96
 
 96:                                               ; preds = %.critedge, %92
-  %.058 = phi ptr [ %94, %92 ], [ %95, %.critedge ]
-  %.not67 = icmp eq ptr %.058, null
+  %.059 = phi ptr [ %94, %92 ], [ %95, %.critedge ]
+  %.not67 = icmp eq ptr %.059, null
   br i1 %.not67, label %.thread, label %97
 
 97:                                               ; preds = %96
@@ -2567,7 +2567,7 @@ phpdbg_add_ht_watch_element.exit:                 ; preds = %phpdbg_print_watch_
   br i1 %.not68, label %110, label %.preheader
 
 .preheader:                                       ; preds = %97, %102
-  %.0 = phi ptr [ %103, %102 ], [ %.058, %97 ]
+  %.0 = phi ptr [ %103, %102 ], [ %.059, %97 ]
   %100 = getelementptr inbounds i8, ptr %.0, i64 8
   %101 = load i8, ptr %100, align 8
   switch i8 %101, label %.loopexit [
@@ -2593,21 +2593,21 @@ phpdbg_add_ht_watch_element.exit:                 ; preds = %phpdbg_print_watch_
 
 110:                                              ; preds = %97
   %111 = getelementptr inbounds i8, ptr %1, i64 120
-  %bcmp16.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %111, ptr noundef nonnull readonly dereferenceable(12) %.058, i64 12)
+  %bcmp16.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(12) %111, ptr noundef nonnull readonly dereferenceable(12) %.059, i64 12)
   %.not72 = icmp eq i32 %bcmp16.i, 0
   br i1 %.not72, label %115, label %112
 
 112:                                              ; preds = %110
   %113 = getelementptr inbounds i8, ptr %1, i64 112
   %114 = load ptr, ptr %113, align 8
-  call void @phpdbg_print_watch_diff(i32 noundef 0, ptr noundef %114, ptr noundef nonnull %111, ptr noundef nonnull %.058)
+  call void @phpdbg_print_watch_diff(i32 noundef 0, ptr noundef %114, ptr noundef nonnull %111, ptr noundef nonnull %.059)
   br label %115
 
 115:                                              ; preds = %110, %112, %.loopexit
   %116 = getelementptr inbounds i8, ptr %1, i64 96
   store ptr %18, ptr %116, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3)
-  store ptr %.058, ptr %3, align 8
+  store ptr %.059, ptr %3, align 8
   %117 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 32, ptr %117, align 8
   %118 = getelementptr inbounds i8, ptr %3, i64 24
@@ -2625,8 +2625,8 @@ phpdbg_add_ht_watch_element.exit:                 ; preds = %phpdbg_print_watch_
   br label %.thread
 
 .thread:                                          ; preds = %2, %115, %phpdbg_add_ht_watch_element.exit, %96, %.loopexit, %17
-  %.059 = phi i1 [ false, %17 ], [ false, %.loopexit ], [ false, %96 ], [ true, %phpdbg_add_ht_watch_element.exit ], [ true, %115 ], [ false, %2 ]
-  ret i1 %.059
+  %.058 = phi i1 [ false, %17 ], [ false, %.loopexit ], [ false, %96 ], [ true, %phpdbg_add_ht_watch_element.exit ], [ true, %115 ], [ false, %2 ]
+  ret i1 %.058
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3238,14 +3238,14 @@ define hidden void @phpdbg_update_watch_collision_elements(ptr nocapture noundef
   br label %17
 
 17:                                               ; preds = %.lr.ph52, %.loopexit
-  %.051 = phi ptr [ %7, %.lr.ph52 ], [ %117, %.loopexit ]
-  %18 = getelementptr inbounds i8, ptr %.051, i64 8
+  %.02751 = phi ptr [ %7, %.lr.ph52 ], [ %117, %.loopexit ]
+  %18 = getelementptr inbounds i8, ptr %.02751, i64 8
   %19 = load i8, ptr %18, align 8
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %17
-  %22 = load ptr, ptr %.051, align 8
+  %22 = load ptr, ptr %.02751, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 88
   %24 = load ptr, ptr %23, align 8
   %.not29 = icmp eq ptr %24, null
@@ -3271,14 +3271,14 @@ define hidden void @phpdbg_update_watch_collision_elements(ptr nocapture noundef
   br i1 %.not3148, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26, %phpdbg_update_watch_element_watch.exit
-  %.02749 = phi ptr [ %116, %phpdbg_update_watch_element_watch.exit ], [ %28, %26 ]
-  %36 = getelementptr inbounds i8, ptr %.02749, i64 8
+  %.049 = phi ptr [ %116, %phpdbg_update_watch_element_watch.exit ], [ %28, %26 ]
+  %36 = getelementptr inbounds i8, ptr %.049, i64 8
   %37 = load i8, ptr %36, align 8
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %phpdbg_update_watch_element_watch.exit, label %39
 
 39:                                               ; preds = %.lr.ph
-  %40 = load ptr, ptr %.02749, align 8
+  %40 = load ptr, ptr %.049, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 16
   %42 = load i8, ptr %41, align 8
   %43 = zext i8 %42 to i32
@@ -3439,12 +3439,12 @@ phpdbg_queue_element_for_recreation.exit:         ; preds = %84, %.thread44, %95
   br label %phpdbg_update_watch_element_watch.exit
 
 phpdbg_update_watch_element_watch.exit:           ; preds = %115, %100, %phpdbg_queue_element_for_recreation.exit, %phpdbg_queue_element_for_recreation.exit40, %.lr.ph
-  %116 = getelementptr inbounds i8, ptr %.02749, i64 32
+  %116 = getelementptr inbounds i8, ptr %.049, i64 32
   %.not31 = icmp eq ptr %116, %32
   br i1 %.not31, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %phpdbg_update_watch_element_watch.exit, %26, %25, %17
-  %117 = getelementptr inbounds i8, ptr %.051, i64 32
+  %117 = getelementptr inbounds i8, ptr %.02751, i64 32
   %.not28 = icmp eq ptr %117, %11
   br i1 %.not28, label %._crit_edge, label %17
 
@@ -3572,31 +3572,31 @@ define hidden ptr @phpdbg_watchpoint_change_collision_name(ptr nocapture noundef
   br i1 %.not6367, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %34
-  %.05269 = phi ptr [ %.1, %34 ], [ null, %4 ]
-  %.05468 = phi ptr [ %35, %34 ], [ %6, %4 ]
-  %14 = getelementptr inbounds i8, ptr %.05468, i64 8
+  %.05269 = phi ptr [ %35, %34 ], [ %6, %4 ]
+  %.05368 = phi ptr [ %.1, %34 ], [ null, %4 ]
+  %14 = getelementptr inbounds i8, ptr %.05269, i64 8
   %15 = load i8, ptr %14, align 8
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %34, label %17
 
 17:                                               ; preds = %.lr.ph
-  %18 = load ptr, ptr %.05468, align 8
-  %.not64 = icmp eq ptr %.05269, null
+  %18 = load ptr, ptr %.05269, align 8
+  %.not64 = icmp eq ptr %.05368, null
   br i1 %.not64, label %32, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %.05269, i64 4
+  %20 = getelementptr inbounds i8, ptr %.05368, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 64
   %.not65 = icmp eq i32 %22, 0
   br i1 %.not65, label %23, label %32
 
 23:                                               ; preds = %19
-  %24 = load i32, ptr %.05269, align 4
+  %24 = load i32, ptr %.05368, align 4
   %25 = icmp ne i32 %24, 0
   tail call void @llvm.assume(i1 %25)
   %26 = add i32 %24, -1
-  store i32 %26, ptr %.05269, align 4
+  store i32 %26, ptr %.05368, align 4
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %32
 
@@ -3606,11 +3606,11 @@ define hidden ptr @phpdbg_watchpoint_change_collision_name(ptr nocapture noundef
   br i1 %.not66, label %31, label %30
 
 30:                                               ; preds = %28
-  tail call void @free(ptr noundef nonnull %.05269) #17
+  tail call void @free(ptr noundef nonnull %.05368) #17
   br label %32
 
 31:                                               ; preds = %28
-  tail call void @_efree(ptr noundef nonnull %.05269) #17
+  tail call void @_efree(ptr noundef nonnull %.05368) #17
   br label %32
 
 32:                                               ; preds = %19, %30, %31, %23, %17
@@ -3618,8 +3618,8 @@ define hidden ptr @phpdbg_watchpoint_change_collision_name(ptr nocapture noundef
   br label %34
 
 34:                                               ; preds = %.lr.ph, %32
-  %.1 = phi ptr [ %.05269, %.lr.ph ], [ %33, %32 ]
-  %35 = getelementptr inbounds i8, ptr %.05468, i64 32
+  %.1 = phi ptr [ %.05368, %.lr.ph ], [ %33, %32 ]
+  %35 = getelementptr inbounds i8, ptr %.05269, i64 32
   %.not63 = icmp eq ptr %35, %10
   br i1 %.not63, label %.loopexit, label %.lr.ph
 
@@ -3644,15 +3644,15 @@ define hidden ptr @phpdbg_watchpoint_change_collision_name(ptr nocapture noundef
   br label %48
 
 48:                                               ; preds = %.lr.ph73, %68
-  %.272 = phi ptr [ null, %.lr.ph73 ], [ %.3, %68 ]
-  %.05371 = phi ptr [ %38, %.lr.ph73 ], [ %69, %68 ]
-  %49 = getelementptr inbounds i8, ptr %.05371, i64 8
+  %.072 = phi ptr [ %38, %.lr.ph73 ], [ %69, %68 ]
+  %.271 = phi ptr [ null, %.lr.ph73 ], [ %.3, %68 ]
+  %49 = getelementptr inbounds i8, ptr %.072, i64 8
   %50 = load i8, ptr %49, align 8
   %51 = icmp eq i8 %50, 0
   br i1 %51, label %68, label %52
 
 52:                                               ; preds = %48
-  %53 = load ptr, ptr %.05371, align 8
+  %53 = load ptr, ptr %.072, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 16
   %55 = load i8, ptr %54, align 8
   %56 = and i8 %55, 16
@@ -3683,8 +3683,8 @@ define hidden ptr @phpdbg_watchpoint_change_collision_name(ptr nocapture noundef
   br label %68
 
 68:                                               ; preds = %57, %59, %62, %48, %65
-  %.3 = phi ptr [ %.272, %48 ], [ %.272, %62 ], [ %.272, %59 ], [ %67, %65 ], [ %.272, %57 ]
-  %69 = getelementptr inbounds i8, ptr %.05371, i64 32
+  %.3 = phi ptr [ %.271, %48 ], [ %.271, %62 ], [ %.271, %59 ], [ %67, %65 ], [ %.271, %57 ]
+  %69 = getelementptr inbounds i8, ptr %.072, i64 32
   %.not58 = icmp eq ptr %69, %42
   br i1 %.not58, label %._crit_edge, label %48
 
@@ -3706,8 +3706,8 @@ define hidden ptr @phpdbg_watchpoint_change_collision_name(ptr nocapture noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %36, %4, %._crit_edge, %74, %70
-  %.0 = phi ptr [ null, %._crit_edge ], [ %.3, %74 ], [ %.3, %70 ], [ null, %4 ], [ null, %36 ], [ %.1, %34 ]
-  ret ptr %.0
+  %.054 = phi ptr [ null, %._crit_edge ], [ %.3, %74 ], [ %.3, %70 ], [ null, %4 ], [ null, %36 ], [ %.1, %34 ]
+  ret ptr %.054
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3737,14 +3737,14 @@ define hidden void @phpdbg_check_watchpoint(ptr noundef %0) local_unnamed_addr #
   br i1 %.not207275, label %thread-pre-split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %133
-  %.0190276 = phi ptr [ %134, %133 ], [ %11, %9 ]
-  %19 = getelementptr inbounds i8, ptr %.0190276, i64 8
+  %.0196276 = phi ptr [ %134, %133 ], [ %11, %9 ]
+  %19 = getelementptr inbounds i8, ptr %.0196276, i64 8
   %20 = load i8, ptr %19, align 8
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %133, label %22
 
 22:                                               ; preds = %.lr.ph
-  %23 = load ptr, ptr %.0190276, align 8
+  %23 = load ptr, ptr %.0196276, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 16
   %25 = load i8, ptr %24, align 8
   %26 = and i8 %25, 2
@@ -3791,78 +3791,78 @@ define hidden void @phpdbg_check_watchpoint(ptr noundef %0) local_unnamed_addr #
 
 52:                                               ; preds = %.lr.ph285, %131
   %indvars.iv = phi i64 [ %48, %.lr.ph285 ], [ %indvars.iv.next, %131 ]
-  %.0196282 = phi ptr [ null, %.lr.ph285 ], [ %.1, %131 ]
-  %.0197281 = phi ptr [ %50, %.lr.ph285 ], [ %.0193, %131 ]
+  %.0189283 = phi ptr [ %50, %.lr.ph285 ], [ %.1, %131 ]
+  %.0191282 = phi ptr [ null, %.lr.ph285 ], [ %.1192, %131 ]
   %53 = load i32, ptr %40, align 8
   %54 = and i32 %53, 4
   %.not211 = icmp eq i32 %54, 0
   br i1 %.not211, label %58, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %.0197281, i64 -16
+  %56 = getelementptr inbounds i8, ptr %.0189283, i64 -16
   %57 = add nsw i64 %indvars.iv, -1
   br label %64
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %.0197281, i64 -32
-  %60 = getelementptr inbounds i8, ptr %.0197281, i64 -16
+  %59 = getelementptr inbounds i8, ptr %.0189283, i64 -32
+  %60 = getelementptr inbounds i8, ptr %.0189283, i64 -16
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %.0197281, i64 -8
+  %62 = getelementptr inbounds i8, ptr %.0189283, i64 -8
   %63 = load ptr, ptr %62, align 8
   br label %64
 
 64:                                               ; preds = %58, %55
-  %.1 = phi ptr [ %.0196282, %55 ], [ %63, %58 ]
-  %.0195 = phi i64 [ %57, %55 ], [ %61, %58 ]
-  %.0193 = phi ptr [ %56, %55 ], [ %59, %58 ]
-  %65 = getelementptr inbounds i8, ptr %.0193, i64 8
+  %.0193 = phi i64 [ %57, %55 ], [ %61, %58 ]
+  %.1192 = phi ptr [ %.0191282, %55 ], [ %63, %58 ]
+  %.1 = phi ptr [ %56, %55 ], [ %59, %58 ]
+  %65 = getelementptr inbounds i8, ptr %.1, i64 8
   %66 = load i8, ptr %65, align 8
   %67 = icmp eq i8 %66, 0
   br i1 %67, label %131, label %68
 
 68:                                               ; preds = %64
-  %.not212 = icmp eq ptr %.1, null
+  %.not212 = icmp eq ptr %.1192, null
   br i1 %.not212, label %69, label %71
 
 69:                                               ; preds = %68
-  %70 = tail call ptr @zend_long_to_str(i64 noundef %.0195) #17
+  %70 = tail call ptr @zend_long_to_str(i64 noundef %.0193) #17
   br label %78
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %.1, i64 4
+  %72 = getelementptr inbounds i8, ptr %.1192, i64 4
   %73 = load i32, ptr %72, align 4
   %74 = and i32 %73, 64
   %.not213 = icmp eq i32 %74, 0
   br i1 %.not213, label %75, label %78
 
 75:                                               ; preds = %71
-  %76 = load i32, ptr %.1, align 4
+  %76 = load i32, ptr %.1192, align 4
   %77 = add i32 %76, 1
-  store i32 %77, ptr %.1, align 4
+  store i32 %77, ptr %.1192, align 4
   br label %78
 
 78:                                               ; preds = %71, %75, %69
-  %.0189 = phi ptr [ %70, %69 ], [ %.1, %75 ], [ %.1, %71 ]
+  %.0197 = phi ptr [ %70, %69 ], [ %.1192, %75 ], [ %.1192, %71 ]
   br i1 %.not214, label %94, label %79
 
 79:                                               ; preds = %78
-  %80 = tail call ptr @zend_hash_find(ptr noundef nonnull %51, ptr noundef %.0189) #17
+  %80 = tail call ptr @zend_hash_find(ptr noundef nonnull %51, ptr noundef %.0197) #17
   %.not215 = icmp eq ptr %80, null
   br i1 %.not215, label %94, label %81
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %.0189, i64 4
+  %82 = getelementptr inbounds i8, ptr %.0197, i64 4
   %83 = load i32, ptr %82, align 4
   %84 = and i32 %83, 64
   %.not221 = icmp eq i32 %84, 0
   br i1 %.not221, label %85, label %thread-pre-split
 
 85:                                               ; preds = %81
-  %86 = load i32, ptr %.0189, align 4
+  %86 = load i32, ptr %.0197, align 4
   %87 = icmp ne i32 %86, 0
   tail call void @llvm.assume(i1 %87)
   %88 = add i32 %86, -1
-  store i32 %88, ptr %.0189, align 4
+  store i32 %88, ptr %.0197, align 4
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %90, label %thread-pre-split
 
@@ -3872,11 +3872,11 @@ define hidden void @phpdbg_check_watchpoint(ptr noundef %0) local_unnamed_addr #
   br i1 %.not222, label %93, label %92
 
 92:                                               ; preds = %90
-  tail call void @free(ptr noundef nonnull %.0189) #17
+  tail call void @free(ptr noundef nonnull %.0197) #17
   br label %thread-pre-split
 
 93:                                               ; preds = %90
-  tail call void @_efree(ptr noundef nonnull %.0189) #17
+  tail call void @_efree(ptr noundef nonnull %.0197) #17
   br label %thread-pre-split
 
 94:                                               ; preds = %78, %79
@@ -3892,14 +3892,14 @@ define hidden void @phpdbg_check_watchpoint(ptr noundef %0) local_unnamed_addr #
   br i1 %.not217277, label %._crit_edge, label %.lr.ph279
 
 .lr.ph279:                                        ; preds = %94, %110
-  %.0194278 = phi ptr [ %111, %110 ], [ %95, %94 ]
-  %101 = getelementptr inbounds i8, ptr %.0194278, i64 8
+  %.0188278 = phi ptr [ %111, %110 ], [ %95, %94 ]
+  %101 = getelementptr inbounds i8, ptr %.0188278, i64 8
   %102 = load i8, ptr %101, align 8
   %103 = icmp eq i8 %102, 0
   br i1 %103, label %110, label %104
 
 104:                                              ; preds = %.lr.ph279
-  %105 = load ptr, ptr %.0194278, align 8
+  %105 = load ptr, ptr %.0188278, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 16
   %107 = load i8, ptr %106, align 8
   %108 = and i8 %107, 2
@@ -3907,33 +3907,33 @@ define hidden void @phpdbg_check_watchpoint(ptr noundef %0) local_unnamed_addr #
   br i1 %.not220, label %110, label %109
 
 109:                                              ; preds = %104
-  tail call void @phpdbg_add_recursive_watch_from_ht(ptr noundef nonnull %105, i64 noundef %.0195, ptr noundef %.0189, ptr noundef nonnull %.0193)
+  tail call void @phpdbg_add_recursive_watch_from_ht(ptr noundef nonnull %105, i64 noundef %.0193, ptr noundef %.0197, ptr noundef nonnull %.1)
   br label %110
 
 110:                                              ; preds = %104, %109, %.lr.ph279
-  %111 = getelementptr inbounds i8, ptr %.0194278, i64 32
+  %111 = getelementptr inbounds i8, ptr %.0188278, i64 32
   %.not217 = icmp eq ptr %111, %98
   br i1 %.not217, label %._crit_edge, label %.lr.ph279
 
 ._crit_edge:                                      ; preds = %110, %94
   %112 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
-  %113 = getelementptr inbounds i8, ptr %.0189, i64 16
+  %113 = getelementptr inbounds i8, ptr %.0197, i64 16
   %114 = load i64, ptr %113, align 8
   %115 = trunc i64 %114 to i32
-  %116 = getelementptr inbounds i8, ptr %.0189, i64 24
+  %116 = getelementptr inbounds i8, ptr %.0197, i64 24
   %117 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 2, i32 noundef %112, ptr noundef nonnull @.str.28, i32 noundef %115, ptr noundef nonnull %116) #17
-  %118 = getelementptr inbounds i8, ptr %.0189, i64 4
+  %118 = getelementptr inbounds i8, ptr %.0197, i64 4
   %119 = load i32, ptr %118, align 4
   %120 = and i32 %119, 64
   %.not218 = icmp eq i32 %120, 0
   br i1 %.not218, label %121, label %130
 
 121:                                              ; preds = %._crit_edge
-  %122 = load i32, ptr %.0189, align 4
+  %122 = load i32, ptr %.0197, align 4
   %123 = icmp ne i32 %122, 0
   tail call void @llvm.assume(i1 %123)
   %124 = add i32 %122, -1
-  store i32 %124, ptr %.0189, align 4
+  store i32 %124, ptr %.0197, align 4
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %126, label %130
 
@@ -3943,11 +3943,11 @@ define hidden void @phpdbg_check_watchpoint(ptr noundef %0) local_unnamed_addr #
   br i1 %.not219, label %129, label %128
 
 128:                                              ; preds = %126
-  tail call void @free(ptr noundef nonnull %.0189) #17
+  tail call void @free(ptr noundef nonnull %.0197) #17
   br label %130
 
 129:                                              ; preds = %126
-  tail call void @_efree(ptr noundef nonnull %.0189) #17
+  tail call void @_efree(ptr noundef nonnull %.0197) #17
   br label %130
 
 130:                                              ; preds = %121, %129, %128, %._crit_edge
@@ -3961,7 +3961,7 @@ define hidden void @phpdbg_check_watchpoint(ptr noundef %0) local_unnamed_addr #
   br i1 %.not210, label %thread-pre-split, label %52
 
 133:                                              ; preds = %22, %.lr.ph
-  %134 = getelementptr inbounds i8, ptr %.0190276, i64 32
+  %134 = getelementptr inbounds i8, ptr %.0196276, i64 32
   %.not207 = icmp eq ptr %134, %15
   br i1 %.not207, label %thread-pre-split, label %.lr.ph
 
@@ -4075,17 +4075,17 @@ phpdbg_check_watch_diff.exit:                     ; preds = %149, %152
   br label %180
 
 180:                                              ; preds = %180, %170
-  %.0188 = phi ptr [ %172, %170 ], [ %184, %180 ]
-  %.not228 = icmp ne ptr %.0188, %176
+  %.0186 = phi ptr [ %172, %170 ], [ %184, %180 ]
+  %.not228 = icmp ne ptr %.0186, %176
   tail call void @llvm.assume(i1 %.not228)
-  %181 = getelementptr inbounds i8, ptr %.0188, i64 8
+  %181 = getelementptr inbounds i8, ptr %.0186, i64 8
   %182 = load i8, ptr %181, align 8
   %183 = icmp eq i8 %182, 0
-  %184 = getelementptr inbounds i8, ptr %.0188, i64 32
+  %184 = getelementptr inbounds i8, ptr %.0186, i64 32
   br i1 %183, label %180, label %185
 
 185:                                              ; preds = %180
-  %186 = load ptr, ptr %.0188, align 8, !nonnull !4, !noundef !4
+  %186 = load ptr, ptr %.0186, align 8, !nonnull !4, !noundef !4
   %187 = getelementptr inbounds i8, ptr %186, i64 96
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr inbounds i8, ptr %186, i64 104
@@ -4126,8 +4126,8 @@ phpdbg_check_watch_diff.exit:                     ; preds = %149, %152
   br label %209
 
 209:                                              ; preds = %.critedge, %205
-  %.0186 = phi ptr [ %207, %205 ], [ %208, %.critedge ]
-  %.not230 = icmp eq ptr %.0186, null
+  %.0190 = phi ptr [ %207, %205 ], [ %208, %.critedge ]
+  %.not230 = icmp eq ptr %.0190, null
   br i1 %.not230, label %210, label %211
 
 210:                                              ; preds = %209
@@ -4173,8 +4173,8 @@ phpdbg_check_watch_diff.exit:                     ; preds = %149, %152
 
 phpdbg_deactivate_watchpoint.exit:                ; preds = %225, %229
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  store ptr %.0186, ptr %0, align 8
-  %232 = ptrtoint ptr %.0186 to i64
+  store ptr %.0190, ptr %0, align 8
+  %232 = ptrtoint ptr %.0190 to i64
   %233 = call i32 @phpdbg_btree_insert_or_update(ptr noundef nonnull getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1008), i64 noundef %232, ptr noundef nonnull %0, i32 noundef 1) #17
   %.val239 = load ptr, ptr %0, align 8
   %.val240 = load i64, ptr %214, align 8
@@ -4239,7 +4239,7 @@ phpdbg_activate_watchpoint.exit:                  ; preds = %244, %251
   br label %phpdbg_check_watch_diff.exit.thread253
 
 .thread262:                                       ; preds = %156, %.thread, %.thread247, %.thread259, %phpdbg_activate_watchpoint.exit, %256
-  %.0187246252258264 = phi ptr [ %150, %phpdbg_activate_watchpoint.exit ], [ %150, %256 ], [ %150, %.thread259 ], [ %139, %.thread247 ], [ %143, %.thread ], [ %150, %156 ]
+  %.0198246252258264 = phi ptr [ %150, %phpdbg_activate_watchpoint.exit ], [ %150, %256 ], [ %150, %.thread259 ], [ %139, %.thread247 ], [ %143, %.thread ], [ %150, %156 ]
   %261 = call ptr @phpdbg_watchpoint_change_collision_name(ptr noundef nonnull %0)
   %.not231 = icmp eq ptr %261, null
   br i1 %.not231, label %277, label %262
@@ -4247,7 +4247,7 @@ phpdbg_activate_watchpoint.exit:                  ; preds = %244, %251
 262:                                              ; preds = %.thread262
   %263 = load i32, ptr %6, align 8
   %264 = load ptr, ptr %0, align 8
-  call void @phpdbg_print_watch_diff(i32 noundef %263, ptr noundef nonnull %261, ptr noundef nonnull %.0187246252258264, ptr noundef %264)
+  call void @phpdbg_print_watch_diff(i32 noundef %263, ptr noundef nonnull %261, ptr noundef nonnull %.0198246252258264, ptr noundef %264)
   %265 = getelementptr inbounds i8, ptr %261, i64 4
   %266 = load i32, ptr %265, align 4
   %267 = and i32 %266, 64
@@ -4300,14 +4300,14 @@ phpdbg_activate_watchpoint.exit:                  ; preds = %244, %251
   br i1 %.not235286, label %.loopexit, label %.lr.ph289
 
 .lr.ph289:                                        ; preds = %279, %298
-  %.0185287 = phi ptr [ %299, %298 ], [ %281, %279 ]
-  %289 = getelementptr inbounds i8, ptr %.0185287, i64 8
+  %.0287 = phi ptr [ %299, %298 ], [ %281, %279 ]
+  %289 = getelementptr inbounds i8, ptr %.0287, i64 8
   %290 = load i8, ptr %289, align 8
   %291 = icmp eq i8 %290, 0
   br i1 %291, label %298, label %292
 
 292:                                              ; preds = %.lr.ph289
-  %293 = load ptr, ptr %.0185287, align 8
+  %293 = load ptr, ptr %.0287, align 8
   %294 = getelementptr inbounds i8, ptr %293, i64 16
   %295 = load i8, ptr %294, align 8
   %296 = and i8 %295, 2
@@ -4319,7 +4319,7 @@ phpdbg_activate_watchpoint.exit:                  ; preds = %244, %251
   br label %298
 
 298:                                              ; preds = %292, %297, %.lr.ph289
-  %299 = getelementptr inbounds i8, ptr %.0185287, i64 32
+  %299 = getelementptr inbounds i8, ptr %.0287, i64 32
   %.not235 = icmp eq ptr %299, %285
   br i1 %.not235, label %.loopexit, label %.lr.ph289
 
@@ -5031,8 +5031,8 @@ define internal range(i32 -1, 1) i32 @phpdbg_create_array_watchpoint(ptr noundef
 
 11:                                               ; preds = %2, %8
   %12 = phi i8 [ %.pre, %8 ], [ %6, %2 ]
-  %.039 = phi ptr [ %10, %8 ], [ %0, %2 ]
-  %13 = getelementptr inbounds i8, ptr %.039, i64 8
+  %.0 = phi ptr [ %10, %8 ], [ %0, %2 ]
+  %13 = getelementptr inbounds i8, ptr %.0, i64 8
   %.off = add i8 %12, -7
   %switch = icmp ult i8 %.off, 2
   br i1 %switch, label %14, label %80
@@ -5123,7 +5123,7 @@ define internal range(i32 -1, 1) i32 @phpdbg_create_array_watchpoint(ptr noundef
   ]
 
 56:                                               ; preds = %52
-  %57 = load ptr, ptr %.039, align 8
+  %57 = load ptr, ptr %.0, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 104
@@ -5132,7 +5132,7 @@ define internal range(i32 -1, 1) i32 @phpdbg_create_array_watchpoint(ptr noundef
   br label %65
 
 63:                                               ; preds = %52
-  %64 = load ptr, ptr %.039, align 8
+  %64 = load ptr, ptr %.0, align 8
   br label %65
 
 65:                                               ; preds = %63, %56
@@ -5167,8 +5167,8 @@ phpdbg_add_ht_watch_element.exit:                 ; preds = %52, %65, %67
   br label %80
 
 80:                                               ; preds = %11, %phpdbg_add_ht_watch_element.exit
-  %.0 = phi i32 [ 0, %phpdbg_add_ht_watch_element.exit ], [ -1, %11 ]
-  ret i32 %.0
+  %.039 = phi i32 [ 0, %phpdbg_add_ht_watch_element.exit ], [ -1, %11 ]
+  ret i32 %.039
 }
 
 ; Function Attrs: nounwind uwtable

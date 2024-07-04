@@ -498,9 +498,9 @@ list_length.exit:                                 ; preds = %ExecCheckXactReadOn
   unreachable
 
 CheckValidRowMarkRel.exit.i:                      ; preds = %199, %190, %164, %164, %162, %146
-  %.0103119.i = phi ptr [ null, %162 ], [ %163, %164 ], [ %163, %164 ], [ %163, %190 ], [ %163, %199 ], [ null, %146 ]
+  %.0100119.i = phi ptr [ null, %162 ], [ %163, %164 ], [ %163, %164 ], [ %163, %190 ], [ %163, %199 ], [ null, %146 ]
   %218 = tail call ptr @palloc(i64 noundef 56) #10
-  store ptr %.0103119.i, ptr %218, align 8
+  store ptr %.0100119.i, ptr %218, align 8
   %219 = getelementptr inbounds i8, ptr %218, i64 8
   store i32 %155, ptr %219, align 8
   %220 = load i32, ptr %147, align 4
@@ -573,18 +573,18 @@ CheckValidRowMarkRel.exit.i:                      ; preds = %199, %190, %164, %1
 
 .lr.ph154.i:                                      ; preds = %.lr.ph150.i, %.lr.ph154.i
   %indvars.iv174.i = phi i64 [ %indvars.iv.next175.i, %.lr.ph154.i ], [ 0, %.lr.ph150.i ]
-  %.099149152.i = phi i32 [ %269, %.lr.ph154.i ], [ 1, %.lr.ph150.i ]
+  %.0101148153.i = phi i32 [ %269, %.lr.ph154.i ], [ 1, %.lr.ph150.i ]
   %261 = load ptr, ptr %254, align 8
   %262 = getelementptr %union.ListCell, ptr %261, i64 %indvars.iv174.i
   %263 = load ptr, ptr %262, align 8
   %264 = load ptr, ptr %256, align 8
-  %265 = tail call zeroext i1 @bms_is_member(i32 noundef %.099149152.i, ptr noundef %264) #10
+  %265 = tail call zeroext i1 @bms_is_member(i32 noundef %.0101148153.i, ptr noundef %264) #10
   %spec.select.i = select i1 %265, i32 %257, i32 %255
   %266 = tail call ptr @ExecInitNode(ptr noundef %263, ptr noundef nonnull %118, i32 noundef %spec.select.i) #10
   %267 = load ptr, ptr %258, align 8
   %268 = tail call ptr @lappend(ptr noundef %267, ptr noundef %266) #10
   store ptr %268, ptr %258, align 8
-  %269 = add nuw i32 %.099149152.i, 1
+  %269 = add nuw i32 %.0101148153.i, 1
   %indvars.iv.next175.i = add nuw nsw i64 %indvars.iv174.i, 1
   %270 = load i32, ptr %253, align 4
   %271 = sext i32 %270 to i64
@@ -643,9 +643,9 @@ CheckValidRowMarkRel.exit.i:                      ; preds = %199, %190, %164, %1
   br label %InitPlan.exit
 
 InitPlan.exit:                                    ; preds = %284, %._crit_edge.i44, %276, %.lr.ph157.i, %.split.i
-  %.0.i = phi ptr [ %299, %.split.i ], [ %274, %._crit_edge.i44 ], [ %274, %.lr.ph157.i ], [ %274, %276 ], [ %274, %284 ]
+  %.0103.i = phi ptr [ %299, %.split.i ], [ %274, %._crit_edge.i44 ], [ %274, %.lr.ph157.i ], [ %274, %276 ], [ %274, %284 ]
   %300 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr %.0.i, ptr %300, align 8
+  store ptr %.0103.i, ptr %300, align 8
   %301 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %273, ptr %301, align 8
   store ptr %50, ptr @CurrentMemoryContext, align 8
@@ -1557,8 +1557,8 @@ ExecCheckOneRelPerms.exit:                        ; preds = %55, %54, %19
   br label %72
 
 72:                                               ; preds = %._crit_edge, %70, %.loopexit, %59
-  %.0 = phi i1 [ false, %59 ], [ false, %.loopexit ], [ %71, %70 ], [ true, %._crit_edge ]
-  ret i1 %.0
+  %.016 = phi i1 [ false, %59 ], [ false, %.loopexit ], [ %71, %70 ], [ true, %._crit_edge ]
+  ret i1 %.016
 }
 
 declare void @aclcheck_error(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -2091,7 +2091,7 @@ define dso_local ptr @ExecGetAncestorResultRels(ptr nocapture noundef readonly %
 
 .lr.ph40:                                         ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.lr.ph ]
-  %.0243138 = phi ptr [ %40, %36 ], [ null, %.lr.ph ]
+  %.03039 = phi ptr [ %40, %36 ], [ null, %.lr.ph ]
   %32 = load ptr, ptr %28, align 8
   %33 = getelementptr %union.ListCell, ptr %32, i64 %indvars.iv
   %34 = load i32, ptr %33, align 8
@@ -2104,7 +2104,7 @@ define dso_local ptr @ExecGetAncestorResultRels(ptr nocapture noundef readonly %
   store i32 372, ptr %38, align 4
   %39 = load i32, ptr %29, align 4
   tail call void @InitResultRelInfo(ptr noundef nonnull %38, ptr noundef %37, i32 noundef 0, ptr noundef null, i32 noundef %39)
-  %40 = tail call ptr @lappend(ptr noundef %.0243138, ptr noundef nonnull %38) #10
+  %40 = tail call ptr @lappend(ptr noundef %.03039, ptr noundef nonnull %38) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = load i32, ptr %27, align 4
   %42 = sext i32 %41 to i64
@@ -2112,8 +2112,8 @@ define dso_local ptr @ExecGetAncestorResultRels(ptr nocapture noundef readonly %
   br i1 %43, label %.lr.ph40, label %.thread
 
 .thread:                                          ; preds = %.lr.ph40, %36, %.lr.ph, %23
-  %.024.lcssa = phi ptr [ null, %23 ], [ null, %.lr.ph ], [ %40, %36 ], [ %.0243138, %.lr.ph40 ]
-  %44 = tail call ptr @lappend(ptr noundef %.024.lcssa, ptr noundef %4) #10
+  %.0.lcssa = phi ptr [ null, %23 ], [ null, %.lr.ph ], [ %40, %36 ], [ %.03039, %.lr.ph40 ]
+  %44 = tail call ptr @lappend(ptr noundef %.0.lcssa, ptr noundef %4) #10
   store ptr %44, ptr %20, align 8
   br label %45
 
@@ -2353,13 +2353,13 @@ define dso_local void @ExecPartitionCheckEmitError(ptr noundef %0, ptr noundef %
 
 28:                                               ; preds = %6, %18, %21
   %.sink38 = phi ptr [ %0, %21 ], [ %5, %18 ], [ %5, %6 ]
+  %.030 = phi i32 [ %25, %21 ], [ %10, %18 ], [ %10, %6 ]
   %.029 = phi ptr [ %27, %21 ], [ %12, %18 ], [ %12, %6 ]
-  %.028 = phi i32 [ %25, %21 ], [ %10, %18 ], [ %10, %6 ]
   %.1 = phi ptr [ %1, %21 ], [ %20, %18 ], [ %1, %6 ]
   %29 = tail call ptr @ExecGetInsertedCols(ptr noundef nonnull %.sink38, ptr noundef %2) #10
   %30 = tail call ptr @ExecGetUpdatedCols(ptr noundef nonnull %.sink38, ptr noundef %2) #10
   %31 = tail call ptr @bms_union(ptr noundef %29, ptr noundef %30) #10
-  %32 = tail call fastcc ptr @ExecBuildSlotValueDescription(i32 noundef %.028, ptr noundef %.1, ptr noundef %.029, ptr noundef %31)
+  %32 = tail call fastcc ptr @ExecBuildSlotValueDescription(i32 noundef %.030, ptr noundef %.1, ptr noundef %.029, ptr noundef %31)
   %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %33)
   %34 = tail call i32 @errcode(i32 noundef 67391682) #10
@@ -2419,7 +2419,7 @@ define internal fastcc ptr @ExecBuildSlotValueDescription(i32 noundef %0, ptr no
   br label %15
 
 15:                                               ; preds = %11, %14
-  %.041 = phi i8 [ 0, %14 ], [ 1, %11 ]
+  %.040 = phi i8 [ 0, %14 ], [ 1, %11 ]
   %16 = getelementptr inbounds i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 8
@@ -2440,14 +2440,14 @@ slot_getallattrs.exit:                            ; preds = %15, %23
 
 .lr.ph:                                           ; preds = %slot_getallattrs.exit
   %26 = getelementptr inbounds i8, ptr %2, i64 24
-  %27 = trunc nuw i8 %.041 to i1
+  %27 = trunc nuw i8 %.040 to i1
   %28 = getelementptr inbounds i8, ptr %1, i64 32
   %29 = getelementptr inbounds i8, ptr %1, i64 24
   br i1 %27, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %55
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %55 ], [ 0, %.lr.ph ]
-  %.04860.us = phi i1 [ %.250.us, %55 ], [ false, %.lr.ph ]
+  %.04760.us = phi i1 [ %.249.us, %55 ], [ false, %.lr.ph ]
   %30 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %26, i64 0, i64 %indvars.iv65
   %31 = getelementptr inbounds i8, ptr %30, i64 95
   %32 = load i8, ptr %31, align 1
@@ -2473,31 +2473,31 @@ slot_getallattrs.exit:                            ; preds = %15, %23
   br label %46
 
 46:                                               ; preds = %38, %.thread.us
-  %.039.us = phi ptr [ %45, %38 ], [ @.str.44, %.thread.us ]
-  br i1 %.04860.us, label %47, label %48
+  %.0.us = phi ptr [ %45, %38 ], [ @.str.44, %.thread.us ]
+  br i1 %.04760.us, label %47, label %48
 
 47:                                               ; preds = %46
   call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.43) #10
   br label %48
 
 48:                                               ; preds = %47, %46
-  %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.039.us) #12
+  %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.us) #12
   %50 = trunc i64 %49 to i32
   %51 = icmp slt i32 %50, 65
   br i1 %51, label %54, label %52
 
 52:                                               ; preds = %48
-  %53 = call i32 @pg_mbcliplen(ptr noundef %.039.us, i32 noundef %50, i32 noundef 64) #10
-  call void @appendBinaryStringInfo(ptr noundef nonnull %5, ptr noundef %.039.us, i32 noundef %53) #10
+  %53 = call i32 @pg_mbcliplen(ptr noundef %.0.us, i32 noundef %50, i32 noundef 64) #10
+  call void @appendBinaryStringInfo(ptr noundef nonnull %5, ptr noundef %.0.us, i32 noundef %53) #10
   call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.45) #10
   br label %55
 
 54:                                               ; preds = %48
-  call void @appendBinaryStringInfo(ptr noundef nonnull %5, ptr noundef %.039.us, i32 noundef %50) #10
+  call void @appendBinaryStringInfo(ptr noundef nonnull %5, ptr noundef %.0.us, i32 noundef %50) #10
   br label %55
 
 55:                                               ; preds = %54, %52, %.lr.ph.split.us
-  %.250.us = phi i1 [ %.04860.us, %.lr.ph.split.us ], [ true, %54 ], [ true, %52 ]
+  %.249.us = phi i1 [ %.04760.us, %.lr.ph.split.us ], [ true, %54 ], [ true, %52 ]
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %56 = load i32, ptr %2, align 8
   %57 = sext i32 %56 to i64
@@ -2506,9 +2506,9 @@ slot_getallattrs.exit:                            ; preds = %15, %23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %97
   %indvars.iv = phi i64 [ %indvars.iv.next, %97 ], [ 0, %.lr.ph ]
-  %.163 = phi i8 [ %.3, %97 ], [ %.041, %.lr.ph ]
-  %.04461 = phi i1 [ %.347, %97 ], [ false, %.lr.ph ]
-  %.04860 = phi i1 [ %.250, %97 ], [ false, %.lr.ph ]
+  %.163 = phi i8 [ %.3, %97 ], [ %.040, %.lr.ph ]
+  %.04361 = phi i1 [ %.346, %97 ], [ false, %.lr.ph ]
+  %.04760 = phi i1 [ %.249, %97 ], [ false, %.lr.ph ]
   %59 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %26, i64 0, i64 %indvars.iv
   %60 = getelementptr inbounds i8, ptr %59, i64 95
   %61 = load i8, ptr %60, align 1
@@ -2529,7 +2529,7 @@ slot_getallattrs.exit:                            ; preds = %15, %23
   br i1 %or.cond, label %73, label %97
 
 73:                                               ; preds = %63
-  br i1 %.04461, label %74, label %.thread
+  br i1 %.04361, label %74, label %.thread
 
 74:                                               ; preds = %73
   call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.43) #10
@@ -2556,32 +2556,32 @@ slot_getallattrs.exit:                            ; preds = %15, %23
   br label %88
 
 88:                                               ; preds = %.thread, %80
-  %.039 = phi ptr [ %87, %80 ], [ @.str.44, %.thread ]
-  br i1 %.04860, label %89, label %90
+  %.0 = phi ptr [ %87, %80 ], [ @.str.44, %.thread ]
+  br i1 %.04760, label %89, label %90
 
 89:                                               ; preds = %88
   call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.43) #10
   br label %90
 
 90:                                               ; preds = %88, %89
-  %91 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.039) #12
+  %91 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #12
   %92 = trunc i64 %91 to i32
   %93 = icmp slt i32 %92, 65
   br i1 %93, label %94, label %95
 
 94:                                               ; preds = %90
-  call void @appendBinaryStringInfo(ptr noundef nonnull %5, ptr noundef %.039, i32 noundef %92) #10
+  call void @appendBinaryStringInfo(ptr noundef nonnull %5, ptr noundef %.0, i32 noundef %92) #10
   br label %97
 
 95:                                               ; preds = %90
-  %96 = call i32 @pg_mbcliplen(ptr noundef %.039, i32 noundef %92, i32 noundef 64) #10
-  call void @appendBinaryStringInfo(ptr noundef nonnull %5, ptr noundef %.039, i32 noundef %96) #10
+  %96 = call i32 @pg_mbcliplen(ptr noundef %.0, i32 noundef %92, i32 noundef 64) #10
+  call void @appendBinaryStringInfo(ptr noundef nonnull %5, ptr noundef %.0, i32 noundef %96) #10
   call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.45) #10
   br label %97
 
 97:                                               ; preds = %63, %95, %94, %.lr.ph.split
-  %.250 = phi i1 [ %.04860, %.lr.ph.split ], [ true, %94 ], [ true, %95 ], [ %.04860, %63 ]
-  %.347 = phi i1 [ %.04461, %.lr.ph.split ], [ true, %94 ], [ true, %95 ], [ %.04461, %63 ]
+  %.249 = phi i1 [ %.04760, %.lr.ph.split ], [ true, %94 ], [ true, %95 ], [ %.04760, %63 ]
+  %.346 = phi i1 [ %.04361, %.lr.ph.split ], [ true, %94 ], [ true, %95 ], [ %.04361, %63 ]
   %.3 = phi i8 [ %.163, %.lr.ph.split ], [ 1, %94 ], [ 1, %95 ], [ %.163, %63 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %98 = load i32, ptr %2, align 8
@@ -2590,13 +2590,13 @@ slot_getallattrs.exit:                            ; preds = %15, %23
   br i1 %100, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %97, %55, %slot_getallattrs.exit
-  %.1.lcssa = phi i8 [ %.041, %slot_getallattrs.exit ], [ %.041, %55 ], [ %.3, %97 ]
+  %.1.lcssa = phi i8 [ %.040, %slot_getallattrs.exit ], [ %.040, %55 ], [ %.3, %97 ]
   %101 = trunc nuw i8 %.1.lcssa to i1
   br i1 %101, label %102, label %111
 
 102:                                              ; preds = %._crit_edge
   call void @appendStringInfoChar(ptr noundef nonnull %5, i8 noundef signext 41) #10
-  %103 = trunc nuw i8 %.041 to i1
+  %103 = trunc nuw i8 %.040 to i1
   br i1 %103, label %109, label %104
 
 104:                                              ; preds = %102
@@ -2613,8 +2613,8 @@ slot_getallattrs.exit:                            ; preds = %15, %23
   br label %111
 
 111:                                              ; preds = %._crit_edge, %4, %109, %104
-  %.0 = phi ptr [ %110, %109 ], [ %108, %104 ], [ null, %4 ], [ null, %._crit_edge ]
-  ret ptr %.0
+  %.050 = phi ptr [ %110, %109 ], [ %108, %104 ], [ null, %4 ], [ null, %._crit_edge ]
+  ret ptr %.050
 }
 
 declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
@@ -2646,8 +2646,8 @@ define dso_local void @ExecConstraints(ptr noundef %0, ptr noundef %1, ptr nound
   br label %18
 
 18:                                               ; preds = %.lr.ph, %70
-  %.082102 = phi i32 [ 1, %.lr.ph ], [ %71, %70 ]
-  %19 = add i32 %.082102, -1
+  %.078102 = phi i32 [ 1, %.lr.ph ], [ %71, %70 ]
+  %19 = add i32 %.078102, -1
   %20 = sext i32 %19 to i64
   %21 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %15, i64 0, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 90
@@ -2658,11 +2658,11 @@ define dso_local void @ExecConstraints(ptr noundef %0, ptr noundef %1, ptr nound
 25:                                               ; preds = %18
   %26 = load i16, ptr %16, align 2
   %27 = sext i16 %26 to i32
-  %28 = icmp sgt i32 %.082102, %27
+  %28 = icmp sgt i32 %.078102, %27
   br i1 %28, label %slot_getsomeattrs.exit.i, label %slot_attisnull.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %25
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef %.082102) #10
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef %.078102) #10
   br label %slot_attisnull.exit
 
 slot_attisnull.exit:                              ; preds = %25, %slot_getsomeattrs.exit.i
@@ -2708,13 +2708,13 @@ slot_attisnull.exit:                              ; preds = %25, %slot_getsomeat
   br label %55
 
 55:                                               ; preds = %51, %46
-  %.080 = phi ptr [ %49, %46 ], [ %54, %51 ]
-  %.078 = phi ptr [ %41, %46 ], [ %7, %51 ]
+  %.081 = phi ptr [ %41, %46 ], [ %7, %51 ]
+  %.079 = phi ptr [ %49, %46 ], [ %54, %51 ]
   %.076 = phi ptr [ %50, %46 ], [ %5, %51 ]
   %.1 = phi ptr [ %.0, %46 ], [ %1, %51 ]
   %56 = getelementptr inbounds i8, ptr %.076, i64 72
   %57 = load i32, ptr %56, align 8
-  %58 = tail call fastcc ptr @ExecBuildSlotValueDescription(i32 noundef %57, ptr noundef %.1, ptr noundef %.078, ptr noundef %.080)
+  %58 = tail call fastcc ptr @ExecBuildSlotValueDescription(i32 noundef %57, ptr noundef %.1, ptr noundef %.081, ptr noundef %.079)
   %59 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %59)
   %60 = tail call i32 @errcode(i32 noundef 33575106) #10
@@ -2731,12 +2731,12 @@ slot_attisnull.exit:                              ; preds = %25, %slot_getsomeat
   br label %68
 
 68:                                               ; preds = %55, %66
-  %69 = tail call i32 @errtablecol(ptr noundef nonnull %5, i32 noundef %.082102) #10
+  %69 = tail call i32 @errtablecol(ptr noundef nonnull %5, i32 noundef %.078102) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1986, ptr noundef nonnull @__func__.ExecConstraints) #10
   unreachable
 
 70:                                               ; preds = %18, %slot_attisnull.exit
-  %71 = add i32 %.082102, 1
+  %71 = add i32 %.078102, 1
   %.not = icmp sgt i32 %71, %14
   br i1 %.not, label %.loopexit, label %18, !llvm.loop !9
 
@@ -2891,13 +2891,13 @@ ExecRelCheck.exit:                                ; preds = %.lr.ph44.i
   br label %156
 
 156:                                              ; preds = %152, %147
-  %.181 = phi ptr [ %150, %147 ], [ %155, %152 ]
-  %.179 = phi ptr [ %142, %147 ], [ %7, %152 ]
+  %.182 = phi ptr [ %142, %147 ], [ %7, %152 ]
+  %.180 = phi ptr [ %150, %147 ], [ %155, %152 ]
   %.177 = phi ptr [ %151, %147 ], [ %5, %152 ]
   %.3 = phi ptr [ %.2, %147 ], [ %1, %152 ]
   %157 = getelementptr inbounds i8, ptr %.177, i64 72
   %158 = load i32, ptr %157, align 8
-  %159 = tail call fastcc ptr @ExecBuildSlotValueDescription(i32 noundef %158, ptr noundef %.3, ptr noundef %.179, ptr noundef %.181)
+  %159 = tail call fastcc ptr @ExecBuildSlotValueDescription(i32 noundef %158, ptr noundef %.3, ptr noundef %.182, ptr noundef %.180)
   %160 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   tail call void @llvm.assume(i1 %160)
   %161 = tail call i32 @errcode(i32 noundef 67391682) #10
@@ -3062,13 +3062,13 @@ ExecQual.exit:                                    ; preds = %47
   br label %79
 
 79:                                               ; preds = %75, %70
-  %.066 = phi ptr [ %73, %70 ], [ %78, %75 ]
+  %.066 = phi ptr [ %74, %70 ], [ %7, %75 ]
   %.065 = phi ptr [ %65, %70 ], [ %9, %75 ]
-  %.064 = phi ptr [ %74, %70 ], [ %7, %75 ]
+  %.064 = phi ptr [ %73, %70 ], [ %78, %75 ]
   %.1 = phi ptr [ %.0, %70 ], [ %2, %75 ]
-  %80 = getelementptr inbounds i8, ptr %.064, i64 72
+  %80 = getelementptr inbounds i8, ptr %.066, i64 72
   %81 = load i32, ptr %80, align 8
-  %82 = call fastcc ptr @ExecBuildSlotValueDescription(i32 noundef %81, ptr noundef %.1, ptr noundef %.065, ptr noundef %.066)
+  %82 = call fastcc ptr @ExecBuildSlotValueDescription(i32 noundef %81, ptr noundef %.1, ptr noundef %.065, ptr noundef %.064)
   %83 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   call void @llvm.assume(i1 %83)
   %84 = call i32 @errcode(i32 noundef 260) #10
@@ -4178,8 +4178,8 @@ define internal fastcc noundef zeroext i1 @ExecCheckPermissionsModified(i32 noun
   br label %8
 
 8:                                                ; preds = %.preheader, %18
-  %.012 = phi i32 [ %9, %18 ], [ -1, %.preheader ]
-  %9 = tail call i32 @bms_next_member(ptr noundef %2, i32 noundef %.012) #10
+  %.0 = phi i32 [ %9, %18 ], [ -1, %.preheader ]
+  %9 = tail call i32 @bms_next_member(ptr noundef %2, i32 noundef %.0) #10
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %.loopexit, label %11
 
@@ -4202,8 +4202,8 @@ define internal fastcc noundef zeroext i1 @ExecCheckPermissionsModified(i32 noun
   br i1 %.not14, label %8, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %8, %18, %6
-  %.0 = phi i1 [ false, %6 ], [ %10, %18 ], [ %10, %8 ]
-  ret i1 %.0
+  %.012 = phi i1 [ false, %6 ], [ %10, %18 ], [ %10, %8 ]
+  ret i1 %.012
 }
 
 declare zeroext i1 @isTempNamespace(i32 noundef) local_unnamed_addr #1

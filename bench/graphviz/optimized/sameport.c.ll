@@ -381,9 +381,9 @@ define internal fastcc void @sameport(ptr noundef %0, ptr nocapture readonly %.0
   br label %4
 
 4:                                                ; preds = %.lr.ph, %20
-  %.01924 = phi i64 [ 0, %.lr.ph ], [ %36, %20 ]
+  %.01914 = phi i64 [ 0, %.lr.ph ], [ %36, %20 ]
   %5 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %35, %20 ]
-  %6 = getelementptr inbounds ptr, ptr %.0.val, i64 %.01924
+  %6 = getelementptr inbounds ptr, ptr %.0.val, i64 %.01914
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 3
@@ -404,8 +404,8 @@ define internal fastcc void @sameport(ptr noundef %0, ptr nocapture readonly %.0
   br label %20
 
 20:                                               ; preds = %4, %15
-  %.0191 = phi ptr [ %19, %15 ], [ %13, %4 ]
-  %21 = getelementptr inbounds i8, ptr %.0191, i64 16
+  %.0192 = phi ptr [ %19, %15 ], [ %13, %4 ]
+  %21 = getelementptr inbounds i8, ptr %.0192, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 32
   %24 = load ptr, ptr %3, align 8
@@ -420,7 +420,7 @@ define internal fastcc void @sameport(ptr noundef %0, ptr nocapture readonly %.0
   %33 = shufflevector <2 x double> %32, <2 x double> poison, <2 x i32> zeroinitializer
   %34 = fdiv <2 x double> %28, %33
   %35 = fadd <2 x double> %5, %34
-  %36 = add nuw i64 %.01924, 1
+  %36 = add nuw i64 %.01914, 1
   %exitcond.not = icmp eq i64 %36, %.8.val
   br i1 %exitcond.not, label %._crit_edge, label %4
 

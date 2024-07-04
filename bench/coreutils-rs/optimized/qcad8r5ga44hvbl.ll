@@ -280,9 +280,9 @@ common.resume:                                    ; preds = %.body.i.i1, %.body.
   unreachable
 
 "_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3237abc2cb8c6cbfE.exit": ; preds = %.thread, %39, %.critedge.i.i
-  %.sroa.05.0 = phi i64 [ -9223372036854775806, %.critedge.i.i ], [ %.pre.pre.i.i, %39 ], [ -9223372036854775806, %.thread ]
-  %.sroa.57.0 = phi ptr [ %41, %.critedge.i.i ], [ %.sroa.5.sroa.0.0.copyload16, %39 ], [ %.sroa.5.sroa.0.0.copyload, %.thread ]
   %.sroa.6.0 = phi ptr [ @anon.f6668cd0dd059caa7df40143d2769f81.45.llvm.6282581801709149600, %.critedge.i.i ], [ %.sroa.5.sroa.4.0.copyload18, %39 ], [ %.sroa.5.sroa.4.0.copyload, %.thread ]
+  %.sroa.57.0 = phi ptr [ %41, %.critedge.i.i ], [ %.sroa.5.sroa.0.0.copyload16, %39 ], [ %.sroa.5.sroa.0.0.copyload, %.thread ]
+  %.sroa.05.0 = phi i64 [ -9223372036854775806, %.critedge.i.i ], [ %.pre.pre.i.i, %39 ], [ -9223372036854775806, %.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   store i64 %.sroa.05.0, ptr %0, align 8
   %.sroa.57.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -2536,8 +2536,8 @@ define void @_ZN5uu_wc7WcError8zero_len17h587ea828ed9ef175E(ptr noalias nocaptur
   br label %12
 
 12:                                               ; preds = %7, %11
-  %.sroa.02.0 = phi i64 [ %.sroa.02.0.copyload, %11 ], [ -9223372036854775808, %7 ]
   %.sroa.34.0 = phi ptr [ %.sroa.34.0.copyload, %11 ], [ @anon.028f4f501a1d8d09ad1762241ec60bf9.57.llvm.17465748012521390411, %7 ]
+  %.sroa.02.0 = phi i64 [ %.sroa.02.0.copyload, %11 ], [ -9223372036854775808, %7 ]
   %.sroa.4.0 = phi i64 [ %.sroa.4.0.copyload, %11 ], [ 1, %7 ]
   store i64 %.sroa.02.0, ptr %0, align 8
   %.sroa.34.0..sroa_idx5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4908,8 +4908,8 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit55.i: ; preds = %140
   br label %264
 
 264:                                              ; preds = %260, %.noexc.i104
-  %.sroa.02.0.i.i = phi i64 [ %.sroa.02.0.copyload.i.i, %.noexc.i104 ], [ -9223372036854775808, %260 ]
   %.sroa.34.0.i.i = phi ptr [ %.sroa.34.0.copyload.i.i, %.noexc.i104 ], [ @anon.028f4f501a1d8d09ad1762241ec60bf9.57.llvm.17465748012521390411, %260 ]
+  %.sroa.02.0.i.i = phi i64 [ %.sroa.02.0.copyload.i.i, %.noexc.i104 ], [ -9223372036854775808, %260 ]
   %.sroa.4.0.i.i = phi i64 [ %.sroa.4.0.copyload.i.i, %.noexc.i104 ], [ 1, %260 ]
   store i64 %.sroa.02.0.i.i, ptr %15, align 8, !alias.scope !1329, !noalias !1334
   store ptr %.sroa.34.0.i.i, ptr %.sroa.34.0..sroa_idx5.i.i, align 8, !alias.scope !1329, !noalias !1334
@@ -6134,7 +6134,7 @@ select.unfold:                                    ; preds = %79
   br label %135
 
 135:                                              ; preds = %146, %134
-  %.054 = phi ptr [ %.08.i68, %134 ], [ %.08.i58, %146 ]
+  %.0 = phi ptr [ %.08.i68, %134 ], [ %.08.i58, %146 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %21)
   call void @llvm.experimental.noalias.scope.decl(metadata !1541)
@@ -6170,7 +6170,7 @@ select.unfold:                                    ; preds = %79
   br label %135
 
 147:                                              ; preds = %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h8089016fcdb5bfbcE.exit76", %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h8089016fcdb5bfbcE.exit"
-  %.1 = phi ptr [ %.054, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h8089016fcdb5bfbcE.exit" ], [ %spec.select, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h8089016fcdb5bfbcE.exit76" ]
+  %.1 = phi ptr [ %.0, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h8089016fcdb5bfbcE.exit" ], [ %spec.select, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h8089016fcdb5bfbcE.exit76" ]
   ret ptr %.1
 
 148:                                              ; preds = %86, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h87d54cdb60c5949cE.exit.i.i"

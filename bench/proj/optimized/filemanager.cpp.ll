@@ -1091,7 +1091,7 @@ define void @proj_context_set_sqlite3_vfs_name(ptr noundef %0, ptr noundef %1) l
   br label %8
 
 8:                                                ; preds = %6, %2
-  %.0 = phi ptr [ %7, %6 ], [ %0, %2 ]
+  %.07 = phi ptr [ %7, %6 ], [ %0, %2 ]
   %.not.not = icmp eq ptr %1, null
   br i1 %.not.not, label %10, label %9
 
@@ -1105,7 +1105,7 @@ define void @proj_context_set_sqlite3_vfs_name(ptr noundef %0, ptr noundef %1) l
   br label %11
 
 11:                                               ; preds = %9, %10
-  %12 = getelementptr inbounds i8, ptr %.0, i64 264
+  %12 = getelementptr inbounds i8, ptr %.07, i64 264
   %13 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
   br i1 %.not.not, label %15, label %14

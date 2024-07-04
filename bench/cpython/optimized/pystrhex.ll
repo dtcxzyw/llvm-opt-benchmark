@@ -181,8 +181,8 @@ if.then35:                                        ; preds = %if.end28
 
 if.end38:                                         ; preds = %entry, %if.then35, %if.end28
   %cond105 = phi i32 [ %cond, %if.then35 ], [ %cond, %if.end28 ], [ 0, %entry ]
-  %bytes_per_sep_group.addr.0104 = phi i32 [ %bytes_per_sep_group, %if.then35 ], [ %bytes_per_sep_group, %if.end28 ], [ 0, %entry ]
-  %sep_char.1103 = phi i8 [ %sep_char.0, %if.then35 ], [ %sep_char.0, %if.end28 ], [ 0, %entry ]
+  %sep_char.1104 = phi i8 [ %sep_char.0, %if.then35 ], [ %sep_char.0, %if.end28 ], [ 0, %entry ]
+  %bytes_per_sep_group.addr.0103 = phi i32 [ %bytes_per_sep_group, %if.then35 ], [ %bytes_per_sep_group, %if.end28 ], [ 0, %entry ]
   %resultlen.0 = phi i64 [ %div, %if.then35 ], [ 0, %if.end28 ], [ 0, %entry ]
   %sub39 = sub nsw i64 4611686018427387903, %resultlen.0
   %cmp40.not = icmp sgt i64 %sub39, %arglen
@@ -197,7 +197,7 @@ if.end44:                                         ; preds = %if.end38
   %add = add i64 %resultlen.0, %mul
   %conv45 = zext i32 %cond105 to i64
   %cmp46.not = icmp ult i64 %conv45, %arglen
-  %spec.select = select i1 %cmp46.not, i32 %bytes_per_sep_group.addr.0104, i32 0
+  %spec.select = select i1 %cmp46.not, i32 %bytes_per_sep_group.addr.0103, i32 0
   %spec.select87 = select i1 %cmp46.not, i32 %cond105, i32 0
   %tobool51.not = icmp eq i32 %return_bytes, 0
   br i1 %tobool51.not, label %if.else58, label %if.then52
@@ -290,7 +290,7 @@ for.cond140.preheader.lr.ph:                      ; preds = %for.cond136.prehead
 for.cond140.preheader.preheader:                  ; preds = %for.cond140.preheader.lr.ph
   %21 = sub nuw nsw i64 %add, %div83
   %scevgep = getelementptr i8, ptr %retbuf.0, i64 %21
-  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 %sep_char.1103, i64 %div83, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 %sep_char.1104, i64 %div83, i1 false)
   %22 = sub nuw nsw i64 %j.4113, %div83
   br label %while.cond165.preheader
 
@@ -330,7 +330,7 @@ for.body143.us:                                   ; preds = %for.cond140.prehead
 
 for.cond140.for.end159_crit_edge.us:              ; preds = %for.body143.us
   %arrayidx161.us = getelementptr i8, ptr %retbuf.0, i64 %dec155.us
-  store i8 %sep_char.1103, ptr %arrayidx161.us, align 1
+  store i8 %sep_char.1104, ptr %arrayidx161.us, align 1
   %inc163.us = add nuw nsw i64 %chunk.1116.us, 1
   %j.4.us = add i64 %j.5110.us, -3
   %exitcond149.not = icmp eq i64 %inc163.us, %div83
@@ -345,7 +345,7 @@ for.cond91.preheader.lr.ph:                       ; preds = %for.cond87.preheade
   br i1 %cmp92124.not, label %for.cond91.preheader.preheader, label %for.cond91.preheader.us
 
 for.cond91.preheader.preheader:                   ; preds = %for.cond91.preheader.lr.ph
-  tail call void @llvm.memset.p0.i64(ptr align 1 %retbuf.0, i8 %sep_char.1103, i64 %div83, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %retbuf.0, i8 %sep_char.1104, i64 %div83, i1 false)
   br label %while.cond.preheader
 
 for.cond91.preheader.us:                          ; preds = %for.cond91.preheader.lr.ph, %for.cond91.for.end111_crit_edge.us
@@ -386,7 +386,7 @@ for.body94.us:                                    ; preds = %for.cond91.preheade
 for.cond91.for.end111_crit_edge.us:               ; preds = %for.body94.us
   %inc112.us = add i64 %j.2126.us, 3
   %arrayidx113.us = getelementptr i8, ptr %retbuf.0, i64 %inc107.us
-  store i8 %sep_char.1103, ptr %arrayidx113.us, align 1
+  store i8 %sep_char.1104, ptr %arrayidx113.us, align 1
   %inc115.us = add nuw nsw i64 %chunk.0132.us, 1
   %exitcond151.not = icmp eq i64 %inc115.us, %div83
   br i1 %exitcond151.not, label %while.cond.preheader, label %for.cond91.preheader.us, !llvm.loop !10

@@ -857,9 +857,9 @@ if.end25:                                         ; preds = %if.end19
   br label %err
 
 err:                                              ; preds = %if.end9, %if.end, %entry, %if.end25, %if.then24
+  %K.0 = phi ptr [ null, %if.end ], [ null, %if.end9 ], [ %call16, %if.then24 ], [ %call16, %if.end25 ], [ null, %entry ]
   %u.0 = phi ptr [ null, %if.end ], [ %call7, %if.end9 ], [ %call7, %if.then24 ], [ %call7, %if.end25 ], [ null, %entry ]
   %ret.0 = phi i32 [ 0, %if.end ], [ 0, %if.end9 ], [ 0, %if.then24 ], [ %call28, %if.end25 ], [ 0, %entry ]
-  %K.0 = phi ptr [ null, %if.end ], [ null, %if.end9 ], [ %call16, %if.then24 ], [ %call16, %if.end25 ], [ null, %entry ]
   tail call void @BN_clear_free(ptr noundef %K.0) #7
   tail call void @BN_clear_free(ptr noundef %u.0) #7
   ret i32 %ret.0
@@ -983,11 +983,11 @@ if.end45:                                         ; preds = %if.end39
   br label %err
 
 err:                                              ; preds = %if.end45, %if.then44, %if.then38, %if.then18, %if.then
+  %x.0 = phi ptr [ null, %if.then ], [ null, %if.then18 ], [ %call25, %if.then38 ], [ %call25, %if.then44 ], [ %call25, %if.end45 ]
   %u.1 = phi ptr [ %u.0, %if.then ], [ %call7, %if.then18 ], [ %call7, %if.then38 ], [ %call7, %if.then44 ], [ %call7, %if.end45 ]
   %K.1 = phi ptr [ null, %if.then ], [ null, %if.then18 ], [ null, %if.then38 ], [ %call36, %if.then44 ], [ %call36, %if.end45 ]
   %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.then18 ], [ 0, %if.then38 ], [ 0, %if.then44 ], [ %call48, %if.end45 ]
   %passwd.0 = phi ptr [ null, %if.then ], [ null, %if.then18 ], [ %call16, %if.then38 ], [ %call16, %if.then44 ], [ %call16, %if.end45 ]
-  %x.0 = phi ptr [ null, %if.then ], [ null, %if.then18 ], [ %call25, %if.then38 ], [ %call25, %if.then44 ], [ %call25, %if.end45 ]
   tail call void @BN_clear_free(ptr noundef %K.1) #7
   tail call void @BN_clear_free(ptr noundef %x.0) #7
   %cmp49.not = icmp eq ptr %passwd.0, null

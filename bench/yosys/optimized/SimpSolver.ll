@@ -4516,14 +4516,14 @@ _ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDef
 .preheader192.us:                                 ; preds = %.preheader192.us.preheader, %._crit_edge.us
   %.pre293 = phi i32 [ %.pre293.pre, %.preheader192.us.preheader ], [ %68, %._crit_edge.us ]
   %indvars.iv265 = phi i64 [ 0, %.preheader192.us.preheader ], [ %indvars.iv.next266, %._crit_edge.us ]
-  %.044236.us = phi i32 [ 0, %.preheader192.us.preheader ], [ %.2.us, %._crit_edge.us ]
+  %.045236.us = phi i32 [ 0, %.preheader192.us.preheader ], [ %.2.us, %._crit_edge.us ]
   %58 = getelementptr inbounds i32, ptr %.sroa.0114.3, i64 %indvars.iv265
   br label %59
 
 59:                                               ; preds = %.preheader192.us, %_ZN7Minisat10SimpSolver5mergeERKNS_6ClauseES3_iRi.exit.us
   %60 = phi i32 [ %.pre293, %.preheader192.us ], [ %68, %_ZN7Minisat10SimpSolver5mergeERKNS_6ClauseES3_iRi.exit.us ]
   %indvars.iv261 = phi i64 [ 0, %.preheader192.us ], [ %indvars.iv.next262, %_ZN7Minisat10SimpSolver5mergeERKNS_6ClauseES3_iRi.exit.us ]
-  %.1232.us = phi i32 [ %.044236.us, %.preheader192.us ], [ %.2.us, %_ZN7Minisat10SimpSolver5mergeERKNS_6ClauseES3_iRi.exit.us ]
+  %.1232.us = phi i32 [ %.045236.us, %.preheader192.us ], [ %.2.us, %_ZN7Minisat10SimpSolver5mergeERKNS_6ClauseES3_iRi.exit.us ]
   %61 = load i32, ptr %58, align 4
   %62 = zext i32 %61 to i64
   %63 = getelementptr inbounds i32, ptr %52, i64 %62

@@ -122,8 +122,8 @@ mac_init.exit:                                    ; preds = %12
   br label %28
 
 28:                                               ; preds = %25, %23
-  %.013.i = phi i32 [ %24, %23 ], [ %27, %25 ]
-  %29 = tail call i32 @mbedtls_to_psa_error(i32 noundef %.013.i) #5
+  %.0.i = phi i32 [ %24, %23 ], [ %27, %25 ]
+  %29 = tail call i32 @mbedtls_to_psa_error(i32 noundef %.0.i) #5
   br label %cmac_setup.exit
 
 30:                                               ; preds = %12
@@ -241,12 +241,12 @@ mac_init.exit:                                    ; preds = %12
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.05594.i = phi i64 [ %52, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %49 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %.05594.i
+  %.05494.i = phi i64 [ %52, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %49 = getelementptr inbounds [128 x i8], ptr %7, i64 0, i64 %.05494.i
   %50 = load i8, ptr %49, align 1
   %51 = xor i8 %50, 54
   store i8 %51, ptr %49, align 1
-  %52 = add nuw i64 %.05594.i, 1
+  %52 = add nuw i64 %.05494.i, 1
   %exitcond.not.i = icmp eq i64 %52, %48
   br i1 %exitcond.not.i, label %._crit_edge.i22, label %.lr.ph.i, !llvm.loop !4
 
@@ -293,13 +293,13 @@ mac_init.exit:                                    ; preds = %12
   br label %psa_hmac_setup_internal.exit
 
 psa_hmac_setup_internal.exit:                     ; preds = %.thread91.i, %.thread87.i, %70
-  %.054.i = phi i32 [ %.0.i23, %70 ], [ -134, %.thread87.i ], [ -134, %.thread91.i ]
+  %.055.i = phi i32 [ %.0.i23, %70 ], [ -134, %.thread87.i ], [ -134, %.thread91.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
   br label %cmac_setup.exit
 
 cmac_setup.exit:                                  ; preds = %28, %psa_hmac_setup_internal.exit
-  %.0 = phi i32 [ %.054.i, %psa_hmac_setup_internal.exit ], [ %29, %28 ]
+  %.0 = phi i32 [ %.055.i, %psa_hmac_setup_internal.exit ], [ %29, %28 ]
   %.not20 = icmp eq i32 %.0, 0
   br i1 %.not20, label %mbedtls_psa_mac_abort.exit, label %cmac_setup.exit.thread
 

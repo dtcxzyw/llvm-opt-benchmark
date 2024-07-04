@@ -776,10 +776,10 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit48:             ; preds = %_ZSt6fill_nIPfmfET_
   br label %86
 
 86:                                               ; preds = %.lr.ph, %100
-  %.02499 = phi i64 [ 0, %.lr.ph ], [ %101, %100 ]
+  %.099 = phi i64 [ 0, %.lr.ph ], [ %101, %100 ]
   %87 = load i32, ptr %43, align 8
   %88 = load ptr, ptr %85, align 8
-  %89 = getelementptr inbounds i64, ptr %3, i64 %.02499
+  %89 = getelementptr inbounds i64, ptr %3, i64 %.099
   %90 = load i64, ptr %89, align 8
   %91 = load ptr, ptr %88, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 80
@@ -789,7 +789,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit48:             ; preds = %_ZSt6fill_nIPfmfET_
 
 94:                                               ; preds = %86
   %95 = sext i32 %87 to i64
-  %96 = mul nsw i64 %.02499, %95
+  %96 = mul nsw i64 %.099, %95
   %97 = getelementptr inbounds float, ptr %.sroa.090.0, i64 %96
   %98 = load i32, ptr %43, align 8
   %99 = sext i32 %98 to i64
@@ -797,7 +797,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit48:             ; preds = %_ZSt6fill_nIPfmfET_
           to label %100 unwind label %108
 
 100:                                              ; preds = %94
-  %101 = add nuw nsw i64 %.02499, 1
+  %101 = add nuw nsw i64 %.099, 1
   %exitcond.not = icmp eq i64 %101, %1
   br i1 %exitcond.not, label %._crit_edge, label %86, !llvm.loop !9
 

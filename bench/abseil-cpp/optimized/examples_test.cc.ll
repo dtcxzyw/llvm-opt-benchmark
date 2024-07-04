@@ -2960,8 +2960,8 @@ cond.false29.i.i.i:                               ; preds = %if.else.i.i.i
   br label %if.end33.i.i.i
 
 if.end33.i.i.i:                                   ; preds = %cond.false29.i.i.i, %if.else.i.i.i, %cond.false.i.i.i, %if.then5.i.i.i
-  %top_e.0.i.i.i = phi i64 [ %sub10.i.i.i, %cond.false.i.i.i ], [ %conv30.i.i.i, %cond.false29.i.i.i ], [ -1, %if.then5.i.i.i ], [ -1, %if.else.i.i.i ]
   %base_e.0.i.i.i = phi i64 [ %shl.i.i.i, %cond.false.i.i.i ], [ %cond23.i.i.i, %cond.false29.i.i.i ], [ %shl.i.i.i, %if.then5.i.i.i ], [ %cond23.i.i.i, %if.else.i.i.i ]
+  %top_e.0.i.i.i = phi i64 [ %sub10.i.i.i, %cond.false.i.i.i ], [ %conv30.i.i.i, %cond.false29.i.i.i ], [ -1, %if.then5.i.i.i ], [ -1, %if.else.i.i.i ]
   %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %base_e.0.i.i.i, i64 %sub.i.i)
   %cond47.i.i.i = call i64 @llvm.umin.i64(i64 %top_e.0.i.i.i, i64 %sub.i.i)
   store i64 %spec.select.i.i.i, ptr %ref.tmp48.i.i.i, align 8

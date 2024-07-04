@@ -122,13 +122,13 @@ define dso_local range(i32 0, 101) i32 @Curl_dyn_addn(ptr nocapture noundef %0, 
   br label %23
 
 .preheader.i:                                     ; preds = %15, %.preheader.i
-  %.038.i = phi i64 [ %21, %.preheader.i ], [ %16, %15 ]
-  %20 = icmp ult i64 %.038.i, %8
-  %21 = shl i64 %.038.i, 1
+  %.0.i = phi i64 [ %21, %.preheader.i ], [ %16, %15 ]
+  %20 = icmp ult i64 %.0.i, %8
+  %21 = shl i64 %.0.i, 1
   br i1 %20, label %.preheader.i, label %22, !llvm.loop !5
 
 22:                                               ; preds = %.preheader.i
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %.038.i, i64 %10)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %.0.i, i64 %10)
   br label %23
 
 23:                                               ; preds = %22, %19, %17
@@ -174,8 +174,8 @@ define dso_local range(i32 0, 101) i32 @Curl_dyn_addn(ptr nocapture noundef %0, 
   br label %dyn_nappend.exit
 
 dyn_nappend.exit:                                 ; preds = %12, %27, %34
-  %.0.i = phi i32 [ 100, %12 ], [ 0, %34 ], [ 27, %27 ]
-  ret i32 %.0.i
+  %.038.i = phi i32 [ 100, %12 ], [ 0, %34 ], [ 27, %27 ]
+  ret i32 %.038.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -212,13 +212,13 @@ define dso_local range(i32 0, 101) i32 @Curl_dyn_add(ptr nocapture noundef %0, p
   br label %23
 
 .preheader.i:                                     ; preds = %15, %.preheader.i
-  %.038.i = phi i64 [ %21, %.preheader.i ], [ %16, %15 ]
-  %20 = icmp ult i64 %.038.i, %8
-  %21 = shl i64 %.038.i, 1
+  %.0.i = phi i64 [ %21, %.preheader.i ], [ %16, %15 ]
+  %20 = icmp ult i64 %.0.i, %8
+  %21 = shl i64 %.0.i, 1
   br i1 %20, label %.preheader.i, label %22, !llvm.loop !5
 
 22:                                               ; preds = %.preheader.i
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %.038.i, i64 %10)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %.0.i, i64 %10)
   br label %23
 
 23:                                               ; preds = %22, %19, %17
@@ -264,8 +264,8 @@ define dso_local range(i32 0, 101) i32 @Curl_dyn_add(ptr nocapture noundef %0, p
   br label %dyn_nappend.exit
 
 dyn_nappend.exit:                                 ; preds = %12, %27, %34
-  %.0.i = phi i32 [ 100, %12 ], [ 0, %34 ], [ 27, %27 ]
-  ret i32 %.0.i
+  %.038.i = phi i32 [ 100, %12 ], [ 0, %34 ], [ 27, %27 ]
+  ret i32 %.038.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

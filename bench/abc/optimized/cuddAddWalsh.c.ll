@@ -127,17 +127,17 @@ define ptr @Cudd_addWalsh(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
 
 .lr.ph.i:                                         ; preds = %119, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %14, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %119 ]
-  %.1147.i = phi ptr [ %61, %.lr.ph.preheader.i ], [ %.2.i, %119 ]
-  %.0126146.i = phi ptr [ %38, %.lr.ph.preheader.i ], [ %89, %119 ]
+  %.0124147.i = phi ptr [ %38, %.lr.ph.preheader.i ], [ %89, %119 ]
+  %.1146.i = phi ptr [ %61, %.lr.ph.preheader.i ], [ %.2.i, %119 ]
   %75 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
   %76 = load ptr, ptr %75, align 8
-  %77 = tail call ptr @Cudd_addIte(ptr noundef %0, ptr noundef %76, ptr noundef %.1147.i, ptr noundef nonnull %.0126146.i) #6
+  %77 = tail call ptr @Cudd_addIte(ptr noundef %0, ptr noundef %76, ptr noundef %.1146.i, ptr noundef nonnull %.0124147.i) #6
   %78 = icmp eq ptr %77, null
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %.lr.ph.i
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.0126146.i) #6
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1147.i) #6
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.0124147.i) #6
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1146.i) #6
   br label %addWalshInt.exit
 
 80:                                               ; preds = %.lr.ph.i
@@ -150,13 +150,13 @@ define ptr @Cudd_addWalsh(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
   store i32 %86, ptr %84, align 4
   %87 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i
   %88 = load ptr, ptr %87, align 8
-  %89 = tail call ptr @Cudd_addIte(ptr noundef %0, ptr noundef %88, ptr noundef nonnull %77, ptr noundef nonnull %.0126146.i) #6
+  %89 = tail call ptr @Cudd_addIte(ptr noundef %0, ptr noundef %88, ptr noundef nonnull %77, ptr noundef nonnull %.0124147.i) #6
   %90 = icmp eq ptr %89, null
   br i1 %90, label %91, label %92
 
 91:                                               ; preds = %80
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.0126146.i) #6
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1147.i) #6
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.0124147.i) #6
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1146.i) #6
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %77) #6
   br label %addWalshInt.exit
 
@@ -174,13 +174,13 @@ define ptr @Cudd_addWalsh(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
 
 99:                                               ; preds = %92
   %100 = load ptr, ptr %75, align 8
-  %101 = tail call ptr @Cudd_addIte(ptr noundef %0, ptr noundef %100, ptr noundef nonnull %.0126146.i, ptr noundef %.1147.i) #6
+  %101 = tail call ptr @Cudd_addIte(ptr noundef %0, ptr noundef %100, ptr noundef nonnull %.0124147.i, ptr noundef %.1146.i) #6
   %102 = icmp eq ptr %101, null
   br i1 %102, label %103, label %104
 
 103:                                              ; preds = %99
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.0126146.i) #6
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1147.i) #6
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.0124147.i) #6
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1146.i) #6
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %89) #6
   br label %addWalshInt.exit
 
@@ -193,7 +193,7 @@ define ptr @Cudd_addWalsh(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
   %110 = add i32 %109, 1
   store i32 %110, ptr %108, align 4
   %111 = load ptr, ptr %87, align 8
-  %112 = tail call ptr @Cudd_addIte(ptr noundef %0, ptr noundef %111, ptr noundef nonnull %101, ptr noundef %.1147.i) #6
+  %112 = tail call ptr @Cudd_addIte(ptr noundef %0, ptr noundef %111, ptr noundef nonnull %101, ptr noundef %.1146.i) #6
   %113 = ptrtoint ptr %112 to i64
   %114 = and i64 %113, -2
   %115 = inttoptr i64 %114 to ptr
@@ -205,16 +205,16 @@ define ptr @Cudd_addWalsh(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
   br label %119
 
 119:                                              ; preds = %104, %92
-  %.2.i = phi ptr [ %112, %104 ], [ %.1147.i, %92 ]
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.0126146.i) #6
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1147.i) #6
+  %.2.i = phi ptr [ %112, %104 ], [ %.1146.i, %92 ]
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.0124147.i) #6
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1146.i) #6
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %120 = icmp sgt i64 %indvars.iv.i, 0
   br i1 %120, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %119, %64
   %.pre-phi163.i = phi ptr [ %44, %64 ], [ %95, %119 ]
-  %.0126.lcssa.i = phi ptr [ %38, %64 ], [ %89, %119 ]
+  %.0124.lcssa.i = phi ptr [ %38, %64 ], [ %89, %119 ]
   %121 = getelementptr inbounds i8, ptr %.pre-phi163.i, i64 4
   %122 = load i32, ptr %121, align 4
   %123 = add i32 %122, -1
@@ -222,13 +222,13 @@ define ptr @Cudd_addWalsh(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
   br label %addWalshInt.exit
 
 addWalshInt.exit:                                 ; preds = %.split, %29, %40, %52, %63, %79, %91, %103, %._crit_edge.i
-  %.0124.i.ph = phi ptr [ null, %.split ], [ %.0126.lcssa.i, %._crit_edge.i ], [ null, %103 ], [ null, %91 ], [ null, %79 ], [ null, %63 ], [ null, %52 ], [ null, %40 ], [ null, %29 ]
+  %.0126.i.ph = phi ptr [ null, %.split ], [ %.0124.lcssa.i, %._crit_edge.i ], [ null, %103 ], [ null, %91 ], [ null, %79 ], [ null, %63 ], [ null, %52 ], [ null, %40 ], [ null, %29 ]
   %.pr = load i32, ptr %5, align 8
   %124 = icmp eq i32 %.pr, 1
   br i1 %124, label %.split, label %addWalshInt.exit.thread, !llvm.loop !6
 
 addWalshInt.exit.thread:                          ; preds = %addWalshInt.exit, %.split.us
-  %.us-phi = phi ptr [ %15, %.split.us ], [ %.0124.i.ph, %addWalshInt.exit ]
+  %.us-phi = phi ptr [ %15, %.split.us ], [ %.0126.i.ph, %addWalshInt.exit ]
   ret ptr %.us-phi
 }
 
@@ -355,17 +355,17 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br label %120
 
 52:                                               ; preds = %.lr.ph164, %118
-  %.0111163 = phi i32 [ 0, %.lr.ph164 ], [ %119, %118 ]
-  %.0112162 = phi i32 [ 1, %.lr.ph164 ], [ %.1113, %118 ]
-  %53 = and i32 %.0111163, 1
+  %.0105163 = phi i32 [ 1, %.lr.ph164 ], [ %.1, %118 ]
+  %.0107162 = phi i32 [ 0, %.lr.ph164 ], [ %119, %118 ]
+  %53 = and i32 %.0107162, 1
   %54 = xor i32 %53, 1
-  %55 = xor i32 %.0111163, -1
+  %55 = xor i32 %.0107162, -1
   %56 = add i32 %28, %55
-  %57 = add nsw i32 %.0111163, %4
-  %.0106 = select i1 %.not130, i32 %57, i32 %56
+  %57 = add nsw i32 %.0107162, %4
+  %.0 = select i1 %.not130, i32 %57, i32 %56
   %58 = load ptr, ptr %29, align 8
   %59 = load ptr, ptr %30, align 8
-  %60 = tail call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %.0106, ptr noundef %58, ptr noundef %59) #6
+  %60 = tail call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %.0, ptr noundef %58, ptr noundef %59) #6
   %61 = icmp eq ptr %60, null
   br i1 %61, label %.preheader141, label %68
 
@@ -424,7 +424,7 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %indvars.iv209 = phi i32 [ 0, %.lr.ph159 ], [ %indvars.iv.next210, %100 ]
   %indvars.iv190 = phi i64 [ 0, %.lr.ph159 ], [ %indvars.iv.next191, %100 ]
   %84 = trunc i64 %indvars.iv190 to i32
-  %85 = add i32 %.0112162, %84
+  %85 = add i32 %.0105163, %84
   %86 = srem i32 %85, %2
   %87 = sext i32 %86 to i64
   %88 = getelementptr inbounds ptr, ptr %77, i64 %87
@@ -499,9 +499,9 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
 
 ._crit_edge:                                      ; preds = %109, %68, %.preheader145
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %60) #6
-  %112 = shl nsw i32 %.0112162, 1
+  %112 = shl nsw i32 %.0105163, 1
   %113 = srem i32 %112, %2
-  %114 = icmp eq i32 %.0111163, %31
+  %114 = icmp eq i32 %.0107162, %31
   %or.cond140 = select i1 %.not131, i1 %114, i1 false
   br i1 %or.cond140, label %115, label %118
 
@@ -511,8 +511,8 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br label %118
 
 118:                                              ; preds = %._crit_edge, %115
-  %.1113 = phi i32 [ %117, %115 ], [ %113, %._crit_edge ]
-  %119 = add nuw nsw i32 %.0111163, 1
+  %.1 = phi i32 [ %117, %115 ], [ %113, %._crit_edge ]
+  %119 = add nuw nsw i32 %.0107162, 1
   %exitcond200.not = icmp eq i32 %119, %1
   br i1 %exitcond200.not, label %.preheader144, label %52, !llvm.loop !14
 
@@ -541,8 +541,8 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br label %132
 
 132:                                              ; preds = %._crit_edge172, %._crit_edge175, %._crit_edge178, %5, %._crit_edge167, %23, %16
-  %.0 = phi ptr [ null, %16 ], [ null, %23 ], [ %125, %._crit_edge167 ], [ null, %5 ], [ null, %._crit_edge178 ], [ null, %._crit_edge175 ], [ null, %._crit_edge172 ]
-  ret ptr %.0
+  %.0106 = phi ptr [ null, %16 ], [ null, %23 ], [ %125, %._crit_edge167 ], [ null, %5 ], [ null, %._crit_edge178 ], [ null, %._crit_edge175 ], [ null, %._crit_edge172 ]
+  ret ptr %.0106
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

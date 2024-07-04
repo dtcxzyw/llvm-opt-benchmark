@@ -17,27 +17,27 @@ define dso_local noundef ptr @__archive_rb_tree_find_node(ptr nocapture noundef 
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %.01012 = load ptr, ptr %0, align 8
-  %.not13 = icmp eq ptr %.01012, null
+  %.012 = load ptr, ptr %0, align 8
+  %.not13 = icmp eq ptr %.012, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %9
-  %.01014 = phi ptr [ %.010, %9 ], [ %.01012, %2 ]
-  %7 = tail call i32 %6(ptr noundef nonnull %.01014, ptr noundef %1) #4
+  %.014 = phi ptr [ %.0, %9 ], [ %.012, %2 ]
+  %7 = tail call i32 %6(ptr noundef nonnull %.014, ptr noundef %1) #4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %._crit_edge, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = icmp sgt i32 %7, 0
   %11 = zext i1 %10 to i64
-  %12 = getelementptr inbounds [2 x ptr], ptr %.01014, i64 0, i64 %11
-  %.010 = load ptr, ptr %12, align 8
-  %.not = icmp eq ptr %.010, null
+  %12 = getelementptr inbounds [2 x ptr], ptr %.014, i64 0, i64 %11
+  %.0 = load ptr, ptr %12, align 8
+  %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9, %2
-  %.010.lcssa = phi ptr [ null, %2 ], [ null, %9 ], [ %.01014, %.lr.ph ]
-  ret ptr %.010.lcssa
+  %.0.lcssa = phi ptr [ null, %2 ], [ null, %9 ], [ %.014, %.lr.ph ]
+  ret ptr %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -46,30 +46,30 @@ define dso_local ptr @__archive_rb_tree_find_node_geq(ptr nocapture noundef read
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %.01416 = load ptr, ptr %0, align 8
-  %.not17 = icmp eq ptr %.01416, null
+  %.01316 = load ptr, ptr %0, align 8
+  %.not17 = icmp eq ptr %.01316, null
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %9
-  %.01419 = phi ptr [ %.014, %9 ], [ %.01416, %2 ]
-  %.01318 = phi ptr [ %spec.select, %9 ], [ null, %2 ]
-  %7 = tail call i32 %6(ptr noundef nonnull %.01419, ptr noundef %1) #4
+  %.01319 = phi ptr [ %.013, %9 ], [ %.01316, %2 ]
+  %.018 = phi ptr [ %spec.select, %9 ], [ null, %2 ]
+  %7 = tail call i32 %6(ptr noundef nonnull %.01319, ptr noundef %1) #4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %._crit_edge, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = icmp slt i32 %7, 0
-  %spec.select = select i1 %10, ptr %.01419, ptr %.01318
+  %spec.select = select i1 %10, ptr %.01319, ptr %.018
   %11 = icmp sgt i32 %7, 0
   %12 = zext i1 %11 to i64
-  %13 = getelementptr inbounds [2 x ptr], ptr %.01419, i64 0, i64 %12
-  %.014 = load ptr, ptr %13, align 8
-  %.not = icmp eq ptr %.014, null
+  %13 = getelementptr inbounds [2 x ptr], ptr %.01319, i64 0, i64 %12
+  %.013 = load ptr, ptr %13, align 8
+  %.not = icmp eq ptr %.013, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9, %2
-  %.0 = phi ptr [ null, %2 ], [ %spec.select, %9 ], [ %.01419, %.lr.ph ]
-  ret ptr %.0
+  %.014 = phi ptr [ null, %2 ], [ %spec.select, %9 ], [ %.01319, %.lr.ph ]
+  ret ptr %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -78,29 +78,29 @@ define dso_local ptr @__archive_rb_tree_find_node_leq(ptr nocapture noundef read
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %.01416 = load ptr, ptr %0, align 8
-  %.not17 = icmp eq ptr %.01416, null
+  %.01316 = load ptr, ptr %0, align 8
+  %.not17 = icmp eq ptr %.01316, null
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %9
-  %.01419 = phi ptr [ %.014, %9 ], [ %.01416, %2 ]
-  %.01318 = phi ptr [ %spec.select, %9 ], [ null, %2 ]
-  %7 = tail call i32 %6(ptr noundef nonnull %.01419, ptr noundef %1) #4
+  %.01319 = phi ptr [ %.013, %9 ], [ %.01316, %2 ]
+  %.018 = phi ptr [ %spec.select, %9 ], [ null, %2 ]
+  %7 = tail call i32 %6(ptr noundef nonnull %.01319, ptr noundef %1) #4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %._crit_edge, label %9
 
 9:                                                ; preds = %.lr.ph
   %10 = icmp sgt i32 %7, 0
-  %spec.select = select i1 %10, ptr %.01419, ptr %.01318
+  %spec.select = select i1 %10, ptr %.01319, ptr %.018
   %11 = zext i1 %10 to i64
-  %12 = getelementptr inbounds [2 x ptr], ptr %.01419, i64 0, i64 %11
-  %.014 = load ptr, ptr %12, align 8
-  %.not = icmp eq ptr %.014, null
+  %12 = getelementptr inbounds [2 x ptr], ptr %.01319, i64 0, i64 %11
+  %.013 = load ptr, ptr %12, align 8
+  %.not = icmp eq ptr %.013, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9, %2
-  %.0 = phi ptr [ null, %2 ], [ %spec.select, %9 ], [ %.01419, %.lr.ph ]
-  ret ptr %.0
+  %.014 = phi ptr [ null, %2 ], [ %spec.select, %9 ], [ %.01319, %.lr.ph ]
+  ret ptr %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -108,8 +108,8 @@ define dso_local range(i32 0, 2) i32 @__archive_rb_tree_insert_node(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %.03846 = load ptr, ptr %0, align 8
-  %.not47 = icmp eq ptr %.03846, null
+  %.03746 = load ptr, ptr %0, align 8
+  %.not47 = icmp eq ptr %.03746, null
   br i1 %.not47, label %.thread88, label %.lr.ph
 
 .thread88:                                        ; preds = %2
@@ -119,8 +119,8 @@ define dso_local range(i32 0, 2) i32 @__archive_rb_tree_insert_node(ptr noundef 
   br label %.critedge
 
 .lr.ph:                                           ; preds = %2, %10
-  %.03848 = phi ptr [ %.038, %10 ], [ %.03846, %2 ]
-  %8 = tail call i32 %5(ptr noundef nonnull %.03848, ptr noundef %1) #4
+  %.03748 = phi ptr [ %.037, %10 ], [ %.03746, %2 ]
+  %8 = tail call i32 %5(ptr noundef nonnull %.03748, ptr noundef %1) #4
   %.fr105 = freeze i32 %8
   %9 = icmp eq i32 %.fr105, 0
   br i1 %9, label %__archive_rb_tree_insert_rebalance.exit, label %10
@@ -128,30 +128,30 @@ define dso_local range(i32 0, 2) i32 @__archive_rb_tree_insert_node(ptr noundef 
 10:                                               ; preds = %.lr.ph
   %11 = icmp sgt i32 %.fr105, 0
   %12 = zext i1 %11 to i64
-  %13 = getelementptr inbounds [2 x ptr], ptr %.03848, i64 0, i64 %12
-  %.038 = load ptr, ptr %13, align 8
-  %.not = icmp eq ptr %.038, null
+  %13 = getelementptr inbounds [2 x ptr], ptr %.03748, i64 0, i64 %12
+  %.037 = load ptr, ptr %13, align 8
+  %.not = icmp eq ptr %.037, null
   br i1 %.not, label %14, label %.lr.ph, !llvm.loop !9
 
 14:                                               ; preds = %10
   %15 = zext i1 %11 to i64
-  %16 = ptrtoint ptr %.03848 to i64
+  %16 = ptrtoint ptr %.03748 to i64
   %17 = getelementptr inbounds i8, ptr %1, i64 16
   %.masked = and i64 %16, -3
   %spec.select = select i1 %11, i64 2, i64 0
   %18 = or disjoint i64 %spec.select, %.masked
-  %19 = icmp eq ptr %.03848, %0
+  %19 = icmp eq ptr %.03748, %0
   br i1 %19, label %.critedge, label %20
 
 20:                                               ; preds = %14
   %21 = or i64 %18, 1
   store i64 %21, ptr %17, align 8
-  %22 = getelementptr inbounds i8, ptr %.03848, i64 16
+  %22 = getelementptr inbounds i8, ptr %.03748, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, 1
   %25 = icmp eq i64 %24, 0
   %26 = zext i1 %11 to i64
-  %27 = getelementptr inbounds [2 x ptr], ptr %.03848, i64 0, i64 %26
+  %27 = getelementptr inbounds [2 x ptr], ptr %.03748, i64 0, i64 %26
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %1, align 8
   %29 = getelementptr inbounds i8, ptr %1, i64 8
@@ -236,17 +236,17 @@ define dso_local range(i32 0, 2) i32 @__archive_rb_tree_insert_node(ptr noundef 
   br i1 %85, label %__archive_rb_tree_insert_rebalance.exit, label %50
 
 ._crit_edge.i:                                    ; preds = %50, %.lr.ph.i, %.lr.ph.i.preheader, %30
-  %.025.lcssa.i = phi ptr [ %33, %30 ], [ %33, %.lr.ph.i.preheader ], [ %81, %.lr.ph.i ], [ %81, %50 ]
-  %.0.lcssa.i = phi ptr [ %1, %30 ], [ %1, %.lr.ph.i.preheader ], [ %68, %.lr.ph.i ], [ %68, %50 ]
+  %.025.lcssa.i = phi ptr [ %1, %30 ], [ %1, %.lr.ph.i.preheader ], [ %68, %.lr.ph.i ], [ %68, %50 ]
+  %.0.lcssa.i = phi ptr [ %33, %30 ], [ %33, %.lr.ph.i.preheader ], [ %81, %.lr.ph.i ], [ %81, %50 ]
   %.lcssa46.i = phi ptr [ %34, %30 ], [ %34, %.lr.ph.i.preheader ], [ %82, %.lr.ph.i ], [ %82, %50 ]
   %.lcssa44.i = phi i64 [ %35, %30 ], [ %35, %.lr.ph.i.preheader ], [ %83, %.lr.ph.i ], [ %83, %50 ]
   %.lcssa42.i = phi i64 [ %36, %30 ], [ %36, %.lr.ph.i.preheader ], [ %51, %.lr.ph.i ], [ %51, %50 ]
   %.lcssa40.i = phi ptr [ %37, %30 ], [ %37, %.lr.ph.i.preheader ], [ %52, %.lr.ph.i ], [ %52, %50 ]
   %.lcssa38.i = phi i1 [ %40, %30 ], [ %40, %.lr.ph.i.preheader ], [ %55, %.lr.ph.i ], [ %55, %50 ]
   %.lcssa.i = phi i64 [ %42, %30 ], [ %42, %.lr.ph.i.preheader ], [ %57, %.lr.ph.i ], [ %57, %50 ]
-  %86 = getelementptr inbounds [2 x ptr], ptr %.025.lcssa.i, i64 0, i64 %.lcssa.i
+  %86 = getelementptr inbounds [2 x ptr], ptr %.0.lcssa.i, i64 0, i64 %.lcssa.i
   %87 = load ptr, ptr %86, align 8
-  %88 = icmp ne ptr %.0.lcssa.i, %87
+  %88 = icmp ne ptr %.025.lcssa.i, %87
   %89 = icmp eq ptr %87, null
   %or.cond.i = or i1 %88, %89
   br i1 %or.cond.i, label %._crit_edge.__archive_rb_tree_reparent_nodes.exit_crit_edge.i, label %90
@@ -264,13 +264,13 @@ define dso_local range(i32 0, 2) i32 @__archive_rb_tree_insert_node(ptr noundef 
   %95 = getelementptr inbounds [2 x ptr], ptr %87, i64 0, i64 %94
   %96 = load ptr, ptr %95, align 8
   store ptr %96, ptr %86, align 8
-  store ptr %.025.lcssa.i, ptr %95, align 8
+  store ptr %.0.lcssa.i, ptr %95, align 8
   %97 = getelementptr inbounds i8, ptr %87, i64 16
   %98 = load i64, ptr %97, align 8
   %99 = and i64 %98, 3
   %100 = or disjoint i64 %99, %.lcssa42.i
   store i64 %100, ptr %97, align 8
-  %101 = ptrtoint ptr %.0.lcssa.i to i64
+  %101 = ptrtoint ptr %.025.lcssa.i to i64
   %102 = load i64, ptr %.lcssa46.i, align 8
   %103 = and i64 %102, 3
   %104 = or i64 %103, %101
@@ -291,7 +291,7 @@ define dso_local range(i32 0, 2) i32 @__archive_rb_tree_insert_node(ptr noundef 
   br i1 %113, label %__archive_rb_tree_reparent_nodes.exit.i, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %90
-  %114 = ptrtoint ptr %.025.lcssa.i to i64
+  %114 = ptrtoint ptr %.0.lcssa.i to i64
   %115 = getelementptr inbounds i8, ptr %112, i64 16
   %116 = load i64, ptr %115, align 8
   %117 = and i64 %116, 3
@@ -376,12 +376,12 @@ __archive_rb_tree_reparent_nodes.exit36.i:        ; preds = %.sink.split.i32.i, 
 
 .critedge:                                        ; preds = %.thread88, %14
   %165 = phi i64 [ %.masked80, %.thread88 ], [ %18, %14 ]
-  %.039.lcssa8294 = phi ptr [ %0, %.thread88 ], [ %.03848, %14 ]
-  %.037.lcssa8493 = phi i64 [ 0, %.thread88 ], [ %15, %14 ]
+  %.038.lcssa8294 = phi ptr [ %0, %.thread88 ], [ %.03748, %14 ]
+  %.036.lcssa8493 = phi i64 [ 0, %.thread88 ], [ %15, %14 ]
   %166 = phi ptr [ %7, %.thread88 ], [ %17, %14 ]
   %167 = and i64 %165, -2
   store i64 %167, ptr %166, align 8
-  %168 = getelementptr inbounds [2 x ptr], ptr %.039.lcssa8294, i64 0, i64 %.037.lcssa8493
+  %168 = getelementptr inbounds [2 x ptr], ptr %.038.lcssa8294, i64 0, i64 %.036.lcssa8493
   %169 = load ptr, ptr %168, align 8
   store ptr %169, ptr %1, align 8
   %170 = getelementptr inbounds i8, ptr %1, i64 8
@@ -390,8 +390,8 @@ __archive_rb_tree_reparent_nodes.exit36.i:        ; preds = %.sink.split.i32.i, 
   br label %__archive_rb_tree_insert_rebalance.exit
 
 __archive_rb_tree_insert_rebalance.exit:          ; preds = %.lr.ph, %80, %74, %.lr.ph50, %__archive_rb_tree_reparent_nodes.exit36.i, %20, %.critedge
-  %.0 = phi i32 [ 1, %.critedge ], [ 1, %20 ], [ 1, %__archive_rb_tree_reparent_nodes.exit36.i ], [ 1, %.lr.ph50 ], [ 1, %74 ], [ 1, %80 ], [ 0, %.lr.ph ]
-  ret i32 %.0
+  %.039 = phi i32 [ 1, %.critedge ], [ 1, %20 ], [ 1, %__archive_rb_tree_reparent_nodes.exit36.i ], [ 1, %.lr.ph50 ], [ 1, %74 ], [ 1, %80 ], [ 0, %.lr.ph ]
+  ret i32 %.039
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -680,10 +680,10 @@ define internal fastcc void @__archive_rb_tree_removal_rebalance(ptr nocapture n
   br label %4
 
 4:                                                ; preds = %84, %3
-  %.050 = phi i32 [ %2, %3 ], [ %88, %84 ]
-  %.049 = phi ptr [ %1, %3 ], [ %90, %84 ]
-  %5 = zext nneg i32 %.050 to i64
-  %6 = getelementptr inbounds [2 x ptr], ptr %.049, i64 0, i64 %5
+  %.050 = phi ptr [ %1, %3 ], [ %90, %84 ]
+  %.049 = phi i32 [ %2, %3 ], [ %88, %84 ]
+  %5 = zext nneg i32 %.049 to i64
+  %6 = getelementptr inbounds [2 x ptr], ptr %.050, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.critedge, label %9
@@ -696,15 +696,15 @@ define internal fastcc void @__archive_rb_tree_removal_rebalance(ptr nocapture n
   br i1 %13, label %.critedge, label %__archive_rb_tree_reparent_nodes.exit77
 
 .critedge:                                        ; preds = %4, %9
-  %14 = xor i32 %.050, 1
+  %14 = xor i32 %.049, 1
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds [2 x ptr], ptr %.049, i64 0, i64 %15
+  %16 = getelementptr inbounds [2 x ptr], ptr %.050, i64 0, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %__archive_rb_tree_reparent_nodes.exit77, label %19
 
 19:                                               ; preds = %.critedge
-  %20 = getelementptr inbounds i8, ptr %.049, i64 16
+  %20 = getelementptr inbounds i8, ptr %.050, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, 1
   %23 = icmp eq i64 %22, 0
@@ -743,7 +743,7 @@ define internal fastcc void @__archive_rb_tree_removal_rebalance(ptr nocapture n
   br i1 %.not, label %80, label %45
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds [2 x ptr], ptr %.049, i64 0, i64 %15
+  %46 = getelementptr inbounds [2 x ptr], ptr %.050, i64 0, i64 %15
   %47 = and i64 %21, -4
   %48 = inttoptr i64 %47 to ptr
   %49 = lshr exact i64 %21, 1
@@ -753,7 +753,7 @@ define internal fastcc void @__archive_rb_tree_removal_rebalance(ptr nocapture n
   %52 = getelementptr inbounds [2 x ptr], ptr %17, i64 0, i64 %5
   %53 = load ptr, ptr %52, align 8
   store ptr %53, ptr %46, align 8
-  store ptr %.049, ptr %52, align 8
+  store ptr %.050, ptr %52, align 8
   %54 = load i64, ptr %42, align 8
   %55 = and i64 %54, 3
   %56 = or disjoint i64 %55, %47
@@ -770,7 +770,7 @@ define internal fastcc void @__archive_rb_tree_removal_rebalance(ptr nocapture n
   store i64 %64, ptr %42, align 8
   %65 = load i64, ptr %20, align 8
   %66 = xor i64 %65, %63
-  %.not.i = icmp eq i32 %.050, 0
+  %.not.i = icmp eq i32 %.049, 0
   %67 = and i64 %66, -3
   %masksel.i = select i1 %.not.i, i64 0, i64 2
   %storemerge.i = or disjoint i64 %67, %masksel.i
@@ -780,13 +780,13 @@ define internal fastcc void @__archive_rb_tree_removal_rebalance(ptr nocapture n
   br i1 %69, label %__archive_rb_tree_reparent_nodes.exit77, label %__archive_rb_tree_reparent_nodes.exit
 
 __archive_rb_tree_reparent_nodes.exit:            ; preds = %45
-  %70 = ptrtoint ptr %.049 to i64
+  %70 = ptrtoint ptr %.050 to i64
   %71 = getelementptr inbounds i8, ptr %68, i64 16
   %72 = load i64, ptr %71, align 8
   %73 = and i64 %72, 3
   %74 = or i64 %73, %70
   store i64 %74, ptr %71, align 8
-  %.not44.i = icmp eq i32 %.050, 1
+  %.not44.i = icmp eq i32 %.049, 1
   %75 = load ptr, ptr %46, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 16
   %77 = load i64, ptr %76, align 8
@@ -802,7 +802,7 @@ __archive_rb_tree_reparent_nodes.exit:            ; preds = %45
   %81 = or disjoint i64 %43, 1
   store i64 %81, ptr %42, align 8
   %82 = load ptr, ptr %0, align 8
-  %83 = icmp eq ptr %82, %.049
+  %83 = icmp eq ptr %82, %.050
   br i1 %83, label %__archive_rb_tree_reparent_nodes.exit77, label %84
 
 84:                                               ; preds = %80
@@ -821,7 +821,7 @@ __archive_rb_tree_reparent_nodes.exit:            ; preds = %45
   br i1 %.not61, label %.loopexit.thread, label %.loopexit.thread115
 
 .loopexit.thread115.loopexit:                     ; preds = %19
-  %91 = getelementptr inbounds [2 x ptr], ptr %.049, i64 0, i64 %15
+  %91 = getelementptr inbounds [2 x ptr], ptr %.050, i64 0, i64 %15
   br label %.loopexit.thread115
 
 .loopexit.thread115:                              ; preds = %.loopexit.thread115.loopexit, %.loopexit
@@ -868,7 +868,7 @@ __archive_rb_tree_reparent_nodes.exit:            ; preds = %45
   br label %__archive_rb_tree_reparent_nodes.exit77
 
 .loopexit.thread.loopexit:                        ; preds = %36, %27
-  %119 = getelementptr inbounds [2 x ptr], ptr %.049, i64 0, i64 %15
+  %119 = getelementptr inbounds [2 x ptr], ptr %.050, i64 0, i64 %15
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit.thread.loopexit, %110, %101, %.loopexit.thread115, %.loopexit
@@ -922,7 +922,7 @@ __archive_rb_tree_reparent_nodes.exit:            ; preds = %45
   store i64 %154, ptr %143, align 8
   %155 = load i64, ptr %134, align 8
   %156 = xor i64 %155, %153
-  %.not.i62 = icmp eq i32 %.050, 1
+  %.not.i62 = icmp eq i32 %.049, 1
   %157 = and i64 %156, -3
   %masksel.i63 = select i1 %.not.i62, i64 0, i64 2
   %storemerge.i64 = or disjoint i64 %157, %masksel.i63
@@ -938,7 +938,7 @@ __archive_rb_tree_reparent_nodes.exit:            ; preds = %45
   %163 = and i64 %162, 3
   %164 = or i64 %163, %160
   store i64 %164, ptr %161, align 8
-  %.not44.i66 = icmp eq i32 %.050, 0
+  %.not44.i66 = icmp eq i32 %.049, 0
   %165 = load ptr, ptr %130, align 8
   %166 = getelementptr inbounds i8, ptr %165, i64 16
   %167 = load i64, ptr %166, align 8
@@ -976,7 +976,7 @@ __archive_rb_tree_reparent_nodes.exit:            ; preds = %45
   %185 = getelementptr inbounds [2 x ptr], ptr %176, i64 0, i64 %5
   %186 = load ptr, ptr %185, align 8
   store ptr %186, ptr %120, align 8
-  store ptr %.049, ptr %185, align 8
+  store ptr %.050, ptr %185, align 8
   %187 = getelementptr inbounds i8, ptr %176, i64 16
   %188 = load i64, ptr %187, align 8
   %189 = and i64 %188, 3
@@ -994,7 +994,7 @@ __archive_rb_tree_reparent_nodes.exit:            ; preds = %45
   store i64 %198, ptr %187, align 8
   %199 = load i64, ptr %20, align 8
   %200 = xor i64 %199, %197
-  %.not.i70 = icmp eq i32 %.050, 0
+  %.not.i70 = icmp eq i32 %.049, 0
   %201 = and i64 %200, -3
   %masksel.i71 = select i1 %.not.i70, i64 0, i64 2
   %storemerge.i72 = or disjoint i64 %201, %masksel.i71
@@ -1004,13 +1004,13 @@ __archive_rb_tree_reparent_nodes.exit:            ; preds = %45
   br i1 %203, label %__archive_rb_tree_reparent_nodes.exit77, label %.sink.split.i73
 
 .sink.split.i73:                                  ; preds = %178
-  %204 = ptrtoint ptr %.049 to i64
+  %204 = ptrtoint ptr %.050 to i64
   %205 = getelementptr inbounds i8, ptr %202, i64 16
   %206 = load i64, ptr %205, align 8
   %207 = and i64 %206, 3
   %208 = or i64 %207, %204
   store i64 %208, ptr %205, align 8
-  %.not44.i74 = icmp eq i32 %.050, 1
+  %.not44.i74 = icmp eq i32 %.049, 1
   %209 = load ptr, ptr %120, align 8
   %210 = getelementptr inbounds i8, ptr %209, i64 16
   %211 = load i64, ptr %210, align 8

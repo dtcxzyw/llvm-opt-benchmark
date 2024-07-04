@@ -14,20 +14,20 @@ define i64 @cli_strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_un
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %.in = phi i64 [ %6, %5 ], [ %2, %.lr.ph.preheader ]
-  %.02533 = phi ptr [ %7, %5 ], [ %0, %.lr.ph.preheader ]
-  %4 = load i8, ptr %.02533, align 1
+  %.02433 = phi ptr [ %7, %5 ], [ %0, %.lr.ph.preheader ]
+  %4 = load i8, ptr %.02433, align 1
   %.not29 = icmp eq i8 %4, 0
   br i1 %.not29, label %.critedge, label %5
 
 5:                                                ; preds = %.lr.ph
   %6 = add i64 %.in, -1
-  %7 = getelementptr inbounds i8, ptr %.02533, i64 1
+  %7 = getelementptr inbounds i8, ptr %.02433, i64 1
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %5, %3
-  %.025.lcssa = phi ptr [ %0, %3 ], [ %scevgep, %5 ], [ %.02533, %.lr.ph ]
-  %8 = ptrtoint ptr %.025.lcssa to i64
+  %.024.lcssa = phi ptr [ %0, %3 ], [ %scevgep, %5 ], [ %.02433, %.lr.ph ]
+  %8 = ptrtoint ptr %.024.lcssa to i64
   %9 = ptrtoint ptr %0 to i64
   %10 = sub i64 %8, %9
   %11 = sub i64 %2, %10
@@ -46,38 +46,38 @@ define i64 @cli_strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_un
 .lr.ph40:                                         ; preds = %.preheader, %20
   %16 = phi i8 [ %22, %20 ], [ %13, %.preheader ]
   %.139 = phi i64 [ %.2, %20 ], [ %11, %.preheader ]
-  %.02438 = phi ptr [ %21, %20 ], [ %1, %.preheader ]
-  %.12637 = phi ptr [ %.227, %20 ], [ %.025.lcssa, %.preheader ]
+  %.02338 = phi ptr [ %21, %20 ], [ %1, %.preheader ]
+  %.12537 = phi ptr [ %.226, %20 ], [ %.024.lcssa, %.preheader ]
   %.not31 = icmp eq i64 %.139, 1
   br i1 %.not31, label %20, label %17
 
 17:                                               ; preds = %.lr.ph40
-  %18 = getelementptr inbounds i8, ptr %.12637, i64 1
-  store i8 %16, ptr %.12637, align 1
+  %18 = getelementptr inbounds i8, ptr %.12537, i64 1
+  store i8 %16, ptr %.12537, align 1
   %19 = add i64 %.139, -1
   br label %20
 
 20:                                               ; preds = %17, %.lr.ph40
-  %.227 = phi ptr [ %18, %17 ], [ %.12637, %.lr.ph40 ]
+  %.226 = phi ptr [ %18, %17 ], [ %.12537, %.lr.ph40 ]
   %.2 = phi i64 [ %19, %17 ], [ 1, %.lr.ph40 ]
-  %21 = getelementptr inbounds i8, ptr %.02438, i64 1
+  %21 = getelementptr inbounds i8, ptr %.02338, i64 1
   %22 = load i8, ptr %21, align 1
   %.not30 = icmp eq i8 %22, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph40
 
 ._crit_edge:                                      ; preds = %20, %.preheader
-  %.126.lcssa = phi ptr [ %.025.lcssa, %.preheader ], [ %.227, %20 ]
-  %.024.lcssa = phi ptr [ %1, %.preheader ], [ %21, %20 ]
-  store i8 0, ptr %.126.lcssa, align 1
-  %23 = ptrtoint ptr %.024.lcssa to i64
+  %.125.lcssa = phi ptr [ %.024.lcssa, %.preheader ], [ %.226, %20 ]
+  %.023.lcssa = phi ptr [ %1, %.preheader ], [ %21, %20 ]
+  store i8 0, ptr %.125.lcssa, align 1
+  %23 = ptrtoint ptr %.023.lcssa to i64
   %24 = ptrtoint ptr %1 to i64
   %25 = sub i64 %23, %24
   br label %26
 
 26:                                               ; preds = %._crit_edge, %14
   %.pn = phi i64 [ %15, %14 ], [ %25, %._crit_edge ]
-  %.0 = add i64 %.pn, %10
-  ret i64 %.0
+  %.027 = add i64 %.pn, %10
+  ret i64 %.027
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

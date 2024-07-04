@@ -777,14 +777,14 @@ entry:
   br label %for.body
 
 for.cond:                                         ; preds = %if.end4
-  %inc = add nuw nsw i32 %pass.099, 1
+  %inc = add nuw nsw i32 %pass.0100, 1
   %exitcond = icmp eq i32 %inc, 3
   br i1 %exitcond, label %if.else75, label %for.body, !llvm.loop !5
 
 for.body:                                         ; preds = %entry, %for.cond
-  %specsA.0100 = phi ptr [ null, %entry ], [ %specsA.1, %for.cond ]
-  %pass.099 = phi i32 [ 1, %entry ], [ %inc, %for.cond ]
-  %cmp1 = icmp eq i32 %pass.099, 2
+  %pass.0100 = phi i32 [ 1, %entry ], [ %inc, %for.cond ]
+  %specsA.099 = phi ptr [ null, %entry ], [ %specsA.1, %for.cond ]
+  %cmp1 = icmp eq i32 %pass.0100, 2
   br i1 %cmp1, label %if.then, label %if.end4
 
 if.then:                                          ; preds = %for.body
@@ -797,7 +797,7 @@ if.then3:                                         ; preds = %if.then
   br label %return
 
 if.end4:                                          ; preds = %if.then, %for.body
-  %specsA.1 = phi ptr [ %call, %if.then ], [ %specsA.0100, %for.body ]
+  %specsA.1 = phi ptr [ %call, %if.then ], [ %specsA.099, %for.body ]
   %call5 = tail call noundef signext i8 @_ZN6icu_7511ICU_Utility9parseCharERKNS_13UnicodeStringERiDs(ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef nonnull align 4 dereferenceable(4) %pos, i16 noundef zeroext 40)
   %tobool.not = icmp eq i8 %call5, 0
   br i1 %tobool.not, label %for.cond, label %if.then6
@@ -1028,7 +1028,7 @@ if.end88:                                         ; preds = %if.else79, %if.end8
   br label %if.end92
 
 if.end92:                                         ; preds = %delete.notnull45, %delete.notnull72, %if.end88
-  %specsB.091 = phi ptr [ %specsB.0.ph, %delete.notnull45 ], [ %specsB.0.ph, %delete.notnull72 ], [ null, %if.end88 ]
+  %specsB.093 = phi ptr [ %specsB.0.ph, %delete.notnull45 ], [ %specsB.0.ph, %delete.notnull72 ], [ null, %if.end88 ]
   %single.1 = phi ptr [ %call23, %delete.notnull45 ], [ %call48, %delete.notnull72 ], [ %single.096, %if.end88 ]
   %isnull93 = icmp eq ptr %specsA.1, null
   br i1 %isnull93, label %delete.end95, label %delete.notnull94
@@ -1046,19 +1046,19 @@ delete.notnull94:                                 ; preds = %if.end92
   br label %delete.end95
 
 delete.end95:                                     ; preds = %delete.notnull94, %if.end92
-  %isnull96 = icmp eq ptr %specsB.091, null
+  %isnull96 = icmp eq ptr %specsB.093, null
   br i1 %isnull96, label %return, label %delete.notnull97
 
 delete.notnull97:                                 ; preds = %delete.end95
-  %filter.i84 = getelementptr inbounds i8, ptr %specsB.091, i64 200
+  %filter.i84 = getelementptr inbounds i8, ptr %specsB.093, i64 200
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %filter.i84) #9
-  %variant.i85 = getelementptr inbounds i8, ptr %specsB.091, i64 136
+  %variant.i85 = getelementptr inbounds i8, ptr %specsB.093, i64 136
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %variant.i85) #9
-  %target.i86 = getelementptr inbounds i8, ptr %specsB.091, i64 72
+  %target.i86 = getelementptr inbounds i8, ptr %specsB.093, i64 72
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %target.i86) #9
-  %source.i87 = getelementptr inbounds i8, ptr %specsB.091, i64 8
+  %source.i87 = getelementptr inbounds i8, ptr %specsB.093, i64 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %source.i87) #9
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %specsB.091) #9
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %specsB.093) #9
   br label %return
 
 return:                                           ; preds = %delete.end95, %delete.notnull97, %if.then87, %delete.end58, %delete.end33, %delete.end, %if.then3

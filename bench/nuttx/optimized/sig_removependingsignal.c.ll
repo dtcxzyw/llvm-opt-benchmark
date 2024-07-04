@@ -17,25 +17,25 @@ define ptr @nxsig_remove_pendingsignal(ptr nocapture noundef readonly %0, i32 no
   br label %8
 
 8:                                                ; preds = %9, %2
-  %.013 = phi ptr [ null, %2 ], [ %.0, %9 ]
-  %.0.in = phi ptr [ %7, %2 ], [ %.0, %9 ]
-  %.0 = load ptr, ptr %.0.in, align 8
-  %.not = icmp eq ptr %.0, null
+  %.013.in = phi ptr [ %7, %2 ], [ %.013, %9 ]
+  %.0 = phi ptr [ null, %2 ], [ %.013, %9 ]
+  %.013 = load ptr, ptr %.013.in, align 8
+  %.not = icmp eq ptr %.013, null
   br i1 %.not, label %.critedge16, label %9
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %.0, i64 8
+  %10 = getelementptr inbounds i8, ptr %.013, i64 8
   %11 = load i8, ptr %10, align 8
   %12 = zext i8 %11 to i32
   %.not14 = icmp eq i32 %12, %1
   br i1 %.not14, label %.critedge, label %8, !llvm.loop !8
 
 .critedge:                                        ; preds = %9
-  %.not15 = icmp eq ptr %.013, null
+  %.not15 = icmp eq ptr %.0, null
   br i1 %.not15, label %15, label %13
 
 13:                                               ; preds = %.critedge
-  %14 = call ptr @sq_remafter(ptr noundef nonnull %.013, ptr noundef nonnull %7) #3
+  %14 = call ptr @sq_remafter(ptr noundef nonnull %.0, ptr noundef nonnull %7) #3
   br label %.critedge16
 
 15:                                               ; preds = %.critedge
@@ -52,7 +52,7 @@ define ptr @nxsig_remove_pendingsignal(ptr nocapture noundef readonly %0, i32 no
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %.critedge16, %18
-  ret ptr %.0
+  ret ptr %.013
 }
 
 declare ptr @sq_remafter(ptr noundef, ptr noundef) local_unnamed_addr #1

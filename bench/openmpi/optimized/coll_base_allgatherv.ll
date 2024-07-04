@@ -231,7 +231,7 @@ define i32 @ompi_coll_base_allgatherv_intra_sparbit(ptr noundef %0, i32 noundef 
 44:                                               ; preds = %.lr.ph108, %._crit_edge
   %.0106 = phi i32 [ 0, %.lr.ph108 ], [ %103, %._crit_edge ]
   %.086105 = phi i32 [ %42, %.lr.ph108 ], [ %100, %._crit_edge ]
-  %.088104 = phi i32 [ 1, %.lr.ph108 ], [ %102, %._crit_edge ]
+  %.090104 = phi i32 [ 1, %.lr.ph108 ], [ %102, %._crit_edge ]
   %45 = add i32 %.086105, %.val98
   %46 = urem i32 %45, %.val.val
   %47 = sub i32 %43, %.086105
@@ -239,14 +239,14 @@ define i32 @ompi_coll_base_allgatherv_intra_sparbit(ptr noundef %0, i32 noundef 
   %49 = and i32 %.086105, %39
   %50 = icmp eq i32 %49, %.086105
   %51 = zext i1 %50 to i32
-  %52 = sub nsw i32 %.088104, %51
+  %52 = sub nsw i32 %.090104, %51
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %44, %95
   %.1103 = phi i32 [ %.3, %95 ], [ 0, %44 ]
-  %.090102 = phi i32 [ %96, %95 ], [ 0, %44 ]
-  %54 = shl nuw nsw i32 %.090102, 1
+  %.089102 = phi i32 [ %96, %95 ], [ 0, %44 ]
+  %54 = shl nuw nsw i32 %.089102, 1
   %55 = mul i32 %.086105, %54
   %56 = sub i32 %43, %55
   %57 = urem i32 %56, %.val.val
@@ -300,7 +300,7 @@ define i32 @ompi_coll_base_allgatherv_intra_sparbit(ptr noundef %0, i32 noundef 
 
 95:                                               ; preds = %77, %82
   %.3 = phi i32 [ %91, %82 ], [ %.2, %77 ]
-  %96 = add nuw nsw i32 %.090102, 1
+  %96 = add nuw nsw i32 %.089102, 1
   %exitcond.not = icmp eq i32 %96, %52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
@@ -310,7 +310,7 @@ define i32 @ompi_coll_base_allgatherv_intra_sparbit(ptr noundef %0, i32 noundef 
   %98 = sext i32 %.1.lcssa to i64
   %99 = tail call i32 %97(i64 noundef %98, ptr noundef %29, ptr noundef null) #7
   %100 = lshr i32 %.086105, 1
-  %101 = shl i32 %.088104, 1
+  %101 = shl i32 %.090104, 1
   %102 = sub nsw i32 %101, %51
   %103 = add nuw nsw i32 %.0106, 1
   %exitcond110.not = icmp eq i32 %103, %34
@@ -570,8 +570,8 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %73, %75
 
 .lr.ph:                                           ; preds = %79, %118
   %.1128 = phi i32 [ %90, %118 ], [ %54, %79 ]
-  %.0102127 = phi i32 [ %121, %118 ], [ 1, %79 ]
-  %82 = and i32 %.0102127, 1
+  %.0101127 = phi i32 [ %121, %118 ], [ 1, %79 ]
+  %82 = and i32 %.0101127, 1
   %83 = zext nneg i32 %82 to i64
   %84 = getelementptr inbounds [2 x i32], ptr %12, i64 0, i64 %83
   %85 = load i32, ptr %84, align 4
@@ -640,13 +640,13 @@ ompi_coll_base_sendrecv.exit125:                  ; preds = %114, %116
 118:                                              ; preds = %ompi_coll_base_sendrecv.exit125
   %119 = call i32 @ompi_datatype_destroy(ptr noundef nonnull %18) #7
   %120 = call i32 @ompi_datatype_destroy(ptr noundef nonnull %17) #7
-  %121 = add nuw nsw i32 %.0102127, 1
+  %121 = add nuw nsw i32 %.0101127, 1
   %exitcond.not = icmp eq i32 %121, %80
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %118, %ompi_coll_base_sendrecv.exit125, %106, %99, %97, %.lr.ph, %79, %33, %ompi_coll_base_sendrecv.exit, %23
-  %.0 = phi i32 [ %24, %23 ], [ %40, %33 ], [ %.0.i, %ompi_coll_base_sendrecv.exit ], [ 0, %79 ], [ 0, %118 ], [ %.0.i124, %ompi_coll_base_sendrecv.exit125 ], [ %107, %106 ], [ %105, %99 ], [ %98, %97 ], [ %96, %.lr.ph ]
-  ret i32 %.0
+  %.0102 = phi i32 [ %24, %23 ], [ %40, %33 ], [ %.0.i, %ompi_coll_base_sendrecv.exit ], [ 0, %79 ], [ 0, %118 ], [ %.0.i124, %ompi_coll_base_sendrecv.exit125 ], [ %107, %106 ], [ %105, %99 ], [ %98, %97 ], [ %96, %.lr.ph ]
+  ret i32 %.0102
 }
 
 ; Function Attrs: nounwind uwtable
@@ -683,7 +683,7 @@ define i32 @ompi_coll_base_allgatherv_intra_two_procs(ptr noundef %0, i32 nounde
 
 30:                                               ; preds = %21, %13
   %.043 = phi ptr [ %6, %21 ], [ %2, %13 ]
-  %.041 = phi i32 [ %29, %21 ], [ %1, %13 ]
+  %.042 = phi i32 [ %29, %21 ], [ %1, %13 ]
   %.0 = phi ptr [ %27, %21 ], [ %0, %13 ]
   %31 = sext i32 %19 to i64
   %32 = getelementptr inbounds i32, ptr %5, i64 %31
@@ -691,7 +691,7 @@ define i32 @ompi_coll_base_allgatherv_intra_two_procs(ptr noundef %0, i32 nounde
   %34 = sext i32 %33 to i64
   %35 = mul nsw i64 %18, %34
   %36 = getelementptr inbounds i8, ptr %3, i64 %35
-  %37 = sext i32 %.041 to i64
+  %37 = sext i32 %.042 to i64
   %38 = getelementptr inbounds i32, ptr %4, i64 %31
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
@@ -709,12 +709,12 @@ define i32 @ompi_coll_base_allgatherv_intra_two_procs(ptr noundef %0, i32 nounde
   %48 = getelementptr inbounds i8, ptr %3, i64 %47
   %49 = getelementptr inbounds i32, ptr %4, i64 %43
   %50 = load i32, ptr %49, align 4
-  %51 = tail call i32 @ompi_datatype_sndrcv(ptr noundef %0, i32 noundef %.041, ptr noundef %.043, ptr noundef %48, i32 noundef %50, ptr noundef nonnull %6) #7
+  %51 = tail call i32 @ompi_datatype_sndrcv(ptr noundef %0, i32 noundef %.042, ptr noundef %.043, ptr noundef %48, i32 noundef %50, ptr noundef nonnull %6) #7
   br label %52
 
 52:                                               ; preds = %30, %42, %9
-  %.040 = phi i32 [ 52, %9 ], [ %41, %30 ], [ %51, %42 ]
-  ret i32 %.040
+  %.041 = phi i32 [ 52, %9 ], [ %41, %30 ], [ %51, %42 ]
+  ret i32 %.041
 }
 
 ; Function Attrs: nounwind uwtable

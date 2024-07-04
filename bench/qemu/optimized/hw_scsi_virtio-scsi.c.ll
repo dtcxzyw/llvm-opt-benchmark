@@ -1992,8 +1992,8 @@ if.then28:                                        ; preds = %if.end24
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end24, %if.then28, %if.end13
-  %resp_size.addr.0 = phi i32 [ %resp_size, %if.end13 ], [ %conv33, %if.then28 ], [ %resp_size, %if.end24 ]
   %req_size.addr.1 = phi i32 [ %req_size, %if.end13 ], [ %req_size.addr.0, %if.then28 ], [ %req_size.addr.0, %if.end24 ]
+  %resp_size.addr.0 = phi i32 [ %resp_size, %if.end13 ], [ %conv33, %if.then28 ], [ %resp_size, %if.end24 ]
   %conv42 = zext i32 %req_size.addr.1 to i64
   %qsgl1.i = getelementptr inbounds i8, ptr %req, i64 72
   %tobool.not13.i = icmp eq i32 %.pre, 0
@@ -2007,35 +2007,35 @@ while.body.i.preheader:                           ; preds = %if.end35
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.end.i
   %copied.018.i = phi i64 [ %copied.1.i, %if.end.i ], [ 0, %while.body.i.preheader ]
-  %iov.addr.017.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %12, %while.body.i.preheader ]
-  %skip.addr.016.i = phi i64 [ %skip.addr.1.i, %if.end.i ], [ %conv42, %while.body.i.preheader ]
-  %num.addr.015.i = phi i32 [ %dec.i, %if.end.i ], [ %.pre, %while.body.i.preheader ]
-  %addr.addr.014.i = phi ptr [ %incdec.ptr8.i, %if.end.i ], [ %11, %while.body.i.preheader ]
-  %iov_len.i29 = getelementptr inbounds i8, ptr %iov.addr.017.i, i64 8
+  %skip.addr.017.i = phi i64 [ %skip.addr.1.i, %if.end.i ], [ %conv42, %while.body.i.preheader ]
+  %num.addr.016.i = phi i32 [ %dec.i, %if.end.i ], [ %.pre, %while.body.i.preheader ]
+  %addr.addr.015.i = phi ptr [ %incdec.ptr8.i, %if.end.i ], [ %11, %while.body.i.preheader ]
+  %iov.addr.014.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %12, %while.body.i.preheader ]
+  %iov_len.i29 = getelementptr inbounds i8, ptr %iov.addr.014.i, i64 8
   %13 = load i64, ptr %iov_len.i29, align 8
-  %cmp.not.i = icmp ult i64 %skip.addr.016.i, %13
+  %cmp.not.i = icmp ult i64 %skip.addr.017.i, %13
   br i1 %cmp.not.i, label %if.else.i31, label %if.then.i30
 
 if.then.i30:                                      ; preds = %while.body.i
-  %sub.i = sub i64 %skip.addr.016.i, %13
+  %sub.i = sub i64 %skip.addr.017.i, %13
   br label %if.end.i
 
 if.else.i31:                                      ; preds = %while.body.i
-  %14 = load i64, ptr %addr.addr.014.i, align 8
-  %add.i = add i64 %14, %skip.addr.016.i
-  %sub4.i = sub i64 %13, %skip.addr.016.i
+  %14 = load i64, ptr %addr.addr.015.i, align 8
+  %add.i = add i64 %14, %skip.addr.017.i
+  %sub4.i = sub i64 %13, %skip.addr.017.i
   tail call void @qemu_sglist_add(ptr noundef nonnull %qsgl1.i, i64 noundef %add.i, i64 noundef %sub4.i) #12
   %15 = load i64, ptr %iov_len.i29, align 8
-  %sub6.i = sub i64 %copied.018.i, %skip.addr.016.i
+  %sub6.i = sub i64 %copied.018.i, %skip.addr.017.i
   %add7.i = add i64 %sub6.i, %15
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i31, %if.then.i30
   %skip.addr.1.i = phi i64 [ %sub.i, %if.then.i30 ], [ 0, %if.else.i31 ]
   %copied.1.i = phi i64 [ %copied.018.i, %if.then.i30 ], [ %add7.i, %if.else.i31 ]
-  %incdec.ptr.i = getelementptr i8, ptr %iov.addr.017.i, i64 16
-  %incdec.ptr8.i = getelementptr i8, ptr %addr.addr.014.i, i64 8
-  %dec.i = add i32 %num.addr.015.i, -1
+  %incdec.ptr.i = getelementptr i8, ptr %iov.addr.014.i, i64 16
+  %incdec.ptr8.i = getelementptr i8, ptr %addr.addr.015.i, i64 8
+  %dec.i = add i32 %num.addr.016.i, -1
   %tobool.not.i = icmp eq i32 %dec.i, 0
   br i1 %tobool.not.i, label %while.end.i.loopexit, label %while.body.i, !llvm.loop !15
 
@@ -2067,35 +2067,35 @@ while.body.i34.preheader:                         ; preds = %qemu_sgl_concat.exi
 
 while.body.i34:                                   ; preds = %while.body.i34.preheader, %if.end.i44
   %copied.018.i35 = phi i64 [ %copied.1.i46, %if.end.i44 ], [ 0, %while.body.i34.preheader ]
-  %iov.addr.017.i36 = phi ptr [ %incdec.ptr.i47, %if.end.i44 ], [ %19, %while.body.i34.preheader ]
-  %skip.addr.016.i37 = phi i64 [ %skip.addr.1.i45, %if.end.i44 ], [ %conv50, %while.body.i34.preheader ]
-  %num.addr.015.i38 = phi i32 [ %dec.i49, %if.end.i44 ], [ %17, %while.body.i34.preheader ]
-  %addr.addr.014.i39 = phi ptr [ %incdec.ptr8.i48, %if.end.i44 ], [ %18, %while.body.i34.preheader ]
-  %iov_len.i40 = getelementptr inbounds i8, ptr %iov.addr.017.i36, i64 8
+  %skip.addr.017.i36 = phi i64 [ %skip.addr.1.i45, %if.end.i44 ], [ %conv50, %while.body.i34.preheader ]
+  %num.addr.016.i37 = phi i32 [ %dec.i49, %if.end.i44 ], [ %17, %while.body.i34.preheader ]
+  %addr.addr.015.i38 = phi ptr [ %incdec.ptr8.i48, %if.end.i44 ], [ %18, %while.body.i34.preheader ]
+  %iov.addr.014.i39 = phi ptr [ %incdec.ptr.i47, %if.end.i44 ], [ %19, %while.body.i34.preheader ]
+  %iov_len.i40 = getelementptr inbounds i8, ptr %iov.addr.014.i39, i64 8
   %20 = load i64, ptr %iov_len.i40, align 8
-  %cmp.not.i41 = icmp ult i64 %skip.addr.016.i37, %20
+  %cmp.not.i41 = icmp ult i64 %skip.addr.017.i36, %20
   br i1 %cmp.not.i41, label %if.else.i56, label %if.then.i42
 
 if.then.i42:                                      ; preds = %while.body.i34
-  %sub.i43 = sub i64 %skip.addr.016.i37, %20
+  %sub.i43 = sub i64 %skip.addr.017.i36, %20
   br label %if.end.i44
 
 if.else.i56:                                      ; preds = %while.body.i34
-  %21 = load i64, ptr %addr.addr.014.i39, align 8
-  %add.i57 = add i64 %21, %skip.addr.016.i37
-  %sub4.i58 = sub i64 %20, %skip.addr.016.i37
+  %21 = load i64, ptr %addr.addr.015.i38, align 8
+  %add.i57 = add i64 %21, %skip.addr.017.i36
+  %sub4.i58 = sub i64 %20, %skip.addr.017.i36
   tail call void @qemu_sglist_add(ptr noundef nonnull %qsgl1.i, i64 noundef %add.i57, i64 noundef %sub4.i58) #12
   %22 = load i64, ptr %iov_len.i40, align 8
-  %sub6.i59 = sub i64 %copied.018.i35, %skip.addr.016.i37
+  %sub6.i59 = sub i64 %copied.018.i35, %skip.addr.017.i36
   %add7.i60 = add i64 %sub6.i59, %22
   br label %if.end.i44
 
 if.end.i44:                                       ; preds = %if.else.i56, %if.then.i42
   %skip.addr.1.i45 = phi i64 [ %sub.i43, %if.then.i42 ], [ 0, %if.else.i56 ]
   %copied.1.i46 = phi i64 [ %copied.018.i35, %if.then.i42 ], [ %add7.i60, %if.else.i56 ]
-  %incdec.ptr.i47 = getelementptr i8, ptr %iov.addr.017.i36, i64 16
-  %incdec.ptr8.i48 = getelementptr i8, ptr %addr.addr.014.i39, i64 8
-  %dec.i49 = add i32 %num.addr.015.i38, -1
+  %incdec.ptr.i47 = getelementptr i8, ptr %iov.addr.014.i39, i64 16
+  %incdec.ptr8.i48 = getelementptr i8, ptr %addr.addr.015.i38, i64 8
+  %dec.i49 = add i32 %num.addr.016.i37, -1
   %tobool.not.i50 = icmp eq i32 %dec.i49, 0
   br i1 %tobool.not.i50, label %while.end.i51.loopexit, label %while.body.i34, !llvm.loop !15
 

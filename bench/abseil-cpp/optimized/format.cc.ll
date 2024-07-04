@@ -211,8 +211,8 @@ while.body.i.preheader:                           ; preds = %entry
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.end.i
-  %input.sroa.0.0 = phi i64 [ %sub.i.i, %if.end.i ], [ %input.coerce0, %while.body.i.preheader ]
   %input.sroa.6.0 = phi ptr [ %add.ptr.i.i, %if.end.i ], [ %input.coerce1, %while.body.i.preheader ]
+  %input.sroa.0.0 = phi i64 [ %sub.i.i, %if.end.i ], [ %input.coerce0, %while.body.i.preheader ]
   %0 = load i8, ptr %input.sroa.6.0, align 1
   %conv.i = sext i8 %0 to i32
   %call3.i = tail call i32 @isspace(i32 noundef %conv.i) #12
@@ -226,8 +226,8 @@ if.end.i:                                         ; preds = %while.body.i
   br i1 %cmp.i.i, label %"_ZZN4absl9ParseTimeESt17basic_string_viewIcSt11char_traitsIcEES3_NS_8TimeZoneEPNS_4TimeEPNSt7__cxx1112basic_stringIcS2_SaIcEEEENK3$_0clEPS3_.exit", label %while.body.i, !llvm.loop !5
 
 "_ZZN4absl9ParseTimeESt17basic_string_viewIcSt11char_traitsIcEES3_NS_8TimeZoneEPNS_4TimeEPNSt7__cxx1112basic_stringIcS2_SaIcEEEENK3$_0clEPS3_.exit": ; preds = %while.body.i, %if.end.i, %entry
-  %input.sroa.0.1 = phi i64 [ 0, %entry ], [ 0, %if.end.i ], [ %input.sroa.0.0, %while.body.i ]
   %input.sroa.6.1 = phi ptr [ %input.coerce1, %entry ], [ %scevgep, %if.end.i ], [ %input.sroa.6.0, %while.body.i ]
+  %input.sroa.0.1 = phi i64 [ 0, %entry ], [ 0, %if.end.i ], [ %input.sroa.0.0, %while.body.i ]
   br label %for.body
 
 for.body:                                         ; preds = %"_ZZN4absl9ParseTimeESt17basic_string_viewIcSt11char_traitsIcEES3_NS_8TimeZoneEPNS_4TimeEPNSt7__cxx1112basic_stringIcS2_SaIcEEEENK3$_0clEPS3_.exit", %for.inc

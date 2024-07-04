@@ -649,7 +649,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
 
 33:                                               ; preds = %.lr.ph96, %.critedge2.thread
   %indvars.iv104 = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next105, %.critedge2.thread ]
-  %.05294 = phi i32 [ 0, %.lr.ph96 ], [ %.153, %.critedge2.thread ]
+  %.05094 = phi i32 [ 0, %.lr.ph96 ], [ %.151, %.critedge2.thread ]
   %.val67 = load ptr, ptr %27, align 8
   %.val68 = load i32, ptr %28, align 8
   %34 = getelementptr i8, ptr %.val67, i64 8
@@ -681,8 +681,8 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %54
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %54 ], [ 0, %.lr.ph ]
-  %.05089.us = phi ptr [ %spec.select61.us, %54 ], [ null, %.lr.ph ]
-  %.05488.us = phi i32 [ %spec.select.us, %54 ], [ 0, %.lr.ph ]
+  %.05289.us = phi i32 [ %spec.select61.us, %54 ], [ 0, %.lr.ph ]
+  %.05687.us = phi ptr [ %spec.select.us, %54 ], [ null, %.lr.ph ]
   %.val.us = load ptr, ptr %49, align 8
   %50 = getelementptr inbounds ptr, ptr %.val.us, i64 %indvars.iv101
   %51 = load ptr, ptr %50, align 8
@@ -696,9 +696,9 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
 
 54:                                               ; preds = %53, %.lr.ph.split.us
   %55 = call i32 @Ssw_SmlNodeCountOnesReal(ptr noundef %25, ptr noundef %51) #16
-  %56 = icmp slt i32 %.05488.us, %55
-  %spec.select.us = call i32 @llvm.smax.i32(i32 %.05488.us, i32 %55)
-  %spec.select61.us = select i1 %56, ptr %51, ptr %.05089.us
+  %56 = icmp slt i32 %.05289.us, %55
+  %spec.select.us = select i1 %56, ptr %51, ptr %.05687.us
+  %spec.select61.us = call i32 @llvm.smax.i32(i32 %.05289.us, i32 %55)
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %.val62.us = load i32, ptr %47, align 4
   %57 = sext i32 %.val62.us to i64
@@ -707,15 +707,15 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %.05089 = phi ptr [ %spec.select61, %.lr.ph.split ], [ null, %.lr.ph ]
-  %.05488 = phi i32 [ %spec.select, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %.05289 = phi i32 [ %spec.select61, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %.05687 = phi ptr [ %spec.select, %.lr.ph.split ], [ null, %.lr.ph ]
   %.val = load ptr, ptr %49, align 8
   %59 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8
   %61 = call i32 @Ssw_SmlNodeCountOnesReal(ptr noundef %25, ptr noundef %60) #16
-  %62 = icmp slt i32 %.05488, %61
-  %spec.select = call i32 @llvm.smax.i32(i32 %.05488, i32 %61)
-  %spec.select61 = select i1 %62, ptr %60, ptr %.05089
+  %62 = icmp slt i32 %.05289, %61
+  %spec.select = select i1 %62, ptr %60, ptr %.05687
+  %spec.select61 = call i32 @llvm.smax.i32(i32 %.05289, i32 %61)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val62 = load i32, ptr %47, align 4
   %63 = sext i32 %.val62 to i64
@@ -723,17 +723,17 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   br i1 %64, label %.lr.ph.split, label %.critedge2, !llvm.loop !14
 
 .critedge2:                                       ; preds = %.lr.ph.split, %54
-  %.050.lcssa = phi ptr [ %spec.select61.us, %54 ], [ %spec.select61, %.lr.ph.split ]
-  %.not59 = icmp eq ptr %.050.lcssa, null
+  %.056.lcssa = phi ptr [ %spec.select.us, %54 ], [ %spec.select, %.lr.ph.split ]
+  %.not59 = icmp eq ptr %.056.lcssa, null
   br i1 %.not59, label %.critedge2.thread, label %65
 
 65:                                               ; preds = %.critedge2
-  call fastcc void @Vec_VecPush(ptr noundef nonnull %14, i32 noundef %35, ptr noundef nonnull %.050.lcssa)
-  %66 = add nsw i32 %.05294, 1
+  call fastcc void @Vec_VecPush(ptr noundef nonnull %14, i32 noundef %35, ptr noundef nonnull %.056.lcssa)
+  %66 = add nsw i32 %.05094, 1
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %33, %65, %.critedge2
-  %.153 = phi i32 [ %66, %65 ], [ %.05294, %.critedge2 ], [ %.05294, %33 ]
+  %.151 = phi i32 [ %66, %65 ], [ %.05094, %.critedge2 ], [ %.05094, %33 ]
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %.val65 = load i32, ptr %13, align 8
   %67 = sext i32 %.val65 to i64
@@ -741,7 +741,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   br i1 %68, label %33, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %.critedge2.thread, %Vec_VecStart.exit
-  %.052.lcssa = phi i32 [ 0, %Vec_VecStart.exit ], [ %.153, %.critedge2.thread ]
+  %.050.lcssa = phi i32 [ 0, %Vec_VecStart.exit ], [ %.151, %.critedge2.thread ]
   call void @Ssw_SmlStop(ptr noundef %25) #16
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %107, label %69
@@ -773,7 +773,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
 Vec_VecSizeSize.exit:                             ; preds = %73, %69
   %.0.lcssa.i = phi i32 [ 0, %69 ], [ %78, %73 ]
   %.val66 = load i32, ptr %13, align 8
-  %79 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.0.lcssa.i, i32 noundef %.052.lcssa, i32 noundef %.val66)
+  %79 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.0.lcssa.i, i32 noundef %.050.lcssa, i32 noundef %.val66)
   %80 = call ptr @Ssw_SmlSimulateSeq(ptr noundef %0, i32 noundef 0, i32 noundef 32, i32 noundef 1) #16
   %.val1718.i = load i32, ptr %24, align 4
   %81 = icmp sgt i32 %.val1718.i, 0

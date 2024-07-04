@@ -372,11 +372,11 @@ define void @dissect_a21_ie_common(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6, %dissect_a21_mobile_identity.exit
-  %.0113 = phi i32 [ %287, %dissect_a21_mobile_identity.exit ], [ %4, %6 ]
-  %22 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0113) #3
+  %.0106113 = phi i32 [ %287, %dissect_a21_mobile_identity.exit ], [ %4, %6 ]
+  %22 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0106113) #3
   %23 = zext i8 %22 to i32
   %24 = icmp eq i8 %22, -64
-  %25 = add nsw i32 %.0113, 1
+  %25 = add nsw i32 %.0106113, 1
   br i1 %24, label %26, label %28
 
 26:                                               ; preds = %.lr.ph
@@ -389,16 +389,16 @@ define void @dissect_a21_ie_common(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %31
 
 31:                                               ; preds = %28, %26
-  %.0106 = phi i16 [ %30, %28 ], [ %27, %26 ]
   %.0105 = phi i32 [ 1, %28 ], [ 2, %26 ]
+  %.0 = phi i16 [ %30, %28 ], [ %27, %26 ]
   %32 = add nuw nsw i32 %.0105, 1
-  %33 = zext i16 %.0106 to i32
+  %33 = zext i16 %.0 to i32
   %34 = add nuw nsw i32 %32, %33
   %35 = load i32, ptr @ett_a21_ie, align 4
   %36 = call ptr @val_to_str_const(i32 noundef %23, ptr noundef nonnull @a21_element_type_vals, ptr noundef nonnull @.str.1) #3
-  %37 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %.0113, i32 noundef %34, i32 noundef %35, ptr noundef nonnull %19, ptr noundef nonnull @.str, ptr noundef %36) #3
+  %37 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %.0106113, i32 noundef %34, i32 noundef %35, ptr noundef nonnull %19, ptr noundef nonnull @.str, ptr noundef %36) #3
   %38 = load i32, ptr @hf_a21_element_identifier, align 4
-  %39 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %0, i32 noundef %.0113, i32 noundef 1, i32 noundef 0) #3
+  %39 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %0, i32 noundef %.0106113, i32 noundef 1, i32 noundef 0) #3
   %40 = load i32, ptr @hf_a21_gcsna_pdu_length, align 4
   %41 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %40, ptr noundef %0, i32 noundef %25, i32 noundef %.0105, i32 noundef 0) #3
   %42 = add i32 %.0105, %25
@@ -663,7 +663,7 @@ dissect_a21_pilot_list.exit:                      ; preds = %112, %50
   %190 = zext i8 %187 to i32
   %191 = call ptr @val_to_str_const(i32 noundef %190, ptr noundef nonnull @a21_event_vals, ptr noundef nonnull @.str.1) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %186, ptr noundef nonnull @.str.159, ptr noundef %191) #3
-  %192 = icmp ugt i16 %.0106, 1
+  %192 = icmp ugt i16 %.0, 1
   br i1 %192, label %.sink.split.i, label %dissect_a21_mobile_identity.exit
 
 .sink.split.i:                                    ; preds = %185
@@ -684,7 +684,7 @@ dissect_a21_pilot_list.exit:                      ; preds = %112, %50
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %200 = icmp eq ptr %37, null
-  %.not8.i = icmp eq i16 %.0106, 0
+  %.not8.i = icmp eq i16 %.0, 0
   %or.cond = select i1 %200, i1 true, i1 %.not8.i
   br i1 %or.cond, label %dissect_a21_mobile_subscription_information.exit, label %.lr.ph7.i
 

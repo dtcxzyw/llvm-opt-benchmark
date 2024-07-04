@@ -123,22 +123,22 @@ define internal i32 @dissector_wimax_harq_map_decoder(ptr noundef %0, ptr nounde
   br i1 %.not102, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
-  %.08094 = phi i32 [ %38, %.lr.ph ], [ 0, %12 ]
+  %.08094 = phi i32 [ %37, %.lr.ph ], [ 1, %12 ]
   %.08193 = phi i32 [ %36, %.lr.ph ], [ 2, %12 ]
-  %.08292 = phi i32 [ %37, %.lr.ph ], [ 1, %12 ]
+  %.08492 = phi i32 [ %38, %.lr.ph ], [ 0, %12 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.23) #3
-  %33 = tail call i32 @wimax_compact_dlmap_ie_decoder(ptr noundef %17, ptr noundef %1, ptr noundef %0, i32 noundef %.08193, i32 noundef %.08292) #3
-  %34 = add i32 %33, %.08292
+  %33 = tail call i32 @wimax_compact_dlmap_ie_decoder(ptr noundef %17, ptr noundef %1, ptr noundef %0, i32 noundef %.08193, i32 noundef %.08094) #3
+  %34 = add i32 %33, %.08094
   %35 = lshr i32 %34, 1
   %36 = add i32 %35, %.08193
   %37 = and i32 %34, 1
-  %38 = add nuw nsw i32 %.08094, 1
+  %38 = add nuw nsw i32 %.08492, 1
   %exitcond.not = icmp eq i32 %38, %31
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
-  %.082.lcssa = phi i32 [ 1, %12 ], [ %37, %.lr.ph ]
   %.081.lcssa = phi i32 [ 2, %12 ], [ %36, %.lr.ph ]
+  %.080.lcssa = phi i32 [ 1, %12 ], [ %37, %.lr.ph ]
   %.not90 = icmp eq i32 %32, 0
   br i1 %.not90, label %.loopexit, label %39
 
@@ -149,30 +149,30 @@ define internal i32 @dissector_wimax_harq_map_decoder(ptr noundef %0, ptr nounde
   br i1 %41, label %.lr.ph99, label %.loopexit
 
 .lr.ph99:                                         ; preds = %39, %.lr.ph99
-  %.197 = phi i32 [ %45, %.lr.ph99 ], [ %.081.lcssa, %39 ]
-  %.18396 = phi i32 [ %46, %.lr.ph99 ], [ %.082.lcssa, %39 ]
-  %42 = tail call i32 @wimax_compact_ulmap_ie_decoder(ptr noundef %17, ptr noundef %1, ptr noundef %0, i32 noundef %.197, i32 noundef %.18396) #3
+  %.197 = phi i32 [ %46, %.lr.ph99 ], [ %.080.lcssa, %39 ]
+  %.18296 = phi i32 [ %45, %.lr.ph99 ], [ %.081.lcssa, %39 ]
+  %42 = tail call i32 @wimax_compact_ulmap_ie_decoder(ptr noundef %17, ptr noundef %1, ptr noundef %0, i32 noundef %.18296, i32 noundef %.197) #3
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %42, i32 2)
-  %43 = add i32 %spec.store.select, %.18396
+  %43 = add i32 %spec.store.select, %.197
   %44 = lshr i32 %43, 1
-  %45 = add i32 %44, %.197
+  %45 = add i32 %44, %.18296
   %46 = and i32 %43, 1
   %47 = icmp ult i32 %45, %40
   br i1 %47, label %.lr.ph99, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph99, %39, %._crit_edge
-  %.284 = phi i32 [ %.082.lcssa, %._crit_edge ], [ %.082.lcssa, %39 ], [ %46, %.lr.ph99 ]
-  %.2 = phi i32 [ %.081.lcssa, %._crit_edge ], [ %.081.lcssa, %39 ], [ %45, %.lr.ph99 ]
-  %.not91 = icmp eq i32 %.284, 0
+  %.283 = phi i32 [ %.081.lcssa, %._crit_edge ], [ %.081.lcssa, %39 ], [ %45, %.lr.ph99 ]
+  %.2 = phi i32 [ %.080.lcssa, %._crit_edge ], [ %.080.lcssa, %39 ], [ %46, %.lr.ph99 ]
+  %.not91 = icmp eq i32 %.2, 0
   br i1 %.not91, label %54, label %48
 
 48:                                               ; preds = %.loopexit
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.25) #3
   %49 = load i32, ptr @proto_wimax_harq_map_decoder, align 4
-  %50 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #3
+  %50 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.283) #3
   %51 = and i8 %50, 15
   %52 = zext nneg i8 %51 to i32
-  %53 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %17, i32 noundef %49, ptr noundef %0, i32 noundef %.2, i32 noundef 1, ptr noundef nonnull @.str.26, i32 noundef %52) #3
+  %53 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %17, i32 noundef %49, ptr noundef %0, i32 noundef %.283, i32 noundef 1, ptr noundef nonnull @.str.26, i32 noundef %52) #3
   br label %54
 
 54:                                               ; preds = %48, %.loopexit

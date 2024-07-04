@@ -1916,7 +1916,7 @@ _ZN15NumberlikeArrayImE8allocateEj.exit:          ; preds = %_ZN15NumberlikeArra
 
 .preheader:                                       ; preds = %_Z15getShiftedBlockRK11BigUnsignedjj.exit
   %104 = icmp ult i32 %129, %36
-  %105 = select i1 %104, i1 %.072.in, i1 false
+  %105 = select i1 %104, i1 %.071.in, i1 false
   br i1 %105, label %.lr.ph100, label %._crit_edge
 
 .lr.ph100:                                        ; preds = %.preheader
@@ -1926,9 +1926,9 @@ _ZN15NumberlikeArrayImE8allocateEj.exit:          ; preds = %_ZN15NumberlikeArra
 107:                                              ; preds = %96, %_Z15getShiftedBlockRK11BigUnsignedjj.exit
   %indvars.iv119 = phi i32 [ %95, %96 ], [ %indvars.iv.next120, %_Z15getShiftedBlockRK11BigUnsignedjj.exit ]
   %indvars.iv117 = phi i64 [ 0, %96 ], [ %indvars.iv.next118, %_Z15getShiftedBlockRK11BigUnsignedjj.exit ]
-  %.07397 = phi i1 [ false, %96 ], [ %.072.in, %_Z15getShiftedBlockRK11BigUnsignedjj.exit ]
-  %.07796 = phi i32 [ %indvars, %96 ], [ %129, %_Z15getShiftedBlockRK11BigUnsignedjj.exit ]
-  %108 = zext i32 %.07796 to i64
+  %.07298 = phi i1 [ false, %96 ], [ %.071.in, %_Z15getShiftedBlockRK11BigUnsignedjj.exit ]
+  %.07697 = phi i32 [ %indvars, %96 ], [ %129, %_Z15getShiftedBlockRK11BigUnsignedjj.exit ]
+  %108 = zext i32 %.07697 to i64
   %109 = getelementptr inbounds i64, ptr %98, i64 %108
   %110 = load i64, ptr %109, align 8
   %111 = icmp eq i64 %indvars.iv117, 0
@@ -1959,12 +1959,12 @@ _Z15getShiftedBlockRK11BigUnsignedjj.exit:        ; preds = %115, %118
   %125 = icmp ugt i64 %123, %110
   %126 = add i64 %124, -1
   %127 = icmp uge i64 %126, %110
-  %.075 = select i1 %.07397, i64 %126, i64 %124
-  %.072.in = select i1 %.07397, i1 %127, i1 %125
+  %.074 = select i1 %.07298, i64 %126, i64 %124
+  %.071.in = select i1 %.07298, i1 %127, i1 %125
   %128 = getelementptr inbounds i64, ptr %64, i64 %108
-  store i64 %.075, ptr %128, align 8
+  store i64 %.074, ptr %128, align 8
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
-  %129 = add i32 %.07796, 1
+  %129 = add i32 %.07697, 1
   %exitcond = icmp eq i64 %indvars.iv.next118, %wide.trip.count
   %indvars.iv.next120 = add i32 %indvars.iv119, 1
   br i1 %exitcond, label %.preheader, label %107, !llvm.loop !27
@@ -1987,21 +1987,21 @@ _Z15getShiftedBlockRK11BigUnsignedjj.exit:        ; preds = %115, %118
   br i1 %133, label %.loopexit, label %139
 
 ._crit_edge:                                      ; preds = %.preheader
-  br i1 %.072.in, label %.loopexit, label %139
+  br i1 %.071.in, label %.loopexit, label %139
 
 139:                                              ; preds = %._crit_edge.loopexit, %._crit_edge
-  %.178.lcssa138 = phi i32 [ %138, %._crit_edge.loopexit ], [ %129, %._crit_edge ]
+  %.177.lcssa138 = phi i32 [ %138, %._crit_edge.loopexit ], [ %129, %._crit_edge ]
   %140 = shl nuw i64 1, %indvars.iv.next128
   %141 = load ptr, ptr %82, align 8
   %142 = getelementptr inbounds i64, ptr %141, i64 %93
   %143 = load i64, ptr %142, align 8
   %144 = or i64 %143, %140
   store i64 %144, ptr %142, align 8
-  %145 = icmp ugt i32 %.178.lcssa138, %indvars
+  %145 = icmp ugt i32 %.177.lcssa138, %indvars
   br i1 %145, label %.lr.ph105.preheader, label %.loopexit
 
 .lr.ph105.preheader:                              ; preds = %139
-  %146 = zext i32 %.178.lcssa138 to i64
+  %146 = zext i32 %.177.lcssa138 to i64
   br label %.lr.ph105
 
 .lr.ph105:                                        ; preds = %.lr.ph105.preheader, %.lr.ph105

@@ -351,9 +351,9 @@ define hidden void @_ZN5uu_wc10count_fast32count_bytes_chars_and_lines_fast17h0f
   br label %.outer
 
 .outer:                                           ; preds = %30, %2
-  %.sroa.0.0.ph = phi i64 [ %16, %30 ], [ 0, %2 ]
-  %.sroa.5.0.ph = phi i64 [ %31, %30 ], [ 0, %2 ]
   %.sroa.8.0.ph = phi i64 [ %32, %30 ], [ 0, %2 ]
+  %.sroa.5.0.ph = phi i64 [ %31, %30 ], [ 0, %2 ]
+  %.sroa.0.0.ph = phi i64 [ %16, %30 ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @"_ZN47_$LT$std..fs..File$u20$as$u20$std..io..Read$GT$4read17h8460fb0b076d3424E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 4 dereferenceable(4) %1, ptr noalias noundef nonnull align 1 %5, i64 noundef 16384)
   %8 = load i64, ptr %4, align 8, !range !6, !noundef !5
@@ -741,8 +741,8 @@ define hidden void @_ZN5uu_wc10count_fast32count_bytes_chars_and_lines_fast17h4d
   br label %.outer
 
 .outer:                                           ; preds = %23, %2
-  %.sroa.0.0.ph = phi i64 [ %16, %23 ], [ 0, %2 ]
   %.sroa.6.0.ph = phi i64 [ %24, %23 ], [ 0, %2 ]
+  %.sroa.0.0.ph = phi i64 [ %16, %23 ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @"_ZN59_$LT$std..io..stdio..StdinLock$u20$as$u20$std..io..Read$GT$4read17hcddda94bfd1c33a4E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 1 %5, i64 noundef 16384)
   %8 = load i64, ptr %4, align 8, !range !6, !noundef !5
@@ -870,8 +870,8 @@ define hidden void @_ZN5uu_wc10count_fast32count_bytes_chars_and_lines_fast17h5c
   br label %.outer
 
 .outer:                                           ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h06a37a95aad42a2bE.exit", %2
-  %.sroa.0.0.ph = phi i64 [ %16, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h06a37a95aad42a2bE.exit" ], [ 0, %2 ]
   %.sroa.5.0.ph = phi i64 [ %29, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h06a37a95aad42a2bE.exit" ], [ 0, %2 ]
+  %.sroa.0.0.ph = phi i64 [ %16, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h06a37a95aad42a2bE.exit" ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @"_ZN59_$LT$std..io..stdio..StdinLock$u20$as$u20$std..io..Read$GT$4read17hcddda94bfd1c33a4E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 1 %5, i64 noundef 16384)
   %8 = load i64, ptr %4, align 8, !range !6, !noundef !5
@@ -995,8 +995,8 @@ define hidden void @_ZN5uu_wc10count_fast32count_bytes_chars_and_lines_fast17h5d
   br label %.outer
 
 .outer:                                           ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6af9d1b9e1ea78e6E.exit", %2
-  %.sroa.0.0.ph = phi i64 [ %16, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6af9d1b9e1ea78e6E.exit" ], [ 0, %2 ]
   %.sroa.5.0.ph = phi i64 [ %29, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6af9d1b9e1ea78e6E.exit" ], [ 0, %2 ]
+  %.sroa.0.0.ph = phi i64 [ %16, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6af9d1b9e1ea78e6E.exit" ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @"_ZN47_$LT$std..fs..File$u20$as$u20$std..io..Read$GT$4read17h8460fb0b076d3424E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 4 dereferenceable(4) %1, ptr noalias noundef nonnull align 1 %5, i64 noundef 16384)
   %8 = load i64, ptr %4, align 8, !range !6, !noundef !5
@@ -1243,8 +1243,8 @@ define hidden void @_ZN5uu_wc10count_fast32count_bytes_chars_and_lines_fast17hc6
   br label %.outer
 
 .outer:                                           ; preds = %23, %2
-  %.sroa.0.0.ph = phi i64 [ %16, %23 ], [ 0, %2 ]
   %.sroa.6.0.ph = phi i64 [ %24, %23 ], [ 0, %2 ]
+  %.sroa.0.0.ph = phi i64 [ %16, %23 ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @"_ZN47_$LT$std..fs..File$u20$as$u20$std..io..Read$GT$4read17h8460fb0b076d3424E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 4 dereferenceable(4) %1, ptr noalias noundef nonnull align 1 %5, i64 noundef 16384)
   %8 = load i64, ptr %4, align 8, !range !6, !noundef !5
@@ -1495,9 +1495,9 @@ define hidden void @_ZN5uu_wc10count_fast32count_bytes_chars_and_lines_fast17he1
   br label %.outer
 
 .outer:                                           ; preds = %30, %2
-  %.sroa.0.0.ph = phi i64 [ %16, %30 ], [ 0, %2 ]
-  %.sroa.5.0.ph = phi i64 [ %31, %30 ], [ 0, %2 ]
   %.sroa.8.0.ph = phi i64 [ %32, %30 ], [ 0, %2 ]
+  %.sroa.5.0.ph = phi i64 [ %31, %30 ], [ 0, %2 ]
+  %.sroa.0.0.ph = phi i64 [ %16, %30 ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @"_ZN59_$LT$std..io..stdio..StdinLock$u20$as$u20$std..io..Read$GT$4read17hcddda94bfd1c33a4E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 1 %5, i64 noundef 16384)
   %8 = load i64, ptr %4, align 8, !range !6, !noundef !5

@@ -1369,9 +1369,9 @@ define range(i32 -1, 1) i32 @H5R__decode(ptr noundef %0, ptr nocapture noundef %
   br label %87
 
 87:                                               ; preds = %86, %79
-  %.071 = phi i64 [ %84, %79 ], [ %50, %86 ]
-  %.069 = phi i64 [ %85, %79 ], [ %51, %86 ]
-  %.068 = phi ptr [ %83, %79 ], [ %49, %86 ]
+  %.071 = phi ptr [ %83, %79 ], [ %49, %86 ]
+  %.070 = phi i64 [ %84, %79 ], [ %50, %86 ]
+  %.068 = phi i64 [ %85, %79 ], [ %51, %86 ]
   %88 = load i8, ptr %14, align 4
   switch i8 %88, label %115 [
     i8 2, label %119
@@ -1384,9 +1384,9 @@ define range(i32 -1, 1) i32 @H5R__decode(ptr noundef %0, ptr nocapture noundef %
   ]
 
 89:                                               ; preds = %87
-  store i64 %.071, ptr %4, align 8
+  store i64 %.070, ptr %4, align 8
   %90 = getelementptr inbounds i8, ptr %2, i64 24
-  %91 = call fastcc i32 @H5R__decode_region(ptr noundef nonnull %.068, ptr noundef nonnull %4, ptr noundef nonnull %90)
+  %91 = call fastcc i32 @H5R__decode_region(ptr noundef nonnull %.071, ptr noundef nonnull %4, ptr noundef nonnull %90)
   %92 = icmp slt i32 %91, 0
   br i1 %92, label %93, label %97
 
@@ -1398,13 +1398,13 @@ define range(i32 -1, 1) i32 @H5R__decode(ptr noundef %0, ptr nocapture noundef %
 
 97:                                               ; preds = %89
   %98 = load i64, ptr %4, align 8
-  %99 = add i64 %98, %.069
+  %99 = add i64 %98, %.068
   br label %119
 
 100:                                              ; preds = %87
-  store i64 %.071, ptr %5, align 8
+  store i64 %.070, ptr %5, align 8
   %101 = getelementptr inbounds i8, ptr %2, i64 24
-  %102 = call fastcc i32 @H5R__decode_string(ptr noundef nonnull %.068, ptr noundef nonnull %5, ptr noundef nonnull %101)
+  %102 = call fastcc i32 @H5R__decode_string(ptr noundef nonnull %.071, ptr noundef nonnull %5, ptr noundef nonnull %101)
   %103 = icmp slt i32 %102, 0
   br i1 %103, label %104, label %108
 
@@ -1416,7 +1416,7 @@ define range(i32 -1, 1) i32 @H5R__decode(ptr noundef %0, ptr nocapture noundef %
 
 108:                                              ; preds = %100
   %109 = load i64, ptr %5, align 8
-  %110 = add i64 %109, %.069
+  %110 = add i64 %109, %.068
   br label %119
 
 111:                                              ; preds = %87, %87, %87, %87
@@ -1432,13 +1432,13 @@ define range(i32 -1, 1) i32 @H5R__decode(ptr noundef %0, ptr nocapture noundef %
   br label %123
 
 119:                                              ; preds = %97, %108, %87
-  %.170 = phi i64 [ %110, %108 ], [ %99, %97 ], [ %.069, %87 ]
+  %.169 = phi i64 [ %110, %108 ], [ %99, %97 ], [ %.068, %87 ]
   %120 = getelementptr inbounds i8, ptr %2, i64 32
   store i64 -1, ptr %120, align 8
-  %121 = trunc i64 %.170 to i32
+  %121 = trunc i64 %.169 to i32
   %122 = getelementptr inbounds i8, ptr %2, i64 40
   store i32 %121, ptr %122, align 8
-  store i64 %.170, ptr %1, align 8
+  store i64 %.169, ptr %1, align 8
   br label %.thread90
 
 123:                                              ; preds = %115, %111, %104, %93

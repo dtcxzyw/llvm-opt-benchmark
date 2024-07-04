@@ -832,8 +832,8 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %invoke.cont19, %entry
-  %localeListCount.0 = phi i32 [ 0, %entry ], [ %inc, %invoke.cont19 ]
   %locStart.0 = phi ptr [ %localesList, %entry ], [ %add.ptr24, %invoke.cont19 ]
+  %localeListCount.0 = phi i32 [ 0, %entry ], [ %inc, %invoke.cont19 ]
   %call2 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %locStart.0, i32 noundef 44) #23
   %cmp = icmp eq ptr %call2, null
   br label %while.cond

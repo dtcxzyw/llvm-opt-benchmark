@@ -39028,11 +39028,11 @@ invoke.cont36.i:                                  ; preds = %if.then.i.i, %invok
   br label %invoke.cont4
 
 lpad12.i:                                         ; preds = %invoke.cont22.i, %invoke.cont20.i, %invoke.cont18.i, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i.i, %if.end.i.i.i.i.i, %if.then3.i.i.i.i.i
-  %move_construction_tx.sroa.5.0.i = phi i64 [ 0, %if.then3.i.i.i.i.i ], [ 0, %if.end.i.i.i.i.i ], [ %sub.ptr.div.i.i.i, %invoke.cont22.i ], [ 0, %invoke.cont20.i ], [ 0, %invoke.cont18.i ], [ 0, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i.i ]
-  %move_construction_tx.sroa.0.0.i = phi ptr [ null, %if.then3.i.i.i.i.i ], [ null, %if.end.i.i.i.i.i ], [ %call5.i.i.i.i51.i, %invoke.cont22.i ], [ null, %invoke.cont20.i ], [ null, %invoke.cont18.i ], [ null, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i.i ]
-  %construction_tx.sroa.5.0.i = phi i64 [ 0, %if.then3.i.i.i.i.i ], [ 0, %if.end.i.i.i.i.i ], [ 1, %invoke.cont22.i ], [ 1, %invoke.cont20.i ], [ 0, %invoke.cont18.i ], [ 0, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i.i ]
-  %construction_tx.sroa.0.0.i = phi ptr [ null, %if.then3.i.i.i.i.i ], [ null, %if.end.i.i.i.i.i ], [ %add.ptr.i, %invoke.cont22.i ], [ %add.ptr.i, %invoke.cont20.i ], [ null, %invoke.cont18.i ], [ null, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i.i ]
   %allocation_tx.sroa.0.0.i = phi ptr [ null, %if.then3.i.i.i.i.i ], [ null, %if.end.i.i.i.i.i ], [ %call5.i.i.i.i51.i, %invoke.cont22.i ], [ %call5.i.i.i.i51.i, %invoke.cont20.i ], [ %call5.i.i.i.i51.i, %invoke.cont18.i ], [ null, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i.i ]
+  %construction_tx.sroa.0.0.i = phi ptr [ null, %if.then3.i.i.i.i.i ], [ null, %if.end.i.i.i.i.i ], [ %add.ptr.i, %invoke.cont22.i ], [ %add.ptr.i, %invoke.cont20.i ], [ null, %invoke.cont18.i ], [ null, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i.i ]
+  %construction_tx.sroa.5.0.i = phi i64 [ 0, %if.then3.i.i.i.i.i ], [ 0, %if.end.i.i.i.i.i ], [ 1, %invoke.cont22.i ], [ 1, %invoke.cont20.i ], [ 0, %invoke.cont18.i ], [ 0, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i.i ]
+  %move_construction_tx.sroa.0.0.i = phi ptr [ null, %if.then3.i.i.i.i.i ], [ null, %if.end.i.i.i.i.i ], [ %call5.i.i.i.i51.i, %invoke.cont22.i ], [ null, %invoke.cont20.i ], [ null, %invoke.cont18.i ], [ null, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i.i ]
+  %move_construction_tx.sroa.5.0.i = phi i64 [ 0, %if.then3.i.i.i.i.i ], [ 0, %if.end.i.i.i.i.i ], [ %sub.ptr.div.i.i.i, %invoke.cont22.i ], [ 0, %invoke.cont20.i ], [ 0, %invoke.cont18.i ], [ 0, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i.i ]
   %3 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEED2Ev(ptr %move_construction_tx.sroa.0.0.i, i64 %move_construction_tx.sroa.5.0.i) #29
@@ -39078,15 +39078,15 @@ lpad47.loopexit.split-lp.loopexit.i:              ; preds = %if.end.i
   br label %lpad47.i
 
 lpad47.loopexit.split-lp.loopexit.split-lp.i:     ; preds = %invoke.cont81.i, %if.else.i
-  %move_construction_tx41.sroa.5.0.ph.ph.i = phi i64 [ %sub52.i, %invoke.cont81.i ], [ 0, %if.else.i ]
   %move_construction_tx41.sroa.0.0.ph.ph.i = phi ptr [ %4, %invoke.cont81.i ], [ null, %if.else.i ]
+  %move_construction_tx41.sroa.5.0.ph.ph.i = phi i64 [ %sub52.i, %invoke.cont81.i ], [ 0, %if.else.i ]
   %lpad.loopexit.split-lp133.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad47.i
 
 lpad47.i:                                         ; preds = %lpad47.loopexit.split-lp.loopexit.split-lp.i, %lpad47.loopexit.split-lp.loopexit.i, %lpad47.loopexit.i
-  %move_construction_tx41.sroa.5.0.i = phi i64 [ %sub52.i, %lpad47.loopexit.i ], [ %sub52.i, %lpad47.loopexit.split-lp.loopexit.i ], [ %move_construction_tx41.sroa.5.0.ph.ph.i, %lpad47.loopexit.split-lp.loopexit.split-lp.i ]
   %move_construction_tx41.sroa.0.0.i = phi ptr [ %4, %lpad47.loopexit.i ], [ %4, %lpad47.loopexit.split-lp.loopexit.i ], [ %move_construction_tx41.sroa.0.0.ph.ph.i, %lpad47.loopexit.split-lp.loopexit.split-lp.i ]
+  %move_construction_tx41.sroa.5.0.i = phi i64 [ %sub52.i, %lpad47.loopexit.i ], [ %sub52.i, %lpad47.loopexit.split-lp.loopexit.i ], [ %move_construction_tx41.sroa.5.0.ph.ph.i, %lpad47.loopexit.split-lp.loopexit.split-lp.i ]
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %lpad47.loopexit.i ], [ %lpad.loopexit132.i, %lpad47.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp133.i, %lpad47.loopexit.split-lp.loopexit.split-lp.i ]
   call fastcc void @_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEED2Ev(ptr %move_construction_tx41.sroa.0.0.i, i64 %move_construction_tx41.sroa.5.0.i) #29
   br label %lpad.body
@@ -40435,11 +40435,11 @@ invoke.cont34.i:                                  ; preds = %if.then.i.i, %invok
   br label %invoke.cont2
 
 lpad11.i:                                         ; preds = %invoke.cont20.i, %invoke.cont18.i, %invoke.cont16.i, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i.i, %if.end.i.i.i.i.i, %if.then3.i.i.i.i.i
-  %move_construction_tx.sroa.5.0.i = phi i64 [ 0, %if.then3.i.i.i.i.i ], [ 0, %if.end.i.i.i.i.i ], [ %sub.ptr.div.i.i.i, %invoke.cont20.i ], [ 0, %invoke.cont18.i ], [ 0, %invoke.cont16.i ], [ 0, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i.i ]
-  %move_construction_tx.sroa.0.0.i = phi ptr [ null, %if.then3.i.i.i.i.i ], [ null, %if.end.i.i.i.i.i ], [ %call5.i.i.i.i51.i, %invoke.cont20.i ], [ null, %invoke.cont18.i ], [ null, %invoke.cont16.i ], [ null, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i.i ]
-  %construction_tx.sroa.5.0.i = phi i64 [ 0, %if.then3.i.i.i.i.i ], [ 0, %if.end.i.i.i.i.i ], [ %n, %invoke.cont20.i ], [ %n, %invoke.cont18.i ], [ 0, %invoke.cont16.i ], [ 0, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i.i ]
-  %construction_tx.sroa.0.0.i = phi ptr [ null, %if.then3.i.i.i.i.i ], [ null, %if.end.i.i.i.i.i ], [ %add.ptr.i, %invoke.cont20.i ], [ %add.ptr.i, %invoke.cont18.i ], [ null, %invoke.cont16.i ], [ null, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i.i ]
   %allocation_tx.sroa.0.0.i = phi ptr [ null, %if.then3.i.i.i.i.i ], [ null, %if.end.i.i.i.i.i ], [ %call5.i.i.i.i51.i, %invoke.cont20.i ], [ %call5.i.i.i.i51.i, %invoke.cont18.i ], [ %call5.i.i.i.i51.i, %invoke.cont16.i ], [ null, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i.i ]
+  %construction_tx.sroa.0.0.i = phi ptr [ null, %if.then3.i.i.i.i.i ], [ null, %if.end.i.i.i.i.i ], [ %add.ptr.i, %invoke.cont20.i ], [ %add.ptr.i, %invoke.cont18.i ], [ null, %invoke.cont16.i ], [ null, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i.i ]
+  %construction_tx.sroa.5.0.i = phi i64 [ 0, %if.then3.i.i.i.i.i ], [ 0, %if.end.i.i.i.i.i ], [ %n, %invoke.cont20.i ], [ %n, %invoke.cont18.i ], [ 0, %invoke.cont16.i ], [ 0, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i.i ]
+  %move_construction_tx.sroa.0.0.i = phi ptr [ null, %if.then3.i.i.i.i.i ], [ null, %if.end.i.i.i.i.i ], [ %call5.i.i.i.i51.i, %invoke.cont20.i ], [ null, %invoke.cont18.i ], [ null, %invoke.cont16.i ], [ null, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i.i ]
+  %move_construction_tx.sroa.5.0.i = phi i64 [ 0, %if.then3.i.i.i.i.i ], [ 0, %if.end.i.i.i.i.i ], [ %sub.ptr.div.i.i.i, %invoke.cont20.i ], [ 0, %invoke.cont18.i ], [ 0, %invoke.cont16.i ], [ 0, %_ZN4absl23inlined_vector_internal13MallocAdapterISaIN12_GLOBAL__N_124NotTriviallyDestructibleEELb0EE8AllocateERS4_m.exit.i.i ]
   %3 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEED2Ev(ptr %move_construction_tx.sroa.0.0.i, i64 %move_construction_tx.sroa.5.0.i) #29
@@ -40487,15 +40487,15 @@ lpad45.loopexit.split-lp.loopexit.i:              ; preds = %if.end.i
   br label %lpad45.i
 
 lpad45.loopexit.split-lp.loopexit.split-lp.i:     ; preds = %invoke.cont79.i, %if.else.i
-  %move_construction_tx39.sroa.5.0.ph.ph.i = phi i64 [ %sub50.i, %invoke.cont79.i ], [ 0, %if.else.i ]
   %move_construction_tx39.sroa.0.0.ph.ph.i = phi ptr [ %add.ptr49.i, %invoke.cont79.i ], [ null, %if.else.i ]
+  %move_construction_tx39.sroa.5.0.ph.ph.i = phi i64 [ %sub50.i, %invoke.cont79.i ], [ 0, %if.else.i ]
   %lpad.loopexit.split-lp133.i = landingpad { ptr, i32 }
           cleanup
   br label %lpad45.i
 
 lpad45.i:                                         ; preds = %lpad45.loopexit.split-lp.loopexit.split-lp.i, %lpad45.loopexit.split-lp.loopexit.i, %lpad45.loopexit.i
-  %move_construction_tx39.sroa.5.0.i = phi i64 [ %sub50.i, %lpad45.loopexit.i ], [ %sub50.i, %lpad45.loopexit.split-lp.loopexit.i ], [ %move_construction_tx39.sroa.5.0.ph.ph.i, %lpad45.loopexit.split-lp.loopexit.split-lp.i ]
   %move_construction_tx39.sroa.0.0.i = phi ptr [ %add.ptr49.i, %lpad45.loopexit.i ], [ %add.ptr49.i, %lpad45.loopexit.split-lp.loopexit.i ], [ %move_construction_tx39.sroa.0.0.ph.ph.i, %lpad45.loopexit.split-lp.loopexit.split-lp.i ]
+  %move_construction_tx39.sroa.5.0.i = phi i64 [ %sub50.i, %lpad45.loopexit.i ], [ %sub50.i, %lpad45.loopexit.split-lp.loopexit.i ], [ %move_construction_tx39.sroa.5.0.ph.ph.i, %lpad45.loopexit.split-lp.loopexit.split-lp.i ]
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %lpad45.loopexit.i ], [ %lpad.loopexit132.i, %lpad45.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp133.i, %lpad45.loopexit.split-lp.loopexit.split-lp.i ]
   call fastcc void @_ZN4absl23inlined_vector_internal23ConstructionTransactionISaIN12_GLOBAL__N_124NotTriviallyDestructibleEEED2Ev(ptr %move_construction_tx39.sroa.0.0.i, i64 %move_construction_tx39.sroa.5.0.i) #29
   br label %lpad.body

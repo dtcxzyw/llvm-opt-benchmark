@@ -112,8 +112,8 @@ switch.lookup:                                    ; preds = %3
   br label %28
 
 28:                                               ; preds = %3, %switch.lookup, %24
-  %.0 = phi i64 [ -22, %3 ], [ %22, %24 ], [ %22, %switch.lookup ]
-  ret i64 %.0
+  %.012 = phi i64 [ -22, %3 ], [ %22, %24 ], [ %22, %switch.lookup ]
+  ret i64 %.012
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
@@ -225,45 +225,45 @@ define internal range(i32 0, 2) i32 @usage_entry(ptr noundef %0, ptr noundef %1,
   br label %19
 
 19:                                               ; preds = %.critedge, %8
-  %.045 = phi i32 [ 0, %8 ], [ %26, %.critedge ]
-  %.0 = phi i32 [ %15, %8 ], [ %27, %.critedge ]
-  %20 = icmp ugt i32 %.0, 9998
+  %.045 = phi i32 [ %15, %8 ], [ %27, %.critedge ]
+  %.0 = phi i32 [ 0, %8 ], [ %26, %.critedge ]
+  %20 = icmp ugt i32 %.045, 9998
   br i1 %20, label %.critedge, label %21
 
 21:                                               ; preds = %19
-  %22 = and i32 %.0, 1023
+  %22 = and i32 %.045, 1023
   %23 = icmp eq i32 %22, 0
-  %24 = icmp ne i32 %.0, 0
+  %24 = icmp ne i32 %.045, 0
   %25 = and i1 %24, %23
   br i1 %25, label %.critedge, label %28
 
 .critedge:                                        ; preds = %19, %21
-  %26 = add nuw nsw i32 %.045, 1
-  %27 = lshr i32 %.0, 10
+  %26 = add nuw nsw i32 %.0, 1
+  %27 = lshr i32 %.045, 10
   br label %19, !llvm.loop !6
 
 28:                                               ; preds = %21
-  %29 = zext nneg i32 %.045 to i64
+  %29 = zext nneg i32 %.0 to i64
   %30 = getelementptr inbounds [5 x i8], ptr @usage_entry.labels, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1
   br label %32
 
 32:                                               ; preds = %.critedge2, %28
+  %.043 = phi i32 [ %18, %28 ], [ %40, %.critedge2 ]
   %.1 = phi i32 [ 0, %28 ], [ %39, %.critedge2 ]
-  %.044 = phi i32 [ %18, %28 ], [ %40, %.critedge2 ]
-  %33 = icmp ugt i32 %.044, 9998
+  %33 = icmp ugt i32 %.043, 9998
   br i1 %33, label %.critedge2, label %34
 
 34:                                               ; preds = %32
-  %35 = and i32 %.044, 1023
+  %35 = and i32 %.043, 1023
   %36 = icmp eq i32 %35, 0
-  %37 = icmp ne i32 %.044, 0
+  %37 = icmp ne i32 %.043, 0
   %38 = and i1 %37, %36
   br i1 %38, label %.critedge2, label %41
 
 .critedge2:                                       ; preds = %32, %34
   %39 = add nuw nsw i32 %.1, 1
-  %40 = lshr i32 %.044, 10
+  %40 = lshr i32 %.043, 10
   br label %32, !llvm.loop !8
 
 41:                                               ; preds = %34
@@ -274,21 +274,21 @@ define internal range(i32 0, 2) i32 @usage_entry(ptr noundef %0, ptr noundef %1,
   br label %46
 
 46:                                               ; preds = %.critedge4, %41
+  %.044 = phi i32 [ %42, %41 ], [ %54, %.critedge4 ]
   %.2 = phi i32 [ 0, %41 ], [ %53, %.critedge4 ]
-  %.043 = phi i32 [ %42, %41 ], [ %54, %.critedge4 ]
-  %47 = icmp ugt i32 %.043, 9998
+  %47 = icmp ugt i32 %.044, 9998
   br i1 %47, label %.critedge4, label %48
 
 48:                                               ; preds = %46
-  %49 = and i32 %.043, 1023
+  %49 = and i32 %.044, 1023
   %50 = icmp eq i32 %49, 0
-  %51 = icmp ne i32 %.043, 0
+  %51 = icmp ne i32 %.044, 0
   %52 = and i1 %51, %50
   br i1 %52, label %.critedge4, label %55
 
 .critedge4:                                       ; preds = %46, %48
   %53 = add nuw nsw i32 %.2, 1
-  %54 = lshr i32 %.043, 10
+  %54 = lshr i32 %.044, 10
   br label %46, !llvm.loop !9
 
 55:                                               ; preds = %48
@@ -298,7 +298,7 @@ define internal range(i32 0, 2) i32 @usage_entry(ptr noundef %0, ptr noundef %1,
   %59 = sext i8 %31 to i32
   %60 = sext i8 %58 to i32
   %61 = sext i8 %45 to i32
-  tail call void (ptr, ptr, ...) @mount_sprintf(ptr noundef %2, ptr noundef nonnull @.str.8, ptr noundef %9, i32 noundef %.0, i32 noundef %59, i32 noundef %.043, i32 noundef %60, i32 noundef %.044, i32 noundef %61, ptr noundef %0)
+  tail call void (ptr, ptr, ...) @mount_sprintf(ptr noundef %2, ptr noundef nonnull @.str.8, ptr noundef %9, i32 noundef %.045, i32 noundef %59, i32 noundef %.044, i32 noundef %60, i32 noundef %.043, i32 noundef %61, ptr noundef %0)
   %62 = getelementptr inbounds i8, ptr %2, i64 40
   %63 = load i64, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %2, i64 24

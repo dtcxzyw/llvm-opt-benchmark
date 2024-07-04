@@ -64,7 +64,7 @@ define internal fastcc i32 @nbc_scatterv_init(ptr noundef %0, ptr nocapture noun
 
 22:                                               ; preds = %20, %18, %15, %12
   %.091 = phi ptr [ %4, %12 ], [ %4, %15 ], [ %4, %18 ], [ %spec.select, %20 ]
-  %.089 = phi ptr [ %0, %12 ], [ %0, %15 ], [ %4, %18 ], [ %0, %20 ]
+  %.090 = phi ptr [ %0, %12 ], [ %0, %15 ], [ %4, %18 ], [ %0, %20 ]
   %.not103 = phi i1 [ true, %12 ], [ false, %15 ], [ false, %18 ], [ %21, %20 ]
   %23 = getelementptr i8, ptr %8, i64 248
   %.val106 = load ptr, ptr %23, align 8
@@ -128,7 +128,7 @@ opal_obj_new.exit.thread131:                      ; preds = %.lr.ph.i.i, %31
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
   %50 = mul nsw i64 %41, %49
-  %51 = getelementptr inbounds i8, ptr %.089, i64 %50
+  %51 = getelementptr inbounds i8, ptr %.090, i64 %50
   %52 = icmp eq i64 %indvars.iv, %44
   br i1 %52, label %53, label %58
 
@@ -150,8 +150,8 @@ opal_obj_new.exit.thread131:                      ; preds = %.lr.ph.i.i, %31
   br label %64
 
 64:                                               ; preds = %54, %58
-  %.090 = phi i32 [ %57, %54 ], [ %63, %58 ]
-  %.not104 = icmp eq i32 %.090, 0
+  %.088 = phi i32 [ %57, %54 ], [ %63, %58 ]
+  %.not104 = icmp eq i32 %.088, 0
   br i1 %.not104, label %.thread, label %65
 
 65:                                               ; preds = %64
@@ -332,13 +332,13 @@ opal_thread_add_fetch_32.exit125:                 ; preds = %131, %134
   br i1 %.not.i129, label %opal_obj_new.exit.thread.sink.split, label %.lr.ph.i127, !llvm.loop !6
 
 opal_obj_new.exit.thread.sink.split:              ; preds = %.lr.ph.i113, %.lr.ph.i, %.lr.ph.i120, %.lr.ph.i127, %139, %118, %98, %76
-  %.087.ph = phi i32 [ %.090, %76 ], [ %86, %98 ], [ %106, %118 ], [ %127, %139 ], [ %127, %.lr.ph.i127 ], [ %106, %.lr.ph.i120 ], [ %.090, %.lr.ph.i ], [ %86, %.lr.ph.i113 ]
+  %.089.ph = phi i32 [ %.088, %76 ], [ %86, %98 ], [ %106, %118 ], [ %127, %139 ], [ %127, %.lr.ph.i127 ], [ %106, %.lr.ph.i120 ], [ %.088, %.lr.ph.i ], [ %86, %.lr.ph.i113 ]
   tail call void @free(ptr noundef %26) #4
   br label %opal_obj_new.exit.thread
 
 opal_obj_new.exit.thread:                         ; preds = %opal_obj_new.exit.thread.sink.split, %30, %126, %opal_thread_add_fetch_32.exit125, %opal_thread_add_fetch_32.exit118, %opal_thread_add_fetch_32.exit111, %opal_thread_add_fetch_32.exit
-  %.087 = phi i32 [ %.090, %opal_thread_add_fetch_32.exit ], [ %86, %opal_thread_add_fetch_32.exit111 ], [ %106, %opal_thread_add_fetch_32.exit118 ], [ %127, %opal_thread_add_fetch_32.exit125 ], [ 0, %126 ], [ -2, %30 ], [ %.087.ph, %opal_obj_new.exit.thread.sink.split ]
-  ret i32 %.087
+  %.089 = phi i32 [ %.088, %opal_thread_add_fetch_32.exit ], [ %86, %opal_thread_add_fetch_32.exit111 ], [ %106, %opal_thread_add_fetch_32.exit118 ], [ %127, %opal_thread_add_fetch_32.exit125 ], [ 0, %126 ], [ -2, %30 ], [ %.089.ph, %opal_obj_new.exit.thread.sink.split ]
+  ret i32 %.089
 }
 
 declare i32 @NBC_Start(ptr noundef) local_unnamed_addr #1

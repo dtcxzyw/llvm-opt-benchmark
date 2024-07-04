@@ -67,8 +67,8 @@ define dso_local void @cpool_init(ptr noundef %0) local_unnamed_addr #0 {
   br label %14
 
 14:                                               ; preds = %.lr.ph, %132
-  %.01549 = phi ptr [ %9, %.lr.ph ], [ %134, %132 ]
-  %15 = getelementptr inbounds i8, ptr %.01549, i64 16
+  %.01649 = phi ptr [ %9, %.lr.ph ], [ %134, %132 ]
+  %15 = getelementptr inbounds i8, ptr %.01649, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr @cp, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 16
@@ -294,7 +294,7 @@ cpool_addunix.exit:                               ; preds = %83
   br label %cpool_addunix.exit.thread
 
 132:                                              ; preds = %cpool_addunix.exit.thread40, %cpool_addunix.exit.thread37
-  %133 = getelementptr inbounds i8, ptr %.01549, i64 48
+  %133 = getelementptr inbounds i8, ptr %.01649, i64 48
   %134 = load ptr, ptr %133, align 8
   %.not21 = icmp eq ptr %134, null
   br i1 %.not21, label %.critedge, label %14
@@ -455,13 +455,13 @@ define internal noalias noundef ptr @cpool_mon(ptr nocapture readnone %0) #0 {
 16:                                               ; preds = %31, %.lr.ph.i
   %17 = phi i32 [ %13, %.lr.ph.i ], [ %32, %31 ]
   %18 = phi ptr [ %12, %.lr.ph.i ], [ %33, %31 ]
-  %.025.i = phi i32 [ 1, %.lr.ph.i ], [ %38, %31 ]
-  %.01424.i = phi ptr [ %10, %.lr.ph.i ], [ %37, %31 ]
-  %.01523.i = phi i32 [ 0, %.lr.ph.i ], [ %36, %31 ]
-  %19 = getelementptr inbounds i8, ptr %.01424.i, i64 33
+  %.025.i = phi ptr [ %10, %.lr.ph.i ], [ %37, %31 ]
+  %.01424.i = phi i32 [ 0, %.lr.ph.i ], [ %36, %31 ]
+  %.01523.i = phi i32 [ 1, %.lr.ph.i ], [ %38, %31 ]
+  %19 = getelementptr inbounds i8, ptr %.025.i, i64 33
   %20 = load i8, ptr %19, align 1
   %.not18.i = icmp eq i8 %20, 0
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.01424.i, i64 24
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.025.i, i64 24
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   br i1 %.not18.i, label %._crit_edge31.i, label %21
 
@@ -482,11 +482,11 @@ define internal noalias noundef ptr @cpool_mon(ptr nocapture readnone %0) #0 {
 26:                                               ; preds = %._crit_edge31.i, %23, %21
   %27 = call i64 @time(ptr noundef null) #13
   store i64 %27, ptr %.phi.trans.insert.i, align 8
-  call void @nc_ping_entry(ptr noundef nonnull %.01424.i) #13
+  call void @nc_ping_entry(ptr noundef nonnull %.025.i) #13
   %28 = load i8, ptr %19, align 1
   %.not20.i = icmp eq i8 %28, 0
   %29 = select i1 %.not20.i, ptr @.str.20, ptr @.str.19
-  %30 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef %.025.i, ptr noundef nonnull %29) #13
+  %30 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef %.01523.i, ptr noundef nonnull %29) #13
   %.pre32.i = load i8, ptr %19, align 1
   %.pre33.i = load ptr, ptr @cp, align 8
   %.pre34.i = load i32, ptr %.pre33.i, align 8
@@ -497,9 +497,9 @@ define internal noalias noundef ptr @cpool_mon(ptr nocapture readnone %0) #0 {
   %33 = phi ptr [ %.pre33.i, %26 ], [ %18, %._crit_edge31.i ], [ %18, %23 ]
   %34 = phi i8 [ %.pre32.i, %26 ], [ 0, %._crit_edge31.i ], [ %20, %23 ]
   %35 = zext i8 %34 to i32
-  %36 = add i32 %.01523.i, %35
-  %37 = getelementptr inbounds i8, ptr %.01424.i, i64 40
-  %38 = add i32 %.025.i, 1
+  %36 = add i32 %.01424.i, %35
+  %37 = getelementptr inbounds i8, ptr %.025.i, i64 40
+  %38 = add i32 %.01523.i, 1
   %.not.i = icmp ugt i32 %38, %32
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %16
 

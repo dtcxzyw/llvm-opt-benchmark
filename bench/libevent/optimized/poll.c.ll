@@ -356,9 +356,9 @@ if.end68:                                         ; preds = %do.end61
   br i1 %cmp7047, label %for.body, label %return
 
 for.body:                                         ; preds = %if.end68, %for.inc
-  %i.049 = phi i32 [ %spec.store.select, %for.inc ], [ %call69, %if.end68 ]
-  %j.048 = phi i32 [ %inc105, %for.inc ], [ 0, %if.end68 ]
-  %inc = add nsw i32 %i.049, 1
+  %j.049 = phi i32 [ %inc105, %for.inc ], [ 0, %if.end68 ]
+  %i.048 = phi i32 [ %spec.store.select, %for.inc ], [ %call69, %if.end68 ]
+  %inc = add nsw i32 %i.048, 1
   %cmp72 = icmp eq i32 %inc, %1
   %spec.store.select = select i1 %cmp72, i32 0, i32 %inc
   %idxprom = sext i32 %spec.store.select to i64
@@ -391,7 +391,7 @@ if.end101:                                        ; preds = %if.end79
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end79, %for.body, %if.end101
-  %inc105 = add nuw nsw i32 %j.048, 1
+  %inc105 = add nuw nsw i32 %j.049, 1
   %exitcond.not = icmp eq i32 %inc105, %1
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !5
 

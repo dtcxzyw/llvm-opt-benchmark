@@ -30,31 +30,31 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.outer.i.backedge, %.preheader417.i
-  %.0276.ph.i = phi i1 [ false, %.preheader417.i ], [ %.0276.ph.i.be, %.outer.i.backedge ]
-  %.0274.ph.i = phi ptr [ null, %.preheader417.i ], [ %.1275.i, %.outer.i.backedge ]
-  %.0271.ph.i = phi ptr [ null, %.preheader417.i ], [ %.0271.ph.i.be, %.outer.i.backedge ]
-  %.0265.ph.i = phi i32 [ 0, %.preheader417.i ], [ %.0265.ph.i.be, %.outer.i.backedge ]
-  %.0263.ph.i = phi ptr [ %5, %.preheader417.i ], [ %.0263.ph.i.be, %.outer.i.backedge ]
+  %.0276.ph.i = phi ptr [ %5, %.preheader417.i ], [ %.0276.ph.i.be, %.outer.i.backedge ]
+  %.0272.ph.i = phi i32 [ 0, %.preheader417.i ], [ %.0272.ph.i.be, %.outer.i.backedge ]
+  %.0266.ph.i = phi ptr [ null, %.preheader417.i ], [ %.0266.ph.i.be, %.outer.i.backedge ]
+  %.0264.ph.i = phi ptr [ null, %.preheader417.i ], [ %.1265.i, %.outer.i.backedge ]
+  %.0263.ph.i = phi i1 [ false, %.preheader417.i ], [ %.0263.ph.i.be, %.outer.i.backedge ]
   br label %8
 
 8:                                                ; preds = %12, %.outer.i
-  %.0276.i = phi i1 [ false, %12 ], [ %.0276.ph.i, %.outer.i ]
-  %.0274.i = phi ptr [ %15, %12 ], [ %.0274.ph.i, %.outer.i ]
-  %.0271.i = phi ptr [ %16, %12 ], [ %.0271.ph.i, %.outer.i ]
-  %.0265.i = phi i32 [ 0, %12 ], [ %.0265.ph.i, %.outer.i ]
-  %9 = icmp eq i32 %.0265.i, 0
+  %.0272.i = phi i32 [ 0, %12 ], [ %.0272.ph.i, %.outer.i ]
+  %.0266.i = phi ptr [ %16, %12 ], [ %.0266.ph.i, %.outer.i ]
+  %.0264.i = phi ptr [ %15, %12 ], [ %.0264.ph.i, %.outer.i ]
+  %.0263.i = phi i1 [ false, %12 ], [ %.0263.ph.i, %.outer.i ]
+  %9 = icmp eq i32 %.0272.i, 0
   br i1 %9, label %10, label %.preheader416.i
 
 10:                                               ; preds = %8
-  %11 = icmp ne ptr %.0271.i, null
-  %or.cond.i = select i1 %.0276.i, i1 %11, i1 false
+  %11 = icmp ne ptr %.0266.i, null
+  %or.cond.i = select i1 %.0263.i, i1 %11, i1 false
   br i1 %or.cond.i, label %12, label %18
 
 12:                                               ; preds = %10
-  %13 = load i32, ptr %.0271.i, align 8
-  %14 = getelementptr inbounds i8, ptr %.0271.i, i64 8
+  %13 = load i32, ptr %.0266.i, align 8
+  %14 = getelementptr inbounds i8, ptr %.0266.i, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %.0271.i, i64 16
+  %16 = getelementptr inbounds i8, ptr %.0266.i, i64 16
   %17 = icmp eq i32 %13, 17
   br i1 %17, label %8, label %.loopexit419.i, !llvm.loop !5
 
@@ -84,11 +84,11 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br i1 %32, label %.preheader413.i, label %.loopexit419.i
 
 .loopexit419.i:                                   ; preds = %12, %29
-  %.0276464.i = phi i1 [ %.0276.i, %29 ], [ true, %12 ]
-  %.1275.i = phi ptr [ %.0274.i, %29 ], [ %15, %12 ]
-  %.1272.i = phi ptr [ %.0271.i, %29 ], [ %16, %12 ]
-  %.0270.i = phi i32 [ %31, %29 ], [ %13, %12 ]
-  switch i32 %.0270.i, label %.outer.i.backedge [
+  %.0263457.i = phi i1 [ %.0263.i, %29 ], [ true, %12 ]
+  %.0268.i = phi i32 [ %31, %29 ], [ %13, %12 ]
+  %.1267.i = phi ptr [ %.0266.i, %29 ], [ %16, %12 ]
+  %.1265.i = phi ptr [ %.0264.i, %29 ], [ %15, %12 ]
+  switch i32 %.0268.i, label %.outer.i.backedge [
     i32 8, label %33
     i32 2, label %48
     i32 1, label %52
@@ -109,7 +109,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   ]
 
 33:                                               ; preds = %.loopexit419.i
-  br i1 %.0276464.i, label %.outer.i.backedge, label %34
+  br i1 %.0263457.i, label %.outer.i.backedge, label %34
 
 34:                                               ; preds = %33
   %35 = load i32, ptr %3, align 16
@@ -134,23 +134,23 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   %46 = phi ptr [ %40, %37 ], [ %43, %42 ]
   %47 = load ptr, ptr %46, align 8
   %.not386.i = icmp ne ptr %47, null
-  %.387.i = select i1 %.not386.i, i32 0, i32 3
+  %..i = select i1 %.not386.i, i32 0, i32 3
   br label %.outer.i.backedge
 
 48:                                               ; preds = %.loopexit419.i
-  %49 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 40
+  %49 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 40
   %50 = load i64, ptr %49, align 8
   %51 = or i64 %50, 4
   store i64 %51, ptr %49, align 8
   br label %52
 
 52:                                               ; preds = %48, %.loopexit419.i
-  %53 = load ptr, ptr %.0263.ph.i, align 8
+  %53 = load ptr, ptr %.0276.ph.i, align 8
   %.not384.i = icmp eq ptr %53, null
   br i1 %.not384.i, label %54, label %.outer.i.backedge
 
 54:                                               ; preds = %52
-  br i1 %.0276464.i, label %69, label %55
+  br i1 %.0263457.i, label %69, label %55
 
 55:                                               ; preds = %54
   %56 = load i32, ptr %3, align 16
@@ -177,25 +177,25 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %69
 
 69:                                               ; preds = %66, %54
-  %70 = phi ptr [ %68, %66 ], [ %.1275.i, %54 ]
+  %70 = phi ptr [ %68, %66 ], [ %.1265.i, %54 ]
   %.not385.i = icmp eq ptr %70, null
   br i1 %.not385.i, label %.outer.i.backedge, label %71
 
 71:                                               ; preds = %69
-  store ptr %70, ptr %.0263.ph.i, align 8
+  store ptr %70, ptr %.0276.ph.i, align 8
   br label %.outer.i.backedge
 
 72:                                               ; preds = %.loopexit419.i
-  %73 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 8
+  %73 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 8
   %74 = load i64, ptr %73, align 8
   %.not383.i = icmp eq i64 %74, 0
   br i1 %.not383.i, label %75, label %.outer.i.backedge
 
 75:                                               ; preds = %72
-  br i1 %.0276464.i, label %76, label %78
+  br i1 %.0263457.i, label %76, label %78
 
 76:                                               ; preds = %75
-  %77 = ptrtoint ptr %.1275.i to i64
+  %77 = ptrtoint ptr %.1265.i to i64
   br label %92
 
 78:                                               ; preds = %75
@@ -228,20 +228,20 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %.outer.i.backedge
 
 94:                                               ; preds = %.loopexit419.i
-  %95 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 40
+  %95 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 40
   %96 = load i64, ptr %95, align 8
   %97 = or i64 %96, 8
   store i64 %97, ptr %95, align 8
   br label %98
 
 98:                                               ; preds = %94, %.loopexit419.i
-  %99 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 16
+  %99 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 16
   %100 = load ptr, ptr %99, align 8
   %.not381.i = icmp eq ptr %100, null
   br i1 %.not381.i, label %101, label %.outer.i.backedge
 
 101:                                              ; preds = %98
-  br i1 %.0276464.i, label %116, label %102
+  br i1 %.0263457.i, label %116, label %102
 
 102:                                              ; preds = %101
   %103 = load i32, ptr %3, align 16
@@ -268,7 +268,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %116
 
 116:                                              ; preds = %113, %101
-  %117 = phi ptr [ %115, %113 ], [ %.1275.i, %101 ]
+  %117 = phi ptr [ %115, %113 ], [ %.1265.i, %101 ]
   %.not382.i = icmp eq ptr %117, null
   br i1 %.not382.i, label %.outer.i.backedge, label %118
 
@@ -277,10 +277,10 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %.outer.i.backedge
 
 119:                                              ; preds = %.loopexit419.i
-  br i1 %.0276464.i, label %120, label %122
+  br i1 %.0263457.i, label %120, label %122
 
 120:                                              ; preds = %119
-  %121 = ptrtoint ptr %.1275.i to i64
+  %121 = ptrtoint ptr %.1265.i to i64
   br label %136
 
 122:                                              ; preds = %119
@@ -309,19 +309,19 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
 
 136:                                              ; preds = %133, %120
   %137 = phi i64 [ %121, %120 ], [ %135, %133 ]
-  %138 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 24
+  %138 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 24
   store i64 %137, ptr %138, align 8
   br label %.outer.i.backedge
 
 139:                                              ; preds = %.loopexit419.i
-  %140 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 40
+  %140 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 40
   %141 = load i64, ptr %140, align 8
   %142 = or i64 %141, 128
   store i64 %142, ptr %140, align 8
-  br i1 %.0276464.i, label %143, label %145
+  br i1 %.0263457.i, label %143, label %145
 
 143:                                              ; preds = %139
-  %144 = ptrtoint ptr %.1275.i to i64
+  %144 = ptrtoint ptr %.1265.i to i64
   br label %159
 
 145:                                              ; preds = %139
@@ -350,19 +350,19 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
 
 159:                                              ; preds = %156, %143
   %160 = phi i64 [ %144, %143 ], [ %158, %156 ]
-  %161 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 24
+  %161 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 24
   store i64 %160, ptr %161, align 8
   br label %.outer.i.backedge
 
 162:                                              ; preds = %.loopexit419.i
-  %163 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 40
+  %163 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 40
   %164 = load i64, ptr %163, align 8
   %165 = and i64 %164, 10
   %.not378.i = icmp eq i64 %165, 0
   br i1 %.not378.i, label %166, label %.outer.i.backedge
 
 166:                                              ; preds = %162
-  br i1 %.0276464.i, label %181, label %167
+  br i1 %.0263457.i, label %181, label %167
 
 167:                                              ; preds = %166
   %168 = load i32, ptr %3, align 16
@@ -389,14 +389,14 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %181
 
 181:                                              ; preds = %178, %166
-  %182 = phi ptr [ %180, %178 ], [ %.1275.i, %166 ]
+  %182 = phi ptr [ %180, %178 ], [ %.1265.i, %166 ]
   %.not379.i = icmp eq ptr %182, null
   br i1 %.not379.i, label %.outer.i.backedge, label %183
 
 183:                                              ; preds = %181
   %184 = load ptr, ptr @Curl_cstrdup, align 8
   %185 = call ptr %184(ptr noundef nonnull %182) #6
-  %186 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 16
+  %186 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 16
   store ptr %185, ptr %186, align 8
   %.not380.i = icmp eq ptr %185, null
   br i1 %.not380.i, label %.outer.i.backedge, label %187
@@ -405,12 +405,12 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   %188 = load i64, ptr %163, align 8
   %189 = or i64 %188, 2
   store i64 %189, ptr %163, align 8
-  %190 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 97
+  %190 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 97
   store i8 1, ptr %190, align 1
   br label %.outer.i.backedge
 
 191:                                              ; preds = %.loopexit419.i
-  br i1 %.0276464.i, label %206, label %192
+  br i1 %.0263457.i, label %206, label %192
 
 192:                                              ; preds = %191
   %193 = load i32, ptr %3, align 16
@@ -437,14 +437,14 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %206
 
 206:                                              ; preds = %203, %191
-  %207 = phi ptr [ %205, %203 ], [ %.1275.i, %191 ]
-  %208 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 16
+  %207 = phi ptr [ %205, %203 ], [ %.1265.i, %191 ]
+  %208 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 16
   %209 = load ptr, ptr %208, align 8
   %.not371.i = icmp eq ptr %209, null
   br i1 %.not371.i, label %230, label %210
 
 210:                                              ; preds = %206
-  %211 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 40
+  %211 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 40
   %212 = load i64, ptr %211, align 8
   %213 = and i64 %212, 1
   %.not374.i = icmp eq i64 %213, 0
@@ -476,7 +476,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   store ptr %217, ptr %224, align 8
   %225 = getelementptr inbounds i8, ptr %220, i64 40
   store i64 1, ptr %225, align 8
-  %226 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 88
+  %226 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 88
   %227 = load ptr, ptr %226, align 8
   %228 = getelementptr inbounds i8, ptr %220, i64 88
   store ptr %227, ptr %228, align 8
@@ -497,26 +497,26 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br i1 %.not373.i, label %.outer.i.backedge, label %234
 
 234:                                              ; preds = %231
-  %235 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 40
+  %235 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 40
   %236 = load i64, ptr %235, align 8
   %237 = or i64 %236, 1
   store i64 %237, ptr %235, align 8
-  %238 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 97
+  %238 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 97
   store i8 1, ptr %238, align 1
   br label %.outer.i.backedge
 
 239:                                              ; preds = %.loopexit419.i
-  %240 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 40
+  %240 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 40
   %241 = load i64, ptr %240, align 8
   %242 = or i64 %241, 48
   store i64 %242, ptr %240, align 8
-  %243 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 48
+  %243 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 48
   %244 = load ptr, ptr %243, align 8
   %.not369.i = icmp eq ptr %244, null
   br i1 %.not369.i, label %245, label %.outer.i.backedge
 
 245:                                              ; preds = %239
-  br i1 %.0276464.i, label %260, label %246
+  br i1 %.0263457.i, label %260, label %246
 
 246:                                              ; preds = %245
   %247 = load i32, ptr %3, align 16
@@ -543,27 +543,27 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %260
 
 260:                                              ; preds = %257, %245
-  %261 = phi ptr [ %259, %257 ], [ %.1275.i, %245 ]
+  %261 = phi ptr [ %259, %257 ], [ %.1265.i, %245 ]
   %.not370.i = icmp eq ptr %261, null
   br i1 %.not370.i, label %.outer.i.backedge, label %262
 
 262:                                              ; preds = %260
   store ptr %261, ptr %243, align 8
-  %263 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 16
+  %263 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 16
   store ptr %261, ptr %263, align 8
   br label %.outer.i.backedge
 
 264:                                              ; preds = %.loopexit419.i
-  %265 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 56
+  %265 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 56
   %266 = load i64, ptr %265, align 8
   %.not368.i = icmp eq i64 %266, 0
   br i1 %.not368.i, label %267, label %.outer.i.backedge
 
 267:                                              ; preds = %264
-  br i1 %.0276464.i, label %268, label %270
+  br i1 %.0263457.i, label %268, label %270
 
 268:                                              ; preds = %267
-  %269 = ptrtoint ptr %.1275.i to i64
+  %269 = ptrtoint ptr %.1265.i to i64
   br label %284
 
 270:                                              ; preds = %267
@@ -596,17 +596,17 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %.outer.i.backedge
 
 286:                                              ; preds = %.loopexit419.i
-  %287 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 40
+  %287 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 40
   %288 = load i64, ptr %287, align 8
   %289 = or i64 %288, 64
   store i64 %289, ptr %287, align 8
-  %290 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 72
+  %290 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 72
   %291 = load ptr, ptr %290, align 8
   %.not366.i = icmp eq ptr %291, null
   br i1 %.not366.i, label %292, label %.outer.i.backedge
 
 292:                                              ; preds = %286
-  br i1 %.0276464.i, label %307, label %293
+  br i1 %.0263457.i, label %307, label %293
 
 293:                                              ; preds = %292
   %294 = load i32, ptr %3, align 16
@@ -633,18 +633,18 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %307
 
 307:                                              ; preds = %304, %292
-  %308 = phi ptr [ %306, %304 ], [ %.1275.i, %292 ]
+  %308 = phi ptr [ %306, %304 ], [ %.1265.i, %292 ]
   %.not367.i = icmp eq ptr %308, null
   br i1 %.not367.i, label %.outer.i.backedge, label %309
 
 309:                                              ; preds = %307
   store ptr %308, ptr %290, align 8
-  %310 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 16
+  %310 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 16
   store ptr %308, ptr %310, align 8
   br label %.outer.i.backedge
 
 311:                                              ; preds = %.loopexit419.i
-  br i1 %.0276464.i, label %326, label %312
+  br i1 %.0263457.i, label %326, label %312
 
 312:                                              ; preds = %311
   %313 = load i32, ptr %3, align 16
@@ -671,14 +671,14 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %326
 
 326:                                              ; preds = %323, %311
-  %327 = phi ptr [ %325, %323 ], [ %.1275.i, %311 ]
-  %328 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 32
+  %327 = phi ptr [ %325, %323 ], [ %.1265.i, %311 ]
+  %328 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 32
   %329 = load ptr, ptr %328, align 8
   %.not359.i = icmp eq ptr %329, null
   br i1 %.not359.i, label %350, label %330
 
 330:                                              ; preds = %326
-  %331 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 40
+  %331 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 40
   %332 = load i64, ptr %331, align 8
   %333 = and i64 %332, 1
   %.not362.i = icmp eq i64 %333, 0
@@ -710,7 +710,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   store ptr %337, ptr %344, align 8
   %345 = getelementptr inbounds i8, ptr %340, i64 40
   store i64 1, ptr %345, align 8
-  %346 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 88
+  %346 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 88
   %347 = load ptr, ptr %346, align 8
   %348 = getelementptr inbounds i8, ptr %340, i64 88
   store ptr %347, ptr %348, align 8
@@ -731,12 +731,12 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br i1 %.not361.i, label %.outer.i.backedge, label %354
 
 354:                                              ; preds = %351
-  %355 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 98
+  %355 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 98
   store i8 1, ptr %355, align 2
   br label %.outer.i.backedge
 
 356:                                              ; preds = %.loopexit419.i
-  br i1 %.0276464.i, label %371, label %357
+  br i1 %.0263457.i, label %371, label %357
 
 357:                                              ; preds = %356
   %358 = load i32, ptr %3, align 16
@@ -763,8 +763,8 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %371
 
 371:                                              ; preds = %368, %356
-  %372 = phi ptr [ %370, %368 ], [ %.1275.i, %356 ]
-  %373 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 80
+  %372 = phi ptr [ %370, %368 ], [ %.1265.i, %356 ]
+  %373 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 80
   %374 = load ptr, ptr %373, align 8
   %.not358.i = icmp eq ptr %374, null
   br i1 %.not358.i, label %375, label %.outer.i.backedge
@@ -774,7 +774,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %.outer.i.backedge
 
 376:                                              ; preds = %.loopexit419.i, %.loopexit419.i
-  br i1 %.0276464.i, label %391, label %377
+  br i1 %.0263457.i, label %391, label %377
 
 377:                                              ; preds = %376
   %378 = load i32, ptr %3, align 16
@@ -801,8 +801,8 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br label %391
 
 391:                                              ; preds = %388, %376
-  %392 = phi ptr [ %390, %388 ], [ %.1275.i, %376 ]
-  %393 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 64
+  %392 = phi ptr [ %390, %388 ], [ %.1265.i, %376 ]
+  %393 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 64
   %394 = load ptr, ptr %393, align 8
   %.not356.i = icmp eq ptr %394, null
   br i1 %.not356.i, label %395, label %.outer.i.backedge
@@ -815,15 +815,15 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br i1 %.not357.i, label %.outer.i.backedge, label %398
 
 398:                                              ; preds = %395
-  %399 = getelementptr inbounds i8, ptr %.0263.ph.i, i64 99
+  %399 = getelementptr inbounds i8, ptr %.0276.ph.i, i64 99
   store i8 1, ptr %399, align 1
   br label %.outer.i.backedge
 
 .outer.i.backedge:                                ; preds = %398, %395, %391, %375, %371, %354, %351, %350, %343, %341, %335, %334, %330, %309, %307, %286, %284, %264, %262, %260, %239, %234, %231, %230, %223, %221, %215, %214, %210, %187, %183, %181, %162, %159, %136, %118, %116, %98, %92, %72, %71, %69, %52, %45, %33, %.loopexit419.i
-  %.0276.ph.i.be = phi i1 [ %.0276464.i, %398 ], [ %.0276464.i, %375 ], [ %.0276464.i, %343 ], [ %.0276464.i, %341 ], [ %.0276464.i, %354 ], [ %.0276464.i, %309 ], [ %.0276464.i, %284 ], [ %.0276464.i, %262 ], [ %.0276464.i, %223 ], [ %.0276464.i, %221 ], [ %.0276464.i, %234 ], [ %.0276464.i, %187 ], [ %.0276464.i, %159 ], [ %.0276464.i, %136 ], [ %.0276464.i, %118 ], [ %.0276464.i, %92 ], [ %.0276464.i, %71 ], [ true, %33 ], [ %.not386.i, %45 ], [ %.0276464.i, %52 ], [ %.0276464.i, %69 ], [ %.0276464.i, %72 ], [ %.0276464.i, %98 ], [ %.0276464.i, %116 ], [ %.0276464.i, %162 ], [ %.0276464.i, %183 ], [ %.0276464.i, %181 ], [ %.0276464.i, %215 ], [ %.0276464.i, %214 ], [ %.0276464.i, %210 ], [ %.0276464.i, %231 ], [ %.0276464.i, %230 ], [ %.0276464.i, %239 ], [ %.0276464.i, %260 ], [ %.0276464.i, %264 ], [ %.0276464.i, %286 ], [ %.0276464.i, %307 ], [ %.0276464.i, %335 ], [ %.0276464.i, %334 ], [ %.0276464.i, %330 ], [ %.0276464.i, %351 ], [ %.0276464.i, %350 ], [ %.0276464.i, %371 ], [ %.0276464.i, %391 ], [ %.0276464.i, %395 ], [ %.0276464.i, %.loopexit419.i ]
-  %.0271.ph.i.be = phi ptr [ %.1272.i, %398 ], [ %.1272.i, %375 ], [ %.1272.i, %343 ], [ %.1272.i, %341 ], [ %.1272.i, %354 ], [ %.1272.i, %309 ], [ %.1272.i, %284 ], [ %.1272.i, %262 ], [ %.1272.i, %223 ], [ %.1272.i, %221 ], [ %.1272.i, %234 ], [ %.1272.i, %187 ], [ %.1272.i, %159 ], [ %.1272.i, %136 ], [ %.1272.i, %118 ], [ %.1272.i, %92 ], [ %.1272.i, %71 ], [ %.1272.i, %33 ], [ %47, %45 ], [ %.1272.i, %52 ], [ %.1272.i, %69 ], [ %.1272.i, %72 ], [ %.1272.i, %98 ], [ %.1272.i, %116 ], [ %.1272.i, %162 ], [ %.1272.i, %183 ], [ %.1272.i, %181 ], [ %.1272.i, %215 ], [ %.1272.i, %214 ], [ %.1272.i, %210 ], [ %.1272.i, %231 ], [ %.1272.i, %230 ], [ %.1272.i, %239 ], [ %.1272.i, %260 ], [ %.1272.i, %264 ], [ %.1272.i, %286 ], [ %.1272.i, %307 ], [ %.1272.i, %335 ], [ %.1272.i, %334 ], [ %.1272.i, %330 ], [ %.1272.i, %351 ], [ %.1272.i, %350 ], [ %.1272.i, %371 ], [ %.1272.i, %391 ], [ %.1272.i, %395 ], [ %.1272.i, %.loopexit419.i ]
-  %.0265.ph.i.be = phi i32 [ 0, %398 ], [ 0, %375 ], [ 0, %343 ], [ 1, %341 ], [ 0, %354 ], [ 0, %309 ], [ 0, %284 ], [ 0, %262 ], [ 0, %223 ], [ 1, %221 ], [ 0, %234 ], [ 0, %187 ], [ 0, %159 ], [ 0, %136 ], [ 0, %118 ], [ 0, %92 ], [ 0, %71 ], [ 6, %33 ], [ %.387.i, %45 ], [ 2, %52 ], [ 3, %69 ], [ 2, %72 ], [ 2, %98 ], [ 3, %116 ], [ 2, %162 ], [ 1, %183 ], [ 3, %181 ], [ 1, %215 ], [ 3, %214 ], [ 2, %210 ], [ 1, %231 ], [ 3, %230 ], [ 2, %239 ], [ 3, %260 ], [ 2, %264 ], [ 2, %286 ], [ 3, %307 ], [ 1, %335 ], [ 3, %334 ], [ 2, %330 ], [ 1, %351 ], [ 3, %350 ], [ 2, %371 ], [ 2, %391 ], [ 1, %395 ], [ 4, %.loopexit419.i ]
-  %.0263.ph.i.be = phi ptr [ %.0263.ph.i, %398 ], [ %.0263.ph.i, %375 ], [ %340, %343 ], [ %.0263.ph.i, %341 ], [ %.0263.ph.i, %354 ], [ %.0263.ph.i, %309 ], [ %.0263.ph.i, %284 ], [ %.0263.ph.i, %262 ], [ %220, %223 ], [ %.0263.ph.i, %221 ], [ %.0263.ph.i, %234 ], [ %.0263.ph.i, %187 ], [ %.0263.ph.i, %159 ], [ %.0263.ph.i, %136 ], [ %.0263.ph.i, %118 ], [ %.0263.ph.i, %92 ], [ %.0263.ph.i, %71 ], [ %.0263.ph.i, %33 ], [ %.0263.ph.i, %45 ], [ %.0263.ph.i, %52 ], [ %.0263.ph.i, %69 ], [ %.0263.ph.i, %72 ], [ %.0263.ph.i, %98 ], [ %.0263.ph.i, %116 ], [ %.0263.ph.i, %162 ], [ %.0263.ph.i, %183 ], [ %.0263.ph.i, %181 ], [ %.0263.ph.i, %215 ], [ %.0263.ph.i, %214 ], [ %.0263.ph.i, %210 ], [ %.0263.ph.i, %231 ], [ %.0263.ph.i, %230 ], [ %.0263.ph.i, %239 ], [ %.0263.ph.i, %260 ], [ %.0263.ph.i, %264 ], [ %.0263.ph.i, %286 ], [ %.0263.ph.i, %307 ], [ %.0263.ph.i, %335 ], [ %.0263.ph.i, %334 ], [ %.0263.ph.i, %330 ], [ %.0263.ph.i, %351 ], [ %.0263.ph.i, %350 ], [ %.0263.ph.i, %371 ], [ %.0263.ph.i, %391 ], [ %.0263.ph.i, %395 ], [ %.0263.ph.i, %.loopexit419.i ]
+  %.0276.ph.i.be = phi ptr [ %.0276.ph.i, %398 ], [ %.0276.ph.i, %375 ], [ %340, %343 ], [ %.0276.ph.i, %341 ], [ %.0276.ph.i, %354 ], [ %.0276.ph.i, %309 ], [ %.0276.ph.i, %284 ], [ %.0276.ph.i, %262 ], [ %220, %223 ], [ %.0276.ph.i, %221 ], [ %.0276.ph.i, %234 ], [ %.0276.ph.i, %187 ], [ %.0276.ph.i, %159 ], [ %.0276.ph.i, %136 ], [ %.0276.ph.i, %118 ], [ %.0276.ph.i, %92 ], [ %.0276.ph.i, %71 ], [ %.0276.ph.i, %33 ], [ %.0276.ph.i, %45 ], [ %.0276.ph.i, %52 ], [ %.0276.ph.i, %69 ], [ %.0276.ph.i, %72 ], [ %.0276.ph.i, %98 ], [ %.0276.ph.i, %116 ], [ %.0276.ph.i, %162 ], [ %.0276.ph.i, %183 ], [ %.0276.ph.i, %181 ], [ %.0276.ph.i, %215 ], [ %.0276.ph.i, %214 ], [ %.0276.ph.i, %210 ], [ %.0276.ph.i, %231 ], [ %.0276.ph.i, %230 ], [ %.0276.ph.i, %239 ], [ %.0276.ph.i, %260 ], [ %.0276.ph.i, %264 ], [ %.0276.ph.i, %286 ], [ %.0276.ph.i, %307 ], [ %.0276.ph.i, %335 ], [ %.0276.ph.i, %334 ], [ %.0276.ph.i, %330 ], [ %.0276.ph.i, %351 ], [ %.0276.ph.i, %350 ], [ %.0276.ph.i, %371 ], [ %.0276.ph.i, %391 ], [ %.0276.ph.i, %395 ], [ %.0276.ph.i, %.loopexit419.i ]
+  %.0272.ph.i.be = phi i32 [ 0, %398 ], [ 0, %375 ], [ 0, %343 ], [ 1, %341 ], [ 0, %354 ], [ 0, %309 ], [ 0, %284 ], [ 0, %262 ], [ 0, %223 ], [ 1, %221 ], [ 0, %234 ], [ 0, %187 ], [ 0, %159 ], [ 0, %136 ], [ 0, %118 ], [ 0, %92 ], [ 0, %71 ], [ 6, %33 ], [ %..i, %45 ], [ 2, %52 ], [ 3, %69 ], [ 2, %72 ], [ 2, %98 ], [ 3, %116 ], [ 2, %162 ], [ 1, %183 ], [ 3, %181 ], [ 1, %215 ], [ 3, %214 ], [ 2, %210 ], [ 1, %231 ], [ 3, %230 ], [ 2, %239 ], [ 3, %260 ], [ 2, %264 ], [ 2, %286 ], [ 3, %307 ], [ 1, %335 ], [ 3, %334 ], [ 2, %330 ], [ 1, %351 ], [ 3, %350 ], [ 2, %371 ], [ 2, %391 ], [ 1, %395 ], [ 4, %.loopexit419.i ]
+  %.0266.ph.i.be = phi ptr [ %.1267.i, %398 ], [ %.1267.i, %375 ], [ %.1267.i, %343 ], [ %.1267.i, %341 ], [ %.1267.i, %354 ], [ %.1267.i, %309 ], [ %.1267.i, %284 ], [ %.1267.i, %262 ], [ %.1267.i, %223 ], [ %.1267.i, %221 ], [ %.1267.i, %234 ], [ %.1267.i, %187 ], [ %.1267.i, %159 ], [ %.1267.i, %136 ], [ %.1267.i, %118 ], [ %.1267.i, %92 ], [ %.1267.i, %71 ], [ %.1267.i, %33 ], [ %47, %45 ], [ %.1267.i, %52 ], [ %.1267.i, %69 ], [ %.1267.i, %72 ], [ %.1267.i, %98 ], [ %.1267.i, %116 ], [ %.1267.i, %162 ], [ %.1267.i, %183 ], [ %.1267.i, %181 ], [ %.1267.i, %215 ], [ %.1267.i, %214 ], [ %.1267.i, %210 ], [ %.1267.i, %231 ], [ %.1267.i, %230 ], [ %.1267.i, %239 ], [ %.1267.i, %260 ], [ %.1267.i, %264 ], [ %.1267.i, %286 ], [ %.1267.i, %307 ], [ %.1267.i, %335 ], [ %.1267.i, %334 ], [ %.1267.i, %330 ], [ %.1267.i, %351 ], [ %.1267.i, %350 ], [ %.1267.i, %371 ], [ %.1267.i, %391 ], [ %.1267.i, %395 ], [ %.1267.i, %.loopexit419.i ]
+  %.0263.ph.i.be = phi i1 [ %.0263457.i, %398 ], [ %.0263457.i, %375 ], [ %.0263457.i, %343 ], [ %.0263457.i, %341 ], [ %.0263457.i, %354 ], [ %.0263457.i, %309 ], [ %.0263457.i, %284 ], [ %.0263457.i, %262 ], [ %.0263457.i, %223 ], [ %.0263457.i, %221 ], [ %.0263457.i, %234 ], [ %.0263457.i, %187 ], [ %.0263457.i, %159 ], [ %.0263457.i, %136 ], [ %.0263457.i, %118 ], [ %.0263457.i, %92 ], [ %.0263457.i, %71 ], [ true, %33 ], [ %.not386.i, %45 ], [ %.0263457.i, %52 ], [ %.0263457.i, %69 ], [ %.0263457.i, %72 ], [ %.0263457.i, %98 ], [ %.0263457.i, %116 ], [ %.0263457.i, %162 ], [ %.0263457.i, %183 ], [ %.0263457.i, %181 ], [ %.0263457.i, %215 ], [ %.0263457.i, %214 ], [ %.0263457.i, %210 ], [ %.0263457.i, %231 ], [ %.0263457.i, %230 ], [ %.0263457.i, %239 ], [ %.0263457.i, %260 ], [ %.0263457.i, %264 ], [ %.0263457.i, %286 ], [ %.0263457.i, %307 ], [ %.0263457.i, %335 ], [ %.0263457.i, %334 ], [ %.0263457.i, %330 ], [ %.0263457.i, %351 ], [ %.0263457.i, %350 ], [ %.0263457.i, %371 ], [ %.0263457.i, %391 ], [ %.0263457.i, %395 ], [ %.0263457.i, %.loopexit419.i ]
   br label %.outer.i, !llvm.loop !5
 
 .preheader416.i:                                  ; preds = %8, %430
@@ -893,30 +893,30 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br i1 %.not319.i, label %.thread408.i, label %.preheader416.i, !llvm.loop !7
 
 .preheader413.i:                                  ; preds = %29, %546
-  %.0264442.i = phi ptr [ %549, %546 ], [ %5, %29 ]
-  %.0267441.i = phi ptr [ %spec.select.i, %546 ], [ null, %29 ]
-  %.0269440.i = phi ptr [ %527, %546 ], [ null, %29 ]
-  %433 = load ptr, ptr %.0264442.i, align 8
+  %.0269444.i = phi ptr [ %527, %546 ], [ null, %29 ]
+  %.0270443.i = phi ptr [ %spec.select.i, %546 ], [ null, %29 ]
+  %.0275440.i = phi ptr [ %549, %546 ], [ %5, %29 ]
+  %433 = load ptr, ptr %.0275440.i, align 8
   %.not321.i = icmp eq ptr %433, null
   br i1 %.not321.i, label %439, label %434
 
 434:                                              ; preds = %.preheader413.i
-  %435 = getelementptr inbounds i8, ptr %.0264442.i, i64 16
+  %435 = getelementptr inbounds i8, ptr %.0275440.i, i64 16
   %436 = load ptr, ptr %435, align 8
   %437 = icmp ne ptr %436, null
-  %438 = icmp ne ptr %.0269440.i, null
+  %438 = icmp ne ptr %.0269444.i, null
   %or.cond3.i = or i1 %438, %437
   br i1 %or.cond3.i, label %440, label %.thread396.i
 
 439:                                              ; preds = %.preheader413.i
-  %.old2.not.i = icmp eq ptr %.0269440.i, null
+  %.old2.not.i = icmp eq ptr %.0269444.i, null
   br i1 %.old2.not.i, label %.thread396.i, label %440
 
 440:                                              ; preds = %439, %434
-  %441 = getelementptr inbounds i8, ptr %.0264442.i, i64 24
+  %441 = getelementptr inbounds i8, ptr %.0275440.i, i64 24
   %442 = load i64, ptr %441, align 8
   %.not322.i = icmp ne i64 %442, 0
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.0264442.i, i64 40
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.0275440.i, i64 40
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   %443 = and i64 %.pre.i, 1
   %.not323.i = icmp ne i64 %443, 0
@@ -927,7 +927,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br i1 %or.cond, label %.thread396.i, label %445
 
 445:                                              ; preds = %440
-  %446 = getelementptr inbounds i8, ptr %.0264442.i, i64 48
+  %446 = getelementptr inbounds i8, ptr %.0275440.i, i64 48
   %447 = load ptr, ptr %446, align 8
   %.not326.i = icmp eq ptr %447, null
   %448 = and i64 %.pre.i, 48
@@ -946,18 +946,18 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br i1 %or.cond391.i, label %463, label %453
 
 453:                                              ; preds = %450
-  %454 = getelementptr inbounds i8, ptr %.0264442.i, i64 32
+  %454 = getelementptr inbounds i8, ptr %.0275440.i, i64 32
   %455 = load ptr, ptr %454, align 8
   %.not333.i = icmp eq ptr %455, null
   br i1 %.not333.i, label %456, label %463
 
 456:                                              ; preds = %453
   %.in.v.i = select i1 %.not332.i, i64 16, i64 64
-  %.in.i = getelementptr inbounds i8, ptr %.0264442.i, i64 %.in.v.i
+  %.in.i = getelementptr inbounds i8, ptr %.0275440.i, i64 %.in.v.i
   %457 = load ptr, ptr %.in.i, align 8
   %458 = call ptr @Curl_mime_contenttype(ptr noundef %457) #6
   %.not335.i = icmp eq ptr %458, null
-  %.0260.i = select i1 %.not335.i, ptr %.0267441.i, ptr %458
+  %.0260.i = select i1 %.not335.i, ptr %.0270443.i, ptr %458
   %.not336.i = icmp eq ptr %.0260.i, null
   %spec.store.select.i = select i1 %.not336.i, ptr @.str.2, ptr %.0260.i
   %459 = load ptr, ptr @Curl_cstrdup, align 8
@@ -967,9 +967,9 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br i1 %.not337.i, label %.thread396.i, label %461
 
 461:                                              ; preds = %456
-  %462 = getelementptr inbounds i8, ptr %.0264442.i, i64 98
+  %462 = getelementptr inbounds i8, ptr %.0275440.i, i64 98
   store i8 1, ptr %462, align 2
-  %.pre468.i = load ptr, ptr %.0264442.i, align 8
+  %.pre468.i = load ptr, ptr %.0275440.i, align 8
   br label %463
 
 463:                                              ; preds = %461, %453, %450
@@ -978,7 +978,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   br i1 %.not338.i, label %.thread402.i, label %464
 
 464:                                              ; preds = %463
-  %465 = getelementptr inbounds i8, ptr %.0264442.i, i64 8
+  %465 = getelementptr inbounds i8, ptr %.0275440.i, i64 8
   %466 = load i64, ptr %465, align 8
   %.not339.i = icmp eq i64 %466, 0
   br i1 %.not339.i, label %.thread398.i, label %.preheader.i
@@ -999,7 +999,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   %472 = load i64, ptr %.phi.trans.insert.i, align 8
   %473 = and i64 %472, 4
   %.not343.i = icmp eq i64 %473, 0
-  %474 = icmp eq ptr %.0264442.i, %5
+  %474 = icmp eq ptr %.0275440.i, %5
   %or.cond392.i = and i1 %474, %.not343.i
   br i1 %or.cond392.i, label %thread-pre-split.i, label %487
 
@@ -1007,7 +1007,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   %475 = load i64, ptr %.phi.trans.insert.i, align 8
   %476 = and i64 %475, 4
   %.not343403.i = icmp eq i64 %476, 0
-  %477 = icmp eq ptr %.0264442.i, %5
+  %477 = icmp eq ptr %.0275440.i, %5
   %or.cond392404.i = and i1 %477, %.not343403.i
   br i1 %or.cond392404.i, label %.thread396.i, label %487
 
@@ -1015,7 +1015,7 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
   %478 = load i64, ptr %.phi.trans.insert.i, align 8
   %479 = and i64 %478, 4
   %.not343399.i = icmp eq i64 %479, 0
-  %480 = icmp eq ptr %.0264442.i, %5
+  %480 = icmp eq ptr %.0275440.i, %5
   %or.cond392400.i = and i1 %480, %.not343399.i
   br i1 %or.cond392400.i, label %481, label %487
 
@@ -1026,12 +1026,12 @@ define dso_local i32 @curl_formadd(ptr nocapture noundef writeonly %0, ptr nocap
 thread-pre-split.i:                               ; preds = %481, %471
   %483 = phi i64 [ %482, %481 ], [ %466, %471 ]
   %484 = call ptr @Curl_memdup0(ptr noundef nonnull %.pr.i, i64 noundef %483) #6
-  store ptr %484, ptr %.0264442.i, align 8
+  store ptr %484, ptr %.0275440.i, align 8
   %.not346.i = icmp eq ptr %484, null
   br i1 %.not346.i, label %.thread396.i, label %485
 
 485:                                              ; preds = %thread-pre-split.i
-  %486 = getelementptr inbounds i8, ptr %.0264442.i, i64 96
+  %486 = getelementptr inbounds i8, ptr %.0275440.i, i64 96
   store i8 1, ptr %486, align 8
   %.pre469.i = load i64, ptr %.phi.trans.insert.i, align 8
   br label %487
@@ -1041,7 +1041,7 @@ thread-pre-split.i:                               ; preds = %481, %471
   %489 = phi i64 [ %475, %.thread402.i ], [ %478, %.thread398.i ], [ %.pre469.i, %485 ], [ %472, %471 ]
   %490 = and i64 %489, 107
   %.not347.i = icmp eq i64 %490, 0
-  %491 = getelementptr inbounds i8, ptr %.0264442.i, i64 16
+  %491 = getelementptr inbounds i8, ptr %.0275440.i, i64 16
   %492 = load ptr, ptr %491, align 8
   br i1 %.not347.i, label %493, label %._crit_edge471.i
 
@@ -1067,9 +1067,9 @@ thread-pre-split.i:                               ; preds = %481, %471
   br i1 %.not350.i, label %.thread396.i, label %501
 
 501:                                              ; preds = %499
-  %502 = getelementptr inbounds i8, ptr %.0264442.i, i64 97
+  %502 = getelementptr inbounds i8, ptr %.0275440.i, i64 97
   store i8 1, ptr %502, align 1
-  %.pre470.i = load ptr, ptr %.0264442.i, align 8
+  %.pre470.i = load ptr, ptr %.0275440.i, align 8
   %.pre474.i = load i64, ptr %.phi.trans.insert.i, align 8
   br label %._crit_edge471.i
 
@@ -1077,17 +1077,17 @@ thread-pre-split.i:                               ; preds = %481, %471
   %503 = phi i64 [ %.pre474.i, %501 ], [ %489, %493 ], [ %489, %487 ]
   %504 = phi ptr [ %500, %501 ], [ null, %493 ], [ %492, %487 ]
   %505 = phi ptr [ %.pre470.i, %501 ], [ %488, %493 ], [ %488, %487 ]
-  %506 = getelementptr inbounds i8, ptr %.0264442.i, i64 8
+  %506 = getelementptr inbounds i8, ptr %.0275440.i, i64 8
   %507 = load i64, ptr %506, align 8
   %508 = load i64, ptr %441, align 8
   %509 = load ptr, ptr %446, align 8
-  %510 = getelementptr inbounds i8, ptr %.0264442.i, i64 56
+  %510 = getelementptr inbounds i8, ptr %.0275440.i, i64 56
   %511 = load i64, ptr %510, align 8
-  %512 = getelementptr inbounds i8, ptr %.0264442.i, i64 32
+  %512 = getelementptr inbounds i8, ptr %.0275440.i, i64 32
   %513 = load ptr, ptr %512, align 8
-  %514 = getelementptr inbounds i8, ptr %.0264442.i, i64 80
+  %514 = getelementptr inbounds i8, ptr %.0275440.i, i64 80
   %515 = load ptr, ptr %514, align 8
-  %516 = getelementptr inbounds i8, ptr %.0264442.i, i64 64
+  %516 = getelementptr inbounds i8, ptr %.0275440.i, i64 64
   %517 = load <2 x ptr>, ptr %516, align 8
   %518 = icmp eq i64 %507, 0
   %519 = icmp ne ptr %505, null
@@ -1133,11 +1133,11 @@ thread-pre-split.i:                               ; preds = %481, %471
   %538 = or i64 %503, 128
   %539 = getelementptr inbounds i8, ptr %527, i64 80
   store i64 %538, ptr %539, align 8
-  %.not50.i.i = icmp eq ptr %.0269440.i, null
+  %.not50.i.i = icmp eq ptr %.0269444.i, null
   br i1 %.not50.i.i, label %544, label %540
 
 540:                                              ; preds = %528
-  %541 = getelementptr inbounds i8, ptr %.0269440.i, i64 72
+  %541 = getelementptr inbounds i8, ptr %.0269444.i, i64 72
   %542 = load ptr, ptr %541, align 8
   %543 = getelementptr inbounds i8, ptr %527, i64 72
   store ptr %542, ptr %543, align 8
@@ -1155,8 +1155,8 @@ thread-pre-split.i:                               ; preds = %481, %471
   store ptr %527, ptr %.sink52.i.i, align 8
   %547 = load ptr, ptr %512, align 8
   %.not352.i = icmp eq ptr %547, null
-  %spec.select.i = select i1 %.not352.i, ptr %.0267441.i, ptr %547
-  %548 = getelementptr inbounds i8, ptr %.0264442.i, i64 88
+  %spec.select.i = select i1 %.not352.i, ptr %.0270443.i, ptr %547
+  %548 = getelementptr inbounds i8, ptr %.0275440.i, i64 88
   %549 = load ptr, ptr %548, align 8
   %.not320.i = icmp eq ptr %549, null
   br i1 %.not320.i, label %.thread408.i, label %.preheader413.i, !llvm.loop !9
@@ -1166,7 +1166,7 @@ thread-pre-split.i:                               ; preds = %481, %471
   br label %550
 
 550:                                              ; preds = %581, %.thread396.i
-  %.0257445.i = phi ptr [ %.0264442.i, %.thread396.i ], [ %583, %581 ]
+  %.0257445.i = phi ptr [ %.0275440.i, %.thread396.i ], [ %583, %581 ]
   %551 = getelementptr inbounds i8, ptr %.0257445.i, i64 96
   %552 = load i8, ptr %551, align 8
   %553 = trunc i8 %552 to i1
@@ -1232,7 +1232,7 @@ thread-pre-split.i:                               ; preds = %481, %471
   br i1 %.not354.i, label %.thread408.i, label %550, !llvm.loop !10
 
 .thread408.i:                                     ; preds = %430, %546, %581
-  %.6.i = phi i32 [ %.5.i, %581 ], [ 0, %546 ], [ %.0265.i, %430 ]
+  %.6.i = phi i32 [ %.5.i, %581 ], [ 0, %546 ], [ %.0272.i, %430 ]
   br label %584
 
 584:                                              ; preds = %584, %.thread408.i

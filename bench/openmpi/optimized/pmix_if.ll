@@ -1252,13 +1252,13 @@ define noundef i32 @pmix_ifmatches(i32 noundef %0, ptr nocapture noundef readonl
   br label %25
 
 23:                                               ; preds = %25
-  %24 = add nuw i64 %.02750, 1
+  %24 = add nuw i64 %.02650, 1
   %exitcond.not = icmp eq i64 %24, %20
   br i1 %exitcond.not, label %.critedge, label %25, !llvm.loop !28
 
 25:                                               ; preds = %.lr.ph, %23
-  %.02750 = phi i64 [ 0, %.lr.ph ], [ %24, %23 ]
-  %26 = getelementptr inbounds i8, ptr %19, i64 %.02750
+  %.02650 = phi i64 [ 0, %.lr.ph ], [ %24, %23 ]
+  %26 = getelementptr inbounds i8, ptr %19, i64 %.02650
   %27 = load i8, ptr %26, align 1
   %28 = sext i8 %27 to i64
   %29 = getelementptr inbounds i16, ptr %22, i64 %28

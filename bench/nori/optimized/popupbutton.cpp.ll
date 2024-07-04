@@ -250,8 +250,8 @@ define hidden void @_ZN7nanogui11PopupButton4drawEP10NVGcontext(ptr noundef nonn
   br label %48
 
 48:                                               ; preds = %42, %45
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.copyload1, %45 ], [ %.sroa.05.0.copyload, %42 ]
   %.sroa.3.0 = phi <2 x float> [ %.sroa.3.0.copyload3, %45 ], [ %.sroa.2.0.copyload, %42 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.copyload1, %45 ], [ %.sroa.05.0.copyload, %42 ]
   invoke void @nvgFillColor(ptr noundef %1, <2 x float> %.sroa.0.0, <2 x float> %.sroa.3.0)
           to label %49 unwind label %75
 

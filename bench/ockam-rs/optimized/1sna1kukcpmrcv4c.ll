@@ -7859,8 +7859,8 @@ _ZN13ed25519_dalek7signing10SigningKey10from_bytes17h1958813644c37af7E.exit.i: ;
   br label %.thread82
 
 .thread82:                                        ; preds = %"_ZN4core3ptr55drop_in_place$LT$ed25519_dalek..signing..SigningKey$GT$17h6b33b0e3ee57d442E.exit", %77
-  %.sroa.059.0 = phi i8 [ 0, %"_ZN4core3ptr55drop_in_place$LT$ed25519_dalek..signing..SigningKey$GT$17h6b33b0e3ee57d442E.exit" ], [ 1, %77 ]
   %.sroa.3.0 = phi <32 x i8> [ %.val, %"_ZN4core3ptr55drop_in_place$LT$ed25519_dalek..signing..SigningKey$GT$17h6b33b0e3ee57d442E.exit" ], [ %.val27, %77 ]
+  %.sroa.059.0 = phi i8 [ 0, %"_ZN4core3ptr55drop_in_place$LT$ed25519_dalek..signing..SigningKey$GT$17h6b33b0e3ee57d442E.exit" ], [ 1, %77 ]
   %.sroa.756.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 48
   store ptr %32, ptr %.sroa.756.0..sroa_idx, align 8
   %.sroa.957.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 156

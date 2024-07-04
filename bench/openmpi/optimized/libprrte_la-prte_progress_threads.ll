@@ -72,31 +72,31 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
 12:                                               ; preds = %pmix_obj_run_constructors.exit, %1
   %13 = icmp eq ptr %0, null
   %spec.select = select i1 %13, ptr @.str.2, ptr %0
-  %.068110 = load ptr, ptr getelementptr inbounds (i8, ptr @tracking, i64 240), align 8
-  %.not78111 = icmp eq ptr %.068110, getelementptr inbounds (i8, ptr @tracking, i64 120)
+  %.0110 = load ptr, ptr getelementptr inbounds (i8, ptr @tracking, i64 240), align 8
+  %.not78111 = icmp eq ptr %.0110, getelementptr inbounds (i8, ptr @tracking, i64 120)
   br i1 %.not78111, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %24
-  %.068112 = phi ptr [ %.068, %24 ], [ %.068110, %12 ]
-  %14 = getelementptr inbounds i8, ptr %.068112, i64 152
+  %.0112 = phi ptr [ %.0, %24 ], [ %.0110, %12 ]
+  %14 = getelementptr inbounds i8, ptr %.0112, i64 152
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(1) %15) #14
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %.068112, i64 144
+  %19 = getelementptr inbounds i8, ptr %.0112, i64 144
   %20 = load i32, ptr %19, align 8
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %.068112, i64 160
+  %22 = getelementptr inbounds i8, ptr %.0112, i64 160
   %23 = load ptr, ptr %22, align 8
   br label %145
 
 24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds i8, ptr %.068112, i64 120
-  %.068 = load ptr, ptr %25, align 8
-  %.not78 = icmp eq ptr %.068, getelementptr inbounds (i8, ptr @tracking, i64 120)
+  %25 = getelementptr inbounds i8, ptr %.0112, i64 120
+  %.0 = load ptr, ptr %25, align 8
+  %.not78 = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @tracking, i64 120)
   br i1 %.not78, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %24, %12
@@ -377,8 +377,8 @@ pmix_obj_run_destructors.exit106:                 ; preds = %.lr.ph.i103, %126
   br label %145
 
 145:                                              ; preds = %121, %136, %135, %79, %94, %93, %53, %68, %67, %137, %pmix_obj_new_tma.exit.thread, %18
-  %.0 = phi ptr [ %23, %18 ], [ null, %pmix_obj_new_tma.exit.thread ], [ %144, %137 ], [ null, %67 ], [ null, %68 ], [ null, %53 ], [ null, %93 ], [ null, %94 ], [ null, %79 ], [ null, %135 ], [ null, %136 ], [ null, %121 ]
-  ret ptr %.0
+  %.069 = phi ptr [ %23, %18 ], [ null, %pmix_obj_new_tma.exit.thread ], [ %144, %137 ], [ null, %67 ], [ null, %68 ], [ null, %53 ], [ null, %93 ], [ null, %94 ], [ null, %79 ], [ null, %135 ], [ null, %136 ], [ null, %121 ]
+  ret ptr %.069
 }
 
 declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #1
@@ -525,8 +525,8 @@ define internal fastcc noundef i32 @start_progress_engine(ptr noundef %0) unname
   br label %59
 
 59:                                               ; preds = %._crit_edge, %52, %55, %11
-  %.031 = phi i32 [ -8, %55 ], [ %8, %11 ], [ 0, %52 ], [ 0, %._crit_edge ]
-  ret i32 %.031
+  %.030 = phi i32 [ -8, %55 ], [ %8, %11 ], [ 0, %52 ], [ 0, %._crit_edge ]
+  ret i32 %.030
 }
 
 ; Function Attrs: nounwind uwtable

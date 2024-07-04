@@ -2033,9 +2033,9 @@ define void @_ZN11tree_sitter6Parser10set_logger17h8321483bacc9785eE(ptr noalias
   br label %51
 
 51:                                               ; preds = %36, %48
+  %.1 = phi i8 [ 0, %48 ], [ 1, %36 ]
   %.sroa.3.0 = phi i64 [ ptrtoint (ptr @_ZN11tree_sitter6Parser10set_logger3log17h60c4518c1aef7fd0E to i64), %48 ], [ 0, %36 ]
   %.sroa.0.0 = phi i64 [ %50, %48 ], [ 0, %36 ]
-  %.1 = phi i8 [ 0, %48 ], [ 1, %36 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   invoke void @ts_parser_set_logger(ptr noundef nonnull %4, { i64, i64 } %.fca.1.insert)
@@ -7495,8 +7495,8 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %10
   resume { ptr, i32 } %45
 
 _ZN11tree_sitter13QueryProperty3new17he47e41ce7b97423aE.exit: ; preds = %32, %54
-  %.sroa.02.0.i = phi ptr [ %55, %54 ], [ null, %32 ]
   %.sroa.5.0.i = phi i64 [ %56, %54 ], [ undef, %32 ]
+  %.sroa.02.0.i = phi ptr [ %55, %54 ], [ null, %32 ]
   %57 = icmp ne ptr %.fca.0.extract.i, null
   tail call void @llvm.assume(i1 %57)
   %58 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7858,8 +7858,8 @@ define void @_ZN11tree_sitter13QueryProperty3new17he47e41ce7b97423aE(ptr noalias
           to label %30 unwind label %25
 
 18:                                               ; preds = %7, %35
-  %.sroa.02.0 = phi ptr [ %36, %35 ], [ null, %7 ]
   %.sroa.5.0 = phi i64 [ %37, %35 ], [ undef, %7 ]
+  %.sroa.02.0 = phi ptr [ %36, %35 ], [ null, %7 ]
   %19 = icmp ne ptr %.fca.0.extract, null
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds i8, ptr %0, i64 16

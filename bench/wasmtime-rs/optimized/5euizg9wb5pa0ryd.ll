@@ -904,13 +904,13 @@ define hidden void @_ZN14wasmtime_cache6worker12WorkerThread3run17h961a39d8b6eaa
   %126 = ptrtoint ptr %125 to i64
   %.not.i.i.i.i.i = icmp sgt ptr %125, inttoptr (i64 -4096 to ptr)
   %127 = icmp slt ptr %125, null
-  %.014.i.i.i.i.i = and i1 %.not.i.i.i.i.i, %127
+  %.0.i.i.i.i.i = and i1 %.not.i.i.i.i.i, %127
   %128 = shl nsw i64 %126, 16
   %129 = and i64 %128, 4294901760
   %130 = shl i64 %126, 32
-  %.sroa.3.0.insert.insert.i.i.i.i = select i1 %.014.i.i.i.i.i, i64 %129, i64 %130
+  %.sroa.3.0.insert.insert.i.i.i.i = select i1 %.0.i.i.i.i.i, i64 %129, i64 %130
   %.sroa.414.0.extract.shift.i.i = lshr exact i64 %.sroa.3.0.insert.insert.i.i.i.i, 16
-  br i1 %.014.i.i.i.i.i, label %_ZN6rustix7backend7process8syscalls4nice17h1e7725c47fdb953aE.exit.thread.i, label %131
+  br i1 %.0.i.i.i.i.i, label %_ZN6rustix7backend7process8syscalls4nice17h1e7725c47fdb953aE.exit.thread.i, label %131
 
 131:                                              ; preds = %123
   %132 = sub i64 85899345920, %130
@@ -2272,7 +2272,7 @@ _ZN3std2fs11remove_file17h53533b07b605b638E.exit.i: ; preds = %597
   br label %672
 
 656:                                              ; preds = %670, %662
-  %657 = phi ptr [ %.pre142, %670 ], [ %.sroa.764.073, %662 ]
+  %657 = phi ptr [ %.pre142, %670 ], [ %.sroa.764.075, %662 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !396)
   call void @llvm.experimental.noalias.scope.decl(metadata !399), !noalias !199
   call void @llvm.experimental.noalias.scope.decl(metadata !402), !noalias !199
@@ -2296,11 +2296,11 @@ _ZN3std2fs11remove_file17h53533b07b605b638E.exit.i: ; preds = %597
           to label %.body59 unwind label %623, !noalias !199
 
 662:                                              ; preds = %_ZN4zstd6stream9functions10encode_all17he1924b0ff15abfe4E.exit.thread, %_ZN4zstd6stream9functions10encode_all17he1924b0ff15abfe4E.exit
-  %.sroa.764.073 = phi ptr [ %519, %_ZN4zstd6stream9functions10encode_all17he1924b0ff15abfe4E.exit.thread ], [ %.sroa.764.0.copyload66, %_ZN4zstd6stream9functions10encode_all17he1924b0ff15abfe4E.exit ]
+  %.sroa.764.075 = phi ptr [ %519, %_ZN4zstd6stream9functions10encode_all17he1924b0ff15abfe4E.exit.thread ], [ %.sroa.764.0.copyload66, %_ZN4zstd6stream9functions10encode_all17he1924b0ff15abfe4E.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %83), !noalias !199
-  %663 = icmp ne ptr %.sroa.764.073, null
+  %663 = icmp ne ptr %.sroa.764.075, null
   call void @llvm.assume(i1 %663)
-  store ptr %.sroa.764.073, ptr %83, align 8, !noalias !199
+  store ptr %.sroa.764.075, ptr %83, align 8, !noalias !199
   %664 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !199
   %665 = icmp ult i64 %664, 6
   call void @llvm.assume(i1 %665)
@@ -2992,9 +2992,9 @@ _ZN14wasmtime_cache6config11CacheConfig9directory17h429e89ca63bdd77cE.exit.i.i: 
 .outer.i:                                         ; preds = %860, %842
   %.sroa.0207.0.ph.i = phi ptr [ %853, %860 ], [ %845, %842 ]
   %.sroa.7209.0.ph.i = phi i64 [ %854, %860 ], [ 0, %842 ]
-  %.sroa.023.0.ph.i = phi i64 [ %spec.select.i, %860 ], [ 0, %842 ]
+  %.sroa.625.0.ph.i = phi i64 [ %spec.select.i, %860 ], [ undef, %842 ]
+  %.sroa.023.0.ph.i = phi i64 [ %spec.select153.i, %860 ], [ 0, %842 ]
   %.0132.ph.i = phi i64 [ %859, %860 ], [ 0, %842 ]
-  %.sroa.625.0.ph.i = phi i64 [ %spec.select153.i, %860 ], [ undef, %842 ]
   br label %848
 
 848:                                              ; preds = %.thread.i35, %.outer.i
@@ -3006,7 +3006,7 @@ _ZN14wasmtime_cache6config11CacheConfig9directory17h429e89ca63bdd77cE.exit.i.i: 
   br i1 %849, label %.thread221.i, label %852
 
 850:                                              ; preds = %860
-  %851 = icmp eq i64 %spec.select.i, 1
+  %851 = icmp eq i64 %spec.select153.i, 1
   br i1 %851, label %.thread217.i, label %.thread221.i
 
 852:                                              ; preds = %848
@@ -3027,8 +3027,8 @@ _ZN14wasmtime_cache6config11CacheConfig9directory17h429e89ca63bdd77cE.exit.i.i: 
   %861 = icmp ugt i64 %859, %835
   %862 = icmp uge i64 %.sroa.7209.0.i, %844
   %or.cond.i = or i1 %862, %861
-  %spec.select.i = select i1 %or.cond.i, i64 1, i64 %.sroa.023.0.i
-  %spec.select153.i = select i1 %or.cond.i, i64 %.sroa.7209.0.i, i64 %.sroa.625.0.ph.i
+  %spec.select.i = select i1 %or.cond.i, i64 %.sroa.7209.0.i, i64 %.sroa.625.0.ph.i
+  %spec.select153.i = select i1 %or.cond.i, i64 1, i64 %.sroa.023.0.i
   %863 = icmp ugt i64 %859, %822
   %864 = icmp uge i64 %.sroa.7209.0.i, %825
   %or.cond3.i = or i1 %864, %863
@@ -3041,7 +3041,7 @@ _ZN14wasmtime_cache6config11CacheConfig9directory17h429e89ca63bdd77cE.exit.i.i: 
   br i1 %or.cond3235.i, label %.thread217.i, label %848
 
 .thread217.i:                                     ; preds = %.thread.i35, %852, %850
-  %.sroa.439.0220.i = phi i64 [ %spec.select153.i, %850 ], [ %.sroa.625.0.ph.i, %.thread.i35 ], [ %.sroa.7209.0.i, %852 ]
+  %.sroa.439.0220.i = phi i64 [ %spec.select.i, %850 ], [ %.sroa.625.0.ph.i, %.thread.i35 ], [ %.sroa.7209.0.i, %852 ]
   %867 = icmp ugt i64 %.sroa.439.0220.i, %846
   br i1 %867, label %871, label %868
 

@@ -2457,18 +2457,18 @@ define internal i32 @dissect_diameter_3gpp_path(ptr noundef %0, ptr nocapture re
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %15
-  %.02024 = phi i32 [ %17, %15 ], [ 0, %4 ]
-  %10 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.02024, i32 noundef -1, i8 noundef zeroext 44) #3
+  %.024 = phi i32 [ %17, %15 ], [ 0, %4 ]
+  %10 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.024, i32 noundef -1, i8 noundef zeroext 44) #3
   %11 = icmp eq i32 %10, -1
   %12 = load i32, ptr @hf_diameter_3gpp_path, align 4
   br i1 %11, label %13, label %15
 
 13:                                               ; preds = %.lr.ph
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %12, ptr noundef %0, i32 noundef %.02024, i32 noundef -1, i32 noundef 0) #3
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %12, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #3
   br label %20
 
 15:                                               ; preds = %.lr.ph
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %12, ptr noundef %0, i32 noundef %.02024, i32 noundef %10, i32 noundef 0) #3
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %12, ptr noundef %0, i32 noundef %.024, i32 noundef %10, i32 noundef 0) #3
   %17 = add nuw i32 %10, 1
   %18 = icmp slt i32 %17, %6
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !6
@@ -2478,8 +2478,8 @@ define internal i32 @dissect_diameter_3gpp_path(ptr noundef %0, ptr nocapture re
   br label %20
 
 20:                                               ; preds = %._crit_edge, %13
-  %.0 = phi i32 [ %6, %13 ], [ %19, %._crit_edge ]
-  ret i32 %.0
+  %.020 = phi i32 [ %6, %13 ], [ %19, %._crit_edge ]
+  ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable

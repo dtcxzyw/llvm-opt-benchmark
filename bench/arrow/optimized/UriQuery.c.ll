@@ -21,10 +21,10 @@ while.body.us.preheader.i.i:                      ; preds = %entry
 
 while.body.us.i.i:                                ; preds = %if.end21.us.i.i, %while.body.us.preheader.i.i
   %0 = phi i32 [ %add34.us.i.i, %if.end21.us.i.i ], [ 0, %while.body.us.preheader.i.i ]
-  %queryList.addr.051.us.i.i = phi ptr [ %3, %if.end21.us.i.i ], [ %queryList, %while.body.us.preheader.i.i ]
-  %ampersandLen.049.us.i.i = phi i32 [ 1, %if.end21.us.i.i ], [ 0, %while.body.us.preheader.i.i ]
-  %1 = load ptr, ptr %queryList.addr.051.us.i.i, align 8
-  %value3.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.051.us.i.i, i64 8
+  %ampersandLen.050.us.i.i = phi i32 [ 1, %if.end21.us.i.i ], [ 0, %while.body.us.preheader.i.i ]
+  %queryList.addr.048.us.i.i = phi ptr [ %3, %if.end21.us.i.i ], [ %queryList, %while.body.us.preheader.i.i ]
+  %1 = load ptr, ptr %queryList.addr.048.us.i.i, align 8
+  %value3.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.048.us.i.i, i64 8
   %2 = load ptr, ptr %value3.us.i.i, align 8
   %cmp5.us.i.i = icmp eq ptr %1, null
   br i1 %cmp5.us.i.i, label %cond.end.us.i.i, label %cond.false.us.i.i
@@ -56,11 +56,11 @@ if.end21.us.i.i:                                  ; preds = %cond.end13.us.i.i
   %mul22.us.i.i = mul nsw i32 %cond14.us.i.i, 6
   %add30.us.i.i = or disjoint i32 %mul22.us.i.i, 1
   %cond32.us.i.i = select i1 %cmp7.us.i.i, i32 0, i32 %add30.us.i.i
-  %add.us.i.i = add i32 %ampersandLen.049.us.i.i, %0
+  %add.us.i.i = add i32 %ampersandLen.050.us.i.i, %0
   %add33.us.i.i = add i32 %add.us.i.i, %mul.us.i.i
   %add34.us.i.i = add i32 %add33.us.i.i, %cond32.us.i.i
   store i32 %add34.us.i.i, ptr %charsRequired, align 4
-  %next.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.051.us.i.i, i64 16
+  %next.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.048.us.i.i, i64 16
   %3 = load ptr, ptr %next.us.i.i, align 8
   %cmp1.not.us.i.i = icmp eq ptr %3, null
   br i1 %cmp1.not.us.i.i, label %uriComposeQueryCharsRequiredExA.exit, label %while.body.us.i.i, !llvm.loop !4
@@ -87,10 +87,10 @@ while.body.us.preheader.i:                        ; preds = %entry
 
 while.body.us.i:                                  ; preds = %if.end21.us.i, %while.body.us.preheader.i
   %0 = phi i32 [ %add34.us.i, %if.end21.us.i ], [ 0, %while.body.us.preheader.i ]
-  %queryList.addr.051.us.i = phi ptr [ %3, %if.end21.us.i ], [ %queryList, %while.body.us.preheader.i ]
-  %ampersandLen.049.us.i = phi i32 [ 1, %if.end21.us.i ], [ 0, %while.body.us.preheader.i ]
-  %1 = load ptr, ptr %queryList.addr.051.us.i, align 8
-  %value3.us.i = getelementptr inbounds i8, ptr %queryList.addr.051.us.i, i64 8
+  %ampersandLen.050.us.i = phi i32 [ 1, %if.end21.us.i ], [ 0, %while.body.us.preheader.i ]
+  %queryList.addr.048.us.i = phi ptr [ %3, %if.end21.us.i ], [ %queryList, %while.body.us.preheader.i ]
+  %1 = load ptr, ptr %queryList.addr.048.us.i, align 8
+  %value3.us.i = getelementptr inbounds i8, ptr %queryList.addr.048.us.i, i64 8
   %2 = load ptr, ptr %value3.us.i, align 8
   %cmp5.us.i = icmp eq ptr %1, null
   br i1 %cmp5.us.i, label %cond.end.us.i, label %cond.false.us.i
@@ -120,13 +120,13 @@ cond.end13.us.i:                                  ; preds = %cond.false10.us.i, 
 if.end21.us.i:                                    ; preds = %cond.end13.us.i
   %mul.us.i = mul nsw i32 %cond6.us.i, %cond.i
   %mul22.us.i = mul nsw i32 %cond14.us.i, %cond.i
-  %add.us.i = add nsw i32 %mul.us.i, %ampersandLen.049.us.i
+  %add.us.i = add nsw i32 %mul.us.i, %ampersandLen.050.us.i
   %add30.us.i = add nsw i32 %mul22.us.i, 1
   %cond32.us.i = select i1 %cmp7.us.i, i32 0, i32 %add30.us.i
   %add33.us.i = add nsw i32 %add.us.i, %cond32.us.i
   %add34.us.i = add nsw i32 %add33.us.i, %0
   store i32 %add34.us.i, ptr %charsRequired, align 4
-  %next.us.i = getelementptr inbounds i8, ptr %queryList.addr.051.us.i, i64 16
+  %next.us.i = getelementptr inbounds i8, ptr %queryList.addr.048.us.i, i64 16
   %3 = load ptr, ptr %next.us.i, align 8
   %cmp1.not.us.i = icmp eq ptr %3, null
   br i1 %cmp1.not.us.i, label %return, label %while.body.us.i, !llvm.loop !4
@@ -165,12 +165,12 @@ while.body.preheader.i:                           ; preds = %if.end
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end75.i, %while.body.preheader.i
-  %queryList.addr.051.i = phi ptr [ %2, %if.end75.i ], [ %queryList, %while.body.preheader.i ]
-  %cmp4950.i = phi i1 [ false, %if.end75.i ], [ true, %while.body.preheader.i ]
-  %ampersandLen.049.i = phi i32 [ %ampersandLen.1.i, %if.end75.i ], [ 0, %while.body.preheader.i ]
-  %write.048.i = phi ptr [ %write.2.i, %if.end75.i ], [ %dest, %while.body.preheader.i ]
-  %0 = load ptr, ptr %queryList.addr.051.i, align 8
-  %value3.i = getelementptr inbounds i8, ptr %queryList.addr.051.i, i64 8
+  %write.051.i = phi ptr [ %write.2.i, %if.end75.i ], [ %dest, %while.body.preheader.i ]
+  %ampersandLen.050.i = phi i32 [ %ampersandLen.1.i, %if.end75.i ], [ 0, %while.body.preheader.i ]
+  %cmp4949.i = phi i1 [ false, %if.end75.i ], [ true, %while.body.preheader.i ]
+  %queryList.addr.048.i = phi ptr [ %2, %if.end75.i ], [ %queryList, %while.body.preheader.i ]
+  %0 = load ptr, ptr %queryList.addr.048.i, align 8
+  %value3.i = getelementptr inbounds i8, ptr %queryList.addr.048.i, i64 8
   %1 = load ptr, ptr %value3.i, align 8
   %cmp5.i = icmp eq ptr %0, null
   br i1 %cmp5.i, label %cond.end.i, label %cond.false.i
@@ -200,26 +200,26 @@ cond.end13.i:                                     ; preds = %cond.false10.i, %co
 if.end21.i:                                       ; preds = %cond.end13.i
   %mul.i = mul nsw i32 %cond6.i, %cond59.i
   %mul22.i = mul nsw i32 %cond14.i, %cond59.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %write.048.i to i64
-  %conv40.i = zext nneg i32 %ampersandLen.049.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %write.051.i to i64
+  %conv40.i = zext nneg i32 %ampersandLen.050.i to i64
   %conv42.i = sext i32 %mul.i to i64
-  %sub.ptr.sub.i = sub i64 %conv40.i, %sub.ptr.rhs.cast61.i
-  %add41.i = add i64 %sub.ptr.sub.i, %sub.ptr.lhs.cast.i
+  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast61.i
+  %add41.i = add i64 %sub.ptr.sub.i, %conv40.i
   %add43.i = add nsw i64 %add41.i, %conv42.i
   %cmp45.i = icmp sgt i64 %add43.i, %conv4462.i
   br i1 %cmp45.i, label %return, label %if.end48.i
 
 if.end48.i:                                       ; preds = %if.end21.i
-  br i1 %cmp4950.i, label %if.end53.i, label %if.else52.i
+  br i1 %cmp4949.i, label %if.end53.i, label %if.else52.i
 
 if.else52.i:                                      ; preds = %if.end48.i
-  store i8 38, ptr %write.048.i, align 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %write.048.i, i64 1
+  store i8 38, ptr %write.051.i, align 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %write.051.i, i64 1
   br label %if.end53.i
 
 if.end53.i:                                       ; preds = %if.else52.i, %if.end48.i
-  %write.1.i = phi ptr [ %incdec.ptr.i, %if.else52.i ], [ %write.048.i, %if.end48.i ]
-  %ampersandLen.1.i = phi i32 [ %ampersandLen.049.i, %if.else52.i ], [ 1, %if.end48.i ]
+  %ampersandLen.1.i = phi i32 [ %ampersandLen.050.i, %if.else52.i ], [ 1, %if.end48.i ]
+  %write.1.i = phi ptr [ %incdec.ptr.i, %if.else52.i ], [ %write.051.i, %if.end48.i ]
   %idx.ext.i = sext i32 %cond6.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %idx.ext.i
   %call54.i = tail call ptr @uriEscapeExA(ptr noundef %0, ptr noundef %add.ptr.i, ptr noundef %write.1.i, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) #6
@@ -244,7 +244,7 @@ if.end68.i:                                       ; preds = %if.then57.i
 
 if.end75.i:                                       ; preds = %if.end68.i, %if.end53.i
   %write.2.i = phi ptr [ %call73.i, %if.end68.i ], [ %call54.i, %if.end53.i ]
-  %next.i = getelementptr inbounds i8, ptr %queryList.addr.051.i, i64 16
+  %next.i = getelementptr inbounds i8, ptr %queryList.addr.048.i, i64 16
   %2 = load ptr, ptr %next.i, align 8
   %cmp1.not.i = icmp eq ptr %2, null
   br i1 %cmp1.not.i, label %if.then78.i, label %while.body.i, !llvm.loop !4
@@ -309,10 +309,10 @@ while.body.us.preheader.i.i:                      ; preds = %do.end
 
 while.body.us.i.i:                                ; preds = %if.end21.us.i.i, %while.body.us.preheader.i.i
   %0 = phi i32 [ %add34.us.i.i, %if.end21.us.i.i ], [ 0, %while.body.us.preheader.i.i ]
-  %queryList.addr.051.us.i.i = phi ptr [ %3, %if.end21.us.i.i ], [ %queryList, %while.body.us.preheader.i.i ]
-  %ampersandLen.049.us.i.i = phi i32 [ 1, %if.end21.us.i.i ], [ 0, %while.body.us.preheader.i.i ]
-  %1 = load ptr, ptr %queryList.addr.051.us.i.i, align 8
-  %value3.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.051.us.i.i, i64 8
+  %ampersandLen.050.us.i.i = phi i32 [ 1, %if.end21.us.i.i ], [ 0, %while.body.us.preheader.i.i ]
+  %queryList.addr.048.us.i.i = phi ptr [ %3, %if.end21.us.i.i ], [ %queryList, %while.body.us.preheader.i.i ]
+  %1 = load ptr, ptr %queryList.addr.048.us.i.i, align 8
+  %value3.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.048.us.i.i, i64 8
   %2 = load ptr, ptr %value3.us.i.i, align 8
   %cmp5.us.i.i = icmp eq ptr %1, null
   br i1 %cmp5.us.i.i, label %cond.end.us.i.i, label %cond.false.us.i.i
@@ -344,10 +344,10 @@ if.end21.us.i.i:                                  ; preds = %cond.end13.us.i.i
   %mul22.us.i.i = mul nsw i32 %cond14.us.i.i, %cond.i.i
   %add30.us.i.i = add nsw i32 %mul22.us.i.i, 1
   %cond32.us.i.i = select i1 %cmp7.us.i.i, i32 0, i32 %add30.us.i.i
-  %add.us.i.i = add i32 %ampersandLen.049.us.i.i, %0
+  %add.us.i.i = add i32 %ampersandLen.050.us.i.i, %0
   %add33.us.i.i = add i32 %add.us.i.i, %mul.us.i.i
   %add34.us.i.i = add i32 %add33.us.i.i, %cond32.us.i.i
-  %next.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.051.us.i.i, i64 16
+  %next.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.048.us.i.i, i64 16
   %3 = load ptr, ptr %next.us.i.i, align 8
   %cmp1.not.us.i.i = icmp eq ptr %3, null
   br i1 %cmp1.not.us.i.i, label %if.end10, label %while.body.us.i.i, !llvm.loop !4
@@ -907,10 +907,10 @@ while.body.us.preheader.i.i:                      ; preds = %entry
 
 while.body.us.i.i:                                ; preds = %if.end21.us.i.i, %while.body.us.preheader.i.i
   %0 = phi i32 [ %add34.us.i.i, %if.end21.us.i.i ], [ 0, %while.body.us.preheader.i.i ]
-  %queryList.addr.051.us.i.i = phi ptr [ %3, %if.end21.us.i.i ], [ %queryList, %while.body.us.preheader.i.i ]
-  %ampersandLen.049.us.i.i = phi i32 [ 1, %if.end21.us.i.i ], [ 0, %while.body.us.preheader.i.i ]
-  %1 = load ptr, ptr %queryList.addr.051.us.i.i, align 8
-  %value3.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.051.us.i.i, i64 8
+  %ampersandLen.050.us.i.i = phi i32 [ 1, %if.end21.us.i.i ], [ 0, %while.body.us.preheader.i.i ]
+  %queryList.addr.048.us.i.i = phi ptr [ %3, %if.end21.us.i.i ], [ %queryList, %while.body.us.preheader.i.i ]
+  %1 = load ptr, ptr %queryList.addr.048.us.i.i, align 8
+  %value3.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.048.us.i.i, i64 8
   %2 = load ptr, ptr %value3.us.i.i, align 8
   %cmp5.us.i.i = icmp eq ptr %1, null
   br i1 %cmp5.us.i.i, label %cond.end.us.i.i, label %cond.false.us.i.i
@@ -942,11 +942,11 @@ if.end21.us.i.i:                                  ; preds = %cond.end13.us.i.i
   %mul22.us.i.i = mul nsw i32 %cond14.us.i.i, 6
   %add30.us.i.i = or disjoint i32 %mul22.us.i.i, 1
   %cond32.us.i.i = select i1 %cmp7.us.i.i, i32 0, i32 %add30.us.i.i
-  %add.us.i.i = add i32 %ampersandLen.049.us.i.i, %0
+  %add.us.i.i = add i32 %ampersandLen.050.us.i.i, %0
   %add33.us.i.i = add i32 %add.us.i.i, %mul.us.i.i
   %add34.us.i.i = add i32 %add33.us.i.i, %cond32.us.i.i
   store i32 %add34.us.i.i, ptr %charsRequired, align 4
-  %next.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.051.us.i.i, i64 16
+  %next.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.048.us.i.i, i64 16
   %3 = load ptr, ptr %next.us.i.i, align 8
   %cmp1.not.us.i.i = icmp eq ptr %3, null
   br i1 %cmp1.not.us.i.i, label %uriComposeQueryCharsRequiredExW.exit, label %while.body.us.i.i, !llvm.loop !8
@@ -973,10 +973,10 @@ while.body.us.preheader.i:                        ; preds = %entry
 
 while.body.us.i:                                  ; preds = %if.end21.us.i, %while.body.us.preheader.i
   %0 = phi i32 [ %add34.us.i, %if.end21.us.i ], [ 0, %while.body.us.preheader.i ]
-  %queryList.addr.051.us.i = phi ptr [ %3, %if.end21.us.i ], [ %queryList, %while.body.us.preheader.i ]
-  %ampersandLen.049.us.i = phi i32 [ 1, %if.end21.us.i ], [ 0, %while.body.us.preheader.i ]
-  %1 = load ptr, ptr %queryList.addr.051.us.i, align 8
-  %value3.us.i = getelementptr inbounds i8, ptr %queryList.addr.051.us.i, i64 8
+  %ampersandLen.050.us.i = phi i32 [ 1, %if.end21.us.i ], [ 0, %while.body.us.preheader.i ]
+  %queryList.addr.048.us.i = phi ptr [ %3, %if.end21.us.i ], [ %queryList, %while.body.us.preheader.i ]
+  %1 = load ptr, ptr %queryList.addr.048.us.i, align 8
+  %value3.us.i = getelementptr inbounds i8, ptr %queryList.addr.048.us.i, i64 8
   %2 = load ptr, ptr %value3.us.i, align 8
   %cmp5.us.i = icmp eq ptr %1, null
   br i1 %cmp5.us.i, label %cond.end.us.i, label %cond.false.us.i
@@ -1006,13 +1006,13 @@ cond.end13.us.i:                                  ; preds = %cond.false10.us.i, 
 if.end21.us.i:                                    ; preds = %cond.end13.us.i
   %mul.us.i = mul nsw i32 %cond6.us.i, %cond.i
   %mul22.us.i = mul nsw i32 %cond14.us.i, %cond.i
-  %add.us.i = add nsw i32 %mul.us.i, %ampersandLen.049.us.i
+  %add.us.i = add nsw i32 %mul.us.i, %ampersandLen.050.us.i
   %add30.us.i = add nsw i32 %mul22.us.i, 1
   %cond32.us.i = select i1 %cmp7.us.i, i32 0, i32 %add30.us.i
   %add33.us.i = add nsw i32 %add.us.i, %cond32.us.i
   %add34.us.i = add nsw i32 %add33.us.i, %0
   store i32 %add34.us.i, ptr %charsRequired, align 4
-  %next.us.i = getelementptr inbounds i8, ptr %queryList.addr.051.us.i, i64 16
+  %next.us.i = getelementptr inbounds i8, ptr %queryList.addr.048.us.i, i64 16
   %3 = load ptr, ptr %next.us.i, align 8
   %cmp1.not.us.i = icmp eq ptr %3, null
   br i1 %cmp1.not.us.i, label %return, label %while.body.us.i, !llvm.loop !8
@@ -1051,12 +1051,12 @@ while.body.preheader.i:                           ; preds = %if.end
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end76.i, %while.body.preheader.i
-  %queryList.addr.051.i = phi ptr [ %2, %if.end76.i ], [ %queryList, %while.body.preheader.i ]
-  %cmp4950.i = phi i1 [ false, %if.end76.i ], [ true, %while.body.preheader.i ]
-  %ampersandLen.049.i = phi i32 [ %ampersandLen.1.i, %if.end76.i ], [ 0, %while.body.preheader.i ]
-  %write.048.i = phi ptr [ %write.2.i, %if.end76.i ], [ %dest, %while.body.preheader.i ]
-  %0 = load ptr, ptr %queryList.addr.051.i, align 8
-  %value3.i = getelementptr inbounds i8, ptr %queryList.addr.051.i, i64 8
+  %write.051.i = phi ptr [ %write.2.i, %if.end76.i ], [ %dest, %while.body.preheader.i ]
+  %ampersandLen.050.i = phi i32 [ %ampersandLen.1.i, %if.end76.i ], [ 0, %while.body.preheader.i ]
+  %cmp4949.i = phi i1 [ false, %if.end76.i ], [ true, %while.body.preheader.i ]
+  %queryList.addr.048.i = phi ptr [ %2, %if.end76.i ], [ %queryList, %while.body.preheader.i ]
+  %0 = load ptr, ptr %queryList.addr.048.i, align 8
+  %value3.i = getelementptr inbounds i8, ptr %queryList.addr.048.i, i64 8
   %1 = load ptr, ptr %value3.i, align 8
   %cmp5.i = icmp eq ptr %0, null
   br i1 %cmp5.i, label %cond.end.i, label %cond.false.i
@@ -1086,10 +1086,10 @@ cond.end13.i:                                     ; preds = %cond.false10.i, %co
 if.end21.i:                                       ; preds = %cond.end13.i
   %mul.i = mul nsw i32 %cond6.i, %cond59.i
   %mul22.i = mul nsw i32 %cond14.i, %cond59.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %write.048.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %write.051.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast61.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
-  %conv40.i = zext nneg i32 %ampersandLen.049.i to i64
+  %conv40.i = zext nneg i32 %ampersandLen.050.i to i64
   %add41.i = add nsw i64 %sub.ptr.div.i, %conv40.i
   %conv42.i = sext i32 %mul.i to i64
   %add43.i = add nsw i64 %add41.i, %conv42.i
@@ -1097,16 +1097,16 @@ if.end21.i:                                       ; preds = %cond.end13.i
   br i1 %cmp45.i, label %return, label %if.end48.i
 
 if.end48.i:                                       ; preds = %if.end21.i
-  br i1 %cmp4950.i, label %if.end53.i, label %if.else52.i
+  br i1 %cmp4949.i, label %if.end53.i, label %if.else52.i
 
 if.else52.i:                                      ; preds = %if.end48.i
-  store i32 38, ptr %write.048.i, align 4
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %write.048.i, i64 4
+  store i32 38, ptr %write.051.i, align 4
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %write.051.i, i64 4
   br label %if.end53.i
 
 if.end53.i:                                       ; preds = %if.else52.i, %if.end48.i
-  %write.1.i = phi ptr [ %incdec.ptr.i, %if.else52.i ], [ %write.048.i, %if.end48.i ]
-  %ampersandLen.1.i = phi i32 [ %ampersandLen.049.i, %if.else52.i ], [ 1, %if.end48.i ]
+  %ampersandLen.1.i = phi i32 [ %ampersandLen.050.i, %if.else52.i ], [ 1, %if.end48.i ]
+  %write.1.i = phi ptr [ %incdec.ptr.i, %if.else52.i ], [ %write.051.i, %if.end48.i ]
   %idx.ext.i = sext i32 %cond6.i to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %0, i64 %idx.ext.i
   %call54.i = tail call ptr @uriEscapeExW(ptr noundef %0, ptr noundef %add.ptr.i, ptr noundef %write.1.i, i32 noundef %spaceToPlus, i32 noundef %normalizeBreaks) #6
@@ -1132,7 +1132,7 @@ if.end69.i:                                       ; preds = %if.then57.i
 
 if.end76.i:                                       ; preds = %if.end69.i, %if.end53.i
   %write.2.i = phi ptr [ %call74.i, %if.end69.i ], [ %call54.i, %if.end53.i ]
-  %next.i = getelementptr inbounds i8, ptr %queryList.addr.051.i, i64 16
+  %next.i = getelementptr inbounds i8, ptr %queryList.addr.048.i, i64 16
   %2 = load ptr, ptr %next.i, align 8
   %cmp1.not.i = icmp eq ptr %2, null
   br i1 %cmp1.not.i, label %if.then79.i, label %while.body.i, !llvm.loop !8
@@ -1198,10 +1198,10 @@ while.body.us.preheader.i.i:                      ; preds = %do.end
 
 while.body.us.i.i:                                ; preds = %if.end21.us.i.i, %while.body.us.preheader.i.i
   %0 = phi i32 [ %add34.us.i.i, %if.end21.us.i.i ], [ 0, %while.body.us.preheader.i.i ]
-  %queryList.addr.051.us.i.i = phi ptr [ %3, %if.end21.us.i.i ], [ %queryList, %while.body.us.preheader.i.i ]
-  %ampersandLen.049.us.i.i = phi i32 [ 1, %if.end21.us.i.i ], [ 0, %while.body.us.preheader.i.i ]
-  %1 = load ptr, ptr %queryList.addr.051.us.i.i, align 8
-  %value3.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.051.us.i.i, i64 8
+  %ampersandLen.050.us.i.i = phi i32 [ 1, %if.end21.us.i.i ], [ 0, %while.body.us.preheader.i.i ]
+  %queryList.addr.048.us.i.i = phi ptr [ %3, %if.end21.us.i.i ], [ %queryList, %while.body.us.preheader.i.i ]
+  %1 = load ptr, ptr %queryList.addr.048.us.i.i, align 8
+  %value3.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.048.us.i.i, i64 8
   %2 = load ptr, ptr %value3.us.i.i, align 8
   %cmp5.us.i.i = icmp eq ptr %1, null
   br i1 %cmp5.us.i.i, label %cond.end.us.i.i, label %cond.false.us.i.i
@@ -1233,10 +1233,10 @@ if.end21.us.i.i:                                  ; preds = %cond.end13.us.i.i
   %mul22.us.i.i = mul nsw i32 %cond14.us.i.i, %cond.i.i
   %add30.us.i.i = add nsw i32 %mul22.us.i.i, 1
   %cond32.us.i.i = select i1 %cmp7.us.i.i, i32 0, i32 %add30.us.i.i
-  %add.us.i.i = add i32 %ampersandLen.049.us.i.i, %0
+  %add.us.i.i = add i32 %ampersandLen.050.us.i.i, %0
   %add33.us.i.i = add i32 %add.us.i.i, %mul.us.i.i
   %add34.us.i.i = add i32 %add33.us.i.i, %cond32.us.i.i
-  %next.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.051.us.i.i, i64 16
+  %next.us.i.i = getelementptr inbounds i8, ptr %queryList.addr.048.us.i.i, i64 16
   %3 = load ptr, ptr %next.us.i.i, align 8
   %cmp1.not.us.i.i = icmp eq ptr %3, null
   br i1 %cmp1.not.us.i.i, label %if.end10, label %while.body.us.i.i, !llvm.loop !8

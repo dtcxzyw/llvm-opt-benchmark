@@ -256,18 +256,18 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: 
   %119 = phi ptr [ %100, %.lr.ph.i ], [ %337, %333 ]
   %.04281.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %333 ]
   %.04380.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %.2.i, %333 ]
-  %.04879.i = phi i64 [ 0, %.lr.ph.i ], [ %338, %333 ]
+  %.04679.i = phi i64 [ 0, %.lr.ph.i ], [ %338, %333 ]
   %.sroa.8.078.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.8.2.i, %333 ]
   %.sroa.4.077.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.4.2.i, %333 ]
-  %120 = getelementptr inbounds float, ptr %118, i64 %.04879.i
+  %120 = getelementptr inbounds float, ptr %118, i64 %.04679.i
   %121 = load float, ptr %120, align 4, !noalias !5
   %122 = fcmp ogt float %121, 0.000000e+00
   br i1 %122, label %123, label %333
 
 123:                                              ; preds = %115
-  store i64 %.04879.i, ptr %17, align 8, !noalias !5
+  store i64 %.04679.i, ptr %17, align 8, !noalias !5
   store i64 0, ptr %.sroa.74.0..sroa_idx.i, align 8, !noalias !5
-  %124 = add i64 %117, %.04879.i
+  %124 = add i64 %117, %.04679.i
   %125 = xor i64 %117, %116
   %126 = xor i64 %125, 2004413935125273122
   %127 = add i64 %124, %116
@@ -350,7 +350,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: 
   store i32 0, ptr %98, align 8, !noalias !5
   %202 = fdiv float %114, %121
   %203 = call noundef float @sqrtf(float noundef %202) #24, !noalias !5
-  %204 = getelementptr inbounds %"class.gmx::BasicVector", ptr %110, i64 %.04879.i
+  %204 = getelementptr inbounds %"class.gmx::BasicVector", ptr %110, i64 %.04679.i
   %205 = fpext float %121 to double
   %206 = fmul double %205, 5.000000e-01
   %.promoted = load i32, ptr %98, align 8, !noalias !5
@@ -578,7 +578,7 @@ _ZN3gmx19ThreeFry2x64GeneralILj20ELj64EEclEv.exit.i.i.i: ; preds = %.noexc56.i, 
   %.sroa.8.2.i = phi i32 [ %317, %331 ], [ %.sroa.8.078.i, %115 ]
   %.2.i = phi float [ %330, %331 ], [ %.04380.i, %115 ]
   %.1.i = phi i32 [ %332, %331 ], [ %.04281.i, %115 ]
-  %338 = add nuw i64 %.04879.i, 1
+  %338 = add nuw i64 %.04679.i, 1
   %339 = ptrtoint ptr %337 to i64
   %340 = ptrtoint ptr %336 to i64
   %341 = sub i64 %339, %340

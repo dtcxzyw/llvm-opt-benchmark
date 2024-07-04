@@ -11556,14 +11556,14 @@ while.body.i10:                                   ; preds = %while.body, %_ZSt12
 
 while.body.i26:                                   ; preds = %while.body.i10, %if.end.i
   %__result.addr.040.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %__result.addr.031.i, %while.body.i10 ]
-  %__first1.sroa.0.039.i = phi ptr [ %__first1.sroa.0.1.i, %if.end.i ], [ %__first.sroa.0.030.i, %while.body.i10 ]
-  %__first2.sroa.0.038.i = phi ptr [ %__first2.sroa.0.1.i, %if.end.i ], [ %add.ptr.i.i11, %while.body.i10 ]
-  %call4.i.i = tail call noundef zeroext i1 %__comp.coerce(ptr noundef nonnull align 8 dereferenceable(8) %__first2.sroa.0.038.i, ptr noundef nonnull align 8 dereferenceable(8) %__first1.sroa.0.039.i)
+  %__first2.sroa.0.039.i = phi ptr [ %__first2.sroa.0.1.i, %if.end.i ], [ %add.ptr.i.i11, %while.body.i10 ]
+  %__first1.sroa.0.038.i = phi ptr [ %__first1.sroa.0.1.i, %if.end.i ], [ %__first.sroa.0.030.i, %while.body.i10 ]
+  %call4.i.i = tail call noundef zeroext i1 %__comp.coerce(ptr noundef nonnull align 8 dereferenceable(8) %__first2.sroa.0.039.i, ptr noundef nonnull align 8 dereferenceable(8) %__first1.sroa.0.038.i)
   br i1 %call4.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.body.i26
-  %0 = load ptr, ptr %__first2.sroa.0.038.i, align 8
-  store ptr null, ptr %__first2.sroa.0.038.i, align 8
+  %0 = load ptr, ptr %__first2.sroa.0.039.i, align 8
+  store ptr null, ptr %__first2.sroa.0.039.i, align 8
   %1 = load ptr, ptr %__result.addr.040.i, align 8
   store ptr %0, ptr %__result.addr.040.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -11577,12 +11577,12 @@ _ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i: ; pred
   br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i
 
 _ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i: ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i, %if.then.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.038.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.039.i, i64 8
   br label %if.end.i
 
 if.else.i:                                        ; preds = %while.body.i26
-  %3 = load ptr, ptr %__first1.sroa.0.039.i, align 8
-  store ptr null, ptr %__first1.sroa.0.039.i, align 8
+  %3 = load ptr, ptr %__first1.sroa.0.038.i, align 8
+  store ptr null, ptr %__first1.sroa.0.038.i, align 8
   %4 = load ptr, ptr %__result.addr.040.i, align 8
   store ptr %3, ptr %__result.addr.040.i, align 8
   %tobool.not.i.i.i.i5.i = icmp eq ptr %4, null
@@ -11596,12 +11596,12 @@ _ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i6.i: ; pre
   br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit9.i
 
 _ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit9.i: ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i6.i, %if.else.i
-  %incdec.ptr.i10.i = getelementptr inbounds i8, ptr %__first1.sroa.0.039.i, i64 8
+  %incdec.ptr.i10.i = getelementptr inbounds i8, ptr %__first1.sroa.0.038.i, i64 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit9.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i
-  %__first2.sroa.0.1.i = phi ptr [ %incdec.ptr.i.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i ], [ %__first2.sroa.0.038.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit9.i ]
-  %__first1.sroa.0.1.i = phi ptr [ %__first1.sroa.0.039.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i ], [ %incdec.ptr.i10.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit9.i ]
+  %__first1.sroa.0.1.i = phi ptr [ %__first1.sroa.0.038.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i ], [ %incdec.ptr.i10.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit9.i ]
+  %__first2.sroa.0.1.i = phi ptr [ %incdec.ptr.i.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i ], [ %__first2.sroa.0.039.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit9.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__result.addr.040.i, i64 8
   %cmp.i.i = icmp ne ptr %__first1.sroa.0.1.i, %add.ptr.i.i11
   %cmp.i4.i = icmp ne ptr %__first2.sroa.0.1.i, %add.ptr.i5.i
@@ -11907,20 +11907,20 @@ _ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit
 
 land.rhs.i:                                       ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i, %if.end.i
   %__first1.addr.024.i = phi ptr [ %__first1.addr.1.i, %if.end.i ], [ %__buffer, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i ]
-  %__first2.sroa.0.023.i = phi ptr [ %__first2.sroa.0.1.i, %if.end.i ], [ %__middle.coerce.tr.lcssa, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i ]
-  %__result.sroa.0.022.i = phi ptr [ %incdec.ptr.i13.i, %if.end.i ], [ %__first.coerce.tr.lcssa, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i ]
-  %cmp.i.not.i = icmp eq ptr %__first2.sroa.0.023.i, %__last.coerce
+  %__result.sroa.0.023.i = phi ptr [ %incdec.ptr.i13.i, %if.end.i ], [ %__first.coerce.tr.lcssa, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i ]
+  %__first2.sroa.0.022.i = phi ptr [ %__first2.sroa.0.1.i, %if.end.i ], [ %__middle.coerce.tr.lcssa, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i ]
+  %cmp.i.not.i = icmp eq ptr %__first2.sroa.0.022.i, %__last.coerce
   br i1 %cmp.i.not.i, label %if.then14.i, label %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %call2.i.i = tail call noundef zeroext i1 %coerce.val.ip(ptr noundef nonnull align 8 dereferenceable(8) %__first2.sroa.0.023.i, ptr noundef nonnull align 8 dereferenceable(8) %__first1.addr.024.i)
+  %call2.i.i = tail call noundef zeroext i1 %coerce.val.ip(ptr noundef nonnull align 8 dereferenceable(8) %__first2.sroa.0.022.i, ptr noundef nonnull align 8 dereferenceable(8) %__first1.addr.024.i)
   br i1 %call2.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.body.i
-  %3 = load ptr, ptr %__first2.sroa.0.023.i, align 8
-  store ptr null, ptr %__first2.sroa.0.023.i, align 8
-  %4 = load ptr, ptr %__result.sroa.0.022.i, align 8
-  store ptr %3, ptr %__result.sroa.0.022.i, align 8
+  %3 = load ptr, ptr %__first2.sroa.0.022.i, align 8
+  store ptr null, ptr %__first2.sroa.0.022.i, align 8
+  %4 = load ptr, ptr %__result.sroa.0.023.i, align 8
+  store ptr %3, ptr %__result.sroa.0.023.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i
 
@@ -11932,14 +11932,14 @@ _ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i: ; pred
   br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i
 
 _ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i: ; preds = %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i.i, %if.then.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.023.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.022.i, i64 8
   br label %if.end.i
 
 if.else.i:                                        ; preds = %while.body.i
   %6 = load ptr, ptr %__first1.addr.024.i, align 8
   store ptr null, ptr %__first1.addr.024.i, align 8
-  %7 = load ptr, ptr %__result.sroa.0.022.i, align 8
-  store ptr %6, ptr %__result.sroa.0.022.i, align 8
+  %7 = load ptr, ptr %__result.sroa.0.023.i, align 8
+  store ptr %6, ptr %__result.sroa.0.023.i, align 8
   %tobool.not.i.i.i.i8.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i8.i, label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit12.i, label %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i9.i
 
@@ -11955,9 +11955,9 @@ _ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit12.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i
-  %__first2.sroa.0.1.i = phi ptr [ %incdec.ptr.i.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i ], [ %__first2.sroa.0.023.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit12.i ]
+  %__first2.sroa.0.1.i = phi ptr [ %incdec.ptr.i.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i ], [ %__first2.sroa.0.022.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit12.i ]
   %__first1.addr.1.i = phi ptr [ %__first1.addr.024.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i ], [ %incdec.ptr.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit12.i ]
-  %incdec.ptr.i13.i = getelementptr inbounds i8, ptr %__result.sroa.0.022.i, i64 8
+  %incdec.ptr.i13.i = getelementptr inbounds i8, ptr %__result.sroa.0.023.i, i64 8
   %cmp.not.i = icmp eq ptr %__first1.addr.1.i, %incdec.ptr1.i.i.i.i.i
   br i1 %cmp.not.i, label %if.end102, label %land.rhs.i, !llvm.loop !88
 
@@ -11971,7 +11971,7 @@ if.then14.i:                                      ; preds = %land.rhs.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %if.then14.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i
   %__n.09.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i, %if.then14.i ]
-  %__result.addr.08.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i ], [ %__result.sroa.0.022.i, %if.then14.i ]
+  %__result.addr.08.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i ], [ %__result.sroa.0.023.i, %if.then14.i ]
   %__first.addr.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i ], [ %__first1.addr.024.i, %if.then14.i ]
   %9 = load ptr, ptr %__first.addr.07.i.i.i.i.i.i, align 8
   store ptr null, ptr %__first.addr.07.i.i.i.i.i.i, align 8
@@ -12138,14 +12138,14 @@ entry:
 
 while.body:                                       ; preds = %entry, %if.end
   %__result.addr.040 = phi ptr [ %incdec.ptr, %if.end ], [ %__result, %entry ]
-  %__first1.sroa.0.039 = phi ptr [ %__first1.sroa.0.1, %if.end ], [ %__first1.coerce, %entry ]
-  %__first2.sroa.0.038 = phi ptr [ %__first2.sroa.0.1, %if.end ], [ %__first2.coerce, %entry ]
-  %call4.i = tail call noundef zeroext i1 %__comp.coerce(ptr noundef nonnull align 8 dereferenceable(8) %__first2.sroa.0.038, ptr noundef nonnull align 8 dereferenceable(8) %__first1.sroa.0.039)
+  %__first2.sroa.0.039 = phi ptr [ %__first2.sroa.0.1, %if.end ], [ %__first2.coerce, %entry ]
+  %__first1.sroa.0.038 = phi ptr [ %__first1.sroa.0.1, %if.end ], [ %__first1.coerce, %entry ]
+  %call4.i = tail call noundef zeroext i1 %__comp.coerce(ptr noundef nonnull align 8 dereferenceable(8) %__first2.sroa.0.039, ptr noundef nonnull align 8 dereferenceable(8) %__first1.sroa.0.038)
   br i1 %call4.i, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
-  %0 = load ptr, ptr %__first2.sroa.0.038, align 8
-  store ptr null, ptr %__first2.sroa.0.038, align 8
+  %0 = load ptr, ptr %__first2.sroa.0.039, align 8
+  store ptr null, ptr %__first2.sroa.0.039, align 8
   %1 = load ptr, ptr %__result.addr.040, align 8
   store ptr %0, ptr %__result.addr.040, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -12159,12 +12159,12 @@ _ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i: ; preds 
   br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit
 
 _ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit: ; preds = %if.then, %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first2.sroa.0.038, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__first2.sroa.0.039, i64 8
   br label %if.end
 
 if.else:                                          ; preds = %while.body
-  %3 = load ptr, ptr %__first1.sroa.0.039, align 8
-  store ptr null, ptr %__first1.sroa.0.039, align 8
+  %3 = load ptr, ptr %__first1.sroa.0.038, align 8
+  store ptr null, ptr %__first1.sroa.0.038, align 8
   %4 = load ptr, ptr %__result.addr.040, align 8
   store ptr %3, ptr %__result.addr.040, align 8
   %tobool.not.i.i.i.i5 = icmp eq ptr %4, null
@@ -12178,12 +12178,12 @@ _ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i6: ; preds
   br label %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit9
 
 _ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit9: ; preds = %if.else, %_ZNKSt14default_deleteIKN14grpc_generator6MethodEEclEPS2_.exit.i.i.i.i6
-  %incdec.ptr.i10 = getelementptr inbounds i8, ptr %__first1.sroa.0.039, i64 8
+  %incdec.ptr.i10 = getelementptr inbounds i8, ptr %__first1.sroa.0.038, i64 8
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit9, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit
-  %__first2.sroa.0.1 = phi ptr [ %incdec.ptr.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit ], [ %__first2.sroa.0.038, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit9 ]
-  %__first1.sroa.0.1 = phi ptr [ %__first1.sroa.0.039, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit ], [ %incdec.ptr.i10, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit9 ]
+  %__first1.sroa.0.1 = phi ptr [ %__first1.sroa.0.038, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit ], [ %incdec.ptr.i10, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit9 ]
+  %__first2.sroa.0.1 = phi ptr [ %incdec.ptr.i, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit ], [ %__first2.sroa.0.039, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit9 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__result.addr.040, i64 8
   %cmp.i = icmp ne ptr %__first1.sroa.0.1, %__last1.coerce
   %cmp.i4 = icmp ne ptr %__first2.sroa.0.1, %__last2.coerce
@@ -12191,8 +12191,8 @@ if.end:                                           ; preds = %_ZNSt10unique_ptrIK
   br i1 %or.cond, label %while.body, label %while.end, !llvm.loop !82
 
 while.end:                                        ; preds = %if.end, %entry
-  %__first2.sroa.0.0.lcssa = phi ptr [ %__first2.coerce, %entry ], [ %__first2.sroa.0.1, %if.end ]
   %__first1.sroa.0.0.lcssa = phi ptr [ %__first1.coerce, %entry ], [ %__first1.sroa.0.1, %if.end ]
+  %__first2.sroa.0.0.lcssa = phi ptr [ %__first2.coerce, %entry ], [ %__first2.sroa.0.1, %if.end ]
   %__result.addr.0.lcssa = phi ptr [ %__result, %entry ], [ %incdec.ptr, %if.end ]
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %__last1.coerce to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %__first1.sroa.0.0.lcssa to i64
@@ -12458,8 +12458,8 @@ if.end8:                                          ; preds = %if.else
   br label %while.body.outer
 
 while.body.outer:                                 ; preds = %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit, %if.end8
-  %__result.sroa.0.0.ph = phi ptr [ %__result.coerce, %if.end8 ], [ %incdec.ptr.i11, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit ]
   %__last1.sroa.0.0.ph.pn = phi ptr [ %__last1.coerce, %if.end8 ], [ %__last1.sroa.0.0.ph, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit ]
+  %__result.sroa.0.0.ph = phi ptr [ %__result.coerce, %if.end8 ], [ %incdec.ptr.i11, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit ]
   %__last2.addr.0.ph = phi ptr [ %incdec.ptr, %if.end8 ], [ %__last2.addr.0, %_ZNSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS2_EEaSEOS5_.exit ]
   %__last1.sroa.0.0.ph = getelementptr inbounds i8, ptr %__last1.sroa.0.0.ph.pn, i64 -8
   br label %while.body

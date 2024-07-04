@@ -1180,7 +1180,7 @@ define i32 @pmix20_bfrop_value_xfer(ptr nocapture noundef %0, ptr nocapture noun
   br i1 %.not710, label %.loopexit, label %.lr.ph694
 
 321:                                              ; preds = %.lr.ph694
-  %322 = add nuw i64 %.1692, 1
+  %322 = add nuw i64 %.1554692, 1
   %323 = load ptr, ptr %164, align 8
   %324 = getelementptr inbounds i8, ptr %323, i64 8
   %325 = load i64, ptr %324, align 8
@@ -1188,9 +1188,9 @@ define i32 @pmix20_bfrop_value_xfer(ptr nocapture noundef %0, ptr nocapture noun
   br i1 %326, label %.lr.ph694, label %.loopexit, !llvm.loop !6
 
 .lr.ph694:                                        ; preds = %315, %321
-  %.1692 = phi i64 [ %322, %321 ], [ 0, %315 ]
-  %327 = getelementptr inbounds %struct.pmix_value, ptr %313, i64 %.1692
-  %328 = getelementptr inbounds %struct.pmix_value, ptr %318, i64 %.1692
+  %.1554692 = phi i64 [ %322, %321 ], [ 0, %315 ]
+  %327 = getelementptr inbounds %struct.pmix_value, ptr %313, i64 %.1554692
+  %328 = getelementptr inbounds %struct.pmix_value, ptr %318, i64 %.1554692
   %329 = tail call i32 @pmix20_bfrop_value_xfer(ptr noundef nonnull %327, ptr noundef %328)
   %.not631 = icmp eq i32 %329, 0
   br i1 %.not631, label %321, label %330
@@ -1331,13 +1331,13 @@ define i32 @pmix20_bfrop_value_xfer(ptr nocapture noundef %0, ptr nocapture noun
   br i1 %.not709, label %.loopexit639, label %.lr.ph688
 
 .lr.ph688:                                        ; preds = %404, %.lr.ph688
-  %.0554686 = phi i64 [ %412, %.lr.ph688 ], [ 0, %404 ]
+  %.0686 = phi i64 [ %412, %.lr.ph688 ], [ 0, %404 ]
   %407 = load ptr, ptr %398, align 8
-  %408 = getelementptr inbounds %struct.pmix_info, ptr %407, i64 %.0554686
+  %408 = getelementptr inbounds %struct.pmix_info, ptr %407, i64 %.0686
   %409 = load ptr, ptr %394, align 8
-  %410 = getelementptr inbounds %struct.pmix_info, ptr %409, i64 %.0554686
+  %410 = getelementptr inbounds %struct.pmix_info, ptr %409, i64 %.0686
   %411 = tail call i32 @PMIx_Info_xfer(ptr noundef %408, ptr noundef %410) #14
-  %412 = add nuw i64 %.0554686, 1
+  %412 = add nuw i64 %.0686, 1
   %413 = load i64, ptr %406, align 8
   %414 = icmp ult i64 %412, %413
   br i1 %414, label %.lr.ph688, label %.loopexit639, !llvm.loop !7
@@ -1896,13 +1896,13 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %489
   br label %.loopexit646
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.1555656 = phi i64 [ %722, %.lr.ph ], [ 0, %.preheader ]
+  %.1656 = phi i64 [ %722, %.lr.ph ], [ 0, %.preheader ]
   %717 = load ptr, ptr %710, align 8
-  %718 = getelementptr inbounds %struct.pmix_info, ptr %717, i64 %.1555656
+  %718 = getelementptr inbounds %struct.pmix_info, ptr %717, i64 %.1656
   %719 = load ptr, ptr %702, align 8
-  %720 = getelementptr inbounds %struct.pmix_info, ptr %719, i64 %.1555656
+  %720 = getelementptr inbounds %struct.pmix_info, ptr %719, i64 %.1656
   %721 = tail call i32 @PMIx_Info_xfer(ptr noundef %718, ptr noundef %720) #14
-  %722 = add nuw i64 %.1555656, 1
+  %722 = add nuw i64 %.1656, 1
   %723 = load i64, ptr %705, align 8
   %724 = icmp ult i64 %722, %723
   br i1 %724, label %.lr.ph, label %._crit_edge, !llvm.loop !18
@@ -1945,8 +1945,8 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %489
   br label %.loopexit646
 
 .loopexit646:                                     ; preds = %577, %554, %2, %682, %176, %640, %631, %624, %617, %610, %597, %590, %563, %529, %506, %478, %447, %349, %334, %307, %298, %289, %280, %271, %262, %253, %237, %228, %219, %212, %203, %194, %185, %178, %88, %.loopexit, %738, %733, %713, %550, %474, %443, %400, %330
-  %.0 = phi i32 [ -1, %738 ], [ 0, %.loopexit ], [ -16, %733 ], [ -32, %713 ], [ -32, %550 ], [ %473, %474 ], [ %442, %443 ], [ -32, %400 ], [ %329, %330 ], [ -32, %88 ], [ -32, %178 ], [ -32, %185 ], [ -32, %194 ], [ -32, %203 ], [ -32, %212 ], [ -32, %219 ], [ -32, %228 ], [ -32, %237 ], [ -32, %253 ], [ -32, %262 ], [ -32, %271 ], [ -32, %280 ], [ -32, %289 ], [ -32, %298 ], [ -32, %307 ], [ -32, %334 ], [ -32, %349 ], [ -32, %447 ], [ -32, %478 ], [ -32, %506 ], [ -32, %529 ], [ -32, %563 ], [ -32, %590 ], [ -32, %597 ], [ -32, %610 ], [ -32, %617 ], [ -32, %624 ], [ -32, %631 ], [ -32, %640 ], [ -47, %176 ], [ -32, %682 ], [ -47, %2 ], [ %556, %554 ], [ -32, %577 ]
-  ret i32 %.0
+  %.0555 = phi i32 [ -1, %738 ], [ 0, %.loopexit ], [ -16, %733 ], [ -32, %713 ], [ -32, %550 ], [ %473, %474 ], [ %442, %443 ], [ -32, %400 ], [ %329, %330 ], [ -32, %88 ], [ -32, %178 ], [ -32, %185 ], [ -32, %194 ], [ -32, %203 ], [ -32, %212 ], [ -32, %219 ], [ -32, %228 ], [ -32, %237 ], [ -32, %253 ], [ -32, %262 ], [ -32, %271 ], [ -32, %280 ], [ -32, %289 ], [ -32, %298 ], [ -32, %307 ], [ -32, %334 ], [ -32, %349 ], [ -32, %447 ], [ -32, %478 ], [ -32, %506 ], [ -32, %529 ], [ -32, %563 ], [ -32, %590 ], [ -32, %597 ], [ -32, %610 ], [ -32, %617 ], [ -32, %624 ], [ -32, %631 ], [ -32, %640 ], [ -47, %176 ], [ -32, %682 ], [ -47, %2 ], [ %556, %554 ], [ -32, %577 ]
+  ret i32 %.0555
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -2828,15 +2828,15 @@ define i32 @pmix20_bfrop_copy_darray(ptr nocapture noundef writeonly %0, ptr noc
   br i1 %.not683, label %.loopexit, label %.lr.ph670
 
 128:                                              ; preds = %.lr.ph670
-  %129 = add nuw i64 %.1668, 1
+  %129 = add nuw i64 %.1533668, 1
   %130 = load i64, ptr %8, align 8
   %131 = icmp ult i64 %129, %130
   br i1 %131, label %.lr.ph670, label %.loopexit, !llvm.loop !23
 
 .lr.ph670:                                        ; preds = %125, %128
-  %.1668 = phi i64 [ %129, %128 ], [ 0, %125 ]
-  %132 = getelementptr inbounds %struct.pmix_value, ptr %121, i64 %.1668
-  %133 = getelementptr inbounds %struct.pmix_value, ptr %126, i64 %.1668
+  %.1533668 = phi i64 [ %129, %128 ], [ 0, %125 ]
+  %132 = getelementptr inbounds %struct.pmix_value, ptr %121, i64 %.1533668
+  %133 = getelementptr inbounds %struct.pmix_value, ptr %126, i64 %.1533668
   %134 = tail call i32 @pmix20_bfrop_value_xfer(ptr noundef nonnull %132, ptr noundef %133)
   %.not607 = icmp eq i32 %134, 0
   br i1 %.not607, label %128, label %135
@@ -2986,13 +2986,13 @@ define i32 @pmix20_bfrop_copy_darray(ptr nocapture noundef writeonly %0, ptr noc
   br i1 %.not682, label %.loopexit610, label %.lr.ph664
 
 .lr.ph664:                                        ; preds = %201, %.lr.ph664
-  %.0533662 = phi i64 [ %209, %.lr.ph664 ], [ 0, %201 ]
+  %.0531662 = phi i64 [ %209, %.lr.ph664 ], [ 0, %201 ]
   %204 = load ptr, ptr %197, align 8
-  %205 = getelementptr inbounds %struct.pmix_info, ptr %204, i64 %.0533662
+  %205 = getelementptr inbounds %struct.pmix_info, ptr %204, i64 %.0531662
   %206 = load ptr, ptr %193, align 8
-  %207 = getelementptr inbounds %struct.pmix_info, ptr %206, i64 %.0533662
+  %207 = getelementptr inbounds %struct.pmix_info, ptr %206, i64 %.0531662
   %208 = tail call i32 @PMIx_Info_xfer(ptr noundef %205, ptr noundef %207) #14
-  %209 = add nuw i64 %.0533662, 1
+  %209 = add nuw i64 %.0531662, 1
   %210 = load i64, ptr %203, align 8
   %211 = icmp ult i64 %209, %210
   br i1 %211, label %.lr.ph664, label %.loopexit610, !llvm.loop !24
@@ -3536,13 +3536,13 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %259
   br label %466
 
 .lr.ph:                                           ; preds = %.preheader625, %.lr.ph
-  %.1534633 = phi i64 [ %456, %.lr.ph ], [ 0, %.preheader625 ]
+  %.1633 = phi i64 [ %456, %.lr.ph ], [ 0, %.preheader625 ]
   %451 = load ptr, ptr %447, align 8
-  %452 = getelementptr inbounds %struct.pmix_info, ptr %451, i64 %.1534633
+  %452 = getelementptr inbounds %struct.pmix_info, ptr %451, i64 %.1633
   %453 = load ptr, ptr %439, align 8
-  %454 = getelementptr inbounds %struct.pmix_info, ptr %453, i64 %.1534633
+  %454 = getelementptr inbounds %struct.pmix_info, ptr %453, i64 %.1633
   %455 = tail call i32 @PMIx_Info_xfer(ptr noundef %452, ptr noundef %454) #14
-  %456 = add nuw i64 %.1534633, 1
+  %456 = add nuw i64 %.1633, 1
   %457 = load i64, ptr %442, align 8
   %458 = icmp ult i64 %456, %457
   br i1 %458, label %.lr.ph, label %._crit_edge, !llvm.loop !35
@@ -3573,8 +3573,8 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %259
   br label %466
 
 466:                                              ; preds = %3, %.loopexit, %465, %450, %429, %424, %394, %388, %381, %375, %369, %356, %._crit_edge648, %326, %316, %312, %297, %279, %255, %233, %219, %199, %158, %151, %141, %135, %124, %118, %111, %104, %97, %90, %83, %70, %63, %56, %49, %43, %36, %29, %22, %16
-  %.0531 = phi i32 [ 0, %16 ], [ -16, %465 ], [ -32, %429 ], [ -32, %450 ], [ 0, %.loopexit ], [ -47, %424 ], [ -32, %394 ], [ -32, %388 ], [ -32, %381 ], [ -32, %375 ], [ -32, %369 ], [ -32, %356 ], [ -32, %326 ], [ -32, %._crit_edge648 ], [ -32, %297 ], [ -32, %312 ], [ %315, %316 ], [ -32, %279 ], [ -32, %255 ], [ -32, %233 ], [ -32, %219 ], [ -32, %158 ], [ -32, %199 ], [ -32, %151 ], [ -32, %141 ], [ -32, %124 ], [ %134, %135 ], [ -32, %118 ], [ -32, %111 ], [ -32, %104 ], [ -32, %97 ], [ -32, %90 ], [ -32, %83 ], [ -32, %70 ], [ -32, %63 ], [ -32, %56 ], [ -32, %49 ], [ -32, %43 ], [ -32, %36 ], [ -32, %29 ], [ -32, %22 ], [ -32, %3 ]
-  ret i32 %.0531
+  %.0534 = phi i32 [ 0, %16 ], [ -16, %465 ], [ -32, %429 ], [ -32, %450 ], [ 0, %.loopexit ], [ -47, %424 ], [ -32, %394 ], [ -32, %388 ], [ -32, %381 ], [ -32, %375 ], [ -32, %369 ], [ -32, %356 ], [ -32, %326 ], [ -32, %._crit_edge648 ], [ -32, %297 ], [ -32, %312 ], [ %315, %316 ], [ -32, %279 ], [ -32, %255 ], [ -32, %233 ], [ -32, %219 ], [ -32, %158 ], [ -32, %199 ], [ -32, %151 ], [ -32, %141 ], [ -32, %124 ], [ %134, %135 ], [ -32, %118 ], [ -32, %111 ], [ -32, %104 ], [ -32, %97 ], [ -32, %90 ], [ -32, %83 ], [ -32, %70 ], [ -32, %63 ], [ -32, %56 ], [ -32, %49 ], [ -32, %43 ], [ -32, %36 ], [ -32, %29 ], [ -32, %22 ], [ -32, %3 ]
+  ret i32 %.0534
 }
 
 declare void @PMIx_Load_nspace(ptr noundef, ptr noundef) local_unnamed_addr #1

@@ -250,10 +250,10 @@ _ZNSt3__110unique_ptrIA_N7mitsuba14RadicalInverse9PrimeBaseENS_14default_deleteI
 
 .lr.ph:                                           ; preds = %54, %_ZN5drjit7divisorImiEC2Em.exit
   %59 = phi ptr [ %93, %_ZN5drjit7divisorImiEC2Em.exit ], [ %56, %54 ]
-  %.0136214 = phi i64 [ %91, %_ZN5drjit7divisorImiEC2Em.exit ], [ 0, %54 ]
+  %.0134214 = phi i64 [ %91, %_ZN5drjit7divisorImiEC2Em.exit ], [ 0, %54 ]
   %60 = load ptr, ptr %17, align 8
-  %61 = getelementptr inbounds %"struct.mitsuba::RadicalInverse::PrimeBase", ptr %60, i64 %.0136214
-  %62 = getelementptr inbounds i64, ptr %59, i64 %.0136214
+  %61 = getelementptr inbounds %"struct.mitsuba::RadicalInverse::PrimeBase", ptr %60, i64 %.0134214
+  %62 = getelementptr inbounds i64, ptr %59, i64 %.0134214
   %63 = load i64, ptr %62, align 8
   %64 = trunc i64 %63 to i16
   %65 = getelementptr inbounds i8, ptr %61, i64 17
@@ -304,7 +304,7 @@ _ZN5drjit7divisorImiEC2Em.exit:                   ; preds = %75, %73
   store i64 %.sroa.2.0, ptr %.sroa.2.0..sroa_idx, align 1
   %.sroa.5208.0..sroa_idx = getelementptr inbounds i8, ptr %61, i64 16
   store i8 %.sroa.5208.0, ptr %.sroa.5208.0..sroa_idx, align 1
-  %91 = add nuw i64 %.0136214, 1
+  %91 = add nuw i64 %.0134214, 1
   %92 = load ptr, ptr %25, align 8
   %93 = load ptr, ptr %10, align 8
   %94 = ptrtoint ptr %92 to i64
@@ -335,19 +335,19 @@ _ZN5drjit7divisorImiEC2Em.exit:                   ; preds = %75, %73
   br label %391
 
 107:                                              ; preds = %.lr.ph217, %107
-  %.0137216 = phi i64 [ 0, %.lr.ph217 ], [ %111, %107 ]
-  %.0138215 = phi i64 [ 0, %.lr.ph217 ], [ %112, %107 ]
-  %108 = getelementptr inbounds %"struct.mitsuba::RadicalInverse::PrimeBase", ptr %58, i64 %.0138215, i32 1
+  %.0132216 = phi i64 [ 0, %.lr.ph217 ], [ %112, %107 ]
+  %.0133215 = phi i64 [ 0, %.lr.ph217 ], [ %111, %107 ]
+  %108 = getelementptr inbounds %"struct.mitsuba::RadicalInverse::PrimeBase", ptr %58, i64 %.0132216, i32 1
   %109 = load i16, ptr %108, align 1
   %110 = zext i16 %109 to i64
-  %111 = add i64 %.0137216, %110
-  %112 = add nuw i64 %.0138215, 1
+  %111 = add i64 %.0133215, %110
+  %112 = add nuw i64 %.0132216, 1
   %exitcond.not = icmp eq i64 %112, %57
   br i1 %exitcond.not, label %._crit_edge, label %107, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %107, %.preheader
-  %.0137.lcssa = phi i64 [ 0, %.preheader ], [ %111, %107 ]
-  %113 = add i64 %.0137.lcssa, 3
+  %.0133.lcssa = phi i64 [ 0, %.preheader ], [ %111, %107 ]
+  %113 = add i64 %.0133.lcssa, 3
   %114 = shl i64 %113, 1
   %.inv = icmp sgt i64 %113, -1
   %115 = select i1 %.inv, i64 %114, i64 -1
@@ -454,13 +454,13 @@ _ZNSt3__110unique_ptrIA_PtNS_14default_deleteIS2_EEED2B8ne190000Ev.exit: ; preds
   br i1 %.not147227, label %._crit_edge232, label %.lr.ph231
 
 .lr.ph231:                                        ; preds = %158, %.lr.ph231
-  %.0133229 = phi i64 [ %161, %.lr.ph231 ], [ 1, %158 ]
-  %.0134228 = phi ptr [ %160, %.lr.ph231 ], [ %138, %158 ]
-  %159 = getelementptr inbounds ptr, ptr %141, i64 %.0133229
-  store ptr %.0134228, ptr %159, align 8
-  %160 = getelementptr inbounds i16, ptr %.0134228, i64 %.0133229
-  %161 = add nuw nsw i64 %.0133229, 1
-  %exitcond248.not = icmp eq i64 %.0133229, %134
+  %.0130229 = phi i64 [ %161, %.lr.ph231 ], [ 1, %158 ]
+  %.0131228 = phi ptr [ %160, %.lr.ph231 ], [ %138, %158 ]
+  %159 = getelementptr inbounds ptr, ptr %141, i64 %.0130229
+  store ptr %.0131228, ptr %159, align 8
+  %160 = getelementptr inbounds i16, ptr %.0131228, i64 %.0130229
+  %161 = add nuw nsw i64 %.0130229, 1
+  %exitcond248.not = icmp eq i64 %.0130229, %134
   br i1 %exitcond248.not, label %._crit_edge232, label %.lr.ph231, !llvm.loop !7
 
 162:                                              ; preds = %153, %146, %144
@@ -628,21 +628,21 @@ _ZN7mitsuba14RadicalInverse26compute_faure_permutationsEjPPt.exit: ; preds = %.l
   br label %.lr.ph236
 
 .lr.ph236:                                        ; preds = %.lr.ph236.preheader, %.lr.ph236
-  %.0132234 = phi i64 [ %252, %.lr.ph236 ], [ 0, %.lr.ph236.preheader ]
-  %.1135233 = phi ptr [ %251, %.lr.ph236 ], [ %241, %.lr.ph236.preheader ]
+  %.0129234 = phi i64 [ %252, %.lr.ph236 ], [ 0, %.lr.ph236.preheader ]
+  %.1233 = phi ptr [ %251, %.lr.ph236 ], [ %241, %.lr.ph236.preheader ]
   %242 = load ptr, ptr %17, align 8
-  %243 = getelementptr inbounds %"struct.mitsuba::RadicalInverse::PrimeBase", ptr %242, i64 %.0132234, i32 1
+  %243 = getelementptr inbounds %"struct.mitsuba::RadicalInverse::PrimeBase", ptr %242, i64 %.0129234, i32 1
   %244 = load i16, ptr %243, align 1
   %245 = zext i16 %244 to i64
   %246 = getelementptr inbounds ptr, ptr %141, i64 %245
   %247 = load ptr, ptr %246, align 8
   %248 = shl nuw nsw i64 %245, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.1135233, ptr align 2 %247, i64 %248, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.1233, ptr align 2 %247, i64 %248, i1 false)
   %249 = load ptr, ptr %19, align 8
-  %250 = getelementptr inbounds ptr, ptr %249, i64 %.0132234
-  store ptr %.1135233, ptr %250, align 8
-  %251 = getelementptr inbounds i16, ptr %.1135233, i64 %245
-  %252 = add nuw i64 %.0132234, 1
+  %250 = getelementptr inbounds ptr, ptr %249, i64 %.0129234
+  store ptr %.1233, ptr %250, align 8
+  %251 = getelementptr inbounds i16, ptr %.1233, i64 %245
+  %252 = add nuw i64 %.0129234, 1
   %253 = load i64, ptr %16, align 8
   %254 = icmp ult i64 %252, %253
   br i1 %254, label %.lr.ph236, label %._crit_edge237, !llvm.loop !11
@@ -709,11 +709,11 @@ _ZN7mitsuba14RadicalInverse26compute_faure_permutationsEjPPt.exit: ; preds = %.l
   br label %.lr.ph226
 
 .lr.ph226:                                        ; preds = %.lr.ph226.preheader, %_ZN5drjit5PCG32IjE7shuffleIPtjTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT0_EEiE4typeELi0EEEvT_S9_.exit
-  %.0128224 = phi i64 [ %313, %_ZN5drjit5PCG32IjE7shuffleIPtjTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT0_EEiE4typeELi0EEEvT_S9_.exit ], [ 0, %.lr.ph226.preheader ]
-  %.0129223 = phi ptr [ %283, %_ZN5drjit5PCG32IjE7shuffleIPtjTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT0_EEiE4typeELi0EEEvT_S9_.exit ], [ %276, %.lr.ph226.preheader ]
+  %.0127224 = phi i64 [ %313, %_ZN5drjit5PCG32IjE7shuffleIPtjTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT0_EEiE4typeELi0EEEvT_S9_.exit ], [ 0, %.lr.ph226.preheader ]
+  %.0128223 = phi ptr [ %283, %_ZN5drjit5PCG32IjE7shuffleIPtjTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT0_EEiE4typeELi0EEEvT_S9_.exit ], [ %276, %.lr.ph226.preheader ]
   %.sroa.0202.0222 = phi i64 [ %.sroa.0202.2, %_ZN5drjit5PCG32IjE7shuffleIPtjTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT0_EEiE4typeELi0EEEvT_S9_.exit ], [ -1577521893908812255, %.lr.ph226.preheader ]
   %277 = load ptr, ptr %17, align 8
-  %278 = getelementptr inbounds %"struct.mitsuba::RadicalInverse::PrimeBase", ptr %277, i64 %.0128224, i32 1
+  %278 = getelementptr inbounds %"struct.mitsuba::RadicalInverse::PrimeBase", ptr %277, i64 %.0127224, i32 1
   %279 = load i16, ptr %278, align 1
   %.not241 = icmp eq i16 %279, 0
   br i1 %.not241, label %._crit_edge221, label %.lr.ph220.preheader
@@ -725,7 +725,7 @@ _ZN7mitsuba14RadicalInverse26compute_faure_permutationsEjPPt.exit: ; preds = %.l
 .lr.ph220:                                        ; preds = %.lr.ph220.preheader, %.lr.ph220
   %indvars.iv = phi i64 [ 0, %.lr.ph220.preheader ], [ %indvars.iv.next, %.lr.ph220 ]
   %280 = trunc i64 %indvars.iv to i16
-  %281 = getelementptr inbounds i16, ptr %.0129223, i64 %indvars.iv
+  %281 = getelementptr inbounds i16, ptr %.0128223, i64 %indvars.iv
   store i16 %280, ptr %281, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond247.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -733,13 +733,13 @@ _ZN7mitsuba14RadicalInverse26compute_faure_permutationsEjPPt.exit: ; preds = %.l
 
 ._crit_edge221:                                   ; preds = %.lr.ph220, %.lr.ph226
   %282 = zext i16 %279 to i64
-  %283 = getelementptr inbounds i16, ptr %.0129223, i64 %282
+  %283 = getelementptr inbounds i16, ptr %.0128223, i64 %282
   %.011.i = getelementptr inbounds i8, ptr %283, i64 -2
-  %284 = icmp ugt ptr %.011.i, %.0129223
+  %284 = icmp ugt ptr %.011.i, %.0128223
   br i1 %284, label %.lr.ph.i160, label %_ZN5drjit5PCG32IjE7shuffleIPtjTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT0_EEiE4typeELi0EEEvT_S9_.exit
 
 .lr.ph.i160:                                      ; preds = %._crit_edge221
-  %285 = ptrtoint ptr %.0129223 to i64
+  %285 = ptrtoint ptr %.0128223 to i64
   br label %286
 
 286:                                              ; preds = %_ZN5drjit5PCG32IjE19next_uint32_boundedEjb.exit.i, %.lr.ph.i160
@@ -771,21 +771,21 @@ _ZN7mitsuba14RadicalInverse26compute_faure_permutationsEjPPt.exit: ; preds = %.l
 _ZN5drjit5PCG32IjE19next_uint32_boundedEjb.exit.i: ; preds = %294
   %305 = urem i32 %304, %291
   %306 = zext i32 %305 to i64
-  %307 = getelementptr inbounds i16, ptr %.0129223, i64 %306
+  %307 = getelementptr inbounds i16, ptr %.0128223, i64 %306
   %308 = load i16, ptr %.012.i, align 2
   %309 = load i16, ptr %307, align 2
   store i16 %309, ptr %.012.i, align 2
   store i16 %308, ptr %307, align 2
   %.0.i = getelementptr inbounds i8, ptr %.012.i, i64 -2
-  %310 = icmp ugt ptr %.0.i, %.0129223
+  %310 = icmp ugt ptr %.0.i, %.0128223
   br i1 %310, label %286, label %_ZN5drjit5PCG32IjE7shuffleIPtjTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT0_EEiE4typeELi0EEEvT_S9_.exit, !llvm.loop !14
 
 _ZN5drjit5PCG32IjE7shuffleIPtjTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT0_EEiE4typeELi0EEEvT_S9_.exit: ; preds = %_ZN5drjit5PCG32IjE19next_uint32_boundedEjb.exit.i, %._crit_edge221
   %.sroa.0202.2 = phi i64 [ %.sroa.0202.0222, %._crit_edge221 ], [ %297, %_ZN5drjit5PCG32IjE19next_uint32_boundedEjb.exit.i ]
   %311 = load ptr, ptr %19, align 8
-  %312 = getelementptr inbounds ptr, ptr %311, i64 %.0128224
-  store ptr %.0129223, ptr %312, align 8
-  %313 = add nuw i64 %.0128224, 1
+  %312 = getelementptr inbounds ptr, ptr %311, i64 %.0127224
+  store ptr %.0128223, ptr %312, align 8
+  %313 = add nuw i64 %.0127224, 1
   %314 = load i64, ptr %16, align 8
   %315 = icmp ult i64 %313, %314
   br i1 %315, label %.lr.ph226, label %.loopexit, !llvm.loop !15

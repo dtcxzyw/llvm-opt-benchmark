@@ -503,9 +503,9 @@ define internal i32 @dissect_osc_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
 .lr.ph.i.i:                                       ; preds = %26, %38
   %.018.i.i = phi i32 [ %.1.i.i, %38 ], [ 0, %26 ]
   %.01217.i.i = phi i32 [ %.113.i.i, %38 ], [ 0, %26 ]
-  %.01516.i.i = phi ptr [ %39, %38 ], [ %12, %26 ]
+  %.01416.i.i = phi ptr [ %39, %38 ], [ %12, %26 ]
   %.not.i.i = icmp eq i32 %.018.i.i, 0
-  %30 = load i8, ptr %.01516.i.i, align 1
+  %30 = load i8, ptr %.01416.i.i, align 1
   br i1 %.not.i.i, label %35, label %31
 
 31:                                               ; preds = %.lr.ph.i.i
@@ -530,7 +530,7 @@ define internal i32 @dissect_osc_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
 38:                                               ; preds = %36, %35, %33
   %.113.i.i = phi i32 [ %34, %33 ], [ %37, %36 ], [ %.01217.i.i, %35 ]
   %.1.i.i = phi i32 [ 0, %33 ], [ 0, %36 ], [ 1, %35 ]
-  %39 = getelementptr i8, ptr %.01516.i.i, i64 1
+  %39 = getelementptr i8, ptr %.01416.i.i, i64 1
   %exitcond.not.i = icmp eq ptr %39, %28
   br i1 %exitcond.not.i, label %dissect_osc_tcp_1_1.exit, label %.lr.ph.i.i, !llvm.loop !4
 
@@ -545,9 +545,9 @@ slip_decoded_len.exit.i:                          ; preds = %35
   br label %.lr.ph.i44.i
 
 .lr.ph.i44.i:                                     ; preds = %47, %.lr.ph.i44.preheader.i
-  %.013.i.i = phi ptr [ %48, %47 ], [ %12, %.lr.ph.i44.preheader.i ]
-  %.01112.i.i = phi ptr [ %.1.i45.i, %47 ], [ %42, %.lr.ph.i44.preheader.i ]
-  %43 = load i8, ptr %.013.i.i, align 1
+  %.013.i.i = phi ptr [ %.1.i45.i, %47 ], [ %42, %.lr.ph.i44.preheader.i ]
+  %.01112.i.i = phi ptr [ %48, %47 ], [ %12, %.lr.ph.i44.preheader.i ]
+  %43 = load i8, ptr %.01112.i.i, align 1
   switch i8 %43, label %45 [
     i8 -64, label %slip_decode.exit.i
     i8 -37, label %47
@@ -563,13 +563,13 @@ slip_decoded_len.exit.i:                          ; preds = %35
 
 .sink.split.i.i:                                  ; preds = %45, %44, %.lr.ph.i44.i
   %.sink.i.i = phi i8 [ -37, %44 ], [ %43, %45 ], [ -64, %.lr.ph.i44.i ]
-  %46 = getelementptr i8, ptr %.01112.i.i, i64 1
-  store i8 %.sink.i.i, ptr %.01112.i.i, align 1
+  %46 = getelementptr i8, ptr %.013.i.i, i64 1
+  store i8 %.sink.i.i, ptr %.013.i.i, align 1
   br label %47
 
 47:                                               ; preds = %.sink.split.i.i, %.lr.ph.i44.i
-  %.1.i45.i = phi ptr [ %.01112.i.i, %.lr.ph.i44.i ], [ %46, %.sink.split.i.i ]
-  %48 = getelementptr i8, ptr %.013.i.i, i64 1
+  %.1.i45.i = phi ptr [ %.013.i.i, %.lr.ph.i44.i ], [ %46, %.sink.split.i.i ]
+  %48 = getelementptr i8, ptr %.01112.i.i, i64 1
   %exitcond.not.i.i = icmp eq ptr %48, %28
   br i1 %exitcond.not.i.i, label %slip_decode.exit.i, label %.lr.ph.i44.i, !llvm.loop !6
 
@@ -1051,8 +1051,8 @@ is_valid_format.exit:                             ; preds = %.preheader.i307
   %60 = load i32, ptr %6, align 4
   %61 = add i32 %59, %2
   %62 = add i32 %61, %60
-  %.028613 = getelementptr i8, ptr %31, i64 1
-  %63 = load i8, ptr %.028613, align 1
+  %.028813 = getelementptr i8, ptr %31, i64 1
+  %63 = load i8, ptr %.028813, align 1
   %64 = icmp ne i8 %63, 0
   %65 = icmp slt i32 %62, %8
   %66 = select i1 %64, i1 %65, i1 false
@@ -1060,7 +1060,7 @@ is_valid_format.exit:                             ; preds = %.preheader.i307
 
 .lr.ph:                                           ; preds = %is_valid_format.exit, %275
   %67 = phi i8 [ %276, %275 ], [ %63, %is_valid_format.exit ]
-  %.028615 = phi ptr [ %.0286, %275 ], [ %.028613, %is_valid_format.exit ]
+  %.028815 = phi ptr [ %.0288, %275 ], [ %.028813, %is_valid_format.exit ]
   %.028314 = phi i32 [ %.1, %275 ], [ %62, %is_valid_format.exit ]
   switch i8 %67, label %274 [
     i8 105, label %68
@@ -1296,9 +1296,9 @@ is_valid_format.exit:                             ; preds = %.preheader.i307
   br label %217
 
 217:                                              ; preds = %184, %192, %200, %210, %173
-  %.0288 = phi ptr [ %180, %173 ], [ %216, %210 ], [ %209, %200 ], [ %199, %192 ], [ %191, %184 ]
+  %.0286 = phi ptr [ %180, %173 ], [ %216, %210 ], [ %209, %200 ], [ %199, %192 ], [ %191, %184 ]
   %218 = load i32, ptr @ett_osc_midi, align 4
-  %219 = call ptr @proto_item_add_subtree(ptr noundef %.0288, i32 noundef %218) #5
+  %219 = call ptr @proto_item_add_subtree(ptr noundef %.0286, i32 noundef %218) #5
   %220 = load i32, ptr @hf_osc_message_midi_port_type, align 4
   %221 = call ptr @proto_tree_add_item(ptr noundef %219, i32 noundef %220, ptr noundef %0, i32 noundef %.028314, i32 noundef 1, i32 noundef 0) #5
   br i1 %171, label %222, label %230
@@ -1384,8 +1384,8 @@ is_valid_format.exit:                             ; preds = %.preheader.i307
 
 275:                                              ; preds = %222, %268, %259, %253, %247, %241, %235, %83, %145, %140, %133, %131, %116, %112, %109, %106, %103, %100, %96, %76, %72, %68
   %.1 = phi i32 [ %229, %222 ], [ %273, %268 ], [ %267, %259 ], [ %258, %253 ], [ %252, %247 ], [ %246, %241 ], [ %240, %235 ], [ %161, %145 ], [ %144, %140 ], [ %139, %133 ], [ %132, %131 ], [ %119, %116 ], [ %115, %112 ], [ %.028314, %109 ], [ %.028314, %106 ], [ %.028314, %103 ], [ %.028314, %100 ], [ %94, %83 ], [ %99, %96 ], [ %82, %76 ], [ %75, %72 ], [ %71, %68 ]
-  %.0286 = getelementptr i8, ptr %.028615, i64 1
-  %276 = load i8, ptr %.0286, align 1
+  %.0288 = getelementptr i8, ptr %.028815, i64 1
+  %276 = load i8, ptr %.0288, align 1
   %277 = icmp ne i8 %276, 0
   %278 = icmp slt i32 %.1, %8
   %279 = select i1 %277, i1 %278, i1 false

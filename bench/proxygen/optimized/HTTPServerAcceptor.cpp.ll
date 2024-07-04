@@ -1251,21 +1251,21 @@ entry:
   br i1 %cmp.i.not58, label %invoke.cont15, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %handlerFactories.sroa.0.062 = phi ptr [ %handlerFactories.sroa.0.1, %for.inc ], [ null, %entry ]
-  %handlerFactories.sroa.8.061 = phi ptr [ %handlerFactories.sroa.8.1, %for.inc ], [ null, %entry ]
-  %__begin1.sroa.0.060 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
-  %handlerFactories.sroa.15.059 = phi ptr [ %handlerFactories.sroa.15.1, %for.inc ], [ null, %entry ]
-  %2 = load ptr, ptr %__begin1.sroa.0.060, align 8
-  %cmp.not.i.i = icmp eq ptr %handlerFactories.sroa.8.061, %handlerFactories.sroa.15.059
+  %__begin1.sroa.0.062 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
+  %handlerFactories.sroa.15.061 = phi ptr [ %handlerFactories.sroa.15.1, %for.inc ], [ null, %entry ]
+  %handlerFactories.sroa.8.060 = phi ptr [ %handlerFactories.sroa.8.1, %for.inc ], [ null, %entry ]
+  %handlerFactories.sroa.0.059 = phi ptr [ %handlerFactories.sroa.0.1, %for.inc ], [ null, %entry ]
+  %2 = load ptr, ptr %__begin1.sroa.0.062, align 8
+  %cmp.not.i.i = icmp eq ptr %handlerFactories.sroa.8.060, %handlerFactories.sroa.15.061
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body
-  store ptr %2, ptr %handlerFactories.sroa.8.061, align 8
+  store ptr %2, ptr %handlerFactories.sroa.8.060, align 8
   br label %for.inc
 
 if.else.i.i:                                      ; preds = %for.body
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %handlerFactories.sroa.8.061 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %handlerFactories.sroa.0.062 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %handlerFactories.sroa.15.061 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %handlerFactories.sroa.0.059 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -1300,16 +1300,16 @@ _ZNSt12_Vector_baseIPN8proxygen21RequestHandlerFactoryESaIS2_EE11_M_allocateEm.e
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIPN8proxygen21RequestHandlerFactoryESaIS2_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i, ptr align 8 %handlerFactories.sroa.0.062, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i, ptr align 8 %handlerFactories.sroa.0.059, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
 
 _ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPN8proxygen21RequestHandlerFactoryESaIS2_EE11_M_allocateEm.exit.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
-  %tobool.not.i.i.i.i = icmp eq ptr %handlerFactories.sroa.0.062, null
+  %tobool.not.i.i.i.i = icmp eq ptr %handlerFactories.sroa.0.059, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
 if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %handlerFactories.sroa.0.062) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %handlerFactories.sroa.0.059) #22
   br label %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
@@ -1317,11 +1317,11 @@ _ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EE17_M_realloc_insertIJS2_
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i
-  %handlerFactories.sroa.15.1 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %handlerFactories.sroa.15.059, %if.then.i.i ]
-  %add.ptr.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %handlerFactories.sroa.8.061, %if.then.i.i ]
-  %handlerFactories.sroa.0.1 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %handlerFactories.sroa.0.062, %if.then.i.i ]
+  %handlerFactories.sroa.0.1 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %handlerFactories.sroa.0.059, %if.then.i.i ]
+  %add.ptr.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %handlerFactories.sroa.8.060, %if.then.i.i ]
+  %handlerFactories.sroa.15.1 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %handlerFactories.sroa.15.061, %if.then.i.i ]
   %handlerFactories.sroa.8.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.060, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.062, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1331,7 +1331,7 @@ lpad.loopexit:                                    ; preds = %cond.true.i.i.i.i
   br label %ehcleanup23
 
 lpad.loopexit.split-lp:                           ; preds = %invoke.cont15, %if.then.i.i.i.i
-  %handlerFactories.sroa.0.055 = phi ptr [ %handlerFactories.sroa.0.0.lcssa73, %invoke.cont15 ], [ %handlerFactories.sroa.0.062, %if.then.i.i.i.i ]
+  %handlerFactories.sroa.0.057 = phi ptr [ %handlerFactories.sroa.0.0.lcssa72, %invoke.cont15 ], [ %handlerFactories.sroa.0.059, %if.then.i.i.i.i ]
   %lpad.loopexit.split-lp49 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup23
@@ -1353,17 +1353,17 @@ while.body.i.i:                                   ; preds = %for.end, %while.bod
   br i1 %cmp.i1.i.i, label %while.body.i.i, label %invoke.cont15, !llvm.loop !18
 
 invoke.cont15:                                    ; preds = %while.body.i.i, %entry, %for.end
-  %handlerFactories.sroa.0.0.lcssa73 = phi ptr [ %handlerFactories.sroa.0.1, %for.end ], [ null, %entry ], [ %handlerFactories.sroa.0.1, %while.body.i.i ]
-  %handlerFactories.sroa.8.0.lcssa72 = phi ptr [ %handlerFactories.sroa.8.1, %for.end ], [ null, %entry ], [ %handlerFactories.sroa.8.1, %while.body.i.i ]
+  %handlerFactories.sroa.8.0.lcssa74 = phi ptr [ %handlerFactories.sroa.8.1, %for.end ], [ null, %entry ], [ %handlerFactories.sroa.8.1, %while.body.i.i ]
+  %handlerFactories.sroa.0.0.lcssa72 = phi ptr [ %handlerFactories.sroa.0.1, %for.end ], [ null, %entry ], [ %handlerFactories.sroa.0.1, %while.body.i.i ]
   %call17 = invoke noalias noundef nonnull dereferenceable(1992) ptr @_Znwm(i64 noundef 1992) #21
           to label %invoke.cont16 unwind label %lpad.loopexit.split-lp
 
 invoke.cont16:                                    ; preds = %invoke.cont15
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %handlerFactories.sroa.8.0.lcssa72 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %handlerFactories.sroa.0.0.lcssa73 to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %handlerFactories.sroa.8.0.lcssa74 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %handlerFactories.sroa.0.0.lcssa72 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp18, i8 0, i64 24, i1 false)
-  %cmp.not.i.i.i.i9 = icmp eq ptr %handlerFactories.sroa.8.0.lcssa72, %handlerFactories.sroa.0.0.lcssa73
+  %cmp.not.i.i.i.i9 = icmp eq ptr %handlerFactories.sroa.8.0.lcssa74, %handlerFactories.sroa.0.0.lcssa72
   br i1 %cmp.not.i.i.i.i9, label %invoke.cont.i.thread, label %cond.true.i.i.i.i10
 
 invoke.cont.i.thread:                             ; preds = %invoke.cont16
@@ -1396,7 +1396,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNSt16allocator_tr
   %add.ptr.i.i.i13 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i6.i15, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.tmp18, i64 16
   store ptr %add.ptr.i.i.i13, ptr %_M_end_of_storage.i.i.i, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i15, ptr align 8 %handlerFactories.sroa.0.0.lcssa73, i64 %sub.ptr.sub.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i15, ptr align 8 %handlerFactories.sroa.0.0.lcssa72, i64 %sub.ptr.sub.i.i, i1 false)
   br label %invoke.cont20
 
 invoke.cont20:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i.thread
@@ -1418,11 +1418,11 @@ if.then.i.i.i:                                    ; preds = %invoke.cont22
   br label %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EED2Ev.exit: ; preds = %invoke.cont22, %if.then.i.i.i
-  %tobool.not.i.i.i19 = icmp eq ptr %handlerFactories.sroa.0.0.lcssa73, null
+  %tobool.not.i.i.i19 = icmp eq ptr %handlerFactories.sroa.0.0.lcssa72, null
   br i1 %tobool.not.i.i.i19, label %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EED2Ev.exit21, label %if.then.i.i.i20
 
 if.then.i.i.i20:                                  ; preds = %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %handlerFactories.sroa.0.0.lcssa73) #22
+  call void @_ZdlPv(ptr noundef nonnull %handlerFactories.sroa.0.0.lcssa72) #22
   br label %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EED2Ev.exit21
 
 _ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EED2Ev.exit21: ; preds = %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EED2Ev.exit, %if.then.i.i.i20
@@ -1450,13 +1450,13 @@ cleanup.action:                                   ; preds = %if.then.i.i.i24, %l
   br label %ehcleanup23
 
 ehcleanup23:                                      ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %cleanup.action
-  %handlerFactories.sroa.0.052 = phi ptr [ %handlerFactories.sroa.0.0.lcssa73, %cleanup.action ], [ %handlerFactories.sroa.0.062, %lpad.loopexit ], [ %handlerFactories.sroa.0.055, %lpad.loopexit.split-lp ]
+  %handlerFactories.sroa.0.054 = phi ptr [ %handlerFactories.sroa.0.0.lcssa72, %cleanup.action ], [ %handlerFactories.sroa.0.059, %lpad.loopexit ], [ %handlerFactories.sroa.0.057, %lpad.loopexit.split-lp ]
   %.pn4 = phi { ptr, i32 } [ %.pn, %cleanup.action ], [ %lpad.loopexit48, %lpad.loopexit ], [ %lpad.loopexit.split-lp49, %lpad.loopexit.split-lp ]
-  %tobool.not.i.i.i27 = icmp eq ptr %handlerFactories.sroa.0.052, null
+  %tobool.not.i.i.i27 = icmp eq ptr %handlerFactories.sroa.0.054, null
   br i1 %tobool.not.i.i.i27, label %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EED2Ev.exit29, label %if.then.i.i.i28
 
 if.then.i.i.i28:                                  ; preds = %ehcleanup23
-  call void @_ZdlPv(ptr noundef nonnull %handlerFactories.sroa.0.052) #22
+  call void @_ZdlPv(ptr noundef nonnull %handlerFactories.sroa.0.054) #22
   br label %_ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EED2Ev.exit29
 
 _ZNSt6vectorIPN8proxygen21RequestHandlerFactoryESaIS2_EED2Ev.exit29: ; preds = %ehcleanup23, %if.then.i.i.i28

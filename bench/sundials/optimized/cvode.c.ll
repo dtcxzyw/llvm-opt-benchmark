@@ -601,8 +601,8 @@ cvCheckNvector.exit.thread:                       ; preds = %15, %20, %24, %28, 
   br label %174
 
 174:                                              ; preds = %172, %149, %146, %.loopexit, %cvCheckNvector.exit.thread, %14, %11, %8
-  %.0 = phi i32 [ -21, %8 ], [ -22, %11 ], [ -22, %14 ], [ -20, %146 ], [ -20, %149 ], [ 0, %172 ], [ -20, %.loopexit ], [ -22, %cvCheckNvector.exit.thread ]
-  ret i32 %.0
+  %.075 = phi i32 [ -21, %8 ], [ -22, %11 ], [ -22, %14 ], [ -20, %146 ], [ -20, %149 ], [ 0, %172 ], [ -20, %.loopexit ], [ -22, %cvCheckNvector.exit.thread ]
+  ret i32 %.075
 }
 
 declare void @N_VSpace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -1320,8 +1320,8 @@ define range(i32 -22, 1) i32 @CVodeRootInit(ptr noundef %0, i32 noundef %1, ptr 
   br label %113
 
 113:                                              ; preds = %39, %._crit_edge, %101, %96, %91, %85, %80, %75, %67, %64, %44, %35, %5
-  %.0 = phi i32 [ -21, %5 ], [ 0, %35 ], [ -22, %44 ], [ 0, %64 ], [ -22, %67 ], [ -20, %75 ], [ -20, %80 ], [ -20, %85 ], [ -20, %91 ], [ -20, %96 ], [ -20, %101 ], [ 0, %._crit_edge ], [ 0, %39 ]
-  ret i32 %.0
+  %.0131 = phi i32 [ -21, %5 ], [ 0, %35 ], [ -22, %44 ], [ 0, %64 ], [ -22, %67 ], [ -20, %75 ], [ -20, %80 ], [ -20, %85 ], [ -20, %91 ], [ -20, %96 ], [ -20, %101 ], [ 0, %._crit_edge ], [ 0, %39 ]
+  ret i32 %.0131
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -1652,8 +1652,8 @@ cvInitialSetup.exit:                              ; preds = %117, %114
   br label %171
 
 171:                                              ; preds = %170, %162, %161
-  %.0353 = phi double [ %166, %170 ], [ %1, %162 ], [ %1, %161 ]
-  %172 = tail call fastcc i32 @cvHin(ptr noundef nonnull %0, double noundef %.0353)
+  %.0352 = phi double [ %166, %170 ], [ %1, %162 ], [ %1, %161 ]
+  %172 = tail call fastcc i32 @cvHin(ptr noundef nonnull %0, double noundef %.0352)
   %.not376 = icmp eq i32 %172, 0
   br i1 %.not376, label %._crit_edge, label %173
 
@@ -2098,7 +2098,7 @@ thread-pre-split:                                 ; preds = %218, %209
   br label %471
 
 471:                                              ; preds = %1759, %343
-  %.0352 = phi i64 [ 0, %343 ], [ %1663, %1759 ]
+  %.0353 = phi i64 [ 0, %343 ], [ %1663, %1759 ]
   %472 = load double, ptr %344, align 8
   store double %472, ptr %345, align 8
   %473 = load i32, ptr %346, align 8
@@ -2143,7 +2143,7 @@ thread-pre-split:                                 ; preds = %218, %209
 493:                                              ; preds = %476, %471
   %494 = load i64, ptr %352, align 8
   %495 = icmp slt i64 %494, 1
-  %.not380 = icmp slt i64 %.0352, %494
+  %.not380 = icmp slt i64 %.0353, %494
   %or.cond392 = select i1 %495, i1 true, i1 %.not380
   br i1 %or.cond392, label %501, label %496
 
@@ -3958,13 +3958,13 @@ cvPrepareNextStep.exit.i:                         ; preds = %1276, %1270, %1247,
 
 1410:                                             ; preds = %1410, %1403
   %indvars.iv427.i.i.i = phi i64 [ 1, %1403 ], [ %indvars.iv.next428.i.i.i, %1410 ]
-  %.0313365.i.i.i = phi double [ 0.000000e+00, %1403 ], [ %1416, %1410 ]
+  %.0321365.i.i.i = phi double [ 0.000000e+00, %1403 ], [ %1416, %1410 ]
   %1411 = getelementptr inbounds [4 x double], ptr %6, i64 0, i64 %indvars.iv427.i.i.i
   %1412 = load double, ptr %1411, align 8
   %1413 = fsub double %1412, %1409
   %1414 = call double @llvm.fabs.f64(double %1413)
-  %1415 = fcmp ogt double %.0313365.i.i.i, %1414
-  %1416 = select i1 %1415, double %.0313365.i.i.i, double %1414
+  %1415 = fcmp ogt double %.0321365.i.i.i, %1414
+  %1416 = select i1 %1415, double %.0321365.i.i.i, double %1414
   %indvars.iv.next428.i.i.i = add nuw nsw i64 %indvars.iv427.i.i.i, 1
   %exitcond430.not.i.i.i = icmp eq i64 %indvars.iv.next428.i.i.i, 4
   br i1 %exitcond430.not.i.i.i, label %1417, label %1410
@@ -4090,21 +4090,21 @@ cvPrepareNextStep.exit.i:                         ; preds = %1276, %1270, %1247,
 
 .preheader337.i.i.i:                              ; preds = %1477, %.preheader337.i.i.i
   %indvars.iv402.i.i.i = phi i64 [ %indvars.iv.next403.i.i.i, %.preheader337.i.i.i ], [ 1, %1477 ]
-  %.0314352.i.i.i = phi double [ %.1315.i.i.i, %.preheader337.i.i.i ], [ 0.000000e+00, %1477 ]
+  %.0319352.i.i.i = phi double [ %.1320.i.i.i, %.preheader337.i.i.i ], [ 0.000000e+00, %1477 ]
   %1490 = getelementptr inbounds [4 x double], ptr %7, i64 0, i64 %indvars.iv402.i.i.i
   %1491 = load double, ptr %1490, align 8
   %1492 = call double @llvm.fabs.f64(double %1491)
   %1493 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %indvars.iv402.i.i.i
   %1494 = load double, ptr %1493, align 8
   %1495 = fdiv double %1492, %1494
-  %1496 = fcmp ogt double %1495, %.0314352.i.i.i
-  %.1315.i.i.i = select i1 %1496, double %1495, double %.0314352.i.i.i
+  %1496 = fcmp ogt double %1495, %.0319352.i.i.i
+  %.1320.i.i.i = select i1 %1496, double %1495, double %.0319352.i.i.i
   %indvars.iv.next403.i.i.i = add nuw nsw i64 %indvars.iv402.i.i.i, 1
   %exitcond405.not.i.i.i = icmp eq i64 %indvars.iv.next403.i.i.i, 4
   br i1 %exitcond405.not.i.i.i, label %1497, label %.preheader337.i.i.i
 
 1497:                                             ; preds = %.preheader337.i.i.i
-  %1498 = fcmp olt double %.1315.i.i.i, 1.000000e-03
+  %1498 = fcmp olt double %.1320.i.i.i, 1.000000e-03
   br i1 %1498, label %1568, label %.preheader335.i.i.i
 
 .preheader335.i.i.i:                              ; preds = %1497, %1564
@@ -4158,7 +4158,7 @@ cvPrepareNextStep.exit.i:                         ; preds = %1276, %1270, %1247,
 
 1528:                                             ; preds = %1528, %.preheader334.i.i.i
   %indvars.iv410.i.i.i = phi i64 [ 1, %.preheader334.i.i.i ], [ %indvars.iv.next411.i.i.i, %1528 ]
-  %.0316355.i.i.i = phi double [ 0.000000e+00, %.preheader334.i.i.i ], [ %.1317.i.i.i, %1528 ]
+  %.0317355.i.i.i = phi double [ 0.000000e+00, %.preheader334.i.i.i ], [ %.1318.i.i.i, %1528 ]
   %1529 = getelementptr inbounds [4 x double], ptr %438, i64 0, i64 %indvars.iv410.i.i.i
   %1530 = load double, ptr %1529, align 8
   %1531 = getelementptr inbounds [4 x double], ptr %440, i64 0, i64 %indvars.iv410.i.i.i
@@ -4176,15 +4176,15 @@ cvPrepareNextStep.exit.i:                         ; preds = %1276, %1270, %1247,
   %1542 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %indvars.iv410.i.i.i
   %1543 = load double, ptr %1542, align 8
   %1544 = fdiv double %1541, %1543
-  %1545 = fcmp ogt double %1544, %.0316355.i.i.i
-  %.1317.i.i.i = select i1 %1545, double %1544, double %.0316355.i.i.i
+  %1545 = fcmp ogt double %1544, %.0317355.i.i.i
+  %.1318.i.i.i = select i1 %1545, double %1544, double %.0317355.i.i.i
   %indvars.iv.next411.i.i.i = add nuw nsw i64 %indvars.iv410.i.i.i, 1
   %exitcond413.not.i.i.i = icmp eq i64 %indvars.iv.next411.i.i.i, 4
   br i1 %exitcond413.not.i.i.i, label %1546, label %1528
 
 1546:                                             ; preds = %1528
   %1547 = getelementptr inbounds [4 x double], ptr %12, i64 0, i64 %indvars.iv414.i.i.i
-  store double %.1317.i.i.i, ptr %1547, align 8
+  store double %.1318.i.i.i, ptr %1547, align 8
   %indvars.iv.next415.i.i.i = add nuw nsw i64 %indvars.iv414.i.i.i, 1
   %exitcond417.not.i.i.i = icmp eq i64 %indvars.iv.next415.i.i.i, 4
   br i1 %exitcond417.not.i.i.i, label %1548, label %.preheader334.i.i.i
@@ -4197,11 +4197,11 @@ cvPrepareNextStep.exit.i:                         ; preds = %1276, %1270, %1247,
 1551:                                             ; preds = %1551, %1548
   %indvars.iv418.i.i.i = phi i64 [ 1, %1548 ], [ %indvars.iv.next419.i.i.i, %1551 ]
   %.1301359.i.i.i = phi i32 [ %.0300363.i.i.i, %1548 ], [ %.2302.i.i.i, %1551 ]
-  %.1319358.i.i.i = phi double [ %1550, %1548 ], [ %.2320.i.i.i, %1551 ]
+  %.1314358.i.i.i = phi double [ %1550, %1548 ], [ %.2315.i.i.i, %1551 ]
   %1552 = getelementptr inbounds [4 x double], ptr %12, i64 0, i64 %indvars.iv418.i.i.i
   %1553 = load double, ptr %1552, align 8
-  %1554 = fcmp olt double %1553, %.1319358.i.i.i
-  %.2320.i.i.i = select i1 %1554, double %1553, double %.1319358.i.i.i
+  %1554 = fcmp olt double %1553, %.1314358.i.i.i
+  %.2315.i.i.i = select i1 %1554, double %1553, double %.1314358.i.i.i
   %1555 = trunc nuw nsw i64 %indvars.iv418.i.i.i to i32
   %.2302.i.i.i = select i1 %1554, i32 %1555, i32 %.1301359.i.i.i
   %indvars.iv.next419.i.i.i = add nuw nsw i64 %indvars.iv418.i.i.i, 1
@@ -4212,7 +4212,7 @@ cvPrepareNextStep.exit.i:                         ; preds = %1276, %1270, %1247,
   %1557 = sext i32 %.2302.i.i.i to i64
   %1558 = getelementptr inbounds [4 x double], ptr %11, i64 0, i64 %1557
   %1559 = load double, ptr %1558, align 8
-  %1560 = fcmp olt double %.2320.i.i.i, 1.000000e-03
+  %1560 = fcmp olt double %.2315.i.i.i, 1.000000e-03
   br i1 %1560, label %1566, label %.preheader.i.i108.i
 
 .preheader.i.i108.i:                              ; preds = %1556, %.preheader.i.i108.i
@@ -4232,7 +4232,7 @@ cvPrepareNextStep.exit.i:                         ; preds = %1276, %1270, %1247,
 
 1566:                                             ; preds = %1564, %1556
   %.0303.i.i.i = phi i32 [ 0, %1564 ], [ 3, %1556 ]
-  %1567 = fcmp ogt double %.2320.i.i.i, 1.000000e-03
+  %1567 = fcmp ogt double %.2315.i.i.i, 1.000000e-03
   br i1 %1567, label %cvSLdet.exit.thread.i.i, label %1568
 
 1568:                                             ; preds = %1566, %1497, %1417
@@ -4429,7 +4429,7 @@ cvHandleNFlag.exit.thread.loopexit202.i:          ; preds = %995, %cvRestore.exi
   call void @N_VScale(double noundef %1661, ptr noundef %1662, ptr noundef %1662) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
-  %1663 = add nuw nsw i64 %.0352, 1
+  %1663 = add nuw nsw i64 %.0353, 1
   %1664 = load i32, ptr %369, align 8
   %.not383 = icmp eq i32 %1664, 0
   br i1 %.not383, label %1679, label %1665
@@ -4701,13 +4701,13 @@ define internal fastcc range(i32 -27, 1) i32 @cvHin(ptr nocapture noundef %0, do
   br i1 %8, label %.preheader.us, label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader100, %68
-  %.074115.us = phi double [ %.177109.us.us, %68 ], [ %44, %.preheader100 ]
-  %.075114.us = phi i32 [ %69, %68 ], [ 1, %.preheader100 ]
-  %.076113.us = phi double [ %59, %68 ], [ %44, %.preheader100 ]
+  %.073115.us = phi double [ %.176109.us.us, %68 ], [ %44, %.preheader100 ]
+  %.075114.us = phi double [ %59, %68 ], [ %44, %.preheader100 ]
+  %.078113.us = phi i32 [ %69, %68 ], [ 1, %.preheader100 ]
   br label %70
 
 51:                                               ; preds = %.split.us.us
-  %52 = fmul double %.0.i, %.177109.us.us
+  %52 = fmul double %.0.i, %.176109.us.us
   %53 = fcmp ugt double %52, 0.000000e+00
   br i1 %53, label %.sink.split, label %58
 
@@ -4723,37 +4723,37 @@ define internal fastcc range(i32 -27, 1) i32 @cvHin(ptr nocapture noundef %0, do
 
 58:                                               ; preds = %.sink.split, %54, %51
   %59 = phi double [ 0.000000e+00, %54 ], [ 0.000000e+00, %51 ], [ %57, %.sink.split ]
-  %60 = icmp eq i32 %.075114.us, 4
+  %60 = icmp eq i32 %.078113.us, 4
   br i1 %60, label %.loopexit, label %61
 
 61:                                               ; preds = %58
-  %62 = fdiv double %59, %.177109.us.us
+  %62 = fdiv double %59, %.176109.us.us
   %63 = fcmp ogt double %62, 5.000000e-01
   %64 = fcmp olt double %62, 2.000000e+00
   %or.cond.us = and i1 %63, %64
   br i1 %or.cond.us, label %.loopexit, label %65
 
 65:                                               ; preds = %61
-  %66 = icmp ugt i32 %.075114.us, 1
+  %66 = icmp ugt i32 %.078113.us, 1
   %67 = fcmp ogt double %62, 2.000000e+00
   %or.cond3.us = and i1 %66, %67
   br i1 %or.cond3.us, label %.loopexit, label %68
 
 68:                                               ; preds = %65
-  %69 = add nuw nsw i32 %.075114.us, 1
+  %69 = add nuw nsw i32 %.078113.us, 1
   br label %.preheader.us
 
 70:                                               ; preds = %86, %.preheader.us
-  %.177109.us.us = phi double [ %.076113.us, %.preheader.us ], [ %87, %86 ]
-  %.078108.us.us = phi i32 [ 1, %.preheader.us ], [ %88, %86 ]
-  %71 = fneg double %.177109.us.us
+  %.176109.us.us = phi double [ %.075114.us, %.preheader.us ], [ %87, %86 ]
+  %.077108.us.us = phi i32 [ 1, %.preheader.us ], [ %88, %86 ]
+  %71 = fneg double %.176109.us.us
   %72 = load ptr, ptr %32, align 8
   %73 = load ptr, ptr %24, align 8
   %74 = load ptr, ptr %46, align 8
   tail call void @N_VLinearSum(double noundef %71, ptr noundef %72, double noundef 1.000000e+00, ptr noundef %73, ptr noundef %74) #13
   %75 = load ptr, ptr %47, align 8
   %76 = load double, ptr %3, align 8
-  %77 = fsub double %76, %.177109.us.us
+  %77 = fsub double %76, %.176109.us.us
   %78 = load ptr, ptr %46, align 8
   %79 = load ptr, ptr %20, align 8
   %80 = load ptr, ptr %48, align 8
@@ -4769,15 +4769,15 @@ define internal fastcc range(i32 -27, 1) i32 @cvHin(ptr nocapture noundef %0, do
   br i1 %.not.i.us.us, label %.split.us.us, label %86
 
 86:                                               ; preds = %85
-  %87 = fmul double %.177109.us.us, 2.000000e-01
-  %88 = add nuw nsw i32 %.078108.us.us, 1
+  %87 = fmul double %.176109.us.us, 2.000000e-01
+  %88 = add nuw nsw i32 %.077108.us.us, 1
   %exitcond136 = icmp eq i32 %88, 5
   br i1 %exitcond136, label %.critedge, label %70
 
 .split.us.us:                                     ; preds = %85
-  %89 = fdiv double -1.000000e+00, %.177109.us.us
+  %89 = fdiv double -1.000000e+00, %.176109.us.us
   %90 = load ptr, ptr %20, align 8
-  %91 = fdiv double 1.000000e+00, %.177109.us.us
+  %91 = fdiv double 1.000000e+00, %.176109.us.us
   %92 = load ptr, ptr %32, align 8
   tail call void @N_VLinearSum(double noundef %89, ptr noundef %90, double noundef %91, ptr noundef %92, ptr noundef %90) #13
   %93 = load ptr, ptr %20, align 8
@@ -4796,21 +4796,21 @@ define internal fastcc range(i32 -27, 1) i32 @cvHin(ptr nocapture noundef %0, do
   br label %cvYddNorm.exit.sink.split
 
 .preheader:                                       ; preds = %.preheader100, %148
-  %.074115 = phi double [ %.177109, %148 ], [ %44, %.preheader100 ]
-  %.075114 = phi i32 [ %149, %148 ], [ 1, %.preheader100 ]
-  %.076113 = phi double [ %139, %148 ], [ %44, %.preheader100 ]
+  %.073115 = phi double [ %.176109, %148 ], [ %44, %.preheader100 ]
+  %.075114 = phi double [ %139, %148 ], [ %44, %.preheader100 ]
+  %.078113 = phi i32 [ %149, %148 ], [ 1, %.preheader100 ]
   br label %102
 
 102:                                              ; preds = %.preheader, %117
-  %.177109 = phi double [ %.076113, %.preheader ], [ %118, %117 ]
-  %.078108 = phi i32 [ 1, %.preheader ], [ %119, %117 ]
+  %.176109 = phi double [ %.075114, %.preheader ], [ %118, %117 ]
+  %.077108 = phi i32 [ 1, %.preheader ], [ %119, %117 ]
   %103 = load ptr, ptr %32, align 8
   %104 = load ptr, ptr %24, align 8
   %105 = load ptr, ptr %46, align 8
-  tail call void @N_VLinearSum(double noundef %.177109, ptr noundef %103, double noundef 1.000000e+00, ptr noundef %104, ptr noundef %105) #13
+  tail call void @N_VLinearSum(double noundef %.176109, ptr noundef %103, double noundef 1.000000e+00, ptr noundef %104, ptr noundef %105) #13
   %106 = load ptr, ptr %47, align 8
   %107 = load double, ptr %3, align 8
-  %108 = fadd double %.177109, %107
+  %108 = fadd double %.176109, %107
   %109 = load ptr, ptr %46, align 8
   %110 = load ptr, ptr %20, align 8
   %111 = load ptr, ptr %48, align 8
@@ -4826,21 +4826,21 @@ define internal fastcc range(i32 -27, 1) i32 @cvHin(ptr nocapture noundef %0, do
   br i1 %.not.i, label %.split, label %117
 
 117:                                              ; preds = %116
-  %118 = fmul double %.177109, 2.000000e-01
-  %119 = add nuw nsw i32 %.078108, 1
+  %118 = fmul double %.176109, 2.000000e-01
+  %119 = add nuw nsw i32 %.077108, 1
   %exitcond = icmp eq i32 %119, 5
   br i1 %exitcond, label %.critedge, label %102
 
 .critedge:                                        ; preds = %117, %86
-  %.us-phi111 = phi i32 [ %.075114.us, %86 ], [ %.075114, %117 ]
-  %.us-phi112 = phi double [ %.074115.us, %86 ], [ %.074115, %117 ]
+  %.us-phi111 = phi i32 [ %.078113.us, %86 ], [ %.078113, %117 ]
+  %.us-phi112 = phi double [ %.073115.us, %86 ], [ %.073115, %117 ]
   %120 = icmp ult i32 %.us-phi111, 3
   br i1 %120, label %cvYddNorm.exit, label %.loopexit
 
 .split:                                           ; preds = %116
-  %121 = fdiv double 1.000000e+00, %.177109
+  %121 = fdiv double 1.000000e+00, %.176109
   %122 = load ptr, ptr %20, align 8
-  %123 = fdiv double -1.000000e+00, %.177109
+  %123 = fdiv double -1.000000e+00, %.176109
   %124 = load ptr, ptr %32, align 8
   tail call void @N_VLinearSum(double noundef %121, ptr noundef %122, double noundef %123, ptr noundef %124, ptr noundef %122) #13
   %125 = load ptr, ptr %20, align 8
@@ -4857,7 +4857,7 @@ define internal fastcc range(i32 -27, 1) i32 @cvHin(ptr nocapture noundef %0, do
   br i1 %133, label %.sink.split153, label %138
 
 134:                                              ; preds = %.split
-  %135 = fmul double %.0.i, %.177109
+  %135 = fmul double %.0.i, %.176109
   %136 = fcmp ugt double %135, 0.000000e+00
   br i1 %136, label %.sink.split153, label %138
 
@@ -4868,29 +4868,29 @@ define internal fastcc range(i32 -27, 1) i32 @cvHin(ptr nocapture noundef %0, do
 
 138:                                              ; preds = %.sink.split153, %134, %131
   %139 = phi double [ 0.000000e+00, %131 ], [ 0.000000e+00, %134 ], [ %137, %.sink.split153 ]
-  %140 = icmp eq i32 %.075114, 4
+  %140 = icmp eq i32 %.078113, 4
   br i1 %140, label %.loopexit, label %141
 
 141:                                              ; preds = %138
-  %142 = fdiv double %139, %.177109
+  %142 = fdiv double %139, %.176109
   %143 = fcmp ogt double %142, 5.000000e-01
   %144 = fcmp olt double %142, 2.000000e+00
   %or.cond = and i1 %143, %144
   br i1 %or.cond, label %.loopexit, label %145
 
 145:                                              ; preds = %141
-  %146 = icmp ugt i32 %.075114, 1
+  %146 = icmp ugt i32 %.078113, 1
   %147 = fcmp ogt double %142, 2.000000e+00
   %or.cond3 = and i1 %146, %147
   br i1 %or.cond3, label %.loopexit, label %148
 
 148:                                              ; preds = %145
-  %149 = add nuw nsw i32 %.075114, 1
+  %149 = add nuw nsw i32 %.078113, 1
   br label %.preheader
 
 .loopexit:                                        ; preds = %138, %141, %145, %65, %61, %58, %.critedge
-  %.173 = phi double [ %.us-phi112, %.critedge ], [ %59, %58 ], [ %59, %61 ], [ %.177109.us.us, %65 ], [ %139, %138 ], [ %139, %141 ], [ %.177109, %145 ]
-  %150 = fmul double %.173, 5.000000e-01
+  %.172 = phi double [ %.us-phi112, %.critedge ], [ %59, %58 ], [ %59, %61 ], [ %.176109.us.us, %65 ], [ %139, %138 ], [ %139, %141 ], [ %.176109, %145 ]
+  %150 = fmul double %.172, 5.000000e-01
   %151 = fcmp olt double %150, %19
   %.070 = select i1 %151, double %19, double %150
   %152 = fcmp ogt double %.070, %.0.i
@@ -4906,8 +4906,8 @@ cvYddNorm.exit.sink.split:                        ; preds = %99, %.loopexit, %10
   br label %cvYddNorm.exit
 
 cvYddNorm.exit:                                   ; preds = %102, %70, %cvYddNorm.exit.sink.split, %.critedge, %7, %2
-  %.071 = phi i32 [ -27, %2 ], [ -27, %7 ], [ -10, %.critedge ], [ 0, %cvYddNorm.exit.sink.split ], [ -8, %70 ], [ -8, %102 ]
-  ret i32 %.071
+  %.074 = phi i32 [ -27, %2 ], [ -27, %7 ], [ -10, %.critedge ], [ 0, %cvYddNorm.exit.sink.split ], [ -8, %70 ], [ -8, %102 ]
+  ret i32 %.074
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6227,10 +6227,10 @@ define range(i32 -28, 1) i32 @CVodeGetDky(ptr noundef %0, double noundef %1, i32
   %28 = fmul double %20, %27
   %29 = fcmp olt double %25, 0.000000e+00
   %30 = fneg double %28
-  %.067 = select i1 %29, double %30, double %28
+  %.070 = select i1 %29, double %30, double %28
   %31 = fsub double %22, %25
-  %32 = fsub double %31, %.067
-  %33 = fadd double %22, %.067
+  %32 = fsub double %31, %.070
+  %33 = fadd double %22, %.070
   %34 = fsub double %1, %32
   %35 = fsub double %1, %33
   %36 = fmul double %34, %35
@@ -6257,10 +6257,10 @@ define range(i32 -28, 1) i32 @CVodeGetDky(ptr noundef %0, double noundef %1, i32
 
 48:                                               ; preds = %.lr.ph87, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next, %60 ]
-  %.06984 = phi i32 [ %14, %.lr.ph87 ], [ %65, %60 ]
+  %.06884 = phi i32 [ %14, %.lr.ph87 ], [ %65, %60 ]
   %49 = getelementptr inbounds [13 x double], ptr %43, i64 0, i64 %indvars.iv
   store double 1.000000e+00, ptr %49, align 8
-  %50 = sub nsw i32 %.06984, %2
+  %50 = sub nsw i32 %.06884, %2
   br i1 %.not75.not76.not, label %.preheader, label %.lr.ph
 
 ..preheader_crit_edge:                            ; preds = %.lr.ph
@@ -6274,10 +6274,10 @@ define range(i32 -28, 1) i32 @CVodeGetDky(ptr noundef %0, double noundef %1, i32
 
 .lr.ph:                                           ; preds = %48, %.lr.ph
   %52 = phi double [ %54, %.lr.ph ], [ 1.000000e+00, %48 ]
-  %.07077 = phi i32 [ %55, %.lr.ph ], [ %.06984, %48 ]
-  %53 = sitofp i32 %.07077 to double
+  %.06977 = phi i32 [ %55, %.lr.ph ], [ %.06884, %48 ]
+  %53 = sitofp i32 %.06977 to double
   %54 = fmul double %52, %53
-  %55 = add nsw i32 %.07077, -1
+  %55 = add nsw i32 %.06977, -1
   %.not75.not = icmp sgt i32 %55, %50
   br i1 %.not75.not, label %.lr.ph, label %..preheader_crit_edge
 
@@ -6294,13 +6294,13 @@ define range(i32 -28, 1) i32 @CVodeGetDky(ptr noundef %0, double noundef %1, i32
   br label %60
 
 60:                                               ; preds = %._crit_edge, %.preheader
-  %61 = zext nneg i32 %.06984 to i64
+  %61 = zext nneg i32 %.06884 to i64
   %62 = getelementptr inbounds [13 x ptr], ptr %44, i64 0, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds [13 x ptr], ptr %45, i64 0, i64 %indvars.iv
   store ptr %63, ptr %64, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = add nsw i32 %.06984, -1
+  %65 = add nsw i32 %.06884, -1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge88, label %48
 
@@ -6739,9 +6739,9 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
 .loopexit.i.i:                                    ; preds = %.lr.ph62.i.i
   %82 = fdiv double %89, %80
   %83 = fdiv double 1.000000e+00, %82
-  %84 = fmul double %.05463.i.i, %82
+  %84 = fmul double %.05264.i.i, %82
   %85 = fsub double %.04867.i.i, %92
-  %86 = fadd double %.05264.i.i, %83
+  %86 = fadd double %.05463.i.i, %83
   %indvars.iv.next73.i.i = add nuw nsw i64 %indvars.iv72.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next78.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %.loopexit57.i.i, label %.lr.ph62.preheader.i.i
@@ -6752,8 +6752,8 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   %.04867.i.i = phi double [ -1.000000e+00, %78 ], [ %85, %.loopexit.i.i ]
   %.05066.i.i = phi double [ %80, %78 ], [ %89, %.loopexit.i.i ]
   %.05165.i.i = phi double [ 1.000000e+00, %78 ], [ %82, %.loopexit.i.i ]
-  %.05264.i.i = phi double [ 1.000000e+00, %78 ], [ %86, %.loopexit.i.i ]
-  %.05463.i.i = phi double [ 1.000000e+00, %78 ], [ %84, %.loopexit.i.i ]
+  %.05264.i.i = phi double [ 1.000000e+00, %78 ], [ %84, %.loopexit.i.i ]
+  %.05463.i.i = phi double [ 1.000000e+00, %78 ], [ %86, %.loopexit.i.i ]
   %indvars.iv.next78.i.i = add nuw nsw i64 %indvars.iv77.i.i, 1
   %87 = getelementptr inbounds [14 x double], ptr %81, i64 0, i64 %indvars.iv.next78.i.i
   %88 = load double, ptr %87, align 8
@@ -6778,12 +6778,12 @@ define internal fastcc void @cvAdjustOrder(ptr noundef %0, i32 noundef %1) unnam
   br i1 %100, label %.lr.ph62.i.i, label %.loopexit.i.i
 
 .loopexit57.i.i:                                  ; preds = %.loopexit.i.i, %._crit_edge.i.i
-  %.155.i.i = phi double [ 1.000000e+00, %._crit_edge.i.i ], [ %84, %.loopexit.i.i ]
-  %.153.i.i = phi double [ 1.000000e+00, %._crit_edge.i.i ], [ %86, %.loopexit.i.i ]
+  %.155.i.i = phi double [ 1.000000e+00, %._crit_edge.i.i ], [ %86, %.loopexit.i.i ]
+  %.153.i.i = phi double [ 1.000000e+00, %._crit_edge.i.i ], [ %84, %.loopexit.i.i ]
   %.149.i.i = phi double [ -1.000000e+00, %._crit_edge.i.i ], [ %85, %.loopexit.i.i ]
   %101 = fneg double %.149.i.i
-  %102 = fsub double %101, %.153.i.i
-  %103 = fdiv double %102, %.155.i.i
+  %102 = fsub double %101, %.155.i.i
+  %103 = fdiv double %102, %.153.i.i
   %104 = getelementptr inbounds i8, ptr %0, i64 96
   %105 = getelementptr inbounds i8, ptr %0, i64 1124
   %106 = load i32, ptr %105, align 4

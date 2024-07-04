@@ -2015,8 +2015,8 @@ Vec_VecDupInt.exit:                               ; preds = %Vec_PtrPush.exit.i,
   br label %315
 
 315:                                              ; preds = %312, %314
-  %.0124 = phi ptr [ null, %314 ], [ %62, %312 ]
-  ret ptr %.0124
+  %.0126 = phi ptr [ null, %314 ], [ %62, %312 ]
+  ret ptr %.0126
 }
 
 declare ptr @Abc_NtkDfs(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -2162,8 +2162,8 @@ Abc_AigNodeIsChoice.exit:                         ; preds = %47
 
 .lr.ph101:                                        ; preds = %Abc_AigNodeIsChoice.exit, %.lr.ph101
   %81 = phi ptr [ %83, %.lr.ph101 ], [ %75, %Abc_AigNodeIsChoice.exit ]
-  %.059100 = phi ptr [ %.059, %.lr.ph101 ], [ %78, %Abc_AigNodeIsChoice.exit ]
-  %82 = getelementptr inbounds i8, ptr %.059100, i64 64
+  %.058100 = phi ptr [ %.058, %.lr.ph101 ], [ %78, %Abc_AigNodeIsChoice.exit ]
+  %82 = getelementptr inbounds i8, ptr %.058100, i64 64
   %83 = load ptr, ptr %82, align 8
   %.val73 = load ptr, ptr %38, align 8
   %84 = getelementptr i8, ptr %81, i64 36
@@ -2171,9 +2171,9 @@ Abc_AigNodeIsChoice.exit:                         ; preds = %47
   %85 = sext i32 %.val74 to i64
   %86 = getelementptr inbounds ptr, ptr %.val73, i64 %85
   store ptr %83, ptr %86, align 8
-  %.059.in = getelementptr inbounds i8, ptr %.059100, i64 56
-  %.059 = load ptr, ptr %.059.in, align 8
-  %.not63 = icmp eq ptr %.059, null
+  %.058.in = getelementptr inbounds i8, ptr %.058100, i64 56
+  %.058 = load ptr, ptr %.058.in, align 8
+  %.not63 = icmp eq ptr %.058, null
   br i1 %.not63, label %Abc_AigNodeIsChoice.exit.thread, label %.lr.ph101, !llvm.loop !26
 
 Abc_AigNodeIsChoice.exit.thread:                  ; preds = %.lr.ph101, %47, %Abc_AigNodeIsChoice.exit
@@ -2251,8 +2251,8 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %91
   br label %118
 
 118:                                              ; preds = %.critedge4, %117
-  %.058 = phi ptr [ null, %117 ], [ %5, %.critedge4 ]
-  ret ptr %.058
+  %.060 = phi ptr [ null, %117 ], [ %5, %.critedge4 ]
+  ret ptr %.060
 }
 
 declare ptr @Abc_AigDfs(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -2546,12 +2546,12 @@ define ptr @Abc_NtkFromDarSeqSweep(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %19, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %16, %.lr.ph
-  %.0113171 = phi i32 [ %23, %.lr.ph ], [ %18, %16 ]
+  %.0171 = phi i32 [ %23, %.lr.ph ], [ %18, %16 ]
   %20 = tail call ptr @Abc_NtkCreateObj(ptr noundef %3, i32 noundef 2) #19
   %21 = tail call ptr @Abc_ObjName(ptr noundef %20) #19
   %22 = tail call ptr @Abc_ObjAssignName(ptr noundef %20, ptr noundef %21, ptr noundef null) #19
-  %23 = add nsw i32 %.0113171, -1
-  %24 = icmp ugt i32 %.0113171, 1
+  %23 = add nsw i32 %.0171, -1
+  %24 = icmp ugt i32 %.0171, 1
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
@@ -2809,13 +2809,13 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge4, %124
   br label %Aig_ObjChild0Copy.exit168
 
 Aig_ObjChild0Copy.exit168:                        ; preds = %153, %149, %144
-  %.0 = phi ptr [ %148, %144 ], [ %160, %153 ], [ null, %149 ]
+  %.0113 = phi ptr [ %148, %144 ], [ %160, %153 ], [ null, %149 ]
   %.val145 = load ptr, ptr %130, align 8
   %161 = getelementptr i8, ptr %.val145, i64 8
   %.val145.val = load ptr, ptr %161, align 8
   %162 = getelementptr inbounds ptr, ptr %.val145.val, i64 %indvars.iv195
   %163 = load ptr, ptr %162, align 8
-  tail call void @Abc_ObjAddFanin(ptr noundef %163, ptr noundef %.0) #19
+  tail call void @Abc_ObjAddFanin(ptr noundef %163, ptr noundef %.0113) #19
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %164 = load ptr, ptr %125, align 8
   %165 = getelementptr i8, ptr %164, i64 4
@@ -3867,7 +3867,7 @@ Gia_ObjIsRi.exit:                                 ; preds = %88
 
 133:                                              ; preds = %131, %100
   %134 = phi i32 [ %128, %131 ], [ %126, %100 ]
-  %.0225 = phi i32 [ %132, %131 ], [ %121, %100 ]
+  %.0223 = phi i32 [ %132, %131 ], [ %121, %100 ]
   %135 = ashr i32 %134, 1
   %136 = icmp eq i32 %135, %117
   br i1 %136, label %137, label %.Gia_ObjIsRi.exit.thread_crit_edge
@@ -3877,8 +3877,8 @@ Gia_ObjIsRi.exit:                                 ; preds = %88
   br label %Gia_ObjIsRi.exit.thread
 
 137:                                              ; preds = %133
-  %138 = ashr i32 %.0225, 1
-  %139 = and i32 %.0225, 1
+  %138 = ashr i32 %.0223, 1
+  %139 = and i32 %.0223, 1
   %140 = call ptr @Abc_NtkFromMappedGia_rec(ptr noundef %8, ptr noundef nonnull %0, i32 noundef %138, i32 noundef %139)
   %141 = load i32, ptr %5, align 4
   %142 = ashr i32 %141, 1
@@ -4865,11 +4865,11 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 161:                                              ; preds = %.lr.ph397, %379
   %.val265441 = phi i32 [ %.val265395, %.lr.ph397 ], [ %.val265, %379 ]
   %.val31.i = phi ptr [ %.val272, %.lr.ph397 ], [ %.val31.i304440, %379 ]
-  %.0192396 = phi i32 [ 2, %.lr.ph397 ], [ %380, %379 ]
+  %.0191396 = phi i32 [ 2, %.lr.ph397 ], [ %380, %379 ]
   %.val277 = load ptr, ptr %149, align 8
   %162 = getelementptr i8, ptr %.val277, i64 8
   %.val277.val = load ptr, ptr %162, align 8
-  %163 = sext i32 %.0192396 to i64
+  %163 = sext i32 %.0191396 to i64
   %164 = getelementptr inbounds i32, ptr %.val277.val, i64 %163
   %165 = load i32, ptr %164, align 4
   switch i32 %165, label %314 [
@@ -4880,7 +4880,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 
 166:                                              ; preds = %161
   %167 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 7) #19
-  %168 = ashr i32 %.0192396, 1
+  %168 = ashr i32 %.0191396, 1
   %.val230 = load ptr, ptr %27, align 8
   %169 = sext i32 %168 to i64
   %170 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val230, i64 %169
@@ -4960,8 +4960,8 @@ Abc_NtkFromCellRead.exit:                         ; preds = %182, %.split.i, %.s
   br label %375
 
 211:                                              ; preds = %161
-  %212 = xor i32 %.0192396, 1
-  %213 = and i32 %.0192396, 1
+  %212 = xor i32 %.0191396, 1
+  %213 = and i32 %.0191396, 1
   %.not221 = icmp eq i32 %213, 0
   br i1 %.not221, label %214, label %._crit_edge
 
@@ -5084,7 +5084,7 @@ Abc_NtkFromCellRead.exit303:                      ; preds = %233, %.split.i298, 
   %276 = getelementptr i8, ptr %215, i64 16
   %.val = load i32, ptr %276, align 8
   %.val273 = load ptr, ptr %150, align 8
-  %277 = or disjoint i32 %.0192396, 1
+  %277 = or disjoint i32 %.0191396, 1
   %278 = sext i32 %277 to i64
   %279 = getelementptr inbounds i32, ptr %.val273, i64 %278
   store i32 %.val, ptr %279, align 4
@@ -5093,7 +5093,7 @@ Abc_NtkFromCellRead.exit303:                      ; preds = %233, %.split.i298, 
 280:                                              ; preds = %._crit_edge, %.critedge10
   %.pre-phi449 = phi i64 [ %.pre448, %._crit_edge ], [ %216, %.critedge10 ]
   %.val31.i304 = phi ptr [ %.val31.i, %._crit_edge ], [ %.val273, %.critedge10 ]
-  %.0191 = phi i32 [ 0, %._crit_edge ], [ 1, %.critedge10 ]
+  %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %.critedge10 ]
   %281 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 7) #19
   %282 = and i32 %212, 1
   %283 = getelementptr inbounds i32, ptr %.val31.i304, i64 %.pre-phi449
@@ -5111,7 +5111,7 @@ Abc_NtkFromCellRead.exit303:                      ; preds = %233, %.split.i298, 
   br label %Abc_NtkFromCellRead.exit317
 
 291:                                              ; preds = %280
-  %292 = icmp ult i32 %.0192396, 2
+  %292 = icmp ult i32 %.0191396, 2
   br i1 %292, label %293, label %.split23.i306
 
 293:                                              ; preds = %291
@@ -5274,22 +5274,22 @@ Abc_NtkFromCellRead.exit331:                      ; preds = %332, %.split.i326, 
   br label %375
 
 375:                                              ; preds = %Abc_NtkFromCellRead.exit317, %.critedge12, %Abc_NtkFromCellRead.exit
-  %.1 = phi i32 [ 0, %Abc_NtkFromCellRead.exit ], [ %.0191, %Abc_NtkFromCellRead.exit317 ], [ 0, %.critedge12 ]
-  %.0 = phi ptr [ %167, %Abc_NtkFromCellRead.exit ], [ %281, %Abc_NtkFromCellRead.exit317 ], [ %315, %.critedge12 ]
-  %376 = getelementptr i8, ptr %.0, i64 16
-  %.0.val = load i32, ptr %376, align 8
+  %.0197 = phi ptr [ %167, %Abc_NtkFromCellRead.exit ], [ %281, %Abc_NtkFromCellRead.exit317 ], [ %315, %.critedge12 ]
+  %.1 = phi i32 [ 0, %Abc_NtkFromCellRead.exit ], [ %.0, %Abc_NtkFromCellRead.exit317 ], [ 0, %.critedge12 ]
+  %376 = getelementptr i8, ptr %.0197, i64 16
+  %.0197.val = load i32, ptr %376, align 8
   %.val274 = load ptr, ptr %150, align 8
   %377 = getelementptr inbounds i32, ptr %.val274, i64 %163
-  store i32 %.0.val, ptr %377, align 4
-  %378 = add nsw i32 %.1, %.0192396
+  store i32 %.0197.val, ptr %377, align 4
+  %378 = add nsw i32 %.1, %.0191396
   %.val265.pre = load i32, ptr %14, align 8
   br label %379
 
 379:                                              ; preds = %161, %375
   %.val265 = phi i32 [ %.val265.pre, %375 ], [ %.val265441, %161 ]
   %.val31.i304440 = phi ptr [ %.val274, %375 ], [ %.val31.i, %161 ]
-  %.1193 = phi i32 [ %378, %375 ], [ %.0192396, %161 ]
-  %380 = add nsw i32 %.1193, 1
+  %.1192 = phi i32 [ %378, %375 ], [ %.0191396, %161 ]
+  %380 = add nsw i32 %.1192, 1
   %381 = shl nsw i32 %.val265, 1
   %382 = icmp slt i32 %380, %381
   br i1 %382, label %161, label %.preheader, !llvm.loop !60
@@ -7059,7 +7059,7 @@ Abc_Clock.exit:                                   ; preds = %12, %15
   br label %31
 
 31:                                               ; preds = %29, %21
-  %.026 = phi ptr [ %28, %21 ], [ %30, %29 ]
+  %.0 = phi ptr [ %28, %21 ], [ %30, %29 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %32 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #19
   %33 = icmp slt i32 %32, 0
@@ -7086,12 +7086,12 @@ Abc_Clock.exit32:                                 ; preds = %31, %34
   br i1 %.not30, label %47, label %45
 
 45:                                               ; preds = %Abc_Clock.exit32
-  %46 = call ptr @Cec_ComputeChoices(ptr noundef %.026, ptr noundef nonnull %1) #19
+  %46 = call ptr @Cec_ComputeChoices(ptr noundef %.0, ptr noundef nonnull %1) #19
   br label %50
 
 47:                                               ; preds = %Abc_Clock.exit32
-  %48 = call ptr @Gia_ManToAigSkip(ptr noundef %.026, i32 noundef 3) #19
-  call void @Gia_ManStop(ptr noundef %.026) #19
+  %48 = call ptr @Gia_ManToAigSkip(ptr noundef %.0, i32 noundef 3) #19
+  call void @Gia_ManStop(ptr noundef %.0) #19
   %49 = call ptr @Dch_ComputeChoices(ptr noundef %48, ptr noundef nonnull %1) #19
   call void @Aig_ManStop(ptr noundef %48) #19
   br label %50
@@ -7103,8 +7103,8 @@ Abc_Clock.exit32:                                 ; preds = %31, %34
   br label %52
 
 52:                                               ; preds = %2, %50
-  %.0 = phi ptr [ %51, %50 ], [ null, %2 ]
-  ret ptr %.0
+  %.026 = phi ptr [ %51, %50 ], [ null, %2 ]
+  ret ptr %.026
 }
 
 declare ptr @Dar_ManChoiceNew(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -7608,8 +7608,8 @@ Abc_Clock.exit:                                   ; preds = %5, %13
   br label %31
 
 31:                                               ; preds = %25, %29
-  %.037 = phi ptr [ %26, %25 ], [ %30, %29 ]
-  %32 = call i32 @Abc_NtkMiterIsConstant(ptr noundef %.037) #19
+  %.036 = phi ptr [ %26, %25 ], [ %30, %29 ]
+  %32 = call i32 @Abc_NtkMiterIsConstant(ptr noundef %.036) #19
   switch i32 %32, label %39 [
     i32 0, label %33
     i32 1, label %38
@@ -7626,18 +7626,18 @@ Abc_Clock.exit:                                   ; preds = %5, %13
   br label %37
 
 37:                                               ; preds = %34, %33
-  call void @Abc_NtkDelete(ptr noundef %.037) #19
+  call void @Abc_NtkDelete(ptr noundef %.036) #19
   br label %86
 
 38:                                               ; preds = %31
-  call void @Abc_NtkDelete(ptr noundef %.037) #19
+  call void @Abc_NtkDelete(ptr noundef %.036) #19
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.29)
   br label %86
 
 39:                                               ; preds = %31
-  %40 = call ptr @Abc_NtkToDar(ptr noundef %.037, i32 noundef 0, i32 noundef 0)
+  %40 = call ptr @Abc_NtkToDar(ptr noundef %.036, i32 noundef 0, i32 noundef 0)
   store ptr %40, ptr %10, align 8
-  call void @Abc_NtkDelete(ptr noundef %.037) #19
+  call void @Abc_NtkDelete(ptr noundef %.036) #19
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %43
 
@@ -7660,9 +7660,9 @@ Abc_Clock.exit:                                   ; preds = %5, %13
 
 49:                                               ; preds = %43, %45, %20
   %.pre.sink = phi ptr [ %22, %20 ], [ %.pre, %45 ], [ %.pre, %43 ]
-  %.036 = phi i32 [ %23, %20 ], [ %44, %45 ], [ %44, %43 ]
+  %.0 = phi i32 [ %23, %20 ], [ %44, %45 ], [ %44, %43 ]
   call void @Aig_ManStop(ptr noundef %.pre.sink) #19
-  switch i32 %.036, label %70 [
+  switch i32 %.0, label %70 [
     i32 1, label %50
     i32 0, label %60
   ]
@@ -7744,8 +7744,8 @@ Abc_Clock.exit48:                                 ; preds = %70, %73
   br label %86
 
 86:                                               ; preds = %80, %42, %38, %37, %28
-  %.0 = phi i32 [ %.036, %80 ], [ 0, %28 ], [ 0, %37 ], [ 1, %38 ], [ -1, %42 ]
-  ret i32 %.0
+  %.037 = phi i32 [ %.0, %80 ], [ 0, %28 ], [ 0, %37 ], [ 1, %38 ], [ -1, %42 ]
+  ret i32 %.037
 }
 
 declare i32 @Fra_FraigCecPartitioned(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -7833,9 +7833,9 @@ Abc_Clock.exit41:                                 ; preds = %22, %25
   br label %37
 
 37:                                               ; preds = %18, %Abc_Clock.exit41, %35
-  %.030 = phi ptr [ %19, %Abc_Clock.exit41 ], [ %19, %18 ], [ %36, %35 ]
-  %38 = call ptr @Abc_NtkToDar(ptr noundef %.030, i32 noundef 0, i32 noundef 1)
-  call void @Abc_NtkDelete(ptr noundef %.030) #19
+  %.029 = phi ptr [ %19, %Abc_Clock.exit41 ], [ %19, %18 ], [ %36, %35 ]
+  %38 = call ptr @Abc_NtkToDar(ptr noundef %.029, i32 noundef 0, i32 noundef 1)
+  call void @Abc_NtkDelete(ptr noundef %.029) #19
   %39 = icmp eq ptr %38, null
   br i1 %39, label %67, label %40
 
@@ -7895,12 +7895,12 @@ Abc_Clock.exit41:                                 ; preds = %22, %25
   br i1 %66, label %.lr.ph, label %.critedge, !llvm.loop !82
 
 .critedge:                                        ; preds = %62, %48, %46
-  %.029 = phi ptr [ %47, %46 ], [ %49, %48 ], [ %49, %62 ]
+  %.030 = phi ptr [ %47, %46 ], [ %49, %48 ], [ %49, %62 ]
   call void @Aig_ManStop(ptr noundef nonnull %41) #19
   br label %67
 
 67:                                               ; preds = %40, %.critedge, %37
-  %.028 = phi ptr [ null, %37 ], [ %.029, %.critedge ], [ null, %40 ]
+  %.028 = phi ptr [ null, %37 ], [ %.030, %.critedge ], [ null, %40 ]
   ret ptr %.028
 }
 
@@ -8290,13 +8290,13 @@ define ptr @Abc_NtkDarLcorr(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   br i1 %33, label %.lr.ph, label %.critedge, !llvm.loop !88
 
 .critedge:                                        ; preds = %29, %15, %13
-  %.024 = phi ptr [ %14, %13 ], [ %16, %15 ], [ %16, %29 ]
+  %.023 = phi ptr [ %14, %13 ], [ %16, %15 ], [ %16, %29 ]
   tail call void @Aig_ManStop(ptr noundef nonnull %8) #19
   br label %34
 
 34:                                               ; preds = %7, %.critedge, %4
-  %.023 = phi ptr [ null, %4 ], [ %.024, %.critedge ], [ null, %7 ]
-  ret ptr %.023
+  %.024 = phi ptr [ null, %4 ], [ %.023, %.critedge ], [ null, %7 ]
+  ret ptr %.024
 }
 
 declare ptr @Fra_FraigLatchCorrespondence(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, float noundef) local_unnamed_addr #2
@@ -8375,13 +8375,13 @@ define ptr @Abc_NtkDarLcorrNew(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   br i1 %40, label %.lr.ph, label %.critedge, !llvm.loop !89
 
 .critedge:                                        ; preds = %36, %22, %20
-  %.032 = phi ptr [ %21, %20 ], [ %23, %22 ], [ %23, %36 ]
+  %.031 = phi ptr [ %21, %20 ], [ %23, %22 ], [ %23, %36 ]
   call void @Aig_ManStop(ptr noundef nonnull %15) #19
   br label %41
 
 41:                                               ; preds = %9, %.critedge, %5
-  %.031 = phi ptr [ null, %5 ], [ %.032, %.critedge ], [ null, %9 ]
-  ret ptr %.031
+  %.032 = phi ptr [ null, %5 ], [ %.031, %.critedge ], [ null, %9 ]
+  ret ptr %.032
 }
 
 declare void @Ssw_ManSetDefaultParams(ptr noundef) local_unnamed_addr #2
@@ -8452,8 +8452,8 @@ Abc_Clock.exit101:                                ; preds = %28, %33
   br label %47
 
 47:                                               ; preds = %45, %43
-  %.074 = phi ptr [ %44, %43 ], [ %46, %45 ]
-  %48 = icmp eq ptr %.074, null
+  %.075 = phi ptr [ %44, %43 ], [ %46, %45 ]
+  %48 = icmp eq ptr %.075, null
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %47
@@ -8472,13 +8472,13 @@ Abc_Clock.exit101:                                ; preds = %28, %33
   %.val97 = load ptr, ptr %55, align 8
   %56 = getelementptr i8, ptr %.val97, i64 4
   %.val97.val = load i32, ptr %56, align 4
-  %57 = getelementptr i8, ptr %.074, i64 112
-  %.074.val99 = load i32, ptr %57, align 8
-  %.not88 = icmp eq i32 %.val97.val, %.074.val99
+  %57 = getelementptr i8, ptr %.075, i64 112
+  %.075.val99 = load i32, ptr %57, align 8
+  %.not88 = icmp eq i32 %.val97.val, %.075.val99
   br i1 %.not88, label %59, label %58
 
 58:                                               ; preds = %54
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.43, i32 noundef %.val97.val, i32 noundef %.074.val99)
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.43, i32 noundef %.val97.val, i32 noundef %.075.val99)
   br label %59
 
 59:                                               ; preds = %58, %54, %50
@@ -8486,7 +8486,7 @@ Abc_Clock.exit101:                                ; preds = %28, %33
   br i1 %.not89, label %113, label %60
 
 60:                                               ; preds = %59
-  %61 = call i32 @Saig_ManBmcSimple(ptr noundef nonnull %.074, i32 noundef %2, i32 noundef %3, i32 noundef %6, i32 noundef %8, i32 noundef %12, ptr noundef nonnull %21, i32 noundef %11, i32 noundef %14) #19
+  %61 = call i32 @Saig_ManBmcSimple(ptr noundef nonnull %.075, i32 noundef %2, i32 noundef %3, i32 noundef %6, i32 noundef %8, i32 noundef %12, ptr noundef nonnull %21, i32 noundef %11, i32 noundef %14) #19
   %.not92 = icmp eq ptr %13, null
   br i1 %.not92, label %64, label %62
 
@@ -8518,7 +8518,7 @@ Abc_Clock.exit101:                                ; preds = %28, %33
   br label %72
 
 72:                                               ; preds = %68, %71
-  %73 = getelementptr inbounds i8, ptr %.074, i64 408
+  %73 = getelementptr inbounds i8, ptr %.075, i64 408
   %74 = load ptr, ptr %73, align 8
   store ptr %74, ptr %69, align 8
   store ptr null, ptr %73, align 8
@@ -8604,7 +8604,7 @@ Abc_Clock.exit105:                                ; preds = %100, %103
   br label %125
 
 113:                                              ; preds = %59
-  %114 = call i32 @Saig_BmcPerform(ptr noundef nonnull %.074, i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %12, i32 noundef 0, ptr noundef %13, i32 noundef 0, i32 noundef %14) #19
+  %114 = call i32 @Saig_BmcPerform(ptr noundef nonnull %.075, i32 noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %12, i32 noundef 0, ptr noundef %13, i32 noundef 0, i32 noundef %14) #19
   %115 = getelementptr inbounds i8, ptr %0, i64 304
   %116 = load ptr, ptr %115, align 8
   %.not90 = icmp eq ptr %116, null
@@ -8627,21 +8627,21 @@ Abc_Clock.exit105:                                ; preds = %100, %103
   br label %122
 
 122:                                              ; preds = %118, %121
-  %123 = getelementptr inbounds i8, ptr %.074, i64 408
+  %123 = getelementptr inbounds i8, ptr %.075, i64 408
   %124 = load ptr, ptr %123, align 8
   store ptr %124, ptr %119, align 8
   store ptr null, ptr %123, align 8
   br label %125
 
 125:                                              ; preds = %122, %Abc_Clock.exit105
-  %.075 = phi i32 [ %61, %Abc_Clock.exit105 ], [ %114, %122 ]
+  %.074 = phi i32 [ %61, %Abc_Clock.exit105 ], [ %114, %122 ]
   %126 = getelementptr inbounds i8, ptr %0, i64 312
   %127 = load ptr, ptr %126, align 8
   %.not96 = icmp eq ptr %127, null
   br i1 %.not96, label %132, label %128
 
 128:                                              ; preds = %125
-  %129 = call i32 @Saig_ManVerifyCex(ptr noundef nonnull %.074, ptr noundef nonnull %127) #19
+  %129 = call i32 @Saig_ManVerifyCex(ptr noundef nonnull %.075, ptr noundef nonnull %127) #19
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %131, label %132
 
@@ -8650,7 +8650,7 @@ Abc_Clock.exit105:                                ; preds = %100, %103
   br label %132
 
 132:                                              ; preds = %128, %131, %125
-  call void @Aig_ManStop(ptr noundef nonnull %.074) #19
+  call void @Aig_ManStop(ptr noundef nonnull %.075) #19
   %133 = load ptr, ptr %126, align 8
   %134 = icmp ne ptr %133, null
   %135 = load ptr, ptr %20, align 8
@@ -8693,7 +8693,7 @@ Abc_Clock.exit105:                                ; preds = %100, %103
   br label %Vec_IntFreeP.exit
 
 Vec_IntFreeP.exit:                                ; preds = %.thread.i, %143, %49
-  %.0 = phi i32 [ -1, %49 ], [ %.075, %143 ], [ %.075, %.thread.i ]
+  %.0 = phi i32 [ -1, %49 ], [ %.074, %143 ], [ %.074, %.thread.i ]
   ret i32 %.0
 }
 
@@ -10432,19 +10432,19 @@ define i32 @Abc_NtkDarAbSec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   br label %28
 
 25:                                               ; preds = %21, %8
-  %.026 = phi ptr [ %10, %21 ], [ null, %8 ]
-  %26 = tail call i32 @Ssw_SecSpecialMiter(ptr noundef nonnull %5, ptr noundef %.026, i32 noundef %2, i32 noundef %3) #19
+  %.0 = phi ptr [ %10, %21 ], [ null, %8 ]
+  %26 = tail call i32 @Ssw_SecSpecialMiter(ptr noundef nonnull %5, ptr noundef %.0, i32 noundef %2, i32 noundef %3) #19
   tail call void @Aig_ManStop(ptr noundef nonnull %5) #19
-  %.not33 = icmp eq ptr %.026, null
+  %.not33 = icmp eq ptr %.0, null
   br i1 %.not33, label %28, label %27
 
 27:                                               ; preds = %25
-  tail call void @Aig_ManStop(ptr noundef nonnull %.026) #19
+  tail call void @Aig_ManStop(ptr noundef nonnull %.0) #19
   br label %28
 
 28:                                               ; preds = %25, %27, %24, %20, %16, %12, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %12 ], [ -1, %16 ], [ -1, %20 ], [ -1, %24 ], [ %26, %27 ], [ %26, %25 ]
-  ret i32 %.0
+  %.026 = phi i32 [ -1, %7 ], [ -1, %12 ], [ -1, %16 ], [ -1, %20 ], [ -1, %24 ], [ %26, %27 ], [ %26, %25 ]
+  ret i32 %.026
 }
 
 declare i32 @Ssw_SecSpecialMiter(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -10473,19 +10473,19 @@ define i32 @Abc_NtkDarSimSec(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   br label %15
 
 12:                                               ; preds = %8, %7
-  %.012 = phi ptr [ %9, %8 ], [ null, %7 ]
-  %13 = tail call i32 @Ssw_SecWithSimilarity(ptr noundef nonnull %4, ptr noundef %.012, ptr noundef %2) #19
+  %.0 = phi ptr [ %9, %8 ], [ null, %7 ]
+  %13 = tail call i32 @Ssw_SecWithSimilarity(ptr noundef nonnull %4, ptr noundef %.0, ptr noundef %2) #19
   tail call void @Aig_ManStop(ptr noundef nonnull %4) #19
-  %.not16 = icmp eq ptr %.012, null
+  %.not16 = icmp eq ptr %.0, null
   br i1 %.not16, label %15, label %14
 
 14:                                               ; preds = %12
-  tail call void @Aig_ManStop(ptr noundef nonnull %.012) #19
+  tail call void @Aig_ManStop(ptr noundef nonnull %.0) #19
   br label %15
 
 15:                                               ; preds = %12, %14, %11, %6
-  %.0 = phi i32 [ -1, %6 ], [ -1, %11 ], [ %13, %14 ], [ %13, %12 ]
-  ret i32 %.0
+  %.012 = phi i32 [ -1, %6 ], [ -1, %11 ], [ %13, %14 ], [ %13, %12 ]
+  ret i32 %.012
 }
 
 declare i32 @Ssw_SecWithSimilarity(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -10515,8 +10515,8 @@ define noundef ptr @Abc_NtkDarMatch(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %27
 
 14:                                               ; preds = %10, %9
-  %.014 = phi ptr [ %11, %10 ], [ null, %9 ]
-  %15 = call ptr @Saig_StrSimPerformMatching(ptr noundef nonnull %6, ptr noundef %.014, i32 noundef %2, i32 noundef 1, ptr noundef nonnull %5) #19
+  %.0 = phi ptr [ %11, %10 ], [ null, %9 ]
+  %15 = call ptr @Saig_StrSimPerformMatching(ptr noundef nonnull %6, ptr noundef %.0, i32 noundef %2, i32 noundef 1, ptr noundef nonnull %5) #19
   %16 = load ptr, ptr %5, align 8
   %17 = call ptr @Abc_NtkFromAigPhase(ptr noundef %16)
   %.not20 = icmp eq ptr %15, null
@@ -10547,16 +10547,16 @@ Vec_IntFree.exit:                                 ; preds = %18, %21
 
 25:                                               ; preds = %24, %22
   call void @Aig_ManStop(ptr noundef nonnull %6) #19
-  %.not22 = icmp eq ptr %.014, null
+  %.not22 = icmp eq ptr %.0, null
   br i1 %.not22, label %27, label %26
 
 26:                                               ; preds = %25
-  call void @Aig_ManStop(ptr noundef nonnull %.014) #19
+  call void @Aig_ManStop(ptr noundef nonnull %.0) #19
   br label %27
 
 27:                                               ; preds = %25, %26, %13, %8
-  %.0 = phi ptr [ null, %8 ], [ null, %13 ], [ %17, %26 ], [ %17, %25 ]
-  ret ptr %.0
+  %.014 = phi ptr [ null, %8 ], [ null, %13 ], [ %17, %26 ], [ %17, %25 ]
+  ret ptr %.014
 }
 
 declare ptr @Saig_StrSimPerformMatching(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -11789,14 +11789,14 @@ define ptr @Abc_NtkInter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   br label %90
 
 90:                                               ; preds = %88, %76
-  %.052 = phi ptr [ %77, %76 ], [ %89, %88 ]
-  %.not56 = icmp eq ptr %.052, null
+  %.051 = phi ptr [ %77, %76 ], [ %89, %88 ]
+  %.not56 = icmp eq ptr %.051, null
   br i1 %.not56, label %93, label %91
 
 91:                                               ; preds = %.thread, %90
-  %.05277 = phi ptr [ %81, %.thread ], [ %.052, %90 ]
-  %92 = tail call i32 @Abc_NtkAppend(ptr noundef %15, ptr noundef nonnull %.05277, i32 noundef 1) #19
-  tail call void @Abc_NtkDelete(ptr noundef nonnull %.05277) #19
+  %.05177 = phi ptr [ %81, %.thread ], [ %.051, %90 ]
+  %92 = tail call i32 @Abc_NtkAppend(ptr noundef %15, ptr noundef nonnull %.05177, i32 noundef 1) #19
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %.05177) #19
   br label %93
 
 93:                                               ; preds = %91, %90
@@ -11820,8 +11820,8 @@ define ptr @Abc_NtkInter(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
   br label %99
 
 99:                                               ; preds = %.critedge2, %98, %12, %9
-  %.051 = phi ptr [ null, %9 ], [ %13, %12 ], [ %15, %98 ], [ %15, %.critedge2 ]
-  ret ptr %.051
+  %.052 = phi ptr [ null, %9 ], [ %13, %12 ], [ %15, %98 ], [ %15, %.critedge2 ]
+  ret ptr %.052
 }
 
 declare ptr @Abc_NtkDupObj(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -12036,14 +12036,14 @@ define noundef ptr @Abc_NtkDarClockGate(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %9, label %.sink.split, label %10
 
 10:                                               ; preds = %7, %6
-  %.018 = phi ptr [ %8, %7 ], [ null, %6 ]
-  %11 = tail call ptr @Cgt_ClockGating(ptr noundef nonnull %4, ptr noundef %.018, ptr noundef %2) #19
+  %.0 = phi ptr [ %8, %7 ], [ null, %6 ]
+  %11 = tail call ptr @Cgt_ClockGating(ptr noundef nonnull %4, ptr noundef %.0, ptr noundef %2) #19
   tail call void @Aig_ManStop(ptr noundef nonnull %4) #19
-  %.not23 = icmp eq ptr %.018, null
+  %.not23 = icmp eq ptr %.0, null
   br i1 %.not23, label %13, label %12
 
 12:                                               ; preds = %10
-  tail call void @Aig_ManStop(ptr noundef nonnull %.018) #19
+  tail call void @Aig_ManStop(ptr noundef nonnull %.0) #19
   br label %13
 
 13:                                               ; preds = %12, %10
@@ -12056,13 +12056,13 @@ define noundef ptr @Abc_NtkDarClockGate(ptr noundef %0, ptr noundef %1, ptr noun
 
 .sink.split:                                      ; preds = %7, %15
   %.sink = phi ptr [ %11, %15 ], [ %4, %7 ]
-  %.0.ph = phi ptr [ %16, %15 ], [ null, %7 ]
+  %.018.ph = phi ptr [ %16, %15 ], [ null, %7 ]
   tail call void @Aig_ManStop(ptr noundef nonnull %.sink) #19
   br label %17
 
 17:                                               ; preds = %.sink.split, %13, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %13 ], [ %.0.ph, %.sink.split ]
-  ret ptr %.0
+  %.018 = phi ptr [ null, %3 ], [ null, %13 ], [ %.018.ph, %.sink.split ]
+  ret ptr %.018
 }
 
 declare ptr @Cgt_ClockGating(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -12253,14 +12253,14 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %24, %Saig_ObjIsLo.e
   br label %44
 
 37:                                               ; preds = %33, %32
-  %.035 = phi ptr [ %34, %33 ], [ null, %32 ]
-  %38 = tail call ptr @Saig_ManWindowInsert(ptr noundef nonnull %6, ptr noundef nonnull %.0, i32 noundef %3, ptr noundef %.035) #19
+  %.034 = phi ptr [ %34, %33 ], [ null, %32 ]
+  %38 = tail call ptr @Saig_ManWindowInsert(ptr noundef nonnull %6, ptr noundef nonnull %.0, i32 noundef %3, ptr noundef %.034) #19
   tail call void @Aig_ManStop(ptr noundef nonnull %6) #19
-  %.not45 = icmp eq ptr %.035, null
+  %.not45 = icmp eq ptr %.034, null
   br i1 %.not45, label %40, label %39
 
 39:                                               ; preds = %37
-  tail call void @Aig_ManStop(ptr noundef nonnull %.035) #19
+  tail call void @Aig_ManStop(ptr noundef nonnull %.034) #19
   br label %40
 
 40:                                               ; preds = %39, %37
@@ -12273,8 +12273,8 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %24, %Saig_ObjIsLo.e
   br label %44
 
 44:                                               ; preds = %40, %5, %42, %36, %31, %23, %17
-  %.034 = phi ptr [ null, %36 ], [ %43, %42 ], [ null, %17 ], [ null, %23 ], [ null, %31 ], [ null, %5 ], [ null, %40 ]
-  ret ptr %.034
+  %.035 = phi ptr [ null, %36 ], [ %43, %42 ], [ null, %17 ], [ null, %23 ], [ null, %31 ], [ null, %5 ], [ null, %40 ]
+  ret ptr %.035
 }
 
 declare ptr @Saig_ManWindowInsert(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2

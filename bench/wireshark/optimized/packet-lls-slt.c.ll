@@ -58,8 +58,8 @@ define hidden void @lls_extract_save_slt_table(ptr noundef %0, ptr noundef %1) l
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds i8, ptr %.083, i64 16
-  %.06191 = load ptr, ptr %22, align 8
-  %.not6592 = icmp eq ptr %.06191, null
+  %.06091 = load ptr, ptr %22, align 8
+  %.not6592 = icmp eq ptr %.06091, null
   br i1 %.not6592, label %.thread, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %21
@@ -72,26 +72,26 @@ define hidden void @lls_extract_save_slt_table(ptr noundef %0, ptr noundef %1) l
   br label %29
 
 29:                                               ; preds = %.lr.ph95, %.backedge
-  %.06193 = phi ptr [ %.06191, %.lr.ph95 ], [ %.061, %.backedge ]
-  %30 = load i32, ptr %.06193, align 8
+  %.06093 = phi ptr [ %.06091, %.lr.ph95 ], [ %.060, %.backedge ]
+  %30 = load i32, ptr %.06093, align 8
   %31 = icmp eq i32 %30, 1
   br i1 %31, label %32, label %.backedge
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %.06193, i64 56
+  %33 = getelementptr inbounds i8, ptr %.06093, i64 56
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 @g_strcmp0(ptr noundef nonnull @.str.1, ptr noundef %34) #6
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %.backedge
 
 .backedge:                                        ; preds = %37, %._crit_edge, %lls_check_init_slt_table.exit, %29, %32
-  %.061.in.be = getelementptr inbounds i8, ptr %.06193, i64 40
-  %.061 = load ptr, ptr %.061.in.be, align 8
-  %.not65 = icmp eq ptr %.061, null
+  %.060.in.be = getelementptr inbounds i8, ptr %.06093, i64 40
+  %.060 = load ptr, ptr %.060.in.be, align 8
+  %.not65 = icmp eq ptr %.060, null
   br i1 %.not65, label %.thread, label %29, !llvm.loop !6
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %.06193, i64 16
+  %38 = getelementptr inbounds i8, ptr %.06093, i64 16
   %39 = load ptr, ptr %38, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false)
   store i32 0, ptr %4, align 4
@@ -101,8 +101,8 @@ define hidden void @lls_extract_save_slt_table(ptr noundef %0, ptr noundef %1) l
   br i1 %.not6688, label %.backedge, label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %37, %.loopexit
-  %.06089 = phi ptr [ %123, %.loopexit ], [ %39, %37 ]
-  %40 = getelementptr inbounds i8, ptr %.06089, i64 64
+  %.05989 = phi ptr [ %123, %.loopexit ], [ %39, %37 ]
+  %40 = getelementptr inbounds i8, ptr %.05989, i64 64
   %41 = load ptr, ptr %40, align 8
   %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %xml_value_to_gchar.exit.thread, label %xml_value_to_gchar.exit
@@ -116,14 +116,14 @@ xml_value_to_gchar.exit:                          ; preds = %.lr.ph90
   %47 = load ptr, ptr %40, align 8
   %48 = zext i32 %43 to i64
   %49 = call ptr @tvb_memcpy(ptr noundef %47, ptr noundef %46, i32 noundef 0, i64 noundef %48) #6
-  %50 = load i32, ptr %.06089, align 8
+  %50 = load i32, ptr %.05989, align 8
   %51 = icmp eq i32 %50, 4
   %52 = icmp ne ptr %46, null
   %or.cond = and i1 %52, %51
   br i1 %or.cond, label %53, label %xml_value_to_gchar.exit.thread
 
 53:                                               ; preds = %xml_value_to_gchar.exit
-  %54 = getelementptr inbounds i8, ptr %.06089, i64 56
+  %54 = getelementptr inbounds i8, ptr %.05989, i64 56
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 @g_strcmp0(ptr noundef nonnull @.str.2, ptr noundef %55) #6
   %57 = icmp eq i32 %56, 0
@@ -157,26 +157,26 @@ xml_value_to_gchar.exit.thread:                   ; preds = %.lr.ph90, %58, %66,
   %.0.i75 = phi ptr [ %46, %58 ], [ %46, %66 ], [ %46, %70 ], [ %46, %64 ], [ %46, %xml_value_to_gchar.exit ], [ null, %.lr.ph90 ]
   %72 = load ptr, ptr %6, align 8
   call void @wmem_free(ptr noundef %72, ptr noundef %.0.i75) #6
-  %73 = load i32, ptr %.06089, align 8
+  %73 = load i32, ptr %.05989, align 8
   %74 = icmp eq i32 %73, 1
   br i1 %74, label %75, label %.loopexit
 
 75:                                               ; preds = %xml_value_to_gchar.exit.thread
-  %76 = getelementptr inbounds i8, ptr %.06089, i64 56
+  %76 = getelementptr inbounds i8, ptr %.05989, i64 56
   %77 = load ptr, ptr %76, align 8
   %78 = call i32 @g_strcmp0(ptr noundef nonnull @.str.5, ptr noundef %77) #6
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %.loopexit
 
 80:                                               ; preds = %75
-  %81 = getelementptr inbounds i8, ptr %.06089, i64 16
-  %.05984 = load ptr, ptr %81, align 8
-  %.not6885 = icmp eq ptr %.05984, null
+  %81 = getelementptr inbounds i8, ptr %.05989, i64 16
+  %.05884 = load ptr, ptr %81, align 8
+  %.not6885 = icmp eq ptr %.05884, null
   br i1 %.not6885, label %.loopexit, label %.lr.ph87
 
 .lr.ph87:                                         ; preds = %80, %xml_value_to_gchar.exit71.thread
-  %.05986 = phi ptr [ %.059, %xml_value_to_gchar.exit71.thread ], [ %.05984, %80 ]
-  %82 = getelementptr inbounds i8, ptr %.05986, i64 64
+  %.05886 = phi ptr [ %.058, %xml_value_to_gchar.exit71.thread ], [ %.05884, %80 ]
+  %82 = getelementptr inbounds i8, ptr %.05886, i64 64
   %83 = load ptr, ptr %82, align 8
   %.not.i69 = icmp eq ptr %83, null
   br i1 %.not.i69, label %xml_value_to_gchar.exit71.thread, label %xml_value_to_gchar.exit71
@@ -190,14 +190,14 @@ xml_value_to_gchar.exit71:                        ; preds = %.lr.ph87
   %89 = load ptr, ptr %82, align 8
   %90 = zext i32 %85 to i64
   %91 = call ptr @tvb_memcpy(ptr noundef %89, ptr noundef %88, i32 noundef 0, i64 noundef %90) #6
-  %92 = load i32, ptr %.05986, align 8
+  %92 = load i32, ptr %.05886, align 8
   %93 = icmp eq i32 %92, 4
   %94 = icmp ne ptr %88, null
   %or.cond3 = and i1 %94, %93
   br i1 %or.cond3, label %95, label %xml_value_to_gchar.exit71.thread
 
 95:                                               ; preds = %xml_value_to_gchar.exit71
-  %96 = getelementptr inbounds i8, ptr %.05986, i64 56
+  %96 = getelementptr inbounds i8, ptr %.05886, i64 56
   %97 = load ptr, ptr %96, align 8
   %98 = call i32 @g_strcmp0(ptr noundef nonnull @.str.6, ptr noundef %97) #6
   %99 = icmp eq i32 %98, 0
@@ -241,13 +241,13 @@ xml_value_to_gchar.exit71.thread:                 ; preds = %.lr.ph87, %100, %11
   %.0.i7078 = phi ptr [ %88, %100 ], [ %88, %112 ], [ %88, %118 ], [ %88, %114 ], [ %88, %106 ], [ %88, %xml_value_to_gchar.exit71 ], [ null, %.lr.ph87 ]
   %120 = load ptr, ptr %6, align 8
   call void @wmem_free(ptr noundef %120, ptr noundef %.0.i7078) #6
-  %121 = getelementptr inbounds i8, ptr %.05986, i64 40
-  %.059 = load ptr, ptr %121, align 8
-  %.not68 = icmp eq ptr %.059, null
+  %121 = getelementptr inbounds i8, ptr %.05886, i64 40
+  %.058 = load ptr, ptr %121, align 8
+  %.not68 = icmp eq ptr %.058, null
   br i1 %.not68, label %.loopexit, label %.lr.ph87, !llvm.loop !7
 
 .loopexit:                                        ; preds = %xml_value_to_gchar.exit71.thread, %80, %75, %xml_value_to_gchar.exit.thread
-  %122 = getelementptr inbounds i8, ptr %.06089, i64 40
+  %122 = getelementptr inbounds i8, ptr %.05989, i64 40
   %123 = load ptr, ptr %122, align 8
   %.not66 = icmp eq ptr %123, null
   br i1 %.not66, label %._crit_edge, label %.lr.ph90, !llvm.loop !8

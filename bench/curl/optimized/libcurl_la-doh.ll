@@ -1436,8 +1436,8 @@ for.body.lr.ph.i73:                               ; preds = %for.cond.preheader.
 
 for.body.i74:                                     ; preds = %sw.epilog.i, %for.body.lr.ph.i73
   %indvars.iv.i75 = phi i64 [ 0, %for.body.lr.ph.i73 ], [ %indvars.iv.next.i80, %sw.epilog.i ]
-  %prevai.045.i = phi ptr [ null, %for.body.lr.ph.i73 ], [ %call8.i, %sw.epilog.i ]
-  %firstai.044.i = phi ptr [ null, %for.body.lr.ph.i73 ], [ %spec.select.i, %sw.epilog.i ]
+  %firstai.045.i = phi ptr [ null, %for.body.lr.ph.i73 ], [ %spec.select.i, %sw.epilog.i ]
+  %prevai.044.i = phi ptr [ null, %for.body.lr.ph.i73 ], [ %call8.i, %sw.epilog.i ]
   %arrayidx.i76 = getelementptr inbounds [24 x %struct.dohaddr], ptr %addr2.i, i64 0, i64 %indvars.iv.i75
   %87 = load i32, ptr %arrayidx.i76, align 4
   %cmp3.i = icmp eq i32 %87, 28
@@ -1456,13 +1456,13 @@ if.end11.i:                                       ; preds = %for.body.i74
   %ai_canonname.i = getelementptr inbounds i8, ptr %call8.i, i64 24
   store ptr %add.ptr13.i, ptr %ai_canonname.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr13.i, ptr readonly align 1 %85, i64 %add.i69, i1 false)
-  %tobool15.not.i = icmp eq ptr %firstai.044.i, null
-  %spec.select.i = select i1 %tobool15.not.i, ptr %call8.i, ptr %firstai.044.i
-  %tobool18.not.i = icmp eq ptr %prevai.045.i, null
+  %tobool15.not.i = icmp eq ptr %firstai.045.i, null
+  %spec.select.i = select i1 %tobool15.not.i, ptr %call8.i, ptr %firstai.045.i
+  %tobool18.not.i = icmp eq ptr %prevai.044.i, null
   br i1 %tobool18.not.i, label %if.end20.i, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.end11.i
-  %ai_next.i = getelementptr inbounds i8, ptr %prevai.045.i, i64 40
+  %ai_next.i = getelementptr inbounds i8, ptr %prevai.044.i, i64 40
   store ptr %call8.i, ptr %ai_next.i, align 8
   br label %if.end20.i
 
@@ -1503,7 +1503,7 @@ sw.epilog.i:                                      ; preds = %sw.bb31.i, %sw.bb.i
   br i1 %cmp.not.i, label %for.body.i74, label %if.end79, !llvm.loop !16
 
 if.then42.i:                                      ; preds = %for.body.i74
-  call void @Curl_freeaddrinfo(ptr noundef %firstai.044.i) #8
+  call void @Curl_freeaddrinfo(ptr noundef %firstai.045.i) #8
   br label %if.then78
 
 if.then78:                                        ; preds = %showdoh.exit, %if.then42.i
@@ -1817,8 +1817,8 @@ if.end.i:                                         ; preds = %sw.bb15
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.cond.i, %if.end.i
-  %loop.0.i = phi i32 [ 128, %if.end.i ], [ %dec.i, %do.cond.i ]
   %index.addr.0.i = phi i32 [ %index, %if.end.i ], [ %index.addr.1.i, %do.cond.i ]
+  %loop.0.i = phi i32 [ 128, %if.end.i ], [ %dec.i, %do.cond.i ]
   %conv.i = zext i32 %index.addr.0.i to i64
   %cmp2.not.i = icmp ult i64 %conv.i, %dohlen
   br i1 %cmp2.not.i, label %if.end5.i, label %return

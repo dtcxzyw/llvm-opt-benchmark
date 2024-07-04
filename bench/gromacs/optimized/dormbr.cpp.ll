@@ -25,11 +25,11 @@ define void @dormbr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %29 = icmp eq i8 %28, 76
   %30 = load i8, ptr %2, align 1
   %31 = load i32, ptr %12, align 4
-  %.0107.in = select i1 %29, ptr %3, ptr %4
-  %.0106.in = select i1 %29, ptr %4, ptr %3
+  %.0106.in = select i1 %29, ptr %3, ptr %4
+  %.0.in = select i1 %29, ptr %4, ptr %3
+  %.0 = load i32, ptr %.0.in, align 4
   %.0106 = load i32, ptr %.0106.in, align 4
-  %.0107 = load i32, ptr %.0107.in, align 4
-  %32 = shl nsw i32 %.0106, 5
+  %32 = shl nsw i32 %.0, 5
   %33 = sitofp i32 %32 to double
   store double %33, ptr %11, align 8
   %34 = load i32, ptr %13, align 4
@@ -57,7 +57,7 @@ define void @dormbr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 43:                                               ; preds = %42, %42
   %44 = load i32, ptr %5, align 4
-  %.not116 = icmp slt i32 %.0107, %44
+  %.not116 = icmp slt i32 %.0106, %44
   br i1 %.not116, label %46, label %45
 
 45:                                               ; preds = %43
@@ -65,7 +65,7 @@ define void @dormbr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br label %85
 
 46:                                               ; preds = %43
-  %47 = icmp sgt i32 %.0107, 1
+  %47 = icmp sgt i32 %.0106, 1
   br i1 %47, label %48, label %85
 
 48:                                               ; preds = %46
@@ -86,16 +86,16 @@ define void @dormbr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 53:                                               ; preds = %51, %49
   %storemerge117 = phi i32 [ %52, %51 ], [ %40, %49 ]
-  %.0108 = phi i32 [ 2, %51 ], [ 1, %49 ]
-  %.0 = phi i32 [ 1, %51 ], [ 2, %49 ]
+  %.0108 = phi i32 [ 1, %51 ], [ 2, %49 ]
+  %.0107 = phi i32 [ 2, %51 ], [ 1, %49 ]
   store i32 %storemerge117, ptr %17, align 4
-  %54 = add nsw i32 %.0107, -1
+  %54 = add nsw i32 %.0106, -1
   store i32 %54, ptr %15, align 4
   %55 = sext i32 %20 to i64
   %56 = getelementptr double, ptr %22, i64 %55
   %57 = getelementptr i8, ptr %56, i64 16
-  %58 = mul nsw i32 %.0108, %23
-  %59 = add nsw i32 %.0, %58
+  %58 = mul nsw i32 %.0107, %23
+  %59 = add nsw i32 %58, %.0108
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds double, ptr %25, i64 %60
   call void @dormqr_(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %15, ptr noundef %57, ptr noundef nonnull %7, ptr noundef %8, ptr noundef %61, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %18)
@@ -108,7 +108,7 @@ define void @dormbr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %64 = select i1 %switch.selectcmp, i8 84, i8 78
   store i8 %64, ptr %19, align 1
   %65 = load i32, ptr %5, align 4
-  %66 = icmp sgt i32 %.0107, %65
+  %66 = icmp sgt i32 %.0106, %65
   br i1 %66, label %67, label %68
 
 67:                                               ; preds = %62
@@ -116,7 +116,7 @@ define void @dormbr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br label %85
 
 68:                                               ; preds = %62
-  %69 = icmp sgt i32 %.0107, 1
+  %69 = icmp sgt i32 %.0106, 1
   br i1 %69, label %70, label %85
 
 70:                                               ; preds = %68
@@ -137,17 +137,17 @@ define void @dormbr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 75:                                               ; preds = %73, %71
   %storemerge115 = phi i32 [ %74, %73 ], [ %40, %71 ]
-  %.1109 = phi i32 [ 2, %73 ], [ 1, %71 ]
-  %.1 = phi i32 [ 1, %73 ], [ 2, %71 ]
+  %.1109 = phi i32 [ 1, %73 ], [ 2, %71 ]
+  %.1 = phi i32 [ 2, %73 ], [ 1, %71 ]
   store i32 %storemerge115, ptr %17, align 4
-  %76 = add nsw i32 %.0107, -1
+  %76 = add nsw i32 %.0106, -1
   store i32 %76, ptr %15, align 4
   %77 = shl i32 %20, 1
   %78 = or disjoint i32 %77, 1
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds double, ptr %22, i64 %79
-  %81 = mul nsw i32 %.1109, %23
-  %82 = add nsw i32 %.1, %81
+  %81 = mul nsw i32 %.1, %23
+  %82 = add nsw i32 %81, %.1109
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds double, ptr %25, i64 %83
   call void @dormlq_(ptr noundef nonnull %1, ptr noundef nonnull %19, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %15, ptr noundef nonnull %80, ptr noundef nonnull %7, ptr noundef %8, ptr noundef %84, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %18)

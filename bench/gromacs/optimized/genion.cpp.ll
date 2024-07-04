@@ -2620,8 +2620,8 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i29: ; preds = %.noexc41
   br label %_ZL22solventMoleculeIndicesiiN3gmx8ArrayRefIKiEE.exit42
 
 _ZL22solventMoleculeIndicesiiN3gmx8ArrayRefIKiEE.exit42: ; preds = %.lr.ph.i30, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i26
-  %.sroa.5.1 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i26 ], [ %.0.i.i.i.i.i.ph.i31, %.lr.ph.i30 ]
   %.sroa.057.1 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i26 ], [ %72, %.lr.ph.i30 ]
+  %.sroa.5.1 = phi ptr [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i26 ], [ %.0.i.i.i.i.i.ph.i31, %.lr.ph.i30 ]
   %.not.i.i.i.i.i43 = icmp eq ptr %.sroa.068.1110, null
   br i1 %.not.i.i.i.i.i43, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %77
 
@@ -2834,9 +2834,9 @@ define internal fastcc void @_ZL9sort_ionsiiPKiN3gmx8ArrayRefIS_EEP7t_atomsPA3_f
 
 .lr.ph137.split.us:                               ; preds = %.lr.ph137.split.us.preheader, %..loopexit_crit_edge.us
   %indvars.iv168 = phi i64 [ 0, %.lr.ph137.split.us.preheader ], [ %indvars.iv.next169, %..loopexit_crit_edge.us ]
-  %.0105134.us = phi i32 [ %16, %.lr.ph137.split.us.preheader ], [ %.2107.us, %..loopexit_crit_edge.us ]
-  %.0108133.us = phi i32 [ 0, %.lr.ph137.split.us.preheader ], [ %.1109.us, %..loopexit_crit_edge.us ]
-  %.0110132.us = phi i32 [ 0, %.lr.ph137.split.us.preheader ], [ %.1111.us, %..loopexit_crit_edge.us ]
+  %.0103136.us = phi i32 [ 0, %.lr.ph137.split.us.preheader ], [ %.1104.us, %..loopexit_crit_edge.us ]
+  %.0105135.us = phi i32 [ 0, %.lr.ph137.split.us.preheader ], [ %.1106.us, %..loopexit_crit_edge.us ]
+  %.0108134.us = phi i32 [ %16, %.lr.ph137.split.us.preheader ], [ %.2.us, %..loopexit_crit_edge.us ]
   %18 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv168
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
@@ -2847,34 +2847,34 @@ define internal fastcc void @_ZL9sort_ionsiiPKiN3gmx8ArrayRefIS_EEP7t_atomsPA3_f
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %21
-  %24 = add nsw i32 %.0108133.us, 1
+  %24 = add nsw i32 %.0103136.us, 1
   br label %..loopexit_crit_edge.us
 
 25:                                               ; preds = %21
-  %26 = add nsw i32 %.0110132.us, 1
+  %26 = add nsw i32 %.0105135.us, 1
   br label %..loopexit_crit_edge.us
 
 ..loopexit_crit_edge.us.loopexit:                 ; preds = %28
-  %27 = trunc nsw i64 %indvars.iv.next160 to i32
+  %27 = trunc nsw i64 %indvars.iv.next162 to i32
   br label %..loopexit_crit_edge.us
 
 ..loopexit_crit_edge.us:                          ; preds = %..loopexit_crit_edge.us.loopexit, %25, %23
-  %.1111.us = phi i32 [ %26, %25 ], [ %.0110132.us, %23 ], [ %.0110132.us, %..loopexit_crit_edge.us.loopexit ]
-  %.1109.us = phi i32 [ %.0108133.us, %25 ], [ %24, %23 ], [ %.0108133.us, %..loopexit_crit_edge.us.loopexit ]
-  %.2107.us = phi i32 [ %.0105134.us, %25 ], [ %.0105134.us, %23 ], [ %27, %..loopexit_crit_edge.us.loopexit ]
+  %.2.us = phi i32 [ %.0108134.us, %25 ], [ %.0108134.us, %23 ], [ %27, %..loopexit_crit_edge.us.loopexit ]
+  %.1106.us = phi i32 [ %26, %25 ], [ %.0105135.us, %23 ], [ %.0105135.us, %..loopexit_crit_edge.us.loopexit ]
+  %.1104.us = phi i32 [ %.0103136.us, %25 ], [ %24, %23 ], [ %.0103136.us, %..loopexit_crit_edge.us.loopexit ]
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
   br i1 %exitcond172.not, label %._crit_edge, label %.lr.ph137.split.us, !llvm.loop !33
 
 28:                                               ; preds = %.preheader.us, %28
-  %indvars.iv161 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next162, %28 ]
-  %indvars.iv159 = phi i64 [ %41, %.preheader.us ], [ %indvars.iv.next160, %28 ]
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv161
+  %indvars.iv161 = phi i64 [ %41, %.preheader.us ], [ %indvars.iv.next162, %28 ]
+  %indvars.iv159 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next160, %28 ]
+  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv159
   %29 = load i32, ptr %gep, align 4
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds [3 x float], ptr %5, i64 %30
-  %indvars.iv.next160 = add nsw i64 %indvars.iv159, 1
-  %32 = getelementptr inbounds [3 x float], ptr %13, i64 %indvars.iv159
+  %indvars.iv.next162 = add nsw i64 %indvars.iv161, 1
+  %32 = getelementptr inbounds [3 x float], ptr %13, i64 %indvars.iv161
   %33 = load float, ptr %31, align 4
   store float %33, ptr %32, align 4
   %34 = getelementptr inbounds i8, ptr %31, i64 4
@@ -2885,20 +2885,20 @@ define internal fastcc void @_ZL9sort_ionsiiPKiN3gmx8ArrayRefIS_EEP7t_atomsPA3_f
   %38 = load float, ptr %37, align 4
   %39 = getelementptr inbounds i8, ptr %32, i64 8
   store float %38, ptr %39, align 4
-  %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
-  %exitcond167.not = icmp eq i64 %indvars.iv.next162, %17
+  %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
+  %exitcond167.not = icmp eq i64 %indvars.iv.next160, %17
   br i1 %exitcond167.not, label %..loopexit_crit_edge.us.loopexit, label %28, !llvm.loop !34
 
 .preheader.us:                                    ; preds = %.lr.ph137.split.us
   %40 = mul nuw nsw i64 %indvars.iv168, %17
-  %41 = sext i32 %.0105134.us to i64
+  %41 = sext i32 %.0108134.us to i64
   %invariant.gep = getelementptr inbounds i32, ptr %3, i64 %40
   br label %28
 
 .lr.ph137.split:                                  ; preds = %.lr.ph137.split.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph137.split.preheader ], [ %indvars.iv.next, %.preheader ]
-  %.0108133 = phi i32 [ 0, %.lr.ph137.split.preheader ], [ %.1109, %.preheader ]
-  %.0110132 = phi i32 [ 0, %.lr.ph137.split.preheader ], [ %.1111, %.preheader ]
+  %.0103136 = phi i32 [ 0, %.lr.ph137.split.preheader ], [ %.1104, %.preheader ]
+  %.0105135 = phi i32 [ 0, %.lr.ph137.split.preheader ], [ %.1106, %.preheader ]
   %42 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, 0
@@ -2909,24 +2909,24 @@ define internal fastcc void @_ZL9sort_ionsiiPKiN3gmx8ArrayRefIS_EEP7t_atomsPA3_f
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %45
-  %48 = add nsw i32 %.0110132, 1
+  %48 = add nsw i32 %.0105135, 1
   br label %.preheader
 
 49:                                               ; preds = %45
-  %50 = add nsw i32 %.0108133, 1
+  %50 = add nsw i32 %.0103136, 1
   br label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph137.split, %49, %47
-  %.1111 = phi i32 [ %48, %47 ], [ %.0110132, %49 ], [ %.0110132, %.lr.ph137.split ]
-  %.1109 = phi i32 [ %.0108133, %47 ], [ %50, %49 ], [ %.0108133, %.lr.ph137.split ]
+  %.1106 = phi i32 [ %48, %47 ], [ %.0105135, %49 ], [ %.0105135, %.lr.ph137.split ]
+  %.1104 = phi i32 [ %.0103136, %47 ], [ %50, %49 ], [ %.0103136, %.lr.ph137.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph137.split, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.preheader, %..loopexit_crit_edge.us, %10
-  %.0110.lcssa = phi i32 [ 0, %10 ], [ %.1111.us, %..loopexit_crit_edge.us ], [ %.1111, %.preheader ]
-  %.0108.lcssa = phi i32 [ 0, %10 ], [ %.1109.us, %..loopexit_crit_edge.us ], [ %.1109, %.preheader ]
-  %51 = add nsw i32 %.0108.lcssa, %.0110.lcssa
+  %.0105.lcssa = phi i32 [ 0, %10 ], [ %.1106.us, %..loopexit_crit_edge.us ], [ %.1106, %.preheader ]
+  %.0103.lcssa = phi i32 [ 0, %10 ], [ %.1104.us, %..loopexit_crit_edge.us ], [ %.1104, %.preheader ]
+  %51 = add nsw i32 %.0103.lcssa, %.0105.lcssa
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %53, label %176
 
@@ -2944,8 +2944,8 @@ define internal fastcc void @_ZL9sort_ionsiiPKiN3gmx8ArrayRefIS_EEP7t_atomsPA3_f
   br i1 %14, label %.lr.ph, label %._crit_edge145
 
 .lr.ph:                                           ; preds = %53
-  %64 = add nsw i32 %58, %.0110.lcssa
-  %65 = add nsw i32 %63, %.0110.lcssa
+  %64 = add nsw i32 %58, %.0105.lcssa
+  %65 = add nsw i32 %63, %.0105.lcssa
   %66 = getelementptr inbounds i8, ptr %4, i64 16
   %67 = getelementptr inbounds i8, ptr %4, i64 48
   %68 = sext i32 %0 to i64
@@ -3044,9 +3044,9 @@ define internal fastcc void @_ZL9sort_ionsiiPKiN3gmx8ArrayRefIS_EEP7t_atomsPA3_f
   %128 = getelementptr i32, ptr %3, i64 %127
   %129 = getelementptr i8, ptr %128, i64 -4
   %130 = load i32, ptr %129, align 4
-  %.2146 = add nsw i32 %130, 1
+  %.2112146 = add nsw i32 %130, 1
   %131 = load i32, ptr %4, align 8
-  %132 = icmp slt i32 %.2146, %131
+  %132 = icmp slt i32 %.2112146, %131
   %133 = add nsw i32 %0, -1
   %134 = mul nsw i32 %51, %133
   br i1 %132, label %.lr.ph149, label %._crit_edge150

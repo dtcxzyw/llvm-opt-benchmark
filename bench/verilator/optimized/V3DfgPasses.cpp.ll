@@ -2791,23 +2791,23 @@ _ZN8DfgGraph13UserDataInUseD2Ev.exit:             ; preds = %.body, %35
   br label %40
 
 40:                                               ; preds = %62, %.lr.ph138
-  %.sroa.065.0135 = phi ptr [ %38, %.lr.ph138 ], [ %.sroa.770.0136, %62 ]
-  %.sroa.770.0136.in = getelementptr inbounds i8, ptr %.sroa.065.0135, i64 8
-  %.sroa.770.0136 = load ptr, ptr %.sroa.770.0136.in, align 8
-  %.not83 = icmp eq ptr %.sroa.770.0136, null
-  %41 = select i1 %.not83, ptr %.sroa.065.0135, ptr %.sroa.770.0136
+  %.sroa.065.0136 = phi ptr [ %38, %.lr.ph138 ], [ %.sroa.770.0135, %62 ]
+  %.sroa.770.0135.in = getelementptr inbounds i8, ptr %.sroa.065.0136, i64 8
+  %.sroa.770.0135 = load ptr, ptr %.sroa.770.0135.in, align 8
+  %.not83 = icmp eq ptr %.sroa.770.0135, null
+  %41 = select i1 %.not83, ptr %.sroa.065.0136, ptr %.sroa.770.0135
   call void @llvm.prefetch.p0(ptr nonnull %41, i32 1, i32 3, i32 1)
-  %42 = getelementptr inbounds i8, ptr %.sroa.065.0135, i64 24
+  %42 = getelementptr inbounds i8, ptr %.sroa.065.0136, i64 24
   %43 = load ptr, ptr %42, align 8
   %.not119 = icmp eq ptr %43, null
   br i1 %.not119, label %44, label %45
 
 44:                                               ; preds = %40
-  invoke void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.065.0135, ptr noundef nonnull align 8 dereferenceable(104) %0)
+  invoke void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.065.0136, ptr noundef nonnull align 8 dereferenceable(104) %0)
           to label %62 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %.sroa.065.0135, i64 72
+  %46 = getelementptr inbounds i8, ptr %.sroa.065.0136, i64 72
   %47 = invoke i32 @_ZNK8V3Number6toHashEv(ptr noundef nonnull align 8 dereferenceable(56) %46)
           to label %48 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -2817,12 +2817,12 @@ _ZN8DfgGraph13UserDataInUseD2Ev.exit:             ; preds = %.body, %35
   %51 = lshr i32 %47, 2
   %52 = add i32 %50, %51
   %53 = xor i32 %52, %47
-  %54 = getelementptr inbounds i8, ptr %.sroa.065.0135, i64 64
-  %55 = getelementptr inbounds i8, ptr %.sroa.065.0135, i64 48
+  %54 = getelementptr inbounds i8, ptr %.sroa.065.0136, i64 64
+  %55 = getelementptr inbounds i8, ptr %.sroa.065.0136, i64 48
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 56
   %58 = load i32, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %.sroa.065.0135, i64 60
+  %59 = getelementptr inbounds i8, ptr %.sroa.065.0136, i64 60
   %60 = load i32, ptr %59, align 4
   %.not.i87 = icmp eq i32 %60, %58
   br i1 %.not.i87, label %_ZN9DfgVertex4userI6V3HashEERT_v.exit88, label %61
@@ -7930,9 +7930,9 @@ _ZN17V3DfgPatternStats9toLettersB5cxx11Emb.exit:  ; preds = %34
 
 43:                                               ; preds = %_ZN17V3DfgPatternStats9toLettersB5cxx11Emb.exit, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i
   %.sink12 = phi ptr [ %3, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %4, %_ZN17V3DfgPatternStats9toLettersB5cxx11Emb.exit ]
-  %.sroa.017.0.i11 = phi ptr [ %.19.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %23, %_ZN17V3DfgPatternStats9toLettersB5cxx11Emb.exit ]
+  %.sroa.017.0.i10 = phi ptr [ %.19.i.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i ], [ %23, %_ZN17V3DfgPatternStats9toLettersB5cxx11Emb.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink12) #26
-  %44 = getelementptr inbounds i8, ptr %.sroa.017.0.i11, i64 64
+  %44 = getelementptr inbounds i8, ptr %.sroa.017.0.i10, i64 64
   ret ptr %44
 }
 
@@ -8020,8 +8020,8 @@ _ZN17V3DfgPatternStats9toLettersB5cxx11Emb.exit:  ; preds = %30
   br label %common.resume
 
 _ZNSt3mapIPK6AstVarNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE7emplaceIJPS0_RA2_KcEEESB_ISt17_Rb_tree_iteratorISD_EbEDpOT_.exit: ; preds = %15, %35
-  %.sroa.017.0.i9 = phi ptr [ %20, %35 ], [ %.19.i.i.i.i, %15 ]
-  %38 = getelementptr inbounds i8, ptr %.sroa.017.0.i9, i64 40
+  %.sroa.017.0.i8 = phi ptr [ %20, %35 ], [ %.19.i.i.i.i, %15 ]
+  %38 = getelementptr inbounds i8, ptr %.sroa.017.0.i8, i64 40
   ret ptr %38
 }
 
@@ -8107,8 +8107,8 @@ _ZN17V3DfgPatternStats9toLettersB5cxx11Emb.exit:  ; preds = %28
   br label %common.resume
 
 _ZNSt3mapIPK9DfgVertexNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS2_ESaISt4pairIKS2_S8_EEE7emplaceIJS2_RA2_KcEEESB_ISt17_Rb_tree_iteratorISD_EbEDpOT_.exit: ; preds = %13, %33
-  %.sroa.017.0.i9 = phi ptr [ %18, %33 ], [ %.19.i.i.i.i, %13 ]
-  %36 = getelementptr inbounds i8, ptr %.sroa.017.0.i9, i64 40
+  %.sroa.017.0.i8 = phi ptr [ %18, %33 ], [ %.19.i.i.i.i, %13 ]
+  %36 = getelementptr inbounds i8, ptr %.sroa.017.0.i8, i64 40
   ret ptr %36
 }
 
@@ -8237,8 +8237,8 @@ _ZN17V3DfgPatternStats9toLettersB5cxx11Emb.exit:  ; preds = %28
   br label %common.resume
 
 _ZNSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEE7emplaceIJRjRA1_KcEEES8_ISt17_Rb_tree_iteratorISA_EbEDpOT_.exit: ; preds = %13, %33
-  %.sroa.017.0.i8 = phi ptr [ %18, %33 ], [ %.19.i.i.i.i, %13 ]
-  %36 = getelementptr inbounds i8, ptr %.sroa.017.0.i8, i64 40
+  %.sroa.017.0.i7 = phi ptr [ %18, %33 ], [ %.19.i.i.i.i, %13 ]
+  %36 = getelementptr inbounds i8, ptr %.sroa.017.0.i7, i64 40
   ret ptr %36
 }
 
@@ -8393,8 +8393,8 @@ _ZN17V3DfgPatternStats9toLettersB5cxx11Emb.exit:  ; preds = %28
   br label %common.resume
 
 _ZNSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEE7emplaceIJRjRA1_KcEEES8_ISt17_Rb_tree_iteratorISA_EbEDpOT_.exit: ; preds = %13, %33
-  %.sroa.017.0.i8 = phi ptr [ %18, %33 ], [ %.19.i.i.i.i, %13 ]
-  %36 = getelementptr inbounds i8, ptr %.sroa.017.0.i8, i64 40
+  %.sroa.017.0.i7 = phi ptr [ %18, %33 ], [ %.19.i.i.i.i, %13 ]
+  %36 = getelementptr inbounds i8, ptr %.sroa.017.0.i7, i64 40
   ret ptr %36
 }
 
@@ -8480,8 +8480,8 @@ _ZN17V3DfgPatternStats9toLettersB5cxx11Emb.exit:  ; preds = %28
   br label %common.resume
 
 _ZNSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEE7emplaceIJRjRA1_KcEEES8_ISt17_Rb_tree_iteratorISA_EbEDpOT_.exit: ; preds = %13, %33
-  %.sroa.017.0.i8 = phi ptr [ %18, %33 ], [ %.19.i.i.i.i, %13 ]
-  %36 = getelementptr inbounds i8, ptr %.sroa.017.0.i8, i64 40
+  %.sroa.017.0.i7 = phi ptr [ %18, %33 ], [ %.19.i.i.i.i, %13 ]
+  %36 = getelementptr inbounds i8, ptr %.sroa.017.0.i7, i64 40
   ret ptr %36
 }
 

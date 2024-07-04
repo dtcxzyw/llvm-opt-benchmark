@@ -1478,9 +1478,9 @@ lookup_collation_cache.exit:                      ; preds = %18, %23
   unreachable
 
 67:                                               ; preds = %64, %58
-  %.056 = phi ptr [ %59, %58 ], [ %65, %64 ]
+  %.055 = phi ptr [ %59, %58 ], [ %65, %64 ]
   %68 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %.056, ptr %68, align 8
+  store ptr %.055, ptr %68, align 8
   br label %80
 
 69:                                               ; preds = %35
@@ -1498,8 +1498,8 @@ lookup_collation_cache.exit:                      ; preds = %18, %23
   br label %79
 
 79:                                               ; preds = %69, %76
-  %.055 = phi ptr [ %78, %76 ], [ null, %69 ]
-  call void @make_icu_collator(ptr noundef %72, ptr noundef %.055, ptr noundef nonnull %5)
+  %.0 = phi ptr [ %78, %76 ], [ null, %69 ]
+  call void @make_icu_collator(ptr noundef %72, ptr noundef %.0, ptr noundef nonnull %5)
   br label %80
 
 80:                                               ; preds = %35, %79, %67
@@ -1560,8 +1560,8 @@ lookup_collation_cache.exit:                      ; preds = %18, %23
   br label %115
 
 115:                                              ; preds = %lookup_collation_cache.exit, %112, %8
-  %.0 = phi ptr [ %default_locale., %8 ], [ %114, %112 ], [ %27, %lookup_collation_cache.exit ]
-  ret ptr %.0
+  %.056 = phi ptr [ %default_locale., %8 ], [ %114, %112 ], [ %27, %lookup_collation_cache.exit ]
+  ret ptr %.056
 }
 
 declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #3
@@ -2710,9 +2710,9 @@ define dso_local range(i64 0, -1) i64 @char2wchar(ptr noundef %0, i64 noundef %1
   br label %18
 
 18:                                               ; preds = %12, %10
-  %.016 = phi i64 [ %11, %10 ], [ %16, %12 ]
+  %.0 = phi i64 [ %11, %10 ], [ %16, %12 ]
   tail call void @pfree(ptr noundef %8) #22
-  %19 = icmp eq i64 %.016, -1
+  %19 = icmp eq i64 %.0, -1
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %18
@@ -2727,8 +2727,8 @@ define dso_local range(i64 0, -1) i64 @char2wchar(ptr noundef %0, i64 noundef %1
   unreachable
 
 27:                                               ; preds = %18, %5
-  %.0 = phi i64 [ 0, %5 ], [ %.016, %18 ]
-  ret i64 %.0
+  %.016 = phi i64 [ 0, %5 ], [ %.0, %18 ]
+  ret i64 %.016
 }
 
 declare ptr @pnstrdup(ptr noundef, i64 noundef) local_unnamed_addr #3

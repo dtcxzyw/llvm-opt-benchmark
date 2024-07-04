@@ -347,7 +347,7 @@ define hidden i32 @mbedtls_cipher_set_iv(ptr nocapture noundef %0, ptr noundef %
   br i1 %16, label %54, label %17
 
 17:                                               ; preds = %8, %12
-  %.036 = phi i64 [ %15, %12 ], [ %2, %8 ]
+  %.035 = phi i64 [ %15, %12 ], [ %2, %8 ]
   %18 = load i32, ptr %4, align 8
   %19 = icmp eq i32 %18, 76
   br i1 %19, label %20, label %26
@@ -415,19 +415,19 @@ define hidden i32 @mbedtls_cipher_set_iv(ptr nocapture noundef %0, ptr noundef %
   br label %54
 
 50:                                               ; preds = %29
-  %.not45 = icmp eq i64 %.036, 0
+  %.not45 = icmp eq i64 %.035, 0
   br i1 %.not45, label %54, label %51
 
 51:                                               ; preds = %50
   %52 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %52, ptr align 1 %1, i64 %.036, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %52, ptr align 1 %1, i64 %.035, i1 false)
   %53 = getelementptr inbounds i8, ptr %0, i64 72
-  store i64 %.036, ptr %53, align 8
+  store i64 %.035, ptr %53, align 8
   br label %54
 
 54:                                               ; preds = %50, %51, %43, %39, %26, %21, %20, %12, %6, %3, %47, %33
-  %.035 = phi i32 [ %38, %33 ], [ %49, %47 ], [ -24832, %3 ], [ -24704, %6 ], [ -24832, %12 ], [ -24832, %20 ], [ -24832, %21 ], [ -24832, %26 ], [ %42, %39 ], [ -24832, %43 ], [ 0, %51 ], [ 0, %50 ]
-  ret i32 %.035
+  %.036 = phi i32 [ %38, %33 ], [ %49, %47 ], [ -24832, %3 ], [ -24704, %6 ], [ -24832, %12 ], [ -24832, %20 ], [ -24832, %21 ], [ -24832, %26 ], [ %42, %39 ], [ -24832, %43 ], [ 0, %51 ], [ 0, %50 ]
+  ret i32 %.036
 }
 
 declare i32 @mbedtls_chacha20_starts(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
@@ -681,14 +681,14 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   br label %98
 
 98:                                               ; preds = %92, %.thread208
-  %.0173 = phi i64 [ %97, %92 ], [ %2, %.thread208 ]
-  %.0172 = phi ptr [ %95, %92 ], [ %3, %.thread208 ]
-  %.0171 = phi ptr [ %96, %92 ], [ %1, %.thread208 ]
-  %.not200 = icmp eq i64 %.0173, 0
+  %.0173 = phi ptr [ %96, %92 ], [ %1, %.thread208 ]
+  %.0172 = phi i64 [ %97, %92 ], [ %2, %.thread208 ]
+  %.0171 = phi ptr [ %95, %92 ], [ %3, %.thread208 ]
+  %.not200 = icmp eq i64 %.0172, 0
   br i1 %.not200, label %mbedtls_cipher_get_block_size.exit.thread, label %99
 
 99:                                               ; preds = %98
-  %100 = urem i64 %.0173, %12
+  %100 = urem i64 %.0172, %12
   %101 = icmp eq i64 %100, 0
   br i1 %101, label %102, label %108
 
@@ -707,13 +707,13 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
 108:                                              ; preds = %99, %102, %105
   %.0 = phi i64 [ 0, %102 ], [ %100, %99 ], [ %spec.select, %105 ]
   %109 = getelementptr inbounds i8, ptr %0, i64 32
-  %110 = sub i64 %.0173, %.0
-  %111 = getelementptr inbounds i8, ptr %.0171, i64 %110
+  %110 = sub i64 %.0172, %.0
+  %111 = getelementptr inbounds i8, ptr %.0173, i64 %110
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %109, ptr align 1 %111, i64 %.0, i1 false)
   %112 = load i64, ptr %76, align 8
   %113 = add i64 %112, %.0
   store i64 %113, ptr %76, align 8
-  %.not202 = icmp eq i64 %.0173, %.0
+  %.not202 = icmp eq i64 %.0172, %.0
   br i1 %.not202, label %mbedtls_cipher_get_block_size.exit.thread, label %114
 
 114:                                              ; preds = %108
@@ -726,7 +726,7 @@ mbedtls_cipher_get_block_size.exit:               ; preds = %8
   %121 = load ptr, ptr %120, align 8
   %122 = load i32, ptr %53, align 4
   %123 = getelementptr inbounds i8, ptr %0, i64 56
-  %124 = tail call i32 %119(ptr noundef %121, i32 noundef %122, i64 noundef %110, ptr noundef nonnull %123, ptr noundef %.0171, ptr noundef %.0172) #16
+  %124 = tail call i32 %119(ptr noundef %121, i32 noundef %122, i64 noundef %110, ptr noundef nonnull %123, ptr noundef %.0173, ptr noundef %.0171) #16
   %.not203 = icmp eq i32 %124, 0
   br i1 %.not203, label %125, label %mbedtls_cipher_get_block_size.exit.thread
 
@@ -1054,14 +1054,14 @@ define internal range(i32 -25088, 1) i32 @get_pkcs_padding(ptr noundef readonly 
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.031 = phi i8 [ %20, %.lr.ph ], [ %15, %6 ]
-  %.02630 = phi i64 [ %21, %.lr.ph ], [ 0, %6 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 %.02630
+  %.02530 = phi i64 [ %21, %.lr.ph ], [ 0, %6 ]
+  %16 = getelementptr inbounds i8, ptr %0, i64 %.02530
   %17 = load i8, ptr %16, align 1
   %18 = xor i8 %17, %9
-  %.not29 = icmp ult i64 %.02630, %11
+  %.not29 = icmp ult i64 %.02530, %11
   %19 = select i1 %.not29, i8 0, i8 %18
   %20 = or i8 %19, %.031
-  %21 = add nuw i64 %.02630, 1
+  %21 = add nuw i64 %.02530, 1
   %exitcond.not = icmp eq i64 %21, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
@@ -1072,8 +1072,8 @@ define internal range(i32 -25088, 1) i32 @get_pkcs_padding(ptr noundef readonly 
   br label %23
 
 23:                                               ; preds = %3, %._crit_edge
-  %.025 = phi i32 [ %22, %._crit_edge ], [ -24832, %3 ]
-  ret i32 %.025
+  %.026 = phi i32 [ %22, %._crit_edge ], [ -24832, %3 ]
+  ret i32 %.026
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable

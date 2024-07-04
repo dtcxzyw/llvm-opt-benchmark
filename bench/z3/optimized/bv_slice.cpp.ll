@@ -2795,8 +2795,8 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit42:           ; preds = %_ZNK6vectorIP4exprL
 while.body:                                       ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit42, %if.end35
   %i.059 = phi i32 [ %i.1, %if.end35 ], [ %retval.0.i, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit42 ]
   %j.058 = phi i32 [ %j.1, %if.end35 ], [ %retval.0.i41, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit42 ]
-  %offx.057 = phi i32 [ %offx.1, %if.end35 ], [ 0, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit42 ]
-  %offy.056 = phi i32 [ %offy.1, %if.end35 ], [ 0, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit42 ]
+  %offy.057 = phi i32 [ %offy.1, %if.end35 ], [ 0, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit42 ]
+  %offx.056 = phi i32 [ %offx.1, %if.end35 ], [ 0, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit42 ]
   %sub = add i32 %i.059, -1
   %4 = load ptr, ptr %m_xs, align 8
   %idxprom.i = zext i32 %sub to i64
@@ -2847,16 +2847,16 @@ if.then.i.i.i.i.i51:                              ; preds = %_ZNK7bv_util11get_b
 
 _ZNK7bv_util11get_bv_sizeEPK4expr.exit54:         ; preds = %_ZNK7bv_util11get_bv_sizeEPK4expr.exit
   %15 = load i32, ptr %13, align 4
-  %sub11 = sub i32 %11, %offx.057
-  %sub12 = sub i32 %15, %offy.056
+  %sub11 = sub i32 %11, %offx.056
+  %sub12 = sub i32 %15, %offy.057
   %cmp13 = icmp eq i32 %sub11, %sub12
   br i1 %cmp13, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZNK7bv_util11get_bv_sizeEPK4expr.exit54
   %sub14 = add i32 %11, -1
-  tail call void @_ZN2bv5slice14register_sliceEjjP4expr(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %offx.057, i32 noundef %sub14, ptr noundef nonnull %5)
+  tail call void @_ZN2bv5slice14register_sliceEjjP4expr(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %offx.056, i32 noundef %sub14, ptr noundef nonnull %5)
   %sub15 = add i32 %15, -1
-  tail call void @_ZN2bv5slice14register_sliceEjjP4expr(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %offy.056, i32 noundef %sub15, ptr noundef nonnull %7)
+  tail call void @_ZN2bv5slice14register_sliceEjjP4expr(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %offy.057, i32 noundef %sub15, ptr noundef nonnull %7)
   br label %if.end35
 
 if.else:                                          ; preds = %_ZNK7bv_util11get_bv_sizeEPK4expr.exit54
@@ -2865,27 +2865,27 @@ if.else:                                          ; preds = %_ZNK7bv_util11get_b
 
 if.then20:                                        ; preds = %if.else
   %sub21 = add i32 %11, -1
-  tail call void @_ZN2bv5slice14register_sliceEjjP4expr(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %offx.057, i32 noundef %sub21, ptr noundef nonnull %5)
-  %16 = xor i32 %offx.057, -1
-  %add = add i32 %offy.056, %16
+  tail call void @_ZN2bv5slice14register_sliceEjjP4expr(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %offx.056, i32 noundef %sub21, ptr noundef nonnull %5)
+  %16 = xor i32 %offx.056, -1
+  %add = add i32 %offy.057, %16
   %sub23 = add i32 %add, %11
-  tail call void @_ZN2bv5slice14register_sliceEjjP4expr(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %offy.056, i32 noundef %sub23, ptr noundef nonnull %7)
-  %add25 = add i32 %sub11, %offy.056
+  tail call void @_ZN2bv5slice14register_sliceEjjP4expr(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %offy.057, i32 noundef %sub23, ptr noundef nonnull %7)
+  %add25 = add i32 %sub11, %offy.057
   br label %if.end35
 
 if.else27:                                        ; preds = %if.else
   %sub28 = add i32 %15, -1
-  tail call void @_ZN2bv5slice14register_sliceEjjP4expr(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %offy.056, i32 noundef %sub28, ptr noundef nonnull %7)
-  %17 = xor i32 %offy.056, -1
-  %add29 = add i32 %offx.057, %17
+  tail call void @_ZN2bv5slice14register_sliceEjjP4expr(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %offy.057, i32 noundef %sub28, ptr noundef nonnull %7)
+  %17 = xor i32 %offy.057, -1
+  %add29 = add i32 %offx.056, %17
   %sub31 = add i32 %add29, %15
-  tail call void @_ZN2bv5slice14register_sliceEjjP4expr(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %offx.057, i32 noundef %sub31, ptr noundef nonnull %5)
-  %add33 = add i32 %sub12, %offx.057
+  tail call void @_ZN2bv5slice14register_sliceEjjP4expr(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %offx.056, i32 noundef %sub31, ptr noundef nonnull %5)
+  %add33 = add i32 %sub12, %offx.056
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then20, %if.else27, %if.then
-  %offy.1 = phi i32 [ 0, %if.then ], [ %add25, %if.then20 ], [ 0, %if.else27 ]
   %offx.1 = phi i32 [ 0, %if.then ], [ 0, %if.then20 ], [ %add33, %if.else27 ]
+  %offy.1 = phi i32 [ 0, %if.then ], [ %add25, %if.then20 ], [ 0, %if.else27 ]
   %j.1 = phi i32 [ %sub6, %if.then ], [ %j.058, %if.then20 ], [ %sub6, %if.else27 ]
   %i.1 = phi i32 [ %sub, %if.then ], [ %sub, %if.then20 ], [ %i.059, %if.else27 ]
   %cmp.not = icmp eq i32 %i.1, 0

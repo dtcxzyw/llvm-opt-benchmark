@@ -915,9 +915,9 @@ define internal i32 @dissect_dsmcc_ts(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %48, label %.thread, label %51
 
 .thread:                                          ; preds = %43, %46
-  %.08792 = phi ptr [ @.str.488, %46 ], [ @.str.487, %43 ]
+  %.092 = phi ptr [ @.str.488, %46 ], [ @.str.487, %43 ]
   %49 = load i32, ptr @hf_dsmcc_crc, align 4
-  %50 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %8, i32 noundef %49, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef %44, ptr noundef nonnull @.str.489, i32 noundef %44, ptr noundef nonnull %.08792) #2
+  %50 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %8, i32 noundef %49, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef %44, ptr noundef nonnull @.str.489, i32 noundef %44, ptr noundef nonnull %.092) #2
   br label %65
 
 51:                                               ; preds = %46
@@ -2463,9 +2463,9 @@ define internal fastcc noundef i32 @dissect_dsmcc_un_session_resources(ptr nound
 
 .lr.ph582:                                        ; preds = %4, %.loopexit
   %.0580 = phi i32 [ %.8, %.loopexit ], [ %9, %4 ]
-  %.0536579 = phi i32 [ %12, %.loopexit ], [ 0, %4 ]
+  %.0528579 = phi i32 [ %12, %.loopexit ], [ 0, %4 ]
   %11 = load i32, ptr @ett_dsmcc_heading, align 4
-  %12 = add nuw i32 %.0536579, 1
+  %12 = add nuw i32 %.0528579, 1
   %13 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %.0580, i32 noundef 0, i32 noundef %11, ptr noundef null, ptr noundef nonnull @.str.562, i32 noundef %12) #2
   %14 = load i32, ptr @ett_dsmcc_heading, align 4
   %15 = call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef %.0580, i32 noundef 14, i32 noundef %14, ptr noundef null, ptr noundef nonnull @.str.563) #2
@@ -2545,10 +2545,10 @@ define internal fastcc noundef i32 @dissect_dsmcc_un_session_resources(ptr nound
   br i1 %.not593, label %.loopexit, label %.lr.ph578
 
 .lr.ph578:                                        ; preds = %48, %.lr.ph578
-  %.0528576 = phi i32 [ %63, %.lr.ph578 ], [ 0, %48 ]
+  %.0529576 = phi i32 [ %63, %.lr.ph578 ], [ 0, %48 ]
   %61 = load i32, ptr @hf_dsmcc_un_sess_rsrc_cfs_num, align 4
   %62 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %61, ptr noundef %0, i32 noundef %59, i32 noundef 2, i32 noundef 0) #2
-  %63 = add nuw i32 %.0528576, 1
+  %63 = add nuw i32 %.0529576, 1
   %64 = load i32, ptr %5, align 4
   %65 = icmp ult i32 %63, %64
   br i1 %65, label %.lr.ph578, label %.loopexit, !llvm.loop !21
@@ -2589,7 +2589,7 @@ define internal fastcc noundef i32 @dissect_dsmcc_un_session_resources(ptr nound
 
 .lr.ph573:                                        ; preds = %79, %.lr.ph573
   %.1571 = phi i32 [ %109, %.lr.ph573 ], [ %93, %79 ]
-  %.1529570 = phi i32 [ %110, %.lr.ph573 ], [ 0, %79 ]
+  %.1530570 = phi i32 [ %110, %.lr.ph573 ], [ 0, %79 ]
   %95 = load i32, ptr @ett_dsmcc_heading, align 4
   %96 = call ptr @proto_tree_add_subtree(ptr noundef %47, ptr noundef %0, i32 noundef %.1571, i32 noundef 0, i32 noundef %95, ptr noundef null, ptr noundef nonnull @.str.570) #2
   %97 = call fastcc i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %0, i32 noundef %.1571, ptr noundef %96, i32 noundef 2)
@@ -2605,7 +2605,7 @@ define internal fastcc noundef i32 @dissect_dsmcc_un_session_resources(ptr nound
   %107 = call ptr @proto_tree_add_subtree(ptr noundef %47, ptr noundef %0, i32 noundef %105, i32 noundef 0, i32 noundef %106, ptr noundef null, ptr noundef nonnull @.str.572) #2
   %108 = call fastcc i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %0, i32 noundef %105, ptr noundef %107, i32 noundef 2)
   %109 = add i32 %108, %105
-  %110 = add nuw i32 %.1529570, 1
+  %110 = add nuw i32 %.1530570, 1
   %111 = load i32, ptr %5, align 4
   %112 = icmp ult i32 %110, %111
   br i1 %112, label %.lr.ph573, label %._crit_edge574, !llvm.loop !22
@@ -2706,14 +2706,14 @@ define internal fastcc noundef i32 @dissect_dsmcc_un_session_resources(ptr nound
 
 .lr.ph568:                                        ; preds = %183, %.lr.ph568
   %.2566 = phi i32 [ %193, %.lr.ph568 ], [ %186, %183 ]
-  %.2530565 = phi i32 [ %194, %.lr.ph568 ], [ 0, %183 ]
+  %.2531565 = phi i32 [ %194, %.lr.ph568 ], [ 0, %183 ]
   %188 = load i32, ptr @hf_dsmcc_un_sess_rsrc_dlci, align 4
   %189 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %188, ptr noundef %0, i32 noundef %.2566, i32 noundef 2, i32 noundef 0) #2
   %190 = add i32 %.2566, 2
   %191 = load i32, ptr @hf_dsmcc_un_sess_rsrc_dl_association_tag, align 4
   %192 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %191, ptr noundef %0, i32 noundef %190, i32 noundef 2, i32 noundef 0) #2
   %193 = add i32 %.2566, 4
-  %194 = add nuw i32 %.2530565, 1
+  %194 = add nuw i32 %.2531565, 1
   %195 = load i32, ptr %5, align 4
   %196 = icmp ult i32 %194, %195
   br i1 %196, label %.lr.ph568, label %.loopexit, !llvm.loop !23
@@ -2728,11 +2728,11 @@ define internal fastcc noundef i32 @dissect_dsmcc_un_session_resources(ptr nound
 
 .lr.ph563:                                        ; preds = %197, %.lr.ph563
   %.3561 = phi i32 [ %204, %.lr.ph563 ], [ %200, %197 ]
-  %.3531560 = phi i32 [ %205, %.lr.ph563 ], [ 0, %197 ]
+  %.3532560 = phi i32 [ %205, %.lr.ph563 ], [ 0, %197 ]
   %202 = load i32, ptr @hf_dsmcc_un_sess_rsrc_headend_code, align 4
   %203 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %202, ptr noundef %0, i32 noundef %.3561, i32 noundef 20, i32 noundef 0) #2
   %204 = add i32 %.3561, 20
-  %205 = add nuw i32 %.3531560, 1
+  %205 = add nuw i32 %.3532560, 1
   %206 = load i32, ptr %5, align 4
   %207 = icmp ult i32 %205, %206
   br i1 %207, label %.lr.ph563, label %.loopexit, !llvm.loop !24
@@ -2759,14 +2759,14 @@ define internal fastcc noundef i32 @dissect_dsmcc_un_session_resources(ptr nound
 
 .lr.ph558:                                        ; preds = %215, %.lr.ph558
   %.4556 = phi i32 [ %228, %.lr.ph558 ], [ %221, %215 ]
-  %.4532555 = phi i32 [ %229, %.lr.ph558 ], [ 0, %215 ]
+  %.4533555 = phi i32 [ %229, %.lr.ph558 ], [ 0, %215 ]
   %223 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_association_tag, align 4
   %224 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %223, ptr noundef %0, i32 noundef %.4556, i32 noundef 2, i32 noundef 0) #2
   %225 = add i32 %.4556, 2
   %226 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_broadcast_program_id, align 4
   %227 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %226, ptr noundef %0, i32 noundef %225, i32 noundef 2, i32 noundef 0) #2
   %228 = add i32 %.4556, 4
-  %229 = add nuw i32 %.4532555, 1
+  %229 = add nuw i32 %.4533555, 1
   %230 = load i32, ptr %5, align 4
   %231 = icmp ult i32 %229, %230
   br i1 %231, label %.lr.ph558, label %.loopexit, !llvm.loop !25
@@ -2793,11 +2793,11 @@ define internal fastcc noundef i32 @dissect_dsmcc_un_session_resources(ptr nound
 
 .lr.ph547:                                        ; preds = %239, %.lr.ph547
   %.5546 = phi i32 [ %249, %.lr.ph547 ], [ %245, %239 ]
-  %.5533545 = phi i32 [ %250, %.lr.ph547 ], [ 0, %239 ]
+  %.5534545 = phi i32 [ %250, %.lr.ph547 ], [ 0, %239 ]
   %247 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_broadcast_program_id, align 4
   %248 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %247, ptr noundef %0, i32 noundef %.5546, i32 noundef 2, i32 noundef 0) #2
   %249 = add i32 %.5546, 2
-  %250 = add nuw i32 %.5533545, 1
+  %250 = add nuw i32 %.5534545, 1
   %251 = load i32, ptr %5, align 4
   %252 = icmp ult i32 %250, %251
   br i1 %252, label %.lr.ph547, label %._crit_edge, !llvm.loop !26
@@ -2813,10 +2813,10 @@ define internal fastcc noundef i32 @dissect_dsmcc_un_session_resources(ptr nound
 
 .lr.ph553:                                        ; preds = %._crit_edge, %.lr.ph553
   %.6551 = phi i32 [ %.6, %.lr.ph553 ], [ %.6549, %._crit_edge ]
-  %.6534550 = phi i32 [ %258, %.lr.ph553 ], [ 0, %._crit_edge ]
+  %.6535550 = phi i32 [ %258, %.lr.ph553 ], [ 0, %._crit_edge ]
   %256 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_broadcast_program_id, align 4
   %257 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %256, ptr noundef %0, i32 noundef %.6551, i32 noundef 2, i32 noundef 0) #2
-  %258 = add nuw i32 %.6534550, 1
+  %258 = add nuw i32 %.6535550, 1
   %.6 = add i32 %.6551, 2
   %259 = load i32, ptr %5, align 4
   %260 = icmp ult i32 %258, %259
@@ -2905,9 +2905,9 @@ define internal fastcc noundef i32 @dissect_dsmcc_un_session_resources(ptr nound
 
 .lr.ph:                                           ; preds = %318, %.lr.ph
   %.7544 = phi i32 [ %347, %.lr.ph ], [ %328, %318 ]
-  %.7535543 = phi i32 [ %331, %.lr.ph ], [ 0, %318 ]
+  %.7536543 = phi i32 [ %331, %.lr.ph ], [ 0, %318 ]
   %330 = load i32, ptr @ett_dsmcc_heading, align 4
-  %331 = add nuw i32 %.7535543, 1
+  %331 = add nuw i32 %.7536543, 1
   %332 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %47, ptr noundef %0, i32 noundef %.7544, i32 noundef 20, i32 noundef %330, ptr noundef null, ptr noundef nonnull @.str.586, i32 noundef %331) #2
   %333 = load i32, ptr @hf_dsmcc_un_sess_nsap_afi, align 4
   %334 = call ptr @proto_tree_add_item(ptr noundef %332, i32 noundef %333, ptr noundef %0, i32 noundef %.7544, i32 noundef 1, i32 noundef 0) #2
@@ -3055,12 +3055,12 @@ define internal fastcc noundef i32 @dissect_dsmcc_un_session_resource_value(ptr 
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
-  %.02 = phi i32 [ %18, %.lr.ph ], [ %14, %11 ]
-  %.0361 = phi i32 [ %19, %.lr.ph ], [ 0, %11 ]
+  %.02 = phi i32 [ %19, %.lr.ph ], [ 0, %11 ]
+  %.0361 = phi i32 [ %18, %.lr.ph ], [ %14, %11 ]
   %16 = load i32, ptr @hf_dsmcc_un_sess_rsrc_value_data, align 4
-  %17 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef %.02, i32 noundef %3, i32 noundef 0) #2
-  %18 = add i32 %.02, %3
-  %19 = add nuw i32 %.0361, 1
+  %17 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef %.0361, i32 noundef %3, i32 noundef 0) #2
+  %18 = add i32 %.0361, %3
+  %19 = add nuw i32 %.02, 1
   %20 = load i32, ptr %5, align 4
   %21 = icmp ult i32 %19, %20
   br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !30

@@ -1523,7 +1523,7 @@ if.end61:                                         ; preds = %if.end42
   br label %if.then.i
 
 if.then.i:                                        ; preds = %finally, %if.end61
-  %res.03364 = phi ptr [ null, %if.end61 ], [ %call48, %finally ]
+  %res.03761 = phi ptr [ null, %if.end61 ], [ %call48, %finally ]
   %25 = load i64, ptr %call39, align 8
   %26 = and i64 %25, 2147483648
   %cmp.i2.not.i = icmp eq i64 %26, 0
@@ -1559,7 +1559,7 @@ if.then1.i.i22:                                   ; preds = %if.end.i.i19
   br label %return
 
 return:                                           ; preds = %if.then1.i.i22, %if.end.i.i19, %if.then.i17, %Py_XDECREF.exit, %Py_XDECREF.exit.thread, %entry, %if.then26
-  %retval.0 = phi ptr [ %call.i, %if.then26 ], [ null, %entry ], [ null, %Py_XDECREF.exit.thread ], [ %res.03364, %Py_XDECREF.exit ], [ %res.03364, %if.then.i17 ], [ %res.03364, %if.end.i.i19 ], [ %res.03364, %if.then1.i.i22 ]
+  %retval.0 = phi ptr [ %call.i, %if.then26 ], [ null, %entry ], [ null, %Py_XDECREF.exit.thread ], [ %res.03761, %Py_XDECREF.exit ], [ %res.03761, %if.then.i17 ], [ %res.03761, %if.end.i.i19 ], [ %res.03761, %if.then1.i.i22 ]
   ret ptr %retval.0
 }
 
@@ -2042,8 +2042,8 @@ if.else17:                                        ; preds = %if.else11
   br label %return
 
 if.end20:                                         ; preds = %if.end, %if.end9, %if.then15
-  %idna.0 = phi ptr [ %call6, %if.end9 ], [ null, %if.then15 ], [ null, %if.end ]
   %hptr.0 = phi ptr [ %ob_sval.i, %if.end9 ], [ %call16, %if.then15 ], [ null, %if.end ]
+  %idna.0 = phi ptr [ %call6, %if.end9 ], [ null, %if.then15 ], [ null, %if.end ]
   %6 = load ptr, ptr %pobj, align 8
   %7 = getelementptr i8, ptr %6, i64 8
   %.val38 = load ptr, ptr %7, align 8
@@ -2091,8 +2091,8 @@ if.else50:                                        ; preds = %if.else47
   br label %Py_XDECREF.exit
 
 if.end54:                                         ; preds = %if.else47, %if.then36, %if.then45, %if.end27
-  %pptr.0 = phi ptr [ %call28, %if.end27 ], [ %call37, %if.then36 ], [ %ob_sval.i51, %if.then45 ], [ null, %if.else47 ]
   %pstr.0 = phi ptr [ %call24, %if.end27 ], [ null, %if.then36 ], [ null, %if.then45 ], [ null, %if.else47 ]
+  %pptr.0 = phi ptr [ %call28, %if.end27 ], [ %call37, %if.then36 ], [ %ob_sval.i51, %if.then45 ], [ null, %if.else47 ]
   %12 = load ptr, ptr %hobj, align 8
   %13 = load ptr, ptr %pobj, align 8
   %14 = load i32, ptr %family, align 4
@@ -3456,7 +3456,7 @@ if.end77:                                         ; preds = %for.end72
   br label %if.then.i55
 
 if.then.i55:                                      ; preds = %if.end26, %Py_DECREF.exit87, %Py_DECREF.exit, %sw.epilog61, %sw.epilog61.us, %Py_DECREF.exit.us, %if.end77, %for.end72, %if.end17
-  %rtn_tuple.078 = phi ptr [ null, %if.end17 ], [ null, %for.end72 ], [ %call78, %if.end77 ], [ null, %Py_DECREF.exit.us ], [ null, %sw.epilog61.us ], [ null, %sw.epilog61 ], [ null, %Py_DECREF.exit ], [ null, %Py_DECREF.exit87 ], [ null, %if.end26 ]
+  %rtn_tuple.077 = phi ptr [ null, %if.end17 ], [ null, %for.end72 ], [ %call78, %if.end77 ], [ null, %Py_DECREF.exit.us ], [ null, %sw.epilog61.us ], [ null, %sw.epilog61 ], [ null, %Py_DECREF.exit ], [ null, %Py_DECREF.exit87 ], [ null, %if.end26 ]
   %21 = load i64, ptr %call14, align 8
   %22 = and i64 %21, 2147483648
   %cmp.i2.not.i = icmp eq i64 %22, 0
@@ -3493,7 +3493,7 @@ if.then1.i.i68:                                   ; preds = %if.end.i.i65
   br label %return
 
 return:                                           ; preds = %if.end6, %if.then1.i.i68, %if.end.i.i65, %if.then.i62, %Py_XDECREF.exit, %if.then1.i.i, %if.end.i.i, %if.then.i, %if.then, %sw.default, %if.then3
-  %retval.0 = phi ptr [ null, %if.then3 ], [ null, %sw.default ], [ null, %if.then ], [ null, %if.then.i ], [ null, %if.end.i.i ], [ null, %if.then1.i.i ], [ %rtn_tuple.078, %Py_XDECREF.exit ], [ %rtn_tuple.078, %if.then.i62 ], [ %rtn_tuple.078, %if.end.i.i65 ], [ %rtn_tuple.078, %if.then1.i.i68 ], [ null, %if.end6 ]
+  %retval.0 = phi ptr [ null, %if.then3 ], [ null, %sw.default ], [ null, %if.then ], [ null, %if.then.i ], [ null, %if.end.i.i ], [ null, %if.then1.i.i ], [ %rtn_tuple.077, %Py_XDECREF.exit ], [ %rtn_tuple.077, %if.then.i62 ], [ %rtn_tuple.077, %if.end.i.i65 ], [ %rtn_tuple.077, %if.then1.i.i68 ], [ null, %if.end6 ]
   ret ptr %retval.0
 }
 
@@ -6717,10 +6717,10 @@ if.then112.i:                                     ; preds = %if.end108.i
   br label %sock_initobj_impl.exit
 
 if.end115.i:                                      ; preds = %if.end108.i, %if.then59.i, %if.end50.i
-  %fd.1.i = phi i32 [ %conv.i, %if.then59.i ], [ %conv.i, %if.end50.i ], [ %fd.048.i, %if.end108.i ]
-  %proto.addr.0.i = phi i32 [ %15, %if.then59.i ], [ %proto.1, %if.end50.i ], [ %spec.store.select1.i, %if.end108.i ]
   %type.addr.1.i = phi i32 [ %type.addr.0.i, %if.then59.i ], [ %type.addr.0.i, %if.end50.i ], [ %spec.store.select2.i, %if.end108.i ]
+  %proto.addr.0.i = phi i32 [ %15, %if.then59.i ], [ %proto.1, %if.end50.i ], [ %spec.store.select1.i, %if.end108.i ]
   %family.addr.1.i = phi i32 [ %family.addr.0.i, %if.then59.i ], [ %family.addr.0.i, %if.end50.i ], [ %spec.store.select.i, %if.end108.i ]
+  %fd.1.i = phi i32 [ %conv.i, %if.then59.i ], [ %conv.i, %if.end50.i ], [ %fd.048.i, %if.end108.i ]
   %sock_fd.i.i = getelementptr inbounds i8, ptr %self, i64 16
   store i32 %fd.1.i, ptr %sock_fd.i.i, align 8
   %sock_family.i.i = getelementptr inbounds i8, ptr %self, i64 20
@@ -7899,8 +7899,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %do.body.us, label %do.body
 
 do.body.us:                                       ; preds = %if.end, %do.cond.us
-  %len.0.us = phi i64 [ %sub.us, %do.cond.us ], [ %2, %if.end ]
   %buf.0.us = phi ptr [ %add.ptr.us, %do.cond.us ], [ %1, %if.end ]
+  %len.0.us = phi i64 [ %sub.us, %do.cond.us ], [ %2, %if.end ]
   %timeout.0.us = phi i64 [ %timeout.1.us14, %do.cond.us ], [ %0, %if.end ]
   %deadline.0.us = phi i64 [ %deadline.1.us15, %do.cond.us ], [ 0, %if.end ]
   %tobool6.not.us = phi i1 [ false, %do.cond.us ], [ true, %if.end ]
@@ -7939,8 +7939,8 @@ do.cond.us:                                       ; preds = %if.end23.us
   br i1 %cmp28.us, label %do.body.us, label %do.end, !llvm.loop !7
 
 do.body:                                          ; preds = %if.end, %do.cond
-  %len.0 = phi i64 [ %sub, %do.cond ], [ %2, %if.end ]
   %buf.0 = phi ptr [ %add.ptr, %do.cond ], [ %1, %if.end ]
+  %len.0 = phi i64 [ %sub, %do.cond ], [ %2, %if.end ]
   store ptr %buf.0, ptr %ctx, align 8
   store i64 %len.0, ptr %len17, align 8
   %5 = load i32, ptr %flags, align 4

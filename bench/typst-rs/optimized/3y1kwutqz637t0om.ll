@@ -4108,7 +4108,7 @@ _ZN9typst_pdf7deflate17h92d94c5f2a53d74bE.exit.i: ; preds = %._crit_edge.i
   br label %1015
 
 1015:                                             ; preds = %1012, %1009
-  %.046.i = phi double [ 2.500000e-01, %1009 ], [ %..i51, %1012 ]
+  %.047.i = phi double [ 2.500000e-01, %1009 ], [ %..i51, %1012 ]
   %1016 = invoke { i64, i64 } @_ZN5typst9visualize5color10ColorSpace9hue_index17hbda59c9cf9e03f85E(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %966)
           to label %1017 unwind label %.loopexit.split-lp.loopexit.i
 
@@ -4133,7 +4133,7 @@ _ZN9typst_pdf7deflate17h92d94c5f2a53d74bE.exit.i: ; preds = %._crit_edge.i
 
 1028:                                             ; preds = %1025
   %1029 = fsub double %1024, %1027
-  %1030 = call double @llvm.minnum.f64(double %1029, double %.046.i)
+  %1030 = call double @llvm.minnum.f64(double %1029, double %.047.i)
   %1031 = invoke noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %43)
           to label %1032 unwind label %.loopexit.split-lp.loopexit.i
 

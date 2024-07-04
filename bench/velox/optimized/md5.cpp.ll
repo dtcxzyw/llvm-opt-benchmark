@@ -221,8 +221,8 @@ if.end16:                                         ; preds = %if.then12
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end16, %entry
-  %len.addr.0 = phi i64 [ %sub26, %if.end16 ], [ %len, %entry ]
   %input.addr.0 = phi ptr [ %add.ptr24, %if.end16 ], [ %input, %entry ]
+  %len.addr.0 = phi i64 [ %sub26, %if.end16 ], [ %len, %entry ]
   %cmp2831 = icmp ugt i64 %len.addr.0, 63
   br i1 %cmp2831, label %while.body.lr.ph, label %while.end
 
@@ -231,18 +231,18 @@ while.body.lr.ph:                                 ; preds = %if.end27
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %input.addr.133 = phi ptr [ %input.addr.0, %while.body.lr.ph ], [ %add.ptr37, %while.body ]
-  %len.addr.132 = phi i64 [ %len.addr.0, %while.body.lr.ph ], [ %sub38, %while.body ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %in29, ptr noundef nonnull align 1 dereferenceable(64) %input.addr.133, i64 64, i1 false)
+  %len.addr.133 = phi i64 [ %len.addr.0, %while.body.lr.ph ], [ %sub38, %while.body ]
+  %input.addr.132 = phi ptr [ %input.addr.0, %while.body.lr.ph ], [ %add.ptr37, %while.body ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %in29, ptr noundef nonnull align 1 dereferenceable(64) %input.addr.132, i64 64, i1 false)
   tail call fastcc void @_ZN8facebook5velox6cryptoL12MD5TransformEPjPKj(ptr noundef nonnull %this, ptr noundef nonnull %in29)
-  %add.ptr37 = getelementptr inbounds i8, ptr %input.addr.133, i64 64
-  %sub38 = add i64 %len.addr.132, -64
+  %add.ptr37 = getelementptr inbounds i8, ptr %input.addr.132, i64 64
+  %sub38 = add i64 %len.addr.133, -64
   %cmp28 = icmp ugt i64 %sub38, 63
   br i1 %cmp28, label %while.body, label %while.end, !llvm.loop !4
 
 while.end:                                        ; preds = %while.body, %if.end27
-  %len.addr.1.lcssa = phi i64 [ %len.addr.0, %if.end27 ], [ %sub38, %while.body ]
   %input.addr.1.lcssa = phi ptr [ %input.addr.0, %if.end27 ], [ %add.ptr37, %while.body ]
+  %len.addr.1.lcssa = phi i64 [ %len.addr.0, %if.end27 ], [ %sub38, %while.body ]
   %in39 = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %in39, ptr align 1 %input.addr.1.lcssa, i64 %len.addr.1.lcssa, i1 false)
   br label %return

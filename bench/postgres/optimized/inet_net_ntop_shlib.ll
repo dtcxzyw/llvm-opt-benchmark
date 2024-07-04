@@ -28,10 +28,10 @@ define noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr nocapture noundef reado
 
 .preheader.i:                                     ; preds = %8, %15
   %.036.i = phi i32 [ %25, %15 ], [ 4, %8 ]
-  %.02535.i = phi ptr [ %16, %15 ], [ %1, %8 ]
+  %.02535.i = phi i64 [ %24, %15 ], [ %4, %8 ]
   %.02634.i = phi ptr [ %21, %15 ], [ %3, %8 ]
-  %.02733.i = phi i64 [ %24, %15 ], [ %4, %8 ]
-  %11 = icmp ult i64 %.02733.i, 6
+  %.02733.i = phi ptr [ %16, %15 ], [ %1, %8 ]
+  %11 = icmp ult i64 %.02535.i, 6
   br i1 %11, label %.loopexit.i, label %12
 
 12:                                               ; preds = %.preheader.i
@@ -45,15 +45,15 @@ define noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr nocapture noundef reado
 
 15:                                               ; preds = %13, %12
   %.1.i = phi ptr [ %14, %13 ], [ %.02634.i, %12 ]
-  %16 = getelementptr i8, ptr %.02535.i, i64 1
-  %17 = load i8, ptr %.02535.i, align 1
+  %16 = getelementptr i8, ptr %.02733.i, i64 1
+  %17 = load i8, ptr %.02733.i, align 1
   %18 = zext i8 %17 to i32
   %19 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.1.i, ptr noundef nonnull @.str, i32 noundef %18) #8
   %20 = sext i32 %19 to i64
   %21 = getelementptr i8, ptr %.1.i, i64 %20
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %.02634.i to i64
-  %.neg.i = add i64 %.02733.i, %23
+  %.neg.i = add i64 %.02535.i, %23
   %24 = sub i64 %.neg.i, %22
   %25 = add nsw i32 %.036.i, -1
   %26 = icmp ugt i32 %.036.i, 1
@@ -328,26 +328,26 @@ define noundef ptr @pg_inet_net_ntop(i32 noundef %0, ptr nocapture noundef reado
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %136, %.lr.ph.preheader.i
-  %.02125.i137.i = phi ptr [ %138, %136 ], [ %.us-phi129.i, %.lr.ph.preheader.i ]
-  %.02026.i136.i = phi i64 [ %141, %136 ], [ %128, %.lr.ph.preheader.i ]
-  %.01927.i135.i = phi ptr [ %137, %136 ], [ %130, %.lr.ph.preheader.i ]
+  %.02125.i137.i = phi ptr [ %137, %136 ], [ %130, %.lr.ph.preheader.i ]
+  %.01926.i136.i = phi ptr [ %138, %136 ], [ %.us-phi129.i, %.lr.ph.preheader.i ]
+  %.01827.i135.i = phi i64 [ %141, %136 ], [ %128, %.lr.ph.preheader.i ]
   %.028.i134.i = phi i32 [ %142, %136 ], [ 1, %.lr.ph.preheader.i ]
-  %131 = load i8, ptr %.01927.i135.i, align 1
+  %131 = load i8, ptr %.02125.i137.i, align 1
   %132 = zext i8 %131 to i32
-  %133 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.02125.i137.i, ptr noundef nonnull @.str, i32 noundef %132) #8
+  %133 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.01926.i136.i, ptr noundef nonnull @.str, i32 noundef %132) #8
   %134 = sext i32 %133 to i64
-  %135 = getelementptr i8, ptr %.02125.i137.i, i64 %134
+  %135 = getelementptr i8, ptr %.01926.i136.i, i64 %134
   %.not.i.i = icmp eq i32 %.028.i134.i, 4
   br i1 %.not.i.i, label %decoct.exit.i, label %136
 
 136:                                              ; preds = %.lr.ph.i
-  %137 = getelementptr i8, ptr %.01927.i135.i, i64 1
+  %137 = getelementptr i8, ptr %.02125.i137.i, i64 1
   %138 = getelementptr i8, ptr %135, i64 1
   store i8 46, ptr %135, align 1
   store i8 0, ptr %138, align 1
   %139 = ptrtoint ptr %138 to i64
-  %140 = ptrtoint ptr %.02125.i137.i to i64
-  %.neg.i.i = add i64 %.02026.i136.i, %140
+  %140 = ptrtoint ptr %.01926.i136.i to i64
+  %.neg.i.i = add i64 %.01827.i135.i, %140
   %141 = sub i64 %.neg.i.i, %139
   %142 = add nuw nsw i32 %.028.i134.i, 1
   %143 = icmp ult i64 %141, 6

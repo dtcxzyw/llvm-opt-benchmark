@@ -273,24 +273,24 @@ define dso_local void @uv__io_poll(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %select.unfold.outer
 
 select.unfold.outer:                              ; preds = %48, %158
-  %.0133.ph = phi i32 [ %1, %48 ], [ %161, %158 ]
-  %.0127.ph = phi i32 [ 48, %48 ], [ %.0127.ph174, %158 ]
-  %.0124.ph = phi i32 [ %56, %48 ], [ %.1125, %158 ]
+  %.0134.ph = phi i32 [ %1, %48 ], [ %161, %158 ]
+  %.0132.ph = phi i32 [ %56, %48 ], [ %.1133, %158 ]
+  %.0125.ph = phi i32 [ 48, %48 ], [ %.0125.ph175, %158 ]
   %.1117.ph = phi i32 [ %54, %48 ], [ 0, %158 ]
   %.0114.ph = phi i32 [ %55, %48 ], [ %.1115, %158 ]
   %.1.ph = phi i32 [ %spec.select172, %48 ], [ %161, %158 ]
   br label %select.unfold.outer173
 
 select.unfold.outer173:                           ; preds = %select.unfold.outer, %154
-  %.0127.ph174 = phi i32 [ %.0127.ph, %select.unfold.outer ], [ %156, %154 ]
-  %.0124.ph175 = phi i32 [ %.0124.ph, %select.unfold.outer ], [ %.1125, %154 ]
+  %.0132.ph174 = phi i32 [ %.0132.ph, %select.unfold.outer ], [ %.1133, %154 ]
+  %.0125.ph175 = phi i32 [ %.0125.ph, %select.unfold.outer ], [ %156, %154 ]
   %.1117.ph176 = phi i32 [ %.1117.ph, %select.unfold.outer ], [ 0, %154 ]
   %.0114.ph177 = phi i32 [ %.0114.ph, %select.unfold.outer ], [ %.1115, %154 ]
   %.1.ph178 = phi i32 [ %.1.ph, %select.unfold.outer ], [ 0, %154 ]
   br label %select.unfold.outer179
 
 select.unfold.outer179:                           ; preds = %select.unfold.outer179.backedge, %select.unfold.outer173
-  %.0124.ph180 = phi i32 [ %.0124.ph175, %select.unfold.outer173 ], [ %.1125, %select.unfold.outer179.backedge ]
+  %.0132.ph180 = phi i32 [ %.0132.ph174, %select.unfold.outer173 ], [ %.1133, %select.unfold.outer179.backedge ]
   %.1117.ph181 = phi i32 [ %.1117.ph176, %select.unfold.outer173 ], [ 0, %select.unfold.outer179.backedge ]
   %.0114.ph182 = phi i32 [ %.0114.ph177, %select.unfold.outer173 ], [ %.1115, %select.unfold.outer179.backedge ]
   %.1.ph183 = phi i32 [ %.1.ph178, %select.unfold.outer173 ], [ %.1.ph183.be, %select.unfold.outer179.backedge ]
@@ -298,7 +298,7 @@ select.unfold.outer179:                           ; preds = %select.unfold.outer
   br label %select.unfold
 
 select.unfold:                                    ; preds = %select.unfold.outer179, %95
-  %.0124 = phi i32 [ %.1125, %95 ], [ %.0124.ph180, %select.unfold.outer179 ]
+  %.0132 = phi i32 [ %.1133, %95 ], [ %.0132.ph180, %select.unfold.outer179 ]
   %.0114 = phi i32 [ %.1115, %95 ], [ %.0114.ph182, %select.unfold.outer179 ]
   br i1 %.not148, label %62, label %61
 
@@ -321,7 +321,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
   unreachable
 
 67:                                               ; preds = %64, %62
-  %.not150 = icmp ne i32 %.0124, 0
+  %.not150 = icmp ne i32 %.0132, 0
   %68 = icmp eq i32 %.0114, 0
   %or.cond3 = select i1 %.not146, i1 %68, i1 false
   %or.cond166 = select i1 %.not150, i1 true, i1 %or.cond3
@@ -352,14 +352,14 @@ select.unfold:                                    ; preds = %select.unfold.outer
 
 .sink.split:                                      ; preds = %80, %73
   %uv__io_poll.no_epoll_wait_cached.sink = phi ptr [ @uv__io_poll.no_epoll_pwait_cached, %73 ], [ @uv__io_poll.no_epoll_wait_cached, %80 ]
-  %.1125.ph = phi i32 [ %.0124, %73 ], [ 1, %80 ]
+  %.1133.ph = phi i32 [ %.0132, %73 ], [ 1, %80 ]
   %.1115.ph = phi i32 [ 1, %73 ], [ %.0114, %80 ]
   store i1 true, ptr %uv__io_poll.no_epoll_wait_cached.sink, align 4
   br label %84
 
 84:                                               ; preds = %.sink.split, %77, %80, %70, %73
-  %.0126 = phi i32 [ -1, %73 ], [ %71, %70 ], [ -1, %80 ], [ %78, %77 ], [ -1, %.sink.split ]
-  %.1125 = phi i32 [ %.0124, %73 ], [ %.0124, %70 ], [ 0, %80 ], [ 0, %77 ], [ %.1125.ph, %.sink.split ]
+  %.1133 = phi i32 [ %.0132, %73 ], [ %.0132, %70 ], [ 0, %80 ], [ 0, %77 ], [ %.1133.ph, %.sink.split ]
+  %.0124 = phi i32 [ -1, %73 ], [ %71, %70 ], [ -1, %80 ], [ %78, %77 ], [ -1, %.sink.split ]
   %.1115 = phi i32 [ %.0114, %73 ], [ %.0114, %70 ], [ %.0114, %80 ], [ %.0114, %77 ], [ %.1115.ph, %.sink.split ]
   %85 = icmp ne i32 %.1115, 0
   %or.cond5 = select i1 %.not146, i1 %85, i1 false
@@ -381,7 +381,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
   %93 = udiv i64 %92, 1000000
   store i64 %93, ptr %49, align 8
   store i32 %91, ptr %90, align 4
-  switch i32 %.0126, label %98 [
+  switch i32 %.0124, label %98 [
     i32 0, label %94
     i32 -1, label %95
   ]
@@ -422,7 +422,7 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %157
   %101 = zext i32 %100 to i64
   %102 = getelementptr inbounds ptr, ptr %99, i64 %101
   store ptr %3, ptr %102, align 8
-  %103 = sext i32 %.0126 to i64
+  %103 = sext i32 %.0124 to i64
   %104 = inttoptr i64 %103 to ptr
   %105 = load ptr, ptr %58, align 8
   %106 = load i32, ptr %59, align 8
@@ -430,7 +430,7 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %157
   %108 = zext i32 %107 to i64
   %109 = getelementptr inbounds ptr, ptr %105, i64 %108
   store ptr %104, ptr %109, align 8
-  %110 = icmp sgt i32 %.0126, 0
+  %110 = icmp sgt i32 %.0124, 0
   br i1 %110, label %.lr.ph212.preheader, label %._crit_edge213.thread
 
 ._crit_edge213.thread:                            ; preds = %98
@@ -439,13 +439,13 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %157
   br label %143
 
 .lr.ph212.preheader:                              ; preds = %98
-  %wide.trip.count = zext nneg i32 %.0126 to i64
+  %wide.trip.count = zext nneg i32 %.0124 to i64
   br label %.lr.ph212
 
 .lr.ph212:                                        ; preds = %.lr.ph212.preheader, %140
   %indvars.iv = phi i64 [ 0, %.lr.ph212.preheader ], [ %indvars.iv.next, %140 ]
-  %.0128209 = phi i32 [ 0, %.lr.ph212.preheader ], [ %.1129, %140 ]
-  %.0130208 = phi i32 [ 0, %.lr.ph212.preheader ], [ %.2132, %140 ]
+  %.0126209 = phi i32 [ 0, %.lr.ph212.preheader ], [ %.1127, %140 ]
+  %.0128208 = phi i32 [ 0, %.lr.ph212.preheader ], [ %.2130, %140 ]
   %111 = getelementptr inbounds %struct.epoll_event, ptr %3, i64 %indvars.iv
   %112 = getelementptr inbounds i8, ptr %111, i64 4
   %113 = load i32, ptr %112, align 4
@@ -497,13 +497,13 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %157
   br label %138
 
 138:                                              ; preds = %133, %135
-  %.1131 = phi i32 [ %.0130208, %135 ], [ 1, %133 ]
-  %139 = add nsw i32 %.0128209, 1
+  %.1129 = phi i32 [ %.0128208, %135 ], [ 1, %133 ]
+  %139 = add nsw i32 %.0126209, 1
   br label %140
 
 140:                                              ; preds = %124, %138, %.lr.ph212, %121
-  %.2132 = phi i32 [ %.0130208, %.lr.ph212 ], [ %.0130208, %121 ], [ %.1131, %138 ], [ %.0130208, %124 ]
-  %.1129 = phi i32 [ %.0128209, %.lr.ph212 ], [ %.0128209, %121 ], [ %139, %138 ], [ %.0128209, %124 ]
+  %.2130 = phi i32 [ %.0128208, %.lr.ph212 ], [ %.0128208, %121 ], [ %.1129, %138 ], [ %.0128208, %124 ]
+  %.1127 = phi i32 [ %.0126209, %.lr.ph212 ], [ %.0126209, %121 ], [ %139, %138 ], [ %.0126209, %124 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge213, label %.lr.ph212, !llvm.loop !8
@@ -511,7 +511,7 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %157
 ._crit_edge213:                                   ; preds = %140
   %.not152 = icmp eq i32 %.1117.ph181, 0
   %spec.select168 = select i1 %.not152, i32 %.1.ph183, i32 %.163
-  %.not153 = icmp eq i32 %.2132, 0
+  %.not153 = icmp eq i32 %.2130, 0
   br i1 %.not153, label %143, label %141
 
 141:                                              ; preds = %._crit_edge213
@@ -523,7 +523,7 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %157
 143:                                              ; preds = %._crit_edge213.thread, %141, %._crit_edge213
   %.not153246 = phi i1 [ true, %._crit_edge213.thread ], [ false, %141 ], [ true, %._crit_edge213 ]
   %spec.select168245 = phi i32 [ %spec.select168242, %._crit_edge213.thread ], [ %spec.select168, %141 ], [ %spec.select168, %._crit_edge213 ]
-  %.0128.lcssa244 = phi i32 [ 0, %._crit_edge213.thread ], [ %.1129, %141 ], [ %.1129, %._crit_edge213 ]
+  %.0126.lcssa244 = phi i32 [ 0, %._crit_edge213.thread ], [ %.1127, %141 ], [ %.1127, %._crit_edge213 ]
   %144 = load ptr, ptr %58, align 8
   %145 = load i32, ptr %59, align 8
   %146 = zext i32 %145 to i64
@@ -538,12 +538,12 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %157
   br i1 %.not153246, label %153, label %.loopexit
 
 153:                                              ; preds = %143
-  %.not154 = icmp eq i32 %.0128.lcssa244, 0
+  %.not154 = icmp eq i32 %.0126.lcssa244, 0
   br i1 %.not154, label %157, label %154
 
 154:                                              ; preds = %153
-  %155 = icmp ne i32 %.0126, 1024
-  %156 = add nsw i32 %.0127.ph174, -1
+  %155 = icmp ne i32 %.0124, 1024
+  %156 = add nsw i32 %.0125.ph175, -1
   %.not155 = icmp eq i32 %156, 0
   %or.cond169 = select i1 %155, i1 true, i1 %.not155
   br i1 %or.cond169, label %.loopexit, label %select.unfold.outer173
@@ -558,7 +558,7 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %157
   %159 = load i64, ptr %49, align 8
   %.neg = sub i64 %50, %159
   %160 = trunc i64 %.neg to i32
-  %161 = add i32 %.0133.ph, %160
+  %161 = add i32 %.0134.ph, %160
   %162 = icmp slt i32 %161, 1
   br i1 %162, label %.loopexit, label %select.unfold.outer
 

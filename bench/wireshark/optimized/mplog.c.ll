@@ -138,8 +138,8 @@ define internal fastcc range(i32 0, 2) i32 @mplog_read_packet(ptr noundef %0, pt
   br label %16
 
 16:                                               ; preds = %50, %5
-  %.087 = phi i64 [ 0, %5 ], [ %.188, %50 ]
-  %.085 = phi ptr [ %11, %5 ], [ %.186, %50 ]
+  %.086 = phi ptr [ %11, %5 ], [ %.187, %50 ]
+  %.084 = phi i64 [ 0, %5 ], [ %.185, %50 ]
   %.081 = phi i32 [ 0, %5 ], [ %.182, %50 ]
   %.078 = phi i8 [ -1, %5 ], [ %.179, %50 ]
   %.0 = phi i64 [ 0, %5 ], [ %.1, %50 ]
@@ -183,8 +183,8 @@ define internal fastcc range(i32 0, 2) i32 @mplog_read_packet(ptr noundef %0, pt
   br i1 %38, label %39, label %47
 
 39:                                               ; preds = %23
-  %.not92 = icmp ne i64 %.087, 0
-  %40 = sub nsw i64 %35, %.087
+  %.not92 = icmp ne i64 %.084, 0
+  %40 = sub nsw i64 %35, %.084
   %41 = icmp ugt i64 %40, 20000
   %or.cond = select i1 %.not92, i1 %41, i1 false
   br i1 %or.cond, label %42, label %44
@@ -194,8 +194,8 @@ define internal fastcc range(i32 0, 2) i32 @mplog_read_packet(ptr noundef %0, pt
   br label %.loopexit
 
 44:                                               ; preds = %39
-  %45 = getelementptr i8, ptr %.085, i64 1
-  store i8 %24, ptr %.085, align 1
+  %45 = getelementptr i8, ptr %.086, i64 1
+  store i8 %24, ptr %.086, align 1
   %46 = add i32 %.081, 1
   br label %50
 
@@ -207,8 +207,8 @@ define internal fastcc range(i32 0, 2) i32 @mplog_read_packet(ptr noundef %0, pt
   br label %.loopexit
 
 50:                                               ; preds = %47, %44
-  %.188 = phi i64 [ %35, %44 ], [ %.087, %47 ]
-  %.186 = phi ptr [ %45, %44 ], [ %.085, %47 ]
+  %.187 = phi ptr [ %45, %44 ], [ %.086, %47 ]
+  %.185 = phi i64 [ %35, %44 ], [ %.084, %47 ]
   %.182 = phi i32 [ %46, %44 ], [ %.081, %47 ]
   %51 = icmp slt i32 %.182, 4096
   br i1 %51, label %16, label %.loopexit, !llvm.loop !4
@@ -258,8 +258,8 @@ define internal fastcc range(i32 0, 2) i32 @mplog_read_packet(ptr noundef %0, pt
   br label %74
 
 74:                                               ; preds = %.loopexit, %53
-  %.084 = phi i32 [ 1, %53 ], [ 0, %.loopexit ]
-  ret i32 %.084
+  %.088 = phi i32 [ 1, %53 ], [ 0, %.loopexit ]
+  ret i32 %.088
 }
 
 declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) local_unnamed_addr #1

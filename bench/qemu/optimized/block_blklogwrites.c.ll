@@ -400,16 +400,16 @@ while.body.lr.ph:                                 ; preds = %blk_log_writes_log2
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end7
-  %cur_sector.016 = phi i64 [ 1, %while.body.lr.ph ], [ %cur_sector.1, %if.end7 ]
-  %cur_idx.015 = phi i64 [ 0, %while.body.lr.ph ], [ %inc15, %if.end7 ]
-  %shl = shl i64 %cur_sector.016, %sh_prom
+  %cur_idx.016 = phi i64 [ 0, %while.body.lr.ph ], [ %inc15, %if.end7 ]
+  %cur_sector.015 = phi i64 [ 1, %while.body.lr.ph ], [ %cur_sector.1, %if.end7 ]
+  %shl = shl i64 %cur_sector.015, %sh_prom
   %call1 = call i32 @bdrv_pread(ptr noundef %log, i64 noundef %shl, i64 noundef 32, ptr noundef nonnull %cur_entry, i32 noundef 0) #8
   %cmp2 = icmp slt i32 %call1, 0
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
   %sub = sub i32 0, %call1
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.5, i32 noundef 115, ptr noundef nonnull @__func__.blk_log_writes_find_cur_log_sector, i32 noundef %sub, ptr noundef nonnull @.str.17, i64 noundef %cur_idx.015) #8
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.5, i32 noundef 115, ptr noundef nonnull @__func__.blk_log_writes_find_cur_log_sector, i32 noundef %sub, ptr noundef nonnull @.str.17, i64 noundef %cur_idx.016) #8
   br label %return
 
 if.end:                                           ; preds = %while.body
@@ -418,17 +418,17 @@ if.end:                                           ; preds = %while.body
   br i1 %tobool.not, label %if.end7, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.5, i32 noundef 121, ptr noundef nonnull @__func__.blk_log_writes_find_cur_log_sector, ptr noundef nonnull @.str.18, i64 noundef %1, i64 noundef %cur_idx.015) #8
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.5, i32 noundef 121, ptr noundef nonnull @__func__.blk_log_writes_find_cur_log_sector, ptr noundef nonnull @.str.18, i64 noundef %1, i64 noundef %cur_idx.016) #8
   br label %return
 
 if.end7:                                          ; preds = %if.end
-  %inc = add i64 %cur_sector.016, 1
+  %inc = add i64 %cur_sector.015, 1
   %and10 = and i64 %1, 4
   %tobool11.not = icmp eq i64 %and10, 0
   %2 = load i64, ptr %nr_sectors, align 1
   %add = select i1 %tobool11.not, i64 %2, i64 0
   %cur_sector.1 = add i64 %inc, %add
-  %inc15 = add nuw i64 %cur_idx.015, 1
+  %inc15 = add nuw i64 %cur_idx.016, 1
   %exitcond.not = icmp eq i64 %inc15, %nr_entries
   br i1 %exitcond.not, label %return, label %while.body, !llvm.loop !5
 

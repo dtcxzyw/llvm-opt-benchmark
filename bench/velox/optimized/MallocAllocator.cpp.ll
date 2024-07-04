@@ -490,8 +490,8 @@ for.body.lr.ph:                                   ; preds = %_ZNSt12_Vector_base
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %pages.sroa.0.1179 = phi ptr [ %call5.i.i.i.i74, %for.body.lr.ph ], [ %pages.sroa.0.3, %for.inc ]
-  %pages.sroa.10.1178 = phi ptr [ %call5.i.i.i.i74, %for.body.lr.ph ], [ %pages.sroa.10.2, %for.inc ]
-  %pages.sroa.19.1177 = phi ptr [ %add.ptr21.i, %for.body.lr.ph ], [ %pages.sroa.19.2, %for.inc ]
+  %pages.sroa.19.1178 = phi ptr [ %add.ptr21.i, %for.body.lr.ph ], [ %pages.sroa.19.2, %for.inc ]
+  %pages.sroa.10.1177 = phi ptr [ %call5.i.i.i.i74, %for.body.lr.ph ], [ %pages.sroa.10.2, %for.inc ]
   %arrayidx.i.i = getelementptr inbounds [12 x i32], ptr %sizeCounts, i64 0, i64 %indvars.iv
   %25 = load i32, ptr %arrayidx.i.i, align 4
   %conv63 = sext i32 %25 to i64
@@ -660,15 +660,15 @@ ehcleanup112:                                     ; preds = %lpad109, %lpad99, %
   br label %ehcleanup179
 
 if.end113:                                        ; preds = %if.end84
-  %cmp.not.i85 = icmp eq ptr %pages.sroa.10.1178, %pages.sroa.19.1177
+  %cmp.not.i85 = icmp eq ptr %pages.sroa.10.1177, %pages.sroa.19.1178
   br i1 %cmp.not.i85, label %if.else.i88, label %if.then.i86
 
 if.then.i86:                                      ; preds = %if.end113
-  store ptr %ptr.1, ptr %pages.sroa.10.1178, align 8
+  store ptr %ptr.1, ptr %pages.sroa.10.1177, align 8
   br label %invoke.cont114
 
 if.else.i88:                                      ; preds = %if.end113
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %pages.sroa.10.1178 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %pages.sroa.19.1178 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %pages.sroa.0.1179 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i89 = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
@@ -721,8 +721,8 @@ _ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iterat
   br label %invoke.cont114
 
 invoke.cont114:                                   ; preds = %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %if.then.i86
-  %pages.sroa.19.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %pages.sroa.19.1177, %if.then.i86 ]
-  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %pages.sroa.10.1178, %if.then.i86 ]
+  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %pages.sroa.10.1177, %if.then.i86 ]
+  %pages.sroa.19.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %pages.sroa.19.1178, %if.then.i86 ]
   %pages.sroa.0.3 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ %pages.sroa.0.1179, %if.then.i86 ]
   %conv116 = trunc i64 %mul to i32
   invoke void @_ZN8facebook5velox6memory10Allocation6appendEPhi(ptr noundef nonnull align 8 dereferenceable(36) %out, ptr noundef nonnull %ptr.1, i32 noundef %conv116)
@@ -738,7 +738,7 @@ for.inc:                                          ; preds = %invoke.cont114
 
 for.end:                                          ; preds = %for.inc, %invoke.cont110
   %conv120.pre-phi = phi i64 [ %.pre200, %invoke.cont110 ], [ %47, %for.inc ]
-  %pages.sroa.10.1167 = phi ptr [ %pages.sroa.10.1178, %invoke.cont110 ], [ %pages.sroa.10.2, %for.inc ]
+  %pages.sroa.10.1167 = phi ptr [ %pages.sroa.10.1177, %invoke.cont110 ], [ %pages.sroa.10.2, %for.inc ]
   %pages.sroa.0.1158 = phi ptr [ %pages.sroa.0.1179, %invoke.cont110 ], [ %pages.sroa.0.3, %for.inc ]
   %sub.ptr.lhs.cast.i = ptrtoint ptr %pages.sroa.10.1167 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %pages.sroa.0.1158 to i64

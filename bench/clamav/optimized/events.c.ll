@@ -1799,7 +1799,7 @@ define range(i32 0, 2) i32 @cli_event_diff(ptr noundef %0, ptr noundef %1, i32 n
 32:                                               ; preds = %.lr.ph, %ev_diff.exit.thread
   %33 = phi i32 [ %24, %.lr.ph ], [ %68, %ev_diff.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %ev_diff.exit.thread ]
-  %.056.fr87 = phi i32 [ 0, %.lr.ph ], [ %69, %ev_diff.exit.thread ]
+  %.055.fr87 = phi i32 [ 0, %.lr.ph ], [ %69, %ev_diff.exit.thread ]
   %34 = load i16, ptr %9, align 4
   %35 = load ptr, ptr %30, align 8
   %36 = getelementptr inbounds %union.ev_val, ptr %35, i64 %indvars.iv
@@ -1839,7 +1839,7 @@ ev_diff.exit:                                     ; preds = %39, %44, %48
   br i1 %.not73, label %ev_diff.exit.thread, label %53
 
 53:                                               ; preds = %ev_diff.exit
-  %.not74 = icmp eq i32 %.056.fr87, 0
+  %.not74 = icmp eq i32 %.055.fr87, 0
   br i1 %.not74, label %54, label %56
 
 54:                                               ; preds = %53
@@ -1870,7 +1870,7 @@ ev_diff.exit.thread:                              ; preds = %32, %56, %ev_diff.e
   %68 = phi i32 [ %.pre91, %56 ], [ %33, %ev_diff.exit ], [ %33, %32 ]
   %.0.i78 = phi i32 [ %.0.i, %56 ], [ 0, %ev_diff.exit ], [ 0, %32 ]
   %.0.i78.fr = freeze i32 %.0.i78
-  %69 = add i32 %.0.i78.fr, %.056.fr87
+  %69 = add i32 %.0.i78.fr, %.055.fr87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %70 = zext i32 %68 to i64
   %71 = icmp ult i64 %indvars.iv.next, %70
@@ -1906,8 +1906,8 @@ ev_diff.exit.thread:                              ; preds = %32, %56, %ev_diff.e
   br label %86
 
 86:                                               ; preds = %.thread, %._crit_edge, %.thread82, %3, %27, %21
-  %.0 = phi i32 [ 1, %21 ], [ 1, %27 ], [ 1, %3 ], [ 0, %.thread ], [ 1, %._crit_edge ], [ 1, %.thread82 ]
-  ret i32 %.0
+  %.056 = phi i32 [ 1, %21 ], [ 1, %27 ], [ 1, %3 ], [ 0, %.thread ], [ 1, %._crit_edge ], [ 1, %.thread82 ]
+  ret i32 %.056
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -1962,11 +1962,11 @@ define range(i32 0, 2) i32 @cli_event_diff_all(ptr noundef %0, ptr noundef %1, p
   br i1 %.not24, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.01828.us = phi i32 [ %9, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %.01926.us = phi i32 [ %10, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %8 = tail call i32 @cli_event_diff(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.01926.us)
-  %9 = add i32 %8, %.01828.us
-  %10 = add nuw i32 %.01926.us, 1
+  %.028.us = phi i32 [ %9, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %.01826.us = phi i32 [ %10, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %8 = tail call i32 @cli_event_diff(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.01826.us)
+  %9 = add i32 %8, %.028.us
+  %10 = add nuw i32 %.01826.us, 1
   %11 = load i32, ptr %4, align 8
   %12 = icmp ult i32 %10, %11
   br i1 %12, label %.lr.ph.split.us, label %._crit_edge
@@ -1977,7 +1977,7 @@ define range(i32 0, 2) i32 @cli_event_diff_all(ptr noundef %0, ptr noundef %1, p
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %.lr.ph ]
-  %.01828 = phi i32 [ %.1, %24 ], [ 0, %.lr.ph ]
+  %.028 = phi i32 [ %.1, %24 ], [ 0, %.lr.ph ]
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds %struct.cli_event, ptr %14, i64 %indvars.iv, i32 3
   %16 = load i16, ptr %15, align 4
@@ -1990,11 +1990,11 @@ define range(i32 0, 2) i32 @cli_event_diff_all(ptr noundef %0, ptr noundef %1, p
 
 21:                                               ; preds = %.lr.ph.split
   %22 = tail call i32 @cli_event_diff(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %19)
-  %23 = add i32 %22, %.01828
+  %23 = add i32 %22, %.028
   br label %24
 
 24:                                               ; preds = %.lr.ph.split, %21
-  %.1 = phi i32 [ %.01828, %.lr.ph.split ], [ %23, %21 ]
+  %.1 = phi i32 [ %.028, %.lr.ph.split ], [ %23, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %4, align 8
   %26 = zext i32 %25 to i64
@@ -2002,14 +2002,14 @@ define range(i32 0, 2) i32 @cli_event_diff_all(ptr noundef %0, ptr noundef %1, p
   br i1 %27, label %.lr.ph.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %24, %.lr.ph.split.us, %.preheader
-  %.018.lcssa = phi i32 [ 0, %.preheader ], [ %9, %.lr.ph.split.us ], [ %.1, %24 ]
-  %.not23 = icmp ne i32 %.018.lcssa, 0
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %9, %.lr.ph.split.us ], [ %.1, %24 ]
+  %.not23 = icmp ne i32 %.0.lcssa, 0
   %28 = zext i1 %.not23 to i32
   br label %29
 
 29:                                               ; preds = %._crit_edge, %13
-  %.0 = phi i32 [ 1, %13 ], [ %28, %._crit_edge ]
-  ret i32 %.0
+  %.019 = phi i32 [ 1, %13 ], [ %28, %._crit_edge ]
+  ret i32 %.019
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

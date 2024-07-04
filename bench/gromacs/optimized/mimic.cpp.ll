@@ -1977,7 +1977,7 @@ _ZNK3gmx11StopHandler9setSignalEv.exit:           ; preds = %981, %976, %965
   %1009 = load ptr, ptr %273, align 8
   %1010 = load ptr, ptr %419, align 8
   %1011 = load i64, ptr %23, align 8
-  invoke void @_Z15compute_globalsP15gmx_global_statP9t_commrecPK10t_inputrecP10t_forcerecP14gmx_ekindata_tN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEESF_PA3_KfPK9t_mdatomsP6t_nrnbP5t_vcmP13gmx_wallcycleP14gmx_enerdata_tPA3_fSV_SV_SV_PNSA_19SimulationSignallerESI_PbilPNSA_18ObservablesReducerE(ptr noundef %287, ptr noundef %987, ptr noundef nonnull %52, ptr noundef %988, ptr noundef %989, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %43, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %44, ptr noundef nonnull %1007, ptr noundef nonnull %376, ptr noundef %1008, ptr noundef null, ptr noundef %1009, ptr noundef %1010, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %42, ptr noundef nonnull %1007, ptr noundef nonnull %41, i32 noundef 80, i64 noundef %1011, ptr noundef nonnull %19)
+  invoke void @_Z15compute_globalsP15gmx_global_statP9t_commrecPK10t_inputrecP10t_forcerecP14gmx_ekindata_tN3gmx8ArrayRefIKNSA_11BasicVectorIfEEEESF_PA3_KfPK9t_mdatomsP6t_nrnbP5t_vcmP13gmx_wallcycleP14gmx_enerdata_tPA3_fSV_SV_SV_PNSA_19SimulationSignallerESI_PbilPNSA_18ObservablesReducerE(ptr noundef %287, ptr noundef %987, ptr noundef %52, ptr noundef %988, ptr noundef %989, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %43, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %44, ptr noundef nonnull %1007, ptr noundef nonnull %376, ptr noundef %1008, ptr noundef null, ptr noundef %1009, ptr noundef %1010, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %42, ptr noundef nonnull %1007, ptr noundef nonnull %41, i32 noundef 80, i64 noundef %1011, ptr noundef nonnull %19)
           to label %1012 unwind label %.loopexit.split-lp.loopexit
 
 1012:                                             ; preds = %986
@@ -2080,8 +2080,8 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyE
 
 1055:                                             ; preds = %._crit_edge293, %1026
   %1056 = phi ptr [ %.pre294, %._crit_edge293 ], [ %1031, %1026 ]
-  %.sroa.5.1 = phi ptr [ %scevgep.i.i.i, %._crit_edge293 ], [ %1030, %1026 ]
   %.sroa.0209.1 = phi ptr [ %1027, %._crit_edge293 ], [ %1029, %1026 ]
+  %.sroa.5.1 = phi ptr [ %scevgep.i.i.i, %._crit_edge293 ], [ %1030, %1026 ]
   %1057 = getelementptr inbounds i8, ptr %1056, i64 52
   %1058 = load i32, ptr %1057, align 4
   %1059 = icmp eq i32 %1058, 0

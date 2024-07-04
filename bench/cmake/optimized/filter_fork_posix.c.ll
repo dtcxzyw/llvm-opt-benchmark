@@ -146,9 +146,9 @@ define dso_local range(i32 -25, 1) i32 @__archive_create_child(ptr noundef %0, p
   br label %96
 
 80:                                               ; preds = %63, %61, %56, %54, %49, %46, %42
-  %.024 = phi i32 [ %45, %42 ], [ %48, %46 ], [ %51, %49 ], [ %55, %54 ], [ %58, %56 ], [ %62, %61 ], [ %67, %63 ]
+  %.0 = phi i32 [ %45, %42 ], [ %48, %46 ], [ %51, %49 ], [ %55, %54 ], [ %58, %56 ], [ %62, %61 ], [ %67, %63 ]
   %81 = tail call ptr @__errno_location() #5
-  store i32 %.024, ptr %81, align 4
+  store i32 %.0, ptr %81, align 4
   %82 = call i32 @posix_spawn_file_actions_destroy(ptr noundef nonnull %8) #4
   br label %83
 
@@ -172,8 +172,8 @@ define dso_local range(i32 -25, 1) i32 @__archive_create_child(ptr noundef %0, p
   br label %96
 
 96:                                               ; preds = %94, %68
-  %.0 = phi i32 [ -25, %94 ], [ 0, %68 ]
-  ret i32 %.0
+  %.024 = phi i32 [ -25, %94 ], [ 0, %68 ]
+  ret i32 %.024
 }
 
 declare ptr @__archive_cmdline_allocate() local_unnamed_addr #1

@@ -595,10 +595,10 @@ define internal i32 @dissect_sasp_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not.i97, label %dissect_reg_req.exit, label %.lr.ph.i98
 
 .lr.ph.i98:                                       ; preds = %60, %.lr.ph.i98
-  %.02.i = phi i32 [ %81, %.lr.ph.i98 ], [ 21, %60 ]
-  %.0361.i = phi i16 [ %82, %.lr.ph.i98 ], [ 0, %60 ]
-  %81 = tail call fastcc i32 @dissect_grp_memdatacomp(ptr noundef %0, ptr noundef %65, i32 noundef %.02.i)
-  %82 = add nuw i16 %.0361.i, 1
+  %.02.i = phi i16 [ %82, %.lr.ph.i98 ], [ 0, %60 ]
+  %.0361.i = phi i32 [ %81, %.lr.ph.i98 ], [ 21, %60 ]
+  %81 = tail call fastcc i32 @dissect_grp_memdatacomp(ptr noundef %0, ptr noundef %65, i32 noundef %.0361.i)
+  %82 = add nuw i16 %.02.i, 1
   %exitcond.not.i99 = icmp eq i16 %82, %78
   br i1 %exitcond.not.i99, label %dissect_reg_req.exit, label %.lr.ph.i98, !llvm.loop !6
 

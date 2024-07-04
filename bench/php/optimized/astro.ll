@@ -101,8 +101,8 @@ define hidden range(i32 -1, 2) i32 @timelib_astro_rise_set_altitude(ptr noundef 
   %.not = icmp eq i32 %4, 0
   %93 = fdiv double 2.666000e-01, %sqrt.i.i
   %94 = fsub double %3, %93
-  %.0 = select i1 %.not, double %3, double %94
-  %95 = fmul double %.0, 0x3F91DF46A2529D39
+  %.059 = select i1 %.not, double %3, double %94
+  %95 = fmul double %.059, 0x3F91DF46A2529D39
   %96 = tail call double @sin(double noundef %95) #7
   %97 = fmul double %2, 0x3F91DF46A2529D39
   %98 = tail call double @sin(double noundef %97) #7
@@ -165,10 +165,10 @@ define hidden range(i32 -1, 2) i32 @timelib_astro_rise_set_altitude(ptr noundef 
   br label %138
 
 138:                                              ; preds = %119, %124, %112
-  %.059 = phi i32 [ -1, %112 ], [ 1, %119 ], [ 0, %124 ]
+  %.0 = phi i32 [ -1, %112 ], [ 1, %119 ], [ 0, %124 ]
   tail call void @timelib_time_dtor(ptr noundef nonnull %15) #7
   store i64 %12, ptr %11, align 8
-  ret i32 %.059
+  ret i32 %.0
 }
 
 declare void @timelib_update_ts(ptr noundef, ptr noundef) local_unnamed_addr #1

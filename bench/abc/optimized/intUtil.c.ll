@@ -99,8 +99,8 @@ define range(i32 0, 2) i32 @Inter_ManCheckInitialState(ptr noundef %0) local_unn
   br label %47
 
 47:                                               ; preds = %.critedge, %6
-  %.0 = phi i32 [ 0, %6 ], [ %46, %.critedge ]
-  ret i32 %.0
+  %.024 = phi i32 [ 0, %6 ], [ %46, %.critedge ]
+  ret i32 %.024
 }
 
 declare ptr @Cnf_Derive(ptr noundef, i32 noundef) local_unnamed_addr #1

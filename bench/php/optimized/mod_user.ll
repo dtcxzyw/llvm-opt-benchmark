@@ -199,8 +199,8 @@ define hidden range(i32 -1, 1) i32 @ps_close_user(ptr nocapture readnone %0) #0 
   br label %26
 
 26:                                               ; preds = %1, %24
-  %.0 = phi i32 [ %25, %24 ], [ 0, %1 ]
-  ret i32 %.0
+  %.05 = phi i32 [ %25, %24 ], [ 0, %1 ]
+  ret i32 %.05
 }
 
 ; Function Attrs: nounwind uwtable

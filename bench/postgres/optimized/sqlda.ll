@@ -488,7 +488,7 @@ sqlda_compat_empty_size.exit:                     ; preds = %.lr.ph.i, %8
 
 205:                                              ; preds = %182, %199, %173, %164, %155, %154, %119, %109, %89, %80, %71, %65, %56, %47, %38, %29
   %.1 = phi i64 [ %192, %199 ], [ %192, %182 ], [ %177, %173 ], [ %168, %164 ], [ %159, %155 ], [ %102, %119 ], [ %.0207, %154 ], [ %102, %109 ], [ %93, %89 ], [ %84, %80 ], [ %75, %71 ], [ %66, %65 ], [ %60, %56 ], [ %51, %47 ], [ %42, %38 ], [ %33, %29 ]
-  %.0144 = phi i1 [ true, %199 ], [ true, %182 ], [ true, %173 ], [ true, %164 ], [ true, %155 ], [ false, %119 ], [ false, %154 ], [ false, %109 ], [ true, %89 ], [ true, %80 ], [ true, %71 ], [ true, %65 ], [ true, %56 ], [ true, %47 ], [ true, %38 ], [ true, %29 ]
+  %.0 = phi i1 [ true, %199 ], [ true, %182 ], [ true, %173 ], [ true, %164 ], [ true, %155 ], [ false, %119 ], [ false, %154 ], [ false, %109 ], [ true, %89 ], [ true, %80 ], [ true, %71 ], [ true, %65 ], [ true, %56 ], [ true, %47 ], [ true, %38 ], [ true, %29 ]
   %206 = trunc nuw nsw i64 %indvars.iv to i32
   %207 = tail call i32 @PQgetisnull(ptr noundef %2, i32 noundef %3, i32 noundef %206) #6
   %.not150 = icmp eq i32 %207, 0
@@ -507,7 +507,7 @@ sqlda_compat_empty_size.exit:                     ; preds = %.lr.ph.i, %8
   br i1 %.not150, label %216, label %225
 
 216:                                              ; preds = %205
-  br i1 %.0144, label %217, label %232
+  br i1 %.0, label %217, label %232
 
 217:                                              ; preds = %216
   %218 = load ptr, ptr %24, align 8
@@ -923,7 +923,7 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
 
 169:                                              ; preds = %154, %146, %138, %130, %129, %98, %92, %74, %66, %58, %53, %45, %37, %29, %21
   %.1 = phi i64 [ %164, %154 ], [ %150, %146 ], [ %142, %138 ], [ %134, %130 ], [ %86, %98 ], [ %.0193, %129 ], [ %86, %92 ], [ %78, %74 ], [ %70, %66 ], [ %62, %58 ], [ %54, %53 ], [ %49, %45 ], [ %41, %37 ], [ %33, %29 ], [ %25, %21 ]
-  %.0131.not = phi i1 [ false, %154 ], [ false, %146 ], [ false, %138 ], [ false, %130 ], [ true, %98 ], [ true, %129 ], [ true, %92 ], [ false, %74 ], [ false, %66 ], [ false, %58 ], [ false, %53 ], [ false, %45 ], [ false, %37 ], [ false, %29 ], [ false, %21 ]
+  %.0.not = phi i1 [ false, %154 ], [ false, %146 ], [ false, %138 ], [ false, %130 ], [ true, %98 ], [ true, %129 ], [ true, %92 ], [ false, %74 ], [ false, %66 ], [ false, %58 ], [ false, %53 ], [ false, %45 ], [ false, %37 ], [ false, %29 ], [ false, %21 ]
   %170 = trunc nuw nsw i64 %indvars.iv to i32
   %171 = tail call i32 @PQgetisnull(ptr noundef %2, i32 noundef %3, i32 noundef %170) #6
   %.not137 = icmp ne i32 %171, 0
@@ -932,7 +932,7 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
   %173 = select i1 %.not137, ptr @value_is_null, ptr @value_is_not_null
   %174 = getelementptr inbounds i8, ptr %19, i64 16
   store ptr %173, ptr %174, align 8
-  %brmerge = or i1 %.0131.not, %.not137
+  %brmerge = or i1 %.0.not, %.not137
   br i1 %brmerge, label %181, label %175
 
 175:                                              ; preds = %169

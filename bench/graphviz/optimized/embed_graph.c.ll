@@ -85,17 +85,17 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
 
 .lr.ph105.us.us:                                  ; preds = %.lr.ph110.split.us, %._crit_edge106.us.us
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %._crit_edge106.us.us ], [ 1, %.lr.ph110.split.us ]
-  %.286108.us.us = phi i32 [ %.4.us.us, %._crit_edge106.us.us ], [ %spec.select, %.lr.ph110.split.us ]
+  %.282109.us.us = phi i32 [ %.4.us.us, %._crit_edge106.us.us ], [ %spec.select, %.lr.ph110.split.us ]
   %35 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv147
   %36 = load ptr, ptr %35, align 8
-  tail call void @bfs(i32 noundef %.286108.us.us, ptr noundef %0, i32 noundef %1, ptr noundef %36) #11
+  tail call void @bfs(i32 noundef %.282109.us.us, ptr noundef %0, i32 noundef %1, ptr noundef %36) #11
   %37 = load ptr, ptr %35, align 8
   br label %38
 
 38:                                               ; preds = %38, %.lr.ph105.us.us
   %indvars.iv142 = phi i64 [ %indvars.iv.next143, %38 ], [ 0, %.lr.ph105.us.us ]
   %.2103.us.us = phi i32 [ %.3.us.us, %38 ], [ 0, %.lr.ph105.us.us ]
-  %.387101.us.us = phi i32 [ %.4.us.us, %38 ], [ %.286108.us.us, %.lr.ph105.us.us ]
+  %.383102.us.us = phi i32 [ %.4.us.us, %38 ], [ %.282109.us.us, %.lr.ph105.us.us ]
   %39 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv142
   %40 = load i32, ptr %39, align 4
   %41 = getelementptr inbounds i32, ptr %37, i64 %indvars.iv142
@@ -104,7 +104,7 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
   store i32 %..us.us, ptr %39, align 4
   %43 = icmp sgt i32 %..us.us, %.2103.us.us
   %44 = trunc nuw nsw i64 %indvars.iv142 to i32
-  %.4.us.us = select i1 %43, i32 %44, i32 %.387101.us.us
+  %.4.us.us = select i1 %43, i32 %44, i32 %.383102.us.us
   %.3.us.us = tail call i32 @llvm.smax.i32(i32 %..us.us, i32 %.2103.us.us)
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145
@@ -117,17 +117,17 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
 
 .lr.ph105.us:                                     ; preds = %.lr.ph110.split.us, %._crit_edge106.us
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %._crit_edge106.us ], [ 1, %.lr.ph110.split.us ]
-  %.286108.us = phi i32 [ %.4.us, %._crit_edge106.us ], [ %spec.select, %.lr.ph110.split.us ]
+  %.282109.us = phi i32 [ %.4.us, %._crit_edge106.us ], [ %spec.select, %.lr.ph110.split.us ]
   %45 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv137
   %46 = load ptr, ptr %45, align 8
-  tail call void @dijkstra(i32 noundef %.286108.us, ptr noundef %0, i32 noundef %1, ptr noundef %46) #11
+  tail call void @dijkstra(i32 noundef %.282109.us, ptr noundef %0, i32 noundef %1, ptr noundef %46) #11
   %47 = load ptr, ptr %45, align 8
   br label %48
 
 48:                                               ; preds = %.lr.ph105.us, %48
   %indvars.iv132 = phi i64 [ 0, %.lr.ph105.us ], [ %indvars.iv.next133, %48 ]
   %.2103.us = phi i32 [ 0, %.lr.ph105.us ], [ %.3.us, %48 ]
-  %.387101.us = phi i32 [ %.286108.us, %.lr.ph105.us ], [ %.4.us, %48 ]
+  %.383102.us = phi i32 [ %.282109.us, %.lr.ph105.us ], [ %.4.us, %48 ]
   %49 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv132
   %50 = load i32, ptr %49, align 4
   %51 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv132
@@ -136,7 +136,7 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
   store i32 %..us, ptr %49, align 4
   %53 = icmp sgt i32 %..us, %.2103.us
   %54 = trunc nuw nsw i64 %indvars.iv132 to i32
-  %.4.us = select i1 %53, i32 %54, i32 %.387101.us
+  %.4.us = select i1 %53, i32 %54, i32 %.383102.us
   %.3.us = tail call i32 @llvm.smax.i32(i32 %..us, i32 %.2103.us)
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count145
@@ -148,7 +148,7 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
   br i1 %exitcond141.not, label %._crit_edge111, label %.lr.ph105.us
 
 .lr.ph110.split:                                  ; preds = %.preheader.thread, %.lr.ph110
-  %.084.lcssa153155 = phi i32 [ %spec.select, %.lr.ph110 ], [ %28, %.preheader.thread ]
+  %.080.lcssa153155 = phi i32 [ %spec.select, %.lr.ph110 ], [ %28, %.preheader.thread ]
   %wide.trip.count130 = zext nneg i32 %2 to i64
   br i1 %.not, label %.lr.ph110.split.split.us, label %.lr.ph110.split.split
 
@@ -156,7 +156,7 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %.lr.ph110.split.split.us ], [ 1, %.lr.ph110.split ]
   %55 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv127
   %56 = load ptr, ptr %55, align 8
-  tail call void @bfs(i32 noundef %.084.lcssa153155, ptr noundef %0, i32 noundef %1, ptr noundef %56) #11
+  tail call void @bfs(i32 noundef %.080.lcssa153155, ptr noundef %0, i32 noundef %1, ptr noundef %56) #11
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count130
   br i1 %exitcond131.not, label %._crit_edge111, label %.lr.ph110.split.split.us
@@ -164,12 +164,12 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
 57:                                               ; preds = %.lr.ph100, %57
   %indvars.iv117 = phi i64 [ 0, %.lr.ph100 ], [ %indvars.iv.next118, %57 ]
   %.098 = phi i32 [ 0, %.lr.ph100 ], [ %spec.select94, %57 ]
-  %.08496 = phi i32 [ %28, %.lr.ph100 ], [ %spec.select, %57 ]
+  %.08097 = phi i32 [ %28, %.lr.ph100 ], [ %spec.select, %57 ]
   %58 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv117
   %59 = load i32, ptr %58, align 4
   %60 = icmp sgt i32 %59, %.098
   %61 = trunc nuw nsw i64 %indvars.iv117 to i32
-  %spec.select = select i1 %60, i32 %61, i32 %.08496
+  %spec.select = select i1 %60, i32 %61, i32 %.08097
   %spec.select94 = tail call i32 @llvm.smax.i32(i32 %59, i32 %.098)
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next118, %31
@@ -179,7 +179,7 @@ define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noc
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.lr.ph110.split.split ], [ 1, %.lr.ph110.split ]
   %62 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv122
   %63 = load ptr, ptr %62, align 8
-  tail call void @dijkstra(i32 noundef %.084.lcssa153155, ptr noundef %0, i32 noundef %1, ptr noundef %63) #11
+  tail call void @dijkstra(i32 noundef %.080.lcssa153155, ptr noundef %0, i32 noundef %1, ptr noundef %63) #11
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count130
   br i1 %exitcond126.not, label %._crit_edge111, label %.lr.ph110.split.split
@@ -281,11 +281,11 @@ define void @center_coordinate(ptr nocapture noundef readonly %0, i32 noundef %1
 
 14:                                               ; preds = %.preheader.us.us, %14
   %indvars.iv = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next, %14 ]
-  %.01822.us.us = phi double [ 0.000000e+00, %.preheader.us.us ], [ %18, %14 ]
+  %.022.us.us = phi double [ 0.000000e+00, %.preheader.us.us ], [ %18, %14 ]
   %15 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = sitofp i32 %16 to double
-  %18 = fadd double %.01822.us.us, %17
+  %18 = fadd double %.022.us.us, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us.us, label %14

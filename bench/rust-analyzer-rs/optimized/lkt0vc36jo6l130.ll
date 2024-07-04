@@ -1439,8 +1439,8 @@ default.unreachable:                              ; preds = %12
   br label %59
 
 59:                                               ; preds = %4, %"_ZN73_$LT$hir_expand..MacroCallLoc$u20$as$u20$salsa..interned..InternValue$GT$8into_key17h2e613f44b81ea10eE.llvm.4530540673358086267.exit"
-  %60 = phi ptr [ %58, %"_ZN73_$LT$hir_expand..MacroCallLoc$u20$as$u20$salsa..interned..InternValue$GT$8into_key17h2e613f44b81ea10eE.llvm.4530540673358086267.exit" ], [ %10, %4 ]
   %.pn = phi { ptr, i32 } [ %57, %"_ZN73_$LT$hir_expand..MacroCallLoc$u20$as$u20$salsa..interned..InternValue$GT$8into_key17h2e613f44b81ea10eE.llvm.4530540673358086267.exit" ], [ %9, %4 ]
+  %60 = phi ptr [ %58, %"_ZN73_$LT$hir_expand..MacroCallLoc$u20$as$u20$salsa..interned..InternValue$GT$8into_key17h2e613f44b81ea10eE.llvm.4530540673358086267.exit" ], [ %10, %4 ]
   %.sroa.3.0 = extractvalue { ptr, i32 } %.pn, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %60, ptr %6, align 8
@@ -1530,8 +1530,8 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
   br label %16
 
 16:                                               ; preds = %4, %13
-  %17 = phi ptr [ %15, %13 ], [ %11, %4 ]
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %10, %4 ]
+  %17 = phi ptr [ %15, %13 ], [ %11, %4 ]
   %.sroa.3.0 = extractvalue { ptr, i32 } %.pn, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %17, ptr %7, align 8

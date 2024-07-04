@@ -510,7 +510,7 @@ define void @cuddCacheResize(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 .lr.ph80:                                         ; preds = %.preheader, %56
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %56 ], [ 0, %.preheader ]
-  %.07178 = phi i32 [ %.172, %56 ], [ 0, %.preheader ]
+  %.079 = phi i32 [ %.1, %56 ], [ 0, %.preheader ]
   %37 = getelementptr inbounds %struct.DdCache, ptr %3, i64 %indvars.iv84
   %38 = getelementptr inbounds i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
@@ -537,21 +537,21 @@ define void @cuddCacheResize(ptr nocapture noundef %0) local_unnamed_addr #0 {
   store ptr %39, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %45, i64 32
   store i32 %42, ptr %54, align 8
-  %55 = add nsw i32 %.07178, 1
+  %55 = add nsw i32 %.079, 1
   br label %56
 
 56:                                               ; preds = %.lr.ph80, %40
-  %.172 = phi i32 [ %55, %40 ], [ %.07178, %.lr.ph80 ]
+  %.1 = phi i32 [ %55, %40 ], [ %.079, %.lr.ph80 ]
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %29
   br i1 %exitcond88.not, label %._crit_edge.loopexit, label %.lr.ph80, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %56
-  %57 = sitofp i32 %.172 to double
+  %57 = sitofp i32 %.1 to double
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.071.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %57, %._crit_edge.loopexit ]
+  %.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %57, %._crit_edge.loopexit ]
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %59, label %58
 
@@ -581,7 +581,7 @@ define void @cuddCacheResize(ptr nocapture noundef %0) local_unnamed_addr #0 {
   store double 0.000000e+00, ptr %69, align 8
   %76 = getelementptr inbounds i8, ptr %0, i64 704
   %77 = load double, ptr %76, align 8
-  %78 = fsub double %77, %.071.lcssa
+  %78 = fsub double %77, %.0.lcssa
   %79 = getelementptr inbounds i8, ptr %0, i64 712
   store double %78, ptr %79, align 8
   br label %80
@@ -1218,12 +1218,12 @@ define range(i32 0, 2) i32 @cuddCacheProfile(ptr nocapture noundef readonly %0, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.01620 = phi i32 [ 0, %.lr.ph.preheader ], [ %12, %.lr.ph ]
+  %.01719 = phi i32 [ 0, %.lr.ph.preheader ], [ %12, %.lr.ph ]
   %8 = getelementptr inbounds %struct.DdCache, ptr %4, i64 %indvars.iv, i32 2
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
   %11 = zext i1 %10 to i32
-  %12 = add nuw nsw i32 %.01620, %11
+  %12 = add nuw nsw i32 %.01719, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
@@ -1234,7 +1234,7 @@ define range(i32 0, 2) i32 @cuddCacheProfile(ptr nocapture noundef readonly %0, 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.016.lcssa = phi double [ 0.000000e+00, %2 ], [ %14, %._crit_edge.loopexit ]
+  %.017.lcssa = phi double [ 0.000000e+00, %2 ], [ %14, %._crit_edge.loopexit ]
   %15 = getelementptr inbounds i8, ptr %0, i64 704
   %16 = load double, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 712
@@ -1246,7 +1246,7 @@ define range(i32 0, 2) i32 @cuddCacheProfile(ptr nocapture noundef readonly %0, 
   %23 = tail call double @exp(double noundef %22) #14
   %24 = fsub double 1.000000e+00, %23
   %25 = fmul double %24, 1.000000e+02
-  %26 = fdiv double %.016.lcssa, %21
+  %26 = fdiv double %.017.lcssa, %21
   %27 = fsub double 1.000000e+02, %26
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, double noundef %27, double noundef %25) #14
   %29 = icmp ne i32 %28, -1

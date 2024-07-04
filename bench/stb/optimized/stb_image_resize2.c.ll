@@ -593,17 +593,17 @@ for.body16.preheader:                             ; preds = %for.cond14.preheade
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
+  %min_n.0153 = phi i32 [ %min_n.1, %for.body ], [ 2147483647, %entry ]
   %stop.0152 = phi i32 [ %stop.1, %for.body ], [ %2, %entry ]
-  %min_n.0151 = phi i32 [ %min_n.1, %for.body ], [ 2147483647, %entry ]
   %arrayidx = getelementptr inbounds %struct.stbir__contributors, ptr %1, i64 %indvars.iv
   %6 = load i32, ptr %arrayidx, align 4
   %.fr = freeze i32 %6
-  %cmp7 = icmp slt i32 %.fr, %min_n.0151
+  %cmp7 = icmp slt i32 %.fr, %min_n.0153
   %7 = trunc i64 %indvars.iv to i32
   %8 = add i32 %4, %7
   %spec.select = tail call i32 @llvm.smin.i32(i32 %8, i32 %2)
-  %min_n.1 = tail call i32 @llvm.smin.i32(i32 %.fr, i32 %min_n.0151)
   %stop.1 = select i1 %cmp7, i32 %spec.select, i32 %stop.0152
+  %min_n.1 = tail call i32 @llvm.smin.i32(i32 %.fr, i32 %min_n.0153)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = sext i32 %stop.1 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %9
@@ -611,17 +611,17 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.body16:                                       ; preds = %for.body16.preheader, %for.body16
   %indvars.iv173 = phi i64 [ %5, %for.body16.preheader ], [ %indvars.iv.next174, %for.body16 ]
+  %max_n.0157 = phi i32 [ -2147483647, %for.body16.preheader ], [ %max_n.1, %for.body16 ]
   %stop.2156 = phi i32 [ 0, %for.body16.preheader ], [ %stop.3, %for.body16 ]
-  %max_n.0155 = phi i32 [ -2147483647, %for.body16.preheader ], [ %max_n.1, %for.body16 ]
   %indvars.iv.next174 = add nsw i64 %indvars.iv173, -1
   %n1 = getelementptr inbounds %struct.stbir__contributors, ptr %1, i64 %indvars.iv.next174, i32 1
   %10 = load i32, ptr %n1, align 4
-  %cmp19 = icmp sgt i32 %10, %max_n.0155
+  %cmp19 = icmp sgt i32 %10, %max_n.0157
   %11 = trunc i64 %indvars.iv.next174 to i32
   %12 = sub i32 %11, %4
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %12, i32 0)
-  %max_n.1 = tail call i32 @llvm.smax.i32(i32 %10, i32 %max_n.0155)
   %stop.3 = select i1 %cmp19, i32 %spec.store.select, i32 %stop.2156
+  %max_n.1 = tail call i32 @llvm.smax.i32(i32 %10, i32 %max_n.0157)
   %13 = zext nneg i32 %stop.3 to i64
   %cmp15.not.not = icmp sgt i64 %indvars.iv.next174, %13
   br i1 %cmp15.not.not, label %for.body16, label %for.end30, !llvm.loop !14
@@ -630,30 +630,30 @@ for.end30:                                        ; preds = %for.body16, %for.co
   %max_n.0.lcssa = phi i32 [ -2147483647, %for.cond14.preheader ], [ %max_n.1, %for.body16 ]
   %cmp31 = icmp slt i32 %min_n.1, 0
   %sub33 = sub nsw i32 0, %min_n.1
-  %spec.select141 = tail call i32 @llvm.smax.i32(i32 %min_n.1, i32 0)
-  %spec.select187 = select i1 %cmp31, i32 %sub33, i32 0
+  %spec.select186 = select i1 %cmp31, i32 %sub33, i32 0
   br label %for.end30.thread
 
 for.end30.thread:                                 ; preds = %for.end30, %entry
-  %spec.select141186 = phi i32 [ 2147483647, %entry ], [ %spec.select141, %for.end30 ]
   %max_n.0.lcssa185 = phi i32 [ -2147483647, %entry ], [ %max_n.0.lcssa, %for.end30 ]
-  %14 = phi i32 [ 0, %entry ], [ %spec.select187, %for.end30 ]
+  %min_n.0.lcssa178184 = phi i32 [ 2147483647, %entry ], [ %min_n.1, %for.end30 ]
+  %14 = phi i32 [ 0, %entry ], [ %spec.select186, %for.end30 ]
+  %spec.select142 = tail call i32 @llvm.smax.i32(i32 %min_n.0.lcssa178184, i32 0)
   %cmp35.not = icmp slt i32 %max_n.0.lcssa185, %3
   %reass.sub = sub i32 %max_n.0.lcssa185, %3
   %add38 = add i32 %reass.sub, 1
   %sub39 = add nsw i32 %3, -1
-  %max_n.2 = select i1 %cmp35.not, i32 %max_n.0.lcssa185, i32 %sub39
   %right_margin.0 = select i1 %cmp35.not, i32 0, i32 %add38
+  %max_n.2 = select i1 %cmp35.not, i32 %max_n.0.lcssa185, i32 %sub39
   %edge_sizes = getelementptr inbounds i8, ptr %scanline_extents, i64 8
   store i32 %14, ptr %edge_sizes, align 4
   %arrayidx43 = getelementptr inbounds i8, ptr %scanline_extents, i64 12
   store i32 %right_margin.0, ptr %arrayidx43, align 4
   %spans = getelementptr inbounds i8, ptr %scanline_extents, i64 16
-  store i32 %spec.select141186, ptr %spans, align 4
+  store i32 %spec.select142, ptr %spans, align 4
   %n148 = getelementptr inbounds i8, ptr %scanline_extents, i64 20
   store i32 %max_n.2, ptr %n148, align 4
   %pixel_offset_for_input = getelementptr inbounds i8, ptr %scanline_extents, i64 24
-  store i32 %spec.select141186, ptr %pixel_offset_for_input, align 4
+  store i32 %spec.select142, ptr %pixel_offset_for_input, align 4
   %arrayidx52 = getelementptr inbounds i8, ptr %scanline_extents, i64 28
   store i32 0, ptr %arrayidx52, align 4
   %n156 = getelementptr inbounds i8, ptr %scanline_extents, i64 32
@@ -672,31 +672,31 @@ for.body66.preheader:                             ; preds = %if.end62
   br label %for.body66
 
 for.cond76.preheader:                             ; preds = %for.body66, %if.end62
-  %max_left.0.lcssa = phi i32 [ -2147483647, %if.end62 ], [ %max_left.1, %for.body66 ]
   %min_left.0.lcssa = phi i32 [ 2147483647, %if.end62 ], [ %spec.select143, %for.body66 ]
+  %max_left.0.lcssa = phi i32 [ -2147483647, %if.end62 ], [ %max_left.1, %for.body66 ]
   %add77 = add nsw i32 %right_margin.0, %3
   %cmp78165 = icmp sgt i32 %right_margin.0, 0
   br i1 %cmp78165, label %for.body79, label %for.end90
 
 for.body66:                                       ; preds = %for.body66.preheader, %for.body66
-  %j.2162 = phi i32 [ %inc74, %for.body66 ], [ %sub63, %for.body66.preheader ]
+  %max_left.0162 = phi i32 [ %max_left.1, %for.body66 ], [ -2147483647, %for.body66.preheader ]
   %min_left.0161 = phi i32 [ %spec.select143, %for.body66 ], [ 2147483647, %for.body66.preheader ]
-  %max_left.0160 = phi i32 [ %max_left.1, %for.body66 ], [ -2147483647, %for.body66.preheader ]
-  %call = tail call i32 @stbir__edge_wrap(i32 noundef %0, i32 noundef %j.2162, i32 noundef %3) #24
+  %j.2160 = phi i32 [ %inc74, %for.body66 ], [ %sub63, %for.body66.preheader ]
+  %call = tail call i32 @stbir__edge_wrap(i32 noundef %0, i32 noundef %j.2160, i32 noundef %3) #24
   %spec.select143 = tail call i32 @llvm.smin.i32(i32 %call, i32 %min_left.0161)
-  %max_left.1 = tail call i32 @llvm.smax.i32(i32 %call, i32 %max_left.0160)
-  %inc74 = add i32 %j.2162, 1
+  %max_left.1 = tail call i32 @llvm.smax.i32(i32 %call, i32 %max_left.0162)
+  %inc74 = add i32 %j.2160, 1
   %exitcond.not = icmp eq i32 %inc74, 0
   br i1 %exitcond.not, label %for.cond76.preheader, label %for.body66, !llvm.loop !15
 
 for.body79:                                       ; preds = %for.cond76.preheader, %for.body79
-  %j.3168 = phi i32 [ %inc89, %for.body79 ], [ %3, %for.cond76.preheader ]
-  %max_right.0167 = phi i32 [ %max_right.1, %for.body79 ], [ -2147483647, %for.cond76.preheader ]
-  %min_right.0166 = phi i32 [ %spec.select144, %for.body79 ], [ 2147483647, %for.cond76.preheader ]
-  %call81 = tail call i32 @stbir__edge_wrap(i32 noundef %0, i32 noundef %j.3168, i32 noundef %3) #24
-  %spec.select144 = tail call i32 @llvm.smin.i32(i32 %call81, i32 %min_right.0166)
-  %max_right.1 = tail call i32 @llvm.smax.i32(i32 %call81, i32 %max_right.0167)
-  %inc89 = add nsw i32 %j.3168, 1
+  %max_right.0168 = phi i32 [ %max_right.1, %for.body79 ], [ -2147483647, %for.cond76.preheader ]
+  %min_right.0167 = phi i32 [ %spec.select144, %for.body79 ], [ 2147483647, %for.cond76.preheader ]
+  %j.3166 = phi i32 [ %inc89, %for.body79 ], [ %3, %for.cond76.preheader ]
+  %call81 = tail call i32 @stbir__edge_wrap(i32 noundef %0, i32 noundef %j.3166, i32 noundef %3) #24
+  %spec.select144 = tail call i32 @llvm.smin.i32(i32 %call81, i32 %min_right.0167)
+  %max_right.1 = tail call i32 @llvm.smax.i32(i32 %call81, i32 %max_right.0168)
+  %inc89 = add nsw i32 %j.3166, 1
   %cmp78 = icmp slt i32 %inc89, %add77
   br i1 %cmp78, label %for.body79, label %for.end90, !llvm.loop !16
 
@@ -707,21 +707,21 @@ for.end90:                                        ; preds = %for.body79, %for.co
   br i1 %cmp91, label %if.then92, label %if.end113
 
 if.then92:                                        ; preds = %for.end90
-  %cmp93.not = icmp sgt i32 %min_left.0.lcssa, %spec.select141186
+  %cmp93.not = icmp sgt i32 %min_left.0.lcssa, %spec.select142
   %add94 = add nsw i32 %max_left.0.lcssa, 16
-  %cmp95.not = icmp slt i32 %add94, %spec.select141186
+  %cmp95.not = icmp slt i32 %add94, %spec.select142
   %or.cond145 = select i1 %cmp93.not, i1 true, i1 %cmp95.not
   br i1 %or.cond145, label %lor.lhs.false, label %if.then100
 
 lor.lhs.false:                                    ; preds = %if.then92
-  %cmp96.not = icmp sgt i32 %spec.select141186, %min_left.0.lcssa
+  %cmp96.not = icmp sgt i32 %spec.select142, %min_left.0.lcssa
   %add98 = add nsw i32 %max_n.2, 16
   %cmp99.not = icmp slt i32 %add98, %max_left.0.lcssa
   %or.cond146 = select i1 %cmp96.not, i1 true, i1 %cmp99.not
   br i1 %or.cond146, label %if.end113, label %if.then100
 
 if.then100:                                       ; preds = %lor.lhs.false, %if.then92
-  %call101 = tail call i32 @stbir__min(i32 noundef %spec.select141186, i32 noundef %min_left.0.lcssa) #24
+  %call101 = tail call i32 @stbir__min(i32 noundef %spec.select142, i32 noundef %min_left.0.lcssa) #24
   store i32 %call101, ptr %spans, align 4
   %call105 = tail call i32 @stbir__max(i32 noundef %max_n.2, i32 noundef %max_left.0.lcssa) #24
   store i32 %call105, ptr %n148, align 4
@@ -729,9 +729,9 @@ if.then100:                                       ; preds = %lor.lhs.false, %if.
   br label %if.end113
 
 if.end113:                                        ; preds = %lor.lhs.false, %if.then100, %for.end90
-  %max_n.3 = phi i32 [ %call105, %if.then100 ], [ %max_n.2, %lor.lhs.false ], [ %max_n.2, %for.end90 ]
-  %min_n.3 = phi i32 [ %call101, %if.then100 ], [ %spec.select141186, %lor.lhs.false ], [ %spec.select141186, %for.end90 ]
   %left_margin.1 = phi i32 [ 0, %if.then100 ], [ %14, %lor.lhs.false ], [ %14, %for.end90 ]
+  %min_n.3 = phi i32 [ %call101, %if.then100 ], [ %spec.select142, %lor.lhs.false ], [ %spec.select142, %for.end90 ]
+  %max_n.3 = phi i32 [ %call105, %if.then100 ], [ %max_n.2, %lor.lhs.false ], [ %max_n.2, %for.end90 ]
   %sub168 = sub nsw i32 0, %left_margin.1
   %cmp114 = icmp ne i32 %min_right.0.lcssa, 2147483647
   br i1 %cmp114, label %if.then115, label %if.end138
@@ -1262,12 +1262,12 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end25
-  %n.0283 = phi i32 [ 0, %for.body.lr.ph ], [ %inc27, %if.end25 ]
+  %contribs.0283 = phi ptr [ %contributors, %for.body.lr.ph ], [ %incdec.ptr, %if.end25 ]
   %coeffs.0281 = phi ptr [ %coefficient_group, %for.body.lr.ph ], [ %add.ptr, %if.end25 ]
-  %contribs.0280 = phi ptr [ %contributors, %for.body.lr.ph ], [ %incdec.ptr, %if.end25 ]
-  %n1 = getelementptr inbounds i8, ptr %contribs.0280, i64 4
+  %n.0280 = phi i32 [ 0, %for.body.lr.ph ], [ %inc27, %if.end25 ]
+  %n1 = getelementptr inbounds i8, ptr %contribs.0283, i64 4
   %5 = load i32, ptr %n1, align 4
-  %6 = load i32, ptr %contribs.0280, align 4
+  %6 = load i32, ptr %contribs.0283, align 4
   %cmp5.not274 = icmp slt i32 %5, %6
   br i1 %cmp5.not274, label %if.then9, label %for.body6.preheader
 
@@ -1322,9 +1322,9 @@ for.body18:                                       ; preds = %for.body18.preheade
   br i1 %exitcond330.not, label %if.end25, label %for.body18, !llvm.loop !23
 
 if.end25:                                         ; preds = %for.body18, %if.then15, %if.else, %if.then9
-  %incdec.ptr = getelementptr inbounds i8, ptr %contribs.0280, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %contribs.0283, i64 8
   %add.ptr = getelementptr inbounds float, ptr %coeffs.0281, i64 %idx.ext
-  %inc27 = add nuw nsw i32 %n.0283, 1
+  %inc27 = add nuw nsw i32 %n.0280, 1
   %exitcond331.not = icmp eq i32 %inc27, %spec.select
   br i1 %exitcond331.not, label %for.end28, label %for.body, !llvm.loop !24
 
@@ -1337,20 +1337,20 @@ if.then30:                                        ; preds = %for.end28
   br label %for.body35
 
 for.body35:                                       ; preds = %if.then30, %for.body35
-  %n.1286 = phi i32 [ %1, %if.then30 ], [ %inc45, %for.body35 ]
-  %cur_contribs.0285 = phi ptr [ %add.ptr32, %if.then30 ], [ %incdec.ptr42, %for.body35 ]
-  %prev_contribs.0284 = phi ptr [ %contributors, %if.then30 ], [ %incdec.ptr43, %for.body35 ]
-  %14 = load i32, ptr %prev_contribs.0284, align 4
+  %cur_contribs.0286 = phi ptr [ %add.ptr32, %if.then30 ], [ %incdec.ptr42, %for.body35 ]
+  %prev_contribs.0285 = phi ptr [ %contributors, %if.then30 ], [ %incdec.ptr43, %for.body35 ]
+  %n.1284 = phi i32 [ %1, %if.then30 ], [ %inc45, %for.body35 ]
+  %14 = load i32, ptr %prev_contribs.0285, align 4
   %add37 = add nsw i32 %14, %2
-  store i32 %add37, ptr %cur_contribs.0285, align 4
-  %n139 = getelementptr inbounds i8, ptr %prev_contribs.0284, i64 4
+  store i32 %add37, ptr %cur_contribs.0286, align 4
+  %n139 = getelementptr inbounds i8, ptr %prev_contribs.0285, i64 4
   %15 = load i32, ptr %n139, align 4
   %add40 = add nsw i32 %15, %2
-  %n141 = getelementptr inbounds i8, ptr %cur_contribs.0285, i64 4
+  %n141 = getelementptr inbounds i8, ptr %cur_contribs.0286, i64 4
   store i32 %add40, ptr %n141, align 4
-  %incdec.ptr42 = getelementptr inbounds i8, ptr %cur_contribs.0285, i64 8
-  %incdec.ptr43 = getelementptr inbounds i8, ptr %prev_contribs.0284, i64 8
-  %inc45 = add nsw i32 %n.1286, 1
+  %incdec.ptr42 = getelementptr inbounds i8, ptr %cur_contribs.0286, i64 8
+  %incdec.ptr43 = getelementptr inbounds i8, ptr %prev_contribs.0285, i64 8
+  %inc45 = add nsw i32 %n.1284, 1
   %exitcond332.not = icmp eq i32 %inc45, %num_contributors
   br i1 %exitcond332.not, label %for.end46, label %for.body35, !llvm.loop !25
 
@@ -1413,16 +1413,16 @@ for.body57.lr.ph:                                 ; preds = %if.end53
   br label %for.body57
 
 for.body57:                                       ; preds = %for.body57.lr.ph, %if.end218
-  %n.2304 = phi i32 [ 0, %for.body57.lr.ph ], [ %inc223, %if.end218 ]
-  %lowest.0303 = phi i32 [ 2147483647, %for.body57.lr.ph ], [ %lowest.3, %if.end218 ]
-  %highest.0302 = phi i32 [ -2147483647, %for.body57.lr.ph ], [ %highest.3, %if.end218 ]
-  %widest.0301 = phi i32 [ -1, %for.body57.lr.ph ], [ %widest.2, %if.end218 ]
-  %coeffs.1300 = phi ptr [ %coefficient_group, %for.body57.lr.ph ], [ %add.ptr221, %if.end218 ]
-  %contribs.1299 = phi ptr [ %contributors, %for.body57.lr.ph ], [ %incdec.ptr219, %if.end218 ]
+  %contribs.1304 = phi ptr [ %contributors, %for.body57.lr.ph ], [ %incdec.ptr219, %if.end218 ]
+  %coeffs.1303 = phi ptr [ %coefficient_group, %for.body57.lr.ph ], [ %add.ptr221, %if.end218 ]
+  %widest.0302 = phi i32 [ -1, %for.body57.lr.ph ], [ %widest.2, %if.end218 ]
+  %highest.0301 = phi i32 [ -2147483647, %for.body57.lr.ph ], [ %highest.3, %if.end218 ]
+  %lowest.0300 = phi i32 [ 2147483647, %for.body57.lr.ph ], [ %lowest.3, %if.end218 ]
+  %n.2299 = phi i32 [ 0, %for.body57.lr.ph ], [ %inc223, %if.end218 ]
   br i1 %cmp59, label %if.then61, label %if.else96
 
 if.then61:                                        ; preds = %for.body57
-  %n162 = getelementptr inbounds i8, ptr %contribs.1299, i64 4
+  %n162 = getelementptr inbounds i8, ptr %contribs.1304, i64 4
   %19 = load i32, ptr %n162, align 4
   %cmp63.not = icmp slt i32 %19, %0
   br i1 %cmp63.not, label %if.end67, label %if.then65
@@ -1433,12 +1433,12 @@ if.then65:                                        ; preds = %if.then61
 
 if.end67:                                         ; preds = %if.then65, %if.then61
   %20 = phi i32 [ %sub, %if.then65 ], [ %19, %if.then61 ]
-  %21 = load i32, ptr %contribs.1299, align 4
+  %21 = load i32, ptr %contribs.1304, align 4
   %cmp69 = icmp slt i32 %21, 0
   br i1 %cmp69, label %if.then71, label %if.end163
 
 if.then71:                                        ; preds = %if.end67
-  store i32 0, ptr %contribs.1299, align 4
+  store i32 0, ptr %contribs.1304, align 4
   %cmp79 = icmp sgt i32 %20, -1
   br i1 %cmp79, label %for.body85.preheader, label %if.end163
 
@@ -1452,9 +1452,9 @@ for.body85:                                       ; preds = %for.body85.preheade
   %23 = trunc nuw nsw i64 %indvars.iv342 to i32
   %add86 = sub i32 %23, %21
   %idxprom87 = sext i32 %add86 to i64
-  %arrayidx88 = getelementptr inbounds float, ptr %coeffs.1300, i64 %idxprom87
+  %arrayidx88 = getelementptr inbounds float, ptr %coeffs.1303, i64 %idxprom87
   %24 = load float, ptr %arrayidx88, align 4
-  %arrayidx90 = getelementptr inbounds float, ptr %coeffs.1300, i64 %indvars.iv342
+  %arrayidx90 = getelementptr inbounds float, ptr %coeffs.1303, i64 %indvars.iv342
   store float %24, ptr %arrayidx90, align 4
   %indvars.iv.next343 = add nuw nsw i64 %indvars.iv342, 1
   %exitcond346.not = icmp eq i64 %indvars.iv.next343, %wide.trip.count345
@@ -1464,10 +1464,10 @@ if.else96:                                        ; preds = %for.body57
   br i1 %or.cond2, label %if.then102, label %if.end163
 
 if.then102:                                       ; preds = %if.else96
-  %n1103 = getelementptr inbounds i8, ptr %contribs.1299, i64 4
+  %n1103 = getelementptr inbounds i8, ptr %contribs.1304, i64 4
   %25 = load i32, ptr %n1103, align 4
   %cmp104.not = icmp slt i32 %25, %0
-  %.pre354 = load i32, ptr %contribs.1299, align 4
+  %.pre354 = load i32, ptr %contribs.1304, align 4
   br i1 %cmp104.not, label %if.end122, label %if.then106
 
 if.then106:                                       ; preds = %if.then102
@@ -1482,11 +1482,11 @@ for.body113:                                      ; preds = %if.then106, %stbir_
   %29 = trunc nsw i64 %indvars.iv333 to i32
   %call = tail call i32 %28(i32 noundef %29, i32 noundef %0) #24
   %30 = sub nsw i64 %indvars.iv333, %26
-  %arrayidx118 = getelementptr inbounds float, ptr %coeffs.1300, i64 %30
+  %arrayidx118 = getelementptr inbounds float, ptr %coeffs.1303, i64 %30
   %31 = load float, ptr %arrayidx118, align 4
   %32 = load i32, ptr %n1103, align 4
   %cmp.not.i = icmp slt i32 %32, %call
-  %33 = load i32, ptr %contribs.1299, align 4
+  %33 = load i32, ptr %contribs.1304, align 4
   br i1 %cmp.not.i, label %if.else26.i, label %if.then.i151
 
 if.then.i151:                                     ; preds = %for.body113
@@ -1502,7 +1502,7 @@ if.then2.i:                                       ; preds = %if.then.i151
 for.body.preheader.i:                             ; preds = %if.then2.i
   %34 = sext i32 %sub6.i to i64
   %35 = sext i32 %sub.i to i64
-  %invariant.gep.i = getelementptr float, ptr %coeffs.1300, i64 %35
+  %invariant.gep.i = getelementptr float, ptr %coeffs.1303, i64 %35
   br label %for.body.i
 
 for.cond10.preheader.i:                           ; preds = %if.then2.i
@@ -1510,12 +1510,12 @@ for.cond10.preheader.i:                           ; preds = %if.then2.i
   br i1 %cmp1140.i, label %for.body12.preheader.i, label %for.end18.i
 
 for.body12.preheader.i:                           ; preds = %for.cond10.preheader.i
-  %.pre.i = load float, ptr %coeffs.1300, align 4
+  %.pre.i = load float, ptr %coeffs.1303, align 4
   br label %for.body12.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ %34, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds float, ptr %coeffs.1300, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds float, ptr %coeffs.1303, i64 %indvars.iv.i
   %36 = load float, ptr %arrayidx.i, align 4
   %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %indvars.iv.i
   store float %36, ptr %gep.i, align 4
@@ -1524,20 +1524,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 for.body12.i:                                     ; preds = %for.body12.i, %for.body12.preheader.i
   %indvars.iv48.i = phi i64 [ 1, %for.body12.preheader.i ], [ %indvars.iv.next49.i, %for.body12.i ]
-  %arrayidx15.i = getelementptr inbounds float, ptr %coeffs.1300, i64 %indvars.iv48.i
+  %arrayidx15.i = getelementptr inbounds float, ptr %coeffs.1303, i64 %indvars.iv48.i
   store float %.pre.i, ptr %arrayidx15.i, align 4
   %indvars.iv.next49.i = add nsw i64 %indvars.iv48.i, -1
   br label %for.body12.i
 
 for.end18.i:                                      ; preds = %for.cond10.preheader.i
-  store float %31, ptr %coeffs.1300, align 4
-  store i32 %call, ptr %contribs.1299, align 4
+  store float %31, ptr %coeffs.1303, align 4
+  store i32 %call, ptr %contribs.1304, align 4
   br label %stbir__insert_coeff.exit
 
 if.else.i:                                        ; preds = %if.then.i151
   %sub22.i = sub nsw i32 %call, %33
   %idxprom23.i = sext i32 %sub22.i to i64
-  %arrayidx24.i = getelementptr inbounds float, ptr %coeffs.1300, i64 %idxprom23.i
+  %arrayidx24.i = getelementptr inbounds float, ptr %coeffs.1303, i64 %idxprom23.i
   %37 = load float, ptr %arrayidx24.i, align 4
   %add25.i = fadd float %31, %37
   store float %add25.i, ptr %arrayidx24.i, align 4
@@ -1553,7 +1553,7 @@ if.else26.i:                                      ; preds = %for.body113
 for.body36.preheader.i:                           ; preds = %if.else26.i
   %38 = sext i32 %j27.042.i to i64
   %39 = shl nsw i64 %38, 2
-  %scevgep.i = getelementptr i8, ptr %coeffs.1300, i64 %39
+  %scevgep.i = getelementptr i8, ptr %coeffs.1303, i64 %39
   %40 = add i32 %call, -2
   %41 = sub i32 %40, %32
   %42 = zext i32 %41 to i64
@@ -1564,7 +1564,7 @@ for.body36.preheader.i:                           ; preds = %if.else26.i
 
 for.end40.i:                                      ; preds = %for.body36.preheader.i, %if.else26.i
   %idxprom41.i = sext i32 %sub29.i to i64
-  %arrayidx42.i = getelementptr inbounds float, ptr %coeffs.1300, i64 %idxprom41.i
+  %arrayidx42.i = getelementptr inbounds float, ptr %coeffs.1303, i64 %idxprom41.i
   store float %31, ptr %arrayidx42.i, align 4
   store i32 %call, ptr %n1103, align 4
   br label %stbir__insert_coeff.exit
@@ -1576,7 +1576,7 @@ stbir__insert_coeff.exit:                         ; preds = %for.end18.i, %if.el
   br i1 %exitcond337.not, label %if.end122.loopexit, label %for.body113, !llvm.loop !27
 
 if.end122.loopexit:                               ; preds = %stbir__insert_coeff.exit
-  %.pre = load i32, ptr %contribs.1299, align 4
+  %.pre = load i32, ptr %contribs.1304, align 4
   br label %if.end122
 
 if.end122:                                        ; preds = %if.end122.loopexit, %if.then102
@@ -1587,7 +1587,7 @@ if.end122:                                        ; preds = %if.end122.loopexit,
 if.then126:                                       ; preds = %if.end122
   %narrow = xor i32 %45, -1
   %idx.neg = zext nneg i32 %narrow to i64
-  %add.ptr130 = getelementptr inbounds float, ptr %coeffs.1300, i64 %idx.neg
+  %add.ptr130 = getelementptr inbounds float, ptr %coeffs.1303, i64 %idx.neg
   %cmp133288.not = icmp eq i32 %45, -1
   br i1 %cmp133288.not, label %for.end141, label %for.body135
 
@@ -1600,7 +1600,7 @@ for.body135:                                      ; preds = %if.then126, %stbir_
   %47 = load float, ptr %c.0290, align 4
   %48 = load i32, ptr %n1103, align 4
   %cmp.not.i153 = icmp slt i32 %48, %call138
-  %49 = load i32, ptr %contribs.1299, align 4
+  %49 = load i32, ptr %contribs.1304, align 4
   br i1 %cmp.not.i153, label %if.else26.i181, label %if.then.i154
 
 if.then.i154:                                     ; preds = %for.body135
@@ -1616,7 +1616,7 @@ if.then2.i161:                                    ; preds = %if.then.i154
 for.body.preheader.i174:                          ; preds = %if.then2.i161
   %50 = sext i32 %sub6.i163 to i64
   %51 = sext i32 %sub.i162 to i64
-  %invariant.gep.i175 = getelementptr float, ptr %coeffs.1300, i64 %51
+  %invariant.gep.i175 = getelementptr float, ptr %coeffs.1303, i64 %51
   br label %for.body.i176
 
 for.cond10.preheader.i165:                        ; preds = %if.then2.i161
@@ -1624,12 +1624,12 @@ for.cond10.preheader.i165:                        ; preds = %if.then2.i161
   br i1 %cmp1140.i166, label %for.body12.preheader.i168, label %for.end18.i167
 
 for.body12.preheader.i168:                        ; preds = %for.cond10.preheader.i165
-  %.pre.i169 = load float, ptr %coeffs.1300, align 4
+  %.pre.i169 = load float, ptr %coeffs.1303, align 4
   br label %for.body12.i170
 
 for.body.i176:                                    ; preds = %for.body.i176, %for.body.preheader.i174
   %indvars.iv.i177 = phi i64 [ %50, %for.body.preheader.i174 ], [ %indvars.iv.next.i180, %for.body.i176 ]
-  %arrayidx.i178 = getelementptr inbounds float, ptr %coeffs.1300, i64 %indvars.iv.i177
+  %arrayidx.i178 = getelementptr inbounds float, ptr %coeffs.1303, i64 %indvars.iv.i177
   %52 = load float, ptr %arrayidx.i178, align 4
   %gep.i179 = getelementptr float, ptr %invariant.gep.i175, i64 %indvars.iv.i177
   store float %52, ptr %gep.i179, align 4
@@ -1638,20 +1638,20 @@ for.body.i176:                                    ; preds = %for.body.i176, %for
 
 for.body12.i170:                                  ; preds = %for.body12.i170, %for.body12.preheader.i168
   %indvars.iv48.i171 = phi i64 [ 1, %for.body12.preheader.i168 ], [ %indvars.iv.next49.i173, %for.body12.i170 ]
-  %arrayidx15.i172 = getelementptr inbounds float, ptr %coeffs.1300, i64 %indvars.iv48.i171
+  %arrayidx15.i172 = getelementptr inbounds float, ptr %coeffs.1303, i64 %indvars.iv48.i171
   store float %.pre.i169, ptr %arrayidx15.i172, align 4
   %indvars.iv.next49.i173 = add nsw i64 %indvars.iv48.i171, -1
   br label %for.body12.i170
 
 for.end18.i167:                                   ; preds = %for.cond10.preheader.i165
-  store float %47, ptr %coeffs.1300, align 4
-  store i32 %call138, ptr %contribs.1299, align 4
+  store float %47, ptr %coeffs.1303, align 4
+  store i32 %call138, ptr %contribs.1304, align 4
   br label %stbir__insert_coeff.exit191
 
 if.else.i156:                                     ; preds = %if.then.i154
   %sub22.i157 = sub nsw i32 %call138, %49
   %idxprom23.i158 = sext i32 %sub22.i157 to i64
-  %arrayidx24.i159 = getelementptr inbounds float, ptr %coeffs.1300, i64 %idxprom23.i158
+  %arrayidx24.i159 = getelementptr inbounds float, ptr %coeffs.1303, i64 %idxprom23.i158
   %53 = load float, ptr %arrayidx24.i159, align 4
   %add25.i160 = fadd float %47, %53
   store float %add25.i160, ptr %arrayidx24.i159, align 4
@@ -1667,7 +1667,7 @@ if.else26.i181:                                   ; preds = %for.body135
 for.body36.preheader.i189:                        ; preds = %if.else26.i181
   %54 = sext i32 %j27.042.i184 to i64
   %55 = shl nsw i64 %54, 2
-  %scevgep.i190 = getelementptr i8, ptr %coeffs.1300, i64 %55
+  %scevgep.i190 = getelementptr i8, ptr %coeffs.1303, i64 %55
   %56 = add i32 %call138, -2
   %57 = sub i32 %56, %48
   %58 = zext i32 %57 to i64
@@ -1678,14 +1678,14 @@ for.body36.preheader.i189:                        ; preds = %if.else26.i181
 
 for.end40.i186:                                   ; preds = %for.body36.preheader.i189, %if.else26.i181
   %idxprom41.i187 = sext i32 %sub29.i182 to i64
-  %arrayidx42.i188 = getelementptr inbounds float, ptr %coeffs.1300, i64 %idxprom41.i187
+  %arrayidx42.i188 = getelementptr inbounds float, ptr %coeffs.1303, i64 %idxprom41.i187
   store float %47, ptr %arrayidx42.i188, align 4
   store i32 %call138, ptr %n1103, align 4
   br label %stbir__insert_coeff.exit191
 
 stbir__insert_coeff.exit191:                      ; preds = %for.end18.i167, %if.else.i156, %for.end40.i186
   %dec = add nsw i32 %i58.1289, -1
-  %61 = load i32, ptr %contribs.1299, align 4
+  %61 = load i32, ptr %contribs.1304, align 4
   %cmp133 = icmp sgt i32 %dec, %61
   br i1 %cmp133, label %for.body135, label %for.end141, !llvm.loop !28
 
@@ -1693,7 +1693,7 @@ for.end141:                                       ; preds = %stbir__insert_coeff
   %c.0.lcssa = phi ptr [ %add.ptr130, %if.then126 ], [ %incdec.ptr139, %stbir__insert_coeff.exit191 ]
   %.lcssa = phi i32 [ -1, %if.then126 ], [ %61, %stbir__insert_coeff.exit191 ]
   %62 = load float, ptr %c.0.lcssa, align 4
-  store i32 0, ptr %contribs.1299, align 4
+  store i32 0, ptr %contribs.1304, align 4
   %63 = load i32, ptr %n1103, align 4
   %cmp147.not293 = icmp slt i32 %63, 0
   br i1 %cmp147.not293, label %for.end157, label %for.body149.preheader
@@ -1705,9 +1705,9 @@ for.body149.preheader:                            ; preds = %for.end141
 for.body149:                                      ; preds = %for.body149.preheader, %for.body149
   %indvars.iv338 = phi i64 [ 0, %for.body149.preheader ], [ %indvars.iv.next339, %for.body149 ]
   %65 = sub nsw i64 %indvars.iv338, %64
-  %arrayidx152 = getelementptr inbounds float, ptr %coeffs.1300, i64 %65
+  %arrayidx152 = getelementptr inbounds float, ptr %coeffs.1303, i64 %65
   %66 = load float, ptr %arrayidx152, align 4
-  %arrayidx154 = getelementptr inbounds float, ptr %coeffs.1300, i64 %indvars.iv338
+  %arrayidx154 = getelementptr inbounds float, ptr %coeffs.1303, i64 %indvars.iv338
   store float %66, ptr %arrayidx154, align 4
   %indvars.iv.next339 = add nuw nsw i64 %indvars.iv338, 1
   %67 = load i32, ptr %n1103, align 4
@@ -1720,7 +1720,7 @@ for.end157:                                       ; preds = %for.body149, %for.e
   %call160 = tail call i32 %69(i32 noundef %.lcssa, i32 noundef %0) #24
   %70 = load i32, ptr %n1103, align 4
   %cmp.not.i193 = icmp slt i32 %70, %call160
-  %71 = load i32, ptr %contribs.1299, align 4
+  %71 = load i32, ptr %contribs.1304, align 4
   br i1 %cmp.not.i193, label %if.else26.i221, label %if.then.i194
 
 if.then.i194:                                     ; preds = %for.end157
@@ -1736,7 +1736,7 @@ if.then2.i201:                                    ; preds = %if.then.i194
 for.body.preheader.i214:                          ; preds = %if.then2.i201
   %72 = sext i32 %sub6.i203 to i64
   %73 = sext i32 %sub.i202 to i64
-  %invariant.gep.i215 = getelementptr float, ptr %coeffs.1300, i64 %73
+  %invariant.gep.i215 = getelementptr float, ptr %coeffs.1303, i64 %73
   br label %for.body.i216
 
 for.cond10.preheader.i205:                        ; preds = %if.then2.i201
@@ -1744,12 +1744,12 @@ for.cond10.preheader.i205:                        ; preds = %if.then2.i201
   br i1 %cmp1140.i206, label %for.body12.preheader.i208, label %for.end18.i207
 
 for.body12.preheader.i208:                        ; preds = %for.cond10.preheader.i205
-  %.pre.i209 = load float, ptr %coeffs.1300, align 4
+  %.pre.i209 = load float, ptr %coeffs.1303, align 4
   br label %for.body12.i210
 
 for.body.i216:                                    ; preds = %for.body.i216, %for.body.preheader.i214
   %indvars.iv.i217 = phi i64 [ %72, %for.body.preheader.i214 ], [ %indvars.iv.next.i220, %for.body.i216 ]
-  %arrayidx.i218 = getelementptr inbounds float, ptr %coeffs.1300, i64 %indvars.iv.i217
+  %arrayidx.i218 = getelementptr inbounds float, ptr %coeffs.1303, i64 %indvars.iv.i217
   %74 = load float, ptr %arrayidx.i218, align 4
   %gep.i219 = getelementptr float, ptr %invariant.gep.i215, i64 %indvars.iv.i217
   store float %74, ptr %gep.i219, align 4
@@ -1758,20 +1758,20 @@ for.body.i216:                                    ; preds = %for.body.i216, %for
 
 for.body12.i210:                                  ; preds = %for.body12.i210, %for.body12.preheader.i208
   %indvars.iv48.i211 = phi i64 [ 1, %for.body12.preheader.i208 ], [ %indvars.iv.next49.i213, %for.body12.i210 ]
-  %arrayidx15.i212 = getelementptr inbounds float, ptr %coeffs.1300, i64 %indvars.iv48.i211
+  %arrayidx15.i212 = getelementptr inbounds float, ptr %coeffs.1303, i64 %indvars.iv48.i211
   store float %.pre.i209, ptr %arrayidx15.i212, align 4
   %indvars.iv.next49.i213 = add nsw i64 %indvars.iv48.i211, -1
   br label %for.body12.i210
 
 for.end18.i207:                                   ; preds = %for.cond10.preheader.i205
-  store float %62, ptr %coeffs.1300, align 4
-  store i32 %call160, ptr %contribs.1299, align 4
+  store float %62, ptr %coeffs.1303, align 4
+  store i32 %call160, ptr %contribs.1304, align 4
   br label %if.end163
 
 if.else.i196:                                     ; preds = %if.then.i194
   %sub22.i197 = sub nsw i32 %call160, %71
   %idxprom23.i198 = sext i32 %sub22.i197 to i64
-  %arrayidx24.i199 = getelementptr inbounds float, ptr %coeffs.1300, i64 %idxprom23.i198
+  %arrayidx24.i199 = getelementptr inbounds float, ptr %coeffs.1303, i64 %idxprom23.i198
   %75 = load float, ptr %arrayidx24.i199, align 4
   %add25.i200 = fadd float %62, %75
   store float %add25.i200, ptr %arrayidx24.i199, align 4
@@ -1787,7 +1787,7 @@ if.else26.i221:                                   ; preds = %for.end157
 for.body36.preheader.i229:                        ; preds = %if.else26.i221
   %76 = sext i32 %j27.042.i224 to i64
   %77 = shl nsw i64 %76, 2
-  %scevgep.i230 = getelementptr i8, ptr %coeffs.1300, i64 %77
+  %scevgep.i230 = getelementptr i8, ptr %coeffs.1303, i64 %77
   %78 = add i32 %call160, -2
   %79 = sub i32 %78, %70
   %80 = zext i32 %79 to i64
@@ -1798,14 +1798,14 @@ for.body36.preheader.i229:                        ; preds = %if.else26.i221
 
 for.end40.i226:                                   ; preds = %for.body36.preheader.i229, %if.else26.i221
   %idxprom41.i227 = sext i32 %sub29.i222 to i64
-  %arrayidx42.i228 = getelementptr inbounds float, ptr %coeffs.1300, i64 %idxprom41.i227
+  %arrayidx42.i228 = getelementptr inbounds float, ptr %coeffs.1303, i64 %idxprom41.i227
   store float %62, ptr %arrayidx42.i228, align 4
   store i32 %call160, ptr %n1103, align 4
   br label %if.end163
 
 if.end163:                                        ; preds = %for.body85, %for.end40.i226, %if.else.i196, %for.end18.i207, %if.else96, %if.end122, %if.end67, %if.then71
-  %83 = load i32, ptr %contribs.1299, align 4
-  %n1165 = getelementptr inbounds i8, ptr %contribs.1299, i64 4
+  %83 = load i32, ptr %contribs.1304, align 4
+  %n1165 = getelementptr inbounds i8, ptr %contribs.1304, i64 4
   %84 = load i32, ptr %n1165, align 4
   %cmp166.not = icmp sgt i32 %83, %84
   br i1 %cmp166.not, label %if.end218, label %if.then168
@@ -1828,7 +1828,7 @@ while.end.thread:                                 ; preds = %while.cond
 
 land.rhs174:                                      ; preds = %while.cond
   %indvars.iv.next348 = add nsw i64 %indvars.iv347, -1
-  %arrayidx177 = getelementptr inbounds float, ptr %coeffs.1300, i64 %indvars.iv.next348
+  %arrayidx177 = getelementptr inbounds float, ptr %coeffs.1303, i64 %indvars.iv.next348
   %87 = load float, ptr %arrayidx177, align 4
   %cmp178 = fcmp oeq float %87, 0.000000e+00
   br i1 %cmp178, label %while.cond, label %while.end, !llvm.loop !30
@@ -1842,23 +1842,23 @@ while.end:                                        ; preds = %land.rhs174
   br i1 %cmp189.not.not, label %if.then191, label %if.end208
 
 if.then191:                                       ; preds = %while.end
-  %spec.select149 = tail call i32 @llvm.smin.i32(i32 %83, i32 %lowest.0303)
-  %highest.1 = tail call i32 @llvm.smax.i32(i32 %sub185, i32 %highest.0302)
-  %spec.select150 = tail call i32 @llvm.smax.i32(i32 %88, i32 %widest.0301)
+  %spec.select149 = tail call i32 @llvm.smin.i32(i32 %83, i32 %lowest.0300)
+  %highest.1 = tail call i32 @llvm.smax.i32(i32 %sub185, i32 %highest.0301)
+  %spec.select150 = tail call i32 @llvm.smax.i32(i32 %88, i32 %widest.0302)
   br label %if.end208
 
 if.end208:                                        ; preds = %while.end.thread, %if.then191, %while.end
   %diff.0316 = phi i32 [ %88, %while.end ], [ %88, %if.then191 ], [ 0, %while.end.thread ]
-  %widest.1 = phi i32 [ %widest.0301, %while.end ], [ %spec.select150, %if.then191 ], [ %widest.0301, %while.end.thread ]
-  %highest.2 = phi i32 [ %highest.0302, %while.end ], [ %highest.1, %if.then191 ], [ %highest.0302, %while.end.thread ]
-  %lowest.2 = phi i32 [ %lowest.0303, %while.end ], [ %spec.select149, %if.then191 ], [ %lowest.0303, %while.end.thread ]
+  %lowest.2 = phi i32 [ %lowest.0300, %while.end ], [ %spec.select149, %if.then191 ], [ %lowest.0300, %while.end.thread ]
+  %highest.2 = phi i32 [ %highest.0301, %while.end ], [ %highest.1, %if.then191 ], [ %highest.0301, %while.end.thread ]
+  %widest.1 = phi i32 [ %widest.0302, %while.end ], [ %spec.select150, %if.then191 ], [ %widest.0302, %while.end.thread ]
   %cmp210296 = icmp slt i32 %diff.0316, %coefficient_width
   br i1 %cmp210296, label %for.body212.preheader, label %if.end218
 
 for.body212.preheader:                            ; preds = %if.end208
   %89 = sext i32 %diff.0316 to i64
   %90 = shl nsw i64 %89, 2
-  %scevgep = getelementptr i8, ptr %coeffs.1300, i64 %90
+  %scevgep = getelementptr i8, ptr %coeffs.1303, i64 %90
   %91 = xor i32 %diff.0316, -1
   %92 = add i32 %91, %coefficient_width
   %93 = zext i32 %92 to i64
@@ -1868,19 +1868,19 @@ for.body212.preheader:                            ; preds = %if.end208
   br label %if.end218
 
 if.end218:                                        ; preds = %for.body212.preheader, %if.end208, %if.end163
-  %widest.2 = phi i32 [ %widest.0301, %if.end163 ], [ %widest.1, %if.end208 ], [ %widest.1, %for.body212.preheader ]
-  %highest.3 = phi i32 [ %highest.0302, %if.end163 ], [ %highest.2, %if.end208 ], [ %highest.2, %for.body212.preheader ]
-  %lowest.3 = phi i32 [ %lowest.0303, %if.end163 ], [ %lowest.2, %if.end208 ], [ %lowest.2, %for.body212.preheader ]
-  %incdec.ptr219 = getelementptr inbounds i8, ptr %contribs.1299, i64 8
-  %add.ptr221 = getelementptr float, ptr %coeffs.1300, i64 %idx.ext220
-  %inc223 = add nuw nsw i32 %n.2304, 1
+  %lowest.3 = phi i32 [ %lowest.0300, %if.end163 ], [ %lowest.2, %if.end208 ], [ %lowest.2, %for.body212.preheader ]
+  %highest.3 = phi i32 [ %highest.0301, %if.end163 ], [ %highest.2, %if.end208 ], [ %highest.2, %for.body212.preheader ]
+  %widest.2 = phi i32 [ %widest.0302, %if.end163 ], [ %widest.1, %if.end208 ], [ %widest.1, %for.body212.preheader ]
+  %incdec.ptr219 = getelementptr inbounds i8, ptr %contribs.1304, i64 8
+  %add.ptr221 = getelementptr float, ptr %coeffs.1303, i64 %idx.ext220
+  %inc223 = add nuw nsw i32 %n.2299, 1
   %exitcond353.not = icmp eq i32 %inc223, %num_contributors
   br i1 %exitcond353.not, label %for.end224, label %for.body57, !llvm.loop !31
 
 for.end224:                                       ; preds = %if.end218, %if.end53
-  %widest.0.lcssa = phi i32 [ -1, %if.end53 ], [ %widest.2, %if.end218 ]
-  %highest.0.lcssa = phi i32 [ -2147483647, %if.end53 ], [ %highest.3, %if.end218 ]
   %lowest.0.lcssa = phi i32 [ 2147483647, %if.end53 ], [ %lowest.3, %if.end218 ]
+  %highest.0.lcssa = phi i32 [ -2147483647, %if.end53 ], [ %highest.3, %if.end218 ]
+  %widest.0.lcssa = phi i32 [ -1, %if.end53 ], [ %widest.2, %if.end218 ]
   store i32 %lowest.0.lcssa, ptr %filter_info, align 4
   %highest226 = getelementptr inbounds i8, ptr %filter_info, i64 4
   store i32 %highest.0.lcssa, ptr %highest226, align 4
@@ -2362,10 +2362,10 @@ if.end:                                           ; preds = %if.then
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end, %sw.bb9
-  %gather_coefficient_width.0 = phi i32 [ %7, %sw.bb9 ], [ %23, %if.end ]
-  %gather_coeffs.0 = phi ptr [ %6, %sw.bb9 ], [ %22, %if.end ]
-  %gather_contributors.0 = phi ptr [ %5, %sw.bb9 ], [ %21, %if.end ]
   %gather_num_contributors.0 = phi i32 [ %4, %sw.bb9 ], [ %24, %if.end ]
+  %gather_contributors.0 = phi ptr [ %5, %sw.bb9 ], [ %21, %if.end ]
+  %gather_coeffs.0 = phi ptr [ %6, %sw.bb9 ], [ %22, %if.end ]
+  %gather_coefficient_width.0 = phi i32 [ %7, %sw.bb9 ], [ %23, %if.end ]
   %sub = sub nsw i32 0, %12
   tail call void @stbir__calculate_coefficients_for_gather_downsample(i32 noundef %sub, i32 noundef %add, float noundef %mul11, ptr noundef %1, ptr noundef nonnull %scale_info, i32 noundef %gather_coefficient_width.0, i32 poison, ptr noundef %gather_contributors.0, ptr noundef %gather_coeffs.0, ptr noundef %user_data)
   %edge31 = getelementptr inbounds i8, ptr %samp, i64 88
@@ -2377,10 +2377,10 @@ if.end29:                                         ; preds = %if.end, %sw.bb9
   br i1 %tobool35.not, label %jump_right_to_pivot, label %sw.epilog
 
 jump_right_to_pivot:                              ; preds = %if.end29, %if.then15
-  %gather_coefficient_width.1 = phi i32 [ %gather_coefficient_width.0, %if.end29 ], [ %16, %if.then15 ]
-  %gather_coeffs.1 = phi ptr [ %gather_coeffs.0, %if.end29 ], [ %15, %if.then15 ]
-  %gather_contributors.1 = phi ptr [ %gather_contributors.0, %if.end29 ], [ %14, %if.then15 ]
   %gather_num_contributors.1 = phi i32 [ %gather_num_contributors.0, %if.end29 ], [ %17, %if.then15 ]
+  %gather_contributors.1 = phi ptr [ %gather_contributors.0, %if.end29 ], [ %14, %if.then15 ]
+  %gather_coeffs.1 = phi ptr [ %gather_coeffs.0, %if.end29 ], [ %15, %if.then15 ]
+  %gather_coefficient_width.1 = phi i32 [ %gather_coefficient_width.0, %if.end29 ], [ %16, %if.then15 ]
   %sub38 = xor i32 %12, -1
   %cmp121 = icmp sgt i32 %gather_num_contributors.1, 0
   br i1 %cmp121, label %for.body.lr.ph, label %for.end75
@@ -2391,11 +2391,11 @@ for.body.lr.ph:                                   ; preds = %jump_right_to_pivot
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end
   %n.0125 = phi i32 [ 0, %for.body.lr.ph ], [ %inc74, %for.end ]
-  %gather_contributors.2124 = phi ptr [ %gather_contributors.1, %for.body.lr.ph ], [ %incdec.ptr70, %for.end ]
+  %highest_set.0124 = phi i32 [ %sub38, %for.body.lr.ph ], [ %highest_set.1.lcssa, %for.end ]
   %gather_coeffs.2123 = phi ptr [ %gather_coeffs.1, %for.body.lr.ph ], [ %add.ptr72, %for.end ]
-  %highest_set.0122 = phi i32 [ %sub38, %for.body.lr.ph ], [ %highest_set.1.lcssa, %for.end ]
-  %27 = load i32, ptr %gather_contributors.2124, align 4
-  %n1 = getelementptr inbounds i8, ptr %gather_contributors.2124, i64 4
+  %gather_contributors.2122 = phi ptr [ %gather_contributors.1, %for.body.lr.ph ], [ %incdec.ptr70, %for.end ]
+  %27 = load i32, ptr %gather_contributors.2122, align 4
+  %n1 = getelementptr inbounds i8, ptr %gather_contributors.2122, i64 4
   %28 = load i32, ptr %n1, align 4
   %cmp48.not115 = icmp sgt i32 %27, %28
   br i1 %cmp48.not115, label %for.end, label %for.body49.lr.ph
@@ -2418,7 +2418,7 @@ for.body49:                                       ; preds = %for.body49.lr.ph, %
   %g_coeffs.0120 = phi ptr [ %gather_coeffs.2123, %for.body49.lr.ph ], [ %incdec.ptr, %if.end66 ]
   %scatter_coeffs.0119 = phi ptr [ %add.ptr, %for.body49.lr.ph ], [ %add.ptr69, %if.end66 ]
   %k.0118 = phi i32 [ %27, %for.body49.lr.ph ], [ %inc, %if.end66 ]
-  %highest_set.1117 = phi i32 [ %highest_set.0122, %for.body49.lr.ph ], [ %highest_set.2, %if.end66 ]
+  %highest_set.1117 = phi i32 [ %highest_set.0124, %for.body49.lr.ph ], [ %highest_set.2, %if.end66 ]
   %scatter_contributors.0116 = phi ptr [ %add.ptr46, %for.body49.lr.ph ], [ %incdec.ptr67, %if.end66 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %g_coeffs.0120, i64 4
   %33 = load float, ptr %g_coeffs.0120, align 4
@@ -2550,8 +2550,8 @@ if.end66:                                         ; preds = %for.end40.i, %if.el
   br i1 %exitcond.not, label %for.end, label %for.body49, !llvm.loop !81
 
 for.end:                                          ; preds = %if.end66, %for.body
-  %highest_set.1.lcssa = phi i32 [ %highest_set.0122, %for.body ], [ %highest_set.2, %if.end66 ]
-  %incdec.ptr70 = getelementptr inbounds i8, ptr %gather_contributors.2124, i64 8
+  %highest_set.1.lcssa = phi i32 [ %highest_set.0124, %for.body ], [ %highest_set.2, %if.end66 ]
+  %incdec.ptr70 = getelementptr inbounds i8, ptr %gather_contributors.2122, i64 8
   %add.ptr72 = getelementptr inbounds float, ptr %gather_coeffs.2123, i64 %idx.ext71
   %inc74 = add nuw nsw i32 %n.0125, 1
   %exitcond135.not = icmp eq i32 %inc74, %gather_num_contributors.1
@@ -4256,8 +4256,8 @@ if.then:                                          ; preds = %entry
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %if.then
-  %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   %decode.0 = phi ptr [ %decodep, %if.then ], [ %decode.0.be, %for.cond.backedge ]
+  %input.0 = phi ptr [ %inputp, %if.then ], [ %input.0.be, %for.cond.backedge ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %decode.0) #24, !srcloc !140
   tail call void @stbir__half_to_float_SIMD(ptr noundef %decode.0, ptr noundef %input.0) #24
   %add.ptr5 = getelementptr inbounds i8, ptr %decode.0, i64 32
@@ -4266,8 +4266,8 @@ for.cond:                                         ; preds = %for.cond.backedge, 
   br i1 %cmp7.not, label %if.end, label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %for.cond, %if.end
-  %input.0.be = phi ptr [ %add.ptr6, %for.cond ], [ %add.ptr3, %if.end ]
   %decode.0.be = phi ptr [ %add.ptr5, %for.cond ], [ %add.ptr4, %if.end ]
+  %input.0.be = phi ptr [ %add.ptr6, %for.cond ], [ %add.ptr3, %if.end ]
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
@@ -4275,48 +4275,48 @@ if.end:                                           ; preds = %for.cond
   br i1 %cmp10, label %while.end41, label %for.cond.backedge
 
 while.cond32.preheader:                           ; preds = %while.body, %while.cond.preheader
-  %input.1.lcssa = phi ptr [ %inputp, %while.cond.preheader ], [ %add.ptr30, %while.body ]
   %decodep.pn.lcssa = phi ptr [ %decodep, %while.cond.preheader ], [ %decode.140, %while.body ]
+  %input.1.lcssa = phi ptr [ %inputp, %while.cond.preheader ], [ %add.ptr30, %while.body ]
   %cmp3342 = icmp ult ptr %decodep.pn.lcssa, %add.ptr
   br i1 %cmp3342, label %while.body34, label %while.end41
 
 while.body:                                       ; preds = %while.body.preheader, %while.body
   %decode.140 = phi ptr [ %decode.1, %while.body ], [ %decode.136, %while.body.preheader ]
-  %decodep.pn39 = phi ptr [ %decode.140, %while.body ], [ %decodep, %while.body.preheader ]
-  %input.138 = phi ptr [ %add.ptr30, %while.body ], [ %inputp, %while.body.preheader ]
+  %input.139 = phi ptr [ %add.ptr30, %while.body ], [ %inputp, %while.body.preheader ]
+  %decodep.pn38 = phi ptr [ %decode.140, %while.body ], [ %decodep, %while.body.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.140) #24, !srcloc !141
-  %0 = load i16, ptr %input.138, align 2
+  %0 = load i16, ptr %input.139, align 2
   %call = tail call float @stbir__half_to_float(i16 %0) #24
-  store float %call, ptr %decodep.pn39, align 4
-  %arrayidx17 = getelementptr inbounds i8, ptr %input.138, i64 2
+  store float %call, ptr %decodep.pn38, align 4
+  %arrayidx17 = getelementptr inbounds i8, ptr %input.139, i64 2
   %1 = load i16, ptr %arrayidx17, align 2
   %call19 = tail call float @stbir__half_to_float(i16 %1) #24
-  %arrayidx20 = getelementptr inbounds i8, ptr %decodep.pn39, i64 4
+  %arrayidx20 = getelementptr inbounds i8, ptr %decodep.pn38, i64 4
   store float %call19, ptr %arrayidx20, align 4
-  %arrayidx21 = getelementptr inbounds i8, ptr %input.138, i64 4
+  %arrayidx21 = getelementptr inbounds i8, ptr %input.139, i64 4
   %2 = load i16, ptr %arrayidx21, align 2
   %call23 = tail call float @stbir__half_to_float(i16 %2) #24
-  %arrayidx24 = getelementptr inbounds i8, ptr %decodep.pn39, i64 8
+  %arrayidx24 = getelementptr inbounds i8, ptr %decodep.pn38, i64 8
   store float %call23, ptr %arrayidx24, align 4
-  %arrayidx25 = getelementptr inbounds i8, ptr %input.138, i64 6
+  %arrayidx25 = getelementptr inbounds i8, ptr %input.139, i64 6
   %3 = load i16, ptr %arrayidx25, align 2
   %call27 = tail call float @stbir__half_to_float(i16 %3) #24
-  %arrayidx28 = getelementptr inbounds i8, ptr %decodep.pn39, i64 12
+  %arrayidx28 = getelementptr inbounds i8, ptr %decodep.pn38, i64 12
   store float %call27, ptr %arrayidx28, align 4
-  %add.ptr30 = getelementptr inbounds i8, ptr %input.138, i64 8
+  %add.ptr30 = getelementptr inbounds i8, ptr %input.139, i64 8
   %decode.1 = getelementptr inbounds i8, ptr %decode.140, i64 16
   %cmp15.not = icmp ugt ptr %decode.1, %add.ptr
   br i1 %cmp15.not, label %while.cond32.preheader, label %while.body, !llvm.loop !142
 
 while.body34:                                     ; preds = %while.cond32.preheader, %while.body34
-  %decode.244 = phi ptr [ %add.ptr39, %while.body34 ], [ %decodep.pn.lcssa, %while.cond32.preheader ]
-  %input.243 = phi ptr [ %add.ptr40, %while.body34 ], [ %input.1.lcssa, %while.cond32.preheader ]
-  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.244) #24, !srcloc !143
-  %4 = load i16, ptr %input.243, align 2
+  %input.244 = phi ptr [ %add.ptr40, %while.body34 ], [ %input.1.lcssa, %while.cond32.preheader ]
+  %decode.243 = phi ptr [ %add.ptr39, %while.body34 ], [ %decodep.pn.lcssa, %while.cond32.preheader ]
+  tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %decode.243) #24, !srcloc !143
+  %4 = load i16, ptr %input.244, align 2
   %call37 = tail call float @stbir__half_to_float(i16 %4) #24
-  store float %call37, ptr %decode.244, align 4
-  %add.ptr39 = getelementptr inbounds i8, ptr %decode.244, i64 4
-  %add.ptr40 = getelementptr inbounds i8, ptr %input.243, i64 2
+  store float %call37, ptr %decode.243, align 4
+  %add.ptr39 = getelementptr inbounds i8, ptr %decode.243, i64 4
+  %add.ptr40 = getelementptr inbounds i8, ptr %input.244, i64 2
   %cmp33 = icmp ult ptr %add.ptr39, %add.ptr
   br i1 %cmp33, label %while.body34, label %while.end41, !llvm.loop !144
 
@@ -11237,8 +11237,8 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %if.end, %entry
-  %input.0 = phi ptr [ %encode_buffer, %entry ], [ %add.ptr6, %if.end ]
   %encode.0 = phi ptr [ %encode_buffer, %entry ], [ %add.ptr7, %if.end ]
+  %input.0 = phi ptr [ %encode_buffer, %entry ], [ %add.ptr6, %if.end ]
   %arrayidx = getelementptr inbounds i8, ptr %input.0, i64 4
   %0 = load float, ptr %arrayidx, align 4
   %1 = load float, ptr %input.0, align 4
@@ -12365,8 +12365,8 @@ entry:
 
 do.body:                                          ; preds = %do.end, %entry
   %horizontal_coefficients.addr.0 = phi ptr [ %horizontal_coefficients, %entry ], [ %add.ptr34, %do.end ]
-  %output.0 = phi ptr [ %output_buffer, %entry ], [ %add.ptr35, %do.end ]
   %horizontal_contributors.addr.0 = phi ptr [ %horizontal_contributors, %entry ], [ %incdec.ptr, %do.end ]
+  %output.0 = phi ptr [ %output_buffer, %entry ], [ %add.ptr35, %do.end ]
   %0 = load i32, ptr %horizontal_contributors.addr.0, align 4
   %idx.ext2 = sext i32 %0 to i64
   %add.ptr3 = getelementptr inbounds float, ptr %decode_buffer, i64 %idx.ext2
@@ -21905,8 +21905,8 @@ entry:
 
 while.cond83.preheader:                           ; preds = %while.body, %entry
   %sub.ptr.sub86227.pre-phi = phi i64 [ %sub.ptr.sub208, %entry ], [ %sub.ptr.sub, %while.body ]
-  %output6.0.lcssa = phi ptr [ %12, %entry ], [ %add.ptr82, %while.body ]
   %output5.0.lcssa = phi ptr [ %10, %entry ], [ %add.ptr81, %while.body ]
+  %output6.0.lcssa = phi ptr [ %12, %entry ], [ %add.ptr82, %while.body ]
   %output4.0.lcssa = phi ptr [ %8, %entry ], [ %add.ptr80, %while.body ]
   %output3.0.lcssa = phi ptr [ %6, %entry ], [ %add.ptr79, %while.body ]
   %output2.0.lcssa = phi ptr [ %4, %entry ], [ %add.ptr78, %while.body ]
@@ -21923,8 +21923,8 @@ while.body:                                       ; preds = %entry, %while.body
   %output2.0214 = phi ptr [ %add.ptr78, %while.body ], [ %4, %entry ]
   %output3.0213 = phi ptr [ %add.ptr79, %while.body ], [ %6, %entry ]
   %output4.0212 = phi ptr [ %add.ptr80, %while.body ], [ %8, %entry ]
-  %output5.0211 = phi ptr [ %add.ptr81, %while.body ], [ %10, %entry ]
-  %output6.0210 = phi ptr [ %add.ptr82, %while.body ], [ %12, %entry ]
+  %output6.0211 = phi ptr [ %add.ptr82, %while.body ], [ %12, %entry ]
+  %output5.0210 = phi ptr [ %add.ptr81, %while.body ], [ %10, %entry ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0216) #24, !srcloc !766
   %14 = load <4 x float>, ptr %input.addr.0217, align 1
   %add.ptr = getelementptr inbounds i8, ptr %input.addr.0217, i64 16
@@ -21992,23 +21992,23 @@ while.body:                                       ; preds = %entry, %while.body
   %mul.i245 = fmul <4 x float> %vecinit3.i351, %15
   %mul.i242 = fmul <4 x float> %vecinit3.i351, %16
   %mul.i239 = fmul <4 x float> %vecinit3.i351, %17
-  store <4 x float> %mul.i248, ptr %output5.0211, align 1
-  %add.ptr65 = getelementptr inbounds i8, ptr %output5.0211, i64 16
+  store <4 x float> %mul.i248, ptr %output5.0210, align 1
+  %add.ptr65 = getelementptr inbounds i8, ptr %output5.0210, i64 16
   store <4 x float> %mul.i245, ptr %add.ptr65, align 1
-  %add.ptr66 = getelementptr inbounds i8, ptr %output5.0211, i64 32
+  %add.ptr66 = getelementptr inbounds i8, ptr %output5.0210, i64 32
   store <4 x float> %mul.i242, ptr %add.ptr66, align 1
-  %add.ptr67 = getelementptr inbounds i8, ptr %output5.0211, i64 48
+  %add.ptr67 = getelementptr inbounds i8, ptr %output5.0210, i64 48
   store <4 x float> %mul.i239, ptr %add.ptr67, align 1
   %mul.i236 = fmul <4 x float> %vecinit3.i357, %14
   %mul.i233 = fmul <4 x float> %vecinit3.i357, %15
   %mul.i230 = fmul <4 x float> %vecinit3.i357, %16
   %mul.i227 = fmul <4 x float> %vecinit3.i357, %17
-  store <4 x float> %mul.i236, ptr %output6.0210, align 1
-  %add.ptr72 = getelementptr inbounds i8, ptr %output6.0210, i64 16
+  store <4 x float> %mul.i236, ptr %output6.0211, align 1
+  %add.ptr72 = getelementptr inbounds i8, ptr %output6.0211, i64 16
   store <4 x float> %mul.i233, ptr %add.ptr72, align 1
-  %add.ptr73 = getelementptr inbounds i8, ptr %output6.0210, i64 32
+  %add.ptr73 = getelementptr inbounds i8, ptr %output6.0211, i64 32
   store <4 x float> %mul.i230, ptr %add.ptr73, align 1
-  %add.ptr74 = getelementptr inbounds i8, ptr %output6.0210, i64 48
+  %add.ptr74 = getelementptr inbounds i8, ptr %output6.0211, i64 48
   store <4 x float> %mul.i227, ptr %add.ptr74, align 1
   %add.ptr75 = getelementptr inbounds i8, ptr %input.addr.0217, i64 64
   %add.ptr76 = getelementptr inbounds i8, ptr %output0.0216, i64 64
@@ -22016,16 +22016,16 @@ while.body:                                       ; preds = %entry, %while.body
   %add.ptr78 = getelementptr inbounds i8, ptr %output2.0214, i64 64
   %add.ptr79 = getelementptr inbounds i8, ptr %output3.0213, i64 64
   %add.ptr80 = getelementptr inbounds i8, ptr %output4.0212, i64 64
-  %add.ptr81 = getelementptr inbounds i8, ptr %output5.0211, i64 64
-  %add.ptr82 = getelementptr inbounds i8, ptr %output6.0210, i64 64
+  %add.ptr81 = getelementptr inbounds i8, ptr %output5.0210, i64 64
+  %add.ptr82 = getelementptr inbounds i8, ptr %output6.0211, i64 64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr75 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 63
   br i1 %cmp, label %while.body, label %while.cond83.preheader, !llvm.loop !767
 
 while.cond108.preheader:                          ; preds = %while.body88, %while.cond83.preheader
-  %output6.1.lcssa = phi ptr [ %output6.0.lcssa, %while.cond83.preheader ], [ %add.ptr106, %while.body88 ]
   %output5.1.lcssa = phi ptr [ %output5.0.lcssa, %while.cond83.preheader ], [ %add.ptr105, %while.body88 ]
+  %output6.1.lcssa = phi ptr [ %output6.0.lcssa, %while.cond83.preheader ], [ %add.ptr106, %while.body88 ]
   %output4.1.lcssa = phi ptr [ %output4.0.lcssa, %while.cond83.preheader ], [ %add.ptr104, %while.body88 ]
   %output3.1.lcssa = phi ptr [ %output3.0.lcssa, %while.cond83.preheader ], [ %add.ptr103, %while.body88 ]
   %output2.1.lcssa = phi ptr [ %output2.0.lcssa, %while.cond83.preheader ], [ %add.ptr102, %while.body88 ]
@@ -22042,8 +22042,8 @@ while.body88:                                     ; preds = %while.cond83.prehea
   %output2.1233 = phi ptr [ %add.ptr102, %while.body88 ], [ %output2.0.lcssa, %while.cond83.preheader ]
   %output3.1232 = phi ptr [ %add.ptr103, %while.body88 ], [ %output3.0.lcssa, %while.cond83.preheader ]
   %output4.1231 = phi ptr [ %add.ptr104, %while.body88 ], [ %output4.0.lcssa, %while.cond83.preheader ]
-  %output5.1230 = phi ptr [ %add.ptr105, %while.body88 ], [ %output5.0.lcssa, %while.cond83.preheader ]
-  %output6.1229 = phi ptr [ %add.ptr106, %while.body88 ], [ %output6.0.lcssa, %while.cond83.preheader ]
+  %output6.1230 = phi ptr [ %add.ptr106, %while.body88 ], [ %output6.0.lcssa, %while.cond83.preheader ]
+  %output5.1229 = phi ptr [ %add.ptr105, %while.body88 ], [ %output5.0.lcssa, %while.cond83.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1235) #24, !srcloc !768
   %18 = load <4 x float>, ptr %input.addr.1236, align 1
   %mul.i224 = fmul <4 x float> %vecinit3.i, %18
@@ -22057,17 +22057,17 @@ while.body88:                                     ; preds = %while.cond83.prehea
   %mul.i212 = fmul <4 x float> %vecinit3.i345, %18
   store <4 x float> %mul.i212, ptr %output4.1231, align 1
   %mul.i209 = fmul <4 x float> %vecinit3.i351, %18
-  store <4 x float> %mul.i209, ptr %output5.1230, align 1
+  store <4 x float> %mul.i209, ptr %output5.1229, align 1
   %mul.i = fmul <4 x float> %vecinit3.i357, %18
-  store <4 x float> %mul.i, ptr %output6.1229, align 1
+  store <4 x float> %mul.i, ptr %output6.1230, align 1
   %add.ptr99 = getelementptr inbounds i8, ptr %input.addr.1236, i64 16
   %add.ptr100 = getelementptr inbounds i8, ptr %output0.1235, i64 16
   %add.ptr101 = getelementptr inbounds i8, ptr %output1.1234, i64 16
   %add.ptr102 = getelementptr inbounds i8, ptr %output2.1233, i64 16
   %add.ptr103 = getelementptr inbounds i8, ptr %output3.1232, i64 16
   %add.ptr104 = getelementptr inbounds i8, ptr %output4.1231, i64 16
-  %add.ptr105 = getelementptr inbounds i8, ptr %output5.1230, i64 16
-  %add.ptr106 = getelementptr inbounds i8, ptr %output6.1229, i64 16
+  %add.ptr105 = getelementptr inbounds i8, ptr %output5.1229, i64 16
+  %add.ptr106 = getelementptr inbounds i8, ptr %output6.1230, i64 16
   %sub.ptr.rhs.cast85 = ptrtoint ptr %add.ptr99 to i64
   %sub.ptr.sub86 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast85
   %cmp87 = icmp sgt i64 %sub.ptr.sub86, 15
@@ -22080,8 +22080,8 @@ while.body110:                                    ; preds = %while.cond108.prehe
   %output2.2250 = phi ptr [ %incdec.ptr127, %while.body110 ], [ %output2.1.lcssa, %while.cond108.preheader ]
   %output3.2249 = phi ptr [ %incdec.ptr128, %while.body110 ], [ %output3.1.lcssa, %while.cond108.preheader ]
   %output4.2248 = phi ptr [ %incdec.ptr129, %while.body110 ], [ %output4.1.lcssa, %while.cond108.preheader ]
-  %output5.2247 = phi ptr [ %incdec.ptr130, %while.body110 ], [ %output5.1.lcssa, %while.cond108.preheader ]
-  %output6.2246 = phi ptr [ %incdec.ptr131, %while.body110 ], [ %output6.1.lcssa, %while.cond108.preheader ]
+  %output6.2247 = phi ptr [ %incdec.ptr131, %while.body110 ], [ %output6.1.lcssa, %while.cond108.preheader ]
+  %output5.2246 = phi ptr [ %incdec.ptr130, %while.body110 ], [ %output5.1.lcssa, %while.cond108.preheader ]
   %19 = load float, ptr %input.addr.2253, align 4
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2252) #24, !srcloc !770
   %mul = fmul float %1, %19
@@ -22095,17 +22095,17 @@ while.body110:                                    ; preds = %while.cond108.prehe
   %mul119 = fmul float %9, %19
   store float %mul119, ptr %output4.2248, align 4
   %mul121 = fmul float %11, %19
-  store float %mul121, ptr %output5.2247, align 4
+  store float %mul121, ptr %output5.2246, align 4
   %mul123 = fmul float %13, %19
-  store float %mul123, ptr %output6.2246, align 4
+  store float %mul123, ptr %output6.2247, align 4
   %incdec.ptr = getelementptr inbounds i8, ptr %input.addr.2253, i64 4
   %incdec.ptr125 = getelementptr inbounds i8, ptr %output0.2252, i64 4
   %incdec.ptr126 = getelementptr inbounds i8, ptr %output1.2251, i64 4
   %incdec.ptr127 = getelementptr inbounds i8, ptr %output2.2250, i64 4
   %incdec.ptr128 = getelementptr inbounds i8, ptr %output3.2249, i64 4
   %incdec.ptr129 = getelementptr inbounds i8, ptr %output4.2248, i64 4
-  %incdec.ptr130 = getelementptr inbounds i8, ptr %output5.2247, i64 4
-  %incdec.ptr131 = getelementptr inbounds i8, ptr %output6.2246, i64 4
+  %incdec.ptr130 = getelementptr inbounds i8, ptr %output5.2246, i64 4
+  %incdec.ptr131 = getelementptr inbounds i8, ptr %output6.2247, i64 4
   %cmp109 = icmp ult ptr %incdec.ptr, %input_end
   br i1 %cmp109, label %while.body110, label %while.end132, !llvm.loop !771
 
@@ -22152,8 +22152,8 @@ entry:
 
 while.cond138.preheader:                          ; preds = %while.body, %entry
   %sub.ptr.sub141234.pre-phi = phi i64 [ %sub.ptr.sub215, %entry ], [ %sub.ptr.sub, %while.body ]
-  %input6.0.lcssa = phi ptr [ %9, %entry ], [ %add.ptr137, %while.body ]
   %input5.0.lcssa = phi ptr [ %8, %entry ], [ %add.ptr136, %while.body ]
+  %input6.0.lcssa = phi ptr [ %9, %entry ], [ %add.ptr137, %while.body ]
   %input4.0.lcssa = phi ptr [ %6, %entry ], [ %add.ptr135, %while.body ]
   %input3.0.lcssa = phi ptr [ %5, %entry ], [ %add.ptr134, %while.body ]
   %input2.0.lcssa = phi ptr [ %3, %entry ], [ %add.ptr133, %while.body ]
@@ -22170,8 +22170,8 @@ while.body:                                       ; preds = %entry, %while.body
   %input2.0221 = phi ptr [ %add.ptr133, %while.body ], [ %3, %entry ]
   %input3.0220 = phi ptr [ %add.ptr134, %while.body ], [ %5, %entry ]
   %input4.0219 = phi ptr [ %add.ptr135, %while.body ], [ %6, %entry ]
-  %input5.0218 = phi ptr [ %add.ptr136, %while.body ], [ %8, %entry ]
-  %input6.0217 = phi ptr [ %add.ptr137, %while.body ], [ %9, %entry ]
+  %input6.0218 = phi ptr [ %add.ptr137, %while.body ], [ %9, %entry ]
+  %input5.0217 = phi ptr [ %add.ptr136, %while.body ], [ %8, %entry ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0224) #24, !srcloc !772
   %add.ptr = getelementptr inbounds i8, ptr %input0.0223, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr, i32 0, i32 3, i32 1)
@@ -22183,9 +22183,9 @@ while.body:                                       ; preds = %entry, %while.body
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr22, i32 0, i32 3, i32 1)
   %add.ptr23 = getelementptr inbounds i8, ptr %input4.0219, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr23, i32 0, i32 3, i32 1)
-  %add.ptr24 = getelementptr inbounds i8, ptr %input5.0218, i64 256
+  %add.ptr24 = getelementptr inbounds i8, ptr %input5.0217, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr24, i32 0, i32 3, i32 1)
-  %add.ptr25 = getelementptr inbounds i8, ptr %input6.0217, i64 256
+  %add.ptr25 = getelementptr inbounds i8, ptr %input6.0218, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr25, i32 0, i32 3, i32 1)
   %11 = load <4 x float>, ptr %input0.0223, align 1
   %add.ptr27 = getelementptr inbounds i8, ptr %input0.0223, i64 16
@@ -22258,12 +22258,12 @@ while.body:                                       ; preds = %entry, %while.body
   %add.i398 = fadd <4 x float> %add.i410, %mul.i297
   %mul.i294 = fmul <4 x float> %vecinit3.i477, %30
   %add.i395 = fadd <4 x float> %add.i407, %mul.i294
-  %31 = load <4 x float>, ptr %input5.0218, align 1
-  %add.ptr98 = getelementptr inbounds i8, ptr %input5.0218, i64 16
+  %31 = load <4 x float>, ptr %input5.0217, align 1
+  %add.ptr98 = getelementptr inbounds i8, ptr %input5.0217, i64 16
   %32 = load <4 x float>, ptr %add.ptr98, align 1
-  %add.ptr100 = getelementptr inbounds i8, ptr %input5.0218, i64 32
+  %add.ptr100 = getelementptr inbounds i8, ptr %input5.0217, i64 32
   %33 = load <4 x float>, ptr %add.ptr100, align 1
-  %add.ptr102 = getelementptr inbounds i8, ptr %input5.0218, i64 48
+  %add.ptr102 = getelementptr inbounds i8, ptr %input5.0217, i64 48
   %34 = load <4 x float>, ptr %add.ptr102, align 1
   %mul.i291 = fmul <4 x float> %vecinit3.i483, %31
   %add.i392 = fadd <4 x float> %add.i404, %mul.i291
@@ -22273,12 +22273,12 @@ while.body:                                       ; preds = %entry, %while.body
   %add.i386 = fadd <4 x float> %add.i398, %mul.i285
   %mul.i282 = fmul <4 x float> %vecinit3.i483, %34
   %add.i383 = fadd <4 x float> %add.i395, %mul.i282
-  %35 = load <4 x float>, ptr %input6.0217, align 1
-  %add.ptr113 = getelementptr inbounds i8, ptr %input6.0217, i64 16
+  %35 = load <4 x float>, ptr %input6.0218, align 1
+  %add.ptr113 = getelementptr inbounds i8, ptr %input6.0218, i64 16
   %36 = load <4 x float>, ptr %add.ptr113, align 1
-  %add.ptr115 = getelementptr inbounds i8, ptr %input6.0217, i64 32
+  %add.ptr115 = getelementptr inbounds i8, ptr %input6.0218, i64 32
   %37 = load <4 x float>, ptr %add.ptr115, align 1
-  %add.ptr117 = getelementptr inbounds i8, ptr %input6.0217, i64 48
+  %add.ptr117 = getelementptr inbounds i8, ptr %input6.0218, i64 48
   %38 = load <4 x float>, ptr %add.ptr117, align 1
   %mul.i279 = fmul <4 x float> %vecinit3.i489, %35
   %add.i380 = fadd <4 x float> %add.i392, %mul.i279
@@ -22301,16 +22301,16 @@ while.body:                                       ; preds = %entry, %while.body
   %add.ptr133 = getelementptr inbounds i8, ptr %input2.0221, i64 64
   %add.ptr134 = getelementptr inbounds i8, ptr %input3.0220, i64 64
   %add.ptr135 = getelementptr inbounds i8, ptr %input4.0219, i64 64
-  %add.ptr136 = getelementptr inbounds i8, ptr %input5.0218, i64 64
-  %add.ptr137 = getelementptr inbounds i8, ptr %input6.0217, i64 64
+  %add.ptr136 = getelementptr inbounds i8, ptr %input5.0217, i64 64
+  %add.ptr137 = getelementptr inbounds i8, ptr %input6.0218, i64 64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr131 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 63
   br i1 %cmp, label %while.body, label %while.cond138.preheader, !llvm.loop !773
 
 while.cond175.preheader:                          ; preds = %while.body143, %while.cond138.preheader
-  %input6.1.lcssa = phi ptr [ %input6.0.lcssa, %while.cond138.preheader ], [ %add.ptr173, %while.body143 ]
   %input5.1.lcssa = phi ptr [ %input5.0.lcssa, %while.cond138.preheader ], [ %add.ptr172, %while.body143 ]
+  %input6.1.lcssa = phi ptr [ %input6.0.lcssa, %while.cond138.preheader ], [ %add.ptr173, %while.body143 ]
   %input4.1.lcssa = phi ptr [ %input4.0.lcssa, %while.cond138.preheader ], [ %add.ptr171, %while.body143 ]
   %input3.1.lcssa = phi ptr [ %input3.0.lcssa, %while.cond138.preheader ], [ %add.ptr170, %while.body143 ]
   %input2.1.lcssa = phi ptr [ %input2.0.lcssa, %while.cond138.preheader ], [ %add.ptr169, %while.body143 ]
@@ -22327,8 +22327,8 @@ while.body143:                                    ; preds = %while.cond138.prehe
   %input2.1240 = phi ptr [ %add.ptr169, %while.body143 ], [ %input2.0.lcssa, %while.cond138.preheader ]
   %input3.1239 = phi ptr [ %add.ptr170, %while.body143 ], [ %input3.0.lcssa, %while.cond138.preheader ]
   %input4.1238 = phi ptr [ %add.ptr171, %while.body143 ], [ %input4.0.lcssa, %while.cond138.preheader ]
-  %input5.1237 = phi ptr [ %add.ptr172, %while.body143 ], [ %input5.0.lcssa, %while.cond138.preheader ]
-  %input6.1236 = phi ptr [ %add.ptr173, %while.body143 ], [ %input6.0.lcssa, %while.cond138.preheader ]
+  %input6.1237 = phi ptr [ %add.ptr173, %while.body143 ], [ %input6.0.lcssa, %while.cond138.preheader ]
+  %input5.1236 = phi ptr [ %add.ptr172, %while.body143 ], [ %input5.0.lcssa, %while.cond138.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1243) #24, !srcloc !774
   %39 = load <4 x float>, ptr %input0.1242, align 1
   %mul.i267 = fmul <4 x float> %vecinit3.i, %39
@@ -22344,10 +22344,10 @@ while.body143:                                    ; preds = %while.cond138.prehe
   %43 = load <4 x float>, ptr %input4.1238, align 1
   %mul.i255 = fmul <4 x float> %vecinit3.i477, %43
   %add.i359 = fadd <4 x float> %add.i362, %mul.i255
-  %44 = load <4 x float>, ptr %input5.1237, align 1
+  %44 = load <4 x float>, ptr %input5.1236, align 1
   %mul.i252 = fmul <4 x float> %vecinit3.i483, %44
   %add.i356 = fadd <4 x float> %add.i359, %mul.i252
-  %45 = load <4 x float>, ptr %input6.1236, align 1
+  %45 = load <4 x float>, ptr %input6.1237, align 1
   %mul.i = fmul <4 x float> %vecinit3.i489, %45
   %add.i = fadd <4 x float> %add.i356, %mul.i
   store <4 x float> %add.i, ptr %output.1243, align 1
@@ -22357,8 +22357,8 @@ while.body143:                                    ; preds = %while.cond138.prehe
   %add.ptr169 = getelementptr inbounds i8, ptr %input2.1240, i64 16
   %add.ptr170 = getelementptr inbounds i8, ptr %input3.1239, i64 16
   %add.ptr171 = getelementptr inbounds i8, ptr %input4.1238, i64 16
-  %add.ptr172 = getelementptr inbounds i8, ptr %input5.1237, i64 16
-  %add.ptr173 = getelementptr inbounds i8, ptr %input6.1236, i64 16
+  %add.ptr172 = getelementptr inbounds i8, ptr %input5.1236, i64 16
+  %add.ptr173 = getelementptr inbounds i8, ptr %input6.1237, i64 16
   %sub.ptr.rhs.cast140 = ptrtoint ptr %add.ptr167 to i64
   %sub.ptr.sub141 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast140
   %cmp142 = icmp sgt i64 %sub.ptr.sub141, 15
@@ -22371,8 +22371,8 @@ while.body177:                                    ; preds = %while.cond175.prehe
   %input2.2257 = phi ptr [ %incdec.ptr200, %while.body177 ], [ %input2.1.lcssa, %while.cond175.preheader ]
   %input3.2256 = phi ptr [ %incdec.ptr201, %while.body177 ], [ %input3.1.lcssa, %while.cond175.preheader ]
   %input4.2255 = phi ptr [ %incdec.ptr202, %while.body177 ], [ %input4.1.lcssa, %while.cond175.preheader ]
-  %input5.2254 = phi ptr [ %incdec.ptr203, %while.body177 ], [ %input5.1.lcssa, %while.cond175.preheader ]
-  %input6.2253 = phi ptr [ %incdec.ptr204, %while.body177 ], [ %input6.1.lcssa, %while.cond175.preheader ]
+  %input6.2254 = phi ptr [ %incdec.ptr204, %while.body177 ], [ %input6.1.lcssa, %while.cond175.preheader ]
+  %input5.2253 = phi ptr [ %incdec.ptr203, %while.body177 ], [ %input5.1.lcssa, %while.cond175.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2260) #24, !srcloc !776
   %46 = load float, ptr %input0.2259, align 4
   %mul = fmul float %1, %46
@@ -22394,8 +22394,8 @@ while.body177:                                    ; preds = %while.cond175.prehe
   %add187 = fadd float %add184, %59
   %60 = extractelement <2 x float> %58, i64 1
   %add190 = fadd float %add187, %60
-  %61 = load float, ptr %input5.2254, align 4
-  %62 = load float, ptr %input6.2253, align 4
+  %61 = load float, ptr %input5.2253, align 4
+  %62 = load float, ptr %input6.2254, align 4
   %63 = insertelement <2 x float> poison, float %61, i64 0
   %64 = insertelement <2 x float> %63, float %62, i64 1
   %65 = fmul <2 x float> %10, %64
@@ -22410,8 +22410,8 @@ while.body177:                                    ; preds = %while.cond175.prehe
   %incdec.ptr200 = getelementptr inbounds i8, ptr %input2.2257, i64 4
   %incdec.ptr201 = getelementptr inbounds i8, ptr %input3.2256, i64 4
   %incdec.ptr202 = getelementptr inbounds i8, ptr %input4.2255, i64 4
-  %incdec.ptr203 = getelementptr inbounds i8, ptr %input5.2254, i64 4
-  %incdec.ptr204 = getelementptr inbounds i8, ptr %input6.2253, i64 4
+  %incdec.ptr203 = getelementptr inbounds i8, ptr %input5.2253, i64 4
+  %incdec.ptr204 = getelementptr inbounds i8, ptr %input6.2254, i64 4
   %cmp176 = icmp ult ptr %incdec.ptr198, %input0_end
   br i1 %cmp176, label %while.body177, label %while.end205, !llvm.loop !777
 
@@ -22470,8 +22470,8 @@ entry:
 
 while.cond160.preheader:                          ; preds = %while.body, %entry
   %sub.ptr.sub163297.pre-phi = phi i64 [ %sub.ptr.sub278, %entry ], [ %sub.ptr.sub, %while.body ]
-  %output6.0.lcssa = phi ptr [ %12, %entry ], [ %add.ptr159, %while.body ]
   %output5.0.lcssa = phi ptr [ %10, %entry ], [ %add.ptr158, %while.body ]
+  %output6.0.lcssa = phi ptr [ %12, %entry ], [ %add.ptr159, %while.body ]
   %output4.0.lcssa = phi ptr [ %8, %entry ], [ %add.ptr157, %while.body ]
   %output3.0.lcssa = phi ptr [ %6, %entry ], [ %add.ptr156, %while.body ]
   %output2.0.lcssa = phi ptr [ %4, %entry ], [ %add.ptr155, %while.body ]
@@ -22488,8 +22488,8 @@ while.body:                                       ; preds = %entry, %while.body
   %output2.0284 = phi ptr [ %add.ptr155, %while.body ], [ %4, %entry ]
   %output3.0283 = phi ptr [ %add.ptr156, %while.body ], [ %6, %entry ]
   %output4.0282 = phi ptr [ %add.ptr157, %while.body ], [ %8, %entry ]
-  %output5.0281 = phi ptr [ %add.ptr158, %while.body ], [ %10, %entry ]
-  %output6.0280 = phi ptr [ %add.ptr159, %while.body ], [ %12, %entry ]
+  %output6.0281 = phi ptr [ %add.ptr159, %while.body ], [ %12, %entry ]
+  %output5.0280 = phi ptr [ %add.ptr158, %while.body ], [ %10, %entry ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0286) #24, !srcloc !778
   %14 = load <4 x float>, ptr %input.addr.0287, align 1
   %add.ptr = getelementptr inbounds i8, ptr %input.addr.0287, i64 16
@@ -22593,12 +22593,12 @@ while.body:                                       ; preds = %entry, %while.body
   store <4 x float> %add.i493, ptr %add.ptr99, align 1
   store <4 x float> %add.i490, ptr %add.ptr101, align 1
   store <4 x float> %add.i487, ptr %add.ptr103, align 1
-  %38 = load <4 x float>, ptr %output5.0281, align 1
-  %add.ptr117 = getelementptr inbounds i8, ptr %output5.0281, i64 16
+  %38 = load <4 x float>, ptr %output5.0280, align 1
+  %add.ptr117 = getelementptr inbounds i8, ptr %output5.0280, i64 16
   %39 = load <4 x float>, ptr %add.ptr117, align 1
-  %add.ptr119 = getelementptr inbounds i8, ptr %output5.0281, i64 32
+  %add.ptr119 = getelementptr inbounds i8, ptr %output5.0280, i64 32
   %40 = load <4 x float>, ptr %add.ptr119, align 1
-  %add.ptr121 = getelementptr inbounds i8, ptr %output5.0281, i64 48
+  %add.ptr121 = getelementptr inbounds i8, ptr %output5.0280, i64 48
   %41 = load <4 x float>, ptr %add.ptr121, align 1
   %mul.i380 = fmul <4 x float> %vecinit3.i587, %14
   %add.i484 = fadd <4 x float> %mul.i380, %38
@@ -22608,16 +22608,16 @@ while.body:                                       ; preds = %entry, %while.body
   %add.i478 = fadd <4 x float> %mul.i374, %40
   %mul.i371 = fmul <4 x float> %vecinit3.i587, %17
   %add.i475 = fadd <4 x float> %mul.i371, %41
-  store <4 x float> %add.i484, ptr %output5.0281, align 1
+  store <4 x float> %add.i484, ptr %output5.0280, align 1
   store <4 x float> %add.i481, ptr %add.ptr117, align 1
   store <4 x float> %add.i478, ptr %add.ptr119, align 1
   store <4 x float> %add.i475, ptr %add.ptr121, align 1
-  %42 = load <4 x float>, ptr %output6.0280, align 1
-  %add.ptr135 = getelementptr inbounds i8, ptr %output6.0280, i64 16
+  %42 = load <4 x float>, ptr %output6.0281, align 1
+  %add.ptr135 = getelementptr inbounds i8, ptr %output6.0281, i64 16
   %43 = load <4 x float>, ptr %add.ptr135, align 1
-  %add.ptr137 = getelementptr inbounds i8, ptr %output6.0280, i64 32
+  %add.ptr137 = getelementptr inbounds i8, ptr %output6.0281, i64 32
   %44 = load <4 x float>, ptr %add.ptr137, align 1
-  %add.ptr139 = getelementptr inbounds i8, ptr %output6.0280, i64 48
+  %add.ptr139 = getelementptr inbounds i8, ptr %output6.0281, i64 48
   %45 = load <4 x float>, ptr %add.ptr139, align 1
   %mul.i368 = fmul <4 x float> %vecinit3.i593, %14
   %add.i472 = fadd <4 x float> %mul.i368, %42
@@ -22627,7 +22627,7 @@ while.body:                                       ; preds = %entry, %while.body
   %add.i466 = fadd <4 x float> %mul.i362, %44
   %mul.i359 = fmul <4 x float> %vecinit3.i593, %17
   %add.i463 = fadd <4 x float> %mul.i359, %45
-  store <4 x float> %add.i472, ptr %output6.0280, align 1
+  store <4 x float> %add.i472, ptr %output6.0281, align 1
   store <4 x float> %add.i469, ptr %add.ptr135, align 1
   store <4 x float> %add.i466, ptr %add.ptr137, align 1
   store <4 x float> %add.i463, ptr %add.ptr139, align 1
@@ -22637,16 +22637,16 @@ while.body:                                       ; preds = %entry, %while.body
   %add.ptr155 = getelementptr inbounds i8, ptr %output2.0284, i64 64
   %add.ptr156 = getelementptr inbounds i8, ptr %output3.0283, i64 64
   %add.ptr157 = getelementptr inbounds i8, ptr %output4.0282, i64 64
-  %add.ptr158 = getelementptr inbounds i8, ptr %output5.0281, i64 64
-  %add.ptr159 = getelementptr inbounds i8, ptr %output6.0280, i64 64
+  %add.ptr158 = getelementptr inbounds i8, ptr %output5.0280, i64 64
+  %add.ptr159 = getelementptr inbounds i8, ptr %output6.0281, i64 64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr152 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 63
   br i1 %cmp, label %while.body, label %while.cond160.preheader, !llvm.loop !779
 
 while.cond199.preheader:                          ; preds = %while.body165, %while.cond160.preheader
-  %output6.1.lcssa = phi ptr [ %output6.0.lcssa, %while.cond160.preheader ], [ %add.ptr197, %while.body165 ]
   %output5.1.lcssa = phi ptr [ %output5.0.lcssa, %while.cond160.preheader ], [ %add.ptr196, %while.body165 ]
+  %output6.1.lcssa = phi ptr [ %output6.0.lcssa, %while.cond160.preheader ], [ %add.ptr197, %while.body165 ]
   %output4.1.lcssa = phi ptr [ %output4.0.lcssa, %while.cond160.preheader ], [ %add.ptr195, %while.body165 ]
   %output3.1.lcssa = phi ptr [ %output3.0.lcssa, %while.cond160.preheader ], [ %add.ptr194, %while.body165 ]
   %output2.1.lcssa = phi ptr [ %output2.0.lcssa, %while.cond160.preheader ], [ %add.ptr193, %while.body165 ]
@@ -22663,8 +22663,8 @@ while.body165:                                    ; preds = %while.cond160.prehe
   %output2.1303 = phi ptr [ %add.ptr193, %while.body165 ], [ %output2.0.lcssa, %while.cond160.preheader ]
   %output3.1302 = phi ptr [ %add.ptr194, %while.body165 ], [ %output3.0.lcssa, %while.cond160.preheader ]
   %output4.1301 = phi ptr [ %add.ptr195, %while.body165 ], [ %output4.0.lcssa, %while.cond160.preheader ]
-  %output5.1300 = phi ptr [ %add.ptr196, %while.body165 ], [ %output5.0.lcssa, %while.cond160.preheader ]
-  %output6.1299 = phi ptr [ %add.ptr197, %while.body165 ], [ %output6.0.lcssa, %while.cond160.preheader ]
+  %output6.1300 = phi ptr [ %add.ptr197, %while.body165 ], [ %output6.0.lcssa, %while.cond160.preheader ]
+  %output5.1299 = phi ptr [ %add.ptr196, %while.body165 ], [ %output5.0.lcssa, %while.cond160.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1305) #24, !srcloc !780
   %46 = load <4 x float>, ptr %input.addr.1306, align 1
   %47 = load <4 x float>, ptr %output0.1305, align 1
@@ -22687,22 +22687,22 @@ while.body165:                                    ; preds = %while.cond160.prehe
   %mul.i344 = fmul <4 x float> %vecinit3.i581, %46
   %add.i448 = fadd <4 x float> %mul.i344, %51
   store <4 x float> %add.i448, ptr %output4.1301, align 1
-  %52 = load <4 x float>, ptr %output5.1300, align 1
+  %52 = load <4 x float>, ptr %output5.1299, align 1
   %mul.i341 = fmul <4 x float> %vecinit3.i587, %46
   %add.i445 = fadd <4 x float> %mul.i341, %52
-  store <4 x float> %add.i445, ptr %output5.1300, align 1
-  %53 = load <4 x float>, ptr %output6.1299, align 1
+  store <4 x float> %add.i445, ptr %output5.1299, align 1
+  %53 = load <4 x float>, ptr %output6.1300, align 1
   %mul.i = fmul <4 x float> %vecinit3.i593, %46
   %add.i = fadd <4 x float> %mul.i, %53
-  store <4 x float> %add.i, ptr %output6.1299, align 1
+  store <4 x float> %add.i, ptr %output6.1300, align 1
   %add.ptr190 = getelementptr inbounds i8, ptr %input.addr.1306, i64 16
   %add.ptr191 = getelementptr inbounds i8, ptr %output0.1305, i64 16
   %add.ptr192 = getelementptr inbounds i8, ptr %output1.1304, i64 16
   %add.ptr193 = getelementptr inbounds i8, ptr %output2.1303, i64 16
   %add.ptr194 = getelementptr inbounds i8, ptr %output3.1302, i64 16
   %add.ptr195 = getelementptr inbounds i8, ptr %output4.1301, i64 16
-  %add.ptr196 = getelementptr inbounds i8, ptr %output5.1300, i64 16
-  %add.ptr197 = getelementptr inbounds i8, ptr %output6.1299, i64 16
+  %add.ptr196 = getelementptr inbounds i8, ptr %output5.1299, i64 16
+  %add.ptr197 = getelementptr inbounds i8, ptr %output6.1300, i64 16
   %sub.ptr.rhs.cast162 = ptrtoint ptr %add.ptr190 to i64
   %sub.ptr.sub163 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast162
   %cmp164 = icmp sgt i64 %sub.ptr.sub163, 15
@@ -22715,8 +22715,8 @@ while.body201:                                    ; preds = %while.cond199.prehe
   %output2.2320 = phi ptr [ %incdec.ptr224, %while.body201 ], [ %output2.1.lcssa, %while.cond199.preheader ]
   %output3.2319 = phi ptr [ %incdec.ptr225, %while.body201 ], [ %output3.1.lcssa, %while.cond199.preheader ]
   %output4.2318 = phi ptr [ %incdec.ptr226, %while.body201 ], [ %output4.1.lcssa, %while.cond199.preheader ]
-  %output5.2317 = phi ptr [ %incdec.ptr227, %while.body201 ], [ %output5.1.lcssa, %while.cond199.preheader ]
-  %output6.2316 = phi ptr [ %incdec.ptr228, %while.body201 ], [ %output6.1.lcssa, %while.cond199.preheader ]
+  %output6.2317 = phi ptr [ %incdec.ptr228, %while.body201 ], [ %output6.1.lcssa, %while.cond199.preheader ]
+  %output5.2316 = phi ptr [ %incdec.ptr227, %while.body201 ], [ %output5.1.lcssa, %while.cond199.preheader ]
   %54 = load float, ptr %input.addr.2323, align 4
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2322) #24, !srcloc !782
   %mul = fmul float %1, %54
@@ -22740,21 +22740,21 @@ while.body201:                                    ; preds = %while.cond199.prehe
   %add215 = fadd float %mul213, %59
   store float %add215, ptr %output4.2318, align 4
   %mul216 = fmul float %11, %54
-  %60 = load float, ptr %output5.2317, align 4
+  %60 = load float, ptr %output5.2316, align 4
   %add218 = fadd float %mul216, %60
-  store float %add218, ptr %output5.2317, align 4
+  store float %add218, ptr %output5.2316, align 4
   %mul219 = fmul float %13, %54
-  %61 = load float, ptr %output6.2316, align 4
+  %61 = load float, ptr %output6.2317, align 4
   %add221 = fadd float %mul219, %61
-  store float %add221, ptr %output6.2316, align 4
+  store float %add221, ptr %output6.2317, align 4
   %incdec.ptr = getelementptr inbounds i8, ptr %input.addr.2323, i64 4
   %incdec.ptr222 = getelementptr inbounds i8, ptr %output0.2322, i64 4
   %incdec.ptr223 = getelementptr inbounds i8, ptr %output1.2321, i64 4
   %incdec.ptr224 = getelementptr inbounds i8, ptr %output2.2320, i64 4
   %incdec.ptr225 = getelementptr inbounds i8, ptr %output3.2319, i64 4
   %incdec.ptr226 = getelementptr inbounds i8, ptr %output4.2318, i64 4
-  %incdec.ptr227 = getelementptr inbounds i8, ptr %output5.2317, i64 4
-  %incdec.ptr228 = getelementptr inbounds i8, ptr %output6.2316, i64 4
+  %incdec.ptr227 = getelementptr inbounds i8, ptr %output5.2316, i64 4
+  %incdec.ptr228 = getelementptr inbounds i8, ptr %output6.2317, i64 4
   %cmp200 = icmp ult ptr %incdec.ptr, %input_end
   br i1 %cmp200, label %while.body201, label %while.end229, !llvm.loop !783
 
@@ -22801,8 +22801,8 @@ entry:
 
 while.cond149.preheader:                          ; preds = %while.body, %entry
   %sub.ptr.sub152245.pre-phi = phi i64 [ %sub.ptr.sub226, %entry ], [ %sub.ptr.sub, %while.body ]
-  %input6.0.lcssa = phi ptr [ %9, %entry ], [ %add.ptr148, %while.body ]
   %input5.0.lcssa = phi ptr [ %8, %entry ], [ %add.ptr147, %while.body ]
+  %input6.0.lcssa = phi ptr [ %9, %entry ], [ %add.ptr148, %while.body ]
   %input4.0.lcssa = phi ptr [ %6, %entry ], [ %add.ptr146, %while.body ]
   %input3.0.lcssa = phi ptr [ %5, %entry ], [ %add.ptr145, %while.body ]
   %input2.0.lcssa = phi ptr [ %3, %entry ], [ %add.ptr144, %while.body ]
@@ -22819,8 +22819,8 @@ while.body:                                       ; preds = %entry, %while.body
   %input2.0232 = phi ptr [ %add.ptr144, %while.body ], [ %3, %entry ]
   %input3.0231 = phi ptr [ %add.ptr145, %while.body ], [ %5, %entry ]
   %input4.0230 = phi ptr [ %add.ptr146, %while.body ], [ %6, %entry ]
-  %input5.0229 = phi ptr [ %add.ptr147, %while.body ], [ %8, %entry ]
-  %input6.0228 = phi ptr [ %add.ptr148, %while.body ], [ %9, %entry ]
+  %input6.0229 = phi ptr [ %add.ptr148, %while.body ], [ %9, %entry ]
+  %input5.0228 = phi ptr [ %add.ptr147, %while.body ], [ %8, %entry ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0235) #24, !srcloc !784
   %add.ptr = getelementptr inbounds i8, ptr %input0.0234, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr, i32 0, i32 3, i32 1)
@@ -22832,9 +22832,9 @@ while.body:                                       ; preds = %entry, %while.body
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr22, i32 0, i32 3, i32 1)
   %add.ptr23 = getelementptr inbounds i8, ptr %input4.0230, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr23, i32 0, i32 3, i32 1)
-  %add.ptr24 = getelementptr inbounds i8, ptr %input5.0229, i64 256
+  %add.ptr24 = getelementptr inbounds i8, ptr %input5.0228, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr24, i32 0, i32 3, i32 1)
-  %add.ptr25 = getelementptr inbounds i8, ptr %input6.0228, i64 256
+  %add.ptr25 = getelementptr inbounds i8, ptr %input6.0229, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr25, i32 0, i32 3, i32 1)
   %11 = load <4 x float>, ptr %output.0235, align 1
   %add.ptr27 = getelementptr inbounds i8, ptr %output.0235, i64 16
@@ -22918,12 +22918,12 @@ while.body:                                       ; preds = %entry, %while.body
   %add.i421 = fadd <4 x float> %add.i433, %mul.i317
   %mul.i314 = fmul <4 x float> %vecinit3.i512, %34
   %add.i418 = fadd <4 x float> %add.i430, %mul.i314
-  %35 = load <4 x float>, ptr %input5.0229, align 1
-  %add.ptr109 = getelementptr inbounds i8, ptr %input5.0229, i64 16
+  %35 = load <4 x float>, ptr %input5.0228, align 1
+  %add.ptr109 = getelementptr inbounds i8, ptr %input5.0228, i64 16
   %36 = load <4 x float>, ptr %add.ptr109, align 1
-  %add.ptr111 = getelementptr inbounds i8, ptr %input5.0229, i64 32
+  %add.ptr111 = getelementptr inbounds i8, ptr %input5.0228, i64 32
   %37 = load <4 x float>, ptr %add.ptr111, align 1
-  %add.ptr113 = getelementptr inbounds i8, ptr %input5.0229, i64 48
+  %add.ptr113 = getelementptr inbounds i8, ptr %input5.0228, i64 48
   %38 = load <4 x float>, ptr %add.ptr113, align 1
   %mul.i311 = fmul <4 x float> %vecinit3.i518, %35
   %add.i415 = fadd <4 x float> %add.i427, %mul.i311
@@ -22933,12 +22933,12 @@ while.body:                                       ; preds = %entry, %while.body
   %add.i409 = fadd <4 x float> %add.i421, %mul.i305
   %mul.i302 = fmul <4 x float> %vecinit3.i518, %38
   %add.i406 = fadd <4 x float> %add.i418, %mul.i302
-  %39 = load <4 x float>, ptr %input6.0228, align 1
-  %add.ptr124 = getelementptr inbounds i8, ptr %input6.0228, i64 16
+  %39 = load <4 x float>, ptr %input6.0229, align 1
+  %add.ptr124 = getelementptr inbounds i8, ptr %input6.0229, i64 16
   %40 = load <4 x float>, ptr %add.ptr124, align 1
-  %add.ptr126 = getelementptr inbounds i8, ptr %input6.0228, i64 32
+  %add.ptr126 = getelementptr inbounds i8, ptr %input6.0229, i64 32
   %41 = load <4 x float>, ptr %add.ptr126, align 1
-  %add.ptr128 = getelementptr inbounds i8, ptr %input6.0228, i64 48
+  %add.ptr128 = getelementptr inbounds i8, ptr %input6.0229, i64 48
   %42 = load <4 x float>, ptr %add.ptr128, align 1
   %mul.i299 = fmul <4 x float> %vecinit3.i524, %39
   %add.i403 = fadd <4 x float> %add.i415, %mul.i299
@@ -22958,16 +22958,16 @@ while.body:                                       ; preds = %entry, %while.body
   %add.ptr144 = getelementptr inbounds i8, ptr %input2.0232, i64 64
   %add.ptr145 = getelementptr inbounds i8, ptr %input3.0231, i64 64
   %add.ptr146 = getelementptr inbounds i8, ptr %input4.0230, i64 64
-  %add.ptr147 = getelementptr inbounds i8, ptr %input5.0229, i64 64
-  %add.ptr148 = getelementptr inbounds i8, ptr %input6.0228, i64 64
+  %add.ptr147 = getelementptr inbounds i8, ptr %input5.0228, i64 64
+  %add.ptr148 = getelementptr inbounds i8, ptr %input6.0229, i64 64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr142 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 63
   br i1 %cmp, label %while.body, label %while.cond149.preheader, !llvm.loop !785
 
 while.cond188.preheader:                          ; preds = %while.body154, %while.cond149.preheader
-  %input6.1.lcssa = phi ptr [ %input6.0.lcssa, %while.cond149.preheader ], [ %add.ptr186, %while.body154 ]
   %input5.1.lcssa = phi ptr [ %input5.0.lcssa, %while.cond149.preheader ], [ %add.ptr185, %while.body154 ]
+  %input6.1.lcssa = phi ptr [ %input6.0.lcssa, %while.cond149.preheader ], [ %add.ptr186, %while.body154 ]
   %input4.1.lcssa = phi ptr [ %input4.0.lcssa, %while.cond149.preheader ], [ %add.ptr184, %while.body154 ]
   %input3.1.lcssa = phi ptr [ %input3.0.lcssa, %while.cond149.preheader ], [ %add.ptr183, %while.body154 ]
   %input2.1.lcssa = phi ptr [ %input2.0.lcssa, %while.cond149.preheader ], [ %add.ptr182, %while.body154 ]
@@ -22984,8 +22984,8 @@ while.body154:                                    ; preds = %while.cond149.prehe
   %input2.1251 = phi ptr [ %add.ptr182, %while.body154 ], [ %input2.0.lcssa, %while.cond149.preheader ]
   %input3.1250 = phi ptr [ %add.ptr183, %while.body154 ], [ %input3.0.lcssa, %while.cond149.preheader ]
   %input4.1249 = phi ptr [ %add.ptr184, %while.body154 ], [ %input4.0.lcssa, %while.cond149.preheader ]
-  %input5.1248 = phi ptr [ %add.ptr185, %while.body154 ], [ %input5.0.lcssa, %while.cond149.preheader ]
-  %input6.1247 = phi ptr [ %add.ptr186, %while.body154 ], [ %input6.0.lcssa, %while.cond149.preheader ]
+  %input6.1248 = phi ptr [ %add.ptr186, %while.body154 ], [ %input6.0.lcssa, %while.cond149.preheader ]
+  %input5.1247 = phi ptr [ %add.ptr185, %while.body154 ], [ %input5.0.lcssa, %while.cond149.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1254) #24, !srcloc !786
   %43 = load <4 x float>, ptr %output.1254, align 1
   %44 = load <4 x float>, ptr %input0.1253, align 1
@@ -23003,10 +23003,10 @@ while.body154:                                    ; preds = %while.cond149.prehe
   %48 = load <4 x float>, ptr %input4.1249, align 1
   %mul.i275 = fmul <4 x float> %vecinit3.i512, %48
   %add.i379 = fadd <4 x float> %add.i382, %mul.i275
-  %49 = load <4 x float>, ptr %input5.1248, align 1
+  %49 = load <4 x float>, ptr %input5.1247, align 1
   %mul.i272 = fmul <4 x float> %vecinit3.i518, %49
   %add.i376 = fadd <4 x float> %add.i379, %mul.i272
-  %50 = load <4 x float>, ptr %input6.1247, align 1
+  %50 = load <4 x float>, ptr %input6.1248, align 1
   %mul.i = fmul <4 x float> %vecinit3.i524, %50
   %add.i = fadd <4 x float> %add.i376, %mul.i
   store <4 x float> %add.i, ptr %output.1254, align 1
@@ -23016,8 +23016,8 @@ while.body154:                                    ; preds = %while.cond149.prehe
   %add.ptr182 = getelementptr inbounds i8, ptr %input2.1251, i64 16
   %add.ptr183 = getelementptr inbounds i8, ptr %input3.1250, i64 16
   %add.ptr184 = getelementptr inbounds i8, ptr %input4.1249, i64 16
-  %add.ptr185 = getelementptr inbounds i8, ptr %input5.1248, i64 16
-  %add.ptr186 = getelementptr inbounds i8, ptr %input6.1247, i64 16
+  %add.ptr185 = getelementptr inbounds i8, ptr %input5.1247, i64 16
+  %add.ptr186 = getelementptr inbounds i8, ptr %input6.1248, i64 16
   %sub.ptr.rhs.cast151 = ptrtoint ptr %add.ptr180 to i64
   %sub.ptr.sub152 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast151
   %cmp153 = icmp sgt i64 %sub.ptr.sub152, 15
@@ -23030,8 +23030,8 @@ while.body190:                                    ; preds = %while.cond188.prehe
   %input2.2268 = phi ptr [ %incdec.ptr215, %while.body190 ], [ %input2.1.lcssa, %while.cond188.preheader ]
   %input3.2267 = phi ptr [ %incdec.ptr216, %while.body190 ], [ %input3.1.lcssa, %while.cond188.preheader ]
   %input4.2266 = phi ptr [ %incdec.ptr217, %while.body190 ], [ %input4.1.lcssa, %while.cond188.preheader ]
-  %input5.2265 = phi ptr [ %incdec.ptr218, %while.body190 ], [ %input5.1.lcssa, %while.cond188.preheader ]
-  %input6.2264 = phi ptr [ %incdec.ptr219, %while.body190 ], [ %input6.1.lcssa, %while.cond188.preheader ]
+  %input6.2265 = phi ptr [ %incdec.ptr219, %while.body190 ], [ %input6.1.lcssa, %while.cond188.preheader ]
+  %input5.2264 = phi ptr [ %incdec.ptr218, %while.body190 ], [ %input5.1.lcssa, %while.cond188.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2271) #24, !srcloc !788
   %51 = load float, ptr %output.2271, align 4
   %52 = load float, ptr %input0.2270, align 4
@@ -23055,8 +23055,8 @@ while.body190:                                    ; preds = %while.cond188.prehe
   %add202 = fadd float %add199, %65
   %66 = extractelement <2 x float> %64, i64 1
   %add205 = fadd float %add202, %66
-  %67 = load float, ptr %input5.2265, align 4
-  %68 = load float, ptr %input6.2264, align 4
+  %67 = load float, ptr %input5.2264, align 4
+  %68 = load float, ptr %input6.2265, align 4
   %69 = insertelement <2 x float> poison, float %67, i64 0
   %70 = insertelement <2 x float> %69, float %68, i64 1
   %71 = fmul <2 x float> %10, %70
@@ -23071,8 +23071,8 @@ while.body190:                                    ; preds = %while.cond188.prehe
   %incdec.ptr215 = getelementptr inbounds i8, ptr %input2.2268, i64 4
   %incdec.ptr216 = getelementptr inbounds i8, ptr %input3.2267, i64 4
   %incdec.ptr217 = getelementptr inbounds i8, ptr %input4.2266, i64 4
-  %incdec.ptr218 = getelementptr inbounds i8, ptr %input5.2265, i64 4
-  %incdec.ptr219 = getelementptr inbounds i8, ptr %input6.2264, i64 4
+  %incdec.ptr218 = getelementptr inbounds i8, ptr %input5.2264, i64 4
+  %incdec.ptr219 = getelementptr inbounds i8, ptr %input6.2265, i64 4
   %cmp189 = icmp ult ptr %incdec.ptr213, %input0_end
   br i1 %cmp189, label %while.body190, label %while.end220, !llvm.loop !789
 
@@ -23137,9 +23137,9 @@ entry:
 
 while.cond94.preheader:                           ; preds = %while.body, %entry
   %sub.ptr.sub97258.pre-phi = phi i64 [ %sub.ptr.sub237, %entry ], [ %sub.ptr.sub, %while.body ]
-  %output7.0.lcssa = phi ptr [ %14, %entry ], [ %add.ptr93, %while.body ]
-  %output6.0.lcssa = phi ptr [ %12, %entry ], [ %add.ptr92, %while.body ]
   %output5.0.lcssa = phi ptr [ %10, %entry ], [ %add.ptr91, %while.body ]
+  %output6.0.lcssa = phi ptr [ %12, %entry ], [ %add.ptr92, %while.body ]
+  %output7.0.lcssa = phi ptr [ %14, %entry ], [ %add.ptr93, %while.body ]
   %output4.0.lcssa = phi ptr [ %8, %entry ], [ %add.ptr90, %while.body ]
   %output3.0.lcssa = phi ptr [ %6, %entry ], [ %add.ptr89, %while.body ]
   %output2.0.lcssa = phi ptr [ %4, %entry ], [ %add.ptr88, %while.body ]
@@ -23156,9 +23156,9 @@ while.body:                                       ; preds = %entry, %while.body
   %output2.0244 = phi ptr [ %add.ptr88, %while.body ], [ %4, %entry ]
   %output3.0243 = phi ptr [ %add.ptr89, %while.body ], [ %6, %entry ]
   %output4.0242 = phi ptr [ %add.ptr90, %while.body ], [ %8, %entry ]
-  %output5.0241 = phi ptr [ %add.ptr91, %while.body ], [ %10, %entry ]
+  %output7.0241 = phi ptr [ %add.ptr93, %while.body ], [ %14, %entry ]
   %output6.0240 = phi ptr [ %add.ptr92, %while.body ], [ %12, %entry ]
-  %output7.0239 = phi ptr [ %add.ptr93, %while.body ], [ %14, %entry ]
+  %output5.0239 = phi ptr [ %add.ptr91, %while.body ], [ %10, %entry ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0246) #24, !srcloc !790
   %16 = load <4 x float>, ptr %input.addr.0247, align 1
   %add.ptr = getelementptr inbounds i8, ptr %input.addr.0247, i64 16
@@ -23226,12 +23226,12 @@ while.body:                                       ; preds = %entry, %while.body
   %mul.i286 = fmul <4 x float> %vecinit3.i394, %17
   %mul.i283 = fmul <4 x float> %vecinit3.i394, %18
   %mul.i280 = fmul <4 x float> %vecinit3.i394, %19
-  store <4 x float> %mul.i289, ptr %output5.0241, align 1
-  %add.ptr68 = getelementptr inbounds i8, ptr %output5.0241, i64 16
+  store <4 x float> %mul.i289, ptr %output5.0239, align 1
+  %add.ptr68 = getelementptr inbounds i8, ptr %output5.0239, i64 16
   store <4 x float> %mul.i286, ptr %add.ptr68, align 1
-  %add.ptr69 = getelementptr inbounds i8, ptr %output5.0241, i64 32
+  %add.ptr69 = getelementptr inbounds i8, ptr %output5.0239, i64 32
   store <4 x float> %mul.i283, ptr %add.ptr69, align 1
-  %add.ptr70 = getelementptr inbounds i8, ptr %output5.0241, i64 48
+  %add.ptr70 = getelementptr inbounds i8, ptr %output5.0239, i64 48
   store <4 x float> %mul.i280, ptr %add.ptr70, align 1
   %mul.i277 = fmul <4 x float> %vecinit3.i400, %16
   %mul.i274 = fmul <4 x float> %vecinit3.i400, %17
@@ -23248,12 +23248,12 @@ while.body:                                       ; preds = %entry, %while.body
   %mul.i262 = fmul <4 x float> %vecinit3.i406, %17
   %mul.i259 = fmul <4 x float> %vecinit3.i406, %18
   %mul.i256 = fmul <4 x float> %vecinit3.i406, %19
-  store <4 x float> %mul.i265, ptr %output7.0239, align 1
-  %add.ptr82 = getelementptr inbounds i8, ptr %output7.0239, i64 16
+  store <4 x float> %mul.i265, ptr %output7.0241, align 1
+  %add.ptr82 = getelementptr inbounds i8, ptr %output7.0241, i64 16
   store <4 x float> %mul.i262, ptr %add.ptr82, align 1
-  %add.ptr83 = getelementptr inbounds i8, ptr %output7.0239, i64 32
+  %add.ptr83 = getelementptr inbounds i8, ptr %output7.0241, i64 32
   store <4 x float> %mul.i259, ptr %add.ptr83, align 1
-  %add.ptr84 = getelementptr inbounds i8, ptr %output7.0239, i64 48
+  %add.ptr84 = getelementptr inbounds i8, ptr %output7.0241, i64 48
   store <4 x float> %mul.i256, ptr %add.ptr84, align 1
   %add.ptr85 = getelementptr inbounds i8, ptr %input.addr.0247, i64 64
   %add.ptr86 = getelementptr inbounds i8, ptr %output0.0246, i64 64
@@ -23261,18 +23261,18 @@ while.body:                                       ; preds = %entry, %while.body
   %add.ptr88 = getelementptr inbounds i8, ptr %output2.0244, i64 64
   %add.ptr89 = getelementptr inbounds i8, ptr %output3.0243, i64 64
   %add.ptr90 = getelementptr inbounds i8, ptr %output4.0242, i64 64
-  %add.ptr91 = getelementptr inbounds i8, ptr %output5.0241, i64 64
+  %add.ptr91 = getelementptr inbounds i8, ptr %output5.0239, i64 64
   %add.ptr92 = getelementptr inbounds i8, ptr %output6.0240, i64 64
-  %add.ptr93 = getelementptr inbounds i8, ptr %output7.0239, i64 64
+  %add.ptr93 = getelementptr inbounds i8, ptr %output7.0241, i64 64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr85 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 63
   br i1 %cmp, label %while.body, label %while.cond94.preheader, !llvm.loop !791
 
 while.cond121.preheader:                          ; preds = %while.body99, %while.cond94.preheader
-  %output7.1.lcssa = phi ptr [ %output7.0.lcssa, %while.cond94.preheader ], [ %add.ptr119, %while.body99 ]
-  %output6.1.lcssa = phi ptr [ %output6.0.lcssa, %while.cond94.preheader ], [ %add.ptr118, %while.body99 ]
   %output5.1.lcssa = phi ptr [ %output5.0.lcssa, %while.cond94.preheader ], [ %add.ptr117, %while.body99 ]
+  %output6.1.lcssa = phi ptr [ %output6.0.lcssa, %while.cond94.preheader ], [ %add.ptr118, %while.body99 ]
+  %output7.1.lcssa = phi ptr [ %output7.0.lcssa, %while.cond94.preheader ], [ %add.ptr119, %while.body99 ]
   %output4.1.lcssa = phi ptr [ %output4.0.lcssa, %while.cond94.preheader ], [ %add.ptr116, %while.body99 ]
   %output3.1.lcssa = phi ptr [ %output3.0.lcssa, %while.cond94.preheader ], [ %add.ptr115, %while.body99 ]
   %output2.1.lcssa = phi ptr [ %output2.0.lcssa, %while.cond94.preheader ], [ %add.ptr114, %while.body99 ]
@@ -23289,9 +23289,9 @@ while.body99:                                     ; preds = %while.cond94.prehea
   %output2.1265 = phi ptr [ %add.ptr114, %while.body99 ], [ %output2.0.lcssa, %while.cond94.preheader ]
   %output3.1264 = phi ptr [ %add.ptr115, %while.body99 ], [ %output3.0.lcssa, %while.cond94.preheader ]
   %output4.1263 = phi ptr [ %add.ptr116, %while.body99 ], [ %output4.0.lcssa, %while.cond94.preheader ]
-  %output5.1262 = phi ptr [ %add.ptr117, %while.body99 ], [ %output5.0.lcssa, %while.cond94.preheader ]
+  %output7.1262 = phi ptr [ %add.ptr119, %while.body99 ], [ %output7.0.lcssa, %while.cond94.preheader ]
   %output6.1261 = phi ptr [ %add.ptr118, %while.body99 ], [ %output6.0.lcssa, %while.cond94.preheader ]
-  %output7.1260 = phi ptr [ %add.ptr119, %while.body99 ], [ %output7.0.lcssa, %while.cond94.preheader ]
+  %output5.1260 = phi ptr [ %add.ptr117, %while.body99 ], [ %output5.0.lcssa, %while.cond94.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1267) #24, !srcloc !792
   %20 = load <4 x float>, ptr %input.addr.1268, align 1
   %mul.i253 = fmul <4 x float> %vecinit3.i, %20
@@ -23305,20 +23305,20 @@ while.body99:                                     ; preds = %while.cond94.prehea
   %mul.i241 = fmul <4 x float> %vecinit3.i388, %20
   store <4 x float> %mul.i241, ptr %output4.1263, align 1
   %mul.i238 = fmul <4 x float> %vecinit3.i394, %20
-  store <4 x float> %mul.i238, ptr %output5.1262, align 1
+  store <4 x float> %mul.i238, ptr %output5.1260, align 1
   %mul.i235 = fmul <4 x float> %vecinit3.i400, %20
   store <4 x float> %mul.i235, ptr %output6.1261, align 1
   %mul.i = fmul <4 x float> %vecinit3.i406, %20
-  store <4 x float> %mul.i, ptr %output7.1260, align 1
+  store <4 x float> %mul.i, ptr %output7.1262, align 1
   %add.ptr111 = getelementptr inbounds i8, ptr %input.addr.1268, i64 16
   %add.ptr112 = getelementptr inbounds i8, ptr %output0.1267, i64 16
   %add.ptr113 = getelementptr inbounds i8, ptr %output1.1266, i64 16
   %add.ptr114 = getelementptr inbounds i8, ptr %output2.1265, i64 16
   %add.ptr115 = getelementptr inbounds i8, ptr %output3.1264, i64 16
   %add.ptr116 = getelementptr inbounds i8, ptr %output4.1263, i64 16
-  %add.ptr117 = getelementptr inbounds i8, ptr %output5.1262, i64 16
+  %add.ptr117 = getelementptr inbounds i8, ptr %output5.1260, i64 16
   %add.ptr118 = getelementptr inbounds i8, ptr %output6.1261, i64 16
-  %add.ptr119 = getelementptr inbounds i8, ptr %output7.1260, i64 16
+  %add.ptr119 = getelementptr inbounds i8, ptr %output7.1262, i64 16
   %sub.ptr.rhs.cast96 = ptrtoint ptr %add.ptr111 to i64
   %sub.ptr.sub97 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast96
   %cmp98 = icmp sgt i64 %sub.ptr.sub97, 15
@@ -23331,9 +23331,9 @@ while.body123:                                    ; preds = %while.cond121.prehe
   %output2.2284 = phi ptr [ %incdec.ptr142, %while.body123 ], [ %output2.1.lcssa, %while.cond121.preheader ]
   %output3.2283 = phi ptr [ %incdec.ptr143, %while.body123 ], [ %output3.1.lcssa, %while.cond121.preheader ]
   %output4.2282 = phi ptr [ %incdec.ptr144, %while.body123 ], [ %output4.1.lcssa, %while.cond121.preheader ]
-  %output5.2281 = phi ptr [ %incdec.ptr145, %while.body123 ], [ %output5.1.lcssa, %while.cond121.preheader ]
+  %output7.2281 = phi ptr [ %incdec.ptr147, %while.body123 ], [ %output7.1.lcssa, %while.cond121.preheader ]
   %output6.2280 = phi ptr [ %incdec.ptr146, %while.body123 ], [ %output6.1.lcssa, %while.cond121.preheader ]
-  %output7.2279 = phi ptr [ %incdec.ptr147, %while.body123 ], [ %output7.1.lcssa, %while.cond121.preheader ]
+  %output5.2279 = phi ptr [ %incdec.ptr145, %while.body123 ], [ %output5.1.lcssa, %while.cond121.preheader ]
   %21 = load float, ptr %input.addr.2287, align 4
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2286) #24, !srcloc !794
   %mul = fmul float %1, %21
@@ -23347,20 +23347,20 @@ while.body123:                                    ; preds = %while.cond121.prehe
   %mul132 = fmul float %9, %21
   store float %mul132, ptr %output4.2282, align 4
   %mul134 = fmul float %11, %21
-  store float %mul134, ptr %output5.2281, align 4
+  store float %mul134, ptr %output5.2279, align 4
   %mul136 = fmul float %13, %21
   store float %mul136, ptr %output6.2280, align 4
   %mul138 = fmul float %15, %21
-  store float %mul138, ptr %output7.2279, align 4
+  store float %mul138, ptr %output7.2281, align 4
   %incdec.ptr = getelementptr inbounds i8, ptr %input.addr.2287, i64 4
   %incdec.ptr140 = getelementptr inbounds i8, ptr %output0.2286, i64 4
   %incdec.ptr141 = getelementptr inbounds i8, ptr %output1.2285, i64 4
   %incdec.ptr142 = getelementptr inbounds i8, ptr %output2.2284, i64 4
   %incdec.ptr143 = getelementptr inbounds i8, ptr %output3.2283, i64 4
   %incdec.ptr144 = getelementptr inbounds i8, ptr %output4.2282, i64 4
-  %incdec.ptr145 = getelementptr inbounds i8, ptr %output5.2281, i64 4
+  %incdec.ptr145 = getelementptr inbounds i8, ptr %output5.2279, i64 4
   %incdec.ptr146 = getelementptr inbounds i8, ptr %output6.2280, i64 4
-  %incdec.ptr147 = getelementptr inbounds i8, ptr %output7.2279, i64 4
+  %incdec.ptr147 = getelementptr inbounds i8, ptr %output7.2281, i64 4
   %cmp122 = icmp ult ptr %incdec.ptr, %input_end
   br i1 %cmp122, label %while.body123, label %while.end148, !llvm.loop !795
 
@@ -23409,9 +23409,9 @@ entry:
 
 while.cond158.preheader:                          ; preds = %while.body, %entry
   %sub.ptr.sub161266.pre-phi = phi i64 [ %sub.ptr.sub245, %entry ], [ %sub.ptr.sub, %while.body ]
-  %input7.0.lcssa = phi ptr [ %10, %entry ], [ %add.ptr157, %while.body ]
-  %input6.0.lcssa = phi ptr [ %9, %entry ], [ %add.ptr156, %while.body ]
   %input5.0.lcssa = phi ptr [ %7, %entry ], [ %add.ptr155, %while.body ]
+  %input6.0.lcssa = phi ptr [ %9, %entry ], [ %add.ptr156, %while.body ]
+  %input7.0.lcssa = phi ptr [ %10, %entry ], [ %add.ptr157, %while.body ]
   %input4.0.lcssa = phi ptr [ %6, %entry ], [ %add.ptr154, %while.body ]
   %input3.0.lcssa = phi ptr [ %4, %entry ], [ %add.ptr153, %while.body ]
   %input2.0.lcssa = phi ptr [ %3, %entry ], [ %add.ptr152, %while.body ]
@@ -23428,9 +23428,9 @@ while.body:                                       ; preds = %entry, %while.body
   %input2.0252 = phi ptr [ %add.ptr152, %while.body ], [ %3, %entry ]
   %input3.0251 = phi ptr [ %add.ptr153, %while.body ], [ %4, %entry ]
   %input4.0250 = phi ptr [ %add.ptr154, %while.body ], [ %6, %entry ]
-  %input5.0249 = phi ptr [ %add.ptr155, %while.body ], [ %7, %entry ]
+  %input7.0249 = phi ptr [ %add.ptr157, %while.body ], [ %10, %entry ]
   %input6.0248 = phi ptr [ %add.ptr156, %while.body ], [ %9, %entry ]
-  %input7.0247 = phi ptr [ %add.ptr157, %while.body ], [ %10, %entry ]
+  %input5.0247 = phi ptr [ %add.ptr155, %while.body ], [ %7, %entry ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0255) #24, !srcloc !796
   %add.ptr = getelementptr inbounds i8, ptr %input0.0254, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr, i32 0, i32 3, i32 1)
@@ -23442,11 +23442,11 @@ while.body:                                       ; preds = %entry, %while.body
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr25, i32 0, i32 3, i32 1)
   %add.ptr26 = getelementptr inbounds i8, ptr %input4.0250, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr26, i32 0, i32 3, i32 1)
-  %add.ptr27 = getelementptr inbounds i8, ptr %input5.0249, i64 256
+  %add.ptr27 = getelementptr inbounds i8, ptr %input5.0247, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr27, i32 0, i32 3, i32 1)
   %add.ptr28 = getelementptr inbounds i8, ptr %input6.0248, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr28, i32 0, i32 3, i32 1)
-  %add.ptr29 = getelementptr inbounds i8, ptr %input7.0247, i64 256
+  %add.ptr29 = getelementptr inbounds i8, ptr %input7.0249, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr29, i32 0, i32 3, i32 1)
   %12 = load <4 x float>, ptr %input0.0254, align 1
   %add.ptr31 = getelementptr inbounds i8, ptr %input0.0254, i64 16
@@ -23519,12 +23519,12 @@ while.body:                                       ; preds = %entry, %while.body
   %add.i461 = fadd <4 x float> %add.i473, %mul.i345
   %mul.i342 = fmul <4 x float> %vecinit3.i542, %31
   %add.i458 = fadd <4 x float> %add.i470, %mul.i342
-  %32 = load <4 x float>, ptr %input5.0249, align 1
-  %add.ptr102 = getelementptr inbounds i8, ptr %input5.0249, i64 16
+  %32 = load <4 x float>, ptr %input5.0247, align 1
+  %add.ptr102 = getelementptr inbounds i8, ptr %input5.0247, i64 16
   %33 = load <4 x float>, ptr %add.ptr102, align 1
-  %add.ptr104 = getelementptr inbounds i8, ptr %input5.0249, i64 32
+  %add.ptr104 = getelementptr inbounds i8, ptr %input5.0247, i64 32
   %34 = load <4 x float>, ptr %add.ptr104, align 1
-  %add.ptr106 = getelementptr inbounds i8, ptr %input5.0249, i64 48
+  %add.ptr106 = getelementptr inbounds i8, ptr %input5.0247, i64 48
   %35 = load <4 x float>, ptr %add.ptr106, align 1
   %mul.i339 = fmul <4 x float> %vecinit3.i548, %32
   %add.i455 = fadd <4 x float> %add.i467, %mul.i339
@@ -23549,12 +23549,12 @@ while.body:                                       ; preds = %entry, %while.body
   %add.i437 = fadd <4 x float> %add.i449, %mul.i321
   %mul.i318 = fmul <4 x float> %vecinit3.i554, %39
   %add.i434 = fadd <4 x float> %add.i446, %mul.i318
-  %40 = load <4 x float>, ptr %input7.0247, align 1
-  %add.ptr132 = getelementptr inbounds i8, ptr %input7.0247, i64 16
+  %40 = load <4 x float>, ptr %input7.0249, align 1
+  %add.ptr132 = getelementptr inbounds i8, ptr %input7.0249, i64 16
   %41 = load <4 x float>, ptr %add.ptr132, align 1
-  %add.ptr134 = getelementptr inbounds i8, ptr %input7.0247, i64 32
+  %add.ptr134 = getelementptr inbounds i8, ptr %input7.0249, i64 32
   %42 = load <4 x float>, ptr %add.ptr134, align 1
-  %add.ptr136 = getelementptr inbounds i8, ptr %input7.0247, i64 48
+  %add.ptr136 = getelementptr inbounds i8, ptr %input7.0249, i64 48
   %43 = load <4 x float>, ptr %add.ptr136, align 1
   %mul.i315 = fmul <4 x float> %vecinit3.i560, %40
   %add.i431 = fadd <4 x float> %add.i443, %mul.i315
@@ -23577,18 +23577,18 @@ while.body:                                       ; preds = %entry, %while.body
   %add.ptr152 = getelementptr inbounds i8, ptr %input2.0252, i64 64
   %add.ptr153 = getelementptr inbounds i8, ptr %input3.0251, i64 64
   %add.ptr154 = getelementptr inbounds i8, ptr %input4.0250, i64 64
-  %add.ptr155 = getelementptr inbounds i8, ptr %input5.0249, i64 64
+  %add.ptr155 = getelementptr inbounds i8, ptr %input5.0247, i64 64
   %add.ptr156 = getelementptr inbounds i8, ptr %input6.0248, i64 64
-  %add.ptr157 = getelementptr inbounds i8, ptr %input7.0247, i64 64
+  %add.ptr157 = getelementptr inbounds i8, ptr %input7.0249, i64 64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr150 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 63
   br i1 %cmp, label %while.body, label %while.cond158.preheader, !llvm.loop !797
 
 while.cond199.preheader:                          ; preds = %while.body163, %while.cond158.preheader
-  %input7.1.lcssa = phi ptr [ %input7.0.lcssa, %while.cond158.preheader ], [ %add.ptr197, %while.body163 ]
-  %input6.1.lcssa = phi ptr [ %input6.0.lcssa, %while.cond158.preheader ], [ %add.ptr196, %while.body163 ]
   %input5.1.lcssa = phi ptr [ %input5.0.lcssa, %while.cond158.preheader ], [ %add.ptr195, %while.body163 ]
+  %input6.1.lcssa = phi ptr [ %input6.0.lcssa, %while.cond158.preheader ], [ %add.ptr196, %while.body163 ]
+  %input7.1.lcssa = phi ptr [ %input7.0.lcssa, %while.cond158.preheader ], [ %add.ptr197, %while.body163 ]
   %input4.1.lcssa = phi ptr [ %input4.0.lcssa, %while.cond158.preheader ], [ %add.ptr194, %while.body163 ]
   %input3.1.lcssa = phi ptr [ %input3.0.lcssa, %while.cond158.preheader ], [ %add.ptr193, %while.body163 ]
   %input2.1.lcssa = phi ptr [ %input2.0.lcssa, %while.cond158.preheader ], [ %add.ptr192, %while.body163 ]
@@ -23605,9 +23605,9 @@ while.body163:                                    ; preds = %while.cond158.prehe
   %input2.1273 = phi ptr [ %add.ptr192, %while.body163 ], [ %input2.0.lcssa, %while.cond158.preheader ]
   %input3.1272 = phi ptr [ %add.ptr193, %while.body163 ], [ %input3.0.lcssa, %while.cond158.preheader ]
   %input4.1271 = phi ptr [ %add.ptr194, %while.body163 ], [ %input4.0.lcssa, %while.cond158.preheader ]
-  %input5.1270 = phi ptr [ %add.ptr195, %while.body163 ], [ %input5.0.lcssa, %while.cond158.preheader ]
+  %input7.1270 = phi ptr [ %add.ptr197, %while.body163 ], [ %input7.0.lcssa, %while.cond158.preheader ]
   %input6.1269 = phi ptr [ %add.ptr196, %while.body163 ], [ %input6.0.lcssa, %while.cond158.preheader ]
-  %input7.1268 = phi ptr [ %add.ptr197, %while.body163 ], [ %input7.0.lcssa, %while.cond158.preheader ]
+  %input5.1268 = phi ptr [ %add.ptr195, %while.body163 ], [ %input5.0.lcssa, %while.cond158.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1276) #24, !srcloc !798
   %44 = load <4 x float>, ptr %input0.1275, align 1
   %mul.i303 = fmul <4 x float> %vecinit3.i, %44
@@ -23623,13 +23623,13 @@ while.body163:                                    ; preds = %while.cond158.prehe
   %48 = load <4 x float>, ptr %input4.1271, align 1
   %mul.i291 = fmul <4 x float> %vecinit3.i542, %48
   %add.i410 = fadd <4 x float> %add.i413, %mul.i291
-  %49 = load <4 x float>, ptr %input5.1270, align 1
+  %49 = load <4 x float>, ptr %input5.1268, align 1
   %mul.i288 = fmul <4 x float> %vecinit3.i548, %49
   %add.i407 = fadd <4 x float> %add.i410, %mul.i288
   %50 = load <4 x float>, ptr %input6.1269, align 1
   %mul.i285 = fmul <4 x float> %vecinit3.i554, %50
   %add.i404 = fadd <4 x float> %add.i407, %mul.i285
-  %51 = load <4 x float>, ptr %input7.1268, align 1
+  %51 = load <4 x float>, ptr %input7.1270, align 1
   %mul.i = fmul <4 x float> %vecinit3.i560, %51
   %add.i = fadd <4 x float> %add.i404, %mul.i
   store <4 x float> %add.i, ptr %output.1276, align 1
@@ -23639,9 +23639,9 @@ while.body163:                                    ; preds = %while.cond158.prehe
   %add.ptr192 = getelementptr inbounds i8, ptr %input2.1273, i64 16
   %add.ptr193 = getelementptr inbounds i8, ptr %input3.1272, i64 16
   %add.ptr194 = getelementptr inbounds i8, ptr %input4.1271, i64 16
-  %add.ptr195 = getelementptr inbounds i8, ptr %input5.1270, i64 16
+  %add.ptr195 = getelementptr inbounds i8, ptr %input5.1268, i64 16
   %add.ptr196 = getelementptr inbounds i8, ptr %input6.1269, i64 16
-  %add.ptr197 = getelementptr inbounds i8, ptr %input7.1268, i64 16
+  %add.ptr197 = getelementptr inbounds i8, ptr %input7.1270, i64 16
   %sub.ptr.rhs.cast160 = ptrtoint ptr %add.ptr190 to i64
   %sub.ptr.sub161 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast160
   %cmp162 = icmp sgt i64 %sub.ptr.sub161, 15
@@ -23654,9 +23654,9 @@ while.body201:                                    ; preds = %while.cond199.prehe
   %input2.2292 = phi ptr [ %incdec.ptr227, %while.body201 ], [ %input2.1.lcssa, %while.cond199.preheader ]
   %input3.2291 = phi ptr [ %incdec.ptr228, %while.body201 ], [ %input3.1.lcssa, %while.cond199.preheader ]
   %input4.2290 = phi ptr [ %incdec.ptr229, %while.body201 ], [ %input4.1.lcssa, %while.cond199.preheader ]
-  %input5.2289 = phi ptr [ %incdec.ptr230, %while.body201 ], [ %input5.1.lcssa, %while.cond199.preheader ]
+  %input7.2289 = phi ptr [ %incdec.ptr232, %while.body201 ], [ %input7.1.lcssa, %while.cond199.preheader ]
   %input6.2288 = phi ptr [ %incdec.ptr231, %while.body201 ], [ %input6.1.lcssa, %while.cond199.preheader ]
-  %input7.2287 = phi ptr [ %incdec.ptr232, %while.body201 ], [ %input7.1.lcssa, %while.cond199.preheader ]
+  %input5.2287 = phi ptr [ %incdec.ptr230, %while.body201 ], [ %input5.1.lcssa, %while.cond199.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2295) #24, !srcloc !800
   %52 = load float, ptr %input0.2294, align 4
   %53 = load float, ptr %input1.2293, align 4
@@ -23674,7 +23674,7 @@ while.body201:                                    ; preds = %while.cond199.prehe
   %shift296 = shufflevector <2 x float> %62, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %64 = fadd <2 x float> %63, %shift296
   %65 = load float, ptr %input4.2290, align 4
-  %66 = load float, ptr %input5.2289, align 4
+  %66 = load float, ptr %input5.2287, align 4
   %67 = insertelement <2 x float> poison, float %65, i64 0
   %68 = insertelement <2 x float> %67, float %66, i64 1
   %69 = fmul <2 x float> %8, %68
@@ -23682,7 +23682,7 @@ while.body201:                                    ; preds = %while.cond199.prehe
   %shift297 = shufflevector <2 x float> %69, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %71 = fadd <2 x float> %70, %shift297
   %72 = load float, ptr %input6.2288, align 4
-  %73 = load float, ptr %input7.2287, align 4
+  %73 = load float, ptr %input7.2289, align 4
   %74 = insertelement <2 x float> poison, float %72, i64 0
   %75 = insertelement <2 x float> %74, float %73, i64 1
   %76 = fmul <2 x float> %11, %75
@@ -23697,9 +23697,9 @@ while.body201:                                    ; preds = %while.cond199.prehe
   %incdec.ptr227 = getelementptr inbounds i8, ptr %input2.2292, i64 4
   %incdec.ptr228 = getelementptr inbounds i8, ptr %input3.2291, i64 4
   %incdec.ptr229 = getelementptr inbounds i8, ptr %input4.2290, i64 4
-  %incdec.ptr230 = getelementptr inbounds i8, ptr %input5.2289, i64 4
+  %incdec.ptr230 = getelementptr inbounds i8, ptr %input5.2287, i64 4
   %incdec.ptr231 = getelementptr inbounds i8, ptr %input6.2288, i64 4
-  %incdec.ptr232 = getelementptr inbounds i8, ptr %input7.2287, i64 4
+  %incdec.ptr232 = getelementptr inbounds i8, ptr %input7.2289, i64 4
   %cmp200 = icmp ult ptr %incdec.ptr225, %input0_end
   br i1 %cmp200, label %while.body201, label %while.end233, !llvm.loop !801
 
@@ -23764,9 +23764,9 @@ entry:
 
 while.cond182.preheader:                          ; preds = %while.body, %entry
   %sub.ptr.sub185338.pre-phi = phi i64 [ %sub.ptr.sub317, %entry ], [ %sub.ptr.sub, %while.body ]
-  %output7.0.lcssa = phi ptr [ %14, %entry ], [ %add.ptr181, %while.body ]
-  %output6.0.lcssa = phi ptr [ %12, %entry ], [ %add.ptr180, %while.body ]
   %output5.0.lcssa = phi ptr [ %10, %entry ], [ %add.ptr179, %while.body ]
+  %output6.0.lcssa = phi ptr [ %12, %entry ], [ %add.ptr180, %while.body ]
+  %output7.0.lcssa = phi ptr [ %14, %entry ], [ %add.ptr181, %while.body ]
   %output4.0.lcssa = phi ptr [ %8, %entry ], [ %add.ptr178, %while.body ]
   %output3.0.lcssa = phi ptr [ %6, %entry ], [ %add.ptr177, %while.body ]
   %output2.0.lcssa = phi ptr [ %4, %entry ], [ %add.ptr176, %while.body ]
@@ -23783,9 +23783,9 @@ while.body:                                       ; preds = %entry, %while.body
   %output2.0324 = phi ptr [ %add.ptr176, %while.body ], [ %4, %entry ]
   %output3.0323 = phi ptr [ %add.ptr177, %while.body ], [ %6, %entry ]
   %output4.0322 = phi ptr [ %add.ptr178, %while.body ], [ %8, %entry ]
-  %output5.0321 = phi ptr [ %add.ptr179, %while.body ], [ %10, %entry ]
+  %output7.0321 = phi ptr [ %add.ptr181, %while.body ], [ %14, %entry ]
   %output6.0320 = phi ptr [ %add.ptr180, %while.body ], [ %12, %entry ]
-  %output7.0319 = phi ptr [ %add.ptr181, %while.body ], [ %14, %entry ]
+  %output5.0319 = phi ptr [ %add.ptr179, %while.body ], [ %10, %entry ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.0326) #24, !srcloc !802
   %16 = load <4 x float>, ptr %input.addr.0327, align 1
   %add.ptr = getelementptr inbounds i8, ptr %input.addr.0327, i64 16
@@ -23889,12 +23889,12 @@ while.body:                                       ; preds = %entry, %while.body
   store <4 x float> %add.i568, ptr %add.ptr102, align 1
   store <4 x float> %add.i565, ptr %add.ptr104, align 1
   store <4 x float> %add.i562, ptr %add.ptr106, align 1
-  %40 = load <4 x float>, ptr %output5.0321, align 1
-  %add.ptr120 = getelementptr inbounds i8, ptr %output5.0321, i64 16
+  %40 = load <4 x float>, ptr %output5.0319, align 1
+  %add.ptr120 = getelementptr inbounds i8, ptr %output5.0319, i64 16
   %41 = load <4 x float>, ptr %add.ptr120, align 1
-  %add.ptr122 = getelementptr inbounds i8, ptr %output5.0321, i64 32
+  %add.ptr122 = getelementptr inbounds i8, ptr %output5.0319, i64 32
   %42 = load <4 x float>, ptr %add.ptr122, align 1
-  %add.ptr124 = getelementptr inbounds i8, ptr %output5.0321, i64 48
+  %add.ptr124 = getelementptr inbounds i8, ptr %output5.0319, i64 48
   %43 = load <4 x float>, ptr %add.ptr124, align 1
   %mul.i440 = fmul <4 x float> %vecinit3.i664, %16
   %add.i559 = fadd <4 x float> %mul.i440, %40
@@ -23904,7 +23904,7 @@ while.body:                                       ; preds = %entry, %while.body
   %add.i553 = fadd <4 x float> %mul.i434, %42
   %mul.i431 = fmul <4 x float> %vecinit3.i664, %19
   %add.i550 = fadd <4 x float> %mul.i431, %43
-  store <4 x float> %add.i559, ptr %output5.0321, align 1
+  store <4 x float> %add.i559, ptr %output5.0319, align 1
   store <4 x float> %add.i556, ptr %add.ptr120, align 1
   store <4 x float> %add.i553, ptr %add.ptr122, align 1
   store <4 x float> %add.i550, ptr %add.ptr124, align 1
@@ -23927,12 +23927,12 @@ while.body:                                       ; preds = %entry, %while.body
   store <4 x float> %add.i544, ptr %add.ptr138, align 1
   store <4 x float> %add.i541, ptr %add.ptr140, align 1
   store <4 x float> %add.i538, ptr %add.ptr142, align 1
-  %48 = load <4 x float>, ptr %output7.0319, align 1
-  %add.ptr156 = getelementptr inbounds i8, ptr %output7.0319, i64 16
+  %48 = load <4 x float>, ptr %output7.0321, align 1
+  %add.ptr156 = getelementptr inbounds i8, ptr %output7.0321, i64 16
   %49 = load <4 x float>, ptr %add.ptr156, align 1
-  %add.ptr158 = getelementptr inbounds i8, ptr %output7.0319, i64 32
+  %add.ptr158 = getelementptr inbounds i8, ptr %output7.0321, i64 32
   %50 = load <4 x float>, ptr %add.ptr158, align 1
-  %add.ptr160 = getelementptr inbounds i8, ptr %output7.0319, i64 48
+  %add.ptr160 = getelementptr inbounds i8, ptr %output7.0321, i64 48
   %51 = load <4 x float>, ptr %add.ptr160, align 1
   %mul.i416 = fmul <4 x float> %vecinit3.i676, %16
   %add.i535 = fadd <4 x float> %mul.i416, %48
@@ -23942,7 +23942,7 @@ while.body:                                       ; preds = %entry, %while.body
   %add.i529 = fadd <4 x float> %mul.i410, %50
   %mul.i407 = fmul <4 x float> %vecinit3.i676, %19
   %add.i526 = fadd <4 x float> %mul.i407, %51
-  store <4 x float> %add.i535, ptr %output7.0319, align 1
+  store <4 x float> %add.i535, ptr %output7.0321, align 1
   store <4 x float> %add.i532, ptr %add.ptr156, align 1
   store <4 x float> %add.i529, ptr %add.ptr158, align 1
   store <4 x float> %add.i526, ptr %add.ptr160, align 1
@@ -23952,18 +23952,18 @@ while.body:                                       ; preds = %entry, %while.body
   %add.ptr176 = getelementptr inbounds i8, ptr %output2.0324, i64 64
   %add.ptr177 = getelementptr inbounds i8, ptr %output3.0323, i64 64
   %add.ptr178 = getelementptr inbounds i8, ptr %output4.0322, i64 64
-  %add.ptr179 = getelementptr inbounds i8, ptr %output5.0321, i64 64
+  %add.ptr179 = getelementptr inbounds i8, ptr %output5.0319, i64 64
   %add.ptr180 = getelementptr inbounds i8, ptr %output6.0320, i64 64
-  %add.ptr181 = getelementptr inbounds i8, ptr %output7.0319, i64 64
+  %add.ptr181 = getelementptr inbounds i8, ptr %output7.0321, i64 64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr173 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 63
   br i1 %cmp, label %while.body, label %while.cond182.preheader, !llvm.loop !803
 
 while.cond225.preheader:                          ; preds = %while.body187, %while.cond182.preheader
-  %output7.1.lcssa = phi ptr [ %output7.0.lcssa, %while.cond182.preheader ], [ %add.ptr223, %while.body187 ]
-  %output6.1.lcssa = phi ptr [ %output6.0.lcssa, %while.cond182.preheader ], [ %add.ptr222, %while.body187 ]
   %output5.1.lcssa = phi ptr [ %output5.0.lcssa, %while.cond182.preheader ], [ %add.ptr221, %while.body187 ]
+  %output6.1.lcssa = phi ptr [ %output6.0.lcssa, %while.cond182.preheader ], [ %add.ptr222, %while.body187 ]
+  %output7.1.lcssa = phi ptr [ %output7.0.lcssa, %while.cond182.preheader ], [ %add.ptr223, %while.body187 ]
   %output4.1.lcssa = phi ptr [ %output4.0.lcssa, %while.cond182.preheader ], [ %add.ptr220, %while.body187 ]
   %output3.1.lcssa = phi ptr [ %output3.0.lcssa, %while.cond182.preheader ], [ %add.ptr219, %while.body187 ]
   %output2.1.lcssa = phi ptr [ %output2.0.lcssa, %while.cond182.preheader ], [ %add.ptr218, %while.body187 ]
@@ -23980,9 +23980,9 @@ while.body187:                                    ; preds = %while.cond182.prehe
   %output2.1345 = phi ptr [ %add.ptr218, %while.body187 ], [ %output2.0.lcssa, %while.cond182.preheader ]
   %output3.1344 = phi ptr [ %add.ptr219, %while.body187 ], [ %output3.0.lcssa, %while.cond182.preheader ]
   %output4.1343 = phi ptr [ %add.ptr220, %while.body187 ], [ %output4.0.lcssa, %while.cond182.preheader ]
-  %output5.1342 = phi ptr [ %add.ptr221, %while.body187 ], [ %output5.0.lcssa, %while.cond182.preheader ]
+  %output7.1342 = phi ptr [ %add.ptr223, %while.body187 ], [ %output7.0.lcssa, %while.cond182.preheader ]
   %output6.1341 = phi ptr [ %add.ptr222, %while.body187 ], [ %output6.0.lcssa, %while.cond182.preheader ]
-  %output7.1340 = phi ptr [ %add.ptr223, %while.body187 ], [ %output7.0.lcssa, %while.cond182.preheader ]
+  %output5.1340 = phi ptr [ %add.ptr221, %while.body187 ], [ %output5.0.lcssa, %while.cond182.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.1347) #24, !srcloc !804
   %52 = load <4 x float>, ptr %input.addr.1348, align 1
   %53 = load <4 x float>, ptr %output0.1347, align 1
@@ -24005,27 +24005,27 @@ while.body187:                                    ; preds = %while.cond182.prehe
   %mul.i392 = fmul <4 x float> %vecinit3.i658, %52
   %add.i511 = fadd <4 x float> %mul.i392, %57
   store <4 x float> %add.i511, ptr %output4.1343, align 1
-  %58 = load <4 x float>, ptr %output5.1342, align 1
+  %58 = load <4 x float>, ptr %output5.1340, align 1
   %mul.i389 = fmul <4 x float> %vecinit3.i664, %52
   %add.i508 = fadd <4 x float> %mul.i389, %58
-  store <4 x float> %add.i508, ptr %output5.1342, align 1
+  store <4 x float> %add.i508, ptr %output5.1340, align 1
   %59 = load <4 x float>, ptr %output6.1341, align 1
   %mul.i386 = fmul <4 x float> %vecinit3.i670, %52
   %add.i505 = fadd <4 x float> %mul.i386, %59
   store <4 x float> %add.i505, ptr %output6.1341, align 1
-  %60 = load <4 x float>, ptr %output7.1340, align 1
+  %60 = load <4 x float>, ptr %output7.1342, align 1
   %mul.i = fmul <4 x float> %vecinit3.i676, %52
   %add.i = fadd <4 x float> %mul.i, %60
-  store <4 x float> %add.i, ptr %output7.1340, align 1
+  store <4 x float> %add.i, ptr %output7.1342, align 1
   %add.ptr215 = getelementptr inbounds i8, ptr %input.addr.1348, i64 16
   %add.ptr216 = getelementptr inbounds i8, ptr %output0.1347, i64 16
   %add.ptr217 = getelementptr inbounds i8, ptr %output1.1346, i64 16
   %add.ptr218 = getelementptr inbounds i8, ptr %output2.1345, i64 16
   %add.ptr219 = getelementptr inbounds i8, ptr %output3.1344, i64 16
   %add.ptr220 = getelementptr inbounds i8, ptr %output4.1343, i64 16
-  %add.ptr221 = getelementptr inbounds i8, ptr %output5.1342, i64 16
+  %add.ptr221 = getelementptr inbounds i8, ptr %output5.1340, i64 16
   %add.ptr222 = getelementptr inbounds i8, ptr %output6.1341, i64 16
-  %add.ptr223 = getelementptr inbounds i8, ptr %output7.1340, i64 16
+  %add.ptr223 = getelementptr inbounds i8, ptr %output7.1342, i64 16
   %sub.ptr.rhs.cast184 = ptrtoint ptr %add.ptr215 to i64
   %sub.ptr.sub185 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast184
   %cmp186 = icmp sgt i64 %sub.ptr.sub185, 15
@@ -24038,9 +24038,9 @@ while.body227:                                    ; preds = %while.cond225.prehe
   %output2.2364 = phi ptr [ %incdec.ptr253, %while.body227 ], [ %output2.1.lcssa, %while.cond225.preheader ]
   %output3.2363 = phi ptr [ %incdec.ptr254, %while.body227 ], [ %output3.1.lcssa, %while.cond225.preheader ]
   %output4.2362 = phi ptr [ %incdec.ptr255, %while.body227 ], [ %output4.1.lcssa, %while.cond225.preheader ]
-  %output5.2361 = phi ptr [ %incdec.ptr256, %while.body227 ], [ %output5.1.lcssa, %while.cond225.preheader ]
+  %output7.2361 = phi ptr [ %incdec.ptr258, %while.body227 ], [ %output7.1.lcssa, %while.cond225.preheader ]
   %output6.2360 = phi ptr [ %incdec.ptr257, %while.body227 ], [ %output6.1.lcssa, %while.cond225.preheader ]
-  %output7.2359 = phi ptr [ %incdec.ptr258, %while.body227 ], [ %output7.1.lcssa, %while.cond225.preheader ]
+  %output5.2359 = phi ptr [ %incdec.ptr256, %while.body227 ], [ %output5.1.lcssa, %while.cond225.preheader ]
   %61 = load float, ptr %input.addr.2367, align 4
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output0.2366) #24, !srcloc !806
   %mul = fmul float %1, %61
@@ -24064,26 +24064,26 @@ while.body227:                                    ; preds = %while.cond225.prehe
   %add241 = fadd float %mul239, %66
   store float %add241, ptr %output4.2362, align 4
   %mul242 = fmul float %11, %61
-  %67 = load float, ptr %output5.2361, align 4
+  %67 = load float, ptr %output5.2359, align 4
   %add244 = fadd float %mul242, %67
-  store float %add244, ptr %output5.2361, align 4
+  store float %add244, ptr %output5.2359, align 4
   %mul245 = fmul float %13, %61
   %68 = load float, ptr %output6.2360, align 4
   %add247 = fadd float %mul245, %68
   store float %add247, ptr %output6.2360, align 4
   %mul248 = fmul float %15, %61
-  %69 = load float, ptr %output7.2359, align 4
+  %69 = load float, ptr %output7.2361, align 4
   %add250 = fadd float %mul248, %69
-  store float %add250, ptr %output7.2359, align 4
+  store float %add250, ptr %output7.2361, align 4
   %incdec.ptr = getelementptr inbounds i8, ptr %input.addr.2367, i64 4
   %incdec.ptr251 = getelementptr inbounds i8, ptr %output0.2366, i64 4
   %incdec.ptr252 = getelementptr inbounds i8, ptr %output1.2365, i64 4
   %incdec.ptr253 = getelementptr inbounds i8, ptr %output2.2364, i64 4
   %incdec.ptr254 = getelementptr inbounds i8, ptr %output3.2363, i64 4
   %incdec.ptr255 = getelementptr inbounds i8, ptr %output4.2362, i64 4
-  %incdec.ptr256 = getelementptr inbounds i8, ptr %output5.2361, i64 4
+  %incdec.ptr256 = getelementptr inbounds i8, ptr %output5.2359, i64 4
   %incdec.ptr257 = getelementptr inbounds i8, ptr %output6.2360, i64 4
-  %incdec.ptr258 = getelementptr inbounds i8, ptr %output7.2359, i64 4
+  %incdec.ptr258 = getelementptr inbounds i8, ptr %output7.2361, i64 4
   %cmp226 = icmp ult ptr %incdec.ptr, %input_end
   br i1 %cmp226, label %while.body227, label %while.end259, !llvm.loop !807
 
@@ -24132,9 +24132,9 @@ entry:
 
 while.cond169.preheader:                          ; preds = %while.body, %entry
   %sub.ptr.sub172277.pre-phi = phi i64 [ %sub.ptr.sub256, %entry ], [ %sub.ptr.sub, %while.body ]
-  %input7.0.lcssa = phi ptr [ %10, %entry ], [ %add.ptr168, %while.body ]
-  %input6.0.lcssa = phi ptr [ %9, %entry ], [ %add.ptr167, %while.body ]
   %input5.0.lcssa = phi ptr [ %7, %entry ], [ %add.ptr166, %while.body ]
+  %input6.0.lcssa = phi ptr [ %9, %entry ], [ %add.ptr167, %while.body ]
+  %input7.0.lcssa = phi ptr [ %10, %entry ], [ %add.ptr168, %while.body ]
   %input4.0.lcssa = phi ptr [ %6, %entry ], [ %add.ptr165, %while.body ]
   %input3.0.lcssa = phi ptr [ %4, %entry ], [ %add.ptr164, %while.body ]
   %input2.0.lcssa = phi ptr [ %3, %entry ], [ %add.ptr163, %while.body ]
@@ -24151,9 +24151,9 @@ while.body:                                       ; preds = %entry, %while.body
   %input2.0263 = phi ptr [ %add.ptr163, %while.body ], [ %3, %entry ]
   %input3.0262 = phi ptr [ %add.ptr164, %while.body ], [ %4, %entry ]
   %input4.0261 = phi ptr [ %add.ptr165, %while.body ], [ %6, %entry ]
-  %input5.0260 = phi ptr [ %add.ptr166, %while.body ], [ %7, %entry ]
+  %input7.0260 = phi ptr [ %add.ptr168, %while.body ], [ %10, %entry ]
   %input6.0259 = phi ptr [ %add.ptr167, %while.body ], [ %9, %entry ]
-  %input7.0258 = phi ptr [ %add.ptr168, %while.body ], [ %10, %entry ]
+  %input5.0258 = phi ptr [ %add.ptr166, %while.body ], [ %7, %entry ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.0266) #24, !srcloc !808
   %add.ptr = getelementptr inbounds i8, ptr %input0.0265, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr, i32 0, i32 3, i32 1)
@@ -24165,11 +24165,11 @@ while.body:                                       ; preds = %entry, %while.body
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr25, i32 0, i32 3, i32 1)
   %add.ptr26 = getelementptr inbounds i8, ptr %input4.0261, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr26, i32 0, i32 3, i32 1)
-  %add.ptr27 = getelementptr inbounds i8, ptr %input5.0260, i64 256
+  %add.ptr27 = getelementptr inbounds i8, ptr %input5.0258, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr27, i32 0, i32 3, i32 1)
   %add.ptr28 = getelementptr inbounds i8, ptr %input6.0259, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr28, i32 0, i32 3, i32 1)
-  %add.ptr29 = getelementptr inbounds i8, ptr %input7.0258, i64 256
+  %add.ptr29 = getelementptr inbounds i8, ptr %input7.0260, i64 256
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr29, i32 0, i32 3, i32 1)
   %12 = load <4 x float>, ptr %output.0266, align 1
   %add.ptr31 = getelementptr inbounds i8, ptr %output.0266, i64 16
@@ -24253,12 +24253,12 @@ while.body:                                       ; preds = %entry, %while.body
   %add.i484 = fadd <4 x float> %add.i496, %mul.i365
   %mul.i362 = fmul <4 x float> %vecinit3.i577, %35
   %add.i481 = fadd <4 x float> %add.i493, %mul.i362
-  %36 = load <4 x float>, ptr %input5.0260, align 1
-  %add.ptr113 = getelementptr inbounds i8, ptr %input5.0260, i64 16
+  %36 = load <4 x float>, ptr %input5.0258, align 1
+  %add.ptr113 = getelementptr inbounds i8, ptr %input5.0258, i64 16
   %37 = load <4 x float>, ptr %add.ptr113, align 1
-  %add.ptr115 = getelementptr inbounds i8, ptr %input5.0260, i64 32
+  %add.ptr115 = getelementptr inbounds i8, ptr %input5.0258, i64 32
   %38 = load <4 x float>, ptr %add.ptr115, align 1
-  %add.ptr117 = getelementptr inbounds i8, ptr %input5.0260, i64 48
+  %add.ptr117 = getelementptr inbounds i8, ptr %input5.0258, i64 48
   %39 = load <4 x float>, ptr %add.ptr117, align 1
   %mul.i359 = fmul <4 x float> %vecinit3.i583, %36
   %add.i478 = fadd <4 x float> %add.i490, %mul.i359
@@ -24283,12 +24283,12 @@ while.body:                                       ; preds = %entry, %while.body
   %add.i460 = fadd <4 x float> %add.i472, %mul.i341
   %mul.i338 = fmul <4 x float> %vecinit3.i589, %43
   %add.i457 = fadd <4 x float> %add.i469, %mul.i338
-  %44 = load <4 x float>, ptr %input7.0258, align 1
-  %add.ptr143 = getelementptr inbounds i8, ptr %input7.0258, i64 16
+  %44 = load <4 x float>, ptr %input7.0260, align 1
+  %add.ptr143 = getelementptr inbounds i8, ptr %input7.0260, i64 16
   %45 = load <4 x float>, ptr %add.ptr143, align 1
-  %add.ptr145 = getelementptr inbounds i8, ptr %input7.0258, i64 32
+  %add.ptr145 = getelementptr inbounds i8, ptr %input7.0260, i64 32
   %46 = load <4 x float>, ptr %add.ptr145, align 1
-  %add.ptr147 = getelementptr inbounds i8, ptr %input7.0258, i64 48
+  %add.ptr147 = getelementptr inbounds i8, ptr %input7.0260, i64 48
   %47 = load <4 x float>, ptr %add.ptr147, align 1
   %mul.i335 = fmul <4 x float> %vecinit3.i595, %44
   %add.i454 = fadd <4 x float> %add.i466, %mul.i335
@@ -24308,18 +24308,18 @@ while.body:                                       ; preds = %entry, %while.body
   %add.ptr163 = getelementptr inbounds i8, ptr %input2.0263, i64 64
   %add.ptr164 = getelementptr inbounds i8, ptr %input3.0262, i64 64
   %add.ptr165 = getelementptr inbounds i8, ptr %input4.0261, i64 64
-  %add.ptr166 = getelementptr inbounds i8, ptr %input5.0260, i64 64
+  %add.ptr166 = getelementptr inbounds i8, ptr %input5.0258, i64 64
   %add.ptr167 = getelementptr inbounds i8, ptr %input6.0259, i64 64
-  %add.ptr168 = getelementptr inbounds i8, ptr %input7.0258, i64 64
+  %add.ptr168 = getelementptr inbounds i8, ptr %input7.0260, i64 64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr161 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp = icmp sgt i64 %sub.ptr.sub, 63
   br i1 %cmp, label %while.body, label %while.cond169.preheader, !llvm.loop !809
 
 while.cond212.preheader:                          ; preds = %while.body174, %while.cond169.preheader
-  %input7.1.lcssa = phi ptr [ %input7.0.lcssa, %while.cond169.preheader ], [ %add.ptr210, %while.body174 ]
-  %input6.1.lcssa = phi ptr [ %input6.0.lcssa, %while.cond169.preheader ], [ %add.ptr209, %while.body174 ]
   %input5.1.lcssa = phi ptr [ %input5.0.lcssa, %while.cond169.preheader ], [ %add.ptr208, %while.body174 ]
+  %input6.1.lcssa = phi ptr [ %input6.0.lcssa, %while.cond169.preheader ], [ %add.ptr209, %while.body174 ]
+  %input7.1.lcssa = phi ptr [ %input7.0.lcssa, %while.cond169.preheader ], [ %add.ptr210, %while.body174 ]
   %input4.1.lcssa = phi ptr [ %input4.0.lcssa, %while.cond169.preheader ], [ %add.ptr207, %while.body174 ]
   %input3.1.lcssa = phi ptr [ %input3.0.lcssa, %while.cond169.preheader ], [ %add.ptr206, %while.body174 ]
   %input2.1.lcssa = phi ptr [ %input2.0.lcssa, %while.cond169.preheader ], [ %add.ptr205, %while.body174 ]
@@ -24336,9 +24336,9 @@ while.body174:                                    ; preds = %while.cond169.prehe
   %input2.1284 = phi ptr [ %add.ptr205, %while.body174 ], [ %input2.0.lcssa, %while.cond169.preheader ]
   %input3.1283 = phi ptr [ %add.ptr206, %while.body174 ], [ %input3.0.lcssa, %while.cond169.preheader ]
   %input4.1282 = phi ptr [ %add.ptr207, %while.body174 ], [ %input4.0.lcssa, %while.cond169.preheader ]
-  %input5.1281 = phi ptr [ %add.ptr208, %while.body174 ], [ %input5.0.lcssa, %while.cond169.preheader ]
+  %input7.1281 = phi ptr [ %add.ptr210, %while.body174 ], [ %input7.0.lcssa, %while.cond169.preheader ]
   %input6.1280 = phi ptr [ %add.ptr209, %while.body174 ], [ %input6.0.lcssa, %while.cond169.preheader ]
-  %input7.1279 = phi ptr [ %add.ptr210, %while.body174 ], [ %input7.0.lcssa, %while.cond169.preheader ]
+  %input5.1279 = phi ptr [ %add.ptr208, %while.body174 ], [ %input5.0.lcssa, %while.cond169.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.1287) #24, !srcloc !810
   %48 = load <4 x float>, ptr %output.1287, align 1
   %49 = load <4 x float>, ptr %input0.1286, align 1
@@ -24356,13 +24356,13 @@ while.body174:                                    ; preds = %while.cond169.prehe
   %53 = load <4 x float>, ptr %input4.1282, align 1
   %mul.i311 = fmul <4 x float> %vecinit3.i577, %53
   %add.i430 = fadd <4 x float> %add.i433, %mul.i311
-  %54 = load <4 x float>, ptr %input5.1281, align 1
+  %54 = load <4 x float>, ptr %input5.1279, align 1
   %mul.i308 = fmul <4 x float> %vecinit3.i583, %54
   %add.i427 = fadd <4 x float> %add.i430, %mul.i308
   %55 = load <4 x float>, ptr %input6.1280, align 1
   %mul.i305 = fmul <4 x float> %vecinit3.i589, %55
   %add.i424 = fadd <4 x float> %add.i427, %mul.i305
-  %56 = load <4 x float>, ptr %input7.1279, align 1
+  %56 = load <4 x float>, ptr %input7.1281, align 1
   %mul.i = fmul <4 x float> %vecinit3.i595, %56
   %add.i = fadd <4 x float> %add.i424, %mul.i
   store <4 x float> %add.i, ptr %output.1287, align 1
@@ -24372,9 +24372,9 @@ while.body174:                                    ; preds = %while.cond169.prehe
   %add.ptr205 = getelementptr inbounds i8, ptr %input2.1284, i64 16
   %add.ptr206 = getelementptr inbounds i8, ptr %input3.1283, i64 16
   %add.ptr207 = getelementptr inbounds i8, ptr %input4.1282, i64 16
-  %add.ptr208 = getelementptr inbounds i8, ptr %input5.1281, i64 16
+  %add.ptr208 = getelementptr inbounds i8, ptr %input5.1279, i64 16
   %add.ptr209 = getelementptr inbounds i8, ptr %input6.1280, i64 16
-  %add.ptr210 = getelementptr inbounds i8, ptr %input7.1279, i64 16
+  %add.ptr210 = getelementptr inbounds i8, ptr %input7.1281, i64 16
   %sub.ptr.rhs.cast171 = ptrtoint ptr %add.ptr203 to i64
   %sub.ptr.sub172 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast171
   %cmp173 = icmp sgt i64 %sub.ptr.sub172, 15
@@ -24387,9 +24387,9 @@ while.body214:                                    ; preds = %while.cond212.prehe
   %input2.2303 = phi ptr [ %incdec.ptr242, %while.body214 ], [ %input2.1.lcssa, %while.cond212.preheader ]
   %input3.2302 = phi ptr [ %incdec.ptr243, %while.body214 ], [ %input3.1.lcssa, %while.cond212.preheader ]
   %input4.2301 = phi ptr [ %incdec.ptr244, %while.body214 ], [ %input4.1.lcssa, %while.cond212.preheader ]
-  %input5.2300 = phi ptr [ %incdec.ptr245, %while.body214 ], [ %input5.1.lcssa, %while.cond212.preheader ]
+  %input7.2300 = phi ptr [ %incdec.ptr247, %while.body214 ], [ %input7.1.lcssa, %while.cond212.preheader ]
   %input6.2299 = phi ptr [ %incdec.ptr246, %while.body214 ], [ %input6.1.lcssa, %while.cond212.preheader ]
-  %input7.2298 = phi ptr [ %incdec.ptr247, %while.body214 ], [ %input7.1.lcssa, %while.cond212.preheader ]
+  %input5.2298 = phi ptr [ %incdec.ptr245, %while.body214 ], [ %input5.1.lcssa, %while.cond212.preheader ]
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr %output.2306) #24, !srcloc !812
   %57 = load float, ptr %output.2306, align 4
   %58 = load float, ptr %input0.2305, align 4
@@ -24411,7 +24411,7 @@ while.body214:                                    ; preds = %while.cond212.prehe
   %71 = extractelement <2 x float> %69, i64 1
   %add226 = fadd float %add223, %71
   %72 = load float, ptr %input4.2301, align 4
-  %73 = load float, ptr %input5.2300, align 4
+  %73 = load float, ptr %input5.2298, align 4
   %74 = insertelement <2 x float> poison, float %72, i64 0
   %75 = insertelement <2 x float> %74, float %73, i64 1
   %76 = fmul <2 x float> %8, %75
@@ -24420,7 +24420,7 @@ while.body214:                                    ; preds = %while.cond212.prehe
   %78 = extractelement <2 x float> %76, i64 1
   %add232 = fadd float %add229, %78
   %79 = load float, ptr %input6.2299, align 4
-  %80 = load float, ptr %input7.2298, align 4
+  %80 = load float, ptr %input7.2300, align 4
   %81 = insertelement <2 x float> poison, float %79, i64 0
   %82 = insertelement <2 x float> %81, float %80, i64 1
   %83 = fmul <2 x float> %11, %82
@@ -24435,9 +24435,9 @@ while.body214:                                    ; preds = %while.cond212.prehe
   %incdec.ptr242 = getelementptr inbounds i8, ptr %input2.2303, i64 4
   %incdec.ptr243 = getelementptr inbounds i8, ptr %input3.2302, i64 4
   %incdec.ptr244 = getelementptr inbounds i8, ptr %input4.2301, i64 4
-  %incdec.ptr245 = getelementptr inbounds i8, ptr %input5.2300, i64 4
+  %incdec.ptr245 = getelementptr inbounds i8, ptr %input5.2298, i64 4
   %incdec.ptr246 = getelementptr inbounds i8, ptr %input6.2299, i64 4
-  %incdec.ptr247 = getelementptr inbounds i8, ptr %input7.2298, i64 4
+  %incdec.ptr247 = getelementptr inbounds i8, ptr %input7.2300, i64 4
   %cmp213 = icmp ult ptr %incdec.ptr240, %input0_end
   br i1 %cmp213, label %while.body214, label %while.end248, !llvm.loop !813
 
@@ -24887,10 +24887,10 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %while.end
   %y.0152 = phi i32 [ %2, %for.body.lr.ph ], [ %inc30, %while.end ]
-  %vertical_contributors.0151 = phi ptr [ %add.ptr, %for.body.lr.ph ], [ %incdec.ptr, %while.end ]
-  %vertical_coefficients.0150 = phi ptr [ %add.ptr6, %for.body.lr.ph ], [ %add.ptr29, %while.end ]
-  %8 = load i32, ptr %vertical_contributors.0151, align 4
-  %n1 = getelementptr inbounds i8, ptr %vertical_contributors.0151, i64 4
+  %vertical_coefficients.0151 = phi ptr [ %add.ptr6, %for.body.lr.ph ], [ %add.ptr29, %while.end ]
+  %vertical_contributors.0150 = phi ptr [ %add.ptr, %for.body.lr.ph ], [ %incdec.ptr, %while.end ]
+  %8 = load i32, ptr %vertical_contributors.0150, align 4
+  %n1 = getelementptr inbounds i8, ptr %vertical_contributors.0150, i64 4
   %9 = load i32, ptr %n1, align 4
   %10 = load i32, ptr %ring_buffer_last_scanline, align 4
   %cmp11148 = icmp sgt i32 %9, %10
@@ -25251,11 +25251,11 @@ if.end25:                                         ; preds = %if.else.i.i, %if.th
   br i1 %cmp11, label %while.body, label %while.end, !llvm.loop !816
 
 while.end:                                        ; preds = %if.end25, %for.body
-  tail call void @stbir__resample_vertical_gather(ptr noundef nonnull %stbir_info, ptr noundef nonnull %split_info, i32 noundef %y.0152, i32 noundef %8, i32 noundef %9, ptr noundef %vertical_coefficients.0150)
-  %incdec.ptr = getelementptr inbounds i8, ptr %vertical_contributors.0151, i64 8
+  tail call void @stbir__resample_vertical_gather(ptr noundef nonnull %stbir_info, ptr noundef nonnull %split_info, i32 noundef %y.0152, i32 noundef %8, i32 noundef %9, ptr noundef %vertical_coefficients.0151)
+  %incdec.ptr = getelementptr inbounds i8, ptr %vertical_contributors.0150, i64 8
   %83 = load i32, ptr %coefficient_width, align 4
   %idx.ext28 = sext i32 %83 to i64
-  %add.ptr29 = getelementptr inbounds float, ptr %vertical_coefficients.0150, i64 %idx.ext28
+  %add.ptr29 = getelementptr inbounds float, ptr %vertical_coefficients.0151, i64 %idx.ext28
   %inc30 = add i32 %y.0152, 1
   %exitcond.not = icmp eq i32 %inc30, %5
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !817
@@ -26404,14 +26404,14 @@ entry:
   br i1 %cmp8, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry, %for.body
-  %height.addr.011 = phi i32 [ %sub2, %for.body ], [ %height, %entry ]
-  %max.010 = phi i32 [ %spec.select, %for.body ], [ 0, %entry ]
-  %i.09 = phi i32 [ %inc, %for.body ], [ 0, %entry ]
-  %sub = sub nsw i32 %splits, %i.09
-  %div = sdiv i32 %height.addr.011, %sub
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %div, i32 %max.010)
-  %sub2 = sub nsw i32 %height.addr.011, %div
-  %inc = add nuw nsw i32 %i.09, 1
+  %max.011 = phi i32 [ %spec.select, %for.body ], [ 0, %entry ]
+  %i.010 = phi i32 [ %inc, %for.body ], [ 0, %entry ]
+  %height.addr.09 = phi i32 [ %sub2, %for.body ], [ %height, %entry ]
+  %sub = sub nsw i32 %splits, %i.010
+  %div = sdiv i32 %height.addr.09, %sub
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %div, i32 %max.011)
+  %sub2 = sub nsw i32 %height.addr.09, %div
+  %inc = add nuw nsw i32 %i.010, 1
   %exitcond.not = icmp eq i32 %inc, %splits
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !828
 
@@ -26520,14 +26520,14 @@ entry:
   br i1 %cmp8.i, label %for.body.i, label %stbir__get_max_split.exit
 
 for.body.i:                                       ; preds = %entry, %for.body.i
-  %height.addr.011.i = phi i32 [ %sub2.i, %for.body.i ], [ %0, %entry ]
-  %max.010.i = phi i32 [ %spec.select.i, %for.body.i ], [ 0, %entry ]
-  %i.09.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %entry ]
-  %sub.i = sub nsw i32 %splits, %i.09.i
-  %div.i = sdiv i32 %height.addr.011.i, %sub.i
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %div.i, i32 %max.010.i)
-  %sub2.i = sub nsw i32 %height.addr.011.i, %div.i
-  %inc.i = add nuw nsw i32 %i.09.i, 1
+  %max.011.i = phi i32 [ %spec.select.i, %for.body.i ], [ 0, %entry ]
+  %i.010.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %entry ]
+  %height.addr.09.i = phi i32 [ %sub2.i, %for.body.i ], [ %0, %entry ]
+  %sub.i = sub nsw i32 %splits, %i.010.i
+  %div.i = sdiv i32 %height.addr.09.i, %sub.i
+  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %div.i, i32 %max.011.i)
+  %sub2.i = sub nsw i32 %height.addr.09.i, %div.i
+  %inc.i = add nuw nsw i32 %i.010.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %splits
   br i1 %exitcond.not.i, label %stbir__get_max_split.exit, label %for.body.i, !llvm.loop !828
 
@@ -26750,8 +26750,8 @@ stbir__should_do_vertical_first.exit:             ; preds = %if.then.i, %if.then
   br label %for.cond
 
 for.cond:                                         ; preds = %if.then500, %stbir__should_do_vertical_first.exit
-  %alloced_total.0 = phi i32 [ 0, %stbir__should_do_vertical_first.exit ], [ %conv502, %if.then500 ]
   %alloced.0 = phi ptr [ null, %stbir__should_do_vertical_first.exit ], [ %call504, %if.then500 ]
+  %alloced_total.0 = phi i32 [ 0, %stbir__should_do_vertical_first.exit ], [ %conv502, %if.then500 ]
   %34 = ptrtoint ptr %alloced.0 to i64
   %add113 = add i64 %34, 15
   %and114 = and i64 %add113, -16

@@ -133,9 +133,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_uclip16P11
   br label %36
 
 36:                                               ; preds = %20, %50
-  %.04357 = phi i64 [ 1, %20 ], [ %57, %50 ]
+  %.04157 = phi i64 [ 1, %20 ], [ %57, %50 ]
   %.04456 = phi i64 [ %25, %20 ], [ %56, %50 ]
-  %37 = shl i64 %.04357, 4
+  %37 = shl i64 %.04157, 4
   %38 = and i64 %37, 4294967280
   %39 = shl i64 65535, %38
   %40 = and i64 %39, %29
@@ -154,22 +154,22 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_uclip16P11
   br i1 %.not48, label %50, label %.sink.split
 
 .sink.split:                                      ; preds = %47, %36
-  %.042.ph = phi i64 [ %34, %36 ], [ 0, %47 ]
+  %.0.ph = phi i64 [ %34, %36 ], [ 0, %47 ]
   %49 = load ptr, ptr %35, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %49, i64 noundef 1) #13
   br label %50
 
 50:                                               ; preds = %.sink.split, %47
-  %.042 = phi i64 [ %44, %47 ], [ %.042.ph, %.sink.split ]
+  %.0 = phi i64 [ %44, %47 ], [ %.0.ph, %.sink.split ]
   %51 = xor i64 %39, -1
   %52 = and i64 %.04456, %51
-  %sext47 = shl i64 %.042, 48
+  %sext47 = shl i64 %.0, 48
   %53 = ashr exact i64 %sext47, 48
   %54 = mul i64 %53, %43
   %55 = and i64 %54, %39
   %56 = or i64 %55, %52
-  %57 = add nsw i64 %.04357, -1
-  %.not58 = icmp eq i64 %.04357, 0
+  %57 = add nsw i64 %.04157, -1
+  %.not58 = icmp eq i64 %.04157, 0
   br i1 %.not58, label %58, label %36, !llvm.loop !4
 
 58:                                               ; preds = %50
@@ -266,9 +266,9 @@ define noundef i64 @_Z18fast_rv64i_uclip16P11processor_t6insn_tm(ptr nocapture n
   br label %36
 
 36:                                               ; preds = %20, %50
-  %.04357 = phi i64 [ 3, %20 ], [ %57, %50 ]
+  %.04157 = phi i64 [ 3, %20 ], [ %57, %50 ]
   %.04456 = phi i64 [ %25, %20 ], [ %56, %50 ]
-  %37 = shl i64 %.04357, 4
+  %37 = shl i64 %.04157, 4
   %38 = and i64 %37, 4294967280
   %39 = shl i64 65535, %38
   %40 = and i64 %39, %29
@@ -287,22 +287,22 @@ define noundef i64 @_Z18fast_rv64i_uclip16P11processor_t6insn_tm(ptr nocapture n
   br i1 %.not48, label %50, label %.sink.split
 
 .sink.split:                                      ; preds = %47, %36
-  %.042.ph = phi i64 [ %34, %36 ], [ 0, %47 ]
+  %.0.ph = phi i64 [ %34, %36 ], [ 0, %47 ]
   %49 = load ptr, ptr %35, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %49, i64 noundef 1) #13
   br label %50
 
 50:                                               ; preds = %.sink.split, %47
-  %.042 = phi i64 [ %44, %47 ], [ %.042.ph, %.sink.split ]
+  %.0 = phi i64 [ %44, %47 ], [ %.0.ph, %.sink.split ]
   %51 = xor i64 %39, -1
   %52 = and i64 %.04456, %51
-  %sext47 = shl i64 %.042, 48
+  %sext47 = shl i64 %.0, 48
   %53 = ashr exact i64 %sext47, 48
   %54 = mul i64 %53, %43
   %55 = and i64 %54, %39
   %56 = or i64 %55, %52
-  %57 = add nsw i64 %.04357, -1
-  %.not58 = icmp eq i64 %.04357, 0
+  %57 = add nsw i64 %.04157, -1
+  %.not58 = icmp eq i64 %.04157, 0
   br i1 %.not58, label %58, label %36, !llvm.loop !6
 
 58:                                               ; preds = %50
@@ -376,9 +376,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_uclip16P
   br label %36
 
 36:                                               ; preds = %20, %50
-  %.04562 = phi i64 [ %25, %20 ], [ %56, %50 ]
-  %.04661 = phi i64 [ 1, %20 ], [ %57, %50 ]
-  %37 = shl i64 %.04661, 4
+  %.04662 = phi i64 [ 1, %20 ], [ %57, %50 ]
+  %.04761 = phi i64 [ %25, %20 ], [ %56, %50 ]
+  %37 = shl i64 %.04662, 4
   %38 = and i64 %37, 4294967280
   %39 = shl i64 65535, %38
   %40 = and i64 %39, %29
@@ -397,22 +397,22 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_uclip16P
   br i1 %.not51, label %50, label %.sink.split
 
 .sink.split:                                      ; preds = %47, %36
-  %.047.ph = phi i64 [ %34, %36 ], [ 0, %47 ]
+  %.045.ph = phi i64 [ %34, %36 ], [ 0, %47 ]
   %49 = load ptr, ptr %35, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %49, i64 noundef 1) #13
   br label %50
 
 50:                                               ; preds = %.sink.split, %47
-  %.047 = phi i64 [ %44, %47 ], [ %.047.ph, %.sink.split ]
+  %.045 = phi i64 [ %44, %47 ], [ %.045.ph, %.sink.split ]
   %51 = xor i64 %39, -1
-  %52 = and i64 %.04562, %51
-  %sext50 = shl i64 %.047, 48
+  %52 = and i64 %.04761, %51
+  %sext50 = shl i64 %.045, 48
   %53 = ashr exact i64 %sext50, 48
   %54 = mul i64 %53, %43
   %55 = and i64 %54, %39
   %56 = or i64 %55, %52
-  %57 = add nsw i64 %.04661, -1
-  %.not64 = icmp eq i64 %.04661, 0
+  %57 = add nsw i64 %.04662, -1
+  %.not64 = icmp eq i64 %.04662, 0
   br i1 %.not64, label %58, label %36, !llvm.loop !7
 
 58:                                               ; preds = %50
@@ -547,9 +547,9 @@ define noundef i64 @_Z20logged_rv64i_uclip16P11processor_t6insn_tm(ptr noundef %
   br label %36
 
 36:                                               ; preds = %20, %50
-  %.04562 = phi i64 [ %25, %20 ], [ %56, %50 ]
-  %.04661 = phi i64 [ 3, %20 ], [ %57, %50 ]
-  %37 = shl i64 %.04661, 4
+  %.04662 = phi i64 [ 3, %20 ], [ %57, %50 ]
+  %.04761 = phi i64 [ %25, %20 ], [ %56, %50 ]
+  %37 = shl i64 %.04662, 4
   %38 = and i64 %37, 4294967280
   %39 = shl i64 65535, %38
   %40 = and i64 %39, %29
@@ -568,22 +568,22 @@ define noundef i64 @_Z20logged_rv64i_uclip16P11processor_t6insn_tm(ptr noundef %
   br i1 %.not51, label %50, label %.sink.split
 
 .sink.split:                                      ; preds = %47, %36
-  %.047.ph = phi i64 [ %34, %36 ], [ 0, %47 ]
+  %.045.ph = phi i64 [ %34, %36 ], [ 0, %47 ]
   %49 = load ptr, ptr %35, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %49, i64 noundef 1) #13
   br label %50
 
 50:                                               ; preds = %.sink.split, %47
-  %.047 = phi i64 [ %44, %47 ], [ %.047.ph, %.sink.split ]
+  %.045 = phi i64 [ %44, %47 ], [ %.045.ph, %.sink.split ]
   %51 = xor i64 %39, -1
-  %52 = and i64 %.04562, %51
-  %sext50 = shl i64 %.047, 48
+  %52 = and i64 %.04761, %51
+  %sext50 = shl i64 %.045, 48
   %53 = ashr exact i64 %sext50, 48
   %54 = mul i64 %53, %43
   %55 = and i64 %54, %39
   %56 = or i64 %55, %52
-  %57 = add nsw i64 %.04661, -1
-  %.not64 = icmp eq i64 %.04661, 0
+  %57 = add nsw i64 %.04662, -1
+  %.not64 = icmp eq i64 %.04662, 0
   br i1 %.not64, label %58, label %36, !llvm.loop !9
 
 58:                                               ; preds = %50
@@ -746,9 +746,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_uclip16P11
   br label %50
 
 50:                                               ; preds = %40, %64
-  %.04869 = phi i64 [ %41, %40 ], [ %70, %64 ]
-  %.05068 = phi i64 [ 1, %40 ], [ %71, %64 ]
-  %51 = shl i64 %.05068, 4
+  %.04769 = phi i64 [ 1, %40 ], [ %71, %64 ]
+  %.04968 = phi i64 [ %41, %40 ], [ %70, %64 ]
+  %51 = shl i64 %.04769, 4
   %52 = and i64 %51, 4294967280
   %53 = shl i64 65535, %52
   %54 = and i64 %53, %43
@@ -767,22 +767,22 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_uclip16P11
   br i1 %.not54, label %64, label %.sink.split
 
 .sink.split:                                      ; preds = %61, %50
-  %.049.ph = phi i64 [ %48, %50 ], [ 0, %61 ]
+  %.0.ph = phi i64 [ %48, %50 ], [ 0, %61 ]
   %63 = load ptr, ptr %49, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %63, i64 noundef 1) #13
   br label %64
 
 64:                                               ; preds = %.sink.split, %61
-  %.049 = phi i64 [ %58, %61 ], [ %.049.ph, %.sink.split ]
+  %.0 = phi i64 [ %58, %61 ], [ %.0.ph, %.sink.split ]
   %65 = xor i64 %53, -1
-  %66 = and i64 %.04869, %65
-  %sext53 = shl i64 %.049, 48
+  %66 = and i64 %.04968, %65
+  %sext53 = shl i64 %.0, 48
   %67 = ashr exact i64 %sext53, 48
   %68 = mul i64 %67, %57
   %69 = and i64 %68, %53
   %70 = or i64 %69, %66
-  %71 = add nsw i64 %.05068, -1
-  %.not70 = icmp eq i64 %.05068, 0
+  %71 = add nsw i64 %.04769, -1
+  %.not70 = icmp eq i64 %.04769, 0
   br i1 %.not70, label %72, label %50, !llvm.loop !10
 
 72:                                               ; preds = %64
@@ -892,9 +892,9 @@ define noundef i64 @_Z18fast_rv64e_uclip16P11processor_t6insn_tm(ptr nocapture n
   br label %50
 
 50:                                               ; preds = %40, %64
-  %.04869 = phi i64 [ %41, %40 ], [ %70, %64 ]
-  %.05068 = phi i64 [ 3, %40 ], [ %71, %64 ]
-  %51 = shl i64 %.05068, 4
+  %.04769 = phi i64 [ 3, %40 ], [ %71, %64 ]
+  %.04968 = phi i64 [ %41, %40 ], [ %70, %64 ]
+  %51 = shl i64 %.04769, 4
   %52 = and i64 %51, 4294967280
   %53 = shl i64 65535, %52
   %54 = and i64 %53, %43
@@ -913,22 +913,22 @@ define noundef i64 @_Z18fast_rv64e_uclip16P11processor_t6insn_tm(ptr nocapture n
   br i1 %.not54, label %64, label %.sink.split
 
 .sink.split:                                      ; preds = %61, %50
-  %.049.ph = phi i64 [ %48, %50 ], [ 0, %61 ]
+  %.0.ph = phi i64 [ %48, %50 ], [ 0, %61 ]
   %63 = load ptr, ptr %49, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %63, i64 noundef 1) #13
   br label %64
 
 64:                                               ; preds = %.sink.split, %61
-  %.049 = phi i64 [ %58, %61 ], [ %.049.ph, %.sink.split ]
+  %.0 = phi i64 [ %58, %61 ], [ %.0.ph, %.sink.split ]
   %65 = xor i64 %53, -1
-  %66 = and i64 %.04869, %65
-  %sext53 = shl i64 %.049, 48
+  %66 = and i64 %.04968, %65
+  %sext53 = shl i64 %.0, 48
   %67 = ashr exact i64 %sext53, 48
   %68 = mul i64 %67, %57
   %69 = and i64 %68, %53
   %70 = or i64 %69, %66
-  %71 = add nsw i64 %.05068, -1
-  %.not70 = icmp eq i64 %.05068, 0
+  %71 = add nsw i64 %.04769, -1
+  %.not70 = icmp eq i64 %.04769, 0
   br i1 %.not70, label %72, label %50, !llvm.loop !11
 
 72:                                               ; preds = %64
@@ -1034,9 +1034,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_uclip16P
   br label %50
 
 50:                                               ; preds = %40, %64
-  %.05174 = phi i64 [ %41, %40 ], [ %70, %64 ]
-  %.05373 = phi i64 [ 1, %40 ], [ %71, %64 ]
-  %51 = shl i64 %.05373, 4
+  %.05174 = phi i64 [ 1, %40 ], [ %71, %64 ]
+  %.05373 = phi i64 [ %41, %40 ], [ %70, %64 ]
+  %51 = shl i64 %.05174, 4
   %52 = and i64 %51, 4294967280
   %53 = shl i64 65535, %52
   %54 = and i64 %53, %43
@@ -1055,22 +1055,22 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_uclip16P
   br i1 %.not57, label %64, label %.sink.split
 
 .sink.split:                                      ; preds = %61, %50
-  %.052.ph = phi i64 [ %48, %50 ], [ 0, %61 ]
+  %.050.ph = phi i64 [ %48, %50 ], [ 0, %61 ]
   %63 = load ptr, ptr %49, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %63, i64 noundef 1) #13
   br label %64
 
 64:                                               ; preds = %.sink.split, %61
-  %.052 = phi i64 [ %58, %61 ], [ %.052.ph, %.sink.split ]
+  %.050 = phi i64 [ %58, %61 ], [ %.050.ph, %.sink.split ]
   %65 = xor i64 %53, -1
-  %66 = and i64 %.05174, %65
-  %sext56 = shl i64 %.052, 48
+  %66 = and i64 %.05373, %65
+  %sext56 = shl i64 %.050, 48
   %67 = ashr exact i64 %sext56, 48
   %68 = mul i64 %67, %57
   %69 = and i64 %68, %53
   %70 = or i64 %69, %66
-  %71 = add nsw i64 %.05373, -1
-  %.not76 = icmp eq i64 %.05373, 0
+  %71 = add nsw i64 %.05174, -1
+  %.not76 = icmp eq i64 %.05174, 0
   br i1 %.not76, label %72, label %50, !llvm.loop !12
 
 72:                                               ; preds = %64
@@ -1237,9 +1237,9 @@ define noundef i64 @_Z20logged_rv64e_uclip16P11processor_t6insn_tm(ptr noundef %
   br label %50
 
 50:                                               ; preds = %40, %64
-  %.05174 = phi i64 [ %41, %40 ], [ %70, %64 ]
-  %.05373 = phi i64 [ 3, %40 ], [ %71, %64 ]
-  %51 = shl i64 %.05373, 4
+  %.05174 = phi i64 [ 3, %40 ], [ %71, %64 ]
+  %.05373 = phi i64 [ %41, %40 ], [ %70, %64 ]
+  %51 = shl i64 %.05174, 4
   %52 = and i64 %51, 4294967280
   %53 = shl i64 65535, %52
   %54 = and i64 %53, %43
@@ -1258,22 +1258,22 @@ define noundef i64 @_Z20logged_rv64e_uclip16P11processor_t6insn_tm(ptr noundef %
   br i1 %.not57, label %64, label %.sink.split
 
 .sink.split:                                      ; preds = %61, %50
-  %.052.ph = phi i64 [ %48, %50 ], [ 0, %61 ]
+  %.050.ph = phi i64 [ %48, %50 ], [ 0, %61 ]
   %63 = load ptr, ptr %49, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %63, i64 noundef 1) #13
   br label %64
 
 64:                                               ; preds = %.sink.split, %61
-  %.052 = phi i64 [ %58, %61 ], [ %.052.ph, %.sink.split ]
+  %.050 = phi i64 [ %58, %61 ], [ %.050.ph, %.sink.split ]
   %65 = xor i64 %53, -1
-  %66 = and i64 %.05174, %65
-  %sext56 = shl i64 %.052, 48
+  %66 = and i64 %.05373, %65
+  %sext56 = shl i64 %.050, 48
   %67 = ashr exact i64 %sext56, 48
   %68 = mul i64 %67, %57
   %69 = and i64 %68, %53
   %70 = or i64 %69, %66
-  %71 = add nsw i64 %.05373, -1
-  %.not76 = icmp eq i64 %.05373, 0
+  %71 = add nsw i64 %.05174, -1
+  %.not76 = icmp eq i64 %.05174, 0
   br i1 %.not76, label %72, label %50, !llvm.loop !13
 
 72:                                               ; preds = %64

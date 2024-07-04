@@ -85026,8 +85026,8 @@ _ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h59361182c2f16a2
   ret void
 
 63:                                               ; preds = %53, %54
-  %.046 = phi i64 [ %56, %54 ], [ %.sroa.56.082, %53 ]
-  %64 = invoke { i64, i64 } @_ZN4core5slice5index5range17h3ddaa9ac07cbf969E(i64 noundef %.04384, i64 noundef %.046, i64 noundef %.sroa.56.082, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c26fc425856cff208af7eaece38df3b9.577)
+  %.044 = phi i64 [ %56, %54 ], [ %.sroa.56.082, %53 ]
+  %64 = invoke { i64, i64 } @_ZN4core5slice5index5range17h3ddaa9ac07cbf969E(i64 noundef %.04384, i64 noundef %.044, i64 noundef %.sroa.56.082, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c26fc425856cff208af7eaece38df3b9.577)
           to label %65 unwind label %.loopexit
 
 65:                                               ; preds = %63
@@ -85036,7 +85036,7 @@ _ZN6memchr4arch6x86_644sse210packedpair6Finder14with_pair_impl17h59361182c2f16a2
   %68 = sub i64 %67, %66
   %69 = getelementptr inbounds i8, ptr %.sroa.03.083, i64 %66
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.sroa.03.083, ptr nonnull align 1 %69, i64 %68, i1 false), !alias.scope !29586, !noalias !29589
-  %70 = sub i64 %.046, %.04384
+  %70 = sub i64 %.044, %.04384
   %71 = icmp ugt i64 %70, %.sroa.56.082
   br i1 %71, label %.invoke, label %72
 

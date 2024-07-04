@@ -487,13 +487,13 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %41, %.noexc38, %_ZN
 
 .lr.ph62:                                         ; preds = %.lr.ph62.preheader, %._crit_edge
   %44 = phi i32 [ %52, %._crit_edge ], [ %.pre66, %.lr.ph62.preheader ]
-  %.03061 = phi i64 [ %63, %._crit_edge ], [ 0, %.lr.ph62.preheader ]
+  %.02761 = phi i64 [ %63, %._crit_edge ], [ 0, %.lr.ph62.preheader ]
   %45 = sext i32 %44 to i64
-  %46 = mul nsw i64 %.03061, %45
+  %46 = mul nsw i64 %.02761, %45
   %47 = getelementptr inbounds float, ptr %2, i64 %46
   %48 = getelementptr inbounds float, ptr %.sroa.050.0, i64 %46
   %49 = load i64, ptr %32, align 8
-  %50 = mul i64 %49, %.03061
+  %50 = mul i64 %49, %.02761
   %51 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %50
   invoke void @_ZNK5faiss16ProductQuantizer6decodeEPKhPf(ptr noundef nonnull align 8 dereferenceable(208) %31, ptr noundef %51, ptr noundef %48)
           to label %.preheader unwind label %.loopexit
@@ -544,7 +544,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %41, %.noexc38, %_ZN
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %63 = add nuw nsw i64 %.03061, 1
+  %63 = add nuw nsw i64 %.02761, 1
   %exitcond65.not = icmp eq i64 %63, %1
   br i1 %exitcond65.not, label %._crit_edge63, label %.lr.ph62, !llvm.loop !7
 

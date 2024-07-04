@@ -85,8 +85,8 @@ if.then10:                                        ; preds = %if.then5
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then5, %if.then10, %land.lhs.true, %if.then
-  %len.0 = phi i64 [ %call7, %if.then10 ], [ 0, %if.then5 ], [ 0, %land.lhs.true ], [ 0, %if.then ]
   %forever.0 = phi i1 [ false, %if.then10 ], [ true, %if.then5 ], [ true, %land.lhs.true ], [ true, %if.then ]
+  %len.0 = phi i64 [ %call7, %if.then10 ], [ 0, %if.then5 ], [ 0, %land.lhs.true ], [ 0, %if.then ]
   %7 = getelementptr inbounds i8, ptr %args_map, i64 8
   store i32 0, ptr %7, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %args_map, i64 16

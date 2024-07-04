@@ -129,13 +129,13 @@ define internal fastcc void @SHA256_Transform(ptr nocapture noundef %0, ptr noca
 
 19:                                               ; preds = %19, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %2 ]
-  %.0140 = phi i32 [ %.0128, %19 ], [ %8, %2 ]
-  %.0138 = phi i32 [ %.0140, %19 ], [ %10, %2 ]
-  %.0136 = phi i32 [ %64, %19 ], [ %12, %2 ]
-  %.0134 = phi i32 [ %.0136, %19 ], [ %14, %2 ]
-  %.0132 = phi i32 [ %.0134, %19 ], [ %16, %2 ]
-  %.0130 = phi i32 [ %.0132, %19 ], [ %18, %2 ]
-  %.0128 = phi i32 [ %.0126, %19 ], [ %6, %2 ]
+  %.0140 = phi i32 [ %.0126, %19 ], [ %6, %2 ]
+  %.0138 = phi i32 [ %.0140, %19 ], [ %8, %2 ]
+  %.0136 = phi i32 [ %.0138, %19 ], [ %10, %2 ]
+  %.0134 = phi i32 [ %64, %19 ], [ %12, %2 ]
+  %.0132 = phi i32 [ %.0134, %19 ], [ %14, %2 ]
+  %.0130 = phi i32 [ %.0132, %19 ], [ %16, %2 ]
+  %.0128 = phi i32 [ %.0130, %19 ], [ %18, %2 ]
   %.0126 = phi i32 [ %65, %19 ], [ %4, %2 ]
   %.0125 = phi ptr [ %38, %19 ], [ %1, %2 ]
   %20 = getelementptr i8, ptr %.0125, i64 3
@@ -158,15 +158,15 @@ define internal fastcc void @SHA256_Transform(ptr nocapture noundef %0, ptr noca
   %37 = getelementptr i32, ptr %3, i64 %indvars.iv
   store i32 %36, ptr %37, align 4
   %38 = getelementptr i8, ptr %.0125, i64 4
-  %39 = tail call i32 @llvm.fshl.i32(i32 %.0136, i32 %.0136, i32 26)
-  %40 = tail call i32 @llvm.fshl.i32(i32 %.0136, i32 %.0136, i32 21)
+  %39 = tail call i32 @llvm.fshl.i32(i32 %.0134, i32 %.0134, i32 26)
+  %40 = tail call i32 @llvm.fshl.i32(i32 %.0134, i32 %.0134, i32 21)
   %41 = xor i32 %39, %40
-  %42 = tail call i32 @llvm.fshl.i32(i32 %.0136, i32 %.0136, i32 7)
+  %42 = tail call i32 @llvm.fshl.i32(i32 %.0134, i32 %.0134, i32 7)
   %43 = xor i32 %41, %42
-  %44 = add i32 %.0130, %43
-  %45 = and i32 %.0134, %.0136
-  %46 = xor i32 %.0136, -1
-  %47 = and i32 %.0132, %46
+  %44 = add i32 %.0128, %43
+  %45 = and i32 %.0132, %.0134
+  %46 = xor i32 %.0134, -1
+  %47 = and i32 %.0130, %46
   %48 = or i32 %47, %45
   %49 = add i32 %44, %48
   %50 = getelementptr [64 x i32], ptr @K256, i64 0, i64 %indvars.iv
@@ -178,12 +178,12 @@ define internal fastcc void @SHA256_Transform(ptr nocapture noundef %0, ptr noca
   %56 = xor i32 %54, %55
   %57 = tail call i32 @llvm.fshl.i32(i32 %.0126, i32 %.0126, i32 10)
   %58 = xor i32 %56, %57
-  %59 = xor i32 %.0128, %.0140
+  %59 = xor i32 %.0138, %.0140
   %60 = and i32 %.0126, %59
-  %61 = and i32 %.0128, %.0140
+  %61 = and i32 %.0138, %.0140
   %62 = xor i32 %60, %61
   %63 = add i32 %58, %62
-  %64 = add i32 %53, %.0138
+  %64 = add i32 %53, %.0136
   %65 = add i32 %63, %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -191,13 +191,13 @@ define internal fastcc void @SHA256_Transform(ptr nocapture noundef %0, ptr noca
 
 .preheader:                                       ; preds = %19, %.preheader
   %indvars.iv150 = phi i64 [ %indvars.iv.next151, %.preheader ], [ 16, %19 ]
-  %.1141 = phi i32 [ %.1129, %.preheader ], [ %.0128, %19 ]
+  %.1141 = phi i32 [ %.1127, %.preheader ], [ %.0126, %19 ]
   %.1139 = phi i32 [ %.1141, %.preheader ], [ %.0140, %19 ]
-  %.1137 = phi i32 [ %118, %.preheader ], [ %64, %19 ]
-  %.1135 = phi i32 [ %.1137, %.preheader ], [ %.0136, %19 ]
+  %.1137 = phi i32 [ %.1139, %.preheader ], [ %.0138, %19 ]
+  %.1135 = phi i32 [ %118, %.preheader ], [ %64, %19 ]
   %.1133 = phi i32 [ %.1135, %.preheader ], [ %.0134, %19 ]
   %.1131 = phi i32 [ %.1133, %.preheader ], [ %.0132, %19 ]
-  %.1129 = phi i32 [ %.1127, %.preheader ], [ %.0126, %19 ]
+  %.1129 = phi i32 [ %.1131, %.preheader ], [ %.0130, %19 ]
   %.1127 = phi i32 [ %119, %.preheader ], [ %65, %19 ]
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %66 = and i64 %indvars.iv.next151, 15
@@ -217,15 +217,15 @@ define internal fastcc void @SHA256_Transform(ptr nocapture noundef %0, ptr noca
   %80 = xor i32 %78, %79
   %81 = lshr i32 %77, 10
   %82 = xor i32 %80, %81
-  %83 = tail call i32 @llvm.fshl.i32(i32 %.1137, i32 %.1137, i32 26)
-  %84 = tail call i32 @llvm.fshl.i32(i32 %.1137, i32 %.1137, i32 21)
+  %83 = tail call i32 @llvm.fshl.i32(i32 %.1135, i32 %.1135, i32 26)
+  %84 = tail call i32 @llvm.fshl.i32(i32 %.1135, i32 %.1135, i32 21)
   %85 = xor i32 %83, %84
-  %86 = tail call i32 @llvm.fshl.i32(i32 %.1137, i32 %.1137, i32 7)
+  %86 = tail call i32 @llvm.fshl.i32(i32 %.1135, i32 %.1135, i32 7)
   %87 = xor i32 %85, %86
-  %88 = add i32 %.1131, %87
-  %89 = and i32 %.1135, %.1137
-  %90 = xor i32 %.1137, -1
-  %91 = and i32 %.1133, %90
+  %88 = add i32 %.1129, %87
+  %89 = and i32 %.1133, %.1135
+  %90 = xor i32 %.1135, -1
+  %91 = and i32 %.1131, %90
   %92 = or i32 %91, %89
   %93 = add i32 %88, %92
   %94 = getelementptr [64 x i32], ptr @K256, i64 0, i64 %indvars.iv150
@@ -248,12 +248,12 @@ define internal fastcc void @SHA256_Transform(ptr nocapture noundef %0, ptr noca
   %110 = xor i32 %108, %109
   %111 = tail call i32 @llvm.fshl.i32(i32 %.1127, i32 %.1127, i32 10)
   %112 = xor i32 %110, %111
-  %113 = xor i32 %.1129, %.1141
+  %113 = xor i32 %.1139, %.1141
   %114 = and i32 %.1127, %113
-  %115 = and i32 %.1129, %.1141
+  %115 = and i32 %.1139, %.1141
   %116 = xor i32 %114, %115
   %117 = add i32 %112, %116
-  %118 = add i32 %107, %.1139
+  %118 = add i32 %107, %.1137
   %119 = add i32 %117, %107
   %exitcond153.not = icmp eq i64 %indvars.iv.next151, 64
   br i1 %exitcond153.not, label %120, label %.preheader, !llvm.loop !8
@@ -262,15 +262,15 @@ define internal fastcc void @SHA256_Transform(ptr nocapture noundef %0, ptr noca
   %121 = load <4 x i32>, ptr %0, align 8
   %122 = insertelement <4 x i32> poison, i32 %119, i64 0
   %123 = insertelement <4 x i32> %122, i32 %.1127, i64 1
-  %124 = insertelement <4 x i32> %123, i32 %.1129, i64 2
-  %125 = insertelement <4 x i32> %124, i32 %.1141, i64 3
+  %124 = insertelement <4 x i32> %123, i32 %.1141, i64 2
+  %125 = insertelement <4 x i32> %124, i32 %.1139, i64 3
   %126 = add <4 x i32> %121, %125
   store <4 x i32> %126, ptr %0, align 8
   %127 = load <4 x i32>, ptr %11, align 8
   %128 = insertelement <4 x i32> poison, i32 %118, i64 0
-  %129 = insertelement <4 x i32> %128, i32 %.1137, i64 1
-  %130 = insertelement <4 x i32> %129, i32 %.1135, i64 2
-  %131 = insertelement <4 x i32> %130, i32 %.1133, i64 3
+  %129 = insertelement <4 x i32> %128, i32 %.1135, i64 1
+  %130 = insertelement <4 x i32> %129, i32 %.1133, i64 2
+  %131 = insertelement <4 x i32> %130, i32 %.1131, i64 3
   %132 = add <4 x i32> %127, %131
   store <4 x i32> %132, ptr %11, align 8
   ret void
@@ -504,13 +504,13 @@ define internal fastcc void @SHA512_Transform(ptr nocapture noundef %0, ptr noca
 
 19:                                               ; preds = %19, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %2 ]
-  %.0144 = phi i64 [ %.0132, %19 ], [ %8, %2 ]
-  %.0142 = phi i64 [ %.0144, %19 ], [ %10, %2 ]
-  %.0140 = phi i64 [ %84, %19 ], [ %12, %2 ]
-  %.0138 = phi i64 [ %.0140, %19 ], [ %14, %2 ]
-  %.0136 = phi i64 [ %.0138, %19 ], [ %16, %2 ]
-  %.0134 = phi i64 [ %.0136, %19 ], [ %18, %2 ]
-  %.0132 = phi i64 [ %.0130, %19 ], [ %6, %2 ]
+  %.0144 = phi i64 [ %.0130, %19 ], [ %6, %2 ]
+  %.0142 = phi i64 [ %.0144, %19 ], [ %8, %2 ]
+  %.0140 = phi i64 [ %.0142, %19 ], [ %10, %2 ]
+  %.0138 = phi i64 [ %84, %19 ], [ %12, %2 ]
+  %.0136 = phi i64 [ %.0138, %19 ], [ %14, %2 ]
+  %.0134 = phi i64 [ %.0136, %19 ], [ %16, %2 ]
+  %.0132 = phi i64 [ %.0134, %19 ], [ %18, %2 ]
   %.0130 = phi i64 [ %85, %19 ], [ %4, %2 ]
   %.0129 = phi ptr [ %58, %19 ], [ %1, %2 ]
   %20 = getelementptr i8, ptr %.0129, i64 7
@@ -553,15 +553,15 @@ define internal fastcc void @SHA512_Transform(ptr nocapture noundef %0, ptr noca
   %57 = getelementptr i64, ptr %3, i64 %indvars.iv
   store i64 %56, ptr %57, align 8
   %58 = getelementptr i8, ptr %.0129, i64 8
-  %59 = tail call i64 @llvm.fshl.i64(i64 %.0140, i64 %.0140, i64 50)
-  %60 = tail call i64 @llvm.fshl.i64(i64 %.0140, i64 %.0140, i64 46)
+  %59 = tail call i64 @llvm.fshl.i64(i64 %.0138, i64 %.0138, i64 50)
+  %60 = tail call i64 @llvm.fshl.i64(i64 %.0138, i64 %.0138, i64 46)
   %61 = xor i64 %59, %60
-  %62 = tail call i64 @llvm.fshl.i64(i64 %.0140, i64 %.0140, i64 23)
+  %62 = tail call i64 @llvm.fshl.i64(i64 %.0138, i64 %.0138, i64 23)
   %63 = xor i64 %61, %62
-  %64 = add i64 %.0134, %63
-  %65 = and i64 %.0138, %.0140
-  %66 = xor i64 %.0140, -1
-  %67 = and i64 %.0136, %66
+  %64 = add i64 %.0132, %63
+  %65 = and i64 %.0136, %.0138
+  %66 = xor i64 %.0138, -1
+  %67 = and i64 %.0134, %66
   %68 = or i64 %67, %65
   %69 = add i64 %64, %68
   %70 = getelementptr [80 x i64], ptr @K512, i64 0, i64 %indvars.iv
@@ -573,12 +573,12 @@ define internal fastcc void @SHA512_Transform(ptr nocapture noundef %0, ptr noca
   %76 = xor i64 %74, %75
   %77 = tail call i64 @llvm.fshl.i64(i64 %.0130, i64 %.0130, i64 25)
   %78 = xor i64 %76, %77
-  %79 = xor i64 %.0132, %.0144
+  %79 = xor i64 %.0142, %.0144
   %80 = and i64 %.0130, %79
-  %81 = and i64 %.0132, %.0144
+  %81 = and i64 %.0142, %.0144
   %82 = xor i64 %80, %81
   %83 = add i64 %78, %82
-  %84 = add i64 %73, %.0142
+  %84 = add i64 %73, %.0140
   %85 = add i64 %83, %73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -586,13 +586,13 @@ define internal fastcc void @SHA512_Transform(ptr nocapture noundef %0, ptr noca
 
 .preheader:                                       ; preds = %19, %.preheader
   %indvars.iv154 = phi i64 [ %indvars.iv.next155, %.preheader ], [ 16, %19 ]
-  %.1145 = phi i64 [ %.1133, %.preheader ], [ %.0132, %19 ]
+  %.1145 = phi i64 [ %.1131, %.preheader ], [ %.0130, %19 ]
   %.1143 = phi i64 [ %.1145, %.preheader ], [ %.0144, %19 ]
-  %.1141 = phi i64 [ %138, %.preheader ], [ %84, %19 ]
-  %.1139 = phi i64 [ %.1141, %.preheader ], [ %.0140, %19 ]
+  %.1141 = phi i64 [ %.1143, %.preheader ], [ %.0142, %19 ]
+  %.1139 = phi i64 [ %138, %.preheader ], [ %84, %19 ]
   %.1137 = phi i64 [ %.1139, %.preheader ], [ %.0138, %19 ]
   %.1135 = phi i64 [ %.1137, %.preheader ], [ %.0136, %19 ]
-  %.1133 = phi i64 [ %.1131, %.preheader ], [ %.0130, %19 ]
+  %.1133 = phi i64 [ %.1135, %.preheader ], [ %.0134, %19 ]
   %.1131 = phi i64 [ %139, %.preheader ], [ %85, %19 ]
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %86 = and i64 %indvars.iv.next155, 15
@@ -612,15 +612,15 @@ define internal fastcc void @SHA512_Transform(ptr nocapture noundef %0, ptr noca
   %100 = xor i64 %98, %99
   %101 = lshr i64 %97, 6
   %102 = xor i64 %100, %101
-  %103 = tail call i64 @llvm.fshl.i64(i64 %.1141, i64 %.1141, i64 50)
-  %104 = tail call i64 @llvm.fshl.i64(i64 %.1141, i64 %.1141, i64 46)
+  %103 = tail call i64 @llvm.fshl.i64(i64 %.1139, i64 %.1139, i64 50)
+  %104 = tail call i64 @llvm.fshl.i64(i64 %.1139, i64 %.1139, i64 46)
   %105 = xor i64 %103, %104
-  %106 = tail call i64 @llvm.fshl.i64(i64 %.1141, i64 %.1141, i64 23)
+  %106 = tail call i64 @llvm.fshl.i64(i64 %.1139, i64 %.1139, i64 23)
   %107 = xor i64 %105, %106
-  %108 = add i64 %.1135, %107
-  %109 = and i64 %.1139, %.1141
-  %110 = xor i64 %.1141, -1
-  %111 = and i64 %.1137, %110
+  %108 = add i64 %.1133, %107
+  %109 = and i64 %.1137, %.1139
+  %110 = xor i64 %.1139, -1
+  %111 = and i64 %.1135, %110
   %112 = or i64 %111, %109
   %113 = add i64 %108, %112
   %114 = getelementptr [80 x i64], ptr @K512, i64 0, i64 %indvars.iv154
@@ -643,12 +643,12 @@ define internal fastcc void @SHA512_Transform(ptr nocapture noundef %0, ptr noca
   %130 = xor i64 %128, %129
   %131 = tail call i64 @llvm.fshl.i64(i64 %.1131, i64 %.1131, i64 25)
   %132 = xor i64 %130, %131
-  %133 = xor i64 %.1133, %.1145
+  %133 = xor i64 %.1143, %.1145
   %134 = and i64 %.1131, %133
-  %135 = and i64 %.1133, %.1145
+  %135 = and i64 %.1143, %.1145
   %136 = xor i64 %134, %135
   %137 = add i64 %132, %136
-  %138 = add i64 %127, %.1143
+  %138 = add i64 %127, %.1141
   %139 = add i64 %137, %127
   %exitcond157.not = icmp eq i64 %indvars.iv.next155, 80
   br i1 %exitcond157.not, label %140, label %.preheader, !llvm.loop !12
@@ -661,22 +661,22 @@ define internal fastcc void @SHA512_Transform(ptr nocapture noundef %0, ptr noca
   %144 = add i64 %143, %.1131
   store i64 %144, ptr %5, align 8
   %145 = load i64, ptr %7, align 8
-  %146 = add i64 %145, %.1133
+  %146 = add i64 %145, %.1145
   store i64 %146, ptr %7, align 8
   %147 = load i64, ptr %9, align 8
-  %148 = add i64 %147, %.1145
+  %148 = add i64 %147, %.1143
   store i64 %148, ptr %9, align 8
   %149 = load i64, ptr %11, align 8
   %150 = add i64 %149, %138
   store i64 %150, ptr %11, align 8
   %151 = load i64, ptr %13, align 8
-  %152 = add i64 %151, %.1141
+  %152 = add i64 %151, %.1139
   store i64 %152, ptr %13, align 8
   %153 = load i64, ptr %15, align 8
-  %154 = add i64 %153, %.1139
+  %154 = add i64 %153, %.1137
   store i64 %154, ptr %15, align 8
   %155 = load i64, ptr %17, align 8
-  %156 = add i64 %155, %.1137
+  %156 = add i64 %155, %.1135
   store i64 %156, ptr %17, align 8
   ret void
 }

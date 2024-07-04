@@ -730,7 +730,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           to label %10 unwind label %.thread.i
 
 "_ZN4core3ptr88drop_in_place$LT$grep_cli..process..StderrReader..async..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc8c553b0413624deE.exit.i": ; preds = %87
-  br i1 %.2.ph.i, label %92, label %"_ZN4core3ptr149drop_in_place$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$grep_cli..process..StderrReader..async..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h94b613a82b69cf8aE.exit.i"
+  br i1 %.216.ph.i, label %92, label %"_ZN4core3ptr149drop_in_place$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$grep_cli..process..StderrReader..async..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h94b613a82b69cf8aE.exit.i"
 
 .thread.i:                                        ; preds = %23, %14, %12, %1
   %.1.i = phi i1 [ false, %14 ], [ true, %12 ], [ true, %1 ], [ false, %23 ]
@@ -952,7 +952,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   br label %"_ZN3std6thread7Builder16spawn_unchecked_28_$u7b$$u7b$closure$u7d$$u7d$17hca7c2dd933646867E.exit"
 
 87:                                               ; preds = %26, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17hea7b474043cdefbdE.exit.i"
-  %.2.ph.i = phi i1 [ true, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17hea7b474043cdefbdE.exit.i" ], [ false, %26 ]
+  %.216.ph.i = phi i1 [ true, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17hea7b474043cdefbdE.exit.i" ], [ false, %26 ]
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   %88 = invoke noundef i32 @close(i32 noundef %25)
@@ -970,12 +970,12 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 92:                                               ; preds = %.thread.i, %"_ZN4core3ptr88drop_in_place$LT$grep_cli..process..StderrReader..async..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc8c553b0413624deE.exit.i"
   %.pn.pn55.i = phi { ptr, i32 } [ %9, %.thread.i ], [ %lpad.thr_comm.i, %"_ZN4core3ptr88drop_in_place$LT$grep_cli..process..StderrReader..async..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc8c553b0413624deE.exit.i" ]
   %.053.i = phi i1 [ %.1.i, %.thread.i ], [ false, %"_ZN4core3ptr88drop_in_place$LT$grep_cli..process..StderrReader..async..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc8c553b0413624deE.exit.i" ]
-  %.01051.i = phi i1 [ true, %.thread.i ], [ false, %"_ZN4core3ptr88drop_in_place$LT$grep_cli..process..StderrReader..async..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc8c553b0413624deE.exit.i" ]
+  %.01749.i = phi i1 [ true, %.thread.i ], [ false, %"_ZN4core3ptr88drop_in_place$LT$grep_cli..process..StderrReader..async..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc8c553b0413624deE.exit.i" ]
   invoke void @"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h57e58f336e8b6a17E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) #13
           to label %91 unwind label %89
 
 93:                                               ; preds = %91
-  br i1 %.01051.i, label %102, label %"_ZN4core3ptr149drop_in_place$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$grep_cli..process..StderrReader..async..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h94b613a82b69cf8aE.exit.i"
+  br i1 %.01749.i, label %102, label %"_ZN4core3ptr149drop_in_place$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$grep_cli..process..StderrReader..async..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h94b613a82b69cf8aE.exit.i"
 
 94:                                               ; preds = %91
   %95 = getelementptr inbounds i8, ptr %0, i64 16
@@ -995,7 +995,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           to label %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17hea7b474043cdefbdE.exit27.i" unwind label %89
 
 "_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17hea7b474043cdefbdE.exit27.i": ; preds = %101, %98, %94
-  br i1 %.01051.i, label %102, label %"_ZN4core3ptr149drop_in_place$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$grep_cli..process..StderrReader..async..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h94b613a82b69cf8aE.exit.i"
+  br i1 %.01749.i, label %102, label %"_ZN4core3ptr149drop_in_place$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$grep_cli..process..StderrReader..async..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h94b613a82b69cf8aE.exit.i"
 
 102:                                              ; preds = %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17hea7b474043cdefbdE.exit27.i", %93
   %103 = getelementptr inbounds i8, ptr %0, i64 24

@@ -101,10 +101,10 @@ define noundef i32 @mca_coll_han_get_all_coll_modules(ptr noundef %0, ptr nounde
   %11 = getelementptr inbounds i8, ptr %10, i64 1104
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 32
-  %.03648 = load volatile ptr, ptr %13, align 8
+  %.049 = load volatile ptr, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %12, i64 16
-  %.not49 = icmp eq ptr %.03648, %14
-  br i1 %.not49, label %._crit_edge, label %.lr.ph
+  %.not50 = icmp eq ptr %.049, %14
+  br i1 %.not50, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
   %15 = getelementptr inbounds i8, ptr %1, i64 816
@@ -113,11 +113,11 @@ define noundef i32 @mca_coll_han_get_all_coll_modules(ptr noundef %0, ptr nounde
 
 17:                                               ; preds = %.lr.ph, %mca_coll_han_component_name_to_id.exit.thread
   %18 = phi ptr [ %10, %.lr.ph ], [ %42, %mca_coll_han_component_name_to_id.exit.thread ]
-  %.03651 = phi ptr [ %.03648, %.lr.ph ], [ %.036, %mca_coll_han_component_name_to_id.exit.thread ]
-  %.03550 = phi i32 [ 0, %.lr.ph ], [ %.1, %mca_coll_han_component_name_to_id.exit.thread ]
-  %19 = getelementptr inbounds i8, ptr %.03651, i64 48
+  %.052 = phi ptr [ %.049, %.lr.ph ], [ %.0, %mca_coll_han_component_name_to_id.exit.thread ]
+  %.03551 = phi i32 [ 0, %.lr.ph ], [ %.1, %mca_coll_han_component_name_to_id.exit.thread ]
+  %19 = getelementptr inbounds i8, ptr %.052, i64 48
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %.03651, i64 56
+  %21 = getelementptr inbounds i8, ptr %.052, i64 56
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %mca_coll_han_component_name_to_id.exit.thread, label %.preheader.i
@@ -137,10 +137,10 @@ define noundef i32 @mca_coll_han_get_all_coll_modules(ptr noundef %0, ptr nounde
 
 mca_coll_han_component_name_to_id.exit:           ; preds = %.preheader.i
   %29 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.not46 = icmp eq ptr %20, null
-  %.not39 = icmp eq ptr %20, %1
-  %or.cond40 = or i1 %.not46, %.not39
-  br i1 %or.cond40, label %mca_coll_han_component_name_to_id.exit.thread, label %30
+  %.not47 = icmp eq ptr %20, null
+  %.not40 = icmp eq ptr %20, %1
+  %or.cond41 = or i1 %.not47, %.not40
+  br i1 %or.cond41, label %mca_coll_han_component_name_to_id.exit.thread, label %30
 
 30:                                               ; preds = %mca_coll_han_component_name_to_id.exit
   %31 = and i64 %indvars.iv.i, 4294967295
@@ -159,27 +159,27 @@ mca_coll_han_component_name_to_id.exit:           ; preds = %.preheader.i
   br label %40
 
 40:                                               ; preds = %30, %35
-  %41 = add nsw i32 %.03550, 1
+  %41 = add nsw i32 %.03551, 1
   %.pre = load ptr, ptr %9, align 8
   br label %mca_coll_han_component_name_to_id.exit.thread
 
 mca_coll_han_component_name_to_id.exit.thread:    ; preds = %28, %17, %mca_coll_han_component_name_to_id.exit, %40
   %42 = phi ptr [ %.pre, %40 ], [ %18, %mca_coll_han_component_name_to_id.exit ], [ %18, %17 ], [ %18, %28 ]
-  %.1 = phi i32 [ %41, %40 ], [ %.03550, %mca_coll_han_component_name_to_id.exit ], [ %.03550, %17 ], [ %.03550, %28 ]
-  %43 = getelementptr inbounds i8, ptr %.03651, i64 16
-  %.036 = load volatile ptr, ptr %43, align 8
+  %.1 = phi i32 [ %41, %40 ], [ %.03551, %mca_coll_han_component_name_to_id.exit ], [ %.03551, %17 ], [ %.03551, %28 ]
+  %43 = getelementptr inbounds i8, ptr %.052, i64 16
+  %.0 = load volatile ptr, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %42, i64 1104
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 16
-  %.not = icmp eq ptr %.036, %46
+  %.not = icmp eq ptr %.0, %46
   br i1 %.not, label %._crit_edge.loopexit, label %17, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %mca_coll_han_component_name_to_id.exit.thread
-  %.pre53 = load i32, ptr %3, align 8
+  %.pre54 = load i32, ptr %3, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
-  %47 = phi i32 [ %4, %8 ], [ %.pre53, %._crit_edge.loopexit ]
+  %47 = phi i32 [ %4, %8 ], [ %.pre54, %._crit_edge.loopexit ]
   %.035.lcssa = phi i32 [ 0, %8 ], [ %.1, %._crit_edge.loopexit ]
   %48 = icmp eq i32 %47, 2
   br i1 %48, label %49, label %52
@@ -247,7 +247,7 @@ define i32 @mca_coll_han_allgather_intra_dynamic(ptr noundef %0, i32 noundef %1,
   br label %22
 
 22:                                               ; preds = %17, %8
-  %.046 = phi i32 [ 0, %8 ], [ %spec.select, %17 ]
+  %.0 = phi i32 [ 0, %8 ], [ %spec.select, %17 ]
   %23 = icmp eq ptr %14, null
   br i1 %23, label %24, label %42
 
@@ -257,7 +257,7 @@ define i32 @mca_coll_han_allgather_intra_dynamic(ptr noundef %0, i32 noundef %1,
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %25, align 4
   %28 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
-  %29 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.046, i32 noundef %28) #8
+  %29 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.0, i32 noundef %28) #8
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %24
@@ -289,7 +289,7 @@ define i32 @mca_coll_han_allgather_intra_dynamic(ptr noundef %0, i32 noundef %1,
   %49 = add nsw i32 %48, 1
   store i32 %49, ptr %47, align 4
   %50 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
-  %51 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.046, i32 noundef %50) #8
+  %51 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.0, i32 noundef %50) #8
   br i1 %51, label %52, label %59
 
 52:                                               ; preds = %46
@@ -329,8 +329,8 @@ define i32 @mca_coll_han_allgather_intra_dynamic(ptr noundef %0, i32 noundef %1,
 
 74:                                               ; preds = %64, %71, %59, %67, %37
   %.047 = phi ptr [ %41, %37 ], [ %63, %59 ], [ %14, %67 ], [ %14, %71 ], [ %14, %64 ]
-  %.0 = phi ptr [ %39, %37 ], [ %61, %59 ], [ %69, %67 ], [ %mca_coll_han_allgather_intra_simple.mca_coll_han_allgather_intra, %71 ], [ %44, %64 ]
-  %75 = tail call i32 %.0(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef nonnull %6, ptr noundef %.047) #8
+  %.046 = phi ptr [ %39, %37 ], [ %61, %59 ], [ %69, %67 ], [ %mca_coll_han_allgather_intra_simple.mca_coll_han_allgather_intra, %71 ], [ %44, %64 ]
+  %75 = tail call i32 %.046(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef nonnull %6, ptr noundef %.047) #8
   ret i32 %75
 }
 
@@ -505,7 +505,7 @@ define i32 @mca_coll_han_allgatherv_intra_dynamic(ptr noundef %0, i32 noundef %1
   br label %28
 
 28:                                               ; preds = %23, %._crit_edge
-  %.058 = phi i32 [ 0, %._crit_edge ], [ %spec.select63, %23 ]
+  %.057 = phi i32 [ 0, %._crit_edge ], [ %spec.select63, %23 ]
   %29 = icmp eq ptr %20, null
   br i1 %29, label %30, label %43
 
@@ -515,7 +515,7 @@ define i32 @mca_coll_han_allgatherv_intra_dynamic(ptr noundef %0, i32 noundef %1
   %33 = add nsw i32 %32, 1
   store i32 %33, ptr %31, align 4
   %34 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
-  %35 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.058, i32 noundef %34) #8
+  %35 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.057, i32 noundef %34) #8
   br i1 %35, label %36, label %.sink.split
 
 36:                                               ; preds = %30
@@ -540,7 +540,7 @@ define i32 @mca_coll_han_allgatherv_intra_dynamic(ptr noundef %0, i32 noundef %1
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %48, align 4
   %51 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
-  %52 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.058, i32 noundef %51) #8
+  %52 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef %.057, i32 noundef %51) #8
   br i1 %52, label %53, label %.sink.split
 
 53:                                               ; preds = %47
@@ -581,10 +581,10 @@ define i32 @mca_coll_han_allgatherv_intra_dynamic(ptr noundef %0, i32 noundef %1
   br label %76
 
 76:                                               ; preds = %.sink.split, %60
-  %.057.in = phi ptr [ %44, %60 ], [ %73, %.sink.split ]
+  %.058.in = phi ptr [ %44, %60 ], [ %73, %.sink.split ]
   %.055 = phi ptr [ %20, %60 ], [ %75, %.sink.split ]
-  %.057 = load ptr, ptr %.057.in, align 8
-  %77 = tail call i32 %.057(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %.055) #8
+  %.058 = load ptr, ptr %.058.in, align 8
+  %77 = tail call i32 %.058(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %.055) #8
   ret i32 %77
 }
 
@@ -711,9 +711,9 @@ define i32 @mca_coll_han_allreduce_intra_dynamic(ptr noundef %0, ptr noundef %1,
   br label %86
 
 86:                                               ; preds = %73, %83, %76, %68, %79, %46
-  %.054 = phi ptr [ %50, %46 ], [ %72, %68 ], [ %23, %79 ], [ %23, %76 ], [ %23, %83 ], [ %23, %73 ]
-  %.053 = phi ptr [ %48, %46 ], [ %70, %68 ], [ %81, %79 ], [ @mca_coll_han_allreduce_reproducible, %76 ], [ %mca_coll_han_allreduce_intra_simple.mca_coll_han_allreduce_intra, %83 ], [ %53, %73 ]
-  %87 = tail call i32 %.053(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %.054) #8
+  %.054 = phi ptr [ %48, %46 ], [ %70, %68 ], [ %81, %79 ], [ @mca_coll_han_allreduce_reproducible, %76 ], [ %mca_coll_han_allreduce_intra_simple.mca_coll_han_allreduce_intra, %83 ], [ %53, %73 ]
+  %.053 = phi ptr [ %50, %46 ], [ %72, %68 ], [ %23, %79 ], [ %23, %76 ], [ %23, %83 ], [ %23, %73 ]
+  %87 = tail call i32 %.054(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %.053) #8
   br label %88
 
 88:                                               ; preds = %86, %13
@@ -836,9 +836,9 @@ define i32 @mca_coll_han_barrier_intra_dynamic(ptr noundef %0, ptr noundef %1) l
   br label %72
 
 72:                                               ; preds = %65, %60, %68, %38
-  %.042 = phi ptr [ %42, %38 ], [ %64, %60 ], [ %15, %68 ], [ %15, %65 ]
-  %.041 = phi ptr [ %40, %38 ], [ %62, %60 ], [ %spec.store.select, %68 ], [ %45, %65 ]
-  %73 = tail call i32 %.041(ptr noundef nonnull %0, ptr noundef %.042) #8
+  %.042 = phi ptr [ %40, %38 ], [ %62, %60 ], [ %spec.store.select, %68 ], [ %45, %65 ]
+  %.041 = phi ptr [ %42, %38 ], [ %64, %60 ], [ %15, %68 ], [ %15, %65 ]
+  %73 = tail call i32 %.042(ptr noundef nonnull %0, ptr noundef %.041) #8
   br label %74
 
 74:                                               ; preds = %72, %8
@@ -966,9 +966,9 @@ define i32 @mca_coll_han_bcast_intra_dynamic(ptr noundef %0, i32 noundef %1, ptr
   br label %82
 
 82:                                               ; preds = %72, %79, %67, %75, %45
-  %.052 = phi ptr [ %49, %45 ], [ %71, %67 ], [ %22, %75 ], [ %22, %79 ], [ %22, %72 ]
-  %.051 = phi ptr [ %47, %45 ], [ %69, %67 ], [ %77, %75 ], [ %mca_coll_han_bcast_intra_simple.mca_coll_han_bcast_intra, %79 ], [ %52, %72 ]
-  %83 = tail call i32 %.051(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %.052) #8
+  %.052 = phi ptr [ %47, %45 ], [ %69, %67 ], [ %77, %75 ], [ %mca_coll_han_bcast_intra_simple.mca_coll_han_bcast_intra, %79 ], [ %52, %72 ]
+  %.051 = phi ptr [ %49, %45 ], [ %71, %67 ], [ %22, %75 ], [ %22, %79 ], [ %22, %72 ]
+  %83 = tail call i32 %.052(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %.051) #8
   br label %84
 
 84:                                               ; preds = %82, %12
@@ -1101,9 +1101,9 @@ define i32 @mca_coll_han_gather_intra_dynamic(ptr noundef %0, i32 noundef %1, pt
   br label %85
 
 85:                                               ; preds = %75, %82, %70, %78, %48
-  %.061 = phi ptr [ %52, %48 ], [ %74, %70 ], [ %25, %78 ], [ %25, %82 ], [ %25, %75 ]
-  %.060 = phi ptr [ %50, %48 ], [ %72, %70 ], [ %80, %78 ], [ %mca_coll_han_gather_intra_simple.mca_coll_han_gather_intra, %82 ], [ %55, %75 ]
-  %86 = tail call i32 %.060(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %7, ptr noundef %.061) #8
+  %.061 = phi ptr [ %50, %48 ], [ %72, %70 ], [ %80, %78 ], [ %mca_coll_han_gather_intra_simple.mca_coll_han_gather_intra, %82 ], [ %55, %75 ]
+  %.060 = phi ptr [ %52, %48 ], [ %74, %70 ], [ %25, %78 ], [ %25, %82 ], [ %25, %75 ]
+  %86 = tail call i32 %.061(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %7, ptr noundef %.060) #8
   br label %87
 
 87:                                               ; preds = %85, %15
@@ -1238,9 +1238,9 @@ define i32 @mca_coll_han_reduce_intra_dynamic(ptr noundef %0, ptr noundef %1, i3
   br label %87
 
 87:                                               ; preds = %74, %84, %77, %69, %80, %47
-  %.056 = phi ptr [ %51, %47 ], [ %73, %69 ], [ %24, %80 ], [ %24, %77 ], [ %24, %84 ], [ %24, %74 ]
-  %.055 = phi ptr [ %49, %47 ], [ %71, %69 ], [ %82, %80 ], [ @mca_coll_han_reduce_reproducible, %77 ], [ %mca_coll_han_reduce_intra_simple.mca_coll_han_reduce_intra, %84 ], [ %54, %74 ]
-  %88 = tail call i32 %.055(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull %6, ptr noundef %.056) #8
+  %.056 = phi ptr [ %49, %47 ], [ %71, %69 ], [ %82, %80 ], [ @mca_coll_han_reduce_reproducible, %77 ], [ %mca_coll_han_reduce_intra_simple.mca_coll_han_reduce_intra, %84 ], [ %54, %74 ]
+  %.055 = phi ptr [ %51, %47 ], [ %73, %69 ], [ %24, %80 ], [ %24, %77 ], [ %24, %84 ], [ %24, %74 ]
+  %88 = tail call i32 %.056(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull %6, ptr noundef %.055) #8
   br label %89
 
 89:                                               ; preds = %87, %14
@@ -1375,9 +1375,9 @@ define i32 @mca_coll_han_scatter_intra_dynamic(ptr noundef %0, i32 noundef %1, p
   br label %85
 
 85:                                               ; preds = %75, %82, %70, %78, %48
-  %.061 = phi ptr [ %52, %48 ], [ %74, %70 ], [ %25, %78 ], [ %25, %82 ], [ %25, %75 ]
-  %.060 = phi ptr [ %50, %48 ], [ %72, %70 ], [ %80, %78 ], [ %mca_coll_han_scatter_intra_simple.mca_coll_han_scatter_intra, %82 ], [ %55, %75 ]
-  %86 = tail call i32 %.060(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %7, ptr noundef %.061) #8
+  %.061 = phi ptr [ %50, %48 ], [ %72, %70 ], [ %80, %78 ], [ %mca_coll_han_scatter_intra_simple.mca_coll_han_scatter_intra, %82 ], [ %55, %75 ]
+  %.060 = phi ptr [ %52, %48 ], [ %74, %70 ], [ %25, %78 ], [ %25, %82 ], [ %25, %75 ]
+  %86 = tail call i32 %.061(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %7, ptr noundef %.060) #8
   br label %87
 
 87:                                               ; preds = %85, %15
@@ -1549,8 +1549,8 @@ define internal fastcc ptr @get_dynamic_rule(i32 noundef %0, i64 noundef %1, i32
   br label %101
 
 101:                                              ; preds = %85, %80, %76, %.thread9, %56, %.thread6, %36, %.thread3, %16, %.thread
-  %.0 = phi ptr [ null, %.thread ], [ null, %16 ], [ null, %.thread3 ], [ null, %36 ], [ null, %.thread6 ], [ null, %56 ], [ null, %.thread9 ], [ null, %76 ], [ %71, %80 ], [ %71, %85 ]
-  ret ptr %.0
+  %.089 = phi ptr [ null, %.thread ], [ null, %16 ], [ null, %.thread3 ], [ null, %36 ], [ null, %.thread6 ], [ null, %56 ], [ null, %.thread9 ], [ null, %76 ], [ %71, %80 ], [ %71, %85 ]
+  ret ptr %.089
 }
 
 declare ptr @mca_coll_han_algorithm_id_to_name(i32 noundef, i32 noundef) local_unnamed_addr #4

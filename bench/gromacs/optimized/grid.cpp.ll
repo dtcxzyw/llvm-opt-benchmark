@@ -2740,7 +2740,7 @@ define void @_ZN5Nbnxm4Grid22sortColumnsCpuGeometryEPNS_11GridSetDataEiN3gmx8Arr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.04374 = phi i32 [ %70, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
+  %.04473 = phi i32 [ %70, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %74 = add nsw i64 %indvars.iv, %71
   %75 = mul i64 %indvars.iv, %43
   %76 = trunc i64 %75 to i32
@@ -2757,7 +2757,7 @@ define void @_ZN5Nbnxm4Grid22sortColumnsCpuGeometryEPNS_11GridSetDataEiN3gmx8Arr
   tail call void @_ZN5Nbnxm4Grid8fillCellEPNS_11GridSetDataEP16nbnxn_atomdata_tiiN3gmx8ArrayRefIKlEENS6_IKNS5_11BasicVectorIfEEEEPNS_11BoundingBoxE(ptr noundef nonnull align 8 dereferenceable(372) %0, ptr noundef %1, ptr noundef %6, i32 noundef %79, i32 noundef %80, ptr noundef nonnull byval(%"class.gmx::ArrayRef.25") align 8 %10, ptr noundef nonnull byval(%"class.gmx::ArrayRef.28") align 8 %11, ptr noundef null)
   %81 = icmp sgt i32 %.sroa.speculated52, 0
   %82 = trunc nsw i64 %74 to i32
-  %spec.select = select i1 %81, i32 %82, i32 %.04374
+  %spec.select = select i1 %81, i32 %82, i32 %.04473
   %83 = sext i32 %spec.select to i64
   %84 = load ptr, ptr %41, align 8
   %85 = getelementptr inbounds %"struct.Nbnxm::BoundingBox", ptr %84, i64 %83, i32 0, i32 2

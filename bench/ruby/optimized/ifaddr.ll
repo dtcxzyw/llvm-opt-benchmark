@@ -663,10 +663,10 @@ define internal i64 @socket_s_getifaddrs(i64 %0) #0 {
 
 .preheader.i:                                     ; preds = %8, %.preheader.i
   %indvars.iv47.i = phi i32 [ %indvars.iv.next48.i, %.preheader.i ], [ 1, %8 ]
-  %.03441.i = phi i32 [ %12, %.preheader.i ], [ 0, %8 ]
-  %.03640.i = phi ptr [ %13, %.preheader.i ], [ %9, %8 ]
-  %12 = add nuw nsw i32 %.03441.i, 1
-  %13 = load ptr, ptr %.03640.i, align 8
+  %.03441.i = phi ptr [ %13, %.preheader.i ], [ %9, %8 ]
+  %.03740.i = phi i32 [ %12, %.preheader.i ], [ 0, %8 ]
+  %12 = add nuw nsw i32 %.03740.i, 1
+  %13 = load ptr, ptr %.03441.i, align 8
   %.not39.i = icmp eq ptr %13, null
   %indvars.iv.next48.i = add nuw i32 %indvars.iv47.i, 1
   br i1 %.not39.i, label %14, label %.preheader.i, !llvm.loop !6
@@ -686,13 +686,13 @@ define internal i64 @socket_s_getifaddrs(i64 %0) #0 {
 
 23:                                               ; preds = %23, %14
   %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %23 ]
-  %.137.in42.i = phi ptr [ %2, %14 ], [ %.137.i, %23 ]
-  %.137.i = load ptr, ptr %.137.in42.i, align 8
+  %.1.in43.i = phi ptr [ %2, %14 ], [ %.1.i, %23 ]
+  %.1.i = load ptr, ptr %.1.in43.i, align 8
   %24 = getelementptr inbounds [1 x %struct.rb_ifaddr_tag], ptr %22, i64 0, i64 %indvars.iv.i
   %25 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %25, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %24, i64 8
-  store ptr %.137.i, ptr %26, align 8
+  store ptr %.1.i, ptr %26, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %27, label %23, !llvm.loop !8
@@ -704,7 +704,7 @@ define internal i64 @socket_s_getifaddrs(i64 %0) #0 {
   store i32 1, ptr %20, align 8
   %30 = call i64 @rb_ary_new_capa(i64 noundef %17) #7
   %31 = call i64 @rb_ary_push(i64 noundef %30, i64 noundef %16) #7
-  %.not45.i = icmp eq i32 %.03441.i, 0
+  %.not45.i = icmp eq i32 %.03740.i, 0
   br i1 %.not45.i, label %rsock_getifaddrs.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %27, %.lr.ph.i

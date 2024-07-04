@@ -1955,9 +1955,9 @@ entry:
   br i1 %cmp.i.i30, label %land.rhs.i.i, label %while.end
 
 land.rhs.i.i:                                     ; preds = %entry, %while.body
-  %cnstr.addr.032 = phi ptr [ %5, %while.body ], [ %cnstr, %entry ]
-  %sign.031 = phi i1 [ %lnot, %while.body ], [ false, %entry ]
-  %m_decl.i.i.i = getelementptr inbounds i8, ptr %cnstr.addr.032, i64 16
+  %sign.032 = phi i1 [ %lnot, %while.body ], [ false, %entry ]
+  %cnstr.addr.031 = phi ptr [ %5, %while.body ], [ %cnstr, %entry ]
+  %m_decl.i.i.i = getelementptr inbounds i8, ptr %cnstr.addr.031, i64 16
   %0 = load ptr, ptr %m_decl.i.i.i, align 8
   %m_info.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %1 = load ptr, ptr %m_info.i.i.i.i, align 8
@@ -1974,9 +1974,9 @@ _ZNK11ast_manager6is_notEPK4expr.exit:            ; preds = %land.rhs.i.i
   br i1 %4, label %while.body, label %while.end
 
 while.body:                                       ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit
-  %m_args.i = getelementptr inbounds i8, ptr %cnstr.addr.032, i64 32
+  %m_args.i = getelementptr inbounds i8, ptr %cnstr.addr.031, i64 32
   %5 = load ptr, ptr %m_args.i, align 8
-  %lnot = xor i1 %sign.031, true
+  %lnot = xor i1 %sign.032, true
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %5, i64 4
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 65535
@@ -1984,8 +1984,8 @@ while.body:                                       ; preds = %_ZNK11ast_manager6i
   br i1 %cmp.i.i, label %land.rhs.i.i, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit, %while.body, %land.rhs.i.i, %entry
-  %sign.0.lcssa = phi i1 [ false, %entry ], [ %sign.031, %land.rhs.i.i ], [ %lnot, %while.body ], [ %sign.031, %_ZNK11ast_manager6is_notEPK4expr.exit ]
-  %cnstr.addr.0.lcssa = phi ptr [ %cnstr, %entry ], [ %cnstr.addr.032, %land.rhs.i.i ], [ %5, %while.body ], [ %cnstr.addr.032, %_ZNK11ast_manager6is_notEPK4expr.exit ]
+  %cnstr.addr.0.lcssa = phi ptr [ %cnstr, %entry ], [ %cnstr.addr.031, %land.rhs.i.i ], [ %5, %while.body ], [ %cnstr.addr.031, %_ZNK11ast_manager6is_notEPK4expr.exit ]
+  %sign.0.lcssa = phi i1 [ false, %entry ], [ %sign.032, %land.rhs.i.i ], [ %lnot, %while.body ], [ %sign.032, %_ZNK11ast_manager6is_notEPK4expr.exit ]
   %m_hash.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cnstr.addr.0.lcssa, i64 12
   %6 = load i32, ptr %m_hash.i.i.i.i.i.i, align 4
   %m_capacity.i.i = getelementptr inbounds i8, ptr %c2b, i64 8

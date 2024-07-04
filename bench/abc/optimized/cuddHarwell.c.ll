@@ -165,10 +165,10 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %103, label %.lr.ph, label %107
 
 .lr.ph:                                           ; preds = %100, %.lr.ph
-  %.0436550 = phi i32 [ %106, %.lr.ph ], [ 0, %100 ]
+  %.0431550 = phi i32 [ %106, %.lr.ph ], [ 0, %100 ]
   %104 = phi i32 [ %105, %.lr.ph ], [ %102, %100 ]
   %105 = lshr i32 %104, 1
-  %106 = add nuw nsw i32 %.0436550, 1
+  %106 = add nuw nsw i32 %.0431550, 1
   %.not = icmp ult i32 %104, 2
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
@@ -177,7 +177,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   br label %107
 
 107:                                              ; preds = %._crit_edge, %100
-  %.0436.lcssa = phi i32 [ %106, %._crit_edge ], [ 0, %100 ]
+  %.0431.lcssa = phi i32 [ %106, %._crit_edge ], [ 0, %100 ]
   %108 = load i32, ptr %32, align 4
   %109 = icmp eq i32 %108, 0
   %110 = load i32, ptr %29, align 4
@@ -194,30 +194,30 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   br label %117
 
 117:                                              ; preds = %113, %111
-  %.0443 = phi i32 [ %112, %111 ], [ %116, %113 ]
-  %118 = icmp sgt i32 %.0443, 0
+  %.0438 = phi i32 [ %112, %111 ], [ %116, %113 ]
+  %118 = icmp sgt i32 %.0438, 0
   br i1 %118, label %.lr.ph555, label %._crit_edge556
 
 .lr.ph555:                                        ; preds = %117, %.lr.ph555
-  %.1437553 = phi i32 [ %120, %.lr.ph555 ], [ 0, %117 ]
-  %.1444552 = phi i32 [ %119, %.lr.ph555 ], [ %.0443, %117 ]
-  %119 = lshr i32 %.1444552, 1
-  %120 = add nuw nsw i32 %.1437553, 1
-  %.not614 = icmp ult i32 %.1444552, 2
+  %.1432553 = phi i32 [ %120, %.lr.ph555 ], [ 0, %117 ]
+  %.1439552 = phi i32 [ %119, %.lr.ph555 ], [ %.0438, %117 ]
+  %119 = lshr i32 %.1439552, 1
+  %120 = add nuw nsw i32 %.1432553, 1
+  %.not614 = icmp ult i32 %.1439552, 2
   br i1 %.not614, label %._crit_edge556, label %.lr.ph555, !llvm.loop !6
 
 ._crit_edge556:                                   ; preds = %.lr.ph555, %117
-  %.1437.lcssa = phi i32 [ 0, %117 ], [ %120, %.lr.ph555 ]
+  %.1432.lcssa = phi i32 [ 0, %117 ], [ %120, %.lr.ph555 ]
   %121 = load i32, ptr %7, align 4
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %123, label %137
 
 123:                                              ; preds = %._crit_edge556
-  %.not499 = icmp eq i32 %.0436.lcssa, 0
+  %.not499 = icmp eq i32 %.0431.lcssa, 0
   br i1 %.not499, label %136, label %124
 
 124:                                              ; preds = %123
-  %125 = zext nneg i32 %.0436.lcssa to i64
+  %125 = zext nneg i32 %.0431.lcssa to i64
   %126 = shl nuw nsw i64 %125, 3
   %127 = call noalias ptr @malloc(i64 noundef %126) #8
   store ptr %127, ptr %3, align 8
@@ -246,13 +246,13 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   br label %167
 
 137:                                              ; preds = %._crit_edge556
-  %138 = icmp sgt i32 %.0436.lcssa, %121
+  %138 = icmp sgt i32 %.0431.lcssa, %121
   %139 = load ptr, ptr %3, align 8
   br i1 %138, label %140, label %165
 
 140:                                              ; preds = %137
   %.not497 = icmp eq ptr %139, null
-  %141 = zext nneg i32 %.0436.lcssa to i64
+  %141 = zext nneg i32 %.0431.lcssa to i64
   %142 = shl nuw nsw i64 %141, 3
   br i1 %.not497, label %145, label %143
 
@@ -278,7 +278,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
 152:                                              ; preds = %147
   %153 = load ptr, ptr %5, align 8
   %.not498 = icmp eq ptr %153, null
-  %154 = zext nneg i32 %.0436.lcssa to i64
+  %154 = zext nneg i32 %.0431.lcssa to i64
   %155 = shl nuw nsw i64 %154, 3
   br i1 %.not498, label %158, label %156
 
@@ -306,18 +306,18 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   br label %167
 
 167:                                              ; preds = %165, %160, %136, %131
-  %.0429 = phi ptr [ %127, %131 ], [ null, %136 ], [ %148, %160 ], [ %139, %165 ]
-  %.0427 = phi ptr [ %132, %131 ], [ null, %136 ], [ %161, %160 ], [ %166, %165 ]
+  %.0427 = phi ptr [ %127, %131 ], [ null, %136 ], [ %148, %160 ], [ %139, %165 ]
+  %.0425 = phi ptr [ %132, %131 ], [ null, %136 ], [ %161, %160 ], [ %166, %165 ]
   %168 = load i32, ptr %8, align 4
   %169 = icmp eq i32 %168, 0
   br i1 %169, label %170, label %184
 
 170:                                              ; preds = %167
-  %.not502 = icmp eq i32 %.1437.lcssa, 0
+  %.not502 = icmp eq i32 %.1432.lcssa, 0
   br i1 %.not502, label %183, label %171
 
 171:                                              ; preds = %170
-  %172 = zext nneg i32 %.1437.lcssa to i64
+  %172 = zext nneg i32 %.1432.lcssa to i64
   %173 = shl nuw nsw i64 %172, 3
   %174 = call noalias ptr @malloc(i64 noundef %173) #8
   store ptr %174, ptr %4, align 8
@@ -346,13 +346,13 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   br label %214
 
 184:                                              ; preds = %167
-  %185 = icmp sgt i32 %.1437.lcssa, %168
+  %185 = icmp sgt i32 %.1432.lcssa, %168
   %186 = load ptr, ptr %4, align 8
   br i1 %185, label %187, label %212
 
 187:                                              ; preds = %184
   %.not500 = icmp eq ptr %186, null
-  %188 = zext nneg i32 %.1437.lcssa to i64
+  %188 = zext nneg i32 %.1432.lcssa to i64
   %189 = shl nuw nsw i64 %188, 3
   br i1 %.not500, label %192, label %190
 
@@ -378,7 +378,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
 199:                                              ; preds = %194
   %200 = load ptr, ptr %6, align 8
   %.not501 = icmp eq ptr %200, null
-  %201 = zext nneg i32 %.1437.lcssa to i64
+  %201 = zext nneg i32 %.1432.lcssa to i64
   %202 = shl nuw nsw i64 %201, 3
   br i1 %.not501, label %205, label %203
 
@@ -406,10 +406,10 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   br label %214
 
 214:                                              ; preds = %212, %207, %183, %178
-  %.0428 = phi ptr [ %174, %178 ], [ null, %183 ], [ %195, %207 ], [ %186, %212 ]
-  %.0426 = phi ptr [ %179, %178 ], [ null, %183 ], [ %208, %207 ], [ %213, %212 ]
+  %.0426 = phi ptr [ %174, %178 ], [ null, %183 ], [ %195, %207 ], [ %186, %212 ]
+  %.0 = phi ptr [ %179, %178 ], [ null, %183 ], [ %208, %207 ], [ %213, %212 ]
   %215 = load i32, ptr %7, align 4
-  %216 = icmp slt i32 %215, %.0436.lcssa
+  %216 = icmp slt i32 %215, %.0431.lcssa
   br i1 %216, label %.preheader521.lr.ph, label %._crit_edge560
 
 .preheader521.lr.ph:                              ; preds = %214
@@ -417,18 +417,18 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %218 = add nsw i32 %217, %11
   %219 = getelementptr inbounds i8, ptr %1, i64 448
   %220 = sext i32 %215 to i64
-  %wide.trip.count = sext i32 %.0436.lcssa to i64
+  %wide.trip.count = sext i32 %.0431.lcssa to i64
   br label %.preheader521
 
 .preheader521:                                    ; preds = %.preheader521.lr.ph, %242
   %indvars.iv = phi i64 [ %220, %.preheader521.lr.ph ], [ %indvars.iv.next, %242 ]
-  %.0430559 = phi i32 [ %218, %.preheader521.lr.ph ], [ %249, %242 ]
-  %221 = getelementptr inbounds ptr, ptr %.0429, i64 %indvars.iv
+  %.0428559 = phi i32 [ %218, %.preheader521.lr.ph ], [ %249, %242 ]
+  %221 = getelementptr inbounds ptr, ptr %.0427, i64 %indvars.iv
   br label %222
 
 222:                                              ; preds = %.preheader521, %222
   store i32 0, ptr %219, align 8
-  %223 = call ptr @cuddUniqueInter(ptr noundef %1, i32 noundef %.0430559, ptr noundef %41, ptr noundef %43) #7
+  %223 = call ptr @cuddUniqueInter(ptr noundef %1, i32 noundef %.0428559, ptr noundef %41, ptr noundef %43) #7
   store ptr %223, ptr %221, align 8
   %224 = load i32, ptr %219, align 8
   %225 = icmp eq i32 %224, 1
@@ -446,12 +446,12 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %233 = load i32, ptr %232, align 4
   %234 = add i32 %233, 1
   store i32 %234, ptr %232, align 4
-  %235 = getelementptr inbounds ptr, ptr %.0427, i64 %indvars.iv
+  %235 = getelementptr inbounds ptr, ptr %.0425, i64 %indvars.iv
   br label %236
 
 236:                                              ; preds = %236, %228
   store i32 0, ptr %219, align 8
-  %237 = call ptr @cuddUniqueInter(ptr noundef nonnull %1, i32 noundef %.0430559, ptr noundef %43, ptr noundef %41) #7
+  %237 = call ptr @cuddUniqueInter(ptr noundef nonnull %1, i32 noundef %.0428559, ptr noundef %43, ptr noundef %41) #7
   store ptr %237, ptr %235, align 8
   %238 = load i32, ptr %219, align 8
   %239 = icmp eq i32 %238, 1
@@ -470,13 +470,13 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %248 = add i32 %247, 1
   store i32 %248, ptr %246, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %249 = add nsw i32 %.0430559, %12
+  %249 = add nsw i32 %.0428559, %12
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge560, label %.preheader521, !llvm.loop !9
 
 ._crit_edge560:                                   ; preds = %242, %214
   %250 = load i32, ptr %8, align 4
-  %251 = icmp slt i32 %250, %.1437.lcssa
+  %251 = icmp slt i32 %250, %.1432.lcssa
   br i1 %251, label %.preheader519.lr.ph, label %._crit_edge563
 
 .preheader519.lr.ph:                              ; preds = %._crit_edge560
@@ -484,18 +484,18 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %253 = add nsw i32 %252, %13
   %254 = getelementptr inbounds i8, ptr %1, i64 448
   %255 = sext i32 %250 to i64
-  %wide.trip.count648 = sext i32 %.1437.lcssa to i64
+  %wide.trip.count648 = sext i32 %.1432.lcssa to i64
   br label %.preheader519
 
 .preheader519:                                    ; preds = %.preheader519.lr.ph, %277
   %indvars.iv645 = phi i64 [ %255, %.preheader519.lr.ph ], [ %indvars.iv.next646, %277 ]
-  %.1431562 = phi i32 [ %253, %.preheader519.lr.ph ], [ %284, %277 ]
-  %256 = getelementptr inbounds ptr, ptr %.0428, i64 %indvars.iv645
+  %.1562 = phi i32 [ %253, %.preheader519.lr.ph ], [ %284, %277 ]
+  %256 = getelementptr inbounds ptr, ptr %.0426, i64 %indvars.iv645
   br label %257
 
 257:                                              ; preds = %.preheader519, %257
   store i32 0, ptr %254, align 8
-  %258 = call ptr @cuddUniqueInter(ptr noundef %1, i32 noundef %.1431562, ptr noundef %41, ptr noundef %43) #7
+  %258 = call ptr @cuddUniqueInter(ptr noundef %1, i32 noundef %.1562, ptr noundef %41, ptr noundef %43) #7
   store ptr %258, ptr %256, align 8
   %259 = load i32, ptr %254, align 8
   %260 = icmp eq i32 %259, 1
@@ -513,12 +513,12 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %268 = load i32, ptr %267, align 4
   %269 = add i32 %268, 1
   store i32 %269, ptr %267, align 4
-  %270 = getelementptr inbounds ptr, ptr %.0426, i64 %indvars.iv645
+  %270 = getelementptr inbounds ptr, ptr %.0, i64 %indvars.iv645
   br label %271
 
 271:                                              ; preds = %271, %263
   store i32 0, ptr %254, align 8
-  %272 = call ptr @cuddUniqueInter(ptr noundef nonnull %1, i32 noundef %.1431562, ptr noundef %43, ptr noundef %41) #7
+  %272 = call ptr @cuddUniqueInter(ptr noundef nonnull %1, i32 noundef %.1562, ptr noundef %43, ptr noundef %41) #7
   store ptr %272, ptr %270, align 8
   %273 = load i32, ptr %254, align 8
   %274 = icmp eq i32 %273, 1
@@ -537,18 +537,18 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %283 = add i32 %282, 1
   store i32 %283, ptr %281, align 4
   %indvars.iv.next646 = add nsw i64 %indvars.iv645, 1
-  %284 = add nsw i32 %.1431562, %14
+  %284 = add nsw i32 %.1562, %14
   %exitcond649.not = icmp eq i64 %indvars.iv.next646, %wide.trip.count648
   br i1 %exitcond649.not, label %._crit_edge563, label %.preheader519, !llvm.loop !12
 
 ._crit_edge563:                                   ; preds = %277, %._crit_edge560
-  store i32 %.0436.lcssa, ptr %7, align 4
-  store i32 %.1437.lcssa, ptr %8, align 4
+  store i32 %.0431.lcssa, ptr %7, align 4
+  store i32 %.1432.lcssa, ptr %8, align 4
   %285 = load i32, ptr %28, align 4
   store i32 %285, ptr %9, align 4
   %286 = load i32, ptr %32, align 4
   %287 = icmp eq i32 %286, 0
-  %288 = add nsw i32 %.1437.lcssa, -1
+  %288 = add nsw i32 %.1432.lcssa, -1
   %289 = shl nuw i32 1, %288
   %290 = add nsw i32 %286, %289
   %291 = load i32, ptr %29, align 4
@@ -682,10 +682,10 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %342 = and i64 %341, -2
   %343 = inttoptr i64 %342 to ptr
   %344 = getelementptr inbounds i8, ptr %343, i64 4
-  %345 = icmp sgt i32 %.1437.lcssa, 0
-  %346 = icmp sgt i32 %.0436.lcssa, 0
-  %347 = zext nneg i32 %.1437.lcssa to i64
-  %348 = zext nneg i32 %.0436.lcssa to i64
+  %345 = icmp sgt i32 %.1432.lcssa, 0
+  %346 = icmp sgt i32 %.0431.lcssa, 0
+  %347 = zext nneg i32 %.1432.lcssa to i64
+  %348 = zext nneg i32 %.0431.lcssa to i64
   br label %349
 
 349:                                              ; preds = %.lr.ph593, %._crit_edge589
@@ -701,20 +701,20 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
 
 .lr.ph576:                                        ; preds = %.lr.ph576.preheader, %359
   %indvars.iv656 = phi i64 [ %347, %.lr.ph576.preheader ], [ %indvars.iv.next657, %359 ]
-  %.2445573 = phi i32 [ %352, %.lr.ph576.preheader ], [ %366, %359 ]
-  %.0447572 = phi ptr [ %41, %.lr.ph576.preheader ], [ %356, %359 ]
+  %.2440573 = phi i32 [ %352, %.lr.ph576.preheader ], [ %366, %359 ]
+  %.0442572 = phi ptr [ %41, %.lr.ph576.preheader ], [ %356, %359 ]
   %indvars.iv.next657 = add nsw i64 %indvars.iv656, -1
-  %353 = and i32 %.2445573, 1
+  %353 = and i32 %.2440573, 1
   %.not510 = icmp eq i32 %353, 0
-  %.0426..0428 = select i1 %.not510, ptr %.0426, ptr %.0428
-  %354 = getelementptr inbounds ptr, ptr %.0426..0428, i64 %indvars.iv.next657
+  %.0..0426 = select i1 %.not510, ptr %.0, ptr %.0426
+  %354 = getelementptr inbounds ptr, ptr %.0..0426, i64 %indvars.iv.next657
   %355 = load ptr, ptr %354, align 8
-  %356 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addTimes, ptr noundef %.0447572, ptr noundef %355) #7
+  %356 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addTimes, ptr noundef %.0442572, ptr noundef %355) #7
   %357 = icmp eq ptr %356, null
   br i1 %357, label %358, label %359
 
 358:                                              ; preds = %.lr.ph576
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.0447572) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.0442572) #7
   call void @free(ptr noundef %295) #7
   call void @free(ptr noundef %303) #7
   br label %.loopexit
@@ -727,13 +727,13 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %364 = load i32, ptr %363, align 4
   %365 = add i32 %364, 1
   store i32 %365, ptr %363, align 4
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.0447572) #7
-  %366 = lshr i32 %.2445573, 1
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.0442572) #7
+  %366 = lshr i32 %.2440573, 1
   %367 = icmp sgt i64 %indvars.iv656, 1
   br i1 %367, label %.lr.ph576, label %._crit_edge577, !llvm.loop !15
 
 ._crit_edge577:                                   ; preds = %359, %349
-  %.0447.lcssa = phi ptr [ %41, %349 ], [ %356, %359 ]
+  %.0442.lcssa = phi ptr [ %41, %349 ], [ %356, %359 ]
   %368 = getelementptr inbounds i32, ptr %295, i64 %indvars.iv665
   %369 = load i32, ptr %368, align 4
   %indvars.iv.next666 = add nuw nsw i64 %indvars.iv665, 1
@@ -756,7 +756,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not508, label %378, label %377
 
 377:                                              ; preds = %.lr.ph588
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.0447.lcssa) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.0442.lcssa) #7
   call void @free(ptr noundef nonnull %295) #7
   call void @free(ptr noundef nonnull %303) #7
   br label %.loopexit
@@ -768,7 +768,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %381, label %382, label %383
 
 382:                                              ; preds = %378
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.0447.lcssa) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.0442.lcssa) #7
   call void @free(ptr noundef nonnull %295) #7
   call void @free(ptr noundef nonnull %303) #7
   br label %.loopexit
@@ -790,20 +790,20 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
 .lr.ph583:                                        ; preds = %.lr.ph583.preheader, %397
   %390 = phi i32 [ %.pre675, %.lr.ph583.preheader ], [ %405, %397 ]
   %indvars.iv659 = phi i64 [ %348, %.lr.ph583.preheader ], [ %indvars.iv.next660, %397 ]
-  %.0449580 = phi ptr [ %380, %.lr.ph583.preheader ], [ %394, %397 ]
+  %.0444580 = phi ptr [ %380, %.lr.ph583.preheader ], [ %394, %397 ]
   %indvars.iv.next660 = add nsw i64 %indvars.iv659, -1
   %391 = and i32 %390, 1
   %.not509 = icmp eq i32 %391, 0
-  %.0427..0429 = select i1 %.not509, ptr %.0427, ptr %.0429
-  %392 = getelementptr inbounds ptr, ptr %.0427..0429, i64 %indvars.iv.next660
+  %.0425..0427 = select i1 %.not509, ptr %.0425, ptr %.0427
+  %392 = getelementptr inbounds ptr, ptr %.0425..0427, i64 %indvars.iv.next660
   %393 = load ptr, ptr %392, align 8
-  %394 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addTimes, ptr noundef nonnull %.0449580, ptr noundef %393) #7
+  %394 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addTimes, ptr noundef nonnull %.0444580, ptr noundef %393) #7
   %395 = icmp eq ptr %394, null
   br i1 %395, label %396, label %397
 
 396:                                              ; preds = %.lr.ph583
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.0447.lcssa) #7
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef nonnull %.0449580) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.0442.lcssa) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef nonnull %.0444580) #7
   call void @free(ptr noundef %295) #7
   call void @free(ptr noundef %303) #7
   br label %.loopexit
@@ -816,7 +816,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %402 = load i32, ptr %401, align 4
   %403 = add i32 %402, 1
   store i32 %403, ptr %401, align 4
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef nonnull %.0449580) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef nonnull %.0444580) #7
   %404 = load i32, ptr %17, align 4
   %405 = ashr i32 %404, 1
   store i32 %405, ptr %17, align 4
@@ -824,14 +824,14 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %406, label %.lr.ph583, label %._crit_edge584, !llvm.loop !16
 
 ._crit_edge584:                                   ; preds = %397, %383
-  %.0449.lcssa = phi ptr [ %380, %383 ], [ %394, %397 ]
-  %407 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addTimes, ptr noundef %.0447.lcssa, ptr noundef nonnull %.0449.lcssa) #7
+  %.0444.lcssa = phi ptr [ %380, %383 ], [ %394, %397 ]
+  %407 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addTimes, ptr noundef %.0442.lcssa, ptr noundef nonnull %.0444.lcssa) #7
   %408 = icmp eq ptr %407, null
   br i1 %408, label %409, label %410
 
 409:                                              ; preds = %._crit_edge584
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.0447.lcssa) #7
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef nonnull %.0449.lcssa) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.0442.lcssa) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef nonnull %.0444.lcssa) #7
   call void @free(ptr noundef %295) #7
   call void @free(ptr noundef %303) #7
   br label %.loopexit
@@ -844,14 +844,14 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %415 = load i32, ptr %414, align 4
   %416 = add i32 %415, 1
   store i32 %416, ptr %414, align 4
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef nonnull %.0449.lcssa) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef nonnull %.0444.lcssa) #7
   %417 = load ptr, ptr %2, align 8
   %418 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addPlus, ptr noundef %417, ptr noundef nonnull %407) #7
   %419 = icmp eq ptr %418, null
   br i1 %419, label %420, label %421
 
 420:                                              ; preds = %410
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.0447.lcssa) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.0442.lcssa) #7
   call void @free(ptr noundef %295) #7
   call void @free(ptr noundef %303) #7
   br label %.loopexit
@@ -875,7 +875,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %431, label %.lr.ph588, label %._crit_edge589, !llvm.loop !17
 
 ._crit_edge589:                                   ; preds = %421, %._crit_edge577
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.0447.lcssa) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.0442.lcssa) #7
   %432 = load i32, ptr %29, align 4
   %433 = sext i32 %432 to i64
   %434 = icmp slt i64 %indvars.iv.next666, %433
@@ -893,44 +893,44 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %438 = and i64 %437, -2
   %439 = inttoptr i64 %438 to ptr
   %440 = getelementptr inbounds i8, ptr %439, i64 4
-  %441 = icmp sgt i32 %.1437.lcssa, 0
-  %442 = icmp sgt i32 %.0436.lcssa, 0
+  %441 = icmp sgt i32 %.1432.lcssa, 0
+  %442 = icmp sgt i32 %.0431.lcssa, 0
   %443 = zext i32 %288 to i64
-  %444 = zext nneg i32 %.0436.lcssa to i64
+  %444 = zext nneg i32 %.0431.lcssa to i64
   br label %445
 
 445:                                              ; preds = %.lr.ph613, %._crit_edge610
-  %.1435611 = phi i32 [ 0, %.lr.ph613 ], [ %525, %._crit_edge610 ]
+  %.1430611 = phi i32 [ 0, %.lr.ph613 ], [ %525, %._crit_edge610 ]
   %446 = load i32, ptr %440, align 4
   %447 = add i32 %446, 1
   store i32 %447, ptr %440, align 4
   br i1 %441, label %.lr.ph599.preheader, label %.preheader
 
 .lr.ph599.preheader:                              ; preds = %445
-  %448 = add nuw nsw i32 %.1435611, %289
+  %448 = add nuw nsw i32 %.1430611, %289
   br label %.lr.ph599
 
 .preheader:                                       ; preds = %457, %445
-  %.1448.lcssa = phi ptr [ %41, %445 ], [ %454, %457 ]
+  %.1443.lcssa = phi ptr [ %41, %445 ], [ %454, %457 ]
   %449 = load i32, ptr %28, align 4
   %450 = icmp sgt i32 %449, 0
   br i1 %450, label %.lr.ph609, label %._crit_edge610
 
 .lr.ph599:                                        ; preds = %.lr.ph599.preheader, %457
   %indvars.iv668 = phi i64 [ %443, %.lr.ph599.preheader ], [ %indvars.iv.next669, %457 ]
-  %.3446596 = phi i32 [ %448, %.lr.ph599.preheader ], [ %464, %457 ]
-  %.1448595 = phi ptr [ %41, %.lr.ph599.preheader ], [ %454, %457 ]
-  %451 = and i32 %.3446596, 1
+  %.3441596 = phi i32 [ %448, %.lr.ph599.preheader ], [ %464, %457 ]
+  %.1443595 = phi ptr [ %41, %.lr.ph599.preheader ], [ %454, %457 ]
+  %451 = and i32 %.3441596, 1
   %.not507 = icmp eq i32 %451, 0
-  %.0426..0428714 = select i1 %.not507, ptr %.0426, ptr %.0428
-  %452 = getelementptr inbounds ptr, ptr %.0426..0428714, i64 %indvars.iv668
+  %.0..0426714 = select i1 %.not507, ptr %.0, ptr %.0426
+  %452 = getelementptr inbounds ptr, ptr %.0..0426714, i64 %indvars.iv668
   %453 = load ptr, ptr %452, align 8
-  %454 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addTimes, ptr noundef %.1448595, ptr noundef %453) #7
+  %454 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addTimes, ptr noundef %.1443595, ptr noundef %453) #7
   %455 = icmp eq ptr %454, null
   br i1 %455, label %456, label %457
 
 456:                                              ; preds = %.lr.ph599
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.1448595) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.1443595) #7
   br label %.loopexit
 
 457:                                              ; preds = %.lr.ph599
@@ -941,8 +941,8 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %462 = load i32, ptr %461, align 4
   %463 = add i32 %462, 1
   store i32 %463, ptr %461, align 4
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.1448595) #7
-  %464 = ashr i32 %.3446596, 1
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.1443595) #7
+  %464 = ashr i32 %.3441596, 1
   %indvars.iv.next669 = add nsw i64 %indvars.iv668, -1
   %465 = icmp sgt i64 %indvars.iv668, 0
   br i1 %465, label %.lr.ph599, label %.preheader, !llvm.loop !19
@@ -955,7 +955,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not505, label %468, label %467
 
 467:                                              ; preds = %.lr.ph609
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.1448.lcssa) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.1443.lcssa) #7
   br label %.loopexit
 
 468:                                              ; preds = %.lr.ph609
@@ -969,7 +969,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %473, label %474, label %475
 
 474:                                              ; preds = %471
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.1448.lcssa) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.1443.lcssa) #7
   br label %.loopexit
 
 475:                                              ; preds = %471
@@ -989,20 +989,20 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
 .lr.ph605:                                        ; preds = %.lr.ph605.preheader, %489
   %482 = phi i32 [ %.pre676, %.lr.ph605.preheader ], [ %497, %489 ]
   %indvars.iv671 = phi i64 [ %444, %.lr.ph605.preheader ], [ %indvars.iv.next672, %489 ]
-  %.1450602 = phi ptr [ %472, %.lr.ph605.preheader ], [ %486, %489 ]
+  %.1445602 = phi ptr [ %472, %.lr.ph605.preheader ], [ %486, %489 ]
   %indvars.iv.next672 = add nsw i64 %indvars.iv671, -1
   %483 = and i32 %482, 1
   %.not506 = icmp eq i32 %483, 0
-  %.0427..0429715 = select i1 %.not506, ptr %.0427, ptr %.0429
-  %484 = getelementptr inbounds ptr, ptr %.0427..0429715, i64 %indvars.iv.next672
+  %.0425..0427715 = select i1 %.not506, ptr %.0425, ptr %.0427
+  %484 = getelementptr inbounds ptr, ptr %.0425..0427715, i64 %indvars.iv.next672
   %485 = load ptr, ptr %484, align 8
-  %486 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addTimes, ptr noundef nonnull %.1450602, ptr noundef %485) #7
+  %486 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addTimes, ptr noundef nonnull %.1445602, ptr noundef %485) #7
   %487 = icmp eq ptr %486, null
   br i1 %487, label %488, label %489
 
 488:                                              ; preds = %.lr.ph605
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.1448.lcssa) #7
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef nonnull %.1450602) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.1443.lcssa) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef nonnull %.1445602) #7
   br label %.loopexit
 
 489:                                              ; preds = %.lr.ph605
@@ -1013,7 +1013,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %494 = load i32, ptr %493, align 4
   %495 = add i32 %494, 1
   store i32 %495, ptr %493, align 4
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef nonnull %.1450602) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef nonnull %.1445602) #7
   %496 = load i32, ptr %17, align 4
   %497 = ashr i32 %496, 1
   store i32 %497, ptr %17, align 4
@@ -1021,14 +1021,14 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %498, label %.lr.ph605, label %._crit_edge606, !llvm.loop !20
 
 ._crit_edge606:                                   ; preds = %489, %475
-  %.1450.lcssa = phi ptr [ %472, %475 ], [ %486, %489 ]
-  %499 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addTimes, ptr noundef %.1448.lcssa, ptr noundef nonnull %.1450.lcssa) #7
+  %.1445.lcssa = phi ptr [ %472, %475 ], [ %486, %489 ]
+  %499 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addTimes, ptr noundef %.1443.lcssa, ptr noundef nonnull %.1445.lcssa) #7
   %500 = icmp eq ptr %499, null
   br i1 %500, label %501, label %502
 
 501:                                              ; preds = %._crit_edge606
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.1448.lcssa) #7
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef nonnull %.1450.lcssa) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.1443.lcssa) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef nonnull %.1445.lcssa) #7
   br label %.loopexit
 
 502:                                              ; preds = %._crit_edge606
@@ -1039,14 +1039,14 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   %507 = load i32, ptr %506, align 4
   %508 = add i32 %507, 1
   store i32 %508, ptr %506, align 4
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef nonnull %.1450.lcssa) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef nonnull %.1445.lcssa) #7
   %509 = load ptr, ptr %2, align 8
   %510 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addPlus, ptr noundef %509, ptr noundef nonnull %499) #7
   %511 = icmp eq ptr %510, null
   br i1 %511, label %512, label %513
 
 512:                                              ; preds = %502
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.1448.lcssa) #7
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.1443.lcssa) #7
   br label %.loopexit
 
 513:                                              ; preds = %502
@@ -1070,15 +1070,15 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %524, label %.lr.ph609, label %._crit_edge610, !llvm.loop !21
 
 ._crit_edge610:                                   ; preds = %521, %.preheader
-  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.1448.lcssa) #7
-  %525 = add nuw nsw i32 %.1435611, 1
+  call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.1443.lcssa) #7
+  %525 = add nuw nsw i32 %.1430611, 1
   %526 = load i32, ptr %32, align 4
   %527 = icmp slt i32 %525, %526
   br i1 %527, label %445, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %240, %226, %275, %261, %._crit_edge610, %._crit_edge594, %84, %51, %49, %45, %39, %80, %16, %36, %512, %501, %488, %474, %467, %456, %420, %409, %396, %382, %377, %358, %325, %324, %319, %309, %308, %305, %297, %210, %197, %181, %176, %163, %150, %134, %129, %89, %76
-  %.0 = phi i32 [ 0, %76 ], [ 0, %89 ], [ 0, %129 ], [ 0, %134 ], [ 0, %176 ], [ 0, %181 ], [ 0, %297 ], [ 0, %305 ], [ 0, %308 ], [ 0, %309 ], [ 0, %319 ], [ 0, %324 ], [ 0, %325 ], [ 0, %358 ], [ 0, %377 ], [ 0, %382 ], [ 0, %396 ], [ 0, %409 ], [ 0, %420 ], [ 0, %456 ], [ 0, %467 ], [ 0, %474 ], [ 0, %488 ], [ 0, %501 ], [ 0, %512 ], [ 0, %197 ], [ 0, %210 ], [ 0, %150 ], [ 0, %163 ], [ 0, %36 ], [ 0, %16 ], [ 0, %39 ], [ 0, %45 ], [ 0, %49 ], [ 0, %51 ], [ 0, %80 ], [ 0, %84 ], [ 1, %._crit_edge594 ], [ 1, %._crit_edge610 ], [ 0, %261 ], [ 0, %275 ], [ 0, %226 ], [ 0, %240 ]
-  ret i32 %.0
+  %.0450 = phi i32 [ 0, %76 ], [ 0, %89 ], [ 0, %129 ], [ 0, %134 ], [ 0, %176 ], [ 0, %181 ], [ 0, %297 ], [ 0, %305 ], [ 0, %308 ], [ 0, %309 ], [ 0, %319 ], [ 0, %324 ], [ 0, %325 ], [ 0, %358 ], [ 0, %377 ], [ 0, %382 ], [ 0, %396 ], [ 0, %409 ], [ 0, %420 ], [ 0, %456 ], [ 0, %467 ], [ 0, %474 ], [ 0, %488 ], [ 0, %501 ], [ 0, %512 ], [ 0, %197 ], [ 0, %210 ], [ 0, %150 ], [ 0, %163 ], [ 0, %36 ], [ 0, %16 ], [ 0, %39 ], [ 0, %45 ], [ 0, %49 ], [ 0, %51 ], [ 0, %80 ], [ 0, %84 ], [ 1, %._crit_edge594 ], [ 1, %._crit_edge610 ], [ 0, %261 ], [ 0, %275 ], [ 0, %226 ], [ 0, %240 ]
+  ret i32 %.0450
 }
 
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1

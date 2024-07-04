@@ -651,11 +651,11 @@ proto_item_set_hidden.exit.i17:                   ; preds = %166, %163, %158
   br label %202
 
 202:                                              ; preds = %187, %proto_item_set_hidden.exit.i17
-  %.078.i = phi i32 [ 16, %187 ], [ 8, %proto_item_set_hidden.exit.i17 ]
+  %.077.i = phi i32 [ 16, %187 ], [ 8, %proto_item_set_hidden.exit.i17 ]
   %203 = load i32, ptr @hf_msmms_data_unparsed, align 4
   %204 = zext i16 %183 to i32
-  %205 = sub nsw i32 %204, %.078.i
-  %206 = tail call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %203, ptr noundef %0, i32 noundef %.078.i, i32 noundef %205, i32 noundef 0) #6
+  %205 = sub nsw i32 %204, %.077.i
+  %206 = tail call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %203, ptr noundef %0, i32 noundef %.077.i, i32 noundef %205, i32 noundef 0) #6
   %207 = load ptr, ptr %159, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %207, i32 noundef 25, ptr noundef nonnull @.str.186, i32 noundef %174, i32 noundef %204) #6
   br label %dissect_msmms_command.exit

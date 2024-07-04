@@ -172,8 +172,8 @@ define dso_local { i64, i32 } @DefineCollation(ptr noundef %0, ptr noundef %1, p
   unreachable
 
 61:                                               ; preds = %49, %46, %43, %40, %37, %34, %31, %.lr.ph259
-  %.0106 = phi ptr [ %6, %.lr.ph259 ], [ %7, %31 ], [ %8, %34 ], [ %9, %37 ], [ %10, %40 ], [ %11, %43 ], [ %12, %46 ], [ %13, %49 ]
-  %62 = load ptr, ptr %.0106, align 8
+  %.0104 = phi ptr [ %6, %.lr.ph259 ], [ %7, %31 ], [ %8, %34 ], [ %9, %37 ], [ %10, %40 ], [ %11, %43 ], [ %12, %46 ], [ %13, %49 ]
+  %62 = load ptr, ptr %.0104, align 8
   %.not176 = icmp eq ptr %62, null
   br i1 %.not176, label %64, label %63
 
@@ -182,7 +182,7 @@ define dso_local { i64, i32 } @DefineCollation(ptr noundef %0, ptr noundef %1, p
   unreachable
 
 64:                                               ; preds = %61
-  store ptr %26, ptr %.0106, align 8
+  store ptr %26, ptr %.0104, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv258, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph259
@@ -276,7 +276,7 @@ list_length.exit.thread:                          ; preds = %.thread, %74, %list
   br label %108
 
 108:                                              ; preds = %89, %105
-  %.0105 = phi ptr [ %107, %105 ], [ null, %89 ]
+  %.0121 = phi ptr [ %107, %105 ], [ null, %89 ]
   %109 = call i64 @SysCacheGetAttr(i32 noundef 16, ptr noundef nonnull %85, i16 noundef signext 9, ptr noundef nonnull %14) #11
   %110 = load i8, ptr %14, align 1
   %111 = trunc i8 %110 to i1
@@ -288,7 +288,7 @@ list_length.exit.thread:                          ; preds = %.thread, %74, %list
   br label %115
 
 115:                                              ; preds = %108, %112
-  %.0107 = phi ptr [ %114, %112 ], [ null, %108 ]
+  %.0117 = phi ptr [ %114, %112 ], [ null, %108 ]
   %116 = call i64 @SysCacheGetAttr(i32 noundef 16, ptr noundef nonnull %85, i16 noundef signext 10, ptr noundef nonnull %14) #11
   %117 = load i8, ptr %14, align 1
   %118 = trunc i8 %117 to i1
@@ -300,7 +300,7 @@ list_length.exit.thread:                          ; preds = %.thread, %74, %list
   br label %122
 
 122:                                              ; preds = %115, %119
-  %.0111 = phi ptr [ %121, %119 ], [ null, %115 ]
+  %.0114 = phi ptr [ %121, %119 ], [ null, %115 ]
   %123 = call i64 @SysCacheGetAttr(i32 noundef 16, ptr noundef nonnull %85, i16 noundef signext 11, ptr noundef nonnull %14) #11
   %124 = load i8, ptr %14, align 1
   %125 = trunc i8 %124 to i1
@@ -312,7 +312,7 @@ list_length.exit.thread:                          ; preds = %.thread, %74, %list
   br label %129
 
 129:                                              ; preds = %122, %126
-  %.0115 = phi ptr [ %128, %126 ], [ null, %122 ]
+  %.0111 = phi ptr [ %128, %126 ], [ null, %122 ]
   call void @ReleaseSysCache(ptr noundef nonnull %85) #11
   %130 = icmp eq i8 %97, 100
   br i1 %130, label %131, label %.thread198
@@ -348,7 +348,7 @@ list_length.exit.thread:                          ; preds = %.thread, %74, %list
   br label %142
 
 142:                                              ; preds = %138, %139
-  %.0118 = phi i8 [ %141, %139 ], [ 1, %138 ]
+  %.0109 = phi i8 [ %141, %139 ], [ 1, %138 ]
   %.0..0..0..0.127 = load ptr, ptr %12, align 8
   %.not162 = icmp eq ptr %.0..0..0..0.127, null
   br i1 %.not162, label %145, label %143
@@ -358,7 +358,7 @@ list_length.exit.thread:                          ; preds = %.thread, %74, %list
   br label %145
 
 145:                                              ; preds = %143, %142
-  %.1116 = phi ptr [ %144, %143 ], [ null, %142 ]
+  %.1112 = phi ptr [ %144, %143 ], [ null, %142 ]
   %.0..0..0..0. = load ptr, ptr %13, align 8
   %.not163 = icmp eq ptr %.0..0..0..0., null
   br i1 %.not163, label %148, label %146
@@ -368,7 +368,7 @@ list_length.exit.thread:                          ; preds = %.thread, %74, %list
   br label %148
 
 148:                                              ; preds = %146, %145
-  %.0123 = phi ptr [ %147, %146 ], [ null, %145 ]
+  %.0105 = phi ptr [ %147, %146 ], [ null, %145 ]
   %.not164 = icmp eq ptr %.0, null
   br i1 %.not164, label %159, label %149
 
@@ -406,12 +406,12 @@ list_length.exit.thread:                          ; preds = %.thread, %74, %list
   br label %165
 
 165:                                              ; preds = %.thread181, %160, %163, %159
-  %.0121184 = phi i8 [ 99, %160 ], [ 105, %163 ], [ 99, %159 ], [ 105, %.thread181 ]
+  %.0106184 = phi i8 [ 99, %160 ], [ 105, %163 ], [ 99, %159 ], [ 105, %.thread181 ]
   %166 = phi i1 [ false, %160 ], [ true, %163 ], [ false, %159 ], [ true, %.thread181 ]
   %167 = phi i1 [ true, %160 ], [ false, %163 ], [ true, %159 ], [ false, %.thread181 ]
-  %.1112 = phi ptr [ null, %160 ], [ %164, %163 ], [ null, %159 ], [ null, %.thread181 ]
-  %.1108 = phi ptr [ %162, %160 ], [ null, %163 ], [ null, %159 ], [ null, %.thread181 ]
-  %.1 = phi ptr [ %161, %160 ], [ null, %163 ], [ null, %159 ], [ null, %.thread181 ]
+  %.1122 = phi ptr [ %161, %160 ], [ null, %163 ], [ null, %159 ], [ null, %.thread181 ]
+  %.1118 = phi ptr [ %162, %160 ], [ null, %163 ], [ null, %159 ], [ null, %.thread181 ]
+  %.1115 = phi ptr [ null, %160 ], [ %164, %163 ], [ null, %159 ], [ null, %.thread181 ]
   %.0..0..0..0.137 = load ptr, ptr %8, align 8
   %.not166 = icmp eq ptr %.0..0..0..0.137, null
   br i1 %.not166, label %170, label %168
@@ -421,7 +421,7 @@ list_length.exit.thread:                          ; preds = %.thread, %74, %list
   br label %170
 
 170:                                              ; preds = %168, %165
-  %.2 = phi ptr [ %169, %168 ], [ %.1, %165 ]
+  %.2123 = phi ptr [ %169, %168 ], [ %.1122, %165 ]
   %.0..0..0..0.133 = load ptr, ptr %9, align 8
   %.not167 = icmp eq ptr %.0..0..0..0.133, null
   br i1 %.not167, label %173, label %171
@@ -431,11 +431,11 @@ list_length.exit.thread:                          ; preds = %.thread, %74, %list
   br label %173
 
 173:                                              ; preds = %171, %170
-  %.2109 = phi ptr [ %172, %171 ], [ %.1108, %170 ]
+  %.2119 = phi ptr [ %172, %171 ], [ %.1118, %170 ]
   br i1 %167, label %174, label %184
 
 174:                                              ; preds = %173
-  %.not171 = icmp eq ptr %.2, null
+  %.not171 = icmp eq ptr %.2123, null
   br i1 %.not171, label %175, label %179
 
 175:                                              ; preds = %174
@@ -447,7 +447,7 @@ list_length.exit.thread:                          ; preds = %.thread, %74, %list
   unreachable
 
 179:                                              ; preds = %174
-  %.not172 = icmp eq ptr %.2109, null
+  %.not172 = icmp eq ptr %.2119, null
   br i1 %.not172, label %180, label %202
 
 180:                                              ; preds = %179
@@ -462,7 +462,7 @@ list_length.exit.thread:                          ; preds = %.thread, %74, %list
   br i1 %166, label %185, label %.thread194.thread224
 
 185:                                              ; preds = %184
-  %.not168 = icmp eq ptr %.1112, null
+  %.not168 = icmp eq ptr %.1115, null
   br i1 %.not168, label %186, label %190
 
 186:                                              ; preds = %185
@@ -480,12 +480,12 @@ list_length.exit.thread:                          ; preds = %.thread, %74, %list
 
 193:                                              ; preds = %190
   %194 = load i32, ptr @icu_validation_level, align 4
-  %195 = call ptr @icu_language_tag(ptr noundef nonnull %.1112, i32 noundef %194) #11
+  %195 = call ptr @icu_language_tag(ptr noundef nonnull %.1115, i32 noundef %194) #11
   %.not169 = icmp eq ptr %195, null
   br i1 %.not169, label %.thread194.thread, label %196
 
 196:                                              ; preds = %193
-  %197 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1112, ptr noundef nonnull dereferenceable(1) %195) #12
+  %197 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1115, ptr noundef nonnull dereferenceable(1) %195) #12
   %.not170 = icmp eq i32 %197, 0
   br i1 %.not170, label %.thread194.thread, label %198
 
@@ -494,17 +494,17 @@ list_length.exit.thread:                          ; preds = %.thread, %74, %list
   br i1 %199, label %200, label %.thread194.thread
 
 200:                                              ; preds = %198
-  %201 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef nonnull %195, ptr noundef nonnull %.1112) #11
+  %201 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef nonnull %195, ptr noundef nonnull %.1115) #11
   call void @errfinish(ptr noundef nonnull @.str.9, i32 noundef 283, ptr noundef nonnull @__func__.DefineCollation) #11
   br label %.thread194.thread
 
 .thread194.thread:                                ; preds = %190, %196, %193, %198, %200
-  %.2113 = phi ptr [ %.1112, %190 ], [ %.1112, %196 ], [ %.1112, %193 ], [ %195, %198 ], [ %195, %200 ]
-  call void @icu_validate_locale(ptr noundef nonnull %.2113) #11
+  %.2116 = phi ptr [ %.1115, %190 ], [ %.1115, %196 ], [ %.1115, %193 ], [ %195, %198 ], [ %195, %200 ]
+  call void @icu_validate_locale(ptr noundef nonnull %.2116) #11
   br label %213
 
 202:                                              ; preds = %179
-  %203 = trunc nuw i8 %.0118 to i1
+  %203 = trunc nuw i8 %.0109 to i1
   br i1 %203, label %208, label %204
 
 204:                                              ; preds = %202
@@ -516,7 +516,7 @@ list_length.exit.thread:                          ; preds = %.thread, %74, %list
   unreachable
 
 208:                                              ; preds = %202
-  %.not = icmp eq ptr %.1116, null
+  %.not = icmp eq ptr %.1112, null
   br i1 %.not, label %.thread194, label %209
 
 209:                                              ; preds = %208
@@ -531,7 +531,7 @@ list_length.exit.thread:                          ; preds = %.thread, %74, %list
   br i1 %166, label %213, label %.thread194.thread224
 
 213:                                              ; preds = %.thread194.thread, %.thread194
-  %.3114193197223 = phi ptr [ %.2113, %.thread194.thread ], [ %.1112, %.thread194 ]
+  %.3193197223 = phi ptr [ %.2116, %.thread194.thread ], [ %.1115, %.thread194 ]
   %214 = call i32 @GetDatabaseEncoding() #11
   %215 = call zeroext i1 @is_encoding_supported_by_icu(i32 noundef %214) #11
   br i1 %215, label %221, label %216
@@ -546,41 +546,41 @@ list_length.exit.thread:                          ; preds = %.thread, %74, %list
 
 .thread194.thread224:                             ; preds = %184, %.thread194
   %220 = call i32 @GetDatabaseEncoding() #11
-  call void @check_encoding_locale_matches(i32 noundef %220, ptr noundef %.2, ptr noundef %.2109) #11
+  call void @check_encoding_locale_matches(i32 noundef %220, ptr noundef %.2123, ptr noundef %.2119) #11
   br label %221
 
 221:                                              ; preds = %213, %.thread194.thread224
-  %.0120 = phi i32 [ %220, %.thread194.thread224 ], [ -1, %213 ]
-  %.4 = phi ptr [ %.1112, %.thread194.thread224 ], [ %.3114193197223, %213 ]
-  %.not174 = icmp eq ptr %.0123, null
+  %.4 = phi ptr [ %.1115, %.thread194.thread224 ], [ %.3193197223, %213 ]
+  %.0108 = phi i32 [ %220, %.thread194.thread224 ], [ -1, %213 ]
+  %.not174 = icmp eq ptr %.0105, null
   br i1 %.not174, label %.thread198, label %225
 
 .thread198:                                       ; preds = %129, %221
-  %.3221 = phi ptr [ %.2, %221 ], [ %.0105, %129 ]
-  %.3110219 = phi ptr [ %.2109, %221 ], [ %.0107, %129 ]
-  %.4217 = phi ptr [ %.4, %221 ], [ %.0111, %129 ]
-  %.2117215 = phi ptr [ %.1116, %221 ], [ %.0115, %129 ]
-  %.1119213 = phi i8 [ %.0118, %221 ], [ %99, %129 ]
-  %.0120211 = phi i32 [ %.0120, %221 ], [ %101, %129 ]
-  %.1122209 = phi i8 [ %.0121184, %221 ], [ %97, %129 ]
-  %222 = icmp eq i8 %.1122209, 105
-  %223 = select i1 %222, ptr %.4217, ptr %.3221
-  %224 = call ptr @get_collation_actual_version(i8 noundef signext %.1122209, ptr noundef %223) #11
+  %.1107221 = phi i8 [ %.0106184, %221 ], [ %97, %129 ]
+  %.0108219 = phi i32 [ %.0108, %221 ], [ %101, %129 ]
+  %.1110217 = phi i8 [ %.0109, %221 ], [ %99, %129 ]
+  %.2113215 = phi ptr [ %.1112, %221 ], [ %.0111, %129 ]
+  %.4213 = phi ptr [ %.4, %221 ], [ %.0114, %129 ]
+  %.3120211 = phi ptr [ %.2119, %221 ], [ %.0117, %129 ]
+  %.3124209 = phi ptr [ %.2123, %221 ], [ %.0121, %129 ]
+  %222 = icmp eq i8 %.1107221, 105
+  %223 = select i1 %222, ptr %.4213, ptr %.3124209
+  %224 = call ptr @get_collation_actual_version(i8 noundef signext %.1107221, ptr noundef %223) #11
   br label %225
 
 225:                                              ; preds = %.thread198, %221
-  %.3220 = phi ptr [ %.2, %221 ], [ %.3221, %.thread198 ]
-  %.3110218 = phi ptr [ %.2109, %221 ], [ %.3110219, %.thread198 ]
-  %.4216 = phi ptr [ %.4, %221 ], [ %.4217, %.thread198 ]
-  %.2117214 = phi ptr [ %.1116, %221 ], [ %.2117215, %.thread198 ]
-  %.1119212 = phi i8 [ %.0118, %221 ], [ %.1119213, %.thread198 ]
-  %.0120210 = phi i32 [ %.0120, %221 ], [ %.0120211, %.thread198 ]
-  %.1122208 = phi i8 [ %.0121184, %221 ], [ %.1122209, %.thread198 ]
-  %.2125 = phi ptr [ %.0123, %221 ], [ %224, %.thread198 ]
+  %.1107220 = phi i8 [ %.0106184, %221 ], [ %.1107221, %.thread198 ]
+  %.0108218 = phi i32 [ %.0108, %221 ], [ %.0108219, %.thread198 ]
+  %.1110216 = phi i8 [ %.0109, %221 ], [ %.1110217, %.thread198 ]
+  %.2113214 = phi ptr [ %.1112, %221 ], [ %.2113215, %.thread198 ]
+  %.4212 = phi ptr [ %.4, %221 ], [ %.4213, %.thread198 ]
+  %.3120210 = phi ptr [ %.2119, %221 ], [ %.3120211, %.thread198 ]
+  %.3124208 = phi ptr [ %.2123, %221 ], [ %.3124209, %.thread198 ]
+  %.2 = phi ptr [ %.0105, %221 ], [ %224, %.thread198 ]
   %226 = load ptr, ptr %5, align 8
   %227 = call i32 @GetUserId() #11
-  %228 = trunc i8 %.1119212 to i1
-  %229 = call i32 @CollationCreate(ptr noundef %226, i32 noundef %15, i32 noundef %227, i8 noundef signext %.1122208, i1 noundef zeroext %228, i32 noundef %.0120210, ptr noundef %.3220, ptr noundef %.3110218, ptr noundef %.4216, ptr noundef %.2117214, ptr noundef %.2125, i1 noundef zeroext %3, i1 noundef zeroext false) #11
+  %228 = trunc i8 %.1110216 to i1
+  %229 = call i32 @CollationCreate(ptr noundef %226, i32 noundef %15, i32 noundef %227, i8 noundef signext %.1107220, i1 noundef zeroext %228, i32 noundef %.0108218, ptr noundef %.3124208, ptr noundef %.3120210, ptr noundef %.4212, ptr noundef %.2113214, ptr noundef %.2, i1 noundef zeroext %3, i1 noundef zeroext false) #11
   %.not175 = icmp eq i32 %229, 0
   br i1 %.not175, label %230, label %232
 
@@ -995,8 +995,8 @@ define dso_local i64 @pg_collation_actual_version(ptr nocapture noundef %0) loca
   br label %55
 
 55:                                               ; preds = %53, %50
-  %.0 = phi i64 [ %52, %50 ], [ 0, %53 ]
-  ret i64 %.0
+  %.024 = phi i64 [ %52, %50 ], [ 0, %53 ]
+  ret i64 %.024
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1040,10 +1040,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_import_system_collat
 
 .preheader:                                       ; preds = %21
   %25 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 128, ptr noundef nonnull %23)
-  %.not99107 = icmp eq ptr %25, null
-  br i1 %.not99107, label %._crit_edge121.thread, label %.lr.ph
+  %.not98106 = icmp eq ptr %25, null
+  br i1 %.not98106, label %._crit_edge120.thread, label %.lr.ph
 
-._crit_edge121.thread:                            ; preds = %.preheader
+._crit_edge120.thread:                            ; preds = %.preheader
   %26 = call i32 @ClosePipeStream(ptr noundef nonnull %23) #11
   br label %117
 
@@ -1127,7 +1127,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_import_system_collat
   br i1 %63, label %.backedge, label %64
 
 64:                                               ; preds = %62
-  %65 = add i32 %.084.ph109, 1
+  %65 = add i32 %.083.ph108, 1
   %66 = call i32 @GetUserId() #11
   %67 = call ptr @get_collation_actual_version(i8 noundef signext 99, ptr noundef nonnull %4) #11
   %68 = call i32 @CollationCreate(ptr noundef nonnull %4, i32 noundef %8, i32 noundef %66, i8 noundef signext 99, i1 noundef zeroext true, i32 noundef %50, ptr noundef nonnull %4, ptr noundef nonnull %4, ptr noundef null, ptr noundef null, ptr noundef %67, i1 noundef zeroext true, i1 noundef zeroext true) #11
@@ -1135,12 +1135,12 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_import_system_collat
   br i1 %.not.i, label %71, label %69
 
 69:                                               ; preds = %64
-  %70 = add i32 %.086.ph108, 1
+  %70 = add i32 %.085.ph107, 1
   call void @CommandCounterIncrement() #11
   br label %71
 
 71:                                               ; preds = %69, %64
-  %.187.ph = phi i32 [ %70, %69 ], [ %.086.ph108, %64 ]
+  %.186.ph = phi i32 [ %70, %69 ], [ %.085.ph107, %64 ]
   br label %72
 
 72:                                               ; preds = %.loopexit.i, %71
@@ -1189,21 +1189,21 @@ normalize_libc_locale_name.exit:                  ; preds = %72
   br i1 %.0.i75, label %83, label %.outer
 
 83:                                               ; preds = %normalize_libc_locale_name.exit
-  %.not74 = icmp slt i32 %.058.ph111, %.060.ph110
+  %.not74 = icmp slt i32 %.064.ph109, %.061.ph110
   br i1 %.not74, label %89, label %84
 
 84:                                               ; preds = %83
-  %85 = shl i32 %.060.ph110, 1
+  %85 = shl i32 %.061.ph110, 1
   %86 = sext i32 %85 to i64
   %87 = mul nsw i64 %86, 24
-  %88 = call ptr @repalloc(ptr noundef %.0.ph112, i64 noundef %87) #11
+  %88 = call ptr @repalloc(ptr noundef %.059.ph111, i64 noundef %87) #11
   br label %89
 
 89:                                               ; preds = %84, %83
-  %.161 = phi i32 [ %85, %84 ], [ %.060.ph110, %83 ]
-  %.1 = phi ptr [ %88, %84 ], [ %.0.ph112, %83 ]
+  %.162 = phi i32 [ %85, %84 ], [ %.061.ph110, %83 ]
+  %.1 = phi ptr [ %88, %84 ], [ %.059.ph111, %83 ]
   %90 = call ptr @pstrdup(ptr noundef nonnull %4) #11
-  %91 = sext i32 %.058.ph111 to i64
+  %91 = sext i32 %.064.ph109 to i64
   %92 = getelementptr %struct.CollAliasData, ptr %.1, i64 %91
   store ptr %90, ptr %92, align 8
   %93 = call ptr @pstrdup(ptr noundef nonnull %5) #11
@@ -1211,52 +1211,52 @@ normalize_libc_locale_name.exit:                  ; preds = %72
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %92, i64 16
   store i32 %50, ptr %95, align 8
-  %96 = add i32 %.058.ph111, 1
+  %96 = add i32 %.064.ph109, 1
   br label %.outer
 
 .outer:                                           ; preds = %89, %normalize_libc_locale_name.exit
-  %.262 = phi i32 [ %.161, %89 ], [ %.060.ph110, %normalize_libc_locale_name.exit ]
-  %.159 = phi i32 [ %96, %89 ], [ %.058.ph111, %normalize_libc_locale_name.exit ]
-  %.2 = phi ptr [ %.1, %89 ], [ %.0.ph112, %normalize_libc_locale_name.exit ]
+  %.165 = phi i32 [ %96, %89 ], [ %.064.ph109, %normalize_libc_locale_name.exit ]
+  %.263 = phi i32 [ %.162, %89 ], [ %.061.ph110, %normalize_libc_locale_name.exit ]
+  %.2 = phi ptr [ %.1, %89 ], [ %.059.ph111, %normalize_libc_locale_name.exit ]
   %97 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 128, ptr noundef nonnull %23)
-  %.not99 = icmp eq ptr %97, null
-  br i1 %.not99, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !5
+  %.not98 = icmp eq ptr %97, null
+  br i1 %.not98, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !5
 
 .lr.ph:                                           ; preds = %.preheader, %.outer
-  %.0.ph112 = phi ptr [ %.2, %.outer ], [ %22, %.preheader ]
-  %.058.ph111 = phi i32 [ %.159, %.outer ], [ 0, %.preheader ]
-  %.060.ph110 = phi i32 [ %.262, %.outer ], [ 100, %.preheader ]
-  %.084.ph109 = phi i32 [ %65, %.outer ], [ 0, %.preheader ]
-  %.086.ph108 = phi i32 [ %.187.ph, %.outer ], [ 0, %.preheader ]
+  %.059.ph111 = phi ptr [ %.2, %.outer ], [ %22, %.preheader ]
+  %.061.ph110 = phi i32 [ %.263, %.outer ], [ 100, %.preheader ]
+  %.064.ph109 = phi i32 [ %.165, %.outer ], [ 0, %.preheader ]
+  %.083.ph108 = phi i32 [ %65, %.outer ], [ 0, %.preheader ]
+  %.085.ph107 = phi i32 [ %.186.ph, %.outer ], [ 0, %.preheader ]
   br label %31
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge
-  %.086.ph.lcssa = phi i32 [ %.086.ph108, %.backedge ], [ %.187.ph, %.outer ]
-  %.084.ph.lcssa = phi i32 [ %.084.ph109, %.backedge ], [ %65, %.outer ]
-  %.058.ph.lcssa = phi i32 [ %.058.ph111, %.backedge ], [ %.159, %.outer ]
-  %.0.ph.lcssa = phi ptr [ %.0.ph112, %.backedge ], [ %.2, %.outer ]
+  %.085.ph.lcssa = phi i32 [ %.085.ph107, %.backedge ], [ %.186.ph, %.outer ]
+  %.083.ph.lcssa = phi i32 [ %.083.ph108, %.backedge ], [ %65, %.outer ]
+  %.064.ph.lcssa = phi i32 [ %.064.ph109, %.backedge ], [ %.165, %.outer ]
+  %.059.ph.lcssa = phi ptr [ %.059.ph111, %.backedge ], [ %.2, %.outer ]
   %98 = call i32 @ClosePipeStream(ptr noundef nonnull %23) #11
-  %99 = icmp sgt i32 %.058.ph.lcssa, 1
+  %99 = icmp sgt i32 %.064.ph.lcssa, 1
   br i1 %99, label %.thread, label %102
 
 .thread:                                          ; preds = %.outer._crit_edge
-  %100 = zext nneg i32 %.058.ph.lcssa to i64
-  call void @pg_qsort(ptr noundef %.0.ph.lcssa, i64 noundef %100, i64 noundef 24, ptr noundef nonnull @cmpaliases) #11
-  %101 = zext nneg i32 %.058.ph.lcssa to i64
-  br label %.lr.ph120.preheader
+  %100 = zext nneg i32 %.064.ph.lcssa to i64
+  call void @pg_qsort(ptr noundef %.059.ph.lcssa, i64 noundef %100, i64 noundef 24, ptr noundef nonnull @cmpaliases) #11
+  %101 = zext nneg i32 %.064.ph.lcssa to i64
+  br label %.lr.ph119.preheader
 
 102:                                              ; preds = %.outer._crit_edge
-  %103 = icmp eq i32 %.058.ph.lcssa, 1
-  br i1 %103, label %.lr.ph120.preheader, label %._crit_edge121
+  %103 = icmp eq i32 %.064.ph.lcssa, 1
+  br i1 %103, label %.lr.ph119.preheader, label %._crit_edge120
 
-.lr.ph120.preheader:                              ; preds = %.thread, %102
-  %.058.ph.lcssa142149 = phi i64 [ %101, %.thread ], [ 1, %102 ]
-  br label %.lr.ph120
+.lr.ph119.preheader:                              ; preds = %.thread, %102
+  %.064.ph.lcssa141148 = phi i64 [ %101, %.thread ], [ 1, %102 ]
+  br label %.lr.ph119
 
-.lr.ph120:                                        ; preds = %.lr.ph120.preheader, %115
-  %indvars.iv = phi i64 [ 0, %.lr.ph120.preheader ], [ %indvars.iv.next, %115 ]
-  %.288117 = phi i32 [ %.086.ph.lcssa, %.lr.ph120.preheader ], [ %.3, %115 ]
-  %104 = getelementptr %struct.CollAliasData, ptr %.0.ph.lcssa, i64 %indvars.iv
+.lr.ph119:                                        ; preds = %.lr.ph119.preheader, %115
+  %indvars.iv = phi i64 [ 0, %.lr.ph119.preheader ], [ %indvars.iv.next, %115 ]
+  %.287116 = phi i32 [ %.085.ph.lcssa, %.lr.ph119.preheader ], [ %.3, %115 ]
+  %104 = getelementptr %struct.CollAliasData, ptr %.059.ph.lcssa, i64 %indvars.iv
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds i8, ptr %104, i64 8
   %107 = load ptr, ptr %106, align 8
@@ -1268,24 +1268,24 @@ normalize_libc_locale_name.exit:                  ; preds = %72
   %.not72 = icmp eq i32 %112, 0
   br i1 %.not72, label %115, label %113
 
-113:                                              ; preds = %.lr.ph120
-  %114 = add i32 %.288117, 1
+113:                                              ; preds = %.lr.ph119
+  %114 = add i32 %.287116, 1
   call void @CommandCounterIncrement() #11
   br label %115
 
-115:                                              ; preds = %.lr.ph120, %113
-  %.3 = phi i32 [ %.288117, %.lr.ph120 ], [ %114, %113 ]
+115:                                              ; preds = %.lr.ph119, %113
+  %.3 = phi i32 [ %.287116, %.lr.ph119 ], [ %114, %113 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %.058.ph.lcssa142149
-  br i1 %exitcond.not, label %._crit_edge121, label %.lr.ph120, !llvm.loop !9
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %.064.ph.lcssa141148
+  br i1 %exitcond.not, label %._crit_edge120, label %.lr.ph119, !llvm.loop !9
 
-._crit_edge121:                                   ; preds = %115, %102
-  %.288.lcssa = phi i32 [ %.086.ph.lcssa, %102 ], [ %.3, %115 ]
-  %116 = icmp eq i32 %.084.ph.lcssa, 0
+._crit_edge120:                                   ; preds = %115, %102
+  %.287.lcssa = phi i32 [ %.085.ph.lcssa, %102 ], [ %.3, %115 ]
+  %116 = icmp eq i32 %.083.ph.lcssa, 0
   br i1 %116, label %117, label %121
 
-117:                                              ; preds = %._crit_edge121.thread, %._crit_edge121
-  %.288.lcssa161 = phi i32 [ 0, %._crit_edge121.thread ], [ %.288.lcssa, %._crit_edge121 ]
+117:                                              ; preds = %._crit_edge120.thread, %._crit_edge120
+  %.287.lcssa160 = phi i32 [ 0, %._crit_edge120.thread ], [ %.287.lcssa, %._crit_edge120 ]
   %118 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
   br i1 %118, label %119, label %121
 
@@ -1294,25 +1294,25 @@ normalize_libc_locale_name.exit:                  ; preds = %72
   call void @errfinish(ptr noundef nonnull @.str.9, i32 noundef 928, ptr noundef nonnull @__func__.pg_import_system_collations) #11
   br label %121
 
-121:                                              ; preds = %119, %117, %._crit_edge121
-  %.288.lcssa160 = phi i32 [ %.288.lcssa161, %119 ], [ %.288.lcssa161, %117 ], [ %.288.lcssa, %._crit_edge121 ]
+121:                                              ; preds = %119, %117, %._crit_edge120
+  %.287.lcssa159 = phi i32 [ %.287.lcssa160, %119 ], [ %.287.lcssa160, %117 ], [ %.287.lcssa, %._crit_edge120 ]
   %122 = call i32 @uloc_countAvailable_70() #11
   %123 = icmp sgt i32 %122, -1
-  br i1 %123, label %.lr.ph126, label %._crit_edge127
+  br i1 %123, label %.lr.ph125, label %._crit_edge126
 
-.lr.ph126:                                        ; preds = %121, %160
-  %.064124 = phi i32 [ %161, %160 ], [ -1, %121 ]
-  %.4123 = phi i32 [ %.5, %160 ], [ %.288.lcssa160, %121 ]
-  %124 = icmp eq i32 %.064124, -1
+.lr.ph125:                                        ; preds = %121, %160
+  %.058123 = phi i32 [ %161, %160 ], [ -1, %121 ]
+  %.4122 = phi i32 [ %.5, %160 ], [ %.287.lcssa159, %121 ]
+  %124 = icmp eq i32 %.058123, -1
   br i1 %124, label %127, label %125
 
-125:                                              ; preds = %.lr.ph126
-  %126 = call ptr @uloc_getAvailable_70(i32 noundef %.064124) #11
+125:                                              ; preds = %.lr.ph125
+  %126 = call ptr @uloc_getAvailable_70(i32 noundef %.058123) #11
   br label %127
 
-127:                                              ; preds = %.lr.ph126, %125
-  %.063 = phi ptr [ %126, %125 ], [ @.str.40, %.lr.ph126 ]
-  %128 = call ptr @icu_language_tag(ptr noundef %.063, i32 noundef 21) #11
+127:                                              ; preds = %.lr.ph125, %125
+  %.0 = phi ptr [ %126, %125 ], [ @.str.40, %.lr.ph125 ]
+  %128 = call ptr @icu_language_tag(ptr noundef %.0, i32 noundef 21) #11
   %129 = call zeroext i1 @pg_is_ascii(ptr noundef %128) #11
   br i1 %129, label %130, label %160
 
@@ -1325,12 +1325,12 @@ normalize_libc_locale_name.exit:                  ; preds = %72
   br i1 %.not70, label %160, label %135
 
 135:                                              ; preds = %130
-  %136 = add i32 %.4123, 1
+  %136 = add i32 %.4122, 1
   call void @CommandCounterIncrement() #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3)
   store i32 0, ptr %2, align 4
-  %137 = call i32 @uloc_getDisplayName_70(ptr noundef %.063, ptr noundef nonnull @.str.45, ptr noundef nonnull %3, i32 noundef 128, ptr noundef nonnull %2) #11
+  %137 = call i32 @uloc_getDisplayName_70(ptr noundef %.0, ptr noundef nonnull @.str.45, ptr noundef nonnull %3, i32 noundef 128, ptr noundef nonnull %2) #11
   %138 = load i32, ptr %2, align 4
   %139 = icmp sgt i32 %138, 0
   br i1 %139, label %get_icu_locale_comment.exit.thread, label %.preheader.i76
@@ -1370,9 +1370,9 @@ normalize_libc_locale_name.exit:                  ; preds = %72
   store i8 %150, ptr %151, align 1
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next24.i, %wide.trip.count.i
-  br i1 %exitcond27.not.i, label %get_icu_locale_comment.exit.thread97, label %.lr.ph20.i, !llvm.loop !11
+  br i1 %exitcond27.not.i, label %get_icu_locale_comment.exit.thread96, label %.lr.ph20.i, !llvm.loop !11
 
-get_icu_locale_comment.exit.thread97:             ; preds = %.lr.ph20.i
+get_icu_locale_comment.exit.thread96:             ; preds = %.lr.ph20.i
   %152 = getelementptr i8, ptr %147, i64 %wide.trip.count.i
   store i8 0, ptr %152, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
@@ -1395,20 +1395,20 @@ get_icu_locale_comment.exit:                      ; preds = %.preheader.i76
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
   br label %158
 
-158:                                              ; preds = %get_icu_locale_comment.exit, %get_icu_locale_comment.exit.thread97
-  %159 = phi ptr [ %147, %get_icu_locale_comment.exit.thread97 ], [ %155, %get_icu_locale_comment.exit ]
+158:                                              ; preds = %get_icu_locale_comment.exit, %get_icu_locale_comment.exit.thread96
+  %159 = phi ptr [ %147, %get_icu_locale_comment.exit.thread96 ], [ %155, %get_icu_locale_comment.exit ]
   call void @CreateComments(i32 noundef %134, i32 noundef 3456, i32 noundef 0, ptr noundef nonnull %159) #11
   br label %160
 
 160:                                              ; preds = %get_icu_locale_comment.exit.thread, %130, %158, %127
-  %.5 = phi i32 [ %.4123, %130 ], [ %136, %158 ], [ %.4123, %127 ], [ %136, %get_icu_locale_comment.exit.thread ]
-  %161 = add nsw i32 %.064124, 1
+  %.5 = phi i32 [ %.4122, %130 ], [ %136, %158 ], [ %.4122, %127 ], [ %136, %get_icu_locale_comment.exit.thread ]
+  %161 = add nsw i32 %.058123, 1
   %162 = call i32 @uloc_countAvailable_70() #11
   %163 = icmp slt i32 %161, %162
-  br i1 %163, label %.lr.ph126, label %._crit_edge127, !llvm.loop !12
+  br i1 %163, label %.lr.ph125, label %._crit_edge126, !llvm.loop !12
 
-._crit_edge127:                                   ; preds = %160, %121
-  %.4.lcssa = phi i32 [ %.288.lcssa160, %121 ], [ %.5, %160 ]
+._crit_edge126:                                   ; preds = %160, %121
+  %.4.lcssa = phi i32 [ %.287.lcssa159, %121 ], [ %.5, %160 ]
   %164 = sext i32 %.4.lcssa to i64
   ret i64 %164
 }

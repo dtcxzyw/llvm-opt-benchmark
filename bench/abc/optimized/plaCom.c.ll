@@ -340,12 +340,12 @@ define internal range(i32 0, 2) i32 @Abc_CommandPs(ptr nocapture noundef readonl
 
 33:                                               ; preds = %33, %.lr.ph.us.i.i
   %.120.us.i.i = phi i32 [ %.022.us.i.i, %.lr.ph.us.i.i ], [ %45, %33 ]
-  %.01519.us.i.i = phi i32 [ 0, %.lr.ph.us.i.i ], [ %46, %33 ]
-  %34 = lshr i32 %.01519.us.i.i, 5
+  %.01419.us.i.i = phi i32 [ 0, %.lr.ph.us.i.i ], [ %46, %33 ]
+  %34 = lshr i32 %.01419.us.i.i, 5
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds i64, ptr %32, i64 %35
   %37 = load i64, ptr %36, align 8
-  %38 = shl nuw i32 %.01519.us.i.i, 1
+  %38 = shl nuw i32 %.01419.us.i.i, 1
   %39 = and i32 %38, 62
   %40 = zext nneg i32 %39 to i64
   %41 = shl nuw i64 3, %40
@@ -353,7 +353,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPs(ptr nocapture noundef readonl
   %43 = icmp ne i64 %42, 0
   %44 = zext i1 %43 to i32
   %45 = add nsw i32 %.120.us.i.i, %44
-  %46 = add nuw nsw i32 %.01519.us.i.i, 1
+  %46 = add nuw nsw i32 %.01419.us.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %46, %.val.i.i
   br i1 %exitcond.not.i.i, label %..critedge2_crit_edge.us.i.i, label %33, !llvm.loop !8
 
@@ -392,12 +392,12 @@ Pla_ManLitInNum.exit.i:                           ; preds = %..critedge2_crit_ed
 
 55:                                               ; preds = %55, %.lr.ph.us.i19.i
   %.120.us.i22.i = phi i32 [ %.022.us.i21.i, %.lr.ph.us.i19.i ], [ %67, %55 ]
-  %.01519.us.i23.i = phi i32 [ 0, %.lr.ph.us.i19.i ], [ %68, %55 ]
-  %56 = lshr i32 %.01519.us.i23.i, 5
+  %.01419.us.i23.i = phi i32 [ 0, %.lr.ph.us.i19.i ], [ %68, %55 ]
+  %56 = lshr i32 %.01419.us.i23.i, 5
   %57 = zext nneg i32 %56 to i64
   %58 = getelementptr inbounds i64, ptr %54, i64 %57
   %59 = load i64, ptr %58, align 8
-  %60 = shl nuw i32 %.01519.us.i23.i, 1
+  %60 = shl nuw i32 %.01419.us.i23.i, 1
   %61 = and i32 %60, 62
   %62 = zext nneg i32 %61 to i64
   %63 = lshr i64 %59, %62
@@ -405,7 +405,7 @@ Pla_ManLitInNum.exit.i:                           ; preds = %..critedge2_crit_ed
   %65 = icmp eq i64 %64, 2
   %66 = zext i1 %65 to i32
   %67 = add nsw i32 %.120.us.i22.i, %66
-  %68 = add nuw nsw i32 %.01519.us.i23.i, 1
+  %68 = add nuw nsw i32 %.01419.us.i23.i, 1
   %exitcond.not.i24.i = icmp eq i32 %68, %.val.i15.i
   br i1 %exitcond.not.i24.i, label %..critedge2_crit_edge.us.i25.i, label %55, !llvm.loop !10
 

@@ -140,13 +140,13 @@ define i32 @Dau_DsdMergeStatus_rec(ptr noundef %0, ptr nocapture noundef %1, ptr
   br i1 %70, label %.lr.ph88, label %.sink.split
 
 .lr.ph88:                                         ; preds = %62, %.lr.ph88
-  %.06987 = phi i32 [ %75, %.lr.ph88 ], [ 0, %62 ]
-  %.07086 = phi i32 [ %74, %.lr.ph88 ], [ 0, %62 ]
+  %.087 = phi i32 [ %75, %.lr.ph88 ], [ 0, %62 ]
+  %.06886 = phi i32 [ %74, %.lr.ph88 ], [ 0, %62 ]
   %71 = tail call i32 @Dau_DsdMergeStatus_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef %4)
   %72 = icmp eq i32 %71, 3
   %73 = zext i1 %72 to i32
-  %74 = add nuw nsw i32 %.07086, %73
-  %75 = add nuw nsw i32 %.06987, 1
+  %74 = add nuw nsw i32 %.06886, %73
+  %75 = add nuw nsw i32 %.087, 1
   %76 = load ptr, ptr %1, align 8
   %storemerge = getelementptr inbounds i8, ptr %76, i64 1
   store ptr %storemerge, ptr %1, align 8
@@ -158,7 +158,7 @@ define i32 @Dau_DsdMergeStatus_rec(ptr noundef %0, ptr nocapture noundef %1, ptr
   br i1 %switch, label %.sink.split, label %78
 
 78:                                               ; preds = %._crit_edge
-  %.not = icmp ugt i32 %74, %.06987
+  %.not = icmp ugt i32 %74, %.087
   br i1 %.not, label %79, label %.sink.split
 
 79:                                               ; preds = %78
@@ -174,8 +174,8 @@ define i32 @Dau_DsdMergeStatus_rec(ptr noundef %0, ptr nocapture noundef %1, ptr
   br label %82
 
 82:                                               ; preds = %.sink.split, %61
-  %.0 = phi i32 [ 0, %61 ], [ %.1.sink, %.sink.split ]
-  ret i32 %.0
+  %.071 = phi i32 [ 0, %61 ], [ %.1.sink, %.sink.split ]
+  ret i32 %.071
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -286,14 +286,14 @@ define void @Dau_DsdMergeSubstitute_rec(ptr noundef %0, ptr noundef %1, ptr noun
   br label %52
 
 52:                                               ; preds = %.lr.ph, %52
-  %.0187 = phi ptr [ %.lcssa181, %.lr.ph ], [ %56, %52 ]
-  %53 = load i8, ptr %.0187, align 1
+  %.0135187 = phi ptr [ %.lcssa181, %.lr.ph ], [ %56, %52 ]
+  %53 = load i8, ptr %.0135187, align 1
   %54 = load ptr, ptr %51, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 1
   store ptr %55, ptr %51, align 8
   store i8 %53, ptr %54, align 1
-  %56 = getelementptr inbounds i8, ptr %.0187, i64 1
-  %57 = icmp ult ptr %.0187, %45
+  %56 = getelementptr inbounds i8, ptr %.0135187, i64 1
+  %57 = icmp ult ptr %.0135187, %45
   br i1 %57, label %52, label %.loopexit.loopexit, !llvm.loop !8
 
 .loopexit.loopexit:                               ; preds = %52
@@ -657,19 +657,19 @@ Dau_DsdMergeGetStatus.exit171:                    ; preds = %.critedge2.i165, %2
   br label %220
 
 220:                                              ; preds = %214, %Dau_DsdMergeGetStatus.exit171
-  %.0135 = phi ptr [ %219, %214 ], [ %storemerge205, %Dau_DsdMergeGetStatus.exit171 ]
+  %.0 = phi ptr [ %219, %214 ], [ %storemerge205, %Dau_DsdMergeGetStatus.exit171 ]
   %221 = icmp ne i32 %213, 3
   %222 = zext i1 %221 to i32
   tail call void @Dau_DsdMergeSubstitute_rec(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %222)
   %223 = icmp eq i32 %213, 3
   %.pn.pre219 = load ptr, ptr %2, align 8
   %224 = getelementptr inbounds i8, ptr %.pn.pre219, i64 1
-  %225 = icmp ult ptr %.0135, %224
+  %225 = icmp ult ptr %.0, %224
   %or.cond235 = select i1 %223, i1 %225, i1 false
   br i1 %or.cond235, label %.lr.ph.i, label %Dau_DsdMergeStoreAddToDef.exit
 
 .lr.ph.i:                                         ; preds = %220, %.lr.ph.i
-  %.04.i = phi ptr [ %226, %.lr.ph.i ], [ %.0135, %220 ]
+  %.04.i = phi ptr [ %226, %.lr.ph.i ], [ %.0, %220 ]
   %226 = getelementptr inbounds i8, ptr %.04.i, i64 1
   %227 = load i8, ptr %.04.i, align 1
   %228 = load ptr, ptr %193, align 8

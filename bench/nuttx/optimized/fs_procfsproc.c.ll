@@ -95,7 +95,7 @@ define internal range(i32 -21, 1) i32 @proc_open(ptr nocapture noundef writeonly
   br i1 %13, label %proc_findnode.exit, label %14
 
 14:                                               ; preds = %.thread, %11
-  %.01621 = phi i64 [ %9, %.thread ], [ %12, %11 ]
+  %.021 = phi i64 [ %9, %.thread ], [ %12, %11 ]
   %15 = phi ptr [ %10, %.thread ], [ %.pr, %11 ]
   %16 = load i8, ptr %15, align 1
   %.not = icmp eq i8 %16, 47
@@ -103,11 +103,11 @@ define internal range(i32 -21, 1) i32 @proc_open(ptr nocapture noundef writeonly
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds i8, ptr %15, i64 1
-  %19 = icmp ugt i64 %.01621, 2147483647
+  %19 = icmp ugt i64 %.021, 2147483647
   br i1 %19, label %proc_findnode.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = trunc nuw nsw i64 %.01621 to i32
+  %21 = trunc nuw nsw i64 %.021 to i32
   %22 = tail call ptr @nxsched_get_tcb(i32 noundef %21) #15
   %23 = icmp eq ptr %22, null
   br i1 %23, label %proc_findnode.exit, label %.preheader
@@ -168,8 +168,8 @@ split:                                            ; preds = %30
   br label %proc_findnode.exit
 
 proc_findnode.exit:                               ; preds = %37, %41, %43, %split, %20, %17, %11, %14, %46
-  %.0 = phi i32 [ 0, %46 ], [ -2, %14 ], [ -2, %11 ], [ -2, %17 ], [ -2, %20 ], [ -21, %split ], [ -12, %43 ], [ -21, %37 ], [ -2, %41 ]
-  ret i32 %.0
+  %.016 = phi i32 [ 0, %46 ], [ -2, %14 ], [ -2, %11 ], [ -2, %17 ], [ -2, %20 ], [ -21, %split ], [ -12, %43 ], [ -21, %37 ], [ -2, %41 ]
+  ret i32 %.016
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
@@ -559,8 +559,8 @@ proc_groupstatus.exit:                            ; preds = %209, %158, %168, %1
 
 .lr.ph.i48:                                       ; preds = %266, %.lr.ph.preheader.i
   %.04.i = phi i32 [ %267, %266 ], [ 0, %.lr.ph.preheader.i ]
-  %.0453.i = phi i64 [ %.1.i, %266 ], [ %238, %.lr.ph.preheader.i ]
-  %.0462.i = phi i64 [ %.147.i, %266 ], [ %241, %.lr.ph.preheader.i ]
+  %.0443.i = phi i64 [ %.1.i, %266 ], [ %238, %.lr.ph.preheader.i ]
+  %.0452.i = phi i64 [ %.146.i, %266 ], [ %241, %.lr.ph.preheader.i ]
   %.0481.i = phi ptr [ %.149.i, %266 ], [ %240, %.lr.ph.preheader.i ]
   %242 = call ptr @files_fget(ptr noundef nonnull %231, i32 noundef %.04.i) #15
   %243 = getelementptr inbounds i8, ptr %242, i64 8
@@ -589,23 +589,23 @@ proc_groupstatus.exit:                            ; preds = %209, %158, %168, %1
   %259 = sext i32 %258 to i64
   %260 = call i32 (ptr, i64, ptr, ...) @procfs_snprintf(ptr noundef nonnull %235, i64 noundef 256, ptr noundef nonnull @.str.49, i32 noundef %.04.i, i32 noundef %251, i32 noundef %256, i64 noundef %259, ptr noundef nonnull %6) #15
   %261 = sext i32 %260 to i64
-  %262 = call i64 @procfs_memcpy(ptr noundef nonnull %235, i64 noundef %261, ptr noundef %.0481.i, i64 noundef %.0462.i, ptr noundef nonnull %5) #15
-  %263 = add i64 %262, %.0453.i
+  %262 = call i64 @procfs_memcpy(ptr noundef nonnull %235, i64 noundef %261, ptr noundef %.0481.i, i64 noundef %.0452.i, ptr noundef nonnull %5) #15
+  %263 = add i64 %262, %.0443.i
   %264 = getelementptr inbounds i8, ptr %.0481.i, i64 %262
-  %265 = sub i64 %.0462.i, %262
+  %265 = sub i64 %.0452.i, %262
   %.not56.i = icmp ult i64 %263, %2
   br i1 %.not56.i, label %266, label %proc_groupfd.exit
 
 266:                                              ; preds = %250, %.lr.ph.i48
   %.149.i = phi ptr [ %.0481.i, %.lr.ph.i48 ], [ %264, %250 ]
-  %.147.i = phi i64 [ %.0462.i, %.lr.ph.i48 ], [ %265, %250 ]
-  %.1.i = phi i64 [ %.0453.i, %.lr.ph.i48 ], [ %263, %250 ]
+  %.146.i = phi i64 [ %.0452.i, %.lr.ph.i48 ], [ %265, %250 ]
+  %.1.i = phi i64 [ %.0443.i, %.lr.ph.i48 ], [ %263, %250 ]
   %267 = add nuw nsw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %267, %232
   br i1 %exitcond.not.i, label %proc_groupfd.exit, label %.lr.ph.i48, !llvm.loop !9
 
 proc_groupfd.exit:                                ; preds = %250, %266, %227, %234
-  %.044.i = phi i64 [ 0, %227 ], [ %238, %234 ], [ %.1.i, %266 ], [ %263, %250 ]
+  %.047.i = phi i64 [ 0, %227 ], [ %238, %234 ], [ %.1.i, %266 ], [ %263, %250 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
   br label %279
@@ -633,7 +633,7 @@ proc_groupfd.exit:                                ; preds = %250, %266, %227, %2
   br label %279
 
 279:                                              ; preds = %268, %proc_groupfd.exit, %proc_groupstatus.exit, %proc_stack.exit, %proc_cmdline.exit, %proc_status.exit
-  %.0 = phi i64 [ %278, %268 ], [ %.044.i, %proc_groupfd.exit ], [ %.0109.i, %proc_groupstatus.exit ], [ %.0.i45, %proc_stack.exit ], [ %.0.i43, %proc_cmdline.exit ], [ %.0.i, %proc_status.exit ]
+  %.0 = phi i64 [ %278, %268 ], [ %.047.i, %proc_groupfd.exit ], [ %.0109.i, %proc_groupstatus.exit ], [ %.0.i45, %proc_stack.exit ], [ %.0.i43, %proc_cmdline.exit ], [ %.0.i, %proc_status.exit ]
   %280 = icmp sgt i64 %.0, 0
   br i1 %280, label %281, label %.thread
 
@@ -702,7 +702,7 @@ define internal range(i32 -20, 1) i32 @proc_opendir(ptr noundef %0, ptr nocaptur
   br i1 %11, label %55, label %12
 
 12:                                               ; preds = %.thread, %9
-  %.02332 = phi i64 [ %7, %.thread ], [ %10, %9 ]
+  %.032 = phi i64 [ %7, %.thread ], [ %10, %9 ]
   %13 = phi ptr [ %8, %.thread ], [ %.pr, %9 ]
   %14 = load i8, ptr %13, align 1
   switch i8 %14, label %55 [
@@ -711,11 +711,11 @@ define internal range(i32 -20, 1) i32 @proc_opendir(ptr noundef %0, ptr nocaptur
   ]
 
 15:                                               ; preds = %12, %12
-  %16 = icmp ugt i64 %.02332, 2147483647
+  %16 = icmp ugt i64 %.032, 2147483647
   br i1 %16, label %55, label %17
 
 17:                                               ; preds = %15
-  %18 = trunc nuw nsw i64 %.02332 to i32
+  %18 = trunc nuw nsw i64 %.032 to i32
   %19 = tail call ptr @nxsched_get_tcb(i32 noundef %18) #15
   %20 = icmp eq ptr %19, null
   br i1 %20, label %55, label %21
@@ -807,8 +807,8 @@ split.thread:                                     ; preds = %44, %.tail, %24, %s
   br label %55
 
 55:                                               ; preds = %21, %17, %15, %9, %12, %split.thread, %50, %proc_findnode.exit
-  %.0 = phi i32 [ -2, %proc_findnode.exit ], [ 0, %split.thread ], [ -20, %50 ], [ -2, %12 ], [ -2, %9 ], [ -2, %15 ], [ -2, %17 ], [ -12, %21 ]
-  ret i32 %.0
+  %.023 = phi i32 [ -2, %proc_findnode.exit ], [ 0, %split.thread ], [ -20, %50 ], [ -2, %12 ], [ -2, %9 ], [ -2, %15 ], [ -2, %17 ], [ -12, %21 ]
+  ret i32 %.023
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable

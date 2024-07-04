@@ -409,7 +409,7 @@ define range(i32 -43, 1) i32 @prte_util_register_stackhandlers() local_unnamed_a
   br i1 %.not3257, label %.critedge, label %.lr.ph60
 
 .lr.ph60:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0244059 = phi i1 [ %.1, %.lr.ph ], [ false, %.lr.ph.preheader ]
+  %.0234059 = phi i1 [ %.1, %.lr.ph ], [ false, %.lr.ph.preheader ]
   %.0224158 = phi ptr [ %87, %.lr.ph ], [ %54, %.lr.ph.preheader ]
   %56 = call i64 @strtol(ptr noundef nonnull %.0224158, ptr noundef nonnull %3, i32 noundef 10) #14
   %57 = trunc i64 %56 to i32
@@ -459,7 +459,7 @@ thread-pre-split:                                 ; preds = %62
 
 76:                                               ; preds = %69, %69, %74
   %77 = phi ptr [ %75, %74 ], [ %67, %69 ], [ %67, %69 ]
-  %.023.not = phi i1 [ false, %74 ], [ true, %69 ], [ true, %69 ]
+  %.024.not = phi i1 [ false, %74 ], [ true, %69 ], [ true, %69 ]
   %78 = call i32 @sigaction(i32 noundef %57, ptr noundef null, ptr noundef nonnull %2) #14
   %.not35 = icmp eq i32 %78, 0
   br i1 %.not35, label %79, label %.critedge
@@ -470,7 +470,7 @@ thread-pre-split:                                 ; preds = %62
   br i1 %switch, label %85, label %81
 
 81:                                               ; preds = %79
-  %brmerge = or i1 %.0244059, %.023.not
+  %brmerge = or i1 %.0234059, %.024.not
   br i1 %brmerge, label %.lr.ph, label %82
 
 82:                                               ; preds = %81
@@ -484,7 +484,7 @@ thread-pre-split:                                 ; preds = %62
   br i1 %.not36, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %81, %82, %85
-  %.1 = phi i1 [ %.0244059, %81 ], [ true, %82 ], [ %.0244059, %85 ]
+  %.1 = phi i1 [ %.0234059, %81 ], [ true, %82 ], [ %.0234059, %85 ]
   %87 = getelementptr inbounds i8, ptr %77, i64 1
   %88 = load i8, ptr %77, align 1
   %.not32 = icmp eq i8 %88, 0

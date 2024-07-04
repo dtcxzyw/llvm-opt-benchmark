@@ -467,8 +467,8 @@ define range(i32 -1211, 1) i32 @dectoasc(ptr noundef %0, ptr noundef %1, i32 nou
   br label %31
 
 31:                                               ; preds = %17, %6, %4, %29, %28, %11
-  %.0 = phi i32 [ -1211, %11 ], [ -1, %28 ], [ 0, %29 ], [ 0, %4 ], [ -1211, %6 ], [ -1, %17 ]
-  ret i32 %.0
+  %.022 = phi i32 [ -1211, %11 ], [ -1, %28 ], [ 0, %29 ], [ 0, %4 ], [ -1211, %6 ], [ -1, %17 ]
+  ret i32 %.022
 }
 
 declare i32 @PGTYPESnumeric_from_decimal(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -938,8 +938,8 @@ getRightMostDot.exit:                             ; preds = %59, %46, %55
   %.010.i = phi i64 [ %58, %55 ], [ 4294967295, %46 ], [ 4294967295, %59 ]
   store i8 0, ptr %7, align 1
   %61 = trunc i64 %5 to i32
-  %.0135185 = add i32 %61, -1
-  %62 = icmp sgt i32 %.0135185, -1
+  %.0139185 = add i32 %61, -1
+  %62 = icmp sgt i32 %.0139185, -1
   br i1 %62, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %getRightMostDot.exit
@@ -947,7 +947,7 @@ getRightMostDot.exit:                             ; preds = %59, %46, %55
   %64 = select i1 %11, i8 32, i8 41
   %not.178 = xor i1 %11, true
   %or.cond29 = and i1 %47, %not.178
-  %65 = zext nneg i32 %.0135185 to i64
+  %65 = zext nneg i32 %.0139185 to i64
   br label %66
 
 66:                                               ; preds = %.lr.ph, %164
@@ -957,13 +957,13 @@ getRightMostDot.exit:                             ; preds = %59, %46, %55
   %.0126195 = phi i32 [ 0, %.lr.ph ], [ %.2128, %164 ]
   %.0129194 = phi i32 [ 0, %.lr.ph ], [ %.2131161, %164 ]
   %.0132193 = phi i32 [ 0, %.lr.ph ], [ %.1133158, %164 ]
-  %.0137190 = phi i32 [ %63, %.lr.ph ], [ %.2139, %164 ]
-  %.0140186 = phi i32 [ 0, %.lr.ph ], [ %165, %164 ]
-  %67 = icmp slt i32 %.0137190, 0
+  %.0135190 = phi i32 [ %63, %.lr.ph ], [ %.2137, %164 ]
+  %.0138186 = phi i32 [ 0, %.lr.ph ], [ %165, %164 ]
+  %67 = icmp slt i32 %.0135190, 0
   br i1 %67, label %68, label %75
 
 68:                                               ; preds = %66
-  %69 = icmp eq i32 %.0137190, -1
+  %69 = icmp eq i32 %.0135190, -1
   %spec.select149 = select i1 %69, i32 1, i32 %.0129194
   %70 = icmp ne i32 %spec.select149, 0
   %or.cond33 = select i1 %.not143, i1 %70, i1 false
@@ -972,7 +972,7 @@ getRightMostDot.exit:                             ; preds = %59, %46, %55
   br i1 %or.cond35, label %72, label %.thread
 
 72:                                               ; preds = %68
-  %73 = sext i32 %.0140186 to i64
+  %73 = sext i32 %.0138186 to i64
   %74 = getelementptr i8, ptr %7, i64 %73
   store i8 0, ptr %74, align 1
   br label %.loopexit
@@ -1065,7 +1065,7 @@ getRightMostDot.exit:                             ; preds = %59, %46, %55
 
 99:                                               ; preds = %98
   store i8 44, ptr %4, align 2
-  %100 = add i32 %.0137190, 1
+  %100 = add i32 %.0135190, 1
   br label %161
 
 101:                                              ; preds = %98
@@ -1076,7 +1076,7 @@ getRightMostDot.exit:                             ; preds = %59, %46, %55
   br label %161
 
 103:                                              ; preds = %101
-  %104 = sext i32 %.0137190 to i64
+  %104 = sext i32 %.0135190 to i64
   %105 = getelementptr i8, ptr %29, i64 %104
   %106 = load i8, ptr %105, align 1
   store i8 %106, ptr %4, align 2
@@ -1090,7 +1090,7 @@ getRightMostDot.exit:                             ; preds = %59, %46, %55
   br label %161
 
 109:                                              ; preds = %107
-  %110 = sext i32 %.0137190 to i64
+  %110 = sext i32 %.0135190 to i64
   %111 = getelementptr i8, ptr %29, i64 %110
   %112 = load i8, ptr %111, align 1
   store i8 %112, ptr %4, align 2
@@ -1104,7 +1104,7 @@ getRightMostDot.exit:                             ; preds = %59, %46, %55
   br label %161
 
 115:                                              ; preds = %113
-  %116 = sext i32 %.0137190 to i64
+  %116 = sext i32 %.0135190 to i64
   %117 = getelementptr i8, ptr %29, i64 %116
   %118 = load i8, ptr %117, align 1
   store i8 %118, ptr %4, align 2
@@ -1128,7 +1128,7 @@ getRightMostDot.exit:                             ; preds = %59, %46, %55
   br label %161
 
 123:                                              ; preds = %121
-  %124 = sext i32 %.0137190 to i64
+  %124 = sext i32 %.0135190 to i64
   %125 = getelementptr i8, ptr %29, i64 %124
   %126 = load i8, ptr %125, align 1
   store i8 %126, ptr %4, align 2
@@ -1151,7 +1151,7 @@ getRightMostDot.exit:                             ; preds = %59, %46, %55
   br label %161
 
 132:                                              ; preds = %130
-  %133 = sext i32 %.0137190 to i64
+  %133 = sext i32 %.0135190 to i64
   %134 = getelementptr i8, ptr %29, i64 %133
   %135 = load i8, ptr %134, align 1
   store i8 %135, ptr %4, align 2
@@ -1173,7 +1173,7 @@ getRightMostDot.exit:                             ; preds = %59, %46, %55
   br label %161
 
 140:                                              ; preds = %138
-  %141 = sext i32 %.0137190 to i64
+  %141 = sext i32 %.0135190 to i64
   %142 = getelementptr i8, ptr %29, i64 %141
   %143 = load i8, ptr %142, align 1
   store i8 %143, ptr %4, align 2
@@ -1207,14 +1207,14 @@ getRightMostDot.exit:                             ; preds = %59, %46, %55
   br label %161
 
 152:                                              ; preds = %150
-  %153 = sext i32 %.0137190 to i64
+  %153 = sext i32 %.0135190 to i64
   %154 = getelementptr i8, ptr %29, i64 %153
   %155 = load i8, ptr %154, align 1
   store i8 %155, ptr %4, align 2
   br label %161
 
 156:                                              ; preds = %98
-  %157 = sext i32 %.0137190 to i64
+  %157 = sext i32 %.0135190 to i64
   %158 = getelementptr i8, ptr %29, i64 %157
   %159 = load i8, ptr %158, align 1
   store i8 %159, ptr %4, align 2
@@ -1225,21 +1225,21 @@ getRightMostDot.exit:                             ; preds = %59, %46, %55
   br label %161
 
 161:                                              ; preds = %149, %152, %151, %145, %146, %137, %140, %139, %129, %132, %131, %120, %123, %122, %114, %115, %108, %109, %102, %103, %160, %156, %99
-  %.1138 = phi i32 [ %.0137190, %160 ], [ %.0137190, %156 ], [ %.0137190, %151 ], [ %.0137190, %152 ], [ %.0137190, %149 ], [ %.0137190, %145 ], [ %.0137190, %146 ], [ %.0137190, %137 ], [ %.0137190, %139 ], [ %.0137190, %140 ], [ %.0137190, %131 ], [ %.0137190, %132 ], [ %.0137190, %129 ], [ %.0137190, %122 ], [ %.0137190, %123 ], [ %.0137190, %120 ], [ %.0137190, %114 ], [ %.0137190, %115 ], [ %.0137190, %108 ], [ %.0137190, %109 ], [ %.0137190, %102 ], [ %.0137190, %103 ], [ %100, %99 ]
+  %.1136 = phi i32 [ %.0135190, %160 ], [ %.0135190, %156 ], [ %.0135190, %151 ], [ %.0135190, %152 ], [ %.0135190, %149 ], [ %.0135190, %145 ], [ %.0135190, %146 ], [ %.0135190, %137 ], [ %.0135190, %139 ], [ %.0135190, %140 ], [ %.0135190, %131 ], [ %.0135190, %132 ], [ %.0135190, %129 ], [ %.0135190, %122 ], [ %.0135190, %123 ], [ %.0135190, %120 ], [ %.0135190, %114 ], [ %.0135190, %115 ], [ %.0135190, %108 ], [ %.0135190, %109 ], [ %.0135190, %102 ], [ %.0135190, %103 ], [ %100, %99 ]
   %.1127 = phi i32 [ %.0126195, %160 ], [ %.0126195, %156 ], [ %.0126195, %151 ], [ %.0126195, %152 ], [ 1, %149 ], [ %.0126195, %145 ], [ %.0126195, %146 ], [ %.0126195, %137 ], [ %.0126195, %139 ], [ %.0126195, %140 ], [ %.0126195, %131 ], [ %.0126195, %132 ], [ %.0126195, %129 ], [ %.0126195, %122 ], [ %.0126195, %123 ], [ %.0126195, %120 ], [ %.0126195, %114 ], [ %.0126195, %115 ], [ %.0126195, %108 ], [ %.0126195, %109 ], [ %.0126195, %102 ], [ %.0126195, %103 ], [ %.0126195, %99 ]
   %.1125 = phi i32 [ %.0124196, %160 ], [ %.0124196, %156 ], [ %.0124196, %151 ], [ %.0124196, %152 ], [ %.0124196, %149 ], [ %.0124196, %145 ], [ %.0124196, %146 ], [ %.0124196, %137 ], [ %.0124196, %139 ], [ %.0124196, %140 ], [ %.0124196, %131 ], [ %.0124196, %132 ], [ 1, %129 ], [ %.0124196, %122 ], [ %.0124196, %123 ], [ 1, %120 ], [ %.0124196, %114 ], [ %.0124196, %115 ], [ %.0124196, %108 ], [ %.0124196, %109 ], [ %.0124196, %102 ], [ %.0124196, %103 ], [ %.0124196, %99 ]
   %162 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %4) #16
-  %163 = add i32 %.1138, -1
+  %163 = add i32 %.1136, -1
   br label %164
 
 164:                                              ; preds = %91, %161, %85
   %.2131161 = phi i32 [ %.2131162, %85 ], [ %.2131163169, %91 ], [ %.2131163169, %161 ]
   %.1133158 = phi i32 [ %.1133159, %85 ], [ %.1133160172, %91 ], [ %.1133160172, %161 ]
-  %.2139 = phi i32 [ %.0137190, %85 ], [ %.0137190, %91 ], [ %163, %161 ]
+  %.2137 = phi i32 [ %.0135190, %85 ], [ %.0135190, %91 ], [ %163, %161 ]
   %.2128 = phi i32 [ %.0126195, %85 ], [ %.0126195, %91 ], [ %.1127, %161 ]
   %.2 = phi i32 [ %.0124196, %85 ], [ 0, %91 ], [ %.1125, %161 ]
   %.1 = phi i8 [ %.0121197, %85 ], [ %.0121197, %91 ], [ %92, %161 ]
-  %165 = add nuw i32 %.0140186, 1
+  %165 = add nuw i32 %.0138186, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %exitcond.not = icmp eq i32 %165, %61
   br i1 %exitcond.not, label %.loopexit, label %66, !llvm.loop !9
@@ -1250,12 +1250,12 @@ getRightMostDot.exit:                             ; preds = %59, %46, %55
   %167 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #17
   store i8 0, ptr %2, align 1
   %168 = trunc i64 %167 to i32
-  %.1136199 = add i32 %168, -1
-  %169 = icmp sgt i32 %.1136199, -1
+  %.1140199 = add i32 %168, -1
+  %169 = icmp sgt i32 %.1140199, -1
   br i1 %169, label %.lr.ph201.preheader, label %._crit_edge
 
 .lr.ph201.preheader:                              ; preds = %.loopexit
-  %170 = zext nneg i32 %.1136199 to i64
+  %170 = zext nneg i32 %.1140199 to i64
   br label %.lr.ph201
 
 .lr.ph201:                                        ; preds = %.lr.ph201.preheader, %.lr.ph201

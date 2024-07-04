@@ -1791,12 +1791,12 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not472.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %302, %.lr.ph.i
-  %.0422462.i = phi i32 [ %313, %.lr.ph.i ], [ 0, %302 ]
+  %.0462.i = phi i32 [ %313, %.lr.ph.i ], [ 0, %302 ]
   %.2461.i = phi i32 [ %312, %.lr.ph.i ], [ 2, %302 ]
   %310 = load i32, ptr @hf_vnc_vencrypt_auth_type, align 4
   %311 = tail call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %310, ptr noundef %0, i32 noundef %.2461.i, i32 noundef 4, i32 noundef 0) #4
   %312 = add i32 %.2461.i, 4
-  %313 = add nuw nsw i32 %.0422462.i, 1
+  %313 = add nuw nsw i32 %.0462.i, 1
   %exitcond.not.i = icmp eq i32 %313, %309
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
@@ -2341,7 +2341,7 @@ vnc_client_set_pixel_format.exit.i:               ; preds = %521, %vnc_set_bytes
   br label %621
 
 621:                                              ; preds = %vnc_server_framebuffer_update.exit.thread.i, %619
-  %.0.i43 = phi i32 [ 0, %619 ], [ %.155.i, %vnc_server_framebuffer_update.exit.thread.i ]
+  %.0.i = phi i32 [ 0, %619 ], [ %.155.i, %vnc_server_framebuffer_update.exit.thread.i ]
   %622 = load i32, ptr %6, align 4
   %623 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %622) #4
   %624 = load i32, ptr @hf_vnc_server_message_type, align 4
@@ -2399,17 +2399,17 @@ vnc_client_set_pixel_format.exit.i:               ; preds = %521, %vnc_set_bytes
   br label %651
 
 651:                                              ; preds = %vnc_raw_encoding.exit.i.i, %648
-  %.0149.i.i = phi ptr [ %642, %648 ], [ %686, %vnc_raw_encoding.exit.i.i ]
-  %.0147.i.i = phi i32 [ 0, %648 ], [ %662, %vnc_raw_encoding.exit.i.i ]
-  %exitcond.not.i.i50 = icmp eq i32 %.0147.i.i, %639
-  br i1 %exitcond.not.i.i50, label %vnc_server_framebuffer_update.exit.thread.i, label %652
+  %.0149.i.i = phi i32 [ 0, %648 ], [ %662, %vnc_raw_encoding.exit.i.i ]
+  %.0147.i.i = phi ptr [ %642, %648 ], [ %686, %vnc_raw_encoding.exit.i.i ]
+  %exitcond.not.i.i49 = icmp eq i32 %.0149.i.i, %639
+  br i1 %exitcond.not.i.i49, label %vnc_server_framebuffer_update.exit.thread.i, label %652
 
 652:                                              ; preds = %651
-  %exitcond265.i.i = icmp eq i32 %.0147.i.i, 5001
-  br i1 %exitcond265.i.i, label %653, label %655
+  %exitcond264.i.i = icmp eq i32 %.0149.i.i, 5001
+  br i1 %exitcond264.i.i, label %653, label %655
 
 653:                                              ; preds = %652
-  %654 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.0149.i.i, ptr noundef nonnull @ei_vnc_too_many_rectangles, ptr noundef nonnull @.str.839, i32 noundef 5001) #4
+  %654 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.0147.i.i, ptr noundef nonnull @ei_vnc_too_many_rectangles, ptr noundef nonnull @.str.839, i32 noundef 5001) #4
   br label %vnc_server_framebuffer_update.exit.thread.i
 
 655:                                              ; preds = %652
@@ -2421,7 +2421,7 @@ vnc_client_set_pixel_format.exit.i:               ; preds = %521, %vnc_set_bytes
 659:                                              ; preds = %655
   %660 = load i32, ptr %6, align 4
   %661 = load i32, ptr @ett_vnc_rect, align 4
-  %662 = add nuw nsw i32 %.0147.i.i, 1
+  %662 = add nuw nsw i32 %.0149.i.i, 1
   %663 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %628, ptr noundef %0, i32 noundef %660, i32 noundef 12, i32 noundef %661, ptr noundef null, ptr noundef nonnull @.str.840, i32 noundef %662) #4
   %664 = load i32, ptr @hf_vnc_fb_update_x_pos, align 4
   %665 = load i32, ptr %6, align 4
@@ -2582,8 +2582,8 @@ vnc_get_bytes_per_pixel.exit.i153.i.i:            ; preds = %726
   br i1 %760, label %vnc_server_framebuffer_update.exit.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %751
-  %.not.i.i.i52 = icmp eq i32 %741, 0
-  br i1 %.not.i.i.i52, label %vnc_raw_encoding.exit.i.i, label %.lr.ph.preheader.i.i.i
+  %.not.i.i.i51 = icmp eq i32 %741, 0
+  br i1 %.not.i.i.i51, label %vnc_raw_encoding.exit.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.preheader.i.i.i
   %.pre.i.i.i = load i32, ptr %6, align 4
@@ -3488,9 +3488,9 @@ vnc_get_depth.exit.i.i.i:                         ; preds = %1331
   %1340 = zext nneg i8 %1339 to i32
   %reass.sub41.i.i.i = sub nsw i32 %1338, %1340
   %1341 = icmp ult i8 %1339, 5
-  %.035.in.in.v.i.i.i = select i1 %1341, i32 8, i32 16
-  %.035.in.in.i.i.i = add nsw i32 %reass.sub41.i.i.i, %.035.in.in.v.i.i.i
-  %.035.in424344.i.i.i = lshr i32 %.035.in.in.i.i.i, 3
+  %.036.in.in.v.i.i.i = select i1 %1341, i32 8, i32 16
+  %.036.in.in.i.i.i = add nsw i32 %reass.sub41.i.i.i, %.036.in.in.v.i.i.i
+  %.036.in424344.i.i.i = lshr i32 %.036.in.in.i.i.i, 3
   %wide.trip.count.i.i.i = zext i16 %682 to i32
   %.pre.i188.i.i = load i32, ptr %6, align 4
   br label %1342
@@ -3506,7 +3506,7 @@ vnc_get_depth.exit.i.i.i:                         ; preds = %1331
   %1347 = load i32, ptr %6, align 4
   %1348 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1347) #4
   %1349 = zext i16 %1348 to i32
-  %1350 = mul nuw nsw i32 %.035.in424344.i.i.i, %1349
+  %1350 = mul nuw nsw i32 %.036.in424344.i.i.i, %1349
   %1351 = load i32, ptr %6, align 4
   %1352 = add nuw nsw i32 %1350, 2
   %1353 = load i32, ptr @ett_vnc_slrle_subline, align 4
@@ -3577,8 +3577,8 @@ vnc_get_depth.exit.i.i.i:                         ; preds = %1331
 
 vnc_raw_encoding.exit.i.i:                        ; preds = %1363, %.lr.ph.i174.i.i, %..loopexit153_crit_edge.i.i.i, %.lr.ph.i.i.i, %1395, %vnc_get_depth.exit.i.i.i, %1305, %1295, %._crit_edge.i.i.i, %1270, %1217, %1200, %1190, %1162, %.critedge.sink.split.i.i.i, %1137, %1059, %1048, %995, %.lr.ph162.i.i.i, %vnc_get_bytes_per_pixel.exit.i156.i.i, %.preheader.i.i.i, %745, %716, %710, %692
   %.1.i.i = phi i32 [ 0, %1200 ], [ 0, %716 ], [ 0, %692 ], [ 0, %710 ], [ 0, %745 ], [ 0, %.preheader.i.i.i ], [ 0, %vnc_get_bytes_per_pixel.exit.i156.i.i ], [ 0, %.lr.ph162.i.i.i ], [ 0, %995 ], [ %1050, %1048 ], [ 0, %1162 ], [ 0, %1190 ], [ 0, %1217 ], [ 0, %1270 ], [ 0, %._crit_edge.i.i.i ], [ 0, %1295 ], [ 0, %1305 ], [ 0, %vnc_get_depth.exit.i.i.i ], [ 0, %1395 ], [ 0, %.critedge.sink.split.i.i.i ], [ 0, %1137 ], [ 0, %1059 ], [ 0, %.lr.ph.i.i.i ], [ 0, %..loopexit153_crit_edge.i.i.i ], [ 0, %.lr.ph.i174.i.i ], [ 0, %1363 ]
-  %.not.i.i51 = icmp eq i32 %.1.i.i, 0
-  br i1 %.not.i.i51, label %651, label %vnc_server_framebuffer_update.exit.i, !llvm.loop !17
+  %.not.i.i50 = icmp eq i32 %.1.i.i, 0
+  br i1 %.not.i.i50, label %651, label %vnc_server_framebuffer_update.exit.i, !llvm.loop !17
 
 1401:                                             ; preds = %621
   %1402 = load ptr, ptr %19, align 8
@@ -3628,15 +3628,15 @@ vnc_raw_encoding.exit.i.i:                        ; preds = %1363, %.lr.ph.i174.
   %1434 = load i32, ptr @ett_vnc_colormap_num_groups, align 4
   %1435 = call ptr @proto_item_add_subtree(ptr noundef %1433, i32 noundef %1434) #4
   %.not.i49.i = icmp eq i16 %1403, 0
-  br i1 %.not.i49.i, label %vnc_server_framebuffer_update.exit.thread.i, label %.lr.ph.preheader.i.i47
+  br i1 %.not.i49.i, label %vnc_server_framebuffer_update.exit.thread.i, label %.lr.ph.preheader.i.i46
 
-.lr.ph.preheader.i.i47:                           ; preds = %1429
-  %.pre.i.i48 = load i32, ptr %6, align 4
-  br label %.lr.ph.i.i49
+.lr.ph.preheader.i.i46:                           ; preds = %1429
+  %.pre.i.i47 = load i32, ptr %6, align 4
+  br label %.lr.ph.i.i48
 
-.lr.ph.i.i49:                                     ; preds = %.lr.ph.i.i49, %.lr.ph.preheader.i.i47
-  %1436 = phi i32 [ %1452, %.lr.ph.i.i49 ], [ %.pre.i.i48, %.lr.ph.preheader.i.i47 ]
-  %.04952.i.i = phi i32 [ %1438, %.lr.ph.i.i49 ], [ 0, %.lr.ph.preheader.i.i47 ]
+.lr.ph.i.i48:                                     ; preds = %.lr.ph.i.i48, %.lr.ph.preheader.i.i46
+  %1436 = phi i32 [ %1452, %.lr.ph.i.i48 ], [ %.pre.i.i47, %.lr.ph.preheader.i.i46 ]
+  %.04952.i.i = phi i32 [ %1438, %.lr.ph.i.i48 ], [ 0, %.lr.ph.preheader.i.i46 ]
   %1437 = load i32, ptr @ett_vnc_colormap_color_group, align 4
   %1438 = add nuw nsw i32 %.04952.i.i, 1
   %1439 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1435, ptr noundef %0, i32 noundef %1436, i32 noundef 6, i32 noundef %1437, ptr noundef null, ptr noundef nonnull @.str.860, i32 noundef %1438) #4
@@ -3657,11 +3657,11 @@ vnc_raw_encoding.exit.i.i:                        ; preds = %1363, %.lr.ph.i174.
   %1452 = add i32 %1451, 2
   store i32 %1452, ptr %6, align 4
   %exitcond.not.i50.i = icmp eq i32 %1438, %1419
-  br i1 %exitcond.not.i50.i, label %vnc_server_framebuffer_update.exit.thread.i, label %.lr.ph.i.i49, !llvm.loop !18
+  br i1 %exitcond.not.i50.i, label %vnc_server_framebuffer_update.exit.thread.i, label %.lr.ph.i.i48, !llvm.loop !18
 
 1453:                                             ; preds = %621
-  %.val.i46 = load ptr, ptr %19, align 8
-  call void @col_append_sep_str(ptr noundef %.val.i46, i32 noundef 25, ptr noundef nonnull @.str.823, ptr noundef nonnull @.str.861) #4
+  %.val.i45 = load ptr, ptr %19, align 8
+  call void @col_append_sep_str(ptr noundef %.val.i45, i32 noundef 25, ptr noundef nonnull @.str.823, ptr noundef nonnull @.str.861) #4
   br label %vnc_server_framebuffer_update.exit.i
 
 1454:                                             ; preds = %621
@@ -3720,7 +3720,7 @@ vnc_raw_encoding.exit.i.i:                        ; preds = %1363, %.lr.ph.i174.
   br label %vnc_server_framebuffer_update.exit.i
 
 vnc_server_framebuffer_update.exit.i:             ; preds = %vnc_raw_encoding.exit.i.i, %1373, %1369, %1301, %1290, %1271, %1249, %1201, %1176, %1172, %vnc_get_bytes_per_pixel.exit.i170.i.i, %1137, %1129, %1105, %1090, %1073, %1059, %1033, %1003, %982, %968, %940, %vnc_get_bytes_per_pixel.exit.i163.i.i, %751, %747, %vnc_get_bytes_per_pixel.exit.i153.i.i, %vnc_get_bytes_per_pixel.exit.i.i.i, %655, %1346, %1342, %888, %885, %873, %861, %849, %807, %1483, %1481, %1477, %1475, %1469, %1466, %1453, %1423, %1401
-  %.1.i = phi i32 [ %.0.i43, %1483 ], [ %1482, %1481 ], [ %.0.i43, %1477 ], [ %1476, %1475 ], [ %.0.i43, %1453 ], [ 3, %1401 ], [ %1425, %1423 ], [ %1474, %1469 ], [ %1457, %1466 ], [ %899, %888 ], [ 3, %885 ], [ %795, %873 ], [ %795, %861 ], [ %850, %849 ], [ 1, %807 ], [ %1350, %1346 ], [ 2, %1342 ], [ %706, %vnc_get_bytes_per_pixel.exit.i.i.i ], [ 4, %vnc_get_bytes_per_pixel.exit.i153.i.i ], [ %748, %747 ], [ %758, %751 ], [ 4, %vnc_get_bytes_per_pixel.exit.i163.i.i ], [ %945, %940 ], [ %973, %968 ], [ %985, %982 ], [ 1, %1003 ], [ 3, %1033 ], [ %1060, %1059 ], [ 1, %1073 ], [ %1127, %1129 ], [ %1138, %1137 ], [ 1, %1090 ], [ %.0.i.i.i.i, %1105 ], [ %1158, %vnc_get_bytes_per_pixel.exit.i170.i.i ], [ 6, %1172 ], [ %1187, %1176 ], [ %1213, %1201 ], [ %1250, %1249 ], [ %1276, %1271 ], [ %1291, %1290 ], [ 20, %1301 ], [ 16, %1369 ], [ %1375, %1373 ], [ %.1.i.i, %vnc_raw_encoding.exit.i.i ], [ 12, %655 ]
+  %.1.i = phi i32 [ %.0.i, %1483 ], [ %1482, %1481 ], [ %.0.i, %1477 ], [ %1476, %1475 ], [ %.0.i, %1453 ], [ 3, %1401 ], [ %1425, %1423 ], [ %1474, %1469 ], [ %1457, %1466 ], [ %899, %888 ], [ 3, %885 ], [ %795, %873 ], [ %795, %861 ], [ %850, %849 ], [ 1, %807 ], [ %1350, %1346 ], [ 2, %1342 ], [ %706, %vnc_get_bytes_per_pixel.exit.i.i.i ], [ 4, %vnc_get_bytes_per_pixel.exit.i153.i.i ], [ %748, %747 ], [ %758, %751 ], [ 4, %vnc_get_bytes_per_pixel.exit.i163.i.i ], [ %945, %940 ], [ %973, %968 ], [ %985, %982 ], [ 1, %1003 ], [ 3, %1033 ], [ %1060, %1059 ], [ 1, %1073 ], [ %1127, %1129 ], [ %1138, %1137 ], [ 1, %1090 ], [ %.0.i.i.i.i, %1105 ], [ %1158, %vnc_get_bytes_per_pixel.exit.i170.i.i ], [ 6, %1172 ], [ %1187, %1176 ], [ %1213, %1201 ], [ %1250, %1249 ], [ %1276, %1271 ], [ %1291, %1290 ], [ 20, %1301 ], [ 16, %1369 ], [ %1375, %1373 ], [ %.1.i.i, %vnc_raw_encoding.exit.i.i ], [ 12, %655 ]
   %1486 = icmp sgt i32 %.1.i, 0
   %1487 = load i32, ptr @vnc_preference_desegment, align 4
   %1488 = icmp ne i32 %1487, 0
@@ -3729,8 +3729,8 @@ vnc_server_framebuffer_update.exit.i:             ; preds = %vnc_raw_encoding.ex
 
 1489:                                             ; preds = %vnc_server_framebuffer_update.exit.i
   %1490 = load i16, ptr %620, align 8
-  %.not.i45 = icmp eq i16 %1490, 0
-  br i1 %.not.i45, label %vnc_server_framebuffer_update.exit.thread.i, label %1491
+  %.not.i44 = icmp eq i16 %1490, 0
+  br i1 %.not.i44, label %vnc_server_framebuffer_update.exit.thread.i, label %1491
 
 1491:                                             ; preds = %1489
   %1492 = call ptr @proto_tree_add_expert(ptr noundef %628, ptr noundef nonnull %1, ptr noundef nonnull @ei_vnc_reassemble, ptr noundef %0, i32 noundef %622, i32 noundef -1) #4
@@ -3740,8 +3740,8 @@ vnc_server_framebuffer_update.exit.i:             ; preds = %vnc_raw_encoding.ex
   store i32 268435455, ptr %1494, align 8
   br label %vnc_client_to_server.exit
 
-vnc_server_framebuffer_update.exit.thread.i:      ; preds = %.lr.ph.i.i49, %659, %651, %1489, %vnc_server_framebuffer_update.exit.i, %1464, %1429, %1421, %653, %646
-  %.155.i = phi i32 [ %.1.i, %1489 ], [ %.1.i, %vnc_server_framebuffer_update.exit.i ], [ 0, %646 ], [ 0, %653 ], [ 0, %1421 ], [ 0, %1429 ], [ 0, %1464 ], [ 0, %651 ], [ 0, %659 ], [ 0, %.lr.ph.i.i49 ]
+vnc_server_framebuffer_update.exit.thread.i:      ; preds = %.lr.ph.i.i48, %659, %651, %1489, %vnc_server_framebuffer_update.exit.i, %1464, %1429, %1421, %653, %646
+  %.155.i = phi i32 [ %.1.i, %1489 ], [ %.1.i, %vnc_server_framebuffer_update.exit.i ], [ 0, %646 ], [ 0, %653 ], [ 0, %1421 ], [ 0, %1429 ], [ 0, %1464 ], [ 0, %651 ], [ 0, %659 ], [ 0, %.lr.ph.i.i48 ]
   %1495 = load i32, ptr %6, align 4
   %1496 = call i32 @tvb_reported_length(ptr noundef %0) #4
   %1497 = icmp ult i32 %1495, %1496
@@ -4223,13 +4223,13 @@ define internal fastcc range(i32 0, 65536) i32 @vnc_mirrorlink(ptr noundef %0, p
 
 .lr.ph333:                                        ; preds = %.lr.ph333.preheader, %.lr.ph333
   %169 = phi i32 [ %173, %.lr.ph333 ], [ %.pre, %.lr.ph333.preheader ]
-  %.0319332 = phi i16 [ %174, %.lr.ph333 ], [ %168, %.lr.ph333.preheader ]
+  %.0318332 = phi i16 [ %174, %.lr.ph333 ], [ %168, %.lr.ph333.preheader ]
   %170 = load i32, ptr @hf_vnc_mirrorlink_key_symbol_value, align 4
   %171 = tail call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %170, ptr noundef %0, i32 noundef %169, i32 noundef 4, i32 noundef 0) #4
   %172 = load i32, ptr %2, align 4
   %173 = add i32 %172, 4
   store i32 %173, ptr %2, align 4
-  %174 = add nsw i16 %.0319332, -1
+  %174 = add nsw i16 %.0318332, -1
   %.not = icmp eq i16 %174, 0
   br i1 %.not, label %.loopexit, label %.lr.ph333, !llvm.loop !19
 
@@ -4482,8 +4482,8 @@ define internal fastcc range(i32 0, 65536) i32 @vnc_mirrorlink(ptr noundef %0, p
   br label %343
 
 343:                                              ; preds = %.loopexit, %339, %334, %323, %304, %301, %268, %265, %254, %227, %220, %213, %182, %175, %144, %141, %130, %91, %56, %29, %4
-  %.0 = phi i32 [ 3, %4 ], [ 12, %29 ], [ 14, %56 ], [ 28, %91 ], [ 8, %130 ], [ 4, %141 ], [ %161, %144 ], [ 4, %175 ], [ 16, %182 ], [ 4, %213 ], [ 4, %220 ], [ 14, %227 ], [ 6, %254 ], [ 1, %265 ], [ %277, %268 ], [ 6, %301 ], [ %316, %304 ], [ 2, %323 ], [ %336, %334 ], [ 0, %339 ], [ 0, %.loopexit ]
-  ret i32 %.0
+  %.0319 = phi i32 [ 3, %4 ], [ 12, %29 ], [ 14, %56 ], [ 28, %91 ], [ 8, %130 ], [ 4, %141 ], [ %161, %144 ], [ 4, %175 ], [ 16, %182 ], [ 4, %213 ], [ 4, %220 ], [ 14, %227 ], [ 6, %254 ], [ 1, %265 ], [ %277, %268 ], [ 6, %301 ], [ %316, %304 ], [ 2, %323 ], [ %336, %334 ], [ 0, %339 ], [ 0, %.loopexit ]
+  ret i32 %.0319
 }
 
 declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

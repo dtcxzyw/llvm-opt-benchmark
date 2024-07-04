@@ -439,10 +439,10 @@ define void @slurm_write_ctl_conf(ptr noundef %0, ptr nocapture noundef readonly
   br label %15
 
 15:                                               ; preds = %13, %11
-  %.0318 = phi ptr [ %12, %11 ], [ %14, %13 ]
-  %16 = icmp eq ptr %.0318, null
+  %.0316 = phi ptr [ %12, %11 ], [ %14, %13 ]
+  %16 = icmp eq ptr %.0316, null
   %17 = load ptr, ptr @default_slurm_config_file, align 8
-  %spec.select = select i1 %16, ptr %17, ptr %.0318
+  %spec.select = select i1 %16, ptr %17, ptr %.0316
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.2, ptr noundef %spec.select, ptr noundef nonnull %4) #13
   %18 = call i32 @get_log_level() #13
   %19 = icmp sgt i32 %18, 4

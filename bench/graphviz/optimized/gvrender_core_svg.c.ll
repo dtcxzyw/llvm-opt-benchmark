@@ -711,15 +711,15 @@ define internal void @svg_textspan(ptr noundef %0, double %1, double %2, ptr noc
 39:                                               ; preds = %27, %37, %35
   %.sink123 = phi i64 [ 16, %37 ], [ 56, %35 ], [ 16, %27 ]
   %.sink = phi i64 [ 32, %37 ], [ 64, %35 ], [ 32, %27 ]
-  %.096.in = phi ptr [ %38, %37 ], [ %36, %35 ], [ %26, %27 ]
+  %.0100.in = phi ptr [ %38, %37 ], [ %36, %35 ], [ %26, %27 ]
   %40 = getelementptr inbounds i8, ptr %26, i64 %.sink123
   %41 = getelementptr inbounds i8, ptr %26, i64 %.sink
-  %.096 = load ptr, ptr %.096.in, align 8
-  %.097 = load ptr, ptr %41, align 8
-  %.099 = load ptr, ptr %40, align 8
+  %.096 = load ptr, ptr %41, align 8
+  %.098 = load ptr, ptr %40, align 8
+  %.0100 = load ptr, ptr %.0100.in, align 8
   %42 = getelementptr inbounds i8, ptr %26, i64 24
   %43 = load ptr, ptr %42, align 8
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.54, ptr noundef %.096) #11
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.54, ptr noundef %.0100) #11
   %44 = getelementptr inbounds i8, ptr %26, i64 48
   %45 = load ptr, ptr %44, align 8
   %.not106 = icmp eq ptr %45, null
@@ -731,11 +731,11 @@ define internal void @svg_textspan(ptr noundef %0, double %1, double %2, ptr noc
 
 47:                                               ; preds = %46, %39
   %48 = tail call i32 @gvputc(ptr noundef nonnull %0, i32 noundef 34) #11
-  %.not107 = icmp eq ptr %.099, null
+  %.not107 = icmp eq ptr %.098, null
   br i1 %.not107, label %50, label %49
 
 49:                                               ; preds = %47
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.56, ptr noundef nonnull %.099) #11
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.56, ptr noundef nonnull %.098) #11
   br label %50
 
 50:                                               ; preds = %49, %47
@@ -747,11 +747,11 @@ define internal void @svg_textspan(ptr noundef %0, double %1, double %2, ptr noc
   br label %52
 
 52:                                               ; preds = %51, %50
-  %.not109 = icmp eq ptr %.097, null
+  %.not109 = icmp eq ptr %.096, null
   br i1 %.not109, label %56, label %53
 
 53:                                               ; preds = %52
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.58, ptr noundef nonnull %.097) #11
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.58, ptr noundef nonnull %.096) #11
   br label %56
 
 54:                                               ; preds = %22
@@ -760,8 +760,8 @@ define internal void @svg_textspan(ptr noundef %0, double %1, double %2, ptr noc
   br label %56
 
 56:                                               ; preds = %52, %53, %54
-  %.1100 = phi ptr [ %.099, %53 ], [ %.099, %52 ], [ null, %54 ]
-  %.198 = phi i1 [ true, %53 ], [ false, %52 ], [ false, %54 ]
+  %.199 = phi ptr [ %.098, %53 ], [ %.098, %52 ], [ null, %54 ]
+  %.197 = phi i1 [ true, %53 ], [ false, %52 ], [ false, %54 ]
   %57 = load ptr, ptr %23, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 32
   %59 = load i32, ptr %58, align 8
@@ -772,7 +772,7 @@ define internal void @svg_textspan(ptr noundef %0, double %1, double %2, ptr noc
 61:                                               ; preds = %56
   %62 = and i32 %59, 1
   %63 = icmp eq i32 %62, 0
-  %64 = icmp ne ptr %.1100, null
+  %64 = icmp ne ptr %.199, null
   %or.cond = select i1 %63, i1 true, i1 %64
   br i1 %or.cond, label %67, label %65
 
@@ -783,7 +783,7 @@ define internal void @svg_textspan(ptr noundef %0, double %1, double %2, ptr noc
 67:                                               ; preds = %65, %61
   %68 = and i32 %59, 2
   %69 = icmp eq i32 %68, 0
-  %or.cond3 = or i1 %.198, %69
+  %or.cond3 = or i1 %.197, %69
   br i1 %or.cond3, label %72, label %70
 
 70:                                               ; preds = %67

@@ -1344,7 +1344,7 @@ rbimpl_intern_const.exit892:                      ; preds = %.lr.ph.i890, %375
   br label %386
 
 386:                                              ; preds = %380, %383
-  %.1656 = phi i1 [ %384, %383 ], [ false, %380 ]
+  %.1658 = phi i1 [ %384, %383 ], [ false, %380 ]
   %.7 = phi i64 [ %385, %383 ], [ %.06441395, %380 ]
   %387 = getelementptr i8, ptr %2, i64 %.2647
   %388 = getelementptr i8, ptr %387, i64 2
@@ -1411,7 +1411,7 @@ num_pattern_p.exit900:                            ; preds = %405, %401, %394
 421:                                              ; preds = %num_pattern_p.exit900, %410
   %.pn712 = phi i64 [ %415, %410 ], [ %419, %num_pattern_p.exit900 ]
   %.8 = add i64 %.pn712, %.7
-  br i1 %.1656, label %422, label %426
+  br i1 %.1658, label %422, label %426
 
 422:                                              ; preds = %421
   %423 = load i64, ptr %13, align 8
@@ -1637,9 +1637,9 @@ rbimpl_intern_const.exit949:                      ; preds = %.lr.ph.i947, %481
   br label %512
 
 512:                                              ; preds = %508, %499
-  %.0657 = phi i8 [ %511, %508 ], [ %501, %499 ]
+  %.0659 = phi i8 [ %511, %508 ], [ %501, %499 ]
   %.9 = phi i64 [ %509, %508 ], [ %.06441395, %499 ]
-  %513 = and i8 %.0657, -33
+  %513 = and i8 %.0659, -33
   %or.cond12 = icmp eq i8 %513, 77
   br i1 %or.cond12, label %514, label %.loopexit1215.sink.split.sink.split
 
@@ -2159,7 +2159,7 @@ rbimpl_intern_const.exit1069:                     ; preds = %.lr.ph.i1067, %715
   br label %731
 
 731:                                              ; preds = %725, %728
-  %.1661 = phi i1 [ %729, %728 ], [ false, %725 ]
+  %.1656 = phi i1 [ %729, %728 ], [ false, %725 ]
   %.12 = phi i64 [ %730, %728 ], [ %.06441395, %725 ]
   %732 = getelementptr i8, ptr %2, i64 %.2647
   %733 = getelementptr i8, ptr %732, i64 2
@@ -2224,7 +2224,7 @@ num_pattern_p.exit1077:                           ; preds = %750, %746, %739
 764:                                              ; preds = %num_pattern_p.exit1077, %755
   %.pn = phi i64 [ %758, %755 ], [ %762, %num_pattern_p.exit1077 ]
   %.13 = add i64 %.pn, %.12
-  br i1 %.1661, label %765, label %769
+  br i1 %.1656, label %765, label %769
 
 765:                                              ; preds = %764
   %766 = load i64, ptr %23, align 8
@@ -2610,12 +2610,12 @@ define internal fastcc i64 @read_digits(ptr noundef %0, i64 noundef %1, ptr noca
   br label %6
 
 6:                                                ; preds = %13, %4
-  %.035 = phi i64 [ 0, %4 ], [ %14, %13 ]
-  %exitcond.not = icmp eq i64 %.035, %1
+  %.034 = phi i64 [ 0, %4 ], [ %14, %13 ]
+  %exitcond.not = icmp eq i64 %.034, %1
   br i1 %exitcond.not, label %.critedge, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 %.035
+  %8 = getelementptr inbounds i8, ptr %0, i64 %.034
   %9 = load i8, ptr %8, align 1
   %10 = sext i8 %9 to i32
   %11 = add nsw i32 %10, -58
@@ -2623,17 +2623,17 @@ define internal fastcc i64 @read_digits(ptr noundef %0, i64 noundef %1, ptr noca
   br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %7
-  %14 = add i64 %.035, 1
+  %14 = add i64 %.034, 1
   %15 = icmp eq i64 %14, %3
   br i1 %15, label %.critedge.thread, label %6, !llvm.loop !14
 
 .critedge:                                        ; preds = %6, %7
-  %.035.lcssa = phi i64 [ %1, %6 ], [ %.035, %7 ]
-  %16 = icmp eq i64 %.035.lcssa, 0
+  %.034.lcssa = phi i64 [ %1, %6 ], [ %.034, %7 ]
+  %16 = icmp eq i64 %.034.lcssa, 0
   br i1 %16, label %48, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %13, %.critedge
-  %.142 = phi i64 [ %.035.lcssa, %.critedge ], [ %3, %13 ]
+  %.142 = phi i64 [ %.034.lcssa, %.critedge ], [ %3, %13 ]
   %17 = shl i64 %.142, 2
   %18 = icmp ult i64 %17, 65
   br i1 %18, label %.lr.ph.preheader, label %35
@@ -2644,13 +2644,13 @@ define internal fastcc i64 @read_digits(ptr noundef %0, i64 noundef %1, ptr noca
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.03345 = phi i64 [ %24, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.03444 = phi ptr [ %25, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.03544 = phi ptr [ %25, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %20 = mul nsw i64 %.03345, 10
-  %21 = load i8, ptr %.03444, align 1
+  %21 = load i8, ptr %.03544, align 1
   %22 = sext i8 %21 to i64
   %23 = add i64 %20, -48
   %24 = add i64 %23, %22
-  %25 = getelementptr inbounds i8, ptr %.03444, i64 1
+  %25 = getelementptr inbounds i8, ptr %.03544, i64 1
   %26 = ptrtoint ptr %25 to i64
   %27 = sub i64 %26, %19
   %28 = icmp ult i64 %27, %.142

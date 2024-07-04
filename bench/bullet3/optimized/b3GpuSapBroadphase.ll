@@ -3298,8 +3298,8 @@ land.lhs.true409:                                 ; preds = %if.else407
   br i1 %tobool410, label %if.then411, label %for.inc425
 
 if.then411:                                       ; preds = %land.lhs.true409
-  %spec.select899 = call i32 @llvm.smin.i32(i32 %81, i32 %div287)
-  %spec.select900 = call i32 @llvm.smax.i32(i32 %81, i32 %div287)
+  %spec.select899 = call i32 @llvm.smax.i32(i32 %81, i32 %div287)
+  %spec.select900 = call i32 @llvm.smin.i32(i32 %81, i32 %div287)
   %117 = load i32, ptr getelementptr inbounds (i8, ptr @removedHostPairs, i64 4), align 4
   %118 = load i32, ptr getelementptr inbounds (i8, ptr @removedHostPairs, i64 8), align 8
   %cmp.i295 = icmp eq i32 %117, %118
@@ -3383,15 +3383,15 @@ _ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i653: ; preds = %if.then3.
 for.inc425.sink.split:                            ; preds = %if.then411, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i653, %if.then.i299, %if.then396, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i631, %if.then.i
   %.sink1071 = phi ptr [ getelementptr inbounds (i8, ptr @addedHostPairs, i64 16), %if.then.i ], [ getelementptr inbounds (i8, ptr @addedHostPairs, i64 16), %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i631 ], [ getelementptr inbounds (i8, ptr @addedHostPairs, i64 16), %if.then396 ], [ getelementptr inbounds (i8, ptr @removedHostPairs, i64 16), %if.then.i299 ], [ getelementptr inbounds (i8, ptr @removedHostPairs, i64 16), %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i653 ], [ getelementptr inbounds (i8, ptr @removedHostPairs, i64 16), %if.then411 ]
   %.sink1070 = phi i32 [ %111, %if.then.i ], [ %.pre.i.pre, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i631 ], [ %111, %if.then396 ], [ %117, %if.then.i299 ], [ %.pre.i303.pre, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i653 ], [ %117, %if.then411 ]
-  %spec.select899.sink = phi i32 [ %spec.select, %if.then.i ], [ %spec.select, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i631 ], [ %spec.select, %if.then396 ], [ %spec.select899, %if.then.i299 ], [ %spec.select899, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i653 ], [ %spec.select899, %if.then411 ]
-  %spec.select900.sink = phi i32 [ %spec.select898, %if.then.i ], [ %spec.select898, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i631 ], [ %spec.select898, %if.then396 ], [ %spec.select900, %if.then.i299 ], [ %spec.select900, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i653 ], [ %spec.select900, %if.then411 ]
+  %spec.select900.sink = phi i32 [ %spec.select, %if.then.i ], [ %spec.select, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i631 ], [ %spec.select, %if.then396 ], [ %spec.select900, %if.then.i299 ], [ %spec.select900, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i653 ], [ %spec.select900, %if.then411 ]
+  %spec.select899.sink = phi i32 [ %spec.select898, %if.then.i ], [ %spec.select898, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i631 ], [ %spec.select898, %if.then396 ], [ %spec.select899, %if.then.i299 ], [ %spec.select899, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i653 ], [ %spec.select899, %if.then411 ]
   %.sink1067 = phi ptr [ getelementptr inbounds (i8, ptr @addedHostPairs, i64 4), %if.then.i ], [ getelementptr inbounds (i8, ptr @addedHostPairs, i64 4), %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i631 ], [ getelementptr inbounds (i8, ptr @addedHostPairs, i64 4), %if.then396 ], [ getelementptr inbounds (i8, ptr @removedHostPairs, i64 4), %if.then.i299 ], [ getelementptr inbounds (i8, ptr @removedHostPairs, i64 4), %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i653 ], [ getelementptr inbounds (i8, ptr @removedHostPairs, i64 4), %if.then411 ]
   %123 = load ptr, ptr %.sink1071, align 8
   %idxprom.i296 = sext i32 %.sink1070 to i64
   %arrayidx.i297 = getelementptr inbounds %struct.b3Int4, ptr %123, i64 %idxprom.i296
-  store i32 %spec.select899.sink, ptr %arrayidx.i297, align 16
+  store i32 %spec.select900.sink, ptr %arrayidx.i297, align 16
   %removedPair.sroa.3.0.arrayidx.i297.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i297, i64 4
-  store i32 %spec.select900.sink, ptr %removedPair.sroa.3.0.arrayidx.i297.sroa_idx, align 4
+  store i32 %spec.select899.sink, ptr %removedPair.sroa.3.0.arrayidx.i297.sroa_idx, align 4
   %124 = load i32, ptr %.sink1067, align 4
   %inc.i298 = add nsw i32 %124, 1
   store i32 %inc.i298, ptr %.sink1067, align 4
@@ -3501,8 +3501,8 @@ land.lhs.true554:                                 ; preds = %if.then552
   br i1 %tobool555, label %for.inc586, label %if.then556
 
 if.then556:                                       ; preds = %land.lhs.true554
-  %spec.select901 = call i32 @llvm.smin.i32(i32 %84, i32 %div446)
-  %spec.select902 = call i32 @llvm.smax.i32(i32 %84, i32 %div446)
+  %spec.select901 = call i32 @llvm.smax.i32(i32 %84, i32 %div446)
+  %spec.select902 = call i32 @llvm.smin.i32(i32 %84, i32 %div446)
   %141 = load i32, ptr getelementptr inbounds (i8, ptr @addedHostPairs, i64 4), align 4
   %142 = load i32, ptr getelementptr inbounds (i8, ptr @addedHostPairs, i64 8), align 8
   %cmp.i333 = icmp eq i32 %141, %142
@@ -3676,8 +3676,8 @@ _ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i717: ; preds = %if.then3.
 for.inc586.sink.split:                            ; preds = %if.then572, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i717, %if.then.i348, %if.then556, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i685, %if.then.i337
   %.sink1078 = phi ptr [ getelementptr inbounds (i8, ptr @addedHostPairs, i64 16), %if.then.i337 ], [ getelementptr inbounds (i8, ptr @addedHostPairs, i64 16), %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i685 ], [ getelementptr inbounds (i8, ptr @addedHostPairs, i64 16), %if.then556 ], [ getelementptr inbounds (i8, ptr @removedHostPairs, i64 16), %if.then.i348 ], [ getelementptr inbounds (i8, ptr @removedHostPairs, i64 16), %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i717 ], [ getelementptr inbounds (i8, ptr @removedHostPairs, i64 16), %if.then572 ]
   %.sink1077 = phi i32 [ %141, %if.then.i337 ], [ %.pre.i341.pre, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i685 ], [ %141, %if.then556 ], [ %147, %if.then.i348 ], [ %.pre.i352.pre, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i717 ], [ %147, %if.then572 ]
-  %spec.select904.sink = phi i32 [ %spec.select901, %if.then.i337 ], [ %spec.select901, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i685 ], [ %spec.select901, %if.then556 ], [ %spec.select904, %if.then.i348 ], [ %spec.select904, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i717 ], [ %spec.select904, %if.then572 ]
-  %spec.select903.sink = phi i32 [ %spec.select902, %if.then.i337 ], [ %spec.select902, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i685 ], [ %spec.select902, %if.then556 ], [ %spec.select903, %if.then.i348 ], [ %spec.select903, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i717 ], [ %spec.select903, %if.then572 ]
+  %spec.select904.sink = phi i32 [ %spec.select902, %if.then.i337 ], [ %spec.select902, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i685 ], [ %spec.select902, %if.then556 ], [ %spec.select904, %if.then.i348 ], [ %spec.select904, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i717 ], [ %spec.select904, %if.then572 ]
+  %spec.select903.sink = phi i32 [ %spec.select901, %if.then.i337 ], [ %spec.select901, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i685 ], [ %spec.select901, %if.then556 ], [ %spec.select903, %if.then.i348 ], [ %spec.select903, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i717 ], [ %spec.select903, %if.then572 ]
   %.sink1074 = phi ptr [ getelementptr inbounds (i8, ptr @addedHostPairs, i64 4), %if.then.i337 ], [ getelementptr inbounds (i8, ptr @addedHostPairs, i64 4), %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i685 ], [ getelementptr inbounds (i8, ptr @addedHostPairs, i64 4), %if.then556 ], [ getelementptr inbounds (i8, ptr @removedHostPairs, i64 4), %if.then.i348 ], [ getelementptr inbounds (i8, ptr @removedHostPairs, i64 4), %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i717 ], [ getelementptr inbounds (i8, ptr @removedHostPairs, i64 4), %if.then572 ]
   %153 = load ptr, ptr %.sink1078, align 8
   %idxprom.i345 = sext i32 %.sink1077 to i64
@@ -5063,8 +5063,8 @@ for.body93:                                       ; preds = %for.body84, %for.in
 if.then102:                                       ; preds = %for.body93
   %smallAabbj.sroa.4.0.arrayidx.i101.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i101, i64 12
   %smallAabbj.sroa.4.0.copyload = load i32, ptr %smallAabbj.sroa.4.0.arrayidx.i101.sroa_idx, align 4
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %smallAabbi.sroa.4.0.copyload, i32 %smallAabbj.sroa.4.0.copyload)
-  %spec.select305 = tail call i32 @llvm.smax.i32(i32 %smallAabbi.sroa.4.0.copyload, i32 %smallAabbj.sroa.4.0.copyload)
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %smallAabbi.sroa.4.0.copyload, i32 %smallAabbj.sroa.4.0.copyload)
+  %spec.select305 = tail call i32 @llvm.smin.i32(i32 %smallAabbi.sroa.4.0.copyload, i32 %smallAabbj.sroa.4.0.copyload)
   %13 = load i32, ptr %m_capacity.i.i, align 8
   %cmp.i104 = icmp eq i32 %9, %13
   br i1 %cmp.i104, label %if.then.i, label %_ZN20b3AlignedObjectArrayI6b3Int4E9push_backERKS0_.exit
@@ -5181,9 +5181,9 @@ _ZN20b3AlignedObjectArrayI6b3Int4E9push_backERKS0_.exit: ; preds = %if.then.i, %
   %19 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i106 = sext i32 %18 to i64
   %arrayidx.i107 = getelementptr inbounds %struct.b3Int4, ptr %19, i64 %idxprom.i106
-  store i32 %spec.select, ptr %arrayidx.i107, align 16
+  store i32 %spec.select305, ptr %arrayidx.i107, align 16
   %pair.sroa.3.0.arrayidx.i107.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i107, i64 4
-  store i32 %spec.select305, ptr %pair.sroa.3.0.arrayidx.i107.sroa_idx, align 4
+  store i32 %spec.select, ptr %pair.sroa.3.0.arrayidx.i107.sroa_idx, align 4
   %20 = load i32, ptr %m_size.i.i, align 4
   %inc.i = add nsw i32 %20, 1
   store i32 %inc.i, ptr %m_size.i.i, align 4
@@ -9789,10 +9789,10 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #16
+declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #16
+declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

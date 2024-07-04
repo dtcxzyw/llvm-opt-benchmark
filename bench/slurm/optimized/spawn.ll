@@ -1314,9 +1314,9 @@ define range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %
 
 89:                                               ; preds = %83, %77, %63
   %90 = phi ptr [ %.pre.i.i, %83 ], [ %74, %77 ], [ %74, %63 ]
-  %.047.i.i = phi i32 [ 4, %83 ], [ 2, %77 ], [ 2, %63 ]
-  %91 = or disjoint i32 %.047.i.i, 1
-  %92 = zext nneg i32 %.047.i.i to i64
+  %.0.i.i = phi i32 [ 4, %83 ], [ 2, %77 ], [ 2, %63 ]
+  %91 = or disjoint i32 %.0.i.i, 1
+  %92 = zext nneg i32 %.0.i.i to i64
   %93 = getelementptr inbounds ptr, ptr %90, i64 %92
   %94 = getelementptr inbounds i8, ptr %66, i64 8
   %95 = load i32, ptr %94, align 8
@@ -1333,7 +1333,7 @@ define range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %
 
 100:                                              ; preds = %162, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %162 ]
-  %.14857.i.i = phi i32 [ %91, %.lr.ph.i.i ], [ %.249.i.i, %162 ]
+  %.158.i.i = phi i32 [ %91, %.lr.ph.i.i ], [ %.2.i.i, %162 ]
   %101 = load ptr, ptr %98, align 8
   %102 = getelementptr inbounds ptr, ptr %101, i64 %indvars.iv.i.i
   %103 = load ptr, ptr %102, align 8
@@ -1343,8 +1343,8 @@ define range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %
 
 105:                                              ; preds = %100
   %106 = load ptr, ptr %6, align 8
-  %107 = add nsw i32 %.14857.i.i, 1
-  %108 = sext i32 %.14857.i.i to i64
+  %107 = add nsw i32 %.158.i.i, 1
+  %108 = sext i32 %.158.i.i to i64
   %109 = getelementptr inbounds ptr, ptr %106, i64 %108
   %110 = load ptr, ptr %99, align 8
   %111 = getelementptr inbounds ptr, ptr %110, i64 %indvars.iv.i.i
@@ -1374,8 +1374,8 @@ define range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %
 
 125:                                              ; preds = %120
   %126 = load ptr, ptr %6, align 8
-  %127 = add nsw i32 %.14857.i.i, 1
-  %128 = sext i32 %.14857.i.i to i64
+  %127 = add nsw i32 %.158.i.i, 1
+  %128 = sext i32 %.158.i.i to i64
   %129 = getelementptr inbounds ptr, ptr %126, i64 %128
   %130 = load ptr, ptr %99, align 8
   %131 = getelementptr inbounds ptr, ptr %130, i64 %indvars.iv.i.i
@@ -1430,7 +1430,7 @@ define range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %
   br label %162
 
 162:                                              ; preds = %157, %155, %148, %138, %125, %118, %105
-  %.249.i.i = phi i32 [ %.14857.i.i, %157 ], [ %.14857.i.i, %155 ], [ %.14857.i.i, %148 ], [ %.14857.i.i, %138 ], [ %127, %125 ], [ %.14857.i.i, %118 ], [ %107, %105 ]
+  %.2.i.i = phi i32 [ %.158.i.i, %157 ], [ %.158.i.i, %155 ], [ %.158.i.i, %148 ], [ %.158.i.i, %138 ], [ %127, %125 ], [ %.158.i.i, %118 ], [ %107, %105 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %163 = load i32, ptr %96, align 8
   %164 = zext i32 %163 to i64
@@ -1438,13 +1438,13 @@ define range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %
   br i1 %165, label %100, label %._crit_edge.i.i, !llvm.loop !25
 
 ._crit_edge.i.i:                                  ; preds = %162, %89
-  %.148.lcssa.i.i = phi i32 [ %91, %89 ], [ %.249.i.i, %162 ]
+  %.1.lcssa.i.i = phi i32 [ %91, %89 ], [ %.2.i.i, %162 ]
   %166 = load ptr, ptr %66, align 8
   %167 = load ptr, ptr %6, align 8
-  %168 = sext i32 %.148.lcssa.i.i to i64
+  %168 = sext i32 %.1.lcssa.i.i to i64
   %169 = getelementptr inbounds ptr, ptr %167, i64 %168
   store ptr %166, ptr %169, align 8
-  %.359.i.i = add i32 %.148.lcssa.i.i, 1
+  %.359.i.i = add i32 %.1.lcssa.i.i, 1
   %170 = load i32, ptr %67, align 4
   %.not72.i.i = icmp eq i32 %170, 0
   br i1 %.not72.i.i, label %._crit_edge64.i.i, label %.lr.ph63.i.i
@@ -1476,7 +1476,7 @@ define range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %
   br label %._crit_edge64.i.i
 
 ._crit_edge64.i.i:                                ; preds = %._crit_edge64.loopexit.i.i, %._crit_edge.i.i
-  %.3.in.lcssa.i.i = phi i32 [ %.148.lcssa.i.i, %._crit_edge.i.i ], [ %182, %._crit_edge64.loopexit.i.i ]
+  %.3.in.lcssa.i.i = phi i32 [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ %182, %._crit_edge64.loopexit.i.i ]
   %.3.lcssa.i.i = phi i32 [ %.359.i.i, %._crit_edge.i.i ], [ %183, %._crit_edge64.loopexit.i.i ]
   %184 = load ptr, ptr %6, align 8
   %185 = sext i32 %.3.lcssa.i.i to i64
@@ -1563,7 +1563,7 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
 
 218:                                              ; preds = %._crit_edge.i27.i, %.lr.ph66.i.i
   %indvars.iv92.i.i = phi i64 [ 0, %.lr.ph66.i.i ], [ %indvars.iv.next93.i.i, %._crit_edge.i27.i ]
-  %.04765.i.i = phi i32 [ 0, %.lr.ph66.i.i ], [ %248, %._crit_edge.i27.i ]
+  %.05064.i.i = phi i32 [ 0, %.lr.ph66.i.i ], [ %248, %._crit_edge.i27.i ]
   %219 = load ptr, ptr %215, align 8
   %220 = getelementptr inbounds ptr, ptr %219, i64 %indvars.iv92.i.i
   %221 = load ptr, ptr %220, align 8
@@ -1584,14 +1584,14 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
 
 230:                                              ; preds = %226
   %231 = load ptr, ptr %221, align 8
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.45, i32 noundef %.04765.i.i, ptr noundef %231) #10
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.45, i32 noundef %.05064.i.i, ptr noundef %231) #10
   br label %236
 
 232:                                              ; preds = %226
-  %233 = add i32 %.04765.i.i, -1
+  %233 = add i32 %.05064.i.i, -1
   %234 = add i32 %233, %228
   %235 = load ptr, ptr %221, align 8
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.46, i32 noundef %.04765.i.i, i32 noundef %234, ptr noundef %235) #10
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.46, i32 noundef %.05064.i.i, i32 noundef %234, ptr noundef %235) #10
   br label %236
 
 236:                                              ; preds = %232, %230
@@ -1619,7 +1619,7 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
 ._crit_edge.i27.i:                                ; preds = %240, %236
   call void @slurm_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.48) #10
   %247 = load i32, ptr %227, align 8
-  %248 = add i32 %247, %.04765.i.i
+  %248 = add i32 %247, %.05064.i.i
   %indvars.iv.next93.i.i = add nuw nsw i64 %indvars.iv92.i.i, 1
   %249 = load i32, ptr %55, align 8
   %250 = zext i32 %249 to i64
@@ -1627,7 +1627,7 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
   br i1 %251, label %218, label %._crit_edge67.i.i, !llvm.loop !29
 
 ._crit_edge67.i.i:                                ; preds = %._crit_edge.i27.i, %.preheader.i.i
-  %.047.lcssa.i.i = phi i32 [ 0, %.preheader.i.i ], [ %248, %._crit_edge.i27.i ]
+  %.050.lcssa.i.i = phi i32 [ 0, %.preheader.i.i ], [ %248, %._crit_edge.i27.i ]
   %252 = load ptr, ptr %3, align 8
   %.not.i28.i = icmp eq ptr %252, null
   br i1 %.not.i28.i, label %285, label %253
@@ -1713,7 +1713,7 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
   %290 = getelementptr inbounds i8, ptr %289, i64 8
   store ptr @.str.21, ptr %290, align 8
   %291 = getelementptr inbounds i8, ptr %289, i64 16
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %291, ptr noundef nonnull @.str.24, i32 noundef %.047.lcssa.i.i) #10
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %291, ptr noundef nonnull @.str.24, i32 noundef %.050.lcssa.i.i) #10
   %292 = load ptr, ptr getelementptr inbounds (i8, ptr @job_info, i64 96), align 8
   %.not57.i.i = icmp eq ptr %292, null
   br i1 %.not57.i.i, label %306, label %293
@@ -1738,16 +1738,16 @@ _exec_srun_single.exit.i:                         ; preds = %200, %190
   br label %306
 
 306:                                              ; preds = %299, %293, %285
-  %.049.i.i = phi i64 [ 5, %299 ], [ 3, %293 ], [ 3, %285 ]
+  %.048.i.i = phi i64 [ 5, %299 ], [ 3, %293 ], [ 3, %285 ]
   %307 = load ptr, ptr %2, align 8
-  %308 = getelementptr inbounds ptr, ptr %307, i64 %.049.i.i
+  %308 = getelementptr inbounds ptr, ptr %307, i64 %.048.i.i
   store ptr @.str.51, ptr %308, align 8
   %309 = load ptr, ptr %2, align 8
-  %310 = getelementptr inbounds ptr, ptr %309, i64 %.049.i.i
+  %310 = getelementptr inbounds ptr, ptr %309, i64 %.048.i.i
   %311 = getelementptr inbounds i8, ptr %310, i64 8
   store ptr %4, ptr %311, align 8
   %312 = load ptr, ptr %2, align 8
-  %313 = getelementptr inbounds ptr, ptr %312, i64 %.049.i.i
+  %313 = getelementptr inbounds ptr, ptr %312, i64 %.048.i.i
   %314 = getelementptr inbounds i8, ptr %313, i64 16
   store ptr null, ptr %314, align 8
   %315 = call i32 @slurm_get_log_level() #10

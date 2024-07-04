@@ -60,17 +60,17 @@ invoke.cont.i:                                    ; preds = %if.end.i.i.i.i.i.i.
 
 for.body.i.i:                                     ; preds = %invoke.cont.i, %for.body.i.i
   %offset.0.i = phi i64 [ %add.i.i.i, %for.body.i.i ], [ 0, %invoke.cont.i ]
-  %__first.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %1, %invoke.cont.i ]
-  %__result.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %3, %invoke.cont.i ]
-  %call4.val.i.i = load ptr, ptr %__first.sroa.0.07.i.i, align 8, !noalias !4
+  %__result.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %3, %invoke.cont.i ]
+  %__first.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %1, %invoke.cont.i ]
+  %call4.val.i.i = load ptr, ptr %__first.sroa.0.06.i.i, align 8, !noalias !4
   %4 = getelementptr i8, ptr %call4.val.i.i, i64 8
   %call4.val.val.i.i = load ptr, ptr %4, align 8, !noalias !4
   %5 = getelementptr i8, ptr %call4.val.val.i.i, i64 16
   %call4.val.val.val.i.i = load i64, ptr %5, align 8, !noalias !4
   %add.i.i.i = add nsw i64 %call4.val.val.val.i.i, %offset.0.i
-  store i64 %offset.0.i, ptr %__result.sroa.0.06.i.i, align 8, !noalias !4
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.07.i.i, i64 16
-  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.06.i.i, i64 8
+  store i64 %offset.0.i, ptr %__result.sroa.0.07.i.i, align 8, !noalias !4
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i, i64 16
+  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.07.i.i, i64 8
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.i.not.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117MakeChunksOffsetsISt10shared_ptrINS_5ArrayEEEESt6vectorIlSaIlEERKS6_IT_SaIS9_EE.exit, label %for.body.i.i, !llvm.loop !7
 
@@ -135,17 +135,17 @@ invoke.cont.i:                                    ; preds = %if.end.i.i.i.i.i.i.
 
 for.body.i.i:                                     ; preds = %invoke.cont.i, %for.body.i.i
   %offset.0.i = phi i64 [ %add.i.i.i, %for.body.i.i ], [ 0, %invoke.cont.i ]
-  %__first.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %1, %invoke.cont.i ]
-  %__result.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %3, %invoke.cont.i ]
-  %call4.val.i.i = load ptr, ptr %__first.sroa.0.07.i.i, align 8, !noalias !9
+  %__result.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %3, %invoke.cont.i ]
+  %__first.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %1, %invoke.cont.i ]
+  %call4.val.i.i = load ptr, ptr %__first.sroa.0.06.i.i, align 8, !noalias !9
   %4 = getelementptr i8, ptr %call4.val.i.i, i64 8
   %call4.val.val.i.i = load ptr, ptr %4, align 8, !noalias !9
   %5 = getelementptr i8, ptr %call4.val.val.i.i, i64 16
   %call4.val.val.val.i.i = load i64, ptr %5, align 8, !noalias !9
   %add.i.i.i = add nsw i64 %call4.val.val.val.i.i, %offset.0.i
-  store i64 %offset.0.i, ptr %__result.sroa.0.06.i.i, align 8, !noalias !9
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.07.i.i, i64 8
-  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.06.i.i, i64 8
+  store i64 %offset.0.i, ptr %__result.sroa.0.07.i.i, align 8, !noalias !9
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i, i64 8
+  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.07.i.i, i64 8
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.i.not.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117MakeChunksOffsetsIPKNS_5ArrayEEESt6vectorIlSaIlEERKS6_IT_SaIS9_EE.exit, label %for.body.i.i, !llvm.loop !12
 
@@ -209,15 +209,15 @@ invoke.cont.i:                                    ; preds = %if.end.i.i.i.i.i.i.
 
 for.body.i.i:                                     ; preds = %invoke.cont.i, %for.body.i.i
   %offset.0.i = phi i64 [ %add.i.i.i, %for.body.i.i ], [ 0, %invoke.cont.i ]
-  %__first.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %1, %invoke.cont.i ]
-  %__result.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %3, %invoke.cont.i ]
-  %call4.val.i.i = load ptr, ptr %__first.sroa.0.07.i.i, align 8, !noalias !13
+  %__result.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %3, %invoke.cont.i ]
+  %__first.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %1, %invoke.cont.i ]
+  %call4.val.i.i = load ptr, ptr %__first.sroa.0.06.i.i, align 8, !noalias !13
   %4 = getelementptr i8, ptr %call4.val.i.i, i64 24
   %call4.val.val.i.i = load i64, ptr %4, align 8, !noalias !13
   %add.i.i.i = add nsw i64 %call4.val.val.i.i, %offset.0.i
-  store i64 %offset.0.i, ptr %__result.sroa.0.06.i.i, align 8, !noalias !13
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.07.i.i, i64 16
-  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.06.i.i, i64 8
+  store i64 %offset.0.i, ptr %__result.sroa.0.07.i.i, align 8, !noalias !13
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i, i64 16
+  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.07.i.i, i64 8
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.i.not.i.i, label %_ZN5arrow8internal12_GLOBAL__N_117MakeChunksOffsetsISt10shared_ptrINS_11RecordBatchEEEESt6vectorIlSaIlEERKS6_IT_SaIS9_EE.exit, label %for.body.i.i, !llvm.loop !16
 

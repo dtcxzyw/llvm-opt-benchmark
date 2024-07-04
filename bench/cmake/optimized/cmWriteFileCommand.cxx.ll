@@ -232,7 +232,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br label %109
 
 70:                                               ; preds = %64, %61, %58
-  %.032.shrunk = phi i1 [ true, %61 ], [ false, %58 ], [ false, %64 ]
+  %.027.shrunk = phi i1 [ true, %61 ], [ false, %58 ], [ false, %64 ]
   %71 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #9
   %72 = select i1 %.033.lcssa, i32 16, i32 1
   invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %11, ptr noundef %71, i32 noundef %72)
@@ -310,7 +310,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 101:                                              ; preds = %100
   %102 = load i32, ptr %10, align 4
   %.not = icmp eq i32 %102, 0
-  %brmerge = or i1 %.032.shrunk, %.not
+  %brmerge = or i1 %.027.shrunk, %.not
   br i1 %brmerge, label %107, label %103
 
 103:                                              ; preds = %101

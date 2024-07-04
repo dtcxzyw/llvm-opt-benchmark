@@ -1457,8 +1457,8 @@ _ZNK3gmx13PropagatorTagneERKS0_.exit80:           ; preds = %107
   br i1 %.not184, label %_ZNK3gmx13PropagatorTagneERKS0_.exit80.thread169, label %_ZNK3gmx13PropagatorTagneERKS0_.exit75.thread
 
 _ZNK3gmx13PropagatorTagneERKS0_.exit75.thread:    ; preds = %103, %_ZN3gmx13PropagatorTagC2ESt17basic_string_viewIcSt11char_traitsIcEE.exit73, %_ZNK3gmx13PropagatorTagneERKS0_.exit80, %_ZNK3gmx13PropagatorTagneERKS0_.exit75
-  %.144 = phi i1 [ true, %_ZNK3gmx13PropagatorTagneERKS0_.exit75 ], [ %85, %_ZNK3gmx13PropagatorTagneERKS0_.exit80 ], [ true, %_ZN3gmx13PropagatorTagC2ESt17basic_string_viewIcSt11char_traitsIcEE.exit73 ], [ %85, %103 ]
-  %.042 = phi i1 [ false, %_ZNK3gmx13PropagatorTagneERKS0_.exit75 ], [ true, %_ZNK3gmx13PropagatorTagneERKS0_.exit80 ], [ false, %_ZN3gmx13PropagatorTagC2ESt17basic_string_viewIcSt11char_traitsIcEE.exit73 ], [ true, %103 ]
+  %.143 = phi i1 [ true, %_ZNK3gmx13PropagatorTagneERKS0_.exit75 ], [ %85, %_ZNK3gmx13PropagatorTagneERKS0_.exit80 ], [ true, %_ZN3gmx13PropagatorTagC2ESt17basic_string_viewIcSt11char_traitsIcEE.exit73 ], [ %85, %103 ]
+  %.0 = phi i1 [ false, %_ZNK3gmx13PropagatorTagneERKS0_.exit75 ], [ true, %_ZNK3gmx13PropagatorTagneERKS0_.exit80 ], [ false, %_ZN3gmx13PropagatorTagC2ESt17basic_string_viewIcSt11char_traitsIcEE.exit73 ], [ true, %103 ]
   invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx24MttkPropagatorConnection5buildEPNS_38ModularSimulatorAlgorithmBuilderHelperERKNS_13PropagatorTagES5_iS5_S5_iS5_S5_iENK3$_6clEv", ptr noundef nonnull @.str.5, i32 noundef 349) #29
           to label %.noexc81 unwind label %261
 
@@ -1907,14 +1907,14 @@ _ZNSt8functionIFvRKN3gmx20PropagatorConnectionEEED2Ev.exit139: ; preds = %252, %
 261:                                              ; preds = %_ZNK3gmx13PropagatorTagneERKS0_.exit75.thread
   %262 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.042, label %263, label %.body
+  br i1 %.0, label %263, label %.body
 
 263:                                              ; preds = %261
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #27
-  br i1 %.144, label %264, label %common.resume
+  br i1 %.143, label %264, label %common.resume
 
 .body:                                            ; preds = %261
-  br i1 %.144, label %264, label %common.resume
+  br i1 %.143, label %264, label %common.resume
 
 264:                                              ; preds = %101, %263, %.body
   %.pn182 = phi { ptr, i32 } [ %262, %.body ], [ %262, %263 ], [ %102, %101 ]

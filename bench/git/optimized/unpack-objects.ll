@@ -581,8 +581,8 @@ use.exit.i.i:                                     ; preds = %if.end5.i.i.i
   br i1 %tobool.not107.i.i, label %while.end.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %use.exit.i.i, %use.exit66.i.i
-  %shift.0109.i.i = phi i32 [ %add7.i37.i, %use.exit66.i.i ], [ 4, %use.exit.i.i ]
-  %size.0108.i.i = phi i64 [ %add.i36.i, %use.exit66.i.i ], [ %and2.i.i, %use.exit.i.i ]
+  %size.0109.i.i = phi i64 [ %add.i36.i, %use.exit66.i.i ], [ %and2.i.i, %use.exit.i.i ]
+  %shift.0108.i.i = phi i32 [ %add7.i37.i, %use.exit66.i.i ], [ 4, %use.exit.i.i ]
   %87 = load i32, ptr @len, align 4
   %cmp.not.i22.i.i = icmp eq i32 %87, 0
   %88 = load i32, ptr @offset, align 4
@@ -687,10 +687,10 @@ use.exit66.i.i:                                   ; preds = %if.end5.i57.i.i
   call void @display_throughput(ptr noundef %101, i64 noundef %add7.i58.i.i) #13
   %102 = and i8 %conv597.in.i.i, 127
   %and6.i.i = zext nneg i8 %102 to i64
-  %sh_prom.i.i = zext nneg i32 %shift.0109.i.i to i64
+  %sh_prom.i.i = zext nneg i32 %shift.0108.i.i to i64
   %shl.i.i = shl i64 %and6.i.i, %sh_prom.i.i
-  %add.i36.i = add i64 %shl.i.i, %size.0108.i.i
-  %add7.i37.i = add i32 %shift.0109.i.i, 7
+  %add.i36.i = add i64 %shl.i.i, %size.0109.i.i
+  %add7.i37.i = add i32 %shift.0108.i.i, 7
   %tobool.not.i38.i = icmp sgt i8 %conv597.in.i.i, -1
   br i1 %tobool.not.i38.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !10
 

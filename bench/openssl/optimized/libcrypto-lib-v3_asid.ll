@@ -492,9 +492,9 @@ if.then7:                                         ; preds = %lor.lhs.false, %lor
   br label %return
 
 for.cond:                                         ; preds = %lor.lhs.false4, %if.end49
-  %i.0 = phi i32 [ %add, %if.end49 ], [ 0, %lor.lhs.false4 ]
-  %bn.0 = phi ptr [ %bn.1, %if.end49 ], [ null, %lor.lhs.false4 ]
   %a_max_plus_one.0 = phi ptr [ %call46, %if.end49 ], [ null, %lor.lhs.false4 ]
+  %bn.0 = phi ptr [ %bn.1, %if.end49 ], [ null, %lor.lhs.false4 ]
+  %i.0 = phi i32 [ %add, %if.end49 ], [ 0, %lor.lhs.false4 ]
   %2 = load ptr, ptr %u, align 8
   %call11 = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #5
   %sub = add nsw i32 %call11, -1
@@ -643,9 +643,9 @@ if.end76:                                         ; preds = %lor.lhs.false71, %l
   br label %done
 
 done:                                             ; preds = %if.end.i22, %lor.lhs.false20, %if.end.i, %for.body, %if.end49, %if.end24, %lor.lhs.false27, %lor.lhs.false30, %lor.lhs.false71, %if.end76, %if.then48, %if.then44
+  %a_max_plus_one.1 = phi ptr [ %a_max_plus_one.0, %if.then44 ], [ %a_max_plus_one.0, %if.then48 ], [ %a_max_plus_one.0, %lor.lhs.false71 ], [ %a_max_plus_one.0, %if.end76 ], [ %a_max_plus_one.0, %if.end.i22 ], [ %a_max_plus_one.0, %lor.lhs.false20 ], [ %a_max_plus_one.0, %if.end.i ], [ %a_max_plus_one.0, %for.body ], [ %call46, %if.end49 ], [ %a_max_plus_one.0, %lor.lhs.false30 ], [ %a_max_plus_one.0, %lor.lhs.false27 ], [ %a_max_plus_one.0, %if.end24 ]
+  %bn.3 = phi ptr [ %bn.2, %if.then44 ], [ %bn.1, %if.then48 ], [ %bn.0, %lor.lhs.false71 ], [ %bn.0, %if.end76 ], [ %bn.0, %if.end.i22 ], [ %bn.0, %lor.lhs.false20 ], [ %bn.0, %if.end.i ], [ %bn.0, %for.body ], [ %bn.1, %if.end49 ], [ %bn.0, %lor.lhs.false30 ], [ %bn.0, %lor.lhs.false27 ], [ %bn.0, %if.end24 ]
   %ret.0 = phi i32 [ 0, %if.then44 ], [ 0, %if.then48 ], [ 0, %lor.lhs.false71 ], [ 1, %if.end76 ], [ 0, %lor.lhs.false30 ], [ 0, %lor.lhs.false27 ], [ 0, %if.end24 ], [ 0, %if.end49 ], [ 0, %for.body ], [ 0, %if.end.i ], [ 0, %lor.lhs.false20 ], [ 0, %if.end.i22 ]
-  %bn.3 = phi ptr [ %bn.2, %if.then44 ], [ %bn.1, %if.then48 ], [ %bn.0, %lor.lhs.false71 ], [ %bn.0, %if.end76 ], [ %bn.0, %if.end.i22 ], [ %bn.0, %lor.lhs.false20 ], [ %bn.0, %if.end.i ], [ %bn.0, %for.body ], [ %bn.1, %if.end49 ], [ %bn.0, %if.end24 ], [ %bn.0, %lor.lhs.false27 ], [ %bn.0, %lor.lhs.false30 ]
-  %a_max_plus_one.1 = phi ptr [ %a_max_plus_one.0, %if.then44 ], [ %a_max_plus_one.0, %if.then48 ], [ %a_max_plus_one.0, %lor.lhs.false71 ], [ %a_max_plus_one.0, %if.end76 ], [ %a_max_plus_one.0, %if.end.i22 ], [ %a_max_plus_one.0, %lor.lhs.false20 ], [ %a_max_plus_one.0, %if.end.i ], [ %a_max_plus_one.0, %for.body ], [ %call46, %if.end49 ], [ %a_max_plus_one.0, %if.end24 ], [ %a_max_plus_one.0, %lor.lhs.false27 ], [ %a_max_plus_one.0, %lor.lhs.false30 ]
   tail call void @ASN1_INTEGER_free(ptr noundef %a_max_plus_one.1) #5
   tail call void @BN_free(ptr noundef %bn.3) #5
   br label %return
@@ -713,13 +713,13 @@ if.end8:                                          ; preds = %lor.lhs.false4
   br i1 %cmp1486, label %for.body, label %for.end
 
 for.body:                                         ; preds = %if.end8, %for.inc
-  %a_max_plus_one.089 = phi ptr [ %call64, %for.inc ], [ null, %if.end8 ]
+  %i.089 = phi i32 [ %inc.pre-phi, %for.inc ], [ 0, %if.end8 ]
   %bn.088 = phi ptr [ %bn.1, %for.inc ], [ null, %if.end8 ]
-  %i.087 = phi i32 [ %inc.pre-phi, %for.inc ], [ 0, %if.end8 ]
+  %a_max_plus_one.087 = phi ptr [ %call64, %for.inc ], [ null, %if.end8 ]
   %4 = load ptr, ptr %u, align 8
-  %call17 = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %i.087) #5
+  %call17 = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %i.089) #5
   %5 = load ptr, ptr %u, align 8
-  %add = add nsw i32 %i.087, 1
+  %add = add nsw i32 %i.089, 1
   %call20 = tail call ptr @OPENSSL_sk_value(ptr noundef %5, i32 noundef %add) #5
   %cmp.not.i = icmp eq ptr %call17, null
   br i1 %cmp.not.i, label %done, label %if.end.i
@@ -826,7 +826,7 @@ if.then62:                                        ; preds = %lor.lhs.false59, %l
   br label %done
 
 if.end63:                                         ; preds = %lor.lhs.false59
-  %call64 = tail call ptr @BN_to_ASN1_INTEGER(ptr noundef nonnull %bn.1, ptr noundef %a_max_plus_one.089) #5
+  %call64 = tail call ptr @BN_to_ASN1_INTEGER(ptr noundef nonnull %bn.1, ptr noundef %a_max_plus_one.087) #5
   %cmp65 = icmp eq ptr %call64, null
   br i1 %cmp65, label %if.then67, label %if.end68
 
@@ -901,7 +901,7 @@ sw.epilog92:                                      ; preds = %sw.epilog92.sink.sp
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end68, %sw.epilog92
-  %inc.pre-phi = phi i32 [ %add, %if.end68 ], [ %i.087, %sw.epilog92 ]
+  %inc.pre-phi = phi i32 [ %add, %if.end68 ], [ %i.089, %sw.epilog92 ]
   %23 = load ptr, ptr %u, align 8
   %call13 = tail call i32 @OPENSSL_sk_num(ptr noundef %23) #5
   %sub = add nsw i32 %call13, -1
@@ -909,8 +909,8 @@ for.inc:                                          ; preds = %if.end68, %sw.epilo
   br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc, %if.end8
-  %bn.0.lcssa = phi ptr [ null, %if.end8 ], [ %bn.1, %for.inc ]
   %a_max_plus_one.0.lcssa = phi ptr [ null, %if.end8 ], [ %call64, %for.inc ]
+  %bn.0.lcssa = phi ptr [ null, %if.end8 ], [ %bn.1, %for.inc ]
   %24 = load ptr, ptr %u, align 8
   %call100 = tail call i32 @OPENSSL_sk_num(ptr noundef %24) #5
   %sub101 = add nsw i32 %call100, -1
@@ -939,9 +939,9 @@ if.end123:                                        ; preds = %lor.lhs.false117, %
   br label %done
 
 done:                                             ; preds = %if.end.i38, %lor.lhs.false22, %if.end.i, %for.body, %sw.bb, %if.end35, %lor.lhs.false39, %if.end26, %if.end123, %lor.lhs.false117, %if.then67, %if.then62, %if.then48
+  %a_max_plus_one.1 = phi ptr [ %a_max_plus_one.087, %if.then48 ], [ %a_max_plus_one.087, %if.then62 ], [ %a_max_plus_one.087, %if.then67 ], [ %a_max_plus_one.0.lcssa, %lor.lhs.false117 ], [ %a_max_plus_one.0.lcssa, %if.end123 ], [ %a_max_plus_one.087, %if.end.i38 ], [ %a_max_plus_one.087, %lor.lhs.false22 ], [ %a_max_plus_one.087, %if.end.i ], [ %a_max_plus_one.087, %for.body ], [ %a_max_plus_one.087, %if.end26 ], [ %call64, %sw.bb ], [ %a_max_plus_one.087, %lor.lhs.false39 ], [ %a_max_plus_one.087, %if.end35 ]
+  %bn.3 = phi ptr [ %bn.088, %if.then48 ], [ %bn.2, %if.then62 ], [ %bn.1, %if.then67 ], [ %bn.0.lcssa, %lor.lhs.false117 ], [ %bn.0.lcssa, %if.end123 ], [ %bn.088, %if.end.i38 ], [ %bn.088, %lor.lhs.false22 ], [ %bn.088, %if.end.i ], [ %bn.088, %for.body ], [ %bn.088, %if.end26 ], [ %bn.1, %sw.bb ], [ %bn.088, %lor.lhs.false39 ], [ %bn.088, %if.end35 ]
   %ret.0 = phi i32 [ 0, %if.then48 ], [ 0, %if.then62 ], [ 0, %if.then67 ], [ 0, %lor.lhs.false117 ], [ %call124, %if.end123 ], [ 0, %if.end26 ], [ 0, %lor.lhs.false39 ], [ 0, %if.end35 ], [ 0, %sw.bb ], [ 0, %for.body ], [ 0, %if.end.i ], [ 0, %lor.lhs.false22 ], [ 0, %if.end.i38 ]
-  %bn.3 = phi ptr [ %bn.088, %if.then48 ], [ %bn.2, %if.then62 ], [ %bn.1, %if.then67 ], [ %bn.0.lcssa, %lor.lhs.false117 ], [ %bn.0.lcssa, %if.end123 ], [ %bn.088, %if.end.i38 ], [ %bn.088, %lor.lhs.false22 ], [ %bn.088, %if.end.i ], [ %bn.088, %for.body ], [ %bn.1, %sw.bb ], [ %bn.088, %if.end35 ], [ %bn.088, %lor.lhs.false39 ], [ %bn.088, %if.end26 ]
-  %a_max_plus_one.1 = phi ptr [ %a_max_plus_one.089, %if.then48 ], [ %a_max_plus_one.089, %if.then62 ], [ %a_max_plus_one.089, %if.then67 ], [ %a_max_plus_one.0.lcssa, %lor.lhs.false117 ], [ %a_max_plus_one.0.lcssa, %if.end123 ], [ %a_max_plus_one.089, %if.end.i38 ], [ %a_max_plus_one.089, %lor.lhs.false22 ], [ %a_max_plus_one.089, %if.end.i ], [ %a_max_plus_one.089, %for.body ], [ %call64, %sw.bb ], [ %a_max_plus_one.089, %if.end35 ], [ %a_max_plus_one.089, %lor.lhs.false39 ], [ %a_max_plus_one.089, %if.end26 ]
   tail call void @ASN1_INTEGER_free(ptr noundef %a_max_plus_one.1) #5
   tail call void @BN_free(ptr noundef %bn.3) #5
   br label %return

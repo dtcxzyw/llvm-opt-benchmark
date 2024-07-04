@@ -151,10 +151,10 @@ while.cond57.preheader:                           ; preds = %while.end
   br label %while.body59
 
 while.body59:                                     ; preds = %while.cond57.preheader, %while.end223
-  %in.addr.0178 = phi ptr [ %in, %while.cond57.preheader ], [ %add.ptr, %while.end223 ]
-  %ret.0177 = phi i32 [ 0, %while.cond57.preheader ], [ %ret.1, %while.end223 ]
-  %inl.addr.0176 = phi i32 [ %inl, %while.cond57.preheader ], [ %sub177, %while.end223 ]
-  %7 = tail call i32 @llvm.umin.i32(i32 %inl.addr.0176, i32 1024)
+  %ret.0178 = phi i32 [ 0, %while.cond57.preheader ], [ %ret.1, %while.end223 ]
+  %inl.addr.0177 = phi i32 [ %inl, %while.cond57.preheader ], [ %sub177, %while.end223 ]
+  %in.addr.0176 = phi ptr [ %in, %while.cond57.preheader ], [ %add.ptr, %while.end223 ]
+  %7 = tail call i32 @llvm.umin.i32(i32 %inl.addr.0177, i32 1024)
   %call65 = tail call i32 @BIO_test_flags(ptr noundef %b, i32 noundef -1) #7
   %and = and i32 %call65, 256
   %cmp66.not = icmp eq i32 %and, 0
@@ -175,16 +175,16 @@ cond.false74:                                     ; preds = %if.then70
 
 cond.end75:                                       ; preds = %if.then70
   %sub78 = sub nuw nsw i32 3, %8
-  %cmp79 = icmp ugt i32 %sub78, %inl.addr.0176
+  %cmp79 = icmp ugt i32 %sub78, %inl.addr.0177
   %spec.select = select i1 %cmp79, i32 1, i32 %sub78
   %idxprom83 = zext nneg i32 %8 to i64
   %arrayidx84 = getelementptr inbounds [1024 x i8], ptr %tmp, i64 0, i64 %idxprom83
   %conv = zext nneg i32 %spec.select to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx84, ptr align 1 %in.addr.0178, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx84, ptr align 1 %in.addr.0176, i64 %conv, i1 false)
   %9 = load i32, ptr %tmp_len68, align 8
   %add86 = add nsw i32 %9, %spec.select
   store i32 %add86, ptr %tmp_len68, align 8
-  %add87 = add nuw nsw i32 %spec.select, %ret.0177
+  %add87 = add nuw nsw i32 %spec.select, %ret.0178
   %cmp89 = icmp slt i32 %add86, 3
   br i1 %cmp89, label %return, label %if.end92
 
@@ -212,14 +212,14 @@ cond.end112:                                      ; preds = %cond.end104
   br label %if.end176
 
 if.else:                                          ; preds = %if.then67
-  %cmp115 = icmp ult i32 %inl.addr.0176, 3
+  %cmp115 = icmp ult i32 %inl.addr.0177, 3
   br i1 %cmp115, label %if.then117, label %if.end123
 
 if.then117:                                       ; preds = %if.else
   %conv120 = zext nneg i32 %7 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %tmp, ptr align 1 %in.addr.0178, i64 %conv120, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %tmp, ptr align 1 %in.addr.0176, i64 %conv120, i1 false)
   store i32 %7, ptr %tmp_len68, align 8
-  %add122 = add nuw nsw i32 %ret.0177, %7
+  %add122 = add nuw nsw i32 %ret.0178, %7
   br label %return
 
 if.end123:                                        ; preds = %if.else
@@ -227,7 +227,7 @@ if.end123:                                        ; preds = %if.else
   %rem121 = urem i16 %rem.lhs.trunc, 3
   %rem.zext = zext nneg i16 %rem121 to i32
   %sub124 = sub nsw i32 %7, %rem.zext
-  %call127 = tail call i32 @EVP_EncodeBlock(ptr noundef nonnull %buf125, ptr noundef %in.addr.0178, i32 noundef %sub124) #7
+  %call127 = tail call i32 @EVP_EncodeBlock(ptr noundef nonnull %buf125, ptr noundef %in.addr.0176, i32 noundef %sub124) #7
   store i32 %call127, ptr %call, align 8
   %cmp130 = icmp slt i32 %call127, 1503
   br i1 %cmp130, label %cond.end134, label %cond.false133
@@ -246,18 +246,18 @@ cond.false141:                                    ; preds = %cond.end134
   unreachable
 
 cond.end142:                                      ; preds = %cond.end134
-  %add144 = add nuw nsw i32 %sub124, %ret.0177
+  %add144 = add nuw nsw i32 %sub124, %ret.0178
   br label %if.end176
 
 if.else146:                                       ; preds = %while.body59
   %12 = load ptr, ptr %base64147, align 8
-  %call151 = tail call i32 @EVP_EncodeUpdate(ptr noundef %12, ptr noundef nonnull %buf125, ptr noundef nonnull %call, ptr noundef %in.addr.0178, i32 noundef %7) #7
+  %call151 = tail call i32 @EVP_EncodeUpdate(ptr noundef %12, ptr noundef nonnull %buf125, ptr noundef nonnull %call, ptr noundef %in.addr.0176, i32 noundef %7) #7
   %tobool.not = icmp eq i32 %call151, 0
   br i1 %tobool.not, label %if.then152, label %if.end159
 
 if.then152:                                       ; preds = %if.else146
-  %cmp153 = icmp eq i32 %ret.0177, 0
-  %cond158 = select i1 %cmp153, i32 -1, i32 %ret.0177
+  %cmp153 = icmp eq i32 %ret.0178, 0
+  %cond158 = select i1 %cmp153, i32 -1, i32 %ret.0178
   br label %return
 
 if.end159:                                        ; preds = %if.else146
@@ -279,16 +279,16 @@ cond.false172:                                    ; preds = %cond.end165
   unreachable
 
 cond.end173:                                      ; preds = %cond.end165
-  %add175 = add nuw nsw i32 %ret.0177, %7
+  %add175 = add nuw nsw i32 %ret.0178, %7
   br label %if.end176
 
 if.end176:                                        ; preds = %cond.end112, %cond.end142, %cond.end173
   %15 = phi i32 [ %call97, %cond.end112 ], [ %call127, %cond.end142 ], [ %13, %cond.end173 ]
   %ret.1 = phi i32 [ %add87, %cond.end112 ], [ %add144, %cond.end142 ], [ %add175, %cond.end173 ]
   %n.2 = phi i32 [ %spec.select, %cond.end112 ], [ %sub124, %cond.end142 ], [ %7, %cond.end173 ]
-  %sub177 = sub nsw i32 %inl.addr.0176, %n.2
+  %sub177 = sub nsw i32 %inl.addr.0177, %n.2
   %idx.ext = zext nneg i32 %n.2 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.0178, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %in.addr.0176, i64 %idx.ext
   store i32 0, ptr %buf_off7, align 4
   br label %while.cond180
 
@@ -434,9 +434,9 @@ if.then35:                                        ; preds = %cond.end25
   br label %if.end39
 
 if.end39:                                         ; preds = %cond.end25, %if.then35, %if.end9
-  %ret.0 = phi i32 [ %spec.select, %if.then35 ], [ %spec.select, %cond.end25 ], [ 0, %if.end9 ]
-  %outl.addr.0 = phi i32 [ %sub28, %if.then35 ], [ %sub28, %cond.end25 ], [ %outl, %if.end9 ]
   %out.addr.0 = phi ptr [ %add.ptr, %if.then35 ], [ %add.ptr, %cond.end25 ], [ %out, %if.end9 ]
+  %outl.addr.0 = phi i32 [ %sub28, %if.then35 ], [ %sub28, %cond.end25 ], [ %outl, %if.end9 ]
+  %ret.0 = phi i32 [ %spec.select, %if.then35 ], [ %spec.select, %cond.end25 ], [ 0, %if.end9 ]
   %cmp40214 = icmp sgt i32 %outl.addr.0, 0
   br i1 %cmp40214, label %while.body.lr.ph.lr.ph, label %while.end
 
@@ -453,16 +453,16 @@ while.body.lr.ph.lr.ph:                           ; preds = %if.end39
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %if.end279
-  %out.addr.1.ph219 = phi ptr [ %out.addr.0, %while.body.lr.ph.lr.ph ], [ %add.ptr282, %if.end279 ]
-  %outl.addr.1.ph218 = phi i32 [ %outl.addr.0, %while.body.lr.ph.lr.ph ], [ %sub280, %if.end279 ]
-  %ret_code.0.ph217 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %ret_code.1, %if.end279 ]
-  %ret.1.ph215 = phi i32 [ %ret.0, %while.body.lr.ph.lr.ph ], [ %add270, %if.end279 ]
+  %ret_code.0.ph219 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %ret_code.1, %if.end279 ]
+  %ret.1.ph217 = phi i32 [ %ret.0, %while.body.lr.ph.lr.ph ], [ %add270, %if.end279 ]
+  %outl.addr.1.ph216 = phi i32 [ %outl.addr.0, %while.body.lr.ph.lr.ph ], [ %sub280, %if.end279 ]
+  %out.addr.1.ph215 = phi ptr [ %out.addr.0, %while.body.lr.ph.lr.ph ], [ %add.ptr282, %if.end279 ]
   %6 = load i32, ptr %cont, align 8
   %cmp42289 = icmp slt i32 %6, 1
   br i1 %cmp42289, label %while.end, label %if.end45
 
 if.end45:                                         ; preds = %while.body.lr.ph, %while.cond.backedge
-  %ret_code.0203290 = phi i32 [ %ret_code.1, %while.cond.backedge ], [ %ret_code.0.ph217, %while.body.lr.ph ]
+  %ret_code.0203290 = phi i32 [ %ret_code.1, %while.cond.backedge ], [ %ret_code.0.ph219, %while.body.lr.ph ]
   %7 = load i32, ptr %tmp_len46, align 8
   %idxprom47 = sext i32 %7 to i64
   %arrayidx48 = getelementptr inbounds [1024 x i8], ptr %tmp.ptr, i64 0, i64 %idxprom47
@@ -751,10 +751,10 @@ if.then257:                                       ; preds = %if.end252
 
 if.end259:                                        ; preds = %if.end252
   %31 = load i32, ptr %call, align 8
-  %outl.addr.1. = call i32 @llvm.smin.i32(i32 %31, i32 %outl.addr.1.ph218)
+  %outl.addr.1. = call i32 @llvm.smin.i32(i32 %31, i32 %outl.addr.1.ph216)
   %conv269 = sext i32 %outl.addr.1. to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.addr.1.ph219, ptr nonnull align 8 %buf92, i64 %conv269, i1 false)
-  %add270 = add nsw i32 %outl.addr.1., %ret.1.ph215
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.addr.1.ph215, ptr nonnull align 8 %buf92, i64 %conv269, i1 false)
+  %add270 = add nsw i32 %outl.addr.1., %ret.1.ph217
   store i32 %outl.addr.1., ptr %buf_off254, align 4
   %32 = load i32, ptr %call, align 8
   %cmp274 = icmp eq i32 %outl.addr.1., %32
@@ -766,14 +766,14 @@ if.then276:                                       ; preds = %if.end259
   br label %if.end279
 
 if.end279:                                        ; preds = %if.then276, %if.end259
-  %sub280 = sub nsw i32 %outl.addr.1.ph218, %outl.addr.1.
-  %add.ptr282 = getelementptr inbounds i8, ptr %out.addr.1.ph219, i64 %conv269
+  %sub280 = sub nsw i32 %outl.addr.1.ph216, %outl.addr.1.
+  %add.ptr282 = getelementptr inbounds i8, ptr %out.addr.1.ph215, i64 %conv269
   %cmp40 = icmp sgt i32 %sub280, 0
   br i1 %cmp40, label %while.body.lr.ph, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %if.end279, %while.body.lr.ph, %if.then54, %if.then56, %while.cond.backedge, %if.end39, %if.then257
-  %ret.1.ph187 = phi i32 [ %ret.1.ph215, %if.then257 ], [ %ret.0, %if.end39 ], [ %ret.1.ph215, %while.cond.backedge ], [ %ret.1.ph215, %if.then56 ], [ %ret.1.ph215, %if.then54 ], [ %add270, %if.end279 ], [ %ret.1.ph215, %while.body.lr.ph ]
-  %ret_code.2 = phi i32 [ 0, %if.then257 ], [ 0, %if.end39 ], [ %call51, %if.then54 ], [ %call51, %if.then56 ], [ %ret_code.1, %while.cond.backedge ], [ %ret_code.1, %if.end279 ], [ %ret_code.0.ph217, %while.body.lr.ph ]
+  %ret.1.ph187 = phi i32 [ %ret.1.ph217, %if.then257 ], [ %ret.0, %if.end39 ], [ %ret.1.ph217, %while.cond.backedge ], [ %ret.1.ph217, %if.then56 ], [ %ret.1.ph217, %if.then54 ], [ %add270, %if.end279 ], [ %ret.1.ph217, %while.body.lr.ph ]
+  %ret_code.2 = phi i32 [ 0, %if.then257 ], [ 0, %if.end39 ], [ %call51, %if.then54 ], [ %call51, %if.then56 ], [ %ret_code.1, %while.cond.backedge ], [ %ret_code.1, %if.end279 ], [ %ret_code.0.ph219, %while.body.lr.ph ]
   call void @BIO_copy_next_retry(ptr noundef %b) #7
   %cmp283 = icmp eq i32 %ret.1.ph187, 0
   %cond288 = select i1 %cmp283, i32 %ret_code.2, i32 %ret.1.ph187

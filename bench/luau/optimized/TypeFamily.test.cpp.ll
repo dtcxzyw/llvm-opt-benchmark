@@ -33560,15 +33560,15 @@ _ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit:        ; preds = %133, %151, %164, %_
   br label %189
 
 189:                                              ; preds = %.body41, %183
-  %.sroa.9.0 = phi ptr [ null, %.body41 ], [ %68, %183 ]
   %.sroa.067.0 = phi ptr [ null, %.body41 ], [ %65, %183 ]
+  %.sroa.9.0 = phi ptr [ null, %.body41 ], [ %68, %183 ]
   %.pn17.pn = phi { ptr, i32 } [ %.pn17, %.body41 ], [ %184, %183 ]
   call void @_ZN4Luau22TypeFamilyInstanceTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #17
   br label %190
 
 190:                                              ; preds = %189, %181
-  %.sroa.9.1 = phi ptr [ %.sroa.9.0, %189 ], [ %68, %181 ]
   %.sroa.067.1 = phi ptr [ %.sroa.067.0, %189 ], [ %65, %181 ]
+  %.sroa.9.1 = phi ptr [ %.sroa.9.0, %189 ], [ %68, %181 ]
   %.pn17.pn.pn = phi { ptr, i32 } [ %.pn17.pn, %189 ], [ %182, %181 ]
   %191 = load ptr, ptr %12, align 8
   %.not.i.i.i56 = icmp eq ptr %191, null
@@ -33602,12 +33602,12 @@ _ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EED2Ev.exit57: ; preds = %190, %192
 
 .body37.thread:                                   ; preds = %70, %.body37
   %.pn17.pn.pn.pn85 = phi { ptr, i32 } [ %.pn17.pn.pn, %.body37 ], [ %71, %70 ]
-  %.sroa.067.284 = phi ptr [ %.sroa.067.1, %.body37 ], [ %65, %70 ]
-  %.sroa.9.283 = phi ptr [ %.sroa.9.1, %.body37 ], [ %68, %70 ]
-  %204 = ptrtoint ptr %.sroa.9.283 to i64
-  %205 = ptrtoint ptr %.sroa.067.284 to i64
+  %.sroa.9.284 = phi ptr [ %.sroa.9.1, %.body37 ], [ %68, %70 ]
+  %.sroa.067.283 = phi ptr [ %.sroa.067.1, %.body37 ], [ %65, %70 ]
+  %204 = ptrtoint ptr %.sroa.9.284 to i64
+  %205 = ptrtoint ptr %.sroa.067.283 to i64
   %206 = sub i64 %204, %205
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.067.284, i64 noundef %206) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.067.283, i64 noundef %206) #18
   br label %.body34
 
 207:                                              ; preds = %_ZNSt6vectorIN4Luau21GenericTypeDefinitionESaIS1_EED2Ev.exit

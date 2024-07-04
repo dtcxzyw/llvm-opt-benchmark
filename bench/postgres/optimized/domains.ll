@@ -33,7 +33,7 @@ define dso_local i64 @domain_in(ptr nocapture noundef %0) local_unnamed_addr #0 
   br label %12
 
 12:                                               ; preds = %1, %8
-  %.026 = phi ptr [ %11, %8 ], [ null, %1 ]
+  %.025 = phi ptr [ %11, %8 ], [ null, %1 ]
   %13 = getelementptr i8, ptr %0, i64 56
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
@@ -75,7 +75,7 @@ define dso_local i64 @domain_in(ptr nocapture noundef %0) local_unnamed_addr #0 
   %37 = load i32, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %.0, i64 12
   %39 = load i32, ptr %38, align 4
-  %40 = call zeroext i1 @InputFunctionCallSafe(ptr noundef nonnull %35, ptr noundef %.026, i32 noundef %37, i32 noundef %39, ptr noundef %4, ptr noundef nonnull %2) #4
+  %40 = call zeroext i1 @InputFunctionCallSafe(ptr noundef nonnull %35, ptr noundef %.025, i32 noundef %37, i32 noundef %39, ptr noundef %4, ptr noundef nonnull %2) #4
   br i1 %40, label %43, label %41
 
 41:                                               ; preds = %34
@@ -85,7 +85,7 @@ define dso_local i64 @domain_in(ptr nocapture noundef %0) local_unnamed_addr #0 
 
 43:                                               ; preds = %34
   %44 = load i64, ptr %2, align 8
-  %45 = icmp eq ptr %.026, null
+  %45 = icmp eq ptr %.025, null
   call fastcc void @domain_check_input(i64 noundef %44, i1 noundef zeroext %45, ptr noundef nonnull %.0, ptr noundef %4)
   br i1 %45, label %46, label %48
 
@@ -99,8 +99,8 @@ define dso_local i64 @domain_in(ptr nocapture noundef %0) local_unnamed_addr #0 
   br label %50
 
 50:                                               ; preds = %48, %46, %41, %16
-  %.025 = phi i64 [ 0, %16 ], [ 0, %46 ], [ %49, %48 ], [ 0, %41 ]
-  ret i64 %.025
+  %.026 = phi i64 [ 0, %16 ], [ 0, %46 ], [ %49, %48 ], [ 0, %41 ]
+  ret i64 %.026
 }
 
 ; Function Attrs: nounwind uwtable
@@ -361,7 +361,7 @@ define dso_local noundef i64 @domain_recv(ptr nocapture noundef %0) local_unname
   br label %9
 
 9:                                                ; preds = %1, %5
-  %.024 = phi ptr [ %8, %5 ], [ null, %1 ]
+  %.023 = phi ptr [ %8, %5 ], [ null, %1 ]
   %10 = getelementptr i8, ptr %0, i64 56
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
@@ -392,15 +392,15 @@ define dso_local noundef i64 @domain_recv(ptr nocapture noundef %0) local_unname
   br label %29
 
 29:                                               ; preds = %23, %21
-  %.023 = phi ptr [ %26, %23 ], [ %19, %21 ]
-  %30 = getelementptr inbounds i8, ptr %.023, i64 16
-  %31 = getelementptr inbounds i8, ptr %.023, i64 8
+  %.0 = phi ptr [ %26, %23 ], [ %19, %21 ]
+  %30 = getelementptr inbounds i8, ptr %.0, i64 16
+  %31 = getelementptr inbounds i8, ptr %.0, i64 8
   %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %.023, i64 12
+  %33 = getelementptr inbounds i8, ptr %.0, i64 12
   %34 = load i32, ptr %33, align 4
-  %35 = tail call i64 @ReceiveFunctionCall(ptr noundef nonnull %30, ptr noundef %.024, i32 noundef %32, i32 noundef %34) #4
-  %36 = icmp eq ptr %.024, null
-  tail call fastcc void @domain_check_input(i64 noundef %35, i1 noundef zeroext %36, ptr noundef %.023, ptr noundef null)
+  %35 = tail call i64 @ReceiveFunctionCall(ptr noundef nonnull %30, ptr noundef %.023, i32 noundef %32, i32 noundef %34) #4
+  %36 = icmp eq ptr %.023, null
+  tail call fastcc void @domain_check_input(i64 noundef %35, i1 noundef zeroext %36, ptr noundef %.0, ptr noundef null)
   br i1 %36, label %.sink.split, label %38
 
 .sink.split:                                      ; preds = %29, %9
@@ -409,8 +409,8 @@ define dso_local noundef i64 @domain_recv(ptr nocapture noundef %0) local_unname
   br label %38
 
 38:                                               ; preds = %.sink.split, %29
-  %.0 = phi i64 [ %35, %29 ], [ 0, %.sink.split ]
-  ret i64 %.0
+  %.024 = phi i64 [ %35, %29 ], [ 0, %.sink.split ]
+  ret i64 %.024
 }
 
 declare i64 @ReceiveFunctionCall(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

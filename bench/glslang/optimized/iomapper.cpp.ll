@@ -10796,7 +10796,7 @@ define linkonce_odr void @_ZN7glslang16TSymbolValidaterclERSt4pairIKNSt7__cxx111
   br label %.split.loop.exit407
 
 .split.loop.exit407:                              ; preds = %41, %.split.loop.exit
-  %.0112 = phi i32 [ %indvars.le, %.split.loop.exit ], [ 14, %41 ]
+  %.0119 = phi i32 [ %indvars.le, %.split.loop.exit ], [ 14, %41 ]
   %48 = sext i32 %39 to i64
   %smax = call i32 @llvm.smax.i32(i32 %39, i32 13)
   %wide.trip.count = zext nneg i32 %smax to i64
@@ -10819,7 +10819,7 @@ define linkonce_odr void @_ZN7glslang16TSymbolValidaterclERSt4pairIKNSt7__cxx111
   br label %.split.loop.exit410
 
 .split.loop.exit410:                              ; preds = %49, %.split.loop.exit409
-  %.0117 = phi i32 [ %53, %.split.loop.exit409 ], [ 14, %49 ]
+  %.0123 = phi i32 [ %53, %.split.loop.exit409 ], [ 14, %49 ]
   %54 = load ptr, ptr %29, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 88
   %56 = load ptr, ptr %55, align 8
@@ -10948,7 +10948,7 @@ _ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit: ; preds = %88, %88, %8
   br i1 %99, label %100, label %454
 
 100:                                              ; preds = %91
-  %101 = icmp eq i32 %.0112, 14
+  %101 = icmp eq i32 %.0119, 14
   br i1 %101, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit, label %102
 
 102:                                              ; preds = %100
@@ -10961,7 +10961,7 @@ _ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage.exit: ; preds = %88, %88, %8
 
 108:                                              ; preds = %102
   %109 = getelementptr inbounds i8, ptr %0, i64 112
-  %110 = zext nneg i32 %.0112 to i64
+  %110 = zext nneg i32 %.0119 to i64
   %111 = getelementptr inbounds [14 x ptr], ptr %109, i64 0, i64 %110
   %112 = load ptr, ptr %111, align 8
   %.not132 = icmp eq ptr %112, null
@@ -11152,7 +11152,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocator
   %206 = getelementptr inbounds i8, ptr %205, i64 88
   %207 = load ptr, ptr %206, align 8
   %208 = call noundef nonnull align 8 dereferenceable(80) ptr %207(ptr noundef nonnull align 8 dereferenceable(152) %204) #22
-  switch i32 %.0112, label %247 [
+  switch i32 %.0119, label %247 [
     i32 3, label %209
     i32 1, label %214
     i32 2, label %221
@@ -11627,7 +11627,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br i1 %462, label %463, label %537
 
 463:                                              ; preds = %454
-  %464 = icmp eq i32 %.0117, 14
+  %464 = icmp eq i32 %.0123, 14
   br i1 %464, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit, label %465
 
 465:                                              ; preds = %463
@@ -11639,7 +11639,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br i1 %470, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit, label %471
 
 471:                                              ; preds = %465
-  %472 = zext i32 %.0117 to i64
+  %472 = zext i32 %.0123 to i64
   %473 = getelementptr inbounds [14 x ptr], ptr %0, i64 0, i64 %472
   %474 = load ptr, ptr %473, align 8
   %.not131 = icmp eq ptr %474, null
@@ -11733,7 +11733,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocator
   %510 = getelementptr inbounds i8, ptr %509, i64 88
   %511 = load ptr, ptr %510, align 8
   %512 = call noundef nonnull align 8 dereferenceable(80) ptr %511(ptr noundef nonnull align 8 dereferenceable(152) %508) #22
-  %513 = call noundef zeroext i1 @_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage(ptr noundef nonnull align 8 dereferenceable(80) %512, i32 noundef %.0117)
+  %513 = call noundef zeroext i1 @_ZNK7glslang10TQualifier11isArrayedIoE11EShLanguage(ptr noundef nonnull align 8 dereferenceable(80) %512, i32 noundef %.0123)
   %514 = load ptr, ptr %503, align 8
   %515 = load ptr, ptr %514, align 8
   %516 = getelementptr inbounds i8, ptr %515, i64 240
@@ -20824,41 +20824,41 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   br i1 %5, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %17
-  %.02230.i = phi i32 [ %18, %17 ], [ %4, %2 ]
-  %.02329.i = phi i32 [ %19, %17 ], [ 1, %2 ]
-  %6 = icmp ult i32 %.02230.i, 100
+  %.030.i = phi i32 [ %19, %17 ], [ 1, %2 ]
+  %.02329.i = phi i32 [ %18, %17 ], [ %4, %2 ]
+  %6 = icmp ult i32 %.02329.i, 100
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = add i32 %.02329.i, 1
+  %8 = add i32 %.030.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = icmp ult i32 %.02230.i, 1000
+  %10 = icmp ult i32 %.02329.i, 1000
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = add i32 %.02329.i, 2
+  %12 = add i32 %.030.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 13:                                               ; preds = %9
-  %14 = icmp ult i32 %.02230.i, 10000
+  %14 = icmp ult i32 %.02329.i, 10000
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = add i32 %.02329.i, 3
+  %16 = add i32 %.030.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 17:                                               ; preds = %13
-  %18 = udiv i32 %.02230.i, 10000
-  %19 = add i32 %.02329.i, 4
-  %20 = icmp ult i32 %.02230.i, 100000
+  %18 = udiv i32 %.02329.i, 10000
+  %19 = add i32 %.030.i, 4
+  %20 = icmp ult i32 %.02329.i, 100000
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !354
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.022.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
-  %21 = add i32 %.0.i, %.lobit
+  %21 = add i32 %.022.i, %.lobit
   %22 = zext i32 %21 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #22
   %23 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #22
@@ -20871,7 +20871,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   br i1 %26, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
-  %27 = add i32 %.0.i, -1
+  %27 = add i32 %.022.i, -1
   br label %.lr.ph.i11
 
 .lr.ph.i11:                                       ; preds = %.lr.ph.i11, %.lr.ph.preheader.i

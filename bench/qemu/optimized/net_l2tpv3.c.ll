@@ -161,8 +161,8 @@ if.else51:                                        ; preds = %land.lhs.true37, %i
 
 if.end53:                                         ; preds = %land.lhs.true43, %if.else51
   %tobool86 = phi i1 [ false, %if.else51 ], [ true, %land.lhs.true43 ]
-  %dstport.0 = phi ptr [ null, %if.else51 ], [ %12, %land.lhs.true43 ]
   %srcport.0 = phi ptr [ null, %if.else51 ], [ %11, %land.lhs.true43 ]
+  %dstport.0 = phi ptr [ null, %if.else51 ], [ %12, %land.lhs.true43 ]
   %offset54 = getelementptr inbounds i8, ptr %call, i64 472
   %session_offset = getelementptr inbounds i8, ptr %call, i64 484
   %cookie_offset = getelementptr inbounds i8, ptr %call, i64 476
@@ -483,13 +483,13 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
-  %i.018 = phi i32 [ 0, %entry ], [ %inc, %for.body ]
-  %msgvec.017 = phi ptr [ %call, %entry ], [ %incdec.ptr17, %for.body ]
-  store ptr null, ptr %msgvec.017, align 8
-  %msg_namelen = getelementptr inbounds i8, ptr %msgvec.017, i64 8
+  %msgvec.018 = phi ptr [ %call, %entry ], [ %incdec.ptr17, %for.body ]
+  %i.017 = phi i32 [ 0, %entry ], [ %inc, %for.body ]
+  store ptr null, ptr %msgvec.018, align 8
+  %msg_namelen = getelementptr inbounds i8, ptr %msgvec.018, i64 8
   store i32 0, ptr %msg_namelen, align 8
   %call3 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 2, i64 noundef 16) #14
-  %msg_iov = getelementptr inbounds i8, ptr %msgvec.017, i64 16
+  %msg_iov = getelementptr inbounds i8, ptr %msgvec.018, i64 16
   store ptr %call3, ptr %msg_iov, align 8
   %0 = load i32, ptr %header_size, align 8
   %conv5 = zext i32 %0 to i64
@@ -505,11 +505,11 @@ for.body:                                         ; preds = %entry, %for.body
   store ptr %call10, ptr %incdec.ptr, align 8
   %iov_len12 = getelementptr i8, ptr %call3, i64 24
   store i64 16384, ptr %iov_len12, align 8
-  %msg_iovlen = getelementptr inbounds i8, ptr %msgvec.017, i64 24
+  %msg_iovlen = getelementptr inbounds i8, ptr %msgvec.018, i64 24
   store i64 2, ptr %msg_iovlen, align 8
-  %msg_control = getelementptr inbounds i8, ptr %msgvec.017, i64 32
-  %incdec.ptr17 = getelementptr i8, ptr %msgvec.017, i64 64
-  %inc = add nuw nsw i32 %i.018, 1
+  %msg_control = getelementptr inbounds i8, ptr %msgvec.018, i64 32
+  %incdec.ptr17 = getelementptr i8, ptr %msgvec.018, i64 64
+  %inc = add nuw nsw i32 %i.017, 1
   %exitcond.not = icmp eq i32 %inc, 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %msg_control, i8 0, i64 20, i1 false)
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
@@ -1291,8 +1291,8 @@ if.then13.i:                                      ; preds = %if.else.i
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then13.i, %if.else.i, %if.then.i.i, %if.then12.i, %if.then7.i, %do.body.i
-  %bad_read.0.i = phi i1 [ true, %if.else.i ], [ true, %if.then13.i ], [ false, %if.then7.i ], [ true, %do.body.i ], [ false, %if.then12.i ], [ false, %if.then.i.i ]
   %size.1.i = phi i32 [ %size.0.i, %if.else.i ], [ %size.0.i, %if.then13.i ], [ %conv.i, %if.then7.i ], [ %size.0.i, %do.body.i ], [ 0, %if.then12.i ], [ 0, %if.then.i.i ]
+  %bad_read.0.i = phi i1 [ true, %if.else.i ], [ true, %if.then13.i ], [ false, %if.then7.i ], [ true, %do.body.i ], [ false, %if.then12.i ], [ false, %if.then.i.i ]
   %35 = load i32, ptr %queue_tail.i, align 8
   %add.i = add i32 %35, 1
   %rem.i = srem i32 %add.i, 64
@@ -1307,7 +1307,7 @@ land.lhs.true25.i:                                ; preds = %if.end18.i
   %call27.i = tail call i32 @qemu_can_send_packet(ptr noundef nonnull %opaque) #11
   %tobool28.not.i = icmp ne i32 %call27.i, 0
   %cmp29.i = icmp sgt i32 %size.1.i, 0
-  %37 = or i1 %bad_read.0.i, %cmp29.i
+  %37 = or i1 %cmp29.i, %bad_read.0.i
   %or.cond.i = select i1 %tobool28.not.i, i1 %37, i1 false
   br i1 %or.cond.i, label %do.body.i, label %net_l2tpv3_process_queue.exit, !llvm.loop !12
 

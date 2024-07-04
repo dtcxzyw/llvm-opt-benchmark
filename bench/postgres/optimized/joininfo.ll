@@ -32,17 +32,17 @@ list_length.exit:                                 ; preds = %3, %6
 list_length.exit27:                               ; preds = %list_length.exit, %12
   %15 = phi i32 [ %14, %12 ], [ 0, %list_length.exit ]
   %.not = icmp sgt i32 %9, %15
-  %. = select i1 %.not, ptr %1, ptr %2
-  %.25 = select i1 %.not, ptr %10, ptr %4
-  %.020 = load ptr, ptr %.25, align 8
-  %.022.in = getelementptr inbounds i8, ptr %., i64 8
-  %.022 = load ptr, ptr %.022.in, align 8
-  %.not23 = icmp eq ptr %.020, null
+  %. = select i1 %.not, ptr %10, ptr %4
+  %.25 = select i1 %.not, ptr %1, ptr %2
+  %.021.in = getelementptr inbounds i8, ptr %.25, i64 8
+  %.021 = load ptr, ptr %.021.in, align 8
+  %.022 = load ptr, ptr %., align 8
+  %.not23 = icmp eq ptr %.022, null
   br i1 %.not23, label %._crit_edge33, label %.lr.ph
 
 .lr.ph:                                           ; preds = %list_length.exit27
-  %16 = getelementptr inbounds i8, ptr %.020, i64 4
-  %17 = getelementptr inbounds i8, ptr %.020, i64 16
+  %16 = getelementptr inbounds i8, ptr %.022, i64 4
+  %17 = getelementptr inbounds i8, ptr %.022, i64 16
   %18 = load i32, ptr %16, align 4
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph35, label %._crit_edge33
@@ -61,7 +61,7 @@ list_length.exit27:                               ; preds = %list_length.exit, %
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 48
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call zeroext i1 @bms_overlap(ptr noundef %.022, ptr noundef %28) #2
+  %29 = tail call zeroext i1 @bms_overlap(ptr noundef %.021, ptr noundef %28) #2
   br i1 %29, label %.thread30, label %20
 
 ._crit_edge33:                                    ; preds = %20, %.lr.ph, %list_length.exit27

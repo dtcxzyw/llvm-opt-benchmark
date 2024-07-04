@@ -1133,12 +1133,12 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
 
 .thread559.i:                                     ; preds = %397, %388
   %.9538565.i = phi i32 [ %399, %397 ], [ %394, %388 ]
-  %.0542564.i = phi i16 [ %400, %397 ], [ %395, %388 ]
-  %.0544563.i = phi i16 [ %398, %397 ], [ %391, %388 ]
-  %404 = zext nneg i16 %.0544563.i to i32
+  %.0542564.i = phi i16 [ %398, %397 ], [ %391, %388 ]
+  %.0543563.i = phi i16 [ %400, %397 ], [ %395, %388 ]
+  %404 = zext nneg i16 %.0542564.i to i32
   %405 = load i32, ptr @hf_hip_tlv_host_id_e, align 4
   %406 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %405, ptr noundef %0, i32 noundef %.9538565.i, i32 noundef %404, i32 noundef 0) #3
-  %407 = sub i16 %.0542564.i, %.0544563.i
+  %407 = sub i16 %.0543563.i, %.0542564.i
   %408 = icmp ugt i16 %407, 512
   br i1 %408, label %409, label %411
 
@@ -1158,7 +1158,7 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
   br label %418
 
 418:                                              ; preds = %416, %411, %409, %402, %375, %366
-  %.1543.i = phi i16 [ %340, %416 ], [ %400, %402 ], [ %407, %409 ], [ %407, %411 ], [ %340, %366 ], [ %340, %375 ]
+  %.1544.i = phi i16 [ %340, %416 ], [ %400, %402 ], [ %407, %409 ], [ %407, %411 ], [ %340, %366 ], [ %340, %375 ]
   %419 = icmp ult i16 %344, 4096
   br i1 %419, label %dissect_hip_tlv.exit, label %420
 
@@ -1171,7 +1171,7 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
 421:                                              ; preds = %420
   %422 = load i32, ptr @hf_hip_fqdn, align 4
   %423 = add nuw nsw i32 %.0130150, 16
-  %424 = zext i16 %.1543.i to i32
+  %424 = zext i16 %.1544.i to i32
   %425 = add nuw nsw i32 %423, %424
   %426 = zext nneg i16 %346 to i32
   %427 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %422, ptr noundef %0, i32 noundef %425, i32 noundef %426, i32 noundef 0) #3
@@ -1180,7 +1180,7 @@ define internal fastcc void @dissect_hip_common(ptr noundef %0, ptr noundef %1, 
 428:                                              ; preds = %420
   %429 = load i32, ptr @hf_hip_nai, align 4
   %430 = add nuw nsw i32 %.0130150, 16
-  %431 = zext i16 %.1543.i to i32
+  %431 = zext i16 %.1544.i to i32
   %432 = add nuw nsw i32 %430, %431
   %433 = zext nneg i16 %346 to i32
   %434 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %429, ptr noundef %0, i32 noundef %432, i32 noundef %433, i32 noundef 0) #3

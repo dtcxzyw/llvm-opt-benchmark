@@ -235,7 +235,7 @@ define void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 57:                                               ; preds = %.lr.ph144, %125
   %indvars.iv155 = phi i64 [ 1, %.lr.ph144 ], [ %indvars.iv.next156, %125 ]
   %indvars.iv153 = phi i64 [ 2, %.lr.ph144 ], [ %indvars.iv.next154, %125 ]
-  %.098142 = phi i32 [ 0, %.lr.ph144 ], [ %.199, %125 ]
+  %.0143 = phi i32 [ 0, %.lr.ph144 ], [ %.1, %125 ]
   %.val124 = load ptr, ptr %7, align 8
   %58 = getelementptr inbounds i32, ptr %.val124, i64 %indvars.iv155
   %59 = load i32, ptr %58, align 4
@@ -295,7 +295,7 @@ define void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br i1 %.not110, label %86, label %89
 
 86:                                               ; preds = %84
-  %.not111 = icmp eq i32 %.098142, 0
+  %.not111 = icmp eq i32 %.0143, 0
   br i1 %.not111, label %125, label %87
 
 87:                                               ; preds = %86
@@ -379,7 +379,7 @@ define void @Json_Extract_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %125
 
 125:                                              ; preds = %80, %79, %91, %105, %115, %121, %119, %109, %98, %86, %87, %.thread
-  %.199 = phi i32 [ %.098142, %.thread ], [ %.098142, %119 ], [ 1, %121 ], [ %.098142, %115 ], [ %.098142, %109 ], [ %.098142, %105 ], [ %.098142, %98 ], [ %.098142, %91 ], [ 1, %87 ], [ 0, %86 ], [ %.098142, %80 ], [ %.098142, %79 ]
+  %.1 = phi i32 [ %.0143, %.thread ], [ %.0143, %119 ], [ 1, %121 ], [ %.0143, %115 ], [ %.0143, %109 ], [ %.0143, %105 ], [ %.0143, %98 ], [ %.0143, %91 ], [ 1, %87 ], [ 0, %86 ], [ %.0143, %80 ], [ %.0143, %79 ]
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 2
   %.val129 = load i32, ptr %9, align 4
   %126 = trunc i64 %indvars.iv155 to i32

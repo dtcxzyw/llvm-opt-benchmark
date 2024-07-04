@@ -231,27 +231,27 @@ gml_create_buffer.exit:                           ; preds = %36
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %57
-  %.042 = phi ptr [ %58, %57 ], [ %.042.be, %.backedge.backedge ]
-  %.040 = phi ptr [ %58, %57 ], [ %.040.be, %.backedge.backedge ]
-  %.035 = phi i32 [ %67, %57 ], [ %.035.be, %.backedge.backedge ]
+  %.041 = phi i32 [ %67, %57 ], [ %.041.be, %.backedge.backedge ]
+  %.039 = phi ptr [ %58, %57 ], [ %.039.be, %.backedge.backedge ]
+  %.037 = phi ptr [ %58, %57 ], [ %.037.be, %.backedge.backedge ]
   br label %68
 
 68:                                               ; preds = %._crit_edge, %.backedge
-  %.143 = phi ptr [ %.042, %.backedge ], [ %106, %._crit_edge ]
-  %.1 = phi i32 [ %.035, %.backedge ], [ %105, %._crit_edge ]
-  %69 = load i8, ptr %.143, align 1
+  %.142 = phi i32 [ %.041, %.backedge ], [ %105, %._crit_edge ]
+  %.140 = phi ptr [ %.039, %.backedge ], [ %106, %._crit_edge ]
+  %69 = load i8, ptr %.140, align 1
   %70 = zext i8 %69 to i64
   %71 = getelementptr inbounds [256 x i8], ptr @yy_ec, i64 0, i64 %70
   %72 = load i8, ptr %71, align 1
-  %73 = sext i32 %.1 to i64
+  %73 = sext i32 %.142 to i64
   %74 = getelementptr inbounds [143 x i16], ptr @yy_accept, i64 0, i64 %73
   %75 = load i16, ptr %74, align 2
   %.not92 = icmp eq i16 %75, 0
   br i1 %.not92, label %77, label %76
 
 76:                                               ; preds = %68
-  store i32 %.1, ptr @yy_last_accepting_state, align 4
-  store ptr %.143, ptr @yy_last_accepting_cpos, align 8
+  store i32 %.142, ptr @yy_last_accepting_state, align 4
+  store ptr %.140, ptr @yy_last_accepting_cpos, align 8
   br label %77
 
 77:                                               ; preds = %76, %68
@@ -263,13 +263,13 @@ gml_create_buffer.exit:                           ; preds = %36
   %83 = getelementptr inbounds [356 x i16], ptr @yy_chk, i64 0, i64 %82
   %84 = load i16, ptr %83, align 2
   %85 = sext i16 %84 to i32
-  %.not93188 = icmp eq i32 %.1, %85
+  %.not93188 = icmp eq i32 %.142, %85
   br i1 %.not93188, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %77, %94
   %86 = phi i64 [ %99, %94 ], [ %81, %77 ]
   %87 = phi i64 [ %95, %94 ], [ %73, %77 ]
-  %.036189 = phi i8 [ %.137, %94 ], [ %72, %77 ]
+  %.0189 = phi i8 [ %.1, %94 ], [ %72, %77 ]
   %88 = getelementptr inbounds [147 x i16], ptr @yy_def, i64 0, i64 %87
   %89 = load i16, ptr %88, align 2
   %90 = icmp sgt i16 %89, 142
@@ -281,12 +281,12 @@ gml_create_buffer.exit:                           ; preds = %36
   br label %94
 
 94:                                               ; preds = %91, %.lr.ph
-  %.137 = phi i8 [ %93, %91 ], [ %.036189, %.lr.ph ]
+  %.1 = phi i8 [ %93, %91 ], [ %.0189, %.lr.ph ]
   %95 = sext i16 %89 to i64
   %96 = getelementptr inbounds [147 x i16], ptr @yy_base, i64 0, i64 %95
   %97 = load i16, ptr %96, align 2
   %98 = sext i16 %97 to i64
-  %99 = zext i8 %.137 to i64
+  %99 = zext i8 %.1 to i64
   %100 = add nsw i64 %98, %99
   %101 = getelementptr inbounds [356 x i16], ptr @yy_chk, i64 0, i64 %100
   %102 = load i16, ptr %101, align 2
@@ -298,7 +298,7 @@ gml_create_buffer.exit:                           ; preds = %36
   %103 = getelementptr inbounds [356 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa
   %104 = load i16, ptr %103, align 2
   %105 = sext i16 %104 to i32
-  %106 = getelementptr inbounds i8, ptr %.143, i64 1
+  %106 = getelementptr inbounds i8, ptr %.140, i64 1
   %107 = sext i16 %104 to i64
   %108 = getelementptr inbounds [147 x i16], ptr @yy_base, i64 0, i64 %107
   %109 = load i16, ptr %108, align 2
@@ -306,16 +306,16 @@ gml_create_buffer.exit:                           ; preds = %36
   br i1 %.not94, label %.outer, label %68
 
 .outer:                                           ; preds = %._crit_edge, %.outer.backedge
-  %.244.ph = phi ptr [ %.244.ph.be, %.outer.backedge ], [ %106, %._crit_edge ]
-  %.141.ph = phi ptr [ %.141.ph.be, %.outer.backedge ], [ %.040, %._crit_edge ]
-  %.3.ph = phi i32 [ %.3.ph.be, %.outer.backedge ], [ %105, %._crit_edge ]
-  %110 = ptrtoint ptr %.141.ph to i64
+  %.344.ph = phi i32 [ %.344.ph.be, %.outer.backedge ], [ %105, %._crit_edge ]
+  %.2.ph = phi ptr [ %.2.ph.be, %.outer.backedge ], [ %106, %._crit_edge ]
+  %.138.ph = phi ptr [ %.138.ph.be, %.outer.backedge ], [ %.037, %._crit_edge ]
+  %110 = ptrtoint ptr %.138.ph to i64
   br label %111
 
 111:                                              ; preds = %.outer, %129
-  %.244 = phi ptr [ %131, %129 ], [ %.244.ph, %.outer ]
-  %.3 = phi i32 [ %132, %129 ], [ %.3.ph, %.outer ]
-  %112 = sext i32 %.3 to i64
+  %.344 = phi i32 [ %132, %129 ], [ %.344.ph, %.outer ]
+  %.2 = phi ptr [ %131, %129 ], [ %.2.ph, %.outer ]
+  %112 = sext i32 %.344 to i64
   %113 = getelementptr inbounds [143 x i16], ptr @yy_accept, i64 0, i64 %112
   %114 = load i16, ptr %113, align 2
   %115 = icmp eq i16 %114, 0
@@ -330,24 +330,24 @@ gml_create_buffer.exit:                           ; preds = %36
   br label %122
 
 122:                                              ; preds = %116, %111
-  %.345 = phi ptr [ %117, %116 ], [ %.244, %111 ]
-  %.038.in = phi i16 [ %121, %116 ], [ %114, %111 ]
-  %.038 = sext i16 %.038.in to i32
-  store ptr %.141.ph, ptr @gmltext, align 8
-  %123 = ptrtoint ptr %.345 to i64
+  %.3 = phi ptr [ %117, %116 ], [ %.2, %111 ]
+  %.035.in = phi i16 [ %121, %116 ], [ %114, %111 ]
+  %.035 = sext i16 %.035.in to i32
+  store ptr %.138.ph, ptr @gmltext, align 8
+  %123 = ptrtoint ptr %.3 to i64
   %124 = sub i64 %123, %110
   %125 = trunc i64 %124 to i32
   store i32 %125, ptr @gmlleng, align 4
-  %126 = load i8, ptr %.345, align 1
+  %126 = load i8, ptr %.3, align 1
   store i8 %126, ptr @yy_hold_char, align 1
-  store i8 0, ptr %.345, align 1
-  store ptr %.345, ptr @yy_c_buf_p, align 8
+  store i8 0, ptr %.3, align 1
+  store ptr %.3, ptr @yy_c_buf_p, align 8
   br label %127
 
 127:                                              ; preds = %yy_get_next_buffer.exit.thread, %122
-  %128 = phi ptr [ %.345, %122 ], [ %1039, %yy_get_next_buffer.exit.thread ]
-  %.139 = phi i32 [ %.038, %122 ], [ %1043, %yy_get_next_buffer.exit.thread ]
-  switch i32 %.139, label %1151 [
+  %128 = phi ptr [ %.3, %122 ], [ %1039, %yy_get_next_buffer.exit.thread ]
+  %.136 = phi i32 [ %.035, %122 ], [ %1043, %yy_get_next_buffer.exit.thread ]
+  switch i32 %.136, label %1151 [
     i32 0, label %129
     i32 1, label %133
     i32 2, label %149
@@ -395,7 +395,7 @@ gml_create_buffer.exit:                           ; preds = %36
 
 129:                                              ; preds = %127
   %130 = load i8, ptr @yy_hold_char, align 1
-  store i8 %130, ptr %.345, align 1
+  store i8 %130, ptr %.3, align 1
   %131 = load ptr, ptr @yy_last_accepting_cpos, align 8
   %132 = load i32, ptr @yy_last_accepting_state, align 4
   br label %111
@@ -1350,7 +1350,7 @@ addstr.exit:                                      ; preds = %768, %770
 810:                                              ; preds = %127
   %811 = load ptr, ptr @gmltext, align 8
   %812 = load i8, ptr @yy_hold_char, align 1
-  store i8 %812, ptr %.345, align 1
+  store i8 %812, ptr %.3, align 1
   %813 = load ptr, ptr @yy_buffer_stack, align 8
   %814 = load i64, ptr @yy_buffer_stack_top, align 8
   %815 = getelementptr inbounds ptr, ptr %813, i64 %814
@@ -1562,14 +1562,14 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i103, %892
   br i1 %934, label %.lr.ph.i108, label %._crit_edge.i106
 
 .lr.ph.i108:                                      ; preds = %930, %.lr.ph.i108
-  %.03256.i = phi ptr [ %937, %.lr.ph.i108 ], [ %831, %930 ]
-  %.03355.i = phi ptr [ %935, %.lr.ph.i108 ], [ %917, %930 ]
-  %.03454.i = phi i32 [ %938, %.lr.ph.i108 ], [ 0, %930 ]
-  %935 = getelementptr inbounds i8, ptr %.03355.i, i64 1
-  %936 = load i8, ptr %.03355.i, align 1
-  %937 = getelementptr inbounds i8, ptr %.03256.i, i64 1
-  store i8 %936, ptr %.03256.i, align 1
-  %938 = add nuw nsw i32 %.03454.i, 1
+  %.03456.i = phi i32 [ %938, %.lr.ph.i108 ], [ 0, %930 ]
+  %.03555.i = phi ptr [ %935, %.lr.ph.i108 ], [ %917, %930 ]
+  %.03654.i = phi ptr [ %937, %.lr.ph.i108 ], [ %831, %930 ]
+  %935 = getelementptr inbounds i8, ptr %.03555.i, i64 1
+  %936 = load i8, ptr %.03555.i, align 1
+  %937 = getelementptr inbounds i8, ptr %.03654.i, i64 1
+  store i8 %936, ptr %.03654.i, align 1
+  %938 = add nuw nsw i32 %.03456.i, 1
   %exitcond.not.i109 = icmp eq i32 %938, %933
   br i1 %exitcond.not.i109, label %._crit_edge.loopexit.i, label %.lr.ph.i108
 
@@ -1594,8 +1594,8 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i103, %892
   %945 = xor i32 %933, -1
   %.pn.in57.i = getelementptr inbounds i8, ptr %939, i64 24
   %.pn58.i = load i32, ptr %.pn.in57.i, align 8
-  %.03559.i = add i32 %.pn58.i, %945
-  %946 = icmp slt i32 %.03559.i, 1
+  %.03259.i = add i32 %.pn58.i, %945
+  %946 = icmp slt i32 %.03259.i, 1
   br i1 %946, label %.lr.ph61.i, label %._crit_edge62.i
 
 .lr.ph61.i:                                       ; preds = %944, %966
@@ -1644,14 +1644,14 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i103, %892
   %969 = load ptr, ptr %815, align 8
   %.pn.in.i = getelementptr inbounds i8, ptr %969, i64 24
   %.pn.i = load i32, ptr %.pn.in.i, align 8
-  %.035.i = add i32 %.pn.i, %945
-  %970 = icmp slt i32 %.035.i, 1
+  %.032.i = add i32 %.pn.i, %945
+  %970 = icmp slt i32 %.032.i, 1
   br i1 %970, label %.lr.ph61.i, label %._crit_edge62.i
 
 ._crit_edge62.i:                                  ; preds = %966, %944
   %971 = phi ptr [ %939, %944 ], [ %969, %966 ]
-  %.035.lcssa.i = phi i32 [ %.03559.i, %944 ], [ %.035.i, %966 ]
-  %972 = tail call i32 @llvm.umin.i32(i32 %.035.lcssa.i, i32 8192)
+  %.032.lcssa.i = phi i32 [ %.03259.i, %944 ], [ %.032.i, %966 ]
+  %972 = tail call i32 @llvm.umin.i32(i32 %.032.lcssa.i, i32 8192)
   %973 = getelementptr inbounds i8, ptr %971, i64 8
   %974 = load ptr, ptr %973, align 8
   %sext.i = shl i64 %932, 32
@@ -1704,7 +1704,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i103, %892
   %1001 = phi i64 [ %.pre68.i, %994 ], [ %991, %996 ], [ %985, %983 ]
   %1002 = phi ptr [ %.pre67.i, %994 ], [ %992, %996 ], [ %984, %983 ]
   %1003 = phi i32 [ %.pre66.i, %994 ], [ 0, %996 ], [ %980, %983 ]
-  %.036.i = phi i32 [ 1, %994 ], [ 2, %996 ], [ 0, %983 ]
+  %.033.i = phi i32 [ 1, %994 ], [ 2, %996 ], [ 0, %983 ]
   %1004 = add nsw i32 %1003, %933
   %1005 = getelementptr inbounds ptr, ptr %1002, i64 %1001
   %1006 = load ptr, ptr %1005, align 8
@@ -1758,7 +1758,7 @@ yy_get_next_buffer.exit:                          ; preds = %1000, %1023
   %1037 = getelementptr inbounds i8, ptr %1036, i64 8
   %1038 = load ptr, ptr %1037, align 8
   store ptr %1038, ptr @gmltext, align 8
-  switch i32 %.036.i, label %default.unreachable307 [
+  switch i32 %.033.i, label %default.unreachable307 [
     i32 1, label %yy_get_next_buffer.exit.thread
     i32 0, label %1044
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread141_crit_edge
@@ -1805,9 +1805,9 @@ yy_get_next_buffer.exit.thread:                   ; preds = %927, %yy_get_next_b
   br i1 %1059, label %.lr.ph26.i111, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %._crit_edge.i121, %1044, %913
-  %.042.be = phi ptr [ %915, %913 ], [ %1050, %1044 ], [ %1050, %._crit_edge.i121 ]
-  %.040.be = phi ptr [ %838, %913 ], [ %1038, %1044 ], [ %1038, %._crit_edge.i121 ]
-  %.035.be = phi i32 [ %914, %913 ], [ %1058, %1044 ], [ %1099, %._crit_edge.i121 ]
+  %.041.be = phi i32 [ %914, %913 ], [ %1058, %1044 ], [ %1099, %._crit_edge.i121 ]
+  %.039.be = phi ptr [ %915, %913 ], [ %1050, %1044 ], [ %1050, %._crit_edge.i121 ]
+  %.037.be = phi ptr [ %838, %913 ], [ %1038, %1044 ], [ %1038, %._crit_edge.i121 ]
   br label %.backedge
 
 .lr.ph26.i111:                                    ; preds = %1044, %._crit_edge.i121
@@ -1899,9 +1899,9 @@ yy_get_next_buffer.exit.thread141:                ; preds = %927, %yy_get_next_b
   br i1 %1109, label %.lr.ph26.i126, label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %._crit_edge.i136, %yy_get_next_buffer.exit.thread141, %yy_try_NUL_trans.exit
-  %.244.ph.be = phi ptr [ %841, %yy_try_NUL_trans.exit ], [ %1104, %yy_get_next_buffer.exit.thread141 ], [ %1104, %._crit_edge.i136 ]
-  %.141.ph.be = phi ptr [ %838, %yy_try_NUL_trans.exit ], [ %1101, %yy_get_next_buffer.exit.thread141 ], [ %1101, %._crit_edge.i136 ]
-  %.3.ph.be = phi i32 [ %.017.lcssa.i, %yy_try_NUL_trans.exit ], [ %1108, %yy_get_next_buffer.exit.thread141 ], [ %1149, %._crit_edge.i136 ]
+  %.344.ph.be = phi i32 [ %.017.lcssa.i, %yy_try_NUL_trans.exit ], [ %1108, %yy_get_next_buffer.exit.thread141 ], [ %1149, %._crit_edge.i136 ]
+  %.2.ph.be = phi ptr [ %841, %yy_try_NUL_trans.exit ], [ %1104, %yy_get_next_buffer.exit.thread141 ], [ %1104, %._crit_edge.i136 ]
+  %.138.ph.be = phi ptr [ %838, %yy_try_NUL_trans.exit ], [ %1101, %yy_get_next_buffer.exit.thread141 ], [ %1101, %._crit_edge.i136 ]
   br label %.outer
 
 .lr.ph26.i126:                                    ; preds = %yy_get_next_buffer.exit.thread141, %._crit_edge.i136
@@ -1986,8 +1986,8 @@ default.unreachable307:                           ; preds = %yy_get_next_buffer.
   unreachable
 
 .loopexit:                                        ; preds = %127, %127, %616, %619, %600, %603, %584, %587, %568, %571, %552, %555, %536, %539, %520, %523, %504, %507, %488, %491, %472, %475, %456, %459, %440, %443, %424, %427, %408, %411, %392, %395, %376, %379, %360, %363, %344, %347, %328, %331, %312, %315, %296, %299, %280, %283, %264, %267, %248, %251, %232, %235, %216, %219, %200, %203, %133, %136, %788, %739, %gv_strdup.exit100, %gv_strdup.exit99, %gv_strdup.exit
-  %.0 = phi i32 [ %790, %788 ], [ 286, %739 ], [ 288, %gv_strdup.exit100 ], [ 285, %gv_strdup.exit99 ], [ 284, %gv_strdup.exit ], [ -1, %136 ], [ -1, %133 ], [ 258, %203 ], [ 258, %200 ], [ 259, %219 ], [ 259, %216 ], [ 260, %235 ], [ 260, %232 ], [ 261, %251 ], [ 261, %248 ], [ 287, %267 ], [ 287, %264 ], [ 262, %283 ], [ 262, %280 ], [ 263, %299 ], [ 263, %296 ], [ 264, %315 ], [ 264, %312 ], [ 265, %331 ], [ 265, %328 ], [ 266, %347 ], [ 266, %344 ], [ 267, %363 ], [ 267, %360 ], [ 268, %379 ], [ 268, %376 ], [ 269, %395 ], [ 269, %392 ], [ 270, %411 ], [ 270, %408 ], [ 271, %427 ], [ 271, %424 ], [ 272, %443 ], [ 272, %440 ], [ 273, %459 ], [ 273, %456 ], [ 274, %475 ], [ 274, %472 ], [ 275, %491 ], [ 275, %488 ], [ 276, %507 ], [ 276, %504 ], [ 277, %523 ], [ 277, %520 ], [ 278, %539 ], [ 278, %536 ], [ 279, %555 ], [ 279, %552 ], [ 280, %571 ], [ 280, %568 ], [ 281, %587 ], [ 281, %584 ], [ 282, %603 ], [ 282, %600 ], [ 283, %619 ], [ 283, %616 ], [ 0, %127 ], [ 0, %127 ]
-  ret i32 %.0
+  %.045 = phi i32 [ %790, %788 ], [ 286, %739 ], [ 288, %gv_strdup.exit100 ], [ 285, %gv_strdup.exit99 ], [ 284, %gv_strdup.exit ], [ -1, %136 ], [ -1, %133 ], [ 258, %203 ], [ 258, %200 ], [ 259, %219 ], [ 259, %216 ], [ 260, %235 ], [ 260, %232 ], [ 261, %251 ], [ 261, %248 ], [ 287, %267 ], [ 287, %264 ], [ 262, %283 ], [ 262, %280 ], [ 263, %299 ], [ 263, %296 ], [ 264, %315 ], [ 264, %312 ], [ 265, %331 ], [ 265, %328 ], [ 266, %347 ], [ 266, %344 ], [ 267, %363 ], [ 267, %360 ], [ 268, %379 ], [ 268, %376 ], [ 269, %395 ], [ 269, %392 ], [ 270, %411 ], [ 270, %408 ], [ 271, %427 ], [ 271, %424 ], [ 272, %443 ], [ 272, %440 ], [ 273, %459 ], [ 273, %456 ], [ 274, %475 ], [ 274, %472 ], [ 275, %491 ], [ 275, %488 ], [ 276, %507 ], [ 276, %504 ], [ 277, %523 ], [ 277, %520 ], [ 278, %539 ], [ 278, %536 ], [ 279, %555 ], [ 279, %552 ], [ 280, %571 ], [ 280, %568 ], [ 281, %587 ], [ 281, %584 ], [ 282, %603 ], [ 282, %600 ], [ 283, %619 ], [ 283, %616 ], [ 0, %127 ], [ 0, %127 ]
+  ret i32 %.045
 }
 
 ; Function Attrs: nounwind uwtable

@@ -1108,12 +1108,12 @@ define void @"_ZN93_$LT$uu_fmt..parasplit..ParagraphStream$u20$as$u20$core..iter
 30:                                               ; preds = %308, %19
   %.088 = phi i64 [ 0, %19 ], [ %.290, %308 ]
   %.085 = phi i64 [ 0, %19 ], [ %.287, %308 ]
-  %.083 = phi i64 [ 0, %19 ], [ %.184, %308 ]
-  %.081 = phi i64 [ 0, %19 ], [ %.182, %308 ]
-  %.078 = phi i64 [ 0, %19 ], [ %.179, %308 ]
-  %.075 = phi i64 [ 0, %19 ], [ %.176, %308 ]
-  %.071 = phi i1 [ false, %19 ], [ %.273, %308 ]
-  %.070 = phi i8 [ 0, %19 ], [ %.1, %308 ]
+  %.082 = phi i64 [ 0, %19 ], [ %.183, %308 ]
+  %.079 = phi i64 [ 0, %19 ], [ %.180, %308 ]
+  %.076 = phi i8 [ 0, %19 ], [ %.177, %308 ]
+  %.074 = phi i64 [ 0, %19 ], [ %.175, %308 ]
+  %.072 = phi i64 [ 0, %19 ], [ %.173, %308 ]
+  %.070 = phi i1 [ false, %19 ], [ %.2, %308 ]
   %31 = load i64, ptr %1, align 8, !range !118, !noundef !5
   %32 = icmp eq i64 %31, -9223372036854775806
   br i1 %32, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$uu_fmt..parasplit..Line$GT$$GT$$GT$17h61a284ae39019f42E.exit.i106", label %34
@@ -1172,7 +1172,7 @@ define void @"_ZN93_$LT$uu_fmt..parasplit..ParagraphStream$u20$as$u20$core..iter
   br i1 %45, label %52, label %_ZN6uu_fmt9parasplit15ParagraphStream14is_mail_header17hbe252a009555e944E.exit.thread
 
 46:                                               ; preds = %38
-  %47 = trunc nuw i8 %.070 to i1
+  %47 = trunc nuw i8 %.076 to i1
   br i1 %47, label %229, label %227
 
 _ZN6uu_fmt9parasplit15ParagraphStream14is_mail_header17hbe252a009555e944E.exit.thread: ; preds = %79, %.noexc109, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h18a567dc8defd1edE.exit.i", %55, %52, %41
@@ -1401,7 +1401,7 @@ _ZN6uu_fmt9parasplit15ParagraphStream14is_mail_header17hbe252a009555e944E.exit: 
 156:                                              ; preds = %140, %177
   %.189 = phi i64 [ %184, %177 ], [ %.088, %140 ]
   %.186 = phi i64 [ %146, %177 ], [ %.085, %140 ]
-  %.172 = phi i1 [ %.071, %177 ], [ true, %140 ]
+  %.1 = phi i1 [ %.070, %177 ], [ true, %140 ]
   %157 = getelementptr inbounds i8, ptr %.100, i64 24
   %158 = load i64, ptr %157, align 8, !noundef !5
   %159 = getelementptr i8, ptr %.100, i64 8
@@ -1533,12 +1533,12 @@ _ZN6uu_fmt9parasplit15ParagraphStream14is_mail_header17hbe252a009555e944E.exit: 
 225:                                              ; preds = %234, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5502d53c2e921a3fE.exit", %274, %267, %218, %194
   %.290 = phi i64 [ %.189, %218 ], [ %.189, %194 ], [ %.088, %274 ], [ %.088, %267 ], [ %.088, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5502d53c2e921a3fE.exit" ], [ %.088, %234 ]
   %.287 = phi i64 [ %.186, %218 ], [ %.186, %194 ], [ %.085, %274 ], [ %.085, %267 ], [ %.085, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5502d53c2e921a3fE.exit" ], [ %.085, %234 ]
-  %.184 = phi i64 [ %205, %218 ], [ %205, %194 ], [ %.083, %274 ], [ %.083, %267 ], [ %.083, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5502d53c2e921a3fE.exit" ], [ %.083, %234 ]
-  %.182 = phi i64 [ %203, %218 ], [ %203, %194 ], [ %.081, %274 ], [ %.081, %267 ], [ %.081, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5502d53c2e921a3fE.exit" ], [ %.081, %234 ]
-  %.179 = phi i64 [ %224, %218 ], [ %201, %194 ], [ %.078, %274 ], [ %273, %267 ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5502d53c2e921a3fE.exit" ], [ %.078, %234 ]
-  %.176 = phi i64 [ %158, %218 ], [ %158, %194 ], [ %.075, %274 ], [ %.pre, %267 ], [ %.075, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5502d53c2e921a3fE.exit" ], [ %.075, %234 ]
-  %.273 = phi i1 [ %.172, %218 ], [ %.172, %194 ], [ %.071, %274 ], [ true, %267 ], [ %.071, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5502d53c2e921a3fE.exit" ], [ true, %234 ]
-  %.1 = phi i8 [ %.070, %218 ], [ %.070, %194 ], [ %.070, %274 ], [ %.070, %267 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5502d53c2e921a3fE.exit" ], [ %.070, %234 ]
+  %.183 = phi i64 [ %224, %218 ], [ %201, %194 ], [ %.082, %274 ], [ %273, %267 ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5502d53c2e921a3fE.exit" ], [ %.082, %234 ]
+  %.180 = phi i64 [ %158, %218 ], [ %158, %194 ], [ %.079, %274 ], [ %.pre, %267 ], [ %.079, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5502d53c2e921a3fE.exit" ], [ %.079, %234 ]
+  %.177 = phi i8 [ %.076, %218 ], [ %.076, %194 ], [ %.076, %274 ], [ %.076, %267 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5502d53c2e921a3fE.exit" ], [ %.076, %234 ]
+  %.175 = phi i64 [ %205, %218 ], [ %205, %194 ], [ %.074, %274 ], [ %.074, %267 ], [ %.074, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5502d53c2e921a3fE.exit" ], [ %.074, %234 ]
+  %.173 = phi i64 [ %203, %218 ], [ %203, %194 ], [ %.072, %274 ], [ %.072, %267 ], [ %.072, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5502d53c2e921a3fE.exit" ], [ %.072, %234 ]
+  %.2 = phi i1 [ %.1, %218 ], [ %.1, %194 ], [ %.070, %274 ], [ true, %267 ], [ %.070, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h5502d53c2e921a3fE.exit" ], [ true, %234 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %.sroa.059.0.copyload = load i64, ptr %1, align 8
@@ -1548,8 +1548,8 @@ _ZN6uu_fmt9parasplit15ParagraphStream14is_mail_header17hbe252a009555e944E.exit: 
 
 227:                                              ; preds = %46
   %228 = load i64, ptr %23, align 8
-  %.not96 = icmp eq i64 %.083, %228
-  br i1 %.071, label %234, label %232
+  %.not96 = icmp eq i64 %.074, %228
+  br i1 %.070, label %234, label %232
 
 229:                                              ; preds = %46
   %230 = load i64, ptr %26, align 8, !noundef !5
@@ -1558,19 +1558,19 @@ _ZN6uu_fmt9parasplit15ParagraphStream14is_mail_header17hbe252a009555e944E.exit: 
 
 232:                                              ; preds = %227
   %233 = load i64, ptr %22, align 8, !noundef !5
-  %.not93 = icmp eq i64 %.081, %233
+  %.not93 = icmp eq i64 %.072, %233
   %or.cond145 = select i1 %.not93, i1 %.not96, i1 false
   br i1 %or.cond145, label %238, label %318
 
 234:                                              ; preds = %227
   %235 = load i64, ptr %26, align 8, !noundef !5
-  %.not95 = icmp eq i64 %.075, %235
+  %.not95 = icmp eq i64 %.079, %235
   %or.cond150 = select i1 %.not95, i1 %.not96, i1 false
   %236 = load i64, ptr %25, align 8
-  %.not97 = icmp eq i64 %.078, %236
+  %.not97 = icmp eq i64 %.082, %236
   %or.cond152 = select i1 %or.cond150, i1 %.not97, i1 false
   %237 = load i64, ptr %22, align 8
-  %.not98 = icmp eq i64 %.081, %237
+  %.not98 = icmp eq i64 %.072, %237
   %or.cond154 = select i1 %or.cond152, i1 %.not98, i1 false
   br i1 %or.cond154, label %225, label %318
 
@@ -1615,10 +1615,10 @@ _ZN6uu_fmt9parasplit15ParagraphStream14is_mail_header17hbe252a009555e944E.exit: 
   unreachable
 
 255:                                              ; preds = %238
-  %256 = add i64 %.078, -4
+  %256 = add i64 %.082, -4
   %257 = load i64, ptr %25, align 8, !noundef !5
   %258 = icmp eq i64 %256, %257
-  %259 = icmp eq i64 %.075, %.pre
+  %259 = icmp eq i64 %.079, %.pre
   %or.cond148 = select i1 %258, i1 %259, i1 false
   br i1 %or.cond148, label %318, label %243
 
@@ -1768,10 +1768,10 @@ thread-pre-split:                                 ; preds = %279
 318:                                              ; preds = %274, %255, %34, %308, %234, %232, %229
   %.391 = phi i64 [ %.290, %308 ], [ %.088, %229 ], [ %.088, %234 ], [ %.088, %232 ], [ %.088, %34 ], [ %.088, %255 ], [ %.088, %274 ]
   %.3 = phi i64 [ %.287, %308 ], [ %.085, %229 ], [ %.085, %234 ], [ %.085, %232 ], [ %.085, %34 ], [ %.085, %255 ], [ %.085, %274 ]
-  %.280 = phi i64 [ %.179, %308 ], [ %.078, %229 ], [ %.078, %234 ], [ %.078, %232 ], [ %.078, %34 ], [ %.078, %255 ], [ %.078, %274 ]
-  %.277 = phi i64 [ %.176, %308 ], [ %.075, %229 ], [ %.075, %234 ], [ %.075, %232 ], [ %.075, %34 ], [ %.075, %255 ], [ %.075, %274 ]
-  %.2 = phi i8 [ %.1, %308 ], [ %.070, %229 ], [ %.070, %234 ], [ %.070, %232 ], [ %.070, %34 ], [ %.070, %255 ], [ %.070, %274 ]
-  %319 = and i8 %.2, 1
+  %.284 = phi i64 [ %.183, %308 ], [ %.082, %229 ], [ %.082, %234 ], [ %.082, %232 ], [ %.082, %34 ], [ %.082, %255 ], [ %.082, %274 ]
+  %.281 = phi i64 [ %.180, %308 ], [ %.079, %229 ], [ %.079, %234 ], [ %.079, %232 ], [ %.079, %34 ], [ %.079, %255 ], [ %.079, %274 ]
+  %.278 = phi i8 [ %.177, %308 ], [ %.076, %229 ], [ %.076, %234 ], [ %.076, %232 ], [ %.076, %34 ], [ %.076, %255 ], [ %.076, %274 ]
+  %319 = and i8 %.278, 1
   store i8 %319, ptr %29, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.016, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %.sroa.016.24..sroa_idx = getelementptr inbounds i8, ptr %.sroa.016, i64 24
@@ -1784,9 +1784,9 @@ thread-pre-split:                                 ; preds = %279
   %.sroa.519.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
   store i64 %.3, ptr %.sroa.519.0..sroa_idx, align 8
   %.sroa.620.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 88
-  store i64 %.280, ptr %.sroa.620.0..sroa_idx, align 8
+  store i64 %.284, ptr %.sroa.620.0..sroa_idx, align 8
   %.sroa.721.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 96
-  store i64 %.277, ptr %.sroa.721.0..sroa_idx, align 8
+  store i64 %.281, ptr %.sroa.721.0..sroa_idx, align 8
   %.sroa.822.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 104
   store i8 %319, ptr %.sroa.822.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
@@ -2675,7 +2675,7 @@ _ZN13unicode_width6tables9charwidth5width17h37b69907d36a901bE.exit.i.i.i.i.i.i: 
   br i1 %.not47, label %240, label %232
 
 232:                                              ; preds = %231, %.loopexit, %240
-  %.044 = phi i8 [ %242, %240 ], [ 0, %.loopexit ], [ 1, %231 ]
+  %.045 = phi i8 [ %242, %240 ], [ 0, %.loopexit ], [ 1, %231 ]
   %233 = icmp eq i64 %227, 0
   br i1 %233, label %.thread, label %234
 
@@ -2888,7 +2888,7 @@ _ZN6uu_fmt9parasplit9WordSplit14is_punctuation17h9f10b03d4fbc26dbE.exit: ; preds
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %.0, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
-  store i8 %.044, ptr %.sroa.10.0..sroa_idx, align 8
+  store i8 %.045, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 57
   store i8 %.0.i, ptr %.sroa.11.0..sroa_idx, align 1
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 58

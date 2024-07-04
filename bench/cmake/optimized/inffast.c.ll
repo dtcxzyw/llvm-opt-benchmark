@@ -63,42 +63,42 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
   br label %50
 
 50:                                               ; preds = %321, %2
-  %.0274 = phi i32 [ %33, %2 ], [ %.8282, %321 ]
-  %.0264 = phi i64 [ %31, %2 ], [ %.8272, %321 ]
-  %.0256 = phi ptr [ %12, %2 ], [ %.8, %321 ]
-  %.0249 = phi ptr [ %5, %2 ], [ %.6255, %321 ]
-  %51 = icmp ult i32 %.0274, 15
+  %.0276 = phi ptr [ %5, %2 ], [ %.6282, %321 ]
+  %.0266 = phi ptr [ %12, %2 ], [ %.8274, %321 ]
+  %.0256 = phi i64 [ %31, %2 ], [ %.8264, %321 ]
+  %.0249 = phi i32 [ %33, %2 ], [ %.8, %321 ]
+  %51 = icmp ult i32 %.0249, 15
   br i1 %51, label %52, label %67
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %.0249, i64 1
-  %54 = load i8, ptr %.0249, align 1
+  %53 = getelementptr inbounds i8, ptr %.0276, i64 1
+  %54 = load i8, ptr %.0276, align 1
   %55 = zext i8 %54 to i64
-  %56 = zext nneg i32 %.0274 to i64
+  %56 = zext nneg i32 %.0249 to i64
   %57 = shl nuw nsw i64 %55, %56
-  %58 = add i64 %57, %.0264
-  %59 = add nuw nsw i32 %.0274, 8
-  %60 = getelementptr inbounds i8, ptr %.0249, i64 2
+  %58 = add i64 %57, %.0256
+  %59 = add nuw nsw i32 %.0249, 8
+  %60 = getelementptr inbounds i8, ptr %.0276, i64 2
   %61 = load i8, ptr %53, align 1
   %62 = zext i8 %61 to i64
   %63 = zext nneg i32 %59 to i64
   %64 = shl nuw nsw i64 %62, %63
   %65 = add i64 %58, %64
-  %66 = or disjoint i32 %.0274, 16
+  %66 = or disjoint i32 %.0249, 16
   br label %67
 
 67:                                               ; preds = %52, %50
-  %.1275 = phi i32 [ %66, %52 ], [ %.0274, %50 ]
-  %.1265 = phi i64 [ %65, %52 ], [ %.0264, %50 ]
-  %.1250 = phi ptr [ %60, %52 ], [ %.0249, %50 ]
-  %68 = and i64 %.1265, %44
+  %.1277 = phi ptr [ %60, %52 ], [ %.0276, %50 ]
+  %.1257 = phi i64 [ %65, %52 ], [ %.0256, %50 ]
+  %.1250 = phi i32 [ %66, %52 ], [ %.0249, %50 ]
+  %68 = and i64 %.1257, %44
   %69 = getelementptr inbounds %struct.code, ptr %35, i64 %68
   %70 = getelementptr inbounds i8, ptr %69, i64 1
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i32
   %73 = zext nneg i8 %71 to i64
-  %74 = lshr i64 %.1265, %73
-  %75 = sub i32 %.1275, %72
+  %74 = lshr i64 %.1257, %73
+  %75 = sub i32 %.1250, %72
   %76 = load i8, ptr %69, align 2
   %77 = icmp eq i8 %76, 0
   br i1 %77, label %._crit_edge, label %.lr.ph
@@ -110,8 +110,8 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
   %78 = getelementptr inbounds i8, ptr %.0247.lcssa, i64 2
   %79 = load i16, ptr %78, align 2
   %80 = trunc i16 %79 to i8
-  %81 = getelementptr inbounds i8, ptr %.0256, i64 1
-  store i8 %80, ptr %.0256, align 1
+  %81 = getelementptr inbounds i8, ptr %.0266, i64 1
+  store i8 %80, ptr %.0266, align 1
   br label %321
 
 .lr.ph:                                           ; preds = %67, %302
@@ -137,8 +137,8 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
   br i1 %92, label %93, label %101
 
 93:                                               ; preds = %91
-  %94 = getelementptr inbounds i8, ptr %.1250, i64 1
-  %95 = load i8, ptr %.1250, align 1
+  %94 = getelementptr inbounds i8, ptr %.1277, i64 1
+  %95 = load i8, ptr %.1277, align 1
   %96 = zext i8 %95 to i64
   %97 = zext nneg i32 %82 to i64
   %98 = shl nuw nsw i64 %96, %97
@@ -147,56 +147,56 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
   br label %101
 
 101:                                              ; preds = %93, %91
-  %.3277 = phi i32 [ %100, %93 ], [ %82, %91 ]
-  %.3267 = phi i64 [ %99, %93 ], [ %83, %91 ]
-  %.2251 = phi ptr [ %94, %93 ], [ %.1250, %91 ]
-  %102 = trunc i64 %.3267 to i32
+  %.2278 = phi ptr [ %94, %93 ], [ %.1277, %91 ]
+  %.3259 = phi i64 [ %99, %93 ], [ %83, %91 ]
+  %.3252 = phi i32 [ %100, %93 ], [ %82, %91 ]
+  %102 = trunc i64 %.3259 to i32
   %notmask314 = shl nsw i32 -1, %90
   %103 = xor i32 %notmask314, -1
   %104 = and i32 %102, %103
   %105 = add nuw nsw i32 %104, %89
   %106 = zext nneg i32 %90 to i64
-  %107 = lshr i64 %.3267, %106
-  %108 = sub i32 %.3277, %90
+  %107 = lshr i64 %.3259, %106
+  %108 = sub i32 %.3252, %90
   br label %109
 
 109:                                              ; preds = %101, %86
-  %.4278 = phi i32 [ %108, %101 ], [ %82, %86 ]
-  %.4268 = phi i64 [ %107, %101 ], [ %83, %86 ]
-  %.3252 = phi ptr [ %.2251, %101 ], [ %.1250, %86 ]
+  %.3279 = phi ptr [ %.2278, %101 ], [ %.1277, %86 ]
+  %.4260 = phi i64 [ %107, %101 ], [ %83, %86 ]
+  %.4253 = phi i32 [ %108, %101 ], [ %82, %86 ]
   %.0239 = phi i32 [ %105, %101 ], [ %89, %86 ]
-  %110 = icmp ult i32 %.4278, 15
+  %110 = icmp ult i32 %.4253, 15
   br i1 %110, label %111, label %126
 
 111:                                              ; preds = %109
-  %112 = getelementptr inbounds i8, ptr %.3252, i64 1
-  %113 = load i8, ptr %.3252, align 1
+  %112 = getelementptr inbounds i8, ptr %.3279, i64 1
+  %113 = load i8, ptr %.3279, align 1
   %114 = zext i8 %113 to i64
-  %115 = zext nneg i32 %.4278 to i64
+  %115 = zext nneg i32 %.4253 to i64
   %116 = shl nuw nsw i64 %114, %115
-  %117 = add i64 %116, %.4268
-  %118 = add nuw nsw i32 %.4278, 8
-  %119 = getelementptr inbounds i8, ptr %.3252, i64 2
+  %117 = add i64 %116, %.4260
+  %118 = add nuw nsw i32 %.4253, 8
+  %119 = getelementptr inbounds i8, ptr %.3279, i64 2
   %120 = load i8, ptr %112, align 1
   %121 = zext i8 %120 to i64
   %122 = zext nneg i32 %118 to i64
   %123 = shl nuw nsw i64 %121, %122
   %124 = add i64 %117, %123
-  %125 = or disjoint i32 %.4278, 16
+  %125 = or disjoint i32 %.4253, 16
   br label %126
 
 126:                                              ; preds = %111, %109
-  %.5279 = phi i32 [ %125, %111 ], [ %.4278, %109 ]
-  %.5269 = phi i64 [ %124, %111 ], [ %.4268, %109 ]
-  %.4253 = phi ptr [ %119, %111 ], [ %.3252, %109 ]
-  %127 = and i64 %.5269, %45
+  %.4280 = phi ptr [ %119, %111 ], [ %.3279, %109 ]
+  %.5261 = phi i64 [ %124, %111 ], [ %.4260, %109 ]
+  %.5254 = phi i32 [ %125, %111 ], [ %.4253, %109 ]
+  %127 = and i64 %.5261, %45
   %128 = getelementptr inbounds %struct.code, ptr %37, i64 %127
   %129 = getelementptr inbounds i8, ptr %128, i64 1
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
   %132 = zext nneg i8 %130 to i64
-  %133 = lshr i64 %.5269, %132
-  %134 = sub i32 %.5279, %131
+  %133 = lshr i64 %.5261, %132
+  %134 = sub i32 %.5254, %131
   %135 = load i8, ptr %128, align 2
   %136 = zext i8 %135 to i32
   %137 = and i32 %136, 16
@@ -216,8 +216,8 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
   br i1 %142, label %143, label %160
 
 143:                                              ; preds = %._crit_edge367
-  %144 = getelementptr inbounds i8, ptr %.4253, i64 1
-  %145 = load i8, ptr %.4253, align 1
+  %144 = getelementptr inbounds i8, ptr %.4280, i64 1
+  %145 = load i8, ptr %.4280, align 1
   %146 = zext i8 %145 to i64
   %147 = zext nneg i32 %.lcssa339 to i64
   %148 = shl nuw nsw i64 %146, %147
@@ -227,7 +227,7 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
   br i1 %151, label %152, label %160
 
 152:                                              ; preds = %143
-  %153 = getelementptr inbounds i8, ptr %.4253, i64 2
+  %153 = getelementptr inbounds i8, ptr %.4280, i64 2
   %154 = load i8, ptr %144, align 1
   %155 = zext i8 %154 to i64
   %156 = zext nneg i32 %150 to i64
@@ -237,18 +237,18 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
   br label %160
 
 160:                                              ; preds = %143, %152, %._crit_edge367
-  %.7281 = phi i32 [ %159, %152 ], [ %150, %143 ], [ %.lcssa339, %._crit_edge367 ]
-  %.7271 = phi i64 [ %158, %152 ], [ %149, %143 ], [ %.lcssa341, %._crit_edge367 ]
-  %.5254 = phi ptr [ %153, %152 ], [ %144, %143 ], [ %.4253, %._crit_edge367 ]
-  %161 = trunc i64 %.7271 to i32
+  %.5281 = phi ptr [ %153, %152 ], [ %144, %143 ], [ %.4280, %._crit_edge367 ]
+  %.7263 = phi i64 [ %158, %152 ], [ %149, %143 ], [ %.lcssa341, %._crit_edge367 ]
+  %.7 = phi i32 [ %159, %152 ], [ %150, %143 ], [ %.lcssa339, %._crit_edge367 ]
+  %161 = trunc i64 %.7263 to i32
   %notmask317 = shl nsw i32 -1, %141
   %162 = xor i32 %notmask317, -1
   %163 = and i32 %161, %162
   %164 = add nuw nsw i32 %163, %140
   %165 = zext nneg i32 %141 to i64
-  %166 = lshr i64 %.7271, %165
-  %167 = sub i32 %.7281, %141
-  %168 = ptrtoint ptr %.0256 to i64
+  %166 = lshr i64 %.7263, %165
+  %167 = sub i32 %.7, %141
+  %168 = ptrtoint ptr %.0266 to i64
   %169 = sub i64 %168, %46
   %170 = trunc i64 %169 to i32
   %171 = icmp ugt i32 %164, %170
@@ -275,13 +275,13 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
   br i1 %182, label %.preheader, label %230
 
 .preheader:                                       ; preds = %178, %.preheader
-  %.1257 = phi ptr [ %185, %.preheader ], [ %.0256, %178 ]
+  %.1267 = phi ptr [ %185, %.preheader ], [ %.0266, %178 ]
   %.0243 = phi i32 [ %186, %.preheader ], [ %173, %178 ]
   %.0 = phi ptr [ %183, %.preheader ], [ %181, %178 ]
   %183 = getelementptr inbounds i8, ptr %.0, i64 1
   %184 = load i8, ptr %.0, align 1
-  %185 = getelementptr inbounds i8, ptr %.1257, i64 1
-  store i8 %184, ptr %.1257, align 1
+  %185 = getelementptr inbounds i8, ptr %.1267, i64 1
+  store i8 %184, ptr %.1267, align 1
   %186 = add i32 %.0243, -1
   %.not323 = icmp eq i32 %186, 0
   br i1 %.not323, label %187, label %.preheader, !llvm.loop !5
@@ -306,13 +306,13 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
   br i1 %199, label %.preheader466, label %230
 
 .preheader466:                                    ; preds = %194, %.preheader466
-  %.2258 = phi ptr [ %202, %.preheader466 ], [ %.0256, %194 ]
+  %.2268 = phi ptr [ %202, %.preheader466 ], [ %.0266, %194 ]
   %.1244 = phi i32 [ %203, %.preheader466 ], [ %198, %194 ]
   %.1 = phi ptr [ %200, %.preheader466 ], [ %197, %194 ]
   %200 = getelementptr inbounds i8, ptr %.1, i64 1
   %201 = load i8, ptr %.1, align 1
-  %202 = getelementptr i8, ptr %.2258, i64 1
-  store i8 %201, ptr %.2258, align 1
+  %202 = getelementptr i8, ptr %.2268, i64 1
+  store i8 %201, ptr %.2268, align 1
   %203 = add i32 %.1244, -1
   %.not321 = icmp eq i32 %203, 0
   br i1 %.not321, label %204, label %.preheader466, !llvm.loop !7
@@ -323,13 +323,13 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
   br i1 %206, label %.preheader465, label %230
 
 .preheader465:                                    ; preds = %204, %.preheader465
-  %.3259 = phi ptr [ %209, %.preheader465 ], [ %202, %204 ]
+  %.3269 = phi ptr [ %209, %.preheader465 ], [ %202, %204 ]
   %.2245 = phi i32 [ %210, %.preheader465 ], [ %27, %204 ]
   %.2 = phi ptr [ %207, %.preheader465 ], [ %29, %204 ]
   %207 = getelementptr inbounds i8, ptr %.2, i64 1
   %208 = load i8, ptr %.2, align 1
-  %209 = getelementptr inbounds i8, ptr %.3259, i64 1
-  store i8 %208, ptr %.3259, align 1
+  %209 = getelementptr inbounds i8, ptr %.3269, i64 1
+  store i8 %208, ptr %.3269, align 1
   %210 = add i32 %.2245, -1
   %.not322 = icmp eq i32 %210, 0
   br i1 %.not322, label %211, label %.preheader465, !llvm.loop !8
@@ -349,13 +349,13 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
   br i1 %220, label %.preheader467, label %230
 
 .preheader467:                                    ; preds = %216, %.preheader467
-  %.4260 = phi ptr [ %223, %.preheader467 ], [ %.0256, %216 ]
+  %.4270 = phi ptr [ %223, %.preheader467 ], [ %.0266, %216 ]
   %.3246 = phi i32 [ %224, %.preheader467 ], [ %173, %216 ]
   %.3 = phi ptr [ %221, %.preheader467 ], [ %219, %216 ]
   %221 = getelementptr inbounds i8, ptr %.3, i64 1
   %222 = load i8, ptr %.3, align 1
-  %223 = getelementptr inbounds i8, ptr %.4260, i64 1
-  store i8 %222, ptr %.4260, align 1
+  %223 = getelementptr inbounds i8, ptr %.4270, i64 1
+  store i8 %222, ptr %.4270, align 1
   %224 = add i32 %.3246, -1
   %.not320 = icmp eq i32 %224, 0
   br i1 %.not320, label %225, label %.preheader467, !llvm.loop !9
@@ -368,7 +368,7 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
   br label %230
 
 230:                                              ; preds = %204, %211, %194, %225, %216, %178, %187
-  %.5261 = phi ptr [ %185, %187 ], [ %.0256, %178 ], [ %209, %211 ], [ %202, %204 ], [ %.0256, %194 ], [ %223, %225 ], [ %.0256, %216 ]
+  %.5271 = phi ptr [ %185, %187 ], [ %.0266, %178 ], [ %209, %211 ], [ %202, %204 ], [ %.0266, %194 ], [ %223, %225 ], [ %.0266, %216 ]
   %.1240 = phi i32 [ %188, %187 ], [ %.0239, %178 ], [ %212, %211 ], [ %205, %204 ], [ %.0239, %194 ], [ %226, %225 ], [ %.0239, %216 ]
   %.4 = phi ptr [ %191, %187 ], [ %181, %178 ], [ %215, %211 ], [ %29, %204 ], [ %197, %194 ], [ %229, %225 ], [ %219, %216 ]
   %231 = icmp ugt i32 %.1240, 2
@@ -377,25 +377,25 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
 .lr.ph376:                                        ; preds = %230, %.lr.ph376
   %.5374 = phi ptr [ %238, %.lr.ph376 ], [ %.4, %230 ]
   %.2241373 = phi i32 [ %241, %.lr.ph376 ], [ %.1240, %230 ]
-  %.6262372 = phi ptr [ %240, %.lr.ph376 ], [ %.5261, %230 ]
+  %.6272372 = phi ptr [ %240, %.lr.ph376 ], [ %.5271, %230 ]
   %232 = getelementptr inbounds i8, ptr %.5374, i64 1
   %233 = load i8, ptr %.5374, align 1
-  %234 = getelementptr inbounds i8, ptr %.6262372, i64 1
-  store i8 %233, ptr %.6262372, align 1
+  %234 = getelementptr inbounds i8, ptr %.6272372, i64 1
+  store i8 %233, ptr %.6272372, align 1
   %235 = getelementptr inbounds i8, ptr %.5374, i64 2
   %236 = load i8, ptr %232, align 1
-  %237 = getelementptr inbounds i8, ptr %.6262372, i64 2
+  %237 = getelementptr inbounds i8, ptr %.6272372, i64 2
   store i8 %236, ptr %234, align 1
   %238 = getelementptr inbounds i8, ptr %.5374, i64 3
   %239 = load i8, ptr %235, align 1
-  %240 = getelementptr inbounds i8, ptr %.6262372, i64 3
+  %240 = getelementptr inbounds i8, ptr %.6272372, i64 3
   store i8 %239, ptr %237, align 1
   %241 = add i32 %.2241373, -3
   %242 = icmp ugt i32 %241, 2
   br i1 %242, label %.lr.ph376, label %._crit_edge377, !llvm.loop !10
 
 ._crit_edge377:                                   ; preds = %.lr.ph376, %230
-  %.6262.lcssa = phi ptr [ %.5261, %230 ], [ %240, %.lr.ph376 ]
+  %.6272.lcssa = phi ptr [ %.5271, %230 ], [ %240, %.lr.ph376 ]
   %.2241.lcssa = phi i32 [ %.1240, %230 ], [ %241, %.lr.ph376 ]
   %.5.lcssa = phi ptr [ %.4, %230 ], [ %238, %.lr.ph376 ]
   %.not324 = icmp eq i32 %.2241.lcssa, 0
@@ -403,39 +403,39 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
 
 243:                                              ; preds = %._crit_edge377
   %244 = load i8, ptr %.5.lcssa, align 1
-  %245 = getelementptr inbounds i8, ptr %.6262.lcssa, i64 1
-  store i8 %244, ptr %.6262.lcssa, align 1
+  %245 = getelementptr inbounds i8, ptr %.6272.lcssa, i64 1
+  store i8 %244, ptr %.6272.lcssa, align 1
   %246 = icmp eq i32 %.2241.lcssa, 2
   br i1 %246, label %247, label %321
 
 247:                                              ; preds = %243
   %248 = getelementptr inbounds i8, ptr %.5.lcssa, i64 1
   %249 = load i8, ptr %248, align 1
-  %250 = getelementptr inbounds i8, ptr %.6262.lcssa, i64 2
+  %250 = getelementptr inbounds i8, ptr %.6272.lcssa, i64 2
   store i8 %249, ptr %245, align 1
   br label %321
 
 251:                                              ; preds = %160
   %252 = zext nneg i32 %164 to i64
   %253 = sub nsw i64 0, %252
-  %254 = getelementptr inbounds i8, ptr %.0256, i64 %253
+  %254 = getelementptr inbounds i8, ptr %.0266, i64 %253
   br label %255
 
 255:                                              ; preds = %255, %251
-  %.7263 = phi ptr [ %.0256, %251 ], [ %264, %255 ]
+  %.7273 = phi ptr [ %.0266, %251 ], [ %264, %255 ]
   %.3242 = phi i32 [ %.0239, %251 ], [ %265, %255 ]
   %.6 = phi ptr [ %254, %251 ], [ %262, %255 ]
   %256 = getelementptr inbounds i8, ptr %.6, i64 1
   %257 = load i8, ptr %.6, align 1
-  %258 = getelementptr inbounds i8, ptr %.7263, i64 1
-  store i8 %257, ptr %.7263, align 1
+  %258 = getelementptr inbounds i8, ptr %.7273, i64 1
+  store i8 %257, ptr %.7273, align 1
   %259 = getelementptr inbounds i8, ptr %.6, i64 2
   %260 = load i8, ptr %256, align 1
-  %261 = getelementptr inbounds i8, ptr %.7263, i64 2
+  %261 = getelementptr inbounds i8, ptr %.7273, i64 2
   store i8 %260, ptr %258, align 1
   %262 = getelementptr inbounds i8, ptr %.6, i64 3
   %263 = load i8, ptr %259, align 1
-  %264 = getelementptr inbounds i8, ptr %.7263, i64 3
+  %264 = getelementptr inbounds i8, ptr %.7273, i64 3
   store i8 %263, ptr %261, align 1
   %265 = add i32 %.3242, -3
   %266 = icmp ugt i32 %265, 2
@@ -447,7 +447,7 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
 
 268:                                              ; preds = %267
   %269 = load i8, ptr %262, align 1
-  %270 = getelementptr inbounds i8, ptr %.7263, i64 4
+  %270 = getelementptr inbounds i8, ptr %.7273, i64 4
   store i8 %269, ptr %264, align 1
   %271 = icmp eq i32 %265, 2
   br i1 %271, label %272, label %321
@@ -455,7 +455,7 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
 272:                                              ; preds = %268
   %273 = getelementptr inbounds i8, ptr %.6, i64 4
   %274 = load i8, ptr %273, align 1
-  %275 = getelementptr inbounds i8, ptr %.7263, i64 5
+  %275 = getelementptr inbounds i8, ptr %.7273, i64 5
   store i8 %274, ptr %270, align 1
   br label %321
 
@@ -521,44 +521,44 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
   br i1 %.not311, label %.loopexit.sink.split.sink.split, label %.loopexit.sink.split
 
 321:                                              ; preds = %._crit_edge, %267, %272, %268, %._crit_edge377, %247, %243
-  %.8282 = phi i32 [ %.lcssa330, %._crit_edge ], [ %167, %247 ], [ %167, %243 ], [ %167, %._crit_edge377 ], [ %167, %272 ], [ %167, %268 ], [ %167, %267 ]
-  %.8272 = phi i64 [ %.lcssa333, %._crit_edge ], [ %166, %247 ], [ %166, %243 ], [ %166, %._crit_edge377 ], [ %166, %272 ], [ %166, %268 ], [ %166, %267 ]
-  %.8 = phi ptr [ %81, %._crit_edge ], [ %250, %247 ], [ %245, %243 ], [ %.6262.lcssa, %._crit_edge377 ], [ %275, %272 ], [ %270, %268 ], [ %264, %267 ]
-  %.6255 = phi ptr [ %.1250, %._crit_edge ], [ %.5254, %247 ], [ %.5254, %243 ], [ %.5254, %._crit_edge377 ], [ %.5254, %272 ], [ %.5254, %268 ], [ %.5254, %267 ]
-  %322 = icmp ult ptr %.6255, %10
-  %323 = icmp ult ptr %.8, %21
+  %.6282 = phi ptr [ %.1277, %._crit_edge ], [ %.5281, %247 ], [ %.5281, %243 ], [ %.5281, %._crit_edge377 ], [ %.5281, %272 ], [ %.5281, %268 ], [ %.5281, %267 ]
+  %.8274 = phi ptr [ %81, %._crit_edge ], [ %250, %247 ], [ %245, %243 ], [ %.6272.lcssa, %._crit_edge377 ], [ %275, %272 ], [ %270, %268 ], [ %264, %267 ]
+  %.8264 = phi i64 [ %.lcssa333, %._crit_edge ], [ %166, %247 ], [ %166, %243 ], [ %166, %._crit_edge377 ], [ %166, %272 ], [ %166, %268 ], [ %166, %267 ]
+  %.8 = phi i32 [ %.lcssa330, %._crit_edge ], [ %167, %247 ], [ %167, %243 ], [ %167, %._crit_edge377 ], [ %167, %272 ], [ %167, %268 ], [ %167, %267 ]
+  %322 = icmp ult ptr %.6282, %10
+  %323 = icmp ult ptr %.8274, %21
   %324 = select i1 %322, i1 %323, i1 false
   br i1 %324, label %50, label %.loopexit, !llvm.loop !12
 
 .loopexit.sink.split.sink.split:                  ; preds = %175, %.lr.ph366, %319
   %.str.sink = phi ptr [ @.str.2, %319 ], [ @.str.1, %.lr.ph366 ], [ @.str, %175 ]
-  %.9283.ph.ph = phi i32 [ %82, %319 ], [ %277, %.lr.ph366 ], [ %167, %175 ]
-  %.9273.ph.ph = phi i64 [ %83, %319 ], [ %278, %.lr.ph366 ], [ %166, %175 ]
-  %.7.ph.ph = phi ptr [ %.1250, %319 ], [ %.4253, %.lr.ph366 ], [ %.5254, %175 ]
+  %.7283.ph.ph = phi ptr [ %.1277, %319 ], [ %.4280, %.lr.ph366 ], [ %.5281, %175 ]
+  %.9265.ph.ph = phi i64 [ %83, %319 ], [ %278, %.lr.ph366 ], [ %166, %175 ]
+  %.9.ph.ph = phi i32 [ %82, %319 ], [ %277, %.lr.ph366 ], [ %167, %175 ]
   %325 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.str.sink, ptr %325, align 8
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %319
   %.sink = phi i32 [ 16191, %319 ], [ 16209, %.loopexit.sink.split.sink.split ]
-  %.9283.ph = phi i32 [ %82, %319 ], [ %.9283.ph.ph, %.loopexit.sink.split.sink.split ]
-  %.9273.ph = phi i64 [ %83, %319 ], [ %.9273.ph.ph, %.loopexit.sink.split.sink.split ]
-  %.7.ph = phi ptr [ %.1250, %319 ], [ %.7.ph.ph, %.loopexit.sink.split.sink.split ]
+  %.7283.ph = phi ptr [ %.1277, %319 ], [ %.7283.ph.ph, %.loopexit.sink.split.sink.split ]
+  %.9265.ph = phi i64 [ %83, %319 ], [ %.9265.ph.ph, %.loopexit.sink.split.sink.split ]
+  %.9.ph = phi i32 [ %82, %319 ], [ %.9.ph.ph, %.loopexit.sink.split.sink.split ]
   %326 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %.sink, ptr %326, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %321, %.loopexit.sink.split
-  %.9283 = phi i32 [ %.9283.ph, %.loopexit.sink.split ], [ %.8282, %321 ]
-  %.9273 = phi i64 [ %.9273.ph, %.loopexit.sink.split ], [ %.8272, %321 ]
-  %.9 = phi ptr [ %.0256, %.loopexit.sink.split ], [ %.8, %321 ]
-  %.7 = phi ptr [ %.7.ph, %.loopexit.sink.split ], [ %.6255, %321 ]
-  %327 = lshr i32 %.9283, 3
+  %.7283 = phi ptr [ %.7283.ph, %.loopexit.sink.split ], [ %.6282, %321 ]
+  %.9275 = phi ptr [ %.0266, %.loopexit.sink.split ], [ %.8274, %321 ]
+  %.9265 = phi i64 [ %.9265.ph, %.loopexit.sink.split ], [ %.8264, %321 ]
+  %.9 = phi i32 [ %.9.ph, %.loopexit.sink.split ], [ %.8, %321 ]
+  %327 = lshr i32 %.9, 3
   %328 = zext nneg i32 %327 to i64
   %329 = sub nsw i64 0, %328
-  %330 = getelementptr inbounds i8, ptr %.7, i64 %329
+  %330 = getelementptr inbounds i8, ptr %.7283, i64 %329
   store ptr %330, ptr %0, align 8
-  store ptr %.9, ptr %11, align 8
+  store ptr %.9275, ptr %11, align 8
   %331 = ptrtoint ptr %10 to i64
   %332 = ptrtoint ptr %330 to i64
   %333 = sub i64 %331, %332
@@ -566,13 +566,13 @@ define dso_local void @cm_zlib_inflate_fast(ptr nocapture noundef %0, i32 nounde
   %335 = add i32 %334, 5
   store i32 %335, ptr %6, align 8
   %336 = ptrtoint ptr %21 to i64
-  %337 = ptrtoint ptr %.9 to i64
+  %337 = ptrtoint ptr %.9275 to i64
   %338 = sub i64 %336, %337
-  %339 = and i32 %.9283, 7
+  %339 = and i32 %.9, 7
   %notmask325 = shl nsw i32 -1, %339
   %340 = xor i32 %notmask325, -1
   %341 = zext nneg i32 %340 to i64
-  %342 = and i64 %.9273, %341
+  %342 = and i64 %.9265, %341
   %343 = trunc i64 %338 to i32
   %344 = add i32 %343, 257
   store i32 %344, ptr %13, align 8

@@ -820,11 +820,11 @@ _ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit: ; pred
   br label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit
 
 _ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit: ; preds = %71, %75
+  %.sroa.6.0.i = phi i8 [ %.sroa.55.0.extract.trunc.i, %75 ], [ 0, %71 ]
   %.sroa.5.0.i68 = phi i8 [ %.sroa.44.0.extract.trunc.i, %75 ], [ 0, %71 ]
   %.sroa.4.0.i69 = phi i8 [ %.sroa.33.0.extract.trunc.i, %75 ], [ 0, %71 ]
   %.sroa.3.0.i70 = phi i8 [ %.sroa.2.0.extract.trunc.i67, %75 ], [ 0, %71 ]
   %.sroa.0.0.i71 = phi i8 [ %.sroa.02.0.extract.trunc.i, %75 ], [ 0, %71 ]
-  %.sroa.6.0.i = phi i8 [ %.sroa.55.0.extract.trunc.i, %75 ], [ 0, %71 ]
   %.sroa.6.0.insert.ext.i = zext i8 %.sroa.6.0.i to i40
   %.sroa.6.0.insert.shift.i = shl nuw i40 %.sroa.6.0.insert.ext.i, 32
   %.sroa.5.0.insert.ext.i72 = zext i8 %.sroa.5.0.i68 to i40
@@ -873,30 +873,30 @@ _ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.ex
   %.2..2. = phi i8 [ %.2..2..2..pre, %82 ], [ %.sroa.4.0.i69, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
   %.1..1. = phi i8 [ %.1..1..1..pre, %82 ], [ %.sroa.3.0.i70, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
   %.0..0. = phi i8 [ %.0..0..0..pre, %82 ], [ %.sroa.0.0.i71, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
-  %.sroa.5.0.i92 = phi i1 [ %85, %82 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
-  %.sroa.4.0.i93 = phi i1 [ %87, %82 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
-  %.sroa.3.0.i94 = phi i1 [ %90, %82 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
-  %.sroa.0.0.i95 = phi i8 [ %88, %82 ], [ 0, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
-  %.sroa.6.0.i96 = phi i1 [ %92, %82 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
-  %93 = or i8 %.0..0., %.sroa.0.0.i95
+  %.sroa.6.0.i92 = phi i1 [ %92, %82 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
+  %.sroa.5.0.i93 = phi i1 [ %85, %82 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
+  %.sroa.4.0.i94 = phi i1 [ %87, %82 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
+  %.sroa.3.0.i95 = phi i1 [ %90, %82 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
+  %.sroa.0.0.i96 = phi i8 [ %88, %82 ], [ 0, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit ]
+  %93 = or i8 %.0..0., %.sroa.0.0.i96
   store i8 %93, ptr %8, align 8
   %94 = trunc nuw i8 %.1..1. to i1
-  %95 = or i1 %.sroa.3.0.i94, %94
+  %95 = or i1 %.sroa.3.0.i95, %94
   %96 = zext i1 %95 to i8
   %.1..1..1..sroa_idx585 = getelementptr inbounds i8, ptr %8, i64 1
   store i8 %96, ptr %.1..1..1..sroa_idx585, align 1
   %97 = trunc nuw i8 %.2..2. to i1
-  %98 = or i1 %.sroa.4.0.i93, %97
+  %98 = or i1 %.sroa.4.0.i94, %97
   %99 = zext i1 %98 to i8
   %.2..2..2..sroa_idx588 = getelementptr inbounds i8, ptr %8, i64 2
   store i8 %99, ptr %.2..2..2..sroa_idx588, align 2
   %100 = trunc nuw i8 %.3..3. to i1
-  %101 = or i1 %.sroa.5.0.i92, %100
+  %101 = or i1 %.sroa.5.0.i93, %100
   %102 = zext i1 %101 to i8
   %.3..3..3..sroa_idx592 = getelementptr inbounds i8, ptr %8, i64 3
   store i8 %102, ptr %.3..3..3..sroa_idx592, align 1
   %103 = trunc nuw i8 %.4..4. to i1
-  %104 = or i1 %.sroa.6.0.i96, %103
+  %104 = or i1 %.sroa.6.0.i92, %103
   %105 = zext i1 %104 to i8
   %.4..4..4..sroa_idx595 = getelementptr inbounds i8, ptr %8, i64 4
   store i8 %105, ptr %.4..4..4..sroa_idx595, align 4
@@ -974,23 +974,23 @@ _ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit138: ; p
   br label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit166
 
 _ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit166: ; preds = %116, %120
-  %.sroa.5.0.i148 = phi i8 [ %.sroa.44.0.extract.trunc.i145, %120 ], [ 0, %116 ]
-  %.sroa.4.0.i149 = phi i8 [ %.sroa.33.0.extract.trunc.i143, %120 ], [ 0, %116 ]
-  %.sroa.3.0.i150 = phi i8 [ %.sroa.2.0.extract.trunc.i141, %120 ], [ 0, %116 ]
-  %.sroa.0.0.i151 = phi i8 [ %.sroa.02.0.extract.trunc.i139, %120 ], [ 0, %116 ]
-  %.sroa.6.0.i152 = phi i8 [ %.sroa.55.0.extract.trunc.i147, %120 ], [ 0, %116 ]
-  %.sroa.6.0.insert.ext.i153 = zext i8 %.sroa.6.0.i152 to i40
+  %.sroa.6.0.i148 = phi i8 [ %.sroa.55.0.extract.trunc.i147, %120 ], [ 0, %116 ]
+  %.sroa.5.0.i149 = phi i8 [ %.sroa.44.0.extract.trunc.i145, %120 ], [ 0, %116 ]
+  %.sroa.4.0.i150 = phi i8 [ %.sroa.33.0.extract.trunc.i143, %120 ], [ 0, %116 ]
+  %.sroa.3.0.i151 = phi i8 [ %.sroa.2.0.extract.trunc.i141, %120 ], [ 0, %116 ]
+  %.sroa.0.0.i152 = phi i8 [ %.sroa.02.0.extract.trunc.i139, %120 ], [ 0, %116 ]
+  %.sroa.6.0.insert.ext.i153 = zext i8 %.sroa.6.0.i148 to i40
   %.sroa.6.0.insert.shift.i154 = shl nuw i40 %.sroa.6.0.insert.ext.i153, 32
-  %.sroa.5.0.insert.ext.i155 = zext i8 %.sroa.5.0.i148 to i40
+  %.sroa.5.0.insert.ext.i155 = zext i8 %.sroa.5.0.i149 to i40
   %.sroa.5.0.insert.shift.i156 = shl nuw nsw i40 %.sroa.5.0.insert.ext.i155, 24
-  %.sroa.5.0.insert.insert.i157 = or disjoint i40 %.sroa.6.0.insert.shift.i154, %.sroa.5.0.insert.shift.i156
-  %.sroa.4.0.insert.ext.i158 = zext i8 %.sroa.4.0.i149 to i40
+  %.sroa.5.0.insert.insert.i157 = or disjoint i40 %.sroa.5.0.insert.shift.i156, %.sroa.6.0.insert.shift.i154
+  %.sroa.4.0.insert.ext.i158 = zext i8 %.sroa.4.0.i150 to i40
   %.sroa.4.0.insert.shift.i159 = shl nuw nsw i40 %.sroa.4.0.insert.ext.i158, 16
   %.sroa.4.0.insert.insert.i160 = or disjoint i40 %.sroa.5.0.insert.insert.i157, %.sroa.4.0.insert.shift.i159
-  %.sroa.3.0.insert.ext.i161 = zext i8 %.sroa.3.0.i150 to i40
+  %.sroa.3.0.insert.ext.i161 = zext i8 %.sroa.3.0.i151 to i40
   %.sroa.3.0.insert.shift.i162 = shl nuw nsw i40 %.sroa.3.0.insert.ext.i161, 8
   %.sroa.3.0.insert.insert.i163 = or disjoint i40 %.sroa.4.0.insert.insert.i160, %.sroa.3.0.insert.shift.i162
-  %.sroa.0.0.insert.ext.i164 = zext i8 %.sroa.0.0.i151 to i40
+  %.sroa.0.0.insert.ext.i164 = zext i8 %.sroa.0.0.i152 to i40
   %.sroa.0.0.insert.insert.i165 = or disjoint i40 %.sroa.3.0.insert.insert.i163, %.sroa.0.0.insert.ext.i164
   store i40 %.sroa.0.0.insert.insert.i165, ptr %8, align 8
   br label %36
@@ -1015,22 +1015,22 @@ _ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.ex
   br label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194
 
 _ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194: ; preds = %122, %126
-  %.sroa.5.0.i176 = phi i8 [ %.sroa.44.0.extract.trunc.i173, %126 ], [ 0, %122 ]
-  %.sroa.4.0.i177 = phi i8 [ %.sroa.33.0.extract.trunc.i171, %126 ], [ 0, %122 ]
-  %.sroa.3.0.i178 = phi i8 [ %.sroa.2.0.extract.trunc.i169, %126 ], [ 0, %122 ]
-  %.sroa.0.0.i179 = phi i8 [ %.sroa.02.0.extract.trunc.i167, %126 ], [ 0, %122 ]
-  %.sroa.6.0.i180 = phi i8 [ %.sroa.55.0.extract.trunc.i175, %126 ], [ 0, %122 ]
-  %.sroa.6.0.insert.ext.i181 = zext i8 %.sroa.6.0.i180 to i40
+  %.sroa.6.0.i176 = phi i8 [ %.sroa.55.0.extract.trunc.i175, %126 ], [ 0, %122 ]
+  %.sroa.5.0.i177 = phi i8 [ %.sroa.44.0.extract.trunc.i173, %126 ], [ 0, %122 ]
+  %.sroa.4.0.i178 = phi i8 [ %.sroa.33.0.extract.trunc.i171, %126 ], [ 0, %122 ]
+  %.sroa.3.0.i179 = phi i8 [ %.sroa.2.0.extract.trunc.i169, %126 ], [ 0, %122 ]
+  %.sroa.0.0.i180 = phi i8 [ %.sroa.02.0.extract.trunc.i167, %126 ], [ 0, %122 ]
+  %.sroa.6.0.insert.ext.i181 = zext i8 %.sroa.6.0.i176 to i40
   %.sroa.6.0.insert.shift.i182 = shl nuw i40 %.sroa.6.0.insert.ext.i181, 32
-  %.sroa.5.0.insert.ext.i183 = zext i8 %.sroa.5.0.i176 to i40
+  %.sroa.5.0.insert.ext.i183 = zext i8 %.sroa.5.0.i177 to i40
   %.sroa.5.0.insert.shift.i184 = shl nuw nsw i40 %.sroa.5.0.insert.ext.i183, 24
-  %.sroa.4.0.insert.ext.i186 = zext i8 %.sroa.4.0.i177 to i40
+  %.sroa.4.0.insert.ext.i186 = zext i8 %.sroa.4.0.i178 to i40
   %.sroa.4.0.insert.shift.i187 = shl nuw nsw i40 %.sroa.4.0.insert.ext.i186, 16
   %128 = or disjoint i40 %.sroa.6.0.insert.shift.i182, %.sroa.4.0.insert.shift.i187
   %.sroa.4.0.insert.insert.i188 = or disjoint i40 %128, %.sroa.5.0.insert.shift.i184
-  %.sroa.3.0.insert.ext.i189 = zext i8 %.sroa.3.0.i178 to i40
+  %.sroa.3.0.insert.ext.i189 = zext i8 %.sroa.3.0.i179 to i40
   %.sroa.3.0.insert.shift.i190 = shl nuw nsw i40 %.sroa.3.0.insert.ext.i189, 8
-  %.sroa.0.0.insert.ext.i192 = zext i8 %.sroa.0.0.i179 to i40
+  %.sroa.0.0.insert.ext.i192 = zext i8 %.sroa.0.0.i180 to i40
   %129 = or disjoint i40 %.sroa.3.0.insert.shift.i190, %.sroa.0.0.insert.ext.i192
   %.sroa.0.0.insert.insert.i193 = or disjoint i40 %129, %.sroa.4.0.insert.insert.i188
   store i40 %.sroa.0.0.insert.insert.i193, ptr %8, align 8
@@ -1063,35 +1063,35 @@ _ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.ex
   br label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit222
 
 _ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit222: ; preds = %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194, %133
-  %.4..4.418 = phi i8 [ %.4..4..4.418.pre, %133 ], [ %.sroa.6.0.i180, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
-  %.3..3.403 = phi i8 [ %.3..3..3.403.pre, %133 ], [ %.sroa.5.0.i176, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
-  %.2..2.388 = phi i8 [ %.2..2..2.388.pre, %133 ], [ %.sroa.4.0.i177, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
-  %.1..1.374 = phi i8 [ %.1..1..1.374.pre, %133 ], [ %.sroa.3.0.i178, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
-  %.0..0.367 = phi i8 [ %.0..0..0.367.pre, %133 ], [ %.sroa.0.0.i179, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
-  %.sroa.5.0.i204 = phi i1 [ %136, %133 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
-  %.sroa.4.0.i205 = phi i1 [ %138, %133 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
-  %.sroa.3.0.i206 = phi i1 [ %141, %133 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
-  %.sroa.0.0.i207 = phi i8 [ %139, %133 ], [ 0, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
-  %.sroa.6.0.i208 = phi i1 [ %143, %133 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
-  %144 = or i8 %.0..0.367, %.sroa.0.0.i207
+  %.4..4.418 = phi i8 [ %.4..4..4.418.pre, %133 ], [ %.sroa.6.0.i176, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
+  %.3..3.403 = phi i8 [ %.3..3..3.403.pre, %133 ], [ %.sroa.5.0.i177, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
+  %.2..2.388 = phi i8 [ %.2..2..2.388.pre, %133 ], [ %.sroa.4.0.i178, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
+  %.1..1.374 = phi i8 [ %.1..1..1.374.pre, %133 ], [ %.sroa.3.0.i179, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
+  %.0..0.367 = phi i8 [ %.0..0..0.367.pre, %133 ], [ %.sroa.0.0.i180, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
+  %.sroa.6.0.i204 = phi i1 [ %143, %133 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
+  %.sroa.5.0.i205 = phi i1 [ %136, %133 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
+  %.sroa.4.0.i206 = phi i1 [ %138, %133 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
+  %.sroa.3.0.i207 = phi i1 [ %141, %133 ], [ false, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
+  %.sroa.0.0.i208 = phi i8 [ %139, %133 ], [ 0, %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit194 ]
+  %144 = or i8 %.0..0.367, %.sroa.0.0.i208
   store i8 %144, ptr %8, align 8
   %145 = trunc nuw i8 %.1..1.374 to i1
-  %146 = or i1 %.sroa.3.0.i206, %145
+  %146 = or i1 %.sroa.3.0.i207, %145
   %147 = zext i1 %146 to i8
   %.1..1..1..sroa_idx583 = getelementptr inbounds i8, ptr %8, i64 1
   store i8 %147, ptr %.1..1..1..sroa_idx583, align 1
   %148 = trunc nuw i8 %.2..2.388 to i1
-  %149 = or i1 %.sroa.4.0.i205, %148
+  %149 = or i1 %.sroa.4.0.i206, %148
   %150 = zext i1 %149 to i8
   %.2..2..2..sroa_idx586 = getelementptr inbounds i8, ptr %8, i64 2
   store i8 %150, ptr %.2..2..2..sroa_idx586, align 2
   %151 = trunc nuw i8 %.3..3.403 to i1
-  %152 = or i1 %.sroa.5.0.i204, %151
+  %152 = or i1 %.sroa.5.0.i205, %151
   %153 = zext i1 %152 to i8
   %.3..3..3..sroa_idx589 = getelementptr inbounds i8, ptr %8, i64 3
   store i8 %153, ptr %.3..3..3..sroa_idx589, align 1
   %154 = trunc nuw i8 %.4..4.418 to i1
-  %155 = or i1 %.sroa.6.0.i208, %154
+  %155 = or i1 %.sroa.6.0.i204, %154
   %156 = zext i1 %155 to i8
   %.4..4..4..sroa_idx593 = getelementptr inbounds i8, ptr %8, i64 4
   store i8 %156, ptr %.4..4..4..sroa_idx593, align 4
@@ -1250,9 +1250,9 @@ _ZN20wasmtime_wit_bindgen5types5Types9type_info17h35484a8e4e1d15d3E.exit308: ; p
   br label %_ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337
 
 _ZN20wasmtime_wit_bindgen5types5Types18optional_type_info17hcbf5bf6e5bcb392eE.exit337: ; preds = %.lr.ph, %213, %212
-  %.sroa.0.0.i322 = phi i8 [ %.sroa.01.0.extract.trunc.i339, %213 ], [ 0, %212 ], [ 0, %.lr.ph ]
+  %.sroa.0.0.i323 = phi i8 [ %.sroa.01.0.extract.trunc.i339, %213 ], [ 0, %212 ], [ 0, %.lr.ph ]
   %223 = phi <4 x i1> [ %222, %213 ], [ <i1 false, i1 false, i1 true, i1 false>, %212 ], [ zeroinitializer, %.lr.ph ]
-  %.masked.i338 = and i8 %.sroa.0.0.i322, 1
+  %.masked.i338 = and i8 %.sroa.0.0.i323, 1
   %224 = or i8 %209, %.masked.i338
   %225 = or <4 x i1> %223, %210
   %226 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce8b98510e597cc5E"(ptr nonnull align 8 %5)

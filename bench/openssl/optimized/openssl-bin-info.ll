@@ -41,8 +41,8 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %sw.epilog, %entry
-  %type.0 = phi i32 [ 0, %entry ], [ %type.1, %sw.epilog ]
   %dirty.0 = phi i32 [ 0, %entry ], [ %dirty.1, %sw.epilog ]
+  %type.0 = phi i32 [ 0, %entry ], [ %type.1, %sw.epilog ]
   %call1 = tail call i32 @opt_next() #2
   switch i32 %call1, label %opthelp [
     i32 0, label %while.end

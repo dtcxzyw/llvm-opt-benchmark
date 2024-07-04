@@ -504,15 +504,15 @@ thread-pre-split29:                               ; preds = %thread-pre-split29.
 
 .lr.ph264.i:                                      ; preds = %172, %260
   %175 = phi ptr [ %263, %260 ], [ %174, %172 ]
-  %.0162262.i = phi i32 [ %178, %260 ], [ 0, %172 ]
-  %.0163261.i = phi i32 [ %181, %260 ], [ 0, %172 ]
-  %.0164260.i = phi i32 [ %262, %260 ], [ 0, %172 ]
+  %.0164262.i = phi i32 [ %262, %260 ], [ 0, %172 ]
+  %.0165261.i = phi i32 [ %181, %260 ], [ 0, %172 ]
+  %.0166260.i = phi i32 [ %178, %260 ], [ 0, %172 ]
   %176 = getelementptr inbounds i8, ptr %175, i64 88
   %177 = load i32, ptr %176, align 8
-  %178 = add i32 %177, %.0162262.i
+  %178 = add i32 %177, %.0166260.i
   %179 = getelementptr inbounds i8, ptr %175, i64 84
   %180 = load i32, ptr %179, align 4
-  %181 = add i32 %180, %.0163261.i
+  %181 = add i32 %180, %.0165261.i
   %182 = sext i32 %181 to i64
   %183 = shl nsw i64 %182, 1
   %184 = call ptr @slurm_xrecalloc(ptr noundef nonnull %9, i64 noundef 1, i64 noundef %183, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, i32 noundef 428, ptr noundef nonnull @__func__._launch_app) #15
@@ -558,7 +558,7 @@ thread-pre-split29:                               ; preds = %thread-pre-split29.
 
 206:                                              ; preds = %._crit_edge.i23
   %207 = load ptr, ptr %9, align 8
-  %208 = sext i32 %.0164260.i to i64
+  %208 = sext i32 %.0164262.i to i64
   %209 = getelementptr inbounds i16, ptr %207, i64 %208
   %210 = load i32, ptr %179, align 4
   %211 = zext i32 %210 to i64
@@ -667,14 +667,14 @@ thread-pre-split29:                               ; preds = %thread-pre-split29.
 
 260:                                              ; preds = %258, %257
   %261 = load i32, ptr %179, align 4
-  %262 = add i32 %261, %.0164260.i
+  %262 = add i32 %261, %.0164262.i
   %263 = call ptr @list_next(ptr noundef %173) #15
   %.not198.i = icmp eq ptr %263, null
   br i1 %.not198.i, label %._crit_edge265.i, label %.lr.ph264.i, !llvm.loop !12
 
 ._crit_edge265.i:                                 ; preds = %260, %172
-  %.0163.lcssa.i = phi i32 [ 0, %172 ], [ %181, %260 ]
-  %.0162.lcssa.i = phi i32 [ 0, %172 ], [ %178, %260 ]
+  %.0166.lcssa.i = phi i32 [ 0, %172 ], [ %178, %260 ]
+  %.0165.lcssa.i = phi i32 [ 0, %172 ], [ %181, %260 ]
   call void @list_iterator_reset(ptr noundef %173) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -695,27 +695,27 @@ thread-pre-split29:                               ; preds = %thread-pre-split29.
   call void @hostlist_sort(ptr noundef %270) #15
   call void @hostlist_uniq(ptr noundef %270) #15
   %271 = call i32 @hostlist_count(ptr noundef %270) #15
-  %.not47.i.i = icmp eq i32 %271, %.0163.lcssa.i
+  %.not47.i.i = icmp eq i32 %271, %.0165.lcssa.i
   br i1 %.not47.i.i, label %275, label %272
 
 272:                                              ; preds = %269
   %273 = load ptr, ptr %8, align 8
-  %274 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__._reorder_het_job_recs, ptr noundef %273, i32 noundef %.0163.lcssa.i) #15
+  %274 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__._reorder_het_job_recs, ptr noundef %273, i32 noundef %.0165.lcssa.i) #15
   br label %.thread.i.i
 
 275:                                              ; preds = %269
-  %276 = sext i32 %.0163.lcssa.i to i64
+  %276 = sext i32 %.0165.lcssa.i to i64
   %277 = shl nsw i64 %276, 1
   %278 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %277, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, i32 noundef 348, ptr noundef nonnull @__func__._reorder_het_job_recs) #15
   store ptr %278, ptr %3, align 8
   %279 = shl nsw i64 %276, 3
   %280 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %279, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, i32 noundef 349, ptr noundef nonnull @__func__._reorder_het_job_recs) #15
   store ptr %280, ptr %4, align 8
-  %281 = icmp sgt i32 %.0163.lcssa.i, 0
+  %281 = icmp sgt i32 %.0165.lcssa.i, 0
   br i1 %281, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %275
-  %wide.trip.count.i.i = zext nneg i32 %.0163.lcssa.i to i64
+  %wide.trip.count.i.i = zext nneg i32 %.0165.lcssa.i to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %293, %.lr.ph.preheader.i.i
@@ -727,7 +727,7 @@ thread-pre-split29:                               ; preds = %thread-pre-split29.
 
 284:                                              ; preds = %.lr.ph.i.i
   %285 = load ptr, ptr %8, align 8
-  %286 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__._reorder_het_job_recs, ptr noundef %285, i32 noundef %.0163.lcssa.i) #15
+  %286 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__._reorder_het_job_recs, ptr noundef %285, i32 noundef %.0165.lcssa.i) #15
   br label %.thread.i.i
 
 287:                                              ; preds = %.lr.ph.i.i
@@ -780,7 +780,7 @@ thread-pre-split29:                               ; preds = %thread-pre-split29.
 _reorder_het_job_recs.exit.i:                     ; preds = %.thread.i.i, %266
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @mpir_init(i32 noundef %.0162.lcssa.i) #15
+  call void @mpir_init(i32 noundef %.0166.lcssa.i) #15
   %304 = load ptr, ptr @opt_list, align 8
   %305 = call ptr @list_iterator_create(ptr noundef %304) #15
   %306 = call ptr @list_next(ptr noundef %305) #15
@@ -789,7 +789,7 @@ _reorder_het_job_recs.exit.i:                     ; preds = %.thread.i.i, %266
 
 .lr.ph268.i:                                      ; preds = %_reorder_het_job_recs.exit.i
   %307 = icmp sgt i32 %166, 1
-  %308 = sext i32 %.0162.lcssa.i to i64
+  %308 = sext i32 %.0166.lcssa.i to i64
   %309 = shl nsw i64 %308, 2
   br label %310
 

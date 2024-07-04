@@ -1426,15 +1426,15 @@ define internal fastcc void @H5Z__nbit_decompress_one_atomic(ptr nocapture nound
   %.not48 = icmp eq i32 %16, 0
   %17 = lshr i32 %15, 3
   %18 = sext i1 %.not48 to i32
-  %.045 = add nsw i32 %17, %18
+  %.044 = add nsw i32 %17, %18
   %19 = lshr i32 %13, 3
   %invariant.gep62 = getelementptr i8, ptr %0, i64 %1
-  %.not4964 = icmp slt i32 %.045, %19
+  %.not4964 = icmp slt i32 %.044, %19
   br i1 %.not4964, label %.loopexit, label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %14
-  %.not.i = icmp eq i32 %.045, %19
-  %20 = zext nneg i32 %.045 to i64
+  %.not.i = icmp eq i32 %.044, %19
+  %20 = zext nneg i32 %.044 to i64
   br i1 %.not.i, label %.lr.ph66.split.us, label %.lr.ph66.split.preheader
 
 .lr.ph66.split.preheader:                         ; preds = %.lr.ph66
@@ -1621,21 +1621,21 @@ H5Z__nbit_decompress_one_byte.exit:               ; preds = %102, %.sink.split.i
   %142 = sub i32 %137, %13
   %143 = lshr i32 %142, 3
   %144 = sext i1 %.not to i32
-  %.044 = add nsw i32 %143, %144
+  %.0 = add nsw i32 %143, %144
   %invariant.gep = getelementptr i8, ptr %0, i64 %1
-  %.not4760 = icmp sgt i32 %140, %.044
+  %.not4760 = icmp sgt i32 %140, %.0
   br i1 %.not4760, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %135
-  %.not.i50 = icmp eq i32 %140, %.044
+  %.not.i50 = icmp eq i32 %140, %.0
   %145 = lshr i32 %139, 3
   %146 = zext nneg i32 %145 to i64
   br i1 %.not.i50, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %147 = zext nneg i32 %.044 to i64
+  %147 = zext nneg i32 %.0 to i64
   %148 = zext nneg i32 %140 to i64
-  %149 = tail call i32 @llvm.umax.i32(i32 %.044, i32 %140)
+  %149 = tail call i32 @llvm.umax.i32(i32 %.0, i32 %140)
   %150 = add nuw nsw i32 %149, %145
   %151 = add nuw nsw i32 %150, 1
   %152 = sub nsw i32 %151, %140
@@ -2058,8 +2058,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_compound(p
   br label %21
 
 21:                                               ; preds = %.lr.ph, %H5Z__nbit_decompress_one_nooptype.exit
-  %.06876 = phi i32 [ 0, %.lr.ph ], [ %131, %H5Z__nbit_decompress_one_nooptype.exit ]
-  %.06975 = phi i32 [ 0, %.lr.ph ], [ %34, %H5Z__nbit_decompress_one_nooptype.exit ]
+  %.06876 = phi i32 [ 0, %.lr.ph ], [ %34, %H5Z__nbit_decompress_one_nooptype.exit ]
+  %.06975 = phi i32 [ 0, %.lr.ph ], [ %131, %H5Z__nbit_decompress_one_nooptype.exit ]
   %22 = load i32, ptr %6, align 4
   %23 = add i32 %22, 1
   store i32 %23, ptr %6, align 4
@@ -2074,7 +2074,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_compound(p
   %31 = zext i32 %27 to i64
   %32 = getelementptr inbounds i32, ptr %5, i64 %31
   %33 = load i32, ptr %32, align 4
-  %34 = add i32 %33, %.06975
+  %34 = add i32 %33, %.06876
   %35 = icmp ugt i32 %34, %13
   br i1 %35, label %36, label %40
 
@@ -2085,7 +2085,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_compound(p
   br label %.loopexit
 
 40:                                               ; preds = %21
-  %.not = icmp ugt i32 %34, %.06975
+  %.not = icmp ugt i32 %34, %.06876
   br i1 %.not, label %45, label %41
 
 41:                                               ; preds = %40
@@ -2241,7 +2241,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__nbit_decompress_one_compound(p
   br i1 %exitcond.not.i, label %H5Z__nbit_decompress_one_nooptype.exit, label %.lr.ph.i
 
 H5Z__nbit_decompress_one_nooptype.exit:           ; preds = %129, %96, %75, %78, %87, %52
-  %131 = add nuw i32 %.06876, 1
+  %131 = add nuw i32 %.06975, 1
   %exitcond.not = icmp eq i32 %131, %17
   br i1 %exitcond.not, label %.loopexit, label %21
 
@@ -2267,15 +2267,15 @@ define internal fastcc void @H5Z__nbit_compress_one_atomic(ptr nocapture noundef
   %.not48 = icmp eq i32 %16, 0
   %17 = lshr i32 %15, 3
   %18 = sext i1 %.not48 to i32
-  %.045 = add nsw i32 %17, %18
+  %.044 = add nsw i32 %17, %18
   %19 = lshr i32 %13, 3
   %invariant.gep61 = getelementptr i8, ptr %0, i64 %1
-  %.not4963 = icmp slt i32 %.045, %19
+  %.not4963 = icmp slt i32 %.044, %19
   br i1 %.not4963, label %.loopexit, label %.lr.ph65
 
 .lr.ph65:                                         ; preds = %14
-  %.not.i = icmp eq i32 %.045, %19
-  %20 = zext nneg i32 %.045 to i64
+  %.not.i = icmp eq i32 %.044, %19
+  %20 = zext nneg i32 %.044 to i64
   br i1 %.not.i, label %.lr.ph65.split.us.preheader, label %.lr.ph65.split.preheader
 
 .lr.ph65.split.preheader:                         ; preds = %.lr.ph65
@@ -2449,21 +2449,21 @@ H5Z__nbit_compress_one_byte.exit:                 ; preds = %101, %.sink.split.i
   %133 = sub i32 %128, %13
   %134 = lshr i32 %133, 3
   %135 = sext i1 %.not to i32
-  %.044 = add nsw i32 %134, %135
+  %.0 = add nsw i32 %134, %135
   %invariant.gep = getelementptr i8, ptr %0, i64 %1
-  %.not4759 = icmp sgt i32 %131, %.044
+  %.not4759 = icmp sgt i32 %131, %.0
   br i1 %.not4759, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %126
-  %.not.i50 = icmp eq i32 %131, %.044
+  %.not.i50 = icmp eq i32 %131, %.0
   %136 = lshr i32 %130, 3
   %137 = zext nneg i32 %136 to i64
   br i1 %.not.i50, label %.lr.ph.split.us.preheader, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %138 = zext nneg i32 %.044 to i64
+  %138 = zext nneg i32 %.0 to i64
   %139 = zext nneg i32 %131 to i64
-  %140 = tail call i32 @llvm.umax.i32(i32 %.044, i32 %131)
+  %140 = tail call i32 @llvm.umax.i32(i32 %.0, i32 %131)
   %141 = add nuw nsw i32 %140, %136
   %142 = add nuw nsw i32 %141, 1
   %143 = sub nsw i32 %142, %131

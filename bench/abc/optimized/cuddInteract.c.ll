@@ -131,8 +131,8 @@ define range(i32 0, 2) i32 @cuddInitInteract(ptr noundef %0) local_unnamed_addr 
   br i1 %.not68, label %._crit_edge72, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %.lr.ph75, %ddUpdateInteract.exit
-  %.05069 = phi ptr [ %71, %ddUpdateInteract.exit ], [ %33, %.lr.ph75 ]
-  %34 = getelementptr inbounds i8, ptr %.05069, i64 8
+  %.069 = phi ptr [ %71, %ddUpdateInteract.exit ], [ %33, %.lr.ph75 ]
+  %34 = getelementptr inbounds i8, ptr %.069, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = and i64 %36, 1
@@ -141,8 +141,8 @@ define range(i32 0, 2) i32 @cuddInitInteract(ptr noundef %0) local_unnamed_addr 
 
 ._crit_edge67:                                    ; preds = %.lr.ph71
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %17, i8 0, i64 %22, i1 false)
-  tail call fastcc void @ddSuppInteract(ptr noundef nonnull %.05069, ptr noundef nonnull %17)
-  tail call fastcc void @ddClearLocal(ptr noundef nonnull %.05069)
+  tail call fastcc void @ddSuppInteract(ptr noundef nonnull %.069, ptr noundef nonnull %17)
+  tail call fastcc void @ddClearLocal(ptr noundef nonnull %.069)
   %38 = load i32, ptr %2, align 8
   %39 = icmp sgt i32 %38, 1
   br i1 %39, label %.lr.ph20.i, label %ddUpdateInteract.exit
@@ -167,7 +167,7 @@ define range(i32 0, 2) i32 @cuddInitInteract(ptr noundef %0) local_unnamed_addr 
 
 46:                                               ; preds = %66, %.lr.ph.i
   %indvars.iv21.i = phi i64 [ %indvars.iv.i, %.lr.ph.i ], [ %indvars.iv.next22.i, %66 ]
-  %.014.in16.i = phi i32 [ %45, %.lr.ph.i ], [ %67, %66 ]
+  %.0.in16.i = phi i32 [ %45, %.lr.ph.i ], [ %67, %66 ]
   %47 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv21.i
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, 1
@@ -180,7 +180,7 @@ define range(i32 0, 2) i32 @cuddInitInteract(ptr noundef %0) local_unnamed_addr 
   %53 = add i32 %reass.sub, -3
   %54 = mul nsw i32 %53, %45
   %55 = ashr i32 %54, 1
-  %56 = add i32 %55, %.014.in16.i
+  %56 = add i32 %55, %.0.in16.i
   %57 = ashr i32 %56, 6
   %58 = and i32 %56, 63
   %59 = zext nneg i32 %58 to i64
@@ -255,8 +255,8 @@ ddUpdateInteract.exit:                            ; preds = %.loopexit.i, %._cri
   br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph.i59
 
 .lr.ph.i59:                                       ; preds = %.lr.ph23.i, %.lr.ph.i59
-  %.01820.i = phi ptr [ %88, %.lr.ph.i59 ], [ %83, %.lr.ph23.i ]
-  %84 = getelementptr inbounds i8, ptr %.01820.i, i64 8
+  %.020.i = phi ptr [ %88, %.lr.ph.i59 ], [ %83, %.lr.ph23.i ]
+  %84 = getelementptr inbounds i8, ptr %.020.i, i64 8
   %85 = load ptr, ptr %84, align 8
   %86 = ptrtoint ptr %85 to i64
   %87 = and i64 %86, -2
@@ -286,8 +286,8 @@ ddClearGlobal.exit:                               ; preds = %._crit_edge24.i, %.
   br label %92
 
 92:                                               ; preds = %ddClearGlobal.exit, %23, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %23 ], [ 1, %ddClearGlobal.exit ]
-  ret i32 %.0
+  %.050 = phi i32 [ 0, %13 ], [ 0, %23 ], [ 1, %ddClearGlobal.exit ]
+  ret i32 %.050
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

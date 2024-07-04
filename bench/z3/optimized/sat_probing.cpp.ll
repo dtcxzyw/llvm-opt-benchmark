@@ -2412,15 +2412,15 @@ if.end.i:                                         ; preds = %_ZNK10union_findI22
   %arrayidx.i9.i = getelementptr inbounds i32, ptr %60, i64 %idxprom.i.i4.i
   %62 = load i32, ptr %arrayidx.i9.i, align 4
   %cmp6.i = icmp ugt i32 %61, %62
-  %spec.select.i = select i1 %cmp6.i, i32 %v.addr.0.i.i, i32 %v.addr.0.i3.i
-  %spec.select40.i = select i1 %cmp6.i, i32 %v.addr.0.i3.i, i32 %v.addr.0.i.i
-  %idxprom.i10.i = zext i32 %spec.select40.i to i64
+  %spec.select.i = select i1 %cmp6.i, i32 %v.addr.0.i3.i, i32 %v.addr.0.i.i
+  %spec.select40.i = select i1 %cmp6.i, i32 %v.addr.0.i.i, i32 %v.addr.0.i3.i
+  %idxprom.i10.i = zext i32 %spec.select.i to i64
   %arrayidx.i11.i = getelementptr inbounds i32, ptr %57, i64 %idxprom.i10.i
-  store i32 %spec.select.i, ptr %arrayidx.i11.i, align 4
+  store i32 %spec.select40.i, ptr %arrayidx.i11.i, align 4
   %63 = load ptr, ptr %m_size.i, align 8
   %arrayidx.i13.i = getelementptr inbounds i32, ptr %63, i64 %idxprom.i10.i
   %64 = load i32, ptr %arrayidx.i13.i, align 4
-  %idxprom.i14.i = zext i32 %spec.select.i to i64
+  %idxprom.i14.i = zext i32 %spec.select40.i to i64
   %arrayidx.i15.i = getelementptr inbounds i32, ptr %63, i64 %idxprom.i14.i
   %65 = load i32, ptr %arrayidx.i15.i, align 4
   %add.i63 = add i32 %65, %64
@@ -2442,7 +2442,7 @@ call.i.i21.i.noexc:                               ; preds = %if.end.i
   %m_owner.i.i.i = getelementptr inbounds i8, ptr %call.i.i21.i68, i64 8
   store ptr %uf, ptr %m_owner.i.i.i, align 8
   %ref.tmp.sroa.3.8.m_owner.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i.i21.i68, i64 16
-  store i32 %spec.select40.i, ptr %ref.tmp.sroa.3.8.m_owner.i.i.sroa_idx.i, align 8
+  store i32 %spec.select.i, ptr %ref.tmp.sroa.3.8.m_owner.i.i.sroa_idx.i, align 8
   %70 = load ptr, ptr %69, align 8
   %cmp.i.i.i = icmp eq ptr %70, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i67, label %lor.lhs.false.i.i.i
@@ -2515,15 +2515,15 @@ if.end.i85:                                       ; preds = %_ZNK10union_findI22
   %arrayidx.i9.i88 = getelementptr inbounds i32, ptr %80, i64 %idxprom.i.i4.i80
   %82 = load i32, ptr %arrayidx.i9.i88, align 4
   %cmp6.i89 = icmp ugt i32 %81, %82
-  %spec.select.i90 = select i1 %cmp6.i89, i32 %v.addr.0.i.i73, i32 %v.addr.0.i3.i79
-  %spec.select40.i91 = select i1 %cmp6.i89, i32 %v.addr.0.i3.i79, i32 %v.addr.0.i.i73
-  %idxprom.i10.i92 = zext i32 %spec.select40.i91 to i64
+  %spec.select.i90 = select i1 %cmp6.i89, i32 %v.addr.0.i3.i79, i32 %v.addr.0.i.i73
+  %spec.select40.i91 = select i1 %cmp6.i89, i32 %v.addr.0.i.i73, i32 %v.addr.0.i3.i79
+  %idxprom.i10.i92 = zext i32 %spec.select.i90 to i64
   %arrayidx.i11.i93 = getelementptr inbounds i32, ptr %77, i64 %idxprom.i10.i92
-  store i32 %spec.select.i90, ptr %arrayidx.i11.i93, align 4
+  store i32 %spec.select40.i91, ptr %arrayidx.i11.i93, align 4
   %83 = load ptr, ptr %m_size.i, align 8
   %arrayidx.i13.i94 = getelementptr inbounds i32, ptr %83, i64 %idxprom.i10.i92
   %84 = load i32, ptr %arrayidx.i13.i94, align 4
-  %idxprom.i14.i95 = zext i32 %spec.select.i90 to i64
+  %idxprom.i14.i95 = zext i32 %spec.select40.i91 to i64
   %arrayidx.i15.i96 = getelementptr inbounds i32, ptr %83, i64 %idxprom.i14.i95
   %85 = load i32, ptr %arrayidx.i15.i96, align 4
   %add.i97 = add i32 %85, %84
@@ -2545,7 +2545,7 @@ call.i.i21.i.noexc119:                            ; preds = %if.end.i85
   %m_owner.i.i.i103 = getelementptr inbounds i8, ptr %call.i.i21.i120, i64 8
   store ptr %uf, ptr %m_owner.i.i.i103, align 8
   %ref.tmp.sroa.3.8.m_owner.i.i.sroa_idx.i104 = getelementptr inbounds i8, ptr %call.i.i21.i120, i64 16
-  store i32 %spec.select40.i91, ptr %ref.tmp.sroa.3.8.m_owner.i.i.sroa_idx.i104, align 8
+  store i32 %spec.select.i90, ptr %ref.tmp.sroa.3.8.m_owner.i.i.sroa_idx.i104, align 8
   %90 = load ptr, ptr %89, align 8
   %cmp.i.i.i105 = icmp eq ptr %90, null
   br i1 %cmp.i.i.i105, label %if.then.i.i.i115, label %lor.lhs.false.i.i.i106

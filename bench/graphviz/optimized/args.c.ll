@@ -33,7 +33,7 @@ define i32 @gvParseArgs(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_un
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %40 ]
   %.037.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %.1.i, %40 ]
-  %.02735.i = phi ptr [ %9, %.lr.ph.preheader.i ], [ %.128.i, %40 ]
+  %.02635.i = phi ptr [ %9, %.lr.ph.preheader.i ], [ %.127.i, %40 ]
   %11 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %13 = load i8, ptr %12, align 1
@@ -75,47 +75,47 @@ neato_extra_args.exit.thread:                     ; preds = %22
 
 28:                                               ; preds = %15
   %29 = add nsw i32 %.037.i, 1
-  %30 = load ptr, ptr %.02735.i, align 8
+  %30 = load ptr, ptr %.02635.i, align 8
   %.not32.i = icmp eq ptr %30, %12
   br i1 %.not32.i, label %32, label %31
 
 31:                                               ; preds = %28
-  store ptr %12, ptr %.02735.i, align 8
+  store ptr %12, ptr %.02635.i, align 8
   br label %32
 
 32:                                               ; preds = %31, %28
-  %33 = getelementptr inbounds i8, ptr %.02735.i, i64 8
+  %33 = getelementptr inbounds i8, ptr %.02635.i, i64 8
   br label %40
 
 34:                                               ; preds = %.lr.ph.i
   %35 = add nsw i32 %.037.i, 1
-  %36 = load ptr, ptr %.02735.i, align 8
+  %36 = load ptr, ptr %.02635.i, align 8
   %.not.i = icmp eq ptr %36, %12
   br i1 %.not.i, label %38, label %37
 
 37:                                               ; preds = %34
-  store ptr %12, ptr %.02735.i, align 8
+  store ptr %12, ptr %.02635.i, align 8
   br label %38
 
 38:                                               ; preds = %37, %34
-  %39 = getelementptr inbounds i8, ptr %.02735.i, i64 8
+  %39 = getelementptr inbounds i8, ptr %.02635.i, i64 8
   br label %40
 
 40:                                               ; preds = %38, %32, %27, %22, %18
-  %.128.i = phi ptr [ %33, %32 ], [ %.02735.i, %22 ], [ %.02735.i, %27 ], [ %.02735.i, %18 ], [ %39, %38 ]
+  %.127.i = phi ptr [ %33, %32 ], [ %.02635.i, %22 ], [ %.02635.i, %27 ], [ %.02635.i, %18 ], [ %39, %38 ]
   %.1.i = phi i32 [ %29, %32 ], [ %.037.i, %22 ], [ %.037.i, %27 ], [ %.037.i, %18 ], [ %35, %38 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %neato_extra_args.exit, label %.lr.ph.i
 
 neato_extra_args.exit:                            ; preds = %40
-  store ptr null, ptr %.128.i, align 8
+  store ptr null, ptr %.127.i, align 8
   %41 = icmp slt i32 %.1.i, 0
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %neato_extra_args.exit.thread, %neato_extra_args.exit
-  %.025.i45 = phi i32 [ -1, %neato_extra_args.exit.thread ], [ %.1.i, %neato_extra_args.exit ]
-  %43 = sub nsw i32 1, %.025.i45
+  %.028.i43 = phi i32 [ -1, %neato_extra_args.exit.thread ], [ %.1.i, %neato_extra_args.exit ]
+  %43 = sub nsw i32 1, %.028.i43
   br label %159
 
 44:                                               ; preds = %neato_extra_args.exit
@@ -129,7 +129,7 @@ neato_extra_args.exit:                            ; preds = %40
 .lr.ph.i26:                                       ; preds = %setFDPAttr.exit.thread.i, %.lr.ph.preheader.i24
   %indvars.iv.i27 = phi i64 [ 1, %.lr.ph.preheader.i24 ], [ %indvars.iv.next.i30, %setFDPAttr.exit.thread.i ]
   %.046.i = phi i32 [ 1, %.lr.ph.preheader.i24 ], [ %.1.i29, %setFDPAttr.exit.thread.i ]
-  %.01944.i = phi ptr [ %9, %.lr.ph.preheader.i24 ], [ %.120.i, %setFDPAttr.exit.thread.i ]
+  %.01844.i = phi ptr [ %9, %.lr.ph.preheader.i24 ], [ %.119.i, %setFDPAttr.exit.thread.i ]
   %46 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i27
   %47 = load ptr, ptr %46, align 8
   %48 = load i8, ptr %47, align 1
@@ -278,51 +278,51 @@ fdp_extra_args.exit.thread:                       ; preds = %setInt.exit.i.i, %s
 
 106:                                              ; preds = %50, %.lr.ph.i26
   %107 = add nsw i32 %.046.i, 1
-  %108 = load ptr, ptr %.01944.i, align 8
+  %108 = load ptr, ptr %.01844.i, align 8
   %.not.i28 = icmp eq ptr %108, %47
   br i1 %.not.i28, label %110, label %109
 
 109:                                              ; preds = %106
-  store ptr %47, ptr %.01944.i, align 8
+  store ptr %47, ptr %.01844.i, align 8
   br label %110
 
 110:                                              ; preds = %109, %106
-  %111 = getelementptr inbounds i8, ptr %.01944.i, i64 8
+  %111 = getelementptr inbounds i8, ptr %.01844.i, i64 8
   br label %setFDPAttr.exit.thread.i
 
 setFDPAttr.exit.thread.i:                         ; preds = %110, %103, %setDouble.exit18.thread.i.i, %setDouble.exit16.thread.i.i, %setDouble.exit.thread.i.i, %setInt.exit13.thread.i.i, %setInt.exit.thread.i.i, %60, %58
-  %.120.i = phi ptr [ %111, %110 ], [ %.01944.i, %setDouble.exit18.thread.i.i ], [ %.01944.i, %setDouble.exit16.thread.i.i ], [ %.01944.i, %setDouble.exit.thread.i.i ], [ %.01944.i, %setInt.exit13.thread.i.i ], [ %.01944.i, %setInt.exit.thread.i.i ], [ %.01944.i, %103 ], [ %.01944.i, %60 ], [ %.01944.i, %58 ]
+  %.119.i = phi ptr [ %111, %110 ], [ %.01844.i, %setDouble.exit18.thread.i.i ], [ %.01844.i, %setDouble.exit16.thread.i.i ], [ %.01844.i, %setDouble.exit.thread.i.i ], [ %.01844.i, %setInt.exit13.thread.i.i ], [ %.01844.i, %setInt.exit.thread.i.i ], [ %.01844.i, %103 ], [ %.01844.i, %60 ], [ %.01844.i, %58 ]
   %.1.i29 = phi i32 [ %107, %110 ], [ %.046.i, %setDouble.exit18.thread.i.i ], [ %.046.i, %setDouble.exit16.thread.i.i ], [ %.046.i, %setDouble.exit.thread.i.i ], [ %.046.i, %setInt.exit13.thread.i.i ], [ %.046.i, %setInt.exit.thread.i.i ], [ %.046.i, %103 ], [ %.046.i, %60 ], [ %.046.i, %58 ]
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i27, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, %wide.trip.count.i25
   br i1 %exitcond.not.i31, label %fdp_extra_args.exit, label %.lr.ph.i26
 
 fdp_extra_args.exit:                              ; preds = %setFDPAttr.exit.thread.i
-  store ptr null, ptr %.120.i, align 8
+  store ptr null, ptr %.119.i, align 8
   %112 = icmp slt i32 %.1.i29, 0
   br i1 %112, label %113, label %115
 
 113:                                              ; preds = %fdp_extra_args.exit.thread, %fdp_extra_args.exit
-  %.017.i52 = phi i32 [ -1, %fdp_extra_args.exit.thread ], [ %.1.i29, %fdp_extra_args.exit ]
-  %114 = sub nsw i32 1, %.017.i52
+  %.020.i50 = phi i32 [ -1, %fdp_extra_args.exit.thread ], [ %.1.i29, %fdp_extra_args.exit ]
+  %114 = sub nsw i32 1, %.020.i50
   br label %159
 
 115:                                              ; preds = %fdp_extra_args.exit
   %116 = icmp ugt i32 %.1.i29, 1
-  br i1 %116, label %.lr.ph.i35, label %config_extra_args.exit.thread
+  br i1 %116, label %.lr.ph.i34, label %config_extra_args.exit.thread
 
-.lr.ph.i35:                                       ; preds = %115
+.lr.ph.i34:                                       ; preds = %115
   %117 = getelementptr inbounds i8, ptr %0, i64 20
   %118 = getelementptr inbounds i8, ptr %0, i64 21
   %119 = getelementptr inbounds i8, ptr %0, i64 16
-  %wide.trip.count.i36 = zext nneg i32 %.1.i29 to i64
+  %wide.trip.count.i35 = zext nneg i32 %.1.i29 to i64
   br label %120
 
-120:                                              ; preds = %150, %.lr.ph.i35
-  %indvars.iv.i37 = phi i64 [ 1, %.lr.ph.i35 ], [ %indvars.iv.next.i41, %150 ]
-  %.035.i = phi i32 [ 1, %.lr.ph.i35 ], [ %.1.i40, %150 ]
-  %.02734.i = phi ptr [ %9, %.lr.ph.i35 ], [ %.128.i39, %150 ]
-  %121 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i37
+120:                                              ; preds = %150, %.lr.ph.i34
+  %indvars.iv.i36 = phi i64 [ 1, %.lr.ph.i34 ], [ %indvars.iv.next.i39, %150 ]
+  %.035.i = phi i32 [ 1, %.lr.ph.i34 ], [ %.1.i38, %150 ]
+  %.02833.i = phi ptr [ %9, %.lr.ph.i34 ], [ %.129.i, %150 ]
+  %121 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i36
   %122 = load ptr, ptr %121, align 8
   %123 = load i8, ptr %122, align 1
   %124 = icmp eq i8 %123, 45
@@ -361,55 +361,55 @@ fdp_extra_args.exit:                              ; preds = %setFDPAttr.exit.thr
 
 138:                                              ; preds = %125
   %139 = add nsw i32 %.035.i, 1
-  %140 = load ptr, ptr %.02734.i, align 8
-  %.not32.i43 = icmp eq ptr %140, %122
-  br i1 %.not32.i43, label %142, label %141
+  %140 = load ptr, ptr %.02833.i, align 8
+  %.not32.i41 = icmp eq ptr %140, %122
+  br i1 %.not32.i41, label %142, label %141
 
 141:                                              ; preds = %138
-  store ptr %122, ptr %.02734.i, align 8
+  store ptr %122, ptr %.02833.i, align 8
   br label %142
 
 142:                                              ; preds = %141, %138
-  %143 = getelementptr inbounds i8, ptr %.02734.i, i64 8
+  %143 = getelementptr inbounds i8, ptr %.02833.i, i64 8
   br label %150
 
 144:                                              ; preds = %120
   %145 = add nsw i32 %.035.i, 1
-  %146 = load ptr, ptr %.02734.i, align 8
-  %.not.i38 = icmp eq ptr %146, %122
-  br i1 %.not.i38, label %148, label %147
+  %146 = load ptr, ptr %.02833.i, align 8
+  %.not.i37 = icmp eq ptr %146, %122
+  br i1 %.not.i37, label %148, label %147
 
 147:                                              ; preds = %144
-  store ptr %122, ptr %.02734.i, align 8
+  store ptr %122, ptr %.02833.i, align 8
   br label %148
 
 148:                                              ; preds = %147, %144
-  %149 = getelementptr inbounds i8, ptr %.02734.i, i64 8
+  %149 = getelementptr inbounds i8, ptr %.02833.i, i64 8
   br label %150
 
 150:                                              ; preds = %148, %142, %137, %136, %134, %128
-  %.128.i39 = phi ptr [ %143, %142 ], [ %.02734.i, %137 ], [ %.02734.i, %136 ], [ %.02734.i, %134 ], [ %.02734.i, %128 ], [ %149, %148 ]
-  %.1.i40 = phi i32 [ %139, %142 ], [ %.035.i, %137 ], [ %.035.i, %136 ], [ %.035.i, %134 ], [ %.035.i, %128 ], [ %145, %148 ]
-  %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i37, 1
-  %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, %wide.trip.count.i36
-  br i1 %exitcond.not.i42, label %config_extra_args.exit, label %120
+  %.129.i = phi ptr [ %143, %142 ], [ %.02833.i, %137 ], [ %.02833.i, %136 ], [ %.02833.i, %134 ], [ %.02833.i, %128 ], [ %149, %148 ]
+  %.1.i38 = phi i32 [ %139, %142 ], [ %.035.i, %137 ], [ %.035.i, %136 ], [ %.035.i, %134 ], [ %.035.i, %128 ], [ %145, %148 ]
+  %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i36, 1
+  %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %wide.trip.count.i35
+  br i1 %exitcond.not.i40, label %config_extra_args.exit, label %120
 
 config_extra_args.exit.thread:                    ; preds = %44, %.thread, %115
   store ptr null, ptr %9, align 8
   br label %154
 
 config_extra_args.exit:                           ; preds = %150
-  store ptr null, ptr %.128.i39, align 8
-  %151 = icmp slt i32 %.1.i40, 0
+  store ptr null, ptr %.129.i, align 8
+  %151 = icmp slt i32 %.1.i38, 0
   br i1 %151, label %152, label %154
 
 152:                                              ; preds = %config_extra_args.exit
-  %153 = sub nsw i32 1, %.1.i40
+  %153 = sub nsw i32 1, %.1.i38
   br label %159
 
 154:                                              ; preds = %config_extra_args.exit.thread, %config_extra_args.exit
-  %.0.lcssa.i3461 = phi i32 [ 1, %config_extra_args.exit.thread ], [ %.1.i40, %config_extra_args.exit ]
-  %155 = tail call i32 @dotneato_args_initialize(ptr noundef %0, i32 noundef %.0.lcssa.i3461, ptr noundef nonnull %2) #6
+  %.0.lcssa.i3359 = phi i32 [ 1, %config_extra_args.exit.thread ], [ %.1.i38, %config_extra_args.exit ]
+  %155 = tail call i32 @dotneato_args_initialize(ptr noundef %0, i32 noundef %.0.lcssa.i3359, ptr noundef nonnull %2) #6
   %.not = icmp eq i32 %155, 0
   br i1 %.not, label %156, label %159
 

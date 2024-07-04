@@ -4511,15 +4511,15 @@ define void @_ZN15ColumnListModel11saveColumnsEv(ptr nocapture noundef nonnull r
   br label %23
 
 .preheader:                                       ; preds = %_ZN11ListElementD2Ev.exit, %1
-  %.024.lcssa = phi ptr [ null, %1 ], [ %92, %_ZN11ListElementD2Ev.exit ]
+  %.025.lcssa = phi ptr [ null, %1 ], [ %92, %_ZN11ListElementD2Ev.exit ]
   %22 = load ptr, ptr @prefs, align 8
   %.not65 = icmp eq ptr %22, null
   br i1 %.not65, label %._crit_edge, label %.lr.ph66
 
 23:                                               ; preds = %.lr.ph, %_ZN11ListElementD2Ev.exit
   %24 = phi i64 [ 0, %.lr.ph ], [ %103, %_ZN11ListElementD2Ev.exit ]
-  %.02464 = phi ptr [ null, %.lr.ph ], [ %92, %_ZN11ListElementD2Ev.exit ]
-  %.02563 = phi i32 [ 0, %.lr.ph ], [ %102, %_ZN11ListElementD2Ev.exit ]
+  %.02464 = phi i32 [ 0, %.lr.ph ], [ %102, %_ZN11ListElementD2Ev.exit ]
+  %.02563 = phi ptr [ null, %.lr.ph ], [ %92, %_ZN11ListElementD2Ev.exit ]
   %25 = call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #24
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL6store_, i64 8), align 8
   %27 = getelementptr %struct.ListElement, ptr %26, i64 %24
@@ -4683,7 +4683,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i43:    ; preds = %85
   br label %_ZN7QStringD2Ev.exit41
 
 91:                                               ; preds = %_ZN7QStringD2Ev.exit37, %_ZN7QStringD2Ev.exit
-  %92 = invoke ptr @g_list_append(ptr noundef %.02464, ptr noundef nonnull %25)
+  %92 = invoke ptr @g_list_append(ptr noundef %.02563, ptr noundef nonnull %25)
           to label %93 unwind label %106
 
 93:                                               ; preds = %91
@@ -4717,7 +4717,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i:   ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN11ListElementD2Ev.exit
 
 _ZN11ListElementD2Ev.exit:                        ; preds = %_ZN7QStringD2Ev.exit.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i2.i, %100
-  %102 = add i32 %.02563, 1
+  %102 = add i32 %.02464, 1
   %103 = sext i32 %102 to i64
   %104 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL6store_, i64 16), align 8
   %105 = icmp sgt i64 %104, %103
@@ -4736,7 +4736,7 @@ _ZN11ListElementD2Ev.exit:                        ; preds = %_ZN7QStringD2Ev.exi
   br i1 %.not, label %._crit_edge, label %.lr.ph66, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %.lr.ph66, %.preheader
-  store ptr %.024.lcssa, ptr @prefs, align 8
+  store ptr %.025.lcssa, ptr @prefs, align 8
   call void @recent_free_column_width_info(ptr noundef nonnull @recent)
   %110 = load i64, ptr getelementptr inbounds (i8, ptr @_ZL6store_, i64 16), align 8
   %111 = icmp sgt i64 %110, 0
@@ -8083,7 +8083,7 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIP11ListElementEET_S3_S3_S3_S
 22:                                               ; preds = %.backedge, %19
   %.068 = phi i64 [ %11, %19 ], [ %.068.be, %.backedge ]
   %.066 = phi i64 [ %14, %19 ], [ %.066.be, %.backedge ]
-  %.039 = phi ptr [ %0, %19 ], [ %.039.be, %.backedge ]
+  %.038 = phi ptr [ %0, %19 ], [ %.038.be, %.backedge ]
   %23 = sub i64 %.068, %.066
   %24 = icmp slt i64 %.066, %23
   br i1 %24, label %25, label %66
@@ -8093,13 +8093,13 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIP11ListElementEET_S3_S3_S3_S
   br i1 %26, label %.lr.ph78.preheader, label %._crit_edge79
 
 .lr.ph78.preheader:                               ; preds = %25
-  %27 = getelementptr %struct.ListElement, ptr %.039, i64 %.066
+  %27 = getelementptr %struct.ListElement, ptr %.038, i64 %.066
   br label %.lr.ph78
 
 .lr.ph78:                                         ; preds = %.lr.ph78.preheader, %_ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_.exit
   %.03676 = phi i64 [ %61, %_ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_.exit ], [ 0, %.lr.ph78.preheader ]
   %.03775 = phi ptr [ %60, %_ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_.exit ], [ %27, %.lr.ph78.preheader ]
-  %.174 = phi ptr [ %59, %_ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_.exit ], [ %.039, %.lr.ph78.preheader ]
+  %.174 = phi ptr [ %59, %_ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_.exit ], [ %.038, %.lr.ph78.preheader ]
   call void @llvm.lifetime.start.p0(i64 23, ptr nonnull %.sroa.28.i)
   %28 = getelementptr inbounds i8, ptr %.174, i64 8
   %29 = getelementptr inbounds i8, ptr %.174, i64 16
@@ -8185,7 +8185,7 @@ _ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT
   br i1 %exitcond83.not, label %._crit_edge79, label %.lr.ph78, !llvm.loop !87
 
 ._crit_edge79:                                    ; preds = %_ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_.exit, %25
-  %.1.lcssa = phi ptr [ %.039, %25 ], [ %59, %_ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_.exit ]
+  %.1.lcssa = phi ptr [ %.038, %25 ], [ %59, %_ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_.exit ]
   %62 = srem i64 %.068, %.066
   %63 = icmp eq i64 %62, 0
   br i1 %63, label %_ZSt11swap_rangesIP11ListElementS1_ET0_T_S3_S2_.exit, label %64
@@ -8195,7 +8195,7 @@ _ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT
   br label %.backedge
 
 66:                                               ; preds = %22
-  %67 = getelementptr %struct.ListElement, ptr %.039, i64 %.068
+  %67 = getelementptr %struct.ListElement, ptr %.038, i64 %.068
   %68 = sub i64 0, %23
   %69 = getelementptr %struct.ListElement, ptr %67, i64 %68
   %70 = icmp sgt i64 %.066, 0
@@ -8290,7 +8290,7 @@ _ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %_ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_.exit53, %66
-  %.2.lcssa = phi ptr [ %69, %66 ], [ %.039, %_ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_.exit53 ]
+  %.2.lcssa = phi ptr [ %69, %66 ], [ %.038, %_ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS4_ESt18is_move_assignableIS4_EEE5valueEvE4typeERS4_SD_.exit53 ]
   %105 = srem i64 %.068, %23
   %106 = icmp eq i64 %105, 0
   br i1 %106, label %_ZSt11swap_rangesIP11ListElementS1_ET0_T_S3_S2_.exit, label %.backedge
@@ -8298,12 +8298,12 @@ _ZSt4swapI11ListElementENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT
 .backedge:                                        ; preds = %._crit_edge, %64
   %.068.be = phi i64 [ %.066, %64 ], [ %23, %._crit_edge ]
   %.066.be = phi i64 [ %65, %64 ], [ %105, %._crit_edge ]
-  %.039.be = phi ptr [ %.1.lcssa, %64 ], [ %.2.lcssa, %._crit_edge ]
+  %.038.be = phi ptr [ %.1.lcssa, %64 ], [ %.2.lcssa, %._crit_edge ]
   br label %22, !llvm.loop !89
 
 _ZSt11swap_rangesIP11ListElementS1_ET0_T_S3_S2_.exit: ; preds = %._crit_edge, %._crit_edge79, %.lr.ph.i, %5, %3
-  %.038 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge79 ], [ %21, %._crit_edge ]
-  ret ptr %.038
+  %.039 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %1, %.lr.ph.i ], [ %21, %._crit_edge79 ], [ %21, %._crit_edge ]
+  ret ptr %.039
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

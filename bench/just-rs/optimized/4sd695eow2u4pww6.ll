@@ -91,7 +91,7 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h2c
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %40
   %.sroa.0.0 = phi i64 [ %.val, %.lr.ph.preheader ], [ %.sroa.0.0.copyload89, %40 ]
-  %.02385 = phi i64 [ 0, %.lr.ph.preheader ], [ %41, %40 ]
+  %.02285 = phi i64 [ 0, %.lr.ph.preheader ], [ %41, %40 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   store i64 %.sroa.0.0, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
@@ -115,7 +115,7 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h2c
           to label %40 unwind label %.thread94
 
 36:                                               ; preds = %.lr.ph
-  %37 = add i64 %.02385, 1
+  %37 = add i64 %.02285, 1
   invoke fastcc void @"_ZN11typed_arena18ChunkList$LT$T$GT$7reserve17h75c2bc1912e42841E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %18, i64 noundef %37)
           to label %42 unwind label %71
 
@@ -129,7 +129,7 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h2c
 
 40:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %41 = add i64 %.02385, 1
+  %41 = add i64 %.02285, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.10)
@@ -157,7 +157,7 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h2c
   %50 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %48, i64 0, i64 %49
   %51 = getelementptr inbounds i8, ptr %50, i64 16
   %52 = load i64, ptr %51, align 8, !noundef !8
-  %53 = sub i64 %52, %.02385
+  %53 = sub i64 %52, %.02285
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   %54 = invoke { i64, i64 } @_ZN4core5slice5index5range17hb75992766ca8132fE.llvm.4740080591946275097(i64 noundef %53, i64 noundef %52, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f064b0e555c074fc1146a07895a96afd.37.llvm.4740080591946275097)
@@ -354,7 +354,7 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h32
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %40
   %.sroa.0.0 = phi i64 [ %.val, %.lr.ph.preheader ], [ %.sroa.0.0.copyload89, %40 ]
-  %.02385 = phi i64 [ 0, %.lr.ph.preheader ], [ %41, %40 ]
+  %.02285 = phi i64 [ 0, %.lr.ph.preheader ], [ %41, %40 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   store i64 %.sroa.0.0, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10, i64 16, i1 false)
@@ -378,7 +378,7 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h32
           to label %40 unwind label %.thread94
 
 36:                                               ; preds = %.lr.ph
-  %37 = add i64 %.02385, 1
+  %37 = add i64 %.02285, 1
   invoke fastcc void @"_ZN11typed_arena18ChunkList$LT$T$GT$7reserve17h08b6dd9da821d536E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %18, i64 noundef %37)
           to label %42 unwind label %71
 
@@ -392,7 +392,7 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h32
 
 40:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %41 = add i64 %.02385, 1
+  %41 = add i64 %.02285, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.10)
@@ -420,7 +420,7 @@ define hidden { ptr, i64 } @"_ZN11typed_arena14Arena$LT$T$GT$12alloc_extend17h32
   %50 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %48, i64 0, i64 %49
   %51 = getelementptr inbounds i8, ptr %50, i64 16
   %52 = load i64, ptr %51, align 8, !noundef !8
-  %53 = sub i64 %52, %.02385
+  %53 = sub i64 %52, %.02285
   tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
   %54 = invoke { i64, i64 } @_ZN4core5slice5index5range17hb75992766ca8132fE.llvm.4740080591946275097(i64 noundef %53, i64 noundef %52, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f064b0e555c074fc1146a07895a96afd.37.llvm.4740080591946275097)

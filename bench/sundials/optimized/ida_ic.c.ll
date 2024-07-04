@@ -157,11 +157,11 @@ define i32 @IDACalcIC(ptr noundef %0, i32 noundef %1, double noundef %2) local_u
   %79 = fdiv double 5.000000e-01, %72
   %80 = fcmp ogt double %78, %79
   %81 = fdiv double 5.000000e-01, %78
-  %.0106 = select i1 %80, double %81, double %72
+  %.0 = select i1 %80, double %81, double %72
   %82 = load double, ptr %26, align 8
   %83 = fcmp ogt double %82, %2
-  %84 = fneg double %.0106
-  %.1 = select i1 %83, double %84, double %.0106
+  %84 = fneg double %.0
+  %.1 = select i1 %83, double %84, double %.0
   %85 = getelementptr inbounds i8, ptr %0, i64 656
   store double %.1, ptr %85, align 8
   br i1 %19, label %89, label %.thread205
@@ -188,7 +188,7 @@ define i32 @IDACalcIC(ptr noundef %0, i32 noundef %1, double noundef %2) local_u
   %96 = phi ptr [ %88, %.thread205 ], [ %95, %89 ]
   %97 = phi ptr [ %87, %.thread205 ], [ %94, %89 ]
   %98 = phi ptr [ %86, %.thread205 ], [ %93, %89 ]
-  %.0108209 = phi i32 [ 1, %.thread205 ], [ %92, %89 ]
+  %.0111209 = phi i32 [ 1, %.thread205 ], [ %92, %89 ]
   %99 = getelementptr inbounds i8, ptr %0, i64 472
   %100 = getelementptr inbounds i8, ptr %0, i64 112
   %101 = getelementptr inbounds i8, ptr %0, i64 16
@@ -217,7 +217,7 @@ define i32 @IDACalcIC(ptr noundef %0, i32 noundef %1, double noundef %2) local_u
   br label %.preheader
 
 .preheader.us:                                    ; preds = %89, %129
-  %.0105175.us = phi i32 [ %134, %129 ], [ 1, %89 ]
+  %.0110174.us = phi i32 [ %134, %129 ], [ 1, %89 ]
   %124 = load ptr, ptr %94, align 8
   %125 = load ptr, ptr %43, align 8
   %126 = load ptr, ptr %74, align 8
@@ -233,18 +233,18 @@ define i32 @IDACalcIC(ptr noundef %0, i32 noundef %1, double noundef %2) local_u
   %132 = load ptr, ptr %46, align 8
   %133 = load ptr, ptr %52, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %132, ptr noundef %133) #3
-  %134 = add nuw nsw i32 %.0105175.us, 1
+  %134 = add nuw nsw i32 %.0110174.us, 1
   %exitcond204.not = icmp eq i32 %134, 3
   br i1 %exitcond204.not, label %IDAnlsIC.exit.thread134, label %.preheader.us
 
 .preheader:                                       ; preds = %.preheader.preheader, %358
-  %.0105175 = phi i32 [ %363, %358 ], [ 1, %.preheader.preheader ]
-  %.2174 = phi double [ %.3172, %358 ], [ %.1, %.preheader.preheader ]
+  %.2175 = phi double [ %.3172, %358 ], [ %.1, %.preheader.preheader ]
+  %.0110174 = phi i32 [ %363, %358 ], [ 1, %.preheader.preheader ]
   br label %135
 
 135:                                              ; preds = %349, %.preheader
-  %.3172 = phi double [ %.2174, %.preheader ], [ %350, %349 ]
-  %.0107171 = phi i32 [ 1, %.preheader ], [ %352, %349 ]
+  %.3172 = phi double [ %.2175, %.preheader ], [ %350, %349 ]
+  %.0112171 = phi i32 [ 1, %.preheader ], [ %352, %349 ]
   %136 = load ptr, ptr %40, align 8
   %137 = load ptr, ptr %99, align 8
   %138 = load ptr, ptr %100, align 8
@@ -274,7 +274,7 @@ define i32 @IDACalcIC(ptr noundef %0, i32 noundef %1, double noundef %2) local_u
   br i1 %.not4260.i, label %IDAnlsIC.exit.thread130, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %150, %333
-  %.03861.i = phi i32 [ %336, %333 ], [ 1, %150 ]
+  %.061.i = phi i32 [ %336, %333 ], [ 1, %150 ]
   %154 = load ptr, ptr %107, align 8
   %.not43.i = icmp eq ptr %154, null
   br i1 %.not43.i, label %164, label %155
@@ -339,7 +339,7 @@ define i32 @IDACalcIC(ptr noundef %0, i32 noundef %1, double noundef %2) local_u
   br i1 %191, label %.lr.ph.i.i, label %IDANewtonIC.exit.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %321
-  %.03256.i.i = phi i32 [ %324, %321 ], [ 0, %.preheader.i.i ]
+  %.03156.i.i = phi i32 [ %324, %321 ], [ 0, %.preheader.i.i ]
   %.155.i.i = phi double [ %.1.i.i.i, %321 ], [ %.043.i.i, %.preheader.i.i ]
   %192 = load i64, ptr %112, align 8
   %193 = add nsw i64 %192, 1
@@ -406,9 +406,9 @@ IDANewy.exit.i.i.i:                               ; preds = %211, %204
 
 228:                                              ; preds = %226, %IDANewy.exit.i.i.i, %.lr.ph.i.i
   %.044.i.i = phi double [ %.155.i.i, %.lr.ph.i.i ], [ %223, %226 ], [ %.155.i.i, %IDANewy.exit.i.i.i ]
-  %.058.i.i.i = phi double [ 1.000000e+00, %.lr.ph.i.i ], [ %222, %226 ], [ 1.000000e+00, %IDANewy.exit.i.i.i ]
+  %.057.i.i.i = phi double [ 1.000000e+00, %.lr.ph.i.i ], [ %222, %226 ], [ 1.000000e+00, %IDANewy.exit.i.i.i ]
   %229 = fmul double %198, -2.000000e+00
-  %230 = fmul double %229, %.058.i.i.i
+  %230 = fmul double %229, %.057.i.i.i
   %231 = load double, ptr %120, align 8
   %232 = fdiv double %231, %.044.i.i
   %233 = load i32, ptr %18, align 8
@@ -431,8 +431,8 @@ IDANewy.exit.i.i.i:                               ; preds = %211, %204
   br label %242
 
 242:                                              ; preds = %304, %.lr.ph.i.i.i
-  %.05770.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %308, %304 ]
-  %.05969.i.i.i = phi double [ 1.000000e+00, %.lr.ph.i.i.i ], [ %305, %304 ]
+  %.070.i.i.i = phi double [ 1.000000e+00, %.lr.ph.i.i.i ], [ %305, %304 ]
+  %.05969.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %308, %304 ]
   %243 = load i32, ptr %18, align 8
   %244 = icmp eq i32 %243, 1
   br i1 %244, label %245, label %IDANewyyp.exit.i.i.i
@@ -445,7 +445,7 @@ IDANewy.exit.i.i.i:                               ; preds = %211, %204
   %249 = load ptr, ptr %46, align 8
   %250 = load double, ptr %98, align 8
   %251 = fneg double %250
-  %252 = fmul double %.05969.i.i.i, %251
+  %252 = fmul double %.070.i.i.i, %251
   %253 = load ptr, ptr %114, align 8
   %254 = load ptr, ptr %116, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %249, double noundef %252, ptr noundef %253, ptr noundef %254) #3
@@ -457,7 +457,7 @@ IDANewy.exit.i.i.i:                               ; preds = %211, %204
 IDANewyyp.exit.i.i.i:                             ; preds = %245, %242
   %.sink83.i.i.i = phi ptr [ %114, %245 ], [ %102, %242 ]
   %257 = load ptr, ptr %43, align 8
-  %258 = fneg double %.05969.i.i.i
+  %258 = fneg double %.070.i.i.i
   %259 = load ptr, ptr %.sink83.i.i.i, align 8
   %260 = load ptr, ptr %115, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %257, double noundef %258, ptr noundef %259, ptr noundef %260) #3
@@ -521,20 +521,20 @@ IDAfnorm.exit.i.i.i:                              ; preds = %290, %284
 297:                                              ; preds = %IDAfnorm.exit.i.i.i
   %298 = fmul double %.1.i.i.i, %.1.i.i.i
   %299 = fmul double %298, 5.000000e-01
-  %300 = tail call double @llvm.fmuladd.f64(double %241, double %.05969.i.i.i, double %198)
+  %300 = tail call double @llvm.fmuladd.f64(double %241, double %.070.i.i.i, double %198)
   %301 = fcmp ugt double %299, %300
   br i1 %301, label %302, label %311
 
 302:                                              ; preds = %297
-  %303 = fcmp olt double %.05969.i.i.i, %232
+  %303 = fcmp olt double %.070.i.i.i, %232
   br i1 %303, label %.loopexit, label %304
 
 304:                                              ; preds = %302
-  %305 = fmul double %.05969.i.i.i, 5.000000e-01
+  %305 = fmul double %.070.i.i.i, 5.000000e-01
   %306 = load i32, ptr %71, align 4
   %307 = add nsw i32 %306, 1
   store i32 %307, ptr %71, align 4
-  %308 = add nuw nsw i32 %.05770.i.i.i, 1
+  %308 = add nuw nsw i32 %.05969.i.i.i, 1
   %309 = load i32, ptr %121, align 4
   %310 = icmp eq i32 %308, %309
   br i1 %310, label %.loopexit, label %242
@@ -562,7 +562,7 @@ IDALineSrch.exit.i.i:                             ; preds = %316, %311
   %322 = load ptr, ptr %109, align 8
   %323 = load ptr, ptr %102, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %322, ptr noundef %323) #3
-  %324 = add nuw nsw i32 %.03256.i.i, 1
+  %324 = add nuw nsw i32 %.03156.i.i, 1
   %325 = load i32, ptr %111, align 8
   %326 = icmp slt i32 %324, %325
   br i1 %326, label %.lr.ph.i.i, label %327
@@ -584,13 +584,13 @@ IDANewtonIC.exit.i:                               ; preds = %327, %.preheader.i.
   %334 = load ptr, ptr %105, align 8
   %335 = load ptr, ptr %102, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %334, ptr noundef %335) #3
-  %336 = add nuw nsw i32 %.03861.i, 1
+  %336 = add nuw nsw i32 %.061.i, 1
   %337 = load i32, ptr %106, align 4
-  %.not42.not.i = icmp slt i32 %.03861.i, %337
+  %.not42.not.i = icmp slt i32 %.061.i, %337
   br i1 %.not42.not.i, label %.lr.ph.i, label %.loopexit
 
 .thread:                                          ; preds = %149, %135, %164, %155, %272, %IDANewyyp.exit.i.i.i
-  %.0.i.ph.ph = phi i32 [ -7, %272 ], [ -8, %IDANewyyp.exit.i.i.i ], [ -7, %164 ], [ -6, %155 ], [ -12, %149 ], [ -8, %135 ]
+  %.038.i.ph.ph = phi i32 [ -7, %272 ], [ -8, %IDANewyyp.exit.i.i.i ], [ -7, %164 ], [ -6, %155 ], [ -12, %149 ], [ -8, %135 ]
   %338 = load i64, ptr %123, align 8
   %339 = add nsw i64 %338, 1
   store i64 %339, ptr %123, align 8
@@ -598,11 +598,11 @@ IDANewtonIC.exit.i:                               ; preds = %327, %.preheader.i.
 
 .loopexit:                                        ; preds = %163, %333, %IDANewtonIC.exit.i, %174, %327, %216, %238, %304, %302, %271, %283
   %.not120 = phi i1 [ false, %283 ], [ false, %271 ], [ false, %302 ], [ false, %304 ], [ false, %238 ], [ false, %216 ], [ false, %163 ], [ true, %333 ], [ true, %IDANewtonIC.exit.i ], [ false, %174 ], [ false, %327 ]
-  %.0.i.ph = phi i32 [ 3, %304 ], [ 3, %302 ], [ 1, %271 ], [ 1, %283 ], [ 2, %216 ], [ 3, %238 ], [ 1, %163 ], [ 5, %333 ], [ 5, %IDANewtonIC.exit.i ], [ 1, %174 ], [ 4, %327 ]
+  %.038.i.ph = phi i32 [ 3, %304 ], [ 3, %302 ], [ 1, %271 ], [ 1, %283 ], [ 2, %216 ], [ 3, %238 ], [ 1, %163 ], [ 5, %333 ], [ 5, %IDANewtonIC.exit.i ], [ 1, %174 ], [ 4, %327 ]
   %340 = load i64, ptr %123, align 8
   %341 = add nsw i64 %340, 1
   store i64 %341, ptr %123, align 8
-  %342 = icmp eq i32 %.0107171, %.0108209
+  %342 = icmp eq i32 %.0112171, %.0111209
   br i1 %342, label %IDAnlsIC.exit.thread134, label %343
 
 343:                                              ; preds = %.loopexit
@@ -622,7 +622,7 @@ IDANewtonIC.exit.i:                               ; preds = %327, %.preheader.i.
   %351 = fdiv double 1.000000e+00, %350
   store double %351, ptr %98, align 8
   store double %350, ptr %85, align 8
-  %352 = add nuw nsw i32 %.0107171, 1
+  %352 = add nuw nsw i32 %.0112171, 1
   br label %135
 
 IDAnlsIC.exit.thread130:                          ; preds = %150, %187, %IDALineSrch.exit.i.i
@@ -641,12 +641,12 @@ IDAnlsIC.exit.thread130:                          ; preds = %150, %187, %IDALine
   %361 = load ptr, ptr %46, align 8
   %362 = load ptr, ptr %52, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %361, ptr noundef %362) #3
-  %363 = add nuw nsw i32 %.0105175, 1
+  %363 = add nuw nsw i32 %.0110174, 1
   %exitcond.not = icmp eq i32 %363, 3
   br i1 %exitcond.not, label %IDAnlsIC.exit.thread134, label %.preheader
 
 IDAnlsIC.exit.thread134:                          ; preds = %358, %IDAnlsIC.exit.thread130, %.loopexit, %129, %.preheader.us, %.thread
-  %.3112 = phi i32 [ %.0.i.ph.ph, %.thread ], [ -24, %.preheader.us ], [ 0, %129 ], [ %.0.i.ph, %.loopexit ], [ -24, %IDAnlsIC.exit.thread130 ], [ 0, %358 ]
+  %.3109 = phi i32 [ %.038.i.ph.ph, %.thread ], [ -24, %.preheader.us ], [ 0, %129 ], [ %.038.i.ph, %.loopexit ], [ -24, %IDAnlsIC.exit.thread130 ], [ 0, %358 ]
   %.4 = phi double [ %.3172, %.thread ], [ %.1, %.preheader.us ], [ %.1, %129 ], [ %.3172, %.loopexit ], [ %.3172, %IDAnlsIC.exit.thread130 ], [ %.3172, %358 ]
   %364 = load ptr, ptr %43, align 8
   tail call void @N_VDestroy(ptr noundef %364) #3
@@ -660,16 +660,16 @@ IDAnlsIC.exit.thread134:                          ; preds = %358, %IDAnlsIC.exit
   br label %368
 
 368:                                              ; preds = %366, %IDAnlsIC.exit.thread134
-  %.not123 = icmp eq i32 %.3112, 0
+  %.not123 = icmp eq i32 %.3109, 0
   br i1 %.not123, label %371, label %369
 
 369:                                              ; preds = %368
-  %370 = tail call fastcc i32 @IDAICFailFlag(ptr noundef nonnull %0, i32 noundef %.3112)
+  %370 = tail call fastcc i32 @IDAICFailFlag(ptr noundef nonnull %0, i32 noundef %.3109)
   br label %371
 
 371:                                              ; preds = %368, %11, %369, %62, %38, %24, %16, %10, %5
-  %.0 = phi i32 [ -20, %5 ], [ -23, %10 ], [ -22, %16 ], [ -22, %24 ], [ -22, %38 ], [ -22, %62 ], [ %370, %369 ], [ -22, %11 ], [ 0, %368 ]
-  ret i32 %.0
+  %.0105 = phi i32 [ -20, %5 ], [ -23, %10 ], [ -22, %16 ], [ -22, %24 ], [ -22, %38 ], [ -22, %62 ], [ %370, %369 ], [ -22, %11 ], [ 0, %368 ]
+  ret i32 %.0105
 }
 
 declare void @IDAProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1

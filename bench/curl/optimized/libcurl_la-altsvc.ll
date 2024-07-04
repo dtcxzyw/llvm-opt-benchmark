@@ -588,8 +588,8 @@ do.body12thread-pre-split:                        ; preds = %do.end6
 do.body12:                                        ; preds = %do.body12thread-pre-split, %do.cond
   %3 = phi i8 [ %.pr, %do.body12thread-pre-split ], [ %34, %do.cond ]
   %p.0 = phi ptr [ %p.1.i, %do.body12thread-pre-split ], [ %p.13, %do.cond ]
-  %entries.0 = phi i64 [ 0, %do.body12thread-pre-split ], [ %entries.1, %do.cond ]
   %dstport.0 = phi i16 [ %srcport, %do.body12thread-pre-split ], [ %dstport.1, %do.cond ]
+  %entries.0 = phi i64 [ 0, %do.body12thread-pre-split ], [ %entries.1, %do.cond ]
   %cmp = icmp eq i8 %3, 61
   br i1 %cmp, label %if.then14, label %return
 

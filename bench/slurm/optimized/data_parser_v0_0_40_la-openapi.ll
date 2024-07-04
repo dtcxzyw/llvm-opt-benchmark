@@ -356,12 +356,12 @@ define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, 
   br label %46
 
 46:                                               ; preds = %37, %.thread, %28, %31, %43
-  %.063 = phi i32 [ %45, %43 ], [ 11, %31 ], [ 11, %28 ], [ 10, %.thread ], [ %spec.select89, %37 ]
+  %.062 = phi i32 [ %45, %43 ], [ 11, %31 ], [ 11, %28 ], [ 10, %.thread ], [ %spec.select89, %37 ]
   %47 = getelementptr inbounds i8, ptr %1, i64 24
   %48 = load ptr, ptr %47, align 8
   %.not79 = icmp eq ptr %48, null
   %spec.select = select i1 %.not79, ptr %3, ptr %48
-  %49 = tail call ptr @set_openapi_props(ptr noundef %0, i32 noundef %.063, ptr noundef %spec.select)
+  %49 = tail call ptr @set_openapi_props(ptr noundef %0, i32 noundef %.062, ptr noundef %spec.select)
   %.not80 = icmp eq ptr %49, null
   br i1 %.not80, label %.loopexit, label %50
 

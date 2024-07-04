@@ -141,11 +141,11 @@ if.end134:                                        ; preds = %if.end124
   br label %if.end146
 
 if.end146:                                        ; preds = %if.end134, %if.end105
+  %expDiff.0 = phi i8 [ %narrow, %if.end105 ], [ %sub, %if.end134 ]
   %signZ.1 = phi i8 [ %frombool70, %if.end105 ], [ %frombool63, %if.end134 ]
   %expZ.1.in = phi i8 [ %conv2, %if.end105 ], [ %conv8, %if.end134 ]
   %sigX.0.in = phi i64 [ %and9, %if.end105 ], [ %and3, %if.end134 ]
   %sigY.0 = phi i64 [ %add112, %if.end105 ], [ %add145, %if.end134 ]
-  %expDiff.0 = phi i8 [ %narrow, %if.end105 ], [ %sub, %if.end134 ]
   %sigX.0 = or disjoint i64 %sigX.0.in, 1024
   %expZ.1 = add nuw nsw i8 %expZ.1.in, 19
   %conv147 = zext nneg i8 %expDiff.0 to i64

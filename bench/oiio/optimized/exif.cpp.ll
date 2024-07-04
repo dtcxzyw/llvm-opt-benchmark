@@ -1649,13 +1649,13 @@ if.end:                                           ; preds = %_ZN18OpenImageIO_v2
   %add = add i64 %mul.i, %conv
   %cmp3 = icmp ugt i64 %add, %data.coerce1
   %add.ptr = getelementptr inbounds i8, ptr %data.coerce0, i64 %conv
-  %spec.select = select i1 %cmp3, i64 0, i64 %mul.i
-  %spec.select9 = select i1 %cmp3, ptr null, ptr %add.ptr
+  %spec.select = select i1 %cmp3, ptr null, ptr %add.ptr
+  %spec.select9 = select i1 %cmp3, i64 0, i64 %mul.i
   br label %return
 
 return:                                           ; preds = %_ZN18OpenImageIO_v2_6_014tiff_data_sizeERK12TIFFDirEntry.exit, %if.end
-  %retval.sroa.4.0 = phi i64 [ %spec.select, %if.end ], [ %mul.i, %_ZN18OpenImageIO_v2_6_014tiff_data_sizeERK12TIFFDirEntry.exit ]
-  %retval.sroa.0.0 = phi ptr [ %spec.select9, %if.end ], [ %tdir_offset, %_ZN18OpenImageIO_v2_6_014tiff_data_sizeERK12TIFFDirEntry.exit ]
+  %retval.sroa.0.0 = phi ptr [ %spec.select, %if.end ], [ %tdir_offset, %_ZN18OpenImageIO_v2_6_014tiff_data_sizeERK12TIFFDirEntry.exit ]
+  %retval.sroa.4.0 = phi i64 [ %spec.select9, %if.end ], [ %mul.i, %_ZN18OpenImageIO_v2_6_014tiff_data_sizeERK12TIFFDirEntry.exit ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -7348,8 +7348,8 @@ if.else57.i.i:                                    ; preds = %if.else46.i.i
   br i1 %cmp.not.i.i.i.i, label %while.body.us.us.i.i, label %while.body.i.i6
 
 while.body.us.us.i.i:                             ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_011encode_exifERKNSA_9ImageSpecERS4_IcSaIcEENSA_6endianEE3$_0EEEvT_SK_SK_SK_T0_.exit.i", %if.end.us.us.i.i
-  %__last.sroa.0.0.us.us.i.i = phi ptr [ %__last.sroa.0.1.us.us.us.i.i, %if.end.us.us.i.i ], [ %storemerge16, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_011encode_exifERKNSA_9ImageSpecERS4_IcSaIcEENSA_6endianEE3$_0EEEvT_SK_SK_SK_T0_.exit.i" ]
   %__first.sroa.0.0.us.us.i.i = phi ptr [ %incdec.ptr.i.us.us.us.i.i, %if.end.us.us.i.i ], [ %add.ptr.i2.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_011encode_exifERKNSA_9ImageSpecERS4_IcSaIcEENSA_6endianEE3$_0EEEvT_SK_SK_SK_T0_.exit.i" ]
+  %__last.sroa.0.0.us.us.i.i = phi ptr [ %__last.sroa.0.1.us.us.us.i.i, %if.end.us.us.i.i ], [ %storemerge16, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_011encode_exifERKNSA_9ImageSpecERS4_IcSaIcEENSA_6endianEE3$_0EEEvT_SK_SK_SK_T0_.exit.i" ]
   %call3.val.i.us.us.i.i = load i16, ptr %__first.coerce, align 4
   br label %while.cond5.us.us.us.i.i
 
@@ -7380,8 +7380,8 @@ while.end20.split.us.us.us.i.i:                   ; preds = %while.cond12.us.us.
   br i1 %cmp.i.us.us.i.i, label %if.end.us.us.i.i, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_011encode_exifERKNSA_9ImageSpecERS4_IcSaIcEENSA_6endianEE3$_0EEET_SK_SK_T0_.exit"
 
 while.body.i.i6:                                  ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_011encode_exifERKNSA_9ImageSpecERS4_IcSaIcEENSA_6endianEE3$_0EEEvT_SK_SK_SK_T0_.exit.i", %if.end.i.i
-  %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge16, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_011encode_exifERKNSA_9ImageSpecERS4_IcSaIcEENSA_6endianEE3$_0EEEvT_SK_SK_SK_T0_.exit.i" ]
   %__first.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i ], [ %add.ptr.i2.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_011encode_exifERKNSA_9ImageSpecERS4_IcSaIcEENSA_6endianEE3$_0EEEvT_SK_SK_SK_T0_.exit.i" ]
+  %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge16, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP12TIFFDirEntrySt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIZN18OpenImageIO_v2_6_011encode_exifERKNSA_9ImageSpecERS4_IcSaIcEENSA_6endianEE3$_0EEEvT_SK_SK_SK_T0_.exit.i" ]
   %call3.val.i.i7.i = load i16, ptr %__first.coerce, align 4
   %3 = tail call i16 @llvm.bswap.i16(i16 %call3.val.i.i7.i)
   br label %while.cond5.i.i

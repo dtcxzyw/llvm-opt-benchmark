@@ -3092,11 +3092,11 @@ define internal i32 @dissect_skinny_pdu(ptr noundef %0, ptr noundef %1, ptr noun
 
 8:                                                ; preds = %4, %8
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %8 ]
-  %.06374 = phi ptr [ null, %4 ], [ %spec.select, %8 ]
+  %.06274 = phi ptr [ null, %4 ], [ %spec.select, %8 ]
   %9 = getelementptr [171 x %struct._skinny_opcode_map_t], ptr @skinny_opcode_map, i64 0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 16
   %11 = icmp eq i32 %10, %7
-  %spec.select = select i1 %11, ptr %9, ptr %.06374
+  %spec.select = select i1 %11, ptr %9, ptr %.06274
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 171
   br i1 %exitcond.not, label %12, label %8, !llvm.loop !4
@@ -3131,7 +3131,7 @@ define internal i32 @dissect_skinny_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   br label %30
 
 30:                                               ; preds = %16, %12
-  %.062 = phi ptr [ %15, %12 ], [ %18, %16 ]
+  %.063 = phi ptr [ %15, %12 ], [ %18, %16 ]
   %31 = load i32, ptr @pi_current, align 4
   %32 = add i32 %31, 1
   %33 = icmp eq i32 %32, 10
@@ -3203,7 +3203,7 @@ define internal i32 @dissect_skinny_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not71, label %74, label %.sink.split
 
 .sink.split:                                      ; preds = %68
-  store i32 %70, ptr %.062, align 8
+  store i32 %70, ptr %.063, align 8
   %71 = load i32, ptr %69, align 8
   %72 = icmp eq i32 %71, 1
   %73 = load ptr, ptr %56, align 8
@@ -3237,7 +3237,7 @@ define internal i32 @dissect_skinny_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not73, label %90, label %89
 
 89:                                               ; preds = %86
-  tail call void %88(ptr noundef %85, ptr noundef nonnull %1, ptr noundef nonnull %.062) #6
+  tail call void %88(ptr noundef %85, ptr noundef nonnull %1, ptr noundef nonnull %.063) #6
   br label %90
 
 90:                                               ; preds = %89, %86, %82

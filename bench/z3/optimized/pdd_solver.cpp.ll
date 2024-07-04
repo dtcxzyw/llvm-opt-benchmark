@@ -4448,9 +4448,9 @@ _ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit: ; preds = %while.body
   br i1 %cmp5.not13, label %if.end16, label %for.body
 
 for.body:                                         ; preds = %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit, %for.inc
-  %eq.015 = phi ptr [ %eq.1, %for.inc ], [ null, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit ]
-  %__begin2.014 = phi ptr [ %incdec.ptr, %for.inc ], [ %4, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit ]
-  %7 = load ptr, ptr %__begin2.014, align 8
+  %__begin2.015 = phi ptr [ %incdec.ptr, %for.inc ], [ %4, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit ]
+  %eq.014 = phi ptr [ %eq.1, %for.inc ], [ null, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit ]
+  %7 = load ptr, ptr %__begin2.015, align 8
   %m_poly.i = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i32, ptr %7, align 8
   %cmp8 = icmp eq i32 %8, 2
@@ -4474,12 +4474,12 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %cmp10, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %land.lhs.true
-  %tobool.not = icmp eq ptr %eq.015, null
+  %tobool.not = icmp eq ptr %eq.014, null
   br i1 %tobool.not, label %if.then12, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then
   %14 = load ptr, ptr %this, align 8
-  %m_poly.i1.i = getelementptr inbounds i8, ptr %eq.015, i64 8
+  %m_poly.i1.i = getelementptr inbounds i8, ptr %eq.014, i64 8
   %call3.i = tail call noundef zeroext i1 @_ZN2dd11pdd_manager5lm_ltERKNS_3pddES3_(ptr noundef nonnull align 8 dereferenceable(952) %14, ptr noundef nonnull align 8 dereferenceable(16) %m_poly.i, ptr noundef nonnull align 8 dereferenceable(16) %m_poly.i1.i)
   br i1 %call3.i, label %if.then12, label %for.inc
 
@@ -4487,8 +4487,8 @@ if.then12:                                        ; preds = %lor.lhs.false, %if.
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then12, %lor.lhs.false
-  %eq.1 = phi ptr [ %7, %if.then12 ], [ %eq.015, %lor.lhs.false ], [ %eq.015, %land.lhs.true ], [ %eq.015, %for.body ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.014, i64 8
+  %eq.1 = phi ptr [ %7, %if.then12 ], [ %eq.014, %lor.lhs.false ], [ %eq.014, %land.lhs.true ], [ %eq.014, %for.body ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.015, i64 8
   %cmp5.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp5.not, label %for.end, label %for.body
 

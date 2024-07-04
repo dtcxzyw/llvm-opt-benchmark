@@ -10182,10 +10182,10 @@ while.body.lr.ph.i:                               ; preds = %if.then8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread20.i, %while.body.lr.ph.i
-  %__first.addr.029.i = phi ptr [ %__middle.tr97, %while.body.lr.ph.i ], [ %10, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread20.i ]
-  %__len.028.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %9, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread20.i ]
-  %shr.i = lshr i64 %__len.028.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %__first.addr.029.i, i64 %shr.i
+  %__len.029.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %10, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread20.i ]
+  %__first.addr.028.i = phi ptr [ %__middle.tr97, %while.body.lr.ph.i ], [ %9, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread20.i ]
+  %shr.i = lshr i64 %__len.029.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %__first.addr.028.i, i64 %shr.i
   %.val.i = load i32, ptr %add.ptr.i.i.i, align 4
   %__val.val.i = load i32, ptr %add.ptr.i.i, align 4
   %call.i.i.i = tail call noundef float @_ZNK18OpenImageIO_v2_6_08DeepData10deep_valueElii(ptr noundef nonnull align 8 dereferenceable(20) %agg.tmp9.sroa.0.sroa.0.0.copyload, i64 noundef %conv.i.i.i, i32 noundef %agg.tmp9.sroa.0.sroa.3.0.copyload, i32 noundef %.val.i)
@@ -10196,7 +10196,7 @@ while.body.i:                                     ; preds = %_ZN9__gnu_cxx5__ops
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread.i: ; preds = %while.body.i
   %incdec.ptr13.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %6 = xor i64 %shr.i, -1
-  %sub214.i = add nsw i64 %__len.028.i, %6
+  %sub214.i = add nsw i64 %__len.029.i, %6
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread20.i
 
 if.end.i.i.i:                                     ; preds = %while.body.i
@@ -10211,23 +10211,23 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleC
 
 7:                                                ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.i
   %8 = xor i64 %shr.i, -1
-  %sub2.i = add nsw i64 %__len.028.i, %8
+  %sub2.i = add nsw i64 %__len.029.i, %8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread20.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread20.i: ; preds = %7, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.i, %if.end.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread.i
-  %9 = phi i64 [ %shr.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.i ], [ %sub2.i, %7 ], [ %sub214.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread.i ], [ %shr.i, %if.end.i.i.i ]
-  %10 = phi ptr [ %__first.addr.029.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.i ], [ %incdec.ptr.i, %7 ], [ %incdec.ptr13.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread.i ], [ %__first.addr.029.i, %if.end.i.i.i ]
-  %cmp.i = icmp sgt i64 %9, 0
+  %9 = phi ptr [ %__first.addr.028.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.i ], [ %incdec.ptr.i, %7 ], [ %incdec.ptr13.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread.i ], [ %__first.addr.028.i, %if.end.i.i.i ]
+  %10 = phi i64 [ %shr.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.i ], [ %sub2.i, %7 ], [ %sub214.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread.i ], [ %shr.i, %if.end.i.i.i ]
+  %cmp.i = icmp sgt i64 %10, 0
   br i1 %cmp.i, label %while.body.i, label %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit, !llvm.loop !92
 
 _ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread20.i
-  %.pre = ptrtoint ptr %10 to i64
+  %.pre = ptrtoint ptr %9 to i64
   br label %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit
 
 _ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit, %if.then8
   %sub.ptr.lhs.cast.i.i.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i, %if.then8 ]
-  %__first.addr.0.lcssa.i = phi ptr [ %10, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit ], [ %__middle.tr97, %if.then8 ]
+  %__first.addr.0.lcssa.i = phi ptr [ %9, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit ], [ %__middle.tr97, %if.then8 ]
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i.pre-phi, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   br label %if.end17
@@ -10247,10 +10247,10 @@ while.body.lr.ph.i49:                             ; preds = %if.else
   br label %while.body.i54
 
 while.body.i54:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread.i, %while.body.lr.ph.i49
-  %__first.addr.027.i = phi ptr [ %__first.tr96, %while.body.lr.ph.i49 ], [ %15, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread.i ]
-  %__len.026.i = phi i64 [ %sub.ptr.div.i.i.i47, %while.body.lr.ph.i49 ], [ %14, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread.i ]
-  %shr.i55 = lshr i64 %__len.026.i, 1
-  %add.ptr.i.i.i58 = getelementptr inbounds i32, ptr %__first.addr.027.i, i64 %shr.i55
+  %__len.027.i = phi i64 [ %sub.ptr.div.i.i.i47, %while.body.lr.ph.i49 ], [ %15, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread.i ]
+  %__first.addr.026.i = phi ptr [ %__first.tr96, %while.body.lr.ph.i49 ], [ %14, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread.i ]
+  %shr.i55 = lshr i64 %__len.027.i, 1
+  %add.ptr.i.i.i58 = getelementptr inbounds i32, ptr %__first.addr.026.i, i64 %shr.i55
   %__val.val.i61 = load i32, ptr %add.ptr.i.i35, align 4
   %.val.i62 = load i32, ptr %add.ptr.i.i.i58, align 4
   %call.i.i.i63 = tail call noundef float @_ZNK18OpenImageIO_v2_6_08DeepData10deep_valueElii(ptr noundef nonnull align 8 dereferenceable(20) %agg.tmp9.sroa.0.sroa.0.0.copyload, i64 noundef %conv.i.i.i51, i32 noundef %agg.tmp9.sroa.0.sroa.3.0.copyload, i32 noundef %__val.val.i61)
@@ -10265,7 +10265,7 @@ if.end.i.i.i66:                                   ; preds = %while.body.i54
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread19.i: ; preds = %if.end.i.i.i66
   %incdec.ptr21.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i58, i64 4
   %11 = xor i64 %shr.i55, -1
-  %sub222.i = add nsw i64 %__len.026.i, %11
+  %sub222.i = add nsw i64 %__len.027.i, %11
   br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread.i
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.i: ; preds = %if.end.i.i.i66
@@ -10274,25 +10274,25 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleC
   %cmp19.i.i.i70 = fcmp olt float %call13.i.i.i68, %call18.i.i.i69
   %incdec.ptr.i71 = getelementptr inbounds i8, ptr %add.ptr.i.i.i58, i64 4
   %12 = xor i64 %shr.i55, -1
-  %sub2.i72 = add nsw i64 %__len.026.i, %12
+  %sub2.i72 = add nsw i64 %__len.027.i, %12
   br i1 %cmp19.i.i.i70, label %13, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread.i
 
 13:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.i
   br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread.i
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread.i: ; preds = %13, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread19.i, %while.body.i54
-  %14 = phi i64 [ %sub2.i72, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.i ], [ %sub222.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread19.i ], [ %shr.i55, %13 ], [ %shr.i55, %while.body.i54 ]
-  %15 = phi ptr [ %incdec.ptr.i71, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.i ], [ %incdec.ptr21.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread19.i ], [ %__first.addr.027.i, %13 ], [ %__first.addr.027.i, %while.body.i54 ]
-  %cmp.i73 = icmp sgt i64 %14, 0
+  %14 = phi ptr [ %incdec.ptr.i71, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.i ], [ %incdec.ptr21.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread19.i ], [ %__first.addr.026.i, %13 ], [ %__first.addr.026.i, %while.body.i54 ]
+  %15 = phi i64 [ %sub2.i72, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.i ], [ %sub222.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread19.i ], [ %shr.i55, %13 ], [ %shr.i55, %while.body.i54 ]
+  %cmp.i73 = icmp sgt i64 %15, 0
   br i1 %cmp.i73, label %while.body.i54, label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit, !llvm.loop !93
 
 _ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread.i
-  %.pre104 = ptrtoint ptr %15 to i64
+  %.pre104 = ptrtoint ptr %14 to i64
   br label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit, %if.else
   %sub.ptr.lhs.cast.i.i74.pre-phi = phi i64 [ %.pre104, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i45, %if.else ]
-  %__first.addr.0.lcssa.i48 = phi ptr [ %15, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit ], [ %__first.tr96, %if.else ]
+  %__first.addr.0.lcssa.i48 = phi ptr [ %14, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit ], [ %__first.tr96, %if.else ]
   %sub.ptr.sub.i.i76 = sub i64 %sub.ptr.lhs.cast.i.i74.pre-phi, %sub.ptr.rhs.cast.i.i.i45
   %sub.ptr.div.i.i77 = ashr exact i64 %sub.ptr.sub.i.i76, 2
   br label %if.end17
@@ -10525,10 +10525,10 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.not21.i, label %_ZSt17__merge_sort_loopIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_T2_.exit, label %while.body.i17
 
 while.body.i17:                                   ; preds = %while.body, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit
-  %__first.addr.023.i = phi ptr [ %add.ptr2.i, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit ], [ %__first, %while.body ]
-  %__result.addr.022.i = phi ptr [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit ], [ %__buffer, %while.body ]
-  %add.ptr.i18 = getelementptr inbounds i32, ptr %__first.addr.023.i, i64 %__step_size.0619
-  %add.ptr2.i = getelementptr i32, ptr %__first.addr.023.i, i64 %mul.i
+  %__result.addr.023.i = phi ptr [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit ], [ %__buffer, %while.body ]
+  %__first.addr.022.i = phi ptr [ %add.ptr2.i, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit ], [ %__first, %while.body ]
+  %add.ptr.i18 = getelementptr inbounds i32, ptr %__first.addr.022.i, i64 %__step_size.0619
+  %add.ptr2.i = getelementptr i32, ptr %__first.addr.022.i, i64 %mul.i
   %agg.tmp11546.sroa.0.0.copyload = load ptr, ptr %agg.tmp115, align 8
   %agg.tmp11546.sroa.5.0.copyload = load i32, ptr %agg.tmp11546.sroa.5.0.agg.tmp115.sroa_idx, align 4
   %agg.tmp11546.sroa.6.0.copyload = load i32, ptr %agg.tmp11546.sroa.6.0.agg.tmp115.sroa_idx, align 8
@@ -10544,8 +10544,8 @@ while.body.i17:                                   ; preds = %while.body, %_ZSt12
   br i1 %cmp.i.i235, label %while.body.i48.us, label %while.body.i48
 
 while.body.i48.us:                                ; preds = %while.body.i17, %while.body.i48.us
-  %__result.addr.028.i.us = phi ptr [ %incdec.ptr3.i.us, %while.body.i48.us ], [ %__result.addr.022.i, %while.body.i17 ]
-  %__first1.addr.027.i.us = phi ptr [ %incdec.ptr2.i.us, %while.body.i48.us ], [ %__first.addr.023.i, %while.body.i17 ]
+  %__result.addr.028.i.us = phi ptr [ %incdec.ptr3.i.us, %while.body.i48.us ], [ %__result.addr.023.i, %while.body.i17 ]
+  %__first1.addr.027.i.us = phi ptr [ %incdec.ptr2.i.us, %while.body.i48.us ], [ %__first.addr.022.i, %while.body.i17 ]
   %0 = load i32, ptr %__first1.addr.027.i.us, align 4
   store i32 %0, ptr %__result.addr.028.i.us, align 4
   %incdec.ptr2.i.us = getelementptr inbounds i8, ptr %__first1.addr.027.i.us, i64 4
@@ -10554,8 +10554,8 @@ while.body.i48.us:                                ; preds = %while.body.i17, %wh
   br i1 %cmp.i49.us.not, label %while.end.i, label %while.body.i48.us, !llvm.loop !99
 
 while.body.i48:                                   ; preds = %while.body.i17, %if.end.i
-  %__result.addr.028.i = phi ptr [ %incdec.ptr3.i, %if.end.i ], [ %__result.addr.022.i, %while.body.i17 ]
-  %__first1.addr.027.i = phi ptr [ %__first1.addr.1.i, %if.end.i ], [ %__first.addr.023.i, %while.body.i17 ]
+  %__result.addr.028.i = phi ptr [ %incdec.ptr3.i, %if.end.i ], [ %__result.addr.023.i, %while.body.i17 ]
+  %__first1.addr.027.i = phi ptr [ %__first1.addr.1.i, %if.end.i ], [ %__first.addr.022.i, %while.body.i17 ]
   %__first2.addr.026.i = phi ptr [ %__first2.addr.1.i, %if.end.i ], [ %add.ptr.i18, %while.body.i17 ]
   %__first2.addr.0.val.i = load i32, ptr %__first2.addr.026.i, align 4
   %__first1.addr.0.val.i = load i32, ptr %__first1.addr.027.i, align 4
@@ -11165,8 +11165,8 @@ _ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_0
   br i1 %cmp.not.i, label %_ZSt17__merge_sort_loopIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_T2_.exit, label %while.body.i17, !llvm.loop !100
 
 _ZSt17__merge_sort_loopIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_T2_.exit: ; preds = %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit, %while.body
-  %__result.addr.0.lcssa.i = phi ptr [ %__buffer, %while.body ], [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit ]
   %__first.addr.0.lcssa.i21 = phi ptr [ %__first, %while.body ], [ %add.ptr2.i, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit ]
+  %__result.addr.0.lcssa.i = phi ptr [ %__buffer, %while.body ], [ %add.ptr.i.i.i.i.i19.i, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit ]
   %sub.ptr.div.lcssa.i = phi i64 [ %sub.ptr.div, %while.body ], [ %sub.ptr.div.i, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit ]
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div.lcssa.i, i64 %__step_size.0619)
   %add.ptr9.i = getelementptr inbounds i32, ptr %__first.addr.0.lcssa.i21, i64 %.sroa.speculated.i
@@ -11189,16 +11189,16 @@ while.body.i29.us.preheader:                      ; preds = %while.body.i29.preh
   br label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i62.us
 
 _ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i62.us:          ; preds = %while.body.i29.us.preheader, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100.us
-  %__first.addr.023.i30.us = phi ptr [ %add.ptr2.i33.us, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100.us ], [ %__buffer, %while.body.i29.us.preheader ]
-  %__result.addr.022.i31.us = phi ptr [ %add.ptr.i.i.i.i.i19.i69.us, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100.us ], [ %__first, %while.body.i29.us.preheader ]
-  %add.ptr2.i33.us = getelementptr inbounds i8, ptr %__first.addr.023.i30.us, i64 %add.ptr2.i33.us.idx
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %__result.addr.022.i31.us, ptr noundef nonnull align 4 dereferenceable(1) %__first.addr.023.i30.us, i64 %add.ptr.i32.us.idx621, i1 false)
-  %add.ptr.i.i.i.i.i.i63.us = getelementptr inbounds i8, ptr %__result.addr.022.i31.us, i64 %add.ptr.i32.us.idx621
+  %__result.addr.023.i30.us = phi ptr [ %add.ptr.i.i.i.i.i19.i69.us, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100.us ], [ %__first, %while.body.i29.us.preheader ]
+  %__first.addr.022.i31.us = phi ptr [ %add.ptr2.i33.us, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100.us ], [ %__buffer, %while.body.i29.us.preheader ]
+  %add.ptr2.i33.us = getelementptr inbounds i8, ptr %__first.addr.022.i31.us, i64 %add.ptr2.i33.us.idx
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %__result.addr.023.i30.us, ptr noundef nonnull align 4 dereferenceable(1) %__first.addr.022.i31.us, i64 %add.ptr.i32.us.idx621, i1 false)
+  %add.ptr.i.i.i.i.i.i63.us = getelementptr inbounds i8, ptr %__result.addr.023.i30.us, i64 %add.ptr.i32.us.idx621
   %sub.ptr.lhs.cast.i.i.i.i.i14.i64.us = ptrtoint ptr %add.ptr2.i33.us to i64
   br i1 %tobool.not.i.i.i.i.i17.i67.us, label %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100.us, label %if.then.i.i.i.i.i18.i68.us
 
 if.then.i.i.i.i.i18.i68.us:                       ; preds = %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i62.us
-  %add.ptr.i32.us = getelementptr inbounds i8, ptr %__first.addr.023.i30.us, i64 %add.ptr.i32.us.idx621
+  %add.ptr.i32.us = getelementptr inbounds i8, ptr %__first.addr.022.i31.us, i64 %add.ptr.i32.us.idx621
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %add.ptr.i.i.i.i.i.i63.us, ptr nonnull align 4 %add.ptr.i32.us, i64 %add.ptr.i32.us.idx621, i1 false)
   br label %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100.us
 
@@ -11210,10 +11210,10 @@ _ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_0
   br i1 %cmp.not.i38.us, label %_ZSt17__merge_sort_loopIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_T2_.exit45, label %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit.i62.us, !llvm.loop !100
 
 while.body.i29:                                   ; preds = %while.body.i29.preheader, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100
-  %__first.addr.023.i30 = phi ptr [ %add.ptr2.i33, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100 ], [ %__buffer, %while.body.i29.preheader ]
-  %__result.addr.022.i31 = phi ptr [ %add.ptr.i.i.i.i.i19.i69, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100 ], [ %__first, %while.body.i29.preheader ]
-  %add.ptr.i32 = getelementptr inbounds i32, ptr %__first.addr.023.i30, i64 %mul.i
-  %add.ptr2.i33 = getelementptr i32, ptr %__first.addr.023.i30, i64 %mul.i23
+  %__result.addr.023.i30 = phi ptr [ %add.ptr.i.i.i.i.i19.i69, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100 ], [ %__first, %while.body.i29.preheader ]
+  %__first.addr.022.i31 = phi ptr [ %add.ptr2.i33, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100 ], [ %__buffer, %while.body.i29.preheader ]
+  %add.ptr.i32 = getelementptr inbounds i32, ptr %__first.addr.022.i31, i64 %mul.i
+  %add.ptr2.i33 = getelementptr i32, ptr %__first.addr.022.i31, i64 %mul.i23
   %agg.tmp22250.sroa.0.0.copyload = load ptr, ptr %agg.tmp222, align 8
   %agg.tmp22250.sroa.5.0.copyload = load i32, ptr %agg.tmp22250.sroa.5.0.agg.tmp222.sroa_idx, align 4
   %agg.tmp22250.sroa.6.0.copyload = load i32, ptr %agg.tmp22250.sroa.6.0.agg.tmp222.sroa_idx, align 8
@@ -11229,8 +11229,8 @@ while.body.i29:                                   ; preds = %while.body.i29.preh
   br i1 %cmp.i.i503, label %while.body.i75.us, label %while.body.i75
 
 while.body.i75.us:                                ; preds = %while.body.i29, %while.body.i75.us
-  %__result.addr.028.i76.us = phi ptr [ %incdec.ptr3.i95.us, %while.body.i75.us ], [ %__result.addr.022.i31, %while.body.i29 ]
-  %__first1.addr.027.i77.us = phi ptr [ %incdec.ptr2.i91.us, %while.body.i75.us ], [ %__first.addr.023.i30, %while.body.i29 ]
+  %__result.addr.028.i76.us = phi ptr [ %incdec.ptr3.i95.us, %while.body.i75.us ], [ %__result.addr.023.i30, %while.body.i29 ]
+  %__first1.addr.027.i77.us = phi ptr [ %incdec.ptr2.i91.us, %while.body.i75.us ], [ %__first.addr.022.i31, %while.body.i29 ]
   %116 = load i32, ptr %__first1.addr.027.i77.us, align 4
   store i32 %116, ptr %__result.addr.028.i76.us, align 4
   %incdec.ptr2.i91.us = getelementptr inbounds i8, ptr %__first1.addr.027.i77.us, i64 4
@@ -11239,8 +11239,8 @@ while.body.i75.us:                                ; preds = %while.body.i29, %wh
   br i1 %cmp.i96.us.not, label %while.end.i53.loopexit, label %while.body.i75.us, !llvm.loop !99
 
 while.body.i75:                                   ; preds = %while.body.i29, %if.end.i92
-  %__result.addr.028.i76 = phi ptr [ %incdec.ptr3.i95, %if.end.i92 ], [ %__result.addr.022.i31, %while.body.i29 ]
-  %__first1.addr.027.i77 = phi ptr [ %__first1.addr.1.i94, %if.end.i92 ], [ %__first.addr.023.i30, %while.body.i29 ]
+  %__result.addr.028.i76 = phi ptr [ %incdec.ptr3.i95, %if.end.i92 ], [ %__result.addr.023.i30, %while.body.i29 ]
+  %__first1.addr.027.i77 = phi ptr [ %__first1.addr.1.i94, %if.end.i92 ], [ %__first.addr.022.i31, %while.body.i29 ]
   %__first2.addr.026.i78 = phi ptr [ %__first2.addr.1.i93, %if.end.i92 ], [ %add.ptr.i32, %while.body.i29 ]
   %__first2.addr.0.val.i79 = load i32, ptr %__first2.addr.026.i78, align 4
   %__first1.addr.0.val.i80 = load i32, ptr %__first1.addr.027.i77, align 4
@@ -11850,12 +11850,12 @@ _ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_0
   br i1 %cmp.not.i38, label %_ZSt17__merge_sort_loopIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_T2_.exit45, label %while.body.i29, !llvm.loop !100
 
 _ZSt17__merge_sort_loopIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_T2_.exit45: ; preds = %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100.us, %_ZSt17__merge_sort_loopIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_T2_.exit
-  %__result.addr.0.lcssa.i39 = phi ptr [ %__first, %_ZSt17__merge_sort_loopIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_T2_.exit ], [ %add.ptr.i.i.i.i.i19.i69.us, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100.us ], [ %add.ptr.i.i.i.i.i19.i69, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100 ]
-  %__first.addr.0.lcssa.i40 = phi ptr [ %__buffer, %_ZSt17__merge_sort_loopIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_T2_.exit ], [ %add.ptr2.i33.us, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100.us ], [ %add.ptr2.i33, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100 ]
+  %__first.addr.0.lcssa.i39 = phi ptr [ %__buffer, %_ZSt17__merge_sort_loopIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_T2_.exit ], [ %add.ptr2.i33.us, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100.us ], [ %add.ptr2.i33, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100 ]
+  %__result.addr.0.lcssa.i40 = phi ptr [ %__first, %_ZSt17__merge_sort_loopIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_T2_.exit ], [ %add.ptr.i.i.i.i.i19.i69.us, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100.us ], [ %add.ptr.i.i.i.i.i19.i69, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100 ]
   %sub.ptr.div.lcssa.i41 = phi i64 [ %sub.ptr.div, %_ZSt17__merge_sort_loopIPiS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEEvT_S8_T0_T1_T2_.exit ], [ %sub.ptr.div.i37.us, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100.us ], [ %sub.ptr.div.i37, %_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_.exit100 ]
   %.sroa.speculated.i42 = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div.lcssa.i41, i64 %mul.i)
-  %add.ptr9.i43 = getelementptr inbounds i32, ptr %__first.addr.0.lcssa.i40, i64 %.sroa.speculated.i42
-  tail call fastcc void @_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_(ptr noundef %__first.addr.0.lcssa.i40, ptr noundef %add.ptr9.i43, ptr noundef %add.ptr9.i43, ptr noundef %add.ptr, ptr noundef %__result.addr.0.lcssa.i39, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp222)
+  %add.ptr9.i43 = getelementptr inbounds i32, ptr %__first.addr.0.lcssa.i39, i64 %.sroa.speculated.i42
+  tail call fastcc void @_ZSt12__move_mergeIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET0_T_S9_S9_S9_S8_T1_(ptr noundef %__first.addr.0.lcssa.i39, ptr noundef %add.ptr9.i43, ptr noundef %add.ptr9.i43, ptr noundef %add.ptr, ptr noundef %__result.addr.0.lcssa.i40, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.tmp222)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp222)
   %cmp = icmp slt i64 %mul.i23, %sub.ptr.div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !101
@@ -12083,10 +12083,10 @@ while.body.lr.ph.i79:                             ; preds = %if.then9
   br label %while.body.i84
 
 while.body.i84:                                   ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread20.i, %while.body.lr.ph.i79
-  %__first.addr.029.i = phi ptr [ %__middle.tr175, %while.body.lr.ph.i79 ], [ %10, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread20.i ]
-  %__len.028.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i79 ], [ %9, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread20.i ]
-  %shr.i = lshr i64 %__len.028.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %__first.addr.029.i, i64 %shr.i
+  %__len.029.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i79 ], [ %10, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread20.i ]
+  %__first.addr.028.i = phi ptr [ %__middle.tr175, %while.body.lr.ph.i79 ], [ %9, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread20.i ]
+  %shr.i = lshr i64 %__len.029.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %__first.addr.028.i, i64 %shr.i
   %.val.i = load i32, ptr %add.ptr.i.i.i, align 4
   %__val.val.i = load i32, ptr %add.ptr.i.i, align 4
   %call.i.i.i86 = tail call noundef float @_ZNK18OpenImageIO_v2_6_08DeepData10deep_valueElii(ptr noundef nonnull align 8 dereferenceable(20) %agg.tmp11.sroa.0.sroa.0.0.copyload, i64 noundef %conv.i.i.i81, i32 noundef %agg.tmp11.sroa.0.sroa.3.0.copyload, i32 noundef %.val.i)
@@ -12097,7 +12097,7 @@ while.body.i84:                                   ; preds = %_ZN9__gnu_cxx5__ops
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread.i: ; preds = %while.body.i84
   %incdec.ptr13.i95 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %6 = xor i64 %shr.i, -1
-  %sub214.i = add nsw i64 %__len.028.i, %6
+  %sub214.i = add nsw i64 %__len.029.i, %6
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread20.i
 
 if.end.i.i.i88:                                   ; preds = %while.body.i84
@@ -12112,23 +12112,23 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleC
 
 7:                                                ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.i
   %8 = xor i64 %shr.i, -1
-  %sub2.i = add nsw i64 %__len.028.i, %8
+  %sub2.i = add nsw i64 %__len.029.i, %8
   %incdec.ptr.i94 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   br label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread20.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread20.i: ; preds = %7, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.i, %if.end.i.i.i88, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread.i
-  %9 = phi i64 [ %shr.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.i ], [ %sub2.i, %7 ], [ %sub214.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread.i ], [ %shr.i, %if.end.i.i.i88 ]
-  %10 = phi ptr [ %__first.addr.029.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.i ], [ %incdec.ptr.i94, %7 ], [ %incdec.ptr13.i95, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread.i ], [ %__first.addr.029.i, %if.end.i.i.i88 ]
-  %cmp.i93 = icmp sgt i64 %9, 0
+  %9 = phi ptr [ %__first.addr.028.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.i ], [ %incdec.ptr.i94, %7 ], [ %incdec.ptr13.i95, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread.i ], [ %__first.addr.028.i, %if.end.i.i.i88 ]
+  %10 = phi i64 [ %shr.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.i ], [ %sub2.i, %7 ], [ %sub214.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread.i ], [ %shr.i, %if.end.i.i.i88 ]
+  %cmp.i93 = icmp sgt i64 %10, 0
   br i1 %cmp.i93, label %while.body.i84, label %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit, !llvm.loop !92
 
 _ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIPiKiEEbT_RT0_.exit.thread20.i
-  %.pre = ptrtoint ptr %10 to i64
+  %.pre = ptrtoint ptr %9 to i64
   br label %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit
 
 _ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit: ; preds = %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit, %if.then9
   %sub.ptr.lhs.cast.i.i.pre-phi = phi i64 [ %.pre, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i, %if.then9 ]
-  %__first.addr.0.lcssa.i = phi ptr [ %10, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit ], [ %__middle.tr175, %if.then9 ]
+  %__first.addr.0.lcssa.i = phi ptr [ %9, %_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit ], [ %__middle.tr175, %if.then9 ]
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i.pre-phi, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
   br label %if.end
@@ -12148,10 +12148,10 @@ while.body.lr.ph.i117:                            ; preds = %if.else14
   br label %while.body.i122
 
 while.body.i122:                                  ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread.i, %while.body.lr.ph.i117
-  %__first.addr.027.i = phi ptr [ %__first.tr174, %while.body.lr.ph.i117 ], [ %15, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread.i ]
-  %__len.026.i = phi i64 [ %sub.ptr.div.i.i.i114, %while.body.lr.ph.i117 ], [ %14, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread.i ]
-  %shr.i123 = lshr i64 %__len.026.i, 1
-  %add.ptr.i.i.i126 = getelementptr inbounds i32, ptr %__first.addr.027.i, i64 %shr.i123
+  %__len.027.i = phi i64 [ %sub.ptr.div.i.i.i114, %while.body.lr.ph.i117 ], [ %15, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread.i ]
+  %__first.addr.026.i = phi ptr [ %__first.tr174, %while.body.lr.ph.i117 ], [ %14, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread.i ]
+  %shr.i123 = lshr i64 %__len.027.i, 1
+  %add.ptr.i.i.i126 = getelementptr inbounds i32, ptr %__first.addr.026.i, i64 %shr.i123
   %__val.val.i129 = load i32, ptr %add.ptr.i.i102, align 4
   %.val.i130 = load i32, ptr %add.ptr.i.i.i126, align 4
   %call.i.i.i131 = tail call noundef float @_ZNK18OpenImageIO_v2_6_08DeepData10deep_valueElii(ptr noundef nonnull align 8 dereferenceable(20) %agg.tmp11.sroa.0.sroa.0.0.copyload, i64 noundef %conv.i.i.i119, i32 noundef %agg.tmp11.sroa.0.sroa.3.0.copyload, i32 noundef %__val.val.i129)
@@ -12166,7 +12166,7 @@ if.end.i.i.i134:                                  ; preds = %while.body.i122
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread19.i: ; preds = %if.end.i.i.i134
   %incdec.ptr21.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i126, i64 4
   %11 = xor i64 %shr.i123, -1
-  %sub222.i = add nsw i64 %__len.026.i, %11
+  %sub222.i = add nsw i64 %__len.027.i, %11
   br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread.i
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.i: ; preds = %if.end.i.i.i134
@@ -12175,25 +12175,25 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleC
   %cmp19.i.i.i138 = fcmp olt float %call13.i.i.i136, %call18.i.i.i137
   %incdec.ptr.i139 = getelementptr inbounds i8, ptr %add.ptr.i.i.i126, i64 4
   %12 = xor i64 %shr.i123, -1
-  %sub2.i140 = add nsw i64 %__len.026.i, %12
+  %sub2.i140 = add nsw i64 %__len.027.i, %12
   br i1 %cmp19.i.i.i138, label %13, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread.i
 
 13:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.i
   br label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread.i
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread.i: ; preds = %13, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread19.i, %while.body.i122
-  %14 = phi i64 [ %sub2.i140, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.i ], [ %sub222.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread19.i ], [ %shr.i123, %13 ], [ %shr.i123, %while.body.i122 ]
-  %15 = phi ptr [ %incdec.ptr.i139, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.i ], [ %incdec.ptr21.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread19.i ], [ %__first.addr.027.i, %13 ], [ %__first.addr.027.i, %while.body.i122 ]
-  %cmp.i141 = icmp sgt i64 %14, 0
+  %14 = phi ptr [ %incdec.ptr.i139, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.i ], [ %incdec.ptr21.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread19.i ], [ %__first.addr.026.i, %13 ], [ %__first.addr.026.i, %while.body.i122 ]
+  %15 = phi i64 [ %sub2.i140, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.i ], [ %sub222.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread19.i ], [ %shr.i123, %13 ], [ %shr.i123, %while.body.i122 ]
+  %cmp.i141 = icmp sgt i64 %15, 0
   br i1 %cmp.i141, label %while.body.i122, label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit, !llvm.loop !93
 
 _ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEclIKiPiEEbRT_T0_.exit.thread.i
-  %.pre185 = ptrtoint ptr %15 to i64
+  %.pre185 = ptrtoint ptr %14 to i64
   br label %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit, %if.else14
   %sub.ptr.lhs.cast.i.i142.pre-phi = phi i64 [ %.pre185, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i112, %if.else14 ]
-  %__first.addr.0.lcssa.i116 = phi ptr [ %15, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit ], [ %__first.tr174, %if.else14 ]
+  %__first.addr.0.lcssa.i116 = phi ptr [ %14, %_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIN18OpenImageIO_v2_6_012_GLOBAL__N_116SampleComparatorEEEET_S8_S8_RKT0_T1_.exit.loopexit ], [ %__first.tr174, %if.else14 ]
   %sub.ptr.sub.i.i144 = sub i64 %sub.ptr.lhs.cast.i.i142.pre-phi, %sub.ptr.rhs.cast.i.i.i112
   %sub.ptr.div.i.i145 = ashr exact i64 %sub.ptr.sub.i.i144, 2
   br label %if.end

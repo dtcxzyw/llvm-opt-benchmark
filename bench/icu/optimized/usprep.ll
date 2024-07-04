@@ -200,8 +200,8 @@ if.else.i.i:                                      ; preds = %.noexc32.i
           to label %if.end19.i.i unwind label %lpad.i
 
 if.end19.i.i:                                     ; preds = %if.else.i.i, %if.then13.i.i
-  %p.0.i.i = phi ptr [ %call6.i29.i, %if.then13.i.i ], [ %call18.i33.i, %if.else.i.i ]
   %dataMemory.0.i.i = phi ptr [ null, %if.then13.i.i ], [ %call1.i28.i, %if.else.i.i ]
+  %p.0.i.i = phi ptr [ %call6.i29.i, %if.then13.i.i ], [ %call18.i33.i, %if.else.i.i ]
   invoke void @umtx_unlock_75(ptr noundef nonnull @_ZL11usprepMutex)
           to label %.noexc34.i unwind label %lpad.i
 

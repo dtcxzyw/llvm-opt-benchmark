@@ -4228,7 +4228,7 @@ e2ap_get_private_data.exit:                       ; preds = %4, %9
   br i1 %exitcond.not, label %.thread, label %25, !llvm.loop !4
 
 42:                                               ; preds = %30, %38
-  %.060 = phi ptr [ %40, %38 ], [ null, %30 ]
+  %.061 = phi ptr [ %40, %38 ], [ null, %30 ]
   %.not84 = icmp eq i32 %18, 0
   br i1 %.not84, label %._crit_edge, label %.lr.ph
 
@@ -4261,7 +4261,7 @@ e2ap_get_private_data.exit:                       ; preds = %4, %9
   %53 = getelementptr inbounds i8, ptr %51, i64 8
   store i32 %31, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %51, i64 1016
-  store ptr %.060, ptr %54, align 8
+  store ptr %.061, ptr %54, align 8
   br i1 %.not84, label %55, label %.thread
 
 55:                                               ; preds = %._crit_edge
@@ -4408,7 +4408,7 @@ e2ap_get_private_data.exit:                       ; preds = %4, %9
 20:                                               ; preds = %.lr.ph, %32
   %21 = phi i32 [ %17, %.lr.ph ], [ %33, %32 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %.034 = phi i32 [ 4, %.lr.ph ], [ %.1, %32 ]
+  %.02533 = phi i32 [ 4, %.lr.ph ], [ %.1, %32 ]
   %22 = load i32, ptr %18, align 4
   %23 = getelementptr [8 x %struct.ran_function_id_mapping_t], ptr %19, i64 0, i64 %indvars.iv
   %24 = getelementptr inbounds i8, ptr %23, i64 4
@@ -4426,14 +4426,14 @@ e2ap_get_private_data.exit:                       ; preds = %4, %9
 
 32:                                               ; preds = %20, %27
   %33 = phi i32 [ %.pre, %27 ], [ %21, %20 ]
-  %.1 = phi i32 [ %29, %27 ], [ %.034, %20 ]
+  %.1 = phi i32 [ %29, %27 ], [ %.02533, %20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = zext i32 %33 to i64
   %35 = icmp ult i64 %indvars.iv.next, %34
   br i1 %35, label %20, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %32, %.preheader
-  %.0.lcssa = phi i32 [ 4, %.preheader ], [ %.1, %32 ]
+  %.025.lcssa = phi i32 [ 4, %.preheader ], [ %.1, %32 ]
   %36 = load ptr, ptr %5, align 8
   %37 = tail call ptr @oid_resolved_from_string(ptr noundef %36, ptr noundef %3) #8
   %38 = load i32, ptr @hf_e2ap_frame_version, align 4
@@ -4455,7 +4455,7 @@ e2ap_get_private_data.exit:                       ; preds = %4, %9
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %._crit_edge, %40, %43
-  %47 = icmp ult i32 %.0.lcssa, 4
+  %47 = icmp ult i32 %.025.lcssa, 4
   br i1 %47, label %48, label %update_dissector_using_oid.exit
 
 48:                                               ; preds = %proto_item_set_generated.exit
@@ -4515,7 +4515,7 @@ e2ap_get_private_data.exit.i.i:                   ; preds = %58, %54
 
 74:                                               ; preds = %69
   %75 = getelementptr inbounds i8, ptr %70, i64 12
-  %76 = zext nneg i32 %.0.lcssa to i64
+  %76 = zext nneg i32 %.025.lcssa to i64
   %77 = getelementptr [4 x %struct.ran_function_available_dissectors_t], ptr @g_ran_functions_available_dissectors, i64 0, i64 %76
   %78 = load i32, ptr %77, align 16
   %.not.i29 = icmp eq i32 %78, 0
@@ -4556,12 +4556,12 @@ e2ap_get_private_data.exit.i:                     ; preds = %83, %79
 
 93:                                               ; preds = %93, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %93 ]
-  %.03042.i = phi ptr [ null, %.lr.ph.i ], [ %spec.select.i, %93 ]
+  %.02942.i = phi ptr [ null, %.lr.ph.i ], [ %spec.select.i, %93 ]
   %94 = getelementptr [8 x %struct.ran_function_id_mapping_t], ptr %92, i64 0, i64 %indvars.iv.i
   %95 = getelementptr inbounds i8, ptr %94, i64 4
   %96 = load i32, ptr %95, align 4
   %97 = icmp eq i32 %89, %96
-  %spec.select.i = select i1 %97, ptr %94, ptr %.03042.i
+  %spec.select.i = select i1 %97, ptr %94, ptr %.02942.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %93, !llvm.loop !10

@@ -936,17 +936,17 @@ define internal i64 @ossl_sslctx_get_ciphers(i64 noundef %0) #0 {
   br i1 %10, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
-  %.01315 = phi i32 [ %14, %.lr.ph ], [ 0, %6 ]
-  %11 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %3, i32 noundef %.01315) #10
+  %.015 = phi i32 [ %14, %.lr.ph ], [ 0, %6 ]
+  %11 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %3, i32 noundef %.015) #10
   %12 = tail call fastcc i64 @ossl_ssl_cipher_to_ary(ptr noundef %11)
   %13 = tail call i64 @rb_ary_push(i64 noundef %9, i64 noundef %12) #10
-  %14 = add nuw nsw i32 %.01315, 1
+  %14 = add nuw nsw i32 %.015, 1
   %exitcond.not = icmp eq i32 %14, %7
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %4
-  %.0 = phi i64 [ %5, %4 ], [ %9, %6 ], [ %9, %.lr.ph ]
-  ret i64 %.0
+  %.013 = phi i64 [ %5, %4 ], [ %9, %6 ], [ %9, %.lr.ph ]
+  ret i64 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2846,17 +2846,17 @@ define internal i64 @ossl_ssl_get_peer_cert_chain(i64 noundef %0) #0 {
   br i1 %11, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
-  %.01418 = phi i32 [ %15, %.lr.ph ], [ 0, %7 ]
-  %12 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %6, i32 noundef %.01418) #10
+  %.018 = phi i32 [ %15, %.lr.ph ], [ 0, %7 ]
+  %12 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %6, i32 noundef %.018) #10
   %13 = tail call i64 @ossl_x509_new(ptr noundef %12) #10
   %14 = tail call i64 @rb_ary_push(i64 noundef %10, i64 noundef %13) #10
-  %15 = add nuw nsw i32 %.01418, 1
+  %15 = add nuw nsw i32 %.018, 1
   %exitcond.not = icmp eq i32 %15, %8
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph, %7, %5
-  %.0 = phi i64 [ 4, %5 ], [ %10, %7 ], [ %10, %.lr.ph ]
-  ret i64 %.0
+  %.014 = phi i64 [ 4, %5 ], [ %10, %7 ], [ %10, %.lr.ph ]
+  ret i64 %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3274,9 +3274,9 @@ RSTRING_PTR.exit22:                               ; preds = %27, %34
   br label %37
 
 37:                                               ; preds = %RSTRING_PTR.exit22, %RSTRING_PTR.exit
-  %.017 = phi ptr [ null, %RSTRING_PTR.exit ], [ %.sroa.2.0.i21, %RSTRING_PTR.exit22 ]
-  %.016 = phi i64 [ 0, %RSTRING_PTR.exit ], [ %36, %RSTRING_PTR.exit22 ]
-  %.0 = phi i32 [ 0, %RSTRING_PTR.exit ], [ 1, %RSTRING_PTR.exit22 ]
+  %.017 = phi i32 [ 0, %RSTRING_PTR.exit ], [ 1, %RSTRING_PTR.exit22 ]
+  %.016 = phi ptr [ null, %RSTRING_PTR.exit ], [ %.sroa.2.0.i21, %RSTRING_PTR.exit22 ]
+  %.0 = phi i64 [ 0, %RSTRING_PTR.exit ], [ %36, %RSTRING_PTR.exit22 ]
   %38 = load i64, ptr %4, align 8
   %39 = inttoptr i64 %38 to ptr
   %40 = load i64, ptr %39, align 8, !noalias !27
@@ -3302,7 +3302,7 @@ RSTRING_PTR.exit26:                               ; preds = %37, %43
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit26
-  %48 = call i32 @SSL_export_keying_material(ptr noundef nonnull %9, ptr noundef %.sroa.2.0.i, i64 noundef %.0.i, ptr noundef %.sroa.2.0.i25, i64 noundef %45, ptr noundef %.017, i64 noundef %.016, i32 noundef %.0) #10
+  %48 = call i32 @SSL_export_keying_material(ptr noundef nonnull %9, ptr noundef %.sroa.2.0.i, i64 noundef %.0.i, ptr noundef %.sroa.2.0.i25, i64 noundef %45, ptr noundef %.016, i64 noundef %.0, i32 noundef %.017) #10
   %49 = add i32 %48, 1
   %or.cond = icmp ult i32 %49, 2
   br i1 %or.cond, label %50, label %52

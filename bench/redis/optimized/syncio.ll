@@ -11,8 +11,8 @@ entry:
 
 while.body:                                       ; preds = %if.end9, %entry
   %size.addr.0 = phi i64 [ %size, %entry ], [ %size.addr.1, %if.end9 ]
-  %remaining.0 = phi i64 [ %timeout, %entry ], [ %sub17, %if.end9 ]
   %ptr.addr.0 = phi ptr [ %ptr, %entry ], [ %ptr.addr.1, %if.end9 ]
+  %remaining.0 = phi i64 [ %timeout, %entry ], [ %sub17, %if.end9 ]
   %cond = tail call i64 @llvm.smax.i64(i64 %remaining.0, i64 10)
   %call1 = tail call i64 @write(i32 noundef %fd, ptr noundef %ptr.addr.0, i64 noundef %size.addr.0) #5
   %cmp2 = icmp eq i64 %call1, -1
@@ -71,10 +71,10 @@ entry:
   br i1 %cmp, label %return, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end15
-  %totread.0 = phi i64 [ %totread.119, %if.end15 ], [ 0, %entry ]
-  %size.addr.0 = phi i64 [ %size.addr.120, %if.end15 ], [ %size, %entry ]
+  %size.addr.0 = phi i64 [ %size.addr.119, %if.end15 ], [ %size, %entry ]
+  %ptr.addr.0 = phi ptr [ %ptr.addr.120, %if.end15 ], [ %ptr, %entry ]
+  %totread.0 = phi i64 [ %totread.121, %if.end15 ], [ 0, %entry ]
   %remaining.0 = phi i64 [ %sub23, %if.end15 ], [ %timeout, %entry ]
-  %ptr.addr.0 = phi ptr [ %ptr.addr.121, %if.end15 ], [ %ptr, %entry ]
   %cond = tail call i64 @llvm.smax.i64(i64 %remaining.0, i64 10)
   %call2 = tail call i64 @read(i32 noundef %fd, ptr noundef %ptr.addr.0, i64 noundef %size.addr.0) #5
   switch i64 %call2, label %if.end12 [
@@ -96,9 +96,9 @@ if.end12:                                         ; preds = %while.body
   br i1 %cmp13, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.then7, %if.end12
-  %ptr.addr.121 = phi ptr [ %add.ptr, %if.end12 ], [ %ptr.addr.0, %if.then7 ]
-  %size.addr.120 = phi i64 [ %sub, %if.end12 ], [ %size.addr.0, %if.then7 ]
-  %totread.119 = phi i64 [ %add, %if.end12 ], [ %totread.0, %if.then7 ]
+  %totread.121 = phi i64 [ %add, %if.end12 ], [ %totread.0, %if.then7 ]
+  %ptr.addr.120 = phi ptr [ %add.ptr, %if.end12 ], [ %ptr.addr.0, %if.then7 ]
+  %size.addr.119 = phi i64 [ %sub, %if.end12 ], [ %size.addr.0, %if.then7 ]
   %call16 = tail call i32 @aeWait(i32 noundef %fd, i32 noundef 1, i64 noundef %cond) #5
   %call17 = tail call i64 @mstime() #5
   %sub18 = sub nsw i64 %call17, %call

@@ -1400,7 +1400,7 @@ for.cond:                                         ; preds = %_ZN4pstd8optionalIN
 
 for.body:                                         ; preds = %invoke.cont3, %for.cond
   %__begin1.0.idx290 = phi i64 [ 0, %invoke.cont3 ], [ %__begin1.0.add, %for.cond ]
-  %rx.sroa.10.0289 = phi i8 [ 0, %invoke.cont3 ], [ %spec.select, %for.cond ]
+  %rx.sroa.10.0283 = phi i8 [ 0, %invoke.cont3 ], [ %spec.select, %for.cond ]
   %__begin1.0.ptr = getelementptr inbounds i8, ptr %ref.tmp4, i64 %__begin1.0.idx290
   %5 = load float, ptr %__begin1.0.ptr, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp822)
@@ -1413,8 +1413,8 @@ for.body:                                         ; preds = %invoke.cont3, %for.
   call void @_ZNK4pbrt13TaggedPointerIJNS_17PerspectiveCameraENS_18OrthographicCameraENS_15SphericalCameraENS_15RealisticCameraEEE8DispatchIRZNKS_6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsEEUlT_E_EEDcOSB_(ptr nonnull sret(%"class.pstd::optional.26") align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(8) %camera, ptr noundef nonnull align 8 dereferenceable(16) %generate.i23)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp822)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %generate.i23)
-  %tobool.i.i26 = trunc nuw i8 %rx.sroa.10.0289 to i1
-  %spec.select = select i1 %tobool.i.i26, i8 0, i8 %rx.sroa.10.0289
+  %tobool.i.i26 = trunc nuw i8 %rx.sroa.10.0283 to i1
+  %spec.select = select i1 %tobool.i.i26, i8 0, i8 %rx.sroa.10.0283
   %6 = load i8, ptr %set.i3.i, align 8
   %tobool.i4.i = trunc i8 %6 to i1
   br i1 %tobool.i4.i, label %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit.thread, label %invoke.cont12
@@ -1440,11 +1440,11 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit:    ; preds = %invoke.cont12, %_ZN
   br i1 %tobool.i31, label %invoke.cont53, label %for.cond
 
 invoke.cont53:                                    ; preds = %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit.thread
-  %rx.sroa.3.1329345 = phi float [ %rx.sroa.3.0.copyload, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit.thread ], [ undef, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit ]
-  %rx.sroa.6.1332342 = phi float [ %rx.sroa.6.0.copyload, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit.thread ], [ undef, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit ]
+  %rx.sroa.6.1328347 = phi float [ %rx.sroa.6.0.copyload, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit.thread ], [ undef, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit ]
+  %rx.sroa.3.1331344 = phi float [ %rx.sroa.3.0.copyload, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit.thread ], [ undef, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit ]
   %9 = phi <2 x float> [ %8, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit.thread ], [ undef, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit ]
   %10 = phi <2 x float> [ %7, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit.thread ], [ undef, %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit ]
-  %sub6.i = fsub float %rx.sroa.3.1329345, %rd.sroa.8.0.copyload
+  %sub6.i = fsub float %rx.sroa.3.1331344, %rd.sroa.8.0.copyload
   %div3.i = fdiv float %sub6.i, %5
   %11 = fsub <2 x float> %10, %rd.sroa.0.0.copyload
   %12 = insertelement <2 x float> poison, float %5, i64 0
@@ -1453,7 +1453,7 @@ invoke.cont53:                                    ; preds = %_ZN4pstd8optionalIN
   %15 = fadd <2 x float> %rd.sroa.0.0.copyload, %14
   %add6.i = fadd float %rd.sroa.8.0.copyload, %div3.i
   %16 = extractelement <2 x float> %2, i64 0
-  %sub6.i60 = fsub float %rx.sroa.6.1332342, %16
+  %sub6.i60 = fsub float %rx.sroa.6.1328347, %16
   %div3.i69 = fdiv float %sub6.i60, %5
   %17 = fsub <2 x float> %9, %rd.sroa.12.0.copyload
   %18 = fdiv <2 x float> %17, %13
@@ -1463,8 +1463,8 @@ invoke.cont53:                                    ; preds = %_ZN4pstd8optionalIN
 
 for.end:                                          ; preds = %for.cond, %invoke.cont53
   %tobool.i31348 = phi i1 [ true, %invoke.cont53 ], [ false, %for.cond ]
-  %rd.sroa.28269.0 = phi <2 x float> [ %15, %invoke.cont53 ], [ zeroinitializer, %for.cond ]
   %rd.sroa.33.0 = phi <2 x float> [ %19, %invoke.cont53 ], [ zeroinitializer, %for.cond ]
+  %rd.sroa.28269.0 = phi <2 x float> [ %15, %invoke.cont53 ], [ zeroinitializer, %for.cond ]
   %rd.sroa.34.0 = phi float [ %add6.i80, %invoke.cont53 ], [ 0.000000e+00, %for.cond ]
   %rd.sroa.30.0 = phi float [ %add6.i, %invoke.cont53 ], [ 0.000000e+00, %for.cond ]
   store <2 x float> <float 0x3FA99999A0000000, float 0xBFA99999A0000000>, ptr %ref.tmp60, align 8
@@ -1551,9 +1551,9 @@ invoke.cont127:                                   ; preds = %_ZN4pstd8optionalIN
 
 for.end134:                                       ; preds = %for.cond70, %invoke.cont127
   %ry.sroa.10.2358379 = phi i8 [ %ry.sroa.10.2358380, %invoke.cont127 ], [ %spec.select276, %for.cond70 ]
-  %rd.sroa.31.0 = phi <2 x float> [ %31, %invoke.cont127 ], [ zeroinitializer, %for.cond70 ]
-  %rd.sroa.35.0 = phi <2 x float> [ %35, %invoke.cont127 ], [ zeroinitializer, %for.cond70 ]
   %rd.sroa.36.0 = phi float [ %add6.i185, %invoke.cont127 ], [ 0.000000e+00, %for.cond70 ]
+  %rd.sroa.35.0 = phi <2 x float> [ %35, %invoke.cont127 ], [ zeroinitializer, %for.cond70 ]
+  %rd.sroa.31.0 = phi <2 x float> [ %31, %invoke.cont127 ], [ zeroinitializer, %for.cond70 ]
   %rd.sroa.32.0 = phi float [ %add6.i148, %invoke.cont127 ], [ 0.000000e+00, %for.cond70 ]
   %36 = load i8, ptr %set.i, align 8
   %tobool.i.i202 = trunc i8 %36 to i1
@@ -2640,8 +2640,8 @@ if.else:                                          ; preds = %invoke.cont28
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %screen.sroa.0.0 = phi <2 x float> [ %screen.sroa.0.4.vec.insert77, %if.then ], [ %screen.sroa.0.4.vec.insert, %if.else ]
   %screen.sroa.9.0 = phi <2 x float> [ %screen.sroa.9.12.vec.insert90, %if.then ], [ %screen.sroa.9.12.vec.insert, %if.else ]
+  %screen.sroa.0.0 = phi <2 x float> [ %screen.sroa.0.4.vec.insert77, %if.then ], [ %screen.sroa.0.4.vec.insert, %if.else ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp49) #25
   %call.i46 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48)
           to label %call.i.noexc45 unwind label %lpad50
@@ -2758,8 +2758,8 @@ if.else77:                                        ; preds = %if.else61
           to label %if.end81 unwind label %lpad59
 
 if.end81:                                         ; preds = %_ZN4pbrt7WarningIJEEEvPKcDpOT_.exit, %if.else77, %if.then64, %invoke.cont53
-  %screen.sroa.0.1 = phi <2 x float> [ %screen.sroa.0.0, %invoke.cont53 ], [ %screen.sroa.0.0, %_ZN4pbrt7WarningIJEEEvPKcDpOT_.exit ], [ %screen.sroa.0.4.vec.insert79, %if.then64 ], [ %screen.sroa.0.0, %if.else77 ]
   %screen.sroa.9.1 = phi <2 x float> [ %screen.sroa.9.0, %invoke.cont53 ], [ %screen.sroa.9.0, %_ZN4pbrt7WarningIJEEEvPKcDpOT_.exit ], [ %screen.sroa.9.12.vec.insert92, %if.then64 ], [ %screen.sroa.9.0, %if.else77 ]
+  %screen.sroa.0.1 = phi <2 x float> [ %screen.sroa.0.0, %invoke.cont53 ], [ %screen.sroa.0.0, %_ZN4pbrt7WarningIJEEEvPKcDpOT_.exit ], [ %screen.sroa.0.4.vec.insert79, %if.then64 ], [ %screen.sroa.0.0, %if.else77 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp83) #25
   %call.i5660 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp82)
           to label %call.i56.noexc unwind label %lpad84
@@ -5244,8 +5244,8 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else.i, %if.then12.i
-  %r.0.i = phi float [ %13, %if.then12.i ], [ %14, %if.else.i ]
   %theta.0.i = phi float [ %mul.i, %if.then12.i ], [ %sub.i, %if.else.i ]
+  %r.0.i = phi float [ %13, %if.then12.i ], [ %14, %if.else.i ]
   %call.i.i = tail call noundef float @cosf(float noundef %theta.0.i) #25
   %call.i19.i = tail call noundef float @sinf(float noundef %theta.0.i) #25
   %mul.i.i22.i = fmul float %r.0.i, %call.i.i
@@ -5389,8 +5389,8 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else.i, %if.then12.i
-  %r.0.i = phi float [ %12, %if.then12.i ], [ %13, %if.else.i ]
   %theta.0.i = phi float [ %mul.i, %if.then12.i ], [ %sub.i, %if.else.i ]
+  %r.0.i = phi float [ %12, %if.then12.i ], [ %13, %if.else.i ]
   %call.i.i = tail call noundef float @cosf(float noundef %theta.0.i) #25
   %call.i19.i = tail call noundef float @sinf(float noundef %theta.0.i) #25
   %mul.i.i22.i = fmul float %r.0.i, %call.i.i
@@ -5471,12 +5471,12 @@ if.else.i30:                                      ; preds = %if.end.i28
   br label %if.end21.i34
 
 if.end21.i34:                                     ; preds = %if.else.i30, %if.then12.i44
-  %r.0.i35 = phi float [ %37, %if.then12.i44 ], [ %38, %if.else.i30 ]
-  %theta.0.i36 = phi float [ %mul.i46, %if.then12.i44 ], [ %sub.i33, %if.else.i30 ]
-  %call.i.i37 = tail call noundef float @cosf(float noundef %theta.0.i36) #25
-  %call.i19.i38 = tail call noundef float @sinf(float noundef %theta.0.i36) #25
-  %mul.i.i22.i39 = fmul float %r.0.i35, %call.i.i37
-  %mul2.i.i.i40 = fmul float %r.0.i35, %call.i19.i38
+  %theta.0.i35 = phi float [ %mul.i46, %if.then12.i44 ], [ %sub.i33, %if.else.i30 ]
+  %r.0.i36 = phi float [ %37, %if.then12.i44 ], [ %38, %if.else.i30 ]
+  %call.i.i37 = tail call noundef float @cosf(float noundef %theta.0.i35) #25
+  %call.i19.i38 = tail call noundef float @sinf(float noundef %theta.0.i35) #25
+  %mul.i.i22.i39 = fmul float %r.0.i36, %call.i.i37
+  %mul2.i.i.i40 = fmul float %r.0.i36, %call.i19.i38
   %retval.sroa.0.0.vec.insert.i.i24.i41 = insertelement <2 x float> poison, float %mul.i.i22.i39, i64 0
   %retval.sroa.0.4.vec.insert.i.i25.i42 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i24.i41, float %mul2.i.i.i40, i64 1
   br label %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit47
@@ -5717,8 +5717,8 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else.i, %if.then12.i
-  %r.0.i = phi float [ %18, %if.then12.i ], [ %19, %if.else.i ]
   %theta.0.i = phi float [ %mul.i, %if.then12.i ], [ %sub.i, %if.else.i ]
+  %r.0.i = phi float [ %18, %if.then12.i ], [ %19, %if.else.i ]
   %call.i.i = tail call noundef float @cosf(float noundef %theta.0.i) #25
   %call.i19.i = tail call noundef float @sinf(float noundef %theta.0.i) #25
   %mul.i.i22.i = fmul float %r.0.i, %call.i.i
@@ -5875,8 +5875,8 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else.i, %if.then12.i
-  %r.0.i = phi float [ %17, %if.then12.i ], [ %18, %if.else.i ]
   %theta.0.i = phi float [ %mul.i, %if.then12.i ], [ %sub.i, %if.else.i ]
+  %r.0.i = phi float [ %17, %if.then12.i ], [ %18, %if.else.i ]
   %call.i.i = tail call noundef float @cosf(float noundef %theta.0.i) #25
   %call.i19.i = tail call noundef float @sinf(float noundef %theta.0.i) #25
   %mul.i.i22.i = fmul float %r.0.i, %call.i.i
@@ -5956,12 +5956,12 @@ if.else.i47:                                      ; preds = %if.end.i45
   br label %if.end21.i51
 
 if.end21.i51:                                     ; preds = %if.else.i47, %if.then12.i61
-  %r.0.i52 = phi float [ %40, %if.then12.i61 ], [ %41, %if.else.i47 ]
-  %theta.0.i53 = phi float [ %mul.i63, %if.then12.i61 ], [ %sub.i50, %if.else.i47 ]
-  %call.i.i54 = tail call noundef float @cosf(float noundef %theta.0.i53) #25
-  %call.i19.i55 = tail call noundef float @sinf(float noundef %theta.0.i53) #25
-  %mul.i.i22.i56 = fmul float %r.0.i52, %call.i.i54
-  %mul2.i.i.i57 = fmul float %r.0.i52, %call.i19.i55
+  %theta.0.i52 = phi float [ %mul.i63, %if.then12.i61 ], [ %sub.i50, %if.else.i47 ]
+  %r.0.i53 = phi float [ %40, %if.then12.i61 ], [ %41, %if.else.i47 ]
+  %call.i.i54 = tail call noundef float @cosf(float noundef %theta.0.i52) #25
+  %call.i19.i55 = tail call noundef float @sinf(float noundef %theta.0.i52) #25
+  %mul.i.i22.i56 = fmul float %r.0.i53, %call.i.i54
+  %mul2.i.i.i57 = fmul float %r.0.i53, %call.i19.i55
   %retval.sroa.0.0.vec.insert.i.i24.i58 = insertelement <2 x float> poison, float %mul.i.i22.i56, i64 0
   %retval.sroa.0.4.vec.insert.i.i25.i59 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i24.i58, float %mul2.i.i.i57, i64 1
   br label %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit64
@@ -6557,8 +6557,8 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else.i, %if.then12.i
-  %r.0.i = phi float [ %3, %if.then12.i ], [ %4, %if.else.i ]
   %theta.0.i = phi float [ %mul.i, %if.then12.i ], [ %sub.i, %if.else.i ]
+  %r.0.i = phi float [ %3, %if.then12.i ], [ %4, %if.else.i ]
   %call.i.i = tail call noundef float @cosf(float noundef %theta.0.i) #25
   %call.i19.i = tail call noundef float @sinf(float noundef %theta.0.i) #25
   %mul.i.i22.i = fmul float %r.0.i, %call.i.i
@@ -8833,13 +8833,13 @@ for.body:                                         ; preds = %entry, %for.inc
 
 while.body.i:                                     ; preds = %for.body, %while.body.i
   %a.addr.016.i = phi i64 [ %div5.i, %while.body.i ], [ %indvars.iv, %for.body ]
-  %invBaseM.015.i = phi float [ %mul10.i, %while.body.i ], [ 1.000000e+00, %for.body ]
-  %reversedDigits.014.i = phi i64 [ %add.i12, %while.body.i ], [ 0, %for.body ]
+  %reversedDigits.015.i = phi i64 [ %add.i12, %while.body.i ], [ 0, %for.body ]
+  %invBaseM.014.i = phi float [ %mul10.i, %while.body.i ], [ 1.000000e+00, %for.body ]
   %div5.i = udiv i64 %a.addr.016.i, %conv.i
-  %reass.add.i = sub i64 %reversedDigits.014.i, %div5.i
+  %reass.add.i = sub i64 %reversedDigits.015.i, %div5.i
   %reass.mul.i = mul i64 %reass.add.i, %conv.i
   %add.i12 = add i64 %reass.mul.i, %a.addr.016.i
-  %mul10.i = fmul float %div3.i, %invBaseM.015.i
+  %mul10.i = fmul float %div3.i, %invBaseM.014.i
   %tobool.i = icmp uge i64 %a.addr.016.i, %conv.i
   %cmp.i = icmp ult i64 %add.i12, %sub.i11
   %9 = select i1 %tobool.i, i1 %cmp.i, i1 false
@@ -8854,13 +8854,13 @@ _ZN4pbrt14RadicalInverseEim.exit:                 ; preds = %while.body.i
 
 while.body.i19:                                   ; preds = %_ZN4pbrt14RadicalInverseEim.exit, %while.body.i19
   %a.addr.016.i20 = phi i64 [ %div5.i23, %while.body.i19 ], [ %indvars.iv, %_ZN4pbrt14RadicalInverseEim.exit ]
-  %invBaseM.015.i21 = phi float [ %mul10.i27, %while.body.i19 ], [ 1.000000e+00, %_ZN4pbrt14RadicalInverseEim.exit ]
-  %reversedDigits.014.i22 = phi i64 [ %add.i26, %while.body.i19 ], [ 0, %_ZN4pbrt14RadicalInverseEim.exit ]
+  %reversedDigits.015.i21 = phi i64 [ %add.i26, %while.body.i19 ], [ 0, %_ZN4pbrt14RadicalInverseEim.exit ]
+  %invBaseM.014.i22 = phi float [ %mul10.i27, %while.body.i19 ], [ 1.000000e+00, %_ZN4pbrt14RadicalInverseEim.exit ]
   %div5.i23 = udiv i64 %a.addr.016.i20, %conv.i13
-  %reass.add.i24 = sub i64 %reversedDigits.014.i22, %div5.i23
+  %reass.add.i24 = sub i64 %reversedDigits.015.i21, %div5.i23
   %reass.mul.i25 = mul i64 %reass.add.i24, %conv.i13
   %add.i26 = add i64 %reass.mul.i25, %a.addr.016.i20
-  %mul10.i27 = fmul float %div3.i17, %invBaseM.015.i21
+  %mul10.i27 = fmul float %div3.i17, %invBaseM.014.i22
   %tobool.i28 = icmp uge i64 %a.addr.016.i20, %conv.i13
   %cmp.i29 = icmp ult i64 %add.i26, %sub.i15
   %12 = select i1 %tobool.i28, i1 %cmp.i29, i1 false
@@ -11377,8 +11377,8 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else.i, %if.then12.i
-  %r.0.i = phi float [ %33, %if.then12.i ], [ %34, %if.else.i ]
   %theta.0.i = phi float [ %mul.i37, %if.then12.i ], [ %sub.i, %if.else.i ]
+  %r.0.i = phi float [ %33, %if.then12.i ], [ %34, %if.else.i ]
   %call.i.i = call noundef float @cosf(float noundef %theta.0.i) #25
   %call.i19.i = call noundef float @sinf(float noundef %theta.0.i) #25
   %mul.i.i22.i = fmul float %r.0.i, %call.i.i
@@ -12258,8 +12258,8 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   br label %if.end21.i.i
 
 if.end21.i.i:                                     ; preds = %if.else.i.i, %if.then12.i.i
-  %r.0.i.i = phi float [ %12, %if.then12.i.i ], [ %13, %if.else.i.i ]
   %theta.0.i.i = phi float [ %mul.i.i, %if.then12.i.i ], [ %sub.i.i, %if.else.i.i ]
+  %r.0.i.i = phi float [ %12, %if.then12.i.i ], [ %13, %if.else.i.i ]
   %call.i.i.i = tail call noundef float @cosf(float noundef %theta.0.i.i) #25, !noalias !173
   %call.i19.i.i = tail call noundef float @sinf(float noundef %theta.0.i.i) #25, !noalias !173
   %mul.i.i22.i.i = fmul float %r.0.i.i, %call.i.i.i

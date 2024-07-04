@@ -522,8 +522,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   br label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h05ff11e3088d7941E.llvm.13192257076079257957.exit"
 
 "_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h05ff11e3088d7941E.llvm.13192257076079257957.exit": ; preds = %3, %5
-  %.sroa.0.0.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i, %3 ]
   %.sroa.3.0.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i, %3 ]
+  %.sroa.0.0.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i, %3 ]
   store i64 1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -554,8 +554,8 @@ define hidden { i64, i64 } @"_ZN3std4hash6random11RandomState3new4KEYS7__getit28
   br label %8
 
 8:                                                ; preds = %2, %4
-  %.sroa.0.0 = phi i64 [ %6, %4 ], [ %.sroa.5.0.copyload, %2 ]
   %.sroa.3.0 = phi i64 [ %7, %4 ], [ %.sroa.6.0.copyload, %2 ]
+  %.sroa.0.0 = phi i64 [ %6, %4 ], [ %.sroa.5.0.copyload, %2 ]
   %9 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
   ret { i64, i64 } %10
@@ -1496,8 +1496,8 @@ define void @_ZN6uucore8features6ranges5Range9from_list17h70bbf16599e55ca3E(ptr 
 
 26:                                               ; preds = %3, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he97175bf1bfbf2d4E.exit"
   %.sroa.842.077 = phi ptr [ %1, %3 ], [ %.sroa.842.2.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he97175bf1bfbf2d4E.exit" ]
-  %.sroa.14.075 = phi i64 [ 0, %3 ], [ %.sroa.14.4.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he97175bf1bfbf2d4E.exit" ]
-  %.sroa.17.074 = phi i64 [ 0, %3 ], [ %.sroa.17.1.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he97175bf1bfbf2d4E.exit" ]
+  %.sroa.14.076 = phi i64 [ 0, %3 ], [ %.sroa.14.4.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he97175bf1bfbf2d4E.exit" ]
+  %.sroa.17.075 = phi i64 [ 0, %3 ], [ %.sroa.17.1.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he97175bf1bfbf2d4E.exit" ]
   %27 = icmp eq ptr %.sroa.842.077, %18
   br i1 %27, label %.loopexit71, label %.lr.ph.i.i
 
@@ -1506,7 +1506,7 @@ define void @_ZN6uucore8features6ranges5Range9from_list17h70bbf16599e55ca3E(ptr 
   br i1 %28, label %.loopexit71, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %26, %.loopexit.i.i
-  %.sroa.14.1 = phi i64 [ %69, %.loopexit.i.i ], [ %.sroa.14.075, %26 ]
+  %.sroa.14.1 = phi i64 [ %69, %.loopexit.i.i ], [ %.sroa.14.076, %26 ]
   %29 = phi ptr [ %.sink14.i.i.i, %.loopexit.i.i ], [ %.sroa.842.077, %26 ]
   %.pn.i.i = ptrtoint ptr %29 to i64
   %30 = getelementptr inbounds i8, ptr %29, i64 1
@@ -1687,13 +1687,13 @@ define void @_ZN6uucore8features6ranges5Range9from_list17h70bbf16599e55ca3E(ptr 
   unreachable
 
 .loopexit71:                                      ; preds = %55, %.loopexit.i.i, %71, %26
-  %.sroa.17.1.ph = phi i64 [ %.sroa.17.074, %26 ], [ %69, %71 ], [ %.sroa.17.074, %.loopexit.i.i ], [ %.sroa.17.074, %55 ]
-  %.sroa.14.4.ph = phi i64 [ %.sroa.14.075, %26 ], [ %69, %71 ], [ %.sroa.14.1, %55 ], [ %69, %.loopexit.i.i ]
   %.sroa.27.1.ph = phi i1 [ true, %26 ], [ false, %71 ], [ true, %.loopexit.i.i ], [ true, %55 ]
+  %.sroa.17.1.ph = phi i64 [ %.sroa.17.075, %26 ], [ %69, %71 ], [ %.sroa.17.075, %.loopexit.i.i ], [ %.sroa.17.075, %55 ]
+  %.sroa.14.4.ph = phi i64 [ %.sroa.14.076, %26 ], [ %69, %71 ], [ %.sroa.14.1, %55 ], [ %69, %.loopexit.i.i ]
   %.sroa.842.2.ph = phi ptr [ %.sroa.842.077, %26 ], [ %.sink14.i.i.i, %71 ], [ %57, %55 ], [ %.sink14.i.i.i, %.loopexit.i.i ]
   %.pn = phi i64 [ %2, %26 ], [ %.sroa.14.1, %71 ], [ %2, %.loopexit.i.i ], [ %2, %55 ]
-  %.sroa.0.1.i.ph = getelementptr inbounds i8, ptr %1, i64 %.sroa.17.074
-  %.sroa.4.1.i.ph = sub i64 %.pn, %.sroa.17.074
+  %.sroa.0.1.i.ph = getelementptr inbounds i8, ptr %1, i64 %.sroa.17.075
+  %.sroa.4.1.i.ph = sub i64 %.pn, %.sroa.17.075
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   invoke void @"_ZN78_$LT$uucore..features..ranges..Range$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h12c464303d9b27cfE"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.ph, i64 noundef %.sroa.4.1.i.ph)
           to label %113 unwind label %142
@@ -2015,15 +2015,15 @@ define void @_ZN6uucore6parser10parse_glob8from_str17hb352925bc8c38089E(ptr noal
 
 14:                                               ; preds = %.backedge.i, %.lr.ph.i
   %15 = phi i64 [ 3, %.lr.ph.i ], [ %44, %.backedge.i ]
-  %.03671.i = phi i64 [ 0, %.lr.ph.i ], [ %.036.be.i, %.backedge.i ]
-  %16 = icmp ult i64 %.03671.i, %10
+  %.071.i = phi i64 [ 0, %.lr.ph.i ], [ %.0.be.i, %.backedge.i ]
+  %16 = icmp ult i64 %.071.i, %10
   br i1 %16, label %17, label %.invoke.i, !prof !323
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds [0 x i32], ptr %.pre.i, i64 0, i64 %.03671.i
+  %18 = getelementptr inbounds [0 x i32], ptr %.pre.i, i64 0, i64 %.071.i
   %19 = load i32, ptr %18, align 4, !range !250, !noalias !322, !noundef !13
   %20 = icmp eq i32 %19, 91
-  %21 = add nuw i64 %.03671.i, 1
+  %21 = add nuw i64 %.071.i, 1
   br i1 %20, label %22, label %.backedge.i
 
 22:                                               ; preds = %17
@@ -2037,7 +2037,7 @@ define void @_ZN6uucore6parser10parse_glob8from_str17hb352925bc8c38089E(ptr noal
   br i1 %27, label %30, label %.backedge.i
 
 .invoke.i:                                        ; preds = %22, %14
-  %28 = phi i64 [ %.03671.i, %14 ], [ %21, %22 ]
+  %28 = phi i64 [ %.071.i, %14 ], [ %21, %22 ]
   %29 = phi ptr [ @anon.da59c305f0f0aed4eca35e39d10eabc9.59, %14 ], [ @anon.da59c305f0f0aed4eca35e39d10eabc9.60, %22 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %28, i64 noundef %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29) #21
           to label %.cont.i unwind label %46, !noalias !322
@@ -2073,13 +2073,13 @@ define void @_ZN6uucore6parser10parse_glob8from_str17hb352925bc8c38089E(ptr noal
   %41 = icmp ult i64 %.011.i.i, %31
   tail call void @llvm.assume(i1 %41)
   store i32 33, ptr %25, align 4, !noalias !322
-  %42 = add i64 %.03671.i, 4
+  %42 = add i64 %.071.i, 4
   %43 = add i64 %42, %.011.i.i
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %40, %24, %17
-  %.036.be.i = phi i64 [ %43, %40 ], [ %21, %24 ], [ %21, %17 ]
-  %44 = add i64 %.036.be.i, 3
+  %.0.be.i = phi i64 [ %43, %40 ], [ %21, %24 ], [ %21, %17 ]
+  %44 = add i64 %.0.be.i, 3
   %45 = icmp ult i64 %44, %10
   br i1 %45, label %14, label %_ZN6uucore6parser10parse_glob12fix_negation17h99365c49fc9b1722E.exit
 

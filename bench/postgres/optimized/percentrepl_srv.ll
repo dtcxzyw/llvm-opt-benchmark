@@ -22,15 +22,15 @@ define dso_local ptr @replace_percent_placeholders(ptr noundef %0, ptr noundef %
   br label %8
 
 8:                                                ; preds = %57, %3
-  %.0 = phi ptr [ %0, %3 ], [ %58, %57 ]
-  %9 = load i8, ptr %.0, align 1
+  %.023 = phi ptr [ %0, %3 ], [ %58, %57 ]
+  %9 = load i8, ptr %.023, align 1
   switch i8 %9, label %56 [
     i8 0, label %59
     i8 37, label %10
   ]
 
 10:                                               ; preds = %8
-  %11 = getelementptr i8, ptr %.0, i64 1
+  %11 = getelementptr i8, ptr %.023, i64 1
   %12 = load i8, ptr %11, align 1
   switch i8 %12, label %19 [
     i8 37, label %13
@@ -69,7 +69,7 @@ define dso_local ptr @replace_percent_placeholders(ptr noundef %0, ptr noundef %
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %29
   %24 = phi ptr [ %26, %29 ], [ %.pre, %.lr.ph.split.us.preheader ]
   %25 = phi i8 [ %31, %29 ], [ %20, %.lr.ph.split.us.preheader ]
-  %.02235.us = phi ptr [ %30, %29 ], [ %2, %.lr.ph.split.us.preheader ]
+  %.035.us = phi ptr [ %30, %29 ], [ %2, %.lr.ph.split.us.preheader ]
   %26 = getelementptr i8, ptr %24, i64 8
   store ptr %26, ptr %6, align 8
   %27 = load i8, ptr %11, align 1
@@ -77,13 +77,13 @@ define dso_local ptr @replace_percent_placeholders(ptr noundef %0, ptr noundef %
   br i1 %28, label %.split, label %29
 
 29:                                               ; preds = %.lr.ph.split.us
-  %30 = getelementptr i8, ptr %.02235.us, i64 1
+  %30 = getelementptr i8, ptr %.035.us, i64 1
   %31 = load i8, ptr %30, align 1
   %.not28.us = icmp eq i8 %31, 0
   br i1 %.not28.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !5
 
 32:                                               ; preds = %45
-  %33 = getelementptr i8, ptr %.02235, i64 1
+  %33 = getelementptr i8, ptr %.035, i64 1
   %34 = load i8, ptr %33, align 1
   %.not28 = icmp eq i8 %34, 0
   br i1 %.not28, label %.loopexit, label %.lr.ph.split, !llvm.loop !7
@@ -91,7 +91,7 @@ define dso_local ptr @replace_percent_placeholders(ptr noundef %0, ptr noundef %
 .lr.ph.split:                                     ; preds = %.lr.ph, %32
   %35 = phi i32 [ %46, %32 ], [ %22, %.lr.ph ]
   %36 = phi i8 [ %34, %32 ], [ %20, %.lr.ph ]
-  %.02235 = phi ptr [ %33, %32 ], [ %2, %.lr.ph ]
+  %.035 = phi ptr [ %33, %32 ], [ %2, %.lr.ph ]
   %37 = icmp ult i32 %35, 41
   br i1 %37, label %38, label %42
 
@@ -143,7 +143,7 @@ define dso_local ptr @replace_percent_placeholders(ptr noundef %0, ptr noundef %
   br label %57
 
 57:                                               ; preds = %.critedge, %56, %13
-  %.1 = phi ptr [ %11, %13 ], [ %.0, %56 ], [ %11, %.critedge ]
+  %.1 = phi ptr [ %11, %13 ], [ %.023, %56 ], [ %11, %.critedge ]
   %58 = getelementptr i8, ptr %.1, i64 1
   br label %8, !llvm.loop !9
 

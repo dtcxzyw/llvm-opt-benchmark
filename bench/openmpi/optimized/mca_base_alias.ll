@@ -342,8 +342,8 @@ opal_obj_new.exit.thread52:                       ; preds = %.lr.ph.i.i33, %60
   br label %70
 
 70:                                               ; preds = %opal_obj_new.exit.thread52, %mca_base_alias_lookup_internal.exit
-  %.024 = phi ptr [ null, %opal_obj_new.exit.thread52 ], [ %46, %mca_base_alias_lookup_internal.exit ]
-  %.023 = phi ptr [ %55, %opal_obj_new.exit.thread52 ], [ %51, %mca_base_alias_lookup_internal.exit ]
+  %.023 = phi ptr [ null, %opal_obj_new.exit.thread52 ], [ %46, %mca_base_alias_lookup_internal.exit ]
+  %.0 = phi ptr [ %55, %opal_obj_new.exit.thread52 ], [ %51, %mca_base_alias_lookup_internal.exit ]
   %71 = load i64, ptr getelementptr inbounds (i8, ptr @mca_base_alias_item_t_class, i64 56), align 8
   %72 = call noalias ptr @malloc(i64 noundef %71) #13
   %73 = load i32, ptr @opal_class_init_epoch, align 4
@@ -378,7 +378,7 @@ opal_obj_new.exit.thread52:                       ; preds = %.lr.ph.i.i33, %60
   br i1 %.not.i.i41, label %opal_obj_new.exit42.thread53, label %.lr.ph.i.i39, !llvm.loop !4
 
 opal_obj_new.exit42.thread:                       ; preds = %76
-  call void @free(ptr noundef %.024) #12
+  call void @free(ptr noundef %.023) #12
   br label %97
 
 opal_obj_new.exit42.thread53:                     ; preds = %.lr.ph.i.i39, %77
@@ -387,8 +387,8 @@ opal_obj_new.exit42.thread53:                     ; preds = %.lr.ph.i.i39, %77
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds i8, ptr %72, i64 48
   store i32 %4, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %.023, i64 32
-  %88 = getelementptr inbounds i8, ptr %.023, i64 56
+  %87 = getelementptr inbounds i8, ptr %.0, i64 32
+  %88 = getelementptr inbounds i8, ptr %.0, i64 56
   %89 = load volatile ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %72, i64 24
   store volatile ptr %89, ptr %90, align 8
@@ -398,16 +398,16 @@ opal_obj_new.exit42.thread53:                     ; preds = %.lr.ph.i.i39, %77
   %93 = getelementptr inbounds i8, ptr %72, i64 16
   store volatile ptr %87, ptr %93, align 8
   store volatile ptr %72, ptr %88, align 8
-  %94 = getelementptr inbounds i8, ptr %.023, i64 72
+  %94 = getelementptr inbounds i8, ptr %.0, i64 72
   %95 = load volatile i64, ptr %94, align 8
   %96 = add i64 %95, 1
   store volatile i64 %96, ptr %94, align 8
-  call void @free(ptr noundef %.024) #12
+  call void @free(ptr noundef %.023) #12
   br label %97
 
 97:                                               ; preds = %mca_base_alias_setup.exit, %mca_base_alias_setup.exit.thread49, %mca_base_alias_setup.exit.thread46, %5, %opal_obj_new.exit42.thread53, %opal_obj_new.exit42.thread, %opal_obj_new.exit.thread
-  %.0 = phi i32 [ -2, %opal_obj_new.exit.thread ], [ -2, %opal_obj_new.exit42.thread ], [ 0, %opal_obj_new.exit42.thread53 ], [ -5, %5 ], [ %24, %mca_base_alias_setup.exit ], [ %.0.ph.i.ph, %mca_base_alias_setup.exit.thread46 ], [ %24, %mca_base_alias_setup.exit.thread49 ]
-  ret i32 %.0
+  %.024 = phi i32 [ -2, %opal_obj_new.exit.thread ], [ -2, %opal_obj_new.exit42.thread ], [ 0, %opal_obj_new.exit42.thread53 ], [ -5, %5 ], [ %24, %mca_base_alias_setup.exit ], [ %.0.ph.i.ph, %mca_base_alias_setup.exit.thread46 ], [ %24, %mca_base_alias_setup.exit.thread49 ]
+  ret i32 %.024
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable

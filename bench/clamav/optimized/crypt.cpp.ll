@@ -246,36 +246,36 @@ define void @_ZN9CryptData8SetKey20EPKc(ptr noundef nonnull align 8 dereferencea
   br i1 %.not52, label %._crit_edge, label %.preheader39.us
 
 .preheader39.us:                                  ; preds = %2, %._crit_edge46.us
-  %.03247.us = phi i32 [ %32, %._crit_edge46.us ], [ 0, %2 ]
-  %.032.tr.us = trunc nuw i32 %.03247.us to i8
+  %.03447.us = phi i32 [ %32, %._crit_edge46.us ], [ 0, %2 ]
+  %.034.tr.us = trunc nuw i32 %.03447.us to i8
   br label %8
 
 8:                                                ; preds = %.preheader39.us, %._crit_edge.us
-  %.03444.us = phi i64 [ 0, %.preheader39.us ], [ %30, %._crit_edge.us ]
-  %9 = getelementptr inbounds i8, ptr %1, i64 %.03444.us
+  %.03344.us = phi i64 [ 0, %.preheader39.us ], [ %30, %._crit_edge.us ]
+  %9 = getelementptr inbounds i8, ptr %1, i64 %.03344.us
   %10 = load i8, ptr %9, align 1
-  %.narrow.us = sub i8 %10, %.032.tr.us
+  %.narrow.us = sub i8 %10, %.034.tr.us
   %11 = zext i8 %.narrow.us to i64
   %12 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
-  %14 = or disjoint i64 %.03444.us, 1
+  %14 = or disjoint i64 %.03344.us, 1
   %15 = getelementptr inbounds i8, ptr %1, i64 %14
   %16 = load i8, ptr %15, align 1
-  %.narrow37.us = add i8 %16, %.032.tr.us
+  %.narrow37.us = add i8 %16, %.034.tr.us
   %17 = zext i8 %.narrow37.us to i64
   %18 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 255
-  %.03340.us = and i32 %13, 255
-  %.not3841.us = icmp eq i32 %.03340.us, %20
+  %.03240.us = and i32 %13, 255
+  %.not3841.us = icmp eq i32 %.03240.us, %20
   br i1 %.not3841.us, label %._crit_edge.us, label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %8, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.us ], [ 1, %8 ]
-  %.03343.us = phi i32 [ %.033.us, %.lr.ph.us ], [ %.03340.us, %8 ]
-  %21 = zext nneg i32 %.03343.us to i64
+  %.03243.us = phi i32 [ %.032.us, %.lr.ph.us ], [ %.03240.us, %8 ]
+  %21 = zext nneg i32 %.03243.us to i64
   %22 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 %21
-  %23 = add i64 %.03444.us, %21
+  %23 = add i64 %.03344.us, %21
   %24 = add i64 %23, %indvars.iv
   %25 = and i64 %24, 255
   %26 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 %25
@@ -283,19 +283,19 @@ define void @_ZN9CryptData8SetKey20EPKc(ptr noundef nonnull align 8 dereferencea
   %28 = load i8, ptr %26, align 1
   store i8 %28, ptr %22, align 1
   store i8 %27, ptr %26, align 1
-  %29 = add nuw nsw i32 %.03343.us, 1
+  %29 = add nuw nsw i32 %.03243.us, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.033.us = and i32 %29, 255
-  %.not38.us = icmp eq i32 %.033.us, %20
+  %.032.us = and i32 %29, 255
+  %.not38.us = icmp eq i32 %.032.us, %20
   br i1 %.not38.us, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !9
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us, %8
-  %30 = add nuw i64 %.03444.us, 2
+  %30 = add nuw i64 %.03344.us, 2
   %31 = icmp ult i64 %30, %5
   br i1 %31, label %8, label %._crit_edge46.us, !llvm.loop !10
 
 ._crit_edge46.us:                                 ; preds = %._crit_edge.us
-  %32 = add nuw nsw i32 %.03247.us, 1
+  %32 = add nuw nsw i32 %.03447.us, 1
   %exitcond.not = icmp eq i32 %32, 256
   br i1 %exitcond.not, label %.split49.us, label %.preheader39.us, !llvm.loop !11
 

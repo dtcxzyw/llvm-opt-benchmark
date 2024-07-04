@@ -489,12 +489,12 @@ sub_2159:                                         ; preds = %sub_1158
 64:                                               ; preds = %.backedge, %62
   %.0104 = phi ptr [ null, %62 ], [ %.0104.be, %.backedge ]
   %.0102 = phi ptr [ null, %62 ], [ %.0102.be, %.backedge ]
-  %.0100 = phi i32 [ 0, %62 ], [ %.0100.be, %.backedge ]
-  %.098 = phi i1 [ false, %62 ], [ %.098.be, %.backedge ]
-  %.096 = phi i8 [ 0, %62 ], [ %.096.be, %.backedge ]
+  %.0100 = phi ptr [ null, %62 ], [ %.0100.be, %.backedge ]
+  %.098 = phi i32 [ 0, %62 ], [ %.098.be, %.backedge ]
+  %.096 = phi i1 [ false, %62 ], [ %.096.be, %.backedge ]
   %.094 = phi i8 [ 0, %62 ], [ %.094.be, %.backedge ]
   %.092 = phi i8 [ 0, %62 ], [ %.092.be, %.backedge ]
-  %.088 = phi ptr [ null, %62 ], [ %.088.be, %.backedge ]
+  %.090 = phi i8 [ 0, %62 ], [ %.090.be, %.backedge ]
   %.086 = phi ptr [ null, %62 ], [ %.086.be, %.backedge ]
   %.084 = phi ptr [ null, %62 ], [ %.084.be, %.backedge ]
   %.0 = phi ptr [ null, %62 ], [ %.0.be, %.backedge ]
@@ -531,14 +531,14 @@ sub_2159:                                         ; preds = %sub_1158
   ]
 
 .backedge:                                        ; preds = %64, %read_dumpall_filters.exit, %132, %130, %126, %124, %119, %115, %113, %111, %109, %107, %104, %103, %99, %97, %96, %93, %91, %88, %85, %84, %78, %72, %69, %68, %66
-  %.0104.be = phi ptr [ %.0104, %read_dumpall_filters.exit ], [ %.0104, %132 ], [ %.0104, %130 ], [ %.0104, %126 ], [ %.0104, %124 ], [ %121, %119 ], [ %.0104, %115 ], [ %.0104, %113 ], [ %.0104, %111 ], [ %.0104, %109 ], [ %.0104, %107 ], [ %.0104, %104 ], [ %.0104, %103 ], [ %.0104, %99 ], [ %.0104, %97 ], [ %.0104, %96 ], [ %.0104, %93 ], [ %.0104, %91 ], [ %.0104, %88 ], [ %.0104, %85 ], [ %.0104, %84 ], [ %.0104, %78 ], [ %.0104, %72 ], [ %.0104, %69 ], [ %.0104, %68 ], [ %.0104, %66 ], [ %.0104, %64 ]
-  %.0102.be = phi ptr [ %.0102, %read_dumpall_filters.exit ], [ %.0102, %132 ], [ %.0102, %130 ], [ %.0102, %126 ], [ %.0102, %124 ], [ %.0102, %119 ], [ %.0102, %115 ], [ %.0102, %113 ], [ %.0102, %111 ], [ %.0102, %109 ], [ %.0102, %107 ], [ %.0102, %104 ], [ %.0102, %103 ], [ %.0102, %99 ], [ %.0102, %97 ], [ %.0102, %96 ], [ %.0102, %93 ], [ %.0102, %91 ], [ %.0102, %88 ], [ %.0102, %85 ], [ %.0102, %84 ], [ %.0102, %78 ], [ %74, %72 ], [ %.0102, %69 ], [ %.0102, %68 ], [ %.0102, %66 ], [ %.0102, %64 ]
-  %.0100.be = phi i32 [ %.0100, %read_dumpall_filters.exit ], [ %.0100, %132 ], [ %.0100, %130 ], [ %.0100, %126 ], [ %.0100, %124 ], [ %.0100, %119 ], [ %.0100, %115 ], [ %.0100, %113 ], [ 2, %111 ], [ 1, %109 ], [ %.0100, %107 ], [ %.0100, %104 ], [ %.0100, %103 ], [ %.0100, %99 ], [ %.0100, %97 ], [ %.0100, %96 ], [ %.0100, %93 ], [ %.0100, %91 ], [ %.0100, %88 ], [ %.0100, %85 ], [ %.0100, %84 ], [ %.0100, %78 ], [ %.0100, %72 ], [ %.0100, %69 ], [ %.0100, %68 ], [ %.0100, %66 ], [ %.0100, %64 ]
-  %.098.be = phi i1 [ %.098, %read_dumpall_filters.exit ], [ %.098, %132 ], [ %.098, %130 ], [ %.098, %126 ], [ %.098, %124 ], [ %.098, %119 ], [ %.098, %115 ], [ %.098, %113 ], [ %.098, %111 ], [ %.098, %109 ], [ %.098, %107 ], [ %.098, %104 ], [ %.098, %103 ], [ %.098, %99 ], [ %.098, %97 ], [ %.098, %96 ], [ %.098, %93 ], [ %.098, %91 ], [ %.098, %88 ], [ %.098, %85 ], [ %.098, %84 ], [ %.098, %78 ], [ %.098, %72 ], [ %.098, %69 ], [ %.098, %68 ], [ true, %66 ], [ %.098, %64 ]
-  %.096.be = phi i8 [ %.096, %read_dumpall_filters.exit ], [ %.096, %132 ], [ %.096, %130 ], [ %.096, %126 ], [ %.096, %124 ], [ %.096, %119 ], [ %.096, %115 ], [ %.096, %113 ], [ %.096, %111 ], [ %.096, %109 ], [ %.096, %107 ], [ %.096, %104 ], [ %.096, %103 ], [ %.096, %99 ], [ %.096, %97 ], [ %.096, %96 ], [ %.096, %93 ], [ %.096, %91 ], [ %.096, %88 ], [ %.096, %85 ], [ 1, %84 ], [ %.096, %78 ], [ %.096, %72 ], [ %.096, %69 ], [ %.096, %68 ], [ %.096, %66 ], [ %.096, %64 ]
-  %.094.be = phi i8 [ %.094, %read_dumpall_filters.exit ], [ %.094, %132 ], [ %.094, %130 ], [ %.094, %126 ], [ %.094, %124 ], [ %.094, %119 ], [ %.094, %115 ], [ %.094, %113 ], [ %.094, %111 ], [ %.094, %109 ], [ %.094, %107 ], [ %.094, %104 ], [ %.094, %103 ], [ %.094, %99 ], [ %.094, %97 ], [ 1, %96 ], [ %.094, %93 ], [ %.094, %91 ], [ %.094, %88 ], [ %.094, %85 ], [ %.094, %84 ], [ %.094, %78 ], [ %.094, %72 ], [ %.094, %69 ], [ %.094, %68 ], [ %.094, %66 ], [ %.094, %64 ]
-  %.092.be = phi i8 [ %.092, %read_dumpall_filters.exit ], [ %.092, %132 ], [ %.092, %130 ], [ %.092, %126 ], [ %.092, %124 ], [ %.092, %119 ], [ %.092, %115 ], [ %.092, %113 ], [ %.092, %111 ], [ %.092, %109 ], [ %.092, %107 ], [ %.092, %104 ], [ 1, %103 ], [ %.092, %99 ], [ %.092, %97 ], [ %.092, %96 ], [ %.092, %93 ], [ %.092, %91 ], [ %.092, %88 ], [ %.092, %85 ], [ %.092, %84 ], [ %.092, %78 ], [ %.092, %72 ], [ %.092, %69 ], [ %.092, %68 ], [ %.092, %66 ], [ %.092, %64 ]
-  %.088.be = phi ptr [ %.088, %read_dumpall_filters.exit ], [ %.088, %132 ], [ %.088, %130 ], [ %.088, %126 ], [ %.088, %124 ], [ %.088, %119 ], [ %.088, %115 ], [ %.088, %113 ], [ %.088, %111 ], [ %.088, %109 ], [ %.088, %107 ], [ %.088, %104 ], [ %.088, %103 ], [ %.088, %99 ], [ %.088, %97 ], [ %.088, %96 ], [ %.088, %93 ], [ %.088, %91 ], [ %90, %88 ], [ %.088, %85 ], [ %.088, %84 ], [ %.088, %78 ], [ %.088, %72 ], [ %.088, %69 ], [ %.088, %68 ], [ %.088, %66 ], [ %.088, %64 ]
+  %.0104.be = phi ptr [ %.0104, %read_dumpall_filters.exit ], [ %.0104, %132 ], [ %.0104, %130 ], [ %.0104, %126 ], [ %.0104, %124 ], [ %.0104, %119 ], [ %.0104, %115 ], [ %.0104, %113 ], [ %.0104, %111 ], [ %.0104, %109 ], [ %.0104, %107 ], [ %.0104, %104 ], [ %.0104, %103 ], [ %.0104, %99 ], [ %.0104, %97 ], [ %.0104, %96 ], [ %.0104, %93 ], [ %.0104, %91 ], [ %90, %88 ], [ %.0104, %85 ], [ %.0104, %84 ], [ %.0104, %78 ], [ %.0104, %72 ], [ %.0104, %69 ], [ %.0104, %68 ], [ %.0104, %66 ], [ %.0104, %64 ]
+  %.0102.be = phi ptr [ %.0102, %read_dumpall_filters.exit ], [ %.0102, %132 ], [ %.0102, %130 ], [ %.0102, %126 ], [ %.0102, %124 ], [ %121, %119 ], [ %.0102, %115 ], [ %.0102, %113 ], [ %.0102, %111 ], [ %.0102, %109 ], [ %.0102, %107 ], [ %.0102, %104 ], [ %.0102, %103 ], [ %.0102, %99 ], [ %.0102, %97 ], [ %.0102, %96 ], [ %.0102, %93 ], [ %.0102, %91 ], [ %.0102, %88 ], [ %.0102, %85 ], [ %.0102, %84 ], [ %.0102, %78 ], [ %.0102, %72 ], [ %.0102, %69 ], [ %.0102, %68 ], [ %.0102, %66 ], [ %.0102, %64 ]
+  %.0100.be = phi ptr [ %.0100, %read_dumpall_filters.exit ], [ %.0100, %132 ], [ %.0100, %130 ], [ %.0100, %126 ], [ %.0100, %124 ], [ %.0100, %119 ], [ %.0100, %115 ], [ %.0100, %113 ], [ %.0100, %111 ], [ %.0100, %109 ], [ %.0100, %107 ], [ %.0100, %104 ], [ %.0100, %103 ], [ %.0100, %99 ], [ %.0100, %97 ], [ %.0100, %96 ], [ %.0100, %93 ], [ %.0100, %91 ], [ %.0100, %88 ], [ %.0100, %85 ], [ %.0100, %84 ], [ %.0100, %78 ], [ %74, %72 ], [ %.0100, %69 ], [ %.0100, %68 ], [ %.0100, %66 ], [ %.0100, %64 ]
+  %.098.be = phi i32 [ %.098, %read_dumpall_filters.exit ], [ %.098, %132 ], [ %.098, %130 ], [ %.098, %126 ], [ %.098, %124 ], [ %.098, %119 ], [ %.098, %115 ], [ %.098, %113 ], [ 2, %111 ], [ 1, %109 ], [ %.098, %107 ], [ %.098, %104 ], [ %.098, %103 ], [ %.098, %99 ], [ %.098, %97 ], [ %.098, %96 ], [ %.098, %93 ], [ %.098, %91 ], [ %.098, %88 ], [ %.098, %85 ], [ %.098, %84 ], [ %.098, %78 ], [ %.098, %72 ], [ %.098, %69 ], [ %.098, %68 ], [ %.098, %66 ], [ %.098, %64 ]
+  %.096.be = phi i1 [ %.096, %read_dumpall_filters.exit ], [ %.096, %132 ], [ %.096, %130 ], [ %.096, %126 ], [ %.096, %124 ], [ %.096, %119 ], [ %.096, %115 ], [ %.096, %113 ], [ %.096, %111 ], [ %.096, %109 ], [ %.096, %107 ], [ %.096, %104 ], [ %.096, %103 ], [ %.096, %99 ], [ %.096, %97 ], [ %.096, %96 ], [ %.096, %93 ], [ %.096, %91 ], [ %.096, %88 ], [ %.096, %85 ], [ %.096, %84 ], [ %.096, %78 ], [ %.096, %72 ], [ %.096, %69 ], [ %.096, %68 ], [ true, %66 ], [ %.096, %64 ]
+  %.094.be = phi i8 [ %.094, %read_dumpall_filters.exit ], [ %.094, %132 ], [ %.094, %130 ], [ %.094, %126 ], [ %.094, %124 ], [ %.094, %119 ], [ %.094, %115 ], [ %.094, %113 ], [ %.094, %111 ], [ %.094, %109 ], [ %.094, %107 ], [ %.094, %104 ], [ %.094, %103 ], [ %.094, %99 ], [ %.094, %97 ], [ %.094, %96 ], [ %.094, %93 ], [ %.094, %91 ], [ %.094, %88 ], [ %.094, %85 ], [ 1, %84 ], [ %.094, %78 ], [ %.094, %72 ], [ %.094, %69 ], [ %.094, %68 ], [ %.094, %66 ], [ %.094, %64 ]
+  %.092.be = phi i8 [ %.092, %read_dumpall_filters.exit ], [ %.092, %132 ], [ %.092, %130 ], [ %.092, %126 ], [ %.092, %124 ], [ %.092, %119 ], [ %.092, %115 ], [ %.092, %113 ], [ %.092, %111 ], [ %.092, %109 ], [ %.092, %107 ], [ %.092, %104 ], [ %.092, %103 ], [ %.092, %99 ], [ %.092, %97 ], [ 1, %96 ], [ %.092, %93 ], [ %.092, %91 ], [ %.092, %88 ], [ %.092, %85 ], [ %.092, %84 ], [ %.092, %78 ], [ %.092, %72 ], [ %.092, %69 ], [ %.092, %68 ], [ %.092, %66 ], [ %.092, %64 ]
+  %.090.be = phi i8 [ %.090, %read_dumpall_filters.exit ], [ %.090, %132 ], [ %.090, %130 ], [ %.090, %126 ], [ %.090, %124 ], [ %.090, %119 ], [ %.090, %115 ], [ %.090, %113 ], [ %.090, %111 ], [ %.090, %109 ], [ %.090, %107 ], [ %.090, %104 ], [ 1, %103 ], [ %.090, %99 ], [ %.090, %97 ], [ %.090, %96 ], [ %.090, %93 ], [ %.090, %91 ], [ %.090, %88 ], [ %.090, %85 ], [ %.090, %84 ], [ %.090, %78 ], [ %.090, %72 ], [ %.090, %69 ], [ %.090, %68 ], [ %.090, %66 ], [ %.090, %64 ]
   %.086.be = phi ptr [ %.086, %read_dumpall_filters.exit ], [ %.086, %132 ], [ %.086, %130 ], [ %.086, %126 ], [ %.086, %124 ], [ %.086, %119 ], [ %.086, %115 ], [ %.086, %113 ], [ %.086, %111 ], [ %.086, %109 ], [ %.086, %107 ], [ %106, %104 ], [ %.086, %103 ], [ %.086, %99 ], [ %.086, %97 ], [ %.086, %96 ], [ %.086, %93 ], [ %.086, %91 ], [ %.086, %88 ], [ %.086, %85 ], [ %.086, %84 ], [ %.086, %78 ], [ %.086, %72 ], [ %.086, %69 ], [ %.086, %68 ], [ %.086, %66 ], [ %.086, %64 ]
   %.084.be = phi ptr [ %.084, %read_dumpall_filters.exit ], [ %.084, %132 ], [ %.084, %130 ], [ %.084, %126 ], [ %.084, %124 ], [ %.084, %119 ], [ %.084, %115 ], [ %.084, %113 ], [ %.084, %111 ], [ %.084, %109 ], [ %.084, %107 ], [ %.084, %104 ], [ %.084, %103 ], [ %.084, %99 ], [ %.084, %97 ], [ %.084, %96 ], [ %95, %93 ], [ %.084, %91 ], [ %.084, %88 ], [ %.084, %85 ], [ %.084, %84 ], [ %.084, %78 ], [ %.084, %72 ], [ %.084, %69 ], [ %.084, %68 ], [ %.084, %66 ], [ %.084, %64 ]
   %.0.be = phi ptr [ %.0, %read_dumpall_filters.exit ], [ %.0, %132 ], [ %.0, %130 ], [ %.0, %126 ], [ %.0, %124 ], [ %.0, %119 ], [ %.0, %115 ], [ %.0, %113 ], [ %.0, %111 ], [ %.0, %109 ], [ %.0, %107 ], [ %.0, %104 ], [ %.0, %103 ], [ %.0, %99 ], [ %.0, %97 ], [ %.0, %96 ], [ %.0, %93 ], [ %.0, %91 ], [ %.0, %88 ], [ %87, %85 ], [ %.0, %84 ], [ %.0, %78 ], [ %.0, %72 ], [ %.0, %69 ], [ %.0, %68 ], [ %.0, %66 ], [ %.0, %64 ]
@@ -786,18 +786,18 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
 163:                                              ; preds = %155
   %164 = load ptr, ptr @database_exclude_patterns, align 8
   %.not117 = icmp eq ptr %164, null
-  %.pre = trunc nuw i8 %.096 to i1
+  %.pre = trunc nuw i8 %.094 to i1
   br i1 %.not117, label %172, label %165
 
 165:                                              ; preds = %163
   br i1 %.pre, label %170, label %166
 
 166:                                              ; preds = %165
-  %167 = trunc nuw i8 %.094 to i1
+  %167 = trunc nuw i8 %.092 to i1
   br i1 %167, label %170, label %168
 
 168:                                              ; preds = %166
-  %169 = trunc nuw i8 %.092 to i1
+  %169 = trunc nuw i8 %.090 to i1
   br i1 %169, label %170, label %.critedge
 
 170:                                              ; preds = %168, %166, %165
@@ -811,7 +811,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   br i1 %.pre, label %173, label %.critedge
 
 173:                                              ; preds = %172
-  %174 = trunc nuw i8 %.094 to i1
+  %174 = trunc nuw i8 %.092 to i1
   br i1 %174, label %175, label %177
 
 175:                                              ; preds = %173
@@ -822,7 +822,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   unreachable
 
 177:                                              ; preds = %173
-  %178 = trunc nuw i8 %.092 to i1
+  %178 = trunc nuw i8 %.090 to i1
   br i1 %178, label %179, label %.critedge
 
 179:                                              ; preds = %177
@@ -848,11 +848,11 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   unreachable
 
 184:                                              ; preds = %182, %.critedge
-  %185 = trunc nuw i8 %.094 to i1
+  %185 = trunc nuw i8 %.092 to i1
   br i1 %185, label %186, label %190
 
 186:                                              ; preds = %184
-  %187 = trunc nuw i8 %.092 to i1
+  %187 = trunc nuw i8 %.090 to i1
   br i1 %187, label %188, label %190
 
 188:                                              ; preds = %186
@@ -1037,28 +1037,28 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   br label %260
 
 260:                                              ; preds = %258, %256
-  %.not138 = icmp eq ptr %.088, null
+  %.not138 = icmp eq ptr %.0104, null
   %261 = load ptr, ptr @connstr, align 8
   br i1 %.not138, label %265, label %262
 
 262:                                              ; preds = %260
-  %263 = call fastcc ptr @connectDatabase(ptr noundef nonnull %.088, ptr noundef %261, ptr noundef %.0, ptr noundef %.084, ptr noundef %.086, i32 noundef %.0100, i1 noundef zeroext false)
+  %263 = call fastcc ptr @connectDatabase(ptr noundef nonnull %.0104, ptr noundef %261, ptr noundef %.0, ptr noundef %.084, ptr noundef %.086, i32 noundef %.098, i1 noundef zeroext false)
   %.not141 = icmp eq ptr %263, null
   br i1 %.not141, label %264, label %.thread
 
 264:                                              ; preds = %262
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.100, ptr noundef nonnull %.088) #14
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.100, ptr noundef nonnull %.0104) #14
   call void @exit(i32 noundef 1) #16
   unreachable
 
 265:                                              ; preds = %260
-  %266 = call fastcc ptr @connectDatabase(ptr noundef nonnull @.str.101, ptr noundef %261, ptr noundef %.0, ptr noundef %.084, ptr noundef %.086, i32 noundef %.0100, i1 noundef zeroext false)
+  %266 = call fastcc ptr @connectDatabase(ptr noundef nonnull @.str.101, ptr noundef %261, ptr noundef %.0, ptr noundef %.084, ptr noundef %.086, i32 noundef %.098, i1 noundef zeroext false)
   %.not139 = icmp eq ptr %266, null
   br i1 %.not139, label %267, label %.thread
 
 267:                                              ; preds = %265
   %268 = load ptr, ptr @connstr, align 8
-  %269 = call fastcc ptr @connectDatabase(ptr noundef nonnull @.str.102, ptr noundef %268, ptr noundef %.0, ptr noundef %.084, ptr noundef %.086, i32 noundef %.0100, i1 noundef zeroext true)
+  %269 = call fastcc ptr @connectDatabase(ptr noundef nonnull @.str.102, ptr noundef %268, ptr noundef %.0, ptr noundef %.084, ptr noundef %.086, i32 noundef %.098, i1 noundef zeroext true)
   %.not140 = icmp eq ptr %269, null
   br i1 %.not140, label %270, label %.thread
 
@@ -1070,8 +1070,8 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   unreachable
 
 .thread:                                          ; preds = %265, %267, %262
-  %.191 = phi ptr [ %263, %262 ], [ %269, %267 ], [ %266, %265 ]
-  call fastcc void @expand_dbname_patterns(ptr noundef nonnull %.191)
+  %.189 = phi ptr [ %263, %262 ], [ %269, %267 ], [ %266, %265 ]
+  call fastcc void @expand_dbname_patterns(ptr noundef nonnull %.189)
   %272 = load ptr, ptr @filename, align 8
   %.not142 = icmp eq ptr %272, null
   br i1 %.not142, label %277, label %273
@@ -1094,33 +1094,33 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   br label %279
 
 279:                                              ; preds = %273, %277
-  %.not144 = icmp eq ptr %.0102, null
+  %.not144 = icmp eq ptr %.0100, null
   br i1 %.not144, label %284, label %280
 
 280:                                              ; preds = %279
-  %281 = call i32 @PQsetClientEncoding(ptr noundef nonnull %.191, ptr noundef nonnull %.0102) #14
+  %281 = call i32 @PQsetClientEncoding(ptr noundef nonnull %.189, ptr noundef nonnull %.0100) #14
   %282 = icmp slt i32 %281, 0
   br i1 %282, label %283, label %284
 
 283:                                              ; preds = %280
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.106, ptr noundef nonnull %.0102) #14
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.106, ptr noundef nonnull %.0100) #14
   call void @exit(i32 noundef 1) #16
   unreachable
 
 284:                                              ; preds = %280, %279
-  %285 = call i32 @PQclientEncoding(ptr noundef nonnull %.191) #14
-  %286 = call ptr @PQparameterStatus(ptr noundef nonnull %.191, ptr noundef nonnull @.str.107) #14
+  %285 = call i32 @PQclientEncoding(ptr noundef nonnull %.189) #14
+  %286 = call ptr @PQparameterStatus(ptr noundef nonnull %.189, ptr noundef nonnull @.str.107) #14
   %.not145 = icmp eq ptr %286, null
   %spec.store.select = select i1 %.not145, ptr @.str.108, ptr %286
-  %.not146 = icmp eq ptr %.0104, null
+  %.not146 = icmp eq ptr %.0102, null
   br i1 %.not146, label %291, label %287
 
 287:                                              ; preds = %284
   %288 = call ptr @createPQExpBuffer() #14
-  %289 = call ptr @fmtId(ptr noundef nonnull %.0104) #14
+  %289 = call ptr @fmtId(ptr noundef nonnull %.0102) #14
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %288, ptr noundef nonnull @.str.109, ptr noundef %289) #14
   %290 = load ptr, ptr %288, align 8
-  call fastcc void @executeCommand(ptr noundef nonnull %.191, ptr noundef %290)
+  call fastcc void @executeCommand(ptr noundef nonnull %.189, ptr noundef %290)
   call void @destroyPQExpBuffer(ptr noundef nonnull %288) #14
   br label %291
 
@@ -1130,7 +1130,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   br i1 %.not147, label %294, label %293
 
 293:                                              ; preds = %291
-  call fastcc void @executeCommand(ptr noundef nonnull %.191, ptr noundef nonnull @.str.110)
+  call fastcc void @executeCommand(ptr noundef nonnull %.189, ptr noundef nonnull @.str.110)
   br label %294
 
 294:                                              ; preds = %293, %291
@@ -1163,7 +1163,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
 311:                                              ; preds = %308, %298
   %312 = load ptr, ptr @OPF, align 8
   %313 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %312, ptr noundef nonnull @.str.117) #14
-  br i1 %.098, label %334, label %314
+  br i1 %.096, label %334, label %314
 
 314:                                              ; preds = %311
   %.b149 = load i1, ptr @output_clean, align 1
@@ -1174,11 +1174,11 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   br i1 %brmerge, label %319, label %316
 
 316:                                              ; preds = %315
-  %317 = trunc nuw i8 %.092 to i1
+  %317 = trunc nuw i8 %.090 to i1
   br i1 %317, label %319, label %318
 
 318:                                              ; preds = %316
-  call fastcc void @dropDBs(ptr noundef nonnull %.191)
+  call fastcc void @dropDBs(ptr noundef nonnull %.189)
   br label %319
 
 319:                                              ; preds = %315, %318, %316
@@ -1188,24 +1188,24 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   br i1 %or.cond, label %323, label %322
 
 322:                                              ; preds = %319
-  call fastcc void @dropTablespaces(ptr noundef nonnull %.191)
+  call fastcc void @dropTablespaces(ptr noundef nonnull %.189)
   br label %323
 
 323:                                              ; preds = %322, %319
-  %324 = trunc nuw i8 %.092 to i1
+  %324 = trunc nuw i8 %.090 to i1
   br i1 %324, label %.thread242, label %.thread244
 
 .thread244:                                       ; preds = %323
-  call fastcc void @dropRoles(ptr noundef nonnull %.191)
+  call fastcc void @dropRoles(ptr noundef nonnull %.189)
   br label %326
 
 325:                                              ; preds = %314
-  %.pre237 = trunc nuw i8 %.092 to i1
+  %.pre237 = trunc nuw i8 %.090 to i1
   br i1 %.pre237, label %.thread242, label %326
 
 326:                                              ; preds = %.thread244, %325
-  call fastcc void @dumpRoles(ptr noundef nonnull %.191)
-  call fastcc void @dumpRoleMembership(ptr noundef nonnull %.191)
+  call fastcc void @dumpRoles(ptr noundef nonnull %.189)
+  call fastcc void @dumpRoleMembership(ptr noundef nonnull %.189)
   %327 = load i32, ptr @server_version, align 4
   %328 = icmp sgt i32 %327, 149999
   br i1 %328, label %329, label %.thread242
@@ -1215,7 +1215,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   br i1 %.b115150, label %.thread242, label %330
 
 330:                                              ; preds = %329
-  call fastcc void @dumpRoleGUCPrivs(ptr noundef nonnull %.191)
+  call fastcc void @dumpRoleGUCPrivs(ptr noundef nonnull %.189)
   br label %.thread242
 
 .thread242:                                       ; preds = %323, %326, %329, %330, %325
@@ -1225,7 +1225,7 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   br i1 %or.cond3, label %334, label %333
 
 333:                                              ; preds = %.thread242
-  call fastcc void @dumpTablespaces(ptr noundef nonnull %.191)
+  call fastcc void @dumpTablespaces(ptr noundef nonnull %.189)
   br label %334
 
 334:                                              ; preds = %.thread242, %333, %311
@@ -1233,15 +1233,15 @@ read_dumpall_filters.exit:                        ; preds = %151, %136
   br i1 %brmerge153, label %338, label %335
 
 335:                                              ; preds = %334
-  %336 = trunc nuw i8 %.092 to i1
+  %336 = trunc nuw i8 %.090 to i1
   br i1 %336, label %338, label %337
 
 337:                                              ; preds = %335
-  call fastcc void @dumpDatabases(ptr noundef nonnull %.191)
+  call fastcc void @dumpDatabases(ptr noundef nonnull %.189)
   br label %338
 
 338:                                              ; preds = %334, %337, %335
-  call void @PQfinish(ptr noundef nonnull %.191) #14
+  call void @PQfinish(ptr noundef nonnull %.189) #14
   %.b113151 = load i1, ptr @verbose, align 1
   br i1 %.b113151, label %339, label %340
 
@@ -2446,26 +2446,26 @@ define internal fastcc void @dumpRoleMembership(ptr noundef %0) unnamed_addr #3 
   br i1 %21, label %.lr.ph, label %._crit_edge181
 
 .lr.ph:                                           ; preds = %19, %._crit_edge
-  %.0179 = phi i32 [ %.091.lcssa, %._crit_edge ], [ 0, %19 ]
-  %22 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %.0179, i32 noundef 0) #14
+  %.094179 = phi i32 [ %.093.lcssa, %._crit_edge ], [ 0, %19 ]
+  %22 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %.094179, i32 noundef 0) #14
   br label %23
 
 23:                                               ; preds = %.lr.ph, %26
-  %.091148 = phi i32 [ %.0179, %.lr.ph ], [ %27, %26 ]
-  %24 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %.091148, i32 noundef 0) #14
+  %.093148 = phi i32 [ %.094179, %.lr.ph ], [ %27, %26 ]
+  %24 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %.093148, i32 noundef 0) #14
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %24) #15
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %26, label %29
 
 26:                                               ; preds = %23
-  %27 = add i32 %.091148, 1
+  %27 = add i32 %.093148, 1
   %28 = icmp slt i32 %27, %20
   br i1 %28, label %23, label %29, !llvm.loop !19
 
 29:                                               ; preds = %23, %26
-  %.091.lcssa = phi i32 [ %.091148, %23 ], [ %27, %26 ]
-  %30 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %.0179, i32 noundef 0) #14
-  %31 = sub i32 %.091.lcssa, %.0179
+  %.093.lcssa = phi i32 [ %.093148, %23 ], [ %27, %26 ]
+  %30 = tail call ptr @PQgetvalue(ptr noundef %11, i32 noundef %.094179, i32 noundef 0) #14
+  %31 = sub i32 %.093.lcssa, %.094179
   %32 = sext i32 %31 to i64
   %33 = tail call ptr @pg_malloc0(i64 noundef %32) #14
   %34 = tail call ptr @pg_malloc0(i64 noundef 40) #14
@@ -2529,26 +2529,26 @@ rolename_create.exit:                             ; preds = %rolename_compute_si
   br i1 %69, label %.lr.ph153, label %._crit_edge
 
 .lr.ph153:                                        ; preds = %rolename_create.exit
-  %70 = icmp slt i32 %.0179, %.091.lcssa
+  %70 = icmp slt i32 %.094179, %.093.lcssa
   %71 = getelementptr inbounds i8, ptr %34, i64 8
   br i1 %70, label %.lr.ph153.split.us.preheader, label %.preheader.us161
 
 .lr.ph153.split.us.preheader:                     ; preds = %.lr.ph153
-  %72 = sext i32 %.0179 to i64
-  %wide.trip.count = sext i32 %.091.lcssa to i64
+  %72 = sext i32 %.094179 to i64
+  %wide.trip.count = sext i32 %.093.lcssa to i64
   br label %.lr.ph153.split.us
 
 .lr.ph153.split.us:                               ; preds = %.lr.ph153.split.us.preheader, %..loopexit_crit_edge.us
-  %.093152.us = phi i32 [ %.2.us, %..loopexit_crit_edge.us ], [ %31, %.lr.ph153.split.us.preheader ]
-  %.094151.us = phi i32 [ %.093152.us, %..loopexit_crit_edge.us ], [ 0, %.lr.ph153.split.us.preheader ]
-  %73 = icmp eq i32 %.093152.us, %.094151.us
+  %.090152.us = phi i32 [ %.091151.us, %..loopexit_crit_edge.us ], [ 0, %.lr.ph153.split.us.preheader ]
+  %.091151.us = phi i32 [ %.2.us, %..loopexit_crit_edge.us ], [ %31, %.lr.ph153.split.us.preheader ]
+  %73 = icmp eq i32 %.091151.us, %.090152.us
   br i1 %73, label %.split.us, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.lr.ph153.split.us, %rolename_lookup.exit.thread.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %rolename_lookup.exit.thread.us ], [ %72, %.lr.ph153.split.us ]
-  %.1149.us = phi i32 [ %.2.us, %rolename_lookup.exit.thread.us ], [ %.093152.us, %.lr.ph153.split.us ]
+  %.1150.us = phi i32 [ %.2.us, %rolename_lookup.exit.thread.us ], [ %.091151.us, %.lr.ph153.split.us ]
   %74 = trunc nsw i64 %indvars.iv to i32
-  %75 = sub i32 %74, %.0179
+  %75 = sub i32 %74, %.094179
   %76 = sext i32 %75 to i64
   %77 = getelementptr i8, ptr %33, i64 %76
   %78 = load i8, ptr %77, align 1
@@ -2567,7 +2567,7 @@ rolename_create.exit:                             ; preds = %rolename_compute_si
   br label %87
 
 87:                                               ; preds = %85, %80
-  %.090.us = phi ptr [ %86, %85 ], [ @.str.246, %80 ]
+  %.0.us = phi ptr [ %86, %85 ], [ @.str.246, %80 ]
   br i1 %5, label %88, label %rolename_lookup.exit.us
 
 88:                                               ; preds = %87
@@ -2591,7 +2591,7 @@ rolename_create.exit:                             ; preds = %rolename_compute_si
 
 .lr.ph.i.i.us:                                    ; preds = %91, %110
   %101 = phi ptr [ %114, %110 ], [ %98, %91 ]
-  %.01416.i.i.us = phi i32 [ %112, %110 ], [ %95, %91 ]
+  %.016.i.i.us = phi i32 [ %112, %110 ], [ %95, %91 ]
   %102 = getelementptr inbounds i8, ptr %101, i64 4
   %103 = load i32, ptr %102, align 4
   %104 = icmp eq i32 %103, %94
@@ -2605,7 +2605,7 @@ rolename_create.exit:                             ; preds = %rolename_compute_si
   br i1 %109, label %rolename_lookup.exit.us, label %110
 
 110:                                              ; preds = %105, %.lr.ph.i.i.us
-  %111 = add i32 %.01416.i.i.us, 1
+  %111 = add i32 %.016.i.i.us, 1
   %112 = and i32 %111, %.val.i.i.us
   %113 = zext i32 %112 to i64
   %114 = getelementptr %struct.RoleNameEntry, ptr %96, i64 %113
@@ -2615,7 +2615,7 @@ rolename_create.exit:                             ; preds = %rolename_compute_si
 
 rolename_lookup.exit.us:                          ; preds = %105, %88, %87
   store i8 1, ptr %77, align 1
-  %117 = add i32 %.1149.us, -1
+  %117 = add i32 %.1150.us, -1
   %118 = load i8, ptr %84, align 1
   %119 = icmp eq i8 %118, 116
   br i1 %119, label %120, label %rolename_insert.exit.us
@@ -2625,11 +2625,11 @@ rolename_lookup.exit.us:                          ; preds = %105, %88, %87
   %122 = trunc i64 %121 to i32
   %123 = tail call i32 @hash_bytes(ptr noundef %81, i32 noundef %122) #14
   %.pre.i.i.us = load i32, ptr %71, align 8
-  %.pre175.i.i.us = load i32, ptr %68, align 8
+  %.pre176.i.i.us = load i32, ptr %68, align 8
   br label %124
 
 124:                                              ; preds = %.backedge.i.i.us, %120
-  %125 = phi i32 [ 0, %.backedge.i.i.us ], [ %.pre175.i.i.us, %120 ]
+  %125 = phi i32 [ 0, %.backedge.i.i.us ], [ %.pre176.i.i.us, %120 ]
   %126 = phi i32 [ %240, %.backedge.i.i.us ], [ %.pre.i.i.us, %120 ]
   %.not.i.i.us = icmp ult i32 %126, %125
   br i1 %.not.i.i.us, label %186, label %127
@@ -2683,7 +2683,7 @@ rolename_update_parameters.exit.i.i.i.us:         ; preds = %rolename_compute_si
 
 .lr.ph.i.i.i.us:                                  ; preds = %rolename_update_parameters.exit.i.i.i.us, %163
   %156 = phi i64 [ %165, %163 ], [ 0, %rolename_update_parameters.exit.i.i.i.us ]
-  %.057.i.i.i.us = phi i32 [ %164, %163 ], [ 0, %rolename_update_parameters.exit.i.i.i.us ]
+  %.04957.i.i.i.us = phi i32 [ %164, %163 ], [ 0, %rolename_update_parameters.exit.i.i.i.us ]
   %157 = getelementptr %struct.RoleNameEntry, ptr %132, i64 %156
   %158 = load i32, ptr %157, align 8
   %.not.i.i.i.us = icmp eq i32 %158, 1
@@ -2693,23 +2693,23 @@ rolename_update_parameters.exit.i.i.i.us:         ; preds = %rolename_compute_si
   %160 = getelementptr i8, ptr %157, i64 4
   %.val55.i.i.i.us = load i32, ptr %160, align 4
   %161 = and i32 %.val55.i.i.i.us, %151
-  %162 = icmp eq i32 %161, %.057.i.i.i.us
+  %162 = icmp eq i32 %161, %.04957.i.i.i.us
   br i1 %162, label %.lr.ph65.i.i.i.us.preheader, label %163
 
 163:                                              ; preds = %159
-  %164 = add i32 %.057.i.i.i.us, 1
+  %164 = add i32 %.04957.i.i.i.us, 1
   %165 = zext i32 %164 to i64
   %166 = icmp ugt i64 %128, %165
   br i1 %166, label %.lr.ph.i.i.i.us, label %.lr.ph65.i.i.i.us.preheader, !llvm.loop !20
 
 .lr.ph65.i.i.i.us.preheader:                      ; preds = %163, %159, %.lr.ph.i.i.i.us
-  %.04962.i.i.i.us.ph = phi i32 [ %.057.i.i.i.us, %.lr.ph.i.i.i.us ], [ %.057.i.i.i.us, %159 ], [ 0, %163 ]
+  %.04763.i.i.i.us.ph = phi i32 [ 0, %163 ], [ %.04957.i.i.i.us, %.lr.ph.i.i.i.us ], [ %.04957.i.i.i.us, %159 ]
   br label %.lr.ph65.i.i.i.us
 
 .lr.ph65.i.i.i.us:                                ; preds = %.lr.ph65.i.i.i.us.preheader, %180
-  %.163.i.i.i.us = phi i32 [ %183, %180 ], [ 0, %.lr.ph65.i.i.i.us.preheader ]
-  %.04962.i.i.i.us = phi i32 [ %spec.store.select.i.i.i.us, %180 ], [ %.04962.i.i.i.us.ph, %.lr.ph65.i.i.i.us.preheader ]
-  %167 = zext i32 %.04962.i.i.i.us to i64
+  %.04763.i.i.i.us = phi i32 [ %spec.store.select.i.i.i.us, %180 ], [ %.04763.i.i.i.us.ph, %.lr.ph65.i.i.i.us.preheader ]
+  %.162.i.i.i.us = phi i32 [ %183, %180 ], [ 0, %.lr.ph65.i.i.i.us.preheader ]
+  %167 = zext i32 %.04763.i.i.i.us to i64
   %168 = getelementptr %struct.RoleNameEntry, ptr %132, i64 %167
   %169 = load i32, ptr %168, align 8
   %170 = icmp eq i32 %169, 1
@@ -2723,12 +2723,12 @@ rolename_update_parameters.exit.i.i.i.us:         ; preds = %rolename_compute_si
 
 173:                                              ; preds = %173, %171
   %.val56.pn.i.i.i.us = phi i32 [ %.val56.i.i.i.us, %171 ], [ %178, %173 ]
-  %.047.i.i.i.us = and i32 %.val56.pn.i.i.i.us, %.val.i.i.i.us
-  %174 = zext i32 %.047.i.i.i.us to i64
+  %.0.i.i.i103.us = and i32 %.val56.pn.i.i.i.us, %.val.i.i.i.us
+  %174 = zext i32 %.0.i.i.i103.us to i64
   %175 = getelementptr %struct.RoleNameEntry, ptr %141, i64 %174
   %176 = load i32, ptr %175, align 8
   %177 = icmp eq i32 %176, 0
-  %178 = add i32 %.047.i.i.i.us, 1
+  %178 = add i32 %.0.i.i.i103.us, 1
   br i1 %177, label %179, label %173
 
 179:                                              ; preds = %173
@@ -2736,11 +2736,11 @@ rolename_update_parameters.exit.i.i.i.us:         ; preds = %rolename_compute_si
   br label %180
 
 180:                                              ; preds = %179, %.lr.ph65.i.i.i.us
-  %181 = add i32 %.04962.i.i.i.us, 1
+  %181 = add i32 %.04763.i.i.i.us, 1
   %182 = zext i32 %181 to i64
   %.not52.i.i.i.us = icmp ugt i64 %128, %182
   %spec.store.select.i.i.i.us = select i1 %.not52.i.i.i.us, i32 %181, i32 0
-  %183 = add i32 %.163.i.i.i.us, 1
+  %183 = add i32 %.162.i.i.i.us, 1
   %184 = zext i32 %183 to i64
   %185 = icmp ugt i64 %128, %184
   br i1 %185, label %.lr.ph65.i.i.i.us, label %rolename_grow.exit.i.i.us, !llvm.loop !21
@@ -2761,8 +2761,8 @@ rolename_grow.exit.i.i.us:                        ; preds = %180, %rolename_upda
 
 .lr.ph.i.i101.us:                                 ; preds = %186, %221
   %193 = phi ptr [ %223, %221 ], [ %190, %186 ]
-  %.075117.i.i.us = phi i32 [ %210, %221 ], [ %188, %186 ]
-  %.080116.i.i.us = phi i32 [ %212, %221 ], [ 0, %186 ]
+  %.079118.i.i.us = phi i32 [ %210, %221 ], [ %188, %186 ]
+  %.080117.i.i.us = phi i32 [ %212, %221 ], [ 0, %186 ]
   %194 = getelementptr inbounds i8, ptr %193, i64 4
   %195 = load i32, ptr %194, align 4
   %196 = icmp eq i32 %195, %123
@@ -2777,25 +2777,25 @@ rolename_grow.exit.i.i.us:                        ; preds = %180, %rolename_upda
 
 202:                                              ; preds = %197, %.lr.ph.i.i101.us
   %203 = and i32 %195, %.val82.i.i.us
-  %.not.i87.i.i.us = icmp ugt i32 %203, %.075117.i.i.us
+  %.not.i87.i.i.us = icmp ugt i32 %203, %.079118.i.i.us
   br i1 %.not.i87.i.i.us, label %204, label %rolename_distance.exit.i.i.us
 
 204:                                              ; preds = %202
   %205 = load i64, ptr %34, align 8
   %206 = trunc i64 %205 to i32
-  %207 = add i32 %.075117.i.i.us, %206
+  %207 = add i32 %.079118.i.i.us, %206
   br label %rolename_distance.exit.i.i.us
 
 rolename_distance.exit.i.i.us:                    ; preds = %204, %202
-  %.pn.i.i.i.us = phi i32 [ %207, %204 ], [ %.075117.i.i.us, %202 ]
-  %.0.i.i.i102.us = sub i32 %.pn.i.i.i.us, %203
-  %208 = icmp ugt i32 %.080116.i.i.us, %.0.i.i.i102.us
-  %209 = add i32 %.075117.i.i.us, 1
+  %.pn.i.i.i.us = phi i32 [ %207, %204 ], [ %.079118.i.i.us, %202 ]
+  %.0.i88.i.i.us = sub i32 %.pn.i.i.i.us, %203
+  %208 = icmp ugt i32 %.080117.i.i.us, %.0.i88.i.i.us
+  %209 = add i32 %.079118.i.i.us, 1
   %210 = and i32 %209, %.val82.i.i.us
-  br i1 %208, label %.preheader88.i.i.us, label %211
+  br i1 %208, label %.preheader89.i.i.us, label %211
 
 211:                                              ; preds = %rolename_distance.exit.i.i.us
-  %212 = add i32 %.080116.i.i.us, 1
+  %212 = add i32 %.080117.i.i.us, 1
   %213 = icmp ugt i32 %212, 25
   br i1 %213, label %214, label %221
 
@@ -2815,21 +2815,21 @@ rolename_distance.exit.i.i.us:                    ; preds = %204, %202
   %225 = icmp eq i32 %224, 0
   br i1 %225, label %.sink.split.i.i.us, label %.lr.ph.i.i101.us
 
-.preheader88.i.i.us:                              ; preds = %rolename_distance.exit.i.i.us
+.preheader89.i.i.us:                              ; preds = %rolename_distance.exit.i.i.us
   %226 = zext i32 %210 to i64
   %227 = getelementptr %struct.RoleNameEntry, ptr %187, i64 %226
   %228 = load i32, ptr %227, align 8
   %229 = icmp eq i32 %228, 0
-  br i1 %229, label %.preheader.i.i.us, label %.lr.ph123.i.i.us
+  br i1 %229, label %.preheader.i.i.us, label %.lr.ph124.i.i.us
 
-.lr.ph123.i.i.us:                                 ; preds = %.preheader88.i.i.us, %241
-  %230 = phi i32 [ %243, %241 ], [ %210, %.preheader88.i.i.us ]
-  %.076122.i.i.us = phi i32 [ %231, %241 ], [ 0, %.preheader88.i.i.us ]
-  %231 = add i32 %.076122.i.i.us, 1
+.lr.ph124.i.i.us:                                 ; preds = %.preheader89.i.i.us, %241
+  %230 = phi i32 [ %243, %241 ], [ %210, %.preheader89.i.i.us ]
+  %.075123.i.i.us = phi i32 [ %231, %241 ], [ 0, %.preheader89.i.i.us ]
+  %231 = add i32 %.075123.i.i.us, 1
   %232 = icmp sgt i32 %231, 150
   br i1 %232, label %233, label %241
 
-233:                                              ; preds = %.lr.ph123.i.i.us
+233:                                              ; preds = %.lr.ph124.i.i.us
   %234 = load i32, ptr %71, align 8
   %235 = uitofp i32 %234 to double
   %236 = load i64, ptr %34, align 8
@@ -2843,42 +2843,42 @@ rolename_distance.exit.i.i.us:                    ; preds = %204, %202
   store i32 0, ptr %68, align 8
   br label %124
 
-241:                                              ; preds = %233, %.lr.ph123.i.i.us
+241:                                              ; preds = %233, %.lr.ph124.i.i.us
   %242 = add i32 %230, 1
   %243 = and i32 %242, %.val82.i.i.us
   %244 = zext i32 %243 to i64
   %245 = getelementptr %struct.RoleNameEntry, ptr %187, i64 %244
   %246 = load i32, ptr %245, align 8
   %247 = icmp eq i32 %246, 0
-  br i1 %247, label %.preheader.i.i.us, label %.lr.ph123.i.i.us
+  br i1 %247, label %.preheader.i.i.us, label %.lr.ph124.i.i.us
 
-.preheader.i.i.us:                                ; preds = %.preheader88.i.i.us, %241
-  %.lcssa101.i.i.us = phi i32 [ %243, %241 ], [ %210, %.preheader88.i.i.us ]
-  %.lcssa99.i.i.us = phi ptr [ %245, %241 ], [ %227, %.preheader88.i.i.us ]
-  %.not81141.i.i.us = icmp eq i32 %.lcssa101.i.i.us, %.075117.i.i.us
-  br i1 %.not81141.i.i.us, label %.sink.split.i.i.us, label %.lr.ph144.i.i.us
+.preheader.i.i.us:                                ; preds = %.preheader89.i.i.us, %241
+  %.lcssa102.i.i.us = phi i32 [ %243, %241 ], [ %210, %.preheader89.i.i.us ]
+  %.lcssa100.i.i.us = phi ptr [ %245, %241 ], [ %227, %.preheader89.i.i.us ]
+  %.not81142.i.i.us = icmp eq i32 %.lcssa102.i.i.us, %.079118.i.i.us
+  br i1 %.not81142.i.i.us, label %.sink.split.i.i.us, label %.lr.ph145.i.i.us
 
-.lr.ph144.i.i.us:                                 ; preds = %.preheader.i.i.us, %.lr.ph144.i.i.us
-  %.077143.i.i.us = phi i32 [ %249, %.lr.ph144.i.i.us ], [ %.lcssa101.i.i.us, %.preheader.i.i.us ]
-  %.079142.i.i.us = phi ptr [ %251, %.lr.ph144.i.i.us ], [ %.lcssa99.i.i.us, %.preheader.i.i.us ]
+.lr.ph145.i.i.us:                                 ; preds = %.preheader.i.i.us, %.lr.ph145.i.i.us
+  %.076144.i.i.us = phi i32 [ %249, %.lr.ph145.i.i.us ], [ %.lcssa102.i.i.us, %.preheader.i.i.us ]
+  %.078143.i.i.us = phi ptr [ %251, %.lr.ph145.i.i.us ], [ %.lcssa100.i.i.us, %.preheader.i.i.us ]
   %.val86.i.i.us = load i32, ptr %63, align 4
-  %248 = add i32 %.077143.i.i.us, -1
+  %248 = add i32 %.076144.i.i.us, -1
   %249 = and i32 %.val86.i.i.us, %248
   %250 = zext i32 %249 to i64
   %251 = getelementptr %struct.RoleNameEntry, ptr %187, i64 %250
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.079142.i.i.us, ptr noundef nonnull align 8 dereferenceable(16) %251, i64 16, i1 false)
-  %.not81.i.i.us = icmp eq i32 %249, %.075117.i.i.us
-  br i1 %.not81.i.i.us, label %.sink.split.i.i.us, label %.lr.ph144.i.i.us, !llvm.loop !22
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.078143.i.i.us, ptr noundef nonnull align 8 dereferenceable(16) %251, i64 16, i1 false)
+  %.not81.i.i.us = icmp eq i32 %249, %.079118.i.i.us
+  br i1 %.not81.i.i.us, label %.sink.split.i.i.us, label %.lr.ph145.i.i.us, !llvm.loop !22
 
-.sink.split.i.i.us:                               ; preds = %186, %.lr.ph144.i.i.us, %221, %.preheader.i.i.us
-  %.lcssa8084.sink.i.us = phi ptr [ %193, %.preheader.i.i.us ], [ %223, %221 ], [ %193, %.lr.ph144.i.i.us ], [ %190, %186 ]
+.sink.split.i.i.us:                               ; preds = %186, %.lr.ph145.i.i.us, %221, %.preheader.i.i.us
+  %.lcssa8084.sink.i.us = phi ptr [ %193, %.preheader.i.i.us ], [ %223, %221 ], [ %193, %.lr.ph145.i.i.us ], [ %190, %186 ]
   %252 = load i32, ptr %71, align 8
   %253 = add i32 %252, 1
   store i32 %253, ptr %71, align 8
   %254 = getelementptr inbounds i8, ptr %.lcssa8084.sink.i.us, i64 8
   store ptr %81, ptr %254, align 8
-  %.sink217.i.i.us = getelementptr inbounds i8, ptr %.lcssa8084.sink.i.us, i64 4
-  store i32 %123, ptr %.sink217.i.i.us, align 4
+  %.sink218.i.i.us = getelementptr inbounds i8, ptr %.lcssa8084.sink.i.us, i64 4
+  store i32 %123, ptr %.sink218.i.i.us, align 4
   store i32 1, ptr %.lcssa8084.sink.i.us, align 8
   br label %rolename_insert.exit.us
 
@@ -2920,7 +2920,7 @@ rolename_insert.exit.us:                          ; preds = %197, %.sink.split.i
   br label %274
 
 274:                                              ; preds = %269, %264
-  %275 = load i8, ptr %.090.us, align 1
+  %275 = load i8, ptr %.0.us, align 1
   %.not98.us = icmp eq i8 %275, 116
   br i1 %.not98.us, label %281, label %276
 
@@ -2964,7 +2964,7 @@ rolename_insert.exit.us:                          ; preds = %197, %.sink.split.i
   br label %rolename_lookup.exit.thread.us
 
 rolename_lookup.exit.thread.us:                   ; preds = %110, %292, %91, %.preheader.us
-  %.2.us = phi i32 [ %.1149.us, %.preheader.us ], [ %117, %292 ], [ %.1149.us, %91 ], [ %.1149.us, %110 ]
+  %.2.us = phi i32 [ %.1150.us, %.preheader.us ], [ %117, %292 ], [ %.1150.us, %91 ], [ %.1150.us, %110 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %.preheader.us, !llvm.loop !23
@@ -2974,8 +2974,8 @@ rolename_lookup.exit.thread.us:                   ; preds = %110, %292, %91, %.p
   br i1 %295, label %.lr.ph153.split.us, label %._crit_edge.loopexit, !llvm.loop !24
 
 .preheader.us161:                                 ; preds = %.lr.ph153, %.preheader.us161
-  %.094151.us160 = phi i32 [ %31, %.preheader.us161 ], [ 0, %.lr.ph153 ]
-  %296 = icmp eq i32 %31, %.094151.us160
+  %.090152.us160 = phi i32 [ %31, %.preheader.us161 ], [ 0, %.lr.ph153 ]
+  %296 = icmp eq i32 %31, %.090152.us160
   br i1 %296, label %.split.us, label %.preheader.us161
 
 .split.us:                                        ; preds = %.lr.ph153.split.us, %.preheader.us161
@@ -3008,7 +3008,7 @@ rolename_lookup.exit.thread.us:                   ; preds = %110, %292, %91, %.p
   tail call void @pfree(ptr noundef %297) #14
   tail call void @pfree(ptr noundef nonnull %34) #14
   tail call void @pg_free(ptr noundef %33) #14
-  %298 = icmp slt i32 %.091.lcssa, %20
+  %298 = icmp slt i32 %.093.lcssa, %20
   br i1 %298, label %.lr.ph, label %._crit_edge181, !llvm.loop !25
 
 ._crit_edge181:                                   ; preds = %._crit_edge, %19
@@ -3222,8 +3222,8 @@ define internal fastcc void @dumpDatabases(ptr noundef %0) unnamed_addr #3 {
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %10, %53
-  %.026 = phi i32 [ %54, %53 ], [ 0, %10 ]
-  %13 = call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.026, i32 noundef 0) #14
+  %.01926 = phi i32 [ %54, %53 ], [ 0, %10 ]
+  %13 = call ptr @PQgetvalue(ptr noundef %4, i32 noundef %.01926, i32 noundef 0) #14
   %14 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(10) @.str.280) #15
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %53, label %16
@@ -3259,7 +3259,7 @@ define internal fastcc void @dumpDatabases(ptr noundef %0) unnamed_addr #3 {
   br label %31
 
 31:                                               ; preds = %24, %27, %28
-  %.019 = phi ptr [ @.str.120, %28 ], [ @.str.290, %27 ], [ @.str.292, %24 ]
+  %.0 = phi ptr [ @.str.120, %28 ], [ @.str.290, %27 ], [ @.str.292, %24 ]
   %32 = load ptr, ptr @filename, align 8
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %36, label %33
@@ -3276,7 +3276,7 @@ define internal fastcc void @dumpDatabases(ptr noundef %0) unnamed_addr #3 {
   call void @initPQExpBuffer(ptr noundef nonnull %3) #14
   %37 = load ptr, ptr @pgdumpopts, align 8
   %38 = load ptr, ptr %37, align 8
-  call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.296, ptr noundef nonnull @pg_dump_bin, ptr noundef %38, ptr noundef nonnull %.019) #14
+  call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %3, ptr noundef nonnull @.str.296, ptr noundef nonnull @pg_dump_bin, ptr noundef %38, ptr noundef nonnull %.0) #14
   %39 = load ptr, ptr @filename, align 8
   %.not.i = icmp eq ptr %39, null
   %.str.298..str.297.i = select i1 %.not.i, ptr @.str.298, ptr @.str.297
@@ -3321,7 +3321,7 @@ define internal fastcc void @dumpDatabases(ptr noundef %0) unnamed_addr #3 {
   unreachable
 
 53:                                               ; preds = %47, %49, %.lr.ph, %18
-  %54 = add nuw nsw i32 %.026, 1
+  %54 = add nuw nsw i32 %.01926, 1
   %55 = call i32 @PQntuples(ptr noundef %4) #14
   %56 = icmp slt i32 %54, %55
   br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !28

@@ -474,7 +474,7 @@ _ZN8async_io6driver8block_on5CACHE7__getit17h278e05a6d0505739E.exit.thread.i: ; 
 77:                                               ; preds = %.body.i.i, %79
   %.0273.i.i = phi i8 [ %.2275.i.i, %.body.i.i ], [ %.1274.i.i, %79 ]
   %.0269.i.i = phi i8 [ %.2271.i.i, %.body.i.i ], [ %.1270.i.i, %79 ]
-  %.0265.i.i = phi i1 [ false, %.body.i.i ], [ %.1266.i.i, %79 ]
+  %.0267.i.i = phi i1 [ false, %.body.i.i ], [ %.1268.i.i, %79 ]
   %.pn310.pn.i.i = phi { ptr, i32 } [ %.pn310.i.i, %.body.i.i ], [ %80, %79 ]
   %78 = trunc nuw i8 %.0273.i.i to i1
   br i1 %78, label %477, label %.body365.i.i
@@ -482,7 +482,7 @@ _ZN8async_io6driver8block_on5CACHE7__getit17h278e05a6d0505739E.exit.thread.i: ; 
 79:                                               ; preds = %.critedge.i.i, %83
   %.1274.i.i = phi i8 [ %.2275.i.i, %.critedge.i.i ], [ 0, %83 ]
   %.1270.i.i = phi i8 [ %.2271.i.i, %.critedge.i.i ], [ 0, %83 ]
-  %.1266.i.i = phi i1 [ false, %.critedge.i.i ], [ true, %83 ]
+  %.1268.i.i = phi i1 [ false, %.critedge.i.i ], [ true, %83 ]
   %80 = landingpad { ptr, i32 }
           cleanup
   br label %77
@@ -980,7 +980,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h75ffbf7bbedb93daE.exit.th
 
 .body365.i.i:                                     ; preds = %477, %243, %232, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit.i.i.i", %77
   %.3272.i.i = phi i8 [ %.0269.i.i, %477 ], [ %.0269.i.i, %77 ], [ %.2271.i.i, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit.i.i.i" ], [ %.2271.i.i, %232 ], [ %.2271.i.i, %243 ]
-  %.2.i.i = phi i1 [ %.0265.i.i, %477 ], [ %.0265.i.i, %77 ], [ false, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit.i.i.i" ], [ false, %232 ], [ false, %243 ]
+  %.2.i.i = phi i1 [ %.0267.i.i, %477 ], [ %.0267.i.i, %77 ], [ false, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit.i.i.i" ], [ false, %232 ], [ false, %243 ]
   %.pn310.pn.pn.i.i = phi { ptr, i32 } [ %.pn310.pn.i.i, %477 ], [ %.pn310.pn.i.i, %77 ], [ %.pn.i.i.i, %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.exit.i.i.i" ], [ %.pn.i.i.i, %232 ], [ %244, %243 ]
   %242 = trunc nuw i8 %.3272.i.i to i1
   br i1 %242, label %478, label %248

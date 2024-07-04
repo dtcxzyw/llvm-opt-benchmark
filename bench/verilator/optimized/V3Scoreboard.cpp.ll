@@ -428,17 +428,17 @@ define linkonce_odr dso_local noundef ptr @_ZN11PairingHeapI3KeyE6reduceEPNS1_4N
   br label %.loopexit138
 
 .preheader.preheader:                             ; preds = %1, %.preheaderthread-pre-split
-  %.0118141159 = phi ptr [ %.0, %.preheaderthread-pre-split ], [ null, %1 ]
-  %.0117142158 = phi ptr [ %6, %.preheaderthread-pre-split ], [ %0, %1 ]
+  %.0116141159 = phi ptr [ %6, %.preheaderthread-pre-split ], [ %0, %1 ]
+  %.0115142158 = phi ptr [ %.0, %.preheaderthread-pre-split ], [ null, %1 ]
   %5 = phi ptr [ %.pr, %.preheaderthread-pre-split ], [ %2, %1 ]
-  store ptr null, ptr %.0117142158, align 8
+  store ptr null, ptr %.0116141159, align 8
   %6 = load ptr, ptr %5, align 8
   store ptr null, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 24
-  %8 = getelementptr inbounds i8, ptr %.0117142158, i64 24
+  %8 = getelementptr inbounds i8, ptr %.0116141159, i64 24
   %9 = getelementptr inbounds i8, ptr %5, i64 32
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %.0117142158, i64 32
+  %11 = getelementptr inbounds i8, ptr %.0116141159, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = icmp ugt i32 %10, %12
   br i1 %13, label %_ZNK3KeyltERKS_.exit.thread, label %14
@@ -454,7 +454,7 @@ _ZNK3KeyltERKS_.exit:                             ; preds = %14
   br i1 %18, label %_ZNK3KeyltERKS_.exit.thread, label %_ZNK3KeyltERKS_.exit.thread136
 
 _ZNK3KeyltERKS_.exit.thread:                      ; preds = %.preheader.preheader, %_ZNK3KeyltERKS_.exit
-  %19 = getelementptr inbounds i8, ptr %.0117142158, i64 8
+  %19 = getelementptr inbounds i8, ptr %.0116141159, i64 8
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %5, align 8
   %.not128 = icmp eq ptr %20, null
@@ -472,31 +472,31 @@ _ZNK3KeyltERKS_.exit.thread:                      ; preds = %.preheader.preheade
 _ZNK3KeyltERKS_.exit.thread136:                   ; preds = %14, %_ZNK3KeyltERKS_.exit
   %24 = getelementptr inbounds i8, ptr %5, i64 8
   %25 = load ptr, ptr %24, align 8
-  store ptr %25, ptr %.0117142158, align 8
+  store ptr %25, ptr %.0116141159, align 8
   %.not127 = icmp eq ptr %25, null
   br i1 %.not127, label %28, label %26
 
 26:                                               ; preds = %_ZNK3KeyltERKS_.exit.thread136
   %27 = getelementptr inbounds i8, ptr %25, i64 16
-  store ptr %.0117142158, ptr %27, align 8
+  store ptr %.0116141159, ptr %27, align 8
   br label %28
 
 28:                                               ; preds = %_ZNK3KeyltERKS_.exit.thread136, %26
-  store ptr %.0117142158, ptr %24, align 8
+  store ptr %.0116141159, ptr %24, align 8
   br label %29
 
 29:                                               ; preds = %28, %23
-  %.0117142.sink = phi ptr [ %.0117142158, %28 ], [ %5, %23 ]
+  %.0116141.sink = phi ptr [ %.0116141159, %28 ], [ %5, %23 ]
   %.sink = phi ptr [ %24, %28 ], [ %19, %23 ]
-  %.0 = phi ptr [ %5, %28 ], [ %.0117142158, %23 ]
-  %30 = getelementptr inbounds i8, ptr %.0117142.sink, i64 16
+  %.0 = phi ptr [ %5, %28 ], [ %.0116141159, %23 ]
+  %30 = getelementptr inbounds i8, ptr %.0116141.sink, i64 16
   store ptr %.sink, ptr %30, align 8
-  store ptr %.0118141159, ptr %.0, align 8
-  %.not129 = icmp eq ptr %.0118141159, null
+  store ptr %.0115142158, ptr %.0, align 8
+  %.not129 = icmp eq ptr %.0115142158, null
   br i1 %.not129, label %33, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %.0118141159, i64 16
+  %32 = getelementptr inbounds i8, ptr %.0115142158, i64 16
   store ptr %.0, ptr %32, align 8
   br label %33
 
@@ -512,7 +512,7 @@ _ZNK3KeyltERKS_.exit.thread136:                   ; preds = %14, %_ZNK3KeyltERKS
 
 .lr.ph:                                           ; preds = %.loopexit138, %60
   %34 = phi ptr [ %.pre, %60 ], [ %.pr147, %.loopexit138 ]
-  %.2144 = phi ptr [ %.0115, %60 ], [ %.1.ph, %.loopexit138 ]
+  %.2144 = phi ptr [ %.0118, %60 ], [ %.1.ph, %.loopexit138 ]
   store ptr null, ptr %.2144, align 8
   %35 = load ptr, ptr %34, align 8
   store ptr null, ptr %34, align 8
@@ -570,23 +570,23 @@ _ZNK3KeyltERKS_.exit135.thread137:                ; preds = %43, %_ZNK3KeyltERKS
 58:                                               ; preds = %57, %52
   %.2144.sink = phi ptr [ %.2144, %57 ], [ %34, %52 ]
   %.sink154 = phi ptr [ %53, %57 ], [ %48, %52 ]
-  %.0115 = phi ptr [ %34, %57 ], [ %.2144, %52 ]
+  %.0118 = phi ptr [ %34, %57 ], [ %.2144, %52 ]
   %59 = getelementptr inbounds i8, ptr %.2144.sink, i64 16
   store ptr %.sink154, ptr %59, align 8
-  store ptr %35, ptr %.0115, align 8
+  store ptr %35, ptr %.0118, align 8
   %.not134 = icmp eq ptr %35, null
   br i1 %.not134, label %.loopexit, label %60
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds i8, ptr %35, i64 16
-  store ptr %.0115, ptr %61, align 8
-  %.pre = load ptr, ptr %.0115, align 8
+  store ptr %.0118, ptr %61, align 8
+  %.pre = load ptr, ptr %.0118, align 8
   %.not131 = icmp eq ptr %.pre, null
   br i1 %.not131, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %58, %60, %.loopexit138, %1
-  %.0116 = phi ptr [ %0, %1 ], [ %.1.ph, %.loopexit138 ], [ %.0115, %60 ], [ %.0115, %58 ]
-  ret ptr %.0116
+  %.0117 = phi ptr [ %0, %1 ], [ %.1.ph, %.loopexit138 ], [ %.0118, %60 ], [ %.0118, %58 ]
+  ret ptr %.0117
 }
 
 ; Function Attrs: uwtable

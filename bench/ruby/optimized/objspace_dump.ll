@@ -2929,29 +2929,29 @@ define internal fastcc void @dump_append_ref(ptr noundef %0, i64 noundef %1) unn
   br label %12
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
-  %.017.i = phi i64 [ %9, %.lr.ph.i ], [ %1, %2 ]
-  %.011.idx16.i = phi i64 [ %.011.add12.i, %.lr.ph.i ], [ 19, %2 ]
-  %6 = and i64 %.017.i, 15
+  %.0.idx17.i = phi i64 [ %.0.add12.i, %.lr.ph.i ], [ 19, %2 ]
+  %.01116.i = phi i64 [ %9, %.lr.ph.i ], [ %1, %2 ]
+  %6 = and i64 %.01116.i, 15
   %7 = getelementptr inbounds [0 x i8], ptr @ruby_hexdigits, i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
-  %.011.add12.i = add nsw i64 %.011.idx16.i, -1
-  %.ptr13.i = getelementptr inbounds i8, ptr %3, i64 %.011.add12.i
+  %.0.add12.i = add nsw i64 %.0.idx17.i, -1
+  %.ptr13.i = getelementptr inbounds i8, ptr %3, i64 %.0.add12.i
   store i8 %8, ptr %.ptr13.i, align 1
-  %9 = lshr i64 %.017.i, 4
-  %.not.i = icmp ult i64 %.017.i, 16
+  %9 = lshr i64 %.01116.i, 4
+  %.not.i = icmp ult i64 %.01116.i, 16
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %.ptr13.i.le = getelementptr inbounds i8, ptr %3, i64 %.011.add12.i
+  %.ptr13.i.le = getelementptr inbounds i8, ptr %3, i64 %.0.add12.i
   %10 = getelementptr inbounds i8, ptr %.ptr13.i.le, i64 -1
   store i8 120, ptr %10, align 1
   %11 = getelementptr inbounds i8, ptr %.ptr13.i.le, i64 -2
   store i8 48, ptr %11, align 1
-  %.011.add.i = add nsw i64 %.011.idx16.i, -4
-  %.ptr.i = getelementptr inbounds i8, ptr %3, i64 %.011.add.i
+  %.0.add.i = add nsw i64 %.0.idx17.i, -4
+  %.ptr.i = getelementptr inbounds i8, ptr %3, i64 %.0.add.i
   store i8 34, ptr %.ptr.i, align 1
-  %gepdiff.i = sub nsw i64 24, %.011.idx16.i
-  %.not.i.i = icmp eq i64 %.011.add.i, 20
+  %gepdiff.i = sub nsw i64 24, %.0.idx17.i
+  %.not.i.i = icmp eq i64 %.0.add.i, 20
   br i1 %.not.i.i, label %dump_append_ptr.exit, label %12
 
 12:                                               ; preds = %._crit_edge.i, %._crit_edge.thread.i

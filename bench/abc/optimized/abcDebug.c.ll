@@ -58,9 +58,9 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   br label %159
 
 18:                                               ; preds = %Abc_Clock.exit45, %.preheader
-  %.036 = phi i32 [ %144, %Abc_Clock.exit45 ], [ 0, %.preheader ]
-  %.035 = phi i32 [ %64, %Abc_Clock.exit45 ], [ 1, %.preheader ]
-  %.0 = phi ptr [ %.1, %Abc_Clock.exit45 ], [ %13, %.preheader ]
+  %.035 = phi i32 [ %144, %Abc_Clock.exit45 ], [ 0, %.preheader ]
+  %.034 = phi ptr [ %.1, %Abc_Clock.exit45 ], [ %13, %.preheader ]
+  %.0 = phi i32 [ %64, %Abc_Clock.exit45 ], [ 1, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %19 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #10
   %20 = icmp slt i32 %19, 0
@@ -77,7 +77,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
 Abc_Clock.exit41:                                 ; preds = %18, %21
   %.0.i40.neg = phi i64 [ %.neg49, %21 ], [ 1, %18 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %24 = getelementptr inbounds i8, ptr %.0, i64 32
+  %24 = getelementptr inbounds i8, ptr %.034, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr i8, ptr %25, i64 4
   %.val41.i = load i32, ptr %26, align 4
@@ -85,7 +85,7 @@ Abc_Clock.exit41:                                 ; preds = %18, %21
   br i1 %27, label %.lr.ph44.i, label %Abc_NtkCountFaninsTotal.exit
 
 .lr.ph44.i:                                       ; preds = %Abc_Clock.exit41
-  %28 = getelementptr i8, ptr %.0, i64 48
+  %28 = getelementptr i8, ptr %.034, i64 48
   br label %29
 
 29:                                               ; preds = %.critedge2.i, %.lr.ph44.i
@@ -173,7 +173,7 @@ Abc_NtkCountFaninsTotal.exit:                     ; preds = %.critedge2.i, %Abc_
   %.0.lcssa.i = phi i32 [ 0, %Abc_Clock.exit41 ], [ %.3.i, %.critedge2.i ]
   %62 = shl i32 %.0.lcssa.i, 1
   %63 = call i32 @rand() #10
-  %64 = xor i32 %63, %.035
+  %64 = xor i32 %63, %.0
   %65 = icmp sgt i32 %.0.lcssa.i, 0
   br i1 %65, label %.lr.ph.preheader, label %.loopexit
 
@@ -182,11 +182,11 @@ Abc_NtkCountFaninsTotal.exit:                     ; preds = %.critedge2.i, %Abc_
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %127
-  %.03460 = phi i32 [ %128, %127 ], [ 0, %.lr.ph.preheader ]
-  %66 = add nsw i32 %.03460, %64
+  %.03660 = phi i32 [ %128, %127 ], [ 0, %.lr.ph.preheader ]
+  %66 = add nsw i32 %.03660, %64
   %67 = srem i32 %66, %62
   %68 = sdiv i32 %67, 2
-  %69 = call ptr @Abc_NtkDup(ptr noundef %.0) #10
+  %69 = call ptr @Abc_NtkDup(ptr noundef %.034) #10
   %70 = getelementptr inbounds i8, ptr %69, i64 32
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr i8, ptr %71, i64 4
@@ -322,29 +322,29 @@ Abc_NtkFindGivenFanin.exit.i:                     ; preds = %.critedge2.i.i, %99
   br label %Abc_NtkAutoDebugModify.exit
 
 Abc_NtkAutoDebugModify.exit:                      ; preds = %113, %120
-  call void @Io_WriteBlifLogic(ptr noundef %.0, ptr noundef nonnull @.str.2, i32 noundef 1) #10
+  call void @Io_WriteBlifLogic(ptr noundef %.034, ptr noundef nonnull @.str.2, i32 noundef 1) #10
   %125 = call i32 %1(ptr noundef %69) #10
   %.not38 = icmp eq i32 %125, 0
   br i1 %.not38, label %127, label %126
 
 126:                                              ; preds = %Abc_NtkAutoDebugModify.exit
-  call void @Abc_NtkDelete(ptr noundef %.0) #10
+  call void @Abc_NtkDelete(ptr noundef %.034) #10
   br label %.loopexit
 
 127:                                              ; preds = %Abc_NtkAutoDebugModify.exit
   call void @Abc_NtkDelete(ptr noundef %69) #10
-  %128 = add nuw nsw i32 %.03460, 1
+  %128 = add nuw nsw i32 %.03660, 1
   %exitcond.not = icmp eq i32 %128, %smax
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %127, %Abc_NtkCountFaninsTotal.exit, %126
-  %.03458 = phi i32 [ %.03460, %126 ], [ 0, %Abc_NtkCountFaninsTotal.exit ], [ %smax, %127 ]
-  %.1 = phi ptr [ %69, %126 ], [ %.0, %Abc_NtkCountFaninsTotal.exit ], [ %.0, %127 ]
+  %.03658 = phi i32 [ %.03660, %126 ], [ 0, %Abc_NtkCountFaninsTotal.exit ], [ %smax, %127 ]
+  %.1 = phi ptr [ %69, %126 ], [ %.034, %Abc_NtkCountFaninsTotal.exit ], [ %.034, %127 ]
   %129 = getelementptr i8, ptr %.1, i64 128
   %.1.val = load i32, ptr %129, align 8
   %130 = getelementptr i8, ptr %.1, i64 124
   %.1.val39 = load i32, ptr %130, align 4
-  %131 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.036, i32 noundef %.1.val, i32 noundef %.1.val39, i32 noundef %62, i32 noundef %.03458)
+  %131 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %.035, i32 noundef %.1.val, i32 noundef %.1.val39, i32 noundef %62, i32 noundef %.03658)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %132 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #10
@@ -366,8 +366,8 @@ Abc_Clock.exit45:                                 ; preds = %.loopexit, %134
   %141 = sitofp i64 %140 to double
   %142 = fdiv double %141, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, double noundef %142)
-  %143 = icmp eq i32 %.03458, %62
-  %144 = add nuw nsw i32 %.036, 1
+  %143 = icmp eq i32 %.03658, %62
+  %144 = add nuw nsw i32 %.035, 1
   br i1 %143, label %145, label %18
 
 145:                                              ; preds = %Abc_Clock.exit45

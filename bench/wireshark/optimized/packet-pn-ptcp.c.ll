@@ -349,13 +349,13 @@ define internal range(i32 0, 2) i32 @dissect_PNPTCP_Data_heur(ptr noundef %0, pt
   br label %49
 
 49:                                               ; preds = %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19
-  %.0104 = phi i32 [ %48, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ]
-  tail call void @proto_item_set_len(ptr noundef %16, i32 noundef %.0104) #3
+  %.0 = phi i32 [ %48, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ]
+  tail call void @proto_item_set_len(ptr noundef %16, i32 noundef %.0) #3
   br label %50
 
 50:                                               ; preds = %4, %49
-  %.0 = phi i32 [ 1, %49 ], [ 0, %4 ]
-  ret i32 %.0
+  %.0104 = phi i32 [ 1, %49 ], [ 0, %4 ]
+  ret i32 %.0104
 }
 
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

@@ -388,10 +388,10 @@ for.body26.lr.ph:                                 ; preds = %arrayctor.cont
 
 for.body26:                                       ; preds = %for.body26.lr.ph, %for.body26
   %indvars.iv380 = phi i64 [ %12, %for.body26.lr.ph ], [ %indvars.iv.next381, %for.body26 ]
-  %iCnt.0351 = phi i32 [ 0, %for.body26.lr.ph ], [ %add28, %for.body26 ]
+  %iCnt.0350 = phi i32 [ 0, %for.body26.lr.ph ], [ %add28, %for.body26 ]
   %arrayidx = getelementptr inbounds %struct.aiFace, ptr %11, i64 %indvars.iv380
   %14 = load i32, ptr %arrayidx, align 8
-  %add28 = add i32 %14, %iCnt.0351
+  %add28 = add i32 %14, %iCnt.0350
   %indvars.iv.next381 = add nuw nsw i64 %indvars.iv380, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next381 to i32
   %exitcond.not = icmp eq i32 %13, %lftr.wideiv

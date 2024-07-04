@@ -96,20 +96,20 @@ define internal noundef i32 @dissect_oipf_ciplus(ptr noundef %0, ptr nocapture r
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
-  %.04347 = phi i32 [ %29, %.lr.ph ], [ 8, %7 ]
-  %.04446 = phi i8 [ %30, %.lr.ph ], [ 0, %7 ]
+  %.04347 = phi i8 [ %30, %.lr.ph ], [ 0, %7 ]
+  %.04446 = phi i32 [ %29, %.lr.ph ], [ 8, %7 ]
   %19 = load i32, ptr @hf_oipf_ciplus_dat_id, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %19, ptr noundef %0, i32 noundef %.04347, i32 noundef 1, i32 noundef 0) #2
-  %21 = add i32 %.04347, 1
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %19, ptr noundef %0, i32 noundef %.04446, i32 noundef 1, i32 noundef 0) #2
+  %21 = add i32 %.04446, 1
   %22 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %21) #2
   %23 = load i32, ptr @hf_oipf_ciplus_dat_len, align 4
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %23, ptr noundef %0, i32 noundef %21, i32 noundef 2, i32 noundef 0) #2
-  %25 = add i32 %.04347, 3
+  %25 = add i32 %.04446, 3
   %26 = load i32, ptr @hf_oipf_ciplus_data, align 4
   %27 = zext i16 %22 to i32
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef %27, i32 noundef 0) #2
   %29 = add i32 %25, %27
-  %30 = add nuw i8 %.04446, 1
+  %30 = add nuw i8 %.04347, 1
   %exitcond.not = icmp eq i8 %30, %16
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 

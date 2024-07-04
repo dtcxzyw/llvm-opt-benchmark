@@ -212,13 +212,13 @@ if.then3:                                         ; preds = %if.end
 land.lhs.true:                                    ; preds = %if.then3
   %call10 = tail call ptr @CRYPTO_realloc(ptr noundef %1, i64 noundef 1024, ptr noundef nonnull @.str, i32 noundef 84) #6
   %cmp11.not = icmp eq ptr %call10, null
-  %spec.select = select i1 %cmp11.not, i64 %2, i64 1024
-  %spec.select32 = select i1 %cmp11.not, ptr %1, ptr %call10
+  %spec.select = select i1 %cmp11.not, ptr %1, ptr %call10
+  %spec.select32 = select i1 %cmp11.not, i64 %2, i64 1024
   br label %if.end14
 
 if.end14:                                         ; preds = %land.lhs.true, %if.then3
-  %buf_size.0 = phi i64 [ %2, %if.then3 ], [ %spec.select, %land.lhs.true ]
-  %buf.0 = phi ptr [ %1, %if.then3 ], [ %spec.select32, %land.lhs.true ]
+  %buf.0 = phi ptr [ %1, %if.then3 ], [ %spec.select, %land.lhs.true ]
+  %buf_size.0 = phi i64 [ %2, %if.then3 ], [ %spec.select32, %land.lhs.true ]
   %cmp15.not = icmp eq ptr %buf.0, null
   br i1 %cmp15.not, label %if.end28, label %if.then26
 
@@ -245,16 +245,16 @@ if.then33:                                        ; preds = %if.end28
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then33, %if.end28
-  %buf_size.1 = phi i64 [ %conv29, %if.then33 ], [ %buf_size.0, %if.end28 ]
   %buf.1 = phi ptr [ %call30, %if.then33 ], [ %buf.0, %if.end28 ]
+  %buf_size.1 = phi i64 [ %conv29, %if.then33 ], [ %buf_size.0, %if.end28 ]
   %cmp39.not = icmp eq ptr %buf.1, null
-  %spec.select33 = select i1 %cmp39.not, i32 0, i32 3
+  %spec.select34 = select i1 %cmp39.not, i32 0, i32 3
   br label %if.end43
 
 if.end43:                                         ; preds = %if.end38, %if.end
-  %buf_size.2 = phi i64 [ 0, %if.end ], [ %buf_size.1, %if.end38 ]
-  %flags.0 = phi i32 [ 0, %if.end ], [ %spec.select33, %if.end38 ]
   %buf.2 = phi ptr [ null, %if.end ], [ %buf.1, %if.end38 ]
+  %buf_size.2 = phi i64 [ 0, %if.end ], [ %buf_size.1, %if.end38 ]
+  %flags.0 = phi i32 [ 0, %if.end ], [ %spec.select34, %if.end38 ]
   %3 = load i32, ptr %top, align 8
   %conv45 = sext i32 %3 to i64
   %err_data_flags.i = getelementptr inbounds i8, ptr %call, i64 512

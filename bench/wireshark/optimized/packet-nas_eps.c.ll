@@ -3969,14 +3969,14 @@ define internal noundef zeroext i16 @de_emm_ext_emerg_num_list(ptr noundef %0, p
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %42
-  %.040 = phi i32 [ %.2, %42 ], [ %16, %.lr.ph.preheader ]
-  %.03439 = phi i32 [ %18, %42 ], [ 1, %.lr.ph.preheader ]
+  %.040 = phi i32 [ %18, %42 ], [ 1, %.lr.ph.preheader ]
+  %.03439 = phi i32 [ %.2, %42 ], [ %16, %.lr.ph.preheader ]
   %17 = load i32, ptr @ett_nas_eps_ext_emerg_num, align 4
-  %18 = add i32 %.03439, 1
-  %19 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.040, i32 noundef -1, i32 noundef %17, ptr noundef nonnull %9, ptr noundef nonnull @.str.933, i32 noundef %.03439) #10
+  %18 = add i32 %.040, 1
+  %19 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.03439, i32 noundef -1, i32 noundef %17, ptr noundef nonnull %9, ptr noundef nonnull @.str.933, i32 noundef %.040) #10
   %20 = load i32, ptr @hf_eps_emm_ext_emerg_num_list_emerg_num_len, align 4
-  %21 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %20, ptr noundef %0, i32 noundef %.040, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #10
-  %22 = add i32 %.040, 1
+  %21 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %20, ptr noundef %0, i32 noundef %.03439, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #10
+  %22 = add i32 %.03439, 1
   %23 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %29, label %24
@@ -4010,7 +4010,7 @@ define internal noundef zeroext i16 @de_emm_ext_emerg_num_list(ptr noundef %0, p
 42:                                               ; preds = %34, %29
   %.2 = phi i32 [ %41, %34 ], [ %32, %29 ]
   %43 = load ptr, ptr %9, align 8
-  %44 = sub i32 %.2, %.040
+  %44 = sub i32 %.2, %.03439
   call void @proto_item_set_len(ptr noundef %43, i32 noundef %44) #10
   %45 = sub i32 %.2, %3
   %46 = icmp ult i32 %45, %4
@@ -4301,22 +4301,22 @@ define internal noundef zeroext i16 @de_emm_ciph_key_data(ptr noundef %0, ptr no
   br label %22
 
 22:                                               ; preds = %.lr.ph, %96
-  %.090 = phi i32 [ %3, %.lr.ph ], [ %.2, %96 ]
-  %.08489 = phi i32 [ 1, %.lr.ph ], [ %24, %96 ]
+  %.090 = phi i32 [ 1, %.lr.ph ], [ %24, %96 ]
+  %.08489 = phi i32 [ %3, %.lr.ph ], [ %.2, %96 ]
   %23 = load i32, ptr @ett_nas_eps_ciph_data_set, align 4
-  %24 = add i32 %.08489, 1
-  %25 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.090, i32 noundef -1, i32 noundef %23, ptr noundef nonnull %12, ptr noundef nonnull @.str.981, i32 noundef %.08489) #10
+  %24 = add i32 %.090, 1
+  %25 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.08489, i32 noundef -1, i32 noundef %23, ptr noundef nonnull %12, ptr noundef nonnull @.str.981, i32 noundef %.090) #10
   %26 = load i32, ptr @hf_nas_eps_emm_ciph_key_data_ciphering_set_id, align 4
-  %27 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %26, ptr noundef %0, i32 noundef %.090, i32 noundef 2, i32 noundef 0) #10
-  %28 = add i32 %.090, 2
+  %27 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %26, ptr noundef %0, i32 noundef %.08489, i32 noundef 2, i32 noundef 0) #10
+  %28 = add i32 %.08489, 2
   %29 = load i32, ptr @hf_nas_eps_emm_ciph_key_data_ciphering_key, align 4
   %30 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %29, ptr noundef %0, i32 noundef %28, i32 noundef 16, i32 noundef 0) #10
-  %31 = add i32 %.090, 18
+  %31 = add i32 %.08489, 18
   %32 = load i32, ptr @hf_nas_eps_spare_bits, align 4
   %33 = call ptr @proto_tree_add_bits_item(ptr noundef %25, i32 noundef %32, ptr noundef %0, i32 noundef %13, i32 noundef 3, i32 noundef 0) #10
   %34 = load i32, ptr @hf_nas_eps_emm_ciph_key_data_c0_len, align 4
   %35 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %25, i32 noundef %34, ptr noundef %0, i32 noundef %31, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #10
-  %36 = add i32 %.090, 19
+  %36 = add i32 %.08489, 19
   %37 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %43, label %38
@@ -4403,7 +4403,7 @@ define internal noundef zeroext i16 @de_emm_ciph_key_data(ptr noundef %0, ptr no
 96:                                               ; preds = %92, %43
   %.2 = phi i32 [ %95, %92 ], [ %90, %43 ]
   %97 = load ptr, ptr %12, align 8
-  %98 = sub i32 %.2, %.090
+  %98 = sub i32 %.2, %.08489
   call void @proto_item_set_len(ptr noundef %97, i32 noundef %98) #10
   %99 = sub i32 %.2, %3
   %100 = icmp ult i32 %99, %4
@@ -4452,25 +4452,25 @@ define internal noundef zeroext i16 @de_emm_wus_assist_info(ptr noundef %0, ptr 
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %18
-  %.019 = phi i32 [ %19, %18 ], [ %3, %7 ]
-  %.01618 = phi i32 [ %20, %18 ], [ 1, %7 ]
+  %.019 = phi i32 [ %20, %18 ], [ 1, %7 ]
+  %.01618 = phi i32 [ %19, %18 ], [ %3, %7 ]
   %9 = load i32, ptr @ett_nas_eps_wus_assist_info_type, align 4
-  %10 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.019, i32 noundef 1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.982, i32 noundef %.01618) #10
+  %10 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.01618, i32 noundef 1, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.982, i32 noundef %.019) #10
   %11 = load i32, ptr @hf_nas_eps_emm_wus_assist_info_type, align 4
-  %12 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef %.019, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #10
+  %12 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef %.01618, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #10
   %13 = load i32, ptr %8, align 4
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %.lr.ph
   %16 = load i32, ptr @hf_nas_eps_emm_wus_assist_info_ue_paging_prob, align 4
-  %17 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %16, ptr noundef %0, i32 noundef %.019, i32 noundef 1, i32 noundef 0) #10
+  %17 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %16, ptr noundef %0, i32 noundef %.01618, i32 noundef 1, i32 noundef 0) #10
   br label %18
 
 18:                                               ; preds = %15, %.lr.ph
-  %19 = add i32 %.019, 1
-  %20 = add i32 %.01618, 1
-  %exitcond.not = icmp eq i32 %.01618, %4
+  %19 = add i32 %.01618, 1
+  %20 = add i32 %.019, 1
+  %exitcond.not = icmp eq i32 %.019, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %18, %7
@@ -4762,31 +4762,31 @@ define internal noundef zeroext i16 @de_esm_remote_ue_context_list(ptr noundef %
   br label %20
 
 20:                                               ; preds = %.lr.ph89, %99
-  %.087 = phi i32 [ %19, %.lr.ph89 ], [ %.3, %99 ]
-  %.08286 = phi i32 [ 1, %.lr.ph89 ], [ %100, %99 ]
-  %21 = sub i32 %.neg, %.087
+  %.08187 = phi i32 [ 1, %.lr.ph89 ], [ %100, %99 ]
+  %.08286 = phi i32 [ %19, %.lr.ph89 ], [ %.3, %99 ]
+  %21 = sub i32 %.neg, %.08286
   %22 = load i32, ptr @ett_nas_eps_remote_ue_context, align 4
-  %23 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.087, i32 noundef %21, i32 noundef %22, ptr noundef nonnull %14, ptr noundef nonnull @.str.1013, i32 noundef %.08286) #10
+  %23 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.08286, i32 noundef %21, i32 noundef %22, ptr noundef nonnull %14, ptr noundef nonnull @.str.1013, i32 noundef %.08187) #10
   %24 = load i32, ptr @hf_nas_eps_esm_remote_ue_context_list_ue_context_len, align 4
-  %25 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %23, i32 noundef %24, ptr noundef %0, i32 noundef %.087, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9) #10
+  %25 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %23, i32 noundef %24, ptr noundef %0, i32 noundef %.08286, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9) #10
   %26 = load ptr, ptr %14, align 8
   %27 = load i32, ptr %9, align 4
   %28 = add i32 %27, 1
   call void @proto_item_set_len(ptr noundef %26, i32 noundef %28) #10
-  %29 = add i32 %.087, 1
+  %29 = add i32 %.08286, 1
   %30 = load i32, ptr @hf_nas_eps_esm_remote_ue_context_list_ue_context_nb_user_id, align 4
   %31 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %23, i32 noundef %30, ptr noundef %0, i32 noundef %29, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10) #10
-  %32 = add i32 %.087, 2
+  %32 = add i32 %.08286, 2
   %33 = load i32, ptr %10, align 4
   %.not91 = icmp eq i32 %33, 0
   br i1 %.not91, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %76
-  %.184 = phi i32 [ %.2, %76 ], [ %32, %20 ]
-  %.08183 = phi i32 [ %77, %76 ], [ 0, %20 ]
+  %.084 = phi i32 [ %77, %76 ], [ 0, %20 ]
+  %.183 = phi i32 [ %.2, %76 ], [ %32, %20 ]
   %34 = load i32, ptr @hf_nas_eps_esm_remote_ue_context_list_ue_context_user_id_len, align 4
-  %35 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %23, i32 noundef %34, ptr noundef %0, i32 noundef %.184, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %11) #10
-  %36 = add i32 %.184, 1
+  %35 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %23, i32 noundef %34, ptr noundef %0, i32 noundef %.183, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %11) #10
+  %36 = add i32 %.183, 1
   %37 = load i32, ptr @hf_nas_eps_esm_remote_ue_context_list_ue_context_odd_even_indic, align 4
   %38 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %37, ptr noundef %0, i32 noundef %36, i32 noundef 1, i32 noundef 0) #10
   %39 = load i32, ptr @hf_nas_eps_esm_remote_ue_context_list_ue_context_user_id_type, align 4
@@ -4804,10 +4804,10 @@ define internal noundef zeroext i16 @de_esm_remote_ue_context_list(ptr noundef %
   %43 = load i32, ptr @hf_nas_eps_spare_bits, align 4
   %44 = shl i32 %36, 3
   %45 = call ptr @proto_tree_add_bits_item(ptr noundef %23, i32 noundef %43, ptr noundef %0, i32 noundef %44, i32 noundef 4, i32 noundef 0) #10
-  %46 = add i32 %.184, 2
+  %46 = add i32 %.183, 2
   %47 = load i32, ptr @hf_nas_eps_esm_remote_ue_context_list_ue_context_encr_imsi, align 4
   %48 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %47, ptr noundef %0, i32 noundef %46, i32 noundef 16, i32 noundef 0) #10
-  %49 = add i32 %.184, 18
+  %49 = add i32 %.183, 18
   br label %76
 
 50:                                               ; preds = %.lr.ph
@@ -4848,7 +4848,7 @@ define internal noundef zeroext i16 @de_esm_remote_ue_context_list(ptr noundef %
 
 76:                                               ; preds = %42, %50, %55, %61, %67, %73
   %.2 = phi i32 [ %75, %73 ], [ %72, %67 ], [ %66, %61 ], [ %60, %55 ], [ %54, %50 ], [ %49, %42 ]
-  %77 = add nuw i32 %.08183, 1
+  %77 = add nuw i32 %.084, 1
   %78 = load i32, ptr %10, align 4
   %79 = icmp ult i32 %77, %78
   br i1 %79, label %.lr.ph, label %._crit_edge, !llvm.loop !13
@@ -4886,7 +4886,7 @@ define internal noundef zeroext i16 @de_esm_remote_ue_context_list(ptr noundef %
 
 99:                                               ; preds = %87, %94, %._crit_edge
   %.3 = phi i32 [ %85, %._crit_edge ], [ %98, %94 ], [ %93, %87 ]
-  %100 = add i32 %.08286, 1
+  %100 = add i32 %.08187, 1
   %101 = load i32, ptr %8, align 4
   %.not = icmp ugt i32 %100, %101
   br i1 %.not, label %._crit_edge90, label %20, !llvm.loop !14

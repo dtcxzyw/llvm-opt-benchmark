@@ -740,8 +740,8 @@ do.body.preheader:                                ; preds = %if.end550
   br i1 %cmp1, label %do.body.preheader.split.us, label %do.body.preheader582
 
 do.body.preheader582:                             ; preds = %if.end550.thread, %do.body.preheader
-  %walker.0.ph = phi ptr [ %41, %if.end550.thread ], [ %38, %do.body.preheader ]
   %written.13.ph = phi i32 [ %add533, %if.end550.thread ], [ %written.11, %do.body.preheader ]
+  %walker.0.ph = phi ptr [ %41, %if.end550.thread ], [ %38, %do.body.preheader ]
   br label %do.body
 
 do.body.preheader.split.us:                       ; preds = %if.end550.thread513, %do.body.preheader
@@ -774,8 +774,8 @@ if.else609.us:                                    ; preds = %do.body.us
   br i1 %cmp614.not.us, label %if.end616, label %do.body.us, !llvm.loop !7
 
 do.body:                                          ; preds = %do.body.preheader582, %if.then598
-  %walker.0 = phi ptr [ %.pr, %if.then598 ], [ %walker.0.ph, %do.body.preheader582 ]
   %written.13 = phi i32 [ %add595, %if.then598 ], [ %written.13.ph, %do.body.preheader582 ]
+  %walker.0 = phi ptr [ %.pr, %if.then598 ], [ %walker.0.ph, %do.body.preheader582 ]
   %afterLast558 = getelementptr inbounds i8, ptr %walker.0, i64 8
   %46 = load ptr, ptr %afterLast558, align 8
   %47 = load ptr, ptr %walker.0, align 8
@@ -1805,8 +1805,8 @@ do.body.preheader:                                ; preds = %if.end548
   br i1 %cmp1, label %do.body.preheader.split.us, label %do.body.preheader592
 
 do.body.preheader592:                             ; preds = %if.end548.thread, %do.body.preheader
-  %walker.0.ph = phi ptr [ %54, %if.end548.thread ], [ %51, %do.body.preheader ]
   %written.13.ph = phi i32 [ %add531, %if.end548.thread ], [ %written.11, %do.body.preheader ]
+  %walker.0.ph = phi ptr [ %54, %if.end548.thread ], [ %51, %do.body.preheader ]
   br label %do.body
 
 do.body.preheader.split.us:                       ; preds = %if.end548.thread523, %do.body.preheader
@@ -1840,8 +1840,8 @@ if.else608.us:                                    ; preds = %do.body.us
   br i1 %cmp613.not.us, label %if.end615, label %do.body.us, !llvm.loop !10
 
 do.body:                                          ; preds = %do.body.preheader592, %if.then597
-  %walker.0 = phi ptr [ %.pr, %if.then597 ], [ %walker.0.ph, %do.body.preheader592 ]
   %written.13 = phi i32 [ %add594, %if.then597 ], [ %written.13.ph, %do.body.preheader592 ]
+  %walker.0 = phi ptr [ %.pr, %if.then597 ], [ %walker.0.ph, %do.body.preheader592 ]
   %afterLast556 = getelementptr inbounds i8, ptr %walker.0, i64 8
   %59 = load ptr, ptr %afterLast556, align 8
   %60 = load ptr, ptr %walker.0, align 8

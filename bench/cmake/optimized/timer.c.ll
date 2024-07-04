@@ -276,23 +276,23 @@ define dso_local noundef i32 @uv_timer_stop(ptr noundef %0) local_unnamed_addr #
 .lr.ph29.i:                                       ; preds = %.lr.ph.i, %.lr.ph29.i
   %.128.i = phi i32 [ %24, %.lr.ph29.i ], [ %17, %.lr.ph.i ]
   %.16727.i = phi i32 [ %23, %.lr.ph29.i ], [ %16, %.lr.ph.i ]
-  %.07026.i = phi ptr [ %.171.i, %.lr.ph29.i ], [ %10, %.lr.ph.i ]
-  %20 = load ptr, ptr %.07026.i, align 8
+  %.06826.i = phi ptr [ %.169.i, %.lr.ph29.i ], [ %10, %.lr.ph.i ]
+  %20 = load ptr, ptr %.06826.i, align 8
   %21 = shl i32 %.16727.i, 3
   %22 = and i32 %21, 8
-  %.171.idx.i = zext nneg i32 %22 to i64
-  %.171.i = getelementptr inbounds i8, ptr %20, i64 %.171.idx.i
+  %.169.idx.i = zext nneg i32 %22 to i64
+  %.169.i = getelementptr inbounds i8, ptr %20, i64 %.169.idx.i
   %23 = lshr i32 %.16727.i, 1
   %24 = add nsw i32 %.128.i, -1
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph29.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.lr.ph29.i, %7
-  %.070.lcssa.i = phi ptr [ %10, %7 ], [ %.171.i, %.lr.ph29.i ]
+  %.068.lcssa.i = phi ptr [ %10, %7 ], [ %.169.i, %.lr.ph29.i ]
   %25 = add i32 %13, -1
   store i32 %25, ptr %12, align 8
-  %26 = load ptr, ptr %.070.lcssa.i, align 8
-  store ptr null, ptr %.070.lcssa.i, align 8
+  %26 = load ptr, ptr %.068.lcssa.i, align 8
+  store ptr null, ptr %.068.lcssa.i, align 8
   %27 = icmp eq ptr %26, %11
   br i1 %27, label %28, label %32
 
@@ -381,7 +381,7 @@ timer_less_than.exit.thread3.i:                   ; preds = %timer_less_than.exi
   br label %timer_less_than.exit.thread.i
 
 timer_less_than.exit.thread.i:                    ; preds = %timer_less_than.exit.thread3.i, %timer_less_than.exit.i, %62, %55
-  %.068.i = phi ptr [ %56, %timer_less_than.exit.thread3.i ], [ %26, %timer_less_than.exit.i ], [ %26, %55 ], [ %26, %62 ]
+  %.070.i = phi ptr [ %56, %timer_less_than.exit.thread3.i ], [ %26, %timer_less_than.exit.i ], [ %26, %55 ], [ %26, %62 ]
   %67 = load ptr, ptr %36, align 8
   %.not86.i = icmp eq ptr %67, null
   br i1 %.not86.i, label %timer_less_than.exit92.thread.i, label %68
@@ -389,7 +389,7 @@ timer_less_than.exit.thread.i:                    ; preds = %timer_less_than.exi
 68:                                               ; preds = %timer_less_than.exit.thread.i
   %69 = getelementptr inbounds i8, ptr %67, i64 24
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %.068.i, i64 24
+  %71 = getelementptr inbounds i8, ptr %.070.i, i64 24
   %72 = load i64, ptr %71, align 8
   %73 = icmp ult i64 %70, %72
   br i1 %73, label %timer_less_than.exit92.thread8.i, label %74
@@ -401,7 +401,7 @@ timer_less_than.exit.thread.i:                    ; preds = %timer_less_than.exi
 timer_less_than.exit92.i:                         ; preds = %74
   %76 = getelementptr inbounds i8, ptr %67, i64 40
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %.068.i, i64 40
+  %78 = getelementptr inbounds i8, ptr %.070.i, i64 40
   %79 = load i64, ptr %78, align 8
   %.not17.i = icmp ult i64 %77, %79
   br i1 %.not17.i, label %timer_less_than.exit92.thread8.i, label %timer_less_than.exit92.thread.i
@@ -410,8 +410,8 @@ timer_less_than.exit92.thread8.i:                 ; preds = %timer_less_than.exi
   br label %timer_less_than.exit92.thread.i
 
 timer_less_than.exit92.thread.i:                  ; preds = %timer_less_than.exit92.thread8.i, %timer_less_than.exit92.i, %74, %timer_less_than.exit.thread.i
-  %.169.i = phi ptr [ %67, %timer_less_than.exit92.thread8.i ], [ %.068.i, %timer_less_than.exit92.i ], [ %.068.i, %timer_less_than.exit.thread.i ], [ %.068.i, %74 ]
-  %80 = icmp eq ptr %.169.i, %26
+  %.171.i = phi ptr [ %67, %timer_less_than.exit92.thread8.i ], [ %.070.i, %timer_less_than.exit92.i ], [ %.070.i, %timer_less_than.exit.thread.i ], [ %.070.i, %74 ]
+  %80 = icmp eq ptr %.171.i, %26
   br i1 %80, label %.preheader.i, label %82
 
 .preheader.i:                                     ; preds = %timer_less_than.exit92.thread.i
@@ -422,21 +422,21 @@ timer_less_than.exit92.thread.i:                  ; preds = %timer_less_than.exi
 82:                                               ; preds = %timer_less_than.exit92.thread.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %.169.i, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.169.i, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  store ptr %.169.i, ptr %39, align 8
-  %83 = load ptr, ptr %.169.i, align 8
-  %84 = icmp eq ptr %83, %.169.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %.171.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.171.i, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  store ptr %.171.i, ptr %39, align 8
+  %83 = load ptr, ptr %.171.i, align 8
+  %84 = icmp eq ptr %83, %.171.i
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %82
-  store ptr %26, ptr %.169.i, align 8
-  %86 = getelementptr inbounds i8, ptr %.169.i, i64 8
+  store ptr %26, ptr %.171.i, align 8
+  %86 = getelementptr inbounds i8, ptr %.171.i, i64 8
   %.0.pr.i.i = load ptr, ptr %86, align 8
   br label %89
 
 87:                                               ; preds = %82
-  %88 = getelementptr inbounds i8, ptr %.169.i, i64 8
+  %88 = getelementptr inbounds i8, ptr %.171.i, i64 8
   store ptr %26, ptr %88, align 8
   br label %89
 
@@ -447,7 +447,7 @@ timer_less_than.exit92.thread.i:                  ; preds = %timer_less_than.exi
 
 90:                                               ; preds = %89
   %91 = getelementptr inbounds i8, ptr %.0.i93.i, i64 16
-  store ptr %.169.i, ptr %91, align 8
+  store ptr %.171.i, ptr %91, align 8
   br label %92
 
 92:                                               ; preds = %90, %89
@@ -471,7 +471,7 @@ timer_less_than.exit92.thread.i:                  ; preds = %timer_less_than.exi
   br label %100
 
 100:                                              ; preds = %98, %96
-  %101 = getelementptr inbounds i8, ptr %.169.i, i64 16
+  %101 = getelementptr inbounds i8, ptr %.171.i, i64 16
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, null
   br i1 %103, label %heap_node_swap.exit.i, label %104
@@ -485,7 +485,7 @@ timer_less_than.exit92.thread.i:                  ; preds = %timer_less_than.exi
 
 heap_node_swap.exit.i:                            ; preds = %104, %100
   %.sink.i.i = phi ptr [ %10, %100 ], [ %spec.select.i.i, %104 ]
-  store ptr %.169.i, ptr %.sink.i.i, align 8
+  store ptr %.171.i, ptr %.sink.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %55
 

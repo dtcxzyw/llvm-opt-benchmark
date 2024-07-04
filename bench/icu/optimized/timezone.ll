@@ -1890,8 +1890,8 @@ lpad.loopexit.split-lp:                           ; preds = %entry
 
 if.end4:                                          ; preds = %for.cond.preheader, %if.else
   %div1122 = phi i32 [ %div1118, %for.cond.preheader ], [ %div11, %if.else ]
-  %start.021 = phi i32 [ 0, %for.cond.preheader ], [ %start.0.div11, %if.else ]
-  %limit.020 = phi i32 [ %call, %for.cond.preheader ], [ %div11.limit.0, %if.else ]
+  %limit.021 = phi i32 [ %call, %for.cond.preheader ], [ %div11.limit.0, %if.else ]
+  %start.020 = phi i32 [ 0, %for.cond.preheader ], [ %start.0.div11, %if.else ]
   %call6 = invoke ptr @ures_getStringByIndex_75(ptr noundef %array, i32 noundef %div1122, ptr noundef nonnull %len, ptr noundef nonnull %status)
           to label %invoke.cont5 unwind label %lpad.loopexit
 
@@ -1958,9 +1958,9 @@ lpad12:                                           ; preds = %if.end10
 
 if.else:                                          ; preds = %invoke.cont15
   %cmp19 = icmp slt i8 %retval.0.i.i, 0
-  %div11.limit.0 = select i1 %cmp19, i32 %div1122, i32 %limit.020
-  %start.0.div11 = select i1 %cmp19, i32 %start.021, i32 %div1122
-  %add = add nuw nsw i32 %start.0.div11, %div11.limit.0
+  %start.0.div11 = select i1 %cmp19, i32 %start.020, i32 %div1122
+  %div11.limit.0 = select i1 %cmp19, i32 %div1122, i32 %limit.021
+  %add = add nuw nsw i32 %div11.limit.0, %start.0.div11
   %div11 = lshr i32 %add, 1
   %cmp2 = icmp eq i32 %div1122, %div11
   br i1 %cmp2, label %cleanup, label %if.end4, !llvm.loop !11

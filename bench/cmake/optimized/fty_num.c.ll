@@ -141,8 +141,8 @@ define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr noca
   br label %10
 
 10:                                               ; preds = %12, %2
-  %.038 = phi ptr [ %9, %2 ], [ %13, %12 ]
-  %11 = load i8, ptr %.038, align 1
+  %.0 = phi ptr [ %9, %2 ], [ %13, %12 ]
+  %11 = load i8, ptr %.0, align 1
   switch i8 %11, label %.loopexit56 [
     i8 32, label %12
     i8 0, label %.loopexit
@@ -151,17 +151,17 @@ define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr noca
   ]
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %.038, i64 1
+  %13 = getelementptr inbounds i8, ptr %.0, i64 1
   br label %10, !llvm.loop !5
 
 14:                                               ; preds = %10, %10
-  %15 = getelementptr inbounds i8, ptr %.038, i64 1
+  %15 = getelementptr inbounds i8, ptr %.0, i64 1
   %.pre = load i8, ptr %15, align 1
   br label %.loopexit56
 
 .loopexit56:                                      ; preds = %10, %14
   %16 = phi i8 [ %.pre, %14 ], [ %11, %10 ]
-  %.1 = phi ptr [ %15, %14 ], [ %.038, %10 ]
+  %.1 = phi ptr [ %15, %14 ], [ %.0, %10 ]
   %.not4962 = icmp eq i8 %16, 0
   br i1 %.not4962, label %.thread.preheader, label %.lr.ph
 
@@ -241,8 +241,8 @@ define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr noca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %.thread, %42, %45
-  %.0 = phi i1 [ true, %45 ], [ false, %42 ], [ false, %.thread ], [ false, %10 ]
-  ret i1 %.0
+  %.038 = phi i1 [ true, %45 ], [ false, %42 ], [ false, %.thread ], [ false, %10 ]
+  ret i1 %.038
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

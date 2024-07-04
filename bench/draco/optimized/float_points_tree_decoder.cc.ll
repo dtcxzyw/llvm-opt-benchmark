@@ -2678,7 +2678,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi0EE14DecodingStatusESt5
   br i1 %.not180, label %.backedge, label %.lr.ph169, !llvm.loop !9
 
 .lr.ph169:                                        ; preds = %.preheader150, %109
-  %.069168 = phi i32 [ %112, %109 ], [ 0, %.preheader150 ]
+  %.068168 = phi i32 [ %112, %109 ], [ 0, %.preheader150 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %94 = load ptr, ptr %79, align 8, !noalias !10
@@ -2720,7 +2720,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %110 = load i32, ptr %49, align 8
   %111 = add i32 %110, 1
   store i32 %111, ptr %49, align 8
-  %112 = add nuw i32 %.069168, 1
+  %112 = add nuw i32 %.068168, 1
   %exitcond191.not = icmp eq i32 %112, %.sroa.0.0.copyload141
   br i1 %exitcond191.not, label %.backedge, label %.lr.ph169, !llvm.loop !14
 
@@ -2759,7 +2759,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   br i1 %130, label %.lr.ph, label %.preheader152, !llvm.loop !15
 
 .preheader:                                       ; preds = %.preheader152, %211
-  %.067167 = phi i32 [ %214, %211 ], [ 0, %.preheader152 ]
+  %.066167 = phi i32 [ %214, %211 ], [ 0, %.preheader152 ]
   %131 = load i32, ptr %11, align 4
   %.not179 = icmp eq i32 %131, 0
   br i1 %.not179, label %._crit_edge, label %.lr.ph166
@@ -2901,7 +2901,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %212 = load i32, ptr %49, align 8
   %213 = add i32 %212, 1
   store i32 %213, ptr %49, align 8
-  %214 = add nuw i32 %.067167, 1
+  %214 = add nuw i32 %.066167, 1
   %exitcond.not = icmp eq i32 %214, %.sroa.0.0.copyload141
   br i1 %exitcond.not, label %.backedge, label %.preheader, !llvm.loop !20
 
@@ -4173,7 +4173,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi1EE14DecodingStatusESt5
   br i1 %.not184, label %.backedge, label %.lr.ph174, !llvm.loop !28
 
 .lr.ph174:                                        ; preds = %.preheader155, %119
-  %.069173 = phi i32 [ %122, %119 ], [ 0, %.preheader155 ]
+  %.068173 = phi i32 [ %122, %119 ], [ 0, %.preheader155 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %104 = load ptr, ptr %87, align 8, !noalias !29
@@ -4215,7 +4215,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %120 = load i32, ptr %50, align 8
   %121 = add i32 %120, 1
   store i32 %121, ptr %50, align 8
-  %122 = add nuw i32 %.069173, 1
+  %122 = add nuw i32 %.068173, 1
   %exitcond195.not = icmp eq i32 %122, %.sroa.0.0.copyload144
   br i1 %exitcond195.not, label %.backedge, label %.lr.ph174, !llvm.loop !32
 
@@ -4254,7 +4254,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   br i1 %140, label %.lr.ph, label %.preheader157, !llvm.loop !33
 
 .preheader:                                       ; preds = %.preheader157, %221
-  %.067172 = phi i32 [ %224, %221 ], [ 0, %.preheader157 ]
+  %.066172 = phi i32 [ %224, %221 ], [ 0, %.preheader157 ]
   %141 = load i32, ptr %10, align 4
   %.not183 = icmp eq i32 %141, 0
   br i1 %.not183, label %._crit_edge, label %.lr.ph171
@@ -4396,7 +4396,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %222 = load i32, ptr %50, align 8
   %223 = add i32 %222, 1
   store i32 %223, ptr %50, align 8
-  %224 = add nuw i32 %.067172, 1
+  %224 = add nuw i32 %.066172, 1
   %exitcond.not = icmp eq i32 %224, %.sroa.0.0.copyload144
   br i1 %exitcond.not, label %.backedge, label %.preheader, !llvm.loop !38
 
@@ -5349,7 +5349,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi2EE14DecodingStatusESt5
   br i1 %.not180, label %.backedge, label %.lr.ph169, !llvm.loop !44
 
 .lr.ph169:                                        ; preds = %.preheader150, %109
-  %.069168 = phi i32 [ %112, %109 ], [ 0, %.preheader150 ]
+  %.068168 = phi i32 [ %112, %109 ], [ 0, %.preheader150 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %94 = load ptr, ptr %79, align 8, !noalias !45
@@ -5391,7 +5391,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %110 = load i32, ptr %49, align 8
   %111 = add i32 %110, 1
   store i32 %111, ptr %49, align 8
-  %112 = add nuw i32 %.069168, 1
+  %112 = add nuw i32 %.068168, 1
   %exitcond191.not = icmp eq i32 %112, %.sroa.0.0.copyload141
   br i1 %exitcond191.not, label %.backedge, label %.lr.ph169, !llvm.loop !48
 
@@ -5430,7 +5430,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   br i1 %130, label %.lr.ph, label %.preheader152, !llvm.loop !49
 
 .preheader:                                       ; preds = %.preheader152, %211
-  %.067167 = phi i32 [ %214, %211 ], [ 0, %.preheader152 ]
+  %.066167 = phi i32 [ %214, %211 ], [ 0, %.preheader152 ]
   %131 = load i32, ptr %11, align 4
   %.not179 = icmp eq i32 %131, 0
   br i1 %.not179, label %._crit_edge, label %.lr.ph166
@@ -5572,7 +5572,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %212 = load i32, ptr %49, align 8
   %213 = add i32 %212, 1
   store i32 %213, ptr %49, align 8
-  %214 = add nuw i32 %.067167, 1
+  %214 = add nuw i32 %.066167, 1
   %exitcond.not = icmp eq i32 %214, %.sroa.0.0.copyload141
   br i1 %exitcond.not, label %.backedge, label %.preheader, !llvm.loop !54
 
@@ -6493,7 +6493,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi3EE14DecodingStatusESt5
   br i1 %.not180, label %.backedge, label %.lr.ph170, !llvm.loop !60
 
 .lr.ph170:                                        ; preds = %.preheader151, %118
-  %.069169 = phi i32 [ %121, %118 ], [ 0, %.preheader151 ]
+  %.068169 = phi i32 [ %121, %118 ], [ 0, %.preheader151 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !61)
   %103 = load ptr, ptr %86, align 8, !noalias !61
@@ -6535,7 +6535,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %119 = load i32, ptr %51, align 8
   %120 = add i32 %119, 1
   store i32 %120, ptr %51, align 8
-  %121 = add nuw i32 %.069169, 1
+  %121 = add nuw i32 %.068169, 1
   %exitcond191.not = icmp eq i32 %121, %.sroa.0.0.copyload142
   br i1 %exitcond191.not, label %.backedge, label %.lr.ph170, !llvm.loop !64
 
@@ -6574,7 +6574,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   br i1 %139, label %.lr.ph, label %.preheader153, !llvm.loop !65
 
 .preheader:                                       ; preds = %.preheader153, %220
-  %.067168 = phi i32 [ %223, %220 ], [ 0, %.preheader153 ]
+  %.066168 = phi i32 [ %223, %220 ], [ 0, %.preheader153 ]
   %140 = load i32, ptr %11, align 4
   %.not179 = icmp eq i32 %140, 0
   br i1 %.not179, label %._crit_edge, label %.lr.ph167
@@ -6716,7 +6716,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %221 = load i32, ptr %51, align 8
   %222 = add i32 %221, 1
   store i32 %222, ptr %51, align 8
-  %223 = add nuw i32 %.067168, 1
+  %223 = add nuw i32 %.066168, 1
   %exitcond.not = icmp eq i32 %223, %.sroa.0.0.copyload142
   br i1 %exitcond.not, label %.backedge, label %.preheader, !llvm.loop !70
 
@@ -7634,7 +7634,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE14DecodingStatusESt5
   br i1 %.not180, label %.backedge, label %.lr.ph169, !llvm.loop !77
 
 .lr.ph169:                                        ; preds = %.preheader150, %109
-  %.069168 = phi i32 [ %112, %109 ], [ 0, %.preheader150 ]
+  %.068168 = phi i32 [ %112, %109 ], [ 0, %.preheader150 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %94 = load ptr, ptr %79, align 8, !noalias !78
@@ -7676,7 +7676,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %110 = load i32, ptr %49, align 8
   %111 = add i32 %110, 1
   store i32 %111, ptr %49, align 8
-  %112 = add nuw i32 %.069168, 1
+  %112 = add nuw i32 %.068168, 1
   %exitcond191.not = icmp eq i32 %112, %.sroa.0.0.copyload141
   br i1 %exitcond191.not, label %.backedge, label %.lr.ph169, !llvm.loop !81
 
@@ -7715,7 +7715,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   br i1 %130, label %.lr.ph, label %.preheader152, !llvm.loop !82
 
 .preheader:                                       ; preds = %.preheader152, %211
-  %.067167 = phi i32 [ %214, %211 ], [ 0, %.preheader152 ]
+  %.066167 = phi i32 [ %214, %211 ], [ 0, %.preheader152 ]
   %131 = load i32, ptr %11, align 4
   %.not179 = icmp eq i32 %131, 0
   br i1 %.not179, label %._crit_edge, label %.lr.ph166
@@ -7857,7 +7857,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %212 = load i32, ptr %49, align 8
   %213 = add i32 %212, 1
   store i32 %213, ptr %49, align 8
-  %214 = add nuw i32 %.067167, 1
+  %214 = add nuw i32 %.066167, 1
   %exitcond.not = icmp eq i32 %214, %.sroa.0.0.copyload141
   br i1 %exitcond.not, label %.backedge, label %.preheader, !llvm.loop !87
 
@@ -8795,7 +8795,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi5EE14DecodingStatusESt5
   br i1 %.not188, label %.backedge, label %.lr.ph178, !llvm.loop !93
 
 .lr.ph178:                                        ; preds = %.preheader154, %117
-  %.069177 = phi i32 [ %120, %117 ], [ 0, %.preheader154 ]
+  %.068177 = phi i32 [ %120, %117 ], [ 0, %.preheader154 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !94)
   %102 = load ptr, ptr %85, align 8, !noalias !94
@@ -8837,7 +8837,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %118 = load i32, ptr %50, align 8
   %119 = add i32 %118, 1
   store i32 %119, ptr %50, align 8
-  %120 = add nuw i32 %.069177, 1
+  %120 = add nuw i32 %.068177, 1
   %exitcond201.not = icmp eq i32 %120, %.sroa.0.0.copyload143
   br i1 %exitcond201.not, label %.backedge, label %.lr.ph178, !llvm.loop !97
 
@@ -8876,7 +8876,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   br i1 %138, label %.lr.ph, label %.preheader156, !llvm.loop !98
 
 .preheader:                                       ; preds = %.preheader156, %219
-  %.067176 = phi i32 [ %222, %219 ], [ 0, %.preheader156 ]
+  %.066176 = phi i32 [ %222, %219 ], [ 0, %.preheader156 ]
   %139 = load i32, ptr %10, align 4
   %.not187 = icmp eq i32 %139, 0
   br i1 %.not187, label %._crit_edge, label %.lr.ph175
@@ -9018,7 +9018,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %220 = load i32, ptr %50, align 8
   %221 = add i32 %220, 1
   store i32 %221, ptr %50, align 8
-  %222 = add nuw i32 %.067176, 1
+  %222 = add nuw i32 %.066176, 1
   %exitcond.not = icmp eq i32 %222, %.sroa.0.0.copyload143
   br i1 %exitcond.not, label %.backedge, label %.preheader, !llvm.loop !103
 
@@ -9949,7 +9949,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE14DecodingStatusESt5
   br i1 %.not180, label %.backedge, label %.lr.ph169, !llvm.loop !110
 
 .lr.ph169:                                        ; preds = %.preheader150, %109
-  %.069168 = phi i32 [ %112, %109 ], [ 0, %.preheader150 ]
+  %.068168 = phi i32 [ %112, %109 ], [ 0, %.preheader150 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !111)
   %94 = load ptr, ptr %79, align 8, !noalias !111
@@ -9991,7 +9991,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %110 = load i32, ptr %49, align 8
   %111 = add i32 %110, 1
   store i32 %111, ptr %49, align 8
-  %112 = add nuw i32 %.069168, 1
+  %112 = add nuw i32 %.068168, 1
   %exitcond191.not = icmp eq i32 %112, %.sroa.0.0.copyload141
   br i1 %exitcond191.not, label %.backedge, label %.lr.ph169, !llvm.loop !114
 
@@ -10030,7 +10030,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   br i1 %130, label %.lr.ph, label %.preheader152, !llvm.loop !115
 
 .preheader:                                       ; preds = %.preheader152, %211
-  %.067167 = phi i32 [ %214, %211 ], [ 0, %.preheader152 ]
+  %.066167 = phi i32 [ %214, %211 ], [ 0, %.preheader152 ]
   %131 = load i32, ptr %11, align 4
   %.not179 = icmp eq i32 %131, 0
   br i1 %.not179, label %._crit_edge, label %.lr.ph166
@@ -10172,7 +10172,7 @@ _ZNSt16allocator_traitsISaIN5draco7VectorDIjLi3EEEEE9constructIS2_JS2_EEEvRS3_PT
   %212 = load i32, ptr %49, align 8
   %213 = add i32 %212, 1
   store i32 %213, ptr %49, align 8
-  %214 = add nuw i32 %.067167, 1
+  %214 = add nuw i32 %.066167, 1
   %exitcond.not = icmp eq i32 %214, %.sroa.0.0.copyload141
   br i1 %exitcond.not, label %.backedge, label %.preheader, !llvm.loop !120
 

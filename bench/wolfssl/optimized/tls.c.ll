@@ -17,9 +17,9 @@ target triple = "x86_64-unknown-linux-gnu"
 @master_label = internal constant [14 x i8] c"master secret\00", align 1
 @ext_master_label = internal constant [23 x i8] c"extended master secret\00", align 16
 @switch.table.TLS_hmac = private unnamed_addr constant [5 x i32] [i32 3, i32 4, i32 -1, i32 6, i32 7], align 4
-@switch.table.TLS_hmac.26 = private unnamed_addr constant [5 x i32] [i32 64, i32 64, i32 64, i32 128, i32 128], align 4
-@switch.table.TLS_hmac.27 = private unnamed_addr constant [5 x i32] [i32 9, i32 9, i32 9, i32 17, i32 17], align 4
-@switch.table.TLS_hmac.28 = private unnamed_addr constant [5 x i32] [i32 6, i32 6, i32 6, i32 7, i32 7], align 4
+@switch.table.TLS_hmac.26 = private unnamed_addr constant [5 x i32] [i32 6, i32 6, i32 6, i32 7, i32 7], align 4
+@switch.table.TLS_hmac.27 = private unnamed_addr constant [5 x i32] [i32 64, i32 64, i32 64, i32 128, i32 128], align 4
+@switch.table.TLS_hmac.28 = private unnamed_addr constant [5 x i32] [i32 9, i32 9, i32 9, i32 17, i32 17], align 4
 @switch.table.TLSX_ValidateSupportedCurves.32 = private unnamed_addr constant [5 x i32] [i32 209, i32 209, i32 526, i32 210, i32 211], align 4
 @switch.table.TLSX_ValidateSupportedCurves.33 = private unnamed_addr constant [5 x i32] [i32 28, i32 28, i32 32, i32 48, i32 66], align 4
 @switch.table.TLSX_KeyShare_GenKey = private unnamed_addr constant [3 x i32] [i32 32, i32 48, i32 66], align 4
@@ -657,15 +657,15 @@ switch.lookup54:                                  ; preds = %switch.hole_check
   %17 = zext nneg i8 %switch.tableidx53 to i64
   %switch.gep59 = getelementptr inbounds [5 x i32], ptr @switch.table.TLS_hmac.28, i64 0, i64 %17
   %switch.load60 = load i32, ptr %switch.gep59, align 4
-  %sub.i = add nsw i32 %switch.load56, -1
+  %sub.i = add nsw i32 %switch.load58, -1
   %sub5.i = add i32 %add, 13
-  %add6.i = add i32 %switch.load58, %sub5.i
+  %add6.i = add i32 %switch.load60, %sub5.i
   %and.i = and i32 %add6.i, %sub.i
-  %18 = xor i32 %switch.load58, -1
+  %18 = xor i32 %switch.load60, -1
   %sub1.i.i = add nsw i32 %and.i, %18
   %shr.i.i = lshr i32 %sub1.i.i, 31
   %sub8.i = add i32 %sub.i, %sub5.i
-  %shr.i = lshr i32 %sub8.i, %switch.load60
+  %shr.i = lshr i32 %sub8.i, %switch.load56
   %add10.i = add nuw nsw i32 %shr.i.i, %shr.i
   %sub11.i = add nsw i32 %add10.i, -6
   %idxprom.i = zext i32 %add23 to i64
@@ -674,15 +674,15 @@ switch.lookup54:                                  ; preds = %switch.hole_check
   %conv13.i = zext i8 %19 to i32
   %sub14.i = sub i32 %sub5.i, %conv13.i
   %and15.i = and i32 %sub14.i, %sub.i
-  %mul.i = shl nuw nsw i32 %switch.load56, 1
-  %20 = add nuw nsw i32 %switch.load58, %and15.i
+  %mul.i = shl nuw nsw i32 %switch.load58, 1
+  %20 = add nuw nsw i32 %switch.load60, %and15.i
   %sub17.i = sub nsw i32 %mul.i, %20
   %and18.i = and i32 %sub17.i, %sub.i
   %add19.i = add i32 %sub14.i, 1
   %add20.i = add i32 %add19.i, %and18.i
-  %shr21.i = lshr i32 %add20.i, %switch.load60
-  %shr22.i = lshr i32 %sub14.i, %switch.load60
-  %add24.i = add i32 %sub14.i, %switch.load56
+  %shr21.i = lshr i32 %add20.i, %switch.load56
+  %shr22.i = lshr i32 %sub14.i, %switch.load56
+  %add24.i = add i32 %sub14.i, %switch.load58
   %shr25.i = lshr i32 %add24.i, 29
   store i8 0, ptr %lenBytes.i, align 1
   %arrayidx4.i.i = getelementptr inbounds i8, ptr %lenBytes.i, i64 1
@@ -717,19 +717,19 @@ switch.lookup54:                                  ; preds = %switch.hole_check
   ]
 
 sw.bb.i.i:                                        ; preds = %switch.lookup54
-  %call.i.i = call i32 @wc_ShaUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad.i, i32 noundef %switch.load56) #16
+  %call.i.i = call i32 @wc_ShaUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad.i, i32 noundef %switch.load58) #16
   br label %Hmac_HashUpdate.exit.i
 
 sw.bb1.i.i48:                                     ; preds = %switch.lookup54
-  %call3.i.i = call i32 @wc_Sha256Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad.i, i32 noundef %switch.load56) #16
+  %call3.i.i = call i32 @wc_Sha256Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad.i, i32 noundef %switch.load58) #16
   br label %Hmac_HashUpdate.exit.i
 
 sw.bb4.i.i:                                       ; preds = %switch.lookup54
-  %call6.i.i = call i32 @wc_Sha384Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad.i, i32 noundef %switch.load56) #16
+  %call6.i.i = call i32 @wc_Sha384Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad.i, i32 noundef %switch.load58) #16
   br label %Hmac_HashUpdate.exit.i
 
 sw.bb7.i.i:                                       ; preds = %switch.lookup54
-  %call9.i.i = call i32 @wc_Sha512Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad.i, i32 noundef %switch.load56) #16
+  %call9.i.i = call i32 @wc_Sha512Update(ptr noundef nonnull %hmac, ptr noundef nonnull %ipad.i, i32 noundef %switch.load58) #16
   br label %Hmac_HashUpdate.exit.i
 
 Hmac_HashUpdate.exit.i:                           ; preds = %sw.bb7.i.i, %sw.bb4.i.i, %sw.bb1.i.i48, %sw.bb.i.i
@@ -775,7 +775,7 @@ Hmac_HashUpdate.exit113.i:                        ; preds = %sw.bb7.i104.i, %sw.
   br i1 %cmp36.not.i, label %if.end39.i, label %Hmac_UpdateFinal_CT.exit
 
 if.end39.i:                                       ; preds = %Hmac_HashUpdate.exit113.i
-  %mul40.i = mul nsw i32 %sub11.i, %switch.load56
+  %mul40.i = mul nsw i32 %sub11.i, %switch.load58
   %sub41.i = add nsw i32 %mul40.i, -13
   %22 = load i8, ptr %macType.i, align 8
   switch i8 %22, label %Hmac_UpdateFinal_CT.exit [
@@ -817,14 +817,14 @@ if.end47.i:                                       ; preds = %if.end.i46
 
 for.body.lr.ph.i:                                 ; preds = %if.end47.i, %if.end47.thread.i
   %safeBlocks.0190.i = phi i32 [ %sub11.i, %if.end47.thread.i ], [ 0, %if.end47.i ]
-  %mul49.i = mul nsw i32 %safeBlocks.0190.i, %switch.load56
+  %mul49.i = mul nsw i32 %safeBlocks.0190.i, %switch.load58
   %23 = xor i32 %shr22.i, -1
   %24 = xor i32 %shr21.i, -1
   %25 = xor i32 %and15.i, -1
-  %sub97.i = add nsw i32 %switch.load56, -8
+  %sub97.i = add nsw i32 %switch.load58, -8
   %cmp123176.i.not = icmp eq i8 %0, 0
   %26 = zext nneg i32 %sub97.i to i64
-  %wide.trip.count.i = zext nneg i32 %switch.load56 to i64
+  %wide.trip.count.i = zext nneg i32 %switch.load58 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc141.i, %for.body.lr.ph.i
@@ -912,19 +912,19 @@ for.end.i:                                        ; preds = %if.end106.i
   ]
 
 sw.bb.i150.i:                                     ; preds = %for.end.i
-  %call.i151.i = call i32 @wc_ShaUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef %switch.load56) #16
+  %call.i151.i = call i32 @wc_ShaUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef %switch.load58) #16
   br label %Hmac_HashUpdate.exit152.i
 
 sw.bb1.i148.i:                                    ; preds = %for.end.i
-  %call3.i149.i = call i32 @wc_Sha256Update(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef %switch.load56) #16
+  %call3.i149.i = call i32 @wc_Sha256Update(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef %switch.load58) #16
   br label %Hmac_HashUpdate.exit152.i
 
 sw.bb4.i146.i:                                    ; preds = %for.end.i
-  %call6.i147.i = call i32 @wc_Sha384Update(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef %switch.load56) #16
+  %call6.i147.i = call i32 @wc_Sha384Update(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef %switch.load58) #16
   br label %Hmac_HashUpdate.exit152.i
 
 sw.bb7.i143.i:                                    ; preds = %for.end.i
-  %call9.i144.i = call i32 @wc_Sha512Update(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef %switch.load56) #16
+  %call9.i144.i = call i32 @wc_Sha512Update(ptr noundef nonnull %hmac, ptr noundef nonnull %hashBlock.i, i32 noundef %switch.load58) #16
   br label %Hmac_HashUpdate.exit152.i
 
 Hmac_HashUpdate.exit152.i:                        ; preds = %sw.bb7.i143.i, %sw.bb4.i146.i, %sw.bb1.i148.i, %sw.bb.i150.i
@@ -3649,7 +3649,7 @@ if.end71.i:                                       ; preds = %if.then51.if.end71_
   br i1 %cmp72.i, label %if.then74.i, label %if.end111.i
 
 if.then74.i:                                      ; preds = %if.end71.i, %lor.lhs.false.i
-  %dhKey.1112.i = phi ptr [ %dhKey.088.i, %if.end71.i ], [ %2, %lor.lhs.false.i ]
+  %dhKey.1113.i = phi ptr [ %dhKey.088.i, %if.end71.i ], [ %2, %lor.lhs.false.i ]
   %pubKeyLen75.i = getelementptr inbounds i8, ptr %kse, i64 48
   %19 = load i32, ptr %pubKeyLen75.i, align 8
   %cmp76.not.i = icmp eq i32 %3, %19
@@ -3695,13 +3695,13 @@ if.then94.i:                                      ; preds = %if.end90.i
 
 if.end111.i:                                      ; preds = %if.then94.i, %if.end90.i, %if.end71.i, %if.then51.i, %if.then34.i, %if.end28.i, %if.end17.i
   %cmp72107.i = phi i1 [ true, %if.end90.i ], [ true, %if.then94.i ], [ false, %if.end71.i ], [ false, %if.end28.i ], [ false, %if.end17.i ], [ false, %if.then34.i ], [ false, %if.then51.i ]
-  %ret.3106.i = phi i32 [ 0, %if.end90.i ], [ 0, %if.then94.i ], [ %call69.i, %if.end71.i ], [ %call26.i, %if.end28.i ], [ %call20.i, %if.end17.i ], [ -125, %if.then34.i ], [ -125, %if.then51.i ]
-  %dhKey.1105.i = phi ptr [ %dhKey.1112.i, %if.end90.i ], [ %dhKey.1112.i, %if.then94.i ], [ %dhKey.088.i, %if.end71.i ], [ %9, %if.end28.i ], [ %2, %if.end17.i ], [ %dhKey.088.i, %if.then34.i ], [ %dhKey.088.i, %if.then51.i ]
-  %cmp112.not.i = icmp eq ptr %dhKey.1105.i, null
+  %dhKey.1106.i = phi ptr [ %dhKey.1113.i, %if.end90.i ], [ %dhKey.1113.i, %if.then94.i ], [ %dhKey.088.i, %if.end71.i ], [ %9, %if.end28.i ], [ %2, %if.end17.i ], [ %dhKey.088.i, %if.then34.i ], [ %dhKey.088.i, %if.then51.i ]
+  %ret.3105.i = phi i32 [ 0, %if.end90.i ], [ 0, %if.then94.i ], [ %call69.i, %if.end71.i ], [ %call26.i, %if.end28.i ], [ %call20.i, %if.end17.i ], [ -125, %if.then34.i ], [ -125, %if.then51.i ]
+  %cmp112.not.i = icmp eq ptr %dhKey.1106.i, null
   br i1 %cmp112.not.i, label %if.end116.i, label %if.then114.i
 
 if.then114.i:                                     ; preds = %if.end111.i
-  %call115.i = tail call i32 @wc_FreeDhKey(ptr noundef nonnull %dhKey.1105.i) #16
+  %call115.i = tail call i32 @wc_FreeDhKey(ptr noundef nonnull %dhKey.1106.i) #16
   br label %if.end116.i
 
 if.end116.i:                                      ; preds = %if.then114.i, %if.end111.i
@@ -3843,13 +3843,13 @@ if.end80.i:                                       ; preds = %if.then78.i18, %if.
 if.end22.sink.split:                              ; preds = %if.end80.i, %if.end141.i
   %.sink = phi ptr [ %29, %if.end141.i ], [ %43, %if.end80.i ]
   %key.i11.sink = phi ptr [ %pubKey.i, %if.end141.i ], [ %key.i11, %if.end80.i ]
-  %ret.0.ph = phi i32 [ %ret.3106.i, %if.end141.i ], [ %ret.2.ph.i, %if.end80.i ]
+  %ret.0.ph = phi i32 [ %ret.3105.i, %if.end141.i ], [ %ret.2.ph.i, %if.end80.i ]
   tail call void @wolfSSL_Free(ptr noundef nonnull %.sink) #16
   store ptr null, ptr %key.i11.sink, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else19, %if.end22.sink.split, %if.else, %if.end80.i, %if.then47.i, %if.then.i, %if.end141.i, %if.end126.i, %if.then10.i, %sw.epilog.i, %if.then
-  %ret.0 = phi i32 [ -173, %sw.epilog.i ], [ -125, %if.then10.i ], [ %ret.3106.i, %if.end141.i ], [ %ret.3106.i, %if.end126.i ], [ -173, %if.then ], [ -174, %if.else ], [ -173, %if.else19 ], [ -125, %if.then.i ], [ %ret.2.ph.i, %if.end80.i ], [ 0, %if.then47.i ], [ %ret.0.ph, %if.end22.sink.split ]
+  %ret.0 = phi i32 [ -173, %sw.epilog.i ], [ -125, %if.then10.i ], [ %ret.3105.i, %if.end141.i ], [ %ret.3105.i, %if.end126.i ], [ -173, %if.then ], [ -174, %if.else ], [ -173, %if.else19 ], [ -125, %if.then.i ], [ %ret.2.ph.i, %if.end80.i ], [ 0, %if.then47.i ], [ %ret.0.ph, %if.end22.sink.split ]
   ret i32 %ret.0
 }
 
@@ -5275,16 +5275,16 @@ for.body.lr.ph:                                   ; preds = %if.end11
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %clientKSE.050 = phi ptr [ %3, %for.body.lr.ph ], [ %20, %for.inc ]
-  %preferredRank.049 = phi i32 [ 10, %for.body.lr.ph ], [ %preferredRank.1, %for.inc ]
-  %preferredKSE.048 = phi ptr [ null, %for.body.lr.ph ], [ %preferredKSE.1, %for.inc ]
-  %ke = getelementptr inbounds i8, ptr %clientKSE.050, i64 8
+  %preferredRank.050 = phi i32 [ 10, %for.body.lr.ph ], [ %preferredRank.1, %for.inc ]
+  %preferredKSE.049 = phi ptr [ null, %for.body.lr.ph ], [ %preferredKSE.1, %for.inc ]
+  %clientKSE.048 = phi ptr [ %3, %for.body.lr.ph ], [ %20, %for.inc ]
+  %ke = getelementptr inbounds i8, ptr %clientKSE.048, i64 8
   %5 = load ptr, ptr %ke, align 8
   %cmp14 = icmp eq ptr %5, null
   br i1 %cmp14, label %for.inc, label %if.end17
 
 if.end17:                                         ; preds = %for.body
-  %6 = load i16, ptr %clientKSE.050, align 8
+  %6 = load i16, ptr %clientKSE.048, align 8
   br i1 %tobool.not4.i, label %if.then.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %if.end17, %while.body.i.i
@@ -5379,16 +5379,16 @@ return.split.loop.exit6.i:                        ; preds = %for.body.i26
 TLSX_KeyShare_GroupRank.exit:                     ; preds = %for.inc.i, %return.split.loop.exit6.i
   %retval.0.i27 = phi i32 [ %conv5.le.i, %return.split.loop.exit6.i ], [ -1, %for.inc.i ]
   %cmp53 = icmp ne i32 %retval.0.i27, -1
-  %cmp57 = icmp slt i32 %retval.0.i27, %preferredRank.049
+  %cmp57 = icmp slt i32 %retval.0.i27, %preferredRank.050
   %or.cond22 = select i1 %cmp53, i1 %cmp57, i1 false
-  %spec.select = select i1 %or.cond22, ptr %clientKSE.050, ptr %preferredKSE.048
-  %spec.select23 = select i1 %or.cond22, i32 %retval.0.i27, i32 %preferredRank.049
+  %spec.select = select i1 %or.cond22, ptr %clientKSE.048, ptr %preferredKSE.049
+  %spec.select23 = select i1 %or.cond22, i32 %retval.0.i27, i32 %preferredRank.050
   br label %for.inc
 
 for.inc:                                          ; preds = %while.body.i7.i, %for.cond.i, %if.end21, %if.end43, %if.then.i, %TLSX_KeyShare_GroupRank.exit, %for.body
-  %preferredKSE.1 = phi ptr [ %preferredKSE.048, %for.body ], [ %spec.select, %TLSX_KeyShare_GroupRank.exit ], [ %preferredKSE.048, %if.then.i ], [ %preferredKSE.048, %if.end43 ], [ %preferredKSE.048, %if.end21 ], [ %preferredKSE.048, %for.cond.i ], [ %preferredKSE.048, %while.body.i7.i ]
-  %preferredRank.1 = phi i32 [ %preferredRank.049, %for.body ], [ %spec.select23, %TLSX_KeyShare_GroupRank.exit ], [ %preferredRank.049, %if.then.i ], [ %preferredRank.049, %if.end43 ], [ %preferredRank.049, %if.end21 ], [ %preferredRank.049, %for.cond.i ], [ %preferredRank.049, %while.body.i7.i ]
-  %next = getelementptr inbounds i8, ptr %clientKSE.050, i64 64
+  %preferredKSE.1 = phi ptr [ %preferredKSE.049, %for.body ], [ %spec.select, %TLSX_KeyShare_GroupRank.exit ], [ %preferredKSE.049, %if.then.i ], [ %preferredKSE.049, %if.end43 ], [ %preferredKSE.049, %if.end21 ], [ %preferredKSE.049, %for.cond.i ], [ %preferredKSE.049, %while.body.i7.i ]
+  %preferredRank.1 = phi i32 [ %preferredRank.050, %for.body ], [ %spec.select23, %TLSX_KeyShare_GroupRank.exit ], [ %preferredRank.050, %if.then.i ], [ %preferredRank.050, %if.end43 ], [ %preferredRank.050, %if.end21 ], [ %preferredRank.050, %for.cond.i ], [ %preferredRank.050, %while.body.i7.i ]
+  %next = getelementptr inbounds i8, ptr %clientKSE.048, i64 64
   %20 = load ptr, ptr %next, align 8
   %cmp12.not = icmp eq ptr %20, null
   br i1 %cmp12.not, label %for.end, label %for.body, !llvm.loop !42
@@ -6500,21 +6500,21 @@ if.end.split.us.i:                                ; preds = %sw.bb96
   br i1 %cmp10.not.us.us11.i, label %TLSX_KeyShare_GetSize.exit, label %while.body.us.us.i
 
 while.body.us.us.i:                               ; preds = %if.end.split.us.i, %while.body.us.us.i
-  %list.addr.0.ph.us13.i = phi ptr [ %32, %while.body.us.us.i ], [ %31, %if.end.split.us.i ]
-  %len.1.ph.us12.i = phi i16 [ %conv22.us.i, %while.body.us.us.i ], [ 2, %if.end.split.us.i ]
-  %next.us.us.i = getelementptr inbounds i8, ptr %list.addr.0.ph.us13.i, i64 64
+  %len.1.ph.us13.i = phi i16 [ %conv22.us.i, %while.body.us.us.i ], [ 2, %if.end.split.us.i ]
+  %list.addr.0.ph.us12.i = phi ptr [ %32, %while.body.us.us.i ], [ %31, %if.end.split.us.i ]
+  %next.us.us.i = getelementptr inbounds i8, ptr %list.addr.0.ph.us12.i, i64 64
   %32 = load ptr, ptr %next.us.us.i, align 8
-  %pubKeyLen.us.i = getelementptr inbounds i8, ptr %list.addr.0.ph.us13.i, i64 48
+  %pubKeyLen.us.i = getelementptr inbounds i8, ptr %list.addr.0.ph.us12.i, i64 48
   %33 = load i32, ptr %pubKeyLen.us.i, align 8
   %34 = trunc i32 %33 to i16
-  %35 = add i16 %len.1.ph.us12.i, 4
+  %35 = add i16 %len.1.ph.us13.i, 4
   %conv22.us.i = add i16 %35, %34
   %cmp10.not.us.us.i = icmp eq ptr %32, null
   br i1 %cmp10.not.us.us.i, label %TLSX_KeyShare_GetSize.exit, label %while.body.us.us.i, !llvm.loop !50
 
 while.cond.outer.i:                               ; preds = %sw.bb96, %if.end16.split.i
-  %len.1.ph.i = phi i16 [ %conv22.i, %if.end16.split.i ], [ 0, %sw.bb96 ]
   %list.addr.0.ph.i = phi ptr [ %36, %if.end16.split.i ], [ %31, %sw.bb96 ]
+  %len.1.ph.i = phi i16 [ %conv22.i, %if.end16.split.i ], [ 0, %sw.bb96 ]
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i46, %while.cond.outer.i
@@ -7216,12 +7216,12 @@ if.end.split.us.i:                                ; preds = %if.end.i77
   br i1 %cmp10.not.us.us40.i, label %if.then39.i, label %while.body.us.us.i
 
 while.body.us.us.i:                               ; preds = %if.end.split.us.i, %while.body.us.us.i
-  %list.addr.0.ph.us42.i = phi ptr [ %59, %while.body.us.us.i ], [ %57, %if.end.split.us.i ]
-  %i.1.ph.us41.i = phi i16 [ %conv37.us.i, %while.body.us.us.i ], [ 2, %if.end.split.us.i ]
-  %next.us.us.i = getelementptr inbounds i8, ptr %list.addr.0.ph.us42.i, i64 64
+  %i.1.ph.us42.i = phi i16 [ %conv37.us.i, %while.body.us.us.i ], [ 2, %if.end.split.us.i ]
+  %list.addr.0.ph.us41.i = phi ptr [ %59, %while.body.us.us.i ], [ %57, %if.end.split.us.i ]
+  %next.us.us.i = getelementptr inbounds i8, ptr %list.addr.0.ph.us41.i, i64 64
   %59 = load ptr, ptr %next.us.us.i, align 8
-  %60 = load i16, ptr %list.addr.0.ph.us42.i, align 8
-  %idxprom.us.i = zext i16 %i.1.ph.us41.i to i64
+  %60 = load i16, ptr %list.addr.0.ph.us41.i, align 8
+  %idxprom.us.i = zext i16 %i.1.ph.us42.i to i64
   %arrayidx.us.i = getelementptr inbounds i8, ptr %add.ptr155, i64 %idxprom.us.i
   %shr.i23.us.i = lshr i16 %60, 8
   %conv1.i24.us.i = trunc nuw i16 %shr.i23.us.i to i8
@@ -7229,8 +7229,8 @@ while.body.us.us.i:                               ; preds = %if.end.split.us.i, 
   %conv4.i25.us.i = trunc i16 %60 to i8
   %arrayidx5.i26.us.i = getelementptr inbounds i8, ptr %arrayidx.us.i, i64 1
   store i8 %conv4.i25.us.i, ptr %arrayidx5.i26.us.i, align 1
-  %add19.us.i = add i16 %i.1.ph.us41.i, 2
-  %pubKeyLen.us.i = getelementptr inbounds i8, ptr %list.addr.0.ph.us42.i, i64 48
+  %add19.us.i = add i16 %i.1.ph.us42.i, 2
+  %pubKeyLen.us.i = getelementptr inbounds i8, ptr %list.addr.0.ph.us41.i, i64 48
   %61 = load i32, ptr %pubKeyLen.us.i, align 8
   %idxprom22.us.i = zext i16 %add19.us.i to i64
   %arrayidx23.us.i = getelementptr inbounds i8, ptr %add.ptr155, i64 %idxprom22.us.i
@@ -7240,10 +7240,10 @@ while.body.us.us.i:                               ; preds = %if.end.split.us.i, 
   %conv4.i29.us.i = trunc i32 %61 to i8
   %arrayidx5.i30.us.i = getelementptr inbounds i8, ptr %arrayidx23.us.i, i64 1
   store i8 %conv4.i29.us.i, ptr %arrayidx5.i30.us.i, align 1
-  %add25.us.i = add i16 %i.1.ph.us41.i, 4
+  %add25.us.i = add i16 %i.1.ph.us42.i, 4
   %idxprom27.us.i = zext i16 %add25.us.i to i64
   %arrayidx28.us.i = getelementptr inbounds i8, ptr %add.ptr155, i64 %idxprom27.us.i
-  %pubKey29.us.i = getelementptr inbounds i8, ptr %list.addr.0.ph.us42.i, i64 40
+  %pubKey29.us.i = getelementptr inbounds i8, ptr %list.addr.0.ph.us41.i, i64 40
   %62 = load ptr, ptr %pubKey29.us.i, align 8
   %63 = load i32, ptr %pubKeyLen.us.i, align 8
   %conv31.us.i = zext i32 %63 to i64
@@ -7255,8 +7255,8 @@ while.body.us.us.i:                               ; preds = %if.end.split.us.i, 
   br i1 %cmp10.not.us.us.i, label %while.end.i, label %while.body.us.us.i, !llvm.loop !56
 
 while.cond.outer.i:                               ; preds = %if.end.i77, %if.end16.split.i
-  %i.1.ph.i = phi i16 [ %conv37.i, %if.end16.split.i ], [ 0, %if.end.i77 ]
   %list.addr.0.ph.i = phi ptr [ %66, %if.end16.split.i ], [ %57, %if.end.i77 ]
+  %i.1.ph.i = phi i16 [ %conv37.i, %if.end16.split.i ], [ 0, %if.end.i77 ]
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i79, %while.cond.outer.i

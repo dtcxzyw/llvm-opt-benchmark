@@ -1097,13 +1097,13 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
   br i1 %17, label %.lr.ph32, label %._crit_edge
 
 .lr.ph32:                                         ; preds = %4, %431
-  %.01729 = phi i32 [ %.1, %431 ], [ %3, %4 ]
-  %18 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef %.01729, ptr noundef nonnull @blf_lobj_magic, i64 noundef 4) #3
+  %.029 = phi i32 [ %.1, %431 ], [ %3, %4 ]
+  %18 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef %.029, ptr noundef nonnull @blf_lobj_magic, i64 noundef 4) #3
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %21, label %19
 
 19:                                               ; preds = %.lr.ph32
-  %20 = add i32 %.01729, 1
+  %20 = add i32 %.029, 1
   br label %431
 
 21:                                               ; preds = %.lr.ph32
@@ -1119,13 +1119,13 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
-  store volatile i32 %.01729, ptr %5, align 4
-  %22 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.01729) #3
+  store volatile i32 %.029, ptr %5, align 4
+  %22 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.029) #3
   %23 = icmp slt i32 %22, 16
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %21
-  %25 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.01729) #3
+  %25 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.029) #3
   br label %dissect_blf_lobj.exit
 
 26:                                               ; preds = %21
@@ -1190,21 +1190,21 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
   store volatile i32 %60, ptr %5, align 4
   %.0..0..0..0.23.i = load volatile i32, ptr %5, align 4
   call void @proto_item_set_end(ptr noundef %32, ptr noundef %0, i32 noundef %.0..0..0..0.23.i) #3
-  %61 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.01729) #3
+  %61 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.029) #3
   %62 = load i32, ptr %7, align 4
   %63 = icmp slt i32 %61, %62
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %56
-  %65 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.01729) #3
-  %66 = add i32 %65, %.01729
+  %65 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.029) #3
+  %66 = add i32 %65, %.029
   call void @proto_item_set_end(ptr noundef %28, ptr noundef %0, i32 noundef %66) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull @.str.415) #3
-  %67 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.01729) #3
+  %67 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.029) #3
   br label %dissect_blf_lobj.exit
 
 68:                                               ; preds = %56
-  %69 = add i32 %62, %.01729
+  %69 = add i32 %62, %.029
   call void @proto_item_set_end(ptr noundef %28, ptr noundef %0, i32 noundef %69) #3
   %70 = load i32, ptr %8, align 4
   %71 = call ptr @val_to_str(i32 noundef %70, ptr noundef nonnull @blf_object_names, ptr noundef nonnull @.str.414) #3
@@ -1255,7 +1255,7 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
   %90 = icmp eq i32 %89, 0
   %.0..0..0..0.34.i = load volatile i32, ptr %5, align 4
   %91 = load i32, ptr %7, align 4
-  %92 = add i32 %91, %.01729
+  %92 = add i32 %91, %.029
   %.0..0..0..0.35.i = load volatile i32, ptr %5, align 4
   %93 = sub i32 %92, %.0..0..0..0.35.i
   br i1 %90, label %96, label %94
@@ -1278,14 +1278,14 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
   %.0407.i24 = phi ptr [ %95, %.thread21 ], [ %97, %96 ]
   %99 = load i32, ptr @hf_blf_cont_payload, align 4
   %100 = load i32, ptr %7, align 4
-  %101 = add i32 %100, %.01729
+  %101 = add i32 %100, %.029
   %.0..0..0..0.38.i = load volatile i32, ptr %5, align 4
   %102 = sub i32 %101, %.0..0..0..0.38.i
   %103 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %99, ptr noundef nonnull %.0407.i24, i32 noundef 0, i32 noundef %102, i32 noundef 0) #3
   %104 = load i32, ptr @ett_blf_logcontainer_payload, align 4
   %105 = call ptr @proto_item_add_subtree(ptr noundef %103, i32 noundef %104) #3
   %106 = load i32, ptr %7, align 4
-  %107 = add i32 %106, %.01729
+  %107 = add i32 %106, %.029
   %.0..0..0..0.39.i26 = load volatile i32, ptr %5, align 4
   %108 = sub i32 %107, %.0..0..0..0.39.i26
   %109 = icmp ugt i32 %108, 15
@@ -1297,7 +1297,7 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
   %111 = add i32 %110, %.0406.i28
   %112 = add i32 %111, 16
   %113 = load i32, ptr %7, align 4
-  %114 = add i32 %113, %.01729
+  %114 = add i32 %113, %.029
   %.0..0..0..0.39.i = load volatile i32, ptr %5, align 4
   %115 = sub i32 %114, %.0..0..0..0.39.i
   %116 = icmp ule i32 %112, %115
@@ -1307,7 +1307,7 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
 
 119:                                              ; preds = %68
   %.0..0..0..0.40.i = load volatile i32, ptr %5, align 4
-  %120 = sub i32 %.0..0..0..0.40.i, %.01729
+  %120 = sub i32 %.0..0..0..0.40.i, %.029
   %121 = load i32, ptr %6, align 4
   %122 = icmp slt i32 %120, %121
   br i1 %122, label %123, label %129
@@ -1316,11 +1316,11 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
   %124 = load i32, ptr @hf_blf_lobj_hdr_remains, align 4
   %.0..0..0..0.41.i = load volatile i32, ptr %5, align 4
   %.0..0..0..0.42.i = load volatile i32, ptr %5, align 4
-  %.neg414.i = add i32 %121, %.01729
+  %.neg414.i = add i32 %121, %.029
   %125 = sub i32 %.neg414.i, %.0..0..0..0.42.i
   %126 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %124, ptr noundef %0, i32 noundef %.0..0..0..0.41.i, i32 noundef %125, i32 noundef 0) #3
   %127 = load i32, ptr %6, align 4
-  %128 = add i32 %127, %.01729
+  %128 = add i32 %127, %.029
   store volatile i32 %128, ptr %5, align 4
   br label %129
 
@@ -1434,7 +1434,7 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
 
 188:                                              ; preds = %68
   %.0..0..0..0.64.i = load volatile i32, ptr %5, align 4
-  %189 = sub i32 %.0..0..0..0.64.i, %.01729
+  %189 = sub i32 %.0..0..0..0.64.i, %.029
   %190 = load i32, ptr %6, align 4
   %191 = icmp slt i32 %189, %190
   br i1 %191, label %192, label %198
@@ -1443,11 +1443,11 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
   %193 = load i32, ptr @hf_blf_lobj_hdr_remains, align 4
   %.0..0..0..0.65.i = load volatile i32, ptr %5, align 4
   %.0..0..0..0.66.i = load volatile i32, ptr %5, align 4
-  %.neg413.i = add i32 %190, %.01729
+  %.neg413.i = add i32 %190, %.029
   %194 = sub i32 %.neg413.i, %.0..0..0..0.66.i
   %195 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %193, ptr noundef %0, i32 noundef %.0..0..0..0.65.i, i32 noundef %194, i32 noundef 0) #3
   %196 = load i32, ptr %6, align 4
-  %197 = add i32 %196, %.01729
+  %197 = add i32 %196, %.029
   store volatile i32 %197, ptr %5, align 4
   br label %198
 
@@ -1516,7 +1516,7 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
 
 234:                                              ; preds = %68
   %.0..0..0..0.84.i = load volatile i32, ptr %5, align 4
-  %235 = sub i32 %.0..0..0..0.84.i, %.01729
+  %235 = sub i32 %.0..0..0..0.84.i, %.029
   %236 = load i32, ptr %6, align 4
   %237 = icmp slt i32 %235, %236
   br i1 %237, label %238, label %244
@@ -1525,11 +1525,11 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
   %239 = load i32, ptr @hf_blf_lobj_hdr_remains, align 4
   %.0..0..0..0.85.i = load volatile i32, ptr %5, align 4
   %.0..0..0..0.86.i = load volatile i32, ptr %5, align 4
-  %.neg412.i = add i32 %236, %.01729
+  %.neg412.i = add i32 %236, %.029
   %240 = sub i32 %.neg412.i, %.0..0..0..0.86.i
   %241 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %239, ptr noundef %0, i32 noundef %.0..0..0..0.85.i, i32 noundef %240, i32 noundef 0) #3
   %242 = load i32, ptr %6, align 4
-  %243 = add i32 %242, %.01729
+  %243 = add i32 %242, %.029
   store volatile i32 %243, ptr %5, align 4
   br label %244
 
@@ -1608,7 +1608,7 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
   %282 = add i32 %.0..0..0..0.109.i, 4
   store volatile i32 %282, ptr %5, align 4
   %283 = load i32, ptr %7, align 4
-  %284 = add i32 %283, %.01729
+  %284 = add i32 %283, %.029
   %.0..0..0..0.110.i = load volatile i32, ptr %5, align 4
   %285 = sub i32 %284, %.0..0..0..0.110.i
   %286 = icmp ugt i32 %285, 7
@@ -1622,7 +1622,7 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
 
 290:                                              ; preds = %68
   %.0..0..0..0.112.i = load volatile i32, ptr %5, align 4
-  %291 = sub i32 %.0..0..0..0.112.i, %.01729
+  %291 = sub i32 %.0..0..0..0.112.i, %.029
   %292 = load i32, ptr %6, align 4
   %293 = icmp slt i32 %291, %292
   br i1 %293, label %294, label %300
@@ -1631,11 +1631,11 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
   %295 = load i32, ptr @hf_blf_lobj_hdr_remains, align 4
   %.0..0..0..0.113.i = load volatile i32, ptr %5, align 4
   %.0..0..0..0.114.i = load volatile i32, ptr %5, align 4
-  %.neg411.i = add i32 %292, %.01729
+  %.neg411.i = add i32 %292, %.029
   %296 = sub i32 %.neg411.i, %.0..0..0..0.114.i
   %297 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %295, ptr noundef %0, i32 noundef %.0..0..0..0.113.i, i32 noundef %296, i32 noundef 0) #3
   %298 = load i32, ptr %6, align 4
-  %299 = add i32 %298, %.01729
+  %299 = add i32 %298, %.029
   store volatile i32 %299, ptr %5, align 4
   br label %300
 
@@ -1712,7 +1712,7 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
 
 338:                                              ; preds = %68
   %.0..0..0..0.136.i = load volatile i32, ptr %5, align 4
-  %339 = sub i32 %.0..0..0..0.136.i, %.01729
+  %339 = sub i32 %.0..0..0..0.136.i, %.029
   %340 = load i32, ptr %6, align 4
   %341 = icmp slt i32 %339, %340
   br i1 %341, label %342, label %348
@@ -1721,11 +1721,11 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
   %343 = load i32, ptr @hf_blf_lobj_hdr_remains, align 4
   %.0..0..0..0.137.i = load volatile i32, ptr %5, align 4
   %.0..0..0..0.138.i = load volatile i32, ptr %5, align 4
-  %.neg410.i = add i32 %340, %.01729
+  %.neg410.i = add i32 %340, %.029
   %344 = sub i32 %.neg410.i, %.0..0..0..0.138.i
   %345 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %343, ptr noundef %0, i32 noundef %.0..0..0..0.137.i, i32 noundef %344, i32 noundef 0) #3
   %346 = load i32, ptr %6, align 4
-  %347 = add i32 %346, %.01729
+  %347 = add i32 %346, %.029
   store volatile i32 %347, ptr %5, align 4
   br label %348
 
@@ -1776,7 +1776,7 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
 
 375:                                              ; preds = %68
   %.0..0..0..0.150.i = load volatile i32, ptr %5, align 4
-  %376 = sub i32 %.0..0..0..0.150.i, %.01729
+  %376 = sub i32 %.0..0..0..0.150.i, %.029
   %377 = load i32, ptr %6, align 4
   %378 = icmp slt i32 %376, %377
   br i1 %378, label %379, label %385
@@ -1785,11 +1785,11 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
   %380 = load i32, ptr @hf_blf_lobj_hdr_remains, align 4
   %.0..0..0..0.151.i = load volatile i32, ptr %5, align 4
   %.0..0..0..0.152.i = load volatile i32, ptr %5, align 4
-  %.neg.i = add i32 %377, %.01729
+  %.neg.i = add i32 %377, %.029
   %381 = sub i32 %.neg.i, %.0..0..0..0.152.i
   %382 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %380, ptr noundef %0, i32 noundef %.0..0..0..0.151.i, i32 noundef %381, i32 noundef 0) #3
   %383 = load i32, ptr %6, align 4
-  %384 = add i32 %383, %.01729
+  %384 = add i32 %383, %.029
   store volatile i32 %384, ptr %5, align 4
   br label %385
 
@@ -1841,7 +1841,7 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
 
 409:                                              ; preds = %68
   %.0..0..0..0.166.i = load volatile i32, ptr %5, align 4
-  %410 = sub i32 %.0..0..0..0.166.i, %.01729
+  %410 = sub i32 %.0..0..0..0.166.i, %.029
   %411 = load i32, ptr %6, align 4
   %412 = icmp slt i32 %410, %411
   br i1 %412, label %413, label %419
@@ -1850,11 +1850,11 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
   %414 = load i32, ptr @hf_blf_lobj_hdr_remains, align 4
   %.0..0..0..0.167.i = load volatile i32, ptr %5, align 4
   %.0..0..0..0.168.i = load volatile i32, ptr %5, align 4
-  %.neg416.i = add i32 %411, %.01729
+  %.neg416.i = add i32 %411, %.029
   %415 = sub i32 %.neg416.i, %.0..0..0..0.168.i
   %416 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %414, ptr noundef %0, i32 noundef %.0..0..0..0.167.i, i32 noundef %415, i32 noundef 0) #3
   %417 = load i32, ptr %6, align 4
-  %418 = add i32 %417, %.01729
+  %418 = add i32 %417, %.029
   store volatile i32 %418, ptr %5, align 4
   br label %419
 
@@ -1866,7 +1866,7 @@ define internal fastcc noundef i32 @dissect_blf_next_object(ptr noundef %0, ptr 
   %423 = sub i32 %422, %420
   %424 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %421, ptr noundef %0, i32 noundef %.0..0..0..0.169.i, i32 noundef %423, i32 noundef 0) #3
   %425 = load i32, ptr %7, align 4
-  %426 = add i32 %425, %.01729
+  %426 = add i32 %425, %.029
   store volatile i32 %426, ptr %5, align 4
   br label %.thread
 
@@ -1892,7 +1892,7 @@ dissect_blf_lobj.exit:                            ; preds = %24, %64, %.thread
   br i1 %428, label %.loopexit, label %429
 
 429:                                              ; preds = %dissect_blf_lobj.exit
-  %430 = add i32 %.0.i, %.01729
+  %430 = add i32 %.0.i, %.029
   br label %431
 
 431:                                              ; preds = %429, %19
@@ -1902,13 +1902,13 @@ dissect_blf_lobj.exit:                            ; preds = %24, %64, %.thread
   br i1 %433, label %.lr.ph32, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %431, %4
-  %.017.lcssa = phi i32 [ %3, %4 ], [ %.1, %431 ]
-  %434 = sub i32 %.017.lcssa, %3
+  %.0.lcssa = phi i32 [ %3, %4 ], [ %.1, %431 ]
+  %434 = sub i32 %.0.lcssa, %3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %dissect_blf_lobj.exit, %._crit_edge
-  %.0 = phi i32 [ %434, %._crit_edge ], [ 0, %dissect_blf_lobj.exit ]
-  ret i32 %.0
+  %.017 = phi i32 [ %434, %._crit_edge ], [ 0, %dissect_blf_lobj.exit ]
+  ret i32 %.017
 }
 
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1

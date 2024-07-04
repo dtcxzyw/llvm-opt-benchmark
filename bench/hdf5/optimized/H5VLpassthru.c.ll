@@ -668,21 +668,21 @@ define internal i32 @H5VL_pass_through_dataset_read(i64 noundef %0, ptr nocaptur
 
 .lr.ph:                                           ; preds = %.thread, %15
   %.pre4148 = phi i64 [ %.pre4145, %.thread ], [ %.pre41, %15 ]
-  %.03046 = phi ptr [ %13, %.thread ], [ %9, %15 ]
+  %.02946 = phi ptr [ %13, %.thread ], [ %9, %15 ]
   br label %18
 
 16:                                               ; preds = %18
-  %17 = add nuw i64 %.02938, 1
+  %17 = add nuw i64 %.038, 1
   %exitcond.not = icmp eq i64 %17, %0
   br i1 %exitcond.not, label %._crit_edge, label %18
 
 18:                                               ; preds = %.lr.ph, %16
-  %.02938 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
-  %19 = getelementptr inbounds ptr, ptr %1, i64 %.02938
+  %.038 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
+  %19 = getelementptr inbounds ptr, ptr %1, i64 %.038
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds ptr, ptr %.03046, i64 %.02938
+  %23 = getelementptr inbounds ptr, ptr %.02946, i64 %.038
   store ptr %22, ptr %23, align 8
   %24 = load i64, ptr %20, align 8
   %.not37 = icmp eq i64 %24, %.pre4148
@@ -690,8 +690,8 @@ define internal i32 @H5VL_pass_through_dataset_read(i64 noundef %0, ptr nocaptur
 
 ._crit_edge:                                      ; preds = %16, %15
   %.pre4149 = phi i64 [ %.pre41, %15 ], [ %.pre4148, %16 ]
-  %.03047 = phi ptr [ %9, %15 ], [ %.03046, %16 ]
-  %25 = call i32 @H5VLdataset_read(i64 noundef %0, ptr noundef nonnull %.03047, i64 noundef %.pre4149, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #10
+  %.02947 = phi ptr [ %9, %15 ], [ %.02946, %16 ]
+  %25 = call i32 @H5VLdataset_read(i64 noundef %0, ptr noundef nonnull %.02947, i64 noundef %.pre4149, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #10
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %34, label %26
 
@@ -712,16 +712,16 @@ define internal i32 @H5VL_pass_through_dataset_read(i64 noundef %0, ptr nocaptur
   br label %34
 
 34:                                               ; preds = %28, %26, %._crit_edge
-  %.not36 = icmp eq ptr %.03047, %9
+  %.not36 = icmp eq ptr %.02947, %9
   br i1 %.not36, label %.loopexit, label %35
 
 35:                                               ; preds = %34
-  call void @free(ptr noundef nonnull %.03047) #10
+  call void @free(ptr noundef nonnull %.02947) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %34, %35, %11
-  %.0 = phi i32 [ -1, %11 ], [ %25, %35 ], [ %25, %34 ], [ -1, %18 ]
-  ret i32 %.0
+  %.030 = phi i32 [ -1, %11 ], [ %25, %35 ], [ %25, %34 ], [ -1, %18 ]
+  ret i32 %.030
 }
 
 ; Function Attrs: nounwind uwtable
@@ -749,21 +749,21 @@ define internal i32 @H5VL_pass_through_dataset_write(i64 noundef %0, ptr nocaptu
 
 .lr.ph:                                           ; preds = %.thread, %15
   %.pre4148 = phi i64 [ %.pre4145, %.thread ], [ %.pre41, %15 ]
-  %.03046 = phi ptr [ %13, %.thread ], [ %9, %15 ]
+  %.02946 = phi ptr [ %13, %.thread ], [ %9, %15 ]
   br label %18
 
 16:                                               ; preds = %18
-  %17 = add nuw i64 %.02938, 1
+  %17 = add nuw i64 %.038, 1
   %exitcond.not = icmp eq i64 %17, %0
   br i1 %exitcond.not, label %._crit_edge, label %18
 
 18:                                               ; preds = %.lr.ph, %16
-  %.02938 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
-  %19 = getelementptr inbounds ptr, ptr %1, i64 %.02938
+  %.038 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
+  %19 = getelementptr inbounds ptr, ptr %1, i64 %.038
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds ptr, ptr %.03046, i64 %.02938
+  %23 = getelementptr inbounds ptr, ptr %.02946, i64 %.038
   store ptr %22, ptr %23, align 8
   %24 = load i64, ptr %20, align 8
   %.not37 = icmp eq i64 %24, %.pre4148
@@ -771,8 +771,8 @@ define internal i32 @H5VL_pass_through_dataset_write(i64 noundef %0, ptr nocaptu
 
 ._crit_edge:                                      ; preds = %16, %15
   %.pre4149 = phi i64 [ %.pre41, %15 ], [ %.pre4148, %16 ]
-  %.03047 = phi ptr [ %9, %15 ], [ %.03046, %16 ]
-  %25 = call i32 @H5VLdataset_write(i64 noundef %0, ptr noundef nonnull %.03047, i64 noundef %.pre4149, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #10
+  %.02947 = phi ptr [ %9, %15 ], [ %.02946, %16 ]
+  %25 = call i32 @H5VLdataset_write(i64 noundef %0, ptr noundef nonnull %.02947, i64 noundef %.pre4149, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #10
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %34, label %26
 
@@ -793,16 +793,16 @@ define internal i32 @H5VL_pass_through_dataset_write(i64 noundef %0, ptr nocaptu
   br label %34
 
 34:                                               ; preds = %28, %26, %._crit_edge
-  %.not36 = icmp eq ptr %.03047, %9
+  %.not36 = icmp eq ptr %.02947, %9
   br i1 %.not36, label %.loopexit, label %35
 
 35:                                               ; preds = %34
-  call void @free(ptr noundef nonnull %.03047) #10
+  call void @free(ptr noundef nonnull %.02947) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %34, %35, %11
-  %.0 = phi i32 [ -1, %11 ], [ %25, %35 ], [ %25, %34 ], [ -1, %18 ]
-  ret i32 %.0
+  %.030 = phi i32 [ -1, %11 ], [ %25, %35 ], [ %25, %34 ], [ -1, %18 ]
+  ret i32 %.030
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1176,7 +1176,7 @@ define internal noalias noundef ptr @H5VL_pass_through_file_create(ptr noundef %
   br label %32
 
 32:                                               ; preds = %10, %18, %24, %26
-  %.017 = phi ptr [ %21, %26 ], [ %21, %24 ], [ %21, %18 ], [ null, %10 ]
+  %.0 = phi ptr [ %21, %26 ], [ %21, %24 ], [ %21, %18 ], [ null, %10 ]
   %33 = call i32 @H5Pclose(i64 noundef %11) #10
   %34 = load ptr, ptr %7, align 8
   %35 = call i64 @H5Eget_current_stack() #10
@@ -1198,8 +1198,8 @@ H5VL_pass_through_info_free.exit:                 ; preds = %32, %38
   br label %44
 
 44:                                               ; preds = %6, %H5VL_pass_through_info_free.exit
-  %.0 = phi ptr [ %.017, %H5VL_pass_through_info_free.exit ], [ null, %6 ]
-  ret ptr %.0
+  %.017 = phi ptr [ %.0, %H5VL_pass_through_info_free.exit ], [ null, %6 ]
+  ret ptr %.017
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1249,7 +1249,7 @@ define internal noalias noundef ptr @H5VL_pass_through_file_open(ptr noundef %0,
   br label %31
 
 31:                                               ; preds = %9, %17, %23, %25
-  %.016 = phi ptr [ %20, %25 ], [ %20, %23 ], [ %20, %17 ], [ null, %9 ]
+  %.0 = phi ptr [ %20, %25 ], [ %20, %23 ], [ %20, %17 ], [ null, %9 ]
   %32 = call i32 @H5Pclose(i64 noundef %10) #10
   %33 = load ptr, ptr %6, align 8
   %34 = call i64 @H5Eget_current_stack() #10
@@ -1271,8 +1271,8 @@ H5VL_pass_through_info_free.exit:                 ; preds = %31, %37
   br label %43
 
 43:                                               ; preds = %5, %H5VL_pass_through_info_free.exit
-  %.0 = phi ptr [ %.016, %H5VL_pass_through_info_free.exit ], [ null, %5 ]
-  ret ptr %.0
+  %.016 = phi ptr [ %.0, %H5VL_pass_through_info_free.exit ], [ null, %5 ]
+  ret ptr %.016
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1365,10 +1365,10 @@ define internal i32 @H5VL_pass_through_file_specific(ptr nocapture noundef reado
   br label %42
 
 42:                                               ; preds = %28, %38, %13
-  %.034 = phi ptr [ null, %13 ], [ null, %28 ], [ %41, %38 ]
-  %.033 = phi ptr [ %5, %13 ], [ %5, %28 ], [ %1, %38 ]
-  %.032 = phi i64 [ %14, %13 ], [ %29, %28 ], [ %39, %38 ]
-  %43 = call i32 @H5VLfile_specific(ptr noundef %.034, i64 noundef %.032, ptr noundef nonnull %.033, i64 noundef %2, ptr noundef %3) #10
+  %.033 = phi ptr [ null, %13 ], [ null, %28 ], [ %41, %38 ]
+  %.032 = phi ptr [ %5, %13 ], [ %5, %28 ], [ %1, %38 ]
+  %.0 = phi i64 [ %14, %13 ], [ %29, %28 ], [ %39, %38 ]
+  %43 = call i32 @H5VLfile_specific(ptr noundef %.033, i64 noundef %.0, ptr noundef nonnull %.032, i64 noundef %2, ptr noundef %3) #10
   %.not43 = icmp eq ptr %3, null
   br i1 %.not43, label %50, label %44
 
@@ -1381,8 +1381,8 @@ define internal i32 @H5VL_pass_through_file_specific(ptr nocapture noundef reado
   %47 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   store ptr %45, ptr %48, align 8
-  store i64 %.032, ptr %47, align 8
-  %49 = call i32 @H5Iinc_ref(i64 noundef %.032) #10
+  store i64 %.0, ptr %47, align 8
+  %49 = call i32 @H5Iinc_ref(i64 noundef %.0) #10
   store ptr %47, ptr %3, align 8
   br label %50
 
@@ -1456,15 +1456,15 @@ H5VL_pass_through_info_free.exit47:               ; preds = %66, %74
   %88 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
   %89 = getelementptr inbounds i8, ptr %88, i64 8
   store ptr %86, ptr %89, align 8
-  store i64 %.032, ptr %88, align 8
-  %90 = call i32 @H5Iinc_ref(i64 noundef %.032) #10
+  store i64 %.0, ptr %88, align 8
+  %90 = call i32 @H5Iinc_ref(i64 noundef %.0) #10
   %91 = load ptr, ptr %84, align 8
   store ptr %88, ptr %91, align 8
   br label %92
 
 92:                                               ; preds = %H5VL_pass_through_info_free.exit, %80, %87, %83, %H5VL_pass_through_info_free.exit47, %23, %8
-  %.0 = phi i32 [ -1, %8 ], [ -1, %23 ], [ %43, %H5VL_pass_through_info_free.exit47 ], [ %43, %83 ], [ %43, %87 ], [ %43, %80 ], [ %43, %H5VL_pass_through_info_free.exit ]
-  ret i32 %.0
+  %.034 = phi i32 [ -1, %8 ], [ -1, %23 ], [ %43, %H5VL_pass_through_info_free.exit47 ], [ %43, %83 ], [ %43, %87 ], [ %43, %80 ], [ %43, %H5VL_pass_through_info_free.exit ]
+  ret i32 %.034
 }
 
 ; Function Attrs: nounwind uwtable

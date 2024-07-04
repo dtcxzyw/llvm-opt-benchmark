@@ -255,8 +255,8 @@ rb_check_frozen_inline.exit:                      ; preds = %12
   call void @ossl_clear_error() #6
   %28 = call ptr @PEM_read_bio_X509_CRL(ptr noundef %23, ptr noundef null, ptr noundef null, ptr noundef null) #6
   %29 = call i32 @BIO_free(ptr noundef %23) #6
-  %.not16 = icmp eq ptr %28, null
-  br i1 %.not16, label %30, label %32
+  %.not17 = icmp eq ptr %28, null
+  br i1 %.not17, label %30, label %32
 
 30:                                               ; preds = %26
   %31 = load i64, ptr @eX509CRLError, align 8
@@ -264,8 +264,8 @@ rb_check_frozen_inline.exit:                      ; preds = %12
   unreachable
 
 32:                                               ; preds = %.thread, %26
-  %.01519 = phi ptr [ %24, %.thread ], [ %28, %26 ]
-  store ptr %.01519, ptr %6, align 8
+  %.020 = phi ptr [ %24, %.thread ], [ %28, %26 ]
+  store ptr %.020, ptr %6, align 8
   call void @X509_CRL_free(ptr noundef %7) #6
   br label %33
 

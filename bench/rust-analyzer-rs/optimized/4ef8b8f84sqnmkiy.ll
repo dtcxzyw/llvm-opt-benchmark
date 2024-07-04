@@ -3892,10 +3892,10 @@ _ZN6parser7grammar8patterns21record_pat_field_list17h06fb1b51aa446433E.exit: ; p
           to label %231 unwind label %.body.thread92
 
 _ZN6parser7grammar8patterns16tuple_pat_fields17h797ffbb16dfbf927E.exit: ; preds = %39, %.noexc9, %_ZN6parser7grammar8patterns21record_pat_field_list17h06fb1b51aa446433E.exit, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit
-  %.04 = phi i16 [ 170, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit ], [ 171, %_ZN6parser7grammar8patterns21record_pat_field_list17h06fb1b51aa446433E.exit ], [ 174, %.noexc9 ], [ 170, %39 ]
+  %.0 = phi i16 [ 170, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit ], [ 171, %_ZN6parser7grammar8patterns21record_pat_field_list17h06fb1b51aa446433E.exit ], [ 174, %.noexc9 ], [ 170, %39 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %20, i64 40, i1 false)
-  %230 = call { i32, i16 } @_ZN6parser6parser6Marker8complete17h245dafe3ae51cd9dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %17, ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i16 noundef %.04)
+  %230 = call { i32, i16 } @_ZN6parser6parser6Marker8complete17h245dafe3ae51cd9dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %17, ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i16 noundef %.0)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20)
   br label %236

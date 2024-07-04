@@ -47,13 +47,13 @@ define hidden void @dissect_diffserv_mpls_common(ptr noundef %0, ptr noundef %1,
   br label %23
 
 23:                                               ; preds = %6, %7
-  %.061 = phi ptr [ %13, %7 ], [ %1, %6 ]
-  %.060 = phi ptr [ %10, %7 ], [ null, %6 ]
+  %.061 = phi ptr [ %10, %7 ], [ null, %6 ]
+  %.060 = phi ptr [ %13, %7 ], [ %1, %6 ]
   %.0 = phi i32 [ %22, %7 ], [ %3, %6 ]
   %24 = getelementptr i8, ptr %4, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %25, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %.061, i32 noundef %26, ptr noundef %0, i32 noundef %.0, i32 noundef 2, i32 noundef 0) #2
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %.060, i32 noundef %26, ptr noundef %0, i32 noundef %.0, i32 noundef 2, i32 noundef 0) #2
   %28 = getelementptr i8, ptr %5, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %29, align 4
@@ -76,7 +76,7 @@ define hidden void @dissect_diffserv_mpls_common(ptr noundef %0, ptr noundef %1,
   br i1 %32, label %44, label %._crit_edge62
 
 44:                                               ; preds = %38
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.060, ptr noundef nonnull @.str.9, i32 noundef %43) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.061, ptr noundef nonnull @.str.9, i32 noundef %43) #2
   br label %._crit_edge62
 
 ._crit_edge62:                                    ; preds = %38, %44
@@ -92,7 +92,7 @@ define hidden void @dissect_diffserv_mpls_common(ptr noundef %0, ptr noundef %1,
   br i1 %32, label %51, label %._crit_edge
 
 51:                                               ; preds = %45
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.060, ptr noundef nonnull @.str.10, i32 noundef %50) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.061, ptr noundef nonnull @.str.10, i32 noundef %50) #2
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %45, %51

@@ -153,9 +153,9 @@ define internal fastcc noundef zeroext i1 @path_decode(ptr noundef %0, i1 nounde
   br label %28
 
 28:                                               ; preds = %.preheader45, %28
-  %.pn = phi ptr [ %.032, %28 ], [ %storemerge, %.preheader45 ]
-  %.032 = getelementptr i8, ptr %.pn, i64 1
-  %29 = load i8, ptr %.032, align 1
+  %.pn = phi ptr [ %.031, %28 ], [ %storemerge, %.preheader45 ]
+  %.031 = getelementptr i8, ptr %.pn, i64 1
+  %29 = load i8, ptr %.031, align 1
   %30 = zext i8 %29 to i64
   %31 = getelementptr i16, ptr %27, i64 %30
   %32 = load i16, ptr %31, align 2
@@ -168,7 +168,7 @@ define internal fastcc noundef zeroext i1 @path_decode(ptr noundef %0, i1 nounde
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %34
-  store ptr %.032, ptr %10, align 8
+  store ptr %.031, ptr %10, align 8
   br label %41
 
 37:                                               ; preds = %34
@@ -177,11 +177,11 @@ define internal fastcc noundef zeroext i1 @path_decode(ptr noundef %0, i1 nounde
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %37
-  store ptr %.032, ptr %10, align 8
+  store ptr %.031, ptr %10, align 8
   br label %41
 
 41:                                               ; preds = %24, %37, %40, %36, %23
-  %42 = phi ptr [ %18, %23 ], [ %.032, %36 ], [ %.032, %40 ], [ %storemerge, %37 ], [ %storemerge, %24 ]
+  %42 = phi ptr [ %18, %23 ], [ %.031, %36 ], [ %.031, %40 ], [ %storemerge, %37 ], [ %storemerge, %24 ]
   %43 = phi i1 [ true, %23 ], [ true, %36 ], [ true, %40 ], [ false, %37 ], [ false, %24 ]
   %44 = icmp sgt i32 %2, 0
   br i1 %44, label %.lr.ph, label %.preheader
@@ -192,7 +192,7 @@ define internal fastcc noundef zeroext i1 @path_decode(ptr noundef %0, i1 nounde
 
 .lr.ph:                                           ; preds = %41, %55
   %46 = phi ptr [ %56, %55 ], [ %42, %41 ]
-  %.03149 = phi i32 [ %58, %55 ], [ 0, %41 ]
+  %.049 = phi i32 [ %58, %55 ], [ 0, %41 ]
   %.03448 = phi ptr [ %57, %55 ], [ %3, %41 ]
   %47 = getelementptr inbounds i8, ptr %.03448, i64 8
   %48 = call fastcc zeroext i1 @pair_decode(ptr noundef %46, ptr noundef %.03448, ptr noundef nonnull %47, ptr noundef nonnull %10, ptr noundef %6, ptr noundef %7, ptr noundef %8)
@@ -212,7 +212,7 @@ define internal fastcc noundef zeroext i1 @path_decode(ptr noundef %0, i1 nounde
 55:                                               ; preds = %53, %49
   %56 = phi ptr [ %54, %53 ], [ %50, %49 ]
   %57 = getelementptr i8, ptr %.03448, i64 16
-  %58 = add nuw nsw i32 %.03149, 1
+  %58 = add nuw nsw i32 %.049, 1
   %exitcond.not = icmp eq i32 %58, %2
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !8
 
@@ -269,8 +269,8 @@ define internal fastcc noundef zeroext i1 @path_decode(ptr noundef %0, i1 nounde
   br label %.loopexit44
 
 .loopexit44:                                      ; preds = %.lr.ph, %75, %.loopexit43, %71, %72
-  %.0 = phi i1 [ true, %72 ], [ true, %71 ], [ false, %.loopexit43 ], [ false, %75 ], [ false, %.lr.ph ]
-  ret i1 %.0
+  %.033 = phi i1 [ true, %72 ], [ true, %71 ], [ false, %.loopexit43 ], [ false, %75 ], [ false, %.lr.ph ]
+  ret i1 %.033
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1470,14 +1470,14 @@ define dso_local i64 @line_in(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %13, %1
-  %.025 = phi ptr [ %7, %1 ], [ %19, %13 ]
-  %14 = load i8, ptr %.025, align 1
+  %.0 = phi ptr [ %7, %1 ], [ %19, %13 ]
+  %14 = load i8, ptr %.0, align 1
   %15 = zext i8 %14 to i64
   %16 = getelementptr i16, ptr %12, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 8192
   %.not = icmp eq i16 %18, 0
-  %19 = getelementptr i8, ptr %.025, i64 1
+  %19 = getelementptr i8, ptr %.0, i64 1
   br i1 %.not, label %20, label %13, !llvm.loop !11
 
 20:                                               ; preds = %13
@@ -1628,7 +1628,7 @@ single_decode.exit21.thread.i:                    ; preds = %single_decode.exit2
   br label %169
 
 90:                                               ; preds = %20
-  %91 = call fastcc zeroext i1 @path_decode(ptr noundef nonnull %.025, i1 noundef zeroext true, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef %7, ptr noundef %9)
+  %91 = call fastcc zeroext i1 @path_decode(ptr noundef nonnull %.0, i1 noundef zeroext true, i32 noundef 2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef %7, ptr noundef %9)
   br i1 %91, label %94, label %92
 
 92:                                               ; preds = %90
@@ -1786,8 +1786,8 @@ line_construct.exit:                              ; preds = %167, %float8_mi.exi
   br label %169
 
 169:                                              ; preds = %131, %129, %87, %85, %line_construct.exit, %92, %75
-  %.0 = phi i64 [ %168, %line_construct.exit ], [ 0, %75 ], [ 0, %92 ], [ 0, %85 ], [ 0, %87 ], [ 0, %129 ], [ 0, %131 ]
-  ret i64 %.0
+  %.025 = phi i64 [ %168, %line_construct.exit ], [ 0, %75 ], [ 0, %92 ], [ 0, %85 ], [ 0, %87 ], [ 0, %129 ], [ 0, %131 ]
+  ret i64 %.025
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
@@ -3840,8 +3840,8 @@ pair_count.exit.thread:                           ; preds = %1, %pair_count.exit
   br label %93
 
 93:                                               ; preds = %82, %80, %69, %67, %44, %42, %21, %pair_count.exit.thread, %85, %55
-  %.0 = phi i64 [ %92, %85 ], [ 0, %55 ], [ 0, %pair_count.exit.thread ], [ 0, %21 ], [ 0, %42 ], [ 0, %44 ], [ 0, %67 ], [ 0, %69 ], [ 0, %80 ], [ 0, %82 ]
-  ret i64 %.0
+  %.040 = phi i64 [ %92, %85 ], [ 0, %55 ], [ 0, %pair_count.exit.thread ], [ 0, %21 ], [ 0, %42 ], [ 0, %44 ], [ 0, %67 ], [ 0, %69 ], [ 0, %80 ], [ 0, %82 ]
+  ret i64 %.040
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -4653,8 +4653,8 @@ define dso_local i64 @path_distance(ptr nocapture noundef %0) local_unnamed_addr
 91:                                               ; preds = %.lr.ph1031, %.loopexit
   %92 = phi i32 [ %39, %.lr.ph1031 ], [ %1256, %.loopexit ]
   %indvars.iv1034 = phi i64 [ 0, %.lr.ph1031 ], [ %indvars.iv.next1035, %.loopexit ]
-  %.0351028 = phi i8 [ 0, %.lr.ph1031 ], [ %.3, %.loopexit ]
-  %.0361027 = phi double [ 0.000000e+00, %.lr.ph1031 ], [ %.339, %.loopexit ]
+  %.0341028 = phi i8 [ 0, %.lr.ph1031 ], [ %.3, %.loopexit ]
+  %.0351027 = phi double [ 0.000000e+00, %.lr.ph1031 ], [ %.338, %.loopexit ]
   %.not1042 = icmp eq i64 %indvars.iv1034, 0
   %93 = trunc nuw nsw i64 %indvars.iv1034 to i32
   br i1 %.not1042, label %94, label %96
@@ -4680,8 +4680,8 @@ define dso_local i64 @path_distance(ptr nocapture noundef %0) local_unnamed_addr
 102:                                              ; preds = %.lr.ph, %float8_lt.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %float8_lt.exit.thread ]
   %103 = phi i32 [ %97, %.lr.ph ], [ %1253, %float8_lt.exit.thread ]
-  %.11024 = phi i8 [ %.0351028, %.lr.ph ], [ %.2, %float8_lt.exit.thread ]
-  %.1371023 = phi double [ %.0361027, %.lr.ph ], [ %.238, %float8_lt.exit.thread ]
+  %.11024 = phi i8 [ %.0341028, %.lr.ph ], [ %.2, %float8_lt.exit.thread ]
+  %.1361023 = phi double [ %.0351027, %.lr.ph ], [ %.237, %float8_lt.exit.thread ]
   %.not462 = icmp eq i64 %indvars.iv, 0
   %104 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %.not462, label %105, label %107
@@ -7428,8 +7428,8 @@ lseg_closept_lseg.exit.thread:                    ; preds = %point_dt.exit275
 
 float8_lt.exit:                                   ; preds = %lseg_closept_lseg.exit.thread, %1247
   %.031.i456459 = phi double [ %.031.i, %1247 ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ]
-  %1249 = fcmp uno double %.1371023, 0.000000e+00
-  %1250 = fcmp olt double %.031.i456459, %.1371023
+  %1249 = fcmp uno double %.1361023, 0.000000e+00
+  %1250 = fcmp olt double %.031.i456459, %.1361023
   %1251 = or i1 %1249, %1250
   br i1 %1251, label %1252, label %float8_lt.exit.thread
 
@@ -7437,7 +7437,7 @@ float8_lt.exit:                                   ; preds = %lseg_closept_lseg.e
   br label %float8_lt.exit.thread
 
 float8_lt.exit.thread:                            ; preds = %1247, %lseg_closept_lseg.exit, %lseg_closept_lseg.exit.thread, %float8_lt.exit, %1252, %105
-  %.238 = phi double [ %.1371023, %float8_lt.exit ], [ %.1371023, %105 ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ], [ %.031.i, %lseg_closept_lseg.exit ], [ %.031.i456459, %1252 ], [ %.1371023, %1247 ]
+  %.237 = phi double [ %.1361023, %float8_lt.exit ], [ %.1361023, %105 ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ], [ %.031.i, %lseg_closept_lseg.exit ], [ %.031.i456459, %1252 ], [ %.1361023, %1247 ]
   %.2 = phi i8 [ %.11024, %float8_lt.exit ], [ %.11024, %105 ], [ 1, %lseg_closept_lseg.exit.thread ], [ 1, %lseg_closept_lseg.exit ], [ 1, %1252 ], [ %.11024, %1247 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1253 = load i32, ptr %42, align 4
@@ -7451,8 +7451,8 @@ float8_lt.exit.thread:                            ; preds = %1247, %lseg_closept
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %96, %94
   %1256 = phi i32 [ %92, %94 ], [ %92, %96 ], [ %.pre1041, %.loopexit.loopexit ]
-  %.339 = phi double [ %.0361027, %94 ], [ %.0361027, %96 ], [ %.238, %.loopexit.loopexit ]
-  %.3 = phi i8 [ %.0351028, %94 ], [ %.0351028, %96 ], [ %.2, %.loopexit.loopexit ]
+  %.338 = phi double [ %.0351027, %94 ], [ %.0351027, %96 ], [ %.237, %.loopexit.loopexit ]
+  %.3 = phi i8 [ %.0341028, %94 ], [ %.0341028, %96 ], [ %.2, %.loopexit.loopexit ]
   %indvars.iv.next1035 = add nuw nsw i64 %indvars.iv1034, 1
   %1257 = sext i32 %1256 to i64
   %1258 = icmp slt i64 %indvars.iv.next1035, %1257
@@ -7460,7 +7460,7 @@ float8_lt.exit.thread:                            ; preds = %1247, %lseg_closept
 
 ._crit_edge:                                      ; preds = %.loopexit
   %1259 = trunc nuw i8 %.3 to i1
-  %1260 = bitcast double %.339 to i64
+  %1260 = bitcast double %.338 to i64
   br i1 %1259, label %1262, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge
@@ -7469,8 +7469,8 @@ float8_lt.exit.thread:                            ; preds = %1247, %lseg_closept
   br label %1262
 
 1262:                                             ; preds = %._crit_edge, %._crit_edge.thread
-  %.034 = phi i64 [ 0, %._crit_edge.thread ], [ %1260, %._crit_edge ]
-  ret i64 %.034
+  %.039 = phi i64 [ 0, %._crit_edge.thread ], [ %1260, %._crit_edge ]
+  ret i64 %.039
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9104,8 +9104,8 @@ define dso_local i64 @dist_ppath(ptr nocapture noundef readonly %0) local_unname
 16:                                               ; preds = %float8_lt.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %float8_lt.exit.thread.i ]
   %17 = phi i32 [ %11, %.lr.ph.i ], [ %34, %float8_lt.exit.thread.i ]
-  %.01723.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.1.i, %float8_lt.exit.thread.i ]
-  %.01822.i = phi i1 [ false, %.lr.ph.i ], [ %.119.i, %float8_lt.exit.thread.i ]
+  %.01723.i = phi i1 [ false, %.lr.ph.i ], [ %.1.i, %float8_lt.exit.thread.i ]
+  %.01822.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.119.i, %float8_lt.exit.thread.i ]
   %.not21.i = icmp eq i64 %indvars.iv.i, 0
   %18 = trunc nuw nsw i64 %indvars.iv.i to i32
   br i1 %.not21.i, label %19, label %21
@@ -9126,15 +9126,15 @@ define dso_local i64 @dist_ppath(ptr nocapture noundef readonly %0) local_unname
   %26 = load <2 x double>, ptr %24, align 8
   store <2 x double> %26, ptr %15, align 16
   %27 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull %2, ptr noundef readonly %5)
-  br i1 %.01822.i, label %28, label %33
+  br i1 %.01723.i, label %28, label %33
 
 28:                                               ; preds = %21
   %29 = fcmp uno double %27, 0.000000e+00
   br i1 %29, label %float8_lt.exit.thread.i, label %float8_lt.exit.i
 
 float8_lt.exit.i:                                 ; preds = %28
-  %30 = fcmp uno double %.01723.i, 0.000000e+00
-  %31 = fcmp olt double %27, %.01723.i
+  %30 = fcmp uno double %.01822.i, 0.000000e+00
+  %31 = fcmp olt double %27, %.01822.i
   %32 = or i1 %30, %31
   br i1 %32, label %33, label %float8_lt.exit.thread.i
 
@@ -9142,8 +9142,8 @@ float8_lt.exit.i:                                 ; preds = %28
   br label %float8_lt.exit.thread.i
 
 float8_lt.exit.thread.i:                          ; preds = %33, %float8_lt.exit.i, %28, %19
-  %.119.i = phi i1 [ true, %33 ], [ true, %float8_lt.exit.i ], [ %.01822.i, %19 ], [ true, %28 ]
-  %.1.i = phi double [ %27, %33 ], [ %.01723.i, %float8_lt.exit.i ], [ %.01723.i, %19 ], [ %.01723.i, %28 ]
+  %.119.i = phi double [ %27, %33 ], [ %.01822.i, %float8_lt.exit.i ], [ %.01822.i, %19 ], [ %.01822.i, %28 ]
+  %.1.i = phi i1 [ true, %33 ], [ true, %float8_lt.exit.i ], [ %.01723.i, %19 ], [ true, %28 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %34 = load i32, ptr %10, align 4
   %35 = sext i32 %34 to i64
@@ -9151,13 +9151,13 @@ float8_lt.exit.thread.i:                          ; preds = %33, %float8_lt.exit
   br i1 %36, label %16, label %dist_ppath_internal.exit.loopexit, !llvm.loop !34
 
 dist_ppath_internal.exit.loopexit:                ; preds = %float8_lt.exit.thread.i
-  %37 = bitcast double %.1.i to i64
+  %37 = bitcast double %.119.i to i64
   br label %dist_ppath_internal.exit
 
 dist_ppath_internal.exit:                         ; preds = %dist_ppath_internal.exit.loopexit, %1
-  %.017.lcssa.i = phi i64 [ 0, %1 ], [ %37, %dist_ppath_internal.exit.loopexit ]
+  %.018.lcssa.i = phi i64 [ 0, %1 ], [ %37, %dist_ppath_internal.exit.loopexit ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  ret i64 %.017.lcssa.i
+  ret i64 %.018.lcssa.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9185,8 +9185,8 @@ define dso_local i64 @dist_pathp(ptr nocapture noundef readonly %0) local_unname
 16:                                               ; preds = %float8_lt.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %float8_lt.exit.thread.i ]
   %17 = phi i32 [ %11, %.lr.ph.i ], [ %34, %float8_lt.exit.thread.i ]
-  %.01723.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.1.i, %float8_lt.exit.thread.i ]
-  %.01822.i = phi i1 [ false, %.lr.ph.i ], [ %.119.i, %float8_lt.exit.thread.i ]
+  %.01723.i = phi i1 [ false, %.lr.ph.i ], [ %.1.i, %float8_lt.exit.thread.i ]
+  %.01822.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.119.i, %float8_lt.exit.thread.i ]
   %.not21.i = icmp eq i64 %indvars.iv.i, 0
   %18 = trunc nuw nsw i64 %indvars.iv.i to i32
   br i1 %.not21.i, label %19, label %21
@@ -9207,15 +9207,15 @@ define dso_local i64 @dist_pathp(ptr nocapture noundef readonly %0) local_unname
   %26 = load <2 x double>, ptr %24, align 8
   store <2 x double> %26, ptr %15, align 16
   %27 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull %2, ptr noundef readonly %9)
-  br i1 %.01822.i, label %28, label %33
+  br i1 %.01723.i, label %28, label %33
 
 28:                                               ; preds = %21
   %29 = fcmp uno double %27, 0.000000e+00
   br i1 %29, label %float8_lt.exit.thread.i, label %float8_lt.exit.i
 
 float8_lt.exit.i:                                 ; preds = %28
-  %30 = fcmp uno double %.01723.i, 0.000000e+00
-  %31 = fcmp olt double %27, %.01723.i
+  %30 = fcmp uno double %.01822.i, 0.000000e+00
+  %31 = fcmp olt double %27, %.01822.i
   %32 = or i1 %30, %31
   br i1 %32, label %33, label %float8_lt.exit.thread.i
 
@@ -9223,8 +9223,8 @@ float8_lt.exit.i:                                 ; preds = %28
   br label %float8_lt.exit.thread.i
 
 float8_lt.exit.thread.i:                          ; preds = %33, %float8_lt.exit.i, %28, %19
-  %.119.i = phi i1 [ true, %33 ], [ true, %float8_lt.exit.i ], [ %.01822.i, %19 ], [ true, %28 ]
-  %.1.i = phi double [ %27, %33 ], [ %.01723.i, %float8_lt.exit.i ], [ %.01723.i, %19 ], [ %.01723.i, %28 ]
+  %.119.i = phi double [ %27, %33 ], [ %.01822.i, %float8_lt.exit.i ], [ %.01822.i, %19 ], [ %.01822.i, %28 ]
+  %.1.i = phi i1 [ true, %33 ], [ true, %float8_lt.exit.i ], [ %.01723.i, %19 ], [ true, %28 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %34 = load i32, ptr %10, align 4
   %35 = sext i32 %34 to i64
@@ -9232,13 +9232,13 @@ float8_lt.exit.thread.i:                          ; preds = %33, %float8_lt.exit
   br i1 %36, label %16, label %dist_ppath_internal.exit.loopexit, !llvm.loop !34
 
 dist_ppath_internal.exit.loopexit:                ; preds = %float8_lt.exit.thread.i
-  %37 = bitcast double %.1.i to i64
+  %37 = bitcast double %.119.i to i64
   br label %dist_ppath_internal.exit
 
 dist_ppath_internal.exit:                         ; preds = %dist_ppath_internal.exit.loopexit, %1
-  %.017.lcssa.i = phi i64 [ 0, %1 ], [ %37, %dist_ppath_internal.exit.loopexit ]
+  %.018.lcssa.i = phi i64 [ 0, %1 ], [ %37, %dist_ppath_internal.exit.loopexit ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
-  ret i64 %.017.lcssa.i
+  ret i64 %.018.lcssa.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9675,7 +9675,7 @@ define internal fastcc double @dist_ppoly_internal(ptr nocapture noundef readonl
 
 .lr.ph:                                           ; preds = %8, %float8_lt.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %float8_lt.exit.thread ], [ 0, %8 ]
-  %.02729 = phi double [ %30, %float8_lt.exit.thread ], [ %16, %8 ]
+  %.02629 = phi double [ %30, %float8_lt.exit.thread ], [ %16, %8 ]
   %20 = getelementptr [0 x %struct.Point], ptr %6, i64 0, i64 %indvars.iv
   %21 = load <2 x double>, ptr %20, align 8
   store <2 x double> %21, ptr %3, align 16
@@ -9688,8 +9688,8 @@ define internal fastcc double @dist_ppoly_internal(ptr nocapture noundef readonl
   br i1 %25, label %float8_lt.exit.thread, label %float8_lt.exit
 
 float8_lt.exit:                                   ; preds = %.lr.ph
-  %26 = fcmp uno double %.02729, 0.000000e+00
-  %27 = fcmp olt double %24, %.02729
+  %26 = fcmp uno double %.02629, 0.000000e+00
+  %27 = fcmp olt double %24, %.02629
   %28 = or i1 %26, %27
   %cond.fr = freeze i1 %28
   br i1 %cond.fr, label %29, label %float8_lt.exit.thread
@@ -9698,7 +9698,7 @@ float8_lt.exit:                                   ; preds = %.lr.ph
   br label %float8_lt.exit.thread
 
 float8_lt.exit.thread:                            ; preds = %.lr.ph, %float8_lt.exit, %29
-  %30 = phi double [ %24, %29 ], [ %.02729, %float8_lt.exit ], [ %.02729, %.lr.ph ]
+  %30 = phi double [ %24, %29 ], [ %.02629, %float8_lt.exit ], [ %.02629, %.lr.ph ]
   %31 = load i32, ptr %4, align 4
   %32 = add i32 %31, -1
   %33 = sext i32 %32 to i64
@@ -9706,8 +9706,8 @@ float8_lt.exit.thread:                            ; preds = %.lr.ph, %float8_lt.
   br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %float8_lt.exit.thread, %8, %2
-  %.026 = phi double [ 0.000000e+00, %2 ], [ %16, %8 ], [ %30, %float8_lt.exit.thread ]
-  ret double %.026
+  %.027 = phi double [ 0.000000e+00, %2 ], [ %16, %8 ], [ %30, %float8_lt.exit.thread ]
+  ret double %.027
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10201,7 +10201,7 @@ define dso_local range(i64 0, 2) i64 @on_ppath(ptr nocapture noundef readonly %0
 
 17:                                               ; preds = %float8_pl.exit, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %float8_pl.exit ], [ 0, %13 ]
-  %.022 = phi double [ %20, %float8_pl.exit ], [ %16, %13 ]
+  %.0 = phi double [ %20, %float8_pl.exit ], [ %16, %13 ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %18
 
@@ -10209,10 +10209,10 @@ define dso_local range(i64 0, 2) i64 @on_ppath(ptr nocapture noundef readonly %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = getelementptr [0 x %struct.Point], ptr %15, i64 0, i64 %indvars.iv.next
   %20 = tail call fastcc double @point_dt(ptr noundef %4, ptr noundef %19)
-  %21 = fadd double %.022, %20
+  %21 = fadd double %.0, %20
   %22 = tail call double @llvm.fabs.f64(double %21)
   %23 = fcmp une double %22, 0x7FF0000000000000
-  %24 = tail call double @llvm.fabs.f64(double %.022)
+  %24 = tail call double @llvm.fabs.f64(double %.0)
   %25 = fcmp oeq double %24, 0x7FF0000000000000
   %or.cond.i = or i1 %25, %23
   %26 = tail call double @llvm.fabs.f64(double %20)
@@ -10242,8 +10242,8 @@ float8_pl.exit:                                   ; preds = %18
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %float8_pl.exit, %36
-  %.0 = phi i64 [ %40, %36 ], [ 0, %17 ], [ 1, %float8_pl.exit ]
-  ret i64 %.0
+  %.023 = phi i64 [ %40, %36 ], [ 0, %17 ], [ 1, %float8_pl.exit ]
+  ret i64 %.023
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10296,8 +10296,8 @@ float8_mi.exit38.preheader:                       ; preds = %float8_mi.exit
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %float8_mi.exit38
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %float8_mi.exit38 ]
   %.057 = phi i32 [ 0, %.lr.ph.preheader ], [ %51, %float8_mi.exit38 ]
-  %.03156 = phi double [ %6, %.lr.ph.preheader ], [ %30, %float8_mi.exit38 ]
-  %.03354 = phi double [ %18, %.lr.ph.preheader ], [ %41, %float8_mi.exit38 ]
+  %.03155 = phi double [ %18, %.lr.ph.preheader ], [ %41, %float8_mi.exit38 ]
+  %.03254 = phi double [ %6, %.lr.ph.preheader ], [ %30, %float8_mi.exit38 ]
   %27 = getelementptr %struct.Point, ptr %2, i64 %indvars.iv
   %28 = load double, ptr %27, align 8
   %29 = load double, ptr %0, align 8
@@ -10336,7 +10336,7 @@ float8_mi.exit41:                                 ; preds = %.lr.ph
   unreachable
 
 float8_mi.exit44:                                 ; preds = %float8_mi.exit41
-  %49 = tail call fastcc i32 @lseg_crossing(double noundef %30, double noundef %41, double noundef %.03156, double noundef %.03354)
+  %49 = tail call fastcc i32 @lseg_crossing(double noundef %30, double noundef %41, double noundef %.03254, double noundef %.03155)
   %50 = icmp eq i32 %49, 2147483647
   br i1 %50, label %.loopexit, label %float8_mi.exit38
 
@@ -10347,10 +10347,10 @@ float8_mi.exit38:                                 ; preds = %float8_mi.exit44
   br i1 %exitcond.not, label %float8_mi.exit38._crit_edge, label %.lr.ph, !llvm.loop !37
 
 float8_mi.exit38._crit_edge:                      ; preds = %float8_mi.exit38, %float8_mi.exit38.preheader
-  %.033.lcssa = phi double [ %18, %float8_mi.exit38.preheader ], [ %41, %float8_mi.exit38 ]
-  %.031.lcssa = phi double [ %6, %float8_mi.exit38.preheader ], [ %30, %float8_mi.exit38 ]
+  %.032.lcssa = phi double [ %6, %float8_mi.exit38.preheader ], [ %30, %float8_mi.exit38 ]
+  %.031.lcssa = phi double [ %18, %float8_mi.exit38.preheader ], [ %41, %float8_mi.exit38 ]
   %.0.lcssa = phi i32 [ 0, %float8_mi.exit38.preheader ], [ %51, %float8_mi.exit38 ]
-  %52 = tail call fastcc i32 @lseg_crossing(double noundef %6, double noundef %18, double noundef %.031.lcssa, double noundef %.033.lcssa)
+  %52 = tail call fastcc i32 @lseg_crossing(double noundef %6, double noundef %18, double noundef %.032.lcssa, double noundef %.031.lcssa)
   %53 = icmp eq i32 %52, 2147483647
   br i1 %53, label %.loopexit, label %54
 
@@ -10361,8 +10361,8 @@ float8_mi.exit38._crit_edge:                      ; preds = %float8_mi.exit38, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %float8_mi.exit44, %54, %float8_mi.exit38._crit_edge
-  %.030 = phi i32 [ 2, %float8_mi.exit38._crit_edge ], [ %., %54 ], [ 2, %float8_mi.exit44 ]
-  ret i32 %.030
+  %.033 = phi i32 [ 2, %float8_mi.exit38._crit_edge ], [ %., %54 ], [ 2, %float8_mi.exit44 ]
+  ret i32 %.033
 }
 
 ; Function Attrs: nounwind uwtable
@@ -12045,24 +12045,24 @@ box_ov.exit:                                      ; preds = %19
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %lseg_interpt_lseg.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %lseg_interpt_lseg.exit ]
-  %.sroa.0.sroa.7.0148 = phi double [ %.sroa.0.sroa.7.0.copyload, %.lr.ph.preheader ], [ %.sroa.12.sroa.5.0.copyload80, %lseg_interpt_lseg.exit ]
-  %.sroa.0.sroa.0.0146 = phi double [ %.sroa.0.sroa.0.0.copyload, %.lr.ph.preheader ], [ %.sroa.12.sroa.0.0.copyload79, %lseg_interpt_lseg.exit ]
+  %.sroa.0.sroa.0.0148 = phi double [ %.sroa.0.sroa.0.0.copyload, %.lr.ph.preheader ], [ %.sroa.12.sroa.0.0.copyload79, %lseg_interpt_lseg.exit ]
+  %.sroa.0.sroa.7.0146 = phi double [ %.sroa.0.sroa.7.0.copyload, %.lr.ph.preheader ], [ %.sroa.12.sroa.5.0.copyload80, %lseg_interpt_lseg.exit ]
   %55 = getelementptr [0 x %struct.Point], ptr %41, i64 0, i64 %indvars.iv
   %.sroa.12.sroa.0.0.copyload79 = load double, ptr %55, align 8
   %.sroa.12.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %55, i64 8
   %.sroa.12.sroa.5.0.copyload80 = load double, ptr %.sroa.12.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %56 = fcmp oeq double %.sroa.0.sroa.0.0146, %.sroa.12.sroa.0.0.copyload79
-  %57 = fsub double %.sroa.0.sroa.0.0146, %.sroa.12.sroa.0.0.copyload79
+  %56 = fcmp oeq double %.sroa.0.sroa.0.0148, %.sroa.12.sroa.0.0.copyload79
+  %57 = fsub double %.sroa.0.sroa.0.0148, %.sroa.12.sroa.0.0.copyload79
   %58 = call double @llvm.fabs.f64(double %57)
   %59 = fcmp ole double %58, 0x3EB0C6F7A0B5ED8D
   %60 = or i1 %56, %59
   br i1 %60, label %line_construct.exit.i.sink.split.sink.split, label %61
 
 61:                                               ; preds = %.lr.ph
-  %62 = fcmp oeq double %.sroa.0.sroa.7.0148, %.sroa.12.sroa.5.0.copyload80
-  %63 = fsub double %.sroa.0.sroa.7.0148, %.sroa.12.sroa.5.0.copyload80
+  %62 = fcmp oeq double %.sroa.0.sroa.7.0146, %.sroa.12.sroa.5.0.copyload80
+  %63 = fsub double %.sroa.0.sroa.7.0146, %.sroa.12.sroa.5.0.copyload80
   %64 = call double @llvm.fabs.f64(double %63)
   %65 = fcmp ole double %64, 0x3EB0C6F7A0B5ED8D
   %66 = or i1 %62, %65
@@ -12070,7 +12070,7 @@ box_ov.exit:                                      ; preds = %19
 
 67:                                               ; preds = %61
   %68 = fcmp une double %64, 0x7FF0000000000000
-  %69 = call double @llvm.fabs.f64(double %.sroa.0.sroa.7.0148)
+  %69 = call double @llvm.fabs.f64(double %.sroa.0.sroa.7.0146)
   %70 = fcmp oeq double %69, 0x7FF0000000000000
   %or.cond.i.i57 = or i1 %70, %68
   %71 = call double @llvm.fabs.f64(double %.sroa.12.sroa.5.0.copyload80)
@@ -12084,7 +12084,7 @@ box_ov.exit:                                      ; preds = %19
 
 float8_mi.exit.i59:                               ; preds = %67
   %74 = fcmp une double %58, 0x7FF0000000000000
-  %75 = call double @llvm.fabs.f64(double %.sroa.0.sroa.0.0146)
+  %75 = call double @llvm.fabs.f64(double %.sroa.0.sroa.0.0148)
   %76 = fcmp oeq double %75, 0x7FF0000000000000
   %or.cond.i9.i = or i1 %76, %74
   %77 = call double @llvm.fabs.f64(double %.sroa.12.sroa.0.0.copyload79)
@@ -12142,10 +12142,10 @@ point_sl.exit:                                    ; preds = %89
 98:                                               ; preds = %96
   store double %84, ptr %4, align 16
   store double -1.000000e+00, ptr %43, align 8
-  %99 = fmul double %.sroa.0.sroa.0.0146, %84
+  %99 = fmul double %.sroa.0.sroa.0.0148, %84
   %100 = call double @llvm.fabs.f64(double %99)
   %101 = fcmp une double %100, 0x7FF0000000000000
-  %102 = call double @llvm.fabs.f64(double %.sroa.0.sroa.0.0146)
+  %102 = call double @llvm.fabs.f64(double %.sroa.0.sroa.0.0148)
   %103 = fcmp oeq double %102, 0x7FF0000000000000
   %or.cond15.i.i.i = or i1 %103, %101
   br i1 %or.cond15.i.i.i, label %105, label %104
@@ -12156,7 +12156,7 @@ point_sl.exit:                                    ; preds = %89
 
 105:                                              ; preds = %98
   %106 = fcmp oeq double %99, 0.000000e+00
-  %107 = fcmp une double %.sroa.0.sroa.0.0146, 0.000000e+00
+  %107 = fcmp une double %.sroa.0.sroa.0.0148, 0.000000e+00
   %or.cond3.i.i.i = and i1 %107, %106
   br i1 %or.cond3.i.i.i, label %108, label %float8_mul.exit.i.i
 
@@ -12165,10 +12165,10 @@ point_sl.exit:                                    ; preds = %89
   unreachable
 
 float8_mul.exit.i.i:                              ; preds = %105
-  %109 = fsub double %.sroa.0.sroa.7.0148, %99
+  %109 = fsub double %.sroa.0.sroa.7.0146, %99
   %110 = call double @llvm.fabs.f64(double %109)
   %111 = fcmp une double %110, 0x7FF0000000000000
-  %112 = call double @llvm.fabs.f64(double %.sroa.0.sroa.7.0148)
+  %112 = call double @llvm.fabs.f64(double %.sroa.0.sroa.7.0146)
   %113 = fcmp oeq double %112, 0x7FF0000000000000
   %or.cond.i19.i.i = or i1 %113, %111
   %114 = fcmp oeq double %100, 0x7FF0000000000000
@@ -12184,7 +12184,7 @@ float8_mi.exit.i.i:                               ; preds = %float8_mul.exit.i.i
   br i1 %116, label %line_construct.exit.i.sink.split, label %line_construct.exit.i
 
 line_construct.exit.i.sink.split.sink.split:      ; preds = %96, %61, %point_sl.exit, %.lr.ph
-  %.sink.ph = phi double [ %.sroa.0.sroa.0.0146, %.lr.ph ], [ %.sroa.0.sroa.0.0146, %point_sl.exit ], [ %.sroa.0.sroa.7.0148, %61 ], [ %.sroa.0.sroa.7.0148, %96 ]
+  %.sink.ph = phi double [ %.sroa.0.sroa.0.0148, %.lr.ph ], [ %.sroa.0.sroa.0.0148, %point_sl.exit ], [ %.sroa.0.sroa.7.0146, %61 ], [ %.sroa.0.sroa.7.0146, %96 ]
   %117 = phi <2 x double> [ <double -1.000000e+00, double 0.000000e+00>, %.lr.ph ], [ <double -1.000000e+00, double 0.000000e+00>, %point_sl.exit ], [ <double 0.000000e+00, double -1.000000e+00>, %61 ], [ <double 0.000000e+00, double -1.000000e+00>, %96 ]
   store <2 x double> %117, ptr %4, align 16
   br label %line_construct.exit.i
@@ -12200,13 +12200,13 @@ line_construct.exit.i:                            ; preds = %line_construct.exit
 
 119:                                              ; preds = %line_construct.exit.i
   %120 = load double, ptr %3, align 8
-  %121 = fsub double %120, %.sroa.0.sroa.0.0146
+  %121 = fsub double %120, %.sroa.0.sroa.0.0148
   %122 = call double @llvm.fabs.f64(double %121)
   %123 = fcmp une double %122, 0x7FF0000000000000
   %124 = call double @llvm.fabs.f64(double %120)
   %125 = fcmp oeq double %124, 0x7FF0000000000000
   %or.cond.i.i44 = or i1 %125, %123
-  %126 = call double @llvm.fabs.f64(double %.sroa.0.sroa.0.0146)
+  %126 = call double @llvm.fabs.f64(double %.sroa.0.sroa.0.0148)
   %127 = fcmp oeq double %126, 0x7FF0000000000000
   %or.cond8.i.i45 = or i1 %127, %or.cond.i.i44
   br i1 %or.cond8.i.i45, label %float8_mi.exit.i46, label %128
@@ -12217,13 +12217,13 @@ line_construct.exit.i:                            ; preds = %line_construct.exit
 
 float8_mi.exit.i46:                               ; preds = %119
   %129 = load double, ptr %45, align 8
-  %130 = fsub double %129, %.sroa.0.sroa.7.0148
+  %130 = fsub double %129, %.sroa.0.sroa.7.0146
   %131 = call double @llvm.fabs.f64(double %130)
   %132 = fcmp une double %131, 0x7FF0000000000000
   %133 = call double @llvm.fabs.f64(double %129)
   %134 = fcmp oeq double %133, 0x7FF0000000000000
   %or.cond.i4.i47 = or i1 %134, %132
-  %135 = call double @llvm.fabs.f64(double %.sroa.0.sroa.7.0148)
+  %135 = call double @llvm.fabs.f64(double %.sroa.0.sroa.7.0146)
   %136 = fcmp oeq double %135, 0x7FF0000000000000
   %or.cond8.i5.i48 = or i1 %136, %or.cond.i4.i47
   br i1 %or.cond8.i5.i48, label %float8_mi.exit6.i49, label %137
@@ -12350,7 +12350,7 @@ point_dt.exit43:                                  ; preds = %float8_mi.exit6.i36
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %point_dt.exit43
-  %185 = fsub double %.sroa.0.sroa.7.0148, %.sroa.12.sroa.5.0.copyload80
+  %185 = fsub double %.sroa.0.sroa.7.0146, %.sroa.12.sroa.5.0.copyload80
   %186 = call double @llvm.fabs.f64(double %185)
   %187 = fcmp une double %186, 0x7FF0000000000000
   %or.cond.i4.i = or i1 %136, %187
@@ -12806,8 +12806,8 @@ define dso_local i64 @poly_distance(ptr nocapture noundef %0) local_unnamed_addr
   %92 = phi i32 [ %1250, %._crit_edge ], [ %40, %.lr.ph1027 ]
   %93 = phi i32 [ %1251, %._crit_edge ], [ %90, %.lr.ph1027 ]
   %indvars.iv1033 = phi i64 [ %indvars.iv.next1034, %._crit_edge ], [ 0, %.lr.ph1027 ]
-  %.0351025 = phi i8 [ %.1.lcssa, %._crit_edge ], [ 0, %.lr.ph1027 ]
-  %.0361024 = phi double [ %.137.lcssa, %._crit_edge ], [ 0.000000e+00, %.lr.ph1027 ]
+  %.0341025 = phi i8 [ %.1.lcssa, %._crit_edge ], [ 0, %.lr.ph1027 ]
+  %.0351024 = phi double [ %.136.lcssa, %._crit_edge ], [ 0.000000e+00, %.lr.ph1027 ]
   %94 = icmp sgt i32 %93, 0
   br i1 %94, label %.lr.ph, label %._crit_edge
 
@@ -12824,8 +12824,8 @@ define dso_local i64 @poly_distance(ptr nocapture noundef %0) local_unnamed_addr
 99:                                               ; preds = %.lr.ph, %float8_lt.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %float8_lt.exit.thread ]
   %100 = phi i32 [ %93, %.lr.ph ], [ %1247, %float8_lt.exit.thread ]
-  %.11021 = phi i8 [ %.0351025, %.lr.ph ], [ %.2, %float8_lt.exit.thread ]
-  %.1371020 = phi double [ %.0361024, %.lr.ph ], [ %.238, %float8_lt.exit.thread ]
+  %.11021 = phi i8 [ %.0341025, %.lr.ph ], [ %.2, %float8_lt.exit.thread ]
+  %.1361020 = phi double [ %.0351024, %.lr.ph ], [ %.237, %float8_lt.exit.thread ]
   %.not = icmp eq i64 %indvars.iv, 0
   %101 = trunc nuw nsw i64 %indvars.iv to i32
   %.032. = select i1 %.not, i32 %100, i32 %101
@@ -15564,8 +15564,8 @@ lseg_closept_lseg.exit.thread:                    ; preds = %point_dt.exit273
 
 float8_lt.exit:                                   ; preds = %lseg_closept_lseg.exit.thread, %1241
   %.031.i454457 = phi double [ %.031.i, %1241 ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ]
-  %1243 = fcmp uno double %.1371020, 0.000000e+00
-  %1244 = fcmp olt double %.031.i454457, %.1371020
+  %1243 = fcmp uno double %.1361020, 0.000000e+00
+  %1244 = fcmp olt double %.031.i454457, %.1361020
   %1245 = or i1 %1243, %1244
   br i1 %1245, label %1246, label %float8_lt.exit.thread
 
@@ -15573,7 +15573,7 @@ float8_lt.exit:                                   ; preds = %lseg_closept_lseg.e
   br label %float8_lt.exit.thread
 
 float8_lt.exit.thread:                            ; preds = %1241, %lseg_closept_lseg.exit, %lseg_closept_lseg.exit.thread, %float8_lt.exit, %1246
-  %.238 = phi double [ %.1371020, %float8_lt.exit ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ], [ %.031.i, %lseg_closept_lseg.exit ], [ %.031.i454457, %1246 ], [ %.1371020, %1241 ]
+  %.237 = phi double [ %.1361020, %float8_lt.exit ], [ 0.000000e+00, %lseg_closept_lseg.exit.thread ], [ %.031.i, %lseg_closept_lseg.exit ], [ %.031.i454457, %1246 ], [ %.1361020, %1241 ]
   %.2 = phi i8 [ %.11021, %float8_lt.exit ], [ 1, %lseg_closept_lseg.exit.thread ], [ 1, %lseg_closept_lseg.exit ], [ 1, %1246 ], [ %.11021, %1241 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1247 = load i32, ptr %42, align 4
@@ -15588,8 +15588,8 @@ float8_lt.exit.thread:                            ; preds = %1241, %lseg_closept
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph1027.split
   %1250 = phi i32 [ %92, %.lr.ph1027.split ], [ %.pre1040, %._crit_edge.loopexit ]
   %1251 = phi i32 [ %93, %.lr.ph1027.split ], [ %1247, %._crit_edge.loopexit ]
-  %.137.lcssa = phi double [ %.0361024, %.lr.ph1027.split ], [ %.238, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i8 [ %.0351025, %.lr.ph1027.split ], [ %.2, %._crit_edge.loopexit ]
+  %.136.lcssa = phi double [ %.0351024, %.lr.ph1027.split ], [ %.237, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i8 [ %.0341025, %.lr.ph1027.split ], [ %.2, %._crit_edge.loopexit ]
   %indvars.iv.next1034 = add nuw nsw i64 %indvars.iv1033, 1
   %1252 = sext i32 %1250 to i64
   %1253 = icmp slt i64 %indvars.iv.next1034, %1252
@@ -15597,7 +15597,7 @@ float8_lt.exit.thread:                            ; preds = %1241, %lseg_closept
 
 ._crit_edge1028:                                  ; preds = %._crit_edge
   %1254 = trunc nuw i8 %.1.lcssa to i1
-  %1255 = bitcast double %.137.lcssa to i64
+  %1255 = bitcast double %.136.lcssa to i64
   br i1 %1254, label %1257, label %._crit_edge1028.thread
 
 ._crit_edge1028.thread:                           ; preds = %.lr.ph1027, %.preheader, %._crit_edge1028
@@ -15606,8 +15606,8 @@ float8_lt.exit.thread:                            ; preds = %1241, %lseg_closept
   br label %1257
 
 1257:                                             ; preds = %._crit_edge1028, %1, %._crit_edge1028.thread
-  %.034 = phi i64 [ 0, %._crit_edge1028.thread ], [ 0, %1 ], [ %1255, %._crit_edge1028 ]
-  ret i64 %.034
+  %.038 = phi i64 [ 0, %._crit_edge1028.thread ], [ 0, %1 ], [ %1255, %._crit_edge1028 ]
+  ret i64 %.038
 }
 
 ; Function Attrs: nounwind uwtable
@@ -17693,8 +17693,8 @@ single_decode.exit.thread:                        ; preds = %39, %43, %single_de
   br label %76
 
 76:                                               ; preds = %71, %69, %65, %.split.us, %61, %59, %74, %49, %31
-  %.0 = phi i64 [ %75, %74 ], [ 0, %49 ], [ 0, %31 ], [ 0, %59 ], [ 0, %61 ], [ 0, %.split.us ], [ 0, %65 ], [ 0, %69 ], [ 0, %71 ]
-  ret i64 %.0
+  %.037 = phi i64 [ %75, %74 ], [ 0, %49 ], [ 0, %31 ], [ 0, %59 ], [ 0, %61 ], [ 0, %.split.us ], [ 0, %65 ], [ 0, %69 ], [ 0, %71 ]
+  ret i64 %.037
 }
 
 ; Function Attrs: nounwind uwtable

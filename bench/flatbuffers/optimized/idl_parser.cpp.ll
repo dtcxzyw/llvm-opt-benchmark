@@ -47147,7 +47147,7 @@ invoke.cont20:                                    ; preds = %_ZNK11flatbuffers9N
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %qualified_name) #29
   %tobool15 = icmp ne i64 %sub, 0
   %tobool16.not = icmp eq ptr %call21, null
-  %18 = and i1 %tobool15, %tobool16.not
+  %18 = and i1 %tobool16.not, %tobool15
   br i1 %18, label %for.body17, label %for.end, !llvm.loop !884
 
 lpad19:                                           ; preds = %_ZNK11flatbuffers9Namespace21GetFullyQualifiedNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
@@ -51819,25 +51819,25 @@ for.end:                                          ; preds = %for.inc, %_ZN11flat
   br i1 %cmp.i61.not768, label %for.end52, label %for.body32
 
 for.body32:                                       ; preds = %for.end, %for.inc50
-  %enum_offsets.sroa.0.0772 = phi ptr [ %enum_offsets.sroa.0.1, %for.inc50 ], [ null, %for.end ]
-  %enum_offsets.sroa.6.0771 = phi ptr [ %enum_offsets.sroa.6.1, %for.inc50 ], [ null, %for.end ]
-  %enum_offsets.sroa.11.0770 = phi ptr [ %enum_offsets.sroa.11.1, %for.inc50 ], [ null, %for.end ]
-  %it20.sroa.0.0769 = phi ptr [ %incdec.ptr.i102, %for.inc50 ], [ %105, %for.end ]
-  %107 = load ptr, ptr %it20.sroa.0.0769, align 8
+  %it20.sroa.0.0772 = phi ptr [ %incdec.ptr.i102, %for.inc50 ], [ %105, %for.end ]
+  %enum_offsets.sroa.11.0771 = phi ptr [ %enum_offsets.sroa.11.1, %for.inc50 ], [ null, %for.end ]
+  %enum_offsets.sroa.6.0770 = phi ptr [ %enum_offsets.sroa.6.1, %for.inc50 ], [ null, %for.end ]
+  %enum_offsets.sroa.0.0769 = phi ptr [ %enum_offsets.sroa.0.1, %for.inc50 ], [ null, %for.end ]
+  %107 = load ptr, ptr %it20.sroa.0.0772, align 8
   %call38 = invoke i32 @_ZNK11flatbuffers7EnumDef9SerializeEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 dereferenceable(312) %107, ptr noundef nonnull %builder_, ptr noundef nonnull align 8 dereferenceable(1784) %this)
           to label %invoke.cont37 unwind label %lpad36.loopexit
 
 invoke.cont37:                                    ; preds = %for.body32
-  %cmp.not.i64 = icmp eq ptr %enum_offsets.sroa.6.0771, %enum_offsets.sroa.11.0770
+  %cmp.not.i64 = icmp eq ptr %enum_offsets.sroa.6.0770, %enum_offsets.sroa.11.0771
   br i1 %cmp.not.i64, label %if.else.i67, label %if.then.i65
 
 if.then.i65:                                      ; preds = %invoke.cont37
-  store i32 %call38, ptr %enum_offsets.sroa.6.0771, align 4
+  store i32 %call38, ptr %enum_offsets.sroa.6.0770, align 4
   br label %invoke.cont40
 
 if.else.i67:                                      ; preds = %invoke.cont37
-  %sub.ptr.lhs.cast.i.i.i.i68 = ptrtoint ptr %enum_offsets.sroa.6.0771 to i64
-  %sub.ptr.rhs.cast.i.i.i.i69 = ptrtoint ptr %enum_offsets.sroa.0.0772 to i64
+  %sub.ptr.lhs.cast.i.i.i.i68 = ptrtoint ptr %enum_offsets.sroa.11.0771 to i64
+  %sub.ptr.rhs.cast.i.i.i.i69 = ptrtoint ptr %enum_offsets.sroa.0.0769 to i64
   %sub.ptr.sub.i.i.i.i70 = sub i64 %sub.ptr.lhs.cast.i.i.i.i68, %sub.ptr.rhs.cast.i.i.i.i69
   %cmp.i.i.i71 = icmp eq i64 %sub.ptr.sub.i.i.i.i70, 9223372036854775804
   br i1 %cmp.i.i.i71, label %if.then.i.i.i94, label %_ZNKSt6vectorIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i
@@ -51868,28 +51868,28 @@ _ZNSt12_Vector_baseIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE11_M_allo
   %cond.i10.i.i80 = phi ptr [ null, %_ZNKSt6vectorIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i97, %cond.true.i.i.i78 ]
   %add.ptr.i.i81 = getelementptr inbounds %"struct.flatbuffers::Offset.239", ptr %cond.i10.i.i80, i64 %sub.ptr.div.i.i.i.i72
   store i32 %call38, ptr %add.ptr.i.i81, align 4
-  %cmp.not5.i.i.i.i.i82 = icmp eq ptr %enum_offsets.sroa.0.0772, %enum_offsets.sroa.6.0771
+  %cmp.not5.i.i.i.i.i82 = icmp eq ptr %enum_offsets.sroa.0.0769, %enum_offsets.sroa.11.0771
   br i1 %cmp.not5.i.i.i.i.i82, label %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i, label %for.body.i.i.i.i.i83
 
 for.body.i.i.i.i.i83:                             ; preds = %_ZNSt12_Vector_baseIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE11_M_allocateEm.exit.i.i, %for.body.i.i.i.i.i83
   %__cur.07.i.i.i.i.i84 = phi ptr [ %incdec.ptr1.i.i.i.i.i87, %for.body.i.i.i.i.i83 ], [ %cond.i10.i.i80, %_ZNSt12_Vector_baseIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE11_M_allocateEm.exit.i.i ]
-  %__first.addr.06.i.i.i.i.i85 = phi ptr [ %incdec.ptr.i.i.i.i.i86, %for.body.i.i.i.i.i83 ], [ %enum_offsets.sroa.0.0772, %_ZNSt12_Vector_baseIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE11_M_allocateEm.exit.i.i ]
+  %__first.addr.06.i.i.i.i.i85 = phi ptr [ %incdec.ptr.i.i.i.i.i86, %for.body.i.i.i.i.i83 ], [ %enum_offsets.sroa.0.0769, %_ZNSt12_Vector_baseIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE11_M_allocateEm.exit.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !990)
   call void @llvm.experimental.noalias.scope.decl(metadata !993)
   %109 = load i32, ptr %__first.addr.06.i.i.i.i.i85, align 4, !alias.scope !993, !noalias !990
   store i32 %109, ptr %__cur.07.i.i.i.i.i84, align 4, !alias.scope !990, !noalias !993
   %incdec.ptr.i.i.i.i.i86 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i85, i64 4
   %incdec.ptr1.i.i.i.i.i87 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i84, i64 4
-  %cmp.not.i.i.i.i.i88 = icmp eq ptr %incdec.ptr.i.i.i.i.i86, %enum_offsets.sroa.6.0771
+  %cmp.not.i.i.i.i.i88 = icmp eq ptr %incdec.ptr.i.i.i.i.i86, %enum_offsets.sroa.11.0771
   br i1 %cmp.not.i.i.i.i.i88, label %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i, label %for.body.i.i.i.i.i83, !llvm.loop !995
 
 _ZNSt6vectorIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i: ; preds = %for.body.i.i.i.i.i83, %_ZNSt12_Vector_baseIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE11_M_allocateEm.exit.i.i
   %__cur.0.lcssa.i.i.i.i.i89 = phi ptr [ %cond.i10.i.i80, %_ZNSt12_Vector_baseIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i87, %for.body.i.i.i.i.i83 ]
-  %tobool.not.i.i.i91 = icmp eq ptr %enum_offsets.sroa.0.0772, null
+  %tobool.not.i.i.i91 = icmp eq ptr %enum_offsets.sroa.0.0769, null
   br i1 %tobool.not.i.i.i91, label %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i20.i.i92
 
 if.then.i20.i.i92:                                ; preds = %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i
-  call void @_ZdlPv(ptr noundef nonnull %enum_offsets.sroa.0.0772) #34
+  call void @_ZdlPv(ptr noundef nonnull %enum_offsets.sroa.0.0769) #34
   br label %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
 
 _ZNSt6vectorIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i92, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i
@@ -51897,11 +51897,11 @@ _ZNSt6vectorIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE17_M_realloc_ins
   br label %invoke.cont40
 
 invoke.cont40:                                    ; preds = %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, %if.then.i65
-  %enum_offsets.sroa.11.1 = phi ptr [ %add.ptr19.i.i93, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %enum_offsets.sroa.11.0770, %if.then.i65 ]
-  %__cur.0.lcssa.i.i.i.i.i89.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i89, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %enum_offsets.sroa.6.0771, %if.then.i65 ]
-  %enum_offsets.sroa.0.1 = phi ptr [ %cond.i10.i.i80, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %enum_offsets.sroa.0.0772, %if.then.i65 ]
+  %enum_offsets.sroa.0.1 = phi ptr [ %cond.i10.i.i80, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %enum_offsets.sroa.0.0769, %if.then.i65 ]
+  %__cur.0.lcssa.i.i.i.i.i89.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i89, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %enum_offsets.sroa.6.0770, %if.then.i65 ]
+  %enum_offsets.sroa.11.1 = phi ptr [ %add.ptr19.i.i93, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection4EnumEEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %enum_offsets.sroa.11.0771, %if.then.i65 ]
   %enum_offsets.sroa.6.1 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i89.pn, i64 4
-  %110 = load ptr, ptr %it20.sroa.0.0769, align 8
+  %110 = load ptr, ptr %it20.sroa.0.0772, align 8
   %declaration_file43 = getelementptr inbounds i8, ptr %110, i64 192
   %111 = load ptr, ptr %declaration_file43, align 8
   %tobool44.not = icmp eq ptr %111, null
@@ -51912,7 +51912,7 @@ if.then45:                                        ; preds = %invoke.cont40
           to label %for.inc50 unwind label %lpad36.loopexit
 
 lpad36.loopexit:                                  ; preds = %for.body32, %cond.true.i.i.i78, %if.then45
-  %enum_offsets.sroa.0.2.ph = phi ptr [ %enum_offsets.sroa.0.0772, %for.body32 ], [ %enum_offsets.sroa.0.0772, %cond.true.i.i.i78 ], [ %enum_offsets.sroa.0.1, %if.then45 ]
+  %enum_offsets.sroa.0.2.ph = phi ptr [ %enum_offsets.sroa.0.0769, %for.body32 ], [ %enum_offsets.sroa.0.0769, %cond.true.i.i.i78 ], [ %enum_offsets.sroa.0.1, %if.then45 ]
   %lpad.loopexit643 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup229
@@ -51923,14 +51923,14 @@ lpad36.loopexit.split-lp:                         ; preds = %if.then.i.i.i94
   br label %ehcleanup229
 
 for.inc50:                                        ; preds = %if.then45, %invoke.cont40
-  %incdec.ptr.i102 = getelementptr inbounds i8, ptr %it20.sroa.0.0769, i64 8
+  %incdec.ptr.i102 = getelementptr inbounds i8, ptr %it20.sroa.0.0772, i64 8
   %112 = load ptr, ptr %51, align 8
   %cmp.i61.not = icmp eq ptr %incdec.ptr.i102, %112
   br i1 %cmp.i61.not, label %for.end52, label %for.body32, !llvm.loop !996
 
 for.end52:                                        ; preds = %for.inc50, %for.end
-  %enum_offsets.sroa.6.0.lcssa = phi ptr [ null, %for.end ], [ %enum_offsets.sroa.6.1, %for.inc50 ]
   %enum_offsets.sroa.0.0.lcssa = phi ptr [ null, %for.end ], [ %enum_offsets.sroa.0.1, %for.inc50 ]
+  %enum_offsets.sroa.6.0.lcssa = phi ptr [ null, %for.end ], [ %enum_offsets.sroa.6.1, %for.inc50 ]
   %vec54 = getelementptr inbounds i8, ptr %this, i64 360
   %113 = load ptr, ptr %vec54, align 8
   %_M_finish.i103 = getelementptr inbounds i8, ptr %this, i64 368
@@ -52756,7 +52756,7 @@ if.then.i.i.i274:                                 ; preds = %ehcleanup228
   br label %ehcleanup229
 
 ehcleanup229:                                     ; preds = %lpad36.loopexit, %lpad36.loopexit.split-lp, %if.then.i.i.i274, %ehcleanup228
-  %enum_offsets.sroa.0.3 = phi ptr [ %enum_offsets.sroa.0.0.lcssa, %ehcleanup228 ], [ %enum_offsets.sroa.0.0.lcssa, %if.then.i.i.i274 ], [ %enum_offsets.sroa.0.2.ph, %lpad36.loopexit ], [ %enum_offsets.sroa.0.0772, %lpad36.loopexit.split-lp ]
+  %enum_offsets.sroa.0.3 = phi ptr [ %enum_offsets.sroa.0.0.lcssa, %ehcleanup228 ], [ %enum_offsets.sroa.0.0.lcssa, %if.then.i.i.i274 ], [ %enum_offsets.sroa.0.2.ph, %lpad36.loopexit ], [ %enum_offsets.sroa.0.0769, %lpad36.loopexit.split-lp ]
   %.pn11 = phi { ptr, i32 } [ %.pn9, %ehcleanup228 ], [ %.pn9, %if.then.i.i.i274 ], [ %lpad.loopexit643, %lpad36.loopexit ], [ %lpad.loopexit.split-lp644, %lpad36.loopexit.split-lp ]
   %tobool.not.i.i.i276 = icmp eq ptr %enum_offsets.sroa.0.3, null
   br i1 %tobool.not.i.i.i276, label %ehcleanup230, label %if.then.i.i.i277
@@ -52790,11 +52790,11 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %field_offsets.sroa.0.053 = phi ptr [ %field_offsets.sroa.0.1, %for.inc ], [ null, %entry ]
   %field_offsets.sroa.6.052 = phi ptr [ %field_offsets.sroa.6.1, %for.inc ], [ null, %entry ]
-  %field_offsets.sroa.11.051 = phi ptr [ %field_offsets.sroa.11.1, %for.inc ], [ null, %entry ]
-  %it.sroa.0.050 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
-  %2 = load ptr, ptr %it.sroa.0.050, align 8
+  %it.sroa.0.051 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
+  %field_offsets.sroa.11.050 = phi ptr [ %field_offsets.sroa.11.1, %for.inc ], [ null, %entry ]
+  %2 = load ptr, ptr %it.sroa.0.051, align 8
   %3 = load ptr, ptr %vec, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %it.sroa.0.050 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %it.sroa.0.051 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 3
@@ -52803,7 +52803,7 @@ for.body:                                         ; preds = %entry, %for.inc
           to label %invoke.cont unwind label %lpad.loopexit
 
 invoke.cont:                                      ; preds = %for.body
-  %cmp.not.i.i = icmp eq ptr %field_offsets.sroa.6.052, %field_offsets.sroa.11.051
+  %cmp.not.i.i = icmp eq ptr %field_offsets.sroa.6.052, %field_offsets.sroa.11.050
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
@@ -52872,11 +52872,11 @@ _ZNSt6vectorIN11flatbuffers6OffsetIN10reflection5FieldEEESaIS4_EE17_M_realloc_in
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection5FieldEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, %if.then.i.i
-  %field_offsets.sroa.11.1 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection5FieldEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %field_offsets.sroa.11.051, %if.then.i.i ]
+  %field_offsets.sroa.11.1 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection5FieldEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %field_offsets.sroa.11.050, %if.then.i.i ]
   %__cur.0.lcssa.i.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection5FieldEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %field_offsets.sroa.6.052, %if.then.i.i ]
   %field_offsets.sroa.0.1 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection5FieldEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %field_offsets.sroa.0.053, %if.then.i.i ]
   %field_offsets.sroa.6.1 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.pn, i64 4
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.050, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.051, i64 8
   %6 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %6
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !1038
@@ -53071,23 +53071,23 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %enumval_offsets.sroa.0.052 = phi ptr [ %enumval_offsets.sroa.0.1, %for.inc ], [ null, %entry ]
-  %enumval_offsets.sroa.6.051 = phi ptr [ %enumval_offsets.sroa.6.1, %for.inc ], [ null, %entry ]
-  %it.sroa.0.050 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
-  %enumval_offsets.sroa.11.049 = phi ptr [ %enumval_offsets.sroa.11.1, %for.inc ], [ null, %entry ]
-  %2 = load ptr, ptr %it.sroa.0.050, align 8
+  %it.sroa.0.051 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
+  %enumval_offsets.sroa.11.050 = phi ptr [ %enumval_offsets.sroa.11.1, %for.inc ], [ null, %entry ]
+  %enumval_offsets.sroa.6.049 = phi ptr [ %enumval_offsets.sroa.6.1, %for.inc ], [ null, %entry ]
+  %2 = load ptr, ptr %it.sroa.0.051, align 8
   %call9 = invoke i32 @_ZNK11flatbuffers7EnumVal9SerializeEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef %builder, ptr noundef nonnull align 8 dereferenceable(1784) %parser)
           to label %invoke.cont unwind label %lpad.loopexit
 
 invoke.cont:                                      ; preds = %for.body
-  %cmp.not.i.i = icmp eq ptr %enumval_offsets.sroa.6.051, %enumval_offsets.sroa.11.049
+  %cmp.not.i.i = icmp eq ptr %enumval_offsets.sroa.6.049, %enumval_offsets.sroa.11.050
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  store i32 %call9, ptr %enumval_offsets.sroa.6.051, align 4
+  store i32 %call9, ptr %enumval_offsets.sroa.6.049, align 4
   br label %for.inc
 
 if.else.i.i:                                      ; preds = %invoke.cont
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %enumval_offsets.sroa.6.051 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %enumval_offsets.sroa.11.050 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %enumval_offsets.sroa.0.052 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775804
@@ -53119,7 +53119,7 @@ _ZNSt12_Vector_baseIN11flatbuffers6OffsetIN10reflection7EnumValEEESaIS4_EE11_M_a
   %cond.i10.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN11flatbuffers6OffsetIN10reflection7EnumValEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i13, %cond.true.i.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.294", ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   store i32 %call9, ptr %add.ptr.i.i.i, align 4
-  %cmp.not5.i.i.i.i.i.i = icmp eq ptr %enumval_offsets.sroa.0.052, %enumval_offsets.sroa.6.051
+  %cmp.not5.i.i.i.i.i.i = icmp eq ptr %enumval_offsets.sroa.0.052, %enumval_offsets.sroa.11.050
   br i1 %cmp.not5.i.i.i.i.i.i, label %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection7EnumValEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN11flatbuffers6OffsetIN10reflection7EnumValEEESaIS4_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i
@@ -53131,7 +53131,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   store i32 %4, ptr %__cur.07.i.i.i.i.i.i, align 4, !alias.scope !1042, !noalias !1045
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 4
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 4
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %enumval_offsets.sroa.6.051
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %enumval_offsets.sroa.11.050
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection7EnumValEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !1047
 
 _ZNSt6vectorIN11flatbuffers6OffsetIN10reflection7EnumValEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN11flatbuffers6OffsetIN10reflection7EnumValEEESaIS4_EE11_M_allocateEm.exit.i.i.i
@@ -53148,11 +53148,11 @@ _ZNSt6vectorIN11flatbuffers6OffsetIN10reflection7EnumValEEESaIS4_EE17_M_realloc_
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection7EnumValEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, %if.then.i.i
-  %enumval_offsets.sroa.11.1 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection7EnumValEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %enumval_offsets.sroa.11.049, %if.then.i.i ]
-  %__cur.0.lcssa.i.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection7EnumValEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %enumval_offsets.sroa.6.051, %if.then.i.i ]
+  %__cur.0.lcssa.i.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection7EnumValEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %enumval_offsets.sroa.6.049, %if.then.i.i ]
+  %enumval_offsets.sroa.11.1 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection7EnumValEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %enumval_offsets.sroa.11.050, %if.then.i.i ]
   %enumval_offsets.sroa.0.1 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection7EnumValEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %enumval_offsets.sroa.0.052, %if.then.i.i ]
   %enumval_offsets.sroa.6.1 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.pn, i64 4
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.050, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.051, i64 8
   %5 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %5
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !1048
@@ -53338,23 +53338,23 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %servicecall_offsets.sroa.0.051 = phi ptr [ %servicecall_offsets.sroa.0.1, %for.inc ], [ null, %entry ]
-  %servicecall_offsets.sroa.6.050 = phi ptr [ %servicecall_offsets.sroa.6.1, %for.inc ], [ null, %entry ]
-  %it.sroa.0.049 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
-  %servicecall_offsets.sroa.11.048 = phi ptr [ %servicecall_offsets.sroa.11.1, %for.inc ], [ null, %entry ]
-  %2 = load ptr, ptr %it.sroa.0.049, align 8
+  %it.sroa.0.050 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
+  %servicecall_offsets.sroa.11.049 = phi ptr [ %servicecall_offsets.sroa.11.1, %for.inc ], [ null, %entry ]
+  %servicecall_offsets.sroa.6.048 = phi ptr [ %servicecall_offsets.sroa.6.1, %for.inc ], [ null, %entry ]
+  %2 = load ptr, ptr %it.sroa.0.050, align 8
   %call9 = invoke i32 @_ZNK11flatbuffers7RPCCall9SerializeEPNS_21FlatBufferBuilderImplILb0EEERKNS_6ParserE(ptr noundef nonnull align 8 dereferenceable(216) %2, ptr noundef %builder, ptr noundef nonnull align 8 dereferenceable(1784) %parser)
           to label %invoke.cont unwind label %lpad.loopexit
 
 invoke.cont:                                      ; preds = %for.body
-  %cmp.not.i.i = icmp eq ptr %servicecall_offsets.sroa.6.050, %servicecall_offsets.sroa.11.048
+  %cmp.not.i.i = icmp eq ptr %servicecall_offsets.sroa.6.048, %servicecall_offsets.sroa.11.049
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  store i32 %call9, ptr %servicecall_offsets.sroa.6.050, align 4
+  store i32 %call9, ptr %servicecall_offsets.sroa.6.048, align 4
   br label %for.inc
 
 if.else.i.i:                                      ; preds = %invoke.cont
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %servicecall_offsets.sroa.6.050 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %servicecall_offsets.sroa.11.049 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %servicecall_offsets.sroa.0.051 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775804
@@ -53386,7 +53386,7 @@ _ZNSt12_Vector_baseIN11flatbuffers6OffsetIN10reflection7RPCCallEEESaIS4_EE11_M_a
   %cond.i10.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN11flatbuffers6OffsetIN10reflection7RPCCallEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i12, %cond.true.i.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.280", ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   store i32 %call9, ptr %add.ptr.i.i.i, align 4
-  %cmp.not5.i.i.i.i.i.i = icmp eq ptr %servicecall_offsets.sroa.0.051, %servicecall_offsets.sroa.6.050
+  %cmp.not5.i.i.i.i.i.i = icmp eq ptr %servicecall_offsets.sroa.0.051, %servicecall_offsets.sroa.11.049
   br i1 %cmp.not5.i.i.i.i.i.i, label %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection7RPCCallEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN11flatbuffers6OffsetIN10reflection7RPCCallEEESaIS4_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i
@@ -53398,7 +53398,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_base
   store i32 %4, ptr %__cur.07.i.i.i.i.i.i, align 4, !alias.scope !1049, !noalias !1052
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 4
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 4
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %servicecall_offsets.sroa.6.050
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %servicecall_offsets.sroa.11.049
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection7RPCCallEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !1054
 
 _ZNSt6vectorIN11flatbuffers6OffsetIN10reflection7RPCCallEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN11flatbuffers6OffsetIN10reflection7RPCCallEEESaIS4_EE11_M_allocateEm.exit.i.i.i
@@ -53415,11 +53415,11 @@ _ZNSt6vectorIN11flatbuffers6OffsetIN10reflection7RPCCallEEESaIS4_EE17_M_realloc_
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection7RPCCallEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, %if.then.i.i
-  %servicecall_offsets.sroa.11.1 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection7RPCCallEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %servicecall_offsets.sroa.11.048, %if.then.i.i ]
-  %__cur.0.lcssa.i.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection7RPCCallEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %servicecall_offsets.sroa.6.050, %if.then.i.i ]
+  %__cur.0.lcssa.i.i.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection7RPCCallEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %servicecall_offsets.sroa.6.048, %if.then.i.i ]
+  %servicecall_offsets.sroa.11.1 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection7RPCCallEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %servicecall_offsets.sroa.11.049, %if.then.i.i ]
   %servicecall_offsets.sroa.0.1 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection7RPCCallEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %servicecall_offsets.sroa.0.051, %if.then.i.i ]
   %servicecall_offsets.sroa.6.1 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.i.pn, i64 4
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.049, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.050, i64 8
   %5 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %5
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !1055
@@ -59711,11 +59711,11 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %attrs.sroa.0.053 = phi ptr [ null, %for.body.lr.ph ], [ %attrs.sroa.0.2, %for.inc ]
-  %attrs.sroa.7.052 = phi ptr [ null, %for.body.lr.ph ], [ %attrs.sroa.7.2, %for.inc ]
-  %kv.sroa.0.051 = phi ptr [ %0, %for.body.lr.ph ], [ %call.i16, %for.inc ]
-  %attrs.sroa.13.050 = phi ptr [ null, %for.body.lr.ph ], [ %attrs.sroa.13.2, %for.inc ]
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %kv.sroa.0.051, i64 32
+  %kv.sroa.0.053 = phi ptr [ %0, %for.body.lr.ph ], [ %call.i16, %for.inc ]
+  %attrs.sroa.13.052 = phi ptr [ null, %for.body.lr.ph ], [ %attrs.sroa.13.2, %for.inc ]
+  %attrs.sroa.7.051 = phi ptr [ null, %for.body.lr.ph ], [ %attrs.sroa.7.2, %for.inc ]
+  %attrs.sroa.0.050 = phi ptr [ null, %for.body.lr.ph ], [ %attrs.sroa.0.2, %for.inc ]
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %kv.sroa.0.053, i64 32
   %1 = load ptr, ptr %_M_parent.i.i.i, align 8
   %cmp.not6.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not6.i.i.i, label %invoke.cont, label %while.body.i.i.i
@@ -59784,7 +59784,7 @@ if.then:                                          ; preds = %lor.lhs.false, %inv
 
 invoke.cont12:                                    ; preds = %if.then
   %8 = load i32, ptr %size_.i.i.i.i.i.i, align 8
-  %second16 = getelementptr inbounds i8, ptr %kv.sroa.0.051, i64 64
+  %second16 = getelementptr inbounds i8, ptr %kv.sroa.0.053, i64 64
   %9 = load ptr, ptr %second16, align 8
   %constant = getelementptr inbounds i8, ptr %9, i64 32
   %call.i9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant) #29
@@ -59798,17 +59798,17 @@ invoke.cont17:                                    ; preds = %invoke.cont12
           to label %invoke.cont24 unwind label %lpad.loopexit
 
 invoke.cont24:                                    ; preds = %invoke.cont17
-  %cmp.not.i.i = icmp eq ptr %attrs.sroa.7.052, %attrs.sroa.13.050
+  %cmp.not.i.i = icmp eq ptr %attrs.sroa.7.051, %attrs.sroa.13.052
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont24
-  store i32 %call25, ptr %attrs.sroa.7.052, align 4
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %attrs.sroa.7.052, i64 4
+  store i32 %call25, ptr %attrs.sroa.7.051, align 4
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %attrs.sroa.7.051, i64 4
   br label %for.inc
 
 if.else.i.i:                                      ; preds = %invoke.cont24
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %attrs.sroa.7.052 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %attrs.sroa.0.053 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %attrs.sroa.13.052 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %attrs.sroa.0.050 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i13 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775804
   br i1 %cmp.i.i.i.i13, label %if.then.i.i.i.i, label %_ZNKSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -59839,29 +59839,29 @@ _ZNSt12_Vector_baseIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE11_M_
   %cond.i10.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i15, %cond.true.i.i.i.i ]
   %add.ptr.i.i.i14 = getelementptr inbounds %"struct.flatbuffers::Offset.412", ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   store i32 %call25, ptr %add.ptr.i.i.i14, align 4
-  %cmp.not5.i.i.i.i.i.i = icmp eq ptr %attrs.sroa.0.053, %attrs.sroa.7.052
+  %cmp.not5.i.i.i.i.i.i = icmp eq ptr %attrs.sroa.0.050, %attrs.sroa.13.052
   br i1 %cmp.not5.i.i.i.i.i.i, label %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i, label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE11_M_allocateEm.exit.i.i.i, %for.body.i.i.i.i.i.i
   %__cur.07.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE11_M_allocateEm.exit.i.i.i ]
-  %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %attrs.sroa.0.053, %_ZNSt12_Vector_baseIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE11_M_allocateEm.exit.i.i.i ]
+  %__first.addr.06.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %attrs.sroa.0.050, %_ZNSt12_Vector_baseIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE11_M_allocateEm.exit.i.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1093)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1096)
   %12 = load i32, ptr %__first.addr.06.i.i.i.i.i.i, align 4, !alias.scope !1096, !noalias !1093
   store i32 %12, ptr %__cur.07.i.i.i.i.i.i, align 4, !alias.scope !1093, !noalias !1096
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i.i, i64 4
   %incdec.ptr1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i.i, i64 4
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %attrs.sroa.7.052
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %attrs.sroa.13.052
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !1098
 
 _ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE11_M_allocateEm.exit.i.i.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt12_Vector_baseIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE11_M_allocateEm.exit.i.i.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 4
-  %tobool.not.i.i.i.i = icmp eq ptr %attrs.sroa.0.053, null
+  %tobool.not.i.i.i.i = icmp eq ptr %attrs.sroa.0.050, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %if.then.i20.i.i.i
 
 if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %attrs.sroa.0.053) #34
+  tail call void @_ZdlPv(ptr noundef nonnull %attrs.sroa.0.050) #34
   br label %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i
@@ -59874,29 +59874,29 @@ lpad.loopexit:                                    ; preds = %invoke.cont17, %if.
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i.i, %if.then31, %.noexc20
-  %attrs.sroa.0.044 = phi ptr [ %attrs.sroa.0.053, %if.then.i.i.i.i ], [ %attrs.sroa.0.2, %if.then31 ], [ %attrs.sroa.0.2, %.noexc20 ]
+  %attrs.sroa.0.048 = phi ptr [ %attrs.sroa.0.050, %if.then.i.i.i.i ], [ %attrs.sroa.0.2, %if.then31 ], [ %attrs.sroa.0.2, %.noexc20 ]
   %lpad.loopexit.split-lp38 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %attrs.sroa.0.043 = phi ptr [ %attrs.sroa.0.053, %lpad.loopexit ], [ %attrs.sroa.0.044, %lpad.loopexit.split-lp ]
+  %attrs.sroa.0.047 = phi ptr [ %attrs.sroa.0.050, %lpad.loopexit ], [ %attrs.sroa.0.048, %lpad.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit37, %lpad.loopexit ], [ %lpad.loopexit.split-lp38, %lpad.loopexit.split-lp ]
-  %tobool.not.i.i.i = icmp eq ptr %attrs.sroa.0.043, null
+  %tobool.not.i.i.i = icmp eq ptr %attrs.sroa.0.047, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad
-  call void @_ZdlPv(ptr noundef nonnull %attrs.sroa.0.043) #34
+  call void @_ZdlPv(ptr noundef nonnull %attrs.sroa.0.047) #34
   br label %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EED2Ev.exit: ; preds = %lpad, %if.then.i.i.i
   resume { ptr, i32 } %lpad.phi
 
 for.inc:                                          ; preds = %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, %if.then.i.i, %lor.lhs.false
-  %attrs.sroa.13.2 = phi ptr [ %attrs.sroa.13.050, %lor.lhs.false ], [ %add.ptr19.i.i.i, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %attrs.sroa.13.050, %if.then.i.i ]
-  %attrs.sroa.7.2 = phi ptr [ %attrs.sroa.7.052, %lor.lhs.false ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ]
-  %attrs.sroa.0.2 = phi ptr [ %attrs.sroa.0.053, %lor.lhs.false ], [ %cond.i10.i.i.i, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %attrs.sroa.0.053, %if.then.i.i ]
-  %call.i16 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %kv.sroa.0.051) #35
+  %attrs.sroa.0.2 = phi ptr [ %attrs.sroa.0.050, %lor.lhs.false ], [ %cond.i10.i.i.i, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %attrs.sroa.0.050, %if.then.i.i ]
+  %attrs.sroa.7.2 = phi ptr [ %attrs.sroa.7.051, %lor.lhs.false ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ]
+  %attrs.sroa.13.2 = phi ptr [ %attrs.sroa.13.052, %lor.lhs.false ], [ %add.ptr19.i.i.i, %_ZNSt6vectorIN11flatbuffers6OffsetIN10reflection8KeyValueEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %attrs.sroa.13.052, %if.then.i.i ]
+  %call.i16 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %kv.sroa.0.053) #35
   %cmp.i.not = icmp eq ptr %call.i16, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !1099
 
@@ -72315,10 +72315,10 @@ while.body.lr.ph.i:                               ; preds = %if.then8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %__first.addr.013.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i ]
-  %__len.012.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i ]
-  %shr.i = lshr i64 %__len.012.i, 1
-  %add.ptr.i.i.i26 = getelementptr inbounds %"struct.flatbuffers::Offset.412", ptr %__first.addr.013.i, i64 %shr.i
+  %__len.013.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i ]
+  %__first.addr.012.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i ]
+  %shr.i = lshr i64 %__len.013.i, 1
+  %add.ptr.i.i.i26 = getelementptr inbounds %"struct.flatbuffers::Offset.412", ptr %__first.addr.012.i, i64 %shr.i
   %24 = load i32, ptr %add.ptr.i.i.i26, align 4
   %conv.i.i.i = zext i32 %24 to i64
   %idx.neg.i.i.i.i = sub nsw i64 0, %conv.i.i.i
@@ -72350,9 +72350,9 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %cond.i.i.i.i.i.i = select i1 %cmp2.i.i.i.i.i.i, i1 %cmp3.i.i.i.i.i.i, i1 %cmp4.i.i.i.i.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i26, i64 4
   %30 = xor i64 %shr.i, -1
-  %sub2.i = add nsw i64 %__len.012.i, %30
+  %sub2.i = add nsw i64 %__len.013.i, %30
+  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i, ptr %incdec.ptr.i, ptr %__first.addr.012.i
   %__len.1.i = select i1 %cond.i.i.i.i.i.i, i64 %sub2.i, i64 %shr.i
-  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i, ptr %incdec.ptr.i, ptr %__first.addr.013.i
   %cmp.i = icmp sgt i64 %__len.1.i, 0
   br i1 %cmp.i, label %while.body.i, label %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1449
 
@@ -72409,10 +72409,10 @@ while.body.lr.ph.i48:                             ; preds = %if.else
   br label %while.body.i66
 
 while.body.i66:                                   ; preds = %while.body.i66, %while.body.lr.ph.i48
-  %__first.addr.013.i67 = phi ptr [ %__first, %while.body.lr.ph.i48 ], [ %__first.addr.1.i99, %while.body.i66 ]
-  %__len.012.i68 = phi i64 [ %sub.ptr.div.i.i.i45, %while.body.lr.ph.i48 ], [ %__len.1.i98, %while.body.i66 ]
-  %shr.i69 = lshr i64 %__len.012.i68, 1
-  %add.ptr.i.i.i72 = getelementptr inbounds %"struct.flatbuffers::Offset.412", ptr %__first.addr.013.i67, i64 %shr.i69
+  %__len.013.i67 = phi i64 [ %sub.ptr.div.i.i.i45, %while.body.lr.ph.i48 ], [ %__len.1.i99, %while.body.i66 ]
+  %__first.addr.012.i68 = phi ptr [ %__first, %while.body.lr.ph.i48 ], [ %__first.addr.1.i98, %while.body.i66 ]
+  %shr.i69 = lshr i64 %__len.013.i67, 1
+  %add.ptr.i.i.i72 = getelementptr inbounds %"struct.flatbuffers::Offset.412", ptr %__first.addr.012.i68, i64 %shr.i69
   %40 = load i32, ptr %add.ptr.i.i.i72, align 4
   %conv4.i.i.i75 = zext i32 %40 to i64
   %idx.neg.i4.i.i.i76 = sub nsw i64 0, %conv4.i.i.i75
@@ -72444,19 +72444,19 @@ while.body.i66:                                   ; preds = %while.body.i66, %wh
   %cond.i.i.i.i.i.i95 = select i1 %cmp2.i.i.i.i.i.i92, i1 %cmp3.i.i.i.i.i.i93, i1 %cmp4.i.i.i.i.i.i94
   %incdec.ptr.i96 = getelementptr inbounds i8, ptr %add.ptr.i.i.i72, i64 4
   %46 = xor i64 %shr.i69, -1
-  %sub2.i97 = add nsw i64 %__len.012.i68, %46
-  %__len.1.i98 = select i1 %cond.i.i.i.i.i.i95, i64 %shr.i69, i64 %sub2.i97
-  %__first.addr.1.i99 = select i1 %cond.i.i.i.i.i.i95, ptr %__first.addr.013.i67, ptr %incdec.ptr.i96
-  %cmp.i100 = icmp sgt i64 %__len.1.i98, 0
+  %sub2.i97 = add nsw i64 %__len.013.i67, %46
+  %__first.addr.1.i98 = select i1 %cond.i.i.i.i.i.i95, ptr %__first.addr.012.i68, ptr %incdec.ptr.i96
+  %__len.1.i99 = select i1 %cond.i.i.i.i.i.i95, i64 %shr.i69, i64 %sub2.i97
+  %cmp.i100 = icmp sgt i64 %__len.1.i99, 0
   br i1 %cmp.i100, label %while.body.i66, label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1450
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %while.body.i66
-  %.pre124 = ptrtoint ptr %__first.addr.1.i99 to i64
+  %.pre124 = ptrtoint ptr %__first.addr.1.i98 to i64
   br label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, %if.else
   %sub.ptr.lhs.cast.i.i101.pre-phi = phi i64 [ %.pre124, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i43, %if.else ]
-  %__first.addr.0.lcssa.i47 = phi ptr [ %__first.addr.1.i99, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else ]
+  %__first.addr.0.lcssa.i47 = phi ptr [ %__first.addr.1.i98, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else ]
   %sub.ptr.sub.i.i103 = sub i64 %sub.ptr.lhs.cast.i.i101.pre-phi, %sub.ptr.rhs.cast.i.i.i43
   %sub.ptr.div.i.i104 = ashr exact i64 %sub.ptr.sub.i.i103, 2
   br label %if.end17
@@ -72939,10 +72939,10 @@ while.body.lr.ph.i:                               ; preds = %if.then9
   br label %while.body.i114
 
 while.body.i114:                                  ; preds = %while.body.i114, %while.body.lr.ph.i
-  %__first.addr.013.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i114 ]
-  %__len.012.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i114 ]
-  %shr.i = lshr i64 %__len.012.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.412", ptr %__first.addr.013.i, i64 %shr.i
+  %__len.013.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i114 ]
+  %__first.addr.012.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i114 ]
+  %shr.i = lshr i64 %__len.013.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.412", ptr %__first.addr.012.i, i64 %shr.i
   %41 = load i32, ptr %add.ptr.i.i.i, align 4
   %conv.i.i.i115 = zext i32 %41 to i64
   %idx.neg.i.i.i.i116 = sub nsw i64 0, %conv.i.i.i115
@@ -72974,9 +72974,9 @@ while.body.i114:                                  ; preds = %while.body.i114, %w
   %cond.i.i.i.i.i.i135 = select i1 %cmp2.i.i.i.i.i.i132, i1 %cmp3.i.i.i.i.i.i133, i1 %cmp4.i.i.i.i.i.i134
   %incdec.ptr.i136 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %47 = xor i64 %shr.i, -1
-  %sub2.i = add nsw i64 %__len.012.i, %47
+  %sub2.i = add nsw i64 %__len.013.i, %47
+  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i135, ptr %incdec.ptr.i136, ptr %__first.addr.012.i
   %__len.1.i = select i1 %cond.i.i.i.i.i.i135, i64 %sub2.i, i64 %shr.i
-  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i135, ptr %incdec.ptr.i136, ptr %__first.addr.013.i
   %cmp.i137 = icmp sgt i64 %__len.1.i, 0
   br i1 %cmp.i137, label %while.body.i114, label %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1449
 
@@ -73033,10 +73033,10 @@ while.body.lr.ph.i158:                            ; preds = %if.else14
   br label %while.body.i176
 
 while.body.i176:                                  ; preds = %while.body.i176, %while.body.lr.ph.i158
-  %__first.addr.013.i177 = phi ptr [ %__first, %while.body.lr.ph.i158 ], [ %__first.addr.1.i209, %while.body.i176 ]
-  %__len.012.i178 = phi i64 [ %sub.ptr.div.i.i.i154, %while.body.lr.ph.i158 ], [ %__len.1.i208, %while.body.i176 ]
-  %shr.i179 = lshr i64 %__len.012.i178, 1
-  %add.ptr.i.i.i182 = getelementptr inbounds %"struct.flatbuffers::Offset.412", ptr %__first.addr.013.i177, i64 %shr.i179
+  %__len.013.i177 = phi i64 [ %sub.ptr.div.i.i.i154, %while.body.lr.ph.i158 ], [ %__len.1.i209, %while.body.i176 ]
+  %__first.addr.012.i178 = phi ptr [ %__first, %while.body.lr.ph.i158 ], [ %__first.addr.1.i208, %while.body.i176 ]
+  %shr.i179 = lshr i64 %__len.013.i177, 1
+  %add.ptr.i.i.i182 = getelementptr inbounds %"struct.flatbuffers::Offset.412", ptr %__first.addr.012.i178, i64 %shr.i179
   %57 = load i32, ptr %add.ptr.i.i.i182, align 4
   %conv4.i.i.i185 = zext i32 %57 to i64
   %idx.neg.i4.i.i.i186 = sub nsw i64 0, %conv4.i.i.i185
@@ -73068,26 +73068,26 @@ while.body.i176:                                  ; preds = %while.body.i176, %w
   %cond.i.i.i.i.i.i205 = select i1 %cmp2.i.i.i.i.i.i202, i1 %cmp3.i.i.i.i.i.i203, i1 %cmp4.i.i.i.i.i.i204
   %incdec.ptr.i206 = getelementptr inbounds i8, ptr %add.ptr.i.i.i182, i64 4
   %63 = xor i64 %shr.i179, -1
-  %sub2.i207 = add nsw i64 %__len.012.i178, %63
-  %__len.1.i208 = select i1 %cond.i.i.i.i.i.i205, i64 %shr.i179, i64 %sub2.i207
-  %__first.addr.1.i209 = select i1 %cond.i.i.i.i.i.i205, ptr %__first.addr.013.i177, ptr %incdec.ptr.i206
-  %cmp.i210 = icmp sgt i64 %__len.1.i208, 0
+  %sub2.i207 = add nsw i64 %__len.013.i177, %63
+  %__first.addr.1.i208 = select i1 %cond.i.i.i.i.i.i205, ptr %__first.addr.012.i178, ptr %incdec.ptr.i206
+  %__len.1.i209 = select i1 %cond.i.i.i.i.i.i205, i64 %shr.i179, i64 %sub2.i207
+  %cmp.i210 = icmp sgt i64 %__len.1.i209, 0
   br i1 %cmp.i210, label %while.body.i176, label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1450
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %while.body.i176
-  %.pre227 = ptrtoint ptr %__first.addr.1.i209 to i64
+  %.pre227 = ptrtoint ptr %__first.addr.1.i208 to i64
   br label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, %if.else14
   %sub.ptr.lhs.cast.i.i211.pre-phi = phi i64 [ %.pre227, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i152, %if.else14 ]
-  %__first.addr.0.lcssa.i157 = phi ptr [ %__first.addr.1.i209, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else14 ]
+  %__first.addr.0.lcssa.i157 = phi ptr [ %__first.addr.1.i208, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else14 ]
   %sub.ptr.sub.i.i213 = sub i64 %sub.ptr.lhs.cast.i.i211.pre-phi, %sub.ptr.rhs.cast.i.i.i152
   %sub.ptr.div.i.i214 = ashr exact i64 %sub.ptr.sub.i.i213, 2
   br label %if.end
 
 if.end:                                           ; preds = %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit
-  %__second_cut.0 = phi ptr [ %__first.addr.0.lcssa.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %add.ptr.i.i144, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %__first_cut.0 = phi ptr [ %add.ptr.i.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %__first.addr.0.lcssa.i157, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
+  %__second_cut.0 = phi ptr [ %__first.addr.0.lcssa.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %add.ptr.i.i144, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %__len22.0 = phi i64 [ %sub.ptr.div.i.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %div15, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %__len11.0 = phi i64 [ %div, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %sub.ptr.div.i.i214, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection8KeyValueEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %sub = sub nsw i64 %__len1, %__len11.0
@@ -79957,10 +79957,10 @@ while.body.lr.ph.i:                               ; preds = %if.then8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %__first.addr.013.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i ]
-  %__len.012.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i ]
-  %shr.i = lshr i64 %__len.012.i, 1
-  %add.ptr.i.i.i26 = getelementptr inbounds %"struct.flatbuffers::Offset.269", ptr %__first.addr.013.i, i64 %shr.i
+  %__len.013.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i ]
+  %__first.addr.012.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i ]
+  %shr.i = lshr i64 %__len.013.i, 1
+  %add.ptr.i.i.i26 = getelementptr inbounds %"struct.flatbuffers::Offset.269", ptr %__first.addr.012.i, i64 %shr.i
   %24 = load i32, ptr %add.ptr.i.i.i26, align 4
   %conv.i.i.i = zext i32 %24 to i64
   %idx.neg.i.i.i.i = sub nsw i64 0, %conv.i.i.i
@@ -79992,9 +79992,9 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %cond.i.i.i.i.i.i = select i1 %cmp2.i.i.i.i.i.i, i1 %cmp3.i.i.i.i.i.i, i1 %cmp4.i.i.i.i.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i26, i64 4
   %30 = xor i64 %shr.i, -1
-  %sub2.i = add nsw i64 %__len.012.i, %30
+  %sub2.i = add nsw i64 %__len.013.i, %30
+  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i, ptr %incdec.ptr.i, ptr %__first.addr.012.i
   %__len.1.i = select i1 %cond.i.i.i.i.i.i, i64 %sub2.i, i64 %shr.i
-  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i, ptr %incdec.ptr.i, ptr %__first.addr.013.i
   %cmp.i = icmp sgt i64 %__len.1.i, 0
   br i1 %cmp.i, label %while.body.i, label %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1482
 
@@ -80051,10 +80051,10 @@ while.body.lr.ph.i48:                             ; preds = %if.else
   br label %while.body.i66
 
 while.body.i66:                                   ; preds = %while.body.i66, %while.body.lr.ph.i48
-  %__first.addr.013.i67 = phi ptr [ %__first, %while.body.lr.ph.i48 ], [ %__first.addr.1.i99, %while.body.i66 ]
-  %__len.012.i68 = phi i64 [ %sub.ptr.div.i.i.i45, %while.body.lr.ph.i48 ], [ %__len.1.i98, %while.body.i66 ]
-  %shr.i69 = lshr i64 %__len.012.i68, 1
-  %add.ptr.i.i.i72 = getelementptr inbounds %"struct.flatbuffers::Offset.269", ptr %__first.addr.013.i67, i64 %shr.i69
+  %__len.013.i67 = phi i64 [ %sub.ptr.div.i.i.i45, %while.body.lr.ph.i48 ], [ %__len.1.i99, %while.body.i66 ]
+  %__first.addr.012.i68 = phi ptr [ %__first, %while.body.lr.ph.i48 ], [ %__first.addr.1.i98, %while.body.i66 ]
+  %shr.i69 = lshr i64 %__len.013.i67, 1
+  %add.ptr.i.i.i72 = getelementptr inbounds %"struct.flatbuffers::Offset.269", ptr %__first.addr.012.i68, i64 %shr.i69
   %40 = load i32, ptr %add.ptr.i.i.i72, align 4
   %conv4.i.i.i75 = zext i32 %40 to i64
   %idx.neg.i4.i.i.i76 = sub nsw i64 0, %conv4.i.i.i75
@@ -80086,19 +80086,19 @@ while.body.i66:                                   ; preds = %while.body.i66, %wh
   %cond.i.i.i.i.i.i95 = select i1 %cmp2.i.i.i.i.i.i92, i1 %cmp3.i.i.i.i.i.i93, i1 %cmp4.i.i.i.i.i.i94
   %incdec.ptr.i96 = getelementptr inbounds i8, ptr %add.ptr.i.i.i72, i64 4
   %46 = xor i64 %shr.i69, -1
-  %sub2.i97 = add nsw i64 %__len.012.i68, %46
-  %__len.1.i98 = select i1 %cond.i.i.i.i.i.i95, i64 %shr.i69, i64 %sub2.i97
-  %__first.addr.1.i99 = select i1 %cond.i.i.i.i.i.i95, ptr %__first.addr.013.i67, ptr %incdec.ptr.i96
-  %cmp.i100 = icmp sgt i64 %__len.1.i98, 0
+  %sub2.i97 = add nsw i64 %__len.013.i67, %46
+  %__first.addr.1.i98 = select i1 %cond.i.i.i.i.i.i95, ptr %__first.addr.012.i68, ptr %incdec.ptr.i96
+  %__len.1.i99 = select i1 %cond.i.i.i.i.i.i95, i64 %shr.i69, i64 %sub2.i97
+  %cmp.i100 = icmp sgt i64 %__len.1.i99, 0
   br i1 %cmp.i100, label %while.body.i66, label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1483
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %while.body.i66
-  %.pre124 = ptrtoint ptr %__first.addr.1.i99 to i64
+  %.pre124 = ptrtoint ptr %__first.addr.1.i98 to i64
   br label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, %if.else
   %sub.ptr.lhs.cast.i.i101.pre-phi = phi i64 [ %.pre124, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i43, %if.else ]
-  %__first.addr.0.lcssa.i47 = phi ptr [ %__first.addr.1.i99, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else ]
+  %__first.addr.0.lcssa.i47 = phi ptr [ %__first.addr.1.i98, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else ]
   %sub.ptr.sub.i.i103 = sub i64 %sub.ptr.lhs.cast.i.i101.pre-phi, %sub.ptr.rhs.cast.i.i.i43
   %sub.ptr.div.i.i104 = ashr exact i64 %sub.ptr.sub.i.i103, 2
   br label %if.end17
@@ -80581,10 +80581,10 @@ while.body.lr.ph.i:                               ; preds = %if.then9
   br label %while.body.i114
 
 while.body.i114:                                  ; preds = %while.body.i114, %while.body.lr.ph.i
-  %__first.addr.013.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i114 ]
-  %__len.012.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i114 ]
-  %shr.i = lshr i64 %__len.012.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.269", ptr %__first.addr.013.i, i64 %shr.i
+  %__len.013.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i114 ]
+  %__first.addr.012.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i114 ]
+  %shr.i = lshr i64 %__len.013.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.269", ptr %__first.addr.012.i, i64 %shr.i
   %41 = load i32, ptr %add.ptr.i.i.i, align 4
   %conv.i.i.i115 = zext i32 %41 to i64
   %idx.neg.i.i.i.i116 = sub nsw i64 0, %conv.i.i.i115
@@ -80616,9 +80616,9 @@ while.body.i114:                                  ; preds = %while.body.i114, %w
   %cond.i.i.i.i.i.i135 = select i1 %cmp2.i.i.i.i.i.i132, i1 %cmp3.i.i.i.i.i.i133, i1 %cmp4.i.i.i.i.i.i134
   %incdec.ptr.i136 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %47 = xor i64 %shr.i, -1
-  %sub2.i = add nsw i64 %__len.012.i, %47
+  %sub2.i = add nsw i64 %__len.013.i, %47
+  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i135, ptr %incdec.ptr.i136, ptr %__first.addr.012.i
   %__len.1.i = select i1 %cond.i.i.i.i.i.i135, i64 %sub2.i, i64 %shr.i
-  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i135, ptr %incdec.ptr.i136, ptr %__first.addr.013.i
   %cmp.i137 = icmp sgt i64 %__len.1.i, 0
   br i1 %cmp.i137, label %while.body.i114, label %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1482
 
@@ -80675,10 +80675,10 @@ while.body.lr.ph.i158:                            ; preds = %if.else14
   br label %while.body.i176
 
 while.body.i176:                                  ; preds = %while.body.i176, %while.body.lr.ph.i158
-  %__first.addr.013.i177 = phi ptr [ %__first, %while.body.lr.ph.i158 ], [ %__first.addr.1.i209, %while.body.i176 ]
-  %__len.012.i178 = phi i64 [ %sub.ptr.div.i.i.i154, %while.body.lr.ph.i158 ], [ %__len.1.i208, %while.body.i176 ]
-  %shr.i179 = lshr i64 %__len.012.i178, 1
-  %add.ptr.i.i.i182 = getelementptr inbounds %"struct.flatbuffers::Offset.269", ptr %__first.addr.013.i177, i64 %shr.i179
+  %__len.013.i177 = phi i64 [ %sub.ptr.div.i.i.i154, %while.body.lr.ph.i158 ], [ %__len.1.i209, %while.body.i176 ]
+  %__first.addr.012.i178 = phi ptr [ %__first, %while.body.lr.ph.i158 ], [ %__first.addr.1.i208, %while.body.i176 ]
+  %shr.i179 = lshr i64 %__len.013.i177, 1
+  %add.ptr.i.i.i182 = getelementptr inbounds %"struct.flatbuffers::Offset.269", ptr %__first.addr.012.i178, i64 %shr.i179
   %57 = load i32, ptr %add.ptr.i.i.i182, align 4
   %conv4.i.i.i185 = zext i32 %57 to i64
   %idx.neg.i4.i.i.i186 = sub nsw i64 0, %conv4.i.i.i185
@@ -80710,26 +80710,26 @@ while.body.i176:                                  ; preds = %while.body.i176, %w
   %cond.i.i.i.i.i.i205 = select i1 %cmp2.i.i.i.i.i.i202, i1 %cmp3.i.i.i.i.i.i203, i1 %cmp4.i.i.i.i.i.i204
   %incdec.ptr.i206 = getelementptr inbounds i8, ptr %add.ptr.i.i.i182, i64 4
   %63 = xor i64 %shr.i179, -1
-  %sub2.i207 = add nsw i64 %__len.012.i178, %63
-  %__len.1.i208 = select i1 %cond.i.i.i.i.i.i205, i64 %shr.i179, i64 %sub2.i207
-  %__first.addr.1.i209 = select i1 %cond.i.i.i.i.i.i205, ptr %__first.addr.013.i177, ptr %incdec.ptr.i206
-  %cmp.i210 = icmp sgt i64 %__len.1.i208, 0
+  %sub2.i207 = add nsw i64 %__len.013.i177, %63
+  %__first.addr.1.i208 = select i1 %cond.i.i.i.i.i.i205, ptr %__first.addr.012.i178, ptr %incdec.ptr.i206
+  %__len.1.i209 = select i1 %cond.i.i.i.i.i.i205, i64 %shr.i179, i64 %sub2.i207
+  %cmp.i210 = icmp sgt i64 %__len.1.i209, 0
   br i1 %cmp.i210, label %while.body.i176, label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1483
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %while.body.i176
-  %.pre227 = ptrtoint ptr %__first.addr.1.i209 to i64
+  %.pre227 = ptrtoint ptr %__first.addr.1.i208 to i64
   br label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, %if.else14
   %sub.ptr.lhs.cast.i.i211.pre-phi = phi i64 [ %.pre227, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i152, %if.else14 ]
-  %__first.addr.0.lcssa.i157 = phi ptr [ %__first.addr.1.i209, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else14 ]
+  %__first.addr.0.lcssa.i157 = phi ptr [ %__first.addr.1.i208, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else14 ]
   %sub.ptr.sub.i.i213 = sub i64 %sub.ptr.lhs.cast.i.i211.pre-phi, %sub.ptr.rhs.cast.i.i.i152
   %sub.ptr.div.i.i214 = ashr exact i64 %sub.ptr.sub.i.i213, 2
   br label %if.end
 
 if.end:                                           ; preds = %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit
-  %__second_cut.0 = phi ptr [ %__first.addr.0.lcssa.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %add.ptr.i.i144, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %__first_cut.0 = phi ptr [ %add.ptr.i.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %__first.addr.0.lcssa.i157, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
+  %__second_cut.0 = phi ptr [ %__first.addr.0.lcssa.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %add.ptr.i.i144, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %__len22.0 = phi i64 [ %sub.ptr.div.i.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %div15, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %__len11.0 = phi i64 [ %div, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %sub.ptr.div.i.i214, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection5FieldEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %sub = sub nsw i64 %__len1, %__len11.0
@@ -81894,10 +81894,10 @@ while.body.lr.ph.i:                               ; preds = %if.then8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %__first.addr.013.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i ]
-  %__len.012.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i ]
-  %shr.i = lshr i64 %__len.012.i, 1
-  %add.ptr.i.i.i26 = getelementptr inbounds %"struct.flatbuffers::Offset.233", ptr %__first.addr.013.i, i64 %shr.i
+  %__len.013.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i ]
+  %__first.addr.012.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i ]
+  %shr.i = lshr i64 %__len.013.i, 1
+  %add.ptr.i.i.i26 = getelementptr inbounds %"struct.flatbuffers::Offset.233", ptr %__first.addr.012.i, i64 %shr.i
   %24 = load i32, ptr %add.ptr.i.i.i26, align 4
   %conv.i.i.i = zext i32 %24 to i64
   %idx.neg.i.i.i.i = sub nsw i64 0, %conv.i.i.i
@@ -81929,9 +81929,9 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %cond.i.i.i.i.i.i = select i1 %cmp2.i.i.i.i.i.i, i1 %cmp3.i.i.i.i.i.i, i1 %cmp4.i.i.i.i.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i26, i64 4
   %30 = xor i64 %shr.i, -1
-  %sub2.i = add nsw i64 %__len.012.i, %30
+  %sub2.i = add nsw i64 %__len.013.i, %30
+  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i, ptr %incdec.ptr.i, ptr %__first.addr.012.i
   %__len.1.i = select i1 %cond.i.i.i.i.i.i, i64 %sub2.i, i64 %shr.i
-  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i, ptr %incdec.ptr.i, ptr %__first.addr.013.i
   %cmp.i = icmp sgt i64 %__len.1.i, 0
   br i1 %cmp.i, label %while.body.i, label %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1499
 
@@ -81988,10 +81988,10 @@ while.body.lr.ph.i48:                             ; preds = %if.else
   br label %while.body.i66
 
 while.body.i66:                                   ; preds = %while.body.i66, %while.body.lr.ph.i48
-  %__first.addr.013.i67 = phi ptr [ %__first, %while.body.lr.ph.i48 ], [ %__first.addr.1.i99, %while.body.i66 ]
-  %__len.012.i68 = phi i64 [ %sub.ptr.div.i.i.i45, %while.body.lr.ph.i48 ], [ %__len.1.i98, %while.body.i66 ]
-  %shr.i69 = lshr i64 %__len.012.i68, 1
-  %add.ptr.i.i.i72 = getelementptr inbounds %"struct.flatbuffers::Offset.233", ptr %__first.addr.013.i67, i64 %shr.i69
+  %__len.013.i67 = phi i64 [ %sub.ptr.div.i.i.i45, %while.body.lr.ph.i48 ], [ %__len.1.i99, %while.body.i66 ]
+  %__first.addr.012.i68 = phi ptr [ %__first, %while.body.lr.ph.i48 ], [ %__first.addr.1.i98, %while.body.i66 ]
+  %shr.i69 = lshr i64 %__len.013.i67, 1
+  %add.ptr.i.i.i72 = getelementptr inbounds %"struct.flatbuffers::Offset.233", ptr %__first.addr.012.i68, i64 %shr.i69
   %40 = load i32, ptr %add.ptr.i.i.i72, align 4
   %conv4.i.i.i75 = zext i32 %40 to i64
   %idx.neg.i4.i.i.i76 = sub nsw i64 0, %conv4.i.i.i75
@@ -82023,19 +82023,19 @@ while.body.i66:                                   ; preds = %while.body.i66, %wh
   %cond.i.i.i.i.i.i95 = select i1 %cmp2.i.i.i.i.i.i92, i1 %cmp3.i.i.i.i.i.i93, i1 %cmp4.i.i.i.i.i.i94
   %incdec.ptr.i96 = getelementptr inbounds i8, ptr %add.ptr.i.i.i72, i64 4
   %46 = xor i64 %shr.i69, -1
-  %sub2.i97 = add nsw i64 %__len.012.i68, %46
-  %__len.1.i98 = select i1 %cond.i.i.i.i.i.i95, i64 %shr.i69, i64 %sub2.i97
-  %__first.addr.1.i99 = select i1 %cond.i.i.i.i.i.i95, ptr %__first.addr.013.i67, ptr %incdec.ptr.i96
-  %cmp.i100 = icmp sgt i64 %__len.1.i98, 0
+  %sub2.i97 = add nsw i64 %__len.013.i67, %46
+  %__first.addr.1.i98 = select i1 %cond.i.i.i.i.i.i95, ptr %__first.addr.012.i68, ptr %incdec.ptr.i96
+  %__len.1.i99 = select i1 %cond.i.i.i.i.i.i95, i64 %shr.i69, i64 %sub2.i97
+  %cmp.i100 = icmp sgt i64 %__len.1.i99, 0
   br i1 %cmp.i100, label %while.body.i66, label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1500
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %while.body.i66
-  %.pre124 = ptrtoint ptr %__first.addr.1.i99 to i64
+  %.pre124 = ptrtoint ptr %__first.addr.1.i98 to i64
   br label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, %if.else
   %sub.ptr.lhs.cast.i.i101.pre-phi = phi i64 [ %.pre124, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i43, %if.else ]
-  %__first.addr.0.lcssa.i47 = phi ptr [ %__first.addr.1.i99, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else ]
+  %__first.addr.0.lcssa.i47 = phi ptr [ %__first.addr.1.i98, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else ]
   %sub.ptr.sub.i.i103 = sub i64 %sub.ptr.lhs.cast.i.i101.pre-phi, %sub.ptr.rhs.cast.i.i.i43
   %sub.ptr.div.i.i104 = ashr exact i64 %sub.ptr.sub.i.i103, 2
   br label %if.end17
@@ -82518,10 +82518,10 @@ while.body.lr.ph.i:                               ; preds = %if.then9
   br label %while.body.i114
 
 while.body.i114:                                  ; preds = %while.body.i114, %while.body.lr.ph.i
-  %__first.addr.013.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i114 ]
-  %__len.012.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i114 ]
-  %shr.i = lshr i64 %__len.012.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.233", ptr %__first.addr.013.i, i64 %shr.i
+  %__len.013.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i114 ]
+  %__first.addr.012.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i114 ]
+  %shr.i = lshr i64 %__len.013.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.233", ptr %__first.addr.012.i, i64 %shr.i
   %41 = load i32, ptr %add.ptr.i.i.i, align 4
   %conv.i.i.i115 = zext i32 %41 to i64
   %idx.neg.i.i.i.i116 = sub nsw i64 0, %conv.i.i.i115
@@ -82553,9 +82553,9 @@ while.body.i114:                                  ; preds = %while.body.i114, %w
   %cond.i.i.i.i.i.i135 = select i1 %cmp2.i.i.i.i.i.i132, i1 %cmp3.i.i.i.i.i.i133, i1 %cmp4.i.i.i.i.i.i134
   %incdec.ptr.i136 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %47 = xor i64 %shr.i, -1
-  %sub2.i = add nsw i64 %__len.012.i, %47
+  %sub2.i = add nsw i64 %__len.013.i, %47
+  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i135, ptr %incdec.ptr.i136, ptr %__first.addr.012.i
   %__len.1.i = select i1 %cond.i.i.i.i.i.i135, i64 %sub2.i, i64 %shr.i
-  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i135, ptr %incdec.ptr.i136, ptr %__first.addr.013.i
   %cmp.i137 = icmp sgt i64 %__len.1.i, 0
   br i1 %cmp.i137, label %while.body.i114, label %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1499
 
@@ -82612,10 +82612,10 @@ while.body.lr.ph.i158:                            ; preds = %if.else14
   br label %while.body.i176
 
 while.body.i176:                                  ; preds = %while.body.i176, %while.body.lr.ph.i158
-  %__first.addr.013.i177 = phi ptr [ %__first, %while.body.lr.ph.i158 ], [ %__first.addr.1.i209, %while.body.i176 ]
-  %__len.012.i178 = phi i64 [ %sub.ptr.div.i.i.i154, %while.body.lr.ph.i158 ], [ %__len.1.i208, %while.body.i176 ]
-  %shr.i179 = lshr i64 %__len.012.i178, 1
-  %add.ptr.i.i.i182 = getelementptr inbounds %"struct.flatbuffers::Offset.233", ptr %__first.addr.013.i177, i64 %shr.i179
+  %__len.013.i177 = phi i64 [ %sub.ptr.div.i.i.i154, %while.body.lr.ph.i158 ], [ %__len.1.i209, %while.body.i176 ]
+  %__first.addr.012.i178 = phi ptr [ %__first, %while.body.lr.ph.i158 ], [ %__first.addr.1.i208, %while.body.i176 ]
+  %shr.i179 = lshr i64 %__len.013.i177, 1
+  %add.ptr.i.i.i182 = getelementptr inbounds %"struct.flatbuffers::Offset.233", ptr %__first.addr.012.i178, i64 %shr.i179
   %57 = load i32, ptr %add.ptr.i.i.i182, align 4
   %conv4.i.i.i185 = zext i32 %57 to i64
   %idx.neg.i4.i.i.i186 = sub nsw i64 0, %conv4.i.i.i185
@@ -82647,26 +82647,26 @@ while.body.i176:                                  ; preds = %while.body.i176, %w
   %cond.i.i.i.i.i.i205 = select i1 %cmp2.i.i.i.i.i.i202, i1 %cmp3.i.i.i.i.i.i203, i1 %cmp4.i.i.i.i.i.i204
   %incdec.ptr.i206 = getelementptr inbounds i8, ptr %add.ptr.i.i.i182, i64 4
   %63 = xor i64 %shr.i179, -1
-  %sub2.i207 = add nsw i64 %__len.012.i178, %63
-  %__len.1.i208 = select i1 %cond.i.i.i.i.i.i205, i64 %shr.i179, i64 %sub2.i207
-  %__first.addr.1.i209 = select i1 %cond.i.i.i.i.i.i205, ptr %__first.addr.013.i177, ptr %incdec.ptr.i206
-  %cmp.i210 = icmp sgt i64 %__len.1.i208, 0
+  %sub2.i207 = add nsw i64 %__len.013.i177, %63
+  %__first.addr.1.i208 = select i1 %cond.i.i.i.i.i.i205, ptr %__first.addr.012.i178, ptr %incdec.ptr.i206
+  %__len.1.i209 = select i1 %cond.i.i.i.i.i.i205, i64 %shr.i179, i64 %sub2.i207
+  %cmp.i210 = icmp sgt i64 %__len.1.i209, 0
   br i1 %cmp.i210, label %while.body.i176, label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1500
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %while.body.i176
-  %.pre227 = ptrtoint ptr %__first.addr.1.i209 to i64
+  %.pre227 = ptrtoint ptr %__first.addr.1.i208 to i64
   br label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, %if.else14
   %sub.ptr.lhs.cast.i.i211.pre-phi = phi i64 [ %.pre227, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i152, %if.else14 ]
-  %__first.addr.0.lcssa.i157 = phi ptr [ %__first.addr.1.i209, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else14 ]
+  %__first.addr.0.lcssa.i157 = phi ptr [ %__first.addr.1.i208, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else14 ]
   %sub.ptr.sub.i.i213 = sub i64 %sub.ptr.lhs.cast.i.i211.pre-phi, %sub.ptr.rhs.cast.i.i.i152
   %sub.ptr.div.i.i214 = ashr exact i64 %sub.ptr.sub.i.i213, 2
   br label %if.end
 
 if.end:                                           ; preds = %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit
-  %__second_cut.0 = phi ptr [ %__first.addr.0.lcssa.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %add.ptr.i.i144, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %__first_cut.0 = phi ptr [ %add.ptr.i.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %__first.addr.0.lcssa.i157, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
+  %__second_cut.0 = phi ptr [ %__first.addr.0.lcssa.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %add.ptr.i.i144, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %__len22.0 = phi i64 [ %sub.ptr.div.i.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %div15, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %__len11.0 = phi i64 [ %div, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %sub.ptr.div.i.i214, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection6ObjectEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %sub = sub nsw i64 %__len1, %__len11.0
@@ -83831,10 +83831,10 @@ while.body.lr.ph.i:                               ; preds = %if.then8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %__first.addr.013.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i ]
-  %__len.012.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i ]
-  %shr.i = lshr i64 %__len.012.i, 1
-  %add.ptr.i.i.i26 = getelementptr inbounds %"struct.flatbuffers::Offset.239", ptr %__first.addr.013.i, i64 %shr.i
+  %__len.013.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i ]
+  %__first.addr.012.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i ]
+  %shr.i = lshr i64 %__len.013.i, 1
+  %add.ptr.i.i.i26 = getelementptr inbounds %"struct.flatbuffers::Offset.239", ptr %__first.addr.012.i, i64 %shr.i
   %24 = load i32, ptr %add.ptr.i.i.i26, align 4
   %conv.i.i.i = zext i32 %24 to i64
   %idx.neg.i.i.i.i = sub nsw i64 0, %conv.i.i.i
@@ -83866,9 +83866,9 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %cond.i.i.i.i.i.i = select i1 %cmp2.i.i.i.i.i.i, i1 %cmp3.i.i.i.i.i.i, i1 %cmp4.i.i.i.i.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i26, i64 4
   %30 = xor i64 %shr.i, -1
-  %sub2.i = add nsw i64 %__len.012.i, %30
+  %sub2.i = add nsw i64 %__len.013.i, %30
+  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i, ptr %incdec.ptr.i, ptr %__first.addr.012.i
   %__len.1.i = select i1 %cond.i.i.i.i.i.i, i64 %sub2.i, i64 %shr.i
-  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i, ptr %incdec.ptr.i, ptr %__first.addr.013.i
   %cmp.i = icmp sgt i64 %__len.1.i, 0
   br i1 %cmp.i, label %while.body.i, label %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1516
 
@@ -83925,10 +83925,10 @@ while.body.lr.ph.i48:                             ; preds = %if.else
   br label %while.body.i66
 
 while.body.i66:                                   ; preds = %while.body.i66, %while.body.lr.ph.i48
-  %__first.addr.013.i67 = phi ptr [ %__first, %while.body.lr.ph.i48 ], [ %__first.addr.1.i99, %while.body.i66 ]
-  %__len.012.i68 = phi i64 [ %sub.ptr.div.i.i.i45, %while.body.lr.ph.i48 ], [ %__len.1.i98, %while.body.i66 ]
-  %shr.i69 = lshr i64 %__len.012.i68, 1
-  %add.ptr.i.i.i72 = getelementptr inbounds %"struct.flatbuffers::Offset.239", ptr %__first.addr.013.i67, i64 %shr.i69
+  %__len.013.i67 = phi i64 [ %sub.ptr.div.i.i.i45, %while.body.lr.ph.i48 ], [ %__len.1.i99, %while.body.i66 ]
+  %__first.addr.012.i68 = phi ptr [ %__first, %while.body.lr.ph.i48 ], [ %__first.addr.1.i98, %while.body.i66 ]
+  %shr.i69 = lshr i64 %__len.013.i67, 1
+  %add.ptr.i.i.i72 = getelementptr inbounds %"struct.flatbuffers::Offset.239", ptr %__first.addr.012.i68, i64 %shr.i69
   %40 = load i32, ptr %add.ptr.i.i.i72, align 4
   %conv4.i.i.i75 = zext i32 %40 to i64
   %idx.neg.i4.i.i.i76 = sub nsw i64 0, %conv4.i.i.i75
@@ -83960,19 +83960,19 @@ while.body.i66:                                   ; preds = %while.body.i66, %wh
   %cond.i.i.i.i.i.i95 = select i1 %cmp2.i.i.i.i.i.i92, i1 %cmp3.i.i.i.i.i.i93, i1 %cmp4.i.i.i.i.i.i94
   %incdec.ptr.i96 = getelementptr inbounds i8, ptr %add.ptr.i.i.i72, i64 4
   %46 = xor i64 %shr.i69, -1
-  %sub2.i97 = add nsw i64 %__len.012.i68, %46
-  %__len.1.i98 = select i1 %cond.i.i.i.i.i.i95, i64 %shr.i69, i64 %sub2.i97
-  %__first.addr.1.i99 = select i1 %cond.i.i.i.i.i.i95, ptr %__first.addr.013.i67, ptr %incdec.ptr.i96
-  %cmp.i100 = icmp sgt i64 %__len.1.i98, 0
+  %sub2.i97 = add nsw i64 %__len.013.i67, %46
+  %__first.addr.1.i98 = select i1 %cond.i.i.i.i.i.i95, ptr %__first.addr.012.i68, ptr %incdec.ptr.i96
+  %__len.1.i99 = select i1 %cond.i.i.i.i.i.i95, i64 %shr.i69, i64 %sub2.i97
+  %cmp.i100 = icmp sgt i64 %__len.1.i99, 0
   br i1 %cmp.i100, label %while.body.i66, label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1517
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %while.body.i66
-  %.pre124 = ptrtoint ptr %__first.addr.1.i99 to i64
+  %.pre124 = ptrtoint ptr %__first.addr.1.i98 to i64
   br label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, %if.else
   %sub.ptr.lhs.cast.i.i101.pre-phi = phi i64 [ %.pre124, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i43, %if.else ]
-  %__first.addr.0.lcssa.i47 = phi ptr [ %__first.addr.1.i99, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else ]
+  %__first.addr.0.lcssa.i47 = phi ptr [ %__first.addr.1.i98, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else ]
   %sub.ptr.sub.i.i103 = sub i64 %sub.ptr.lhs.cast.i.i101.pre-phi, %sub.ptr.rhs.cast.i.i.i43
   %sub.ptr.div.i.i104 = ashr exact i64 %sub.ptr.sub.i.i103, 2
   br label %if.end17
@@ -84455,10 +84455,10 @@ while.body.lr.ph.i:                               ; preds = %if.then9
   br label %while.body.i114
 
 while.body.i114:                                  ; preds = %while.body.i114, %while.body.lr.ph.i
-  %__first.addr.013.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i114 ]
-  %__len.012.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i114 ]
-  %shr.i = lshr i64 %__len.012.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.239", ptr %__first.addr.013.i, i64 %shr.i
+  %__len.013.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i114 ]
+  %__first.addr.012.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i114 ]
+  %shr.i = lshr i64 %__len.013.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.239", ptr %__first.addr.012.i, i64 %shr.i
   %41 = load i32, ptr %add.ptr.i.i.i, align 4
   %conv.i.i.i115 = zext i32 %41 to i64
   %idx.neg.i.i.i.i116 = sub nsw i64 0, %conv.i.i.i115
@@ -84490,9 +84490,9 @@ while.body.i114:                                  ; preds = %while.body.i114, %w
   %cond.i.i.i.i.i.i135 = select i1 %cmp2.i.i.i.i.i.i132, i1 %cmp3.i.i.i.i.i.i133, i1 %cmp4.i.i.i.i.i.i134
   %incdec.ptr.i136 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %47 = xor i64 %shr.i, -1
-  %sub2.i = add nsw i64 %__len.012.i, %47
+  %sub2.i = add nsw i64 %__len.013.i, %47
+  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i135, ptr %incdec.ptr.i136, ptr %__first.addr.012.i
   %__len.1.i = select i1 %cond.i.i.i.i.i.i135, i64 %sub2.i, i64 %shr.i
-  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i135, ptr %incdec.ptr.i136, ptr %__first.addr.013.i
   %cmp.i137 = icmp sgt i64 %__len.1.i, 0
   br i1 %cmp.i137, label %while.body.i114, label %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1516
 
@@ -84549,10 +84549,10 @@ while.body.lr.ph.i158:                            ; preds = %if.else14
   br label %while.body.i176
 
 while.body.i176:                                  ; preds = %while.body.i176, %while.body.lr.ph.i158
-  %__first.addr.013.i177 = phi ptr [ %__first, %while.body.lr.ph.i158 ], [ %__first.addr.1.i209, %while.body.i176 ]
-  %__len.012.i178 = phi i64 [ %sub.ptr.div.i.i.i154, %while.body.lr.ph.i158 ], [ %__len.1.i208, %while.body.i176 ]
-  %shr.i179 = lshr i64 %__len.012.i178, 1
-  %add.ptr.i.i.i182 = getelementptr inbounds %"struct.flatbuffers::Offset.239", ptr %__first.addr.013.i177, i64 %shr.i179
+  %__len.013.i177 = phi i64 [ %sub.ptr.div.i.i.i154, %while.body.lr.ph.i158 ], [ %__len.1.i209, %while.body.i176 ]
+  %__first.addr.012.i178 = phi ptr [ %__first, %while.body.lr.ph.i158 ], [ %__first.addr.1.i208, %while.body.i176 ]
+  %shr.i179 = lshr i64 %__len.013.i177, 1
+  %add.ptr.i.i.i182 = getelementptr inbounds %"struct.flatbuffers::Offset.239", ptr %__first.addr.012.i178, i64 %shr.i179
   %57 = load i32, ptr %add.ptr.i.i.i182, align 4
   %conv4.i.i.i185 = zext i32 %57 to i64
   %idx.neg.i4.i.i.i186 = sub nsw i64 0, %conv4.i.i.i185
@@ -84584,26 +84584,26 @@ while.body.i176:                                  ; preds = %while.body.i176, %w
   %cond.i.i.i.i.i.i205 = select i1 %cmp2.i.i.i.i.i.i202, i1 %cmp3.i.i.i.i.i.i203, i1 %cmp4.i.i.i.i.i.i204
   %incdec.ptr.i206 = getelementptr inbounds i8, ptr %add.ptr.i.i.i182, i64 4
   %63 = xor i64 %shr.i179, -1
-  %sub2.i207 = add nsw i64 %__len.012.i178, %63
-  %__len.1.i208 = select i1 %cond.i.i.i.i.i.i205, i64 %shr.i179, i64 %sub2.i207
-  %__first.addr.1.i209 = select i1 %cond.i.i.i.i.i.i205, ptr %__first.addr.013.i177, ptr %incdec.ptr.i206
-  %cmp.i210 = icmp sgt i64 %__len.1.i208, 0
+  %sub2.i207 = add nsw i64 %__len.013.i177, %63
+  %__first.addr.1.i208 = select i1 %cond.i.i.i.i.i.i205, ptr %__first.addr.012.i178, ptr %incdec.ptr.i206
+  %__len.1.i209 = select i1 %cond.i.i.i.i.i.i205, i64 %shr.i179, i64 %sub2.i207
+  %cmp.i210 = icmp sgt i64 %__len.1.i209, 0
   br i1 %cmp.i210, label %while.body.i176, label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1517
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %while.body.i176
-  %.pre227 = ptrtoint ptr %__first.addr.1.i209 to i64
+  %.pre227 = ptrtoint ptr %__first.addr.1.i208 to i64
   br label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, %if.else14
   %sub.ptr.lhs.cast.i.i211.pre-phi = phi i64 [ %.pre227, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i152, %if.else14 ]
-  %__first.addr.0.lcssa.i157 = phi ptr [ %__first.addr.1.i209, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else14 ]
+  %__first.addr.0.lcssa.i157 = phi ptr [ %__first.addr.1.i208, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else14 ]
   %sub.ptr.sub.i.i213 = sub i64 %sub.ptr.lhs.cast.i.i211.pre-phi, %sub.ptr.rhs.cast.i.i.i152
   %sub.ptr.div.i.i214 = ashr exact i64 %sub.ptr.sub.i.i213, 2
   br label %if.end
 
 if.end:                                           ; preds = %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit
-  %__second_cut.0 = phi ptr [ %__first.addr.0.lcssa.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %add.ptr.i.i144, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %__first_cut.0 = phi ptr [ %add.ptr.i.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %__first.addr.0.lcssa.i157, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
+  %__second_cut.0 = phi ptr [ %__first.addr.0.lcssa.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %add.ptr.i.i144, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %__len22.0 = phi i64 [ %sub.ptr.div.i.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %div15, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %__len11.0 = phi i64 [ %div, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %sub.ptr.div.i.i214, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection4EnumEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %sub = sub nsw i64 %__len1, %__len11.0
@@ -85768,10 +85768,10 @@ while.body.lr.ph.i:                               ; preds = %if.then8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %__first.addr.013.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i ]
-  %__len.012.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i ]
-  %shr.i = lshr i64 %__len.012.i, 1
-  %add.ptr.i.i.i26 = getelementptr inbounds %"struct.flatbuffers::Offset.245", ptr %__first.addr.013.i, i64 %shr.i
+  %__len.013.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i ]
+  %__first.addr.012.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i ]
+  %shr.i = lshr i64 %__len.013.i, 1
+  %add.ptr.i.i.i26 = getelementptr inbounds %"struct.flatbuffers::Offset.245", ptr %__first.addr.012.i, i64 %shr.i
   %24 = load i32, ptr %add.ptr.i.i.i26, align 4
   %conv.i.i.i = zext i32 %24 to i64
   %idx.neg.i.i.i.i = sub nsw i64 0, %conv.i.i.i
@@ -85803,9 +85803,9 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %cond.i.i.i.i.i.i = select i1 %cmp2.i.i.i.i.i.i, i1 %cmp3.i.i.i.i.i.i, i1 %cmp4.i.i.i.i.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i26, i64 4
   %30 = xor i64 %shr.i, -1
-  %sub2.i = add nsw i64 %__len.012.i, %30
+  %sub2.i = add nsw i64 %__len.013.i, %30
+  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i, ptr %incdec.ptr.i, ptr %__first.addr.012.i
   %__len.1.i = select i1 %cond.i.i.i.i.i.i, i64 %sub2.i, i64 %shr.i
-  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i, ptr %incdec.ptr.i, ptr %__first.addr.013.i
   %cmp.i = icmp sgt i64 %__len.1.i, 0
   br i1 %cmp.i, label %while.body.i, label %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1533
 
@@ -85862,10 +85862,10 @@ while.body.lr.ph.i48:                             ; preds = %if.else
   br label %while.body.i66
 
 while.body.i66:                                   ; preds = %while.body.i66, %while.body.lr.ph.i48
-  %__first.addr.013.i67 = phi ptr [ %__first, %while.body.lr.ph.i48 ], [ %__first.addr.1.i99, %while.body.i66 ]
-  %__len.012.i68 = phi i64 [ %sub.ptr.div.i.i.i45, %while.body.lr.ph.i48 ], [ %__len.1.i98, %while.body.i66 ]
-  %shr.i69 = lshr i64 %__len.012.i68, 1
-  %add.ptr.i.i.i72 = getelementptr inbounds %"struct.flatbuffers::Offset.245", ptr %__first.addr.013.i67, i64 %shr.i69
+  %__len.013.i67 = phi i64 [ %sub.ptr.div.i.i.i45, %while.body.lr.ph.i48 ], [ %__len.1.i99, %while.body.i66 ]
+  %__first.addr.012.i68 = phi ptr [ %__first, %while.body.lr.ph.i48 ], [ %__first.addr.1.i98, %while.body.i66 ]
+  %shr.i69 = lshr i64 %__len.013.i67, 1
+  %add.ptr.i.i.i72 = getelementptr inbounds %"struct.flatbuffers::Offset.245", ptr %__first.addr.012.i68, i64 %shr.i69
   %40 = load i32, ptr %add.ptr.i.i.i72, align 4
   %conv4.i.i.i75 = zext i32 %40 to i64
   %idx.neg.i4.i.i.i76 = sub nsw i64 0, %conv4.i.i.i75
@@ -85897,19 +85897,19 @@ while.body.i66:                                   ; preds = %while.body.i66, %wh
   %cond.i.i.i.i.i.i95 = select i1 %cmp2.i.i.i.i.i.i92, i1 %cmp3.i.i.i.i.i.i93, i1 %cmp4.i.i.i.i.i.i94
   %incdec.ptr.i96 = getelementptr inbounds i8, ptr %add.ptr.i.i.i72, i64 4
   %46 = xor i64 %shr.i69, -1
-  %sub2.i97 = add nsw i64 %__len.012.i68, %46
-  %__len.1.i98 = select i1 %cond.i.i.i.i.i.i95, i64 %shr.i69, i64 %sub2.i97
-  %__first.addr.1.i99 = select i1 %cond.i.i.i.i.i.i95, ptr %__first.addr.013.i67, ptr %incdec.ptr.i96
-  %cmp.i100 = icmp sgt i64 %__len.1.i98, 0
+  %sub2.i97 = add nsw i64 %__len.013.i67, %46
+  %__first.addr.1.i98 = select i1 %cond.i.i.i.i.i.i95, ptr %__first.addr.012.i68, ptr %incdec.ptr.i96
+  %__len.1.i99 = select i1 %cond.i.i.i.i.i.i95, i64 %shr.i69, i64 %sub2.i97
+  %cmp.i100 = icmp sgt i64 %__len.1.i99, 0
   br i1 %cmp.i100, label %while.body.i66, label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1534
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %while.body.i66
-  %.pre124 = ptrtoint ptr %__first.addr.1.i99 to i64
+  %.pre124 = ptrtoint ptr %__first.addr.1.i98 to i64
   br label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, %if.else
   %sub.ptr.lhs.cast.i.i101.pre-phi = phi i64 [ %.pre124, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i43, %if.else ]
-  %__first.addr.0.lcssa.i47 = phi ptr [ %__first.addr.1.i99, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else ]
+  %__first.addr.0.lcssa.i47 = phi ptr [ %__first.addr.1.i98, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else ]
   %sub.ptr.sub.i.i103 = sub i64 %sub.ptr.lhs.cast.i.i101.pre-phi, %sub.ptr.rhs.cast.i.i.i43
   %sub.ptr.div.i.i104 = ashr exact i64 %sub.ptr.sub.i.i103, 2
   br label %if.end17
@@ -86392,10 +86392,10 @@ while.body.lr.ph.i:                               ; preds = %if.then9
   br label %while.body.i114
 
 while.body.i114:                                  ; preds = %while.body.i114, %while.body.lr.ph.i
-  %__first.addr.013.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i114 ]
-  %__len.012.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i114 ]
-  %shr.i = lshr i64 %__len.012.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.245", ptr %__first.addr.013.i, i64 %shr.i
+  %__len.013.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i114 ]
+  %__first.addr.012.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i114 ]
+  %shr.i = lshr i64 %__len.013.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.245", ptr %__first.addr.012.i, i64 %shr.i
   %41 = load i32, ptr %add.ptr.i.i.i, align 4
   %conv.i.i.i115 = zext i32 %41 to i64
   %idx.neg.i.i.i.i116 = sub nsw i64 0, %conv.i.i.i115
@@ -86427,9 +86427,9 @@ while.body.i114:                                  ; preds = %while.body.i114, %w
   %cond.i.i.i.i.i.i135 = select i1 %cmp2.i.i.i.i.i.i132, i1 %cmp3.i.i.i.i.i.i133, i1 %cmp4.i.i.i.i.i.i134
   %incdec.ptr.i136 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %47 = xor i64 %shr.i, -1
-  %sub2.i = add nsw i64 %__len.012.i, %47
+  %sub2.i = add nsw i64 %__len.013.i, %47
+  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i135, ptr %incdec.ptr.i136, ptr %__first.addr.012.i
   %__len.1.i = select i1 %cond.i.i.i.i.i.i135, i64 %sub2.i, i64 %shr.i
-  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i135, ptr %incdec.ptr.i136, ptr %__first.addr.013.i
   %cmp.i137 = icmp sgt i64 %__len.1.i, 0
   br i1 %cmp.i137, label %while.body.i114, label %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1533
 
@@ -86486,10 +86486,10 @@ while.body.lr.ph.i158:                            ; preds = %if.else14
   br label %while.body.i176
 
 while.body.i176:                                  ; preds = %while.body.i176, %while.body.lr.ph.i158
-  %__first.addr.013.i177 = phi ptr [ %__first, %while.body.lr.ph.i158 ], [ %__first.addr.1.i209, %while.body.i176 ]
-  %__len.012.i178 = phi i64 [ %sub.ptr.div.i.i.i154, %while.body.lr.ph.i158 ], [ %__len.1.i208, %while.body.i176 ]
-  %shr.i179 = lshr i64 %__len.012.i178, 1
-  %add.ptr.i.i.i182 = getelementptr inbounds %"struct.flatbuffers::Offset.245", ptr %__first.addr.013.i177, i64 %shr.i179
+  %__len.013.i177 = phi i64 [ %sub.ptr.div.i.i.i154, %while.body.lr.ph.i158 ], [ %__len.1.i209, %while.body.i176 ]
+  %__first.addr.012.i178 = phi ptr [ %__first, %while.body.lr.ph.i158 ], [ %__first.addr.1.i208, %while.body.i176 ]
+  %shr.i179 = lshr i64 %__len.013.i177, 1
+  %add.ptr.i.i.i182 = getelementptr inbounds %"struct.flatbuffers::Offset.245", ptr %__first.addr.012.i178, i64 %shr.i179
   %57 = load i32, ptr %add.ptr.i.i.i182, align 4
   %conv4.i.i.i185 = zext i32 %57 to i64
   %idx.neg.i4.i.i.i186 = sub nsw i64 0, %conv4.i.i.i185
@@ -86521,26 +86521,26 @@ while.body.i176:                                  ; preds = %while.body.i176, %w
   %cond.i.i.i.i.i.i205 = select i1 %cmp2.i.i.i.i.i.i202, i1 %cmp3.i.i.i.i.i.i203, i1 %cmp4.i.i.i.i.i.i204
   %incdec.ptr.i206 = getelementptr inbounds i8, ptr %add.ptr.i.i.i182, i64 4
   %63 = xor i64 %shr.i179, -1
-  %sub2.i207 = add nsw i64 %__len.012.i178, %63
-  %__len.1.i208 = select i1 %cond.i.i.i.i.i.i205, i64 %shr.i179, i64 %sub2.i207
-  %__first.addr.1.i209 = select i1 %cond.i.i.i.i.i.i205, ptr %__first.addr.013.i177, ptr %incdec.ptr.i206
-  %cmp.i210 = icmp sgt i64 %__len.1.i208, 0
+  %sub2.i207 = add nsw i64 %__len.013.i177, %63
+  %__first.addr.1.i208 = select i1 %cond.i.i.i.i.i.i205, ptr %__first.addr.012.i178, ptr %incdec.ptr.i206
+  %__len.1.i209 = select i1 %cond.i.i.i.i.i.i205, i64 %shr.i179, i64 %sub2.i207
+  %cmp.i210 = icmp sgt i64 %__len.1.i209, 0
   br i1 %cmp.i210, label %while.body.i176, label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1534
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %while.body.i176
-  %.pre227 = ptrtoint ptr %__first.addr.1.i209 to i64
+  %.pre227 = ptrtoint ptr %__first.addr.1.i208 to i64
   br label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, %if.else14
   %sub.ptr.lhs.cast.i.i211.pre-phi = phi i64 [ %.pre227, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i152, %if.else14 ]
-  %__first.addr.0.lcssa.i157 = phi ptr [ %__first.addr.1.i209, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else14 ]
+  %__first.addr.0.lcssa.i157 = phi ptr [ %__first.addr.1.i208, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else14 ]
   %sub.ptr.sub.i.i213 = sub i64 %sub.ptr.lhs.cast.i.i211.pre-phi, %sub.ptr.rhs.cast.i.i.i152
   %sub.ptr.div.i.i214 = ashr exact i64 %sub.ptr.sub.i.i213, 2
   br label %if.end
 
 if.end:                                           ; preds = %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit
-  %__second_cut.0 = phi ptr [ %__first.addr.0.lcssa.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %add.ptr.i.i144, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %__first_cut.0 = phi ptr [ %add.ptr.i.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %__first.addr.0.lcssa.i157, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
+  %__second_cut.0 = phi ptr [ %__first.addr.0.lcssa.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %add.ptr.i.i144, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %__len22.0 = phi i64 [ %sub.ptr.div.i.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %div15, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %__len11.0 = phi i64 [ %div, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %sub.ptr.div.i.i214, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection7ServiceEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %sub = sub nsw i64 %__len1, %__len11.0
@@ -87705,10 +87705,10 @@ while.body.lr.ph.i:                               ; preds = %if.then8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %__first.addr.013.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i ]
-  %__len.012.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i ]
-  %shr.i = lshr i64 %__len.012.i, 1
-  %add.ptr.i.i.i26 = getelementptr inbounds %"struct.flatbuffers::Offset.259", ptr %__first.addr.013.i, i64 %shr.i
+  %__len.013.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i ]
+  %__first.addr.012.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i ]
+  %shr.i = lshr i64 %__len.013.i, 1
+  %add.ptr.i.i.i26 = getelementptr inbounds %"struct.flatbuffers::Offset.259", ptr %__first.addr.012.i, i64 %shr.i
   %24 = load i32, ptr %add.ptr.i.i.i26, align 4
   %conv.i.i.i = zext i32 %24 to i64
   %idx.neg.i.i.i.i = sub nsw i64 0, %conv.i.i.i
@@ -87740,9 +87740,9 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %cond.i.i.i.i.i.i = select i1 %cmp2.i.i.i.i.i.i, i1 %cmp3.i.i.i.i.i.i, i1 %cmp4.i.i.i.i.i.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i26, i64 4
   %30 = xor i64 %shr.i, -1
-  %sub2.i = add nsw i64 %__len.012.i, %30
+  %sub2.i = add nsw i64 %__len.013.i, %30
+  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i, ptr %incdec.ptr.i, ptr %__first.addr.012.i
   %__len.1.i = select i1 %cond.i.i.i.i.i.i, i64 %sub2.i, i64 %shr.i
-  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i, ptr %incdec.ptr.i, ptr %__first.addr.013.i
   %cmp.i = icmp sgt i64 %__len.1.i, 0
   br i1 %cmp.i, label %while.body.i, label %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1550
 
@@ -87799,10 +87799,10 @@ while.body.lr.ph.i48:                             ; preds = %if.else
   br label %while.body.i66
 
 while.body.i66:                                   ; preds = %while.body.i66, %while.body.lr.ph.i48
-  %__first.addr.013.i67 = phi ptr [ %__first, %while.body.lr.ph.i48 ], [ %__first.addr.1.i99, %while.body.i66 ]
-  %__len.012.i68 = phi i64 [ %sub.ptr.div.i.i.i45, %while.body.lr.ph.i48 ], [ %__len.1.i98, %while.body.i66 ]
-  %shr.i69 = lshr i64 %__len.012.i68, 1
-  %add.ptr.i.i.i72 = getelementptr inbounds %"struct.flatbuffers::Offset.259", ptr %__first.addr.013.i67, i64 %shr.i69
+  %__len.013.i67 = phi i64 [ %sub.ptr.div.i.i.i45, %while.body.lr.ph.i48 ], [ %__len.1.i99, %while.body.i66 ]
+  %__first.addr.012.i68 = phi ptr [ %__first, %while.body.lr.ph.i48 ], [ %__first.addr.1.i98, %while.body.i66 ]
+  %shr.i69 = lshr i64 %__len.013.i67, 1
+  %add.ptr.i.i.i72 = getelementptr inbounds %"struct.flatbuffers::Offset.259", ptr %__first.addr.012.i68, i64 %shr.i69
   %40 = load i32, ptr %add.ptr.i.i.i72, align 4
   %conv4.i.i.i75 = zext i32 %40 to i64
   %idx.neg.i4.i.i.i76 = sub nsw i64 0, %conv4.i.i.i75
@@ -87834,19 +87834,19 @@ while.body.i66:                                   ; preds = %while.body.i66, %wh
   %cond.i.i.i.i.i.i95 = select i1 %cmp2.i.i.i.i.i.i92, i1 %cmp3.i.i.i.i.i.i93, i1 %cmp4.i.i.i.i.i.i94
   %incdec.ptr.i96 = getelementptr inbounds i8, ptr %add.ptr.i.i.i72, i64 4
   %46 = xor i64 %shr.i69, -1
-  %sub2.i97 = add nsw i64 %__len.012.i68, %46
-  %__len.1.i98 = select i1 %cond.i.i.i.i.i.i95, i64 %shr.i69, i64 %sub2.i97
-  %__first.addr.1.i99 = select i1 %cond.i.i.i.i.i.i95, ptr %__first.addr.013.i67, ptr %incdec.ptr.i96
-  %cmp.i100 = icmp sgt i64 %__len.1.i98, 0
+  %sub2.i97 = add nsw i64 %__len.013.i67, %46
+  %__first.addr.1.i98 = select i1 %cond.i.i.i.i.i.i95, ptr %__first.addr.012.i68, ptr %incdec.ptr.i96
+  %__len.1.i99 = select i1 %cond.i.i.i.i.i.i95, i64 %shr.i69, i64 %sub2.i97
+  %cmp.i100 = icmp sgt i64 %__len.1.i99, 0
   br i1 %cmp.i100, label %while.body.i66, label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1551
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %while.body.i66
-  %.pre124 = ptrtoint ptr %__first.addr.1.i99 to i64
+  %.pre124 = ptrtoint ptr %__first.addr.1.i98 to i64
   br label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, %if.else
   %sub.ptr.lhs.cast.i.i101.pre-phi = phi i64 [ %.pre124, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i43, %if.else ]
-  %__first.addr.0.lcssa.i47 = phi ptr [ %__first.addr.1.i99, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else ]
+  %__first.addr.0.lcssa.i47 = phi ptr [ %__first.addr.1.i98, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else ]
   %sub.ptr.sub.i.i103 = sub i64 %sub.ptr.lhs.cast.i.i101.pre-phi, %sub.ptr.rhs.cast.i.i.i43
   %sub.ptr.div.i.i104 = ashr exact i64 %sub.ptr.sub.i.i103, 2
   br label %if.end17
@@ -88329,10 +88329,10 @@ while.body.lr.ph.i:                               ; preds = %if.then9
   br label %while.body.i114
 
 while.body.i114:                                  ; preds = %while.body.i114, %while.body.lr.ph.i
-  %__first.addr.013.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i114 ]
-  %__len.012.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i114 ]
-  %shr.i = lshr i64 %__len.012.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.259", ptr %__first.addr.013.i, i64 %shr.i
+  %__len.013.i = phi i64 [ %sub.ptr.div.i.i.i, %while.body.lr.ph.i ], [ %__len.1.i, %while.body.i114 ]
+  %__first.addr.012.i = phi ptr [ %__middle, %while.body.lr.ph.i ], [ %__first.addr.1.i, %while.body.i114 ]
+  %shr.i = lshr i64 %__len.013.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds %"struct.flatbuffers::Offset.259", ptr %__first.addr.012.i, i64 %shr.i
   %41 = load i32, ptr %add.ptr.i.i.i, align 4
   %conv.i.i.i115 = zext i32 %41 to i64
   %idx.neg.i.i.i.i116 = sub nsw i64 0, %conv.i.i.i115
@@ -88364,9 +88364,9 @@ while.body.i114:                                  ; preds = %while.body.i114, %w
   %cond.i.i.i.i.i.i135 = select i1 %cmp2.i.i.i.i.i.i132, i1 %cmp3.i.i.i.i.i.i133, i1 %cmp4.i.i.i.i.i.i134
   %incdec.ptr.i136 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %47 = xor i64 %shr.i, -1
-  %sub2.i = add nsw i64 %__len.012.i, %47
+  %sub2.i = add nsw i64 %__len.013.i, %47
+  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i135, ptr %incdec.ptr.i136, ptr %__first.addr.012.i
   %__len.1.i = select i1 %cond.i.i.i.i.i.i135, i64 %sub2.i, i64 %shr.i
-  %__first.addr.1.i = select i1 %cond.i.i.i.i.i.i135, ptr %incdec.ptr.i136, ptr %__first.addr.013.i
   %cmp.i137 = icmp sgt i64 %__len.1.i, 0
   br i1 %cmp.i137, label %while.body.i114, label %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1550
 
@@ -88423,10 +88423,10 @@ while.body.lr.ph.i158:                            ; preds = %if.else14
   br label %while.body.i176
 
 while.body.i176:                                  ; preds = %while.body.i176, %while.body.lr.ph.i158
-  %__first.addr.013.i177 = phi ptr [ %__first, %while.body.lr.ph.i158 ], [ %__first.addr.1.i209, %while.body.i176 ]
-  %__len.012.i178 = phi i64 [ %sub.ptr.div.i.i.i154, %while.body.lr.ph.i158 ], [ %__len.1.i208, %while.body.i176 ]
-  %shr.i179 = lshr i64 %__len.012.i178, 1
-  %add.ptr.i.i.i182 = getelementptr inbounds %"struct.flatbuffers::Offset.259", ptr %__first.addr.013.i177, i64 %shr.i179
+  %__len.013.i177 = phi i64 [ %sub.ptr.div.i.i.i154, %while.body.lr.ph.i158 ], [ %__len.1.i209, %while.body.i176 ]
+  %__first.addr.012.i178 = phi ptr [ %__first, %while.body.lr.ph.i158 ], [ %__first.addr.1.i208, %while.body.i176 ]
+  %shr.i179 = lshr i64 %__len.013.i177, 1
+  %add.ptr.i.i.i182 = getelementptr inbounds %"struct.flatbuffers::Offset.259", ptr %__first.addr.012.i178, i64 %shr.i179
   %57 = load i32, ptr %add.ptr.i.i.i182, align 4
   %conv4.i.i.i185 = zext i32 %57 to i64
   %idx.neg.i4.i.i.i186 = sub nsw i64 0, %conv4.i.i.i185
@@ -88458,26 +88458,26 @@ while.body.i176:                                  ; preds = %while.body.i176, %w
   %cond.i.i.i.i.i.i205 = select i1 %cmp2.i.i.i.i.i.i202, i1 %cmp3.i.i.i.i.i.i203, i1 %cmp4.i.i.i.i.i.i204
   %incdec.ptr.i206 = getelementptr inbounds i8, ptr %add.ptr.i.i.i182, i64 4
   %63 = xor i64 %shr.i179, -1
-  %sub2.i207 = add nsw i64 %__len.012.i178, %63
-  %__len.1.i208 = select i1 %cond.i.i.i.i.i.i205, i64 %shr.i179, i64 %sub2.i207
-  %__first.addr.1.i209 = select i1 %cond.i.i.i.i.i.i205, ptr %__first.addr.013.i177, ptr %incdec.ptr.i206
-  %cmp.i210 = icmp sgt i64 %__len.1.i208, 0
+  %sub2.i207 = add nsw i64 %__len.013.i177, %63
+  %__first.addr.1.i208 = select i1 %cond.i.i.i.i.i.i205, ptr %__first.addr.012.i178, ptr %incdec.ptr.i206
+  %__len.1.i209 = select i1 %cond.i.i.i.i.i.i205, i64 %shr.i179, i64 %sub2.i207
+  %cmp.i210 = icmp sgt i64 %__len.1.i209, 0
   br i1 %cmp.i210, label %while.body.i176, label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, !llvm.loop !1551
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit: ; preds = %while.body.i176
-  %.pre227 = ptrtoint ptr %__first.addr.1.i209 to i64
+  %.pre227 = ptrtoint ptr %__first.addr.1.i208 to i64
   br label %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit
 
 _ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit: ; preds = %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit, %if.else14
   %sub.ptr.lhs.cast.i.i211.pre-phi = phi i64 [ %.pre227, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i152, %if.else14 ]
-  %__first.addr.0.lcssa.i157 = phi ptr [ %__first.addr.1.i209, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else14 ]
+  %__first.addr.0.lcssa.i157 = phi ptr [ %__first.addr.1.i208, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit.loopexit ], [ %__first, %if.else14 ]
   %sub.ptr.sub.i.i213 = sub i64 %sub.ptr.lhs.cast.i.i211.pre-phi, %sub.ptr.rhs.cast.i.i.i152
   %sub.ptr.div.i.i214 = ashr exact i64 %sub.ptr.sub.i.i213, 2
   br label %if.end
 
 if.end:                                           ; preds = %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit
-  %__second_cut.0 = phi ptr [ %__first.addr.0.lcssa.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %add.ptr.i.i144, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %__first_cut.0 = phi ptr [ %add.ptr.i.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %__first.addr.0.lcssa.i157, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
+  %__second_cut.0 = phi ptr [ %__first.addr.0.lcssa.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %add.ptr.i.i144, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %__len22.0 = phi i64 [ %sub.ptr.div.i.i, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %div15, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %__len11.0 = phi i64 [ %div, %_ZSt13__lower_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Iter_comp_valINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ], [ %sub.ptr.div.i.i214, %_ZSt13__upper_boundIPN11flatbuffers6OffsetIN10reflection10SchemaFileEEES4_N9__gnu_cxx5__ops14_Val_comp_iterINS0_21FlatBufferBuilderImplILb0EE18TableKeyComparatorIS3_EEEEET_SE_SE_RKT0_T1_.exit ]
   %sub = sub nsw i64 %__len1, %__len11.0
@@ -95954,8 +95954,8 @@ while.body.i.preheader:                           ; preds = %if.then13.i, %if.th
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.end.i
-  %__last.sroa.0.0.i = phi ptr [ %__last.sroa.0.1.i, %if.end.i ], [ %__last.coerce, %while.body.i.preheader ]
   %__first.sroa.0.0.i = phi ptr [ %incdec.ptr.i.i, %if.end.i ], [ %add.ptr.i1, %while.body.i.preheader ]
+  %__last.sroa.0.0.i = phi ptr [ %__last.sroa.0.1.i, %if.end.i ], [ %__last.coerce, %while.body.i.preheader ]
   br label %while.cond4.i
 
 while.cond4.i:                                    ; preds = %while.cond4.i, %while.body.i
@@ -99796,8 +99796,8 @@ while.body.i.preheader:                           ; preds = %if.then13.i, %if.th
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.end.i
-  %__last.sroa.0.0.i = phi ptr [ %__last.sroa.0.1.i, %if.end.i ], [ %__last.coerce, %while.body.i.preheader ]
   %__first.sroa.0.0.i = phi ptr [ %incdec.ptr.i.i, %if.end.i ], [ %add.ptr.i1, %while.body.i.preheader ]
+  %__last.sroa.0.0.i = phi ptr [ %__last.sroa.0.1.i, %if.end.i ], [ %__last.coerce, %while.body.i.preheader ]
   br label %while.cond4.i
 
 while.cond4.i:                                    ; preds = %while.cond4.i, %while.body.i
@@ -100418,8 +100418,8 @@ while.body.i.preheader:                           ; preds = %if.then13.i, %if.th
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.end.i
-  %__last.sroa.0.0.i = phi ptr [ %__last.sroa.0.1.i, %if.end.i ], [ %__last.coerce, %while.body.i.preheader ]
   %__first.sroa.0.0.i = phi ptr [ %incdec.ptr.i.i, %if.end.i ], [ %add.ptr.i1, %while.body.i.preheader ]
+  %__last.sroa.0.0.i = phi ptr [ %__last.sroa.0.1.i, %if.end.i ], [ %__last.coerce, %while.body.i.preheader ]
   br label %while.cond4.i
 
 while.cond4.i:                                    ; preds = %while.cond4.i, %while.body.i

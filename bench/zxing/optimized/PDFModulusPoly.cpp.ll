@@ -984,13 +984,13 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %.02534.us = phi i64 [ %111, %._crit_edge.us ], [ 0, %.lr.ph.us.preheader ]
-  %80 = getelementptr inbounds i32, ptr %75, i64 %.02534.us
+  %.02434.us = phi i64 [ %111, %._crit_edge.us ], [ 0, %.lr.ph.us.preheader ]
+  %80 = getelementptr inbounds i32, ptr %75, i64 %.02434.us
   %81 = load i32, ptr %80, align 4
   %.fr = freeze i32 %81
   %82 = icmp eq i32 %.fr, 0
   %83 = sext i32 %.fr to i64
-  %84 = getelementptr i32, ptr %73, i64 %.02534.us
+  %84 = getelementptr i32, ptr %73, i64 %.02434.us
   br i1 %82, label %.lr.ph.split.us.us, label %.lr.ph.split.us41
 
 .lr.ph.split.us41:                                ; preds = %.lr.ph.us, %104
@@ -1031,7 +1031,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us41, !llvm.loop !10
 
 ._crit_edge.us:                                   ; preds = %104, %.lr.ph.split.us.us
-  %111 = add nuw i64 %.02534.us, 1
+  %111 = add nuw i64 %.02434.us, 1
   %exitcond49.not = icmp eq i64 %111, %umax48
   br i1 %exitcond49.not, label %._crit_edge38, label %.lr.ph.us, !llvm.loop !11
 

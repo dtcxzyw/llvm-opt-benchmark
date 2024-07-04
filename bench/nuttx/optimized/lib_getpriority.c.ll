@@ -26,8 +26,8 @@ define i32 @getpriority(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %11
 
 11:                                               ; preds = %9, %7
-  %.08 = phi i32 [ %10, %9 ], [ %1, %7 ]
-  %12 = call i32 @sched_getparam(i32 noundef %.08, ptr noundef nonnull %3) #2
+  %.0 = phi i32 [ %10, %9 ], [ %1, %7 ]
+  %12 = call i32 @sched_getparam(i32 noundef %.0, ptr noundef nonnull %3) #2
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %18, label %14
 
@@ -39,8 +39,8 @@ define i32 @getpriority(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %18
 
 18:                                               ; preds = %11, %14, %5
-  %.0 = phi i32 [ -1, %5 ], [ %17, %14 ], [ %12, %11 ]
-  ret i32 %.0
+  %.08 = phi i32 [ -1, %5 ], [ %17, %14 ], [ %12, %11 ]
+  ret i32 %.08
 }
 
 declare ptr @__errno() local_unnamed_addr #1

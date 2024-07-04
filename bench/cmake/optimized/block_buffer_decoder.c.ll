@@ -60,19 +60,19 @@ define dso_local i32 @lzma_block_buffer_decode(ptr noundef %0, ptr noundef %1, p
   br label %33
 
 33:                                               ; preds = %30, %23
-  %.035 = phi i32 [ %29, %23 ], [ %., %30 ]
+  %.0 = phi i32 [ %29, %23 ], [ %., %30 ]
   store i64 %24, ptr %3, align 8
   store i64 %25, ptr %6, align 8
   br label %34
 
 34:                                               ; preds = %23, %33, %19
-  %.1 = phi i32 [ %.035, %33 ], [ %21, %19 ], [ 0, %23 ]
+  %.1 = phi i32 [ %.0, %33 ], [ %21, %19 ], [ 0, %23 ]
   call void @lzma_next_end(ptr noundef nonnull %9, ptr noundef %1) #3
   br label %35
 
 35:                                               ; preds = %16, %11, %8, %13, %34
-  %.0 = phi i32 [ %.1, %34 ], [ 11, %13 ], [ 11, %8 ], [ 11, %11 ], [ 11, %16 ]
-  ret i32 %.0
+  %.035 = phi i32 [ %.1, %34 ], [ 11, %13 ], [ 11, %8 ], [ 11, %11 ], [ 11, %16 ]
+  ret i32 %.035
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

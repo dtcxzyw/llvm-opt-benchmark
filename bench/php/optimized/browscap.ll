@@ -441,11 +441,11 @@ define hidden void @zif_get_browser(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %cond.fr221, label %.thread232, label %.thread239
 
 .thread239:                                       ; preds = %29, %22, %13
-  %.0187248 = phi i32 [ 1, %22 ], [ 0, %13 ], [ 2, %29 ]
-  %.0189247 = phi i32 [ 9, %22 ], [ 1, %13 ], [ 9, %29 ]
-  %.0190246 = phi i32 [ 5, %22 ], [ 0, %13 ], [ 2, %29 ]
-  %.0191245 = phi ptr [ %17, %22 ], [ null, %13 ], [ %30, %29 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0189247, i32 noundef %.0187248, ptr noundef null, i32 noundef %.0190246, ptr noundef %.0191245) #13
+  %.0183248 = phi i32 [ 9, %22 ], [ 1, %13 ], [ 9, %29 ]
+  %.0184247 = phi i32 [ 5, %22 ], [ 0, %13 ], [ 2, %29 ]
+  %.0185246 = phi ptr [ %17, %22 ], [ null, %13 ], [ %30, %29 ]
+  %.0186245 = phi i32 [ 1, %22 ], [ 0, %13 ], [ 2, %29 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0183248, i32 noundef %.0186245, ptr noundef null, i32 noundef %.0184247, ptr noundef %.0185246) #13
   br label %.thread255
 
 .thread232:                                       ; preds = %29, %24, %14, %.thread257
@@ -480,7 +480,7 @@ define hidden void @zif_get_browser(ptr noundef %0, ptr noundef %1) local_unname
   br label %.thread255
 
 45:                                               ; preds = %41, %33, %36
-  %.0186 = phi ptr [ @browscap_globals, %36 ], [ @browscap_globals, %33 ], [ @global_bdata, %41 ]
+  %.0188 = phi ptr [ @browscap_globals, %36 ], [ @browscap_globals, %33 ], [ @global_bdata, %41 ]
   %46 = load ptr, ptr %6, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %63
@@ -517,7 +517,7 @@ define hidden void @zif_get_browser(ptr noundef %0, ptr noundef %1) local_unname
 63:                                               ; preds = %61, %45
   %64 = phi ptr [ %62, %61 ], [ %46, %45 ]
   %65 = call ptr @zend_string_tolower_ex(ptr noundef %64, i1 noundef zeroext false) #13
-  %66 = load ptr, ptr %.0186, align 8
+  %66 = load ptr, ptr %.0188, align 8
   %67 = call ptr @zend_hash_find(ptr noundef %66, ptr noundef %65) #13
   %.not203 = icmp eq ptr %67, null
   br i1 %.not203, label %70, label %68
@@ -530,7 +530,7 @@ define hidden void @zif_get_browser(ptr noundef %0, ptr noundef %1) local_unname
 70:                                               ; preds = %63
   store ptr null, ptr %8, align 8
   store i64 0, ptr %9, align 8
-  %71 = load ptr, ptr %.0186, align 8
+  %71 = load ptr, ptr %.0188, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %71, i64 24
@@ -551,14 +551,14 @@ define hidden void @zif_get_browser(ptr noundef %0, ptr noundef %1) local_unname
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph265
-  %.0185264 = phi ptr [ %73, %.lr.ph265 ], [ %.0185264.be, %.backedge.backedge ]
-  %83 = getelementptr inbounds i8, ptr %.0185264, i64 8
+  %.0181264 = phi ptr [ %73, %.lr.ph265 ], [ %.0181264.be, %.backedge.backedge ]
+  %83 = getelementptr inbounds i8, ptr %.0181264, i64 8
   %84 = load i8, ptr %83, align 8
   %85 = icmp eq i8 %84, 0
   br i1 %85, label %.loopexit259, label %86
 
 86:                                               ; preds = %.backedge
-  %87 = load ptr, ptr %.0185264, align 8
+  %87 = load ptr, ptr %.0181264, align 8
   %88 = load i64, ptr %81, align 8
   %89 = getelementptr inbounds i8, ptr %87, i64 39
   %90 = load i8, ptr %89, align 1
@@ -591,16 +591,16 @@ browscap_get_minimum_length.exit:                 ; preds = %93
   br label %103
 
 101:                                              ; preds = %103
-  %102 = add nuw nsw i64 %.0181262, 1
+  %102 = add nuw nsw i64 %.0179262, 1
   %exitcond.not = icmp eq i64 %102, %91
   br i1 %exitcond.not, label %.critedge217, label %103
 
 103:                                              ; preds = %.lr.ph, %101
-  %.0181262 = phi i64 [ 0, %.lr.ph ], [ %102, %101 ]
-  %104 = getelementptr inbounds [1 x i8], ptr %82, i64 0, i64 %.0181262
+  %.0179262 = phi i64 [ 0, %.lr.ph ], [ %102, %101 ]
+  %104 = getelementptr inbounds [1 x i8], ptr %82, i64 0, i64 %.0179262
   %105 = load i8, ptr %104, align 1
   %106 = sext i8 %105 to i32
-  %107 = getelementptr inbounds [1 x i8], ptr %100, i64 0, i64 %.0181262
+  %107 = getelementptr inbounds [1 x i8], ptr %100, i64 0, i64 %.0179262
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i64
   %110 = getelementptr inbounds [256 x i8], ptr @zend_tolower_map, i64 0, i64 %109
@@ -612,18 +612,18 @@ browscap_get_minimum_length.exit:                 ; preds = %93
 .critedge217:                                     ; preds = %101, %.preheader
   %113 = call fastcc i32 @browser_reg_compare(ptr noundef nonnull %87, ptr noundef %65, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %.not208 = icmp ne i32 %113, 0
-  %114 = getelementptr inbounds i8, ptr %.0185264, i64 32
+  %114 = getelementptr inbounds i8, ptr %.0181264, i64 32
   %.not205 = icmp eq ptr %114, %77
   %or.cond = select i1 %.not208, i1 true, i1 %.not205
   br i1 %or.cond, label %._crit_edge, label %.backedge.backedge
 
 .loopexit259:                                     ; preds = %103, %browscap_get_minimum_length.exit, %.backedge
-  %.old = getelementptr inbounds i8, ptr %.0185264, i64 32
+  %.old = getelementptr inbounds i8, ptr %.0181264, i64 32
   %.not205.old = icmp eq ptr %.old, %77
   br i1 %.not205.old, label %._crit_edge, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.loopexit259, %.critedge217
-  %.0185264.be = phi ptr [ %.old, %.loopexit259 ], [ %114, %.critedge217 ]
+  %.0181264.be = phi ptr [ %.old, %.loopexit259 ], [ %114, %.critedge217 ]
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.critedge217, %.loopexit259
@@ -632,7 +632,7 @@ browscap_get_minimum_length.exit:                 ; preds = %93
   br i1 %115, label %._crit_edge.thread, label %132
 
 ._crit_edge.thread:                               ; preds = %70, %._crit_edge
-  %116 = load ptr, ptr %.0186, align 8
+  %116 = load ptr, ptr %.0188, align 8
   %117 = call ptr @zend_hash_str_find(ptr noundef %116, ptr noundef nonnull @.str.4, i64 noundef 35) #13
   %.not209 = icmp eq ptr %117, null
   br i1 %.not209, label %120, label %118
@@ -763,9 +763,9 @@ browscap_compute_regex_len.exit.i.i:              ; preds = %142, %._crit_edge.l
   br label %174
 
 174:                                              ; preds = %202, %.lr.ph.i.i
-  %.0104.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %204, %202 ]
-  %.0101103.i.i = phi i64 [ 2, %.lr.ph.i.i ], [ %205, %202 ]
-  %175 = getelementptr inbounds [1 x i8], ptr %173, i64 0, i64 %.0104.i.i
+  %.0104.i.i = phi i64 [ 2, %.lr.ph.i.i ], [ %205, %202 ]
+  %.0101103.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %204, %202 ]
+  %175 = getelementptr inbounds [1 x i8], ptr %173, i64 0, i64 %.0101103.i.i
   %176 = load i8, ptr %175, align 1
   switch i8 %176, label %198 [
     i8 63, label %202
@@ -779,44 +779,44 @@ browscap_compute_regex_len.exit.i.i:              ; preds = %142, %._crit_edge.l
   ]
 
 177:                                              ; preds = %174
-  %178 = add i64 %.0101103.i.i, 1
-  %179 = getelementptr inbounds i8, ptr %170, i64 %.0101103.i.i
+  %178 = add i64 %.0104.i.i, 1
+  %179 = getelementptr inbounds i8, ptr %170, i64 %.0104.i.i
   store i8 46, ptr %179, align 1
   br label %202
 
 180:                                              ; preds = %174
-  %181 = add i64 %.0101103.i.i, 1
-  %182 = getelementptr inbounds i8, ptr %170, i64 %.0101103.i.i
+  %181 = add i64 %.0104.i.i, 1
+  %182 = getelementptr inbounds i8, ptr %170, i64 %.0104.i.i
   store i8 92, ptr %182, align 1
   br label %202
 
 183:                                              ; preds = %174
-  %184 = add i64 %.0101103.i.i, 1
-  %185 = getelementptr inbounds i8, ptr %170, i64 %.0101103.i.i
+  %184 = add i64 %.0104.i.i, 1
+  %185 = getelementptr inbounds i8, ptr %170, i64 %.0104.i.i
   store i8 92, ptr %185, align 1
   br label %202
 
 186:                                              ; preds = %174
-  %187 = add i64 %.0101103.i.i, 1
-  %188 = getelementptr inbounds i8, ptr %170, i64 %.0101103.i.i
+  %187 = add i64 %.0104.i.i, 1
+  %188 = getelementptr inbounds i8, ptr %170, i64 %.0104.i.i
   store i8 92, ptr %188, align 1
   br label %202
 
 189:                                              ; preds = %174
-  %190 = add i64 %.0101103.i.i, 1
-  %191 = getelementptr inbounds i8, ptr %170, i64 %.0101103.i.i
+  %190 = add i64 %.0104.i.i, 1
+  %191 = getelementptr inbounds i8, ptr %170, i64 %.0104.i.i
   store i8 92, ptr %191, align 1
   br label %202
 
 192:                                              ; preds = %174
-  %193 = add i64 %.0101103.i.i, 1
-  %194 = getelementptr inbounds i8, ptr %170, i64 %.0101103.i.i
+  %193 = add i64 %.0104.i.i, 1
+  %194 = getelementptr inbounds i8, ptr %170, i64 %.0104.i.i
   store i8 92, ptr %194, align 1
   br label %202
 
 195:                                              ; preds = %174
-  %196 = add i64 %.0101103.i.i, 1
-  %197 = getelementptr inbounds i8, ptr %170, i64 %.0101103.i.i
+  %196 = add i64 %.0104.i.i, 1
+  %197 = getelementptr inbounds i8, ptr %170, i64 %.0104.i.i
   store i8 92, ptr %197, align 1
   br label %202
 
@@ -827,21 +827,21 @@ browscap_compute_regex_len.exit.i.i:              ; preds = %142, %._crit_edge.l
   br label %202
 
 202:                                              ; preds = %198, %195, %192, %189, %186, %183, %180, %177, %174
-  %.0101103.sink.i.i = phi i64 [ %178, %177 ], [ %181, %180 ], [ %184, %183 ], [ %187, %186 ], [ %190, %189 ], [ %193, %192 ], [ %196, %195 ], [ %.0101103.i.i, %198 ], [ %.0101103.i.i, %174 ]
+  %.0104.sink.i.i = phi i64 [ %178, %177 ], [ %181, %180 ], [ %184, %183 ], [ %187, %186 ], [ %190, %189 ], [ %193, %192 ], [ %196, %195 ], [ %.0104.i.i, %198 ], [ %.0104.i.i, %174 ]
   %.sink.i.i = phi i8 [ 42, %177 ], [ 46, %180 ], [ 92, %183 ], [ 40, %186 ], [ 41, %189 ], [ 126, %192 ], [ 43, %195 ], [ %201, %198 ], [ 46, %174 ]
-  %203 = getelementptr inbounds i8, ptr %170, i64 %.0101103.sink.i.i
+  %203 = getelementptr inbounds i8, ptr %170, i64 %.0104.sink.i.i
   store i8 %.sink.i.i, ptr %203, align 1
-  %204 = add nuw i64 %.0104.i.i, 1
-  %205 = add i64 %.0101103.sink.i.i, 1
+  %204 = add nuw i64 %.0101103.i.i, 1
+  %205 = add i64 %.0104.sink.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %204, %172
   br i1 %exitcond.not.i.i, label %.loopexit.i, label %174
 
 .loopexit.i:                                      ; preds = %202, %browscap_compute_regex_len.exit.i.i
-  %.0101.lcssa.i.i = phi i64 [ 2, %browscap_compute_regex_len.exit.i.i ], [ %205, %202 ]
+  %.0.lcssa.i.i = phi i64 [ 2, %browscap_compute_regex_len.exit.i.i ], [ %205, %202 ]
   %206 = getelementptr inbounds i8, ptr %167, i64 16
-  %207 = getelementptr inbounds i8, ptr %170, i64 %.0101.lcssa.i.i
+  %207 = getelementptr inbounds i8, ptr %170, i64 %.0.lcssa.i.i
   store i8 36, ptr %207, align 1
-  %208 = add i64 %.0101.lcssa.i.i, 2
+  %208 = add i64 %.0.lcssa.i.i, 2
   %209 = getelementptr i8, ptr %207, i64 1
   store i8 126, ptr %209, align 1
   %210 = getelementptr inbounds i8, ptr %170, i64 %208
@@ -995,7 +995,7 @@ browscap_compute_regex_len.exit.i.i:              ; preds = %142, %._crit_edge.l
   br i1 %281, label %.lr.ph.i371.i, label %browscap_entry_to_array.exit
 
 .lr.ph.i371.i:                                    ; preds = %278
-  %282 = getelementptr inbounds i8, ptr %.0186, i64 8
+  %282 = getelementptr inbounds i8, ptr %.0188, i64 8
   %283 = getelementptr inbounds i8, ptr %4, i64 8
   %284 = zext i32 %279 to i64
   br label %285
@@ -1072,13 +1072,13 @@ browscap_entry_to_array.exit:                     ; preds = %295, %278
   br i1 %.not211268, label %.thread255, label %.lr.ph270
 
 .lr.ph270:                                        ; preds = %320
-  %323 = getelementptr inbounds i8, ptr %.0186, i64 8
+  %323 = getelementptr inbounds i8, ptr %.0188, i64 8
   %324 = getelementptr inbounds i8, ptr %3, i64 8
   br label %325
 
 325:                                              ; preds = %.lr.ph270, %browscap_entry_add_kv_to_existing_array.exit
   %326 = phi ptr [ %322, %.lr.ph270 ], [ %356, %browscap_entry_add_kv_to_existing_array.exit ]
-  %327 = load ptr, ptr %.0186, align 8
+  %327 = load ptr, ptr %.0188, align 8
   %328 = call ptr @zend_hash_find(ptr noundef %327, ptr noundef nonnull %326) #13
   %.not212 = icmp eq ptr %328, null
   br i1 %.not212, label %.thread255, label %329
@@ -1199,7 +1199,7 @@ define internal fastcc range(i32 0, 2) i32 @browser_reg_compare(ptr noundef %0, 
 
 35:                                               ; preds = %16, %92
   %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %92 ]
-  %.0156211 = phi ptr [ %31, %16 ], [ %.1157, %92 ]
+  %.0155211 = phi ptr [ %31, %16 ], [ %.1156, %92 ]
   %36 = getelementptr inbounds [5 x i8], ptr %32, i64 0, i64 %indvars.iv
   %37 = load i8, ptr %36, align 1
   %.not167 = icmp eq i8 %37, 0
@@ -1213,7 +1213,7 @@ define internal fastcc range(i32 0, 2) i32 @browser_reg_compare(ptr noundef %0, 
   %43 = zext i8 %37 to i64
   %44 = load i64, ptr %34, align 8
   %45 = getelementptr inbounds i8, ptr %27, i64 %44
-  %46 = icmp uge ptr %45, %.0156211
+  %46 = icmp uge ptr %45, %.0155211
   call void @llvm.assume(i1 %46)
   %47 = icmp eq i8 %37, 1
   br i1 %47, label %48, label %55
@@ -1222,14 +1222,14 @@ define internal fastcc range(i32 0, 2) i32 @browser_reg_compare(ptr noundef %0, 
   %49 = load i8, ptr %42, align 1
   %50 = sext i8 %49 to i32
   %51 = ptrtoint ptr %45 to i64
-  %52 = ptrtoint ptr %.0156211 to i64
+  %52 = ptrtoint ptr %.0155211 to i64
   %53 = sub i64 %51, %52
-  %54 = call ptr @memchr(ptr noundef %.0156211, i32 noundef %50, i64 noundef %53) #15
+  %54 = call ptr @memchr(ptr noundef %.0155211, i32 noundef %50, i64 noundef %53) #15
   br label %90
 
 55:                                               ; preds = %38
   %56 = ptrtoint ptr %45 to i64
-  %57 = ptrtoint ptr %.0156211 to i64
+  %57 = ptrtoint ptr %.0155211 to i64
   %58 = sub i64 %56, %57
   %59 = icmp ult i64 %58, %43
   br i1 %59, label %.thread, label %60
@@ -1246,7 +1246,7 @@ define internal fastcc range(i32 0, 2) i32 @browser_reg_compare(ptr noundef %0, 
   %67 = load i8, ptr %66, align 1
   %68 = sub nsw i64 0, %43
   %69 = getelementptr inbounds i8, ptr %45, i64 %68
-  %.not168207 = icmp ugt ptr %.0156211, %69
+  %.not168207 = icmp ugt ptr %.0155211, %69
   br i1 %.not168207, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %64
@@ -1259,10 +1259,10 @@ define internal fastcc range(i32 0, 2) i32 @browser_reg_compare(ptr noundef %0, 
   br label %76
 
 76:                                               ; preds = %.lr.ph, %86
-  %.0158208 = phi ptr [ %.0156211, %.lr.ph ], [ %87, %86 ]
-  %77 = ptrtoint ptr %.0158208 to i64
+  %.0159208 = phi ptr [ %.0155211, %.lr.ph ], [ %87, %86 ]
+  %77 = ptrtoint ptr %.0159208 to i64
   %78 = sub i64 %73, %77
-  %79 = call ptr @memchr(ptr noundef %.0158208, i32 noundef %71, i64 noundef %78) #15
+  %79 = call ptr @memchr(ptr noundef %.0159208, i32 noundef %71, i64 noundef %78) #15
   %.not169 = icmp eq ptr %79, null
   br i1 %.not169, label %.thread, label %80
 
@@ -1284,12 +1284,12 @@ define internal fastcc range(i32 0, 2) i32 @browser_reg_compare(ptr noundef %0, 
   br i1 %.not168, label %.thread, label %76
 
 88:                                               ; preds = %60
-  %89 = call ptr @zend_memnstr_ex(ptr noundef %.0156211, ptr noundef nonnull %42, i64 noundef %43, ptr noundef nonnull %45) #13
+  %89 = call ptr @zend_memnstr_ex(ptr noundef %.0155211, ptr noundef nonnull %42, i64 noundef %43, ptr noundef nonnull %45) #13
   br label %90
 
 90:                                               ; preds = %88, %48
-  %.0153 = phi ptr [ %54, %48 ], [ %89, %88 ]
-  %.not171 = icmp eq ptr %.0153, null
+  %.0157 = phi ptr [ %54, %48 ], [ %89, %88 ]
+  %.not171 = icmp eq ptr %.0157, null
   br i1 %.not171, label %.thread, label %..thread174_crit_edge
 
 ..thread174_crit_edge:                            ; preds = %90
@@ -1302,12 +1302,12 @@ define internal fastcc range(i32 0, 2) i32 @browser_reg_compare(ptr noundef %0, 
 
 .thread174:                                       ; preds = %84, %..thread174_crit_edge
   %.pre-phi = phi i64 [ %.pre247, %..thread174_crit_edge ], [ %43, %84 ]
-  %.0153177 = phi ptr [ %.0153, %..thread174_crit_edge ], [ %79, %84 ]
-  %91 = getelementptr inbounds i8, ptr %.0153177, i64 %.pre-phi
+  %.0157177 = phi ptr [ %.0157, %..thread174_crit_edge ], [ %79, %84 ]
+  %91 = getelementptr inbounds i8, ptr %.0157177, i64 %.pre-phi
   br label %92
 
 92:                                               ; preds = %35, %.thread174
-  %.1157 = phi ptr [ %91, %.thread174 ], [ %.0156211, %35 ]
+  %.1156 = phi ptr [ %91, %.thread174 ], [ %.0155211, %35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %93, label %35
@@ -1348,128 +1348,128 @@ define internal fastcc range(i32 0, 2) i32 @browser_reg_compare(ptr noundef %0, 
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.outer.i.backedge, %.critedge2
-  %.052.ph.i = phi ptr [ %105, %.critedge2 ], [ %.050.ph.i.be, %.outer.i.backedge ]
-  %.051.ph.i = phi ptr [ null, %.critedge2 ], [ %.1.i, %.outer.i.backedge ]
-  %.050.ph.i = phi ptr [ null, %.critedge2 ], [ %.050.ph.i.be, %.outer.i.backedge ]
-  %.049.ph.i = phi ptr [ %107, %.critedge2 ], [ %.1.i, %.outer.i.backedge ]
-  %.not.i = icmp eq ptr %.051.ph.i, null
+  %.051.ph.i = phi ptr [ %107, %.critedge2 ], [ %.152.i, %.outer.i.backedge ]
+  %.050.ph.i = phi ptr [ %105, %.critedge2 ], [ %.0.ph.i.be, %.outer.i.backedge ]
+  %.049.ph.i = phi ptr [ null, %.critedge2 ], [ %.152.i, %.outer.i.backedge ]
+  %.0.ph.i = phi ptr [ null, %.critedge2 ], [ %.0.ph.i.be, %.outer.i.backedge ]
+  %.not.i = icmp eq ptr %.049.ph.i, null
   br i1 %.not.i, label %.outer.split.us.i, label %.outer62.i
 
 110:                                              ; preds = %.outer.split.us.i
-  %111 = load i8, ptr %.049.us.i, align 1
+  %111 = load i8, ptr %.051.us.i, align 1
   %112 = icmp eq i8 %111, 42
   br i1 %112, label %.preheader61.i, label %113
 
 113:                                              ; preds = %110
-  %114 = load i8, ptr %.052.us.i, align 1
+  %114 = load i8, ptr %.050.us.i, align 1
   %115 = icmp eq i8 %111, %114
   %116 = icmp eq i8 %111, 63
   %or.cond.us.i = or i1 %116, %115
   br i1 %or.cond.us.i, label %117, label %browscap_match_string_wildcard.exit.thread179
 
 117:                                              ; preds = %113
-  %118 = getelementptr i8, ptr %.049.us.i, i64 1
-  %119 = getelementptr inbounds i8, ptr %.052.us.i, i64 1
+  %118 = getelementptr i8, ptr %.051.us.i, i64 1
+  %119 = getelementptr inbounds i8, ptr %.050.us.i, i64 1
   %120 = icmp eq ptr %118, %108
   br i1 %120, label %121, label %.outer.split.us.i
 
 121:                                              ; preds = %117
-  %.049.ph104.le.i = ptrtoint ptr %.049.ph.i to i64
-  %scevgep103.le.i = getelementptr i8, ptr %.052.ph.i, i64 %109
-  %122 = sub i64 0, %.049.ph104.le.i
+  %.051.ph104.le.i = ptrtoint ptr %.051.ph.i to i64
+  %scevgep103.le.i = getelementptr i8, ptr %.050.ph.i, i64 %109
+  %122 = sub i64 0, %.051.ph104.le.i
   %scevgep105.le.i = getelementptr i8, ptr %scevgep103.le.i, i64 %122
   %123 = icmp eq ptr %scevgep105.le.i, %106
   br i1 %123, label %browscap_match_string_wildcard.exit.thread, label %browscap_match_string_wildcard.exit.thread179
 
 .outer.split.us.i:                                ; preds = %.outer.i, %117
-  %.052.us.i = phi ptr [ %119, %117 ], [ %.052.ph.i, %.outer.i ]
-  %.049.us.i = phi ptr [ %118, %117 ], [ %.049.ph.i, %.outer.i ]
-  %124 = icmp ult ptr %.052.us.i, %106
+  %.051.us.i = phi ptr [ %118, %117 ], [ %.051.ph.i, %.outer.i ]
+  %.050.us.i = phi ptr [ %119, %117 ], [ %.050.ph.i, %.outer.i ]
+  %124 = icmp ult ptr %.050.us.i, %106
   br i1 %124, label %110, label %.preheader.i
 
 .outer62.i:                                       ; preds = %.outer.i, %.loopexit66.i
-  %.052.ph63.i = phi ptr [ %155, %.loopexit66.i ], [ %.052.ph.i, %.outer.i ]
+  %.051.ph63.i = phi ptr [ %.049.ph.i, %.loopexit66.i ], [ %.051.ph.i, %.outer.i ]
   %.050.ph64.i = phi ptr [ %155, %.loopexit66.i ], [ %.050.ph.i, %.outer.i ]
-  %.049.ph65.i = phi ptr [ %.051.ph.i, %.loopexit66.i ], [ %.049.ph.i, %.outer.i ]
-  %scevgep.i = getelementptr i8, ptr %.052.ph63.i, i64 %109
-  %.049.ph65101.i = ptrtoint ptr %.049.ph65.i to i64
-  %125 = sub i64 0, %.049.ph65101.i
+  %.0.ph65.i = phi ptr [ %155, %.loopexit66.i ], [ %.0.ph.i, %.outer.i ]
+  %scevgep.i = getelementptr i8, ptr %.050.ph64.i, i64 %109
+  %.051.ph63101.i = ptrtoint ptr %.051.ph63.i to i64
+  %125 = sub i64 0, %.051.ph63101.i
   %scevgep102.i = getelementptr i8, ptr %scevgep.i, i64 %125
   br label %126
 
 126:                                              ; preds = %149, %.outer62.i
-  %.052.i = phi ptr [ %151, %149 ], [ %.052.ph63.i, %.outer62.i ]
-  %.049.i = phi ptr [ %150, %149 ], [ %.049.ph65.i, %.outer62.i ]
-  %127 = icmp ult ptr %.052.i, %106
+  %.051.i = phi ptr [ %150, %149 ], [ %.051.ph63.i, %.outer62.i ]
+  %.050.i = phi ptr [ %151, %149 ], [ %.050.ph64.i, %.outer62.i ]
+  %127 = icmp ult ptr %.050.i, %106
   br i1 %127, label %130, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.outer.split.us.i, %126
-  %.us-phi76.i = phi ptr [ %.052.i, %126 ], [ %.052.us.i, %.outer.split.us.i ]
-  %.us-phi77.i = phi ptr [ %.049.i, %126 ], [ %.049.us.i, %.outer.split.us.i ]
-  %128 = icmp ult ptr %.us-phi77.i, %108
+  %.us-phi76.i = phi ptr [ %.051.i, %126 ], [ %.051.us.i, %.outer.split.us.i ]
+  %.us-phi77.i = phi ptr [ %.050.i, %126 ], [ %.050.us.i, %.outer.split.us.i ]
+  %128 = icmp ult ptr %.us-phi76.i, %108
   br i1 %128, label %.lr.ph.preheader.i, label %browscap_match_string_wildcard.exit
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %.us-phi77106.i = ptrtoint ptr %.us-phi77.i to i64
-  %129 = sub i64 %109, %.us-phi77106.i
-  %scevgep107.i = getelementptr i8, ptr %.us-phi77.i, i64 %129
+  %.us-phi76106.i = ptrtoint ptr %.us-phi76.i to i64
+  %129 = sub i64 %109, %.us-phi76106.i
+  %scevgep107.i = getelementptr i8, ptr %.us-phi76.i, i64 %129
   br label %.lr.ph.i
 
 130:                                              ; preds = %126
-  %131 = load i8, ptr %.049.i, align 1
+  %131 = load i8, ptr %.051.i, align 1
   %132 = icmp eq i8 %131, 42
   br i1 %132, label %.preheader61.i, label %145
 
 .preheader61.i:                                   ; preds = %110, %130
-  %.us-phi.i = phi ptr [ %.052.i, %130 ], [ %.052.us.i, %110 ]
-  %.us-phi74.i = phi ptr [ %.049.i, %130 ], [ %.049.us.i, %110 ]
+  %.us-phi.i = phi ptr [ %.051.i, %130 ], [ %.051.us.i, %110 ]
+  %.us-phi74.i = phi ptr [ %.050.i, %130 ], [ %.050.us.i, %110 ]
   br label %133
 
 133:                                              ; preds = %135, %.preheader61.i
-  %.049.pn.i = phi ptr [ %.1.i, %135 ], [ %.us-phi74.i, %.preheader61.i ]
-  %.1.i = getelementptr i8, ptr %.049.pn.i, i64 1
-  %134 = icmp ult ptr %.1.i, %108
+  %.051.pn.i = phi ptr [ %.152.i, %135 ], [ %.us-phi.i, %.preheader61.i ]
+  %.152.i = getelementptr i8, ptr %.051.pn.i, i64 1
+  %134 = icmp ult ptr %.152.i, %108
   br i1 %134, label %135, label %.critedge.i
 
 135:                                              ; preds = %133
-  %136 = load i8, ptr %.1.i, align 1
+  %136 = load i8, ptr %.152.i, align 1
   %137 = icmp eq i8 %136, 42
   br i1 %137, label %133, label %.critedge.i
 
 .critedge.i:                                      ; preds = %135, %133
-  %138 = icmp eq ptr %.1.i, %108
+  %138 = icmp eq ptr %.152.i, %108
   br i1 %138, label %browscap_match_string_wildcard.exit.thread, label %139
 
 139:                                              ; preds = %.critedge.i
-  %140 = load i8, ptr %.1.i, align 1
+  %140 = load i8, ptr %.152.i, align 1
   %.not58.i = icmp eq i8 %140, 63
   br i1 %.not58.i, label %.outer.i.backedge, label %.preheader60.i
 
 .outer.i.backedge:                                ; preds = %.preheader60.i, %142, %139
-  %.050.ph.i.be = phi ptr [ %.us-phi.i, %139 ], [ %.15381.i, %.preheader60.i ], [ %143, %142 ]
+  %.0.ph.i.be = phi ptr [ %.us-phi74.i, %139 ], [ %.181.i, %.preheader60.i ], [ %143, %142 ]
   br label %.outer.i
 
 .preheader60.i:                                   ; preds = %139, %142
-  %.15381.i = phi ptr [ %143, %142 ], [ %.us-phi.i, %139 ]
-  %141 = load i8, ptr %.15381.i, align 1
+  %.181.i = phi ptr [ %143, %142 ], [ %.us-phi74.i, %139 ]
+  %141 = load i8, ptr %.181.i, align 1
   %.not59.i = icmp eq i8 %141, %140
   br i1 %.not59.i, label %.outer.i.backedge, label %142
 
 142:                                              ; preds = %.preheader60.i
-  %143 = getelementptr inbounds i8, ptr %.15381.i, i64 1
+  %143 = getelementptr inbounds i8, ptr %.181.i, i64 1
   %144 = icmp ult ptr %143, %106
   br i1 %144, label %.preheader60.i, label %.outer.i.backedge
 
 145:                                              ; preds = %130
-  %146 = load i8, ptr %.052.i, align 1
+  %146 = load i8, ptr %.050.i, align 1
   %147 = icmp eq i8 %131, %146
   %148 = icmp eq i8 %131, 63
   %or.cond.i = or i1 %148, %147
   br i1 %or.cond.i, label %149, label %.loopexit66.i
 
 149:                                              ; preds = %145
-  %150 = getelementptr i8, ptr %.049.i, i64 1
-  %151 = getelementptr inbounds i8, ptr %.052.i, i64 1
+  %150 = getelementptr i8, ptr %.051.i, i64 1
+  %151 = getelementptr inbounds i8, ptr %.050.i, i64 1
   %152 = icmp eq ptr %150, %108
   br i1 %152, label %153, label %126
 
@@ -1478,25 +1478,25 @@ define internal fastcc range(i32 0, 2) i32 @browser_reg_compare(ptr noundef %0, 
   br i1 %154, label %browscap_match_string_wildcard.exit.thread, label %.loopexit66.i
 
 .loopexit66.i:                                    ; preds = %145, %153
-  %155 = getelementptr inbounds i8, ptr %.050.ph64.i, i64 1
+  %155 = getelementptr inbounds i8, ptr %.0.ph65.i, i64 1
   br label %.outer62.i
 
 .lr.ph.i:                                         ; preds = %158, %.lr.ph.preheader.i
-  %.282.i = phi ptr [ %159, %158 ], [ %.us-phi77.i, %.lr.ph.preheader.i ]
-  %156 = load i8, ptr %.282.i, align 1
+  %.25382.i = phi ptr [ %159, %158 ], [ %.us-phi76.i, %.lr.ph.preheader.i ]
+  %156 = load i8, ptr %.25382.i, align 1
   %157 = icmp eq i8 %156, 42
   br i1 %157, label %158, label %browscap_match_string_wildcard.exit
 
 158:                                              ; preds = %.lr.ph.i
-  %159 = getelementptr inbounds i8, ptr %.282.i, i64 1
+  %159 = getelementptr inbounds i8, ptr %.25382.i, i64 1
   %exitcond.not.i = icmp eq ptr %159, %scevgep107.i
   br i1 %exitcond.not.i, label %browscap_match_string_wildcard.exit, label %.lr.ph.i
 
 browscap_match_string_wildcard.exit:              ; preds = %.lr.ph.i, %158, %.preheader.i
-  %.2.lcssa.i = phi ptr [ %.us-phi77.i, %.preheader.i ], [ %.282.i, %.lr.ph.i ], [ %scevgep107.i, %158 ]
-  %160 = icmp eq ptr %.us-phi76.i, %106
+  %.253.lcssa.i = phi ptr [ %.us-phi76.i, %.preheader.i ], [ %.25382.i, %.lr.ph.i ], [ %scevgep107.i, %158 ]
+  %160 = icmp eq ptr %.us-phi77.i, %106
   call void @llvm.assume(i1 %160)
-  %161 = icmp eq ptr %.2.lcssa.i, %108
+  %161 = icmp eq ptr %.253.lcssa.i, %108
   br i1 %161, label %browscap_match_string_wildcard.exit.thread, label %browscap_match_string_wildcard.exit.thread179
 
 browscap_match_string_wildcard.exit.thread:       ; preds = %.critedge.i, %153, %121, %browscap_match_string_wildcard.exit
@@ -1512,7 +1512,7 @@ browscap_match_string_wildcard.exit.thread:       ; preds = %.critedge.i, %153, 
 
 167:                                              ; preds = %.lr.ph215, %172
   %.0214 = phi i64 [ %104, %.lr.ph215 ], [ %173, %172 ]
-  %.0154213 = phi i64 [ %104, %.lr.ph215 ], [ %.1, %172 ]
+  %.0153213 = phi i64 [ %104, %.lr.ph215 ], [ %.1, %172 ]
   %168 = getelementptr inbounds [1 x i8], ptr %166, i64 0, i64 %.0214
   %169 = load i8, ptr %168, align 1
   switch i8 %169, label %170 [
@@ -1521,41 +1521,41 @@ browscap_match_string_wildcard.exit.thread:       ; preds = %.critedge.i, %153, 
   ]
 
 170:                                              ; preds = %167
-  %171 = add i64 %.0154213, 1
+  %171 = add i64 %.0153213, 1
   br label %172
 
 172:                                              ; preds = %170, %167, %167
-  %.1 = phi i64 [ %171, %170 ], [ %.0154213, %167 ], [ %.0154213, %167 ]
+  %.1 = phi i64 [ %171, %170 ], [ %.0153213, %167 ], [ %.0153213, %167 ]
   %173 = add nuw i64 %.0214, 1
   %exitcond244.not = icmp eq i64 %173, %164
   br i1 %exitcond244.not, label %._crit_edge, label %167
 
 ._crit_edge:                                      ; preds = %172, %browscap_match_string_wildcard.exit.thread
-  %.0154.lcssa = phi i64 [ %104, %browscap_match_string_wildcard.exit.thread ], [ %.1, %172 ]
+  %.0153.lcssa = phi i64 [ %104, %browscap_match_string_wildcard.exit.thread ], [ %.1, %172 ]
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %browscap_match_string_wildcard.exit.thread179.sink.split, label %174
 
 174:                                              ; preds = %._crit_edge
   %175 = load i64, ptr %3, align 8
-  %176 = icmp ult i64 %175, %.0154.lcssa
+  %176 = icmp ult i64 %175, %.0153.lcssa
   br i1 %176, label %browscap_match_string_wildcard.exit.thread179.sink.split, label %browscap_match_string_wildcard.exit.thread179
 
 browscap_match_string_wildcard.exit.thread179.sink.split: ; preds = %._crit_edge, %174
   store ptr %0, ptr %2, align 8
-  store i64 %.0154.lcssa, ptr %3, align 8
+  store i64 %.0153.lcssa, ptr %3, align 8
   br label %browscap_match_string_wildcard.exit.thread179
 
 browscap_match_string_wildcard.exit.thread179:    ; preds = %113, %browscap_match_string_wildcard.exit.thread179.sink.split, %121, %browscap_match_string_wildcard.exit, %174
   br i1 %11, label %.sink.split, label %177
 
 .sink.split:                                      ; preds = %browscap_match_string_wildcard.exit.thread179, %.critedge, %.thread
-  %.0159.ph = phi i32 [ 0, %.thread ], [ 1, %.critedge ], [ 0, %browscap_match_string_wildcard.exit.thread179 ]
+  %.0158.ph = phi i32 [ 0, %.thread ], [ 1, %.critedge ], [ 0, %browscap_match_string_wildcard.exit.thread179 ]
   call void @_efree(ptr noundef nonnull %17) #13
   br label %177
 
 177:                                              ; preds = %.sink.split, %browscap_match_string_wildcard.exit.thread179, %.critedge, %.thread
-  %.0159 = phi i32 [ 0, %.thread ], [ 1, %.critedge ], [ 0, %browscap_match_string_wildcard.exit.thread179 ], [ %.0159.ph, %.sink.split ]
-  ret i32 %.0159
+  %.0158 = phi i32 [ 0, %.thread ], [ 1, %.critedge ], [ 0, %browscap_match_string_wildcard.exit.thread179 ], [ %.0158.ph, %.sink.split ]
+  ret i32 %.0158
 }
 
 declare i32 @object_and_properties_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

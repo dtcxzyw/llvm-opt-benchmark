@@ -216,7 +216,7 @@ define i32 @cli_filter_fini() local_unnamed_addr #0 {
   %7 = phi i32 [ %5, %.lr.ph.preheader ], [ %14, %13 ]
   %8 = phi ptr [ %.pre22, %.lr.ph.preheader ], [ %15, %13 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %.01119 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %13 ]
+  %.020 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %13 ]
   %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not16 = icmp eq ptr %10, null
@@ -225,7 +225,7 @@ define i32 @cli_filter_fini() local_unnamed_addr #0 {
 11:                                               ; preds = %.lr.ph
   %12 = tail call i32 @plugin_context_destroy(ptr noundef nonnull %10) #8
   %.not17 = icmp eq i32 %12, 0
-  %spec.select = select i1 %.not17, i32 %.01119, i32 %12
+  %spec.select = select i1 %.not17, i32 %.020, i32 %12
   %.pre = load ptr, ptr @g_context, align 8
   %.pre23 = load i32, ptr @g_context_cnt, align 4
   br label %13
@@ -233,21 +233,21 @@ define i32 @cli_filter_fini() local_unnamed_addr #0 {
 13:                                               ; preds = %11, %.lr.ph
   %14 = phi i32 [ %7, %.lr.ph ], [ %.pre23, %11 ]
   %15 = phi ptr [ %8, %.lr.ph ], [ %.pre, %11 ]
-  %.1 = phi i32 [ %.01119, %.lr.ph ], [ %spec.select, %11 ]
+  %.1 = phi i32 [ %.020, %.lr.ph ], [ %spec.select, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = sext i32 %14 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %13, %.preheader
-  %.011.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %13 ]
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %13 ]
   tail call void @slurm_xfree(ptr noundef nonnull @ops) #8
   tail call void @slurm_xfree(ptr noundef nonnull @g_context) #8
   store i32 -1, ptr @g_context_cnt, align 4
   br label %18
 
 18:                                               ; preds = %._crit_edge, %4
-  %.2 = phi i32 [ 0, %4 ], [ %.011.lcssa, %._crit_edge ]
+  %.2 = phi i32 [ 0, %4 ], [ %.0.lcssa, %._crit_edge ]
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not18 = icmp eq i32 %19, 0
   br i1 %.not18, label %22, label %20
@@ -307,7 +307,7 @@ define i32 @cli_filter_g_setup_defaults(ptr noundef %0, i1 noundef zeroext %1) l
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.012.lcssa = phi i32 [ 0, %.preheader ], [ %18, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %18, %.lr.ph ]
   %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not16 = icmp eq i32 %24, 0
   br i1 %.not16, label %27, label %25
@@ -324,8 +324,8 @@ define i32 @cli_filter_g_setup_defaults(ptr noundef %0, i1 noundef zeroext %1) l
   br label %29
 
 29:                                               ; preds = %2, %27
-  %.0 = phi i32 [ %.012.lcssa, %27 ], [ 0, %2 ]
-  ret i32 %.0
+  %.012 = phi i32 [ %.0.lcssa, %27 ], [ 0, %2 ]
+  ret i32 %.012
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -379,7 +379,7 @@ define i32 @cli_filter_g_pre_submit(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.012.lcssa = phi i32 [ 0, %.preheader ], [ %18, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %18, %.lr.ph ]
   %24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not16 = icmp eq i32 %24, 0
   br i1 %.not16, label %27, label %25
@@ -396,8 +396,8 @@ define i32 @cli_filter_g_pre_submit(ptr noundef %0, i32 noundef %1) local_unname
   br label %29
 
 29:                                               ; preds = %2, %27
-  %.0 = phi i32 [ %.012.lcssa, %27 ], [ 0, %2 ]
-  ret i32 %.0
+  %.012 = phi i32 [ %.0.lcssa, %27 ], [ 0, %2 ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable

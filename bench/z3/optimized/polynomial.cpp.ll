@@ -29274,17 +29274,17 @@ _ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE11alloc_tab
   br i1 %cmp.not26.i, label %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE10copy_tableEPNS5_4cellEjjS7_jjRj.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE11alloc_tableEj.exit, %for.inc.i
-  %target_cellar.028.i = phi ptr [ %target_cellar.3.i, %for.inc.i ], [ %add.ptr3.i, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE11alloc_tableEj.exit ]
-  %source_it.027.i = phi ptr [ %incdec.ptr22.i, %for.inc.i ], [ %2, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE11alloc_tableEj.exit ]
-  %4 = load ptr, ptr %source_it.027.i, align 8
+  %source_it.028.i = phi ptr [ %incdec.ptr22.i, %for.inc.i ], [ %2, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE11alloc_tableEj.exit ]
+  %target_cellar.027.i = phi ptr [ %target_cellar.3.i, %for.inc.i ], [ %add.ptr3.i, %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE11alloc_tableEj.exit ]
+  %4 = load ptr, ptr %source_it.028.i, align 8
   %5 = ptrtoint ptr %4 to i64
   %and.i.i = and i64 %5, 7
   %cmp.i.i = icmp eq i64 %and.i.i, 1
   br i1 %cmp.i.i, label %for.inc.i, label %do.body.i
 
 do.body.i:                                        ; preds = %for.body.i, %if.end18.i
-  %list_it.0.i = phi ptr [ %12, %if.end18.i ], [ %source_it.027.i, %for.body.i ]
-  %target_cellar.1.i = phi ptr [ %target_cellar.2.i, %if.end18.i ], [ %target_cellar.028.i, %for.body.i ]
+  %target_cellar.1.i = phi ptr [ %target_cellar.2.i, %if.end18.i ], [ %target_cellar.027.i, %for.body.i ]
+  %list_it.0.i = phi ptr [ %12, %if.end18.i ], [ %source_it.028.i, %for.body.i ]
   %m_data.i = getelementptr inbounds i8, ptr %list_it.0.i, i64 8
   %6 = load ptr, ptr %m_data.i, align 8
   %m_hash.i.i.i = getelementptr inbounds i8, ptr %6, i64 16
@@ -29327,8 +29327,8 @@ if.end18.i:                                       ; preds = %if.end.i, %if.then1
   br i1 %cmp20.not.i, label %for.inc.i, label %do.body.i, !llvm.loop !138
 
 for.inc.i:                                        ; preds = %if.end18.i, %for.body.i
-  %target_cellar.3.i = phi ptr [ %target_cellar.028.i, %for.body.i ], [ %target_cellar.2.i, %if.end18.i ]
-  %incdec.ptr22.i = getelementptr inbounds i8, ptr %source_it.027.i, i64 16
+  %target_cellar.3.i = phi ptr [ %target_cellar.027.i, %for.body.i ], [ %target_cellar.2.i, %if.end18.i ]
+  %incdec.ptr22.i = getelementptr inbounds i8, ptr %source_it.028.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr22.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN10chashtableIPN10polynomial8monomialENS1_9hash_procENS1_7eq_procEE10copy_tableEPNS5_4cellEjjS7_jjRj.exit, label %for.body.i, !llvm.loop !139
 
@@ -30147,8 +30147,8 @@ do.body.preheader.i:                              ; preds = %if.then.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end14.i, %do.body.preheader.i
-  %prev.0.i = phi ptr [ %c.0.i, %if.end14.i ], [ null, %do.body.preheader.i ]
   %c.0.i = phi ptr [ %43, %if.end14.i ], [ %add.ptr.i, %do.body.preheader.i ]
+  %prev.0.i = phi ptr [ %c.0.i, %if.end14.i ], [ null, %do.body.preheader.i ]
   %m_data.i = getelementptr inbounds i8, ptr %c.0.i, i64 8
   %24 = load ptr, ptr %m_data.i, align 8
   %m_size.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 12
@@ -30993,8 +30993,8 @@ do.body.preheader:                                ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %if.end14
-  %prev.0 = phi ptr [ %c.0, %if.end14 ], [ null, %do.body.preheader ]
   %c.0 = phi ptr [ %26, %if.end14 ], [ %add.ptr, %do.body.preheader ]
+  %prev.0 = phi ptr [ %c.0, %if.end14 ], [ null, %do.body.preheader ]
   %m_data = getelementptr inbounds i8, ptr %c.0, i64 8
   %6 = load ptr, ptr %m_data, align 8
   %7 = load ptr, ptr %d, align 8
@@ -36106,9 +36106,9 @@ if.end5:                                          ; preds = %if.end5.preheader, 
   %found.0166 = phi i8 [ %found.1, %if.end56 ], [ 0, %if.end5.preheader ]
   %i1.0165 = phi i32 [ %i1.2, %if.end56 ], [ 0, %if.end5.preheader ]
   %i2.0164 = phi i32 [ %i2.2, %if.end56 ], [ 0, %if.end5.preheader ]
-  %j1.0163 = phi i32 [ %j1.3, %if.end56 ], [ 0, %if.end5.preheader ]
+  %j3.0163 = phi i32 [ %j3.2, %if.end56 ], [ 0, %if.end5.preheader ]
   %j2.0162 = phi i32 [ %j2.3, %if.end56 ], [ 0, %if.end5.preheader ]
-  %j3.0161 = phi i32 [ %j3.2, %if.end56 ], [ 0, %if.end5.preheader ]
+  %j1.0161 = phi i32 [ %j1.3, %if.end56 ], [ 0, %if.end5.preheader ]
   %cmp6 = icmp eq i32 %i2.0164, %sz2
   br i1 %cmp6, label %if.then7, label %if.end20
 
@@ -36127,7 +36127,7 @@ for.body12.preheader:                             ; preds = %for.cond10.preheade
 
 for.body12:                                       ; preds = %for.body12.preheader, %for.body12
   %indvars.iv = phi i64 [ %11, %for.body12.preheader ], [ %indvars.iv.next, %for.body12 ]
-  %j1.1172 = phi i32 [ %j1.0163, %for.body12.preheader ], [ %inc17, %for.body12 ]
+  %j1.1172 = phi i32 [ %j1.0161, %for.body12.preheader ], [ %inc17, %for.body12 ]
   %arrayidx14 = getelementptr inbounds %"class.polynomial::power", ptr %pws1, i64 %indvars.iv
   %12 = load ptr, ptr %r1, align 8
   %m_powers.i98 = getelementptr inbounds i8, ptr %12, i64 20
@@ -36166,21 +36166,21 @@ if.then32:                                        ; preds = %if.then28
   %sub = sub i32 %17, %18
   %19 = load ptr, ptr %r1, align 8
   %m_powers.i107 = getelementptr inbounds i8, ptr %19, i64 20
-  %idxprom.i108 = zext i32 %j1.0163 to i64
+  %idxprom.i108 = zext i32 %j1.0161 to i64
   %arrayidx.i109 = getelementptr inbounds [0 x %"class.polynomial::power"], ptr %m_powers.i107, i64 0, i64 %idxprom.i108
   store i32 %15, ptr %arrayidx.i109, align 4
   %second3.i.i.i111 = getelementptr inbounds i8, ptr %arrayidx.i109, i64 4
   store i32 %sub, ptr %second3.i.i.i111, align 4
   %20 = load ptr, ptr %g, align 8
   %m_powers.i112 = getelementptr inbounds i8, ptr %20, i64 20
-  %idxprom.i113 = zext i32 %j3.0161 to i64
+  %idxprom.i113 = zext i32 %j3.0163 to i64
   %arrayidx.i114 = getelementptr inbounds [0 x %"class.polynomial::power"], ptr %m_powers.i112, i64 0, i64 %idxprom.i113
   %21 = load i32, ptr %arrayidx24, align 4
   store i32 %21, ptr %arrayidx.i114, align 4
   %22 = load i32, ptr %second.i106, align 4
   %second3.i.i.i116 = getelementptr inbounds i8, ptr %arrayidx.i114, i64 4
   store i32 %22, ptr %second3.i.i.i116, align 4
-  %inc33 = add i32 %j1.0163, 1
+  %inc33 = add i32 %j1.0161, 1
   br label %if.end44
 
 if.else:                                          ; preds = %if.then28
@@ -36198,7 +36198,7 @@ if.then36:                                        ; preds = %if.else
   store i32 %sub38, ptr %second3.i.i.i122, align 4
   %24 = load ptr, ptr %g, align 8
   %m_powers.i123 = getelementptr inbounds i8, ptr %24, i64 20
-  %idxprom.i124 = zext i32 %j3.0161 to i64
+  %idxprom.i124 = zext i32 %j3.0163 to i64
   %arrayidx.i125 = getelementptr inbounds [0 x %"class.polynomial::power"], ptr %m_powers.i123, i64 0, i64 %idxprom.i124
   %25 = load i32, ptr %arrayidx22, align 4
   store i32 %25, ptr %arrayidx.i125, align 4
@@ -36211,7 +36211,7 @@ if.then36:                                        ; preds = %if.else
 if.else41:                                        ; preds = %if.else
   %27 = load ptr, ptr %g, align 8
   %m_powers.i128 = getelementptr inbounds i8, ptr %27, i64 20
-  %idxprom.i129 = zext i32 %j3.0161 to i64
+  %idxprom.i129 = zext i32 %j3.0163 to i64
   %arrayidx.i130 = getelementptr inbounds [0 x %"class.polynomial::power"], ptr %m_powers.i128, i64 0, i64 %idxprom.i129
   store i32 %15, ptr %arrayidx.i130, align 4
   %28 = load i32, ptr %second.i, align 4
@@ -36220,9 +36220,9 @@ if.else41:                                        ; preds = %if.else
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then36, %if.else41, %if.then32
+  %j1.2 = phi i32 [ %inc33, %if.then32 ], [ %j1.0161, %if.then36 ], [ %j1.0161, %if.else41 ]
   %j2.2 = phi i32 [ %j2.0162, %if.then32 ], [ %inc39, %if.then36 ], [ %j2.0162, %if.else41 ]
-  %j1.2 = phi i32 [ %inc33, %if.then32 ], [ %j1.0163, %if.then36 ], [ %j1.0163, %if.else41 ]
-  %j3.1 = add i32 %j3.0161, 1
+  %j3.1 = add i32 %j3.0163, 1
   %inc45 = add i32 %i1.0165, 1
   %inc46 = add i32 %i2.0164, 1
   br label %if.end56
@@ -36234,14 +36234,14 @@ if.else47:                                        ; preds = %if.end20
 if.then49:                                        ; preds = %if.else47
   %29 = load ptr, ptr %r1, align 8
   %m_powers.i133 = getelementptr inbounds i8, ptr %29, i64 20
-  %idxprom.i134 = zext i32 %j1.0163 to i64
+  %idxprom.i134 = zext i32 %j1.0161 to i64
   %arrayidx.i135 = getelementptr inbounds [0 x %"class.polynomial::power"], ptr %m_powers.i133, i64 0, i64 %idxprom.i134
   store i32 %15, ptr %arrayidx.i135, align 4
   %second.i.i.i136 = getelementptr inbounds i8, ptr %arrayidx22, i64 4
   %30 = load i32, ptr %second.i.i.i136, align 4
   %second3.i.i.i137 = getelementptr inbounds i8, ptr %arrayidx.i135, i64 4
   store i32 %30, ptr %second3.i.i.i137, align 4
-  %inc50 = add i32 %j1.0163, 1
+  %inc50 = add i32 %j1.0161, 1
   %inc51 = add i32 %i1.0165, 1
   br label %if.end56
 
@@ -36260,9 +36260,9 @@ if.else52:                                        ; preds = %if.else47
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then49, %if.else52, %if.end44
-  %j3.2 = phi i32 [ %j3.1, %if.end44 ], [ %j3.0161, %if.then49 ], [ %j3.0161, %if.else52 ]
+  %j1.3 = phi i32 [ %j1.2, %if.end44 ], [ %inc50, %if.then49 ], [ %j1.0161, %if.else52 ]
   %j2.3 = phi i32 [ %j2.2, %if.end44 ], [ %j2.0162, %if.then49 ], [ %inc53, %if.else52 ]
-  %j1.3 = phi i32 [ %j1.2, %if.end44 ], [ %inc50, %if.then49 ], [ %j1.0163, %if.else52 ]
+  %j3.2 = phi i32 [ %j3.1, %if.end44 ], [ %j3.0163, %if.then49 ], [ %j3.0163, %if.else52 ]
   %i2.2 = phi i32 [ %inc46, %if.end44 ], [ %i2.0164, %if.then49 ], [ %inc54, %if.else52 ]
   %i1.2 = phi i32 [ %inc45, %if.end44 ], [ %inc51, %if.then49 ], [ %i1.0165, %if.else52 ]
   %found.1 = phi i8 [ 1, %if.end44 ], [ %found.0166, %if.then49 ], [ %found.0166, %if.else52 ]
@@ -36270,9 +36270,9 @@ if.end56:                                         ; preds = %if.then49, %if.else
   br i1 %cmp, label %if.then, label %if.end5, !llvm.loop !192
 
 return.sink.split:                                ; preds = %for.body, %for.body12, %for.cond10.preheader, %for.cond.preheader
-  %j1.1.lcssa.sink = phi i32 [ %j1.3, %for.cond.preheader ], [ %j1.0163, %for.cond10.preheader ], [ %inc17, %for.body12 ], [ %j1.3, %for.body ]
+  %j1.1.lcssa.sink = phi i32 [ %j1.3, %for.cond.preheader ], [ %j1.0161, %for.cond10.preheader ], [ %inc17, %for.body12 ], [ %j1.3, %for.body ]
   %j2.0162.lcssa.sink = phi i32 [ %j2.3, %for.cond.preheader ], [ %j2.0162, %for.cond10.preheader ], [ %j2.0162, %for.body12 ], [ %inc4, %for.body ]
-  %j3.0161.lcssa.sink = phi i32 [ %j3.2, %for.cond.preheader ], [ %j3.0161, %for.cond10.preheader ], [ %j3.0161, %for.body12 ], [ %j3.2, %for.body ]
+  %j3.0163.lcssa.sink = phi i32 [ %j3.2, %for.cond.preheader ], [ %j3.0163, %for.cond10.preheader ], [ %j3.0163, %for.body12 ], [ %j3.2, %for.body ]
   %33 = load ptr, ptr %r1, align 8
   %m_size.i103 = getelementptr inbounds i8, ptr %33, i64 12
   store i32 %j1.1.lcssa.sink, ptr %m_size.i103, align 4
@@ -36281,7 +36281,7 @@ return.sink.split:                                ; preds = %for.body, %for.body
   store i32 %j2.0162.lcssa.sink, ptr %m_size.i104, align 4
   %35 = load ptr, ptr %g, align 8
   %m_size.i105 = getelementptr inbounds i8, ptr %35, i64 12
-  store i32 %j3.0161.lcssa.sink, ptr %m_size.i105, align 4
+  store i32 %j3.0163.lcssa.sink, ptr %m_size.i105, align 4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZN10polynomial12tmp_monomial7reserveEj.exit95, %if.then7, %if.then
@@ -36666,7 +36666,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK6vectorIPN10pol
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %j.037 = phi i32 [ 0, %for.body.lr.ph ], [ %j.1, %for.inc ]
+  %j.036 = phi i32 [ 0, %for.body.lr.ph ], [ %j.1, %for.inc ]
   %3 = load ptr, ptr %m_tmp_ms, align 8
   %arrayidx.i16 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx.i16, align 8
@@ -36695,7 +36695,7 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %14 = zext i32 %j.037 to i64
+  %14 = zext i32 %j.036 to i64
   %cmp11.not = icmp eq i64 %indvars.iv, %14
   br i1 %cmp11.not, label %if.end, label %if.then12
 
@@ -36742,11 +36742,11 @@ if.then12:                                        ; preds = %if.else
   br label %if.end
 
 if.end:                                           ; preds = %if.then12, %if.else
-  %inc = add i32 %j.037, 1
+  %inc = add i32 %j.036, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %if.end
-  %j.1 = phi i32 [ %j.037, %if.then ], [ %inc, %if.end ]
+  %j.1 = phi i32 [ %j.036, %if.then ], [ %inc, %if.end ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !193
@@ -44563,8 +44563,8 @@ do.body.preheader.i:                              ; preds = %if.then.i624
   br label %do.body.i682
 
 do.body.i682:                                     ; preds = %if.end14.i, %do.body.preheader.i
-  %prev.0.i = phi ptr [ %c.0.i, %if.end14.i ], [ null, %do.body.preheader.i ]
   %c.0.i = phi ptr [ %160, %if.end14.i ], [ %add.ptr.i, %do.body.preheader.i ]
+  %prev.0.i = phi ptr [ %c.0.i, %if.end14.i ], [ null, %do.body.preheader.i ]
   %m_data.i = getelementptr inbounds i8, ptr %c.0.i, i64 8
   %141 = load ptr, ptr %m_data.i, align 8
   %m_size.i.i.i.i = getelementptr inbounds i8, ptr %141, i64 12
@@ -45035,9 +45035,9 @@ do.body.preheader.i738:                           ; preds = %if.then.i641
   br label %do.body.i740
 
 do.body.i740:                                     ; preds = %if.end14.i747, %do.body.preheader.i738
-  %prev.0.i741 = phi ptr [ %c.0.i742, %if.end14.i747 ], [ null, %do.body.preheader.i738 ]
-  %c.0.i742 = phi ptr [ %235, %if.end14.i747 ], [ %add.ptr.i735, %do.body.preheader.i738 ]
-  %m_data.i743 = getelementptr inbounds i8, ptr %c.0.i742, i64 8
+  %c.0.i741 = phi ptr [ %235, %if.end14.i747 ], [ %add.ptr.i735, %do.body.preheader.i738 ]
+  %prev.0.i742 = phi ptr [ %c.0.i741, %if.end14.i747 ], [ null, %do.body.preheader.i738 ]
+  %m_data.i743 = getelementptr inbounds i8, ptr %c.0.i741, i64 8
   %216 = load ptr, ptr %m_data.i743, align 8
   %m_size.i.i.i.i744 = getelementptr inbounds i8, ptr %216, i64 12
   %217 = load i32, ptr %m_size.i.i.i.i744, align 4
@@ -45083,8 +45083,8 @@ if.then4.i772:                                    ; preds = %for.cond.preheader.
   %226 = load i32, ptr %m_size.i773, align 4
   %dec.i774 = add i32 %226, -1
   store i32 %dec.i774, ptr %m_size.i773, align 4
-  %cmp.i775 = icmp eq ptr %prev.0.i741, null
-  %227 = load ptr, ptr %c.0.i742, align 8
+  %cmp.i775 = icmp eq ptr %prev.0.i742, null
+  %227 = load ptr, ptr %c.0.i741, align 8
   br i1 %cmp.i775, label %if.then5.i778, label %if.else10.i776
 
 if.then5.i778:                                    ; preds = %if.then4.i772
@@ -45096,15 +45096,15 @@ if.then7.i782:                                    ; preds = %if.then5.i778
   %228 = load i32, ptr %m_used_slots.i783, align 8
   %dec8.i784 = add i32 %228, -1
   store i32 %dec8.i784, ptr %m_used_slots.i783, align 8
-  %229 = load ptr, ptr %c.0.i742, align 8
+  %229 = load ptr, ptr %c.0.i741, align 8
   %230 = ptrtoint ptr %229 to i64
   %or.i.i785 = or i64 %230, 1
   %231 = inttoptr i64 %or.i.i785 to ptr
-  store ptr %231, ptr %c.0.i742, align 8
+  store ptr %231, ptr %c.0.i741, align 8
   br label %.noexc666
 
 if.else.i780:                                     ; preds = %if.then5.i778
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.0.i742, ptr noundef nonnull align 8 dereferenceable(16) %227, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.0.i741, ptr noundef nonnull align 8 dereferenceable(16) %227, i64 16, i1 false)
   %m_free_cell.i.i781 = getelementptr inbounds i8, ptr %208, i64 72
   %232 = load ptr, ptr %m_free_cell.i.i781, align 8
   store ptr %232, ptr %227, align 8
@@ -45112,18 +45112,18 @@ if.else.i780:                                     ; preds = %if.then5.i778
   br label %.noexc666
 
 if.else10.i776:                                   ; preds = %if.then4.i772
-  store ptr %227, ptr %prev.0.i741, align 8
+  store ptr %227, ptr %prev.0.i742, align 8
   %m_free_cell.i15.i777 = getelementptr inbounds i8, ptr %208, i64 72
   %233 = load ptr, ptr %m_free_cell.i15.i777, align 8
-  store ptr %233, ptr %c.0.i742, align 8
-  store ptr %c.0.i742, ptr %m_free_cell.i15.i777, align 8
+  store ptr %233, ptr %c.0.i741, align 8
+  store ptr %c.0.i741, ptr %m_free_cell.i15.i777, align 8
   br label %.noexc666
 
 if.end14.i747:                                    ; preds = %for.body.i.i.i760, %lor.lhs.false.i.i.i750, %do.body.i740
   %234 = load i32, ptr %m_collisions.i739, align 8
   %inc.i748 = add i32 %234, 1
   store i32 %inc.i748, ptr %m_collisions.i739, align 8
-  %235 = load ptr, ptr %c.0.i742, align 8
+  %235 = load ptr, ptr %c.0.i741, align 8
   %cmp16.not.i749 = icmp eq ptr %235, null
   br i1 %cmp16.not.i749, label %.noexc666, label %do.body.i740, !llvm.loop !143
 
@@ -46213,8 +46213,8 @@ while.body.i:                                     ; preds = %_ZSt10__pop_heapIPN
   br i1 %cmp25.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i, %while.body.i.i.i
-  %__holeIndex.addr.026.i.i.i = phi i64 [ %spec.select.i.i.i, %while.body.i.i.i ], [ 0, %while.body.i ]
-  %add.i.i.i = shl i64 %__holeIndex.addr.026.i.i.i, 1
+  %__secondChild.026.i.i.i = phi i64 [ %spec.select.i.i.i, %while.body.i.i.i ], [ 0, %while.body.i ]
+  %add.i.i.i = shl i64 %__secondChild.026.i.i.i, 1
   %mul.i.i.i = add i64 %add.i.i.i, 2
   %add.ptr.i.i.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %mul.i.i.i
   %sub1.i.i.i = or disjoint i64 %add.i.i.i, 1
@@ -46224,14 +46224,14 @@ while.body.i.i.i:                                 ; preds = %while.body.i, %whil
   %cmp.i.i.i.i.i = icmp ult i32 %2, %3
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %sub1.i.i.i, i64 %mul.i.i.i
   %add.ptr3.i.i.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %spec.select.i.i.i
-  %add.ptr4.i.i.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__holeIndex.addr.026.i.i.i
+  %add.ptr4.i.i.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__secondChild.026.i.i.i
   %4 = load <2 x i32>, ptr %add.ptr3.i.i.i, align 4
   store <2 x i32> %4, ptr %add.ptr4.i.i.i, align 4
   %cmp.i.i.i = icmp slt i64 %spec.select.i.i.i, %div.i.i.i
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !217
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %while.body.i
-  %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ 0, %while.body.i ], [ %spec.select.i.i.i, %while.body.i.i.i ]
+  %__secondChild.0.lcssa.i.i.i = phi i64 [ 0, %while.body.i ], [ %spec.select.i.i.i, %while.body.i.i.i ]
   %5 = and i64 %sub.ptr.sub.i.i, 8
   %cmp6.i.i.i = icmp eq i64 %5, 0
   br i1 %cmp6.i.i.i, label %land.lhs.true.i.i.i, label %if.end18.i.i.i
@@ -46239,20 +46239,20 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
 land.lhs.true.i.i.i:                              ; preds = %while.end.i.i.i
   %sub7.i.i.i = add nsw i64 %sub.ptr.div.i.i, -2
   %div8.i.i.i = ashr exact i64 %sub7.i.i.i, 1
-  %cmp9.i.i.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i, %div8.i.i.i
+  %cmp9.i.i.i = icmp eq i64 %__secondChild.0.lcssa.i.i.i, %div8.i.i.i
   br i1 %cmp9.i.i.i, label %if.then10.i.i.i, label %if.end18.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %add11.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i, 1
+  %add11.i.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i.i, 1
   %sub13.i.i.i = or disjoint i64 %add11.i.i.i, 1
   %add.ptr14.i.i.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %sub13.i.i.i
-  %add.ptr15.i.i.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i
+  %add.ptr15.i.i.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__secondChild.0.lcssa.i.i.i
   %6 = load <2 x i32>, ptr %add.ptr14.i.i.i, align 4
   store <2 x i32> %6, ptr %add.ptr15.i.i.i, align 4
   br label %if.end18.i.i.i
 
 if.end18.i.i.i:                                   ; preds = %if.then10.i.i.i, %land.lhs.true.i.i.i, %while.end.i.i.i
-  %__holeIndex.addr.1.i.i.i = phi i64 [ %sub13.i.i.i, %if.then10.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i, %land.lhs.true.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i, %while.end.i.i.i ]
+  %__holeIndex.addr.1.i.i.i = phi i64 [ %sub13.i.i.i, %if.then10.i.i.i ], [ %__secondChild.0.lcssa.i.i.i, %land.lhs.true.i.i.i ], [ %__secondChild.0.lcssa.i.i.i, %while.end.i.i.i ]
   %__value.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %__value.sroa.0.0.copyload.i.i to i32
   %cmp15.i.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i, 0
   br i1 %cmp15.i.i.i.i, label %land.rhs.i.i.i.i, label %_ZSt10__pop_heapIPN10polynomial5powerEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_6lt_varEEEEvT_S8_S8_RT0_.exit.i
@@ -46488,8 +46488,8 @@ if.then.us:                                       ; preds = %for.body.us
   br label %while.body.i.i.us
 
 while.body.i.i.us:                                ; preds = %if.then.us, %while.body.i.i.us
-  %__holeIndex.addr.026.i.i.us = phi i64 [ %spec.select.i.i.us, %while.body.i.i.us ], [ 0, %if.then.us ]
-  %add.i.i.us = shl i64 %__holeIndex.addr.026.i.i.us, 1
+  %__secondChild.026.i.i.us = phi i64 [ %spec.select.i.i.us, %while.body.i.i.us ], [ 0, %if.then.us ]
+  %add.i.i.us = shl i64 %__secondChild.026.i.i.us, 1
   %mul.i.i.us = add i64 %add.i.i.us, 2
   %add.ptr.i.i.us = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %mul.i.i.us
   %sub1.i.i.us = or disjoint i64 %add.i.i.us, 1
@@ -46499,7 +46499,7 @@ while.body.i.i.us:                                ; preds = %if.then.us, %while.
   %cmp.i.i.i.i.us = icmp ult i32 %4, %5
   %spec.select.i.i.us = select i1 %cmp.i.i.i.i.us, i64 %sub1.i.i.us, i64 %mul.i.i.us
   %add.ptr3.i.i.us = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %spec.select.i.i.us
-  %add.ptr4.i.i.us = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__holeIndex.addr.026.i.i.us
+  %add.ptr4.i.i.us = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__secondChild.026.i.i.us
   %6 = load <2 x i32>, ptr %add.ptr3.i.i.us, align 4
   store <2 x i32> %6, ptr %add.ptr4.i.i.us, align 4
   %cmp.i.i8.us = icmp slt i64 %spec.select.i.i.us, %div.i.i
@@ -46693,8 +46693,8 @@ if.end.split:                                     ; preds = %entry
   br i1 %cmp25.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
-  %__holeIndex.addr.026.i = phi i64 [ %spec.select.i, %while.body.i ], [ %div13, %if.end.split ]
-  %add.i = shl i64 %__holeIndex.addr.026.i, 1
+  %__secondChild.026.i = phi i64 [ %spec.select.i, %while.body.i ], [ %div13, %if.end.split ]
+  %add.i = shl i64 %__secondChild.026.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -46704,32 +46704,32 @@ while.body.i:                                     ; preds = %if.end.split, %whil
   %cmp.i.i.i = icmp ult i32 %0, %1
   %spec.select.i = select i1 %cmp.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__holeIndex.addr.026.i
+  %add.ptr4.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__secondChild.026.i
   %2 = load <2 x i32>, ptr %add.ptr3.i, align 4
   store <2 x i32> %2, ptr %add.ptr4.i, align 4
   %cmp.i = icmp slt i64 %spec.select.i, %div.i6769
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !217
 
 while.end.i:                                      ; preds = %while.body.i, %if.end.split
-  %__holeIndex.addr.0.lcssa.i = phi i64 [ %div13, %if.end.split ], [ %spec.select.i, %while.body.i ]
+  %__secondChild.0.lcssa.i = phi i64 [ %div13, %if.end.split ], [ %spec.select.i, %while.body.i ]
   %3 = and i64 %sub.ptr.sub, 8
   %cmp6.i = icmp eq i64 %3, 0
   %div8.i = ashr exact i64 %sub, 1
-  %cmp9.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i, %div8.i
+  %cmp9.i = icmp eq i64 %__secondChild.0.lcssa.i, %div8.i
   %or.cond = select i1 %cmp6.i, i1 %cmp9.i, i1 false
   br i1 %or.cond, label %if.then10.i, label %if.end18.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %add11.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i, 1
+  %add11.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
   %sub13.i = or disjoint i64 %add11.i, 1
   %add.ptr14.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %sub13.i
-  %add.ptr15.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr15.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__secondChild.0.lcssa.i
   %4 = load <2 x i32>, ptr %add.ptr14.i, align 4
   store <2 x i32> %4, ptr %add.ptr15.i, align 4
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then10.i, %while.end.i
-  %__holeIndex.addr.1.i = phi i64 [ %sub13.i, %if.then10.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
+  %__holeIndex.addr.1.i = phi i64 [ %sub13.i, %if.then10.i ], [ %__secondChild.0.lcssa.i, %while.end.i ]
   %__value.sroa.0.0.extract.trunc.i.i = trunc i64 %__value.sroa.0.0.copyload10 to i32
   %cmp15.i.i = icmp sgt i64 %__holeIndex.addr.1.i, %div13
   br i1 %cmp15.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN10polynomial5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_6lt_varEEEEvT_T0_S9_T1_T2_.exit
@@ -46786,8 +46786,8 @@ while.end.i17.us.thread:                          ; preds = %if.end8.split.us
   br label %_ZSt13__adjust_heapIPN10polynomial5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_6lt_varEEEEvT_T0_S9_T1_T2_.exit66.us
 
 while.body.i52.us:                                ; preds = %if.end8.split.us, %while.body.i52.us
-  %__holeIndex.addr.026.i53.us = phi i64 [ %spec.select.i60.us, %while.body.i52.us ], [ %dec.us, %if.end8.split.us ]
-  %add.i54.us = shl i64 %__holeIndex.addr.026.i53.us, 1
+  %__secondChild.026.i53.us = phi i64 [ %spec.select.i60.us, %while.body.i52.us ], [ %dec.us, %if.end8.split.us ]
+  %add.i54.us = shl i64 %__secondChild.026.i53.us, 1
   %mul.i55.us = add i64 %add.i54.us, 2
   %add.ptr.i56.us = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %mul.i55.us
   %sub1.i57.us = or disjoint i64 %add.i54.us, 1
@@ -46797,7 +46797,7 @@ while.body.i52.us:                                ; preds = %if.end8.split.us, %
   %cmp.i.i.i59.us = icmp ult i32 %7, %8
   %spec.select.i60.us = select i1 %cmp.i.i.i59.us, i64 %sub1.i57.us, i64 %mul.i55.us
   %add.ptr3.i61.us = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %spec.select.i60.us
-  %add.ptr4.i62.us = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__holeIndex.addr.026.i53.us
+  %add.ptr4.i62.us = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__secondChild.026.i53.us
   %9 = load <2 x i32>, ptr %add.ptr3.i61.us, align 4
   store <2 x i32> %9, ptr %add.ptr4.i62.us, align 4
   %cmp.i65.us = icmp slt i64 %spec.select.i60.us, %div.i6769
@@ -46848,8 +46848,8 @@ if.end8.split:                                    ; preds = %if.end8.split.prehe
   br i1 %cmp25.i16.not, label %while.end.i17, label %while.body.i52
 
 while.body.i52:                                   ; preds = %if.end8.split, %while.body.i52
-  %__holeIndex.addr.026.i53 = phi i64 [ %spec.select.i60, %while.body.i52 ], [ %dec, %if.end8.split ]
-  %add.i54 = shl i64 %__holeIndex.addr.026.i53, 1
+  %__secondChild.026.i53 = phi i64 [ %spec.select.i60, %while.body.i52 ], [ %dec, %if.end8.split ]
+  %add.i54 = shl i64 %__secondChild.026.i53, 1
   %mul.i55 = add i64 %add.i54, 2
   %add.ptr.i56 = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %mul.i55
   %sub1.i57 = or disjoint i64 %add.i54, 1
@@ -46859,15 +46859,15 @@ while.body.i52:                                   ; preds = %if.end8.split, %whi
   %cmp.i.i.i59 = icmp ult i32 %12, %13
   %spec.select.i60 = select i1 %cmp.i.i.i59, i64 %sub1.i57, i64 %mul.i55
   %add.ptr3.i61 = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %spec.select.i60
-  %add.ptr4.i62 = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__holeIndex.addr.026.i53
+  %add.ptr4.i62 = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__secondChild.026.i53
   %14 = load <2 x i32>, ptr %add.ptr3.i61, align 4
   store <2 x i32> %14, ptr %add.ptr4.i62, align 4
   %cmp.i65 = icmp slt i64 %spec.select.i60, %div.i6769
   br i1 %cmp.i65, label %while.body.i52, label %while.end.i17, !llvm.loop !217
 
 while.end.i17:                                    ; preds = %while.body.i52, %if.end8.split
-  %__holeIndex.addr.0.lcssa.i18 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i60, %while.body.i52 ]
-  %cmp9.i44 = icmp eq i64 %__holeIndex.addr.0.lcssa.i18, %div8.i
+  %__secondChild.0.lcssa.i18 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i60, %while.body.i52 ]
+  %cmp9.i44 = icmp eq i64 %__secondChild.0.lcssa.i18, %div8.i
   br i1 %cmp9.i44, label %if.then10.i45, label %if.end18.i21
 
 if.then10.i45:                                    ; preds = %while.end.i17
@@ -46876,7 +46876,7 @@ if.then10.i45:                                    ; preds = %while.end.i17
   br label %if.end18.i21
 
 if.end18.i21:                                     ; preds = %if.then10.i45, %while.end.i17
-  %__holeIndex.addr.1.i22 = phi i64 [ %sub13.i47, %if.then10.i45 ], [ %__holeIndex.addr.0.lcssa.i18, %while.end.i17 ]
+  %__holeIndex.addr.1.i22 = phi i64 [ %sub13.i47, %if.then10.i45 ], [ %__secondChild.0.lcssa.i18, %while.end.i17 ]
   %__value.sroa.0.0.extract.trunc.i.i23 = trunc i64 %__value.sroa.0.0.copyload12 to i32
   %cmp15.i.i24.not = icmp slt i64 %__holeIndex.addr.1.i22, %__parent.071
   br i1 %cmp15.i.i24.not, label %_ZSt13__adjust_heapIPN10polynomial5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_6lt_varEEEEvT_T0_S9_T1_T2_.exit66, label %land.rhs.i.i30
@@ -51185,8 +51185,8 @@ while.body.i:                                     ; preds = %_ZSt10__pop_heapIPN
   br i1 %cmp25.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i, %while.body.i.i.i
-  %__holeIndex.addr.026.i.i.i = phi i64 [ %spec.select.i.i.i, %while.body.i.i.i ], [ 0, %while.body.i ]
-  %add.i.i.i = shl i64 %__holeIndex.addr.026.i.i.i, 1
+  %__secondChild.026.i.i.i = phi i64 [ %spec.select.i.i.i, %while.body.i.i.i ], [ 0, %while.body.i ]
+  %add.i.i.i = shl i64 %__secondChild.026.i.i.i, 1
   %mul.i.i.i = add i64 %add.i.i.i, 2
   %sub1.i.i.i = or disjoint i64 %add.i.i.i, 1
   %second.i.i.i.i.i.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %mul.i.i.i, i32 0, i32 1
@@ -51196,14 +51196,14 @@ while.body.i.i.i:                                 ; preds = %while.body.i, %whil
   %cmp.i.i.i.i.i = icmp ult i32 %2, %3
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %sub1.i.i.i, i64 %mul.i.i.i
   %add.ptr3.i.i.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %spec.select.i.i.i
-  %add.ptr4.i.i.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__holeIndex.addr.026.i.i.i
+  %add.ptr4.i.i.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__secondChild.026.i.i.i
   %4 = load <2 x i32>, ptr %add.ptr3.i.i.i, align 4
   store <2 x i32> %4, ptr %add.ptr4.i.i.i, align 4
   %cmp.i.i.i = icmp slt i64 %spec.select.i.i.i, %div.i.i.i
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !237
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %while.body.i
-  %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ 0, %while.body.i ], [ %spec.select.i.i.i, %while.body.i.i.i ]
+  %__secondChild.0.lcssa.i.i.i = phi i64 [ 0, %while.body.i ], [ %spec.select.i.i.i, %while.body.i.i.i ]
   %5 = and i64 %sub.ptr.sub.i.i, 8
   %cmp6.i.i.i = icmp eq i64 %5, 0
   br i1 %cmp6.i.i.i, label %land.lhs.true.i.i.i, label %if.end18.i.i.i
@@ -51211,20 +51211,20 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
 land.lhs.true.i.i.i:                              ; preds = %while.end.i.i.i
   %sub7.i.i.i = add nsw i64 %sub.ptr.div.i.i, -2
   %div8.i.i.i = ashr exact i64 %sub7.i.i.i, 1
-  %cmp9.i.i.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i, %div8.i.i.i
+  %cmp9.i.i.i = icmp eq i64 %__secondChild.0.lcssa.i.i.i, %div8.i.i.i
   br i1 %cmp9.i.i.i, label %if.then10.i.i.i, label %if.end18.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
-  %add11.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i, 1
+  %add11.i.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i.i, 1
   %sub13.i.i.i = or disjoint i64 %add11.i.i.i, 1
   %add.ptr14.i.i.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %sub13.i.i.i
-  %add.ptr15.i.i.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i
+  %add.ptr15.i.i.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__secondChild.0.lcssa.i.i.i
   %6 = load <2 x i32>, ptr %add.ptr14.i.i.i, align 4
   store <2 x i32> %6, ptr %add.ptr15.i.i.i, align 4
   br label %if.end18.i.i.i
 
 if.end18.i.i.i:                                   ; preds = %if.then10.i.i.i, %land.lhs.true.i.i.i, %while.end.i.i.i
-  %__holeIndex.addr.1.i.i.i = phi i64 [ %sub13.i.i.i, %if.then10.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i, %land.lhs.true.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i, %while.end.i.i.i ]
+  %__holeIndex.addr.1.i.i.i = phi i64 [ %sub13.i.i.i, %if.then10.i.i.i ], [ %__secondChild.0.lcssa.i.i.i, %land.lhs.true.i.i.i ], [ %__secondChild.0.lcssa.i.i.i, %while.end.i.i.i ]
   %__value.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %__value.sroa.0.0.copyload.i.i, 32
   %__value.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i64 %__value.sroa.2.0.extract.shift.i.i.i.i to i32
   %cmp15.i.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i, 0
@@ -51467,8 +51467,8 @@ if.then.us:                                       ; preds = %for.body.us
   br label %while.body.i.i.us
 
 while.body.i.i.us:                                ; preds = %if.then.us, %while.body.i.i.us
-  %__holeIndex.addr.026.i.i.us = phi i64 [ %spec.select.i.i.us, %while.body.i.i.us ], [ 0, %if.then.us ]
-  %add.i.i.us = shl i64 %__holeIndex.addr.026.i.i.us, 1
+  %__secondChild.026.i.i.us = phi i64 [ %spec.select.i.i.us, %while.body.i.i.us ], [ 0, %if.then.us ]
+  %add.i.i.us = shl i64 %__secondChild.026.i.i.us, 1
   %mul.i.i.us = add i64 %add.i.i.us, 2
   %sub1.i.i.us = or disjoint i64 %add.i.i.us, 1
   %second.i.i.i.i.i.us = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %mul.i.i.us, i32 0, i32 1
@@ -51478,7 +51478,7 @@ while.body.i.i.us:                                ; preds = %if.then.us, %while.
   %cmp.i.i.i.i.us = icmp ult i32 %5, %6
   %spec.select.i.i.us = select i1 %cmp.i.i.i.i.us, i64 %sub1.i.i.us, i64 %mul.i.i.us
   %add.ptr3.i.i.us = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %spec.select.i.i.us
-  %add.ptr4.i.i.us = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__holeIndex.addr.026.i.i.us
+  %add.ptr4.i.i.us = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__secondChild.026.i.i.us
   %7 = load <2 x i32>, ptr %add.ptr3.i.i.us, align 4
   store <2 x i32> %7, ptr %add.ptr4.i.i.us, align 4
   %cmp.i.i9.us = icmp slt i64 %spec.select.i.i.us, %div.i.i
@@ -51675,8 +51675,8 @@ if.end.split:                                     ; preds = %entry
   br i1 %cmp25.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
-  %__holeIndex.addr.026.i = phi i64 [ %spec.select.i, %while.body.i ], [ %div13, %if.end.split ]
-  %add.i = shl i64 %__holeIndex.addr.026.i, 1
+  %__secondChild.026.i = phi i64 [ %spec.select.i, %while.body.i ], [ %div13, %if.end.split ]
+  %add.i = shl i64 %__secondChild.026.i, 1
   %mul.i = add i64 %add.i, 2
   %sub1.i = or disjoint i64 %add.i, 1
   %second.i.i.i.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %mul.i, i32 0, i32 1
@@ -51686,32 +51686,32 @@ while.body.i:                                     ; preds = %if.end.split, %whil
   %cmp.i.i.i = icmp ult i32 %0, %1
   %spec.select.i = select i1 %cmp.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__holeIndex.addr.026.i
+  %add.ptr4.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__secondChild.026.i
   %2 = load <2 x i32>, ptr %add.ptr3.i, align 4
   store <2 x i32> %2, ptr %add.ptr4.i, align 4
   %cmp.i = icmp slt i64 %spec.select.i, %div.i6769
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !237
 
 while.end.i:                                      ; preds = %while.body.i, %if.end.split
-  %__holeIndex.addr.0.lcssa.i = phi i64 [ %div13, %if.end.split ], [ %spec.select.i, %while.body.i ]
+  %__secondChild.0.lcssa.i = phi i64 [ %div13, %if.end.split ], [ %spec.select.i, %while.body.i ]
   %3 = and i64 %sub.ptr.sub, 8
   %cmp6.i = icmp eq i64 %3, 0
   %div8.i = ashr exact i64 %sub, 1
-  %cmp9.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i, %div8.i
+  %cmp9.i = icmp eq i64 %__secondChild.0.lcssa.i, %div8.i
   %or.cond = select i1 %cmp6.i, i1 %cmp9.i, i1 false
   br i1 %or.cond, label %if.then10.i, label %if.end18.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %add11.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i, 1
+  %add11.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
   %sub13.i = or disjoint i64 %add11.i, 1
   %add.ptr14.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %sub13.i
-  %add.ptr15.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr15.i = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__secondChild.0.lcssa.i
   %4 = load <2 x i32>, ptr %add.ptr14.i, align 4
   store <2 x i32> %4, ptr %add.ptr15.i, align 4
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then10.i, %while.end.i
-  %__holeIndex.addr.1.i = phi i64 [ %sub13.i, %if.then10.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
+  %__holeIndex.addr.1.i = phi i64 [ %sub13.i, %if.then10.i ], [ %__secondChild.0.lcssa.i, %while.end.i ]
   %__value.sroa.2.0.extract.shift.i.i = lshr i64 %__value.sroa.0.0.copyload10, 32
   %__value.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %__value.sroa.2.0.extract.shift.i.i to i32
   %cmp15.i.i = icmp sgt i64 %__holeIndex.addr.1.i, %div13
@@ -51769,8 +51769,8 @@ while.end.i17.us.thread:                          ; preds = %if.end8.split.us
   br label %_ZSt13__adjust_heapIPN10polynomial5powerElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_9lt_degreeEEEEvT_T0_S9_T1_T2_.exit66.us
 
 while.body.i52.us:                                ; preds = %if.end8.split.us, %while.body.i52.us
-  %__holeIndex.addr.026.i53.us = phi i64 [ %spec.select.i60.us, %while.body.i52.us ], [ %dec.us, %if.end8.split.us ]
-  %add.i54.us = shl i64 %__holeIndex.addr.026.i53.us, 1
+  %__secondChild.026.i53.us = phi i64 [ %spec.select.i60.us, %while.body.i52.us ], [ %dec.us, %if.end8.split.us ]
+  %add.i54.us = shl i64 %__secondChild.026.i53.us, 1
   %mul.i55.us = add i64 %add.i54.us, 2
   %sub1.i56.us = or disjoint i64 %add.i54.us, 1
   %second.i.i.i.i57.us = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %mul.i55.us, i32 0, i32 1
@@ -51780,7 +51780,7 @@ while.body.i52.us:                                ; preds = %if.end8.split.us, %
   %cmp.i.i.i59.us = icmp ult i32 %7, %8
   %spec.select.i60.us = select i1 %cmp.i.i.i59.us, i64 %sub1.i56.us, i64 %mul.i55.us
   %add.ptr3.i61.us = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %spec.select.i60.us
-  %add.ptr4.i62.us = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__holeIndex.addr.026.i53.us
+  %add.ptr4.i62.us = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__secondChild.026.i53.us
   %9 = load <2 x i32>, ptr %add.ptr3.i61.us, align 4
   store <2 x i32> %9, ptr %add.ptr4.i62.us, align 4
   %cmp.i65.us = icmp slt i64 %spec.select.i60.us, %div.i6769
@@ -51831,8 +51831,8 @@ if.end8.split:                                    ; preds = %if.end8.split.prehe
   br i1 %cmp25.i16.not, label %while.end.i17, label %while.body.i52
 
 while.body.i52:                                   ; preds = %if.end8.split, %while.body.i52
-  %__holeIndex.addr.026.i53 = phi i64 [ %spec.select.i60, %while.body.i52 ], [ %dec, %if.end8.split ]
-  %add.i54 = shl i64 %__holeIndex.addr.026.i53, 1
+  %__secondChild.026.i53 = phi i64 [ %spec.select.i60, %while.body.i52 ], [ %dec, %if.end8.split ]
+  %add.i54 = shl i64 %__secondChild.026.i53, 1
   %mul.i55 = add i64 %add.i54, 2
   %sub1.i56 = or disjoint i64 %add.i54, 1
   %second.i.i.i.i57 = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %mul.i55, i32 0, i32 1
@@ -51842,15 +51842,15 @@ while.body.i52:                                   ; preds = %if.end8.split, %whi
   %cmp.i.i.i59 = icmp ult i32 %12, %13
   %spec.select.i60 = select i1 %cmp.i.i.i59, i64 %sub1.i56, i64 %mul.i55
   %add.ptr3.i61 = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %spec.select.i60
-  %add.ptr4.i62 = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__holeIndex.addr.026.i53
+  %add.ptr4.i62 = getelementptr inbounds %"class.polynomial::power", ptr %__first, i64 %__secondChild.026.i53
   %14 = load <2 x i32>, ptr %add.ptr3.i61, align 4
   store <2 x i32> %14, ptr %add.ptr4.i62, align 4
   %cmp.i65 = icmp slt i64 %spec.select.i60, %div.i6769
   br i1 %cmp.i65, label %while.body.i52, label %while.end.i17, !llvm.loop !237
 
 while.end.i17:                                    ; preds = %while.body.i52, %if.end8.split
-  %__holeIndex.addr.0.lcssa.i18 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i60, %while.body.i52 ]
-  %cmp9.i44 = icmp eq i64 %__holeIndex.addr.0.lcssa.i18, %div8.i
+  %__secondChild.0.lcssa.i18 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i60, %while.body.i52 ]
+  %cmp9.i44 = icmp eq i64 %__secondChild.0.lcssa.i18, %div8.i
   br i1 %cmp9.i44, label %if.then10.i45, label %if.end18.i21
 
 if.then10.i45:                                    ; preds = %while.end.i17
@@ -51859,7 +51859,7 @@ if.then10.i45:                                    ; preds = %while.end.i17
   br label %if.end18.i21
 
 if.end18.i21:                                     ; preds = %if.then10.i45, %while.end.i17
-  %__holeIndex.addr.1.i22 = phi i64 [ %sub13.i47, %if.then10.i45 ], [ %__holeIndex.addr.0.lcssa.i18, %while.end.i17 ]
+  %__holeIndex.addr.1.i22 = phi i64 [ %sub13.i47, %if.then10.i45 ], [ %__secondChild.0.lcssa.i18, %while.end.i17 ]
   %__value.sroa.2.0.extract.shift.i.i23 = lshr i64 %__value.sroa.0.0.copyload12, 32
   %__value.sroa.2.0.extract.trunc.i.i24 = trunc nuw i64 %__value.sroa.2.0.extract.shift.i.i23 to i32
   %cmp15.i.i25.not = icmp slt i64 %__holeIndex.addr.1.i22, %__parent.071
@@ -52845,7 +52845,7 @@ for.body74.lr.ph:                                 ; preds = %invoke.cont67
 
 for.body74:                                       ; preds = %for.body74.lr.ph, %for.inc101
   %indvars.iv908 = phi i64 [ 0, %for.body74.lr.ph ], [ %indvars.iv.next909, %for.inc101 ]
-  %num_unmarked.0888 = phi i32 [ 0, %for.body74.lr.ph ], [ %num_unmarked.1, %for.inc101 ]
+  %num_unmarked.0887 = phi i32 [ 0, %for.body74.lr.ph ], [ %num_unmarked.1, %for.inc101 ]
   %105 = load ptr, ptr %m_ms.i.i130939, align 8
   %arrayidx.i258 = getelementptr inbounds ptr, ptr %105, i64 %indvars.iv908
   %106 = load ptr, ptr %arrayidx.i258, align 8
@@ -53134,7 +53134,7 @@ invoke.cont91:                                    ; preds = %for.body.preheader.
   br i1 %cmp93, label %if.then94, label %for.inc101
 
 if.then94:                                        ; preds = %invoke.cont91
-  %inc95 = add i32 %num_unmarked.0888, 1
+  %inc95 = add i32 %num_unmarked.0887, 1
   %134 = load ptr, ptr %tmp_m, align 8
   %m_id.i.i360 = getelementptr inbounds i8, ptr %134, i64 4
   %135 = load i32, ptr %m_id.i.i360, align 4
@@ -53144,7 +53144,7 @@ if.then94:                                        ; preds = %invoke.cont91
   br label %for.inc101
 
 for.inc101:                                       ; preds = %if.end25.i.i291, %for.cond.i.i297, %for.body74, %_ZNK10polynomial8monomial8index_ofEj.exit.i280, %if.then94, %invoke.cont91, %invoke.cont79
-  %num_unmarked.1 = phi i32 [ %num_unmarked.0888, %invoke.cont79 ], [ %inc95, %if.then94 ], [ %num_unmarked.0888, %invoke.cont91 ], [ %num_unmarked.0888, %_ZNK10polynomial8monomial8index_ofEj.exit.i280 ], [ %num_unmarked.0888, %for.body74 ], [ %num_unmarked.0888, %for.cond.i.i297 ], [ %num_unmarked.0888, %if.end25.i.i291 ]
+  %num_unmarked.1 = phi i32 [ %num_unmarked.0887, %invoke.cont79 ], [ %inc95, %if.then94 ], [ %num_unmarked.0887, %invoke.cont91 ], [ %num_unmarked.0887, %_ZNK10polynomial8monomial8index_ofEj.exit.i280 ], [ %num_unmarked.0887, %for.body74 ], [ %num_unmarked.0887, %for.cond.i.i297 ], [ %num_unmarked.0887, %if.end25.i.i291 ]
   %indvars.iv.next909 = add nuw nsw i64 %indvars.iv908, 1
   %exitcond912.not = icmp eq i64 %indvars.iv.next909, %wide.trip.count911
   br i1 %exitcond912.not, label %for.end103, label %for.body74, !llvm.loop !247
@@ -65281,9 +65281,9 @@ do.body.preheader.i571:                           ; preds = %if.then.i520
   br label %do.body.i573
 
 do.body.i573:                                     ; preds = %if.end14.i580, %do.body.preheader.i571
-  %prev.0.i574 = phi ptr [ %c.0.i575, %if.end14.i580 ], [ null, %do.body.preheader.i571 ]
-  %c.0.i575 = phi ptr [ %228, %if.end14.i580 ], [ %add.ptr.i568, %do.body.preheader.i571 ]
-  %m_data.i576 = getelementptr inbounds i8, ptr %c.0.i575, i64 8
+  %c.0.i574 = phi ptr [ %228, %if.end14.i580 ], [ %add.ptr.i568, %do.body.preheader.i571 ]
+  %prev.0.i575 = phi ptr [ %c.0.i574, %if.end14.i580 ], [ null, %do.body.preheader.i571 ]
+  %m_data.i576 = getelementptr inbounds i8, ptr %c.0.i574, i64 8
   %209 = load ptr, ptr %m_data.i576, align 8
   %m_size.i.i.i.i577 = getelementptr inbounds i8, ptr %209, i64 12
   %210 = load i32, ptr %m_size.i.i.i.i577, align 4
@@ -65329,8 +65329,8 @@ if.then4.i605:                                    ; preds = %for.cond.preheader.
   %219 = load i32, ptr %m_size.i606, align 4
   %dec.i607 = add i32 %219, -1
   store i32 %dec.i607, ptr %m_size.i606, align 4
-  %cmp.i608 = icmp eq ptr %prev.0.i574, null
-  %220 = load ptr, ptr %c.0.i575, align 8
+  %cmp.i608 = icmp eq ptr %prev.0.i575, null
+  %220 = load ptr, ptr %c.0.i574, align 8
   br i1 %cmp.i608, label %if.then5.i611, label %if.else10.i609
 
 if.then5.i611:                                    ; preds = %if.then4.i605
@@ -65342,15 +65342,15 @@ if.then7.i615:                                    ; preds = %if.then5.i611
   %221 = load i32, ptr %m_used_slots.i616, align 8
   %dec8.i617 = add i32 %221, -1
   store i32 %dec8.i617, ptr %m_used_slots.i616, align 8
-  %222 = load ptr, ptr %c.0.i575, align 8
+  %222 = load ptr, ptr %c.0.i574, align 8
   %223 = ptrtoint ptr %222 to i64
   %or.i.i618 = or i64 %223, 1
   %224 = inttoptr i64 %or.i.i618 to ptr
-  store ptr %224, ptr %c.0.i575, align 8
+  store ptr %224, ptr %c.0.i574, align 8
   br label %.noexc545
 
 if.else.i613:                                     ; preds = %if.then5.i611
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.0.i575, ptr noundef nonnull align 8 dereferenceable(16) %220, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.0.i574, ptr noundef nonnull align 8 dereferenceable(16) %220, i64 16, i1 false)
   %m_free_cell.i.i614 = getelementptr inbounds i8, ptr %201, i64 72
   %225 = load ptr, ptr %m_free_cell.i.i614, align 8
   store ptr %225, ptr %220, align 8
@@ -65358,18 +65358,18 @@ if.else.i613:                                     ; preds = %if.then5.i611
   br label %.noexc545
 
 if.else10.i609:                                   ; preds = %if.then4.i605
-  store ptr %220, ptr %prev.0.i574, align 8
+  store ptr %220, ptr %prev.0.i575, align 8
   %m_free_cell.i15.i610 = getelementptr inbounds i8, ptr %201, i64 72
   %226 = load ptr, ptr %m_free_cell.i15.i610, align 8
-  store ptr %226, ptr %c.0.i575, align 8
-  store ptr %c.0.i575, ptr %m_free_cell.i15.i610, align 8
+  store ptr %226, ptr %c.0.i574, align 8
+  store ptr %c.0.i574, ptr %m_free_cell.i15.i610, align 8
   br label %.noexc545
 
 if.end14.i580:                                    ; preds = %for.body.i.i.i593, %lor.lhs.false.i.i.i583, %do.body.i573
   %227 = load i32, ptr %m_collisions.i572, align 8
   %inc.i581 = add i32 %227, 1
   store i32 %inc.i581, ptr %m_collisions.i572, align 8
-  %228 = load ptr, ptr %c.0.i575, align 8
+  %228 = load ptr, ptr %c.0.i574, align 8
   %cmp16.not.i582 = icmp eq ptr %228, null
   br i1 %cmp16.not.i582, label %.noexc545, label %do.body.i573, !llvm.loop !143
 
@@ -66964,9 +66964,9 @@ do.body.preheader.i537:                           ; preds = %if.then.i486
   br label %do.body.i539
 
 do.body.i539:                                     ; preds = %if.end14.i546, %do.body.preheader.i537
-  %prev.0.i540 = phi ptr [ %c.0.i541, %if.end14.i546 ], [ null, %do.body.preheader.i537 ]
-  %c.0.i541 = phi ptr [ %211, %if.end14.i546 ], [ %add.ptr.i534, %do.body.preheader.i537 ]
-  %m_data.i542 = getelementptr inbounds i8, ptr %c.0.i541, i64 8
+  %c.0.i540 = phi ptr [ %211, %if.end14.i546 ], [ %add.ptr.i534, %do.body.preheader.i537 ]
+  %prev.0.i541 = phi ptr [ %c.0.i540, %if.end14.i546 ], [ null, %do.body.preheader.i537 ]
+  %m_data.i542 = getelementptr inbounds i8, ptr %c.0.i540, i64 8
   %192 = load ptr, ptr %m_data.i542, align 8
   %m_size.i.i.i.i543 = getelementptr inbounds i8, ptr %192, i64 12
   %193 = load i32, ptr %m_size.i.i.i.i543, align 4
@@ -67012,8 +67012,8 @@ if.then4.i571:                                    ; preds = %for.cond.preheader.
   %202 = load i32, ptr %m_size.i572, align 4
   %dec.i573 = add i32 %202, -1
   store i32 %dec.i573, ptr %m_size.i572, align 4
-  %cmp.i574 = icmp eq ptr %prev.0.i540, null
-  %203 = load ptr, ptr %c.0.i541, align 8
+  %cmp.i574 = icmp eq ptr %prev.0.i541, null
+  %203 = load ptr, ptr %c.0.i540, align 8
   br i1 %cmp.i574, label %if.then5.i577, label %if.else10.i575
 
 if.then5.i577:                                    ; preds = %if.then4.i571
@@ -67025,15 +67025,15 @@ if.then7.i581:                                    ; preds = %if.then5.i577
   %204 = load i32, ptr %m_used_slots.i582, align 8
   %dec8.i583 = add i32 %204, -1
   store i32 %dec8.i583, ptr %m_used_slots.i582, align 8
-  %205 = load ptr, ptr %c.0.i541, align 8
+  %205 = load ptr, ptr %c.0.i540, align 8
   %206 = ptrtoint ptr %205 to i64
   %or.i.i584 = or i64 %206, 1
   %207 = inttoptr i64 %or.i.i584 to ptr
-  store ptr %207, ptr %c.0.i541, align 8
+  store ptr %207, ptr %c.0.i540, align 8
   br label %.noexc511
 
 if.else.i579:                                     ; preds = %if.then5.i577
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.0.i541, ptr noundef nonnull align 8 dereferenceable(16) %203, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.0.i540, ptr noundef nonnull align 8 dereferenceable(16) %203, i64 16, i1 false)
   %m_free_cell.i.i580 = getelementptr inbounds i8, ptr %184, i64 72
   %208 = load ptr, ptr %m_free_cell.i.i580, align 8
   store ptr %208, ptr %203, align 8
@@ -67041,18 +67041,18 @@ if.else.i579:                                     ; preds = %if.then5.i577
   br label %.noexc511
 
 if.else10.i575:                                   ; preds = %if.then4.i571
-  store ptr %203, ptr %prev.0.i540, align 8
+  store ptr %203, ptr %prev.0.i541, align 8
   %m_free_cell.i15.i576 = getelementptr inbounds i8, ptr %184, i64 72
   %209 = load ptr, ptr %m_free_cell.i15.i576, align 8
-  store ptr %209, ptr %c.0.i541, align 8
-  store ptr %c.0.i541, ptr %m_free_cell.i15.i576, align 8
+  store ptr %209, ptr %c.0.i540, align 8
+  store ptr %c.0.i540, ptr %m_free_cell.i15.i576, align 8
   br label %.noexc511
 
 if.end14.i546:                                    ; preds = %for.body.i.i.i559, %lor.lhs.false.i.i.i549, %do.body.i539
   %210 = load i32, ptr %m_collisions.i538, align 8
   %inc.i547 = add i32 %210, 1
   store i32 %inc.i547, ptr %m_collisions.i538, align 8
-  %211 = load ptr, ptr %c.0.i541, align 8
+  %211 = load ptr, ptr %c.0.i540, align 8
   %cmp16.not.i548 = icmp eq ptr %211, null
   br i1 %cmp16.not.i548, label %.noexc511, label %do.body.i539, !llvm.loop !143
 
@@ -68912,9 +68912,9 @@ do.body.preheader.i687:                           ; preds = %if.then.i636
   br label %do.body.i689
 
 do.body.i689:                                     ; preds = %if.end14.i696, %do.body.preheader.i687
-  %prev.0.i690 = phi ptr [ %c.0.i691, %if.end14.i696 ], [ null, %do.body.preheader.i687 ]
-  %c.0.i691 = phi ptr [ %254, %if.end14.i696 ], [ %add.ptr.i684, %do.body.preheader.i687 ]
-  %m_data.i692 = getelementptr inbounds i8, ptr %c.0.i691, i64 8
+  %c.0.i690 = phi ptr [ %254, %if.end14.i696 ], [ %add.ptr.i684, %do.body.preheader.i687 ]
+  %prev.0.i691 = phi ptr [ %c.0.i690, %if.end14.i696 ], [ null, %do.body.preheader.i687 ]
+  %m_data.i692 = getelementptr inbounds i8, ptr %c.0.i690, i64 8
   %235 = load ptr, ptr %m_data.i692, align 8
   %m_size.i.i.i.i693 = getelementptr inbounds i8, ptr %235, i64 12
   %236 = load i32, ptr %m_size.i.i.i.i693, align 4
@@ -68960,8 +68960,8 @@ if.then4.i721:                                    ; preds = %for.cond.preheader.
   %245 = load i32, ptr %m_size.i722, align 4
   %dec.i723 = add i32 %245, -1
   store i32 %dec.i723, ptr %m_size.i722, align 4
-  %cmp.i724 = icmp eq ptr %prev.0.i690, null
-  %246 = load ptr, ptr %c.0.i691, align 8
+  %cmp.i724 = icmp eq ptr %prev.0.i691, null
+  %246 = load ptr, ptr %c.0.i690, align 8
   br i1 %cmp.i724, label %if.then5.i727, label %if.else10.i725
 
 if.then5.i727:                                    ; preds = %if.then4.i721
@@ -68973,15 +68973,15 @@ if.then7.i731:                                    ; preds = %if.then5.i727
   %247 = load i32, ptr %m_used_slots.i732, align 8
   %dec8.i733 = add i32 %247, -1
   store i32 %dec8.i733, ptr %m_used_slots.i732, align 8
-  %248 = load ptr, ptr %c.0.i691, align 8
+  %248 = load ptr, ptr %c.0.i690, align 8
   %249 = ptrtoint ptr %248 to i64
   %or.i.i734 = or i64 %249, 1
   %250 = inttoptr i64 %or.i.i734 to ptr
-  store ptr %250, ptr %c.0.i691, align 8
+  store ptr %250, ptr %c.0.i690, align 8
   br label %.noexc661
 
 if.else.i729:                                     ; preds = %if.then5.i727
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.0.i691, ptr noundef nonnull align 8 dereferenceable(16) %246, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.0.i690, ptr noundef nonnull align 8 dereferenceable(16) %246, i64 16, i1 false)
   %m_free_cell.i.i730 = getelementptr inbounds i8, ptr %227, i64 72
   %251 = load ptr, ptr %m_free_cell.i.i730, align 8
   store ptr %251, ptr %246, align 8
@@ -68989,18 +68989,18 @@ if.else.i729:                                     ; preds = %if.then5.i727
   br label %.noexc661
 
 if.else10.i725:                                   ; preds = %if.then4.i721
-  store ptr %246, ptr %prev.0.i690, align 8
+  store ptr %246, ptr %prev.0.i691, align 8
   %m_free_cell.i15.i726 = getelementptr inbounds i8, ptr %227, i64 72
   %252 = load ptr, ptr %m_free_cell.i15.i726, align 8
-  store ptr %252, ptr %c.0.i691, align 8
-  store ptr %c.0.i691, ptr %m_free_cell.i15.i726, align 8
+  store ptr %252, ptr %c.0.i690, align 8
+  store ptr %c.0.i690, ptr %m_free_cell.i15.i726, align 8
   br label %.noexc661
 
 if.end14.i696:                                    ; preds = %for.body.i.i.i709, %lor.lhs.false.i.i.i699, %do.body.i689
   %253 = load i32, ptr %m_collisions.i688, align 8
   %inc.i697 = add i32 %253, 1
   store i32 %inc.i697, ptr %m_collisions.i688, align 8
-  %254 = load ptr, ptr %c.0.i691, align 8
+  %254 = load ptr, ptr %c.0.i690, align 8
   %cmp16.not.i698 = icmp eq ptr %254, null
   br i1 %cmp16.not.i698, label %.noexc661, label %do.body.i689, !llvm.loop !143
 
@@ -70740,9 +70740,9 @@ do.body.preheader.i598:                           ; preds = %if.then.i547
   br label %do.body.i600
 
 do.body.i600:                                     ; preds = %if.end14.i607, %do.body.preheader.i598
-  %prev.0.i601 = phi ptr [ %c.0.i602, %if.end14.i607 ], [ null, %do.body.preheader.i598 ]
-  %c.0.i602 = phi ptr [ %216, %if.end14.i607 ], [ %add.ptr.i595, %do.body.preheader.i598 ]
-  %m_data.i603 = getelementptr inbounds i8, ptr %c.0.i602, i64 8
+  %c.0.i601 = phi ptr [ %216, %if.end14.i607 ], [ %add.ptr.i595, %do.body.preheader.i598 ]
+  %prev.0.i602 = phi ptr [ %c.0.i601, %if.end14.i607 ], [ null, %do.body.preheader.i598 ]
+  %m_data.i603 = getelementptr inbounds i8, ptr %c.0.i601, i64 8
   %197 = load ptr, ptr %m_data.i603, align 8
   %m_size.i.i.i.i604 = getelementptr inbounds i8, ptr %197, i64 12
   %198 = load i32, ptr %m_size.i.i.i.i604, align 4
@@ -70788,8 +70788,8 @@ if.then4.i632:                                    ; preds = %for.cond.preheader.
   %207 = load i32, ptr %m_size.i633, align 4
   %dec.i634 = add i32 %207, -1
   store i32 %dec.i634, ptr %m_size.i633, align 4
-  %cmp.i635 = icmp eq ptr %prev.0.i601, null
-  %208 = load ptr, ptr %c.0.i602, align 8
+  %cmp.i635 = icmp eq ptr %prev.0.i602, null
+  %208 = load ptr, ptr %c.0.i601, align 8
   br i1 %cmp.i635, label %if.then5.i638, label %if.else10.i636
 
 if.then5.i638:                                    ; preds = %if.then4.i632
@@ -70801,15 +70801,15 @@ if.then7.i642:                                    ; preds = %if.then5.i638
   %209 = load i32, ptr %m_used_slots.i643, align 8
   %dec8.i644 = add i32 %209, -1
   store i32 %dec8.i644, ptr %m_used_slots.i643, align 8
-  %210 = load ptr, ptr %c.0.i602, align 8
+  %210 = load ptr, ptr %c.0.i601, align 8
   %211 = ptrtoint ptr %210 to i64
   %or.i.i645 = or i64 %211, 1
   %212 = inttoptr i64 %or.i.i645 to ptr
-  store ptr %212, ptr %c.0.i602, align 8
+  store ptr %212, ptr %c.0.i601, align 8
   br label %.noexc572
 
 if.else.i640:                                     ; preds = %if.then5.i638
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.0.i602, ptr noundef nonnull align 8 dereferenceable(16) %208, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.0.i601, ptr noundef nonnull align 8 dereferenceable(16) %208, i64 16, i1 false)
   %m_free_cell.i.i641 = getelementptr inbounds i8, ptr %189, i64 72
   %213 = load ptr, ptr %m_free_cell.i.i641, align 8
   store ptr %213, ptr %208, align 8
@@ -70817,18 +70817,18 @@ if.else.i640:                                     ; preds = %if.then5.i638
   br label %.noexc572
 
 if.else10.i636:                                   ; preds = %if.then4.i632
-  store ptr %208, ptr %prev.0.i601, align 8
+  store ptr %208, ptr %prev.0.i602, align 8
   %m_free_cell.i15.i637 = getelementptr inbounds i8, ptr %189, i64 72
   %214 = load ptr, ptr %m_free_cell.i15.i637, align 8
-  store ptr %214, ptr %c.0.i602, align 8
-  store ptr %c.0.i602, ptr %m_free_cell.i15.i637, align 8
+  store ptr %214, ptr %c.0.i601, align 8
+  store ptr %c.0.i601, ptr %m_free_cell.i15.i637, align 8
   br label %.noexc572
 
 if.end14.i607:                                    ; preds = %for.body.i.i.i620, %lor.lhs.false.i.i.i610, %do.body.i600
   %215 = load i32, ptr %m_collisions.i599, align 8
   %inc.i608 = add i32 %215, 1
   store i32 %inc.i608, ptr %m_collisions.i599, align 8
-  %216 = load ptr, ptr %c.0.i602, align 8
+  %216 = load ptr, ptr %c.0.i601, align 8
   %cmp16.not.i609 = icmp eq ptr %216, null
   br i1 %cmp16.not.i609, label %.noexc572, label %do.body.i600, !llvm.loop !143
 
@@ -76704,7 +76704,7 @@ for.body.lr.ph.split.i:                           ; preds = %for.body.lr.ph.i
 for.body.i:                                       ; preds = %invoke.cont4.i, %for.body.lr.ph.split.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.split.i ], [ %indvars.iv.next.i, %invoke.cont4.i ]
   %min_x.014.i = phi i32 [ -1, %for.body.lr.ph.split.i ], [ %spec.select5.i, %invoke.cont4.i ]
-  %deg_min.013.i = phi i32 [ -1, %for.body.lr.ph.split.i ], [ %spec.select.i, %invoke.cont4.i ]
+  %deg_min.012.i = phi i32 [ -1, %for.body.lr.ph.split.i ], [ %spec.select.i, %invoke.cont4.i ]
   %arrayidx.i = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.i
   %10 = load i32, ptr %arrayidx.i, align 4
   %cmp.not.i.i.i.i = icmp ugt i32 %9, %10
@@ -76718,8 +76718,8 @@ _ZNK6vectorIjLb0EjE3getEjRKj.exit.then.i.i.i:     ; preds = %for.body.i
 
 invoke.cont4.i:                                   ; preds = %_ZNK6vectorIjLb0EjE3getEjRKj.exit.then.i.i.i, %for.body.i
   %11 = phi i32 [ %.then.val.i.i.i, %_ZNK6vectorIjLb0EjE3getEjRKj.exit.then.i.i.i ], [ 0, %for.body.i ]
-  %cmp6.i = icmp ult i32 %11, %deg_min.013.i
-  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %11, i32 %deg_min.013.i)
+  %cmp6.i = icmp ult i32 %11, %deg_min.012.i
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %11, i32 %deg_min.012.i)
   %spec.select5.i = select i1 %cmp6.i, i32 %10, i32 %min_x.014.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -82631,9 +82631,9 @@ do.body.preheader.i800:                           ; preds = %if.then.i746
   br label %do.body.i802
 
 do.body.i802:                                     ; preds = %if.end14.i809, %do.body.preheader.i800
-  %prev.0.i803 = phi ptr [ %c.0.i804, %if.end14.i809 ], [ null, %do.body.preheader.i800 ]
-  %c.0.i804 = phi ptr [ %269, %if.end14.i809 ], [ %add.ptr.i797, %do.body.preheader.i800 ]
-  %m_data.i805 = getelementptr inbounds i8, ptr %c.0.i804, i64 8
+  %c.0.i803 = phi ptr [ %269, %if.end14.i809 ], [ %add.ptr.i797, %do.body.preheader.i800 ]
+  %prev.0.i804 = phi ptr [ %c.0.i803, %if.end14.i809 ], [ null, %do.body.preheader.i800 ]
+  %m_data.i805 = getelementptr inbounds i8, ptr %c.0.i803, i64 8
   %250 = load ptr, ptr %m_data.i805, align 8
   %m_size.i.i.i.i806 = getelementptr inbounds i8, ptr %250, i64 12
   %251 = load i32, ptr %m_size.i.i.i.i806, align 4
@@ -82679,8 +82679,8 @@ if.then4.i834:                                    ; preds = %for.cond.preheader.
   %260 = load i32, ptr %m_size.i835, align 4
   %dec.i836 = add i32 %260, -1
   store i32 %dec.i836, ptr %m_size.i835, align 4
-  %cmp.i837 = icmp eq ptr %prev.0.i803, null
-  %261 = load ptr, ptr %c.0.i804, align 8
+  %cmp.i837 = icmp eq ptr %prev.0.i804, null
+  %261 = load ptr, ptr %c.0.i803, align 8
   br i1 %cmp.i837, label %if.then5.i840, label %if.else10.i838
 
 if.then5.i840:                                    ; preds = %if.then4.i834
@@ -82692,15 +82692,15 @@ if.then7.i844:                                    ; preds = %if.then5.i840
   %262 = load i32, ptr %m_used_slots.i845, align 8
   %dec8.i846 = add i32 %262, -1
   store i32 %dec8.i846, ptr %m_used_slots.i845, align 8
-  %263 = load ptr, ptr %c.0.i804, align 8
+  %263 = load ptr, ptr %c.0.i803, align 8
   %264 = ptrtoint ptr %263 to i64
   %or.i.i847 = or i64 %264, 1
   %265 = inttoptr i64 %or.i.i847 to ptr
-  store ptr %265, ptr %c.0.i804, align 8
+  store ptr %265, ptr %c.0.i803, align 8
   br label %.noexc771
 
 if.else.i842:                                     ; preds = %if.then5.i840
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.0.i804, ptr noundef nonnull align 8 dereferenceable(16) %261, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %c.0.i803, ptr noundef nonnull align 8 dereferenceable(16) %261, i64 16, i1 false)
   %m_free_cell.i.i843 = getelementptr inbounds i8, ptr %242, i64 72
   %266 = load ptr, ptr %m_free_cell.i.i843, align 8
   store ptr %266, ptr %261, align 8
@@ -82708,18 +82708,18 @@ if.else.i842:                                     ; preds = %if.then5.i840
   br label %.noexc771
 
 if.else10.i838:                                   ; preds = %if.then4.i834
-  store ptr %261, ptr %prev.0.i803, align 8
+  store ptr %261, ptr %prev.0.i804, align 8
   %m_free_cell.i15.i839 = getelementptr inbounds i8, ptr %242, i64 72
   %267 = load ptr, ptr %m_free_cell.i15.i839, align 8
-  store ptr %267, ptr %c.0.i804, align 8
-  store ptr %c.0.i804, ptr %m_free_cell.i15.i839, align 8
+  store ptr %267, ptr %c.0.i803, align 8
+  store ptr %c.0.i803, ptr %m_free_cell.i15.i839, align 8
   br label %.noexc771
 
 if.end14.i809:                                    ; preds = %for.body.i.i.i822, %lor.lhs.false.i.i.i812, %do.body.i802
   %268 = load i32, ptr %m_collisions.i801, align 8
   %inc.i810 = add i32 %268, 1
   store i32 %inc.i810, ptr %m_collisions.i801, align 8
-  %269 = load ptr, ptr %c.0.i804, align 8
+  %269 = load ptr, ptr %c.0.i803, align 8
   %cmp16.not.i811 = icmp eq ptr %269, null
   br i1 %cmp16.not.i811, label %.noexc771, label %do.body.i802, !llvm.loop !143
 

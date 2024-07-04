@@ -698,18 +698,18 @@ define internal fastcc void @dump_node(i64 noundef %0, i64 noundef %1, i32 nound
   br label %45
 
 45:                                               ; preds = %58, %.critedge3898
-  %.03558 = phi ptr [ @default_indent, %.critedge3898 ], [ %spec.select, %58 ]
-  %.03557 = phi i32 [ 0, %.critedge3898 ], [ %47, %58 ]
-  %.0 = phi ptr [ %3, %.critedge3898 ], [ %57, %58 ]
+  %.03559 = phi ptr [ %3, %.critedge3898 ], [ %57, %58 ]
+  %.03555 = phi i32 [ 0, %.critedge3898 ], [ %47, %58 ]
+  %.03554 = phi ptr [ @default_indent, %.critedge3898 ], [ %spec.select, %58 ]
   %46 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
-  %47 = add i32 %.03557, 1
+  %47 = add i32 %.03555, 1
   %48 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.10, ptr noundef nonnull %42, i32 noundef %47) #4
-  %49 = getelementptr inbounds i8, ptr %.0, i64 48
+  %49 = getelementptr inbounds i8, ptr %.03559, i64 48
   %50 = load ptr, ptr %49, align 8
   %.not3892 = icmp eq ptr %50, null
-  %spec.select = select i1 %.not3892, ptr @.str.12, ptr %.03558
+  %spec.select = select i1 %.not3892, ptr @.str.12, ptr %.03554
   %51 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef %spec.select) #4
-  %52 = getelementptr inbounds i8, ptr %.0, i64 32
+  %52 = getelementptr inbounds i8, ptr %.03559, i64 32
   %53 = load ptr, ptr %52, align 8
   tail call fastcc void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %53)
   %54 = load i64, ptr %44, align 8
@@ -729,7 +729,7 @@ common.ret4623:                                   ; preds = %2504, %2039, %2032,
   ret void
 
 .critedge3900:                                    ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %.0, i64 48
+  %61 = getelementptr inbounds i8, ptr %.03559, i64 48
   %62 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %63 = select i1 %.not3891, i32 7, i32 20
   %64 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %63, ptr noundef nonnull @.str.14) #4
@@ -1482,17 +1482,17 @@ common.ret4623:                                   ; preds = %2504, %2039, %2032,
   br label %.critedge4043
 
 .critedge4043:                                    ; preds = %590, %.critedge4038
-  %.1 = phi ptr [ %3, %.critedge4038 ], [ %589, %590 ]
+  %.13560 = phi ptr [ %3, %.critedge4038 ], [ %589, %590 ]
   %580 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %581 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %577, ptr noundef nonnull @.str.110) #4
   %582 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #4
-  %583 = getelementptr inbounds i8, ptr %.1, i64 32
+  %583 = getelementptr inbounds i8, ptr %.13560, i64 32
   %584 = load ptr, ptr %583, align 8
   tail call fastcc void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %584)
   %585 = load i64, ptr %579, align 8
   %586 = add i64 %585, -4
   %587 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %586) #4
-  %588 = getelementptr inbounds i8, ptr %.1, i64 40
+  %588 = getelementptr inbounds i8, ptr %.13560, i64 40
   %589 = load ptr, ptr %588, align 8
   %.not3830 = icmp eq ptr %589, null
   br i1 %.not3830, label %.critedge4045, label %590
@@ -1506,7 +1506,7 @@ common.ret4623:                                   ; preds = %2504, %2039, %2032,
   br i1 %594, label %.critedge4043, label %.critedge4045
 
 .critedge4045:                                    ; preds = %.critedge4043, %590
-  %595 = getelementptr inbounds i8, ptr %.1, i64 40
+  %595 = getelementptr inbounds i8, ptr %.13560, i64 40
   %596 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %597 = select i1 %.not3828, i32 6, i32 19
   %598 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %597, ptr noundef nonnull @.str.111) #4
@@ -2651,10 +2651,10 @@ common.ret4623:                                   ; preds = %2504, %2039, %2032,
   %1337 = getelementptr inbounds i8, ptr %3, i64 48
   %1338 = load ptr, ptr %1337, align 8
   %.not3725 = icmp eq ptr %1338, null
-  %.23560 = select i1 %.not3725, ptr @.str.12, ptr @default_indent
+  %.2 = select i1 %.not3725, ptr @.str.12, ptr @default_indent
   %1339 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %1340 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1325, ptr noundef nonnull @.str.248) #4
-  %1341 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull %.23560) #4
+  %1341 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull %.2) #4
   %1342 = getelementptr inbounds i8, ptr %3, i64 40
   %1343 = load ptr, ptr %1342, align 8
   tail call fastcc void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %1343)

@@ -34,7 +34,7 @@ define ptr @createConstrained0LiveCone(ptr noundef %0, ptr nocapture noundef rea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.023 = phi ptr [ %.val19, %.lr.ph.preheader ], [ %27, %.lr.ph ]
+  %.01822 = phi ptr [ %.val19, %.lr.ph.preheader ], [ %27, %.lr.ph ]
   %.val21 = load ptr, ptr %6, align 8
   %16 = getelementptr inbounds ptr, ptr %.val21, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
@@ -47,18 +47,18 @@ define ptr @createConstrained0LiveCone(ptr noundef %0, ptr nocapture noundef rea
   %24 = ptrtoint ptr %22 to i64
   %25 = xor i64 %23, %24
   %26 = inttoptr i64 %25 to ptr
-  %27 = tail call ptr @Aig_And(ptr noundef %0, ptr noundef %.023, ptr noundef %26) #9
+  %27 = tail call ptr @Aig_And(ptr noundef %0, ptr noundef %.01822, ptr noundef %26) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.0.lcssa = phi ptr [ %.val19, %2 ], [ %27, %.lr.ph ]
+  %.018.lcssa = phi ptr [ %.val19, %2 ], [ %27, %.lr.ph ]
   %28 = and i64 %10, 1
   %29 = ptrtoint ptr %14 to i64
   %30 = xor i64 %28, %29
   %31 = inttoptr i64 %30 to ptr
-  %32 = ptrtoint ptr %.0.lcssa to i64
+  %32 = ptrtoint ptr %.018.lcssa to i64
   %33 = xor i64 %32, 1
   %34 = inttoptr i64 %33 to ptr
   %35 = tail call ptr @Aig_Or(ptr noundef %0, ptr noundef %34, ptr noundef %31) #9
@@ -90,7 +90,7 @@ define noalias noundef ptr @collectCSSignals(ptr nocapture noundef readonly %0, 
 
 11:                                               ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
-  %.01635 = phi ptr [ null, %.lr.ph ], [ %.1, %58 ]
+  %.036 = phi ptr [ null, %.lr.ph ], [ %.1, %58 ]
   %12 = load ptr, ptr %9, align 8
   %13 = getelementptr i8, ptr %12, i64 8
   %.val = load ptr, ptr %13, align 8
@@ -189,7 +189,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %58
 
 58:                                               ; preds = %Vec_PtrPush.exit, %56, %50
-  %.1 = phi ptr [ %.01635, %Vec_PtrPush.exit ], [ %.val2233, %56 ], [ %.01635, %50 ]
+  %.1 = phi ptr [ %.036, %Vec_PtrPush.exit ], [ %.val2233, %56 ], [ %.036, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val18 = load i32, ptr %7, align 8
   %59 = sext i32 %.val18 to i64
@@ -203,7 +203,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %61, label %63, label %.Vec_PtrGrow.exit11_crit_edge.i25
 
 .Vec_PtrGrow.exit11_crit_edge.i25:                ; preds = %2, %.critedge
-  %.016.lcssa41 = phi ptr [ %.1, %.critedge ], [ null, %2 ]
+  %.0.lcssa41 = phi ptr [ %.1, %.critedge ], [ null, %2 ]
   %62 = phi i32 [ %.pre, %.critedge ], [ 0, %2 ]
   %.pre.i27 = load ptr, ptr %6, align 8
   br label %Vec_PtrPush.exit31
@@ -254,14 +254,14 @@ Vec_PtrGrow.exit.i30:                             ; preds = %69, %67
   br label %Vec_PtrPush.exit31
 
 Vec_PtrPush.exit31:                               ; preds = %.Vec_PtrGrow.exit11_crit_edge.i25, %Vec_PtrGrow.exit.i30, %81
-  %.016.lcssa40 = phi ptr [ %.016.lcssa41, %.Vec_PtrGrow.exit11_crit_edge.i25 ], [ %.1, %81 ], [ %.1, %Vec_PtrGrow.exit.i30 ]
+  %.0.lcssa40 = phi ptr [ %.0.lcssa41, %.Vec_PtrGrow.exit11_crit_edge.i25 ], [ %.1, %81 ], [ %.1, %Vec_PtrGrow.exit.i30 ]
   %83 = phi i32 [ %62, %.Vec_PtrGrow.exit11_crit_edge.i25 ], [ %.pre, %81 ], [ %.pre, %Vec_PtrGrow.exit.i30 ]
   %84 = phi ptr [ %.pre.i27, %.Vec_PtrGrow.exit11_crit_edge.i25 ], [ %82, %81 ], [ %71, %Vec_PtrGrow.exit.i30 ]
   %85 = add nsw i32 %83, 1
   store i32 %85, ptr %4, align 4
   %86 = sext i32 %83 to i64
   %87 = getelementptr inbounds ptr, ptr %84, i64 %86
-  store ptr %.016.lcssa40, ptr %87, align 8
+  store ptr %.0.lcssa40, ptr %87, align 8
   ret ptr %3
 }
 
@@ -499,7 +499,7 @@ Aig_ObjChild0Copy.exit92:                         ; preds = %89, %97
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.023.i = phi ptr [ %.val19.i, %.lr.ph.preheader.i ], [ %134, %.lr.ph.i ]
+  %.01822.i = phi ptr [ %.val19.i, %.lr.ph.preheader.i ], [ %134, %.lr.ph.i ]
   %.val21.i = load ptr, ptr %113, align 8
   %123 = getelementptr inbounds ptr, ptr %.val21.i, i64 %indvars.iv.i
   %124 = load ptr, ptr %123, align 8
@@ -512,18 +512,18 @@ Aig_ObjChild0Copy.exit92:                         ; preds = %89, %97
   %131 = ptrtoint ptr %129 to i64
   %132 = xor i64 %130, %131
   %133 = inttoptr i64 %132 to ptr
-  %134 = tail call ptr @Aig_And(ptr noundef nonnull %6, ptr noundef %.023.i, ptr noundef %133) #9
+  %134 = tail call ptr @Aig_And(ptr noundef nonnull %6, ptr noundef %.01822.i, ptr noundef %133) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %createConstrained0LiveCone.exit, label %.lr.ph.i, !llvm.loop !4
 
 createConstrained0LiveCone.exit:                  ; preds = %.lr.ph.i, %.critedge6
-  %.0.lcssa.i = phi ptr [ %.val19.i, %.critedge6 ], [ %134, %.lr.ph.i ]
+  %.018.lcssa.i = phi ptr [ %.val19.i, %.critedge6 ], [ %134, %.lr.ph.i ]
   %135 = and i64 %117, 1
   %136 = ptrtoint ptr %121 to i64
   %137 = xor i64 %135, %136
   %138 = inttoptr i64 %137 to ptr
-  %139 = ptrtoint ptr %.0.lcssa.i to i64
+  %139 = ptrtoint ptr %.018.lcssa.i to i64
   %140 = xor i64 %139, 1
   %141 = inttoptr i64 %140 to ptr
   %142 = tail call ptr @Aig_Or(ptr noundef nonnull %6, ptr noundef %141, ptr noundef %138) #9

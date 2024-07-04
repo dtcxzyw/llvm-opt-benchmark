@@ -1383,11 +1383,11 @@ Abc_Clock.exit19:                                 ; preds = %Abc_Clock.exit, %13
   br label %.lr.ph.split
 
 .split.us:                                        ; preds = %.lr.ph, %.split.us
-  %.023.us = phi i32 [ %33, %.split.us ], [ %25, %.lr.ph ]
-  %.01522.us = phi i32 [ %32, %.split.us ], [ 0, %.lr.ph ]
-  %31 = call fastcc i32 @Sim_ComputeSuppRoundNode(ptr noundef nonnull %0, i32 noundef %.023.us, i32 noundef 0)
-  %32 = add nsw i32 %31, %.01522.us
-  %33 = add nsw i32 %.023.us, 1
+  %.024.us = phi i32 [ %32, %.split.us ], [ 0, %.lr.ph ]
+  %.01522.us = phi i32 [ %33, %.split.us ], [ %25, %.lr.ph ]
+  %31 = call fastcc i32 @Sim_ComputeSuppRoundNode(ptr noundef nonnull %0, i32 noundef %.01522.us, i32 noundef 0)
+  %32 = add nsw i32 %31, %.024.us
+  %33 = add nsw i32 %.01522.us, 1
   %34 = load i32, ptr %26, align 8
   %35 = icmp slt i32 %33, %34
   br i1 %35, label %.split.us, label %._crit_edge, !llvm.loop !25
@@ -1395,7 +1395,7 @@ Abc_Clock.exit19:                                 ; preds = %Abc_Clock.exit, %13
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %48
   %36 = phi i32 [ %27, %.lr.ph.split.preheader ], [ %49, %48 ]
   %indvars.iv = phi i64 [ %30, %.lr.ph.split.preheader ], [ %indvars.iv.next, %48 ]
-  %.01522 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.1, %48 ]
+  %.024 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.1, %48 ]
   %37 = load ptr, ptr %29, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
@@ -1409,21 +1409,21 @@ Abc_Clock.exit19:                                 ; preds = %Abc_Clock.exit, %13
 .split16:                                         ; preds = %.lr.ph.split
   %45 = trunc nsw i64 %indvars.iv to i32
   %46 = call fastcc i32 @Sim_ComputeSuppRoundNode(ptr noundef nonnull %0, i32 noundef %45, i32 noundef 1)
-  %47 = add nsw i32 %46, %.01522
+  %47 = add nsw i32 %46, %.024
   %.pre = load i32, ptr %26, align 8
   br label %48
 
 48:                                               ; preds = %.lr.ph.split, %.split16
   %49 = phi i32 [ %36, %.lr.ph.split ], [ %.pre, %.split16 ]
-  %.1 = phi i32 [ %.01522, %.lr.ph.split ], [ %47, %.split16 ]
+  %.1 = phi i32 [ %.024, %.lr.ph.split ], [ %47, %.split16 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
   br i1 %51, label %.lr.ph.split, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %48, %.split.us, %Abc_Clock.exit19
-  %.015.lcssa = phi i32 [ 0, %Abc_Clock.exit19 ], [ %32, %.split.us ], [ %.1, %48 ]
-  ret i32 %.015.lcssa
+  %.0.lcssa = phi i32 [ 0, %Abc_Clock.exit19 ], [ %32, %.split.us ], [ %.1, %48 ]
+  ret i32 %.0.lcssa
 }
 
 ; Function Attrs: nofree nounwind

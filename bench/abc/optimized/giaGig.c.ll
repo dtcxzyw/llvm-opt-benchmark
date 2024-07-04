@@ -726,22 +726,22 @@ define noalias noundef ptr @Gls_ManCount(ptr nocapture noundef %0, ptr nocapture
   br i1 %.not46, label %._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %2, %Vec_StrPush.exit
-  %.02747 = phi i32 [ %.128, %Vec_StrPush.exit ], [ undef, %2 ]
+  %.047 = phi i32 [ %.1, %Vec_StrPush.exit ], [ undef, %2 ]
   br label %9
 
 9:                                                ; preds = %.preheader, %11
-  %.0 = phi ptr [ %12, %11 ], [ %3, %.preheader ]
-  %10 = load i8, ptr %.0, align 1
+  %.027 = phi ptr [ %12, %11 ], [ %3, %.preheader ]
+  %10 = load i8, ptr %.027, align 1
   %.not37 = icmp eq i8 %10, 0
   br i1 %.not37, label %.preheader65, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %.0, i64 1
+  %12 = getelementptr inbounds i8, ptr %.027, i64 1
   %13 = icmp eq i8 %10, 61
   br i1 %13, label %.preheader65, label %9, !llvm.loop !6
 
 .preheader65:                                     ; preds = %11, %9
-  %.2.ph = phi ptr [ %.0, %9 ], [ %12, %11 ]
+  %.2.ph = phi ptr [ %.027, %9 ], [ %12, %11 ]
   br label %14
 
 14:                                               ; preds = %.preheader65, %16
@@ -820,8 +820,8 @@ define noalias noundef ptr @Gls_ManCount(ptr nocapture noundef %0, ptr nocapture
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %.loopexit.loopexit, %30, %.fold.split40, %26, %.fold.split39, %22, %.fold.split38, %18, %.fold.split, %25, %33, %29, %21
-  %.128 = phi i32 [ 8, %21 ], [ 3, %25 ], [ 4, %29 ], [ 5, %33 ], [ 7, %18 ], [ %.02747, %.fold.split ], [ 2, %22 ], [ %.02747, %.fold.split38 ], [ 9, %26 ], [ %.02747, %.fold.split39 ], [ 6, %30 ], [ %.02747, %.fold.split40 ], [ %.02747, %.loopexit.loopexit ], [ 10, %14 ]
-  %34 = trunc i32 %.128 to i8
+  %.1 = phi i32 [ 8, %21 ], [ 3, %25 ], [ 4, %29 ], [ 5, %33 ], [ 7, %18 ], [ %.047, %.fold.split ], [ 2, %22 ], [ %.047, %.fold.split38 ], [ 9, %26 ], [ %.047, %.fold.split39 ], [ 6, %30 ], [ %.047, %.fold.split40 ], [ %.047, %.loopexit.loopexit ], [ 10, %14 ]
+  %34 = trunc i32 %.1 to i8
   %35 = load i32, ptr %5, align 4
   %36 = load i32, ptr %4, align 8
   %37 = icmp eq i32 %35, %36
@@ -882,7 +882,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %59 = sext i32 %35 to i64
   %60 = getelementptr inbounds i8, ptr %57, i64 %59
   store i8 %34, ptr %60, align 1
-  %61 = sext i32 %.128 to i64
+  %61 = sext i32 %.1 to i64
   %62 = getelementptr inbounds i32, ptr %1, i64 %61
   %63 = load i32, ptr %62, align 4
   %64 = add nsw i32 %63, 1
@@ -3018,7 +3018,7 @@ define internal fastcc void @Abc_TtReadHex(ptr nocapture noundef %0, ptr nocaptu
 
 9:                                                ; preds = %5, %2
   %10 = phi i8 [ %3, %2 ], [ %.pre, %5 ]
-  %.038 = phi ptr [ %1, %2 ], [ %spec.select, %5 ]
+  %.039 = phi ptr [ %1, %2 ], [ %spec.select, %5 ]
   %11 = add i8 %10, -58
   %or.cond.i49 = icmp ult i8 %11, -10
   %12 = and i8 %10, -33
@@ -3030,7 +3030,7 @@ define internal fastcc void @Abc_TtReadHex(ptr nocapture noundef %0, ptr nocaptu
 .lr.ph:                                           ; preds = %9, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = getelementptr inbounds i8, ptr %.038, i64 %indvars.iv.next
+  %15 = getelementptr inbounds i8, ptr %.039, i64 %indvars.iv.next
   %16 = load i8, ptr %15, align 1
   %17 = add i8 %16, -58
   %or.cond.i = icmp ult i8 %17, -10
@@ -3112,7 +3112,7 @@ define internal fastcc void @Abc_TtReadHex(ptr nocapture noundef %0, ptr nocaptu
   %indvars.iv65 = phi i64 [ 0, %.lr.ph56.preheader ], [ %indvars.iv.next66, %Abc_TtReadHexDigit.exit ]
   %42 = xor i64 %indvars.iv65, -1
   %43 = add nsw i64 %41, %42
-  %44 = getelementptr inbounds i8, ptr %.038, i64 %43
+  %44 = getelementptr inbounds i8, ptr %.039, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = sext i8 %45 to i32
   %47 = add i8 %45, -48

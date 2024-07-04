@@ -1317,8 +1317,8 @@ switch.lookup:                                    ; preds = %11
   br label %17
 
 17:                                               ; preds = %switch.lookup, %15
-  %.019 = phi i32 [ 21, %15 ], [ %switch.load, %switch.lookup ]
-  %18 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef %.019) #9
+  %.0 = phi i32 [ 21, %15 ], [ %switch.load, %switch.lookup ]
+  %18 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef %.0) #9
   store ptr %18, ptr %9, align 8
   call void @ARKodeButcherTable_Space(ptr noundef %18, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
   %19 = load i64, ptr %2, align 8
@@ -1349,8 +1349,8 @@ switch.lookup:                                    ; preds = %11
   br label %36
 
 36:                                               ; preds = %17, %28, %8, %7
-  %.0 = phi i32 [ -21, %7 ], [ 0, %8 ], [ 0, %28 ], [ 0, %17 ]
-  ret i32 %.0
+  %.019 = phi i32 [ -21, %7 ], [ 0, %8 ], [ 0, %28 ], [ 0, %17 ]
+  ret i32 %.019
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1426,19 +1426,19 @@ define range(i32 -41, 1) i32 @erkStep_CheckButcherTable(ptr noundef %0) local_un
 
 .preheader44:                                     ; preds = %.preheader44.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.preheader44.lr.ph ], [ %indvars.iv.next, %45 ]
-  %.03747 = phi i32 [ 1, %.preheader44.lr.ph ], [ %.2, %45 ]
+  %.03648 = phi i32 [ 1, %.preheader44.lr.ph ], [ %.2, %45 ]
   %37 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   br label %39
 
 39:                                               ; preds = %.preheader44, %39
   %indvars.iv50 = phi i64 [ %indvars.iv, %.preheader44 ], [ %indvars.iv.next51, %39 ]
-  %.13846 = phi i32 [ %.03747, %.preheader44 ], [ %.2, %39 ]
+  %.146 = phi i32 [ %.03648, %.preheader44 ], [ %.2, %39 ]
   %40 = getelementptr inbounds double, ptr %38, i64 %indvars.iv50
   %41 = load double, ptr %40, align 8
   %42 = tail call double @llvm.fabs.f64(double %41)
   %43 = fcmp ogt double %42, 0x3D719799812DEA11
-  %.2 = select i1 %43, i32 0, i32 %.13846
+  %.2 = select i1 %43, i32 0, i32 %.146
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %44 = icmp ult i64 %indvars.iv.next51, %36
   br i1 %44, label %39, label %45
@@ -1575,15 +1575,15 @@ define range(i32 -28, 1) i32 @erkStep_ComputeSolutions(ptr noundef %0, ptr nocap
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %7
-  %.057.lcssa = phi i32 [ 0, %7 ], [ %38, %._crit_edge.loopexit ]
-  %39 = zext nneg i32 %.057.lcssa to i64
+  %.0.lcssa = phi i32 [ 0, %7 ], [ %38, %._crit_edge.loopexit ]
+  %39 = zext nneg i32 %.0.lcssa to i64
   %40 = getelementptr inbounds double, ptr %13, i64 %39
   store double 1.000000e+00, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 272
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds ptr, ptr %15, i64 %39
   store ptr %42, ptr %43, align 8
-  %44 = add nuw nsw i32 %.057.lcssa, 1
+  %44 = add nuw nsw i32 %.0.lcssa, 1
   %45 = tail call i32 @N_VLinearCombination(i32 noundef %44, ptr noundef %13, ptr noundef %15, ptr noundef %9) #9
   %.not = icmp eq i32 %45, 0
   br i1 %.not, label %46, label %81
@@ -1637,8 +1637,8 @@ define range(i32 -28, 1) i32 @erkStep_ComputeSolutions(ptr noundef %0, ptr nocap
   br label %._crit_edge67
 
 ._crit_edge67:                                    ; preds = %._crit_edge67.loopexit, %.preheader
-  %.158.lcssa = phi i32 [ 0, %.preheader ], [ %75, %._crit_edge67.loopexit ]
-  %76 = tail call i32 @N_VLinearCombination(i32 noundef %.158.lcssa, ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef %11) #9
+  %.1.lcssa = phi i32 [ 0, %.preheader ], [ %75, %._crit_edge67.loopexit ]
+  %76 = tail call i32 @N_VLinearCombination(i32 noundef %.1.lcssa, ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef %11) #9
   %.not61 = icmp eq i32 %76, 0
   br i1 %.not61, label %77, label %81
 
@@ -1650,8 +1650,8 @@ define range(i32 -28, 1) i32 @erkStep_ComputeSolutions(ptr noundef %0, ptr nocap
   br label %81
 
 81:                                               ; preds = %46, %77, %._crit_edge67, %._crit_edge, %6
-  %.0 = phi i32 [ -21, %6 ], [ -28, %._crit_edge ], [ -28, %._crit_edge67 ], [ 0, %77 ], [ 0, %46 ]
-  ret i32 %.0
+  %.058 = phi i32 [ -21, %6 ], [ -28, %._crit_edge ], [ -28, %._crit_edge67 ], [ 0, %77 ], [ 0, %46 ]
+  ret i32 %.058
 }
 
 declare ptr @ARKodeButcherTable_LoadERK(i32 noundef) local_unnamed_addr #1
@@ -1705,36 +1705,36 @@ define range(i32 -46, 3) i32 @erkStep_RelaxDeltaE(ptr noundef %0, ptr nocapture 
   br i1 %.not82, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
-  %indvars.iv83 = phi i64 [ %indvars.iv.next84, %.lr.ph ], [ 1, %26 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %26 ]
+  %indvars.iv83 = phi i64 [ %indvars.iv.next84, %.lr.ph ], [ 0, %26 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %26 ]
   %28 = load double, ptr %21, align 8
   %29 = load ptr, ptr %22, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv88
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds double, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds double, ptr %33, i64 %indvars.iv83
   %35 = load double, ptr %34, align 8
   %36 = fmul double %28, %35
-  %37 = getelementptr inbounds double, ptr %14, i64 %indvars.iv83
+  %37 = getelementptr inbounds double, ptr %14, i64 %indvars.iv
   store double %36, ptr %37, align 8
   %38 = load ptr, ptr %23, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv83
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv83
+  %41 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
   store ptr %40, ptr %41, align 8
-  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv88
+  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next84, %indvars.iv88
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %42 = trunc nuw nsw i64 %indvars.iv.next84 to i32
+  %42 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %26
-  %.066.lcssa = phi i32 [ 1, %26 ], [ %42, %._crit_edge.loopexit ]
-  %43 = tail call i32 @N_VLinearCombination(i32 noundef %.066.lcssa, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef %6) #9
+  %.0.lcssa = phi i32 [ 1, %26 ], [ %42, %._crit_edge.loopexit ]
+  %43 = tail call i32 @N_VLinearCombination(i32 noundef %.0.lcssa, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef %6) #9
   %.not72 = icmp eq i32 %43, 0
   br i1 %.not72, label %44, label %.loopexit
 
@@ -1834,8 +1834,8 @@ define range(i32 -46, 3) i32 @erkStep_RelaxDeltaE(ptr noundef %0, ptr nocapture 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %44, %._crit_edge, %94, %96, %11
-  %.0 = phi i32 [ 0, %96 ], [ -21, %11 ], [ -28, %94 ], [ 2, %50 ], [ -46, %44 ], [ -28, %._crit_edge ]
-  ret i32 %.0
+  %.066 = phi i32 [ 0, %96 ], [ -21, %11 ], [ -28, %94 ], [ 2, %50 ], [ -46, %44 ], [ -28, %._crit_edge ]
+  ret i32 %.066
 }
 
 declare double @N_VDotProdLocal(ptr noundef, ptr noundef) local_unnamed_addr #1

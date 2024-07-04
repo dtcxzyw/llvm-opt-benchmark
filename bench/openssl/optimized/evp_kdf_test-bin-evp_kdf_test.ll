@@ -1737,8 +1737,8 @@ lor.lhs.false9:                                   ; preds = %lor.lhs.false5
   br label %err
 
 err:                                              ; preds = %lor.lhs.false9, %entry, %lor.lhs.false, %lor.lhs.false5
-  %kctx.0 = phi ptr [ %call1.i.i, %lor.lhs.false5 ], [ %call1.i.i, %lor.lhs.false ], [ null, %entry ], [ %call1.i.i, %lor.lhs.false9 ]
   %ret.0 = phi i32 [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %lor.lhs.false9 ]
+  %kctx.0 = phi ptr [ %call1.i.i, %lor.lhs.false5 ], [ %call1.i.i, %lor.lhs.false ], [ null, %entry ], [ %call1.i.i, %lor.lhs.false9 ]
   call void @EVP_KDF_CTX_free(ptr noundef %kctx.0) #6
   call void @CRYPTO_free(ptr noundef %call, ptr noundef nonnull @.str.51, i32 noundef 597) #6
   ret i32 %ret.0
@@ -1781,8 +1781,8 @@ lor.lhs.false9:                                   ; preds = %lor.lhs.false5
   br label %err
 
 err:                                              ; preds = %lor.lhs.false9, %entry, %lor.lhs.false, %lor.lhs.false5
-  %kctx.0 = phi ptr [ %call1.i.i, %lor.lhs.false5 ], [ %call1.i.i, %lor.lhs.false ], [ null, %entry ], [ %call1.i.i, %lor.lhs.false9 ]
   %ret.0 = phi i32 [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %lor.lhs.false9 ]
+  %kctx.0 = phi ptr [ %call1.i.i, %lor.lhs.false5 ], [ %call1.i.i, %lor.lhs.false ], [ null, %entry ], [ %call1.i.i, %lor.lhs.false9 ]
   call void @EVP_KDF_CTX_free(ptr noundef %kctx.0) #6
   call void @CRYPTO_free(ptr noundef %call, ptr noundef nonnull @.str.51, i32 noundef 624) #6
   ret i32 %ret.0
@@ -1855,8 +1855,8 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
   br label %err
 
 err:                                              ; preds = %lor.lhs.false5, %entry, %lor.lhs.false
-  %kctx.0 = phi ptr [ %call1.i.i, %lor.lhs.false ], [ null, %entry ], [ %call1.i.i, %lor.lhs.false5 ]
   %ret.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %lor.lhs.false5 ]
+  %kctx.0 = phi ptr [ %call1.i.i, %lor.lhs.false ], [ null, %entry ], [ %call1.i.i, %lor.lhs.false5 ]
   call void @EVP_KDF_CTX_free(ptr noundef %kctx.0) #6
   call void @CRYPTO_free(ptr noundef %call, ptr noundef nonnull @.str.51, i32 noundef 680) #6
   ret i32 %ret.0
@@ -1892,8 +1892,8 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
   br label %err
 
 err:                                              ; preds = %lor.lhs.false5, %entry, %lor.lhs.false
-  %kctx.0 = phi ptr [ %call1.i.i, %lor.lhs.false ], [ null, %entry ], [ %call1.i.i, %lor.lhs.false5 ]
   %ret.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %lor.lhs.false5 ]
+  %kctx.0 = phi ptr [ %call1.i.i, %lor.lhs.false ], [ null, %entry ], [ %call1.i.i, %lor.lhs.false5 ]
   call void @EVP_KDF_CTX_free(ptr noundef %kctx.0) #6
   call void @CRYPTO_free(ptr noundef %call, ptr noundef nonnull @.str.51, i32 noundef 705) #6
   ret i32 %ret.0
@@ -1959,8 +1959,8 @@ lor.lhs.false21:                                  ; preds = %if.end
   br label %err
 
 err:                                              ; preds = %lor.lhs.false21, %if.end, %entry, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false9
-  %kctx.0 = phi ptr [ %call1.i.i, %if.end ], [ %call1.i.i, %lor.lhs.false9 ], [ %call1.i.i, %lor.lhs.false5 ], [ %call1.i.i, %lor.lhs.false ], [ null, %entry ], [ %call1.i.i, %lor.lhs.false21 ]
   %ret.0 = phi i32 [ 0, %if.end ], [ 0, %lor.lhs.false9 ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %lor.lhs.false21 ]
+  %kctx.0 = phi ptr [ %call1.i.i, %if.end ], [ %call1.i.i, %lor.lhs.false9 ], [ %call1.i.i, %lor.lhs.false5 ], [ %call1.i.i, %lor.lhs.false ], [ null, %entry ], [ %call1.i.i, %lor.lhs.false21 ]
   call void @EVP_KDF_CTX_free(ptr noundef %kctx.0) #6
   call void @CRYPTO_free(ptr noundef %call, ptr noundef nonnull @.str.51, i32 noundef 742) #6
   ret i32 %ret.0
@@ -2026,8 +2026,8 @@ lor.lhs.false21:                                  ; preds = %if.end
   br label %err
 
 err:                                              ; preds = %lor.lhs.false21, %if.end, %entry, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false9
-  %kctx.0 = phi ptr [ %call1.i.i, %if.end ], [ %call1.i.i, %lor.lhs.false9 ], [ %call1.i.i, %lor.lhs.false5 ], [ %call1.i.i, %lor.lhs.false ], [ null, %entry ], [ %call1.i.i, %lor.lhs.false21 ]
   %ret.0 = phi i32 [ 0, %if.end ], [ 0, %lor.lhs.false9 ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %lor.lhs.false21 ]
+  %kctx.0 = phi ptr [ %call1.i.i, %if.end ], [ %call1.i.i, %lor.lhs.false9 ], [ %call1.i.i, %lor.lhs.false5 ], [ %call1.i.i, %lor.lhs.false ], [ null, %entry ], [ %call1.i.i, %lor.lhs.false21 ]
   call void @EVP_KDF_CTX_free(ptr noundef %kctx.0) #6
   call void @CRYPTO_free(ptr noundef %call, ptr noundef nonnull @.str.51, i32 noundef 779) #6
   ret i32 %ret.0
@@ -2063,8 +2063,8 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
   br label %err
 
 err:                                              ; preds = %lor.lhs.false5, %entry, %lor.lhs.false
-  %kctx.0 = phi ptr [ %call1.i.i, %lor.lhs.false ], [ null, %entry ], [ %call1.i.i, %lor.lhs.false5 ]
   %ret.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %lor.lhs.false5 ]
+  %kctx.0 = phi ptr [ %call1.i.i, %lor.lhs.false ], [ null, %entry ], [ %call1.i.i, %lor.lhs.false5 ]
   call void @EVP_KDF_CTX_free(ptr noundef %kctx.0) #6
   call void @CRYPTO_free(ptr noundef %call, ptr noundef nonnull @.str.51, i32 noundef 804) #6
   ret i32 %ret.0

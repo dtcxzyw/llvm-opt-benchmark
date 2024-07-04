@@ -152,13 +152,13 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br label %56
 
 56:                                               ; preds = %52, %54, %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit, %50, %49
-  %.016.not = phi i1 [ false, %opal_obj_run_destructors.exit ], [ false, %opal_thread_add_fetch_32.exit ], [ true, %50 ], [ true, %49 ], [ true, %54 ], [ true, %52 ]
-  %brmerge = or i1 %or.cond.not, %.016.not
+  %.0.not = phi i1 [ false, %opal_obj_run_destructors.exit ], [ false, %opal_thread_add_fetch_32.exit ], [ true, %50 ], [ true, %49 ], [ true, %54 ], [ true, %52 ]
+  %brmerge = or i1 %or.cond.not, %.0.not
   %57 = load i32, ptr @mca_sharedfp_individual_priority, align 4
   %storemerge = select i1 %brmerge, i32 1, i32 %57
   store i32 %storemerge, ptr %1, align 4
-  %.0 = select i1 %or.cond.not, ptr null, ptr @individual
-  ret ptr %.0
+  %.017 = select i1 %or.cond.not, ptr null, ptr @individual
+  ret ptr %.017
 }
 
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2

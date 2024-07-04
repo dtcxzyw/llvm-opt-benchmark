@@ -3051,14 +3051,14 @@ _ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_7IrBlockEj.exit: ; pred
   %35 = phi ptr [ %43, %42 ], [ %34, %.preheader87 ]
   %36 = phi ptr [ %44, %42 ], [ %33, %.preheader87 ]
   %.1101 = phi i1 [ %.2, %42 ], [ false, %.preheader87 ]
-  %.053100 = phi i64 [ %45, %42 ], [ 0, %.preheader87 ]
-  %37 = getelementptr inbounds %"struct.Luau::CodeGen::BlockOrdering", ptr %35, i64 %.053100
+  %.054100 = phi i64 [ %45, %42 ], [ 0, %.preheader87 ]
+  %37 = getelementptr inbounds %"struct.Luau::CodeGen::BlockOrdering", ptr %35, i64 %.054100
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, %.050103
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %.lr.ph102
-  %41 = trunc i64 %.053100 to i32
+  %41 = trunc i64 %.054100 to i32
   invoke void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.217, i32 noundef %41)
           to label %._crit_edge125 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -3071,7 +3071,7 @@ _ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_7IrBlockEj.exit: ; pred
   %43 = phi ptr [ %35, %.lr.ph102 ], [ %.pre126, %._crit_edge125 ]
   %44 = phi ptr [ %36, %.lr.ph102 ], [ %.pre, %._crit_edge125 ]
   %.2 = phi i1 [ %.1101, %.lr.ph102 ], [ true, %._crit_edge125 ]
-  %45 = add nuw i64 %.053100, 1
+  %45 = add nuw i64 %.054100, 1
   %46 = ptrtoint ptr %44 to i64
   %47 = ptrtoint ptr %43 to i64
   %48 = sub i64 %46, %47
@@ -3125,13 +3125,13 @@ _ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_7IrBlockEj.exit: ; pred
   br i1 %.not104, label %.critedge.us, label %.lr.ph112
 
 .critedge.us:                                     ; preds = %.lr.ph116, %66
-  %.054114.us = phi ptr [ %67, %66 ], [ %63, %.lr.ph116 ]
-  %65 = load i32, ptr %.054114.us, align 4
+  %.053114.us = phi ptr [ %67, %66 ], [ %63, %.lr.ph116 ]
+  %65 = load i32, ptr %.053114.us, align 4
   invoke void (ptr, ptr, ...) @_ZN4Luau7CodeGenL6appendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.218, i32 noundef %53, i32 noundef %65)
           to label %66 unwind label %.loopexit81.split.us
 
 66:                                               ; preds = %.critedge.us
-  %67 = getelementptr inbounds i8, ptr %.054114.us, i64 4
+  %67 = getelementptr inbounds i8, ptr %.053114.us, i64 4
   %.not58.us = icmp eq ptr %67, %64
   br i1 %.not58.us, label %._crit_edge117, label %.critedge.us
 
@@ -3141,8 +3141,8 @@ _ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_7IrBlockEj.exit: ; pred
   br label %.loopexit81
 
 .lr.ph112:                                        ; preds = %.lr.ph116, %.loopexit
-  %.054114 = phi ptr [ %74, %.loopexit ], [ %63, %.lr.ph116 ]
-  %68 = load i32, ptr %.054114, align 4
+  %.053114 = phi ptr [ %74, %.loopexit ], [ %63, %.lr.ph116 ]
+  %68 = load i32, ptr %.053114, align 4
   br label %71
 
 69:                                               ; preds = %71
@@ -3161,7 +3161,7 @@ _ZN4Luau7CodeGen8toStringERNS0_17IrToStringContextERKNS0_7IrBlockEj.exit: ; pred
           to label %.loopexit unwind label %.loopexit81.split
 
 .loopexit:                                        ; preds = %71, %..critedge_crit_edge
-  %74 = getelementptr inbounds i8, ptr %.054114, i64 4
+  %74 = getelementptr inbounds i8, ptr %.053114, i64 4
   %.not58 = icmp eq ptr %74, %64
   br i1 %.not58, label %._crit_edge117, label %.lr.ph112
 

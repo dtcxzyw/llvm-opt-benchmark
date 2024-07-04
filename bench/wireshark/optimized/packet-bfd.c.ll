@@ -476,7 +476,7 @@ define internal i32 @dissect_bfd_control(ptr noundef %0, ptr noundef %1, ptr nou
   br label %72
 
 72:                                               ; preds = %.critedge, %36
-  %.090 = phi ptr [ %41, %.critedge ], [ null, %36 ]
+  %.0 = phi ptr [ %41, %.critedge ], [ null, %36 ]
   %or.cond = select i1 %cond, i1 %17, i1 false
   br i1 %or.cond, label %73, label %113
 
@@ -488,7 +488,7 @@ define internal i32 @dissect_bfd_control(ptr noundef %0, ptr noundef %1, ptr nou
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %76 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 24) #3
   %77 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 25) #3
-  %.not.i = icmp eq ptr %.090, null
+  %.not.i = icmp eq ptr %.0, null
   br i1 %.not.i, label %._crit_edge.i, label %78
 
 ._crit_edge.i:                                    ; preds = %75
@@ -500,7 +500,7 @@ define internal i32 @dissect_bfd_control(ptr noundef %0, ptr noundef %1, ptr nou
   %80 = load i32, ptr @ett_bfd_auth, align 4
   %81 = zext i8 %76 to i32
   %82 = tail call ptr @val_to_str(i32 noundef %81, ptr noundef nonnull @bfd_control_auth_type_values, ptr noundef nonnull @.str.142) #3
-  %83 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %.090, ptr noundef %0, i32 noundef 24, i32 noundef %79, i32 noundef %80, ptr noundef null, ptr noundef nonnull @.str.141, ptr noundef %82) #3
+  %83 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef 24, i32 noundef %79, i32 noundef %80, ptr noundef null, ptr noundef nonnull @.str.141, ptr noundef %82) #3
   %84 = load i32, ptr @hf_bfd_auth_type, align 4
   %85 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %84, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0) #3
   %86 = load i32, ptr @hf_bfd_auth_len, align 4
@@ -565,7 +565,7 @@ dissect_bfd_authentication.exit:                  ; preds = %90, %91, %104, %get
 
 110:                                              ; preds = %73
   %111 = add nsw i32 %21, -24
-  %112 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.090, ptr noundef nonnull %1, ptr noundef nonnull @ei_bfd_auth_no_data, ptr noundef %0, i32 noundef 24, i32 noundef %111, ptr noundef nonnull @.str.140, i32 noundef %21) #3
+  %112 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0, ptr noundef nonnull %1, ptr noundef nonnull @ei_bfd_auth_no_data, ptr noundef %0, i32 noundef 24, i32 noundef %111, ptr noundef nonnull @.str.140, i32 noundef %21) #3
   br label %113
 
 113:                                              ; preds = %dissect_bfd_authentication.exit, %110, %72

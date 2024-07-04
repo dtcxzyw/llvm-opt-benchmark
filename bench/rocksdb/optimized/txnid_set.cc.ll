@@ -113,11 +113,11 @@ while.body.lr.ph.i.i:                             ; preds = %if.then.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end12.i.i, %while.body.lr.ph.i.i
-  %min.021.i.i = phi i32 [ %2, %while.body.lr.ph.i.i ], [ %min.1.i.i, %if.end12.i.i ]
-  %best_zero.020.i.i = phi i32 [ -1, %while.body.lr.ph.i.i ], [ %best_zero.1.i.i, %if.end12.i.i ]
-  %best_pos.019.i.i = phi i32 [ -1, %while.body.lr.ph.i.i ], [ %best_pos.1.fr.i.i, %if.end12.i.i ]
-  %limit.018.i.i = phi i32 [ %add.i.i, %while.body.lr.ph.i.i ], [ %limit.1.i.i, %if.end12.i.i ]
-  %add5.i.i = add i32 %limit.018.i.i, %min.021.i.i
+  %best_zero.021.i.i = phi i32 [ -1, %while.body.lr.ph.i.i ], [ %best_zero.1.i.i, %if.end12.i.i ]
+  %best_pos.020.i.i = phi i32 [ -1, %while.body.lr.ph.i.i ], [ %best_pos.1.fr.i.i, %if.end12.i.i ]
+  %limit.019.i.i = phi i32 [ %add.i.i, %while.body.lr.ph.i.i ], [ %limit.1.i.i, %if.end12.i.i ]
+  %min.018.i.i = phi i32 [ %2, %while.body.lr.ph.i.i ], [ %min.1.i.i, %if.end12.i.i ]
+  %add5.i.i = add i32 %min.018.i.i, %limit.019.i.i
   %div16.i.i = lshr i32 %add5.i.i, 1
   %idxprom.i.i = zext nneg i32 %div16.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i64, ptr %3, i64 %idxprom.i.i
@@ -131,15 +131,15 @@ if.then.i.i:                                      ; preds = %while.body.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i.i
   %cmp1.i.not.i.i = icmp eq i64 %4, %txnid
-  %best_pos.0.div16.i.i = select i1 %cmp1.i.not.i.i, i32 %best_pos.019.i.i, i32 %div16.i.i
-  %div16.best_zero.0.i.i = select i1 %cmp1.i.not.i.i, i32 %div16.i.i, i32 %best_zero.020.i.i
+  %best_pos.0.div16.i.i = select i1 %cmp1.i.not.i.i, i32 %best_pos.020.i.i, i32 %div16.i.i
+  %div16.best_zero.0.i.i = select i1 %cmp1.i.not.i.i, i32 %div16.i.i, i32 %best_zero.021.i.i
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.else.i.i, %if.then.i.i
-  %limit.1.i.i = phi i32 [ %limit.018.i.i, %if.then.i.i ], [ %div16.i.i, %if.else.i.i ]
-  %best_pos.1.i.i = phi i32 [ %best_pos.019.i.i, %if.then.i.i ], [ %best_pos.0.div16.i.i, %if.else.i.i ]
-  %best_zero.1.i.i = phi i32 [ %best_zero.020.i.i, %if.then.i.i ], [ %div16.best_zero.0.i.i, %if.else.i.i ]
-  %min.1.i.i = phi i32 [ %add8.i.i, %if.then.i.i ], [ %min.021.i.i, %if.else.i.i ]
+  %min.1.i.i = phi i32 [ %add8.i.i, %if.then.i.i ], [ %min.018.i.i, %if.else.i.i ]
+  %limit.1.i.i = phi i32 [ %limit.019.i.i, %if.then.i.i ], [ %div16.i.i, %if.else.i.i ]
+  %best_pos.1.i.i = phi i32 [ %best_pos.020.i.i, %if.then.i.i ], [ %best_pos.0.div16.i.i, %if.else.i.i ]
+  %best_zero.1.i.i = phi i32 [ %best_zero.021.i.i, %if.then.i.i ], [ %div16.best_zero.0.i.i, %if.else.i.i ]
   %best_pos.1.fr.i.i = freeze i32 %best_pos.1.i.i
   %cmp.not.i.i = icmp eq i32 %min.1.i.i, %limit.1.i.i
   br i1 %cmp.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !4
@@ -186,11 +186,11 @@ while.body.lr.ph.i.i.i:                           ; preds = %if.then.i.i
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end12.i.i.i, %while.body.lr.ph.i.i.i
-  %min.021.i.i.i = phi i32 [ %1, %while.body.lr.ph.i.i.i ], [ %min.1.i.i.i, %if.end12.i.i.i ]
-  %best_zero.020.i.i.i = phi i32 [ -1, %while.body.lr.ph.i.i.i ], [ %best_zero.1.i.i.i, %if.end12.i.i.i ]
-  %best_pos.019.i.i.i = phi i32 [ -1, %while.body.lr.ph.i.i.i ], [ %best_pos.1.fr.i.i.i, %if.end12.i.i.i ]
-  %limit.018.i.i.i = phi i32 [ %add.i.i.i, %while.body.lr.ph.i.i.i ], [ %limit.1.i.i.i, %if.end12.i.i.i ]
-  %add5.i.i.i = add i32 %limit.018.i.i.i, %min.021.i.i.i
+  %best_zero.021.i.i.i = phi i32 [ -1, %while.body.lr.ph.i.i.i ], [ %best_zero.1.i.i.i, %if.end12.i.i.i ]
+  %best_pos.020.i.i.i = phi i32 [ -1, %while.body.lr.ph.i.i.i ], [ %best_pos.1.fr.i.i.i, %if.end12.i.i.i ]
+  %limit.019.i.i.i = phi i32 [ %add.i.i.i, %while.body.lr.ph.i.i.i ], [ %limit.1.i.i.i, %if.end12.i.i.i ]
+  %min.018.i.i.i = phi i32 [ %1, %while.body.lr.ph.i.i.i ], [ %min.1.i.i.i, %if.end12.i.i.i ]
+  %add5.i.i.i = add i32 %min.018.i.i.i, %limit.019.i.i.i
   %div16.i.i.i = lshr i32 %add5.i.i.i, 1
   %idxprom.i.i.i = zext nneg i32 %div16.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i64, ptr %3, i64 %idxprom.i.i.i
@@ -204,15 +204,15 @@ if.then.i.i.i:                                    ; preds = %while.body.i.i.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i.i.i
   %cmp1.i.not.i.i.i = icmp eq i64 %4, %txnid
-  %best_pos.0.div16.i.i.i = select i1 %cmp1.i.not.i.i.i, i32 %best_pos.019.i.i.i, i32 %div16.i.i.i
-  %div16.best_zero.0.i.i.i = select i1 %cmp1.i.not.i.i.i, i32 %div16.i.i.i, i32 %best_zero.020.i.i.i
+  %best_pos.0.div16.i.i.i = select i1 %cmp1.i.not.i.i.i, i32 %best_pos.020.i.i.i, i32 %div16.i.i.i
+  %div16.best_zero.0.i.i.i = select i1 %cmp1.i.not.i.i.i, i32 %div16.i.i.i, i32 %best_zero.021.i.i.i
   br label %if.end12.i.i.i
 
 if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %if.then.i.i.i
-  %limit.1.i.i.i = phi i32 [ %limit.018.i.i.i, %if.then.i.i.i ], [ %div16.i.i.i, %if.else.i.i.i ]
-  %best_pos.1.i.i.i = phi i32 [ %best_pos.019.i.i.i, %if.then.i.i.i ], [ %best_pos.0.div16.i.i.i, %if.else.i.i.i ]
-  %best_zero.1.i.i.i = phi i32 [ %best_zero.020.i.i.i, %if.then.i.i.i ], [ %div16.best_zero.0.i.i.i, %if.else.i.i.i ]
-  %min.1.i.i.i = phi i32 [ %add8.i.i.i, %if.then.i.i.i ], [ %min.021.i.i.i, %if.else.i.i.i ]
+  %min.1.i.i.i = phi i32 [ %add8.i.i.i, %if.then.i.i.i ], [ %min.018.i.i.i, %if.else.i.i.i ]
+  %limit.1.i.i.i = phi i32 [ %limit.019.i.i.i, %if.then.i.i.i ], [ %div16.i.i.i, %if.else.i.i.i ]
+  %best_pos.1.i.i.i = phi i32 [ %best_pos.020.i.i.i, %if.then.i.i.i ], [ %best_pos.0.div16.i.i.i, %if.else.i.i.i ]
+  %best_zero.1.i.i.i = phi i32 [ %best_zero.021.i.i.i, %if.then.i.i.i ], [ %div16.best_zero.0.i.i.i, %if.else.i.i.i ]
   %best_pos.1.fr.i.i.i = freeze i32 %best_pos.1.i.i.i
   %cmp.not.i.i.i = icmp eq i32 %min.1.i.i.i, %limit.1.i.i.i
   br i1 %cmp.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !4
@@ -283,11 +283,11 @@ while.body.lr.ph.i.i:                             ; preds = %if.then.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end12.i.i, %while.body.lr.ph.i.i
-  %min.021.i.i = phi i32 [ %1, %while.body.lr.ph.i.i ], [ %min.1.i.i, %if.end12.i.i ]
-  %best_zero.020.i.i = phi i32 [ -1, %while.body.lr.ph.i.i ], [ %best_zero.1.i.i, %if.end12.i.i ]
-  %best_pos.019.i.i = phi i32 [ -1, %while.body.lr.ph.i.i ], [ %best_pos.1.fr.i.i, %if.end12.i.i ]
-  %limit.018.i.i = phi i32 [ %add.i.i, %while.body.lr.ph.i.i ], [ %limit.1.i.i, %if.end12.i.i ]
-  %add5.i.i = add i32 %limit.018.i.i, %min.021.i.i
+  %best_zero.021.i.i = phi i32 [ -1, %while.body.lr.ph.i.i ], [ %best_zero.1.i.i, %if.end12.i.i ]
+  %best_pos.020.i.i = phi i32 [ -1, %while.body.lr.ph.i.i ], [ %best_pos.1.fr.i.i, %if.end12.i.i ]
+  %limit.019.i.i = phi i32 [ %add.i.i, %while.body.lr.ph.i.i ], [ %limit.1.i.i, %if.end12.i.i ]
+  %min.018.i.i = phi i32 [ %1, %while.body.lr.ph.i.i ], [ %min.1.i.i, %if.end12.i.i ]
+  %add5.i.i = add i32 %min.018.i.i, %limit.019.i.i
   %div16.i.i = lshr i32 %add5.i.i, 1
   %idxprom.i.i = zext nneg i32 %div16.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i64, ptr %3, i64 %idxprom.i.i
@@ -301,15 +301,15 @@ if.then.i.i:                                      ; preds = %while.body.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i.i
   %cmp1.i.not.i.i = icmp eq i64 %4, %txnid
-  %best_pos.0.div16.i.i = select i1 %cmp1.i.not.i.i, i32 %best_pos.019.i.i, i32 %div16.i.i
-  %div16.best_zero.0.i.i = select i1 %cmp1.i.not.i.i, i32 %div16.i.i, i32 %best_zero.020.i.i
+  %best_pos.0.div16.i.i = select i1 %cmp1.i.not.i.i, i32 %best_pos.020.i.i, i32 %div16.i.i
+  %div16.best_zero.0.i.i = select i1 %cmp1.i.not.i.i, i32 %div16.i.i, i32 %best_zero.021.i.i
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.else.i.i, %if.then.i.i
-  %limit.1.i.i = phi i32 [ %limit.018.i.i, %if.then.i.i ], [ %div16.i.i, %if.else.i.i ]
-  %best_pos.1.i.i = phi i32 [ %best_pos.019.i.i, %if.then.i.i ], [ %best_pos.0.div16.i.i, %if.else.i.i ]
-  %best_zero.1.i.i = phi i32 [ %best_zero.020.i.i, %if.then.i.i ], [ %div16.best_zero.0.i.i, %if.else.i.i ]
-  %min.1.i.i = phi i32 [ %add8.i.i, %if.then.i.i ], [ %min.021.i.i, %if.else.i.i ]
+  %min.1.i.i = phi i32 [ %add8.i.i, %if.then.i.i ], [ %min.018.i.i, %if.else.i.i ]
+  %limit.1.i.i = phi i32 [ %limit.019.i.i, %if.then.i.i ], [ %div16.i.i, %if.else.i.i ]
+  %best_pos.1.i.i = phi i32 [ %best_pos.020.i.i, %if.then.i.i ], [ %best_pos.0.div16.i.i, %if.else.i.i ]
+  %best_zero.1.i.i = phi i32 [ %best_zero.021.i.i, %if.then.i.i ], [ %div16.best_zero.0.i.i, %if.else.i.i ]
   %best_pos.1.fr.i.i = freeze i32 %best_pos.1.i.i
   %cmp.not.i.i = icmp eq i32 %min.1.i.i, %limit.1.i.i
   br i1 %cmp.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !4

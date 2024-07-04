@@ -1204,8 +1204,8 @@ Abc_NtkManRstStop.exit:                           ; preds = %Vec_IntFree.exit25.
   br label %567
 
 567:                                              ; preds = %564, %566
-  %.0 = phi i32 [ 0, %566 ], [ 1, %564 ]
-  ret i32 %.0
+  %.063 = phi i32 [ 0, %566 ], [ 1, %564 ]
+  ret i32 %.063
 }
 
 declare i32 @Abc_AigCleanup(ptr noundef) local_unnamed_addr #1
@@ -5168,13 +5168,13 @@ define noalias noundef ptr @Abc_NodeMffcConstants(ptr nocapture noundef readnone
 
 .sink.split:                                      ; preds = %9, %11
   %calloc.i10.sink = phi ptr [ %calloc.i10, %11 ], [ %10, %9 ]
-  %.07.ph = phi ptr [ %calloc.i10, %11 ], [ %calloc.i, %9 ]
+  %.0.ph = phi ptr [ %calloc.i10, %11 ], [ %calloc.i, %9 ]
   store i32 1, ptr %calloc.i10.sink, align 8
   br label %12
 
 12:                                               ; preds = %.sink.split, %2
-  %.07 = phi ptr [ null, %2 ], [ %.07.ph, %.sink.split ]
-  ret ptr %.07
+  %.0 = phi ptr [ null, %2 ], [ %.0.ph, %.sink.split ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5623,7 +5623,7 @@ Abc_NodeMffcConstants.exit:                       ; preds = %5
 
 26:                                               ; preds = %Abc_NodeMffcConstants.exit, %Abc_NodeMffcConstants.exit.thread63
   %calloc.i10.i.sink = phi ptr [ %calloc.i10.i, %Abc_NodeMffcConstants.exit ], [ %25, %Abc_NodeMffcConstants.exit.thread63 ]
-  %.07.ph.i67 = phi ptr [ %calloc.i10.i, %Abc_NodeMffcConstants.exit ], [ %calloc.i.i, %Abc_NodeMffcConstants.exit.thread63 ]
+  %.0.ph.i67 = phi ptr [ %calloc.i10.i, %Abc_NodeMffcConstants.exit ], [ %calloc.i.i, %Abc_NodeMffcConstants.exit.thread63 ]
   store i32 1, ptr %calloc.i10.i.sink, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 132
   %28 = load i32, ptr %27, align 4
@@ -5666,7 +5666,7 @@ Abc_NodeMffcConstants.exit.thread:                ; preds = %5
   br label %.sink.split
 
 .sink.split:                                      ; preds = %26, %34, %44
-  %.0.ph = phi ptr [ %43, %44 ], [ %33, %34 ], [ %.07.ph.i67, %26 ]
+  %.0.ph = phi ptr [ %43, %44 ], [ %33, %34 ], [ %.0.ph.i67, %26 ]
   %49 = getelementptr inbounds i8, ptr %0, i64 128
   %50 = load i32, ptr %49, align 8
   %51 = add nsw i32 %50, 1

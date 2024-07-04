@@ -90,9 +90,9 @@ define internal i32 @smb_setup_connection(ptr noundef %0, ptr nocapture noundef 
   br label %smb_parse_url_path.exit
 
 .thread.i:                                        ; preds = %26, %24
-  %.02133.i = phi ptr [ %27, %26 ], [ %25, %24 ]
-  %30 = getelementptr inbounds i8, ptr %.02133.i, i64 1
-  store i8 0, ptr %.02133.i, align 1
+  %.033.i = phi ptr [ %27, %26 ], [ %25, %24 ]
+  %30 = getelementptr inbounds i8, ptr %.033.i, i64 1
+  store i8 0, ptr %.033.i, align 1
   %31 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %30, ptr %31, align 8
   br label %32
@@ -114,12 +114,12 @@ define internal i32 @smb_setup_connection(ptr noundef %0, ptr nocapture noundef 
   br label %32, !llvm.loop !5
 
 smb_parse_url_path.exit:                          ; preds = %32, %7, %17, %28
-  %.0.i = phi i32 [ 3, %28 ], [ %10, %7 ], [ 27, %17 ], [ 0, %32 ]
+  %.021.i = phi i32 [ 3, %28 ], [ %10, %7 ], [ 27, %17 ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %37
 
 37:                                               ; preds = %2, %smb_parse_url_path.exit
-  %.0 = phi i32 [ %.0.i, %smb_parse_url_path.exit ], [ 27, %2 ]
+  %.0 = phi i32 [ %.021.i, %smb_parse_url_path.exit ], [ 27, %2 ]
   ret i32 %.0
 }
 
@@ -861,7 +861,7 @@ select.unfold:                                    ; preds = %select.unfold.sink.
   br label %smb_send_write.exit
 
 smb_send_write.exit:                              ; preds = %smb_send.exit.i, %268, %265, %select.unfold, %183, %smb_send_open.exit
-  %.091122 = phi i32 [ 7, %268 ], [ 6, %265 ], [ 5, %select.unfold ], [ 3, %183 ], [ 2, %smb_send_open.exit ], [ 4, %smb_send.exit.i ]
+  %.090122 = phi i32 [ 7, %268 ], [ 6, %265 ], [ 5, %select.unfold ], [ 3, %183 ], [ 2, %smb_send_open.exit ], [ 4, %smb_send.exit.i ]
   %.3 = phi i32 [ %271, %268 ], [ %267, %265 ], [ %264, %select.unfold ], [ %200, %183 ], [ %.0.i110, %smb_send_open.exit ], [ %249, %smb_send.exit.i ]
   %.not107 = icmp eq i32 %.3, 0
   br i1 %.not107, label %272, label %smb_send_write.exit.thread
@@ -873,12 +873,12 @@ smb_send_write.exit.thread:                       ; preds = %select.unfold119, %
 
 272:                                              ; preds = %smb_send_write.exit
   %.val109 = load ptr, ptr %13, align 8
-  store i32 %.091122, ptr %.val109, align 8
+  store i32 %.090122, ptr %.val109, align 8
   br label %273
 
 273:                                              ; preds = %61, %272, %smb_send_write.exit.thread, %154, %60, %56, %22
-  %.0 = phi i32 [ 55, %22 ], [ %.0.i115, %56 ], [ %59, %60 ], [ 0, %154 ], [ %.3143, %smb_send_write.exit.thread ], [ 0, %272 ], [ 0, %61 ]
-  ret i32 %.0
+  %.091 = phi i32 [ 55, %22 ], [ %.0.i115, %56 ], [ %59, %60 ], [ 0, %154 ], [ %.3143, %smb_send_write.exit.thread ], [ 0, %272 ], [ 0, %61 ]
+  ret i32 %.091
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

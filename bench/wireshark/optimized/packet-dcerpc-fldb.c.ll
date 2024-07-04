@@ -472,9 +472,9 @@ define internal i32 @fldb_dissect_getentrybyname_rqst(ptr noundef %0, i32 nounde
   br label %17
 
 17:                                               ; preds = %14, %12
-  %.024.i = phi ptr [ %16, %14 ], [ null, %12 ]
+  %.0.i = phi ptr [ %16, %14 ], [ null, %12 ]
   %18 = load i32, ptr @hf_fldb_afsNameString_t_principalName_size, align 4
-  %19 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %.024.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %8) #3
+  %19 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %8) #3
   %20 = getelementptr inbounds i8, ptr %2, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %8, align 4
@@ -487,7 +487,7 @@ define internal i32 @fldb_dissect_getentrybyname_rqst(ptr noundef %0, i32 nounde
   %26 = load i32, ptr @hf_fldb_afsNameString_t_principalName_string, align 4
   %27 = getelementptr inbounds i8, ptr %2, i64 408
   %28 = load ptr, ptr %27, align 8
-  %29 = call ptr @proto_tree_add_item_ret_string(ptr noundef %.024.i, i32 noundef %26, ptr noundef %0, i32 noundef %19, i32 noundef %23, i32 noundef 0, ptr noundef %28, ptr noundef nonnull %9) #3
+  %29 = call ptr @proto_tree_add_item_ret_string(ptr noundef %.0.i, i32 noundef %26, ptr noundef %0, i32 noundef %19, i32 noundef %23, i32 noundef 0, ptr noundef %28, ptr noundef nonnull %9) #3
   %30 = load i32, ptr %8, align 4
   %31 = add i32 %30, %19
   %32 = load ptr, ptr %20, align 8
@@ -1969,9 +1969,9 @@ define internal fastcc i32 @dissect_afsnetaddr(ptr noundef %0, i32 noundef %1, p
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.030 = phi ptr [ %12, %10 ], [ null, %6 ]
+  %.029 = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = load i32, ptr @hf_fldb_afsnetaddr_type, align 4
-  %15 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.030, ptr noundef %4, ptr noundef %5, i32 noundef %14, ptr noundef nonnull %8) #3
+  %15 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.029, ptr noundef %4, ptr noundef %5, i32 noundef %14, ptr noundef nonnull %8) #3
   %16 = load i16, ptr %8, align 2
   %.not34 = icmp eq i16 %16, 0
   br i1 %.not34, label %47, label %17
@@ -1985,9 +1985,9 @@ define internal fastcc i32 @dissect_afsnetaddr(ptr noundef %0, i32 noundef %1, p
 
 21:                                               ; preds = %17, %45
   %.037 = phi i32 [ 0, %17 ], [ %46, %45 ]
-  %.02936 = phi i32 [ %15, %17 ], [ %23, %45 ]
+  %.03036 = phi i32 [ %15, %17 ], [ %23, %45 ]
   %22 = load i32, ptr @hf_fldb_afsnetaddr_data, align 4
-  %23 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %.02936, ptr noundef %2, ptr noundef %.030, ptr noundef %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %9) #3
+  %23 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %.03036, ptr noundef %2, ptr noundef %.029, ptr noundef %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %9) #3
   switch i32 %.037, label %45 [
     i32 1, label %24
     i32 2, label %29

@@ -1298,29 +1298,29 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp1440, label %for.body, label %if.end
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %in.043 = phi ptr [ %add.ptr, %for.body ], [ %inImg, %for.cond.preheader ]
+  %idx.043 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
   %out.042 = phi ptr [ %add.ptr25, %for.body ], [ %outImg, %for.cond.preheader ]
-  %idx.041 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
-  %6 = load float, ptr %in.043, align 4
+  %in.041 = phi ptr [ %add.ptr, %for.body ], [ %inImg, %for.cond.preheader ]
+  %6 = load float, ptr %in.041, align 4
   %mul15 = fmul float %exp2f, %6
   store float %mul15, ptr %out.042, align 4
-  %arrayidx17 = getelementptr inbounds i8, ptr %in.043, i64 4
+  %arrayidx17 = getelementptr inbounds i8, ptr %in.041, i64 4
   %7 = load float, ptr %arrayidx17, align 4
   %mul18 = fmul float %exp2f, %7
   %arrayidx19 = getelementptr inbounds i8, ptr %out.042, i64 4
   store float %mul18, ptr %arrayidx19, align 4
-  %arrayidx20 = getelementptr inbounds i8, ptr %in.043, i64 8
+  %arrayidx20 = getelementptr inbounds i8, ptr %in.041, i64 8
   %8 = load float, ptr %arrayidx20, align 4
   %mul21 = fmul float %exp2f, %8
   %arrayidx22 = getelementptr inbounds i8, ptr %out.042, i64 8
   store float %mul21, ptr %arrayidx22, align 4
-  %arrayidx23 = getelementptr inbounds i8, ptr %in.043, i64 12
+  %arrayidx23 = getelementptr inbounds i8, ptr %in.041, i64 12
   %9 = load float, ptr %arrayidx23, align 4
   %arrayidx24 = getelementptr inbounds i8, ptr %out.042, i64 12
   store float %9, ptr %arrayidx24, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.043, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %in.041, i64 16
   %add.ptr25 = getelementptr inbounds i8, ptr %out.042, i64 16
-  %inc = add nuw nsw i64 %idx.041, 1
+  %inc = add nuw nsw i64 %idx.043, 1
   %exitcond45.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond45.not, label %if.end, label %for.body, !llvm.loop !31
 
@@ -1360,10 +1360,10 @@ for.body33.lr.ph:                                 ; preds = %if.else
   br label %for.body33
 
 for.body33:                                       ; preds = %for.body33.lr.ph, %for.body33
-  %in.139 = phi ptr [ %inImg, %for.body33.lr.ph ], [ %add.ptr44, %for.body33 ]
+  %idx30.039 = phi i64 [ 0, %for.body33.lr.ph ], [ %inc47, %for.body33 ]
   %out.138 = phi ptr [ %outImg, %for.body33.lr.ph ], [ %add.ptr45, %for.body33 ]
-  %idx30.037 = phi i64 [ 0, %for.body33.lr.ph ], [ %inc47, %for.body33 ]
-  %29 = load <4 x float>, ptr %in.139, align 4
+  %in.137 = phi ptr [ %inImg, %for.body33.lr.ph ], [ %add.ptr44, %for.body33 ]
+  %29 = load <4 x float>, ptr %in.137, align 4
   %mul.i70 = fmul <4 x float> %vecinit3.i54, %29
   %30 = bitcast <4 x float> %mul.i70 to <4 x i32>
   %and.i.i.i = and <4 x i32> %30, %not.i.i.i
@@ -1416,9 +1416,9 @@ for.body33:                                       ; preds = %for.body33.lr.ph, %
   %arrayidx43 = getelementptr inbounds i8, ptr %out.138, i64 12
   %46 = extractelement <4 x float> %29, i64 3
   store float %46, ptr %arrayidx43, align 4
-  %add.ptr44 = getelementptr inbounds i8, ptr %in.139, i64 16
+  %add.ptr44 = getelementptr inbounds i8, ptr %in.137, i64 16
   %add.ptr45 = getelementptr inbounds i8, ptr %out.138, i64 16
-  %inc47 = add nuw nsw i64 %idx30.037, 1
+  %inc47 = add nuw nsw i64 %idx30.039, 1
   %exitcond.not = icmp eq i64 %inc47, %numPixels
   br i1 %exitcond.not, label %if.end, label %for.body33, !llvm.loop !33
 
@@ -2149,10 +2149,10 @@ for.body36.lr.ph:                                 ; preds = %if.else
   br label %for.body36
 
 for.body36:                                       ; preds = %for.body36.lr.ph, %for.body36
-  %in.139 = phi ptr [ %inImg, %for.body36.lr.ph ], [ %add.ptr47, %for.body36 ]
-  %out.138 = phi ptr [ %outImg, %for.body36.lr.ph ], [ %add.ptr48, %for.body36 ]
-  %idx33.037 = phi i64 [ 0, %for.body36.lr.ph ], [ %inc50, %for.body36 ]
-  %29 = load <4 x float>, ptr %in.139, align 4
+  %idx33.039 = phi i64 [ 0, %for.body36.lr.ph ], [ %inc50, %for.body36 ]
+  %in.138 = phi ptr [ %inImg, %for.body36.lr.ph ], [ %add.ptr47, %for.body36 ]
+  %out.137 = phi ptr [ %outImg, %for.body36.lr.ph ], [ %add.ptr48, %for.body36 ]
+  %29 = load <4 x float>, ptr %in.138, align 4
   %mul.i73 = fmul <4 x float> %vecinit3.i, %29
   %30 = bitcast <4 x float> %mul.i73 to <4 x i32>
   %and.i.i.i = and <4 x i32> %30, %not.i.i.i
@@ -2201,13 +2201,13 @@ for.body36:                                       ; preds = %for.body36.lr.ph, %
   %44 = fcmp ogt <4 x float> %mul.i73, zeroinitializer
   %45 = select <4 x i1> %44, <4 x float> %43, <4 x float> zeroinitializer
   %mul.i = fmul <4 x float> %vecinit3.i57, %45
-  store <4 x float> %mul.i, ptr %out.138, align 1
-  %arrayidx46 = getelementptr inbounds i8, ptr %out.138, i64 12
+  store <4 x float> %mul.i, ptr %out.137, align 1
+  %arrayidx46 = getelementptr inbounds i8, ptr %out.137, i64 12
   %46 = extractelement <4 x float> %29, i64 3
   store float %46, ptr %arrayidx46, align 4
-  %add.ptr47 = getelementptr inbounds i8, ptr %in.139, i64 16
-  %add.ptr48 = getelementptr inbounds i8, ptr %out.138, i64 16
-  %inc50 = add nuw nsw i64 %idx33.037, 1
+  %add.ptr47 = getelementptr inbounds i8, ptr %in.138, i64 16
+  %add.ptr48 = getelementptr inbounds i8, ptr %out.137, i64 16
+  %inc50 = add nuw nsw i64 %idx33.039, 1
   %exitcond.not = icmp eq i64 %inc50, %numPixels
   br i1 %exitcond.not, label %if.end, label %for.body36, !llvm.loop !35
 
@@ -2342,29 +2342,29 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp1540, label %for.body, label %if.end
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %in.043 = phi ptr [ %add.ptr, %for.body ], [ %inImg, %for.cond.preheader ]
+  %idx.043 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
   %out.042 = phi ptr [ %add.ptr26, %for.body ], [ %outImg, %for.cond.preheader ]
-  %idx.041 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
-  %6 = load float, ptr %in.043, align 4
+  %in.041 = phi ptr [ %add.ptr, %for.body ], [ %inImg, %for.cond.preheader ]
+  %6 = load float, ptr %in.041, align 4
   %mul16 = fmul float %call14, %6
   store float %mul16, ptr %out.042, align 4
-  %arrayidx18 = getelementptr inbounds i8, ptr %in.043, i64 4
+  %arrayidx18 = getelementptr inbounds i8, ptr %in.041, i64 4
   %7 = load float, ptr %arrayidx18, align 4
   %mul19 = fmul float %call14, %7
   %arrayidx20 = getelementptr inbounds i8, ptr %out.042, i64 4
   store float %mul19, ptr %arrayidx20, align 4
-  %arrayidx21 = getelementptr inbounds i8, ptr %in.043, i64 8
+  %arrayidx21 = getelementptr inbounds i8, ptr %in.041, i64 8
   %8 = load float, ptr %arrayidx21, align 4
   %mul22 = fmul float %call14, %8
   %arrayidx23 = getelementptr inbounds i8, ptr %out.042, i64 8
   store float %mul22, ptr %arrayidx23, align 4
-  %arrayidx24 = getelementptr inbounds i8, ptr %in.043, i64 12
+  %arrayidx24 = getelementptr inbounds i8, ptr %in.041, i64 12
   %9 = load float, ptr %arrayidx24, align 4
   %arrayidx25 = getelementptr inbounds i8, ptr %out.042, i64 12
   store float %9, ptr %arrayidx25, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.043, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %in.041, i64 16
   %add.ptr26 = getelementptr inbounds i8, ptr %out.042, i64 16
-  %inc = add nuw nsw i64 %idx.041, 1
+  %inc = add nuw nsw i64 %idx.043, 1
   %exitcond45.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond45.not, label %if.end, label %for.body, !llvm.loop !36
 
@@ -2404,10 +2404,10 @@ for.body34.lr.ph:                                 ; preds = %if.else
   br label %for.body34
 
 for.body34:                                       ; preds = %for.body34.lr.ph, %for.body34
-  %in.139 = phi ptr [ %inImg, %for.body34.lr.ph ], [ %add.ptr45, %for.body34 ]
+  %idx31.039 = phi i64 [ 0, %for.body34.lr.ph ], [ %inc48, %for.body34 ]
   %out.138 = phi ptr [ %outImg, %for.body34.lr.ph ], [ %add.ptr46, %for.body34 ]
-  %idx31.037 = phi i64 [ 0, %for.body34.lr.ph ], [ %inc48, %for.body34 ]
-  %29 = load <4 x float>, ptr %in.139, align 4
+  %in.137 = phi ptr [ %inImg, %for.body34.lr.ph ], [ %add.ptr45, %for.body34 ]
+  %29 = load <4 x float>, ptr %in.137, align 4
   %mul.i71 = fmul <4 x float> %vecinit3.i55, %29
   %30 = bitcast <4 x float> %mul.i71 to <4 x i32>
   %and.i.i.i = and <4 x i32> %30, %not.i.i.i
@@ -2460,9 +2460,9 @@ for.body34:                                       ; preds = %for.body34.lr.ph, %
   %arrayidx44 = getelementptr inbounds i8, ptr %out.138, i64 12
   %46 = extractelement <4 x float> %29, i64 3
   store float %46, ptr %arrayidx44, align 4
-  %add.ptr45 = getelementptr inbounds i8, ptr %in.139, i64 16
+  %add.ptr45 = getelementptr inbounds i8, ptr %in.137, i64 16
   %add.ptr46 = getelementptr inbounds i8, ptr %out.138, i64 16
-  %inc48 = add nuw nsw i64 %idx31.037, 1
+  %inc48 = add nuw nsw i64 %idx31.039, 1
   %exitcond.not = icmp eq i64 %inc48, %numPixels
   br i1 %exitcond.not, label %if.end, label %for.body34, !llvm.loop !37
 
@@ -2599,29 +2599,29 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp1940, label %for.body, label %if.end
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %in.043 = phi ptr [ %add.ptr, %for.body ], [ %inImg, %for.cond.preheader ]
+  %idx.043 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
   %out.042 = phi ptr [ %add.ptr30, %for.body ], [ %outImg, %for.cond.preheader ]
-  %idx.041 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
-  %6 = load float, ptr %in.043, align 4
+  %in.041 = phi ptr [ %add.ptr, %for.body ], [ %inImg, %for.cond.preheader ]
+  %6 = load float, ptr %in.041, align 4
   %mul20 = fmul float %div15, %6
   store float %mul20, ptr %out.042, align 4
-  %arrayidx22 = getelementptr inbounds i8, ptr %in.043, i64 4
+  %arrayidx22 = getelementptr inbounds i8, ptr %in.041, i64 4
   %7 = load float, ptr %arrayidx22, align 4
   %mul23 = fmul float %div15, %7
   %arrayidx24 = getelementptr inbounds i8, ptr %out.042, i64 4
   store float %mul23, ptr %arrayidx24, align 4
-  %arrayidx25 = getelementptr inbounds i8, ptr %in.043, i64 8
+  %arrayidx25 = getelementptr inbounds i8, ptr %in.041, i64 8
   %8 = load float, ptr %arrayidx25, align 4
   %mul26 = fmul float %div15, %8
   %arrayidx27 = getelementptr inbounds i8, ptr %out.042, i64 8
   store float %mul26, ptr %arrayidx27, align 4
-  %arrayidx28 = getelementptr inbounds i8, ptr %in.043, i64 12
+  %arrayidx28 = getelementptr inbounds i8, ptr %in.041, i64 12
   %9 = load float, ptr %arrayidx28, align 4
   %arrayidx29 = getelementptr inbounds i8, ptr %out.042, i64 12
   store float %9, ptr %arrayidx29, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.043, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %in.041, i64 16
   %add.ptr30 = getelementptr inbounds i8, ptr %out.042, i64 16
-  %inc = add nuw nsw i64 %idx.041, 1
+  %inc = add nuw nsw i64 %idx.043, 1
   %exitcond45.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond45.not, label %if.end, label %for.body, !llvm.loop !38
 
@@ -2663,10 +2663,10 @@ for.body37.lr.ph:                                 ; preds = %if.else
   br label %for.body37
 
 for.body37:                                       ; preds = %for.body37.lr.ph, %for.body37
-  %in.139 = phi ptr [ %inImg, %for.body37.lr.ph ], [ %add.ptr48, %for.body37 ]
+  %idx34.039 = phi i64 [ 0, %for.body37.lr.ph ], [ %inc51, %for.body37 ]
   %out.138 = phi ptr [ %outImg, %for.body37.lr.ph ], [ %add.ptr49, %for.body37 ]
-  %idx34.037 = phi i64 [ 0, %for.body37.lr.ph ], [ %inc51, %for.body37 ]
-  %29 = load <4 x float>, ptr %in.139, align 4
+  %in.137 = phi ptr [ %inImg, %for.body37.lr.ph ], [ %add.ptr48, %for.body37 ]
+  %29 = load <4 x float>, ptr %in.137, align 4
   %mul.i74 = fmul <4 x float> %vecinit3.i, %29
   %30 = bitcast <4 x float> %mul.i74 to <4 x i32>
   %and.i.i.i = and <4 x i32> %30, %not.i.i.i
@@ -2719,9 +2719,9 @@ for.body37:                                       ; preds = %for.body37.lr.ph, %
   %arrayidx47 = getelementptr inbounds i8, ptr %out.138, i64 12
   %46 = extractelement <4 x float> %29, i64 3
   store float %46, ptr %arrayidx47, align 4
-  %add.ptr48 = getelementptr inbounds i8, ptr %in.139, i64 16
+  %add.ptr48 = getelementptr inbounds i8, ptr %in.137, i64 16
   %add.ptr49 = getelementptr inbounds i8, ptr %out.138, i64 16
-  %inc51 = add nuw nsw i64 %idx34.037, 1
+  %inc51 = add nuw nsw i64 %idx34.039, 1
   %exitcond.not = icmp eq i64 %inc51, %numPixels
   br i1 %exitcond.not, label %if.end, label %for.body37, !llvm.loop !39
 

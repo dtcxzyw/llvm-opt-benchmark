@@ -452,18 +452,18 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %56, %54, %52, %50
 
 .lr.ph76.i:                                       ; preds = %.lr.ph76.i.preheader, %._crit_edge73.i
   %64 = phi i32 [ %82, %._crit_edge73.i ], [ %37, %.lr.ph76.i.preheader ]
-  %.04674.i = phi i64 [ %83, %._crit_edge73.i ], [ 1, %.lr.ph76.i.preheader ]
+  %.04974.i = phi i64 [ %83, %._crit_edge73.i ], [ 1, %.lr.ph76.i.preheader ]
   %65 = sext i32 %64 to i64
-  %66 = mul i64 %.04674.i, %65
+  %66 = mul i64 %.04974.i, %65
   %67 = getelementptr inbounds float, ptr %2, i64 %66
   %.not81.i = icmp eq i32 %64, 0
   br i1 %.not81.i, label %._crit_edge73.i, label %.lr.ph72.i
 
 .lr.ph72.i:                                       ; preds = %.lr.ph76.i, %80
-  %.05070.i = phi i64 [ %81, %80 ], [ 0, %.lr.ph76.i ]
-  %68 = getelementptr inbounds float, ptr %67, i64 %.05070.i
+  %.05170.i = phi i64 [ %81, %80 ], [ 0, %.lr.ph76.i ]
+  %68 = getelementptr inbounds float, ptr %67, i64 %.05170.i
   %69 = load float, ptr %68, align 4
-  %70 = getelementptr inbounds float, ptr %57, i64 %.05070.i
+  %70 = getelementptr inbounds float, ptr %57, i64 %.05170.i
   %71 = load float, ptr %70, align 4
   %72 = fcmp olt float %69, %71
   br i1 %72, label %73, label %74
@@ -475,7 +475,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %56, %54, %52, %50
 
 74:                                               ; preds = %73, %.lr.ph72.i
   %75 = phi float [ %.pre83.i, %73 ], [ %69, %.lr.ph72.i ]
-  %76 = getelementptr inbounds float, ptr %59, i64 %.05070.i
+  %76 = getelementptr inbounds float, ptr %59, i64 %.05170.i
   %77 = load float, ptr %76, align 4
   %78 = fcmp ogt float %75, %77
   br i1 %78, label %79, label %80
@@ -485,13 +485,13 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %56, %54, %52, %50
   br label %80
 
 80:                                               ; preds = %79, %74
-  %81 = add nuw i64 %.05070.i, 1
+  %81 = add nuw i64 %.05170.i, 1
   %exitcond10.not = icmp eq i64 %81, %umax9
   br i1 %exitcond10.not, label %._crit_edge73.i, label %.lr.ph72.i, !llvm.loop !5
 
 ._crit_edge73.i:                                  ; preds = %80, %.lr.ph76.i
   %82 = phi i32 [ 0, %.lr.ph76.i ], [ %37, %80 ]
-  %83 = add nuw i64 %.04674.i, 1
+  %83 = add nuw i64 %.04974.i, 1
   %exitcond11.not = icmp eq i64 %83, %1
   br i1 %exitcond11.not, label %._crit_edge77.i, label %.lr.ph76.i, !llvm.loop !7
 
@@ -502,10 +502,10 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %56, %54, %52, %50
 .lr.ph80.i:                                       ; preds = %._crit_edge77.i, %.lr.ph80.i
   %84 = phi ptr [ %98, %.lr.ph80.i ], [ %57, %._crit_edge77.i ]
   %85 = phi ptr [ %94, %.lr.ph80.i ], [ %59, %._crit_edge77.i ]
-  %.05178.i = phi i64 [ %103, %.lr.ph80.i ], [ 0, %._crit_edge77.i ]
-  %86 = getelementptr inbounds float, ptr %85, i64 %.05178.i
+  %.05078.i = phi i64 [ %103, %.lr.ph80.i ], [ 0, %._crit_edge77.i ]
+  %86 = getelementptr inbounds float, ptr %85, i64 %.05078.i
   %87 = load float, ptr %86, align 4
-  %88 = getelementptr inbounds float, ptr %84, i64 %.05178.i
+  %88 = getelementptr inbounds float, ptr %84, i64 %.05078.i
   %89 = load float, ptr %88, align 4
   %90 = fsub float %87, %89
   %91 = load float, ptr %5, align 4
@@ -513,17 +513,17 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %56, %54, %52, %50
   %93 = fsub float %89, %92
   store float %93, ptr %88, align 4
   %94 = load ptr, ptr %10, align 8
-  %95 = getelementptr inbounds float, ptr %94, i64 %.05178.i
+  %95 = getelementptr inbounds float, ptr %94, i64 %.05078.i
   %96 = load float, ptr %95, align 4
   %97 = fadd float %92, %96
   store float %97, ptr %95, align 4
   %98 = load ptr, ptr %9, align 8
-  %99 = getelementptr inbounds float, ptr %98, i64 %.05178.i
+  %99 = getelementptr inbounds float, ptr %98, i64 %.05078.i
   %100 = load float, ptr %99, align 4
   %101 = fsub float %97, %100
-  %102 = getelementptr inbounds float, ptr %59, i64 %.05178.i
+  %102 = getelementptr inbounds float, ptr %59, i64 %.05078.i
   store float %101, ptr %102, align 4
-  %103 = add nuw i64 %.05178.i, 1
+  %103 = add nuw i64 %.05078.i, 1
   %104 = load i32, ptr %7, align 4
   %105 = sext i32 %104 to i64
   %106 = icmp ult i64 %103, %105
@@ -577,15 +577,15 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc55.i
 
 .lr.ph68.i:                                       ; preds = %.lr.ph68.i.preheader, %._crit_edge.i
   %121 = phi i32 [ %129, %._crit_edge.i ], [ %37, %.lr.ph68.i.preheader ]
-  %.04766.i = phi i64 [ %130, %._crit_edge.i ], [ 1, %.lr.ph68.i.preheader ]
+  %.04666.i = phi i64 [ %130, %._crit_edge.i ], [ 1, %.lr.ph68.i.preheader ]
   %122 = sext i32 %121 to i64
-  %123 = mul i64 %.04766.i, %122
+  %123 = mul i64 %.04666.i, %122
   %124 = getelementptr inbounds float, ptr %2, i64 %123
   %.not.i = icmp eq i32 %121, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph68.i
-  %invariant.gep.i = getelementptr float, ptr %118, i64 %.04766.i
+  %invariant.gep.i = getelementptr float, ptr %118, i64 %.04666.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -601,7 +601,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc55.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph68.i
   %129 = phi i32 [ 0, %.lr.ph68.i ], [ %37, %.lr.ph.i ]
-  %130 = add nuw i64 %.04766.i, 1
+  %130 = add nuw i64 %.04666.i, 1
   %exitcond8.not = icmp eq i64 %130, %1
   br i1 %exitcond8.not, label %._crit_edge69.i, label %.lr.ph68.i, !llvm.loop !10
 
@@ -987,16 +987,16 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %17, %19, %20, %22
   br label %209
 
 .lr.ph237:                                        ; preds = %.preheader, %.lr.ph237
-  %.0173234 = phi i64 [ %54, %.lr.ph237 ], [ 0, %.preheader ]
+  %.0178234 = phi i64 [ %54, %.lr.ph237 ], [ 0, %.preheader ]
   %46 = phi <2 x double> [ %53, %.lr.ph237 ], [ zeroinitializer, %.preheader ]
-  %47 = getelementptr inbounds float, ptr %4, i64 %.0173234
+  %47 = getelementptr inbounds float, ptr %4, i64 %.0178234
   %48 = load float, ptr %47, align 4
   %49 = fmul float %48, %48
   %50 = insertelement <2 x float> poison, float %49, i64 0
   %51 = insertelement <2 x float> %50, float %48, i64 1
   %52 = fpext <2 x float> %51 to <2 x double>
   %53 = fadd <2 x double> %46, %52
-  %54 = add nuw i64 %.0173234, 1
+  %54 = add nuw i64 %.0178234, 1
   %exitcond262.not = icmp eq i64 %54, %2
   br i1 %exitcond262.not, label %._crit_edge238, label %.lr.ph237, !llvm.loop !12
 
@@ -1078,8 +1078,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   %93 = icmp slt i64 %92, %91
   %94 = lshr i64 %2, 1
   %95 = trunc i64 %94 to i32
-  %.0178 = select i1 %93, i32 %95, i32 %spec.store.select
-  %96 = sext i32 %.0178 to i64
+  %.0177 = select i1 %93, i32 %95, i32 %spec.store.select
+  %96 = sext i32 %.0177 to i64
   %97 = getelementptr inbounds float, ptr %.sroa.0.0, i64 %96
   %98 = load float, ptr %97, align 4
   store float %98, ptr %23, align 4
@@ -1111,9 +1111,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
 .lr.ph:                                           ; preds = %106, %118
   %107 = phi float [ %120, %118 ], [ 0xFFF0000000000000, %106 ]
   %108 = phi float [ %115, %118 ], [ 0x7FF0000000000000, %106 ]
-  %.0174213 = phi i64 [ %122, %118 ], [ 0, %106 ]
-  %.0175212 = phi float [ %121, %118 ], [ 0.000000e+00, %106 ]
-  %109 = getelementptr inbounds float, ptr %4, i64 %.0174213
+  %.0173213 = phi i64 [ %122, %118 ], [ 0, %106 ]
+  %.0174212 = phi float [ %121, %118 ], [ 0.000000e+00, %106 ]
+  %109 = getelementptr inbounds float, ptr %4, i64 %.0173213
   %110 = load float, ptr %109, align 4
   %111 = fcmp olt float %110, %108
   br i1 %111, label %112, label %113
@@ -1137,15 +1137,15 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
 118:                                              ; preds = %117, %113
   %119 = phi float [ %.pre265, %117 ], [ %114, %113 ]
   %120 = phi float [ %114, %117 ], [ %107, %113 ]
-  %121 = fadd float %.0175212, %119
-  %122 = add nuw i64 %.0174213, 1
+  %121 = fadd float %.0174212, %119
+  %122 = add nuw i64 %.0173213, 1
   %exitcond.not = icmp eq i64 %122, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %118, %106
   %123 = phi float [ 0xFFF0000000000000, %106 ], [ %120, %118 ]
   %124 = phi float [ 0x7FF0000000000000, %106 ], [ %115, %118 ]
-  %.0175.lcssa = phi float [ 0.000000e+00, %106 ], [ %121, %118 ]
+  %.0174.lcssa = phi float [ 0.000000e+00, %106 ], [ %121, %118 ]
   %125 = fsub float %123, %124
   %126 = add nsw i32 %3, -1
   %127 = sitofp i32 %126 to float
@@ -1159,26 +1159,26 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
 
 .preheader211.us.preheader:                       ; preds = %._crit_edge
   %134 = insertelement <2 x float> poison, float %131, i64 0
-  %135 = insertelement <2 x float> %134, float %.0175.lcssa, i64 1
+  %135 = insertelement <2 x float> %134, float %.0174.lcssa, i64 1
   br label %.preheader211.us
 
 .preheader211.us:                                 ; preds = %.preheader211.us.preheader, %142
-  %.0167230.us = phi i32 [ %155, %142 ], [ 0, %.preheader211.us.preheader ]
-  %.0168229.us = phi i32 [ %.1169.us, %142 ], [ 0, %.preheader211.us.preheader ]
-  %.0170228.us = phi float [ %.1171.us, %142 ], [ -1.000000e+00, %.preheader211.us.preheader ]
+  %.0166230.us = phi i32 [ %155, %142 ], [ 0, %.preheader211.us.preheader ]
+  %.0167229.us = phi i32 [ %.1168.us, %142 ], [ 0, %.preheader211.us.preheader ]
+  %.0169228.us = phi float [ %.1170.us, %142 ], [ -1.000000e+00, %.preheader211.us.preheader ]
   %136 = phi <2 x float> [ %154, %142 ], [ %133, %.preheader211.us.preheader ]
   %137 = extractelement <2 x float> %136, i64 0
   %138 = extractelement <2 x float> %136, i64 1
   br label %156
 
 139:                                              ; preds = %._crit_edge221.us
-  %140 = add nsw i32 %.0168229.us, 1
+  %140 = add nsw i32 %.0167229.us, 1
   %141 = icmp eq i32 %140, 16
   br i1 %141, label %.split232.us, label %142
 
 142:                                              ; preds = %139, %._crit_edge221.us
-  %.1171.us = phi float [ %.0170228.us, %139 ], [ %171, %._crit_edge221.us ]
-  %.1169.us = phi i32 [ %140, %139 ], [ 0, %._crit_edge221.us ]
+  %.1170.us = phi float [ %.0169228.us, %139 ], [ %171, %._crit_edge221.us ]
+  %.1168.us = phi i32 [ %140, %139 ], [ 0, %._crit_edge221.us ]
   %143 = fmul float %172, %172
   %144 = fneg <2 x float> %176
   %145 = extractelement <2 x float> %144, i64 1
@@ -1191,16 +1191,16 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   %152 = insertelement <2 x float> poison, float %146, i64 0
   %153 = shufflevector <2 x float> %152, <2 x float> poison, <2 x i32> zeroinitializer
   %154 = fdiv <2 x float> %151, %153
-  %155 = add nuw nsw i32 %.0167230.us, 1
+  %155 = add nuw nsw i32 %.0166230.us, 1
   %exitcond261.not = icmp eq i32 %155, 2000
   br i1 %exitcond261.not, label %.split232.us, label %.preheader211.us, !llvm.loop !14
 
 156:                                              ; preds = %.preheader211.us, %156
-  %.0162219.us = phi i64 [ 0, %.preheader211.us ], [ %177, %156 ]
-  %.0163218.us = phi float [ 0.000000e+00, %.preheader211.us ], [ %171, %156 ]
-  %.0166215.us = phi float [ 0.000000e+00, %.preheader211.us ], [ %172, %156 ]
+  %.0161219.us = phi i64 [ 0, %.preheader211.us ], [ %177, %156 ]
+  %.0162218.us = phi float [ 0.000000e+00, %.preheader211.us ], [ %171, %156 ]
+  %.0165215.us = phi float [ 0.000000e+00, %.preheader211.us ], [ %172, %156 ]
   %157 = phi <2 x float> [ zeroinitializer, %.preheader211.us ], [ %176, %156 ]
-  %158 = getelementptr inbounds float, ptr %4, i64 %.0162219.us
+  %158 = getelementptr inbounds float, ptr %4, i64 %.0161219.us
   %159 = load float, ptr %158, align 4
   %160 = fsub float %159, %138
   %161 = fdiv float %160, %137
@@ -1215,26 +1215,26 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   %168 = tail call float @llvm.fmuladd.f32(float %.1160.us, float %137, float %138)
   %169 = fsub float %159, %168
   %170 = fmul float %169, %169
-  %171 = fadd float %.0163218.us, %170
-  %172 = fadd float %.0166215.us, %.1160.us
+  %171 = fadd float %.0162218.us, %170
+  %172 = fadd float %.0165215.us, %.1160.us
   %173 = insertelement <2 x float> poison, float %.1160.us, i64 0
   %174 = shufflevector <2 x float> %173, <2 x float> poison, <2 x i32> zeroinitializer
   %175 = insertelement <2 x float> %174, float %159, i64 0
   %176 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %174, <2 x float> %175, <2 x float> %157)
-  %177 = add nuw nsw i64 %.0162219.us, 1
+  %177 = add nuw nsw i64 %.0161219.us, 1
   %exitcond260.not = icmp eq i64 %177, %2
   br i1 %exitcond260.not, label %._crit_edge221.us, label %156, !llvm.loop !15
 
 ._crit_edge221.us:                                ; preds = %156
-  %178 = fcmp oeq float %171, %.0170228.us
+  %178 = fcmp oeq float %171, %.0169228.us
   br i1 %178, label %139, label %142
 
 .split:                                           ; preds = %._crit_edge
   %179 = fneg float %131
   %180 = tail call float @llvm.copysign.f32(float 0.000000e+00, float %179)
-  %181 = tail call float @llvm.fmuladd.f32(float %.0175.lcssa, float 0.000000e+00, float %180)
+  %181 = tail call float @llvm.fmuladd.f32(float %.0174.lcssa, float 0.000000e+00, float %180)
   %182 = tail call float @llvm.fmuladd.f32(float %131, float -0.000000e+00, float 0.000000e+00)
-  %183 = fmul float %.0175.lcssa, -0.000000e+00
+  %183 = fmul float %.0174.lcssa, -0.000000e+00
   %184 = fadd float %183, 0.000000e+00
   %185 = insertelement <2 x float> poison, float %181, i64 0
   %186 = insertelement <2 x float> %185, float %184, i64 1
@@ -1244,22 +1244,22 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   br label %.preheader211
 
 .preheader211:                                    ; preds = %.split, %195
-  %.0167230 = phi i32 [ 0, %.split ], [ %196, %195 ]
-  %.0168229 = phi i32 [ 0, %.split ], [ %.1169, %195 ]
-  %.0170228 = phi float [ -1.000000e+00, %.split ], [ %.1171, %195 ]
+  %.0166230 = phi i32 [ 0, %.split ], [ %196, %195 ]
+  %.0167229 = phi i32 [ 0, %.split ], [ %.1168, %195 ]
+  %.0169228 = phi float [ -1.000000e+00, %.split ], [ %.1170, %195 ]
   %190 = phi <2 x float> [ %133, %.split ], [ %189, %195 ]
-  %191 = fcmp oeq float %.0170228, 0.000000e+00
+  %191 = fcmp oeq float %.0169228, 0.000000e+00
   br i1 %191, label %192, label %195
 
 192:                                              ; preds = %.preheader211
-  %193 = add nsw i32 %.0168229, 1
+  %193 = add nsw i32 %.0167229, 1
   %194 = icmp eq i32 %193, 16
   br i1 %194, label %.split232.us, label %195
 
 195:                                              ; preds = %.preheader211, %192
-  %.1171 = phi float [ %.0170228, %192 ], [ 0.000000e+00, %.preheader211 ]
-  %.1169 = phi i32 [ %193, %192 ], [ 0, %.preheader211 ]
-  %196 = add nuw nsw i32 %.0167230, 1
+  %.1170 = phi float [ %.0169228, %192 ], [ 0.000000e+00, %.preheader211 ]
+  %.1168 = phi i32 [ %193, %192 ], [ 0, %.preheader211 ]
+  %196 = add nuw nsw i32 %.0166230, 1
   %exitcond259.not = icmp eq i32 %196, 2000
   br i1 %exitcond259.not, label %.split232.us, label %.preheader211, !llvm.loop !14
 
@@ -19867,12 +19867,12 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 
 20:                                               ; preds = %.lr.ph, %96
   %.025 = phi ptr [ %2, %.lr.ph ], [ %99, %96 ]
-  %.01824 = phi i64 [ 0, %.lr.ph ], [ %.1, %96 ]
-  %.01922 = phi i64 [ 0, %.lr.ph ], [ %97, %96 ]
+  %.01823 = phi i64 [ 0, %.lr.ph ], [ %97, %96 ]
+  %.01922 = phi i64 [ 0, %.lr.ph ], [ %.1, %96 ]
   %21 = load ptr, ptr %8, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef %.01922)
+  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef %.01823)
   br i1 %24, label %25, label %96
 
 25:                                               ; preds = %20
@@ -19921,11 +19921,11 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 49:                                               ; preds = %46
   %50 = load i64, ptr %15, align 8
   %51 = shl i64 %50, 32
-  %52 = or i64 %51, %.01922
+  %52 = or i64 %51, %.01823
   br label %56
 
 53:                                               ; preds = %46
-  %54 = getelementptr inbounds i64, ptr %3, i64 %.01922
+  %54 = getelementptr inbounds i64, ptr %3, i64 %.01823
   %55 = load i64, ptr %54, align 8
   br label %56
 
@@ -20005,20 +20005,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
   store float %43, ptr %93, align 4
   %94 = getelementptr inbounds i64, ptr %17, i64 %.0.lcssa.i.i
   store i64 %57, ptr %94, align 8
-  %95 = add i64 %.01824, 1
+  %95 = add i64 %.01922, 1
   br label %96
 
 96:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, %20
-  %.1 = phi i64 [ %95, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01824, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01824, %20 ]
-  %97 = add nuw i64 %.01922, 1
+  %.1 = phi i64 [ %95, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01922, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01922, %20 ]
+  %97 = add nuw i64 %.01823, 1
   %98 = load i64, ptr %19, align 8
   %99 = getelementptr inbounds i8, ptr %.025, i64 %98
   %exitcond.not = icmp eq i64 %97, %1
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %96, %7
-  %.018.lcssa = phi i64 [ 0, %7 ], [ %.1, %96 ]
-  ret i64 %.018.lcssa
+  %.019.lcssa = phi i64 [ 0, %7 ], [ %.1, %96 ]
+  ret i64 %.019.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -20213,10 +20213,10 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 
 20:                                               ; preds = %.lr.ph, %97
   %.026 = phi ptr [ %2, %.lr.ph ], [ %100, %97 ]
-  %.01925 = phi i64 [ 0, %.lr.ph ], [ %.1, %97 ]
-  %.02023 = phi i64 [ 0, %.lr.ph ], [ %98, %97 ]
+  %.01924 = phi i64 [ 0, %.lr.ph ], [ %98, %97 ]
+  %.02023 = phi i64 [ 0, %.lr.ph ], [ %.1, %97 ]
   %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds i64, ptr %3, i64 %.02023
+  %22 = getelementptr inbounds i64, ptr %3, i64 %.01924
   %23 = load i64, ptr %22, align 8
   %24 = load ptr, ptr %21, align 8
   %25 = load ptr, ptr %24, align 8
@@ -20269,7 +20269,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 51:                                               ; preds = %48
   %52 = load i64, ptr %15, align 8
   %53 = shl i64 %52, 32
-  %54 = or i64 %53, %.02023
+  %54 = or i64 %53, %.01924
   br label %57
 
 55:                                               ; preds = %48
@@ -20352,20 +20352,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
   store float %45, ptr %94, align 4
   %95 = getelementptr inbounds i64, ptr %17, i64 %.0.lcssa.i.i
   store i64 %58, ptr %95, align 8
-  %96 = add i64 %.01925, 1
+  %96 = add i64 %.02023, 1
   br label %97
 
 97:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, %20
-  %.1 = phi i64 [ %96, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01925, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01925, %20 ]
-  %98 = add nuw i64 %.02023, 1
+  %.1 = phi i64 [ %96, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.02023, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.02023, %20 ]
+  %98 = add nuw i64 %.01924, 1
   %99 = load i64, ptr %19, align 8
   %100 = getelementptr inbounds i8, ptr %.026, i64 %99
   %exitcond.not = icmp eq i64 %98, %1
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !127
 
 ._crit_edge:                                      ; preds = %97, %7
-  %.019.lcssa = phi i64 [ 0, %7 ], [ %.1, %97 ]
-  ret i64 %.019.lcssa
+  %.020.lcssa = phi i64 [ 0, %7 ], [ %.1, %97 ]
+  ret i64 %.020.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -20560,8 +20560,8 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %51
   %.024.us = phi ptr [ %54, %51 ], [ %2, %.lr.ph ]
-  %.01723.us = phi i64 [ %.1.us, %51 ], [ 0, %.lr.ph ]
-  %.01821.us = phi i64 [ %52, %51 ], [ 0, %.lr.ph ]
+  %.01722.us = phi i64 [ %52, %51 ], [ 0, %.lr.ph ]
+  %.01821.us = phi i64 [ %.1.us, %51 ], [ 0, %.lr.ph ]
   %19 = load float, ptr %8, align 4
   %20 = load i64, ptr %9, align 8
   %.not.i.i.us = icmp eq i64 %20, 0
@@ -20605,26 +20605,26 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
   br i1 %41, label %45, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i64, ptr %3, i64 %.01821.us
+  %43 = getelementptr inbounds i64, ptr %3, i64 %.01722.us
   %44 = load i64, ptr %43, align 8
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
 45:                                               ; preds = %39
   %46 = load i64, ptr %14, align 8
   %47 = shl i64 %46, 32
-  %48 = or i64 %47, %.01821.us
+  %48 = or i64 %47, %.01722.us
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
 _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %45, %42
   %49 = phi i64 [ %48, %45 ], [ %44, %42 ]
   store float %36, ptr %4, align 4
   store i64 %49, ptr %5, align 8
-  %50 = add i64 %.01723.us, 1
+  %50 = add i64 %.01821.us, 1
   br label %51
 
 51:                                               ; preds = %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us
-  %.1.us = phi i64 [ %50, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us ], [ %.01723.us, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us ]
-  %52 = add nuw i64 %.01821.us, 1
+  %.1.us = phi i64 [ %50, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us ], [ %.01821.us, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us ]
+  %52 = add nuw i64 %.01722.us, 1
   %53 = load i64, ptr %18, align 8
   %54 = getelementptr inbounds i8, ptr %.024.us, i64 %53
   %exitcond27.not = icmp eq i64 %52, %1
@@ -20632,8 +20632,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %45, %42
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %124
   %.024 = phi ptr [ %127, %124 ], [ %2, %.lr.ph ]
-  %.01723 = phi i64 [ %.1, %124 ], [ 0, %.lr.ph ]
-  %.01821 = phi i64 [ %125, %124 ], [ 0, %.lr.ph ]
+  %.01722 = phi i64 [ %125, %124 ], [ 0, %.lr.ph ]
+  %.01821 = phi i64 [ %.1, %124 ], [ 0, %.lr.ph ]
   %55 = load float, ptr %8, align 4
   %56 = load i64, ptr %9, align 8
   %.not.i.i = icmp eq i64 %56, 0
@@ -20679,11 +20679,11 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1E
 78:                                               ; preds = %75
   %79 = load i64, ptr %14, align 8
   %80 = shl i64 %79, 32
-  %81 = or i64 %80, %.01821
+  %81 = or i64 %80, %.01722
   br label %.lr.ph.preheader.i.i
 
 82:                                               ; preds = %75
-  %83 = getelementptr inbounds i64, ptr %3, i64 %.01821
+  %83 = getelementptr inbounds i64, ptr %3, i64 %.01722
   %84 = load i64, ptr %83, align 8
   br label %.lr.ph.preheader.i.i
 
@@ -20763,20 +20763,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %114, %_Z
   store float %72, ptr %121, align 4
   %122 = getelementptr inbounds i64, ptr %16, i64 %.0.lcssa.i.i.ph
   store i64 %85, ptr %122, align 8
-  %123 = add i64 %.01723, 1
+  %123 = add i64 %.01821, 1
   br label %124
 
 124:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit
-  %.1 = phi i64 [ %123, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit ], [ %.01723, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ]
-  %125 = add nuw i64 %.01821, 1
+  %.1 = phi i64 [ %123, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit ], [ %.01821, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ]
+  %125 = add nuw i64 %.01722, 1
   %126 = load i64, ptr %18, align 8
   %127 = getelementptr inbounds i8, ptr %.024, i64 %126
   %exitcond.not = icmp eq i64 %125, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %124, %51, %7
-  %.017.lcssa = phi i64 [ 0, %7 ], [ %.1.us, %51 ], [ %.1, %124 ]
-  ret i64 %.017.lcssa
+  %.018.lcssa = phi i64 [ 0, %7 ], [ %.1.us, %51 ], [ %.1, %124 ]
+  ret i64 %.018.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -20969,12 +20969,12 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 
 20:                                               ; preds = %.lr.ph, %103
   %.025 = phi ptr [ %2, %.lr.ph ], [ %106, %103 ]
-  %.01824 = phi i64 [ 0, %.lr.ph ], [ %.1, %103 ]
-  %.01922 = phi i64 [ 0, %.lr.ph ], [ %104, %103 ]
+  %.01823 = phi i64 [ 0, %.lr.ph ], [ %104, %103 ]
+  %.01922 = phi i64 [ 0, %.lr.ph ], [ %.1, %103 ]
   %21 = load ptr, ptr %8, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef %.01922)
+  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef %.01823)
   br i1 %24, label %25, label %103
 
 25:                                               ; preds = %20
@@ -21029,11 +21029,11 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 56:                                               ; preds = %53
   %57 = load i64, ptr %15, align 8
   %58 = shl i64 %57, 32
-  %59 = or i64 %58, %.01922
+  %59 = or i64 %58, %.01823
   br label %63
 
 60:                                               ; preds = %53
-  %61 = getelementptr inbounds i64, ptr %3, i64 %.01922
+  %61 = getelementptr inbounds i64, ptr %3, i64 %.01823
   %62 = load i64, ptr %61, align 8
   br label %63
 
@@ -21113,20 +21113,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
   store float %50, ptr %100, align 4
   %101 = getelementptr inbounds i64, ptr %17, i64 %.0.lcssa.i.i
   store i64 %64, ptr %101, align 8
-  %102 = add i64 %.01824, 1
+  %102 = add i64 %.01922, 1
   br label %103
 
 103:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, %20
-  %.1 = phi i64 [ %102, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01824, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01824, %20 ]
-  %104 = add nuw i64 %.01922, 1
+  %.1 = phi i64 [ %102, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01922, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01922, %20 ]
+  %104 = add nuw i64 %.01823, 1
   %105 = load i64, ptr %19, align 8
   %106 = getelementptr inbounds i8, ptr %.025, i64 %105
   %exitcond.not = icmp eq i64 %104, %1
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %103, %7
-  %.018.lcssa = phi i64 [ 0, %7 ], [ %.1, %103 ]
-  ret i64 %.018.lcssa
+  %.019.lcssa = phi i64 [ 0, %7 ], [ %.1, %103 ]
+  ret i64 %.019.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -21333,10 +21333,10 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 
 20:                                               ; preds = %.lr.ph, %104
   %.026 = phi ptr [ %2, %.lr.ph ], [ %107, %104 ]
-  %.01925 = phi i64 [ 0, %.lr.ph ], [ %.1, %104 ]
-  %.02023 = phi i64 [ 0, %.lr.ph ], [ %105, %104 ]
+  %.01924 = phi i64 [ 0, %.lr.ph ], [ %105, %104 ]
+  %.02023 = phi i64 [ 0, %.lr.ph ], [ %.1, %104 ]
   %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds i64, ptr %3, i64 %.02023
+  %22 = getelementptr inbounds i64, ptr %3, i64 %.01924
   %23 = load i64, ptr %22, align 8
   %24 = load ptr, ptr %21, align 8
   %25 = load ptr, ptr %24, align 8
@@ -21395,7 +21395,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 58:                                               ; preds = %55
   %59 = load i64, ptr %15, align 8
   %60 = shl i64 %59, 32
-  %61 = or i64 %60, %.02023
+  %61 = or i64 %60, %.01924
   br label %64
 
 62:                                               ; preds = %55
@@ -21478,20 +21478,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
   store float %52, ptr %101, align 4
   %102 = getelementptr inbounds i64, ptr %17, i64 %.0.lcssa.i.i
   store i64 %65, ptr %102, align 8
-  %103 = add i64 %.01925, 1
+  %103 = add i64 %.02023, 1
   br label %104
 
 104:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, %20
-  %.1 = phi i64 [ %103, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01925, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01925, %20 ]
-  %105 = add nuw i64 %.02023, 1
+  %.1 = phi i64 [ %103, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.02023, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.02023, %20 ]
+  %105 = add nuw i64 %.01924, 1
   %106 = load i64, ptr %19, align 8
   %107 = getelementptr inbounds i8, ptr %.026, i64 %106
   %exitcond.not = icmp eq i64 %105, %1
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !133
 
 ._crit_edge:                                      ; preds = %104, %7
-  %.019.lcssa = phi i64 [ 0, %7 ], [ %.1, %104 ]
-  ret i64 %.019.lcssa
+  %.020.lcssa = phi i64 [ 0, %7 ], [ %.1, %104 ]
+  ret i64 %.020.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -21698,8 +21698,8 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 
 19:                                               ; preds = %.lr.ph, %97
   %.024 = phi ptr [ %2, %.lr.ph ], [ %100, %97 ]
-  %.01723 = phi i64 [ 0, %.lr.ph ], [ %.1, %97 ]
-  %.01821 = phi i64 [ 0, %.lr.ph ], [ %98, %97 ]
+  %.01722 = phi i64 [ 0, %.lr.ph ], [ %98, %97 ]
+  %.01821 = phi i64 [ 0, %.lr.ph ], [ %.1, %97 ]
   %20 = load float, ptr %8, align 4
   %21 = load i64, ptr %9, align 8
   %.not.i.i = icmp eq i64 %21, 0
@@ -21751,11 +21751,11 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1E
 50:                                               ; preds = %47
   %51 = load i64, ptr %14, align 8
   %52 = shl i64 %51, 32
-  %53 = or i64 %52, %.01821
+  %53 = or i64 %52, %.01722
   br label %57
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i64, ptr %3, i64 %.01821
+  %55 = getelementptr inbounds i64, ptr %3, i64 %.01722
   %56 = load i64, ptr %55, align 8
   br label %57
 
@@ -21835,20 +21835,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
   store float %44, ptr %94, align 4
   %95 = getelementptr inbounds i64, ptr %16, i64 %.0.lcssa.i.i
   store i64 %58, ptr %95, align 8
-  %96 = add i64 %.01723, 1
+  %96 = add i64 %.01821, 1
   br label %97
 
 97:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit
-  %.1 = phi i64 [ %96, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01723, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ]
-  %98 = add nuw i64 %.01821, 1
+  %.1 = phi i64 [ %96, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01821, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb1ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ]
+  %98 = add nuw i64 %.01722, 1
   %99 = load i64, ptr %18, align 8
   %100 = getelementptr inbounds i8, ptr %.024, i64 %99
   %exitcond.not = icmp eq i64 %98, %1
   br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !135
 
 ._crit_edge:                                      ; preds = %97, %7
-  %.017.lcssa = phi i64 [ 0, %7 ], [ %.1, %97 ]
-  ret i64 %.017.lcssa
+  %.018.lcssa = phi i64 [ 0, %7 ], [ %.1, %97 ]
+  ret i64 %.018.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -22045,12 +22045,12 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 
 20:                                               ; preds = %.lr.ph, %100
   %.025 = phi ptr [ %2, %.lr.ph ], [ %103, %100 ]
-  %.01824 = phi i64 [ 0, %.lr.ph ], [ %.1, %100 ]
-  %.01922 = phi i64 [ 0, %.lr.ph ], [ %101, %100 ]
+  %.01823 = phi i64 [ 0, %.lr.ph ], [ %101, %100 ]
+  %.01922 = phi i64 [ 0, %.lr.ph ], [ %.1, %100 ]
   %21 = load ptr, ptr %8, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef %.01922)
+  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef %.01823)
   br i1 %24, label %25, label %100
 
 25:                                               ; preds = %20
@@ -22103,11 +22103,11 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 53:                                               ; preds = %50
   %54 = load i64, ptr %15, align 8
   %55 = shl i64 %54, 32
-  %56 = or i64 %55, %.01922
+  %56 = or i64 %55, %.01823
   br label %60
 
 57:                                               ; preds = %50
-  %58 = getelementptr inbounds i64, ptr %3, i64 %.01922
+  %58 = getelementptr inbounds i64, ptr %3, i64 %.01823
   %59 = load i64, ptr %58, align 8
   br label %60
 
@@ -22187,20 +22187,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
   store float %47, ptr %97, align 4
   %98 = getelementptr inbounds i64, ptr %17, i64 %.0.lcssa.i.i
   store i64 %61, ptr %98, align 8
-  %99 = add i64 %.01824, 1
+  %99 = add i64 %.01922, 1
   br label %100
 
 100:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, %20
-  %.1 = phi i64 [ %99, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01824, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01824, %20 ]
-  %101 = add nuw i64 %.01922, 1
+  %.1 = phi i64 [ %99, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01922, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01922, %20 ]
+  %101 = add nuw i64 %.01823, 1
   %102 = load i64, ptr %19, align 8
   %103 = getelementptr inbounds i8, ptr %.025, i64 %102
   %exitcond.not = icmp eq i64 %101, %1
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !137
 
 ._crit_edge:                                      ; preds = %100, %7
-  %.018.lcssa = phi i64 [ 0, %7 ], [ %.1, %100 ]
-  ret i64 %.018.lcssa
+  %.019.lcssa = phi i64 [ 0, %7 ], [ %.1, %100 ]
+  ret i64 %.019.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -22403,10 +22403,10 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 
 20:                                               ; preds = %.lr.ph, %101
   %.026 = phi ptr [ %2, %.lr.ph ], [ %104, %101 ]
-  %.01925 = phi i64 [ 0, %.lr.ph ], [ %.1, %101 ]
-  %.02023 = phi i64 [ 0, %.lr.ph ], [ %102, %101 ]
+  %.01924 = phi i64 [ 0, %.lr.ph ], [ %102, %101 ]
+  %.02023 = phi i64 [ 0, %.lr.ph ], [ %.1, %101 ]
   %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds i64, ptr %3, i64 %.02023
+  %22 = getelementptr inbounds i64, ptr %3, i64 %.01924
   %23 = load i64, ptr %22, align 8
   %24 = load ptr, ptr %21, align 8
   %25 = load ptr, ptr %24, align 8
@@ -22463,7 +22463,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 55:                                               ; preds = %52
   %56 = load i64, ptr %15, align 8
   %57 = shl i64 %56, 32
-  %58 = or i64 %57, %.02023
+  %58 = or i64 %57, %.01924
   br label %61
 
 59:                                               ; preds = %52
@@ -22546,20 +22546,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
   store float %49, ptr %98, align 4
   %99 = getelementptr inbounds i64, ptr %17, i64 %.0.lcssa.i.i
   store i64 %62, ptr %99, align 8
-  %100 = add i64 %.01925, 1
+  %100 = add i64 %.02023, 1
   br label %101
 
 101:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, %20
-  %.1 = phi i64 [ %100, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01925, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01925, %20 ]
-  %102 = add nuw i64 %.02023, 1
+  %.1 = phi i64 [ %100, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.02023, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.02023, %20 ]
+  %102 = add nuw i64 %.01924, 1
   %103 = load i64, ptr %19, align 8
   %104 = getelementptr inbounds i8, ptr %.026, i64 %103
   %exitcond.not = icmp eq i64 %102, %1
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !139
 
 ._crit_edge:                                      ; preds = %101, %7
-  %.019.lcssa = phi i64 [ 0, %7 ], [ %.1, %101 ]
-  ret i64 %.019.lcssa
+  %.020.lcssa = phi i64 [ 0, %7 ], [ %.1, %101 ]
+  ret i64 %.020.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -22762,8 +22762,8 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %55
   %.024.us = phi ptr [ %58, %55 ], [ %2, %.lr.ph ]
-  %.01723.us = phi i64 [ %.1.us, %55 ], [ 0, %.lr.ph ]
-  %.01821.us = phi i64 [ %56, %55 ], [ 0, %.lr.ph ]
+  %.01722.us = phi i64 [ %56, %55 ], [ 0, %.lr.ph ]
+  %.01821.us = phi i64 [ %.1.us, %55 ], [ 0, %.lr.ph ]
   %19 = load float, ptr %8, align 4
   %20 = load i64, ptr %9, align 8
   %.not.i.i.us = icmp eq i64 %20, 0
@@ -22811,26 +22811,26 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
   br i1 %45, label %49, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i64, ptr %3, i64 %.01821.us
+  %47 = getelementptr inbounds i64, ptr %3, i64 %.01722.us
   %48 = load i64, ptr %47, align 8
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
 49:                                               ; preds = %43
   %50 = load i64, ptr %14, align 8
   %51 = shl i64 %50, 32
-  %52 = or i64 %51, %.01821.us
+  %52 = or i64 %51, %.01722.us
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
 _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %49, %46
   %53 = phi i64 [ %52, %49 ], [ %48, %46 ]
   store float %40, ptr %4, align 4
   store i64 %53, ptr %5, align 8
-  %54 = add i64 %.01723.us, 1
+  %54 = add i64 %.01821.us, 1
   br label %55
 
 55:                                               ; preds = %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us
-  %.1.us = phi i64 [ %54, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us ], [ %.01723.us, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us ]
-  %56 = add nuw i64 %.01821.us, 1
+  %.1.us = phi i64 [ %54, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us ], [ %.01821.us, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us ]
+  %56 = add nuw i64 %.01722.us, 1
   %57 = load i64, ptr %18, align 8
   %58 = getelementptr inbounds i8, ptr %.024.us, i64 %57
   %exitcond27.not = icmp eq i64 %56, %1
@@ -22838,8 +22838,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %49, %46
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %132
   %.024 = phi ptr [ %135, %132 ], [ %2, %.lr.ph ]
-  %.01723 = phi i64 [ %.1, %132 ], [ 0, %.lr.ph ]
-  %.01821 = phi i64 [ %133, %132 ], [ 0, %.lr.ph ]
+  %.01722 = phi i64 [ %133, %132 ], [ 0, %.lr.ph ]
+  %.01821 = phi i64 [ %.1, %132 ], [ 0, %.lr.ph ]
   %59 = load float, ptr %8, align 4
   %60 = load i64, ptr %9, align 8
   %.not.i.i = icmp eq i64 %60, 0
@@ -22889,11 +22889,11 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0E
 86:                                               ; preds = %83
   %87 = load i64, ptr %14, align 8
   %88 = shl i64 %87, 32
-  %89 = or i64 %88, %.01821
+  %89 = or i64 %88, %.01722
   br label %.lr.ph.preheader.i.i
 
 90:                                               ; preds = %83
-  %91 = getelementptr inbounds i64, ptr %3, i64 %.01821
+  %91 = getelementptr inbounds i64, ptr %3, i64 %.01722
   %92 = load i64, ptr %91, align 8
   br label %.lr.ph.preheader.i.i
 
@@ -22973,20 +22973,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %122, %_Z
   store float %80, ptr %129, align 4
   %130 = getelementptr inbounds i64, ptr %16, i64 %.0.lcssa.i.i.ph
   store i64 %93, ptr %130, align 8
-  %131 = add i64 %.01723, 1
+  %131 = add i64 %.01821, 1
   br label %132
 
 132:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit
-  %.1 = phi i64 [ %131, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit ], [ %.01723, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ]
-  %133 = add nuw i64 %.01821, 1
+  %.1 = phi i64 [ %131, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit ], [ %.01821, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec8bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ]
+  %133 = add nuw i64 %.01722, 1
   %134 = load i64, ptr %18, align 8
   %135 = getelementptr inbounds i8, ptr %.024, i64 %134
   %exitcond.not = icmp eq i64 %133, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !141
 
 ._crit_edge:                                      ; preds = %132, %55, %7
-  %.017.lcssa = phi i64 [ 0, %7 ], [ %.1.us, %55 ], [ %.1, %132 ]
-  ret i64 %.017.lcssa
+  %.018.lcssa = phi i64 [ 0, %7 ], [ %.1.us, %55 ], [ %.1, %132 ]
+  ret i64 %.018.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -23189,12 +23189,12 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 
 20:                                               ; preds = %.lr.ph, %108
   %.025 = phi ptr [ %2, %.lr.ph ], [ %111, %108 ]
-  %.01824 = phi i64 [ 0, %.lr.ph ], [ %.1, %108 ]
-  %.01922 = phi i64 [ 0, %.lr.ph ], [ %109, %108 ]
+  %.01823 = phi i64 [ 0, %.lr.ph ], [ %109, %108 ]
+  %.01922 = phi i64 [ 0, %.lr.ph ], [ %.1, %108 ]
   %21 = load ptr, ptr %8, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef %.01922)
+  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef %.01823)
   br i1 %24, label %25, label %108
 
 25:                                               ; preds = %20
@@ -23255,11 +23255,11 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 61:                                               ; preds = %58
   %62 = load i64, ptr %15, align 8
   %63 = shl i64 %62, 32
-  %64 = or i64 %63, %.01922
+  %64 = or i64 %63, %.01823
   br label %68
 
 65:                                               ; preds = %58
-  %66 = getelementptr inbounds i64, ptr %3, i64 %.01922
+  %66 = getelementptr inbounds i64, ptr %3, i64 %.01823
   %67 = load i64, ptr %66, align 8
   br label %68
 
@@ -23339,20 +23339,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
   store float %55, ptr %105, align 4
   %106 = getelementptr inbounds i64, ptr %17, i64 %.0.lcssa.i.i
   store i64 %69, ptr %106, align 8
-  %107 = add i64 %.01824, 1
+  %107 = add i64 %.01922, 1
   br label %108
 
 108:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, %20
-  %.1 = phi i64 [ %107, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01824, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01824, %20 ]
-  %109 = add nuw i64 %.01922, 1
+  %.1 = phi i64 [ %107, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01922, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01922, %20 ]
+  %109 = add nuw i64 %.01823, 1
   %110 = load i64, ptr %19, align 8
   %111 = getelementptr inbounds i8, ptr %.025, i64 %110
   %exitcond.not = icmp eq i64 %109, %1
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !143
 
 ._crit_edge:                                      ; preds = %108, %7
-  %.018.lcssa = phi i64 [ 0, %7 ], [ %.1, %108 ]
-  ret i64 %.018.lcssa
+  %.019.lcssa = phi i64 [ 0, %7 ], [ %.1, %108 ]
+  ret i64 %.019.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -23571,10 +23571,10 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 
 20:                                               ; preds = %.lr.ph, %109
   %.026 = phi ptr [ %2, %.lr.ph ], [ %112, %109 ]
-  %.01925 = phi i64 [ 0, %.lr.ph ], [ %.1, %109 ]
-  %.02023 = phi i64 [ 0, %.lr.ph ], [ %110, %109 ]
+  %.01924 = phi i64 [ 0, %.lr.ph ], [ %110, %109 ]
+  %.02023 = phi i64 [ 0, %.lr.ph ], [ %.1, %109 ]
   %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds i64, ptr %3, i64 %.02023
+  %22 = getelementptr inbounds i64, ptr %3, i64 %.01924
   %23 = load i64, ptr %22, align 8
   %24 = load ptr, ptr %21, align 8
   %25 = load ptr, ptr %24, align 8
@@ -23639,7 +23639,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 63:                                               ; preds = %60
   %64 = load i64, ptr %15, align 8
   %65 = shl i64 %64, 32
-  %66 = or i64 %65, %.02023
+  %66 = or i64 %65, %.01924
   br label %69
 
 67:                                               ; preds = %60
@@ -23722,20 +23722,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
   store float %57, ptr %106, align 4
   %107 = getelementptr inbounds i64, ptr %17, i64 %.0.lcssa.i.i
   store i64 %70, ptr %107, align 8
-  %108 = add i64 %.01925, 1
+  %108 = add i64 %.02023, 1
   br label %109
 
 109:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, %20
-  %.1 = phi i64 [ %108, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01925, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01925, %20 ]
-  %110 = add nuw i64 %.02023, 1
+  %.1 = phi i64 [ %108, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.02023, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.02023, %20 ]
+  %110 = add nuw i64 %.01924, 1
   %111 = load i64, ptr %19, align 8
   %112 = getelementptr inbounds i8, ptr %.026, i64 %111
   %exitcond.not = icmp eq i64 %110, %1
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !145
 
 ._crit_edge:                                      ; preds = %109, %7
-  %.019.lcssa = phi i64 [ 0, %7 ], [ %.1, %109 ]
-  ret i64 %.019.lcssa
+  %.020.lcssa = phi i64 [ 0, %7 ], [ %.1, %109 ]
+  ret i64 %.020.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -23954,8 +23954,8 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 
 19:                                               ; preds = %.lr.ph, %102
   %.024 = phi ptr [ %2, %.lr.ph ], [ %105, %102 ]
-  %.01723 = phi i64 [ 0, %.lr.ph ], [ %.1, %102 ]
-  %.01821 = phi i64 [ 0, %.lr.ph ], [ %103, %102 ]
+  %.01722 = phi i64 [ 0, %.lr.ph ], [ %103, %102 ]
+  %.01821 = phi i64 [ 0, %.lr.ph ], [ %.1, %102 ]
   %20 = load float, ptr %8, align 4
   %21 = load i64, ptr %9, align 8
   %.not.i.i = icmp eq i64 %21, 0
@@ -24013,11 +24013,11 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0E
 55:                                               ; preds = %52
   %56 = load i64, ptr %14, align 8
   %57 = shl i64 %56, 32
-  %58 = or i64 %57, %.01821
+  %58 = or i64 %57, %.01722
   br label %62
 
 59:                                               ; preds = %52
-  %60 = getelementptr inbounds i64, ptr %3, i64 %.01821
+  %60 = getelementptr inbounds i64, ptr %3, i64 %.01722
   %61 = load i64, ptr %60, align 8
   br label %62
 
@@ -24097,20 +24097,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
   store float %49, ptr %99, align 4
   %100 = getelementptr inbounds i64, ptr %16, i64 %.0.lcssa.i.i
   store i64 %63, ptr %100, align 8
-  %101 = add i64 %.01723, 1
+  %101 = add i64 %.01821, 1
   br label %102
 
 102:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit
-  %.1 = phi i64 [ %101, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01723, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ]
-  %103 = add nuw i64 %.01821, 1
+  %.1 = phi i64 [ %101, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01821, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec4bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ]
+  %103 = add nuw i64 %.01722, 1
   %104 = load i64, ptr %18, align 8
   %105 = getelementptr inbounds i8, ptr %.024, i64 %104
   %exitcond.not = icmp eq i64 %103, %1
   br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !147
 
 ._crit_edge:                                      ; preds = %102, %7
-  %.017.lcssa = phi i64 [ 0, %7 ], [ %.1, %102 ]
-  ret i64 %.017.lcssa
+  %.018.lcssa = phi i64 [ 0, %7 ], [ %.1, %102 ]
+  ret i64 %.018.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -24361,12 +24361,12 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 
 20:                                               ; preds = %.lr.ph, %129
   %.026 = phi ptr [ %2, %.lr.ph ], [ %132, %129 ]
-  %.01825 = phi i64 [ 0, %.lr.ph ], [ %.1, %129 ]
-  %.01923 = phi i64 [ 0, %.lr.ph ], [ %130, %129 ]
+  %.01824 = phi i64 [ 0, %.lr.ph ], [ %130, %129 ]
+  %.01923 = phi i64 [ 0, %.lr.ph ], [ %.1, %129 ]
   %21 = load ptr, ptr %8, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef %.01923)
+  %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(8) %21, i64 noundef %.01824)
   br i1 %24, label %25, label %129
 
 25:                                               ; preds = %20
@@ -24467,11 +24467,11 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 82:                                               ; preds = %79
   %83 = load i64, ptr %15, align 8
   %84 = shl i64 %83, 32
-  %85 = or i64 %84, %.01923
+  %85 = or i64 %84, %.01824
   br label %89
 
 86:                                               ; preds = %79
-  %87 = getelementptr inbounds i64, ptr %3, i64 %.01923
+  %87 = getelementptr inbounds i64, ptr %3, i64 %.01824
   %88 = load i64, ptr %87, align 8
   br label %89
 
@@ -24551,20 +24551,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
   store float %76, ptr %126, align 4
   %127 = getelementptr inbounds i64, ptr %17, i64 %.0.lcssa.i.i
   store i64 %90, ptr %127, align 8
-  %128 = add i64 %.01825, 1
+  %128 = add i64 %.01923, 1
   br label %129
 
 129:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, %20
-  %.1 = phi i64 [ %128, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01825, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01825, %20 ]
-  %130 = add nuw i64 %.01923, 1
+  %.1 = phi i64 [ %128, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01923, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01923, %20 ]
+  %130 = add nuw i64 %.01824, 1
   %131 = load i64, ptr %19, align 8
   %132 = getelementptr inbounds i8, ptr %.026, i64 %131
   %exitcond.not = icmp eq i64 %130, %1
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !149
 
 ._crit_edge:                                      ; preds = %129, %7
-  %.018.lcssa = phi i64 [ 0, %7 ], [ %.1, %129 ]
-  ret i64 %.018.lcssa
+  %.019.lcssa = phi i64 [ 0, %7 ], [ %.1, %129 ]
+  ret i64 %.019.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -24863,10 +24863,10 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 
 20:                                               ; preds = %.lr.ph, %130
   %.027 = phi ptr [ %2, %.lr.ph ], [ %133, %130 ]
-  %.01926 = phi i64 [ 0, %.lr.ph ], [ %.1, %130 ]
-  %.02024 = phi i64 [ 0, %.lr.ph ], [ %131, %130 ]
+  %.01925 = phi i64 [ 0, %.lr.ph ], [ %131, %130 ]
+  %.02024 = phi i64 [ 0, %.lr.ph ], [ %.1, %130 ]
   %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds i64, ptr %3, i64 %.02024
+  %22 = getelementptr inbounds i64, ptr %3, i64 %.01925
   %23 = load i64, ptr %22, align 8
   %24 = load ptr, ptr %21, align 8
   %25 = load ptr, ptr %24, align 8
@@ -24971,7 +24971,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 84:                                               ; preds = %81
   %85 = load i64, ptr %15, align 8
   %86 = shl i64 %85, 32
-  %87 = or i64 %86, %.02024
+  %87 = or i64 %86, %.01925
   br label %90
 
 88:                                               ; preds = %81
@@ -25054,20 +25054,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
   store float %78, ptr %127, align 4
   %128 = getelementptr inbounds i64, ptr %17, i64 %.0.lcssa.i.i
   store i64 %91, ptr %128, align 8
-  %129 = add i64 %.01926, 1
+  %129 = add i64 %.02024, 1
   br label %130
 
 130:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, %20
-  %.1 = phi i64 [ %129, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01926, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01926, %20 ]
-  %131 = add nuw i64 %.02024, 1
+  %.1 = phi i64 [ %129, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.02024, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.02024, %20 ]
+  %131 = add nuw i64 %.01925, 1
   %132 = load i64, ptr %19, align 8
   %133 = getelementptr inbounds i8, ptr %.027, i64 %132
   %exitcond.not = icmp eq i64 %131, %1
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !151
 
 ._crit_edge:                                      ; preds = %130, %7
-  %.019.lcssa = phi i64 [ 0, %7 ], [ %.1, %130 ]
-  ret i64 %.019.lcssa
+  %.020.lcssa = phi i64 [ 0, %7 ], [ %.1, %130 ]
+  ret i64 %.020.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -25366,8 +25366,8 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 
 19:                                               ; preds = %.lr.ph, %123
   %.025 = phi ptr [ %2, %.lr.ph ], [ %126, %123 ]
-  %.01724 = phi i64 [ 0, %.lr.ph ], [ %.1, %123 ]
-  %.01822 = phi i64 [ 0, %.lr.ph ], [ %124, %123 ]
+  %.01723 = phi i64 [ 0, %.lr.ph ], [ %124, %123 ]
+  %.01822 = phi i64 [ 0, %.lr.ph ], [ %.1, %123 ]
   %20 = load float, ptr %8, align 4
   %21 = load i64, ptr %9, align 8
   %.not.i.i = icmp eq i64 %21, 0
@@ -25465,11 +25465,11 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0E
 76:                                               ; preds = %73
   %77 = load i64, ptr %14, align 8
   %78 = shl i64 %77, 32
-  %79 = or i64 %78, %.01822
+  %79 = or i64 %78, %.01723
   br label %83
 
 80:                                               ; preds = %73
-  %81 = getelementptr inbounds i64, ptr %3, i64 %.01822
+  %81 = getelementptr inbounds i64, ptr %3, i64 %.01723
   %82 = load i64, ptr %81, align 8
   br label %83
 
@@ -25549,20 +25549,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
   store float %70, ptr %120, align 4
   %121 = getelementptr inbounds i64, ptr %16, i64 %.0.lcssa.i.i
   store i64 %84, ptr %121, align 8
-  %122 = add i64 %.01724, 1
+  %122 = add i64 %.01822, 1
   br label %123
 
 123:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit
-  %.1 = phi i64 [ %122, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01724, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ]
-  %124 = add nuw i64 %.01822, 1
+  %.1 = phi i64 [ %122, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01822, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_17QuantizerTemplateINS0_9Codec6bitELb0ELi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ]
+  %124 = add nuw i64 %.01723, 1
   %125 = load i64, ptr %18, align 8
   %126 = getelementptr inbounds i8, ptr %.025, i64 %125
   %exitcond.not = icmp eq i64 %124, %1
   br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !153
 
 ._crit_edge:                                      ; preds = %123, %7
-  %.017.lcssa = phi i64 [ 0, %7 ], [ %.1, %123 ]
-  ret i64 %.017.lcssa
+  %.018.lcssa = phi i64 [ 0, %7 ], [ %.1, %123 ]
+  ret i64 %.018.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -25809,12 +25809,12 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 
 18:                                               ; preds = %.lr.ph, %103
   %.025 = phi ptr [ %2, %.lr.ph ], [ %106, %103 ]
-  %.01824 = phi i64 [ 0, %.lr.ph ], [ %.1, %103 ]
-  %.01922 = phi i64 [ 0, %.lr.ph ], [ %104, %103 ]
+  %.01823 = phi i64 [ 0, %.lr.ph ], [ %104, %103 ]
+  %.01922 = phi i64 [ 0, %.lr.ph ], [ %.1, %103 ]
   %19 = load ptr, ptr %8, align 8
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef %.01922)
+  %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef %.01823)
   br i1 %22, label %23, label %103
 
 23:                                               ; preds = %18
@@ -25875,11 +25875,11 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityI
 56:                                               ; preds = %53
   %57 = load i64, ptr %13, align 8
   %58 = shl i64 %57, 32
-  %59 = or i64 %58, %.01922
+  %59 = or i64 %58, %.01823
   br label %63
 
 60:                                               ; preds = %53
-  %61 = getelementptr inbounds i64, ptr %3, i64 %.01922
+  %61 = getelementptr inbounds i64, ptr %3, i64 %.01823
   %62 = load i64, ptr %61, align 8
   br label %63
 
@@ -25959,20 +25959,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
   store float %50, ptr %100, align 4
   %101 = getelementptr inbounds i64, ptr %15, i64 %.0.lcssa.i.i
   store i64 %64, ptr %101, align 8
-  %102 = add i64 %.01824, 1
+  %102 = add i64 %.01922, 1
   br label %103
 
 103:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, %18
-  %.1 = phi i64 [ %102, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01824, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01824, %18 ]
-  %104 = add nuw i64 %.01922, 1
+  %.1 = phi i64 [ %102, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01922, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01922, %18 ]
+  %104 = add nuw i64 %.01823, 1
   %105 = load i64, ptr %17, align 8
   %106 = getelementptr inbounds i8, ptr %.025, i64 %105
   %exitcond.not = icmp eq i64 %104, %1
   br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !155
 
 ._crit_edge:                                      ; preds = %103, %7
-  %.018.lcssa = phi i64 [ 0, %7 ], [ %.1, %103 ]
-  ret i64 %.018.lcssa
+  %.019.lcssa = phi i64 [ 0, %7 ], [ %.1, %103 ]
+  ret i64 %.019.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -26185,10 +26185,10 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 
 18:                                               ; preds = %.lr.ph, %104
   %.026 = phi ptr [ %2, %.lr.ph ], [ %107, %104 ]
-  %.01925 = phi i64 [ 0, %.lr.ph ], [ %.1, %104 ]
-  %.02023 = phi i64 [ 0, %.lr.ph ], [ %105, %104 ]
+  %.01924 = phi i64 [ 0, %.lr.ph ], [ %105, %104 ]
+  %.02023 = phi i64 [ 0, %.lr.ph ], [ %.1, %104 ]
   %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr inbounds i64, ptr %3, i64 %.02023
+  %20 = getelementptr inbounds i64, ptr %3, i64 %.01924
   %21 = load i64, ptr %20, align 8
   %22 = load ptr, ptr %19, align 8
   %23 = load ptr, ptr %22, align 8
@@ -26253,7 +26253,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityI
 58:                                               ; preds = %55
   %59 = load i64, ptr %13, align 8
   %60 = shl i64 %59, 32
-  %61 = or i64 %60, %.02023
+  %61 = or i64 %60, %.01924
   br label %64
 
 62:                                               ; preds = %55
@@ -26336,20 +26336,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
   store float %52, ptr %101, align 4
   %102 = getelementptr inbounds i64, ptr %15, i64 %.0.lcssa.i.i
   store i64 %65, ptr %102, align 8
-  %103 = add i64 %.01925, 1
+  %103 = add i64 %.02023, 1
   br label %104
 
 104:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, %18
-  %.1 = phi i64 [ %103, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01925, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01925, %18 ]
-  %105 = add nuw i64 %.02023, 1
+  %.1 = phi i64 [ %103, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.02023, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.02023, %18 ]
+  %105 = add nuw i64 %.01924, 1
   %106 = load i64, ptr %17, align 8
   %107 = getelementptr inbounds i8, ptr %.026, i64 %106
   %exitcond.not = icmp eq i64 %105, %1
   br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !157
 
 ._crit_edge:                                      ; preds = %104, %7
-  %.019.lcssa = phi i64 [ 0, %7 ], [ %.1, %104 ]
-  ret i64 %.019.lcssa
+  %.020.lcssa = phi i64 [ 0, %7 ], [ %.1, %104 ]
+  ret i64 %.020.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -26562,8 +26562,8 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 
 17:                                               ; preds = %.lr.ph, %97
   %.024 = phi ptr [ %2, %.lr.ph ], [ %100, %97 ]
-  %.01723 = phi i64 [ 0, %.lr.ph ], [ %.1, %97 ]
-  %.01821 = phi i64 [ 0, %.lr.ph ], [ %98, %97 ]
+  %.01722 = phi i64 [ 0, %.lr.ph ], [ %98, %97 ]
+  %.01821 = phi i64 [ 0, %.lr.ph ], [ %.1, %97 ]
   %18 = load float, ptr %8, align 4
   %.val.i = load i64, ptr %9, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
@@ -26621,11 +26621,11 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityI
 50:                                               ; preds = %47
   %51 = load i64, ptr %12, align 8
   %52 = shl i64 %51, 32
-  %53 = or i64 %52, %.01821
+  %53 = or i64 %52, %.01722
   br label %57
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i64, ptr %3, i64 %.01821
+  %55 = getelementptr inbounds i64, ptr %3, i64 %.01722
   %56 = load i64, ptr %55, align 8
   br label %57
 
@@ -26705,20 +26705,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit: ; preds = %_ZN5faiss4CMinIfl
   store float %44, ptr %94, align 4
   %95 = getelementptr inbounds i64, ptr %14, i64 %.0.lcssa.i.i
   store i64 %58, ptr %95, align 8
-  %96 = add i64 %.01723, 1
+  %96 = add i64 %.01821, 1
   br label %97
 
 97:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit
-  %.1 = phi i64 [ %96, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01723, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ]
-  %98 = add nuw i64 %.01821, 1
+  %.1 = phi i64 [ %96, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit ], [ %.01821, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ]
+  %98 = add nuw i64 %.01722, 1
   %99 = load i64, ptr %16, align 8
   %100 = getelementptr inbounds i8, ptr %.024, i64 %99
   %exitcond.not = icmp eq i64 %98, %1
   br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !159
 
 ._crit_edge:                                      ; preds = %97, %7
-  %.017.lcssa = phi i64 [ 0, %7 ], [ %.1, %97 ]
-  ret i64 %.017.lcssa
+  %.018.lcssa = phi i64 [ 0, %7 ], [ %.1, %97 ]
+  ret i64 %.018.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -26933,12 +26933,12 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20Dist
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %50
   %.026.us = phi ptr [ %53, %50 ], [ %2, %.lr.ph ]
-  %.01825.us = phi i64 [ %.1.us, %50 ], [ 0, %.lr.ph ]
-  %.01923.us = phi i64 [ %51, %50 ], [ 0, %.lr.ph ]
+  %.01824.us = phi i64 [ %51, %50 ], [ 0, %.lr.ph ]
+  %.01923.us = phi i64 [ %.1.us, %50 ], [ 0, %.lr.ph ]
   %18 = load ptr, ptr %8, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef %.01923.us)
+  %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef %.01824.us)
   br i1 %21, label %22, label %50
 
 22:                                               ; preds = %.lr.ph.split.us
@@ -26984,26 +26984,26 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i64, ptr %3, i64 %.01923.us
+  %42 = getelementptr inbounds i64, ptr %3, i64 %.01824.us
   %43 = load i64, ptr %42, align 8
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
 44:                                               ; preds = %38
   %45 = load i64, ptr %13, align 8
   %46 = shl i64 %45, 32
-  %47 = or i64 %46, %.01923.us
+  %47 = or i64 %46, %.01824.us
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
 _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %44, %41
   %48 = phi i64 [ %47, %44 ], [ %43, %41 ]
   store float %35, ptr %4, align 4
   store i64 %48, ptr %5, align 8
-  %49 = add i64 %.01825.us, 1
+  %49 = add i64 %.01923.us, 1
   br label %50
 
 50:                                               ; preds = %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us, %.lr.ph.split.us
-  %.1.us = phi i64 [ %49, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us ], [ %.01825.us, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us ], [ %.01825.us, %.lr.ph.split.us ]
-  %51 = add nuw i64 %.01923.us, 1
+  %.1.us = phi i64 [ %49, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us ], [ %.01923.us, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us ], [ %.01923.us, %.lr.ph.split.us ]
+  %51 = add nuw i64 %.01824.us, 1
   %52 = load i64, ptr %17, align 8
   %53 = getelementptr inbounds i8, ptr %.026.us, i64 %52
   %exitcond30.not = icmp eq i64 %51, %1
@@ -27011,12 +27011,12 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %44, %41
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %123
   %.026 = phi ptr [ %126, %123 ], [ %2, %.lr.ph ]
-  %.01825 = phi i64 [ %.1, %123 ], [ 0, %.lr.ph ]
-  %.01923 = phi i64 [ %124, %123 ], [ 0, %.lr.ph ]
+  %.01824 = phi i64 [ %124, %123 ], [ 0, %.lr.ph ]
+  %.01923 = phi i64 [ %.1, %123 ], [ 0, %.lr.ph ]
   %54 = load ptr, ptr %8, align 8
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(8) %54, i64 noundef %.01923)
+  %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(8) %54, i64 noundef %.01824)
   br i1 %57, label %58, label %123
 
 58:                                               ; preds = %.lr.ph.split
@@ -27064,11 +27064,11 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
 77:                                               ; preds = %74
   %78 = load i64, ptr %13, align 8
   %79 = shl i64 %78, 32
-  %80 = or i64 %79, %.01923
+  %80 = or i64 %79, %.01824
   br label %.lr.ph.preheader.i.i21
 
 81:                                               ; preds = %74
-  %82 = getelementptr inbounds i64, ptr %3, i64 %.01923
+  %82 = getelementptr inbounds i64, ptr %3, i64 %.01824
   %83 = load i64, ptr %82, align 8
   br label %.lr.ph.preheader.i.i21
 
@@ -27148,20 +27148,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %113, %_Z
   store float %71, ptr %120, align 4
   %121 = getelementptr inbounds i64, ptr %15, i64 %.0.lcssa.i.i.ph
   store i64 %84, ptr %121, align 8
-  %122 = add i64 %.01825, 1
+  %122 = add i64 %.01923, 1
   br label %123
 
 123:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, %.lr.ph.split
-  %.1 = phi i64 [ %122, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit ], [ %.01825, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01825, %.lr.ph.split ]
-  %124 = add nuw i64 %.01923, 1
+  %.1 = phi i64 [ %122, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit ], [ %.01923, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01923, %.lr.ph.split ]
+  %124 = add nuw i64 %.01824, 1
   %125 = load i64, ptr %17, align 8
   %126 = getelementptr inbounds i8, ptr %.026, i64 %125
   %exitcond.not = icmp eq i64 %124, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !161
 
 ._crit_edge:                                      ; preds = %123, %50, %7
-  %.018.lcssa = phi i64 [ 0, %7 ], [ %.1.us, %50 ], [ %.1, %123 ]
-  ret i64 %.018.lcssa
+  %.019.lcssa = phi i64 [ 0, %7 ], [ %.1.us, %50 ], [ %.1, %123 ]
+  ret i64 %.019.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -27397,10 +27397,10 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20Dist
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %51
   %.027.us = phi ptr [ %54, %51 ], [ %2, %.lr.ph ]
-  %.01926.us = phi i64 [ %.1.us, %51 ], [ 0, %.lr.ph ]
-  %.02024.us = phi i64 [ %52, %51 ], [ 0, %.lr.ph ]
+  %.01925.us = phi i64 [ %52, %51 ], [ 0, %.lr.ph ]
+  %.02024.us = phi i64 [ %.1.us, %51 ], [ 0, %.lr.ph ]
   %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds i64, ptr %3, i64 %.02024.us
+  %19 = getelementptr inbounds i64, ptr %3, i64 %.01925.us
   %20 = load i64, ptr %19, align 8
   %21 = load ptr, ptr %18, align 8
   %22 = load ptr, ptr %21, align 8
@@ -27456,19 +27456,19 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
 45:                                               ; preds = %40
   %46 = load i64, ptr %13, align 8
   %47 = shl i64 %46, 32
-  %48 = or i64 %47, %.02024.us
+  %48 = or i64 %47, %.01925.us
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
 _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %45, %43
   %49 = phi i64 [ %48, %45 ], [ %44, %43 ]
   store float %37, ptr %4, align 4
   store i64 %49, ptr %5, align 8
-  %50 = add i64 %.01926.us, 1
+  %50 = add i64 %.02024.us, 1
   br label %51
 
 51:                                               ; preds = %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us, %.lr.ph.split.us
-  %.1.us = phi i64 [ %50, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us ], [ %.01926.us, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us ], [ %.01926.us, %.lr.ph.split.us ]
-  %52 = add nuw i64 %.02024.us, 1
+  %.1.us = phi i64 [ %50, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us ], [ %.02024.us, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us ], [ %.02024.us, %.lr.ph.split.us ]
+  %52 = add nuw i64 %.01925.us, 1
   %53 = load i64, ptr %17, align 8
   %54 = getelementptr inbounds i8, ptr %.027.us, i64 %53
   %exitcond31.not = icmp eq i64 %52, %1
@@ -27476,10 +27476,10 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %45, %43
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %125
   %.027 = phi ptr [ %128, %125 ], [ %2, %.lr.ph ]
-  %.01926 = phi i64 [ %.1, %125 ], [ 0, %.lr.ph ]
-  %.02024 = phi i64 [ %126, %125 ], [ 0, %.lr.ph ]
+  %.01925 = phi i64 [ %126, %125 ], [ 0, %.lr.ph ]
+  %.02024 = phi i64 [ %.1, %125 ], [ 0, %.lr.ph ]
   %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds i64, ptr %3, i64 %.02024
+  %56 = getelementptr inbounds i64, ptr %3, i64 %.01925
   %57 = load i64, ptr %56, align 8
   %58 = load ptr, ptr %55, align 8
   %59 = load ptr, ptr %58, align 8
@@ -27531,7 +27531,7 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
 80:                                               ; preds = %77
   %81 = load i64, ptr %13, align 8
   %82 = shl i64 %81, 32
-  %83 = or i64 %82, %.02024
+  %83 = or i64 %82, %.01925
   br label %.lr.ph.preheader.i.i22
 
 84:                                               ; preds = %77
@@ -27614,20 +27614,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %115, %_Z
   store float %74, ptr %122, align 4
   %123 = getelementptr inbounds i64, ptr %15, i64 %.0.lcssa.i.i.ph
   store i64 %86, ptr %123, align 8
-  %124 = add i64 %.01926, 1
+  %124 = add i64 %.02024, 1
   br label %125
 
 125:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, %.lr.ph.split
-  %.1 = phi i64 [ %124, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit ], [ %.01926, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01926, %.lr.ph.split ]
-  %126 = add nuw i64 %.02024, 1
+  %.1 = phi i64 [ %124, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit ], [ %.02024, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.02024, %.lr.ph.split ]
+  %126 = add nuw i64 %.01925, 1
   %127 = load i64, ptr %17, align 8
   %128 = getelementptr inbounds i8, ptr %.027, i64 %127
   %exitcond.not = icmp eq i64 %126, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !163
 
 ._crit_edge:                                      ; preds = %125, %51, %7
-  %.019.lcssa = phi i64 [ 0, %7 ], [ %.1.us, %51 ], [ %.1, %125 ]
-  ret i64 %.019.lcssa
+  %.020.lcssa = phi i64 [ 0, %7 ], [ %.1.us, %51 ], [ %.1, %125 ]
+  ret i64 %.020.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -27863,8 +27863,8 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_20Dist
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %44
   %.025.us = phi ptr [ %47, %44 ], [ %2, %.lr.ph ]
-  %.01724.us = phi i64 [ %.1.us, %44 ], [ 0, %.lr.ph ]
-  %.01822.us = phi i64 [ %45, %44 ], [ 0, %.lr.ph ]
+  %.01723.us = phi i64 [ %45, %44 ], [ 0, %.lr.ph ]
+  %.01822.us = phi i64 [ %.1.us, %44 ], [ 0, %.lr.ph ]
   %17 = load float, ptr %8, align 4
   %18 = load ptr, ptr %9, align 8
   %.val.i.us = load i32, ptr %10, align 8
@@ -27907,26 +27907,26 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
   br i1 %34, label %38, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i64, ptr %3, i64 %.01822.us
+  %36 = getelementptr inbounds i64, ptr %3, i64 %.01723.us
   %37 = load i64, ptr %36, align 8
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
 38:                                               ; preds = %32
   %39 = load i64, ptr %12, align 8
   %40 = shl i64 %39, 32
-  %41 = or i64 %40, %.01822.us
+  %41 = or i64 %40, %.01723.us
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
 _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %38, %35
   %42 = phi i64 [ %41, %38 ], [ %37, %35 ]
   store float %29, ptr %4, align 4
   store i64 %42, ptr %5, align 8
-  %43 = add i64 %.01724.us, 1
+  %43 = add i64 %.01822.us, 1
   br label %44
 
 44:                                               ; preds = %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us
-  %.1.us = phi i64 [ %43, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us ], [ %.01724.us, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us ]
-  %45 = add nuw i64 %.01822.us, 1
+  %.1.us = phi i64 [ %43, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us ], [ %.01822.us, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us ]
+  %45 = add nuw i64 %.01723.us, 1
   %46 = load i64, ptr %16, align 8
   %47 = getelementptr inbounds i8, ptr %.025.us, i64 %46
   %exitcond28.not = icmp eq i64 %45, %1
@@ -27934,8 +27934,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %38, %35
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %112
   %.025 = phi ptr [ %115, %112 ], [ %2, %.lr.ph ]
-  %.01724 = phi i64 [ %.1, %112 ], [ 0, %.lr.ph ]
-  %.01822 = phi i64 [ %113, %112 ], [ 0, %.lr.ph ]
+  %.01723 = phi i64 [ %113, %112 ], [ 0, %.lr.ph ]
+  %.01822 = phi i64 [ %.1, %112 ], [ 0, %.lr.ph ]
   %48 = load float, ptr %8, align 4
   %49 = load ptr, ptr %9, align 8
   %.val.i = load i32, ptr %10, align 8
@@ -27980,11 +27980,11 @@ _ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13q
 66:                                               ; preds = %63
   %67 = load i64, ptr %12, align 8
   %68 = shl i64 %67, 32
-  %69 = or i64 %68, %.01822
+  %69 = or i64 %68, %.01723
   br label %.lr.ph.preheader.i.i20
 
 70:                                               ; preds = %63
-  %71 = getelementptr inbounds i64, ptr %3, i64 %.01822
+  %71 = getelementptr inbounds i64, ptr %3, i64 %.01723
   %72 = load i64, ptr %71, align 8
   br label %.lr.ph.preheader.i.i20
 
@@ -28064,20 +28064,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %102, %_Z
   store float %60, ptr %109, align 4
   %110 = getelementptr inbounds i64, ptr %14, i64 %.0.lcssa.i.i.ph
   store i64 %73, ptr %110, align 8
-  %111 = add i64 %.01724, 1
+  %111 = add i64 %.01822, 1
   br label %112
 
 112:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit
-  %.1 = phi i64 [ %111, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit ], [ %.01724, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ]
-  %113 = add nuw i64 %.01822, 1
+  %.1 = phi i64 [ %111, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit ], [ %.01822, %_ZNK5faiss12_GLOBAL__N_120DistanceComputerByteINS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ]
+  %113 = add nuw i64 %.01723, 1
   %114 = load i64, ptr %16, align 8
   %115 = getelementptr inbounds i8, ptr %.025, i64 %114
   %exitcond.not = icmp eq i64 %113, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !165
 
 ._crit_edge:                                      ; preds = %112, %44, %7
-  %.017.lcssa = phi i64 [ 0, %7 ], [ %.1.us, %44 ], [ %.1, %112 ]
-  ret i64 %.017.lcssa
+  %.018.lcssa = phi i64 [ 0, %7 ], [ %.1.us, %44 ], [ %.1, %112 ]
+  ret i64 %.018.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -28278,12 +28278,12 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %48
   %.025.us = phi ptr [ %51, %48 ], [ %2, %.lr.ph ]
-  %.01824.us = phi i64 [ %.1.us, %48 ], [ 0, %.lr.ph ]
-  %.01922.us = phi i64 [ %49, %48 ], [ 0, %.lr.ph ]
+  %.01823.us = phi i64 [ %49, %48 ], [ 0, %.lr.ph ]
+  %.01922.us = phi i64 [ %.1.us, %48 ], [ 0, %.lr.ph ]
   %18 = load ptr, ptr %8, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef %.01922.us)
+  %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef %.01823.us)
   br i1 %21, label %22, label %48
 
 22:                                               ; preds = %.lr.ph.split.us
@@ -28325,26 +28325,26 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
   br i1 %38, label %42, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i64, ptr %3, i64 %.01922.us
+  %40 = getelementptr inbounds i64, ptr %3, i64 %.01823.us
   %41 = load i64, ptr %40, align 8
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
 42:                                               ; preds = %36
   %43 = load i64, ptr %13, align 8
   %44 = shl i64 %43, 32
-  %45 = or i64 %44, %.01922.us
+  %45 = or i64 %44, %.01823.us
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
 _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %42, %39
   %46 = phi i64 [ %45, %42 ], [ %41, %39 ]
   store float %33, ptr %4, align 4
   store i64 %46, ptr %5, align 8
-  %47 = add i64 %.01824.us, 1
+  %47 = add i64 %.01922.us, 1
   br label %48
 
 48:                                               ; preds = %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us, %.lr.ph.split.us
-  %.1.us = phi i64 [ %47, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us ], [ %.01824.us, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us ], [ %.01824.us, %.lr.ph.split.us ]
-  %49 = add nuw i64 %.01922.us, 1
+  %.1.us = phi i64 [ %47, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us ], [ %.01922.us, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us ], [ %.01922.us, %.lr.ph.split.us ]
+  %49 = add nuw i64 %.01823.us, 1
   %50 = load i64, ptr %17, align 8
   %51 = getelementptr inbounds i8, ptr %.025.us, i64 %50
   %exitcond29.not = icmp eq i64 %49, %1
@@ -28352,12 +28352,12 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %42, %39
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %119
   %.025 = phi ptr [ %122, %119 ], [ %2, %.lr.ph ]
-  %.01824 = phi i64 [ %.1, %119 ], [ 0, %.lr.ph ]
-  %.01922 = phi i64 [ %120, %119 ], [ 0, %.lr.ph ]
+  %.01823 = phi i64 [ %120, %119 ], [ 0, %.lr.ph ]
+  %.01922 = phi i64 [ %.1, %119 ], [ 0, %.lr.ph ]
   %52 = load ptr, ptr %8, align 8
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(8) %52, i64 noundef %.01922)
+  %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(8) %52, i64 noundef %.01823)
   br i1 %55, label %56, label %119
 
 56:                                               ; preds = %.lr.ph.split
@@ -28401,11 +28401,11 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 73:                                               ; preds = %70
   %74 = load i64, ptr %13, align 8
   %75 = shl i64 %74, 32
-  %76 = or i64 %75, %.01922
+  %76 = or i64 %75, %.01823
   br label %.lr.ph.preheader.i.i
 
 77:                                               ; preds = %70
-  %78 = getelementptr inbounds i64, ptr %3, i64 %.01922
+  %78 = getelementptr inbounds i64, ptr %3, i64 %.01823
   %79 = load i64, ptr %78, align 8
   br label %.lr.ph.preheader.i.i
 
@@ -28485,20 +28485,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %109, %_Z
   store float %67, ptr %116, align 4
   %117 = getelementptr inbounds i64, ptr %15, i64 %.0.lcssa.i.i.ph
   store i64 %80, ptr %117, align 8
-  %118 = add i64 %.01824, 1
+  %118 = add i64 %.01922, 1
   br label %119
 
 119:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, %.lr.ph.split
-  %.1 = phi i64 [ %118, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit ], [ %.01824, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01824, %.lr.ph.split ]
-  %120 = add nuw i64 %.01922, 1
+  %.1 = phi i64 [ %118, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit ], [ %.01922, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01922, %.lr.ph.split ]
+  %120 = add nuw i64 %.01823, 1
   %121 = load i64, ptr %17, align 8
   %122 = getelementptr inbounds i8, ptr %.025, i64 %121
   %exitcond.not = icmp eq i64 %120, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !167
 
 ._crit_edge:                                      ; preds = %119, %48, %7
-  %.018.lcssa = phi i64 [ 0, %7 ], [ %.1.us, %48 ], [ %.1, %119 ]
-  ret i64 %.018.lcssa
+  %.019.lcssa = phi i64 [ 0, %7 ], [ %.1.us, %48 ], [ %.1, %119 ]
+  ret i64 %.019.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -28677,10 +28677,10 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %49
   %.026.us = phi ptr [ %52, %49 ], [ %2, %.lr.ph ]
-  %.01925.us = phi i64 [ %.1.us, %49 ], [ 0, %.lr.ph ]
-  %.02023.us = phi i64 [ %50, %49 ], [ 0, %.lr.ph ]
+  %.01924.us = phi i64 [ %50, %49 ], [ 0, %.lr.ph ]
+  %.02023.us = phi i64 [ %.1.us, %49 ], [ 0, %.lr.ph ]
   %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds i64, ptr %3, i64 %.02023.us
+  %19 = getelementptr inbounds i64, ptr %3, i64 %.01924.us
   %20 = load i64, ptr %19, align 8
   %21 = load ptr, ptr %18, align 8
   %22 = load ptr, ptr %21, align 8
@@ -28732,19 +28732,19 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 43:                                               ; preds = %38
   %44 = load i64, ptr %13, align 8
   %45 = shl i64 %44, 32
-  %46 = or i64 %45, %.02023.us
+  %46 = or i64 %45, %.01924.us
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
 _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %43, %41
   %47 = phi i64 [ %46, %43 ], [ %42, %41 ]
   store float %35, ptr %4, align 4
   store i64 %47, ptr %5, align 8
-  %48 = add i64 %.01925.us, 1
+  %48 = add i64 %.02023.us, 1
   br label %49
 
 49:                                               ; preds = %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us, %.lr.ph.split.us
-  %.1.us = phi i64 [ %48, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us ], [ %.01925.us, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us ], [ %.01925.us, %.lr.ph.split.us ]
-  %50 = add nuw i64 %.02023.us, 1
+  %.1.us = phi i64 [ %48, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us ], [ %.02023.us, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us ], [ %.02023.us, %.lr.ph.split.us ]
+  %50 = add nuw i64 %.01924.us, 1
   %51 = load i64, ptr %17, align 8
   %52 = getelementptr inbounds i8, ptr %.026.us, i64 %51
   %exitcond30.not = icmp eq i64 %50, %1
@@ -28752,10 +28752,10 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %43, %41
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %121
   %.026 = phi ptr [ %124, %121 ], [ %2, %.lr.ph ]
-  %.01925 = phi i64 [ %.1, %121 ], [ 0, %.lr.ph ]
-  %.02023 = phi i64 [ %122, %121 ], [ 0, %.lr.ph ]
+  %.01924 = phi i64 [ %122, %121 ], [ 0, %.lr.ph ]
+  %.02023 = phi i64 [ %.1, %121 ], [ 0, %.lr.ph ]
   %53 = load ptr, ptr %8, align 8
-  %54 = getelementptr inbounds i64, ptr %3, i64 %.02023
+  %54 = getelementptr inbounds i64, ptr %3, i64 %.01924
   %55 = load i64, ptr %54, align 8
   %56 = load ptr, ptr %53, align 8
   %57 = load ptr, ptr %56, align 8
@@ -28803,7 +28803,7 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 76:                                               ; preds = %73
   %77 = load i64, ptr %13, align 8
   %78 = shl i64 %77, 32
-  %79 = or i64 %78, %.02023
+  %79 = or i64 %78, %.01924
   br label %.lr.ph.preheader.i.i
 
 80:                                               ; preds = %73
@@ -28886,20 +28886,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %111, %_Z
   store float %70, ptr %118, align 4
   %119 = getelementptr inbounds i64, ptr %15, i64 %.0.lcssa.i.i.ph
   store i64 %82, ptr %119, align 8
-  %120 = add i64 %.01925, 1
+  %120 = add i64 %.02023, 1
   br label %121
 
 121:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, %.lr.ph.split
-  %.1 = phi i64 [ %120, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit ], [ %.01925, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.01925, %.lr.ph.split ]
-  %122 = add nuw i64 %.02023, 1
+  %.1 = phi i64 [ %120, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit ], [ %.02023, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ], [ %.02023, %.lr.ph.split ]
+  %122 = add nuw i64 %.01924, 1
   %123 = load i64, ptr %17, align 8
   %124 = getelementptr inbounds i8, ptr %.026, i64 %123
   %exitcond.not = icmp eq i64 %122, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !169
 
 ._crit_edge:                                      ; preds = %121, %49, %7
-  %.019.lcssa = phi i64 [ 0, %7 ], [ %.1.us, %49 ], [ %.1, %121 ]
-  ret i64 %.019.lcssa
+  %.020.lcssa = phi i64 [ 0, %7 ], [ %.1.us, %49 ], [ %.1, %121 ]
+  ret i64 %.020.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -29078,8 +29078,8 @@ define internal noundef i64 @_ZNK5faiss12_GLOBAL__N_114IVFSQScannerIPINS0_10DCTe
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %42
   %.024.us = phi ptr [ %45, %42 ], [ %2, %.lr.ph ]
-  %.01723.us = phi i64 [ %.1.us, %42 ], [ 0, %.lr.ph ]
-  %.01821.us = phi i64 [ %43, %42 ], [ 0, %.lr.ph ]
+  %.01722.us = phi i64 [ %43, %42 ], [ 0, %.lr.ph ]
+  %.01821.us = phi i64 [ %.1.us, %42 ], [ 0, %.lr.ph ]
   %17 = load float, ptr %8, align 4
   %.val.i.us = load i64, ptr %9, align 8
   %.not.i.i.us = icmp eq i64 %.val.i.us, 0
@@ -29118,26 +29118,26 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
   br i1 %32, label %36, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i64, ptr %3, i64 %.01821.us
+  %34 = getelementptr inbounds i64, ptr %3, i64 %.01722.us
   %35 = load i64, ptr %34, align 8
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
 36:                                               ; preds = %30
   %37 = load i64, ptr %12, align 8
   %38 = shl i64 %37, 32
-  %39 = or i64 %38, %.01821.us
+  %39 = or i64 %38, %.01722.us
   br label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us
 
 _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %36, %33
   %40 = phi i64 [ %39, %36 ], [ %35, %33 ]
   store float %27, ptr %4, align 4
   store i64 %40, ptr %5, align 8
-  %41 = add i64 %.01723.us, 1
+  %41 = add i64 %.01821.us, 1
   br label %42
 
 42:                                               ; preds = %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us
-  %.1.us = phi i64 [ %41, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us ], [ %.01723.us, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us ]
-  %43 = add nuw i64 %.01821.us, 1
+  %.1.us = phi i64 [ %41, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us ], [ %.01821.us, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit.us ]
+  %43 = add nuw i64 %.01722.us, 1
   %44 = load i64, ptr %16, align 8
   %45 = getelementptr inbounds i8, ptr %.024.us, i64 %44
   %exitcond27.not = icmp eq i64 %43, %1
@@ -29145,8 +29145,8 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.us: ; preds = %36, %33
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %108
   %.024 = phi ptr [ %111, %108 ], [ %2, %.lr.ph ]
-  %.01723 = phi i64 [ %.1, %108 ], [ 0, %.lr.ph ]
-  %.01821 = phi i64 [ %109, %108 ], [ 0, %.lr.ph ]
+  %.01722 = phi i64 [ %109, %108 ], [ 0, %.lr.ph ]
+  %.01821 = phi i64 [ %.1, %108 ], [ 0, %.lr.ph ]
   %46 = load float, ptr %8, align 4
   %.val.i = load i64, ptr %9, align 8
   %.not.i.i = icmp eq i64 %.val.i, 0
@@ -29187,11 +29187,11 @@ _ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12Simil
 62:                                               ; preds = %59
   %63 = load i64, ptr %12, align 8
   %64 = shl i64 %63, 32
-  %65 = or i64 %64, %.01821
+  %65 = or i64 %64, %.01722
   br label %.lr.ph.preheader.i.i
 
 66:                                               ; preds = %59
-  %67 = getelementptr inbounds i64, ptr %3, i64 %.01821
+  %67 = getelementptr inbounds i64, ptr %3, i64 %.01722
   %68 = load i64, ptr %67, align 8
   br label %.lr.ph.preheader.i.i
 
@@ -29271,20 +29271,20 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %98, %_ZN
   store float %56, ptr %105, align 4
   %106 = getelementptr inbounds i64, ptr %14, i64 %.0.lcssa.i.i.ph
   store i64 %69, ptr %106, align 8
-  %107 = add i64 %.01723, 1
+  %107 = add i64 %.01821, 1
   br label %108
 
 108:                                              ; preds = %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit
-  %.1 = phi i64 [ %107, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit ], [ %.01723, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ]
-  %109 = add nuw i64 %.01821, 1
+  %.1 = phi i64 [ %107, %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit ], [ %.01821, %_ZNK5faiss12_GLOBAL__N_110DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EE13query_to_codeEPKh.exit ]
+  %109 = add nuw i64 %.01722, 1
   %110 = load i64, ptr %16, align 8
   %111 = getelementptr inbounds i8, ptr %.024, i64 %110
   %exitcond.not = icmp eq i64 %109, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !171
 
 ._crit_edge:                                      ; preds = %108, %42, %7
-  %.017.lcssa = phi i64 [ 0, %7 ], [ %.1.us, %42 ], [ %.1, %108 ]
-  ret i64 %.017.lcssa
+  %.018.lcssa = phi i64 [ 0, %7 ], [ %.1.us, %42 ], [ %.1, %108 ]
+  ret i64 %.018.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -3521,16 +3521,16 @@ _Z11curses_movejj.exit:                           ; preds = %108
 
 .lr.ph:                                           ; preds = %.preheader, %132
   %126 = phi ptr [ %135, %132 ], [ %122, %.preheader ]
-  %.02163 = phi i64 [ %133, %132 ], [ 0, %.preheader ]
-  %127 = icmp eq i64 %.02163, %52
-  %128 = getelementptr inbounds ptr, ptr %126, i64 %.02163
+  %.063 = phi i64 [ %133, %132 ], [ 0, %.preheader ]
+  %127 = icmp eq i64 %.063, %52
+  %128 = getelementptr inbounds ptr, ptr %126, i64 %.063
   %129 = load ptr, ptr %128, align 8
   %130 = select i1 %127, i32 65536, i32 0
   %131 = invoke i32 @set_field_fore(ptr noundef %129, i32 noundef %130)
           to label %132 unwind label %.loopexit
 
 132:                                              ; preds = %.lr.ph
-  %133 = add i64 %.02163, 3
+  %133 = add i64 %.063, 3
   %134 = load ptr, ptr %120, align 8
   %135 = load ptr, ptr %119, align 8
   %136 = ptrtoint ptr %134 to i64
@@ -3784,41 +3784,41 @@ define linkonce_odr dso_local void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind
   br i1 %5, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %17
-  %.02230.i = phi i32 [ %18, %17 ], [ %4, %2 ]
-  %.02329.i = phi i32 [ %19, %17 ], [ 1, %2 ]
-  %6 = icmp ult i32 %.02230.i, 100
+  %.030.i = phi i32 [ %19, %17 ], [ 1, %2 ]
+  %.02329.i = phi i32 [ %18, %17 ], [ %4, %2 ]
+  %6 = icmp ult i32 %.02329.i, 100
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = add i32 %.02329.i, 1
+  %8 = add i32 %.030.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = icmp ult i32 %.02230.i, 1000
+  %10 = icmp ult i32 %.02329.i, 1000
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = add i32 %.02329.i, 2
+  %12 = add i32 %.030.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 13:                                               ; preds = %9
-  %14 = icmp ult i32 %.02230.i, 10000
+  %14 = icmp ult i32 %.02329.i, 10000
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = add i32 %.02329.i, 3
+  %16 = add i32 %.030.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 17:                                               ; preds = %13
-  %18 = udiv i32 %.02230.i, 10000
-  %19 = add i32 %.02329.i, 4
-  %20 = icmp ult i32 %.02230.i, 100000
+  %18 = udiv i32 %.02329.i, 10000
+  %19 = add i32 %.030.i, 4
+  %20 = icmp ult i32 %.02329.i, 100000
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !32
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.022.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
-  %21 = add i32 %.0.i, %.lobit
+  %21 = add i32 %.022.i, %.lobit
   %22 = zext i32 %21 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   %23 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -3849,7 +3849,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br i1 %29, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %28
-  %30 = add i32 %.0.i, -1
+  %30 = add i32 %.022.i, -1
   br label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %.lr.ph.i12, %.lr.ph.preheader.i
@@ -4439,7 +4439,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 59:                                               ; preds = %55, %50
   %60 = phi ptr [ %51, %50 ], [ %56, %55 ]
-  %.021 = phi i32 [ %spec.store.select, %50 ], [ %58, %55 ]
+  %.019 = phi i32 [ %spec.store.select, %50 ], [ %58, %55 ]
   %61 = getelementptr inbounds i8, ptr %0, i64 224
   %62 = load ptr, ptr %61, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
@@ -4466,7 +4466,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEED2Ev.exit38: ; preds = %63, %66
   %71 = load ptr, ptr @stdscr, align 8
   %72 = call i32 @keypad(ptr noundef %71, i1 noundef zeroext true)
-  %.not27 = icmp eq i32 %.021, 0
+  %.not27 = icmp eq i32 %.019, 0
   br i1 %.not27, label %73, label %76
 
 73:                                               ; preds = %_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEED2Ev.exit38
@@ -4564,7 +4564,7 @@ _ZN13cmSystemTools20GetErrorOccurredFlagEv.exit41.thread: ; preds = %.thread, %1
   %119 = getelementptr inbounds i8, ptr %118, i64 16
   %120 = load ptr, ptr %119, align 8
   call void %120(ptr noundef nonnull align 8 dereferenceable(104) %113)
-  %121 = icmp eq i32 %.021, -2
+  %121 = icmp eq i32 %.019, -2
   br i1 %121, label %140, label %124
 
 122:                                              ; preds = %111
@@ -5964,7 +5964,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit141
 
 377:                                              ; preds = %._crit_edge, %371, %374
   %378 = phi ptr [ %369, %371 ], [ %369, %374 ], [ %.pre, %._crit_edge ]
-  %.083 = phi ptr [ %373, %371 ], [ %376, %374 ], [ null, %._crit_edge ]
+  %.075 = phi ptr [ %373, %371 ], [ %376, %374 ], [ null, %._crit_edge ]
   %379 = getelementptr ptr, ptr %378, i64 %362
   %380 = getelementptr i8, ptr %379, i64 -16
   %381 = load ptr, ptr %380, align 8
@@ -5992,11 +5992,11 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit141
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #19
-  %.not121 = icmp eq ptr %.083, null
+  %.not121 = icmp eq ptr %.075, null
   br i1 %.not121, label %409, label %393
 
 393:                                              ; preds = %392
-  %394 = invoke ptr @field_userptr(ptr noundef nonnull %.083)
+  %394 = invoke ptr @field_userptr(ptr noundef nonnull %.075)
           to label %395 unwind label %407
 
 395:                                              ; preds = %393

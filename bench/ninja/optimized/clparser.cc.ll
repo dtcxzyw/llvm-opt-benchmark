@@ -90,10 +90,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %25
 
 25:                                               ; preds = %25, %22
-  %.021 = phi ptr [ %24, %22 ], [ %28, %25 ]
-  %26 = load i8, ptr %.021, align 1
+  %.019 = phi ptr [ %24, %22 ], [ %28, %25 ]
+  %26 = load i8, ptr %.019, align 1
   %27 = icmp eq i8 %26, 32
-  %28 = getelementptr inbounds i8, ptr %.021, i64 1
+  %28 = getelementptr inbounds i8, ptr %.019, i64 1
   br i1 %27, label %25, label %31, !llvm.loop !5
 
 29:                                               ; preds = %.noexc, %3
@@ -108,7 +108,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 31:                                               ; preds = %25
   %32 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #12
-  %33 = ptrtoint ptr %.021 to i64
+  %33 = ptrtoint ptr %.019 to i64
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %35, i64 noundef -1)

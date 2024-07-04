@@ -442,16 +442,16 @@ Abc_Clock.exit:                                   ; preds = %1, %9
   br label %30
 
 30:                                               ; preds = %Abc_Clock.exit, %30
-  %.04368 = phi i32 [ 0, %Abc_Clock.exit ], [ %39, %30 ]
-  %31 = lshr i32 %.04368, 5
+  %.04468 = phi i32 [ 0, %Abc_Clock.exit ], [ %39, %30 ]
+  %31 = lshr i32 %.04468, 5
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds i32, ptr %29, i64 %32
   %34 = load i32, ptr %33, align 4
-  %35 = and i32 %.04368, 31
+  %35 = and i32 %.04468, 31
   %36 = lshr i32 %34, %35
   %37 = and i32 %36, 1
   %38 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %37)
-  %39 = add nuw nsw i32 %.04368, 1
+  %39 = add nuw nsw i32 %.04468, 1
   %exitcond.not = icmp eq i32 %39, 64
   br i1 %exitcond.not, label %40, label %30, !llvm.loop !16
 
@@ -464,18 +464,18 @@ Abc_Clock.exit:                                   ; preds = %1, %9
   br label %45
 
 45:                                               ; preds = %40, %Abc_Clock.exit58
-  %.073 = phi i64 [ 0, %40 ], [ %111, %Abc_Clock.exit58 ]
-  %.04272 = phi i32 [ 0, %40 ], [ %spec.select, %Abc_Clock.exit58 ]
-  %.14471 = phi i32 [ 0, %40 ], [ %115, %Abc_Clock.exit58 ]
+  %.073 = phi i32 [ 0, %40 ], [ %spec.select, %Abc_Clock.exit58 ]
+  %.04272 = phi i64 [ 0, %40 ], [ %111, %Abc_Clock.exit58 ]
+  %.14571 = phi i32 [ 0, %40 ], [ %115, %Abc_Clock.exit58 ]
   store i32 0, ptr %16, align 4
   %.val69 = load i32, ptr %41, align 8
   %46 = icmp sgt i32 %.val69, 0
   br i1 %46, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %45
-  %47 = lshr i32 %.14471, 5
+  %47 = lshr i32 %.14571, 5
   %48 = zext nneg i32 %47 to i64
-  %49 = and i32 %.14471, 31
+  %49 = and i32 %.14571, 31
   %50 = shl nuw i32 1, %49
   br label %51
 
@@ -609,14 +609,14 @@ Abc_Clock.exit56:                                 ; preds = %._crit_edge, %98
 Abc_Clock.exit58:                                 ; preds = %Abc_Clock.exit56, %104
   %.0.i57 = phi i64 [ %109, %104 ], [ -1, %Abc_Clock.exit56 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %110 = add i64 %.0.i55.neg, %.073
+  %110 = add i64 %.0.i55.neg, %.04272
   %111 = add i64 %110, %.0.i57
   %112 = icmp eq i32 %101, 1
   %113 = select i1 %112, i32 43, i32 45
   %putchar47 = call i32 @putchar(i32 %113)
   %114 = zext i1 %112 to i32
-  %spec.select = add nuw nsw i32 %.04272, %114
-  %115 = add nuw nsw i32 %.14471, 1
+  %spec.select = add nuw nsw i32 %.073, %114
+  %115 = add nuw nsw i32 %.14571, 1
   %exitcond75.not = icmp eq i32 %115, 64
   br i1 %exitcond75.not, label %116, label %45, !llvm.loop !18
 

@@ -52,12 +52,12 @@ define void @dlaev2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %40
 
 40:                                               ; preds = %33, %38, %23
-  %.092 = phi double [ %28, %23 ], [ %37, %33 ], [ %39, %38 ]
+  %.091 = phi double [ %28, %23 ], [ %37, %33 ], [ %39, %38 ]
   %41 = fcmp olt double %10, 0.000000e+00
   br i1 %41, label %42, label %51
 
 42:                                               ; preds = %40
-  %43 = fsub double %10, %.092
+  %43 = fsub double %10, %.091
   %44 = fmul double %43, 5.000000e-01
   store double %44, ptr %3, align 8
   %45 = fdiv double %.0, %44
@@ -73,7 +73,7 @@ define void @dlaev2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %52, label %53, label %62
 
 53:                                               ; preds = %51
-  %54 = fadd double %10, %.092
+  %54 = fadd double %10, %.091
   %55 = fmul double %54, 5.000000e-01
   store double %55, ptr %3, align 8
   %56 = fdiv double %.0, %55
@@ -85,9 +85,9 @@ define void @dlaev2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %65
 
 62:                                               ; preds = %51
-  %63 = fmul double %.092, 5.000000e-01
+  %63 = fmul double %.091, 5.000000e-01
   store double %63, ptr %3, align 8
-  %64 = fmul double %.092, -5.000000e-01
+  %64 = fmul double %.091, -5.000000e-01
   br label %65
 
 65:                                               ; preds = %53, %62, %42
@@ -95,18 +95,18 @@ define void @dlaev2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %.090 = phi i32 [ 1, %53 ], [ 1, %62 ], [ -1, %42 ]
   store double %.sink, ptr %4, align 8
   %66 = fcmp ult double %11, 0.000000e+00
-  %67 = fneg double %.092
-  %.091.p = select i1 %66, double %67, double %.092
-  %.091 = fadd double %11, %.091.p
+  %67 = fneg double %.091
+  %.092.p = select i1 %66, double %67, double %.091
+  %.092 = fadd double %11, %.092.p
   %.089 = select i1 %66, i32 -1, i32 1
-  %68 = tail call noundef double @llvm.fabs.f64(double %.091)
+  %68 = tail call noundef double @llvm.fabs.f64(double %.092)
   %69 = extractelement <2 x double> %19, i64 0
   %70 = fcmp ogt double %68, %69
   br i1 %70, label %71, label %77
 
 71:                                               ; preds = %65
   %72 = fneg double %13
-  %73 = fdiv double %72, %.091
+  %73 = fdiv double %72, %.092
   %74 = tail call double @llvm.fmuladd.f64(double %73, double %73, double 1.000000e+00)
   %sqrt105 = tail call double @llvm.sqrt.f64(double %74)
   %75 = fdiv double 1.000000e+00, %sqrt105
@@ -125,7 +125,7 @@ define void @dlaev2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %86
 
 80:                                               ; preds = %77
-  %81 = fneg double %.091
+  %81 = fneg double %.092
   %82 = fdiv double %81, %13
   %83 = tail call double @llvm.fmuladd.f64(double %82, double %82, double 1.000000e+00)
   %sqrt106 = tail call double @llvm.sqrt.f64(double %83)

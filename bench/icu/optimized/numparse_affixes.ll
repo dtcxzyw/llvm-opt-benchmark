@@ -2310,8 +2310,8 @@ for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i32 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
   %numAffixMatchers.0207 = phi i32 [ 0, %if.end ], [ %numAffixMatchers.2, %for.inc ]
   %numAffixPatternMatchers.0206 = phi i32 [ 0, %if.end ], [ %numAffixPatternMatchers.3, %for.inc ]
-  %posPrefix.0205 = phi ptr [ null, %if.end ], [ %posPrefix.2, %for.inc ]
   %posSuffix.0204 = phi ptr [ null, %if.end ], [ %posSuffix.2, %for.inc ]
+  %posPrefix.0203 = phi ptr [ null, %if.end ], [ %posPrefix.2, %for.inc ]
   %div184185 = lshr i32 %indvars.iv, 1
   %div.sext = and i32 %div184185, 127
   %1 = and i32 %indvars.iv, 1
@@ -2651,7 +2651,7 @@ _ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit118: ; preds = %_ZN6icu_75
 
 if.else:                                          ; preds = %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit118
   %not.tobool33 = xor i1 %tobool33, true
-  %cmp1.i = icmp eq ptr %posPrefix.0205, null
+  %cmp1.i = icmp eq ptr %posPrefix.0203, null
   %or.cond.i = and i1 %cmp1.i, %not.tobool33
   br i1 %or.cond.i, label %land.lhs.true59, label %if.end.i
 
@@ -2661,7 +2661,7 @@ if.end.i:                                         ; preds = %if.else
 
 if.end5.i:                                        ; preds = %if.end.i
   %fPattern.i.i = getelementptr inbounds i8, ptr %spec.select59, i64 56
-  %fPattern2.i.i = getelementptr inbounds i8, ptr %posPrefix.0205, i64 56
+  %fPattern2.i.i = getelementptr inbounds i8, ptr %posPrefix.0203, i64 56
   %call.i.i119 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i.i, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i)
           to label %invoke.cont57 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -2688,8 +2688,8 @@ invoke.cont60:                                    ; preds = %if.end5.i125
   br i1 %call.i.i130, label %for.inc, label %if.end64
 
 if.end64:                                         ; preds = %if.end.i123, %if.end.i, %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit118, %invoke.cont57, %invoke.cont60
+  %posPrefix.1 = phi ptr [ %posPrefix.0203, %invoke.cont60 ], [ %posPrefix.0203, %invoke.cont57 ], [ %spec.select59, %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit118 ], [ %posPrefix.0203, %if.end.i ], [ %posPrefix.0203, %if.end.i123 ]
   %posSuffix.1 = phi ptr [ %posSuffix.0204, %invoke.cont60 ], [ %posSuffix.0204, %invoke.cont57 ], [ %spec.select61, %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit118 ], [ %posSuffix.0204, %if.end.i ], [ %posSuffix.0204, %if.end.i123 ]
-  %posPrefix.1 = phi ptr [ %posPrefix.0205, %invoke.cont60 ], [ %posPrefix.0205, %invoke.cont57 ], [ %spec.select59, %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit118 ], [ %posPrefix.0205, %if.end.i ], [ %posPrefix.0205, %if.end.i123 ]
   %cmp65 = icmp eq i32 %6, 4
   %cond66 = zext i1 %cmp65 to i32
   invoke void @_ZN6icu_758numparse4impl12AffixMatcherC1EPNS1_19AffixPatternMatcherES4_i(ptr noundef nonnull align 8 dereferenceable(28) %ref.tmp67, ptr noundef %spec.select59, ptr noundef %spec.select61, i32 noundef %cond66)
@@ -2759,8 +2759,8 @@ invoke.cont97:                                    ; preds = %if.then95
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true59, %if.end21, %if.end15, %invoke.cont68, %invoke.cont97, %invoke.cont93, %invoke.cont60, %invoke.cont12, %invoke.cont
+  %posPrefix.2 = phi ptr [ %posPrefix.1, %invoke.cont97 ], [ %posPrefix.1, %invoke.cont93 ], [ %posPrefix.1, %invoke.cont68 ], [ %posPrefix.0203, %invoke.cont60 ], [ %posPrefix.0203, %invoke.cont12 ], [ %posPrefix.0203, %invoke.cont ], [ %posPrefix.0203, %if.end15 ], [ %posPrefix.0203, %if.end21 ], [ %posPrefix.0203, %land.lhs.true59 ]
   %posSuffix.2 = phi ptr [ %posSuffix.1, %invoke.cont97 ], [ %posSuffix.1, %invoke.cont93 ], [ %posSuffix.1, %invoke.cont68 ], [ %posSuffix.0204, %invoke.cont60 ], [ %posSuffix.0204, %invoke.cont12 ], [ %posSuffix.0204, %invoke.cont ], [ %posSuffix.0204, %if.end15 ], [ %posSuffix.0204, %if.end21 ], [ null, %land.lhs.true59 ]
-  %posPrefix.2 = phi ptr [ %posPrefix.1, %invoke.cont97 ], [ %posPrefix.1, %invoke.cont93 ], [ %posPrefix.1, %invoke.cont68 ], [ %posPrefix.0205, %invoke.cont60 ], [ %posPrefix.0205, %invoke.cont12 ], [ %posPrefix.0205, %invoke.cont ], [ %posPrefix.0205, %if.end15 ], [ %posPrefix.0205, %if.end21 ], [ %posPrefix.0205, %land.lhs.true59 ]
   %numAffixPatternMatchers.3 = phi i32 [ %spec.select60, %invoke.cont97 ], [ %spec.select60, %invoke.cont93 ], [ %spec.select60, %invoke.cont68 ], [ %spec.select60, %invoke.cont60 ], [ %numAffixPatternMatchers.0206, %invoke.cont12 ], [ %numAffixPatternMatchers.0206, %invoke.cont ], [ %numAffixPatternMatchers.0206, %if.end15 ], [ %numAffixPatternMatchers.0206, %if.end21 ], [ %spec.select60, %land.lhs.true59 ]
   %numAffixMatchers.2 = phi i32 [ %inc99, %invoke.cont97 ], [ %numAffixMatchers.1179, %invoke.cont93 ], [ %inc69, %invoke.cont68 ], [ %numAffixMatchers.0207, %invoke.cont60 ], [ %numAffixMatchers.0207, %invoke.cont12 ], [ %numAffixMatchers.0207, %invoke.cont ], [ %numAffixMatchers.0207, %if.end15 ], [ %numAffixMatchers.0207, %if.end21 ], [ %numAffixMatchers.0207, %land.lhs.true59 ]
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1

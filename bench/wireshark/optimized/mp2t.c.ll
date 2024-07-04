@@ -50,10 +50,10 @@ define hidden i32 @mp2t_open(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   br i1 %exitcond.not, label %mp2t_bits_per_second.exit.thread, label %.preheader73, !llvm.loop !4
 
 .preheader72:                                     ; preds = %14, %43
-  %.057 = phi i32 [ %.259, %43 ], [ 0, %14 ]
-  %.054 = phi i8 [ %.2, %43 ], [ 0, %14 ]
+  %.057 = phi i8 [ %.259, %43 ], [ 0, %14 ]
+  %.055 = phi i32 [ %.2, %43 ], [ 0, %14 ]
   %20 = load ptr, ptr %0, align 8
-  %21 = zext i8 %.054 to i32
+  %21 = zext i8 %.057 to i32
   %22 = add nuw nsw i32 %21, 188
   %23 = call i32 @wtap_read_bytes(ptr noundef %20, ptr noundef nonnull %6, i32 noundef %22, ptr noundef %1, ptr noundef %2) #6
   %.not62 = icmp eq i32 %23, 0
@@ -65,7 +65,7 @@ define hidden i32 @mp2t_open(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   br i1 %.not63, label %26, label %mp2t_bits_per_second.exit.thread
 
 26:                                               ; preds = %24
-  %27 = icmp ult i32 %.057, 2
+  %27 = icmp ult i32 %.055, 2
   br i1 %27, label %mp2t_bits_per_second.exit.thread, label %.loopexit
 
 28:                                               ; preds = %.preheader72
@@ -74,11 +74,11 @@ define hidden i32 @mp2t_open(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %28
-  %32 = add nuw nsw i32 %.057, 1
+  %32 = add nuw nsw i32 %.055, 1
   br label %43
 
 33:                                               ; preds = %28
-  %.not64 = icmp eq i8 %.054, 0
+  %.not64 = icmp eq i8 %.057, 0
   br i1 %.not64, label %.preheader, label %mp2t_bits_per_second.exit.thread
 
 .preheader:                                       ; preds = %33, %42
@@ -104,13 +104,13 @@ define hidden i32 @mp2t_open(ptr nocapture noundef %0, ptr noundef %1, ptr nound
   br i1 %exitcond116.not, label %mp2t_bits_per_second.exit.thread, label %.preheader, !llvm.loop !6
 
 43:                                               ; preds = %.thread, %31
-  %.259 = phi i32 [ %32, %31 ], [ 0, %.thread ]
-  %.2 = phi i8 [ %.054, %31 ], [ %41, %.thread ]
-  %44 = icmp ult i32 %.259, 10
+  %.259 = phi i8 [ %.057, %31 ], [ %41, %.thread ]
+  %.2 = phi i32 [ %32, %31 ], [ 0, %.thread ]
+  %44 = icmp ult i32 %.2, 10
   br i1 %44, label %.preheader72, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %43, %26
-  %.3 = phi i8 [ %.054, %26 ], [ %.2, %43 ]
+  %.3 = phi i8 [ %.057, %26 ], [ %.259, %43 ]
   %45 = load ptr, ptr %0, align 8
   %46 = call i64 @file_seek(ptr noundef %45, i64 noundef %indvars.iv, i32 noundef 0, ptr noundef %1) #6
   %47 = icmp eq i64 %46, -1

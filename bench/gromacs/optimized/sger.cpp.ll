@@ -24,22 +24,22 @@ define void @sger_(ptr nocapture noundef readonly %0, ptr nocapture noundef read
   %21 = icmp sgt i32 %13, 0
   %22 = sub nsw i32 1, %11
   %23 = mul nsw i32 %13, %22
-  %.060 = select i1 %21, i32 0, i32 %23
+  %.061 = select i1 %21, i32 0, i32 %23
   %24 = icmp eq i32 %12, 1
   br i1 %24, label %.lr.ph84.split.us.preheader, label %.lr.ph79.split.us.preheader
 
 .lr.ph84.split.us.preheader:                      ; preds = %20
-  %25 = sext i32 %.060 to i64
-  %26 = sext i32 %13 to i64
-  %27 = sext i32 %14 to i64
+  %25 = sext i32 %14 to i64
+  %26 = sext i32 %.061 to i64
+  %27 = sext i32 %13 to i64
   %wide.trip.count117 = zext nneg i32 %11 to i64
   %wide.trip.count108 = zext nneg i32 %.fr87 to i64
   br label %.lr.ph84.split.us
 
 .lr.ph84.split.us:                                ; preds = %.lr.ph84.split.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv112 = phi i64 [ 0, %.lr.ph84.split.us.preheader ], [ %indvars.iv.next113, %..loopexit_crit_edge.us ]
-  %indvars.iv110 = phi i64 [ %25, %.lr.ph84.split.us.preheader ], [ %indvars.iv.next111, %..loopexit_crit_edge.us ]
-  %28 = getelementptr inbounds float, ptr %5, i64 %indvars.iv110
+  %indvars.iv112 = phi i64 [ %26, %.lr.ph84.split.us.preheader ], [ %indvars.iv.next113, %..loopexit_crit_edge.us ]
+  %indvars.iv110 = phi i64 [ 0, %.lr.ph84.split.us.preheader ], [ %indvars.iv.next111, %..loopexit_crit_edge.us ]
+  %28 = getelementptr inbounds float, ptr %5, i64 %indvars.iv112
   %29 = load float, ptr %28, align 4
   %30 = tail call noundef float @llvm.fabs.f32(float %29)
   %31 = fcmp ogt float %30, 0x3810000000000000
@@ -47,14 +47,14 @@ define void @sger_(ptr nocapture noundef readonly %0, ptr nocapture noundef read
 
 .lr.ph.us85:                                      ; preds = %.lr.ph84.split.us
   %32 = fmul float %15, %29
-  %33 = mul nsw i64 %indvars.iv112, %27
+  %33 = mul nsw i64 %indvars.iv110, %25
   %invariant.gep120 = getelementptr float, ptr %7, i64 %33
   br label %34
 
 ..loopexit_crit_edge.us:                          ; preds = %34, %.lr.ph84.split.us
-  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %indvars.iv.next111 = add nsw i64 %indvars.iv110, %26
-  %exitcond118.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count117
+  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
+  %indvars.iv.next113 = add nsw i64 %indvars.iv112, %27
+  %exitcond118.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count117
   br i1 %exitcond118.not, label %.loopexit71, label %.lr.ph84.split.us, !llvm.loop !4
 
 34:                                               ; preds = %.lr.ph.us85, %34
@@ -73,20 +73,20 @@ define void @sger_(ptr nocapture noundef readonly %0, ptr nocapture noundef read
   %39 = icmp sgt i32 %12, 0
   %40 = sub nsw i32 1, %.fr87
   %41 = mul nsw i32 %12, %40
-  %.059 = select i1 %39, i32 0, i32 %41
-  %42 = sext i32 %.059 to i64
+  %.063 = select i1 %39, i32 0, i32 %41
+  %42 = sext i32 %.063 to i64
   %43 = sext i32 %12 to i64
-  %44 = sext i32 %.060 to i64
-  %45 = sext i32 %13 to i64
-  %46 = sext i32 %14 to i64
+  %44 = sext i32 %14 to i64
+  %45 = sext i32 %.061 to i64
+  %46 = sext i32 %13 to i64
   %wide.trip.count103 = zext nneg i32 %11 to i64
   %wide.trip.count = zext nneg i32 %.fr87 to i64
   br label %.lr.ph79.split.us
 
 .lr.ph79.split.us:                                ; preds = %.lr.ph79.split.us.preheader, %..loopexit72_crit_edge.us
-  %indvars.iv98 = phi i64 [ 0, %.lr.ph79.split.us.preheader ], [ %indvars.iv.next99, %..loopexit72_crit_edge.us ]
-  %indvars.iv96 = phi i64 [ %44, %.lr.ph79.split.us.preheader ], [ %indvars.iv.next97, %..loopexit72_crit_edge.us ]
-  %47 = getelementptr inbounds float, ptr %5, i64 %indvars.iv96
+  %indvars.iv98 = phi i64 [ %45, %.lr.ph79.split.us.preheader ], [ %indvars.iv.next99, %..loopexit72_crit_edge.us ]
+  %indvars.iv96 = phi i64 [ 0, %.lr.ph79.split.us.preheader ], [ %indvars.iv.next97, %..loopexit72_crit_edge.us ]
+  %47 = getelementptr inbounds float, ptr %5, i64 %indvars.iv98
   %48 = load float, ptr %47, align 4
   %49 = tail call noundef float @llvm.fabs.f32(float %48)
   %50 = fcmp ogt float %49, 0x3810000000000000
@@ -94,28 +94,28 @@ define void @sger_(ptr nocapture noundef readonly %0, ptr nocapture noundef read
 
 .lr.ph.us:                                        ; preds = %.lr.ph79.split.us
   %51 = fmul float %15, %48
-  %52 = mul nsw i64 %indvars.iv98, %46
+  %52 = mul nsw i64 %indvars.iv96, %44
   %invariant.gep = getelementptr float, ptr %7, i64 %52
   br label %53
 
 ..loopexit72_crit_edge.us:                        ; preds = %53, %.lr.ph79.split.us
-  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
-  %indvars.iv.next97 = add nsw i64 %indvars.iv96, %45
-  %exitcond104.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count103
+  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
+  %indvars.iv.next99 = add nsw i64 %indvars.iv98, %46
+  %exitcond104.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count103
   br i1 %exitcond104.not, label %.loopexit71, label %.lr.ph79.split.us, !llvm.loop !7
 
 53:                                               ; preds = %.lr.ph.us, %53
-  %indvars.iv91 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next92, %53 ]
-  %indvars.iv = phi i64 [ %42, %.lr.ph.us ], [ %indvars.iv.next, %53 ]
-  %54 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
+  %indvars.iv91 = phi i64 [ %42, %.lr.ph.us ], [ %indvars.iv.next92, %53 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %53 ]
+  %54 = getelementptr inbounds float, ptr %3, i64 %indvars.iv91
   %55 = load float, ptr %54, align 4
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv91
+  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %56 = load float, ptr %gep, align 4
   %57 = tail call float @llvm.fmuladd.f32(float %51, float %55, float %56)
   store float %57, ptr %gep, align 4
-  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
-  %indvars.iv.next = add nsw i64 %indvars.iv, %43
-  %exitcond.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %indvars.iv.next92 = add nsw i64 %indvars.iv91, %43
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit72_crit_edge.us, label %53, !llvm.loop !8
 
 .loopexit71:                                      ; preds = %..loopexit72_crit_edge.us, %..loopexit_crit_edge.us, %9

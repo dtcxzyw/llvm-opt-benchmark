@@ -196,8 +196,8 @@ define ptr @Gia_ManTranStochOpt1(ptr nocapture noundef %0, ptr noundef %1) local
   %.val3.i = phi i32 [ %.val3.i.pre, %2 ], [ %.val3.i49, %64 ]
   %.val.i = phi i32 [ %.val.i.pre, %2 ], [ %.val.i48, %64 ]
   %17 = phi i32 [ %.pre, %2 ], [ %67, %64 ]
-  %.036 = phi i32 [ 0, %2 ], [ %65, %64 ]
-  %.0 = phi ptr [ %4, %2 ], [ %.1, %64 ]
+  %.037 = phi ptr [ %4, %2 ], [ %.1, %64 ]
+  %.0 = phi i32 [ 0, %2 ], [ %65, %64 ]
   %18 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %18, 0
   %19 = load i32, ptr %6, align 4
@@ -216,16 +216,16 @@ define ptr @Gia_ManTranStochOpt1(ptr nocapture noundef %0, ptr noundef %1) local
   br i1 %.not, label %31, label %29
 
 29:                                               ; preds = %16
-  %30 = call ptr @Gia_ManTransductionTt(ptr noundef nonnull %.0, i32 noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %24, i32 noundef %25, i32 noundef %spec.select44) #11
+  %30 = call ptr @Gia_ManTransductionTt(ptr noundef nonnull %.037, i32 noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %24, i32 noundef %25, i32 noundef %spec.select44) #11
   br label %33
 
 31:                                               ; preds = %16
-  %32 = call ptr @Gia_ManTransductionBdd(ptr noundef nonnull %.0, i32 noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %24, i32 noundef %25, i32 noundef %spec.select44) #11
+  %32 = call ptr @Gia_ManTransductionBdd(ptr noundef nonnull %.037, i32 noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef %24, i32 noundef %25, i32 noundef %spec.select44) #11
   br label %33
 
 33:                                               ; preds = %31, %29
-  %.037 = phi ptr [ %30, %29 ], [ %32, %31 ]
-  call void @Gia_ManStop(ptr noundef nonnull %.0) #11
+  %.036 = phi ptr [ %30, %29 ], [ %32, %31 ]
+  call void @Gia_ManStop(ptr noundef nonnull %.037) #11
   %34 = load i32, ptr %12, align 8
   %.not42 = icmp eq i32 %34, 0
   br i1 %.not42, label %40, label %35
@@ -234,7 +234,7 @@ define ptr @Gia_ManTranStochOpt1(ptr nocapture noundef %0, ptr noundef %1) local
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @Dar_ManDefaultRefParams(ptr noundef nonnull %3) #11
   store i32 1, ptr %13, align 4
-  %36 = call ptr @Gia_ManToAig(ptr noundef %.037, i32 noundef 0) #11
+  %36 = call ptr @Gia_ManToAig(ptr noundef %.036, i32 noundef 0) #11
   %37 = call i32 @Dar_ManRefactor(ptr noundef %36, ptr noundef nonnull %3) #11
   %38 = call ptr @Aig_ManDupDfs(ptr noundef %36) #11
   call void @Aig_ManStop(ptr noundef %36) #11
@@ -254,7 +254,7 @@ define ptr @Gia_ManTranStochOpt1(ptr nocapture noundef %0, ptr noundef %1) local
   br label %Gia_ManTranStochLock.exit
 
 Gia_ManTranStochLock.exit:                        ; preds = %40, %42
-  %45 = call ptr @Gia_ManCompress2(ptr noundef %.037, i32 noundef 1, i32 noundef 0) #11
+  %45 = call ptr @Gia_ManCompress2(ptr noundef %.036, i32 noundef 1, i32 noundef 0) #11
   %46 = load i32, ptr %14, align 8
   %.not.i45 = icmp eq i32 %46, 0
   br i1 %.not.i45, label %Gia_ManTranStochUnlock.exit, label %47
@@ -266,7 +266,7 @@ Gia_ManTranStochLock.exit:                        ; preds = %40, %42
 
 Gia_ManTranStochUnlock.exit:                      ; preds = %47, %Gia_ManTranStochLock.exit, %35
   %.1 = phi ptr [ %39, %35 ], [ %45, %Gia_ManTranStochLock.exit ], [ %45, %47 ]
-  call void @Gia_ManStop(ptr noundef %.037) #11
+  call void @Gia_ManStop(ptr noundef %.036) #11
   %50 = load i32, ptr %11, align 8
   %.not43 = icmp eq i32 %50, 0
   br i1 %.not43, label %64, label %51
@@ -285,11 +285,11 @@ Gia_ManTranStochUnlock.exit:                      ; preds = %47, %Gia_ManTranSto
   %60 = add i32 %.val3.i47, %.val.i46
   %61 = xor i32 %60, -1
   %62 = add i32 %53, %61
-  %63 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.036, i32 noundef %62)
+  %63 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.0, i32 noundef %62)
   br label %64
 
 64:                                               ; preds = %51, %Gia_ManTranStochUnlock.exit
-  %65 = add nuw nsw i32 %.036, 1
+  %65 = add nuw nsw i32 %.0, 1
   %66 = getelementptr inbounds i8, ptr %.1, i64 24
   %67 = load i32, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %.1, i64 64
@@ -545,11 +545,11 @@ define ptr @Gia_ManTranStochOpt3(ptr nocapture noundef %0) local_unnamed_addr #0
   br label %20
 
 20:                                               ; preds = %.lr.ph, %56
-  %.033 = phi i32 [ 0, %.lr.ph ], [ %57, %56 ]
-  %.01932 = phi ptr [ %11, %.lr.ph ], [ %.1, %56 ]
-  %.02031 = phi i32 [ %16, %.lr.ph ], [ %.121, %56 ]
+  %.033 = phi ptr [ %11, %.lr.ph ], [ %.1, %56 ]
+  %.01932 = phi i32 [ %16, %.lr.ph ], [ %.120, %56 ]
+  %.02131 = phi i32 [ 0, %.lr.ph ], [ %57, %56 ]
   %21 = load i32, ptr %17, align 4
-  %22 = add nsw i32 %21, %.033
+  %22 = add nsw i32 %21, %.02131
   %23 = mul nsw i32 %22, 1234
   store i32 %23, ptr %18, align 8
   %24 = tail call ptr @Gia_ManTranStochOpt2(ptr noundef nonnull %0)
@@ -576,7 +576,7 @@ define ptr @Gia_ManTranStochOpt3(ptr nocapture noundef %0) local_unnamed_addr #0
   %37 = add i32 %.val3.i25, %.val.i24
   %38 = xor i32 %37, -1
   %39 = add i32 %30, %38
-  %40 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.033, i32 noundef %39)
+  %40 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.02131, i32 noundef %39)
   br label %41
 
 41:                                               ; preds = %28, %26, %20
@@ -593,11 +593,11 @@ define ptr @Gia_ManTranStochOpt3(ptr nocapture noundef %0) local_unnamed_addr #0
   %50 = add i32 %.val3.i27, %.val.i26
   %51 = xor i32 %50, -1
   %52 = add i32 %43, %51
-  %53 = icmp sgt i32 %.02031, %52
+  %53 = icmp sgt i32 %.01932, %52
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %41
-  tail call void @Gia_ManStop(ptr noundef %.01932) #11
+  tail call void @Gia_ManStop(ptr noundef %.033) #11
   br label %56
 
 55:                                               ; preds = %41
@@ -605,16 +605,16 @@ define ptr @Gia_ManTranStochOpt3(ptr nocapture noundef %0) local_unnamed_addr #0
   br label %56
 
 56:                                               ; preds = %54, %55
-  %.121 = phi i32 [ %52, %54 ], [ %.02031, %55 ]
-  %.1 = phi ptr [ %24, %54 ], [ %.01932, %55 ]
-  %57 = add nuw nsw i32 %.033, 1
+  %.120 = phi i32 [ %52, %54 ], [ %.01932, %55 ]
+  %.1 = phi ptr [ %24, %54 ], [ %.033, %55 ]
+  %57 = add nuw nsw i32 %.02131, 1
   %58 = load i32, ptr %12, align 8
-  %.not.not = icmp slt i32 %.033, %58
+  %.not.not = icmp slt i32 %.02131, %58
   br i1 %.not.not, label %20, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %56, %1
-  %.019.lcssa = phi ptr [ %11, %1 ], [ %.1, %56 ]
-  ret ptr %.019.lcssa
+  %.0.lcssa = phi ptr [ %11, %1 ], [ %.1, %56 ]
+  ret ptr %.0.lcssa
 }
 
 ; Function Attrs: noreturn nounwind uwtable

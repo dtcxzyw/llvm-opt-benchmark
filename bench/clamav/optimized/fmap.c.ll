@@ -270,8 +270,8 @@ define noundef ptr @cl_fmap_open_handle(ptr noundef %0, i64 noundef %1, i64 noun
   br label %70
 
 69:                                               ; preds = %16, %20, %47, %34, %29, %18
-  %.054.ph = phi ptr [ null, %18 ], [ null, %29 ], [ %28, %34 ], [ %28, %47 ], [ null, %20 ], [ null, %16 ]
-  tail call void @unmap_handle(ptr noundef %.054.ph)
+  %.0.ph = phi ptr [ null, %18 ], [ null, %29 ], [ %28, %34 ], [ %28, %47 ], [ null, %20 ], [ null, %16 ]
+  tail call void @unmap_handle(ptr noundef %.0.ph)
   br label %70
 
 70:                                               ; preds = %48, %69
@@ -615,21 +615,21 @@ define internal ptr @handle_need_offstr(ptr nocapture noundef %0, i64 noundef %1
 
 .lr.ph:                                           ; preds = %19, %40
   %24 = phi i64 [ %33, %40 ], [ %.val, %19 ]
-  %.1107 = phi i64 [ %41, %40 ], [ %.072, %19 ]
-  %.073106 = phi i64 [ %42, %40 ], [ %21, %19 ]
+  %.071107 = phi i64 [ %42, %40 ], [ %21, %19 ]
+  %.173106 = phi i64 [ %41, %40 ], [ %.072, %19 ]
   %25 = load ptr, ptr %6, align 8
-  %26 = mul i64 %24, %.073106
+  %26 = mul i64 %24, %.071107
   %27 = getelementptr inbounds i8, ptr %25, i64 %26
-  %28 = tail call fastcc i32 @fmap_readpage(ptr noundef nonnull %0, i64 noundef %.073106, i64 noundef 1, i64 noundef 1)
+  %28 = tail call fastcc i32 @fmap_readpage(ptr noundef nonnull %0, i64 noundef %.071107, i64 noundef 1, i64 noundef 1)
   %.not88 = icmp eq i32 %28, 0
   br i1 %.not88, label %31, label %29
 
 29:                                               ; preds = %.lr.ph
-  %30 = add i64 %.073106, -1
+  %30 = add i64 %.071107, -1
   br label %.loopexit101
 
 31:                                               ; preds = %.lr.ph
-  %32 = icmp eq i64 %.073106, %21
+  %32 = icmp eq i64 %.071107, %21
   %33 = load i64, ptr %20, align 8
   br i1 %32, label %34, label %37
 
@@ -641,21 +641,21 @@ define internal ptr @handle_need_offstr(ptr nocapture noundef %0, i64 noundef %1
 37:                                               ; preds = %31, %34
   %.sink = phi i64 [ %36, %34 ], [ %33, %31 ]
   %.069 = phi i64 [ %35, %34 ], [ 0, %31 ]
-  %.1.94 = tail call i64 @llvm.umin.i64(i64 %.1107, i64 %.sink)
+  %.173.94 = tail call i64 @llvm.umin.i64(i64 %.173106, i64 %.sink)
   %38 = getelementptr inbounds i8, ptr %27, i64 %.069
-  %39 = tail call ptr @memchr(ptr noundef %38, i32 noundef 0, i64 noundef %.1.94) #21
+  %39 = tail call ptr @memchr(ptr noundef %38, i32 noundef 0, i64 noundef %.173.94) #21
   %.not89 = icmp eq ptr %39, null
   br i1 %.not89, label %40, label %.loopexit
 
 40:                                               ; preds = %37
-  %41 = sub i64 %.1107, %.1.94
-  %42 = add i64 %.073106, 1
+  %41 = sub i64 %.173106, %.173.94
+  %42 = add i64 %.071107, 1
   %.not87 = icmp ugt i64 %42, %23
   br i1 %.not87, label %.loopexit101, label %.lr.ph
 
 .loopexit101:                                     ; preds = %40, %19, %29
-  %.071 = phi i64 [ %30, %29 ], [ %23, %19 ], [ %23, %40 ]
-  %.not90108 = icmp ugt i64 %21, %.071
+  %.070 = phi i64 [ %30, %29 ], [ %23, %19 ], [ %23, %40 ]
+  %.not90108 = icmp ugt i64 %21, %.070
   br i1 %.not90108, label %.loopexit, label %.lr.ph110
 
 .lr.ph110:                                        ; preds = %.loopexit101
@@ -663,9 +663,9 @@ define internal ptr @handle_need_offstr(ptr nocapture noundef %0, i64 noundef %1
   br label %44
 
 44:                                               ; preds = %.lr.ph110, %fmap_unneed_page.exit
-  %.174109 = phi i64 [ %21, %.lr.ph110 ], [ %59, %fmap_unneed_page.exit ]
+  %.1109 = phi i64 [ %21, %.lr.ph110 ], [ %59, %fmap_unneed_page.exit ]
   %.val96 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i64, ptr %.val96, i64 %.174109
+  %45 = getelementptr inbounds i64, ptr %.val96, i64 %.1109
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %46, 3221225472
   %48 = icmp eq i64 %47, 3221225472
@@ -698,13 +698,13 @@ define internal ptr @handle_need_offstr(ptr nocapture noundef %0, i64 noundef %1
   br label %fmap_unneed_page.exit
 
 fmap_unneed_page.exit:                            ; preds = %52, %56, %57, %58
-  %59 = add i64 %.174109, 1
-  %.not90 = icmp ugt i64 %59, %.071
+  %59 = add i64 %.1109, 1
+  %.not90 = icmp ugt i64 %59, %.070
   br i1 %.not90, label %.loopexit, label %44
 
 .loopexit:                                        ; preds = %37, %fmap_unneed_page.exit, %.loopexit101, %._crit_edge, %14
-  %.070 = phi ptr [ null, %14 ], [ null, %._crit_edge ], [ null, %.loopexit101 ], [ null, %fmap_unneed_page.exit ], [ %8, %37 ]
-  ret ptr %.070
+  %.074 = phi ptr [ null, %14 ], [ null, %._crit_edge ], [ null, %.loopexit101 ], [ null, %fmap_unneed_page.exit ], [ %8, %37 ]
+  ret ptr %.074
 }
 
 ; Function Attrs: nounwind uwtable
@@ -747,17 +747,17 @@ define internal noundef ptr @handle_gets(ptr nocapture noundef %0, ptr noundef w
 
 .lr.ph:                                           ; preds = %20, %48
   %28 = phi i64 [ %45, %48 ], [ %.val, %20 ]
-  %.080105 = phi i64 [ %50, %48 ], [ %25, %20 ]
-  %.081104 = phi i64 [ %49, %48 ], [ %., %20 ]
+  %.079105 = phi i64 [ %49, %48 ], [ %., %20 ]
+  %.081104 = phi i64 [ %50, %48 ], [ %25, %20 ]
   %29 = load ptr, ptr %5, align 8
-  %30 = mul i64 %28, %.080105
+  %30 = mul i64 %28, %.081104
   %31 = getelementptr inbounds i8, ptr %29, i64 %30
-  %32 = tail call fastcc i32 @fmap_readpage(ptr noundef nonnull %0, i64 noundef %.080105, i64 noundef 1, i64 noundef 0)
+  %32 = tail call fastcc i32 @fmap_readpage(ptr noundef nonnull %0, i64 noundef %.081104, i64 noundef 1, i64 noundef 0)
   %.not95 = icmp eq i32 %32, 0
   br i1 %.not95, label %33, label %.loopexit
 
 33:                                               ; preds = %.lr.ph
-  %34 = icmp eq i64 %.080105, %25
+  %34 = icmp eq i64 %.081104, %25
   br i1 %34, label %35, label %42
 
 35:                                               ; preds = %33
@@ -777,15 +777,15 @@ define internal noundef ptr @handle_gets(ptr nocapture noundef %0, ptr noundef w
   %.sink = phi i64 [ %43, %42 ], [ %41, %35 ]
   %45 = phi i64 [ %43, %42 ], [ %39, %35 ]
   %.078 = phi i64 [ 0, %42 ], [ %40, %35 ]
-  %.081.99 = tail call i64 @llvm.umin.i64(i64 %.081104, i64 %.sink)
+  %.079.99 = tail call i64 @llvm.umin.i64(i64 %.079105, i64 %.sink)
   %46 = getelementptr inbounds i8, ptr %31, i64 %.078
-  %47 = tail call ptr @memchr(ptr noundef %46, i32 noundef 10, i64 noundef %.081.99) #21
+  %47 = tail call ptr @memchr(ptr noundef %46, i32 noundef 10, i64 noundef %.079.99) #21
   %.not96 = icmp eq ptr %47, null
   br i1 %.not96, label %48, label %51
 
 48:                                               ; preds = %44
-  %49 = sub i64 %.081104, %.081.99
-  %50 = add i64 %.080105, 1
+  %49 = sub i64 %.079105, %.079.99
+  %50 = add i64 %.081104, 1
   %.not94 = icmp ugt i64 %50, %27
   br i1 %.not94, label %._crit_edge, label %.lr.ph
 
@@ -807,8 +807,8 @@ define internal noundef ptr @handle_gets(ptr nocapture noundef %0, ptr noundef w
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %17, %._crit_edge
-  %.079 = phi ptr [ %1, %._crit_edge ], [ null, %17 ], [ null, %4 ], [ null, %.lr.ph ]
-  ret ptr %.079
+  %.082 = phi ptr [ %1, %._crit_edge ], [ null, %17 ], [ null, %4 ], [ null, %.lr.ph ]
+  ret ptr %.082
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1038,11 +1038,11 @@ define internal ptr @mem_need_offstr(ptr nocapture noundef readonly %0, i64 noun
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %.pre48 = sub i64 %.pre, %5
   %spec.select = tail call i64 @llvm.umin.i64(i64 %.pre48, i64 %2)
-  %.030 = select i1 %.not, i64 %.pre48, i64 %spec.select
+  %.0 = select i1 %.not, i64 %.pre48, i64 %spec.select
   %9 = getelementptr inbounds i8, ptr %0, i64 88
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, 0
-  %12 = add i64 %.030, -1
+  %12 = add i64 %.0, -1
   %13 = icmp uge i64 %12, %10
   %or.cond41 = select i1 %11, i1 true, i1 %13
   %.not38 = icmp ult i64 %5, %4
@@ -1050,7 +1050,7 @@ define internal ptr @mem_need_offstr(ptr nocapture noundef readonly %0, i64 noun
   br i1 %or.cond44, label %21, label %14
 
 14:                                               ; preds = %._crit_edge
-  %15 = add i64 %.030, %5
+  %15 = add i64 %.0, %5
   %16 = add i64 %10, %4
   %.not39 = icmp ule i64 %15, %16
   %17 = icmp ugt i64 %15, %4
@@ -1060,14 +1060,14 @@ define internal ptr @mem_need_offstr(ptr nocapture noundef readonly %0, i64 noun
   br i1 %or.cond43, label %19, label %21
 
 19:                                               ; preds = %14
-  %20 = tail call ptr @memchr(ptr noundef %8, i32 noundef 0, i64 noundef %.030) #21
+  %20 = tail call ptr @memchr(ptr noundef %8, i32 noundef 0, i64 noundef %.0) #21
   %.not40 = icmp eq ptr %20, null
   %. = select i1 %.not40, ptr null, ptr %8
   br label %21
 
 21:                                               ; preds = %19, %._crit_edge, %14
-  %.0 = phi ptr [ null, %14 ], [ null, %._crit_edge ], [ %., %19 ]
-  ret ptr %.0
+  %.030 = phi ptr [ null, %14 ], [ null, %._crit_edge ], [ %., %19 ]
+  ret ptr %.030
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -1244,27 +1244,27 @@ define i32 @fmap_dump_to_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %38
 
 38:                                               ; preds = %21, %36, %33, %16
-  %.050 = phi ptr [ null, %21 ], [ %29, %33 ], [ %37, %36 ], [ null, %16 ]
+  %.049 = phi ptr [ null, %21 ], [ %29, %33 ], [ %37, %36 ], [ null, %16 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15) #18
-  %39 = call i32 @cli_gentempfd_with_prefix(ptr noundef %2, ptr noundef %.050, ptr noundef nonnull %9, ptr noundef nonnull %10) #18
+  %39 = call i32 @cli_gentempfd_with_prefix(ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %9, ptr noundef nonnull %10) #18
   %.not64 = icmp eq i32 %39, 0
   br i1 %.not64, label %42, label %40
 
 40:                                               ; preds = %38
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16) #18
-  %.not68 = icmp eq ptr %.050, null
+  %.not68 = icmp eq ptr %.049, null
   br i1 %.not68, label %77, label %41
 
 41:                                               ; preds = %40
-  call void @free(ptr noundef nonnull %.050) #18
+  call void @free(ptr noundef nonnull %.049) #18
   br label %77
 
 42:                                               ; preds = %38
-  %.not65 = icmp eq ptr %.050, null
+  %.not65 = icmp eq ptr %.049, null
   br i1 %.not65, label %44, label %43
 
 43:                                               ; preds = %42
-  call void @free(ptr noundef nonnull %.050) #18
+  call void @free(ptr noundef nonnull %.049) #18
   br label %44
 
 44:                                               ; preds = %43, %42
@@ -1273,21 +1273,21 @@ define i32 @fmap_dump_to_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %47
 
 47:                                               ; preds = %66, %44
-  %.049 = phi i64 [ %5, %44 ], [ %54, %66 ]
-  %.048 = phi i64 [ %17, %44 ], [ %67, %66 ]
+  %.048 = phi i64 [ %5, %44 ], [ %54, %66 ]
+  %.0 = phi i64 [ %17, %44 ], [ %67, %66 ]
   %48 = load i64, ptr %45, align 8
-  %.not.i = icmp ugt i64 %48, %.049
+  %.not.i = icmp ugt i64 %48, %.048
   br i1 %.not.i, label %fmap_need_off_once_len.exit, label %.thread
 
 fmap_need_off_once_len.exit:                      ; preds = %47
-  %49 = sub i64 %48, %.049
-  %50 = call i64 @llvm.umin.i64(i64 %.048, i64 %49)
+  %49 = sub i64 %48, %.048
+  %50 = call i64 @llvm.umin.i64(i64 %.0, i64 %49)
   %spec.select.i = call i64 @llvm.umin.i64(i64 %50, i64 8192)
   %51 = load ptr, ptr %46, align 8
-  %52 = call ptr %51(ptr noundef nonnull %0, i64 noundef %.049, i64 noundef %spec.select.i, i32 noundef 0) #18
+  %52 = call ptr %51(ptr noundef nonnull %0, i64 noundef %.048, i64 noundef %spec.select.i, i32 noundef 0) #18
   %.not20.i = icmp eq ptr %52, null
   %53 = select i1 %.not20.i, i64 0, i64 %spec.select.i
-  %54 = add i64 %53, %.049
+  %54 = add i64 %53, %.048
   %55 = icmp ne i64 %53, 0
   br i1 %55, label %56, label %.thread
 
@@ -1309,8 +1309,8 @@ fmap_need_off_once_len.exit:                      ; preds = %47
   br label %77
 
 66:                                               ; preds = %56
-  %67 = sub i64 %.048, %spec.select.i
-  %68 = icmp ugt i64 %.048, %spec.select.i
+  %67 = sub i64 %.0, %spec.select.i
+  %68 = icmp ugt i64 %.0, %spec.select.i
   %69 = and i1 %55, %68
   br i1 %69, label %47, label %.thread
 
@@ -1332,8 +1332,8 @@ fmap_need_off_once_len.exit:                      ; preds = %47
   br label %77
 
 77:                                               ; preds = %40, %41, %74, %59, %31, %15
-  %.0 = phi i32 [ 3, %15 ], [ 14, %59 ], [ 0, %74 ], [ 20, %31 ], [ %39, %41 ], [ %39, %40 ]
-  ret i32 %.0
+  %.050 = phi i32 [ 3, %15 ], [ 14, %59 ], [ 0, %74 ], [ 20, %31 ], [ %39, %41 ], [ %39, %40 ]
+  ret i32 %.050
 }
 
 declare i32 @cli_basename(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
@@ -1494,15 +1494,15 @@ define range(i32 0, 35) i32 @fmap_get_hash(ptr noundef %0, ptr nocapture noundef
   br label %.thread56
 
 23:                                               ; preds = %.preheader, %29
-  %.045 = phi i64 [ %31, %29 ], [ 0, %.preheader ]
-  %.043 = phi i64 [ %30, %29 ], [ %5, %.preheader ]
-  %.not47 = icmp eq i64 %.043, 0
+  %.045 = phi i64 [ %30, %29 ], [ %5, %.preheader ]
+  %.044 = phi i64 [ %31, %29 ], [ 0, %.preheader ]
+  %.not47 = icmp eq i64 %.045, 0
   br i1 %.not47, label %34, label %24
 
 24:                                               ; preds = %23
-  %25 = tail call i64 @llvm.umin.i64(i64 %.043, i64 10485760)
+  %25 = tail call i64 @llvm.umin.i64(i64 %.045, i64 10485760)
   %26 = load ptr, ptr %21, align 8
-  %27 = tail call ptr %26(ptr noundef nonnull %0, i64 noundef %.045, i64 noundef %25, i32 noundef 0) #18
+  %27 = tail call ptr %26(ptr noundef nonnull %0, i64 noundef %.044, i64 noundef %25, i32 noundef 0) #18
   %.not48 = icmp eq ptr %27, null
   br i1 %.not48, label %28, label %29
 
@@ -1511,8 +1511,8 @@ define range(i32 0, 35) i32 @fmap_get_hash(ptr noundef %0, ptr nocapture noundef
   br label %54
 
 29:                                               ; preds = %24
-  %30 = sub i64 %.043, %25
-  %31 = add i64 %25, %.045
+  %30 = sub i64 %.045, %25
+  %31 = add i64 %.044, %25
   %32 = tail call i32 @cl_update_hash(ptr noundef nonnull %20, ptr noundef nonnull %27, i64 noundef %25) #18
   %.not49 = icmp eq i32 %32, 0
   br i1 %.not49, label %23, label %33
@@ -1628,10 +1628,10 @@ define internal fastcc void @fmap_aging(ptr nocapture noundef %0) unnamed_addr #
   br label %21
 
 21:                                               ; preds = %.lr.ph, %57
-  %.089 = phi i64 [ 0, %.lr.ph ], [ %58, %57 ]
-  %.07488 = phi i64 [ 0, %.lr.ph ], [ %.175, %57 ]
+  %.07489 = phi i64 [ 0, %.lr.ph ], [ %.175, %57 ]
+  %.07688 = phi i64 [ 0, %.lr.ph ], [ %58, %57 ]
   %22 = load ptr, ptr %19, align 8
-  %23 = getelementptr inbounds i64, ptr %22, i64 %.089
+  %23 = getelementptr inbounds i64, ptr %22, i64 %.07688
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 3221225472
   %26 = icmp eq i64 %25, 1073741824
@@ -1648,20 +1648,20 @@ define internal fastcc void @fmap_aging(ptr nocapture noundef %0) unnamed_addr #
   br label %31
 
 31:                                               ; preds = %29, %27
-  %.not84 = icmp eq i64 %.07488, 0
+  %.not84 = icmp eq i64 %.07489, 0
   br i1 %.not84, label %32, label %33
 
 32:                                               ; preds = %31
-  store i64 %.089, ptr %2, align 16
+  store i64 %.07688, ptr %2, align 16
   br label %57
 
 33:                                               ; preds = %31
-  %34 = tail call i64 @llvm.umin.i64(i64 %16, i64 %.07488)
+  %34 = tail call i64 @llvm.umin.i64(i64 %16, i64 %.07489)
   %35 = load ptr, ptr %19, align 8
-  %36 = getelementptr inbounds i64, ptr %35, i64 %.089
+  %36 = getelementptr inbounds i64, ptr %35, i64 %.07688
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %37, 1073741823
-  %.not85 = icmp ule i64 %.07488, %16
+  %.not85 = icmp ule i64 %.07489, %16
   br i1 %.not85, label %.preheader98, label %39
 
 39:                                               ; preds = %33
@@ -1676,9 +1676,9 @@ define internal fastcc void @fmap_aging(ptr nocapture noundef %0) unnamed_addr #
   br label %45
 
 45:                                               ; preds = %.preheader98, %52
-  %.076.in = phi i64 [ %.076, %52 ], [ %34, %.preheader98 ]
-  %.076 = add i64 %.076.in, -1
-  %46 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %.076
+  %.072.in = phi i64 [ %.072, %52 ], [ %34, %.preheader98 ]
+  %.072 = add i64 %.072.in, -1
+  %46 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %.072
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr inbounds i64, ptr %35, i64 %47
   %49 = load i64, ptr %48, align 8
@@ -1687,22 +1687,22 @@ define internal fastcc void @fmap_aging(ptr nocapture noundef %0) unnamed_addr #
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %.076.in
+  %53 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %.072.in
   store i64 %47, ptr %53, align 8
-  %.not86 = icmp eq i64 %.076, 0
+  %.not86 = icmp eq i64 %.072, 0
   br i1 %.not86, label %54, label %45
 
 54:                                               ; preds = %52, %45
-  %.177 = phi i64 [ 0, %52 ], [ %.076.in, %45 ]
-  %55 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %.177
-  store i64 %.089, ptr %55, align 8
+  %.173 = phi i64 [ 0, %52 ], [ %.072.in, %45 ]
+  %55 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %.173
+  store i64 %.07688, ptr %55, align 8
   %56 = zext i1 %.not85 to i64
-  %spec.select87 = add i64 %.07488, %56
+  %spec.select87 = add i64 %.07489, %56
   br label %57
 
 57:                                               ; preds = %54, %21, %39, %32
-  %.175 = phi i64 [ %.07488, %39 ], [ 1, %32 ], [ %.07488, %21 ], [ %spec.select87, %54 ]
-  %58 = add nuw i64 %.089, 1
+  %.175 = phi i64 [ %.07489, %39 ], [ 1, %32 ], [ %.07489, %21 ], [ %spec.select87, %54 ]
+  %58 = add nuw i64 %.07688, 1
   %59 = load i64, ptr %17, align 8
   %60 = icmp ult i64 %58, %59
   br i1 %60, label %21, label %._crit_edge
@@ -1719,31 +1719,31 @@ define internal fastcc void @fmap_aging(ptr nocapture noundef %0) unnamed_addr #
 
 63:                                               ; preds = %.preheader, %83
   %64 = phi i64 [ %.pre, %.preheader ], [ %84, %83 ]
-  %.192 = phi i64 [ 0, %.preheader ], [ %86, %83 ]
-  %.07091 = phi ptr [ null, %.preheader ], [ %.171, %83 ]
-  %.07290 = phi ptr [ null, %.preheader ], [ %85, %83 ]
+  %.092 = phi ptr [ null, %.preheader ], [ %.1, %83 ]
+  %.07091 = phi ptr [ null, %.preheader ], [ %85, %83 ]
+  %.17790 = phi i64 [ 0, %.preheader ], [ %86, %83 ]
   %65 = load ptr, ptr %61, align 8
-  %66 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %.192
+  %66 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %.17790
   %67 = load i64, ptr %66, align 8
   %68 = mul i64 %64, %67
   %69 = getelementptr inbounds i8, ptr %65, i64 %68
   %70 = load ptr, ptr %62, align 8
   %71 = getelementptr inbounds i64, ptr %70, i64 %67
   store i64 2147483648, ptr %71, align 8
-  %.not82 = icmp ne ptr %.07290, null
-  %72 = icmp eq ptr %69, %.07290
+  %.not82 = icmp ne ptr %.07091, null
+  %72 = icmp eq ptr %69, %.07091
   %or.cond = select i1 %.not82, i1 %72, i1 false
   %.not82.not = xor i1 %.not82, true
   %brmerge = select i1 %.not82.not, i1 true, i1 %72
-  %.07091.mux = select i1 %or.cond, ptr %.07091, ptr %69
+  %.092.mux = select i1 %or.cond, ptr %.092, ptr %69
   br i1 %brmerge, label %83, label %73
 
 73:                                               ; preds = %63
   %74 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @fmap_mutex) #18
-  %75 = ptrtoint ptr %.07290 to i64
-  %76 = ptrtoint ptr %.07091 to i64
+  %75 = ptrtoint ptr %.07091 to i64
+  %76 = ptrtoint ptr %.092 to i64
   %77 = sub i64 %75, %76
-  %78 = tail call ptr @mmap(ptr noundef %.07091, i64 noundef %77, i32 noundef 3, i32 noundef 50, i32 noundef -1, i64 noundef 0) #18
+  %78 = tail call ptr @mmap(ptr noundef %.092, i64 noundef %77, i32 noundef 3, i32 noundef 50, i32 noundef -1, i64 noundef 0) #18
   %79 = icmp eq ptr %78, inttoptr (i64 -1 to ptr)
   br i1 %79, label %80, label %81
 
@@ -1756,10 +1756,10 @@ define internal fastcc void @fmap_aging(ptr nocapture noundef %0) unnamed_addr #
   br label %83
 
 83:                                               ; preds = %63, %81
-  %.171 = phi ptr [ %69, %81 ], [ %.07091.mux, %63 ]
+  %.1 = phi ptr [ %69, %81 ], [ %.092.mux, %63 ]
   %84 = load i64, ptr %9, align 8
   %85 = getelementptr inbounds i8, ptr %69, i64 %84
-  %86 = add nuw i64 %.192, 1
+  %86 = add nuw i64 %.17790, 1
   %exitcond.not = icmp eq i64 %86, %.175
   br i1 %exitcond.not, label %87, label %63
 
@@ -1770,9 +1770,9 @@ define internal fastcc void @fmap_aging(ptr nocapture noundef %0) unnamed_addr #
 88:                                               ; preds = %87
   %89 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @fmap_mutex) #18
   %90 = ptrtoint ptr %85 to i64
-  %91 = ptrtoint ptr %.171 to i64
+  %91 = ptrtoint ptr %.1 to i64
   %92 = sub i64 %90, %91
-  %93 = tail call ptr @mmap(ptr noundef %.171, i64 noundef %92, i32 noundef 3, i32 noundef 50, i32 noundef -1, i64 noundef 0) #18
+  %93 = tail call ptr @mmap(ptr noundef %.1, i64 noundef %92, i32 noundef 3, i32 noundef 50, i32 noundef -1, i64 noundef 0) #18
   %94 = icmp eq ptr %93, inttoptr (i64 -1 to ptr)
   br i1 %94, label %95, label %96
 
@@ -1825,14 +1825,14 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr nocapture noundef 
   br label %22
 
 22:                                               ; preds = %.lr.ph, %22
-  %.097135 = phi i64 [ 0, %.lr.ph ], [ %27, %22 ]
-  %23 = add i64 %.097135, %1
+  %.091135 = phi i64 [ 0, %.lr.ph ], [ %27, %22 ]
+  %23 = add i64 %.091135, %1
   %24 = mul i64 %21, %23
   %25 = getelementptr inbounds i8, ptr %20, i64 %24
   %26 = load i8, ptr %25, align 1
   store volatile i8 %26, ptr %6, align 1
   %.0..0..0..0. = load volatile i8, ptr %6, align 1
-  %27 = add nuw i64 %.097135, 1
+  %27 = add nuw i64 %.091135, 1
   %exitcond.not = icmp eq i64 %27, %2
   br i1 %exitcond.not, label %._crit_edge, label %22
 
@@ -1849,24 +1849,24 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr nocapture noundef 
   br label %37
 
 37:                                               ; preds = %._crit_edge, %.loopexit
-  %.088149 = phi i64 [ %1, %._crit_edge ], [ %.2, %.loopexit ]
-  %.089148 = phi i64 [ %3, %._crit_edge ], [ %.190, %.loopexit ]
-  %.096146 = phi i64 [ %1, %._crit_edge ], [ %119, %.loopexit ]
-  %.198145 = phi i64 [ 0, %._crit_edge ], [ %118, %.loopexit ]
-  %.099144 = phi ptr [ null, %._crit_edge ], [ %.3, %.loopexit ]
-  %.0103143 = phi i64 [ 0, %._crit_edge ], [ %.3106, %.loopexit ]
-  %.not111 = icmp eq i64 %.089148, 0
-  %.190 = tail call i64 @llvm.usub.sat.i64(i64 %.089148, i64 1)
-  %38 = icmp eq i64 %.198145, %2
+  %.090149 = phi i64 [ %1, %._crit_edge ], [ %119, %.loopexit ]
+  %.192148 = phi i64 [ 0, %._crit_edge ], [ %118, %.loopexit ]
+  %.093147 = phi ptr [ null, %._crit_edge ], [ %.3, %.loopexit ]
+  %.097146 = phi i64 [ 0, %._crit_edge ], [ %.3100, %.loopexit ]
+  %.0101145 = phi i64 [ %3, %._crit_edge ], [ %.1102, %.loopexit ]
+  %.0104143 = phi i64 [ %1, %._crit_edge ], [ %.2106, %.loopexit ]
+  %.not111 = icmp eq i64 %.0101145, 0
+  %.1102 = tail call i64 @llvm.usub.sat.i64(i64 %.0101145, i64 1)
+  %38 = icmp eq i64 %.192148, %2
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %37
-  %.not117 = icmp eq ptr %.099144, null
+  %.not117 = icmp eq ptr %.093147, null
   br i1 %.not117, label %.loopexit129, label %56
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr %29, align 8
-  %42 = getelementptr inbounds i64, ptr %41, i64 %.096146
+  %42 = getelementptr inbounds i64, ptr %41, i64 %.090149
   %43 = load i64, ptr %42, align 8
   %44 = and i64 %43, 1073741824
   %.not112 = icmp eq i64 %44, 0
@@ -1902,7 +1902,7 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr nocapture noundef 
   br label %55
 
 55:                                               ; preds = %.sink.split, %54
-  %.not116 = icmp eq ptr %.099144, null
+  %.not116 = icmp eq ptr %.093147, null
   br i1 %.not116, label %.loopexit, label %56
 
 56:                                               ; preds = %39, %55
@@ -1914,7 +1914,7 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr nocapture noundef 
   %60 = load ptr, ptr %0, align 8
   %61 = ptrtoint ptr %60 to i64
   %62 = trunc i64 %61 to i32
-  %63 = icmp ult i64 %.088149, %.096146
+  %63 = icmp ult i64 %.0104143, %.090149
   br i1 %63, label %.lr.ph138, label %.loopexit128
 
 .lr.ph138:                                        ; preds = %59
@@ -1922,13 +1922,13 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr nocapture noundef 
   br label %68
 
 65:                                               ; preds = %68
-  %66 = add nuw i64 %.091136, 1
-  %67 = icmp ult i64 %66, %.096146
+  %66 = add nuw i64 %.0136, 1
+  %67 = icmp ult i64 %66, %.090149
   br i1 %67, label %68, label %.loopexit128
 
 68:                                               ; preds = %.lr.ph138, %65
-  %.091136 = phi i64 [ %.088149, %.lr.ph138 ], [ %66, %65 ]
-  %69 = getelementptr inbounds i64, ptr %64, i64 %.091136
+  %.0136 = phi i64 [ %.0104143, %.lr.ph138 ], [ %66, %65 ]
+  %69 = getelementptr inbounds i64, ptr %64, i64 %.0136
   %70 = load i64, ptr %69, align 8
   %71 = and i64 %70, 2147483648
   %.not122 = icmp eq i64 %71, 0
@@ -1957,24 +1957,24 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr nocapture noundef 
   br label %.loopexit129
 
 .loopexit128:                                     ; preds = %65, %59, %78, %56
-  %.not125139 = icmp eq i64 %.0103143, 0
+  %.not125139 = icmp eq i64 %.097146, 0
   br i1 %.not125139, label %.loopexit, label %.outer.split
 
 .outer.split:                                     ; preds = %.loopexit128, %.outer
-  %.1100.ph142 = phi ptr [ %97, %.outer ], [ %.099144, %.loopexit128 ]
-  %.0102.ph141 = phi i64 [ %98, %.outer ], [ 0, %.loopexit128 ]
-  %.1104.ph140 = phi i64 [ %99, %.outer ], [ %.0103143, %.loopexit128 ]
+  %.194.ph142 = phi ptr [ %97, %.outer ], [ %.093147, %.loopexit128 ]
+  %.096.ph141 = phi i64 [ %98, %.outer ], [ 0, %.loopexit128 ]
+  %.198.ph140 = phi i64 [ %99, %.outer ], [ %.097146, %.loopexit128 ]
   br label %82
 
 82:                                               ; preds = %.outer.split, %92
   %83 = load i64, ptr %35, align 8
-  %84 = add i64 %83, %.0102.ph141
+  %84 = add i64 %83, %.096.ph141
   %85 = load i64, ptr %12, align 8
-  %86 = mul i64 %85, %.088149
+  %86 = mul i64 %85, %.0104143
   %87 = add i64 %84, %86
   %88 = load ptr, ptr %36, align 8
   %89 = load ptr, ptr %0, align 8
-  %90 = tail call i64 %88(ptr noundef %89, ptr noundef %.1100.ph142, i64 noundef %.1104.ph140, i64 noundef %87) #18
+  %90 = tail call i64 %88(ptr noundef %89, ptr noundef %.194.ph142, i64 noundef %.198.ph140, i64 noundef %87) #18
   %91 = icmp slt i64 %90, 0
   br i1 %91, label %92, label %96
 
@@ -1989,9 +1989,9 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr nocapture noundef 
   br i1 %.not127, label %102, label %.outer
 
 .outer:                                           ; preds = %96
-  %97 = getelementptr inbounds i8, ptr %.1100.ph142, i64 %90
-  %98 = add i64 %90, %.0102.ph141
-  %99 = sub i64 %.1104.ph140, %90
+  %97 = getelementptr inbounds i8, ptr %.194.ph142, i64 %90
+  %98 = add i64 %90, %.096.ph141
+  %99 = sub i64 %.198.ph140, %90
   %.not125 = icmp eq i64 %99, 0
   br i1 %.not125, label %.loopexit, label %.outer.split
 
@@ -2001,26 +2001,26 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr nocapture noundef 
   br label %.loopexit129
 
 102:                                              ; preds = %96
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.37, i64 noundef %.1104.ph140, i64 noundef %87, i64 noundef 0) #18
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.37, i64 noundef %.198.ph140, i64 noundef %87, i64 noundef 0) #18
   br label %.loopexit129
 
 .critedge:                                        ; preds = %40
-  %.not119 = icmp eq ptr %.099144, null
+  %.not119 = icmp eq ptr %.093147, null
   %.pre.pre = load i64, ptr %12, align 8
   br i1 %.not119, label %103, label %107
 
 103:                                              ; preds = %.critedge
   %104 = load ptr, ptr %30, align 8
-  %105 = mul i64 %.pre.pre, %.096146
+  %105 = mul i64 %.pre.pre, %.090149
   %106 = getelementptr inbounds i8, ptr %104, i64 %105
   br label %107
 
 107:                                              ; preds = %103, %.critedge
-  %.2101 = phi ptr [ %.099144, %.critedge ], [ %106, %103 ]
-  %.1 = phi i64 [ %.088149, %.critedge ], [ %.096146, %103 ]
+  %.1105 = phi i64 [ %.0104143, %.critedge ], [ %.090149, %103 ]
+  %.295 = phi ptr [ %.093147, %.critedge ], [ %106, %103 ]
   %108 = load i64, ptr %10, align 8
   %109 = add i64 %108, -1
-  %110 = icmp eq i64 %.096146, %109
+  %110 = icmp eq i64 %.090149, %109
   br i1 %110, label %111, label %114
 
 111:                                              ; preds = %107
@@ -2034,7 +2034,7 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr nocapture noundef 
 
 115:                                              ; preds = %111, %114
   %.pn = phi i64 [ %.pre.pre, %114 ], [ %113, %111 ]
-  %.2105 = add i64 %.pn, %.0103143
+  %.299 = add i64 %.pn, %.097146
   %. = select i1 %.not111, i64 2147483647, i64 3221225473
   store i64 %., ptr %42, align 8
   %116 = load i64, ptr %31, align 8
@@ -2043,17 +2043,17 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr nocapture noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.outer, %.loopexit128, %55, %115
-  %.3106 = phi i64 [ %.2105, %115 ], [ %.0103143, %55 ], [ 0, %.loopexit128 ], [ 0, %.outer ]
-  %.3 = phi ptr [ %.2101, %115 ], [ null, %55 ], [ null, %.loopexit128 ], [ null, %.outer ]
-  %.2 = phi i64 [ %.1, %115 ], [ %.088149, %55 ], [ %.088149, %.loopexit128 ], [ %.088149, %.outer ]
-  %118 = add i64 %.198145, 1
-  %119 = add i64 %.096146, 1
+  %.2106 = phi i64 [ %.1105, %115 ], [ %.0104143, %55 ], [ %.0104143, %.loopexit128 ], [ %.0104143, %.outer ]
+  %.3100 = phi i64 [ %.299, %115 ], [ %.097146, %55 ], [ 0, %.loopexit128 ], [ 0, %.outer ]
+  %.3 = phi ptr [ %.295, %115 ], [ null, %55 ], [ null, %.loopexit128 ], [ null, %.outer ]
+  %118 = add i64 %.192148, 1
+  %119 = add i64 %.090149, 1
   %.not = icmp ugt i64 %118, %2
   br i1 %.not, label %.loopexit129, label %37
 
 .loopexit129:                                     ; preds = %.loopexit, %39, %100, %102, %81, %74, %51, %16
-  %.0 = phi i32 [ 1, %16 ], [ 1, %74 ], [ 1, %81 ], [ 1, %51 ], [ 1, %102 ], [ 1, %100 ], [ 0, %39 ], [ 0, %.loopexit ]
-  ret i32 %.0
+  %.0103 = phi i32 [ 1, %16 ], [ 1, %74 ], [ 1, %81 ], [ 1, %51 ], [ 1, %102 ], [ 1, %100 ], [ 0, %39 ], [ 0, %.loopexit ]
+  ret i32 %.0103
 }
 
 declare ptr @cli_strerror(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2

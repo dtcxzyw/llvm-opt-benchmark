@@ -896,16 +896,16 @@ define internal void @"_ZN4stdx7process16streaming_output28_$u7b$$u7b$closure$u7
 27:                                               ; preds = %25, %22
   %28 = phi ptr [ %.pre, %22 ], [ %11, %25 ]
   %29 = phi i64 [ %24, %22 ], [ %13, %25 ]
-  %.040 = phi i64 [ %24, %22 ], [ %.0.i, %25 ]
-  %.0.in.idx = select i1 %1, i64 0, i64 8
-  %.0.in = getelementptr inbounds i8, ptr %0, i64 %.0.in.idx
-  %.0 = load ptr, ptr %.0.in, align 8, !nonnull !4, !align !5, !noundef !4
-  %30 = getelementptr inbounds i8, ptr %.0, i64 16
+  %.0 = phi i64 [ %24, %22 ], [ %.0.i, %25 ]
+  %.040.in.idx = select i1 %1, i64 0, i64 8
+  %.040.in = getelementptr inbounds i8, ptr %0, i64 %.040.in.idx
+  %.040 = load ptr, ptr %.040.in, align 8, !nonnull !4, !align !5, !noundef !4
+  %30 = getelementptr inbounds i8, ptr %.040, i64 16
   %31 = load i64, ptr %30, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !169)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !166)
   %32 = getelementptr inbounds i8, ptr %2, i64 16
-  %33 = tail call { i64, i64 } @_ZN4core5slice5index5range17h9850282d0416abd9E(i64 noundef %.040, i64 noundef %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f99e8b2dd123bc39b77c3ba7b13125f8.21.llvm.16890623524095722936), !noalias !171
+  %33 = tail call { i64, i64 } @_ZN4core5slice5index5range17h9850282d0416abd9E(i64 noundef %.0, i64 noundef %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f99e8b2dd123bc39b77c3ba7b13125f8.21.llvm.16890623524095722936), !noalias !171
   %34 = extractvalue { i64, i64 } %33, 0
   %35 = extractvalue { i64, i64 } %33, 1
   store i64 %34, ptr %32, align 8, !alias.scope !166, !noalias !169
@@ -921,7 +921,7 @@ define internal void @"_ZN4stdx7process16streaming_output28_$u7b$$u7b$closure$u7
   store ptr %38, ptr %41, align 8, !alias.scope !169, !noalias !166
   %42 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %2, ptr %42, align 8, !alias.scope !169, !noalias !166
-  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h65e64e343550538aE.llvm.16890623524095722936"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %8)
+  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h65e64e343550538aE.llvm.16890623524095722936"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.040, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %8)
   %43 = load i64, ptr %30, align 8, !noundef !4
   %44 = icmp ugt i64 %31, %43
   br i1 %44, label %45, label %.lr.ph
@@ -956,7 +956,7 @@ define internal void @"_ZN4stdx7process16streaming_output28_$u7b$$u7b$closure$u7
           to label %149 unwind label %147
 
 .lr.ph:                                           ; preds = %27
-  %46 = getelementptr inbounds i8, ptr %.0, i64 8
+  %46 = getelementptr inbounds i8, ptr %.040, i64 8
   %47 = load ptr, ptr %46, align 8, !nonnull !4, !noundef !4
   %48 = sub nuw i64 %43, %31
   %49 = getelementptr inbounds i8, ptr %47, i64 %31

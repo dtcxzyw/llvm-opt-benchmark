@@ -229,7 +229,7 @@ define range(i32 0, 3) i32 @Cudd_bddIterConjDecomp(ptr noundef %0, ptr noundef %
 
 29:                                               ; preds = %.lr.ph, %81
   %30 = phi ptr [ %24, %.lr.ph ], [ %86, %81 ]
-  %.06797 = phi i32 [ %22, %.lr.ph ], [ %80, %81 ]
+  %.097 = phi i32 [ %22, %.lr.ph ], [ %80, %81 ]
   %31 = ptrtoint ptr %30 to i64
   %32 = and i64 %31, -2
   %33 = inttoptr i64 %32 to ptr
@@ -310,7 +310,7 @@ define range(i32 0, 3) i32 @Cudd_bddIterConjDecomp(ptr noundef %0, ptr noundef %
   %79 = add i32 %78, 1
   store i32 %79, ptr %77, align 4
   %80 = call i32 @Cudd_SharingSize(ptr noundef nonnull %5, i32 noundef 2) #8
-  %.not = icmp sgt i32 %80, %.06797
+  %.not = icmp sgt i32 %80, %.097
   br i1 %.not, label %88, label %81
 
 81:                                               ; preds = %73
@@ -425,8 +425,8 @@ define range(i32 0, 3) i32 @Cudd_bddIterConjDecomp(ptr noundef %0, ptr noundef %
   br label %131
 
 131:                                              ; preds = %130, %128, %123, %121, %115, %112, %95, %70, %53, %40, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %40 ], [ 0, %53 ], [ 0, %95 ], [ 0, %112 ], [ 2, %115 ], [ 0, %121 ], [ 1, %123 ], [ 0, %128 ], [ 1, %130 ], [ 0, %70 ]
-  ret i32 %.0
+  %.067 = phi i32 [ 0, %._crit_edge ], [ 0, %40 ], [ 0, %53 ], [ 0, %95 ], [ 0, %112 ], [ 2, %115 ], [ 0, %121 ], [ 1, %123 ], [ 0, %128 ], [ 1, %130 ], [ 0, %70 ]
+  ret i32 %.067
 }
 
 declare i32 @Cudd_SharingSize(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -707,12 +707,12 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef %0, ptr noundef %1
   br i1 %.not138177.i, label %cuddConjunctsAux.exit, label %.lr.ph178.i
 
 .preheader154.i:                                  ; preds = %114, %._crit_edge173.i, %77, %74, %71, %66, %62, %._crit_edge.i, %51, %34, %28, %23, %20, %.backedge
-  %.0113.ph.i = phi ptr [ null, %114 ], [ null, %._crit_edge173.i ], [ %72, %77 ], [ %72, %74 ], [ null, %71 ], [ null, %66 ], [ null, %62 ], [ null, %._crit_edge.i ], [ null, %51 ], [ null, %34 ], [ null, %28 ], [ null, %23 ], [ null, %20 ], [ null, %.backedge ]
+  %.0113.ph.i = phi ptr [ %69, %114 ], [ %69, %._crit_edge173.i ], [ %69, %77 ], [ %69, %74 ], [ %69, %71 ], [ null, %66 ], [ null, %62 ], [ null, %._crit_edge.i ], [ null, %51 ], [ null, %34 ], [ null, %28 ], [ null, %23 ], [ null, %20 ], [ null, %.backedge ]
   %.0111.ph.i = phi ptr [ null, %114 ], [ %60, %._crit_edge173.i ], [ %60, %77 ], [ %60, %74 ], [ %60, %71 ], [ %60, %66 ], [ %60, %62 ], [ null, %._crit_edge.i ], [ null, %51 ], [ null, %34 ], [ null, %28 ], [ null, %23 ], [ null, %20 ], [ null, %.backedge ]
-  %.0110.ph.i = phi ptr [ %69, %114 ], [ %69, %._crit_edge173.i ], [ %69, %77 ], [ %69, %74 ], [ %69, %71 ], [ null, %66 ], [ null, %62 ], [ null, %._crit_edge.i ], [ null, %51 ], [ null, %34 ], [ null, %28 ], [ null, %23 ], [ null, %20 ], [ null, %.backedge ]
+  %.0110.ph.i = phi ptr [ null, %114 ], [ null, %._crit_edge173.i ], [ %72, %77 ], [ %72, %74 ], [ null, %71 ], [ null, %66 ], [ null, %62 ], [ null, %._crit_edge.i ], [ null, %51 ], [ null, %34 ], [ null, %28 ], [ null, %23 ], [ null, %20 ], [ null, %.backedge ]
   %.0109.ph.i = phi ptr [ null, %114 ], [ null, %._crit_edge173.i ], [ %18, %77 ], [ %18, %74 ], [ %18, %71 ], [ %18, %66 ], [ %18, %62 ], [ %18, %._crit_edge.i ], [ %18, %51 ], [ %18, %34 ], [ %18, %28 ], [ %18, %23 ], [ %18, %20 ], [ null, %.backedge ]
-  %.not147.i = icmp eq ptr %.0113.ph.i, null
-  %.not148.i = icmp eq ptr %.0110.ph.i, null
+  %.not147.i = icmp eq ptr %.0110.ph.i, null
+  %.not148.i = icmp eq ptr %.0113.ph.i, null
   %.0111.ph.fr.i = freeze ptr %.0111.ph.i
   br label %.outer.i
 
@@ -799,14 +799,14 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef %0, ptr noundef %1
   br i1 %.not147.i, label %138, label %137
 
 137:                                              ; preds = %.loopexit158.split.us.i
-  call void @st__free_table(ptr noundef nonnull %.0113.ph.i) #8
+  call void @st__free_table(ptr noundef nonnull %.0110.ph.i) #8
   br label %138
 
 138:                                              ; preds = %137, %.loopexit158.split.us.i
   br i1 %.not148.i, label %cuddConjunctsAux.exit.thread, label %139
 
 139:                                              ; preds = %138
-  %140 = call ptr @st__init_gen(ptr noundef nonnull %.0110.ph.i) #8
+  %140 = call ptr @st__init_gen(ptr noundef nonnull %.0113.ph.i) #8
   %141 = icmp eq ptr %140, null
   br i1 %141, label %.outer.i, label %.preheader.i
 
@@ -864,7 +864,7 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef %0, ptr noundef %1
 
 ._crit_edge191.i:                                 ; preds = %.lr.ph190.i, %.preheader.i
   call void @st__free_gen(ptr noundef nonnull %140) #8
-  call void @st__free_table(ptr noundef nonnull %.0110.ph.i) #8
+  call void @st__free_table(ptr noundef nonnull %.0113.ph.i) #8
   br label %cuddConjunctsAux.exit.thread
 
 cuddConjunctsAux.exit:                            ; preds = %.lr.ph178.i, %49, %.preheader163.i, %.preheader162.i
@@ -1030,16 +1030,16 @@ define range(i32 0, 3) i32 @Cudd_bddVarConjDecomp(ptr noundef %0, ptr noundef %1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.07897 = phi i32 [ %spec.select93, %.lr.ph ], [ -1, %.lr.ph.preheader ]
-  %.07996 = phi i32 [ %spec.select, %.lr.ph ], [ 1000000000, %.lr.ph.preheader ]
-  %.08195 = phi ptr [ %33, %.lr.ph ], [ %4, %.lr.ph.preheader ]
-  %27 = load i32, ptr %.08195, align 8
+  %.07996 = phi ptr [ %33, %.lr.ph ], [ %4, %.lr.ph.preheader ]
+  %.08095 = phi i32 [ %spec.select, %.lr.ph ], [ 1000000000, %.lr.ph.preheader ]
+  %27 = load i32, ptr %.07996, align 8
   %28 = tail call i32 @Cudd_EstimateCofactor(ptr noundef %0, ptr noundef %1, i32 noundef %27, i32 noundef 1) #8
   %29 = tail call i32 @Cudd_EstimateCofactor(ptr noundef %0, ptr noundef %1, i32 noundef %27, i32 noundef 0) #8
   %30 = tail call i32 @llvm.smax.i32(i32 %28, i32 %29)
-  %31 = icmp slt i32 %30, %.07996
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %30, i32 %.07996)
+  %31 = icmp slt i32 %30, %.08095
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %30, i32 %.08095)
   %spec.select93 = select i1 %31, i32 %27, i32 %.07897
-  %32 = getelementptr inbounds i8, ptr %.08195, i64 16
+  %32 = getelementptr inbounds i8, ptr %.07996, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %34, -2
@@ -1587,15 +1587,15 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
 134:                                              ; preds = %131, %119
   %.0341 = phi double [ 0.000000e+00, %119 ], [ %133, %131 ]
   %135 = fcmp olt double %.0342, %.0341
-  %.0348 = select i1 %135, ptr %101, ptr %104
-  %.0347 = select i1 %135, ptr %104, ptr %101
+  %.0344 = select i1 %135, ptr %104, ptr %101
+  %.0343 = select i1 %135, ptr %101, ptr %104
   %.0340 = zext i1 %135 to i32
   %136 = load ptr, ptr @zero, align 8
-  %.not366 = icmp eq ptr %.0347, %136
+  %.not366 = icmp eq ptr %.0344, %136
   br i1 %.not366, label %167, label %137
 
 137:                                              ; preds = %134
-  %138 = call fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %.0347, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7)
+  %138 = call fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %.0344, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7)
   %139 = icmp eq ptr %138, null
   br i1 %139, label %323, label %140
 
@@ -1625,7 +1625,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   %161 = add i32 %160, 1
   store i32 %161, ptr %159, align 4
   %162 = load ptr, ptr @zero, align 8
-  %163 = icmp eq ptr %.0348, %162
+  %163 = icmp eq ptr %.0343, %162
   br i1 %163, label %164, label %167
 
 164:                                              ; preds = %140
@@ -1637,28 +1637,28 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br label %323
 
 167:                                              ; preds = %140, %134
-  %168 = phi ptr [ %162, %140 ], [ %.0347, %134 ]
-  %.0343 = phi ptr [ %146, %140 ], [ null, %134 ]
+  %168 = phi ptr [ %162, %140 ], [ %.0344, %134 ]
+  %.0345 = phi ptr [ %146, %140 ], [ null, %134 ]
   %.0338 = phi i32 [ %143, %140 ], [ 0, %134 ]
-  %.not368 = icmp eq ptr %.0348, %168
+  %.not368 = icmp eq ptr %.0343, %168
   br i1 %.not368, label %204, label %169
 
 169:                                              ; preds = %167
-  %170 = call fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %.0348, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7)
+  %170 = call fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %.0343, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7)
   %171 = icmp eq ptr %170, null
   br i1 %171, label %172, label %177
 
 172:                                              ; preds = %169
-  %173 = load ptr, ptr %.0343, align 8
+  %173 = load ptr, ptr %.0345, align 8
   call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %173) #8
-  %174 = getelementptr inbounds i8, ptr %.0343, i64 8
+  %174 = getelementptr inbounds i8, ptr %.0345, i64 8
   %175 = load ptr, ptr %174, align 8
   call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %175) #8
   %.not383 = icmp eq i32 %.0338, 0
   br i1 %.not383, label %323, label %176
 
 176:                                              ; preds = %172
-  call void @free(ptr noundef nonnull %.0343) #8
+  call void @free(ptr noundef nonnull %.0345) #8
   br label %323
 
 177:                                              ; preds = %169
@@ -1687,7 +1687,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   %198 = add i32 %197, 1
   store i32 %198, ptr %196, align 4
   %199 = load ptr, ptr @zero, align 8
-  %200 = icmp eq ptr %.0347, %199
+  %200 = icmp eq ptr %.0344, %199
   br i1 %200, label %201, label %204
 
 201:                                              ; preds = %177
@@ -1699,7 +1699,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br label %323
 
 204:                                              ; preds = %177, %167
-  %.0345 = phi ptr [ %183, %177 ], [ null, %167 ]
+  %.0347 = phi ptr [ %183, %177 ], [ null, %167 ]
   %.0337 = phi i32 [ %180, %177 ], [ 0, %167 ]
   br i1 %135, label %205, label %206
 
@@ -1707,8 +1707,8 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br label %206
 
 206:                                              ; preds = %205, %204
-  %.1346 = phi ptr [ %.0343, %205 ], [ %.0345, %204 ]
-  %.1344 = phi ptr [ %.0345, %205 ], [ %.0343, %204 ]
+  %.1348 = phi ptr [ %.0345, %205 ], [ %.0347, %204 ]
+  %.1346 = phi ptr [ %.0347, %205 ], [ %.0345, %204 ]
   %.1339 = phi i32 [ %.0337, %205 ], [ %.0338, %204 ]
   %.1 = phi i32 [ %.0338, %205 ], [ %.0337, %204 ]
   %207 = load i32, ptr %16, align 8
@@ -1717,28 +1717,28 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   %210 = sext i32 %207 to i64
   %211 = getelementptr inbounds ptr, ptr %209, i64 %210
   %212 = load ptr, ptr %211, align 8
-  %213 = load ptr, ptr %.1344, align 8
-  %214 = load ptr, ptr %.1346, align 8
+  %213 = load ptr, ptr %.1346, align 8
+  %214 = load ptr, ptr %.1348, align 8
   %215 = call ptr @cuddBddIteRecur(ptr noundef %0, ptr noundef %212, ptr noundef %213, ptr noundef %214) #8
   %216 = icmp eq ptr %215, null
   br i1 %216, label %217, label %227
 
 217:                                              ; preds = %206
-  %218 = load ptr, ptr %.1344, align 8
+  %218 = load ptr, ptr %.1346, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %218) #8
-  %219 = getelementptr inbounds i8, ptr %.1344, i64 8
+  %219 = getelementptr inbounds i8, ptr %.1346, i64 8
   %220 = load ptr, ptr %219, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %220) #8
-  %221 = load ptr, ptr %.1346, align 8
+  %221 = load ptr, ptr %.1348, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %221) #8
-  %222 = getelementptr inbounds i8, ptr %.1346, i64 8
+  %222 = getelementptr inbounds i8, ptr %.1348, i64 8
   %223 = load ptr, ptr %222, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %223) #8
   %.not381 = icmp eq i32 %.1339, 0
   br i1 %.not381, label %225, label %224
 
 224:                                              ; preds = %217
-  call void @free(ptr noundef nonnull %.1344) #8
+  call void @free(ptr noundef nonnull %.1346) #8
   br label %225
 
 225:                                              ; preds = %224, %217
@@ -1746,7 +1746,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not382, label %323, label %226
 
 226:                                              ; preds = %225
-  call void @free(ptr noundef nonnull %.1346) #8
+  call void @free(ptr noundef nonnull %.1348) #8
   br label %323
 
 227:                                              ; preds = %206
@@ -1757,20 +1757,20 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   %232 = load i32, ptr %231, align 4
   %233 = add i32 %232, 1
   store i32 %233, ptr %231, align 4
-  %234 = getelementptr inbounds i8, ptr %.1344, i64 8
+  %234 = getelementptr inbounds i8, ptr %.1346, i64 8
   %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds i8, ptr %.1346, i64 8
+  %236 = getelementptr inbounds i8, ptr %.1348, i64 8
   %237 = load ptr, ptr %236, align 8
   %238 = call ptr @cuddBddIteRecur(ptr noundef nonnull %0, ptr noundef %212, ptr noundef %235, ptr noundef %237) #8
   %239 = icmp eq ptr %238, null
   br i1 %239, label %240, label %248
 
 240:                                              ; preds = %227
-  %241 = load ptr, ptr %.1344, align 8
+  %241 = load ptr, ptr %.1346, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %241) #8
   %242 = load ptr, ptr %234, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %242) #8
-  %243 = load ptr, ptr %.1346, align 8
+  %243 = load ptr, ptr %.1348, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %243) #8
   %244 = load ptr, ptr %236, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %244) #8
@@ -1779,7 +1779,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not379, label %246, label %245
 
 245:                                              ; preds = %240
-  call void @free(ptr noundef nonnull %.1344) #8
+  call void @free(ptr noundef nonnull %.1346) #8
   br label %246
 
 246:                                              ; preds = %245, %240
@@ -1787,7 +1787,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not380, label %323, label %247
 
 247:                                              ; preds = %246
-  call void @free(ptr noundef nonnull %.1346) #8
+  call void @free(ptr noundef nonnull %.1348) #8
   br label %323
 
 248:                                              ; preds = %227
@@ -1798,7 +1798,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   %253 = load i32, ptr %252, align 4
   %254 = add i32 %253, 1
   store i32 %254, ptr %252, align 4
-  %255 = load ptr, ptr %.1344, align 8
+  %255 = load ptr, ptr %.1346, align 8
   %256 = load ptr, ptr %236, align 8
   %257 = call ptr @cuddBddIteRecur(ptr noundef nonnull %0, ptr noundef %212, ptr noundef %255, ptr noundef %256) #8
   %258 = icmp eq ptr %257, null
@@ -1807,9 +1807,9 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
 259:                                              ; preds = %248
   %260 = load ptr, ptr %234, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %260) #8
-  %261 = load ptr, ptr %.1344, align 8
+  %261 = load ptr, ptr %.1346, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %261) #8
-  %262 = load ptr, ptr %.1346, align 8
+  %262 = load ptr, ptr %.1348, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %262) #8
   %263 = load ptr, ptr %236, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %263) #8
@@ -1819,7 +1819,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not377, label %265, label %264
 
 264:                                              ; preds = %259
-  call void @free(ptr noundef nonnull %.1344) #8
+  call void @free(ptr noundef nonnull %.1346) #8
   br label %265
 
 265:                                              ; preds = %264, %259
@@ -1827,7 +1827,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not378, label %323, label %266
 
 266:                                              ; preds = %265
-  call void @free(ptr noundef nonnull %.1346) #8
+  call void @free(ptr noundef nonnull %.1348) #8
   br label %323
 
 267:                                              ; preds = %248
@@ -1838,23 +1838,23 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   %272 = load i32, ptr %271, align 4
   %273 = add i32 %272, 1
   store i32 %273, ptr %271, align 4
-  %274 = load ptr, ptr %.1344, align 8
+  %274 = load ptr, ptr %.1346, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %274) #8
   %275 = load ptr, ptr %236, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %275) #8
   %276 = load ptr, ptr %234, align 8
-  %277 = load ptr, ptr %.1346, align 8
+  %277 = load ptr, ptr %.1348, align 8
   %278 = call ptr @cuddBddIteRecur(ptr noundef nonnull %0, ptr noundef %212, ptr noundef %276, ptr noundef %277) #8
   %279 = icmp eq ptr %278, null
   %.not375 = icmp eq i32 %.1339, 0
   br i1 %279, label %280, label %288
 
 280:                                              ; preds = %267
-  %281 = load ptr, ptr %.1344, align 8
+  %281 = load ptr, ptr %.1346, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %281) #8
   %282 = load ptr, ptr %234, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %282) #8
-  %283 = load ptr, ptr %.1346, align 8
+  %283 = load ptr, ptr %.1348, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %283) #8
   %284 = load ptr, ptr %236, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %284) #8
@@ -1864,7 +1864,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not375, label %286, label %285
 
 285:                                              ; preds = %280
-  call void @free(ptr noundef nonnull %.1344) #8
+  call void @free(ptr noundef nonnull %.1346) #8
   br label %286
 
 286:                                              ; preds = %285, %280
@@ -1872,7 +1872,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not376, label %323, label %287
 
 287:                                              ; preds = %286
-  call void @free(ptr noundef nonnull %.1346) #8
+  call void @free(ptr noundef nonnull %.1348) #8
   br label %323
 
 288:                                              ; preds = %267
@@ -1885,12 +1885,12 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   store i32 %294, ptr %292, align 4
   %295 = load ptr, ptr %234, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %295) #8
-  %296 = load ptr, ptr %.1346, align 8
+  %296 = load ptr, ptr %.1348, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %296) #8
   br i1 %.not375, label %298, label %297
 
 297:                                              ; preds = %288
-  call void @free(ptr noundef nonnull %.1344) #8
+  call void @free(ptr noundef nonnull %.1346) #8
   br label %298
 
 298:                                              ; preds = %297, %288
@@ -1898,7 +1898,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not372, label %300, label %299
 
 299:                                              ; preds = %298
-  call void @free(ptr noundef nonnull %.1346) #8
+  call void @free(ptr noundef nonnull %.1348) #8
   br label %300
 
 300:                                              ; preds = %299, %298

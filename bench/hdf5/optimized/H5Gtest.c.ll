@@ -931,8 +931,8 @@ define range(i32 -1, 1) i32 @H5G__user_path_test(i64 noundef %0, ptr noundef %1,
   br label %54
 
 40:                                               ; preds = %30, %22, %20
-  %.0 = phi ptr [ %31, %30 ], [ %23, %22 ], [ %21, %20 ]
-  %41 = getelementptr inbounds i8, ptr %.0, i64 8
+  %.026 = phi ptr [ %31, %30 ], [ %23, %22 ], [ %21, %20 ]
+  %41 = getelementptr inbounds i8, ptr %.026, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not30 = icmp eq ptr %42, null
   br i1 %.not30, label %53, label %43
@@ -951,7 +951,7 @@ define range(i32 -1, 1) i32 @H5G__user_path_test(i64 noundef %0, ptr noundef %1,
 
 50:                                               ; preds = %45, %43
   store i64 %44, ptr %2, align 8
-  %51 = getelementptr inbounds i8, ptr %.0, i64 16
+  %51 = getelementptr inbounds i8, ptr %.026, i64 16
   %52 = load i32, ptr %51, align 8
   store i32 %52, ptr %3, align 4
   br label %54
@@ -962,7 +962,7 @@ define range(i32 -1, 1) i32 @H5G__user_path_test(i64 noundef %0, ptr noundef %1,
   br label %54
 
 54:                                               ; preds = %36, %32, %50, %53, %26
-  %.025.ph = phi i32 [ -1, %26 ], [ 0, %53 ], [ 0, %50 ], [ -1, %32 ], [ -1, %36 ]
+  %.0.ph = phi i32 [ -1, %26 ], [ 0, %53 ], [ 0, %50 ], [ -1, %32 ], [ -1, %36 ]
   %55 = tail call i32 @H5CX_pop(i1 noundef zeroext false) #4
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %57, label %61
@@ -974,7 +974,7 @@ define range(i32 -1, 1) i32 @H5G__user_path_test(i64 noundef %0, ptr noundef %1,
   br label %61
 
 61:                                               ; preds = %7, %14, %57, %54
-  %.1 = phi i32 [ -1, %57 ], [ %.025.ph, %54 ], [ -1, %7 ], [ -1, %14 ]
+  %.1 = phi i32 [ -1, %57 ], [ %.0.ph, %54 ], [ -1, %7 ], [ -1, %14 ]
   ret i32 %.1
 }
 

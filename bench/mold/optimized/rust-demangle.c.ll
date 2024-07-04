@@ -3146,8 +3146,8 @@ do.body58:                                        ; preds = %if.else52
   br label %restore
 
 if.end63:                                         ; preds = %eat.exit272, %if.else52
-  %abi.sroa.0.0 = phi ptr [ %abi.sroa.0.0.copyload, %if.else52 ], [ @.str.23, %eat.exit272 ]
   %abi.sroa.8.0 = phi i64 [ %abi.sroa.8.0.copyload, %if.else52 ], [ 1, %eat.exit272 ]
+  %abi.sroa.0.0 = phi ptr [ %abi.sroa.0.0.copyload, %if.else52 ], [ @.str.23, %eat.exit272 ]
   %87 = load i8, ptr %errored, align 8
   %tobool.i274 = trunc i8 %87 to i1
   br i1 %tobool.i274, label %print_str.exit281, label %land.lhs.true.i275
@@ -3168,10 +3168,10 @@ print_str.exit281:                                ; preds = %if.end63, %land.lhs
   br i1 %cmp67646.not, label %for.end82, label %for.body69
 
 for.body69:                                       ; preds = %print_str.exit281, %for.inc80
-  %abi.sroa.8.1649 = phi i64 [ %abi.sroa.8.2, %for.inc80 ], [ %abi.sroa.8.0, %print_str.exit281 ]
+  %i64.0649 = phi i64 [ %inc81, %for.inc80 ], [ 0, %print_str.exit281 ]
   %abi.sroa.0.1648 = phi ptr [ %abi.sroa.0.2, %for.inc80 ], [ %abi.sroa.0.0, %print_str.exit281 ]
-  %i64.0647 = phi i64 [ %inc81, %for.inc80 ], [ 0, %print_str.exit281 ]
-  %arrayidx = getelementptr inbounds i8, ptr %abi.sroa.0.1648, i64 %i64.0647
+  %abi.sroa.8.1647 = phi i64 [ %abi.sroa.8.2, %for.inc80 ], [ %abi.sroa.8.0, %print_str.exit281 ]
+  %arrayidx = getelementptr inbounds i8, ptr %abi.sroa.0.1648, i64 %i64.0649
   %91 = load i8, ptr %arrayidx, align 1
   %cmp72 = icmp eq i8 %91, 95
   br i1 %cmp72, label %if.then74, label %for.inc80
@@ -3189,7 +3189,7 @@ land.lhs.true.i284:                               ; preds = %if.then74
 if.then.i287:                                     ; preds = %land.lhs.true.i284
   %94 = load ptr, ptr %callback.i136, align 8
   %95 = load ptr, ptr %callback_opaque.i137, align 8
-  tail call void %94(ptr noundef nonnull %abi.sroa.0.1648, i64 noundef %i64.0647, ptr noundef %95) #12
+  tail call void %94(ptr noundef nonnull %abi.sroa.0.1648, i64 noundef %i64.0649, ptr noundef %95) #12
   %.pre694 = load i8, ptr %errored, align 8
   br label %print_str.exit290
 
@@ -3210,22 +3210,22 @@ if.then.i296:                                     ; preds = %land.lhs.true.i293
   br label %print_str.exit299
 
 print_str.exit299:                                ; preds = %print_str.exit290, %land.lhs.true.i293, %if.then.i296
-  %add = add nuw i64 %i64.0647, 1
+  %add = add nuw i64 %i64.0649, 1
   %add.ptr = getelementptr inbounds i8, ptr %abi.sroa.0.1648, i64 %add
-  %sub = sub i64 %abi.sroa.8.1649, %add
+  %sub = sub i64 %abi.sroa.8.1647, %add
   br label %for.inc80
 
 for.inc80:                                        ; preds = %for.body69, %print_str.exit299
-  %i64.1 = phi i64 [ 0, %print_str.exit299 ], [ %i64.0647, %for.body69 ]
+  %abi.sroa.8.2 = phi i64 [ %sub, %print_str.exit299 ], [ %abi.sroa.8.1647, %for.body69 ]
   %abi.sroa.0.2 = phi ptr [ %add.ptr, %print_str.exit299 ], [ %abi.sroa.0.1648, %for.body69 ]
-  %abi.sroa.8.2 = phi i64 [ %sub, %print_str.exit299 ], [ %abi.sroa.8.1649, %for.body69 ]
+  %i64.1 = phi i64 [ 0, %print_str.exit299 ], [ %i64.0649, %for.body69 ]
   %inc81 = add nuw i64 %i64.1, 1
   %cmp67 = icmp ult i64 %inc81, %abi.sroa.8.2
   br i1 %cmp67, label %for.body69, label %for.end82, !llvm.loop !23
 
 for.end82:                                        ; preds = %for.inc80, %print_str.exit281
-  %abi.sroa.0.1.lcssa = phi ptr [ %abi.sroa.0.0, %print_str.exit281 ], [ %abi.sroa.0.2, %for.inc80 ]
   %abi.sroa.8.1.lcssa = phi i64 [ 0, %print_str.exit281 ], [ %abi.sroa.8.2, %for.inc80 ]
+  %abi.sroa.0.1.lcssa = phi ptr [ %abi.sroa.0.0, %print_str.exit281 ], [ %abi.sroa.0.2, %for.inc80 ]
   %100 = load i8, ptr %errored, align 8
   %tobool.i301 = trunc i8 %100 to i1
   br i1 %tobool.i301, label %print_str.exit308, label %land.lhs.true.i302
@@ -4135,17 +4135,17 @@ do.body57:                                        ; preds = %next.exit.i.i134, %
   br label %common.ret671
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %c.0532 = phi i32 [ %or, %for.body ], [ 0, %for.cond.preheader ]
-  %i.0531 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
-  %shl = shl i32 %c.0532, 4
-  %arrayidx66 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i142, i64 %i.0531
+  %i.0532 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
+  %c.0531 = phi i32 [ %or, %for.body ], [ 0, %for.cond.preheader ]
+  %shl = shl i32 %c.0531, 4
+  %arrayidx66 = getelementptr inbounds i8, ptr %retval.sroa.0.1.i142, i64 %i.0532
   %31 = load i8, ptr %arrayidx66, align 1
   %cmp.i169 = icmp sgt i8 %31, 96
   %cond.v.i170 = select i1 %cmp.i169, i8 -87, i8 -48
   %cond.i171 = add i8 %cond.v.i170, %31
   %conv68 = zext i8 %cond.i171 to i32
   %or = or i32 %shl, %conv68
-  %inc = add nuw nsw i64 %i.0531, 1
+  %inc = add nuw nsw i64 %i.0532, 1
   %exitcond554.not = icmp eq i64 %inc, %retval.sroa.5.1.i143
   br i1 %exitcond554.not, label %land.lhs.true.i174, label %for.body, !llvm.loop !29
 

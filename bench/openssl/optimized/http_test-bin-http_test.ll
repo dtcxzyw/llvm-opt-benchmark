@@ -625,8 +625,8 @@ if.else:                                          ; preds = %entry
 
 if.end19:                                         ; preds = %lor.lhs.false10, %if.then15, %if.else
   %.sink = phi ptr [ null, %if.else ], [ @.str.87, %if.then15 ], [ @.str.87, %lor.lhs.false10 ]
-  %content_type.0 = phi ptr [ @.str.89, %if.else ], [ @.str.86, %if.then15 ], [ @.str.86, %lor.lhs.false10 ]
   %req.1 = phi ptr [ %call17, %if.else ], [ null, %if.then15 ], [ %call6, %lor.lhs.false10 ]
+  %content_type.0 = phi ptr [ @.str.89, %if.else ], [ @.str.86, %if.then15 ], [ @.str.86, %lor.lhs.false10 ]
   %txt18 = getelementptr inbounds i8, ptr %mock_args, i64 16
   store ptr %.sink, ptr %txt18, align 8
   %cmp20 = icmp eq ptr %call1, null

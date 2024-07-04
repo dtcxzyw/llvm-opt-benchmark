@@ -1274,7 +1274,7 @@ define internal fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noca
 
 9:                                                ; preds = %.lr.ph100, %.loopexit
   %.08199 = phi i32 [ %3, %.lr.ph100 ], [ %56, %.loopexit ]
-  %.08798 = phi i32 [ 1, %.lr.ph100 ], [ %57, %.loopexit ]
+  %.08698 = phi i32 [ 1, %.lr.ph100 ], [ %57, %.loopexit ]
   %10 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08199) #2
   %11 = icmp eq i8 %10, 42
   br i1 %11, label %12, label %.thread
@@ -1287,7 +1287,7 @@ define internal fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noca
   %17 = load i32, ptr @ett_dpnss_sup_str, align 4
   %18 = load ptr, ptr %8, align 8
   %19 = call ptr @tvb_format_text(ptr noundef %18, ptr noundef %0, i32 noundef %.08199, i32 noundef %16) #2
-  %20 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.08199, i32 noundef %16, i32 noundef %17, ptr noundef null, ptr noundef nonnull @.str.204, i32 noundef %.08798, ptr noundef %19) #2
+  %20 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.08199, i32 noundef %16, i32 noundef %17, ptr noundef null, ptr noundef nonnull @.str.204, i32 noundef %.08698, ptr noundef %19) #2
   %21 = sub i32 %14, %13
   %22 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %13, i32 noundef %21, i8 noundef zeroext 42) #2
   %.not = icmp eq i32 %22, -1
@@ -1311,13 +1311,13 @@ define internal fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noca
 
 .lr.ph:                                           ; preds = %29, %53
   %.18297.in = phi i32 [ %36, %53 ], [ %22, %29 ]
-  %.08596 = phi i32 [ %35, %53 ], [ 0, %29 ]
+  %.08496 = phi i32 [ %35, %53 ], [ 0, %29 ]
   %.18297 = add nuw i32 %.18297.in, 1
-  %35 = add i32 %.08596, 1
+  %35 = add i32 %.08496, 1
   %36 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.18297, i32 noundef -1, i8 noundef zeroext 42) #2
   %.not101 = icmp eq i32 %36, -1
   %spec.select93 = select i1 %.not101, i32 %14, i32 %36
-  switch i32 %.08596, label %53 [
+  switch i32 %.08496, label %53 [
     i32 0, label %37
     i32 1, label %41
     i32 2, label %45
@@ -1364,7 +1364,7 @@ define internal fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noca
 
 .loopexit:                                        ; preds = %53, %12, %29
   %56 = add i32 %14, 1
-  %57 = add i32 %.08798, 1
+  %57 = add i32 %.08698, 1
   %58 = icmp slt i32 %56, %6
   %59 = and i1 %58, %11
   br i1 %59, label %9, label %._crit_edge, !llvm.loop !6

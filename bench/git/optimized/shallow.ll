@@ -401,8 +401,8 @@ entry:
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %entry
   %depths.sroa.21.0.ph = phi i32 [ 0, %entry ], [ %depths.sroa.21.0.ph.be, %while.cond.outer.backedge ]
   %depths.sroa.38.0.ph = phi ptr [ null, %entry ], [ %depths.sroa.38.0.ph.be, %while.cond.outer.backedge ]
-  %commit.0.ph = phi ptr [ null, %entry ], [ %commit.0.ph.be, %while.cond.outer.backedge ]
   %cur_depth.0.ph = phi i32 [ 0, %entry ], [ %cur_depth.0.ph.be, %while.cond.outer.backedge ]
+  %commit.0.ph = phi ptr [ null, %entry ], [ %commit.0.ph.be, %while.cond.outer.backedge ]
   %i.0.ph = phi i32 [ 0, %entry ], [ %i.1, %while.cond.outer.backedge ]
   %tobool.not211 = icmp eq ptr %commit.0.ph, null
   br i1 %tobool.not211, label %lor.lhs.false.lr.ph.split.us, label %if.end19
@@ -555,8 +555,8 @@ commit_depth_at.exit79:                           ; preds = %if.end12.i.i59, %if
 if.end19:                                         ; preds = %while.cond.outer, %if.end15, %commit_depth_at.exit79
   %depths.sroa.21.3 = phi i32 [ %depths.sroa.21.1, %if.end15 ], [ %depths.sroa.21.2, %commit_depth_at.exit79 ], [ %depths.sroa.21.0.ph, %while.cond.outer ]
   %depths.sroa.38.3 = phi ptr [ %depths.sroa.38.1, %if.end15 ], [ %depths.sroa.38.2, %commit_depth_at.exit79 ], [ %depths.sroa.38.0.ph, %while.cond.outer ]
-  %commit.1 = phi ptr [ %call.us, %if.end15 ], [ %call16, %commit_depth_at.exit79 ], [ %commit.0.ph, %while.cond.outer ]
   %cur_depth.1 = phi i32 [ 0, %if.end15 ], [ %35, %commit_depth_at.exit79 ], [ %cur_depth.0.ph, %while.cond.outer ]
+  %commit.1 = phi ptr [ %call.us, %if.end15 ], [ %call16, %commit_depth_at.exit79 ], [ %commit.0.ph, %while.cond.outer ]
   %i.1 = phi i32 [ %10, %if.end15 ], [ %23, %commit_depth_at.exit79 ], [ %i.0.ph, %while.cond.outer ]
   call void @parse_commit_or_die(ptr noundef nonnull %commit.1) #12
   %inc20 = add nsw i32 %cur_depth.1, 1
@@ -599,8 +599,8 @@ if.then34:                                        ; preds = %if.end19, %land.lhs
 while.cond.outer.backedge:                        ; preds = %for.inc, %if.end41, %if.then34
   %depths.sroa.21.0.ph.be = phi i32 [ %depths.sroa.21.3, %if.then34 ], [ %depths.sroa.21.3, %if.end41 ], [ %depths.sroa.21.7, %for.inc ]
   %depths.sroa.38.0.ph.be = phi ptr [ %depths.sroa.38.3, %if.then34 ], [ %depths.sroa.38.3, %if.end41 ], [ %depths.sroa.38.7, %for.inc ]
-  %commit.0.ph.be = phi ptr [ null, %if.then34 ], [ null, %if.end41 ], [ %commit.3, %for.inc ]
   %cur_depth.0.ph.be = phi i32 [ %inc20, %if.then34 ], [ %inc20, %if.end41 ], [ %cur_depth.3, %for.inc ]
+  %commit.0.ph.be = phi ptr [ null, %if.then34 ], [ null, %if.end41 ], [ %commit.3, %for.inc ]
   br label %while.cond.outer, !llvm.loop !7
 
 if.end41:                                         ; preds = %land.lhs.true32, %land.lhs.true28, %land.lhs.true26, %lor.lhs.false23
@@ -614,8 +614,8 @@ if.end41:                                         ; preds = %land.lhs.true32, %l
 
 for.body:                                         ; preds = %if.end41, %for.inc
   %p.0233 = phi ptr [ %p.0, %for.inc ], [ %p.0227, %if.end41 ]
-  %cur_depth.2232 = phi i32 [ %cur_depth.3, %for.inc ], [ %inc20, %if.end41 ]
-  %commit.2231 = phi ptr [ %commit.3, %for.inc ], [ null, %if.end41 ]
+  %commit.2232 = phi ptr [ %commit.3, %for.inc ], [ null, %if.end41 ]
+  %cur_depth.2231 = phi i32 [ %cur_depth.3, %for.inc ], [ %inc20, %if.end41 ]
   %depths.sroa.38.4230 = phi ptr [ %depths.sroa.38.7, %for.inc ], [ %depths.sroa.38.3, %if.end41 ]
   %depths.sroa.21.4229 = phi i32 [ %depths.sroa.21.7, %for.inc ], [ %depths.sroa.21.3, %if.end41 ]
   %40 = load ptr, ptr %p.0233, align 8
@@ -670,12 +670,12 @@ if.then57:                                        ; preds = %commit_depth_at.exi
 
 if.else59:                                        ; preds = %commit_depth_at.exit117
   %52 = load i32, ptr %51, align 4
-  %cmp60.not = icmp slt i32 %cur_depth.2232, %52
+  %cmp60.not = icmp slt i32 %cur_depth.2231, %52
   br i1 %cmp60.not, label %if.end63, label %for.inc
 
 if.end63:                                         ; preds = %if.else59, %if.then57
   %.sink = phi ptr [ %call58, %if.then57 ], [ %51, %if.else59 ]
-  store i32 %cur_depth.2232, ptr %.sink, align 4
+  store i32 %cur_depth.2231, ptr %.sink, align 4
   %next = getelementptr inbounds i8, ptr %p.0233, i64 8
   %53 = load ptr, ptr %next, align 8
   %tobool64.not = icmp eq ptr %53, null
@@ -734,8 +734,8 @@ commit_depth_at.exit155:                          ; preds = %if.end12.i.i135, %i
 for.inc:                                          ; preds = %if.then65, %commit_depth_at.exit155, %if.else59
   %depths.sroa.21.7 = phi i32 [ %depths.sroa.21.6, %commit_depth_at.exit155 ], [ %depths.sroa.21.5, %if.then65 ], [ %depths.sroa.21.5, %if.else59 ]
   %depths.sroa.38.7 = phi ptr [ %depths.sroa.38.6, %commit_depth_at.exit155 ], [ %depths.sroa.38.5, %if.then65 ], [ %depths.sroa.38.5, %if.else59 ]
-  %commit.3 = phi ptr [ %54, %commit_depth_at.exit155 ], [ %commit.2231, %if.then65 ], [ %commit.2231, %if.else59 ]
-  %cur_depth.3 = phi i32 [ %66, %commit_depth_at.exit155 ], [ %cur_depth.2232, %if.then65 ], [ %cur_depth.2232, %if.else59 ]
+  %cur_depth.3 = phi i32 [ %66, %commit_depth_at.exit155 ], [ %cur_depth.2231, %if.then65 ], [ %cur_depth.2231, %if.else59 ]
+  %commit.3 = phi ptr [ %54, %commit_depth_at.exit155 ], [ %commit.2232, %if.then65 ], [ %commit.2232, %if.else59 ]
   %next72 = getelementptr inbounds i8, ptr %p.0233, i64 8
   %p.0 = load ptr, ptr %next72, align 8
   %tobool52.not = icmp eq ptr %p.0, null
@@ -1614,22 +1614,22 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp, label %for.body, label %for.cond11.preheader.loopexit, !llvm.loop !19
 
 for.body15:                                       ; preds = %for.body15.lr.ph, %for.body15
-  %indvars.iv270 = phi i64 [ %9, %for.body15.lr.ph ], [ %indvars.iv.next271, %for.body15 ]
-  %indvars.iv268 = phi i64 [ 0, %for.body15.lr.ph ], [ %indvars.iv.next269, %for.body15 ]
+  %indvars.iv270 = phi i64 [ 0, %for.body15.lr.ph ], [ %indvars.iv.next271, %for.body15 ]
+  %indvars.iv268 = phi i64 [ %9, %for.body15.lr.ph ], [ %indvars.iv.next269, %for.body15 ]
   %14 = load ptr, ptr %theirs, align 8
-  %arrayidx17 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv268
+  %arrayidx17 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv270
   %15 = load i32, ptr %arrayidx17, align 4
-  %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
-  %arrayidx20 = getelementptr inbounds i32, ptr %call5, i64 %indvars.iv270
-  store i32 %15, ptr %arrayidx20, align 4
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
+  %arrayidx20 = getelementptr inbounds i32, ptr %call5, i64 %indvars.iv268
+  store i32 %15, ptr %arrayidx20, align 4
+  %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
   %16 = load i32, ptr %nr_theirs, align 8
   %17 = zext i32 %16 to i64
-  %cmp13 = icmp ult i64 %indvars.iv.next269, %17
+  %cmp13 = icmp ult i64 %indvars.iv.next271, %17
   br i1 %cmp13, label %for.body15, label %for.end23.loopexit, !llvm.loop !20
 
 for.end23.loopexit:                               ; preds = %for.body15
-  %18 = trunc nuw i64 %indvars.iv.next271 to i32
+  %18 = trunc nuw i64 %indvars.iv.next269 to i32
   br label %for.end23
 
 for.end23:                                        ; preds = %for.end23.loopexit, %for.cond11.preheader

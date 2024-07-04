@@ -1079,8 +1079,8 @@ Abc_Clock.exit:                                   ; preds = %4, %13
 
 38:                                               ; preds = %.lr.ph244, %586
   %indvars.iv258 = phi i64 [ 1, %.lr.ph244 ], [ %indvars.iv.next259, %586 ]
-  %.0128241 = phi i32 [ 0, %.lr.ph244 ], [ %.1129, %586 ]
-  %.0130240 = phi i32 [ 0, %.lr.ph244 ], [ %.1131, %586 ]
+  %.0125242 = phi i32 [ 0, %.lr.ph244 ], [ %.1126, %586 ]
+  %.0127241 = phi i32 [ 0, %.lr.ph244 ], [ %.1128, %586 ]
   %.val162 = load ptr, ptr %18, align 8
   %39 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val162, i64 %indvars.iv258
   %.val169 = load i64, ptr %39, align 4
@@ -1607,7 +1607,7 @@ Shr_ManComputeTruth6.exit:                        ; preds = %279, %.critedge2
 .lr.ph234:                                        ; preds = %.preheader, %352
   %indvars.iv252 = phi i64 [ %indvars.iv.next253, %352 ], [ 0, %.preheader ]
   %331 = phi ptr [ %354, %352 ], [ %328, %.preheader ]
-  %.0125233 = phi i64 [ %.1126, %352 ], [ %295, %.preheader ]
+  %.0129233 = phi i64 [ %.1130, %352 ], [ %295, %.preheader ]
   %332 = getelementptr i8, ptr %331, i64 8
   %.val158 = load ptr, ptr %332, align 8
   %333 = getelementptr inbounds i32, ptr %.val158, i64 %indvars.iv252
@@ -1627,19 +1627,19 @@ Shr_ManComputeTruth6.exit:                        ; preds = %279, %.critedge2
 340:                                              ; preds = %334
   %341 = getelementptr inbounds [8 x i64], ptr @Truth, i64 0, i64 %indvars.iv252
   %342 = load i64, ptr %341, align 8
-  %343 = and i64 %342, %.0125233
+  %343 = and i64 %342, %.0129233
   %344 = trunc nuw nsw i64 %indvars.iv252 to i32
   %345 = shl nuw i32 1, %344
   %346 = zext i32 %345 to i64
   %347 = lshr i64 %343, %346
   %348 = xor i64 %342, -1
-  %349 = and i64 %.0125233, %348
+  %349 = and i64 %.0129233, %348
   %350 = shl i64 %349, %346
   %351 = or i64 %347, %350
   br label %352
 
 352:                                              ; preds = %340, %334
-  %.1126 = phi i64 [ %351, %340 ], [ %.0125233, %334 ]
+  %.1130 = phi i64 [ %351, %340 ], [ %.0129233, %334 ]
   %353 = ashr i32 %338, 1
   store i32 %353, ptr %333, align 4
   %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
@@ -1651,7 +1651,7 @@ Shr_ManComputeTruth6.exit:                        ; preds = %279, %.critedge2
   br i1 %357, label %.lr.ph234, label %.critedge6, !llvm.loop !12
 
 .critedge6:                                       ; preds = %.lr.ph234, %352, %.preheader
-  %.0125.lcssa = phi i64 [ %295, %.preheader ], [ %.1126, %352 ], [ %.0125233, %.lr.ph234 ]
+  %.0129.lcssa = phi i64 [ %295, %.preheader ], [ %.1130, %352 ], [ %.0129233, %.lr.ph234 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %358 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -1974,7 +1974,7 @@ Shr_ManCollectDivisors.exit:                      ; preds = %.critedge.i, %Vec_I
   %519 = getelementptr i8, ptr %518, i64 4
   %.val152 = load i32, ptr %519, align 4
   %520 = load ptr, ptr %33, align 8
-  %521 = call i32 @Rsb_ManPerformResub6(ptr noundef %517, i32 noundef %.val152, i64 noundef %.0125.lcssa, ptr noundef %520, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 0) #20
+  %521 = call i32 @Rsb_ManPerformResub6(ptr noundef %517, i32 noundef %.val152, i64 noundef %.0129.lcssa, ptr noundef %520, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 0) #20
   %.not147 = icmp eq i32 %521, 0
   br i1 %.not147, label %580, label %522
 
@@ -2086,21 +2086,21 @@ Vec_IntPush.exit214:                              ; preds = %.Vec_IntGrow.exit10
   %577 = or i64 %576, %575
   %578 = call i32 @Shr_ObjPerformBidec(ptr noundef nonnull %17, ptr noundef %572, ptr noundef %573, ptr noundef %574, i64 noundef %575, i64 noundef %577)
   store i32 %578, ptr %326, align 4
-  %579 = add nsw i32 %.0130240, 1
+  %579 = add nsw i32 %.0127241, 1
   br label %586
 
 580:                                              ; preds = %Shr_ManCollectDivisors.exit
   %581 = load ptr, ptr %36, align 8
   %582 = load ptr, ptr %23, align 8
   %583 = load ptr, ptr %25, align 8
-  %584 = call i32 @Shr_ObjPerformBidec(ptr noundef nonnull %17, ptr noundef %581, ptr noundef %582, ptr noundef %583, i64 noundef %.0125.lcssa, i64 noundef -1)
+  %584 = call i32 @Shr_ObjPerformBidec(ptr noundef nonnull %17, ptr noundef %581, ptr noundef %582, ptr noundef %583, i64 noundef %.0129.lcssa, i64 noundef -1)
   store i32 %584, ptr %326, align 4
-  %585 = add nsw i32 %.0128241, 1
+  %585 = add nsw i32 %.0125242, 1
   br label %586
 
 586:                                              ; preds = %99, %Gia_ManAppendCi.exit, %212, %580, %.critedge8, %Gia_ManAppendCo.exit, %.critedge4
-  %.1131 = phi i32 [ %.0130240, %99 ], [ %.0130240, %Gia_ManAppendCi.exit ], [ %.0130240, %Gia_ManAppendCo.exit ], [ %.0130240, %.critedge4 ], [ %579, %.critedge8 ], [ %.0130240, %580 ], [ %.0130240, %212 ]
-  %.1129 = phi i32 [ %.0128241, %99 ], [ %.0128241, %Gia_ManAppendCi.exit ], [ %.0128241, %Gia_ManAppendCo.exit ], [ %.0128241, %.critedge4 ], [ %.0128241, %.critedge8 ], [ %585, %580 ], [ %.0128241, %212 ]
+  %.1128 = phi i32 [ %.0127241, %99 ], [ %.0127241, %Gia_ManAppendCi.exit ], [ %.0127241, %Gia_ManAppendCo.exit ], [ %.0127241, %.critedge4 ], [ %579, %.critedge8 ], [ %.0127241, %580 ], [ %.0127241, %212 ]
+  %.1126 = phi i32 [ %.0125242, %99 ], [ %.0125242, %Gia_ManAppendCi.exit ], [ %.0125242, %Gia_ManAppendCo.exit ], [ %.0125242, %.critedge4 ], [ %.0125242, %.critedge8 ], [ %585, %580 ], [ %.0125242, %212 ]
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
   %587 = load i32, ptr %20, align 8
   %588 = sext i32 %587 to i64
@@ -2108,13 +2108,13 @@ Vec_IntPush.exit214:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %589, label %38, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %586, %Abc_Clock.exit
-  %.0130.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.1131, %586 ]
-  %.0128.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.1129, %586 ]
+  %.0127.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.1128, %586 ]
+  %.0125.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.1126, %586 ]
   %.not140 = icmp eq i32 %3, 0
   br i1 %.not140, label %609, label %590
 
 590:                                              ; preds = %.critedge
-  %591 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.0130.lcssa, i32 noundef %.0128.lcssa)
+  %591 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.0127.lcssa, i32 noundef %.0125.lcssa)
   %.val150 = load i32, ptr %20, align 8
   %592 = getelementptr inbounds i8, ptr %17, i64 8
   %593 = load ptr, ptr %592, align 8

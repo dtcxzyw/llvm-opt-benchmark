@@ -1359,15 +1359,15 @@ define internal fastcc range(i32 -1, 3) i32 @H5B__insert_helper(ptr noundef %0, 
 
 438:                                              ; preds = %434, %431, %418
   %439 = phi i32 [ %429, %434 ], [ %429, %431 ], [ %420, %418 ]
-  %.0.in.i = phi double [ %437, %434 ], [ %433, %431 ], [ %424, %418 ]
-  %.0.i = fptoui double %.0.in.i to i32
-  %440 = icmp ult i32 %.1262, %.0.i
-  %441 = icmp eq i32 %439, %.0.i
+  %.075.in.i = phi double [ %437, %434 ], [ %433, %431 ], [ %424, %418 ]
+  %.075.i = fptoui double %.075.in.i to i32
+  %440 = icmp ult i32 %.1262, %.075.i
+  %441 = icmp eq i32 %439, %.075.i
   %or.cond.i = select i1 %440, i1 %441, i1 false
   %442 = add i32 %439, -1
-  %spec.select.i = call i32 @llvm.umax.i32(i32 %.0.i, i32 1)
-  %.1.i = select i1 %or.cond.i, i32 %442, i32 %spec.select.i
-  %443 = sub i32 %439, %.1.i
+  %spec.select.i = call i32 @llvm.umax.i32(i32 %.075.i, i32 1)
+  %.176.i = select i1 %or.cond.i, i32 %442, i32 %spec.select.i
+  %443 = sub i32 %439, %.176.i
   %444 = load ptr, ptr %407, align 8
   %445 = getelementptr inbounds i8, ptr %9, i64 8
   %446 = call i32 @H5B_create(ptr noundef %0, ptr noundef %444, ptr noundef %6, ptr noundef nonnull %445)
@@ -1416,7 +1416,7 @@ define internal fastcc range(i32 -1, 3) i32 @H5B__insert_helper(ptr noundef %0, 
   %475 = load ptr, ptr %1, align 8
   %476 = getelementptr inbounds i8, ptr %475, i64 280
   %477 = load ptr, ptr %476, align 8
-  %478 = zext i32 %.1.i to i64
+  %478 = zext i32 %.176.i to i64
   %479 = load ptr, ptr %407, align 8
   %480 = getelementptr inbounds i8, ptr %479, i64 8
   %481 = load i64, ptr %480, align 8
@@ -1445,7 +1445,7 @@ define internal fastcc range(i32 -1, 3) i32 @H5B__insert_helper(ptr noundef %0, 
   store i32 %500, ptr %498, align 8
   %501 = load ptr, ptr %1, align 8
   %502 = getelementptr inbounds i8, ptr %501, i64 260
-  store i32 %.1.i, ptr %502, align 4
+  store i32 %.176.i, ptr %502, align 4
   %503 = getelementptr inbounds i8, ptr %1, i64 8
   %504 = load i64, ptr %503, align 8
   %505 = load ptr, ptr %9, align 8
@@ -2852,12 +2852,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5B__get_info_helper(ptr noundef %0
   br i1 %44, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %28, %52
-  %.048 = phi i64 [ %54, %52 ], [ %33, %28 ]
-  %.not = icmp eq i64 %.048, -1
+  %.046 = phi i64 [ %54, %52 ], [ %33, %28 ]
+  %.not = icmp eq i64 %.046, -1
   br i1 %.not, label %64, label %45
 
 45:                                               ; preds = %.preheader
-  %46 = call ptr @H5AC_protect(ptr noundef %0, ptr noundef nonnull @H5AC_BT, i64 noundef %.048, ptr noundef nonnull %5, i32 noundef 128) #6
+  %46 = call ptr @H5AC_protect(ptr noundef %0, ptr noundef nonnull @H5AC_BT, i64 noundef %.046, ptr noundef nonnull %5, i32 noundef 128) #6
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %52
 
@@ -2879,7 +2879,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5B__get_info_helper(ptr noundef %0
   %60 = load i64, ptr %59, align 8
   %61 = add i64 %60, 1
   store i64 %61, ptr %59, align 8
-  %62 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_BT, i64 noundef %.048, ptr noundef nonnull %46, i32 noundef 0) #6
+  %62 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_BT, i64 noundef %.046, ptr noundef nonnull %46, i32 noundef 0) #6
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %.loopexit, label %.preheader
 
@@ -2901,11 +2901,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5B__get_info_helper(ptr noundef %0
 .loopexit:                                        ; preds = %52, %28
   %.sink = phi i32 [ 1799, %28 ], [ 1821, %52 ]
   %.150 = phi ptr [ %22, %28 ], [ %46, %52 ]
-  %.147 = phi i64 [ %2, %28 ], [ %.048, %52 ]
+  %.148 = phi i64 [ %2, %28 ], [ %.046, %52 ]
   %72 = load i64, ptr @H5E_BTREE_g, align 8
   %73 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8
   %74 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5B__get_info_helper, i32 noundef %.sink, i64 noundef %72, i64 noundef %73, ptr noundef nonnull @.str.34) #6
-  %75 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_BT, i64 noundef %.147, ptr noundef nonnull %.150, i32 noundef 0) #6
+  %75 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_BT, i64 noundef %.148, ptr noundef nonnull %.150, i32 noundef 0) #6
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %77, label %.thread
 

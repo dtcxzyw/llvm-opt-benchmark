@@ -6115,35 +6115,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end16.i
-  %__value.addr.021.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
-  %__n.020.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
-  %cmp5.i = icmp ult i64 %__value.addr.021.i, 100
+  %__n.021.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
+  %__value.addr.020.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
+  %cmp5.i = icmp ult i64 %__value.addr.020.i, 100
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.020.i, 1
+  %add.i = add i32 %__n.021.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end7.i:                                        ; preds = %if.end.i
-  %cmp9.i = icmp ult i64 %__value.addr.021.i, 1000
+  %cmp9.i = icmp ult i64 %__value.addr.020.i, 1000
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.end7.i
-  %add11.i = add i32 %__n.020.i, 2
+  %add11.i = add i32 %__n.021.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end12.i:                                       ; preds = %if.end7.i
-  %cmp13.i = icmp ult i64 %__value.addr.021.i, 10000
+  %cmp13.i = icmp ult i64 %__value.addr.020.i, 10000
   br i1 %cmp13.i, label %if.then14.i, label %if.end16.i
 
 if.then14.i:                                      ; preds = %if.end12.i
-  %add15.i = add i32 %__n.020.i, 3
+  %add15.i = add i32 %__n.021.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %div.i = udiv i64 %__value.addr.021.i, 10000
-  %add17.i = add i32 %__n.020.i, 4
-  %cmp.i = icmp ult i64 %__value.addr.021.i, 100000
+  %div.i = udiv i64 %__value.addr.020.i, 10000
+  %add17.i = add i32 %__n.021.i, 4
+  %cmp.i = icmp ult i64 %__value.addr.020.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !22
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
@@ -12722,21 +12722,21 @@ _ZN4llvh7hashing6detail18get_execution_seedEv.exit: ; preds = %entry, %init.chec
   br i1 %cmp.i.not78, label %while.end, label %while.body
 
 while.body:                                       ; preds = %_ZN4llvh7hashing6detail18get_execution_seedEv.exit, %while.body
-  %first.sroa.0.080 = phi ptr [ %incdec.ptr.i, %while.body ], [ %first.coerce, %_ZN4llvh7hashing6detail18get_execution_seedEv.exit ]
-  %buffer_ptr.0.idx79 = phi i64 [ %buffer_ptr.0.add, %while.body ], [ 0, %_ZN4llvh7hashing6detail18get_execution_seedEv.exit ]
-  %buffer_ptr.0.ptr81 = getelementptr inbounds i8, ptr %buffer, i64 %buffer_ptr.0.idx79
-  %buffer_ptr.0.add = add nuw nsw i64 %buffer_ptr.0.idx79, 8
-  %4 = load ptr, ptr %first.sroa.0.080, align 8
+  %buffer_ptr.0.idx80 = phi i64 [ %buffer_ptr.0.add, %while.body ], [ 0, %_ZN4llvh7hashing6detail18get_execution_seedEv.exit ]
+  %first.sroa.0.079 = phi ptr [ %incdec.ptr.i, %while.body ], [ %first.coerce, %_ZN4llvh7hashing6detail18get_execution_seedEv.exit ]
+  %buffer_ptr.0.ptr81 = getelementptr inbounds i8, ptr %buffer, i64 %buffer_ptr.0.idx80
+  %buffer_ptr.0.add = add nuw nsw i64 %buffer_ptr.0.idx80, 8
+  %4 = load ptr, ptr %first.sroa.0.079, align 8
   store ptr %4, ptr %buffer_ptr.0.ptr81, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %first.sroa.0.080, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %first.sroa.0.079, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %last.coerce
-  %cmp.i6.not = icmp ugt i64 %buffer_ptr.0.idx79, 48
+  %cmp.i6.not = icmp ugt i64 %buffer_ptr.0.idx80, 48
   %or.cond = or i1 %cmp.i.not, %cmp.i6.not
   br i1 %or.cond, label %while.end, label %while.body, !llvm.loop !83
 
 while.end:                                        ; preds = %while.body, %_ZN4llvh7hashing6detail18get_execution_seedEv.exit
-  %buffer_ptr.0.idx.lcssa = phi i64 [ 0, %_ZN4llvh7hashing6detail18get_execution_seedEv.exit ], [ %buffer_ptr.0.add, %while.body ]
   %first.sroa.0.0.lcssa = phi ptr [ %first.coerce, %_ZN4llvh7hashing6detail18get_execution_seedEv.exit ], [ %incdec.ptr.i, %while.body ]
+  %buffer_ptr.0.idx.lcssa = phi i64 [ 0, %_ZN4llvh7hashing6detail18get_execution_seedEv.exit ], [ %buffer_ptr.0.add, %while.body ]
   %cmp.i7 = icmp eq ptr %first.sroa.0.0.lcssa, %last.coerce
   br i1 %cmp.i7, label %if.then, label %if.end
 
@@ -12836,15 +12836,15 @@ while.cond17.preheader:                           ; preds = %if.end, %while.end2
   br label %while.body25
 
 while.body25:                                     ; preds = %while.cond17.preheader, %while.body25
-  %first.sroa.0.284 = phi ptr [ %first.sroa.0.186, %while.cond17.preheader ], [ %incdec.ptr.i15, %while.body25 ]
-  %buffer_ptr.3.idx83 = phi i64 [ 0, %while.cond17.preheader ], [ %buffer_ptr.3.add, %while.body25 ]
-  %buffer_ptr.3.ptr85 = getelementptr inbounds i8, ptr %buffer, i64 %buffer_ptr.3.idx83
-  %buffer_ptr.3.add = add nuw nsw i64 %buffer_ptr.3.idx83, 8
-  %9 = load ptr, ptr %first.sroa.0.284, align 8
+  %buffer_ptr.3.idx84 = phi i64 [ 0, %while.cond17.preheader ], [ %buffer_ptr.3.add, %while.body25 ]
+  %first.sroa.0.283 = phi ptr [ %first.sroa.0.186, %while.cond17.preheader ], [ %incdec.ptr.i15, %while.body25 ]
+  %buffer_ptr.3.ptr85 = getelementptr inbounds i8, ptr %buffer, i64 %buffer_ptr.3.idx84
+  %buffer_ptr.3.add = add nuw nsw i64 %buffer_ptr.3.idx84, 8
+  %9 = load ptr, ptr %first.sroa.0.283, align 8
   store ptr %9, ptr %buffer_ptr.3.ptr85, align 8
-  %incdec.ptr.i15 = getelementptr inbounds i8, ptr %first.sroa.0.284, i64 8
+  %incdec.ptr.i15 = getelementptr inbounds i8, ptr %first.sroa.0.283, i64 8
   %cmp.i9.not = icmp eq ptr %incdec.ptr.i15, %last.coerce
-  %cmp.i11.not = icmp ugt i64 %buffer_ptr.3.idx83, 48
+  %cmp.i11.not = icmp ugt i64 %buffer_ptr.3.idx84, 48
   %or.cond77 = or i1 %cmp.i9.not, %cmp.i11.not
   br i1 %or.cond77, label %while.end27, label %while.body25, !llvm.loop !87
 

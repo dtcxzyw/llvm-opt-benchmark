@@ -98,8 +98,8 @@ pgstat_have_pending_wal.exit.thread:              ; preds = %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %1, %14
-  %.0 = phi i1 [ true, %14 ], [ false, %1 ], [ false, %.loopexit.loopexit ]
-  ret i1 %.0
+  %.028 = phi i1 [ true, %14 ], [ false, %1 ], [ false, %.loopexit.loopexit ]
+  ret i1 %.028
 }
 
 declare zeroext i1 @pgstat_flush_io(i1 noundef zeroext) local_unnamed_addr #1

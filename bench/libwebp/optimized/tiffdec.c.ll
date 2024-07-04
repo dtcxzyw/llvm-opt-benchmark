@@ -320,9 +320,9 @@ MultARGBRow.exit:                                 ; preds = %MultARGBRow.exit.lo
   br label %196
 
 169:                                              ; preds = %106, %165, %163
-  %.067 = phi i32 [ 0, %106 ], [ %164, %163 ], [ %166, %165 ]
+  %.066 = phi i32 [ 0, %106 ], [ %164, %163 ], [ %166, %165 ]
   call void @_TIFFfree(ptr noundef nonnull %105) #10
-  %170 = icmp ne i32 %.067, 0
+  %170 = icmp ne i32 %.066, 0
   %171 = icmp ne ptr %4, null
   %or.cond15 = and i1 %171, %170
   br i1 %or.cond15, label %172, label %196
@@ -386,13 +386,13 @@ ExtractMetadataFromTIFF.exit.thread:              ; preds = %190, %188
   br label %196
 
 196:                                              ; preds = %ExtractMetadataFromTIFF.exit.thread, %.thread, %42, %169, %193, %99, %96, %86, %58, %48, %39
-  %.2 = phi i32 [ 0, %86 ], [ 0, %99 ], [ 0, %193 ], [ %.067, %169 ], [ 0, %96 ], [ 0, %58 ], [ 0, %48 ], [ 0, %42 ], [ 0, %39 ], [ 0, %.thread ], [ 1, %ExtractMetadataFromTIFF.exit.thread ]
+  %.2 = phi i32 [ 0, %86 ], [ 0, %99 ], [ 0, %193 ], [ %.066, %169 ], [ 0, %96 ], [ 0, %58 ], [ 0, %48 ], [ 0, %42 ], [ 0, %39 ], [ 0, %.thread ], [ 1, %ExtractMetadataFromTIFF.exit.thread ]
   call void @TIFFClose(ptr noundef nonnull %24) #10
   br label %197
 
 197:                                              ; preds = %5, %196, %26
-  %.066 = phi i32 [ 0, %26 ], [ %.2, %196 ], [ 0, %5 ]
-  ret i32 %.066
+  %.067 = phi i32 [ 0, %26 ], [ %.2, %196 ], [ 0, %5 ]
+  ret i32 %.067
 }
 
 declare ptr @TIFFClientOpen(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

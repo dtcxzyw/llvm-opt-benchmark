@@ -98,14 +98,14 @@ for.body.preheader:                               ; preds = %if.then9, %if.then9
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %aPtr.addr.040 = phi ptr [ %add.ptr24, %for.body ], [ %add.ptr105864, %for.body.preheader ]
-  %i.139 = phi i8 [ %dec26, %for.body ], [ %conv22, %for.body.preheader ]
-  %ptr.238 = phi ptr [ %add.ptr25, %for.body ], [ %zPtr, %for.body.preheader ]
-  %6 = load i64, ptr %aPtr.addr.040, align 8
-  store i64 %6, ptr %ptr.238, align 8
-  %add.ptr24 = getelementptr i8, ptr %aPtr.addr.040, i64 8
-  %add.ptr25 = getelementptr i8, ptr %ptr.238, i64 8
-  %dec26 = add nsw i8 %i.139, -1
+  %i.140 = phi i8 [ %dec26, %for.body ], [ %conv22, %for.body.preheader ]
+  %ptr.239 = phi ptr [ %add.ptr25, %for.body ], [ %zPtr, %for.body.preheader ]
+  %aPtr.addr.038 = phi ptr [ %add.ptr24, %for.body ], [ %add.ptr105864, %for.body.preheader ]
+  %6 = load i64, ptr %aPtr.addr.038, align 8
+  store i64 %6, ptr %ptr.239, align 8
+  %add.ptr24 = getelementptr i8, ptr %aPtr.addr.038, i64 8
+  %add.ptr25 = getelementptr i8, ptr %ptr.239, i64 8
+  %dec26 = add nsw i8 %i.140, -1
   %tobool23.not = icmp eq i8 %dec26, 0
   br i1 %tobool23.not, label %if.end27, label %for.body
 

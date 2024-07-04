@@ -77,11 +77,11 @@ for.body13:                                       ; preds = %for.body13.preheade
   %11 = phi i64 [ %12, %for.inc56 ], [ %.pre, %for.body13.preheader ]
   %xch.056 = phi ptr [ %xch.0, %for.inc56 ], [ %xch.051, %for.body13.preheader ]
   %ignored.055 = phi i64 [ %ignored.1, %for.inc56 ], [ 0, %for.body13.preheader ]
-  %xchp.154 = phi ptr [ %xch.056, %for.inc56 ], [ %10, %for.body13.preheader ]
-  %lxch.053 = phi ptr [ %lxch.1, %for.inc56 ], [ %10, %for.body13.preheader ]
+  %lxch.054 = phi ptr [ %lxch.1, %for.inc56 ], [ %10, %for.body13.preheader ]
+  %xchp.153 = phi ptr [ %xch.056, %for.inc56 ], [ %10, %for.body13.preheader ]
   %i114 = getelementptr inbounds i8, ptr %xch.056, i64 8
   %12 = load i64, ptr %i114, align 8
-  %chg116 = getelementptr inbounds i8, ptr %xchp.154, i64 24
+  %chg116 = getelementptr inbounds i8, ptr %xchp.153, i64 24
   %13 = load i64, ptr %chg116, align 8
   %14 = add i64 %11, %13
   %sub18 = sub i64 %12, %14
@@ -96,18 +96,18 @@ land.lhs.true:                                    ; preds = %if.end21
   %ignore23 = getelementptr inbounds i8, ptr %xch.056, i64 40
   %15 = load i32, ptr %ignore23, align 8
   %tobool24.not = icmp eq i32 %15, 0
-  %cmp26 = icmp eq ptr %lxch.053, %xchp.154
+  %cmp26 = icmp eq ptr %lxch.054, %xchp.153
   %or.cond = select i1 %tobool24.not, i1 true, i1 %cmp26
   br i1 %or.cond, label %for.inc56, label %for.inc56.sink.split
 
 if.else34:                                        ; preds = %if.end21
-  %cmp35.not = icmp eq ptr %lxch.053, %xchp.154
+  %cmp35.not = icmp eq ptr %lxch.054, %xchp.153
   br i1 %cmp35.not, label %if.else45, label %land.lhs.true36
 
 land.lhs.true36:                                  ; preds = %if.else34
-  %i139 = getelementptr inbounds i8, ptr %lxch.053, i64 8
+  %i139 = getelementptr inbounds i8, ptr %lxch.054, i64 8
   %16 = load i64, ptr %i139, align 8
-  %chg140 = getelementptr inbounds i8, ptr %lxch.053, i64 24
+  %chg140 = getelementptr inbounds i8, ptr %lxch.054, i64 24
   %17 = load i64, ptr %chg140, align 8
   %add41.neg = add i64 %12, %ignored.055
   %18 = add i64 %16, %17
@@ -128,14 +128,14 @@ for.inc56.sink.split:                             ; preds = %if.else45, %land.lh
   br label %for.inc56
 
 for.inc56:                                        ; preds = %for.inc56.sink.split, %if.else45, %land.lhs.true
-  %lxch.1 = phi ptr [ %xch.056, %land.lhs.true ], [ %xch.056, %if.else45 ], [ %lxch.053, %for.inc56.sink.split ]
+  %lxch.1 = phi ptr [ %xch.056, %land.lhs.true ], [ %xch.056, %if.else45 ], [ %lxch.054, %for.inc56.sink.split ]
   %ignored.1 = phi i64 [ 0, %land.lhs.true ], [ 0, %if.else45 ], [ %add51, %for.inc56.sink.split ]
   %xch.0 = load ptr, ptr %xch.056, align 8
   %tobool12.not = icmp eq ptr %xch.0, null
   br i1 %tobool12.not, label %return, label %for.body13, !llvm.loop !7
 
 return:                                           ; preds = %land.lhs.true36, %for.body13, %for.inc56, %entry, %for.cond11.preheader, %for.end
-  %retval.0 = phi ptr [ null, %for.end ], [ %10, %for.cond11.preheader ], [ null, %entry ], [ %lxch.053, %land.lhs.true36 ], [ %lxch.053, %for.body13 ], [ %lxch.1, %for.inc56 ]
+  %retval.0 = phi ptr [ null, %for.end ], [ %10, %for.cond11.preheader ], [ null, %entry ], [ %lxch.054, %land.lhs.true36 ], [ %lxch.054, %for.body13 ], [ %lxch.1, %for.inc56 ]
   ret ptr %retval.0
 }
 
@@ -227,11 +227,11 @@ for.body13.i:                                     ; preds = %for.inc56.i, %for.b
   %13 = phi i64 [ %14, %for.inc56.i ], [ %.pre.i, %for.body13.preheader.i ]
   %xch.056.i = phi ptr [ %xch.0.i, %for.inc56.i ], [ %xch.051.i, %for.body13.preheader.i ]
   %ignored.055.i = phi i64 [ %ignored.1.i, %for.inc56.i ], [ 0, %for.body13.preheader.i ]
-  %xchp.154.i = phi ptr [ %xch.056.i, %for.inc56.i ], [ %12, %for.body13.preheader.i ]
-  %lxch.053.i = phi ptr [ %lxch.1.i, %for.inc56.i ], [ %12, %for.body13.preheader.i ]
+  %lxch.054.i = phi ptr [ %lxch.1.i, %for.inc56.i ], [ %12, %for.body13.preheader.i ]
+  %xchp.153.i = phi ptr [ %xch.056.i, %for.inc56.i ], [ %12, %for.body13.preheader.i ]
   %i114.i = getelementptr inbounds i8, ptr %xch.056.i, i64 8
   %14 = load i64, ptr %i114.i, align 8
-  %chg116.i = getelementptr inbounds i8, ptr %xchp.154.i, i64 24
+  %chg116.i = getelementptr inbounds i8, ptr %xchp.153.i, i64 24
   %15 = load i64, ptr %chg116.i, align 8
   %16 = add i64 %13, %15
   %sub18.i = sub i64 %14, %16
@@ -246,18 +246,18 @@ land.lhs.true.i:                                  ; preds = %if.end21.i
   %ignore23.i = getelementptr inbounds i8, ptr %xch.056.i, i64 40
   %17 = load i32, ptr %ignore23.i, align 8
   %tobool24.not.i = icmp eq i32 %17, 0
-  %cmp26.i = icmp eq ptr %lxch.053.i, %xchp.154.i
+  %cmp26.i = icmp eq ptr %lxch.054.i, %xchp.153.i
   %or.cond.i = select i1 %tobool24.not.i, i1 true, i1 %cmp26.i
   br i1 %or.cond.i, label %for.inc56.i, label %for.inc56.sink.split.i
 
 if.else34.i:                                      ; preds = %if.end21.i
-  %cmp35.not.i = icmp eq ptr %lxch.053.i, %xchp.154.i
+  %cmp35.not.i = icmp eq ptr %lxch.054.i, %xchp.153.i
   br i1 %cmp35.not.i, label %if.else45.i, label %land.lhs.true36.i
 
 land.lhs.true36.i:                                ; preds = %if.else34.i
-  %i139.i = getelementptr inbounds i8, ptr %lxch.053.i, i64 8
+  %i139.i = getelementptr inbounds i8, ptr %lxch.054.i, i64 8
   %18 = load i64, ptr %i139.i, align 8
-  %chg140.i = getelementptr inbounds i8, ptr %lxch.053.i, i64 24
+  %chg140.i = getelementptr inbounds i8, ptr %lxch.054.i, i64 24
   %19 = load i64, ptr %chg140.i, align 8
   %.neg456 = add i64 %14, %ignored.055.i
   %20 = add i64 %18, %19
@@ -278,14 +278,14 @@ for.inc56.sink.split.i:                           ; preds = %if.else45.i, %land.
   br label %for.inc56.i
 
 for.inc56.i:                                      ; preds = %for.inc56.sink.split.i, %if.else45.i, %land.lhs.true.i
-  %lxch.1.i = phi ptr [ %xch.056.i, %land.lhs.true.i ], [ %xch.056.i, %if.else45.i ], [ %lxch.053.i, %for.inc56.sink.split.i ]
+  %lxch.1.i = phi ptr [ %xch.056.i, %land.lhs.true.i ], [ %xch.056.i, %if.else45.i ], [ %lxch.054.i, %for.inc56.sink.split.i ]
   %ignored.1.i = phi i64 [ 0, %land.lhs.true.i ], [ 0, %if.else45.i ], [ %add51.i, %for.inc56.sink.split.i ]
   %xch.0.i = load ptr, ptr %xch.056.i, align 8
   %tobool12.not.i = icmp eq ptr %xch.0.i, null
   br i1 %tobool12.not.i, label %xdl_get_hunk.exit, label %for.body13.i, !llvm.loop !7
 
 xdl_get_hunk.exit:                                ; preds = %for.body13.i, %land.lhs.true36.i, %for.inc56.i, %for.end.i, %for.cond11.preheader.i
-  %retval.0.i = phi ptr [ null, %for.end.i ], [ %12, %for.cond11.preheader.i ], [ %lxch.1.i, %for.inc56.i ], [ %lxch.053.i, %for.body13.i ], [ %lxch.053.i, %land.lhs.true36.i ]
+  %retval.0.i = phi ptr [ null, %for.end.i ], [ %12, %for.cond11.preheader.i ], [ %lxch.1.i, %for.inc56.i ], [ %lxch.054.i, %for.body13.i ], [ %lxch.054.i, %land.lhs.true36.i ]
   %tobool1.not = icmp eq ptr %xch.2, null
   br i1 %tobool1.not, label %return, label %pre_context_calculation.preheader
 

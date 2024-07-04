@@ -39,14 +39,14 @@ define hidden range(i32 -1, 1) i32 @ps_open_files(ptr nocapture noundef %0, ptr 
   br i1 %.not, label %10, label %57
 
 10:                                               ; preds = %7, %3
-  %.094 = phi ptr [ %8, %7 ], [ %1, %3 ]
-  %11 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.094, i32 noundef 59) #16
+  %.093 = phi ptr [ %8, %7 ], [ %1, %3 ]
+  %11 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.093, i32 noundef 59) #16
   %.old4.not = icmp eq ptr %11, null
   br i1 %.old4.not, label %.thread105, label %.preheader
 
 .preheader:                                       ; preds = %10, %.preheader
   %.092 = phi ptr [ %17, %.preheader ], [ %11, %10 ]
-  %.090 = phi ptr [ %16, %.preheader ], [ %.094, %10 ]
+  %.090 = phi ptr [ %16, %.preheader ], [ %.093, %10 ]
   %12 = phi i1 [ false, %.preheader ], [ true, %10 ]
   %13 = phi i1 [ true, %.preheader ], [ false, %10 ]
   %.089 = phi i32 [ 1, %.preheader ], [ 0, %10 ]
@@ -97,7 +97,7 @@ define hidden range(i32 -1, 1) i32 @ps_open_files(ptr nocapture noundef %0, ptr 
 
 .thread105:                                       ; preds = %10, %30, %29
   %.088110 = phi i64 [ %25, %30 ], [ %25, %29 ], [ 0, %10 ]
-  %.191101109 = phi ptr [ %16, %30 ], [ %16, %29 ], [ %.094, %10 ]
+  %.191101109 = phi ptr [ %16, %30 ], [ %16, %29 ], [ %.093, %10 ]
   %.0 = phi i32 [ %34, %30 ], [ 384, %29 ], [ 384, %10 ]
   %39 = tail call noalias dereferenceable_or_null(40) ptr @_ecalloc(i64 noundef 1, i64 noundef 40) #18
   %40 = getelementptr inbounds i8, ptr %39, i64 36
@@ -136,8 +136,8 @@ define hidden range(i32 -1, 1) i32 @ps_open_files(ptr nocapture noundef %0, ptr 
   br label %57
 
 57:                                               ; preds = %7, %56, %38, %28
-  %.093 = phi i32 [ -1, %28 ], [ -1, %38 ], [ 0, %56 ], [ -1, %7 ]
-  ret i32 %.093
+  %.094 = phi i32 [ -1, %28 ], [ -1, %38 ], [ 0, %56 ], [ -1, %7 ]
+  ret i32 %.094
 }
 
 ; Function Attrs: nounwind uwtable
@@ -468,7 +468,7 @@ define hidden i64 @ps_gc_files(ptr nocapture noundef readonly %0, i64 noundef %1
 
 32:                                               ; preds = %55, %.lr.ph.i
   %33 = phi ptr [ %30, %.lr.ph.i ], [ %56, %55 ]
-  %.02330.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %55 ]
+  %.030.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %55 ]
   %34 = getelementptr inbounds i8, ptr %33, i64 19
   %35 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(6) @.str.12, i64 noundef 5) #16
   %.not28.i = icmp eq i32 %35, 0
@@ -501,11 +501,11 @@ define hidden i64 @ps_gc_files(ptr nocapture noundef readonly %0, i64 noundef %1
 
 52:                                               ; preds = %47
   %53 = call i32 @unlink(ptr noundef nonnull %5) #15
-  %54 = add nsw i32 %.02330.i, 1
+  %54 = add nsw i32 %.030.i, 1
   br label %55
 
 55:                                               ; preds = %52, %47, %42, %36, %32
-  %.1.i = phi i32 [ %.02330.i, %32 ], [ %54, %52 ], [ %.02330.i, %47 ], [ %.02330.i, %42 ], [ %.02330.i, %36 ]
+  %.1.i = phi i32 [ %.030.i, %32 ], [ %54, %52 ], [ %.030.i, %47 ], [ %.030.i, %42 ], [ %.030.i, %36 ]
   %56 = call ptr @readdir(ptr noundef nonnull %15) #15
   %.not27.i = icmp eq ptr %56, null
   br i1 %.not27.i, label %._crit_edge.i.loopexit, label %32
@@ -515,19 +515,19 @@ define hidden i64 @ps_gc_files(ptr nocapture noundef readonly %0, i64 noundef %1
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %28
-  %.023.lcssa.i = phi i64 [ 0, %28 ], [ %57, %._crit_edge.i.loopexit ]
+  %.0.lcssa.i = phi i64 [ 0, %28 ], [ %57, %._crit_edge.i.loopexit ]
   %58 = call i32 @closedir(ptr noundef nonnull %15)
   br label %ps_files_cleanup_dir.exit
 
 ps_files_cleanup_dir.exit:                        ; preds = %16, %26, %._crit_edge.i
-  %.0.i = phi i64 [ -1, %26 ], [ %.023.lcssa.i, %._crit_edge.i ], [ -1, %16 ]
+  %.023.i = phi i64 [ -1, %26 ], [ %.0.lcssa.i, %._crit_edge.i ], [ -1, %16 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %59
 
 59:                                               ; preds = %3, %ps_files_cleanup_dir.exit
-  %storemerge = phi i64 [ %.0.i, %ps_files_cleanup_dir.exit ], [ -1, %3 ]
+  %storemerge = phi i64 [ %.023.i, %ps_files_cleanup_dir.exit ], [ -1, %3 ]
   store i64 %storemerge, ptr %2, align 8
   ret i64 %storemerge
 }

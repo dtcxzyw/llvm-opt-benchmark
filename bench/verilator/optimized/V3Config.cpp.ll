@@ -4345,18 +4345,18 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN26V3ConfigScopeTraceResolve
   br i1 %.not6274, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.03376 = phi i32 [ %spec.select, %.lr.ph ], [ 1, %2 ]
+  %.03676 = phi i32 [ %spec.select, %.lr.ph ], [ 1, %2 ]
   %.sroa.054.075 = phi ptr [ %13, %.lr.ph ], [ %8, %2 ]
   %10 = load i8, ptr %.sroa.054.075, align 1
   %11 = icmp eq i8 %10, 46
   %12 = zext i1 %11 to i32
-  %spec.select = add nuw nsw i32 %.03376, %12
+  %spec.select = add nuw nsw i32 %.03676, %12
   %13 = getelementptr inbounds i8, ptr %.sroa.054.075, i64 1
   %.not62 = icmp eq ptr %13, %9
   br i1 %.not62, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.033.lcssa = phi i32 [ 1, %2 ], [ %spec.select, %.lr.ph ]
+  %.036.lcssa = phi i32 [ 1, %2 ], [ %spec.select, %.lr.ph ]
   %14 = tail call noundef i32 @_ZL5debugv()
   %15 = icmp sgt i32 %14, 8
   br i1 %15, label %16, label %32
@@ -4380,7 +4380,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN26V3ConfigScopeTraceResolve
           to label %25 unwind label %30
 
 25:                                               ; preds = %23
-  %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %24, i32 noundef %.033.lcssa)
+  %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %24, i32 noundef %.036.lcssa)
           to label %27 unwind label %30
 
 27:                                               ; preds = %25
@@ -4409,14 +4409,14 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN26V3ConfigScopeTraceResolve
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %select.unfold
-  %.04279 = phi i8 [ 1, %.preheader.lr.ph ], [ %.3.ph, %select.unfold ]
+  %.04079 = phi i8 [ 1, %.preheader.lr.ph ], [ %.3.ph, %select.unfold ]
   %.sroa.050.078 = phi ptr [ %33, %.preheader.lr.ph ], [ %104, %select.unfold ]
   br label %38
 
 38:                                               ; preds = %.preheader, %102
-  %.036 = phi i32 [ %103, %102 ], [ 1, %.preheader ]
-  %.034 = phi i64 [ %.135, %102 ], [ 0, %.preheader ]
-  %39 = add i64 %.034, 1
+  %.034 = phi i32 [ %103, %102 ], [ 1, %.preheader ]
+  %.033 = phi i64 [ %.1, %102 ], [ 0, %.preheader ]
+  %39 = add i64 %.033, 1
   %40 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext 46, i64 noundef %39) #18
   %41 = icmp eq i64 %40, -1
   br i1 %41, label %42, label %44
@@ -4426,8 +4426,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN26V3ConfigScopeTraceResolve
   br label %44
 
 44:                                               ; preds = %42, %38
-  %.135 = phi i64 [ %43, %42 ], [ %40, %38 ]
-  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 0, i64 noundef %.135)
+  %.1 = phi i64 [ %43, %42 ], [ %40, %38 ]
+  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 0, i64 noundef %.1)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store ptr %.sroa.050.078, ptr %3, align 8
@@ -4477,12 +4477,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN26V3ConfigScopeTraceResolve
   %59 = getelementptr inbounds i8, ptr %.sroa.050.078, i64 36
   %60 = load i32, ptr %59, align 4
   %.not = icmp eq i32 %60, 0
-  %61 = sub nsw i32 %.033.lcssa, %.036
+  %61 = sub nsw i32 %.036.lcssa, %.034
   %62 = icmp sge i32 %60, %61
   %63 = select i1 %.not, i1 true, i1 %62
   %64 = getelementptr inbounds i8, ptr %.sroa.050.078, i64 32
   %65 = load i8, ptr %64, align 8
-  %.2 = select i1 %63, i8 %65, i8 %.04279
+  %.2 = select i1 %63, i8 %65, i8 %.04079
   %66 = invoke noundef i32 @_ZL5debugv()
           to label %67 unwind label %.loopexit.split-lp
 
@@ -4534,7 +4534,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN26V3ConfigScopeTraceResolve
           to label %85 unwind label %97
 
 85:                                               ; preds = %83
-  %86 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %84, i32 noundef %.036)
+  %86 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %84, i32 noundef %.034)
           to label %87 unwind label %97
 
 87:                                               ; preds = %85
@@ -4566,16 +4566,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN26V3ConfigScopeTraceResolve
 
 99:                                               ; preds = %._crit_edge.i, %55
   %100 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
-  %101 = icmp eq i64 %.135, %100
+  %101 = icmp eq i64 %.1, %100
   br i1 %101, label %select.unfold, label %102
 
 102:                                              ; preds = %99
-  %103 = add nuw nsw i32 %.036, 1
+  %103 = add nuw nsw i32 %.034, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   br label %38
 
 select.unfold:                                    ; preds = %99, %96, %67
-  %.3.ph = phi i8 [ %.2, %67 ], [ %.2, %96 ], [ %.04279, %99 ]
+  %.3.ph = phi i8 [ %.2, %67 ], [ %.2, %96 ], [ %.04079, %99 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   %104 = getelementptr inbounds i8, ptr %.sroa.050.078, i64 40
   %.not63 = icmp eq ptr %104, %35
@@ -4586,8 +4586,8 @@ select.unfold:                                    ; preds = %99, %96, %67
   br label %._crit_edge80
 
 ._crit_edge80:                                    ; preds = %._crit_edge80.loopexit, %32
-  %.042.lcssa = phi i1 [ true, %32 ], [ %105, %._crit_edge80.loopexit ]
-  ret i1 %.042.lcssa
+  %.040.lcssa = phi i1 [ true, %32 ], [ %105, %._crit_edge80.loopexit ]
+  ret i1 %.040.lcssa
 
 .body:                                            ; preds = %97, %53, %.loopexit.split-lp, %.loopexit, %30
   %.sink = phi ptr [ %5, %30 ], [ %6, %.loopexit ], [ %6, %.loopexit.split-lp ], [ %6, %53 ], [ %6, %97 ]

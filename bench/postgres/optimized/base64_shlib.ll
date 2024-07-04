@@ -21,20 +21,20 @@ define i32 @pg_b64_encode(ptr noundef readonly %0, i32 noundef %1, ptr noundef %
 10:                                               ; preds = %.lr.ph, %47
   %.053 = phi i32 [ 0, %.lr.ph ], [ %.1, %47 ]
   %.03952 = phi i32 [ 2, %.lr.ph ], [ %.140, %47 ]
-  %.04251 = phi ptr [ %0, %.lr.ph ], [ %17, %47 ]
-  %.04350 = phi ptr [ %2, %.lr.ph ], [ %.144, %47 ]
-  %11 = load i8, ptr %.04251, align 1
+  %.04151 = phi ptr [ %0, %.lr.ph ], [ %17, %47 ]
+  %.04250 = phi ptr [ %2, %.lr.ph ], [ %.143, %47 ]
+  %11 = load i8, ptr %.04151, align 1
   %12 = zext i8 %11 to i32
   %13 = shl nuw nsw i32 %.03952, 3
   %14 = shl nuw nsw i32 %12, %13
   %15 = or i32 %14, %.053
   %16 = add nsw i32 %.03952, -1
-  %17 = getelementptr i8, ptr %.04251, i64 1
+  %17 = getelementptr i8, ptr %.04151, i64 1
   %18 = icmp slt i32 %.03952, 1
   br i1 %18, label %19, label %47
 
 19:                                               ; preds = %10
-  %20 = ptrtoint ptr %.04350 to i64
+  %20 = ptrtoint ptr %.04250 to i64
   %reass.sub = sub i64 %20, %8
   %21 = add i64 %reass.sub, 4
   %22 = icmp sgt i64 %21, %9
@@ -46,32 +46,32 @@ define i32 @pg_b64_encode(ptr noundef readonly %0, i32 noundef %1, ptr noundef %
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr [65 x i8], ptr @_base64, i64 0, i64 %26
   %28 = load i8, ptr %27, align 1
-  %29 = getelementptr i8, ptr %.04350, i64 1
-  store i8 %28, ptr %.04350, align 1
+  %29 = getelementptr i8, ptr %.04250, i64 1
+  store i8 %28, ptr %.04250, align 1
   %30 = lshr i32 %15, 12
   %31 = and i32 %30, 63
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr [65 x i8], ptr @_base64, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
-  %35 = getelementptr i8, ptr %.04350, i64 2
+  %35 = getelementptr i8, ptr %.04250, i64 2
   store i8 %34, ptr %29, align 1
   %36 = lshr i32 %15, 6
   %37 = and i32 %36, 63
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr [65 x i8], ptr @_base64, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1
-  %41 = getelementptr i8, ptr %.04350, i64 3
+  %41 = getelementptr i8, ptr %.04250, i64 3
   store i8 %40, ptr %35, align 1
   %42 = and i32 %15, 63
   %43 = zext nneg i32 %42 to i64
   %44 = getelementptr [65 x i8], ptr @_base64, i64 0, i64 %43
   %45 = load i8, ptr %44, align 1
-  %46 = getelementptr i8, ptr %.04350, i64 4
+  %46 = getelementptr i8, ptr %.04250, i64 4
   store i8 %45, ptr %41, align 1
   br label %47
 
 47:                                               ; preds = %23, %10
-  %.144 = phi ptr [ %46, %23 ], [ %.04350, %10 ]
+  %.143 = phi ptr [ %46, %23 ], [ %.04250, %10 ]
   %.140 = phi i32 [ 2, %23 ], [ %16, %10 ]
   %.1 = phi i32 [ 0, %23 ], [ %15, %10 ]
   %exitcond.not = icmp eq ptr %17, %6
@@ -82,12 +82,12 @@ define i32 @pg_b64_encode(ptr noundef readonly %0, i32 noundef %1, ptr noundef %
   br i1 %.not, label %._crit_edge._crit_edge, label %48
 
 ._crit_edge._crit_edge:                           ; preds = %4, %._crit_edge
-  %.043.lcssa62 = phi ptr [ %.144, %._crit_edge ], [ %2, %4 ]
+  %.042.lcssa62 = phi ptr [ %.143, %._crit_edge ], [ %2, %4 ]
   %.pre = ptrtoint ptr %2 to i64
   br label %78
 
 48:                                               ; preds = %._crit_edge
-  %49 = ptrtoint ptr %.144 to i64
+  %49 = ptrtoint ptr %.143 to i64
   %50 = ptrtoint ptr %2 to i64
   %reass.sub56 = sub i64 %49, %50
   %51 = add i64 %reass.sub56, 4
@@ -101,14 +101,14 @@ define i32 @pg_b64_encode(ptr noundef readonly %0, i32 noundef %1, ptr noundef %
   %57 = zext nneg i32 %56 to i64
   %58 = getelementptr [65 x i8], ptr @_base64, i64 0, i64 %57
   %59 = load i8, ptr %58, align 1
-  %60 = getelementptr i8, ptr %.144, i64 1
-  store i8 %59, ptr %.144, align 1
+  %60 = getelementptr i8, ptr %.143, i64 1
+  store i8 %59, ptr %.143, align 1
   %61 = lshr i32 %.1, 12
   %62 = and i32 %61, 63
   %63 = zext nneg i32 %62 to i64
   %64 = getelementptr [65 x i8], ptr @_base64, i64 0, i64 %63
   %65 = load i8, ptr %64, align 1
-  %66 = getelementptr i8, ptr %.144, i64 2
+  %66 = getelementptr i8, ptr %.143, i64 2
   store i8 %65, ptr %60, align 1
   %67 = icmp eq i32 %.140, 0
   br i1 %67, label %68, label %74
@@ -123,15 +123,15 @@ define i32 @pg_b64_encode(ptr noundef readonly %0, i32 noundef %1, ptr noundef %
 
 74:                                               ; preds = %54, %68
   %75 = phi i8 [ %73, %68 ], [ 61, %54 ]
-  %76 = getelementptr i8, ptr %.144, i64 3
+  %76 = getelementptr i8, ptr %.143, i64 3
   store i8 %75, ptr %66, align 1
-  %77 = getelementptr i8, ptr %.144, i64 4
+  %77 = getelementptr i8, ptr %.143, i64 4
   store i8 61, ptr %76, align 1
   br label %78
 
 78:                                               ; preds = %._crit_edge._crit_edge, %74
   %.pre-phi57 = phi i64 [ %.pre, %._crit_edge._crit_edge ], [ %50, %74 ]
-  %.2 = phi ptr [ %.043.lcssa62, %._crit_edge._crit_edge ], [ %77, %74 ]
+  %.2 = phi ptr [ %.042.lcssa62, %._crit_edge._crit_edge ], [ %77, %74 ]
   %79 = ptrtoint ptr %.2 to i64
   %80 = sub i64 %79, %.pre-phi57
   %81 = trunc i64 %80 to i32
@@ -143,8 +143,8 @@ define i32 @pg_b64_encode(ptr noundef readonly %0, i32 noundef %1, ptr noundef %
   br label %82
 
 82:                                               ; preds = %.loopexit, %78
-  %.041 = phi i32 [ -1, %.loopexit ], [ %81, %78 ]
-  ret i32 %.041
+  %.044 = phi i32 [ -1, %.loopexit ], [ %81, %78 ]
+  ret i32 %.044
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -166,17 +166,17 @@ define i32 @pg_b64_decode(ptr noundef readonly %0, i32 noundef %1, ptr noundef %
   %.092.ph = phi i32 [ %.282, %56 ], [ 0, %.lr.ph ]
   %.06291.ph = phi i32 [ %.163, %56 ], [ 0, %.lr.ph ]
   %.06490.ph = phi i32 [ %.165, %56 ], [ 0, %.lr.ph ]
-  %.06989.ph = phi ptr [ %.3, %56 ], [ %2, %.lr.ph ]
-  %.07288.ph = phi ptr [ %11, %56 ], [ %0, %.lr.ph ]
+  %.06889.ph = phi ptr [ %.3, %56 ], [ %2, %.lr.ph ]
+  %.07188.ph = phi ptr [ %11, %56 ], [ %0, %.lr.ph ]
   br label %10
 
 10:                                               ; preds = %.outer, %.thread99
   %.092 = phi i32 [ 1, %.thread99 ], [ %.092.ph, %.outer ]
   %.06291 = phi i32 [ 3, %.thread99 ], [ %.06291.ph, %.outer ]
   %.06490 = phi i32 [ %57, %.thread99 ], [ %.06490.ph, %.outer ]
-  %.07288 = phi ptr [ %11, %.thread99 ], [ %.07288.ph, %.outer ]
-  %11 = getelementptr i8, ptr %.07288, i64 1
-  %12 = load i8, ptr %.07288, align 1
+  %.07188 = phi ptr [ %11, %.thread99 ], [ %.07188.ph, %.outer ]
+  %11 = getelementptr i8, ptr %.07188, i64 1
+  %12 = load i8, ptr %.07188, align 1
   switch i8 %12, label %16 [
     i8 32, label %.thread
     i8 13, label %.thread
@@ -223,7 +223,7 @@ define i32 @pg_b64_decode(ptr noundef readonly %0, i32 noundef %1, ptr noundef %
 28:                                               ; preds = %.thread78, %.loopexit
   %29 = phi i32 [ %15, %.thread78 ], [ %25, %.loopexit ]
   %.281 = phi i32 [ 2, %.thread78 ], [ %.092, %.loopexit ]
-  %30 = ptrtoint ptr %.06989.ph to i64
+  %30 = ptrtoint ptr %.06889.ph to i64
   %reass.sub = sub i64 %30, %8
   %31 = add i64 %reass.sub, 1
   %32 = icmp sgt i64 %31, %9
@@ -232,8 +232,8 @@ define i32 @pg_b64_decode(ptr noundef readonly %0, i32 noundef %1, ptr noundef %
 33:                                               ; preds = %28
   %34 = lshr i32 %29, 16
   %35 = trunc i32 %34 to i8
-  %36 = getelementptr i8, ptr %.06989.ph, i64 1
-  store i8 %35, ptr %.06989.ph, align 1
+  %36 = getelementptr i8, ptr %.06889.ph, i64 1
+  store i8 %35, ptr %.06889.ph, align 1
   %37 = icmp eq i32 %.281, 0
   %38 = icmp sgt i32 %.281, 1
   %or.cond13 = or i1 %37, %38
@@ -249,18 +249,18 @@ define i32 @pg_b64_decode(ptr noundef readonly %0, i32 noundef %1, ptr noundef %
 43:                                               ; preds = %39
   %44 = lshr i32 %29, 8
   %45 = trunc i32 %44 to i8
-  %46 = getelementptr i8, ptr %.06989.ph, i64 2
+  %46 = getelementptr i8, ptr %.06889.ph, i64 2
   store i8 %45, ptr %36, align 1
   br label %47
 
 47:                                               ; preds = %33, %43
-  %.170 = phi ptr [ %46, %43 ], [ %36, %33 ]
+  %.169 = phi ptr [ %46, %43 ], [ %36, %33 ]
   %48 = icmp sgt i32 %.281, 2
   %or.cond15 = or i1 %37, %48
   br i1 %or.cond15, label %49, label %56
 
 49:                                               ; preds = %47
-  %50 = ptrtoint ptr %.170 to i64
+  %50 = ptrtoint ptr %.169 to i64
   %reass.sub95 = sub i64 %50, %8
   %51 = add i64 %reass.sub95, 1
   %52 = icmp sgt i64 %51, %9
@@ -268,13 +268,13 @@ define i32 @pg_b64_decode(ptr noundef readonly %0, i32 noundef %1, ptr noundef %
 
 53:                                               ; preds = %49
   %54 = trunc i32 %29 to i8
-  %55 = getelementptr i8, ptr %.170, i64 1
-  store i8 %54, ptr %.170, align 1
+  %55 = getelementptr i8, ptr %.169, i64 1
+  store i8 %54, ptr %.169, align 1
   br label %56
 
 56:                                               ; preds = %53, %47, %.loopexit
   %.282 = phi i32 [ %.092, %.loopexit ], [ %.281, %53 ], [ %.281, %47 ]
-  %.3 = phi ptr [ %.06989.ph, %.loopexit ], [ %55, %53 ], [ %.170, %47 ]
+  %.3 = phi ptr [ %.06889.ph, %.loopexit ], [ %55, %53 ], [ %.169, %47 ]
   %.165 = phi i32 [ %25, %.loopexit ], [ 0, %53 ], [ 0, %47 ]
   %.163 = phi i32 [ %26, %.loopexit ], [ 0, %53 ], [ 0, %47 ]
   %exitcond.not = icmp eq ptr %11, %6
@@ -294,8 +294,8 @@ define i32 @pg_b64_decode(ptr noundef readonly %0, i32 noundef %1, ptr noundef %
   br label %.thread
 
 ._crit_edge.thread:                               ; preds = %4, %._crit_edge
-  %.069.lcssa98 = phi ptr [ %.3, %._crit_edge ], [ %2, %4 ]
-  %59 = ptrtoint ptr %.069.lcssa98 to i64
+  %.068.lcssa98 = phi ptr [ %.3, %._crit_edge ], [ %2, %4 ]
+  %59 = ptrtoint ptr %.068.lcssa98 to i64
   %60 = ptrtoint ptr %2 to i64
   %61 = sub i64 %59, %60
   %62 = trunc i64 %61 to i32
@@ -307,8 +307,8 @@ define i32 @pg_b64_decode(ptr noundef readonly %0, i32 noundef %1, ptr noundef %
   br label %63
 
 63:                                               ; preds = %.thread, %._crit_edge.thread
-  %.068 = phi i32 [ -1, %.thread ], [ %62, %._crit_edge.thread ]
-  ret i32 %.068
+  %.072 = phi i32 [ -1, %.thread ], [ %62, %._crit_edge.thread ]
+  ret i32 %.072
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

@@ -53,7 +53,7 @@ define ptr @dtextract(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %11, %28, %6
-  %.0 = phi ptr [ %8, %6 ], [ %30, %28 ], [ %12, %11 ], [ %12, %.lr.ph.preheader ]
+  %.016 = phi ptr [ %8, %6 ], [ %30, %28 ], [ %12, %11 ], [ %12, %.lr.ph.preheader ]
   %31 = load ptr, ptr %2, align 8
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, -4097
@@ -64,7 +64,7 @@ define ptr @dtextract(ptr noundef %0) local_unnamed_addr #0 {
   %36 = load ptr, ptr %2, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   store ptr null, ptr %37, align 8
-  ret ptr %.0
+  ret ptr %.016
 }
 
 declare ptr @dtflatten(ptr noundef) local_unnamed_addr #1

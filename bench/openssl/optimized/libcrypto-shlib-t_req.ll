@@ -82,8 +82,8 @@ entry:
   %sig = alloca ptr, align 8
   %and = and i64 %nmflags, 983040
   %cmp = icmp eq i64 %and, 262144
-  %spec.select = select i1 %cmp, i32 12, i32 0
-  %spec.select74 = select i1 %cmp, i32 10, i32 32
+  %spec.select = select i1 %cmp, i32 10, i32 32
+  %spec.select74 = select i1 %cmp, i32 12, i32 0
   %cmp1 = icmp eq i64 %nmflags, 0
   %printok.0 = zext i1 %cmp1 to i32
   %and4 = and i64 %cflag, 1
@@ -126,13 +126,13 @@ if.end29:                                         ; preds = %if.then19, %if.else
   br i1 %tobool31.not, label %if.then32, label %if.end49
 
 if.then32:                                        ; preds = %if.end29
-  %call33 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.6, i32 noundef %spec.select74) #3
+  %call33 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.6, i32 noundef %spec.select) #3
   %cmp34 = icmp slt i32 %call33, 1
   br i1 %cmp34, label %return.sink.split, label %if.end37
 
 if.end37:                                         ; preds = %if.then32
   %call38 = tail call ptr @X509_REQ_get_subject_name(ptr noundef %x) #3
-  %call39 = tail call i32 @X509_NAME_print_ex(ptr noundef %bp, ptr noundef %call38, i32 noundef %spec.select, i64 noundef %nmflags) #3
+  %call39 = tail call i32 @X509_NAME_print_ex(ptr noundef %bp, ptr noundef %call38, i32 noundef %spec.select74, i64 noundef %nmflags) #3
   %cmp40 = icmp slt i32 %call39, %printok.0
   br i1 %cmp40, label %return.sink.split, label %if.end43
 

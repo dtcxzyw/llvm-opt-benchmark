@@ -21593,8 +21593,8 @@ default.unreachable:                              ; preds = %36
 
 108:                                              ; preds = %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$syntax..ast..generated..nodes..Path$GT$$GT$$GT$17ha90f2a03fe5e66f1E.exit.i", %106
   %109 = phi i1 [ %107, %106 ], [ false, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$syntax..ast..generated..nodes..Path$GT$$GT$$GT$17ha90f2a03fe5e66f1E.exit.i" ]
-  %.sroa.7.sroa.0.0.i = phi ptr [ undef, %106 ], [ %.sroa.7.sroa.0.1.i, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$syntax..ast..generated..nodes..Path$GT$$GT$$GT$17ha90f2a03fe5e66f1E.exit.i" ]
   %.sroa.7.sroa.5.0.i = phi i64 [ undef, %106 ], [ %.sroa.7.sroa.5.1.i, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$syntax..ast..generated..nodes..Path$GT$$GT$$GT$17ha90f2a03fe5e66f1E.exit.i" ]
+  %.sroa.7.sroa.0.0.i = phi ptr [ undef, %106 ], [ %.sroa.7.sroa.0.1.i, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$syntax..ast..generated..nodes..Path$GT$$GT$$GT$17ha90f2a03fe5e66f1E.exit.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5648)
   br i1 %109, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Path$GT$$GT$17h47a9701a9a6c452fE.exit.i", label %110
 
@@ -21732,8 +21732,8 @@ common.resume.i:                                  ; preds = %145, %.body.i, %161
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h1791612a623c1ac2E.exit.i"
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h1791612a623c1ac2E.exit.i": ; preds = %151, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Path$GT$$GT$17h47a9701a9a6c452fE.exit.i"
-  %.sroa.7.sroa.0.1.i = phi ptr [ %.sroa.7.sroa.0.0.i, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Path$GT$$GT$17h47a9701a9a6c452fE.exit.i" ], [ %.sroa.7.sroa.0.0.copyload.i, %151 ]
   %.sroa.7.sroa.5.1.i = phi i64 [ %.sroa.7.sroa.5.0.i, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Path$GT$$GT$17h47a9701a9a6c452fE.exit.i" ], [ %.sroa.7.sroa.5.0.copyload.i, %151 ]
+  %.sroa.7.sroa.0.1.i = phi ptr [ %.sroa.7.sroa.0.0.i, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Path$GT$$GT$17h47a9701a9a6c452fE.exit.i" ], [ %.sroa.7.sroa.0.0.copyload.i, %151 ]
   %.sink.i.i = phi ptr [ %.sroa.0.i, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Path$GT$$GT$17h47a9701a9a6c452fE.exit.i" ], [ %27, %151 ]
   store i64 -9223372036854775808, ptr %.sink.i.i, align 8, !alias.scope !5701
   %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i = load i64, ptr %.sroa.0.i, align 8, !range !314, !noalias !5645, !noundef !11
@@ -22691,8 +22691,8 @@ default.unreachable:                              ; preds = %36
 
 108:                                              ; preds = %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$syntax..ast..generated..nodes..Path$GT$$GT$$GT$17ha90f2a03fe5e66f1E.exit.i", %106
   %109 = phi i1 [ %107, %106 ], [ false, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$syntax..ast..generated..nodes..Path$GT$$GT$$GT$17ha90f2a03fe5e66f1E.exit.i" ]
-  %.sroa.7.sroa.0.0.i = phi ptr [ undef, %106 ], [ %.sroa.7.sroa.0.1.i, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$syntax..ast..generated..nodes..Path$GT$$GT$$GT$17ha90f2a03fe5e66f1E.exit.i" ]
   %.sroa.7.sroa.5.0.i = phi i64 [ undef, %106 ], [ %.sroa.7.sroa.5.1.i, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$syntax..ast..generated..nodes..Path$GT$$GT$$GT$17ha90f2a03fe5e66f1E.exit.i" ]
+  %.sroa.7.sroa.0.0.i = phi ptr [ undef, %106 ], [ %.sroa.7.sroa.0.1.i, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$syntax..ast..generated..nodes..Path$GT$$GT$$GT$17ha90f2a03fe5e66f1E.exit.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5984)
   br i1 %109, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Path$GT$$GT$17h47a9701a9a6c452fE.exit.i", label %110
 
@@ -22830,8 +22830,8 @@ common.resume.i:                                  ; preds = %145, %.body.i, %161
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h1791612a623c1ac2E.exit.i"
 
 "_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h1791612a623c1ac2E.exit.i": ; preds = %151, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Path$GT$$GT$17h47a9701a9a6c452fE.exit.i"
-  %.sroa.7.sroa.0.1.i = phi ptr [ %.sroa.7.sroa.0.0.i, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Path$GT$$GT$17h47a9701a9a6c452fE.exit.i" ], [ %.sroa.7.sroa.0.0.copyload.i, %151 ]
   %.sroa.7.sroa.5.1.i = phi i64 [ %.sroa.7.sroa.5.0.i, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Path$GT$$GT$17h47a9701a9a6c452fE.exit.i" ], [ %.sroa.7.sroa.5.0.copyload.i, %151 ]
+  %.sroa.7.sroa.0.1.i = phi ptr [ %.sroa.7.sroa.0.0.i, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Path$GT$$GT$17h47a9701a9a6c452fE.exit.i" ], [ %.sroa.7.sroa.0.0.copyload.i, %151 ]
   %.sink.i.i = phi ptr [ %.sroa.0.i, %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Path$GT$$GT$17h47a9701a9a6c452fE.exit.i" ], [ %27, %151 ]
   store i64 -9223372036854775808, ptr %.sink.i.i, align 8, !alias.scope !6037
   %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..i = load i64, ptr %.sroa.0.i, align 8, !range !314, !noalias !5981, !noundef !11

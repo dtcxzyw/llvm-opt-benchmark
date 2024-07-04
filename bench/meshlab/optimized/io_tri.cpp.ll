@@ -3129,18 +3129,18 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ImporterASCI6CMeshOE4OpenERS3_P
   br label %30
 
 .lr.ph:                                           ; preds = %18, %.lr.ph
-  %.05165 = phi i32 [ %29, %.lr.ph ], [ 0, %18 ]
+  %.05065 = phi i32 [ %29, %.lr.ph ], [ 0, %18 ]
   %28 = call ptr @fgets(ptr noundef nonnull %11, i32 noundef 1024, ptr noundef nonnull %13)
-  %29 = add nuw nsw i32 %.05165, 1
+  %29 = add nuw nsw i32 %.05065, 1
   %exitcond.not = icmp eq i32 %29, %4
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !21
 
 30:                                               ; preds = %.lr.ph68, %.backedge
-  %.05067 = phi i64 [ 0, %.lr.ph68 ], [ %.1, %.backedge ]
+  %.05267 = phi i64 [ 0, %.lr.ph68 ], [ %.1, %.backedge ]
   br i1 %.not57, label %40, label %31
 
 31:                                               ; preds = %30
-  %32 = add i64 %.05067, 1
+  %32 = add i64 %.05267, 1
   %33 = urem i64 %32, 1000
   %.not58 = icmp eq i64 %33, 0
   br i1 %.not58, label %40, label %34
@@ -3154,7 +3154,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ImporterASCI6CMeshOE4OpenERS3_P
   br label %40
 
 40:                                               ; preds = %34, %31, %30
-  %.1 = phi i64 [ %32, %34 ], [ %32, %31 ], [ %.05067, %30 ]
+  %.1 = phi i64 [ %32, %34 ], [ %32, %31 ], [ %.05267, %30 ]
   %41 = call i32 @feof(ptr noundef nonnull %13) #21
   %.not59 = icmp eq i32 %41, 0
   br i1 %.not59, label %42, label %._crit_edge
@@ -3174,8 +3174,8 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ImporterASCI6CMeshOE4OpenERS3_P
   br label %49
 
 49:                                               ; preds = %47, %44
-  %.052 = phi i32 [ %48, %47 ], [ %45, %44 ]
-  %50 = icmp sgt i32 %.052, 2
+  %.051 = phi i32 [ %48, %47 ], [ %45, %44 ]
+  %50 = icmp sgt i32 %.051, 2
   br i1 %50, label %51, label %.backedge
 
 51:                                               ; preds = %49
@@ -3215,7 +3215,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %53, %55
   %62 = load float, ptr %26, align 8
   %63 = getelementptr inbounds i8, ptr %52, i64 16
   store float %62, ptr %63, align 4
-  %64 = icmp eq i32 %.052, 4
+  %64 = icmp eq i32 %.051, 4
   br i1 %64, label %65, label %.backedge
 
 65:                                               ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit

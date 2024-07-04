@@ -595,8 +595,8 @@ define ptr @core_array_to_bitmap(ptr noundef readonly %0) local_unnamed_addr #0 
   br i1 %34, label %.lr.ph25, label %.loopexit22, !llvm.loop !17
 
 .loopexit22:                                      ; preds = %.loopexit, %2, %1
-  %.0 = phi ptr [ null, %1 ], [ %6, %2 ], [ %6, %.loopexit ]
-  ret ptr %.0
+  %.018 = phi ptr [ null, %1 ], [ %6, %2 ], [ %6, %.loopexit ]
+  ret ptr %.018
 }
 
 declare ptr @bit_alloc(i64 noundef) local_unnamed_addr #1
@@ -630,15 +630,15 @@ define ptr @core_bitmap_to_array(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not3746, label %.loopexit42, label %.lr.ph50
 
 .lr.ph50:                                         ; preds = %8, %63
-  %.03048 = phi i32 [ %.2, %63 ], [ 0, %8 ]
-  %.03247 = phi i32 [ %64, %63 ], [ %6, %8 ]
-  %14 = sext i32 %.03247 to i64
+  %.048 = phi i32 [ %.2, %63 ], [ 0, %8 ]
+  %.03147 = phi i32 [ %64, %63 ], [ %6, %8 ]
+  %14 = sext i32 %.03147 to i64
   %15 = call i32 @bit_test(ptr noundef nonnull %0, i64 noundef %14) #2
   %.not38 = icmp eq i32 %15, 0
   br i1 %.not38, label %63, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph50
-  store i32 %.03048, ptr %2, align 4
+  store i32 %.048, ptr %2, align 4
   %16 = call ptr @next_node(ptr noundef nonnull %2) #2
   %.not3943 = icmp eq ptr %16, null
   br i1 %.not3943, label %.loopexit, label %.lr.ph
@@ -647,7 +647,7 @@ define ptr @core_bitmap_to_array(ptr noundef %0) local_unnamed_addr #0 {
   %17 = load i32, ptr %2, align 4
   %18 = add nsw i32 %17, 1
   %19 = call i32 @cr_get_coremap_offset(i32 noundef %18) #2
-  %20 = icmp ult i32 %.03247, %19
+  %20 = icmp ult i32 %.03147, %19
   %21 = load i32, ptr %2, align 4
   %22 = add nsw i32 %21, 1
   br i1 %20, label %23, label %26
@@ -664,8 +664,8 @@ define ptr @core_bitmap_to_array(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not39, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %26, %.preheader, %23
-  %.133 = phi i32 [ %25, %23 ], [ %.03247, %.preheader ], [ %.03247, %26 ]
-  %.1 = phi i32 [ %21, %23 ], [ %.03048, %.preheader ], [ %.03048, %26 ]
+  %.132 = phi i32 [ %25, %23 ], [ %.03147, %.preheader ], [ %.03147, %26 ]
+  %.1 = phi i32 [ %21, %23 ], [ %.048, %.preheader ], [ %.048, %26 ]
   %28 = load i32, ptr %2, align 4
   %29 = load i32, ptr @node_record_count, align 4
   %.not40 = icmp slt i32 %28, %29
@@ -728,15 +728,15 @@ define ptr @core_bitmap_to_array(ptr noundef %0) local_unnamed_addr #0 {
   br label %63
 
 63:                                               ; preds = %.lr.ph50, %._crit_edge
-  %.234 = phi i32 [ %.133, %._crit_edge ], [ %.03247, %.lr.ph50 ]
-  %.2 = phi i32 [ %62, %._crit_edge ], [ %.03048, %.lr.ph50 ]
-  %64 = add nsw i32 %.234, 1
-  %.not37.not = icmp slt i32 %.234, %13
+  %.233 = phi i32 [ %.132, %._crit_edge ], [ %.03147, %.lr.ph50 ]
+  %.2 = phi i32 [ %62, %._crit_edge ], [ %.048, %.lr.ph50 ]
+  %64 = add nsw i32 %.233, 1
+  %.not37.not = icmp slt i32 %.233, %13
   br i1 %.not37.not, label %.lr.ph50, label %.loopexit42, !llvm.loop !20
 
 .loopexit42:                                      ; preds = %63, %8, %30, %4, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %4 ], [ %11, %30 ], [ %11, %8 ], [ %11, %63 ]
-  ret ptr %.0
+  %.034 = phi ptr [ null, %1 ], [ null, %4 ], [ %11, %30 ], [ %11, %8 ], [ %11, %63 ]
+  ret ptr %.034
 }
 
 declare i64 @bit_fls(ptr noundef) local_unnamed_addr #1

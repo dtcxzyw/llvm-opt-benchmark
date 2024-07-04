@@ -29860,12 +29860,12 @@ define internal i32 @dissect_rnsap_TransportLayerAddress(ptr noundef %0, i32 nou
 
 35:                                               ; preds = %33, %23
   %36 = phi ptr [ %.pre, %23 ], [ %34, %33 ]
-  %.030 = phi ptr [ %31, %23 ], [ %34, %33 ]
+  %.0 = phi ptr [ %31, %23 ], [ %34, %33 ]
   %37 = load i32, ptr @hf_rnsap_transportLayerAddress_nsap, align 4
   %38 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %37, ptr noundef %36, i32 noundef 0, i32 noundef %10, i32 noundef 0) #3
   %39 = load i32, ptr @ett_rnsap_transportLayerAddress_nsap, align 4
   %40 = call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %39) #3
-  call void @dissect_nsap(ptr noundef %.030, i32 noundef 0, i32 noundef 20, ptr noundef %40) #3
+  call void @dissect_nsap(ptr noundef %.0, i32 noundef 0, i32 noundef 20, ptr noundef %40) #3
   br label %.thread
 
 .thread:                                          ; preds = %9, %19, %15, %35, %5
@@ -31614,14 +31614,14 @@ rnsap_get_private_data.exit:                      ; preds = %5, %13
   br label %24
 
 24:                                               ; preds = %21, %23
-  %.013.in = phi ptr [ @rrc_ul_ccch_handle, %23 ], [ @rrc_dl_ccch_handle, %21 ]
-  %.013 = load ptr, ptr %.013.in, align 8
-  %.not14 = icmp eq ptr %.013, null
+  %.0.in = phi ptr [ @rrc_ul_ccch_handle, %23 ], [ @rrc_dl_ccch_handle, %21 ]
+  %.0 = load ptr, ptr %.0.in, align 8
+  %.not14 = icmp eq ptr %.0, null
   br i1 %.not14, label %.thread, label %25
 
 25:                                               ; preds = %24
   %26 = load ptr, ptr %7, align 8
-  %27 = call i32 @call_dissector(ptr noundef nonnull %.013, ptr noundef nonnull %20, ptr noundef %26, ptr noundef %3) #3
+  %27 = call i32 @call_dissector(ptr noundef nonnull %.0, ptr noundef nonnull %20, ptr noundef %26, ptr noundef %3) #3
   br label %.thread
 
 .thread:                                          ; preds = %21, %24, %25, %rnsap_get_private_data.exit

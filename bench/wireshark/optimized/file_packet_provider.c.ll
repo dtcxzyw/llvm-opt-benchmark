@@ -119,8 +119,8 @@ define hidden ptr @cap_file_provider_get_interface_name(ptr nocapture noundef re
   br label %32
 
 32:                                               ; preds = %.thread, %28, %13, %26, %21
-  %.0 = phi ptr [ %22, %21 ], [ %27, %26 ], [ @.str, %13 ], [ %spec.select, %28 ], [ @.str, %.thread ]
-  ret ptr %.0
+  %.013 = phi ptr [ %22, %21 ], [ %27, %26 ], [ @.str, %13 ], [ %spec.select, %28 ], [ @.str, %.thread ]
+  ret ptr %.013
 }
 
 declare ptr @wtap_file_get_idb_info(ptr noundef) local_unnamed_addr #1

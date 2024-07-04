@@ -1810,7 +1810,7 @@ define hidden void @_ZN6diesel5mysql10connection4bind22PreparedStatementBinds15f
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN6diesel9query_dsl8load_dsl7private31LoadIter$LT$U$C$C$C$ST$C$DB$GT$7map_row17hcf63e911b48bb016E.llvm.14419527431308106341"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, [1 x i64] }, align 8
-  %4 = alloca { ptr, ptr }, align 8
+  %4 = alloca { ptr, ptr }, align 16
   %5 = load i64, ptr %1, align 8, !range !315, !noundef !4
   %6 = icmp eq i64 %5, -9223372036854775797
   br i1 %6, label %.thread, label %7
@@ -1833,9 +1833,8 @@ define hidden void @"_ZN6diesel9query_dsl8load_dsl7private31LoadIter$LT$U$C$C$C$
   %12 = extractelement <2 x ptr> %8, i64 1
   %13 = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %13)
-  store ptr %10, ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %12, ptr %14, align 8
+  store <2 x ptr> %8, ptr %4, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !316
   invoke void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromStaticSqlRow$LT$ST$C$DB$GT$$GT$14build_from_row17hfc7e7785ec9dc14bE"(ptr noalias nocapture noundef nonnull sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
           to label %.noexc unwind label %22

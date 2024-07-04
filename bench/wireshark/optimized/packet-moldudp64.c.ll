@@ -170,16 +170,16 @@ define internal i32 @dissect_moldudp64(ptr noundef %0, ptr noundef %1, ptr nound
   %36 = phi i32 [ %78, %dissect_moldudp64_msgblk.exit ], [ 22, %24 ]
   %.067 = phi i64 [ %37, %dissect_moldudp64_msgblk.exit ], [ %11, %24 ]
   %.05866 = phi i16 [ %76, %dissect_moldudp64_msgblk.exit ], [ 0, %24 ]
-  %.06065 = phi i32 [ %75, %dissect_moldudp64_msgblk.exit ], [ 20, %24 ]
+  %.05965 = phi i32 [ %75, %dissect_moldudp64_msgblk.exit ], [ 20, %24 ]
   %37 = add i64 %.067, 1
-  %38 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.06065) #4
+  %38 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.05965) #4
   %39 = icmp slt i32 %38, 2
   br i1 %39, label %dissect_moldudp64_msgblk.exit, label %40
 
 40:                                               ; preds = %.lr.ph
-  %41 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.06065) #4
+  %41 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.05965) #4
   %42 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
-  %43 = sub i32 %42, %.06065
+  %43 = sub i32 %42, %.05965
   %44 = add i32 %43, -2
   %45 = icmp slt i32 %44, 0
   %46 = zext i16 %41 to i32
@@ -191,11 +191,11 @@ define internal i32 @dissect_moldudp64(ptr noundef %0, ptr noundef %1, ptr nound
   %49 = add i16 %.043.i, 2
   %50 = load i32, ptr @hf_moldudp64_msgblk, align 4
   %51 = zext i16 %49 to i32
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %50, ptr noundef %0, i32 noundef %.06065, i32 noundef %51, i32 noundef 0) #4
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %50, ptr noundef %0, i32 noundef %.05965, i32 noundef %51, i32 noundef 0) #4
   %53 = load i32, ptr @ett_moldudp64_msgblk, align 4
   %54 = tail call ptr @proto_item_add_subtree(ptr noundef %52, i32 noundef %53) #4
   %55 = load i32, ptr @hf_moldudp64_msgseq, align 4
-  %56 = tail call ptr @proto_tree_add_uint64(ptr noundef %54, i32 noundef %55, ptr noundef %0, i32 noundef %.06065, i32 noundef 0, i64 noundef %.067) #4
+  %56 = tail call ptr @proto_tree_add_uint64(ptr noundef %54, i32 noundef %55, ptr noundef %0, i32 noundef %.05965, i32 noundef 0, i64 noundef %.067) #4
   %.not.i.i = icmp eq ptr %56, null
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %57
 
@@ -214,7 +214,7 @@ define internal i32 @dissect_moldudp64(ptr noundef %0, ptr noundef %1, ptr nound
 
 proto_item_set_generated.exit.i:                  ; preds = %60, %57, %40
   %64 = load i32, ptr @hf_moldudp64_msglen, align 4
-  %65 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %64, ptr noundef %0, i32 noundef %.06065, i32 noundef 2, i32 noundef 0) #4
+  %65 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %64, ptr noundef %0, i32 noundef %.05965, i32 noundef 2, i32 noundef 0) #4
   %.not47.i = icmp eq i16 %41, %.043.i
   br i1 %.not47.i, label %68, label %66
 
@@ -236,7 +236,7 @@ proto_item_set_generated.exit.i:                  ; preds = %60, %57, %40
 
 dissect_moldudp64_msgblk.exit:                    ; preds = %.lr.ph, %68, %72
   %.0.i = phi i32 [ 0, %.lr.ph ], [ %51, %72 ], [ %51, %68 ]
-  %75 = add i32 %.0.i, %.06065
+  %75 = add i32 %.0.i, %.05965
   %76 = add i16 %.05866, 1
   %77 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   %78 = add i32 %75, 2
@@ -279,8 +279,8 @@ dissect_moldudp64_msgblk.exit:                    ; preds = %.lr.ph, %68, %72
   br label %94
 
 94:                                               ; preds = %4, %92
-  %.059 = phi i32 [ %93, %92 ], [ 0, %4 ]
-  ret i32 %.059
+  %.060 = phi i32 [ %93, %92 ], [ 0, %4 ]
+  ret i32 %.060
 }
 
 ; Function Attrs: nounwind uwtable

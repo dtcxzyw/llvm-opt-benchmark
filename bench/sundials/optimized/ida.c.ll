@@ -321,8 +321,8 @@ define range(i32 -22, 1) i32 @IDAInit(ptr noundef %0, ptr noundef %1, double nou
 IDACheckNvector.exit:                             ; preds = %56
   %60 = getelementptr inbounds i8, ptr %.val, i64 184
   %61 = load ptr, ptr %60, align 8
-  %.not85 = icmp eq ptr %61, null
-  br i1 %.not85, label %IDACheckNvector.exit.thread, label %62
+  %.not84 = icmp eq ptr %61, null
+  br i1 %.not84, label %IDACheckNvector.exit.thread, label %62
 
 IDACheckNvector.exit.thread:                      ; preds = %19, %24, %28, %32, %36, %40, %44, %48, %52, %56, %IDACheckNvector.exit
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 425, ptr noundef nonnull @__func__.IDAInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.7)
@@ -337,7 +337,7 @@ IDACheckNvector.exit.thread:                      ; preds = %19, %24, %28, %32, 
 65:                                               ; preds = %62
   call void @N_VSpace(ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %7) #13
   %.pre = load i64, ptr %6, align 8
-  %.pre91 = load i64, ptr %7, align 8
+  %.pre90 = load i64, ptr %7, align 8
   br label %67
 
 66:                                               ; preds = %62
@@ -346,7 +346,7 @@ IDACheckNvector.exit.thread:                      ; preds = %19, %24, %28, %32, 
   br label %67
 
 67:                                               ; preds = %66, %65
-  %68 = phi i64 [ 0, %66 ], [ %.pre91, %65 ]
+  %68 = phi i64 [ 0, %66 ], [ %.pre90, %65 ]
   %69 = phi i64 [ 0, %66 ], [ %.pre, %65 ]
   %70 = getelementptr inbounds i8, ptr %0, i64 920
   store i64 %69, ptr %70, align 8
@@ -477,65 +477,65 @@ IDACheckNvector.exit.thread:                      ; preds = %19, %24, %28, %32, 
   br i1 %exitcond.not.i, label %138, label %114
 
 .loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split: ; preds = %99, %107
-  %.sink99 = phi ptr [ %77, %107 ], [ %73, %99 ]
-  %.sink98.ph = phi ptr [ %81, %107 ], [ %77, %99 ]
-  %.sink97.ph.ph = phi ptr [ %85, %107 ], [ %81, %99 ]
-  %.sink96.ph.ph.ph = phi ptr [ %89, %107 ], [ %85, %99 ]
-  %.sink95.ph.ph.ph.ph = phi ptr [ %93, %107 ], [ %89, %99 ]
-  %.sink94.ph.ph.ph.ph.ph = phi ptr [ %97, %107 ], [ %93, %99 ]
-  %.sink93.ph.ph.ph.ph.ph.ph = phi ptr [ %101, %107 ], [ %97, %99 ]
-  %131 = load ptr, ptr %.sink99, align 8
+  %.sink98 = phi ptr [ %77, %107 ], [ %73, %99 ]
+  %.sink97.ph = phi ptr [ %81, %107 ], [ %77, %99 ]
+  %.sink96.ph.ph = phi ptr [ %85, %107 ], [ %81, %99 ]
+  %.sink95.ph.ph.ph = phi ptr [ %89, %107 ], [ %85, %99 ]
+  %.sink94.ph.ph.ph.ph = phi ptr [ %93, %107 ], [ %89, %99 ]
+  %.sink93.ph.ph.ph.ph.ph = phi ptr [ %97, %107 ], [ %93, %99 ]
+  %.sink92.ph.ph.ph.ph.ph.ph = phi ptr [ %101, %107 ], [ %97, %99 ]
+  %131 = load ptr, ptr %.sink98, align 8
   call void @N_VDestroy(ptr noundef %131) #13
   br label %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split
 
 .loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split: ; preds = %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split, %95
-  %.sink98 = phi ptr [ %73, %95 ], [ %.sink98.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
-  %.sink97.ph = phi ptr [ %77, %95 ], [ %.sink97.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
-  %.sink96.ph.ph = phi ptr [ %81, %95 ], [ %.sink96.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
-  %.sink95.ph.ph.ph = phi ptr [ %85, %95 ], [ %.sink95.ph.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
-  %.sink94.ph.ph.ph.ph = phi ptr [ %89, %95 ], [ %.sink94.ph.ph.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
-  %.sink93.ph.ph.ph.ph.ph = phi ptr [ %93, %95 ], [ %.sink93.ph.ph.ph.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
-  %132 = load ptr, ptr %.sink98, align 8
+  %.sink97 = phi ptr [ %73, %95 ], [ %.sink97.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink96.ph = phi ptr [ %77, %95 ], [ %.sink96.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink95.ph.ph = phi ptr [ %81, %95 ], [ %.sink95.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink94.ph.ph.ph = phi ptr [ %85, %95 ], [ %.sink94.ph.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink93.ph.ph.ph.ph = phi ptr [ %89, %95 ], [ %.sink93.ph.ph.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink92.ph.ph.ph.ph.ph = phi ptr [ %93, %95 ], [ %.sink92.ph.ph.ph.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %132 = load ptr, ptr %.sink97, align 8
   call void @N_VDestroy(ptr noundef %132) #13
   br label %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split
 
 .loopexit.sink.split.sink.split.sink.split.sink.split.sink.split: ; preds = %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split, %91
-  %.sink97 = phi ptr [ %73, %91 ], [ %.sink97.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
-  %.sink96.ph = phi ptr [ %77, %91 ], [ %.sink96.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
-  %.sink95.ph.ph = phi ptr [ %81, %91 ], [ %.sink95.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
-  %.sink94.ph.ph.ph = phi ptr [ %85, %91 ], [ %.sink94.ph.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
-  %.sink93.ph.ph.ph.ph = phi ptr [ %89, %91 ], [ %.sink93.ph.ph.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
-  %133 = load ptr, ptr %.sink97, align 8
+  %.sink96 = phi ptr [ %73, %91 ], [ %.sink96.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink95.ph = phi ptr [ %77, %91 ], [ %.sink95.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink94.ph.ph = phi ptr [ %81, %91 ], [ %.sink94.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink93.ph.ph.ph = phi ptr [ %85, %91 ], [ %.sink93.ph.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink92.ph.ph.ph.ph = phi ptr [ %89, %91 ], [ %.sink92.ph.ph.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %133 = load ptr, ptr %.sink96, align 8
   call void @N_VDestroy(ptr noundef %133) #13
   br label %.loopexit.sink.split.sink.split.sink.split.sink.split
 
 .loopexit.sink.split.sink.split.sink.split.sink.split: ; preds = %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split, %87
-  %.sink96 = phi ptr [ %73, %87 ], [ %.sink96.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split ]
-  %.sink95.ph = phi ptr [ %77, %87 ], [ %.sink95.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split ]
-  %.sink94.ph.ph = phi ptr [ %81, %87 ], [ %.sink94.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split ]
-  %.sink93.ph.ph.ph = phi ptr [ %85, %87 ], [ %.sink93.ph.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split ]
-  %134 = load ptr, ptr %.sink96, align 8
+  %.sink95 = phi ptr [ %73, %87 ], [ %.sink95.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink94.ph = phi ptr [ %77, %87 ], [ %.sink94.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink93.ph.ph = phi ptr [ %81, %87 ], [ %.sink93.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink92.ph.ph.ph = phi ptr [ %85, %87 ], [ %.sink92.ph.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %134 = load ptr, ptr %.sink95, align 8
   call void @N_VDestroy(ptr noundef %134) #13
   br label %.loopexit.sink.split.sink.split.sink.split
 
 .loopexit.sink.split.sink.split.sink.split:       ; preds = %.loopexit.sink.split.sink.split.sink.split.sink.split, %83
-  %.sink95 = phi ptr [ %73, %83 ], [ %.sink95.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split ]
-  %.sink94.ph = phi ptr [ %77, %83 ], [ %.sink94.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split ]
-  %.sink93.ph.ph = phi ptr [ %81, %83 ], [ %.sink93.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split ]
-  %135 = load ptr, ptr %.sink95, align 8
+  %.sink94 = phi ptr [ %73, %83 ], [ %.sink94.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split ]
+  %.sink93.ph = phi ptr [ %77, %83 ], [ %.sink93.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split ]
+  %.sink92.ph.ph = phi ptr [ %81, %83 ], [ %.sink92.ph.ph.ph, %.loopexit.sink.split.sink.split.sink.split.sink.split ]
+  %135 = load ptr, ptr %.sink94, align 8
   call void @N_VDestroy(ptr noundef %135) #13
   br label %.loopexit.sink.split.sink.split
 
 .loopexit.sink.split.sink.split:                  ; preds = %.loopexit.sink.split.sink.split.sink.split, %79
-  %.sink94 = phi ptr [ %73, %79 ], [ %.sink94.ph, %.loopexit.sink.split.sink.split.sink.split ]
-  %.sink93.ph = phi ptr [ %77, %79 ], [ %.sink93.ph.ph, %.loopexit.sink.split.sink.split.sink.split ]
-  %136 = load ptr, ptr %.sink94, align 8
+  %.sink93 = phi ptr [ %73, %79 ], [ %.sink93.ph, %.loopexit.sink.split.sink.split.sink.split ]
+  %.sink92.ph = phi ptr [ %77, %79 ], [ %.sink92.ph.ph, %.loopexit.sink.split.sink.split.sink.split ]
+  %136 = load ptr, ptr %.sink93, align 8
   call void @N_VDestroy(ptr noundef %136) #13
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %75
-  %.sink93 = phi ptr [ %73, %75 ], [ %.sink93.ph, %.loopexit.sink.split.sink.split ]
-  %137 = load ptr, ptr %.sink93, align 8
+  %.sink92 = phi ptr [ %73, %75 ], [ %.sink92.ph, %.loopexit.sink.split.sink.split ]
+  %137 = load ptr, ptr %.sink92, align 8
   call void @N_VDestroy(ptr noundef %137) #13
   br label %.loopexit
 
@@ -1347,8 +1347,8 @@ define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr no
   br label %113
 
 113:                                              ; preds = %39, %._crit_edge, %101, %96, %91, %85, %80, %75, %67, %64, %44, %35, %5
-  %.0 = phi i32 [ -20, %5 ], [ 0, %35 ], [ -22, %44 ], [ 0, %64 ], [ -22, %67 ], [ -21, %75 ], [ -21, %80 ], [ -21, %85 ], [ -21, %91 ], [ -21, %96 ], [ -21, %101 ], [ 0, %._crit_edge ], [ 0, %39 ]
-  ret i32 %.0
+  %.0131 = phi i32 [ -20, %5 ], [ 0, %35 ], [ -22, %44 ], [ 0, %64 ], [ -22, %67 ], [ -21, %75 ], [ -21, %80 ], [ -21, %85 ], [ -21, %91 ], [ -21, %96 ], [ -21, %101 ], [ 0, %._crit_edge ], [ 0, %39 ]
+  ret i32 %.0131
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -1806,10 +1806,10 @@ define i32 @IDASolve(ptr noundef %0, double noundef %1, ptr noundef writeonly %2
   br label %IDAStopTest2.exit
 
 IDAStopTest2.exit:                                ; preds = %912, %212
-  %.0254 = phi i64 [ 0, %212 ], [ %835, %912 ]
+  %.0256 = phi i64 [ 0, %212 ], [ %835, %912 ]
   %278 = load i64, ptr %213, align 8
   %279 = icmp slt i64 %278, 1
-  %.not281 = icmp slt i64 %.0254, %278
+  %.not281 = icmp slt i64 %.0256, %278
   %or.cond288 = select i1 %279, i1 true, i1 %.not281
   br i1 %or.cond288, label %284, label %280
 
@@ -2886,7 +2886,7 @@ switch.lookup:                                    ; preds = %630
   %833 = call i32 @N_VLinearSumVectorArray(i32 noundef %.pre169.i.i, double noundef 1.000000e+00, ptr noundef nonnull %274, double noundef 1.000000e+00, ptr noundef nonnull %273, ptr noundef nonnull %274) #13
   %834 = load ptr, ptr %247, align 8
   call void @N_VScale(double noundef %.102.i.i, ptr noundef %834, ptr noundef %834) #13
-  %835 = add nuw nsw i64 %.0254, 1
+  %835 = add nuw nsw i64 %.0256, 1
   %836 = load i32, ptr %236, align 8
   %.not285 = icmp eq i32 %836, 0
   br i1 %.not285, label %851, label %837

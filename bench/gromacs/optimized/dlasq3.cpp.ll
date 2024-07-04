@@ -172,10 +172,10 @@ define void @dlasq3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 106:                                              ; preds = %101, %95
   %.pn323 = phi double [ %100, %95 ], [ %105, %101 ]
   %.pn = fdiv double %85, %.pn323
-  %.0 = fmul double %83, %.pn
+  %.0311 = fmul double %83, %.pn
   %107 = load double, ptr %79, align 8
   %108 = load double, ptr %84, align 8
-  %109 = fadd double %.0, %108
+  %109 = fadd double %.0311, %108
   %110 = fadd double %107, %109
   %111 = fdiv double %107, %110
   %112 = load double, ptr %78, align 8

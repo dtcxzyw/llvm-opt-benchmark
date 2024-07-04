@@ -521,12 +521,12 @@ while.body.preheader:                             ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end14
-  %pos.addr.037 = phi i64 [ %shr, %if.end14 ], [ %pos, %while.body.preheader ]
+  %arr.037 = phi ptr [ %10, %if.end14 ], [ %1, %while.body.preheader ]
   %newitem.036 = phi ptr [ %12, %if.end14 ], [ %2, %while.body.preheader ]
-  %arr.035 = phi ptr [ %10, %if.end14 ], [ %1, %while.body.preheader ]
-  %sub = add nsw i64 %pos.addr.037, -1
+  %pos.addr.035 = phi i64 [ %shr, %if.end14 ], [ %pos, %while.body.preheader ]
+  %sub = add nsw i64 %pos.addr.035, -1
   %shr = ashr i64 %sub, 1
-  %arrayidx3 = getelementptr ptr, ptr %arr.035, i64 %shr
+  %arrayidx3 = getelementptr ptr, ptr %arr.037, i64 %shr
   %3 = load ptr, ptr %arrayidx3, align 8
   %4 = load i32, ptr %newitem.036, align 8
   %add.i23 = add i32 %4, 1
@@ -597,7 +597,7 @@ if.end14:                                         ; preds = %if.end11
   %10 = load ptr, ptr %ob_item, align 8
   %arrayidx16 = getelementptr ptr, ptr %10, i64 %shr
   %11 = load ptr, ptr %arrayidx16, align 8
-  %arrayidx17 = getelementptr ptr, ptr %10, i64 %pos.addr.037
+  %arrayidx17 = getelementptr ptr, ptr %10, i64 %pos.addr.035
   %12 = load ptr, ptr %arrayidx17, align 8
   store ptr %12, ptr %arrayidx16, align 8
   store ptr %11, ptr %arrayidx17, align 8
@@ -646,18 +646,18 @@ while.body.preheader:                             ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end19
-  %pos.addr.043 = phi i64 [ %childpos.0, %if.end19 ], [ %pos, %while.body.preheader ]
-  %arr.042 = phi ptr [ %arr.1, %if.end19 ], [ %2, %while.body.preheader ]
-  %mul = shl i64 %pos.addr.043, 1
+  %arr.043 = phi ptr [ %arr.1, %if.end19 ], [ %2, %while.body.preheader ]
+  %pos.addr.042 = phi i64 [ %childpos.0, %if.end19 ], [ %pos, %while.body.preheader ]
+  %mul = shl i64 %pos.addr.042, 1
   %add = or disjoint i64 %mul, 1
   %add3 = add i64 %mul, 2
   %cmp4 = icmp slt i64 %add3, %heap.val38
   br i1 %cmp4, label %if.then5, label %if.end19
 
 if.then5:                                         ; preds = %while.body
-  %arrayidx = getelementptr ptr, ptr %arr.042, i64 %add
+  %arrayidx = getelementptr ptr, ptr %arr.043, i64 %add
   %3 = load ptr, ptr %arrayidx, align 8
-  %arrayidx7 = getelementptr ptr, ptr %arr.042, i64 %add3
+  %arrayidx7 = getelementptr ptr, ptr %arr.043, i64 %add3
   %4 = load ptr, ptr %arrayidx7, align 8
   %5 = load i32, ptr %3, align 8
   %add.i28 = add i32 %5, 1
@@ -730,11 +730,11 @@ if.then17:                                        ; preds = %if.end11
   br label %return
 
 if.end19:                                         ; preds = %if.end11, %while.body
-  %arr.1 = phi ptr [ %11, %if.end11 ], [ %arr.042, %while.body ]
   %childpos.0 = phi i64 [ %add12, %if.end11 ], [ %add, %while.body ]
+  %arr.1 = phi ptr [ %11, %if.end11 ], [ %arr.043, %while.body ]
   %arrayidx20 = getelementptr ptr, ptr %arr.1, i64 %childpos.0
   %13 = load ptr, ptr %arrayidx20, align 8
-  %arrayidx21 = getelementptr ptr, ptr %arr.1, i64 %pos.addr.043
+  %arrayidx21 = getelementptr ptr, ptr %arr.1, i64 %pos.addr.042
   %14 = load ptr, ptr %arrayidx21, align 8
   store ptr %14, ptr %arrayidx20, align 8
   store ptr %13, ptr %arrayidx21, align 8
@@ -958,18 +958,18 @@ while.body.preheader:                             ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.end19
-  %pos.addr.045 = phi i64 [ %childpos.0, %if.end19 ], [ %pos, %while.body.preheader ]
-  %arr.044 = phi ptr [ %arr.1, %if.end19 ], [ %1, %while.body.preheader ]
-  %mul = shl i64 %pos.addr.045, 1
+  %arr.045 = phi ptr [ %arr.1, %if.end19 ], [ %1, %while.body.preheader ]
+  %pos.addr.044 = phi i64 [ %childpos.0, %if.end19 ], [ %pos, %while.body.preheader ]
+  %mul = shl i64 %pos.addr.044, 1
   %add = or disjoint i64 %mul, 1
   %add3 = add i64 %mul, 2
   %cmp4 = icmp slt i64 %add3, %heap.val38
   br i1 %cmp4, label %if.then5, label %if.end19
 
 if.then5:                                         ; preds = %while.body
-  %arrayidx = getelementptr ptr, ptr %arr.044, i64 %add3
+  %arrayidx = getelementptr ptr, ptr %arr.045, i64 %add3
   %2 = load ptr, ptr %arrayidx, align 8
-  %arrayidx7 = getelementptr ptr, ptr %arr.044, i64 %add
+  %arrayidx7 = getelementptr ptr, ptr %arr.045, i64 %add
   %3 = load ptr, ptr %arrayidx7, align 8
   %4 = load i32, ptr %2, align 8
   %add.i28 = add i32 %4, 1
@@ -1037,11 +1037,11 @@ if.end11:                                         ; preds = %Py_DECREF.exit
   br i1 %cmp15.not, label %if.end19, label %return.sink.split
 
 if.end19:                                         ; preds = %if.end11, %while.body
-  %arr.1 = phi ptr [ %10, %if.end11 ], [ %arr.044, %while.body ]
   %childpos.0 = phi i64 [ %add12, %if.end11 ], [ %add, %while.body ]
+  %arr.1 = phi ptr [ %10, %if.end11 ], [ %arr.045, %while.body ]
   %arrayidx20 = getelementptr ptr, ptr %arr.1, i64 %childpos.0
   %11 = load ptr, ptr %arrayidx20, align 8
-  %arrayidx21 = getelementptr ptr, ptr %arr.1, i64 %pos.addr.045
+  %arrayidx21 = getelementptr ptr, ptr %arr.1, i64 %pos.addr.044
   %12 = load ptr, ptr %arrayidx21, align 8
   store ptr %12, ptr %arrayidx20, align 8
   store ptr %11, ptr %arrayidx21, align 8
@@ -1069,12 +1069,12 @@ while.body.preheader.i:                           ; preds = %if.end.i39
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end15.i, %while.body.preheader.i
-  %pos.addr.034.i = phi i64 [ %shr.i, %if.end15.i ], [ %pos.addr.0.lcssa, %while.body.preheader.i ]
+  %arr.034.i = phi ptr [ %22, %if.end15.i ], [ %13, %while.body.preheader.i ]
   %newitem.033.i = phi ptr [ %24, %if.end15.i ], [ %14, %while.body.preheader.i ]
-  %arr.032.i = phi ptr [ %22, %if.end15.i ], [ %13, %while.body.preheader.i ]
-  %sub.i = add nsw i64 %pos.addr.034.i, -1
+  %pos.addr.032.i = phi i64 [ %shr.i, %if.end15.i ], [ %pos.addr.0.lcssa, %while.body.preheader.i ]
+  %sub.i = add nsw i64 %pos.addr.032.i, -1
   %shr.i = ashr i64 %sub.i, 1
-  %arrayidx3.i = getelementptr ptr, ptr %arr.032.i, i64 %shr.i
+  %arrayidx3.i = getelementptr ptr, ptr %arr.034.i, i64 %shr.i
   %15 = load ptr, ptr %arrayidx3.i, align 8
   %16 = load i32, ptr %15, align 8
   %add.i.i.i = add i32 %16, 1
@@ -1145,7 +1145,7 @@ if.end15.i:                                       ; preds = %if.end12.i
   %22 = load ptr, ptr %ob_item, align 8
   %arrayidx17.i = getelementptr ptr, ptr %22, i64 %shr.i
   %23 = load ptr, ptr %arrayidx17.i, align 8
-  %arrayidx18.i = getelementptr ptr, ptr %22, i64 %pos.addr.034.i
+  %arrayidx18.i = getelementptr ptr, ptr %22, i64 %pos.addr.032.i
   %24 = load ptr, ptr %arrayidx18.i, align 8
   store ptr %24, ptr %arrayidx17.i, align 8
   store ptr %23, ptr %arrayidx18.i, align 8

@@ -156,8 +156,8 @@ $_ZNSt10filesystem7__cxx114pathC2INSt7__cxx1112basic_stringIcSt11char_traitsIcES
 @.str.85 = private unnamed_addr constant [36 x i8] c"# Legend: nt nx ny\0A# Xbin Ybin Z t\0A\00", align 1
 @.str.86 = private unnamed_addr constant [10 x i8] c"%i %i %i\0A\00", align 1
 @.str.87 = private unnamed_addr constant [22 x i8] c"%i  %i  %8.5f  %6.4f\0A\00", align 1
-@switch.table._Z13gmx_densorderiPPc = private unnamed_addr constant [3 x i64] [i64 2, i64 0, i64 1], align 8
-@switch.table._Z13gmx_densorderiPPc.18 = private unnamed_addr constant [3 x i64] [i64 1, i64 2, i64 0], align 8
+@switch.table._Z13gmx_densorderiPPc = private unnamed_addr constant [3 x i64] [i64 1, i64 2, i64 0], align 8
+@switch.table._Z13gmx_densorderiPPc.18 = private unnamed_addr constant [3 x i64] [i64 2, i64 0, i64 1], align 8
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_Z13gmx_densorderiPPc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -522,9 +522,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %160, %156
   %172 = call noundef float @llvm.floor.f32(float %171)
   %173 = fptosi float %172 to i32
   %174 = add nsw i32 %173, 1
-  %175 = getelementptr inbounds [3 x [3 x float]], ptr %50, i64 0, i64 %switch.load, i64 %switch.load
+  %175 = getelementptr inbounds [3 x [3 x float]], ptr %50, i64 0, i64 %switch.load322, i64 %switch.load322
   %176 = load float, ptr %175, align 4
-  %177 = getelementptr inbounds [3 x [3 x float]], ptr %50, i64 0, i64 %switch.load322, i64 %switch.load322
+  %177 = getelementptr inbounds [3 x [3 x float]], ptr %50, i64 0, i64 %switch.load, i64 %switch.load
   %178 = load float, ptr %177, align 4
   %179 = insertelement <2 x float> poison, float %178, i64 0
   %180 = insertelement <2 x float> %179, float %176, i64 1
@@ -576,7 +576,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %160, %156
   %.0235 = phi ptr [ null, %.noexc15 ], [ %.1236, %.noexc21 ]
   %.0234 = phi i32 [ 0, %.noexc15 ], [ %spec.select, %.noexc21 ]
   %.0.i = phi ptr [ null, %.noexc15 ], [ %.1153.i, %.noexc21 ]
-  %.0144.i = phi i32 [ 0, %.noexc15 ], [ %315, %.noexc21 ]
+  %.0142.i = phi i32 [ 0, %.noexc15 ], [ %315, %.noexc21 ]
   %219 = load float, ptr %177, align 4
   %220 = fdiv float %219, %205
   %221 = load float, ptr %175, align 4
@@ -593,7 +593,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %160, %156
   br i1 %227, label %231, label %228
 
 228:                                              ; preds = %.noexc16
-  %229 = srem i32 %.0144.i, %142
+  %229 = srem i32 %.0142.i, %142
   %230 = icmp eq i32 %229, 0
   br i1 %230, label %231, label %245
 
@@ -693,9 +693,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %160, %156
   %260 = getelementptr inbounds i32, ptr %259, i64 %indvars.iv195.i
   %261 = load i32, ptr %260, align 4
   %262 = sext i32 %261 to i64
-  %263 = getelementptr inbounds [3 x float], ptr %258, i64 %262, i64 %switch.load322
+  %263 = getelementptr inbounds [3 x float], ptr %258, i64 %262, i64 %switch.load
   %264 = load float, ptr %263, align 4
-  %265 = getelementptr inbounds [3 x float], ptr %258, i64 %262, i64 %switch.load
+  %265 = getelementptr inbounds [3 x float], ptr %258, i64 %262, i64 %switch.load322
   %266 = load float, ptr %265, align 4
   %267 = getelementptr inbounds [3 x float], ptr %258, i64 %262, i64 %168
   %268 = load float, ptr %267, align 4
@@ -704,77 +704,77 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %160, %156
   br i1 %269, label %.lr.ph165.i, label %.preheader157.i
 
 .preheader157.i:                                  ; preds = %.lr.ph165.i, %.lr.ph184.i
-  %.0140.lcssa.i = phi float [ %264, %.lr.ph184.i ], [ %271, %.lr.ph165.i ]
-  %270 = fcmp ogt float %.0140.lcssa.i, %.pre201.i
+  %.0137.lcssa.i = phi float [ %264, %.lr.ph184.i ], [ %271, %.lr.ph165.i ]
+  %270 = fcmp ogt float %.0137.lcssa.i, %.pre201.i
   br i1 %270, label %.lr.ph167.i, label %.preheader156.i
 
 .lr.ph165.i:                                      ; preds = %.lr.ph184.i, %.lr.ph165.i
-  %.0140163.i = phi float [ %271, %.lr.ph165.i ], [ %264, %.lr.ph184.i ]
-  %271 = fadd float %.pre201.i, %.0140163.i
+  %.0137163.i = phi float [ %271, %.lr.ph165.i ], [ %264, %.lr.ph184.i ]
+  %271 = fadd float %.pre201.i, %.0137163.i
   %272 = fcmp olt float %271, 0.000000e+00
   br i1 %272, label %.lr.ph165.i, label %.preheader157.i, !llvm.loop !8
 
 .preheader156.i:                                  ; preds = %.lr.ph167.i, %.preheader157.i
-  %.1141.lcssa.i = phi float [ %.0140.lcssa.i, %.preheader157.i ], [ %274, %.lr.ph167.i ]
+  %.1138.lcssa.i = phi float [ %.0137.lcssa.i, %.preheader157.i ], [ %274, %.lr.ph167.i ]
   %273 = fcmp olt float %266, 0.000000e+00
   %.pre202.i = load float, ptr %175, align 4
   br i1 %273, label %.lr.ph170.i, label %.preheader155.i
 
 .lr.ph167.i:                                      ; preds = %.preheader157.i, %.lr.ph167.i
-  %.1141166.i = phi float [ %274, %.lr.ph167.i ], [ %.0140.lcssa.i, %.preheader157.i ]
-  %274 = fsub float %.1141166.i, %.pre201.i
+  %.1138166.i = phi float [ %274, %.lr.ph167.i ], [ %.0137.lcssa.i, %.preheader157.i ]
+  %274 = fsub float %.1138166.i, %.pre201.i
   %275 = fcmp ogt float %274, %.pre201.i
   br i1 %275, label %.lr.ph167.i, label %.preheader156.i, !llvm.loop !9
 
 .preheader155.i:                                  ; preds = %.lr.ph170.i, %.preheader156.i
-  %.0138.lcssa.i = phi float [ %266, %.preheader156.i ], [ %277, %.lr.ph170.i ]
-  %276 = fcmp ogt float %.0138.lcssa.i, %.pre202.i
+  %.0135.lcssa.i = phi float [ %266, %.preheader156.i ], [ %277, %.lr.ph170.i ]
+  %276 = fcmp ogt float %.0135.lcssa.i, %.pre202.i
   br i1 %276, label %.lr.ph173.i, label %.preheader154.i
 
 .lr.ph170.i:                                      ; preds = %.preheader156.i, %.lr.ph170.i
-  %.0138169.i = phi float [ %277, %.lr.ph170.i ], [ %266, %.preheader156.i ]
-  %277 = fadd float %.pre202.i, %.0138169.i
+  %.0135169.i = phi float [ %277, %.lr.ph170.i ], [ %266, %.preheader156.i ]
+  %277 = fadd float %.pre202.i, %.0135169.i
   %278 = fcmp olt float %277, 0.000000e+00
   br i1 %278, label %.lr.ph170.i, label %.preheader155.i, !llvm.loop !10
 
 .preheader154.i:                                  ; preds = %.lr.ph173.i, %.preheader155.i
-  %.1139.lcssa.i = phi float [ %.0138.lcssa.i, %.preheader155.i ], [ %280, %.lr.ph173.i ]
+  %.1136.lcssa.i = phi float [ %.0135.lcssa.i, %.preheader155.i ], [ %280, %.lr.ph173.i ]
   %279 = fcmp olt float %268, 0.000000e+00
   %.pre203.i = load float, ptr %169, align 4
   br i1 %279, label %.lr.ph176.i, label %.preheader.i
 
 .lr.ph173.i:                                      ; preds = %.preheader155.i, %.lr.ph173.i
-  %.1139172.i = phi float [ %280, %.lr.ph173.i ], [ %.0138.lcssa.i, %.preheader155.i ]
-  %280 = fsub float %.1139172.i, %.pre202.i
+  %.1136172.i = phi float [ %280, %.lr.ph173.i ], [ %.0135.lcssa.i, %.preheader155.i ]
+  %280 = fsub float %.1136172.i, %.pre202.i
   %281 = fcmp ogt float %280, %.pre202.i
   br i1 %281, label %.lr.ph173.i, label %.preheader154.i, !llvm.loop !11
 
 .preheader.i:                                     ; preds = %.lr.ph176.i, %.preheader154.i
-  %.0136.lcssa.i = phi float [ %268, %.preheader154.i ], [ %283, %.lr.ph176.i ]
-  %282 = fcmp ogt float %.0136.lcssa.i, %.pre203.i
+  %.0134.lcssa.i = phi float [ %268, %.preheader154.i ], [ %283, %.lr.ph176.i ]
+  %282 = fcmp ogt float %.0134.lcssa.i, %.pre203.i
   br i1 %282, label %.lr.ph179.i, label %._crit_edge180.i
 
 .lr.ph176.i:                                      ; preds = %.preheader154.i, %.lr.ph176.i
-  %.0136175.i = phi float [ %283, %.lr.ph176.i ], [ %268, %.preheader154.i ]
-  %283 = fadd float %.pre203.i, %.0136175.i
+  %.0134175.i = phi float [ %283, %.lr.ph176.i ], [ %268, %.preheader154.i ]
+  %283 = fadd float %.pre203.i, %.0134175.i
   %284 = fcmp olt float %283, 0.000000e+00
   br i1 %284, label %.lr.ph176.i, label %.preheader.i, !llvm.loop !12
 
 .lr.ph179.i:                                      ; preds = %.preheader.i, %.lr.ph179.i
-  %.1137178.i = phi float [ %285, %.lr.ph179.i ], [ %.0136.lcssa.i, %.preheader.i ]
-  %285 = fsub float %.1137178.i, %.pre203.i
+  %.1178.i = phi float [ %285, %.lr.ph179.i ], [ %.0134.lcssa.i, %.preheader.i ]
+  %285 = fsub float %.1178.i, %.pre203.i
   %286 = fcmp ogt float %285, %.pre203.i
   br i1 %286, label %.lr.ph179.i, label %._crit_edge180.i, !llvm.loop !13
 
 ._crit_edge180.i:                                 ; preds = %.lr.ph179.i, %.preheader.i
-  %.1137.lcssa.i = phi float [ %.0136.lcssa.i, %.preheader.i ], [ %285, %.lr.ph179.i ]
-  %287 = fdiv float %.1141.lcssa.i, %220
+  %.1.lcssa.i = phi float [ %.0134.lcssa.i, %.preheader.i ], [ %285, %.lr.ph179.i ]
+  %287 = fdiv float %.1138.lcssa.i, %220
   %288 = fptosi float %287 to i32
   %289 = srem i32 %288, %197
-  %290 = fdiv float %.1139.lcssa.i, %222
+  %290 = fdiv float %.1136.lcssa.i, %222
   %291 = fptosi float %290 to i32
   %292 = srem i32 %291, %198
-  %293 = fdiv float %.1137.lcssa.i, %224
+  %293 = fdiv float %.1.lcssa.i, %224
   %294 = fptosi float %293 to i32
   %295 = srem i32 %294, %174
   %296 = load ptr, ptr %204, align 8
@@ -804,7 +804,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %160, %156
           to label %.noexc21 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc21:                                         ; preds = %._crit_edge185.i
-  %315 = add nuw nsw i32 %.0144.i, 1
+  %315 = add nuw nsw i32 %.0142.i, 1
   %316 = srem i32 %315, %142
   %317 = icmp eq i32 %316, 0
   %318 = zext i1 %317 to i32

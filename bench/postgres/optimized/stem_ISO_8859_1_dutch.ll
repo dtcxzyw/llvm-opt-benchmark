@@ -194,7 +194,7 @@ split.i:                                          ; preds = %39, %._crit_edge137
   br label %.outer
 
 .outer:                                           ; preds = %.preheader, %87
-  %.ph79 = phi i32 [ %.ph, %.preheader ], [ %88, %87 ]
+  %.ph77 = phi i32 [ %.ph, %.preheader ], [ %88, %87 ]
   br label %56
 
 56:                                               ; preds = %.outer, %84
@@ -257,16 +257,16 @@ split.i:                                          ; preds = %39, %._crit_edge137
   br i1 %83, label %r_prelude.exit.thread, label %84
 
 84:                                               ; preds = %80, %69
-  store i32 %.ph79, ptr %2, align 8
+  store i32 %.ph77, ptr %2, align 8
   br label %56
 
 85:                                               ; preds = %75, %72, %56
   %86 = phi i32 [ %59, %72 ], [ %73, %75 ], [ %.pre142.i, %56 ]
-  %.not113.i = icmp slt i32 %.ph79, %86
+  %.not113.i = icmp slt i32 %.ph77, %86
   br i1 %.not113.i, label %87, label %89
 
 87:                                               ; preds = %85
-  %88 = add nsw i32 %.ph79, 1
+  %88 = add nsw i32 %.ph77, 1
   store i32 %88, ptr %2, align 8
   br label %.outer
 
@@ -333,8 +333,8 @@ r_mark_regions.exit:                              ; preds = %89, %96, %111, %114
   %124 = load i32, ptr %5, align 4
   store i32 %124, ptr %2, align 8
   store i32 %124, ptr %6, align 8
-  %.not.i32 = icmp sgt i32 %124, %3
-  br i1 %.not.i32, label %125, label %155
+  %.not.i31 = icmp sgt i32 %124, %3
+  br i1 %.not.i31, label %125, label %155
 
 125:                                              ; preds = %r_mark_regions.exit
   %126 = load ptr, ptr %0, align 8
@@ -343,8 +343,8 @@ r_mark_regions.exit:                              ; preds = %89, %96, %111, %114
   %129 = getelementptr i8, ptr %128, i64 -1
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
-  %.mask.i34 = and i32 %131, 224
-  %.not249.i = icmp eq i32 %.mask.i34, 96
+  %.mask.i33 = and i32 %131, 224
+  %.not249.i = icmp eq i32 %.mask.i33, 96
   br i1 %.not249.i, label %132, label %155
 
 132:                                              ; preds = %125
@@ -690,11 +690,11 @@ r_mark_regions.exit:                              ; preds = %89, %96, %111, %114
   br label %289
 
 289:                                              ; preds = %312, %286
-  %290 = phi i32 [ %.pre58, %312 ], [ %287, %286 ]
+  %290 = phi i32 [ %.pre56, %312 ], [ %287, %286 ]
   %291 = phi i32 [ %.pre, %312 ], [ %288, %286 ]
   store i32 %291, ptr %4, align 4
-  %.not.i35 = icmp slt i32 %291, %290
-  br i1 %.not.i35, label %292, label %.thread38.i
+  %.not.i34 = icmp slt i32 %291, %290
+  br i1 %.not.i34, label %292, label %.thread38.i
 
 292:                                              ; preds = %289
   %293 = load ptr, ptr %0, align 8
@@ -721,11 +721,11 @@ r_mark_regions.exit:                              ; preds = %89, %96, %111, %114
   switch i32 %298, label %312 [
     i32 1, label %301
     i32 2, label %304
-    i32 3, label %._crit_edge.i37
+    i32 3, label %._crit_edge.i35
   ]
 
-._crit_edge.i37:                                  ; preds = %299
-  %.pre.i38 = load i32, ptr %5, align 4
+._crit_edge.i35:                                  ; preds = %299
+  %.pre.i36 = load i32, ptr %5, align 4
   br label %307
 
 301:                                              ; preds = %299
@@ -738,9 +738,9 @@ r_mark_regions.exit:                              ; preds = %89, %96, %111, %114
   %306 = icmp slt i32 %305, 0
   br i1 %306, label %r_prelude.exit.thread, label %312
 
-307:                                              ; preds = %._crit_edge.i37, %.thread38.i
-  %308 = phi i32 [ %290, %.thread38.i ], [ %.pre.i38, %._crit_edge.i37 ]
-  %309 = phi i32 [ %291, %.thread38.i ], [ %300, %._crit_edge.i37 ]
+307:                                              ; preds = %._crit_edge.i35, %.thread38.i
+  %308 = phi i32 [ %290, %.thread38.i ], [ %.pre.i36, %._crit_edge.i35 ]
+  %309 = phi i32 [ %291, %.thread38.i ], [ %300, %._crit_edge.i35 ]
   %.not34.i = icmp slt i32 %309, %308
   br i1 %.not34.i, label %310, label %313
 
@@ -751,7 +751,7 @@ r_mark_regions.exit:                              ; preds = %89, %96, %111, %114
 
 312:                                              ; preds = %310, %304, %301, %299
   %.pre = load i32, ptr %2, align 8
-  %.pre58 = load i32, ptr %5, align 4
+  %.pre56 = load i32, ptr %5, align 4
   br label %289
 
 313:                                              ; preds = %307, %297

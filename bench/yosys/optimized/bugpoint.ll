@@ -3226,7 +3226,7 @@ _ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit595.i: ; preds = %108
 
 1096:                                             ; preds = %_ZNSt4pairIN5Yosys5RTLIL8IdStringEPNS1_7ProcessEED2Ev.exit.i, %1085
   %indvars.iv1660.i = phi i64 [ %indvars.iv.next1661.i, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEPNS1_7ProcessEED2Ev.exit.i ], [ %1095, %1085 ]
-  %.0335.i = phi ptr [ %.1336.i, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEPNS1_7ProcessEED2Ev.exit.i ], [ null, %1085 ]
+  %.0336.i = phi ptr [ %.1337.i, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEPNS1_7ProcessEED2Ev.exit.i ], [ null, %1085 ]
   %.28.i = phi i32 [ %.29.i, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEPNS1_7ProcessEED2Ev.exit.i ], [ %.273191128.i, %1085 ]
   %indvars.iv.next1661.i = add nsw i64 %indvars.iv1660.i, -1
   %1097 = icmp eq i64 %indvars.iv1660.i, 0
@@ -3287,7 +3287,7 @@ _ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit601.i: ; preds = %1118
   br label %1124
 
 1124:                                             ; preds = %1122, %1115, %1112
-  %.1336.i = phi ptr [ %1123, %1122 ], [ %.0335.i, %1112 ], [ %.0335.i, %1115 ]
+  %.1337.i = phi ptr [ %1123, %1122 ], [ %.0336.i, %1112 ], [ %.0336.i, %1115 ]
   %switch389.i = phi i1 [ true, %1122 ], [ false, %1112 ], [ false, %1115 ]
   %.29.i = phi i32 [ %1116, %1122 ], [ %.28.i, %1112 ], [ %1116, %1115 ]
   %1125 = load i32, ptr %16, align 8
@@ -3322,13 +3322,13 @@ _ZNSt4pairIN5Yosys5RTLIL8IdStringEPNS1_7ProcessEED2Ev.exit.i: ; preds = %1136, %
   br i1 %switch389.i, label %1140, label %1096
 
 1140:                                             ; preds = %_ZNSt4pairIN5Yosys5RTLIL8IdStringEPNS1_7ProcessEED2Ev.exit.i, %1096
-  %.2337.i = phi ptr [ %.1336.i, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEPNS1_7ProcessEED2Ev.exit.i ], [ %.0335.i, %1096 ]
+  %.2338.i = phi ptr [ %.1337.i, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEPNS1_7ProcessEED2Ev.exit.i ], [ %.0336.i, %1096 ]
   %.30.i = phi i32 [ %.29.i, %_ZNSt4pairIN5Yosys5RTLIL8IdStringEPNS1_7ProcessEED2Ev.exit.i ], [ %.28.i, %1096 ]
-  %.not350.i = icmp eq ptr %.2337.i, null
+  %.not350.i = icmp eq ptr %.2338.i, null
   br i1 %.not350.i, label %_ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit595.thread.i, label %1141
 
 1141:                                             ; preds = %1140
-  invoke void @_ZN5Yosys5RTLIL6Module6removeEPNS0_7ProcessE(ptr noundef nonnull align 8 dereferenceable(560) %1080, ptr noundef nonnull %.2337.i)
+  invoke void @_ZN5Yosys5RTLIL6Module6removeEPNS0_7ProcessE(ptr noundef nonnull align 8 dereferenceable(560) %1080, ptr noundef nonnull %.2338.i)
           to label %.thread.sink.split unwind label %.loopexit.split-lp332.i
 
 _ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit595.thread.i: ; preds = %1140, %_ZNK5Yosys5RTLIL10AttrObject22get_blackbox_attributeEb.exit595.i, %.noexc593.i
@@ -6113,14 +6113,14 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %8
   br label %230
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.01673, i64 1
+  %30 = getelementptr inbounds i8, ptr %.073, i64 1
   %31 = load i8, ptr %30, align 1
   %.not19 = icmp eq i8 %31, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !74
 
 .lr.ph:                                           ; preds = %.preheader, %29
   %32 = phi i8 [ %31, %29 ], [ %7, %.preheader ]
-  %.01673 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
+  %.073 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
   %33 = icmp ult i8 %32, 33
   br i1 %33, label %34, label %29
 
@@ -6567,8 +6567,8 @@ _ZNSt6vectorIiSaIiEE2atEm.exit57:                 ; preds = %_ZNSt6vectorIPcSaIS
   br label %230
 
 230:                                              ; preds = %_ZNSt6vectorIiSaIiEE2atEm.exit57, %227, %1, %_ZNSt6vectorIiSaIiEE2atEm.exit
-  %.0 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
-  ret i32 %.0
+  %.016 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
+  ret i32 %.016
 }
 
 ; Function Attrs: mustprogress uwtable

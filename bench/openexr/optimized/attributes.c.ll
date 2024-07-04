@@ -943,8 +943,8 @@ if.then11:                                        ; preds = %entry
   br label %if.end18
 
 if.end18:                                         ; preds = %entry, %if.then11
-  %attrblocksz.2 = phi i64 [ %add17, %if.then11 ], [ %attrblocksz.1, %entry ]
   %alignpad1.0 = phi i64 [ %spec.store.select, %if.then11 ], [ 0, %entry ]
+  %attrblocksz.2 = phi i64 [ %add17, %if.then11 ], [ %attrblocksz.1, %entry ]
   %cmp19 = icmp sgt i32 %data_len, 0
   br i1 %cmp19, label %if.then21, label %if.end32
 
@@ -1628,8 +1628,8 @@ if.then11.i:                                      ; preds = %if.end34
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then11.i, %if.end34
-  %attrblocksz.2.i = phi i64 [ %add17.i, %if.then11.i ], [ %attrblocksz.0.i, %if.end34 ]
   %alignpad1.0.i = phi i64 [ %spec.store.select.i, %if.then11.i ], [ 0, %if.end34 ]
+  %attrblocksz.2.i = phi i64 [ %add17.i, %if.then11.i ], [ %attrblocksz.0.i, %if.end34 ]
   %cmp19.i = icmp sgt i32 %data_len, 0
   br i1 %cmp19.i, label %if.then21.i, label %if.end32.i
 

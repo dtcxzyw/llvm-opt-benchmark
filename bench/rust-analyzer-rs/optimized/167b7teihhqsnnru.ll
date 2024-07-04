@@ -1044,8 +1044,8 @@ common.resume:                                    ; preds = %39, %21
   %91 = extractvalue { ptr, i64 } %89, 0
   %92 = icmp eq ptr %91, null
   %93 = extractvalue { ptr, i64 } %89, 1
-  %spec.select = select i1 %92, ptr @anon.3d2faef8a2c24b75fc5c2be0ed37e7aa.3, ptr %91
-  %spec.select33 = select i1 %92, i64 0, i64 %93
+  %spec.select = select i1 %92, i64 0, i64 %93
+  %spec.select33 = select i1 %92, ptr @anon.3d2faef8a2c24b75fc5c2be0ed37e7aa.3, ptr %91
   %94 = getelementptr inbounds i8, ptr %1, i64 24
   %95 = load ptr, ptr %94, align 8, !nonnull !4, !align !5, !noundef !4
   %96 = getelementptr inbounds i8, ptr %95, i64 8
@@ -1061,13 +1061,13 @@ common.resume:                                    ; preds = %39, %21
   %103 = getelementptr inbounds i8, ptr %102, i64 24
   %104 = getelementptr i8, ptr %102, i64 16
   %.val4.i = load i64, ptr %104, align 8, !noalias !209, !noundef !4
-  %.not.i.i.i = icmp eq i64 %spec.select33, %.val4.i
+  %.not.i.i.i = icmp eq i64 %spec.select, %.val4.i
   br i1 %.not.i.i.i, label %105, label %"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfded72499c08cbc3E.exit.backedge.i"
 
 105:                                              ; preds = %.lr.ph.i
   %106 = getelementptr i8, ptr %102, i64 8
   %.val3.i = load ptr, ptr %106, align 8, !noalias !209, !nonnull !4, !noundef !4
-  %bcmp.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val3.i, ptr nonnull readonly %spec.select, i64 %spec.select33), !alias.scope !213, !noalias !209
+  %bcmp.i.i.i = call i32 @bcmp(ptr nonnull readonly %.val3.i, ptr nonnull readonly %spec.select33, i64 %spec.select), !alias.scope !213, !noalias !209
   %.not.i = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h3a7fa12e6ab3ecc4E.exit", label %"_ZN10vfs_notify11NotifyActor10load_entry28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfded72499c08cbc3E.exit.backedge.i"
 

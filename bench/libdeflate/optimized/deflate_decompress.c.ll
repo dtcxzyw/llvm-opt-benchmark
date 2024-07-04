@@ -147,10 +147,10 @@ entry:
   br label %next_block
 
 next_block:                                       ; preds = %block_done, %entry
-  %overread_count.0 = phi i64 [ 0, %entry ], [ %overread_count.17, %block_done ]
-  %bitsleft.0 = phi i32 [ 0, %entry ], [ %bitsleft.24, %block_done ]
-  %bitbuf.0 = phi i64 [ 0, %entry ], [ %bitbuf.28, %block_done ]
   %in_next.0 = phi ptr [ %in, %entry ], [ %in_next.22, %block_done ]
+  %bitbuf.0 = phi i64 [ 0, %entry ], [ %bitbuf.28, %block_done ]
+  %bitsleft.0 = phi i32 [ 0, %entry ], [ %bitsleft.24, %block_done ]
+  %overread_count.0 = phi i64 [ 0, %entry ], [ %overread_count.17, %block_done ]
   %out_next.0 = phi ptr [ %out, %entry ], [ %out_next.6, %block_done ]
   %sub.ptr.rhs.cast = ptrtoint ptr %in_next.0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -179,41 +179,41 @@ do.body13:                                        ; preds = %next_block
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end51
   %conv21589 = phi i32 [ %conv21, %if.end51 ], [ %conv21583, %while.cond.preheader ]
-  %in_next.1588 = phi ptr [ %in_next.2, %if.end51 ], [ %in_next.0, %while.cond.preheader ]
-  %bitbuf.1587 = phi i64 [ %bitbuf.2, %if.end51 ], [ %bitbuf.0, %while.cond.preheader ]
-  %bitsleft.1586 = phi i32 [ %add, %if.end51 ], [ %bitsleft.0, %while.cond.preheader ]
-  %overread_count.1585 = phi i64 [ %overread_count.2, %if.end51 ], [ %overread_count.0, %while.cond.preheader ]
-  %cmp24.not = icmp eq ptr %in_next.1588, %add.ptr2
+  %overread_count.1588 = phi i64 [ %overread_count.2, %if.end51 ], [ %overread_count.0, %while.cond.preheader ]
+  %bitsleft.1587 = phi i32 [ %add, %if.end51 ], [ %bitsleft.0, %while.cond.preheader ]
+  %bitbuf.1586 = phi i64 [ %bitbuf.2, %if.end51 ], [ %bitbuf.0, %while.cond.preheader ]
+  %in_next.1585 = phi ptr [ %in_next.2, %if.end51 ], [ %in_next.0, %while.cond.preheader ]
+  %cmp24.not = icmp eq ptr %in_next.1585, %add.ptr2
   br i1 %cmp24.not, label %if.else39, label %if.then32
 
 if.then32:                                        ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %in_next.1588, i64 1
-  %0 = load i8, ptr %in_next.1588, align 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %in_next.1585, i64 1
+  %0 = load i8, ptr %in_next.1585, align 1
   %conv33 = zext i8 %0 to i64
   %sh_prom36 = zext nneg i32 %conv21589 to i64
   %shl37 = shl nuw nsw i64 %conv33, %sh_prom36
-  %or38 = or i64 %shl37, %bitbuf.1587
+  %or38 = or i64 %shl37, %bitbuf.1586
   br label %if.end51
 
 if.else39:                                        ; preds = %while.body
-  %inc = add i64 %overread_count.1585, 1
+  %inc = add i64 %overread_count.1588, 1
   %cmp40 = icmp ugt i64 %inc, 8
   br i1 %cmp40, label %return, label %if.end51
 
 if.end51:                                         ; preds = %if.else39, %if.then32
-  %overread_count.2 = phi i64 [ %overread_count.1585, %if.then32 ], [ %inc, %if.else39 ]
-  %bitbuf.2 = phi i64 [ %or38, %if.then32 ], [ %bitbuf.1587, %if.else39 ]
-  %in_next.2 = phi ptr [ %incdec.ptr, %if.then32 ], [ %in_next.1588, %if.else39 ]
-  %add = add i32 %bitsleft.1586, 8
+  %in_next.2 = phi ptr [ %incdec.ptr, %if.then32 ], [ %in_next.1585, %if.else39 ]
+  %bitbuf.2 = phi i64 [ %or38, %if.then32 ], [ %bitbuf.1586, %if.else39 ]
+  %overread_count.2 = phi i64 [ %overread_count.1588, %if.then32 ], [ %inc, %if.else39 ]
+  %add = add i32 %bitsleft.1587, 8
   %conv21 = and i32 %add, 255
   %cmp22 = icmp ult i32 %conv21, 56
   br i1 %cmp22, label %while.body, label %do.end53
 
 do.end53:                                         ; preds = %if.end51, %while.cond.preheader, %do.body13
-  %overread_count.3 = phi i64 [ %overread_count.0, %do.body13 ], [ %overread_count.0, %while.cond.preheader ], [ %overread_count.2, %if.end51 ]
-  %bitsleft.2 = phi i32 [ %or19, %do.body13 ], [ %bitsleft.0, %while.cond.preheader ], [ %add, %if.end51 ]
-  %bitbuf.3 = phi i64 [ %or, %do.body13 ], [ %bitbuf.0, %while.cond.preheader ], [ %bitbuf.2, %if.end51 ]
   %in_next.3 = phi ptr [ %add.ptr18, %do.body13 ], [ %in_next.0, %while.cond.preheader ], [ %in_next.2, %if.end51 ]
+  %bitbuf.3 = phi i64 [ %or, %do.body13 ], [ %bitbuf.0, %while.cond.preheader ], [ %bitbuf.2, %if.end51 ]
+  %bitsleft.2 = phi i32 [ %or19, %do.body13 ], [ %bitsleft.0, %while.cond.preheader ], [ %add, %if.end51 ]
+  %overread_count.3 = phi i64 [ %overread_count.0, %do.body13 ], [ %overread_count.0, %while.cond.preheader ], [ %overread_count.2, %if.end51 ]
   %and54 = and i64 %bitbuf.3, 1
   %tobool55.not = icmp eq i64 %and54, 0
   %1 = trunc i64 %bitbuf.3 to i32
@@ -270,41 +270,41 @@ do.body91:                                        ; preds = %if.then61
 
 while.body112:                                    ; preds = %while.cond107.preheader, %if.end143
   %conv109611 = phi i32 [ %conv109, %if.end143 ], [ %conv109605, %while.cond107.preheader ]
-  %in_next.4610 = phi ptr [ %in_next.5, %if.end143 ], [ %in_next.3, %while.cond107.preheader ]
-  %bitbuf.4609 = phi i64 [ %bitbuf.5, %if.end143 ], [ %shr77, %while.cond107.preheader ]
-  %bitsleft.3608 = phi i32 [ %add144, %if.end143 ], [ %sub, %while.cond107.preheader ]
-  %overread_count.4607 = phi i64 [ %overread_count.5, %if.end143 ], [ %overread_count.3, %while.cond107.preheader ]
-  %cmp113.not = icmp eq ptr %in_next.4610, %add.ptr2
+  %overread_count.4610 = phi i64 [ %overread_count.5, %if.end143 ], [ %overread_count.3, %while.cond107.preheader ]
+  %bitsleft.3609 = phi i32 [ %add144, %if.end143 ], [ %sub, %while.cond107.preheader ]
+  %bitbuf.4608 = phi i64 [ %bitbuf.5, %if.end143 ], [ %shr77, %while.cond107.preheader ]
+  %in_next.4607 = phi ptr [ %in_next.5, %if.end143 ], [ %in_next.3, %while.cond107.preheader ]
+  %cmp113.not = icmp eq ptr %in_next.4607, %add.ptr2
   br i1 %cmp113.not, label %if.else129, label %if.then121
 
 if.then121:                                       ; preds = %while.body112
-  %incdec.ptr122 = getelementptr inbounds i8, ptr %in_next.4610, i64 1
-  %10 = load i8, ptr %in_next.4610, align 1
+  %incdec.ptr122 = getelementptr inbounds i8, ptr %in_next.4607, i64 1
+  %10 = load i8, ptr %in_next.4607, align 1
   %conv123 = zext i8 %10 to i64
   %sh_prom126 = zext nneg i32 %conv109611 to i64
   %shl127 = shl nuw nsw i64 %conv123, %sh_prom126
-  %or128 = or i64 %shl127, %bitbuf.4609
+  %or128 = or i64 %shl127, %bitbuf.4608
   br label %if.end143
 
 if.else129:                                       ; preds = %while.body112
-  %inc130 = add i64 %overread_count.4607, 1
+  %inc130 = add i64 %overread_count.4610, 1
   %cmp131 = icmp ugt i64 %inc130, 8
   br i1 %cmp131, label %return, label %if.end143
 
 if.end143:                                        ; preds = %if.else129, %if.then121
-  %overread_count.5 = phi i64 [ %overread_count.4607, %if.then121 ], [ %inc130, %if.else129 ]
-  %bitbuf.5 = phi i64 [ %or128, %if.then121 ], [ %bitbuf.4609, %if.else129 ]
-  %in_next.5 = phi ptr [ %incdec.ptr122, %if.then121 ], [ %in_next.4610, %if.else129 ]
-  %add144 = add i32 %bitsleft.3608, 8
+  %in_next.5 = phi ptr [ %incdec.ptr122, %if.then121 ], [ %in_next.4607, %if.else129 ]
+  %bitbuf.5 = phi i64 [ %or128, %if.then121 ], [ %bitbuf.4608, %if.else129 ]
+  %overread_count.5 = phi i64 [ %overread_count.4610, %if.then121 ], [ %inc130, %if.else129 ]
+  %add144 = add i32 %bitsleft.3609, 8
   %conv109 = and i32 %add144, 255
   %cmp110 = icmp ult i32 %conv109, 56
   br i1 %cmp110, label %while.body112, label %do.end147
 
 do.end147:                                        ; preds = %if.end143, %while.cond107.preheader, %do.body91
-  %overread_count.6 = phi i64 [ %overread_count.3, %do.body91 ], [ %overread_count.3, %while.cond107.preheader ], [ %overread_count.5, %if.end143 ]
-  %bitsleft.4 = phi i32 [ %or104, %do.body91 ], [ %sub, %while.cond107.preheader ], [ %add144, %if.end143 ]
-  %bitbuf.6 = phi i64 [ %or97, %do.body91 ], [ %shr77, %while.cond107.preheader ], [ %bitbuf.5, %if.end143 ]
   %in_next.6 = phi ptr [ %add.ptr103, %do.body91 ], [ %in_next.3, %while.cond107.preheader ], [ %in_next.5, %if.end143 ]
+  %bitbuf.6 = phi i64 [ %or97, %do.body91 ], [ %shr77, %while.cond107.preheader ], [ %bitbuf.5, %if.end143 ]
+  %bitsleft.4 = phi i32 [ %or104, %do.body91 ], [ %sub, %while.cond107.preheader ], [ %add144, %if.end143 ]
+  %overread_count.6 = phi i64 [ %overread_count.3, %do.body91 ], [ %overread_count.3, %while.cond107.preheader ], [ %overread_count.5, %if.end143 ]
   %11 = zext nneg i32 %conv73 to i64
   %.neg = mul nsw i32 %8, -3
   br label %do.body148
@@ -352,11 +352,11 @@ do.body181.preheader:                             ; preds = %for.end
   br label %do.body181
 
 do.body181:                                       ; preds = %do.body181.preheader, %do.cond408
-  %overread_count.7 = phi i64 [ %overread_count.10, %do.cond408 ], [ %overread_count.6, %do.body181.preheader ]
-  %bitsleft.6 = phi i32 [ %bitsleft.9, %do.cond408 ], [ %15, %do.body181.preheader ]
-  %i.2 = phi i32 [ %i.3, %do.cond408 ], [ 0, %do.body181.preheader ]
-  %bitbuf.8 = phi i64 [ %bitbuf.12, %do.cond408 ], [ %shr156, %do.body181.preheader ]
   %in_next.7 = phi ptr [ %in_next.10, %do.cond408 ], [ %in_next.6, %do.body181.preheader ]
+  %bitbuf.8 = phi i64 [ %bitbuf.12, %do.cond408 ], [ %shr156, %do.body181.preheader ]
+  %bitsleft.6 = phi i32 [ %bitsleft.9, %do.cond408 ], [ %15, %do.body181.preheader ]
+  %overread_count.7 = phi i64 [ %overread_count.10, %do.cond408 ], [ %overread_count.6, %do.body181.preheader ]
+  %i.2 = phi i32 [ %i.3, %do.cond408 ], [ 0, %do.body181.preheader ]
   %conv183 = and i32 %bitsleft.6, 255
   %cmp184 = icmp ult i32 %conv183, 14
   br i1 %cmp184, label %do.body187, label %if.end259
@@ -383,41 +383,41 @@ do.body200:                                       ; preds = %do.body187
 
 while.body222:                                    ; preds = %do.body187, %if.end253
   %conv219624 = phi i32 [ %conv219, %if.end253 ], [ %conv183, %do.body187 ]
-  %in_next.8623 = phi ptr [ %in_next.9, %if.end253 ], [ %in_next.7, %do.body187 ]
-  %bitbuf.9622 = phi i64 [ %bitbuf.10, %if.end253 ], [ %bitbuf.8, %do.body187 ]
-  %bitsleft.7621 = phi i32 [ %add254, %if.end253 ], [ %bitsleft.6, %do.body187 ]
-  %overread_count.8620 = phi i64 [ %overread_count.9, %if.end253 ], [ %overread_count.7, %do.body187 ]
-  %cmp223.not = icmp eq ptr %in_next.8623, %add.ptr2
+  %overread_count.8623 = phi i64 [ %overread_count.9, %if.end253 ], [ %overread_count.7, %do.body187 ]
+  %bitsleft.7622 = phi i32 [ %add254, %if.end253 ], [ %bitsleft.6, %do.body187 ]
+  %bitbuf.9621 = phi i64 [ %bitbuf.10, %if.end253 ], [ %bitbuf.8, %do.body187 ]
+  %in_next.8620 = phi ptr [ %in_next.9, %if.end253 ], [ %in_next.7, %do.body187 ]
+  %cmp223.not = icmp eq ptr %in_next.8620, %add.ptr2
   br i1 %cmp223.not, label %if.else239, label %if.then231
 
 if.then231:                                       ; preds = %while.body222
-  %incdec.ptr232 = getelementptr inbounds i8, ptr %in_next.8623, i64 1
-  %17 = load i8, ptr %in_next.8623, align 1
+  %incdec.ptr232 = getelementptr inbounds i8, ptr %in_next.8620, i64 1
+  %17 = load i8, ptr %in_next.8620, align 1
   %conv233 = zext i8 %17 to i64
   %sh_prom236 = zext nneg i32 %conv219624 to i64
   %shl237 = shl nuw nsw i64 %conv233, %sh_prom236
-  %or238 = or i64 %shl237, %bitbuf.9622
+  %or238 = or i64 %shl237, %bitbuf.9621
   br label %if.end253
 
 if.else239:                                       ; preds = %while.body222
-  %inc240 = add i64 %overread_count.8620, 1
+  %inc240 = add i64 %overread_count.8623, 1
   %cmp241 = icmp ugt i64 %inc240, 8
   br i1 %cmp241, label %return, label %if.end253
 
 if.end253:                                        ; preds = %if.else239, %if.then231
-  %overread_count.9 = phi i64 [ %overread_count.8620, %if.then231 ], [ %inc240, %if.else239 ]
-  %bitbuf.10 = phi i64 [ %or238, %if.then231 ], [ %bitbuf.9622, %if.else239 ]
-  %in_next.9 = phi ptr [ %incdec.ptr232, %if.then231 ], [ %in_next.8623, %if.else239 ]
-  %add254 = add i32 %bitsleft.7621, 8
+  %in_next.9 = phi ptr [ %incdec.ptr232, %if.then231 ], [ %in_next.8620, %if.else239 ]
+  %bitbuf.10 = phi i64 [ %or238, %if.then231 ], [ %bitbuf.9621, %if.else239 ]
+  %overread_count.9 = phi i64 [ %overread_count.8623, %if.then231 ], [ %inc240, %if.else239 ]
+  %add254 = add i32 %bitsleft.7622, 8
   %conv219 = and i32 %add254, 255
   %cmp220 = icmp ult i32 %conv219, 56
   br i1 %cmp220, label %while.body222, label %if.end259
 
 if.end259:                                        ; preds = %if.end253, %do.body200, %do.body181
-  %overread_count.10 = phi i64 [ %overread_count.7, %do.body200 ], [ %overread_count.7, %do.body181 ], [ %overread_count.9, %if.end253 ]
-  %bitsleft.8 = phi i32 [ %or213, %do.body200 ], [ %bitsleft.6, %do.body181 ], [ %add254, %if.end253 ]
-  %bitbuf.11 = phi i64 [ %or206, %do.body200 ], [ %bitbuf.8, %do.body181 ], [ %bitbuf.10, %if.end253 ]
   %in_next.10 = phi ptr [ %add.ptr212, %do.body200 ], [ %in_next.7, %do.body181 ], [ %in_next.9, %if.end253 ]
+  %bitbuf.11 = phi i64 [ %or206, %do.body200 ], [ %bitbuf.8, %do.body181 ], [ %bitbuf.10, %if.end253 ]
+  %bitsleft.8 = phi i32 [ %or213, %do.body200 ], [ %bitsleft.6, %do.body181 ], [ %add254, %if.end253 ]
+  %overread_count.10 = phi i64 [ %overread_count.7, %do.body200 ], [ %overread_count.7, %do.body181 ], [ %overread_count.9, %if.end253 ]
   %and261 = and i64 %bitbuf.11, 127
   %arrayidx262 = getelementptr inbounds [128 x i32], ptr %precode_decode_table.i, i64 0, i64 %and261
   %18 = load i32, ptr %arrayidx262, align 4
@@ -544,9 +544,9 @@ if.else394:                                       ; preds = %if.end277
   br label %do.cond408
 
 do.cond408:                                       ; preds = %if.end292, %if.else394, %if.then337, %if.then271
+  %bitbuf.12 = phi i64 [ %shr266, %if.then271 ], [ %shr301, %if.end292 ], [ %shr341, %if.then337 ], [ %shr398, %if.else394 ]
   %bitsleft.9 = phi i32 [ %sub267, %if.then271 ], [ %sub302, %if.end292 ], [ %sub342, %if.then337 ], [ %sub399, %if.else394 ]
   %i.3 = phi i32 [ %inc274, %if.then271 ], [ %add333, %if.end292 ], [ %add393, %if.then337 ], [ %add405, %if.else394 ]
-  %bitbuf.12 = phi i64 [ %shr266, %if.then271 ], [ %shr301, %if.end292 ], [ %shr341, %if.then337 ], [ %shr398, %if.else394 ]
   %cmp410 = icmp ult i32 %i.3, %add409
   br i1 %cmp410, label %do.body181, label %do.end412
 
@@ -615,12 +615,12 @@ for.body592.preheader:                            ; preds = %if.end537
   br label %if.end601
 
 if.end601:                                        ; preds = %for.body592.preheader, %do.end412
+  %in_next.11 = phi ptr [ %in_next.10, %do.end412 ], [ %in_next.3, %for.body592.preheader ]
+  %bitbuf.13 = phi i64 [ %bitbuf.12, %do.end412 ], [ %shr538, %for.body592.preheader ]
+  %bitsleft.10 = phi i32 [ %bitsleft.9, %do.end412 ], [ %sub539, %for.body592.preheader ]
+  %overread_count.11 = phi i64 [ %overread_count.10, %do.end412 ], [ %overread_count.3, %for.body592.preheader ]
   %num_litlen_syms.0 = phi i32 [ %conv65, %do.end412 ], [ 288, %for.body592.preheader ]
   %num_offset_syms.0 = phi i32 [ %conv69, %do.end412 ], [ 32, %for.body592.preheader ]
-  %overread_count.11 = phi i64 [ %overread_count.10, %do.end412 ], [ %overread_count.3, %for.body592.preheader ]
-  %bitsleft.10 = phi i32 [ %bitsleft.9, %do.end412 ], [ %sub539, %for.body592.preheader ]
-  %bitbuf.13 = phi i64 [ %bitbuf.12, %do.end412 ], [ %shr538, %for.body592.preheader ]
-  %in_next.11 = phi ptr [ %in_next.10, %do.end412 ], [ %in_next.3, %for.body592.preheader ]
   %idx.ext.i = zext nneg i32 %num_litlen_syms.0 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %d, i64 %idx.ext.i
   %call.i542 = tail call fastcc noundef zeroext i1 @build_decode_table(ptr noundef nonnull %offset_decode_table.i, ptr noundef nonnull %add.ptr.i, i32 noundef %num_offset_syms.0, ptr noundef nonnull @offset_decode_results, i32 noundef 8, i32 noundef 15, ptr noundef nonnull %sorted_syms.i, ptr noundef null)
@@ -631,10 +631,10 @@ if.end612:                                        ; preds = %if.end601
   br i1 %call.i544, label %have_decode_tables, label %return
 
 have_decode_tables:                               ; preds = %if.end612, %if.end537
-  %overread_count.12 = phi i64 [ %overread_count.11, %if.end612 ], [ %overread_count.3, %if.end537 ]
-  %bitsleft.11 = phi i32 [ %bitsleft.10, %if.end612 ], [ %sub539, %if.end537 ]
-  %bitbuf.14 = phi i64 [ %bitbuf.13, %if.end612 ], [ %shr538, %if.end537 ]
   %in_next.12 = phi ptr [ %in_next.11, %if.end612 ], [ %in_next.3, %if.end537 ]
+  %bitbuf.14 = phi i64 [ %bitbuf.13, %if.end612 ], [ %shr538, %if.end537 ]
+  %bitsleft.11 = phi i32 [ %bitsleft.10, %if.end612 ], [ %sub539, %if.end537 ]
+  %overread_count.12 = phi i64 [ %overread_count.11, %if.end612 ], [ %overread_count.3, %if.end537 ]
   %28 = load i32, ptr %litlen_tablebits.i, align 4
   %sh_prom624 = zext nneg i32 %28 to i64
   %notmask = shl nsw i64 -1, %sh_prom624
@@ -663,10 +663,10 @@ do.body634:                                       ; preds = %have_decode_tables
   br label %do.body655
 
 do.body655:                                       ; preds = %do.cond1047, %do.body634
-  %entry10.0 = phi i32 [ %29, %do.body634 ], [ %entry10.4, %do.cond1047 ]
-  %bitsleft.12 = phi i32 [ %or647, %do.body634 ], [ %bitsleft.17, %do.cond1047 ]
-  %bitbuf.15 = phi i64 [ %or640, %do.body634 ], [ %bitbuf.20, %do.cond1047 ]
   %in_next.13 = phi ptr [ %add.ptr646, %do.body634 ], [ %in_next.16, %do.cond1047 ]
+  %bitbuf.15 = phi i64 [ %or640, %do.body634 ], [ %bitbuf.20, %do.cond1047 ]
+  %bitsleft.12 = phi i32 [ %or647, %do.body634 ], [ %bitsleft.17, %do.cond1047 ]
+  %entry10.0 = phi i32 [ %29, %do.body634 ], [ %entry10.4, %do.cond1047 ]
   %out_next.1 = phi ptr [ %out_next.0, %do.body634 ], [ %out_next.3, %do.cond1047 ]
   %conv657 = and i32 %entry10.0, 255
   %sh_prom658 = zext nneg i32 %conv657 to i64
@@ -727,10 +727,10 @@ if.then691:                                       ; preds = %if.then677
   br label %do.cond1047
 
 if.end719:                                        ; preds = %if.then663, %if.then677, %do.body655
-  %entry10.1 = phi i32 [ %31, %if.then677 ], [ %30, %if.then663 ], [ %entry10.0, %do.body655 ]
-  %bitsleft.13 = phi i32 [ %sub686, %if.then677 ], [ %sub672, %if.then663 ], [ %sub660, %do.body655 ]
-  %saved_bitbuf.0 = phi i64 [ %shr671, %if.then677 ], [ %shr659, %if.then663 ], [ %bitbuf.15, %do.body655 ]
   %bitbuf.16 = phi i64 [ %shr685, %if.then677 ], [ %shr671, %if.then663 ], [ %shr659, %do.body655 ]
+  %saved_bitbuf.0 = phi i64 [ %shr671, %if.then677 ], [ %shr659, %if.then663 ], [ %bitbuf.15, %do.body655 ]
+  %bitsleft.13 = phi i32 [ %sub686, %if.then677 ], [ %sub672, %if.then663 ], [ %sub660, %do.body655 ]
+  %entry10.1 = phi i32 [ %31, %if.then677 ], [ %30, %if.then663 ], [ %entry10.0, %do.body655 ]
   %out_next.2 = phi ptr [ %incdec.ptr688, %if.then677 ], [ %incdec.ptr674, %if.then663 ], [ %out_next.1, %do.body655 ]
   %and720 = and i32 %entry10.1, 32768
   %tobool721.not = icmp eq i32 %and720, 0
@@ -793,10 +793,10 @@ if.end783:                                        ; preds = %if.end738
 
 if.end794:                                        ; preds = %if.end719.if.end794_crit_edge, %if.end783
   %sh_prom798.pre-phi = phi i64 [ %.pre685, %if.end719.if.end794_crit_edge ], [ %sh_prom752, %if.end783 ]
-  %entry10.2 = phi i32 [ %entry10.1, %if.end719.if.end794_crit_edge ], [ %33, %if.end783 ]
-  %bitsleft.14 = phi i32 [ %bitsleft.13, %if.end719.if.end794_crit_edge ], [ %sub754, %if.end783 ]
-  %saved_bitbuf.1 = phi i64 [ %saved_bitbuf.0, %if.end719.if.end794_crit_edge ], [ %bitbuf.16, %if.end783 ]
   %bitbuf.17 = phi i64 [ %bitbuf.16, %if.end719.if.end794_crit_edge ], [ %shr753, %if.end783 ]
+  %saved_bitbuf.1 = phi i64 [ %saved_bitbuf.0, %if.end719.if.end794_crit_edge ], [ %bitbuf.16, %if.end783 ]
+  %bitsleft.14 = phi i32 [ %bitsleft.13, %if.end719.if.end794_crit_edge ], [ %sub754, %if.end783 ]
+  %entry10.2 = phi i32 [ %entry10.1, %if.end719.if.end794_crit_edge ], [ %33, %if.end783 ]
   %shr795 = lshr i32 %entry10.2, 16
   %notmask532 = shl nsw i64 -1, %sh_prom798.pre-phi
   %sub800 = xor i64 %notmask532, -1
@@ -834,9 +834,9 @@ do.body833:                                       ; preds = %if.then820
   br label %if.end851
 
 if.end851:                                        ; preds = %do.body833, %if.then820
-  %bitsleft.15 = phi i32 [ %or846, %do.body833 ], [ %bitsleft.14, %if.then820 ]
-  %bitbuf.18 = phi i64 [ %or839, %do.body833 ], [ %bitbuf.17, %if.then820 ]
   %in_next.14 = phi ptr [ %add.ptr845, %do.body833 ], [ %in_next.13, %if.then820 ]
+  %bitbuf.18 = phi i64 [ %or839, %do.body833 ], [ %bitbuf.17, %if.then820 ]
+  %bitsleft.15 = phi i32 [ %or846, %do.body833 ], [ %bitsleft.14, %if.then820 ]
   %shr852 = lshr i64 %bitbuf.18, 8
   %sub853 = add i32 %bitsleft.15, -8
   %shr855 = lshr i32 %36, 16
@@ -871,10 +871,10 @@ do.body878:                                       ; preds = %if.else865
   br label %if.end897
 
 if.end897:                                        ; preds = %if.else865, %do.body878, %if.end851
-  %entry10.3 = phi i32 [ %37, %if.end851 ], [ %36, %do.body878 ], [ %36, %if.else865 ]
-  %bitsleft.16 = phi i32 [ %sub853, %if.end851 ], [ %or891, %do.body878 ], [ %bitsleft.14, %if.else865 ]
-  %bitbuf.19 = phi i64 [ %shr852, %if.end851 ], [ %or884, %do.body878 ], [ %bitbuf.17, %if.else865 ]
   %in_next.15 = phi ptr [ %in_next.14, %if.end851 ], [ %add.ptr890, %do.body878 ], [ %in_next.13, %if.else865 ]
+  %bitbuf.19 = phi i64 [ %shr852, %if.end851 ], [ %or884, %do.body878 ], [ %bitbuf.17, %if.else865 ]
+  %bitsleft.16 = phi i32 [ %sub853, %if.end851 ], [ %or891, %do.body878 ], [ %bitsleft.14, %if.else865 ]
+  %entry10.3 = phi i32 [ %37, %if.end851 ], [ %36, %do.body878 ], [ %36, %if.else865 ]
   %conv899 = and i32 %entry10.3, 255
   %sh_prom900 = zext nneg i32 %conv899 to i64
   %shr903 = lshr i32 %entry10.3, 16
@@ -1029,10 +1029,10 @@ do.body1030:                                      ; preds = %do.body1030, %if.el
   br i1 %cmp1042, label %do.body1030, label %do.cond1047
 
 do.cond1047:                                      ; preds = %do.body1030, %while.body1013, %while.body982, %if.then1002, %if.then963, %if.then757, %if.then691
-  %entry10.4 = phi i32 [ %32, %if.then691 ], [ %34, %if.then757 ], [ %39, %if.then963 ], [ %39, %if.then1002 ], [ %39, %while.body982 ], [ %39, %while.body1013 ], [ %39, %do.body1030 ]
-  %bitsleft.17.in = phi i32 [ %sub686, %if.then691 ], [ %sub754, %if.then757 ], [ %sub902, %if.then963 ], [ %sub902, %if.then1002 ], [ %sub902, %while.body982 ], [ %sub902, %while.body1013 ], [ %sub902, %do.body1030 ]
-  %bitbuf.20 = phi i64 [ %or703, %if.then691 ], [ %or769, %if.then757 ], [ %or949, %if.then963 ], [ %or949, %if.then1002 ], [ %or949, %while.body982 ], [ %or949, %while.body1013 ], [ %or949, %do.body1030 ]
   %in_next.16 = phi ptr [ %add.ptr709, %if.then691 ], [ %add.ptr775, %if.then757 ], [ %add.ptr955, %if.then963 ], [ %add.ptr955, %if.then1002 ], [ %add.ptr955, %while.body982 ], [ %add.ptr955, %while.body1013 ], [ %add.ptr955, %do.body1030 ]
+  %bitbuf.20 = phi i64 [ %or703, %if.then691 ], [ %or769, %if.then757 ], [ %or949, %if.then963 ], [ %or949, %if.then1002 ], [ %or949, %while.body982 ], [ %or949, %while.body1013 ], [ %or949, %do.body1030 ]
+  %bitsleft.17.in = phi i32 [ %sub686, %if.then691 ], [ %sub754, %if.then757 ], [ %sub902, %if.then963 ], [ %sub902, %if.then1002 ], [ %sub902, %while.body982 ], [ %sub902, %while.body1013 ], [ %sub902, %do.body1030 ]
+  %entry10.4 = phi i32 [ %32, %if.then691 ], [ %34, %if.then757 ], [ %39, %if.then963 ], [ %39, %if.then1002 ], [ %39, %while.body982 ], [ %39, %while.body1013 ], [ %39, %do.body1030 ]
   %out_next.3 = phi ptr [ %incdec.ptr716, %if.then691 ], [ %incdec.ptr782, %if.then757 ], [ %add.ptr938, %if.then963 ], [ %add.ptr938, %if.then1002 ], [ %add.ptr938, %while.body982 ], [ %add.ptr938, %while.body1013 ], [ %add.ptr938, %do.body1030 ]
   %bitsleft.17 = or i32 %bitsleft.17.in, 56
   %cmp1048 = icmp ult ptr %in_next.16, %add.ptr9
@@ -1041,17 +1041,17 @@ do.cond1047:                                      ; preds = %do.body1030, %while
   br i1 %41, label %do.body655, label %for.cond1053.preheader
 
 for.cond1053.preheader:                           ; preds = %do.cond1047, %have_decode_tables
-  %bitsleft.19.ph = phi i32 [ %bitsleft.11, %have_decode_tables ], [ %bitsleft.17, %do.cond1047 ]
-  %bitbuf.22.ph = phi i64 [ %bitbuf.14, %have_decode_tables ], [ %bitbuf.20, %do.cond1047 ]
   %in_next.18.ph = phi ptr [ %in_next.12, %have_decode_tables ], [ %in_next.16, %do.cond1047 ]
+  %bitbuf.22.ph = phi i64 [ %bitbuf.14, %have_decode_tables ], [ %bitbuf.20, %do.cond1047 ]
+  %bitsleft.19.ph = phi i32 [ %bitsleft.11, %have_decode_tables ], [ %bitsleft.17, %do.cond1047 ]
   %out_next.5.ph = phi ptr [ %out_next.0, %have_decode_tables ], [ %out_next.3, %do.cond1047 ]
   br label %for.cond1053
 
 for.cond1053:                                     ; preds = %for.cond1053.backedge, %for.cond1053.preheader
-  %overread_count.13 = phi i64 [ %overread_count.12, %for.cond1053.preheader ], [ %overread_count.16, %for.cond1053.backedge ]
-  %bitsleft.19 = phi i32 [ %bitsleft.19.ph, %for.cond1053.preheader ], [ %bitsleft.19.be, %for.cond1053.backedge ]
-  %bitbuf.22 = phi i64 [ %bitbuf.22.ph, %for.cond1053.preheader ], [ %bitbuf.22.be, %for.cond1053.backedge ]
   %in_next.18 = phi ptr [ %in_next.18.ph, %for.cond1053.preheader ], [ %in_next.21, %for.cond1053.backedge ]
+  %bitbuf.22 = phi i64 [ %bitbuf.22.ph, %for.cond1053.preheader ], [ %bitbuf.22.be, %for.cond1053.backedge ]
+  %bitsleft.19 = phi i32 [ %bitsleft.19.ph, %for.cond1053.preheader ], [ %bitsleft.19.be, %for.cond1053.backedge ]
+  %overread_count.13 = phi i64 [ %overread_count.12, %for.cond1053.preheader ], [ %overread_count.16, %for.cond1053.backedge ]
   %out_next.5 = phi ptr [ %out_next.5.ph, %for.cond1053.preheader ], [ %out_next.5.be, %for.cond1053.backedge ]
   %sub.ptr.rhs.cast1060 = ptrtoint ptr %in_next.18 to i64
   %sub.ptr.sub1061 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast1060
@@ -1080,41 +1080,41 @@ do.body1071:                                      ; preds = %for.cond1053
 
 while.body1093:                                   ; preds = %while.cond1088.preheader, %if.end1124
   %conv1090644 = phi i32 [ %conv1090, %if.end1124 ], [ %conv1090638, %while.cond1088.preheader ]
-  %in_next.19643 = phi ptr [ %in_next.20, %if.end1124 ], [ %in_next.18, %while.cond1088.preheader ]
-  %bitbuf.23642 = phi i64 [ %bitbuf.24, %if.end1124 ], [ %bitbuf.22, %while.cond1088.preheader ]
-  %bitsleft.20641 = phi i32 [ %add1125, %if.end1124 ], [ %bitsleft.19, %while.cond1088.preheader ]
-  %overread_count.14640 = phi i64 [ %overread_count.15, %if.end1124 ], [ %overread_count.13, %while.cond1088.preheader ]
-  %cmp1094.not = icmp eq ptr %in_next.19643, %add.ptr2
+  %overread_count.14643 = phi i64 [ %overread_count.15, %if.end1124 ], [ %overread_count.13, %while.cond1088.preheader ]
+  %bitsleft.20642 = phi i32 [ %add1125, %if.end1124 ], [ %bitsleft.19, %while.cond1088.preheader ]
+  %bitbuf.23641 = phi i64 [ %bitbuf.24, %if.end1124 ], [ %bitbuf.22, %while.cond1088.preheader ]
+  %in_next.19640 = phi ptr [ %in_next.20, %if.end1124 ], [ %in_next.18, %while.cond1088.preheader ]
+  %cmp1094.not = icmp eq ptr %in_next.19640, %add.ptr2
   br i1 %cmp1094.not, label %if.else1110, label %if.then1102
 
 if.then1102:                                      ; preds = %while.body1093
-  %incdec.ptr1103 = getelementptr inbounds i8, ptr %in_next.19643, i64 1
-  %42 = load i8, ptr %in_next.19643, align 1
+  %incdec.ptr1103 = getelementptr inbounds i8, ptr %in_next.19640, i64 1
+  %42 = load i8, ptr %in_next.19640, align 1
   %conv1104 = zext i8 %42 to i64
   %sh_prom1107 = zext nneg i32 %conv1090644 to i64
   %shl1108 = shl nuw nsw i64 %conv1104, %sh_prom1107
-  %or1109 = or i64 %shl1108, %bitbuf.23642
+  %or1109 = or i64 %shl1108, %bitbuf.23641
   br label %if.end1124
 
 if.else1110:                                      ; preds = %while.body1093
-  %inc1111 = add i64 %overread_count.14640, 1
+  %inc1111 = add i64 %overread_count.14643, 1
   %cmp1112 = icmp ugt i64 %inc1111, 8
   br i1 %cmp1112, label %return, label %if.end1124
 
 if.end1124:                                       ; preds = %if.else1110, %if.then1102
-  %overread_count.15 = phi i64 [ %overread_count.14640, %if.then1102 ], [ %inc1111, %if.else1110 ]
-  %bitbuf.24 = phi i64 [ %or1109, %if.then1102 ], [ %bitbuf.23642, %if.else1110 ]
-  %in_next.20 = phi ptr [ %incdec.ptr1103, %if.then1102 ], [ %in_next.19643, %if.else1110 ]
-  %add1125 = add i32 %bitsleft.20641, 8
+  %in_next.20 = phi ptr [ %incdec.ptr1103, %if.then1102 ], [ %in_next.19640, %if.else1110 ]
+  %bitbuf.24 = phi i64 [ %or1109, %if.then1102 ], [ %bitbuf.23641, %if.else1110 ]
+  %overread_count.15 = phi i64 [ %overread_count.14643, %if.then1102 ], [ %inc1111, %if.else1110 ]
+  %add1125 = add i32 %bitsleft.20642, 8
   %conv1090 = and i32 %add1125, 255
   %cmp1091 = icmp ult i32 %conv1090, 56
   br i1 %cmp1091, label %while.body1093, label %do.end1129
 
 do.end1129:                                       ; preds = %if.end1124, %while.cond1088.preheader, %do.body1071
-  %overread_count.16 = phi i64 [ %overread_count.13, %do.body1071 ], [ %overread_count.13, %while.cond1088.preheader ], [ %overread_count.15, %if.end1124 ]
-  %bitsleft.21 = phi i32 [ %or1084, %do.body1071 ], [ %bitsleft.19, %while.cond1088.preheader ], [ %add1125, %if.end1124 ]
-  %bitbuf.25 = phi i64 [ %or1077, %do.body1071 ], [ %bitbuf.22, %while.cond1088.preheader ], [ %bitbuf.24, %if.end1124 ]
   %in_next.21 = phi ptr [ %add.ptr1083, %do.body1071 ], [ %in_next.18, %while.cond1088.preheader ], [ %in_next.20, %if.end1124 ]
+  %bitbuf.25 = phi i64 [ %or1077, %do.body1071 ], [ %bitbuf.22, %while.cond1088.preheader ], [ %bitbuf.24, %if.end1124 ]
+  %bitsleft.21 = phi i32 [ %or1084, %do.body1071 ], [ %bitsleft.19, %while.cond1088.preheader ], [ %add1125, %if.end1124 ]
+  %overread_count.16 = phi i64 [ %overread_count.13, %do.body1071 ], [ %overread_count.13, %while.cond1088.preheader ], [ %overread_count.15, %if.end1124 ]
   %and1131 = and i64 %bitbuf.25, %sub626
   %arrayidx1132 = getelementptr inbounds [2342 x i32], ptr %d, i64 0, i64 %and1131
   %43 = load i32, ptr %arrayidx1132, align 4
@@ -1145,10 +1145,10 @@ if.then1146:                                      ; preds = %do.end1129
   br label %if.end1163
 
 if.end1163:                                       ; preds = %if.then1146, %do.end1129
-  %entry10.5 = phi i32 [ %44, %if.then1146 ], [ %43, %do.end1129 ]
-  %bitsleft.22 = phi i32 [ %sub1162, %if.then1146 ], [ %sub1137, %do.end1129 ]
-  %saved_bitbuf.2 = phi i64 [ %shr1136, %if.then1146 ], [ %bitbuf.25, %do.end1129 ]
   %bitbuf.26 = phi i64 [ %shr1161, %if.then1146 ], [ %shr1136, %do.end1129 ]
+  %saved_bitbuf.2 = phi i64 [ %shr1136, %if.then1146 ], [ %bitbuf.25, %do.end1129 ]
+  %bitsleft.22 = phi i32 [ %sub1162, %if.then1146 ], [ %sub1137, %do.end1129 ]
+  %entry10.5 = phi i32 [ %44, %if.then1146 ], [ %43, %do.end1129 ]
   %shr1164 = lshr i32 %entry10.5, 16
   %tobool1166.not = icmp sgt i32 %entry10.5, -1
   br i1 %tobool1166.not, label %if.end1180, label %if.then1167
@@ -1164,8 +1164,8 @@ if.end1177:                                       ; preds = %if.then1167
   br label %for.cond1053.backedge
 
 for.cond1053.backedge:                            ; preds = %do.body1290, %if.end1177
-  %bitsleft.19.be = phi i32 [ %bitsleft.22, %if.end1177 ], [ %sub1264, %do.body1290 ]
   %bitbuf.22.be = phi i64 [ %bitbuf.26, %if.end1177 ], [ %shr1263, %do.body1290 ]
+  %bitsleft.19.be = phi i32 [ %bitsleft.22, %if.end1177 ], [ %sub1264, %do.body1290 ]
   %out_next.5.be = phi ptr [ %incdec.ptr1179, %if.end1177 ], [ %add.ptr1285, %do.body1290 ]
   br label %for.cond1053
 
@@ -1217,9 +1217,9 @@ if.then1230:                                      ; preds = %if.end1218
   br label %if.end1244
 
 if.end1244:                                       ; preds = %if.then1230, %if.end1218
-  %entry10.6 = phi i32 [ %47, %if.then1230 ], [ %46, %if.end1218 ]
-  %bitsleft.23 = phi i32 [ %sub1232, %if.then1230 ], [ %bitsleft.22, %if.end1218 ]
   %bitbuf.27 = phi i64 [ %shr1231, %if.then1230 ], [ %bitbuf.26, %if.end1218 ]
+  %bitsleft.23 = phi i32 [ %sub1232, %if.then1230 ], [ %bitsleft.22, %if.end1218 ]
+  %entry10.6 = phi i32 [ %47, %if.then1230 ], [ %46, %if.end1218 ]
   %shr1245 = lshr i32 %entry10.6, 16
   %conv1247 = and i32 %entry10.6, 255
   %sh_prom1248 = zext nneg i32 %conv1247 to i64
@@ -1264,10 +1264,10 @@ do.body1290:                                      ; preds = %do.body1290, %if.en
   br i1 %cmp1294, label %do.body1290, label %for.cond1053.backedge
 
 block_done:                                       ; preds = %if.end783, %if.then728, %if.end1180, %if.end516
-  %overread_count.17 = phi i64 [ 0, %if.end516 ], [ %overread_count.16, %if.end1180 ], [ %overread_count.12, %if.then728 ], [ %overread_count.12, %if.end783 ]
-  %bitsleft.24 = phi i32 [ 0, %if.end516 ], [ %bitsleft.22, %if.end1180 ], [ %sub754, %if.end783 ], [ %bitsleft.13, %if.then728 ]
-  %bitbuf.28 = phi i64 [ 0, %if.end516 ], [ %bitbuf.26, %if.end1180 ], [ %shr753, %if.end783 ], [ %bitbuf.16, %if.then728 ]
   %in_next.22 = phi ptr [ %add.ptr520, %if.end516 ], [ %in_next.21, %if.end1180 ], [ %in_next.13, %if.then728 ], [ %in_next.13, %if.end783 ]
+  %bitbuf.28 = phi i64 [ 0, %if.end516 ], [ %bitbuf.26, %if.end1180 ], [ %shr753, %if.end783 ], [ %bitbuf.16, %if.then728 ]
+  %bitsleft.24 = phi i32 [ 0, %if.end516 ], [ %bitsleft.22, %if.end1180 ], [ %sub754, %if.end783 ], [ %bitsleft.13, %if.then728 ]
+  %overread_count.17 = phi i64 [ 0, %if.end516 ], [ %overread_count.16, %if.end1180 ], [ %overread_count.12, %if.then728 ], [ %overread_count.12, %if.end783 ]
   %out_next.6 = phi ptr [ %add.ptr523, %if.end516 ], [ %out_next.5, %if.end1180 ], [ %out_next.2, %if.then728 ], [ %out_next.2, %if.end783 ]
   br i1 %tobool55.not, label %next_block, label %if.end1299
 
@@ -1343,10 +1343,10 @@ entry:
   br label %next_block
 
 next_block:                                       ; preds = %block_done, %entry
-  %overread_count.0 = phi i64 [ 0, %entry ], [ %overread_count.17, %block_done ]
-  %bitsleft.0 = phi i32 [ 0, %entry ], [ %bitsleft.24, %block_done ]
-  %bitbuf.0 = phi i64 [ 0, %entry ], [ %bitbuf.28, %block_done ]
   %in_next.0 = phi ptr [ %in, %entry ], [ %in_next.22, %block_done ]
+  %bitbuf.0 = phi i64 [ 0, %entry ], [ %bitbuf.28, %block_done ]
+  %bitsleft.0 = phi i32 [ 0, %entry ], [ %bitsleft.24, %block_done ]
+  %overread_count.0 = phi i64 [ 0, %entry ], [ %overread_count.17, %block_done ]
   %out_next.0 = phi ptr [ %out, %entry ], [ %out_next.6, %block_done ]
   %sub.ptr.rhs.cast = ptrtoint ptr %in_next.0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -1375,41 +1375,41 @@ do.body13:                                        ; preds = %next_block
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end51
   %conv21589 = phi i32 [ %conv21, %if.end51 ], [ %conv21583, %while.cond.preheader ]
-  %in_next.1588 = phi ptr [ %in_next.2, %if.end51 ], [ %in_next.0, %while.cond.preheader ]
-  %bitbuf.1587 = phi i64 [ %bitbuf.2, %if.end51 ], [ %bitbuf.0, %while.cond.preheader ]
-  %bitsleft.1586 = phi i32 [ %add, %if.end51 ], [ %bitsleft.0, %while.cond.preheader ]
-  %overread_count.1585 = phi i64 [ %overread_count.2, %if.end51 ], [ %overread_count.0, %while.cond.preheader ]
-  %cmp24.not = icmp eq ptr %in_next.1588, %add.ptr2
+  %overread_count.1588 = phi i64 [ %overread_count.2, %if.end51 ], [ %overread_count.0, %while.cond.preheader ]
+  %bitsleft.1587 = phi i32 [ %add, %if.end51 ], [ %bitsleft.0, %while.cond.preheader ]
+  %bitbuf.1586 = phi i64 [ %bitbuf.2, %if.end51 ], [ %bitbuf.0, %while.cond.preheader ]
+  %in_next.1585 = phi ptr [ %in_next.2, %if.end51 ], [ %in_next.0, %while.cond.preheader ]
+  %cmp24.not = icmp eq ptr %in_next.1585, %add.ptr2
   br i1 %cmp24.not, label %if.else39, label %if.then32
 
 if.then32:                                        ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %in_next.1588, i64 1
-  %0 = load i8, ptr %in_next.1588, align 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %in_next.1585, i64 1
+  %0 = load i8, ptr %in_next.1585, align 1
   %conv33 = zext i8 %0 to i64
   %sh_prom36 = zext nneg i32 %conv21589 to i64
   %shl37 = shl nuw nsw i64 %conv33, %sh_prom36
-  %or38 = or i64 %shl37, %bitbuf.1587
+  %or38 = or i64 %shl37, %bitbuf.1586
   br label %if.end51
 
 if.else39:                                        ; preds = %while.body
-  %inc = add i64 %overread_count.1585, 1
+  %inc = add i64 %overread_count.1588, 1
   %cmp40 = icmp ugt i64 %inc, 8
   br i1 %cmp40, label %return, label %if.end51
 
 if.end51:                                         ; preds = %if.else39, %if.then32
-  %overread_count.2 = phi i64 [ %overread_count.1585, %if.then32 ], [ %inc, %if.else39 ]
-  %bitbuf.2 = phi i64 [ %or38, %if.then32 ], [ %bitbuf.1587, %if.else39 ]
-  %in_next.2 = phi ptr [ %incdec.ptr, %if.then32 ], [ %in_next.1588, %if.else39 ]
-  %add = add i32 %bitsleft.1586, 8
+  %in_next.2 = phi ptr [ %incdec.ptr, %if.then32 ], [ %in_next.1585, %if.else39 ]
+  %bitbuf.2 = phi i64 [ %or38, %if.then32 ], [ %bitbuf.1586, %if.else39 ]
+  %overread_count.2 = phi i64 [ %overread_count.1588, %if.then32 ], [ %inc, %if.else39 ]
+  %add = add i32 %bitsleft.1587, 8
   %conv21 = and i32 %add, 255
   %cmp22 = icmp ult i32 %conv21, 56
   br i1 %cmp22, label %while.body, label %do.end53
 
 do.end53:                                         ; preds = %if.end51, %while.cond.preheader, %do.body13
-  %overread_count.3 = phi i64 [ %overread_count.0, %do.body13 ], [ %overread_count.0, %while.cond.preheader ], [ %overread_count.2, %if.end51 ]
-  %bitsleft.2 = phi i32 [ %or19, %do.body13 ], [ %bitsleft.0, %while.cond.preheader ], [ %add, %if.end51 ]
-  %bitbuf.3 = phi i64 [ %or, %do.body13 ], [ %bitbuf.0, %while.cond.preheader ], [ %bitbuf.2, %if.end51 ]
   %in_next.3 = phi ptr [ %add.ptr18, %do.body13 ], [ %in_next.0, %while.cond.preheader ], [ %in_next.2, %if.end51 ]
+  %bitbuf.3 = phi i64 [ %or, %do.body13 ], [ %bitbuf.0, %while.cond.preheader ], [ %bitbuf.2, %if.end51 ]
+  %bitsleft.2 = phi i32 [ %or19, %do.body13 ], [ %bitsleft.0, %while.cond.preheader ], [ %add, %if.end51 ]
+  %overread_count.3 = phi i64 [ %overread_count.0, %do.body13 ], [ %overread_count.0, %while.cond.preheader ], [ %overread_count.2, %if.end51 ]
   %and54 = and i64 %bitbuf.3, 1
   %tobool55.not = icmp eq i64 %and54, 0
   %1 = trunc i64 %bitbuf.3 to i32
@@ -1466,41 +1466,41 @@ do.body91:                                        ; preds = %if.then61
 
 while.body112:                                    ; preds = %while.cond107.preheader, %if.end143
   %conv109611 = phi i32 [ %conv109, %if.end143 ], [ %conv109605, %while.cond107.preheader ]
-  %in_next.4610 = phi ptr [ %in_next.5, %if.end143 ], [ %in_next.3, %while.cond107.preheader ]
-  %bitbuf.4609 = phi i64 [ %bitbuf.5, %if.end143 ], [ %shr77, %while.cond107.preheader ]
-  %bitsleft.3608 = phi i32 [ %add144, %if.end143 ], [ %sub, %while.cond107.preheader ]
-  %overread_count.4607 = phi i64 [ %overread_count.5, %if.end143 ], [ %overread_count.3, %while.cond107.preheader ]
-  %cmp113.not = icmp eq ptr %in_next.4610, %add.ptr2
+  %overread_count.4610 = phi i64 [ %overread_count.5, %if.end143 ], [ %overread_count.3, %while.cond107.preheader ]
+  %bitsleft.3609 = phi i32 [ %add144, %if.end143 ], [ %sub, %while.cond107.preheader ]
+  %bitbuf.4608 = phi i64 [ %bitbuf.5, %if.end143 ], [ %shr77, %while.cond107.preheader ]
+  %in_next.4607 = phi ptr [ %in_next.5, %if.end143 ], [ %in_next.3, %while.cond107.preheader ]
+  %cmp113.not = icmp eq ptr %in_next.4607, %add.ptr2
   br i1 %cmp113.not, label %if.else129, label %if.then121
 
 if.then121:                                       ; preds = %while.body112
-  %incdec.ptr122 = getelementptr inbounds i8, ptr %in_next.4610, i64 1
-  %10 = load i8, ptr %in_next.4610, align 1
+  %incdec.ptr122 = getelementptr inbounds i8, ptr %in_next.4607, i64 1
+  %10 = load i8, ptr %in_next.4607, align 1
   %conv123 = zext i8 %10 to i64
   %sh_prom126 = zext nneg i32 %conv109611 to i64
   %shl127 = shl nuw nsw i64 %conv123, %sh_prom126
-  %or128 = or i64 %shl127, %bitbuf.4609
+  %or128 = or i64 %shl127, %bitbuf.4608
   br label %if.end143
 
 if.else129:                                       ; preds = %while.body112
-  %inc130 = add i64 %overread_count.4607, 1
+  %inc130 = add i64 %overread_count.4610, 1
   %cmp131 = icmp ugt i64 %inc130, 8
   br i1 %cmp131, label %return, label %if.end143
 
 if.end143:                                        ; preds = %if.else129, %if.then121
-  %overread_count.5 = phi i64 [ %overread_count.4607, %if.then121 ], [ %inc130, %if.else129 ]
-  %bitbuf.5 = phi i64 [ %or128, %if.then121 ], [ %bitbuf.4609, %if.else129 ]
-  %in_next.5 = phi ptr [ %incdec.ptr122, %if.then121 ], [ %in_next.4610, %if.else129 ]
-  %add144 = add i32 %bitsleft.3608, 8
+  %in_next.5 = phi ptr [ %incdec.ptr122, %if.then121 ], [ %in_next.4607, %if.else129 ]
+  %bitbuf.5 = phi i64 [ %or128, %if.then121 ], [ %bitbuf.4608, %if.else129 ]
+  %overread_count.5 = phi i64 [ %overread_count.4610, %if.then121 ], [ %inc130, %if.else129 ]
+  %add144 = add i32 %bitsleft.3609, 8
   %conv109 = and i32 %add144, 255
   %cmp110 = icmp ult i32 %conv109, 56
   br i1 %cmp110, label %while.body112, label %do.end147
 
 do.end147:                                        ; preds = %if.end143, %while.cond107.preheader, %do.body91
-  %overread_count.6 = phi i64 [ %overread_count.3, %do.body91 ], [ %overread_count.3, %while.cond107.preheader ], [ %overread_count.5, %if.end143 ]
-  %bitsleft.4 = phi i32 [ %or104, %do.body91 ], [ %sub, %while.cond107.preheader ], [ %add144, %if.end143 ]
-  %bitbuf.6 = phi i64 [ %or97, %do.body91 ], [ %shr77, %while.cond107.preheader ], [ %bitbuf.5, %if.end143 ]
   %in_next.6 = phi ptr [ %add.ptr103, %do.body91 ], [ %in_next.3, %while.cond107.preheader ], [ %in_next.5, %if.end143 ]
+  %bitbuf.6 = phi i64 [ %or97, %do.body91 ], [ %shr77, %while.cond107.preheader ], [ %bitbuf.5, %if.end143 ]
+  %bitsleft.4 = phi i32 [ %or104, %do.body91 ], [ %sub, %while.cond107.preheader ], [ %add144, %if.end143 ]
+  %overread_count.6 = phi i64 [ %overread_count.3, %do.body91 ], [ %overread_count.3, %while.cond107.preheader ], [ %overread_count.5, %if.end143 ]
   %11 = zext nneg i32 %conv73 to i64
   %.neg = mul nsw i32 %8, -3
   br label %do.body148
@@ -1548,11 +1548,11 @@ do.body181.preheader:                             ; preds = %for.end
   br label %do.body181
 
 do.body181:                                       ; preds = %do.body181.preheader, %do.cond408
-  %overread_count.7 = phi i64 [ %overread_count.10, %do.cond408 ], [ %overread_count.6, %do.body181.preheader ]
-  %bitsleft.6 = phi i32 [ %bitsleft.9, %do.cond408 ], [ %15, %do.body181.preheader ]
-  %i.2 = phi i32 [ %i.3, %do.cond408 ], [ 0, %do.body181.preheader ]
-  %bitbuf.8 = phi i64 [ %bitbuf.12, %do.cond408 ], [ %shr156, %do.body181.preheader ]
   %in_next.7 = phi ptr [ %in_next.10, %do.cond408 ], [ %in_next.6, %do.body181.preheader ]
+  %bitbuf.8 = phi i64 [ %bitbuf.12, %do.cond408 ], [ %shr156, %do.body181.preheader ]
+  %bitsleft.6 = phi i32 [ %bitsleft.9, %do.cond408 ], [ %15, %do.body181.preheader ]
+  %overread_count.7 = phi i64 [ %overread_count.10, %do.cond408 ], [ %overread_count.6, %do.body181.preheader ]
+  %i.2 = phi i32 [ %i.3, %do.cond408 ], [ 0, %do.body181.preheader ]
   %conv183 = and i32 %bitsleft.6, 255
   %cmp184 = icmp ult i32 %conv183, 14
   br i1 %cmp184, label %do.body187, label %if.end259
@@ -1579,41 +1579,41 @@ do.body200:                                       ; preds = %do.body187
 
 while.body222:                                    ; preds = %do.body187, %if.end253
   %conv219624 = phi i32 [ %conv219, %if.end253 ], [ %conv183, %do.body187 ]
-  %in_next.8623 = phi ptr [ %in_next.9, %if.end253 ], [ %in_next.7, %do.body187 ]
-  %bitbuf.9622 = phi i64 [ %bitbuf.10, %if.end253 ], [ %bitbuf.8, %do.body187 ]
-  %bitsleft.7621 = phi i32 [ %add254, %if.end253 ], [ %bitsleft.6, %do.body187 ]
-  %overread_count.8620 = phi i64 [ %overread_count.9, %if.end253 ], [ %overread_count.7, %do.body187 ]
-  %cmp223.not = icmp eq ptr %in_next.8623, %add.ptr2
+  %overread_count.8623 = phi i64 [ %overread_count.9, %if.end253 ], [ %overread_count.7, %do.body187 ]
+  %bitsleft.7622 = phi i32 [ %add254, %if.end253 ], [ %bitsleft.6, %do.body187 ]
+  %bitbuf.9621 = phi i64 [ %bitbuf.10, %if.end253 ], [ %bitbuf.8, %do.body187 ]
+  %in_next.8620 = phi ptr [ %in_next.9, %if.end253 ], [ %in_next.7, %do.body187 ]
+  %cmp223.not = icmp eq ptr %in_next.8620, %add.ptr2
   br i1 %cmp223.not, label %if.else239, label %if.then231
 
 if.then231:                                       ; preds = %while.body222
-  %incdec.ptr232 = getelementptr inbounds i8, ptr %in_next.8623, i64 1
-  %17 = load i8, ptr %in_next.8623, align 1
+  %incdec.ptr232 = getelementptr inbounds i8, ptr %in_next.8620, i64 1
+  %17 = load i8, ptr %in_next.8620, align 1
   %conv233 = zext i8 %17 to i64
   %sh_prom236 = zext nneg i32 %conv219624 to i64
   %shl237 = shl nuw nsw i64 %conv233, %sh_prom236
-  %or238 = or i64 %shl237, %bitbuf.9622
+  %or238 = or i64 %shl237, %bitbuf.9621
   br label %if.end253
 
 if.else239:                                       ; preds = %while.body222
-  %inc240 = add i64 %overread_count.8620, 1
+  %inc240 = add i64 %overread_count.8623, 1
   %cmp241 = icmp ugt i64 %inc240, 8
   br i1 %cmp241, label %return, label %if.end253
 
 if.end253:                                        ; preds = %if.else239, %if.then231
-  %overread_count.9 = phi i64 [ %overread_count.8620, %if.then231 ], [ %inc240, %if.else239 ]
-  %bitbuf.10 = phi i64 [ %or238, %if.then231 ], [ %bitbuf.9622, %if.else239 ]
-  %in_next.9 = phi ptr [ %incdec.ptr232, %if.then231 ], [ %in_next.8623, %if.else239 ]
-  %add254 = add i32 %bitsleft.7621, 8
+  %in_next.9 = phi ptr [ %incdec.ptr232, %if.then231 ], [ %in_next.8620, %if.else239 ]
+  %bitbuf.10 = phi i64 [ %or238, %if.then231 ], [ %bitbuf.9621, %if.else239 ]
+  %overread_count.9 = phi i64 [ %overread_count.8623, %if.then231 ], [ %inc240, %if.else239 ]
+  %add254 = add i32 %bitsleft.7622, 8
   %conv219 = and i32 %add254, 255
   %cmp220 = icmp ult i32 %conv219, 56
   br i1 %cmp220, label %while.body222, label %if.end259
 
 if.end259:                                        ; preds = %if.end253, %do.body200, %do.body181
-  %overread_count.10 = phi i64 [ %overread_count.7, %do.body200 ], [ %overread_count.7, %do.body181 ], [ %overread_count.9, %if.end253 ]
-  %bitsleft.8 = phi i32 [ %or213, %do.body200 ], [ %bitsleft.6, %do.body181 ], [ %add254, %if.end253 ]
-  %bitbuf.11 = phi i64 [ %or206, %do.body200 ], [ %bitbuf.8, %do.body181 ], [ %bitbuf.10, %if.end253 ]
   %in_next.10 = phi ptr [ %add.ptr212, %do.body200 ], [ %in_next.7, %do.body181 ], [ %in_next.9, %if.end253 ]
+  %bitbuf.11 = phi i64 [ %or206, %do.body200 ], [ %bitbuf.8, %do.body181 ], [ %bitbuf.10, %if.end253 ]
+  %bitsleft.8 = phi i32 [ %or213, %do.body200 ], [ %bitsleft.6, %do.body181 ], [ %add254, %if.end253 ]
+  %overread_count.10 = phi i64 [ %overread_count.7, %do.body200 ], [ %overread_count.7, %do.body181 ], [ %overread_count.9, %if.end253 ]
   %and261 = and i64 %bitbuf.11, 127
   %arrayidx262 = getelementptr inbounds [128 x i32], ptr %precode_decode_table.i, i64 0, i64 %and261
   %18 = load i32, ptr %arrayidx262, align 4
@@ -1740,9 +1740,9 @@ if.else394:                                       ; preds = %if.end277
   br label %do.cond408
 
 do.cond408:                                       ; preds = %if.end292, %if.else394, %if.then337, %if.then271
+  %bitbuf.12 = phi i64 [ %shr266, %if.then271 ], [ %shr301, %if.end292 ], [ %shr341, %if.then337 ], [ %shr398, %if.else394 ]
   %bitsleft.9 = phi i32 [ %sub267, %if.then271 ], [ %sub302, %if.end292 ], [ %sub342, %if.then337 ], [ %sub399, %if.else394 ]
   %i.3 = phi i32 [ %inc274, %if.then271 ], [ %add333, %if.end292 ], [ %add393, %if.then337 ], [ %add405, %if.else394 ]
-  %bitbuf.12 = phi i64 [ %shr266, %if.then271 ], [ %shr301, %if.end292 ], [ %shr341, %if.then337 ], [ %shr398, %if.else394 ]
   %cmp410 = icmp ult i32 %i.3, %add409
   br i1 %cmp410, label %do.body181, label %do.end412
 
@@ -1811,12 +1811,12 @@ for.body592.preheader:                            ; preds = %if.end537
   br label %if.end601
 
 if.end601:                                        ; preds = %for.body592.preheader, %do.end412
+  %in_next.11 = phi ptr [ %in_next.10, %do.end412 ], [ %in_next.3, %for.body592.preheader ]
+  %bitbuf.13 = phi i64 [ %bitbuf.12, %do.end412 ], [ %shr538, %for.body592.preheader ]
+  %bitsleft.10 = phi i32 [ %bitsleft.9, %do.end412 ], [ %sub539, %for.body592.preheader ]
+  %overread_count.11 = phi i64 [ %overread_count.10, %do.end412 ], [ %overread_count.3, %for.body592.preheader ]
   %num_litlen_syms.0 = phi i32 [ %conv65, %do.end412 ], [ 288, %for.body592.preheader ]
   %num_offset_syms.0 = phi i32 [ %conv69, %do.end412 ], [ 32, %for.body592.preheader ]
-  %overread_count.11 = phi i64 [ %overread_count.10, %do.end412 ], [ %overread_count.3, %for.body592.preheader ]
-  %bitsleft.10 = phi i32 [ %bitsleft.9, %do.end412 ], [ %sub539, %for.body592.preheader ]
-  %bitbuf.13 = phi i64 [ %bitbuf.12, %do.end412 ], [ %shr538, %for.body592.preheader ]
-  %in_next.11 = phi ptr [ %in_next.10, %do.end412 ], [ %in_next.3, %for.body592.preheader ]
   %idx.ext.i = zext nneg i32 %num_litlen_syms.0 to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %d, i64 %idx.ext.i
   %call.i542 = tail call fastcc noundef zeroext i1 @build_decode_table(ptr noundef nonnull %offset_decode_table.i, ptr noundef nonnull %add.ptr.i, i32 noundef %num_offset_syms.0, ptr noundef nonnull @offset_decode_results, i32 noundef 8, i32 noundef 15, ptr noundef nonnull %sorted_syms.i, ptr noundef null)
@@ -1827,10 +1827,10 @@ if.end612:                                        ; preds = %if.end601
   br i1 %call.i544, label %have_decode_tables, label %return
 
 have_decode_tables:                               ; preds = %if.end612, %if.end537
-  %overread_count.12 = phi i64 [ %overread_count.11, %if.end612 ], [ %overread_count.3, %if.end537 ]
-  %bitsleft.11 = phi i32 [ %bitsleft.10, %if.end612 ], [ %sub539, %if.end537 ]
-  %bitbuf.14 = phi i64 [ %bitbuf.13, %if.end612 ], [ %shr538, %if.end537 ]
   %in_next.12 = phi ptr [ %in_next.11, %if.end612 ], [ %in_next.3, %if.end537 ]
+  %bitbuf.14 = phi i64 [ %bitbuf.13, %if.end612 ], [ %shr538, %if.end537 ]
+  %bitsleft.11 = phi i32 [ %bitsleft.10, %if.end612 ], [ %sub539, %if.end537 ]
+  %overread_count.12 = phi i64 [ %overread_count.11, %if.end612 ], [ %overread_count.3, %if.end537 ]
   %28 = load i32, ptr %litlen_tablebits.i, align 4
   %sh_prom624 = zext nneg i32 %28 to i64
   %notmask = shl nsw i64 -1, %sh_prom624
@@ -1859,10 +1859,10 @@ do.body634:                                       ; preds = %have_decode_tables
   br label %do.body655
 
 do.body655:                                       ; preds = %do.cond1047, %do.body634
-  %entry10.0 = phi i32 [ %29, %do.body634 ], [ %entry10.4, %do.cond1047 ]
-  %bitsleft.12 = phi i32 [ %or647, %do.body634 ], [ %bitsleft.17, %do.cond1047 ]
-  %bitbuf.15 = phi i64 [ %or640, %do.body634 ], [ %bitbuf.20, %do.cond1047 ]
   %in_next.13 = phi ptr [ %add.ptr646, %do.body634 ], [ %in_next.16, %do.cond1047 ]
+  %bitbuf.15 = phi i64 [ %or640, %do.body634 ], [ %bitbuf.20, %do.cond1047 ]
+  %bitsleft.12 = phi i32 [ %or647, %do.body634 ], [ %bitsleft.17, %do.cond1047 ]
+  %entry10.0 = phi i32 [ %29, %do.body634 ], [ %entry10.4, %do.cond1047 ]
   %out_next.1 = phi ptr [ %out_next.0, %do.body634 ], [ %out_next.3, %do.cond1047 ]
   %conv657 = and i32 %entry10.0, 255
   %sh_prom658 = zext nneg i32 %conv657 to i64
@@ -1923,10 +1923,10 @@ if.then691:                                       ; preds = %if.then677
   br label %do.cond1047
 
 if.end719:                                        ; preds = %if.then663, %if.then677, %do.body655
-  %entry10.1 = phi i32 [ %31, %if.then677 ], [ %30, %if.then663 ], [ %entry10.0, %do.body655 ]
-  %bitsleft.13 = phi i32 [ %sub686, %if.then677 ], [ %sub672, %if.then663 ], [ %sub660, %do.body655 ]
-  %saved_bitbuf.0 = phi i64 [ %shr671, %if.then677 ], [ %shr659, %if.then663 ], [ %bitbuf.15, %do.body655 ]
   %bitbuf.16 = phi i64 [ %shr685, %if.then677 ], [ %shr671, %if.then663 ], [ %shr659, %do.body655 ]
+  %saved_bitbuf.0 = phi i64 [ %shr671, %if.then677 ], [ %shr659, %if.then663 ], [ %bitbuf.15, %do.body655 ]
+  %bitsleft.13 = phi i32 [ %sub686, %if.then677 ], [ %sub672, %if.then663 ], [ %sub660, %do.body655 ]
+  %entry10.1 = phi i32 [ %31, %if.then677 ], [ %30, %if.then663 ], [ %entry10.0, %do.body655 ]
   %out_next.2 = phi ptr [ %incdec.ptr688, %if.then677 ], [ %incdec.ptr674, %if.then663 ], [ %out_next.1, %do.body655 ]
   %and720 = and i32 %entry10.1, 32768
   %tobool721.not = icmp eq i32 %and720, 0
@@ -1989,10 +1989,10 @@ if.end783:                                        ; preds = %if.end738
 
 if.end794:                                        ; preds = %if.end719.if.end794_crit_edge, %if.end783
   %sh_prom798.pre-phi = phi i64 [ %.pre685, %if.end719.if.end794_crit_edge ], [ %sh_prom752, %if.end783 ]
-  %entry10.2 = phi i32 [ %entry10.1, %if.end719.if.end794_crit_edge ], [ %33, %if.end783 ]
-  %bitsleft.14 = phi i32 [ %bitsleft.13, %if.end719.if.end794_crit_edge ], [ %sub754, %if.end783 ]
-  %saved_bitbuf.1 = phi i64 [ %saved_bitbuf.0, %if.end719.if.end794_crit_edge ], [ %bitbuf.16, %if.end783 ]
   %bitbuf.17 = phi i64 [ %bitbuf.16, %if.end719.if.end794_crit_edge ], [ %shr753, %if.end783 ]
+  %saved_bitbuf.1 = phi i64 [ %saved_bitbuf.0, %if.end719.if.end794_crit_edge ], [ %bitbuf.16, %if.end783 ]
+  %bitsleft.14 = phi i32 [ %bitsleft.13, %if.end719.if.end794_crit_edge ], [ %sub754, %if.end783 ]
+  %entry10.2 = phi i32 [ %entry10.1, %if.end719.if.end794_crit_edge ], [ %33, %if.end783 ]
   %shr795 = lshr i32 %entry10.2, 16
   %notmask532 = shl nsw i64 -1, %sh_prom798.pre-phi
   %sub800 = xor i64 %notmask532, -1
@@ -2030,9 +2030,9 @@ do.body833:                                       ; preds = %if.then820
   br label %if.end851
 
 if.end851:                                        ; preds = %do.body833, %if.then820
-  %bitsleft.15 = phi i32 [ %or846, %do.body833 ], [ %bitsleft.14, %if.then820 ]
-  %bitbuf.18 = phi i64 [ %or839, %do.body833 ], [ %bitbuf.17, %if.then820 ]
   %in_next.14 = phi ptr [ %add.ptr845, %do.body833 ], [ %in_next.13, %if.then820 ]
+  %bitbuf.18 = phi i64 [ %or839, %do.body833 ], [ %bitbuf.17, %if.then820 ]
+  %bitsleft.15 = phi i32 [ %or846, %do.body833 ], [ %bitsleft.14, %if.then820 ]
   %shr852 = lshr i64 %bitbuf.18, 8
   %sub853 = add i32 %bitsleft.15, -8
   %shr855 = lshr i32 %36, 16
@@ -2067,10 +2067,10 @@ do.body878:                                       ; preds = %if.else865
   br label %if.end897
 
 if.end897:                                        ; preds = %if.else865, %do.body878, %if.end851
-  %entry10.3 = phi i32 [ %37, %if.end851 ], [ %36, %do.body878 ], [ %36, %if.else865 ]
-  %bitsleft.16 = phi i32 [ %sub853, %if.end851 ], [ %or891, %do.body878 ], [ %bitsleft.14, %if.else865 ]
-  %bitbuf.19 = phi i64 [ %shr852, %if.end851 ], [ %or884, %do.body878 ], [ %bitbuf.17, %if.else865 ]
   %in_next.15 = phi ptr [ %in_next.14, %if.end851 ], [ %add.ptr890, %do.body878 ], [ %in_next.13, %if.else865 ]
+  %bitbuf.19 = phi i64 [ %shr852, %if.end851 ], [ %or884, %do.body878 ], [ %bitbuf.17, %if.else865 ]
+  %bitsleft.16 = phi i32 [ %sub853, %if.end851 ], [ %or891, %do.body878 ], [ %bitsleft.14, %if.else865 ]
+  %entry10.3 = phi i32 [ %37, %if.end851 ], [ %36, %do.body878 ], [ %36, %if.else865 ]
   %conv899 = and i32 %entry10.3, 255
   %sh_prom900 = zext nneg i32 %conv899 to i64
   %shr903 = lshr i32 %entry10.3, 16
@@ -2225,10 +2225,10 @@ do.body1030:                                      ; preds = %do.body1030, %if.el
   br i1 %cmp1042, label %do.body1030, label %do.cond1047
 
 do.cond1047:                                      ; preds = %do.body1030, %while.body1013, %while.body982, %if.then1002, %if.then963, %if.then757, %if.then691
-  %entry10.4 = phi i32 [ %32, %if.then691 ], [ %34, %if.then757 ], [ %39, %if.then963 ], [ %39, %if.then1002 ], [ %39, %while.body982 ], [ %39, %while.body1013 ], [ %39, %do.body1030 ]
-  %bitsleft.17.in = phi i32 [ %sub686, %if.then691 ], [ %sub754, %if.then757 ], [ %sub902, %if.then963 ], [ %sub902, %if.then1002 ], [ %sub902, %while.body982 ], [ %sub902, %while.body1013 ], [ %sub902, %do.body1030 ]
-  %bitbuf.20 = phi i64 [ %or703, %if.then691 ], [ %or769, %if.then757 ], [ %or949, %if.then963 ], [ %or949, %if.then1002 ], [ %or949, %while.body982 ], [ %or949, %while.body1013 ], [ %or949, %do.body1030 ]
   %in_next.16 = phi ptr [ %add.ptr709, %if.then691 ], [ %add.ptr775, %if.then757 ], [ %add.ptr955, %if.then963 ], [ %add.ptr955, %if.then1002 ], [ %add.ptr955, %while.body982 ], [ %add.ptr955, %while.body1013 ], [ %add.ptr955, %do.body1030 ]
+  %bitbuf.20 = phi i64 [ %or703, %if.then691 ], [ %or769, %if.then757 ], [ %or949, %if.then963 ], [ %or949, %if.then1002 ], [ %or949, %while.body982 ], [ %or949, %while.body1013 ], [ %or949, %do.body1030 ]
+  %bitsleft.17.in = phi i32 [ %sub686, %if.then691 ], [ %sub754, %if.then757 ], [ %sub902, %if.then963 ], [ %sub902, %if.then1002 ], [ %sub902, %while.body982 ], [ %sub902, %while.body1013 ], [ %sub902, %do.body1030 ]
+  %entry10.4 = phi i32 [ %32, %if.then691 ], [ %34, %if.then757 ], [ %39, %if.then963 ], [ %39, %if.then1002 ], [ %39, %while.body982 ], [ %39, %while.body1013 ], [ %39, %do.body1030 ]
   %out_next.3 = phi ptr [ %incdec.ptr716, %if.then691 ], [ %incdec.ptr782, %if.then757 ], [ %add.ptr938, %if.then963 ], [ %add.ptr938, %if.then1002 ], [ %add.ptr938, %while.body982 ], [ %add.ptr938, %while.body1013 ], [ %add.ptr938, %do.body1030 ]
   %bitsleft.17 = or i32 %bitsleft.17.in, 56
   %cmp1048 = icmp ult ptr %in_next.16, %add.ptr9
@@ -2237,17 +2237,17 @@ do.cond1047:                                      ; preds = %do.body1030, %while
   br i1 %41, label %do.body655, label %for.cond1053.preheader
 
 for.cond1053.preheader:                           ; preds = %do.cond1047, %have_decode_tables
-  %bitsleft.19.ph = phi i32 [ %bitsleft.11, %have_decode_tables ], [ %bitsleft.17, %do.cond1047 ]
-  %bitbuf.22.ph = phi i64 [ %bitbuf.14, %have_decode_tables ], [ %bitbuf.20, %do.cond1047 ]
   %in_next.18.ph = phi ptr [ %in_next.12, %have_decode_tables ], [ %in_next.16, %do.cond1047 ]
+  %bitbuf.22.ph = phi i64 [ %bitbuf.14, %have_decode_tables ], [ %bitbuf.20, %do.cond1047 ]
+  %bitsleft.19.ph = phi i32 [ %bitsleft.11, %have_decode_tables ], [ %bitsleft.17, %do.cond1047 ]
   %out_next.5.ph = phi ptr [ %out_next.0, %have_decode_tables ], [ %out_next.3, %do.cond1047 ]
   br label %for.cond1053
 
 for.cond1053:                                     ; preds = %for.cond1053.backedge, %for.cond1053.preheader
-  %overread_count.13 = phi i64 [ %overread_count.12, %for.cond1053.preheader ], [ %overread_count.16, %for.cond1053.backedge ]
-  %bitsleft.19 = phi i32 [ %bitsleft.19.ph, %for.cond1053.preheader ], [ %bitsleft.19.be, %for.cond1053.backedge ]
-  %bitbuf.22 = phi i64 [ %bitbuf.22.ph, %for.cond1053.preheader ], [ %bitbuf.22.be, %for.cond1053.backedge ]
   %in_next.18 = phi ptr [ %in_next.18.ph, %for.cond1053.preheader ], [ %in_next.21, %for.cond1053.backedge ]
+  %bitbuf.22 = phi i64 [ %bitbuf.22.ph, %for.cond1053.preheader ], [ %bitbuf.22.be, %for.cond1053.backedge ]
+  %bitsleft.19 = phi i32 [ %bitsleft.19.ph, %for.cond1053.preheader ], [ %bitsleft.19.be, %for.cond1053.backedge ]
+  %overread_count.13 = phi i64 [ %overread_count.12, %for.cond1053.preheader ], [ %overread_count.16, %for.cond1053.backedge ]
   %out_next.5 = phi ptr [ %out_next.5.ph, %for.cond1053.preheader ], [ %out_next.5.be, %for.cond1053.backedge ]
   %sub.ptr.rhs.cast1060 = ptrtoint ptr %in_next.18 to i64
   %sub.ptr.sub1061 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast1060
@@ -2276,41 +2276,41 @@ do.body1071:                                      ; preds = %for.cond1053
 
 while.body1093:                                   ; preds = %while.cond1088.preheader, %if.end1124
   %conv1090644 = phi i32 [ %conv1090, %if.end1124 ], [ %conv1090638, %while.cond1088.preheader ]
-  %in_next.19643 = phi ptr [ %in_next.20, %if.end1124 ], [ %in_next.18, %while.cond1088.preheader ]
-  %bitbuf.23642 = phi i64 [ %bitbuf.24, %if.end1124 ], [ %bitbuf.22, %while.cond1088.preheader ]
-  %bitsleft.20641 = phi i32 [ %add1125, %if.end1124 ], [ %bitsleft.19, %while.cond1088.preheader ]
-  %overread_count.14640 = phi i64 [ %overread_count.15, %if.end1124 ], [ %overread_count.13, %while.cond1088.preheader ]
-  %cmp1094.not = icmp eq ptr %in_next.19643, %add.ptr2
+  %overread_count.14643 = phi i64 [ %overread_count.15, %if.end1124 ], [ %overread_count.13, %while.cond1088.preheader ]
+  %bitsleft.20642 = phi i32 [ %add1125, %if.end1124 ], [ %bitsleft.19, %while.cond1088.preheader ]
+  %bitbuf.23641 = phi i64 [ %bitbuf.24, %if.end1124 ], [ %bitbuf.22, %while.cond1088.preheader ]
+  %in_next.19640 = phi ptr [ %in_next.20, %if.end1124 ], [ %in_next.18, %while.cond1088.preheader ]
+  %cmp1094.not = icmp eq ptr %in_next.19640, %add.ptr2
   br i1 %cmp1094.not, label %if.else1110, label %if.then1102
 
 if.then1102:                                      ; preds = %while.body1093
-  %incdec.ptr1103 = getelementptr inbounds i8, ptr %in_next.19643, i64 1
-  %42 = load i8, ptr %in_next.19643, align 1
+  %incdec.ptr1103 = getelementptr inbounds i8, ptr %in_next.19640, i64 1
+  %42 = load i8, ptr %in_next.19640, align 1
   %conv1104 = zext i8 %42 to i64
   %sh_prom1107 = zext nneg i32 %conv1090644 to i64
   %shl1108 = shl nuw nsw i64 %conv1104, %sh_prom1107
-  %or1109 = or i64 %shl1108, %bitbuf.23642
+  %or1109 = or i64 %shl1108, %bitbuf.23641
   br label %if.end1124
 
 if.else1110:                                      ; preds = %while.body1093
-  %inc1111 = add i64 %overread_count.14640, 1
+  %inc1111 = add i64 %overread_count.14643, 1
   %cmp1112 = icmp ugt i64 %inc1111, 8
   br i1 %cmp1112, label %return, label %if.end1124
 
 if.end1124:                                       ; preds = %if.else1110, %if.then1102
-  %overread_count.15 = phi i64 [ %overread_count.14640, %if.then1102 ], [ %inc1111, %if.else1110 ]
-  %bitbuf.24 = phi i64 [ %or1109, %if.then1102 ], [ %bitbuf.23642, %if.else1110 ]
-  %in_next.20 = phi ptr [ %incdec.ptr1103, %if.then1102 ], [ %in_next.19643, %if.else1110 ]
-  %add1125 = add i32 %bitsleft.20641, 8
+  %in_next.20 = phi ptr [ %incdec.ptr1103, %if.then1102 ], [ %in_next.19640, %if.else1110 ]
+  %bitbuf.24 = phi i64 [ %or1109, %if.then1102 ], [ %bitbuf.23641, %if.else1110 ]
+  %overread_count.15 = phi i64 [ %overread_count.14643, %if.then1102 ], [ %inc1111, %if.else1110 ]
+  %add1125 = add i32 %bitsleft.20642, 8
   %conv1090 = and i32 %add1125, 255
   %cmp1091 = icmp ult i32 %conv1090, 56
   br i1 %cmp1091, label %while.body1093, label %do.end1129
 
 do.end1129:                                       ; preds = %if.end1124, %while.cond1088.preheader, %do.body1071
-  %overread_count.16 = phi i64 [ %overread_count.13, %do.body1071 ], [ %overread_count.13, %while.cond1088.preheader ], [ %overread_count.15, %if.end1124 ]
-  %bitsleft.21 = phi i32 [ %or1084, %do.body1071 ], [ %bitsleft.19, %while.cond1088.preheader ], [ %add1125, %if.end1124 ]
-  %bitbuf.25 = phi i64 [ %or1077, %do.body1071 ], [ %bitbuf.22, %while.cond1088.preheader ], [ %bitbuf.24, %if.end1124 ]
   %in_next.21 = phi ptr [ %add.ptr1083, %do.body1071 ], [ %in_next.18, %while.cond1088.preheader ], [ %in_next.20, %if.end1124 ]
+  %bitbuf.25 = phi i64 [ %or1077, %do.body1071 ], [ %bitbuf.22, %while.cond1088.preheader ], [ %bitbuf.24, %if.end1124 ]
+  %bitsleft.21 = phi i32 [ %or1084, %do.body1071 ], [ %bitsleft.19, %while.cond1088.preheader ], [ %add1125, %if.end1124 ]
+  %overread_count.16 = phi i64 [ %overread_count.13, %do.body1071 ], [ %overread_count.13, %while.cond1088.preheader ], [ %overread_count.15, %if.end1124 ]
   %and1131 = and i64 %bitbuf.25, %sub626
   %arrayidx1132 = getelementptr inbounds [2342 x i32], ptr %d, i64 0, i64 %and1131
   %43 = load i32, ptr %arrayidx1132, align 4
@@ -2341,10 +2341,10 @@ if.then1146:                                      ; preds = %do.end1129
   br label %if.end1163
 
 if.end1163:                                       ; preds = %if.then1146, %do.end1129
-  %entry10.5 = phi i32 [ %44, %if.then1146 ], [ %43, %do.end1129 ]
-  %bitsleft.22 = phi i32 [ %sub1162, %if.then1146 ], [ %sub1137, %do.end1129 ]
-  %saved_bitbuf.2 = phi i64 [ %shr1136, %if.then1146 ], [ %bitbuf.25, %do.end1129 ]
   %bitbuf.26 = phi i64 [ %shr1161, %if.then1146 ], [ %shr1136, %do.end1129 ]
+  %saved_bitbuf.2 = phi i64 [ %shr1136, %if.then1146 ], [ %bitbuf.25, %do.end1129 ]
+  %bitsleft.22 = phi i32 [ %sub1162, %if.then1146 ], [ %sub1137, %do.end1129 ]
+  %entry10.5 = phi i32 [ %44, %if.then1146 ], [ %43, %do.end1129 ]
   %shr1164 = lshr i32 %entry10.5, 16
   %tobool1166.not = icmp sgt i32 %entry10.5, -1
   br i1 %tobool1166.not, label %if.end1180, label %if.then1167
@@ -2360,8 +2360,8 @@ if.end1177:                                       ; preds = %if.then1167
   br label %for.cond1053.backedge
 
 for.cond1053.backedge:                            ; preds = %do.body1290, %if.end1177
-  %bitsleft.19.be = phi i32 [ %bitsleft.22, %if.end1177 ], [ %sub1264, %do.body1290 ]
   %bitbuf.22.be = phi i64 [ %bitbuf.26, %if.end1177 ], [ %shr1263, %do.body1290 ]
+  %bitsleft.19.be = phi i32 [ %bitsleft.22, %if.end1177 ], [ %sub1264, %do.body1290 ]
   %out_next.5.be = phi ptr [ %incdec.ptr1179, %if.end1177 ], [ %add.ptr1285, %do.body1290 ]
   br label %for.cond1053
 
@@ -2413,9 +2413,9 @@ if.then1230:                                      ; preds = %if.end1218
   br label %if.end1244
 
 if.end1244:                                       ; preds = %if.then1230, %if.end1218
-  %entry10.6 = phi i32 [ %47, %if.then1230 ], [ %46, %if.end1218 ]
-  %bitsleft.23 = phi i32 [ %sub1232, %if.then1230 ], [ %bitsleft.22, %if.end1218 ]
   %bitbuf.27 = phi i64 [ %shr1231, %if.then1230 ], [ %bitbuf.26, %if.end1218 ]
+  %bitsleft.23 = phi i32 [ %sub1232, %if.then1230 ], [ %bitsleft.22, %if.end1218 ]
+  %entry10.6 = phi i32 [ %47, %if.then1230 ], [ %46, %if.end1218 ]
   %shr1245 = lshr i32 %entry10.6, 16
   %conv1247 = and i32 %entry10.6, 255
   %sh_prom1248 = zext nneg i32 %conv1247 to i64
@@ -2460,10 +2460,10 @@ do.body1290:                                      ; preds = %do.body1290, %if.en
   br i1 %cmp1294, label %do.body1290, label %for.cond1053.backedge
 
 block_done:                                       ; preds = %if.end783, %if.then728, %if.end1180, %if.end516
-  %overread_count.17 = phi i64 [ 0, %if.end516 ], [ %overread_count.16, %if.end1180 ], [ %overread_count.12, %if.then728 ], [ %overread_count.12, %if.end783 ]
-  %bitsleft.24 = phi i32 [ 0, %if.end516 ], [ %bitsleft.22, %if.end1180 ], [ %sub754, %if.end783 ], [ %bitsleft.13, %if.then728 ]
-  %bitbuf.28 = phi i64 [ 0, %if.end516 ], [ %bitbuf.26, %if.end1180 ], [ %shr753, %if.end783 ], [ %bitbuf.16, %if.then728 ]
   %in_next.22 = phi ptr [ %add.ptr520, %if.end516 ], [ %in_next.21, %if.end1180 ], [ %in_next.13, %if.then728 ], [ %in_next.13, %if.end783 ]
+  %bitbuf.28 = phi i64 [ 0, %if.end516 ], [ %bitbuf.26, %if.end1180 ], [ %shr753, %if.end783 ], [ %bitbuf.16, %if.then728 ]
+  %bitsleft.24 = phi i32 [ 0, %if.end516 ], [ %bitsleft.22, %if.end1180 ], [ %sub754, %if.end783 ], [ %bitsleft.13, %if.then728 ]
+  %overread_count.17 = phi i64 [ 0, %if.end516 ], [ %overread_count.16, %if.end1180 ], [ %overread_count.12, %if.then728 ], [ %overread_count.12, %if.end783 ]
   %out_next.6 = phi ptr [ %add.ptr523, %if.end516 ], [ %out_next.5, %if.end1180 ], [ %out_next.2, %if.then728 ], [ %out_next.2, %if.end783 ]
   br i1 %tobool55.not, label %next_block, label %if.end1299
 
@@ -2704,19 +2704,19 @@ while.cond107.loopexit:                           ; preds = %do.cond148
   br i1 %cmp139.not, label %while.end154, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %do.body.preheader.preheader, %while.cond107.loopexit
-  %sorted_syms.addr.0146 = phi ptr [ %incdec.ptr, %while.cond107.loopexit ], [ %add.ptr, %do.body.preheader.preheader ]
-  %cur_table_end.0145 = phi i32 [ %cur_table_end.3, %while.cond107.loopexit ], [ %shl106, %do.body.preheader.preheader ]
-  %count.0144 = phi i32 [ %23, %while.cond107.loopexit ], [ %19, %do.body.preheader.preheader ]
-  %len.3143 = phi i32 [ %inc138, %while.cond107.loopexit ], [ %len.2, %do.body.preheader.preheader ]
-  %codeword.0142 = phi i32 [ %or, %while.cond107.loopexit ], [ 0, %do.body.preheader.preheader ]
-  %add.i237 = mul i32 %len.3143, 257
-  %sub115 = add i32 %cur_table_end.0145, -1
+  %cur_table_end.0146 = phi i32 [ %cur_table_end.3, %while.cond107.loopexit ], [ %shl106, %do.body.preheader.preheader ]
+  %count.0145 = phi i32 [ %23, %while.cond107.loopexit ], [ %19, %do.body.preheader.preheader ]
+  %len.3144 = phi i32 [ %inc138, %while.cond107.loopexit ], [ %len.2, %do.body.preheader.preheader ]
+  %codeword.0143 = phi i32 [ %or, %while.cond107.loopexit ], [ 0, %do.body.preheader.preheader ]
+  %sorted_syms.addr.0142 = phi ptr [ %incdec.ptr, %while.cond107.loopexit ], [ %add.ptr, %do.body.preheader.preheader ]
+  %add.i237 = mul i32 %len.3144, 257
+  %sub115 = add i32 %cur_table_end.0146, -1
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %if.end130
-  %codeword.1 = phi i32 [ %or, %if.end130 ], [ %codeword.0142, %do.body.preheader ]
-  %count.1 = phi i32 [ %dec135, %if.end130 ], [ %count.0144, %do.body.preheader ]
-  %sorted_syms.addr.1 = phi ptr [ %incdec.ptr, %if.end130 ], [ %sorted_syms.addr.0146, %do.body.preheader ]
+  %sorted_syms.addr.1 = phi ptr [ %incdec.ptr, %if.end130 ], [ %sorted_syms.addr.0142, %do.body.preheader ]
+  %codeword.1 = phi i32 [ %or, %if.end130 ], [ %codeword.0143, %do.body.preheader ]
+  %count.1 = phi i32 [ %dec135, %if.end130 ], [ %count.0145, %do.body.preheader ]
   %20 = load i16, ptr %sorted_syms.addr.1, align 2
   %idxprom.i234 = zext i16 %20 to i64
   %arrayidx.i235 = getelementptr inbounds i32, ptr %decode_results, i64 %idxprom.i234
@@ -2729,12 +2729,12 @@ do.body:                                          ; preds = %do.body.preheader, 
   br i1 %cmp116, label %for.cond119.preheader, label %if.end130
 
 for.cond119.preheader:                            ; preds = %do.body
-  %cmp120151 = icmp ult i32 %len.3143, %table_bits.addr.0
+  %cmp120151 = icmp ult i32 %len.3144, %table_bits.addr.0
   br i1 %cmp120151, label %for.body122, label %return
 
 for.body122:                                      ; preds = %for.cond119.preheader, %for.body122
-  %cur_table_end.1153 = phi i32 [ %shl126, %for.body122 ], [ %cur_table_end.0145, %for.cond119.preheader ]
-  %len.4152 = phi i32 [ %inc128, %for.body122 ], [ %len.3143, %for.cond119.preheader ]
+  %cur_table_end.1153 = phi i32 [ %shl126, %for.body122 ], [ %cur_table_end.0146, %for.cond119.preheader ]
+  %len.4152 = phi i32 [ %inc128, %for.body122 ], [ %len.3144, %for.cond119.preheader ]
   %idxprom123 = zext i32 %cur_table_end.1153 to i64
   %arrayidx124 = getelementptr inbounds i32, ptr %decode_table, i64 %idxprom123
   %mul = shl nuw nsw i64 %idxprom123, 2
@@ -2758,8 +2758,8 @@ if.end130:                                        ; preds = %do.body
   br i1 %tobool136.not, label %do.body137, label %do.body
 
 do.body137:                                       ; preds = %if.end130, %do.cond148
-  %len.5 = phi i32 [ %inc138, %do.cond148 ], [ %len.3143, %if.end130 ]
-  %cur_table_end.2 = phi i32 [ %cur_table_end.3, %do.cond148 ], [ %cur_table_end.0145, %if.end130 ]
+  %len.5 = phi i32 [ %inc138, %do.cond148 ], [ %len.3144, %if.end130 ]
+  %cur_table_end.2 = phi i32 [ %cur_table_end.3, %do.cond148 ], [ %cur_table_end.0146, %if.end130 ]
   %inc138 = add i32 %len.5, 1
   %cmp139.not = icmp ugt i32 %inc138, %table_bits.addr.0
   br i1 %cmp139.not, label %do.cond148, label %if.then141
@@ -2781,22 +2781,22 @@ do.cond148:                                       ; preds = %do.body137, %if.the
   br i1 %cmp151, label %do.body137, label %while.cond107.loopexit
 
 while.end154:                                     ; preds = %while.cond107.loopexit, %while.end105
+  %sorted_syms.addr.0.lcssa = phi ptr [ %add.ptr, %while.end105 ], [ %incdec.ptr, %while.cond107.loopexit ]
   %codeword.0.lcssa = phi i32 [ 0, %while.end105 ], [ %or, %while.cond107.loopexit ]
   %len.3.lcssa = phi i32 [ %len.2, %while.end105 ], [ %inc138, %while.cond107.loopexit ]
   %count.0.lcssa = phi i32 [ %19, %while.end105 ], [ %23, %while.cond107.loopexit ]
-  %sorted_syms.addr.0.lcssa = phi ptr [ %add.ptr, %while.end105 ], [ %incdec.ptr, %while.cond107.loopexit ]
   %shl155 = shl nuw i32 1, %table_bits.addr.0
   %sub161 = add i32 %shl155, -1
   br label %for.cond156.outer
 
 for.cond156.outer:                                ; preds = %while.body226, %while.end154
+  %sorted_syms.addr.2.ph = phi ptr [ %sorted_syms.addr.0.lcssa, %while.end154 ], [ %incdec.ptr193, %while.body226 ]
   %codeword.2.ph = phi i32 [ %codeword.0.lcssa, %while.end154 ], [ %or221, %while.body226 ]
   %len.6.ph = phi i32 [ %len.3.lcssa, %while.end154 ], [ %inc227, %while.body226 ]
   %count.2.ph = phi i32 [ %count.0.lcssa, %while.end154 ], [ %29, %while.body226 ]
   %cur_table_end.4.ph = phi i32 [ %shl155, %while.end154 ], [ %cur_table_end.5, %while.body226 ]
   %subtable_prefix.0.ph = phi i32 [ -1, %while.end154 ], [ %subtable_prefix.1, %while.body226 ]
   %subtable_start.0.ph = phi i32 [ 0, %while.end154 ], [ %subtable_start.1, %while.body226 ]
-  %sorted_syms.addr.2.ph = phi ptr [ %sorted_syms.addr.0.lcssa, %while.end154 ], [ %incdec.ptr193, %while.body226 ]
   %.pre = sub i32 %len.6.ph, %table_bits.addr.0
   %.pre185 = shl nuw i32 1, %.pre
   %add.i = mul i32 %.pre, 257
@@ -2805,12 +2805,12 @@ for.cond156.outer:                                ; preds = %while.body226, %whi
   br label %for.cond156
 
 for.cond156:                                      ; preds = %for.cond156.outer, %if.end213
+  %sorted_syms.addr.2 = phi ptr [ %incdec.ptr193, %if.end213 ], [ %sorted_syms.addr.2.ph, %for.cond156.outer ]
   %codeword.2 = phi i32 [ %or221, %if.end213 ], [ %codeword.2.ph, %for.cond156.outer ]
   %count.2 = phi i32 [ %dec222, %if.end213 ], [ %count.2.ph, %for.cond156.outer ]
   %cur_table_end.4 = phi i32 [ %cur_table_end.5, %if.end213 ], [ %cur_table_end.4.ph, %for.cond156.outer ]
   %subtable_prefix.0 = phi i32 [ %subtable_prefix.1, %if.end213 ], [ %subtable_prefix.0.ph, %for.cond156.outer ]
   %subtable_start.0 = phi i32 [ %subtable_start.1, %if.end213 ], [ %subtable_start.0.ph, %for.cond156.outer ]
-  %sorted_syms.addr.2 = phi ptr [ %incdec.ptr193, %if.end213 ], [ %sorted_syms.addr.2.ph, %for.cond156.outer ]
   %and162 = and i32 %codeword.2, %sub161
   %cmp163.not = icmp eq i32 %and162, %subtable_prefix.0
   br i1 %cmp163.not, label %if.end192, label %if.then165

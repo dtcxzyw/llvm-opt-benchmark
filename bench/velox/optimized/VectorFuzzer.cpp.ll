@@ -27685,8 +27685,8 @@ if.end:                                           ; preds = %while.body
   br label %while.body.i.i3
 
 while.body.i.i3:                                  ; preds = %if.end.i.i, %if.end
-  %__last.sroa.0.0.i.i = phi ptr [ %storemerge12, %if.end ], [ %__last.sroa.0.1.i.i, %if.end.i.i ]
   %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %if.end ], [ %incdec.ptr.i.i.i, %if.end.i.i ]
+  %__last.sroa.0.0.i.i = phi ptr [ %storemerge12, %if.end ], [ %__last.sroa.0.1.i.i, %if.end.i.i ]
   br label %while.cond3.i.i
 
 while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %while.body.i.i3
@@ -62636,8 +62636,8 @@ _ZN8facebook5velox12SimpleVectorINS0_9TimestampEE19comparePrimitiveAscERKS2_S5_.
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then18.i, %if.then, %if.then.i, %_ZN8facebook5velox12SimpleVectorINS0_9TimestampEE19comparePrimitiveAscERKS2_S5_.exit
-  %retval.sroa.0.0 = phi i32 [ %cond, %_ZN8facebook5velox12SimpleVectorINS0_9TimestampEE19comparePrimitiveAscERKS2_S5_.exit ], [ %cond.i, %if.end.i ], [ %cond22.i, %if.then18.i ], [ 0, %if.then ], [ 0, %if.then.i ]
   %retval.sroa.3.0 = phi i64 [ 4294967296, %_ZN8facebook5velox12SimpleVectorINS0_9TimestampEE19comparePrimitiveAscERKS2_S5_.exit ], [ 4294967296, %if.end.i ], [ 4294967296, %if.then18.i ], [ 0, %if.then ], [ 4294967296, %if.then.i ]
+  %retval.sroa.0.0 = phi i32 [ %cond, %_ZN8facebook5velox12SimpleVectorINS0_9TimestampEE19comparePrimitiveAscERKS2_S5_.exit ], [ %cond.i, %if.end.i ], [ %cond22.i, %if.then18.i ], [ 0, %if.then ], [ 0, %if.then.i ]
   %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.3.0, %retval.sroa.0.0.insert.ext
   ret i64 %retval.sroa.0.0.insert.insert

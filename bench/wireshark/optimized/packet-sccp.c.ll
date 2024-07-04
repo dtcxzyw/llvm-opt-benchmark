@@ -771,7 +771,7 @@ define hidden range(i32 0, 2) i32 @looks_like_valid_sccp(i32 noundef %0, ptr nou
   br i1 %17, label %223, label %18
 
 18:                                               ; preds = %16, %14
-  %.0316 = phi i8 [ 1, %14 ], [ 2, %16 ]
+  %.0310 = phi i8 [ 1, %14 ], [ 2, %16 ]
   switch i8 %7, label %22 [
     i8 19, label %19
     i8 17, label %19
@@ -840,14 +840,14 @@ define hidden range(i32 0, 2) i32 @looks_like_valid_sccp(i32 noundef %0, ptr nou
   br i1 %40, label %223, label %.thread367
 
 41:                                               ; preds = %36
-  %42 = zext nneg i8 %.0316 to i32
+  %42 = zext nneg i8 %.0310 to i32
   %43 = add nuw nsw i32 %.3, %42
   %44 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %43) #9
   %45 = icmp eq i16 %44, 0
   br i1 %45, label %223, label %50
 
 .thread367:                                       ; preds = %.thread
-  %46 = zext nneg i8 %.0316 to i32
+  %46 = zext nneg i8 %.0310 to i32
   %47 = add nuw nsw i32 %.3, %46
   %48 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %47) #9
   %49 = icmp eq i8 %48, 0
@@ -876,13 +876,13 @@ define hidden range(i32 0, 2) i32 @looks_like_valid_sccp(i32 noundef %0, ptr nou
   %66 = phi i32 [ %53, %50 ], [ %60, %57 ]
   %67 = phi i32 [ %42, %50 ], [ %46, %57 ]
   %.pn = phi i32 [ %52, %50 ], [ %59, %57 ]
-  %.0321 = phi i32 [ %56, %50 ], [ %63, %57 ]
+  %.0315 = phi i32 [ %56, %50 ], [ %63, %57 ]
   %68 = add nuw nsw i32 %.pn, %.3
-  %69 = icmp eq i32 %.0321, 0
+  %69 = icmp eq i32 %.0315, 0
   br i1 %69, label %223, label %70
 
 70:                                               ; preds = %64
-  %71 = add nuw nsw i32 %.0321, %65
+  %71 = add nuw nsw i32 %.0315, %65
   %72 = add nuw nsw i32 %67, %65
   br i1 %or.cond, label %77, label %73
 
@@ -903,39 +903,39 @@ define hidden range(i32 0, 2) i32 @looks_like_valid_sccp(i32 noundef %0, ptr nou
 
 81:                                               ; preds = %.thread372, %77
   %.4377 = phi i32 [ %76, %.thread372 ], [ %80, %77 ]
-  %.0318375 = phi i32 [ %75, %.thread372 ], [ %79, %77 ]
+  %.0312375 = phi i32 [ %75, %.thread372 ], [ %79, %77 ]
   %82 = add nuw nsw i32 %68, 1
   %83 = add nuw nsw i32 %66, 1
   %84 = add nuw nsw i32 %71, 1
-  %.not350 = icmp eq i32 %.0318375, 0
-  %85 = add nuw nsw i32 %.0318375, 1
+  %.not350 = icmp eq i32 %.0312375, 0
+  %85 = add nuw nsw i32 %.0312375, 1
   %spec.select = select i1 %.not350, i32 0, i32 %85
   br label %.thread378
 
 .thread378:                                       ; preds = %73, %81, %77
   %.4376 = phi i32 [ %80, %77 ], [ %.4377, %81 ], [ %72, %73 ]
-  %.1322 = phi i32 [ %71, %77 ], [ %84, %81 ], [ %71, %73 ]
-  %.1319 = phi i32 [ %79, %77 ], [ %spec.select, %81 ], [ 0, %73 ]
-  %.1314 = phi i32 [ %66, %77 ], [ %83, %81 ], [ %66, %73 ]
-  %.1311 = phi i32 [ %68, %77 ], [ %82, %81 ], [ %68, %73 ]
-  %86 = icmp ugt i32 %.1311, %4
-  %87 = icmp ugt i32 %.1314, %4
+  %.1321 = phi i32 [ %68, %77 ], [ %82, %81 ], [ %68, %73 ]
+  %.1318 = phi i32 [ %66, %77 ], [ %83, %81 ], [ %66, %73 ]
+  %.1316 = phi i32 [ %71, %77 ], [ %84, %81 ], [ %71, %73 ]
+  %.1313 = phi i32 [ %79, %77 ], [ %spec.select, %81 ], [ 0, %73 ]
+  %86 = icmp ugt i32 %.1321, %4
+  %87 = icmp ugt i32 %.1318, %4
   %or.cond360 = select i1 %86, i1 true, i1 %87
-  %88 = icmp ugt i32 %.1322, %4
+  %88 = icmp ugt i32 %.1316, %4
   %or.cond361 = select i1 %or.cond360, i1 true, i1 %88
   br i1 %or.cond361, label %223, label %89
 
 89:                                               ; preds = %.thread378
-  %90 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1311) #9
+  %90 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1321) #9
   %91 = zext i8 %90 to i32
-  %92 = add nuw nsw i32 %.1311, %91
+  %92 = add nuw nsw i32 %.1321, %91
   %93 = icmp ugt i32 %92, %4
   br i1 %93, label %223, label %94
 
 94:                                               ; preds = %89
-  %95 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1314) #9
+  %95 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1318) #9
   %96 = zext i8 %95 to i32
-  %97 = add nuw nsw i32 %.1314, %96
+  %97 = add nuw nsw i32 %.1318, %96
   %98 = icmp ugt i32 %97, %4
   br i1 %98, label %223, label %99
 
@@ -943,16 +943,16 @@ define hidden range(i32 0, 2) i32 @looks_like_valid_sccp(i32 noundef %0, ptr nou
   br i1 %or.cond5, label %100, label %105
 
 100:                                              ; preds = %99
-  %101 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %.1322) #9
+  %101 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %.1316) #9
   %102 = zext i16 %101 to i32
-  %103 = add nuw nsw i32 %.1322, %102
+  %103 = add nuw nsw i32 %.1316, %102
   %104 = icmp ugt i32 %103, %4
   br i1 %104, label %223, label %180
 
 105:                                              ; preds = %99
-  %106 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1322) #9
+  %106 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1316) #9
   %107 = zext i8 %106 to i32
-  %108 = add nuw nsw i32 %.1322, %107
+  %108 = add nuw nsw i32 %.1316, %107
   %109 = icmp ugt i32 %108, %4
   br i1 %109, label %223, label %180
 
@@ -1101,13 +1101,13 @@ define hidden range(i32 0, 2) i32 @looks_like_valid_sccp(i32 noundef %0, ptr nou
   unreachable
 
 180:                                              ; preds = %105, %100
-  %181 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1311) #9
+  %181 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1321) #9
   %182 = icmp eq i8 %181, 0
   br i1 %182, label %223, label %183
 
 183:                                              ; preds = %180
   %184 = zext i8 %181 to i32
-  %185 = add nuw nsw i32 %.1311, 1
+  %185 = add nuw nsw i32 %.1321, 1
   %186 = tail call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef %185, i32 noundef %184) #9
   %switch.tableidx = add i8 %7, -9
   %187 = icmp ult i8 %switch.tableidx, 11
@@ -1131,13 +1131,13 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   br i1 %.not352, label %223, label %193
 
 193:                                              ; preds = %switch.lookup
-  %194 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1314) #9
+  %194 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1318) #9
   %195 = icmp eq i8 %194, 0
   br i1 %195, label %223, label %196
 
 196:                                              ; preds = %193
   %197 = zext i8 %194 to i32
-  %198 = add nuw nsw i32 %.1314, 1
+  %198 = add nuw nsw i32 %.1318, 1
   %199 = tail call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef %198, i32 noundef %197) #9
   %switch.tableidx415 = add i8 %7, -9
   %200 = icmp ult i8 %switch.tableidx415, 11
@@ -1161,16 +1161,16 @@ switch.lookup417:                                 ; preds = %switch.hole_check41
   br i1 %.not354, label %223, label %.thread392
 
 .thread392:                                       ; preds = %switch.lookup417
-  %.not355 = icmp eq i32 %.1319, 0
+  %.not355 = icmp eq i32 %.1313, 0
   br i1 %.not355, label %.thread392.thread, label %.thread392.thread406
 
 .thread392.thread406:                             ; preds = %153, %141, %129, %120, %.thread392
   %.5391398413 = phi i32 [ %.4376, %.thread392 ], [ 9, %153 ], [ 6, %141 ], [ 9, %129 ], [ 7, %120 ]
-  %.1317389399412 = phi i8 [ %.0316, %.thread392 ], [ 1, %153 ], [ 1, %141 ], [ 1, %129 ], [ 1, %120 ]
-  %.2320388400411 = phi i32 [ %.1319, %.thread392 ], [ 1, %153 ], [ 1, %141 ], [ 1, %129 ], [ %121, %120 ]
-  %206 = zext nneg i8 %.1317389399412 to i32
+  %.1311390399412 = phi i8 [ %.0310, %.thread392 ], [ 1, %153 ], [ 1, %141 ], [ 1, %129 ], [ 1, %120 ]
+  %.2314389400411 = phi i32 [ %.1313, %.thread392 ], [ 1, %153 ], [ 1, %141 ], [ 1, %129 ], [ %121, %120 ]
+  %206 = zext nneg i8 %.1311390399412 to i32
   %207 = sub nuw nsw i32 %.5391398413, %206
-  %208 = add nuw nsw i32 %207, %.2320388400411
+  %208 = add nuw nsw i32 %207, %.2314389400411
   %209 = icmp ugt i32 %208, %4
   br i1 %209, label %223, label %210
 
@@ -1250,10 +1250,10 @@ define internal fastcc range(i32 0, 2) i32 @sccp_called_calling_looks_valid(ptr 
   %17 = and i8 %16, 1
   %18 = and i8 %5, 2
   %19 = and i8 %5, 1
-  %.043 = select i1 %6, i8 %19, i8 %18
-  %.042 = select i1 %6, i8 %18, i8 %19
+  %.042 = select i1 %6, i8 %19, i8 %18
+  %.041 = select i1 %6, i8 %18, i8 %19
   %20 = icmp ne i8 %17, 0
-  %21 = icmp eq i8 %.043, 0
+  %21 = icmp eq i8 %.042, 0
   %or.cond = select i1 %20, i1 %21, i1 false
   br i1 %or.cond, label %35, label %22
 
@@ -1268,7 +1268,7 @@ define internal fastcc range(i32 0, 2) i32 @sccp_called_calling_looks_valid(ptr 
 
 26:                                               ; preds = %22
   %spec.select = select i1 %21, i8 1, i8 2
-  %.not44 = icmp eq i8 %.042, 0
+  %.not44 = icmp eq i8 %.041, 0
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
@@ -1294,8 +1294,8 @@ define internal fastcc range(i32 0, 2) i32 @sccp_called_calling_looks_valid(ptr 
   br label %35
 
 35:                                               ; preds = %31, %22, %15, %13, %11, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %11 ], [ 0, %13 ], [ 0, %15 ], [ 0, %22 ], [ %spec.select50, %31 ]
-  ret i32 %.0
+  %.043 = phi i32 [ 0, %3 ], [ 0, %11 ], [ 0, %13 ], [ 0, %15 ], [ 0, %22 ], [ %spec.select50, %31 ]
+  ret i32 %.043
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2187,15 +2187,15 @@ define internal noundef zeroext i1 @sccp_users_update_cb(ptr nocapture noundef %
   br i1 %18, label %._crit_edge, label %.lr.ph
 
 19:                                               ; preds = %.lr.ph
-  %20 = getelementptr i8, ptr %.0212633, i64 16
+  %20 = getelementptr i8, ptr %.02633, i64 16
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, %17
   br i1 %22, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %19, %15
   %.lcssa = phi ptr [ @data_handle, %15 ], [ %28, %19 ]
-  %.02126.lcssa = phi ptr [ @user_list, %15 ], [ %20, %19 ]
-  %23 = getelementptr inbounds i8, ptr %.02126.lcssa, i64 4
+  %.026.lcssa = phi ptr [ @user_list, %15 ], [ %20, %19 ]
+  %23 = getelementptr inbounds i8, ptr %.026.lcssa, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %24, ptr %25, align 4
@@ -2204,8 +2204,8 @@ define internal noundef zeroext i1 @sccp_users_update_cb(ptr nocapture noundef %
   br label %32
 
 .lr.ph:                                           ; preds = %15, %19
-  %.0212633 = phi ptr [ %20, %19 ], [ @user_list, %15 ]
-  %27 = getelementptr i8, ptr %.0212633, i64 24
+  %.02633 = phi ptr [ %20, %19 ], [ @user_list, %15 ]
+  %27 = getelementptr i8, ptr %.02633, i64 24
   %28 = load ptr, ptr %27, align 8
   %.not23 = icmp eq ptr %28, null
   br i1 %.not23, label %29, label %19, !llvm.loop !9
@@ -2218,8 +2218,8 @@ define internal noundef zeroext i1 @sccp_users_update_cb(ptr nocapture noundef %
   br label %32
 
 32:                                               ; preds = %29, %._crit_edge, %13, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %13 ], [ true, %._crit_edge ], [ true, %29 ]
-  ret i1 %.0
+  %.021 = phi i1 [ false, %7 ], [ false, %13 ], [ true, %._crit_edge ], [ true, %29 ]
+  ret i1 %.021
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2562,13 +2562,13 @@ dissect_sccp_parameter.exit708.i:                 ; preds = %141, %134
   br label %170
 
 170:                                              ; preds = %167, %165
-  %.0700.i = phi ptr [ %166, %165 ], [ %169, %167 ]
-  %.not705.i = icmp eq ptr %.0700.i, null
+  %.0.i = phi ptr [ %166, %165 ], [ %169, %167 ]
+  %.not705.i = icmp eq ptr %.0.i, null
   br i1 %.not705.i, label %dissect_sccp_parameter.exit712.i, label %171
 
 171:                                              ; preds = %170
   %172 = load ptr, ptr %138, align 8
-  call fastcc void @dissect_sccp_data_param(ptr noundef nonnull %.0700.i, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %172)
+  call fastcc void @dissect_sccp_data_param(ptr noundef nonnull %.0.i, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %172)
   br label %dissect_sccp_parameter.exit712.i
 
 173:                                              ; preds = %62
@@ -4110,7 +4110,7 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
   br i1 %8, label %14, label %26
 
 14:                                               ; preds = %.thread122, %13
-  %.081125 = phi ptr [ %12, %.thread122 ], [ null, %13 ]
+  %.080125 = phi ptr [ %12, %.thread122 ], [ null, %13 ]
   %15 = getelementptr inbounds i8, ptr %1, i64 348
   %16 = load i32, ptr %15, align 4
   switch i32 %16, label %18 [
@@ -4131,8 +4131,8 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
   %.sink131 = phi i64 [ 216, %18 ], [ 240, %17 ], [ 216, %14 ]
   %19 = getelementptr inbounds i8, ptr %3, i64 %.sink138
   %20 = getelementptr inbounds i8, ptr %3, i64 %.sink
-  %.0.ph = load i8, ptr %19, align 1
-  %.084.ph = load i8, ptr %20, align 1
+  %.083.ph = load i8, ptr %20, align 1
+  %.084.ph = load i8, ptr %19, align 1
   %21 = getelementptr inbounds i8, ptr %1, i64 %.sink132
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %1, i64 %.sink131
@@ -4141,11 +4141,11 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
   br label %26
 
 26:                                               ; preds = %.sink.split, %13
-  %.081124 = phi ptr [ null, %13 ], [ %.081125, %.sink.split ]
+  %.080124 = phi ptr [ null, %13 ], [ %.080125, %.sink.split ]
   %.084 = phi i8 [ -1, %13 ], [ %.084.ph, %.sink.split ]
-  %.083 = phi ptr [ null, %13 ], [ %22, %.sink.split ]
-  %.082 = phi ptr [ null, %13 ], [ %25, %.sink.split ]
-  %.0 = phi i8 [ -1, %13 ], [ %.0.ph, %.sink.split ]
+  %.083 = phi i8 [ -1, %13 ], [ %.083.ph, %.sink.split ]
+  %.082 = phi ptr [ null, %13 ], [ %22, %.sink.split ]
+  %.081 = phi ptr [ null, %13 ], [ %25, %.sink.split ]
   %27 = load i32, ptr @num_sccp_users, align 4
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %.thread, label %28
@@ -4158,16 +4158,16 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
   br i1 %32, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %28
-  %.not89 = icmp eq ptr %.083, null
-  %33 = getelementptr inbounds i8, ptr %.083, i64 8
-  %34 = zext i8 %.0 to i32
-  %35 = getelementptr inbounds i8, ptr %.083, i64 4
-  %36 = zext i8 %.084 to i32
-  %37 = getelementptr inbounds i8, ptr %.082, i64 4
+  %.not89 = icmp eq ptr %.082, null
+  %33 = getelementptr inbounds i8, ptr %.082, i64 8
+  %34 = zext i8 %.084 to i32
+  %35 = getelementptr inbounds i8, ptr %.082, i64 4
+  %36 = zext i8 %.083 to i32
+  %37 = getelementptr inbounds i8, ptr %.081, i64 4
   br i1 %.not89, label %.thread, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %.not108 = icmp eq ptr %.082, null
+  %.not108 = icmp eq ptr %.081, null
   br i1 %.not108, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split
 
 .lr.ph.split.split.us.preheader:                  ; preds = %.lr.ph.split
@@ -4263,57 +4263,57 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
 
 .split.us:                                        ; preds = %70, %78, %48
   %.us-phi = phi ptr [ %40, %48 ], [ %62, %78 ], [ %62, %70 ]
-  %.079.in.in = getelementptr inbounds i8, ptr %.us-phi, i64 32
-  %.079.in = load ptr, ptr %.079.in.in, align 8
-  %.079 = load ptr, ptr %.079.in, align 8
-  %.not94 = icmp eq ptr %.079, null
+  %.078.in.in = getelementptr inbounds i8, ptr %.us-phi, i64 32
+  %.078.in = load ptr, ptr %.078.in.in, align 8
+  %.078 = load ptr, ptr %.078.in, align 8
+  %.not94 = icmp eq ptr %.078, null
   br i1 %.not94, label %.thread, label %87
 
 87:                                               ; preds = %.split.us
-  %.078.in = getelementptr inbounds i8, ptr %.us-phi, i64 28
-  %.078 = load i32, ptr %.078.in, align 4
-  %.not101 = icmp eq i32 %.078, 0
+  %.0.in = getelementptr inbounds i8, ptr %.us-phi, i64 28
+  %.0 = load i32, ptr %.0.in, align 4
+  %.not101 = icmp eq i32 %.0, 0
   br i1 %.not101, label %89, label %88
 
 88:                                               ; preds = %87
-  tail call void @call_tcap_dissector(ptr noundef nonnull %.079, ptr noundef %0, ptr noundef %1, ptr noundef %2) #9
+  tail call void @call_tcap_dissector(ptr noundef nonnull %.078, ptr noundef %0, ptr noundef %1, ptr noundef %2) #9
   br label %115
 
 89:                                               ; preds = %87
-  %90 = tail call i32 @call_dissector_with_data(ptr noundef nonnull %.079, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.081124) #9
+  %90 = tail call i32 @call_dissector_with_data(ptr noundef nonnull %.078, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.080124) #9
   br label %115
 
 .thread:                                          ; preds = %83, %56, %.lr.ph, %.split.us, %28, %26
   %91 = getelementptr inbounds i8, ptr %1, i64 408
   %92 = load ptr, ptr %91, align 8
   %93 = load i32, ptr @proto_sccp, align 4
-  %94 = zext i8 %.0 to i64
+  %94 = zext i8 %.084 to i64
   %95 = inttoptr i64 %94 to ptr
   tail call void @p_add_proto_data(ptr noundef %92, ptr noundef %1, i32 noundef %93, i32 noundef 0, ptr noundef %95) #9
-  %.not95 = icmp eq i8 %.0, -1
+  %.not95 = icmp eq i8 %.084, -1
   br i1 %.not95, label %100, label %96
 
 96:                                               ; preds = %.thread
-  %97 = zext i8 %.0 to i32
+  %97 = zext i8 %.084 to i32
   %98 = load ptr, ptr @sccp_ssn_dissector_table, align 8
-  %99 = tail call i32 @dissector_try_uint_new(ptr noundef %98, i32 noundef %97, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef %.081124) #9
+  %99 = tail call i32 @dissector_try_uint_new(ptr noundef %98, i32 noundef %97, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef %.080124) #9
   %.not96 = icmp eq i32 %99, 0
   br i1 %.not96, label %100, label %115
 
 100:                                              ; preds = %96, %.thread
-  %.not97 = icmp eq i8 %.084, -1
+  %.not97 = icmp eq i8 %.083, -1
   br i1 %.not97, label %105, label %101
 
 101:                                              ; preds = %100
-  %102 = zext i8 %.084 to i32
+  %102 = zext i8 %.083 to i32
   %103 = load ptr, ptr @sccp_ssn_dissector_table, align 8
-  %104 = tail call i32 @dissector_try_uint_new(ptr noundef %103, i32 noundef %102, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef %.081124) #9
+  %104 = tail call i32 @dissector_try_uint_new(ptr noundef %103, i32 noundef %102, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef %.080124) #9
   %.not98 = icmp eq i32 %104, 0
   br i1 %.not98, label %105, label %115
 
 105:                                              ; preds = %101, %100
   %106 = load ptr, ptr @heur_subdissector_list, align 8
-  %107 = call i32 @dissector_try_heuristic(ptr noundef %106, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef %.081124) #9
+  %107 = call i32 @dissector_try_heuristic(ptr noundef %106, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef %.080124) #9
   %.not99 = icmp eq i32 %107, 0
   br i1 %.not99, label %108, label %115
 
@@ -4323,7 +4323,7 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
   br i1 %.not100, label %112, label %110
 
 110:                                              ; preds = %108
-  %111 = call i32 @call_dissector_with_data(ptr noundef nonnull %109, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.081124) #9
+  %111 = call i32 @call_dissector_with_data(ptr noundef nonnull %109, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.080124) #9
   br label %115
 
 112:                                              ; preds = %108
@@ -4486,7 +4486,7 @@ define internal fastcc void @dissect_sccp_called_calling_param(ptr noundef %0, p
   br label %37
 
 37:                                               ; preds = %24, %30, %32
-  %.0249 = phi i1 [ true, %30 ], [ false, %24 ], [ false, %32 ]
+  %.0 = phi i1 [ true, %30 ], [ false, %24 ], [ false, %32 ]
   %38 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
   %39 = and i8 %38, 64
   %40 = load i32, ptr @hf_sccp_called_routing_indicator, align 4
@@ -4496,7 +4496,7 @@ define internal fastcc void @dissect_sccp_called_calling_param(ptr noundef %0, p
   %44 = call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %42, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %43) #9
   %45 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
   %46 = and i8 %45, 60
-  br i1 %.0249, label %48, label %switch.early.test
+  br i1 %.0, label %48, label %switch.early.test
 
 switch.early.test:                                ; preds = %37
   %47 = load i32, ptr @decode_mtp3_standard, align 4
@@ -4543,7 +4543,7 @@ switch.early.test:                                ; preds = %37
 73:                                               ; preds = %65
   %74 = load i32, ptr @decode_mtp3_standard, align 4
   %75 = icmp eq i32 %74, 1
-  %or.cond12 = or i1 %.0249, %75
+  %or.cond12 = or i1 %.0, %75
   br i1 %or.cond12, label %76, label %85
 
 76:                                               ; preds = %73
@@ -4613,11 +4613,11 @@ switch.early.test:                                ; preds = %37
   br label %114
 
 114:                                              ; preds = %80, %100, %91, %65
-  %.0 = phi i32 [ 3, %80 ], [ 3, %91 ], [ 4, %100 ], [ 1, %65 ]
+  %.0249 = phi i32 [ 3, %80 ], [ 3, %91 ], [ 4, %100 ], [ 1, %65 ]
   br i1 %62, label %169, label %115
 
 115:                                              ; preds = %114
-  %116 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0) #9
+  %116 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0249) #9
   %117 = zext i8 %116 to i32
   %118 = icmp eq i8 %116, 0
   %or.cond15 = select i1 %61, i1 %118, i1 false
@@ -4676,9 +4676,9 @@ switch.early.test:                                ; preds = %37
   %135 = load i32, ptr @hf_sccp_called_ssn, align 4
   %136 = load i32, ptr @hf_sccp_calling_ssn, align 4
   %137 = select i1 %.not, i32 %136, i32 %135
-  %138 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %137, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef %117) #9
+  %138 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %137, ptr noundef %0, i32 noundef %.0249, i32 noundef 1, i32 noundef %117) #9
   %139 = load i32, ptr @hf_sccp_ssn, align 4
-  %140 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %139, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef %117) #9
+  %140 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %139, ptr noundef %0, i32 noundef %.0249, i32 noundef 1, i32 noundef %117) #9
   %.not.i = icmp eq ptr %140, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %141
 
@@ -4696,7 +4696,7 @@ switch.early.test:                                ; preds = %37
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %134, %141, %144
-  %148 = add nuw nsw i32 %.0, 1
+  %148 = add nuw nsw i32 %.0249, 1
   %149 = load ptr, ptr @sccp_ssn_dissector_table, align 8
   %150 = call ptr @dissector_get_uint_handle(ptr noundef %149, i32 noundef %117) #9
   %.not278 = icmp eq ptr %150, null
@@ -4709,7 +4709,7 @@ proto_item_set_hidden.exit:                       ; preds = %134, %141, %144
 
 153:                                              ; preds = %151
   %154 = load i32, ptr @hf_sccp_linked_dissector, align 4
-  %155 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %14, i32 noundef %154, ptr noundef %0, i32 noundef %.0, i32 noundef 1, ptr noundef nonnull %152, ptr noundef nonnull @.str.471, ptr noundef nonnull %152) #9
+  %155 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %14, i32 noundef %154, ptr noundef %0, i32 noundef %.0249, i32 noundef 1, ptr noundef nonnull %152, ptr noundef nonnull @.str.471, ptr noundef nonnull %152) #9
   %.not.i283 = icmp eq ptr %155, null
   br i1 %.not.i283, label %proto_item_set_generated.exit, label %156
 
@@ -4742,7 +4742,7 @@ proto_item_set_generated.exit:                    ; preds = %153, %156, %159
   br label %169
 
 169:                                              ; preds = %proto_item_set_hidden.exit, %proto_item_set_generated.exit, %167, %165, %151, %114
-  %.1 = phi i32 [ %148, %167 ], [ %148, %165 ], [ %148, %proto_item_set_generated.exit ], [ %148, %151 ], [ %148, %proto_item_set_hidden.exit ], [ %.0, %114 ]
+  %.1 = phi i32 [ %148, %167 ], [ %148, %165 ], [ %148, %proto_item_set_generated.exit ], [ %148, %151 ], [ %148, %proto_item_set_hidden.exit ], [ %.0249, %114 ]
   %.not281 = icmp eq i8 %46, 0
   %170 = icmp ugt i32 %.1, %3
   %or.cond = select i1 %.not281, i1 true, i1 %170

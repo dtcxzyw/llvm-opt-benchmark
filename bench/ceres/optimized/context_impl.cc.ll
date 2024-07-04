@@ -966,14 +966,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit113: ;
   br label %261
 
 260:                                              ; preds = %263
-  %.024.add = add nuw nsw i64 %.024.idx142, 8
-  %.not48 = icmp eq i64 %.024.add, 280
+  %.022.add = add nuw nsw i64 %.022.idx142, 8
+  %.not48 = icmp eq i64 %.022.add, 280
   br i1 %.not48, label %270, label %261
 
 261:                                              ; preds = %259, %260
-  %.024.idx142 = phi i64 [ 264, %259 ], [ %.024.add, %260 ]
-  %.024.ptr = getelementptr inbounds i8, ptr %0, i64 %.024.idx142
-  %262 = invoke i32 @cudaStreamCreateWithFlags(ptr noundef nonnull %.024.ptr, i32 noundef 1)
+  %.022.idx142 = phi i64 [ 264, %259 ], [ %.022.add, %260 ]
+  %.022.ptr = getelementptr inbounds i8, ptr %0, i64 %.022.idx142
+  %262 = invoke i32 @cudaStreamCreateWithFlags(ptr noundef nonnull %.022.ptr, i32 noundef 1)
           to label %263 unwind label %.loopexit
 
 263:                                              ; preds = %261

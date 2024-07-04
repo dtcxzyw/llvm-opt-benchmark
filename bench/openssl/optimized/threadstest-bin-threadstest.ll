@@ -1934,8 +1934,8 @@ err.sink.split:                                   ; preds = %if.then9, %if.then4
   br label %err
 
 err:                                              ; preds = %err.sink.split, %if.then9, %if.then4, %if.then, %if.end5
-  %pem.0 = phi ptr [ %call1, %if.end5 ], [ null, %if.then ], [ null, %if.then4 ], [ %call1, %if.then9 ], [ %pem.0.ph, %err.sink.split ]
   %key.0 = phi ptr [ %call6, %if.end5 ], [ null, %if.then ], [ null, %if.then4 ], [ null, %if.then9 ], [ null, %err.sink.split ]
+  %pem.0 = phi ptr [ %call1, %if.end5 ], [ null, %if.then ], [ null, %if.then4 ], [ %call1, %if.then9 ], [ %pem.0.ph, %err.sink.split ]
   call void @EVP_PKEY_free(ptr noundef %key.0) #8
   %call11 = call i32 @BIO_free(ptr noundef %pem.0) #8
   call void @CRYPTO_free(ptr noundef %call, ptr noundef nonnull @.str.18, i32 noundef 785) #8

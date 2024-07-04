@@ -645,8 +645,8 @@ terminate.lpad.i.i51:                             ; preds = %if.then.i.i49
   unreachable
 
 cleanup:                                          ; preds = %if.then.i.i49, %invoke.cont50, %_ZNSt6vectorISt6threadSaIS0_EE8pop_backEv.exit, %if.then25, %if.then, %lor.lhs.false13
-  %switch = phi i1 [ false, %lor.lhs.false13 ], [ false, %if.then ], [ false, %if.then25 ], [ false, %_ZNSt6vectorISt6threadSaIS0_EE8pop_backEv.exit ], [ true, %invoke.cont50 ], [ true, %if.then.i.i49 ]
   %current_cpu_priority.2 = phi i32 [ %current_cpu_priority.0, %lor.lhs.false13 ], [ %current_cpu_priority.0, %if.then ], [ %current_cpu_priority.0, %if.then25 ], [ %current_cpu_priority.0, %_ZNSt6vectorISt6threadSaIS0_EE8pop_backEv.exit ], [ %current_cpu_priority.1, %invoke.cont50 ], [ %current_cpu_priority.1, %if.then.i.i49 ]
+  %switch = phi i1 [ false, %lor.lhs.false13 ], [ false, %if.then ], [ false, %if.then25 ], [ false, %_ZNSt6vectorISt6threadSaIS0_EE8pop_backEv.exit ], [ true, %invoke.cont50 ], [ true, %if.then.i.i49 ]
   %low_io_priority.2 = phi i8 [ %low_io_priority.0, %lor.lhs.false13 ], [ %low_io_priority.0, %if.then ], [ %low_io_priority.0, %if.then25 ], [ %low_io_priority.0, %_ZNSt6vectorISt6threadSaIS0_EE8pop_backEv.exit ], [ %low_io_priority.1, %invoke.cont50 ], [ %low_io_priority.1, %if.then.i.i49 ]
   %40 = load i8, ptr %_M_owns.i, align 8
   %tobool.i54 = trunc i8 %40 to i1

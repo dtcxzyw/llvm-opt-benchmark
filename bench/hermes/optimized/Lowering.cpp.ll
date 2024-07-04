@@ -1681,14 +1681,14 @@ for.body.preheader.i:                             ; preds = %entry
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
-  %curSaving.121.i = phi i32 [ %curSaving.2.i, %for.inc.i ], [ %spec.select.i, %for.body.preheader.i ]
-  %maxSaving.020.i = phi i32 [ %maxSaving.1.i, %for.inc.i ], [ 0, %for.body.preheader.i ]
-  %__begin1.019.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %0, %for.body.preheader.i ]
-  %optimumStopIndex.018.i = phi i32 [ %optimumStopIndex.1.i, %for.inc.i ], [ 0, %for.body.preheader.i ]
-  %curSize.017.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.body.preheader.i ]
-  %nonLiteralPlaceholderCount.016.i = phi i32 [ %nonLiteralPlaceholderCount.1.i, %for.inc.i ], [ 0, %for.body.preheader.i ]
-  %3 = load ptr, ptr %__begin1.019.i, align 8
-  %inc.i = add nuw i32 %curSize.017.i, 1
+  %__begin1.021.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %0, %for.body.preheader.i ]
+  %curSaving.120.i = phi i32 [ %curSaving.2.i, %for.inc.i ], [ %spec.select.i, %for.body.preheader.i ]
+  %curSize.019.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.body.preheader.i ]
+  %nonLiteralPlaceholderCount.018.i = phi i32 [ %nonLiteralPlaceholderCount.1.i, %for.inc.i ], [ 0, %for.body.preheader.i ]
+  %optimumStopIndex.017.i = phi i32 [ %optimumStopIndex.1.i, %for.inc.i ], [ 0, %for.body.preheader.i ]
+  %maxSaving.016.i = phi i32 [ %maxSaving.1.i, %for.inc.i ], [ 0, %for.body.preheader.i ]
+  %3 = load ptr, ptr %__begin1.021.i, align 8
+  %inc.i = add nuw i32 %curSize.019.i, 1
   %call.i.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %3, i32 noundef 0) #13
   %tobool.not.i.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i.i, label %if.else.i, label %land.lhs.true.i.i.i
@@ -1710,10 +1710,10 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i.i
   ]
 
 if.then6.i:                                       ; preds = %if.then.i.i, %if.then.i.i, %if.then.i.i, %if.then.i.i
-  %add.i = add nsw i32 %curSaving.121.i, 6
-  %cmp7.i = icmp sgt i32 %add.i, %maxSaving.020.i
-  %spec.select11.i = select i1 %cmp7.i, i32 %inc.i, i32 %optimumStopIndex.018.i
-  %spec.select12.i = tail call i32 @llvm.smax.i32(i32 %add.i, i32 %maxSaving.020.i)
+  %add.i = add nsw i32 %curSaving.120.i, 6
+  %cmp7.i = icmp sgt i32 %add.i, %maxSaving.016.i
+  %spec.select11.i = tail call i32 @llvm.smax.i32(i32 %add.i, i32 %maxSaving.016.i)
+  %spec.select12.i = select i1 %cmp7.i, i32 %inc.i, i32 %optimumStopIndex.017.i
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %if.then.i.i, %land.lhs.true.i.i.i, %for.body.i
@@ -1723,25 +1723,25 @@ if.else.i:                                        ; preds = %if.then.i.i, %land.
   br i1 %cmp.i.i.i.i.i.i.i, label %for.inc.i, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.else.i
-  %cmp14.i = icmp eq i32 %nonLiteralPlaceholderCount.016.i, 3
+  %cmp14.i = icmp eq i32 %nonLiteralPlaceholderCount.018.i, 3
   br i1 %cmp14.i, label %_ZN6hermes16LowerAllocObject31estimateBestNumElemsToSerializeERKN4llvh11SmallVectorIPNS_23StoreNewOwnPropertyInstELj4EEEb.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.end13.i
-  %inc17.i = add i32 %nonLiteralPlaceholderCount.016.i, 1
-  %sub18.i = add nsw i32 %curSaving.121.i, -2
+  %inc17.i = add i32 %nonLiteralPlaceholderCount.018.i, 1
+  %sub18.i = add nsw i32 %curSaving.120.i, -2
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end16.i, %if.else.i, %if.then6.i
-  %nonLiteralPlaceholderCount.1.i = phi i32 [ %nonLiteralPlaceholderCount.016.i, %if.else.i ], [ %inc17.i, %if.end16.i ], [ %nonLiteralPlaceholderCount.016.i, %if.then6.i ]
-  %optimumStopIndex.1.i = phi i32 [ %optimumStopIndex.018.i, %if.else.i ], [ %optimumStopIndex.018.i, %if.end16.i ], [ %spec.select11.i, %if.then6.i ]
-  %maxSaving.1.i = phi i32 [ %maxSaving.020.i, %if.else.i ], [ %maxSaving.020.i, %if.end16.i ], [ %spec.select12.i, %if.then6.i ]
-  %curSaving.2.i = phi i32 [ %curSaving.121.i, %if.else.i ], [ %sub18.i, %if.end16.i ], [ %add.i, %if.then6.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.019.i, i64 8
+  %maxSaving.1.i = phi i32 [ %maxSaving.016.i, %if.else.i ], [ %maxSaving.016.i, %if.end16.i ], [ %spec.select11.i, %if.then6.i ]
+  %optimumStopIndex.1.i = phi i32 [ %optimumStopIndex.017.i, %if.else.i ], [ %optimumStopIndex.017.i, %if.end16.i ], [ %spec.select12.i, %if.then6.i ]
+  %nonLiteralPlaceholderCount.1.i = phi i32 [ %nonLiteralPlaceholderCount.018.i, %if.else.i ], [ %inc17.i, %if.end16.i ], [ %nonLiteralPlaceholderCount.018.i, %if.then6.i ]
+  %curSaving.2.i = phi i32 [ %curSaving.120.i, %if.else.i ], [ %sub18.i, %if.end16.i ], [ %add.i, %if.then6.i ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.021.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
   br i1 %cmp.not.i, label %_ZN6hermes16LowerAllocObject31estimateBestNumElemsToSerializeERKN4llvh11SmallVectorIPNS_23StoreNewOwnPropertyInstELj4EEEb.exit, label %for.body.i
 
 _ZN6hermes16LowerAllocObject31estimateBestNumElemsToSerializeERKN4llvh11SmallVectorIPNS_23StoreNewOwnPropertyInstELj4EEEb.exit: ; preds = %if.end13.i, %for.inc.i
-  %optimumStopIndex.0.lcssa.i = phi i32 [ %optimumStopIndex.018.i, %if.end13.i ], [ %optimumStopIndex.1.i, %for.inc.i ]
+  %optimumStopIndex.0.lcssa.i = phi i32 [ %optimumStopIndex.017.i, %if.end13.i ], [ %optimumStopIndex.1.i, %for.inc.i ]
   %cmp.not = icmp eq i32 %optimumStopIndex.0.lcssa.i, 0
   br i1 %cmp.not, label %return, label %if.end
 
@@ -2006,14 +2006,14 @@ for.body.preheader:                               ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %curSaving.121 = phi i32 [ %curSaving.2, %for.inc ], [ %spec.select, %for.body.preheader ]
-  %maxSaving.020 = phi i32 [ %maxSaving.1, %for.inc ], [ 0, %for.body.preheader ]
-  %__begin1.019 = phi ptr [ %incdec.ptr, %for.inc ], [ %0, %for.body.preheader ]
-  %optimumStopIndex.018 = phi i32 [ %optimumStopIndex.1, %for.inc ], [ 0, %for.body.preheader ]
-  %curSize.017 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
-  %nonLiteralPlaceholderCount.016 = phi i32 [ %nonLiteralPlaceholderCount.1, %for.inc ], [ 0, %for.body.preheader ]
-  %2 = load ptr, ptr %__begin1.019, align 8
-  %inc = add nuw i32 %curSize.017, 1
+  %__begin1.021 = phi ptr [ %incdec.ptr, %for.inc ], [ %0, %for.body.preheader ]
+  %curSaving.120 = phi i32 [ %curSaving.2, %for.inc ], [ %spec.select, %for.body.preheader ]
+  %curSize.019 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.preheader ]
+  %nonLiteralPlaceholderCount.018 = phi i32 [ %nonLiteralPlaceholderCount.1, %for.inc ], [ 0, %for.body.preheader ]
+  %optimumStopIndex.017 = phi i32 [ %optimumStopIndex.1, %for.inc ], [ 0, %for.body.preheader ]
+  %maxSaving.016 = phi i32 [ %maxSaving.1, %for.inc ], [ 0, %for.body.preheader ]
+  %2 = load ptr, ptr %__begin1.021, align 8
+  %inc = add nuw i32 %curSize.019, 1
   %call.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %2, i32 noundef 0) #13
   %tobool.not.i.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i.i, label %if.else, label %land.lhs.true.i.i
@@ -2035,10 +2035,10 @@ if.then.i:                                        ; preds = %land.lhs.true.i.i
   ]
 
 if.then6:                                         ; preds = %if.then.i, %if.then.i, %if.then.i, %if.then.i
-  %add = add nsw i32 %curSaving.121, 6
-  %cmp7 = icmp sgt i32 %add, %maxSaving.020
-  %spec.select11 = select i1 %cmp7, i32 %inc, i32 %optimumStopIndex.018
-  %spec.select12 = tail call i32 @llvm.smax.i32(i32 %add, i32 %maxSaving.020)
+  %add = add nsw i32 %curSaving.120, 6
+  %cmp7 = icmp sgt i32 %add, %maxSaving.016
+  %spec.select11 = tail call i32 @llvm.smax.i32(i32 %add, i32 %maxSaving.016)
+  %spec.select12 = select i1 %cmp7, i32 %inc, i32 %optimumStopIndex.017
   br label %for.inc
 
 if.else:                                          ; preds = %if.then.i, %for.body, %land.lhs.true.i.i
@@ -2048,25 +2048,25 @@ if.else:                                          ; preds = %if.then.i, %for.bod
   br i1 %cmp.i.i.i.i.i.i, label %for.inc, label %if.end13
 
 if.end13:                                         ; preds = %if.else
-  %cmp14 = icmp eq i32 %nonLiteralPlaceholderCount.016, 3
+  %cmp14 = icmp eq i32 %nonLiteralPlaceholderCount.018, 3
   br i1 %cmp14, label %for.end, label %if.end16
 
 if.end16:                                         ; preds = %if.end13
-  %inc17 = add i32 %nonLiteralPlaceholderCount.016, 1
-  %sub18 = add nsw i32 %curSaving.121, -2
+  %inc17 = add i32 %nonLiteralPlaceholderCount.018, 1
+  %sub18 = add nsw i32 %curSaving.120, -2
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then6, %if.end16, %if.else
-  %nonLiteralPlaceholderCount.1 = phi i32 [ %nonLiteralPlaceholderCount.016, %if.else ], [ %inc17, %if.end16 ], [ %nonLiteralPlaceholderCount.016, %if.then6 ]
-  %optimumStopIndex.1 = phi i32 [ %optimumStopIndex.018, %if.else ], [ %optimumStopIndex.018, %if.end16 ], [ %spec.select11, %if.then6 ]
-  %maxSaving.1 = phi i32 [ %maxSaving.020, %if.else ], [ %maxSaving.020, %if.end16 ], [ %spec.select12, %if.then6 ]
-  %curSaving.2 = phi i32 [ %curSaving.121, %if.else ], [ %sub18, %if.end16 ], [ %add, %if.then6 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.019, i64 8
+  %maxSaving.1 = phi i32 [ %maxSaving.016, %if.else ], [ %maxSaving.016, %if.end16 ], [ %spec.select11, %if.then6 ]
+  %optimumStopIndex.1 = phi i32 [ %optimumStopIndex.017, %if.else ], [ %optimumStopIndex.017, %if.end16 ], [ %spec.select12, %if.then6 ]
+  %nonLiteralPlaceholderCount.1 = phi i32 [ %nonLiteralPlaceholderCount.018, %if.else ], [ %inc17, %if.end16 ], [ %nonLiteralPlaceholderCount.018, %if.then6 ]
+  %curSaving.2 = phi i32 [ %curSaving.120, %if.else ], [ %sub18, %if.end16 ], [ %add, %if.then6 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.021, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %if.end13, %entry
-  %optimumStopIndex.0.lcssa = phi i32 [ 0, %entry ], [ %optimumStopIndex.018, %if.end13 ], [ %optimumStopIndex.1, %for.inc ]
+  %optimumStopIndex.0.lcssa = phi i32 [ 0, %entry ], [ %optimumStopIndex.017, %if.end13 ], [ %optimumStopIndex.1, %for.inc ]
   ret i32 %optimumStopIndex.0.lcssa
 }
 

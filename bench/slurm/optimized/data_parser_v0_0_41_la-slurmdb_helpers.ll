@@ -191,7 +191,7 @@ define i32 @resolve_qos(i32 noundef %0, ptr nocapture noundef readonly %1, ptr n
   %53 = tail call ptr @list_find_first(ptr noundef %52, ptr noundef nonnull @slurmdb_find_qos_in_list, ptr noundef nonnull %49) #6
   %.not114 = icmp ne ptr %53, null
   %brmerge = or i1 %.not114, %7
-  %.mux = select i1 %.not114, i32 0, i32 9003
+  %.mux119 = select i1 %.not114, i32 0, i32 9003
   br i1 %brmerge, label %142, label %54
 
 54:                                               ; preds = %51
@@ -224,7 +224,7 @@ define i32 @resolve_qos(i32 noundef %0, ptr nocapture noundef readonly %1, ptr n
   %71 = tail call ptr @list_find_first(ptr noundef %70, ptr noundef nonnull @slurmdb_find_qos_in_list_by_name, ptr noundef nonnull %68) #6
   %.not112 = icmp ne ptr %71, null
   %brmerge120 = or i1 %.not112, %7
-  %.mux121 = select i1 %.not112, i32 0, i32 9003
+  %.mux122 = select i1 %.not112, i32 0, i32 9003
   br i1 %brmerge120, label %142, label %72
 
 72:                                               ; preds = %69
@@ -349,34 +349,34 @@ define i32 @resolve_qos(i32 noundef %0, ptr nocapture noundef readonly %1, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %47, %104, %113, %138, %129, %13, %22
-  %.193.ph = phi i32 [ 9003, %22 ], [ 9003, %13 ], [ 9001, %129 ], [ 9001, %138 ], [ 2066, %113 ], [ 2066, %104 ], [ %34, %47 ]
+  %.1.ph = phi i32 [ 9003, %22 ], [ 9003, %13 ], [ 9001, %129 ], [ 9001, %138 ], [ 2066, %113 ], [ 2066, %104 ], [ %34, %47 ]
   call void @slurm_xfree(ptr noundef nonnull %9) #6
   br label %145
 
 .thread127:                                       ; preds = %116, %126
-  %.1.ph = phi ptr [ %128, %126 ], [ %118, %116 ]
+  %.193.ph = phi ptr [ %128, %126 ], [ %118, %116 ]
   call void @slurm_xfree(ptr noundef nonnull %9) #6
   br label %143
 
 142:                                              ; preds = %62, %84, %93, %80, %51, %69
-  %.092 = phi i32 [ %.mux, %51 ], [ 9003, %62 ], [ %.mux121, %69 ], [ 9003, %80 ], [ 9001, %84 ], [ 9001, %93 ]
-  %.091 = phi ptr [ %53, %51 ], [ null, %62 ], [ %71, %69 ], [ null, %80 ], [ null, %84 ], [ null, %93 ]
+  %.092 = phi ptr [ %53, %51 ], [ null, %62 ], [ %71, %69 ], [ null, %80 ], [ null, %84 ], [ null, %93 ]
+  %.091 = phi i32 [ %.mux119, %51 ], [ 9003, %62 ], [ %.mux122, %69 ], [ 9003, %80 ], [ 9001, %84 ], [ 9001, %93 ]
   call void @slurmdb_destroy_qos_rec(ptr noundef nonnull %33) #6
   call void @slurm_xfree(ptr noundef nonnull %9) #6
-  %.not117 = icmp eq i32 %.092, 0
+  %.not117 = icmp eq i32 %.091, 0
   br i1 %.not117, label %143, label %145
 
 143:                                              ; preds = %.thread127, %142
-  %.1131 = phi ptr [ %.1.ph, %.thread127 ], [ %.091, %142 ]
-  %.not118 = icmp eq ptr %.1131, null
+  %.193131 = phi ptr [ %.193.ph, %.thread127 ], [ %.092, %142 ]
+  %.not118 = icmp eq ptr %.193131, null
   br i1 %.not118, label %145, label %144
 
 144:                                              ; preds = %143
-  store ptr %.1131, ptr %2, align 8
+  store ptr %.193131, ptr %2, align 8
   br label %145
 
 145:                                              ; preds = %.thread, %143, %142, %122, %124, %25, %144
-  %.0 = phi i32 [ 0, %144 ], [ 0, %25 ], [ 0, %124 ], [ 0, %122 ], [ %.092, %142 ], [ 9003, %143 ], [ %.193.ph, %.thread ]
+  %.0 = phi i32 [ 0, %144 ], [ 0, %25 ], [ 0, %124 ], [ 0, %122 ], [ %.091, %142 ], [ 9003, %143 ], [ %.1.ph, %.thread ]
   ret i32 %.0
 }
 

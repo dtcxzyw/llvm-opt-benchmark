@@ -54,8 +54,8 @@ define void @ADIOI_Get_position(ptr nocapture noundef readonly %0, ptr nocapture
   br label %.lr.ph.us, !llvm.loop !4
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.loopexit, %.split.us
-  %.03954.us = phi i64 [ -1, %.split.us ], [ %37, %.lr.ph.us.loopexit ]
-  %37 = add nsw i64 %.03954.us, 1
+  %.054.us = phi i64 [ -1, %.split.us ], [ %37, %.lr.ph.us.loopexit ]
+  %37 = add nsw i64 %.054.us, 1
   %38 = mul nsw i64 %32, %37
   br label %40
 
@@ -66,10 +66,10 @@ define void @ADIOI_Get_position(ptr nocapture noundef readonly %0, ptr nocapture
 
 40:                                               ; preds = %.lr.ph.us, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %39 ]
-  %.14251.us = phi i64 [ 0, %.lr.ph.us ], [ %43, %39 ]
+  %.151.us = phi i64 [ 0, %.lr.ph.us ], [ %43, %39 ]
   %41 = getelementptr inbounds i64, ptr %35, i64 %indvars.iv
   %42 = load i64, ptr %41, align 8
-  %43 = add nsw i64 %42, %.14251.us
+  %43 = add nsw i64 %42, %.151.us
   %44 = getelementptr inbounds i64, ptr %36, i64 %indvars.iv
   %45 = load i64, ptr %44, align 8
   %46 = add i64 %42, %26

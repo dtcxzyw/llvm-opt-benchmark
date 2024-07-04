@@ -14,9 +14,9 @@ define range(i64 0, 4503599627370496) i64 @softfloat_roundToUI32(i1 noundef zero
   %8 = select i1 %0, i32 2, i32 3
   %9 = icmp eq i32 %8, %7
   %10 = select i1 %9, i64 4095, i64 0
-  %.026 = select i1 %or.cond, i64 %10, i64 2048
+  %.0 = select i1 %or.cond, i64 %10, i64 2048
   %11 = and i64 %1, 4095
-  %12 = add i64 %.026, %1
+  %12 = add i64 %.0, %1
   %.not = icmp ult i64 %12, 17592186044416
   br i1 %.not, label %13, label %25
 
@@ -48,8 +48,8 @@ define range(i64 0, 4503599627370496) i64 @softfloat_roundToUI32(i1 noundef zero
   br label %27
 
 27:                                               ; preds = %20, %22, %25
-  %.0 = phi i64 [ %26, %25 ], [ %18, %22 ], [ %18, %20 ]
-  ret i64 %.0
+  %.026 = phi i64 [ %26, %25 ], [ %18, %22 ], [ %18, %20 ]
+  ret i64 %.026
 }
 
 declare void @softfloat_raiseFlags(i8 noundef zeroext) local_unnamed_addr #1

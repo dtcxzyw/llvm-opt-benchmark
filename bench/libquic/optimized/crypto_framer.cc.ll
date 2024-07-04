@@ -807,10 +807,10 @@ if.then:                                          ; preds = %entry
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then, %entry
+  %num_entries.0 = phi i64 [ %inc, %if.then ], [ %0, %entry ]
   %pad_length.1 = phi i64 [ %spec.select, %if.then ], [ 0, %entry ]
   %need_pad_value.0 = phi i8 [ 1, %if.then ], [ 0, %entry ]
   %len.0 = phi i64 [ %add8, %if.then ], [ %call2, %entry ]
-  %num_entries.0 = phi i64 [ %inc, %if.then ], [ %0, %entry ]
   %cmp10 = icmp ugt i64 %num_entries.0, 128
   br i1 %cmp10, label %return, label %if.end12
 

@@ -396,7 +396,7 @@ list_head.exit:                                   ; preds = %4, %7
 
 24:                                               ; preds = %.lr.ph58, %pq_writestring.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph58 ], [ %indvars.iv.next, %pq_writestring.exit ]
-  %.04456 = phi ptr [ %10, %.lr.ph58 ], [ %.2, %pq_writestring.exit ]
+  %.04357 = phi ptr [ %10, %.lr.ph58 ], [ %.2, %pq_writestring.exit ]
   %25 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %21, i64 0, i64 %indvars.iv
   %26 = getelementptr inbounds i8, ptr %25, i64 68
   %27 = load i32, ptr %26, align 4
@@ -404,11 +404,11 @@ list_head.exit:                                   ; preds = %4, %7
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr %5, align 4
   %30 = call i32 @getBaseTypeAndTypmod(i32 noundef %27, ptr noundef nonnull %5) #10
-  %.not54 = icmp eq ptr %.04456, null
+  %.not54 = icmp eq ptr %.04357, null
   br i1 %.not54, label %.critedge47, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %select.unfold
-  %.155 = phi ptr [ %35, %select.unfold ], [ %.04456, %24 ]
+  %.155 = phi ptr [ %35, %select.unfold ], [ %.04357, %24 ]
   %31 = load ptr, ptr %.155, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 42
   %33 = load i8, ptr %32, align 2
@@ -442,8 +442,8 @@ select.unfold:                                    ; preds = %.lr.ph
 
 .critedge47:                                      ; preds = %select.unfold, %24, %.critedge
   %.2 = phi ptr [ %..i51, %.critedge ], [ null, %24 ], [ null, %select.unfold ]
-  %.043 = phi i32 [ %40, %.critedge ], [ 0, %24 ], [ 0, %select.unfold ]
-  %.042 = phi i16 [ %42, %.critedge ], [ 0, %24 ], [ 0, %select.unfold ]
+  %.042 = phi i32 [ %40, %.critedge ], [ 0, %24 ], [ 0, %select.unfold ]
+  %.041 = phi i16 [ %42, %.critedge ], [ 0, %24 ], [ 0, %select.unfold ]
   br i1 %.not46, label %50, label %47
 
 47:                                               ; preds = %.critedge47
@@ -452,7 +452,7 @@ select.unfold:                                    ; preds = %.lr.ph
   br label %50
 
 50:                                               ; preds = %.critedge47, %47
-  %.041 = phi i16 [ %49, %47 ], [ 0, %.critedge47 ]
+  %.0 = phi i16 [ %49, %47 ], [ 0, %.critedge47 ]
   %51 = getelementptr inbounds i8, ptr %25, i64 4
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
   call void @llvm.experimental.noalias.scope.decl(metadata !23)
@@ -490,14 +490,14 @@ select.unfold:                                    ; preds = %.lr.ph
 pq_writestring.exit:                              ; preds = %55, %.critedge.i
   %.sink = phi i32 [ %71, %.critedge.i ], [ %64, %55 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !25)
-  %72 = call i32 @llvm.bswap.i32(i32 %.043)
+  %72 = call i32 @llvm.bswap.i32(i32 %.042)
   %73 = load ptr, ptr %0, align 8, !alias.scope !25
   %74 = sext i32 %.sink to i64
   %75 = getelementptr i8, ptr %73, i64 %74
   store i32 %72, ptr %75, align 1, !noalias !25
   %76 = add i32 %.sink, 4
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  %77 = call i16 @llvm.bswap.i16(i16 %.042)
+  %77 = call i16 @llvm.bswap.i16(i16 %.041)
   %78 = load ptr, ptr %0, align 8, !alias.scope !28
   %79 = sext i32 %76 to i64
   %80 = getelementptr i8, ptr %78, i64 %79
@@ -529,7 +529,7 @@ pq_writestring.exit:                              ; preds = %55, %.critedge.i
   store i32 %95, ptr %98, align 1, !noalias !37
   %99 = add i32 %.sink, 16
   call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  %100 = call i16 @llvm.bswap.i16(i16 %.041)
+  %100 = call i16 @llvm.bswap.i16(i16 %.0)
   %101 = load ptr, ptr %0, align 8, !alias.scope !40
   %102 = sext i32 %99 to i64
   %103 = getelementptr i8, ptr %101, i64 %102

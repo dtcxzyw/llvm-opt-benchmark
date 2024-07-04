@@ -6603,8 +6603,8 @@ for.body28.preheader:                             ; preds = %if.end17
 
 for.body28:                                       ; preds = %for.body28.preheader, %for.end78
   %kid.181 = phi ptr [ %kid.1, %for.end78 ], [ %kid.072, %for.body28.preheader ]
-  %array_offset.080 = phi i64 [ %add80, %for.end78 ], [ 32, %for.body28.preheader ]
-  %ld_offset.079 = phi i64 [ %add104, %for.end78 ], [ %conv22, %for.body28.preheader ]
+  %ld_offset.080 = phi i64 [ %add104, %for.end78 ], [ %conv22, %for.body28.preheader ]
+  %array_offset.079 = phi i64 [ %add80, %for.end78 ], [ 32, %for.body28.preheader ]
   %child = getelementptr inbounds i8, ptr %kid.181, i64 16
   %4 = load ptr, ptr %child, align 8
   %call.i = call ptr @object_dynamic_cast_assert(ptr noundef %4, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, i32 noundef 55, ptr noundef nonnull @__func__.SCSI_DEVICE) #14
@@ -6616,7 +6616,7 @@ for.body28:                                       ; preds = %for.body28.preheade
   %and29 = and i32 %6, 255
   %or = or disjoint i32 %and29, %and
   %conv30 = trunc i32 %or to i16
-  %sext = shl i64 %array_offset.080, 32
+  %sext = shl i64 %array_offset.079, 32
   %idx.ext = ashr exact i64 %sext, 32
   %add.ptr = getelementptr i8, ptr %data, i64 %idx.ext
   %conf = getelementptr inbounds i8, ptr %call.i, i64 184
@@ -6660,7 +6660,7 @@ for.body52:                                       ; preds = %for.body28, %for.bo
 
 for.end78:                                        ; preds = %for.body52
   %add80 = add nsw i64 %idx.ext, 288
-  %sext71 = shl i64 %ld_offset.079, 32
+  %sext71 = shl i64 %ld_offset.080, 32
   %idx.ext83 = ashr exact i64 %sext71, 32
   %add.ptr84 = getelementptr i8, ptr %data, i64 %idx.ext83
   %10 = getelementptr inbounds i8, ptr %add.ptr84, i64 1
@@ -7454,10 +7454,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end20
-  %sgl.addr.0105 = phi ptr [ %sgl, %for.body.lr.ph ], [ %next.0..i, %if.end20 ]
-  %iov_size.0104 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %if.end20 ]
-  %i.0103 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end20 ]
-  %tobool7.not = icmp eq ptr %sgl.addr.0105, null
+  %iov_size.0105 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %if.end20 ]
+  %i.0104 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end20 ]
+  %sgl.addr.0103 = phi ptr [ %sgl, %for.body.lr.ph ], [ %next.0..i, %if.end20 ]
+  %tobool7.not = icmp eq ptr %sgl.addr.0103, null
   br i1 %tobool7.not, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %for.body
@@ -7487,11 +7487,11 @@ if.then8.i.i50:                                   ; preds = %if.then.i.i47
   %16 = load i64, ptr %_now.i.i40, align 8
   %tv_usec.i.i53 = getelementptr inbounds i8, ptr %_now.i.i40, i64 8
   %17 = load i64, ptr %tv_usec.i.i53, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.224, i32 noundef %call10.i.i52, i64 noundef %16, i64 noundef %17, i32 noundef %11, i32 noundef %i.0103) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.224, i32 noundef %call10.i.i52, i64 noundef %16, i64 noundef %17, i32 noundef %11, i32 noundef %i.0104) #14
   br label %trace_megasas_iovec_sgl_underflow.exit
 
 if.else.i.i49:                                    ; preds = %if.then.i.i47
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.225, i32 noundef %11, i32 noundef %i.0103) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.225, i32 noundef %11, i32 noundef %i.0104) #14
   br label %trace_megasas_iovec_sgl_underflow.exit
 
 trace_megasas_iovec_sgl_underflow.exit:           ; preds = %if.then8, %land.lhs.true5.i.i44, %if.then8.i.i50, %if.else.i.i49
@@ -7505,7 +7505,7 @@ if.end10:                                         ; preds = %for.body
   br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end10
-  %19 = load i64, ptr %sgl.addr.0105, align 1
+  %19 = load i64, ptr %sgl.addr.0103, align 1
   br label %megasas_sgl_get_addr.exit
 
 if.else.i:                                        ; preds = %if.end10
@@ -7514,11 +7514,11 @@ if.else.i:                                        ; preds = %if.end10
   br i1 %tobool.i5.not.i, label %if.else8.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.else.i
-  %21 = load i64, ptr %sgl.addr.0105, align 1
+  %21 = load i64, ptr %sgl.addr.0103, align 1
   br label %megasas_sgl_get_addr.exit
 
 if.else8.i:                                       ; preds = %if.else.i
-  %22 = load i32, ptr %sgl.addr.0105, align 1
+  %22 = load i32, ptr %sgl.addr.0103, align 1
   %conv.i = zext i32 %22 to i64
   br label %megasas_sgl_get_addr.exit
 
@@ -7527,7 +7527,7 @@ megasas_sgl_get_addr.exit:                        ; preds = %if.then.i, %if.then
   %23 = and i16 %cmd.val, 34
   %24 = icmp eq i16 %23, 0
   %.sink.i = select i1 %24, i64 4, i64 8
-  %len6.i = getelementptr inbounds i8, ptr %sgl.addr.0105, i64 %.sink.i
+  %len6.i = getelementptr inbounds i8, ptr %sgl.addr.0103, i64 %.sink.i
   %len.0.i = load i32, ptr %len6.i, align 1
   %tobool14 = icmp ne i64 %addr.0.i, 0
   %tobool16 = icmp ne i32 %len.0.i, 0
@@ -7561,11 +7561,11 @@ if.then8.i.i64:                                   ; preds = %if.then.i.i61
   %30 = load i64, ptr %_now.i.i54, align 8
   %tv_usec.i.i67 = getelementptr inbounds i8, ptr %_now.i.i54, i64 8
   %31 = load i64, ptr %tv_usec.i.i67, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.226, i32 noundef %call10.i.i66, i64 noundef %30, i64 noundef %31, i32 noundef %25, i32 noundef %i.0103, i64 noundef %addr.0.i, i32 noundef %len.0.i) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.226, i32 noundef %call10.i.i66, i64 noundef %30, i64 noundef %31, i32 noundef %25, i32 noundef %i.0104, i64 noundef %addr.0.i, i32 noundef %len.0.i) #14
   br label %trace_megasas_iovec_sgl_invalid.exit
 
 if.else.i.i63:                                    ; preds = %if.then.i.i61
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.227, i32 noundef %25, i32 noundef %i.0103, i64 noundef %addr.0.i, i32 noundef %len.0.i) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.227, i32 noundef %25, i32 noundef %i.0104, i64 noundef %addr.0.i, i32 noundef %len.0.i) #14
   br label %trace_megasas_iovec_sgl_invalid.exit
 
 trace_megasas_iovec_sgl_invalid.exit:             ; preds = %if.then17, %land.lhs.true5.i.i58, %if.then8.i.i64, %if.else.i.i63
@@ -7582,14 +7582,14 @@ if.end20:                                         ; preds = %megasas_sgl_get_add
   %tobool.i9.not.i = icmp eq i16 %33, 0
   %..i = select i1 %tobool.i9.not.i, i64 8, i64 12
   %.sink.i69 = select i1 %tobool.i.not.i68, i64 %..i, i64 16
-  %add.ptr3.i = getelementptr i8, ptr %sgl.addr.0105, i64 %.sink.i69
+  %add.ptr3.i = getelementptr i8, ptr %sgl.addr.0103, i64 %.sink.i69
   %34 = load ptr, ptr %frame, align 8
   %35 = load i64, ptr %pa_size.i, align 8
   %add.ptr7.i = getelementptr i8, ptr %34, i64 %35
   %cmp.not.i = icmp ult ptr %add.ptr3.i, %add.ptr7.i
   %next.0..i = select i1 %cmp.not.i, ptr %add.ptr3.i, ptr null
-  %add = add i64 %iov_size.0104, %conv13
-  %inc = add nuw nsw i32 %i.0103, 1
+  %add = add i64 %iov_size.0105, %conv13
+  %inc = add nuw nsw i32 %i.0104, 1
   %exitcond.not = icmp eq i32 %inc, %conv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !24
 

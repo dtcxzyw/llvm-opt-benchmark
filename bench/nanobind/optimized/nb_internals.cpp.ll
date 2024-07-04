@@ -965,7 +965,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanob
   %44 = icmp ne i64 %43, 0
   %brmerge31.not = select i1 %44, i1 %7, i1 false
   %45 = or i64 %43, %9
-  %.0.mux = icmp ne i64 %45, 0
+  %.023.mux = icmp ne i64 %45, 0
   br i1 %brmerge31.not, label %46, label %49
 
 46:                                               ; preds = %.loopexit74
@@ -976,7 +976,7 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanob
 
 49:                                               ; preds = %.loopexit74, %46
   %50 = phi ptr [ %41, %.loopexit74 ], [ %.pre104, %46 ]
-  %.1 = phi i1 [ %.0.mux, %.loopexit74 ], [ true, %46 ]
+  %.1 = phi i1 [ %.023.mux, %.loopexit74 ], [ true, %46 ]
   %51 = getelementptr inbounds i8, ptr %50, i64 288
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 0
@@ -1158,10 +1158,10 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8nanob
   br i1 %.not2793, label %._crit_edge.thread, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %134, %.lr.ph95
-  %.02394 = phi ptr [ %138, %.lr.ph95 ], [ %136, %134 ]
-  %137 = getelementptr inbounds i8, ptr %.02394, i64 16
+  %.094 = phi ptr [ %138, %.lr.ph95 ], [ %136, %134 ]
+  %137 = getelementptr inbounds i8, ptr %.094, i64 16
   %138 = load ptr, ptr %137, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %.02394) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %.094) #19
   %.not27 = icmp eq ptr %138, null
   br i1 %.not27, label %._crit_edge, label %.lr.ph95, !llvm.loop !10
 

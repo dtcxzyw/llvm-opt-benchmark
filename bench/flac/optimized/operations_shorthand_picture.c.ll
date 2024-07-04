@@ -110,9 +110,9 @@ while.cond12:                                     ; preds = %while.end, %while.c
   br i1 %tobool14.not, label %do.body, label %while.cond12, !llvm.loop !7
 
 do.body:                                          ; preds = %while.cond12, %do.cond
-  %has_type2.0 = phi i32 [ %has_type2.1, %do.cond ], [ 0, %while.cond12 ]
-  %has_type1.0 = phi i32 [ %has_type1.1, %do.cond ], [ 0, %while.cond12 ]
   %ok.1 = phi i32 [ %ok.4, %do.cond ], [ 1, %while.cond12 ]
+  %has_type1.0 = phi i32 [ %has_type1.1, %do.cond ], [ 0, %while.cond12 ]
+  %has_type2.0 = phi i32 [ %has_type2.1, %do.cond ], [ 0, %while.cond12 ]
   %call17 = call ptr @FLAC__metadata_iterator_get_block(ptr noundef %call) #6
   %7 = load i32, ptr %call17, align 8
   %cmp19 = icmp eq i32 %7, 6
@@ -136,15 +136,15 @@ if.then30:                                        ; preds = %if.then20
 
 do.cond.sink.split:                               ; preds = %if.then30, %if.then23
   %.str.3.sink = phi ptr [ @.str.2, %if.then23 ], [ @.str.3, %if.then30 ]
-  %has_type2.1.ph = phi i32 [ %has_type2.0, %if.then23 ], [ 1, %if.then30 ]
   %has_type1.1.ph = phi i32 [ 1, %if.then23 ], [ %has_type1.0, %if.then30 ]
+  %has_type2.1.ph = phi i32 [ %has_type2.0, %if.then23 ], [ 1, %if.then30 ]
   call void (ptr, ptr, ...) @print_error_with_chain_status(ptr noundef %chain, ptr noundef nonnull %.str.3.sink, ptr noundef %filename) #6
   br label %do.cond
 
 do.cond:                                          ; preds = %do.cond.sink.split, %if.then30, %if.then20, %if.then23, %do.body
-  %has_type2.1 = phi i32 [ %has_type2.0, %do.body ], [ %has_type2.0, %if.then23 ], [ %has_type2.0, %if.then20 ], [ 1, %if.then30 ], [ %has_type2.1.ph, %do.cond.sink.split ]
-  %has_type1.1 = phi i32 [ %has_type1.0, %do.body ], [ 1, %if.then23 ], [ %has_type1.0, %if.then20 ], [ %has_type1.0, %if.then30 ], [ %has_type1.1.ph, %do.cond.sink.split ]
   %ok.4 = phi i32 [ %ok.1, %do.body ], [ %ok.1, %if.then23 ], [ %ok.1, %if.then20 ], [ %ok.1, %if.then30 ], [ 0, %do.cond.sink.split ]
+  %has_type1.1 = phi i32 [ %has_type1.0, %do.body ], [ 1, %if.then23 ], [ %has_type1.0, %if.then20 ], [ %has_type1.0, %if.then30 ], [ %has_type1.1.ph, %do.cond.sink.split ]
+  %has_type2.1 = phi i32 [ %has_type2.0, %do.body ], [ %has_type2.0, %if.then23 ], [ %has_type2.0, %if.then20 ], [ 1, %if.then30 ], [ %has_type2.1.ph, %do.cond.sink.split ]
   %call37 = call i32 @FLAC__metadata_iterator_next(ptr noundef %call) #6
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %sw.epilog, label %do.body, !llvm.loop !8

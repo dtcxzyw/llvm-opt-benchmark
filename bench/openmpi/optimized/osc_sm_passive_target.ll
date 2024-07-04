@@ -213,8 +213,8 @@ start_shared.exit.i.us:                           ; preds = %.lr.ph.i18.i.us, %1
   br i1 %exitcond.not, label %ompi_osc_sm_lock.exit, label %.lr.ph.split, !llvm.loop !7
 
 ompi_osc_sm_lock.exit:                            ; preds = %34, %.lr.ph.split, %start_shared.exit.i.us, %.lr.ph.split.us, %2
-  %.0 = phi i32 [ 0, %2 ], [ -102, %.lr.ph.split.us ], [ 0, %start_shared.exit.i.us ], [ -102, %.lr.ph.split ], [ 0, %34 ]
-  ret i32 %.0
+  %.010 = phi i32 [ 0, %2 ], [ -102, %.lr.ph.split.us ], [ 0, %start_shared.exit.i.us ], [ -102, %.lr.ph.split ], [ 0, %34 ]
+  ret i32 %.010
 }
 
 ; Function Attrs: nounwind uwtable
@@ -285,8 +285,8 @@ ompi_osc_sm_unlock.exit:                          ; preds = %.lr.ph
   br i1 %exitcond.not, label %ompi_osc_sm_unlock.exit.thread, label %.lr.ph, !llvm.loop !8
 
 ompi_osc_sm_unlock.exit.thread:                   ; preds = %25, %.lr.ph, %1, %ompi_osc_sm_unlock.exit
-  %.0 = phi i32 [ -5, %ompi_osc_sm_unlock.exit ], [ 0, %1 ], [ 0, %25 ], [ -102, %.lr.ph ]
-  ret i32 %.0
+  %.09 = phi i32 [ -5, %ompi_osc_sm_unlock.exit ], [ 0, %1 ], [ 0, %25 ], [ -102, %.lr.ph ]
+  ret i32 %.09
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable

@@ -49,10 +49,10 @@ define void @zend_analyze_calls(ptr nocapture noundef %0, ptr noundef %1, i32 no
   br label %25
 
 25:                                               ; preds = %.lr.ph, %174
-  %.0294337 = phi i32 [ 0, %.lr.ph ], [ %.1, %174 ]
-  %.0295336 = phi ptr [ null, %.lr.ph ], [ %.2, %174 ]
-  %.0298335 = phi ptr [ %8, %.lr.ph ], [ %175, %174 ]
-  %26 = getelementptr inbounds i8, ptr %.0298335, i64 28
+  %.0292337 = phi i32 [ 0, %.lr.ph ], [ %.1, %174 ]
+  %.0293336 = phi ptr [ null, %.lr.ph ], [ %.2, %174 ]
+  %.0295335 = phi ptr [ %8, %.lr.ph ], [ %175, %174 ]
+  %26 = getelementptr inbounds i8, ptr %.0295335, i64 28
   %27 = load i8, ptr %26, align 4
   switch i8 %27, label %174 [
     i8 61, label %28
@@ -86,15 +86,15 @@ define void @zend_analyze_calls(ptr nocapture noundef %0, ptr noundef %1, i32 no
   ]
 
 28:                                               ; preds = %25, %25, %25
-  %29 = sext i32 %.0294337 to i64
+  %29 = sext i32 %.0292337 to i64
   %30 = getelementptr inbounds ptr, ptr %21, i64 %29
-  store ptr %.0295336, ptr %30, align 8
-  %31 = call ptr @zend_optimizer_get_called_func(ptr noundef %1, ptr noundef %3, ptr noundef nonnull %.0298335, ptr noundef nonnull %6) #10
+  store ptr %.0293336, ptr %30, align 8
+  %31 = call ptr @zend_optimizer_get_called_func(ptr noundef %1, ptr noundef %3, ptr noundef nonnull %.0295335, ptr noundef nonnull %6) #10
   %.not328 = icmp eq ptr %31, null
   br i1 %.not328, label %96, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %.0298335, i64 20
+  %33 = getelementptr inbounds i8, ptr %.0295335, i64 20
   %34 = load i32, ptr %33, align 4
   %35 = add nsw i32 %34, -1
   %36 = sext i32 %35 to i64
@@ -146,32 +146,32 @@ define void @zend_analyze_calls(ptr nocapture noundef %0, ptr noundef %1, i32 no
   br label %65
 
 65:                                               ; preds = %55, %53
-  %.0293 = phi ptr [ %45, %53 ], [ %60, %55 ]
-  call void @llvm.memset.p0.i64(ptr align 1 %.0293, i8 0, i64 %40, i1 false)
-  store ptr %3, ptr %.0293, align 8
-  %66 = getelementptr inbounds i8, ptr %.0293, i64 8
-  store ptr %.0298335, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %.0293, i64 16
+  %.0297 = phi ptr [ %45, %53 ], [ %60, %55 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %.0297, i8 0, i64 %40, i1 false)
+  store ptr %3, ptr %.0297, align 8
+  %66 = getelementptr inbounds i8, ptr %.0297, i64 8
+  store ptr %.0295335, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %.0297, i64 16
   store ptr null, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %.0293, i64 24
+  %68 = getelementptr inbounds i8, ptr %.0297, i64 24
   store ptr %31, ptr %68, align 8
   %69 = load i32, ptr %33, align 4
-  %70 = getelementptr inbounds i8, ptr %.0293, i64 56
+  %70 = getelementptr inbounds i8, ptr %.0297, i64 56
   store i32 %69, ptr %70, align 8
   %71 = load ptr, ptr %23, align 8
-  %72 = getelementptr inbounds i8, ptr %.0293, i64 40
+  %72 = getelementptr inbounds i8, ptr %.0297, i64 40
   store ptr %71, ptr %72, align 8
   %73 = load i8, ptr %6, align 1
-  %74 = getelementptr inbounds i8, ptr %.0293, i64 51
+  %74 = getelementptr inbounds i8, ptr %.0297, i64 51
   %75 = and i8 %73, 1
   store i8 %75, ptr %74, align 1
-  %76 = getelementptr inbounds i8, ptr %.0293, i64 52
+  %76 = getelementptr inbounds i8, ptr %.0297, i64 52
   store i8 0, ptr %76, align 4
-  store ptr %.0293, ptr %23, align 8
+  store ptr %.0297, ptr %23, align 8
   br i1 %.not331, label %79, label %77
 
 77:                                               ; preds = %65
-  %78 = getelementptr inbounds i8, ptr %.0293, i64 32
+  %78 = getelementptr inbounds i8, ptr %.0297, i64 32
   store ptr null, ptr %78, align 8
   br label %96
 
@@ -181,7 +181,7 @@ define void @zend_analyze_calls(ptr nocapture noundef %0, ptr noundef %1, i32 no
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %.0293, i64 32
+  %83 = getelementptr inbounds i8, ptr %.0297, i64 32
   store ptr null, ptr %83, align 8
   br label %96
 
@@ -197,31 +197,31 @@ define void @zend_analyze_calls(ptr nocapture noundef %0, ptr noundef %1, i32 no
 90:                                               ; preds = %84
   %91 = getelementptr inbounds i8, ptr %89, i64 88
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %.0293, i64 32
+  %93 = getelementptr inbounds i8, ptr %.0297, i64 32
   store ptr %92, ptr %93, align 8
-  store ptr %.0293, ptr %91, align 8
+  store ptr %.0297, ptr %91, align 8
   br label %96
 
 94:                                               ; preds = %84
-  %95 = getelementptr inbounds i8, ptr %.0293, i64 32
+  %95 = getelementptr inbounds i8, ptr %.0297, i64 32
   store ptr null, ptr %95, align 8
   br label %96
 
 96:                                               ; preds = %28, %77, %90, %94, %82
-  %.1296 = phi ptr [ %.0293, %77 ], [ %.0293, %82 ], [ %.0293, %90 ], [ %.0293, %94 ], [ null, %28 ]
-  %97 = add nsw i32 %.0294337, 1
+  %.1294 = phi ptr [ %.0297, %77 ], [ %.0297, %82 ], [ %.0297, %90 ], [ %.0297, %94 ], [ null, %28 ]
+  %97 = add nsw i32 %.0292337, 1
   br label %174
 
 98:                                               ; preds = %25, %25, %25, %25, %25
-  %99 = sext i32 %.0294337 to i64
+  %99 = sext i32 %.0292337 to i64
   %100 = getelementptr inbounds ptr, ptr %21, i64 %99
-  store ptr %.0295336, ptr %100, align 8
-  %101 = add nsw i32 %.0294337, 1
+  store ptr %.0293336, ptr %100, align 8
+  %101 = add nsw i32 %.0292337, 1
   br label %174
 
 102:                                              ; preds = %25, %25, %25, %25
   %103 = load ptr, ptr @zend_flf_functions, align 8
-  %104 = getelementptr inbounds i8, ptr %.0298335, i64 20
+  %104 = getelementptr inbounds i8, ptr %.0295335, i64 20
   %105 = load i32, ptr %104, align 4
   %106 = zext i32 %105 to i64
   %107 = getelementptr inbounds ptr, ptr %103, i64 %106
@@ -272,89 +272,89 @@ define void @zend_analyze_calls(ptr nocapture noundef %0, ptr noundef %1, i32 no
   br label %135
 
 135:                                              ; preds = %125, %123
-  %.0292 = phi ptr [ %115, %123 ], [ %130, %125 ]
-  call void @llvm.memset.p0.i64(ptr align 1 %.0292, i8 0, i64 %110, i1 false)
-  store ptr %3, ptr %.0292, align 8
-  %136 = getelementptr inbounds i8, ptr %.0292, i64 8
-  store ptr %.0298335, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %.0292, i64 16
+  %.0296 = phi ptr [ %115, %123 ], [ %130, %125 ]
+  call void @llvm.memset.p0.i64(ptr align 1 %.0296, i8 0, i64 %110, i1 false)
+  store ptr %3, ptr %.0296, align 8
+  %136 = getelementptr inbounds i8, ptr %.0296, i64 8
+  store ptr %.0295335, ptr %136, align 8
+  %137 = getelementptr inbounds i8, ptr %.0296, i64 16
   store ptr null, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %.0292, i64 24
+  %138 = getelementptr inbounds i8, ptr %.0296, i64 24
   store ptr %108, ptr %138, align 8
   %139 = load i8, ptr %26, align 4
   %140 = zext i8 %139 to i32
   %141 = add nsw i32 %140, -204
-  %142 = getelementptr inbounds i8, ptr %.0292, i64 56
+  %142 = getelementptr inbounds i8, ptr %.0296, i64 56
   store i32 %141, ptr %142, align 8
   %143 = load ptr, ptr %23, align 8
-  %144 = getelementptr inbounds i8, ptr %.0292, i64 40
+  %144 = getelementptr inbounds i8, ptr %.0296, i64 40
   store ptr %143, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %.0292, i64 51
+  %145 = getelementptr inbounds i8, ptr %.0296, i64 51
   store i8 0, ptr %145, align 1
-  %146 = getelementptr inbounds i8, ptr %.0292, i64 52
+  %146 = getelementptr inbounds i8, ptr %.0296, i64 52
   store i8 1, ptr %146, align 4
-  %147 = getelementptr inbounds i8, ptr %.0292, i64 32
+  %147 = getelementptr inbounds i8, ptr %.0296, i64 32
   store ptr null, ptr %147, align 8
-  store ptr %.0292, ptr %23, align 8
+  store ptr %.0296, ptr %23, align 8
   br label %174
 
 148:                                              ; preds = %25, %25, %25, %25, %25
   %149 = load i32, ptr %22, align 4
   %150 = or i32 %149, 2
   store i32 %150, ptr %22, align 4
-  %.not325 = icmp eq ptr %.0295336, null
+  %.not325 = icmp eq ptr %.0293336, null
   br i1 %.not325, label %153, label %151
 
 151:                                              ; preds = %148
-  %152 = getelementptr inbounds i8, ptr %.0295336, i64 16
-  store ptr %.0298335, ptr %152, align 8
+  %152 = getelementptr inbounds i8, ptr %.0293336, i64 16
+  store ptr %.0295335, ptr %152, align 8
   br label %153
 
 153:                                              ; preds = %151, %148
-  %154 = add nsw i32 %.0294337, -1
+  %154 = add nsw i32 %.0292337, -1
   %155 = sext i32 %154 to i64
   %156 = getelementptr inbounds ptr, ptr %21, i64 %155
   %157 = load ptr, ptr %156, align 8
   br label %174
 
 158:                                              ; preds = %25, %25, %25, %25, %25, %25, %25, %25, %25
-  %.not323 = icmp eq ptr %.0295336, null
+  %.not323 = icmp eq ptr %.0293336, null
   br i1 %.not323, label %174, label %159
 
 159:                                              ; preds = %158
-  %160 = getelementptr inbounds i8, ptr %.0298335, i64 30
+  %160 = getelementptr inbounds i8, ptr %.0295335, i64 30
   %161 = load i8, ptr %160, align 2
   %162 = icmp eq i8 %161, 1
   br i1 %162, label %163, label %165
 
 163:                                              ; preds = %159
-  %164 = getelementptr inbounds i8, ptr %.0295336, i64 50
+  %164 = getelementptr inbounds i8, ptr %.0293336, i64 50
   store i8 1, ptr %164, align 2
   br label %174
 
 165:                                              ; preds = %159
-  %166 = getelementptr inbounds i8, ptr %.0298335, i64 12
+  %166 = getelementptr inbounds i8, ptr %.0295335, i64 12
   %167 = load i32, ptr %166, align 4
   %spec.select = call i32 @llvm.usub.sat.i32(i32 %167, i32 1)
-  %168 = getelementptr inbounds i8, ptr %.0295336, i64 64
+  %168 = getelementptr inbounds i8, ptr %.0293336, i64 64
   %169 = zext i32 %spec.select to i64
   %170 = getelementptr inbounds [1 x %struct._zend_send_arg_info], ptr %168, i64 0, i64 %169
-  store ptr %.0298335, ptr %170, align 8
+  store ptr %.0295335, ptr %170, align 8
   br label %174
 
 171:                                              ; preds = %25, %25
-  %.not322 = icmp eq ptr %.0295336, null
+  %.not322 = icmp eq ptr %.0293336, null
   br i1 %.not322, label %174, label %172
 
 172:                                              ; preds = %171
-  %173 = getelementptr inbounds i8, ptr %.0295336, i64 49
+  %173 = getelementptr inbounds i8, ptr %.0293336, i64 49
   store i8 1, ptr %173, align 1
   br label %174
 
 174:                                              ; preds = %171, %172, %158, %165, %163, %153, %135, %98, %96, %25
-  %.2 = phi ptr [ %.0295336, %25 ], [ %.0295336, %172 ], [ null, %171 ], [ %.0295336, %163 ], [ %.0295336, %165 ], [ null, %158 ], [ %157, %153 ], [ %.0295336, %135 ], [ null, %98 ], [ %.1296, %96 ]
-  %.1 = phi i32 [ %.0294337, %25 ], [ %.0294337, %172 ], [ %.0294337, %171 ], [ %.0294337, %163 ], [ %.0294337, %165 ], [ %.0294337, %158 ], [ %154, %153 ], [ %.0294337, %135 ], [ %101, %98 ], [ %97, %96 ]
-  %175 = getelementptr inbounds i8, ptr %.0298335, i64 32
+  %.2 = phi ptr [ %.0293336, %25 ], [ %.0293336, %172 ], [ null, %171 ], [ %.0293336, %163 ], [ %.0293336, %165 ], [ null, %158 ], [ %157, %153 ], [ %.0293336, %135 ], [ null, %98 ], [ %.1294, %96 ]
+  %.1 = phi i32 [ %.0292337, %25 ], [ %.0292337, %172 ], [ %.0292337, %171 ], [ %.0292337, %163 ], [ %.0292337, %165 ], [ %.0292337, %158 ], [ %154, %153 ], [ %.0292337, %135 ], [ %101, %98 ], [ %97, %96 ]
+  %175 = getelementptr inbounds i8, ptr %.0295335, i64 32
   %.not = icmp eq ptr %175, %12
   br i1 %.not, label %._crit_edge, label %25
 
@@ -592,8 +592,8 @@ define internal fastcc void @zend_analyze_recursion(ptr nocapture noundef readon
   %23 = load ptr, ptr %17, align 8
   %24 = getelementptr inbounds %struct._zend_func_info, ptr %23, i64 %indvars.iv
   %25 = getelementptr inbounds i8, ptr %24, i64 88
-  %.064 = load ptr, ptr %25, align 8
-  %.not65 = icmp eq ptr %.064, null
+  %.06164 = load ptr, ptr %25, align 8
+  %.not65 = icmp eq ptr %.06164, null
   br i1 %.not65, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
@@ -601,14 +601,14 @@ define internal fastcc void @zend_analyze_recursion(ptr nocapture noundef readon
   br label %27
 
 27:                                               ; preds = %.lr.ph, %39
-  %.066 = phi ptr [ %.064, %.lr.ph ], [ %.0, %39 ]
-  %28 = getelementptr inbounds i8, ptr %.066, i64 51
+  %.06166 = phi ptr [ %.06164, %.lr.ph ], [ %.061, %39 ]
+  %28 = getelementptr inbounds i8, ptr %.06166, i64 51
   %29 = load i8, ptr %28, align 1
   %30 = trunc i8 %29 to i1
   br i1 %30, label %39, label %31
 
 31:                                               ; preds = %27
-  %32 = load ptr, ptr %.066, align 8
+  %32 = load ptr, ptr %.06166, align 8
   %33 = icmp eq ptr %32, %22
   br i1 %33, label %.sink.split, label %34
 
@@ -619,7 +619,7 @@ define internal fastcc void @zend_analyze_recursion(ptr nocapture noundef readon
 
 .sink.split:                                      ; preds = %34, %31
   %.sink73 = phi i32 [ 384, %31 ], [ 640, %34 ]
-  %36 = getelementptr inbounds i8, ptr %.066, i64 48
+  %36 = getelementptr inbounds i8, ptr %.06166, i64 48
   store i8 1, ptr %36, align 8
   %37 = load i32, ptr %26, align 4
   %38 = or i32 %37, %.sink73
@@ -627,9 +627,9 @@ define internal fastcc void @zend_analyze_recursion(ptr nocapture noundef readon
   br label %39
 
 39:                                               ; preds = %.sink.split, %34, %27
-  %40 = getelementptr inbounds i8, ptr %.066, i64 32
-  %.0 = load ptr, ptr %40, align 8
-  %.not = icmp eq ptr %.0, null
+  %40 = getelementptr inbounds i8, ptr %.06166, i64 32
+  %.061 = load ptr, ptr %40, align 8
+  %.not = icmp eq ptr %.061, null
   br i1 %.not, label %._crit_edge.loopexit, label %27
 
 ._crit_edge.loopexit:                             ; preds = %39
@@ -711,8 +711,8 @@ define ptr @zend_build_call_map(ptr nocapture noundef %0, ptr nocapture noundef 
   br label %36
 
 36:                                               ; preds = %26, %24
-  %.0113 = phi ptr [ %16, %24 ], [ %31, %26 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.0113, i8 0, i64 %11, i1 false)
+  %.0114 = phi ptr [ %16, %24 ], [ %31, %26 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.0114, i8 0, i64 %11, i1 false)
   %.0112132 = load ptr, ptr %4, align 8
   %.not127133 = icmp eq ptr %.0112132, null
   br i1 %.not127133, label %.loopexit130, label %.lr.ph135
@@ -730,7 +730,7 @@ define ptr @zend_build_call_map(ptr nocapture noundef %0, ptr nocapture noundef 
   %43 = ptrtoint ptr %41 to i64
   %44 = sub i64 %42, %43
   %45 = ashr exact i64 %44, 5
-  %46 = getelementptr inbounds ptr, ptr %.0113, i64 %45
+  %46 = getelementptr inbounds ptr, ptr %.0114, i64 %45
   store ptr %.0112134, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %.0112134, i64 16
   %48 = load ptr, ptr %47, align 8
@@ -743,7 +743,7 @@ define ptr @zend_build_call_map(ptr nocapture noundef %0, ptr nocapture noundef 
   %52 = ptrtoint ptr %50 to i64
   %53 = sub i64 %51, %52
   %54 = ashr exact i64 %53, 5
-  %55 = getelementptr inbounds ptr, ptr %.0113, i64 %54
+  %55 = getelementptr inbounds ptr, ptr %.0114, i64 %54
   store ptr %.0112134, ptr %55, align 8
   br label %56
 
@@ -777,7 +777,7 @@ define ptr @zend_build_call_map(ptr nocapture noundef %0, ptr nocapture noundef 
   %71 = ptrtoint ptr %69 to i64
   %72 = sub i64 %70, %71
   %73 = ashr exact i64 %72, 5
-  %74 = getelementptr inbounds ptr, ptr %.0113, i64 %73
+  %74 = getelementptr inbounds ptr, ptr %.0114, i64 %73
   store ptr %.0112134, ptr %74, align 8
   %.pre = load i32, ptr %60, align 8
   br label %75
@@ -796,8 +796,8 @@ define ptr @zend_build_call_map(ptr nocapture noundef %0, ptr nocapture noundef 
   br i1 %.not127, label %.loopexit130, label %38
 
 .loopexit130:                                     ; preds = %.loopexit, %36, %3
-  %.0116 = phi ptr [ null, %3 ], [ %.0113, %36 ], [ %.0113, %.loopexit ]
-  ret ptr %.0116
+  %.0113 = phi ptr [ null, %3 ], [ %.0114, %36 ], [ %.0114, %.loopexit ]
+  ret ptr %.0113
 }
 
 ; Function Attrs: noreturn

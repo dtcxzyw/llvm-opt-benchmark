@@ -578,8 +578,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 .lr.ph113.i:                                      ; preds = %230, %.lr.ph113.preheader.i
   %indvars.iv116.i = phi i64 [ 0, %.lr.ph113.preheader.i ], [ %indvars.iv.next117.i, %230 ]
-  %.072111.i = phi float [ 7.500000e+01, %.lr.ph113.preheader.i ], [ %.173.i, %230 ]
-  %.074110.i = phi float [ %173, %.lr.ph113.preheader.i ], [ %.175.i, %230 ]
+  %.072111.i = phi float [ %173, %.lr.ph113.preheader.i ], [ %.173.i, %230 ]
+  %.074110.i = phi float [ 7.500000e+01, %.lr.ph113.preheader.i ], [ %.175.i, %230 ]
   %210 = getelementptr inbounds i8, ptr %180, i64 %indvars.iv116.i
   %211 = load i8, ptr %210, align 1
   %212 = trunc i8 %211 to i1
@@ -590,7 +590,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %214 unwind label %.loopexit.i
 
 214:                                              ; preds = %213
-  invoke void @_Z15ps_fillarcsliceP8t_psdataffffff(ptr noundef nonnull %12, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %.072111.i, float noundef %.074110.i, float noundef -1.000000e+01, float noundef 1.000000e+01)
+  invoke void @_Z15ps_fillarcsliceP8t_psdataffffff(ptr noundef nonnull %12, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %.074110.i, float noundef %.072111.i, float noundef -1.000000e+01, float noundef 1.000000e+01)
           to label %215 unwind label %.loopexit.i
 
 215:                                              ; preds = %214
@@ -598,7 +598,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %216 unwind label %.loopexit.i
 
 216:                                              ; preds = %215, %.lr.ph113.i
-  invoke void @_Z11ps_arcsliceP8t_psdataffffff(ptr noundef nonnull %12, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %.072111.i, float noundef %.074110.i, float noundef -1.000000e+01, float noundef 1.000000e+01)
+  invoke void @_Z11ps_arcsliceP8t_psdataffffff(ptr noundef nonnull %12, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %.074110.i, float noundef %.072111.i, float noundef -1.000000e+01, float noundef 1.000000e+01)
           to label %217 unwind label %.loopexit.i
 
 217:                                              ; preds = %216
@@ -645,7 +645,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit91.i unwind label %.loopexit103.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit91.i: ; preds = %225
-  %228 = fadd float %.072111.i, 0x4023333340000000
+  %228 = fadd float %.074110.i, 0x4023333340000000
   invoke void @_Z8ps_ctextP8t_psdataffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull %12, float noundef %228, float noundef -8.000000e+00, ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 1)
           to label %229 unwind label %237
 
@@ -660,9 +660,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit91.i: 
   %231 = trunc nuw nsw i64 %indvars.iv.next117.i to i32
   %232 = urem i32 %231, 18
   %233 = icmp eq i32 %232, 0
-  %234 = fadd float %172, %.074110.i
-  %.175.i = select i1 %233, float %234, float %.074110.i
-  %.173.i = select i1 %233, float %.074110.i, float %.072111.i
+  %234 = fadd float %172, %.072111.i
+  %.175.i = select i1 %233, float %.072111.i, float %.074110.i
+  %.173.i = select i1 %233, float %234, float %.072111.i
   %exitcond120.not.i = icmp eq i64 %indvars.iv.next117.i, %wide.trip.count119.i
   br i1 %exitcond120.not.i, label %._crit_edge114.i, label %.lr.ph113.i, !llvm.loop !9
 
@@ -878,8 +878,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
 
 .lr.ph75.i:                                       ; preds = %310, %.lr.ph75.preheader.i
   %indvars.iv78.i = phi i64 [ 0, %.lr.ph75.preheader.i ], [ %indvars.iv.next79.i, %310 ]
+  %.03874.i = phi float [ %262, %.lr.ph75.preheader.i ], [ %.139.i, %310 ]
   %.04073.i = phi float [ 6.000000e+01, %.lr.ph75.preheader.i ], [ %.141.i, %310 ]
-  %.04272.i = phi float [ %262, %.lr.ph75.preheader.i ], [ %.143.i, %310 ]
   %290 = trunc nuw nsw i64 %indvars.iv78.i to i32
   %291 = urem i32 %290, 5
   %292 = icmp eq i32 %291, 4
@@ -890,7 +890,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
           to label %294 unwind label %.loopexit.i45
 
 294:                                              ; preds = %293
-  invoke void @_Z15ps_fillarcsliceP8t_psdataffffff(ptr noundef nonnull %4, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %.04073.i, float noundef %.04272.i, float noundef -9.000000e+00, float noundef 9.000000e+00)
+  invoke void @_Z15ps_fillarcsliceP8t_psdataffffff(ptr noundef nonnull %4, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %.04073.i, float noundef %.03874.i, float noundef -9.000000e+00, float noundef 9.000000e+00)
           to label %295 unwind label %.loopexit.i45
 
 295:                                              ; preds = %294
@@ -898,7 +898,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i42: 
           to label %296 unwind label %.loopexit.i45
 
 296:                                              ; preds = %295, %.lr.ph75.i
-  invoke void @_Z11ps_arcsliceP8t_psdataffffff(ptr noundef nonnull %4, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %.04073.i, float noundef %.04272.i, float noundef -9.000000e+00, float noundef 9.000000e+00)
+  invoke void @_Z11ps_arcsliceP8t_psdataffffff(ptr noundef nonnull %4, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %.04073.i, float noundef %.03874.i, float noundef -9.000000e+00, float noundef 9.000000e+00)
           to label %297 unwind label %.loopexit.i45
 
 297:                                              ; preds = %296
@@ -960,9 +960,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit57.i: 
   %311 = trunc nuw nsw i64 %indvars.iv.next79.i to i32
   %312 = urem i32 %311, 18
   %313 = icmp eq i32 %312, 0
-  %314 = fadd float %261, %.04272.i
-  %.143.i = select i1 %313, float %314, float %.04272.i
-  %.141.i = select i1 %313, float %.04272.i, float %.04073.i
+  %314 = fadd float %261, %.03874.i
+  %.141.i = select i1 %313, float %.03874.i, float %.04073.i
+  %.139.i = select i1 %313, float %314, float %.03874.i
   %exitcond82.not.i = icmp eq i64 %indvars.iv.next79.i, %wide.trip.count81.i
   br i1 %exitcond82.not.i, label %._crit_edge76.i, label %.lr.ph75.i, !llvm.loop !11
 

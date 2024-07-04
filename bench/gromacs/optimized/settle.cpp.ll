@@ -1136,9 +1136,9 @@ define void @_ZN3gmx11settle_projERKNS_10SettleDataENS_18ConstraintVariableEiPKi
 
 122:                                              ; preds = %106, %122
   %indvars.iv = phi i64 [ 0, %106 ], [ %indvars.iv.next, %122 ]
-  %.sroa.12.0121 = phi float [ 0.000000e+00, %106 ], [ %140, %122 ]
+  %.sroa.0103.0121 = phi float [ 0.000000e+00, %106 ], [ %130, %122 ]
   %.sroa.6.0120 = phi float [ 0.000000e+00, %106 ], [ %136, %122 ]
-  %.sroa.0103.0119 = phi float [ 0.000000e+00, %106 ], [ %130, %122 ]
+  %.sroa.12.0119 = phi float [ 0.000000e+00, %106 ], [ %140, %122 ]
   %123 = getelementptr inbounds [3 x float], ptr %119, i64 0, i64 %indvars.iv
   %124 = load float, ptr %123, align 4
   %125 = getelementptr inbounds [3 x float], ptr %120, i64 0, i64 %indvars.iv
@@ -1146,7 +1146,7 @@ define void @_ZN3gmx11settle_projERKNS_10SettleDataENS_18ConstraintVariableEiPKi
   %127 = fsub float %124, %126
   %128 = getelementptr inbounds [3 x float], ptr %11, i64 0, i64 %indvars.iv
   %129 = load float, ptr %128, align 4
-  %130 = call float @llvm.fmuladd.f32(float %127, float %129, float %.sroa.0103.0119)
+  %130 = call float @llvm.fmuladd.f32(float %127, float %129, float %.sroa.0103.0121)
   %131 = getelementptr inbounds [3 x float], ptr %121, i64 0, i64 %indvars.iv
   %132 = load float, ptr %131, align 4
   %133 = fsub float %124, %132
@@ -1156,7 +1156,7 @@ define void @_ZN3gmx11settle_projERKNS_10SettleDataENS_18ConstraintVariableEiPKi
   %137 = fsub float %126, %132
   %138 = getelementptr inbounds [3 x float], ptr %13, i64 0, i64 %indvars.iv
   %139 = load float, ptr %138, align 4
-  %140 = call float @llvm.fmuladd.f32(float %137, float %139, float %.sroa.12.0121)
+  %140 = call float @llvm.fmuladd.f32(float %137, float %139, float %.sroa.12.0119)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %141, label %122, !llvm.loop !21

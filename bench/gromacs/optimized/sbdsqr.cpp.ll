@@ -273,15 +273,15 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 .lr.ph993:                                        ; preds = %.lr.ph993, %.lr.ph993.preheader
   %indvars.iv1263 = phi i64 [ 2, %.lr.ph993.preheader ], [ %indvars.iv.next1264, %.lr.ph993 ]
   %.0820991 = phi float [ %132, %.lr.ph993.preheader ], [ %145, %.lr.ph993 ]
-  %.0847989 = phi float [ %132, %.lr.ph993.preheader ], [ %143, %.lr.ph993 ]
+  %.0840990 = phi float [ %132, %.lr.ph993.preheader ], [ %143, %.lr.ph993 ]
   %136 = getelementptr inbounds float, ptr %38, i64 %indvars.iv1263
   %137 = load float, ptr %136, align 4
   %138 = call noundef float @llvm.fabs.f32(float %137)
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv1263
   %139 = load float, ptr %gep, align 4
   %140 = call noundef float @llvm.fabs.f32(float %139)
-  %141 = fadd float %.0847989, %140
-  %142 = fdiv float %.0847989, %141
+  %141 = fadd float %.0840990, %140
+  %142 = fdiv float %.0840990, %141
   %143 = fmul float %138, %142
   %144 = fcmp olt float %.0820991, %143
   %145 = select i1 %144, float %.0820991, float %143
@@ -343,25 +343,25 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %.0830.ph1140 = phi i32 [ 0, %.lr.ph1014.lr.ph.lr.ph.lr.ph ], [ %.0830.ph91411291490, %.outer.backedge ]
   %.0833.ph1139 = phi i32 [ -1, %.lr.ph1014.lr.ph.lr.ph.lr.ph ], [ %.0833.ph91311281492, %.outer.backedge ]
   %.0834.ph1138 = phi i32 [ 0, %.lr.ph1014.lr.ph.lr.ph.lr.ph ], [ %.08341013, %.outer.backedge ]
-  %.0842.ph1137 = phi i32 [ %151, %.lr.ph1014.lr.ph.lr.ph.lr.ph ], [ %.0842.ph.be, %.outer.backedge ]
-  %165 = zext nneg i32 %.0842.ph1137 to i64
+  %.0844.ph1137 = phi i32 [ %151, %.lr.ph1014.lr.ph.lr.ph.lr.ph ], [ %.0844.ph.be, %.outer.backedge ]
+  %165 = zext nneg i32 %.0844.ph1137 to i64
   %166 = getelementptr inbounds float, ptr %38, i64 %165
-  %167 = add nsw i32 %.0842.ph1137, -1
+  %167 = add nsw i32 %.0844.ph1137, -1
   %168 = zext nneg i32 %167 to i64
   %169 = getelementptr inbounds float, ptr %39, i64 %168
   %170 = getelementptr inbounds float, ptr %38, i64 %168
-  %171 = zext nneg i32 %.0842.ph1137 to i64
+  %171 = zext nneg i32 %.0844.ph1137 to i64
   %172 = zext nneg i32 %167 to i64
-  %wide.trip.count1271 = zext nneg i32 %.0842.ph1137 to i64
+  %wide.trip.count1271 = zext nneg i32 %.0844.ph1137 to i64
   %173 = icmp sgt i32 %.0830.ph1140, %153
   br i1 %173, label %.lr.ph1014.lr.ph.lr.ph._crit_edge, label %.lr.ph1014.preheader
 
 .lr.ph1014.preheader:                             ; preds = %.lr.ph1014.lr.ph.lr.ph, %.outer911
   %.0834.ph91211271493 = phi i32 [ %.1835898, %.outer911 ], [ %.0834.ph1138, %.lr.ph1014.lr.ph.lr.ph ]
-  %.0833.ph91311281492 = phi i32 [ %.0842.ph1137, %.outer911 ], [ %.0833.ph1139, %.lr.ph1014.lr.ph.lr.ph ]
+  %.0833.ph91311281492 = phi i32 [ %.0844.ph1137, %.outer911 ], [ %.0833.ph1139, %.lr.ph1014.lr.ph.lr.ph ]
   %.0830.ph91411291490 = phi i32 [ %644, %.outer911 ], [ %.0830.ph1140, %.lr.ph1014.lr.ph.lr.ph ]
   %.0823.ph91511311489 = phi i32 [ %195, %.outer911 ], [ %.0823.ph1141, %.lr.ph1014.lr.ph.lr.ph ]
-  %174 = icmp slt i32 %.0842.ph1137, %.0823.ph91511311489
+  %174 = icmp slt i32 %.0844.ph1137, %.0823.ph91511311489
   br label %.lr.ph1007
 
 .lr.ph1007:                                       ; preds = %.lr.ph1007.backedge, %.lr.ph1014.preheader
@@ -402,8 +402,8 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 .loopexit909:                                     ; preds = %183, %191
   %.lcssa10091015 = phi float [ %180, %191 ], [ %188, %183 ]
   %.2826922 = phi float [ %.28261005, %191 ], [ %190, %183 ]
-  %.0846 = phi i32 [ %193, %191 ], [ 0, %183 ]
-  %195 = add nsw i32 %.0846, 1
+  %.0843 = phi i32 [ %193, %191 ], [ 0, %183 ]
+  %195 = add nsw i32 %.0843, 1
   %196 = icmp eq i32 %195, %167
   br i1 %196, label %197, label %230
 
@@ -424,7 +424,7 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %203 = add nsw i32 %167, %40
   %204 = sext i32 %203 to i64
   %205 = getelementptr inbounds float, ptr %42, i64 %204
-  %206 = add nsw i32 %.0842.ph1137, %40
+  %206 = add nsw i32 %.0844.ph1137, %40
   %207 = sext i32 %206 to i64
   %208 = getelementptr inbounds float, ptr %42, i64 %207
   call void @srot_(ptr noundef nonnull %2, ptr noundef %205, ptr noundef nonnull %8, ptr noundef %208, ptr noundef nonnull %8, ptr noundef nonnull %28, ptr noundef nonnull %29)
@@ -439,7 +439,7 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %213 = mul nsw i32 %167, %43
   %214 = sext i32 %213 to i64
   %gep1134 = getelementptr float, ptr %invariant.gep1109, i64 %214
-  %215 = mul nsw i32 %.0842.ph1137, %43
+  %215 = mul nsw i32 %.0844.ph1137, %43
   %216 = sext i32 %215 to i64
   %gep1136 = getelementptr float, ptr %invariant.gep1109, i64 %216
   call void @srot_(ptr noundef nonnull %3, ptr noundef %gep1134, ptr noundef nonnull %19, ptr noundef %gep1136, ptr noundef nonnull %19, ptr noundef nonnull %26, ptr noundef nonnull %27)
@@ -454,23 +454,23 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %221 = add nsw i32 %167, %46
   %222 = sext i32 %221 to i64
   %223 = getelementptr inbounds float, ptr %48, i64 %222
-  %224 = add nsw i32 %.0842.ph1137, %46
+  %224 = add nsw i32 %.0844.ph1137, %46
   %225 = sext i32 %224 to i64
   %226 = getelementptr inbounds float, ptr %48, i64 %225
   call void @srot_(ptr noundef nonnull %4, ptr noundef %223, ptr noundef nonnull %12, ptr noundef %226, ptr noundef nonnull %12, ptr noundef nonnull %26, ptr noundef nonnull %27)
   br label %227
 
 227:                                              ; preds = %220, %217
-  %228 = add nsw i32 %.0842.ph1137, -2
+  %228 = add nsw i32 %.0844.ph1137, -2
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %227, %.outer.loopexit
-  %.0842.ph.be = phi i32 [ %228, %227 ], [ %167, %.outer.loopexit ]
-  %229 = icmp slt i32 %.0842.ph.be, 2
+  %.0844.ph.be = phi i32 [ %228, %227 ], [ %167, %.outer.loopexit ]
+  %229 = icmp slt i32 %.0844.ph.be, 2
   br i1 %229, label %.loopexit910, label %.lr.ph1014.lr.ph.lr.ph
 
 230:                                              ; preds = %.loopexit909
-  %.not878 = icmp sge i32 %.0846, %.0833.ph91311281492
+  %.not878 = icmp sge i32 %.0843, %.0833.ph91311281492
   %or.cond892 = select i1 %.not878, i1 true, i1 %174
   br i1 %or.cond892, label %231, label %239
 
@@ -526,22 +526,22 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %249 = load float, ptr %248, align 4
   %250 = call noundef float @llvm.fabs.f32(float %249)
   store i32 %167, ptr %16, align 4
-  %.not880.not1026 = icmp slt i32 %195, %.0842.ph1137
+  %.not880.not1026 = icmp slt i32 %195, %.0844.ph1137
   br i1 %.not880.not1026, label %.lr.ph1031.preheader, label %.loopexit
 
 .lr.ph1031.preheader:                             ; preds = %246
-  %251 = sext i32 %.0846 to i64
+  %251 = sext i32 %.0843 to i64
   %252 = add nsw i64 %251, 1
   br label %.lr.ph1031
 
 .lr.ph1031:                                       ; preds = %.lr.ph1031.preheader, %258
   %indvars.iv1276 = phi i64 [ %252, %.lr.ph1031.preheader ], [ %indvars.iv.next1277, %258 ]
   %.18221029 = phi float [ %250, %.lr.ph1031.preheader ], [ %266, %258 ]
-  %.18481027 = phi float [ %250, %.lr.ph1031.preheader ], [ %264, %258 ]
+  %.18411027 = phi float [ %250, %.lr.ph1031.preheader ], [ %264, %258 ]
   %253 = getelementptr inbounds float, ptr %39, i64 %indvars.iv1276
   %254 = load float, ptr %253, align 4
   %255 = call noundef float @llvm.fabs.f32(float %254)
-  %256 = fmul float %.18481027, 0x3EB4000000000000
+  %256 = fmul float %.18411027, 0x3EB4000000000000
   %257 = fcmp ugt float %255, %256
   br i1 %257, label %258, label %.outer917.backedge
 
@@ -560,13 +560,13 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %260 = load float, ptr %259, align 4
   store float %260, ptr %18, align 4
   %261 = call noundef float @llvm.fabs.f32(float %260)
-  %262 = fadd float %.18481027, %255
-  %263 = fdiv float %.18481027, %262
+  %262 = fadd float %.18411027, %255
+  %263 = fdiv float %.18411027, %262
   %264 = fmul float %263, %261
   %265 = fcmp olt float %.18221029, %264
   %266 = select i1 %265, float %.18221029, float %264
   %lftr.wideiv = trunc i64 %indvars.iv.next1277 to i32
-  %exitcond1279.not = icmp eq i32 %.0842.ph1137, %lftr.wideiv
+  %exitcond1279.not = icmp eq i32 %.0844.ph1137, %lftr.wideiv
   br i1 %exitcond1279.not, label %.loopexit, label %.lr.ph1031, !llvm.loop !9
 
 .thread900:                                       ; preds = %..thread900_crit_edge, %231
@@ -585,21 +585,21 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %274 = load float, ptr %166, align 4
   %275 = call noundef float @llvm.fabs.f32(float %274)
   store i32 %195, ptr %16, align 4
-  %.not879.not1050 = icmp sgt i32 %167, %.0846
+  %.not879.not1050 = icmp sgt i32 %167, %.0843
   br i1 %.not879.not1050, label %.lr.ph1055.preheader, label %.loopexit
 
 .lr.ph1055.preheader:                             ; preds = %273
-  %276 = sext i32 %.0846 to i64
+  %276 = sext i32 %.0843 to i64
   br label %.lr.ph1055
 
 .lr.ph1055:                                       ; preds = %.lr.ph1055.preheader, %282
   %indvars.iv1280 = phi i64 [ %172, %.lr.ph1055.preheader ], [ %indvars.iv.next1281, %282 ]
   %.21053 = phi float [ %275, %.lr.ph1055.preheader ], [ %290, %282 ]
-  %.28491051 = phi float [ %275, %.lr.ph1055.preheader ], [ %288, %282 ]
+  %.28421051 = phi float [ %275, %.lr.ph1055.preheader ], [ %288, %282 ]
   %277 = getelementptr inbounds float, ptr %39, i64 %indvars.iv1280
   %278 = load float, ptr %277, align 4
   %279 = call noundef float @llvm.fabs.f32(float %278)
-  %280 = fmul float %.28491051, 0x3EB4000000000000
+  %280 = fmul float %.28421051, 0x3EB4000000000000
   %281 = fcmp ugt float %279, %280
   br i1 %281, label %282, label %.outer917.backedge
 
@@ -608,8 +608,8 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %284 = load float, ptr %283, align 4
   store float %284, ptr %18, align 4
   %285 = call noundef float @llvm.fabs.f32(float %284)
-  %286 = fadd float %.28491051, %279
-  %287 = fdiv float %.28491051, %286
+  %286 = fadd float %.28421051, %279
+  %287 = fdiv float %.28421051, %286
   %288 = fmul float %287, %285
   %289 = fcmp olt float %.21053, %288
   %290 = select i1 %289, float %.21053, float %288
@@ -623,7 +623,7 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %293 = phi i1 [ false, %282 ], [ true, %258 ], [ true, %246 ], [ false, %273 ]
   %.1835898 = phi i32 [ %.1835902, %282 ], [ 1, %258 ], [ 1, %246 ], [ %.1835902, %273 ]
   %.3 = phi float [ %290, %282 ], [ %266, %258 ], [ %250, %246 ], [ %275, %273 ]
-  %.neg943 = xor i32 %.0846, -1
+  %.neg943 = xor i32 %.0843, -1
   store float 0x3E80000000000000, ptr %17, align 4
   store float 0x3E49999980000000, ptr %18, align 4
   %294 = load i32, ptr %1, align 4
@@ -649,19 +649,19 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %305 = sext i32 %195 to i64
   %306 = getelementptr inbounds float, ptr %38, i64 %305
   %307 = getelementptr inbounds float, ptr %39, i64 %305
-  %308 = sext i32 %.0846 to i64
+  %308 = sext i32 %.0843 to i64
   %gep1106 = getelementptr float, ptr %invariant.gep1105, i64 %308
   call void @slas2_(ptr noundef nonnull %306, ptr noundef nonnull %307, ptr noundef %gep1106, ptr noundef nonnull %31, ptr noundef nonnull %23)
   br label %309
 
 309:                                              ; preds = %303, %301
-  %.0841 = phi float [ %302, %301 ], [ %304, %303 ]
-  %310 = fcmp ogt float %.0841, 0.000000e+00
+  %.0836 = phi float [ %302, %301 ], [ %304, %303 ]
+  %310 = fcmp ogt float %.0836, 0.000000e+00
   %311 = load float, ptr %31, align 4
   br i1 %310, label %312, label %thread-pre-split903
 
 312:                                              ; preds = %309
-  %313 = fdiv float %311, %.0841
+  %313 = fdiv float %311, %.0836
   store float %313, ptr %17, align 4
   %314 = fmul float %313, %313
   %315 = fcmp olt float %314, 0x3E80000000000000
@@ -669,12 +669,12 @@ define void @sbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .thread906:                                       ; preds = %312, %.loopexit
   store float 0.000000e+00, ptr %31, align 4
-  %316 = add nsw i32 %.0830.ph91411291490, %.0842.ph1137
+  %316 = add nsw i32 %.0830.ph91411291490, %.0844.ph1137
   %317 = add i32 %316, %.neg943
   br label %321
 
 thread-pre-split903:                              ; preds = %309, %312
-  %318 = add nsw i32 %.0830.ph91411291490, %.0842.ph1137
+  %318 = add nsw i32 %.0830.ph91411291490, %.0844.ph1137
   %319 = add i32 %318, %.neg943
   %320 = fcmp oeq float %311, 0.000000e+00
   br i1 %320, label %321, label %463
@@ -687,7 +687,7 @@ thread-pre-split903:                              ; preds = %309, %312
 
 323:                                              ; preds = %321
   store i32 %167, ptr %16, align 4
-  %.not8841100.not = icmp slt i32 %.0846, %167
+  %.not8841100.not = icmp slt i32 %.0843, %167
   br i1 %.not8841100.not, label %.lr.ph1103.preheader, label %.._crit_edge1104_crit_edge
 
 .._crit_edge1104_crit_edge:                       ; preds = %323
@@ -765,7 +765,7 @@ thread-pre-split903:                              ; preds = %309, %312
   br i1 %362, label %363, label %371
 
 363:                                              ; preds = %._crit_edge1104
-  %364 = sub i32 %.0842.ph1137, %.0846
+  %364 = sub i32 %.0844.ph1137, %.0843
   store i32 %364, ptr %16, align 4
   %365 = load i32, ptr %1, align 4
   %366 = sext i32 %365 to i64
@@ -782,7 +782,7 @@ thread-pre-split903:                              ; preds = %309, %312
   br i1 %373, label %374, label %378
 
 374:                                              ; preds = %371
-  %375 = sub i32 %.0842.ph1137, %.0846
+  %375 = sub i32 %.0844.ph1137, %.0843
   store i32 %375, ptr %16, align 4
   %376 = mul nsw i32 %195, %43
   %377 = sext i32 %376 to i64
@@ -796,7 +796,7 @@ thread-pre-split903:                              ; preds = %309, %312
   br i1 %380, label %381, label %386
 
 381:                                              ; preds = %378
-  %382 = sub i32 %.0842.ph1137, %.0846
+  %382 = sub i32 %.0844.ph1137, %.0843
   store i32 %382, ptr %16, align 4
   %383 = add nsw i32 %195, %46
   %384 = sext i32 %383 to i64
@@ -816,9 +816,9 @@ thread-pre-split903:                              ; preds = %309, %312
   br label %.outer911
 
 391:                                              ; preds = %321
-  %392 = add nsw i32 %.0846, 2
+  %392 = add nsw i32 %.0843, 2
   store i32 %392, ptr %16, align 4
-  %.not8831095 = icmp slt i32 %.0842.ph1137, %392
+  %.not8831095 = icmp slt i32 %.0844.ph1137, %392
   br i1 %.not8831095, label %.._crit_edge1099_crit_edge, label %.lr.ph1098.preheader
 
 .._crit_edge1099_crit_edge:                       ; preds = %391
@@ -899,7 +899,7 @@ thread-pre-split903:                              ; preds = %309, %312
   br i1 %431, label %432, label %437
 
 432:                                              ; preds = %._crit_edge1099
-  %433 = sub i32 %.0842.ph1137, %.0846
+  %433 = sub i32 %.0844.ph1137, %.0843
   store i32 %433, ptr %16, align 4
   %434 = add nsw i32 %195, %40
   %435 = sext i32 %434 to i64
@@ -913,7 +913,7 @@ thread-pre-split903:                              ; preds = %309, %312
   br i1 %439, label %440, label %447
 
 440:                                              ; preds = %437
-  %441 = sub i32 %.0842.ph1137, %.0846
+  %441 = sub i32 %.0844.ph1137, %.0843
   store i32 %441, ptr %16, align 4
   %442 = load i32, ptr %1, align 4
   %443 = sext i32 %442 to i64
@@ -930,7 +930,7 @@ thread-pre-split903:                              ; preds = %309, %312
   br i1 %449, label %450, label %458
 
 450:                                              ; preds = %447
-  %451 = sub i32 %.0842.ph1137, %.0846
+  %451 = sub i32 %.0844.ph1137, %.0843
   store i32 %451, ptr %16, align 4
   %452 = load i32, ptr %1, align 4
   %453 = sext i32 %452 to i64
@@ -972,7 +972,7 @@ thread-pre-split903:                              ; preds = %309, %312
   %476 = load float, ptr %475, align 4
   store float %476, ptr %22, align 4
   store i32 %167, ptr %16, align 4
-  %.not8821090.not = icmp slt i32 %.0846, %167
+  %.not8821090.not = icmp slt i32 %.0843, %167
   br i1 %.not8821090.not, label %.lr.ph1093, label %._crit_edge1094
 
 .lr.ph1093:                                       ; preds = %464, %512
@@ -1062,7 +1062,7 @@ thread-pre-split903:                              ; preds = %309, %312
   br i1 %525, label %526, label %534
 
 526:                                              ; preds = %._crit_edge1094
-  %527 = sub i32 %.0842.ph1137, %.0846
+  %527 = sub i32 %.0844.ph1137, %.0843
   store i32 %527, ptr %16, align 4
   %528 = load i32, ptr %1, align 4
   %529 = sext i32 %528 to i64
@@ -1079,7 +1079,7 @@ thread-pre-split903:                              ; preds = %309, %312
   br i1 %536, label %537, label %541
 
 537:                                              ; preds = %534
-  %538 = sub i32 %.0842.ph1137, %.0846
+  %538 = sub i32 %.0844.ph1137, %.0843
   store i32 %538, ptr %16, align 4
   %539 = mul nsw i32 %195, %43
   %540 = sext i32 %539 to i64
@@ -1093,7 +1093,7 @@ thread-pre-split903:                              ; preds = %309, %312
   br i1 %543, label %544, label %549
 
 544:                                              ; preds = %541
-  %545 = sub i32 %.0842.ph1137, %.0846
+  %545 = sub i32 %.0844.ph1137, %.0843
   store i32 %545, ptr %16, align 4
   %546 = add nsw i32 %195, %46
   %547 = sext i32 %546 to i64
@@ -1125,9 +1125,9 @@ thread-pre-split903:                              ; preds = %309, %312
   store float %562, ptr %21, align 4
   %563 = load float, ptr %169, align 4
   store float %563, ptr %22, align 4
-  %564 = add nsw i32 %.0846, 2
+  %564 = add nsw i32 %.0843, 2
   store i32 %564, ptr %16, align 4
-  %.not8811083 = icmp slt i32 %.0842.ph1137, %564
+  %.not8811083 = icmp slt i32 %.0844.ph1137, %564
   br i1 %.not8811083, label %.._crit_edge1087_crit_edge, label %.lr.ph1086.preheader
 
 .._crit_edge1087_crit_edge:                       ; preds = %554
@@ -1236,7 +1236,7 @@ thread-pre-split903:                              ; preds = %309, %312
   br i1 %617, label %618, label %623
 
 618:                                              ; preds = %615
-  %619 = sub i32 %.0842.ph1137, %.0846
+  %619 = sub i32 %.0844.ph1137, %.0843
   store i32 %619, ptr %16, align 4
   %620 = add nsw i32 %195, %40
   %621 = sext i32 %620 to i64
@@ -1250,7 +1250,7 @@ thread-pre-split903:                              ; preds = %309, %312
   br i1 %625, label %626, label %633
 
 626:                                              ; preds = %623
-  %627 = sub i32 %.0842.ph1137, %.0846
+  %627 = sub i32 %.0844.ph1137, %.0843
   store i32 %627, ptr %16, align 4
   %628 = load i32, ptr %1, align 4
   %629 = sext i32 %628 to i64
@@ -1267,7 +1267,7 @@ thread-pre-split903:                              ; preds = %309, %312
   br i1 %635, label %636, label %.outer911
 
 636:                                              ; preds = %633
-  %637 = sub i32 %.0842.ph1137, %.0846
+  %637 = sub i32 %.0844.ph1137, %.0843
   store i32 %637, ptr %16, align 4
   %638 = load i32, ptr %1, align 4
   %639 = sext i32 %638 to i64

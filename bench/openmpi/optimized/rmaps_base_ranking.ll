@@ -224,7 +224,7 @@ pmix_pointer_array_get_item.exit21.lr.ph.i:       ; preds = %.preheader.i
 pmix_pointer_array_get_item.exit21.i:             ; preds = %121, %pmix_pointer_array_get_item.exit21.lr.ph.i
   %108 = phi ptr [ %103, %pmix_pointer_array_get_item.exit21.lr.ph.i ], [ %122, %121 ]
   %indvars.iv.i = phi i64 [ 0, %pmix_pointer_array_get_item.exit21.lr.ph.i ], [ %indvars.iv.next.i, %121 ]
-  %.01622.i = phi i32 [ 0, %pmix_pointer_array_get_item.exit21.lr.ph.i ], [ %.1.i, %121 ]
+  %.023.i = phi i32 [ 0, %pmix_pointer_array_get_item.exit21.lr.ph.i ], [ %.1.i, %121 ]
   %109 = getelementptr inbounds i8, ptr %108, i64 152
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds ptr, ptr %110, i64 %indvars.iv.i
@@ -240,15 +240,15 @@ pmix_pointer_array_get_item.exit21.i:             ; preds = %121, %pmix_pointer_
   br i1 %.not.i346, label %118, label %121
 
 118:                                              ; preds = %114
-  %119 = add nsw i32 %.01622.i, 1
+  %119 = add nsw i32 %.023.i, 1
   %120 = getelementptr inbounds i8, ptr %112, i64 416
-  store i32 %.01622.i, ptr %120, align 8
+  store i32 %.023.i, ptr %120, align 8
   %.pre.i = load ptr, ptr %96, align 8
   br label %121
 
 121:                                              ; preds = %118, %114, %pmix_pointer_array_get_item.exit21.i
   %122 = phi ptr [ %108, %pmix_pointer_array_get_item.exit21.i ], [ %108, %114 ], [ %.pre.i, %118 ]
-  %.1.i = phi i32 [ %.01622.i, %pmix_pointer_array_get_item.exit21.i ], [ %.01622.i, %114 ], [ %119, %118 ]
+  %.1.i = phi i32 [ %.023.i, %pmix_pointer_array_get_item.exit21.i ], [ %.023.i, %114 ], [ %119, %118 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %123 = getelementptr inbounds i8, ptr %122, i64 128
   %124 = load i32, ptr %123, align 8
@@ -1126,7 +1126,7 @@ pmix_pointer_array_get_item.exit21.lr.ph:         ; preds = %.preheader
 pmix_pointer_array_get_item.exit21:               ; preds = %pmix_pointer_array_get_item.exit21.lr.ph, %32
   %19 = phi ptr [ %14, %pmix_pointer_array_get_item.exit21.lr.ph ], [ %33, %32 ]
   %indvars.iv = phi i64 [ 0, %pmix_pointer_array_get_item.exit21.lr.ph ], [ %indvars.iv.next, %32 ]
-  %.01622 = phi i32 [ 0, %pmix_pointer_array_get_item.exit21.lr.ph ], [ %.1, %32 ]
+  %.023 = phi i32 [ 0, %pmix_pointer_array_get_item.exit21.lr.ph ], [ %.1, %32 ]
   %20 = getelementptr inbounds i8, ptr %19, i64 152
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
@@ -1142,15 +1142,15 @@ pmix_pointer_array_get_item.exit21:               ; preds = %pmix_pointer_array_
   br i1 %.not, label %29, label %32
 
 29:                                               ; preds = %25
-  %30 = add nsw i32 %.01622, 1
+  %30 = add nsw i32 %.023, 1
   %31 = getelementptr inbounds i8, ptr %23, i64 416
-  store i32 %.01622, ptr %31, align 8
+  store i32 %.023, ptr %31, align 8
   %.pre = load ptr, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %25, %pmix_pointer_array_get_item.exit21, %29
   %33 = phi ptr [ %19, %pmix_pointer_array_get_item.exit21 ], [ %19, %25 ], [ %.pre, %29 ]
-  %.1 = phi i32 [ %.01622, %pmix_pointer_array_get_item.exit21 ], [ %.01622, %25 ], [ %30, %29 ]
+  %.1 = phi i32 [ %.023, %pmix_pointer_array_get_item.exit21 ], [ %.023, %25 ], [ %30, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = getelementptr inbounds i8, ptr %33, i64 128
   %35 = load i32, ptr %34, align 8

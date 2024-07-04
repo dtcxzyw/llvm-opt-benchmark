@@ -131,10 +131,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_khmx8P11pr
   br label %35
 
 35:                                               ; preds = %20, %101
-  %.06886 = phi i64 [ %25, %20 ], [ %107, %101 ]
-  %.06985 = phi i64 [ 3, %20 ], [ %108, %101 ]
-  %.069.tr = trunc i64 %.06985 to i32
-  %36 = shl i32 %.069.tr, 3
+  %.06786 = phi i64 [ 3, %20 ], [ %108, %101 ]
+  %.06985 = phi i64 [ %25, %20 ], [ %107, %101 ]
+  %.067.tr = trunc i64 %.06786 to i32
+  %36 = shl i32 %.067.tr, 3
   %37 = zext nneg i32 %36 to i64
   %38 = shl i64 255, %37
   %39 = and i64 %38, %29
@@ -173,10 +173,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_khmx8P11pr
   br label %65
 
 65:                                               ; preds = %63, %57
-  %.070 = phi i64 [ %62, %57 ], [ 127, %63 ]
+  %.066 = phi i64 [ %62, %57 ], [ 127, %63 ]
   %66 = xor i64 %38, -1
-  %67 = and i64 %.06886, %66
-  %sext73 = shl i64 %.070, 56
+  %67 = and i64 %.06985, %66
+  %sext73 = shl i64 %.066, 56
   %68 = ashr exact i64 %sext73, 56
   %69 = mul i64 %68, %42
   %70 = and i64 %69, %38
@@ -220,16 +220,16 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_khmx8P11pr
   br label %101
 
 101:                                              ; preds = %99, %93
-  %.067 = phi i64 [ %98, %93 ], [ 127, %99 ]
+  %.0 = phi i64 [ %98, %93 ], [ 127, %99 ]
   %102 = xor i64 %74, -1
   %103 = and i64 %71, %102
-  %sext77 = shl i64 %.067, 56
+  %sext77 = shl i64 %.0, 56
   %104 = ashr exact i64 %sext77, 56
   %105 = mul i64 %104, %78
   %106 = and i64 %105, %74
   %107 = or i64 %106, %103
-  %108 = add nsw i64 %.06985, -2
-  %109 = icmp ugt i64 %.06985, 1
+  %108 = add nsw i64 %.06786, -2
+  %109 = icmp ugt i64 %.06786, 1
   br i1 %109, label %35, label %110, !llvm.loop !4
 
 110:                                              ; preds = %101
@@ -324,10 +324,10 @@ define noundef i64 @_Z16fast_rv64i_khmx8P11processor_t6insn_tm(ptr nocapture nou
   br label %35
 
 35:                                               ; preds = %20, %101
-  %.06886 = phi i64 [ %25, %20 ], [ %107, %101 ]
-  %.06985 = phi i64 [ 7, %20 ], [ %108, %101 ]
-  %.069.tr = trunc i64 %.06985 to i32
-  %36 = shl i32 %.069.tr, 3
+  %.06786 = phi i64 [ 7, %20 ], [ %108, %101 ]
+  %.06985 = phi i64 [ %25, %20 ], [ %107, %101 ]
+  %.067.tr = trunc i64 %.06786 to i32
+  %36 = shl i32 %.067.tr, 3
   %37 = zext nneg i32 %36 to i64
   %38 = shl i64 255, %37
   %39 = and i64 %38, %29
@@ -366,10 +366,10 @@ define noundef i64 @_Z16fast_rv64i_khmx8P11processor_t6insn_tm(ptr nocapture nou
   br label %65
 
 65:                                               ; preds = %63, %57
-  %.070 = phi i64 [ %62, %57 ], [ 127, %63 ]
+  %.066 = phi i64 [ %62, %57 ], [ 127, %63 ]
   %66 = xor i64 %38, -1
-  %67 = and i64 %.06886, %66
-  %sext73 = shl i64 %.070, 56
+  %67 = and i64 %.06985, %66
+  %sext73 = shl i64 %.066, 56
   %68 = ashr exact i64 %sext73, 56
   %69 = mul i64 %68, %42
   %70 = and i64 %69, %38
@@ -413,16 +413,16 @@ define noundef i64 @_Z16fast_rv64i_khmx8P11processor_t6insn_tm(ptr nocapture nou
   br label %101
 
 101:                                              ; preds = %99, %93
-  %.067 = phi i64 [ %98, %93 ], [ 127, %99 ]
+  %.0 = phi i64 [ %98, %93 ], [ 127, %99 ]
   %102 = xor i64 %74, -1
   %103 = and i64 %71, %102
-  %sext77 = shl i64 %.067, 56
+  %sext77 = shl i64 %.0, 56
   %104 = ashr exact i64 %sext77, 56
   %105 = mul i64 %104, %78
   %106 = and i64 %105, %74
   %107 = or i64 %106, %103
-  %108 = add nsw i64 %.06985, -2
-  %109 = icmp ugt i64 %.06985, 1
+  %108 = add nsw i64 %.06786, -2
+  %109 = icmp ugt i64 %.06786, 1
   br i1 %109, label %35, label %110, !llvm.loop !6
 
 110:                                              ; preds = %101
@@ -494,10 +494,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32i_khmx8P11
   br label %35
 
 35:                                               ; preds = %20, %101
-  %.07091 = phi i64 [ %25, %20 ], [ %107, %101 ]
-  %.07190 = phi i64 [ 3, %20 ], [ %108, %101 ]
-  %.071.tr = trunc i64 %.07190 to i32
-  %36 = shl i32 %.071.tr, 3
+  %.07291 = phi i64 [ 3, %20 ], [ %108, %101 ]
+  %.07390 = phi i64 [ %25, %20 ], [ %107, %101 ]
+  %.072.tr = trunc i64 %.07291 to i32
+  %36 = shl i32 %.072.tr, 3
   %37 = zext nneg i32 %36 to i64
   %38 = shl i64 255, %37
   %39 = and i64 %38, %29
@@ -536,10 +536,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32i_khmx8P11
   br label %65
 
 65:                                               ; preds = %63, %57
-  %.073 = phi i64 [ %62, %57 ], [ 127, %63 ]
+  %.071 = phi i64 [ %62, %57 ], [ 127, %63 ]
   %66 = xor i64 %38, -1
-  %67 = and i64 %.07091, %66
-  %sext76 = shl i64 %.073, 56
+  %67 = and i64 %.07390, %66
+  %sext76 = shl i64 %.071, 56
   %68 = ashr exact i64 %sext76, 56
   %69 = mul i64 %68, %42
   %70 = and i64 %69, %38
@@ -583,16 +583,16 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32i_khmx8P11
   br label %101
 
 101:                                              ; preds = %99, %93
-  %.072 = phi i64 [ %98, %93 ], [ 127, %99 ]
+  %.070 = phi i64 [ %98, %93 ], [ 127, %99 ]
   %102 = xor i64 %74, -1
   %103 = and i64 %71, %102
-  %sext80 = shl i64 %.072, 56
+  %sext80 = shl i64 %.070, 56
   %104 = ashr exact i64 %sext80, 56
   %105 = mul i64 %104, %78
   %106 = and i64 %105, %74
   %107 = or i64 %106, %103
-  %108 = add nsw i64 %.07190, -2
-  %109 = icmp ugt i64 %.07190, 1
+  %108 = add nsw i64 %.07291, -2
+  %109 = icmp ugt i64 %.07291, 1
   br i1 %109, label %35, label %110, !llvm.loop !7
 
 110:                                              ; preds = %101
@@ -725,10 +725,10 @@ define noundef i64 @_Z18logged_rv64i_khmx8P11processor_t6insn_tm(ptr noundef %0,
   br label %35
 
 35:                                               ; preds = %20, %101
-  %.07091 = phi i64 [ %25, %20 ], [ %107, %101 ]
-  %.07190 = phi i64 [ 7, %20 ], [ %108, %101 ]
-  %.071.tr = trunc i64 %.07190 to i32
-  %36 = shl i32 %.071.tr, 3
+  %.07291 = phi i64 [ 7, %20 ], [ %108, %101 ]
+  %.07390 = phi i64 [ %25, %20 ], [ %107, %101 ]
+  %.072.tr = trunc i64 %.07291 to i32
+  %36 = shl i32 %.072.tr, 3
   %37 = zext nneg i32 %36 to i64
   %38 = shl i64 255, %37
   %39 = and i64 %38, %29
@@ -767,10 +767,10 @@ define noundef i64 @_Z18logged_rv64i_khmx8P11processor_t6insn_tm(ptr noundef %0,
   br label %65
 
 65:                                               ; preds = %63, %57
-  %.073 = phi i64 [ %62, %57 ], [ 127, %63 ]
+  %.071 = phi i64 [ %62, %57 ], [ 127, %63 ]
   %66 = xor i64 %38, -1
-  %67 = and i64 %.07091, %66
-  %sext76 = shl i64 %.073, 56
+  %67 = and i64 %.07390, %66
+  %sext76 = shl i64 %.071, 56
   %68 = ashr exact i64 %sext76, 56
   %69 = mul i64 %68, %42
   %70 = and i64 %69, %38
@@ -814,16 +814,16 @@ define noundef i64 @_Z18logged_rv64i_khmx8P11processor_t6insn_tm(ptr noundef %0,
   br label %101
 
 101:                                              ; preds = %99, %93
-  %.072 = phi i64 [ %98, %93 ], [ 127, %99 ]
+  %.070 = phi i64 [ %98, %93 ], [ 127, %99 ]
   %102 = xor i64 %74, -1
   %103 = and i64 %71, %102
-  %sext80 = shl i64 %.072, 56
+  %sext80 = shl i64 %.070, 56
   %104 = ashr exact i64 %sext80, 56
   %105 = mul i64 %104, %78
   %106 = and i64 %105, %74
   %107 = or i64 %106, %103
-  %108 = add nsw i64 %.07190, -2
-  %109 = icmp ugt i64 %.07190, 1
+  %108 = add nsw i64 %.07291, -2
+  %109 = icmp ugt i64 %.07291, 1
   br i1 %109, label %35, label %110, !llvm.loop !9
 
 110:                                              ; preds = %101
@@ -1000,10 +1000,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_khmx8P11pr
   br label %56
 
 56:                                               ; preds = %52, %122
-  %.075102 = phi i64 [ %32, %52 ], [ %128, %122 ]
-  %.078101 = phi i64 [ 3, %52 ], [ %129, %122 ]
-  %.078.tr = trunc i64 %.078101 to i32
-  %57 = shl i32 %.078.tr, 3
+  %.075102 = phi i64 [ 3, %52 ], [ %129, %122 ]
+  %.076101 = phi i64 [ %32, %52 ], [ %128, %122 ]
+  %.075.tr = trunc i64 %.075102 to i32
+  %57 = shl i32 %.075.tr, 3
   %58 = zext nneg i32 %57 to i64
   %59 = shl i64 255, %58
   %60 = and i64 %59, %43
@@ -1042,10 +1042,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_khmx8P11pr
   br label %86
 
 86:                                               ; preds = %84, %78
-  %.077 = phi i64 [ %83, %78 ], [ 127, %84 ]
+  %.074 = phi i64 [ %83, %78 ], [ 127, %84 ]
   %87 = xor i64 %59, -1
-  %88 = and i64 %.075102, %87
-  %sext81 = shl i64 %.077, 56
+  %88 = and i64 %.076101, %87
+  %sext81 = shl i64 %.074, 56
   %89 = ashr exact i64 %sext81, 56
   %90 = mul i64 %89, %63
   %91 = and i64 %90, %59
@@ -1089,16 +1089,16 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_khmx8P11pr
   br label %122
 
 122:                                              ; preds = %120, %114
-  %.076 = phi i64 [ %119, %114 ], [ 127, %120 ]
+  %.0 = phi i64 [ %119, %114 ], [ 127, %120 ]
   %123 = xor i64 %95, -1
   %124 = and i64 %92, %123
-  %sext85 = shl i64 %.076, 56
+  %sext85 = shl i64 %.0, 56
   %125 = ashr exact i64 %sext85, 56
   %126 = mul i64 %125, %99
   %127 = and i64 %126, %95
   %128 = or i64 %127, %124
-  %129 = add nsw i64 %.078101, -2
-  %130 = icmp ugt i64 %.078101, 1
+  %129 = add nsw i64 %.075102, -2
+  %130 = icmp ugt i64 %.075102, 1
   br i1 %130, label %56, label %131, !llvm.loop !10
 
 131:                                              ; preds = %122
@@ -1222,10 +1222,10 @@ define noundef i64 @_Z16fast_rv64e_khmx8P11processor_t6insn_tm(ptr nocapture nou
   br label %56
 
 56:                                               ; preds = %52, %122
-  %.075102 = phi i64 [ %32, %52 ], [ %128, %122 ]
-  %.078101 = phi i64 [ 7, %52 ], [ %129, %122 ]
-  %.078.tr = trunc i64 %.078101 to i32
-  %57 = shl i32 %.078.tr, 3
+  %.075102 = phi i64 [ 7, %52 ], [ %129, %122 ]
+  %.076101 = phi i64 [ %32, %52 ], [ %128, %122 ]
+  %.075.tr = trunc i64 %.075102 to i32
+  %57 = shl i32 %.075.tr, 3
   %58 = zext nneg i32 %57 to i64
   %59 = shl i64 255, %58
   %60 = and i64 %59, %43
@@ -1264,10 +1264,10 @@ define noundef i64 @_Z16fast_rv64e_khmx8P11processor_t6insn_tm(ptr nocapture nou
   br label %86
 
 86:                                               ; preds = %84, %78
-  %.077 = phi i64 [ %83, %78 ], [ 127, %84 ]
+  %.074 = phi i64 [ %83, %78 ], [ 127, %84 ]
   %87 = xor i64 %59, -1
-  %88 = and i64 %.075102, %87
-  %sext81 = shl i64 %.077, 56
+  %88 = and i64 %.076101, %87
+  %sext81 = shl i64 %.074, 56
   %89 = ashr exact i64 %sext81, 56
   %90 = mul i64 %89, %63
   %91 = and i64 %90, %59
@@ -1311,16 +1311,16 @@ define noundef i64 @_Z16fast_rv64e_khmx8P11processor_t6insn_tm(ptr nocapture nou
   br label %122
 
 122:                                              ; preds = %120, %114
-  %.076 = phi i64 [ %119, %114 ], [ 127, %120 ]
+  %.0 = phi i64 [ %119, %114 ], [ 127, %120 ]
   %123 = xor i64 %95, -1
   %124 = and i64 %92, %123
-  %sext85 = shl i64 %.076, 56
+  %sext85 = shl i64 %.0, 56
   %125 = ashr exact i64 %sext85, 56
   %126 = mul i64 %125, %99
   %127 = and i64 %126, %95
   %128 = or i64 %127, %124
-  %129 = add nsw i64 %.078101, -2
-  %130 = icmp ugt i64 %.078101, 1
+  %129 = add nsw i64 %.075102, -2
+  %130 = icmp ugt i64 %.075102, 1
   br i1 %130, label %56, label %131, !llvm.loop !11
 
 131:                                              ; preds = %122
@@ -1440,10 +1440,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_khmx8P11
   br label %56
 
 56:                                               ; preds = %52, %122
-  %.078107 = phi i64 [ %32, %52 ], [ %128, %122 ]
-  %.080106 = phi i64 [ 3, %52 ], [ %129, %122 ]
-  %.080.tr = trunc i64 %.080106 to i32
-  %57 = shl i32 %.080.tr, 3
+  %.079107 = phi i64 [ 3, %52 ], [ %129, %122 ]
+  %.081106 = phi i64 [ %32, %52 ], [ %128, %122 ]
+  %.079.tr = trunc i64 %.079107 to i32
+  %57 = shl i32 %.079.tr, 3
   %58 = zext nneg i32 %57 to i64
   %59 = shl i64 255, %58
   %60 = and i64 %59, %43
@@ -1482,10 +1482,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_khmx8P11
   br label %86
 
 86:                                               ; preds = %84, %78
-  %.081 = phi i64 [ %83, %78 ], [ 127, %84 ]
+  %.078 = phi i64 [ %83, %78 ], [ 127, %84 ]
   %87 = xor i64 %59, -1
-  %88 = and i64 %.078107, %87
-  %sext84 = shl i64 %.081, 56
+  %88 = and i64 %.081106, %87
+  %sext84 = shl i64 %.078, 56
   %89 = ashr exact i64 %sext84, 56
   %90 = mul i64 %89, %63
   %91 = and i64 %90, %59
@@ -1529,16 +1529,16 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_khmx8P11
   br label %122
 
 122:                                              ; preds = %120, %114
-  %.079 = phi i64 [ %119, %114 ], [ 127, %120 ]
+  %.077 = phi i64 [ %119, %114 ], [ 127, %120 ]
   %123 = xor i64 %95, -1
   %124 = and i64 %92, %123
-  %sext88 = shl i64 %.079, 56
+  %sext88 = shl i64 %.077, 56
   %125 = ashr exact i64 %sext88, 56
   %126 = mul i64 %125, %99
   %127 = and i64 %126, %95
   %128 = or i64 %127, %124
-  %129 = add nsw i64 %.080106, -2
-  %130 = icmp ugt i64 %.080106, 1
+  %129 = add nsw i64 %.079107, -2
+  %130 = icmp ugt i64 %.079107, 1
   br i1 %130, label %56, label %131, !llvm.loop !12
 
 131:                                              ; preds = %122
@@ -1719,10 +1719,10 @@ define noundef i64 @_Z18logged_rv64e_khmx8P11processor_t6insn_tm(ptr noundef %0,
   br label %56
 
 56:                                               ; preds = %52, %122
-  %.078107 = phi i64 [ %32, %52 ], [ %128, %122 ]
-  %.080106 = phi i64 [ 7, %52 ], [ %129, %122 ]
-  %.080.tr = trunc i64 %.080106 to i32
-  %57 = shl i32 %.080.tr, 3
+  %.079107 = phi i64 [ 7, %52 ], [ %129, %122 ]
+  %.081106 = phi i64 [ %32, %52 ], [ %128, %122 ]
+  %.079.tr = trunc i64 %.079107 to i32
+  %57 = shl i32 %.079.tr, 3
   %58 = zext nneg i32 %57 to i64
   %59 = shl i64 255, %58
   %60 = and i64 %59, %43
@@ -1761,10 +1761,10 @@ define noundef i64 @_Z18logged_rv64e_khmx8P11processor_t6insn_tm(ptr noundef %0,
   br label %86
 
 86:                                               ; preds = %84, %78
-  %.081 = phi i64 [ %83, %78 ], [ 127, %84 ]
+  %.078 = phi i64 [ %83, %78 ], [ 127, %84 ]
   %87 = xor i64 %59, -1
-  %88 = and i64 %.078107, %87
-  %sext84 = shl i64 %.081, 56
+  %88 = and i64 %.081106, %87
+  %sext84 = shl i64 %.078, 56
   %89 = ashr exact i64 %sext84, 56
   %90 = mul i64 %89, %63
   %91 = and i64 %90, %59
@@ -1808,16 +1808,16 @@ define noundef i64 @_Z18logged_rv64e_khmx8P11processor_t6insn_tm(ptr noundef %0,
   br label %122
 
 122:                                              ; preds = %120, %114
-  %.079 = phi i64 [ %119, %114 ], [ 127, %120 ]
+  %.077 = phi i64 [ %119, %114 ], [ 127, %120 ]
   %123 = xor i64 %95, -1
   %124 = and i64 %92, %123
-  %sext88 = shl i64 %.079, 56
+  %sext88 = shl i64 %.077, 56
   %125 = ashr exact i64 %sext88, 56
   %126 = mul i64 %125, %99
   %127 = and i64 %126, %95
   %128 = or i64 %127, %124
-  %129 = add nsw i64 %.080106, -2
-  %130 = icmp ugt i64 %.080106, 1
+  %129 = add nsw i64 %.079107, -2
+  %130 = icmp ugt i64 %.079107, 1
   br i1 %130, label %56, label %131, !llvm.loop !13
 
 131:                                              ; preds = %122

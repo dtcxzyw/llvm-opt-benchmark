@@ -11948,26 +11948,26 @@ _ZN5QHashIP11RasterModel7QVectorI5PatchEE3endEv.exit: ; preds = %70, %_ZN5QHashI
   br label %.loopexit93
 
 .loopexit93:                                      ; preds = %.loopexit93.loopexit, %.preheader92
-  %.1.lcssa = phi i32 [ %.049100, %.preheader92 ], [ %97, %.loopexit93.loopexit ]
-  %98 = icmp sgt i32 %.047101.in, 1
+  %.1.lcssa = phi i32 [ %.048100, %.preheader92 ], [ %97, %.loopexit93.loopexit ]
+  %98 = icmp sgt i32 %.049101.in, 1
   br i1 %98, label %.preheader92, label %._crit_edge, !llvm.loop !82
 
 .preheader92:                                     ; preds = %83, %.loopexit93
-  %.047101.in = phi i32 [ %.047101, %.loopexit93 ], [ %95, %83 ]
-  %.049100 = phi i32 [ %.1.lcssa, %.loopexit93 ], [ 0, %83 ]
-  %.047101 = add nsw i32 %.047101.in, -1
+  %.049101.in = phi i32 [ %.049101, %.loopexit93 ], [ %95, %83 ]
+  %.048100 = phi i32 [ %.1.lcssa, %.loopexit93 ], [ 0, %83 ]
+  %.049101 = add nsw i32 %.049101.in, -1
   %99 = call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %88)
   %100 = icmp sgt i32 %99, 0
   br i1 %100, label %.lr.ph.preheader, label %.loopexit93
 
 .lr.ph.preheader:                                 ; preds = %.preheader92
-  %101 = sext i32 %.049100 to i64
+  %101 = sext i32 %.048100 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %101, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.04898 = phi i32 [ 0, %.lr.ph.preheader ], [ %111, %.lr.ph ]
-  %102 = call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %88, i32 noundef %.04898, i32 noundef %.047101)
+  %.04798 = phi i32 [ 0, %.lr.ph.preheader ], [ %111, %.lr.ph ]
+  %102 = call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %88, i32 noundef %.04798, i32 noundef %.049101)
   %103 = lshr i32 %102, 16
   %104 = trunc i32 %103 to i8
   %105 = getelementptr inbounds i8, ptr %94, i64 %indvars.iv
@@ -11979,7 +11979,7 @@ _ZN5QHashIP11RasterModel7QVectorI5PatchEE3endEv.exit: ; preds = %70, %_ZN5QHashI
   %109 = trunc i32 %102 to i8
   %110 = getelementptr i8, ptr %105, i64 2
   store i8 %109, ptr %110, align 1
-  %111 = add nuw nsw i32 %.04898, 1
+  %111 = add nuw nsw i32 %.04798, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 3
   %112 = call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %88)
   %113 = icmp slt i32 %111, %112

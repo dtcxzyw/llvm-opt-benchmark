@@ -509,7 +509,7 @@ define internal void @HorizontalFilter_SSE2(ptr nocapture noundef readonly %0, i
 PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph44.i.i, %.preheader.i.i
   %35 = sext i32 %3 to i64
   %.151.i = getelementptr inbounds i8, ptr %0, i64 %35
-  %.13452.i = getelementptr inbounds i8, ptr %4, i64 %35
+  %.13252.i = getelementptr inbounds i8, ptr %4, i64 %35
   %36 = icmp sgt i32 %2, 1
   br i1 %36, label %.lr.ph.i, label %DoHorizontalFilter_SSE2.exit
 
@@ -521,16 +521,16 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph44.i.i, %.pre
   br i1 %11, label %.lr.ph.preheader.i44.us.i, label %.lr.ph.split.i
 
 .lr.ph.preheader.i44.us.i:                        ; preds = %.lr.ph.i, %PredictLineLeft_SSE2.exit49.us.i
-  %.13455.us.i = phi ptr [ %.134.us.i, %PredictLineLeft_SSE2.exit49.us.i ], [ %.13452.i, %.lr.ph.i ]
+  %.13255.us.i = phi ptr [ %.132.us.i, %PredictLineLeft_SSE2.exit49.us.i ], [ %.13252.i, %.lr.ph.i ]
   %.154.us.i = phi ptr [ %.1.us.i, %PredictLineLeft_SSE2.exit49.us.i ], [ %.151.i, %.lr.ph.i ]
-  %.13253.us.i = phi i32 [ %68, %PredictLineLeft_SSE2.exit49.us.i ], [ 1, %.lr.ph.i ]
+  %.13453.us.i = phi i32 [ %68, %PredictLineLeft_SSE2.exit49.us.i ], [ 1, %.lr.ph.i ]
   %40 = load i8, ptr %.154.us.i, align 1
   %41 = getelementptr inbounds i8, ptr %.154.us.i, i64 %38
   %42 = load i8, ptr %41, align 1
   %43 = sub i8 %40, %42
-  store i8 %43, ptr %.13455.us.i, align 1
+  store i8 %43, ptr %.13255.us.i, align 1
   %44 = getelementptr inbounds i8, ptr %.154.us.i, i64 1
-  %45 = getelementptr inbounds i8, ptr %.13455.us.i, i64 1
+  %45 = getelementptr inbounds i8, ptr %.13255.us.i, i64 1
   br label %.lr.ph.i45.us.i
 
 .lr.ph.i45.us.i:                                  ; preds = %.lr.ph.i45.us.i, %.lr.ph.preheader.i44.us.i
@@ -576,9 +576,9 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph44.i.i, %.pre
   br i1 %exitcond.not.i43.us.i, label %PredictLineLeft_SSE2.exit49.us.i, label %.lr.ph44.i40.us.i, !llvm.loop !12
 
 PredictLineLeft_SSE2.exit49.us.i:                 ; preds = %.lr.ph44.i40.us.i, %.preheader.loopexit.i48.us.i
-  %68 = add nuw nsw i32 %.13253.us.i, 1
+  %68 = add nuw nsw i32 %.13453.us.i, 1
   %.1.us.i = getelementptr inbounds i8, ptr %.154.us.i, i64 %35
-  %.134.us.i = getelementptr inbounds i8, ptr %.13455.us.i, i64 %35
+  %.132.us.i = getelementptr inbounds i8, ptr %.13255.us.i, i64 %35
   %exitcond72.not.i = icmp eq i32 %68, %2
   br i1 %exitcond72.not.i, label %DoHorizontalFilter_SSE2.exit, label %.lr.ph.preheader.i44.us.i, !llvm.loop !13
 
@@ -587,16 +587,16 @@ PredictLineLeft_SSE2.exit49.us.i:                 ; preds = %.lr.ph44.i40.us.i, 
   br i1 %69, label %.preheader.i36.us56.i, label %.preheader.i36.i
 
 .preheader.i36.us56.i:                            ; preds = %.lr.ph.split.i, %PredictLineLeft_SSE2.exit49.loopexit.us68.i
-  %.13455.us57.i = phi ptr [ %.134.us67.i, %PredictLineLeft_SSE2.exit49.loopexit.us68.i ], [ %.13452.i, %.lr.ph.split.i ]
+  %.13255.us57.i = phi ptr [ %.132.us67.i, %PredictLineLeft_SSE2.exit49.loopexit.us68.i ], [ %.13252.i, %.lr.ph.split.i ]
   %.154.us58.i = phi ptr [ %.1.us66.i, %PredictLineLeft_SSE2.exit49.loopexit.us68.i ], [ %.151.i, %.lr.ph.split.i ]
-  %.13253.us59.i = phi i32 [ %82, %PredictLineLeft_SSE2.exit49.loopexit.us68.i ], [ 1, %.lr.ph.split.i ]
+  %.13453.us59.i = phi i32 [ %82, %PredictLineLeft_SSE2.exit49.loopexit.us68.i ], [ 1, %.lr.ph.split.i ]
   %70 = load i8, ptr %.154.us58.i, align 1
   %71 = getelementptr inbounds i8, ptr %.154.us58.i, i64 %38
   %72 = load i8, ptr %71, align 1
   %73 = sub i8 %70, %72
-  store i8 %73, ptr %.13455.us57.i, align 1
+  store i8 %73, ptr %.13255.us57.i, align 1
   %74 = getelementptr inbounds i8, ptr %.154.us58.i, i64 1
-  %75 = getelementptr inbounds i8, ptr %.13455.us57.i, i64 1
+  %75 = getelementptr inbounds i8, ptr %.13255.us57.i, i64 1
   br label %.lr.ph44.i40.us61.i
 
 .lr.ph44.i40.us61.i:                              ; preds = %.lr.ph44.i40.us61.i, %.preheader.i36.us56.i
@@ -613,24 +613,24 @@ PredictLineLeft_SSE2.exit49.us.i:                 ; preds = %.lr.ph44.i40.us.i, 
   br i1 %exitcond.not.i43.us64.i, label %PredictLineLeft_SSE2.exit49.loopexit.us68.i, label %.lr.ph44.i40.us61.i, !llvm.loop !12
 
 PredictLineLeft_SSE2.exit49.loopexit.us68.i:      ; preds = %.lr.ph44.i40.us61.i
-  %82 = add nuw nsw i32 %.13253.us59.i, 1
+  %82 = add nuw nsw i32 %.13453.us59.i, 1
   %.1.us66.i = getelementptr inbounds i8, ptr %.154.us58.i, i64 %35
-  %.134.us67.i = getelementptr inbounds i8, ptr %.13455.us57.i, i64 %35
+  %.132.us67.i = getelementptr inbounds i8, ptr %.13255.us57.i, i64 %35
   %exitcond71.not.i = icmp eq i32 %82, %2
   br i1 %exitcond71.not.i, label %DoHorizontalFilter_SSE2.exit, label %.preheader.i36.us56.i, !llvm.loop !13
 
 .preheader.i36.i:                                 ; preds = %.lr.ph.split.i, %.preheader.i36.i
-  %.13455.i = phi ptr [ %.134.i, %.preheader.i36.i ], [ %.13452.i, %.lr.ph.split.i ]
+  %.13255.i = phi ptr [ %.132.i, %.preheader.i36.i ], [ %.13252.i, %.lr.ph.split.i ]
   %.154.i = phi ptr [ %.1.i, %.preheader.i36.i ], [ %.151.i, %.lr.ph.split.i ]
-  %.13253.i = phi i32 [ %87, %.preheader.i36.i ], [ 1, %.lr.ph.split.i ]
+  %.13453.i = phi i32 [ %87, %.preheader.i36.i ], [ 1, %.lr.ph.split.i ]
   %83 = load i8, ptr %.154.i, align 1
   %84 = getelementptr inbounds i8, ptr %.154.i, i64 %38
   %85 = load i8, ptr %84, align 1
   %86 = sub i8 %83, %85
-  store i8 %86, ptr %.13455.i, align 1
-  %87 = add nuw nsw i32 %.13253.i, 1
+  store i8 %86, ptr %.13255.i, align 1
+  %87 = add nuw nsw i32 %.13453.i, 1
   %.1.i = getelementptr inbounds i8, ptr %.154.i, i64 %35
-  %.134.i = getelementptr inbounds i8, ptr %.13455.i, i64 %35
+  %.132.i = getelementptr inbounds i8, ptr %.13255.i, i64 %35
   %exitcond.not.i = icmp eq i32 %87, %2
   br i1 %exitcond.not.i, label %DoHorizontalFilter_SSE2.exit, label %.preheader.i36.i, !llvm.loop !13
 
@@ -703,7 +703,7 @@ define internal void @VerticalFilter_SSE2(ptr nocapture noundef readonly %0, i32
 PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph44.i.i, %.preheader.i.i
   %35 = sext i32 %3 to i64
   %.148.i = getelementptr inbounds i8, ptr %0, i64 %35
-  %.13249.i = getelementptr inbounds i8, ptr %4, i64 %35
+  %.13049.i = getelementptr inbounds i8, ptr %4, i64 %35
   %36 = icmp sgt i32 %2, 1
   br i1 %36, label %.lr.ph.i, label %DoVerticalFilter_SSE2.exit
 
@@ -715,10 +715,10 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph44.i.i, %.pre
   br i1 %38, label %.lr.ph.preheader.i42.us.i, label %.lr.ph.split.i
 
 .lr.ph.preheader.i42.us.i:                        ; preds = %.lr.ph.i, %PredictLineTop_SSE2.exit.us.i
-  %.13253.us.i = phi ptr [ %.132.us.i, %PredictLineTop_SSE2.exit.us.i ], [ %.13249.i, %.lr.ph.i ]
+  %.13053.us.i = phi ptr [ %.130.us.i, %PredictLineTop_SSE2.exit.us.i ], [ %.13049.i, %.lr.ph.i ]
   %.152.us.i = phi ptr [ %.1.us.i, %PredictLineTop_SSE2.exit.us.i ], [ %.148.i, %.lr.ph.i ]
   %.pn4751.us.i = phi ptr [ %.152.us.i, %PredictLineTop_SSE2.exit.us.i ], [ %0, %.lr.ph.i ]
-  %.13050.us.i = phi i32 [ %63, %PredictLineTop_SSE2.exit.us.i ], [ 1, %.lr.ph.i ]
+  %.13250.us.i = phi i32 [ %63, %PredictLineTop_SSE2.exit.us.i ], [ 1, %.lr.ph.i ]
   br label %.lr.ph.i43.us.i
 
 .lr.ph.i43.us.i:                                  ; preds = %.lr.ph.i43.us.i, %.lr.ph.preheader.i42.us.i
@@ -734,9 +734,9 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph44.i.i, %.pre
   %48 = load <16 x i8>, ptr %47, align 1
   %49 = sub <16 x i8> %41, %46
   %50 = sub <16 x i8> %44, %48
-  %51 = getelementptr inbounds i8, ptr %.13253.us.i, i64 %indvars.iv.i44.us.i
+  %51 = getelementptr inbounds i8, ptr %.13053.us.i, i64 %indvars.iv.i44.us.i
   store <16 x i8> %49, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %.13253.us.i, i64 %42
+  %52 = getelementptr inbounds i8, ptr %.13053.us.i, i64 %42
   store <16 x i8> %50, ptr %52, align 1
   %indvars.iv.next.i45.us.i = add nuw nsw i64 %indvars.iv.i44.us.i, 32
   %53 = icmp ult i64 %indvars.iv.next.i45.us.i, %39
@@ -758,16 +758,16 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph44.i.i, %.pre
   %59 = getelementptr inbounds i8, ptr %.pn4751.us.i, i64 %indvars.iv46.i39.us.i
   %60 = load i8, ptr %59, align 1
   %61 = sub i8 %58, %60
-  %62 = getelementptr inbounds i8, ptr %.13253.us.i, i64 %indvars.iv46.i39.us.i
+  %62 = getelementptr inbounds i8, ptr %.13053.us.i, i64 %indvars.iv46.i39.us.i
   store i8 %61, ptr %62, align 1
   %indvars.iv.next47.i40.us.i = add nuw nsw i64 %indvars.iv46.i39.us.i, 1
   %exitcond.not.i41.us.i = icmp eq i64 %indvars.iv.next47.i40.us.i, %wide.trip.count.i37.i
   br i1 %exitcond.not.i41.us.i, label %PredictLineTop_SSE2.exit.us.i, label %.lr.ph44.i38.us.i, !llvm.loop !15
 
 PredictLineTop_SSE2.exit.us.i:                    ; preds = %.lr.ph44.i38.us.i, %.preheader.loopexit.i46.us.i
-  %63 = add nuw nsw i32 %.13050.us.i, 1
+  %63 = add nuw nsw i32 %.13250.us.i, 1
   %.1.us.i = getelementptr inbounds i8, ptr %.152.us.i, i64 %35
-  %.132.us.i = getelementptr inbounds i8, ptr %.13253.us.i, i64 %35
+  %.130.us.i = getelementptr inbounds i8, ptr %.13053.us.i, i64 %35
   %exitcond70.not.i = icmp eq i32 %63, %2
   br i1 %exitcond70.not.i, label %DoVerticalFilter_SSE2.exit, label %.lr.ph.preheader.i42.us.i, !llvm.loop !16
 
@@ -776,10 +776,10 @@ PredictLineTop_SSE2.exit.us.i:                    ; preds = %.lr.ph44.i38.us.i, 
   br i1 %64, label %.preheader.i34.us54.i, label %DoVerticalFilter_SSE2.exit
 
 .preheader.i34.us54.i:                            ; preds = %.lr.ph.split.i, %PredictLineTop_SSE2.exit.loopexit.us67.i
-  %.13253.us55.i = phi ptr [ %.132.us66.i, %PredictLineTop_SSE2.exit.loopexit.us67.i ], [ %.13249.i, %.lr.ph.split.i ]
+  %.13053.us55.i = phi ptr [ %.130.us66.i, %PredictLineTop_SSE2.exit.loopexit.us67.i ], [ %.13049.i, %.lr.ph.split.i ]
   %.152.us56.i = phi ptr [ %.1.us65.i, %PredictLineTop_SSE2.exit.loopexit.us67.i ], [ %.148.i, %.lr.ph.split.i ]
   %.pn4751.us57.i = phi ptr [ %.152.us56.i, %PredictLineTop_SSE2.exit.loopexit.us67.i ], [ %0, %.lr.ph.split.i ]
-  %.13050.us58.i = phi i32 [ %71, %PredictLineTop_SSE2.exit.loopexit.us67.i ], [ 1, %.lr.ph.split.i ]
+  %.13250.us58.i = phi i32 [ %71, %PredictLineTop_SSE2.exit.loopexit.us67.i ], [ 1, %.lr.ph.split.i ]
   br label %.lr.ph44.i38.us60.i
 
 .lr.ph44.i38.us60.i:                              ; preds = %.lr.ph44.i38.us60.i, %.preheader.i34.us54.i
@@ -789,16 +789,16 @@ PredictLineTop_SSE2.exit.us.i:                    ; preds = %.lr.ph44.i38.us.i, 
   %67 = getelementptr inbounds i8, ptr %.pn4751.us57.i, i64 %indvars.iv46.i39.us61.i
   %68 = load i8, ptr %67, align 1
   %69 = sub i8 %66, %68
-  %70 = getelementptr inbounds i8, ptr %.13253.us55.i, i64 %indvars.iv46.i39.us61.i
+  %70 = getelementptr inbounds i8, ptr %.13053.us55.i, i64 %indvars.iv46.i39.us61.i
   store i8 %69, ptr %70, align 1
   %indvars.iv.next47.i40.us62.i = add nuw nsw i64 %indvars.iv46.i39.us61.i, 1
   %exitcond.not.i41.us63.i = icmp eq i64 %indvars.iv.next47.i40.us62.i, %wide.trip.count.i37.i
   br i1 %exitcond.not.i41.us63.i, label %PredictLineTop_SSE2.exit.loopexit.us67.i, label %.lr.ph44.i38.us60.i, !llvm.loop !15
 
 PredictLineTop_SSE2.exit.loopexit.us67.i:         ; preds = %.lr.ph44.i38.us60.i
-  %71 = add nuw nsw i32 %.13050.us58.i, 1
+  %71 = add nuw nsw i32 %.13250.us58.i, 1
   %.1.us65.i = getelementptr inbounds i8, ptr %.152.us56.i, i64 %35
-  %.132.us66.i = getelementptr inbounds i8, ptr %.13253.us55.i, i64 %35
+  %.130.us66.i = getelementptr inbounds i8, ptr %.13053.us55.i, i64 %35
   %exitcond.not.i = icmp eq i32 %71, %2
   br i1 %exitcond.not.i, label %DoVerticalFilter_SSE2.exit, label %.preheader.i34.us54.i, !llvm.loop !16
 
@@ -871,7 +871,7 @@ define internal void @GradientFilter_SSE2(ptr nocapture noundef readonly %0, i32
 PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph44.i.i, %.preheader.i.i
   %35 = sext i32 %3 to i64
   %.151.i = getelementptr inbounds i8, ptr %0, i64 %35
-  %.13652.i = getelementptr inbounds i8, ptr %4, i64 %35
+  %.13452.i = getelementptr inbounds i8, ptr %4, i64 %35
   %36 = icmp sgt i32 %2, 1
   br i1 %36, label %.lr.ph.i, label %DoGradientFilter_SSE2.exit
 
@@ -886,17 +886,17 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph44.i.i, %.pre
   br i1 %41, label %.lr.ph.preheader.i42.us.i, label %.lr.ph.split.i
 
 .lr.ph.preheader.i42.us.i:                        ; preds = %.lr.ph.i, %GradientPredictDirect_SSE2.exit.us.i
-  %.13655.us.i = phi ptr [ %.136.us.i, %GradientPredictDirect_SSE2.exit.us.i ], [ %.13652.i, %.lr.ph.i ]
+  %.13455.us.i = phi ptr [ %.134.us.i, %GradientPredictDirect_SSE2.exit.us.i ], [ %.13452.i, %.lr.ph.i ]
   %.154.us.i = phi ptr [ %.1.us.i, %GradientPredictDirect_SSE2.exit.us.i ], [ %.151.i, %.lr.ph.i ]
-  %.13453.us.i = phi i32 [ %99, %GradientPredictDirect_SSE2.exit.us.i ], [ 1, %.lr.ph.i ]
+  %.13653.us.i = phi i32 [ %99, %GradientPredictDirect_SSE2.exit.us.i ], [ 1, %.lr.ph.i ]
   %43 = load i8, ptr %.154.us.i, align 1
   %44 = getelementptr inbounds i8, ptr %.154.us.i, i64 %38
   %45 = load i8, ptr %44, align 1
   %46 = sub i8 %43, %45
-  store i8 %46, ptr %.13655.us.i, align 1
+  store i8 %46, ptr %.13455.us.i, align 1
   %47 = getelementptr inbounds i8, ptr %.154.us.i, i64 1
   %48 = getelementptr inbounds i8, ptr %47, i64 %39
-  %49 = getelementptr inbounds i8, ptr %.13655.us.i, i64 1
+  %49 = getelementptr inbounds i8, ptr %.13455.us.i, i64 1
   %invariant.gep.us.i = getelementptr i8, ptr %48, i64 -1
   br label %.lr.ph.i43.us.i
 
@@ -971,9 +971,9 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph44.i.i, %.pre
   br i1 %exitcond.not.i41.us.i, label %GradientPredictDirect_SSE2.exit.us.i, label %.lr.ph70.i.us.i, !llvm.loop !18
 
 GradientPredictDirect_SSE2.exit.us.i:             ; preds = %.lr.ph70.i.us.i, %.preheader.loopexit.i46.us.i
-  %99 = add nuw nsw i32 %.13453.us.i, 1
+  %99 = add nuw nsw i32 %.13653.us.i, 1
   %.1.us.i = getelementptr inbounds i8, ptr %.154.us.i, i64 %35
-  %.136.us.i = getelementptr inbounds i8, ptr %.13655.us.i, i64 %35
+  %.134.us.i = getelementptr inbounds i8, ptr %.13455.us.i, i64 %35
   %exitcond75.not.i = icmp eq i32 %99, %2
   br i1 %exitcond75.not.i, label %DoGradientFilter_SSE2.exit, label %.lr.ph.preheader.i42.us.i, !llvm.loop !19
 
@@ -982,17 +982,17 @@ GradientPredictDirect_SSE2.exit.us.i:             ; preds = %.lr.ph70.i.us.i, %.
   br i1 %100, label %.preheader.i38.us56.i, label %.preheader.i38.i
 
 .preheader.i38.us56.i:                            ; preds = %.lr.ph.split.i, %GradientPredictDirect_SSE2.exit.loopexit.us71.i
-  %.13655.us57.i = phi ptr [ %.136.us70.i, %GradientPredictDirect_SSE2.exit.loopexit.us71.i ], [ %.13652.i, %.lr.ph.split.i ]
+  %.13455.us57.i = phi ptr [ %.134.us70.i, %GradientPredictDirect_SSE2.exit.loopexit.us71.i ], [ %.13452.i, %.lr.ph.split.i ]
   %.154.us58.i = phi ptr [ %.1.us69.i, %GradientPredictDirect_SSE2.exit.loopexit.us71.i ], [ %.151.i, %.lr.ph.split.i ]
-  %.13453.us59.i = phi i32 [ %125, %GradientPredictDirect_SSE2.exit.loopexit.us71.i ], [ 1, %.lr.ph.split.i ]
+  %.13653.us59.i = phi i32 [ %125, %GradientPredictDirect_SSE2.exit.loopexit.us71.i ], [ 1, %.lr.ph.split.i ]
   %101 = load i8, ptr %.154.us58.i, align 1
   %102 = getelementptr inbounds i8, ptr %.154.us58.i, i64 %38
   %103 = load i8, ptr %102, align 1
   %104 = sub i8 %101, %103
-  store i8 %104, ptr %.13655.us57.i, align 1
+  store i8 %104, ptr %.13455.us57.i, align 1
   %105 = getelementptr inbounds i8, ptr %.154.us58.i, i64 1
   %106 = getelementptr inbounds i8, ptr %105, i64 %39
-  %107 = getelementptr inbounds i8, ptr %.13655.us57.i, i64 1
+  %107 = getelementptr inbounds i8, ptr %.13455.us57.i, i64 1
   %invariant.gep49.us61.i = getelementptr i8, ptr %106, i64 -1
   br label %.lr.ph70.i.us62.i
 
@@ -1022,24 +1022,24 @@ GradientPredictDirect_SSE2.exit.us.i:             ; preds = %.lr.ph70.i.us.i, %.
   br i1 %exitcond.not.i41.us67.i, label %GradientPredictDirect_SSE2.exit.loopexit.us71.i, label %.lr.ph70.i.us62.i, !llvm.loop !18
 
 GradientPredictDirect_SSE2.exit.loopexit.us71.i:  ; preds = %.lr.ph70.i.us62.i
-  %125 = add nuw nsw i32 %.13453.us59.i, 1
+  %125 = add nuw nsw i32 %.13653.us59.i, 1
   %.1.us69.i = getelementptr inbounds i8, ptr %.154.us58.i, i64 %35
-  %.136.us70.i = getelementptr inbounds i8, ptr %.13655.us57.i, i64 %35
+  %.134.us70.i = getelementptr inbounds i8, ptr %.13455.us57.i, i64 %35
   %exitcond74.not.i = icmp eq i32 %125, %2
   br i1 %exitcond74.not.i, label %DoGradientFilter_SSE2.exit, label %.preheader.i38.us56.i, !llvm.loop !19
 
 .preheader.i38.i:                                 ; preds = %.lr.ph.split.i, %.preheader.i38.i
-  %.13655.i = phi ptr [ %.136.i, %.preheader.i38.i ], [ %.13652.i, %.lr.ph.split.i ]
+  %.13455.i = phi ptr [ %.134.i, %.preheader.i38.i ], [ %.13452.i, %.lr.ph.split.i ]
   %.154.i = phi ptr [ %.1.i, %.preheader.i38.i ], [ %.151.i, %.lr.ph.split.i ]
-  %.13453.i = phi i32 [ %130, %.preheader.i38.i ], [ 1, %.lr.ph.split.i ]
+  %.13653.i = phi i32 [ %130, %.preheader.i38.i ], [ 1, %.lr.ph.split.i ]
   %126 = load i8, ptr %.154.i, align 1
   %127 = getelementptr inbounds i8, ptr %.154.i, i64 %38
   %128 = load i8, ptr %127, align 1
   %129 = sub i8 %126, %128
-  store i8 %129, ptr %.13655.i, align 1
-  %130 = add nuw nsw i32 %.13453.i, 1
+  store i8 %129, ptr %.13455.i, align 1
+  %130 = add nuw nsw i32 %.13653.i, 1
   %.1.i = getelementptr inbounds i8, ptr %.154.i, i64 %35
-  %.136.i = getelementptr inbounds i8, ptr %.13655.i, i64 %35
+  %.134.i = getelementptr inbounds i8, ptr %.13455.i, i64 %35
   %exitcond.not.i = icmp eq i32 %130, %2
   br i1 %exitcond.not.i, label %DoGradientFilter_SSE2.exit, label %.preheader.i38.i, !llvm.loop !19
 

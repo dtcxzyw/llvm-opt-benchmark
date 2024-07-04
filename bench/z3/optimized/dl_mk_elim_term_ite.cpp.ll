@@ -4174,9 +4174,9 @@ _ZNK7datalog8rule_set3endEv.exit:                 ; preds = %invoke.cont6
   br i1 %cmp.not17, label %if.then.i, label %for.body
 
 for.body:                                         ; preds = %_ZNK7datalog8rule_set3endEv.exit, %invoke.cont17
-  %change.019 = phi i1 [ %or6, %invoke.cont17 ], [ false, %_ZNK7datalog8rule_set3endEv.exit ]
-  %__begin1.018 = phi ptr [ %incdec.ptr, %invoke.cont17 ], [ %2, %_ZNK7datalog8rule_set3endEv.exit ]
-  %5 = load ptr, ptr %__begin1.018, align 8
+  %__begin1.019 = phi ptr [ %incdec.ptr, %invoke.cont17 ], [ %2, %_ZNK7datalog8rule_set3endEv.exit ]
+  %change.018 = phi i1 [ %or6, %invoke.cont17 ], [ false, %_ZNK7datalog8rule_set3endEv.exit ]
+  %5 = load ptr, ptr %__begin1.019, align 8
   %6 = load ptr, ptr %m_ctx, align 8
   %7 = load ptr, ptr %6, align 8
   %call2.i.i8 = invoke noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
@@ -4205,8 +4205,8 @@ if.end14:                                         ; preds = %call2.i.i.noexc
           to label %invoke.cont17 unwind label %lpad.loopexit
 
 invoke.cont17:                                    ; preds = %if.end14
-  %or6 = or i1 %change.019, %call18
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.018, i64 8
+  %or6 = or i1 %change.018, %call18
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.019, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 

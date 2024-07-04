@@ -341,8 +341,8 @@ define hidden { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hcf
   br label %27
 
 .loopexit.i.i.i:                                  ; preds = %87, %85, %83
-  %.013.i.i.i.i = phi i64 [ 1, %83 ], [ %..i.i.i.i, %87 ], [ 2, %85 ]
-  %26 = add i64 %.013.i.i.i.i, %29
+  %.012.i.i.i.i = phi i64 [ 1, %83 ], [ %..i.i.i.i, %87 ], [ 2, %85 ]
+  %26 = add i64 %.012.i.i.i.i, %29
   store i64 %26, ptr %8, align 8, !alias.scope !40, !noalias !41
   br label %27
 

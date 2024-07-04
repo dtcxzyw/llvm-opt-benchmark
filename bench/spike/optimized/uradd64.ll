@@ -895,7 +895,7 @@ define noundef i64 @_Z18fast_rv64e_uradd64P11processor_t6insn_tm(ptr nocapture n
   %36 = icmp ult i64 %35, %32
   %37 = lshr i64 %35, 1
   %38 = or disjoint i64 %37, -9223372036854775808
-  %.026 = select i1 %36, i64 %38, i64 %37
+  %.0 = select i1 %36, i64 %38, i64 %37
   %39 = lshr i64 %1, 7
   %40 = and i64 %39, 31
   %41 = icmp ugt i64 %40, 15
@@ -919,7 +919,7 @@ define noundef i64 @_Z18fast_rv64e_uradd64P11processor_t6insn_tm(ptr nocapture n
 
 48:                                               ; preds = %47
   %49 = getelementptr inbounds [32 x i64], ptr %21, i64 0, i64 %40
-  store i64 %.026, ptr %49, align 8
+  store i64 %.0, ptr %49, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %47, %48

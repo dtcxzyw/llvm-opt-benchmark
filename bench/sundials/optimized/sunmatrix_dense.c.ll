@@ -374,10 +374,10 @@ define noundef i32 @SUNMatMatvec_Dense(ptr nocapture noundef readonly %0, ptr no
   br i1 %or.cond, label %.lr.ph26.split, label %._crit_edge27
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.022 = phi i64 [ %16, %.lr.ph ], [ 0, %3 ]
-  %15 = getelementptr inbounds double, ptr %5, i64 %.022
+  %.02122 = phi i64 [ %16, %.lr.ph ], [ 0, %3 ]
+  %15 = getelementptr inbounds double, ptr %5, i64 %.02122
   store double 0.000000e+00, ptr %15, align 8
-  %16 = add nuw nsw i64 %.022, 1
+  %16 = add nuw nsw i64 %.02122, 1
   %17 = load ptr, ptr %0, align 8
   %18 = load i64, ptr %17, align 8
   %19 = icmp slt i64 %16, %18
@@ -386,16 +386,16 @@ define noundef i32 @SUNMatMatvec_Dense(ptr nocapture noundef readonly %0, ptr no
 .lr.ph26.split:                                   ; preds = %.preheader, %._crit_edge
   %20 = phi i64 [ %39, %._crit_edge ], [ %9, %.preheader ]
   %21 = phi ptr [ %40, %._crit_edge ], [ %10, %.preheader ]
-  %.02125 = phi i64 [ %41, %._crit_edge ], [ 0, %.preheader ]
+  %.025 = phi i64 [ %41, %._crit_edge ], [ 0, %.preheader ]
   %22 = getelementptr inbounds i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %.02125
+  %24 = getelementptr inbounds ptr, ptr %23, i64 %.025
   %25 = load ptr, ptr %24, align 8
   %26 = icmp sgt i64 %20, 0
   br i1 %26, label %.lr.ph24, label %._crit_edge
 
 .lr.ph24:                                         ; preds = %.lr.ph26.split
-  %27 = getelementptr inbounds double, ptr %4, i64 %.02125
+  %27 = getelementptr inbounds double, ptr %4, i64 %.025
   br label %28
 
 28:                                               ; preds = %.lr.ph24, %28
@@ -416,7 +416,7 @@ define noundef i32 @SUNMatMatvec_Dense(ptr nocapture noundef readonly %0, ptr no
 ._crit_edge:                                      ; preds = %28, %.lr.ph26.split
   %39 = phi i64 [ %20, %.lr.ph26.split ], [ %37, %28 ]
   %40 = phi ptr [ %21, %.lr.ph26.split ], [ %36, %28 ]
-  %41 = add nuw nsw i64 %.02125, 1
+  %41 = add nuw nsw i64 %.025, 1
   %42 = getelementptr inbounds i8, ptr %40, i64 8
   %43 = load i64, ptr %42, align 8
   %44 = icmp slt i64 %41, %43

@@ -33,8 +33,8 @@ define i32 @mca_vprotocol_pessimist_start(i64 noundef %0, ptr noundef %1) local_
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %17
-  %.02225 = phi i64 [ %18, %17 ], [ 0, %2 ]
-  %3 = getelementptr inbounds ptr, ptr %1, i64 %.02225
+  %.025 = phi i64 [ %18, %17 ], [ 0, %2 ]
+  %3 = getelementptr inbounds ptr, ptr %1, i64 %.025
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %17, label %6
@@ -63,7 +63,7 @@ define i32 @mca_vprotocol_pessimist_start(i64 noundef %0, ptr noundef %1) local_
   br label %17
 
 17:                                               ; preds = %6, %9, %13, %16, %.lr.ph
-  %18 = add nuw i64 %.02225, 1
+  %18 = add nuw i64 %.025, 1
   %exitcond.not = icmp eq i64 %18, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
@@ -73,8 +73,8 @@ define i32 @mca_vprotocol_pessimist_start(i64 noundef %0, ptr noundef %1) local_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %._crit_edge
-  %.0 = phi i32 [ %20, %._crit_edge ], [ -101, %6 ]
-  ret i32 %.0
+  %.022 = phi i32 [ %20, %._crit_edge ], [ -101, %6 ]
+  ret i32 %.022
 }
 
 declare void @ompi_vprotocol_pessimist_matching_replay(ptr noundef) local_unnamed_addr #1

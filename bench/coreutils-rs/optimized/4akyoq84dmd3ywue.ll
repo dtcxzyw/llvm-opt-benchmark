@@ -2004,8 +2004,8 @@ define void @_ZN9uu_mktemp6Params4from17h1b7886859fa0f651E(ptr noalias nocapture
   br i1 %71, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i", label %.lr.ph.i.i
 
 .loopexit.i.i.i:                                  ; preds = %131, %129, %127
-  %.013.neg.i.i.i.i = phi i64 [ -1, %127 ], [ %..i.i.i.i, %131 ], [ -2, %129 ]
-  %72 = add i64 %.013.neg.i.i.i.i, %76
+  %.012.neg.i.i.i.i = phi i64 [ -1, %127 ], [ %..i.i.i.i, %131 ], [ -2, %129 ]
+  %72 = add i64 %.012.neg.i.i.i.i, %76
   %73 = icmp ne i8 %.in.i.i, 1
   %74 = icmp eq i64 %72, 0
   br i1 %74, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i", label %.lr.ph.i.i

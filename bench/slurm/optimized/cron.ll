@@ -622,14 +622,14 @@ _days_in_month.exit.i:                            ; preds = %89, %85, %83, %79, 
 
 95:                                               ; preds = %98, %.lr.ph.i53
   %indvars.iv.i54 = phi i64 [ %91, %.lr.ph.i53 ], [ %indvars.iv.next.i56, %98 ]
-  %.01925.i = phi i32 [ 0, %.lr.ph.i53 ], [ %99, %98 ]
+  %.01825.i = phi i32 [ 0, %.lr.ph.i53 ], [ %99, %98 ]
   %96 = load ptr, ptr %24, align 8
   %97 = call i32 @bit_test(ptr noundef %96, i64 noundef %indvars.iv.i54) #6
   %.not21.i = icmp eq i32 %97, 0
   br i1 %.not21.i, label %98, label %_next_day_of_week.exit
 
 98:                                               ; preds = %95
-  %99 = add nuw i32 %.01925.i, 1
+  %99 = add nuw i32 %.01825.i, 1
   %indvars.iv.next.i56 = add nsw i64 %indvars.iv.i54, 1
   %exitcond.not.i57 = icmp eq i32 %99, %93
   br i1 %exitcond.not.i57, label %.preheader.i58, label %95, !llvm.loop !12
@@ -702,14 +702,14 @@ _days_in_month.exit.i60:                          ; preds = %118, %114, %112, %1
 
 124:                                              ; preds = %127, %.lr.ph.i63
   %indvars.iv.i64 = phi i64 [ %120, %.lr.ph.i63 ], [ %indvars.iv.next.i69, %127 ]
-  %.01925.i65 = phi i32 [ 0, %.lr.ph.i63 ], [ %128, %127 ]
+  %.01825.i65 = phi i32 [ 0, %.lr.ph.i63 ], [ %128, %127 ]
   %125 = load ptr, ptr %24, align 8
   %126 = call i32 @bit_test(ptr noundef %125, i64 noundef %indvars.iv.i64) #6
   %.not21.i66 = icmp eq i32 %126, 0
   br i1 %.not21.i66, label %127, label %_next_day_of_month.exit81
 
 127:                                              ; preds = %124
-  %128 = add nuw i32 %.01925.i65, 1
+  %128 = add nuw i32 %.01825.i65, 1
   %indvars.iv.next.i69 = add nsw i64 %indvars.iv.i64, 1
   %exitcond.not.i70 = icmp eq i32 %128, %122
   br i1 %exitcond.not.i70, label %.preheader.i71, label %124, !llvm.loop !12
@@ -731,7 +731,7 @@ _days_in_month.exit.i60:                          ; preds = %118, %114, %112, %1
   br i1 %135, label %.lr.ph29.i75, label %_next_day_of_month.exit81, !llvm.loop !13
 
 _next_day_of_month.exit81:                        ; preds = %124, %.lr.ph29.i75, %131, %.preheader.i71
-  %.018.i68 = phi i32 [ %122, %.preheader.i71 ], [ %132, %131 ], [ %.127.i77, %.lr.ph29.i75 ], [ %.01925.i65, %124 ]
+  %.019.i68 = phi i32 [ %122, %.preheader.i71 ], [ %132, %131 ], [ %.127.i77, %.lr.ph29.i75 ], [ %.01825.i65, %124 ]
   %136 = load i32, ptr %21, align 8
   %137 = icmp slt i32 %136, 7
   br i1 %137, label %.lr.ph.i91, label %.lr.ph24.i84.preheader
@@ -782,11 +782,11 @@ _next_day_of_month.exit81:                        ; preds = %124, %.lr.ph29.i75,
 
 _next_day_of_week.exit99:                         ; preds = %141, %.lr.ph24.i84, %148, %.preheader.i97
   %.016.i89 = phi i32 [ 0, %.preheader.i97 ], [ 0, %148 ], [ %.122.i86, %.lr.ph24.i84 ], [ %.01520.i93, %141 ]
-  %153 = call i32 @llvm.smin.i32(i32 %.018.i68, i32 %.016.i89)
+  %153 = call i32 @llvm.smin.i32(i32 %.019.i68, i32 %.016.i89)
   br label %_next_day_of_week.exit
 
 _next_day_of_week.exit:                           ; preds = %65, %.lr.ph24.i, %95, %.lr.ph29.i, %_next_day_of_week.exit99
-  %.0 = phi i32 [ %153, %_next_day_of_week.exit99 ], [ %.127.i, %.lr.ph29.i ], [ %.01925.i, %95 ], [ %.122.i, %.lr.ph24.i ], [ %.01520.i, %65 ]
+  %.0 = phi i32 [ %153, %_next_day_of_week.exit99 ], [ %.127.i, %.lr.ph29.i ], [ %.01825.i, %95 ], [ %.122.i, %.lr.ph24.i ], [ %.01520.i, %65 ]
   %.not33 = icmp eq i32 %.0, 0
   br i1 %.not33, label %_next_day_of_week.exit.thread.preheader, label %_next_day_of_week.exit._next_day_of_week.exit.thread103_crit_edge
 

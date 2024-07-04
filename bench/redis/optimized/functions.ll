@@ -784,13 +784,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %with_code.0180 = phi i32 [ 0, %for.body.lr.ph ], [ %with_code.1, %for.inc ]
+  %i.0180 = phi i32 [ 2, %for.body.lr.ph ], [ %inc20, %for.inc ]
   %library_name.0179 = phi ptr [ null, %for.body.lr.ph ], [ %library_name.1, %for.inc ]
-  %i.0178 = phi i32 [ 2, %for.body.lr.ph ], [ %inc20, %for.inc ]
-  %idxprom = sext i32 %i.0178 to i64
+  %with_code.0178 = phi i32 [ 0, %for.body.lr.ph ], [ %with_code.1, %for.inc ]
+  %idxprom = sext i32 %i.0180 to i64
   %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
-  %tobool.not = icmp eq i32 %with_code.0180, 0
+  %tobool.not = icmp eq i32 %with_code.0178, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %for.body
@@ -812,7 +812,7 @@ land.lhs.true3:                                   ; preds = %if.end
   br i1 %tobool6.not, label %if.then7, label %if.end16
 
 if.then7:                                         ; preds = %land.lhs.true3
-  %cmp9.not = icmp slt i32 %i.0178, %sub
+  %cmp9.not = icmp slt i32 %i.0180, %sub
   br i1 %cmp9.not, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %if.then7
@@ -820,7 +820,7 @@ if.then10:                                        ; preds = %if.then7
   br label %if.end87
 
 if.end11:                                         ; preds = %if.then7
-  %inc = add nsw i32 %i.0178, 1
+  %inc = add nsw i32 %i.0180, 1
   %idxprom13 = sext i32 %inc to i64
   %arrayidx14 = getelementptr inbounds ptr, ptr %1, i64 %idxprom13
   %5 = load ptr, ptr %arrayidx14, align 8
@@ -837,9 +837,9 @@ if.end16:                                         ; preds = %land.lhs.true3, %if
   br label %if.end87
 
 for.inc:                                          ; preds = %land.lhs.true, %if.end11
-  %i.1 = phi i32 [ %inc, %if.end11 ], [ %i.0178, %land.lhs.true ]
+  %with_code.1 = phi i32 [ %with_code.0178, %if.end11 ], [ 1, %land.lhs.true ]
   %library_name.1 = phi ptr [ %6, %if.end11 ], [ %library_name.0179, %land.lhs.true ]
-  %with_code.1 = phi i32 [ %with_code.0180, %if.end11 ], [ 1, %land.lhs.true ]
+  %i.1 = phi i32 [ %inc, %if.end11 ], [ %i.0180, %land.lhs.true ]
   %inc20 = add nsw i32 %i.1, 1
   %cmp = icmp slt i32 %inc20, %0
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
@@ -854,7 +854,7 @@ if.then22:                                        ; preds = %for.end
   br label %if.end28
 
 if.else:                                          ; preds = %entry, %for.end
-  %with_code.0.lcssa197 = phi i1 [ %8, %for.end ], [ true, %entry ]
+  %with_code.0.lcssa195 = phi i1 [ %8, %for.end ], [ true, %entry ]
   %9 = load ptr, ptr @curr_functions_lib_ctx, align 8
   %10 = load ptr, ptr %9, align 8
   %ht_used = getelementptr inbounds i8, ptr %10, i64 24
@@ -867,18 +867,18 @@ if.else:                                          ; preds = %entry, %for.end
 
 if.end28:                                         ; preds = %if.else, %if.then22
   %tobool21.not198 = phi i1 [ false, %if.then22 ], [ true, %if.else ]
-  %with_code.0.lcssa196 = phi i1 [ %8, %if.then22 ], [ %with_code.0.lcssa197, %if.else ]
-  %library_name.0.lcssa194 = phi ptr [ %library_name.1, %if.then22 ], [ null, %if.else ]
+  %library_name.0.lcssa196 = phi ptr [ %library_name.1, %if.then22 ], [ null, %if.else ]
+  %with_code.0.lcssa194 = phi i1 [ %8, %if.then22 ], [ %with_code.0.lcssa195, %if.else ]
   %len_ptr.0 = phi ptr [ %call23, %if.then22 ], [ null, %if.else ]
   %13 = load ptr, ptr @curr_functions_lib_ctx, align 8
   %14 = load ptr, ptr %13, align 8
   %call30 = tail call ptr @dictGetIterator(ptr noundef %14) #11
-  %arrayidx.i = getelementptr inbounds i8, ptr %library_name.0.lcssa194, i64 -1
-  %add.ptr14.i = getelementptr inbounds i8, ptr %library_name.0.lcssa194, i64 -17
-  %add.ptr10.i = getelementptr inbounds i8, ptr %library_name.0.lcssa194, i64 -9
-  %add.ptr6.i = getelementptr inbounds i8, ptr %library_name.0.lcssa194, i64 -5
-  %add.ptr.i = getelementptr inbounds i8, ptr %library_name.0.lcssa194, i64 -3
-  %cond = select i1 %with_code.0.lcssa196, i64 3, i64 4
+  %arrayidx.i = getelementptr inbounds i8, ptr %library_name.0.lcssa196, i64 -1
+  %add.ptr14.i = getelementptr inbounds i8, ptr %library_name.0.lcssa196, i64 -17
+  %add.ptr10.i = getelementptr inbounds i8, ptr %library_name.0.lcssa196, i64 -9
+  %add.ptr6.i = getelementptr inbounds i8, ptr %library_name.0.lcssa196, i64 -5
+  %add.ptr.i = getelementptr inbounds i8, ptr %library_name.0.lcssa196, i64 -3
+  %cond = select i1 %with_code.0.lcssa194, i64 3, i64 4
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %if.end28
@@ -983,7 +983,7 @@ sw.bb13.i60:                                      ; preds = %sdslen.exit
 sdslen.exit75:                                    ; preds = %sdslen.exit, %sw.bb.i72, %sw.bb3.i69, %sw.bb5.i66, %sw.bb9.i63, %sw.bb13.i60
   %retval.0.i62 = phi i64 [ %25, %sw.bb13.i60 ], [ %conv12.i65, %sw.bb9.i63 ], [ %conv8.i68, %sw.bb5.i66 ], [ %conv4.i71, %sw.bb3.i69 ], [ %conv2.i74, %sw.bb.i72 ], [ 0, %sdslen.exit ]
   %conv40 = trunc i64 %retval.0.i62 to i32
-  %call41 = tail call i32 @stringmatchlen(ptr noundef nonnull %library_name.0.lcssa194, i32 noundef %conv, ptr noundef nonnull %20, i32 noundef %conv40, i32 noundef 1) #11
+  %call41 = tail call i32 @stringmatchlen(ptr noundef nonnull %library_name.0.lcssa196, i32 noundef %conv, ptr noundef nonnull %20, i32 noundef %conv40, i32 noundef 1) #11
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %while.cond, label %if.end45, !llvm.loop !12
 
@@ -1270,7 +1270,7 @@ functionListReplyFlags.exit:                      ; preds = %for.inc15.i, %for.e
 
 while.end:                                        ; preds = %functionListReplyFlags.exit, %sdslen.exit113
   tail call void @dictReleaseIterator(ptr noundef %call63) #11
-  br i1 %with_code.0.lcssa196, label %while.cond.outer.backedge, label %if.then80
+  br i1 %with_code.0.lcssa194, label %while.cond.outer.backedge, label %if.then80
 
 if.then80:                                        ; preds = %while.end
   tail call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.21) #11
@@ -2921,11 +2921,11 @@ if.end5.loopexit:                                 ; preds = %if.then
   br label %if.end5
 
 if.end5:                                          ; preds = %if.end5.loopexit, %while.end
-  %replace.0.lcssa27 = phi i32 [ 0, %while.end ], [ 1, %if.end5.loopexit ]
-  %argc_pos.0.lcssa26 = phi i64 [ 2, %while.end ], [ %5, %if.end5.loopexit ]
+  %argc_pos.0.lcssa27 = phi i64 [ 2, %while.end ], [ %5, %if.end5.loopexit ]
+  %replace.0.lcssa26 = phi i32 [ 0, %while.end ], [ 1, %if.end5.loopexit ]
   %argv6 = getelementptr inbounds i8, ptr %c, i64 96
   %6 = load ptr, ptr %argv6, align 8
-  %arrayidx8 = getelementptr inbounds ptr, ptr %6, i64 %argc_pos.0.lcssa26
+  %arrayidx8 = getelementptr inbounds ptr, ptr %6, i64 %argc_pos.0.lcssa27
   %7 = load ptr, ptr %arrayidx8, align 8
   store ptr null, ptr %err, align 8
   %call9 = tail call i32 @mustObeyClient(ptr noundef nonnull %c) #11
@@ -2934,7 +2934,7 @@ if.end5:                                          ; preds = %if.end5.loopexit, %
   %ptr13 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %ptr13, align 8
   %9 = load ptr, ptr @curr_functions_lib_ctx, align 8
-  %call14 = call ptr @functionsCreateWithLibraryCtx(ptr noundef %8, i32 noundef %replace.0.lcssa27, ptr noundef nonnull %err, ptr noundef %9, i64 noundef %spec.select)
+  %call14 = call ptr @functionsCreateWithLibraryCtx(ptr noundef %8, i32 noundef %replace.0.lcssa26, ptr noundef nonnull %err, ptr noundef %9, i64 noundef %spec.select)
   %tobool15.not = icmp eq ptr %call14, null
   br i1 %tobool15.not, label %if.then16, label %if.end17
 

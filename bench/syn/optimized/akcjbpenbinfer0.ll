@@ -7019,11 +7019,11 @@ define void @"_ZN59_$LT$syn..lit..LitIntRepr$u20$as$u20$core..clone..Clone$GT$5c
   br label %"_ZN64_$LT$proc_macro2..imp..Literal$u20$as$u20$core..clone..Clone$GT$5clone17he46c9d8993ac83a1E.llvm.17896666486873179654.exit"
 
 "_ZN64_$LT$proc_macro2..imp..Literal$u20$as$u20$core..clone..Clone$GT$5clone17he46c9d8993ac83a1E.llvm.17896666486873179654.exit": ; preds = %6, %15
+  %.sroa.10.0 = phi i16 [ undef, %6 ], [ %.sroa.10.0.copyload12, %15 ]
+  %.sroa.9.0 = phi i8 [ %11, %6 ], [ %.sroa.9.0.copyload11, %15 ]
   %.sroa.8.0 = phi i8 [ %9, %6 ], [ %.sroa.8.0.copyload10, %15 ]
   %.sroa.7.0 = phi i32 [ %13, %6 ], [ %.sroa.7.0.copyload9, %15 ]
   %.sroa.04.0 = phi i64 [ -9223372036854775808, %6 ], [ %.sroa.04.0.copyload5, %15 ]
-  %.sroa.9.0 = phi i8 [ %11, %6 ], [ %.sroa.9.0.copyload11, %15 ]
-  %.sroa.10.0 = phi i16 [ undef, %6 ], [ %.sroa.10.0.copyload12, %15 ]
   %17 = phi <2 x i32> [ %14, %6 ], [ %16, %15 ]
   store i64 %.sroa.04.0, ptr %3, align 8
   %.sroa.56.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
@@ -7135,11 +7135,11 @@ define void @"_ZN61_$LT$syn..lit..LitFloatRepr$u20$as$u20$core..clone..Clone$GT$
   br label %"_ZN64_$LT$proc_macro2..imp..Literal$u20$as$u20$core..clone..Clone$GT$5clone17he46c9d8993ac83a1E.llvm.17896666486873179654.exit"
 
 "_ZN64_$LT$proc_macro2..imp..Literal$u20$as$u20$core..clone..Clone$GT$5clone17he46c9d8993ac83a1E.llvm.17896666486873179654.exit": ; preds = %6, %15
+  %.sroa.10.0 = phi i16 [ undef, %6 ], [ %.sroa.10.0.copyload12, %15 ]
+  %.sroa.9.0 = phi i8 [ %11, %6 ], [ %.sroa.9.0.copyload11, %15 ]
   %.sroa.8.0 = phi i8 [ %9, %6 ], [ %.sroa.8.0.copyload10, %15 ]
   %.sroa.7.0 = phi i32 [ %13, %6 ], [ %.sroa.7.0.copyload9, %15 ]
   %.sroa.04.0 = phi i64 [ -9223372036854775808, %6 ], [ %.sroa.04.0.copyload5, %15 ]
-  %.sroa.9.0 = phi i8 [ %11, %6 ], [ %.sroa.9.0.copyload11, %15 ]
-  %.sroa.10.0 = phi i16 [ undef, %6 ], [ %.sroa.10.0.copyload12, %15 ]
   %17 = phi <2 x i32> [ %14, %6 ], [ %16, %15 ]
   store i64 %.sroa.04.0, ptr %3, align 8
   %.sroa.56.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8

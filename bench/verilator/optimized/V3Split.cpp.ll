@@ -5926,12 +5926,12 @@ define linkonce_odr dso_local void @_ZN14ReorderVisitor12reorderBlockEP7AstNode(
   br label %39
 
 39:                                               ; preds = %.lr.ph64, %39
-  %.02062 = phi i32 [ 0, %.lr.ph64 ], [ %42, %39 ]
-  %.02161 = phi i1 [ true, %.lr.ph64 ], [ %spec.select, %39 ]
+  %.01862 = phi i32 [ 0, %.lr.ph64 ], [ %42, %39 ]
+  %.01961 = phi i1 [ true, %.lr.ph64 ], [ %spec.select, %39 ]
   %.sroa.041.060 = phi ptr [ %.pre, %.lr.ph64 ], [ %49, %39 ]
   %40 = getelementptr inbounds i8, ptr %.sroa.041.060, i64 40
   %41 = load ptr, ptr %40, align 8
-  %42 = add nuw nsw i32 %.02062, 1
+  %42 = add nuw nsw i32 %.01862, 1
   %43 = getelementptr inbounds i8, ptr %41, i64 140
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, %38
@@ -5940,7 +5940,7 @@ define linkonce_odr dso_local void @_ZN14ReorderVisitor12reorderBlockEP7AstNode(
   %48 = trunc i64 %47 to i32
   %.not3048 = icmp eq i32 %42, %48
   %.not30 = select i1 %45, i1 %.not3048, i1 false
-  %spec.select = select i1 %.not30, i1 %.02161, i1 false
+  %spec.select = select i1 %.not30, i1 %.01961, i1 false
   %49 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.041.060) #19
   %.not46 = icmp eq ptr %49, %7
   br i1 %.not46, label %._crit_edge65, label %39, !llvm.loop !33
@@ -5987,7 +5987,7 @@ define linkonce_odr dso_local void @_ZN14ReorderVisitor12reorderBlockEP7AstNode(
   br label %.lr.ph70
 
 .lr.ph70:                                         ; preds = %63, %_ZN7AstNode7addNextEPS_.exit
-  %.01768 = phi ptr [ %.1, %_ZN7AstNode7addNextEPS_.exit ], [ null, %63 ]
+  %.068 = phi ptr [ %.1, %_ZN7AstNode7addNextEPS_.exit ], [ null, %63 ]
   %.sroa.037.067 = phi ptr [ %96, %_ZN7AstNode7addNextEPS_.exit ], [ %.pre, %63 ]
   %64 = getelementptr inbounds i8, ptr %.sroa.037.067, i64 40
   %65 = load ptr, ptr %64, align 8
@@ -6066,11 +6066,11 @@ _ZlsRSoPK7AstNode.exit:                           ; preds = %77, %79
           to label %93 unwind label %.loopexit
 
 93:                                               ; preds = %91, %89
-  %.not28 = icmp eq ptr %.01768, null
+  %.not28 = icmp eq ptr %.068, null
   br i1 %.not28, label %_ZN7AstNode7addNextEPS_.exit, label %94
 
 94:                                               ; preds = %93
-  %95 = invoke noundef ptr @_ZN7AstNode7addNextIS_S_EEPT_S2_PT0_(ptr noundef nonnull %.01768, ptr noundef %65)
+  %95 = invoke noundef ptr @_ZN7AstNode7addNextIS_S_EEPT_S2_PT0_(ptr noundef nonnull %.068, ptr noundef %65)
           to label %_ZN7AstNode7addNextEPS_.exit unwind label %.loopexit
 
 _ZN7AstNode7addNextEPS_.exit:                     ; preds = %94, %93

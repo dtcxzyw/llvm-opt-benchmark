@@ -479,11 +479,11 @@ define internal fastcc void @dissect_gmtlv(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %82
-  %.0122 = phi i32 [ %84, %82 ], [ %3, %5 ]
-  %.0106121 = phi i16 [ %85, %82 ], [ %4, %5 ]
-  %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0122) #4
-  %8 = add i32 %.0122, 2
-  %9 = add i16 %.0106121, -2
+  %.0122 = phi i16 [ %85, %82 ], [ %4, %5 ]
+  %.0106121 = phi i32 [ %84, %82 ], [ %3, %5 ]
+  %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0106121) #4
+  %8 = add i32 %.0106121, 2
+  %9 = add i16 %.0122, -2
   %10 = and i16 %7, 255
   %11 = lshr i16 %7, 8
   %12 = zext nneg i16 %11 to i32

@@ -1800,9 +1800,9 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc103
   %indvars.iv166 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next167, %for.inc103 ]
-  %invalid_arg_name.0146 = phi ptr [ null, %for.body.lr.ph ], [ %invalid_arg_name.1, %for.inc103 ]
-  %deny_loading_error.0143 = phi i32 [ 0, %for.body.lr.ph ], [ %deny_loading_error.1, %for.inc103 ]
-  %invalid_args.0142 = phi i32 [ 0, %for.body.lr.ph ], [ %invalid_args.2, %for.inc103 ]
+  %deny_loading_error.0146 = phi i32 [ 0, %for.body.lr.ph ], [ %deny_loading_error.1, %for.inc103 ]
+  %invalid_args.0145 = phi i32 [ 0, %for.body.lr.ph ], [ %invalid_args.2, %for.inc103 ]
+  %invalid_arg_name.0142 = phi ptr [ null, %for.body.lr.ph ], [ %invalid_arg_name.1, %for.inc103 ]
   %2 = load ptr, ptr %argv, align 8
   %3 = shl nuw nsw i64 %indvars.iv166, 1
   %4 = add nuw nsw i64 %3, 2
@@ -1821,7 +1821,7 @@ lookupConfig.exit:                                ; preds = %for.body
   br i1 %tobool21.not, label %if.then22, label %if.end32
 
 if.then22:                                        ; preds = %for.body, %lookupConfig.exit
-  %tobool23.not = icmp eq i32 %invalid_args.0142, 0
+  %tobool23.not = icmp eq i32 %invalid_args.0145, 0
   br i1 %tobool23.not, label %if.then24, label %for.inc103
 
 if.then24:                                        ; preds = %if.then22
@@ -1846,7 +1846,7 @@ if.then36:                                        ; preds = %if.end32
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then36, %if.end32
-  %tobool41.not = icmp eq i32 %invalid_args.0142, 0
+  %tobool41.not = icmp eq i32 %invalid_args.0145, 0
   br i1 %tobool41.not, label %if.end43, label %for.inc103
 
 if.end43:                                         ; preds = %if.end40
@@ -1958,9 +1958,9 @@ for.end:                                          ; preds = %for.cond74, %if.end
   br label %for.inc103
 
 for.inc103:                                       ; preds = %land.lhs.true67, %if.end40, %if.then22, %if.then24, %for.end, %if.then54
+  %invalid_arg_name.1 = phi ptr [ %invalid_arg_name.0142, %if.end40 ], [ %invalid_arg_name.0142, %if.then54 ], [ %invalid_arg_name.0142, %for.end ], [ %invalid_arg_name.0142, %if.then22 ], [ %10, %if.then24 ], [ %invalid_arg_name.0142, %land.lhs.true67 ]
   %invalid_args.2 = phi i32 [ 1, %if.end40 ], [ 1, %if.then54 ], [ %invalid_args.1, %for.end ], [ 1, %if.then22 ], [ 1, %if.then24 ], [ 1, %land.lhs.true67 ]
-  %deny_loading_error.1 = phi i32 [ %deny_loading_error.0143, %if.end40 ], [ %deny_loading_error.0143, %if.then54 ], [ %deny_loading_error.0143, %for.end ], [ %deny_loading_error.0143, %if.then22 ], [ %deny_loading_error.0143, %if.then24 ], [ 1, %land.lhs.true67 ]
-  %invalid_arg_name.1 = phi ptr [ %invalid_arg_name.0146, %if.end40 ], [ %invalid_arg_name.0146, %if.then54 ], [ %invalid_arg_name.0146, %for.end ], [ %invalid_arg_name.0146, %if.then22 ], [ %10, %if.then24 ], [ %invalid_arg_name.0146, %land.lhs.true67 ]
+  %deny_loading_error.1 = phi i32 [ %deny_loading_error.0146, %if.end40 ], [ %deny_loading_error.0146, %if.then54 ], [ %deny_loading_error.0146, %for.end ], [ %deny_loading_error.0146, %if.then22 ], [ %deny_loading_error.0146, %if.then24 ], [ 1, %land.lhs.true67 ]
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond173.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count172
   br i1 %exitcond173.not, label %for.end105, label %for.body, !llvm.loop !18
@@ -2197,8 +2197,8 @@ do.end:                                           ; preds = %do.body, %if.end213
   br label %err
 
 for.end227:                                       ; preds = %land.rhs198, %for.cond195, %if.end, %for.cond109.preheader, %for.cond123.preheader, %for.cond195.preheader
-  %deny_loading_error.0.lcssa201207210215 = phi i32 [ %deny_loading_error.1, %for.cond195.preheader ], [ %deny_loading_error.1, %for.cond123.preheader ], [ %deny_loading_error.1, %for.cond109.preheader ], [ 0, %if.end ], [ %deny_loading_error.1, %for.cond195 ], [ %deny_loading_error.1, %land.rhs198 ]
-  %invalid_arg_name.0.lcssa203206211214 = phi ptr [ %invalid_arg_name.1, %for.cond195.preheader ], [ %invalid_arg_name.1, %for.cond123.preheader ], [ %invalid_arg_name.1, %for.cond109.preheader ], [ null, %if.end ], [ %invalid_arg_name.1, %for.cond195 ], [ %invalid_arg_name.1, %land.rhs198 ]
+  %invalid_arg_name.0.lcssa201207210215 = phi ptr [ %invalid_arg_name.1, %for.cond195.preheader ], [ %invalid_arg_name.1, %for.cond123.preheader ], [ %invalid_arg_name.1, %for.cond109.preheader ], [ null, %if.end ], [ %invalid_arg_name.1, %for.cond195 ], [ %invalid_arg_name.1, %land.rhs198 ]
+  %deny_loading_error.0.lcssa203206211214 = phi i32 [ %deny_loading_error.1, %for.cond195.preheader ], [ %deny_loading_error.1, %for.cond123.preheader ], [ %deny_loading_error.1, %for.cond109.preheader ], [ 0, %if.end ], [ %deny_loading_error.1, %for.cond195 ], [ %deny_loading_error.1, %land.rhs198 ]
   %call228 = call i32 @moduleConfigApplyConfig(ptr noundef %call, ptr noundef nonnull %errstr, ptr noundef nonnull %err_arg_name) #24
   %tobool229.not = icmp eq i32 %call228, 0
   br i1 %tobool229.not, label %if.then230, label %if.end231
@@ -2220,9 +2220,9 @@ if.end231:                                        ; preds = %for.end227
   br label %end
 
 err:                                              ; preds = %for.end105, %if.then230, %do.end, %if.then133
-  %invalid_arg_name.0.lcssa202 = phi ptr [ %invalid_arg_name.1, %for.end105 ], [ %invalid_arg_name.0.lcssa203206211214, %if.then230 ], [ %invalid_arg_name.1, %do.end ], [ %invalid_arg_name.1, %if.then133 ]
-  %deny_loading_error.0.lcssa200 = phi i32 [ %deny_loading_error.1, %for.end105 ], [ %deny_loading_error.0.lcssa201207210215, %if.then230 ], [ %deny_loading_error.1, %do.end ], [ %deny_loading_error.1, %if.then133 ]
-  %tobool233.not = icmp eq i32 %deny_loading_error.0.lcssa200, 0
+  %deny_loading_error.0.lcssa202 = phi i32 [ %deny_loading_error.1, %for.end105 ], [ %deny_loading_error.0.lcssa203206211214, %if.then230 ], [ %deny_loading_error.1, %do.end ], [ %deny_loading_error.1, %if.then133 ]
+  %invalid_arg_name.0.lcssa200 = phi ptr [ %invalid_arg_name.1, %for.end105 ], [ %invalid_arg_name.0.lcssa201207210215, %if.then230 ], [ %invalid_arg_name.1, %do.end ], [ %invalid_arg_name.1, %if.then133 ]
+  %tobool233.not = icmp eq i32 %deny_loading_error.0.lcssa202, 0
   br i1 %tobool233.not, label %if.else235, label %if.then234
 
 if.then234:                                       ; preds = %err
@@ -2231,11 +2231,11 @@ if.then234:                                       ; preds = %err
   br label %end
 
 if.else235:                                       ; preds = %err
-  %tobool236.not = icmp eq ptr %invalid_arg_name.0.lcssa202, null
+  %tobool236.not = icmp eq ptr %invalid_arg_name.0.lcssa200, null
   br i1 %tobool236.not, label %if.else238, label %if.then237
 
 if.then237:                                       ; preds = %if.else235
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %c, ptr noundef nonnull @.str.91, ptr noundef nonnull %invalid_arg_name.0.lcssa202) #24
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %c, ptr noundef nonnull @.str.91, ptr noundef nonnull %invalid_arg_name.0.lcssa200) #24
   br label %end
 
 if.else238:                                       ; preds = %if.else235
@@ -2894,13 +2894,13 @@ for.body:                                         ; preds = %sdslen.exit, %for.i
   %9 = phi i32 [ %38, %for.inc ], [ 0, %sdslen.exit ]
   %10 = phi ptr [ %39, %for.inc ], [ null, %sdslen.exit ]
   %11 = phi i32 [ %40, %for.inc ], [ 1, %sdslen.exit ]
-  %indvars.iv112 = phi i64 [ %indvars.iv.next113, %for.inc ], [ 0, %sdslen.exit ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ -1, %sdslen.exit ]
-  %arrayidx = getelementptr inbounds ptr, ptr %call24, i64 %indvars.iv112
+  %indvars.iv112 = phi i64 [ %indvars.iv.next113, %for.inc ], [ -1, %sdslen.exit ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %sdslen.exit ]
+  %arrayidx = getelementptr inbounds ptr, ptr %call24, i64 %indvars.iv
   %12 = load ptr, ptr %arrayidx, align 8
   %call26 = call ptr @sdstrim(ptr noundef %12, ptr noundef nonnull @.str.95) #24
   store ptr null, ptr %arrayidx, align 8
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %indvars.iv.next113 = add nsw i64 %indvars.iv112, 1
   %13 = load i8, ptr %call26, align 1
   switch i8 %13, label %if.end45 [
     i8 35, label %if.then37
@@ -3081,7 +3081,7 @@ if.then.i:                                        ; preds = %if.then100
 
 rewriteConfigAddLineNumberToOption.exit:          ; preds = %if.then100, %if.then.i
   %l.0.i = phi ptr [ %call1.i94, %if.then.i ], [ %call.i92, %if.then100 ]
-  %34 = inttoptr i64 %indvars.iv.next to ptr
+  %34 = inttoptr i64 %indvars.iv.next113 to ptr
   %call5.i = call ptr @listAddNodeTail(ptr noundef %l.0.i, ptr noundef %34) #24
   call void @sdsfree(ptr noundef %call104) #24
   br label %if.end106
@@ -3100,7 +3100,7 @@ if.then.i100:                                     ; preds = %if.else
 
 rewriteConfigAddLineNumberToOption.exit104:       ; preds = %if.else, %if.then.i100
   %l.0.i97 = phi ptr [ %call1.i101, %if.then.i100 ], [ %call.i95, %if.else ]
-  %36 = inttoptr i64 %indvars.iv.next to ptr
+  %36 = inttoptr i64 %indvars.iv.next113 to ptr
   %call5.i99 = call ptr @listAddNodeTail(ptr noundef %l.0.i97, ptr noundef %36) #24
   br label %if.end106
 
@@ -3113,10 +3113,10 @@ for.inc:                                          ; preds = %if.end106, %if.end7
   %38 = phi i32 [ %inc.i83, %if.end106 ], [ %inc.i74, %if.end78 ], [ %inc.i, %if.end44 ]
   %39 = phi ptr [ %call.i82, %if.end106 ], [ %call.i73, %if.end78 ], [ %call.i64, %if.end44 ]
   %40 = phi i32 [ %11, %if.end106 ], [ %11, %if.end78 ], [ %14, %if.end44 ]
-  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = load i32, ptr %totlines, align 4
   %42 = sext i32 %41 to i64
-  %cmp25 = icmp slt i64 %indvars.iv.next113, %42
+  %cmp25 = icmp slt i64 %indvars.iv.next, %42
   br i1 %cmp25, label %for.body, label %for.end, !llvm.loop !29
 
 for.end:                                          ; preds = %for.inc, %sdslen.exit

@@ -16,11 +16,11 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
   br i1 %.not104, label %.loopexit, label %.preheader120
 
 .preheader120:                                    ; preds = %4
-  %.082.ptr122 = getelementptr inbounds i8, ptr %1, i64 1
-  %.080123 = getelementptr inbounds i8, ptr %6, i64 1
-  %7 = load i8, ptr %.080123, align 1
+  %.085.ptr122 = getelementptr inbounds i8, ptr %1, i64 1
+  %.087123 = getelementptr inbounds i8, ptr %6, i64 1
+  %7 = load i8, ptr %.087123, align 1
   %.not105124 = icmp eq i8 %7, 0
-  %8 = load i8, ptr %.082.ptr122, align 1
+  %8 = load i8, ptr %.085.ptr122, align 1
   %.not107175.not = icmp eq i8 %8, 0
   br i1 %.not105124, label %.critedge.thread, label %.lr.ph.preheader
 
@@ -32,63 +32,63 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph196
-  %9 = load i8, ptr %.082.ptr, align 1
+  %9 = load i8, ptr %.085.ptr, align 1
   %.not106 = icmp eq i8 %9, 0
   br i1 %.not106, label %.critedge, label %.lr.ph196, !llvm.loop !6
 
 .lr.ph196:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %10 = phi i8 [ %9, %.lr.ph ], [ %8, %.lr.ph.preheader ]
-  %.081126195 = phi i1 [ %13, %.lr.ph ], [ true, %.lr.ph.preheader ]
-  %.082.ptr127194 = phi ptr [ %.082.ptr, %.lr.ph ], [ %.082.ptr122, %.lr.ph.preheader ]
-  %.080128193 = phi ptr [ %.080, %.lr.ph ], [ %.080123, %.lr.ph.preheader ]
+  %.0126195 = phi i1 [ %13, %.lr.ph ], [ true, %.lr.ph.preheader ]
+  %.085.ptr127194 = phi ptr [ %.085.ptr, %.lr.ph ], [ %.085.ptr122, %.lr.ph.preheader ]
+  %.087128193 = phi ptr [ %.087, %.lr.ph ], [ %.087123, %.lr.ph.preheader ]
   %11 = phi i8 [ %14, %.lr.ph ], [ %7, %.lr.ph.preheader ]
   %12 = icmp eq i8 %11, %10
-  %13 = and i1 %.081126195, %12
-  %.082.ptr = getelementptr inbounds i8, ptr %.082.ptr127194, i64 1
-  %.080 = getelementptr inbounds i8, ptr %.080128193, i64 1
-  %14 = load i8, ptr %.080, align 1
+  %13 = and i1 %.0126195, %12
+  %.085.ptr = getelementptr inbounds i8, ptr %.085.ptr127194, i64 1
+  %.087 = getelementptr inbounds i8, ptr %.087128193, i64 1
+  %14 = load i8, ptr %.087, align 1
   %.not105 = icmp eq i8 %14, 0
   br i1 %.not105, label %.critedge, label %.lr.ph, !llvm.loop !6
 
 .critedge:                                        ; preds = %.lr.ph196, %.lr.ph, %.lr.ph.preheader
   %15 = phi i8 [ %7, %.lr.ph.preheader ], [ 0, %.lr.ph196 ], [ %14, %.lr.ph ]
-  %.pn113.lcssa = phi ptr [ %1, %.lr.ph.preheader ], [ %.082.ptr127194, %.lr.ph ], [ %.082.ptr127194, %.lr.ph196 ]
-  %.081.lcssa = phi i1 [ true, %.lr.ph.preheader ], [ %13, %.lr.ph ], [ %13, %.lr.ph196 ]
-  %.082.ptr.lcssa = phi ptr [ %.082.ptr122, %.lr.ph.preheader ], [ %.082.ptr, %.lr.ph ], [ %.082.ptr, %.lr.ph196 ]
-  %.080.lcssa = phi ptr [ %.080123, %.lr.ph.preheader ], [ %.080, %.lr.ph ], [ %.080, %.lr.ph196 ]
-  %16 = load i8, ptr %.082.ptr.lcssa, align 1
+  %.pn113.lcssa = phi ptr [ %1, %.lr.ph.preheader ], [ %.085.ptr127194, %.lr.ph ], [ %.085.ptr127194, %.lr.ph196 ]
+  %.0.lcssa = phi i1 [ true, %.lr.ph.preheader ], [ %13, %.lr.ph ], [ %13, %.lr.ph196 ]
+  %.085.ptr.lcssa = phi ptr [ %.085.ptr122, %.lr.ph.preheader ], [ %.085.ptr, %.lr.ph ], [ %.085.ptr, %.lr.ph196 ]
+  %.087.lcssa = phi ptr [ %.087123, %.lr.ph.preheader ], [ %.087, %.lr.ph ], [ %.087, %.lr.ph196 ]
+  %16 = load i8, ptr %.085.ptr.lcssa, align 1
   %.not107 = icmp ne i8 %16, 0
-  %brmerge = select i1 %.not107, i1 true, i1 %.081.lcssa
+  %brmerge = select i1 %.not107, i1 true, i1 %.0.lcssa
   %.mux = select i1 %.not107, ptr null, ptr %6
   br i1 %brmerge, label %.loopexit, label %.lr.ph142.preheader
 
 .lr.ph142.preheader:                              ; preds = %.critedge
-  %17 = ptrtoint ptr %.082.ptr.lcssa to i64
+  %17 = ptrtoint ptr %.085.ptr.lcssa to i64
   %18 = ptrtoint ptr %1 to i64
   %19 = sub i64 %17, %18
   %20 = tail call i64 @llvm.umin.i64(i64 %19, i64 8)
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds i8, ptr %.080.lcssa, i64 %21
-  %.082.add = sub nsw i64 1, %20
+  %22 = getelementptr inbounds i8, ptr %.087.lcssa, i64 %21
+  %.085.add = sub nsw i64 1, %20
   br label %.lr.ph142
 
 .lr.ph142:                                        ; preds = %.lr.ph142.preheader, %.lr.ph142
-  %.1141 = phi ptr [ %28, %.lr.ph142 ], [ %22, %.lr.ph142.preheader ]
-  %.183.idx140 = phi i64 [ %.183.add, %.lr.ph142 ], [ %.082.add, %.lr.ph142.preheader ]
-  %.086139 = phi i64 [ %26, %.lr.ph142 ], [ 0, %.lr.ph142.preheader ]
-  %.087138 = phi i64 [ %31, %.lr.ph142 ], [ 0, %.lr.ph142.preheader ]
-  %.183.ptr = getelementptr inbounds i8, ptr %.pn113.lcssa, i64 %.183.idx140
-  %23 = shl i64 %.086139, 8
-  %.183.add = add nsw i64 %.183.idx140, 1
-  %24 = load i8, ptr %.183.ptr, align 1
+  %.082141 = phi i64 [ %26, %.lr.ph142 ], [ 0, %.lr.ph142.preheader ]
+  %.083140 = phi i64 [ %31, %.lr.ph142 ], [ 0, %.lr.ph142.preheader ]
+  %.186.idx139 = phi i64 [ %.186.add, %.lr.ph142 ], [ %.085.add, %.lr.ph142.preheader ]
+  %.188138 = phi ptr [ %28, %.lr.ph142 ], [ %22, %.lr.ph142.preheader ]
+  %.186.ptr = getelementptr inbounds i8, ptr %.pn113.lcssa, i64 %.186.idx139
+  %23 = shl i64 %.082141, 8
+  %.186.add = add nsw i64 %.186.idx139, 1
+  %24 = load i8, ptr %.186.ptr, align 1
   %25 = zext i8 %24 to i64
   %26 = or disjoint i64 %23, %25
-  %27 = shl i64 %.087138, 8
-  %28 = getelementptr inbounds i8, ptr %.1141, i64 1
-  %29 = load i8, ptr %.1141, align 1
+  %27 = shl i64 %.083140, 8
+  %28 = getelementptr inbounds i8, ptr %.188138, i64 1
+  %29 = load i8, ptr %.188138, align 1
   %30 = zext i8 %29 to i64
   %31 = or disjoint i64 %27, %30
-  %.not108 = icmp eq i64 %.183.idx140, 0
+  %.not108 = icmp eq i64 %.186.idx139, 0
   br i1 %.not108, label %._crit_edge, label %.lr.ph142, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph142
@@ -102,14 +102,14 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
 
 .lr.ph159:                                        ; preds = %33, %44
   %35 = phi i8 [ %45, %44 ], [ %15, %33 ]
-  %.2157 = phi ptr [ %37, %44 ], [ %.080.lcssa, %33 ]
-  %.084156 = phi ptr [ %40, %44 ], [ %6, %33 ]
-  %.188155 = phi i64 [ %39, %44 ], [ %31, %33 ]
-  %36 = shl i64 %.188155, 8
-  %37 = getelementptr inbounds i8, ptr %.2157, i64 1
+  %.081157 = phi ptr [ %40, %44 ], [ %6, %33 ]
+  %.184156 = phi i64 [ %39, %44 ], [ %31, %33 ]
+  %.289155 = phi ptr [ %37, %44 ], [ %.087.lcssa, %33 ]
+  %36 = shl i64 %.184156, 8
+  %37 = getelementptr inbounds i8, ptr %.289155, i64 1
   %38 = zext i8 %35 to i64
   %39 = or disjoint i64 %36, %38
-  %40 = getelementptr inbounds i8, ptr %.084156, i64 1
+  %40 = getelementptr inbounds i8, ptr %.081157, i64 1
   %41 = icmp eq i64 %39, %26
   br i1 %41, label %42, label %44
 
@@ -135,14 +135,14 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
 
 .lr.ph150:                                        ; preds = %.preheader, %57
   %47 = phi i8 [ %58, %57 ], [ %15, %.preheader ]
-  %.3149 = phi ptr [ %49, %57 ], [ %.080.lcssa, %.preheader ]
-  %.185148 = phi ptr [ %52, %57 ], [ %6, %.preheader ]
-  %.289147 = phi i64 [ %51, %57 ], [ %31, %.preheader ]
-  %48 = shl i64 %.289147, 8
-  %49 = getelementptr inbounds i8, ptr %.3149, i64 1
+  %.1149 = phi ptr [ %52, %57 ], [ %6, %.preheader ]
+  %.2148 = phi i64 [ %51, %57 ], [ %31, %.preheader ]
+  %.390147 = phi ptr [ %49, %57 ], [ %.087.lcssa, %.preheader ]
+  %48 = shl i64 %.2148, 8
+  %49 = getelementptr inbounds i8, ptr %.390147, i64 1
   %50 = zext i8 %47 to i64
   %51 = or disjoint i64 %48, %50
-  %52 = getelementptr inbounds i8, ptr %.185148, i64 1
+  %52 = getelementptr inbounds i8, ptr %.1149, i64 1
   %53 = icmp eq i64 %51, %26
   br i1 %53, label %54, label %57
 
@@ -157,22 +157,22 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
   br i1 %.not111, label %.loopexit, label %.lr.ph150, !llvm.loop !10
 
 .preheader118:                                    ; preds = %46, %60
-  %.390 = phi i64 [ %64, %60 ], [ %31, %46 ]
-  %.4 = phi ptr [ %62, %60 ], [ %.080.lcssa, %46 ]
-  %59 = load i8, ptr %.4, align 1
+  %.491 = phi ptr [ %62, %60 ], [ %.087.lcssa, %46 ]
+  %.3 = phi i64 [ %64, %60 ], [ %31, %46 ]
+  %59 = load i8, ptr %.491, align 1
   %.not110 = icmp eq i8 %59, 0
   br i1 %.not110, label %.loopexit, label %60
 
 60:                                               ; preds = %.preheader118
-  %61 = shl i64 %.390, 8
-  %62 = getelementptr inbounds i8, ptr %.4, i64 1
+  %61 = shl i64 %.3, 8
+  %62 = getelementptr inbounds i8, ptr %.491, i64 1
   %63 = zext i8 %59 to i64
   %64 = or disjoint i64 %61, %63
   %65 = icmp eq i64 %64, %26
   br i1 %65, label %66, label %.preheader118, !llvm.loop !11
 
 66:                                               ; preds = %60
-  %67 = getelementptr inbounds i8, ptr %.4, i64 -7
+  %67 = getelementptr inbounds i8, ptr %.491, i64 -7
   br label %.loopexit
 
 68:                                               ; preds = %46
@@ -183,14 +183,14 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
   br label %72
 
 72:                                               ; preds = %74, %68
-  %.491 = phi i64 [ %31, %68 ], [ %79, %74 ]
-  %.5 = phi ptr [ %.080.lcssa, %68 ], [ %76, %74 ]
+  %.5 = phi ptr [ %.087.lcssa, %68 ], [ %76, %74 ]
+  %.4 = phi i64 [ %31, %68 ], [ %79, %74 ]
   %73 = load i8, ptr %.5, align 1
   %.not109 = icmp eq i8 %73, 0
   br i1 %.not109, label %.loopexit, label %74
 
 74:                                               ; preds = %72
-  %75 = shl i64 %.491, 8
+  %75 = shl i64 %.4, 8
   %76 = getelementptr inbounds i8, ptr %.5, i64 1
   %77 = zext i8 %73 to i64
   %78 = or disjoint i64 %75, %77
@@ -204,8 +204,8 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader118, %54, %57, %72, %42, %44, %.critedge.thread, %.preheader, %33, %.critedge, %4, %2, %81, %66
-  %.0 = phi ptr [ %67, %66 ], [ %83, %81 ], [ %0, %2 ], [ null, %4 ], [ %.mux, %.critedge ], [ null, %33 ], [ null, %.preheader ], [ %.mux177, %.critedge.thread ], [ %40, %42 ], [ null, %44 ], [ null, %72 ], [ %52, %54 ], [ null, %57 ], [ null, %.preheader118 ]
-  ret ptr %.0
+  %.080 = phi ptr [ %67, %66 ], [ %83, %81 ], [ %0, %2 ], [ null, %4 ], [ %.mux, %.critedge ], [ null, %33 ], [ null, %.preheader ], [ %.mux177, %.critedge.thread ], [ %40, %42 ], [ null, %44 ], [ null, %72 ], [ %52, %54 ], [ null, %57 ], [ null, %.preheader118 ]
+  ret ptr %.080
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

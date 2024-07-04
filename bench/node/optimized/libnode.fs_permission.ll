@@ -277,20 +277,20 @@ entry:
   br i1 %cmp.not15, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %current_node.018 = phi ptr [ %current_node.2, %for.inc ], [ %0, %entry ]
+  %i.018 = phi i64 [ %inc, %for.inc ], [ 1, %entry ]
   %parent_node_prefix_len.017 = phi i64 [ %parent_node_prefix_len.1, %for.inc ], [ %call, %entry ]
-  %i.016 = phi i64 [ %inc, %for.inc ], [ 1, %entry ]
-  %sub = add i64 %i.016, -1
+  %current_node.016 = phi ptr [ %current_node.2, %for.inc ], [ %0, %entry ]
+  %sub = add i64 %i.018, -1
   %call3 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %path, i64 noundef %sub) #14
   %1 = load i8, ptr %call3, align 1
   %cmp4 = icmp eq i8 %1, 42
-  %cmp5 = icmp eq i64 %i.016, %call2
+  %cmp5 = icmp eq i64 %i.018, %call2
   %or.cond = or i1 %cmp5, %cmp4
   br i1 %or.cond, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %for.body
-  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %node_path, ptr noundef nonnull align 8 dereferenceable(32) %path, i64 noundef %parent_node_prefix_len.017, i64 noundef %i.016) #14
-  %call8 = call noundef ptr @_ZN4node10permission12FSPermission9RadixTree4Node11CreateChildERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(97) %current_node.018, ptr noundef nonnull align 8 dereferenceable(32) %node_path)
+  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %node_path, ptr noundef nonnull align 8 dereferenceable(32) %path, i64 noundef %parent_node_prefix_len.017, i64 noundef %i.018) #14
+  %call8 = call noundef ptr @_ZN4node10permission12FSPermission9RadixTree4Node11CreateChildERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(97) %current_node.016, ptr noundef nonnull align 8 dereferenceable(32) %node_path)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %node_path) #14
   br i1 %cmp4, label %if.then10, label %for.inc
 
@@ -318,9 +318,9 @@ if.end.i13:                                       ; preds = %if.then10
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end.i13, %if.then10, %if.end
-  %parent_node_prefix_len.1 = phi i64 [ %parent_node_prefix_len.017, %if.end ], [ %i.016, %if.then10 ], [ %i.016, %if.end.i13 ], [ %parent_node_prefix_len.017, %for.body ]
-  %current_node.2 = phi ptr [ %call8, %if.end ], [ %2, %if.then10 ], [ %call.i, %if.end.i13 ], [ %current_node.018, %for.body ]
-  %inc = add i64 %i.016, 1
+  %current_node.2 = phi ptr [ %call8, %if.end ], [ %call.i, %if.end.i13 ], [ %2, %if.then10 ], [ %current_node.016, %for.body ]
+  %parent_node_prefix_len.1 = phi i64 [ %parent_node_prefix_len.017, %if.end ], [ %i.018, %if.end.i13 ], [ %i.018, %if.then10 ], [ %parent_node_prefix_len.017, %for.body ]
+  %inc = add i64 %i.018, 1
   %cmp.not = icmp ugt i64 %inc, %call2
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !11
 
@@ -2372,35 +2372,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end16.i
-  %__value.addr.021.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
-  %__n.020.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
-  %cmp5.i = icmp ult i64 %__value.addr.021.i, 100
+  %__n.021.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
+  %__value.addr.020.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
+  %cmp5.i = icmp ult i64 %__value.addr.020.i, 100
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.020.i, 1
+  %add.i = add i32 %__n.021.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end7.i:                                        ; preds = %if.end.i
-  %cmp9.i = icmp ult i64 %__value.addr.021.i, 1000
+  %cmp9.i = icmp ult i64 %__value.addr.020.i, 1000
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.end7.i
-  %add11.i = add i32 %__n.020.i, 2
+  %add11.i = add i32 %__n.021.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end12.i:                                       ; preds = %if.end7.i
-  %cmp13.i = icmp ult i64 %__value.addr.021.i, 10000
+  %cmp13.i = icmp ult i64 %__value.addr.020.i, 10000
   br i1 %cmp13.i, label %if.then14.i, label %if.end16.i
 
 if.then14.i:                                      ; preds = %if.end12.i
-  %add15.i = add i32 %__n.020.i, 3
+  %add15.i = add i32 %__n.021.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %div.i = udiv i64 %__value.addr.021.i, 10000
-  %add17.i = add i32 %__n.020.i, 4
-  %cmp.i = icmp ult i64 %__value.addr.021.i, 100000
+  %div.i = udiv i64 %__value.addr.020.i, 10000
+  %add17.i = add i32 %__n.021.i, 4
+  %cmp.i = icmp ult i64 %__value.addr.020.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !123
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i

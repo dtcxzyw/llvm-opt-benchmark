@@ -464,7 +464,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc15
   %indvars.iv22 = phi i64 [ 0, %entry ], [ %indvars.iv.next23, %for.inc15 ]
-  %info.addr.020 = phi ptr [ %info, %entry ], [ %info.addr.3, %for.inc15 ]
+  %info.addr.019 = phi ptr [ %info, %entry ], [ %info.addr.3, %for.inc15 ]
   %arrayidx = getelementptr inbounds [8 x %struct.connListener], ptr getelementptr inbounds (i8, ptr @server, i64 488), i64 0, i64 %indvars.iv22
   %ct = getelementptr inbounds i8, ptr %arrayidx, i64 88
   %0 = load ptr, ptr %ct, align 8
@@ -475,7 +475,7 @@ if.end:                                           ; preds = %for.body
   %1 = load ptr, ptr %0, align 8
   %call = tail call ptr %1(ptr noundef null) #4
   %2 = trunc nuw nsw i64 %indvars.iv22 to i32
-  %call3 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %info.addr.020, ptr noundef nonnull @.str.10, i32 noundef %2, ptr noundef %call) #4
+  %call3 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %info.addr.019, ptr noundef nonnull @.str.10, i32 noundef %2, ptr noundef %call) #4
   %count = getelementptr inbounds i8, ptr %arrayidx, i64 64
   %3 = load i32, ptr %count, align 8
   %cmp516 = icmp sgt i32 %3, 0
@@ -515,7 +515,7 @@ if.end13:                                         ; preds = %if.then10, %for.end
   br label %for.inc15
 
 for.inc15:                                        ; preds = %for.body, %if.end13
-  %info.addr.3 = phi ptr [ %info.addr.020, %for.body ], [ %call14, %if.end13 ]
+  %info.addr.3 = phi ptr [ %info.addr.019, %for.body ], [ %call14, %if.end13 ]
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next23, 8
   br i1 %exitcond.not, label %for.end17, label %for.body, !llvm.loop !13

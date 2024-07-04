@@ -423,8 +423,8 @@ if.end119:                                        ; preds = %if.end115
   br label %if.end125
 
 if.end125:                                        ; preds = %if.end119, %if.end85
-  %ctx.0 = phi ptr [ null, %if.end85 ], [ %call97, %if.end119 ]
   %store.0 = phi ptr [ null, %if.end85 ], [ %call88, %if.end119 ]
+  %ctx.0 = phi ptr [ null, %if.end85 ], [ %call97, %if.end119 ]
   %cmp126.not = icmp eq ptr %crldiff.0, null
   br i1 %cmp126.not, label %if.end146, label %if.then127
 
@@ -708,27 +708,27 @@ if.then259:                                       ; preds = %if.end257
   br label %if.then264
 
 if.then264:                                       ; preds = %sw.bb69, %opthelp, %if.end81, %if.then87, %if.end91, %if.then101, %if.then107, %if.then113, %if.end115, %if.then138, %if.then221, %if.else183, %if.end237, %if.then259, %if.else143, %if.end131, %if.then129
-  %ctx.1.ph = phi ptr [ %ctx.0, %if.then129 ], [ %ctx.0, %if.end131 ], [ %ctx.0, %if.else143 ], [ %ctx.0, %if.then259 ], [ %ctx.0, %if.end237 ], [ %ctx.0, %if.else183 ], [ %ctx.0, %if.then221 ], [ %ctx.0, %if.then138 ], [ %call97, %if.end115 ], [ %call97, %if.then113 ], [ %call97, %if.then107 ], [ %call97, %if.then101 ], [ null, %if.end91 ], [ null, %if.then87 ], [ null, %if.end81 ], [ null, %opthelp ], [ null, %sw.bb69 ]
-  %store.1.ph = phi ptr [ %store.0, %if.then129 ], [ %store.0, %if.end131 ], [ %store.0, %if.else143 ], [ %store.0, %if.then259 ], [ %store.0, %if.end237 ], [ %store.0, %if.else183 ], [ %store.0, %if.then221 ], [ %store.0, %if.then138 ], [ %call88, %if.end115 ], [ %call88, %if.then113 ], [ %call88, %if.then107 ], [ %call88, %if.then101 ], [ %call88, %if.end91 ], [ null, %if.then87 ], [ null, %if.end81 ], [ null, %opthelp ], [ null, %sw.bb69 ]
   %out.0.ph = phi ptr [ null, %if.then129 ], [ null, %if.end131 ], [ null, %if.else143 ], [ %call238, %if.then259 ], [ null, %if.end237 ], [ null, %if.else183 ], [ null, %if.then221 ], [ null, %if.then138 ], [ null, %if.end115 ], [ null, %if.then113 ], [ null, %if.then107 ], [ null, %if.then101 ], [ null, %if.end91 ], [ null, %if.then87 ], [ null, %if.end81 ], [ null, %opthelp ], [ null, %sw.bb69 ]
+  %store.1.ph = phi ptr [ %store.0, %if.then129 ], [ %store.0, %if.end131 ], [ %store.0, %if.else143 ], [ %store.0, %if.then259 ], [ %store.0, %if.end237 ], [ %store.0, %if.else183 ], [ %store.0, %if.then221 ], [ %store.0, %if.then138 ], [ %call88, %if.end115 ], [ %call88, %if.then113 ], [ %call88, %if.then107 ], [ %call88, %if.then101 ], [ %call88, %if.end91 ], [ null, %if.then87 ], [ null, %if.end81 ], [ null, %opthelp ], [ null, %sw.bb69 ]
+  %ctx.1.ph = phi ptr [ %ctx.0, %if.then129 ], [ %ctx.0, %if.end131 ], [ %ctx.0, %if.else143 ], [ %ctx.0, %if.then259 ], [ %ctx.0, %if.end237 ], [ %ctx.0, %if.else183 ], [ %ctx.0, %if.then221 ], [ %ctx.0, %if.then138 ], [ %call97, %if.end115 ], [ %call97, %if.then113 ], [ %call97, %if.then107 ], [ %call97, %if.then101 ], [ null, %if.end91 ], [ null, %if.then87 ], [ null, %if.end81 ], [ null, %opthelp ], [ null, %sw.bb69 ]
   %x.1.ph = phi ptr [ %call82, %if.then129 ], [ %call82, %if.end131 ], [ %call82, %if.else143 ], [ %x.0, %if.then259 ], [ %x.0, %if.end237 ], [ %x.0, %if.else183 ], [ %x.0, %if.then221 ], [ %call82, %if.then138 ], [ %call82, %if.end115 ], [ %call82, %if.then113 ], [ %call82, %if.then107 ], [ %call82, %if.then101 ], [ %call82, %if.end91 ], [ %call82, %if.then87 ], [ null, %if.end81 ], [ null, %opthelp ], [ null, %sw.bb69 ]
   %44 = load ptr, ptr @bio_err, align 8
   call void @ERR_print_errors(ptr noundef %44) #2
   br label %if.end265
 
 if.end265:                                        ; preds = %sw.bb4, %if.end247, %if.end257, %if.then264
-  %x.183 = phi ptr [ %x.1.ph, %if.then264 ], [ null, %sw.bb4 ], [ %x.0, %if.end247 ], [ %x.0, %if.end257 ]
-  %out.081 = phi ptr [ %out.0.ph, %if.then264 ], [ null, %sw.bb4 ], [ %call238, %if.end247 ], [ %call238, %if.end257 ]
-  %store.179 = phi ptr [ %store.1.ph, %if.then264 ], [ null, %sw.bb4 ], [ %store.0, %if.end247 ], [ %store.0, %if.end257 ]
-  %ctx.177 = phi ptr [ %ctx.1.ph, %if.then264 ], [ null, %sw.bb4 ], [ %ctx.0, %if.end247 ], [ %ctx.0, %if.end257 ]
-  %ret.075 = phi i32 [ 1, %if.then264 ], [ 0, %sw.bb4 ], [ 0, %if.end247 ], [ 0, %if.end257 ]
-  call void @BIO_free_all(ptr noundef %out.081) #2
+  %ret.083 = phi i32 [ 1, %if.then264 ], [ 0, %sw.bb4 ], [ 0, %if.end247 ], [ 0, %if.end257 ]
+  %x.181 = phi ptr [ %x.1.ph, %if.then264 ], [ null, %sw.bb4 ], [ %x.0, %if.end247 ], [ %x.0, %if.end257 ]
+  %ctx.179 = phi ptr [ %ctx.1.ph, %if.then264 ], [ null, %sw.bb4 ], [ %ctx.0, %if.end247 ], [ %ctx.0, %if.end257 ]
+  %store.177 = phi ptr [ %store.1.ph, %if.then264 ], [ null, %sw.bb4 ], [ %store.0, %if.end247 ], [ %store.0, %if.end257 ]
+  %out.075 = phi ptr [ %out.0.ph, %if.then264 ], [ null, %sw.bb4 ], [ %call238, %if.end247 ], [ %call238, %if.end257 ]
+  call void @BIO_free_all(ptr noundef %out.075) #2
   %45 = load ptr, ptr %digest, align 8
   call void @EVP_MD_free(ptr noundef %45) #2
-  call void @X509_CRL_free(ptr noundef %x.183) #2
-  call void @X509_STORE_CTX_free(ptr noundef %ctx.177) #2
-  call void @X509_STORE_free(ptr noundef %store.179) #2
-  ret i32 %ret.075
+  call void @X509_CRL_free(ptr noundef %x.181) #2
+  call void @X509_STORE_CTX_free(ptr noundef %ctx.179) #2
+  call void @X509_STORE_free(ptr noundef %store.177) #2
+  ret i32 %ret.083
 }
 
 declare ptr @EVP_sha1() local_unnamed_addr #1

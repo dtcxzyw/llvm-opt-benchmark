@@ -1515,8 +1515,8 @@ lor.lhs.false.i:                                  ; preds = %while.end63.i
   br label %compare_with_file.exit
 
 compare_with_file.exit:                           ; preds = %for.end.i, %if.end25, %if.end.i, %if.end6.i, %if.then16.i, %while.end.i, %if.then33.i, %if.then43.i, %while.end63.i, %lor.lhs.false.i
-  %newfile.0.i = phi ptr [ %call7.i, %if.then16.i ], [ %call7.i, %if.then33.i ], [ %call7.i, %if.then43.i ], [ %call7.i, %while.end63.i ], [ %call7.i, %while.end.i ], [ %call7.i, %if.end6.i ], [ null, %if.end.i ], [ null, %if.end25 ], [ %call7.i, %lor.lhs.false.i ], [ %call7.i, %for.end.i ]
   %file.0.i = phi ptr [ %call2.i, %if.then16.i ], [ %call2.i, %if.then33.i ], [ %call2.i, %if.then43.i ], [ %call2.i, %while.end63.i ], [ %call2.i, %while.end.i ], [ %call2.i, %if.end6.i ], [ %call2.i, %if.end.i ], [ null, %if.end25 ], [ %call2.i, %lor.lhs.false.i ], [ %call2.i, %for.end.i ]
+  %newfile.0.i = phi ptr [ %call7.i, %if.then16.i ], [ %call7.i, %if.then33.i ], [ %call7.i, %if.then43.i ], [ %call7.i, %while.end63.i ], [ %call7.i, %while.end.i ], [ %call7.i, %if.end6.i ], [ null, %if.end.i ], [ null, %if.end25 ], [ %call7.i, %lor.lhs.false.i ], [ %call7.i, %for.end.i ]
   %ret.0.i = phi i32 [ 0, %if.then16.i ], [ 0, %if.then33.i ], [ 0, %if.then43.i ], [ 0, %while.end63.i ], [ 0, %while.end.i ], [ 0, %if.end6.i ], [ 0, %if.end.i ], [ 0, %if.end25 ], [ %spec.select.i, %lor.lhs.false.i ], [ 0, %for.end.i ]
   call void @CRYPTO_free(ptr noundef %call.i, ptr noundef nonnull @.str.14, i32 noundef 481) #9
   %call78.i = call i32 @BIO_free(ptr noundef %file.0.i) #9
@@ -2232,10 +2232,10 @@ lor.lhs.false99.err135.loopexit_crit_edge:        ; preds = %lor.lhs.false99
   br label %err135
 
 err135:                                           ; preds = %if.end53, %if.end125, %if.end119, %if.end113, %if.end108, %if.end91, %if.end83, %if.end132, %lor.lhs.false, %lor.lhs.false.preheader, %lor.lhs.false99.err135.loopexit_crit_edge, %for.cond.preheader, %if.end12, %if.end7, %if.end, %entry, %if.then61
-  %cbio.0 = phi ptr [ %call3, %if.then61 ], [ %call3, %if.end12 ], [ %call3, %if.end7 ], [ %call3, %if.end ], [ null, %entry ], [ %call3, %for.cond.preheader ], [ %call3, %lor.lhs.false99.err135.loopexit_crit_edge ], [ %call3, %lor.lhs.false.preheader ], [ %call3, %lor.lhs.false ], [ %call3, %if.end132 ], [ %call3, %if.end83 ], [ %call3, %if.end91 ], [ %call3, %if.end108 ], [ %call3, %if.end113 ], [ %call3, %if.end119 ], [ %call3, %if.end125 ], [ %call3, %if.end53 ]
-  %strbio.1 = phi ptr [ null, %if.then61 ], [ null, %if.end12 ], [ null, %if.end7 ], [ null, %if.end ], [ null, %entry ], [ null, %for.cond.preheader ], [ %strbio.063110, %lor.lhs.false99.err135.loopexit_crit_edge ], [ null, %lor.lhs.false.preheader ], [ %call115, %if.end125 ], [ %call115, %if.end119 ], [ %call115, %if.end113 ], [ %strbio.063110, %if.end108 ], [ %strbio.063110, %if.end91 ], [ %strbio.063110, %if.end83 ], [ %call115, %if.end132 ], [ %call115, %lor.lhs.false ], [ null, %if.end53 ]
+  %stream.1 = phi ptr [ null, %if.then61 ], [ null, %if.end12 ], [ null, %if.end7 ], [ null, %if.end ], [ null, %entry ], [ null, %for.cond.preheader ], [ null, %lor.lhs.false99.err135.loopexit_crit_edge ], [ null, %lor.lhs.false.preheader ], [ null, %lor.lhs.false ], [ null, %if.end132 ], [ null, %if.end83 ], [ null, %if.end91 ], [ %call109, %if.end108 ], [ %call109, %if.end113 ], [ %call109, %if.end119 ], [ null, %if.end125 ], [ null, %if.end53 ]
   %testresult.0 = phi i32 [ 0, %if.then61 ], [ 0, %if.end12 ], [ 0, %if.end7 ], [ 0, %if.end ], [ 0, %entry ], [ 0, %for.cond.preheader ], [ %.mux, %lor.lhs.false99.err135.loopexit_crit_edge ], [ 0, %lor.lhs.false.preheader ], [ 0, %lor.lhs.false ], [ 0, %if.end132 ], [ 0, %if.end83 ], [ 0, %if.end91 ], [ 0, %if.end108 ], [ 0, %if.end113 ], [ 0, %if.end119 ], [ 0, %if.end125 ], [ 0, %if.end53 ]
-  %stream.1 = phi ptr [ null, %if.then61 ], [ null, %if.end12 ], [ null, %if.end7 ], [ null, %if.end ], [ null, %entry ], [ null, %for.cond.preheader ], [ null, %lor.lhs.false99.err135.loopexit_crit_edge ], [ null, %lor.lhs.false.preheader ], [ null, %if.end125 ], [ %call109, %if.end119 ], [ %call109, %if.end113 ], [ %call109, %if.end108 ], [ null, %if.end91 ], [ null, %if.end83 ], [ null, %if.end132 ], [ null, %lor.lhs.false ], [ null, %if.end53 ]
+  %cbio.0 = phi ptr [ %call3, %if.then61 ], [ %call3, %if.end12 ], [ %call3, %if.end7 ], [ %call3, %if.end ], [ null, %entry ], [ %call3, %for.cond.preheader ], [ %call3, %lor.lhs.false99.err135.loopexit_crit_edge ], [ %call3, %lor.lhs.false.preheader ], [ %call3, %lor.lhs.false ], [ %call3, %if.end132 ], [ %call3, %if.end83 ], [ %call3, %if.end91 ], [ %call3, %if.end108 ], [ %call3, %if.end113 ], [ %call3, %if.end119 ], [ %call3, %if.end125 ], [ %call3, %if.end53 ]
+  %strbio.1 = phi ptr [ null, %if.then61 ], [ null, %if.end12 ], [ null, %if.end7 ], [ null, %if.end ], [ null, %entry ], [ null, %for.cond.preheader ], [ %strbio.063110, %lor.lhs.false99.err135.loopexit_crit_edge ], [ null, %lor.lhs.false.preheader ], [ %call115, %lor.lhs.false ], [ %call115, %if.end132 ], [ %strbio.063110, %if.end83 ], [ %strbio.063110, %if.end91 ], [ %strbio.063110, %if.end108 ], [ %call115, %if.end113 ], [ %call115, %if.end119 ], [ %call115, %if.end125 ], [ null, %if.end53 ]
   call void @BIO_free_all(ptr noundef %cbio.0) #9
   call void @BIO_free_all(ptr noundef %strbio.1) #9
   call void @SSL_free(ptr noundef %stream.1) #9
@@ -2334,8 +2334,8 @@ if.then43:                                        ; preds = %for.inc
   br label %err
 
 err:                                              ; preds = %if.end32, %if.then26, %if.end16, %if.end, %entry, %lor.lhs.false, %lor.lhs.false6, %if.then43, %if.end31
-  %msg.0 = phi ptr [ %call12, %if.then43 ], [ %call12, %if.end31 ], [ %call12, %if.end16 ], [ %call12, %if.end ], [ null, %lor.lhs.false6 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call12, %if.then26 ], [ %call12, %if.end32 ]
   %testresult.0 = phi i32 [ 0, %if.then43 ], [ 0, %if.end31 ], [ 0, %if.end16 ], [ 0, %if.end ], [ 0, %lor.lhs.false6 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 1, %if.then26 ], [ 0, %if.end32 ]
+  %msg.0 = phi ptr [ %call12, %if.then43 ], [ %call12, %if.end31 ], [ %call12, %if.end16 ], [ %call12, %if.end ], [ null, %lor.lhs.false6 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call12, %if.then26 ], [ %call12, %if.end32 ]
   %11 = load ptr, ptr %clientquic, align 8
   call void @SSL_free(ptr noundef %11) #9
   %12 = load ptr, ptr %qtserv, align 8

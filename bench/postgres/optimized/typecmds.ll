@@ -288,9 +288,9 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 47:                                               ; preds = %39, %37, %31
-  %.0177 = phi i32 [ %36, %37 ], [ 0, %31 ], [ 0, %39 ]
+  %.0170 = phi i32 [ %36, %37 ], [ 0, %31 ], [ 0, %39 ]
   %48 = icmp eq ptr %2, null
-  %.not251 = icmp eq i32 %.0177, 0
+  %.not251 = icmp eq i32 %.0170, 0
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %47
@@ -455,8 +455,8 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   br label %147
 
 143:                                              ; preds = %131, %128, %125, %122, %119, %116, %113, %110, %107, %104, %98, %101, %95, %92, %89, %86, %83, %80, %77, %69
-  %.0166 = phi ptr [ %7, %69 ], [ %8, %77 ], [ %9, %80 ], [ %10, %83 ], [ %11, %86 ], [ %12, %89 ], [ %13, %92 ], [ %14, %95 ], [ %15, %101 ], [ %15, %98 ], [ %16, %104 ], [ %17, %107 ], [ %18, %110 ], [ %19, %113 ], [ %20, %116 ], [ %21, %119 ], [ %22, %122 ], [ %23, %125 ], [ %24, %128 ], [ %25, %131 ]
-  %144 = load ptr, ptr %.0166, align 8
+  %.0162 = phi ptr [ %7, %69 ], [ %8, %77 ], [ %9, %80 ], [ %10, %83 ], [ %11, %86 ], [ %12, %89 ], [ %13, %92 ], [ %14, %95 ], [ %15, %101 ], [ %15, %98 ], [ %16, %104 ], [ %17, %107 ], [ %18, %110 ], [ %19, %113 ], [ %20, %116 ], [ %21, %119 ], [ %22, %122 ], [ %23, %125 ], [ %24, %128 ], [ %25, %131 ]
+  %144 = load ptr, ptr %.0162, align 8
   %.not250 = icmp eq ptr %144, null
   br i1 %.not250, label %146, label %145
 
@@ -465,7 +465,7 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 146:                                              ; preds = %143
-  store ptr %72, ptr %.0166, align 8
+  store ptr %72, ptr %.0162, align 8
   br label %147
 
 147:                                              ; preds = %136, %134, %146
@@ -501,8 +501,8 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %150, %._crit_edge
-  %.0171 = phi i8 [ %166, %150 ], [ 112, %._crit_edge ], [ 112, %.preheader ]
-  %.0169 = phi i8 [ %164, %150 ], [ 105, %._crit_edge ], [ 105, %.preheader ]
+  %.0173 = phi i8 [ %166, %150 ], [ 112, %._crit_edge ], [ 112, %.preheader ]
+  %.0171 = phi i8 [ %164, %150 ], [ 105, %._crit_edge ], [ 105, %.preheader ]
   %.0167 = phi i8 [ %162, %150 ], [ 0, %._crit_edge ], [ 0, %.preheader ]
   %.0 = phi i16 [ %160, %150 ], [ -1, %._crit_edge ], [ -1, %.preheader ]
   %.0..0..0..0.215 = load ptr, ptr %8, align 8
@@ -626,7 +626,7 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   br label %206
 
 206:                                              ; preds = %204, %203
-  %.0162 = phi i1 [ %205, %204 ], [ false, %203 ]
+  %.0163 = phi i1 [ %205, %204 ], [ false, %203 ]
   %.0..0..0..0.193 = load ptr, ptr %19, align 8
   %.not237 = icmp eq ptr %.0..0..0..0.193, null
   br i1 %.not237, label %210, label %207
@@ -637,7 +637,7 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   br label %210
 
 210:                                              ; preds = %207, %206
-  %.0163 = phi i8 [ %209, %207 ], [ 44, %206 ]
+  %.0164 = phi i8 [ %209, %207 ], [ 44, %206 ]
   %.0..0..0..0.191 = load ptr, ptr %20, align 8
   %.not238 = icmp eq ptr %.0..0..0..0.191, null
   br i1 %.not238, label %221, label %211
@@ -659,7 +659,7 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 221:                                              ; preds = %211, %210
-  %.0164 = phi i32 [ %213, %211 ], [ 0, %210 ]
+  %.0165 = phi i32 [ %213, %211 ], [ 0, %210 ]
   %.0..0..0..0.189 = load ptr, ptr %21, align 8
   %.not239 = icmp eq ptr %.0..0..0..0.189, null
   br i1 %.not239, label %224, label %222
@@ -669,7 +669,7 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   br label %224
 
 224:                                              ; preds = %222, %221
-  %.0165 = phi ptr [ %223, %222 ], [ null, %221 ]
+  %.0166 = phi ptr [ %223, %222 ], [ null, %221 ]
   %.0..0..0..0.187 = load ptr, ptr %22, align 8
   %.not240 = icmp eq ptr %.0..0..0..0.187, null
   br i1 %.not240, label %228, label %225
@@ -740,7 +740,7 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 261:                                              ; preds = %251, %254, %245, %248, %239, %242, %229, %233, %236, %228
-  %.1170 = phi i8 [ %.0169, %228 ], [ 100, %236 ], [ 100, %233 ], [ 100, %229 ], [ 105, %242 ], [ 105, %239 ], [ 115, %248 ], [ 115, %245 ], [ 99, %254 ], [ 99, %251 ]
+  %.1172 = phi i8 [ %.0171, %228 ], [ 100, %236 ], [ 100, %233 ], [ 100, %229 ], [ 105, %242 ], [ 105, %239 ], [ 115, %248 ], [ 115, %245 ], [ 99, %254 ], [ 99, %251 ]
   %.0..0..0..0.183 = load ptr, ptr %24, align 8
   %.not242 = icmp eq ptr %.0..0..0..0.183, null
   br i1 %.not242, label %279, label %262
@@ -775,7 +775,7 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 279:                                              ; preds = %272, %269, %266, %262, %261
-  %.1172 = phi i8 [ %.0171, %261 ], [ 112, %262 ], [ 101, %266 ], [ 120, %269 ], [ 109, %272 ]
+  %.1174 = phi i8 [ %.0173, %261 ], [ 112, %262 ], [ 101, %266 ], [ 120, %269 ], [ 109, %272 ]
   %.0..0..0..0. = load ptr, ptr %25, align 8
   %.not243 = icmp eq ptr %.0..0..0..0., null
   br i1 %.not243, label %283, label %280
@@ -786,7 +786,7 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   br label %283
 
 283:                                              ; preds = %280, %279
-  %.0173 = phi i32 [ %282, %280 ], [ 0, %279 ]
+  %.0181 = phi i32 [ %282, %280 ], [ 0, %279 ]
   %284 = icmp eq ptr %.0153, null
   br i1 %284, label %285, label %289
 
@@ -864,7 +864,7 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
 319:                                              ; preds = %313, %307
   %.0.i = phi i32 [ %305, %307 ], [ %306, %313 ]
   %320 = call i32 @get_func_rettype(i32 noundef %.0.i) #8
-  %.not19.i = icmp eq i32 %320, %.0177
+  %.not19.i = icmp eq i32 %320, %.0170
   br i1 %.not19.i, label %327, label %321
 
 321:                                              ; preds = %319
@@ -872,7 +872,7 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   call void @llvm.assume(i1 %322)
   %323 = call i32 @errcode(i32 noundef 117833860) #8
   %324 = call ptr @NameListToString(ptr noundef nonnull %.0153) #8
-  %325 = call ptr @format_type_be(i32 noundef %.0177) #8
+  %325 = call ptr @format_type_be(i32 noundef %.0170) #8
   %326 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.102, ptr noundef %324, ptr noundef %325) #8
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1984, ptr noundef nonnull @__func__.findTypeInputFunction) #8
   unreachable
@@ -896,7 +896,7 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
 findTypeInputFunction.exit:                       ; preds = %327, %330, %332
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  store i32 %.0177, ptr %4, align 4
+  store i32 %.0170, ptr %4, align 4
   %336 = call i32 @LookupFuncName(ptr noundef nonnull %.0154, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext true) #8
   %.not.i253 = icmp eq i32 %336, 0
   br i1 %.not.i253, label %337, label %342
@@ -946,20 +946,20 @@ findTypeOutputFunction.exit:                      ; preds = %349, %352, %354
   br i1 %.not244, label %360, label %358
 
 358:                                              ; preds = %findTypeOutputFunction.exit
-  %359 = call fastcc i32 @findTypeReceiveFunction(ptr noundef nonnull %.0155, i32 noundef %.0177)
+  %359 = call fastcc i32 @findTypeReceiveFunction(ptr noundef nonnull %.0155, i32 noundef %.0170)
   br label %360
 
 360:                                              ; preds = %358, %findTypeOutputFunction.exit
-  %.0174 = phi i32 [ %359, %358 ], [ 0, %findTypeOutputFunction.exit ]
+  %.0180 = phi i32 [ %359, %358 ], [ 0, %findTypeOutputFunction.exit ]
   %.not245 = icmp eq ptr %.0156, null
   br i1 %.not245, label %363, label %361
 
 361:                                              ; preds = %360
-  %362 = call fastcc i32 @findTypeSendFunction(ptr noundef nonnull %.0156, i32 noundef %.0177)
+  %362 = call fastcc i32 @findTypeSendFunction(ptr noundef nonnull %.0156, i32 noundef %.0170)
   br label %363
 
 363:                                              ; preds = %361, %360
-  %.0175 = phi i32 [ %362, %361 ], [ 0, %360 ]
+  %.0179 = phi i32 [ %362, %361 ], [ 0, %360 ]
   br i1 %296, label %366, label %364
 
 364:                                              ; preds = %363
@@ -975,7 +975,7 @@ findTypeOutputFunction.exit:                      ; preds = %349, %352, %354
   br label %369
 
 369:                                              ; preds = %367, %366
-  %.0179 = phi i32 [ %368, %367 ], [ 0, %366 ]
+  %.0177 = phi i32 [ %368, %367 ], [ 0, %366 ]
   %.not247 = icmp eq ptr %.0159, null
   br i1 %.not247, label %372, label %370
 
@@ -984,7 +984,7 @@ findTypeOutputFunction.exit:                      ; preds = %349, %352, %354
   br label %372
 
 372:                                              ; preds = %370, %369
-  %.0181 = phi i32 [ %371, %370 ], [ 0, %369 ]
+  %.0176 = phi i32 [ %371, %370 ], [ 0, %369 ]
   %.not248 = icmp eq ptr %.0160, null
   br i1 %.not248, label %375, label %373
 
@@ -993,7 +993,7 @@ findTypeOutputFunction.exit:                      ; preds = %349, %352, %354
   br label %387
 
 375:                                              ; preds = %372
-  %.not249 = icmp eq i32 %.0164, 0
+  %.not249 = icmp eq i32 %.0165, 0
   br i1 %.not249, label %387, label %376
 
 376:                                              ; preds = %375
@@ -1005,7 +1005,7 @@ findTypeOutputFunction.exit:                      ; preds = %349, %352, %354
   br i1 %379, label %383, label %380
 
 380:                                              ; preds = %378
-  %381 = call signext i16 @get_typlen(i32 noundef %.0164) #8
+  %381 = call signext i16 @get_typlen(i32 noundef %.0165) #8
   %382 = icmp sgt i16 %381, 0
   br i1 %382, label %387, label %383
 
@@ -1018,18 +1018,18 @@ findTypeOutputFunction.exit:                      ; preds = %349, %352, %354
   unreachable
 
 387:                                              ; preds = %380, %375, %373
-  %.0180 = phi i32 [ %374, %373 ], [ 0, %375 ], [ 6180, %380 ]
+  %.0175 = phi i32 [ %374, %373 ], [ 0, %375 ], [ 6180, %380 ]
   %388 = call i32 @AssignTypeArrayOid()
   %389 = load ptr, ptr %6, align 8
   %390 = call i32 @GetUserId() #8
   %391 = trunc i8 %.1168 to i1
-  %392 = call { i64, i32 } @TypeCreate(i32 noundef 0, ptr noundef %389, i32 noundef %32, i32 noundef 0, i8 noundef signext 0, i32 noundef %390, i16 noundef signext %.1, i8 noundef signext 98, i8 noundef signext %.0161, i1 noundef zeroext %.0162, i8 noundef signext %.0163, i32 noundef %.0.i, i32 noundef %336, i32 noundef %.0174, i32 noundef %.0175, i32 noundef %.0178, i32 noundef %.0179, i32 noundef %.0181, i32 noundef %.0180, i32 noundef %.0164, i1 noundef zeroext false, i32 noundef %388, i32 noundef 0, ptr noundef %.0165, ptr noundef null, i1 noundef zeroext %391, i8 noundef signext %.1170, i8 noundef signext %.1172, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef %.0173) #8
+  %392 = call { i64, i32 } @TypeCreate(i32 noundef 0, ptr noundef %389, i32 noundef %32, i32 noundef 0, i8 noundef signext 0, i32 noundef %390, i16 noundef signext %.1, i8 noundef signext 98, i8 noundef signext %.0161, i1 noundef zeroext %.0163, i8 noundef signext %.0164, i32 noundef %.0.i, i32 noundef %336, i32 noundef %.0180, i32 noundef %.0179, i32 noundef %.0178, i32 noundef %.0177, i32 noundef %.0176, i32 noundef %.0175, i32 noundef %.0165, i1 noundef zeroext false, i32 noundef %388, i32 noundef 0, ptr noundef %.0166, ptr noundef null, i1 noundef zeroext %391, i8 noundef signext %.1172, i8 noundef signext %.1174, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef %.0181) #8
   %393 = load ptr, ptr %6, align 8
   %394 = call ptr @makeArrayTypeName(ptr noundef %393, i32 noundef %32) #8
-  %395 = icmp eq i8 %.1170, 100
+  %395 = icmp eq i8 %.1172, 100
   %396 = select i1 %395, i8 100, i8 105
   %397 = call i32 @GetUserId() #8
-  %398 = call { i64, i32 } @TypeCreate(i32 noundef %388, ptr noundef %394, i32 noundef %32, i32 noundef 0, i8 noundef signext 0, i32 noundef %397, i16 noundef signext -1, i8 noundef signext 98, i8 noundef signext 65, i1 noundef zeroext false, i8 noundef signext %.0163, i32 noundef 750, i32 noundef 751, i32 noundef 2400, i32 noundef 2401, i32 noundef %.0178, i32 noundef %.0179, i32 noundef 3816, i32 noundef 6179, i32 noundef %.0177, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i8 noundef signext %396, i8 noundef signext 120, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef %.0173) #8
+  %398 = call { i64, i32 } @TypeCreate(i32 noundef %388, ptr noundef %394, i32 noundef %32, i32 noundef 0, i8 noundef signext 0, i32 noundef %397, i16 noundef signext -1, i8 noundef signext 98, i8 noundef signext 65, i1 noundef zeroext false, i8 noundef signext %.0164, i32 noundef 750, i32 noundef 751, i32 noundef 2400, i32 noundef 2401, i32 noundef %.0178, i32 noundef %.0177, i32 noundef 3816, i32 noundef 6179, i32 noundef %.0170, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i8 noundef signext %396, i8 noundef signext 120, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef %.0181) #8
   call void @pfree(ptr noundef %394) #8
   br label %399
 
@@ -1628,8 +1628,8 @@ list_length.exit:                                 ; preds = %1, %9
   br label %66
 
 66:                                               ; preds = %57, %62
-  %.0153 = phi i32 [ %65, %62 ], [ %59, %57 ]
-  %67 = icmp eq i32 %.0153, 0
+  %.0 = phi i32 [ %65, %62 ], [ %59, %57 ]
+  %67 = icmp eq i32 %.0, 0
   %68 = icmp ne i32 %59, 0
   %or.cond16 = select i1 %67, i1 true, i1 %68
   br i1 %or.cond16, label %74, label %69
@@ -1674,7 +1674,7 @@ list_length.exit:                                 ; preds = %1, %9
   br label %100
 
 100:                                              ; preds = %97, %74
-  %.0 = phi ptr [ null, %74 ], [ %99, %97 ]
+  %.0151 = phi ptr [ null, %74 ], [ %99, %97 ]
   %101 = call i64 @SysCacheGetAttr(i32 noundef 80, ptr noundef nonnull %37, i16 noundef signext 30, ptr noundef nonnull %3) #8
   %102 = load i8, ptr %3, align 1
   %103 = trunc i8 %102 to i1
@@ -1686,7 +1686,7 @@ list_length.exit:                                 ; preds = %1, %9
   br label %107
 
 107:                                              ; preds = %104, %100
-  %.0142 = phi ptr [ null, %100 ], [ %106, %104 ]
+  %.0149 = phi ptr [ null, %100 ], [ %106, %104 ]
   %.not164 = icmp eq ptr %14, null
   br i1 %.not164, label %._crit_edge, label %.lr.ph
 
@@ -1699,11 +1699,11 @@ list_length.exit:                                 ; preds = %1, %9
 
 .lr.ph288:                                        ; preds = %.lr.ph, %187
   %indvars.iv = phi i64 [ %indvars.iv.next, %187 ], [ 0, %.lr.ph ]
-  %.0149240286 = phi i8 [ %.1150, %187 ], [ 0, %.lr.ph ]
-  %.0147241285 = phi i8 [ %.1148, %187 ], [ 0, %.lr.ph ]
-  %.0145242284 = phi i1 [ %.1146, %187 ], [ false, %.lr.ph ]
-  %.1143243283 = phi ptr [ %.2144, %187 ], [ %.0142, %.lr.ph ]
-  %.1244282 = phi ptr [ %.2, %187 ], [ %.0, %.lr.ph ]
+  %.1152239287 = phi ptr [ %.2153, %187 ], [ %.0151, %.lr.ph ]
+  %.1150240286 = phi ptr [ %.2, %187 ], [ %.0149, %.lr.ph ]
+  %.0147241285 = phi i1 [ %.1148, %187 ], [ false, %.lr.ph ]
+  %.0145242284 = phi i8 [ %.1146, %187 ], [ 0, %.lr.ph ]
+  %.0143243283 = phi i8 [ %.1144, %187 ], [ 0, %.lr.ph ]
   %112 = load ptr, ptr %109, align 8
   %113 = getelementptr %union.ListCell, ptr %112, i64 %indvars.iv
   %114 = load ptr, ptr %113, align 8
@@ -1738,7 +1738,7 @@ list_length.exit:                                 ; preds = %1, %9
   ]
 
 123:                                              ; preds = %120
-  br i1 %.0145242284, label %.split277, label %127
+  br i1 %.0147241285, label %.split277, label %127
 
 .split277:                                        ; preds = %123
   %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -1780,11 +1780,11 @@ list_length.exit:                                 ; preds = %1, %9
   br label %187
 
 147:                                              ; preds = %120
-  %148 = trunc nuw i8 %.0149240286 to i1
+  %148 = trunc nuw i8 %.0143243283 to i1
   br i1 %148, label %149, label %187
 
 149:                                              ; preds = %147
-  %150 = trunc nuw i8 %.0147241285 to i1
+  %150 = trunc nuw i8 %.0145242284 to i1
   br i1 %150, label %187, label %.split275
 
 .split275:                                        ; preds = %149
@@ -1796,11 +1796,11 @@ list_length.exit:                                 ; preds = %1, %9
   unreachable
 
 154:                                              ; preds = %120
-  %155 = trunc nuw i8 %.0149240286 to i1
+  %155 = trunc nuw i8 %.0143243283 to i1
   br i1 %155, label %156, label %187
 
 156:                                              ; preds = %154
-  %157 = trunc nuw i8 %.0147241285 to i1
+  %157 = trunc nuw i8 %.0145242284 to i1
   br i1 %157, label %.split273, label %187
 
 .split273:                                        ; preds = %156
@@ -1875,11 +1875,11 @@ list_length.exit:                                 ; preds = %1, %9
   unreachable
 
 187:                                              ; preds = %154, %156, %147, %149, %127, %130, %140, %144, %161
-  %.1150 = phi i8 [ %.0149240286, %161 ], [ %.0149240286, %144 ], [ %.0149240286, %140 ], [ %.0149240286, %130 ], [ %.0149240286, %127 ], [ 1, %149 ], [ 1, %147 ], [ 1, %156 ], [ 1, %154 ]
-  %.1148 = phi i8 [ %.0147241285, %161 ], [ %.0147241285, %144 ], [ %.0147241285, %140 ], [ %.0147241285, %130 ], [ %.0147241285, %127 ], [ 1, %149 ], [ 1, %147 ], [ 0, %156 ], [ 0, %154 ]
-  %.1146 = phi i1 [ %.0145242284, %161 ], [ true, %144 ], [ true, %140 ], [ true, %130 ], [ true, %127 ], [ %.0145242284, %149 ], [ %.0145242284, %147 ], [ %.0145242284, %156 ], [ %.0145242284, %154 ]
-  %.2144 = phi ptr [ %.1143243283, %161 ], [ %146, %144 ], [ null, %140 ], [ null, %130 ], [ null, %127 ], [ %.1143243283, %149 ], [ %.1143243283, %147 ], [ %.1143243283, %156 ], [ %.1143243283, %154 ]
-  %.2 = phi ptr [ %.1244282, %161 ], [ %145, %144 ], [ null, %140 ], [ null, %130 ], [ null, %127 ], [ %.1244282, %149 ], [ %.1244282, %147 ], [ %.1244282, %156 ], [ %.1244282, %154 ]
+  %.2153 = phi ptr [ %.1152239287, %161 ], [ %145, %144 ], [ null, %140 ], [ null, %130 ], [ null, %127 ], [ %.1152239287, %149 ], [ %.1152239287, %147 ], [ %.1152239287, %156 ], [ %.1152239287, %154 ]
+  %.2 = phi ptr [ %.1150240286, %161 ], [ %146, %144 ], [ null, %140 ], [ null, %130 ], [ null, %127 ], [ %.1150240286, %149 ], [ %.1150240286, %147 ], [ %.1150240286, %156 ], [ %.1150240286, %154 ]
+  %.1148 = phi i1 [ %.0147241285, %161 ], [ true, %144 ], [ true, %140 ], [ true, %130 ], [ true, %127 ], [ %.0147241285, %149 ], [ %.0147241285, %147 ], [ %.0147241285, %156 ], [ %.0147241285, %154 ]
+  %.1146 = phi i8 [ %.0145242284, %161 ], [ %.0145242284, %144 ], [ %.0145242284, %140 ], [ %.0145242284, %130 ], [ %.0145242284, %127 ], [ 1, %149 ], [ 1, %147 ], [ 0, %156 ], [ 0, %154 ]
+  %.1144 = phi i8 [ %.0143243283, %161 ], [ %.0143243283, %144 ], [ %.0143243283, %140 ], [ %.0143243283, %130 ], [ %.0143243283, %127 ], [ 1, %149 ], [ 1, %147 ], [ 1, %156 ], [ 1, %154 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %188 = load i32, ptr %108, align 4
   %189 = sext i32 %188 to i64
@@ -1887,18 +1887,18 @@ list_length.exit:                                 ; preds = %1, %9
   br i1 %190, label %.lr.ph288, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %187
-  %191 = trunc nuw i8 %.1148 to i1
+  %191 = trunc nuw i8 %.1146 to i1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %107
-  %.0147.lcssa = phi i1 [ false, %107 ], [ false, %.lr.ph ], [ %191, %._crit_edge.loopexit ]
-  %.1143.lcssa = phi ptr [ %.0142, %107 ], [ %.0142, %.lr.ph ], [ %.2144, %._crit_edge.loopexit ]
-  %.1.lcssa = phi ptr [ %.0, %107 ], [ %.0, %.lr.ph ], [ %.2, %._crit_edge.loopexit ]
+  %.1152.lcssa = phi ptr [ %.0151, %107 ], [ %.0151, %.lr.ph ], [ %.2153, %._crit_edge.loopexit ]
+  %.1150.lcssa = phi ptr [ %.0149, %107 ], [ %.0149, %.lr.ph ], [ %.2, %._crit_edge.loopexit ]
+  %.0145.lcssa = phi i1 [ false, %107 ], [ false, %.lr.ph ], [ %191, %._crit_edge.loopexit ]
   %192 = call i32 @AssignTypeArrayOid()
   %193 = load ptr, ptr %2, align 8
   %194 = call i32 @GetUserId() #8
   %195 = load i32, ptr %4, align 4
-  %196 = call { i64, i32 } @TypeCreate(i32 noundef 0, ptr noundef %193, i32 noundef %17, i32 noundef 0, i8 noundef signext 0, i32 noundef %194, i16 noundef signext %83, i8 noundef signext 100, i8 noundef signext %85, i1 noundef zeroext false, i8 noundef signext %87, i32 noundef 2597, i32 noundef %89, i32 noundef 2598, i32 noundef %91, i32 noundef 0, i32 noundef 0, i32 noundef %93, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, i32 noundef %192, i32 noundef %44, ptr noundef %.1.lcssa, ptr noundef %.1143.lcssa, i1 noundef zeroext %77, i8 noundef signext %79, i8 noundef signext %81, i32 noundef %195, i32 noundef %12, i1 noundef zeroext %.0147.lcssa, i32 noundef %.0153) #8
+  %196 = call { i64, i32 } @TypeCreate(i32 noundef 0, ptr noundef %193, i32 noundef %17, i32 noundef 0, i8 noundef signext 0, i32 noundef %194, i16 noundef signext %83, i8 noundef signext 100, i8 noundef signext %85, i1 noundef zeroext false, i8 noundef signext %87, i32 noundef 2597, i32 noundef %89, i32 noundef 2598, i32 noundef %91, i32 noundef 0, i32 noundef 0, i32 noundef %93, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false, i32 noundef %192, i32 noundef %44, ptr noundef %.1152.lcssa, ptr noundef %.1150.lcssa, i1 noundef zeroext %77, i8 noundef signext %79, i8 noundef signext %81, i32 noundef %195, i32 noundef %12, i1 noundef zeroext %.0145.lcssa, i32 noundef %.0) #8
   %.fca.0.extract26 = extractvalue { i64, i32 } %196, 0
   %.sroa.2139.0.extract.shift = lshr i64 %.fca.0.extract26, 32
   %.sroa.2139.0.extract.trunc = trunc nuw i64 %.sroa.2139.0.extract.shift to i32
@@ -1907,7 +1907,7 @@ list_length.exit:                                 ; preds = %1, %9
   %199 = icmp eq i8 %79, 100
   %200 = select i1 %199, i8 100, i8 105
   %201 = call i32 @GetUserId() #8
-  %202 = call { i64, i32 } @TypeCreate(i32 noundef %192, ptr noundef %198, i32 noundef %17, i32 noundef 0, i8 noundef signext 0, i32 noundef %201, i16 noundef signext -1, i8 noundef signext 98, i8 noundef signext 65, i1 noundef zeroext false, i8 noundef signext %87, i32 noundef 750, i32 noundef 751, i32 noundef 2400, i32 noundef 2401, i32 noundef 0, i32 noundef 0, i32 noundef 3816, i32 noundef 6179, i32 noundef %.sroa.2139.0.extract.trunc, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i8 noundef signext %200, i8 noundef signext 120, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef %.0153) #8
+  %202 = call { i64, i32 } @TypeCreate(i32 noundef %192, ptr noundef %198, i32 noundef %17, i32 noundef 0, i8 noundef signext 0, i32 noundef %201, i16 noundef signext -1, i8 noundef signext 98, i8 noundef signext 65, i1 noundef zeroext false, i8 noundef signext %87, i32 noundef 750, i32 noundef 751, i32 noundef 2400, i32 noundef 2401, i32 noundef 0, i32 noundef 0, i32 noundef 3816, i32 noundef 6179, i32 noundef %.sroa.2139.0.extract.trunc, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i8 noundef signext %200, i8 noundef signext 120, i32 noundef -1, i32 noundef 0, i1 noundef zeroext false, i32 noundef %.0) #8
   call void @pfree(ptr noundef %198) #8
   %203 = getelementptr inbounds i8, ptr %14, i64 4
   br i1 %.not164, label %._crit_edge296, label %.lr.ph295
@@ -3381,10 +3381,10 @@ define internal fastcc ptr @get_rels_with_domain(i32 noundef %0) unnamed_addr #0
 
 .lr.ph100:                                        ; preds = %1, %.outer.backedge
   %9 = phi ptr [ %31, %.outer.backedge ], [ %8, %1 ]
-  %.0.ph110 = phi ptr [ %.0.ph.be, %.outer.backedge ], [ null, %1 ]
-  %.not74 = icmp eq ptr %.0.ph110, null
-  %10 = getelementptr inbounds i8, ptr %.0.ph110, i64 4
-  %11 = getelementptr inbounds i8, ptr %.0.ph110, i64 16
+  %.065.ph110 = phi ptr [ %.065.ph.be, %.outer.backedge ], [ null, %1 ]
+  %.not74 = icmp eq ptr %.065.ph110, null
+  %10 = getelementptr inbounds i8, ptr %.065.ph110, i64 4
+  %11 = getelementptr inbounds i8, ptr %.065.ph110, i64 16
   br label %12
 
 12:                                               ; preds = %.lr.ph100, %.backedge
@@ -3411,7 +3411,7 @@ define internal fastcc ptr @get_rels_with_domain(i32 noundef %0) unnamed_addr #0
 
 27:                                               ; preds = %21
   %28 = call fastcc ptr @get_rels_with_domain(i32 noundef %26)
-  %29 = call ptr @list_concat(ptr noundef %.0.ph110, ptr noundef %28) #8
+  %29 = call ptr @list_concat(ptr noundef %.065.ph110, ptr noundef %28) #8
   br label %.outer.backedge
 
 30:                                               ; preds = %21
@@ -3419,7 +3419,7 @@ define internal fastcc ptr @get_rels_with_domain(i32 noundef %0) unnamed_addr #0
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %85, %95, %27, %30, %.loopexit.split, %.critedge
-  %.0.ph.be = phi ptr [ %.2, %.critedge ], [ %.2, %.loopexit.split ], [ %29, %27 ], [ %.0.ph110, %30 ], [ %.2, %95 ], [ %.2, %85 ]
+  %.065.ph.be = phi ptr [ %.2, %.critedge ], [ %.2, %.loopexit.split ], [ %29, %27 ], [ %.065.ph110, %30 ], [ %.2, %95 ], [ %.2, %85 ]
   %31 = call ptr @systable_getnext(ptr noundef %7) #8
   %.not99 = icmp eq ptr %31, null
   br i1 %.not99, label %.outer._crit_edge, label %.lr.ph100, !llvm.loop !10
@@ -3508,7 +3508,7 @@ define internal fastcc ptr @get_rels_with_domain(i32 noundef %0) unnamed_addr #0
   %72 = call ptr @palloc(i64 noundef %71) #8
   %73 = getelementptr inbounds i8, ptr %65, i64 16
   store ptr %72, ptr %73, align 8
-  %74 = call ptr @lappend(ptr noundef %.0.ph110, ptr noundef nonnull %65) #8
+  %74 = call ptr @lappend(ptr noundef %.065.ph110, ptr noundef nonnull %65) #8
   %.pre122 = load i32, ptr %64, align 4
   %.pre123 = load ptr, ptr %65, align 8
   br label %.loopexit.split
@@ -3521,8 +3521,8 @@ define internal fastcc ptr @get_rels_with_domain(i32 noundef %0) unnamed_addr #0
   %76 = phi ptr [ %64, %63 ], [ %75, %.loopexit.split.loopexit ]
   %77 = phi ptr [ %.pre123, %63 ], [ %46, %.loopexit.split.loopexit ]
   %78 = phi i32 [ %.pre122, %63 ], [ %34, %.loopexit.split.loopexit ]
-  %.164 = phi ptr [ %65, %63 ], [ %45, %.loopexit.split.loopexit ]
-  %.2 = phi ptr [ %74, %63 ], [ %.0.ph110, %.loopexit.split.loopexit ]
+  %.2 = phi ptr [ %74, %63 ], [ %.065.ph110, %.loopexit.split.loopexit ]
+  %.1 = phi ptr [ %65, %63 ], [ %45, %.loopexit.split.loopexit ]
   %79 = getelementptr inbounds i8, ptr %77, i64 56
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 116
@@ -3550,18 +3550,18 @@ define internal fastcc ptr @get_rels_with_domain(i32 noundef %0) unnamed_addr #0
   br i1 %.not79, label %98, label %.outer.backedge
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %.164, i64 8
+  %99 = getelementptr inbounds i8, ptr %.1, i64 8
   %100 = load i32, ptr %99, align 8
   %101 = add i32 %100, 1
   store i32 %101, ptr %99, align 8
-  %102 = getelementptr inbounds i8, ptr %.164, i64 16
+  %102 = getelementptr inbounds i8, ptr %.1, i64 16
   %103 = icmp sgt i32 %100, 0
   br i1 %103, label %.lr.ph105, label %.critedge
 
 .lr.ph105:                                        ; preds = %98, %111
-  %.066103 = phi i32 [ %112, %111 ], [ %100, %98 ]
+  %.0103 = phi i32 [ %112, %111 ], [ %100, %98 ]
   %104 = load ptr, ptr %102, align 8
-  %105 = zext nneg i32 %.066103 to i64
+  %105 = zext nneg i32 %.0103 to i64
   %106 = getelementptr i32, ptr %104, i64 %105
   %107 = getelementptr i8, ptr %106, i64 -4
   %108 = load i32, ptr %107, align 4
@@ -3571,24 +3571,24 @@ define internal fastcc ptr @get_rels_with_domain(i32 noundef %0) unnamed_addr #0
 
 111:                                              ; preds = %.lr.ph105
   store i32 %108, ptr %106, align 4
-  %112 = add nsw i32 %.066103, -1
-  %113 = icmp sgt i32 %.066103, 1
+  %112 = add nsw i32 %.0103, -1
+  %113 = icmp sgt i32 %.0103, 1
   br i1 %113, label %.lr.ph105, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph105, %111, %98
-  %.066.lcssa = phi i32 [ %100, %98 ], [ 0, %111 ], [ %.066103, %.lr.ph105 ]
+  %.0.lcssa = phi i32 [ %100, %98 ], [ 0, %111 ], [ %.0103, %.lr.ph105 ]
   %114 = load i32, ptr %76, align 4
   %115 = load ptr, ptr %102, align 8
-  %116 = sext i32 %.066.lcssa to i64
+  %116 = sext i32 %.0.lcssa to i64
   %117 = getelementptr i32, ptr %115, i64 %116
   store i32 %114, ptr %117, align 4
   br label %.outer.backedge
 
 .outer._crit_edge:                                ; preds = %.outer.backedge, %.backedge, %1
-  %.0.ph.lcssa = phi ptr [ null, %1 ], [ %.0.ph110, %.backedge ], [ %.0.ph.be, %.outer.backedge ]
+  %.065.ph.lcssa = phi ptr [ null, %1 ], [ %.065.ph110, %.backedge ], [ %.065.ph.be, %.outer.backedge ]
   call void @systable_endscan(ptr noundef %7) #8
   call void @relation_close(ptr noundef %4, i32 noundef 1) #8
-  ret ptr %.0.ph.lcssa
+  ret ptr %.065.ph.lcssa
 }
 
 declare ptr @RegisterSnapshot(ptr noundef) local_unnamed_addr #1
@@ -4995,7 +4995,7 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
 
 .lr.ph452:                                        ; preds = %.lr.ph, %190
   %36 = phi i8 [ %203, %190 ], [ 0, %.lr.ph ]
-  %.0113451 = phi i1 [ %.2, %190 ], [ false, %.lr.ph ]
+  %.073112451 = phi i1 [ %.2, %190 ], [ false, %.lr.ph ]
   %37 = phi i32 [ %202, %190 ], [ 0, %.lr.ph ]
   %38 = phi i8 [ %201, %190 ], [ 0, %.lr.ph ]
   %39 = phi i32 [ %200, %190 ], [ 0, %.lr.ph ]
@@ -5073,7 +5073,7 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
 80:                                               ; preds = %73
   %81 = load i8, ptr %33, align 1
   %82 = icmp eq i8 %81, 112
-  %spec.select = select i1 %82, i1 true, i1 %.0113451
+  %spec.select = select i1 %82, i1 true, i1 %.073112451
   br label %190
 
 83:                                               ; preds = %56
@@ -5287,7 +5287,7 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
   %201 = phi i8 [ %38, %80 ], [ %38, %83 ], [ %38, %110 ], [ %38, %113 ], [ %38, %119 ], [ %38, %122 ], [ %38, %128 ], [ %38, %131 ], [ 1, %137 ], [ 1, %140 ], [ %38, %92 ], [ %38, %95 ], [ %38, %101 ], [ %38, %104 ]
   %202 = phi i32 [ %37, %80 ], [ %37, %83 ], [ %37, %110 ], [ %37, %113 ], [ %37, %119 ], [ %37, %122 ], [ %37, %128 ], [ %37, %131 ], [ 0, %137 ], [ %142, %140 ], [ %37, %92 ], [ %37, %95 ], [ %37, %101 ], [ %37, %104 ]
   %203 = phi i8 [ 1, %80 ], [ 1, %83 ], [ %36, %110 ], [ %36, %113 ], [ %36, %119 ], [ %36, %122 ], [ %36, %128 ], [ %36, %131 ], [ %36, %137 ], [ %36, %140 ], [ %36, %92 ], [ %36, %95 ], [ %36, %101 ], [ %36, %104 ]
-  %.2 = phi i1 [ %spec.select, %80 ], [ %.0113451, %83 ], [ true, %110 ], [ true, %113 ], [ true, %119 ], [ true, %122 ], [ true, %128 ], [ true, %131 ], [ true, %137 ], [ true, %140 ], [ true, %92 ], [ true, %95 ], [ true, %101 ], [ true, %104 ]
+  %.2 = phi i1 [ %spec.select, %80 ], [ %.073112451, %83 ], [ true, %110 ], [ true, %113 ], [ true, %119 ], [ true, %122 ], [ true, %128 ], [ true, %131 ], [ true, %137 ], [ true, %140 ], [ true, %92 ], [ true, %95 ], [ true, %101 ], [ true, %104 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv450, 1
   %204 = load i32, ptr %17, align 4
   %205 = sext i32 %204 to i64
@@ -5308,7 +5308,7 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
   %.lcssa384 = phi i32 [ 0, %.lr.ph ], [ %200, %190 ]
   %.lcssa379 = phi i8 [ 0, %.lr.ph ], [ %201, %190 ]
   %.lcssa374 = phi i32 [ 0, %.lr.ph ], [ %202, %190 ]
-  %.0113.lcssa = phi i1 [ false, %.lr.ph ], [ %.2, %190 ]
+  %.073112.lcssa = phi i1 [ false, %.lr.ph ], [ %.2, %190 ]
   %.lcssa365 = phi i8 [ 0, %.lr.ph ], [ %203, %190 ]
   store i8 %.lcssa419, ptr %28, align 2
   store i32 %storemerge349.lcssa, ptr %29, align 4
@@ -5324,7 +5324,7 @@ define dso_local { i64, i32 } @AlterType(ptr nocapture noundef readonly %0) loca
   store i8 %.lcssa409, ptr %26, align 1
   store i32 %.lcssa414, ptr %27, align 4
   store i8 %.lcssa365, ptr %2, align 4
-  br i1 %.0113.lcssa, label %207, label %.critedge
+  br i1 %.073112.lcssa, label %207, label %.critedge
 
 207:                                              ; preds = %._crit_edge
   %208 = tail call zeroext i1 @superuser() #8

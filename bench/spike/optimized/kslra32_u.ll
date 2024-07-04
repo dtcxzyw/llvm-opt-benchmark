@@ -169,9 +169,9 @@ define noundef i64 @_Z20fast_rv64i_kslra32_uP11processor_t6insn_tm(ptr nocapture
   br i1 %37, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %20, %.split.us
-  %.05266.us = phi i64 [ %61, %.split.us ], [ 1, %20 ]
-  %.05365.us = phi i64 [ %60, %.split.us ], [ %25, %20 ]
-  %43 = shl i64 %.05266.us, 5
+  %.05066.us = phi i64 [ %61, %.split.us ], [ 1, %20 ]
+  %.05265.us = phi i64 [ %60, %.split.us ], [ %25, %20 ]
+  %43 = shl i64 %.05066.us, 5
   %44 = and i64 %43, 4294967264
   %45 = shl nuw i64 4294967295, %44
   %46 = and i64 %45, %29
@@ -184,19 +184,19 @@ define noundef i64 @_Z20fast_rv64i_kslra32_uP11processor_t6insn_tm(ptr nocapture
   %53 = add nsw i32 %52, 1
   %54 = ashr i32 %53, 1
   %55 = xor i64 %45, -1
-  %56 = and i64 %.05365.us, %55
+  %56 = and i64 %.05265.us, %55
   %57 = sext i32 %54 to i64
   %58 = mul i64 %49, %57
   %59 = and i64 %58, %45
   %60 = or i64 %59, %56
-  %61 = add nsw i64 %.05266.us, -1
-  %.not72 = icmp eq i64 %.05266.us, 0
+  %61 = add nsw i64 %.05066.us, -1
+  %.not72 = icmp eq i64 %.05066.us, 0
   br i1 %.not72, label %.split68.us, label %.split.us, !llvm.loop !4
 
 .split:                                           ; preds = %20, %76
-  %.05266 = phi i64 [ %82, %76 ], [ 1, %20 ]
-  %.05365 = phi i64 [ %81, %76 ], [ %25, %20 ]
-  %62 = shl i64 %.05266, 5
+  %.05066 = phi i64 [ %82, %76 ], [ 1, %20 ]
+  %.05265 = phi i64 [ %81, %76 ], [ %25, %20 ]
+  %62 = shl i64 %.05066, 5
   %63 = and i64 %62, 4294967264
   %64 = shl nuw i64 4294967295, %63
   %65 = and i64 %64, %29
@@ -215,20 +215,20 @@ define noundef i64 @_Z20fast_rv64i_kslra32_uP11processor_t6insn_tm(ptr nocapture
   br i1 %74, label %.sink.split, label %76
 
 .sink.split:                                      ; preds = %73, %.split
-  %.049.ph = phi i64 [ 2147483647, %.split ], [ -2147483648, %73 ]
+  %.0.ph = phi i64 [ 2147483647, %.split ], [ -2147483648, %73 ]
   %75 = load ptr, ptr %39, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %75, i64 noundef 1) #14
   br label %76
 
 76:                                               ; preds = %.sink.split, %73
-  %.049 = phi i64 [ %71, %73 ], [ %.049.ph, %.sink.split ]
+  %.0 = phi i64 [ %71, %73 ], [ %.0.ph, %.sink.split ]
   %77 = xor i64 %64, -1
-  %78 = and i64 %.05365, %77
-  %79 = mul i64 %.049, %68
+  %78 = and i64 %.05265, %77
+  %79 = mul i64 %.0, %68
   %80 = and i64 %79, %64
   %81 = or i64 %80, %78
-  %82 = add nsw i64 %.05266, -1
-  %.not = icmp eq i64 %.05266, 0
+  %82 = add nsw i64 %.05066, -1
+  %.not = icmp eq i64 %.05066, 0
   br i1 %.not, label %.split68.us, label %.split, !llvm.loop !4
 
 .split68.us:                                      ; preds = %76, %.split.us
@@ -332,9 +332,9 @@ define noundef i64 @_Z22logged_rv64i_kslra32_uP11processor_t6insn_tm(ptr noundef
   br i1 %37, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %20, %.split.us
-  %.05471.us = phi i64 [ %60, %.split.us ], [ %25, %20 ]
-  %.05670.us = phi i64 [ %61, %.split.us ], [ 1, %20 ]
-  %43 = shl i64 %.05670.us, 5
+  %.05571.us = phi i64 [ %61, %.split.us ], [ 1, %20 ]
+  %.05670.us = phi i64 [ %60, %.split.us ], [ %25, %20 ]
+  %43 = shl i64 %.05571.us, 5
   %44 = and i64 %43, 4294967264
   %45 = shl nuw i64 4294967295, %44
   %46 = and i64 %45, %29
@@ -347,19 +347,19 @@ define noundef i64 @_Z22logged_rv64i_kslra32_uP11processor_t6insn_tm(ptr noundef
   %53 = add nsw i32 %52, 1
   %54 = ashr i32 %53, 1
   %55 = xor i64 %45, -1
-  %56 = and i64 %.05471.us, %55
+  %56 = and i64 %.05670.us, %55
   %57 = sext i32 %54 to i64
   %58 = mul i64 %49, %57
   %59 = and i64 %58, %45
   %60 = or i64 %59, %56
-  %61 = add nsw i64 %.05670.us, -1
-  %.not78 = icmp eq i64 %.05670.us, 0
+  %61 = add nsw i64 %.05571.us, -1
+  %.not78 = icmp eq i64 %.05571.us, 0
   br i1 %.not78, label %.split73.us, label %.split.us, !llvm.loop !6
 
 .split:                                           ; preds = %20, %76
-  %.05471 = phi i64 [ %81, %76 ], [ %25, %20 ]
-  %.05670 = phi i64 [ %82, %76 ], [ 1, %20 ]
-  %62 = shl i64 %.05670, 5
+  %.05571 = phi i64 [ %82, %76 ], [ 1, %20 ]
+  %.05670 = phi i64 [ %81, %76 ], [ %25, %20 ]
+  %62 = shl i64 %.05571, 5
   %63 = and i64 %62, 4294967264
   %64 = shl nuw i64 4294967295, %63
   %65 = and i64 %64, %29
@@ -386,12 +386,12 @@ define noundef i64 @_Z22logged_rv64i_kslra32_uP11processor_t6insn_tm(ptr noundef
 76:                                               ; preds = %.sink.split, %73
   %.053 = phi i64 [ %71, %73 ], [ %.053.ph, %.sink.split ]
   %77 = xor i64 %64, -1
-  %78 = and i64 %.05471, %77
+  %78 = and i64 %.05670, %77
   %79 = mul i64 %.053, %68
   %80 = and i64 %79, %64
   %81 = or i64 %80, %78
-  %82 = add nsw i64 %.05670, -1
-  %.not = icmp eq i64 %.05670, 0
+  %82 = add nsw i64 %.05571, -1
+  %.not = icmp eq i64 %.05571, 0
   br i1 %.not, label %.split73.us, label %.split, !llvm.loop !6
 
 .split73.us:                                      ; preds = %76, %.split.us
@@ -594,9 +594,9 @@ define noundef i64 @_Z20fast_rv64e_kslra32_uP11processor_t6insn_tm(ptr nocapture
   br i1 %58, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %52, %.split.us
-  %.06286.us = phi i64 [ %82, %.split.us ], [ 1, %52 ]
-  %.06385.us = phi i64 [ %81, %.split.us ], [ %32, %52 ]
-  %64 = shl i64 %.06286.us, 5
+  %.06086.us = phi i64 [ %82, %.split.us ], [ 1, %52 ]
+  %.06185.us = phi i64 [ %81, %.split.us ], [ %32, %52 ]
+  %64 = shl i64 %.06086.us, 5
   %65 = and i64 %64, 4294967264
   %66 = shl nuw i64 4294967295, %65
   %67 = and i64 %66, %43
@@ -609,19 +609,19 @@ define noundef i64 @_Z20fast_rv64e_kslra32_uP11processor_t6insn_tm(ptr nocapture
   %74 = add nsw i32 %73, 1
   %75 = ashr i32 %74, 1
   %76 = xor i64 %66, -1
-  %77 = and i64 %.06385.us, %76
+  %77 = and i64 %.06185.us, %76
   %78 = sext i32 %75 to i64
   %79 = mul i64 %70, %78
   %80 = and i64 %79, %66
   %81 = or i64 %80, %77
-  %82 = add nsw i64 %.06286.us, -1
-  %.not92 = icmp eq i64 %.06286.us, 0
+  %82 = add nsw i64 %.06086.us, -1
+  %.not92 = icmp eq i64 %.06086.us, 0
   br i1 %.not92, label %.split88.us, label %.split.us, !llvm.loop !8
 
 .split:                                           ; preds = %52, %97
-  %.06286 = phi i64 [ %103, %97 ], [ 1, %52 ]
-  %.06385 = phi i64 [ %102, %97 ], [ %32, %52 ]
-  %83 = shl i64 %.06286, 5
+  %.06086 = phi i64 [ %103, %97 ], [ 1, %52 ]
+  %.06185 = phi i64 [ %102, %97 ], [ %32, %52 ]
+  %83 = shl i64 %.06086, 5
   %84 = and i64 %83, 4294967264
   %85 = shl nuw i64 4294967295, %84
   %86 = and i64 %85, %43
@@ -640,20 +640,20 @@ define noundef i64 @_Z20fast_rv64e_kslra32_uP11processor_t6insn_tm(ptr nocapture
   br i1 %95, label %.sink.split, label %97
 
 .sink.split:                                      ; preds = %94, %.split
-  %.060.ph = phi i64 [ 2147483647, %.split ], [ -2147483648, %94 ]
+  %.0.ph = phi i64 [ 2147483647, %.split ], [ -2147483648, %94 ]
   %96 = load ptr, ptr %60, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %96, i64 noundef 1) #14
   br label %97
 
 97:                                               ; preds = %.sink.split, %94
-  %.060 = phi i64 [ %92, %94 ], [ %.060.ph, %.sink.split ]
+  %.0 = phi i64 [ %92, %94 ], [ %.0.ph, %.sink.split ]
   %98 = xor i64 %85, -1
-  %99 = and i64 %.06385, %98
-  %100 = mul i64 %.060, %89
+  %99 = and i64 %.06185, %98
+  %100 = mul i64 %.0, %89
   %101 = and i64 %100, %85
   %102 = or i64 %101, %99
-  %103 = add nsw i64 %.06286, -1
-  %.not = icmp eq i64 %.06286, 0
+  %103 = add nsw i64 %.06086, -1
+  %.not = icmp eq i64 %.06086, 0
   br i1 %.not, label %.split88.us, label %.split, !llvm.loop !8
 
 .split88.us:                                      ; preds = %97, %.split.us
@@ -799,9 +799,9 @@ define noundef i64 @_Z22logged_rv64e_kslra32_uP11processor_t6insn_tm(ptr noundef
   br i1 %58, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %52, %.split.us
-  %.06391.us = phi i64 [ %81, %.split.us ], [ %32, %52 ]
-  %.06690.us = phi i64 [ %82, %.split.us ], [ 1, %52 ]
-  %64 = shl i64 %.06690.us, 5
+  %.06491.us = phi i64 [ %82, %.split.us ], [ 1, %52 ]
+  %.06690.us = phi i64 [ %81, %.split.us ], [ %32, %52 ]
+  %64 = shl i64 %.06491.us, 5
   %65 = and i64 %64, 4294967264
   %66 = shl nuw i64 4294967295, %65
   %67 = and i64 %66, %43
@@ -814,19 +814,19 @@ define noundef i64 @_Z22logged_rv64e_kslra32_uP11processor_t6insn_tm(ptr noundef
   %74 = add nsw i32 %73, 1
   %75 = ashr i32 %74, 1
   %76 = xor i64 %66, -1
-  %77 = and i64 %.06391.us, %76
+  %77 = and i64 %.06690.us, %76
   %78 = sext i32 %75 to i64
   %79 = mul i64 %70, %78
   %80 = and i64 %79, %66
   %81 = or i64 %80, %77
-  %82 = add nsw i64 %.06690.us, -1
-  %.not98 = icmp eq i64 %.06690.us, 0
+  %82 = add nsw i64 %.06491.us, -1
+  %.not98 = icmp eq i64 %.06491.us, 0
   br i1 %.not98, label %.split93.us, label %.split.us, !llvm.loop !9
 
 .split:                                           ; preds = %52, %97
-  %.06391 = phi i64 [ %102, %97 ], [ %32, %52 ]
-  %.06690 = phi i64 [ %103, %97 ], [ 1, %52 ]
-  %83 = shl i64 %.06690, 5
+  %.06491 = phi i64 [ %103, %97 ], [ 1, %52 ]
+  %.06690 = phi i64 [ %102, %97 ], [ %32, %52 ]
+  %83 = shl i64 %.06491, 5
   %84 = and i64 %83, 4294967264
   %85 = shl nuw i64 4294967295, %84
   %86 = and i64 %85, %43
@@ -845,20 +845,20 @@ define noundef i64 @_Z22logged_rv64e_kslra32_uP11processor_t6insn_tm(ptr noundef
   br i1 %95, label %.sink.split, label %97
 
 .sink.split:                                      ; preds = %94, %.split
-  %.064.ph = phi i64 [ 2147483647, %.split ], [ -2147483648, %94 ]
+  %.062.ph = phi i64 [ 2147483647, %.split ], [ -2147483648, %94 ]
   %96 = load ptr, ptr %60, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %96, i64 noundef 1) #14
   br label %97
 
 97:                                               ; preds = %.sink.split, %94
-  %.064 = phi i64 [ %92, %94 ], [ %.064.ph, %.sink.split ]
+  %.062 = phi i64 [ %92, %94 ], [ %.062.ph, %.sink.split ]
   %98 = xor i64 %85, -1
-  %99 = and i64 %.06391, %98
-  %100 = mul i64 %.064, %89
+  %99 = and i64 %.06690, %98
+  %100 = mul i64 %.062, %89
   %101 = and i64 %100, %85
   %102 = or i64 %101, %99
-  %103 = add nsw i64 %.06690, -1
-  %.not = icmp eq i64 %.06690, 0
+  %103 = add nsw i64 %.06491, -1
+  %.not = icmp eq i64 %.06491, 0
   br i1 %.not, label %.split93.us, label %.split, !llvm.loop !9
 
 .split93.us:                                      ; preds = %97, %.split.us

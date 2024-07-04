@@ -496,8 +496,8 @@ Tim_ManBoxNum.exit:                               ; preds = %Tim_ManPoNum.exit
 
 27:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %.0116215 = phi i32 [ %.0.i144, %.lr.ph ], [ %.1117, %39 ]
-  %.0118214 = phi i32 [ %.0.i, %.lr.ph ], [ %.1119, %39 ]
+  %.0115215 = phi i32 [ %.0.i144, %.lr.ph ], [ %.1116, %39 ]
+  %.0117214 = phi i32 [ %.0.i, %.lr.ph ], [ %.1118, %39 ]
   %28 = getelementptr inbounds i32, ptr %.val139, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %.not131 = icmp eq i32 %29, 0
@@ -509,25 +509,25 @@ Tim_ManBoxNum.exit:                               ; preds = %Tim_ManPoNum.exit
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 12
   %34 = load i32, ptr %33, align 4
-  %35 = add nsw i32 %34, %.0118214
+  %35 = add nsw i32 %34, %.0117214
   %36 = getelementptr inbounds i8, ptr %32, i64 8
   %37 = load i32, ptr %36, align 4
-  %38 = add nsw i32 %37, %.0116215
+  %38 = add nsw i32 %37, %.0115215
   br label %39
 
 39:                                               ; preds = %27, %30
-  %.1119 = phi i32 [ %35, %30 ], [ %.0118214, %27 ]
-  %.1117 = phi i32 [ %38, %30 ], [ %.0116215, %27 ]
+  %.1118 = phi i32 [ %35, %30 ], [ %.0117214, %27 ]
+  %.1116 = phi i32 [ %38, %30 ], [ %.0115215, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %27, !llvm.loop !12
 
 .critedge:                                        ; preds = %39, %Tim_ManPoNum.exit, %Tim_ManBoxNum.exit
-  %.2120 = phi i32 [ %.0.i, %Tim_ManBoxNum.exit ], [ %.0.i, %Tim_ManPoNum.exit ], [ %.1119, %39 ]
-  %.2 = phi i32 [ %.0.i144, %Tim_ManBoxNum.exit ], [ %.0.i144, %Tim_ManPoNum.exit ], [ %.1117, %39 ]
+  %.2119 = phi i32 [ %.0.i, %Tim_ManBoxNum.exit ], [ %.0.i, %Tim_ManPoNum.exit ], [ %.1118, %39 ]
+  %.2 = phi i32 [ %.0.i144, %Tim_ManBoxNum.exit ], [ %.0.i144, %Tim_ManPoNum.exit ], [ %.1116, %39 ]
   %40 = getelementptr inbounds i8, ptr %0, i64 32
   %41 = load i32, ptr %40, align 8
-  %42 = icmp eq i32 %.2120, %41
+  %42 = icmp eq i32 %.2119, %41
   br i1 %42, label %43, label %49
 
 43:                                               ; preds = %.critedge
@@ -583,7 +583,7 @@ Tim_ManBoxNum.exit:                               ; preds = %Tim_ManPoNum.exit
   br i1 %67, label %.lr.ph221, label %.critedge4, !llvm.loop !14
 
 .critedge4:                                       ; preds = %.lr.ph221, %63, %.critedge2
-  %68 = tail call ptr @Tim_ManStart(i32 noundef %.2120, i32 noundef %.2)
+  %68 = tail call ptr @Tim_ManStart(i32 noundef %.2119, i32 noundef %.2)
   %69 = getelementptr inbounds i8, ptr %68, i64 40
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %50, align 8
@@ -932,8 +932,8 @@ Tim_ManBoxNum.exit10.i195:                        ; preds = %Tim_ManBoxNum.exit.
   br label %Tim_ManPoNum.exit198
 
 Tim_ManPoNum.exit198:                             ; preds = %Tim_ManBoxNum.exit.i193, %.critedge6, %Tim_ManBoxNum.exit10.i195, %Tim_ManBoxNum.exit178, %47
-  %.0115 = phi ptr [ %48, %47 ], [ %68, %Tim_ManBoxNum.exit178 ], [ %68, %Tim_ManBoxNum.exit10.i195 ], [ %68, %.critedge6 ], [ %68, %Tim_ManBoxNum.exit.i193 ]
-  ret ptr %.0115
+  %.0124 = phi ptr [ %48, %47 ], [ %68, %Tim_ManBoxNum.exit178 ], [ %68, %Tim_ManBoxNum.exit10.i195 ], [ %68, %.critedge6 ], [ %68, %Tim_ManBoxNum.exit.i193 ]
+  ret ptr %.0124
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1078,8 +1078,8 @@ Tim_ManPoNum.exit:                                ; preds = %Tim_ManBoxNum.exit.
   br label %33
 
 .critedge.preheader:                              ; preds = %33, %Tim_ManPoNum.exit
-  %.0121.lcssa = phi i32 [ %12, %Tim_ManPoNum.exit ], [ %41, %33 ]
-  %.0120.lcssa = phi i32 [ %24, %Tim_ManPoNum.exit ], [ %44, %33 ]
+  %.0117.lcssa = phi i32 [ %12, %Tim_ManPoNum.exit ], [ %41, %33 ]
+  %.0116.lcssa = phi i32 [ %24, %Tim_ManPoNum.exit ], [ %44, %33 ]
   %29 = getelementptr inbounds i8, ptr %0, i64 40
   %30 = getelementptr inbounds i8, ptr %0, i64 32
   %31 = load i32, ptr %30, align 8
@@ -1088,8 +1088,8 @@ Tim_ManPoNum.exit:                                ; preds = %Tim_ManBoxNum.exit.
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %.0120164 = phi i32 [ %24, %.lr.ph ], [ %44, %33 ]
-  %.0121163 = phi i32 [ %12, %.lr.ph ], [ %41, %33 ]
+  %.0116165 = phi i32 [ %24, %.lr.ph ], [ %44, %33 ]
+  %.0117164 = phi i32 [ %12, %.lr.ph ], [ %41, %33 ]
   %34 = getelementptr inbounds i32, ptr %.val130, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
@@ -1097,10 +1097,10 @@ Tim_ManPoNum.exit:                                ; preds = %Tim_ManBoxNum.exit.
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 12
   %40 = load i32, ptr %39, align 4
-  %41 = add nsw i32 %40, %.0121163
+  %41 = add nsw i32 %40, %.0117164
   %42 = getelementptr inbounds i8, ptr %38, i64 8
   %43 = load i32, ptr %42, align 4
-  %44 = add nsw i32 %43, %.0120164
+  %44 = add nsw i32 %43, %.0116165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.preheader, label %33, !llvm.loop !18
@@ -1143,7 +1143,7 @@ Tim_ManPoNum.exit:                                ; preds = %Tim_ManBoxNum.exit.
   br i1 %59, label %.lr.ph170, label %.critedge4, !llvm.loop !20
 
 .critedge4:                                       ; preds = %.lr.ph170, %55, %.critedge2
-  %60 = tail call ptr @Tim_ManStart(i32 noundef %.0121.lcssa, i32 noundef %.0120.lcssa)
+  %60 = tail call ptr @Tim_ManStart(i32 noundef %.0117.lcssa, i32 noundef %.0116.lcssa)
   %61 = getelementptr inbounds i8, ptr %60, i64 40
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %29, align 8
@@ -1152,7 +1152,7 @@ Tim_ManPoNum.exit:                                ; preds = %Tim_ManBoxNum.exit.
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %62, ptr align 4 %63, i64 %65, i1 false)
   %66 = getelementptr inbounds i8, ptr %60, i64 48
   %67 = load ptr, ptr %66, align 8
-  %68 = sext i32 %.0120.lcssa to i64
+  %68 = sext i32 %.0116.lcssa to i64
   %69 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %67, i64 %68
   %70 = sext i32 %24 to i64
   %71 = sub nsw i64 0, %70

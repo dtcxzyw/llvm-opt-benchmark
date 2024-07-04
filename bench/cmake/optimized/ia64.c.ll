@@ -31,14 +31,14 @@ define internal i64 @ia64_code(ptr nocapture readnone %0, i32 noundef %1, i1 nou
 
 .lr.ph:                                           ; preds = %5, %.loopexit63
   %7 = phi i64 [ %6, %.loopexit63 ], [ 16, %5 ]
-  %.05872 = phi i64 [ %7, %.loopexit63 ], [ 0, %5 ]
-  %8 = getelementptr inbounds i8, ptr %3, i64 %.05872
+  %.06072 = phi i64 [ %7, %.loopexit63 ], [ 0, %5 ]
+  %8 = getelementptr inbounds i8, ptr %3, i64 %.06072
   %9 = load i8, ptr %8, align 1
   %10 = and i8 %9, 31
   %11 = zext nneg i8 %10 to i64
   %12 = getelementptr inbounds [32 x i32], ptr @ia64_code.BRANCH_TABLE, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
-  %14 = trunc i64 %.05872 to i32
+  %14 = trunc i64 %.06072 to i32
   %15 = add i32 %14, %1
   %16 = sub i32 0, %15
   %.055.p = select i1 %2, i32 %15, i32 %16
@@ -47,8 +47,8 @@ define internal i64 @ia64_code(ptr nocapture readnone %0, i32 noundef %1, i1 nou
 
 18:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv = phi i64 [ 5, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
-  %.06069 = phi i64 [ 0, %.lr.ph ], [ %67, %.loopexit ]
-  %19 = trunc nuw nsw i64 %.06069 to i32
+  %.05870 = phi i64 [ 0, %.lr.ph ], [ %67, %.loopexit ]
+  %19 = trunc nuw nsw i64 %.05870 to i32
   %20 = shl nuw nsw i32 1, %19
   %21 = and i32 %20, %13
   %22 = icmp eq i32 %21, 0
@@ -63,7 +63,7 @@ define internal i64 @ia64_code(ptr nocapture readnone %0, i32 noundef %1, i1 nou
 26:                                               ; preds = %23, %26
   %.05665 = phi i64 [ 0, %23 ], [ %33, %26 ]
   %.05764 = phi i64 [ 0, %23 ], [ %32, %26 ]
-  %27 = or disjoint i64 %.05665, %.05872
+  %27 = or disjoint i64 %.05665, %.06072
   %gep = getelementptr i8, ptr %invariant.gep, i64 %27
   %28 = load i8, ptr %gep, align 1
   %29 = zext i8 %28 to i64
@@ -112,7 +112,7 @@ define internal i64 @ia64_code(ptr nocapture readnone %0, i32 noundef %1, i1 nou
   %62 = shl nuw nsw i64 %.068, 3
   %63 = lshr i64 %60, %62
   %64 = trunc i64 %63 to i8
-  %65 = or disjoint i64 %.068, %.05872
+  %65 = or disjoint i64 %.068, %.06072
   %gep67 = getelementptr i8, ptr %invariant.gep, i64 %65
   store i8 %64, ptr %gep67, align 1
   %66 = add nuw nsw i64 %.068, 1
@@ -120,14 +120,14 @@ define internal i64 @ia64_code(ptr nocapture readnone %0, i32 noundef %1, i1 nou
   br i1 %exitcond74.not, label %.loopexit, label %61, !llvm.loop !8
 
 .loopexit:                                        ; preds = %61, %34, %18
-  %67 = add nuw nsw i64 %.06069, 1
+  %67 = add nuw nsw i64 %.05870, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 41
   %exitcond76.not = icmp eq i64 %67, 3
   br i1 %exitcond76.not, label %.loopexit63, label %18, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.loopexit63, %5
-  %.058.lcssa = phi i64 [ 0, %5 ], [ %7, %.loopexit63 ]
-  ret i64 %.058.lcssa
+  %.060.lcssa = phi i64 [ 0, %5 ], [ %7, %.loopexit63 ]
+  ret i64 %.060.lcssa
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

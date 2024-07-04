@@ -551,8 +551,8 @@ ehcleanup23:                                      ; preds = %ehcleanup, %cleanup
 
 ehcleanup24:                                      ; preds = %ehcleanup23, %lpad8
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup23 ], [ %44, %lpad8 ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %exn.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
   invoke void @__cxa_end_catch()
           to label %ehcleanup52 unwind label %terminate.lpad
 
@@ -629,8 +629,8 @@ cleanup.action49:                                 ; preds = %ehcleanup47.thread3
 
 ehcleanup51:                                      ; preds = %ehcleanup47, %cleanup.action49, %lpad31
   %.pn6.pn = phi { ptr, i32 } [ %.pn635, %cleanup.action49 ], [ %54, %ehcleanup47 ], [ %52, %lpad31 ]
-  %exn.slot.4 = extractvalue { ptr, i32 } %.pn6.pn, 0
   %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn6.pn, 1
+  %exn.slot.4 = extractvalue { ptr, i32 } %.pn6.pn, 0
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os29) #17
   br label %ehcleanup52
 
@@ -642,20 +642,20 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalCachedFileEED2Ev.ex
   ret void
 
 ehcleanup52:                                      ; preds = %ehcleanup24, %ehcleanup51, %lpad26, %lpad4
-  %ehselector.slot.5 = phi i32 [ %ehselector.slot.4, %ehcleanup51 ], [ %51, %lpad26 ], [ %ehselector.slot.2, %ehcleanup24 ], [ %39, %lpad4 ]
   %exn.slot.5 = phi ptr [ %exn.slot.4, %ehcleanup51 ], [ %50, %lpad26 ], [ %exn.slot.2, %ehcleanup24 ], [ %38, %lpad4 ]
+  %ehselector.slot.5 = phi i32 [ %ehselector.slot.4, %ehcleanup51 ], [ %51, %lpad26 ], [ %ehselector.slot.2, %ehcleanup24 ], [ %39, %lpad4 ]
   call void @_ZN19OpenColorIO_v2_4dev9CDLParserD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %parser) #17
   br label %ehcleanup53
 
 ehcleanup53:                                      ; preds = %ehcleanup52, %lpad2
-  %ehselector.slot.6 = phi i32 [ %ehselector.slot.5, %ehcleanup52 ], [ %36, %lpad2 ]
   %exn.slot.6 = phi ptr [ %exn.slot.5, %ehcleanup52 ], [ %35, %lpad2 ]
+  %ehselector.slot.6 = phi i32 [ %ehselector.slot.5, %ehcleanup52 ], [ %36, %lpad2 ]
   call fastcc void @_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev12_GLOBAL__N_115LocalCachedFileEED2Ev(ptr nonnull %call.i.i.i.i) #17
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup53, %lpad.i
-  %ehselector.slot.7 = phi i32 [ %ehselector.slot.6, %ehcleanup53 ], [ %26, %lpad.i ]
   %exn.slot.7 = phi ptr [ %exn.slot.6, %ehcleanup53 ], [ %25, %lpad.i ]
+  %ehselector.slot.7 = phi i32 [ %ehselector.slot.6, %ehcleanup53 ], [ %26, %lpad.i ]
   %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.7, 0
   %lpad.val56 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.7, 1
   br label %common.resume

@@ -1261,7 +1261,7 @@ define noundef ptr @Abc_NtkInitialState(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %.016 = phi ptr [ %5, %.lr.ph ], [ %18, %10 ]
+  %.01215 = phi ptr [ %5, %.lr.ph ], [ %18, %10 ]
   %11 = load ptr, ptr %8, align 8
   %.val13 = load ptr, ptr %9, align 8
   %12 = getelementptr i8, ptr %.val13, i64 8
@@ -1271,19 +1271,19 @@ define noundef ptr @Abc_NtkInitialState(ptr noundef %0) local_unnamed_addr #0 {
   %15 = ptrtoint ptr %14 to i64
   %16 = xor i64 %15, 1
   %17 = inttoptr i64 %16 to ptr
-  %18 = tail call ptr @Abc_AigAnd(ptr noundef %11, ptr noundef %.016, ptr noundef %17) #11
+  %18 = tail call ptr @Abc_AigAnd(ptr noundef %11, ptr noundef %.01215, ptr noundef %17) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %10, %1
-  %.0.lcssa = phi ptr [ %5, %1 ], [ %18, %10 ]
+  %.012.lcssa = phi ptr [ %5, %1 ], [ %18, %10 ]
   %19 = getelementptr i8, ptr %4, i64 48
   %.val14 = load ptr, ptr %19, align 8
   %20 = getelementptr i8, ptr %.val14, i64 8
   %.val14.val = load ptr, ptr %20, align 8
   %.val14.val.val = load ptr, ptr %.val14.val, align 8
-  tail call void @Abc_ObjAddFanin(ptr noundef %.val14.val.val, ptr noundef %.0.lcssa) #11
+  tail call void @Abc_ObjAddFanin(ptr noundef %.val14.val.val, ptr noundef %.012.lcssa) #11
   ret ptr %4
 }
 
@@ -1463,7 +1463,7 @@ define ptr @Abc_NtkReachability(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
 
 17:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
-  %.016.i = phi ptr [ %12, %.lr.ph.i ], [ %25, %17 ]
+  %.01215.i = phi ptr [ %12, %.lr.ph.i ], [ %25, %17 ]
   %18 = load ptr, ptr %15, align 8
   %.val13.i = load ptr, ptr %16, align 8
   %19 = getelementptr i8, ptr %.val13.i, i64 8
@@ -1473,19 +1473,19 @@ define ptr @Abc_NtkReachability(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   %22 = ptrtoint ptr %21 to i64
   %23 = xor i64 %22, 1
   %24 = inttoptr i64 %23 to ptr
-  %25 = tail call ptr @Abc_AigAnd(ptr noundef %18, ptr noundef %.016.i, ptr noundef %24) #11
+  %25 = tail call ptr @Abc_AigAnd(ptr noundef %18, ptr noundef %.01215.i, ptr noundef %24) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Abc_NtkInitialState.exit, label %17, !llvm.loop !16
 
 Abc_NtkInitialState.exit:                         ; preds = %17, %3
-  %.0.lcssa.i = phi ptr [ %12, %3 ], [ %25, %17 ]
+  %.012.lcssa.i = phi ptr [ %12, %3 ], [ %25, %17 ]
   %26 = getelementptr i8, ptr %11, i64 48
   %.val14.i = load ptr, ptr %26, align 8
   %27 = getelementptr i8, ptr %.val14.i, i64 8
   %.val14.val.i = load ptr, ptr %27, align 8
   %.val14.val.val.i = load ptr, ptr %.val14.val.i, align 8
-  tail call void @Abc_ObjAddFanin(ptr noundef %.val14.val.val.i, ptr noundef %.0.lcssa.i) #11
+  tail call void @Abc_ObjAddFanin(ptr noundef %.val14.val.val.i, ptr noundef %.012.lcssa.i) #11
   store ptr %11, ptr %6, align 8
   %28 = tail call ptr @Abc_NtkDup(ptr noundef %11) #11
   store ptr %28, ptr %7, align 8
@@ -1506,9 +1506,9 @@ Abc_NtkInitialState.exit:                         ; preds = %17, %3
 
 35:                                               ; preds = %.lr.ph67, %105
   %36 = phi ptr [ %11, %.lr.ph67 ], [ %82, %105 ]
-  %.03866.in = phi ptr [ %31, %.lr.ph67 ], [ %83, %105 ]
-  %.03665 = phi i32 [ 0, %.lr.ph67 ], [ %.pre-phi, %105 ]
-  %.03866 = load i32, ptr %.03866.in, align 4
+  %.03766.in = phi ptr [ %31, %.lr.ph67 ], [ %83, %105 ]
+  %.03965 = phi i32 [ 0, %.lr.ph67 ], [ %.pre-phi, %105 ]
+  %.03766 = load i32, ptr %.03766.in, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %37 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #11
   %38 = icmp slt i32 %37, 0
@@ -1531,10 +1531,10 @@ Abc_Clock.exit:                                   ; preds = %35, %39
   br i1 %33, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %Abc_Clock.exit, %58
-  %.03962 = phi i32 [ %60, %58 ], [ 0, %Abc_Clock.exit ]
+  %.03862 = phi i32 [ %60, %58 ], [ 0, %Abc_Clock.exit ]
   %43 = phi ptr [ %59, %58 ], [ %42, %Abc_Clock.exit ]
-  %44 = call i32 @Abc_NtkQuantify(ptr noundef %43, i32 noundef 0, i32 noundef %.03962, i32 poison)
-  %45 = urem i32 %.03962, 3
+  %44 = call i32 @Abc_NtkQuantify(ptr noundef %43, i32 noundef 0, i32 noundef %.03862, i32 poison)
+  %45 = urem i32 %.03862, 3
   %46 = icmp eq i32 %45, 2
   br i1 %46, label %47, label %58
 
@@ -1557,7 +1557,7 @@ Abc_Clock.exit:                                   ; preds = %35, %39
 
 58:                                               ; preds = %.lr.ph, %47
   %59 = phi ptr [ %43, %.lr.ph ], [ %57, %47 ]
-  %60 = add nuw nsw i32 %.03962, 1
+  %60 = add nuw nsw i32 %.03862, 1
   %exitcond.not = icmp eq i32 %60, %30
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
@@ -1615,19 +1615,19 @@ Abc_Clock.exit:                                   ; preds = %35, %39
   br i1 %.not, label %._crit_edge78, label %84
 
 ._crit_edge78:                                    ; preds = %77
-  %.pre = add nuw nsw i32 %.03665, 1
+  %.pre = add nuw nsw i32 %.03965, 1
   br label %105
 
 84:                                               ; preds = %77
   %.val52 = load i32, ptr %83, align 4
-  %85 = add nuw nsw i32 %.03665, 1
+  %85 = add nuw nsw i32 %.03965, 1
   %86 = load ptr, ptr %7, align 8
   %87 = getelementptr i8, ptr %86, i64 124
   %.val53 = load i32, ptr %87, align 4
-  %88 = sub nsw i32 %.val52, %.03866
+  %88 = sub nsw i32 %.val52, %.03766
   %89 = sitofp i32 %88 to double
   %90 = fmul double %89, 1.000000e+02
-  %91 = sitofp i32 %.03866 to double
+  %91 = sitofp i32 %.03766 to double
   %92 = fdiv double %90, %91
   %93 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %85, i32 noundef %.val53, i32 noundef %.val51, i32 noundef %.val52, double noundef %92)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6)

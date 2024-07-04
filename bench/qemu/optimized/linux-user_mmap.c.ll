@@ -593,8 +593,8 @@ land.lhs.true87:                                  ; preds = %if.else85
   br i1 %cmp88.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %if.else85, %land.lhs.true87, %if.end75
-  %wrapped.1 = phi i32 [ 1, %if.end75 ], [ 1, %land.lhs.true87 ], [ 0, %if.else85 ]
   %addr.2 = phi i64 [ %cond84, %if.end75 ], [ %addr.1, %land.lhs.true87 ], [ %addr.1, %if.else85 ]
+  %wrapped.1 = phi i32 [ 1, %if.end75 ], [ 1, %land.lhs.true87 ], [ 0, %if.else85 ]
   %14 = load i64, ptr @guest_base, align 8
   %add.i = add i64 %14, %addr.2
   %15 = inttoptr i64 %add.i to ptr
@@ -1049,8 +1049,8 @@ the_end1.thread:                                  ; preds = %if.then180, %if.end
   br label %if.then240
 
 the_end1:                                         ; preds = %if.then206, %if.end97
-  %passthrough_last.0 = phi i64 [ %sub101, %if.end97 ], [ %real_last.0, %if.then206 ]
   %passthrough_start.0 = phi i64 [ %sub93, %if.end97 ], [ %real_start.0, %if.then206 ]
+  %passthrough_last.0 = phi i64 [ %sub101, %if.end97 ], [ %real_last.0, %if.then206 ]
   %last.0 = phi i64 [ %sub101, %if.end97 ], [ %sub109, %if.then206 ]
   %flags.addr.1 = phi i32 [ %flags, %if.end97 ], [ %flags.addr.0, %if.then206 ]
   %start.addr.1 = phi i64 [ %sub93, %if.end97 ], [ %start.addr.0, %if.then206 ]

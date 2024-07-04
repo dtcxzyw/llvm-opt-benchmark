@@ -52,8 +52,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %20
 
 20:                                               ; preds = %2, %111
-  %.03747 = phi i32 [ 0, %2 ], [ %112, %111 ]
-  switch i32 %.03747, label %default.unreachable [
+  %.04047 = phi i32 [ 0, %2 ], [ %112, %111 ]
+  switch i32 %.04047, label %default.unreachable [
     i32 0, label %21
     i32 1, label %22
     i32 2, label %23
@@ -92,7 +92,7 @@ default.unreachable:                              ; preds = %20
 27:                                               ; preds = %26, %25, %24, %23, %22, %21
   %28 = phi i1 [ false, %26 ], [ true, %25 ], [ false, %24 ], [ false, %23 ], [ false, %22 ], [ false, %21 ]
   %29 = phi i1 [ true, %26 ], [ false, %25 ], [ false, %24 ], [ false, %23 ], [ false, %22 ], [ false, %21 ]
-  %.140 = phi ptr [ @op_get, %26 ], [ @op_put, %25 ], [ @op_send_pingpong, %24 ], [ @op_a2a, %23 ], [ @op_coll, %22 ], [ @op_send, %21 ]
+  %.1 = phi ptr [ @op_get, %26 ], [ @op_put, %25 ], [ @op_send_pingpong, %24 ], [ @op_a2a, %23 ], [ @op_coll, %22 ], [ @op_send, %21 ]
   %30 = load i32, ptr @rank_world, align 4
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %35
@@ -109,7 +109,7 @@ default.unreachable:                              ; preds = %20
 36:                                               ; preds = %35, %101
   %37 = phi double [ 0.000000e+00, %35 ], [ %109, %101 ]
   %.046 = phi i32 [ 0, %35 ], [ %108, %101 ]
-  %.145 = phi ptr [ null, %35 ], [ %.2, %101 ]
+  %.13945 = phi ptr [ null, %35 ], [ %.2, %101 ]
   %.not = icmp eq i32 %.046, 0
   br i1 %.not, label %44, label %38
 
@@ -118,11 +118,11 @@ default.unreachable:                              ; preds = %20
   %40 = add nsw i32 %39, 1
   %41 = mul nsw i32 %40, %.046
   %42 = sext i32 %41 to i64
-  %43 = call ptr @realloc(ptr noundef %.145, i64 noundef %42) #13
+  %43 = call ptr @realloc(ptr noundef %.13945, i64 noundef %42) #13
   br label %44
 
 44:                                               ; preds = %38, %36
-  %.2 = phi ptr [ %43, %38 ], [ %.145, %36 ]
+  %.2 = phi ptr [ %43, %38 ], [ %.13945, %36 ]
   %.not.i = icmp eq ptr %.2, null
   %45 = sext i32 %.046 to i64
   %46 = getelementptr inbounds i8, ptr %.2, i64 %45
@@ -140,7 +140,7 @@ default.unreachable:                              ; preds = %20
 50:                                               ; preds = %.preheader, %50
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %50 ], [ 0, %.preheader ]
   %51 = getelementptr inbounds double, ptr %5, i64 %indvars.iv.i
-  call void %.140(ptr noundef nonnull %51, ptr noundef %.2, i32 noundef %.046, i32 noundef 201, ptr noundef %47) #12
+  call void %.1(ptr noundef nonnull %51, ptr noundef %.2, i32 noundef %.046, i32 noundef 201, ptr noundef %47) #12
   %52 = call i32 @MPI_Barrier(ptr noundef nonnull @ompi_mpi_comm_world) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 1000
@@ -236,7 +236,7 @@ do_bench.exit:                                    ; preds = %53, %54
 
 111:                                              ; preds = %101
   call void @free(ptr noundef %.2) #12
-  %112 = add nuw nsw i32 %.03747, 1
+  %112 = add nuw nsw i32 %.04047, 1
   %exitcond49.not = icmp eq i32 %112, 6
   br i1 %exitcond49.not, label %113, label %20, !llvm.loop !9
 

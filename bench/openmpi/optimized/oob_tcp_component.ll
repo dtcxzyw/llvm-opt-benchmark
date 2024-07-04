@@ -628,14 +628,14 @@ define internal range(i32 -16, 1) i32 @component_available() #0 {
   br i1 %.not4352, label %._crit_edge, label %.lr.ph
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %.03653, i64 120
-  %.036 = load ptr, ptr %14, align 8
-  %.not43 = icmp eq ptr %.036, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
+  %14 = getelementptr inbounds i8, ptr %.03553, i64 120
+  %.035 = load ptr, ptr %14, align 8
+  %.not43 = icmp eq ptr %.035, getelementptr inbounds (i8, ptr @pmix_if_list, i64 120)
   br i1 %.not43, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.preheader, %13
-  %.03653 = phi ptr [ %.036, %13 ], [ %.156.pre, %.preheader ]
-  %15 = getelementptr inbounds i8, ptr %.03653, i64 412
+  %.03553 = phi ptr [ %.035, %13 ], [ %.156.pre, %.preheader ]
+  %15 = getelementptr inbounds i8, ptr %.03553, i64 412
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 8
   %.not44.not = icmp ne i32 %17, 0
@@ -818,8 +818,8 @@ pmix_obj_new_tma.exit.thread50:                   ; preds = %.lr.ph.i.i, %61
   br label %pmix_obj_new_tma.exit.thread
 
 pmix_obj_new_tma.exit.thread:                     ; preds = %60, %._crit_edge
-  %.035 = phi i32 [ %., %._crit_edge ], [ -2, %60 ]
-  ret i32 %.035
+  %.036 = phi i32 [ %., %._crit_edge ], [ -2, %60 ]
+  ret i32 %.036
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1283,7 +1283,7 @@ define internal range(i32 -46, 1) i32 @component_set_addr(ptr noundef %0, ptr no
   br i1 %93, label %240, label %94
 
 94:                                               ; preds = %85, %91
-  %.0102 = phi ptr [ %92, %91 ], [ %72, %85 ]
+  %.0101 = phi ptr [ %92, %91 ], [ %72, %85 ]
   %95 = tail call ptr @prte_oob_tcp_peer_lookup(ptr noundef %0) #18
   %96 = icmp eq ptr %95, null
   br i1 %96, label %97, label %132
@@ -1407,7 +1407,7 @@ pmix_obj_new_tma.exit137:                         ; preds = %.lr.ph.i.i134, %138
   %150 = getelementptr inbounds i8, ptr %134, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %150, i8 0, i64 16, i1 false)
   store i16 2, ptr %150, align 4
-  %151 = tail call i32 @inet_addr(ptr noundef nonnull %.0102) #18
+  %151 = tail call i32 @inet_addr(ptr noundef nonnull %.0101) #18
   %152 = getelementptr inbounds i8, ptr %134, i64 148
   store i32 %151, ptr %152, align 4
   %153 = icmp eq i32 %151, -1
@@ -1559,7 +1559,7 @@ pmix_obj_run_destructors.exit144:                 ; preds = %.lr.ph.i141, %199
 227:                                              ; preds = %222
   %228 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #18
   %229 = tail call ptr @prte_util_print_name_args(ptr noundef %0) #18
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %221, ptr noundef nonnull @.str.68, ptr noundef %228, ptr noundef %229, ptr noundef nonnull %.0102, ptr noundef nonnull %69) #18
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %221, ptr noundef nonnull @.str.68, ptr noundef %228, ptr noundef %229, ptr noundef nonnull %.0101, ptr noundef nonnull %69) #18
   br label %230
 
 230:                                              ; preds = %227, %222, %213
@@ -1606,8 +1606,8 @@ pmix_obj_run_destructors.exit144:                 ; preds = %.lr.ph.i141, %199
   br label %._crit_edge160
 
 ._crit_edge160:                                   ; preds = %2, %._crit_edge160.loopexit, %193, %212, %210, %76, %78, %83
-  %.099 = phi i32 [ -46, %83 ], [ -46, %78 ], [ -46, %76 ], [ -46, %210 ], [ -46, %212 ], [ -46, %193 ], [ -46, %2 ], [ %246, %._crit_edge160.loopexit ]
-  ret i32 %.099
+  %.0102 = phi i32 [ -46, %83 ], [ -46, %78 ], [ -46, %76 ], [ -46, %210 ], [ -46, %212 ], [ -46, %193 ], [ -46, %2 ], [ %246, %._crit_edge160.loopexit ]
+  ret i32 %.0102
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

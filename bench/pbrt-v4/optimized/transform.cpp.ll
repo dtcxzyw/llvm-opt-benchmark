@@ -8961,15 +8961,15 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   br label %for.body
 
 for.body:                                         ; preds = %if.else, %if.end90
-  %tNewton.0193 = phi float [ %div.i157, %if.else ], [ %sub91, %if.end90 ]
-  %i.0192 = phi i32 [ 0, %if.else ], [ %inc, %if.end90 ]
-  %mul54 = fmul float %tNewton.0193, %c3
+  %i.0193 = phi i32 [ 0, %if.else ], [ %inc, %if.end90 ]
+  %tNewton.0192 = phi float [ %div.i157, %if.else ], [ %sub91, %if.end90 ]
+  %mul54 = fmul float %tNewton.0192, %c3
   %add = fadd float %mul54, %c2
-  %mul56 = fmul float %mul, %tNewton.0193
+  %mul56 = fmul float %mul, %tNewton.0192
   %call.i = call noundef float @cosf(float noundef %mul56) #16
   %mul58 = fmul float %add, %call.i
   %add59 = fadd float %mul58, %c1
-  %mul60 = fmul float %tNewton.0193, %c5
+  %mul60 = fmul float %tNewton.0192, %c5
   %add61 = fadd float %mul60, %c4
   %call.i158 = call noundef float @sinf(float noundef %mul56) #16
   %mul65 = fmul float %add61, %call.i158
@@ -8977,7 +8977,7 @@ for.body:                                         ; preds = %if.else, %if.end90
   %mul69 = fmul float %add61, 2.000000e+00
   %mul70 = fmul float %mul69, %theta
   %add71 = fadd float %mul70, %c3
-  %mul72 = fmul float %tNewton.0193, 2.000000e+00
+  %mul72 = fmul float %tNewton.0192, 2.000000e+00
   %mul73 = fmul float %mul72, %theta
   %call.i159 = call noundef float @cosf(float noundef %mul73) #16
   %mul75 = fmul float %add71, %call.i159
@@ -8994,13 +8994,13 @@ for.body:                                         ; preds = %if.else, %if.end90
 
 if.end90:                                         ; preds = %for.body
   %div = fdiv float %add66, %add85
-  %sub91 = fsub float %tNewton.0193, %div
-  %inc = add nuw nsw i32 %i.0192, 1
+  %sub91 = fsub float %tNewton.0192, %div
+  %inc = add nuw nsw i32 %i.0193, 1
   %exitcond.not = icmp eq i32 %inc, 4
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !101
 
 for.end:                                          ; preds = %for.body, %if.end90
-  %tNewton.0.lcssa = phi float [ %tNewton.0193, %for.body ], [ %sub91, %if.end90 ]
+  %tNewton.0.lcssa = phi float [ %tNewton.0192, %for.body ], [ %sub91, %if.end90 ]
   %sub93 = fadd float %tInterval.sroa.0.0.vec.extract180, 0xBF50624DE0000000
   %cmp94 = fcmp oge float %tNewton.0.lcssa, %sub93
   %add97 = fadd float %tInterval.sroa.0.4.vec.extract186, 0x3F50624DE0000000

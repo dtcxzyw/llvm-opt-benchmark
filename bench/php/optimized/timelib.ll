@@ -441,21 +441,21 @@ define hidden i32 @timelib_strcasecmp(ptr noundef readonly %0, ptr noundef reado
   br label %8
 
 8:                                                ; preds = %9, %6
-  %.019 = phi i64 [ %7, %6 ], [ %10, %9 ]
-  %.018 = phi ptr [ %1, %6 ], [ %16, %9 ]
-  %.017 = phi ptr [ %0, %6 ], [ %11, %9 ]
-  %.not = icmp eq i64 %.019, 0
+  %.018 = phi ptr [ %0, %6 ], [ %11, %9 ]
+  %.017 = phi ptr [ %1, %6 ], [ %16, %9 ]
+  %.0 = phi i64 [ %7, %6 ], [ %10, %9 ]
+  %.not = icmp eq i64 %.0, 0
   br i1 %.not, label %25, label %9
 
 9:                                                ; preds = %8
-  %10 = add i64 %.019, -1
-  %11 = getelementptr inbounds i8, ptr %.017, i64 1
-  %12 = load i8, ptr %.017, align 1
+  %10 = add i64 %.0, -1
+  %11 = getelementptr inbounds i8, ptr %.018, i64 1
+  %12 = load i8, ptr %.018, align 1
   %13 = zext i8 %12 to i64
   %14 = getelementptr inbounds [256 x i8], ptr @timelib_tolower_map, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
-  %16 = getelementptr inbounds i8, ptr %.018, i64 1
-  %17 = load i8, ptr %.018, align 1
+  %16 = getelementptr inbounds i8, ptr %.017, i64 1
+  %17 = load i8, ptr %.017, align 1
   %18 = zext i8 %17 to i64
   %19 = getelementptr inbounds [256 x i8], ptr @timelib_tolower_map, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
@@ -474,8 +474,8 @@ define hidden i32 @timelib_strcasecmp(ptr noundef readonly %0, ptr noundef reado
   br label %28
 
 28:                                               ; preds = %2, %25, %21
-  %.0 = phi i32 [ %24, %21 ], [ %27, %25 ], [ 0, %2 ]
-  ret i32 %.0
+  %.019 = phi i32 [ %24, %21 ], [ %27, %25 ], [ 0, %2 ]
+  ret i32 %.019
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
@@ -491,16 +491,16 @@ define hidden i32 @timelib_strncasecmp(ptr noundef readonly %0, ptr noundef read
   br label %9
 
 9:                                                ; preds = %10, %7
-  %.031 = phi i64 [ %., %7 ], [ %11, %10 ]
+  %.031 = phi ptr [ %0, %7 ], [ %12, %10 ]
   %.030 = phi ptr [ %1, %7 ], [ %17, %10 ]
-  %.029 = phi ptr [ %0, %7 ], [ %12, %10 ]
-  %.not = icmp eq i64 %.031, 0
+  %.0 = phi i64 [ %., %7 ], [ %11, %10 ]
+  %.not = icmp eq i64 %.0, 0
   br i1 %.not, label %26, label %10
 
 10:                                               ; preds = %9
-  %11 = add i64 %.031, -1
-  %12 = getelementptr inbounds i8, ptr %.029, i64 1
-  %13 = load i8, ptr %.029, align 1
+  %11 = add i64 %.0, -1
+  %12 = getelementptr inbounds i8, ptr %.031, i64 1
+  %13 = load i8, ptr %.031, align 1
   %14 = zext i8 %13 to i64
   %15 = getelementptr inbounds [256 x i8], ptr @timelib_tolower_map, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1
@@ -526,8 +526,8 @@ define hidden i32 @timelib_strncasecmp(ptr noundef readonly %0, ptr noundef read
   br label %31
 
 31:                                               ; preds = %3, %26, %22
-  %.0 = phi i32 [ %25, %22 ], [ %30, %26 ], [ 0, %3 ]
-  ret i32 %.0
+  %.029 = phi i32 [ %25, %22 ], [ %30, %26 ], [ 0, %3 ]
+  ret i32 %.029
 }
 
 ; Function Attrs: nofree nounwind uwtable

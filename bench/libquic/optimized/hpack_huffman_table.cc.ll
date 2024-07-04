@@ -1814,9 +1814,9 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end36
-  %bit_remnant.034 = phi i64 [ 0, %for.body.lr.ph ], [ %rem, %if.end36 ]
-  %i.033 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end36 ]
-  %call2 = call noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %in, i64 noundef %i.033)
+  %i.034 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end36 ]
+  %bit_remnant.033 = phi i64 [ 0, %for.body.lr.ph ], [ %rem, %if.end36 ]
+  %call2 = call noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(16) %in, i64 noundef %i.034)
   %conv = zext i8 %call2 to i16
   store i16 %conv, ptr %symbol_id, align 2
   %1 = load ptr, ptr %_M_finish.i, align 8
@@ -1853,7 +1853,7 @@ if.end:                                           ; preds = %for.body, %_ZN7logg
   %sub = sub nsw i32 32, %conv11
   %shr = lshr i32 %7, %sub
   %conv15 = zext i8 %5 to i64
-  %add = add nuw nsw i64 %bit_remnant.034, %conv15
+  %add = add nuw nsw i64 %bit_remnant.033, %conv15
   %rem = and i64 %add, 7
   %cmp16 = icmp ugt i8 %5, 24
   br i1 %cmp16, label %if.end22.thread, label %if.end22
@@ -1897,7 +1897,7 @@ if.end36:                                         ; preds = %if.then31, %if.end2
   %conv37 = trunc i32 %shr to i8
   %conv38 = zext nneg i32 %length.2 to i64
   call void @_ZN3net17HpackOutputStream10AppendBitsEhm(ptr noundef nonnull align 8 dereferenceable(40) %out, i8 noundef zeroext %conv37, i64 noundef %conv38)
-  %inc = add i64 %i.033, 1
+  %inc = add i64 %i.034, 1
   %call = call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %in)
   %cmp.not = icmp eq i64 %inc, %call
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !30
@@ -2334,8 +2334,8 @@ while.body.i.preheader:                           ; preds = %if.then13.i, %if.th
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.end.i
-  %__last.sroa.0.0.i = phi ptr [ %__last.sroa.0.1.i, %if.end.i ], [ %__last.coerce, %while.body.i.preheader ]
   %__first.sroa.0.0.i = phi ptr [ %incdec.ptr.i.i, %if.end.i ], [ %add.ptr.i1, %while.body.i.preheader ]
+  %__last.sroa.0.0.i = phi ptr [ %__last.sroa.0.1.i, %if.end.i ], [ %__last.coerce, %while.body.i.preheader ]
   br label %while.cond4.i
 
 while.cond4.i:                                    ; preds = %while.cond4.i, %while.body.i

@@ -2208,7 +2208,7 @@ decode_command.exit:                              ; preds = %proto_item_set_gene
   %321 = icmp ugt i8 %319, 63
   %322 = shl i32 %317, 8
   %323 = select i1 %321, i32 %322, i32 0
-  %.0222.i = or disjoint i32 %323, %320
+  %.0223.i = or disjoint i32 %323, %320
   %324 = call ptr @wmem_file_scope() #4
   %325 = load i32, ptr @proto_gryphon, align 4
   %326 = call i32 @tvb_raw_offset(ptr noundef %0) #4
@@ -2263,7 +2263,7 @@ get_conversation_data.exit115:                    ; preds = %328, %333
 
 354:                                              ; preds = %350
   %355 = load i32, ptr %345, align 8
-  %356 = icmp eq i32 %355, %.0222.i
+  %356 = icmp eq i32 %355, %.0223.i
   br i1 %356, label %357, label %368
 
 357:                                              ; preds = %354
@@ -2297,10 +2297,10 @@ get_conversation_data.exit115:                    ; preds = %328, %333
   br label %373
 
 373:                                              ; preds = %.loopexit, %316
-  %.0223.i = phi ptr [ %327, %316 ], [ %340, %.loopexit ]
+  %.0222.i = phi ptr [ %327, %316 ], [ %340, %.loopexit ]
   %374 = load i32, ptr @hf_gryphon_command, align 4
-  %375 = call ptr @proto_tree_add_uint(ptr noundef %66, i32 noundef %374, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef %.0222.i) #4
-  %376 = getelementptr inbounds i8, ptr %.0223.i, i64 8
+  %375 = call ptr @proto_tree_add_uint(ptr noundef %66, i32 noundef %374, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef %.0223.i) #4
+  %376 = getelementptr inbounds i8, ptr %.0222.i, i64 8
   %377 = load i32, ptr %376, align 8
   %.not231.i = icmp eq i32 %377, 0
   br i1 %.not231.i, label %381, label %378
@@ -2321,7 +2321,7 @@ get_conversation_data.exit115:                    ; preds = %328, %333
   %387 = load i32, ptr @hf_gryphon_status, align 4
   %388 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %387, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #4
   %389 = add i32 %318, -8
-  %390 = getelementptr inbounds i8, ptr %.0223.i, i64 12
+  %390 = getelementptr inbounds i8, ptr %.0222.i, i64 12
   %391 = load i32, ptr %390, align 4
   %.not232.i = icmp eq i32 %391, 0
   br i1 %.not232.i, label %proto_item_set_generated.exit110, label %392
@@ -2349,7 +2349,7 @@ proto_item_set_generated.exit113:                 ; preds = %392, %395, %398
   %402 = getelementptr inbounds i8, ptr %1, i64 80
   %403 = load ptr, ptr %402, align 8
   %404 = getelementptr inbounds i8, ptr %403, i64 56
-  %405 = getelementptr inbounds i8, ptr %.0223.i, i64 24
+  %405 = getelementptr inbounds i8, ptr %.0222.i, i64 24
   call void @nstime_delta(ptr noundef nonnull %14, ptr noundef nonnull %404, ptr noundef nonnull %405) #4
   %406 = load i32, ptr @hf_gryphon_response_time, align 4
   %407 = call ptr @proto_tree_add_time(ptr noundef %66, i32 noundef %406, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %14) #4
@@ -2378,7 +2378,7 @@ proto_item_set_generated.exit110:                 ; preds = %411, %408, %proto_i
   %418 = icmp eq i32 %389, 1
   %419 = select i1 %418, ptr @.str.555, ptr @.str.992
   %420 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %66, ptr noundef %0, i32 noundef 16, i32 noundef %389, i32 noundef %417, ptr noundef null, ptr noundef nonnull @.str.991, i32 noundef %389, ptr noundef nonnull %419) #4
-  switch i32 %.0222.i, label %512 [
+  switch i32 %.0223.i, label %512 [
     i32 3, label %421
     i32 6, label %423
     i32 321, label %425
@@ -3644,10 +3644,10 @@ define internal fastcc i32 @cmd_options(ptr noundef %0, ptr noundef %1) unnamed_
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %50
-  %.05864 = phi i32 [ %51, %50 ], [ 16, %2 ]
+  %.05864 = phi i32 [ %53, %50 ], [ 1, %2 ]
   %.05963 = phi i32 [ %52, %50 ], [ %8, %2 ]
-  %.06062 = phi i32 [ %53, %50 ], [ 1, %2 ]
-  %10 = add i32 %.05864, 1
+  %.06062 = phi i32 [ %51, %50 ], [ 16, %2 ]
+  %10 = add i32 %.06062, 1
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %10) #4
   %12 = zext i8 %11 to i32
   %13 = add nuw nsw i32 %12, 2
@@ -3656,8 +3656,8 @@ define internal fastcc i32 @cmd_options(ptr noundef %0, ptr noundef %1) unnamed_
   %16 = xor i32 %15, 3
   %17 = add nuw nsw i32 %13, %16
   %18 = load i32, ptr @ett_gryphon_pgm_options, align 4
-  %19 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.05864, i32 noundef %17, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.1012, i32 noundef %.06062) #4
-  %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.05864) #4
+  %19 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.06062, i32 noundef %17, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.1012, i32 noundef %.05864) #4
+  %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.06062) #4
   %21 = zext i8 %20 to i32
   switch i8 %11, label %33 [
     i8 1, label %22
@@ -3666,19 +3666,19 @@ define internal fastcc i32 @cmd_options(ptr noundef %0, ptr noundef %1) unnamed_
   ]
 
 22:                                               ; preds = %.lr.ph
-  %23 = add i32 %.05864, 2
+  %23 = add i32 %.06062, 2
   %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %23) #4
   %25 = zext i8 %24 to i32
   br label %33
 
 26:                                               ; preds = %.lr.ph
-  %27 = add i32 %.05864, 2
+  %27 = add i32 %.06062, 2
   %28 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %27) #4
   %29 = zext i16 %28 to i32
   br label %33
 
 30:                                               ; preds = %.lr.ph
-  %31 = add i32 %.05864, 2
+  %31 = add i32 %.06062, 2
   %32 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %31) #4
   br label %33
 
@@ -3717,9 +3717,9 @@ define internal fastcc i32 @cmd_options(ptr noundef %0, ptr noundef %1) unnamed_
   %.056 = phi ptr [ @.str.1013, %33 ], [ @.str.1018, %37 ], [ @.str.1018, %39 ], [ @.str.1018, %38 ], [ @.str.1015, %34 ], [ @.str.1015, %36 ], [ @.str.1015, %35 ]
   %.0 = phi ptr [ @.str.1014, %33 ], [ @.str.1014, %37 ], [ @.str.20, %39 ], [ @.str.1019, %38 ], [ @.str.1014, %34 ], [ @.str.1017, %36 ], [ @.str.1016, %35 ]
   %41 = load i32, ptr @hf_gryphon_option, align 4
-  %42 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %19, i32 noundef %41, ptr noundef %0, i32 noundef %.05864, i32 noundef 1, i32 noundef %21, ptr noundef nonnull @.str.1020, ptr noundef nonnull %.056) #4
+  %42 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %19, i32 noundef %41, ptr noundef %0, i32 noundef %.06062, i32 noundef 1, i32 noundef %21, ptr noundef nonnull @.str.1020, ptr noundef nonnull %.056) #4
   %43 = load i32, ptr @hf_gryphon_option_data, align 4
-  %44 = add i32 %.05864, 2
+  %44 = add i32 %.06062, 2
   %45 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %19, i32 noundef %43, ptr noundef %0, i32 noundef %44, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.1020, ptr noundef nonnull %.0) #4
   %.not = icmp eq i32 %15, 3
   br i1 %.not, label %50, label %46
@@ -3731,15 +3731,15 @@ define internal fastcc i32 @cmd_options(ptr noundef %0, ptr noundef %1) unnamed_
   br label %50
 
 50:                                               ; preds = %46, %40
-  %51 = add i32 %17, %.05864
+  %51 = add i32 %17, %.06062
   %52 = sub nsw i32 %.05963, %17
-  %53 = add i32 %.06062, 1
+  %53 = add i32 %.05864, 1
   %54 = icmp sgt i32 %52, 0
   br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %50, %2
-  %.058.lcssa = phi i32 [ 16, %2 ], [ %51, %50 ]
-  ret i32 %.058.lcssa
+  %.060.lcssa = phi i32 [ 16, %2 ], [ %51, %50 ]
+  ret i32 %.060.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3798,8 +3798,8 @@ define internal fastcc i32 @cmd_sched(ptr noundef %0, ptr noundef %1) unnamed_ad
 
 .lr.ph:                                           ; preds = %12, %59
   %.098 = phi i32 [ %71, %59 ], [ 20, %12 ]
-  %.09297 = phi i32 [ %72, %59 ], [ %19, %12 ]
-  %.09396 = phi i32 [ %73, %59 ], [ 1, %12 ]
+  %.09297 = phi i32 [ %73, %59 ], [ 1, %12 ]
+  %.09396 = phi i32 [ %72, %59 ], [ %19, %12 ]
   %21 = add i32 %.098, 16
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %21) #4
   %23 = zext i8 %22 to i32
@@ -3818,7 +3818,7 @@ define internal fastcc i32 @cmd_sched(ptr noundef %0, ptr noundef %1) unnamed_ad
   %36 = xor i32 %35, 3
   %37 = add nuw nsw i32 %33, %36
   %38 = load i32, ptr @ett_gryphon_cmd_sched_data, align 4
-  %39 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.098, i32 noundef %37, i32 noundef %38, ptr noundef null, ptr noundef nonnull @.str.1024, i32 noundef %.09396) #4
+  %39 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %.098, i32 noundef %37, i32 noundef %38, ptr noundef null, ptr noundef nonnull @.str.1024, i32 noundef %.09297) #4
   %40 = load i32, ptr @hf_gryphon_sched_sleep, align 4
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %40, ptr noundef %0, i32 noundef %.098, i32 noundef 4, i32 noundef 0) #4
   %42 = add i32 %.098, 4
@@ -3834,7 +3834,7 @@ define internal fastcc i32 @cmd_sched(ptr noundef %0, ptr noundef %1) unnamed_ad
   %52 = tail call ptr @proto_item_add_subtree(ptr noundef %50, i32 noundef %51) #4
   %53 = load i32, ptr @hf_gryphon_sched_skip_transmit_period, align 4
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %53, ptr noundef %0, i32 noundef %48, i32 noundef 2, i32 noundef 0) #4
-  %55 = icmp eq i32 %.09396, 1
+  %55 = icmp eq i32 %.09297, 1
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %.lr.ph
@@ -3855,13 +3855,13 @@ define internal fastcc i32 @cmd_sched(ptr noundef %0, ptr noundef %1) unnamed_ad
   %65 = load i32, ptr @hf_gryphon_reserved, align 4
   %66 = add i32 %.098, 15
   %67 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %65, ptr noundef %0, i32 noundef %66, i32 noundef 1, i32 noundef 0) #4
-  %68 = add nsw i32 %.09297, -16
+  %68 = add nsw i32 %.09396, -16
   %69 = load i32, ptr @ett_gryphon_cmd_sched_cmd, align 4
   %70 = tail call ptr @proto_tree_add_subtree(ptr noundef %39, ptr noundef %0, i32 noundef %21, i32 noundef %68, i32 noundef %69, ptr noundef null, ptr noundef nonnull @.str.1025) #4
   %71 = tail call fastcc i32 @decode_data(ptr noundef %0, i32 noundef %21, ptr noundef %70)
-  %.neg = add i32 %.098, %.09297
+  %.neg = add i32 %.098, %.09396
   %72 = sub i32 %.neg, %71
-  %73 = add i32 %.09396, 1
+  %73 = add i32 %.09297, 1
   %74 = icmp sgt i32 %72, 0
   br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
@@ -4449,10 +4449,10 @@ define internal fastcc i32 @cmd_init_strat(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %20
-  %.035 = phi i32 [ %22, %20 ], [ %8, %3 ]
-  %.02834 = phi i32 [ %21, %20 ], [ 1, %3 ]
-  %.02933 = phi i32 [ %23, %20 ], [ %9, %3 ]
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.035) #4
+  %.035 = phi i32 [ %21, %20 ], [ 1, %3 ]
+  %.02834 = phi i32 [ %23, %20 ], [ %9, %3 ]
+  %.02933 = phi i32 [ %22, %20 ], [ %8, %3 ]
+  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02933) #4
   %.not31 = icmp eq i8 %10, 0
   br i1 %.not31, label %17, label %11
 
@@ -4461,24 +4461,24 @@ define internal fastcc i32 @cmd_init_strat(ptr noundef %0, i32 noundef %1, ptr n
   %13 = load i32, ptr @hf_gryphon_init_strat_delay, align 4
   %14 = fmul float %12, 2.500000e-01
   %15 = fpext float %14 to double
-  %16 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %.035, i32 noundef 1, float noundef %14, ptr noundef nonnull @.str.1052, i32 noundef %.02834, double noundef %15) #4
+  %16 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %.02933, i32 noundef 1, float noundef %14, ptr noundef nonnull @.str.1052, i32 noundef %.035, double noundef %15) #4
   br label %20
 
 17:                                               ; preds = %.lr.ph
   %18 = load i32, ptr @hf_gryphon_init_strat_delay, align 4
-  %19 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %.035, i32 noundef 1, float noundef 0.000000e+00, ptr noundef nonnull @.str.1053, i32 noundef %.02834) #4
+  %19 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %.02933, i32 noundef 1, float noundef 0.000000e+00, ptr noundef nonnull @.str.1053, i32 noundef %.035) #4
   br label %20
 
 20:                                               ; preds = %11, %17
-  %21 = add i32 %.02834, 1
-  %22 = add i32 %.035, 1
-  %23 = add i32 %.02933, -1
+  %21 = add i32 %.035, 1
+  %22 = add i32 %.02933, 1
+  %23 = add i32 %.02834, -1
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %20, %3
-  %.0.lcssa = phi i32 [ %8, %3 ], [ %22, %20 ]
-  ret i32 %.0.lcssa
+  %.029.lcssa = phi i32 [ %8, %3 ], [ %22, %20 ]
+  ret i32 %.029.lcssa
 }
 
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -4700,12 +4700,12 @@ define internal fastcc i32 @cmd_ioctl_details(ptr noundef %0, ptr nocapture noun
 
 .lr.ph404:                                        ; preds = %15, %.lr.ph404
   %.0403 = phi i32 [ %20, %.lr.ph404 ], [ 16, %15 ]
-  %.0375402 = phi i32 [ %21, %.lr.ph404 ], [ %16, %15 ]
+  %.0376402 = phi i32 [ %21, %.lr.ph404 ], [ %16, %15 ]
   %18 = load i32, ptr @hf_gryphon_ldf_schedule_name, align 4
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %.0403, i32 noundef 32, i32 noundef 0) #4
   %20 = add nuw i32 %.0403, 32
-  %21 = add nsw i32 %.0375402, -32
-  %22 = icmp ugt i32 %.0375402, 32
+  %21 = add nsw i32 %.0376402, -32
+  %22 = icmp ugt i32 %.0376402, 32
   br i1 %22, label %.lr.ph404, label %.loopexit, !llvm.loop !20
 
 23:                                               ; preds = %5
@@ -4777,8 +4777,8 @@ define internal fastcc i32 @cmd_ioctl_details(ptr noundef %0, ptr nocapture noun
 
 .lr.ph400:                                        ; preds = %70, %.lr.ph400
   %.1399 = phi i32 [ %108, %.lr.ph400 ], [ 52, %70 ]
-  %.1376398 = phi i32 [ %109, %.lr.ph400 ], [ %76, %70 ]
-  %.0377397 = phi i32 [ %110, %.lr.ph400 ], [ 1, %70 ]
+  %.0375398 = phi i32 [ %110, %.lr.ph400 ], [ 1, %70 ]
+  %.1377397 = phi i32 [ %109, %.lr.ph400 ], [ %76, %70 ]
   %78 = add i32 %.1399, 4
   %79 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %78) #4
   %80 = add i32 %.1399, 5
@@ -4789,7 +4789,7 @@ define internal fastcc i32 @cmd_ioctl_details(ptr noundef %0, ptr nocapture noun
   %85 = zext nneg i8 %82 to i32
   %86 = add nuw nsw i32 %84, %85
   %87 = load i32, ptr @ett_gryphon_lin_schedule_msg, align 4
-  %88 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.1399, i32 noundef %86, i32 noundef %87, ptr noundef null, ptr noundef nonnull @.str.1057, i32 noundef %.0377397) #4
+  %88 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.1399, i32 noundef %86, i32 noundef %87, ptr noundef null, ptr noundef nonnull @.str.1057, i32 noundef %.0375398) #4
   %89 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.1399) #4
   %90 = uitofp i32 %89 to float
   %91 = fdiv float %90, 1.000000e+01
@@ -4810,8 +4810,8 @@ define internal fastcc i32 @cmd_ioctl_details(ptr noundef %0, ptr nocapture noun
   %106 = load i32, ptr @hf_gryphon_data_data, align 4
   %107 = tail call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %106, ptr noundef %0, i32 noundef %105, i32 noundef %85, i32 noundef 0) #4
   %108 = add i32 %105, %85
-  %109 = sub nsw i32 %.1376398, %86
-  %110 = add i32 %.0377397, 1
+  %109 = sub nsw i32 %.1377397, %86
+  %110 = add i32 %.0375398, 1
   %111 = icmp sgt i32 %109, 0
   br i1 %111, label %.lr.ph400, label %.loopexit, !llvm.loop !21
 
@@ -5229,19 +5229,19 @@ define internal fastcc i32 @resp_getspeeds(ptr noundef %0, ptr noundef %1) unnam
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.033 = phi i32 [ %18, %.lr.ph ], [ 26, %.lr.ph.preheader ]
-  %.03032 = phi i32 [ %19, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.033 = phi i32 [ %19, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.03032 = phi i32 [ %18, %.lr.ph ], [ 26, %.lr.ph.preheader ]
   %15 = load i32, ptr @hf_gryphon_getspeeds_data, align 4
-  %16 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.033, i32 noundef %4) #4
-  %17 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %1, i32 noundef %15, ptr noundef %0, i32 noundef %.033, i32 noundef %4, ptr noundef %16, ptr noundef nonnull @.str.1070, i32 noundef %.03032) #4
-  %18 = add nuw nsw i32 %.033, %4
-  %19 = add nuw nsw i32 %.03032, 1
-  %exitcond.not = icmp eq i32 %.03032, %14
+  %16 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.03032, i32 noundef %4) #4
+  %17 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %1, i32 noundef %15, ptr noundef %0, i32 noundef %.03032, i32 noundef %4, ptr noundef %16, ptr noundef nonnull @.str.1070, i32 noundef %.033) #4
+  %18 = add nuw nsw i32 %.03032, %4
+  %19 = add nuw nsw i32 %.033, 1
+  %exitcond.not = icmp eq i32 %.033, %14
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.0.lcssa = phi i32 [ 26, %2 ], [ %18, %.lr.ph ]
-  ret i32 %.0.lcssa
+  %.030.lcssa = phi i32 [ 26, %2 ], [ %18, %.lr.ph ]
+  ret i32 %.030.lcssa
 }
 
 ; Function Attrs: nounwind uwtable

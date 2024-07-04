@@ -630,33 +630,33 @@ define internal range(i32 -43, 1) i32 @rte_init(i32 %0, ptr noundef %1) #0 {
   br label %.thread224
 
 243:                                              ; preds = %20, %147, %127, %125, %113, %22, %18, %16, %14, %12, %10, %2
-  %.0128 = phi ptr [ null, %2 ], [ null, %10 ], [ null, %12 ], [ null, %14 ], [ null, %16 ], [ null, %18 ], [ null, %22 ], [ %26, %113 ], [ %26, %125 ], [ %26, %127 ], [ %26, %147 ], [ null, %20 ]
-  %.0127 = phi ptr [ @.str, %2 ], [ @.str.1, %10 ], [ @.str.2, %12 ], [ @.str.3, %14 ], [ @.str.4, %16 ], [ @.str.5, %18 ], [ @.str.7, %22 ], [ @.str.14, %113 ], [ @.str.20, %125 ], [ @.str.21, %127 ], [ @.str.27, %147 ], [ @.str.6, %20 ]
-  %.0126 = phi i32 [ %6, %2 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %22 ], [ %114, %113 ], [ %126, %125 ], [ %128, %127 ], [ %148, %147 ], [ %21, %20 ]
-  %.not214 = icmp eq i32 %.0126, -43
+  %.0127 = phi i32 [ %6, %2 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %24, %22 ], [ %114, %113 ], [ %126, %125 ], [ %128, %127 ], [ %148, %147 ], [ %21, %20 ]
+  %.0126 = phi ptr [ @.str, %2 ], [ @.str.1, %10 ], [ @.str.2, %12 ], [ @.str.3, %14 ], [ @.str.4, %16 ], [ @.str.5, %18 ], [ @.str.7, %22 ], [ @.str.14, %113 ], [ @.str.20, %125 ], [ @.str.21, %127 ], [ @.str.27, %147 ], [ @.str.6, %20 ]
+  %.0125 = phi ptr [ null, %2 ], [ null, %10 ], [ null, %12 ], [ null, %14 ], [ null, %16 ], [ null, %18 ], [ null, %22 ], [ %26, %113 ], [ %26, %125 ], [ %26, %127 ], [ %26, %147 ], [ null, %20 ]
+  %.not214 = icmp eq i32 %.0127, -43
   br i1 %.not214, label %.thread, label %.thread224
 
 .thread224:                                       ; preds = %241, %237, %233, %229, %218, %214, %210, %206, %179, %175, %171, %167, %163, %145, %141, %123, %119, %138, %243
-  %.0126231 = phi i32 [ %.0126, %243 ], [ %240, %241 ], [ %236, %237 ], [ %232, %233 ], [ %228, %229 ], [ %217, %218 ], [ %213, %214 ], [ %209, %210 ], [ %205, %206 ], [ %178, %179 ], [ %174, %175 ], [ %170, %171 ], [ %166, %167 ], [ %162, %163 ], [ %144, %145 ], [ %140, %141 ], [ %122, %123 ], [ %118, %119 ], [ -1, %138 ]
-  %.0127230 = phi ptr [ %.0127, %243 ], [ @.str.47, %241 ], [ @.str.46, %237 ], [ @.str.45, %233 ], [ @.str.44, %229 ], [ @.str.41, %218 ], [ @.str.40, %214 ], [ @.str.39, %210 ], [ @.str.38, %206 ], [ @.str.34, %179 ], [ @.str.33, %175 ], [ @.str.32, %171 ], [ @.str.31, %167 ], [ @.str.30, %163 ], [ @.str.26, %145 ], [ @.str.25, %141 ], [ @.str.19, %123 ], [ @.str.18, %119 ], [ @.str.24, %138 ]
-  %.0128229 = phi ptr [ %.0128, %243 ], [ %26, %241 ], [ %26, %237 ], [ %26, %233 ], [ %26, %229 ], [ %26, %218 ], [ %26, %214 ], [ %26, %210 ], [ %26, %206 ], [ %26, %179 ], [ %26, %175 ], [ %26, %171 ], [ %26, %167 ], [ %26, %163 ], [ %26, %145 ], [ %26, %141 ], [ %26, %123 ], [ %26, %119 ], [ %26, %138 ]
+  %.0125231 = phi ptr [ %.0125, %243 ], [ %26, %138 ], [ %26, %119 ], [ %26, %123 ], [ %26, %141 ], [ %26, %145 ], [ %26, %163 ], [ %26, %167 ], [ %26, %171 ], [ %26, %175 ], [ %26, %179 ], [ %26, %206 ], [ %26, %210 ], [ %26, %214 ], [ %26, %218 ], [ %26, %229 ], [ %26, %233 ], [ %26, %237 ], [ %26, %241 ]
+  %.0126230 = phi ptr [ %.0126, %243 ], [ @.str.24, %138 ], [ @.str.18, %119 ], [ @.str.19, %123 ], [ @.str.25, %141 ], [ @.str.26, %145 ], [ @.str.30, %163 ], [ @.str.31, %167 ], [ @.str.32, %171 ], [ @.str.33, %175 ], [ @.str.34, %179 ], [ @.str.38, %206 ], [ @.str.39, %210 ], [ @.str.40, %214 ], [ @.str.41, %218 ], [ @.str.44, %229 ], [ @.str.45, %233 ], [ @.str.46, %237 ], [ @.str.47, %241 ]
+  %.0127229 = phi i32 [ %.0127, %243 ], [ -1, %138 ], [ %118, %119 ], [ %122, %123 ], [ %140, %141 ], [ %144, %145 ], [ %162, %163 ], [ %166, %167 ], [ %170, %171 ], [ %174, %175 ], [ %178, %179 ], [ %205, %206 ], [ %209, %210 ], [ %213, %214 ], [ %217, %218 ], [ %228, %229 ], [ %232, %233 ], [ %236, %237 ], [ %240, %241 ]
   %244 = load i8, ptr @prte_report_silent_errors, align 1
   %245 = trunc i8 %244 to i1
   br i1 %245, label %.thread, label %246
 
 246:                                              ; preds = %.thread224
-  %247 = call ptr @prte_strerror(i32 noundef %.0126231) #10
-  %248 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 1, ptr noundef nonnull %.0127230, ptr noundef %247, i32 noundef %.0126231) #10
+  %247 = call ptr @prte_strerror(i32 noundef %.0127229) #10
+  %248 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef 1, ptr noundef nonnull %.0126230, ptr noundef %247, i32 noundef %.0127229) #10
   br label %.thread
 
 .thread:                                          ; preds = %216, %212, %208, %204, %177, %173, %169, %165, %.loopexit, %246, %.thread224, %243
-  %.0128222 = phi ptr [ %.0128229, %246 ], [ %.0128229, %.thread224 ], [ %.0128, %243 ], [ %26, %216 ], [ %26, %212 ], [ %26, %208 ], [ %26, %204 ], [ %26, %177 ], [ %26, %173 ], [ %26, %169 ], [ %26, %165 ], [ %26, %.loopexit ]
-  %.not215 = icmp eq ptr %.0128222, null
+  %.0125222 = phi ptr [ %.0125231, %246 ], [ %.0125231, %.thread224 ], [ %.0125, %243 ], [ %26, %216 ], [ %26, %212 ], [ %26, %208 ], [ %26, %204 ], [ %26, %177 ], [ %26, %173 ], [ %26, %169 ], [ %26, %165 ], [ %26, %.loopexit ]
+  %.not215 = icmp eq ptr %.0125222, null
   br i1 %.not215, label %.thread.thread235, label %.thread.thread
 
 .thread.thread:                                   ; preds = %32, %115, %117, %121, %139, %143, %220, %231, %235, %239, %.thread
-  %.0128222234 = phi ptr [ %.0128222, %.thread ], [ %26, %239 ], [ %26, %235 ], [ %26, %231 ], [ %26, %220 ], [ %26, %143 ], [ %26, %139 ], [ %26, %121 ], [ %26, %117 ], [ %26, %115 ], [ %26, %32 ]
-  %249 = call i32 @pthread_mutex_lock(ptr noundef nonnull %.0128222234) #10
+  %.0125222234 = phi ptr [ %.0125222, %.thread ], [ %26, %239 ], [ %26, %235 ], [ %26, %231 ], [ %26, %220 ], [ %26, %143 ], [ %26, %139 ], [ %26, %121 ], [ %26, %117 ], [ %26, %115 ], [ %26, %32 ]
+  %249 = call i32 @pthread_mutex_lock(ptr noundef nonnull %.0125222234) #10
   %250 = icmp eq i32 %249, 35
   br i1 %250, label %251, label %253
 
@@ -668,16 +668,16 @@ define internal range(i32 -43, 1) i32 @rte_init(i32 %0, ptr noundef %1) #0 {
   unreachable
 
 253:                                              ; preds = %.thread.thread
-  %254 = getelementptr inbounds i8, ptr %.0128222234, i64 48
+  %254 = getelementptr inbounds i8, ptr %.0125222234, i64 48
   %255 = load i32, ptr %254, align 8
   %256 = add nsw i32 %255, -1
   store i32 %256, ptr %254, align 8
-  %257 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %.0128222234) #10
+  %257 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %.0125222234) #10
   %258 = icmp eq i32 %256, 0
   br i1 %258, label %259, label %.thread.thread235
 
 259:                                              ; preds = %253
-  %260 = getelementptr inbounds i8, ptr %.0128222234, i64 40
+  %260 = getelementptr inbounds i8, ptr %.0125222234, i64 40
   %261 = load ptr, ptr %260, align 8
   %262 = getelementptr inbounds i8, ptr %261, i64 48
   %263 = load ptr, ptr %262, align 8
@@ -688,30 +688,30 @@ define internal range(i32 -43, 1) i32 @rte_init(i32 %0, ptr noundef %1) #0 {
 .lr.ph.i:                                         ; preds = %259, %.lr.ph.i
   %265 = phi ptr [ %267, %.lr.ph.i ], [ %264, %259 ]
   %.07.i = phi ptr [ %266, %.lr.ph.i ], [ %263, %259 ]
-  call void %265(ptr noundef %.0128222234) #10
+  call void %265(ptr noundef %.0125222234) #10
   %266 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %267 = load ptr, ptr %266, align 8
   %.not.i = icmp eq ptr %267, null
   br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %259
-  %268 = getelementptr inbounds i8, ptr %.0128222234, i64 96
+  %268 = getelementptr inbounds i8, ptr %.0125222234, i64 96
   %269 = load ptr, ptr %268, align 8
   %.not216 = icmp eq ptr %269, null
   br i1 %.not216, label %272, label %270
 
 270:                                              ; preds = %pmix_obj_run_destructors.exit
-  %271 = getelementptr inbounds i8, ptr %.0128222234, i64 56
-  call void %269(ptr noundef nonnull %271, ptr noundef nonnull %.0128222234) #10
+  %271 = getelementptr inbounds i8, ptr %.0125222234, i64 56
+  call void %269(ptr noundef nonnull %271, ptr noundef nonnull %.0125222234) #10
   br label %.thread.thread235
 
 272:                                              ; preds = %pmix_obj_run_destructors.exit
-  call void @free(ptr noundef nonnull %.0128222234) #10
+  call void @free(ptr noundef nonnull %.0125222234) #10
   br label %.thread.thread235
 
 .thread.thread235:                                ; preds = %20, %.thread, %253, %272, %270, %239
-  %.0125 = phi i32 [ %240, %239 ], [ -43, %270 ], [ -43, %272 ], [ -43, %253 ], [ -43, %.thread ], [ -43, %20 ]
-  ret i32 %.0125
+  %.0128 = phi i32 [ %240, %239 ], [ -43, %270 ], [ -43, %272 ], [ -43, %253 ], [ -43, %.thread ], [ -43, %20 ]
+  ret i32 %.0128
 }
 
 ; Function Attrs: nounwind uwtable

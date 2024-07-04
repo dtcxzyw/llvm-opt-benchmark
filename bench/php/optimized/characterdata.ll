@@ -609,7 +609,7 @@ define hidden void @zim_DOMCharacterData_replaceData(ptr nocapture noundef reado
 53:                                               ; preds = %49, %50
   %54 = phi i64 [ %.pre38, %50 ], [ %38, %49 ]
   %55 = phi i64 [ %.pre, %50 ], [ 0, %49 ]
-  %.0 = phi ptr [ %52, %50 ], [ null, %49 ]
+  %.028 = phi ptr [ %52, %50 ], [ null, %49 ]
   %56 = add nsw i64 %54, %55
   %57 = icmp sgt i64 %56, %42
   br i1 %57, label %58, label %60
@@ -633,17 +633,17 @@ define hidden void @zim_DOMCharacterData_replaceData(ptr nocapture noundef reado
   br label %69
 
 69:                                               ; preds = %63, %60
-  %.028 = phi ptr [ %68, %63 ], [ null, %60 ]
+  %.0 = phi ptr [ %68, %63 ], [ null, %60 ]
   %70 = load ptr, ptr %3, align 8
-  %71 = call ptr @xmlStrcat(ptr noundef %.0, ptr noundef %70) #6
-  %72 = call ptr @xmlStrcat(ptr noundef %71, ptr noundef %.028) #6
+  %71 = call ptr @xmlStrcat(ptr noundef %.028, ptr noundef %70) #6
+  %72 = call ptr @xmlStrcat(ptr noundef %71, ptr noundef %.0) #6
   call void @xmlNodeSetContent(ptr noundef nonnull %29, ptr noundef %72) #6
-  %.not = icmp eq ptr %.028, null
+  %.not = icmp eq ptr %.0, null
   br i1 %.not, label %75, label %73
 
 73:                                               ; preds = %69
   %74 = load ptr, ptr @xmlFree, align 8
-  call void %74(ptr noundef nonnull %.028) #6
+  call void %74(ptr noundef nonnull %.0) #6
   br label %75
 
 75:                                               ; preds = %73, %69

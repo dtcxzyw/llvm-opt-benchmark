@@ -830,7 +830,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_big5(ptr noundef %0, ptr
 
 109:                                              ; preds = %106, %61
   %110 = phi ptr [ %107, %106 ], [ %.pre, %61 ]
-  %.0136 = phi i8 [ %76, %106 ], [ %62, %61 ]
+  %.0 = phi i8 [ %76, %106 ], [ %62, %61 ]
   %111 = getelementptr inbounds i8, ptr %110, i64 1
   store ptr %111, ptr %1, align 8
   %112 = load i8, ptr %110, align 1
@@ -844,7 +844,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_big5(ptr noundef %0, ptr
 
 118:                                              ; preds = %109
   %119 = icmp ult i8 %112, 127
-  %120 = zext i8 %.0136 to i32
+  %120 = zext i8 %.0 to i32
   %121 = mul nuw nsw i32 %120, 157
   %. = select i1 %119, i32 -20253, i32 -20351
   %.184 = select i1 %119, i32 %114, i32 %113
@@ -1087,8 +1087,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_big5(ptr noundef %0, ptr
   br label %.preheader
 
 .loopexit:                                        ; preds = %70, %89, %.backedge, %.preheader, %232, %198, %56, %36, %11, %245, %211, %185, %167, %149, %131, %108, %98, %55, %24
-  %.0 = phi i32 [ 15, %24 ], [ 15, %98 ], [ 14, %108 ], [ 15, %245 ], [ 15, %211 ], [ 15, %185 ], [ 15, %167 ], [ 15, %149 ], [ 15, %131 ], [ 14, %55 ], [ 1, %11 ], [ 15, %36 ], [ 15, %56 ], [ 1, %198 ], [ 1, %232 ], [ 0, %.preheader ], [ 15, %70 ], [ 1, %89 ], [ 0, %.backedge ]
-  ret i32 %.0
+  %.0137 = phi i32 [ 15, %24 ], [ 15, %98 ], [ 14, %108 ], [ 15, %245 ], [ 15, %211 ], [ 15, %185 ], [ 15, %167 ], [ 15, %149 ], [ 15, %131 ], [ 14, %55 ], [ 1, %11 ], [ 15, %36 ], [ 15, %56 ], [ 1, %198 ], [ 1, %232 ], [ 0, %.preheader ], [ 15, %70 ], [ 1, %89 ], [ 0, %.backedge ]
+  ret i32 %.0137
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1677,7 +1677,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_kr(ptr noundef %0, p
 
 90:                                               ; preds = %86, %41
   %91 = phi ptr [ %87, %86 ], [ %.pre, %41 ]
-  %.0104 = phi i8 [ %56, %86 ], [ %42, %41 ]
+  %.0 = phi i8 [ %56, %86 ], [ %42, %41 ]
   %92 = getelementptr inbounds i8, ptr %91, i64 1
   store ptr %92, ptr %1, align 8
   %93 = load i8, ptr %91, align 1
@@ -1730,7 +1730,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_kr(ptr noundef %0, p
   br label %.preheader
 
 123:                                              ; preds = %90
-  %124 = zext i8 %.0104 to i32
+  %124 = zext i8 %.0 to i32
   %125 = mul nuw nsw i32 %124, 190
   %126 = add nsw i32 %125, -24510
   %127 = add nsw i32 %126, %95
@@ -1849,8 +1849,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_kr(ptr noundef %0, p
   br label %.preheader
 
 .loopexit:                                        ; preds = %50, %69, %.backedge, %.preheader, %168, %135, %100, %36, %11, %181, %148, %113, %89, %78, %35, %24
-  %.0 = phi i32 [ 15, %24 ], [ 15, %78 ], [ 14, %89 ], [ 15, %113 ], [ 15, %148 ], [ 15, %181 ], [ 14, %35 ], [ 1, %11 ], [ 15, %36 ], [ 1, %100 ], [ 1, %135 ], [ 1, %168 ], [ 0, %.preheader ], [ 15, %50 ], [ 1, %69 ], [ 0, %.backedge ]
-  ret i32 %.0
+  %.0104 = phi i32 [ 15, %24 ], [ 15, %78 ], [ 14, %89 ], [ 15, %113 ], [ 15, %148 ], [ 15, %181 ], [ 14, %35 ], [ 1, %11 ], [ 15, %36 ], [ 1, %100 ], [ 1, %135 ], [ 1, %168 ], [ 0, %.preheader ], [ 15, %50 ], [ 1, %69 ], [ 0, %.backedge ]
+  ret i32 %.0104
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -2009,9 +2009,9 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef %0, 
   br label %79
 
 79:                                               ; preds = %274, %238, %76, %67, %60
-  %.0200 = phi i8 [ %43, %60 ], [ %78, %76 ], [ %.0199, %238 ], [ %32, %67 ], [ %.0198, %274 ]
-  %80 = zext i8 %.0200 to i32
-  %81 = icmp sgt i8 %.0200, -1
+  %.0199 = phi i8 [ %43, %60 ], [ %78, %76 ], [ %.0198, %238 ], [ %32, %67 ], [ %.0, %274 ]
+  %80 = zext i8 %.0199 to i32
+  %81 = icmp sgt i8 %.0199, -1
   br i1 %81, label %82, label %89
 
 82:                                               ; preds = %79
@@ -2026,7 +2026,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef %0, 
   br label %68
 
 89:                                               ; preds = %79
-  %90 = icmp eq i8 %.0200, -128
+  %90 = icmp eq i8 %.0199, -128
   br i1 %90, label %91, label %98
 
 91:                                               ; preds = %89
@@ -2086,13 +2086,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef %0, 
   br i1 %127, label %128, label %129
 
 128:                                              ; preds = %125
-  store i8 %.0200, ptr %31, align 8
+  store i8 %.0199, ptr %31, align 8
   store i32 14, ptr %4, align 4
   br label %371
 
 129:                                              ; preds = %._crit_edge, %125
   %130 = phi ptr [ %126, %125 ], [ %.pre, %._crit_edge ]
-  %.1201 = phi i8 [ %.0200, %125 ], [ %32, %._crit_edge ]
+  %.1200 = phi i8 [ %.0199, %125 ], [ %32, %._crit_edge ]
   %131 = getelementptr inbounds i8, ptr %130, i64 1
   store ptr %131, ptr %1, align 8
   %132 = load i8, ptr %130, align 1
@@ -2112,7 +2112,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef %0, 
 141:                                              ; preds = %136
   %142 = icmp ult i8 %132, 127
   %.neg = select i1 %142, i32 -64, i32 -65
-  %143 = zext i8 %.1201 to i32
+  %143 = zext i8 %.1200 to i32
   %144 = mul nuw nsw i32 %143, 190
   %145 = add nsw i32 %144, -24510
   %146 = add nsw i32 %145, %133
@@ -2225,7 +2225,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef %0, 
   br i1 %213, label %214, label %216
 
 214:                                              ; preds = %212
-  store i8 %.1201, ptr %31, align 8
+  store i8 %.1200, ptr %31, align 8
   %215 = getelementptr inbounds i8, ptr %0, i64 65
   store i8 %132, ptr %215, align 1
   store i32 14, ptr %4, align 4
@@ -2233,8 +2233,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef %0, 
 
 216:                                              ; preds = %212, %62
   %217 = phi ptr [ %131, %212 ], [ %.pre225, %62 ]
-  %.2 = phi i8 [ %.1201, %212 ], [ %32, %62 ]
-  %.0199 = phi i8 [ %132, %212 ], [ %45, %62 ]
+  %.2 = phi i8 [ %.1200, %212 ], [ %32, %62 ]
+  %.0198 = phi i8 [ %132, %212 ], [ %45, %62 ]
   %218 = getelementptr inbounds i8, ptr %217, i64 1
   store ptr %218, ptr %1, align 8
   %219 = load i8, ptr %217, align 1
@@ -2265,7 +2265,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef %0, 
   %237 = getelementptr inbounds i8, ptr %0, i64 56
   store i8 1, ptr %237, align 8
   store i8 1, ptr %5, align 1
-  store i8 %.0199, ptr %31, align 8
+  store i8 %.0198, ptr %31, align 8
   br label %371
 
 238:                                              ; preds = %227
@@ -2287,7 +2287,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef %0, 
 248:                                              ; preds = %246
   store i8 %.2, ptr %31, align 8
   %249 = getelementptr inbounds i8, ptr %0, i64 65
-  store i8 %.0199, ptr %249, align 1
+  store i8 %.0198, ptr %249, align 1
   %250 = getelementptr inbounds i8, ptr %0, i64 66
   store i8 %219, ptr %250, align 2
   store i32 14, ptr %4, align 4
@@ -2296,8 +2296,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef %0, 
 251:                                              ; preds = %._crit_edge226, %246
   %252 = phi ptr [ %218, %246 ], [ %.pre227, %._crit_edge226 ]
   %.3 = phi i8 [ %.2, %246 ], [ %32, %._crit_edge226 ]
-  %.1 = phi i8 [ %.0199, %246 ], [ %45, %._crit_edge226 ]
-  %.0198 = phi i8 [ %219, %246 ], [ %43, %._crit_edge226 ]
+  %.1 = phi i8 [ %.0198, %246 ], [ %45, %._crit_edge226 ]
+  %.0 = phi i8 [ %219, %246 ], [ %43, %._crit_edge226 ]
   %253 = load i8, ptr %252, align 1
   %254 = zext i8 %253 to i32
   %255 = add nsw i32 %254, -58
@@ -2329,7 +2329,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef %0, 
   %272 = getelementptr inbounds i8, ptr %0, i64 65
   store i8 %.1, ptr %272, align 1
   %273 = getelementptr inbounds i8, ptr %0, i64 66
-  store i8 %.0198, ptr %273, align 2
+  store i8 %.0, ptr %273, align 2
   br label %371
 
 274:                                              ; preds = %262
@@ -2359,7 +2359,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef %0, 
   %290 = getelementptr inbounds i8, ptr %0, i64 65
   store i8 %.1, ptr %290, align 1
   %291 = getelementptr inbounds i8, ptr %0, i64 66
-  store i8 %.0198, ptr %291, align 2
+  store i8 %.0, ptr %291, align 2
   br label %371
 
 292:                                              ; preds = %251
@@ -2367,7 +2367,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef %0, 
   %294 = mul nuw nsw i32 %293, 12600
   %295 = zext i8 %.1 to i32
   %296 = mul nuw nsw i32 %295, 1260
-  %297 = zext i8 %.0198 to i32
+  %297 = zext i8 %.0 to i32
   %298 = mul nuw nsw i32 %297, 10
   %299 = getelementptr inbounds i8, ptr %252, i64 1
   store ptr %299, ptr %1, align 8
@@ -2495,8 +2495,8 @@ lxb_encoding_decode_gb18030_range.exit:           ; preds = %323, %327, %329, %3
   br label %68
 
 371:                                              ; preds = %68, %347, %343, %257, %223, %183, %156, %101, %71, %36, %8, %289, %271, %248, %236, %214, %196, %169, %128, %114, %59, %35, %21
-  %.0 = phi i32 [ 15, %21 ], [ 14, %35 ], [ 15, %59 ], [ 15, %114 ], [ 14, %128 ], [ 15, %196 ], [ 15, %169 ], [ 14, %214 ], [ 15, %236 ], [ 14, %248 ], [ 15, %271 ], [ 15, %289 ], [ 1, %8 ], [ 15, %36 ], [ 15, %71 ], [ 1, %101 ], [ 1, %156 ], [ 1, %183 ], [ 1, %223 ], [ 1, %257 ], [ 1, %343 ], [ 15, %347 ], [ 0, %68 ]
-  ret i32 %.0
+  %.0201 = phi i32 [ 15, %21 ], [ 14, %35 ], [ 15, %59 ], [ 15, %114 ], [ 14, %128 ], [ 15, %196 ], [ 15, %169 ], [ 14, %214 ], [ 15, %236 ], [ 14, %248 ], [ 15, %271 ], [ 15, %289 ], [ 1, %8 ], [ 15, %36 ], [ 15, %71 ], [ 1, %101 ], [ 1, %156 ], [ 1, %183 ], [ 1, %223 ], [ 1, %257 ], [ 1, %343 ], [ 15, %347 ], [ 0, %68 ]
+  ret i32 %.0201
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -2688,7 +2688,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   br label %.preheader
 
 .preheader:                                       ; preds = %42, %48
-  %.0277.ph = phi i8 [ %51, %48 ], [ %33, %42 ]
+  %.0.ph = phi i8 [ %51, %48 ], [ %33, %42 ]
   %52 = getelementptr inbounds i8, ptr %0, i64 68
   %53 = getelementptr inbounds i8, ptr %0, i64 76
   %54 = getelementptr inbounds i8, ptr %0, i64 72
@@ -2700,7 +2700,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   br label %60
 
 60:                                               ; preds = %.preheader, %304
-  %.0277 = phi i8 [ %311, %304 ], [ %.0277.ph, %.preheader ]
+  %.0 = phi i8 [ %311, %304 ], [ %.0.ph, %.preheader ]
   %61 = load i32, ptr %52, align 4
   switch i32 %61, label %.loopexit [
     i32 0, label %62
@@ -2713,8 +2713,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   ]
 
 62:                                               ; preds = %60
-  %63 = zext i8 %.0277 to i32
-  %64 = icmp eq i8 %.0277, 27
+  %63 = zext i8 %.0 to i32
+  %64 = icmp eq i8 %.0, 27
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %62
@@ -2728,8 +2728,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   br label %.loopexit321
 
 68:                                               ; preds = %62
-  %69 = icmp sgt i8 %.0277, -1
-  %70 = add i8 %.0277, -16
+  %69 = icmp sgt i8 %.0, -1
+  %70 = add i8 %.0, -16
   %71 = icmp ult i8 %70, -2
   %or.cond5 = and i1 %69, %71
   store i8 0, ptr %53, align 4
@@ -2777,8 +2777,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   br i1 %.not317, label %.loopexit, label %.loopexit321
 
 96:                                               ; preds = %60
-  %97 = zext i8 %.0277 to i32
-  switch i8 %.0277, label %113 [
+  %97 = zext i8 %.0 to i32
+  switch i8 %.0, label %113 [
     i8 27, label %98
     i8 92, label %101
     i8 126, label %107
@@ -2821,7 +2821,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   br i1 %.not312, label %.loopexit, label %.loopexit321
 
 113:                                              ; preds = %96
-  %114 = icmp sgt i8 %.0277, -1
+  %114 = icmp sgt i8 %.0, -1
   br i1 %114, label %115, label %121
 
 115:                                              ; preds = %113
@@ -2868,8 +2868,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   br i1 %.not315, label %.loopexit, label %.loopexit321
 
 139:                                              ; preds = %60
-  %140 = zext i8 %.0277 to i32
-  %141 = icmp eq i8 %.0277, 27
+  %140 = zext i8 %.0 to i32
+  %141 = icmp eq i8 %.0, 27
   br i1 %141, label %142, label %145
 
 142:                                              ; preds = %139
@@ -2931,7 +2931,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   br i1 %.not309, label %.loopexit, label %.loopexit321
 
 173:                                              ; preds = %60
-  %174 = icmp eq i8 %.0277, 27
+  %174 = icmp eq i8 %.0, 27
   br i1 %174, label %175, label %178
 
 175:                                              ; preds = %173
@@ -2945,14 +2945,14 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   br label %.loopexit321
 
 178:                                              ; preds = %173
-  %179 = zext i8 %.0277 to i32
+  %179 = zext i8 %.0 to i32
   %180 = add nsw i32 %179, -33
   %181 = icmp ult i32 %180, 94
   store i8 0, ptr %53, align 4
   br i1 %181, label %182, label %185
 
 182:                                              ; preds = %178
-  store i8 %.0277, ptr %4, align 4
+  store i8 %.0, ptr %4, align 4
   store i32 4, ptr %52, align 4
   %183 = load ptr, ptr %1, align 8
   %.not307 = icmp ult ptr %183, %2
@@ -2993,8 +2993,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   br i1 %.not306, label %.loopexit, label %.loopexit321
 
 203:                                              ; preds = %60
-  %204 = zext i8 %.0277 to i32
-  %205 = icmp eq i8 %.0277, 27
+  %204 = zext i8 %.0 to i32
+  %205 = icmp eq i8 %.0, 27
   br i1 %205, label %206, label %224
 
 206:                                              ; preds = %203
@@ -3091,14 +3091,14 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   br i1 %.not303, label %.loopexit, label %.loopexit321
 
 261:                                              ; preds = %60
-  switch i8 %.0277, label %265 [
+  switch i8 %.0, label %265 [
     i8 40, label %262
     i8 36, label %262
   ]
 
 262:                                              ; preds = %261, %261
   store i32 6, ptr %52, align 4
-  store i8 %.0277, ptr %4, align 4
+  store i8 %.0, ptr %4, align 4
   %263 = load ptr, ptr %1, align 8
   %.not301 = icmp ult ptr %263, %2
   br i1 %.not301, label %.loopexit, label %264
@@ -3151,14 +3151,14 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   ]
 
 287:                                              ; preds = %285
-  switch i8 %.0277, label %290 [
+  switch i8 %.0, label %290 [
     i8 66, label %.loopexit370
     i8 74, label %.loopexit382
     i8 73, label %312
   ]
 
 288:                                              ; preds = %285
-  %289 = and i8 %.0277, -3
+  %289 = and i8 %.0, -3
   %or.cond11 = icmp eq i8 %289, 64
   br i1 %or.cond11, label %312, label %290
 
@@ -3257,8 +3257,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   br label %.loopexit321
 
 .loopexit321:                                     ; preds = %290, %325, %315, %265, %253, %243, %237, %216, %206, %195, %185, %165, %155, %148, %131, %121, %115, %107, %101, %88, %78, %72, %.loopexit, %43, %37, %9, %335, %324, %302, %277, %264, %252, %215, %194, %184, %177, %164, %144, %130, %100, %87, %67, %36, %22
-  %.0 = phi i32 [ 15, %22 ], [ 14, %36 ], [ 15, %302 ], [ 15, %324 ], [ 14, %335 ], [ 14, %264 ], [ 15, %277 ], [ 15, %215 ], [ 15, %252 ], [ 14, %177 ], [ 14, %184 ], [ 15, %194 ], [ 14, %144 ], [ 15, %164 ], [ 15, %130 ], [ 14, %100 ], [ 14, %67 ], [ 15, %87 ], [ 1, %9 ], [ 15, %37 ], [ 0, %43 ], [ 15, %.loopexit ], [ 0, %72 ], [ 1, %78 ], [ 0, %88 ], [ 0, %101 ], [ 0, %107 ], [ 0, %115 ], [ 1, %121 ], [ 0, %131 ], [ 0, %148 ], [ 1, %155 ], [ 0, %165 ], [ 1, %185 ], [ 0, %195 ], [ 1, %206 ], [ 0, %216 ], [ 0, %237 ], [ 1, %243 ], [ 0, %253 ], [ 1, %265 ], [ 1, %315 ], [ 0, %325 ], [ 1, %290 ]
-  ret i32 %.0
+  %.0277 = phi i32 [ 15, %22 ], [ 14, %36 ], [ 15, %302 ], [ 15, %324 ], [ 14, %335 ], [ 14, %264 ], [ 15, %277 ], [ 15, %215 ], [ 15, %252 ], [ 14, %177 ], [ 14, %184 ], [ 15, %194 ], [ 14, %144 ], [ 15, %164 ], [ 15, %130 ], [ 14, %100 ], [ 14, %67 ], [ 15, %87 ], [ 1, %9 ], [ 15, %37 ], [ 0, %43 ], [ 15, %.loopexit ], [ 0, %72 ], [ 1, %78 ], [ 0, %88 ], [ 0, %101 ], [ 0, %107 ], [ 0, %115 ], [ 1, %121 ], [ 0, %131 ], [ 0, %148 ], [ 1, %155 ], [ 0, %165 ], [ 1, %185 ], [ 0, %195 ], [ 1, %206 ], [ 0, %216 ], [ 0, %237 ], [ 1, %243 ], [ 0, %253 ], [ 1, %265 ], [ 1, %315 ], [ 0, %325 ], [ 1, %290 ]
+  ret i32 %.0277
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -7053,7 +7053,7 @@ define hidden i32 @lxb_encoding_decode_big5_single(ptr nocapture noundef %0, ptr
 
 27:                                               ; preds = %25, %14
   %28 = phi ptr [ %.pre, %14 ], [ %18, %25 ]
-  %.046 = phi i8 [ %15, %14 ], [ %19, %25 ]
+  %.0 = phi i8 [ %15, %14 ], [ %19, %25 ]
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = add nsw i32 %30, -64
@@ -7065,7 +7065,7 @@ define hidden i32 @lxb_encoding_decode_big5_single(ptr nocapture noundef %0, ptr
 
 35:                                               ; preds = %27
   %36 = icmp ult i8 %29, 127
-  %37 = zext i8 %.046 to i32
+  %37 = zext i8 %.0 to i32
   %38 = mul nuw nsw i32 %37, 157
   %. = select i1 %36, i32 -20253, i32 -20351
   %.57 = select i1 %36, i32 %31, i32 %30
@@ -7080,28 +7080,28 @@ define hidden i32 @lxb_encoding_decode_big5_single(ptr nocapture noundef %0, ptr
   ]
 
 41:                                               ; preds = %35
-  %42 = zext i8 %.046 to i32
+  %42 = zext i8 %.0 to i32
   store i32 %42, ptr %4, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 52
   store i32 772, ptr %43, align 4
   br label %67
 
 44:                                               ; preds = %35
-  %45 = zext i8 %.046 to i32
+  %45 = zext i8 %.0 to i32
   store i32 %45, ptr %4, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 52
   store i32 780, ptr %46, align 4
   br label %67
 
 47:                                               ; preds = %35
-  %48 = zext i8 %.046 to i32
+  %48 = zext i8 %.0 to i32
   store i32 %48, ptr %4, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 52
   store i32 772, ptr %49, align 4
   br label %67
 
 50:                                               ; preds = %35
-  %51 = zext i8 %.046 to i32
+  %51 = zext i8 %.0 to i32
   store i32 %51, ptr %4, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 52
   store i32 780, ptr %52, align 4
@@ -7134,8 +7134,8 @@ define hidden i32 @lxb_encoding_decode_big5_single(ptr nocapture noundef %0, ptr
   br label %67
 
 67:                                               ; preds = %.thread, %64, %22, %16, %59, %50, %47, %44, %41, %26, %9
-  %.0 = phi i32 [ %12, %9 ], [ %62, %59 ], [ 234, %50 ], [ 234, %47 ], [ 202, %44 ], [ 202, %41 ], [ 3145727, %26 ], [ %20, %16 ], [ 2097151, %22 ], [ 2097151, %64 ], [ 2097151, %.thread ]
-  ret i32 %.0
+  %.047 = phi i32 [ %12, %9 ], [ %62, %59 ], [ 234, %50 ], [ 234, %47 ], [ 202, %44 ], [ 202, %41 ], [ 3145727, %26 ], [ %20, %16 ], [ 2097151, %22 ], [ 2097151, %64 ], [ 2097151, %.thread ]
+  ret i32 %.047
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -7325,7 +7325,7 @@ define hidden i32 @lxb_encoding_decode_euc_kr_single(ptr nocapture noundef %0, p
 
 20:                                               ; preds = %17, %6
   %21 = phi ptr [ %.pre, %6 ], [ %10, %17 ]
-  %.023 = phi i8 [ %7, %6 ], [ %11, %17 ]
+  %.0 = phi i8 [ %7, %6 ], [ %11, %17 ]
   %22 = getelementptr inbounds i8, ptr %21, i64 1
   store ptr %22, ptr %1, align 8
   %23 = load i8, ptr %21, align 1
@@ -7335,7 +7335,7 @@ define hidden i32 @lxb_encoding_decode_euc_kr_single(ptr nocapture noundef %0, p
   br i1 %26, label %39, label %27
 
 27:                                               ; preds = %20
-  %28 = zext i8 %.023 to i32
+  %28 = zext i8 %.0 to i32
   %29 = mul nuw nsw i32 %28, 190
   %30 = add nsw i32 %29, -24510
   %31 = add nsw i32 %30, %25
@@ -7363,8 +7363,8 @@ define hidden i32 @lxb_encoding_decode_euc_kr_single(ptr nocapture noundef %0, p
   br label %44
 
 44:                                               ; preds = %39, %41, %34, %14, %8, %19
-  %.0 = phi i32 [ 3145727, %19 ], [ %12, %8 ], [ 2097151, %14 ], [ %37, %34 ], [ 2097151, %41 ], [ 2097151, %39 ]
-  ret i32 %.0
+  %.023 = phi i32 [ 3145727, %19 ], [ %12, %8 ], [ 2097151, %14 ], [ %37, %34 ], [ 2097151, %41 ], [ 2097151, %39 ]
+  ret i32 %.023
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -7436,13 +7436,13 @@ define hidden i32 @lxb_encoding_decode_gb18030_single(ptr nocapture noundef %0, 
   br label %28
 
 28:                                               ; preds = %24, %23
-  %.075 = phi i8 [ %5, %23 ], [ %27, %24 ]
-  %29 = zext i8 %.075 to i32
-  %30 = icmp sgt i8 %.075, -1
+  %.074 = phi i8 [ %5, %23 ], [ %27, %24 ]
+  %29 = zext i8 %.074 to i32
+  %30 = icmp sgt i8 %.074, -1
   br i1 %30, label %lxb_encoding_decode_gb18030_range.exit, label %31
 
 31:                                               ; preds = %28
-  %32 = icmp eq i8 %.075, -128
+  %32 = icmp eq i8 %.074, -128
   br i1 %32, label %lxb_encoding_decode_gb18030_range.exit, label %33
 
 33:                                               ; preds = %31
@@ -7456,12 +7456,12 @@ define hidden i32 @lxb_encoding_decode_gb18030_single(ptr nocapture noundef %0, 
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %36
-  store i8 %.075, ptr %4, align 8
+  store i8 %.074, ptr %4, align 8
   br label %lxb_encoding_decode_gb18030_range.exit
 
 40:                                               ; preds = %._crit_edge, %36
   %41 = phi ptr [ %37, %36 ], [ %.pre, %._crit_edge ]
-  %.176 = phi i8 [ %.075, %36 ], [ %5, %._crit_edge ]
+  %.175 = phi i8 [ %.074, %36 ], [ %5, %._crit_edge ]
   %42 = getelementptr inbounds i8, ptr %41, i64 1
   store ptr %42, ptr %1, align 8
   %43 = load i8, ptr %41, align 1
@@ -7481,7 +7481,7 @@ define hidden i32 @lxb_encoding_decode_gb18030_single(ptr nocapture noundef %0, 
 52:                                               ; preds = %47
   %53 = icmp ult i8 %43, 127
   %.neg = select i1 %53, i32 -64, i32 -65
-  %54 = zext i8 %.176 to i32
+  %54 = zext i8 %.175 to i32
   %55 = mul nuw nsw i32 %54, 190
   %56 = add nsw i32 %55, -24510
   %57 = add nsw i32 %56, %44
@@ -7499,15 +7499,15 @@ define hidden i32 @lxb_encoding_decode_gb18030_single(ptr nocapture noundef %0, 
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %64
-  store i8 %.176, ptr %4, align 8
+  store i8 %.175, ptr %4, align 8
   %67 = getelementptr inbounds i8, ptr %0, i64 65
   store i8 %43, ptr %67, align 1
   br label %lxb_encoding_decode_gb18030_range.exit
 
 68:                                               ; preds = %64, %18
   %69 = phi ptr [ %.pre84, %18 ], [ %42, %64 ]
-  %.2 = phi i8 [ %5, %18 ], [ %.176, %64 ]
-  %.074 = phi i8 [ %10, %18 ], [ %43, %64 ]
+  %.2 = phi i8 [ %5, %18 ], [ %.175, %64 ]
+  %.073 = phi i8 [ %10, %18 ], [ %43, %64 ]
   %70 = getelementptr inbounds i8, ptr %69, i64 1
   store ptr %70, ptr %1, align 8
   %71 = load i8, ptr %69, align 1
@@ -7520,7 +7520,7 @@ define hidden i32 @lxb_encoding_decode_gb18030_single(ptr nocapture noundef %0, 
   store ptr %69, ptr %1, align 8
   %76 = getelementptr inbounds i8, ptr %0, i64 56
   store i8 1, ptr %76, align 8
-  store i8 %.074, ptr %4, align 8
+  store i8 %.073, ptr %4, align 8
   br label %lxb_encoding_decode_gb18030_range.exit
 
 77:                                               ; preds = %68
@@ -7530,7 +7530,7 @@ define hidden i32 @lxb_encoding_decode_gb18030_single(ptr nocapture noundef %0, 
 79:                                               ; preds = %77
   store i8 %.2, ptr %4, align 8
   %80 = getelementptr inbounds i8, ptr %0, i64 65
-  store i8 %.074, ptr %80, align 1
+  store i8 %.073, ptr %80, align 1
   %81 = getelementptr inbounds i8, ptr %0, i64 66
   store i8 %71, ptr %81, align 2
   br label %lxb_encoding_decode_gb18030_range.exit
@@ -7538,8 +7538,8 @@ define hidden i32 @lxb_encoding_decode_gb18030_single(ptr nocapture noundef %0, 
 82:                                               ; preds = %._crit_edge85, %77
   %83 = phi ptr [ %.pre86, %._crit_edge85 ], [ %70, %77 ]
   %.3 = phi i8 [ %5, %._crit_edge85 ], [ %.2, %77 ]
-  %.1 = phi i8 [ %10, %._crit_edge85 ], [ %.074, %77 ]
-  %.073 = phi i8 [ %8, %._crit_edge85 ], [ %71, %77 ]
+  %.1 = phi i8 [ %10, %._crit_edge85 ], [ %.073, %77 ]
+  %.0 = phi i8 [ %8, %._crit_edge85 ], [ %71, %77 ]
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i32
   %86 = add nsw i32 %85, -58
@@ -7553,7 +7553,7 @@ define hidden i32 @lxb_encoding_decode_gb18030_single(ptr nocapture noundef %0, 
   %90 = getelementptr inbounds i8, ptr %0, i64 65
   store i8 %.1, ptr %90, align 1
   %91 = getelementptr inbounds i8, ptr %0, i64 66
-  store i8 %.073, ptr %91, align 2
+  store i8 %.0, ptr %91, align 2
   br label %lxb_encoding_decode_gb18030_range.exit
 
 92:                                               ; preds = %82
@@ -7561,7 +7561,7 @@ define hidden i32 @lxb_encoding_decode_gb18030_single(ptr nocapture noundef %0, 
   %94 = mul nuw nsw i32 %93, 12600
   %95 = zext i8 %.1 to i32
   %96 = mul nuw nsw i32 %95, 1260
-  %97 = zext i8 %.073 to i32
+  %97 = zext i8 %.0 to i32
   %98 = mul nuw nsw i32 %97, 10
   %99 = getelementptr inbounds i8, ptr %83, i64 1
   store ptr %99, ptr %1, align 8
@@ -7645,8 +7645,8 @@ define hidden i32 @lxb_encoding_decode_gb18030_single(ptr nocapture noundef %0, 
   br label %lxb_encoding_decode_gb18030_range.exit
 
 lxb_encoding_decode_gb18030_range.exit:           ; preds = %._crit_edge.i, %110, %92, %139, %141, %52, %33, %31, %28, %88, %79, %75, %66, %39, %15
-  %.0 = phi i32 [ %16, %15 ], [ 2097151, %88 ], [ 2097151, %75 ], [ 3145727, %79 ], [ 3145727, %39 ], [ 3145727, %66 ], [ %29, %28 ], [ 8364, %31 ], [ 2097151, %33 ], [ %61, %52 ], [ 2097151, %141 ], [ 2097151, %139 ], [ %138, %._crit_edge.i ], [ 2097151, %92 ], [ 59335, %110 ]
-  ret i32 %.0
+  %.076 = phi i32 [ %16, %15 ], [ 2097151, %88 ], [ 2097151, %75 ], [ 3145727, %79 ], [ 3145727, %39 ], [ 3145727, %66 ], [ %29, %28 ], [ 8364, %31 ], [ 2097151, %33 ], [ %61, %52 ], [ 2097151, %141 ], [ 2097151, %139 ], [ %138, %._crit_edge.i ], [ 2097151, %92 ], [ 59335, %110 ]
+  ret i32 %.076
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -7699,7 +7699,7 @@ define hidden i32 @lxb_encoding_decode_iso_2022_jp_single(ptr nocapture noundef 
   br label %12
 
 12:                                               ; preds = %8, %7
-  %.091 = phi i8 [ %6, %7 ], [ %11, %8 ]
+  %.0 = phi i8 [ %6, %7 ], [ %11, %8 ]
   %13 = getelementptr inbounds i8, ptr %0, i64 68
   %14 = load i32, ptr %13, align 4
   switch i32 %14, label %99 [
@@ -7713,7 +7713,7 @@ define hidden i32 @lxb_encoding_decode_iso_2022_jp_single(ptr nocapture noundef 
   ]
 
 15:                                               ; preds = %12
-  %16 = icmp eq i8 %.091, 27
+  %16 = icmp eq i8 %.0, 27
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %15
@@ -7721,9 +7721,9 @@ define hidden i32 @lxb_encoding_decode_iso_2022_jp_single(ptr nocapture noundef 
   br label %99
 
 18:                                               ; preds = %15
-  %19 = zext i8 %.091 to i32
-  %20 = icmp sgt i8 %.091, -1
-  %21 = add i8 %.091, -16
+  %19 = zext i8 %.0 to i32
+  %20 = icmp sgt i8 %.0, -1
+  %21 = add i8 %.0, -16
   %22 = icmp ult i8 %21, -2
   %or.cond5 = and i1 %20, %22
   %23 = getelementptr inbounds i8, ptr %0, i64 76
@@ -7732,8 +7732,8 @@ define hidden i32 @lxb_encoding_decode_iso_2022_jp_single(ptr nocapture noundef 
   br label %102
 
 24:                                               ; preds = %12
-  %25 = zext i8 %.091 to i32
-  switch i8 %.091, label %31 [
+  %25 = zext i8 %.0 to i32
+  switch i8 %.0, label %31 [
     i8 27, label %26
     i8 92, label %27
     i8 126, label %29
@@ -7756,7 +7756,7 @@ define hidden i32 @lxb_encoding_decode_iso_2022_jp_single(ptr nocapture noundef 
   br label %102
 
 31:                                               ; preds = %24
-  %32 = icmp sgt i8 %.091, -1
+  %32 = icmp sgt i8 %.0, -1
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
@@ -7770,7 +7770,7 @@ define hidden i32 @lxb_encoding_decode_iso_2022_jp_single(ptr nocapture noundef 
   br label %102
 
 37:                                               ; preds = %12
-  %38 = icmp eq i8 %.091, 27
+  %38 = icmp eq i8 %.0, 27
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %37
@@ -7778,7 +7778,7 @@ define hidden i32 @lxb_encoding_decode_iso_2022_jp_single(ptr nocapture noundef 
   br label %99
 
 40:                                               ; preds = %37
-  %41 = zext i8 %.091 to i32
+  %41 = zext i8 %.0 to i32
   %42 = add nsw i32 %41, -33
   %43 = icmp ult i32 %42, 63
   %44 = getelementptr inbounds i8, ptr %0, i64 76
@@ -7788,7 +7788,7 @@ define hidden i32 @lxb_encoding_decode_iso_2022_jp_single(ptr nocapture noundef 
   br label %102
 
 46:                                               ; preds = %12
-  %47 = icmp eq i8 %.091, 27
+  %47 = icmp eq i8 %.0, 27
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %46
@@ -7796,7 +7796,7 @@ define hidden i32 @lxb_encoding_decode_iso_2022_jp_single(ptr nocapture noundef 
   br label %99
 
 49:                                               ; preds = %46
-  %50 = zext i8 %.091 to i32
+  %50 = zext i8 %.0 to i32
   %51 = add nsw i32 %50, -33
   %52 = icmp ult i32 %51, 94
   %53 = getelementptr inbounds i8, ptr %0, i64 76
@@ -7804,13 +7804,13 @@ define hidden i32 @lxb_encoding_decode_iso_2022_jp_single(ptr nocapture noundef 
   br i1 %52, label %54, label %102
 
 54:                                               ; preds = %49
-  store i8 %.091, ptr %4, align 4
+  store i8 %.0, ptr %4, align 4
   store i32 4, ptr %13, align 4
   br label %99
 
 55:                                               ; preds = %12
-  %56 = zext i8 %.091 to i32
-  %57 = icmp eq i8 %.091, 27
+  %56 = zext i8 %.0 to i32
+  %57 = icmp eq i8 %.0, 27
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %55
@@ -7837,14 +7837,14 @@ define hidden i32 @lxb_encoding_decode_iso_2022_jp_single(ptr nocapture noundef 
   br label %102
 
 72:                                               ; preds = %12
-  switch i8 %.091, label %74 [
+  switch i8 %.0, label %74 [
     i8 40, label %73
     i8 36, label %73
   ]
 
 73:                                               ; preds = %72, %72
   store i32 6, ptr %13, align 4
-  store i8 %.091, ptr %4, align 4
+  store i8 %.0, ptr %4, align 4
   br label %99
 
 74:                                               ; preds = %72
@@ -7867,7 +7867,7 @@ define hidden i32 @lxb_encoding_decode_iso_2022_jp_single(ptr nocapture noundef 
   ]
 
 82:                                               ; preds = %80
-  switch i8 %.091, label %87 [
+  switch i8 %.0, label %87 [
     i8 66, label %93
     i8 74, label %83
     i8 73, label %84
@@ -7880,7 +7880,7 @@ define hidden i32 @lxb_encoding_decode_iso_2022_jp_single(ptr nocapture noundef 
   br label %93
 
 85:                                               ; preds = %80
-  %86 = and i8 %.091, -3
+  %86 = and i8 %.0, -3
   %or.cond11 = icmp eq i8 %86, 64
   br i1 %or.cond11, label %93, label %87
 
@@ -7918,8 +7918,8 @@ define hidden i32 @lxb_encoding_decode_iso_2022_jp_single(ptr nocapture noundef 
   br i1 %101, label %8, label %102
 
 102:                                              ; preds = %40, %49, %18, %99, %93, %59, %87, %74, %62, %58, %35, %33, %29, %27
-  %.0 = phi i32 [ 2097151, %87 ], [ 2097151, %74 ], [ 2097151, %58 ], [ %71, %62 ], [ %25, %33 ], [ 2097151, %35 ], [ 8254, %29 ], [ 165, %27 ], [ 2097151, %59 ], [ 2097151, %93 ], [ 3145727, %99 ], [ %., %18 ], [ 2097151, %49 ], [ %spec.select, %40 ]
-  ret i32 %.0
+  %.091 = phi i32 [ 2097151, %87 ], [ 2097151, %74 ], [ 2097151, %58 ], [ %71, %62 ], [ %25, %33 ], [ 2097151, %35 ], [ 8254, %29 ], [ 165, %27 ], [ 2097151, %59 ], [ 2097151, %93 ], [ 3145727, %99 ], [ %., %18 ], [ 2097151, %49 ], [ %spec.select, %40 ]
+  ret i32 %.091
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -8712,9 +8712,9 @@ define hidden range(i32 0, 33554432) i32 @lxb_encoding_decode_valid_utf_8_single
 
 84:                                               ; preds = %7, %56, %33, %16, %38, %61, %21, %82
   %.sink = phi ptr [ %52, %38 ], [ %81, %61 ], [ %29, %21 ], [ %83, %82 ], [ %1, %16 ], [ %1, %33 ], [ %1, %56 ], [ %spec.select, %7 ]
-  %.0 = phi i32 [ %51, %38 ], [ %80, %61 ], [ %28, %21 ], [ 2097151, %82 ], [ 2097151, %16 ], [ 2097151, %33 ], [ 2097151, %56 ], [ %spec.select56, %7 ]
+  %.052 = phi i32 [ %51, %38 ], [ %80, %61 ], [ %28, %21 ], [ 2097151, %82 ], [ 2097151, %16 ], [ 2097151, %33 ], [ 2097151, %56 ], [ %spec.select56, %7 ]
   store ptr %.sink, ptr %0, align 8
-  ret i32 %.0
+  ret i32 %.052
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

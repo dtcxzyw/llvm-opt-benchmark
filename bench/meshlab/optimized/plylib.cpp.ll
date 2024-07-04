@@ -12425,8 +12425,8 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr nocapture noundef
 
 .backedge:                                        ; preds = %.backedge.backedge, %4
   %.068 = phi i32 [ 0, %4 ], [ %.068.be, %.backedge.backedge ]
-  %.0 = phi i32 [ 0, %4 ], [ %.0.be, %.backedge.backedge ]
-  %6 = sext i32 %.0 to i64
+  %.067 = phi i32 [ 0, %4 ], [ %.067.be, %.backedge.backedge ]
+  %6 = sext i32 %.068 to i64
   %7 = getelementptr inbounds i8, ptr %0, i64 %6
   %8 = load i8, ptr %7, align 1
   switch i8 %8, label %76 [
@@ -12437,7 +12437,7 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr nocapture noundef
 9:                                                ; preds = %.backedge
   %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #31
   %11 = trunc i64 %10 to i32
-  %12 = add nsw i32 %.0, 5
+  %12 = add nsw i32 %.068, 5
   %13 = icmp slt i32 %12, %11
   br i1 %13, label %14, label %76
 
@@ -12482,7 +12482,7 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr nocapture noundef
 
 .preheader81.outer:                               ; preds = %26, %36
   %indvars.iv.ph = phi i64 [ %37, %36 ], [ 0, %26 ]
-  %.066.ph = phi i32 [ %38, %36 ], [ 0, %26 ]
+  %.065.ph = phi i32 [ %38, %36 ], [ 0, %26 ]
   br label %.preheader81
 
 .preheader81:                                     ; preds = %.preheader81.outer, %.preheader81._crit_edge
@@ -12500,7 +12500,7 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr nocapture noundef
   br label %.preheader81, !llvm.loop !100
 
 .preheader:                                       ; preds = %.preheader81
-  %33 = sext i32 %.066.ph to i64
+  %33 = sext i32 %.065.ph to i64
   %34 = getelementptr inbounds i8, ptr %1, i64 %33
   %35 = load i8, ptr %34, align 1
   %.not8082 = icmp eq i8 %35, 0
@@ -12528,8 +12528,8 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr nocapture noundef
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.1.lcssa = phi i32 [ %.066.ph, %.preheader ], [ %44, %._crit_edge.loopexit ]
-  %45 = sub nsw i32 %.1.lcssa, %.066.ph
+  %.1.lcssa = phi i32 [ %.065.ph, %.preheader ], [ %44, %._crit_edge.loopexit ]
+  %45 = sub nsw i32 %.1.lcssa, %.065.ph
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds [255 x i8], ptr %5, i64 0, i64 %46
   store i8 0, ptr %47, align 1
@@ -12575,30 +12575,30 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr nocapture noundef
   br label %69
 
 69:                                               ; preds = %63, %58, %53, %68, %._crit_edge
-  %70 = sext i32 %.068 to i64
+  %70 = sext i32 %.067 to i64
   %71 = getelementptr inbounds i8, ptr %2, i64 %70
   store i8 0, ptr %71, align 1
   %72 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @.str.35, ptr noundef nonnull %2, ptr noundef nonnull %5) #26
   %73 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #31
   %74 = trunc i64 %73 to i32
-  %75 = add nsw i32 %.0, 6
+  %75 = add nsw i32 %.068, 6
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %69, %76
-  %.068.be = phi i32 [ %74, %69 ], [ %78, %76 ]
-  %.0.be = phi i32 [ %75, %69 ], [ %77, %76 ]
+  %.068.be = phi i32 [ %75, %69 ], [ %77, %76 ]
+  %.067.be = phi i32 [ %74, %69 ], [ %78, %76 ]
   br label %.backedge, !llvm.loop !102
 
 76:                                               ; preds = %23, %20, %17, %14, %.backedge, %9, %26
-  %77 = add nsw i32 %.0, 1
-  %78 = add nsw i32 %.068, 1
-  %79 = sext i32 %.068 to i64
+  %77 = add nsw i32 %.068, 1
+  %78 = add nsw i32 %.067, 1
+  %79 = sext i32 %.067 to i64
   %80 = getelementptr inbounds i8, ptr %2, i64 %79
   store i8 %8, ptr %80, align 1
   br label %.backedge.backedge
 
 81:                                               ; preds = %.backedge
-  %82 = sext i32 %.068 to i64
+  %82 = sext i32 %.067 to i64
   %83 = getelementptr inbounds i8, ptr %2, i64 %82
   store i8 0, ptr %83, align 1
   ret void

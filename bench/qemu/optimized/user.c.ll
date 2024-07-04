@@ -154,11 +154,11 @@ entry:
   br i1 %cmp6, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %if.end8
-  %buf.addr.08 = phi ptr [ %buf.addr.1, %if.end8 ], [ %buf, %entry ]
-  %len.addr.07 = phi i32 [ %len.addr.1, %if.end8 ], [ %len, %entry ]
+  %len.addr.08 = phi i32 [ %len.addr.1, %if.end8 ], [ %len, %entry ]
+  %buf.addr.07 = phi ptr [ %buf.addr.1, %if.end8 ], [ %buf, %entry ]
   %0 = load i32, ptr @gdbserver_user_state.0, align 8
-  %conv = zext nneg i32 %len.addr.07 to i64
-  %call = tail call i64 @send(i32 noundef %0, ptr noundef %buf.addr.08, i64 noundef %conv, i32 noundef 0) #11
+  %conv = zext nneg i32 %len.addr.08 to i64
+  %call = tail call i64 @send(i32 noundef %0, ptr noundef %buf.addr.07, i64 noundef %conv, i32 noundef 0) #11
   %conv1 = trunc i64 %call to i32
   %cmp2 = icmp slt i32 %conv1, 0
   br i1 %cmp2, label %if.then, label %if.else
@@ -171,13 +171,13 @@ if.then:                                          ; preds = %while.body
 
 if.else:                                          ; preds = %while.body
   %idx.ext = and i64 %call, 2147483647
-  %add.ptr = getelementptr i8, ptr %buf.addr.08, i64 %idx.ext
-  %sub = sub nsw i32 %len.addr.07, %conv1
+  %add.ptr = getelementptr i8, ptr %buf.addr.07, i64 %idx.ext
+  %sub = sub nsw i32 %len.addr.08, %conv1
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then, %if.else
-  %len.addr.1 = phi i32 [ %len.addr.07, %if.then ], [ %sub, %if.else ]
-  %buf.addr.1 = phi ptr [ %buf.addr.08, %if.then ], [ %add.ptr, %if.else ]
+  %buf.addr.1 = phi ptr [ %buf.addr.07, %if.then ], [ %add.ptr, %if.else ]
+  %len.addr.1 = phi i32 [ %len.addr.08, %if.then ], [ %sub, %if.else ]
   %cmp = icmp sgt i32 %len.addr.1, 0
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !5
 

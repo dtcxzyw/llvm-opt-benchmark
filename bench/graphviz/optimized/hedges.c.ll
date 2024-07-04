@@ -221,11 +221,11 @@ define noundef ptr @hintersect(ptr nocapture noundef readonly %0, ptr nocapture 
 
 57:                                               ; preds = %26, %52, %56
   %58 = phi ptr [ %13, %56 ], [ %11, %52 ], [ %11, %26 ]
-  %.048 = phi ptr [ %1, %56 ], [ %0, %52 ], [ %0, %26 ]
+  %.047 = phi ptr [ %1, %56 ], [ %0, %52 ], [ %0, %26 ]
   %59 = load double, ptr %58, align 8
   %60 = extractelement <2 x double> %44, i64 0
   %61 = fcmp ult double %60, %59
-  %62 = getelementptr inbounds i8, ptr %.048, i64 28
+  %62 = getelementptr inbounds i8, ptr %.047, i64 28
   %63 = load i8, ptr %62, align 4
   br i1 %61, label %.critedge, label %64
 

@@ -272,7 +272,7 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr nocapture w
   br label %128
 
 48:                                               ; preds = %.outer, %107
-  %.049 = phi i64 [ %110, %107 ], [ %.049.ph, %.outer ]
+  %.047 = phi i64 [ %110, %107 ], [ %.047.ph, %.outer ]
   %49 = load i64, ptr %11, align 8, !noundef !3
   %50 = load i64, ptr %2, align 8, !noundef !3
   %51 = icmp eq i64 %49, %50
@@ -339,7 +339,7 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr nocapture w
   store ptr %82, ptr %8, align 8
   store i64 %83, ptr %34, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
-  %85 = call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 0, i64 %.049)
+  %85 = call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 0, i64 %.047)
   store i64 %85, ptr %36, align 8
   %86 = load i64, ptr %35, align 8, !noundef !3
   %87 = call ptr @"_ZN59_$LT$std..process..ChildStdout$u20$as$u20$std..io..Read$GT$8read_buf17h89760e5263f7afe6E"(ptr align 4 %1, ptr nonnull align 8 %8, i64 %86)
@@ -396,7 +396,7 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr nocapture w
   br i1 %or.cond, label %116, label %.outer.backedge
 
 .outer:                                           ; preds = %.outer.backedge, %32
-  %.049.ph = phi i64 [ 0, %32 ], [ %110, %.outer.backedge ]
+  %.047.ph = phi i64 [ 0, %32 ], [ %110, %.outer.backedge ]
   %.1.ph = phi i64 [ %25, %32 ], [ %.1.ph.be, %.outer.backedge ]
   br label %48
 

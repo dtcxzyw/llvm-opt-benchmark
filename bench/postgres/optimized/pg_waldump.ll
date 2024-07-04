@@ -2001,7 +2001,7 @@ define internal fastcc void @XLogDumpDisplayStats(ptr nocapture noundef readonly
 
 7:                                                ; preds = %.preheader111, %20
   %indvars.iv = phi i64 [ 0, %.preheader111 ], [ %indvars.iv.next, %20 ]
-  %.087114 = phi i64 [ 0, %.preheader111 ], [ %.188.fr, %20 ]
+  %.089114 = phi i64 [ 0, %.preheader111 ], [ %.190.fr, %20 ]
   %.091113 = phi i64 [ 0, %.preheader111 ], [ %.192.fr, %20 ]
   %.093112 = phi i64 [ 0, %.preheader111 ], [ %.194.fr, %20 ]
   %8 = trunc i64 %indvars.iv to i32
@@ -2012,28 +2012,28 @@ define internal fastcc void @XLogDumpDisplayStats(ptr nocapture noundef readonly
 10:                                               ; preds = %7
   %11 = getelementptr [256 x %struct.XLogRecStats], ptr %6, i64 0, i64 %indvars.iv
   %12 = load i64, ptr %11, align 8
-  %13 = add i64 %12, %.087114
+  %13 = add i64 %12, %.093112
   %14 = getelementptr inbounds i8, ptr %11, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = add i64 %15, %.093112
+  %16 = add i64 %15, %.091113
   %17 = getelementptr inbounds i8, ptr %11, i64 16
   %18 = load i64, ptr %17, align 8
-  %19 = add i64 %18, %.091113
+  %19 = add i64 %18, %.089114
   br label %20
 
 20:                                               ; preds = %7, %10
-  %.194 = phi i64 [ %16, %10 ], [ %.093112, %7 ]
-  %.192 = phi i64 [ %19, %10 ], [ %.091113, %7 ]
-  %.188 = phi i64 [ %13, %10 ], [ %.087114, %7 ]
+  %.194 = phi i64 [ %13, %10 ], [ %.093112, %7 ]
+  %.192 = phi i64 [ %16, %10 ], [ %.091113, %7 ]
+  %.190 = phi i64 [ %19, %10 ], [ %.089114, %7 ]
+  %.190.fr = freeze i64 %.190
   %.192.fr = freeze i64 %.192
   %.194.fr = freeze i64 %.194
-  %.188.fr = freeze i64 %.188
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %21, label %7, !llvm.loop !14
 
 21:                                               ; preds = %20
-  %22 = add i64 %.192.fr, %.194.fr
+  %22 = add i64 %.190.fr, %.192.fr
   %23 = getelementptr inbounds i8, ptr %1, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = lshr i64 %24, 32
@@ -2045,12 +2045,12 @@ define internal fastcc void @XLogDumpDisplayStats(ptr nocapture noundef readonly
   %31 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.121, i32 noundef %26, i32 noundef %27, i32 noundef %29, i32 noundef %30) #15
   %32 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.127, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.131) #15
   %33 = getelementptr inbounds i8, ptr %0, i64 14
-  %.not.i = icmp eq i64 %.188.fr, 0
-  %34 = uitofp i64 %.188.fr to double
-  %.not27.i = icmp eq i64 %.194.fr, 0
-  %35 = uitofp i64 %.194.fr to double
-  %.not28.i = icmp eq i64 %.192.fr, 0
-  %36 = uitofp i64 %.192.fr to double
+  %.not.i = icmp eq i64 %.194.fr, 0
+  %34 = uitofp i64 %.194.fr to double
+  %.not27.i = icmp eq i64 %.192.fr, 0
+  %35 = uitofp i64 %.192.fr to double
+  %.not28.i = icmp eq i64 %.190.fr, 0
+  %36 = uitofp i64 %.190.fr to double
   %.not29.i = icmp eq i64 %22, 0
   %37 = uitofp i64 %22 to double
   %38 = getelementptr inbounds i8, ptr %1, i64 6168
@@ -2405,14 +2405,14 @@ define internal fastcc void @XLogDumpDisplayStats(ptr nocapture noundef readonly
   %245 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.133) #15
   %246 = fmul double %35, 1.000000e+02
   %247 = fdiv double %246, %37
-  %.090 = select i1 %.not29.i, double 0.000000e+00, double %247
+  %.088 = select i1 %.not29.i, double 0.000000e+00, double %247
   %248 = fmul double %36, 1.000000e+02
   %249 = fdiv double %248, %37
-  %.089 = select i1 %.not29.i, double 0.000000e+00, double %249
+  %.087 = select i1 %.not29.i, double 0.000000e+00, double %249
   %250 = load i64, ptr %1, align 8
-  %251 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.140, double noundef %.090) #15
-  %252 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.140, double noundef %.089) #15
-  %253 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.139, i64 noundef %250, ptr noundef nonnull @.str.137, i64 noundef %.194.fr, ptr noundef %251, i64 noundef %.192.fr, ptr noundef %252, i64 noundef %22, ptr noundef nonnull @.str.141) #15
+  %251 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.140, double noundef %.088) #15
+  %252 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.140, double noundef %.087) #15
+  %253 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.139, i64 noundef %250, ptr noundef nonnull @.str.137, i64 noundef %.192.fr, ptr noundef %251, i64 noundef %.190.fr, ptr noundef %252, i64 noundef %22, ptr noundef nonnull @.str.141) #15
   br label %254
 
 254:                                              ; preds = %2, %.split119.us

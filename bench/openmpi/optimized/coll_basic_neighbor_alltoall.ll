@@ -684,7 +684,7 @@ ompi_request_cancel.exit.i89.i:                   ; preds = %315, %312
   br i1 %exitcond.not.i87.i, label %mca_coll_basic_neighbor_alltoall_graph.exit, label %.lr.ph.i81.i, !llvm.loop !6
 
 mca_coll_basic_neighbor_alltoall_graph.exit:      ; preds = %263, %297, %323, %189, %211, %275, %._crit_edge.i32, %303
-  %.050.i = phi i32 [ 0, %189 ], [ -2, %211 ], [ 0, %._crit_edge.i32 ], [ %268, %275 ], [ %302, %303 ], [ %302, %323 ], [ %268, %297 ], [ %238, %263 ]
+  %.055.i = phi i32 [ 0, %189 ], [ -2, %211 ], [ 0, %._crit_edge.i32 ], [ %268, %275 ], [ %302, %303 ], [ %302, %323 ], [ %268, %297 ], [ %238, %263 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br label %mca_coll_basic_neighbor_alltoall_dist_graph.exit
 
@@ -751,17 +751,17 @@ mca_coll_basic_neighbor_alltoall_graph.exit:      ; preds = %263, %297, %323, %1
 362:                                              ; preds = %367, %.lr.ph.i52
   %indvars.iv.i53 = phi i64 [ 0, %.lr.ph.i52 ], [ %indvars.iv.next.i65, %367 ]
   %.0114.i = phi ptr [ %354, %.lr.ph.i52 ], [ %368, %367 ]
-  %.058113.i = phi ptr [ %3, %.lr.ph.i52 ], [ %369, %367 ]
+  %.063112.i = phi ptr [ %3, %.lr.ph.i52 ], [ %369, %367 ]
   %363 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %364 = getelementptr inbounds i32, ptr %339, i64 %indvars.iv.i53
   %365 = load i32, ptr %364, align 4
-  %366 = tail call i32 %363(ptr noundef %.058113.i, i64 noundef %357, ptr noundef %5, i32 noundef %365, i32 noundef -13, ptr noundef %6, ptr noundef nonnull %.0114.i) #3
+  %366 = tail call i32 %363(ptr noundef %.063112.i, i64 noundef %357, ptr noundef %5, i32 noundef %365, i32 noundef -13, ptr noundef %6, ptr noundef nonnull %.0114.i) #3
   %.not.i54 = icmp eq i32 %366, 0
   br i1 %.not.i54, label %367, label %370
 
 367:                                              ; preds = %362
   %368 = getelementptr inbounds i8, ptr %.0114.i, i64 8
-  %369 = getelementptr inbounds i8, ptr %.058113.i, i64 %358
+  %369 = getelementptr inbounds i8, ptr %.063112.i, i64 %358
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i65, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.preheader.i49, label %362, !llvm.loop !10
@@ -814,17 +814,17 @@ ompi_request_cancel.exit.i.i64:                   ; preds = %380, %377
 389:                                              ; preds = %394, %.lr.ph118.i
   %indvars.iv128.i = phi i64 [ 0, %.lr.ph118.i ], [ %indvars.iv.next129.i, %394 ]
   %.2117.i = phi ptr [ %.0.lcssa.i, %.lr.ph118.i ], [ %395, %394 ]
-  %.057116.i = phi ptr [ %0, %.lr.ph118.i ], [ %396, %394 ]
+  %.062115.i = phi ptr [ %0, %.lr.ph118.i ], [ %396, %394 ]
   %390 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %391 = getelementptr inbounds i32, ptr %341, i64 %indvars.iv128.i
   %392 = load i32, ptr %391, align 4
-  %393 = tail call i32 %390(ptr noundef %.057116.i, i64 noundef %360, ptr noundef %2, i32 noundef %392, i32 noundef -13, i32 noundef 4, ptr noundef %6, ptr noundef nonnull %.2117.i) #3
+  %393 = tail call i32 %390(ptr noundef %.062115.i, i64 noundef %360, ptr noundef %2, i32 noundef %392, i32 noundef -13, i32 noundef 4, ptr noundef %6, ptr noundef nonnull %.2117.i) #3
   %.not71.i = icmp eq i32 %393, 0
   br i1 %.not71.i, label %394, label %397
 
 394:                                              ; preds = %389
   %395 = getelementptr inbounds i8, ptr %.2117.i, i64 8
-  %396 = getelementptr inbounds i8, ptr %.057116.i, i64 %361
+  %396 = getelementptr inbounds i8, ptr %.062115.i, i64 %361
   %indvars.iv.next129.i = add nuw nsw i64 %indvars.iv128.i, 1
   %exitcond132.not.i = icmp eq i64 %indvars.iv.next129.i, %wide.trip.count131.i
   br i1 %exitcond132.not.i, label %._crit_edge.i50, label %389, !llvm.loop !11
@@ -936,7 +936,7 @@ ompi_request_cancel.exit.i95.i:                   ; preds = %432, %429
   br i1 %exitcond.not.i93.i, label %mca_coll_basic_neighbor_alltoall_dist_graph.exit, label %.lr.ph.i87.i, !llvm.loop !6
 
 mca_coll_basic_neighbor_alltoall_dist_graph.exit: ; preds = %388, %418, %440, %422, %._crit_edge.i50, %397, %337, %326, %324, %8, %mca_coll_basic_neighbor_alltoall_graph.exit, %mca_coll_basic_neighbor_alltoall_cart.exit
-  %.0 = phi i32 [ %.0103.i, %mca_coll_basic_neighbor_alltoall_cart.exit ], [ %.050.i, %mca_coll_basic_neighbor_alltoall_graph.exit ], [ -8, %8 ], [ -8, %324 ], [ 0, %326 ], [ -2, %337 ], [ 0, %._crit_edge.i50 ], [ %393, %397 ], [ %421, %422 ], [ %421, %440 ], [ %393, %418 ], [ %366, %388 ]
+  %.0 = phi i32 [ %.0103.i, %mca_coll_basic_neighbor_alltoall_cart.exit ], [ %.055.i, %mca_coll_basic_neighbor_alltoall_graph.exit ], [ -8, %8 ], [ -8, %324 ], [ 0, %326 ], [ -2, %337 ], [ 0, %._crit_edge.i50 ], [ %393, %397 ], [ %421, %422 ], [ %421, %440 ], [ %393, %418 ], [ %366, %388 ]
   ret i32 %.0
 }
 

@@ -179,10 +179,10 @@ define void @_ZN3gmx22RestraintForceProvider15calculateForcesERKNS_18ForceProvid
 
 26:                                               ; preds = %.lr.ph, %26
   %27 = phi ptr [ %21, %.lr.ph ], [ %41, %26 ]
-  %.068113 = phi i64 [ 0, %.lr.ph ], [ %31, %26 ]
-  %.sroa.8.0112 = phi float [ %.fca.1.extract32, %.lr.ph ], [ %39, %26 ]
-  %.sroa.091.0111 = phi <2 x float> [ %.fca.0.extract31, %.lr.ph ], [ %37, %26 ]
-  %28 = getelementptr inbounds %"class.gmx::Site", ptr %27, i64 %.068113
+  %.069113 = phi i64 [ 0, %.lr.ph ], [ %31, %26 ]
+  %.sroa.091.0112 = phi <2 x float> [ %.fca.0.extract31, %.lr.ph ], [ %37, %26 ]
+  %.sroa.8.0111 = phi float [ %.fca.1.extract32, %.lr.ph ], [ %39, %26 ]
+  %28 = getelementptr inbounds %"class.gmx::Site", ptr %27, i64 %.069113
   %.sroa.026.0.copyload = load ptr, ptr %1, align 8
   %.sroa.227.0.copyload = load ptr, ptr %.sroa.236.0..sroa_idx, align 8
   %29 = load double, ptr %13, align 8
@@ -191,7 +191,7 @@ define void @_ZN3gmx22RestraintForceProvider15calculateForcesERKNS_18ForceProvid
   %.fca.1.extract23 = extractvalue { <2 x float>, float } %30, 1
   store <2 x float> %.fca.0.extract22, ptr %6, align 8
   store float %.fca.1.extract23, ptr %.sroa.225.0..sroa_idx, align 8
-  %31 = add nuw i64 %.068113, 1
+  %31 = add nuw i64 %.069113, 1
   %32 = load ptr, ptr %14, align 8
   %33 = getelementptr inbounds %"class.gmx::Site", ptr %32, i64 %31
   %.sroa.020.0.copyload = load ptr, ptr %1, align 8
@@ -204,9 +204,9 @@ define void @_ZN3gmx22RestraintForceProvider15calculateForcesERKNS_18ForceProvid
   store float %.fca.1.extract, ptr %.sroa.219.0..sroa_idx, align 8
   call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5)
   %36 = load <2 x float>, ptr %5, align 8
-  %37 = fadd <2 x float> %.sroa.091.0111, %36
+  %37 = fadd <2 x float> %.sroa.091.0112, %36
   %38 = load float, ptr %25, align 8
-  %39 = fadd float %.sroa.8.0112, %38
+  %39 = fadd float %.sroa.8.0111, %38
   %40 = load ptr, ptr %19, align 8
   %41 = load ptr, ptr %14, align 8
   %42 = ptrtoint ptr %40 to i64
@@ -218,8 +218,8 @@ define void @_ZN3gmx22RestraintForceProvider15calculateForcesERKNS_18ForceProvid
   br i1 %47, label %26, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %26, %3
-  %.sroa.091.0.lcssa = phi <2 x float> [ %.fca.0.extract31, %3 ], [ %37, %26 ]
   %.sroa.8.0.lcssa = phi float [ %.fca.1.extract32, %3 ], [ %39, %26 ]
+  %.sroa.091.0.lcssa = phi <2 x float> [ %.fca.0.extract31, %3 ], [ %37, %26 ]
   %48 = getelementptr inbounds i8, ptr %12, i64 96
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null

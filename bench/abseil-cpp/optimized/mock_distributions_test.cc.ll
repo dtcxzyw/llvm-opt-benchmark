@@ -11952,8 +11952,8 @@ if.then.i:                                        ; preds = %for.end.i.i
 
 _ZN4absl18container_internal12raw_hash_mapINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE16try_emplace_implIRSH_JEEESG_INS0_12raw_hash_setISB_SE_SF_SJ_E8iteratorEbEOT_DpOT0_.exit: ; preds = %for.body.i.i, %if.then.i
   %15 = phi ptr [ %.pre20.i, %if.then.i ], [ %6, %for.body.i.i ]
-  %retval.sroa.0.0.i15.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
-  %second.i.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i15.i, i32 0, i32 1
+  %retval.sroa.0.0.i14.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
+  %second.i.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i14.i, i32 0, i32 1
   %16 = load ptr, ptr %second.i.i, align 8
   %cmp.i.not = icmp eq ptr %16, null
   br i1 %cmp.i.not, label %if.then, label %if.end
@@ -19468,8 +19468,8 @@ if.then.i:                                        ; preds = %for.end.i.i
 
 _ZN4absl18container_internal12raw_hash_mapINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE16try_emplace_implIRSH_JEEESG_INS0_12raw_hash_setISB_SE_SF_SJ_E8iteratorEbEOT_DpOT0_.exit: ; preds = %for.body.i.i, %if.then.i
   %15 = phi ptr [ %.pre20.i, %if.then.i ], [ %6, %for.body.i.i ]
-  %retval.sroa.0.0.i15.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
-  %second.i.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i15.i, i32 0, i32 1
+  %retval.sroa.0.0.i14.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
+  %second.i.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i14.i, i32 0, i32 1
   %16 = load ptr, ptr %second.i.i, align 8
   %cmp.i.not = icmp eq ptr %16, null
   br i1 %cmp.i.not, label %if.then, label %if.end
@@ -25564,8 +25564,8 @@ if.then.i:                                        ; preds = %for.end.i.i
 
 _ZN4absl18container_internal12raw_hash_mapINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE16try_emplace_implIRSH_JEEESG_INS0_12raw_hash_setISB_SE_SF_SJ_E8iteratorEbEOT_DpOT0_.exit: ; preds = %for.body.i.i, %if.then.i
   %15 = phi ptr [ %.pre20.i, %if.then.i ], [ %6, %for.body.i.i ]
-  %retval.sroa.0.0.i15.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
-  %second.i.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i15.i, i32 0, i32 1
+  %retval.sroa.0.0.i14.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
+  %second.i.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i14.i, i32 0, i32 1
   %16 = load ptr, ptr %second.i.i, align 8
   %cmp.i.not = icmp eq ptr %16, null
   br i1 %cmp.i.not, label %if.then, label %if.end
@@ -30811,8 +30811,8 @@ if.then.i:                                        ; preds = %for.end.i.i
 
 _ZN4absl18container_internal12raw_hash_mapINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE16try_emplace_implIRSH_JEEESG_INS0_12raw_hash_setISB_SE_SF_SJ_E8iteratorEbEOT_DpOT0_.exit: ; preds = %for.body.i.i, %if.then.i
   %15 = phi ptr [ %.pre20.i, %if.then.i ], [ %6, %for.body.i.i ]
-  %retval.sroa.0.0.i15.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
-  %second.i.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i15.i, i32 0, i32 1
+  %retval.sroa.0.0.i14.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
+  %second.i.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i14.i, i32 0, i32 1
   %16 = load ptr, ptr %second.i.i, align 8
   %cmp.i.not = icmp eq ptr %16, null
   br i1 %cmp.i.not, label %if.then, label %if.end
@@ -35615,8 +35615,8 @@ if.then.i:                                        ; preds = %for.end.i.i
 
 _ZN4absl18container_internal12raw_hash_mapINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE16try_emplace_implIRSH_JEEESG_INS0_12raw_hash_setISB_SE_SF_SJ_E8iteratorEbEOT_DpOT0_.exit: ; preds = %for.body.i.i, %if.then.i
   %15 = phi ptr [ %.pre20.i, %if.then.i ], [ %6, %for.body.i.i ]
-  %retval.sroa.0.0.i15.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
-  %second.i.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i15.i, i32 0, i32 1
+  %retval.sroa.0.0.i14.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
+  %second.i.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i14.i, i32 0, i32 1
   %16 = load ptr, ptr %second.i.i, align 8
   %cmp.i.not = icmp eq ptr %16, null
   br i1 %cmp.i.not, label %if.then, label %if.end
@@ -41042,8 +41042,8 @@ if.then.i:                                        ; preds = %for.end.i.i
 
 _ZN4absl18container_internal12raw_hash_mapINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE16try_emplace_implIRSH_JEEESG_INS0_12raw_hash_setISB_SE_SF_SJ_E8iteratorEbEOT_DpOT0_.exit: ; preds = %for.body.i.i, %if.then.i
   %15 = phi ptr [ %.pre20.i, %if.then.i ], [ %6, %for.body.i.i ]
-  %retval.sroa.0.0.i15.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
-  %second.i.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i15.i, i32 0, i32 1
+  %retval.sroa.0.0.i14.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
+  %second.i.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i14.i, i32 0, i32 1
   %16 = load ptr, ptr %second.i.i, align 8
   %cmp.i.not = icmp eq ptr %16, null
   br i1 %cmp.i.not, label %if.then, label %if.end
@@ -46673,8 +46673,8 @@ cond.false28.i.i:                                 ; preds = %if.else.i.i
   br label %if.end32.i.i
 
 if.end32.i.i:                                     ; preds = %cond.false28.i.i, %if.else.i.i, %cond.false.i.i, %if.then5.i.i
-  %top_e.0.i.i = phi i32 [ %sub9.i.i, %cond.false.i.i ], [ %conv29.i.i, %cond.false28.i.i ], [ -1, %if.then5.i.i ], [ -1, %if.else.i.i ]
   %base_e.0.i.i = phi i32 [ %shl.i.i, %cond.false.i.i ], [ %cond22.i.i, %cond.false28.i.i ], [ %shl.i.i, %if.then5.i.i ], [ %cond22.i.i, %if.else.i.i ]
+  %top_e.0.i.i = phi i32 [ %sub9.i.i, %cond.false.i.i ], [ %conv29.i.i, %cond.false28.i.i ], [ -1, %if.then5.i.i ], [ -1, %if.else.i.i ]
   %spec.select.i.i = call i32 @llvm.umin.i32(i32 %base_e.0.i.i, i32 %sub.i.i.i.i)
   %cond46.i.i = call i32 @llvm.umin.i32(i32 %top_e.0.i.i, i32 %sub.i.i.i.i)
   store i32 %spec.select.i.i, ptr %ref.tmp47.i.i, align 8
@@ -46784,8 +46784,8 @@ if.then.i:                                        ; preds = %for.end.i.i
 
 _ZN4absl18container_internal12raw_hash_mapINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE16try_emplace_implIRSH_JEEESG_INS0_12raw_hash_setISB_SE_SF_SJ_E8iteratorEbEOT_DpOT0_.exit: ; preds = %for.body.i.i, %if.then.i
   %15 = phi ptr [ %.pre20.i, %if.then.i ], [ %6, %for.body.i.i ]
-  %retval.sroa.0.0.i15.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
-  %second.i.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i15.i, i32 0, i32 1
+  %retval.sroa.0.0.i14.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i, %for.body.i.i ]
+  %second.i.i = getelementptr inbounds %"union.absl::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i14.i, i32 0, i32 1
   %16 = load ptr, ptr %second.i.i, align 8
   %cmp.i.not = icmp eq ptr %16, null
   br i1 %cmp.i.not, label %if.then, label %if.end

@@ -2104,27 +2104,27 @@ define hidden i32 @lsarpc_dissect_struct_lsa_String(ptr noundef %0, i32 noundef 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_String, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_String_length, align 4
-  %33 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_String_size, align 4
-  %35 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_lsarpc_lsa_String_string, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_String_string_, i32 noundef 2, ptr noundef nonnull @.str.869, i32 noundef %36) #5
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_String_string_, i32 noundef 2, ptr noundef nonnull @.str.869, i32 noundef %36) #5
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -2191,27 +2191,27 @@ define hidden i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 nou
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_StringLarge, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_StringLarge_length, align 4
-  %33 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_StringLarge_size, align 4
-  %35 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_lsarpc_lsa_StringLarge_string, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_StringLarge_string_, i32 noundef 2, ptr noundef nonnull @.str.869, i32 noundef %36) #5
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_StringLarge_string_, i32 noundef 2, ptr noundef nonnull @.str.869, i32 noundef %36) #5
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -2274,25 +2274,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_Strings(ptr noundef %0, i32 noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_Strings, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_Strings_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_Strings_names, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_Strings_names_, i32 noundef 2, ptr noundef nonnull @.str.871, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_Strings_names_, i32 noundef 2, ptr noundef nonnull @.str.871, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -2355,27 +2355,27 @@ define hidden i32 @lsarpc_dissect_struct_lsa_AsciiString(ptr noundef %0, i32 nou
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_AsciiString, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_AsciiString_length, align 4
-  %33 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_AsciiString_size, align 4
-  %35 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_lsarpc_lsa_AsciiString_string, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_AsciiString_string_, i32 noundef 2, ptr noundef nonnull @.str.872, i32 noundef %36) #5
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_AsciiString_string_, i32 noundef 2, ptr noundef nonnull @.str.872, i32 noundef %36) #5
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -2438,27 +2438,27 @@ define hidden i32 @lsarpc_dissect_struct_lsa_AsciiStringLarge(ptr noundef %0, i3
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_AsciiStringLarge, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_AsciiStringLarge_length, align 4
-  %33 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_AsciiStringLarge_size, align 4
-  %35 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_lsarpc_lsa_AsciiStringLarge_string, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_AsciiStringLarge_string_, i32 noundef 2, ptr noundef nonnull @.str.872, i32 noundef %36) #5
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_AsciiStringLarge_string_, i32 noundef 2, ptr noundef nonnull @.str.872, i32 noundef %36) #5
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -2521,27 +2521,27 @@ define hidden i32 @lsarpc_dissect_struct_lsa_BinaryString(ptr noundef %0, i32 no
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_BinaryString, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_BinaryString_length, align 4
-  %33 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_BinaryString_size, align 4
-  %35 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_lsarpc_lsa_BinaryString_array, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_BinaryString_array_, i32 noundef 2, ptr noundef nonnull @.str.873, i32 noundef %36) #5
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_BinaryString_array_, i32 noundef 2, ptr noundef nonnull @.str.873, i32 noundef %36) #5
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -2578,25 +2578,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_LUID(ptr noundef %0, i32 noundef %1
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_lsarpc_lsa_LUID, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_lsarpc_lsa_LUID_low, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_lsarpc_lsa_LUID_high, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #5
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -2659,25 +2659,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_PrivEntry(ptr noundef %0, i32 nound
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_PrivEntry, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_PrivEntry_name, align 4
-  %33 = tail call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %33 = tail call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
   %34 = load i32, ptr @hf_lsarpc_lsa_PrivEntry_luid, align 4
-  %35 = tail call i32 @lsarpc_dissect_struct_lsa_LUID(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @lsarpc_dissect_struct_lsa_LUID(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -2740,25 +2740,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_PrivArray(ptr noundef %0, i32 nound
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_PrivArray, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_PrivArray_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_PrivArray_privs, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_PrivArray_privs_, i32 noundef 2, ptr noundef nonnull @.str.874, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_PrivArray_privs_, i32 noundef 2, ptr noundef nonnull @.str.874, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -2848,32 +2848,32 @@ define hidden i32 @lsarpc_dissect_struct_lsa_QosInfo(ptr noundef %0, i32 noundef
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.050 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.050, i32 noundef -1, i32 noundef 0) #5
   %30 = load i32, ptr @ett_lsarpc_lsa_QosInfo, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #5
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.050 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.049 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.049 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_lsarpc_lsa_QosInfo_len, align 4
-  %34 = tail call i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef null) #5
+  %34 = tail call i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %.050, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef null) #5
   %35 = load i32, ptr @hf_lsarpc_lsa_QosInfo_impersonation_level, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %36 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %9) #5
+  %36 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %37 = load i32, ptr @hf_lsarpc_lsa_QosInfo_context_mode, align 4
-  %38 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
+  %38 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
   %39 = load i32, ptr @hf_lsarpc_lsa_QosInfo_effective_only, align 4
-  %40 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #5
-  %41 = sub i32 %40, %.0
-  call void @proto_item_set_len(ptr noundef %.050, i32 noundef %41) #5
+  %40 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #5
+  %41 = sub i32 %40, %.050
+  call void @proto_item_set_len(ptr noundef %.049, i32 noundef %41) #5
   %42 = load ptr, ptr %10, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 96
   %44 = load i32, ptr %43, align 8
@@ -2936,33 +2936,33 @@ define hidden i32 @lsarpc_dissect_struct_lsa_ObjectAttribute(ptr noundef %0, i32
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.062 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not68 = icmp eq ptr %3, null
   br i1 %.not68, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.062, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_ObjectAttribute, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.062 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.061 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.061 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_ObjectAttribute_len, align 4
-  %33 = tail call i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, ptr noundef null) #5
+  %33 = tail call i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %.062, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, ptr noundef null) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_ObjectAttribute_root_dir, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_ObjectAttribute_root_dir_, i32 noundef 2, ptr noundef nonnull @.str.875, i32 noundef %34) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_ObjectAttribute_root_dir_, i32 noundef 2, ptr noundef nonnull @.str.875, i32 noundef %34) #5
   %36 = load i32, ptr @hf_lsarpc_lsa_ObjectAttribute_object_name, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_ObjectAttribute_object_name_, i32 noundef 2, ptr noundef nonnull @.str.876, i32 noundef %36) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_ObjectAttribute_object_name_, i32 noundef 2, ptr noundef nonnull @.str.876, i32 noundef %36) #5
   %38 = load i32, ptr @hf_lsarpc_lsa_ObjectAttribute_attributes, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
   %40 = load i32, ptr @hf_lsarpc_lsa_ObjectAttribute_sec_desc, align 4
-  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_ObjectAttribute_sec_desc_, i32 noundef 2, ptr noundef nonnull @.str.877, i32 noundef %40) #5
+  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_ObjectAttribute_sec_desc_, i32 noundef 2, ptr noundef nonnull @.str.877, i32 noundef %40) #5
   %42 = load i32, ptr @hf_lsarpc_lsa_ObjectAttribute_sec_qos, align 4
-  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_ObjectAttribute_sec_qos_, i32 noundef 2, ptr noundef nonnull @.str.878, i32 noundef %42) #5
-  %44 = sub i32 %43, %.0
-  tail call void @proto_item_set_len(ptr noundef %.062, i32 noundef %44) #5
+  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_ObjectAttribute_sec_qos_, i32 noundef 2, ptr noundef nonnull @.str.878, i32 noundef %42) #5
+  %44 = sub i32 %43, %.062
+  tail call void @proto_item_set_len(ptr noundef %.061, i32 noundef %44) #5
   %45 = load ptr, ptr %9, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 96
   %47 = load i32, ptr %46, align 8
@@ -3046,33 +3046,33 @@ define hidden i32 @lsarpc_dissect_struct_lsa_AuditLogInfo(ptr noundef %0, i32 no
   %or.cond = or i1 %.not56, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.054 = select i1 %or.cond, i32 %1, i32 %13
   %.not57 = icmp eq ptr %3, null
   br i1 %.not57, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.054, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_lsarpc_lsa_AuditLogInfo, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.054 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.053 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.053 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_lsarpc_lsa_AuditLogInfo_percent_full, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.054, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_lsarpc_lsa_AuditLogInfo_maximum_log_size, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
   %23 = load i32, ptr @hf_lsarpc_lsa_AuditLogInfo_retention_time, align 4
-  %24 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #5
+  %24 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #5
   %25 = load i32, ptr @hf_lsarpc_lsa_AuditLogInfo_shutdown_in_progress, align 4
-  %26 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
+  %26 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
   %27 = load i32, ptr @hf_lsarpc_lsa_AuditLogInfo_time_to_shutdown, align 4
-  %28 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #5
+  %28 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #5
   %29 = load i32, ptr @hf_lsarpc_lsa_AuditLogInfo_next_audit_record, align 4
-  %30 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #5
-  %31 = sub i32 %30, %.0
-  tail call void @proto_item_set_len(ptr noundef %.054, i32 noundef %31) #5
+  %30 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #5
+  %31 = sub i32 %30, %.054
+  tail call void @proto_item_set_len(ptr noundef %.053, i32 noundef %31) #5
   %32 = getelementptr inbounds i8, ptr %4, i64 72
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 96
@@ -3183,27 +3183,27 @@ define hidden i32 @lsarpc_dissect_struct_lsa_AuditEventsInfo(ptr noundef %0, i32
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_AuditEventsInfo, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_AuditEventsInfo_auditing_mode, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_AuditEventsInfo_settings, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_AuditEventsInfo_settings_, i32 noundef 2, ptr noundef nonnull @.str.879, i32 noundef %34) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_AuditEventsInfo_settings_, i32 noundef 2, ptr noundef nonnull @.str.879, i32 noundef %34) #5
   %36 = load i32, ptr @hf_lsarpc_lsa_AuditEventsInfo_count, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -3266,25 +3266,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_DomainInfo(ptr noundef %0, i32 noun
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_DomainInfo, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_DomainInfo_name, align 4
-  %33 = tail call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %33 = tail call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
   %34 = load i32, ptr @hf_lsarpc_lsa_DomainInfo_sid, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_DomainInfo_sid_, i32 noundef 2, ptr noundef nonnull @.str.880, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_DomainInfo_sid_, i32 noundef 2, ptr noundef nonnull @.str.880, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -3347,23 +3347,23 @@ define hidden i32 @lsarpc_dissect_struct_lsa_PDAccountInfo(ptr noundef %0, i32 n
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_PDAccountInfo, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_PDAccountInfo_name, align 4
-  %33 = tail call i32 @lsarpc_dissect_struct_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
+  %33 = tail call i32 @lsarpc_dissect_struct_lsa_String(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -3425,26 +3425,26 @@ define hidden i32 @lsarpc_dissect_struct_lsa_ServerRole(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %13 = and i32 %1, -4
   %14 = add i32 %13, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %14
+  %.024 = select i1 %or.cond, i32 %1, i32 %14
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #5
   %17 = load i32, ptr @ett_lsarpc_lsa_ServerRole, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #5
   br label %19
 
 19:                                               ; preds = %15, %8
-  %.024 = phi ptr [ %16, %15 ], [ null, %8 ]
-  %.023 = phi ptr [ %18, %15 ], [ null, %8 ]
+  %.023 = phi ptr [ %16, %15 ], [ null, %8 ]
+  %.0 = phi ptr [ %18, %15 ], [ null, %8 ]
   %20 = load i32, ptr @hf_lsarpc_lsa_ServerRole_role, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %9) #5
+  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %22 = sub i32 %21, %.0
-  call void @proto_item_set_len(ptr noundef %.024, i32 noundef %22) #5
+  %22 = sub i32 %21, %.024
+  call void @proto_item_set_len(ptr noundef %.023, i32 noundef %22) #5
   %23 = getelementptr inbounds i8, ptr %4, i64 72
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 96
@@ -3507,25 +3507,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_ReplicaSourceInfo(ptr noundef %0, i
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_ReplicaSourceInfo, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_ReplicaSourceInfo_source, align 4
-  %33 = tail call i32 @lsarpc_dissect_struct_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %33 = tail call i32 @lsarpc_dissect_struct_lsa_String(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
   %34 = load i32, ptr @hf_lsarpc_lsa_ReplicaSourceInfo_account, align 4
-  %35 = tail call i32 @lsarpc_dissect_struct_lsa_String(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @lsarpc_dissect_struct_lsa_String(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -3562,33 +3562,33 @@ define hidden i32 @lsarpc_dissect_struct_lsa_DefaultQuotaInfo(ptr noundef %0, i3
   %or.cond = or i1 %.not56, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.054 = select i1 %or.cond, i32 %1, i32 %13
   %.not57 = icmp eq ptr %3, null
   br i1 %.not57, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.054, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_lsarpc_lsa_DefaultQuotaInfo, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.054 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.053 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.053 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_lsarpc_lsa_DefaultQuotaInfo_paged_pool, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.054, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_lsarpc_lsa_DefaultQuotaInfo_non_paged_pool, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
   %23 = load i32, ptr @hf_lsarpc_lsa_DefaultQuotaInfo_min_wss, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
   %25 = load i32, ptr @hf_lsarpc_lsa_DefaultQuotaInfo_max_wss, align 4
-  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
+  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
   %27 = load i32, ptr @hf_lsarpc_lsa_DefaultQuotaInfo_pagefile, align 4
-  %28 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #5
+  %28 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #5
   %29 = load i32, ptr @hf_lsarpc_lsa_DefaultQuotaInfo_unknown, align 4
-  %30 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #5
-  %31 = sub i32 %30, %.0
-  tail call void @proto_item_set_len(ptr noundef %.054, i32 noundef %31) #5
+  %30 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #5
+  %31 = sub i32 %30, %.054
+  tail call void @proto_item_set_len(ptr noundef %.053, i32 noundef %31) #5
   %32 = getelementptr inbounds i8, ptr %4, i64 72
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 96
@@ -3625,25 +3625,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_ModificationInfo(ptr noundef %0, i3
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_lsarpc_lsa_ModificationInfo, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_lsarpc_lsa_ModificationInfo_modified_id, align 4
-  %20 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #5
+  %20 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #5
   %21 = load i32, ptr @hf_lsarpc_lsa_ModificationInfo_db_create_time, align 4
-  %22 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21) #5
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
+  %22 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21) #5
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #5
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -3750,31 +3750,31 @@ define hidden i32 @lsarpc_dissect_struct_lsa_DnsDomainInfo(ptr noundef %0, i32 n
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.056 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not62 = icmp eq ptr %3, null
   br i1 %.not62, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.056, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_DnsDomainInfo, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.056 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.055 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.055 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_DnsDomainInfo_name, align 4
-  %33 = tail call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %33 = tail call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %.056, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
   %34 = load i32, ptr @hf_lsarpc_lsa_DnsDomainInfo_dns_domain, align 4
-  %35 = tail call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %35 = tail call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
   %36 = load i32, ptr @hf_lsarpc_lsa_DnsDomainInfo_dns_forest, align 4
-  %37 = tail call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
+  %37 = tail call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
   %38 = load i32, ptr @hf_lsarpc_lsa_DnsDomainInfo_domain_guid, align 4
-  %39 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, ptr noundef null) #5
+  %39 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, ptr noundef null) #5
   %40 = load i32, ptr @hf_lsarpc_lsa_DnsDomainInfo_sid, align 4
-  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_DnsDomainInfo_sid_, i32 noundef 2, ptr noundef nonnull @.str.880, i32 noundef %40) #5
-  %42 = sub i32 %41, %.0
-  tail call void @proto_item_set_len(ptr noundef %.056, i32 noundef %42) #5
+  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_DnsDomainInfo_sid_, i32 noundef 2, ptr noundef nonnull @.str.880, i32 noundef %40) #5
+  %42 = sub i32 %41, %.056
+  tail call void @proto_item_set_len(ptr noundef %.055, i32 noundef %42) #5
   %43 = load ptr, ptr %9, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
@@ -3861,23 +3861,23 @@ define hidden i32 @lsarpc_dissect_struct_lsa_SidPtr(ptr noundef %0, i32 noundef 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_SidPtr, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_SidPtr_sid, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_SidPtr_sid_, i32 noundef 2, ptr noundef nonnull @.str.880, i32 noundef %32) #5
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_SidPtr_sid_, i32 noundef 2, ptr noundef nonnull @.str.880, i32 noundef %32) #5
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -3940,25 +3940,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_SidArray(ptr noundef %0, i32 nounde
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_SidArray, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_SidArray_num_sids, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_SidArray_sids, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_SidArray_sids_, i32 noundef 2, ptr noundef nonnull @.str.881, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_SidArray_sids_, i32 noundef 2, ptr noundef nonnull @.str.881, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4021,25 +4021,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_DomainList(ptr noundef %0, i32 noun
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_DomainList, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_DomainList_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_DomainList_domains, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_DomainList_domains_, i32 noundef 2, ptr noundef nonnull @.str.882, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_DomainList_domains_, i32 noundef 2, ptr noundef nonnull @.str.882, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4101,30 +4101,30 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TranslatedSid(ptr noundef %0, i32 n
   %or.cond = or i1 %.not38, %.not
   %13 = and i32 %1, -4
   %14 = add i32 %13, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %14
+  %.036 = select i1 %or.cond, i32 %1, i32 %14
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #5
   %17 = load i32, ptr @ett_lsarpc_lsa_TranslatedSid, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #5
   br label %19
 
 19:                                               ; preds = %15, %8
-  %.036 = phi ptr [ %16, %15 ], [ null, %8 ]
-  %.035 = phi ptr [ %18, %15 ], [ null, %8 ]
+  %.035 = phi ptr [ %16, %15 ], [ null, %8 ]
+  %.0 = phi ptr [ %18, %15 ], [ null, %8 ]
   %20 = load i32, ptr @hf_lsarpc_lsa_TranslatedSid_sid_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %21 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %9) #5
+  %21 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %22 = load i32, ptr @hf_lsarpc_lsa_TranslatedSid_rid, align 4
-  %23 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 noundef 0) #5
+  %23 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 noundef 0) #5
   %24 = load i32, ptr @hf_lsarpc_lsa_TranslatedSid_sid_index, align 4
-  %25 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, i32 noundef 0) #5
-  %26 = sub i32 %25, %.0
-  call void @proto_item_set_len(ptr noundef %.036, i32 noundef %26) #5
+  %25 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, i32 noundef 0) #5
+  %26 = sub i32 %25, %.036
+  call void @proto_item_set_len(ptr noundef %.035, i32 noundef %26) #5
   %27 = getelementptr inbounds i8, ptr %4, i64 72
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 96
@@ -4187,25 +4187,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TransSidArray(ptr noundef %0, i32 n
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_TransSidArray, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_TransSidArray_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_TransSidArray_sids, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TransSidArray_sids_, i32 noundef 2, ptr noundef nonnull @.str.883, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TransSidArray_sids_, i32 noundef 2, ptr noundef nonnull @.str.883, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4268,27 +4268,27 @@ define hidden i32 @lsarpc_dissect_struct_lsa_RefDomainList(ptr noundef %0, i32 n
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_RefDomainList, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_RefDomainList_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_RefDomainList_domains, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_RefDomainList_domains_, i32 noundef 2, ptr noundef nonnull @.str.882, i32 noundef %34) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_RefDomainList_domains_, i32 noundef 2, ptr noundef nonnull @.str.882, i32 noundef %34) #5
   %36 = load i32, ptr @hf_lsarpc_lsa_RefDomainList_max_size, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -4376,30 +4376,30 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TranslatedName(ptr noundef %0, i32 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.044 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %30 = load i32, ptr @ett_lsarpc_lsa_TranslatedName, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #5
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.044 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.043 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.043 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_lsarpc_lsa_TranslatedName_sid_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %34 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #5
+  %34 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %35 = load i32, ptr @hf_lsarpc_lsa_TranslatedName_name, align 4
-  %36 = call i32 @lsarpc_dissect_struct_lsa_String(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @lsarpc_dissect_struct_lsa_String(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   %37 = load i32, ptr @hf_lsarpc_lsa_TranslatedName_sid_index, align 4
-  %38 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
-  %39 = sub i32 %38, %.0
-  call void @proto_item_set_len(ptr noundef %.044, i32 noundef %39) #5
+  %38 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
+  %39 = sub i32 %38, %.044
+  call void @proto_item_set_len(ptr noundef %.043, i32 noundef %39) #5
   %40 = load ptr, ptr %10, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 96
   %42 = load i32, ptr %41, align 8
@@ -4462,25 +4462,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TransNameArray(ptr noundef %0, i32 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_TransNameArray, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_TransNameArray_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_TransNameArray_names, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TransNameArray_names_, i32 noundef 2, ptr noundef nonnull @.str.884, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TransNameArray_names_, i32 noundef 2, ptr noundef nonnull @.str.884, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4517,25 +4517,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_LUIDAttribute(ptr noundef %0, i32 n
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_lsarpc_lsa_LUIDAttribute, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_lsarpc_lsa_LUIDAttribute_luid, align 4
-  %20 = tail call i32 @lsarpc_dissect_struct_lsa_LUID(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %20 = tail call i32 @lsarpc_dissect_struct_lsa_LUID(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = load i32, ptr @hf_lsarpc_lsa_LUIDAttribute_attribute, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #5
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -4572,26 +4572,26 @@ define hidden i32 @lsarpc_dissect_struct_lsa_PrivilegeSet(ptr noundef %0, i32 no
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.036 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_lsarpc_lsa_PrivilegeSet, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_lsarpc_lsa_PrivilegeSet_count, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_lsarpc_lsa_PrivilegeSet_unknown, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
-  %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_PrivilegeSet_set_) #5
-  %24 = sub i32 %23, %.0
-  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %24) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_PrivilegeSet_set_) #5
+  %24 = sub i32 %23, %.036
+  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %24) #5
   %25 = getelementptr inbounds i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 96
@@ -4654,27 +4654,27 @@ define hidden i32 @lsarpc_dissect_struct_lsa_DATA_BUF(ptr noundef %0, i32 nounde
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_DATA_BUF, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_DATA_BUF_length, align 4
-  %33 = tail call i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, ptr noundef null) #5
+  %33 = tail call i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, ptr noundef null) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_DATA_BUF_size, align 4
-  %35 = tail call i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, ptr noundef null) #5
+  %35 = tail call i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, ptr noundef null) #5
   %36 = load i32, ptr @hf_lsarpc_lsa_DATA_BUF_data, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_DATA_BUF_data_, i32 noundef 2, ptr noundef nonnull @.str.885, i32 noundef %36) #5
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_DATA_BUF_data_, i32 noundef 2, ptr noundef nonnull @.str.885, i32 noundef %36) #5
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -4737,25 +4737,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_DATA_BUF2(ptr noundef %0, i32 nound
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_DATA_BUF2, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_DATA_BUF2_size, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_DATA_BUF2_data, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_DATA_BUF2_data_, i32 noundef 2, ptr noundef nonnull @.str.885, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_DATA_BUF2_data_, i32 noundef 2, ptr noundef nonnull @.str.885, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4952,23 +4952,23 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoName(ptr noundef %0,
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_TrustDomainInfoName, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoName_netbios_name, align 4
-  %33 = tail call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
+  %33 = tail call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -5031,25 +5031,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoControllers(ptr noun
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_TrustDomainInfoControllers, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoControllers_entries, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoControllers_netbios_names, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TrustDomainInfoControllers_netbios_names_, i32 noundef 2, ptr noundef nonnull @.str.886, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TrustDomainInfoControllers_netbios_names_, i32 noundef 2, ptr noundef nonnull @.str.886, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -5086,23 +5086,23 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoPosixOffset(ptr noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_lsarpc_lsa_TrustDomainInfoPosixOffset, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoPosixOffset_posix_offset, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #5
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -5165,25 +5165,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoPassword(ptr noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_TrustDomainInfoPassword, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoPassword_password, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TrustDomainInfoPassword_password_, i32 noundef 2, ptr noundef nonnull @.str.887, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TrustDomainInfoPassword_password_, i32 noundef 2, ptr noundef nonnull @.str.887, i32 noundef %32) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoPassword_old_password, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TrustDomainInfoPassword_old_password_, i32 noundef 2, ptr noundef nonnull @.str.888, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TrustDomainInfoPassword_old_password_, i32 noundef 2, ptr noundef nonnull @.str.888, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -5246,25 +5246,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoBasic(ptr noundef %0
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_TrustDomainInfoBasic, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoBasic_netbios_name, align 4
-  %33 = tail call i32 @lsarpc_dissect_struct_lsa_String(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %33 = tail call i32 @lsarpc_dissect_struct_lsa_String(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
   %34 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoBasic_sid, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TrustDomainInfoBasic_sid_, i32 noundef 2, ptr noundef nonnull @.str.880, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TrustDomainInfoBasic_sid_, i32 noundef 2, ptr noundef nonnull @.str.880, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -5328,36 +5328,36 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoInfoEx(ptr noundef %
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.062 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not68 = icmp eq ptr %3, null
   br i1 %.not68, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.062, i32 noundef -1, i32 noundef 0) #5
   %30 = load i32, ptr @ett_lsarpc_lsa_TrustDomainInfoInfoEx, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #5
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.062 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.061 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.061 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoInfoEx_domain_name, align 4
-  %34 = tail call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 poison)
+  %34 = tail call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %.062, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 poison)
   %35 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoInfoEx_netbios_name, align 4
-  %36 = tail call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = tail call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   %37 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoInfoEx_sid, align 4
-  %38 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TrustDomainInfoInfoEx_sid_, i32 noundef 2, ptr noundef nonnull @.str.880, i32 noundef %37) #5
+  %38 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TrustDomainInfoInfoEx_sid_, i32 noundef 2, ptr noundef nonnull @.str.880, i32 noundef %37) #5
   %39 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoInfoEx_trust_direction, align 4
-  %40 = tail call i32 @lsarpc_dissect_bitmap_lsa_TrustDirection(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 poison)
+  %40 = tail call i32 @lsarpc_dissect_bitmap_lsa_TrustDirection(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 poison)
   %41 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoInfoEx_trust_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %42 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, ptr noundef nonnull %9) #5
+  %42 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %43 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoInfoEx_trust_attributes, align 4
-  %44 = call i32 @lsarpc_dissect_bitmap_lsa_TrustAttributes(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 poison)
-  %45 = sub i32 %44, %.0
-  call void @proto_item_set_len(ptr noundef %.062, i32 noundef %45) #5
+  %44 = call i32 @lsarpc_dissect_bitmap_lsa_TrustAttributes(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 poison)
+  %45 = sub i32 %44, %.062
+  call void @proto_item_set_len(ptr noundef %.061, i32 noundef %45) #5
   %46 = load ptr, ptr %10, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 96
   %48 = load i32, ptr %47, align 8
@@ -5419,30 +5419,30 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoBuffer(ptr noundef %
   %or.cond = or i1 %.not38, %.not
   %13 = and i32 %1, -8
   %14 = add i32 %13, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %14
+  %.036 = select i1 %or.cond, i32 %1, i32 %14
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #5
   %17 = load i32, ptr @ett_lsarpc_lsa_TrustDomainInfoBuffer, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #5
   br label %19
 
 19:                                               ; preds = %15, %8
-  %.036 = phi ptr [ %16, %15 ], [ null, %8 ]
-  %.035 = phi ptr [ %18, %15 ], [ null, %8 ]
+  %.035 = phi ptr [ %16, %15 ], [ null, %8 ]
+  %.0 = phi ptr [ %18, %15 ], [ null, %8 ]
   %20 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoBuffer_last_update_time, align 4
-  %21 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20) #5
+  %21 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20) #5
   %22 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoBuffer_AuthType, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %23 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %9) #5
+  %23 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %24 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoBuffer_data, align 4
-  %25 = call i32 @lsarpc_dissect_struct_lsa_DATA_BUF2(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, i32 poison)
-  %26 = sub i32 %25, %.0
-  call void @proto_item_set_len(ptr noundef %.036, i32 noundef %26) #5
+  %25 = call i32 @lsarpc_dissect_struct_lsa_DATA_BUF2(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, i32 poison)
+  %26 = sub i32 %25, %.036
+  call void @proto_item_set_len(ptr noundef %.035, i32 noundef %26) #5
   %27 = getelementptr inbounds i8, ptr %4, i64 72
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 96
@@ -5505,33 +5505,33 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoAuthInfo(ptr noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.062 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not68 = icmp eq ptr %3, null
   br i1 %.not68, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.062, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_TrustDomainInfoAuthInfo, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.062 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.061 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.061 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoAuthInfo_incoming_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.062, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoAuthInfo_incoming_current_auth_info, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfo_incoming_current_auth_info_, i32 noundef 2, ptr noundef nonnull @.str.889, i32 noundef %34) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfo_incoming_current_auth_info_, i32 noundef 2, ptr noundef nonnull @.str.889, i32 noundef %34) #5
   %36 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoAuthInfo_incoming_previous_auth_info, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfo_incoming_previous_auth_info_, i32 noundef 2, ptr noundef nonnull @.str.890, i32 noundef %36) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfo_incoming_previous_auth_info_, i32 noundef 2, ptr noundef nonnull @.str.890, i32 noundef %36) #5
   %38 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoAuthInfo_outgoing_count, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
   %40 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoAuthInfo_outgoing_current_auth_info, align 4
-  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfo_outgoing_current_auth_info_, i32 noundef 2, ptr noundef nonnull @.str.891, i32 noundef %40) #5
+  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfo_outgoing_current_auth_info_, i32 noundef 2, ptr noundef nonnull @.str.891, i32 noundef %40) #5
   %42 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoAuthInfo_outgoing_previous_auth_info, align 4
-  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfo_outgoing_previous_auth_info_, i32 noundef 2, ptr noundef nonnull @.str.892, i32 noundef %42) #5
-  %44 = sub i32 %43, %.0
-  tail call void @proto_item_set_len(ptr noundef %.062, i32 noundef %44) #5
+  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfo_outgoing_previous_auth_info_, i32 noundef 2, ptr noundef nonnull @.str.892, i32 noundef %42) #5
+  %44 = sub i32 %43, %.062
+  tail call void @proto_item_set_len(ptr noundef %.061, i32 noundef %44) #5
   %45 = load ptr, ptr %9, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 96
   %47 = load i32, ptr %46, align 8
@@ -5594,27 +5594,27 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoFullInfo(ptr noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_TrustDomainInfoFullInfo, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoFullInfo_info_ex, align 4
-  %33 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoInfoEx(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %33 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoInfoEx(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
   %34 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoFullInfo_posix_offset, align 4
-  %35 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoPosixOffset(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %35 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoPosixOffset(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
   %36 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoFullInfo_auth_info, align 4
-  %37 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoAuthInfo(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoAuthInfo(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -5677,23 +5677,23 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoAuthInfoInternal(ptr
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_TrustDomainInfoAuthInfoInternal, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoAuthInfoInternal_auth_blob, align 4
-  %33 = tail call i32 @lsarpc_dissect_struct_lsa_DATA_BUF2(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
+  %33 = tail call i32 @lsarpc_dissect_struct_lsa_DATA_BUF2(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -5756,27 +5756,27 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoFullInfoInternal(ptr
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_TrustDomainInfoFullInfoInternal, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoFullInfoInternal_info_ex, align 4
-  %33 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoInfoEx(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %33 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoInfoEx(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
   %34 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoFullInfoInternal_posix_offset, align 4
-  %35 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoPosixOffset(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %35 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoPosixOffset(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
   %36 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoFullInfoInternal_auth_info, align 4
-  %37 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoAuthInfoInternal(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoAuthInfoInternal(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -5839,26 +5839,26 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoAuthInfoInternalAES(
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_TrustDomainInfoAuthInfoInternalAES, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   br label %32
 
 32:                                               ; preds = %32, %31
   %.010.i = phi i32 [ 0, %31 ], [ %35, %32 ]
-  %.089.i = phi i32 [ %.0, %31 ], [ %34, %32 ]
+  %.089.i = phi i32 [ %.044, %31 ], [ %34, %32 ]
   %33 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoAuthInfoInternalAES_auth_data, align 4
-  %34 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.043, ptr noundef %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #5
+  %34 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #5
   %35 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %35, 64
   br i1 %exitcond.not.i, label %lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfoInternalAES_auth_data.exit, label %32, !llvm.loop !4
@@ -5867,16 +5867,16 @@ lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfoInternalAES_auth_data.exit: ; 
   %.010.i56 = phi i32 [ %38, %lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfoInternalAES_auth_data.exit ], [ 0, %32 ]
   %.089.i57 = phi i32 [ %37, %lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfoInternalAES_auth_data.exit ], [ %34, %32 ]
   %36 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoAuthInfoInternalAES_salt, align 4
-  %37 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i57, ptr noundef %2, ptr noundef %.043, ptr noundef %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
+  %37 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i57, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
   %38 = add nuw nsw i32 %.010.i56, 1
   %exitcond.not.i58 = icmp eq i32 %38, 16
   br i1 %exitcond.not.i58, label %lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfoInternalAES_salt.exit, label %lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfoInternalAES_auth_data.exit, !llvm.loop !6
 
 lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfoInternalAES_salt.exit: ; preds = %lsarpc_dissect_element_lsa_TrustDomainInfoAuthInfoInternalAES_auth_data.exit
   %39 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoAuthInfoInternalAES_cipher, align 4
-  %40 = tail call i32 @lsarpc_dissect_struct_lsa_DATA_BUF2(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.043, ptr noundef %4, ptr noundef %5, i32 noundef %39, i32 poison)
-  %41 = sub i32 %40, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %41) #5
+  %40 = tail call i32 @lsarpc_dissect_struct_lsa_DATA_BUF2(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %39, i32 poison)
+  %41 = sub i32 %40, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %41) #5
   %42 = load ptr, ptr %9, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 96
   %44 = load i32, ptr %43, align 8
@@ -5939,27 +5939,27 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoFullInfoInternalAES(
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_TrustDomainInfoFullInfoInternalAES, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoFullInfoInternalAES_info_ex, align 4
-  %33 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoInfoEx(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %33 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoInfoEx(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
   %34 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoFullInfoInternalAES_posix_offset, align 4
-  %35 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoPosixOffset(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %35 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoPosixOffset(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
   %36 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoFullInfoInternalAES_auth_info, align 4
-  %37 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoAuthInfoInternalAES(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoAuthInfoInternalAES(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -6022,27 +6022,27 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoInfoEx2Internal(ptr 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_TrustDomainInfoInfoEx2Internal, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoInfoEx2Internal_info_ex, align 4
-  %33 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoInfoEx(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %33 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoInfoEx(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
   %34 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoInfoEx2Internal_forest_trust_length, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoInfoEx2Internal_forest_trust_data, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TrustDomainInfoInfoEx2Internal_forest_trust_data_, i32 noundef 2, ptr noundef nonnull @.str.893, i32 noundef %36) #5
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TrustDomainInfoInfoEx2Internal_forest_trust_data_, i32 noundef 2, ptr noundef nonnull @.str.893, i32 noundef %36) #5
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -6105,27 +6105,27 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoFullInfo2Internal(pt
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_TrustDomainInfoFullInfo2Internal, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoFullInfo2Internal_info, align 4
-  %33 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoInfoEx2Internal(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %33 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoInfoEx2Internal(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
   %34 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoFullInfo2Internal_posix_offset, align 4
-  %35 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoPosixOffset(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %35 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoPosixOffset(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
   %36 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoFullInfo2Internal_auth_info, align 4
-  %37 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoAuthInfo(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoAuthInfo(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -6163,12 +6163,12 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoSupportedEncTypes(pt
   %or.cond = or i1 %.not26, %.not
   %13 = and i32 %1, -4
   %14 = add i32 %13, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %14
+  %.024 = select i1 %or.cond, i32 %1, i32 %14
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #5
   %17 = load i32, ptr @ett_lsarpc_lsa_TrustDomainInfoSupportedEncTypes, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #5
   %.pre = load i32, ptr %10, align 4
@@ -6176,26 +6176,26 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoSupportedEncTypes(pt
 
 19:                                               ; preds = %15, %8
   %20 = phi i32 [ %.pre, %15 ], [ %11, %8 ]
-  %.024 = phi ptr [ %16, %15 ], [ null, %8 ]
-  %.023 = phi ptr [ %18, %15 ], [ null, %8 ]
+  %.023 = phi ptr [ %16, %15 ], [ null, %8 ]
+  %.0 = phi ptr [ %18, %15 ], [ null, %8 ]
   %21 = load i32, ptr @hf_lsarpc_lsa_TrustDomainInfoSupportedEncTypes_enc_types, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %.not.i.i = icmp ne i32 %20, 0
-  %22 = and i32 %.0, 3
+  %22 = and i32 %.024, 3
   %.not14.i.i = icmp eq i32 %22, 0
   %or.cond.i.i = or i1 %.not14.i.i, %.not.i.i
-  %23 = and i32 %.0, -4
+  %23 = and i32 %.024, -4
   %24 = add i32 %23, 4
-  %.0.i.i = select i1 %or.cond.i.i, i32 %.0, i32 %24
+  %.0.i.i = select i1 %or.cond.i.i, i32 %.024, i32 %24
   %25 = load i8, ptr %5, align 1
   %26 = and i8 %25, 16
   %27 = zext nneg i8 %26 to i32
   %28 = shl nuw i32 %27, 27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %.023, i32 noundef %21, ptr noundef %0, i32 noundef %.0.i.i, i32 noundef 4, i32 noundef %28) #5
-  %30 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef -1, ptr noundef nonnull %9) #5
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %21, ptr noundef %0, i32 noundef %.0.i.i, i32 noundef 4, i32 noundef %28) #5
+  %30 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef -1, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %31 = sub i32 %30, %.0
-  call void @proto_item_set_len(ptr noundef %.024, i32 noundef %31) #5
+  %31 = sub i32 %30, %.024
+  call void @proto_item_set_len(ptr noundef %.023, i32 noundef %31) #5
   %32 = getelementptr inbounds i8, ptr %4, i64 72
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 96
@@ -6258,23 +6258,23 @@ define hidden i32 @lsarpc_dissect_struct_lsa_DATA_BUF_PTR(ptr noundef %0, i32 no
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_DATA_BUF_PTR, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_DATA_BUF_PTR_buf, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_DATA_BUF_PTR_buf_, i32 noundef 2, ptr noundef nonnull @.str.894, i32 noundef %32) #5
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_DATA_BUF_PTR_buf_, i32 noundef 2, ptr noundef nonnull @.str.894, i32 noundef %32) #5
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -6337,23 +6337,23 @@ define hidden i32 @lsarpc_dissect_struct_lsa_RightAttribute(ptr noundef %0, i32 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_RightAttribute, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_RightAttribute_name, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_RightAttribute_name_, i32 noundef 2, ptr noundef nonnull @.str.895, i32 noundef %32) #5
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_RightAttribute_name_, i32 noundef 2, ptr noundef nonnull @.str.895, i32 noundef %32) #5
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -6416,25 +6416,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_RightSet(ptr noundef %0, i32 nounde
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_RightSet, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_RightSet_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_RightSet_names, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_RightSet_names_, i32 noundef 2, ptr noundef nonnull @.str.896, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_RightSet_names_, i32 noundef 2, ptr noundef nonnull @.str.896, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -6497,25 +6497,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_DomainListEx(ptr noundef %0, i32 no
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_DomainListEx, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_DomainListEx_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_DomainListEx_domains, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_DomainListEx_domains_, i32 noundef 2, ptr noundef nonnull @.str.897, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_DomainListEx_domains_, i32 noundef 2, ptr noundef nonnull @.str.897, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -6552,23 +6552,23 @@ define hidden i32 @lsarpc_dissect_struct_lsa_DomainInfoQoS(ptr noundef %0, i32 n
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_lsarpc_lsa_DomainInfoQoS, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_lsarpc_lsa_DomainInfoQoS_quality_of_service, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #5
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -6648,33 +6648,33 @@ define hidden i32 @lsarpc_dissect_struct_lsa_DomainInfoKerberos(ptr noundef %0, 
   %or.cond = or i1 %.not56, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.054 = select i1 %or.cond, i32 %1, i32 %13
   %.not57 = icmp eq ptr %3, null
   br i1 %.not57, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.054, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_lsarpc_lsa_DomainInfoKerberos, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.054 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.053 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.053 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_lsarpc_lsa_DomainInfoKerberos_authentication_options, align 4
-  %20 = tail call i32 @lsarpc_dissect_bitmap_lsa_krbAuthenticationOptions(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %20 = tail call i32 @lsarpc_dissect_bitmap_lsa_krbAuthenticationOptions(ptr noundef %0, i32 noundef %.054, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = load i32, ptr @hf_lsarpc_lsa_DomainInfoKerberos_service_tkt_lifetime, align 4
-  %22 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
+  %22 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
   %23 = load i32, ptr @hf_lsarpc_lsa_DomainInfoKerberos_user_tkt_lifetime, align 4
-  %24 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #5
+  %24 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #5
   %25 = load i32, ptr @hf_lsarpc_lsa_DomainInfoKerberos_user_tkt_renewaltime, align 4
-  %26 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #5
+  %26 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #5
   %27 = load i32, ptr @hf_lsarpc_lsa_DomainInfoKerberos_clock_skew, align 4
-  %28 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #5
+  %28 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #5
   %29 = load i32, ptr @hf_lsarpc_lsa_DomainInfoKerberos_reserved, align 4
-  %30 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #5
-  %31 = sub i32 %30, %.0
-  tail call void @proto_item_set_len(ptr noundef %.054, i32 noundef %31) #5
+  %30 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #5
+  %31 = sub i32 %30, %.054
+  tail call void @proto_item_set_len(ptr noundef %.053, i32 noundef %31) #5
   %32 = getelementptr inbounds i8, ptr %4, i64 72
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 96
@@ -6737,25 +6737,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_DomainInfoEfs(ptr noundef %0, i32 n
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_DomainInfoEfs, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_DomainInfoEfs_blob_size, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_DomainInfoEfs_efs_blob, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_DomainInfoEfs_efs_blob_, i32 noundef 2, ptr noundef nonnull @.str.898, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_DomainInfoEfs_efs_blob_, i32 noundef 2, ptr noundef nonnull @.str.898, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -6843,32 +6843,32 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TranslatedName2(ptr noundef %0, i32
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.050 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.050, i32 noundef -1, i32 noundef 0) #5
   %30 = load i32, ptr @ett_lsarpc_lsa_TranslatedName2, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #5
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.050 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.049 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.049 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_lsarpc_lsa_TranslatedName2_sid_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %34 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #5
+  %34 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.050, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %35 = load i32, ptr @hf_lsarpc_lsa_TranslatedName2_name, align 4
-  %36 = call i32 @lsarpc_dissect_struct_lsa_String(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @lsarpc_dissect_struct_lsa_String(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   %37 = load i32, ptr @hf_lsarpc_lsa_TranslatedName2_sid_index, align 4
-  %38 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
+  %38 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
   %39 = load i32, ptr @hf_lsarpc_lsa_TranslatedName2_unknown, align 4
-  %40 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #5
-  %41 = sub i32 %40, %.0
-  call void @proto_item_set_len(ptr noundef %.050, i32 noundef %41) #5
+  %40 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #5
+  %41 = sub i32 %40, %.050
+  call void @proto_item_set_len(ptr noundef %.049, i32 noundef %41) #5
   %42 = load ptr, ptr %10, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 96
   %44 = load i32, ptr %43, align 8
@@ -6931,25 +6931,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TransNameArray2(ptr noundef %0, i32
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_TransNameArray2, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_TransNameArray2_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_TransNameArray2_names, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TransNameArray2_names_, i32 noundef 2, ptr noundef nonnull @.str.900, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TransNameArray2_names_, i32 noundef 2, ptr noundef nonnull @.str.900, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -7035,32 +7035,32 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TranslatedSid2(ptr noundef %0, i32 
   %or.cond = or i1 %.not44, %.not
   %13 = and i32 %1, -4
   %14 = add i32 %13, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %14
+  %.042 = select i1 %or.cond, i32 %1, i32 %14
   %.not45 = icmp eq ptr %3, null
   br i1 %.not45, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.042, i32 noundef -1, i32 noundef 0) #5
   %17 = load i32, ptr @ett_lsarpc_lsa_TranslatedSid2, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #5
   br label %19
 
 19:                                               ; preds = %15, %8
-  %.042 = phi ptr [ %16, %15 ], [ null, %8 ]
-  %.041 = phi ptr [ %18, %15 ], [ null, %8 ]
+  %.041 = phi ptr [ %16, %15 ], [ null, %8 ]
+  %.0 = phi ptr [ %18, %15 ], [ null, %8 ]
   %20 = load i32, ptr @hf_lsarpc_lsa_TranslatedSid2_sid_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %21 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %9) #5
+  %21 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.042, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %22 = load i32, ptr @hf_lsarpc_lsa_TranslatedSid2_rid, align 4
-  %23 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 noundef 0) #5
+  %23 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 noundef 0) #5
   %24 = load i32, ptr @hf_lsarpc_lsa_TranslatedSid2_sid_index, align 4
-  %25 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, i32 noundef 0) #5
+  %25 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, i32 noundef 0) #5
   %26 = load i32, ptr @hf_lsarpc_lsa_TranslatedSid2_unknown, align 4
-  %27 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, i32 noundef 0) #5
-  %28 = sub i32 %27, %.0
-  call void @proto_item_set_len(ptr noundef %.042, i32 noundef %28) #5
+  %27 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, i32 noundef 0) #5
+  %28 = sub i32 %27, %.042
+  call void @proto_item_set_len(ptr noundef %.041, i32 noundef %28) #5
   %29 = getelementptr inbounds i8, ptr %4, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 96
@@ -7123,25 +7123,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TransSidArray2(ptr noundef %0, i32 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_TransSidArray2, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_TransSidArray2_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_TransSidArray2_sids, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TransSidArray2_sids_, i32 noundef 2, ptr noundef nonnull @.str.901, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TransSidArray2_sids_, i32 noundef 2, ptr noundef nonnull @.str.901, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -7205,32 +7205,32 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TranslatedSid3(ptr noundef %0, i32 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.050 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.050, i32 noundef -1, i32 noundef 0) #5
   %30 = load i32, ptr @ett_lsarpc_lsa_TranslatedSid3, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #5
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.050 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.049 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.049 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_lsarpc_lsa_TranslatedSid3_sid_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %34 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #5
+  %34 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.050, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %35 = load i32, ptr @hf_lsarpc_lsa_TranslatedSid3_sid, align 4
-  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TranslatedSid3_sid_, i32 noundef 2, ptr noundef nonnull @.str.880, i32 noundef %35) #5
+  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TranslatedSid3_sid_, i32 noundef 2, ptr noundef nonnull @.str.880, i32 noundef %35) #5
   %37 = load i32, ptr @hf_lsarpc_lsa_TranslatedSid3_sid_index, align 4
-  %38 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
+  %38 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
   %39 = load i32, ptr @hf_lsarpc_lsa_TranslatedSid3_flags, align 4
-  %40 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #5
-  %41 = sub i32 %40, %.0
-  call void @proto_item_set_len(ptr noundef %.050, i32 noundef %41) #5
+  %40 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #5
+  %41 = sub i32 %40, %.050
+  call void @proto_item_set_len(ptr noundef %.049, i32 noundef %41) #5
   %42 = load ptr, ptr %10, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 96
   %44 = load i32, ptr %43, align 8
@@ -7293,25 +7293,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_TransSidArray3(ptr noundef %0, i32 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_TransSidArray3, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_TransSidArray3_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_TransSidArray3_sids, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TransSidArray3_sids_, i32 noundef 2, ptr noundef nonnull @.str.902, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_TransSidArray3_sids_, i32 noundef 2, ptr noundef nonnull @.str.902, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -7441,25 +7441,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_ForestTrustBinaryData(ptr noundef %
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_ForestTrustBinaryData, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_ForestTrustBinaryData_length, align 4
-  %33 = tail call i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, ptr noundef null) #5
+  %33 = tail call i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, ptr noundef null) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_ForestTrustBinaryData_data, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_ForestTrustBinaryData_data_, i32 noundef 2, ptr noundef nonnull @.str.885, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_ForestTrustBinaryData_data_, i32 noundef 2, ptr noundef nonnull @.str.885, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -7522,27 +7522,27 @@ define hidden i32 @lsarpc_dissect_struct_lsa_ForestTrustDomainInfo(ptr noundef %
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_ForestTrustDomainInfo, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_ForestTrustDomainInfo_domain_sid, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_ForestTrustDomainInfo_domain_sid_, i32 noundef 2, ptr noundef nonnull @.str.903, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_ForestTrustDomainInfo_domain_sid_, i32 noundef 2, ptr noundef nonnull @.str.903, i32 noundef %32) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_ForestTrustDomainInfo_dns_domain_name, align 4
-  %35 = tail call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %35 = tail call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
   %36 = load i32, ptr @hf_lsarpc_lsa_ForestTrustDomainInfo_netbios_domain_name, align 4
-  %37 = tail call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -7582,43 +7582,43 @@ define hidden i32 @lsarpc_dissect_struct_lsa_ForestTrustRecord(ptr noundef %0, i
   %or.cond = or i1 %.not44, %.not
   %15 = and i32 %1, -8
   %16 = add i32 %15, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %16
+  %.042 = select i1 %or.cond, i32 %1, i32 %16
   %.not45 = icmp eq ptr %3, null
   br i1 %.not45, label %21, label %17
 
 17:                                               ; preds = %8
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.042, i32 noundef -1, i32 noundef 0) #5
   %19 = load i32, ptr @ett_lsarpc_lsa_ForestTrustRecord, align 4
   %20 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19) #5
   br label %21
 
 21:                                               ; preds = %17, %8
-  %.042 = phi ptr [ %18, %17 ], [ null, %8 ]
-  %.041 = phi ptr [ %20, %17 ], [ null, %8 ]
+  %.041 = phi ptr [ %18, %17 ], [ null, %8 ]
+  %.0 = phi ptr [ %20, %17 ], [ null, %8 ]
   %22 = load i32, ptr @hf_lsarpc_lsa_ForestTrustRecord_flags, align 4
-  %23 = tail call i32 @lsarpc_dissect_bitmap_lsa_ForestTrustRecordFlags(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
+  %23 = tail call i32 @lsarpc_dissect_bitmap_lsa_ForestTrustRecordFlags(ptr noundef %0, i32 noundef %.042, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
   %24 = load i32, ptr @hf_lsarpc_lsa_ForestTrustRecord_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store i32 0, ptr %11, align 4
-  %25 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %11) #5
+  %25 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %11) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %26 = load i32, ptr @hf_lsarpc_lsa_ForestTrustRecord_time, align 4
-  %27 = call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26) #5
+  %27 = call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26) #5
   %28 = load i32, ptr @hf_lsarpc_lsa_ForestTrustRecord_forest_trust_data, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store ptr null, ptr %9, align 8
-  %.not.i.i = icmp eq ptr %.041, null
+  %.not.i.i = icmp eq ptr %.0, null
   br i1 %.not.i.i, label %32, label %29
 
 29:                                               ; preds = %21
   %30 = load i32, ptr @ett_lsarpc_lsa_ForestTrustData, align 4
-  %31 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.041, ptr noundef %0, i32 noundef %27, i32 noundef -1, i32 noundef %30, ptr noundef nonnull %9, ptr noundef nonnull @.str.904) #5
+  %31 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %27, i32 noundef -1, i32 noundef %30, ptr noundef nonnull %9, ptr noundef nonnull @.str.904) #5
   br label %32
 
 32:                                               ; preds = %29, %21
-  %.045.i.i = phi ptr [ %31, %29 ], [ null, %21 ]
-  %33 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.045.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, ptr noundef nonnull %10) #5
+  %.0.i.i = phi ptr [ %31, %29 ], [ null, %21 ]
+  %33 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, ptr noundef nonnull %10) #5
   %34 = getelementptr inbounds i8, ptr %4, i64 72
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
@@ -7652,7 +7652,7 @@ define hidden i32 @lsarpc_dissect_struct_lsa_ForestTrustRecord(ptr noundef %0, i
   br label %50
 
 50:                                               ; preds = %47, %45, %42, %40
-  %.0.i.i = phi i32 [ %33, %40 ], [ %44, %42 ], [ %33, %45 ], [ %49, %47 ]
+  %.045.i.i = phi i32 [ %33, %40 ], [ %44, %42 ], [ %33, %45 ], [ %49, %47 ]
   %51 = load i32, ptr %10, align 4
   switch i32 %51, label %61 [
     i32 0, label %52
@@ -7662,22 +7662,22 @@ define hidden i32 @lsarpc_dissect_struct_lsa_ForestTrustRecord(ptr noundef %0, i
 
 52:                                               ; preds = %50
   %53 = load i32, ptr @hf_lsarpc_lsa_ForestTrustData_top_level_name, align 4
-  %54 = call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.045.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %53, i32 poison)
+  %54 = call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %.045.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %53, i32 poison)
   br label %lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.exit
 
 55:                                               ; preds = %50
   %56 = load i32, ptr @hf_lsarpc_lsa_ForestTrustData_top_level_name_ex, align 4
-  %57 = call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.045.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, i32 poison)
+  %57 = call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %.045.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, i32 poison)
   br label %lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.exit
 
 58:                                               ; preds = %50
   %59 = load i32, ptr @hf_lsarpc_lsa_ForestTrustData_domain_info, align 4
-  %60 = call i32 @lsarpc_dissect_struct_lsa_ForestTrustDomainInfo(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.045.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %59, i32 poison)
+  %60 = call i32 @lsarpc_dissect_struct_lsa_ForestTrustDomainInfo(ptr noundef %0, i32 noundef %.045.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %59, i32 poison)
   br label %lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.exit
 
 61:                                               ; preds = %50
   %62 = load i32, ptr @hf_lsarpc_lsa_ForestTrustData_data, align 4
-  %63 = call i32 @lsarpc_dissect_struct_lsa_ForestTrustBinaryData(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.045.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, i32 poison)
+  %63 = call i32 @lsarpc_dissect_struct_lsa_ForestTrustBinaryData(ptr noundef %0, i32 noundef %.045.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, i32 poison)
   br label %lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.exit
 
 lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.exit: ; preds = %52, %55, %58, %61
@@ -7687,8 +7687,8 @@ lsarpc_dissect_element_lsa_ForestTrustRecord_forest_trust_data.exit: ; preds = %
   call void @proto_item_set_len(ptr noundef %64, i32 noundef %65) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %66 = sub i32 %.1.i.i, %.0
-  call void @proto_item_set_len(ptr noundef %.042, i32 noundef %66) #5
+  %66 = sub i32 %.1.i.i, %.042
+  call void @proto_item_set_len(ptr noundef %.041, i32 noundef %66) #5
   %67 = load ptr, ptr %34, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 96
   %69 = load i32, ptr %68, align 8
@@ -7750,25 +7750,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_ForestTrustInformation(ptr noundef 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_ForestTrustInformation, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_ForestTrustInformation_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_ForestTrustInformation_entries, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_ForestTrustInformation_entries_, i32 noundef 2, ptr noundef nonnull @.str.905, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_ForestTrustInformation_entries_, i32 noundef 2, ptr noundef nonnull @.str.905, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -7856,32 +7856,32 @@ define hidden i32 @lsarpc_dissect_struct_lsa_ForestTrustCollisionRecord(ptr noun
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.050 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.050, i32 noundef -1, i32 noundef 0) #5
   %30 = load i32, ptr @ett_lsarpc_lsa_ForestTrustCollisionRecord, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #5
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.050 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.049 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.049 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_lsarpc_lsa_ForestTrustCollisionRecord_index, align 4
-  %34 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #5
+  %34 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.050, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #5
   %35 = load i32, ptr @hf_lsarpc_lsa_ForestTrustCollisionRecord_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %9) #5
+  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %37 = load i32, ptr @hf_lsarpc_lsa_ForestTrustCollisionRecord_flags, align 4
-  %38 = call i32 @lsarpc_dissect_bitmap_lsa_ForestTrustRecordFlags(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 poison)
+  %38 = call i32 @lsarpc_dissect_bitmap_lsa_ForestTrustRecordFlags(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 poison)
   %39 = load i32, ptr @hf_lsarpc_lsa_ForestTrustCollisionRecord_name, align 4
-  %40 = call i32 @lsarpc_dissect_struct_lsa_String(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 poison)
-  %41 = sub i32 %40, %.0
-  call void @proto_item_set_len(ptr noundef %.050, i32 noundef %41) #5
+  %40 = call i32 @lsarpc_dissect_struct_lsa_String(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 poison)
+  %41 = sub i32 %40, %.050
+  call void @proto_item_set_len(ptr noundef %.049, i32 noundef %41) #5
   %42 = load ptr, ptr %10, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 96
   %44 = load i32, ptr %43, align 8
@@ -7944,25 +7944,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_ForestTrustCollisionInfo(ptr nounde
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_ForestTrustCollisionInfo, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_ForestTrustCollisionInfo_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_ForestTrustCollisionInfo_entries, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_ForestTrustCollisionInfo_entries_, i32 noundef 2, ptr noundef nonnull @.str.906, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_ForestTrustCollisionInfo_entries_, i32 noundef 2, ptr noundef nonnull @.str.906, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -8042,25 +8042,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_revision_info1(ptr noundef %0, i32 
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_lsarpc_lsa_revision_info1, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_lsarpc_lsa_revision_info1_revision, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_lsarpc_lsa_revision_info1_supported_features, align 4
-  %22 = tail call i32 @lsarpc_dissect_bitmap_lsa_RevisionSupportedFeature(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
+  %22 = tail call i32 @lsarpc_dissect_bitmap_lsa_RevisionSupportedFeature(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #5
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -8100,43 +8100,43 @@ define hidden i32 @lsarpc_dissect_struct_lsa_ForestTrustRecord2(ptr noundef %0, 
   %or.cond = or i1 %.not44, %.not
   %15 = and i32 %1, -8
   %16 = add i32 %15, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %16
+  %.042 = select i1 %or.cond, i32 %1, i32 %16
   %.not45 = icmp eq ptr %3, null
   br i1 %.not45, label %21, label %17
 
 17:                                               ; preds = %8
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.042, i32 noundef -1, i32 noundef 0) #5
   %19 = load i32, ptr @ett_lsarpc_lsa_ForestTrustRecord2, align 4
   %20 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19) #5
   br label %21
 
 21:                                               ; preds = %17, %8
-  %.042 = phi ptr [ %18, %17 ], [ null, %8 ]
-  %.041 = phi ptr [ %20, %17 ], [ null, %8 ]
+  %.041 = phi ptr [ %18, %17 ], [ null, %8 ]
+  %.0 = phi ptr [ %20, %17 ], [ null, %8 ]
   %22 = load i32, ptr @hf_lsarpc_lsa_ForestTrustRecord2_flags, align 4
-  %23 = tail call i32 @lsarpc_dissect_bitmap_lsa_ForestTrustRecordFlags(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
+  %23 = tail call i32 @lsarpc_dissect_bitmap_lsa_ForestTrustRecordFlags(ptr noundef %0, i32 noundef %.042, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
   %24 = load i32, ptr @hf_lsarpc_lsa_ForestTrustRecord2_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store i32 0, ptr %11, align 4
-  %25 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %11) #5
+  %25 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %11) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %26 = load i32, ptr @hf_lsarpc_lsa_ForestTrustRecord2_time, align 4
-  %27 = call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26) #5
+  %27 = call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26) #5
   %28 = load i32, ptr @hf_lsarpc_lsa_ForestTrustRecord2_forest_trust_data, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store ptr null, ptr %9, align 8
-  %.not.i.i = icmp eq ptr %.041, null
+  %.not.i.i = icmp eq ptr %.0, null
   br i1 %.not.i.i, label %32, label %29
 
 29:                                               ; preds = %21
   %30 = load i32, ptr @ett_lsarpc_lsa_ForestTrustData2, align 4
-  %31 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.041, ptr noundef %0, i32 noundef %27, i32 noundef -1, i32 noundef %30, ptr noundef nonnull %9, ptr noundef nonnull @.str.907) #5
+  %31 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %27, i32 noundef -1, i32 noundef %30, ptr noundef nonnull %9, ptr noundef nonnull @.str.907) #5
   br label %32
 
 32:                                               ; preds = %29, %21
-  %.051.i.i = phi ptr [ %31, %29 ], [ null, %21 ]
-  %33 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.051.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, ptr noundef nonnull %10) #5
+  %.0.i.i = phi ptr [ %31, %29 ], [ null, %21 ]
+  %33 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, ptr noundef nonnull %10) #5
   %34 = getelementptr inbounds i8, ptr %4, i64 72
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
@@ -8170,7 +8170,7 @@ define hidden i32 @lsarpc_dissect_struct_lsa_ForestTrustRecord2(ptr noundef %0, 
   br label %50
 
 50:                                               ; preds = %47, %45, %42, %40
-  %.0.i.i = phi i32 [ %33, %40 ], [ %44, %42 ], [ %33, %45 ], [ %49, %47 ]
+  %.051.i.i = phi i32 [ %33, %40 ], [ %44, %42 ], [ %33, %45 ], [ %49, %47 ]
   %51 = load i32, ptr %10, align 4
   switch i32 %51, label %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.exit [
     i32 0, label %52
@@ -8182,38 +8182,38 @@ define hidden i32 @lsarpc_dissect_struct_lsa_ForestTrustRecord2(ptr noundef %0, 
 
 52:                                               ; preds = %50
   %53 = load i32, ptr @hf_lsarpc_lsa_ForestTrustData2_top_level_name, align 4
-  %54 = call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.051.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %53, i32 poison)
+  %54 = call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %.051.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %53, i32 poison)
   br label %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.exit
 
 55:                                               ; preds = %50
   %56 = load i32, ptr @hf_lsarpc_lsa_ForestTrustData2_top_level_name_ex, align 4
-  %57 = call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.051.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, i32 poison)
+  %57 = call i32 @lsarpc_dissect_struct_lsa_StringLarge(ptr noundef %0, i32 noundef %.051.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, i32 poison)
   br label %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.exit
 
 58:                                               ; preds = %50
   %59 = load i32, ptr @hf_lsarpc_lsa_ForestTrustData2_domain_info, align 4
-  %60 = call i32 @lsarpc_dissect_struct_lsa_ForestTrustDomainInfo(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.051.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %59, i32 poison)
+  %60 = call i32 @lsarpc_dissect_struct_lsa_ForestTrustDomainInfo(ptr noundef %0, i32 noundef %.051.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %59, i32 poison)
   br label %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.exit
 
 61:                                               ; preds = %50
   %62 = load i32, ptr @hf_lsarpc_lsa_ForestTrustData2_data, align 4
-  %63 = call i32 @lsarpc_dissect_struct_lsa_ForestTrustBinaryData(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.051.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, i32 poison)
+  %63 = call i32 @lsarpc_dissect_struct_lsa_ForestTrustBinaryData(ptr noundef %0, i32 noundef %.051.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, i32 poison)
   br label %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.exit
 
 64:                                               ; preds = %50
   %65 = load i32, ptr @hf_lsarpc_lsa_ForestTrustData2_scanner_info, align 4
-  %66 = call i32 @lsarpc_dissect_struct_lsa_ForestTrustDomainInfo(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.051.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %65, i32 poison)
+  %66 = call i32 @lsarpc_dissect_struct_lsa_ForestTrustDomainInfo(ptr noundef %0, i32 noundef %.051.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %65, i32 poison)
   br label %lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.exit
 
 lsarpc_dissect_element_lsa_ForestTrustRecord2_forest_trust_data.exit: ; preds = %50, %52, %55, %58, %61, %64
-  %.1.i.i = phi i32 [ %.0.i.i, %50 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ]
+  %.1.i.i = phi i32 [ %.051.i.i, %50 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ]
   %67 = load ptr, ptr %9, align 8
   %68 = sub i32 %.1.i.i, %27
   call void @proto_item_set_len(ptr noundef %67, i32 noundef %68) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %69 = sub i32 %.1.i.i, %.0
-  call void @proto_item_set_len(ptr noundef %.042, i32 noundef %69) #5
+  %69 = sub i32 %.1.i.i, %.042
+  call void @proto_item_set_len(ptr noundef %.041, i32 noundef %69) #5
   %70 = load ptr, ptr %34, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 96
   %72 = load i32, ptr %71, align 8
@@ -8275,25 +8275,25 @@ define hidden i32 @lsarpc_dissect_struct_lsa_ForestTrustInformation2(ptr noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_lsarpc_lsa_ForestTrustInformation2, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_lsarpc_lsa_ForestTrustInformation2_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_lsarpc_lsa_ForestTrustInformation2_entries, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_ForestTrustInformation2_entries_, i32 noundef 2, ptr noundef nonnull @.str.908, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @lsarpc_dissect_element_lsa_ForestTrustInformation2_entries_, i32 noundef 2, ptr noundef nonnull @.str.908, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -8840,9 +8840,9 @@ define internal i32 @lsarpc_dissect_element_lsa_DomainInfoEfs_efs_blob_(ptr noun
   br label %18
 
 18:                                               ; preds = %16, %10
-  %.023 = phi i32 [ %17, %16 ], [ %13, %10 ]
+  %.0 = phi i32 [ %17, %16 ], [ %13, %10 ]
   %19 = load i32, ptr %7, align 4
-  %20 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %12, i32 noundef %.023, i32 noundef %19) #5
+  %20 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %12, i32 noundef %.0, i32 noundef %19) #5
   %21 = call ptr @find_dissector(ptr noundef nonnull @.str.899) #5
   %.not26 = icmp eq ptr %21, null
   br i1 %.not26, label %24, label %22
@@ -8857,8 +8857,8 @@ define internal i32 @lsarpc_dissect_element_lsa_DomainInfoEfs_efs_blob_(ptr noun
   br label %27
 
 27:                                               ; preds = %6, %24
-  %.0 = phi i32 [ %26, %24 ], [ %1, %6 ]
-  ret i32 %.0
+  %.023 = phi i32 [ %26, %24 ], [ %1, %6 ]
+  ret i32 %.023
 }
 
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -13339,8 +13339,8 @@ define internal fastcc i32 @lsarpc_dissect_lsa_PolicyInformation(ptr noundef %0,
   br label %13
 
 13:                                               ; preds = %10, %7
-  %.0101 = phi ptr [ %12, %10 ], [ null, %7 ]
-  %14 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0101, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
+  %.0 = phi ptr [ %12, %10 ], [ null, %7 ]
+  %14 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not103 = icmp ne i32 %16, 0
@@ -13349,7 +13349,7 @@ define internal fastcc i32 @lsarpc_dissect_lsa_PolicyInformation(ptr noundef %0,
   %or.cond = select i1 %.not103, i1 true, i1 %.not104
   %18 = and i32 %14, -8
   %19 = add i32 %18, 8
-  %.0 = select i1 %or.cond, i32 %14, i32 %19
+  %.0101 = select i1 %or.cond, i32 %14, i32 %19
   %20 = load i16, ptr %9, align 2
   switch i16 %20, label %77 [
     i16 1, label %21
@@ -13370,56 +13370,56 @@ define internal fastcc i32 @lsarpc_dissect_lsa_PolicyInformation(ptr noundef %0,
 
 21:                                               ; preds = %13
   %22 = load i32, ptr @hf_lsarpc_lsa_PolicyInformation_audit_log, align 4
-  %23 = call i32 @lsarpc_dissect_struct_lsa_AuditLogInfo(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
+  %23 = call i32 @lsarpc_dissect_struct_lsa_AuditLogInfo(ptr noundef %0, i32 noundef %.0101, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
   br label %77
 
 24:                                               ; preds = %13
   %25 = load i32, ptr @hf_lsarpc_lsa_PolicyInformation_audit_events, align 4
-  %26 = call i32 @lsarpc_dissect_struct_lsa_AuditEventsInfo(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
+  %26 = call i32 @lsarpc_dissect_struct_lsa_AuditEventsInfo(ptr noundef %0, i32 noundef %.0101, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
   br label %77
 
 27:                                               ; preds = %13
   %28 = load i32, ptr @hf_lsarpc_lsa_PolicyInformation_domain, align 4
-  %29 = call i32 @lsarpc_dissect_struct_lsa_DomainInfo(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 poison)
+  %29 = call i32 @lsarpc_dissect_struct_lsa_DomainInfo(ptr noundef %0, i32 noundef %.0101, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 poison)
   br label %77
 
 30:                                               ; preds = %13
   %31 = load i32, ptr @hf_lsarpc_lsa_PolicyInformation_pd, align 4
-  %32 = call i32 @lsarpc_dissect_struct_lsa_PDAccountInfo(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 poison)
+  %32 = call i32 @lsarpc_dissect_struct_lsa_PDAccountInfo(ptr noundef %0, i32 noundef %.0101, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 poison)
   br label %77
 
 33:                                               ; preds = %13
   %34 = load i32, ptr @hf_lsarpc_lsa_PolicyInformation_account_domain, align 4
-  %35 = call i32 @lsarpc_dissect_struct_lsa_DomainInfo(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %35 = call i32 @lsarpc_dissect_struct_lsa_DomainInfo(ptr noundef %0, i32 noundef %.0101, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
   br label %77
 
 36:                                               ; preds = %13
   %37 = load i32, ptr @hf_lsarpc_lsa_PolicyInformation_role, align 4
-  %38 = call i32 @lsarpc_dissect_struct_lsa_ServerRole(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 poison)
+  %38 = call i32 @lsarpc_dissect_struct_lsa_ServerRole(ptr noundef %0, i32 noundef %.0101, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 poison)
   br label %77
 
 39:                                               ; preds = %13
   %40 = load i32, ptr @hf_lsarpc_lsa_PolicyInformation_replica, align 4
-  %41 = call i32 @lsarpc_dissect_struct_lsa_ReplicaSourceInfo(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 poison)
+  %41 = call i32 @lsarpc_dissect_struct_lsa_ReplicaSourceInfo(ptr noundef %0, i32 noundef %.0101, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 poison)
   br label %77
 
 42:                                               ; preds = %13
   %43 = load i32, ptr @hf_lsarpc_lsa_PolicyInformation_quota, align 4
-  %44 = call i32 @lsarpc_dissect_struct_lsa_DefaultQuotaInfo(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 poison)
+  %44 = call i32 @lsarpc_dissect_struct_lsa_DefaultQuotaInfo(ptr noundef %0, i32 noundef %.0101, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 poison)
   br label %77
 
 45:                                               ; preds = %13
   %46 = load i32, ptr @hf_lsarpc_lsa_PolicyInformation_mod, align 4
-  %47 = call i32 @lsarpc_dissect_struct_lsa_ModificationInfo(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 poison)
+  %47 = call i32 @lsarpc_dissect_struct_lsa_ModificationInfo(ptr noundef %0, i32 noundef %.0101, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 poison)
   br label %77
 
 48:                                               ; preds = %13
-  %.not.i.i = icmp eq ptr %.0101, null
+  %.not.i.i = icmp eq ptr %.0, null
   br i1 %.not.i.i, label %lsarpc_dissect_element_lsa_PolicyInformation_auditfullset.exit, label %49
 
 49:                                               ; preds = %48
   %50 = load i32, ptr @hf_lsarpc_lsa_PolicyInformation_auditfullset, align 4
-  %51 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0101, i32 noundef %50, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %51 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0, i32 noundef %50, ptr noundef %0, i32 noundef %.0101, i32 noundef -1, i32 noundef 0) #5
   %52 = load i32, ptr @ett_lsarpc_lsa_AuditFullSetInfo, align 4
   %53 = call ptr @proto_item_add_subtree(ptr noundef %51, i32 noundef %52) #5
   br label %lsarpc_dissect_element_lsa_PolicyInformation_auditfullset.exit
@@ -13428,18 +13428,18 @@ lsarpc_dissect_element_lsa_PolicyInformation_auditfullset.exit: ; preds = %48, %
   %.016.i.i = phi ptr [ %51, %49 ], [ null, %48 ]
   %.0.i.i = phi ptr [ %53, %49 ], [ null, %48 ]
   %54 = load i32, ptr @hf_lsarpc_lsa_AuditFullSetInfo_shutdown_on_full, align 4
-  %55 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, i32 noundef 0) #5
-  %56 = sub i32 %55, %.0
+  %55 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.0101, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, i32 noundef 0) #5
+  %56 = sub i32 %55, %.0101
   call void @proto_item_set_len(ptr noundef %.016.i.i, i32 noundef %56) #5
   br label %77
 
 57:                                               ; preds = %13
-  %.not.i.i105 = icmp eq ptr %.0101, null
+  %.not.i.i105 = icmp eq ptr %.0, null
   br i1 %.not.i.i105, label %lsarpc_dissect_element_lsa_PolicyInformation_auditfullquery.exit, label %58
 
 58:                                               ; preds = %57
   %59 = load i32, ptr @hf_lsarpc_lsa_PolicyInformation_auditfullquery, align 4
-  %60 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0101, i32 noundef %59, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %60 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0, i32 noundef %59, ptr noundef %0, i32 noundef %.0101, i32 noundef -1, i32 noundef 0) #5
   %61 = load i32, ptr @ett_lsarpc_lsa_AuditFullQueryInfo, align 4
   %62 = call ptr @proto_item_add_subtree(ptr noundef %60, i32 noundef %61) #5
   br label %lsarpc_dissect_element_lsa_PolicyInformation_auditfullquery.exit
@@ -13448,30 +13448,30 @@ lsarpc_dissect_element_lsa_PolicyInformation_auditfullquery.exit: ; preds = %57,
   %.022.i.i = phi ptr [ %60, %58 ], [ null, %57 ]
   %.0.i.i106 = phi ptr [ %62, %58 ], [ null, %57 ]
   %63 = load i32, ptr @hf_lsarpc_lsa_AuditFullQueryInfo_shutdown_on_full, align 4
-  %64 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0.i.i106, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %63, i32 noundef 0) #5
+  %64 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.0101, ptr noundef %2, ptr noundef %.0.i.i106, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %63, i32 noundef 0) #5
   %65 = load i32, ptr @hf_lsarpc_lsa_AuditFullQueryInfo_log_is_full, align 4
   %66 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %64, ptr noundef %2, ptr noundef %.0.i.i106, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %65, i32 noundef 0) #5
-  %67 = sub i32 %66, %.0
+  %67 = sub i32 %66, %.0101
   call void @proto_item_set_len(ptr noundef %.022.i.i, i32 noundef %67) #5
   br label %77
 
 68:                                               ; preds = %13
   %69 = load i32, ptr @hf_lsarpc_lsa_PolicyInformation_dns, align 4
-  %70 = call i32 @lsarpc_dissect_struct_lsa_DnsDomainInfo(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %69, i32 poison)
+  %70 = call i32 @lsarpc_dissect_struct_lsa_DnsDomainInfo(ptr noundef %0, i32 noundef %.0101, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %69, i32 poison)
   br label %77
 
 71:                                               ; preds = %13
   %72 = load i32, ptr @hf_lsarpc_lsa_PolicyInformation_dns_int, align 4
-  %73 = call i32 @lsarpc_dissect_struct_lsa_DnsDomainInfo(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %72, i32 poison)
+  %73 = call i32 @lsarpc_dissect_struct_lsa_DnsDomainInfo(ptr noundef %0, i32 noundef %.0101, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %72, i32 poison)
   br label %77
 
 74:                                               ; preds = %13
   %75 = load i32, ptr @hf_lsarpc_lsa_PolicyInformation_l_account_domain, align 4
-  %76 = call i32 @lsarpc_dissect_struct_lsa_DomainInfo(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %75, i32 poison)
+  %76 = call i32 @lsarpc_dissect_struct_lsa_DomainInfo(ptr noundef %0, i32 noundef %.0101, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %75, i32 poison)
   br label %77
 
 77:                                               ; preds = %74, %71, %68, %lsarpc_dissect_element_lsa_PolicyInformation_auditfullquery.exit, %lsarpc_dissect_element_lsa_PolicyInformation_auditfullset.exit, %45, %42, %39, %36, %33, %30, %27, %24, %21, %13
-  %.1 = phi i32 [ %.0, %13 ], [ %76, %74 ], [ %73, %71 ], [ %70, %68 ], [ %66, %lsarpc_dissect_element_lsa_PolicyInformation_auditfullquery.exit ], [ %55, %lsarpc_dissect_element_lsa_PolicyInformation_auditfullset.exit ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.1 = phi i32 [ %.0101, %13 ], [ %76, %74 ], [ %73, %71 ], [ %70, %68 ], [ %66, %lsarpc_dissect_element_lsa_PolicyInformation_auditfullquery.exit ], [ %55, %lsarpc_dissect_element_lsa_PolicyInformation_auditfullset.exit ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
   %78 = load ptr, ptr %8, align 8
   %79 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %78, i32 noundef %79) #5
@@ -13841,8 +13841,8 @@ define internal fastcc i32 @lsarpc_dissect_lsa_TrustedDomainInfo(ptr noundef %0,
   br label %13
 
 13:                                               ; preds = %10, %7
-  %.0111 = phi ptr [ %12, %10 ], [ null, %7 ]
-  %14 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0111, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
+  %.0 = phi ptr [ %12, %10 ], [ null, %7 ]
+  %14 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -13877,7 +13877,7 @@ define internal fastcc i32 @lsarpc_dissect_lsa_TrustedDomainInfo(ptr noundef %0,
   br label %32
 
 32:                                               ; preds = %27, %29, %22, %24
-  %.0 = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.0111 = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %9, align 4
   switch i32 %33, label %79 [
     i32 1, label %34
@@ -13899,81 +13899,81 @@ define internal fastcc i32 @lsarpc_dissect_lsa_TrustedDomainInfo(ptr noundef %0,
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_lsarpc_lsa_TrustedDomainInfo_name, align 4
-  %36 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoName(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoName(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %79
 
 37:                                               ; preds = %32
   %38 = load i32, ptr @hf_lsarpc_lsa_TrustedDomainInfo_controllers, align 4
-  %39 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoControllers(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
+  %39 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoControllers(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
   br label %79
 
 40:                                               ; preds = %32
   %41 = load i32, ptr @hf_lsarpc_lsa_TrustedDomainInfo_posix_offset, align 4
-  %42 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoPosixOffset(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 poison)
+  %42 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoPosixOffset(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 poison)
   br label %79
 
 43:                                               ; preds = %32
   %44 = load i32, ptr @hf_lsarpc_lsa_TrustedDomainInfo_password, align 4
-  %45 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoPassword(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 poison)
+  %45 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoPassword(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 poison)
   br label %79
 
 46:                                               ; preds = %32
   %47 = load i32, ptr @hf_lsarpc_lsa_TrustedDomainInfo_info_basic, align 4
-  %48 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoBasic(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %47, i32 poison)
+  %48 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoBasic(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %47, i32 poison)
   br label %79
 
 49:                                               ; preds = %32
   %50 = load i32, ptr @hf_lsarpc_lsa_TrustedDomainInfo_info_ex, align 4
-  %51 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoInfoEx(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 poison)
+  %51 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoInfoEx(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 poison)
   br label %79
 
 52:                                               ; preds = %32
   %53 = load i32, ptr @hf_lsarpc_lsa_TrustedDomainInfo_auth_info, align 4
-  %54 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoAuthInfo(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %53, i32 poison)
+  %54 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoAuthInfo(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %53, i32 poison)
   br label %79
 
 55:                                               ; preds = %32
   %56 = load i32, ptr @hf_lsarpc_lsa_TrustedDomainInfo_full_info, align 4
-  %57 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoFullInfo(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, i32 poison)
+  %57 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoFullInfo(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, i32 poison)
   br label %79
 
 58:                                               ; preds = %32
   %59 = load i32, ptr @hf_lsarpc_lsa_TrustedDomainInfo_auth_info_internal, align 4
-  %60 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoAuthInfoInternal(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %59, i32 poison)
+  %60 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoAuthInfoInternal(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %59, i32 poison)
   br label %79
 
 61:                                               ; preds = %32
   %62 = load i32, ptr @hf_lsarpc_lsa_TrustedDomainInfo_full_info_internal, align 4
-  %63 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoFullInfoInternal(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, i32 poison)
+  %63 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoFullInfoInternal(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, i32 poison)
   br label %79
 
 64:                                               ; preds = %32
   %65 = load i32, ptr @hf_lsarpc_lsa_TrustedDomainInfo_info_ex2_internal, align 4
-  %66 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoInfoEx2Internal(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %65, i32 poison)
+  %66 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoInfoEx2Internal(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %65, i32 poison)
   br label %79
 
 67:                                               ; preds = %32
   %68 = load i32, ptr @hf_lsarpc_lsa_TrustedDomainInfo_full_info2_internal, align 4
-  %69 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoFullInfo2Internal(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %68, i32 poison)
+  %69 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoFullInfo2Internal(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %68, i32 poison)
   br label %79
 
 70:                                               ; preds = %32
   %71 = load i32, ptr @hf_lsarpc_lsa_TrustedDomainInfo_enc_types, align 4
-  %72 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoSupportedEncTypes(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %71, i32 poison)
+  %72 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoSupportedEncTypes(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %71, i32 poison)
   br label %79
 
 73:                                               ; preds = %32
   %74 = load i32, ptr @hf_lsarpc_lsa_TrustedDomainInfo_auth_info_internal_aes, align 4
-  %75 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoAuthInfoInternalAES(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %74, i32 poison)
+  %75 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoAuthInfoInternalAES(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %74, i32 poison)
   br label %79
 
 76:                                               ; preds = %32
   %77 = load i32, ptr @hf_lsarpc_lsa_TrustedDomainInfo_full_info_internal_aes, align 4
-  %78 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoFullInfoInternalAES(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0111, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %77, i32 poison)
+  %78 = call i32 @lsarpc_dissect_struct_lsa_TrustDomainInfoFullInfoInternalAES(ptr noundef %0, i32 noundef %.0111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %77, i32 poison)
   br label %79
 
 79:                                               ; preds = %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %32
-  %.1 = phi i32 [ %.0, %32 ], [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %69, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
+  %.1 = phi i32 [ %.0111, %32 ], [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %69, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
   %80 = load ptr, ptr %8, align 8
   %81 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %80, i32 noundef %81) #5
@@ -14582,8 +14582,8 @@ define internal fastcc i32 @lsarpc_dissect_lsa_DomainInformationPolicy(ptr nound
   br label %13
 
 13:                                               ; preds = %10, %7
-  %.035 = phi ptr [ %12, %10 ], [ null, %7 ]
-  %14 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.035, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
+  %.0 = phi ptr [ %12, %10 ], [ null, %7 ]
+  %14 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not37 = icmp ne i32 %16, 0
@@ -14592,7 +14592,7 @@ define internal fastcc i32 @lsarpc_dissect_lsa_DomainInformationPolicy(ptr nound
   %or.cond = select i1 %.not37, i1 true, i1 %.not38
   %18 = and i32 %14, -8
   %19 = add i32 %18, 8
-  %.0 = select i1 %or.cond, i32 %14, i32 %19
+  %.035 = select i1 %or.cond, i32 %14, i32 %19
   %20 = load i32, ptr %9, align 4
   switch i32 %20, label %30 [
     i32 1, label %21
@@ -14602,21 +14602,21 @@ define internal fastcc i32 @lsarpc_dissect_lsa_DomainInformationPolicy(ptr nound
 
 21:                                               ; preds = %13
   %22 = load i32, ptr @hf_lsarpc_lsa_DomainInformationPolicy_qos_info, align 4
-  %23 = call i32 @lsarpc_dissect_struct_lsa_DomainInfoQoS(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
+  %23 = call i32 @lsarpc_dissect_struct_lsa_DomainInfoQoS(ptr noundef %0, i32 noundef %.035, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
   br label %30
 
 24:                                               ; preds = %13
   %25 = load i32, ptr @hf_lsarpc_lsa_DomainInformationPolicy_efs_info, align 4
-  %26 = call i32 @lsarpc_dissect_struct_lsa_DomainInfoEfs(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
+  %26 = call i32 @lsarpc_dissect_struct_lsa_DomainInfoEfs(ptr noundef %0, i32 noundef %.035, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
   br label %30
 
 27:                                               ; preds = %13
   %28 = load i32, ptr @hf_lsarpc_lsa_DomainInformationPolicy_kerberos_info, align 4
-  %29 = call i32 @lsarpc_dissect_struct_lsa_DomainInfoKerberos(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 poison)
+  %29 = call i32 @lsarpc_dissect_struct_lsa_DomainInfoKerberos(ptr noundef %0, i32 noundef %.035, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 poison)
   br label %30
 
 30:                                               ; preds = %27, %24, %21, %13
-  %.1 = phi i32 [ %.0, %13 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.1 = phi i32 [ %.035, %13 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
   %31 = load ptr, ptr %8, align 8
   %32 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %31, i32 noundef %32) #5
@@ -14983,8 +14983,8 @@ define internal fastcc i32 @lsarpc_dissect_lsa_revision_info(ptr noundef %0, i32
   br label %13
 
 13:                                               ; preds = %10, %7
-  %.023 = phi ptr [ %12, %10 ], [ null, %7 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.023, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
+  %.0 = phi ptr [ %12, %10 ], [ null, %7 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not25 = icmp ne i32 %16, 0
@@ -14993,18 +14993,18 @@ define internal fastcc i32 @lsarpc_dissect_lsa_revision_info(ptr noundef %0, i32
   %or.cond = select i1 %.not25, i1 true, i1 %.not26
   %18 = and i32 %14, -4
   %19 = add i32 %18, 4
-  %.0 = select i1 %or.cond, i32 %14, i32 %19
+  %.023 = select i1 %or.cond, i32 %14, i32 %19
   %20 = load i32, ptr %9, align 4
   %cond = icmp eq i32 %20, 1
   br i1 %cond, label %21, label %24
 
 21:                                               ; preds = %13
   %22 = load i32, ptr @hf_lsarpc_lsa_revision_info_info1, align 4
-  %23 = call i32 @lsarpc_dissect_struct_lsa_revision_info1(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
+  %23 = call i32 @lsarpc_dissect_struct_lsa_revision_info1(ptr noundef %0, i32 noundef %.023, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
   br label %24
 
 24:                                               ; preds = %13, %21
-  %.1 = phi i32 [ %23, %21 ], [ %.0, %13 ]
+  %.1 = phi i32 [ %23, %21 ], [ %.023, %13 ]
   %25 = load ptr, ptr %8, align 8
   %26 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %25, i32 noundef %26) #5

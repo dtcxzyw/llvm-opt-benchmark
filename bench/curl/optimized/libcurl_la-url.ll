@@ -1474,8 +1474,8 @@ if.then104:                                       ; preds = %if.end102
   br label %if.end110
 
 if.end110:                                        ; preds = %if.then61, %if.then76, %if.then88, %if.end102, %if.then104
-  %result.2103 = phi i32 [ 0, %if.end102 ], [ 0, %if.then104 ], [ 27, %if.then88 ], [ 27, %if.then76 ], [ 27, %if.then61 ]
-  ret i32 %result.2103
+  %result.2102 = phi i32 [ 0, %if.end102 ], [ 0, %if.then104 ], [ 27, %if.then88 ], [ 27, %if.then76 ], [ 27, %if.then61 ]
+  ret i32 %result.2102
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -2632,8 +2632,8 @@ detect_proxy.exit.i.i:                            ; preds = %if.then27.i.i.i, %l
   br label %if.end68.i212.i
 
 if.end68.i212.i:                                  ; preds = %detect_proxy.exit.i.i, %if.else.i210.i, %do.body58.i.i
-  %socksproxy.1.i.i = phi ptr [ null, %do.body58.i.i ], [ %socksproxy.0.i.i, %if.else.i210.i ], [ null, %detect_proxy.exit.i.i ]
   %proxy.1.i.i = phi ptr [ null, %do.body58.i.i ], [ %proxy.0.i.i, %if.else.i210.i ], [ %proxy.1.i.i.i, %detect_proxy.exit.i.i ]
+  %socksproxy.1.i.i = phi ptr [ null, %do.body58.i.i ], [ %socksproxy.0.i.i, %if.else.i210.i ], [ null, %detect_proxy.exit.i.i ]
   %142 = load i8, ptr %spacesep.i.i, align 1
   %tobool69.i.i = trunc i8 %142 to i1
   %tobool72.i.i = icmp ne ptr %data, null
@@ -2723,11 +2723,11 @@ if.then111.i.i:                                   ; preds = %if.end107.i.i
   br label %if.then113.i.i
 
 if.then113.i.i:                                   ; preds = %if.then111.i.i, %if.end107.thread.i.i
-  %conv124.i.i = phi i32 [ %conv116.i.i, %if.end107.thread.i.i ], [ %conv.i.i, %if.then111.i.i ]
+  %conv123.i.i = phi i32 [ %conv116.i.i, %if.end107.thread.i.i ], [ %conv.i.i, %if.then111.i.i ]
   %http_proxy122.i.i = phi ptr [ %http_proxy114.i.i, %if.end107.thread.i.i ], [ %http_proxy.i.i, %if.then111.i.i ]
   %socksproxy.2111120.i.i = phi ptr [ %socksproxy.1.i.i, %if.end107.thread.i.i ], [ null, %if.then111.i.i ]
   %tobool110113118.i.i = phi i1 [ true, %if.end107.thread.i.i ], [ false, %if.then111.i.i ]
-  %call114.i.i = call fastcc i32 @parse_proxy(ptr noundef %data, ptr noundef nonnull %call.i.i, ptr noundef nonnull %proxy.3.i.i, i32 noundef %conv124.i.i)
+  %call114.i.i = call fastcc i32 @parse_proxy(ptr noundef %data, ptr noundef nonnull %call.i.i, ptr noundef nonnull %proxy.3.i.i, i32 noundef %conv123.i.i)
   %156 = load ptr, ptr @Curl_cfree, align 8
   call void %156(ptr noundef nonnull %proxy.3.i.i) #11
   %tobool117.not.i.i = icmp eq i32 %call114.i.i, 0
@@ -2739,8 +2739,8 @@ if.end120.i.i:                                    ; preds = %if.then113.i.i
 if.then122.i.i:                                   ; preds = %if.end120.i.i, %if.end107.thread.i.i
   %socksproxy.2111119144.i.i = phi ptr [ %socksproxy.2111120.i.i, %if.end120.i.i ], [ %socksproxy.1.i.i, %if.end107.thread.i.i ]
   %http_proxy121143.i.i = phi ptr [ %http_proxy122.i.i, %if.end120.i.i ], [ %http_proxy114.i.i, %if.end107.thread.i.i ]
-  %conv123141.i.i = phi i32 [ %conv124.i.i, %if.end120.i.i ], [ %conv116.i.i, %if.end107.thread.i.i ]
-  %call123.i.i = call fastcc i32 @parse_proxy(ptr noundef %data, ptr noundef nonnull %call.i.i, ptr noundef nonnull %socksproxy.2111119144.i.i, i32 noundef %conv123141.i.i)
+  %conv124141.i.i = phi i32 [ %conv123.i.i, %if.end120.i.i ], [ %conv116.i.i, %if.end107.thread.i.i ]
+  %call123.i.i = call fastcc i32 @parse_proxy(ptr noundef %data, ptr noundef nonnull %call.i.i, ptr noundef nonnull %socksproxy.2111119144.i.i, i32 noundef %conv124141.i.i)
   %157 = load ptr, ptr @Curl_cfree, align 8
   call void %157(ptr noundef nonnull %socksproxy.2111119144.i.i) #11
   %tobool126.not.i.i = icmp eq i32 %call123.i.i, 0
@@ -2854,9 +2854,9 @@ if.then239.i.i:                                   ; preds = %if.end220.i.i
   br label %create_conn_helper_init_proxy.exit.i
 
 create_conn_helper_init_proxy.exit.i:             ; preds = %if.then239.i.i, %if.end220.i.i, %if.then122.i.i, %if.then113.i.i, %if.then24.i.i, %if.then11.i.i, %parse_proxy_auth.exit.i.i, %if.end27.i.i.i, %if.end.i.i.i, %if.then.i205.i
+  %proxy.6.i.i = phi ptr [ null, %parse_proxy_auth.exit.i.i ], [ null, %if.then113.i.i ], [ null, %if.then122.i.i ], [ null, %if.end220.i.i ], [ null, %if.then239.i.i ], [ %proxy.0.i.i, %if.then24.i.i ], [ null, %if.then11.i.i ], [ null, %if.end27.i.i.i ], [ null, %if.end.i.i.i ], [ null, %if.then.i205.i ]
   %socksproxy.5.i.i = phi ptr [ null, %parse_proxy_auth.exit.i.i ], [ %socksproxy.2111120.i.i, %if.then113.i.i ], [ null, %if.then122.i.i ], [ null, %if.end220.i.i ], [ null, %if.then239.i.i ], [ null, %if.then24.i.i ], [ null, %if.then11.i.i ], [ null, %if.end27.i.i.i ], [ null, %if.end.i.i.i ], [ null, %if.then.i205.i ]
   %result.4.i.i = phi i32 [ %call35.i.i.i, %parse_proxy_auth.exit.i.i ], [ %call114.i.i, %if.then113.i.i ], [ %call123.i.i, %if.then122.i.i ], [ 0, %if.end220.i.i ], [ 0, %if.then239.i.i ], [ 27, %if.then24.i.i ], [ 27, %if.then11.i.i ], [ %call26.i.i.i, %if.end27.i.i.i ], [ %call22.i.i.i, %if.end.i.i.i ], [ %call.i.i.i, %if.then.i205.i ]
-  %proxy.6.i.i = phi ptr [ null, %parse_proxy_auth.exit.i.i ], [ null, %if.then113.i.i ], [ null, %if.then122.i.i ], [ null, %if.end220.i.i ], [ null, %if.then239.i.i ], [ %proxy.0.i.i, %if.then24.i.i ], [ null, %if.then11.i.i ], [ null, %if.end27.i.i.i ], [ null, %if.end.i.i.i ], [ null, %if.then.i205.i ]
   %171 = load ptr, ptr @Curl_cfree, align 8
   call void %171(ptr noundef %socksproxy.5.i.i) #11
   %172 = load ptr, ptr @Curl_cfree, align 8
@@ -3954,14 +3954,14 @@ if.end17.i:                                       ; preds = %if.end.i
   br i1 %cmp14.i, label %if.then19.i, label %parse_connect_to_string.exit.thread
 
 if.then19.i:                                      ; preds = %if.end17.i, %while.body
-  %conn_to_host.pn30.i = phi ptr [ %add.ptr.i, %if.end17.i ], [ %0, %while.body ]
-  %ptr.031.i = getelementptr inbounds i8, ptr %conn_to_host.pn30.i, i64 1
+  %conn_to_host.pn28.i = phi ptr [ %add.ptr.i, %if.end17.i ], [ %0, %while.body ]
+  %ptr.031.i = getelementptr inbounds i8, ptr %conn_to_host.pn28.i, i64 1
   %6 = load i8, ptr %ptr.031.i, align 1
   %cmp21.i = icmp eq i8 %6, 58
   br i1 %cmp21.i, label %if.end40.thread.i, label %if.else25.i
 
 if.end40.thread.i:                                ; preds = %if.then19.i
-  %incdec.ptr24.i = getelementptr inbounds i8, ptr %conn_to_host.pn30.i, i64 2
+  %incdec.ptr24.i = getelementptr inbounds i8, ptr %conn_to_host.pn28.i, i64 2
   br label %if.then44.i
 
 if.else25.i:                                      ; preds = %if.then19.i
@@ -4777,10 +4777,10 @@ while.body.lr.ph:                                 ; preds = %if.end129
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
   %chosen.0266 = phi ptr [ null, %while.body.lr.ph ], [ %chosen.0.be, %while.cond.backedge ]
-  %foundPendingCandidate.0265 = phi i1 [ false, %while.body.lr.ph ], [ %foundPendingCandidate.0.be, %while.cond.backedge ]
-  %curr.0264 = phi ptr [ %29, %while.body.lr.ph ], [ %31, %while.cond.backedge ]
-  %30 = load ptr, ptr %curr.0264, align 8
-  %next = getelementptr inbounds i8, ptr %curr.0264, i64 16
+  %curr.0265 = phi ptr [ %29, %while.body.lr.ph ], [ %31, %while.cond.backedge ]
+  %foundPendingCandidate.0264 = phi i1 [ false, %while.body.lr.ph ], [ %foundPendingCandidate.0.be, %while.cond.backedge ]
+  %30 = load ptr, ptr %curr.0265, align 8
+  %next = getelementptr inbounds i8, ptr %curr.0265, i64 16
   %31 = load ptr, ptr %next, align 8
   %connect_only = getelementptr inbounds i8, ptr %30, i64 1169
   %32 = load i8, ptr %connect_only, align 1
@@ -4795,7 +4795,7 @@ lor.lhs.false:                                    ; preds = %while.body
   br i1 %tobool137.not, label %if.end139, label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %lor.lhs.false485, %if.end158.thread, %if.then739, %land.lhs.true731, %if.then717, %land.lhs.true709, %lor.lhs.false681, %land.lhs.true684, %if.end647, %lor.lhs.false654, %if.then638, %lor.lhs.false642, %if.end590, %lor.lhs.false596, %land.lhs.true574, %land.lhs.true585, %land.lhs.true554, %lor.lhs.false561, %if.then502, %lor.lhs.false507, %lor.lhs.false513, %lor.lhs.false521, %land.lhs.true479, %if.then444, %lor.lhs.false448, %lor.lhs.false452, %lor.lhs.false456, %if.then413, %lor.lhs.false420, %land.lhs.true429, %lor.lhs.false432, %if.then405, %do.body395, %lor.lhs.false288, %if.then188, %land.lhs.true180, %while.body, %lor.lhs.false, %if.then624, %if.then760, %land.lhs.true144, %if.then154, %if.else163, %land.lhs.true197, %if.then204, %if.end208, %if.end214, %if.else227, %if.end255, %land.lhs.true306, %if.then315, %if.end327, %if.then342, %if.end352, %if.end462, %land.lhs.true606, %if.else630, %if.else663, %if.then240
-  %foundPendingCandidate.0.be = phi i1 [ %foundPendingCandidate.0265, %land.lhs.true144 ], [ %foundPendingCandidate.0265, %if.else163 ], [ %foundPendingCandidate.0265, %if.end208 ], [ %foundPendingCandidate.0265, %if.end214 ], [ %foundPendingCandidate.0265, %if.end255 ], [ %foundPendingCandidate.0265, %if.then315 ], [ %foundPendingCandidate.0265, %if.then342 ], [ %foundPendingCandidate.0265, %if.end462 ], [ %foundPendingCandidate.0265, %if.then624 ], [ %foundPendingCandidate.0265, %if.then760 ], [ %foundPendingCandidate.0265, %if.else663 ], [ %foundPendingCandidate.0265, %if.else630 ], [ %foundPendingCandidate.0265, %land.lhs.true606 ], [ %foundPendingCandidate.0265, %if.end352 ], [ %foundPendingCandidate.0265, %if.end327 ], [ %foundPendingCandidate.0265, %land.lhs.true306 ], [ %foundPendingCandidate.0265, %if.then204 ], [ %foundPendingCandidate.0265, %if.else227 ], [ %foundPendingCandidate.0265, %land.lhs.true197 ], [ %foundPendingCandidate.0265, %if.then154 ], [ %foundPendingCandidate.0265, %if.then240 ], [ %foundPendingCandidate.0265, %lor.lhs.false ], [ %foundPendingCandidate.0265, %while.body ], [ true, %land.lhs.true180 ], [ true, %if.then188 ], [ %foundPendingCandidate.0265, %lor.lhs.false288 ], [ %foundPendingCandidate.0265, %do.body395 ], [ %foundPendingCandidate.0265, %if.then405 ], [ %foundPendingCandidate.0265, %lor.lhs.false432 ], [ %foundPendingCandidate.0265, %land.lhs.true429 ], [ %foundPendingCandidate.0265, %lor.lhs.false420 ], [ %foundPendingCandidate.0265, %if.then413 ], [ %foundPendingCandidate.0265, %lor.lhs.false456 ], [ %foundPendingCandidate.0265, %lor.lhs.false452 ], [ %foundPendingCandidate.0265, %lor.lhs.false448 ], [ %foundPendingCandidate.0265, %if.then444 ], [ %foundPendingCandidate.0265, %land.lhs.true479 ], [ %foundPendingCandidate.0265, %lor.lhs.false521 ], [ %foundPendingCandidate.0265, %lor.lhs.false513 ], [ %foundPendingCandidate.0265, %lor.lhs.false507 ], [ %foundPendingCandidate.0265, %if.then502 ], [ %foundPendingCandidate.0265, %lor.lhs.false561 ], [ %foundPendingCandidate.0265, %land.lhs.true554 ], [ %foundPendingCandidate.0265, %land.lhs.true585 ], [ %foundPendingCandidate.0265, %land.lhs.true574 ], [ %foundPendingCandidate.0265, %lor.lhs.false596 ], [ %foundPendingCandidate.0265, %if.end590 ], [ %foundPendingCandidate.0265, %lor.lhs.false642 ], [ %foundPendingCandidate.0265, %if.then638 ], [ %foundPendingCandidate.0265, %lor.lhs.false654 ], [ %foundPendingCandidate.0265, %if.end647 ], [ %foundPendingCandidate.0265, %land.lhs.true684 ], [ %foundPendingCandidate.0265, %lor.lhs.false681 ], [ %foundPendingCandidate.0265, %land.lhs.true709 ], [ %foundPendingCandidate.0265, %if.then717 ], [ %foundPendingCandidate.0265, %land.lhs.true731 ], [ %foundPendingCandidate.0265, %if.then739 ], [ %foundPendingCandidate.0265, %if.end158.thread ], [ %foundPendingCandidate.0265, %lor.lhs.false485 ]
+  %foundPendingCandidate.0.be = phi i1 [ %foundPendingCandidate.0264, %land.lhs.true144 ], [ %foundPendingCandidate.0264, %if.else163 ], [ %foundPendingCandidate.0264, %if.end208 ], [ %foundPendingCandidate.0264, %if.end214 ], [ %foundPendingCandidate.0264, %if.end255 ], [ %foundPendingCandidate.0264, %if.then315 ], [ %foundPendingCandidate.0264, %if.then342 ], [ %foundPendingCandidate.0264, %if.end462 ], [ %foundPendingCandidate.0264, %if.then624 ], [ %foundPendingCandidate.0264, %if.then760 ], [ %foundPendingCandidate.0264, %if.else663 ], [ %foundPendingCandidate.0264, %if.else630 ], [ %foundPendingCandidate.0264, %land.lhs.true606 ], [ %foundPendingCandidate.0264, %if.end352 ], [ %foundPendingCandidate.0264, %if.end327 ], [ %foundPendingCandidate.0264, %land.lhs.true306 ], [ %foundPendingCandidate.0264, %if.then204 ], [ %foundPendingCandidate.0264, %if.else227 ], [ %foundPendingCandidate.0264, %land.lhs.true197 ], [ %foundPendingCandidate.0264, %if.then154 ], [ %foundPendingCandidate.0264, %if.then240 ], [ %foundPendingCandidate.0264, %lor.lhs.false ], [ %foundPendingCandidate.0264, %while.body ], [ true, %land.lhs.true180 ], [ true, %if.then188 ], [ %foundPendingCandidate.0264, %lor.lhs.false288 ], [ %foundPendingCandidate.0264, %do.body395 ], [ %foundPendingCandidate.0264, %if.then405 ], [ %foundPendingCandidate.0264, %lor.lhs.false432 ], [ %foundPendingCandidate.0264, %land.lhs.true429 ], [ %foundPendingCandidate.0264, %lor.lhs.false420 ], [ %foundPendingCandidate.0264, %if.then413 ], [ %foundPendingCandidate.0264, %lor.lhs.false456 ], [ %foundPendingCandidate.0264, %lor.lhs.false452 ], [ %foundPendingCandidate.0264, %lor.lhs.false448 ], [ %foundPendingCandidate.0264, %if.then444 ], [ %foundPendingCandidate.0264, %land.lhs.true479 ], [ %foundPendingCandidate.0264, %lor.lhs.false521 ], [ %foundPendingCandidate.0264, %lor.lhs.false513 ], [ %foundPendingCandidate.0264, %lor.lhs.false507 ], [ %foundPendingCandidate.0264, %if.then502 ], [ %foundPendingCandidate.0264, %lor.lhs.false561 ], [ %foundPendingCandidate.0264, %land.lhs.true554 ], [ %foundPendingCandidate.0264, %land.lhs.true585 ], [ %foundPendingCandidate.0264, %land.lhs.true574 ], [ %foundPendingCandidate.0264, %lor.lhs.false596 ], [ %foundPendingCandidate.0264, %if.end590 ], [ %foundPendingCandidate.0264, %lor.lhs.false642 ], [ %foundPendingCandidate.0264, %if.then638 ], [ %foundPendingCandidate.0264, %lor.lhs.false654 ], [ %foundPendingCandidate.0264, %if.end647 ], [ %foundPendingCandidate.0264, %land.lhs.true684 ], [ %foundPendingCandidate.0264, %lor.lhs.false681 ], [ %foundPendingCandidate.0264, %land.lhs.true709 ], [ %foundPendingCandidate.0264, %if.then717 ], [ %foundPendingCandidate.0264, %land.lhs.true731 ], [ %foundPendingCandidate.0264, %if.then739 ], [ %foundPendingCandidate.0264, %if.end158.thread ], [ %foundPendingCandidate.0264, %lor.lhs.false485 ]
   %chosen.0.be = phi ptr [ %chosen.0266, %land.lhs.true144 ], [ %chosen.0266, %if.else163 ], [ %chosen.0266, %if.end208 ], [ %chosen.0266, %if.end214 ], [ %chosen.0266, %if.end255 ], [ %chosen.0266, %if.then315 ], [ %chosen.0266, %if.then342 ], [ %chosen.0266, %if.end462 ], [ %spec.select, %if.then624 ], [ %chosen.0266, %if.then760 ], [ %chosen.0266, %if.else663 ], [ %chosen.0266, %if.else630 ], [ %chosen.0266, %land.lhs.true606 ], [ %chosen.0266, %if.end352 ], [ %chosen.0266, %if.end327 ], [ %chosen.0266, %land.lhs.true306 ], [ %chosen.0266, %if.then204 ], [ %chosen.0266, %if.else227 ], [ %chosen.0266, %land.lhs.true197 ], [ %chosen.0266, %if.then154 ], [ %chosen.0266, %if.then240 ], [ %chosen.0266, %lor.lhs.false ], [ %chosen.0266, %while.body ], [ %chosen.0266, %land.lhs.true180 ], [ %chosen.0266, %if.then188 ], [ %chosen.0266, %lor.lhs.false288 ], [ %chosen.0266, %do.body395 ], [ %chosen.0266, %if.then405 ], [ %chosen.0266, %lor.lhs.false432 ], [ %chosen.0266, %land.lhs.true429 ], [ %chosen.0266, %lor.lhs.false420 ], [ %chosen.0266, %if.then413 ], [ %chosen.0266, %lor.lhs.false456 ], [ %chosen.0266, %lor.lhs.false452 ], [ %chosen.0266, %lor.lhs.false448 ], [ %chosen.0266, %if.then444 ], [ %chosen.0266, %land.lhs.true479 ], [ %chosen.0266, %lor.lhs.false521 ], [ %chosen.0266, %lor.lhs.false513 ], [ %chosen.0266, %lor.lhs.false507 ], [ %chosen.0266, %if.then502 ], [ %chosen.0266, %lor.lhs.false561 ], [ %chosen.0266, %land.lhs.true554 ], [ %chosen.0266, %land.lhs.true585 ], [ %chosen.0266, %land.lhs.true574 ], [ %chosen.0266, %lor.lhs.false596 ], [ %chosen.0266, %if.end590 ], [ %chosen.0266, %lor.lhs.false642 ], [ %chosen.0266, %if.then638 ], [ %chosen.0266, %lor.lhs.false654 ], [ %chosen.0266, %if.end647 ], [ %30, %land.lhs.true684 ], [ %30, %lor.lhs.false681 ], [ %chosen.0266, %land.lhs.true709 ], [ %chosen.0266, %if.then717 ], [ %chosen.0266, %land.lhs.true731 ], [ %chosen.0266, %if.then739 ], [ %chosen.0266, %if.end158.thread ], [ %chosen.0266, %lor.lhs.false485 ]
   %tobool130.not = icmp eq ptr %31, null
   br i1 %tobool130.not, label %while.end, label %while.body, !llvm.loop !13

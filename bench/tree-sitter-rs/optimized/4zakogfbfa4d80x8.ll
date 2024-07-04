@@ -237,15 +237,15 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit
   br i1 %.not2.i.not.not.i.i.i, label %116, label %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17ha483752b0a2e2074E.exit"
 
 116:                                              ; preds = %109, %103
-  %.061.i.i.i = phi i64 [ 0, %103 ], [ %114, %109 ]
+  %.065.i.i.i = phi i64 [ 0, %103 ], [ %114, %109 ]
   %.0.i.i.i = phi i64 [ 1, %103 ], [ %115, %109 ]
   %117 = load i64, ptr %56, align 8, !alias.scope !55, !noalias !56, !noundef !4
-  %118 = icmp ult i64 %.061.i.i.i, %117
+  %118 = icmp ult i64 %.065.i.i.i, %117
   %119 = load ptr, ptr %54, align 8, !alias.scope !55, !noalias !56, !nonnull !4
   br i1 %118, label %120, label %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17ha483752b0a2e2074E.exit"
 
 120:                                              ; preds = %116
-  %121 = getelementptr inbounds i64, ptr %119, i64 %.061.i.i.i
+  %121 = getelementptr inbounds i64, ptr %119, i64 %.065.i.i.i
   %122 = load i64, ptr %121, align 8, !noalias !59, !noundef !4
   %123 = icmp ne i64 %122, 0
   %124 = icmp ult i64 %.0.i.i.i, %117

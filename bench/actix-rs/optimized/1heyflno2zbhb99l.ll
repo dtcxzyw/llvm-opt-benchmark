@@ -1577,7 +1577,7 @@ _ZN5tokio7runtime4task3raw7RawTask3new17h9ba1e2bbf2e2f125E.exit: ; preds = %4
           to label %"_ZN4core3ptr109drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..task..local..Shared$GT$$GT$$GT$17ha225f42660829e9aE.exit" unwind label %49
 
 49:                                               ; preds = %48, %46, %35, %20, %"_ZN4core3ptr109drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..task..local..Shared$GT$$GT$$GT$17ha225f42660829e9aE.exit"
-  %.0 = phi i1 [ false, %"_ZN4core3ptr109drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..task..local..Shared$GT$$GT$$GT$17ha225f42660829e9aE.exit" ], [ false, %20 ], [ false, %35 ], [ true, %46 ], [ true, %48 ]
+  %.09 = phi i1 [ false, %"_ZN4core3ptr109drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..task..local..Shared$GT$$GT$$GT$17ha225f42660829e9aE.exit" ], [ false, %20 ], [ false, %35 ], [ true, %46 ], [ true, %48 ]
   %50 = landingpad { ptr, i32 }
           cleanup
   %51 = invoke noundef zeroext i1 @_ZN5tokio7runtime4task5state5State21drop_join_handle_fast17h0066b1cf4170cd04E(ptr noundef nonnull align 8 %10)
@@ -1610,7 +1610,7 @@ _ZN5tokio7runtime4task3raw7RawTask3new17h9ba1e2bbf2e2f125E.exit: ; preds = %4
   br i1 %19, label %"_ZN4core3ptr109drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..task..local..Shared$GT$$GT$$GT$17ha225f42660829e9aE.exit17", label %57
 
 "_ZN4core3ptr109drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..task..local..Shared$GT$$GT$$GT$17ha225f42660829e9aE.exit17": ; preds = %.noexc15, %59, %"_ZN4core3ptr75drop_in_place$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$$RP$$GT$$GT$17hf488abaf38c07285E.exit"
-  br i1 %.0, label %60, label %common.resume
+  br i1 %.09, label %60, label %common.resume
 
 57:                                               ; preds = %"_ZN4core3ptr75drop_in_place$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$$RP$$GT$$GT$17hf488abaf38c07285E.exit"
   %58 = invoke noundef zeroext i1 @_ZN5tokio7runtime4task5state5State7ref_dec17h5b7ade035a514fbaE(ptr noundef nonnull align 8 %10)
@@ -6025,9 +6025,9 @@ common.resume:                                    ; preds = %.loopexit.split-lp,
   br label %134
 
 125:                                              ; preds = %.lr.ph, %369
-  %.010584 = phi i64 [ 0, %.lr.ph ], [ %370, %369 ]
+  %.010784 = phi i64 [ 0, %.lr.ph ], [ %370, %369 ]
   %126 = load i64, ptr %117, align 8, !noundef !4
-  %127 = add i64 %126, %.010584
+  %127 = add i64 %126, %.010784
   %128 = icmp ult i64 %127, %3
   br i1 %128, label %357, label %.invoke, !prof !228
 
@@ -6523,21 +6523,21 @@ common.resume:                                    ; preds = %.loopexit.split-lp,
 361:                                              ; preds = %357
   %362 = load i64, ptr %12, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  %exitcond250.not = icmp eq i64 %.010584, 13
+  %exitcond250.not = icmp eq i64 %.010784, 13
   br i1 %exitcond250.not, label %.invoke, label %363, !prof !34
 
 363:                                              ; preds = %361
   %364 = uitofp i64 %362 to float
   %365 = fcmp olt float %360, %364
   %.0103 = select i1 %365, float %364, float %360
-  %366 = getelementptr inbounds [13 x float], ptr %15, i64 0, i64 %.010584
+  %366 = getelementptr inbounds [13 x float], ptr %15, i64 0, i64 %.010784
   store float %.0103, ptr %366, align 4
   %367 = getelementptr inbounds i8, ptr %358, i64 1024
   %368 = getelementptr inbounds i8, ptr %358, i64 1032
   br label %371
 
 369:                                              ; preds = %401
-  %370 = add nuw nsw i64 %.010584, 1
+  %370 = add nuw nsw i64 %.010784, 1
   %exitcond251.not = icmp eq i64 %370, %17
   br i1 %exitcond251.not, label %._crit_edge, label %125
 
@@ -6546,10 +6546,10 @@ common.resume:                                    ; preds = %.loopexit.split-lp,
   %.010683.sroa.phi = phi ptr [ %.sroa.0, %363 ], [ %.sroa.6, %401 ]
   %.010683 = phi i64 [ 0, %363 ], [ 1, %401 ]
   %373 = mul nuw nsw i64 %.010683, %17
-  %374 = add i64 %373, %.010584
+  %374 = add i64 %373, %.010784
   %375 = getelementptr inbounds [2 x i64], ptr %0, i64 0, i64 %.010683
   %376 = load i64, ptr %375, align 8, !noundef !4
-  %377 = add i64 %376, %.010584
+  %377 = add i64 %376, %.010784
   %378 = icmp ult i64 %374, %116
   br i1 %378, label %379, label %.invoke, !prof !228
 
@@ -6602,11 +6602,11 @@ _ZN6brotli3enc9histogram21HistogramAddHistogram17h2fef2fafbac5f753E.exit: ; pred
 401:                                              ; preds = %398
   %402 = uitofp i64 %399 to float
   %403 = fcmp olt float %397, %402
-  %.0107 = select i1 %403, float %402, float %397
+  %.0105 = select i1 %403, float %402, float %397
   %404 = getelementptr inbounds [26 x float], ptr %14, i64 0, i64 %374
-  store float %.0107, ptr %404, align 4
+  store float %.0105, ptr %404, align 4
   %405 = load float, ptr %366, align 4, !noundef !4
-  %406 = fsub float %.0107, %405
+  %406 = fsub float %.0105, %405
   %407 = getelementptr inbounds [26 x float], ptr %119, i64 0, i64 %374
   %408 = load float, ptr %407, align 4, !noundef !4
   %409 = fsub float %406, %408

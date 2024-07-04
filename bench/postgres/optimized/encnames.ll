@@ -261,13 +261,13 @@ clean_encoding_name.exit:                         ; preds = %21
   br label %26
 
 26:                                               ; preds = %clean_encoding_name.exit, %43
-  %.02229 = phi ptr [ @pg_encname_tbl, %clean_encoding_name.exit ], [ %.1, %43 ]
-  %.02328 = phi ptr [ getelementptr inbounds (i8, ptr @pg_encname_tbl, i64 1280), %clean_encoding_name.exit ], [ %.124, %43 ]
-  %27 = ptrtoint ptr %.02328 to i64
-  %28 = ptrtoint ptr %.02229 to i64
+  %.02129 = phi ptr [ getelementptr inbounds (i8, ptr @pg_encname_tbl, i64 1280), %clean_encoding_name.exit ], [ %.1, %43 ]
+  %.02228 = phi ptr [ @pg_encname_tbl, %clean_encoding_name.exit ], [ %.123, %43 ]
+  %27 = ptrtoint ptr %.02129 to i64
+  %28 = ptrtoint ptr %.02228 to i64
   %29 = sub i64 %27, %28
   %30 = ashr i64 %29, 5
-  %31 = getelementptr %struct.pg_encname, ptr %.02229, i64 %30
+  %31 = getelementptr %struct.pg_encname, ptr %.02228, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = load i8, ptr %32, align 1
   %34 = sext i8 %33 to i32
@@ -286,18 +286,18 @@ clean_encoding_name.exit:                         ; preds = %21
   br label %.loopexit
 
 43:                                               ; preds = %37, %26
-  %.021 = phi i32 [ %38, %37 ], [ %35, %26 ]
-  %44 = icmp slt i32 %.021, 0
+  %.0 = phi i32 [ %38, %37 ], [ %35, %26 ]
+  %44 = icmp slt i32 %.0, 0
   %45 = getelementptr i8, ptr %31, i64 -16
   %46 = getelementptr i8, ptr %31, i64 16
-  %.124 = select i1 %44, ptr %45, ptr %.02328
-  %.1 = select i1 %44, ptr %.02229, ptr %46
-  %.not = icmp ult ptr %.124, %.1
+  %.123 = select i1 %44, ptr %.02228, ptr %46
+  %.1 = select i1 %44, ptr %45, ptr %.02129
+  %.not = icmp ult ptr %.1, %.123
   br i1 %.not, label %.loopexit, label %26, !llvm.loop !7
 
 .loopexit:                                        ; preds = %43, %7, %1, %4, %40
-  %.0 = phi i32 [ %42, %40 ], [ -1, %4 ], [ -1, %1 ], [ -1, %7 ], [ -1, %43 ]
-  ret i32 %.0
+  %.024 = phi i32 [ %42, %40 ], [ -1, %4 ], [ -1, %1 ], [ -1, %7 ], [ -1, %43 ]
+  ret i32 %.024
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable

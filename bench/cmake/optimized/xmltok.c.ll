@@ -46,9 +46,9 @@ define dso_local void @_INTERNAL_trim_to_complete_utf8_characters(ptr noundef re
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %36
-  %.023 = phi ptr [ %8, %36 ], [ %3, %.lr.ph.preheader ]
-  %.01722 = phi i64 [ %37, %36 ], [ 0, %.lr.ph.preheader ]
-  %8 = getelementptr inbounds i8, ptr %.023, i64 -1
+  %.023 = phi i64 [ %37, %36 ], [ 0, %.lr.ph.preheader ]
+  %.01722 = phi ptr [ %8, %36 ], [ %3, %.lr.ph.preheader ]
+  %8 = getelementptr inbounds i8, ptr %.01722, i64 -1
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = and i32 %10, 248
@@ -56,12 +56,12 @@ define dso_local void @_INTERNAL_trim_to_complete_utf8_characters(ptr noundef re
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %.lr.ph
-  %14 = add i64 %.01722, -3
+  %14 = add i64 %.023, -3
   %15 = icmp ult i64 %14, -4
   br i1 %15, label %16, label %36
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %.023, i64 3
+  %17 = getelementptr inbounds i8, ptr %.01722, i64 3
   br label %.loopexit
 
 18:                                               ; preds = %.lr.ph
@@ -70,12 +70,12 @@ define dso_local void @_INTERNAL_trim_to_complete_utf8_characters(ptr noundef re
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %18
-  %22 = add i64 %.01722, -2
+  %22 = add i64 %.023, -2
   %23 = icmp ult i64 %22, -3
   br i1 %23, label %24, label %36
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %.023, i64 2
+  %25 = getelementptr inbounds i8, ptr %.01722, i64 2
   br label %.loopexit
 
 26:                                               ; preds = %18
@@ -84,12 +84,12 @@ define dso_local void @_INTERNAL_trim_to_complete_utf8_characters(ptr noundef re
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %26
-  %30 = add i64 %.01722, -1
+  %30 = add i64 %.023, -1
   %31 = icmp ult i64 %30, -2
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %.023, i64 1
+  %33 = getelementptr inbounds i8, ptr %.01722, i64 1
   br label %.loopexit
 
 34:                                               ; preds = %26
@@ -97,14 +97,14 @@ define dso_local void @_INTERNAL_trim_to_complete_utf8_characters(ptr noundef re
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %29, %21, %13, %34
-  %.118 = phi i64 [ %.01722, %34 ], [ 0, %13 ], [ 0, %21 ], [ 0, %29 ]
-  %37 = add i64 %.118, 1
+  %.1 = phi i64 [ %.023, %34 ], [ 0, %13 ], [ 0, %21 ], [ 0, %29 ]
+  %37 = add i64 %.1, 1
   %38 = icmp ugt ptr %8, %0
   br i1 %38, label %.lr.ph, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %36, %34, %2, %32, %24, %16
-  %.1 = phi ptr [ %17, %16 ], [ %25, %24 ], [ %33, %32 ], [ %3, %2 ], [ %scevgep, %36 ], [ %.023, %34 ]
-  store ptr %.1, ptr %1, align 8
+  %.118 = phi ptr [ %17, %16 ], [ %25, %24 ], [ %33, %32 ], [ %3, %2 ], [ %scevgep, %36 ], [ %.01722, %34 ]
+  store ptr %.118, ptr %1, align 8
   ret void
 }
 
@@ -505,8 +505,8 @@ XmlUtf8Encode.exit:                               ; preds = %100, %104
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %checkCharRefNumber.exit, %41, %27, %130
-  %.0 = phi ptr [ %0, %130 ], [ null, %27 ], [ null, %41 ], [ null, %checkCharRefNumber.exit ], [ null, %11 ]
-  ret ptr %.0
+  %.096 = phi ptr [ %0, %130 ], [ null, %27 ], [ null, %41 ], [ null, %checkCharRefNumber.exit ], [ null, %11 ]
+  ret ptr %.096
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -3910,9 +3910,9 @@ define internal i32 @normal_charRefNumber(ptr nocapture readnone %0, ptr nocaptu
   br label %7
 
 7:                                                ; preds = %.thread, %5
-  %.026 = phi i32 [ 0, %5 ], [ %.12731, %.thread ]
-  %.025 = phi ptr [ %6, %5 ], [ %24, %.thread ]
-  %8 = load i8, ptr %.025, align 1
+  %.026 = phi ptr [ %6, %5 ], [ %24, %.thread ]
+  %.025 = phi i32 [ 0, %5 ], [ %.131, %.thread ]
+  %8 = load i8, ptr %.026, align 1
   %9 = sext i8 %8 to i32
   switch i8 %8, label %.thread [
     i8 59, label %.loopexit
@@ -3941,52 +3941,52 @@ define internal i32 @normal_charRefNumber(ptr nocapture readnone %0, ptr nocaptu
   ]
 
 10:                                               ; preds = %7, %7, %7, %7, %7, %7, %7, %7, %7, %7
-  %11 = shl i32 %.026, 4
+  %11 = shl i32 %.025, 4
   %12 = add nsw i32 %9, -48
   %13 = or i32 %12, %11
   br label %22
 
 14:                                               ; preds = %7, %7, %7, %7, %7, %7
-  %15 = shl i32 %.026, 4
+  %15 = shl i32 %.025, 4
   %16 = add i32 %15, -55
   %17 = add i32 %16, %9
   br label %22
 
 18:                                               ; preds = %7, %7, %7, %7, %7, %7
-  %19 = shl i32 %.026, 4
+  %19 = shl i32 %.025, 4
   %20 = add i32 %19, -87
   %21 = add i32 %20, %9
   br label %22
 
 22:                                               ; preds = %18, %14, %10
-  %.127 = phi i32 [ %21, %18 ], [ %17, %14 ], [ %13, %10 ]
-  %23 = icmp sgt i32 %.127, 1114111
+  %.1 = phi i32 [ %21, %18 ], [ %17, %14 ], [ %13, %10 ]
+  %23 = icmp sgt i32 %.1, 1114111
   br i1 %23, label %checkCharRefNumber.exit, label %.thread
 
 .thread:                                          ; preds = %7, %22
-  %.12731 = phi i32 [ %.127, %22 ], [ %.026, %7 ]
-  %24 = getelementptr inbounds i8, ptr %.025, i64 1
+  %.131 = phi i32 [ %.1, %22 ], [ %.025, %7 ]
+  %24 = getelementptr inbounds i8, ptr %.026, i64 1
   br label %7, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %2, %31
-  %.138 = phi ptr [ %32, %31 ], [ %3, %2 ]
-  %.237 = phi i32 [ %29, %31 ], [ 0, %2 ]
+  %.238 = phi i32 [ %29, %31 ], [ 0, %2 ]
+  %.12737 = phi ptr [ %32, %31 ], [ %3, %2 ]
   %25 = phi i8 [ %.pr, %31 ], [ %4, %2 ]
   %26 = sext i8 %25 to i32
-  %27 = mul nsw i32 %.237, 10
+  %27 = mul nsw i32 %.238, 10
   %28 = add nsw i32 %26, -48
   %29 = add nsw i32 %28, %27
   %30 = icmp sgt i32 %29, 1114111
   br i1 %30, label %checkCharRefNumber.exit, label %31
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds i8, ptr %.138, i64 1
+  %32 = getelementptr inbounds i8, ptr %.12737, i64 1
   %.pr = load i8, ptr %32, align 1
   %.not = icmp eq i8 %.pr, 59
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %7, %31
-  %.3 = phi i32 [ %29, %31 ], [ %.026, %7 ]
+  %.3 = phi i32 [ %29, %31 ], [ %.025, %7 ]
   %33 = ashr i32 %.3, 8
   switch i32 %33, label %40 [
     i32 216, label %checkCharRefNumber.exit
@@ -6168,9 +6168,9 @@ define internal range(i32 0, 3) i32 @utf8_toUtf8(ptr nocapture readnone %0, ptr 
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %47, %.lr.ph.preheader.i
-  %.023.i = phi ptr [ %19, %47 ], [ %spec.select, %.lr.ph.preheader.i ]
-  %.01722.i = phi i64 [ %48, %47 ], [ 0, %.lr.ph.preheader.i ]
-  %19 = getelementptr inbounds i8, ptr %.023.i, i64 -1
+  %.023.i = phi i64 [ %48, %47 ], [ 0, %.lr.ph.preheader.i ]
+  %.01722.i = phi ptr [ %19, %47 ], [ %spec.select, %.lr.ph.preheader.i ]
+  %19 = getelementptr inbounds i8, ptr %.01722.i, i64 -1
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = and i32 %21, 248
@@ -6178,12 +6178,12 @@ define internal range(i32 0, 3) i32 @utf8_toUtf8(ptr nocapture readnone %0, ptr 
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %.lr.ph.i
-  %25 = add i64 %.01722.i, -3
+  %25 = add i64 %.023.i, -3
   %26 = icmp ult i64 %25, -4
   br i1 %26, label %27, label %47
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %.023.i, i64 3
+  %28 = getelementptr inbounds i8, ptr %.01722.i, i64 3
   br label %_INTERNAL_trim_to_complete_utf8_characters.exit
 
 29:                                               ; preds = %.lr.ph.i
@@ -6192,12 +6192,12 @@ define internal range(i32 0, 3) i32 @utf8_toUtf8(ptr nocapture readnone %0, ptr 
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %29
-  %33 = add i64 %.01722.i, -2
+  %33 = add i64 %.023.i, -2
   %34 = icmp ult i64 %33, -3
   br i1 %34, label %35, label %47
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %.023.i, i64 2
+  %36 = getelementptr inbounds i8, ptr %.01722.i, i64 2
   br label %_INTERNAL_trim_to_complete_utf8_characters.exit
 
 37:                                               ; preds = %29
@@ -6206,12 +6206,12 @@ define internal range(i32 0, 3) i32 @utf8_toUtf8(ptr nocapture readnone %0, ptr 
   br i1 %39, label %40, label %45
 
 40:                                               ; preds = %37
-  %41 = add i64 %.01722.i, -1
+  %41 = add i64 %.023.i, -1
   %42 = icmp ult i64 %41, -2
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %.023.i, i64 1
+  %44 = getelementptr inbounds i8, ptr %.01722.i, i64 1
   br label %_INTERNAL_trim_to_complete_utf8_characters.exit
 
 45:                                               ; preds = %37
@@ -6219,15 +6219,15 @@ define internal range(i32 0, 3) i32 @utf8_toUtf8(ptr nocapture readnone %0, ptr 
   br i1 %46, label %_INTERNAL_trim_to_complete_utf8_characters.exit, label %47
 
 47:                                               ; preds = %45, %40, %32, %24
-  %.118.i = phi i64 [ %.01722.i, %45 ], [ 0, %24 ], [ 0, %32 ], [ 0, %40 ]
-  %48 = add i64 %.118.i, 1
+  %.1.i = phi i64 [ %.023.i, %45 ], [ 0, %24 ], [ 0, %32 ], [ 0, %40 ]
+  %48 = add i64 %.1.i, 1
   %49 = icmp ugt ptr %19, %6
   br i1 %49, label %.lr.ph.i, label %_INTERNAL_trim_to_complete_utf8_characters.exit, !llvm.loop !5
 
 _INTERNAL_trim_to_complete_utf8_characters.exit:  ; preds = %45, %47, %5, %27, %35, %43
-  %.1.i = phi ptr [ %28, %27 ], [ %36, %35 ], [ %44, %43 ], [ %spec.select, %5 ], [ %.023.i, %45 ], [ %scevgep.i, %47 ]
-  %50 = icmp ult ptr %.1.i, %spec.select
-  %51 = ptrtoint ptr %.1.i to i64
+  %.118.i = phi ptr [ %28, %27 ], [ %36, %35 ], [ %44, %43 ], [ %spec.select, %5 ], [ %.01722.i, %45 ], [ %scevgep.i, %47 ]
+  %50 = icmp ult ptr %.118.i, %spec.select
+  %51 = ptrtoint ptr %.118.i to i64
   %52 = sub i64 %51, %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 %6, i64 %52, i1 false)
   %53 = load ptr, ptr %1, align 8
@@ -9215,15 +9215,15 @@ define internal i32 @little2_charRefNumber(ptr nocapture readnone %0, ptr nocapt
   br label %12
 
 12:                                               ; preds = %.thread, %10
-  %.031 = phi i32 [ 0, %10 ], [ %.13238, %.thread ]
-  %.030 = phi ptr [ %11, %10 ], [ %34, %.thread ]
-  %13 = getelementptr inbounds i8, ptr %.030, i64 1
+  %.031 = phi ptr [ %11, %10 ], [ %34, %.thread ]
+  %.030 = phi i32 [ 0, %10 ], [ %.138, %.thread ]
+  %13 = getelementptr inbounds i8, ptr %.031, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %12
-  %17 = load i8, ptr %.030, align 1
+  %17 = load i8, ptr %.031, align 1
   %18 = icmp eq i8 %17, 59
   br i1 %18, label %.loopexit, label %.critedge
 
@@ -9255,43 +9255,43 @@ define internal i32 @little2_charRefNumber(ptr nocapture readnone %0, ptr nocapt
   ]
 
 20:                                               ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
-  %21 = shl i32 %.031, 4
+  %21 = shl i32 %.030, 4
   %22 = add nsw i32 %19, -48
   %23 = or i32 %22, %21
   br label %32
 
 24:                                               ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
-  %25 = shl i32 %.031, 4
+  %25 = shl i32 %.030, 4
   %26 = add i32 %25, -55
   %27 = add i32 %26, %19
   br label %32
 
 28:                                               ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
-  %29 = shl i32 %.031, 4
+  %29 = shl i32 %.030, 4
   %30 = add i32 %29, -87
   %31 = add i32 %30, %19
   br label %32
 
 32:                                               ; preds = %28, %24, %20
-  %.132 = phi i32 [ %31, %28 ], [ %27, %24 ], [ %23, %20 ]
-  %33 = icmp sgt i32 %.132, 1114111
+  %.1 = phi i32 [ %31, %28 ], [ %27, %24 ], [ %23, %20 ]
+  %33 = icmp sgt i32 %.1, 1114111
   br i1 %33, label %checkCharRefNumber.exit, label %.thread
 
 .thread:                                          ; preds = %12, %.critedge, %32
-  %.13238 = phi i32 [ %.132, %32 ], [ %.031, %.critedge ], [ %.031, %12 ]
-  %34 = getelementptr inbounds i8, ptr %.030, i64 2
+  %.138 = phi i32 [ %.1, %32 ], [ %.030, %.critedge ], [ %.030, %12 ]
+  %34 = getelementptr inbounds i8, ptr %.031, i64 2
   br label %12, !llvm.loop !51
 
 35:                                               ; preds = %.preheader, %.critedge35
+  %.132 = phi ptr [ %49, %.critedge35 ], [ %3, %.preheader ]
   %.2 = phi i32 [ %47, %.critedge35 ], [ 0, %.preheader ]
-  %.1 = phi ptr [ %49, %.critedge35 ], [ %3, %.preheader ]
-  %36 = getelementptr inbounds i8, ptr %.1, i64 1
+  %36 = getelementptr inbounds i8, ptr %.132, i64 1
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %39, label %.critedge35
 
 39:                                               ; preds = %35
-  %40 = load i8, ptr %.1, align 1
+  %40 = load i8, ptr %.132, align 1
   %41 = icmp eq i8 %40, 59
   br i1 %41, label %.loopexit, label %42
 
@@ -9305,11 +9305,11 @@ define internal i32 @little2_charRefNumber(ptr nocapture readnone %0, ptr nocapt
   %46 = add i32 %45, -48
   %47 = add i32 %46, %44
   %48 = icmp sgt i32 %47, 1114111
-  %49 = getelementptr inbounds i8, ptr %.1, i64 2
+  %49 = getelementptr inbounds i8, ptr %.132, i64 2
   br i1 %48, label %checkCharRefNumber.exit, label %35, !llvm.loop !52
 
 .loopexit:                                        ; preds = %39, %16
-  %.3 = phi i32 [ %.031, %16 ], [ %.2, %39 ]
+  %.3 = phi i32 [ %.030, %16 ], [ %.2, %39 ]
   %50 = ashr i32 %.3, 8
   switch i32 %50, label %58 [
     i32 216, label %checkCharRefNumber.exit
@@ -14740,14 +14740,14 @@ define internal i32 @big2_charRefNumber(ptr nocapture readnone %0, ptr nocapture
   br label %12
 
 12:                                               ; preds = %.thread, %10
-  %.031 = phi i32 [ 0, %10 ], [ %.13238, %.thread ]
-  %.030 = phi ptr [ %11, %10 ], [ %34, %.thread ]
-  %13 = load i8, ptr %.030, align 1
+  %.031 = phi ptr [ %11, %10 ], [ %34, %.thread ]
+  %.030 = phi i32 [ 0, %10 ], [ %.138, %.thread ]
+  %13 = load i8, ptr %.031, align 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %.030, i64 1
+  %16 = getelementptr inbounds i8, ptr %.031, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 59
   br i1 %18, label %.loopexit, label %.critedge
@@ -14780,42 +14780,42 @@ define internal i32 @big2_charRefNumber(ptr nocapture readnone %0, ptr nocapture
   ]
 
 20:                                               ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
-  %21 = shl i32 %.031, 4
+  %21 = shl i32 %.030, 4
   %22 = add nsw i32 %19, -48
   %23 = or i32 %22, %21
   br label %32
 
 24:                                               ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
-  %25 = shl i32 %.031, 4
+  %25 = shl i32 %.030, 4
   %26 = add i32 %25, -55
   %27 = add i32 %26, %19
   br label %32
 
 28:                                               ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
-  %29 = shl i32 %.031, 4
+  %29 = shl i32 %.030, 4
   %30 = add i32 %29, -87
   %31 = add i32 %30, %19
   br label %32
 
 32:                                               ; preds = %28, %24, %20
-  %.132 = phi i32 [ %31, %28 ], [ %27, %24 ], [ %23, %20 ]
-  %33 = icmp sgt i32 %.132, 1114111
+  %.1 = phi i32 [ %31, %28 ], [ %27, %24 ], [ %23, %20 ]
+  %33 = icmp sgt i32 %.1, 1114111
   br i1 %33, label %checkCharRefNumber.exit, label %.thread
 
 .thread:                                          ; preds = %12, %.critedge, %32
-  %.13238 = phi i32 [ %.132, %32 ], [ %.031, %.critedge ], [ %.031, %12 ]
-  %34 = getelementptr inbounds i8, ptr %.030, i64 2
+  %.138 = phi i32 [ %.1, %32 ], [ %.030, %.critedge ], [ %.030, %12 ]
+  %34 = getelementptr inbounds i8, ptr %.031, i64 2
   br label %12, !llvm.loop !80
 
 35:                                               ; preds = %.preheader, %.critedge35
+  %.132 = phi ptr [ %49, %.critedge35 ], [ %3, %.preheader ]
   %.2 = phi i32 [ %47, %.critedge35 ], [ 0, %.preheader ]
-  %.1 = phi ptr [ %49, %.critedge35 ], [ %3, %.preheader ]
-  %36 = load i8, ptr %.1, align 1
+  %36 = load i8, ptr %.132, align 1
   %37 = icmp eq i8 %36, 0
   br i1 %37, label %38, label %.critedge35
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %.1, i64 1
+  %39 = getelementptr inbounds i8, ptr %.132, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, 59
   br i1 %41, label %.loopexit, label %42
@@ -14830,11 +14830,11 @@ define internal i32 @big2_charRefNumber(ptr nocapture readnone %0, ptr nocapture
   %46 = add i32 %45, -48
   %47 = add i32 %46, %44
   %48 = icmp sgt i32 %47, 1114111
-  %49 = getelementptr inbounds i8, ptr %.1, i64 2
+  %49 = getelementptr inbounds i8, ptr %.132, i64 2
   br i1 %48, label %checkCharRefNumber.exit, label %35, !llvm.loop !81
 
 .loopexit:                                        ; preds = %38, %15
-  %.3 = phi i32 [ %.031, %15 ], [ %.2, %38 ]
+  %.3 = phi i32 [ %.030, %15 ], [ %.2, %38 ]
   %50 = ashr i32 %.3, 8
   switch i32 %50, label %58 [
     i32 216, label %checkCharRefNumber.exit
@@ -17710,8 +17710,8 @@ select.unfold.preheader:                          ; preds = %.loopexit
 
 select.unfold:                                    ; preds = %isSpace.exit122, %select.unfold.preheader
   %.4 = phi ptr [ %86, %select.unfold.preheader ], [ %97, %isSpace.exit122 ]
-  %.098 = phi i32 [ %spec.select, %select.unfold.preheader ], [ %.098.be, %isSpace.exit122 ]
-  switch i32 %.098, label %104 [
+  %.0 = phi i32 [ %spec.select, %select.unfold.preheader ], [ %.0.be, %isSpace.exit122 ]
+  switch i32 %.0, label %104 [
     i32 32, label %isSpace.exit122
     i32 13, label %isSpace.exit122
     i32 10, label %isSpace.exit122
@@ -17738,7 +17738,7 @@ isSpace.exit122:                                  ; preds = %select.unfold, %sel
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  %.098.be = select i1 %101, i32 -1, i32 %103
+  %.0.be = select i1 %101, i32 -1, i32 %103
   br label %select.unfold
 
 104:                                              ; preds = %select.unfold
@@ -17767,7 +17767,7 @@ isSpace.exit122:                                  ; preds = %select.unfold, %sel
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %116 = icmp eq i32 %.0.i124.fr147, %.098
+  %116 = icmp eq i32 %.0.i124.fr147, %.0
   br i1 %116, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %105, %121
@@ -17812,7 +17812,7 @@ switch.early.test:                                ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %131 = icmp eq i32 %.0.i124.fr, %.098
+  %131 = icmp eq i32 %.0.i124.fr, %.0
   br i1 %131, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %121, %105
@@ -17824,8 +17824,8 @@ switch.early.test:                                ; preds = %.lr.ph
   br label %135
 
 135:                                              ; preds = %._crit_edge, %120, %104, %83, %76, %64, %54, %42, %30
-  %.0 = phi i32 [ 1, %30 ], [ 1, %54 ], [ 0, %64 ], [ 0, %83 ], [ 0, %104 ], [ 1, %._crit_edge ], [ 0, %120 ], [ 0, %76 ], [ 0, %42 ]
-  ret i32 %.0
+  %.098 = phi i32 [ 1, %30 ], [ 1, %54 ], [ 0, %64 ], [ 0, %83 ], [ 0, %104 ], [ 1, %._crit_edge ], [ 0, %120 ], [ 0, %76 ], [ 0, %42 ]
+  ret i32 %.098
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

@@ -472,9 +472,9 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i, %if.end17
 
 for.body.i:                                       ; preds = %for.inc22.i, %for.body.lr.ph.i
   %ridx.032.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %ridx.128.i, %for.inc22.i ]
-  %fixup.031.i = phi ptr [ %acked_pkts.i, %for.body.lr.ph.i ], [ %fixup.1.i, %for.inc22.i ]
-  %pkt.130.i = phi ptr [ %pkt.039.i, %for.body.lr.ph.i ], [ %pkt.1.val.i, %for.inc22.i ]
-  %8 = getelementptr i8, ptr %pkt.130.i, i64 80
+  %pkt.131.i = phi ptr [ %pkt.039.i, %for.body.lr.ph.i ], [ %pkt.1.val.i, %for.inc22.i ]
+  %fixup.030.i = phi ptr [ %acked_pkts.i, %for.body.lr.ph.i ], [ %fixup.1.i, %for.inc22.i ]
+  %8 = getelementptr i8, ptr %pkt.131.i, i64 80
   %pkt.1.val.i = load ptr, ptr %8, align 8
   %9 = load i64, ptr %num_ack_ranges.i, align 8
   %cmp6.not27.i = icmp ult i64 %ridx.032.i, %9
@@ -482,7 +482,7 @@ for.body.i:                                       ; preds = %for.inc22.i, %for.b
 
 if.end8.lr.ph.i:                                  ; preds = %for.body.i
   %10 = load ptr, ptr %ack, align 8
-  %11 = load i64, ptr %pkt.130.i, align 8
+  %11 = load i64, ptr %pkt.131.i, align 8
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %for.inc.i, %if.end8.lr.ph.i
@@ -568,8 +568,8 @@ ossl_list_tx_history_remove.exit.i.i:             ; preds = %if.then21.i.i.i, %i
 
 tx_pkt_history_remove.exit.i:                     ; preds = %ossl_list_tx_history_remove.exit.i.i, %if.then12.i
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %key.i18.i)
-  store ptr %pkt.130.i, ptr %fixup.031.i, align 8
-  %anext.i = getelementptr inbounds i8, ptr %pkt.130.i, i64 88
+  store ptr %pkt.131.i, ptr %fixup.030.i, align 8
+  %anext.i = getelementptr inbounds i8, ptr %pkt.131.i, i64 88
   store ptr null, ptr %anext.i, align 8
   br label %for.inc22.i
 
@@ -584,7 +584,7 @@ for.inc.i:                                        ; preds = %if.else.i
   br i1 %exitcond.not.i, label %ackm_detect_and_remove_newly_acked_pkts.exit, label %if.end8.i
 
 for.inc22.i:                                      ; preds = %if.else.i, %tx_pkt_history_remove.exit.i
-  %fixup.1.i = phi ptr [ %anext.i, %tx_pkt_history_remove.exit.i ], [ %fixup.031.i, %if.else.i ]
+  %fixup.1.i = phi ptr [ %anext.i, %tx_pkt_history_remove.exit.i ], [ %fixup.030.i, %if.else.i ]
   %cmp3.not.i = icmp eq ptr %pkt.1.val.i, null
   br i1 %cmp3.not.i, label %ackm_detect_and_remove_newly_acked_pkts.exit, label %for.body.i, !llvm.loop !11
 

@@ -1337,7 +1337,7 @@ define i64 @diff_attr(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr nounde
   %87 = phi i64 [ %61, %.preheader151.i ], [ %253, %250 ]
   %.071.lcssa.i = phi i64 [ 0, %.preheader151.i ], [ %.172.i, %250 ]
   %.068.lcssa.i = phi i64 [ 0, %.preheader151.i ], [ %.169.i, %250 ]
-  %88 = icmp ult i64 %.068.lcssa.i, %87
+  %88 = icmp ult i64 %.071.lcssa.i, %87
   br i1 %88, label %.lr.ph183.i, label %.preheader.i
 
 .lr.ph183.i:                                      ; preds = %.preheader150.i
@@ -1349,7 +1349,7 @@ define i64 @diff_attr(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr nounde
 92:                                               ; preds = %250, %.lr.ph.i
   %.068180.i = phi i64 [ 0, %.lr.ph.i ], [ %.169.i, %250 ]
   %.071179.i = phi i64 [ 0, %.lr.ph.i ], [ %.172.i, %250 ]
-  %93 = call i64 @H5Aopen_by_idx(i64 noundef %0, ptr noundef nonnull @.str.29, i32 noundef 0, i32 noundef 0, i64 noundef %.068180.i, i64 noundef 0, i64 noundef 0) #15
+  %93 = call i64 @H5Aopen_by_idx(i64 noundef %0, ptr noundef nonnull @.str.29, i32 noundef 0, i32 noundef 0, i64 noundef %.071179.i, i64 noundef 0, i64 noundef 0) #15
   %94 = icmp slt i64 %93, 0
   br i1 %94, label %95, label %111
 
@@ -1411,7 +1411,7 @@ define i64 @diff_attr(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr nounde
   br label %432
 
 130:                                              ; preds = %111
-  %131 = call i64 @H5Aopen_by_idx(i64 noundef %1, ptr noundef nonnull @.str.29, i32 noundef 0, i32 noundef 0, i64 noundef %.071179.i, i64 noundef 0, i64 noundef 0) #15
+  %131 = call i64 @H5Aopen_by_idx(i64 noundef %1, ptr noundef nonnull @.str.29, i32 noundef 0, i32 noundef 0, i64 noundef %.068180.i, i64 noundef 0, i64 noundef 0) #15
   %132 = icmp slt i64 %131, 0
   br i1 %132, label %133, label %149
 
@@ -1520,8 +1520,8 @@ define i64 @diff_attr(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr nounde
   br label %table_attr_mark_exist.exit.i
 
 table_attr_mark_exist.exit.i:                     ; preds = %185, %181
-  %195 = add nuw i64 %.068180.i, 1
-  %196 = add nuw i64 %.071179.i, 1
+  %195 = add nuw i64 %.071179.i, 1
+  %196 = add nuw i64 %.068180.i, 1
   br label %250
 
 197:                                              ; preds = %168
@@ -1574,7 +1574,7 @@ table_attr_mark_exist.exit118.i:                  ; preds = %213, %209
   %223 = load i64, ptr %69, align 8
   %224 = add i64 %223, 1
   store i64 %224, ptr %69, align 8
-  %225 = add nuw i64 %.068180.i, 1
+  %225 = add nuw i64 %.071179.i, 1
   br label %250
 
 226:                                              ; preds = %197
@@ -1620,18 +1620,18 @@ table_attr_mark_exist.exit121.i:                  ; preds = %237, %233
   %247 = load i64, ptr %68, align 8
   %248 = add i64 %247, 1
   store i64 %248, ptr %68, align 8
-  %249 = add nuw i64 %.071179.i, 1
+  %249 = add nuw i64 %.068180.i, 1
   br label %250
 
 250:                                              ; preds = %table_attr_mark_exist.exit121.i, %table_attr_mark_exist.exit118.i, %table_attr_mark_exist.exit.i
-  %.172.i = phi i64 [ %196, %table_attr_mark_exist.exit.i ], [ %.071179.i, %table_attr_mark_exist.exit118.i ], [ %249, %table_attr_mark_exist.exit121.i ]
-  %.169.i = phi i64 [ %195, %table_attr_mark_exist.exit.i ], [ %225, %table_attr_mark_exist.exit118.i ], [ %.068180.i, %table_attr_mark_exist.exit121.i ]
+  %.172.i = phi i64 [ %195, %table_attr_mark_exist.exit.i ], [ %225, %table_attr_mark_exist.exit118.i ], [ %.071179.i, %table_attr_mark_exist.exit121.i ]
+  %.169.i = phi i64 [ %196, %table_attr_mark_exist.exit.i ], [ %.068180.i, %table_attr_mark_exist.exit118.i ], [ %249, %table_attr_mark_exist.exit121.i ]
   %251 = call i32 @H5Aclose(i64 noundef %93) #15
   %252 = call i32 @H5Aclose(i64 noundef %131) #15
   %253 = load i64, ptr %59, align 8
-  %254 = icmp ult i64 %.169.i, %253
+  %254 = icmp ult i64 %.172.i, %253
   %255 = load i64, ptr %60, align 8
-  %256 = icmp ult i64 %.172.i, %255
+  %256 = icmp ult i64 %.169.i, %255
   %257 = select i1 %254, i1 %256, i1 false
   br i1 %257, label %92, label %.preheader150.i
 
@@ -1641,7 +1641,7 @@ table_attr_mark_exist.exit121.i:                  ; preds = %237, %233
 
 .preheader.i:                                     ; preds = %.preheader.loopexit.i, %.preheader150.i
   %258 = phi i64 [ %.pre.i, %.preheader.loopexit.i ], [ %86, %.preheader150.i ]
-  %259 = icmp ult i64 %.071.lcssa.i, %258
+  %259 = icmp ult i64 %.068.lcssa.i, %258
   br i1 %259, label %.lr.ph185.i, label %._crit_edge.i
 
 .lr.ph185.i:                                      ; preds = %.preheader.i
@@ -1651,8 +1651,8 @@ table_attr_mark_exist.exit121.i:                  ; preds = %237, %233
   br label %331
 
 263:                                              ; preds = %table_attr_mark_exist.exit124.i, %.lr.ph183.i
-  %.270182.i = phi i64 [ %.068.lcssa.i, %.lr.ph183.i ], [ %327, %table_attr_mark_exist.exit124.i ]
-  %264 = call i64 @H5Aopen_by_idx(i64 noundef %0, ptr noundef nonnull @.str.29, i32 noundef 0, i32 noundef 0, i64 noundef %.270182.i, i64 noundef 0, i64 noundef 0) #15
+  %.273182.i = phi i64 [ %.071.lcssa.i, %.lr.ph183.i ], [ %327, %table_attr_mark_exist.exit124.i ]
+  %264 = call i64 @H5Aopen_by_idx(i64 noundef %0, ptr noundef nonnull @.str.29, i32 noundef 0, i32 noundef 0, i64 noundef %.273182.i, i64 noundef 0, i64 noundef 0) #15
   %265 = icmp slt i64 %264, 0
   br i1 %265, label %266, label %282
 
@@ -1759,15 +1759,15 @@ table_attr_mark_exist.exit124.i:                  ; preds = %315, %311
   %325 = load i64, ptr %91, align 8
   %326 = add i64 %325, 1
   store i64 %326, ptr %91, align 8
-  %327 = add nuw i64 %.270182.i, 1
+  %327 = add nuw i64 %.273182.i, 1
   %328 = call i32 @H5Aclose(i64 noundef %264) #15
   %329 = load i64, ptr %59, align 8
   %330 = icmp ult i64 %327, %329
   br i1 %330, label %263, label %.preheader.loopexit.i
 
 331:                                              ; preds = %table_attr_mark_exist.exit127.i, %.lr.ph185.i
-  %.273184.i = phi i64 [ %.071.lcssa.i, %.lr.ph185.i ], [ %395, %table_attr_mark_exist.exit127.i ]
-  %332 = call i64 @H5Aopen_by_idx(i64 noundef %1, ptr noundef nonnull @.str.29, i32 noundef 0, i32 noundef 0, i64 noundef %.273184.i, i64 noundef 0, i64 noundef 0) #15
+  %.270184.i = phi i64 [ %.068.lcssa.i, %.lr.ph185.i ], [ %395, %table_attr_mark_exist.exit127.i ]
+  %332 = call i64 @H5Aopen_by_idx(i64 noundef %1, ptr noundef nonnull @.str.29, i32 noundef 0, i32 noundef 0, i64 noundef %.270184.i, i64 noundef 0, i64 noundef 0) #15
   %333 = icmp slt i64 %332, 0
   br i1 %333, label %334, label %350
 
@@ -1874,7 +1874,7 @@ table_attr_mark_exist.exit127.i:                  ; preds = %383, %379
   %393 = load i64, ptr %262, align 8
   %394 = add i64 %393, 1
   store i64 %394, ptr %262, align 8
-  %395 = add nuw i64 %.273184.i, 1
+  %395 = add nuw i64 %.270184.i, 1
   %396 = call i32 @H5Aclose(i64 noundef %332) #15
   %397 = load i64, ptr %60, align 8
   %398 = icmp ult i64 %395, %397

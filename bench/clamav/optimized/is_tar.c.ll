@@ -75,14 +75,14 @@ from_oct.exit:                                    ; preds = %15, %21, %.preheade
 
 33:                                               ; preds = %from_oct.exit, %33
   %.029 = phi ptr [ %0, %from_oct.exit ], [ %35, %33 ]
-  %.01628 = phi i32 [ 0, %from_oct.exit ], [ %38, %33 ]
-  %.01727 = phi i32 [ 512, %from_oct.exit ], [ %34, %33 ]
-  %34 = add nsw i32 %.01727, -1
+  %.01528 = phi i32 [ 0, %from_oct.exit ], [ %38, %33 ]
+  %.01627 = phi i32 [ 512, %from_oct.exit ], [ %34, %33 ]
+  %34 = add nsw i32 %.01627, -1
   %35 = getelementptr inbounds i8, ptr %.029, i64 1
   %36 = load i8, ptr %.029, align 1
   %37 = zext i8 %36 to i32
-  %38 = add nuw nsw i32 %.01628, %37
-  %39 = icmp ugt i32 %.01727, 1
+  %38 = add nuw nsw i32 %.01528, %37
+  %39 = icmp ugt i32 %.01627, 1
   br i1 %39, label %33, label %.preheader
 
 .preheader:                                       ; preds = %33, %.preheader
@@ -109,8 +109,8 @@ from_oct.exit:                                    ; preds = %15, %21, %.preheade
   br label %51
 
 51:                                               ; preds = %47, %45, %2
-  %.015 = phi i32 [ 0, %2 ], [ 0, %45 ], [ %., %47 ]
-  ret i32 %.015
+  %.018 = phi i32 [ 0, %2 ], [ 0, %45 ], [ %., %47 ]
+  ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

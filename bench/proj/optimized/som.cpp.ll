@@ -731,14 +731,14 @@ define internal { double, double } @_ZL13som_e_inverse5PJ_XYP8PJconsts(double %0
   br label %19
 
 19:                                               ; preds = %19, %3
-  %.092 = phi double [ %9, %3 ], [ %67, %19 ]
-  %.0 = phi i32 [ 50, %3 ], [ %71, %19 ]
-  %20 = tail call double @sin(double noundef %.092) #9
+  %.092 = phi i32 [ 50, %3 ], [ %71, %19 ]
+  %.0 = phi double [ %9, %3 ], [ %67, %19 ]
+  %20 = tail call double @sin(double noundef %.0) #9
   %21 = fmul double %20, %20
   %22 = load double, ptr %10, align 8
   %23 = load double, ptr %11, align 8
   %24 = fmul double %22, %23
-  %25 = tail call double @cos(double noundef %.092) #9
+  %25 = tail call double @cos(double noundef %.0) #9
   %26 = fmul double %24, %25
   %27 = load double, ptr %12, align 8
   %28 = tail call double @llvm.fmuladd.f64(double %27, double %21, double 1.000000e+00)
@@ -760,20 +760,20 @@ define internal { double, double } @_ZL13som_e_inverse5PJ_XYP8PJconsts(double %0
   %43 = fdiv double %41, %42
   %44 = fadd double %43, %0
   %45 = load double, ptr %6, align 8
-  %46 = fmul double %.092, 2.000000e+00
+  %46 = fmul double %.0, 2.000000e+00
   %47 = tail call double @sin(double noundef %46) #9
   %48 = fneg double %45
   %49 = tail call double @llvm.fmuladd.f64(double %48, double %47, double %44)
   %50 = load double, ptr %16, align 8
-  %51 = fmul double %.092, 4.000000e+00
+  %51 = fmul double %.0, 4.000000e+00
   %52 = tail call double @sin(double noundef %51) #9
   %53 = fneg double %50
   %54 = tail call double @llvm.fmuladd.f64(double %53, double %52, double %49)
   %55 = load double, ptr %15, align 8
   %56 = load double, ptr %17, align 8
-  %57 = tail call double @sin(double noundef %.092) #9
+  %57 = tail call double @sin(double noundef %.0) #9
   %58 = load double, ptr %18, align 8
-  %59 = fmul double %.092, 3.000000e+00
+  %59 = fmul double %.0, 3.000000e+00
   %60 = tail call double @sin(double noundef %59) #9
   %61 = fmul double %58, %60
   %62 = tail call double @llvm.fmuladd.f64(double %56, double %57, double %61)
@@ -782,10 +782,10 @@ define internal { double, double } @_ZL13som_e_inverse5PJ_XYP8PJconsts(double %0
   %65 = tail call double @llvm.fmuladd.f64(double %64, double %62, double %54)
   %66 = load double, ptr %7, align 8
   %67 = fdiv double %65, %66
-  %68 = fsub double %67, %.092
+  %68 = fsub double %67, %.0
   %69 = tail call double @llvm.fabs.f64(double %68)
   %70 = fcmp ult double %69, 0x3E7AD7F29ABCAF48
-  %71 = add nsw i32 %.0, -1
+  %71 = add nsw i32 %.092, -1
   %.not = icmp eq i32 %71, 0
   %or.cond = select i1 %70, i1 true, i1 %.not
   br i1 %or.cond, label %.critedge, label %19, !llvm.loop !7
@@ -938,36 +938,36 @@ define internal { double, double } @_ZL13som_e_forward5PJ_LPP8PJconsts(double %0
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %10
-  %.192.ph = phi double [ %., %10 ], [ %.192.ph.be, %.outer.backedge ]
-  %.089.ph = phi i32 [ 0, %10 ], [ %52, %.outer.backedge ]
+  %.093.ph = phi i32 [ 0, %10 ], [ %52, %.outer.backedge ]
+  %.1.ph = phi double [ %., %10 ], [ %.1.ph.be, %.outer.backedge ]
   br label %19
 
 19:                                               ; preds = %.outer, %61
-  %.089 = phi i32 [ %52, %61 ], [ %.089.ph, %.outer ]
+  %.093 = phi i32 [ %52, %61 ], [ %.093.ph, %.outer ]
   %20 = load double, ptr %13, align 8
-  %21 = tail call double @llvm.fmuladd.f64(double %20, double %.192.ph, double %0)
+  %21 = tail call double @llvm.fmuladd.f64(double %20, double %.1.ph, double %0)
   %22 = tail call double @cos(double noundef %21) #9
   %23 = fcmp olt double %22, 0.000000e+00
-  %24 = tail call double @sin(double noundef %.192.ph) #9
+  %24 = tail call double @sin(double noundef %.1.ph) #9
   %25 = fneg double %24
   %.sink = select i1 %23, double %24, double %25
-  %26 = tail call double @llvm.fmuladd.f64(double %.sink, double 0x3FF921FB54442D18, double %.192.ph)
+  %26 = tail call double @llvm.fmuladd.f64(double %.sink, double 0x3FF921FB54442D18, double %.1.ph)
   br label %27
 
 27:                                               ; preds = %19, %49
-  %.087110 = phi double [ %.192.ph, %19 ], [ %43, %49 ]
-  %.088109 = phi i32 [ 50, %19 ], [ %50, %49 ]
+  %.087110 = phi double [ %.1.ph, %19 ], [ %43, %49 ]
+  %.089109 = phi i32 [ 50, %19 ], [ %50, %49 ]
   %28 = load double, ptr %13, align 8
   %29 = tail call double @llvm.fmuladd.f64(double %28, double %.087110, double %0)
   %30 = tail call double @cos(double noundef %29) #9
   %31 = tail call double @llvm.fabs.f64(double %30)
   %32 = fcmp olt double %31, 0x3E7AD7F29ABCAF48
   %33 = fadd double %29, 0xBE7AD7F29ABCAF48
-  %.2 = select i1 %32, double %33, double %29
+  %.296 = select i1 %32, double %33, double %29
   %34 = load double, ptr %14, align 8
   %35 = fmul double %12, %34
   %36 = load double, ptr %15, align 8
-  %37 = tail call double @sin(double noundef %.2) #9
+  %37 = tail call double @sin(double noundef %.296) #9
   %38 = load double, ptr %16, align 8
   %39 = fmul double %37, %38
   %40 = tail call double @llvm.fmuladd.f64(double %35, double %36, double %39)
@@ -982,17 +982,17 @@ define internal { double, double } @_ZL13som_e_forward5PJ_LPP8PJconsts(double %0
   br i1 %48, label %51, label %49
 
 49:                                               ; preds = %27
-  %50 = add nsw i32 %.088109, -1
-  %.not116 = icmp eq i32 %.088109, 0
+  %50 = add nsw i32 %.089109, -1
+  %.not116 = icmp eq i32 %.089109, 0
   br i1 %.not116, label %.thread, label %27, !llvm.loop !8
 
 51:                                               ; preds = %27
-  %.not = icmp eq i32 %.088109, 0
+  %.not = icmp eq i32 %.089109, 0
   br i1 %.not, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %49, %51
-  %52 = add nuw nsw i32 %.089, 1
-  %exitcond = icmp eq i32 %.089, 2
+  %52 = add nuw nsw i32 %.093, 1
+  %exitcond = icmp eq i32 %.093, 2
   br i1 %exitcond, label %64, label %53
 
 53:                                               ; preds = %.thread
@@ -1015,7 +1015,7 @@ define internal { double, double } @_ZL13som_e_forward5PJ_LPP8PJconsts(double %0
   br i1 %63, label %19, label %.outer.backedge, !llvm.loop !9
 
 .outer.backedge:                                  ; preds = %61, %59
-  %.192.ph.be = phi double [ 0x401F6A7A2955385E, %59 ], [ 0x3FF921FB54442D18, %61 ]
+  %.1.ph.be = phi double [ 0x401F6A7A2955385E, %59 ], [ 0x3FF921FB54442D18, %61 ]
   br label %.outer, !llvm.loop !9
 
 64:                                               ; preds = %56, %.thread
@@ -1026,7 +1026,7 @@ define internal { double, double } @_ZL13som_e_forward5PJ_LPP8PJconsts(double %0
   %69 = fmul double %67, %68
   %70 = load double, ptr %15, align 8
   %71 = tail call double @cos(double noundef %.sroa.3.0) #9
-  %72 = tail call double @sin(double noundef %.2) #9
+  %72 = tail call double @sin(double noundef %.296) #9
   %73 = fneg double %70
   %74 = fmul double %71, %73
   %75 = fmul double %74, %72

@@ -436,8 +436,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fa
   br label %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h6c05a94a82cac1fdE.exit"
 
 "_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h6c05a94a82cac1fdE.exit": ; preds = %3, %5
-  %.sroa.0.0.i.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i.i, %3 ]
   %.sroa.3.0.i.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i.i, %3 ]
+  %.sroa.0.0.i.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i.i, %3 ]
   store i64 1, ptr %0, align 8, !noalias !18
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.0.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !18
@@ -477,8 +477,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fa
   br label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h821c62e01959cc6cE.llvm.4452766663292099101.exit"
 
 "_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h821c62e01959cc6cE.llvm.4452766663292099101.exit": ; preds = %6, %8
-  %.sroa.0.0.i.i.i = phi i64 [ %10, %8 ], [ %.sroa.5.0.copyload.i.i.i, %6 ]
   %.sroa.3.0.i.i.i = phi i64 [ %11, %8 ], [ %.sroa.6.0.copyload.i.i.i, %6 ]
+  %.sroa.0.0.i.i.i = phi i64 [ %10, %8 ], [ %.sroa.5.0.copyload.i.i.i, %6 ]
   store i64 1, ptr %0, align 8, !noalias !35
   store i64 %.sroa.0.0.i.i.i, ptr %4, align 8, !noalias !35
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -6068,13 +6068,13 @@ default.unreachable411:                           ; preds = %.lr.ph455
   br i1 %.not, label %66, label %71
 
 71:                                               ; preds = %66, %68, %61, %63, %58, %56
-  %.0111 = phi i32 [ %55, %58 ], [ %67, %66 ], [ %55, %68 ], [ %55, %63 ], [ %62, %61 ], [ %57, %56 ]
+  %.0109 = phi i32 [ %55, %58 ], [ %67, %66 ], [ %55, %68 ], [ %55, %63 ], [ %62, %61 ], [ %57, %56 ]
   %72 = getelementptr inbounds i8, ptr %21, i64 396
   %73 = load i8, ptr %72, align 1, !alias.scope !703, !noundef !5
   %74 = icmp ne i8 %73, %.sroa.4.0.extract.trunc.i
   %.0.in.i.i.not = or i1 %74, %trunc.i
-  %75 = or i32 %.0111, 8
-  %spec.select = select i1 %.0.in.i.i.not, i32 %.0111, i32 %75
+  %75 = or i32 %.0109, 8
+  %spec.select = select i1 %.0.in.i.i.not, i32 %.0109, i32 %75
   %76 = load i8, ptr %28, align 1, !noalias !5, !noundef !5
   %77 = and i8 %76, 8
   %.not330 = icmp eq i8 %77, 0
@@ -6528,8 +6528,8 @@ _ZN14regex_automata3nfa8thompson3nfa10Transition12matches_unit17h724ef68874010a0
 _ZN14regex_automata4util8alphabet4Unit12is_word_byte17hdf3b8be07f4696faE.exit248.thread: ; preds = %248, %.critedge132, %_ZN14regex_automata4util11determinize5state19StateBuilderMatches16set_is_from_word17h62459fe50448b181E.exit, %_ZN14regex_automata4util8alphabet4Unit12is_word_byte17hdf3b8be07f4696faE.exit248
   %251 = phi i32 [ %249, %248 ], [ %249, %.critedge132 ], [ %.pre410, %_ZN14regex_automata4util11determinize5state19StateBuilderMatches16set_is_from_word17h62459fe50448b181E.exit ], [ %249, %_ZN14regex_automata4util8alphabet4Unit12is_word_byte17hdf3b8be07f4696faE.exit248 ]
   %252 = and i32 %251, 48
-  %.0109.not = icmp eq i32 %252, 0
-  br i1 %.0109.not, label %243, label %265
+  %.0111.not = icmp eq i32 %252, 0
+  br i1 %.0111.not, label %243, label %265
 
 _ZN14regex_automata4util8alphabet4Unit12is_word_byte17hdf3b8be07f4696faE.exit248: ; preds = %.critedge132
   %.sroa.4.0.extract.shift.i.i246 = lshr i32 %6, 8

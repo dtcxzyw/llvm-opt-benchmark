@@ -177,8 +177,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fa
   br label %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h7878c639ba011e30E.exit"
 
 "_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h7878c639ba011e30E.exit": ; preds = %3, %5
-  %.sroa.0.0.i.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i.i, %3 ]
   %.sroa.3.0.i.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i.i, %3 ]
+  %.sroa.0.0.i.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i.i, %3 ]
   store i64 1, ptr %0, align 8, !noalias !5
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.0.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !5
@@ -302,8 +302,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fa
   br label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h3ef8691eadaa0ad6E.llvm.6686154611312599027.exit"
 
 "_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h3ef8691eadaa0ad6E.llvm.6686154611312599027.exit": ; preds = %6, %8
-  %.sroa.0.0.i.i.i = phi i64 [ %10, %8 ], [ %.sroa.5.0.copyload.i.i.i, %6 ]
   %.sroa.3.0.i.i.i = phi i64 [ %11, %8 ], [ %.sroa.6.0.copyload.i.i.i, %6 ]
+  %.sroa.0.0.i.i.i = phi i64 [ %10, %8 ], [ %.sroa.5.0.copyload.i.i.i, %6 ]
   store i64 1, ptr %0, align 8, !noalias !55
   store i64 %.sroa.0.0.i.i.i, ptr %4, align 8, !noalias !55
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -12172,9 +12172,9 @@ define hidden void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker11do_register1
 
 "_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h991c1abbd382a4caE.llvm.6686154611312599027.exit114": ; preds = %31, %126, %124, %73
   %.sink.i165 = phi ptr [ %.sink.i163190259, %73 ], [ %.sink.i163190259, %124 ], [ %.sink.i163190259, %126 ], [ %.sink.i163189305, %31 ]
-  %.sroa.0119.1 = phi ptr [ %.sroa.0119.0194258, %73 ], [ %.sroa.0119.0194258, %124 ], [ %.sroa.0119.0194258, %126 ], [ %.sroa.0119.0193304, %31 ]
-  %.sroa.0122.2 = phi ptr [ %.sroa.0122.7, %73 ], [ %.sroa.0122.7, %124 ], [ %.sroa.0122.7, %126 ], [ %.sroa.0122.5306, %31 ]
-  %.sroa.15.2 = phi ptr [ %.sroa.15.7, %73 ], [ %.sroa.15.7, %124 ], [ %.sroa.15.7, %126 ], [ %.sroa.15.5307, %31 ]
+  %.sroa.15.2 = phi ptr [ %.sroa.15.7, %73 ], [ %.sroa.15.7, %124 ], [ %.sroa.15.7, %126 ], [ %.sroa.15.5306, %31 ]
+  %.sroa.0122.2 = phi ptr [ %.sroa.0122.7, %73 ], [ %.sroa.0122.7, %124 ], [ %.sroa.0122.7, %126 ], [ %.sroa.0122.5307, %31 ]
+  %.sroa.0119.1 = phi ptr [ %.sroa.0119.0198258, %73 ], [ %.sroa.0119.0198258, %124 ], [ %.sroa.0119.0198258, %126 ], [ %.sroa.0119.0197304, %31 ]
   %.251 = phi i1 [ false, %73 ], [ false, %124 ], [ false, %126 ], [ %115, %31 ]
   %.247 = phi i8 [ 0, %73 ], [ %.8, %124 ], [ 0, %126 ], [ %.4309, %31 ]
   %.1.not = phi i1 [ false, %73 ], [ false, %124 ], [ false, %126 ], [ true, %31 ]
@@ -12275,7 +12275,7 @@ define hidden void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker11do_register1
   br label %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h6a062c4d195284ceE.exit110"
 
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit": ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit106", %112
-  %.not67 = icmp eq ptr %.sroa.0119.0194258, null
+  %.not67 = icmp eq ptr %.sroa.0119.0198258, null
   br i1 %.not67, label %117, label %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit.thread296"
 
 73:                                               ; preds = %95, %103
@@ -12291,9 +12291,9 @@ define hidden void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker11do_register1
 78:                                               ; preds = %.thread252, %74
   %79 = phi ptr [ %77, %74 ], [ %34, %.thread252 ]
   %.sink.i163190259 = phi ptr [ %36, %74 ], [ %24, %.thread252 ]
-  %.sroa.0119.0194258 = phi ptr [ %35, %74 ], [ null, %.thread252 ]
-  %.sroa.0122.7 = phi ptr [ %75, %74 ], [ %25, %.thread252 ]
+  %.sroa.0119.0198258 = phi ptr [ %35, %74 ], [ null, %.thread252 ]
   %.sroa.15.7 = phi ptr [ %77, %74 ], [ %27, %.thread252 ]
+  %.sroa.0122.7 = phi ptr [ %75, %74 ], [ %25, %.thread252 ]
   %.sroa.0140.1 = phi ptr [ null, %74 ], [ %33, %.thread252 ]
   store ptr null, ptr %0, align 8
   %80 = atomicrmw xchg ptr %3, i64 0 acq_rel, align 8
@@ -12376,13 +12376,13 @@ define hidden void @_ZN5tokio4sync4task12atomic_waker11AtomicWaker11do_register1
 "_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit.thread296": ; preds = %.thread180, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit"
   %.4309 = phi i8 [ %.8, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit" ], [ 0, %.thread180 ]
   %115 = phi i1 [ false, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit" ], [ true, %.thread180 ]
-  %.sroa.15.5307 = phi ptr [ %.sroa.15.7, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit" ], [ undef, %.thread180 ]
-  %.sroa.0122.5306 = phi ptr [ %.sroa.0122.7, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit" ], [ null, %.thread180 ]
+  %.sroa.0122.5307 = phi ptr [ %.sroa.0122.7, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit" ], [ null, %.thread180 ]
+  %.sroa.15.5306 = phi ptr [ %.sroa.15.7, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit" ], [ undef, %.thread180 ]
   %.sink.i163189305 = phi ptr [ %.sink.i163190259, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit" ], [ %36, %.thread180 ]
-  %.sroa.0119.0193304 = phi ptr [ %.sroa.0119.0194258, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit" ], [ %35, %.thread180 ]
+  %.sroa.0119.0197304 = phi ptr [ %.sroa.0119.0198258, %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit" ], [ %35, %.thread180 ]
   %116 = icmp ne ptr %.sink.i163189305, null
   tail call void @llvm.assume(i1 %116)
-  invoke void @_ZN3std5panic13resume_unwind17h637c86fe8b0e9ce2E(ptr noundef nonnull align 1 %.sroa.0119.0193304, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sink.i163189305) #31
+  invoke void @_ZN3std5panic13resume_unwind17h637c86fe8b0e9ce2E(ptr noundef nonnull align 1 %.sroa.0119.0197304, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sink.i163189305) #31
           to label %118 unwind label %31
 
 117:                                              ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hdc5987fb7e5463aaE.exit"

@@ -250,14 +250,14 @@ define range(i32 -1, 1) i32 @H5L_register(ptr nocapture noundef readonly %0) loc
   br label %5
 
 5:                                                ; preds = %.lr.ph, %9
-  %.020 = phi i64 [ 0, %.lr.ph ], [ %10, %9 ]
-  %6 = getelementptr inbounds %struct.H5L_class_t, ptr %.pre22.pre.pre, i64 %.020, i32 1
+  %.01220 = phi i64 [ 0, %.lr.ph ], [ %10, %9 ]
+  %6 = getelementptr inbounds %struct.H5L_class_t, ptr %.pre22.pre.pre, i64 %.01220, i32 1
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, %4
   br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = add nuw i64 %.020, 1
+  %10 = add nuw i64 %.01220, 1
   %exitcond.not = icmp eq i64 %10, %2
   br i1 %exitcond.not, label %._crit_edge, label %5
 
@@ -295,14 +295,14 @@ define range(i32 -1, 1) i32 @H5L_register(ptr nocapture noundef readonly %0) loc
 
 .thread:                                          ; preds = %5, %22
   %25 = phi ptr [ %.pre22, %22 ], [ %.pre22.pre.pre, %5 ]
-  %.1 = phi i64 [ %23, %22 ], [ %.020, %5 ]
+  %.1 = phi i64 [ %23, %22 ], [ %.01220, %5 ]
   %26 = getelementptr inbounds %struct.H5L_class_t, ptr %25, i64 %.1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
   br label %27
 
 27:                                               ; preds = %.thread, %17
-  %.012 = phi i32 [ 0, %.thread ], [ -1, %17 ]
-  ret i32 %.012
+  %.0 = phi i32 [ 0, %.thread ], [ -1, %17 ]
+  ret i32 %.0
 }
 
 declare ptr @H5MM_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -1357,8 +1357,8 @@ define internal range(i32 -1, 1) i32 @H5L__exists_inter_cb(ptr nocapture readnon
   br i1 %16, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %9
-  %.017 = phi ptr [ @H5L__exists_final_cb, %9 ], [ @H5L__exists_inter_cb, %.preheader ]
-  %17 = tail call i32 @H5G_traverse(ptr noundef %3, ptr noundef nonnull %8, i32 noundef 5, ptr noundef nonnull %.017, ptr noundef nonnull %4) #10
+  %.0 = phi ptr [ @H5L__exists_final_cb, %9 ], [ @H5L__exists_inter_cb, %.preheader ]
+  %17 = tail call i32 @H5G_traverse(ptr noundef %3, ptr noundef nonnull %8, i32 noundef 5, ptr noundef nonnull %.0, ptr noundef nonnull %4) #10
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %25
 
@@ -1380,8 +1380,8 @@ define internal range(i32 -1, 1) i32 @H5L__exists_inter_cb(ptr nocapture readnon
   br label %26
 
 26:                                               ; preds = %25, %19
-  %.0 = phi i32 [ -1, %19 ], [ 0, %25 ]
-  ret i32 %.0
+  %.017 = phi i32 [ -1, %19 ], [ 0, %25 ]
+  ret i32 %.017
 }
 
 ; Function Attrs: nounwind uwtable

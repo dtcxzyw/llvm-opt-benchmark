@@ -1467,11 +1467,11 @@ while.body.lr.ph.i:                               ; preds = %if.end24.i
 
 while.body.i:                                     ; preds = %sw.epilog.i, %while.body.lr.ph.i
   %19 = phi i8 [ %18, %while.body.lr.ph.i ], [ %22, %sw.epilog.i ]
-  %s.0112.i = phi ptr [ %mode.1, %while.body.lr.ph.i ], [ %incdec.ptr.i, %sw.epilog.i ]
-  %rwa.0111.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %rwa.1.i, %sw.epilog.i ]
-  %plus.0110.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %plus.1.i, %sw.epilog.i ]
-  %flags.0109.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %flags.1.i, %sw.epilog.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %s.0112.i, i64 1
+  %flags.0112.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %flags.1.i, %sw.epilog.i ]
+  %plus.0111.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %plus.1.i, %sw.epilog.i ]
+  %rwa.0110.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %rwa.1.i, %sw.epilog.i ]
+  %s.0109.i = phi ptr [ %mode.1, %while.body.lr.ph.i ], [ %incdec.ptr.i, %sw.epilog.i ]
+  %incdec.ptr.i = getelementptr i8, ptr %s.0109.i, i64 1
   switch i8 %19, label %sw.default.i [
     i8 120, label %sw.bb.i
     i8 114, label %sw.bb34.i
@@ -1482,7 +1482,7 @@ while.body.i:                                     ; preds = %sw.epilog.i, %while
   ]
 
 sw.bb.i:                                          ; preds = %while.body.i
-  %tobool26.not.i = icmp eq i32 %rwa.0111.i, 0
+  %tobool26.not.i = icmp eq i32 %rwa.0110.i, 0
   br i1 %tobool26.not.i, label %if.end28.i, label %bad_mode.i
 
 bad_mode.i:                                       ; preds = %sw.bb63.i, %sw.bb50.i, %sw.bb41.i, %sw.bb34.i, %sw.bb.i, %while.end.i, %if.end24.i
@@ -1494,11 +1494,11 @@ if.end28.i:                                       ; preds = %sw.bb.i
   %bf.load29.i = load i8, ptr %writable67.i, align 4
   %bf.set33.i = or i8 %bf.load29.i, 5
   store i8 %bf.set33.i, ptr %writable67.i, align 4
-  %or.i = or i32 %flags.0109.i, 192
+  %or.i = or i32 %flags.0112.i, 192
   br label %sw.epilog.i
 
 sw.bb34.i:                                        ; preds = %while.body.i
-  %tobool35.not.i = icmp eq i32 %rwa.0111.i, 0
+  %tobool35.not.i = icmp eq i32 %rwa.0110.i, 0
   br i1 %tobool35.not.i, label %if.end37.i, label %bad_mode.i
 
 if.end37.i:                                       ; preds = %sw.bb34.i
@@ -1508,29 +1508,29 @@ if.end37.i:                                       ; preds = %sw.bb34.i
   br label %sw.epilog.i
 
 sw.bb41.i:                                        ; preds = %while.body.i
-  %tobool42.not.i = icmp eq i32 %rwa.0111.i, 0
+  %tobool42.not.i = icmp eq i32 %rwa.0110.i, 0
   br i1 %tobool42.not.i, label %if.end44.i, label %bad_mode.i
 
 if.end44.i:                                       ; preds = %sw.bb41.i
   %bf.load46.i = load i8, ptr %writable67.i, align 4
   %bf.set48.i = or i8 %bf.load46.i, 4
   store i8 %bf.set48.i, ptr %writable67.i, align 4
-  %or49.i = or i32 %flags.0109.i, 576
+  %or49.i = or i32 %flags.0112.i, 576
   br label %sw.epilog.i
 
 sw.bb50.i:                                        ; preds = %while.body.i
-  %tobool51.not.i = icmp eq i32 %rwa.0111.i, 0
+  %tobool51.not.i = icmp eq i32 %rwa.0110.i, 0
   br i1 %tobool51.not.i, label %if.end53.i, label %bad_mode.i
 
 if.end53.i:                                       ; preds = %sw.bb50.i
   %bf.load55.i = load i8, ptr %writable67.i, align 4
   %bf.set60.i = or i8 %bf.load55.i, 12
   store i8 %bf.set60.i, ptr %writable67.i, align 4
-  %or61.i = or i32 %flags.0109.i, 1088
+  %or61.i = or i32 %flags.0112.i, 1088
   br label %sw.epilog.i
 
 sw.bb63.i:                                        ; preds = %while.body.i
-  %tobool64.not.i = icmp eq i32 %plus.0110.i, 0
+  %tobool64.not.i = icmp eq i32 %plus.0111.i, 0
   br i1 %tobool64.not.i, label %if.end66.i, label %bad_mode.i
 
 if.end66.i:                                       ; preds = %sw.bb63.i
@@ -1545,9 +1545,9 @@ sw.default.i:                                     ; preds = %while.body.i
   br label %if.end234.thread.i
 
 sw.epilog.i:                                      ; preds = %if.end66.i, %if.end53.i, %if.end44.i, %if.end37.i, %if.end28.i, %while.body.i
-  %flags.1.i = phi i32 [ %flags.0109.i, %if.end66.i ], [ %flags.0109.i, %while.body.i ], [ %or61.i, %if.end53.i ], [ %or49.i, %if.end44.i ], [ %flags.0109.i, %if.end37.i ], [ %or.i, %if.end28.i ]
-  %plus.1.i = phi i32 [ 1, %if.end66.i ], [ %plus.0110.i, %while.body.i ], [ %plus.0110.i, %if.end53.i ], [ %plus.0110.i, %if.end44.i ], [ %plus.0110.i, %if.end37.i ], [ %plus.0110.i, %if.end28.i ]
-  %rwa.1.i = phi i32 [ %rwa.0111.i, %if.end66.i ], [ %rwa.0111.i, %while.body.i ], [ 1, %if.end53.i ], [ 1, %if.end44.i ], [ 1, %if.end37.i ], [ 1, %if.end28.i ]
+  %rwa.1.i = phi i32 [ %rwa.0110.i, %if.end66.i ], [ %rwa.0110.i, %while.body.i ], [ 1, %if.end53.i ], [ 1, %if.end44.i ], [ 1, %if.end37.i ], [ 1, %if.end28.i ]
+  %plus.1.i = phi i32 [ 1, %if.end66.i ], [ %plus.0111.i, %while.body.i ], [ %plus.0111.i, %if.end53.i ], [ %plus.0111.i, %if.end44.i ], [ %plus.0111.i, %if.end37.i ], [ %plus.0111.i, %if.end28.i ]
+  %flags.1.i = phi i32 [ %flags.0112.i, %if.end66.i ], [ %flags.0112.i, %while.body.i ], [ %or61.i, %if.end53.i ], [ %or49.i, %if.end44.i ], [ %flags.0112.i, %if.end37.i ], [ %or.i, %if.end28.i ]
   %22 = load i8, ptr %incdec.ptr.i, align 1
   %tobool25.not.i = icmp eq i8 %22, 0
   br i1 %tobool25.not.i, label %while.end.i, label %while.body.i, !llvm.loop !5

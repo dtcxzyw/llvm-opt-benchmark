@@ -27,11 +27,11 @@ define range(i32 -22, 1) i32 @irq_attach(i32 noundef %0, ptr noundef %1, ptr nou
   br label %10
 
 10:                                               ; preds = %9, %6
+  %.010 = phi ptr [ @irq_unexpected_isr, %9 ], [ %1, %6 ]
   %.09 = phi ptr [ null, %9 ], [ %2, %6 ]
-  %.0 = phi ptr [ @irq_unexpected_isr, %9 ], [ %1, %6 ]
   %11 = zext nneg i32 %0 to i64
   %12 = getelementptr inbounds [48 x %struct.irq_info_s], ptr @g_irqvector, i64 0, i64 %11
-  store ptr %.0, ptr %12, align 16
+  store ptr %.010, ptr %12, align 16
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %.09, ptr %13, align 8
   %14 = and i64 %7, 512
@@ -43,8 +43,8 @@ define range(i32 -22, 1) i32 @irq_attach(i32 noundef %0, ptr noundef %1, ptr nou
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %15, %10, %3
-  %.010 = phi i32 [ -22, %3 ], [ 0, %10 ], [ 0, %15 ]
-  ret i32 %.010
+  %.0 = phi i32 [ -22, %3 ], [ 0, %10 ], [ 0, %15 ]
+  ret i32 %.0
 }
 
 declare void @up_disable_irq(i32 noundef) local_unnamed_addr #1

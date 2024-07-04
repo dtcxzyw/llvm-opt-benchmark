@@ -266,8 +266,8 @@ if.then63:                                        ; preds = %if.then60
   br label %err
 
 if.end65:                                         ; preds = %if.then60, %if.end56
-  %adinlen.addr.0 = phi i64 [ %adinlen, %if.end56 ], [ 0, %if.then60 ]
   %adin.addr.0 = phi ptr [ %adin, %if.end56 ], [ null, %if.then60 ]
+  %adinlen.addr.0 = phi i64 [ %adinlen, %if.end56 ], [ 0, %if.then60 ]
   %generate = getelementptr inbounds i8, ptr %drbg, i64 40
   %18 = load ptr, ptr %generate, align 8
   %call66 = tail call i32 %18(ptr noundef nonnull %drbg, ptr noundef %out, i64 noundef %outlen, ptr noundef %adin.addr.0, i64 noundef %adinlen.addr.0) #8

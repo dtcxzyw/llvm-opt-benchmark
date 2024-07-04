@@ -51,9 +51,9 @@ define i64 @f32_to_ui64(i32 %0, i8 noundef zeroext %1, i1 noundef zeroext %2) lo
   br label %softfloat_shiftRightJam64Extra.exit
 
 softfloat_shiftRightJam64Extra.exit:              ; preds = %25, %21, %15
-  %.027 = phi i64 [ 0, %15 ], [ %24, %21 ], [ %29, %25 ]
-  %.026 = phi i64 [ %18, %15 ], [ %22, %21 ], [ 0, %25 ]
-  %30 = tail call i64 @softfloat_roundToUI64(i1 noundef zeroext %5, i64 noundef %.026, i64 noundef %.027, i8 noundef zeroext %1, i1 noundef zeroext %2) #2
+  %.027 = phi i64 [ %18, %15 ], [ %22, %21 ], [ 0, %25 ]
+  %.026 = phi i64 [ 0, %15 ], [ %24, %21 ], [ %29, %25 ]
+  %30 = tail call i64 @softfloat_roundToUI64(i1 noundef zeroext %5, i64 noundef %.027, i64 noundef %.026, i8 noundef zeroext %1, i1 noundef zeroext %2) #2
   br label %31
 
 31:                                               ; preds = %softfloat_shiftRightJam64Extra.exit, %11

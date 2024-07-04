@@ -1214,9 +1214,9 @@ cond.end:                                         ; preds = %entry, %cond.false
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end132, %cond.end
+  %st.0 = phi i64 [ %call, %cond.end ], [ %call134, %if.end132 ]
   %p.0 = phi ptr [ %start, %cond.end ], [ %incdec.ptr, %if.end132 ]
   %c.0 = phi i32 [ %cond, %cond.end ], [ %cond10, %if.end132 ]
-  %st.0 = phi i64 [ %call, %cond.end ], [ %call134, %if.end132 ]
   %matchp.0 = phi ptr [ null, %cond.end ], [ %spec.select79, %if.end132 ]
   %cmp4 = icmp eq ptr %p.0, %4
   br i1 %cmp4, label %cond.end9, label %cond.false7

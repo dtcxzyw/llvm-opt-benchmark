@@ -274,8 +274,8 @@ _reset_counters.exit:                             ; preds = %51, %25, %26
   unreachable
 
 98:                                               ; preds = %._crit_edge, %77, %69, %_get_config.exit
-  %.0 = phi i32 [ 0, %_get_config.exit ], [ 0, %69 ], [ 2050, %77 ], [ 0, %._crit_edge ]
-  ret i32 %.0
+  %.017 = phi i32 [ 0, %_get_config.exit ], [ 0, %69 ], [ 2050, %77 ], [ 0, %._crit_edge ]
+  ret i32 %.017
 }
 
 declare ptr @slurm_xstrdup(ptr noundef) local_unnamed_addr #5

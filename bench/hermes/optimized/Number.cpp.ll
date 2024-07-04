@@ -461,8 +461,8 @@ if.end25:                                         ; preds = %_ZN6hermes2vm15Hand
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %if.end25, %if.then6
-  %retval.sroa.0.0 = phi i32 [ 1, %if.end25 ], [ %call7, %if.then6 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ]
   %retval.sroa.4.0 = phi i64 [ %or.i.i.i.i, %if.end25 ], [ undef, %if.then6 ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.end25 ], [ %call7, %if.then6 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert

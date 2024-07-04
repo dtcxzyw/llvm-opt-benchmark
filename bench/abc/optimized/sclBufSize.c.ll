@@ -3454,7 +3454,7 @@ Abc_NtkComputeNodeLoad.exit230:                   ; preds = %363, %.critedge6
 
 382:                                              ; preds = %165, %Abc_NtkComputeNodeLoad.exit230, %161
   %.pre-phi = phi i32 [ %94, %165 ], [ %.pre289, %Abc_NtkComputeNodeLoad.exit230 ], [ %94, %161 ]
-  %.0121 = phi float [ %.011.lcssa.i, %165 ], [ %.09.lcssa.i, %Abc_NtkComputeNodeLoad.exit230 ], [ %.011.lcssa.i, %161 ]
+  %.0119 = phi float [ %.011.lcssa.i, %165 ], [ %.09.lcssa.i, %Abc_NtkComputeNodeLoad.exit230 ], [ %.011.lcssa.i, %161 ]
   switch i32 %.pre-phi, label %383 [
     i32 5, label %409
     i32 2, label %409
@@ -3491,7 +3491,7 @@ Abc_ObjIsBarBuf.exit237:                          ; preds = %393
   br i1 %.not252, label %409, label %Abc_ObjIsBarBuf.exit237.thread
 
 Abc_ObjIsBarBuf.exit237.thread:                   ; preds = %383, %391, %393, %Abc_ObjIsBarBuf.exit237
-  %398 = fdiv float %.0121, %27
+  %398 = fdiv float %.0119, %27
   %399 = call ptr @Abc_SclFindSmallestGate(ptr noundef %.0, float noundef %398) #23
   %.val165 = load ptr, ptr %47, align 8
   %.val166 = load i32, ptr %88, align 8

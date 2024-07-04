@@ -34,8 +34,8 @@ define i32 @file_fchstat(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
   br label %17
 
 17:                                               ; preds = %12, %10
-  %.036 = phi i32 [ %2, %10 ], [ %spec.select, %12 ]
-  %18 = and i32 %.036, 4
+  %.035 = phi i32 [ %2, %10 ], [ %spec.select, %12 ]
+  %18 = and i32 %.035, 4
   %.not43 = icmp eq i32 %18, 0
   br i1 %.not43, label %24, label %19
 
@@ -43,12 +43,12 @@ define i32 @file_fchstat(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
   %20 = getelementptr inbounds i8, ptr %1, i64 20
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, -1
-  %23 = and i32 %.036, -5
-  %spec.select48 = select i1 %22, i32 %23, i32 %.036
+  %23 = and i32 %.035, -5
+  %spec.select48 = select i1 %22, i32 %23, i32 %.035
   br label %24
 
 24:                                               ; preds = %19, %17
-  %.1 = phi i32 [ %.036, %17 ], [ %spec.select48, %19 ]
+  %.1 = phi i32 [ %.035, %17 ], [ %spec.select48, %19 ]
   %25 = getelementptr inbounds i8, ptr %1, i64 64
   %26 = tail call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %25) #4
   %27 = and i32 %.1, 8
@@ -132,8 +132,8 @@ define i32 @file_fchstat(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
   br label %63
 
 63:                                               ; preds = %61, %59, %56, %53, %46, %35, %7
-  %.035 = phi i32 [ -22, %7 ], [ -22, %35 ], [ -22, %46 ], [ %60, %59 ], [ %62, %61 ], [ -38, %56 ], [ -38, %53 ]
-  ret i32 %.035
+  %.036 = phi i32 [ -22, %7 ], [ -22, %35 ], [ -22, %46 ], [ %60, %59 ], [ %62, %61 ], [ -38, %56 ], [ -38, %53 ]
+  ret i32 %.036
 }
 
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -191,12 +191,12 @@ define range(i32 -1, 1) i32 @fchmod(i32 noundef %0, i32 noundef %1) local_unname
   br label %file_fchstat.exit
 
 file_fchstat.exit:                                ; preds = %25, %27
-  %.035.i = phi i32 [ %26, %25 ], [ %28, %27 ]
-  %29 = icmp sgt i32 %.035.i, -1
+  %.036.i = phi i32 [ %26, %25 ], [ %28, %27 ]
+  %29 = icmp sgt i32 %.036.i, -1
   br i1 %29, label %fchstat.exit, label %file_fchstat.exit.thread
 
 file_fchstat.exit.thread:                         ; preds = %19, %22, %8, %file_fchstat.exit, %2
-  %.0.i = phi i32 [ %6, %2 ], [ %.035.i, %file_fchstat.exit ], [ -38, %19 ], [ -38, %22 ], [ -22, %8 ]
+  %.0.i = phi i32 [ %6, %2 ], [ %.036.i, %file_fchstat.exit ], [ -38, %19 ], [ -38, %22 ], [ -22, %8 ]
   %30 = sub nsw i32 0, %.0.i
   %31 = call ptr @__errno() #4
   store i32 %30, ptr %31, align 4
@@ -341,12 +341,12 @@ define range(i32 -1, 1) i32 @futimens(i32 noundef %0, ptr noundef readonly %1) l
   br label %file_fchstat.exit
 
 file_fchstat.exit:                                ; preds = %47, %49
-  %.035.i = phi i32 [ %48, %47 ], [ %50, %49 ]
-  %51 = icmp sgt i32 %.035.i, -1
+  %.036.i = phi i32 [ %48, %47 ], [ %50, %49 ]
+  %51 = icmp sgt i32 %.036.i, -1
   br i1 %51, label %fchstat.exit, label %file_fchstat.exit.thread
 
 file_fchstat.exit.thread:                         ; preds = %41, %44, %34, %25, %file_fchstat.exit, %12
-  %.0.i = phi i32 [ %13, %12 ], [ %.035.i, %file_fchstat.exit ], [ -38, %41 ], [ -38, %44 ], [ -22, %34 ], [ -22, %25 ]
+  %.0.i = phi i32 [ %13, %12 ], [ %.036.i, %file_fchstat.exit ], [ -38, %41 ], [ -38, %44 ], [ -22, %34 ], [ -22, %25 ]
   %52 = sub nsw i32 0, %.0.i
   %53 = call ptr @__errno() #4
   store i32 %52, ptr %53, align 4

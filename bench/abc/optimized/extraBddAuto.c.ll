@@ -393,8 +393,8 @@ tailrecurse:                                      ; preds = %29, %3
   br label %69
 
 69:                                               ; preds = %55, %63, %65
-  %.0133 = phi ptr [ %62, %55 ], [ %64, %63 ], [ %.tr155, %65 ]
-  %.0132 = phi ptr [ %58, %55 ], [ %54, %63 ], [ %.tr155, %65 ]
+  %.0133 = phi ptr [ %58, %55 ], [ %54, %63 ], [ %.tr155, %65 ]
+  %.0132 = phi ptr [ %62, %55 ], [ %64, %63 ], [ %.tr155, %65 ]
   %.0 = phi i32 [ %51, %55 ], [ %51, %63 ], [ %68, %65 ]
   %.not152 = icmp sgt i32 %45, %41
   br i1 %.not152, label %84, label %70
@@ -421,9 +421,9 @@ tailrecurse:                                      ; preds = %29, %3
   br label %84
 
 84:                                               ; preds = %69, %74, %82
-  %.0135 = phi ptr [ %77, %74 ], [ %73, %82 ], [ %.tr156, %69 ]
-  %.0134 = phi ptr [ %81, %74 ], [ %83, %82 ], [ %.tr156, %69 ]
-  %85 = tail call ptr @extraBddSpaceFromFunction(ptr noundef nonnull %0, ptr noundef %.0132, ptr noundef %.0135)
+  %.0131 = phi ptr [ %77, %74 ], [ %73, %82 ], [ %.tr156, %69 ]
+  %.0130 = phi ptr [ %81, %74 ], [ %83, %82 ], [ %.tr156, %69 ]
+  %85 = tail call ptr @extraBddSpaceFromFunction(ptr noundef nonnull %0, ptr noundef %.0133, ptr noundef %.0131)
   %86 = icmp eq ptr %85, null
   br i1 %86, label %166, label %87
 
@@ -435,7 +435,7 @@ tailrecurse:                                      ; preds = %29, %3
   %92 = load i32, ptr %91, align 4
   %93 = add i32 %92, 1
   store i32 %93, ptr %91, align 4
-  %94 = tail call ptr @extraBddSpaceFromFunction(ptr noundef nonnull %0, ptr noundef %.0133, ptr noundef %.0134)
+  %94 = tail call ptr @extraBddSpaceFromFunction(ptr noundef nonnull %0, ptr noundef %.0132, ptr noundef %.0130)
   %95 = icmp eq ptr %94, null
   br i1 %95, label %96, label %97
 
@@ -470,7 +470,7 @@ tailrecurse:                                      ; preds = %29, %3
   store i32 %113, ptr %111, align 4
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %85) #10
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %94) #10
-  %114 = tail call ptr @extraBddSpaceFromFunction(ptr noundef nonnull %0, ptr noundef %.0132, ptr noundef %.0134)
+  %114 = tail call ptr @extraBddSpaceFromFunction(ptr noundef nonnull %0, ptr noundef %.0133, ptr noundef %.0130)
   %115 = icmp eq ptr %114, null
   br i1 %115, label %116, label %117
 
@@ -486,7 +486,7 @@ tailrecurse:                                      ; preds = %29, %3
   %122 = load i32, ptr %121, align 4
   %123 = add i32 %122, 1
   store i32 %123, ptr %121, align 4
-  %124 = tail call ptr @extraBddSpaceFromFunction(ptr noundef nonnull %0, ptr noundef %.0133, ptr noundef %.0135)
+  %124 = tail call ptr @extraBddSpaceFromFunction(ptr noundef nonnull %0, ptr noundef %.0132, ptr noundef %.0131)
   %125 = icmp eq ptr %124, null
   br i1 %125, label %126, label %127
 
@@ -560,19 +560,19 @@ tailrecurse:                                      ; preds = %29, %3
   br label %166
 
 161:                                              ; preds = %137, %153, %157
-  %.0131 = phi ptr [ %156, %153 ], [ %158, %157 ], [ %134, %137 ]
+  %.0134 = phi ptr [ %156, %153 ], [ %158, %157 ], [ %134, %137 ]
   %162 = load i32, ptr %111, align 4
   %163 = add i32 %162, -1
   store i32 %163, ptr %111, align 4
   %164 = load i32, ptr %141, align 4
   %165 = add i32 %164, -1
   store i32 %165, ptr %141, align 4
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraBddSpaceFromFunction, ptr noundef %.tr155, ptr noundef %.tr156, ptr noundef %.0131) #10
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraBddSpaceFromFunction, ptr noundef %.tr155, ptr noundef %.tr156, ptr noundef %.0134) #10
   br label %166
 
 166:                                              ; preds = %12, %84, %33, %161, %160, %152, %136, %126, %116, %106, %96, %23, %16
-  %.0130 = phi ptr [ %19, %16 ], [ %28, %23 ], [ null, %96 ], [ null, %106 ], [ null, %116 ], [ null, %126 ], [ null, %136 ], [ %.0131, %161 ], [ null, %152 ], [ null, %160 ], [ %34, %33 ], [ null, %84 ], [ %15, %12 ]
-  ret ptr %.0130
+  %.0135 = phi ptr [ %19, %16 ], [ %28, %23 ], [ null, %96 ], [ null, %106 ], [ null, %116 ], [ null, %126 ], [ null, %136 ], [ %.0134, %161 ], [ null, %152 ], [ null, %160 ], [ %34, %33 ], [ null, %84 ], [ %15, %12 ]
+  ret ptr %.0135
 }
 
 ; Function Attrs: nounwind uwtable
@@ -632,9 +632,9 @@ define ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %1) #0 {
   br label %27
 
 27:                                               ; preds = %25, %17
-  %.096 = phi ptr [ %24, %17 ], [ %26, %25 ]
-  %.095 = phi ptr [ %20, %17 ], [ %16, %25 ]
-  %28 = tail call ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %.095)
+  %.094 = phi ptr [ %20, %17 ], [ %16, %25 ]
+  %.0 = phi ptr [ %24, %17 ], [ %26, %25 ]
+  %28 = tail call ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %.094)
   %29 = icmp eq ptr %28, null
   br i1 %29, label %110, label %30
 
@@ -646,7 +646,7 @@ define ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %1) #0 {
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %35, 1
   store i32 %36, ptr %34, align 4
-  %37 = tail call ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %.096)
+  %37 = tail call ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %.0)
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %40
 
@@ -681,7 +681,7 @@ define ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %1) #0 {
   store i32 %56, ptr %54, align 4
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %28) #10
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %37) #10
-  %57 = tail call ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %.095)
+  %57 = tail call ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %.094)
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %60
 
@@ -697,7 +697,7 @@ define ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %1) #0 {
   %65 = load i32, ptr %64, align 4
   %66 = add i32 %65, 1
   store i32 %66, ptr %64, align 4
-  %67 = tail call ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %.096)
+  %67 = tail call ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %.0)
   %68 = icmp eq ptr %67, null
   br i1 %68, label %69, label %70
 
@@ -772,19 +772,19 @@ define ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %1) #0 {
   br label %110
 
 105:                                              ; preds = %80, %97, %101
-  %.094 = phi ptr [ %100, %97 ], [ %102, %101 ], [ %77, %80 ]
+  %.095 = phi ptr [ %100, %97 ], [ %102, %101 ], [ %77, %80 ]
   %106 = load i32, ptr %54, align 4
   %107 = add i32 %106, -1
   store i32 %107, ptr %54, align 4
   %108 = load i32, ptr %84, align 4
   %109 = add i32 %108, -1
   store i32 %109, ptr %84, align 4
-  tail call void @cuddCacheInsert1(ptr noundef %0, ptr noundef nonnull @extraBddSpaceFromFunctionPos, ptr noundef %1, ptr noundef %.094) #10
+  tail call void @cuddCacheInsert1(ptr noundef %0, ptr noundef nonnull @extraBddSpaceFromFunctionPos, ptr noundef %1, ptr noundef %.095) #10
   br label %110
 
 110:                                              ; preds = %27, %11, %105, %104, %96, %79, %69, %59, %49, %39, %8
-  %.0 = phi ptr [ %10, %8 ], [ null, %39 ], [ null, %49 ], [ null, %59 ], [ null, %69 ], [ null, %79 ], [ %.094, %105 ], [ null, %96 ], [ null, %104 ], [ %12, %11 ], [ null, %27 ]
-  ret ptr %.0
+  %.096 = phi ptr [ %10, %8 ], [ null, %39 ], [ null, %49 ], [ null, %59 ], [ null, %69 ], [ null, %79 ], [ %.095, %105 ], [ null, %96 ], [ null, %104 ], [ %12, %11 ], [ null, %27 ]
+  ret ptr %.096
 }
 
 ; Function Attrs: nounwind uwtable
@@ -847,9 +847,9 @@ define ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %1) #0 {
   br label %30
 
 30:                                               ; preds = %28, %20
-  %.096 = phi ptr [ %27, %20 ], [ %29, %28 ]
-  %.095 = phi ptr [ %23, %20 ], [ %19, %28 ]
-  %31 = tail call ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %.095)
+  %.094 = phi ptr [ %23, %20 ], [ %19, %28 ]
+  %.0 = phi ptr [ %27, %20 ], [ %29, %28 ]
+  %31 = tail call ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %.094)
   %32 = icmp eq ptr %31, null
   br i1 %32, label %113, label %33
 
@@ -861,7 +861,7 @@ define ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %1) #0 {
   %38 = load i32, ptr %37, align 4
   %39 = add i32 %38, 1
   store i32 %39, ptr %37, align 4
-  %40 = tail call ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %.096)
+  %40 = tail call ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %.0)
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %43
 
@@ -896,7 +896,7 @@ define ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %1) #0 {
   store i32 %59, ptr %57, align 4
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %31) #10
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %40) #10
-  %60 = tail call ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %.095)
+  %60 = tail call ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %.094)
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %63
 
@@ -912,7 +912,7 @@ define ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %1) #0 {
   %68 = load i32, ptr %67, align 4
   %69 = add i32 %68, 1
   store i32 %69, ptr %67, align 4
-  %70 = tail call ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %.096)
+  %70 = tail call ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %.0)
   %71 = icmp eq ptr %70, null
   br i1 %71, label %72, label %73
 
@@ -987,19 +987,19 @@ define ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %1) #0 {
   br label %113
 
 108:                                              ; preds = %83, %100, %104
-  %.094 = phi ptr [ %103, %100 ], [ %105, %104 ], [ %80, %83 ]
+  %.095 = phi ptr [ %103, %100 ], [ %105, %104 ], [ %80, %83 ]
   %109 = load i32, ptr %57, align 4
   %110 = add i32 %109, -1
   store i32 %110, ptr %57, align 4
   %111 = load i32, ptr %87, align 4
   %112 = add i32 %111, -1
   store i32 %112, ptr %87, align 4
-  tail call void @cuddCacheInsert1(ptr noundef %0, ptr noundef nonnull @extraBddSpaceFromFunctionNeg, ptr noundef %1, ptr noundef %.094) #10
+  tail call void @cuddCacheInsert1(ptr noundef %0, ptr noundef nonnull @extraBddSpaceFromFunctionNeg, ptr noundef %1, ptr noundef %.095) #10
   br label %113
 
 113:                                              ; preds = %30, %14, %108, %107, %99, %82, %72, %62, %52, %42, %8
-  %.0 = phi ptr [ %13, %8 ], [ null, %42 ], [ null, %52 ], [ null, %62 ], [ null, %72 ], [ null, %82 ], [ %.094, %108 ], [ null, %99 ], [ null, %107 ], [ %15, %14 ], [ null, %30 ]
-  ret ptr %.0
+  %.096 = phi ptr [ %13, %8 ], [ null, %42 ], [ null, %52 ], [ null, %62 ], [ null, %72 ], [ null, %82 ], [ %.095, %108 ], [ null, %99 ], [ null, %107 ], [ %15, %14 ], [ null, %30 ]
+  ret ptr %.096
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1054,24 +1054,24 @@ define ptr @extraBddSpaceCanonVars(ptr noundef %0, ptr noundef %1) #0 {
   br label %24
 
 24:                                               ; preds = %22, %14
-  %.041 = phi ptr [ %17, %14 ], [ %13, %22 ]
-  %.040 = phi ptr [ %21, %14 ], [ %23, %22 ]
+  %.040 = phi ptr [ %17, %14 ], [ %13, %22 ]
+  %.039 = phi ptr [ %21, %14 ], [ %23, %22 ]
   %25 = getelementptr inbounds i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %28 = xor i64 %27, 1
   %29 = inttoptr i64 %28 to ptr
-  %30 = icmp eq ptr %.041, %29
+  %30 = icmp eq ptr %.040, %29
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %24
-  %32 = tail call ptr @extraBddSpaceCanonVars(ptr noundef nonnull %0, ptr noundef %.040)
+  %32 = tail call ptr @extraBddSpaceCanonVars(ptr noundef nonnull %0, ptr noundef %.039)
   %33 = icmp eq ptr %32, null
   br i1 %33, label %59, label %58
 
 34:                                               ; preds = %24
-  %35 = icmp eq ptr %.040, %29
-  %36 = tail call ptr @extraBddSpaceCanonVars(ptr noundef nonnull %0, ptr noundef %.041)
+  %35 = icmp eq ptr %.039, %29
+  %36 = tail call ptr @extraBddSpaceCanonVars(ptr noundef nonnull %0, ptr noundef %.040)
   %37 = icmp eq ptr %36, null
   br i1 %35, label %38, label %39
 
@@ -1109,13 +1109,13 @@ define ptr @extraBddSpaceCanonVars(ptr noundef %0, ptr noundef %1) #0 {
   br label %58
 
 58:                                               ; preds = %55, %38, %31
-  %.039 = phi ptr [ %32, %31 ], [ %36, %38 ], [ %52, %55 ]
-  tail call void @cuddCacheInsert1(ptr noundef nonnull %0, ptr noundef nonnull @extraBddSpaceCanonVars, ptr noundef %1, ptr noundef nonnull %.039) #10
+  %.0 = phi ptr [ %32, %31 ], [ %36, %38 ], [ %52, %55 ]
+  tail call void @cuddCacheInsert1(ptr noundef nonnull %0, ptr noundef nonnull @extraBddSpaceCanonVars, ptr noundef %1, ptr noundef nonnull %.0) #10
   br label %59
 
 59:                                               ; preds = %39, %38, %31, %8, %2, %58, %54
-  %.0 = phi ptr [ %.039, %58 ], [ null, %54 ], [ %1, %2 ], [ %9, %8 ], [ null, %31 ], [ null, %38 ], [ null, %39 ]
-  ret ptr %.0
+  %.041 = phi ptr [ %.0, %58 ], [ null, %54 ], [ %1, %2 ], [ %9, %8 ], [ null, %31 ], [ null, %38 ], [ null, %39 ]
+  ret ptr %.041
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1251,8 +1251,8 @@ define ptr @extraBddSpaceEquationsPos(ptr noundef %0, ptr noundef %1) #0 {
   br label %33
 
 33:                                               ; preds = %31, %23
-  %.0101 = phi ptr [ %30, %23 ], [ %32, %31 ]
   %.0100 = phi ptr [ %26, %23 ], [ %22, %31 ]
+  %.099 = phi ptr [ %30, %23 ], [ %32, %31 ]
   %34 = load ptr, ptr %3, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = xor i64 %35, 1
@@ -1261,7 +1261,7 @@ define ptr @extraBddSpaceEquationsPos(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %38, label %39, label %55
 
 39:                                               ; preds = %33
-  %40 = tail call ptr @extraBddSpaceEquationsPos(ptr noundef nonnull %0, ptr noundef %.0101)
+  %40 = tail call ptr @extraBddSpaceEquationsPos(ptr noundef nonnull %0, ptr noundef %.099)
   %41 = icmp eq ptr %40, null
   br i1 %41, label %119, label %42
 
@@ -1285,7 +1285,7 @@ define ptr @extraBddSpaceEquationsPos(ptr noundef %0, ptr noundef %1) #0 {
   br label %119
 
 55:                                               ; preds = %33
-  %56 = icmp eq ptr %.0101, %37
+  %56 = icmp eq ptr %.099, %37
   %57 = tail call ptr @extraBddSpaceEquationsPos(ptr noundef nonnull %0, ptr noundef %.0100)
   %58 = icmp eq ptr %57, null
   br i1 %56, label %59, label %60
@@ -1304,7 +1304,7 @@ define ptr @extraBddSpaceEquationsPos(ptr noundef %0, ptr noundef %1) #0 {
   %66 = load i32, ptr %65, align 4
   %67 = add i32 %66, 1
   store i32 %67, ptr %65, align 4
-  %68 = tail call ptr @extraBddSpaceEquationsPos(ptr noundef nonnull %0, ptr noundef %.0101)
+  %68 = tail call ptr @extraBddSpaceEquationsPos(ptr noundef nonnull %0, ptr noundef %.099)
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %71
 
@@ -1320,7 +1320,7 @@ define ptr @extraBddSpaceEquationsPos(ptr noundef %0, ptr noundef %1) #0 {
   %76 = load i32, ptr %75, align 4
   %77 = add i32 %76, 1
   store i32 %77, ptr %75, align 4
-  %78 = tail call ptr @extraBddSpaceEquationsNeg(ptr noundef nonnull %0, ptr noundef %.0101)
+  %78 = tail call ptr @extraBddSpaceEquationsNeg(ptr noundef nonnull %0, ptr noundef %.099)
   %79 = icmp eq ptr %78, null
   br i1 %79, label %80, label %81
 
@@ -1396,20 +1396,20 @@ define ptr @extraBddSpaceEquationsPos(ptr noundef %0, ptr noundef %1) #0 {
 
 .sink.split:                                      ; preds = %42, %113
   %.sink = phi ptr [ %105, %113 ], [ %46, %42 ]
-  %.099.ph = phi ptr [ %110, %113 ], [ %52, %42 ]
+  %.0.ph = phi ptr [ %110, %113 ], [ %52, %42 ]
   %116 = load i32, ptr %.sink, align 4
   %117 = add i32 %116, -1
   store i32 %117, ptr %.sink, align 4
   br label %118
 
 118:                                              ; preds = %.sink.split, %59
-  %.099 = phi ptr [ %57, %59 ], [ %.099.ph, %.sink.split ]
-  tail call void @cuddCacheInsert1(ptr noundef nonnull %0, ptr noundef nonnull @extraBddSpaceEquationsPos, ptr noundef %1, ptr noundef nonnull %.099) #10
+  %.0 = phi ptr [ %57, %59 ], [ %.0.ph, %.sink.split ]
+  tail call void @cuddCacheInsert1(ptr noundef nonnull %0, ptr noundef nonnull @extraBddSpaceEquationsPos, ptr noundef %1, ptr noundef nonnull %.0) #10
   br label %119
 
 119:                                              ; preds = %60, %59, %39, %14, %2, %118, %112, %100, %90, %80, %70, %54, %11
-  %.0 = phi ptr [ %13, %11 ], [ null, %54 ], [ %.099, %118 ], [ null, %70 ], [ null, %80 ], [ null, %90 ], [ null, %100 ], [ null, %112 ], [ %4, %2 ], [ %15, %14 ], [ null, %39 ], [ null, %59 ], [ null, %60 ]
-  ret ptr %.0
+  %.0101 = phi ptr [ %13, %11 ], [ null, %54 ], [ %.0, %118 ], [ null, %70 ], [ null, %80 ], [ null, %90 ], [ null, %100 ], [ null, %112 ], [ %4, %2 ], [ %15, %14 ], [ null, %39 ], [ null, %59 ], [ null, %60 ]
+  ret ptr %.0101
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1461,8 +1461,8 @@ define ptr @extraBddSpaceEquationsNeg(ptr noundef %0, ptr noundef %1) #0 {
   br label %33
 
 33:                                               ; preds = %31, %23
-  %.0101 = phi ptr [ %30, %23 ], [ %32, %31 ]
   %.0100 = phi ptr [ %26, %23 ], [ %22, %31 ]
+  %.099 = phi ptr [ %30, %23 ], [ %32, %31 ]
   %34 = load ptr, ptr %3, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = xor i64 %35, 1
@@ -1471,12 +1471,12 @@ define ptr @extraBddSpaceEquationsNeg(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %33
-  %40 = tail call ptr @extraBddSpaceEquationsNeg(ptr noundef nonnull %0, ptr noundef %.0101)
+  %40 = tail call ptr @extraBddSpaceEquationsNeg(ptr noundef nonnull %0, ptr noundef %.099)
   %41 = icmp eq ptr %40, null
   br i1 %41, label %119, label %118
 
 42:                                               ; preds = %33
-  %43 = icmp eq ptr %.0101, %37
+  %43 = icmp eq ptr %.099, %37
   %44 = tail call ptr @extraBddSpaceEquationsNeg(ptr noundef nonnull %0, ptr noundef %.0100)
   %45 = icmp eq ptr %44, null
   br i1 %43, label %46, label %60
@@ -1514,7 +1514,7 @@ define ptr @extraBddSpaceEquationsNeg(ptr noundef %0, ptr noundef %1) #0 {
   %66 = load i32, ptr %65, align 4
   %67 = add i32 %66, 1
   store i32 %67, ptr %65, align 4
-  %68 = tail call ptr @extraBddSpaceEquationsNeg(ptr noundef nonnull %0, ptr noundef %.0101)
+  %68 = tail call ptr @extraBddSpaceEquationsNeg(ptr noundef nonnull %0, ptr noundef %.099)
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %71
 
@@ -1530,7 +1530,7 @@ define ptr @extraBddSpaceEquationsNeg(ptr noundef %0, ptr noundef %1) #0 {
   %76 = load i32, ptr %75, align 4
   %77 = add i32 %76, 1
   store i32 %77, ptr %75, align 4
-  %78 = tail call ptr @extraBddSpaceEquationsPos(ptr noundef nonnull %0, ptr noundef %.0101)
+  %78 = tail call ptr @extraBddSpaceEquationsPos(ptr noundef nonnull %0, ptr noundef %.099)
   %79 = icmp eq ptr %78, null
   br i1 %79, label %80, label %81
 
@@ -1606,20 +1606,20 @@ define ptr @extraBddSpaceEquationsNeg(ptr noundef %0, ptr noundef %1) #0 {
 
 .sink.split:                                      ; preds = %47, %113
   %.sink = phi ptr [ %105, %113 ], [ %51, %47 ]
-  %.099.ph = phi ptr [ %110, %113 ], [ %57, %47 ]
+  %.0.ph = phi ptr [ %110, %113 ], [ %57, %47 ]
   %116 = load i32, ptr %.sink, align 4
   %117 = add i32 %116, -1
   store i32 %117, ptr %.sink, align 4
   br label %118
 
 118:                                              ; preds = %.sink.split, %39
-  %.099 = phi ptr [ %40, %39 ], [ %.099.ph, %.sink.split ]
-  tail call void @cuddCacheInsert1(ptr noundef nonnull %0, ptr noundef nonnull @extraBddSpaceEquationsNeg, ptr noundef %1, ptr noundef nonnull %.099) #10
+  %.0 = phi ptr [ %40, %39 ], [ %.0.ph, %.sink.split ]
+  tail call void @cuddCacheInsert1(ptr noundef nonnull %0, ptr noundef nonnull @extraBddSpaceEquationsNeg, ptr noundef %1, ptr noundef nonnull %.0) #10
   br label %119
 
 119:                                              ; preds = %60, %46, %39, %14, %2, %118, %112, %100, %90, %80, %70, %59, %11
-  %.0 = phi ptr [ %13, %11 ], [ %.099, %118 ], [ null, %59 ], [ null, %70 ], [ null, %80 ], [ null, %90 ], [ null, %100 ], [ null, %112 ], [ %4, %2 ], [ %15, %14 ], [ null, %39 ], [ null, %46 ], [ null, %60 ]
-  ret ptr %.0
+  %.0101 = phi ptr [ %13, %11 ], [ %.0, %118 ], [ null, %59 ], [ null, %70 ], [ null, %80 ], [ null, %90 ], [ null, %100 ], [ null, %112 ], [ %4, %2 ], [ %15, %14 ], [ null, %39 ], [ null, %46 ], [ null, %60 ]
+  ret ptr %.0101
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1800,19 +1800,19 @@ define ptr @extraBddSpaceFromMatrixPos(ptr noundef %0, ptr noundef %1) #0 {
   br label %101
 
 96:                                               ; preds = %70, %88, %92
-  %.091 = phi ptr [ %91, %88 ], [ %93, %92 ], [ %67, %70 ]
+  %.0 = phi ptr [ %91, %88 ], [ %93, %92 ], [ %67, %70 ]
   %97 = load i32, ptr %42, align 4
   %98 = add i32 %97, -1
   store i32 %98, ptr %42, align 4
   %99 = load i32, ptr %74, align 4
   %100 = add i32 %99, -1
   store i32 %100, ptr %74, align 4
-  tail call void @cuddCacheInsert1(ptr noundef nonnull %0, ptr noundef nonnull @extraBddSpaceFromMatrixPos, ptr noundef nonnull %1, ptr noundef %.091) #10
+  tail call void @cuddCacheInsert1(ptr noundef nonnull %0, ptr noundef nonnull @extraBddSpaceFromMatrixPos, ptr noundef nonnull %1, ptr noundef %.0) #10
   br label %101
 
 101:                                              ; preds = %2, %11, %9, %96, %95, %87, %69, %59, %48, %37, %27
-  %.0 = phi ptr [ null, %27 ], [ null, %37 ], [ null, %48 ], [ null, %59 ], [ null, %69 ], [ %.091, %96 ], [ null, %87 ], [ null, %95 ], [ %10, %9 ], [ null, %11 ], [ %7, %2 ]
-  ret ptr %.0
+  %.091 = phi ptr [ null, %27 ], [ null, %37 ], [ null, %48 ], [ null, %59 ], [ null, %69 ], [ %.0, %96 ], [ null, %87 ], [ null, %95 ], [ %10, %9 ], [ null, %11 ], [ %7, %2 ]
+  ret ptr %.091
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2001,19 +2001,19 @@ define ptr @extraBddSpaceFromMatrixNeg(ptr noundef %0, ptr noundef %1) #0 {
   br label %106
 
 101:                                              ; preds = %75, %93, %97
-  %.091 = phi ptr [ %96, %93 ], [ %98, %97 ], [ %72, %75 ]
+  %.0 = phi ptr [ %96, %93 ], [ %98, %97 ], [ %72, %75 ]
   %102 = load i32, ptr %47, align 4
   %103 = add i32 %102, -1
   store i32 %103, ptr %47, align 4
   %104 = load i32, ptr %79, align 4
   %105 = add i32 %104, -1
   store i32 %105, ptr %79, align 4
-  tail call void @cuddCacheInsert1(ptr noundef nonnull %0, ptr noundef nonnull @extraBddSpaceFromMatrixNeg, ptr noundef nonnull %1, ptr noundef %.091) #10
+  tail call void @cuddCacheInsert1(ptr noundef nonnull %0, ptr noundef nonnull @extraBddSpaceFromMatrixNeg, ptr noundef nonnull %1, ptr noundef %.0) #10
   br label %106
 
 106:                                              ; preds = %2, %16, %14, %101, %100, %92, %74, %64, %53, %42, %32, %10
-  %.0 = phi ptr [ %13, %10 ], [ null, %32 ], [ null, %42 ], [ null, %53 ], [ null, %64 ], [ null, %74 ], [ %.091, %101 ], [ null, %92 ], [ null, %100 ], [ %15, %14 ], [ null, %16 ], [ %7, %2 ]
-  ret ptr %.0
+  %.091 = phi ptr [ %13, %10 ], [ null, %32 ], [ null, %42 ], [ null, %53 ], [ null, %64 ], [ null, %74 ], [ %.0, %101 ], [ null, %92 ], [ null, %100 ], [ %15, %14 ], [ null, %16 ], [ %7, %2 ]
+  ret ptr %.091
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable

@@ -1636,8 +1636,8 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %cmp.i, label %return, label %for.body
 
 return:                                           ; preds = %for.inc, %entry, %if.end, %if.then18
-  %retval.sroa.0.0 = phi i64 [ %10, %if.then18 ], [ %conv.i12, %if.end ], [ 0, %entry ], [ 0, %for.inc ]
   %retval.sroa.4.0 = phi ptr [ %11, %if.then18 ], [ %12, %if.end ], [ @.str.9, %entry ], [ @.str.9, %for.inc ]
+  %retval.sroa.0.0 = phi i64 [ %10, %if.then18 ], [ %conv.i12, %if.end ], [ 0, %entry ], [ 0, %for.inc ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %retval.sroa.4.0, 1
   ret { i64, ptr } %.fca.1.insert
@@ -2120,8 +2120,8 @@ for.inc.i:                                        ; preds = %land.lhs.true13.i, 
   br i1 %cmp.i.i, label %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf6SymbolINS4_5ARM64EEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EENS0_2d116tbb_hash_compareIS8_EENSI_13tbb_allocatorISt4pairIKS8_SH_EEEE6insertERNSQ_8accessorEOSO_.exit, label %for.body.i
 
 _ZNK4mold3elf12InputSectionINS0_5ARM64EE13get_func_nameERNS0_7ContextIS2_EEl.exit: ; preds = %if.then18.i, %if.end.i
-  %retval.sroa.0.0.i = phi i64 [ %19, %if.then18.i ], [ %conv.i12.i, %if.end.i ]
   %retval.sroa.4.0.i = phi ptr [ %20, %if.then18.i ], [ %21, %if.end.i ]
+  %retval.sroa.0.0.i = phi i64 [ %19, %if.then18.i ], [ %conv.i12.i, %if.end.i ]
   %cmp.i2 = icmp eq i64 %retval.sroa.0.0.i, 0
   br i1 %cmp.i2, label %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf6SymbolINS4_5ARM64EEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EENS0_2d116tbb_hash_compareIS8_EENSI_13tbb_allocatorISt4pairIKS8_SH_EEEE6insertERNSQ_8accessorEOSO_.exit, label %if.then17
 
@@ -4573,10 +4573,10 @@ restart.loopexit:                                 ; preds = %_ZN3tbb6detail2d114
   br i1 %cmp.i34, label %while.body.backedge, label %while.end
 
 while.body:                                       ; preds = %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf6SymbolINS4_5ARM64EEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EENS0_2d116tbb_hash_compareIS8_EENSI_13tbb_allocatorISt4pairIKS8_SH_EEEE15bucket_accessor7acquireEPSQ_mb.exit, %while.body.backedge
-  %prev.037 = phi ptr [ %prev.037.be, %while.body.backedge ], [ null, %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf6SymbolINS4_5ARM64EEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EENS0_2d116tbb_hash_compareIS8_EENSI_13tbb_allocatorISt4pairIKS8_SH_EEEE15bucket_accessor7acquireEPSQ_mb.exit ]
-  %curr.036 = phi ptr [ %curr.036.be, %while.body.backedge ], [ %atomic-temp.i.0.i39, %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf6SymbolINS4_5ARM64EEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EENS0_2d116tbb_hash_compareIS8_EENSI_13tbb_allocatorISt4pairIKS8_SH_EEEE15bucket_accessor7acquireEPSQ_mb.exit ]
+  %curr.037 = phi ptr [ %curr.037.be, %while.body.backedge ], [ %atomic-temp.i.0.i39, %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf6SymbolINS4_5ARM64EEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EENS0_2d116tbb_hash_compareIS8_EENSI_13tbb_allocatorISt4pairIKS8_SH_EEEE15bucket_accessor7acquireEPSQ_mb.exit ]
+  %prev.036 = phi ptr [ %prev.036.be, %while.body.backedge ], [ null, %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf6SymbolINS4_5ARM64EEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EENS0_2d116tbb_hash_compareIS8_EENSI_13tbb_allocatorISt4pairIKS8_SH_EEEE15bucket_accessor7acquireEPSQ_mb.exit ]
   %b_old.sroa.6.335 = phi i8 [ %b_old.sroa.6.335.be, %while.body.backedge ], [ %b_old.sroa.6.1, %_ZN3tbb6detail2d219concurrent_hash_mapIPN4mold3elf6SymbolINS4_5ARM64EEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EENS0_2d116tbb_hash_compareIS8_EENSI_13tbb_allocatorISt4pairIKS8_SH_EEEE15bucket_accessor7acquireEPSQ_mb.exit ]
-  %13 = getelementptr inbounds i8, ptr %curr.036, i64 16
+  %13 = getelementptr inbounds i8, ptr %curr.037, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %and9 = and i64 %or, %15
@@ -4593,8 +4593,8 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exi
 
 if.end14:                                         ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit, %if.then
   %b_old.sroa.6.5 = phi i8 [ %b_old.sroa.6.335, %if.then ], [ 1, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exit ]
-  %16 = load ptr, ptr %curr.036, align 8
-  %cmp16 = icmp eq ptr %prev.037, null
+  %16 = load ptr, ptr %curr.037, align 8
+  %cmp16 = icmp eq ptr %prev.036, null
   br i1 %cmp16, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %if.end14
@@ -4603,31 +4603,31 @@ if.then17:                                        ; preds = %if.end14
   br label %if.end23
 
 if.else:                                          ; preds = %if.end14
-  store ptr %16, ptr %prev.037, align 8
+  store ptr %16, ptr %prev.036, align 8
   br label %if.end23
 
 if.end23:                                         ; preds = %if.else, %if.then17
   %18 = load atomic i64, ptr %node_list monotonic, align 8
   %atomic-temp.i.0.i.i = inttoptr i64 %18 to ptr
-  store ptr %atomic-temp.i.0.i.i, ptr %curr.036, align 8
-  %19 = ptrtoint ptr %curr.036 to i64
+  store ptr %atomic-temp.i.0.i.i, ptr %curr.037, align 8
+  %19 = ptrtoint ptr %curr.037 to i64
   store atomic i64 %19, ptr %node_list monotonic, align 8
   br label %if.end26
 
 if.else24:                                        ; preds = %while.body
-  %20 = load ptr, ptr %curr.036, align 8
+  %20 = load ptr, ptr %curr.037, align 8
   br label %if.end26
 
 if.end26:                                         ; preds = %if.else24, %if.end23
   %b_old.sroa.6.6 = phi i8 [ %b_old.sroa.6.5, %if.end23 ], [ %b_old.sroa.6.335, %if.else24 ]
+  %prev.1 = phi ptr [ %prev.036, %if.end23 ], [ %curr.037, %if.else24 ]
   %curr.1 = phi ptr [ %16, %if.end23 ], [ %20, %if.else24 ]
-  %prev.1 = phi ptr [ %prev.037, %if.end23 ], [ %curr.036, %if.else24 ]
   %cmp.i = icmp ugt ptr %curr.1, inttoptr (i64 63 to ptr)
   br i1 %cmp.i, label %while.body.backedge, label %while.end
 
 while.body.backedge:                              ; preds = %if.end26, %restart.loopexit
-  %prev.037.be = phi ptr [ %prev.1, %if.end26 ], [ null, %restart.loopexit ]
-  %curr.036.be = phi ptr [ %curr.1, %if.end26 ], [ %atomic-temp.i.0.i, %restart.loopexit ]
+  %curr.037.be = phi ptr [ %curr.1, %if.end26 ], [ %atomic-temp.i.0.i, %restart.loopexit ]
+  %prev.036.be = phi ptr [ %prev.1, %if.end26 ], [ null, %restart.loopexit ]
   %b_old.sroa.6.335.be = phi i8 [ %b_old.sroa.6.6, %if.end26 ], [ 1, %restart.loopexit ]
   br label %while.body, !llvm.loop !22
 

@@ -71,7 +71,7 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   br i1 %.not83, label %.thread126, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %21
-  %.04697 = phi ptr [ %11, %21 ], [ %0, %2 ]
+  %.04597 = phi ptr [ %11, %21 ], [ %0, %2 ]
   %.17295 = phi i32 [ %22, %21 ], [ 0, %2 ]
   %23 = phi i8 [ %.pre, %21 ], [ 58, %2 ]
   %24 = load ptr, ptr @g_ascii_table, align 8
@@ -79,7 +79,7 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
 
 25:                                               ; preds = %.lr.ph, %31
   %26 = phi i8 [ %23, %.lr.ph ], [ %33, %31 ]
-  %.184 = phi ptr [ %.04697, %.lr.ph ], [ %32, %31 ]
+  %.184 = phi ptr [ %.04597, %.lr.ph ], [ %32, %31 ]
   %27 = zext i8 %26 to i64
   %28 = getelementptr i16, ptr %24, i64 %27
   %29 = load i16, ptr %28, align 2
@@ -180,7 +180,7 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
 .critedge.thread:                                 ; preds = %73, %71, %65, %50, %48, %42, %.critedge
   %.270.ph = phi i32 [ %74, %73 ], [ 0, %71 ], [ 0, %65 ], [ %51, %50 ], [ 0, %48 ], [ 0, %42 ], [ 0, %.critedge ]
   %.2.ph = phi ptr [ %63, %73 ], [ %63, %71 ], [ %63, %65 ], [ %40, %50 ], [ %40, %48 ], [ %40, %42 ], [ %.184, %.critedge ]
-  %.045.ph = phi i32 [ 1, %73 ], [ 1, %71 ], [ 1, %65 ], [ 2, %50 ], [ 2, %48 ], [ 2, %42 ], [ 0, %.critedge ]
+  %.044.ph = phi i32 [ 1, %73 ], [ 1, %71 ], [ 1, %65 ], [ 2, %50 ], [ 2, %48 ], [ 2, %42 ], [ 0, %.critedge ]
   %.0.shrunk.ph = phi i1 [ true, %73 ], [ false, %71 ], [ false, %65 ], [ true, %50 ], [ false, %48 ], [ false, %42 ], [ false, %.critedge ]
   %.pr = load i8, ptr %.2.ph, align 1
   %.not5485 = icmp eq i8 %.pr, 0
@@ -227,7 +227,7 @@ define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture no
   %89 = getelementptr inbounds i8, ptr %88, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %89, i8 0, i64 12, i1 false)
   store i32 %.17295, ptr %88, align 4
-  switch i32 %.045.ph, label %default.unreachable [
+  switch i32 %.044.ph, label %default.unreachable [
     i32 1, label %90
     i32 2, label %98
     i32 3, label %112
@@ -302,8 +302,8 @@ default.unreachable:                              ; preds = %.critedge2.thread
   unreachable
 
 drange_str_to_gint32.exit.thread:                 ; preds = %19, %13, %94, %109, %112, %107, %104, %92, %.thread
-  %.044 = phi ptr [ null, %.thread ], [ null, %104 ], [ null, %107 ], [ null, %92 ], [ %113, %112 ], [ %88, %109 ], [ %95, %94 ], [ null, %13 ], [ null, %19 ]
-  ret ptr %.044
+  %.046 = phi ptr [ null, %.thread ], [ null, %104 ], [ null, %107 ], [ null, %92 ], [ %113, %112 ], [ %88, %109 ], [ %95, %94 ], [ null, %13 ], [ null, %19 ]
+  ret ptr %.046
 }
 
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2

@@ -519,7 +519,7 @@ make_text_key.exit:                               ; preds = %.thread, %51, %54
 .lr.ph:                                           ; preds = %68, %128
   %78 = phi i32 [ %129, %128 ], [ %76, %68 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %128 ], [ 0, %68 ]
-  %.06686 = phi i32 [ %.1, %128 ], [ 0, %68 ]
+  %.087 = phi i32 [ %.1, %128 ], [ 0, %68 ]
   %79 = load ptr, ptr %5, align 8
   %80 = getelementptr i8, ptr %79, i64 %indvars.iv
   %81 = load i8, ptr %80, align 1
@@ -596,8 +596,8 @@ make_text_key.exit84:                             ; preds = %.thread85, %111, %1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %122, ptr align 1 %.013.i82, i64 %123, i1 false)
   %124 = ptrtoint ptr %119 to i64
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %2)
-  %125 = add i32 %.06686, 1
-  %126 = sext i32 %.06686 to i64
+  %125 = add i32 %.087, 1
+  %126 = sext i32 %.087 to i64
   %127 = getelementptr i64, ptr %75, i64 %126
   store i64 %124, ptr %127, align 8
   %.pre = load i32, ptr %6, align 4
@@ -605,16 +605,16 @@ make_text_key.exit84:                             ; preds = %.thread85, %111, %1
 
 128:                                              ; preds = %.lr.ph, %make_text_key.exit84
   %129 = phi i32 [ %78, %.lr.ph ], [ %.pre, %make_text_key.exit84 ]
-  %.1 = phi i32 [ %.06686, %.lr.ph ], [ %125, %make_text_key.exit84 ]
+  %.1 = phi i32 [ %.087, %.lr.ph ], [ %125, %make_text_key.exit84 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %130 = sext i32 %129 to i64
   %131 = icmp slt i64 %indvars.iv.next, %130
   br i1 %131, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %128, %68
-  %.066.lcssa = phi i32 [ 0, %68 ], [ %.1, %128 ]
-  store i32 %.066.lcssa, ptr %10, align 4
-  %132 = icmp eq i32 %.066.lcssa, 0
+  %.0.lcssa = phi i32 [ 0, %68 ], [ %.1, %128 ]
+  store i32 %.0.lcssa, ptr %10, align 4
+  %132 = icmp eq i32 %.0.lcssa, 0
   %or.cond5 = and i1 %66, %132
   br i1 %or.cond5, label %133, label %150
 
@@ -652,8 +652,8 @@ make_text_key.exit84:                             ; preds = %.thread85, %111, %1
   unreachable
 
 150:                                              ; preds = %make_text_key.exit, %144, %136, %._crit_edge, %133, %17, %23
-  %.0 = phi ptr [ %20, %23 ], [ %20, %17 ], [ %28, %make_text_key.exit ], [ %75, %133 ], [ %75, %._crit_edge ], [ %143, %136 ], [ null, %144 ]
-  %151 = ptrtoint ptr %.0 to i64
+  %.066 = phi ptr [ %20, %23 ], [ %20, %17 ], [ %28, %make_text_key.exit ], [ %75, %133 ], [ %75, %._crit_edge ], [ %143, %136 ], [ null, %144 ]
+  %151 = ptrtoint ptr %.066 to i64
   ret i64 %151
 }
 
@@ -868,7 +868,7 @@ define internal fastcc signext i8 @execute_jsp_gin_node(ptr nocapture noundef re
 
 13:                                               ; preds = %.lr.ph42, %18
   %indvars.iv48 = phi i64 [ 0, %.lr.ph42 ], [ %indvars.iv.next49, %18 ]
-  %.02940 = phi i8 [ 1, %.lr.ph42 ], [ %.130, %18 ]
+  %.02840 = phi i8 [ 1, %.lr.ph42 ], [ %.129, %18 ]
   %14 = getelementptr [0 x ptr], ptr %12, i64 0, i64 %indvars.iv48
   %15 = load ptr, ptr %14, align 8
   %16 = tail call fastcc signext i8 @execute_jsp_gin_node(ptr noundef %15, ptr noundef %1, i1 noundef zeroext %2)
@@ -881,7 +881,7 @@ define internal fastcc signext i8 @execute_jsp_gin_node(ptr nocapture noundef re
   br label %18
 
 18:                                               ; preds = %13, %17
-  %.130 = phi i8 [ 2, %17 ], [ %.02940, %13 ]
+  %.129 = phi i8 [ 2, %17 ], [ %.02840, %13 ]
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %19 = load i32, ptr %9, align 8
   %20 = sext i32 %19 to i64
@@ -929,8 +929,8 @@ define internal fastcc signext i8 @execute_jsp_gin_node(ptr nocapture noundef re
   unreachable
 
 .loopexit:                                        ; preds = %22, %27, %13, %18, %31, %.preheader33, %.preheader
-  %.0 = phi i8 [ 1, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %31 ], [ %16, %13 ], [ %.130, %18 ], [ %25, %22 ], [ %.3, %27 ]
-  ret i8 %.0
+  %.030 = phi i8 [ 1, %.preheader ], [ 0, %.preheader33 ], [ %spec.select, %31 ], [ %16, %13 ], [ %.129, %18 ], [ %25, %22 ], [ %.3, %27 ]
+  ret i8 %.030
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1513,14 +1513,14 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
 
 .lr.ph:                                           ; preds = %.preheader, %14
   %.034 = phi ptr [ %.1, %14 ], [ %3, %.preheader ]
-  %.02333 = phi ptr [ %15, %14 ], [ %1, %.preheader ]
-  %5 = getelementptr inbounds i8, ptr %.02333, i64 16
+  %.02533 = phi ptr [ %15, %14 ], [ %1, %.preheader ]
+  %5 = getelementptr inbounds i8, ptr %.02533, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 25
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.02333, i64 8
+  %9 = getelementptr inbounds i8, ptr %.02533, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = tail call noundef ptr @palloc(i64 noundef 16) #8
   store i32 2, ptr %11, align 8
@@ -1531,7 +1531,7 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
 
 14:                                               ; preds = %.lr.ph, %8
   %.1 = phi ptr [ %13, %8 ], [ %.034, %.lr.ph ]
-  %15 = load ptr, ptr %.02333, align 8
+  %15 = load ptr, ptr %.02533, align 8
   %.not30 = icmp eq ptr %15, null
   br i1 %.not30, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
@@ -1601,8 +1601,8 @@ define internal ptr @jsonb_ops__extract_nodes(ptr nocapture noundef readonly %0,
   br label %46
 
 46:                                               ; preds = %27, %38, %42
-  %.025 = phi ptr [ %34, %27 ], [ %40, %38 ], [ %44, %42 ]
-  %47 = tail call ptr @lappend(ptr noundef %.0.lcssa, ptr noundef nonnull %.025) #8
+  %.024 = phi ptr [ %34, %27 ], [ %40, %38 ], [ %44, %42 ]
+  %47 = tail call ptr @lappend(ptr noundef %.0.lcssa, ptr noundef nonnull %.024) #8
   br label %48
 
 48:                                               ; preds = %46, %4
@@ -1625,7 +1625,7 @@ define internal fastcc ptr @extract_jsp_path_expr(ptr noundef %0, ptr %1, ptr no
 
 8:                                                ; preds = %18, %4
   %.016.i = phi ptr [ %2, %4 ], [ %6, %18 ]
-  %.015.i = phi ptr [ null, %4 ], [ %.1.i, %18 ]
+  %.0.i = phi ptr [ null, %4 ], [ %.1.i, %18 ]
   %9 = load i32, ptr %.016.i, align 8
   switch i32 %9, label %15 [
     i32 26, label %18
@@ -1640,7 +1640,7 @@ define internal fastcc ptr @extract_jsp_path_expr(ptr noundef %0, ptr %1, ptr no
   br i1 %.not.i, label %18, label %13
 
 13:                                               ; preds = %10
-  %14 = call ptr @lappend(ptr noundef %.015.i, ptr noundef nonnull %12) #8
+  %14 = call ptr @lappend(ptr noundef %.0.i, ptr noundef nonnull %12) #8
   br label %18
 
 15:                                               ; preds = %8
@@ -1649,7 +1649,7 @@ define internal fastcc ptr @extract_jsp_path_expr(ptr noundef %0, ptr %1, ptr no
   br i1 %17, label %18, label %extract_jsp_path_expr_nodes.exit
 
 18:                                               ; preds = %15, %13, %10, %8
-  %.1.i = phi ptr [ %.015.i, %15 ], [ %14, %13 ], [ %.015.i, %10 ], [ %.015.i, %8 ]
+  %.1.i = phi ptr [ %.0.i, %15 ], [ %14, %13 ], [ %.0.i, %10 ], [ %.0.i, %8 ]
   %19 = call zeroext i1 @jspGetNext(ptr noundef nonnull %.016.i, ptr noundef nonnull %6) #8
   br i1 %19, label %8, label %20
 
@@ -1661,21 +1661,21 @@ define internal fastcc ptr @extract_jsp_path_expr(ptr noundef %0, ptr %1, ptr no
   br label %extract_jsp_path_expr_nodes.exit
 
 extract_jsp_path_expr_nodes.exit:                 ; preds = %15, %20
-  %.0.i = phi ptr [ %24, %20 ], [ %.015.i, %15 ]
+  %.015.i = phi ptr [ %24, %20 ], [ %.0.i, %15 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
-  %25 = icmp eq ptr %.0.i, null
+  %25 = icmp eq ptr %.015.i, null
   br i1 %25, label %make_jsp_expr_node_args.exit, label %26
 
 26:                                               ; preds = %extract_jsp_path_expr_nodes.exit
-  %27 = getelementptr i8, ptr %.0.i, i64 4
+  %27 = getelementptr i8, ptr %.015.i, i64 4
   %.val = load i32, ptr %27, align 4
   %28 = icmp eq i32 %.val, 1
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %26
-  %30 = getelementptr i8, ptr %.0.i, i64 16
+  %30 = getelementptr i8, ptr %.015.i, i64 16
   %.val9 = load ptr, ptr %30, align 8
   %31 = load ptr, ptr %.val9, align 8
   br label %make_jsp_expr_node_args.exit
@@ -1693,7 +1693,7 @@ extract_jsp_path_expr_nodes.exit:                 ; preds = %15, %20
   br i1 %.not14.i, label %.lr.ph.i, label %make_jsp_expr_node_args.exit
 
 .lr.ph.i:                                         ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %39 = getelementptr inbounds i8, ptr %.015.i, i64 16
   %40 = getelementptr inbounds i8, ptr %36, i64 16
   br label %41
 

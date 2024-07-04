@@ -247,18 +247,18 @@ sw.default:                                       ; preds = %if.end5
 
 sw.epilog.sink.split:                             ; preds = %if.then.i79, %if.then8.i75, %if.then.i, %if.then8.i
   %value.sink.i78.sink = phi ptr [ %value.i, %if.then8.i ], [ %d.i, %if.then.i ], [ %value.i76, %if.then8.i75 ], [ %d.i80, %if.then.i79 ]
-  %md_sk.0.ph = phi ptr [ %3, %if.then8.i ], [ %3, %if.then.i ], [ null, %if.then8.i75 ], [ null, %if.then.i79 ]
   %xa.0.ph = phi ptr [ null, %if.then8.i ], [ null, %if.then.i ], [ %22, %if.then8.i75 ], [ %22, %if.then.i79 ]
+  %md_sk.0.ph = phi ptr [ %3, %if.then8.i ], [ %3, %if.then.i ], [ null, %if.then8.i75 ], [ null, %if.then.i79 ]
   %29 = load ptr, ptr %value.sink.i78.sink, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %land.lhs.true4.i72, %land.lhs.true.i69, %if.end.i66, %land.lhs.true4.i, %land.lhs.true.i, %if.end.i, %if.end5, %sw.bb21, %sw.bb10
+  %xa.0 = phi ptr [ null, %if.end5 ], [ null, %sw.bb21 ], [ null, %sw.bb10 ], [ null, %if.end.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true4.i ], [ %22, %if.end.i66 ], [ %22, %land.lhs.true.i69 ], [ %22, %land.lhs.true4.i72 ], [ %xa.0.ph, %sw.epilog.sink.split ]
   %evp_cipher.0 = phi ptr [ null, %if.end5 ], [ %20, %sw.bb21 ], [ %15, %sw.bb10 ], [ null, %if.end.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true4.i ], [ null, %if.end.i66 ], [ null, %land.lhs.true.i69 ], [ null, %land.lhs.true4.i72 ], [ null, %sw.epilog.sink.split ]
   %md_sk.0 = phi ptr [ null, %if.end5 ], [ null, %sw.bb21 ], [ %12, %sw.bb10 ], [ %3, %if.end.i ], [ %3, %land.lhs.true.i ], [ %3, %land.lhs.true4.i ], [ null, %if.end.i66 ], [ null, %land.lhs.true.i69 ], [ null, %land.lhs.true4.i72 ], [ %md_sk.0.ph, %sw.epilog.sink.split ]
   %rsk.0 = phi ptr [ null, %if.end5 ], [ %17, %sw.bb21 ], [ %11, %sw.bb10 ], [ null, %if.end.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true4.i ], [ null, %if.end.i66 ], [ null, %land.lhs.true.i69 ], [ null, %land.lhs.true4.i72 ], [ null, %sw.epilog.sink.split ]
   %xalg.0 = phi ptr [ null, %if.end5 ], [ %19, %sw.bb21 ], [ %14, %sw.bb10 ], [ null, %if.end.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true4.i ], [ null, %if.end.i66 ], [ null, %land.lhs.true.i69 ], [ null, %land.lhs.true4.i72 ], [ null, %sw.epilog.sink.split ]
   %os.0 = phi ptr [ null, %if.end5 ], [ null, %sw.bb21 ], [ null, %sw.bb10 ], [ null, %if.end.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true4.i ], [ null, %if.end.i66 ], [ null, %land.lhs.true.i69 ], [ null, %land.lhs.true4.i72 ], [ %29, %sw.epilog.sink.split ]
-  %xa.0 = phi ptr [ null, %if.end5 ], [ null, %sw.bb21 ], [ null, %sw.bb10 ], [ null, %if.end.i ], [ null, %land.lhs.true.i ], [ null, %land.lhs.true4.i ], [ %22, %if.end.i66 ], [ %22, %land.lhs.true.i69 ], [ %22, %land.lhs.true4.i72 ], [ %xa.0.ph, %sw.epilog.sink.split ]
   %call4090 = tail call i32 @OPENSSL_sk_num(ptr noundef %md_sk.0) #4
   %cmp4191 = icmp sgt i32 %call4090, 0
   br i1 %cmp4191, label %for.body, label %for.end
@@ -511,8 +511,8 @@ err.critedge:                                     ; preds = %if.end21.i, %if.end
   br label %err
 
 err:                                              ; preds = %for.body, %err.critedge, %pkcs7_encode_rinfo.exit.thread, %if.end176, %if.else167, %if.end112, %if.then104, %if.end91, %if.end85, %if.end72, %if.then66, %land.lhs.true, %if.then57, %sw.default, %if.then31, %if.then19
-  %fetched_cipher.1 = phi ptr [ null, %sw.default ], [ null, %if.then57 ], [ null, %if.then66 ], [ %call75, %if.end72 ], [ null, %if.end85 ], [ null, %if.end91 ], [ null, %if.then104 ], [ null, %if.end112 ], [ null, %if.end176 ], [ null, %if.else167 ], [ null, %land.lhs.true ], [ null, %if.then31 ], [ null, %if.then19 ], [ null, %pkcs7_encode_rinfo.exit.thread ], [ null, %err.critedge ], [ null, %for.body ]
   %btmp.1 = phi ptr [ null, %sw.default ], [ null, %if.then57 ], [ %call55, %if.then66 ], [ %call55, %if.end72 ], [ %call55, %if.end85 ], [ %call55, %if.end91 ], [ %call55, %if.then104 ], [ %call55, %if.end112 ], [ null, %if.end176 ], [ null, %if.else167 ], [ null, %land.lhs.true ], [ null, %if.then31 ], [ null, %if.then19 ], [ %call55, %pkcs7_encode_rinfo.exit.thread ], [ %call55, %err.critedge ], [ null, %for.body ]
+  %fetched_cipher.1 = phi ptr [ null, %sw.default ], [ null, %if.then57 ], [ null, %if.then66 ], [ %call75, %if.end72 ], [ null, %if.end85 ], [ null, %if.end91 ], [ null, %if.then104 ], [ null, %if.end112 ], [ null, %if.end176 ], [ null, %if.else167 ], [ null, %land.lhs.true ], [ null, %if.then31 ], [ null, %if.then19 ], [ null, %pkcs7_encode_rinfo.exit.thread ], [ null, %err.critedge ], [ null, %for.body ]
   call void @EVP_CIPHER_free(ptr noundef %fetched_cipher.1) #4
   %46 = load ptr, ptr %out, align 8
   call void @BIO_free_all(ptr noundef %46) #4
@@ -894,9 +894,9 @@ for.cond.preheader:                               ; preds = %if.end71
   br i1 %cmp76175, label %for.body, label %if.end110
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end109
-  %i.0177 = phi i32 [ %inc, %if.end109 ], [ 0, %for.cond.preheader ]
-  %out.0176 = phi ptr [ %out.1, %if.end109 ], [ null, %for.cond.preheader ]
-  %call78 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %md_sk.0, i32 noundef %i.0177) #4
+  %out.0177 = phi ptr [ %out.1, %if.end109 ], [ null, %for.cond.preheader ]
+  %i.0176 = phi i32 [ %inc, %if.end109 ], [ 0, %for.cond.preheader ]
+  %call78 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %md_sk.0, i32 noundef %i.0176) #4
   %call79 = call ptr @BIO_f_md() #4
   %call80 = call ptr @BIO_new(ptr noundef %call79) #4
   %cmp81 = icmp eq ptr %call80, null
@@ -943,16 +943,16 @@ if.then103:                                       ; preds = %if.end99
   br label %err
 
 if.end104:                                        ; preds = %if.end99
-  %cmp105 = icmp eq ptr %out.0176, null
+  %cmp105 = icmp eq ptr %out.0177, null
   br i1 %cmp105, label %if.end109, label %if.else107
 
 if.else107:                                       ; preds = %if.end104
-  %call108 = call ptr @BIO_push(ptr noundef nonnull %out.0176, ptr noundef nonnull %call80) #4
+  %call108 = call ptr @BIO_push(ptr noundef nonnull %out.0177, ptr noundef nonnull %call80) #4
   br label %if.end109
 
 if.end109:                                        ; preds = %if.end104, %if.else107
-  %out.1 = phi ptr [ %out.0176, %if.else107 ], [ %call80, %if.end104 ]
-  %inc = add nuw nsw i32 %i.0177, 1
+  %out.1 = phi ptr [ %out.0177, %if.else107 ], [ %call80, %if.end104 ]
+  %inc = add nuw nsw i32 %i.0176, 1
   %call75 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %md_sk.0) #4
   %cmp76 = icmp slt i32 %inc, %call75
   br i1 %cmp76, label %for.body, label %if.end110, !llvm.loop !7
@@ -1155,13 +1155,13 @@ if.end221:                                        ; preds = %if.end212, %if.end1
   %cmp69120129154 = phi i1 [ %cmp69, %if.end110 ], [ %cmp69120129153, %if.end212 ]
   %evp_cipher.0114133149 = phi ptr [ %evp_cipher.0, %if.end110 ], [ %evp_cipher.0114133148, %if.end212 ]
   %data_body.0112134147 = phi ptr [ %data_body.0, %if.end110 ], [ %data_body.0112134146, %if.end212 ]
-  %tkeylen.0 = phi i32 [ 0, %if.end110 ], [ %call175, %if.end212 ]
   %out.4 = phi ptr [ %out.2, %if.end110 ], [ %call114, %if.end212 ]
+  %tkeylen.0 = phi i32 [ 0, %if.end110 ], [ %call175, %if.end212 ]
   br i1 %cmp69120129154, label %if.else225, label %if.end244
 
 if.else225:                                       ; preds = %if.else218, %if.end221
-  %out.4165 = phi ptr [ %out.2155, %if.else218 ], [ %out.4, %if.end221 ]
-  %tkeylen.0163 = phi i32 [ %call175, %if.else218 ], [ %tkeylen.0, %if.end221 ]
+  %tkeylen.0165 = phi i32 [ %call175, %if.else218 ], [ %tkeylen.0, %if.end221 ]
+  %out.4164 = phi ptr [ %out.2155, %if.else218 ], [ %out.4, %if.end221 ]
   %data_body.0112134147162 = phi ptr [ %data_body.0112134146, %if.else218 ], [ %data_body.0112134147, %if.end221 ]
   %evp_cipher.0114133149161 = phi ptr [ %evp_cipher.0114133148, %if.else218 ], [ %evp_cipher.0114133149, %if.end221 ]
   %44 = load i32, ptr %data_body.0112134147162, align 8
@@ -1186,20 +1186,20 @@ if.end239:                                        ; preds = %if.else225
   br i1 %cmp240, label %err, label %if.end244
 
 if.end244:                                        ; preds = %if.end239.thread, %if.else218, %if.end221, %if.end239
-  %out.4164 = phi ptr [ %out.4165, %if.end239 ], [ %out.4, %if.end221 ], [ %out.2155, %if.else218 ], [ %out.4165, %if.end239.thread ]
+  %out.4163 = phi ptr [ %out.4164, %if.end239 ], [ %out.4, %if.end221 ], [ %out.2155, %if.else218 ], [ %out.4164, %if.end239.thread ]
   %evp_cipher.0114133149160 = phi ptr [ %evp_cipher.0114133149161, %if.end239 ], [ %evp_cipher.0114133149, %if.end221 ], [ %evp_cipher.0114133148, %if.else218 ], [ %evp_cipher.0114133149161, %if.end239.thread ]
   %bio.1 = phi ptr [ %call230, %if.end239 ], [ %in_bio, %if.end221 ], [ %in_bio, %if.else218 ], [ %call233, %if.end239.thread ]
-  %call245 = call ptr @BIO_push(ptr noundef %out.4164, ptr noundef nonnull %bio.1) #4
+  %call245 = call ptr @BIO_push(ptr noundef %out.4163, ptr noundef nonnull %bio.1) #4
   call void @EVP_CIPHER_free(ptr noundef %evp_cipher.0114133149160) #4
   br label %return
 
 err:                                              ; preds = %for.body144, %if.end239, %if.else231, %if.end207, %if.end187, %if.end179, %if.end174, %if.end169, %if.end163, %if.else156, %if.then135, %if.then116, %if.then103, %if.then97, %if.then82, %if.then70, %sw.default, %if.then63, %if.then37, %if.then15
-  %etmp.1 = phi ptr [ null, %sw.default ], [ null, %if.then63 ], [ null, %if.then70 ], [ null, %if.then82 ], [ null, %if.then97 ], [ null, %if.then103 ], [ null, %if.then116 ], [ %call114, %if.then135 ], [ %call114, %if.end163 ], [ %call114, %if.end169 ], [ %call114, %if.end174 ], [ %call114, %if.end179 ], [ %call114, %if.end187 ], [ %call114, %if.end207 ], [ null, %if.end239 ], [ null, %if.else231 ], [ %call114, %if.else156 ], [ null, %if.then37 ], [ null, %if.then15 ], [ %call114, %for.body144 ]
+  %out.5 = phi ptr [ null, %sw.default ], [ null, %if.then63 ], [ null, %if.then70 ], [ %out.0177, %if.then82 ], [ %out.0177, %if.then97 ], [ %out.0177, %if.then103 ], [ %out.2155, %if.then116 ], [ %out.2155, %if.then135 ], [ %out.2155, %if.end163 ], [ %out.2155, %if.end169 ], [ %out.2155, %if.end174 ], [ %out.2155, %if.end179 ], [ %out.2155, %if.end187 ], [ %out.2155, %if.end207 ], [ %out.4164, %if.end239 ], [ %out.4164, %if.else231 ], [ %out.2155, %if.else156 ], [ null, %if.then37 ], [ null, %if.then15 ], [ %out.2155, %for.body144 ]
   %btmp.2 = phi ptr [ null, %sw.default ], [ null, %if.then63 ], [ null, %if.then70 ], [ null, %if.then82 ], [ %call80, %if.then97 ], [ %call80, %if.then103 ], [ null, %if.then116 ], [ null, %if.then135 ], [ null, %if.end163 ], [ null, %if.end169 ], [ null, %if.end174 ], [ null, %if.end179 ], [ null, %if.end187 ], [ null, %if.end207 ], [ null, %if.end239 ], [ null, %if.else231 ], [ null, %if.else156 ], [ null, %if.then37 ], [ null, %if.then15 ], [ null, %for.body144 ]
+  %etmp.1 = phi ptr [ null, %sw.default ], [ null, %if.then63 ], [ null, %if.then70 ], [ null, %if.then82 ], [ null, %if.then97 ], [ null, %if.then103 ], [ null, %if.then116 ], [ %call114, %if.then135 ], [ %call114, %if.end163 ], [ %call114, %if.end169 ], [ %call114, %if.end174 ], [ %call114, %if.end179 ], [ %call114, %if.end187 ], [ %call114, %if.end207 ], [ null, %if.end239 ], [ null, %if.else231 ], [ %call114, %if.else156 ], [ null, %if.then37 ], [ null, %if.then15 ], [ %call114, %for.body144 ]
   %evp_cipher.1 = phi ptr [ null, %sw.default ], [ null, %if.then63 ], [ %evp_cipher.0113, %if.then70 ], [ %evp_cipher.0, %if.then82 ], [ %evp_cipher.0, %if.then97 ], [ %evp_cipher.0, %if.then103 ], [ %evp_cipher.0114133148, %if.then116 ], [ %evp_cipher.0114133148, %if.then135 ], [ %evp_cipher.0114133148, %if.end163 ], [ %evp_cipher.0114133148, %if.end169 ], [ %evp_cipher.0114133148, %if.end174 ], [ %evp_cipher.0114133148, %if.end179 ], [ %evp_cipher.0114133148, %if.end187 ], [ %evp_cipher.0114133148, %if.end207 ], [ %evp_cipher.0114133149161, %if.end239 ], [ %evp_cipher.0114133149161, %if.else231 ], [ %evp_cipher.0114133148, %if.else156 ], [ null, %if.then37 ], [ null, %if.then15 ], [ %evp_cipher.0114133148, %for.body144 ]
   %tkey.3 = phi ptr [ null, %sw.default ], [ null, %if.then63 ], [ null, %if.then70 ], [ null, %if.then82 ], [ null, %if.then97 ], [ null, %if.then103 ], [ null, %if.then116 ], [ null, %if.then135 ], [ null, %if.end163 ], [ null, %if.end169 ], [ null, %if.end174 ], [ null, %if.end179 ], [ %call183, %if.end187 ], [ %tkey.1, %if.end207 ], [ null, %if.end239 ], [ null, %if.else231 ], [ null, %if.else156 ], [ null, %if.then37 ], [ null, %if.then15 ], [ null, %for.body144 ]
-  %tkeylen.1 = phi i32 [ 0, %sw.default ], [ 0, %if.then63 ], [ 0, %if.then70 ], [ 0, %if.then82 ], [ 0, %if.then97 ], [ 0, %if.then103 ], [ 0, %if.then116 ], [ 0, %if.then135 ], [ 0, %if.end163 ], [ 0, %if.end169 ], [ 0, %if.end174 ], [ %call175, %if.end179 ], [ %call175, %if.end187 ], [ %call175, %if.end207 ], [ %tkeylen.0163, %if.end239 ], [ %tkeylen.0163, %if.else231 ], [ 0, %if.else156 ], [ 0, %if.then37 ], [ 0, %if.then15 ], [ 0, %for.body144 ]
-  %out.5 = phi ptr [ null, %sw.default ], [ null, %if.then63 ], [ null, %if.then70 ], [ %out.0176, %if.then82 ], [ %out.0176, %if.then97 ], [ %out.0176, %if.then103 ], [ %out.2155, %if.then116 ], [ %out.2155, %if.then135 ], [ %out.2155, %if.end163 ], [ %out.2155, %if.end169 ], [ %out.2155, %if.end174 ], [ %out.2155, %if.end179 ], [ %out.2155, %if.end187 ], [ %out.2155, %if.end207 ], [ %out.4165, %if.end239 ], [ %out.4165, %if.else231 ], [ %out.2155, %if.else156 ], [ null, %if.then37 ], [ null, %if.then15 ], [ %out.2155, %for.body144 ]
+  %tkeylen.1 = phi i32 [ 0, %sw.default ], [ 0, %if.then63 ], [ 0, %if.then70 ], [ 0, %if.then82 ], [ 0, %if.then97 ], [ 0, %if.then103 ], [ 0, %if.then116 ], [ 0, %if.then135 ], [ 0, %if.end163 ], [ 0, %if.end169 ], [ 0, %if.end174 ], [ %call175, %if.end179 ], [ %call175, %if.end187 ], [ %call175, %if.end207 ], [ %tkeylen.0165, %if.end239 ], [ %tkeylen.0165, %if.else231 ], [ 0, %if.else156 ], [ 0, %if.then37 ], [ 0, %if.then15 ], [ 0, %for.body144 ]
   call void @EVP_CIPHER_free(ptr noundef %evp_cipher.1) #4
   %46 = load ptr, ptr %ek, align 8
   %47 = load i32, ptr %eklen, align 4
@@ -1214,7 +1214,7 @@ err:                                              ; preds = %for.body144, %if.en
   br label %return
 
 return:                                           ; preds = %err, %if.end244, %if.then4, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ null, %err ], [ %out.4164, %if.end244 ]
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ null, %err ], [ %out.4163, %if.end244 ]
   ret ptr %retval.0
 }
 
@@ -2290,8 +2290,8 @@ if.then96:                                        ; preds = %if.end90
   br label %err
 
 err:                                              ; preds = %if.end90, %if.end85, %if.end79, %if.then40, %for.end, %if.then96, %if.then78, %if.then70, %if.then54, %if.then47, %if.then19, %if.then15, %if.then9, %if.then
-  %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.then15 ], [ 0, %if.then19 ], [ -1, %if.then54 ], [ 0, %if.then70 ], [ -1, %if.then78 ], [ -1, %if.then96 ], [ 0, %if.end79 ], [ 0, %if.then47 ], [ 0, %if.then40 ], [ 0, %for.end ], [ 0, %if.then9 ], [ -1, %if.end85 ], [ 1, %if.end90 ]
   %fetched_md.1 = phi ptr [ null, %if.then ], [ null, %if.then15 ], [ null, %if.then19 ], [ null, %if.then54 ], [ %call58, %if.then70 ], [ %call58, %if.then78 ], [ %fetched_md.0, %if.then96 ], [ %call58, %if.end79 ], [ null, %if.then47 ], [ null, %if.then40 ], [ null, %for.end ], [ null, %if.then9 ], [ %fetched_md.0, %if.end85 ], [ %fetched_md.0, %if.end90 ]
+  %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.then15 ], [ 0, %if.then19 ], [ -1, %if.then54 ], [ 0, %if.then70 ], [ -1, %if.then78 ], [ -1, %if.then96 ], [ 0, %if.end79 ], [ 0, %if.then47 ], [ 0, %if.then40 ], [ 0, %for.end ], [ 0, %if.then9 ], [ -1, %if.end85 ], [ 1, %if.end90 ]
   call void @EVP_MD_CTX_free(ptr noundef %call3) #4
   call void @EVP_MD_free(ptr noundef %fetched_md.1) #4
   ret i32 %ret.0

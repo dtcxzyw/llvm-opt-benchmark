@@ -175,8 +175,8 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
 
 98:                                               ; preds = %.lr.ph2641, %.loopexit
   %.sroa.01865.02640 = phi ptr [ %76, %.lr.ph2641 ], [ %2014, %.loopexit ]
-  %.sroa.51815.02639 = phi <8 x float> [ undef, %.lr.ph2641 ], [ %.sroa.51815.1, %.loopexit ]
-  %.sroa.01811.02638 = phi <8 x float> [ undef, %.lr.ph2641 ], [ %.sroa.01811.1, %.loopexit ]
+  %.sroa.51815.02637 = phi <8 x float> [ undef, %.lr.ph2641 ], [ %.sroa.51815.1, %.loopexit ]
+  %.sroa.01811.02636 = phi <8 x float> [ undef, %.lr.ph2641 ], [ %.sroa.01811.1, %.loopexit ]
   %99 = getelementptr inbounds i8, ptr %.sroa.01865.02640, i64 4
   %100 = load i32, ptr %99, align 4
   %101 = and i32 %100, 127
@@ -368,8 +368,8 @@ _ZN3gmx17EnergyAccumulatorILb1ELb1EE12initIClusterILi4EEEvi.exit: ; preds = %128
   br label %.loopexit2433._crit_edge
 
 .loopexit2433._crit_edge:                         ; preds = %.loopexit2433, %227
-  %.sroa.01811.1 = phi <8 x float> [ %233, %227 ], [ %.sroa.01811.02638, %.loopexit2433 ]
-  %.sroa.51815.1 = phi <8 x float> [ %239, %227 ], [ %.sroa.51815.02639, %.loopexit2433 ]
+  %.sroa.01811.1 = phi <8 x float> [ %233, %227 ], [ %.sroa.01811.02636, %.loopexit2433 ]
+  %.sroa.51815.1 = phi <8 x float> [ %239, %227 ], [ %.sroa.51815.02637, %.loopexit2433 ]
   %240 = load i32, ptr %1, align 8
   %241 = shl i32 %240, 1
   br label %242
@@ -1280,8 +1280,8 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %911 = icmp eq i32 %877, %150
   %912 = select <8 x i1> %907, <8 x i32> %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i241927272972, <8 x i32> zeroinitializer
   %913 = select <8 x i1> %909, <8 x i32> %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0.copyload.i242027282973, <8 x i32> zeroinitializer
-  %.sroa.02294.0 = select i1 %911, <8 x i32> %912, <8 x i32> %908
   %.sroa.62298.0 = select i1 %911, <8 x i32> %913, <8 x i32> %910
+  %.sroa.02294.0 = select i1 %911, <8 x i32> %912, <8 x i32> %908
   %914 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %901, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
   %915 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %906, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
   %916 = tail call noundef <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> %914)

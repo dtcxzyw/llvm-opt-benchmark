@@ -351,14 +351,14 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_program_write(ptr nocapt
 
 13:                                               ; preds = %.lr.ph, %child_write.exit
   %.043 = phi ptr [ %2, %.lr.ph ], [ %61, %child_write.exit ]
-  %.01742 = phi i64 [ %3, %.lr.ph ], [ %60, %child_write.exit ]
+  %.01642 = phi i64 [ %3, %.lr.ph ], [ %60, %child_write.exit ]
   %14 = load i32, ptr %7, align 4
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %child_write.exit.thread, label %.preheader49.i
 
 .preheader49.i:                                   ; preds = %13, %.preheader49.i.backedge
   %16 = load i32, ptr %7, align 4
-  %17 = tail call i64 @write(i32 noundef %16, ptr noundef readonly %.043, i64 noundef %.01742) #11
+  %17 = tail call i64 @write(i32 noundef %16, ptr noundef readonly %.043, i64 noundef %.01642) #11
   %18 = icmp eq i64 %17, -1
   br i1 %18, label %19, label %.critedge.i
 
@@ -453,7 +453,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_program_write(ptr nocapt
   br label %.preheader49.i.backedge
 
 child_write.exit:                                 ; preds = %.critedge.i
-  %60 = sub i64 %.01742, %17
+  %60 = sub i64 %.01642, %17
   %61 = getelementptr inbounds i8, ptr %.043, i64 %17
   %.not = icmp eq i64 %60, 0
   br i1 %.not, label %.loopexit23, label %13, !llvm.loop !5
@@ -467,8 +467,8 @@ child_write.exit.thread:                          ; preds = %13, %.critedge46.i,
   br label %.loopexit23
 
 .loopexit23:                                      ; preds = %child_write.exit, %4, %child_write.exit.thread
-  %.016 = phi i32 [ -30, %child_write.exit.thread ], [ 0, %4 ], [ 0, %child_write.exit ]
-  ret i32 %.016
+  %.017 = phi i32 [ -30, %child_write.exit.thread ], [ 0, %4 ], [ 0, %child_write.exit ]
+  ret i32 %.017
 }
 
 ; Function Attrs: nounwind uwtable

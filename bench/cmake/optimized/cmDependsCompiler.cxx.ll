@@ -1815,10 +1815,10 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5
   br i1 %.not8.i, label %.loopexit89, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %48, %"_ZZN17cmDependsCompiler17WriteDependenciesERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EESt4lessIS6_ESaISt4pairIKS6_S9_EEERSoSJ_ENK3$_0clB5cxx11ERSD_.exit.i"
-  %.sroa.04.010.i = phi ptr [ %56, %"_ZZN17cmDependsCompiler17WriteDependenciesERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EESt4lessIS6_ESaISt4pairIKS6_S9_EEERSoSJ_ENK3$_0clB5cxx11ERSD_.exit.i" ], [ %50, %48 ]
+  %.sroa.01.010.i = phi ptr [ %56, %"_ZZN17cmDependsCompiler17WriteDependenciesERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EESt4lessIS6_ESaISt4pairIKS6_S9_EEERSoSJ_ENK3$_0clB5cxx11ERSD_.exit.i" ], [ %50, %48 ]
   %.val.val.i = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  invoke void @_ZNK17cmOutputConverter24MaybeRelativeToTopBinDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(108) %.val.val.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04.010.i)
+  invoke void @_ZNK17cmOutputConverter24MaybeRelativeToTopBinDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(108) %.val.val.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.010.i)
           to label %.noexc unwind label %.loopexit.split-lp82.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i
@@ -1834,9 +1834,9 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5
 "_ZZN17cmDependsCompiler17WriteDependenciesERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EESt4lessIS6_ESaISt4pairIKS6_S9_EEERSoSJ_ENK3$_0clB5cxx11ERSD_.exit.i": ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  %55 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04.010.i, ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  %55 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.010.i, ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  %56 = getelementptr i8, ptr %.sroa.04.010.i, i64 32
+  %56 = getelementptr i8, ptr %.sroa.01.010.i, i64 32
   %.not.i = icmp eq ptr %56, %52
   br i1 %.not.i, label %.loopexit89, label %.lr.ph.i, !llvm.loop !33
 

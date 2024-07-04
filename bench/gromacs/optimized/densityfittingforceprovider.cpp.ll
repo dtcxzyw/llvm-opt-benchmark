@@ -3339,9 +3339,9 @@ _ZN3gmx27DensityFittingForceProvider4Impl5stateEv.exit: ; preds = %3, %22
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.sroa.09.013.i = phi ptr [ %48, %.lr.ph.i ], [ %40, %.lr.ph.i.preheader ]
-  %.sroa.07.012.i = phi ptr [ %49, %.lr.ph.i ], [ %43, %.lr.ph.i.preheader ]
-  %44 = load i32, ptr %.sroa.09.013.i, align 4
+  %.sroa.07.013.i = phi ptr [ %49, %.lr.ph.i ], [ %43, %.lr.ph.i.preheader ]
+  %.sroa.09.012.i = phi ptr [ %48, %.lr.ph.i ], [ %40, %.lr.ph.i.preheader ]
+  %44 = load i32, ptr %.sroa.09.012.i, align 4
   %.val.val.i = load i64, ptr %1, align 8
   %45 = sext i32 %44 to i64
   %46 = inttoptr i64 %.val.val.i to ptr
@@ -3349,11 +3349,11 @@ _ZN3gmx27DensityFittingForceProvider4Impl5stateEv.exit: ; preds = %3, %22
   %.sroa.01.0.copyload.i.i = load <2 x float>, ptr %47, align 4
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %47, i64 8
   %.sroa.22.0.copyload.i.i = load float, ptr %.sroa.22.0..sroa_idx.i.i, align 4
-  store <2 x float> %.sroa.01.0.copyload.i.i, ptr %.sroa.07.012.i, align 4
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.07.012.i, i64 8
+  store <2 x float> %.sroa.01.0.copyload.i.i, ptr %.sroa.07.013.i, align 4
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.07.013.i, i64 8
   store float %.sroa.22.0.copyload.i.i, ptr %.sroa.22.0..sroa_idx.i, align 4
-  %48 = getelementptr inbounds i8, ptr %.sroa.09.013.i, i64 4
-  %49 = getelementptr inbounds i8, ptr %.sroa.07.012.i, i64 12
+  %48 = getelementptr inbounds i8, ptr %.sroa.09.012.i, i64 4
+  %49 = getelementptr inbounds i8, ptr %.sroa.07.013.i, i64 12
   %.not.i = icmp eq ptr %48, %42
   br i1 %.not.i, label %"_ZSt9transformIN3gmx12ArrayRefIterIKiEEN9__gnu_cxx17__normal_iteratorIPNS0_11BasicVectorIfEESt6vectorIS7_SaIS7_EEEEZNS0_27DensityFittingForceProvider4Impl15calculateForcesERKNS0_18ForceProviderInputEPNS0_19ForceProviderOutputEE3$_0ET0_T_SM_SL_T1_.exit", label %.lr.ph.i, !llvm.loop !64
 
@@ -3674,11 +3674,11 @@ _ZL25havePPDomainDecompositionPK9t_commrec.exit67.thread: ; preds = %._crit_edge
   br label %185
 
 185:                                              ; preds = %.noexc, %.lr.ph.i69
-  %.sroa.014.020.i = phi ptr [ %180, %.lr.ph.i69 ], [ %188, %.noexc ]
+  %.sroa.09.020.i = phi ptr [ %182, %.lr.ph.i69 ], [ %190, %.noexc ]
   %.sroa.011.019.i = phi ptr [ %108, %.lr.ph.i69 ], [ %189, %.noexc ]
-  %.sroa.09.018.i = phi ptr [ %182, %.lr.ph.i69 ], [ %190, %.noexc ]
-  %.sroa.03.0.copyload.i = load <2 x float>, ptr %.sroa.014.020.i, align 4
-  %.sroa.24.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.014.020.i, i64 8
+  %.sroa.014.018.i = phi ptr [ %180, %.lr.ph.i69 ], [ %188, %.noexc ]
+  %.sroa.03.0.copyload.i = load <2 x float>, ptr %.sroa.014.018.i, align 4
+  %.sroa.24.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.014.018.i, i64 8
   %.sroa.24.0.copyload.i = load float, ptr %.sroa.24.0..sroa_idx.i, align 4
   %186 = load float, ptr %.sroa.011.019.i, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
@@ -3695,12 +3695,12 @@ _ZL25havePPDomainDecompositionPK9t_commrec.exit67.thread: ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %.fca.0.extract.i = extractvalue { <2 x float>, float } %187, 0
   %.fca.1.extract.i = extractvalue { <2 x float>, float } %187, 1
-  store <2 x float> %.fca.0.extract.i, ptr %.sroa.09.018.i, align 4
-  %.sroa.26.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.09.018.i, i64 8
+  store <2 x float> %.fca.0.extract.i, ptr %.sroa.09.020.i, align 4
+  %.sroa.26.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.09.020.i, i64 8
   store float %.fca.1.extract.i, ptr %.sroa.26.0..sroa_idx.i, align 4
-  %188 = getelementptr inbounds i8, ptr %.sroa.014.020.i, i64 12
+  %188 = getelementptr inbounds i8, ptr %.sroa.014.018.i, i64 12
   %189 = getelementptr inbounds i8, ptr %.sroa.011.019.i, i64 4
-  %190 = getelementptr inbounds i8, ptr %.sroa.09.018.i, i64 12
+  %190 = getelementptr inbounds i8, ptr %.sroa.09.020.i, i64 12
   %.not.i70 = icmp eq ptr %188, %181
   br i1 %.not.i70, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaIS4_EEEENS1_IPfS6_IfSaIfEEEES9_ZNS2_27DensityFittingForceProvider4Impl15calculateForcesERKNS2_18ForceProviderInputEPNS2_19ForceProviderOutputEE3$_1ET1_T_SN_T0_SM_T2_.exit", label %185, !llvm.loop !67
 

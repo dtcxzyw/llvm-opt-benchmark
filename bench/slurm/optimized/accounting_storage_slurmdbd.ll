@@ -4164,15 +4164,15 @@ define i32 @acct_storage_p_get_usage(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %63
 
 63:                                               ; preds = %61, %57, %53, %49
-  %.044 = phi i32 [ -1, %61 ], [ 0, %57 ], [ 0, %53 ], [ 0, %49 ]
+  %.0 = phi i32 [ -1, %61 ], [ 0, %57 ], [ 0, %53 ], [ 0, %49 ]
   %64 = load i16, ptr %24, align 8
   %65 = zext i16 %64 to i32
   call void @slurm_slurmdbd_free_usage_msg(ptr noundef %48, i32 noundef %65) #14
   br label %66
 
 66:                                               ; preds = %20, %43, %63, %42, %15
-  %.0 = phi i32 [ -1, %15 ], [ %19, %20 ], [ 0, %42 ], [ 0, %43 ], [ %.044, %63 ]
-  ret i32 %.0
+  %.045 = phi i32 [ -1, %15 ], [ %19, %20 ], [ 0, %42 ], [ 0, %43 ], [ %.0, %63 ]
+  ret i32 %.045
 }
 
 declare ptr @slurmdbd_msg_type_2_str(i32 noundef, i32 noundef) local_unnamed_addr #2

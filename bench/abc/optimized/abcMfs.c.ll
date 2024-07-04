@@ -739,8 +739,8 @@ Abc_NtkFillTruthStore.exit:                       ; preds = %Abc_NtkFillTruthSto
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %118, %._crit_edge.split.loop.exit231
-  %.0105.lcssa = phi i32 [ %119, %._crit_edge.split.loop.exit231 ], [ %smax, %118 ]
-  %120 = icmp eq i32 %.0105.lcssa, %102
+  %.0.lcssa = phi i32 [ %119, %._crit_edge.split.loop.exit231 ], [ %smax, %118 ]
+  %120 = icmp eq i32 %.0.lcssa, %102
   br i1 %120, label %.critedge2, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
@@ -768,8 +768,8 @@ Abc_NtkFillTruthStore.exit:                       ; preds = %Abc_NtkFillTruthSto
   br label %._crit_edge173
 
 ._crit_edge173:                                   ; preds = %123, %._crit_edge173.split.loop.exit233
-  %.1106.lcssa = phi i32 [ %124, %._crit_edge173.split.loop.exit233 ], [ %smax207, %123 ]
-  %125 = icmp eq i32 %.1106.lcssa, %102
+  %.1.lcssa = phi i32 [ %124, %._crit_edge173.split.loop.exit233 ], [ %smax207, %123 ]
+  %125 = icmp eq i32 %.1.lcssa, %102
   br i1 %125, label %.critedge2, label %._crit_edge173.thread
 
 ._crit_edge173.thread:                            ; preds = %100, %.preheader, %86, %._crit_edge173
@@ -1348,8 +1348,8 @@ Abc_NtkFillTruthStore.exit:                       ; preds = %Abc_NtkFillTruthSto
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %101, %._crit_edge.split.loop.exit220
-  %.0101.lcssa = phi i32 [ %102, %._crit_edge.split.loop.exit220 ], [ %smax, %101 ]
-  %103 = icmp eq i32 %.0101.lcssa, %89
+  %.0.lcssa = phi i32 [ %102, %._crit_edge.split.loop.exit220 ], [ %smax, %101 ]
+  %103 = icmp eq i32 %.0.lcssa, %89
   br i1 %103, label %.critedge2, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
@@ -1377,8 +1377,8 @@ Abc_NtkFillTruthStore.exit:                       ; preds = %Abc_NtkFillTruthSto
   br label %._crit_edge166
 
 ._crit_edge166:                                   ; preds = %106, %._crit_edge166.split.loop.exit222
-  %.1102.lcssa = phi i32 [ %107, %._crit_edge166.split.loop.exit222 ], [ %smax195, %106 ]
-  %108 = icmp eq i32 %.1102.lcssa, %89
+  %.1.lcssa = phi i32 [ %107, %._crit_edge166.split.loop.exit222 ], [ %smax195, %106 ]
+  %108 = icmp eq i32 %.1.lcssa, %89
   br i1 %108, label %.critedge2, label %._crit_edge166.thread
 
 ._crit_edge166.thread:                            ; preds = %87, %.preheader, %79, %._crit_edge166

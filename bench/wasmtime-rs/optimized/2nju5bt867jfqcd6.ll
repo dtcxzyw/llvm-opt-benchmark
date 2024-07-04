@@ -1496,11 +1496,11 @@ define i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..t
   br label %13
 
 13:                                               ; preds = %13, %8
-  %.016 = phi i64 [ %2, %8 ], [ %15, %13 ]
-  %.015 = phi i64 [ 0, %8 ], [ %16, %13 ]
-  %14 = getelementptr inbounds { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, i8, [7 x i8] }, ptr %0, i64 %.015
-  %15 = call i64 @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0aab45999556c251E"(ptr nonnull align 1 %4, i64 %.016, ptr nonnull align 8 %14)
-  %16 = add nuw i64 %.015, 1
+  %.016 = phi i64 [ 0, %8 ], [ %16, %13 ]
+  %.015 = phi i64 [ %2, %8 ], [ %15, %13 ]
+  %14 = getelementptr inbounds { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, i8, [7 x i8] }, ptr %0, i64 %.016
+  %15 = call i64 @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0aab45999556c251E"(ptr nonnull align 1 %4, i64 %.015, ptr nonnull align 8 %14)
+  %16 = add nuw i64 %.016, 1
   %17 = icmp eq i64 %16, %12
   br i1 %17, label %.loopexit, label %13
 
@@ -1573,11 +1573,11 @@ define i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..t
   br label %13
 
 13:                                               ; preds = %13, %8
-  %.016 = phi i64 [ %2, %8 ], [ %15, %13 ]
-  %.015 = phi i64 [ 0, %8 ], [ %16, %13 ]
-  %14 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.015
-  %15 = call i64 @"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb3121c8ccf6d773cE"(ptr nonnull align 1 %4, i64 %.016, ptr nonnull align 8 %14)
-  %16 = add nuw i64 %.015, 1
+  %.016 = phi i64 [ 0, %8 ], [ %16, %13 ]
+  %.015 = phi i64 [ %2, %8 ], [ %15, %13 ]
+  %14 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.016
+  %15 = call i64 @"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb3121c8ccf6d773cE"(ptr nonnull align 1 %4, i64 %.015, ptr nonnull align 8 %14)
+  %16 = add nuw i64 %.016, 1
   %17 = icmp eq i64 %16, %12
   br i1 %17, label %.loopexit, label %13
 

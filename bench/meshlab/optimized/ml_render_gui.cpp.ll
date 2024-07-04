@@ -14449,7 +14449,7 @@ _Z12qobject_castIP23MLRenderingGlobalActionET_P7QObject.exit: ; preds = %.crited
 
 _ZN4QMapIi15MLRenderingDataE14const_iteratorppEv.exit: ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIP17MLRenderingActionEED2Ev.exit, %.split87
   %.sroa.054.0 = phi ptr [ %.0.i.i, %.split87 ], [ %91, %_ZN9QtPrivate17QForeachContainerI5QListIP17MLRenderingActionEED2Ev.exit ]
-  %.023 = phi i8 [ %40, %.split87 ], [ %.124.lcssa, %_ZN9QtPrivate17QForeachContainerI5QListIP17MLRenderingActionEED2Ev.exit ]
+  %.021 = phi i8 [ %40, %.split87 ], [ %.122.lcssa, %_ZN9QtPrivate17QForeachContainerI5QListIP17MLRenderingActionEED2Ev.exit ]
   %41 = load ptr, ptr %1, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 8
   %.not63 = icmp eq ptr %.sroa.054.0, %42
@@ -14541,7 +14541,7 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeac
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
   %84 = phi ptr [ %73, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ], [ %.pre94, %.critedge2.loopexit ]
-  %.124.lcssa = phi i8 [ %.023, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ], [ %110, %.critedge2.loopexit ]
+  %.122.lcssa = phi i8 [ %.021, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ], [ %110, %.critedge2.loopexit ]
   %85 = load atomic i32, ptr %84 monotonic, align 4
   switch i32 %85, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i36 [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i35
@@ -14585,7 +14585,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP17MLRenderingActionEED2Ev.exit: ; preds
 
 .lr.ph:                                           ; preds = %106, %.lr.ph86
   %92 = phi ptr [ %78, %.lr.ph86 ], [ %111, %106 ]
-  %.12485 = phi i8 [ %.023, %.lr.ph86 ], [ %110, %106 ]
+  %.12285 = phi i8 [ %.021, %.lr.ph86 ], [ %110, %106 ]
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 112
@@ -14625,7 +14625,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i41: ; preds = %_ZN9QtPrivate8RefC
   unreachable
 
 106:                                              ; preds = %.lr.ph
-  %107 = and i8 %.12485, 1
+  %107 = and i8 %.12285, 1
   %108 = icmp ne i8 %107, 0
   %109 = select i1 %97, i1 %108, i1 false
   %110 = zext i1 %109 to i8
@@ -14638,7 +14638,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i41: ; preds = %_ZN9QtPrivate8RefC
   br i1 %.not64, label %.critedge2.loopexit, label %.lr.ph, !llvm.loop !142
 
 112:                                              ; preds = %_ZN4QMapIi15MLRenderingDataE14const_iteratorppEv.exit
-  %113 = trunc nuw i8 %.023 to i1
+  %113 = trunc nuw i8 %.021 to i1
   invoke void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferenceable(16) %30, i1 noundef zeroext %113)
           to label %114 unwind label %.loopexit.split-lp
 

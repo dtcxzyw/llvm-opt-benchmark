@@ -126,12 +126,12 @@ entry:
 for.body:                                         ; preds = %entry, %if.end42
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %if.end42 ]
   %outp.025 = phi ptr [ @curl_version.out, %entry ], [ %add.ptr, %if.end42 ]
-  %outlen.024 = phi i64 [ 300, %entry ], [ %sub, %if.end42 ]
+  %outlen.023 = phi i64 [ 300, %entry ], [ %sub, %if.end42 ]
   %arrayidx38 = getelementptr inbounds [16 x ptr], ptr %src, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx38, align 8
   %call39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #8
   %add = add i64 %call39, 2
-  %cmp40.not = icmp ugt i64 %outlen.024, %add
+  %cmp40.not = icmp ugt i64 %outlen.023, %add
   br i1 %cmp40.not, label %if.end, label %for.end
 
 if.end:                                           ; preds = %for.body
@@ -141,13 +141,13 @@ if.end:                                           ; preds = %for.body
 if.then41:                                        ; preds = %if.end
   %incdec.ptr = getelementptr inbounds i8, ptr %outp.025, i64 1
   store i8 32, ptr %outp.025, align 1
-  %dec = add i64 %outlen.024, -1
+  %dec = add i64 %outlen.023, -1
   %.pre = load ptr, ptr %arrayidx38, align 8
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then41, %if.end
   %2 = phi ptr [ %.pre, %if.then41 ], [ %1, %if.end ]
-  %outlen.1 = phi i64 [ %dec, %if.then41 ], [ %outlen.024, %if.end ]
+  %outlen.1 = phi i64 [ %dec, %if.then41 ], [ %outlen.023, %if.end ]
   %outp.1 = phi ptr [ %incdec.ptr, %if.then41 ], [ %outp.025, %if.end ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %outp.1, ptr align 1 %2, i64 %call39, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %outp.1, i64 %call39

@@ -1303,8 +1303,8 @@ define range(i32 -1, 1) i32 @build_node_spec_bitmap(ptr noundef %0) local_unname
   br label %51
 
 51:                                               ; preds = %10, %.loopexit, %6
-  %.028 = phi i32 [ -1, %6 ], [ 0, %.loopexit ], [ 0, %10 ]
-  ret i32 %.028
+  %.029 = phi i32 [ -1, %6 ], [ 0, %.loopexit ], [ 0, %10 ]
+  ret i32 %.029
 }
 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1

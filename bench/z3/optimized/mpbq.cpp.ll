@@ -4200,8 +4200,8 @@ if.else:                                          ; preds = %if.end
   br label %while.body12
 
 while.body12:                                     ; preds = %_ZN12mpbq_manager5mul2kER4mpbqj.exit127, %if.else
-  %max_k.0 = phi i32 [ %4, %if.else ], [ %max_k.1, %_ZN12mpbq_manager5mul2kER4mpbqj.exit127 ]
   %min_k.0 = phi i32 [ 0, %if.else ], [ %min_k.1, %_ZN12mpbq_manager5mul2kER4mpbqj.exit127 ]
+  %max_k.0 = phi i32 [ %4, %if.else ], [ %max_k.1, %_ZN12mpbq_manager5mul2kER4mpbqj.exit127 ]
   %sub = sub i32 %max_k.0, %min_k.0
   %div47 = lshr i32 %sub, 1
   %add = add i32 %div47, %min_k.0
@@ -4291,13 +4291,13 @@ if.end8.sink.split.i123:                          ; preds = %if.else.i121, %if.t
 _ZN12mpbq_manager5mul2kER4mpbqj.exit127:          ; preds = %_ZN12mpbq_manager3setER4mpbqRKS0_.exit113, %if.end8.sink.split.i123
   %call13 = tail call noundef zeroext i1 @_ZN12mpbq_manager14select_integerERK4mpbqS2_R3mpz(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(20) %m_select_small_tmp1, ptr noundef nonnull align 8 dereferenceable(20) %m_select_small_tmp2, ptr noundef nonnull align 8 dereferenceable(16) %m_select_small_tmp)
   %add16 = add i32 %add, 1
-  %max_k.1 = select i1 %call13, i32 %add, i32 %max_k.0
   %min_k.1 = select i1 %call13, i32 %min_k.0, i32 %add16
+  %max_k.1 = select i1 %call13, i32 %add, i32 %max_k.0
   %cmp18 = icmp eq i32 %min_k.1, %max_k.1
   br i1 %cmp18, label %if.then19, label %while.body12, !llvm.loop !17
 
 if.then19:                                        ; preds = %_ZN12mpbq_manager5mul2kER4mpbqj.exit127
-  %cmp20 = icmp eq i32 %max_k.1, %add
+  %cmp20 = icmp eq i32 %min_k.1, %add
   br i1 %cmp20, label %if.then21, label %if.else22
 
 if.then21:                                        ; preds = %if.then19
@@ -4390,40 +4390,40 @@ if.else.i.i166:                                   ; preds = %_ZN12mpbq_manager3s
 _ZN12mpbq_manager3setER4mpbqRKS0_.exit174:        ; preds = %if.then.i.i170, %if.else.i.i166
   %44 = load i32, ptr %m_k2, align 8
   store i32 %44, ptr %m_k3.i108, align 8
-  %cmp.i175 = icmp eq i32 %max_k.1, 0
+  %cmp.i175 = icmp eq i32 %min_k.1, 0
   br i1 %cmp.i175, label %_ZN12mpbq_manager5mul2kER4mpbqj.exit196, label %if.end.i176
 
 if.end.i176:                                      ; preds = %_ZN12mpbq_manager3setER4mpbqRKS0_.exit174
   %45 = load i32, ptr %m_k3.i95, align 8
-  %cmp2.i178 = icmp ult i32 %45, %max_k.1
+  %cmp2.i178 = icmp ult i32 %45, %min_k.1
   br i1 %cmp2.i178, label %if.then3.i183, label %if.else.i179
 
 if.then3.i183:                                    ; preds = %if.end.i176
   %46 = load ptr, ptr %this, align 8
-  %sub.i184 = sub i32 %max_k.1, %45
+  %sub.i184 = sub i32 %min_k.1, %45
   tail call void @_ZN11mpz_managerILb0EE5mul2kER3mpzj(ptr noundef nonnull align 8 dereferenceable(600) %46, ptr noundef nonnull align 8 dereferenceable(16) %m_select_small_tmp1, i32 noundef %sub.i184)
   %.pre218 = load i32, ptr %m_k3.i108, align 8
   br label %if.end.i187
 
 if.else.i179:                                     ; preds = %if.end.i176
-  %sub7.i180 = sub i32 %45, %max_k.1
+  %sub7.i180 = sub i32 %45, %min_k.1
   br label %if.end.i187
 
 if.end.i187:                                      ; preds = %if.else.i179, %if.then3.i183
   %47 = phi i32 [ %44, %if.else.i179 ], [ %.pre218, %if.then3.i183 ]
   %sub7.sink.i182 = phi i32 [ %sub7.i180, %if.else.i179 ], [ 0, %if.then3.i183 ]
   store i32 %sub7.sink.i182, ptr %m_k3.i95, align 8
-  %cmp2.i189 = icmp ult i32 %47, %max_k.1
+  %cmp2.i189 = icmp ult i32 %47, %min_k.1
   br i1 %cmp2.i189, label %if.then3.i194, label %if.else.i190
 
 if.then3.i194:                                    ; preds = %if.end.i187
   %48 = load ptr, ptr %this, align 8
-  %sub.i195 = sub i32 %max_k.1, %47
+  %sub.i195 = sub i32 %min_k.1, %47
   tail call void @_ZN11mpz_managerILb0EE5mul2kER3mpzj(ptr noundef nonnull align 8 dereferenceable(600) %48, ptr noundef nonnull align 8 dereferenceable(16) %m_select_small_tmp2, i32 noundef %sub.i195)
   br label %if.end8.sink.split.i192
 
 if.else.i190:                                     ; preds = %if.end.i187
-  %sub7.i191 = sub i32 %47, %max_k.1
+  %sub7.i191 = sub i32 %47, %min_k.1
   br label %if.end8.sink.split.i192
 
 if.end8.sink.split.i192:                          ; preds = %if.else.i190, %if.then3.i194
@@ -4463,7 +4463,7 @@ if.else.i.i201:                                   ; preds = %if.end25
 
 _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i202:  ; preds = %if.else.i.i201, %if.then.i.i213
   %m_k.i203 = getelementptr inbounds i8, ptr %r, i64 16
-  store i32 %max_k.1, ptr %m_k.i203, align 8
+  store i32 %min_k.1, ptr %m_k.i203, align 8
   br i1 %cmp.i175, label %if.end29, label %if.end.i.i205
 
 if.end.i.i205:                                    ; preds = %_ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit.i202

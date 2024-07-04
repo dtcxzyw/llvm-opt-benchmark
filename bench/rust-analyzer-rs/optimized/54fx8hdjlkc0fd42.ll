@@ -36597,9 +36597,9 @@ default.unreachable421:                           ; preds = %366, %"_ZN8la_arena
   br label %136
 
 131:                                              ; preds = %.lr.ph, %.backedge
-  %.sroa.0208.0353 = phi ptr [ %.val132, %.lr.ph ], [ %132, %.backedge ]
-  %132 = getelementptr inbounds i8, ptr %.sroa.0208.0353, i64 128
-  %133 = getelementptr inbounds i8, ptr %.sroa.0208.0353, i64 80
+  %.sroa.0208.0354 = phi ptr [ %.val132, %.lr.ph ], [ %132, %.backedge ]
+  %132 = getelementptr inbounds i8, ptr %.sroa.0208.0354, i64 128
+  %133 = getelementptr inbounds i8, ptr %.sroa.0208.0354, i64 80
   %134 = load i32, ptr %133, align 16, !range !9063, !noundef !11
   %135 = icmp eq i32 %134, 4
   br i1 %135, label %161, label %158
@@ -36675,7 +36675,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %common.resume.sink.split
 
 158:                                              ; preds = %131
-  %159 = load i32, ptr %.sroa.0208.0353, align 16, !range !9079, !noundef !11
+  %159 = load i32, ptr %.sroa.0208.0354, align 16, !range !9079, !noundef !11
   %160 = icmp eq i32 %159, 10
   br i1 %160, label %170, label %.backedge
 
@@ -36702,9 +36702,9 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %429
 
 170:                                              ; preds = %158
-  %171 = getelementptr inbounds i8, ptr %.sroa.0208.0353, i64 12
+  %171 = getelementptr inbounds i8, ptr %.sroa.0208.0354, i64 12
   %172 = load i32, ptr %171, align 4, !noundef !11
-  %173 = getelementptr inbounds i8, ptr %.sroa.0208.0353, i64 16
+  %173 = getelementptr inbounds i8, ptr %.sroa.0208.0354, i64 16
   %174 = load i32, ptr %173, align 4, !noundef !11
   %175 = invoke noundef zeroext i1 @_ZN6hir_ty3mir12ProjectionId8is_empty17h2f32389b7d8d08d8E(i32 noundef %174)
           to label %177 unwind label %.loopexit
@@ -36759,7 +36759,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br i1 %trunc.i, label %"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$3get17h723f8b0faf457301E.exit", label %.backedge
 
 "_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$3get17h723f8b0faf457301E.exit": ; preds = %195
-  %199 = getelementptr inbounds i8, ptr %.sroa.0208.0353, i64 80
+  %199 = getelementptr inbounds i8, ptr %.sroa.0208.0354, i64 80
   %200 = load i32, ptr %199, align 16, !range !7637, !noundef !11
   switch i32 %200, label %default.unreachable421 [
     i32 0, label %201
@@ -36769,7 +36769,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   ]
 
 201:                                              ; preds = %"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$3get17h723f8b0faf457301E.exit"
-  %202 = getelementptr inbounds i8, ptr %.sroa.0208.0353, i64 84
+  %202 = getelementptr inbounds i8, ptr %.sroa.0208.0354, i64 84
   %203 = load i32, ptr %202, align 4, !noundef !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25)
   call void @llvm.assume(i1 %100)
@@ -36777,7 +36777,7 @@ common.resume:                                    ; preds = %common.resume.sink.
           to label %208 unwind label %.loopexit
 
 204:                                              ; preds = %"_ZN8la_arena3map42ArenaMap$LT$la_arena..Idx$LT$T$GT$$C$V$GT$3get17h723f8b0faf457301E.exit"
-  %205 = getelementptr inbounds i8, ptr %.sroa.0208.0353, i64 84
+  %205 = getelementptr inbounds i8, ptr %.sroa.0208.0354, i64 84
   %206 = load i32, ptr %205, align 4, !noundef !11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
   call void @llvm.assume(i1 %100)
@@ -37017,7 +37017,7 @@ common.resume:                                    ; preds = %common.resume.sink.
           to label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit161" unwind label %286
 
 "_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit": ; preds = %259, %266, %286
-  %.086 = phi i8 [ %.187, %286 ], [ 0, %266 ], [ 0, %259 ]
+  %.087 = phi i8 [ %.188, %286 ], [ 0, %266 ], [ 0, %259 ]
   %.pn94 = phi { ptr, i32 } [ %287, %286 ], [ %260, %266 ], [ %260, %259 ]
   %.val119 = load ptr, ptr %106, align 8, !nonnull !11, !noundef !11
   %282 = getelementptr inbounds i8, ptr %.val119, i64 48
@@ -37032,7 +37032,7 @@ common.resume:                                    ; preds = %common.resume.sink.
           to label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17hc1b82978c4741c79E.exit164" unwind label %293
 
 286:                                              ; preds = %257, %281, %298, %296
-  %.187 = phi i8 [ 0, %281 ], [ 1, %257 ], [ 1, %298 ], [ 1, %296 ]
+  %.188 = phi i8 [ 0, %281 ], [ 1, %257 ], [ 1, %298 ], [ 1, %296 ]
   %287 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit"
@@ -37077,7 +37077,7 @@ common.resume:                                    ; preds = %common.resume.sink.
           to label %288 unwind label %286
 
 "_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17hc1b82978c4741c79E.exit164": ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit", %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h76c170ce43ff7a74E.exit.sink.split.i162", %306
-  %.3 = phi i8 [ %.2, %306 ], [ %.086, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h76c170ce43ff7a74E.exit.sink.split.i162" ], [ %.086, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit" ]
+  %.3 = phi i8 [ %.2, %306 ], [ %.087, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h76c170ce43ff7a74E.exit.sink.split.i162" ], [ %.087, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit" ]
   %.pn96 = phi { ptr, i32 } [ %307, %306 ], [ %.pn94, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..YieldExpr$GT$17h76c170ce43ff7a74E.exit.sink.split.i162" ], [ %.pn94, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..BlockExpr$GT$17h73ca6c2aff97eb9aE.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !9151)
   call void @llvm.experimental.noalias.scope.decl(metadata !9154)

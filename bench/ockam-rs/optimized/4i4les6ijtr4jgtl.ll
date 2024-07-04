@@ -15139,8 +15139,8 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN87_$LT$tokio..time..timeout..Timeou
   br i1 %brmerge, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc70df26b6d25702cE.llvm.550936700588813936.exit21.thread", label %21
 
 "_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17hd6f94e288f5c39b1E.llvm.550936700588813936.exit": ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc70df26b6d25702cE.llvm.550936700588813936.exit", %20, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc70df26b6d25702cE.llvm.550936700588813936.exit21.thread", %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17h3552003459328310E.llvm.550936700588813936.exit"
-  %.014 = phi i8 [ %.0.i23, %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17h3552003459328310E.llvm.550936700588813936.exit" ], [ 2, %20 ], [ 3, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc70df26b6d25702cE.llvm.550936700588813936.exit21.thread" ], [ %13, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc70df26b6d25702cE.llvm.550936700588813936.exit" ]
-  ret i8 %.014
+  %.0 = phi i8 [ %.0.i23, %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17h3552003459328310E.llvm.550936700588813936.exit" ], [ 2, %20 ], [ 3, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc70df26b6d25702cE.llvm.550936700588813936.exit21.thread" ], [ %13, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc70df26b6d25702cE.llvm.550936700588813936.exit" ]
+  ret i8 %.0
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc70df26b6d25702cE.llvm.550936700588813936.exit21.thread": ; preds = %14, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc70df26b6d25702cE.llvm.550936700588813936.exit21"
   %19 = tail call noundef zeroext i1 @"_ZN74_$LT$tokio..time..sleep..Sleep$u20$as$u20$core..future..future..Future$GT$4poll17he0c8f5346e80d644E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
@@ -18742,21 +18742,21 @@ common.ret:                                       ; preds = %2143, %1433, %1273,
 
 549:                                              ; preds = %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19.i.i, %535
   %.025.i.i = phi i32 [ 0, %535 ], [ %.3.i.i, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19.i.i ]
-  %.0.i.i147 = phi i64 [ %544, %535 ], [ %.1.i.i, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19.i.i ]
+  %.012.i.i = phi i64 [ %544, %535 ], [ %.1.i.i, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19.i.i ]
   %550 = load i64, ptr %545, align 8, !noalias !2527, !noundef !5
   %551 = add i64 %550, -1
-  %552 = and i64 %551, %.0.i.i147
+  %552 = and i64 %551, %.012.i.i
   %553 = sub i64 0, %550
-  %554 = and i64 %.0.i.i147, %553
+  %554 = and i64 %.012.i.i, %553
   %555 = load ptr, ptr %546, align 16, !noalias !2527, !nonnull !5, !align !122, !noundef !5
   %556 = getelementptr inbounds { { i64 }, { { [9 x i64] } } }, ptr %555, i64 %552
   %557 = load atomic i64, ptr %556 acquire, align 8, !noalias !2527
-  %558 = add i64 %.0.i.i147, 1
+  %558 = add i64 %.012.i.i, 1
   %559 = icmp eq i64 %558, %557
   br i1 %559, label %562, label %560
 
 560:                                              ; preds = %549
-  %561 = icmp eq i64 %557, %.0.i.i147
+  %561 = icmp eq i64 %557, %.012.i.i
   br i1 %561, label %573, label %566
 
 562:                                              ; preds = %549
@@ -18789,7 +18789,7 @@ common.ret:                                       ; preds = %2143, %1433, %1273,
 573:                                              ; preds = %560
   fence seq_cst
   %574 = load atomic i64, ptr %547 monotonic, align 8, !noalias !2527
-  %575 = icmp eq i64 %574, %.0.i.i147
+  %575 = icmp eq i64 %574, %.012.i.i
   br i1 %575, label %.thread375, label %576
 
 576:                                              ; preds = %573
@@ -18822,8 +18822,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19.i.i: ; pred
   br label %585
 
 585:                                              ; preds = %582, %562
-  %.012.i.i = phi i64 [ %584, %582 ], [ %557, %562 ]
-  %586 = cmpxchg weak ptr %543, i64 %.0.i.i147, i64 %.012.i.i seq_cst monotonic, align 8, !noalias !2527
+  %.0.i.i148 = phi i64 [ %584, %582 ], [ %557, %562 ]
+  %586 = cmpxchg weak ptr %543, i64 %.012.i.i, i64 %.0.i.i148 seq_cst monotonic, align 8, !noalias !2527
   %587 = extractvalue { i64, i1 } %586, 1
   %588 = extractvalue { i64, i1 } %586, 0
   br i1 %587, label %595, label %589
@@ -18850,7 +18850,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit19.i.i: ; pred
   %.sroa.5357.0..sroa_idx = getelementptr inbounds i8, ptr %556, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %.sroa.5357, ptr noundef nonnull align 4 dereferenceable(68) %.sroa.5357.0..sroa_idx, i64 68, i1 false), !noalias !2526
   %597 = load i64, ptr %545, align 8, !noalias !2527, !noundef !5
-  %598 = add i64 %597, %.0.i.i147
+  %598 = add i64 %597, %.012.i.i
   store atomic i64 %598, ptr %556 release, align 8, !noalias !2527
   %.not.i149 = icmp eq i32 %.sroa.0355.0.copyload, 3
   br i1 %.not.i149, label %.thread375, label %599
@@ -23641,8 +23641,8 @@ common.resume:                                    ; preds = %.body.thread, %95, 
   br label %30
 
 30:                                               ; preds = %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31.i, %"_ZN9sqlx_core4pool10connection64Floating$LT$DB$C$sqlx_core..pool..connection..Live$LT$DB$GT$$GT$9into_idle17h0e1bf8583c3888c6E.exit"
-  %.0.i = phi i32 [ 0, %"_ZN9sqlx_core4pool10connection64Floating$LT$DB$C$sqlx_core..pool..connection..Live$LT$DB$GT$$GT$9into_idle17h0e1bf8583c3888c6E.exit" ], [ %.3.i, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31.i ]
-  %.018.i = phi i64 [ %26, %"_ZN9sqlx_core4pool10connection64Floating$LT$DB$C$sqlx_core..pool..connection..Live$LT$DB$GT$$GT$9into_idle17h0e1bf8583c3888c6E.exit" ], [ %.119.i, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31.i ]
+  %.039.i = phi i32 [ 0, %"_ZN9sqlx_core4pool10connection64Floating$LT$DB$C$sqlx_core..pool..connection..Live$LT$DB$GT$$GT$9into_idle17h0e1bf8583c3888c6E.exit" ], [ %.3.i, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31.i ]
+  %.018.i = phi i64 [ %26, %"_ZN9sqlx_core4pool10connection64Floating$LT$DB$C$sqlx_core..pool..connection..Live$LT$DB$GT$$GT$9into_idle17h0e1bf8583c3888c6E.exit" ], [ %.1.i, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31.i ]
   %31 = load i64, ptr %27, align 8, !noalias !3056, !noundef !5
   %32 = add i64 %31, -1
   %33 = and i64 %32, %.018.i
@@ -23661,7 +23661,7 @@ common.resume:                                    ; preds = %.body.thread, %95, 
   br i1 %43, label %51, label %44
 
 44:                                               ; preds = %40
-  %45 = icmp ult i32 %.0.i, 7
+  %45 = icmp ult i32 %.039.i, 7
   br i1 %45, label %.preheader.i.i, label %46
 
 46:                                               ; preds = %44
@@ -23669,7 +23669,7 @@ common.resume:                                    ; preds = %.body.thread, %95, 
           to label %.thread.i.i unwind label %78, !noalias !3056
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %46
-  %47 = icmp ult i32 %.0.i, 11
+  %47 = icmp ult i32 %.039.i, 11
   %48 = load atomic i64, ptr %25 monotonic, align 128, !noalias !3056
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31.i
 
@@ -23677,7 +23677,7 @@ common.resume:                                    ; preds = %.body.thread, %95, 
   %.sroa.0.06.i.i = phi i32 [ %49, %.preheader.i.i ], [ 0, %44 ]
   %49 = add nuw nsw i32 %.sroa.0.06.i.i, 1
   tail call void @llvm.x86.sse2.pause() #27, !noalias !3056
-  %.sroa.0.0.highbits.i.i = lshr i32 %49, %.0.i
+  %.sroa.0.0.highbits.i.i = lshr i32 %49, %.039.i
   %50 = icmp eq i32 %.sroa.0.0.highbits.i.i, 0
   br i1 %50, label %.preheader.i.i, label %.thread.i.i
 
@@ -23700,11 +23700,11 @@ common.resume:                                    ; preds = %.body.thread, %95, 
 
 56:                                               ; preds = %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.6.i, i64 72, i1 false), !noalias !3060
-  %.0.sroa.speculated.i.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.0.i, i32 6)
+  %.0.sroa.speculated.i.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.039.i, i32 6)
   br label %59
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit.i: ; preds = %59
-  %57 = icmp ult i32 %.0.i, 7
+  %57 = icmp ult i32 %.039.i, 7
   %58 = load atomic i64, ptr %25 monotonic, align 128, !noalias !3056
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31.i
 
@@ -23718,9 +23718,9 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit.i: ; preds = 
 
 _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31.i: ; preds = %72, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit.i, %.thread.i.i
   %.pn.in.i = phi i1 [ %57, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit.i ], [ %47, %.thread.i.i ], [ %73, %72 ]
-  %.119.i = phi i64 [ %58, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit.i ], [ %48, %.thread.i.i ], [ %70, %72 ]
+  %.1.i = phi i64 [ %58, %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit.i ], [ %48, %.thread.i.i ], [ %70, %72 ]
   %.pn.i = zext i1 %.pn.in.i to i32
-  %.3.i = add nuw nsw i32 %.0.i, %.pn.i
+  %.3.i = add nuw nsw i32 %.039.i, %.pn.i
   br label %30
 
 62:                                               ; preds = %30
@@ -23729,18 +23729,18 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31.i: ; preds 
   %65 = sub i64 0, %31
   %66 = and i64 %.018.i, %65
   %67 = add i64 %66, %31
-  %.020.i = select i1 %64, i64 %35, i64 %67
-  %68 = cmpxchg weak ptr %25, i64 %.018.i, i64 %.020.i seq_cst monotonic, align 8, !noalias !3056
+  %.0.i = select i1 %64, i64 %35, i64 %67
+  %68 = cmpxchg weak ptr %25, i64 %.018.i, i64 %.0.i seq_cst monotonic, align 8, !noalias !3056
   %69 = extractvalue { i64, i1 } %68, 1
   %70 = extractvalue { i64, i1 } %68, 0
   br i1 %69, label %.thread, label %71
 
 71:                                               ; preds = %62
-  %.0.sroa.speculated.i.i28.i = tail call noundef i32 @llvm.umin.i32(i32 %.0.i, i32 6)
+  %.0.sroa.speculated.i.i28.i = tail call noundef i32 @llvm.umin.i32(i32 %.039.i, i32 6)
   br label %74
 
 72:                                               ; preds = %74
-  %73 = icmp ult i32 %.0.i, 7
+  %73 = icmp ult i32 %.039.i, 7
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit31.i
 
 74:                                               ; preds = %74, %71
@@ -27230,7 +27230,7 @@ define internal fastcc void @"_ZN111_$LT$ockam_identity..models..change_history.
   br label %206
 
 107:                                              ; preds = %.lr.ph486, %132
-  %.0329485 = phi i32 [ 0, %.lr.ph486 ], [ %133, %132 ]
+  %.0328485 = phi i32 [ 0, %.lr.ph486 ], [ %133, %132 ]
   %.sroa.077.4484 = phi i1 [ false, %.lr.ph486 ], [ %.sroa.077.6, %132 ]
   %108 = load i8, ptr %78, align 8, !range !3456, !noundef !5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %26)
@@ -27265,7 +27265,7 @@ define internal fastcc void @"_ZN111_$LT$ockam_identity..models..change_history.
   br i1 %112, label %114, label %115
 
 .critedge:                                        ; preds = %107
-  %113 = icmp eq i32 %.0329485, 0
+  %113 = icmp eq i32 %.0328485, 0
   br i1 %113, label %120, label %122
 
 114:                                              ; preds = %110
@@ -27360,7 +27360,7 @@ define internal fastcc void @"_ZN111_$LT$ockam_identity..models..change_history.
 
 132:                                              ; preds = %138, %125
   %.sroa.077.6 = phi i1 [ true, %125 ], [ %.sroa.077.4484, %138 ]
-  %133 = add i32 %.0329485, 1
+  %133 = add i32 %.0328485, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %26)
   call void @_ZN8minicbor6decode7decoder7Decoder8datatype17h9d7a2e53823e6fc3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %134 = load i64, ptr %26, align 8, !range !133, !noundef !5
@@ -27520,7 +27520,7 @@ define internal fastcc void @"_ZN111_$LT$ockam_identity..models..change_history.
 
 172:                                              ; preds = %.lr.ph478, %197
   %.sroa.0158.4477 = phi i1 [ false, %.lr.ph478 ], [ %.sroa.0158.6, %197 ]
-  %.0328476 = phi i32 [ 0, %.lr.ph478 ], [ %198, %197 ]
+  %.0329476 = phi i32 [ 0, %.lr.ph478 ], [ %198, %197 ]
   %173 = load i8, ptr %146, align 8, !range !3456, !noundef !5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
   %.not = icmp eq i8 %173, 25
@@ -27554,7 +27554,7 @@ define internal fastcc void @"_ZN111_$LT$ockam_identity..models..change_history.
   br i1 %177, label %179, label %180
 
 .critedge362:                                     ; preds = %172
-  %178 = icmp eq i32 %.0328476, 0
+  %178 = icmp eq i32 %.0329476, 0
   br i1 %178, label %185, label %187
 
 179:                                              ; preds = %175
@@ -27649,7 +27649,7 @@ define internal fastcc void @"_ZN111_$LT$ockam_identity..models..change_history.
 
 197:                                              ; preds = %203, %190
   %.sroa.0158.6 = phi i1 [ true, %190 ], [ %.sroa.0158.4477, %203 ]
-  %198 = add i32 %.0328476, 1
+  %198 = add i32 %.0329476, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16)
   call void @_ZN8minicbor6decode7decoder7Decoder8datatype17h9d7a2e53823e6fc3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %199 = load i64, ptr %16, align 8, !range !133, !noundef !5
@@ -27822,9 +27822,9 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..change_history..ChangeDa
   %.sroa.4130.0582 = phi i64 [ undef, %.lr.ph ], [ %.sroa.4130.2, %123 ]
   %.sroa.0129.0581 = phi i64 [ 0, %.lr.ph ], [ %.sroa.0129.2, %123 ]
   %.sroa.4120.0580 = phi i64 [ undef, %.lr.ph ], [ %.sroa.4120.2, %123 ]
-  %.sroa.0119.0579 = phi i64 [ 0, %.lr.ph ], [ %.sroa.0119.2, %123 ]
-  %.0299578 = phi i8 [ 2, %.lr.ph ], [ %.2, %123 ]
-  %.sroa.076.0577 = phi i8 [ 0, %.lr.ph ], [ %.sroa.076.3, %123 ]
+  %.sroa.076.0579 = phi i8 [ 0, %.lr.ph ], [ %.sroa.076.3, %123 ]
+  %.sroa.0119.0578 = phi i64 [ 0, %.lr.ph ], [ %.sroa.0119.2, %123 ]
+  %.0299577 = phi i8 [ 2, %.lr.ph ], [ %.2, %123 ]
   %.sroa.092.0576 = phi i8 [ 2, %.lr.ph ], [ %.sroa.092.2, %123 ]
   %75 = add nuw i64 %.sroa.014.0583, 1
   switch i64 %.sroa.014.0583, label %76 [
@@ -27837,12 +27837,12 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..change_history..ChangeDa
 
 .thread373:                                       ; preds = %123, %168
   %.sroa.092.1 = phi i8 [ %.sroa.092.4590, %168 ], [ %.sroa.092.2, %123 ]
-  %.sroa.076.1 = phi i8 [ %.sroa.076.4591, %168 ], [ %.sroa.076.3, %123 ]
-  %.1300 = phi i8 [ %.4592, %168 ], [ %.2, %123 ]
-  %.sroa.0119.1 = phi i64 [ %.sroa.0119.4593, %168 ], [ %.sroa.0119.2, %123 ]
+  %.1300 = phi i8 [ %.4591, %168 ], [ %.2, %123 ]
+  %.sroa.0119.1 = phi i64 [ %.sroa.0119.4592, %168 ], [ %.sroa.0119.2, %123 ]
+  %.sroa.076.1 = phi i8 [ %.sroa.076.4593, %168 ], [ %.sroa.076.3, %123 ]
   %.sroa.4120.1 = phi i64 [ %.sroa.4120.4594, %168 ], [ %.sroa.4120.2, %123 ]
-  %.sroa.0129.1 = phi i64 [ %.sroa.0129.4596, %168 ], [ %.sroa.0129.2, %123 ]
-  %.sroa.4130.1 = phi i64 [ %.sroa.4130.4597, %168 ], [ %.sroa.4130.2, %123 ]
+  %.sroa.0129.1 = phi i64 [ %.sroa.0129.4595, %168 ], [ %.sroa.0129.2, %123 ]
+  %.sroa.4130.1 = phi i64 [ %.sroa.4130.4596, %168 ], [ %.sroa.4130.2, %123 ]
   %.not329 = icmp eq i8 %.sroa.076.1, 2
   br i1 %.not329, label %171, label %.thread373.thread
 
@@ -27960,7 +27960,7 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..change_history..ChangeDa
           to label %110 unwind label %107
 
 106:                                              ; preds = %120, %103
-  %.sroa.076.2 = phi i8 [ %.sroa.084.0.copyload, %103 ], [ %.sroa.076.0577, %120 ]
+  %.sroa.076.2 = phi i8 [ %.sroa.084.0.copyload, %103 ], [ %.sroa.076.0579, %120 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %43)
   br label %123
 
@@ -28023,9 +28023,9 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..change_history..ChangeDa
 
 123:                                              ; preds = %159, %154, %147, %139, %127, %106
   %.sroa.092.2 = phi i8 [ %.sroa.092.0576, %159 ], [ %.sroa.092.0576, %154 ], [ %.sroa.092.0576, %147 ], [ %.sroa.092.0576, %139 ], [ %.sroa.0100.0.copyload, %127 ], [ %.sroa.092.0576, %106 ]
-  %.sroa.076.3 = phi i8 [ %.sroa.076.0577, %159 ], [ %.sroa.076.0577, %154 ], [ %.sroa.076.0577, %147 ], [ %.sroa.076.0577, %139 ], [ %.sroa.076.0577, %127 ], [ %.sroa.076.2, %106 ]
-  %.2 = phi i8 [ %.0299578, %159 ], [ %.0299578, %154 ], [ %.0299578, %147 ], [ %140, %139 ], [ %.0299578, %127 ], [ %.0299578, %106 ]
-  %.sroa.0119.2 = phi i64 [ %.sroa.0119.0579, %159 ], [ %.sroa.0119.0579, %154 ], [ 1, %147 ], [ %.sroa.0119.0579, %139 ], [ %.sroa.0119.0579, %127 ], [ %.sroa.0119.0579, %106 ]
+  %.2 = phi i8 [ %.0299577, %159 ], [ %.0299577, %154 ], [ %.0299577, %147 ], [ %140, %139 ], [ %.0299577, %127 ], [ %.0299577, %106 ]
+  %.sroa.0119.2 = phi i64 [ %.sroa.0119.0578, %159 ], [ %.sroa.0119.0578, %154 ], [ 1, %147 ], [ %.sroa.0119.0578, %139 ], [ %.sroa.0119.0578, %127 ], [ %.sroa.0119.0578, %106 ]
+  %.sroa.076.3 = phi i8 [ %.sroa.076.0579, %159 ], [ %.sroa.076.0579, %154 ], [ %.sroa.076.0579, %147 ], [ %.sroa.076.0579, %139 ], [ %.sroa.076.0579, %127 ], [ %.sroa.076.2, %106 ]
   %.sroa.4120.2 = phi i64 [ %.sroa.4120.0580, %159 ], [ %.sroa.4120.0580, %154 ], [ %98, %147 ], [ %.sroa.4120.0580, %139 ], [ %.sroa.4120.0580, %127 ], [ %.sroa.4120.0580, %106 ]
   %.sroa.0129.2 = phi i64 [ %.sroa.0129.0581, %159 ], [ 1, %154 ], [ %.sroa.0129.0581, %147 ], [ %.sroa.0129.0581, %139 ], [ %.sroa.0129.0581, %127 ], [ %.sroa.0129.0581, %106 ]
   %.sroa.4130.2 = phi i64 [ %.sroa.4130.0582, %159 ], [ %102, %154 ], [ %.sroa.4130.0582, %147 ], [ %.sroa.4130.0582, %139 ], [ %.sroa.4130.0582, %127 ], [ %.sroa.4130.0582, %106 ]
@@ -28168,13 +28168,13 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..change_history..ChangeDa
   br label %187
 
 162:                                              ; preds = %.lr.ph598, %235
-  %.sroa.4130.4597 = phi i64 [ undef, %.lr.ph598 ], [ %.sroa.4130.5, %235 ]
-  %.sroa.0129.4596 = phi i64 [ 0, %.lr.ph598 ], [ %.sroa.0129.5, %235 ]
-  %.0298595 = phi i32 [ 0, %.lr.ph598 ], [ %236, %235 ]
+  %.0298597 = phi i32 [ 0, %.lr.ph598 ], [ %236, %235 ]
+  %.sroa.4130.4596 = phi i64 [ undef, %.lr.ph598 ], [ %.sroa.4130.5, %235 ]
+  %.sroa.0129.4595 = phi i64 [ 0, %.lr.ph598 ], [ %.sroa.0129.5, %235 ]
   %.sroa.4120.4594 = phi i64 [ undef, %.lr.ph598 ], [ %.sroa.4120.5, %235 ]
-  %.sroa.0119.4593 = phi i64 [ 0, %.lr.ph598 ], [ %.sroa.0119.5, %235 ]
-  %.4592 = phi i8 [ 2, %.lr.ph598 ], [ %.5, %235 ]
-  %.sroa.076.4591 = phi i8 [ 0, %.lr.ph598 ], [ %.sroa.076.6, %235 ]
+  %.sroa.076.4593 = phi i8 [ 0, %.lr.ph598 ], [ %.sroa.076.6, %235 ]
+  %.sroa.0119.4592 = phi i64 [ 0, %.lr.ph598 ], [ %.sroa.0119.5, %235 ]
+  %.4591 = phi i8 [ 2, %.lr.ph598 ], [ %.5, %235 ]
   %.sroa.092.4590 = phi i8 [ 2, %.lr.ph598 ], [ %.sroa.092.5, %235 ]
   %163 = load i8, ptr %63, align 8, !range !3456, !noundef !5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %35)
@@ -28209,7 +28209,7 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..change_history..ChangeDa
   br i1 %167, label %168, label %169
 
 .critedge:                                        ; preds = %162
-  switch i32 %.0298595, label %188 [
+  switch i32 %.0298597, label %188 [
     i32 0, label %191
     i32 1, label %202
     i32 2, label %204
@@ -28236,9 +28236,9 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..change_history..ChangeDa
   %.sroa.4130.1714 = phi i64 [ %.sroa.4130.1, %.thread373 ], [ undef, %.preheader420 ]
   %.sroa.0129.1712 = phi i64 [ %.sroa.0129.1, %.thread373 ], [ 0, %.preheader420 ]
   %.sroa.4120.1710 = phi i64 [ %.sroa.4120.1, %.thread373 ], [ undef, %.preheader420 ]
-  %.sroa.0119.1708 = phi i64 [ %.sroa.0119.1, %.thread373 ], [ 0, %.preheader420 ]
-  %.1300706 = phi i8 [ %.1300, %.thread373 ], [ 2, %.preheader420 ]
-  %.sroa.076.1704 = phi i8 [ %.sroa.076.1, %.thread373 ], [ 0, %.preheader420 ]
+  %.sroa.076.1708 = phi i8 [ %.sroa.076.1, %.thread373 ], [ 0, %.preheader420 ]
+  %.sroa.0119.1707 = phi i64 [ %.sroa.0119.1, %.thread373 ], [ 0, %.preheader420 ]
+  %.1300705 = phi i8 [ %.1300, %.thread373 ], [ 2, %.preheader420 ]
   %.sroa.092.1703 = phi i8 [ %.sroa.092.1, %.thread373 ], [ 2, %.preheader420 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.sroa.3158, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.579, i64 32, i1 false)
   br label %171
@@ -28247,15 +28247,15 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..change_history..ChangeDa
   %.sroa.4130.1713 = phi i64 [ %.sroa.4130.1714, %.thread373.thread ], [ %.sroa.4130.1, %.thread373 ]
   %.sroa.0129.1711 = phi i64 [ %.sroa.0129.1712, %.thread373.thread ], [ %.sroa.0129.1, %.thread373 ]
   %.sroa.4120.1709 = phi i64 [ %.sroa.4120.1710, %.thread373.thread ], [ %.sroa.4120.1, %.thread373 ]
-  %.sroa.0119.1707 = phi i64 [ %.sroa.0119.1708, %.thread373.thread ], [ %.sroa.0119.1, %.thread373 ]
-  %.1300705 = phi i8 [ %.1300706, %.thread373.thread ], [ %.1300, %.thread373 ]
+  %.sroa.0119.1706 = phi i64 [ %.sroa.0119.1707, %.thread373.thread ], [ %.sroa.0119.1, %.thread373 ]
+  %.1300704 = phi i8 [ %.1300705, %.thread373.thread ], [ %.1300, %.thread373 ]
   %.sroa.092.1702 = phi i8 [ %.sroa.092.1703, %.thread373.thread ], [ %.sroa.092.1, %.thread373 ]
-  %.sroa.0156.0 = phi i8 [ %.sroa.076.1704, %.thread373.thread ], [ 0, %.thread373 ]
+  %.sroa.0156.0 = phi i8 [ %.sroa.076.1708, %.thread373.thread ], [ 0, %.thread373 ]
   %.not330 = icmp eq i8 %.sroa.092.1702, 2
   br i1 %.not330, label %173, label %172
 
 172:                                              ; preds = %171
-  %.not331 = icmp eq i8 %.1300705, 2
+  %.not331 = icmp eq i8 %.1300704, 2
   br i1 %.not331, label %177, label %175
 
 173:                                              ; preds = %171
@@ -28274,7 +28274,7 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..change_history..ChangeDa
   br label %187
 
 175:                                              ; preds = %172
-  %176 = icmp eq i64 %.sroa.0119.1707, 1
+  %176 = icmp eq i64 %.sroa.0119.1706, 1
   br i1 %176, label %179, label %181
 
 177:                                              ; preds = %172
@@ -28312,7 +28312,7 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..change_history..ChangeDa
   br label %187
 
 183:                                              ; preds = %179
-  %184 = and i8 %.1300705, 1
+  %184 = and i8 %.1300704, 1
   store i64 %.sroa.4120.1709, ptr %0, align 8
   %.sroa.5152.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.4130.1713, ptr %.sroa.5152.0..sroa_idx, align 8
@@ -28460,7 +28460,7 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..change_history..ChangeDa
           to label %222 unwind label %219
 
 218:                                              ; preds = %232, %215
-  %.sroa.076.5 = phi i8 [ %.sroa.082.0.copyload, %215 ], [ %.sroa.076.4591, %232 ]
+  %.sroa.076.5 = phi i8 [ %.sroa.082.0.copyload, %215 ], [ %.sroa.076.4593, %232 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %34)
   br label %235
 
@@ -28523,13 +28523,13 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..change_history..ChangeDa
 
 235:                                              ; preds = %272, %267, %260, %252, %240, %218
   %.sroa.092.5 = phi i8 [ %.sroa.092.4590, %272 ], [ %.sroa.092.4590, %267 ], [ %.sroa.092.4590, %260 ], [ %.sroa.092.4590, %252 ], [ %.sroa.098.0.copyload, %240 ], [ %.sroa.092.4590, %218 ]
-  %.sroa.076.6 = phi i8 [ %.sroa.076.4591, %272 ], [ %.sroa.076.4591, %267 ], [ %.sroa.076.4591, %260 ], [ %.sroa.076.4591, %252 ], [ %.sroa.076.4591, %240 ], [ %.sroa.076.5, %218 ]
-  %.5 = phi i8 [ %.4592, %272 ], [ %.4592, %267 ], [ %.4592, %260 ], [ %253, %252 ], [ %.4592, %240 ], [ %.4592, %218 ]
-  %.sroa.0119.5 = phi i64 [ %.sroa.0119.4593, %272 ], [ %.sroa.0119.4593, %267 ], [ 1, %260 ], [ %.sroa.0119.4593, %252 ], [ %.sroa.0119.4593, %240 ], [ %.sroa.0119.4593, %218 ]
+  %.5 = phi i8 [ %.4591, %272 ], [ %.4591, %267 ], [ %.4591, %260 ], [ %253, %252 ], [ %.4591, %240 ], [ %.4591, %218 ]
+  %.sroa.0119.5 = phi i64 [ %.sroa.0119.4592, %272 ], [ %.sroa.0119.4592, %267 ], [ 1, %260 ], [ %.sroa.0119.4592, %252 ], [ %.sroa.0119.4592, %240 ], [ %.sroa.0119.4592, %218 ]
+  %.sroa.076.6 = phi i8 [ %.sroa.076.4593, %272 ], [ %.sroa.076.4593, %267 ], [ %.sroa.076.4593, %260 ], [ %.sroa.076.4593, %252 ], [ %.sroa.076.4593, %240 ], [ %.sroa.076.5, %218 ]
   %.sroa.4120.5 = phi i64 [ %.sroa.4120.4594, %272 ], [ %.sroa.4120.4594, %267 ], [ %210, %260 ], [ %.sroa.4120.4594, %252 ], [ %.sroa.4120.4594, %240 ], [ %.sroa.4120.4594, %218 ]
-  %.sroa.0129.5 = phi i64 [ %.sroa.0129.4596, %272 ], [ 1, %267 ], [ %.sroa.0129.4596, %260 ], [ %.sroa.0129.4596, %252 ], [ %.sroa.0129.4596, %240 ], [ %.sroa.0129.4596, %218 ]
-  %.sroa.4130.5 = phi i64 [ %.sroa.4130.4597, %272 ], [ %214, %267 ], [ %.sroa.4130.4597, %260 ], [ %.sroa.4130.4597, %252 ], [ %.sroa.4130.4597, %240 ], [ %.sroa.4130.4597, %218 ]
-  %236 = add i32 %.0298595, 1
+  %.sroa.0129.5 = phi i64 [ %.sroa.0129.4595, %272 ], [ 1, %267 ], [ %.sroa.0129.4595, %260 ], [ %.sroa.0129.4595, %252 ], [ %.sroa.0129.4595, %240 ], [ %.sroa.0129.4595, %218 ]
+  %.sroa.4130.5 = phi i64 [ %.sroa.4130.4596, %272 ], [ %214, %267 ], [ %.sroa.4130.4596, %260 ], [ %.sroa.4130.4596, %252 ], [ %.sroa.4130.4596, %240 ], [ %.sroa.4130.4596, %218 ]
+  %236 = add i32 %.0298597, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %35)
   call void @_ZN8minicbor6decode7decoder7Decoder8datatype17h9d7a2e53823e6fc3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %237 = load i64, ptr %35, align 8, !range !133, !noundef !5
@@ -28953,7 +28953,7 @@ define internal fastcc void @"_ZN112_$LT$ockam_identity..models..change_history.
   br label %205
 
 106:                                              ; preds = %.lr.ph469, %131
-  %.0330468 = phi i32 [ 0, %.lr.ph469 ], [ %132, %131 ]
+  %.0329468 = phi i32 [ 0, %.lr.ph469 ], [ %132, %131 ]
   %.sroa.077.4467 = phi i1 [ false, %.lr.ph469 ], [ %.sroa.077.6, %131 ]
   %107 = load i8, ptr %78, align 8, !range !3456, !noundef !5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %26)
@@ -28988,7 +28988,7 @@ define internal fastcc void @"_ZN112_$LT$ockam_identity..models..change_history.
   br i1 %111, label %113, label %114
 
 .critedge:                                        ; preds = %106
-  %112 = icmp eq i32 %.0330468, 0
+  %112 = icmp eq i32 %.0329468, 0
   br i1 %112, label %120, label %123
 
 113:                                              ; preds = %109
@@ -29081,7 +29081,7 @@ define internal fastcc void @"_ZN112_$LT$ockam_identity..models..change_history.
 
 131:                                              ; preds = %137, %126
   %.sroa.077.6 = phi i1 [ true, %126 ], [ %.sroa.077.4467, %137 ]
-  %132 = add i32 %.0330468, 1
+  %132 = add i32 %.0329468, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %26)
   call void @_ZN8minicbor6decode7decoder7Decoder8datatype17h9d7a2e53823e6fc3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %133 = load i64, ptr %26, align 8, !range !133, !noundef !5
@@ -29241,7 +29241,7 @@ define internal fastcc void @"_ZN112_$LT$ockam_identity..models..change_history.
 
 171:                                              ; preds = %.lr.ph461, %196
   %.sroa.0158.4460 = phi i1 [ false, %.lr.ph461 ], [ %.sroa.0158.6, %196 ]
-  %.0329459 = phi i32 [ 0, %.lr.ph461 ], [ %197, %196 ]
+  %.0330459 = phi i32 [ 0, %.lr.ph461 ], [ %197, %196 ]
   %172 = load i8, ptr %145, align 8, !range !3456, !noundef !5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
   %.not = icmp eq i8 %172, 25
@@ -29275,7 +29275,7 @@ define internal fastcc void @"_ZN112_$LT$ockam_identity..models..change_history.
   br i1 %176, label %178, label %179
 
 .critedge357:                                     ; preds = %171
-  %177 = icmp eq i32 %.0329459, 0
+  %177 = icmp eq i32 %.0330459, 0
   br i1 %177, label %184, label %186
 
 178:                                              ; preds = %174
@@ -29370,7 +29370,7 @@ define internal fastcc void @"_ZN112_$LT$ockam_identity..models..change_history.
 
 196:                                              ; preds = %202, %189
   %.sroa.0158.6 = phi i1 [ true, %189 ], [ %.sroa.0158.4460, %202 ]
-  %197 = add i32 %.0329459, 1
+  %197 = add i32 %.0330459, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16)
   call void @_ZN8minicbor6decode7decoder7Decoder8datatype17h9d7a2e53823e6fc3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   %198 = load i64, ptr %16, align 8, !range !133, !noundef !5
@@ -29832,9 +29832,9 @@ define hidden void @"_ZN109_$LT$ockam_identity..models..versioned_data..Versione
 109:                                              ; preds = %.preheader, %168
   %.sroa.053.4 = phi i1 [ %.sroa.053.6, %168 ], [ false, %.preheader ]
   %.sroa.454.4 = phi i8 [ %.sroa.454.6, %168 ], [ undef, %.preheader ]
-  %.0170 = phi i32 [ %169, %168 ], [ 0, %.preheader ]
   %.sroa.063.4 = phi i1 [ %.sroa.063.5, %168 ], [ false, %.preheader ]
   %.sroa.464.4 = phi i8 [ %.sroa.464.5, %168 ], [ undef, %.preheader ]
+  %.0170 = phi i32 [ %169, %168 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23)
   invoke void @_ZN8minicbor6decode7decoder7Decoder8datatype17h9d7a2e53823e6fc3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
           to label %110 unwind label %.loopexit

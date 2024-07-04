@@ -3114,8 +3114,8 @@ lpad125:                                          ; preds = %call2.i.noexc765
 
 catch.dispatch:                                   ; preds = %lpad125, %lpad112
   %.pn88 = phi { ptr, i32 } [ %63, %lpad125 ], [ %62, %lpad112 ]
-  %exn.slot.12 = extractvalue { ptr, i32 } %.pn88, 0
   %ehselector.slot.12 = extractvalue { ptr, i32 } %.pn88, 1
+  %exn.slot.12 = extractvalue { ptr, i32 } %.pn88, 0
   %64 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3fmt3v1012format_errorE) #25
   %matches = icmp eq i32 %ehselector.slot.12, %64
   %65 = call ptr @__cxa_begin_catch(ptr %exn.slot.12) #25
@@ -3411,8 +3411,8 @@ lpad212:                                          ; preds = %call2.i.noexc755
 
 catch.dispatch217:                                ; preds = %lpad212, %lpad197
   %.pn95 = phi { ptr, i32 } [ %92, %lpad212 ], [ %91, %lpad197 ]
-  %exn.slot.16 = extractvalue { ptr, i32 } %.pn95, 0
   %ehselector.slot.16 = extractvalue { ptr, i32 } %.pn95, 1
+  %exn.slot.16 = extractvalue { ptr, i32 } %.pn95, 0
   %93 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3fmt3v1012format_errorE) #25
   %matches219 = icmp eq i32 %ehselector.slot.16, %93
   %94 = call ptr @__cxa_begin_catch(ptr %exn.slot.16) #25
@@ -3708,8 +3708,8 @@ lpad313:                                          ; preds = %call2.i.noexc745
 
 catch.dispatch318:                                ; preds = %lpad313, %lpad298
   %.pn102 = phi { ptr, i32 } [ %121, %lpad313 ], [ %120, %lpad298 ]
-  %exn.slot.20 = extractvalue { ptr, i32 } %.pn102, 0
   %ehselector.slot.20 = extractvalue { ptr, i32 } %.pn102, 1
+  %exn.slot.20 = extractvalue { ptr, i32 } %.pn102, 0
   %122 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3fmt3v1012format_errorE) #25
   %matches320 = icmp eq i32 %ehselector.slot.20, %122
   %123 = call ptr @__cxa_begin_catch(ptr %exn.slot.20) #25
@@ -4005,8 +4005,8 @@ lpad414:                                          ; preds = %call2.i.noexc735
 
 catch.dispatch419:                                ; preds = %lpad414, %lpad399
   %.pn109 = phi { ptr, i32 } [ %150, %lpad414 ], [ %149, %lpad399 ]
-  %exn.slot.24 = extractvalue { ptr, i32 } %.pn109, 0
   %ehselector.slot.24 = extractvalue { ptr, i32 } %.pn109, 1
+  %exn.slot.24 = extractvalue { ptr, i32 } %.pn109, 0
   %151 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3fmt3v1012format_errorE) #25
   %matches421 = icmp eq i32 %ehselector.slot.24, %151
   %152 = call ptr @__cxa_begin_catch(ptr %exn.slot.24) #25
@@ -4302,8 +4302,8 @@ lpad515:                                          ; preds = %call2.i.noexc725
 
 catch.dispatch520:                                ; preds = %lpad515, %lpad500
   %.pn116 = phi { ptr, i32 } [ %179, %lpad515 ], [ %178, %lpad500 ]
-  %exn.slot.28 = extractvalue { ptr, i32 } %.pn116, 0
   %ehselector.slot.28 = extractvalue { ptr, i32 } %.pn116, 1
+  %exn.slot.28 = extractvalue { ptr, i32 } %.pn116, 0
   %180 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3fmt3v1012format_errorE) #25
   %matches522 = icmp eq i32 %ehselector.slot.28, %180
   %181 = call ptr @__cxa_begin_catch(ptr %exn.slot.28) #25
@@ -14906,8 +14906,8 @@ if.then:                                          ; preds = %entry
 
 do.body.i:                                        ; preds = %land.lhs.true6.i, %if.then
   %4 = phi i8 [ %0, %if.then ], [ %5, %land.lhs.true6.i ]
-  %p.0.i = phi ptr [ %begin, %if.then ], [ %incdec.ptr.i, %land.lhs.true6.i ]
   %value.0.i = phi i32 [ 0, %if.then ], [ %add.i, %land.lhs.true6.i ]
+  %p.0.i = phi ptr [ %begin, %if.then ], [ %incdec.ptr.i, %land.lhs.true6.i ]
   %mul.i = mul i32 %value.0.i, 10
   %conv4.i = zext nneg i8 %4 to i32
   %sub.i = add nsw i32 %conv4.i, -48
@@ -15043,8 +15043,8 @@ if.then5:                                         ; preds = %if.then
 
 do.body.i:                                        ; preds = %land.lhs.true6.i, %if.then5
   %3 = phi i8 [ %0, %if.then5 ], [ %4, %land.lhs.true6.i ]
-  %p.0.i = phi ptr [ %begin, %if.then5 ], [ %incdec.ptr.i, %land.lhs.true6.i ]
   %value.0.i = phi i32 [ 0, %if.then5 ], [ %add.i, %land.lhs.true6.i ]
+  %p.0.i = phi ptr [ %begin, %if.then5 ], [ %incdec.ptr.i, %land.lhs.true6.i ]
   %mul.i = mul i32 %value.0.i, 10
   %conv4.i = zext nneg i8 %3 to i32
   %sub.i = add nsw i32 %conv4.i, -48
@@ -22142,8 +22142,8 @@ if.then15.i138:                                   ; preds = %if.else.i135
   br label %_ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit148
 
 _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit148: ; preds = %if.then.i143, %if.then8.i145, %if.else.i135, %if.then15.i138
-  %data.i38.sroa.0.0 = phi i64 [ %conv5.i146, %if.then8.i145 ], [ %conv.i130, %if.then.i143 ], [ %conv20.i140, %if.then15.i138 ], [ %conv.i130, %if.else.i135 ]
   %data.i38.sroa.5.0 = phi i64 [ %sub.i147, %if.then8.i145 ], [ 0, %if.then.i143 ], [ %conv25.i142, %if.then15.i138 ], [ 0, %if.else.i135 ]
+  %data.i38.sroa.0.0 = phi i64 [ %conv5.i146, %if.then8.i145 ], [ %conv.i130, %if.then.i143 ], [ %conv20.i140, %if.then15.i138 ], [ %conv.i130, %if.else.i135 ]
   store i32 %prefix.i.0, ptr %ref.tmp32.i40, align 8
   %47 = getelementptr inbounds i8, ptr %ref.tmp32.i40, i64 8
   store i64 %data.i38.sroa.0.0, ptr %47, align 8
@@ -22364,8 +22364,8 @@ if.then15.i229:                                   ; preds = %if.else.i226
   br label %_ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit239
 
 _ZN3fmt3v106detail14write_int_dataIcEC2EijRKNS0_12format_specsIcEE.exit239: ; preds = %if.then.i234, %if.then8.i236, %if.else.i226, %if.then15.i229
-  %data.i82.sroa.0.0 = phi i64 [ %conv5.i237, %if.then8.i236 ], [ %conv.i221, %if.then.i234 ], [ %conv20.i231, %if.then15.i229 ], [ %conv.i221, %if.else.i226 ]
   %data.i82.sroa.5.0 = phi i64 [ %sub.i238, %if.then8.i236 ], [ 0, %if.then.i234 ], [ %conv25.i233, %if.then15.i229 ], [ 0, %if.else.i226 ]
+  %data.i82.sroa.0.0 = phi i64 [ %conv5.i237, %if.then8.i236 ], [ %conv.i221, %if.then.i234 ], [ %conv20.i231, %if.then15.i229 ], [ %conv.i221, %if.else.i226 ]
   store i32 %prefix.i.1, ptr %ref.tmp32.i84, align 8
   %73 = getelementptr inbounds i8, ptr %ref.tmp32.i84, i64 8
   store i64 %data.i82.sroa.0.0, ptr %73, align 8

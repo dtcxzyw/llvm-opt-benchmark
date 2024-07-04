@@ -534,28 +534,28 @@ define dso_local noundef ptr @_ZNK4i18n12phonenumbers26PhoneNumberOfflineGeocode
   br i1 %11, label %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPPKcS1_PFbS1_S1_EET_S5_S5_RKT0_T1_.exit
 
 _ZSt7advanceIPPKclEvRT_T0_.exit.i.i:              ; preds = %2, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i
-  %.017.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i ], [ %5, %2 ]
-  %.01116.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i ], [ %8, %2 ]
-  %12 = lshr i64 %.01116.i.i, 1
-  %13 = getelementptr inbounds ptr, ptr %.017.i.i, i64 %12
+  %.017.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i ], [ %8, %2 ]
+  %.01116.i.i = phi ptr [ %.112.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i ], [ %5, %2 ]
+  %12 = lshr i64 %.017.i.i, 1
+  %13 = getelementptr inbounds ptr, ptr %.01116.i.i, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) %10) #16
   %16 = icmp slt i32 %15, 0
   %17 = getelementptr inbounds i8, ptr %13, i64 8
   %18 = xor i64 %12, -1
-  %19 = add nsw i64 %.01116.i.i, %18
-  %.112.i.i = select i1 %16, i64 %19, i64 %12
-  %.1.i.i = select i1 %16, ptr %17, ptr %.017.i.i
-  %20 = icmp sgt i64 %.112.i.i, 0
+  %19 = add nsw i64 %.017.i.i, %18
+  %.112.i.i = select i1 %16, ptr %17, ptr %.01116.i.i
+  %.1.i.i = select i1 %16, i64 %19, i64 %12
+  %20 = icmp sgt i64 %.1.i.i, 0
   br i1 %20, label %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPPKcS1_PFbS1_S1_EET_S5_S5_RKT0_T1_.exit, !llvm.loop !8
 
 _ZSt11lower_boundIPPKcS1_PFbS1_S1_EET_S5_S5_RKT0_T1_.exit: ; preds = %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i, %2
-  %.0.lcssa.i.i = phi ptr [ %5, %2 ], [ %.1.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i ]
-  %.not = icmp eq ptr %.0.lcssa.i.i, %9
+  %.011.lcssa.i.i = phi ptr [ %5, %2 ], [ %.112.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i ]
+  %.not = icmp eq ptr %.011.lcssa.i.i, %9
   br i1 %.not, label %47, label %21
 
 21:                                               ; preds = %_ZSt11lower_boundIPPKcS1_PFbS1_S1_EET_S5_S5_RKT0_T1_.exit
-  %22 = load ptr, ptr %.0.lcssa.i.i, align 8
+  %22 = load ptr, ptr %.011.lcssa.i.i, align 8
   %23 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %22) #14
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %47
@@ -569,7 +569,7 @@ _ZSt11lower_boundIPPKcS1_PFbS1_S1_EET_S5_S5_RKT0_T1_.exit: ; preds = %_ZSt7advan
   %28 = getelementptr inbounds i8, ptr %0, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %4, align 8
-  %31 = ptrtoint ptr %.0.lcssa.i.i to i64
+  %31 = ptrtoint ptr %.011.lcssa.i.i to i64
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %31, %32
   %34 = lshr exact i64 %33, 3

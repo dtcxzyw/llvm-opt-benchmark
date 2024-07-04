@@ -75,19 +75,19 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %67
 
 67:                                               ; preds = %42, %17
-  %.0298 = phi double [ %30, %17 ], [ %56, %42 ]
-  %.0297 = phi double [ %41, %17 ], [ %66, %42 ]
-  %.0296 = phi double [ %37, %17 ], [ %62, %42 ]
-  %68 = tail call noundef double @llvm.fabs.f64(double %.0296)
-  %69 = tail call noundef double @llvm.fabs.f64(double %.0297)
+  %.0313 = phi double [ %37, %17 ], [ %62, %42 ]
+  %.0312 = phi double [ %41, %17 ], [ %66, %42 ]
+  %.0311 = phi double [ %30, %17 ], [ %56, %42 ]
+  %68 = tail call noundef double @llvm.fabs.f64(double %.0313)
+  %69 = tail call noundef double @llvm.fabs.f64(double %.0312)
   %70 = fcmp ogt double %68, %69
   %71 = select i1 %70, double %68, double %69
-  %72 = tail call noundef double @llvm.fabs.f64(double %.0298)
+  %72 = tail call noundef double @llvm.fabs.f64(double %.0311)
   %73 = fcmp ogt double %71, %72
   %74 = select i1 %73, double %71, double %72
-  %75 = fdiv double %.0296, %74
-  %76 = fdiv double %.0297, %74
-  %77 = fdiv double %.0298, %74
+  %75 = fdiv double %.0313, %74
+  %76 = fdiv double %.0312, %74
+  %77 = fdiv double %.0311, %74
   %78 = fcmp oeq double %77, 0.000000e+00
   br i1 %78, label %79, label %81
 
@@ -211,9 +211,9 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 151:                                              ; preds = %.loopexit333, %151
   %indvars.iv362 = phi i64 [ 1, %.loopexit333 ], [ %indvars.iv.next363, %151 ]
-  %.0301339 = phi double [ 0.000000e+00, %.loopexit333 ], [ %165, %151 ]
-  %.0304338 = phi double [ 0.000000e+00, %.loopexit333 ], [ %164, %151 ]
-  %.0307337 = phi double [ 0.000000e+00, %.loopexit333 ], [ %163, %151 ]
+  %.0298339 = phi double [ 0.000000e+00, %.loopexit333 ], [ %165, %151 ]
+  %.0301338 = phi double [ 0.000000e+00, %.loopexit333 ], [ %164, %151 ]
+  %.0304337 = phi double [ 0.000000e+00, %.loopexit333 ], [ %163, %151 ]
   %152 = add nsw i64 %indvars.iv362, -1
   %153 = getelementptr inbounds [3 x double], ptr %9, i64 0, i64 %152
   %154 = load double, ptr %153, align 8
@@ -225,9 +225,9 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %160 = fmul double %156, %159
   %161 = fmul double %156, %160
   %162 = fdiv double %159, %154
-  %163 = fadd double %.0307337, %162
-  %164 = fadd double %.0304338, %160
-  %165 = fadd double %.0301339, %161
+  %163 = fadd double %.0304337, %162
+  %164 = fadd double %.0301338, %160
+  %165 = fadd double %.0298339, %161
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %exitcond365.not = icmp eq i64 %indvars.iv.next363, 4
   br i1 %exitcond365.not, label %166, label %151, !llvm.loop !6
@@ -254,9 +254,9 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 177:                                              ; preds = %.preheader, %175
   %178 = phi double [ %150, %.preheader ], [ %246, %175 ]
   %.0291348 = phi i32 [ 2, %.preheader ], [ %176, %175 ]
-  %.1302347 = phi double [ %165, %.preheader ], [ %263, %175 ]
-  %.1305346 = phi double [ %164, %.preheader ], [ %262, %175 ]
-  %.0313345 = phi double [ %168, %.preheader ], [ %266, %175 ]
+  %.1299347 = phi double [ %165, %.preheader ], [ %263, %175 ]
+  %.1302346 = phi double [ %164, %.preheader ], [ %262, %175 ]
+  %.0310345 = phi double [ %168, %.preheader ], [ %266, %175 ]
   %179 = load i32, ptr %1, align 4
   %.not325 = icmp eq i32 %179, 0
   %.pn = select i1 %.not325, double %174, double %171
@@ -266,12 +266,12 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %180 = fadd double %.0294, %.0293
   %181 = fmul double %.0294, %.0293
   %182 = fneg double %181
-  %183 = fmul double %.1305346, %182
-  %184 = tail call double @llvm.fmuladd.f64(double %180, double %.0313345, double %183)
-  %185 = fmul double %.0313345, %181
+  %183 = fmul double %.1302346, %182
+  %184 = tail call double @llvm.fmuladd.f64(double %180, double %.0310345, double %183)
+  %185 = fmul double %.0310345, %181
   %186 = fneg double %180
-  %187 = tail call double @llvm.fmuladd.f64(double %186, double %.1305346, double %.0313345)
-  %188 = tail call double @llvm.fmuladd.f64(double %181, double %.1302347, double %187)
+  %187 = tail call double @llvm.fmuladd.f64(double %186, double %.1302346, double %.0310345)
+  %188 = tail call double @llvm.fmuladd.f64(double %181, double %.1299347, double %187)
   %189 = tail call noundef double @llvm.fabs.f64(double %184)
   %190 = tail call noundef double @llvm.fabs.f64(double %185)
   %191 = fcmp ogt double %189, %190
@@ -316,14 +316,14 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %220
 
 220:                                              ; preds = %204, %212, %200
-  %.0299 = phi double [ %201, %200 ], [ %211, %204 ], [ %219, %212 ]
-  %221 = fmul double %.0313345, %.0299
+  %.0296 = phi double [ %201, %200 ], [ %211, %204 ], [ %219, %212 ]
+  %221 = fmul double %.0310345, %.0296
   %222 = fcmp ult double %221, 0.000000e+00
-  %223 = fneg double %.0313345
-  %224 = fdiv double %223, %.1305346
-  %.1300 = select i1 %222, double %.0299, double %224
-  %225 = fadd double %178, %.1300
-  %226 = fcmp ule double %.1300, 0.000000e+00
+  %223 = fneg double %.0310345
+  %224 = fdiv double %223, %.1302346
+  %.1297 = select i1 %222, double %.0296, double %224
+  %225 = fadd double %178, %.1297
+  %226 = fcmp ule double %.1297, 0.000000e+00
   br i1 %.not325, label %236, label %227
 
 227:                                              ; preds = %220
@@ -331,7 +331,7 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %or.cond = select i1 %226, i1 true, i1 %228
   %229 = fsub double %173, %178
   %230 = fmul double %229, 5.000000e-01
-  %.2 = select i1 %or.cond, double %.1300, double %230
+  %.2 = select i1 %or.cond, double %.1297, double %230
   %231 = fcmp uge double %.2, 0.000000e+00
   %232 = fcmp ugt double %225, %171
   %or.cond349 = select i1 %231, i1 true, i1 %232
@@ -347,7 +347,7 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %or.cond350 = select i1 %226, i1 true, i1 %237
   %238 = fsub double %171, %178
   %239 = fmul double %238, 5.000000e-01
-  %.3 = select i1 %or.cond350, double %.1300, double %239
+  %.3 = select i1 %or.cond350, double %.1297, double %239
   %240 = fcmp uge double %.3, 0.000000e+00
   %241 = fcmp ugt double %225, %174
   %or.cond351 = select i1 %240, i1 true, i1 %241
@@ -367,9 +367,9 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 247:                                              ; preds = %245, %247
   %indvars.iv366 = phi i64 [ 1, %245 ], [ %indvars.iv.next367, %247 ]
   %.0289344 = phi double [ 0.000000e+00, %245 ], [ %261, %247 ]
-  %.2303343 = phi double [ 0.000000e+00, %245 ], [ %263, %247 ]
-  %.2306342 = phi double [ 0.000000e+00, %245 ], [ %262, %247 ]
-  %.1308341 = phi double [ 0.000000e+00, %245 ], [ %259, %247 ]
+  %.2300343 = phi double [ 0.000000e+00, %245 ], [ %263, %247 ]
+  %.2303342 = phi double [ 0.000000e+00, %245 ], [ %262, %247 ]
+  %.1305341 = phi double [ 0.000000e+00, %245 ], [ %259, %247 ]
   %248 = add nsw i64 %indvars.iv366, -1
   %249 = getelementptr inbounds [3 x double], ptr %9, i64 0, i64 %248
   %250 = load double, ptr %249, align 8
@@ -381,11 +381,11 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %256 = fmul double %252, %255
   %257 = fmul double %252, %256
   %258 = fdiv double %255, %250
-  %259 = fadd double %.1308341, %258
+  %259 = fadd double %.1305341, %258
   %260 = tail call noundef double @llvm.fabs.f64(double %258)
   %261 = fadd double %.0289344, %260
-  %262 = fadd double %.2306342, %256
-  %263 = fadd double %.2303343, %257
+  %262 = fadd double %.2303342, %256
+  %263 = fadd double %.2300343, %257
   %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
   %exitcond369.not = icmp eq i64 %indvars.iv.next367, 4
   br i1 %exitcond369.not, label %264, label %247, !llvm.loop !8

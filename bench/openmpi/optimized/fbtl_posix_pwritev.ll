@@ -150,7 +150,7 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
   %.081110.i = phi i64 [ %.182.i, %158 ], [ 0, %.critedge ]
   %.083109.i = phi i32 [ %.285.i, %158 ], [ 0, %.critedge ]
   %.086108.i = phi ptr [ %.187.i, %158 ], [ %73, %.critedge ]
-  %.089106.i = phi i32 [ %.190.i, %158 ], [ 1, %.critedge ]
+  %.088107.i = phi i32 [ %.189.i, %158 ], [ 1, %.critedge ]
   %76 = icmp eq i32 %.083109.i, 0
   br i1 %76, label %77, label %93
 
@@ -178,12 +178,12 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
   %.184.i = phi i32 [ 1, %77 ], [ %.083109.i, %.lr.ph.i ]
   %.182.i = phi i64 [ %89, %77 ], [ %.081110.i, %.lr.ph.i ]
   %.1.i = phi i64 [ %92, %77 ], [ %.0112.i, %.lr.ph.i ]
-  %94 = mul nsw i32 %.089106.i, 100
+  %94 = mul nsw i32 %.088107.i, 100
   %.not.i = icmp sgt i32 %94, %.184.i
   br i1 %.not.i, label %103, label %95
 
 95:                                               ; preds = %93
-  %96 = add nsw i32 %.089106.i, 1
+  %96 = add nsw i32 %.088107.i, 1
   %97 = mul nsw i32 %96, 100
   %98 = sext i32 %97 to i64
   %99 = shl nsw i64 %98, 4
@@ -196,7 +196,7 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
   br label %mca_fbtl_posix_pwritev_generic.exit
 
 103:                                              ; preds = %95, %93
-  %.190.i = phi i32 [ %96, %95 ], [ %.089106.i, %93 ]
+  %.189.i = phi i32 [ %96, %95 ], [ %.088107.i, %93 ]
   %.187.i = phi ptr [ %100, %95 ], [ %.086108.i, %93 ]
   %104 = load i32, ptr %36, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -320,23 +320,23 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
   br label %mca_fbtl_posix_pwritev_single.exit
 
 176:                                              ; preds = %.lr.ph.i61
-  %177 = add i64 %190, %.03135.i
+  %177 = add i64 %190, %.035.i
   %178 = icmp ult i64 %177, %166
   br i1 %178, label %.lr.ph.i61, label %mca_fbtl_posix_pwritev_single.exit, !llvm.loop !7
 
 .lr.ph.i61:                                       ; preds = %.preheader.i59, %176
-  %.03135.i = phi i64 [ %177, %176 ], [ 0, %.preheader.i59 ]
+  %.035.i = phi i64 [ %177, %176 ], [ 0, %.preheader.i59 ]
   %179 = load i32, ptr %0, align 8
   %180 = load ptr, ptr %4, align 8
   %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 %.03135.i
+  %182 = getelementptr inbounds i8, ptr %181, i64 %.035.i
   %183 = getelementptr inbounds i8, ptr %180, i64 16
   %184 = load i64, ptr %183, align 8
-  %185 = sub i64 %184, %.03135.i
+  %185 = sub i64 %184, %.035.i
   %186 = getelementptr inbounds i8, ptr %180, i64 8
   %187 = load ptr, ptr %186, align 8
   %188 = ptrtoint ptr %187 to i64
-  %189 = add i64 %.03135.i, %188
+  %189 = add i64 %.035.i, %188
   %190 = call i64 @pwrite(i32 noundef %179, ptr noundef %182, i64 noundef %185, i64 noundef %189) #9
   %191 = icmp eq i64 %190, -1
   br i1 %191, label %192, label %176
@@ -349,12 +349,12 @@ define i64 @mca_fbtl_posix_pwritev(ptr noundef %0) local_unnamed_addr #0 {
   br label %mca_fbtl_posix_pwritev_single.exit
 
 mca_fbtl_posix_pwritev_single.exit:               ; preds = %176, %.preheader.i59, %172, %192
-  %.0.i = phi i64 [ -1, %172 ], [ -1, %192 ], [ 0, %.preheader.i59 ], [ %177, %176 ]
+  %.031.i = phi i64 [ -1, %172 ], [ -1, %192 ], [ 0, %.preheader.i59 ], [ %177, %176 ]
   call void @mca_fbtl_posix_unlock(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %3) #9
   br label %mca_fbtl_posix_pwritev_generic.exit
 
 mca_fbtl_posix_pwritev_generic.exit:              ; preds = %._crit_edge.i, %154, %142, %102, %75, %162, %mca_fbtl_posix_pwritev_single.exit
-  %.052 = phi i64 [ %163, %162 ], [ %.0.i, %mca_fbtl_posix_pwritev_single.exit ], [ -2, %75 ], [ -2, %102 ], [ -1, %142 ], [ -1, %154 ], [ %.280.i, %._crit_edge.i ]
+  %.052 = phi i64 [ %163, %162 ], [ %.031.i, %mca_fbtl_posix_pwritev_single.exit ], [ -2, %75 ], [ -2, %102 ], [ -1, %142 ], [ -1, %154 ], [ %.280.i, %._crit_edge.i ]
   %196 = load i32, ptr %8, align 4
   %.not56 = icmp eq i32 %196, 0
   br i1 %.not56, label %198, label %197
@@ -391,13 +391,13 @@ define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, p
 
 7:                                                ; preds = %.lr.ph155, %._crit_edge146
   %8 = phi i32 [ %5, %.lr.ph155 ], [ %94, %._crit_edge146 ]
-  %.098153 = phi i64 [ 0, %.lr.ph155 ], [ %.1, %._crit_edge146 ]
-  %.0100152 = phi i64 [ 0, %.lr.ph155 ], [ %.2.lcssa, %._crit_edge146 ]
-  %.0102151 = phi i32 [ 0, %.lr.ph155 ], [ %32, %._crit_edge146 ]
-  %.0105150 = phi ptr [ null, %.lr.ph155 ], [ %.1106, %._crit_edge146 ]
-  %.0107149 = phi i64 [ 0, %.lr.ph155 ], [ %.1108.lcssa, %._crit_edge146 ]
+  %.098153 = phi i64 [ 0, %.lr.ph155 ], [ %.2.lcssa, %._crit_edge146 ]
+  %.099152 = phi i32 [ 0, %.lr.ph155 ], [ %32, %._crit_edge146 ]
+  %.0102151 = phi ptr [ null, %.lr.ph155 ], [ %.1103, %._crit_edge146 ]
+  %.0104150 = phi i64 [ 0, %.lr.ph155 ], [ %.1105.lcssa, %._crit_edge146 ]
+  %.0108149 = phi i64 [ 0, %.lr.ph155 ], [ %.1109, %._crit_edge146 ]
   %9 = load ptr, ptr %6, align 8
-  %10 = sext i32 %.0102151 to i64
+  %10 = sext i32 %.099152 to i64
   %11 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %9, i64 %10, i32 1
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
@@ -433,9 +433,9 @@ define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %26
-  %.2104 = phi i32 [ %28, %26 ], [ %31, %.loopexit.loopexit ]
-  %32 = add i32 %.2104, 1
-  %33 = sext i32 %.2104 to i64
+  %.2101 = phi i32 [ %28, %26 ], [ %31, %.loopexit.loopexit ]
+  %32 = add i32 %.2101, 1
+  %33 = sext i32 %.2101 to i64
   %34 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %9, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
@@ -444,15 +444,15 @@ define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, p
   %39 = load i64, ptr %38, align 8
   %40 = sub i64 %37, %13
   %41 = add i64 %40, %39
-  %42 = icmp ugt i64 %41, %.098153
+  %42 = icmp ugt i64 %41, %.0108149
   br i1 %42, label %43, label %49
 
 43:                                               ; preds = %.loopexit
-  %.not118 = icmp eq ptr %.0105150, null
+  %.not118 = icmp eq ptr %.0102151, null
   br i1 %.not118, label %45, label %44
 
 44:                                               ; preds = %43
-  tail call void @free(ptr noundef nonnull %.0105150) #9
+  tail call void @free(ptr noundef nonnull %.0102151) #9
   br label %45
 
 45:                                               ; preds = %44, %43
@@ -465,14 +465,14 @@ define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, p
   br label %95
 
 49:                                               ; preds = %45, %.loopexit
-  %.1106 = phi ptr [ %.0105150, %.loopexit ], [ %46, %45 ]
-  %.1 = phi i64 [ %.098153, %.loopexit ], [ %41, %45 ]
+  %.1109 = phi i64 [ %.0108149, %.loopexit ], [ %41, %45 ]
+  %.1103 = phi ptr [ %.0102151, %.loopexit ], [ %46, %45 ]
   %50 = tail call i32 @mca_fbtl_posix_lock(ptr noundef %1, ptr noundef %0, i32 noundef 1, i64 noundef %13, i64 noundef %41, i32 noundef 10, ptr noundef %2) #9
   %51 = icmp sgt i32 %50, 0
   br i1 %51, label %53, label %.preheader120
 
 .preheader120:                                    ; preds = %49
-  %52 = icmp ult i64 %.0100152, %41
+  %52 = icmp ult i64 %.098153, %41
   br i1 %52, label %.lr.ph, label %._crit_edge
 
 53:                                               ; preds = %49
@@ -481,13 +481,13 @@ define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, p
   %56 = tail call ptr @strerror(i32 noundef %55) #9
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.4, i32 noundef %50, ptr noundef %56) #9
   tail call void @mca_fbtl_posix_unlock(ptr noundef %1, ptr noundef %0, ptr noundef %2) #9
-  tail call void @free(ptr noundef %.1106) #9
+  tail call void @free(ptr noundef %.1103) #9
   br label %95
 
 .lr.ph:                                           ; preds = %.preheader120, %63
-  %.1101137 = phi i64 [ %64, %63 ], [ %.0100152, %.preheader120 ]
+  %.1137 = phi i64 [ %64, %63 ], [ %.098153, %.preheader120 ]
   %57 = load i32, ptr %0, align 8
-  %58 = tail call i64 @pread(i32 noundef %57, ptr noundef %.1106, i64 noundef %41, i64 noundef %13) #9
+  %58 = tail call i64 @pread(i32 noundef %57, ptr noundef %.1103, i64 noundef %41, i64 noundef %13) #9
   switch i64 %58, label %63 [
     i64 -1, label %59
     i64 0, label %._crit_edge
@@ -499,11 +499,11 @@ define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, p
   %62 = tail call ptr @strerror(i32 noundef %61) #9
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %62) #9
   tail call void @mca_fbtl_posix_unlock(ptr noundef %1, ptr noundef nonnull %0, ptr noundef %2) #9
-  tail call void @free(ptr noundef %.1106) #9
+  tail call void @free(ptr noundef %.1103) #9
   br label %95
 
 63:                                               ; preds = %.lr.ph
-  %64 = add i64 %58, %.1101137
+  %64 = add i64 %58, %.1137
   %65 = icmp ult i64 %64, %41
   br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
@@ -512,17 +512,17 @@ define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, p
   %67 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %66, i64 %10, i32 1
   %68 = load ptr, ptr %67, align 8
   %69 = ptrtoint ptr %68 to i64
-  %.not119139 = icmp sgt i32 %.0102151, %.2104
+  %.not119139 = icmp sgt i32 %.099152, %.2101
   br i1 %.not119139, label %.preheader, label %.lr.ph143
 
 .preheader:                                       ; preds = %.lr.ph143, %._crit_edge
-  %.1108.lcssa = phi i64 [ %.0107149, %._crit_edge ], [ %80, %.lr.ph143 ]
+  %.1105.lcssa = phi i64 [ %.0104150, %._crit_edge ], [ %80, %.lr.ph143 ]
   %.not159 = icmp eq i64 %41, 0
   br i1 %.not159, label %._crit_edge146, label %.lr.ph145
 
 .lr.ph143:                                        ; preds = %._crit_edge, %.lr.ph143
   %indvars.iv171 = phi i64 [ %indvars.iv.next172, %.lr.ph143 ], [ %10, %._crit_edge ]
-  %.1108140 = phi i64 [ %80, %.lr.ph143 ], [ %.0107149, %._crit_edge ]
+  %.1105141 = phi i64 [ %80, %.lr.ph143 ], [ %.0104150, %._crit_edge ]
   %70 = load ptr, ptr %6, align 8
   %71 = getelementptr inbounds %struct.mca_common_ompio_io_array_t, ptr %70, i64 %indvars.iv171
   %72 = getelementptr inbounds i8, ptr %71, i64 8
@@ -531,10 +531,10 @@ define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, p
   %75 = sub i64 %74, %69
   %76 = getelementptr inbounds i8, ptr %71, i64 16
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %.1106, i64 %75
+  %78 = getelementptr inbounds i8, ptr %.1103, i64 %75
   %79 = load ptr, ptr %71, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %78, ptr align 1 %79, i64 %77, i1 false)
-  %80 = add i64 %77, %.1108140
+  %80 = add i64 %77, %.1105141
   %indvars.iv.next172 = add nsw i64 %indvars.iv171, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next172 to i32
   %exitcond.not = icmp eq i32 %32, %lftr.wideiv
@@ -548,7 +548,7 @@ define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, p
 .lr.ph145:                                        ; preds = %.preheader, %81
   %.2144 = phi i64 [ %82, %81 ], [ 0, %.preheader ]
   %84 = load i32, ptr %0, align 8
-  %85 = getelementptr inbounds i8, ptr %.1106, i64 %.2144
+  %85 = getelementptr inbounds i8, ptr %.1103, i64 %.2144
   %86 = sub i64 %41, %.2144
   %87 = add i64 %.2144, %13
   %88 = tail call i64 @pwrite(i32 noundef %84, ptr noundef %85, i64 noundef %86, i64 noundef %87) #9
@@ -561,7 +561,7 @@ define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, p
   %93 = tail call ptr @strerror(i32 noundef %92) #9
   tail call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef %93) #9
   tail call void @mca_fbtl_posix_unlock(ptr noundef %1, ptr noundef nonnull %0, ptr noundef %2) #9
-  tail call void @free(ptr noundef %.1106) #9
+  tail call void @free(ptr noundef %.1103) #9
   br label %95
 
 ._crit_edge146:                                   ; preds = %81, %.preheader
@@ -572,13 +572,13 @@ define internal fastcc i64 @mca_fbtl_posix_pwritev_datasieving(ptr noundef %0, p
   br i1 %.not, label %7, label %._crit_edge156, !llvm.loop !12
 
 ._crit_edge156:                                   ; preds = %._crit_edge146, %3
-  %.0107.lcssa = phi i64 [ 0, %3 ], [ %.1108.lcssa, %._crit_edge146 ]
-  %.0105.lcssa = phi ptr [ null, %3 ], [ %.1106, %._crit_edge146 ]
-  tail call void @free(ptr noundef %.0105.lcssa) #9
+  %.0104.lcssa = phi i64 [ 0, %3 ], [ %.1105.lcssa, %._crit_edge146 ]
+  %.0102.lcssa = phi ptr [ null, %3 ], [ %.1103, %._crit_edge146 ]
+  tail call void @free(ptr noundef %.0102.lcssa) #9
   br label %95
 
 95:                                               ; preds = %._crit_edge156, %90, %59, %53, %48
-  %.0 = phi i64 [ %.0107.lcssa, %._crit_edge156 ], [ -2, %48 ], [ -1, %53 ], [ -1, %59 ], [ -1, %90 ]
+  %.0 = phi i64 [ %.0104.lcssa, %._crit_edge156 ], [ -2, %48 ], [ -1, %53 ], [ -1, %59 ], [ -1, %90 ]
   ret i64 %.0
 }
 

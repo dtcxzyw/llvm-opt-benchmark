@@ -116,7 +116,7 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
   br label %42
 
 42:                                               ; preds = %27, %38, %25
-  %.038 = phi i32 [ %41, %38 ], [ 0, %27 ], [ 0, %25 ]
+  %.039 = phi i32 [ %41, %38 ], [ 0, %27 ], [ 0, %25 ]
   %43 = load ptr, ptr %0, align 8
   %44 = call i64 @file_seek(ptr noundef %43, i64 noundef %22, i32 noundef 0, ptr noundef %1) #7
   %45 = icmp eq i64 %44, -1
@@ -127,7 +127,7 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
   %48 = load i32, ptr %47, align 4
   %49 = call i32 @llvm.bswap.i32(i32 %48)
   store i32 %49, ptr %47, align 4
-  %.not51 = icmp eq i32 %.038, 0
+  %.not51 = icmp eq i32 %.039, 0
   br i1 %.not51, label %60, label %50
 
 50:                                               ; preds = %46
@@ -188,8 +188,8 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
   br label %75
 
 75:                                               ; preds = %61, %73, %58
-  %.039.in = phi ptr [ %59, %58 ], [ %74, %73 ], [ getelementptr inbounds (i8, ptr @snoop_open.snoop_private_encap, i64 20), %61 ]
-  %.039 = load i32, ptr %.039.in, align 4
+  %.038.in = phi ptr [ %59, %58 ], [ %74, %73 ], [ getelementptr inbounds (i8, ptr @snoop_open.snoop_private_encap, i64 20), %61 ]
+  %.038 = load i32, ptr %.038.in, align 4
   %76 = load i32, ptr @shomiti_file_type_subtype, align 4
   %77 = load i32, ptr @snoop_file_type_subtype, align 4
   %78 = select i1 %.not51, i32 %77, i32 %76
@@ -203,12 +203,12 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
   %83 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr @snoop_seek_read, ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 %.039, ptr %84, align 8
+  store i32 %.038, ptr %84, align 8
   %85 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %85, align 8
   %86 = getelementptr inbounds i8, ptr %0, i64 148
   store i32 6, ptr %86, align 4
-  store i32 %.038, ptr %80, align 4
+  store i32 %.039, ptr %80, align 4
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #7
   br label %87
 

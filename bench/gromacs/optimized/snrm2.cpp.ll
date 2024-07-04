@@ -35,8 +35,8 @@ define float @snrm2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %35
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %35 ]
-  %.03950 = phi float [ 1.000000e+00, %.lr.ph.preheader ], [ %.1, %35 ]
-  %.04049 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.141, %35 ]
+  %.051 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1, %35 ]
+  %.03850 = phi float [ 1.000000e+00, %.lr.ph.preheader ], [ %.139, %35 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %19 = load float, ptr %gep, align 4
   %20 = tail call noundef float @llvm.fabs.f32(float %19)
@@ -47,37 +47,37 @@ define float @snrm2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %23 = fcmp oge float %19, 0.000000e+00
   %24 = fneg float %19
   %25 = select i1 %23, float %19, float %24
-  %26 = fcmp olt float %.04049, %25
+  %26 = fcmp olt float %.051, %25
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %22
-  %28 = fdiv float %.04049, %25
+  %28 = fdiv float %.051, %25
   %29 = fmul float %28, %28
-  %30 = fmul float %.03950, %29
+  %30 = fmul float %.03850, %29
   %31 = fadd float %30, 1.000000e+00
   br label %35
 
 32:                                               ; preds = %22
-  %33 = fdiv float %25, %.04049
-  %34 = tail call float @llvm.fmuladd.f32(float %33, float %33, float %.03950)
+  %33 = fdiv float %25, %.051
+  %34 = tail call float @llvm.fmuladd.f32(float %33, float %33, float %.03850)
   br label %35
 
 35:                                               ; preds = %.lr.ph, %32, %27
-  %.141 = phi float [ %25, %27 ], [ %.04049, %32 ], [ %.04049, %.lr.ph ]
-  %.1 = phi float [ %31, %27 ], [ %34, %32 ], [ %.03950, %.lr.ph ]
+  %.139 = phi float [ %31, %27 ], [ %34, %32 ], [ %.03850, %.lr.ph ]
+  %.1 = phi float [ %25, %27 ], [ %.051, %32 ], [ %.051, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %18
   %36 = trunc nuw i64 %indvars.iv.next to i32
   %.not = icmp slt i32 %17, %36
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %35
-  %37 = tail call noundef float @sqrtf(float noundef %.1) #3
-  %38 = fmul float %.141, %37
+  %37 = tail call noundef float @sqrtf(float noundef %.139) #3
+  %38 = fmul float %.1, %37
   br label %39
 
 39:                                               ; preds = %10, %3, %._crit_edge, %13
-  %.0 = phi float [ %14, %13 ], [ %38, %._crit_edge ], [ 0.000000e+00, %3 ], [ %11, %10 ]
-  ret float %.0
+  %.041 = phi float [ %14, %13 ], [ %38, %._crit_edge ], [ 0.000000e+00, %3 ], [ %11, %10 ]
+  ret float %.041
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

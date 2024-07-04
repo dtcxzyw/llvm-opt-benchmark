@@ -56,38 +56,38 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
   br label %5
 
 3:                                                ; preds = %._crit_edge, %432, %71
-  %.0190 = phi ptr [ %452, %._crit_edge ], [ %412, %432 ], [ %72, %71 ]
-  %.0177 = phi ptr [ %.3180.lcssa, %._crit_edge ], [ %411, %432 ], [ %.2179, %71 ]
+  %.0184 = phi ptr [ %.3187.lcssa, %._crit_edge ], [ %411, %432 ], [ %.2186, %71 ]
+  %.0178 = phi ptr [ %452, %._crit_edge ], [ %412, %432 ], [ %72, %71 ]
   %.0169 = phi i32 [ 3, %._crit_edge ], [ %.1170, %432 ], [ %spec.select, %71 ]
   %.0 = phi i32 [ 1, %._crit_edge ], [ %433, %432 ], [ %67, %71 ]
-  %4 = getelementptr inbounds i8, ptr %.0177, i64 1
+  %4 = getelementptr inbounds i8, ptr %.0184, i64 1
   br label %5
 
 5:                                                ; preds = %3, %0
-  %.1191 = phi ptr [ %2, %0 ], [ %.0190, %3 ]
-  %.0181 = phi ptr [ %2, %0 ], [ %.1182, %3 ]
-  %.1178 = phi ptr [ %1, %0 ], [ %4, %3 ]
-  %.0174 = phi ptr [ %1, %0 ], [ %.1175, %3 ]
-  %.0172 = phi i64 [ 200, %0 ], [ %.1173, %3 ]
+  %.0195 = phi i64 [ 200, %0 ], [ %.1196, %3 ]
+  %.0191 = phi ptr [ %1, %0 ], [ %.1192, %3 ]
+  %.1185 = phi ptr [ %1, %0 ], [ %4, %3 ]
+  %.0182 = phi ptr [ %2, %0 ], [ %.1183, %3 ]
+  %.1179 = phi ptr [ %2, %0 ], [ %.0178, %3 ]
   %.1170 = phi i32 [ 0, %0 ], [ %.0169, %3 ]
   %.1 = phi i32 [ 0, %0 ], [ %.0, %3 ]
   %6 = trunc nsw i32 %.1 to i8
-  store i8 %6, ptr %.1178, align 1
-  %7 = getelementptr inbounds i8, ptr %.0174, i64 %.0172
+  store i8 %6, ptr %.1185, align 1
+  %7 = getelementptr inbounds i8, ptr %.0191, i64 %.0195
   %8 = getelementptr inbounds i8, ptr %7, i64 -1
-  %.not = icmp ugt ptr %8, %.1178
+  %.not = icmp ugt ptr %8, %.1185
   br i1 %.not, label %30, label %9
 
 9:                                                ; preds = %5
-  %10 = ptrtoint ptr %.1178 to i64
-  %11 = ptrtoint ptr %.0174 to i64
+  %10 = ptrtoint ptr %.1185 to i64
+  %11 = ptrtoint ptr %.0191 to i64
   %12 = sub i64 %10, %11
   %13 = add nsw i64 %12, 1
-  %14 = icmp sgt i64 %.0172, 9999
+  %14 = icmp sgt i64 %.0195, 9999
   br i1 %14, label %454, label %15
 
 15:                                               ; preds = %9
-  %16 = shl nsw i64 %.0172, 1
+  %16 = shl nsw i64 %.0195, 1
   %spec.store.select = call i64 @llvm.smin.i64(i64 %16, i64 10000)
   %17 = mul nsw i64 %spec.store.select, 9
   %18 = add nsw i64 %17, 7
@@ -96,17 +96,17 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
   br i1 %.not213, label %454, label %20
 
 20:                                               ; preds = %15
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr align 1 %.0174, i64 %13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr align 1 %.0191, i64 %13, i1 false)
   %21 = add nsw i64 %spec.store.select, 7
   %22 = sdiv i64 %21, 8
   %23 = getelementptr inbounds %union.yyalloc, ptr %19, i64 %22
   %24 = shl i64 %13, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 8 %.0181, i64 %24, i1 false)
-  %.not214 = icmp eq ptr %.0174, %1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 8 %.0182, i64 %24, i1 false)
+  %.not214 = icmp eq ptr %.0191, %1
   br i1 %.not214, label %26, label %25
 
 25:                                               ; preds = %20
-  call void @free(ptr noundef %.0174) #16
+  call void @free(ptr noundef %.0191) #16
   br label %26
 
 26:                                               ; preds = %25, %20
@@ -117,11 +117,11 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
   br i1 %.not215, label %30, label %.loopexit254.thread
 
 30:                                               ; preds = %26, %5
-  %.2192 = phi ptr [ %29, %26 ], [ %.1191, %5 ]
-  %.1182 = phi ptr [ %23, %26 ], [ %.0181, %5 ]
-  %.2179 = phi ptr [ %27, %26 ], [ %.1178, %5 ]
-  %.1175 = phi ptr [ %19, %26 ], [ %.0174, %5 ]
-  %.1173 = phi i64 [ %spec.store.select, %26 ], [ %.0172, %5 ]
+  %.1196 = phi i64 [ %spec.store.select, %26 ], [ %.0195, %5 ]
+  %.1192 = phi ptr [ %19, %26 ], [ %.0191, %5 ]
+  %.2186 = phi ptr [ %27, %26 ], [ %.1185, %5 ]
+  %.1183 = phi ptr [ %23, %26 ], [ %.0182, %5 ]
+  %.2180 = phi ptr [ %29, %26 ], [ %.1179, %5 ]
   %31 = icmp eq i32 %.1, 31
   br i1 %31, label %.loopexit254, label %32
 
@@ -172,8 +172,8 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
   br label %57
 
 57:                                               ; preds = %52, %50, %46
-  %.0187 = phi i32 [ 0, %46 ], [ %56, %52 ], [ 2, %50 ]
-  %58 = add nsw i32 %.0187, %36
+  %.0175 = phi i32 [ 0, %46 ], [ %56, %52 ], [ 2, %50 ]
+  %58 = add nsw i32 %.0175, %36
   %or.cond3 = icmp ugt i32 %58, 271
   br i1 %or.cond3, label %74, label %59
 
@@ -182,7 +182,7 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
   %61 = getelementptr inbounds [272 x i8], ptr @yycheck, i64 0, i64 %60
   %62 = load i8, ptr %61, align 1
   %63 = sext i8 %62 to i32
-  %.not216 = icmp eq i32 %.0187, %63
+  %.not216 = icmp eq i32 %.0175, %63
   br i1 %.not216, label %64, label %74
 
 64:                                               ; preds = %59
@@ -198,7 +198,7 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
 
 71:                                               ; preds = %64
   %spec.select = call i32 @llvm.usub.sat.i32(i32 %.1170, i32 1)
-  %72 = getelementptr inbounds i8, ptr %.2192, i64 8
+  %72 = getelementptr inbounds i8, ptr %.2180, i64 8
   %73 = load i64, ptr @htmllval, align 8
   store i64 %73, ptr %72, align 8
   store i32 -2, ptr @htmlchar, align 4
@@ -212,15 +212,15 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
   br i1 %78, label %434, label %79
 
 79:                                               ; preds = %74, %69
-  %.0189 = phi i32 [ %77, %74 ], [ %70, %69 ]
-  %80 = sext i32 %.0189 to i64
+  %.0177 = phi i32 [ %77, %74 ], [ %70, %69 ]
+  %80 = sext i32 %.0177 to i64
   %81 = getelementptr inbounds [70 x i8], ptr @yyr2, i64 0, i64 %80
   %82 = load i8, ptr %81, align 1
   %83 = sext i8 %82 to i64
   %84 = sub nsw i64 1, %83
-  %85 = getelementptr inbounds %union.HTMLSTYPE, ptr %.2192, i64 %84
+  %85 = getelementptr inbounds %union.HTMLSTYPE, ptr %.2180, i64 %84
   %.sroa.0.0.copyload = load ptr, ptr %85, align 8
-  switch i32 %.0189, label %407 [
+  switch i32 %.0177, label %407 [
     i32 2, label %86
     i32 3, label %95
     i32 4, label %104
@@ -274,7 +274,7 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
   ]
 
 86:                                               ; preds = %79
-  %87 = getelementptr inbounds i8, ptr %.2192, i64 -8
+  %87 = getelementptr inbounds i8, ptr %.2180, i64 -8
   %88 = load ptr, ptr %87, align 8
   %89 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #17
   %90 = icmp eq ptr %89, null
@@ -294,7 +294,7 @@ mkLabel.exit:                                     ; preds = %86
   br label %407
 
 95:                                               ; preds = %79
-  %96 = getelementptr inbounds i8, ptr %.2192, i64 -8
+  %96 = getelementptr inbounds i8, ptr %.2180, i64 -8
   %97 = load ptr, ptr %96, align 8
   %98 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #17
   %99 = icmp eq ptr %98, null
@@ -372,12 +372,12 @@ appendFItemList.exit:                             ; preds = %agxblen.exit.i.i, %
   br label %407
 
 131:                                              ; preds = %79
-  %132 = load i32, ptr %.2192, align 8
+  %132 = load i32, ptr %.2180, align 8
   call fastcc void @appendFLineList(i32 noundef %132)
   br label %407
 
 133:                                              ; preds = %79
-  %134 = load ptr, ptr %.2192, align 8
+  %134 = load ptr, ptr %.2180, align 8
   call fastcc void @pushFont(ptr noundef %134)
   br label %407
 
@@ -390,7 +390,7 @@ appendFItemList.exit:                             ; preds = %agxblen.exit.i.i, %
   br label %407
 
 139:                                              ; preds = %79
-  %140 = load ptr, ptr %.2192, align 8
+  %140 = load ptr, ptr %.2180, align 8
   call fastcc void @pushFont(ptr noundef %140)
   br label %407
 
@@ -403,7 +403,7 @@ appendFItemList.exit:                             ; preds = %agxblen.exit.i.i, %
   br label %407
 
 145:                                              ; preds = %79
-  %146 = load ptr, ptr %.2192, align 8
+  %146 = load ptr, ptr %.2180, align 8
   call fastcc void @pushFont(ptr noundef %146)
   br label %407
 
@@ -416,7 +416,7 @@ appendFItemList.exit:                             ; preds = %agxblen.exit.i.i, %
   br label %407
 
 151:                                              ; preds = %79
-  %152 = load ptr, ptr %.2192, align 8
+  %152 = load ptr, ptr %.2180, align 8
   call fastcc void @pushFont(ptr noundef %152)
   br label %407
 
@@ -429,7 +429,7 @@ appendFItemList.exit:                             ; preds = %agxblen.exit.i.i, %
   br label %407
 
 157:                                              ; preds = %79
-  %158 = load ptr, ptr %.2192, align 8
+  %158 = load ptr, ptr %.2180, align 8
   call fastcc void @pushFont(ptr noundef %158)
   br label %407
 
@@ -442,7 +442,7 @@ appendFItemList.exit:                             ; preds = %agxblen.exit.i.i, %
   br label %407
 
 163:                                              ; preds = %79
-  %164 = load ptr, ptr %.2192, align 8
+  %164 = load ptr, ptr %.2180, align 8
   call fastcc void @pushFont(ptr noundef %164)
   br label %407
 
@@ -455,7 +455,7 @@ appendFItemList.exit:                             ; preds = %agxblen.exit.i.i, %
   br label %407
 
 169:                                              ; preds = %79
-  %170 = load ptr, ptr %.2192, align 8
+  %170 = load ptr, ptr %.2180, align 8
   call fastcc void @pushFont(ptr noundef %170)
   br label %407
 
@@ -468,7 +468,7 @@ appendFItemList.exit:                             ; preds = %agxblen.exit.i.i, %
   br label %407
 
 175:                                              ; preds = %79
-  %176 = load ptr, ptr %.2192, align 8
+  %176 = load ptr, ptr %.2180, align 8
   call fastcc void @pushFont(ptr noundef %176)
   br label %407
 
@@ -481,7 +481,7 @@ appendFItemList.exit:                             ; preds = %agxblen.exit.i.i, %
   br label %407
 
 181:                                              ; preds = %79
-  %182 = getelementptr inbounds i8, ptr %.2192, i64 -8
+  %182 = getelementptr inbounds i8, ptr %.2180, i64 -8
   %183 = load i32, ptr %182, align 8
   %184 = ptrtoint ptr %.sroa.0.0.copyload to i64
   %.sroa.0.0.insert.ext = zext i32 %183 to i64
@@ -491,7 +491,7 @@ appendFItemList.exit:                             ; preds = %agxblen.exit.i.i, %
   br label %407
 
 186:                                              ; preds = %79
-  %187 = load i32, ptr %.2192, align 8
+  %187 = load i32, ptr %.2180, align 8
   %188 = ptrtoint ptr %.sroa.0.0.copyload to i64
   %.sroa.0.0.insert.ext37 = zext i32 %187 to i64
   %.sroa.0.0.insert.mask38 = and i64 %188, -4294967296
@@ -539,21 +539,21 @@ nonSpace.exit:                                    ; preds = %197
 
 199:                                              ; preds = %agxbuse.exit
   %200 = load ptr, ptr @HTMLstate.1, align 8
-  %201 = load ptr, ptr %.2192, align 8
+  %201 = load ptr, ptr %.2180, align 8
   %202 = getelementptr inbounds i8, ptr %201, i64 104
   store ptr %200, ptr %202, align 8
   %203 = load ptr, ptr @Dtqueue, align 8
   %204 = call ptr @dtopen(ptr noundef nonnull @rowDisc, ptr noundef %203) #16
-  %205 = load ptr, ptr %.2192, align 8
+  %205 = load ptr, ptr %.2180, align 8
   %206 = getelementptr inbounds i8, ptr %205, i64 112
   store ptr %204, ptr %206, align 8
-  %207 = load ptr, ptr %.2192, align 8
+  %207 = load ptr, ptr %.2180, align 8
   store ptr %207, ptr @HTMLstate.1, align 8
   %208 = load ptr, ptr @HTMLstate.5, align 8
   %209 = load ptr, ptr %208, align 8
   %210 = getelementptr inbounds i8, ptr %207, i64 160
   store ptr %209, ptr %210, align 8
-  %211 = load ptr, ptr %.2192, align 8
+  %211 = load ptr, ptr %.2180, align 8
   br label %407
 
 212:                                              ; preds = %79
@@ -602,48 +602,48 @@ nonSpace.exit235:                                 ; preds = %219
   br label %407
 
 225:                                              ; preds = %79
-  %226 = load ptr, ptr %.2192, align 8
+  %226 = load ptr, ptr %.2180, align 8
   br label %407
 
 227:                                              ; preds = %79
-  %228 = getelementptr inbounds i8, ptr %.2192, i64 -8
+  %228 = getelementptr inbounds i8, ptr %.2180, i64 -8
   %229 = load ptr, ptr %228, align 8
   br label %407
 
 230:                                              ; preds = %79
-  %231 = getelementptr inbounds i8, ptr %.2192, i64 -8
+  %231 = getelementptr inbounds i8, ptr %.2180, i64 -8
   %232 = load ptr, ptr %231, align 8
   br label %407
 
 233:                                              ; preds = %79
-  %234 = getelementptr inbounds i8, ptr %.2192, i64 -8
+  %234 = getelementptr inbounds i8, ptr %.2180, i64 -8
   %235 = load ptr, ptr %234, align 8
   br label %407
 
 236:                                              ; preds = %79
-  %237 = getelementptr inbounds i8, ptr %.2192, i64 -8
+  %237 = getelementptr inbounds i8, ptr %.2180, i64 -8
   %238 = load ptr, ptr %237, align 8
   br label %407
 
 239:                                              ; preds = %79
-  %240 = getelementptr inbounds i8, ptr %.2192, i64 -8
+  %240 = getelementptr inbounds i8, ptr %.2180, i64 -8
   %241 = load ptr, ptr %240, align 8
   br label %407
 
 242:                                              ; preds = %79
-  %243 = load ptr, ptr %.2192, align 8
+  %243 = load ptr, ptr %.2180, align 8
   br label %407
 
 244:                                              ; preds = %79
-  %245 = load ptr, ptr %.2192, align 8
+  %245 = load ptr, ptr %.2180, align 8
   br label %407
 
 246:                                              ; preds = %79
-  %247 = getelementptr inbounds i8, ptr %.2192, i64 -16
+  %247 = getelementptr inbounds i8, ptr %.2180, i64 -16
   %248 = load ptr, ptr %247, align 8
   %249 = getelementptr inbounds i8, ptr %248, i64 24
   store i8 1, ptr %249, align 8
-  %250 = load ptr, ptr %.2192, align 8
+  %250 = load ptr, ptr %.2180, align 8
   br label %407
 
 251:                                              ; preds = %79
@@ -689,27 +689,27 @@ addRow.exit:                                      ; preds = %gv_alloc.exit.i236,
   br label %407
 
 276:                                              ; preds = %79
-  %277 = load ptr, ptr %.2192, align 8
+  %277 = load ptr, ptr %.2180, align 8
   br label %407
 
 278:                                              ; preds = %79
-  %279 = load ptr, ptr %.2192, align 8
+  %279 = load ptr, ptr %.2180, align 8
   br label %407
 
 280:                                              ; preds = %79
-  %281 = getelementptr inbounds i8, ptr %.2192, i64 -16
+  %281 = getelementptr inbounds i8, ptr %.2180, i64 -16
   %282 = load ptr, ptr %281, align 8
   %283 = getelementptr inbounds i8, ptr %282, i64 136
   %284 = load i8, ptr %283, align 8
   %285 = or i8 %284, 1
   store i8 %285, ptr %283, align 8
-  %286 = load ptr, ptr %.2192, align 8
+  %286 = load ptr, ptr %.2180, align 8
   br label %407
 
 287:                                              ; preds = %79
-  %288 = getelementptr inbounds i8, ptr %.2192, i64 -8
+  %288 = getelementptr inbounds i8, ptr %.2180, i64 -8
   %289 = load ptr, ptr %288, align 8
-  %290 = load ptr, ptr %.2192, align 8
+  %290 = load ptr, ptr %.2180, align 8
   %291 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #17
   %292 = icmp eq ptr %291, null
   br i1 %292, label %293, label %gv_alloc.exit.i237
@@ -751,14 +751,14 @@ setCell.exit:                                     ; preds = %gv_alloc.exit.i237,
   br label %407
 
 313:                                              ; preds = %79
-  %314 = getelementptr inbounds i8, ptr %.2192, i64 -24
+  %314 = getelementptr inbounds i8, ptr %.2180, i64 -24
   %315 = load ptr, ptr %314, align 8
   br label %407
 
 316:                                              ; preds = %79
-  %317 = getelementptr inbounds i8, ptr %.2192, i64 -8
+  %317 = getelementptr inbounds i8, ptr %.2180, i64 -8
   %318 = load ptr, ptr %317, align 8
-  %319 = load ptr, ptr %.2192, align 8
+  %319 = load ptr, ptr %.2180, align 8
   %320 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #17
   %321 = icmp eq ptr %320, null
   br i1 %321, label %322, label %gv_alloc.exit.i239
@@ -800,14 +800,14 @@ setCell.exit241:                                  ; preds = %gv_alloc.exit.i239,
   br label %407
 
 342:                                              ; preds = %79
-  %343 = getelementptr inbounds i8, ptr %.2192, i64 -24
+  %343 = getelementptr inbounds i8, ptr %.2180, i64 -24
   %344 = load ptr, ptr %343, align 8
   br label %407
 
 345:                                              ; preds = %79
-  %346 = getelementptr inbounds i8, ptr %.2192, i64 -8
+  %346 = getelementptr inbounds i8, ptr %.2180, i64 -8
   %347 = load ptr, ptr %346, align 8
-  %348 = load ptr, ptr %.2192, align 8
+  %348 = load ptr, ptr %.2180, align 8
   %349 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #17
   %350 = icmp eq ptr %349, null
   br i1 %350, label %351, label %gv_alloc.exit.i242
@@ -849,12 +849,12 @@ setCell.exit244:                                  ; preds = %gv_alloc.exit.i242,
   br label %407
 
 371:                                              ; preds = %79
-  %372 = getelementptr inbounds i8, ptr %.2192, i64 -24
+  %372 = getelementptr inbounds i8, ptr %.2180, i64 -24
   %373 = load ptr, ptr %372, align 8
   br label %407
 
 374:                                              ; preds = %79
-  %375 = load ptr, ptr %.2192, align 8
+  %375 = load ptr, ptr %.2180, align 8
   %376 = call fastcc ptr @mkText()
   %377 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #17
   %378 = icmp eq ptr %377, null
@@ -897,25 +897,25 @@ setCell.exit247:                                  ; preds = %gv_alloc.exit.i245,
   br label %407
 
 399:                                              ; preds = %79
-  %400 = getelementptr inbounds i8, ptr %.2192, i64 -16
+  %400 = getelementptr inbounds i8, ptr %.2180, i64 -16
   %401 = load ptr, ptr %400, align 8
   br label %407
 
 402:                                              ; preds = %79
-  %403 = getelementptr inbounds i8, ptr %.2192, i64 -8
+  %403 = getelementptr inbounds i8, ptr %.2180, i64 -8
   %404 = load ptr, ptr %403, align 8
   br label %407
 
 405:                                              ; preds = %79
-  %406 = load ptr, ptr %.2192, align 8
+  %406 = load ptr, ptr %.2180, align 8
   br label %407
 
 407:                                              ; preds = %79, %405, %402, %399, %setCell.exit247, %371, %setCell.exit244, %342, %setCell.exit241, %313, %setCell.exit, %280, %278, %276, %270, %addRow.exit, %246, %244, %242, %239, %236, %233, %230, %227, %225, %221, %199, %186, %181, %177, %175, %171, %169, %165, %163, %159, %157, %153, %151, %147, %145, %141, %139, %135, %133, %131, %appendFItemList.exit, %105, %mkLabel.exit224, %mkLabel.exit
   %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %79 ], [ %406, %405 ], [ %404, %402 ], [ %401, %399 ], [ %.sroa.0.0.copyload, %setCell.exit247 ], [ %373, %371 ], [ %.sroa.0.0.copyload, %setCell.exit244 ], [ %344, %342 ], [ %.sroa.0.0.copyload, %setCell.exit241 ], [ %315, %313 ], [ %.sroa.0.0.copyload, %setCell.exit ], [ %286, %280 ], [ %279, %278 ], [ %277, %276 ], [ %275, %270 ], [ %.sroa.0.0.copyload, %addRow.exit ], [ %250, %246 ], [ %245, %244 ], [ %243, %242 ], [ %241, %239 ], [ %238, %236 ], [ %235, %233 ], [ %232, %230 ], [ %229, %227 ], [ %226, %225 ], [ %222, %221 ], [ %211, %199 ], [ %189, %186 ], [ %185, %181 ], [ %.sroa.0.0.copyload, %177 ], [ %.sroa.0.0.copyload, %175 ], [ %.sroa.0.0.copyload, %171 ], [ %.sroa.0.0.copyload, %169 ], [ %.sroa.0.0.copyload, %165 ], [ %.sroa.0.0.copyload, %163 ], [ %.sroa.0.0.copyload, %159 ], [ %.sroa.0.0.copyload, %157 ], [ %.sroa.0.0.copyload, %153 ], [ %.sroa.0.0.copyload, %151 ], [ %.sroa.0.0.copyload, %147 ], [ %.sroa.0.0.copyload, %145 ], [ %.sroa.0.0.copyload, %141 ], [ %.sroa.0.0.copyload, %139 ], [ %.sroa.0.0.copyload, %135 ], [ %.sroa.0.0.copyload, %133 ], [ %.sroa.0.0.copyload, %131 ], [ %.sroa.0.0.copyload, %appendFItemList.exit ], [ %106, %105 ], [ %.sroa.0.0.copyload, %mkLabel.exit224 ], [ %.sroa.0.0.copyload, %mkLabel.exit ]
   %408 = sext i8 %82 to i64
   %409 = sub nsw i64 0, %408
-  %410 = getelementptr inbounds %union.HTMLSTYPE, ptr %.2192, i64 %409
-  %411 = getelementptr inbounds i8, ptr %.2179, i64 %409
+  %410 = getelementptr inbounds %union.HTMLSTYPE, ptr %.2180, i64 %409
+  %411 = getelementptr inbounds i8, ptr %.2186, i64 %409
   %412 = getelementptr inbounds i8, ptr %410, i64 8
   store ptr %.sroa.0.0, ptr %412, align 8
   %413 = getelementptr inbounds [70 x i8], ptr @yyr1, i64 0, i64 %80
@@ -983,22 +983,22 @@ setCell.exit247:                                  ; preds = %gv_alloc.exit.i245,
   br i1 %445, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %444, %447
-  %.3180472 = phi ptr [ %449, %447 ], [ %.2179, %444 ]
-  %.3193471 = phi ptr [ %448, %447 ], [ %.2192, %444 ]
-  %446 = icmp eq ptr %.3180472, %.1175
+  %.3181472 = phi ptr [ %448, %447 ], [ %.2180, %444 ]
+  %.3187471 = phi ptr [ %449, %447 ], [ %.2186, %444 ]
+  %446 = icmp eq ptr %.3187471, %.1192
   br i1 %446, label %.loopexit254, label %447
 
 447:                                              ; preds = %.lr.ph
-  %448 = getelementptr inbounds i8, ptr %.3193471, i64 -8
-  %449 = getelementptr inbounds i8, ptr %.3180472, i64 -1
+  %448 = getelementptr inbounds i8, ptr %.3181472, i64 -8
+  %449 = getelementptr inbounds i8, ptr %.3187471, i64 -1
   %450 = load i8, ptr %449, align 1
   %451 = icmp eq i8 %450, 0
   br i1 %451, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %447, %444
-  %.3193.lcssa = phi ptr [ %.2192, %444 ], [ %448, %447 ]
-  %.3180.lcssa = phi ptr [ %.2179, %444 ], [ %449, %447 ]
-  %452 = getelementptr inbounds i8, ptr %.3193.lcssa, i64 8
+  %.3187.lcssa = phi ptr [ %.2186, %444 ], [ %449, %447 ]
+  %.3181.lcssa = phi ptr [ %.2180, %444 ], [ %448, %447 ]
+  %452 = getelementptr inbounds i8, ptr %.3181.lcssa, i64 8
   %453 = load i64, ptr @htmllval, align 8
   store i64 %453, ptr %452, align 8
   br label %3
@@ -1008,20 +1008,20 @@ setCell.exit247:                                  ; preds = %gv_alloc.exit.i245,
   br label %.loopexit254
 
 .loopexit254:                                     ; preds = %30, %441, %.lr.ph, %104, %nonSpace.exit, %nonSpace.exit235, %454
-  %.0188 = phi i32 [ 2, %454 ], [ 1, %nonSpace.exit235 ], [ 1, %nonSpace.exit ], [ 1, %104 ], [ 1, %.lr.ph ], [ 0, %30 ], [ 1, %441 ]
-  %.3 = phi ptr [ %.0174, %454 ], [ %.1175, %nonSpace.exit235 ], [ %.1175, %nonSpace.exit ], [ %.1175, %104 ], [ %.1175, %.lr.ph ], [ %.1175, %441 ], [ %.1175, %30 ]
-  %.not223 = icmp eq ptr %.3, %1
+  %.3194 = phi ptr [ %.0191, %454 ], [ %.1192, %nonSpace.exit235 ], [ %.1192, %nonSpace.exit ], [ %.1192, %104 ], [ %.1192, %.lr.ph ], [ %.1192, %441 ], [ %.1192, %30 ]
+  %.0176 = phi i32 [ 2, %454 ], [ 1, %nonSpace.exit235 ], [ 1, %nonSpace.exit ], [ 1, %104 ], [ 1, %.lr.ph ], [ 0, %30 ], [ 1, %441 ]
+  %.not223 = icmp eq ptr %.3194, %1
   br i1 %.not223, label %455, label %.loopexit254.thread
 
 .loopexit254.thread:                              ; preds = %26, %.loopexit254
-  %.3406 = phi ptr [ %.3, %.loopexit254 ], [ %19, %26 ]
-  %.0188404 = phi i32 [ %.0188, %.loopexit254 ], [ 1, %26 ]
-  call void @free(ptr noundef %.3406) #16
+  %.0176405 = phi i32 [ %.0176, %.loopexit254 ], [ 1, %26 ]
+  %.3194404 = phi ptr [ %.3194, %.loopexit254 ], [ %19, %26 ]
+  call void @free(ptr noundef %.3194404) #16
   br label %455
 
 455:                                              ; preds = %.loopexit254.thread, %.loopexit254
-  %.0188405 = phi i32 [ %.0188404, %.loopexit254.thread ], [ %.0188, %.loopexit254 ]
-  ret i32 %.0188405
+  %.0176406 = phi i32 [ %.0176405, %.loopexit254.thread ], [ %.0176, %.loopexit254 ]
+  ret i32 %.0176406
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

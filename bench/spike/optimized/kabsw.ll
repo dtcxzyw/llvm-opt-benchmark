@@ -130,14 +130,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_kabswP11pr
   br label %31
 
 31:                                               ; preds = %28, %20
-  %.020 = phi i32 [ 2147483647, %28 ], [ %26, %20 ]
+  %.019 = phi i32 [ 2147483647, %28 ], [ %26, %20 ]
   %32 = lshr i64 %1, 7
   %33 = and i64 %32, 31
   %.not.i = icmp eq i64 %33, 0
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %34
 
 34:                                               ; preds = %31
-  %35 = tail call i32 @llvm.abs.i32(i32 %.020, i1 true)
+  %35 = tail call i32 @llvm.abs.i32(i32 %.019, i1 true)
   %36 = zext nneg i32 %35 to i64
   %37 = getelementptr inbounds [32 x i64], ptr %21, i64 0, i64 %33
   store i64 %36, ptr %37, align 8
@@ -224,14 +224,14 @@ define noundef i64 @_Z16fast_rv64i_kabswP11processor_t6insn_tm(ptr nocapture nou
   br label %31
 
 31:                                               ; preds = %28, %20
-  %.020 = phi i32 [ 2147483647, %28 ], [ %26, %20 ]
+  %.019 = phi i32 [ 2147483647, %28 ], [ %26, %20 ]
   %32 = lshr i64 %1, 7
   %33 = and i64 %32, 31
   %.not.i = icmp eq i64 %33, 0
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %34
 
 34:                                               ; preds = %31
-  %35 = tail call i32 @llvm.abs.i32(i32 %.020, i1 true)
+  %35 = tail call i32 @llvm.abs.i32(i32 %.019, i1 true)
   %36 = zext nneg i32 %35 to i64
   %37 = getelementptr inbounds [32 x i64], ptr %21, i64 0, i64 %33
   store i64 %36, ptr %37, align 8
@@ -575,7 +575,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_kabswP11pr
   br label %38
 
 38:                                               ; preds = %35, %29
-  %.024 = phi i32 [ 2147483647, %35 ], [ %33, %29 ]
+  %.0 = phi i32 [ 2147483647, %35 ], [ %33, %29 ]
   %39 = lshr i64 %1, 7
   %40 = and i64 %39, 31
   %41 = icmp ugt i64 %40, 15
@@ -598,7 +598,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_kabswP11pr
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %48
 
 48:                                               ; preds = %47
-  %49 = tail call i32 @llvm.abs.i32(i32 %.024, i1 true)
+  %49 = tail call i32 @llvm.abs.i32(i32 %.0, i1 true)
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr inbounds [32 x i64], ptr %30, i64 0, i64 %40
   store i64 %50, ptr %51, align 8
@@ -682,7 +682,7 @@ define noundef i64 @_Z16fast_rv64e_kabswP11processor_t6insn_tm(ptr nocapture nou
   br label %38
 
 38:                                               ; preds = %35, %29
-  %.024 = phi i32 [ 2147483647, %35 ], [ %33, %29 ]
+  %.0 = phi i32 [ 2147483647, %35 ], [ %33, %29 ]
   %39 = lshr i64 %1, 7
   %40 = and i64 %39, 31
   %41 = icmp ugt i64 %40, 15
@@ -705,7 +705,7 @@ define noundef i64 @_Z16fast_rv64e_kabswP11processor_t6insn_tm(ptr nocapture nou
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %48
 
 48:                                               ; preds = %47
-  %49 = tail call i32 @llvm.abs.i32(i32 %.024, i1 true)
+  %49 = tail call i32 @llvm.abs.i32(i32 %.0, i1 true)
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr inbounds [32 x i64], ptr %30, i64 0, i64 %40
   store i64 %50, ptr %51, align 8

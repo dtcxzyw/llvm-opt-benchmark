@@ -900,18 +900,18 @@ define internal fastcc i32 @dissect_vuze_dht_network_coordinates(ptr noundef %0,
   br label %18
 
 18:                                               ; preds = %.lr.ph, %dissect_vuze_dht_network_coordinate.exit
-  %.021 = phi i32 [ %12, %.lr.ph ], [ %.0.i, %dissect_vuze_dht_network_coordinate.exit ]
-  %.01920 = phi i32 [ 0, %.lr.ph ], [ %72, %dissect_vuze_dht_network_coordinate.exit ]
-  %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.021) #3
-  %20 = add i32 %.021, 1
+  %.021 = phi i32 [ 0, %.lr.ph ], [ %72, %dissect_vuze_dht_network_coordinate.exit ]
+  %.01920 = phi i32 [ %12, %.lr.ph ], [ %.0.i, %dissect_vuze_dht_network_coordinate.exit ]
+  %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.01920) #3
+  %20 = add i32 %.01920, 1
   %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %20) #3
   %22 = zext i8 %21 to i32
   %23 = load i32, ptr @hf_vuze_dht_network_coordinate, align 4
   %24 = add nuw nsw i32 %22, 2
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %23, ptr noundef %0, i32 noundef %.021, i32 noundef %24, i32 noundef 0) #3
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %23, ptr noundef %0, i32 noundef %.01920, i32 noundef %24, i32 noundef 0) #3
   %26 = load i32, ptr @ett_vuze_dht_network_coordinate, align 4
   %27 = tail call ptr @proto_item_add_subtree(ptr noundef %25, i32 noundef %26) #3
-  %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.021) #3
+  %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.01920) #3
   %29 = zext i8 %28 to i32
   %30 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %20) #3
   %31 = zext i8 %30 to i32
@@ -920,16 +920,16 @@ define internal fastcc i32 @dissect_vuze_dht_network_coordinates(ptr noundef %0,
   br i1 %32, label %33, label %46
 
 33:                                               ; preds = %18
-  %34 = add i32 %.021, 2
+  %34 = add i32 %.01920, 2
   %35 = tail call float @tvb_get_ntohieee_float(ptr noundef %0, i32 noundef %34) #3
   %36 = fpext float %35 to double
-  %37 = add i32 %.021, 6
+  %37 = add i32 %.01920, 6
   %38 = tail call float @tvb_get_ntohieee_float(ptr noundef %0, i32 noundef %37) #3
   %39 = fpext float %38 to double
-  %40 = add i32 %.021, 10
+  %40 = add i32 %.01920, 10
   %41 = tail call float @tvb_get_ntohieee_float(ptr noundef %0, i32 noundef %40) #3
   %42 = fpext float %41 to double
-  %43 = add i32 %.021, 14
+  %43 = add i32 %.01920, 14
   %44 = tail call float @tvb_get_ntohieee_float(ptr noundef %0, i32 noundef %43) #3
   %45 = fpext float %44 to double
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef nonnull @.str.176, double noundef %36, double noundef %39, double noundef %42, double noundef %45) #3
@@ -937,7 +937,7 @@ define internal fastcc i32 @dissect_vuze_dht_network_coordinates(ptr noundef %0,
 
 46:                                               ; preds = %18
   %47 = load ptr, ptr %17, align 8
-  %48 = add i32 %.021, 2
+  %48 = add i32 %.01920, 2
   %49 = tail call ptr @tvb_bytes_to_str(ptr noundef %47, ptr noundef %0, i32 noundef %48, i32 noundef %22) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef nonnull @.str.177, ptr noundef %49) #3
   br label %50
@@ -945,7 +945,7 @@ define internal fastcc i32 @dissect_vuze_dht_network_coordinates(ptr noundef %0,
 50:                                               ; preds = %46, %33
   %.pre-phi.i = phi i32 [ %48, %46 ], [ %34, %33 ]
   %51 = load i32, ptr @hf_vuze_dht_network_coordinate_type, align 4
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %51, ptr noundef %0, i32 noundef %.021, i32 noundef 1, i32 noundef 0) #3
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %51, ptr noundef %0, i32 noundef %.01920, i32 noundef 1, i32 noundef 0) #3
   %53 = load i32, ptr @hf_vuze_dht_network_coordinate_size, align 4
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %53, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef 0) #3
   br i1 %32, label %55, label %68
@@ -953,16 +953,16 @@ define internal fastcc i32 @dissect_vuze_dht_network_coordinates(ptr noundef %0,
 55:                                               ; preds = %50
   %56 = load i32, ptr @hf_vuze_dht_network_coordinate_x, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %56, ptr noundef %0, i32 noundef %.pre-phi.i, i32 noundef 4, i32 noundef 0) #3
-  %58 = add i32 %.021, 6
+  %58 = add i32 %.01920, 6
   %59 = load i32, ptr @hf_vuze_dht_network_coordinate_y, align 4
   %60 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %59, ptr noundef %0, i32 noundef %58, i32 noundef 4, i32 noundef 0) #3
-  %61 = add i32 %.021, 10
+  %61 = add i32 %.01920, 10
   %62 = load i32, ptr @hf_vuze_dht_network_coordinate_height, align 4
   %63 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %62, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef 0) #3
-  %64 = add i32 %.021, 14
+  %64 = add i32 %.01920, 14
   %65 = load i32, ptr @hf_vuze_dht_network_coordinate_error, align 4
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %65, ptr noundef %0, i32 noundef %64, i32 noundef 4, i32 noundef 0) #3
-  %67 = add i32 %.021, 18
+  %67 = add i32 %.01920, 18
   br label %dissect_vuze_dht_network_coordinate.exit
 
 68:                                               ; preds = %50
@@ -973,7 +973,7 @@ define internal fastcc i32 @dissect_vuze_dht_network_coordinates(ptr noundef %0,
 
 dissect_vuze_dht_network_coordinate.exit:         ; preds = %55, %68
   %.0.i = phi i32 [ %67, %55 ], [ %71, %68 ]
-  %72 = add nuw nsw i32 %.01920, 1
+  %72 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %72, %11
   br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !8
 

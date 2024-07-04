@@ -6543,7 +6543,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit396: ; preds = %_ZN5Ipopt8Smar
 
 970:                                              ; preds = %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit396, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit400
   %indvars.iv791 = phi i64 [ 0, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit396 ], [ %indvars.iv.next792, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit400 ]
-  %.063777 = phi i32 [ 0, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit396 ], [ %984, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit400 ]
+  %.062777 = phi i32 [ 0, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit396 ], [ %984, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit400 ]
   %971 = load ptr, ptr %67, align 8, !noalias !166
   %972 = getelementptr inbounds %"class.Ipopt::SmartPtr.37", ptr %971, i64 %indvars.iv791
   %973 = load ptr, ptr %972, align 8, !noalias !166
@@ -6566,7 +6566,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i: ; preds = %_ZNK5Ipopt14Com
   %981 = load ptr, ptr %980, align 8
   %982 = getelementptr inbounds i8, ptr %981, i64 12
   %983 = load i32, ptr %982, align 4
-  %984 = add nsw i32 %983, %.063777
+  %984 = add nsw i32 %983, %.062777
   store i32 %978, ptr %977, align 8
   %985 = icmp eq i32 %978, 0
   br i1 %985, label %986, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit400

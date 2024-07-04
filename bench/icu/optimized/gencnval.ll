@@ -1602,14 +1602,14 @@ if.then93.i:                                      ; preds = %for.end67.i
 while.body.i.i45:                                 ; preds = %if.then93.i, %if.end12.i.i
   %conv122.i.i = phi i32 [ %conv1.i.i, %if.end12.i.i ], [ %conv117.i.i, %if.then93.i ]
   %normalizedStrings.addr.021.i.i = phi ptr [ %add.ptr15.i.i, %if.end12.i.i ], [ %call96.i, %if.then93.i ]
-  %origStringBlock.addr.020.i.i = phi ptr [ %add.ptr17.i63.i, %if.end12.i.i ], [ %243, %if.then93.i ]
-  %stringBlockLength.addr.019.i.i = phi i32 [ %sub13.i.i, %if.end12.i.i ], [ %244, %if.then93.i ]
+  %stringBlockLength.addr.020.i.i = phi i32 [ %sub13.i.i, %if.end12.i.i ], [ %244, %if.then93.i ]
+  %origStringBlock.addr.019.i.i = phi ptr [ %add.ptr17.i63.i, %if.end12.i.i ], [ %243, %if.then93.i ]
   %add.i62.i = add nsw i32 %conv122.i.i, 1
   %cmp3.i.i46 = icmp sgt i32 %conv122.i.i, 0
   br i1 %cmp3.i.i46, label %if.then.i66.i, label %if.end12.i.i
 
 if.then.i66.i:                                    ; preds = %while.body.i.i45
-  %call5.i.i = call ptr @ucnv_io_stripASCIIForCompare_75(ptr noundef %normalizedStrings.addr.021.i.i, ptr noundef %origStringBlock.addr.020.i.i) #16
+  %call5.i.i = call ptr @ucnv_io_stripASCIIForCompare_75(ptr noundef %normalizedStrings.addr.021.i.i, ptr noundef %origStringBlock.addr.019.i.i) #16
   %call6.i.i47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %normalizedStrings.addr.021.i.i) #20
   %conv7.i67.i = trunc i64 %call6.i.i47 to i32
   %cmp8.i.i = icmp sgt i32 %conv7.i67.i, 0
@@ -1624,10 +1624,10 @@ if.then10.i.i:                                    ; preds = %if.then.i66.i
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.then10.i.i, %if.then.i66.i, %while.body.i.i45
-  %sub13.i.i = sub nsw i32 %stringBlockLength.addr.019.i.i, %add.i62.i
+  %sub13.i.i = sub nsw i32 %stringBlockLength.addr.020.i.i, %add.i62.i
   %idx.ext14.i.i = sext i32 %add.i62.i to i64
   %add.ptr15.i.i = getelementptr inbounds i8, ptr %normalizedStrings.addr.021.i.i, i64 %idx.ext14.i.i
-  %add.ptr17.i63.i = getelementptr inbounds i8, ptr %origStringBlock.addr.020.i.i, i64 %idx.ext14.i.i
+  %add.ptr17.i63.i = getelementptr inbounds i8, ptr %origStringBlock.addr.019.i.i, i64 %idx.ext14.i.i
   %call.i64.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr17.i63.i) #20
   %conv1.i.i = trunc i64 %call.i64.i to i32
   %cmp.i65.i = icmp sgt i32 %sub13.i.i, %conv1.i.i
@@ -1653,14 +1653,14 @@ createNormalizedAliasStrings.exit.i:              ; preds = %createNormalizedAli
 while.body.i75.i:                                 ; preds = %createNormalizedAliasStrings.exit.i, %if.end12.i82.i
   %conv122.i76.i = phi i32 [ %conv1.i88.i, %if.end12.i82.i ], [ %conv117.i73.i, %createNormalizedAliasStrings.exit.i ]
   %normalizedStrings.addr.021.i77.i = phi ptr [ %add.ptr15.i85.i, %if.end12.i82.i ], [ %add.ptr98.i, %createNormalizedAliasStrings.exit.i ]
-  %origStringBlock.addr.020.i78.i = phi ptr [ %add.ptr17.i86.i, %if.end12.i82.i ], [ %246, %createNormalizedAliasStrings.exit.i ]
-  %stringBlockLength.addr.019.i79.i = phi i32 [ %sub13.i83.i, %if.end12.i82.i ], [ %247, %createNormalizedAliasStrings.exit.i ]
+  %stringBlockLength.addr.020.i78.i = phi i32 [ %sub13.i83.i, %if.end12.i82.i ], [ %247, %createNormalizedAliasStrings.exit.i ]
+  %origStringBlock.addr.019.i79.i = phi ptr [ %add.ptr17.i86.i, %if.end12.i82.i ], [ %246, %createNormalizedAliasStrings.exit.i ]
   %add.i80.i = add nsw i32 %conv122.i76.i, 1
   %cmp3.i81.i = icmp sgt i32 %conv122.i76.i, 0
   br i1 %cmp3.i81.i, label %if.then.i90.i, label %if.end12.i82.i
 
 if.then.i90.i:                                    ; preds = %while.body.i75.i
-  %call5.i91.i = call ptr @ucnv_io_stripASCIIForCompare_75(ptr noundef %normalizedStrings.addr.021.i77.i, ptr noundef %origStringBlock.addr.020.i78.i) #16
+  %call5.i91.i = call ptr @ucnv_io_stripASCIIForCompare_75(ptr noundef %normalizedStrings.addr.021.i77.i, ptr noundef %origStringBlock.addr.019.i79.i) #16
   %call6.i92.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %normalizedStrings.addr.021.i77.i) #20
   %conv7.i93.i = trunc i64 %call6.i92.i to i32
   %cmp8.i94.i = icmp sgt i32 %conv7.i93.i, 0
@@ -1675,10 +1675,10 @@ if.then10.i95.i:                                  ; preds = %if.then.i90.i
   br label %if.end12.i82.i
 
 if.end12.i82.i:                                   ; preds = %if.then10.i95.i, %if.then.i90.i, %while.body.i75.i
-  %sub13.i83.i = sub nsw i32 %stringBlockLength.addr.019.i79.i, %add.i80.i
+  %sub13.i83.i = sub nsw i32 %stringBlockLength.addr.020.i78.i, %add.i80.i
   %idx.ext14.i84.i = sext i32 %add.i80.i to i64
   %add.ptr15.i85.i = getelementptr inbounds i8, ptr %normalizedStrings.addr.021.i77.i, i64 %idx.ext14.i84.i
-  %add.ptr17.i86.i = getelementptr inbounds i8, ptr %origStringBlock.addr.020.i78.i, i64 %idx.ext14.i84.i
+  %add.ptr17.i86.i = getelementptr inbounds i8, ptr %origStringBlock.addr.019.i79.i, i64 %idx.ext14.i84.i
   %call.i87.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr17.i86.i) #20
   %conv1.i88.i = trunc i64 %call.i87.i to i32
   %cmp.i89.i = icmp sgt i32 %sub13.i83.i, %conv1.i88.i

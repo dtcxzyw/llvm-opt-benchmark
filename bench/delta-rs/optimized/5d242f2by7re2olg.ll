@@ -21355,8 +21355,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h0c86cd0e3
   br label %26
 
 26:                                               ; preds = %25, %.noexc9
-  %.sroa.0.0.i.i = phi i32 [ %.sroa.4.0.copyload.i.i, %25 ], [ %23, %.noexc9 ]
   %.sroa.7.0.i.i = phi i32 [ %.sroa.5.0.copyload.i.i, %25 ], [ %24, %.noexc9 ]
+  %.sroa.0.0.i.i = phi i32 [ %.sroa.4.0.copyload.i.i, %25 ], [ %23, %.noexc9 ]
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 64), align 8, !noalias !3054
   store i32 %19, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 68), align 4, !noalias !3054
   store i32 %20, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 72), align 8, !noalias !3054
@@ -21565,8 +21565,8 @@ define internal fastcc void @_ZN5tokio7runtime7context7runtime13enter_runtime17h
   br label %24
 
 24:                                               ; preds = %23, %.noexc9
-  %.sroa.0.0.i.i = phi i32 [ %.sroa.4.0.copyload.i.i, %23 ], [ %21, %.noexc9 ]
   %.sroa.7.0.i.i = phi i32 [ %.sroa.5.0.copyload.i.i, %23 ], [ %22, %.noexc9 ]
+  %.sroa.0.0.i.i = phi i32 [ %.sroa.4.0.copyload.i.i, %23 ], [ %21, %.noexc9 ]
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 64), align 8, !noalias !3084
   store i32 %17, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 68), align 4, !noalias !3084
   store i32 %18, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 72), align 8, !noalias !3084
@@ -21787,8 +21787,8 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hb79955f1a
   br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h115db2b06b8f5f00E.exit"
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h115db2b06b8f5f00E.exit": ; preds = %35, %39
-  %.sroa.0.0.i.i = phi i32 [ %.sroa.4.0.copyload.i.i, %39 ], [ %37, %35 ]
   %.sroa.7.0.i.i = phi i32 [ %.sroa.5.0.copyload.i.i, %39 ], [ %38, %35 ]
+  %.sroa.0.0.i.i = phi i32 [ %.sroa.4.0.copyload.i.i, %39 ], [ %37, %35 ]
   store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 64), align 8, !noalias !3114
   store i32 %33, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 68), align 4, !noalias !3114
   store i32 %34, ptr getelementptr inbounds (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17h4710c915c9718d38E, i64 72), align 8, !noalias !3114

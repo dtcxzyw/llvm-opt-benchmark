@@ -63,9 +63,9 @@ define i64 @mbrtowc(ptr noundef writeonly %0, ptr noundef readonly %1, i64 nound
 
 .thread:                                          ; preds = %12, %24
   %.059 = phi i32 [ %28, %24 ], [ %6, %12 ]
-  %.03558 = phi ptr [ %25, %24 ], [ %1, %12 ]
-  %.03757 = phi i64 [ %29, %24 ], [ %2, %12 ]
-  %30 = load i8, ptr %.03558, align 1
+  %.03458 = phi ptr [ %25, %24 ], [ %1, %12 ]
+  %.03657 = phi i64 [ %29, %24 ], [ %2, %12 ]
+  %30 = load i8, ptr %.03458, align 1
   %31 = lshr i8 %30, 3
   %32 = zext nneg i8 %31 to i32
   %33 = add nsw i32 %32, -16
@@ -77,15 +77,15 @@ define i64 @mbrtowc(ptr noundef writeonly %0, ptr noundef readonly %1, i64 nound
 
 .preheader:                                       ; preds = %.thread, %48
   %37 = phi i8 [ %49, %48 ], [ %30, %.thread ]
-  %.138 = phi i64 [ %43, %48 ], [ %.03757, %.thread ]
-  %.136 = phi ptr [ %39, %48 ], [ %.03558, %.thread ]
+  %.137 = phi i64 [ %43, %48 ], [ %.03657, %.thread ]
+  %.135 = phi ptr [ %39, %48 ], [ %.03458, %.thread ]
   %.1 = phi i32 [ %42, %48 ], [ %.059, %.thread ]
   %38 = shl i32 %.1, 6
-  %39 = getelementptr inbounds i8, ptr %.136, i64 1
+  %39 = getelementptr inbounds i8, ptr %.135, i64 1
   %40 = zext i8 %37 to i32
   %41 = add nsw i32 %40, -128
   %42 = or i32 %41, %38
-  %43 = add i64 %.138, -1
+  %43 = add i64 %.137, -1
   %44 = icmp sgt i32 %42, -1
   br i1 %44, label %45, label %47
 
@@ -123,8 +123,8 @@ define i64 @mbrtowc(ptr noundef writeonly %0, ptr noundef readonly %1, i64 nound
   br label %52
 
 52:                                               ; preds = %9, %8, %.loopexit60, %.loopexit, %.cont, %.cont50
-  %.034 = phi i64 [ -1, %.loopexit60 ], [ %20, %.cont50 ], [ %46, %.cont ], [ -2, %.loopexit ], [ 0, %8 ], [ -2, %9 ]
-  ret i64 %.034
+  %.038 = phi i64 [ -1, %.loopexit60 ], [ %20, %.cont50 ], [ %46, %.cont ], [ -2, %.loopexit ], [ 0, %8 ], [ -2, %9 ]
+  ret i64 %.038
 }
 
 declare ptr @__errno() local_unnamed_addr #1

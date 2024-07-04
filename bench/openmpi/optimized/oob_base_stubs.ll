@@ -1195,8 +1195,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %42, %4
 
 61:                                               ; preds = %pmix_obj_new_tma.exit, %prte_oob_base_get_peer.exit
   %.0 = phi ptr [ %38, %pmix_obj_new_tma.exit ], [ %.09.i, %prte_oob_base_get_peer.exit ]
-  %.02542 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_oob_base, i64 528), align 8
-  %.not43 = icmp eq ptr %.02542, getelementptr inbounds (i8, ptr @prte_oob_base, i64 408)
+  %.02442 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_oob_base, i64 528), align 8
+  %.not43 = icmp eq ptr %.02442, getelementptr inbounds (i8, ptr @prte_oob_base, i64 408)
   br i1 %.not43, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %61
@@ -1204,8 +1204,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %42, %4
   br label %63
 
 63:                                               ; preds = %.lr.ph, %107
-  %.02544 = phi ptr [ %.02542, %.lr.ph ], [ %.025, %107 ]
-  %64 = getelementptr inbounds i8, ptr %.02544, i64 144
+  %.02444 = phi ptr [ %.02442, %.lr.ph ], [ %.024, %107 ]
+  %64 = getelementptr inbounds i8, ptr %.02444, i64 144
   %65 = load ptr, ptr %64, align 8
   %66 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond36 = icmp ult i32 %66, 64
@@ -1279,9 +1279,9 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %42, %4
   br label %107
 
 107:                                              ; preds = %76, %97, %98, %103, %93
-  %108 = getelementptr inbounds i8, ptr %.02544, i64 120
-  %.025 = load ptr, ptr %108, align 8
-  %.not = icmp eq ptr %.025, getelementptr inbounds (i8, ptr @prte_oob_base, i64 408)
+  %108 = getelementptr inbounds i8, ptr %.02444, i64 120
+  %.024 = load ptr, ptr %108, align 8
+  %.not = icmp eq ptr %.024, getelementptr inbounds (i8, ptr @prte_oob_base, i64 408)
   br i1 %.not, label %._crit_edge, label %63, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %107, %61
@@ -1289,8 +1289,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %42, %4
   br label %109
 
 109:                                              ; preds = %19, %21, %26, %._crit_edge, %14
-  %.024 = phi ptr [ null, %14 ], [ %.0, %._crit_edge ], [ null, %26 ], [ null, %21 ], [ null, %19 ]
-  ret ptr %.024
+  %.025 = phi ptr [ null, %14 ], [ %.0, %._crit_edge ], [ null, %26 ], [ null, %21 ], [ null, %19 ]
+  ret ptr %.025
 }
 
 declare ptr @prte_strerror(i32 noundef) local_unnamed_addr #2
@@ -1369,8 +1369,8 @@ define void @prte_oob_base_get_addr(ptr nocapture noundef writeonly %0) local_un
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %2, align 8
-  %.01828 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_oob_base, i64 528), align 8
-  %.not2529 = icmp eq ptr %.01828, getelementptr inbounds (i8, ptr @prte_oob_base, i64 408)
+  %.028 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_oob_base, i64 528), align 8
+  %.not2529 = icmp eq ptr %.028, getelementptr inbounds (i8, ptr @prte_oob_base, i64 408)
   br i1 %.not2529, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %7
@@ -1378,10 +1378,10 @@ define void @prte_oob_base_get_addr(ptr nocapture noundef writeonly %0) local_un
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %31
-  %.01832 = phi ptr [ %.018, %31 ], [ %.01828, %.lr.ph.preheader ]
-  %.031 = phi i64 [ %.1, %31 ], [ %9, %.lr.ph.preheader ]
-  %.01630 = phi i1 [ %.117, %31 ], [ false, %.lr.ph.preheader ]
-  %10 = getelementptr inbounds i8, ptr %.01832, i64 144
+  %.032 = phi ptr [ %.0, %31 ], [ %.028, %.lr.ph.preheader ]
+  %.01631 = phi i1 [ %.1, %31 ], [ false, %.lr.ph.preheader ]
+  %.01730 = phi i64 [ %.118, %31 ], [ %9, %.lr.ph.preheader ]
+  %10 = getelementptr inbounds i8, ptr %.032, i64 144
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 264
   %13 = load ptr, ptr %12, align 8
@@ -1400,7 +1400,7 @@ define void @prte_oob_base_get_addr(ptr nocapture noundef writeonly %0) local_un
 
 20:                                               ; preds = %17
   %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #15
-  %22 = add i64 %21, %.031
+  %22 = add i64 %21, %.01730
   %23 = trunc i64 %22 to i32
   %24 = icmp slt i32 %18, %23
   br i1 %24, label %31, label %25
@@ -1417,11 +1417,11 @@ define void @prte_oob_base_get_addr(ptr nocapture noundef writeonly %0) local_un
   br label %31
 
 31:                                               ; preds = %15, %25, %20, %.lr.ph
-  %.117 = phi i1 [ %.01630, %.lr.ph ], [ %.01630, %20 ], [ true, %25 ], [ %.01630, %15 ]
-  %.1 = phi i64 [ %.031, %.lr.ph ], [ %.031, %20 ], [ %30, %25 ], [ %.031, %15 ]
-  %32 = getelementptr inbounds i8, ptr %.01832, i64 120
-  %.018 = load ptr, ptr %32, align 8
-  %.not25 = icmp eq ptr %.018, getelementptr inbounds (i8, ptr @prte_oob_base, i64 408)
+  %.118 = phi i64 [ %.01730, %.lr.ph ], [ %.01730, %20 ], [ %30, %25 ], [ %.01730, %15 ]
+  %.1 = phi i1 [ %.01631, %.lr.ph ], [ %.01631, %20 ], [ true, %25 ], [ %.01631, %15 ]
+  %32 = getelementptr inbounds i8, ptr %.032, i64 120
+  %.0 = load ptr, ptr %32, align 8
+  %.not25 = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @prte_oob_base, i64 408)
   br i1 %.not25, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %31
@@ -1430,7 +1430,7 @@ define void @prte_oob_base_get_addr(ptr nocapture noundef writeonly %0) local_un
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %7
   %33 = phi ptr [ %8, %7 ], [ %.pre, %._crit_edge.loopexit ]
-  %.016.lcssa = phi i1 [ false, %7 ], [ %.117, %._crit_edge.loopexit ]
+  %.016.lcssa = phi i1 [ false, %7 ], [ %.1, %._crit_edge.loopexit ]
   %34 = icmp eq ptr %33, null
   %or.cond.not = select i1 %.016.lcssa, i1 true, i1 %34
   br i1 %or.cond.not, label %36, label %35

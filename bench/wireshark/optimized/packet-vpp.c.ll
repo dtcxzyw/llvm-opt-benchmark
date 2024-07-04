@@ -209,7 +209,7 @@ define internal i32 @dissect_vpp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %34
 
 34:                                               ; preds = %29, %25
-  %.0107 = phi i8 [ 0, %29 ], [ %27, %25 ]
+  %.0108 = phi i8 [ 0, %29 ], [ %27, %25 ]
   %35 = load i32, ptr @hf_vpp_buffer_index, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %35, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #3
   %37 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 8) #3
@@ -246,16 +246,16 @@ define internal i32 @dissect_vpp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %66
 
 66:                                               ; preds = %60, %34
-  %.0106 = phi i32 [ %65, %60 ], [ %58, %34 ]
-  %67 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0106) #3
-  %68 = zext nneg i8 %.0107 to i64
+  %.0107 = phi i32 [ %65, %60 ], [ %58, %34 ]
+  %67 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0107) #3
+  %68 = zext nneg i8 %.0108 to i64
   %69 = getelementptr [6 x ptr], ptr @next_dissectors, i64 0, i64 %68
   %70 = load ptr, ptr %69, align 8
-  %71 = icmp eq i8 %.0107, 0
+  %71 = icmp eq i8 %.0108, 0
   br i1 %71, label %72, label %78
 
 72:                                               ; preds = %66
-  %73 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0106) #3
+  %73 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0107) #3
   switch i8 %73, label %78 [
     i8 69, label %74
     i8 96, label %76
@@ -270,8 +270,8 @@ define internal i32 @dissect_vpp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %78
 
 78:                                               ; preds = %74, %76, %72, %66
-  %.0108 = phi ptr [ %70, %72 ], [ %77, %76 ], [ %75, %74 ], [ %70, %66 ]
-  %79 = tail call i32 @call_dissector(ptr noundef %.0108, ptr noundef %67, ptr noundef nonnull %1, ptr noundef %2) #3
+  %.0106 = phi ptr [ %70, %72 ], [ %77, %76 ], [ %75, %74 ], [ %70, %66 ]
+  %79 = tail call i32 @call_dissector(ptr noundef %.0106, ptr noundef %67, ptr noundef nonnull %1, ptr noundef %2) #3
   br label %80
 
 80:                                               ; preds = %78, %13

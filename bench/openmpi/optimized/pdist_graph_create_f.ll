@@ -30,9 +30,9 @@ define void @ompi_dist_graph_create_f(ptr nocapture noundef readonly %0, ptr noc
   %17 = icmp eq ptr %5, @mpi_fortran_unweighted_
   %18 = icmp eq ptr %5, @mpi_fortran_weights_empty_
   %. = select i1 %18, ptr inttoptr (i64 3 to ptr), ptr %5
-  %.027 = select i1 %17, ptr inttoptr (i64 2 to ptr), ptr %.
+  %.0 = select i1 %17, ptr inttoptr (i64 2 to ptr), ptr %.
   %19 = load i32, ptr %7, align 4
-  %20 = call i32 @PMPI_Dist_graph_create(ptr noundef %13, i32 noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %.027, ptr noundef %15, i32 noundef %19, ptr noundef nonnull %11) #2
+  %20 = call i32 @PMPI_Dist_graph_create(ptr noundef %13, i32 noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %.0, ptr noundef %15, i32 noundef %19, ptr noundef nonnull %11) #2
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %22, label %21
 

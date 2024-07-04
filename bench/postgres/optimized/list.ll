@@ -1194,8 +1194,8 @@ define dso_local noundef zeroext i1 @list_member(ptr noundef readonly %0, ptr no
   br i1 %14, label %.thread, label %7
 
 .thread:                                          ; preds = %.lr.ph22, %7, %.lr.ph, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %.lr.ph ], [ %14, %7 ], [ %14, %.lr.ph22 ]
-  ret i1 %.0
+  %.08 = phi i1 [ false, %2 ], [ false, %.lr.ph ], [ %14, %7 ], [ %14, %.lr.ph22 ]
+  ret i1 %.08
 }
 
 declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -1228,8 +1228,8 @@ define dso_local noundef zeroext i1 @list_member_ptr(ptr noundef readonly %0, pt
   br i1 %or.cond, label %.thread, label %8
 
 .thread:                                          ; preds = %8, %.lr.ph, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %.lr.ph ], [ %11, %8 ]
-  ret i1 %.0
+  %.08 = phi i1 [ false, %2 ], [ false, %.lr.ph ], [ %11, %8 ]
+  ret i1 %.08
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -1260,8 +1260,8 @@ define dso_local noundef zeroext i1 @list_member_int(ptr noundef readonly %0, i3
   br i1 %or.cond, label %.thread, label %8
 
 .thread:                                          ; preds = %8, %.lr.ph, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %.lr.ph ], [ %11, %8 ]
-  ret i1 %.0
+  %.07 = phi i1 [ false, %2 ], [ false, %.lr.ph ], [ %11, %8 ]
+  ret i1 %.07
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -1292,8 +1292,8 @@ define dso_local noundef zeroext i1 @list_member_oid(ptr noundef readonly %0, i3
   br i1 %or.cond, label %.thread, label %8
 
 .thread:                                          ; preds = %8, %.lr.ph, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %.lr.ph ], [ %11, %8 ]
-  ret i1 %.0
+  %.07 = phi i1 [ false, %2 ], [ false, %.lr.ph ], [ %11, %8 ]
+  ret i1 %.07
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -1324,8 +1324,8 @@ define dso_local noundef zeroext i1 @list_member_xid(ptr noundef readonly %0, i3
   br i1 %or.cond, label %.thread, label %8
 
 .thread:                                          ; preds = %8, %.lr.ph, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %.lr.ph ], [ %11, %8 ]
-  ret i1 %.0
+  %.07 = phi i1 [ false, %2 ], [ false, %.lr.ph ], [ %11, %8 ]
+  ret i1 %.07
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1516,8 +1516,8 @@ list_free.exit.i.i:                               ; preds = %19, %17
   br label %list_delete_cell.exit
 
 list_delete_cell.exit:                            ; preds = %7, %2, %.lr.ph, %20, %list_free.exit.i.i
-  %.0 = phi ptr [ null, %list_free.exit.i.i ], [ %0, %20 ], [ null, %2 ], [ %0, %.lr.ph ], [ %0, %7 ]
-  ret ptr %.0
+  %.011 = phi ptr [ null, %list_free.exit.i.i ], [ %0, %20 ], [ null, %2 ], [ %0, %.lr.ph ], [ %0, %7 ]
+  ret ptr %.011
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1585,8 +1585,8 @@ list_free.exit.i.i:                               ; preds = %16, %14
   br label %list_delete_cell.exit
 
 list_delete_cell.exit:                            ; preds = %8, %2, %.lr.ph, %17, %list_free.exit.i.i
-  %.0 = phi ptr [ null, %list_free.exit.i.i ], [ %0, %17 ], [ null, %2 ], [ %0, %.lr.ph ], [ %0, %8 ]
-  ret ptr %.0
+  %.011 = phi ptr [ null, %list_free.exit.i.i ], [ %0, %17 ], [ null, %2 ], [ %0, %.lr.ph ], [ %0, %8 ]
+  ret ptr %.011
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1654,8 +1654,8 @@ list_free.exit.i.i:                               ; preds = %16, %14
   br label %list_delete_cell.exit
 
 list_delete_cell.exit:                            ; preds = %8, %2, %.lr.ph, %17, %list_free.exit.i.i
-  %.0 = phi ptr [ null, %list_free.exit.i.i ], [ %0, %17 ], [ null, %2 ], [ %0, %.lr.ph ], [ %0, %8 ]
-  ret ptr %.0
+  %.010 = phi ptr [ null, %list_free.exit.i.i ], [ %0, %17 ], [ null, %2 ], [ %0, %.lr.ph ], [ %0, %8 ]
+  ret ptr %.010
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1723,8 +1723,8 @@ list_free.exit.i.i:                               ; preds = %16, %14
   br label %list_delete_cell.exit
 
 list_delete_cell.exit:                            ; preds = %8, %2, %.lr.ph, %17, %list_free.exit.i.i
-  %.0 = phi ptr [ null, %list_free.exit.i.i ], [ %0, %17 ], [ null, %2 ], [ %0, %.lr.ph ], [ %0, %8 ]
-  ret ptr %.0
+  %.010 = phi ptr [ null, %list_free.exit.i.i ], [ %0, %17 ], [ null, %2 ], [ %0, %.lr.ph ], [ %0, %8 ]
+  ret ptr %.010
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1899,20 +1899,20 @@ list_copy.exit:                                   ; preds = %2, %4
   %29 = getelementptr inbounds i8, ptr %1, i64 16
   %30 = load i32, ptr %28, align 4
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph25, label %._crit_edge
+  br i1 %31, label %.lr.ph24, label %._crit_edge
 
-.lr.ph25:                                         ; preds = %.lr.ph, %list_member.exit
+.lr.ph24:                                         ; preds = %.lr.ph, %list_member.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %list_member.exit ], [ 0, %.lr.ph ]
-  %.01923 = phi ptr [ %.1, %list_member.exit ], [ %.0.i, %.lr.ph ]
+  %.0111723 = phi ptr [ %.1, %list_member.exit ], [ %.0.i, %.lr.ph ]
   %32 = load ptr, ptr %29, align 8
   %33 = getelementptr %union.ListCell, ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %.01923, i64 4
-  %.not.i = icmp eq ptr %.01923, null
+  %35 = getelementptr inbounds i8, ptr %.0111723, i64 4
+  %.not.i = icmp eq ptr %.0111723, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph25
-  %36 = getelementptr inbounds i8, ptr %.01923, i64 16
+.lr.ph.i:                                         ; preds = %.lr.ph24
+  %36 = getelementptr inbounds i8, ptr %.0111723, i64 16
   %37 = load i32, ptr %35, align 4
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.lr.ph22.i, label %.loopexit
@@ -1936,22 +1936,22 @@ list_copy.exit:                                   ; preds = %2, %4
   %.pre = load ptr, ptr %33, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.lr.ph25, %.lr.ph.i
-  %47 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %34, %.lr.ph25 ], [ %34, %.lr.ph.i ]
-  %48 = tail call ptr @lappend(ptr noundef %.01923, ptr noundef %47)
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.lr.ph24, %.lr.ph.i
+  %47 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %34, %.lr.ph24 ], [ %34, %.lr.ph.i ]
+  %48 = tail call ptr @lappend(ptr noundef %.0111723, ptr noundef %47)
   br label %list_member.exit
 
 list_member.exit:                                 ; preds = %.lr.ph22.i, %.loopexit
-  %.1 = phi ptr [ %48, %.loopexit ], [ %.01923, %.lr.ph22.i ]
+  %.1 = phi ptr [ %48, %.loopexit ], [ %.0111723, %.lr.ph22.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = load i32, ptr %28, align 4
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %.lr.ph25, label %._crit_edge
+  br i1 %51, label %.lr.ph24, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %list_member.exit, %.lr.ph, %list_copy.exit
-  %.0.lcssa = phi ptr [ %.0.i, %list_copy.exit ], [ %.0.i, %.lr.ph ], [ %.1, %list_member.exit ]
-  ret ptr %.0.lcssa
+  %.011.lcssa = phi ptr [ %.0.i, %list_copy.exit ], [ %.0.i, %.lr.ph ], [ %.1, %list_member.exit ]
+  ret ptr %.011.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2001,21 +2001,21 @@ list_copy.exit:                                   ; preds = %2, %4
   %29 = getelementptr inbounds i8, ptr %1, i64 16
   %30 = load i32, ptr %28, align 4
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph25, label %._crit_edge
+  br i1 %31, label %.lr.ph24, label %._crit_edge
 
-.lr.ph25:                                         ; preds = %.lr.ph, %list_member_ptr.exit
+.lr.ph24:                                         ; preds = %.lr.ph, %list_member_ptr.exit
   %32 = phi i32 [ %47, %list_member_ptr.exit ], [ %30, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %list_member_ptr.exit ], [ 0, %.lr.ph ]
-  %.01923 = phi ptr [ %.1, %list_member_ptr.exit ], [ %.0.i, %.lr.ph ]
+  %.0111723 = phi ptr [ %.1, %list_member_ptr.exit ], [ %.0.i, %.lr.ph ]
   %33 = load ptr, ptr %29, align 8
   %34 = getelementptr %union.ListCell, ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %.01923, i64 16
-  %.not.i = icmp eq ptr %.01923, null
+  %36 = getelementptr inbounds i8, ptr %.0111723, i64 16
+  %.not.i = icmp eq ptr %.0111723, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph25
-  %37 = getelementptr inbounds i8, ptr %.01923, i64 4
+.lr.ph.i:                                         ; preds = %.lr.ph24
+  %37 = getelementptr inbounds i8, ptr %.0111723, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.lr.ph22.i, label %.loopexit
@@ -2037,22 +2037,22 @@ list_copy.exit:                                   ; preds = %2, %4
   %45 = icmp eq ptr %44, %35
   br i1 %45, label %list_member_ptr.exit, label %41
 
-.loopexit:                                        ; preds = %41, %.lr.ph25, %.lr.ph.i
-  %46 = tail call ptr @lappend(ptr noundef %.01923, ptr noundef %35)
+.loopexit:                                        ; preds = %41, %.lr.ph24, %.lr.ph.i
+  %46 = tail call ptr @lappend(ptr noundef %.0111723, ptr noundef %35)
   %.pre = load i32, ptr %28, align 4
   br label %list_member_ptr.exit
 
 list_member_ptr.exit:                             ; preds = %42, %.loopexit
   %47 = phi i32 [ %.pre, %.loopexit ], [ %32, %42 ]
-  %.1 = phi ptr [ %46, %.loopexit ], [ %.01923, %42 ]
+  %.1 = phi ptr [ %46, %.loopexit ], [ %.0111723, %42 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph25, label %._crit_edge
+  br i1 %49, label %.lr.ph24, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %list_member_ptr.exit, %.lr.ph, %list_copy.exit
-  %.0.lcssa = phi ptr [ %.0.i, %list_copy.exit ], [ %.0.i, %.lr.ph ], [ %.1, %list_member_ptr.exit ]
-  ret ptr %.0.lcssa
+  %.011.lcssa = phi ptr [ %.0.i, %list_copy.exit ], [ %.0.i, %.lr.ph ], [ %.1, %list_member_ptr.exit ]
+  ret ptr %.011.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2102,21 +2102,21 @@ list_copy.exit:                                   ; preds = %2, %4
   %29 = getelementptr inbounds i8, ptr %1, i64 16
   %30 = load i32, ptr %28, align 4
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph25, label %._crit_edge
+  br i1 %31, label %.lr.ph24, label %._crit_edge
 
-.lr.ph25:                                         ; preds = %.lr.ph, %list_member_int.exit
+.lr.ph24:                                         ; preds = %.lr.ph, %list_member_int.exit
   %32 = phi i32 [ %47, %list_member_int.exit ], [ %30, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %list_member_int.exit ], [ 0, %.lr.ph ]
-  %.01923 = phi ptr [ %.1, %list_member_int.exit ], [ %.0.i, %.lr.ph ]
+  %.0111723 = phi ptr [ %.1, %list_member_int.exit ], [ %.0.i, %.lr.ph ]
   %33 = load ptr, ptr %29, align 8
   %34 = getelementptr %union.ListCell, ptr %33, i64 %indvars.iv
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %.01923, i64 16
-  %.not.i = icmp eq ptr %.01923, null
+  %36 = getelementptr inbounds i8, ptr %.0111723, i64 16
+  %.not.i = icmp eq ptr %.0111723, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph25
-  %37 = getelementptr inbounds i8, ptr %.01923, i64 4
+.lr.ph.i:                                         ; preds = %.lr.ph24
+  %37 = getelementptr inbounds i8, ptr %.0111723, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.lr.ph21.i, label %.loopexit
@@ -2138,22 +2138,22 @@ list_copy.exit:                                   ; preds = %2, %4
   %45 = icmp eq i32 %44, %35
   br i1 %45, label %list_member_int.exit, label %41
 
-.loopexit:                                        ; preds = %41, %.lr.ph25, %.lr.ph.i
-  %46 = tail call ptr @lappend_int(ptr noundef %.01923, i32 noundef %35)
+.loopexit:                                        ; preds = %41, %.lr.ph24, %.lr.ph.i
+  %46 = tail call ptr @lappend_int(ptr noundef %.0111723, i32 noundef %35)
   %.pre = load i32, ptr %28, align 4
   br label %list_member_int.exit
 
 list_member_int.exit:                             ; preds = %42, %.loopexit
   %47 = phi i32 [ %.pre, %.loopexit ], [ %32, %42 ]
-  %.1 = phi ptr [ %46, %.loopexit ], [ %.01923, %42 ]
+  %.1 = phi ptr [ %46, %.loopexit ], [ %.0111723, %42 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph25, label %._crit_edge
+  br i1 %49, label %.lr.ph24, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %list_member_int.exit, %.lr.ph, %list_copy.exit
-  %.0.lcssa = phi ptr [ %.0.i, %list_copy.exit ], [ %.0.i, %.lr.ph ], [ %.1, %list_member_int.exit ]
-  ret ptr %.0.lcssa
+  %.011.lcssa = phi ptr [ %.0.i, %list_copy.exit ], [ %.0.i, %.lr.ph ], [ %.1, %list_member_int.exit ]
+  ret ptr %.011.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2203,21 +2203,21 @@ list_copy.exit:                                   ; preds = %2, %4
   %29 = getelementptr inbounds i8, ptr %1, i64 16
   %30 = load i32, ptr %28, align 4
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph25, label %._crit_edge
+  br i1 %31, label %.lr.ph24, label %._crit_edge
 
-.lr.ph25:                                         ; preds = %.lr.ph, %list_member_oid.exit
+.lr.ph24:                                         ; preds = %.lr.ph, %list_member_oid.exit
   %32 = phi i32 [ %47, %list_member_oid.exit ], [ %30, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %list_member_oid.exit ], [ 0, %.lr.ph ]
-  %.01923 = phi ptr [ %.1, %list_member_oid.exit ], [ %.0.i, %.lr.ph ]
+  %.0111723 = phi ptr [ %.1, %list_member_oid.exit ], [ %.0.i, %.lr.ph ]
   %33 = load ptr, ptr %29, align 8
   %34 = getelementptr %union.ListCell, ptr %33, i64 %indvars.iv
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %.01923, i64 16
-  %.not.i = icmp eq ptr %.01923, null
+  %36 = getelementptr inbounds i8, ptr %.0111723, i64 16
+  %.not.i = icmp eq ptr %.0111723, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph25
-  %37 = getelementptr inbounds i8, ptr %.01923, i64 4
+.lr.ph.i:                                         ; preds = %.lr.ph24
+  %37 = getelementptr inbounds i8, ptr %.0111723, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.lr.ph21.i, label %.loopexit
@@ -2239,22 +2239,22 @@ list_copy.exit:                                   ; preds = %2, %4
   %45 = icmp eq i32 %44, %35
   br i1 %45, label %list_member_oid.exit, label %41
 
-.loopexit:                                        ; preds = %41, %.lr.ph25, %.lr.ph.i
-  %46 = tail call ptr @lappend_oid(ptr noundef %.01923, i32 noundef %35)
+.loopexit:                                        ; preds = %41, %.lr.ph24, %.lr.ph.i
+  %46 = tail call ptr @lappend_oid(ptr noundef %.0111723, i32 noundef %35)
   %.pre = load i32, ptr %28, align 4
   br label %list_member_oid.exit
 
 list_member_oid.exit:                             ; preds = %42, %.loopexit
   %47 = phi i32 [ %.pre, %.loopexit ], [ %32, %42 ]
-  %.1 = phi ptr [ %46, %.loopexit ], [ %.01923, %42 ]
+  %.1 = phi ptr [ %46, %.loopexit ], [ %.0111723, %42 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph25, label %._crit_edge
+  br i1 %49, label %.lr.ph24, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %list_member_oid.exit, %.lr.ph, %list_copy.exit
-  %.0.lcssa = phi ptr [ %.0.i, %list_copy.exit ], [ %.0.i, %.lr.ph ], [ %.1, %list_member_oid.exit ]
-  ret ptr %.0.lcssa
+  %.011.lcssa = phi ptr [ %.0.i, %list_copy.exit ], [ %.0.i, %.lr.ph ], [ %.1, %list_member_oid.exit ]
+  ret ptr %.011.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2285,7 +2285,7 @@ define dso_local ptr @list_intersection(ptr noundef readonly %0, ptr noundef rea
 .lr.ph.i:                                         ; preds = %.lr.ph.i.lr.ph, %.lr.ph.ithread-pre-split
   %12 = phi i32 [ %.pr, %.lr.ph.ithread-pre-split ], [ %10, %.lr.ph.i.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.ithread-pre-split ], [ 0, %.lr.ph.i.lr.ph ]
-  %.01522 = phi ptr [ %.1, %.lr.ph.ithread-pre-split ], [ null, %.lr.ph.i.lr.ph ]
+  %.01422 = phi ptr [ %.1, %.lr.ph.ithread-pre-split ], [ null, %.lr.ph.i.lr.ph ]
   %13 = load ptr, ptr %7, align 8
   %14 = getelementptr %union.ListCell, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
@@ -2309,11 +2309,11 @@ define dso_local ptr @list_intersection(ptr noundef readonly %0, ptr noundef rea
 
 list_member.exit:                                 ; preds = %.lr.ph22.i
   %25 = load ptr, ptr %14, align 8
-  %26 = tail call ptr @lappend(ptr noundef %.01522, ptr noundef %25)
+  %26 = tail call ptr @lappend(ptr noundef %.01422, ptr noundef %25)
   br label %list_member.exit.thread
 
 list_member.exit.thread:                          ; preds = %17, %.lr.ph.i, %list_member.exit
-  %.1 = phi ptr [ %26, %list_member.exit ], [ %.01522, %.lr.ph.i ], [ %.01522, %17 ]
+  %.1 = phi ptr [ %26, %list_member.exit ], [ %.01422, %.lr.ph.i ], [ %.01422, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %5, align 4
   %28 = sext i32 %27 to i64
@@ -2321,8 +2321,8 @@ list_member.exit.thread:                          ; preds = %17, %.lr.ph.i, %lis
   br i1 %.not, label %.lr.ph.ithread-pre-split, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %list_member.exit.thread, %.lr.ph.i.lr.ph, %.preheader, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %.preheader ], [ null, %.lr.ph.i.lr.ph ], [ %.1, %list_member.exit.thread ]
-  ret ptr %.0
+  %.015 = phi ptr [ null, %2 ], [ null, %.preheader ], [ null, %.lr.ph.i.lr.ph ], [ %.1, %list_member.exit.thread ]
+  ret ptr %.015
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2354,7 +2354,7 @@ define dso_local ptr @list_intersection_int(ptr noundef readonly %0, ptr noundef
   %12 = phi i32 [ %.pr, %.lr.ph.ithread-pre-split ], [ %10, %.lr.ph.i.lr.ph ]
   %13 = phi i32 [ %25, %.lr.ph.ithread-pre-split ], [ %6, %.lr.ph.i.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.ithread-pre-split ], [ 0, %.lr.ph.i.lr.ph ]
-  %.01522 = phi ptr [ %.1, %.lr.ph.ithread-pre-split ], [ null, %.lr.ph.i.lr.ph ]
+  %.01422 = phi ptr [ %.1, %.lr.ph.ithread-pre-split ], [ null, %.lr.ph.i.lr.ph ]
   %14 = load ptr, ptr %7, align 8
   %15 = getelementptr %union.ListCell, ptr %14, i64 %indvars.iv
   %16 = load i32, ptr %15, align 8
@@ -2379,21 +2379,21 @@ define dso_local ptr @list_intersection_int(ptr noundef readonly %0, ptr noundef
   br i1 %23, label %list_member_int.exit, label %19
 
 list_member_int.exit:                             ; preds = %20
-  %24 = tail call ptr @lappend_int(ptr noundef %.01522, i32 noundef %16)
+  %24 = tail call ptr @lappend_int(ptr noundef %.01422, i32 noundef %16)
   %.pre = load i32, ptr %5, align 4
   br label %list_member_int.exit.thread
 
 list_member_int.exit.thread:                      ; preds = %19, %.lr.ph.i, %list_member_int.exit
   %25 = phi i32 [ %.pre, %list_member_int.exit ], [ %13, %.lr.ph.i ], [ %13, %19 ]
-  %.1 = phi ptr [ %24, %list_member_int.exit ], [ %.01522, %.lr.ph.i ], [ %.01522, %19 ]
+  %.1 = phi ptr [ %24, %list_member_int.exit ], [ %.01422, %.lr.ph.i ], [ %.01422, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = sext i32 %25 to i64
   %.not = icmp slt i64 %indvars.iv.next, %26
   br i1 %.not, label %.lr.ph.ithread-pre-split, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %list_member_int.exit.thread, %.lr.ph.i.lr.ph, %.preheader, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %.preheader ], [ null, %.lr.ph.i.lr.ph ], [ %.1, %list_member_int.exit.thread ]
-  ret ptr %.0
+  %.015 = phi ptr [ null, %2 ], [ null, %.preheader ], [ null, %.lr.ph.i.lr.ph ], [ %.1, %list_member_int.exit.thread ]
+  ret ptr %.015
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2452,7 +2452,7 @@ define dso_local ptr @list_difference(ptr noundef readonly %0, ptr noundef reado
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %list_member.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %list_member.exit ], [ 0, %.lr.ph ]
-  %.0132228 = phi ptr [ %.1, %list_member.exit ], [ null, %.lr.ph ]
+  %.02127 = phi ptr [ %.1, %list_member.exit ], [ null, %.lr.ph ]
   %36 = load ptr, ptr %5, align 8
   %37 = getelementptr %union.ListCell, ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
@@ -2481,11 +2481,11 @@ define dso_local ptr @list_difference(ptr noundef readonly %0, ptr noundef reado
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.lr.ph.i
   %49 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %38, %.lr.ph.i ]
-  %50 = tail call ptr @lappend(ptr noundef %.0132228, ptr noundef %49)
+  %50 = tail call ptr @lappend(ptr noundef %.02127, ptr noundef %49)
   br label %list_member.exit
 
 list_member.exit:                                 ; preds = %.lr.ph22.i, %.loopexit
-  %.1 = phi ptr [ %50, %.loopexit ], [ %.0132228, %.lr.ph22.i ]
+  %.1 = phi ptr [ %50, %.loopexit ], [ %.02127, %.lr.ph22.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %4, align 4
   %52 = sext i32 %51 to i64
@@ -2493,8 +2493,8 @@ list_member.exit:                                 ; preds = %.lr.ph22.i, %.loope
   br i1 %53, label %.lr.ph.i, label %list_copy.exit
 
 list_copy.exit:                                   ; preds = %list_member.exit, %.preheader, %.lr.ph, %12, %10
-  %.0 = phi ptr [ %27, %12 ], [ null, %10 ], [ null, %.preheader ], [ null, %.lr.ph ], [ %.1, %list_member.exit ]
-  ret ptr %.0
+  %.014 = phi ptr [ %27, %12 ], [ null, %10 ], [ null, %.preheader ], [ null, %.lr.ph ], [ %.1, %list_member.exit ]
+  ret ptr %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2554,7 +2554,7 @@ define dso_local ptr @list_difference_ptr(ptr noundef readonly %0, ptr noundef r
 .lr.ph.i:                                         ; preds = %.lr.ph, %list_member_ptr.exit
   %36 = phi i32 [ %49, %list_member_ptr.exit ], [ %8, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %list_member_ptr.exit ], [ 0, %.lr.ph ]
-  %.0132228 = phi ptr [ %.1, %list_member_ptr.exit ], [ null, %.lr.ph ]
+  %.02127 = phi ptr [ %.1, %list_member_ptr.exit ], [ null, %.lr.ph ]
   %37 = load ptr, ptr %5, align 8
   %38 = getelementptr %union.ListCell, ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
@@ -2580,21 +2580,21 @@ define dso_local ptr @list_difference_ptr(ptr noundef readonly %0, ptr noundef r
   br i1 %47, label %list_member_ptr.exit, label %43
 
 .loopexit:                                        ; preds = %43, %.lr.ph.i
-  %48 = tail call ptr @lappend(ptr noundef %.0132228, ptr noundef %39)
+  %48 = tail call ptr @lappend(ptr noundef %.02127, ptr noundef %39)
   %.pre = load i32, ptr %4, align 4
   br label %list_member_ptr.exit
 
 list_member_ptr.exit:                             ; preds = %44, %.loopexit
   %49 = phi i32 [ %.pre, %.loopexit ], [ %36, %44 ]
-  %.1 = phi ptr [ %48, %.loopexit ], [ %.0132228, %44 ]
+  %.1 = phi ptr [ %48, %.loopexit ], [ %.02127, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
   br i1 %51, label %.lr.ph.i, label %list_copy.exit
 
 list_copy.exit:                                   ; preds = %list_member_ptr.exit, %.preheader, %.lr.ph, %12, %10
-  %.0 = phi ptr [ %27, %12 ], [ null, %10 ], [ null, %.preheader ], [ null, %.lr.ph ], [ %.1, %list_member_ptr.exit ]
-  ret ptr %.0
+  %.014 = phi ptr [ %27, %12 ], [ null, %10 ], [ null, %.preheader ], [ null, %.lr.ph ], [ %.1, %list_member_ptr.exit ]
+  ret ptr %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2654,7 +2654,7 @@ define dso_local ptr @list_difference_int(ptr noundef readonly %0, ptr noundef r
 .lr.ph.i:                                         ; preds = %.lr.ph, %list_member_int.exit
   %36 = phi i32 [ %49, %list_member_int.exit ], [ %8, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %list_member_int.exit ], [ 0, %.lr.ph ]
-  %.0132228 = phi ptr [ %.1, %list_member_int.exit ], [ null, %.lr.ph ]
+  %.02127 = phi ptr [ %.1, %list_member_int.exit ], [ null, %.lr.ph ]
   %37 = load ptr, ptr %5, align 8
   %38 = getelementptr %union.ListCell, ptr %37, i64 %indvars.iv
   %39 = load i32, ptr %38, align 8
@@ -2680,21 +2680,21 @@ define dso_local ptr @list_difference_int(ptr noundef readonly %0, ptr noundef r
   br i1 %47, label %list_member_int.exit, label %43
 
 .loopexit:                                        ; preds = %43, %.lr.ph.i
-  %48 = tail call ptr @lappend_int(ptr noundef %.0132228, i32 noundef %39)
+  %48 = tail call ptr @lappend_int(ptr noundef %.02127, i32 noundef %39)
   %.pre = load i32, ptr %4, align 4
   br label %list_member_int.exit
 
 list_member_int.exit:                             ; preds = %44, %.loopexit
   %49 = phi i32 [ %.pre, %.loopexit ], [ %36, %44 ]
-  %.1 = phi ptr [ %48, %.loopexit ], [ %.0132228, %44 ]
+  %.1 = phi ptr [ %48, %.loopexit ], [ %.02127, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
   br i1 %51, label %.lr.ph.i, label %list_copy.exit
 
 list_copy.exit:                                   ; preds = %list_member_int.exit, %.preheader, %.lr.ph, %12, %10
-  %.0 = phi ptr [ %27, %12 ], [ null, %10 ], [ null, %.preheader ], [ null, %.lr.ph ], [ %.1, %list_member_int.exit ]
-  ret ptr %.0
+  %.014 = phi ptr [ %27, %12 ], [ null, %10 ], [ null, %.preheader ], [ null, %.lr.ph ], [ %.1, %list_member_int.exit ]
+  ret ptr %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2754,7 +2754,7 @@ define dso_local ptr @list_difference_oid(ptr noundef readonly %0, ptr noundef r
 .lr.ph.i:                                         ; preds = %.lr.ph, %list_member_oid.exit
   %36 = phi i32 [ %49, %list_member_oid.exit ], [ %8, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %list_member_oid.exit ], [ 0, %.lr.ph ]
-  %.0132228 = phi ptr [ %.1, %list_member_oid.exit ], [ null, %.lr.ph ]
+  %.02127 = phi ptr [ %.1, %list_member_oid.exit ], [ null, %.lr.ph ]
   %37 = load ptr, ptr %5, align 8
   %38 = getelementptr %union.ListCell, ptr %37, i64 %indvars.iv
   %39 = load i32, ptr %38, align 8
@@ -2780,21 +2780,21 @@ define dso_local ptr @list_difference_oid(ptr noundef readonly %0, ptr noundef r
   br i1 %47, label %list_member_oid.exit, label %43
 
 .loopexit:                                        ; preds = %43, %.lr.ph.i
-  %48 = tail call ptr @lappend_oid(ptr noundef %.0132228, i32 noundef %39)
+  %48 = tail call ptr @lappend_oid(ptr noundef %.02127, i32 noundef %39)
   %.pre = load i32, ptr %4, align 4
   br label %list_member_oid.exit
 
 list_member_oid.exit:                             ; preds = %44, %.loopexit
   %49 = phi i32 [ %.pre, %.loopexit ], [ %36, %44 ]
-  %.1 = phi ptr [ %48, %.loopexit ], [ %.0132228, %44 ]
+  %.1 = phi ptr [ %48, %.loopexit ], [ %.02127, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
   br i1 %51, label %.lr.ph.i, label %list_copy.exit
 
 list_copy.exit:                                   ; preds = %list_member_oid.exit, %.preheader, %.lr.ph, %12, %10
-  %.0 = phi ptr [ %27, %12 ], [ null, %10 ], [ null, %.preheader ], [ null, %.lr.ph ], [ %.1, %list_member_oid.exit ]
-  ret ptr %.0
+  %.014 = phi ptr [ %27, %12 ], [ null, %10 ], [ null, %.preheader ], [ null, %.lr.ph ], [ %.1, %list_member_oid.exit ]
+  ret ptr %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2961,16 +2961,16 @@ define dso_local ptr @list_concat_unique(ptr noundef %0, ptr noundef readonly %1
 
 .lr.ph23:                                         ; preds = %.lr.ph, %list_member.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %list_member.exit ], [ 0, %.lr.ph ]
-  %.01721 = phi ptr [ %.1, %list_member.exit ], [ %0, %.lr.ph ]
+  %.0101622 = phi ptr [ %.1, %list_member.exit ], [ %0, %.lr.ph ]
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr %union.ListCell, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %.01721, i64 4
-  %.not.i = icmp eq ptr %.01721, null
+  %10 = getelementptr inbounds i8, ptr %.0101622, i64 4
+  %.not.i = icmp eq ptr %.0101622, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph23
-  %11 = getelementptr inbounds i8, ptr %.01721, i64 16
+  %11 = getelementptr inbounds i8, ptr %.0101622, i64 16
   %12 = load i32, ptr %10, align 4
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph22.i, label %.loopexit
@@ -2996,11 +2996,11 @@ define dso_local ptr @list_concat_unique(ptr noundef %0, ptr noundef readonly %1
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.lr.ph23, %.lr.ph.i
   %22 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %9, %.lr.ph23 ], [ %9, %.lr.ph.i ]
-  %23 = tail call ptr @lappend(ptr noundef %.01721, ptr noundef %22)
+  %23 = tail call ptr @lappend(ptr noundef %.0101622, ptr noundef %22)
   br label %list_member.exit
 
 list_member.exit:                                 ; preds = %.lr.ph22.i, %.loopexit
-  %.1 = phi ptr [ %23, %.loopexit ], [ %.01721, %.lr.ph22.i ]
+  %.1 = phi ptr [ %23, %.loopexit ], [ %.0101622, %.lr.ph22.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %3, align 4
   %25 = sext i32 %24 to i64
@@ -3008,8 +3008,8 @@ list_member.exit:                                 ; preds = %.lr.ph22.i, %.loope
   br i1 %26, label %.lr.ph23, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %list_member.exit, %.lr.ph, %2
-  %.0.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph ], [ %.1, %list_member.exit ]
-  ret ptr %.0.lcssa
+  %.010.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph ], [ %.1, %list_member.exit ]
+  ret ptr %.010.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3027,16 +3027,16 @@ define dso_local ptr @list_concat_unique_ptr(ptr noundef %0, ptr noundef readonl
 .lr.ph23:                                         ; preds = %.lr.ph, %list_member_ptr.exit
   %7 = phi i32 [ %22, %list_member_ptr.exit ], [ %5, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %list_member_ptr.exit ], [ 0, %.lr.ph ]
-  %.01721 = phi ptr [ %.1, %list_member_ptr.exit ], [ %0, %.lr.ph ]
+  %.0101622 = phi ptr [ %.1, %list_member_ptr.exit ], [ %0, %.lr.ph ]
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr %union.ListCell, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %.01721, i64 16
-  %.not.i = icmp eq ptr %.01721, null
+  %11 = getelementptr inbounds i8, ptr %.0101622, i64 16
+  %.not.i = icmp eq ptr %.0101622, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph23
-  %12 = getelementptr inbounds i8, ptr %.01721, i64 4
+  %12 = getelementptr inbounds i8, ptr %.0101622, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph22.i, label %.loopexit
@@ -3059,21 +3059,21 @@ define dso_local ptr @list_concat_unique_ptr(ptr noundef %0, ptr noundef readonl
   br i1 %20, label %list_member_ptr.exit, label %16
 
 .loopexit:                                        ; preds = %16, %.lr.ph23, %.lr.ph.i
-  %21 = tail call ptr @lappend(ptr noundef %.01721, ptr noundef %10)
+  %21 = tail call ptr @lappend(ptr noundef %.0101622, ptr noundef %10)
   %.pre = load i32, ptr %3, align 4
   br label %list_member_ptr.exit
 
 list_member_ptr.exit:                             ; preds = %17, %.loopexit
   %22 = phi i32 [ %.pre, %.loopexit ], [ %7, %17 ]
-  %.1 = phi ptr [ %21, %.loopexit ], [ %.01721, %17 ]
+  %.1 = phi ptr [ %21, %.loopexit ], [ %.0101622, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
   br i1 %24, label %.lr.ph23, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %list_member_ptr.exit, %.lr.ph, %2
-  %.0.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph ], [ %.1, %list_member_ptr.exit ]
-  ret ptr %.0.lcssa
+  %.010.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph ], [ %.1, %list_member_ptr.exit ]
+  ret ptr %.010.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3091,16 +3091,16 @@ define dso_local ptr @list_concat_unique_int(ptr noundef %0, ptr noundef readonl
 .lr.ph23:                                         ; preds = %.lr.ph, %list_member_int.exit
   %7 = phi i32 [ %22, %list_member_int.exit ], [ %5, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %list_member_int.exit ], [ 0, %.lr.ph ]
-  %.01721 = phi ptr [ %.1, %list_member_int.exit ], [ %0, %.lr.ph ]
+  %.0101622 = phi ptr [ %.1, %list_member_int.exit ], [ %0, %.lr.ph ]
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr %union.ListCell, ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %.01721, i64 16
-  %.not.i = icmp eq ptr %.01721, null
+  %11 = getelementptr inbounds i8, ptr %.0101622, i64 16
+  %.not.i = icmp eq ptr %.0101622, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph23
-  %12 = getelementptr inbounds i8, ptr %.01721, i64 4
+  %12 = getelementptr inbounds i8, ptr %.0101622, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph21.i, label %.loopexit
@@ -3123,21 +3123,21 @@ define dso_local ptr @list_concat_unique_int(ptr noundef %0, ptr noundef readonl
   br i1 %20, label %list_member_int.exit, label %16
 
 .loopexit:                                        ; preds = %16, %.lr.ph23, %.lr.ph.i
-  %21 = tail call ptr @lappend_int(ptr noundef %.01721, i32 noundef %10)
+  %21 = tail call ptr @lappend_int(ptr noundef %.0101622, i32 noundef %10)
   %.pre = load i32, ptr %3, align 4
   br label %list_member_int.exit
 
 list_member_int.exit:                             ; preds = %17, %.loopexit
   %22 = phi i32 [ %.pre, %.loopexit ], [ %7, %17 ]
-  %.1 = phi ptr [ %21, %.loopexit ], [ %.01721, %17 ]
+  %.1 = phi ptr [ %21, %.loopexit ], [ %.0101622, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
   br i1 %24, label %.lr.ph23, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %list_member_int.exit, %.lr.ph, %2
-  %.0.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph ], [ %.1, %list_member_int.exit ]
-  ret ptr %.0.lcssa
+  %.010.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph ], [ %.1, %list_member_int.exit ]
+  ret ptr %.010.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3155,16 +3155,16 @@ define dso_local ptr @list_concat_unique_oid(ptr noundef %0, ptr noundef readonl
 .lr.ph23:                                         ; preds = %.lr.ph, %list_member_oid.exit
   %7 = phi i32 [ %22, %list_member_oid.exit ], [ %5, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %list_member_oid.exit ], [ 0, %.lr.ph ]
-  %.01721 = phi ptr [ %.1, %list_member_oid.exit ], [ %0, %.lr.ph ]
+  %.0101622 = phi ptr [ %.1, %list_member_oid.exit ], [ %0, %.lr.ph ]
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr %union.ListCell, ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %.01721, i64 16
-  %.not.i = icmp eq ptr %.01721, null
+  %11 = getelementptr inbounds i8, ptr %.0101622, i64 16
+  %.not.i = icmp eq ptr %.0101622, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph23
-  %12 = getelementptr inbounds i8, ptr %.01721, i64 4
+  %12 = getelementptr inbounds i8, ptr %.0101622, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph21.i, label %.loopexit
@@ -3187,21 +3187,21 @@ define dso_local ptr @list_concat_unique_oid(ptr noundef %0, ptr noundef readonl
   br i1 %20, label %list_member_oid.exit, label %16
 
 .loopexit:                                        ; preds = %16, %.lr.ph23, %.lr.ph.i
-  %21 = tail call ptr @lappend_oid(ptr noundef %.01721, i32 noundef %10)
+  %21 = tail call ptr @lappend_oid(ptr noundef %.0101622, i32 noundef %10)
   %.pre = load i32, ptr %3, align 4
   br label %list_member_oid.exit
 
 list_member_oid.exit:                             ; preds = %17, %.loopexit
   %22 = phi i32 [ %.pre, %.loopexit ], [ %7, %17 ]
-  %.1 = phi ptr [ %21, %.loopexit ], [ %.01721, %17 ]
+  %.1 = phi ptr [ %21, %.loopexit ], [ %.0101622, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
   br i1 %24, label %.lr.ph23, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %list_member_oid.exit, %.lr.ph, %2
-  %.0.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph ], [ %.1, %list_member_oid.exit ]
-  ret ptr %.0.lcssa
+  %.010.lcssa = phi ptr [ %0, %2 ], [ %0, %.lr.ph ], [ %.1, %list_member_oid.exit ]
+  ret ptr %.010.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

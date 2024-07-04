@@ -371,9 +371,9 @@ _ZN6icu_75L15isGregorianLeapEi.exit31.thread74:   ; preds = %land.rhs.i.i25, %_Z
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6icu_75L15isGregorianLeapEi.exit31.thread74, %_ZN6icu_75L15isGregorianLeapEi.exit.thread68
+  %leapMonth.0 = phi i32 [ %2, %_ZN6icu_75L15isGregorianLeapEi.exit.thread68 ], [ %3, %_ZN6icu_75L15isGregorianLeapEi.exit31.thread74 ]
   %IndianYear.0 = phi i32 [ %sub6, %_ZN6icu_75L15isGregorianLeapEi.exit.thread68 ], [ %sub, %_ZN6icu_75L15isGregorianLeapEi.exit31.thread74 ]
   %yday.0 = phi i32 [ %add11, %_ZN6icu_75L15isGregorianLeapEi.exit.thread68 ], [ %sub15, %_ZN6icu_75L15isGregorianLeapEi.exit31.thread74 ]
-  %leapMonth.0 = phi i32 [ %2, %_ZN6icu_75L15isGregorianLeapEi.exit.thread68 ], [ %3, %_ZN6icu_75L15isGregorianLeapEi.exit31.thread74 ]
   %cmp16 = icmp slt i32 %yday.0, %leapMonth.0
   br i1 %cmp16, label %if.end38, label %if.else19
 

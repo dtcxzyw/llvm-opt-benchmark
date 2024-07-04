@@ -231,9 +231,9 @@ calc_data_crc32.exit.i:                           ; preds = %78
   br i1 %88, label %.lr.ph.i, label %.lr.ph38.i.i, !llvm.loop !7
 
 .lr.ph38.i.i:                                     ; preds = %calc_data_crc32.exit.i, %109
-  %.02436.i.i = phi i64 [ %.2.i.i, %109 ], [ 0, %calc_data_crc32.exit.i ]
-  %.02535.i.i = phi i64 [ %.126.lcssa.i.i, %109 ], [ 0, %calc_data_crc32.exit.i ]
-  %89 = getelementptr i8, ptr %70, i64 %.02535.i.i
+  %.02336.i.i = phi i64 [ %.2.i.i, %109 ], [ 0, %calc_data_crc32.exit.i ]
+  %.02435.i.i = phi i64 [ %.125.lcssa.i.i, %109 ], [ 0, %calc_data_crc32.exit.i ]
+  %89 = getelementptr i8, ptr %70, i64 %.02435.i.i
   %90 = load i8, ptr %89, align 1
   %91 = icmp eq i8 %90, 85
   br i1 %91, label %cobs_decode.exit.i, label %92
@@ -241,36 +241,36 @@ calc_data_crc32.exit.i:                           ; preds = %78
 92:                                               ; preds = %.lr.ph38.i.i
   %93 = xor i8 %90, 85
   %94 = zext i8 %93 to i64
-  %95 = add nuw nsw i64 %.02535.i.i, %94
+  %95 = add nuw nsw i64 %.02435.i.i, %94
   %96 = icmp ugt i64 %95, %73
   br i1 %96, label %cobs_decode.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %92
-  %.12630.i.i = add nuw i64 %.02535.i.i, 1
+  %.12530.i.i = add nuw i64 %.02435.i.i, 1
   %97 = add i8 %93, -1
   %.not31.i.i = icmp eq i8 %97, 0
   br i1 %.not31.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %98 = phi i8 [ %104, %.lr.ph.i.i ], [ %97, %.preheader.i.i ]
-  %.12633.i.i = phi i64 [ %.126.i.i, %.lr.ph.i.i ], [ %.12630.i.i, %.preheader.i.i ]
-  %.132.i.i = phi i64 [ %102, %.lr.ph.i.i ], [ %.02436.i.i, %.preheader.i.i ]
-  %99 = getelementptr i8, ptr %70, i64 %.12633.i.i
+  %.12533.i.i = phi i64 [ %.125.i.i, %.lr.ph.i.i ], [ %.12530.i.i, %.preheader.i.i ]
+  %.132.i.i = phi i64 [ %102, %.lr.ph.i.i ], [ %.02336.i.i, %.preheader.i.i ]
+  %99 = getelementptr i8, ptr %70, i64 %.12533.i.i
   %100 = load i8, ptr %99, align 1
   %101 = xor i8 %100, 85
   %102 = add i64 %.132.i.i, 1
   %103 = getelementptr i8, ptr %70, i64 %.132.i.i
   store i8 %101, ptr %103, align 1
-  %.126.i.i = add i64 %.12633.i.i, 1
+  %.125.i.i = add i64 %.12533.i.i, 1
   %104 = add i8 %98, -1
   %.not.i33.i = icmp eq i8 %104, 0
   br i1 %.not.i33.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
-  %.1.lcssa.i.i = phi i64 [ %.02436.i.i, %.preheader.i.i ], [ %102, %.lr.ph.i.i ]
-  %.126.lcssa.i.i = phi i64 [ %.12630.i.i, %.preheader.i.i ], [ %.126.i.i, %.lr.ph.i.i ]
+  %.1.lcssa.i.i = phi i64 [ %.02336.i.i, %.preheader.i.i ], [ %102, %.lr.ph.i.i ]
+  %.125.lcssa.i.i = phi i64 [ %.12530.i.i, %.preheader.i.i ], [ %.125.i.i, %.lr.ph.i.i ]
   %.not29.i.i = icmp ne i8 %90, -86
-  %105 = icmp ult i64 %.126.lcssa.i.i, %73
+  %105 = icmp ult i64 %.125.lcssa.i.i, %73
   %or.cond.i.i = and i1 %.not29.i.i, %105
   br i1 %or.cond.i.i, label %106, label %109
 
@@ -286,16 +286,16 @@ calc_data_crc32.exit.i:                           ; preds = %78
 
 cobs_decode.exit.i:                               ; preds = %109, %92, %.lr.ph38.i.i, %72
   %.025.lcssa71.i = phi i32 [ -1, %72 ], [ %.1.i.i, %.lr.ph38.i.i ], [ %.1.i.i, %92 ], [ %.1.i.i, %109 ]
-  %.0.i.i = phi i64 [ 0, %72 ], [ %.2.i.i, %109 ], [ 0, %92 ], [ 0, %.lr.ph38.i.i ]
-  %110 = getelementptr i8, ptr %70, i64 %.0.i.i
+  %.026.i.i = phi i64 [ 0, %72 ], [ %.2.i.i, %109 ], [ 0, %92 ], [ 0, %.lr.ph38.i.i ]
+  %110 = getelementptr i8, ptr %70, i64 %.026.i.i
   %111 = getelementptr i8, ptr %70, i64 %69
   %112 = getelementptr i8, ptr %111, i64 -5
   br label %.lr.ph38.i34.i
 
 .lr.ph38.i34.i:                                   ; preds = %133, %cobs_decode.exit.i
-  %.02436.i35.i = phi i64 [ %.2.i50.i, %133 ], [ 0, %cobs_decode.exit.i ]
-  %.02535.i36.i = phi i64 [ %.126.lcssa.i47.i, %133 ], [ 0, %cobs_decode.exit.i ]
-  %113 = getelementptr i8, ptr %112, i64 %.02535.i36.i
+  %.02336.i35.i = phi i64 [ %.2.i50.i, %133 ], [ 0, %cobs_decode.exit.i ]
+  %.02435.i36.i = phi i64 [ %.125.lcssa.i47.i, %133 ], [ 0, %cobs_decode.exit.i ]
+  %113 = getelementptr i8, ptr %112, i64 %.02435.i36.i
   %114 = load i8, ptr %113, align 1
   %115 = icmp eq i8 %114, 85
   br i1 %115, label %cobs_frame_decode.exit.thread, label %116
@@ -303,36 +303,36 @@ cobs_decode.exit.i:                               ; preds = %109, %92, %.lr.ph38
 116:                                              ; preds = %.lr.ph38.i34.i
   %117 = xor i8 %114, 85
   %118 = zext i8 %117 to i64
-  %119 = add nuw nsw i64 %.02535.i36.i, %118
+  %119 = add nuw nsw i64 %.02435.i36.i, %118
   %120 = icmp ugt i64 %119, 5
   br i1 %120, label %cobs_frame_decode.exit.thread, label %.preheader.i37.i
 
 .preheader.i37.i:                                 ; preds = %116
-  %.12630.i38.i = add nuw nsw i64 %.02535.i36.i, 1
+  %.12530.i38.i = add nuw nsw i64 %.02435.i36.i, 1
   %121 = add i8 %117, -1
   %.not31.i39.i = icmp eq i8 %121, 0
   br i1 %.not31.i39.i, label %._crit_edge.i45.i, label %.lr.ph.i40.i
 
 .lr.ph.i40.i:                                     ; preds = %.preheader.i37.i, %.lr.ph.i40.i
   %122 = phi i8 [ %128, %.lr.ph.i40.i ], [ %121, %.preheader.i37.i ]
-  %.12633.i41.i = phi i64 [ %.126.i43.i, %.lr.ph.i40.i ], [ %.12630.i38.i, %.preheader.i37.i ]
-  %.132.i42.i = phi i64 [ %126, %.lr.ph.i40.i ], [ %.02436.i35.i, %.preheader.i37.i ]
-  %123 = getelementptr i8, ptr %112, i64 %.12633.i41.i
+  %.12533.i41.i = phi i64 [ %.125.i43.i, %.lr.ph.i40.i ], [ %.12530.i38.i, %.preheader.i37.i ]
+  %.132.i42.i = phi i64 [ %126, %.lr.ph.i40.i ], [ %.02336.i35.i, %.preheader.i37.i ]
+  %123 = getelementptr i8, ptr %112, i64 %.12533.i41.i
   %124 = load i8, ptr %123, align 1
   %125 = xor i8 %124, 85
   %126 = add i64 %.132.i42.i, 1
   %127 = getelementptr i8, ptr %110, i64 %.132.i42.i
   store i8 %125, ptr %127, align 1
-  %.126.i43.i = add nuw nsw i64 %.12633.i41.i, 1
+  %.125.i43.i = add nuw nsw i64 %.12533.i41.i, 1
   %128 = add i8 %122, -1
   %.not.i44.i = icmp eq i8 %128, 0
   br i1 %.not.i44.i, label %._crit_edge.i45.i, label %.lr.ph.i40.i, !llvm.loop !8
 
 ._crit_edge.i45.i:                                ; preds = %.lr.ph.i40.i, %.preheader.i37.i
-  %.1.lcssa.i46.i = phi i64 [ %.02436.i35.i, %.preheader.i37.i ], [ %126, %.lr.ph.i40.i ]
-  %.126.lcssa.i47.i = phi i64 [ %.12630.i38.i, %.preheader.i37.i ], [ %.126.i43.i, %.lr.ph.i40.i ]
+  %.1.lcssa.i46.i = phi i64 [ %.02336.i35.i, %.preheader.i37.i ], [ %126, %.lr.ph.i40.i ]
+  %.125.lcssa.i47.i = phi i64 [ %.12530.i38.i, %.preheader.i37.i ], [ %.125.i43.i, %.lr.ph.i40.i ]
   %.not29.i48.i = icmp ne i8 %114, -86
-  %129 = icmp ult i64 %.126.lcssa.i47.i, 5
+  %129 = icmp ult i64 %.125.lcssa.i47.i, 5
   %or.cond.i49.i = and i1 %.not29.i48.i, %129
   br i1 %or.cond.i49.i, label %130, label %133
 
@@ -380,7 +380,7 @@ calc_data_crc32.exit59.i:                         ; preds = %136
 
 cobs_frame_decode.exit:                           ; preds = %calc_data_crc32.exit59.i
   %144 = icmp ne i32 %.1.i57.i, 138621499
-  %145 = trunc i64 %.0.i.i to i32
+  %145 = trunc i64 %.026.i.i to i32
   %146 = and i32 %145, 65535
   %.not141145 = icmp eq i32 %146, 0
   %.not141 = select i1 %144, i1 true, i1 %.not141145

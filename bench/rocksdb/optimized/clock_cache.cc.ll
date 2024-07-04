@@ -732,35 +732,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end14.i
-  %__value.addr.021.i = phi i32 [ %0, %if.end14.i ], [ %cond, %entry ]
-  %__n.020.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
-  %cmp3.i = icmp ult i32 %__value.addr.021.i, 100
+  %__n.021.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
+  %__value.addr.020.i = phi i32 [ %0, %if.end14.i ], [ %cond, %entry ]
+  %cmp3.i = icmp ult i32 %__value.addr.020.i, 100
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.020.i, 1
+  %add.i = add i32 %__n.021.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ult i32 %__value.addr.021.i, 1000
+  %cmp6.i = icmp ult i32 %__value.addr.020.i, 1000
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %add8.i = add i32 %__n.020.i, 2
+  %add8.i = add i32 %__n.021.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %cmp11.i = icmp ult i32 %__value.addr.021.i, 10000
+  %cmp11.i = icmp ult i32 %__value.addr.020.i, 10000
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %add13.i = add i32 %__n.020.i, 3
+  %add13.i = add i32 %__n.021.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end14.i:                                       ; preds = %if.end9.i
-  %0 = udiv i32 %__value.addr.021.i, 10000
-  %add17.i = add i32 %__n.020.i, 4
-  %cmp.i = icmp ult i32 %__value.addr.021.i, 100000
+  %0 = udiv i32 %__value.addr.020.i, 10000
+  %add17.i = add i32 %__n.021.i, 4
+  %cmp.i = icmp ult i32 %__value.addr.020.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !4
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i
@@ -5235,8 +5235,8 @@ if.end6:                                          ; preds = %for.cond3.preheader
   %chain_frontier_first.1277 = phi i32 [ -1, %for.cond3.preheader ], [ %chain_frontier_first.2, %if.end31 ]
   %i.1276 = phi i32 [ %i.0279, %for.cond3.preheader ], [ %inc, %if.end31 ]
   %next_with_shift.0275 = phi i64 [ %zero_head_lock.sroa.7.0278, %for.cond3.preheader ], [ %6, %if.end31 ]
-  %zero_chain_frontier.1274 = phi i64 [ -1, %for.cond3.preheader ], [ %zero_chain_frontier.2, %if.end31 ]
-  %one_chain_frontier.1273 = phi i64 [ -1, %for.cond3.preheader ], [ %one_chain_frontier.2, %if.end31 ]
+  %one_chain_frontier.1274 = phi i64 [ -1, %for.cond3.preheader ], [ %one_chain_frontier.2, %if.end31 ]
+  %zero_chain_frontier.1273 = phi i64 [ -1, %for.cond3.preheader ], [ %zero_chain_frontier.2, %if.end31 ]
   %and.i = and i64 %next_with_shift.0275, 64
   %tobool.i.not = icmp eq i64 %and.i, 0
   br i1 %tobool.i.not, label %invoke.cont15, label %for.end
@@ -5251,24 +5251,24 @@ invoke.cont15:                                    ; preds = %if.end6
   br i1 %cmp17, label %if.then18, label %if.else
 
 if.then18:                                        ; preds = %invoke.cont15
-  %cmp19 = icmp eq i64 %zero_chain_frontier.1274, -1
+  %cmp19 = icmp eq i64 %zero_chain_frontier.1273, -1
   br i1 %cmp19, label %if.then20, label %if.end31
 
 if.then20:                                        ; preds = %if.then18
-  %cmp21.not = icmp eq i64 %one_chain_frontier.1273, -1
+  %cmp21.not = icmp eq i64 %one_chain_frontier.1274, -1
   br i1 %cmp21.not, label %if.end31, label %cond.true
 
 if.else:                                          ; preds = %invoke.cont15
-  %cmp25 = icmp eq i64 %one_chain_frontier.1273, -1
+  %cmp25 = icmp eq i64 %one_chain_frontier.1274, -1
   br i1 %cmp25, label %if.then26, label %if.end31
 
 if.then26:                                        ; preds = %if.else
-  %cmp27.not = icmp eq i64 %zero_chain_frontier.1274, -1
+  %cmp27.not = icmp eq i64 %zero_chain_frontier.1273, -1
   br i1 %cmp27.not, label %if.end31, label %cond.true
 
 if.end31:                                         ; preds = %if.then26, %if.then20, %if.else, %if.then18
-  %one_chain_frontier.2 = phi i64 [ -1, %if.then20 ], [ %one_chain_frontier.1273, %if.then18 ], [ %shr.i, %if.then26 ], [ %one_chain_frontier.1273, %if.else ]
-  %zero_chain_frontier.2 = phi i64 [ %shr.i, %if.then20 ], [ %zero_chain_frontier.1274, %if.then18 ], [ -1, %if.then26 ], [ %zero_chain_frontier.1274, %if.else ]
+  %zero_chain_frontier.2 = phi i64 [ %shr.i, %if.then20 ], [ %zero_chain_frontier.1273, %if.then18 ], [ -1, %if.then26 ], [ %zero_chain_frontier.1273, %if.else ]
+  %one_chain_frontier.2 = phi i64 [ -1, %if.then20 ], [ %one_chain_frontier.1274, %if.then18 ], [ %shr.i, %if.then26 ], [ %one_chain_frontier.1274, %if.else ]
   %chain_frontier_first.2 = phi i32 [ 0, %if.then20 ], [ %chain_frontier_first.1277, %if.then18 ], [ 1, %if.then26 ], [ %chain_frontier_first.1277, %if.else ]
   %chain_next_with_shift = getelementptr inbounds i8, ptr %arrayidx13, i64 56
   %6 = load atomic i64, ptr %chain_next_with_shift acquire, align 8
@@ -5277,26 +5277,26 @@ if.end31:                                         ; preds = %if.then26, %if.then
   br i1 %exitcond, label %if.then5, label %if.end6, !llvm.loop !56
 
 for.end:                                          ; preds = %if.end6
-  %cmp35.not = icmp eq i64 %one_chain_frontier.1273, -1
+  %cmp35.not = icmp eq i64 %one_chain_frontier.1274, -1
   br i1 %cmp35.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.then26, %if.then20, %for.end
   %cur.0231 = phi i64 [ -1, %for.end ], [ %shr.i, %if.then20 ], [ %shr.i, %if.then26 ]
-  %zero_chain_frontier.3229 = phi i64 [ %zero_chain_frontier.1274, %for.end ], [ %zero_chain_frontier.1274, %if.then26 ], [ %shr.i, %if.then20 ]
-  %one_chain_frontier.3226 = phi i64 [ %one_chain_frontier.1273, %for.end ], [ %shr.i, %if.then26 ], [ %one_chain_frontier.1273, %if.then20 ]
-  %shl.i = shl i64 %one_chain_frontier.3226, 8
+  %one_chain_frontier.3228 = phi i64 [ %one_chain_frontier.1274, %for.end ], [ %shr.i, %if.then26 ], [ %one_chain_frontier.1274, %if.then20 ]
+  %zero_chain_frontier.3227 = phi i64 [ %zero_chain_frontier.1273, %for.end ], [ %zero_chain_frontier.1273, %if.then26 ], [ %shr.i, %if.then20 ]
+  %shl.i = shl i64 %one_chain_frontier.3228, 8
   %or.i = or i64 %shl.i, %conv.i
   br label %cond.end
 
 cond.end:                                         ; preds = %for.end, %cond.true
   %cur.0230 = phi i64 [ %cur.0231, %cond.true ], [ -1, %for.end ]
-  %zero_chain_frontier.3228 = phi i64 [ %zero_chain_frontier.3229, %cond.true ], [ %zero_chain_frontier.1274, %for.end ]
-  %one_chain_frontier.3227 = phi i64 [ %one_chain_frontier.3226, %cond.true ], [ -1, %for.end ]
+  %one_chain_frontier.3229 = phi i64 [ %one_chain_frontier.3228, %cond.true ], [ -1, %for.end ]
+  %zero_chain_frontier.3226 = phi i64 [ %zero_chain_frontier.3227, %cond.true ], [ %zero_chain_frontier.1273, %for.end ]
   %cond = phi i64 [ %or.i, %cond.true ], [ %or.i74, %for.end ]
   %or = or i64 %cond, 128
   store atomic i64 %or, ptr %head_next_with_shift release, align 8
-  %cmp42.not = icmp eq i64 %zero_chain_frontier.3228, -1
-  %shl.i75 = shl i64 %zero_chain_frontier.3228, 8
+  %cmp42.not = icmp eq i64 %zero_chain_frontier.3226, -1
+  %shl.i75 = shl i64 %zero_chain_frontier.3226, 8
   %or.i77 = or i64 %shl.i75, %conv.i
   %cond50 = select i1 %cmp42.not, i64 %or.i81, i64 %or.i77
   %or.i82 = or i64 %cond50, 128
@@ -5347,7 +5347,7 @@ for.end61:                                        ; preds = %cond.end
 
 if.then66:                                        ; preds = %for.end61
   %cmp67 = icmp eq i32 %chain_frontier_first.1277, 0
-  %13 = select i1 %cmp67, i64 %one_chain_frontier.3227, i64 %zero_chain_frontier.3228
+  %13 = select i1 %cmp67, i64 %one_chain_frontier.3229, i64 %zero_chain_frontier.3226
   %cmp76.not = icmp eq i64 %13, -1
   %cond86 = select i1 %cmp67, i64 %old_home, i64 %grow_home
   %14 = or i32 %add, 192
@@ -5356,7 +5356,7 @@ if.then66:                                        ; preds = %for.end61
   %shl.i.i97.sink = shl i64 %shl.i.i97.sink.v, 8
   %or.i.i99 = sext i32 %.sink to i64
   %or.i100 = or i64 %shl.i.i97.sink, %or.i.i99
-  %.sroa.speculated189 = select i1 %cmp67, i64 %zero_chain_frontier.3228, i64 %one_chain_frontier.3227
+  %.sroa.speculated189 = select i1 %cmp67, i64 %zero_chain_frontier.3226, i64 %one_chain_frontier.3229
   %chain_next_with_shift10.i = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %.sroa.speculated189, i32 2
   %15 = load atomic i64, ptr %chain_next_with_shift10.i acquire, align 8
   %cmp11.i = icmp eq i64 %15, %or.i100
@@ -5366,7 +5366,7 @@ if.end.i.preheader:                               ; preds = %if.then66
   br i1 %cmp67, label %if.end.i.us, label %if.end.i
 
 if.end.i.us:                                      ; preds = %if.end.i.preheader, %if.end5.i.us
-  %zero_chain_frontier.4.us = phi i64 [ %shr.i.i.us, %if.end5.i.us ], [ %zero_chain_frontier.3228, %if.end.i.preheader ]
+  %zero_chain_frontier.4.us = phi i64 [ %shr.i.i.us, %if.end5.i.us ], [ %zero_chain_frontier.3226, %if.end.i.preheader ]
   %16 = phi i64 [ %18, %if.end5.i.us ], [ %15, %if.end.i.preheader ]
   %and.i.i101.us = and i64 %16, 64
   %tobool.i.not.i102.us = icmp eq i64 %and.i.i101.us, 0
@@ -5382,7 +5382,7 @@ if.end5.i.us:                                     ; preds = %if.end.i.us
   br i1 %cmp.i.us, label %if.end100.preheader, label %if.end.i.us, !llvm.loop !58
 
 if.end.i:                                         ; preds = %if.end.i.preheader, %if.end5.i
-  %one_chain_frontier.4 = phi i64 [ %shr.i.i, %if.end5.i ], [ %one_chain_frontier.3227, %if.end.i.preheader ]
+  %one_chain_frontier.4 = phi i64 [ %shr.i.i, %if.end5.i ], [ %one_chain_frontier.3229, %if.end.i.preheader ]
   %19 = phi i64 [ %21, %if.end5.i ], [ %15, %if.end.i.preheader ]
   %and.i.i101 = and i64 %19, 64
   %tobool.i.not.i102 = icmp eq i64 %and.i.i101, 0
@@ -5390,7 +5390,7 @@ if.end.i:                                         ; preds = %if.end.i.preheader,
   br i1 %tobool.i.not.i102, label %if.end5.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i, %if.end.i.us
-  %.us-phi281 = phi i64 [ %zero_chain_frontier.4.us, %if.end.i.us ], [ %zero_chain_frontier.3228, %if.end.i ]
+  %.us-phi281 = phi i64 [ %zero_chain_frontier.4.us, %if.end.i.us ], [ %zero_chain_frontier.3226, %if.end.i ]
   %.us-phi282 = phi ptr [ %chain_next_with_shift7.i.us, %if.end.i.us ], [ %chain_next_with_shift7.i, %if.end.i ]
   store atomic i64 %or.i100, ptr %.us-phi282 release, align 8
   br i1 %cmp67, label %if.end164, label %if.end92
@@ -5404,14 +5404,14 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %cmp.i, label %if.end92, label %if.end.i, !llvm.loop !58
 
 if.end92:                                         ; preds = %if.end5.i, %if.then2.i, %if.then66, %for.end61
-  %one_chain_frontier.8 = phi i64 [ %one_chain_frontier.3227, %for.end61 ], [ %one_chain_frontier.3227, %if.then66 ], [ -1, %if.then2.i ], [ %shr.i.i, %if.end5.i ]
-  %zero_chain_frontier.8 = phi i64 [ %zero_chain_frontier.3228, %for.end61 ], [ %zero_chain_frontier.3228, %if.then66 ], [ %.us-phi281, %if.then2.i ], [ %zero_chain_frontier.3228, %if.end5.i ]
+  %zero_chain_frontier.8 = phi i64 [ %zero_chain_frontier.3226, %for.end61 ], [ %zero_chain_frontier.3226, %if.then66 ], [ %.us-phi281, %if.then2.i ], [ %zero_chain_frontier.3226, %if.end5.i ]
+  %one_chain_frontier.8 = phi i64 [ %one_chain_frontier.3229, %for.end61 ], [ %one_chain_frontier.3229, %if.then66 ], [ -1, %if.then2.i ], [ %shr.i.i, %if.end5.i ]
   %cmp93 = icmp eq i64 %zero_chain_frontier.8, -1
   br i1 %cmp93, label %if.end164, label %if.end100.preheader
 
 if.end100.preheader:                              ; preds = %if.end5.i.us, %if.end92
-  %zero_chain_frontier.9289.ph = phi i64 [ %zero_chain_frontier.8, %if.end92 ], [ %shr.i.i.us, %if.end5.i.us ]
-  %one_chain_frontier.9288.ph = phi i64 [ %one_chain_frontier.8, %if.end92 ], [ %one_chain_frontier.3227, %if.end5.i.us ]
+  %one_chain_frontier.9289.ph = phi i64 [ %one_chain_frontier.8, %if.end92 ], [ %one_chain_frontier.3229, %if.end5.i.us ]
+  %zero_chain_frontier.9288.ph = phi i64 [ %zero_chain_frontier.8, %if.end92 ], [ %shr.i.i.us, %if.end5.i.us ]
   br label %if.end100
 
 if.then99:                                        ; preds = %for.inc161
@@ -5422,8 +5422,8 @@ if.end100:                                        ; preds = %if.end100.preheader
   %cur.1292 = phi i64 [ %shr.i129, %for.inc161 ], [ %cur.0230, %if.end100.preheader ]
   %chain_frontier_first.3291 = phi i32 [ %chain_frontier_first.4, %for.inc161 ], [ %chain_frontier_first.1277, %if.end100.preheader ]
   %i96.0290 = phi i32 [ %inc162, %for.inc161 ], [ 0, %if.end100.preheader ]
-  %zero_chain_frontier.9289 = phi i64 [ %zero_chain_frontier.17, %for.inc161 ], [ %zero_chain_frontier.9289.ph, %if.end100.preheader ]
-  %one_chain_frontier.9288 = phi i64 [ %one_chain_frontier.17, %for.inc161 ], [ %one_chain_frontier.9288.ph, %if.end100.preheader ]
+  %one_chain_frontier.9289 = phi i64 [ %one_chain_frontier.17, %for.inc161 ], [ %one_chain_frontier.9289.ph, %if.end100.preheader ]
+  %zero_chain_frontier.9288 = phi i64 [ %zero_chain_frontier.17, %for.inc161 ], [ %zero_chain_frontier.9288.ph, %if.end100.preheader ]
   %cmp102 = icmp eq i32 %chain_frontier_first.3291, 0
   %chain_next_with_shift115 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %cur.1292, i32 2
   %22 = load atomic i64, ptr %chain_next_with_shift115 acquire, align 8
@@ -5436,14 +5436,14 @@ invoke.cont136:                                   ; preds = %if.end100
   %shl.i.i109 = shl i64 %cond125, 8
   %or.i.i111 = or i64 %shl.i.i109, %conv.i
   %or.i112 = or i64 %or.i.i111, 192
-  %.sroa.speculated180 = select i1 %cmp102, i64 %zero_chain_frontier.9289, i64 %one_chain_frontier.9288
-  %chain_next_with_shift129 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %.sroa.speculated180, i32 2
+  %.sroa.speculated183 = select i1 %cmp102, i64 %zero_chain_frontier.9288, i64 %one_chain_frontier.9289
+  %chain_next_with_shift129 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %.sroa.speculated183, i32 2
   store atomic i64 %or.i112, ptr %chain_next_with_shift129 release, align 8
   %cond135 = select i1 %cmp102, i64 %grow_home, i64 %old_home
   %shl.i.i113 = shl i64 %cond135, 8
   %or.i.i115 = or i64 %shl.i.i113, %conv.i
   %or.i116 = or i64 %or.i.i115, 192
-  %.sroa.speculated177 = select i1 %cmp102, i64 %one_chain_frontier.9288, i64 %zero_chain_frontier.9289
+  %.sroa.speculated177 = select i1 %cmp102, i64 %one_chain_frontier.9289, i64 %zero_chain_frontier.9288
   %chain_next_with_shift10.i117 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %.sroa.speculated177, i32 2
   %23 = load atomic i64, ptr %chain_next_with_shift10.i117 acquire, align 8
   %cmp11.i118 = icmp eq i64 %23, %or.i116
@@ -5453,7 +5453,7 @@ if.end.i119.preheader:                            ; preds = %invoke.cont136
   br i1 %cmp102, label %if.end.i119.us, label %if.end.i119
 
 if.end.i119.us:                                   ; preds = %if.end.i119.preheader, %if.end5.i124.us
-  %one_chain_frontier.10.us = phi i64 [ %shr.i.i125.us, %if.end5.i124.us ], [ %one_chain_frontier.9288, %if.end.i119.preheader ]
+  %one_chain_frontier.10.us = phi i64 [ %shr.i.i125.us, %if.end5.i124.us ], [ %one_chain_frontier.9289, %if.end.i119.preheader ]
   %24 = phi i64 [ %26, %if.end5.i124.us ], [ %23, %if.end.i119.preheader ]
   %and.i.i120.us = and i64 %24, 64
   %tobool.i.not.i121.us = icmp eq i64 %and.i.i120.us, 0
@@ -5469,7 +5469,7 @@ if.end5.i124.us:                                  ; preds = %if.end.i119.us
   br i1 %cmp.i127.us, label %if.end164, label %if.end.i119.us, !llvm.loop !58
 
 if.end.i119:                                      ; preds = %if.end.i119.preheader, %if.end5.i124
-  %zero_chain_frontier.10 = phi i64 [ %shr.i.i125, %if.end5.i124 ], [ %zero_chain_frontier.9289, %if.end.i119.preheader ]
+  %zero_chain_frontier.10 = phi i64 [ %shr.i.i125, %if.end5.i124 ], [ %zero_chain_frontier.9288, %if.end.i119.preheader ]
   %27 = phi i64 [ %29, %if.end5.i124 ], [ %23, %if.end.i119.preheader ]
   %and.i.i120 = and i64 %27, 64
   %tobool.i.not.i121 = icmp eq i64 %and.i.i120, 0
@@ -5502,12 +5502,12 @@ invoke.cont145:                                   ; preds = %if.end100
 if.then152:                                       ; preds = %invoke.cont145
   %shl.i132 = and i64 %22, -256
   %or.i134 = or i64 %shl.i132, %conv.i
-  %.sroa.speculated183 = select i1 %cmp102, i64 %zero_chain_frontier.9289, i64 %one_chain_frontier.9288
-  %chain_next_with_shift156 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %.sroa.speculated183, i32 2
+  %.sroa.speculated180 = select i1 %cmp102, i64 %zero_chain_frontier.9288, i64 %one_chain_frontier.9289
+  %chain_next_with_shift156 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %.sroa.speculated180, i32 2
   store atomic i64 %or.i134, ptr %chain_next_with_shift156 release, align 8
-  %spec.select246 = select i1 %cmp102, i64 %one_chain_frontier.9288, i64 %shr.i129
-  %spec.select247 = select i1 %cmp102, i64 %shr.i129, i64 %zero_chain_frontier.9289
-  %.sroa.speculated171 = select i1 %cmp102, i64 %one_chain_frontier.9288, i64 %zero_chain_frontier.9289
+  %spec.select246 = select i1 %cmp102, i64 %shr.i129, i64 %zero_chain_frontier.9288
+  %spec.select247 = select i1 %cmp102, i64 %one_chain_frontier.9289, i64 %shr.i129
+  %.sroa.speculated171 = select i1 %cmp102, i64 %one_chain_frontier.9289, i64 %zero_chain_frontier.9288
   %chain_next_with_shift10.i135 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %.sroa.speculated171, i32 2
   %32 = load atomic i64, ptr %chain_next_with_shift10.i135 acquire, align 8
   %cmp11.i136 = icmp eq i64 %32, %22
@@ -5517,7 +5517,7 @@ if.end.i137.preheader:                            ; preds = %if.then152
   br i1 %cmp102, label %if.end.i137.us, label %if.end.i137
 
 if.end.i137.us:                                   ; preds = %if.end.i137.preheader, %if.end5.i142.us
-  %one_chain_frontier.13.us = phi i64 [ %shr.i.i143.us, %if.end5.i142.us ], [ %one_chain_frontier.9288, %if.end.i137.preheader ]
+  %one_chain_frontier.13.us = phi i64 [ %shr.i.i143.us, %if.end5.i142.us ], [ %one_chain_frontier.9289, %if.end.i137.preheader ]
   %33 = phi i64 [ %35, %if.end5.i142.us ], [ %32, %if.end.i137.preheader ]
   %and.i.i138.us = and i64 %33, 64
   %tobool.i.not.i139.us = icmp eq i64 %and.i.i138.us, 0
@@ -5533,7 +5533,7 @@ if.end5.i142.us:                                  ; preds = %if.end.i137.us
   br i1 %cmp.i145.us, label %invoke.cont158, label %if.end.i137.us, !llvm.loop !58
 
 if.end.i137:                                      ; preds = %if.end.i137.preheader, %if.end5.i142
-  %zero_chain_frontier.13 = phi i64 [ %shr.i.i143, %if.end5.i142 ], [ %zero_chain_frontier.9289, %if.end.i137.preheader ]
+  %zero_chain_frontier.13 = phi i64 [ %shr.i.i143, %if.end5.i142 ], [ %zero_chain_frontier.9288, %if.end.i137.preheader ]
   %36 = phi i64 [ %38, %if.end5.i142 ], [ %32, %if.end.i137.preheader ]
   %and.i.i138 = and i64 %36, 64
   %tobool.i.not.i139 = icmp eq i64 %and.i.i138, 0
@@ -5541,8 +5541,8 @@ if.end.i137:                                      ; preds = %if.end.i137.prehead
   br i1 %tobool.i.not.i139, label %if.end5.i142, label %if.then2.i141
 
 if.then2.i141:                                    ; preds = %if.end.i137, %if.end.i137.us
-  %spec.select249 = phi i64 [ %spec.select247, %if.end.i137.us ], [ -1, %if.end.i137 ]
-  %spec.select248 = phi i64 [ -1, %if.end.i137.us ], [ %spec.select246, %if.end.i137 ]
+  %spec.select249 = phi i64 [ -1, %if.end.i137.us ], [ %spec.select247, %if.end.i137 ]
+  %spec.select248 = phi i64 [ %spec.select246, %if.end.i137.us ], [ -1, %if.end.i137 ]
   %.us-phi287 = phi ptr [ %chain_next_with_shift7.i140.us, %if.end.i137.us ], [ %chain_next_with_shift7.i140, %if.end.i137 ]
   store atomic i64 %22, ptr %.us-phi287 release, align 8
   br label %invoke.cont158
@@ -5556,14 +5556,14 @@ if.end5.i142:                                     ; preds = %if.end.i137
   br i1 %cmp.i145, label %invoke.cont158, label %if.end.i137, !llvm.loop !58
 
 invoke.cont158:                                   ; preds = %if.end5.i142, %if.end5.i142.us, %if.then2.i141, %if.then152
-  %one_chain_frontier.16 = phi i64 [ %spec.select246, %if.then152 ], [ %spec.select248, %if.then2.i141 ], [ %shr.i.i143.us, %if.end5.i142.us ], [ %spec.select246, %if.end5.i142 ]
-  %zero_chain_frontier.16 = phi i64 [ %spec.select247, %if.then152 ], [ %spec.select249, %if.then2.i141 ], [ %spec.select247, %if.end5.i142.us ], [ %shr.i.i143, %if.end5.i142 ]
+  %zero_chain_frontier.16 = phi i64 [ %spec.select246, %if.then152 ], [ %spec.select248, %if.then2.i141 ], [ %spec.select246, %if.end5.i142.us ], [ %shr.i.i143, %if.end5.i142 ]
+  %one_chain_frontier.16 = phi i64 [ %spec.select247, %if.then152 ], [ %spec.select249, %if.then2.i141 ], [ %shr.i.i143.us, %if.end5.i142.us ], [ %spec.select247, %if.end5.i142 ]
   %sub = sub nsw i32 1, %chain_frontier_first.3291
   br label %for.inc161
 
 for.inc161:                                       ; preds = %invoke.cont158, %invoke.cont145
-  %one_chain_frontier.17 = phi i64 [ %one_chain_frontier.16, %invoke.cont158 ], [ %one_chain_frontier.9288, %invoke.cont145 ]
-  %zero_chain_frontier.17 = phi i64 [ %zero_chain_frontier.16, %invoke.cont158 ], [ %zero_chain_frontier.9289, %invoke.cont145 ]
+  %zero_chain_frontier.17 = phi i64 [ %zero_chain_frontier.16, %invoke.cont158 ], [ %zero_chain_frontier.9288, %invoke.cont145 ]
+  %one_chain_frontier.17 = phi i64 [ %one_chain_frontier.16, %invoke.cont158 ], [ %one_chain_frontier.9289, %invoke.cont145 ]
   %chain_frontier_first.4 = phi i32 [ %sub, %invoke.cont158 ], [ %chain_frontier_first.3291, %invoke.cont145 ]
   %inc162 = add nuw nsw i32 %i96.0290, 1
   %exitcond332 = icmp eq i32 %inc162, 4096
@@ -10988,35 +10988,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end16.i
-  %__value.addr.021.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
-  %__n.020.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
-  %cmp5.i = icmp ult i64 %__value.addr.021.i, 100
+  %__n.021.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
+  %__value.addr.020.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
+  %cmp5.i = icmp ult i64 %__value.addr.020.i, 100
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.020.i, 1
+  %add.i = add i32 %__n.021.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end7.i:                                        ; preds = %if.end.i
-  %cmp9.i = icmp ult i64 %__value.addr.021.i, 1000
+  %cmp9.i = icmp ult i64 %__value.addr.020.i, 1000
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.end7.i
-  %add11.i = add i32 %__n.020.i, 2
+  %add11.i = add i32 %__n.021.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end12.i:                                       ; preds = %if.end7.i
-  %cmp13.i = icmp ult i64 %__value.addr.021.i, 10000
+  %cmp13.i = icmp ult i64 %__value.addr.020.i, 10000
   br i1 %cmp13.i, label %if.then14.i, label %if.end16.i
 
 if.then14.i:                                      ; preds = %if.end12.i
-  %add15.i = add i32 %__n.020.i, 3
+  %add15.i = add i32 %__n.021.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %div.i = udiv i64 %__value.addr.021.i, 10000
-  %add17.i = add i32 %__n.020.i, 4
-  %cmp.i = icmp ult i64 %__value.addr.021.i, 100000
+  %div.i = udiv i64 %__value.addr.020.i, 10000
+  %add17.i = add i32 %__n.021.i, 4
+  %cmp.i = icmp ult i64 %__value.addr.020.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !121
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i

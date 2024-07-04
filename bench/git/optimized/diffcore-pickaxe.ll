@@ -168,9 +168,9 @@ if.else44:                                        ; preds = %if.else40
   unreachable
 
 if.end47:                                         ; preds = %if.else40, %regcomp_or_die.exit35, %if.else31, %if.else, %if.end10
+  %regexp.1 = phi ptr [ %regex, %if.end10 ], [ %regex, %if.else ], [ %regex, %regcomp_or_die.exit35 ], [ null, %if.else31 ], [ null, %if.else40 ]
   %kws.1 = phi ptr [ null, %if.end10 ], [ null, %if.else ], [ null, %regcomp_or_die.exit35 ], [ %call35, %if.else31 ], [ null, %if.else40 ]
   %fn.0 = phi ptr [ @diff_grep, %if.end10 ], [ @has_changes, %if.else ], [ @has_changes, %regcomp_or_die.exit35 ], [ @has_changes, %if.else31 ], [ null, %if.else40 ]
-  %regexp.1 = phi ptr [ %regex, %if.end10 ], [ %regex, %if.else ], [ %regex, %regcomp_or_die.exit35 ], [ null, %if.else31 ], [ null, %if.else40 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %outq.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %outq.i, i8 0, i64 16, i1 false)
   %6 = load i32, ptr %pickaxe_opts, align 8

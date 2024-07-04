@@ -373,9 +373,9 @@ if.end.i596:                                      ; preds = %if.else.i358
 
 for.cond.i764:                                    ; preds = %for.cond.i764.backedge, %if.end.i596
   %50 = phi i64 [ %and.i593, %if.end.i596 ], [ %.be3387, %for.cond.i764.backedge ]
-  %it.addr.i.0 = phi ptr [ %add.ptr.i354, %if.end.i596 ], [ %it.addr.i.0.be, %for.cond.i764.backedge ]
-  %level.addr.i.0 = phi i32 [ 0, %if.end.i596 ], [ %level.addr.i.0.be, %for.cond.i764.backedge ]
   %key.addr.i756.0 = phi i32 [ 0, %if.end.i596 ], [ %key.addr.i756.0.be, %for.cond.i764.backedge ]
+  %level.addr.i.0 = phi i32 [ 0, %if.end.i596 ], [ %level.addr.i.0.be, %for.cond.i764.backedge ]
+  %it.addr.i.0 = phi ptr [ %add.ptr.i354, %if.end.i596 ], [ %it.addr.i.0.be, %for.cond.i764.backedge ]
   %tobool.i767.not = icmp eq i64 %50, 0
   br i1 %tobool.i767.not, label %if.else16.i, label %if.then.i773
 
@@ -439,9 +439,9 @@ if.end20.i:                                       ; preds = %if.else16.i
 
 for.cond.i764.backedge:                           ; preds = %if.end20.i, %if.else.i780
   %.be3387 = phi i64 [ %and27.i, %if.end20.i ], [ %and.i785, %if.else.i780 ]
-  %it.addr.i.0.be = phi ptr [ %add.ptr32.i, %if.end20.i ], [ %add.ptr.i782, %if.else.i780 ]
-  %level.addr.i.0.be = phi i32 [ %dec.i768, %if.end20.i ], [ %inc.i, %if.else.i780 ]
   %key.addr.i756.0.be = phi i32 [ %shr.i769, %if.end20.i ], [ %add.i775, %if.else.i780 ]
+  %level.addr.i.0.be = phi i32 [ %dec.i768, %if.end20.i ], [ %inc.i, %if.else.i780 ]
+  %it.addr.i.0.be = phi ptr [ %add.ptr32.i, %if.end20.i ], [ %add.ptr.i782, %if.else.i780 ]
   br label %for.cond.i764
 
 if.end.i359:                                      ; preds = %if.then.i773
@@ -1115,9 +1115,9 @@ if.else.i539:                                     ; preds = %for.inc.i
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.backedge, %if.else.i539
-  %it.addr.i.i.0 = phi ptr [ %add.ptr.i1225, %if.else.i539 ], [ %it.addr.i.i.0.be, %for.cond.i.i.backedge ]
-  %level.addr.i.i1200.0 = phi i32 [ %conv.i.i1217, %if.else.i539 ], [ %level.addr.i.i1200.0.be, %for.cond.i.i.backedge ]
   %key.addr.i.i1199.0 = phi i32 [ %shr.i1218, %if.else.i539 ], [ %key.addr.i.i1199.0.be, %for.cond.i.i.backedge ]
+  %level.addr.i.i1200.0 = phi i32 [ %conv.i.i1217, %if.else.i539 ], [ %level.addr.i.i1200.0.be, %for.cond.i.i.backedge ]
+  %it.addr.i.i.0 = phi ptr [ %add.ptr.i1225, %if.else.i539 ], [ %it.addr.i.i.0.be, %for.cond.i.i.backedge ]
   %idxprom.i7.i = zext i32 %level.addr.i.i1200.0 to i64
   %arrayidx.i8.i = getelementptr inbounds %struct.mmbit_sparse_state, ptr %si_state.i, i64 %idxprom.i7.i
   %177 = load i64, ptr %arrayidx.i8.i, align 16
@@ -1183,9 +1183,9 @@ if.end20.i.i:                                     ; preds = %if.else16.i.i
   br label %for.cond.i.i.backedge
 
 for.cond.i.i.backedge:                            ; preds = %if.end20.i.i, %if.else.i.i1232
-  %it.addr.i.i.0.be = phi ptr [ %add.ptr.i.i1234, %if.else.i.i1232 ], [ %add.ptr32.i.i, %if.end20.i.i ]
-  %level.addr.i.i1200.0.be = phi i32 [ %inc.i.i, %if.else.i.i1232 ], [ %dec.i.i, %if.end20.i.i ]
   %key.addr.i.i1199.0.be = phi i32 [ %add.i.i1230, %if.else.i.i1232 ], [ %shr.i.i1227, %if.end20.i.i ]
+  %level.addr.i.i1200.0.be = phi i32 [ %inc.i.i, %if.else.i.i1232 ], [ %dec.i.i, %if.end20.i.i ]
+  %it.addr.i.i.0.be = phi ptr [ %add.ptr.i.i1234, %if.else.i.i1232 ], [ %add.ptr32.i.i, %if.end20.i.i ]
   br label %for.cond.i.i
 
 if.end31.i.lr.ph.mmbit_sparse_iter_next.exit.loopexit_crit_edge: ; preds = %if.end31.i.lr.ph
@@ -3229,8 +3229,8 @@ if.then38.i:                                      ; preds = %if.end35.i
   br label %for.cond.i.i2390
 
 for.cond.i.i2390:                                 ; preds = %for.body.i.i2391, %if.then38.i
-  %count.i.0.i = phi i32 [ %count.1.i, %if.then38.i ], [ %add.i.i2392, %for.body.i.i2391 ]
   %d_end.addr.i.0.i = phi ptr [ %add.ptr47.i, %if.then38.i ], [ %add.ptr1.i.i, %for.body.i.i2391 ]
+  %count.i.0.i = phi i32 [ %count.1.i, %if.then38.i ], [ %add.i.i2392, %for.body.i.i2391 ]
   %cmp.i.not.i = icmp ugt ptr %add.ptr.i.i2389, %d_end.addr.i.0.i
   br i1 %cmp.i.not.i, label %for.end.i.i2393, label %for.body.i.i2391
 

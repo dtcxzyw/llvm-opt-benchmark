@@ -81,17 +81,17 @@ for.end35:                                        ; preds = %for.body28
   br i1 %cmp4442, label %while.body, label %for.cond52.preheader
 
 for.cond52.preheader:                             ; preds = %while.body, %for.end35
-  %inlen.addr.0.lcssa = phi i64 [ %sub43, %for.end35 ], [ %sub50, %while.body ]
   %in.addr.0.lcssa = phi ptr [ %add.ptr, %for.end35 ], [ %add.ptr49, %while.body ]
+  %inlen.addr.0.lcssa = phi i64 [ %sub43, %for.end35 ], [ %sub50, %while.body ]
   %cmp5346.not = icmp eq i64 %inlen.addr.0.lcssa, 0
   br i1 %cmp5346.not, label %for.end60, label %for.body54
 
 while.body:                                       ; preds = %for.end35, %while.body
-  %in.addr.044 = phi ptr [ %add.ptr49, %while.body ], [ %add.ptr, %for.end35 ]
-  %inlen.addr.043 = phi i64 [ %sub50, %while.body ], [ %sub43, %for.end35 ]
-  call fastcc void @SHA512_Transform(ptr noundef nonnull %state, ptr noundef %in.addr.044, ptr noundef nonnull %tmp64, ptr noundef nonnull %arrayidx40)
-  %add.ptr49 = getelementptr i8, ptr %in.addr.044, i64 128
-  %sub50 = add i64 %inlen.addr.043, -128
+  %inlen.addr.044 = phi i64 [ %sub50, %while.body ], [ %sub43, %for.end35 ]
+  %in.addr.043 = phi ptr [ %add.ptr49, %while.body ], [ %add.ptr, %for.end35 ]
+  call fastcc void @SHA512_Transform(ptr noundef nonnull %state, ptr noundef %in.addr.043, ptr noundef nonnull %tmp64, ptr noundef nonnull %arrayidx40)
+  %add.ptr49 = getelementptr i8, ptr %in.addr.043, i64 128
+  %sub50 = add i64 %inlen.addr.044, -128
   %cmp44 = icmp ugt i64 %sub50, 127
   br i1 %cmp44, label %while.body, label %for.cond52.preheader, !llvm.loop !7
 

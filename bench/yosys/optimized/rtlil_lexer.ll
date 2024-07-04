@@ -233,26 +233,26 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
 
 .backedge:                                        ; preds = %.backedge.backedge, %64
   %68 = phi i32 [ %65, %64 ], [ %.be547, %.backedge.backedge ]
+  %.0107 = phi i32 [ %67, %64 ], [ %.0107.be, %.backedge.backedge ]
   %.0104 = phi ptr [ %.pre284, %64 ], [ %.0104.be, %.backedge.backedge ]
-  %.0100 = phi ptr [ %.pre284, %64 ], [ %.0100.be, %.backedge.backedge ]
-  %.095 = phi i32 [ %67, %64 ], [ %.095.be, %.backedge.backedge ]
+  %.0102 = phi ptr [ %.pre284, %64 ], [ %.0102.be, %.backedge.backedge ]
   br label %69
 
 69:                                               ; preds = %._crit_edge, %.backedge
-  %.1101 = phi ptr [ %.0100, %.backedge ], [ %106, %._crit_edge ]
-  %.1 = phi i32 [ %.095, %.backedge ], [ %105, %._crit_edge ]
-  %70 = load i8, ptr %.1101, align 1
+  %.1108 = phi i32 [ %.0107, %.backedge ], [ %105, %._crit_edge ]
+  %.1105 = phi ptr [ %.0104, %.backedge ], [ %106, %._crit_edge ]
+  %70 = load i8, ptr %.1105, align 1
   %71 = zext i8 %70 to i64
   %72 = getelementptr inbounds [256 x i8], ptr @_ZL5yy_ec, i64 0, i64 %71
   %73 = load i8, ptr %72, align 1
-  %74 = sext i32 %.1 to i64
+  %74 = sext i32 %.1108 to i64
   %75 = add nsw i64 %74, -185
   %.not125 = icmp ult i64 %75, -180
   br i1 %.not125, label %77, label %76
 
 76:                                               ; preds = %69
-  store i32 %.1, ptr @_ZL23yy_last_accepting_state, align 4
-  store ptr %.1101, ptr @_ZL22yy_last_accepting_cpos, align 8
+  store i32 %.1108, ptr @_ZL23yy_last_accepting_state, align 4
+  store ptr %.1105, ptr @_ZL22yy_last_accepting_cpos, align 8
   br label %77
 
 77:                                               ; preds = %76, %69
@@ -264,13 +264,13 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
   %83 = getelementptr inbounds [259 x i16], ptr @_ZL6yy_chk, i64 0, i64 %82
   %84 = load i16, ptr %83, align 2
   %85 = sext i16 %84 to i32
-  %.not126196 = icmp eq i32 %.1, %85
+  %.not126196 = icmp eq i32 %.1108, %85
   br i1 %.not126196, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %77, %94
   %86 = phi i64 [ %99, %94 ], [ %81, %77 ]
   %87 = phi i64 [ %95, %94 ], [ %74, %77 ]
-  %.0107197 = phi i8 [ %.1108, %94 ], [ %73, %77 ]
+  %.098197 = phi i8 [ %.199, %94 ], [ %73, %77 ]
   %88 = getelementptr inbounds [192 x i16], ptr @_ZL6yy_def, i64 0, i64 %87
   %89 = load i16, ptr %88, align 2
   %90 = icmp sgt i16 %89, 185
@@ -282,12 +282,12 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
   br label %94
 
 94:                                               ; preds = %91, %.lr.ph
-  %.1108 = phi i8 [ %93, %91 ], [ %.0107197, %.lr.ph ]
+  %.199 = phi i8 [ %93, %91 ], [ %.098197, %.lr.ph ]
   %95 = sext i16 %89 to i64
   %96 = getelementptr inbounds [192 x i16], ptr @_ZL7yy_base, i64 0, i64 %95
   %97 = load i16, ptr %96, align 2
   %98 = sext i16 %97 to i64
-  %99 = zext i8 %.1108 to i64
+  %99 = zext i8 %.199 to i64
   %100 = add nsw i64 %98, %99
   %101 = getelementptr inbounds [259 x i16], ptr @_ZL6yy_chk, i64 0, i64 %100
   %102 = load i16, ptr %101, align 2
@@ -299,7 +299,7 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
   %103 = getelementptr inbounds [259 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa
   %104 = load i16, ptr %103, align 2
   %105 = sext i16 %104 to i32
-  %106 = getelementptr inbounds i8, ptr %.1101, i64 1
+  %106 = getelementptr inbounds i8, ptr %.1105, i64 1
   %107 = sext i16 %104 to i64
   %108 = getelementptr inbounds [192 x i16], ptr @_ZL7yy_base, i64 0, i64 %107
   %109 = load i16, ptr %108, align 2
@@ -308,9 +308,9 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
 
 .outer:                                           ; preds = %._crit_edge, %.outer.backedge
   %110 = phi i32 [ %.be, %.outer.backedge ], [ %68, %._crit_edge ]
-  %.1105.ph = phi ptr [ %.1105.ph.be, %.outer.backedge ], [ %.0104, %._crit_edge ]
-  %.2102.ph = phi ptr [ %.2102.ph.be, %.outer.backedge ], [ %106, %._crit_edge ]
-  %.3.ph = phi i32 [ %.3.ph.be, %.outer.backedge ], [ %105, %._crit_edge ]
+  %.3110.ph = phi i32 [ %.3110.ph.be, %.outer.backedge ], [ %105, %._crit_edge ]
+  %.2106.ph = phi ptr [ %.2106.ph.be, %.outer.backedge ], [ %106, %._crit_edge ]
+  %.1103.ph = phi ptr [ %.1103.ph.be, %.outer.backedge ], [ %.0102, %._crit_edge ]
   %.pre285 = load ptr, ptr @_ZL22yy_last_accepting_cpos, align 8
   %.pre286 = load i32, ptr @_ZL23yy_last_accepting_state, align 4
   br label %111
@@ -319,32 +319,32 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
   %112 = phi i32 [ %.pre287, %139 ], [ %110, %.outer ]
   %113 = phi i32 [ %142, %139 ], [ %.pre286, %.outer ]
   %114 = phi ptr [ %141, %139 ], [ %.pre285, %.outer ]
-  %.2102 = phi ptr [ %141, %139 ], [ %.2102.ph, %.outer ]
-  %.3 = phi i32 [ %142, %139 ], [ %.3.ph, %.outer ]
-  %115 = sext i32 %.3 to i64
+  %.3110 = phi i32 [ %142, %139 ], [ %.3110.ph, %.outer ]
+  %.2106 = phi ptr [ %141, %139 ], [ %.2106.ph, %.outer ]
+  %115 = sext i32 %.3110 to i64
   %116 = add nsw i64 %115, -185
   %117 = icmp ult i64 %116, -180
   %118 = sext i32 %113 to i64
+  %.3 = select i1 %117, ptr %114, ptr %.2106
   %.pn = select i1 %117, i64 %118, i64 %115
-  %.3103 = select i1 %117, ptr %114, ptr %.2102
-  %.0109.in.in = getelementptr inbounds [186 x i16], ptr @_ZL9yy_accept, i64 0, i64 %.pn
-  %.0109.in = load i16, ptr %.0109.in.in, align 2
-  %.0109 = sext i16 %.0109.in to i32
+  %.0100.in.in = getelementptr inbounds [186 x i16], ptr @_ZL9yy_accept, i64 0, i64 %.pn
+  %.0100.in = load i16, ptr %.0100.in.in, align 2
+  %.0100 = sext i16 %.0100.in to i32
   %119 = sext i32 %112 to i64
   %120 = sub nsw i64 0, %119
-  %121 = getelementptr inbounds i8, ptr %.1105.ph, i64 %120
+  %121 = getelementptr inbounds i8, ptr %.1103.ph, i64 %120
   store ptr %121, ptr @rtlil_frontend_yytext, align 8
-  %122 = ptrtoint ptr %.3103 to i64
+  %122 = ptrtoint ptr %.3 to i64
   %123 = ptrtoint ptr %121 to i64
   %124 = sub i64 %122, %123
   %125 = trunc i64 %124 to i32
   store i32 %125, ptr @rtlil_frontend_yyleng, align 4
-  %126 = load i8, ptr %.3103, align 1
+  %126 = load i8, ptr %.3, align 1
   store i8 %126, ptr @_ZL12yy_hold_char, align 1
-  store i8 0, ptr %.3103, align 1
-  store ptr %.3103, ptr @_ZL10yy_c_buf_p, align 8
+  store i8 0, ptr %.3, align 1
+  store ptr %.3, ptr @_ZL10yy_c_buf_p, align 8
   %.not128 = icmp ne i64 %.pn, 5
-  %.not129.not = icmp eq i16 %.0109.in, 45
+  %.not129.not = icmp eq i16 %.0100.in, 45
   %or.cond134 = select i1 %.not128, i1 %.not129.not, i1 false
   br i1 %or.cond134, label %.preheader, label %.loopexit178.preheader
 
@@ -382,9 +382,9 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
   br label %.loopexit178
 
 .loopexit178:                                     ; preds = %.loopexit178.preheader, %359
-  %.pre284294 = phi ptr [ %363, %359 ], [ %.3103, %.loopexit178.preheader ]
-  %.1110 = phi i32 [ %367, %359 ], [ %.0109, %.loopexit178.preheader ]
-  switch i32 %.1110, label %479 [
+  %.pre284294 = phi ptr [ %363, %359 ], [ %.3, %.loopexit178.preheader ]
+  %.1101 = phi i32 [ %367, %359 ], [ %.0100, %.loopexit178.preheader ]
+  switch i32 %.1101, label %479 [
     i32 0, label %139
     i32 1, label %.loopexit
     i32 2, label %.loopexit210
@@ -440,7 +440,7 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
 
 139:                                              ; preds = %.loopexit178
   %140 = load i8, ptr @_ZL12yy_hold_char, align 1
-  store i8 %140, ptr %.3103, align 1
+  store i8 %140, ptr %.3, align 1
   %141 = load ptr, ptr @_ZL22yy_last_accepting_cpos, align 8
   %142 = load i32, ptr @_ZL23yy_last_accepting_state, align 4
   %.pre287 = load i32, ptr @_ZL11yy_more_len, align 4
@@ -586,8 +586,8 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
 
 197:                                              ; preds = %231, %191
   %indvars.iv281 = phi i64 [ %indvars.iv.next282, %231 ], [ 0, %191 ]
-  %.097 = phi i32 [ %232, %231 ], [ 0, %191 ]
-  %198 = sext i32 %.097 to i64
+  %.096 = phi i32 [ %232, %231 ], [ 0, %191 ]
+  %198 = sext i32 %.096 to i64
   %199 = getelementptr inbounds i8, ptr %193, i64 %198
   %200 = load i8, ptr %199, align 1
   switch i8 %200, label %231 [
@@ -596,7 +596,7 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
   ]
 
 201:                                              ; preds = %197
-  %202 = add nsw i32 %.097, 1
+  %202 = add nsw i32 %.096, 1
   %203 = sext i32 %202 to i64
   %204 = getelementptr inbounds i8, ptr %193, i64 %203
   %205 = load i8, ptr %204, align 1
@@ -622,7 +622,7 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
 210:                                              ; preds = %208
   %narrow = add nsw i8 %205, -48
   store i8 %narrow, ptr %204, align 1
-  %211 = add nsw i32 %.097, 2
+  %211 = add nsw i32 %.096, 2
   %212 = sext i32 %211 to i64
   %213 = getelementptr inbounds i8, ptr %193, i64 %212
   %214 = load i8, ptr %213, align 1
@@ -639,8 +639,8 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
 
 220:                                              ; preds = %216, %210
   %221 = phi i8 [ %219, %216 ], [ %narrow, %210 ]
-  %.198 = phi i32 [ %211, %216 ], [ %202, %210 ]
-  %222 = add nsw i32 %.198, 1
+  %.1 = phi i32 [ %211, %216 ], [ %202, %210 ]
+  %222 = add nsw i32 %.1, 1
   %223 = sext i32 %222 to i64
   %224 = getelementptr inbounds i8, ptr %193, i64 %223
   %225 = load i8, ptr %224, align 1
@@ -649,7 +649,7 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
   br i1 %or.cond137, label %227, label %._crit_edge297
 
 ._crit_edge297:                                   ; preds = %220
-  %.pre298 = sext i32 %.198 to i64
+  %.pre298 = sext i32 %.1 to i64
   br label %231
 
 227:                                              ; preds = %220
@@ -661,8 +661,8 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
 
 231:                                              ; preds = %._crit_edge297, %201, %197, %206, %208, %227, %207
   %.pre-phi = phi i64 [ %.pre298, %._crit_edge297 ], [ %198, %201 ], [ %198, %197 ], [ %203, %206 ], [ %203, %208 ], [ %223, %227 ], [ %203, %207 ]
-  %.299 = phi i32 [ %.198, %._crit_edge297 ], [ %.097, %201 ], [ %.097, %197 ], [ %202, %206 ], [ %202, %208 ], [ %222, %227 ], [ %202, %207 ]
-  %232 = add nsw i32 %.299, 1
+  %.2 = phi i32 [ %.1, %._crit_edge297 ], [ %.096, %201 ], [ %.096, %197 ], [ %202, %206 ], [ %202, %208 ], [ %222, %227 ], [ %202, %207 ]
+  %232 = add nsw i32 %.2, 1
   %233 = getelementptr inbounds i8, ptr %193, i64 %.pre-phi
   %234 = load i8, ptr %233, align 1
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
@@ -709,7 +709,7 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
 252:                                              ; preds = %.loopexit178
   %253 = load ptr, ptr @rtlil_frontend_yytext, align 8
   %254 = load i8, ptr @_ZL12yy_hold_char, align 1
-  store i8 %254, ptr %.3103, align 1
+  store i8 %254, ptr %.3, align 1
   %255 = load ptr, ptr @_ZL15yy_buffer_stack, align 8
   %256 = load i64, ptr @_ZL19yy_buffer_stack_top, align 8
   %257 = getelementptr inbounds ptr, ptr %255, i64 %256
@@ -925,9 +925,9 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %.lr.ph.i143, %333
 
 .backedge.backedge:                               ; preds = %._crit_edge.i157, %368, %354
   %.be547 = phi i32 [ %285, %354 ], [ %377, %368 ], [ %377, %._crit_edge.i157 ]
-  %.0104.be = phi ptr [ %287, %354 ], [ %379, %368 ], [ %379, %._crit_edge.i157 ]
-  %.0100.be = phi ptr [ %356, %354 ], [ %375, %368 ], [ %375, %._crit_edge.i157 ]
-  %.095.be = phi i32 [ %355, %354 ], [ %376, %368 ], [ %419, %._crit_edge.i157 ]
+  %.0107.be = phi i32 [ %355, %354 ], [ %376, %368 ], [ %419, %._crit_edge.i157 ]
+  %.0104.be = phi ptr [ %356, %354 ], [ %375, %368 ], [ %375, %._crit_edge.i157 ]
+  %.0102.be = phi ptr [ %287, %354 ], [ %379, %368 ], [ %379, %._crit_edge.i157 ]
   br label %.backedge
 
 .lr.ph26.i147:                                    ; preds = %368, %._crit_edge.i157
@@ -1024,9 +1024,9 @@ _ZL16yy_try_NUL_transi.exit:                      ; preds = %.lr.ph.i143, %333
 
 .outer.backedge:                                  ; preds = %._crit_edge.i171, %422, %_ZL16yy_try_NUL_transi.exit
   %.be = phi i32 [ %285, %_ZL16yy_try_NUL_transi.exit ], [ %434, %422 ], [ %434, %._crit_edge.i171 ]
-  %.1105.ph.be = phi ptr [ %287, %_ZL16yy_try_NUL_transi.exit ], [ %436, %422 ], [ %436, %._crit_edge.i171 ]
-  %.2102.ph.be = phi ptr [ %283, %_ZL16yy_try_NUL_transi.exit ], [ %431, %422 ], [ %431, %._crit_edge.i171 ]
-  %.3.ph.be = phi i32 [ %.016.lcssa.i, %_ZL16yy_try_NUL_transi.exit ], [ %432, %422 ], [ %476, %._crit_edge.i171 ]
+  %.3110.ph.be = phi i32 [ %.016.lcssa.i, %_ZL16yy_try_NUL_transi.exit ], [ %432, %422 ], [ %476, %._crit_edge.i171 ]
+  %.2106.ph.be = phi ptr [ %283, %_ZL16yy_try_NUL_transi.exit ], [ %431, %422 ], [ %431, %._crit_edge.i171 ]
+  %.1103.ph.be = phi ptr [ %287, %_ZL16yy_try_NUL_transi.exit ], [ %436, %422 ], [ %436, %._crit_edge.i171 ]
   br label %.outer
 
 .lr.ph26.i161:                                    ; preds = %422, %._crit_edge.i171
@@ -1222,14 +1222,14 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL18yy_get_next_bufferv() u
   br i1 %31, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %27, %.lr.ph
-  %.03257 = phi ptr [ %34, %.lr.ph ], [ %6, %27 ]
-  %.03356 = phi ptr [ %32, %.lr.ph ], [ %7, %27 ]
-  %.03455 = phi i32 [ %35, %.lr.ph ], [ 0, %27 ]
-  %32 = getelementptr inbounds i8, ptr %.03356, i64 1
-  %33 = load i8, ptr %.03356, align 1
-  %34 = getelementptr inbounds i8, ptr %.03257, i64 1
-  store i8 %33, ptr %.03257, align 1
-  %35 = add nuw nsw i32 %.03455, 1
+  %.03457 = phi i32 [ %35, %.lr.ph ], [ 0, %27 ]
+  %.03556 = phi ptr [ %32, %.lr.ph ], [ %7, %27 ]
+  %.03655 = phi ptr [ %34, %.lr.ph ], [ %6, %27 ]
+  %32 = getelementptr inbounds i8, ptr %.03556, i64 1
+  %33 = load i8, ptr %.03556, align 1
+  %34 = getelementptr inbounds i8, ptr %.03655, i64 1
+  store i8 %33, ptr %.03655, align 1
+  %35 = add nuw nsw i32 %.03457, 1
   %exitcond.not = icmp eq i32 %35, %30
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
 
@@ -1254,8 +1254,8 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL18yy_get_next_bufferv() u
   %42 = xor i32 %30, -1
   %.pn.in58 = getelementptr inbounds i8, ptr %36, i64 24
   %.pn59 = load i32, ptr %.pn.in58, align 8
-  %.03560 = add i32 %.pn59, %42
-  %43 = icmp slt i32 %.03560, 1
+  %.03260 = add i32 %.pn59, %42
+  %43 = icmp slt i32 %.03260, 1
   br i1 %43, label %.lr.ph62, label %._crit_edge63
 
 .lr.ph62:                                         ; preds = %41, %63
@@ -1304,14 +1304,14 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL18yy_get_next_bufferv() u
   %66 = load ptr, ptr %3, align 8
   %.pn.in = getelementptr inbounds i8, ptr %66, i64 24
   %.pn = load i32, ptr %.pn.in, align 8
-  %.035 = add i32 %.pn, %42
-  %67 = icmp slt i32 %.035, 1
+  %.032 = add i32 %.pn, %42
+  %67 = icmp slt i32 %.032, 1
   br i1 %67, label %.lr.ph62, label %._crit_edge63, !llvm.loop !16
 
 ._crit_edge63:                                    ; preds = %63, %41
   %68 = phi ptr [ %36, %41 ], [ %66, %63 ]
-  %.035.lcssa = phi i32 [ %.03560, %41 ], [ %.035, %63 ]
-  %69 = tail call i32 @llvm.umin.i32(i32 %.035.lcssa, i32 8192)
+  %.032.lcssa = phi i32 [ %.03260, %41 ], [ %.032, %63 ]
+  %69 = tail call i32 @llvm.umin.i32(i32 %.032.lcssa, i32 8192)
   %70 = load ptr, ptr @_ZN5Yosys14RTLIL_FRONTEND5lexinE, align 8
   %71 = getelementptr inbounds i8, ptr %68, i64 8
   %72 = load ptr, ptr %71, align 8
@@ -1355,7 +1355,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL18yy_get_next_bufferv() u
   %94 = phi i64 [ %.pre69, %87 ], [ %83, %89 ], [ %77, %._crit_edge63 ]
   %95 = phi ptr [ %.pre68, %87 ], [ %84, %89 ], [ %76, %._crit_edge63 ]
   %96 = phi i32 [ %.pre67, %87 ], [ 0, %89 ], [ %75, %._crit_edge63 ]
-  %.036 = phi i32 [ 1, %87 ], [ 2, %89 ], [ 0, %._crit_edge63 ]
+  %.033 = phi i32 [ 1, %87 ], [ 2, %89 ], [ 0, %._crit_edge63 ]
   %97 = add nsw i32 %96, %30
   %98 = getelementptr inbounds ptr, ptr %95, i64 %94
   %99 = load ptr, ptr %98, align 8
@@ -1412,7 +1412,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZL18yy_get_next_bufferv() u
   br label %133
 
 133:                                              ; preds = %21, %119
-  %.0 = phi i32 [ %.036, %119 ], [ %., %21 ]
+  %.0 = phi i32 [ %.033, %119 ], [ %., %21 ]
   ret i32 %.0
 }
 

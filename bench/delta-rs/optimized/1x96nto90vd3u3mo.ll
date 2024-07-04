@@ -10319,7 +10319,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h01b6f352e985bfb5E(ptr noal
 
 52:                                               ; preds = %163, %30
   %53 = phi i64 [ %.pre, %30 ], [ %158, %163 ]
-  %.052 = phi i64 [ 0, %30 ], [ %135, %163 ]
+  %.050 = phi i64 [ 0, %30 ], [ %135, %163 ]
   %.1 = phi i64 [ %26, %30 ], [ %.2, %163 ]
   %54 = load i64, ptr %2, align 8, !noundef !13
   %55 = icmp eq i64 %53, %54
@@ -10389,7 +10389,7 @@ define hidden void @_ZN3std2io19default_read_to_end17h01b6f352e985bfb5E(ptr noal
   store ptr %80, ptr %8, align 8
   store i64 %.0.sroa.speculated.i, ptr %33, align 8
   store i64 0, ptr %34, align 8
-  store i64 %.052, ptr %35, align 8
+  store i64 %.050, ptr %35, align 8
   %82 = load i64, ptr %1, align 8, !alias.scope !2104, !noalias !2107, !noundef !13
   %83 = icmp eq i64 %82, 0
   br i1 %83, label %.thread166, label %.lr.ph
@@ -15942,8 +15942,8 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4
   br label %16
 
 .loopexit.i:                                      ; preds = %76, %74, %72
-  %.013.i.i = phi i64 [ 1, %72 ], [ %..i.i, %76 ], [ 2, %74 ]
-  %15 = add i64 %.013.i.i, %18
+  %.012.i.i = phi i64 [ 1, %72 ], [ %..i.i, %76 ], [ 2, %74 ]
+  %15 = add i64 %.012.i.i, %18
   store i64 %15, ptr %10, align 8, !alias.scope !3303, !noalias !3304
   br label %16
 
@@ -22961,8 +22961,8 @@ common.ret:                                       ; preds = %56, %13
   ret void
 
 13:                                               ; preds = %"_ZN4core3ptr45drop_in_place$LT$object_store..path..Path$GT$17ha1e4e72be02114afE.exit16", %"_ZN4core3ptr45drop_in_place$LT$object_store..path..Path$GT$17ha1e4e72be02114afE.exit"
-  %.sroa.023.0 = phi i64 [ -9223372036854775808, %"_ZN4core3ptr45drop_in_place$LT$object_store..path..Path$GT$17ha1e4e72be02114afE.exit16" ], [ %.sroa.023.0.copyload24, %"_ZN4core3ptr45drop_in_place$LT$object_store..path..Path$GT$17ha1e4e72be02114afE.exit" ]
   %.sroa.4.0 = phi i64 [ undef, %"_ZN4core3ptr45drop_in_place$LT$object_store..path..Path$GT$17ha1e4e72be02114afE.exit16" ], [ %.sroa.4.0.copyload28, %"_ZN4core3ptr45drop_in_place$LT$object_store..path..Path$GT$17ha1e4e72be02114afE.exit" ]
+  %.sroa.023.0 = phi i64 [ -9223372036854775808, %"_ZN4core3ptr45drop_in_place$LT$object_store..path..Path$GT$17ha1e4e72be02114afE.exit16" ], [ %.sroa.023.0.copyload24, %"_ZN4core3ptr45drop_in_place$LT$object_store..path..Path$GT$17ha1e4e72be02114afE.exit" ]
   store i64 %.sroa.023.0, ptr %0, align 8
   %.sroa.325.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.325, i64 80, i1 false)

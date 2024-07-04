@@ -22,73 +22,73 @@ define internal noundef i64 @x86_rngread(ptr nocapture readnone %0, ptr nocaptur
   br i1 %4, label %.preheader24, label %.preheader23
 
 .preheader24:                                     ; preds = %3, %._crit_edge
-  %.026 = phi ptr [ %15, %._crit_edge ], [ %1, %3 ]
-  %.01725 = phi i64 [ %16, %._crit_edge ], [ %2, %3 ]
+  %.026 = phi i64 [ %16, %._crit_edge ], [ %2, %3 ]
+  %.01725 = phi ptr [ %15, %._crit_edge ], [ %1, %3 ]
   %5 = tail call { i64, i32 } @llvm.x86.rdrand.64()
   %6 = extractvalue { i64, i32 } %5, 0
-  store i64 %6, ptr %.026, align 8
+  store i64 %6, ptr %.01725, align 8
   %7 = extractvalue { i64, i32 } %5, 1
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .preheader23:                                     ; preds = %._crit_edge, %3
-  %.017.lcssa = phi i64 [ %2, %3 ], [ %16, %._crit_edge ]
-  %.0.lcssa = phi ptr [ %1, %3 ], [ %15, %._crit_edge ]
-  %9 = icmp ugt i64 %.017.lcssa, 4
+  %.017.lcssa = phi ptr [ %1, %3 ], [ %15, %._crit_edge ]
+  %.0.lcssa = phi i64 [ %2, %3 ], [ %16, %._crit_edge ]
+  %9 = icmp ugt i64 %.0.lcssa, 4
   br i1 %9, label %.preheader22, label %.preheader21
 
 .lr.ph:                                           ; preds = %.preheader24, %.lr.ph
   %10 = tail call i32 @sched_yield() #2
   %11 = tail call { i64, i32 } @llvm.x86.rdrand.64()
   %12 = extractvalue { i64, i32 } %11, 0
-  store i64 %12, ptr %.026, align 8
+  store i64 %12, ptr %.01725, align 8
   %13 = extractvalue { i64, i32 } %11, 1
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader24
-  %15 = getelementptr inbounds i8, ptr %.026, i64 8
-  %16 = add i64 %.01725, -8
+  %15 = getelementptr inbounds i8, ptr %.01725, i64 8
+  %16 = add i64 %.026, -8
   %17 = icmp ugt i64 %16, 8
   br i1 %17, label %.preheader24, label %.preheader23, !llvm.loop !8
 
 .preheader22:                                     ; preds = %.preheader23, %._crit_edge29
-  %.131 = phi ptr [ %28, %._crit_edge29 ], [ %.0.lcssa, %.preheader23 ]
-  %.11830 = phi i64 [ %29, %._crit_edge29 ], [ %.017.lcssa, %.preheader23 ]
+  %.131 = phi i64 [ %29, %._crit_edge29 ], [ %.0.lcssa, %.preheader23 ]
+  %.11830 = phi ptr [ %28, %._crit_edge29 ], [ %.017.lcssa, %.preheader23 ]
   %18 = tail call { i32, i32 } @llvm.x86.rdrand.32()
   %19 = extractvalue { i32, i32 } %18, 0
-  store i32 %19, ptr %.131, align 4
+  store i32 %19, ptr %.11830, align 4
   %20 = extractvalue { i32, i32 } %18, 1
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.lr.ph28, label %._crit_edge29
 
 .preheader21:                                     ; preds = %._crit_edge29, %.preheader23
-  %.118.lcssa = phi i64 [ %.017.lcssa, %.preheader23 ], [ %29, %._crit_edge29 ]
-  %.1.lcssa = phi ptr [ %.0.lcssa, %.preheader23 ], [ %28, %._crit_edge29 ]
-  %22 = icmp ugt i64 %.118.lcssa, 2
+  %.118.lcssa = phi ptr [ %.017.lcssa, %.preheader23 ], [ %28, %._crit_edge29 ]
+  %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader23 ], [ %29, %._crit_edge29 ]
+  %22 = icmp ugt i64 %.1.lcssa, 2
   br i1 %22, label %.preheader20, label %._crit_edge38
 
 .lr.ph28:                                         ; preds = %.preheader22, %.lr.ph28
   %23 = tail call i32 @sched_yield() #2
   %24 = tail call { i32, i32 } @llvm.x86.rdrand.32()
   %25 = extractvalue { i32, i32 } %24, 0
-  store i32 %25, ptr %.131, align 4
+  store i32 %25, ptr %.11830, align 4
   %26 = extractvalue { i32, i32 } %24, 1
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %.lr.ph28, label %._crit_edge29, !llvm.loop !9
 
 ._crit_edge29:                                    ; preds = %.lr.ph28, %.preheader22
-  %28 = getelementptr inbounds i8, ptr %.131, i64 4
-  %29 = add i64 %.11830, -4
+  %28 = getelementptr inbounds i8, ptr %.11830, i64 4
+  %29 = add i64 %.131, -4
   %30 = icmp ugt i64 %29, 4
   br i1 %30, label %.preheader22, label %.preheader21, !llvm.loop !10
 
 .preheader20:                                     ; preds = %.preheader21, %._crit_edge35
-  %.237 = phi ptr [ %40, %._crit_edge35 ], [ %.1.lcssa, %.preheader21 ]
-  %.21936 = phi i64 [ %41, %._crit_edge35 ], [ %.118.lcssa, %.preheader21 ]
+  %.237 = phi i64 [ %41, %._crit_edge35 ], [ %.1.lcssa, %.preheader21 ]
+  %.21936 = phi ptr [ %40, %._crit_edge35 ], [ %.118.lcssa, %.preheader21 ]
   %31 = tail call { i16, i32 } @llvm.x86.rdrand.16()
   %32 = extractvalue { i16, i32 } %31, 0
-  store i16 %32, ptr %.237, align 2
+  store i16 %32, ptr %.21936, align 2
   %33 = extractvalue { i16, i32 } %31, 1
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %.lr.ph34, label %._crit_edge35
@@ -97,21 +97,21 @@ define internal noundef i64 @x86_rngread(ptr nocapture readnone %0, ptr nocaptur
   %35 = tail call i32 @sched_yield() #2
   %36 = tail call { i16, i32 } @llvm.x86.rdrand.16()
   %37 = extractvalue { i16, i32 } %36, 0
-  store i16 %37, ptr %.237, align 2
+  store i16 %37, ptr %.21936, align 2
   %38 = extractvalue { i16, i32 } %36, 1
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %.lr.ph34, label %._crit_edge35, !llvm.loop !11
 
 ._crit_edge35:                                    ; preds = %.lr.ph34, %.preheader20
-  %40 = getelementptr inbounds i8, ptr %.237, i64 2
-  %41 = add i64 %.21936, -2
+  %40 = getelementptr inbounds i8, ptr %.21936, i64 2
+  %41 = add i64 %.237, -2
   %42 = icmp ugt i64 %41, 2
   br i1 %42, label %.preheader20, label %._crit_edge38, !llvm.loop !12
 
 ._crit_edge38:                                    ; preds = %._crit_edge35, %.preheader21
-  %.219.lcssa = phi i64 [ %.118.lcssa, %.preheader21 ], [ %41, %._crit_edge35 ]
-  %.2.lcssa = phi ptr [ %.1.lcssa, %.preheader21 ], [ %40, %._crit_edge35 ]
-  %.not = icmp eq i64 %.219.lcssa, 0
+  %.219.lcssa = phi ptr [ %.118.lcssa, %.preheader21 ], [ %40, %._crit_edge35 ]
+  %.2.lcssa = phi i64 [ %.1.lcssa, %.preheader21 ], [ %41, %._crit_edge35 ]
+  %.not = icmp eq i64 %.2.lcssa, 0
   br i1 %.not, label %52, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge38
@@ -131,7 +131,7 @@ define internal noundef i64 @x86_rngread(ptr nocapture readnone %0, ptr nocaptur
   %.lcssa = phi { i16, i32 } [ %43, %.preheader ], [ %47, %.lr.ph41 ]
   %50 = extractvalue { i16, i32 } %.lcssa, 0
   %51 = trunc i16 %50 to i8
-  store i8 %51, ptr %.2.lcssa, align 1
+  store i8 %51, ptr %.219.lcssa, align 1
   br label %52
 
 52:                                               ; preds = %._crit_edge42, %._crit_edge38

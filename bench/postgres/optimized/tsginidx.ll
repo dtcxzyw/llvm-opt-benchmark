@@ -269,10 +269,10 @@ define dso_local i64 @gin_extract_tsvector(ptr nocapture noundef readonly %0) lo
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
   %19 = phi i32 [ %32, %.lr.ph ], [ %17, %12 ]
-  %.02127 = phi ptr [ %31, %.lr.ph ], [ %13, %12 ]
+  %.027 = phi ptr [ %31, %.lr.ph ], [ %13, %12 ]
   %20 = sext i32 %19 to i64
   %21 = getelementptr [0 x %struct.WordEntry], ptr %13, i64 0, i64 %20
-  %22 = load i32, ptr %.02127, align 4
+  %22 = load i32, ptr %.027, align 4
   %23 = lshr i32 %22, 12
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr i8, ptr %21, i64 %24
@@ -282,7 +282,7 @@ define dso_local i64 @gin_extract_tsvector(ptr nocapture noundef readonly %0) lo
   %29 = ptrtoint ptr %28 to i64
   %30 = getelementptr i64, ptr %16, i64 %indvars.iv
   store i64 %29, ptr %30, align 8
-  %31 = getelementptr i8, ptr %.02127, i64 4
+  %31 = getelementptr i8, ptr %.027, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load i32, ptr %9, align 4
   %33 = sext i32 %32 to i64
@@ -290,7 +290,7 @@ define dso_local i64 @gin_extract_tsvector(ptr nocapture noundef readonly %0) lo
   br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %1
-  %.0 = phi ptr [ null, %1 ], [ %16, %12 ], [ %16, %.lr.ph ]
+  %.022 = phi ptr [ null, %1 ], [ %16, %12 ], [ %16, %.lr.ph ]
   %35 = load i64, ptr %2, align 8
   %36 = inttoptr i64 %35 to ptr
   %.not = icmp eq ptr %5, %36
@@ -301,7 +301,7 @@ define dso_local i64 @gin_extract_tsvector(ptr nocapture noundef readonly %0) lo
   br label %38
 
 38:                                               ; preds = %.loopexit, %37
-  %39 = ptrtoint ptr %.0 to i64
+  %39 = ptrtoint ptr %.022 to i64
   ret i64 %39
 }
 
@@ -347,20 +347,20 @@ define dso_local i64 @gin_extract_tsquery(ptr nocapture noundef readonly %0) loc
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.05357 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
+  %.058 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %25 = getelementptr %union.QueryItem, ptr %21, i64 %indvars.iv
   %26 = load i8, ptr %25, align 4
   %27 = icmp eq i8 %26, 1
   %28 = zext i1 %27 to i32
-  %spec.select = add i32 %.05357, %28
+  %spec.select = add i32 %.058, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
-  %.053.lcssa = phi i32 [ 0, %19 ], [ %spec.select, %.lr.ph ]
-  store i32 %.053.lcssa, ptr %7, align 4
-  %29 = sext i32 %.053.lcssa to i64
+  %.0.lcssa = phi i32 [ 0, %19 ], [ %spec.select, %.lr.ph ]
+  store i32 %.0.lcssa, ptr %7, align 4
+  %29 = sext i32 %.0.lcssa to i64
   %30 = shl nsw i64 %29, 3
   %31 = tail call ptr @palloc(i64 noundef %30) #6
   %32 = tail call ptr @palloc(i64 noundef %29) #6
@@ -378,7 +378,7 @@ define dso_local i64 @gin_extract_tsquery(ptr nocapture noundef readonly %0) loc
 .lr.ph62:                                         ; preds = %._crit_edge, %66
   %40 = phi i32 [ %67, %66 ], [ %38, %._crit_edge ]
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %66 ], [ 0, %._crit_edge ]
-  %.259 = phi i32 [ %.3, %66 ], [ 0, %._crit_edge ]
+  %.260 = phi i32 [ %.3, %66 ], [ 0, %._crit_edge ]
   %41 = getelementptr %union.QueryItem, ptr %21, i64 %indvars.iv64
   %42 = load i8, ptr %41, align 4
   %43 = icmp eq i8 %42, 1
@@ -396,7 +396,7 @@ define dso_local i64 @gin_extract_tsquery(ptr nocapture noundef readonly %0) loc
   %53 = and i32 %49, 4095
   %54 = tail call ptr @cstring_to_text_with_len(ptr noundef %52, i32 noundef %53) #6
   %55 = ptrtoint ptr %54 to i64
-  %56 = sext i32 %.259 to i64
+  %56 = sext i32 %.260 to i64
   %57 = getelementptr i64, ptr %31, i64 %56
   store i64 %55, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %41, i64 2
@@ -408,21 +408,21 @@ define dso_local i64 @gin_extract_tsquery(ptr nocapture noundef readonly %0) loc
   %63 = getelementptr ptr, ptr %62, i64 %56
   store ptr %37, ptr %63, align 8
   %64 = getelementptr i32, ptr %37, i64 %indvars.iv64
-  store i32 %.259, ptr %64, align 4
-  %65 = add i32 %.259, 1
+  store i32 %.260, ptr %64, align 4
+  %65 = add i32 %.260, 1
   %.pre = load i32, ptr %16, align 4
   br label %66
 
 66:                                               ; preds = %.lr.ph62, %44
   %67 = phi i32 [ %.pre, %44 ], [ %40, %.lr.ph62 ]
-  %.3 = phi i32 [ %65, %44 ], [ %.259, %.lr.ph62 ]
+  %.3 = phi i32 [ %65, %44 ], [ %.260, %.lr.ph62 ]
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %68 = sext i32 %67 to i64
   %69 = icmp slt i64 %indvars.iv.next65, %68
   br i1 %69, label %.lr.ph62, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %66, %._crit_edge, %1
-  %.0 = phi ptr [ null, %1 ], [ %31, %._crit_edge ], [ %31, %66 ]
+  %.054 = phi ptr [ null, %1 ], [ %31, %._crit_edge ], [ %31, %66 ]
   %70 = load i64, ptr %2, align 8
   %71 = inttoptr i64 %70 to ptr
   %.not = icmp eq ptr %4, %71
@@ -433,7 +433,7 @@ define dso_local i64 @gin_extract_tsquery(ptr nocapture noundef readonly %0) loc
   br label %73
 
 73:                                               ; preds = %.loopexit, %72
-  %74 = ptrtoint ptr %.0 to i64
+  %74 = ptrtoint ptr %.054 to i64
   ret i64 %74
 }
 
@@ -600,10 +600,10 @@ define dso_local i64 @gin_extract_tsvector_2args(ptr nocapture noundef readonly 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %19 ]
   %26 = phi i32 [ %39, %.lr.ph.i ], [ %24, %19 ]
-  %.02127.i = phi ptr [ %38, %.lr.ph.i ], [ %20, %19 ]
+  %.027.i = phi ptr [ %38, %.lr.ph.i ], [ %20, %19 ]
   %27 = sext i32 %26 to i64
   %28 = getelementptr [0 x %struct.WordEntry], ptr %20, i64 0, i64 %27
-  %29 = load i32, ptr %.02127.i, align 4
+  %29 = load i32, ptr %.027.i, align 4
   %30 = lshr i32 %29, 12
   %31 = zext nneg i32 %30 to i64
   %32 = getelementptr i8, ptr %28, i64 %31
@@ -613,7 +613,7 @@ define dso_local i64 @gin_extract_tsvector_2args(ptr nocapture noundef readonly 
   %36 = ptrtoint ptr %35 to i64
   %37 = getelementptr i64, ptr %23, i64 %indvars.iv.i
   store i64 %36, ptr %37, align 8
-  %38 = getelementptr i8, ptr %.02127.i, i64 4
+  %38 = getelementptr i8, ptr %.027.i, i64 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %39 = load i32, ptr %16, align 4
   %40 = sext i32 %39 to i64
@@ -621,7 +621,7 @@ define dso_local i64 @gin_extract_tsvector_2args(ptr nocapture noundef readonly 
   br i1 %41, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !5
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %19, %8
-  %.0.i = phi ptr [ null, %8 ], [ %23, %19 ], [ %23, %.lr.ph.i ]
+  %.022.i = phi ptr [ null, %8 ], [ %23, %19 ], [ %23, %.lr.ph.i ]
   %42 = load i64, ptr %9, align 8
   %43 = inttoptr i64 %42 to ptr
   %.not.i = icmp eq ptr %12, %43
@@ -632,7 +632,7 @@ define dso_local i64 @gin_extract_tsvector_2args(ptr nocapture noundef readonly 
   br label %gin_extract_tsvector.exit
 
 gin_extract_tsvector.exit:                        ; preds = %.loopexit.i, %44
-  %45 = ptrtoint ptr %.0.i to i64
+  %45 = ptrtoint ptr %.022.i to i64
   ret i64 %45
 }
 

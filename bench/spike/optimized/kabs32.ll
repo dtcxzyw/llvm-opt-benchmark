@@ -157,9 +157,9 @@ define noundef i64 @_Z17fast_rv64i_kabs32P11processor_t6insn_tm(ptr nocapture no
   br label %31
 
 31:                                               ; preds = %20, %47
-  %.03950 = phi i64 [ 1, %20 ], [ %54, %47 ]
-  %.04049 = phi i64 [ %25, %20 ], [ %53, %47 ]
-  %32 = shl i64 %.03950, 5
+  %.03750 = phi i64 [ 1, %20 ], [ %54, %47 ]
+  %.03949 = phi i64 [ %25, %20 ], [ %53, %47 ]
+  %32 = shl i64 %.03750, 5
   %33 = and i64 %32, 4294967264
   %34 = shl nuw i64 4294967295, %33
   %35 = and i64 %34, %29
@@ -183,15 +183,15 @@ define noundef i64 @_Z17fast_rv64i_kabs32P11processor_t6insn_tm(ptr nocapture no
   br label %47
 
 47:                                               ; preds = %44, %42
-  %.038 = phi i64 [ 2147483647, %42 ], [ %spec.select, %44 ]
+  %.0 = phi i64 [ 2147483647, %42 ], [ %spec.select, %44 ]
   %48 = xor i64 %34, -1
-  %49 = and i64 %.04049, %48
-  %50 = and i64 %.038, 4294967295
+  %49 = and i64 %.03949, %48
+  %50 = and i64 %.0, 4294967295
   %51 = mul i64 %50, %38
   %52 = and i64 %51, %34
   %53 = or i64 %52, %49
-  %54 = add nsw i64 %.03950, -1
-  %.not = icmp eq i64 %.03950, 0
+  %54 = add nsw i64 %.03750, -1
+  %.not = icmp eq i64 %.03750, 0
   br i1 %.not, label %55, label %31, !llvm.loop !4
 
 55:                                               ; preds = %47
@@ -282,9 +282,9 @@ define noundef i64 @_Z19logged_rv64i_kabs32P11processor_t6insn_tm(ptr noundef %0
   br label %31
 
 31:                                               ; preds = %20, %47
-  %.04155 = phi i64 [ %25, %20 ], [ %53, %47 ]
-  %.04354 = phi i64 [ 1, %20 ], [ %54, %47 ]
-  %32 = shl i64 %.04354, 5
+  %.04255 = phi i64 [ 1, %20 ], [ %54, %47 ]
+  %.04354 = phi i64 [ %25, %20 ], [ %53, %47 ]
+  %32 = shl i64 %.04255, 5
   %33 = and i64 %32, 4294967264
   %34 = shl nuw i64 4294967295, %33
   %35 = and i64 %34, %29
@@ -308,15 +308,15 @@ define noundef i64 @_Z19logged_rv64i_kabs32P11processor_t6insn_tm(ptr noundef %0
   br label %47
 
 47:                                               ; preds = %44, %42
-  %.042 = phi i64 [ 2147483647, %42 ], [ %spec.select, %44 ]
+  %.041 = phi i64 [ 2147483647, %42 ], [ %spec.select, %44 ]
   %48 = xor i64 %34, -1
-  %49 = and i64 %.04155, %48
-  %50 = and i64 %.042, 4294967295
+  %49 = and i64 %.04354, %48
+  %50 = and i64 %.041, 4294967295
   %51 = mul i64 %50, %38
   %52 = and i64 %51, %34
   %53 = or i64 %52, %49
-  %54 = add nsw i64 %.04354, -1
-  %.not = icmp eq i64 %.04354, 0
+  %54 = add nsw i64 %.04255, -1
+  %.not = icmp eq i64 %.04255, 0
   br i1 %.not, label %55, label %31, !llvm.loop !6
 
 55:                                               ; preds = %47
@@ -490,9 +490,9 @@ define noundef i64 @_Z17fast_rv64e_kabs32P11processor_t6insn_tm(ptr nocapture no
   br label %45
 
 45:                                               ; preds = %40, %61
-  %.04562 = phi i64 [ 1, %40 ], [ %68, %61 ]
-  %.04661 = phi i64 [ %41, %40 ], [ %67, %61 ]
-  %46 = shl i64 %.04562, 5
+  %.04362 = phi i64 [ 1, %40 ], [ %68, %61 ]
+  %.04461 = phi i64 [ %41, %40 ], [ %67, %61 ]
+  %46 = shl i64 %.04362, 5
   %47 = and i64 %46, 4294967264
   %48 = shl nuw i64 4294967295, %47
   %49 = and i64 %48, %43
@@ -516,15 +516,15 @@ define noundef i64 @_Z17fast_rv64e_kabs32P11processor_t6insn_tm(ptr nocapture no
   br label %61
 
 61:                                               ; preds = %58, %56
-  %.044 = phi i64 [ 2147483647, %56 ], [ %spec.select, %58 ]
+  %.0 = phi i64 [ 2147483647, %56 ], [ %spec.select, %58 ]
   %62 = xor i64 %48, -1
-  %63 = and i64 %.04661, %62
-  %64 = and i64 %.044, 4294967295
+  %63 = and i64 %.04461, %62
+  %64 = and i64 %.0, 4294967295
   %65 = mul i64 %64, %52
   %66 = and i64 %65, %48
   %67 = or i64 %66, %63
-  %68 = add nsw i64 %.04562, -1
-  %.not = icmp eq i64 %.04562, 0
+  %68 = add nsw i64 %.04362, -1
+  %.not = icmp eq i64 %.04362, 0
   br i1 %.not, label %69, label %45, !llvm.loop !8
 
 69:                                               ; preds = %61
@@ -641,9 +641,9 @@ define noundef i64 @_Z19logged_rv64e_kabs32P11processor_t6insn_tm(ptr noundef %0
   br label %45
 
 45:                                               ; preds = %40, %61
-  %.04767 = phi i64 [ %41, %40 ], [ %67, %61 ]
-  %.04966 = phi i64 [ 1, %40 ], [ %68, %61 ]
-  %46 = shl i64 %.04966, 5
+  %.04767 = phi i64 [ 1, %40 ], [ %68, %61 ]
+  %.04966 = phi i64 [ %41, %40 ], [ %67, %61 ]
+  %46 = shl i64 %.04767, 5
   %47 = and i64 %46, 4294967264
   %48 = shl nuw i64 4294967295, %47
   %49 = and i64 %48, %43
@@ -667,15 +667,15 @@ define noundef i64 @_Z19logged_rv64e_kabs32P11processor_t6insn_tm(ptr noundef %0
   br label %61
 
 61:                                               ; preds = %58, %56
-  %.048 = phi i64 [ 2147483647, %56 ], [ %spec.select, %58 ]
+  %.046 = phi i64 [ 2147483647, %56 ], [ %spec.select, %58 ]
   %62 = xor i64 %48, -1
-  %63 = and i64 %.04767, %62
-  %64 = and i64 %.048, 4294967295
+  %63 = and i64 %.04966, %62
+  %64 = and i64 %.046, 4294967295
   %65 = mul i64 %64, %52
   %66 = and i64 %65, %48
   %67 = or i64 %66, %63
-  %68 = add nsw i64 %.04966, -1
-  %.not = icmp eq i64 %.04966, 0
+  %68 = add nsw i64 %.04767, -1
+  %.not = icmp eq i64 %.04767, 0
   br i1 %.not, label %69, label %45, !llvm.loop !9
 
 69:                                               ; preds = %61

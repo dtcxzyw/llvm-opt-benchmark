@@ -151,8 +151,8 @@ define internal void @loop_get_bytes(ptr nocapture noundef %0, ptr nocapture nou
   br label %7
 
 7:                                                ; preds = %.lr.ph, %loop_get_int32.exit._crit_edge
-  %.021 = phi i64 [ %2, %.lr.ph ], [ %31, %loop_get_int32.exit._crit_edge ]
-  %.01520 = phi ptr [ %1, %.lr.ph ], [ %30, %loop_get_int32.exit._crit_edge ]
+  %.021 = phi ptr [ %1, %.lr.ph ], [ %30, %loop_get_int32.exit._crit_edge ]
+  %.01520 = phi i64 [ %2, %.lr.ph ], [ %31, %loop_get_int32.exit._crit_edge ]
   %8 = load i32, ptr %4, align 4
   %9 = load i32, ptr %5, align 8
   %10 = icmp ult i32 %8, %9
@@ -182,7 +182,7 @@ define internal void @loop_get_bytes(ptr nocapture noundef %0, ptr nocapture nou
 
 loop_get_int32.exit:                              ; preds = %11, %17, %18
   %.0.i = phi i32 [ %16, %11 ], [ %20, %18 ], [ 0, %17 ]
-  %21 = and i64 %.021, 3
+  %21 = and i64 %.01520, 3
   %22 = trunc i32 %.0.i to i8
   switch i64 %21, label %default.unreachable28 [
     i64 0, label %23
@@ -192,33 +192,33 @@ loop_get_int32.exit:                              ; preds = %11, %17, %18
   ]
 
 23:                                               ; preds = %loop_get_int32.exit
-  %24 = getelementptr inbounds i8, ptr %.01520, i64 1
-  store i8 %22, ptr %.01520, align 1
-  %25 = add i64 %.021, -1
+  %24 = getelementptr inbounds i8, ptr %.021, i64 1
+  store i8 %22, ptr %.021, align 1
+  %25 = add i64 %.01520, -1
   br label %loop_get_int32.exit._crit_edge23
 
 loop_get_int32.exit._crit_edge23:                 ; preds = %loop_get_int32.exit, %23
-  %.116 = phi ptr [ %24, %23 ], [ %.01520, %loop_get_int32.exit ]
-  %.1 = phi i64 [ %25, %23 ], [ %.021, %loop_get_int32.exit ]
-  %26 = getelementptr inbounds i8, ptr %.116, i64 1
-  store i8 %22, ptr %.116, align 1
-  %27 = add i64 %.1, -1
+  %.116 = phi i64 [ %25, %23 ], [ %.01520, %loop_get_int32.exit ]
+  %.1 = phi ptr [ %24, %23 ], [ %.021, %loop_get_int32.exit ]
+  %26 = getelementptr inbounds i8, ptr %.1, i64 1
+  store i8 %22, ptr %.1, align 1
+  %27 = add i64 %.116, -1
   br label %loop_get_int32.exit._crit_edge22
 
 loop_get_int32.exit._crit_edge22:                 ; preds = %loop_get_int32.exit, %loop_get_int32.exit._crit_edge23
-  %.217 = phi ptr [ %26, %loop_get_int32.exit._crit_edge23 ], [ %.01520, %loop_get_int32.exit ]
-  %.2 = phi i64 [ %27, %loop_get_int32.exit._crit_edge23 ], [ %.021, %loop_get_int32.exit ]
-  %28 = getelementptr inbounds i8, ptr %.217, i64 1
-  store i8 %22, ptr %.217, align 1
-  %29 = add i64 %.2, -1
+  %.217 = phi i64 [ %27, %loop_get_int32.exit._crit_edge23 ], [ %.01520, %loop_get_int32.exit ]
+  %.2 = phi ptr [ %26, %loop_get_int32.exit._crit_edge23 ], [ %.021, %loop_get_int32.exit ]
+  %28 = getelementptr inbounds i8, ptr %.2, i64 1
+  store i8 %22, ptr %.2, align 1
+  %29 = add i64 %.217, -1
   br label %loop_get_int32.exit._crit_edge
 
 loop_get_int32.exit._crit_edge:                   ; preds = %loop_get_int32.exit, %loop_get_int32.exit._crit_edge22
-  %.318 = phi ptr [ %28, %loop_get_int32.exit._crit_edge22 ], [ %.01520, %loop_get_int32.exit ]
-  %.3 = phi i64 [ %29, %loop_get_int32.exit._crit_edge22 ], [ %.021, %loop_get_int32.exit ]
-  %30 = getelementptr inbounds i8, ptr %.318, i64 1
-  store i8 %22, ptr %.318, align 1
-  %31 = add i64 %.3, -1
+  %.318 = phi i64 [ %29, %loop_get_int32.exit._crit_edge22 ], [ %.01520, %loop_get_int32.exit ]
+  %.3 = phi ptr [ %28, %loop_get_int32.exit._crit_edge22 ], [ %.021, %loop_get_int32.exit ]
+  %30 = getelementptr inbounds i8, ptr %.3, i64 1
+  store i8 %22, ptr %.3, align 1
+  %31 = add i64 %.318, -1
   %.not = icmp eq i64 %31, 0
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !6
 

@@ -157,10 +157,10 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h8a
   br i1 %.not.i.i, label %80, label %73
 
 .lr.ph.i:                                         ; preds = %51, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h0988081dfbd293f7E.exit.backedge.i"
-  %.022.i12.i = phi i16 [ %56, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h0988081dfbd293f7E.exit.backedge.i" ], [ %54, %51 ]
-  %55 = add i16 %.022.i12.i, -1
-  %56 = and i16 %55, %.022.i12.i
-  %57 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i12.i, i1 true)
+  %.0.i12.i = phi i16 [ %56, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h0988081dfbd293f7E.exit.backedge.i" ], [ %54, %51 ]
+  %55 = add i16 %.0.i12.i, -1
+  %56 = and i16 %55, %.0.i12.i
+  %57 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i12.i, i1 true)
   %58 = zext nneg i16 %57 to i64
   %59 = add i64 %.sroa.0.021.i.i, %58
   %60 = and i64 %59, %.val4.i
@@ -420,8 +420,8 @@ define hidden { i32, i8 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   br label %47
 
 47:                                               ; preds = %49, %43
-  %.022.i.i = phi i16 [ %46, %43 ], [ %51, %49 ]
-  %.not.not.i.i.i = icmp eq i16 %.022.i.i, 0
+  %.0.i.i = phi i16 [ %46, %43 ], [ %51, %49 ]
+  %.not.not.i.i.i = icmp eq i16 %.0.i.i, 0
   br i1 %.not.not.i.i.i, label %48, label %49
 
 48:                                               ; preds = %47
@@ -429,9 +429,9 @@ define hidden { i32, i8 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   br i1 %.not.i.i, label %67, label %60
 
 49:                                               ; preds = %47
-  %50 = add i16 %.022.i.i, -1
-  %51 = and i16 %50, %.022.i.i
-  %52 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i, i1 true)
+  %50 = add i16 %.0.i.i, -1
+  %51 = and i16 %50, %.0.i.i
+  %52 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
   %53 = zext nneg i16 %52 to i64
   %54 = add i64 %.sroa.0.021.i.i, %53
   %55 = and i64 %54, %.val4.i

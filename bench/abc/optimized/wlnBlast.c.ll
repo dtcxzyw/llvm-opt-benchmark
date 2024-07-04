@@ -1695,7 +1695,7 @@ Vec_IntPush.exit652:                              ; preds = %.Vec_IntGrow.exit10
 
 689:                                              ; preds = %.lr.ph742, %689
   %indvars.iv797 = phi i64 [ 0, %.lr.ph742 ], [ %indvars.iv.next798, %689 ]
-  %.0433740 = phi i32 [ 0, %.lr.ph742 ], [ %695, %689 ]
+  %.0435740 = phi i32 [ 0, %.lr.ph742 ], [ %695, %689 ]
   %.val487 = load ptr, ptr %687, align 8
   %690 = getelementptr inbounds i32, ptr %.val487, i64 %indvars.iv797
   %691 = load i32, ptr %690, align 4
@@ -1703,7 +1703,7 @@ Vec_IntPush.exit652:                              ; preds = %.Vec_IntGrow.exit10
   %692 = getelementptr inbounds i32, ptr %.val488, i64 %indvars.iv797
   %693 = load i32, ptr %692, align 4
   %694 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %691, i32 noundef %693) #9
-  %695 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %.0433740, i32 noundef %694) #9
+  %695 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %.0435740, i32 noundef %694) #9
   %indvars.iv.next798 = add nuw nsw i64 %indvars.iv797, 1
   %.val466 = load i32, ptr %404, align 4
   %696 = sext i32 %.val466 to i64
@@ -1711,9 +1711,9 @@ Vec_IntPush.exit652:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %697, label %689, label %.critedge13, !llvm.loop !19
 
 .critedge13:                                      ; preds = %689, %.preheader703
-  %.0433.lcssa = phi i32 [ 0, %.preheader703 ], [ %695, %689 ]
+  %.0435.lcssa = phi i32 [ 0, %.preheader703 ], [ %695, %689 ]
   %698 = zext i1 %684 to i32
-  %699 = xor i32 %.0433.lcssa, %698
+  %699 = xor i32 %.0435.lcssa, %698
   tail call fastcc void @Vec_IntFill(ptr noundef nonnull %403, i32 noundef %699)
   %700 = icmp sgt i32 %4, 1
   br i1 %700, label %.lr.ph745, label %.critedge
@@ -1830,9 +1830,9 @@ Vec_IntPush.exit659:                              ; preds = %.Vec_IntGrow.exit10
   br label %747
 
 747:                                              ; preds = %745, %743
-  %.1434 = phi i32 [ %744, %743 ], [ %746, %745 ]
+  %.1436 = phi i32 [ %744, %743 ], [ %746, %745 ]
   %748 = zext i1 %738 to i32
-  %749 = xor i32 %.1434, %748
+  %749 = xor i32 %.1436, %748
   tail call fastcc void @Vec_IntFill(ptr noundef nonnull %403, i32 noundef %749)
   %750 = icmp sgt i32 %4, 1
   br i1 %750, label %.lr.ph738, label %.critedge

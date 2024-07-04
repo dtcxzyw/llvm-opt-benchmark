@@ -1224,22 +1224,22 @@ define internal fastcc zeroext i1 @string_utf8_validate(ptr noundef %0, i64 noun
   br i1 %21, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %17, %24
-  %.01927 = phi ptr [ %25, %24 ], [ %12, %17 ]
-  %.02026 = phi i64 [ %26, %24 ], [ %20, %17 ]
-  %22 = load i8, ptr %.01927, align 1
+  %.01927 = phi i64 [ %26, %24 ], [ %20, %17 ]
+  %.02026 = phi ptr [ %25, %24 ], [ %12, %17 ]
+  %22 = load i8, ptr %.02026, align 1
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %.lr.ph
-  %25 = getelementptr i8, ptr %.01927, i64 1
-  %26 = add nsw i64 %.02026, -1
-  %27 = icmp sgt i64 %.02026, 1
+  %25 = getelementptr i8, ptr %.02026, i64 1
+  %26 = add nsw i64 %.01927, -1
+  %27 = icmp sgt i64 %.01927, 1
   br i1 %27, label %.lr.ph, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %.lr.ph, %24, %17
-  %.020.lcssa = phi i64 [ %20, %17 ], [ 0, %24 ], [ %.02026, %.lr.ph ]
-  %.019.lcssa = phi ptr [ %12, %17 ], [ %25, %24 ], [ %.01927, %.lr.ph ]
-  %28 = call fastcc zeroext i1 @string_utf8_validate(ptr noundef %.019.lcssa, i64 noundef %.020.lcssa, ptr noundef %2)
+  %.020.lcssa = phi ptr [ %12, %17 ], [ %25, %24 ], [ %.02026, %.lr.ph ]
+  %.019.lcssa = phi i64 [ %20, %17 ], [ 0, %24 ], [ %.01927, %.lr.ph ]
+  %28 = call fastcc zeroext i1 @string_utf8_validate(ptr noundef %.020.lcssa, i64 noundef %.019.lcssa, ptr noundef %2)
   br label %29
 
 29:                                               ; preds = %14, %15, %6, %7, %.critedge

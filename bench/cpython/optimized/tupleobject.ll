@@ -3436,9 +3436,9 @@ for.body.preheader:                               ; preds = %tuple_alloc.exit, %
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_Py_NewRef.exit38
-  %i13.050 = phi i64 [ %inc, %_Py_NewRef.exit38 ], [ 0, %for.body.preheader ]
-  %cur.049 = phi i64 [ %add45, %_Py_NewRef.exit38 ], [ %21, %for.body.preheader ]
-  %arrayidx = getelementptr ptr, ptr %ob_item, i64 %cur.049
+  %cur.050 = phi i64 [ %add45, %_Py_NewRef.exit38 ], [ %21, %for.body.preheader ]
+  %i13.049 = phi i64 [ %inc, %_Py_NewRef.exit38 ], [ 0, %for.body.preheader ]
+  %arrayidx = getelementptr ptr, ptr %ob_item, i64 %cur.050
   %22 = load ptr, ptr %arrayidx, align 8
   %23 = load i32, ptr %22, align 8
   %add.i.i35 = add i32 %23, 1
@@ -3450,11 +3450,11 @@ if.end.i.i37:                                     ; preds = %for.body
   br label %_Py_NewRef.exit38
 
 _Py_NewRef.exit38:                                ; preds = %for.body, %if.end.i.i37
-  %arrayidx44 = getelementptr ptr, ptr %ob_item40, i64 %i13.050
+  %arrayidx44 = getelementptr ptr, ptr %ob_item40, i64 %i13.049
   store ptr %22, ptr %arrayidx44, align 8
   %24 = load i64, ptr %step, align 8
-  %add45 = add i64 %24, %cur.049
-  %inc = add nuw nsw i64 %i13.050, 1
+  %add45 = add i64 %24, %cur.050
+  %inc = add nuw nsw i64 %i13.049, 1
   %exitcond.not = icmp eq i64 %inc, %call19
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !26
 

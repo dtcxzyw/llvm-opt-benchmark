@@ -68,20 +68,20 @@ sub_2:                                            ; preds = %sub_1
   br label %15
 
 15:                                               ; preds = %18, %.tail
-  %.055.idx = phi i64 [ 0, %.tail ], [ %.055.add, %18 ]
-  %.055.ptr = getelementptr inbounds i8, ptr %spec.select, i64 %.055.idx
-  %16 = load i8, ptr %.055.ptr, align 1
+  %.056.idx = phi i64 [ 0, %.tail ], [ %.056.add, %18 ]
+  %.056.ptr = getelementptr inbounds i8, ptr %spec.select, i64 %.056.idx
+  %16 = load i8, ptr %.056.ptr, align 1
   switch i8 %16, label %17 [
     i8 0, label %.critedge
     i8 36, label %.critedge
   ]
 
 17:                                               ; preds = %15
-  %exitcond.not = icmp eq i64 %.055.idx, 8
+  %exitcond.not = icmp eq i64 %.056.idx, 8
   br i1 %exitcond.not, label %.critedge, label %18
 
 18:                                               ; preds = %17
-  %.055.add = add nuw nsw i64 %.055.idx, 1
+  %.056.add = add nuw nsw i64 %.056.idx, 1
   br label %15
 
 .critedge:                                        ; preds = %15, %15, %17
@@ -89,7 +89,7 @@ sub_2:                                            ; preds = %sub_1
   %19 = and i64 %6, 4294967295
   call void @PHP_MD5Update(ptr noundef nonnull %4, ptr noundef %0, i64 noundef %19) #7
   call void @PHP_MD5Update(ptr noundef nonnull %4, ptr noundef nonnull @.str, i64 noundef 3) #7
-  %20 = and i64 %.055.idx, 4294967295
+  %20 = and i64 %.056.idx, 4294967295
   call void @PHP_MD5Update(ptr noundef nonnull %4, ptr noundef nonnull %spec.select, i64 noundef %20) #7
   call void @PHP_MD5InitArgs(ptr noundef nonnull %5, ptr noundef null) #7
   call void @PHP_MD5Update(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %19) #7
@@ -114,8 +114,8 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not5992, label %._crit_edge96, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %._crit_edge, %29
-  %.05693 = phi i32 [ %30, %29 ], [ %7, %._crit_edge ]
-  %26 = and i32 %.05693, 1
+  %.05593 = phi i32 [ %30, %29 ], [ %7, %._crit_edge ]
+  %26 = and i32 %.05593, 1
   %.not63 = icmp eq i32 %26, 0
   br i1 %.not63, label %28, label %27
 
@@ -128,13 +128,13 @@ sub_2:                                            ; preds = %sub_1
   br label %29
 
 29:                                               ; preds = %27, %28
-  %30 = lshr i32 %.05693, 1
-  %.not59 = icmp ult i32 %.05693, 2
+  %30 = lshr i32 %.05593, 1
+  %.not59 = icmp ult i32 %.05593, 2
   br i1 %.not59, label %._crit_edge96, label %.lr.ph95
 
 ._crit_edge96:                                    ; preds = %29, %._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(3) @php_md5_crypt_r.passwd, ptr noundef nonnull align 1 dereferenceable(3) @.str, i64 3, i1 false)
-  %31 = add nuw nsw i64 %.055.idx, 1
+  %31 = add nuw nsw i64 %.056.idx, 1
   %32 = and i64 %31, 4294967295
   %33 = call i64 @php_strlcpy(ptr noundef nonnull getelementptr inbounds (i8, ptr @php_md5_crypt_r.passwd, i64 3), ptr noundef nonnull %spec.select, i64 noundef %32) #7
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) @php_md5_crypt_r.passwd)

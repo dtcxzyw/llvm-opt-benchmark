@@ -30,8 +30,8 @@ define noundef float @_Z8sum_ekinPK9t_grpoptsP14gmx_ekindata_tPfbb(ptr nocapture
 
 20:                                               ; preds = %.lr.ph, %114
   %indvars.iv78 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next79, %114 ]
-  %.06069 = phi float [ 0.000000e+00, %.lr.ph ], [ %117, %114 ]
-  %.06268 = phi float [ 0.000000e+00, %.lr.ph ], [ %116, %114 ]
+  %.070 = phi float [ 0.000000e+00, %.lr.ph ], [ %117, %114 ]
+  %.06068 = phi float [ 0.000000e+00, %.lr.ph ], [ %116, %114 ]
   %21 = getelementptr inbounds float, ptr %8, i64 %indvars.iv78
   %22 = load float, ptr %21, align 4
   %23 = load ptr, ptr %11, align 8
@@ -177,15 +177,15 @@ define noundef float @_Z8sum_ekinPK9t_grpoptsP14gmx_ekindata_tPfbb(ptr nocapture
 
 114:                                              ; preds = %109, %111, %113
   %115 = phi float [ %107, %109 ], [ %107, %111 ], [ 0.000000e+00, %113 ]
-  %116 = tail call float @llvm.fmuladd.f32(float %22, float %115, float %.06268)
-  %117 = fadd float %.06069, %22
+  %116 = tail call float @llvm.fmuladd.f32(float %22, float %115, float %.06068)
+  %117 = fadd float %.070, %22
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count
   br i1 %exitcond81.not, label %._crit_edge, label %20, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %114, %5
-  %.062.lcssa = phi float [ 0.000000e+00, %5 ], [ %116, %114 ]
-  %.060.lcssa = phi float [ 0.000000e+00, %5 ], [ %117, %114 ]
+  %.060.lcssa = phi float [ 0.000000e+00, %5 ], [ %116, %114 ]
+  %.0.lcssa = phi float [ 0.000000e+00, %5 ], [ %117, %114 ]
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %126, label %118
 
@@ -207,9 +207,9 @@ define noundef float @_Z8sum_ekinPK9t_grpoptsP14gmx_ekindata_tPfbb(ptr nocapture
   br label %126
 
 126:                                              ; preds = %.sink.split, %._crit_edge
-  %127 = fcmp ogt float %.060.lcssa, 0.000000e+00
-  %128 = fdiv float %.062.lcssa, %.060.lcssa
-  %.1 = select i1 %127, float %128, float %.062.lcssa
+  %127 = fcmp ogt float %.0.lcssa, 0.000000e+00
+  %128 = fdiv float %.060.lcssa, %.0.lcssa
+  %.1 = select i1 %127, float %128, float %.060.lcssa
   ret float %.1
 }
 

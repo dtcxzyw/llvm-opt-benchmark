@@ -955,7 +955,7 @@ _ZN8smallvec10infallible17h063d7014a3327678E.exit: ; preds = %"_ZN8smallvec17Sma
   %.sroa.7.0108 = phi ptr [ %.sroa.7.0.copyload35, %.lr.ph ], [ %.sroa.7.2, %126 ]
   %.sroa.13.0107 = phi i64 [ %.sroa.13.0.copyload40, %.lr.ph ], [ %.sroa.13.1, %126 ]
   %.sroa.16.0106 = phi ptr [ %.sroa.16.0.copyload44, %.lr.ph ], [ %.sroa.16.1, %126 ]
-  %.sroa.757.0105 = phi i64 [ %55, %.lr.ph ], [ %129, %126 ]
+  %.sroa.757.0104 = phi i64 [ %55, %.lr.ph ], [ %129, %126 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.4.i.i.i.i.i), !noalias !169
   %71 = icmp eq ptr %.sroa.7.0108, null
   br i1 %71, label %_ZN4core4iter8adapters5chain17and_then_or_clear17hc4b510076b72feb4E.exit.thread.i.i, label %72
@@ -1156,23 +1156,23 @@ common.resume:                                    ; preds = %113, %131
   %.sroa.4.0.i.i.i = phi ptr [ undef, %86 ], [ undef, %.noexc ], [ %85, %.noexc10 ]
   %.sroa.0.0.i.i.i = phi i64 [ 1, %86 ], [ 0, %.noexc ], [ 2, %.noexc10 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !208
-  %127 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink3.i, i64 %.sroa.757.0105
+  %127 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink3.i, i64 %.sroa.757.0104
   store i64 %.sroa.0.0.i.i.i, ptr %127, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 8
   store ptr %.sroa.4.0.i.i.i, ptr %128, align 8
-  %129 = add i64 %.sroa.757.0105, 1
+  %129 = add i64 %.sroa.757.0104, 1
   %exitcond.not = icmp eq i64 %129, %.sink.i.pre-phi
   br i1 %exitcond.not, label %._crit_edge, label %70
 
 130:                                              ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17hc4b510076b72feb4E.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.4.i.i.i.i.i), !noalias !169
-  store i64 %.sroa.757.0105, ptr %.sink2.i, align 8
+  store i64 %.sroa.757.0104, ptr %.sink2.i, align 8
   br label %125
 
 131:                                              ; preds = %.thread18.i, %83, %.noexc10
   %132 = landingpad { ptr, i32 }
           cleanup
-  store i64 %.sroa.757.0105, ptr %.sink2.i, align 8
+  store i64 %.sroa.757.0104, ptr %.sink2.i, align 8
   br label %common.resume
 }
 
@@ -3775,7 +3775,7 @@ _ZN8smallvec10infallible17h063d7014a3327678E.exit: ; preds = %"_ZN8smallvec17Sma
   %.sroa.7.0108 = phi ptr [ %.sroa.7.0.copyload35, %.lr.ph ], [ %.sroa.7.2, %126 ]
   %.sroa.13.0107 = phi i64 [ %.sroa.13.0.copyload40, %.lr.ph ], [ %.sroa.13.1, %126 ]
   %.sroa.16.0106 = phi ptr [ %.sroa.16.0.copyload44, %.lr.ph ], [ %.sroa.16.1, %126 ]
-  %.sroa.757.0105 = phi i64 [ %55, %.lr.ph ], [ %129, %126 ]
+  %.sroa.757.0104 = phi i64 [ %55, %.lr.ph ], [ %129, %126 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.4.i.i.i.i.i), !noalias !771
   %71 = icmp eq ptr %.sroa.7.0108, null
   br i1 %71, label %_ZN4core4iter8adapters5chain17and_then_or_clear17hc4b510076b72feb4E.exit.thread.i.i, label %72
@@ -3976,23 +3976,23 @@ common.resume:                                    ; preds = %113, %131
   %.sroa.4.0.i.i.i = phi ptr [ undef, %86 ], [ undef, %.noexc ], [ %85, %.noexc10 ]
   %.sroa.0.0.i.i.i = phi i64 [ 1, %86 ], [ 0, %.noexc ], [ 2, %.noexc10 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !809
-  %127 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink3.i, i64 %.sroa.757.0105
+  %127 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sink3.i, i64 %.sroa.757.0104
   store i64 %.sroa.0.0.i.i.i, ptr %127, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 8
   store ptr %.sroa.4.0.i.i.i, ptr %128, align 8
-  %129 = add i64 %.sroa.757.0105, 1
+  %129 = add i64 %.sroa.757.0104, 1
   %exitcond.not = icmp eq i64 %129, %.sink.i.pre-phi
   br i1 %exitcond.not, label %._crit_edge, label %70
 
 130:                                              ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17hc4b510076b72feb4E.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.4.i.i.i.i.i), !noalias !771
-  store i64 %.sroa.757.0105, ptr %.sink2.i, align 8
+  store i64 %.sroa.757.0104, ptr %.sink2.i, align 8
   br label %125
 
 131:                                              ; preds = %.thread18.i, %83, %.noexc10
   %132 = landingpad { ptr, i32 }
           cleanup
-  store i64 %.sroa.757.0105, ptr %.sink2.i, align 8
+  store i64 %.sroa.757.0104, ptr %.sink2.i, align 8
   br label %common.resume
 }
 
@@ -4921,15 +4921,15 @@ define internal fastcc void @"_ZN4core3ptr195drop_in_place$LT$hashbrown..scopegu
   br i1 %exitcond.not.i.i, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha849ff0d6c0d0f0bE.exit", label %9
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha849ff0d6c0d0f0bE.exit": ; preds = %26, %1, %4
-  %27 = getelementptr inbounds i8, ptr %.val2.i, i64 8
-  %28 = load i64, ptr %27, align 8, !noalias !1131, !noundef !4
-  %29 = icmp ult i64 %28, 8
-  %30 = add i64 %28, 1
-  %31 = lshr i64 %30, 3
-  %32 = mul nuw i64 %31, 7
-  %.0.i.i = select i1 %29, i64 %28, i64 %32
-  %33 = icmp ne ptr %.val2.i, null
-  tail call void @llvm.assume(i1 %33)
+  %27 = icmp ne ptr %.val2.i, null
+  tail call void @llvm.assume(i1 %27)
+  %28 = getelementptr inbounds i8, ptr %.val2.i, i64 8
+  %29 = load i64, ptr %28, align 8, !noalias !1131, !noundef !4
+  %30 = icmp ult i64 %29, 8
+  %31 = add i64 %29, 1
+  %32 = lshr i64 %31, 3
+  %33 = mul nuw i64 %32, 7
+  %.0.i.i = select i1 %30, i64 %29, i64 %33
   %34 = getelementptr inbounds i8, ptr %.val2.i, i64 24
   %35 = load i64, ptr %34, align 8, !noalias !1131, !noundef !4
   %36 = getelementptr inbounds i8, ptr %.val2.i, i64 16
@@ -11832,23 +11832,23 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h7f94290ca3b1bf05E.llvm.1
 
 .noexc2.preheader.i.i:                            ; preds = %430, %.noexc2.preheader.lr.ph.i.i
   %.val.i.i.i12 = phi ptr [ %359, %.noexc2.preheader.lr.ph.i.i ], [ %436, %430 ]
-  %.sroa.1319.063.i.i = phi i16 [ %363, %.noexc2.preheader.lr.ph.i.i ], [ %372, %430 ]
-  %.sroa.9.062.i.i = phi i64 [ %302, %.noexc2.preheader.lr.ph.i.i ], [ %376, %430 ]
-  %.sroa.516.061.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %430 ]
-  %.sroa.015.060.i.i = phi ptr [ %359, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %430 ]
-  %.not.i.not52.i.i = icmp eq i16 %.sroa.1319.063.i.i, 0
+  %.sroa.015.063.i.i = phi ptr [ %359, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %430 ]
+  %.sroa.516.062.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %430 ]
+  %.sroa.9.061.i.i = phi i64 [ %302, %.noexc2.preheader.lr.ph.i.i ], [ %376, %430 ]
+  %.sroa.1319.060.i.i = phi i16 [ %363, %.noexc2.preheader.lr.ph.i.i ], [ %372, %430 ]
+  %.not.i.not52.i.i = icmp eq i16 %.sroa.1319.060.i.i, 0
   br i1 %.not.i.not52.i.i, label %.noexc4.i.i, label %.noexc2._crit_edge.i.i
 
 .noexc4.i.i:                                      ; preds = %.noexc2.preheader.i.i, %.noexc4.i.i
-  %.sroa.516.154.i.i = phi i64 [ %369, %.noexc4.i.i ], [ %.sroa.516.061.i.i, %.noexc2.preheader.i.i ]
-  %.sroa.015.153.i.i = phi ptr [ %365, %.noexc4.i.i ], [ %.sroa.015.060.i.i, %.noexc2.preheader.i.i ]
-  %364 = icmp ne ptr %.sroa.015.153.i.i, null
+  %.sroa.015.154.i.i = phi ptr [ %365, %.noexc4.i.i ], [ %.sroa.015.063.i.i, %.noexc2.preheader.i.i ]
+  %.sroa.516.153.i.i = phi i64 [ %369, %.noexc4.i.i ], [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ]
+  %364 = icmp ne ptr %.sroa.015.154.i.i, null
   call void @llvm.assume(i1 %364)
-  %365 = getelementptr inbounds i8, ptr %.sroa.015.153.i.i, i64 16
+  %365 = getelementptr inbounds i8, ptr %.sroa.015.154.i.i, i64 16
   %366 = load <16 x i8>, ptr %365, align 16, !noalias !2911
   %367 = icmp slt <16 x i8> %366, zeroinitializer
   %368 = bitcast <16 x i1> %367 to i16
-  %369 = add i64 %.sroa.516.154.i.i, 16
+  %369 = add i64 %.sroa.516.153.i.i, 16
   %.not.i.not.i.i20 = icmp eq i16 %368, -1
   br i1 %.not.i.not.i.i20, label %.noexc4.i.i, label %.noexc2._crit_edge.loopexit.i.i
 
@@ -11857,15 +11857,15 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h7f94290ca3b1bf05E.llvm.1
   br label %.noexc2._crit_edge.i.i
 
 .noexc2._crit_edge.i.i:                           ; preds = %.noexc2._crit_edge.loopexit.i.i, %.noexc2.preheader.i.i
-  %.sroa.1319.1.lcssa51.i.i = phi i16 [ %.sroa.1319.063.i.i, %.noexc2.preheader.i.i ], [ %370, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.060.i.i, %.noexc2.preheader.i.i ], [ %365, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.061.i.i, %.noexc2.preheader.i.i ], [ %369, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.1319.1.lcssa51.i.i = phi i16 [ %.sroa.1319.060.i.i, %.noexc2.preheader.i.i ], [ %370, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ], [ %369, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.063.i.i, %.noexc2.preheader.i.i ], [ %365, %.noexc2._crit_edge.loopexit.i.i ]
   %371 = add i16 %.sroa.1319.1.lcssa51.i.i, -1
   %372 = and i16 %371, %.sroa.1319.1.lcssa51.i.i
   %373 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.1319.1.lcssa51.i.i, i1 true)
   %374 = zext nneg i16 %373 to i64
   %375 = add i64 %.sroa.516.1.lcssa.i.i, %374
-  %376 = add i64 %.sroa.9.062.i.i, -1
+  %376 = add i64 %.sroa.9.061.i.i, -1
   %377 = sub nsw i64 0, %375
   %378 = getelementptr inbounds ptr, ptr %.val.i.i.i12, i64 %377
   %379 = getelementptr inbounds i8, ptr %378, i64 -8
@@ -12534,23 +12534,23 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h3fea50dad9bb06a1E.llvm.1
 
 .noexc2.preheader.i.i:                            ; preds = %333, %.noexc2.preheader.lr.ph.i.i
   %.val.i.i.i = phi ptr [ %256, %.noexc2.preheader.lr.ph.i.i ], [ %339, %333 ]
-  %.sroa.1319.063.i.i = phi i16 [ %260, %.noexc2.preheader.lr.ph.i.i ], [ %269, %333 ]
-  %.sroa.9.062.i.i = phi i64 [ %199, %.noexc2.preheader.lr.ph.i.i ], [ %273, %333 ]
-  %.sroa.516.061.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %333 ]
-  %.sroa.015.060.i.i = phi ptr [ %256, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %333 ]
-  %.not.i.not52.i.i = icmp eq i16 %.sroa.1319.063.i.i, 0
+  %.sroa.015.063.i.i = phi ptr [ %256, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %333 ]
+  %.sroa.516.062.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %333 ]
+  %.sroa.9.061.i.i = phi i64 [ %199, %.noexc2.preheader.lr.ph.i.i ], [ %273, %333 ]
+  %.sroa.1319.060.i.i = phi i16 [ %260, %.noexc2.preheader.lr.ph.i.i ], [ %269, %333 ]
+  %.not.i.not52.i.i = icmp eq i16 %.sroa.1319.060.i.i, 0
   br i1 %.not.i.not52.i.i, label %.noexc4.i.i, label %.noexc2._crit_edge.i.i
 
 .noexc4.i.i:                                      ; preds = %.noexc2.preheader.i.i, %.noexc4.i.i
-  %.sroa.516.154.i.i = phi i64 [ %266, %.noexc4.i.i ], [ %.sroa.516.061.i.i, %.noexc2.preheader.i.i ]
-  %.sroa.015.153.i.i = phi ptr [ %262, %.noexc4.i.i ], [ %.sroa.015.060.i.i, %.noexc2.preheader.i.i ]
-  %261 = icmp ne ptr %.sroa.015.153.i.i, null
+  %.sroa.015.154.i.i = phi ptr [ %262, %.noexc4.i.i ], [ %.sroa.015.063.i.i, %.noexc2.preheader.i.i ]
+  %.sroa.516.153.i.i = phi i64 [ %266, %.noexc4.i.i ], [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ]
+  %261 = icmp ne ptr %.sroa.015.154.i.i, null
   call void @llvm.assume(i1 %261)
-  %262 = getelementptr inbounds i8, ptr %.sroa.015.153.i.i, i64 16
+  %262 = getelementptr inbounds i8, ptr %.sroa.015.154.i.i, i64 16
   %263 = load <16 x i8>, ptr %262, align 16, !noalias !3092
   %264 = icmp slt <16 x i8> %263, zeroinitializer
   %265 = bitcast <16 x i1> %264 to i16
-  %266 = add i64 %.sroa.516.154.i.i, 16
+  %266 = add i64 %.sroa.516.153.i.i, 16
   %.not.i.not.i.i11 = icmp eq i16 %265, -1
   br i1 %.not.i.not.i.i11, label %.noexc4.i.i, label %.noexc2._crit_edge.loopexit.i.i
 
@@ -12559,15 +12559,15 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h3fea50dad9bb06a1E.llvm.1
   br label %.noexc2._crit_edge.i.i
 
 .noexc2._crit_edge.i.i:                           ; preds = %.noexc2._crit_edge.loopexit.i.i, %.noexc2.preheader.i.i
-  %.sroa.1319.1.lcssa51.i.i = phi i16 [ %.sroa.1319.063.i.i, %.noexc2.preheader.i.i ], [ %267, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.060.i.i, %.noexc2.preheader.i.i ], [ %262, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.061.i.i, %.noexc2.preheader.i.i ], [ %266, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.1319.1.lcssa51.i.i = phi i16 [ %.sroa.1319.060.i.i, %.noexc2.preheader.i.i ], [ %267, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ], [ %266, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.063.i.i, %.noexc2.preheader.i.i ], [ %262, %.noexc2._crit_edge.loopexit.i.i ]
   %268 = add i16 %.sroa.1319.1.lcssa51.i.i, -1
   %269 = and i16 %268, %.sroa.1319.1.lcssa51.i.i
   %270 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.1319.1.lcssa51.i.i, i1 true)
   %271 = zext nneg i16 %270 to i64
   %272 = add i64 %.sroa.516.1.lcssa.i.i, %271
-  %273 = add i64 %.sroa.9.062.i.i, -1
+  %273 = add i64 %.sroa.9.061.i.i, -1
   %274 = sub nsw i64 0, %272
   %275 = getelementptr inbounds ptr, ptr %.val.i.i.i, i64 %274
   %276 = getelementptr inbounds i8, ptr %275, i64 -8
@@ -13063,23 +13063,23 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h82f9b9a13a58d9a8E.llvm.1
 
 .noexc2.preheader.i.i:                            ; preds = %249, %.noexc2.preheader.lr.ph.i.i
   %.val.i.i.i = phi ptr [ %153, %.noexc2.preheader.lr.ph.i.i ], [ %255, %249 ]
-  %.sroa.1321.066.i.i = phi i16 [ %157, %.noexc2.preheader.lr.ph.i.i ], [ %166, %249 ]
-  %.sroa.9.065.i.i = phi i64 [ %96, %.noexc2.preheader.lr.ph.i.i ], [ %170, %249 ]
-  %.sroa.518.064.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.518.1.lcssa.i.i, %249 ]
-  %.sroa.017.063.i.i = phi ptr [ %153, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.017.1.lcssa.i.i, %249 ]
-  %.not.i.not55.i.i = icmp eq i16 %.sroa.1321.066.i.i, 0
+  %.sroa.017.066.i.i = phi ptr [ %153, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.017.1.lcssa.i.i, %249 ]
+  %.sroa.518.065.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.518.1.lcssa.i.i, %249 ]
+  %.sroa.9.064.i.i = phi i64 [ %96, %.noexc2.preheader.lr.ph.i.i ], [ %170, %249 ]
+  %.sroa.1321.063.i.i = phi i16 [ %157, %.noexc2.preheader.lr.ph.i.i ], [ %166, %249 ]
+  %.not.i.not55.i.i = icmp eq i16 %.sroa.1321.063.i.i, 0
   br i1 %.not.i.not55.i.i, label %.noexc4.i.i, label %.noexc2._crit_edge.i.i
 
 .noexc4.i.i:                                      ; preds = %.noexc2.preheader.i.i, %.noexc4.i.i
-  %.sroa.518.157.i.i = phi i64 [ %163, %.noexc4.i.i ], [ %.sroa.518.064.i.i, %.noexc2.preheader.i.i ]
-  %.sroa.017.156.i.i = phi ptr [ %159, %.noexc4.i.i ], [ %.sroa.017.063.i.i, %.noexc2.preheader.i.i ]
-  %158 = icmp ne ptr %.sroa.017.156.i.i, null
+  %.sroa.017.157.i.i = phi ptr [ %159, %.noexc4.i.i ], [ %.sroa.017.066.i.i, %.noexc2.preheader.i.i ]
+  %.sroa.518.156.i.i = phi i64 [ %163, %.noexc4.i.i ], [ %.sroa.518.065.i.i, %.noexc2.preheader.i.i ]
+  %158 = icmp ne ptr %.sroa.017.157.i.i, null
   call void @llvm.assume(i1 %158)
-  %159 = getelementptr inbounds i8, ptr %.sroa.017.156.i.i, i64 16
+  %159 = getelementptr inbounds i8, ptr %.sroa.017.157.i.i, i64 16
   %160 = load <16 x i8>, ptr %159, align 16, !noalias !3249
   %161 = icmp slt <16 x i8> %160, zeroinitializer
   %162 = bitcast <16 x i1> %161 to i16
-  %163 = add i64 %.sroa.518.157.i.i, 16
+  %163 = add i64 %.sroa.518.156.i.i, 16
   %.not.i.not.i.i10 = icmp eq i16 %162, -1
   br i1 %.not.i.not.i.i10, label %.noexc4.i.i, label %.noexc2._crit_edge.loopexit.i.i
 
@@ -13088,15 +13088,15 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h82f9b9a13a58d9a8E.llvm.1
   br label %.noexc2._crit_edge.i.i
 
 .noexc2._crit_edge.i.i:                           ; preds = %.noexc2._crit_edge.loopexit.i.i, %.noexc2.preheader.i.i
-  %.sroa.1321.1.lcssa54.i.i = phi i16 [ %.sroa.1321.066.i.i, %.noexc2.preheader.i.i ], [ %164, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.017.1.lcssa.i.i = phi ptr [ %.sroa.017.063.i.i, %.noexc2.preheader.i.i ], [ %159, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.518.1.lcssa.i.i = phi i64 [ %.sroa.518.064.i.i, %.noexc2.preheader.i.i ], [ %163, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.1321.1.lcssa54.i.i = phi i16 [ %.sroa.1321.063.i.i, %.noexc2.preheader.i.i ], [ %164, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.518.1.lcssa.i.i = phi i64 [ %.sroa.518.065.i.i, %.noexc2.preheader.i.i ], [ %163, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.017.1.lcssa.i.i = phi ptr [ %.sroa.017.066.i.i, %.noexc2.preheader.i.i ], [ %159, %.noexc2._crit_edge.loopexit.i.i ]
   %165 = add i16 %.sroa.1321.1.lcssa54.i.i, -1
   %166 = and i16 %165, %.sroa.1321.1.lcssa54.i.i
   %167 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.1321.1.lcssa54.i.i, i1 true)
   %168 = zext nneg i16 %167 to i64
   %169 = add i64 %.sroa.518.1.lcssa.i.i, %168
-  %170 = add i64 %.sroa.9.065.i.i, -1
+  %170 = add i64 %.sroa.9.064.i.i, -1
   %171 = sub nsw i64 0, %169
   %172 = getelementptr inbounds ptr, ptr %.val.i.i.i, i64 %171
   %173 = getelementptr inbounds i8, ptr %172, i64 -8
@@ -13710,23 +13710,23 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h78f7623fa23ffc80E.llvm.1
 
 .noexc2.preheader.i.i:                            ; preds = %265, %.noexc2.preheader.lr.ph.i.i
   %.val.i.i.i = phi ptr [ %193, %.noexc2.preheader.lr.ph.i.i ], [ %271, %265 ]
-  %.sroa.1319.063.i.i = phi i16 [ %197, %.noexc2.preheader.lr.ph.i.i ], [ %206, %265 ]
-  %.sroa.9.062.i.i = phi i64 [ %136, %.noexc2.preheader.lr.ph.i.i ], [ %210, %265 ]
-  %.sroa.516.061.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %265 ]
-  %.sroa.015.060.i.i = phi ptr [ %193, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %265 ]
-  %.not.i.not52.i.i = icmp eq i16 %.sroa.1319.063.i.i, 0
+  %.sroa.015.063.i.i = phi ptr [ %193, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %265 ]
+  %.sroa.516.062.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %265 ]
+  %.sroa.9.061.i.i = phi i64 [ %136, %.noexc2.preheader.lr.ph.i.i ], [ %210, %265 ]
+  %.sroa.1319.060.i.i = phi i16 [ %197, %.noexc2.preheader.lr.ph.i.i ], [ %206, %265 ]
+  %.not.i.not52.i.i = icmp eq i16 %.sroa.1319.060.i.i, 0
   br i1 %.not.i.not52.i.i, label %.noexc4.i.i, label %.noexc2._crit_edge.i.i
 
 .noexc4.i.i:                                      ; preds = %.noexc2.preheader.i.i, %.noexc4.i.i
-  %.sroa.516.154.i.i = phi i64 [ %203, %.noexc4.i.i ], [ %.sroa.516.061.i.i, %.noexc2.preheader.i.i ]
-  %.sroa.015.153.i.i = phi ptr [ %199, %.noexc4.i.i ], [ %.sroa.015.060.i.i, %.noexc2.preheader.i.i ]
-  %198 = icmp ne ptr %.sroa.015.153.i.i, null
+  %.sroa.015.154.i.i = phi ptr [ %199, %.noexc4.i.i ], [ %.sroa.015.063.i.i, %.noexc2.preheader.i.i ]
+  %.sroa.516.153.i.i = phi i64 [ %203, %.noexc4.i.i ], [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ]
+  %198 = icmp ne ptr %.sroa.015.154.i.i, null
   call void @llvm.assume(i1 %198)
-  %199 = getelementptr inbounds i8, ptr %.sroa.015.153.i.i, i64 16
+  %199 = getelementptr inbounds i8, ptr %.sroa.015.154.i.i, i64 16
   %200 = load <16 x i8>, ptr %199, align 16, !noalias !3427
   %201 = icmp slt <16 x i8> %200, zeroinitializer
   %202 = bitcast <16 x i1> %201 to i16
-  %203 = add i64 %.sroa.516.154.i.i, 16
+  %203 = add i64 %.sroa.516.153.i.i, 16
   %.not.i.not.i.i11 = icmp eq i16 %202, -1
   br i1 %.not.i.not.i.i11, label %.noexc4.i.i, label %.noexc2._crit_edge.loopexit.i.i
 
@@ -13735,15 +13735,15 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h78f7623fa23ffc80E.llvm.1
   br label %.noexc2._crit_edge.i.i
 
 .noexc2._crit_edge.i.i:                           ; preds = %.noexc2._crit_edge.loopexit.i.i, %.noexc2.preheader.i.i
-  %.sroa.1319.1.lcssa51.i.i = phi i16 [ %.sroa.1319.063.i.i, %.noexc2.preheader.i.i ], [ %204, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.060.i.i, %.noexc2.preheader.i.i ], [ %199, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.061.i.i, %.noexc2.preheader.i.i ], [ %203, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.1319.1.lcssa51.i.i = phi i16 [ %.sroa.1319.060.i.i, %.noexc2.preheader.i.i ], [ %204, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ], [ %203, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.063.i.i, %.noexc2.preheader.i.i ], [ %199, %.noexc2._crit_edge.loopexit.i.i ]
   %205 = add i16 %.sroa.1319.1.lcssa51.i.i, -1
   %206 = and i16 %205, %.sroa.1319.1.lcssa51.i.i
   %207 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.1319.1.lcssa51.i.i, i1 true)
   %208 = zext nneg i16 %207 to i64
   %209 = add i64 %.sroa.516.1.lcssa.i.i, %208
-  %210 = add i64 %.sroa.9.062.i.i, -1
+  %210 = add i64 %.sroa.9.061.i.i, -1
   %211 = sub nsw i64 0, %209
   %212 = getelementptr inbounds ptr, ptr %.val.i.i.i, i64 %211
   %213 = getelementptr inbounds i8, ptr %212, i64 -8
@@ -14293,23 +14293,23 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h9af0b04d206cad73E.llvm.1
   br label %.noexc2.preheader.i.i
 
 .noexc2.preheader.i.i:                            ; preds = %290, %.noexc2.preheader.lr.ph.i.i
-  %.sroa.1319.064.i.i = phi i16 [ %193, %.noexc2.preheader.lr.ph.i.i ], [ %202, %290 ]
-  %.sroa.9.063.i.i = phi i64 [ %135, %.noexc2.preheader.lr.ph.i.i ], [ %206, %290 ]
-  %.sroa.516.062.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %290 ]
-  %.sroa.015.061.i.i = phi ptr [ %189, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %290 ]
-  %.not.i.not53.i.i = icmp eq i16 %.sroa.1319.064.i.i, 0
+  %.sroa.015.064.i.i = phi ptr [ %189, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %290 ]
+  %.sroa.516.063.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %290 ]
+  %.sroa.9.062.i.i = phi i64 [ %135, %.noexc2.preheader.lr.ph.i.i ], [ %206, %290 ]
+  %.sroa.1319.061.i.i = phi i16 [ %193, %.noexc2.preheader.lr.ph.i.i ], [ %202, %290 ]
+  %.not.i.not53.i.i = icmp eq i16 %.sroa.1319.061.i.i, 0
   br i1 %.not.i.not53.i.i, label %.noexc4.i.i, label %.noexc2._crit_edge.i.i
 
 .noexc4.i.i:                                      ; preds = %.noexc2.preheader.i.i, %.noexc4.i.i
-  %.sroa.516.155.i.i = phi i64 [ %199, %.noexc4.i.i ], [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ]
-  %.sroa.015.154.i.i = phi ptr [ %195, %.noexc4.i.i ], [ %.sroa.015.061.i.i, %.noexc2.preheader.i.i ]
-  %194 = icmp ne ptr %.sroa.015.154.i.i, null
+  %.sroa.015.155.i.i = phi ptr [ %195, %.noexc4.i.i ], [ %.sroa.015.064.i.i, %.noexc2.preheader.i.i ]
+  %.sroa.516.154.i.i = phi i64 [ %199, %.noexc4.i.i ], [ %.sroa.516.063.i.i, %.noexc2.preheader.i.i ]
+  %194 = icmp ne ptr %.sroa.015.155.i.i, null
   call void @llvm.assume(i1 %194)
-  %195 = getelementptr inbounds i8, ptr %.sroa.015.154.i.i, i64 16
+  %195 = getelementptr inbounds i8, ptr %.sroa.015.155.i.i, i64 16
   %196 = load <16 x i8>, ptr %195, align 16, !noalias !3565
   %197 = icmp slt <16 x i8> %196, zeroinitializer
   %198 = bitcast <16 x i1> %197 to i16
-  %199 = add i64 %.sroa.516.155.i.i, 16
+  %199 = add i64 %.sroa.516.154.i.i, 16
   %.not.i.not.i.i12 = icmp eq i16 %198, -1
   br i1 %.not.i.not.i.i12, label %.noexc4.i.i, label %.noexc2._crit_edge.loopexit.i.i
 
@@ -14318,15 +14318,15 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h9af0b04d206cad73E.llvm.1
   br label %.noexc2._crit_edge.i.i
 
 .noexc2._crit_edge.i.i:                           ; preds = %.noexc2._crit_edge.loopexit.i.i, %.noexc2.preheader.i.i
-  %.sroa.1319.1.lcssa52.i.i = phi i16 [ %.sroa.1319.064.i.i, %.noexc2.preheader.i.i ], [ %200, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.061.i.i, %.noexc2.preheader.i.i ], [ %195, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ], [ %199, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.1319.1.lcssa52.i.i = phi i16 [ %.sroa.1319.061.i.i, %.noexc2.preheader.i.i ], [ %200, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.063.i.i, %.noexc2.preheader.i.i ], [ %199, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.064.i.i, %.noexc2.preheader.i.i ], [ %195, %.noexc2._crit_edge.loopexit.i.i ]
   %201 = add i16 %.sroa.1319.1.lcssa52.i.i, -1
   %202 = and i16 %201, %.sroa.1319.1.lcssa52.i.i
   %203 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.1319.1.lcssa52.i.i, i1 true)
   %204 = zext nneg i16 %203 to i64
   %205 = add i64 %.sroa.516.1.lcssa.i.i, %204
-  %206 = add i64 %.sroa.9.063.i.i, -1
+  %206 = add i64 %.sroa.9.062.i.i, -1
   %207 = sub nsw i64 0, %205
   %gep77.i.i = getelementptr ptr, ptr %invariant.gep76.i.i, i64 %207
   %.val3.i.i.i = load ptr, ptr %gep77.i.i, align 8, !alias.scope !3568, !noalias !3571, !nonnull !4, !noundef !4
@@ -14919,23 +14919,23 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h234d6e152f5d4988E.llvm.1
   br label %.noexc2.preheader.i.i
 
 .noexc2.preheader.i.i:                            ; preds = %280, %.noexc2.preheader.lr.ph.i.i
-  %.sroa.1319.064.i.i = phi i16 [ %188, %.noexc2.preheader.lr.ph.i.i ], [ %197, %280 ]
-  %.sroa.9.063.i.i = phi i64 [ %130, %.noexc2.preheader.lr.ph.i.i ], [ %201, %280 ]
-  %.sroa.516.062.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %280 ]
-  %.sroa.015.061.i.i = phi ptr [ %184, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %280 ]
-  %.not.i.not53.i.i = icmp eq i16 %.sroa.1319.064.i.i, 0
+  %.sroa.015.064.i.i = phi ptr [ %184, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %280 ]
+  %.sroa.516.063.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %280 ]
+  %.sroa.9.062.i.i = phi i64 [ %130, %.noexc2.preheader.lr.ph.i.i ], [ %201, %280 ]
+  %.sroa.1319.061.i.i = phi i16 [ %188, %.noexc2.preheader.lr.ph.i.i ], [ %197, %280 ]
+  %.not.i.not53.i.i = icmp eq i16 %.sroa.1319.061.i.i, 0
   br i1 %.not.i.not53.i.i, label %.noexc4.i.i, label %.noexc2._crit_edge.i.i
 
 .noexc4.i.i:                                      ; preds = %.noexc2.preheader.i.i, %.noexc4.i.i
-  %.sroa.516.155.i.i = phi i64 [ %194, %.noexc4.i.i ], [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ]
-  %.sroa.015.154.i.i = phi ptr [ %190, %.noexc4.i.i ], [ %.sroa.015.061.i.i, %.noexc2.preheader.i.i ]
-  %189 = icmp ne ptr %.sroa.015.154.i.i, null
+  %.sroa.015.155.i.i = phi ptr [ %190, %.noexc4.i.i ], [ %.sroa.015.064.i.i, %.noexc2.preheader.i.i ]
+  %.sroa.516.154.i.i = phi i64 [ %194, %.noexc4.i.i ], [ %.sroa.516.063.i.i, %.noexc2.preheader.i.i ]
+  %189 = icmp ne ptr %.sroa.015.155.i.i, null
   call void @llvm.assume(i1 %189)
-  %190 = getelementptr inbounds i8, ptr %.sroa.015.154.i.i, i64 16
+  %190 = getelementptr inbounds i8, ptr %.sroa.015.155.i.i, i64 16
   %191 = load <16 x i8>, ptr %190, align 16, !noalias !3726
   %192 = icmp slt <16 x i8> %191, zeroinitializer
   %193 = bitcast <16 x i1> %192 to i16
-  %194 = add i64 %.sroa.516.155.i.i, 16
+  %194 = add i64 %.sroa.516.154.i.i, 16
   %.not.i.not.i.i12 = icmp eq i16 %193, -1
   br i1 %.not.i.not.i.i12, label %.noexc4.i.i, label %.noexc2._crit_edge.loopexit.i.i
 
@@ -14944,15 +14944,15 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h234d6e152f5d4988E.llvm.1
   br label %.noexc2._crit_edge.i.i
 
 .noexc2._crit_edge.i.i:                           ; preds = %.noexc2._crit_edge.loopexit.i.i, %.noexc2.preheader.i.i
-  %.sroa.1319.1.lcssa52.i.i = phi i16 [ %.sroa.1319.064.i.i, %.noexc2.preheader.i.i ], [ %195, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.061.i.i, %.noexc2.preheader.i.i ], [ %190, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ], [ %194, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.1319.1.lcssa52.i.i = phi i16 [ %.sroa.1319.061.i.i, %.noexc2.preheader.i.i ], [ %195, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.063.i.i, %.noexc2.preheader.i.i ], [ %194, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.064.i.i, %.noexc2.preheader.i.i ], [ %190, %.noexc2._crit_edge.loopexit.i.i ]
   %196 = add i16 %.sroa.1319.1.lcssa52.i.i, -1
   %197 = and i16 %196, %.sroa.1319.1.lcssa52.i.i
   %198 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.1319.1.lcssa52.i.i, i1 true)
   %199 = zext nneg i16 %198 to i64
   %200 = add i64 %.sroa.516.1.lcssa.i.i, %199
-  %201 = add i64 %.sroa.9.063.i.i, -1
+  %201 = add i64 %.sroa.9.062.i.i, -1
   %202 = sub nsw i64 0, %200
   %gep77.i.i = getelementptr ptr, ptr %invariant.gep76.i.i, i64 %202
   %.val3.i.i.i = load ptr, ptr %gep77.i.i, align 8, !alias.scope !3729, !noalias !3732, !nonnull !4, !noundef !4
@@ -15614,23 +15614,23 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17hb85267b62e5d4bd9E.llvm.1
 
 .noexc2.preheader.i.i:                            ; preds = %383, %.noexc2.preheader.lr.ph.i.i
   %.val.i.i.i = phi ptr [ %219, %.noexc2.preheader.lr.ph.i.i ], [ %389, %383 ]
-  %.sroa.1327.072.i.i = phi i16 [ %223, %.noexc2.preheader.lr.ph.i.i ], [ %232, %383 ]
-  %.sroa.9.071.i.i = phi i64 [ %218, %.noexc2.preheader.lr.ph.i.i ], [ %236, %383 ]
-  %.sroa.524.070.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.524.1.lcssa.i.i, %383 ]
-  %.sroa.023.069.i.i = phi ptr [ %219, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.023.1.lcssa.i.i, %383 ]
-  %.not.i.not61.i.i = icmp eq i16 %.sroa.1327.072.i.i, 0
+  %.sroa.023.072.i.i = phi ptr [ %219, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.023.1.lcssa.i.i, %383 ]
+  %.sroa.524.071.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.524.1.lcssa.i.i, %383 ]
+  %.sroa.9.070.i.i = phi i64 [ %218, %.noexc2.preheader.lr.ph.i.i ], [ %236, %383 ]
+  %.sroa.1327.069.i.i = phi i16 [ %223, %.noexc2.preheader.lr.ph.i.i ], [ %232, %383 ]
+  %.not.i.not61.i.i = icmp eq i16 %.sroa.1327.069.i.i, 0
   br i1 %.not.i.not61.i.i, label %.noexc4.i.i, label %.noexc2._crit_edge.i.i
 
 .noexc4.i.i:                                      ; preds = %.noexc2.preheader.i.i, %.noexc4.i.i
-  %.sroa.524.163.i.i = phi i64 [ %229, %.noexc4.i.i ], [ %.sroa.524.070.i.i, %.noexc2.preheader.i.i ]
-  %.sroa.023.162.i.i = phi ptr [ %225, %.noexc4.i.i ], [ %.sroa.023.069.i.i, %.noexc2.preheader.i.i ]
-  %224 = icmp ne ptr %.sroa.023.162.i.i, null
+  %.sroa.023.163.i.i = phi ptr [ %225, %.noexc4.i.i ], [ %.sroa.023.072.i.i, %.noexc2.preheader.i.i ]
+  %.sroa.524.162.i.i = phi i64 [ %229, %.noexc4.i.i ], [ %.sroa.524.071.i.i, %.noexc2.preheader.i.i ]
+  %224 = icmp ne ptr %.sroa.023.163.i.i, null
   call void @llvm.assume(i1 %224)
-  %225 = getelementptr inbounds i8, ptr %.sroa.023.162.i.i, i64 16
+  %225 = getelementptr inbounds i8, ptr %.sroa.023.163.i.i, i64 16
   %226 = load <16 x i8>, ptr %225, align 16, !noalias !3899
   %227 = icmp slt <16 x i8> %226, zeroinitializer
   %228 = bitcast <16 x i1> %227 to i16
-  %229 = add i64 %.sroa.524.163.i.i, 16
+  %229 = add i64 %.sroa.524.162.i.i, 16
   %.not.i.not.i.i13 = icmp eq i16 %228, -1
   br i1 %.not.i.not.i.i13, label %.noexc4.i.i, label %.noexc2._crit_edge.loopexit.i.i
 
@@ -15639,15 +15639,15 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17hb85267b62e5d4bd9E.llvm.1
   br label %.noexc2._crit_edge.i.i
 
 .noexc2._crit_edge.i.i:                           ; preds = %.noexc2._crit_edge.loopexit.i.i, %.noexc2.preheader.i.i
-  %.sroa.1327.1.lcssa60.i.i = phi i16 [ %.sroa.1327.072.i.i, %.noexc2.preheader.i.i ], [ %230, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.023.1.lcssa.i.i = phi ptr [ %.sroa.023.069.i.i, %.noexc2.preheader.i.i ], [ %225, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.524.1.lcssa.i.i = phi i64 [ %.sroa.524.070.i.i, %.noexc2.preheader.i.i ], [ %229, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.1327.1.lcssa60.i.i = phi i16 [ %.sroa.1327.069.i.i, %.noexc2.preheader.i.i ], [ %230, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.524.1.lcssa.i.i = phi i64 [ %.sroa.524.071.i.i, %.noexc2.preheader.i.i ], [ %229, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.023.1.lcssa.i.i = phi ptr [ %.sroa.023.072.i.i, %.noexc2.preheader.i.i ], [ %225, %.noexc2._crit_edge.loopexit.i.i ]
   %231 = add i16 %.sroa.1327.1.lcssa60.i.i, -1
   %232 = and i16 %231, %.sroa.1327.1.lcssa60.i.i
   %233 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.1327.1.lcssa60.i.i, i1 true)
   %234 = zext nneg i16 %233 to i64
   %235 = add i64 %.sroa.524.1.lcssa.i.i, %234
-  %236 = add i64 %.sroa.9.071.i.i, -1
+  %236 = add i64 %.sroa.9.070.i.i, -1
   %237 = sub nsw i64 0, %235
   %238 = getelementptr inbounds ptr, ptr %.val.i.i.i, i64 %237
   %239 = getelementptr inbounds i8, ptr %238, i64 -8
@@ -16590,23 +16590,23 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h265751a10c3ba081E.llvm.1
 
 .noexc2.preheader.i.i:                            ; preds = %355, %.noexc2.preheader.lr.ph.i.i
   %.val.i.i.i = phi ptr [ %283, %.noexc2.preheader.lr.ph.i.i ], [ %361, %355 ]
-  %.sroa.1319.063.i.i = phi i16 [ %287, %.noexc2.preheader.lr.ph.i.i ], [ %296, %355 ]
-  %.sroa.9.062.i.i = phi i64 [ %226, %.noexc2.preheader.lr.ph.i.i ], [ %300, %355 ]
-  %.sroa.516.061.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %355 ]
-  %.sroa.015.060.i.i = phi ptr [ %283, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %355 ]
-  %.not.i.not52.i.i = icmp eq i16 %.sroa.1319.063.i.i, 0
+  %.sroa.015.063.i.i = phi ptr [ %283, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %355 ]
+  %.sroa.516.062.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %355 ]
+  %.sroa.9.061.i.i = phi i64 [ %226, %.noexc2.preheader.lr.ph.i.i ], [ %300, %355 ]
+  %.sroa.1319.060.i.i = phi i16 [ %287, %.noexc2.preheader.lr.ph.i.i ], [ %296, %355 ]
+  %.not.i.not52.i.i = icmp eq i16 %.sroa.1319.060.i.i, 0
   br i1 %.not.i.not52.i.i, label %.noexc4.i.i, label %.noexc2._crit_edge.i.i
 
 .noexc4.i.i:                                      ; preds = %.noexc2.preheader.i.i, %.noexc4.i.i
-  %.sroa.516.154.i.i = phi i64 [ %293, %.noexc4.i.i ], [ %.sroa.516.061.i.i, %.noexc2.preheader.i.i ]
-  %.sroa.015.153.i.i = phi ptr [ %289, %.noexc4.i.i ], [ %.sroa.015.060.i.i, %.noexc2.preheader.i.i ]
-  %288 = icmp ne ptr %.sroa.015.153.i.i, null
+  %.sroa.015.154.i.i = phi ptr [ %289, %.noexc4.i.i ], [ %.sroa.015.063.i.i, %.noexc2.preheader.i.i ]
+  %.sroa.516.153.i.i = phi i64 [ %293, %.noexc4.i.i ], [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ]
+  %288 = icmp ne ptr %.sroa.015.154.i.i, null
   call void @llvm.assume(i1 %288)
-  %289 = getelementptr inbounds i8, ptr %.sroa.015.153.i.i, i64 16
+  %289 = getelementptr inbounds i8, ptr %.sroa.015.154.i.i, i64 16
   %290 = load <16 x i8>, ptr %289, align 16, !noalias !4174
   %291 = icmp slt <16 x i8> %290, zeroinitializer
   %292 = bitcast <16 x i1> %291 to i16
-  %293 = add i64 %.sroa.516.154.i.i, 16
+  %293 = add i64 %.sroa.516.153.i.i, 16
   %.not.i.not.i.i15 = icmp eq i16 %292, -1
   br i1 %.not.i.not.i.i15, label %.noexc4.i.i, label %.noexc2._crit_edge.loopexit.i.i
 
@@ -16615,15 +16615,15 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h265751a10c3ba081E.llvm.1
   br label %.noexc2._crit_edge.i.i
 
 .noexc2._crit_edge.i.i:                           ; preds = %.noexc2._crit_edge.loopexit.i.i, %.noexc2.preheader.i.i
-  %.sroa.1319.1.lcssa51.i.i = phi i16 [ %.sroa.1319.063.i.i, %.noexc2.preheader.i.i ], [ %294, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.060.i.i, %.noexc2.preheader.i.i ], [ %289, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.061.i.i, %.noexc2.preheader.i.i ], [ %293, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.1319.1.lcssa51.i.i = phi i16 [ %.sroa.1319.060.i.i, %.noexc2.preheader.i.i ], [ %294, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ], [ %293, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.063.i.i, %.noexc2.preheader.i.i ], [ %289, %.noexc2._crit_edge.loopexit.i.i ]
   %295 = add i16 %.sroa.1319.1.lcssa51.i.i, -1
   %296 = and i16 %295, %.sroa.1319.1.lcssa51.i.i
   %297 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.1319.1.lcssa51.i.i, i1 true)
   %298 = zext nneg i16 %297 to i64
   %299 = add i64 %.sroa.516.1.lcssa.i.i, %298
-  %300 = add i64 %.sroa.9.062.i.i, -1
+  %300 = add i64 %.sroa.9.061.i.i, -1
   %301 = sub nsw i64 0, %299
   %302 = getelementptr inbounds ptr, ptr %.val.i.i.i, i64 %301
   %303 = getelementptr inbounds i8, ptr %302, i64 -8
@@ -17453,23 +17453,23 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h867d7c75e3a8a042E.llvm.1
 
 .noexc2.preheader.i.i:                            ; preds = %379, %.noexc2.preheader.lr.ph.i.i
   %.val.i.i.i = phi ptr [ %307, %.noexc2.preheader.lr.ph.i.i ], [ %385, %379 ]
-  %.sroa.1319.063.i.i = phi i16 [ %311, %.noexc2.preheader.lr.ph.i.i ], [ %320, %379 ]
-  %.sroa.9.062.i.i = phi i64 [ %250, %.noexc2.preheader.lr.ph.i.i ], [ %324, %379 ]
-  %.sroa.516.061.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %379 ]
-  %.sroa.015.060.i.i = phi ptr [ %307, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %379 ]
-  %.not.i.not52.i.i = icmp eq i16 %.sroa.1319.063.i.i, 0
+  %.sroa.015.063.i.i = phi ptr [ %307, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %379 ]
+  %.sroa.516.062.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %379 ]
+  %.sroa.9.061.i.i = phi i64 [ %250, %.noexc2.preheader.lr.ph.i.i ], [ %324, %379 ]
+  %.sroa.1319.060.i.i = phi i16 [ %311, %.noexc2.preheader.lr.ph.i.i ], [ %320, %379 ]
+  %.not.i.not52.i.i = icmp eq i16 %.sroa.1319.060.i.i, 0
   br i1 %.not.i.not52.i.i, label %.noexc4.i.i, label %.noexc2._crit_edge.i.i
 
 .noexc4.i.i:                                      ; preds = %.noexc2.preheader.i.i, %.noexc4.i.i
-  %.sroa.516.154.i.i = phi i64 [ %317, %.noexc4.i.i ], [ %.sroa.516.061.i.i, %.noexc2.preheader.i.i ]
-  %.sroa.015.153.i.i = phi ptr [ %313, %.noexc4.i.i ], [ %.sroa.015.060.i.i, %.noexc2.preheader.i.i ]
-  %312 = icmp ne ptr %.sroa.015.153.i.i, null
+  %.sroa.015.154.i.i = phi ptr [ %313, %.noexc4.i.i ], [ %.sroa.015.063.i.i, %.noexc2.preheader.i.i ]
+  %.sroa.516.153.i.i = phi i64 [ %317, %.noexc4.i.i ], [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ]
+  %312 = icmp ne ptr %.sroa.015.154.i.i, null
   call void @llvm.assume(i1 %312)
-  %313 = getelementptr inbounds i8, ptr %.sroa.015.153.i.i, i64 16
+  %313 = getelementptr inbounds i8, ptr %.sroa.015.154.i.i, i64 16
   %314 = load <16 x i8>, ptr %313, align 16, !noalias !4382
   %315 = icmp slt <16 x i8> %314, zeroinitializer
   %316 = bitcast <16 x i1> %315 to i16
-  %317 = add i64 %.sroa.516.154.i.i, 16
+  %317 = add i64 %.sroa.516.153.i.i, 16
   %.not.i.not.i.i11 = icmp eq i16 %316, -1
   br i1 %.not.i.not.i.i11, label %.noexc4.i.i, label %.noexc2._crit_edge.loopexit.i.i
 
@@ -17478,15 +17478,15 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h867d7c75e3a8a042E.llvm.1
   br label %.noexc2._crit_edge.i.i
 
 .noexc2._crit_edge.i.i:                           ; preds = %.noexc2._crit_edge.loopexit.i.i, %.noexc2.preheader.i.i
-  %.sroa.1319.1.lcssa51.i.i = phi i16 [ %.sroa.1319.063.i.i, %.noexc2.preheader.i.i ], [ %318, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.060.i.i, %.noexc2.preheader.i.i ], [ %313, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.061.i.i, %.noexc2.preheader.i.i ], [ %317, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.1319.1.lcssa51.i.i = phi i16 [ %.sroa.1319.060.i.i, %.noexc2.preheader.i.i ], [ %318, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ], [ %317, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.063.i.i, %.noexc2.preheader.i.i ], [ %313, %.noexc2._crit_edge.loopexit.i.i ]
   %319 = add i16 %.sroa.1319.1.lcssa51.i.i, -1
   %320 = and i16 %319, %.sroa.1319.1.lcssa51.i.i
   %321 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.1319.1.lcssa51.i.i, i1 true)
   %322 = zext nneg i16 %321 to i64
   %323 = add i64 %.sroa.516.1.lcssa.i.i, %322
-  %324 = add i64 %.sroa.9.062.i.i, -1
+  %324 = add i64 %.sroa.9.061.i.i, -1
   %325 = sub nsw i64 0, %323
   %326 = getelementptr inbounds ptr, ptr %.val.i.i.i, i64 %325
   %327 = getelementptr inbounds i8, ptr %326, i64 -8
@@ -18376,23 +18376,23 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h443c87ad0916384dE.llvm.1
 
 .noexc2.preheader.i.i:                            ; preds = %538, %.noexc2.preheader.lr.ph.i.i
   %.val.i.i.i = phi ptr [ %459, %.noexc2.preheader.lr.ph.i.i ], [ %544, %538 ]
-  %.sroa.1319.063.i.i = phi i16 [ %463, %.noexc2.preheader.lr.ph.i.i ], [ %472, %538 ]
-  %.sroa.9.062.i.i = phi i64 [ %402, %.noexc2.preheader.lr.ph.i.i ], [ %476, %538 ]
-  %.sroa.516.061.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %538 ]
-  %.sroa.015.060.i.i = phi ptr [ %459, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %538 ]
-  %.not.i.not52.i.i = icmp eq i16 %.sroa.1319.063.i.i, 0
+  %.sroa.015.063.i.i = phi ptr [ %459, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %538 ]
+  %.sroa.516.062.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %538 ]
+  %.sroa.9.061.i.i = phi i64 [ %402, %.noexc2.preheader.lr.ph.i.i ], [ %476, %538 ]
+  %.sroa.1319.060.i.i = phi i16 [ %463, %.noexc2.preheader.lr.ph.i.i ], [ %472, %538 ]
+  %.not.i.not52.i.i = icmp eq i16 %.sroa.1319.060.i.i, 0
   br i1 %.not.i.not52.i.i, label %.noexc4.i.i, label %.noexc2._crit_edge.i.i
 
 .noexc4.i.i:                                      ; preds = %.noexc2.preheader.i.i, %.noexc4.i.i
-  %.sroa.516.154.i.i = phi i64 [ %469, %.noexc4.i.i ], [ %.sroa.516.061.i.i, %.noexc2.preheader.i.i ]
-  %.sroa.015.153.i.i = phi ptr [ %465, %.noexc4.i.i ], [ %.sroa.015.060.i.i, %.noexc2.preheader.i.i ]
-  %464 = icmp ne ptr %.sroa.015.153.i.i, null
+  %.sroa.015.154.i.i = phi ptr [ %465, %.noexc4.i.i ], [ %.sroa.015.063.i.i, %.noexc2.preheader.i.i ]
+  %.sroa.516.153.i.i = phi i64 [ %469, %.noexc4.i.i ], [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ]
+  %464 = icmp ne ptr %.sroa.015.154.i.i, null
   call void @llvm.assume(i1 %464)
-  %465 = getelementptr inbounds i8, ptr %.sroa.015.153.i.i, i64 16
+  %465 = getelementptr inbounds i8, ptr %.sroa.015.154.i.i, i64 16
   %466 = load <16 x i8>, ptr %465, align 16, !noalias !4634
   %467 = icmp slt <16 x i8> %466, zeroinitializer
   %468 = bitcast <16 x i1> %467 to i16
-  %469 = add i64 %.sroa.516.154.i.i, 16
+  %469 = add i64 %.sroa.516.153.i.i, 16
   %.not.i.not.i.i12 = icmp eq i16 %468, -1
   br i1 %.not.i.not.i.i12, label %.noexc4.i.i, label %.noexc2._crit_edge.loopexit.i.i
 
@@ -18401,15 +18401,15 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h443c87ad0916384dE.llvm.1
   br label %.noexc2._crit_edge.i.i
 
 .noexc2._crit_edge.i.i:                           ; preds = %.noexc2._crit_edge.loopexit.i.i, %.noexc2.preheader.i.i
-  %.sroa.1319.1.lcssa51.i.i = phi i16 [ %.sroa.1319.063.i.i, %.noexc2.preheader.i.i ], [ %470, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.060.i.i, %.noexc2.preheader.i.i ], [ %465, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.061.i.i, %.noexc2.preheader.i.i ], [ %469, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.1319.1.lcssa51.i.i = phi i16 [ %.sroa.1319.060.i.i, %.noexc2.preheader.i.i ], [ %470, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ], [ %469, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.063.i.i, %.noexc2.preheader.i.i ], [ %465, %.noexc2._crit_edge.loopexit.i.i ]
   %471 = add i16 %.sroa.1319.1.lcssa51.i.i, -1
   %472 = and i16 %471, %.sroa.1319.1.lcssa51.i.i
   %473 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.1319.1.lcssa51.i.i, i1 true)
   %474 = zext nneg i16 %473 to i64
   %475 = add i64 %.sroa.516.1.lcssa.i.i, %474
-  %476 = add i64 %.sroa.9.062.i.i, -1
+  %476 = add i64 %.sroa.9.061.i.i, -1
   %477 = sub nsw i64 0, %475
   %478 = getelementptr inbounds ptr, ptr %.val.i.i.i, i64 %477
   %479 = getelementptr inbounds i8, ptr %478, i64 -8
@@ -18965,23 +18965,23 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h96dd24ab457f25d8E.llvm.1
   br label %.noexc2.preheader.i.i
 
 .noexc2.preheader.i.i:                            ; preds = %283, %.noexc2.preheader.lr.ph.i.i
-  %.sroa.1319.064.i.i = phi i16 [ %195, %.noexc2.preheader.lr.ph.i.i ], [ %204, %283 ]
-  %.sroa.9.063.i.i = phi i64 [ %137, %.noexc2.preheader.lr.ph.i.i ], [ %208, %283 ]
-  %.sroa.516.062.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %283 ]
-  %.sroa.015.061.i.i = phi ptr [ %191, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %283 ]
-  %.not.i.not53.i.i = icmp eq i16 %.sroa.1319.064.i.i, 0
+  %.sroa.015.064.i.i = phi ptr [ %191, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %283 ]
+  %.sroa.516.063.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %283 ]
+  %.sroa.9.062.i.i = phi i64 [ %137, %.noexc2.preheader.lr.ph.i.i ], [ %208, %283 ]
+  %.sroa.1319.061.i.i = phi i16 [ %195, %.noexc2.preheader.lr.ph.i.i ], [ %204, %283 ]
+  %.not.i.not53.i.i = icmp eq i16 %.sroa.1319.061.i.i, 0
   br i1 %.not.i.not53.i.i, label %.noexc4.i.i, label %.noexc2._crit_edge.i.i
 
 .noexc4.i.i:                                      ; preds = %.noexc2.preheader.i.i, %.noexc4.i.i
-  %.sroa.516.155.i.i = phi i64 [ %201, %.noexc4.i.i ], [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ]
-  %.sroa.015.154.i.i = phi ptr [ %197, %.noexc4.i.i ], [ %.sroa.015.061.i.i, %.noexc2.preheader.i.i ]
-  %196 = icmp ne ptr %.sroa.015.154.i.i, null
+  %.sroa.015.155.i.i = phi ptr [ %197, %.noexc4.i.i ], [ %.sroa.015.064.i.i, %.noexc2.preheader.i.i ]
+  %.sroa.516.154.i.i = phi i64 [ %201, %.noexc4.i.i ], [ %.sroa.516.063.i.i, %.noexc2.preheader.i.i ]
+  %196 = icmp ne ptr %.sroa.015.155.i.i, null
   call void @llvm.assume(i1 %196)
-  %197 = getelementptr inbounds i8, ptr %.sroa.015.154.i.i, i64 16
+  %197 = getelementptr inbounds i8, ptr %.sroa.015.155.i.i, i64 16
   %198 = load <16 x i8>, ptr %197, align 16, !noalias !4819
   %199 = icmp slt <16 x i8> %198, zeroinitializer
   %200 = bitcast <16 x i1> %199 to i16
-  %201 = add i64 %.sroa.516.155.i.i, 16
+  %201 = add i64 %.sroa.516.154.i.i, 16
   %.not.i.not.i.i12 = icmp eq i16 %200, -1
   br i1 %.not.i.not.i.i12, label %.noexc4.i.i, label %.noexc2._crit_edge.loopexit.i.i
 
@@ -18990,15 +18990,15 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17h96dd24ab457f25d8E.llvm.1
   br label %.noexc2._crit_edge.i.i
 
 .noexc2._crit_edge.i.i:                           ; preds = %.noexc2._crit_edge.loopexit.i.i, %.noexc2.preheader.i.i
-  %.sroa.1319.1.lcssa52.i.i = phi i16 [ %.sroa.1319.064.i.i, %.noexc2.preheader.i.i ], [ %202, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.061.i.i, %.noexc2.preheader.i.i ], [ %197, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ], [ %201, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.1319.1.lcssa52.i.i = phi i16 [ %.sroa.1319.061.i.i, %.noexc2.preheader.i.i ], [ %202, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.063.i.i, %.noexc2.preheader.i.i ], [ %201, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.064.i.i, %.noexc2.preheader.i.i ], [ %197, %.noexc2._crit_edge.loopexit.i.i ]
   %203 = add i16 %.sroa.1319.1.lcssa52.i.i, -1
   %204 = and i16 %203, %.sroa.1319.1.lcssa52.i.i
   %205 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.1319.1.lcssa52.i.i, i1 true)
   %206 = zext nneg i16 %205 to i64
   %207 = add i64 %.sroa.516.1.lcssa.i.i, %206
-  %208 = add i64 %.sroa.9.063.i.i, -1
+  %208 = add i64 %.sroa.9.062.i.i, -1
   %209 = sub nsw i64 0, %207
   %gep77.i.i = getelementptr ptr, ptr %invariant.gep76.i.i, i64 %209
   %.val3.i.i.i = load ptr, ptr %gep77.i.i, align 8, !alias.scope !4822, !noalias !4825, !nonnull !4, !noundef !4
@@ -19528,23 +19528,23 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17hd7432024efb9eec6E.llvm.1
 
 .noexc2.preheader.i.i:                            ; preds = %234, %.noexc2.preheader.lr.ph.i.i
   %.val.i.i.i = phi ptr [ %162, %.noexc2.preheader.lr.ph.i.i ], [ %240, %234 ]
-  %.sroa.1319.063.i.i = phi i16 [ %166, %.noexc2.preheader.lr.ph.i.i ], [ %175, %234 ]
-  %.sroa.9.062.i.i = phi i64 [ %105, %.noexc2.preheader.lr.ph.i.i ], [ %179, %234 ]
-  %.sroa.516.061.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %234 ]
-  %.sroa.015.060.i.i = phi ptr [ %162, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %234 ]
-  %.not.i.not52.i.i = icmp eq i16 %.sroa.1319.063.i.i, 0
+  %.sroa.015.063.i.i = phi ptr [ %162, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %234 ]
+  %.sroa.516.062.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %234 ]
+  %.sroa.9.061.i.i = phi i64 [ %105, %.noexc2.preheader.lr.ph.i.i ], [ %179, %234 ]
+  %.sroa.1319.060.i.i = phi i16 [ %166, %.noexc2.preheader.lr.ph.i.i ], [ %175, %234 ]
+  %.not.i.not52.i.i = icmp eq i16 %.sroa.1319.060.i.i, 0
   br i1 %.not.i.not52.i.i, label %.noexc4.i.i, label %.noexc2._crit_edge.i.i
 
 .noexc4.i.i:                                      ; preds = %.noexc2.preheader.i.i, %.noexc4.i.i
-  %.sroa.516.154.i.i = phi i64 [ %172, %.noexc4.i.i ], [ %.sroa.516.061.i.i, %.noexc2.preheader.i.i ]
-  %.sroa.015.153.i.i = phi ptr [ %168, %.noexc4.i.i ], [ %.sroa.015.060.i.i, %.noexc2.preheader.i.i ]
-  %167 = icmp ne ptr %.sroa.015.153.i.i, null
+  %.sroa.015.154.i.i = phi ptr [ %168, %.noexc4.i.i ], [ %.sroa.015.063.i.i, %.noexc2.preheader.i.i ]
+  %.sroa.516.153.i.i = phi i64 [ %172, %.noexc4.i.i ], [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ]
+  %167 = icmp ne ptr %.sroa.015.154.i.i, null
   call void @llvm.assume(i1 %167)
-  %168 = getelementptr inbounds i8, ptr %.sroa.015.153.i.i, i64 16
+  %168 = getelementptr inbounds i8, ptr %.sroa.015.154.i.i, i64 16
   %169 = load <16 x i8>, ptr %168, align 16, !noalias !4955
   %170 = icmp slt <16 x i8> %169, zeroinitializer
   %171 = bitcast <16 x i1> %170 to i16
-  %172 = add i64 %.sroa.516.154.i.i, 16
+  %172 = add i64 %.sroa.516.153.i.i, 16
   %.not.i.not.i.i11 = icmp eq i16 %171, -1
   br i1 %.not.i.not.i.i11, label %.noexc4.i.i, label %.noexc2._crit_edge.loopexit.i.i
 
@@ -19553,15 +19553,15 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17hd7432024efb9eec6E.llvm.1
   br label %.noexc2._crit_edge.i.i
 
 .noexc2._crit_edge.i.i:                           ; preds = %.noexc2._crit_edge.loopexit.i.i, %.noexc2.preheader.i.i
-  %.sroa.1319.1.lcssa51.i.i = phi i16 [ %.sroa.1319.063.i.i, %.noexc2.preheader.i.i ], [ %173, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.060.i.i, %.noexc2.preheader.i.i ], [ %168, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.061.i.i, %.noexc2.preheader.i.i ], [ %172, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.1319.1.lcssa51.i.i = phi i16 [ %.sroa.1319.060.i.i, %.noexc2.preheader.i.i ], [ %173, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ], [ %172, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.063.i.i, %.noexc2.preheader.i.i ], [ %168, %.noexc2._crit_edge.loopexit.i.i ]
   %174 = add i16 %.sroa.1319.1.lcssa51.i.i, -1
   %175 = and i16 %174, %.sroa.1319.1.lcssa51.i.i
   %176 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.1319.1.lcssa51.i.i, i1 true)
   %177 = zext nneg i16 %176 to i64
   %178 = add i64 %.sroa.516.1.lcssa.i.i, %177
-  %179 = add i64 %.sroa.9.062.i.i, -1
+  %179 = add i64 %.sroa.9.061.i.i, -1
   %180 = sub nsw i64 0, %178
   %181 = getelementptr inbounds ptr, ptr %.val.i.i.i, i64 %180
   %182 = getelementptr inbounds i8, ptr %181, i64 -8
@@ -20314,23 +20314,23 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17hf590903cdd3f617bE.llvm.1
   br label %.noexc2.preheader.i.i
 
 .noexc2.preheader.i.i:                            ; preds = %343, %.noexc2.preheader.lr.ph.i.i
-  %.sroa.1318.062.i.i = phi i16 [ %279, %.noexc2.preheader.lr.ph.i.i ], [ %288, %343 ]
-  %.sroa.9.061.i.i = phi i64 [ %221, %.noexc2.preheader.lr.ph.i.i ], [ %292, %343 ]
-  %.sroa.515.060.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.515.1.lcssa.i.i, %343 ]
-  %.sroa.014.059.i.i = phi ptr [ %275, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.014.1.lcssa.i.i, %343 ]
-  %.not.i.not51.i.i = icmp eq i16 %.sroa.1318.062.i.i, 0
+  %.sroa.014.062.i.i = phi ptr [ %275, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.014.1.lcssa.i.i, %343 ]
+  %.sroa.515.061.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.515.1.lcssa.i.i, %343 ]
+  %.sroa.9.060.i.i = phi i64 [ %221, %.noexc2.preheader.lr.ph.i.i ], [ %292, %343 ]
+  %.sroa.1318.059.i.i = phi i16 [ %279, %.noexc2.preheader.lr.ph.i.i ], [ %288, %343 ]
+  %.not.i.not51.i.i = icmp eq i16 %.sroa.1318.059.i.i, 0
   br i1 %.not.i.not51.i.i, label %.noexc4.i.i, label %.noexc2._crit_edge.i.i
 
 .noexc4.i.i:                                      ; preds = %.noexc2.preheader.i.i, %.noexc4.i.i
-  %.sroa.515.153.i.i = phi i64 [ %285, %.noexc4.i.i ], [ %.sroa.515.060.i.i, %.noexc2.preheader.i.i ]
-  %.sroa.014.152.i.i = phi ptr [ %281, %.noexc4.i.i ], [ %.sroa.014.059.i.i, %.noexc2.preheader.i.i ]
-  %280 = icmp ne ptr %.sroa.014.152.i.i, null
+  %.sroa.014.153.i.i = phi ptr [ %281, %.noexc4.i.i ], [ %.sroa.014.062.i.i, %.noexc2.preheader.i.i ]
+  %.sroa.515.152.i.i = phi i64 [ %285, %.noexc4.i.i ], [ %.sroa.515.061.i.i, %.noexc2.preheader.i.i ]
+  %280 = icmp ne ptr %.sroa.014.153.i.i, null
   call void @llvm.assume(i1 %280)
-  %281 = getelementptr inbounds i8, ptr %.sroa.014.152.i.i, i64 16
+  %281 = getelementptr inbounds i8, ptr %.sroa.014.153.i.i, i64 16
   %282 = load <16 x i8>, ptr %281, align 16, !noalias !5172
   %283 = icmp slt <16 x i8> %282, zeroinitializer
   %284 = bitcast <16 x i1> %283 to i16
-  %285 = add i64 %.sroa.515.153.i.i, 16
+  %285 = add i64 %.sroa.515.152.i.i, 16
   %.not.i.not.i.i13 = icmp eq i16 %284, -1
   br i1 %.not.i.not.i.i13, label %.noexc4.i.i, label %.noexc2._crit_edge.loopexit.i.i
 
@@ -20339,15 +20339,15 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17hf590903cdd3f617bE.llvm.1
   br label %.noexc2._crit_edge.i.i
 
 .noexc2._crit_edge.i.i:                           ; preds = %.noexc2._crit_edge.loopexit.i.i, %.noexc2.preheader.i.i
-  %.sroa.1318.1.lcssa50.i.i = phi i16 [ %.sroa.1318.062.i.i, %.noexc2.preheader.i.i ], [ %286, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.014.1.lcssa.i.i = phi ptr [ %.sroa.014.059.i.i, %.noexc2.preheader.i.i ], [ %281, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.515.1.lcssa.i.i = phi i64 [ %.sroa.515.060.i.i, %.noexc2.preheader.i.i ], [ %285, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.1318.1.lcssa50.i.i = phi i16 [ %.sroa.1318.059.i.i, %.noexc2.preheader.i.i ], [ %286, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.515.1.lcssa.i.i = phi i64 [ %.sroa.515.061.i.i, %.noexc2.preheader.i.i ], [ %285, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.014.1.lcssa.i.i = phi ptr [ %.sroa.014.062.i.i, %.noexc2.preheader.i.i ], [ %281, %.noexc2._crit_edge.loopexit.i.i ]
   %287 = add i16 %.sroa.1318.1.lcssa50.i.i, -1
   %288 = and i16 %287, %.sroa.1318.1.lcssa50.i.i
   %289 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.1318.1.lcssa50.i.i, i1 true)
   %290 = zext nneg i16 %289 to i64
   %291 = add i64 %.sroa.515.1.lcssa.i.i, %290
-  %292 = add i64 %.sroa.9.061.i.i, -1
+  %292 = add i64 %.sroa.9.060.i.i, -1
   %293 = call fastcc noundef i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17h686a4091b9a4861cE"(ptr nonnull align 1 poison, ptr noalias noundef nonnull align 8 dereferenceable(32) %120, i64 noundef %291), !noalias !5175
   %294 = and i64 %293, %270
   %295 = getelementptr inbounds i8, ptr %267, i64 %294
@@ -20908,23 +20908,23 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17hfc9bc69536d8d4a2E.llvm.1
 
 .noexc2.preheader.i.i:                            ; preds = %267, %.noexc2.preheader.lr.ph.i.i
   %.val.i.i.i = phi ptr [ %196, %.noexc2.preheader.lr.ph.i.i ], [ %273, %267 ]
-  %.sroa.1319.063.i.i = phi i16 [ %200, %.noexc2.preheader.lr.ph.i.i ], [ %209, %267 ]
-  %.sroa.9.062.i.i = phi i64 [ %144, %.noexc2.preheader.lr.ph.i.i ], [ %213, %267 ]
-  %.sroa.516.061.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %267 ]
-  %.sroa.015.060.i.i = phi ptr [ %196, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %267 ]
-  %.not.i.not52.i.i = icmp eq i16 %.sroa.1319.063.i.i, 0
+  %.sroa.015.063.i.i = phi ptr [ %196, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %267 ]
+  %.sroa.516.062.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %267 ]
+  %.sroa.9.061.i.i = phi i64 [ %144, %.noexc2.preheader.lr.ph.i.i ], [ %213, %267 ]
+  %.sroa.1319.060.i.i = phi i16 [ %200, %.noexc2.preheader.lr.ph.i.i ], [ %209, %267 ]
+  %.not.i.not52.i.i = icmp eq i16 %.sroa.1319.060.i.i, 0
   br i1 %.not.i.not52.i.i, label %.noexc4.i.i, label %.noexc2._crit_edge.i.i
 
 .noexc4.i.i:                                      ; preds = %.noexc2.preheader.i.i, %.noexc4.i.i
-  %.sroa.516.154.i.i = phi i64 [ %206, %.noexc4.i.i ], [ %.sroa.516.061.i.i, %.noexc2.preheader.i.i ]
-  %.sroa.015.153.i.i = phi ptr [ %202, %.noexc4.i.i ], [ %.sroa.015.060.i.i, %.noexc2.preheader.i.i ]
-  %201 = icmp ne ptr %.sroa.015.153.i.i, null
+  %.sroa.015.154.i.i = phi ptr [ %202, %.noexc4.i.i ], [ %.sroa.015.063.i.i, %.noexc2.preheader.i.i ]
+  %.sroa.516.153.i.i = phi i64 [ %206, %.noexc4.i.i ], [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ]
+  %201 = icmp ne ptr %.sroa.015.154.i.i, null
   call void @llvm.assume(i1 %201)
-  %202 = getelementptr inbounds i8, ptr %.sroa.015.153.i.i, i64 16
+  %202 = getelementptr inbounds i8, ptr %.sroa.015.154.i.i, i64 16
   %203 = load <16 x i8>, ptr %202, align 16, !noalias !5313
   %204 = icmp slt <16 x i8> %203, zeroinitializer
   %205 = bitcast <16 x i1> %204 to i16
-  %206 = add i64 %.sroa.516.154.i.i, 16
+  %206 = add i64 %.sroa.516.153.i.i, 16
   %.not.i.not.i.i11 = icmp eq i16 %205, -1
   br i1 %.not.i.not.i.i11, label %.noexc4.i.i, label %.noexc2._crit_edge.loopexit.i.i
 
@@ -20933,15 +20933,15 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17hfc9bc69536d8d4a2E.llvm.1
   br label %.noexc2._crit_edge.i.i
 
 .noexc2._crit_edge.i.i:                           ; preds = %.noexc2._crit_edge.loopexit.i.i, %.noexc2.preheader.i.i
-  %.sroa.1319.1.lcssa51.i.i = phi i16 [ %.sroa.1319.063.i.i, %.noexc2.preheader.i.i ], [ %207, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.060.i.i, %.noexc2.preheader.i.i ], [ %202, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.061.i.i, %.noexc2.preheader.i.i ], [ %206, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.1319.1.lcssa51.i.i = phi i16 [ %.sroa.1319.060.i.i, %.noexc2.preheader.i.i ], [ %207, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ], [ %206, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.063.i.i, %.noexc2.preheader.i.i ], [ %202, %.noexc2._crit_edge.loopexit.i.i ]
   %208 = add i16 %.sroa.1319.1.lcssa51.i.i, -1
   %209 = and i16 %208, %.sroa.1319.1.lcssa51.i.i
   %210 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.1319.1.lcssa51.i.i, i1 true)
   %211 = zext nneg i16 %210 to i64
   %212 = add i64 %.sroa.516.1.lcssa.i.i, %211
-  %213 = add i64 %.sroa.9.062.i.i, -1
+  %213 = add i64 %.sroa.9.061.i.i, -1
   %214 = sub nsw i64 0, %212
   %215 = getelementptr inbounds { { { { ptr, i64 } }, {} }, { { {} } } }, ptr %.val.i.i.i, i64 %214
   %216 = getelementptr inbounds i8, ptr %215, i64 -16
@@ -21488,23 +21488,23 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17hfae746254db83acbE.llvm.1
 
 .noexc2.preheader.i.i:                            ; preds = %269, %.noexc2.preheader.lr.ph.i.i
   %.val.i.i.i = phi ptr [ %181, %.noexc2.preheader.lr.ph.i.i ], [ %275, %269 ]
-  %.sroa.1319.063.i.i = phi i16 [ %185, %.noexc2.preheader.lr.ph.i.i ], [ %194, %269 ]
-  %.sroa.9.062.i.i = phi i64 [ %124, %.noexc2.preheader.lr.ph.i.i ], [ %198, %269 ]
-  %.sroa.516.061.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %269 ]
-  %.sroa.015.060.i.i = phi ptr [ %181, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %269 ]
-  %.not.i.not52.i.i = icmp eq i16 %.sroa.1319.063.i.i, 0
+  %.sroa.015.063.i.i = phi ptr [ %181, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.015.1.lcssa.i.i, %269 ]
+  %.sroa.516.062.i.i = phi i64 [ 0, %.noexc2.preheader.lr.ph.i.i ], [ %.sroa.516.1.lcssa.i.i, %269 ]
+  %.sroa.9.061.i.i = phi i64 [ %124, %.noexc2.preheader.lr.ph.i.i ], [ %198, %269 ]
+  %.sroa.1319.060.i.i = phi i16 [ %185, %.noexc2.preheader.lr.ph.i.i ], [ %194, %269 ]
+  %.not.i.not52.i.i = icmp eq i16 %.sroa.1319.060.i.i, 0
   br i1 %.not.i.not52.i.i, label %.noexc4.i.i, label %.noexc2._crit_edge.i.i
 
 .noexc4.i.i:                                      ; preds = %.noexc2.preheader.i.i, %.noexc4.i.i
-  %.sroa.516.154.i.i = phi i64 [ %191, %.noexc4.i.i ], [ %.sroa.516.061.i.i, %.noexc2.preheader.i.i ]
-  %.sroa.015.153.i.i = phi ptr [ %187, %.noexc4.i.i ], [ %.sroa.015.060.i.i, %.noexc2.preheader.i.i ]
-  %186 = icmp ne ptr %.sroa.015.153.i.i, null
+  %.sroa.015.154.i.i = phi ptr [ %187, %.noexc4.i.i ], [ %.sroa.015.063.i.i, %.noexc2.preheader.i.i ]
+  %.sroa.516.153.i.i = phi i64 [ %191, %.noexc4.i.i ], [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ]
+  %186 = icmp ne ptr %.sroa.015.154.i.i, null
   call void @llvm.assume(i1 %186)
-  %187 = getelementptr inbounds i8, ptr %.sroa.015.153.i.i, i64 16
+  %187 = getelementptr inbounds i8, ptr %.sroa.015.154.i.i, i64 16
   %188 = load <16 x i8>, ptr %187, align 16, !noalias !5493
   %189 = icmp slt <16 x i8> %188, zeroinitializer
   %190 = bitcast <16 x i1> %189 to i16
-  %191 = add i64 %.sroa.516.154.i.i, 16
+  %191 = add i64 %.sroa.516.153.i.i, 16
   %.not.i.not.i.i12 = icmp eq i16 %190, -1
   br i1 %.not.i.not.i.i12, label %.noexc4.i.i, label %.noexc2._crit_edge.loopexit.i.i
 
@@ -21513,15 +21513,15 @@ _ZN9hashbrown3raw5inner13RawTableInner13drop_elements17hfae746254db83acbE.llvm.1
   br label %.noexc2._crit_edge.i.i
 
 .noexc2._crit_edge.i.i:                           ; preds = %.noexc2._crit_edge.loopexit.i.i, %.noexc2.preheader.i.i
-  %.sroa.1319.1.lcssa51.i.i = phi i16 [ %.sroa.1319.063.i.i, %.noexc2.preheader.i.i ], [ %192, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.060.i.i, %.noexc2.preheader.i.i ], [ %187, %.noexc2._crit_edge.loopexit.i.i ]
-  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.061.i.i, %.noexc2.preheader.i.i ], [ %191, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.1319.1.lcssa51.i.i = phi i16 [ %.sroa.1319.060.i.i, %.noexc2.preheader.i.i ], [ %192, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.516.1.lcssa.i.i = phi i64 [ %.sroa.516.062.i.i, %.noexc2.preheader.i.i ], [ %191, %.noexc2._crit_edge.loopexit.i.i ]
+  %.sroa.015.1.lcssa.i.i = phi ptr [ %.sroa.015.063.i.i, %.noexc2.preheader.i.i ], [ %187, %.noexc2._crit_edge.loopexit.i.i ]
   %193 = add i16 %.sroa.1319.1.lcssa51.i.i, -1
   %194 = and i16 %193, %.sroa.1319.1.lcssa51.i.i
   %195 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.1319.1.lcssa51.i.i, i1 true)
   %196 = zext nneg i16 %195 to i64
   %197 = add i64 %.sroa.516.1.lcssa.i.i, %196
-  %198 = add i64 %.sroa.9.062.i.i, -1
+  %198 = add i64 %.sroa.9.061.i.i, -1
   %199 = sub nsw i64 0, %197
   %200 = getelementptr inbounds ptr, ptr %.val.i.i.i, i64 %199
   %201 = getelementptr inbounds i8, ptr %200, i64 -8
@@ -23820,10 +23820,10 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   br label %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit.i.i.i"
 
 "_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit.i.i.i": ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h2250f81e9127a173E.exit.i.i.i", %21
-  %.026.i.i.i = phi i16 [ %24, %21 ], [ %26, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h2250f81e9127a173E.exit.i.i.i" ]
-  %.not.i.not.i.i.i.not = icmp ne i16 %.026.i.i.i, 0
-  %25 = add i16 %.026.i.i.i, -1
-  %26 = and i16 %25, %.026.i.i.i
+  %.0.i.i.i = phi i16 [ %24, %21 ], [ %26, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h2250f81e9127a173E.exit.i.i.i" ]
+  %.not.i.not.i.i.i.not = icmp ne i16 %.0.i.i.i, 0
+  %25 = add i16 %.0.i.i.i, -1
+  %26 = and i16 %25, %.0.i.i.i
   br i1 %.not.i.not.i.i.i.not, label %28, label %27
 
 27:                                               ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit.i.i.i"
@@ -23831,7 +23831,7 @@ define hidden { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11in
   br i1 %.not.i.i.i, label %44, label %48
 
 28:                                               ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit.i.i.i"
-  %29 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.026.i.i.i, i1 true)
+  %29 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i.i, i1 true)
   %30 = zext nneg i16 %29 to i64
   %31 = add i64 %.sroa.0.025.i.i.i, %30
   %32 = and i64 %31, %.val5.i.i
@@ -30166,23 +30166,23 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h5723d79da7bb3e3aE
   br label %common.resume
 
 .noexc.preheader:                                 ; preds = %.noexc.preheader.lr.ph, %128
-  %.sroa.1332.086 = phi i16 [ %40, %.noexc.preheader.lr.ph ], [ %52, %128 ]
-  %.sroa.9.085 = phi i64 [ %35, %.noexc.preheader.lr.ph ], [ %56, %128 ]
-  %.sroa.529.084 = phi i64 [ 0, %.noexc.preheader.lr.ph ], [ %.sroa.529.1.lcssa, %128 ]
-  %.sroa.028.083 = phi ptr [ %36, %.noexc.preheader.lr.ph ], [ %.sroa.028.1.lcssa, %128 ]
-  %.not.i7.not75 = icmp eq i16 %.sroa.1332.086, 0
+  %.sroa.028.086 = phi ptr [ %36, %.noexc.preheader.lr.ph ], [ %.sroa.028.1.lcssa, %128 ]
+  %.sroa.529.085 = phi i64 [ 0, %.noexc.preheader.lr.ph ], [ %.sroa.529.1.lcssa, %128 ]
+  %.sroa.9.084 = phi i64 [ %35, %.noexc.preheader.lr.ph ], [ %56, %128 ]
+  %.sroa.1332.083 = phi i16 [ %40, %.noexc.preheader.lr.ph ], [ %52, %128 ]
+  %.not.i7.not75 = icmp eq i16 %.sroa.1332.083, 0
   br i1 %.not.i7.not75, label %.noexc2, label %.noexc._crit_edge
 
 .noexc2:                                          ; preds = %.noexc.preheader, %.noexc2
-  %.sroa.529.177 = phi i64 [ %49, %.noexc2 ], [ %.sroa.529.084, %.noexc.preheader ]
-  %.sroa.028.176 = phi ptr [ %45, %.noexc2 ], [ %.sroa.028.083, %.noexc.preheader ]
-  %44 = icmp ne ptr %.sroa.028.176, null
+  %.sroa.028.177 = phi ptr [ %45, %.noexc2 ], [ %.sroa.028.086, %.noexc.preheader ]
+  %.sroa.529.176 = phi i64 [ %49, %.noexc2 ], [ %.sroa.529.085, %.noexc.preheader ]
+  %44 = icmp ne ptr %.sroa.028.177, null
   call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds i8, ptr %.sroa.028.176, i64 16
+  %45 = getelementptr inbounds i8, ptr %.sroa.028.177, i64 16
   %46 = load <16 x i8>, ptr %45, align 16, !noalias !7389
   %47 = icmp slt <16 x i8> %46, zeroinitializer
   %48 = bitcast <16 x i1> %47 to i16
-  %49 = add i64 %.sroa.529.177, 16
+  %49 = add i64 %.sroa.529.176, 16
   %.not.i7.not = icmp eq i16 %48, -1
   br i1 %.not.i7.not, label %.noexc2, label %.noexc._crit_edge.loopexit
 
@@ -30191,15 +30191,15 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h5723d79da7bb3e3aE
   br label %.noexc._crit_edge
 
 .noexc._crit_edge:                                ; preds = %.noexc._crit_edge.loopexit, %.noexc.preheader
-  %.sroa.1332.1.lcssa74 = phi i16 [ %.sroa.1332.086, %.noexc.preheader ], [ %50, %.noexc._crit_edge.loopexit ]
-  %.sroa.028.1.lcssa = phi ptr [ %.sroa.028.083, %.noexc.preheader ], [ %45, %.noexc._crit_edge.loopexit ]
-  %.sroa.529.1.lcssa = phi i64 [ %.sroa.529.084, %.noexc.preheader ], [ %49, %.noexc._crit_edge.loopexit ]
+  %.sroa.1332.1.lcssa74 = phi i16 [ %.sroa.1332.083, %.noexc.preheader ], [ %50, %.noexc._crit_edge.loopexit ]
+  %.sroa.529.1.lcssa = phi i64 [ %.sroa.529.085, %.noexc.preheader ], [ %49, %.noexc._crit_edge.loopexit ]
+  %.sroa.028.1.lcssa = phi ptr [ %.sroa.028.086, %.noexc.preheader ], [ %45, %.noexc._crit_edge.loopexit ]
   %51 = add i16 %.sroa.1332.1.lcssa74, -1
   %52 = and i16 %51, %.sroa.1332.1.lcssa74
   %53 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.1332.1.lcssa74, i1 true)
   %54 = zext nneg i16 %53 to i64
   %55 = add i64 %.sroa.529.1.lcssa, %54
-  %56 = add i64 %.sroa.9.085, -1
+  %56 = add i64 %.sroa.9.084, -1
   call void @llvm.experimental.noalias.scope.decl(metadata !7392)
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !7392, !noalias !7388, !nonnull !4, !noundef !4
   %57 = sub nsw i64 0, %55
@@ -30762,23 +30762,23 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h5723d79da7bb3e3aE
   br label %common.resume
 
 .noexc.preheader:                                 ; preds = %.noexc.preheader.lr.ph, %115
-  %.sroa.1330.096 = phi i16 [ %40, %.noexc.preheader.lr.ph ], [ %52, %115 ]
-  %.sroa.9.095 = phi i64 [ %35, %.noexc.preheader.lr.ph ], [ %56, %115 ]
-  %.sroa.527.094 = phi i64 [ 0, %.noexc.preheader.lr.ph ], [ %.sroa.527.1.lcssa, %115 ]
-  %.sroa.026.093 = phi ptr [ %36, %.noexc.preheader.lr.ph ], [ %.sroa.026.1.lcssa, %115 ]
-  %.not.i7.not84 = icmp eq i16 %.sroa.1330.096, 0
+  %.sroa.026.096 = phi ptr [ %36, %.noexc.preheader.lr.ph ], [ %.sroa.026.1.lcssa, %115 ]
+  %.sroa.527.095 = phi i64 [ 0, %.noexc.preheader.lr.ph ], [ %.sroa.527.1.lcssa, %115 ]
+  %.sroa.9.094 = phi i64 [ %35, %.noexc.preheader.lr.ph ], [ %56, %115 ]
+  %.sroa.1330.093 = phi i16 [ %40, %.noexc.preheader.lr.ph ], [ %52, %115 ]
+  %.not.i7.not84 = icmp eq i16 %.sroa.1330.093, 0
   br i1 %.not.i7.not84, label %.noexc2, label %.noexc._crit_edge
 
 .noexc2:                                          ; preds = %.noexc.preheader, %.noexc2
-  %.sroa.527.186 = phi i64 [ %49, %.noexc2 ], [ %.sroa.527.094, %.noexc.preheader ]
-  %.sroa.026.185 = phi ptr [ %45, %.noexc2 ], [ %.sroa.026.093, %.noexc.preheader ]
-  %44 = icmp ne ptr %.sroa.026.185, null
+  %.sroa.026.186 = phi ptr [ %45, %.noexc2 ], [ %.sroa.026.096, %.noexc.preheader ]
+  %.sroa.527.185 = phi i64 [ %49, %.noexc2 ], [ %.sroa.527.095, %.noexc.preheader ]
+  %44 = icmp ne ptr %.sroa.026.186, null
   tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds i8, ptr %.sroa.026.185, i64 16
+  %45 = getelementptr inbounds i8, ptr %.sroa.026.186, i64 16
   %46 = load <16 x i8>, ptr %45, align 16, !noalias !7560
   %47 = icmp slt <16 x i8> %46, zeroinitializer
   %48 = bitcast <16 x i1> %47 to i16
-  %49 = add i64 %.sroa.527.186, 16
+  %49 = add i64 %.sroa.527.185, 16
   %.not.i7.not = icmp eq i16 %48, -1
   br i1 %.not.i7.not, label %.noexc2, label %.noexc._crit_edge.loopexit
 
@@ -30787,15 +30787,15 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h5723d79da7bb3e3aE
   br label %.noexc._crit_edge
 
 .noexc._crit_edge:                                ; preds = %.noexc._crit_edge.loopexit, %.noexc.preheader
-  %.sroa.1330.1.lcssa83 = phi i16 [ %.sroa.1330.096, %.noexc.preheader ], [ %50, %.noexc._crit_edge.loopexit ]
-  %.sroa.026.1.lcssa = phi ptr [ %.sroa.026.093, %.noexc.preheader ], [ %45, %.noexc._crit_edge.loopexit ]
-  %.sroa.527.1.lcssa = phi i64 [ %.sroa.527.094, %.noexc.preheader ], [ %49, %.noexc._crit_edge.loopexit ]
+  %.sroa.1330.1.lcssa83 = phi i16 [ %.sroa.1330.093, %.noexc.preheader ], [ %50, %.noexc._crit_edge.loopexit ]
+  %.sroa.527.1.lcssa = phi i64 [ %.sroa.527.095, %.noexc.preheader ], [ %49, %.noexc._crit_edge.loopexit ]
+  %.sroa.026.1.lcssa = phi ptr [ %.sroa.026.096, %.noexc.preheader ], [ %45, %.noexc._crit_edge.loopexit ]
   %51 = add i16 %.sroa.1330.1.lcssa83, -1
   %52 = and i16 %51, %.sroa.1330.1.lcssa83
   %53 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.1330.1.lcssa83, i1 true)
   %54 = zext nneg i16 %53 to i64
   %55 = add i64 %.sroa.527.1.lcssa, %54
-  %56 = add i64 %.sroa.9.095, -1
+  %56 = add i64 %.sroa.9.094, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7563)
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !7563, !noalias !7566, !nonnull !4, !noundef !4
   %57 = sub nsw i64 0, %55
@@ -31276,23 +31276,23 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h5723d79da7bb3e3aE
   br label %_ZN9hashbrown3raw5inner13RawTableInner20reserve_rehash_inner17h9f777afe5d36519eE.exit
 
 .noexc.preheader:                                 ; preds = %.noexc.preheader.lr.ph, %124
-  %.sroa.1332.088 = phi i16 [ %35, %.noexc.preheader.lr.ph ], [ %45, %124 ]
-  %.sroa.9.087 = phi i64 [ %6, %.noexc.preheader.lr.ph ], [ %49, %124 ]
-  %.sroa.529.086 = phi i64 [ 0, %.noexc.preheader.lr.ph ], [ %.sroa.529.1.lcssa, %124 ]
-  %.sroa.028.085 = phi ptr [ %31, %.noexc.preheader.lr.ph ], [ %.sroa.028.1.lcssa, %124 ]
-  %.not.i7.not77 = icmp eq i16 %.sroa.1332.088, 0
+  %.sroa.028.088 = phi ptr [ %31, %.noexc.preheader.lr.ph ], [ %.sroa.028.1.lcssa, %124 ]
+  %.sroa.529.087 = phi i64 [ 0, %.noexc.preheader.lr.ph ], [ %.sroa.529.1.lcssa, %124 ]
+  %.sroa.9.086 = phi i64 [ %6, %.noexc.preheader.lr.ph ], [ %49, %124 ]
+  %.sroa.1332.085 = phi i16 [ %35, %.noexc.preheader.lr.ph ], [ %45, %124 ]
+  %.not.i7.not77 = icmp eq i16 %.sroa.1332.085, 0
   br i1 %.not.i7.not77, label %.noexc2, label %.noexc._crit_edge
 
 .noexc2:                                          ; preds = %.noexc.preheader, %.noexc2
-  %.sroa.529.179 = phi i64 [ %42, %.noexc2 ], [ %.sroa.529.086, %.noexc.preheader ]
-  %.sroa.028.178 = phi ptr [ %38, %.noexc2 ], [ %.sroa.028.085, %.noexc.preheader ]
-  %37 = icmp ne ptr %.sroa.028.178, null
+  %.sroa.028.179 = phi ptr [ %38, %.noexc2 ], [ %.sroa.028.088, %.noexc.preheader ]
+  %.sroa.529.178 = phi i64 [ %42, %.noexc2 ], [ %.sroa.529.087, %.noexc.preheader ]
+  %37 = icmp ne ptr %.sroa.028.179, null
   tail call void @llvm.assume(i1 %37)
-  %38 = getelementptr inbounds i8, ptr %.sroa.028.178, i64 16
+  %38 = getelementptr inbounds i8, ptr %.sroa.028.179, i64 16
   %39 = load <16 x i8>, ptr %38, align 16, !noalias !7632
   %40 = icmp slt <16 x i8> %39, zeroinitializer
   %41 = bitcast <16 x i1> %40 to i16
-  %42 = add i64 %.sroa.529.179, 16
+  %42 = add i64 %.sroa.529.178, 16
   %.not.i7.not = icmp eq i16 %41, -1
   br i1 %.not.i7.not, label %.noexc2, label %.noexc._crit_edge.loopexit
 
@@ -31301,15 +31301,15 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h5723d79da7bb3e3aE
   br label %.noexc._crit_edge
 
 .noexc._crit_edge:                                ; preds = %.noexc._crit_edge.loopexit, %.noexc.preheader
-  %.sroa.1332.1.lcssa76 = phi i16 [ %.sroa.1332.088, %.noexc.preheader ], [ %43, %.noexc._crit_edge.loopexit ]
-  %.sroa.028.1.lcssa = phi ptr [ %.sroa.028.085, %.noexc.preheader ], [ %38, %.noexc._crit_edge.loopexit ]
-  %.sroa.529.1.lcssa = phi i64 [ %.sroa.529.086, %.noexc.preheader ], [ %42, %.noexc._crit_edge.loopexit ]
+  %.sroa.1332.1.lcssa76 = phi i16 [ %.sroa.1332.085, %.noexc.preheader ], [ %43, %.noexc._crit_edge.loopexit ]
+  %.sroa.529.1.lcssa = phi i64 [ %.sroa.529.087, %.noexc.preheader ], [ %42, %.noexc._crit_edge.loopexit ]
+  %.sroa.028.1.lcssa = phi ptr [ %.sroa.028.088, %.noexc.preheader ], [ %38, %.noexc._crit_edge.loopexit ]
   %44 = add i16 %.sroa.1332.1.lcssa76, -1
   %45 = and i16 %44, %.sroa.1332.1.lcssa76
   %46 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.1332.1.lcssa76, i1 true)
   %47 = zext nneg i16 %46 to i64
   %48 = add i64 %.sroa.529.1.lcssa, %47
-  %49 = add i64 %.sroa.9.087, -1
+  %49 = add i64 %.sroa.9.086, -1
   %50 = sub nsw i64 0, %48
   %gep125 = getelementptr ptr, ptr %invariant.gep124, i64 %50
   %.val3.i = load ptr, ptr %gep125, align 8, !alias.scope !7635, !noalias !7638, !nonnull !4, !noundef !4
@@ -31817,23 +31817,23 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h5723d79da7bb3e3aE
   br label %common.resume
 
 .noexc.preheader:                                 ; preds = %.noexc.preheader.lr.ph, %136
-  %.sroa.1335.092 = phi i16 [ %40, %.noexc.preheader.lr.ph ], [ %52, %136 ]
-  %.sroa.9.091 = phi i64 [ %35, %.noexc.preheader.lr.ph ], [ %56, %136 ]
-  %.sroa.532.090 = phi i64 [ 0, %.noexc.preheader.lr.ph ], [ %.sroa.532.1.lcssa, %136 ]
-  %.sroa.031.089 = phi ptr [ %36, %.noexc.preheader.lr.ph ], [ %.sroa.031.1.lcssa, %136 ]
-  %.not.i7.not81 = icmp eq i16 %.sroa.1335.092, 0
+  %.sroa.031.092 = phi ptr [ %36, %.noexc.preheader.lr.ph ], [ %.sroa.031.1.lcssa, %136 ]
+  %.sroa.532.091 = phi i64 [ 0, %.noexc.preheader.lr.ph ], [ %.sroa.532.1.lcssa, %136 ]
+  %.sroa.9.090 = phi i64 [ %35, %.noexc.preheader.lr.ph ], [ %56, %136 ]
+  %.sroa.1335.089 = phi i16 [ %40, %.noexc.preheader.lr.ph ], [ %52, %136 ]
+  %.not.i7.not81 = icmp eq i16 %.sroa.1335.089, 0
   br i1 %.not.i7.not81, label %.noexc2, label %.noexc._crit_edge
 
 .noexc2:                                          ; preds = %.noexc.preheader, %.noexc2
-  %.sroa.532.183 = phi i64 [ %49, %.noexc2 ], [ %.sroa.532.090, %.noexc.preheader ]
-  %.sroa.031.182 = phi ptr [ %45, %.noexc2 ], [ %.sroa.031.089, %.noexc.preheader ]
-  %44 = icmp ne ptr %.sroa.031.182, null
+  %.sroa.031.183 = phi ptr [ %45, %.noexc2 ], [ %.sroa.031.092, %.noexc.preheader ]
+  %.sroa.532.182 = phi i64 [ %49, %.noexc2 ], [ %.sroa.532.091, %.noexc.preheader ]
+  %44 = icmp ne ptr %.sroa.031.183, null
   call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds i8, ptr %.sroa.031.182, i64 16
+  %45 = getelementptr inbounds i8, ptr %.sroa.031.183, i64 16
   %46 = load <16 x i8>, ptr %45, align 16, !noalias !7760
   %47 = icmp slt <16 x i8> %46, zeroinitializer
   %48 = bitcast <16 x i1> %47 to i16
-  %49 = add i64 %.sroa.532.183, 16
+  %49 = add i64 %.sroa.532.182, 16
   %.not.i7.not = icmp eq i16 %48, -1
   br i1 %.not.i7.not, label %.noexc2, label %.noexc._crit_edge.loopexit
 
@@ -31842,15 +31842,15 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h5723d79da7bb3e3aE
   br label %.noexc._crit_edge
 
 .noexc._crit_edge:                                ; preds = %.noexc._crit_edge.loopexit, %.noexc.preheader
-  %.sroa.1335.1.lcssa80 = phi i16 [ %.sroa.1335.092, %.noexc.preheader ], [ %50, %.noexc._crit_edge.loopexit ]
-  %.sroa.031.1.lcssa = phi ptr [ %.sroa.031.089, %.noexc.preheader ], [ %45, %.noexc._crit_edge.loopexit ]
-  %.sroa.532.1.lcssa = phi i64 [ %.sroa.532.090, %.noexc.preheader ], [ %49, %.noexc._crit_edge.loopexit ]
+  %.sroa.1335.1.lcssa80 = phi i16 [ %.sroa.1335.089, %.noexc.preheader ], [ %50, %.noexc._crit_edge.loopexit ]
+  %.sroa.532.1.lcssa = phi i64 [ %.sroa.532.091, %.noexc.preheader ], [ %49, %.noexc._crit_edge.loopexit ]
+  %.sroa.031.1.lcssa = phi ptr [ %.sroa.031.092, %.noexc.preheader ], [ %45, %.noexc._crit_edge.loopexit ]
   %51 = add i16 %.sroa.1335.1.lcssa80, -1
   %52 = and i16 %51, %.sroa.1335.1.lcssa80
   %53 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.1335.1.lcssa80, i1 true)
   %54 = zext nneg i16 %53 to i64
   %55 = add i64 %.sroa.532.1.lcssa, %54
-  %56 = add i64 %.sroa.9.091, -1
+  %56 = add i64 %.sroa.9.090, -1
   call void @llvm.experimental.noalias.scope.decl(metadata !7763)
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !7763, !noalias !7759, !nonnull !4, !noundef !4
   %57 = sub nsw i64 0, %55
@@ -33468,8 +33468,8 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hb878937fe9f169b2E.exit.i: ; preds 
   %222 = icmp ult i32 %197, %221
   %223 = icmp ne i32 %197, %221
   %..i = zext i1 %223 to i8
-  %.031.i = select i1 %222, i8 -1, i8 %..i
-  switch i8 %.031.i, label %224 [
+  %.032.i = select i1 %222, i8 -1, i8 %..i
+  switch i8 %.032.i, label %224 [
     i8 -1, label %.critedge.i
     i8 0, label %.critedge.i
   ]
@@ -37809,13 +37809,13 @@ define hidden noundef zeroext i1 @_ZN11ide_assists8handlers18expand_glob_import1
   unreachable
 
 "_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..UseTree$GT$17h2027e433f9c999c6E.exit168": ; preds = %.thread, %275, %"_ZN4core3ptr126drop_in_place$LT$either..Either$LT$syntax..ast..generated..nodes..UseTree$C$syntax..ast..generated..nodes..UseTreeList$GT$$GT$17hcc6a9550c0e824afE.exit166", %48
-  %.088 = phi i8 [ %.189, %48 ], [ %.896, %"_ZN4core3ptr126drop_in_place$LT$either..Either$LT$syntax..ast..generated..nodes..UseTree$C$syntax..ast..generated..nodes..UseTreeList$GT$$GT$17hcc6a9550c0e824afE.exit166" ], [ %.290203, %275 ], [ %.290203, %.thread ]
+  %.089 = phi i8 [ %.190, %48 ], [ %.897, %"_ZN4core3ptr126drop_in_place$LT$either..Either$LT$syntax..ast..generated..nodes..UseTree$C$syntax..ast..generated..nodes..UseTreeList$GT$$GT$17hcc6a9550c0e824afE.exit166" ], [ %.291203, %275 ], [ %.291203, %.thread ]
   %.pn114 = phi { ptr, i32 } [ %49, %48 ], [ %.pn110, %"_ZN4core3ptr126drop_in_place$LT$either..Either$LT$syntax..ast..generated..nodes..UseTree$C$syntax..ast..generated..nodes..UseTreeList$GT$$GT$17hcc6a9550c0e824afE.exit166" ], [ %.pn112204, %275 ], [ %.pn112204, %.thread ]
-  %47 = trunc nuw i8 %.088 to i1
+  %47 = trunc nuw i8 %.089 to i1
   br i1 %47, label %281, label %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h0f6b849c6d556ca0E.exit170"
 
 48:                                               ; preds = %263, %50, %46
-  %.189 = phi i8 [ 1, %46 ], [ 1, %50 ], [ %.13, %263 ]
+  %.190 = phi i8 [ 1, %46 ], [ 1, %50 ], [ %.13, %263 ]
   %49 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..UseTree$GT$17h2027e433f9c999c6E.exit168"
@@ -37969,7 +37969,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hbdb46f06b9f7dc88E.exit.i: ; pr
   br i1 %93, label %.thread, label %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..UseTree$GT$17h2027e433f9c999c6E.exit168"
 
 94:                                               ; preds = %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..UseTree$GT$17h2027e433f9c999c6E.exit.sink.split.i", %90, %62
-  %.391 = phi i8 [ 1, %62 ], [ 1, %90 ], [ %.12, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..UseTree$GT$17h2027e433f9c999c6E.exit.sink.split.i" ]
+  %.392 = phi i8 [ 1, %62 ], [ 1, %90 ], [ %.12, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..UseTree$GT$17h2027e433f9c999c6E.exit.sink.split.i" ]
   %95 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -37990,7 +37990,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hbdb46f06b9f7dc88E.exit.i: ; pr
           to label %109 unwind label %107
 
 "_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit": ; preds = %154, %129, %136, %107
-  %.492 = phi i8 [ %.593, %107 ], [ 1, %136 ], [ 1, %129 ], [ %.694, %154 ]
+  %.493 = phi i8 [ %.594, %107 ], [ 1, %136 ], [ 1, %129 ], [ %.695, %154 ]
   %.075 = phi i8 [ %.268, %107 ], [ 1, %136 ], [ 1, %129 ], [ %.277, %154 ]
   %.167 = phi i8 [ %.268, %107 ], [ 1, %136 ], [ 1, %129 ], [ %.369, %154 ]
   %.pn108 = phi { ptr, i32 } [ %108, %107 ], [ %130, %136 ], [ %130, %129 ], [ %.pn106, %154 ]
@@ -38011,7 +38011,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hbdb46f06b9f7dc88E.exit.i: ; pr
           to label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Path$GT$17h156ae76580f00612E.exit" unwind label %243
 
 107:                                              ; preds = %246, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit153", %153, %125, %98
-  %.593 = phi i8 [ 1, %98 ], [ 1, %125 ], [ 1, %153 ], [ 0, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit153" ], [ %.10, %246 ]
+  %.594 = phi i8 [ 1, %98 ], [ 1, %125 ], [ 1, %153 ], [ 0, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit153" ], [ %.10, %246 ]
   %.268 = phi i8 [ 1, %98 ], [ 1, %125 ], [ 1, %153 ], [ 0, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit153" ], [ 1, %246 ]
   %108 = landingpad { ptr, i32 }
           cleanup
@@ -38150,7 +38150,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hbdb46f06b9f7dc88E.exit.i: ; pr
           to label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit132" unwind label %107
 
 154:                                              ; preds = %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit151", %.thread231, %155
-  %.694 = phi i8 [ %.795, %155 ], [ 0, %.thread231 ], [ 0, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit151" ]
+  %.695 = phi i8 [ %.796, %155 ], [ 0, %.thread231 ], [ 0, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit151" ]
   %.277 = phi i8 [ 1, %155 ], [ %.378223, %.thread231 ], [ 0, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit151" ]
   %.369 = phi i8 [ 1, %155 ], [ %.470224, %.thread231 ], [ %.571, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit151" ]
   %.pn106 = phi { ptr, i32 } [ %156, %155 ], [ %.pn.pn225, %.thread231 ], [ %.pn, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit151" ]
@@ -38158,7 +38158,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17hbdb46f06b9f7dc88E.exit.i: ; pr
           to label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit" unwind label %243
 
 155:                                              ; preds = %.noexc148, %188, %.noexc146, %183, %_ZN11ide_assists8handlers18expand_glob_import26is_expandable_visible_from17he71008297f84d33cE.exit.i, %177, %.noexc142, %.noexc141, %172, %.noexc139, %.noexc138, %.noexc137, %164, %159, %146, %204, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit130"
-  %.795 = phi i8 [ 0, %204 ], [ 1, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit130" ], [ 1, %146 ], [ 1, %159 ], [ 1, %164 ], [ 1, %.noexc137 ], [ 1, %.noexc138 ], [ 1, %.noexc139 ], [ 1, %172 ], [ 1, %.noexc141 ], [ 1, %.noexc142 ], [ 1, %177 ], [ 1, %_ZN11ide_assists8handlers18expand_glob_import26is_expandable_visible_from17he71008297f84d33cE.exit.i ], [ 1, %183 ], [ 1, %.noexc146 ], [ 1, %188 ], [ 1, %.noexc148 ]
+  %.796 = phi i8 [ 0, %204 ], [ 1, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit130" ], [ 1, %146 ], [ 1, %159 ], [ 1, %164 ], [ 1, %.noexc137 ], [ 1, %.noexc138 ], [ 1, %.noexc139 ], [ 1, %172 ], [ 1, %.noexc141 ], [ 1, %.noexc142 ], [ 1, %177 ], [ 1, %_ZN11ide_assists8handlers18expand_glob_import26is_expandable_visible_from17he71008297f84d33cE.exit.i ], [ 1, %183 ], [ 1, %.noexc146 ], [ 1, %188 ], [ 1, %.noexc148 ]
   %156 = landingpad { ptr, i32 }
           cleanup
   br label %154
@@ -38528,7 +38528,7 @@ _ZN11ide_assists8handlers18expand_glob_import26is_expandable_visible_from17he710
           to label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Path$GT$17h156ae76580f00612E.exit157" unwind label %241
 
 "_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Path$GT$17h156ae76580f00612E.exit": ; preds = %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit", %106, %241
-  %.896 = phi i8 [ %.997, %241 ], [ %.492, %106 ], [ %.492, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit" ]
+  %.897 = phi i8 [ %.998, %241 ], [ %.493, %106 ], [ %.493, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit" ]
   %.479 = phi i8 [ %.9, %241 ], [ %.075, %106 ], [ %.075, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit" ]
   %.874 = phi i8 [ %.9, %241 ], [ %.167, %106 ], [ %.167, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit" ]
   %.pn110 = phi { ptr, i32 } [ %242, %241 ], [ %.pn108, %106 ], [ %.pn108, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit" ]
@@ -38536,7 +38536,7 @@ _ZN11ide_assists8handlers18expand_glob_import26is_expandable_visible_from17he710
   br i1 %240, label %264, label %"_ZN4core3ptr126drop_in_place$LT$either..Either$LT$syntax..ast..generated..nodes..UseTree$C$syntax..ast..generated..nodes..UseTreeList$GT$$GT$17hcc6a9550c0e824afE.exit166"
 
 241:                                              ; preds = %253, %239
-  %.997 = phi i8 [ 0, %239 ], [ %.12, %253 ]
+  %.998 = phi i8 [ 0, %239 ], [ %.12, %253 ]
   %.9 = phi i8 [ 0, %239 ], [ 1, %253 ]
   %242 = landingpad { ptr, i32 }
           cleanup
@@ -38648,7 +38648,7 @@ _ZN11ide_assists8handlers18expand_glob_import26is_expandable_visible_from17he710
 
 .thread:                                          ; preds = %74, %77, %82, %94, %"_ZN4core3ptr126drop_in_place$LT$either..Either$LT$syntax..ast..generated..nodes..UseTree$C$syntax..ast..generated..nodes..UseTreeList$GT$$GT$17hcc6a9550c0e824afE.exit166"
   %.pn112204 = phi { ptr, i32 } [ %.pn110, %"_ZN4core3ptr126drop_in_place$LT$either..Either$LT$syntax..ast..generated..nodes..UseTree$C$syntax..ast..generated..nodes..UseTreeList$GT$$GT$17hcc6a9550c0e824afE.exit166" ], [ %95, %94 ], [ %lpad.phi.i, %82 ], [ %lpad.phi.i, %77 ], [ %lpad.phi.i, %74 ]
-  %.290203 = phi i8 [ %.896, %"_ZN4core3ptr126drop_in_place$LT$either..Either$LT$syntax..ast..generated..nodes..UseTree$C$syntax..ast..generated..nodes..UseTreeList$GT$$GT$17hcc6a9550c0e824afE.exit166" ], [ %.391, %94 ], [ 1, %82 ], [ 1, %77 ], [ 1, %74 ]
+  %.291203 = phi i8 [ %.897, %"_ZN4core3ptr126drop_in_place$LT$either..Either$LT$syntax..ast..generated..nodes..UseTree$C$syntax..ast..generated..nodes..UseTreeList$GT$$GT$17hcc6a9550c0e824afE.exit166" ], [ %.392, %94 ], [ 1, %82 ], [ 1, %77 ], [ 1, %74 ]
   %271 = getelementptr inbounds i8, ptr %52, i64 48
   %272 = load i32, ptr %271, align 4, !noalias !9467, !noundef !4
   %273 = add i32 %272, -1

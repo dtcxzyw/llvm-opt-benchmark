@@ -416,27 +416,27 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %51 = getelementptr inbounds i8, ptr %1, i64 192
   %52 = getelementptr inbounds i8, ptr %4, i64 8
   %53 = icmp sgt i32 %49, 1
-  %54 = zext i1 %53 to i64
-  %55 = sext i32 %50 to i64
+  %54 = sext i32 %50 to i64
+  %55 = zext i1 %53 to i64
   %wide.trip.count = sext i32 %invariant.smin to i64
   br label %56
 
 56:                                               ; preds = %.lr.ph96, %56
-  %indvars.iv119 = phi i64 [ %55, %.lr.ph96 ], [ %indvars.iv.next120, %56 ]
-  %indvars.iv117 = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next118, %56 ]
+  %indvars.iv119 = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next120, %56 ]
+  %indvars.iv117 = phi i64 [ %54, %.lr.ph96 ], [ %indvars.iv.next118, %56 ]
   %57 = load ptr, ptr %51, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %59, i64 %indvars.iv117
+  %60 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %59, i64 %indvars.iv119
   %61 = load ptr, ptr %52, align 8
-  %62 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %61, i64 %indvars.iv119
+  %62 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %61, i64 %indvars.iv117
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %62, ptr noundef nonnull align 8 dereferenceable(12) %60, i64 12, i1 false)
   %63 = load i32, ptr %8, align 8
   %64 = add nsw i32 %63, 1
   store i32 %64, ptr %8, align 8
-  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, %54
-  %indvars.iv.next120 = add nsw i64 %indvars.iv119, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, %55
+  %indvars.iv.next118 = add nsw i64 %indvars.iv117, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %56, !llvm.loop !9
 
 65:                                               ; preds = %37
@@ -462,16 +462,16 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge108
   %77 = phi i32 [ %135, %._crit_edge108 ], [ %70, %.preheader.lr.ph ]
   %78 = phi i32 [ %136, %._crit_edge108 ], [ %75, %.preheader.lr.ph ]
-  %.066109 = phi i32 [ %137, %._crit_edge108 ], [ 0, %.preheader.lr.ph ]
+  %.065109 = phi i32 [ %137, %._crit_edge108 ], [ 0, %.preheader.lr.ph ]
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %.lr.ph107, label %._crit_edge108
 
 .lr.ph107:                                        ; preds = %.preheader, %131
   %80 = phi i32 [ %133, %131 ], [ %78, %.preheader ]
-  %.065105 = phi i32 [ %132, %131 ], [ 0, %.preheader ]
+  %.064105 = phi i32 [ %132, %131 ], [ 0, %.preheader ]
   %81 = load i32, ptr %8, align 8
-  %82 = mul nsw i32 %80, %.066109
-  %83 = add i32 %82, %.065105
+  %82 = mul nsw i32 %80, %.065109
+  %83 = add i32 %82, %.064105
   %84 = add i32 %83, %81
   %85 = load ptr, ptr %1, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 240
@@ -481,7 +481,7 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %90 = getelementptr inbounds i8, ptr %89, i64 112
   %91 = load ptr, ptr %90, align 8
   %92 = tail call noundef i32 %91(ptr noundef nonnull align 8 dereferenceable(152) %88) #5
-  %93 = icmp slt i32 %.065105, %92
+  %93 = icmp slt i32 %.064105, %92
   br i1 %93, label %94, label %123
 
 94:                                               ; preds = %.lr.ph107
@@ -493,7 +493,7 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %100 = getelementptr inbounds i8, ptr %99, i64 104
   %101 = load ptr, ptr %100, align 8
   %102 = tail call noundef i32 %101(ptr noundef nonnull align 8 dereferenceable(152) %98) #5
-  %103 = icmp slt i32 %.066109, %102
+  %103 = icmp slt i32 %.065109, %102
   br i1 %103, label %104, label %123
 
 104:                                              ; preds = %94
@@ -505,8 +505,8 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %110 = getelementptr inbounds i8, ptr %109, i64 112
   %111 = load ptr, ptr %110, align 8
   %112 = tail call noundef i32 %111(ptr noundef nonnull align 8 dereferenceable(152) %108) #5
-  %113 = mul nsw i32 %112, %.066109
-  %114 = add nsw i32 %113, %.065105
+  %113 = mul nsw i32 %112, %.065109
+  %114 = add nsw i32 %113, %.064105
   %115 = sext i32 %114 to i64
   %116 = load ptr, ptr %74, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 8
@@ -519,7 +519,7 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   br label %131
 
 123:                                              ; preds = %94, %.lr.ph107
-  %124 = icmp eq i32 %.065105, %.066109
+  %124 = icmp eq i32 %.064105, %.065109
   %125 = sext i32 %84 to i64
   %126 = load ptr, ptr %73, align 8
   %127 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %126, i64 %125
@@ -537,7 +537,7 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   br label %131
 
 131:                                              ; preds = %104, %130, %129
-  %132 = add nuw nsw i32 %.065105, 1
+  %132 = add nuw nsw i32 %.064105, 1
   %133 = load i32, ptr %72, align 4
   %134 = icmp slt i32 %132, %133
   br i1 %134, label %.lr.ph107, label %._crit_edge108.loopexit, !llvm.loop !10
@@ -549,7 +549,7 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
 ._crit_edge108:                                   ; preds = %._crit_edge108.loopexit, %.preheader
   %135 = phi i32 [ %.pre133, %._crit_edge108.loopexit ], [ %77, %.preheader ]
   %136 = phi i32 [ %133, %._crit_edge108.loopexit ], [ %78, %.preheader ]
-  %137 = add nuw nsw i32 %.066109, 1
+  %137 = add nuw nsw i32 %.065109, 1
   %138 = icmp slt i32 %137, %135
   br i1 %138, label %.preheader, label %.loopexit, !llvm.loop !11
 

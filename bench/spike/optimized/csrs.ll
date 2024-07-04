@@ -1752,17 +1752,17 @@ define noundef zeroext i1 @_ZN12pmpcfg_csr_t14unlogged_writeEm(ptr nocapture nou
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %65
   %38 = phi ptr [ %66, %65 ], [ %31, %.lr.ph ]
-  %.03253.us = phi i1 [ %.1.us, %65 ], [ false, %.lr.ph ]
-  %.03352.us = phi i64 [ %67, %65 ], [ %30, %.lr.ph ]
+  %.03253.us = phi i64 [ %67, %65 ], [ %30, %.lr.ph ]
+  %.03452.us = phi i1 [ %.135.us, %65 ], [ false, %.lr.ph ]
   %39 = getelementptr inbounds i8, ptr %38, i64 659624
   %40 = load i64, ptr %39, align 8
-  %41 = icmp ult i64 %.03352.us, %40
+  %41 = icmp ult i64 %.03253.us, %40
   br i1 %41, label %42, label %65
 
 42:                                               ; preds = %.lr.ph.split.us
   %43 = load ptr, ptr %9, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 2160
-  %45 = getelementptr inbounds [64 x %"class.std::shared_ptr.59"], ptr %44, i64 0, i64 %.03352.us
+  %45 = getelementptr inbounds [64 x %"class.std::shared_ptr.59"], ptr %44, i64 0, i64 %.03253.us
   %46 = load ptr, ptr %45, align 8
   br i1 %18, label %47, label %50
 
@@ -1773,7 +1773,7 @@ define noundef zeroext i1 @_ZN12pmpcfg_csr_t14unlogged_writeEm(ptr nocapture nou
   br i1 %.not.us, label %50, label %65
 
 50:                                               ; preds = %47, %42
-  %51 = sub nuw i64 %.03352.us, %30
+  %51 = sub nuw i64 %.03253.us, %30
   %52 = shl i64 %51, 3
   %53 = lshr i64 %1, %52
   %54 = trunc i64 %53 to i8
@@ -1781,24 +1781,24 @@ define noundef zeroext i1 @_ZN12pmpcfg_csr_t14unlogged_writeEm(ptr nocapture nou
   %56 = shl i8 %54, 1
   %57 = or i8 %56, -99
   %58 = select i1 %.not50, i8 -1, i8 %57
-  %.034.us = and i8 %55, %58
+  %.0.us = and i8 %55, %58
   %59 = getelementptr inbounds i8, ptr %38, i64 659632
   %60 = load i64, ptr %59, align 8
   %.not37.us = icmp ne i64 %60, 2
   %61 = and i8 %54, 24
   %62 = icmp eq i8 %61, 16
   %or.cond.us = select i1 %.not37.us, i1 %62, i1 false
-  %63 = or i8 %.034.us, 24
-  %.135.us = select i1 %or.cond.us, i8 %63, i8 %.034.us
+  %63 = or i8 %.0.us, 24
+  %.1.us = select i1 %or.cond.us, i8 %63, i8 %.0.us
   %64 = getelementptr inbounds i8, ptr %46, i64 48
-  store i8 %.135.us, ptr %64, align 8
+  store i8 %.1.us, ptr %64, align 8
   %.pre = load ptr, ptr %3, align 8
   br label %65
 
 65:                                               ; preds = %50, %47, %.lr.ph.split.us
   %66 = phi ptr [ %38, %.lr.ph.split.us ], [ %.pre, %50 ], [ %38, %47 ]
-  %.1.us = phi i1 [ %.03253.us, %.lr.ph.split.us ], [ true, %50 ], [ true, %47 ]
-  %67 = add nuw i64 %.03352.us, 1
+  %.135.us = phi i1 [ %.03452.us, %.lr.ph.split.us ], [ true, %50 ], [ true, %47 ]
+  %67 = add nuw i64 %.03253.us, 1
   %68 = getelementptr inbounds i8, ptr %66, i64 3796
   %69 = load i32, ptr %68, align 4
   %70 = lshr i32 %69, 3
@@ -1809,17 +1809,17 @@ define noundef zeroext i1 @_ZN12pmpcfg_csr_t14unlogged_writeEm(ptr nocapture nou
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph, %102
   %74 = phi ptr [ %103, %102 ], [ %31, %.lr.ph ]
-  %.03253.us56 = phi i1 [ %.1.us63, %102 ], [ false, %.lr.ph ]
-  %.03352.us57 = phi i64 [ %104, %102 ], [ %30, %.lr.ph ]
+  %.03253.us56 = phi i64 [ %104, %102 ], [ %30, %.lr.ph ]
+  %.03452.us57 = phi i1 [ %.135.us63, %102 ], [ false, %.lr.ph ]
   %75 = getelementptr inbounds i8, ptr %74, i64 659624
   %76 = load i64, ptr %75, align 8
-  %77 = icmp ult i64 %.03352.us57, %76
+  %77 = icmp ult i64 %.03253.us56, %76
   br i1 %77, label %78, label %102
 
 78:                                               ; preds = %.lr.ph.split.split.us
   %79 = load ptr, ptr %9, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 2160
-  %81 = getelementptr inbounds [64 x %"class.std::shared_ptr.59"], ptr %80, i64 0, i64 %.03352.us57
+  %81 = getelementptr inbounds [64 x %"class.std::shared_ptr.59"], ptr %80, i64 0, i64 %.03253.us56
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 48
   %84 = load i8, ptr %83, align 8
@@ -1827,7 +1827,7 @@ define noundef zeroext i1 @_ZN12pmpcfg_csr_t14unlogged_writeEm(ptr nocapture nou
   br i1 %.not.us58, label %85, label %102
 
 85:                                               ; preds = %78
-  %86 = sub nuw i64 %.03352.us57, %30
+  %86 = sub nuw i64 %.03253.us56, %30
   %87 = shl i64 %86, 3
   %88 = lshr i64 %1, %87
   %89 = trunc i64 %88 to i8
@@ -1839,9 +1839,9 @@ define noundef zeroext i1 @_ZN12pmpcfg_csr_t14unlogged_writeEm(ptr nocapture nou
   %94 = icmp eq i8 %93, 16
   %or.cond.us61 = and i1 %.not37.us60, %94
   %95 = or i8 %90, 24
-  %.135.us62 = select i1 %or.cond.us61, i8 %95, i8 %90
-  %96 = zext i8 %.135.us62 to i32
-  %.not41.us = icmp slt i8 %.135.us62, 0
+  %.1.us62 = select i1 %or.cond.us61, i8 %95, i8 %90
+  %96 = zext i8 %.1.us62 to i32
+  %.not41.us = icmp slt i8 %.1.us62, 0
   %97 = and i32 %96, 7
   %brmerge46.us = icmp ne i32 %97, 7
   %or.cond48.us = and i1 %.not41.us, %brmerge46.us
@@ -1856,14 +1856,14 @@ define noundef zeroext i1 @_ZN12pmpcfg_csr_t14unlogged_writeEm(ptr nocapture nou
   br i1 %or.cond49.us, label %101, label %102
 
 101:                                              ; preds = %98, %85
-  store i8 %.135.us62, ptr %83, align 8
+  store i8 %.1.us62, ptr %83, align 8
   %.pre88 = load ptr, ptr %3, align 8
   br label %102
 
 102:                                              ; preds = %101, %98, %78, %.lr.ph.split.split.us
   %103 = phi ptr [ %74, %.lr.ph.split.split.us ], [ %74, %98 ], [ %.pre88, %101 ], [ %74, %78 ]
-  %.1.us63 = phi i1 [ %.03253.us56, %.lr.ph.split.split.us ], [ true, %98 ], [ true, %101 ], [ true, %78 ]
-  %104 = add nuw i64 %.03352.us57, 1
+  %.135.us63 = phi i1 [ %.03452.us57, %.lr.ph.split.split.us ], [ true, %98 ], [ true, %101 ], [ true, %78 ]
+  %104 = add nuw i64 %.03253.us56, 1
   %105 = getelementptr inbounds i8, ptr %103, i64 3796
   %106 = load i32, ptr %105, align 4
   %107 = lshr i32 %106, 3
@@ -1873,7 +1873,7 @@ define noundef zeroext i1 @_ZN12pmpcfg_csr_t14unlogged_writeEm(ptr nocapture nou
   br i1 %110, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %65, %102, %8
-  %.032.lcssa = phi i1 [ false, %8 ], [ %.1.us63, %102 ], [ %.1.us, %65 ]
+  %.034.lcssa = phi i1 [ false, %8 ], [ %.135.us63, %102 ], [ %.135.us, %65 ]
   %.lcssa = phi ptr [ %31, %8 ], [ %103, %102 ], [ %66, %65 ]
   %111 = getelementptr inbounds i8, ptr %.lcssa, i64 40
   %112 = load ptr, ptr %111, align 8
@@ -1881,8 +1881,8 @@ define noundef zeroext i1 @_ZN12pmpcfg_csr_t14unlogged_writeEm(ptr nocapture nou
           to label %113 unwind label %114
 
 113:                                              ; preds = %._crit_edge, %2
-  %.0 = phi i1 [ false, %2 ], [ %.032.lcssa, %._crit_edge ]
-  ret i1 %.0
+  %.033 = phi i1 [ false, %2 ], [ %.034.lcssa, %._crit_edge ]
+  ret i1 %.033
 
 114:                                              ; preds = %._crit_edge
   %115 = landingpad { ptr, i32 }

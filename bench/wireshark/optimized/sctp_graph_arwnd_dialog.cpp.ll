@@ -1339,7 +1339,7 @@ define void @_ZN20SCTPGraphArwndDialog14drawArwndGraphEPK16_sctp_assoc_info(ptr 
 
 30:                                               ; preds = %.lr.ph172, %._crit_edge
   %.1170 = phi ptr [ %17, %.lr.ph172 ], [ %248, %._crit_edge ]
-  %.043169 = phi i32 [ 0, %.lr.ph172 ], [ %.144.lcssa, %._crit_edge ]
+  %.042169 = phi i32 [ 0, %.lr.ph172 ], [ %.143.lcssa, %._crit_edge ]
   %31 = load ptr, ptr %.1170, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 72
   %33 = load ptr, ptr %32, align 8
@@ -1353,9 +1353,9 @@ define void @_ZN20SCTPGraphArwndDialog14drawArwndGraphEPK16_sctp_assoc_info(ptr 
   br label %37
 
 37:                                               ; preds = %.lr.ph, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit
-  %.042167 = phi ptr [ %34, %.lr.ph ], [ %246, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit ]
-  %.144166 = phi i32 [ %.043169, %.lr.ph ], [ %.2, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit ]
-  %38 = load ptr, ptr %.042167, align 8
+  %.143167 = phi i32 [ %.042169, %.lr.ph ], [ %.2, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit ]
+  %.044166 = phi ptr [ %34, %.lr.ph ], [ %246, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit ]
+  %38 = load ptr, ptr %.044166, align 8
   %39 = load i8, ptr %38, align 2
   switch i8 %39, label %43 [
     i8 3, label %.sink.split
@@ -1369,7 +1369,7 @@ define void @_ZN20SCTPGraphArwndDialog14drawArwndGraphEPK16_sctp_assoc_info(ptr 
   br label %43
 
 43:                                               ; preds = %.sink.split, %37
-  %.2 = phi i32 [ %.144166, %37 ], [ %42, %.sink.split ]
+  %.2 = phi i32 [ %.143167, %37 ], [ %42, %.sink.split ]
   %44 = load i32, ptr %19, align 8
   %45 = icmp ult i32 %44, %.2
   %or.cond = select i1 %20, i1 %45, i1 false
@@ -1772,13 +1772,13 @@ _ZN9QtPrivate12QPodArrayOpsIjE10createHoleEN10QArrayData14GrowthPositionExx.exit
   br label %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit
 
 _ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit: ; preds = %196, %202, %_ZN9QtPrivate12QPodArrayOpsIjE10createHoleEN10QArrayData14GrowthPositionExx.exit.i
-  %245 = getelementptr inbounds i8, ptr %.042167, i64 8
+  %245 = getelementptr inbounds i8, ptr %.044166, i64 8
   %246 = load ptr, ptr %245, align 8
   %.not47 = icmp eq ptr %246, null
   br i1 %.not47, label %._crit_edge, label %37, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit, %30
-  %.144.lcssa = phi i32 [ %.043169, %30 ], [ %.2, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit ]
+  %.143.lcssa = phi i32 [ %.042169, %30 ], [ %.2, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit ]
   %247 = getelementptr inbounds i8, ptr %.1170, i64 16
   %248 = load ptr, ptr %247, align 8
   %.not = icmp eq ptr %248, null

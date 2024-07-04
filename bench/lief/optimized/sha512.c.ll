@@ -518,20 +518,20 @@ define hidden range(i32 -1, 1) i32 @mbedtls_sha512_update(ptr nocapture noundef 
   br label %26
 
 26:                                               ; preds = %19, %17
-  %.038 = phi i64 [ %25, %19 ], [ %2, %17 ]
   %.037 = phi ptr [ %24, %19 ], [ %1, %17 ]
-  %27 = icmp ugt i64 %.038, 127
+  %.036 = phi i64 [ %25, %19 ], [ %2, %17 ]
+  %27 = icmp ugt i64 %.036, 127
   br i1 %27, label %.lr.ph.i.preheader, label %._crit_edge
 
 .lr.ph.i.preheader:                               ; preds = %26, %34
-  %.151 = phi ptr [ %35, %34 ], [ %.037, %26 ]
-  %.13950 = phi i64 [ %36, %34 ], [ %.038, %26 ]
+  %.151 = phi i64 [ %36, %34 ], [ %.036, %26 ]
+  %.13850 = phi ptr [ %35, %34 ], [ %.037, %26 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.012.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.0711.i = phi i64 [ %30, %.lr.ph.i ], [ %.13950, %.lr.ph.i.preheader ]
-  %.0810.i = phi ptr [ %29, %.lr.ph.i ], [ %.151, %.lr.ph.i.preheader ]
+  %.0711.i = phi i64 [ %30, %.lr.ph.i ], [ %.151, %.lr.ph.i.preheader ]
+  %.0810.i = phi ptr [ %29, %.lr.ph.i ], [ %.13850, %.lr.ph.i.preheader ]
   %28 = tail call i32 @mbedtls_internal_sha512_process(ptr noundef nonnull %0, ptr noundef %.0810.i)
   %29 = getelementptr inbounds i8, ptr %.0810.i, i64 128
   %30 = add i64 %.0711.i, -128
@@ -544,30 +544,30 @@ mbedtls_internal_sha512_process_many.exit:        ; preds = %.lr.ph.i
   br i1 %33, label %.loopexit, label %34
 
 34:                                               ; preds = %mbedtls_internal_sha512_process_many.exit
-  %35 = getelementptr inbounds i8, ptr %.151, i64 %31
-  %36 = sub i64 %.13950, %31
+  %35 = getelementptr inbounds i8, ptr %.13850, i64 %31
+  %36 = sub i64 %.151, %31
   %37 = icmp ugt i64 %36, 127
   br i1 %37, label %.lr.ph.i.preheader, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %34, %26
-  %.139.lcssa = phi i64 [ %.038, %26 ], [ %36, %34 ]
-  %.1.lcssa = phi ptr [ %.037, %26 ], [ %35, %34 ]
-  %.not47 = icmp eq i64 %.139.lcssa, 0
+  %.138.lcssa = phi ptr [ %.037, %26 ], [ %35, %34 ]
+  %.1.lcssa = phi i64 [ %.036, %26 ], [ %36, %34 ]
+  %.not47 = icmp eq i64 %.1.lcssa, 0
   br i1 %.not47, label %.loopexit, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %18, %._crit_edge
-  %.1.lcssa65 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %1, %18 ]
-  %.139.lcssa64 = phi i64 [ %.139.lcssa, %._crit_edge ], [ %2, %18 ]
-  %.0365863 = phi i32 [ 0, %._crit_edge ], [ %8, %18 ]
+  %.1.lcssa65 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %2, %18 ]
+  %.138.lcssa64 = phi ptr [ %.138.lcssa, %._crit_edge ], [ %1, %18 ]
+  %.05863 = phi i32 [ 0, %._crit_edge ], [ %8, %18 ]
   %38 = getelementptr inbounds i8, ptr %0, i64 80
-  %39 = zext nneg i32 %.0365863 to i64
+  %39 = zext nneg i32 %.05863 to i64
   %40 = getelementptr inbounds i8, ptr %38, i64 %39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr align 1 %.1.lcssa65, i64 %.139.lcssa64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr align 1 %.138.lcssa64, i64 %.1.lcssa65, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %mbedtls_internal_sha512_process_many.exit, %._crit_edge, %._crit_edge.thread, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %._crit_edge.thread ], [ 0, %._crit_edge ], [ -1, %mbedtls_internal_sha512_process_many.exit ]
-  ret i32 %.0
+  %.039 = phi i32 [ 0, %3 ], [ 0, %._crit_edge.thread ], [ 0, %._crit_edge ], [ -1, %mbedtls_internal_sha512_process_many.exit ]
+  ret i32 %.039
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1033,14 +1033,14 @@ mbedtls_sha512_starts.exit:                       ; preds = %4, %7
   br i1 %19, label %.lr.ph.i.preheader.i, label %._crit_edge.thread.i
 
 .lr.ph.i.preheader.i:                             ; preds = %18, %26
-  %.151.i = phi ptr [ %27, %26 ], [ %0, %18 ]
-  %.13950.i = phi i64 [ %28, %26 ], [ %1, %18 ]
+  %.151.i = phi i64 [ %28, %26 ], [ %1, %18 ]
+  %.13850.i = phi ptr [ %27, %26 ], [ %0, %18 ]
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
   %.012.i.i = phi i64 [ %23, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %.0711.i.i = phi i64 [ %22, %.lr.ph.i.i ], [ %.13950.i, %.lr.ph.i.preheader.i ]
-  %.0810.i.i = phi ptr [ %21, %.lr.ph.i.i ], [ %.151.i, %.lr.ph.i.preheader.i ]
+  %.0711.i.i = phi i64 [ %22, %.lr.ph.i.i ], [ %.151.i, %.lr.ph.i.preheader.i ]
+  %.0810.i.i = phi ptr [ %21, %.lr.ph.i.i ], [ %.13850.i, %.lr.ph.i.preheader.i ]
   %20 = call i32 @mbedtls_internal_sha512_process(ptr noundef nonnull %5, ptr noundef %.0810.i.i)
   %21 = getelementptr inbounds i8, ptr %.0810.i.i, i64 128
   %22 = add i64 %.0711.i.i, -128
@@ -1053,8 +1053,8 @@ mbedtls_internal_sha512_process_many.exit.i:      ; preds = %.lr.ph.i.i
   br i1 %25, label %mbedtls_sha512_update.exit, label %26
 
 26:                                               ; preds = %mbedtls_internal_sha512_process_many.exit.i
-  %27 = getelementptr inbounds i8, ptr %.151.i, i64 %23
-  %28 = sub i64 %.13950.i, %23
+  %27 = getelementptr inbounds i8, ptr %.13850.i, i64 %23
+  %28 = sub i64 %.151.i, %23
   %29 = icmp ugt i64 %28, 127
   br i1 %29, label %.lr.ph.i.preheader.i, label %._crit_edge.i, !llvm.loop !10
 
@@ -1063,10 +1063,10 @@ mbedtls_internal_sha512_process_many.exit.i:      ; preds = %.lr.ph.i.i
   br i1 %.not47.i, label %31, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %18, %._crit_edge.i
-  %.1.lcssa.i16 = phi ptr [ %27, %._crit_edge.i ], [ %0, %18 ]
-  %.139.lcssa.i15 = phi i64 [ %28, %._crit_edge.i ], [ %1, %18 ]
+  %.1.lcssa.i16 = phi i64 [ %28, %._crit_edge.i ], [ %1, %18 ]
+  %.138.lcssa.i15 = phi ptr [ %27, %._crit_edge.i ], [ %0, %18 ]
   %30 = getelementptr inbounds i8, ptr %5, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %30, ptr align 1 %.1.lcssa.i16, i64 %.139.lcssa.i15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %30, ptr align 1 %.138.lcssa.i15, i64 %.1.lcssa.i16, i1 false)
   br label %31
 
 31:                                               ; preds = %mbedtls_sha512_starts.exit, %._crit_edge.thread.i, %._crit_edge.i
@@ -1178,19 +1178,19 @@ mbedtls_sha512_starts.exit:                       ; preds = %22, %23
   br label %.lr.ph.i.preheader.i.preheader
 
 .lr.ph.i.preheader.i.preheader:                   ; preds = %42, %41
-  %.151.i.ph = phi ptr [ %4, %41 ], [ %46, %42 ]
-  %.13950.i.ph = phi i64 [ 1000, %41 ], [ %47, %42 ]
+  %.151.i.ph = phi i64 [ 1000, %41 ], [ %47, %42 ]
+  %.13850.i.ph = phi ptr [ %4, %41 ], [ %46, %42 ]
   br label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %.lr.ph.i.preheader.i.preheader, %54
-  %.151.i = phi ptr [ %55, %54 ], [ %.151.i.ph, %.lr.ph.i.preheader.i.preheader ]
-  %.13950.i = phi i64 [ %56, %54 ], [ %.13950.i.ph, %.lr.ph.i.preheader.i.preheader ]
+  %.151.i = phi i64 [ %56, %54 ], [ %.151.i.ph, %.lr.ph.i.preheader.i.preheader ]
+  %.13850.i = phi ptr [ %55, %54 ], [ %.13850.i.ph, %.lr.ph.i.preheader.i.preheader ]
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
   %.012.i.i = phi i64 [ %51, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %.0711.i.i = phi i64 [ %50, %.lr.ph.i.i ], [ %.13950.i, %.lr.ph.i.preheader.i ]
-  %.0810.i.i = phi ptr [ %49, %.lr.ph.i.i ], [ %.151.i, %.lr.ph.i.preheader.i ]
+  %.0711.i.i = phi i64 [ %50, %.lr.ph.i.i ], [ %.151.i, %.lr.ph.i.preheader.i ]
+  %.0810.i.i = phi ptr [ %49, %.lr.ph.i.i ], [ %.13850.i, %.lr.ph.i.preheader.i ]
   %48 = call i32 @mbedtls_internal_sha512_process(ptr noundef nonnull %3, ptr noundef %.0810.i.i)
   %49 = getelementptr inbounds i8, ptr %.0810.i.i, i64 128
   %50 = add i64 %.0711.i.i, -128
@@ -1203,8 +1203,8 @@ mbedtls_internal_sha512_process_many.exit.i:      ; preds = %.lr.ph.i.i
   br i1 %53, label %mbedtls_sha512_update.exit, label %54
 
 54:                                               ; preds = %mbedtls_internal_sha512_process_many.exit.i
-  %55 = getelementptr inbounds i8, ptr %.151.i, i64 %51
-  %56 = sub i64 %.13950.i, %51
+  %55 = getelementptr inbounds i8, ptr %.13850.i, i64 %51
+  %56 = sub i64 %.151.i, %51
   %57 = icmp ugt i64 %56, 127
   br i1 %57, label %.lr.ph.i.preheader.i, label %._crit_edge.i, !llvm.loop !10
 

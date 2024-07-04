@@ -1366,16 +1366,16 @@ if.end22:                                         ; preds = %ts_RESP_create_tst_
   br label %land.rhs.i63
 
 land.rhs.i63:                                     ; preds = %for.body.i66, %if.end22
-  %i.08.i = phi i32 [ 0, %if.end22 ], [ %inc.i68, %for.body.i66 ]
+  %i.07.i = phi i32 [ 0, %if.end22 ], [ %inc.i68, %for.body.i66 ]
   %call1.i64 = call i32 @OPENSSL_sk_num(ptr noundef %68) #9
-  %cmp.i65 = icmp slt i32 %i.08.i, %call1.i64
+  %cmp.i65 = icmp slt i32 %i.07.i, %call1.i64
   br i1 %cmp.i65, label %for.body.i66, label %if.end26
 
 for.body.i66:                                     ; preds = %land.rhs.i63
-  %call3.i = call ptr @OPENSSL_sk_value(ptr noundef %68, i32 noundef %i.08.i) #9
+  %call3.i = call ptr @OPENSSL_sk_value(ptr noundef %68, i32 noundef %i.07.i) #9
   %69 = load ptr, ptr %extension_cb.i, align 8
   %call4.i67 = call i32 %69(ptr noundef nonnull %ctx, ptr noundef %call3.i, ptr noundef null) #9
-  %inc.i68 = add nuw nsw i32 %i.08.i, 1
+  %inc.i68 = add nuw nsw i32 %i.07.i, 1
   %tobool.not.i69 = icmp eq i32 %call4.i67, 0
   br i1 %tobool.not.i69, label %if.then32, label %land.rhs.i63, !llvm.loop !6
 

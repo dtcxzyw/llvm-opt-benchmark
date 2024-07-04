@@ -4083,7 +4083,7 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %if.then, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.then ]
   %3 = phi ptr [ %6, %for.inc ], [ %1, %if.then ]
-  %p.014 = phi ptr [ %p.1, %for.inc ], [ @multissl_version.backends, %if.then ]
+  %p.013 = phi ptr [ %p.1, %for.inc ], [ @multissl_version.backends, %if.then ]
   %4 = load ptr, ptr @multissl_version.selected, align 8
   %version = getelementptr inbounds i8, ptr %3, i64 48
   %5 = load ptr, ptr %version, align 8
@@ -4093,19 +4093,19 @@ for.body:                                         ; preds = %if.then, %for.inc
 
 if.then8:                                         ; preds = %for.body
   %cmp4.not = icmp eq ptr %4, %3
-  %sub.ptr.rhs.cast = ptrtoint ptr %p.014 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %p.013 to i64
   %sub.ptr.sub = sub i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @multissl_version.backends, i64 200) to i64), %sub.ptr.rhs.cast
-  %cmp9.not = icmp eq ptr %p.014, @multissl_version.backends
+  %cmp9.not = icmp eq ptr %p.013, @multissl_version.backends
   %cond10 = select i1 %cmp9.not, ptr @.str.17, ptr @.str.16
   %cond12 = select i1 %cmp4.not, ptr @.str.17, ptr @.str.18
   %cond15 = select i1 %cmp4.not, ptr @.str.17, ptr @.str.19
-  %call16 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %p.014, i64 noundef %sub.ptr.sub, ptr noundef nonnull @.str.15, ptr noundef nonnull %cond10, ptr noundef nonnull %cond12, ptr noundef nonnull %vb, ptr noundef nonnull %cond15) #18
+  %call16 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %p.013, i64 noundef %sub.ptr.sub, ptr noundef nonnull @.str.15, ptr noundef nonnull %cond10, ptr noundef nonnull %cond12, ptr noundef nonnull %vb, ptr noundef nonnull %cond15) #18
   %idx.ext = sext i32 %call16 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %p.014, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %p.013, i64 %idx.ext
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then8
-  %p.1 = phi ptr [ %add.ptr, %if.then8 ], [ %p.014, %for.body ]
+  %p.1 = phi ptr [ %add.ptr, %if.then8 ], [ %p.013, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds [2 x ptr], ptr @available_backends, i64 0, i64 %indvars.iv.next
   %6 = load ptr, ptr %arrayidx, align 8

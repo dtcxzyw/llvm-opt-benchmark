@@ -630,7 +630,7 @@ ompi_group_peer_lookup.exit.i:                    ; preds = %129, %127, %114, %.
 
 .lr.ph.i:                                         ; preds = %ompi_group_peer_lookup.exit64.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %ompi_group_peer_lookup.exit64.i ]
-  %.0553.i = phi ptr [ %133, %.lr.ph.preheader.i ], [ %spec.select.i, %ompi_group_peer_lookup.exit64.i ]
+  %.0543.i = phi ptr [ %133, %.lr.ph.preheader.i ], [ %spec.select.i, %ompi_group_peer_lookup.exit64.i ]
   %135 = load ptr, ptr %6, align 8
   %136 = getelementptr inbounds i8, ptr %135, i64 32
   %137 = load ptr, ptr %136, align 8
@@ -674,17 +674,17 @@ ompi_group_peer_lookup.exit.i:                    ; preds = %129, %127, %114, %.
 ompi_group_peer_lookup.exit64.i:                  ; preds = %158, %156, %142, %.lr.ph.i
   %.0.i.i.i63.i = phi ptr [ %139, %.lr.ph.i ], [ %146, %158 ], [ %146, %156 ], [ %146, %142 ]
   %162 = getelementptr inbounds i8, ptr %.0.i.i.i63.i, i64 40
-  %163 = tail call i32 @ompi_rte_compare_name_fields(i8 noundef zeroext 15, ptr noundef nonnull %162, ptr noundef %.0553.i) #8
+  %163 = tail call i32 @ompi_rte_compare_name_fields(i8 noundef zeroext 15, ptr noundef nonnull %162, ptr noundef %.0543.i) #8
   %164 = icmp slt i32 %163, 0
-  %spec.select.i = select i1 %164, ptr %162, ptr %.0553.i
+  %spec.select.i = select i1 %164, ptr %162, ptr %.0543.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %ompi_group_peer_lookup.exit64.i, %ompi_group_peer_lookup.exit.i
-  %.055.lcssa.i = phi ptr [ %133, %ompi_group_peer_lookup.exit.i ], [ %spec.select.i, %ompi_group_peer_lookup.exit64.i ]
+  %.054.lcssa.i = phi ptr [ %133, %ompi_group_peer_lookup.exit.i ], [ %spec.select.i, %ompi_group_peer_lookup.exit64.i ]
   %165 = tail call ptr @ompi_comm_print_cid(ptr noundef nonnull %1) #8
-  %166 = tail call ptr @ompi_pmix_print_name(ptr noundef %.055.lcssa.i) #8
+  %166 = tail call ptr @ompi_pmix_print_name(ptr noundef %.054.lcssa.i) #8
   %167 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.11, ptr noundef %165, ptr noundef %166) #8
   %168 = load ptr, ptr %3, align 8
   %169 = icmp eq ptr %168, null

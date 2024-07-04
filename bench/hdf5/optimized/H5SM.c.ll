@@ -2123,15 +2123,15 @@ H5SM__get_index.exit:                             ; preds = %37
   br label %.thread116.thread.i
 
 155:                                              ; preds = %148, %136
-  %.089.i = phi ptr [ null, %136 ], [ %142, %148 ]
-  %.088.i = phi ptr [ %138, %136 ], [ %6, %148 ]
-  %.0.i47 = phi ptr [ %88, %136 ], [ null, %148 ]
-  %156 = load i32, ptr %.088.i, align 8
+  %.092.i = phi ptr [ %88, %136 ], [ null, %148 ]
+  %.091.i = phi ptr [ %138, %136 ], [ %6, %148 ]
+  %.086.i = phi ptr [ null, %136 ], [ %142, %148 ]
+  %156 = load i32, ptr %.091.i, align 8
   %157 = icmp eq i32 %156, 1
   br i1 %157, label %162, label %158
 
 158:                                              ; preds = %155
-  %159 = getelementptr inbounds i8, ptr %.088.i, i64 16
+  %159 = getelementptr inbounds i8, ptr %.091.i, i64 16
   %160 = load i64, ptr %159, align 8
   %161 = icmp eq i64 %160, 0
   br i1 %161, label %162, label %240
@@ -2146,11 +2146,11 @@ H5SM__get_index.exit:                             ; preds = %37
   br i1 %167, label %168, label %169
 
 168:                                              ; preds = %162
-  store i32 -1, ptr %.088.i, align 8
+  store i32 -1, ptr %.091.i, align 8
   br label %187
 
 169:                                              ; preds = %162
-  %170 = icmp eq ptr %.089.i, null
+  %170 = icmp eq ptr %.086.i, null
   br i1 %170, label %171, label %180
 
 171:                                              ; preds = %169
@@ -2167,8 +2167,8 @@ H5SM__get_index.exit:                             ; preds = %37
   br label %240
 
 180:                                              ; preds = %171, %169
-  %.190.i = phi ptr [ %174, %171 ], [ %.089.i, %169 ]
-  %181 = call i32 @H5B2_remove(ptr noundef nonnull %.190.i, ptr noundef nonnull %5, ptr noundef null, ptr noundef null) #11
+  %.187.i = phi ptr [ %174, %171 ], [ %.086.i, %169 ]
+  %181 = call i32 @H5B2_remove(ptr noundef nonnull %.187.i, ptr noundef nonnull %5, ptr noundef null, ptr noundef null) #11
   %182 = icmp slt i32 %181, 0
   br i1 %182, label %183, label %187
 
@@ -2179,12 +2179,12 @@ H5SM__get_index.exit:                             ; preds = %37
   br label %240
 
 187:                                              ; preds = %180, %168
-  %.291.i = phi ptr [ %.089.i, %168 ], [ %.190.i, %180 ]
+  %.288.i = phi ptr [ %.086.i, %168 ], [ %.187.i, %180 ]
   %188 = icmp eq i32 %156, 0
   br i1 %188, label %189, label %197
 
 189:                                              ; preds = %187
-  %190 = getelementptr inbounds i8, ptr %.088.i, i64 24
+  %190 = getelementptr inbounds i8, ptr %.091.i, i64 24
   %191 = call i32 @H5HF_remove(ptr noundef nonnull %49, ptr noundef nonnull %190) #11
   %192 = icmp slt i32 %191, 0
   br i1 %192, label %193, label %197
@@ -2203,13 +2203,13 @@ H5SM__get_index.exit:                             ; preds = %37
   br i1 %201, label %202, label %226
 
 202:                                              ; preds = %197
-  %.not.i48 = icmp eq ptr %.0.i47, null
+  %.not.i48 = icmp eq ptr %.092.i, null
   br i1 %.not.i48, label %212, label %203
 
 203:                                              ; preds = %202
   %204 = getelementptr inbounds i8, ptr %38, i64 48
   %205 = load i64, ptr %204, align 8
-  %206 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SOHM_LIST, i64 noundef %205, ptr noundef nonnull %.0.i47, i32 noundef 257) #11
+  %206 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SOHM_LIST, i64 noundef %205, ptr noundef nonnull %.092.i, i32 noundef 257) #11
   %207 = icmp slt i32 %206, 0
   br i1 %207, label %208, label %212
 
@@ -2267,21 +2267,21 @@ H5SM__get_index.exit:                             ; preds = %37
   %.062 = phi i32 [ 2, %193 ], [ 2, %236 ], [ 2, %233 ], [ 2, %229 ], [ 2, %226 ], [ 2, %176 ], [ 2, %183 ], [ 0, %158 ]
   %.056 = phi i64 [ 0, %193 ], [ %199, %236 ], [ %199, %233 ], [ %199, %229 ], [ %199, %226 ], [ 0, %176 ], [ 0, %183 ], [ 0, %158 ]
   %.054 = phi ptr [ null, %193 ], [ %198, %236 ], [ %198, %233 ], [ %198, %229 ], [ %198, %226 ], [ null, %176 ], [ null, %183 ], [ null, %158 ]
-  %.392.i = phi ptr [ %.291.i, %193 ], [ %.291.i, %236 ], [ %.291.i, %233 ], [ %.291.i, %229 ], [ %.291.i, %226 ], [ null, %176 ], [ %.190.i, %183 ], [ %.089.i, %158 ]
-  %.086.i = phi i32 [ -1, %193 ], [ -1, %236 ], [ 0, %233 ], [ 0, %229 ], [ 0, %226 ], [ -1, %176 ], [ -1, %183 ], [ 0, %158 ]
-  %.not105.i = icmp eq ptr %.0.i47, null
+  %.389.i = phi ptr [ %.288.i, %193 ], [ %.288.i, %236 ], [ %.288.i, %233 ], [ %.288.i, %229 ], [ %.288.i, %226 ], [ null, %176 ], [ %.187.i, %183 ], [ %.086.i, %158 ]
+  %.0.i47 = phi i32 [ -1, %193 ], [ -1, %236 ], [ 0, %233 ], [ 0, %229 ], [ 0, %226 ], [ -1, %176 ], [ -1, %183 ], [ 0, %158 ]
+  %.not105.i = icmp eq ptr %.092.i, null
   br i1 %.not105.i, label %.thread116.thread.i, label %.thread126.i
 
 .thread126.i:                                     ; preds = %240, %208, %.loopexit.i, %117
   %.163 = phi i32 [ 0, %.loopexit.i ], [ 0, %117 ], [ %.062, %240 ], [ 2, %208 ]
   %.157 = phi i64 [ 0, %.loopexit.i ], [ 0, %117 ], [ %.056, %240 ], [ %199, %208 ]
   %.155 = phi ptr [ null, %.loopexit.i ], [ null, %117 ], [ %.054, %240 ], [ %198, %208 ]
-  %.1135.i = phi ptr [ %88, %.loopexit.i ], [ %88, %117 ], [ %.0.i47, %240 ], [ %.0.i47, %208 ]
-  %.086134.i = phi i32 [ -1, %.loopexit.i ], [ -1, %117 ], [ %.086.i, %240 ], [ -1, %208 ]
-  %.392133.i = phi ptr [ null, %.loopexit.i ], [ null, %117 ], [ %.392.i, %240 ], [ %.291.i, %208 ]
+  %.0135.i = phi i32 [ -1, %.loopexit.i ], [ -1, %117 ], [ %.0.i47, %240 ], [ -1, %208 ]
+  %.389134.i = phi ptr [ null, %.loopexit.i ], [ null, %117 ], [ %.389.i, %240 ], [ %.288.i, %208 ]
+  %.193132.i = phi ptr [ %88, %.loopexit.i ], [ %88, %117 ], [ %.092.i, %240 ], [ %.092.i, %208 ]
   %241 = getelementptr inbounds i8, ptr %38, i64 48
   %242 = load i64, ptr %241, align 8
-  %243 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SOHM_LIST, i64 noundef %242, ptr noundef nonnull %.1135.i, i32 noundef 2) #11
+  %243 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SOHM_LIST, i64 noundef %242, ptr noundef nonnull %.193132.i, i32 noundef 2) #11
   %244 = icmp slt i32 %243, 0
   br i1 %244, label %245, label %.thread116.thread.i
 
@@ -2295,8 +2295,8 @@ H5SM__get_index.exit:                             ; preds = %37
   %.264 = phi i32 [ 0, %69 ], [ 0, %90 ], [ %.163, %245 ], [ %.163, %.thread126.i ], [ %.062, %240 ], [ 2, %215 ], [ 0, %144 ], [ 0, %151 ]
   %.258 = phi i64 [ 0, %69 ], [ 0, %90 ], [ %.157, %245 ], [ %.157, %.thread126.i ], [ %.056, %240 ], [ %199, %215 ], [ 0, %144 ], [ 0, %151 ]
   %.2 = phi ptr [ null, %69 ], [ null, %90 ], [ %.155, %245 ], [ %.155, %.thread126.i ], [ %.054, %240 ], [ %198, %215 ], [ null, %144 ], [ null, %151 ]
-  %.187143.i = phi i32 [ -1, %69 ], [ -1, %90 ], [ -1, %245 ], [ %.086134.i, %.thread126.i ], [ %.086.i, %240 ], [ -1, %215 ], [ -1, %144 ], [ -1, %151 ]
-  %.392123140.i = phi ptr [ null, %69 ], [ null, %90 ], [ %.392133.i, %245 ], [ %.392133.i, %.thread126.i ], [ %.392.i, %240 ], [ %.291.i, %215 ], [ null, %144 ], [ %142, %151 ]
+  %.1143.i = phi i32 [ -1, %69 ], [ -1, %90 ], [ -1, %245 ], [ %.0135.i, %.thread126.i ], [ %.0.i47, %240 ], [ -1, %215 ], [ -1, %144 ], [ -1, %151 ]
+  %.389123140.i = phi ptr [ null, %69 ], [ null, %90 ], [ %.389134.i, %245 ], [ %.389134.i, %.thread126.i ], [ %.389.i, %240 ], [ %.288.i, %215 ], [ null, %144 ], [ %142, %151 ]
   %249 = call i32 @H5HF_close(ptr noundef nonnull %49) #11
   %250 = icmp slt i32 %249, 0
   br i1 %250, label %251, label %.thread116.thread146.i
@@ -2311,13 +2311,13 @@ H5SM__get_index.exit:                             ; preds = %37
   %.365 = phi i32 [ %.264, %251 ], [ %.264, %.thread116.thread.i ], [ 2, %222 ], [ 2, %219 ]
   %.359 = phi i64 [ %.258, %251 ], [ %.258, %.thread116.thread.i ], [ %199, %222 ], [ %199, %219 ]
   %.3 = phi ptr [ %.2, %251 ], [ %.2, %.thread116.thread.i ], [ %198, %222 ], [ %198, %219 ]
-  %.392123141.i = phi ptr [ %.392123140.i, %251 ], [ %.392123140.i, %.thread116.thread.i ], [ %.291.i, %222 ], [ %.291.i, %219 ]
-  %.2.i = phi i32 [ -1, %251 ], [ %.187143.i, %.thread116.thread.i ], [ -1, %222 ], [ 0, %219 ]
-  %.not107.i = icmp eq ptr %.392123141.i, null
+  %.389123141.i = phi ptr [ %.389123140.i, %251 ], [ %.389123140.i, %.thread116.thread.i ], [ %.288.i, %222 ], [ %.288.i, %219 ]
+  %.2.i = phi i32 [ -1, %251 ], [ %.1143.i, %.thread116.thread.i ], [ -1, %222 ], [ 0, %219 ]
+  %.not107.i = icmp eq ptr %.389123141.i, null
   br i1 %.not107.i, label %262, label %255
 
 255:                                              ; preds = %.thread116.thread146.i
-  %256 = call i32 @H5B2_close(ptr noundef nonnull %.392123141.i) #11
+  %256 = call i32 @H5B2_close(ptr noundef nonnull %.389123141.i) #11
   %257 = icmp slt i32 %256, 0
   br i1 %257, label %258, label %262
 

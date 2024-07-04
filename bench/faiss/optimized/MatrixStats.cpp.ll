@@ -308,11 +308,11 @@ _ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE6resizeEm.exit: ; preds =
   br i1 %.not182, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %60, %_ZN5faiss11MatrixStats11PerDimStats3addEf.exit
-  %.0100146 = phi double [ %107, %_ZN5faiss11MatrixStats11PerDimStats3addEf.exit ], [ 0.000000e+00, %60 ]
-  %.0101145 = phi i64 [ %108, %_ZN5faiss11MatrixStats11PerDimStats3addEf.exit ], [ 0, %60 ]
+  %.0100146 = phi i64 [ %108, %_ZN5faiss11MatrixStats11PerDimStats3addEf.exit ], [ 0, %60 ]
+  %.0101145 = phi double [ %107, %_ZN5faiss11MatrixStats11PerDimStats3addEf.exit ], [ 0.000000e+00, %60 ]
   %63 = load ptr, ptr %16, align 8
-  %64 = getelementptr inbounds %"struct.faiss::MatrixStats::PerDimStats", ptr %63, i64 %.0101145
-  %65 = getelementptr inbounds float, ptr %62, i64 %.0101145
+  %64 = getelementptr inbounds %"struct.faiss::MatrixStats::PerDimStats", ptr %63, i64 %.0100146
+  %65 = getelementptr inbounds float, ptr %62, i64 %.0100146
   %66 = load float, ptr %65, align 4
   %67 = load i64, ptr %64, align 8
   %68 = add i64 %67, 1
@@ -385,8 +385,8 @@ _ZNSt6vectorIN5faiss11MatrixStats11PerDimStatsESaIS2_EE6resizeEm.exit: ; preds =
 _ZN5faiss11MatrixStats11PerDimStats3addEf.exit:   ; preds = %97, %77, %70
   %105 = load float, ptr %65, align 4
   %106 = fpext float %105 to double
-  %107 = call double @llvm.fmuladd.f64(double %106, double %106, double %.0100146)
-  %108 = add nuw i64 %.0101145, 1
+  %107 = call double @llvm.fmuladd.f64(double %106, double %106, double %.0101145)
+  %108 = add nuw i64 %.0100146, 1
   %exitcond.not = icmp eq i64 %108, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
@@ -406,8 +406,8 @@ _ZN5faiss11MatrixStats11PerDimStats3addEf.exit:   ; preds = %97, %77, %70
   br label %299
 
 ._crit_edge:                                      ; preds = %_ZN5faiss11MatrixStats11PerDimStats3addEf.exit, %60
-  %.0100.lcssa = phi double [ 0.000000e+00, %60 ], [ %107, %_ZN5faiss11MatrixStats11PerDimStats3addEf.exit ]
-  %109 = call double @llvm.fabs.f64(double %.0100.lcssa)
+  %.0101.lcssa = phi double [ 0.000000e+00, %60 ], [ %107, %_ZN5faiss11MatrixStats11PerDimStats3addEf.exit ]
+  %109 = call double @llvm.fabs.f64(double %.0101.lcssa)
   %110 = fcmp ueq double %109, 0x7FF0000000000000
   br i1 %110, label %126, label %111
 
@@ -415,7 +415,7 @@ _ZN5faiss11MatrixStats11PerDimStats3addEf.exit:   ; preds = %97, %77, %70
   %112 = load i64, ptr %11, align 8
   %113 = add i64 %112, 1
   store i64 %113, ptr %11, align 8
-  %114 = fcmp oeq double %.0100.lcssa, 0.000000e+00
+  %114 = fcmp oeq double %.0101.lcssa, 0.000000e+00
   br i1 %114, label %115, label %118
 
 115:                                              ; preds = %111
@@ -426,20 +426,20 @@ _ZN5faiss11MatrixStats11PerDimStats3addEf.exit:   ; preds = %97, %77, %70
 
 118:                                              ; preds = %111
   %119 = load double, ptr %13, align 8
-  %120 = fcmp olt double %.0100.lcssa, %119
+  %120 = fcmp olt double %.0101.lcssa, %119
   br i1 %120, label %121, label %122
 
 121:                                              ; preds = %118
-  store double %.0100.lcssa, ptr %13, align 8
+  store double %.0101.lcssa, ptr %13, align 8
   br label %122
 
 122:                                              ; preds = %121, %118
   %123 = load double, ptr %14, align 8
-  %124 = fcmp ogt double %.0100.lcssa, %123
+  %124 = fcmp ogt double %.0101.lcssa, %123
   br i1 %124, label %125, label %126
 
 125:                                              ; preds = %122
-  store double %.0100.lcssa, ptr %14, align 8
+  store double %.0101.lcssa, ptr %14, align 8
   br label %126
 
 126:                                              ; preds = %115, %125, %122, %._crit_edge

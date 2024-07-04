@@ -121,7 +121,7 @@ define hidden void @zim_DOMImplementation_createDocumentType(ptr nocapture nound
   %25 = load i64, ptr %5, align 8
   %.not24 = icmp eq i64 %25, 0
   %26 = load ptr, ptr %8, align 8
-  %.020 = select i1 %.not24, ptr null, ptr %26
+  %.019 = select i1 %.not24, ptr null, ptr %26
   %27 = load ptr, ptr %6, align 8
   %28 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) @.str.3) #6
   %.not25 = icmp eq ptr %28, null
@@ -170,15 +170,15 @@ define hidden void @zim_DOMImplementation_createDocumentType(ptr nocapture nound
   br label %.thread
 
 .thread:                                          ; preds = %38, %44
-  %.01930 = phi ptr [ %46, %44 ], [ %39, %38 ]
+  %.030 = phi ptr [ %46, %44 ], [ %39, %38 ]
   call void @xmlFreeURI(ptr noundef nonnull %32) #5
   br label %47
 
 47:                                               ; preds = %.thread32, %.thread
-  %.01931 = phi ptr [ %.01930, %.thread ], [ %34, %.thread32 ]
-  %48 = call ptr @xmlCreateIntSubset(ptr noundef null, ptr noundef %.01931, ptr noundef %spec.select, ptr noundef %.020) #5
+  %.031 = phi ptr [ %.030, %.thread ], [ %34, %.thread32 ]
+  %48 = call ptr @xmlCreateIntSubset(ptr noundef null, ptr noundef %.031, ptr noundef %spec.select, ptr noundef %.019) #5
   %49 = load ptr, ptr @xmlFree, align 8
-  call void %49(ptr noundef %.01931) #5
+  call void %49(ptr noundef %.031) #5
   %50 = icmp eq ptr %48, null
   br i1 %50, label %51, label %53
 
@@ -298,7 +298,7 @@ define hidden void @zim_DOMImplementation_createDocument(ptr nocapture noundef r
   br label %117
 
 47:                                               ; preds = %18, %41
-  %.043 = phi ptr [ %34, %41 ], [ null, %18 ]
+  %.044 = phi ptr [ %34, %41 ], [ null, %18 ]
   %.0 = phi ptr [ %22, %41 ], [ null, %18 ]
   %48 = load i64, ptr %5, align 8
   %.not57 = icmp eq i64 %48, 0
@@ -325,7 +325,7 @@ define hidden void @zim_DOMImplementation_createDocument(ptr nocapture noundef r
 
 60:                                               ; preds = %56, %49
   %61 = phi ptr [ %.pre68, %49 ], [ %.pre, %56 ]
-  %.044 = phi ptr [ null, %49 ], [ %58, %56 ]
+  %.043 = phi ptr [ null, %49 ], [ %58, %56 ]
   %.042 = phi i32 [ %52, %49 ], [ %spec.select67, %56 ]
   %.not58 = icmp eq ptr %61, null
   br i1 %.not58, label %64, label %62
@@ -357,7 +357,7 @@ define hidden void @zim_DOMImplementation_createDocument(ptr nocapture noundef r
   br label %117
 
 .thread74:                                        ; preds = %47, %64
-  %.0447278 = phi ptr [ %.044, %64 ], [ null, %47 ]
+  %.0437278 = phi ptr [ %.043, %64 ], [ null, %47 ]
   %72 = call ptr @xmlNewDoc(ptr noundef null) #5
   %.not60 = icmp eq ptr %72, null
   br i1 %.not60, label %73, label %80
@@ -380,20 +380,20 @@ define hidden void @zim_DOMImplementation_createDocument(ptr nocapture noundef r
   br label %117
 
 80:                                               ; preds = %.thread74
-  %.not62 = icmp eq ptr %.043, null
+  %.not62 = icmp eq ptr %.044, null
   br i1 %.not62, label %87, label %81
 
 81:                                               ; preds = %80
   %82 = getelementptr inbounds i8, ptr %72, i64 80
-  store ptr %.043, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %.043, i64 40
+  store ptr %.044, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %.044, i64 40
   store ptr %72, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %.043, i64 64
+  %84 = getelementptr inbounds i8, ptr %.044, i64 64
   store ptr %72, ptr %84, align 8
   %85 = getelementptr inbounds i8, ptr %72, i64 24
-  store ptr %.043, ptr %85, align 8
+  store ptr %.044, ptr %85, align 8
   %86 = getelementptr inbounds i8, ptr %72, i64 32
-  store ptr %.043, ptr %86, align 8
+  store ptr %.044, ptr %86, align 8
   br label %87
 
 87:                                               ; preds = %81, %80
@@ -402,7 +402,7 @@ define hidden void @zim_DOMImplementation_createDocument(ptr nocapture noundef r
   br i1 %.not63, label %107, label %89
 
 89:                                               ; preds = %87
-  %90 = call ptr @xmlNewDocNode(ptr noundef nonnull %72, ptr noundef %.0447278, ptr noundef nonnull %88, ptr noundef null) #5
+  %90 = call ptr @xmlNewDocNode(ptr noundef nonnull %72, ptr noundef %.0437278, ptr noundef nonnull %88, ptr noundef null) #5
   %.not64 = icmp eq ptr %90, null
   br i1 %.not64, label %91, label %102
 
@@ -412,9 +412,9 @@ define hidden void @zim_DOMImplementation_createDocument(ptr nocapture noundef r
 92:                                               ; preds = %91
   %93 = getelementptr inbounds i8, ptr %72, i64 80
   store ptr null, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %.043, i64 40
+  %94 = getelementptr inbounds i8, ptr %.044, i64 40
   store ptr null, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %.043, i64 64
+  %95 = getelementptr inbounds i8, ptr %.044, i64 64
   store ptr null, ptr %95, align 8
   %96 = getelementptr inbounds i8, ptr %72, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, i8 0, i64 16, i1 false)
@@ -433,7 +433,7 @@ define hidden void @zim_DOMImplementation_createDocument(ptr nocapture noundef r
 
 102:                                              ; preds = %89
   %103 = getelementptr inbounds i8, ptr %90, i64 96
-  store ptr %.0447278, ptr %103, align 8
+  store ptr %.0437278, ptr %103, align 8
   %104 = call ptr @xmlDocSetRootElement(ptr noundef nonnull %72, ptr noundef nonnull %90) #5
   %105 = load ptr, ptr @xmlFree, align 8
   %106 = load ptr, ptr %9, align 8

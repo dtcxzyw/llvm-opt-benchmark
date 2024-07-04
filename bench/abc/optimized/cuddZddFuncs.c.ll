@@ -742,8 +742,8 @@ define ptr @cuddZddWeakDiv(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %72
 
 72:                                               ; preds = %22, %20, %18, %15, %3, %71, %68, %62, %57, %52, %46, %41, %38, %30
-  %.0 = phi ptr [ null, %30 ], [ null, %38 ], [ %13, %41 ], [ null, %46 ], [ %13, %57 ], [ null, %62 ], [ %.2, %71 ], [ null, %68 ], [ null, %52 ], [ %1, %3 ], [ %13, %15 ], [ %11, %18 ], [ %21, %20 ], [ null, %22 ]
-  ret ptr %.0
+  %.0122 = phi ptr [ null, %30 ], [ null, %38 ], [ %13, %41 ], [ null, %46 ], [ %13, %57 ], [ null, %62 ], [ %.2, %71 ], [ null, %68 ], [ null, %52 ], [ %1, %3 ], [ %13, %15 ], [ %11, %18 ], [ %21, %20 ], [ null, %22 ]
+  ret ptr %.0122
 }
 
 ; Function Attrs: nounwind uwtable
@@ -876,18 +876,18 @@ cuddZddGetCofactors2.exit87:                      ; preds = %26
   br label %44
 
 44:                                               ; preds = %43, %34
-  %.072 = phi ptr [ %40, %43 ], [ %31, %34 ]
+  %.0 = phi ptr [ %40, %43 ], [ %31, %34 ]
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %18) #4
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %21) #4
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %24) #4
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %27) #4
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddDivide, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %.072) #4
-  tail call void @Cudd_Deref(ptr noundef nonnull %.072) #4
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddDivide, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %.0) #4
+  tail call void @Cudd_Deref(ptr noundef nonnull %.0) #4
   br label %cuddZddGetCofactors2.exit.thread
 
 cuddZddGetCofactors2.exit.thread:                 ; preds = %16, %23, %14, %12, %9, %3, %44, %42, %38, %33, %30
-  %.0 = phi ptr [ null, %30 ], [ null, %33 ], [ null, %38 ], [ null, %42 ], [ %.072, %44 ], [ %1, %3 ], [ %7, %9 ], [ %5, %12 ], [ %15, %14 ], [ null, %23 ], [ null, %16 ]
-  ret ptr %.0
+  %.072 = phi ptr [ null, %30 ], [ null, %33 ], [ null, %38 ], [ null, %42 ], [ %.0, %44 ], [ %1, %3 ], [ %7, %9 ], [ %5, %12 ], [ %15, %14 ], [ null, %23 ], [ null, %16 ]
+  ret ptr %.072
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1041,8 +1041,8 @@ define ptr @cuddZddWeakDivF(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %113
 
 ._crit_edge:                                      ; preds = %33, %22
-  %.0211 = phi i32 [ %29, %22 ], [ %25, %33 ]
-  %65 = call i32 @cuddZddGetCofactors3(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.0211, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6)
+  %.0212 = phi i32 [ %29, %22 ], [ %25, %33 ]
+  %65 = call i32 @cuddZddGetCofactors3(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.0212, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %.not230 = icmp eq i32 %65, 0
   br i1 %.not230, label %66, label %113
 
@@ -1053,7 +1053,7 @@ define ptr @cuddZddWeakDivF(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   tail call void @Cudd_Ref(ptr noundef %68) #4
   %69 = load ptr, ptr %6, align 8
   tail call void @Cudd_Ref(ptr noundef %69) #4
-  %70 = call i32 @cuddZddGetCofactors3(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %.0211, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %9)
+  %70 = call i32 @cuddZddGetCofactors3(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %.0212, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %9)
   %.not231 = icmp eq i32 %70, 0
   br i1 %.not231, label %72, label %71
 
@@ -1208,8 +1208,8 @@ define ptr @cuddZddWeakDivF(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %113
 
 113:                                              ; preds = %._crit_edge, %37, %20, %18, %15, %3, %112, %109, %103, %98, %93, %87, %82, %79, %71, %64, %63, %59, %55, %51, %47
-  %.0 = phi ptr [ null, %47 ], [ null, %51 ], [ null, %55 ], [ null, %59 ], [ null, %63 ], [ %61, %64 ], [ null, %71 ], [ null, %79 ], [ %13, %82 ], [ null, %87 ], [ %13, %98 ], [ null, %103 ], [ %.2, %112 ], [ null, %109 ], [ null, %93 ], [ %1, %3 ], [ %13, %15 ], [ %11, %18 ], [ %21, %20 ], [ null, %37 ], [ null, %._crit_edge ]
-  ret ptr %.0
+  %.0211 = phi ptr [ null, %47 ], [ null, %51 ], [ null, %55 ], [ null, %59 ], [ null, %63 ], [ %61, %64 ], [ null, %71 ], [ null, %79 ], [ %13, %82 ], [ null, %87 ], [ %13, %98 ], [ null, %103 ], [ %.2, %112 ], [ null, %109 ], [ null, %93 ], [ %1, %3 ], [ %13, %15 ], [ %11, %18 ], [ %21, %20 ], [ null, %37 ], [ null, %._crit_edge ]
+  ret ptr %.0211
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1342,18 +1342,18 @@ cuddZddGetCofactors2.exit87:                      ; preds = %26
   br label %44
 
 44:                                               ; preds = %43, %34
-  %.072 = phi ptr [ %40, %43 ], [ %31, %34 ]
+  %.0 = phi ptr [ %40, %43 ], [ %31, %34 ]
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %18) #4
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %21) #4
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %24) #4
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %27) #4
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddDivideF, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %.072) #4
-  tail call void @Cudd_Deref(ptr noundef nonnull %.072) #4
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddDivideF, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %.0) #4
+  tail call void @Cudd_Deref(ptr noundef nonnull %.0) #4
   br label %cuddZddGetCofactors2.exit.thread
 
 cuddZddGetCofactors2.exit.thread:                 ; preds = %16, %23, %14, %12, %9, %3, %44, %42, %38, %33, %30
-  %.0 = phi ptr [ null, %30 ], [ null, %33 ], [ null, %38 ], [ null, %42 ], [ %.072, %44 ], [ %1, %3 ], [ %7, %9 ], [ %5, %12 ], [ %15, %14 ], [ null, %23 ], [ null, %16 ]
-  ret ptr %.0
+  %.072 = phi ptr [ null, %30 ], [ null, %33 ], [ null, %38 ], [ null, %42 ], [ %.0, %44 ], [ %1, %3 ], [ %7, %9 ], [ %5, %12 ], [ %15, %14 ], [ null, %23 ], [ null, %16 ]
+  ret ptr %.072
 }
 
 ; Function Attrs: nounwind uwtable

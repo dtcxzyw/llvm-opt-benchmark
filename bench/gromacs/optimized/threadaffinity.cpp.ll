@@ -386,72 +386,72 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit33: ; preds = %79
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr %3, i64 88
   %124 = load ptr, ptr %123, align 8
-  %.not175197.i = icmp eq ptr %122, %124
-  br i1 %.not175197.i, label %.loopexit.i, label %.lr.ph202.i
+  %.not174196.i = icmp eq ptr %122, %124
+  br i1 %.not174196.i, label %.loopexit.i, label %.lr.ph201.i
 
-.lr.ph202.i:                                      ; preds = %111, %._crit_edge194.i
-  %.0100200.i = phi i32 [ %.1101.lcssa.i, %._crit_edge194.i ], [ 0, %111 ]
-  %.0173199.i = phi i64 [ %.1.lcssa.i, %._crit_edge194.i ], [ 1, %111 ]
-  %.sroa.0167.0198.i = phi ptr [ %144, %._crit_edge194.i ], [ %122, %111 ]
-  %125 = getelementptr inbounds i8, ptr %.sroa.0167.0198.i, i64 8
+.lr.ph201.i:                                      ; preds = %111, %._crit_edge193.i
+  %.0100199.i = phi i32 [ %.1101.lcssa.i, %._crit_edge193.i ], [ 0, %111 ]
+  %.0198.i = phi i64 [ %.1.lcssa.i, %._crit_edge193.i ], [ 1, %111 ]
+  %.sroa.0167.0197.i = phi ptr [ %144, %._crit_edge193.i ], [ %122, %111 ]
+  %125 = getelementptr inbounds i8, ptr %.sroa.0167.0197.i, i64 8
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %.sroa.0167.0198.i, i64 16
+  %127 = getelementptr inbounds i8, ptr %.sroa.0167.0197.i, i64 16
   %128 = load ptr, ptr %127, align 8
-  %.not183188.i = icmp eq ptr %126, %128
-  br i1 %.not183188.i, label %._crit_edge194.i, label %.lr.ph193.i
+  %.not182187.i = icmp eq ptr %126, %128
+  br i1 %.not182187.i, label %._crit_edge193.i, label %.lr.ph192.i
 
-.lr.ph193.i:                                      ; preds = %.lr.ph202.i, %._crit_edge.i
-  %.1101191.i = phi i32 [ %.2102.lcssa.i, %._crit_edge.i ], [ %.0100200.i, %.lr.ph202.i ]
-  %.1190.i = phi i64 [ %.sroa.speculated.i, %._crit_edge.i ], [ %.0173199.i, %.lr.ph202.i ]
-  %.sroa.0163.0189.i = phi ptr [ %143, %._crit_edge.i ], [ %126, %.lr.ph202.i ]
-  %129 = getelementptr inbounds i8, ptr %.sroa.0163.0189.i, i64 8
-  %130 = getelementptr inbounds i8, ptr %.sroa.0163.0189.i, i64 16
+.lr.ph192.i:                                      ; preds = %.lr.ph201.i, %._crit_edge.i
+  %.1101190.i = phi i32 [ %.2102.lcssa.i, %._crit_edge.i ], [ %.0100199.i, %.lr.ph201.i ]
+  %.1189.i = phi i64 [ %.sroa.speculated.i, %._crit_edge.i ], [ %.0198.i, %.lr.ph201.i ]
+  %.sroa.0163.0188.i = phi ptr [ %143, %._crit_edge.i ], [ %126, %.lr.ph201.i ]
+  %129 = getelementptr inbounds i8, ptr %.sroa.0163.0188.i, i64 8
+  %130 = getelementptr inbounds i8, ptr %.sroa.0163.0188.i, i64 16
   %131 = load ptr, ptr %130, align 8
   %132 = load ptr, ptr %129, align 8
   %133 = ptrtoint ptr %131 to i64
   %134 = ptrtoint ptr %132 to i64
   %135 = sub i64 %133, %134
   %136 = ashr exact i64 %135, 3
-  %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %.1190.i, i64 %136)
-  %.not184185.i = icmp eq ptr %132, %131
-  br i1 %.not184185.i, label %._crit_edge.i, label %.lr.ph.preheader.i
+  %.sroa.speculated.i = call i64 @llvm.umax.i64(i64 %.1189.i, i64 %136)
+  %.not183184.i = icmp eq ptr %132, %131
+  br i1 %.not183184.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %.lr.ph193.i
-  %137 = sext i32 %.1101191.i to i64
+.lr.ph.preheader.i:                               ; preds = %.lr.ph192.i
+  %137 = sext i32 %.1101190.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %137, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.sroa.0158.0186.i = phi ptr [ %132, %.lr.ph.preheader.i ], [ %141, %.lr.ph.i ]
-  %138 = getelementptr inbounds i8, ptr %.sroa.0158.0186.i, i64 4
+  %.sroa.0158.0185.i = phi ptr [ %132, %.lr.ph.preheader.i ], [ %141, %.lr.ph.i ]
+  %138 = getelementptr inbounds i8, ptr %.sroa.0158.0185.i, i64 4
   %139 = load i32, ptr %138, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %140 = getelementptr inbounds i32, ptr %120, i64 %indvars.iv.i
   store i32 %139, ptr %140, align 4
-  %141 = getelementptr inbounds i8, ptr %.sroa.0158.0186.i, i64 8
-  %.not184.i = icmp eq ptr %141, %131
-  br i1 %.not184.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
+  %141 = getelementptr inbounds i8, ptr %.sroa.0158.0185.i, i64 8
+  %.not183.i = icmp eq ptr %141, %131
+  br i1 %.not183.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %142 = trunc nsw i64 %indvars.iv.next.i to i32
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph193.i
-  %.2102.lcssa.i = phi i32 [ %.1101191.i, %.lr.ph193.i ], [ %142, %._crit_edge.loopexit.i ]
-  %143 = getelementptr inbounds i8, ptr %.sroa.0163.0189.i, i64 32
-  %.not183.i = icmp eq ptr %143, %128
-  br i1 %.not183.i, label %._crit_edge194.i, label %.lr.ph193.i
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph192.i
+  %.2102.lcssa.i = phi i32 [ %.1101190.i, %.lr.ph192.i ], [ %142, %._crit_edge.loopexit.i ]
+  %143 = getelementptr inbounds i8, ptr %.sroa.0163.0188.i, i64 32
+  %.not182.i = icmp eq ptr %143, %128
+  br i1 %.not182.i, label %._crit_edge193.i, label %.lr.ph192.i
 
-._crit_edge194.i:                                 ; preds = %._crit_edge.i, %.lr.ph202.i
-  %.1.lcssa.i = phi i64 [ %.0173199.i, %.lr.ph202.i ], [ %.sroa.speculated.i, %._crit_edge.i ]
-  %.1101.lcssa.i = phi i32 [ %.0100200.i, %.lr.ph202.i ], [ %.2102.lcssa.i, %._crit_edge.i ]
-  %144 = getelementptr inbounds i8, ptr %.sroa.0167.0198.i, i64 32
-  %.not175.i = icmp eq ptr %144, %124
-  br i1 %.not175.i, label %.loopexit.i, label %.lr.ph202.i
+._crit_edge193.i:                                 ; preds = %._crit_edge.i, %.lr.ph201.i
+  %.1.lcssa.i = phi i64 [ %.0198.i, %.lr.ph201.i ], [ %.sroa.speculated.i, %._crit_edge.i ]
+  %.1101.lcssa.i = phi i32 [ %.0100199.i, %.lr.ph201.i ], [ %.2102.lcssa.i, %._crit_edge.i ]
+  %144 = getelementptr inbounds i8, ptr %.sroa.0167.0197.i, i64 32
+  %.not174.i = icmp eq ptr %144, %124
+  br i1 %.not174.i, label %.loopexit.i, label %.lr.ph201.i
 
-.loopexit.i:                                      ; preds = %._crit_edge194.i, %110, %111
-  %145 = phi ptr [ %120, %111 ], [ null, %110 ], [ %120, %._crit_edge194.i ]
-  %.2174.i = phi i64 [ 1, %111 ], [ 1, %110 ], [ %.1.lcssa.i, %._crit_edge194.i ]
+.loopexit.i:                                      ; preds = %._crit_edge193.i, %110, %111
+  %145 = phi ptr [ %120, %111 ], [ null, %110 ], [ %120, %._crit_edge193.i ]
+  %.2173.i = phi i64 [ 1, %111 ], [ 1, %110 ], [ %.1.lcssa.i, %._crit_edge193.i ]
   %146 = icmp slt i32 %96, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35)
@@ -493,10 +493,10 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit33: ; preds = %79
 
 169:                                              ; preds = %167, %163
   %170 = load i32, ptr %35, align 4
-  %.not176.i = icmp eq i32 %170, 0
+  %.not175.i = icmp eq i32 %170, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35)
-  br i1 %.not176.i, label %182, label %171
+  br i1 %.not175.i, label %182, label %171
 
 _ZL23invalidWithinSimulationPK9t_commrecb.exit.i: ; preds = %167, %159, %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34)
@@ -534,9 +534,9 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i: ; preds = %_ZN3gmx14Log
   br label %common.resume
 
 182:                                              ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i, %171, %_ZL23invalidWithinSimulationPK9t_commrecb.exit.i, %169
-  %.096.i = phi i8 [ 0, %_ZL23invalidWithinSimulationPK9t_commrecb.exit.i ], [ 1, %171 ], [ 1, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i ], [ 0, %169 ]
+  %.095.i = phi i8 [ 0, %_ZL23invalidWithinSimulationPK9t_commrecb.exit.i ], [ 1, %171 ], [ 1, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i ], [ 0, %169 ]
   %183 = xor i1 %146, true
-  %.pre205.pre206.i = load i32, ptr %147, align 4
+  %.pre204.pre205.i = load i32, ptr %147, align 4
   br i1 %98, label %184, label %233
 
 184:                                              ; preds = %182
@@ -552,7 +552,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i: ; preds = %_ZN3gmx14Log
   %194 = icmp slt i32 %96, %193
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33)
-  %195 = icmp sgt i32 %.pre205.pre206.i, 1
+  %195 = icmp sgt i32 %.pre204.pre205.i, 1
   br i1 %195, label %196, label %_ZL23invalidWithinSimulationPK9t_commrecb.exit112.i
 
 196:                                              ; preds = %184
@@ -588,10 +588,10 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i: ; preds = %_ZN3gmx14Log
 
 215:                                              ; preds = %213, %209
   %216 = load i32, ptr %33, align 4
-  %.not177.i = icmp eq i32 %216, 0
+  %.not176.i = icmp eq i32 %216, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
-  br i1 %.not177.i, label %230, label %217
+  br i1 %.not176.i, label %230, label %217
 
 _ZL23invalidWithinSimulationPK9t_commrecb.exit112.i: ; preds = %213, %205, %184
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32)
@@ -599,7 +599,7 @@ _ZL23invalidWithinSimulationPK9t_commrecb.exit112.i: ; preds = %213, %205, %184
   br i1 %194, label %217, label %230
 
 217:                                              ; preds = %_ZL23invalidWithinSimulationPK9t_commrecb.exit112.i, %215
-  %218 = trunc nuw i8 %.096.i to i1
+  %218 = trunc nuw i8 %.095.i to i1
   br i1 %218, label %230, label %219
 
 219:                                              ; preds = %217
@@ -633,26 +633,26 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit114.i: ; preds = %_ZN3gmx14
   br label %common.resume
 
 230:                                              ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit114.i, %219, %217, %_ZL23invalidWithinSimulationPK9t_commrecb.exit112.i, %215
-  %.197.i = phi i8 [ %.096.i, %217 ], [ %.096.i, %_ZL23invalidWithinSimulationPK9t_commrecb.exit112.i ], [ 1, %219 ], [ 1, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit114.i ], [ %.096.i, %215 ]
+  %.196.i = phi i8 [ %.095.i, %217 ], [ %.095.i, %_ZL23invalidWithinSimulationPK9t_commrecb.exit112.i ], [ 1, %219 ], [ 1, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit114.i ], [ %.095.i, %215 ]
   %231 = xor i1 %194, true
   %232 = and i1 %183, %231
-  %.pre205.pre.i = load i32, ptr %147, align 4
+  %.pre204.pre.i = load i32, ptr %147, align 4
   br label %233
 
 233:                                              ; preds = %230, %182
-  %.pre205.i = phi i32 [ %.pre205.pre.i, %230 ], [ %.pre205.pre206.i, %182 ]
-  %.2.i = phi i8 [ %.197.i, %230 ], [ %.096.i, %182 ]
-  %.095.in.i = phi i1 [ %232, %230 ], [ %183, %182 ]
+  %.pre204.i = phi i32 [ %.pre204.pre.i, %230 ], [ %.pre204.pre205.i, %182 ]
+  %.2.i = phi i8 [ %.196.i, %230 ], [ %.095.i, %182 ]
+  %.0.in.i = phi i1 [ %232, %230 ], [ %183, %182 ]
   br i1 %94, label %234, label %274
 
 234:                                              ; preds = %233
-  %.not178.i = icmp eq i32 %96, %5
+  %.not177.i = icmp eq i32 %96, %5
   %235 = icmp sgt i32 %5, 1
   %236 = icmp sgt i32 %96, %5
   %spec.select.i = and i1 %235, %236
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31)
-  %237 = icmp sgt i32 %.pre205.i, 1
+  %237 = icmp sgt i32 %.pre204.i, 1
   br i1 %237, label %238, label %_ZL23invalidWithinSimulationPK9t_commrecb.exit119.i
 
 238:                                              ; preds = %234
@@ -688,10 +688,10 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit114.i: ; preds = %_ZN3gmx14
 
 257:                                              ; preds = %255, %251
   %258 = load i32, ptr %31, align 4
-  %.not179.i = icmp eq i32 %258, 0
+  %.not178.i = icmp eq i32 %258, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
-  br i1 %.not179.i, label %272, label %259
+  br i1 %.not178.i, label %272, label %259
 
 _ZL23invalidWithinSimulationPK9t_commrecb.exit119.i: ; preds = %255, %247, %234
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
@@ -734,14 +734,14 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit121.i: ; preds = %_ZN3gmx14
 
 272:                                              ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit121.i, %261, %259, %_ZL23invalidWithinSimulationPK9t_commrecb.exit119.i, %257
   %.3.i = phi i8 [ %.2.i, %259 ], [ %.2.i, %_ZL23invalidWithinSimulationPK9t_commrecb.exit119.i ], [ 1, %261 ], [ 1, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit121.i ], [ %.2.i, %257 ]
-  %273 = and i1 %.not178.i, %.095.in.i
+  %273 = and i1 %.not177.i, %.0.in.i
   %.pre.i = load i32, ptr %147, align 4
   br label %274
 
 274:                                              ; preds = %272, %233
-  %275 = phi i32 [ %.pre.i, %272 ], [ %.pre205.i, %233 ]
+  %275 = phi i32 [ %.pre.i, %272 ], [ %.pre204.i, %233 ]
   %.4.i = phi i8 [ %.3.i, %272 ], [ %.2.i, %233 ]
-  %.1.in.i = phi i1 [ %273, %272 ], [ %.095.in.i, %233 ]
+  %.1.in.i = phi i1 [ %273, %272 ], [ %.0.in.i, %233 ]
   %276 = icmp slt i32 %96, %5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
@@ -781,10 +781,10 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit121.i: ; preds = %_ZN3gmx14
 
 297:                                              ; preds = %295, %291
   %298 = load i32, ptr %29, align 4
-  %.not180.i = icmp eq i32 %298, 0
+  %.not179.i = icmp eq i32 %298, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
-  br i1 %.not180.i, label %312, label %299
+  br i1 %.not179.i, label %312, label %299
 
 _ZL23invalidWithinSimulationPK9t_commrecb.exit126.i: ; preds = %295, %287, %274
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
@@ -868,10 +868,10 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit128.i: ; preds = %_ZN3gmx14
 
 336:                                              ; preds = %334, %330
   %337 = load i32, ptr %27, align 4
-  %.not181.i = icmp eq i32 %337, 0
+  %.not180.i = icmp eq i32 %337, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
-  br i1 %.not181.i, label %351, label %338
+  br i1 %.not180.i, label %351, label %338
 
 _ZL23invalidWithinSimulationPK9t_commrecb.exit133.i: ; preds = %334, %326, %312
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
@@ -921,7 +921,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit135.i: ; preds = %_ZN3gmx14
   br i1 %98, label %354, label %358
 
 354:                                              ; preds = %353
-  %355 = trunc i64 %.2174.i to i32
+  %355 = trunc i64 %.2173.i to i32
   %356 = mul nsw i32 %355, %5
   %357 = add nsw i32 %356, %70
   %.not.i = icmp sgt i32 %357, %96
@@ -940,8 +940,8 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit135.i: ; preds = %_ZN3gmx14
   br label %366
 
 366:                                              ; preds = %354, %361, %358
-  %.055 = phi i32 [ %360, %358 ], [ %72, %361 ], [ %355, %354 ]
-  %.0.i = phi i1 [ false, %358 ], [ %365, %361 ], [ false, %354 ]
+  %.053 = phi i32 [ %360, %358 ], [ %72, %361 ], [ %355, %354 ]
+  %.097.i = phi i1 [ false, %358 ], [ %365, %361 ], [ false, %354 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25)
   %367 = load i32, ptr %147, align 4
@@ -949,7 +949,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit135.i: ; preds = %_ZN3gmx14
   br i1 %368, label %369, label %_ZL23invalidWithinSimulationPK9t_commrecb.exit140.i
 
 369:                                              ; preds = %366
-  %370 = zext i1 %.0.i to i32
+  %370 = zext i1 %.097.i to i32
   store i32 %370, ptr %24, align 4
   %371 = load ptr, ptr @TMPI_INT, align 8
   %372 = getelementptr inbounds i8, ptr %1, i64 16
@@ -981,15 +981,15 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit135.i: ; preds = %_ZN3gmx14
 
 388:                                              ; preds = %386, %382
   %389 = load i32, ptr %25, align 4
-  %.not182.i = icmp eq i32 %389, 0
+  %.not181.i = icmp eq i32 %389, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
-  br i1 %.not182.i, label %403, label %390
+  br i1 %.not181.i, label %403, label %390
 
 _ZL23invalidWithinSimulationPK9t_commrecb.exit140.i: ; preds = %386, %378, %366
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
-  br i1 %.0.i, label %390, label %403
+  br i1 %.097.i, label %390, label %403
 
 390:                                              ; preds = %_ZL23invalidWithinSimulationPK9t_commrecb.exit140.i, %388
   %391 = trunc nuw i8 %.6.i to i1
@@ -1027,7 +1027,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit142.i: ; preds = %_ZN3gmx14
 
 403:                                              ; preds = %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit142.i, %392, %390, %_ZL23invalidWithinSimulationPK9t_commrecb.exit140.i, %388
   %.7.i = phi i8 [ %.6.i, %390 ], [ %.6.i, %_ZL23invalidWithinSimulationPK9t_commrecb.exit140.i ], [ 1, %392 ], [ 1, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit142.i ], [ %.6.i, %388 ]
-  %404 = or i1 %314, %.0.i
+  %404 = or i1 %314, %.097.i
   %405 = xor i1 %404, true
   %406 = and i1 %.1.in.i, %405
   br i1 %406, label %407, label %_ZL26get_thread_affinity_layoutRKN3gmx8MDLoggerEPK9t_commrecRKNS_16HardwareTopologyEibiPiPS9_Pb.exit
@@ -1044,7 +1044,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit142.i: ; preds = %_ZN3gmx14
   %412 = getelementptr inbounds i8, ptr %44, i64 32
   store i8 0, ptr %412, align 8
   %.str.15..str.16.i = select i1 %352, ptr @.str.15, ptr @.str.16
-  %413 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull @.str.14, ptr noundef nonnull %.str.15..str.16.i, i32 noundef %.055)
+  %413 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull @.str.14, ptr noundef nonnull %.str.15..str.16.i, i32 noundef %.053)
           to label %414 unwind label %418
 
 414:                                              ; preds = %411
@@ -1109,7 +1109,7 @@ _ZL26get_thread_affinity_layoutRKN3gmx8MDLoggerEPK9t_commrecRKNS_16HardwareTopol
   store ptr %1, ptr %11, align 8
   store i32 %6, ptr %12, align 4
   store i32 %70, ptr %13, align 4
-  store i32 %.055, ptr %14, align 4
+  store i32 %.053, ptr %14, align 4
   store ptr %145, ptr %15, align 8
   store ptr %spec.store.select, ptr %16, align 8
   store i32 0, ptr %17, align 4
@@ -1250,21 +1250,21 @@ _ZL26get_thread_affinity_layoutRKN3gmx8MDLoggerEPK9t_commrecRKNS_16HardwareTopol
   %477 = getelementptr inbounds i8, ptr %1, i64 104
   %478 = load i32, ptr %477, align 8
   %479 = and i32 %478, 1
-  %.not.i36 = icmp eq i32 %479, 0
-  br i1 %.not.i36, label %480, label %482
+  %.not.i35 = icmp eq i32 %479, 0
+  br i1 %.not.i35, label %480, label %482
 
 480:                                              ; preds = %476
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 48
-  %.pre.i37 = load i32, ptr %.phi.trans.insert.i, align 8
-  %481 = icmp sgt i32 %.pre.i37, 1
+  %.pre.i36 = load i32, ptr %.phi.trans.insert.i, align 8
+  %481 = icmp sgt i32 %.pre.i36, 1
   br i1 %481, label %484, label %482
 
 482:                                              ; preds = %480, %476
   %483 = load i32, ptr %10, align 4
-  %.not56 = icmp eq i32 %483, 0
+  %.not55 = icmp eq i32 %483, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  br i1 %.not56, label %498, label %485
+  br i1 %.not55, label %498, label %485
 
 484:                                              ; preds = %480, %472, %460
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -1286,28 +1286,28 @@ _ZL26get_thread_affinity_layoutRKN3gmx8MDLoggerEPK9t_commrecRKNS_16HardwareTopol
   %491 = getelementptr inbounds i8, ptr %48, i64 32
   store i8 1, ptr %491, align 8
   %492 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull @.str.3)
-          to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit39 unwind label %496
+          to label %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit38 unwind label %496
 
-_ZN3gmx14LogEntryWriter10appendTextEPKc.exit39:   ; preds = %490
+_ZN3gmx14LogEntryWriter10appendTextEPKc.exit38:   ; preds = %490
   %493 = load ptr, ptr %488, align 8
   %494 = getelementptr inbounds i8, ptr %493, i64 16
   %495 = load ptr, ptr %494, align 8
   invoke void %495(ptr noundef nonnull align 8 dereferenceable(8) %488, ptr noundef nonnull align 8 dereferenceable(33) %48)
-          to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit41 unwind label %496
+          to label %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit40 unwind label %496
 
-_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit41: ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit39
+_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit40: ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit38
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #16
   br label %498
 
-496:                                              ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit39, %490
+496:                                              ; preds = %_ZN3gmx14LogEntryWriter10appendTextEPKc.exit38, %490
   %497 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #16
   br label %.body
 
-498:                                              ; preds = %482, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit41, %487, %485, %484
-  %.not.i42 = icmp eq ptr %145, null
-  br i1 %.not.i42, label %_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev.exit, label %499
+498:                                              ; preds = %482, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit40, %487, %485, %484
+  %.not.i41 = icmp eq ptr %145, null
+  br i1 %.not.i41, label %_ZNSt10unique_ptrIvN3gmx15functor_wrapperIvXadL_ZNS0_13sfree_wrapperIvEEvPT_EEEEED2Ev.exit, label %499
 
 499:                                              ; preds = %498
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef 67, ptr noundef nonnull %145)

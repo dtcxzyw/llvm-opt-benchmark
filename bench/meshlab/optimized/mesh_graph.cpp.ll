@@ -875,7 +875,7 @@ _ZNSt13unordered_mapIP10MeshVertexS1_St4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_
   br label %28
 
 28:                                               ; preds = %.lr.ph, %82
-  %.043118 = phi i64 [ 0, %.lr.ph ], [ %.2, %82 ]
+  %.044118 = phi i64 [ 0, %.lr.ph ], [ %.2, %82 ]
   %.sroa.086.0117 = phi ptr [ %25, %.lr.ph ], [ %83, %82 ]
   %29 = load ptr, ptr %.sroa.086.0117, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
@@ -883,7 +883,7 @@ _ZNSt13unordered_mapIP10MeshVertexS1_St4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_
 
 31:                                               ; preds = %28, %.loopexit97
   %indvars.iv = phi i64 [ 0, %28 ], [ %indvars.iv.next, %.loopexit97 ]
-  %.1114 = phi i64 [ %.043118, %28 ], [ %.2, %.loopexit97 ]
+  %.1113 = phi i64 [ %.044118, %28 ], [ %.2, %.loopexit97 ]
   %32 = getelementptr inbounds [3 x ptr], ptr %30, i64 0, i64 %indvars.iv
   %33 = load i64, ptr %27, align 8
   %.not.not.i.i.i = icmp eq i64 %33, 0
@@ -1001,7 +1001,7 @@ _ZNSt10_HashtableIP10MeshVertexSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stES
 .loopexit95:                                      ; preds = %68, %.noexc, %63
   %.0.i.pn.i.i = phi ptr [ %64, %63 ], [ %79, %.noexc ], [ %70, %68 ]
   %.0.i.i = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
-  %81 = add i64 %.1114, 1
+  %81 = add i64 %.1113, 1
   store ptr null, ptr %.0.i.i, align 8
   br label %.loopexit97
 
@@ -1021,7 +1021,7 @@ _ZNSt10_HashtableIP10MeshVertexSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stES
   br label %.body
 
 .loopexit97:                                      ; preds = %51, %35, %46, %.loopexit95
-  %.2 = phi i64 [ %81, %.loopexit95 ], [ %.1114, %46 ], [ %.1114, %35 ], [ %.1114, %51 ]
+  %.2 = phi i64 [ %81, %.loopexit95 ], [ %.1113, %46 ], [ %.1113, %35 ], [ %.1113, %51 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %82, label %31, !llvm.loop !12
@@ -1032,10 +1032,10 @@ _ZNSt10_HashtableIP10MeshVertexSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stES
   br i1 %.not, label %._crit_edge, label %28
 
 ._crit_edge:                                      ; preds = %82, %_ZNSt13unordered_mapIP10MeshVertexS1_St4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S1_EEE7reserveEm.exit
-  %.043.lcssa = phi i64 [ 0, %_ZNSt13unordered_mapIP10MeshVertexS1_St4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S1_EEE7reserveEm.exit ], [ %.2, %82 ]
+  %.044.lcssa = phi i64 [ 0, %_ZNSt13unordered_mapIP10MeshVertexS1_St4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S1_EEE7reserveEm.exit ], [ %.2, %82 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %4, i8 0, i64 57, i1 false)
-  %84 = invoke ptr @_ZN3vcg3tri9AllocatorI4MeshE11AddVerticesERS2_mRNS3_14PointerUpdaterIP10MeshVertexEE(ptr noundef nonnull align 8 dereferenceable(808) %1, i64 noundef %.043.lcssa, ptr noundef nonnull align 8 dereferenceable(57) %4)
+  %84 = invoke ptr @_ZN3vcg3tri9AllocatorI4MeshE11AddVerticesERS2_mRNS3_14PointerUpdaterIP10MeshVertexEE(ptr noundef nonnull align 8 dereferenceable(808) %1, i64 noundef %.044.lcssa, ptr noundef nonnull align 8 dereferenceable(57) %4)
           to label %85 unwind label %89
 
 85:                                               ; preds = %._crit_edge
@@ -1108,10 +1108,10 @@ _ZNSt10_HashtableIP10MeshVertexSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stES
   br label %116
 
 116:                                              ; preds = %.lr.ph126, %182
-  %.sroa.084.0124 = phi ptr [ %84, %.lr.ph126 ], [ %.sroa.084.2, %182 ]
+  %.sroa.080.0124 = phi ptr [ %112, %.lr.ph126 ], [ %183, %182 ]
   %.sroa.083.0123 = phi ptr [ %101, %.lr.ph126 ], [ %118, %182 ]
-  %.sroa.080.0122 = phi ptr [ %112, %.lr.ph126 ], [ %183, %182 ]
-  %117 = load ptr, ptr %.sroa.080.0122, align 8
+  %.sroa.084.0122 = phi ptr [ %84, %.lr.ph126 ], [ %.sroa.084.2, %182 ]
+  %117 = load ptr, ptr %.sroa.080.0124, align 8
   %118 = getelementptr inbounds i8, ptr %.sroa.083.0123, i64 216
   %119 = load ptr, ptr %0, align 8
   %120 = getelementptr inbounds i8, ptr %119, i64 72
@@ -1138,7 +1138,7 @@ _ZNSt10_HashtableIP10MeshVertexSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stES
 
 139:                                              ; preds = %116, %177
   %indvars.iv135 = phi i64 [ 0, %116 ], [ %indvars.iv.next136, %177 ]
-  %.sroa.084.1119 = phi ptr [ %.sroa.084.0124, %116 ], [ %.sroa.084.2, %177 ]
+  %.sroa.084.1119 = phi ptr [ %.sroa.084.0122, %116 ], [ %.sroa.084.2, %177 ]
   %140 = getelementptr inbounds [3 x ptr], ptr %135, i64 0, i64 %indvars.iv135
   %141 = load ptr, ptr %140, align 8
   %142 = ptrtoint ptr %141 to i64
@@ -1231,7 +1231,7 @@ _ZNSt10_HashtableIP10MeshVertexSt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stES
 
 182:                                              ; preds = %177
   store i8 1, ptr %.sroa.083.0123, align 1
-  %183 = getelementptr inbounds i8, ptr %.sroa.080.0122, i64 8
+  %183 = getelementptr inbounds i8, ptr %.sroa.080.0124, i64 8
   %.not93 = icmp eq ptr %183, %113
   br i1 %.not93, label %._crit_edge127, label %116
 
@@ -11983,69 +11983,69 @@ _ZN3vcg3tri11UpdateFlagsI4MeshE12VertexClearVERS2_.exit90: ; preds = %164, %155
   br i1 %.not209266, label %._crit_edge270, label %.lr.ph269
 
 .lr.ph269:                                        ; preds = %_ZN3vcg3tri11UpdateFlagsI4MeshE12VertexClearVERS2_.exit90, %218
-  %.sroa.0184.0268 = phi ptr [ %225, %218 ], [ %145, %_ZN3vcg3tri11UpdateFlagsI4MeshE12VertexClearVERS2_.exit90 ]
-  %.sroa.0181.0267 = phi ptr [ %226, %218 ], [ %167, %_ZN3vcg3tri11UpdateFlagsI4MeshE12VertexClearVERS2_.exit90 ]
-  %168 = getelementptr inbounds i8, ptr %.sroa.0181.0267, i64 32
+  %.sroa.0181.0268 = phi ptr [ %226, %218 ], [ %167, %_ZN3vcg3tri11UpdateFlagsI4MeshE12VertexClearVERS2_.exit90 ]
+  %.sroa.0184.0267 = phi ptr [ %225, %218 ], [ %145, %_ZN3vcg3tri11UpdateFlagsI4MeshE12VertexClearVERS2_.exit90 ]
+  %168 = getelementptr inbounds i8, ptr %.sroa.0181.0268, i64 32
   %.sroa.030.0.copyload = load i32, ptr %168, align 4
   %169 = sext i32 %.sroa.030.0.copyload to i64
   %170 = load ptr, ptr %13, align 8
   %171 = getelementptr inbounds %class.MeshVertex, ptr %170, i64 %169
   %172 = getelementptr inbounds i8, ptr %171, i64 116
   %173 = load i32, ptr %172, align 4
-  %174 = getelementptr inbounds i8, ptr %.sroa.0184.0268, i64 116
+  %174 = getelementptr inbounds i8, ptr %.sroa.0184.0267, i64 116
   store i32 %173, ptr %174, align 4
   %175 = getelementptr inbounds i8, ptr %171, i64 112
   %176 = load i32, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %.sroa.0184.0268, i64 112
+  %177 = getelementptr inbounds i8, ptr %.sroa.0184.0267, i64 112
   store i32 %176, ptr %177, align 4
   %178 = getelementptr inbounds i8, ptr %171, i64 104
   %179 = load double, ptr %178, align 8
-  %180 = getelementptr inbounds i8, ptr %.sroa.0184.0268, i64 104
+  %180 = getelementptr inbounds i8, ptr %.sroa.0184.0267, i64 104
   store double %179, ptr %180, align 8
   %181 = getelementptr inbounds i8, ptr %171, i64 100
-  %182 = getelementptr inbounds i8, ptr %.sroa.0184.0268, i64 100
+  %182 = getelementptr inbounds i8, ptr %.sroa.0184.0267, i64 100
   %183 = load i32, ptr %181, align 1
   store i32 %183, ptr %182, align 1
-  %184 = getelementptr inbounds i8, ptr %.sroa.0184.0268, i64 48
+  %184 = getelementptr inbounds i8, ptr %.sroa.0184.0267, i64 48
   %185 = getelementptr inbounds i8, ptr %171, i64 48
   %186 = load double, ptr %185, align 8
   store double %186, ptr %184, align 8
   %187 = getelementptr inbounds i8, ptr %171, i64 56
   %188 = load double, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %.sroa.0184.0268, i64 56
+  %189 = getelementptr inbounds i8, ptr %.sroa.0184.0267, i64 56
   store double %188, ptr %189, align 8
   %190 = getelementptr inbounds i8, ptr %171, i64 64
   %191 = load double, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %.sroa.0184.0268, i64 64
+  %192 = getelementptr inbounds i8, ptr %.sroa.0184.0267, i64 64
   store double %191, ptr %192, align 8
-  %193 = getelementptr inbounds i8, ptr %.sroa.0184.0268, i64 24
+  %193 = getelementptr inbounds i8, ptr %.sroa.0184.0267, i64 24
   %194 = getelementptr inbounds i8, ptr %171, i64 24
   %195 = load double, ptr %194, align 8
   store double %195, ptr %193, align 8
   %196 = getelementptr inbounds i8, ptr %171, i64 32
   %197 = load double, ptr %196, align 8
-  %198 = getelementptr inbounds i8, ptr %.sroa.0184.0268, i64 32
+  %198 = getelementptr inbounds i8, ptr %.sroa.0184.0267, i64 32
   store double %197, ptr %198, align 8
   %199 = getelementptr inbounds i8, ptr %171, i64 40
   %200 = load i16, ptr %199, align 2
-  %201 = getelementptr inbounds i8, ptr %.sroa.0184.0268, i64 40
+  %201 = getelementptr inbounds i8, ptr %.sroa.0184.0267, i64 40
   store i16 %200, ptr %201, align 2
   %202 = load double, ptr %171, align 8
-  store double %202, ptr %.sroa.0184.0268, align 8
+  store double %202, ptr %.sroa.0184.0267, align 8
   %203 = getelementptr inbounds i8, ptr %171, i64 8
   %204 = load double, ptr %203, align 8
-  %205 = getelementptr inbounds i8, ptr %.sroa.0184.0268, i64 8
+  %205 = getelementptr inbounds i8, ptr %.sroa.0184.0267, i64 8
   store double %204, ptr %205, align 8
   %206 = getelementptr inbounds i8, ptr %171, i64 16
   %207 = load double, ptr %206, align 8
-  %208 = getelementptr inbounds i8, ptr %.sroa.0184.0268, i64 16
+  %208 = getelementptr inbounds i8, ptr %.sroa.0184.0267, i64 16
   store double %207, ptr %208, align 8
   %209 = load ptr, ptr %13, align 8
   %210 = getelementptr inbounds %class.MeshVertex, ptr %209, i64 %169, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %211 = load i32, ptr %210, align 4
   %212 = or i32 %211, 16
   store i32 %212, ptr %210, align 4
-  %213 = getelementptr inbounds i8, ptr %.sroa.0181.0267, i64 40
+  %213 = getelementptr inbounds i8, ptr %.sroa.0181.0268, i64 40
   %214 = load i32, ptr %213, align 4
   %215 = icmp eq i32 %214, -1
   br i1 %215, label %218, label %216
@@ -12059,14 +12059,14 @@ _ZN3vcg3tri11UpdateFlagsI4MeshE12VertexClearVERS2_.exit90: ; preds = %164, %155
 
 218:                                              ; preds = %.lr.ph269
   %219 = load ptr, ptr %13, align 8
-  %220 = ptrtoint ptr %.sroa.0184.0268 to i64
+  %220 = ptrtoint ptr %.sroa.0184.0267 to i64
   %221 = ptrtoint ptr %219 to i64
   %222 = sub i64 %220, %221
   %223 = sdiv exact i64 %222, 120
   %224 = trunc i64 %223 to i32
   store i32 %224, ptr %213, align 4
-  %225 = getelementptr inbounds i8, ptr %.sroa.0184.0268, i64 120
-  %226 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0181.0267) #31
+  %225 = getelementptr inbounds i8, ptr %.sroa.0184.0267, i64 120
+  %226 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0181.0268) #31
   %.not209 = icmp eq ptr %226, %8
   br i1 %.not209, label %._crit_edge270, label %.lr.ph269
 

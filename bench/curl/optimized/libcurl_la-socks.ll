@@ -677,8 +677,8 @@ if.end174.i.i:                                    ; preds = %if.then170.i.i
 
 if.end177.i.i:                                    ; preds = %if.end174.i.i, %if.end162.i.i, %if.end162.thread.i.i
   %inc164460.i.i = phi i64 [ 3, %if.end162.thread.i.i ], [ %inc164.i.i, %if.end174.i.i ], [ %inc164.i.i, %if.end162.i.i ]
-  %proxy_password_len.0448459.i.i = phi i64 [ 0, %if.end162.thread.i.i ], [ %call144.i.i, %if.end174.i.i ], [ %call144.i.i, %if.end162.i.i ]
-  %add178.i.i = add i64 %proxy_password_len.0448459.i.i, %inc164460.i.i
+  %proxy_password_len.0449459.i.i = phi i64 [ 0, %if.end162.thread.i.i ], [ %call144.i.i, %if.end174.i.i ], [ %call144.i.i, %if.end162.i.i ]
+  %add178.i.i = add i64 %proxy_password_len.0449459.i.i, %inc164460.i.i
   %54 = load i32, ptr %sx.0, align 8
   %cmp.i333.i.i = icmp eq i32 %54, 7
   br i1 %cmp.i333.i.i, label %socksstate.exit335.i.i, label %if.end.i334.i.i
@@ -967,11 +967,11 @@ if.then298.i.i:                                   ; preds = %if.end288.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %if.then298.i.i
   %indvars.iv504.i.i = phi i64 [ 0, %if.then298.i.i ], [ %indvars.iv.next505.i.i, %for.body.i.i ]
-  %len.0501.i.i = phi i64 [ 4, %if.then298.i.i ], [ %inc305.i.i, %for.body.i.i ]
+  %len.0500.i.i = phi i64 [ 4, %if.then298.i.i ], [ %inc305.i.i, %for.body.i.i ]
   %arrayidx304.i.i = getelementptr inbounds i8, ptr %sin_addr.i.i, i64 %indvars.iv504.i.i
   %87 = load i8, ptr %arrayidx304.i.i, align 1
-  %inc305.i.i = add nuw nsw i64 %len.0501.i.i, 1
-  %arrayidx306.i.i = getelementptr inbounds i8, ptr %19, i64 %len.0501.i.i
+  %inc305.i.i = add nuw nsw i64 %len.0500.i.i, 1
+  %arrayidx306.i.i = getelementptr inbounds i8, ptr %19, i64 %len.0500.i.i
   store i8 %87, ptr %arrayidx306.i.i, align 1
   %indvars.iv.next505.i.i = add nuw nsw i64 %indvars.iv504.i.i, 1
   %exitcond507.not.i.i = icmp eq i64 %indvars.iv.next505.i.i, 4

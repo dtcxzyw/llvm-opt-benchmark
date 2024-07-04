@@ -20,9 +20,9 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.end
-  %p.011 = phi ptr [ @.str, %entry ], [ %q.0, %for.end ]
-  %mm.010 = phi i32 [ 0, %entry ], [ %inc, %for.end ]
-  %add.ptr = getelementptr inbounds i8, ptr %p.011, i64 2
+  %mm.011 = phi i32 [ 0, %entry ], [ %inc, %for.end ]
+  %p.010 = phi ptr [ @.str, %entry ], [ %q.0, %for.end ]
+  %add.ptr = getelementptr inbounds i8, ptr %p.010, i64 2
   br label %for.cond1
 
 for.cond1:                                        ; preds = %for.inc, %for.body
@@ -39,14 +39,14 @@ for.inc:                                          ; preds = %for.cond1
 
 for.end:                                          ; preds = %for.cond1, %for.cond1
   %sub.ptr.lhs.cast = ptrtoint ptr %q.0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %p.011 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %p.010 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull %p.011, i64 noundef %sub.ptr.sub) #5
+  %call = tail call ptr @lj_str_new(ptr noundef %L, ptr noundef nonnull %p.010, i64 noundef %sub.ptr.sub) #5
   %3 = ptrtoint ptr %call to i64
-  %idxprom = zext i32 %mm.010 to i64
+  %idxprom = zext i32 %mm.011 to i64
   %arrayidx = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot, i64 0, i64 %idxprom
   store i64 %3, ptr %arrayidx, align 8
-  %inc = add i32 %mm.010, 1
+  %inc = add i32 %mm.011, 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %for.end7, label %for.body, !llvm.loop !5
 
@@ -188,14 +188,14 @@ entry:
   br label %for.body
 
 for.cond:                                         ; preds = %if.end30
-  %inc = add nuw nsw i32 %loop.034, 1
+  %inc = add nuw nsw i32 %loop.035, 1
   %exitcond.not = icmp eq i32 %inc, 100
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
 for.body:                                         ; preds = %entry, %for.cond
   %0 = phi i64 [ %.pre, %entry ], [ %24, %for.cond ]
-  %o.addr.035 = phi ptr [ %o, %entry ], [ %mo.0, %for.cond ]
-  %loop.034 = phi i32 [ 0, %entry ], [ %inc, %for.cond ]
+  %loop.035 = phi i32 [ 0, %entry ], [ %inc, %for.cond ]
+  %o.addr.034 = phi ptr [ %o, %entry ], [ %mo.0, %for.cond ]
   %shr.mask = and i64 %0, -140737488355328
   %cmp1 = icmp eq i64 %shr.mask, -1688849860263936
   br i1 %cmp1, label %if.then, label %if.else
@@ -307,7 +307,7 @@ lj_meta_lookup.exit:                              ; preds = %if.then21.i, %if.en
   br i1 %cmp26, label %if.then28, label %if.end30
 
 if.then28:                                        ; preds = %lj_meta_lookup.exit
-  tail call void @lj_err_optype(ptr noundef nonnull %L, ptr noundef nonnull %o.addr.035, i32 noundef 403) #6
+  tail call void @lj_err_optype(ptr noundef nonnull %L, ptr noundef nonnull %o.addr.034, i32 noundef 403) #6
   unreachable
 
 if.end30:                                         ; preds = %lor.lhs.false.i, %lj_meta_lookup.exit
@@ -352,7 +352,7 @@ mmcall.exit:                                      ; preds = %if.then35, %if.then
   store i64 %33, ptr %incdec.ptr11.i, align 8
   %incdec.ptr13.i = getelementptr inbounds i8, ptr %top.0.i, i64 32
   store i64 -1, ptr %incdec.ptr12.i, align 8
-  %34 = load i64, ptr %o.addr.035, align 8
+  %34 = load i64, ptr %o.addr.034, align 8
   store i64 %34, ptr %incdec.ptr13.i, align 8
   %add.ptr14.i = getelementptr inbounds i8, ptr %top.0.i, i64 40
   %35 = load i64, ptr %k, align 8
@@ -389,8 +389,8 @@ entry:
 
 for.body:                                         ; preds = %entry, %if.end97
   %0 = phi i64 [ %.pre, %entry ], [ %38, %if.end97 ]
-  %o.addr.075 = phi ptr [ %o, %entry ], [ %tmp, %if.end97 ]
-  %loop.074 = phi i32 [ 0, %entry ], [ %inc, %if.end97 ]
+  %loop.075 = phi i32 [ 0, %entry ], [ %inc, %if.end97 ]
+  %o.addr.074 = phi ptr [ %o, %entry ], [ %tmp, %if.end97 ]
   %shr.mask = and i64 %0, -140737488355328
   %cmp1 = icmp eq i64 %shr.mask, -1688849860263936
   br i1 %cmp1, label %if.then, label %if.else84
@@ -575,7 +575,7 @@ lj_meta_lookup.exit:                              ; preds = %if.then21.i, %if.en
   br i1 %cmp86, label %if.then88, label %if.end90
 
 if.then88:                                        ; preds = %lj_meta_lookup.exit
-  call void @lj_err_optype(ptr noundef nonnull %L, ptr noundef nonnull %o.addr.075, i32 noundef 403) #6
+  call void @lj_err_optype(ptr noundef nonnull %L, ptr noundef nonnull %o.addr.074, i32 noundef 403) #6
   unreachable
 
 if.end90:                                         ; preds = %lor.lhs.false.i, %lj_meta_lookup.exit
@@ -620,7 +620,7 @@ mmcall.exit:                                      ; preds = %if.then95, %if.then
   store i64 %47, ptr %incdec.ptr11.i, align 8
   %incdec.ptr13.i = getelementptr inbounds i8, ptr %top.0.i, i64 32
   store i64 -1, ptr %incdec.ptr12.i, align 8
-  %48 = load i64, ptr %o.addr.075, align 8
+  %48 = load i64, ptr %o.addr.074, align 8
   store i64 %48, ptr %incdec.ptr13.i, align 8
   %add.ptr14.i = getelementptr inbounds i8, ptr %top.0.i, i64 40
   %49 = load i64, ptr %k, align 8
@@ -630,7 +630,7 @@ mmcall.exit:                                      ; preds = %if.then95, %if.then
 
 if.end97:                                         ; preds = %if.end90
   store i64 %38, ptr %tmp, align 8
-  %inc = add nuw nsw i32 %loop.074, 1
+  %inc = add nuw nsw i32 %loop.075, 1
   %exitcond.not = icmp eq i32 %inc, 100
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
@@ -928,8 +928,8 @@ entry:
 
 do.body:                                          ; preds = %for.end, %entry
   %1 = phi i64 [ %.pre, %entry ], [ %or.i.i, %for.end ]
-  %left.addr.1 = phi i32 [ %spec.select, %entry ], [ %dec.lcssa, %for.end ]
   %top.addr.0 = phi ptr [ %top, %entry ], [ %incdec.ptr105, %for.end ]
+  %left.addr.1 = phi i32 [ %spec.select, %entry ], [ %dec.lcssa, %for.end ]
   %shr = ashr i64 %1, 47
   %cmp1 = icmp eq i64 %shr, -5
   %cmp5 = icmp ult i64 %shr, -13
@@ -1169,9 +1169,9 @@ cond.end101:                                      ; preds = %if.else, %cond.true
   br label %do.body104
 
 do.body104:                                       ; preds = %land.rhs, %cond.end101
+  %left.addr.2 = phi i32 [ %left.addr.1, %cond.end101 ], [ %dec, %land.rhs ]
   %o.0 = phi ptr [ %top.addr.0, %cond.end101 ], [ %incdec.ptr105, %land.rhs ]
   %tlen.0 = phi i64 [ %conv103, %cond.end101 ], [ %add, %land.rhs ]
-  %left.addr.2 = phi i32 [ %left.addr.1, %cond.end101 ], [ %dec, %land.rhs ]
   %incdec.ptr105 = getelementptr inbounds i8, ptr %o.0, i64 -8
   %41 = load i64, ptr %incdec.ptr105, align 8
   %shr106 = ashr i64 %41, 47

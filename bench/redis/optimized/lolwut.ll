@@ -323,8 +323,8 @@ entry:
 
 while.body:                                       ; preds = %if.end, %entry
   %y1.addr.0 = phi i32 [ %y1, %entry ], [ %y1.addr.1, %if.end ]
-  %err.0 = phi i32 [ %sub4, %entry ], [ %err.2, %if.end ]
   %x1.addr.0 = phi i32 [ %x1, %entry ], [ %x1.addr.1, %if.end ]
+  %err.0 = phi i32 [ %sub4, %entry ], [ %err.2, %if.end ]
   %cmp.i = icmp slt i32 %x1.addr.0, 0
   br i1 %cmp.i, label %lwDrawPixel.exit, label %lor.lhs.false.i
 
@@ -358,10 +358,10 @@ lwDrawPixel.exit:                                 ; preds = %while.body, %lor.lh
 if.end:                                           ; preds = %lwDrawPixel.exit
   %mul = shl nsw i32 %err.0, 1
   %cmp8 = icmp sgt i32 %mul, %sub7
-  %sub10 = select i1 %cmp8, i32 %1, i32 0
-  %err.1 = sub i32 %err.0, %sub10
   %add = select i1 %cmp8, i32 %cond, i32 0
   %x1.addr.1 = add nsw i32 %add, %x1.addr.0
+  %sub10 = select i1 %cmp8, i32 %1, i32 0
+  %err.1 = sub i32 %err.0, %sub10
   %cmp12 = icmp slt i32 %mul, %0
   %add15 = select i1 %cmp12, i32 %cond3, i32 0
   %y1.addr.1 = add nsw i32 %add15, %y1.addr.0
@@ -450,8 +450,8 @@ for.body25:                                       ; preds = %for.cond22.preheade
 
 while.body.i:                                     ; preds = %if.end.i, %for.body25
   %y1.addr.0.i = phi i32 [ %6, %for.body25 ], [ %y1.addr.1.i, %if.end.i ]
-  %err.0.i = phi i32 [ %sub4.i, %for.body25 ], [ %err.2.i, %if.end.i ]
   %x1.addr.0.i = phi i32 [ %5, %for.body25 ], [ %x1.addr.1.i, %if.end.i ]
+  %err.0.i = phi i32 [ %sub4.i, %for.body25 ], [ %err.2.i, %if.end.i ]
   %cmp.i.i = icmp slt i32 %x1.addr.0.i, 0
   br i1 %cmp.i.i, label %lwDrawPixel.exit.i, label %lor.lhs.false.i.i
 
@@ -485,10 +485,10 @@ lwDrawPixel.exit.i:                               ; preds = %if.end.i.i, %lor.lh
 if.end.i:                                         ; preds = %lwDrawPixel.exit.i
   %mul.i = shl nsw i32 %err.0.i, 1
   %cmp8.i = icmp sgt i32 %mul.i, %sub7.i
-  %sub10.i = select i1 %cmp8.i, i32 %10, i32 0
-  %err.1.i = sub i32 %err.0.i, %sub10.i
   %add.i = select i1 %cmp8.i, i32 %cond.i, i32 0
   %x1.addr.1.i = add nsw i32 %add.i, %x1.addr.0.i
+  %sub10.i = select i1 %cmp8.i, i32 %10, i32 0
+  %err.1.i = sub i32 %err.0.i, %sub10.i
   %cmp12.i = icmp slt i32 %mul.i, %9
   %add15.i = select i1 %cmp12.i, i32 %cond3.i, i32 0
   %y1.addr.1.i = add nsw i32 %add15.i, %y1.addr.0.i

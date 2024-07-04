@@ -491,8 +491,8 @@ for.body.lr.ph.i:                                 ; preds = %for.body
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %add59.i = phi i64 [ 1, %for.body.lr.ph.i ], [ %add.i41, %for.body.i ]
-  %12 = phi <8 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535, i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body.lr.ph.i ], [ %mul.i.i.i, %for.body.i ]
   %istripe.058.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add59.i, %for.body.i ]
+  %12 = phi <8 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535, i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body.lr.ph.i ], [ %mul.i.i.i, %for.body.i ]
   %add.ptr25.i = getelementptr inbounds <2 x i64>, ptr %add.ptr.i, i64 %istripe.058.i
   %13 = load <2 x i64>, ptr %add.ptr25.i, align 1
   %add.ptr29.i = getelementptr inbounds <2 x i64>, ptr %add.ptr28.i, i64 %istripe.058.i
@@ -512,8 +512,8 @@ for.end.loopexit.i:                               ; preds = %for.body.i
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %for.body
-  %istripe.0.lcssa.i = phi i64 [ 0, %for.body ], [ %16, %for.end.loopexit.i ]
   %.lcssa56.i = phi <8 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535, i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body ], [ %mul.i.i.i, %for.end.loopexit.i ]
+  %istripe.0.lcssa.i = phi i64 [ 0, %for.body ], [ %16, %for.end.loopexit.i ]
   %add.ptr33.i = getelementptr inbounds i8, ptr %concatenated_keys, i64 %or15.i
   %add.ptr34.i = getelementptr inbounds <2 x i64>, ptr %add.ptr33.i, i64 %istripe.0.lcssa.i
   %17 = load <2 x i64>, ptr %add.ptr34.i, align 1
@@ -529,8 +529,8 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
 for.body45.i:                                     ; preds = %for.end.i, %for.body45.i
   %add4365.i = phi i64 [ %add43.i, %for.body45.i ], [ %add4361.i, %for.end.i ]
   %stripe32.064.i = phi <4 x i64> [ %insert52.i, %for.body45.i ], [ %insert41.i, %for.end.i ]
-  %19 = phi <8 x i32> [ %mul.i.i51.i, %for.body45.i ], [ %.lcssa56.i, %for.end.i ]
   %istripe.163.i = phi i64 [ %add4365.i, %for.body45.i ], [ %istripe.0.lcssa.i, %for.end.i ]
+  %19 = phi <8 x i32> [ %mul.i.i51.i, %for.body45.i ], [ %.lcssa56.i, %for.end.i ]
   %20 = bitcast <4 x i64> %stripe32.064.i to <8 x i32>
   %mul.i12.i48.i = mul <8 x i32> %20, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
   %add.i.i49.i = add <8 x i32> %mul.i12.i48.i, %19
@@ -761,8 +761,8 @@ for.body.lr.ph.i:                                 ; preds = %for.body
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %add59.i = phi i64 [ 1, %for.body.lr.ph.i ], [ %add.i41, %for.body.i ]
-  %12 = phi <8 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535, i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body.lr.ph.i ], [ %mul.i.i.i, %for.body.i ]
   %istripe.058.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add59.i, %for.body.i ]
+  %12 = phi <8 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535, i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body.lr.ph.i ], [ %mul.i.i.i, %for.body.i ]
   %add.ptr25.i = getelementptr inbounds <2 x i64>, ptr %add.ptr.i, i64 %istripe.058.i
   %13 = load <2 x i64>, ptr %add.ptr25.i, align 1
   %add.ptr29.i = getelementptr inbounds <2 x i64>, ptr %add.ptr28.i, i64 %istripe.058.i
@@ -782,8 +782,8 @@ for.end.loopexit.i:                               ; preds = %for.body.i
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %for.body
-  %istripe.0.lcssa.i = phi i64 [ 0, %for.body ], [ %16, %for.end.loopexit.i ]
   %.lcssa56.i = phi <8 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535, i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body ], [ %mul.i.i.i, %for.end.loopexit.i ]
+  %istripe.0.lcssa.i = phi i64 [ 0, %for.body ], [ %16, %for.end.loopexit.i ]
   %add.ptr33.i = getelementptr inbounds i8, ptr %concatenated_keys, i64 %or15.i
   %add.ptr34.i = getelementptr inbounds <2 x i64>, ptr %add.ptr33.i, i64 %istripe.0.lcssa.i
   %17 = load <2 x i64>, ptr %add.ptr34.i, align 1
@@ -799,8 +799,8 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
 for.body45.i:                                     ; preds = %for.end.i, %for.body45.i
   %add4365.i = phi i64 [ %add43.i, %for.body45.i ], [ %add4361.i, %for.end.i ]
   %stripe32.064.i = phi <4 x i64> [ %insert52.i, %for.body45.i ], [ %insert41.i, %for.end.i ]
-  %19 = phi <8 x i32> [ %mul.i.i51.i, %for.body45.i ], [ %.lcssa56.i, %for.end.i ]
   %istripe.163.i = phi i64 [ %add4365.i, %for.body45.i ], [ %istripe.0.lcssa.i, %for.end.i ]
+  %19 = phi <8 x i32> [ %mul.i.i51.i, %for.body45.i ], [ %.lcssa56.i, %for.end.i ]
   %20 = bitcast <4 x i64> %stripe32.064.i to <8 x i32>
   %mul.i12.i48.i = mul <8 x i32> %20, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
   %add.i.i49.i = add <8 x i32> %mul.i12.i48.i, %19
@@ -1035,8 +1035,8 @@ for.body.lr.ph.i:                                 ; preds = %_ZN5arrow8bit_util7
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %add59.i = phi i64 [ 1, %for.body.lr.ph.i ], [ %add.i41, %for.body.i ]
-  %8 = phi <8 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535, i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body.lr.ph.i ], [ %mul.i.i.i, %for.body.i ]
   %istripe.058.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add59.i, %for.body.i ]
+  %8 = phi <8 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535, i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body.lr.ph.i ], [ %mul.i.i.i, %for.body.i ]
   %add.ptr25.i = getelementptr inbounds <2 x i64>, ptr %add.ptr.i, i64 %istripe.058.i
   %9 = load <2 x i64>, ptr %add.ptr25.i, align 1
   %add.ptr29.i = getelementptr inbounds <2 x i64>, ptr %add.ptr28.i, i64 %istripe.058.i
@@ -1056,8 +1056,8 @@ for.end.loopexit.i:                               ; preds = %for.body.i
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %_ZN5arrow8bit_util7CeilDivEll.exit39
-  %istripe.0.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit39 ], [ %12, %for.end.loopexit.i ]
   %.lcssa56.i = phi <8 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535, i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %_ZN5arrow8bit_util7CeilDivEll.exit39 ], [ %mul.i.i.i, %for.end.loopexit.i ]
+  %istripe.0.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit39 ], [ %12, %for.end.loopexit.i ]
   %add.ptr33.i = getelementptr inbounds i8, ptr %concatenated_keys, i64 %or15.i
   %add.ptr34.i = getelementptr inbounds <2 x i64>, ptr %add.ptr33.i, i64 %istripe.0.lcssa.i
   %13 = load <2 x i64>, ptr %add.ptr34.i, align 1
@@ -1073,8 +1073,8 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
 for.body45.i:                                     ; preds = %for.end.i, %for.body45.i
   %add4365.i = phi i64 [ %add43.i, %for.body45.i ], [ %add4361.i, %for.end.i ]
   %stripe32.064.i = phi <4 x i64> [ %insert52.i, %for.body45.i ], [ %insert41.i, %for.end.i ]
-  %15 = phi <8 x i32> [ %mul.i.i51.i, %for.body45.i ], [ %.lcssa56.i, %for.end.i ]
   %istripe.163.i = phi i64 [ %add4365.i, %for.body45.i ], [ %istripe.0.lcssa.i, %for.end.i ]
+  %15 = phi <8 x i32> [ %mul.i.i51.i, %for.body45.i ], [ %.lcssa56.i, %for.end.i ]
   %16 = bitcast <4 x i64> %stripe32.064.i to <8 x i32>
   %mul.i12.i48.i = mul <8 x i32> %16, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
   %add.i.i49.i = add <8 x i32> %mul.i12.i48.i, %15
@@ -1309,8 +1309,8 @@ for.body.lr.ph.i:                                 ; preds = %_ZN5arrow8bit_util7
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %add59.i = phi i64 [ 1, %for.body.lr.ph.i ], [ %add.i41, %for.body.i ]
-  %8 = phi <8 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535, i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body.lr.ph.i ], [ %mul.i.i.i, %for.body.i ]
   %istripe.058.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add59.i, %for.body.i ]
+  %8 = phi <8 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535, i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %for.body.lr.ph.i ], [ %mul.i.i.i, %for.body.i ]
   %add.ptr25.i = getelementptr inbounds <2 x i64>, ptr %add.ptr.i, i64 %istripe.058.i
   %9 = load <2 x i64>, ptr %add.ptr25.i, align 1
   %add.ptr29.i = getelementptr inbounds <2 x i64>, ptr %add.ptr28.i, i64 %istripe.058.i
@@ -1330,8 +1330,8 @@ for.end.loopexit.i:                               ; preds = %for.body.i
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %_ZN5arrow8bit_util7CeilDivEll.exit39
-  %istripe.0.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit39 ], [ %12, %for.end.loopexit.i ]
   %.lcssa56.i = phi <8 x i32> [ <i32 606290984, i32 -2048144777, i32 0, i32 1640531535, i32 606290984, i32 -2048144777, i32 0, i32 1640531535>, %_ZN5arrow8bit_util7CeilDivEll.exit39 ], [ %mul.i.i.i, %for.end.loopexit.i ]
+  %istripe.0.lcssa.i = phi i64 [ 0, %_ZN5arrow8bit_util7CeilDivEll.exit39 ], [ %12, %for.end.loopexit.i ]
   %add.ptr33.i = getelementptr inbounds i8, ptr %concatenated_keys, i64 %or15.i
   %add.ptr34.i = getelementptr inbounds <2 x i64>, ptr %add.ptr33.i, i64 %istripe.0.lcssa.i
   %13 = load <2 x i64>, ptr %add.ptr34.i, align 1
@@ -1347,8 +1347,8 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
 for.body45.i:                                     ; preds = %for.end.i, %for.body45.i
   %add4365.i = phi i64 [ %add43.i, %for.body45.i ], [ %add4361.i, %for.end.i ]
   %stripe32.064.i = phi <4 x i64> [ %insert52.i, %for.body45.i ], [ %insert41.i, %for.end.i ]
-  %15 = phi <8 x i32> [ %mul.i.i51.i, %for.body45.i ], [ %.lcssa56.i, %for.end.i ]
   %istripe.163.i = phi i64 [ %add4365.i, %for.body45.i ], [ %istripe.0.lcssa.i, %for.end.i ]
+  %15 = phi <8 x i32> [ %mul.i.i51.i, %for.body45.i ], [ %.lcssa56.i, %for.end.i ]
   %16 = bitcast <4 x i64> %stripe32.064.i to <8 x i32>
   %mul.i12.i48.i = mul <8 x i32> %16, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
   %add.i.i49.i = add <8 x i32> %mul.i12.i48.i, %15

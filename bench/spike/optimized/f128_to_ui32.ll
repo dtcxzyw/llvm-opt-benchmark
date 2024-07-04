@@ -13,7 +13,7 @@ define i64 @f128_to_ui32(i64 %0, i64 %1, i8 noundef zeroext %2, i1 noundef zeroe
   %10 = or i64 %7, %9
   %.not = icmp eq i64 %6, 0
   %11 = or disjoint i64 %10, 281474976710656
-  %.019 = select i1 %.not, i64 %10, i64 %11
+  %.0 = select i1 %.not, i64 %10, i64 %11
   %12 = icmp ult i64 %6, 16419
   br i1 %12, label %13, label %softfloat_shiftRightJam64.exit
 
@@ -33,12 +33,12 @@ define i64 @f128_to_ui32(i64 %0, i64 %1, i8 noundef zeroext %2, i1 noundef zeroe
   br label %softfloat_shiftRightJam64.exit
 
 23:                                               ; preds = %13
-  %24 = icmp ne i64 %.019, 0
+  %24 = icmp ne i64 %.0, 0
   %25 = zext i1 %24 to i64
   br label %softfloat_shiftRightJam64.exit
 
 softfloat_shiftRightJam64.exit:                   ; preds = %23, %15, %4
-  %.1 = phi i64 [ %.019, %4 ], [ %22, %15 ], [ %25, %23 ]
+  %.1 = phi i64 [ %.0, %4 ], [ %22, %15 ], [ %25, %23 ]
   %26 = icmp eq i64 %10, 0
   %27 = icmp ne i64 %6, 32767
   %28 = icmp slt i64 %1, 0

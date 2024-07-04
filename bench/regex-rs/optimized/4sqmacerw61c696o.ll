@@ -2191,8 +2191,8 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA13start_pattern17hf5daec03710b325cE.exit
 
 111:                                              ; preds = %.lr.ph4507, %_ZN4core3mem4swap17hbf23c99ca7091f5dE.exit
   %.04506 = phi i64 [ %35, %.lr.ph4507 ], [ %141, %_ZN4core3mem4swap17hbf23c99ca7091f5dE.exit ]
-  %.sroa.8.sroa.4.04505 = phi i32 [ undef, %.lr.ph4507 ], [ %.sroa.8.sroa.4.2, %_ZN4core3mem4swap17hbf23c99ca7091f5dE.exit ]
-  %.sroa.07.04504 = phi i64 [ 0, %.lr.ph4507 ], [ %.sroa.07.2, %_ZN4core3mem4swap17hbf23c99ca7091f5dE.exit ]
+  %.sroa.07.04505 = phi i64 [ 0, %.lr.ph4507 ], [ %.sroa.07.2, %_ZN4core3mem4swap17hbf23c99ca7091f5dE.exit ]
+  %.sroa.8.sroa.4.04504 = phi i32 [ undef, %.lr.ph4507 ], [ %.sroa.8.sroa.4.2, %_ZN4core3mem4swap17hbf23c99ca7091f5dE.exit ]
   %.sroa.8.sroa.0.04503 = phi i64 [ undef, %.lr.ph4507 ], [ %.sroa.8.sroa.0.2, %_ZN4core3mem4swap17hbf23c99ca7091f5dE.exit ]
   %112 = load i64, ptr %30, align 8, !noundef !4
   %113 = icmp eq i64 %112, 0
@@ -2200,8 +2200,8 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA13start_pattern17hf5daec03710b325cE.exit
 
 .loopexit:                                        ; preds = %_ZN4core3mem4swap17hbf23c99ca7091f5dE.exit, %114, %_ZN14regex_automata3nfa8thompson6pikevm6PikeVM5nexts17hb5e4c783c6a3a280E.exit, %116, %133
   %.sroa.8.sroa.0.1 = phi i64 [ %.sroa.8.sroa.0.04503, %133 ], [ %.sroa.8.sroa.0.2, %_ZN4core3mem4swap17hbf23c99ca7091f5dE.exit ], [ %.sroa.8.sroa.0.04503, %114 ], [ %.sroa.8.sroa.0.2, %_ZN14regex_automata3nfa8thompson6pikevm6PikeVM5nexts17hb5e4c783c6a3a280E.exit ], [ %.sroa.8.sroa.0.04503, %116 ]
-  %.sroa.07.1 = phi i64 [ %.sroa.07.04504, %133 ], [ %.sroa.07.2, %_ZN4core3mem4swap17hbf23c99ca7091f5dE.exit ], [ 1, %114 ], [ 1, %_ZN14regex_automata3nfa8thompson6pikevm6PikeVM5nexts17hb5e4c783c6a3a280E.exit ], [ %.sroa.07.04504, %116 ]
-  %.sroa.8.sroa.4.1 = phi i32 [ %.sroa.8.sroa.4.04505, %133 ], [ %.sroa.8.sroa.4.2, %_ZN4core3mem4swap17hbf23c99ca7091f5dE.exit ], [ %.sroa.8.sroa.4.04505, %114 ], [ %.sroa.8.sroa.4.2, %_ZN14regex_automata3nfa8thompson6pikevm6PikeVM5nexts17hb5e4c783c6a3a280E.exit ], [ %.sroa.8.sroa.4.04505, %116 ]
+  %.sroa.8.sroa.4.1 = phi i32 [ %.sroa.8.sroa.4.04504, %133 ], [ %.sroa.8.sroa.4.2, %_ZN4core3mem4swap17hbf23c99ca7091f5dE.exit ], [ %.sroa.8.sroa.4.04504, %114 ], [ %.sroa.8.sroa.4.2, %_ZN14regex_automata3nfa8thompson6pikevm6PikeVM5nexts17hb5e4c783c6a3a280E.exit ], [ %.sroa.8.sroa.4.04504, %116 ]
+  %.sroa.07.1 = phi i64 [ %.sroa.07.04505, %133 ], [ %.sroa.07.2, %_ZN4core3mem4swap17hbf23c99ca7091f5dE.exit ], [ 1, %114 ], [ 1, %_ZN14regex_automata3nfa8thompson6pikevm6PikeVM5nexts17hb5e4c783c6a3a280E.exit ], [ %.sroa.07.04505, %116 ]
   store i64 %.sroa.07.1, ptr %0, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.8.sroa.0.1, ptr %.sroa.8.0..sroa_idx, align 8
@@ -2210,7 +2210,7 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA13start_pattern17hf5daec03710b325cE.exit
   br label %75
 
 114:                                              ; preds = %111
-  %115 = icmp eq i64 %.sroa.07.04504, 1
+  %115 = icmp eq i64 %.sroa.07.04505, 1
   %brmerge.not = and i1 %.0.i127, %115
   br i1 %brmerge.not, label %.loopexit, label %116
 
@@ -2241,7 +2241,7 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA13start_pattern17hf5daec03710b325cE.exit
 
 ._crit_edge7060:                                  ; preds = %111, %134, %118
   %.1 = phi i64 [ %135, %134 ], [ %.04506, %118 ], [ %.04506, %111 ]
-  %131 = icmp eq i64 %.sroa.07.04504, 1
+  %131 = icmp eq i64 %.sroa.07.04505, 1
   %brmerge2.not = and i1 %.0.i127, %131
   %132 = icmp ne i64 %.1, %35
   %or.cond38.not = and i1 %83, %132
@@ -4343,8 +4343,8 @@ _ZN14regex_automata3nfa8thompson6pikevm6PikeVM5nexts17hb5e4c783c6a3a280E.exit: ;
   %.us-phi2597 = phi i32 [ 1, %_ZN14regex_automata3nfa8thompson6pikevm9SlotTable9for_state17hfa3384813d106466E.exit275.us.us ], [ 1, %_ZN14regex_automata3nfa8thompson6pikevm9SlotTable9for_state17hfa3384813d106466E.exit275.us ], [ %.sroa.0.0.i.ph, %.outer.split.us.split ], [ %.sroa.0.0.i.ph, %.outer.split.us.split.us ], [ %.sroa.0.0.i.ph, %.outer.split ]
   %977 = icmp eq i32 %.us-phi2597, 1
   %.sroa.8.sroa.0.2 = select i1 %977, i64 %.1, i64 %.sroa.8.sroa.0.04503
-  %.sroa.07.2 = select i1 %977, i64 1, i64 %.sroa.07.04504
-  %.sroa.8.sroa.4.2 = select i1 %977, i32 %.us-phi2596, i32 %.sroa.8.sroa.4.04505
+  %.sroa.8.sroa.4.2 = select i1 %977, i32 %.us-phi2596, i32 %.sroa.8.sroa.4.04504
+  %.sroa.07.2 = select i1 %977, i64 1, i64 %.sroa.07.04505
   %978 = icmp eq i64 %.sroa.07.2, 1
   %or.cond = select i1 %110, i1 %978, i1 false
   br i1 %or.cond, label %.loopexit, label %1261
@@ -8413,17 +8413,17 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread
   br label %38
 
 38:                                               ; preds = %35, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread.i
-  %.061.i = phi i64 [ %36, %35 ], [ %.sroa.4.0.i.ph.i, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread.i ]
+  %.065.i = phi i64 [ %36, %35 ], [ %.sroa.4.0.i.ph.i, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread.i ]
   %.0.i = phi i64 [ %37, %35 ], [ %34, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread.i ]
   %39 = getelementptr inbounds i8, ptr %4, i64 8
   %40 = getelementptr inbounds i8, ptr %4, i64 16
   %41 = load i64, ptr %40, align 8, !alias.scope !1597, !noalias !1601, !noundef !4
-  %42 = icmp ult i64 %.061.i, %41
+  %42 = icmp ult i64 %.065.i, %41
   %43 = load ptr, ptr %39, align 8, !alias.scope !1597, !noalias !1601, !nonnull !4
   br i1 %42, label %44, label %90
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i64, ptr %43, i64 %.061.i
+  %45 = getelementptr inbounds i64, ptr %43, i64 %.065.i
   %46 = load i64, ptr %45, align 8, !noalias !1603, !noundef !4
   %47 = icmp ne i64 %46, 0
   %48 = icmp ult i64 %.0.i, %41
@@ -8574,17 +8574,17 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread
   br label %38
 
 38:                                               ; preds = %35, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread.i
-  %.061.i = phi i64 [ %36, %35 ], [ %.sroa.4.0.i.ph.i, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread.i ]
+  %.065.i = phi i64 [ %36, %35 ], [ %.sroa.4.0.i.ph.i, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread.i ]
   %.0.i = phi i64 [ %37, %35 ], [ %34, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread.i ]
   %39 = getelementptr inbounds i8, ptr %4, i64 8
   %40 = getelementptr inbounds i8, ptr %4, i64 16
   %41 = load i64, ptr %40, align 8, !alias.scope !1627, !noalias !1630, !noundef !4
-  %42 = icmp ult i64 %.061.i, %41
+  %42 = icmp ult i64 %.065.i, %41
   %43 = load ptr, ptr %39, align 8, !alias.scope !1627, !noalias !1630, !nonnull !4
   br i1 %42, label %44, label %79
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i64, ptr %43, i64 %.061.i
+  %45 = getelementptr inbounds i64, ptr %43, i64 %.065.i
   %46 = load i64, ptr %45, align 8, !noalias !1632, !noundef !4
   %47 = icmp ne i64 %46, 0
   %48 = icmp ult i64 %.0.i, %41
@@ -9846,7 +9846,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i82: ; preds = %49
   unreachable
 
 _ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit: ; preds = %79, %86, %select.unfold9, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread96, %._crit_edge.thread, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9bfcd5dff3958f8cE.exit", %3
-  %.027 = phi i8 [ 0, %3 ], [ %106, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9bfcd5dff3958f8cE.exit" ], [ 0, %._crit_edge.thread ], [ 0, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread96 ], [ 0, %select.unfold9 ], [ 0, %86 ], [ 0, %79 ]
+  %.028 = phi i8 [ 0, %3 ], [ %106, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9bfcd5dff3958f8cE.exit" ], [ 0, %._crit_edge.thread ], [ 0, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread96 ], [ 0, %select.unfold9 ], [ 0, %86 ], [ 0, %79 ]
   %61 = icmp ult i64 %2, %1
   br i1 %61, label %109, label %_ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit
 
@@ -10043,8 +10043,8 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit67.thread70: ; pred
   unreachable
 
 _ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit: ; preds = %select.unfold29, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread80, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9bfcd5dff3958f8cE.exit123", %_ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit
-  %.025 = phi i8 [ 0, %_ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit ], [ %159, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9bfcd5dff3958f8cE.exit123" ], [ 0, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread80 ], [ 0, %select.unfold29 ]
-  %136 = xor i8 %.027, %.025
+  %.026 = phi i8 [ 0, %_ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit ], [ %159, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9bfcd5dff3958f8cE.exit123" ], [ 0, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread80 ], [ 0, %select.unfold29 ]
+  %136 = xor i8 %.028, %.026
   %137 = xor i8 %136, 1
   br label %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit106.thread
 

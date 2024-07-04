@@ -281,17 +281,17 @@ _ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEEC2EmmS4_.exit.i.i: ; p
   %60 = ashr exact i64 %59, 3
   %61 = sub nsw i64 0, %60
   %62 = getelementptr %"class.std::__1::thread", ptr %54, i64 %61
-  %.not29.i.i.i.i = icmp eq ptr %56, %55
-  br i1 %.not29.i.i.i.i, label %_ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEE5clearB8ne190000Ev.exit.i.i.i, label %.lr.ph.i.i.i.i
+  %.not28.i.i.i.i = icmp eq ptr %56, %55
+  br i1 %.not28.i.i.i.i, label %_ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEE5clearB8ne190000Ev.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %51, %.lr.ph.i.i.i.i
-  %.031.i.i.i.i = phi ptr [ %64, %.lr.ph.i.i.i.i ], [ %56, %51 ]
-  %.02830.i.i.i.i = phi ptr [ %65, %.lr.ph.i.i.i.i ], [ %62, %51 ]
-  %63 = load i64, ptr %.031.i.i.i.i, align 8
-  store i64 %63, ptr %.02830.i.i.i.i, align 8
-  store i64 0, ptr %.031.i.i.i.i, align 8
-  %64 = getelementptr inbounds i8, ptr %.031.i.i.i.i, i64 8
-  %65 = getelementptr inbounds i8, ptr %.02830.i.i.i.i, i64 8
+  %.030.i.i.i.i = phi ptr [ %64, %.lr.ph.i.i.i.i ], [ %56, %51 ]
+  %.02729.i.i.i.i = phi ptr [ %65, %.lr.ph.i.i.i.i ], [ %62, %51 ]
+  %63 = load i64, ptr %.030.i.i.i.i, align 8
+  store i64 %63, ptr %.02729.i.i.i.i, align 8
+  store i64 0, ptr %.030.i.i.i.i, align 8
+  %64 = getelementptr inbounds i8, ptr %.030.i.i.i.i, i64 8
+  %65 = getelementptr inbounds i8, ptr %.02729.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %64, %55
   br i1 %.not.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !5
 

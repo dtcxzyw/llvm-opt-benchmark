@@ -530,10 +530,10 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end16
   %nfds.016 = phi i64 [ %conv1, %while.body.lr.ph ], [ 0, %if.end16 ]
-  %buf.addr.015 = phi ptr [ %buf, %while.body.lr.ph ], [ %add.ptr, %if.end16 ]
-  %sz.addr.014 = phi i32 [ %sz, %while.body.lr.ph ], [ %conv18, %if.end16 ]
-  store ptr %buf.addr.015, ptr %iov, align 8
-  %conv4 = zext nneg i32 %sz.addr.014 to i64
+  %sz.addr.015 = phi i32 [ %sz, %while.body.lr.ph ], [ %conv18, %if.end16 ]
+  %buf.addr.014 = phi ptr [ %buf, %while.body.lr.ph ], [ %add.ptr, %if.end16 ]
+  store ptr %buf.addr.014, ptr %iov, align 8
+  %conv4 = zext nneg i32 %sz.addr.015 to i64
   store i64 %conv4, ptr %iov_len, align 8
   %0 = load ptr, ptr %ioc, align 8
   %call.i = call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #7
@@ -571,9 +571,9 @@ pr_manager_send_status_changed_event.exit:        ; preds = %if.end, %if.then.i
   br label %return
 
 if.end16:                                         ; preds = %while.body
-  %add.ptr = getelementptr i8, ptr %buf.addr.015, i64 %call5
+  %add.ptr = getelementptr i8, ptr %buf.addr.014, i64 %call5
   %3 = trunc i64 %call5 to i32
-  %conv18 = sub i32 %sz.addr.014, %3
+  %conv18 = sub i32 %sz.addr.015, %3
   %cmp2 = icmp sgt i32 %conv18, 0
   br i1 %cmp2, label %while.body, label %return, !llvm.loop !7
 

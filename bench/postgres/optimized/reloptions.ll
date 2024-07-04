@@ -220,7 +220,7 @@ define dso_local void @add_bool_reloption(i32 noundef %0, ptr noundef %1, ptr no
   br label %9
 
 9:                                                ; preds = %6, %5
-  %.0.i.i = phi ptr [ %8, %6 ], [ null, %5 ]
+  %.021.i.i = phi ptr [ %8, %6 ], [ null, %5 ]
   %10 = tail call ptr @palloc(i64 noundef 40) #12
   %11 = tail call ptr @pstrdup(ptr noundef %1) #12
   store ptr %11, ptr %10, align 8
@@ -245,11 +245,11 @@ define dso_local void @add_bool_reloption(i32 noundef %0, ptr noundef %1, ptr no
   store i32 0, ptr %20, align 4
   %21 = getelementptr inbounds i8, ptr %10, i64 20
   store i32 %4, ptr %21, align 4
-  %.not24.i.i = icmp eq ptr %.0.i.i, null
+  %.not24.i.i = icmp eq ptr %.021.i.i, null
   br i1 %.not24.i.i, label %init_bool_reloption.exit, label %22
 
 22:                                               ; preds = %14
-  store ptr %.0.i.i, ptr @CurrentMemoryContext, align 8
+  store ptr %.021.i.i, ptr @CurrentMemoryContext, align 8
   br label %init_bool_reloption.exit
 
 init_bool_reloption.exit:                         ; preds = %14, %22
@@ -356,7 +356,7 @@ define dso_local void @add_int_reloption(i32 noundef %0, ptr noundef %1, ptr nou
   br label %11
 
 11:                                               ; preds = %8, %7
-  %.0.i.i = phi ptr [ %10, %8 ], [ null, %7 ]
+  %.021.i.i = phi ptr [ %10, %8 ], [ null, %7 ]
   %12 = tail call ptr @palloc(i64 noundef 48) #12
   %13 = tail call ptr @pstrdup(ptr noundef %1) #12
   store ptr %13, ptr %12, align 8
@@ -381,11 +381,11 @@ define dso_local void @add_int_reloption(i32 noundef %0, ptr noundef %1, ptr nou
   store i32 1, ptr %22, align 4
   %23 = getelementptr inbounds i8, ptr %12, i64 20
   store i32 %6, ptr %23, align 4
-  %.not24.i.i = icmp eq ptr %.0.i.i, null
+  %.not24.i.i = icmp eq ptr %.021.i.i, null
   br i1 %.not24.i.i, label %init_int_reloption.exit, label %24
 
 24:                                               ; preds = %16
-  store ptr %.0.i.i, ptr @CurrentMemoryContext, align 8
+  store ptr %.021.i.i, ptr @CurrentMemoryContext, align 8
   br label %init_int_reloption.exit
 
 init_int_reloption.exit:                          ; preds = %16, %24
@@ -498,7 +498,7 @@ define dso_local void @add_real_reloption(i32 noundef %0, ptr noundef %1, ptr no
   br label %11
 
 11:                                               ; preds = %8, %7
-  %.0.i.i = phi ptr [ %10, %8 ], [ null, %7 ]
+  %.021.i.i = phi ptr [ %10, %8 ], [ null, %7 ]
   %12 = tail call ptr @palloc(i64 noundef 56) #12
   %13 = tail call ptr @pstrdup(ptr noundef %1) #12
   store ptr %13, ptr %12, align 8
@@ -523,11 +523,11 @@ define dso_local void @add_real_reloption(i32 noundef %0, ptr noundef %1, ptr no
   store i32 2, ptr %22, align 4
   %23 = getelementptr inbounds i8, ptr %12, i64 20
   store i32 %6, ptr %23, align 4
-  %.not24.i.i = icmp eq ptr %.0.i.i, null
+  %.not24.i.i = icmp eq ptr %.021.i.i, null
   br i1 %.not24.i.i, label %init_real_reloption.exit, label %24
 
 24:                                               ; preds = %16
-  store ptr %.0.i.i, ptr @CurrentMemoryContext, align 8
+  store ptr %.021.i.i, ptr @CurrentMemoryContext, align 8
   br label %init_real_reloption.exit
 
 init_real_reloption.exit:                         ; preds = %16, %24
@@ -640,7 +640,7 @@ define dso_local void @add_enum_reloption(i32 noundef %0, ptr noundef %1, ptr no
   br label %11
 
 11:                                               ; preds = %8, %7
-  %.0.i.i = phi ptr [ %10, %8 ], [ null, %7 ]
+  %.021.i.i = phi ptr [ %10, %8 ], [ null, %7 ]
   %12 = tail call ptr @palloc(i64 noundef 56) #12
   %13 = tail call ptr @pstrdup(ptr noundef %1) #12
   store ptr %13, ptr %12, align 8
@@ -665,11 +665,11 @@ define dso_local void @add_enum_reloption(i32 noundef %0, ptr noundef %1, ptr no
   store i32 3, ptr %22, align 4
   %23 = getelementptr inbounds i8, ptr %12, i64 20
   store i32 %6, ptr %23, align 4
-  %.not24.i.i = icmp eq ptr %.0.i.i, null
+  %.not24.i.i = icmp eq ptr %.021.i.i, null
   br i1 %.not24.i.i, label %init_enum_reloption.exit, label %24
 
 24:                                               ; preds = %16
-  store ptr %.0.i.i, ptr @CurrentMemoryContext, align 8
+  store ptr %.021.i.i, ptr @CurrentMemoryContext, align 8
   br label %init_enum_reloption.exit
 
 init_enum_reloption.exit:                         ; preds = %16, %24
@@ -842,7 +842,7 @@ define internal fastcc ptr @init_string_reloption(i32 noundef %0, ptr noundef %1
   br label %13
 
 13:                                               ; preds = %10, %9
-  %.0.i = phi ptr [ %12, %10 ], [ null, %9 ]
+  %.021.i = phi ptr [ %12, %10 ], [ null, %9 ]
   %14 = tail call ptr @palloc(i64 noundef 64) #12
   %15 = tail call ptr @pstrdup(ptr noundef %1) #12
   store ptr %15, ptr %14, align 8
@@ -867,11 +867,11 @@ define internal fastcc ptr @init_string_reloption(i32 noundef %0, ptr noundef %1
   store i32 4, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %14, i64 20
   store i32 %6, ptr %25, align 4
-  %.not24.i = icmp eq ptr %.0.i, null
+  %.not24.i = icmp eq ptr %.021.i, null
   br i1 %.not24.i, label %allocate_reloption.exit, label %26
 
 26:                                               ; preds = %18
-  store ptr %.0.i, ptr @CurrentMemoryContext, align 8
+  store ptr %.021.i, ptr @CurrentMemoryContext, align 8
   br label %allocate_reloption.exit
 
 allocate_reloption.exit:                          ; preds = %18, %26
@@ -1402,8 +1402,8 @@ define dso_local ptr @untransformRelOptions(i64 noundef %0) local_unnamed_addr #
   br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %18, %4, %1
-  %.015 = phi ptr [ null, %1 ], [ null, %4 ], [ %20, %18 ]
-  ret ptr %.015
+  %.016 = phi ptr [ null, %1 ], [ null, %4 ], [ %20, %18 ]
+  ret ptr %.016
 }
 
 declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
@@ -1547,8 +1547,8 @@ define dso_local ptr @extractRelOptions(ptr noundef %0, ptr noundef %1, ptr noca
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %49, %68, %67, %63, %59, %57, %45, %65
-  %.0 = phi ptr [ %66, %65 ], [ null, %45 ], [ %64, %63 ], [ %58, %59 ], [ null, %57 ], [ null, %49 ], [ %69, %68 ], [ null, %67 ]
-  ret ptr %.0
+  %.012 = phi ptr [ %66, %65 ], [ null, %45 ], [ %64, %63 ], [ %58, %59 ], [ null, %57 ], [ null, %49 ], [ %69, %68 ], [ null, %67 ]
+  ret ptr %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1828,7 +1828,7 @@ define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr 
 
 .preheader:                                       ; preds = %.preheader.preheader, %.thread96
   %indvars.iv123 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next124, %.thread96 ]
-  %.080109 = phi i32 [ %8, %.preheader.preheader ], [ %.2100, %.thread96 ]
+  %.081110 = phi i32 [ %8, %.preheader.preheader ], [ %.2100, %.thread96 ]
   %11 = getelementptr %struct.relopt_value, ptr %2, i64 %indvars.iv123
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
@@ -1928,8 +1928,8 @@ define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr 
   br label %66
 
 66:                                               ; preds = %64, %58
-  %.079.in = phi ptr [ %59, %58 ], [ %65, %64 ]
-  %.079 = load ptr, ptr %.079.in, align 8
+  %.0.in = phi ptr [ %59, %58 ], [ %65, %64 ]
+  %.0 = load ptr, ptr %.0.in, align 8
   %67 = getelementptr inbounds i8, ptr %12, i64 48
   %68 = load ptr, ptr %67, align 8
   %.not = icmp eq ptr %68, null
@@ -1943,17 +1943,17 @@ define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr 
 
 71:                                               ; preds = %.thread, %66
   %72 = phi ptr [ %70, %.thread ], [ %68, %66 ]
-  %.07992 = phi ptr [ null, %.thread ], [ %.079, %66 ]
-  %73 = sext i32 %.080109 to i64
+  %.092 = phi ptr [ null, %.thread ], [ %.0, %66 ]
+  %73 = sext i32 %.081110 to i64
   %74 = getelementptr i8, ptr %0, i64 %73
-  %75 = tail call i64 %72(ptr noundef %.07992, ptr noundef %74) #12
+  %75 = tail call i64 %72(ptr noundef %.092, ptr noundef %74) #12
   %.not85 = icmp eq i64 %75, 0
   br i1 %.not85, label %79, label %76
 
 76:                                               ; preds = %71
-  store i32 %.080109, ptr %24, align 4
+  store i32 %.081110, ptr %24, align 4
   %77 = trunc i64 %75 to i32
-  %78 = add i32 %.080109, %77
+  %78 = add i32 %.081110, %77
   br label %.thread96
 
 79:                                               ; preds = %71
@@ -1961,7 +1961,7 @@ define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr 
   br label %.thread96
 
 80:                                               ; preds = %66
-  %81 = icmp eq ptr %.079, null
+  %81 = icmp eq ptr %.0, null
   br i1 %81, label %.thread94, label %82
 
 .thread94:                                        ; preds = %.thread, %80
@@ -1969,13 +1969,13 @@ define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr 
   br label %.thread96
 
 82:                                               ; preds = %80
-  %83 = sext i32 %.080109 to i64
+  %83 = sext i32 %.081110 to i64
   %84 = getelementptr i8, ptr %0, i64 %83
-  %85 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(1) %.079) #12
-  store i32 %.080109, ptr %24, align 4
-  %86 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.079) #13
+  %85 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(1) %.0) #12
+  store i32 %.081110, ptr %24, align 4
+  %86 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #13
   %87 = trunc i64 %86 to i32
-  %88 = add i32 %.080109, 1
+  %88 = add i32 %.081110, 1
   %89 = add i32 %88, %87
   br label %.thread96
 
@@ -2009,14 +2009,14 @@ define internal fastcc void @fillRelOptions(ptr noundef %0, i64 noundef %1, ptr 
   unreachable
 
 .thread96:                                        ; preds = %79, %76, %82, %.thread94, %47, %40, %33, %27, %._crit_edge
-  %.2100 = phi i32 [ %.080109, %._crit_edge ], [ %.080109, %27 ], [ %.080109, %33 ], [ %.080109, %40 ], [ %.080109, %47 ], [ %89, %82 ], [ %.080109, %.thread94 ], [ %.080109, %79 ], [ %78, %76 ]
+  %.2100 = phi i32 [ %.081110, %._crit_edge ], [ %.081110, %27 ], [ %.081110, %33 ], [ %.081110, %40 ], [ %.081110, %47 ], [ %89, %82 ], [ %.081110, %.thread94 ], [ %.081110, %79 ], [ %78, %76 ]
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
   br i1 %exitcond127.not, label %._crit_edge111, label %.preheader, !llvm.loop !15
 
 ._crit_edge111:                                   ; preds = %.thread96, %.preheader.lr.ph.split.us, %7
-  %.080.lcssa = phi i32 [ %8, %7 ], [ %8, %.preheader.lr.ph.split.us ], [ %.2100, %.thread96 ]
-  %102 = shl i32 %.080.lcssa, 2
+  %.081.lcssa = phi i32 [ %8, %7 ], [ %8, %.preheader.lr.ph.split.us ], [ %.2100, %.thread96 ]
+  %102 = shl i32 %.081.lcssa, 2
   store i32 %102, ptr %0, align 4
   ret void
 }
@@ -2300,7 +2300,7 @@ define dso_local range(i32 0, -2147483648) i32 @AlterTableGetRelOptionsLockLevel
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %.01730 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %._crit_edge ]
+  %.01729 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %._crit_edge ]
   %12 = getelementptr %union.ListCell, ptr %9, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 16
@@ -2310,7 +2310,7 @@ define dso_local range(i32 0, -2147483648) i32 @AlterTableGetRelOptionsLockLevel
 16:                                               ; preds = %.lr.ph, %28
   %17 = phi ptr [ %11, %.lr.ph ], [ %32, %28 ]
   %.027 = phi i32 [ 0, %.lr.ph ], [ %29, %28 ]
-  %.126 = phi i32 [ %.01730, %.lr.ph ], [ %.2, %28 ]
+  %.126 = phi i32 [ %.01729, %.lr.ph ], [ %.2, %28 ]
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 24
   %20 = load i32, ptr %19, align 8
@@ -2341,8 +2341,8 @@ define dso_local range(i32 0, -2147483648) i32 @AlterTableGetRelOptionsLockLevel
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph32, %5, %1
-  %.016 = phi i32 [ 8, %1 ], [ 0, %5 ], [ 0, %.lr.ph32 ], [ %.2, %._crit_edge ]
-  ret i32 %.016
+  %.018 = phi i32 [ 8, %1 ], [ 0, %5 ], [ 0, %.lr.ph32 ], [ %.2, %._crit_edge ]
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2852,27 +2852,27 @@ define internal fastcc void @parseRelOptionsInternal(i64 noundef %0, i1 noundef 
 
 .lr.ph.i:                                         ; preds = %135, %146
   %139 = phi ptr [ %148, %146 ], [ %138, %135 ]
-  %.079106.i = phi ptr [ %147, %146 ], [ %137, %135 ]
+  %.0106.i = phi ptr [ %147, %146 ], [ %137, %135 ]
   %140 = call i32 @pg_strcasecmp(ptr noundef %51, ptr noundef nonnull %139) #12
   %141 = icmp eq i32 %140, 0
   br i1 %141, label %142, label %146
 
 142:                                              ; preds = %.lr.ph.i
-  %143 = getelementptr inbounds i8, ptr %.079106.i, i64 8
+  %143 = getelementptr inbounds i8, ptr %.0106.i, i64 8
   %144 = load i32, ptr %143, align 8
   %145 = getelementptr inbounds i8, ptr %23, i64 16
   store i32 %144, ptr %145, align 8
   br label %.loopexit.i
 
 146:                                              ; preds = %.lr.ph.i
-  %147 = getelementptr i8, ptr %.079106.i, i64 16
+  %147 = getelementptr i8, ptr %.0106.i, i64 16
   %148 = load ptr, ptr %147, align 8
   %.not86.i = icmp eq ptr %148, null
   br i1 %.not86.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !29
 
 .loopexit.i:                                      ; preds = %146, %142, %135
-  %.0.i = phi i8 [ 1, %142 ], [ 0, %135 ], [ 0, %146 ]
-  %149 = trunc nuw i8 %.0.i to i1
+  %.080.i = phi i8 [ 1, %142 ], [ 0, %135 ], [ 0, %146 ]
+  %149 = trunc nuw i8 %.080.i to i1
   br i1 %1, label %150, label %162
 
 150:                                              ; preds = %.loopexit.i
@@ -2938,7 +2938,7 @@ parse_one_reloption.exit.thread:                  ; preds = %167, %169, %172
   br label %196
 
 .thread.i:                                        ; preds = %163, %162, %150, %120, %114, %89, %83, %63
-  %.1.i = phi i8 [ %.0.i, %162 ], [ %.0.i, %163 ], [ %107, %120 ], [ %107, %114 ], [ %76, %89 ], [ %76, %83 ], [ %66, %63 ], [ %.0.i, %150 ]
+  %.1.i = phi i8 [ %.080.i, %162 ], [ %.080.i, %163 ], [ %107, %120 ], [ %107, %114 ], [ %76, %89 ], [ %76, %83 ], [ %66, %63 ], [ %.080.i, %150 ]
   %179 = trunc nuw i8 %.1.i to i1
   br i1 %179, label %180, label %.thread100.i
 

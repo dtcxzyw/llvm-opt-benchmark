@@ -3829,8 +3829,8 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %cond.end13.us
   %dptr.addr.035.us = phi ptr [ %add.ptr31.us, %cond.end13.us ], [ %dptr, %for.body.lr.ph ]
-  %sptr.addr.034.us = phi ptr [ %add.ptr33.us, %cond.end13.us ], [ %sptr, %for.body.lr.ph ]
-  %i.033.us = phi i64 [ %inc.us, %cond.end13.us ], [ 0, %for.body.lr.ph ]
+  %i.034.us = phi i64 [ %inc.us, %cond.end13.us ], [ 0, %for.body.lr.ph ]
+  %sptr.addr.033.us = phi ptr [ %add.ptr33.us, %cond.end13.us ], [ %sptr, %for.body.lr.ph ]
   br i1 %tobool5.not, label %cond.end13.us, label %land.lhs.true6.us
 
 land.lhs.true6.us:                                ; preds = %for.body.us
@@ -3839,18 +3839,18 @@ land.lhs.true6.us:                                ; preds = %for.body.us
   br i1 %cmp8.us, label %cond.true9.us, label %cond.end13.us
 
 cond.true9.us:                                    ; preds = %land.lhs.true6.us
-  %2 = load ptr, ptr %sptr.addr.034.us, align 8
+  %2 = load ptr, ptr %sptr.addr.033.us, align 8
   %add.ptr11.us = getelementptr i8, ptr %2, i64 %1
   br label %cond.end13.us
 
 cond.end13.us:                                    ; preds = %cond.true9.us, %land.lhs.true6.us, %for.body.us
-  %cond14.us = phi ptr [ %add.ptr11.us, %cond.true9.us ], [ %sptr.addr.034.us, %land.lhs.true6.us ], [ %sptr.addr.034.us, %for.body.us ]
+  %cond14.us = phi ptr [ %add.ptr11.us, %cond.true9.us ], [ %sptr.addr.033.us, %land.lhs.true6.us ], [ %sptr.addr.033.us, %for.body.us ]
   tail call fastcc void @copy_rec(ptr noundef %add.ptr15, i64 noundef %sub, i64 noundef %itemsize, ptr noundef %dptr.addr.035.us, ptr noundef %add.ptr16, ptr noundef %cond22, ptr noundef %cond14.us, ptr noundef %add.ptr23, ptr noundef %cond29, ptr noundef %mem)
   %3 = load i64, ptr %dstrides, align 8
   %add.ptr31.us = getelementptr i8, ptr %dptr.addr.035.us, i64 %3
   %4 = load i64, ptr %sstrides, align 8
-  %add.ptr33.us = getelementptr i8, ptr %sptr.addr.034.us, i64 %4
-  %inc.us = add nuw nsw i64 %i.033.us, 1
+  %add.ptr33.us = getelementptr i8, ptr %sptr.addr.033.us, i64 %4
+  %inc.us = add nuw nsw i64 %i.034.us, 1
   %5 = load i64, ptr %shape, align 8
   %cmp1.us = icmp slt i64 %inc.us, %5
   br i1 %cmp1.us, label %for.body.us, label %for.end, !llvm.loop !13
@@ -3970,8 +3970,8 @@ cond.end27.i:                                     ; preds = %cond.true23.i, %for
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end13
   %dptr.addr.035 = phi ptr [ %add.ptr31, %cond.end13 ], [ %dptr, %for.body.lr.ph ]
-  %sptr.addr.034 = phi ptr [ %add.ptr33, %cond.end13 ], [ %sptr, %for.body.lr.ph ]
-  %i.033 = phi i64 [ %inc, %cond.end13 ], [ 0, %for.body.lr.ph ]
+  %i.034 = phi i64 [ %inc, %cond.end13 ], [ 0, %for.body.lr.ph ]
+  %sptr.addr.033 = phi ptr [ %add.ptr33, %cond.end13 ], [ %sptr, %for.body.lr.ph ]
   %20 = load i64, ptr %dsuboffsets, align 8
   %cmp3 = icmp sgt i64 %20, -1
   br i1 %cmp3, label %cond.true, label %cond.end
@@ -3991,18 +3991,18 @@ land.lhs.true6:                                   ; preds = %cond.end
   br i1 %cmp8, label %cond.true9, label %cond.end13
 
 cond.true9:                                       ; preds = %land.lhs.true6
-  %23 = load ptr, ptr %sptr.addr.034, align 8
+  %23 = load ptr, ptr %sptr.addr.033, align 8
   %add.ptr11 = getelementptr i8, ptr %23, i64 %22
   br label %cond.end13
 
 cond.end13:                                       ; preds = %cond.end, %land.lhs.true6, %cond.true9
-  %cond14 = phi ptr [ %add.ptr11, %cond.true9 ], [ %sptr.addr.034, %land.lhs.true6 ], [ %sptr.addr.034, %cond.end ]
+  %cond14 = phi ptr [ %add.ptr11, %cond.true9 ], [ %sptr.addr.033, %land.lhs.true6 ], [ %sptr.addr.033, %cond.end ]
   tail call fastcc void @copy_rec(ptr noundef %add.ptr15, i64 noundef %sub, i64 noundef %itemsize, ptr noundef %cond, ptr noundef %add.ptr16, ptr noundef %add.ptr19, ptr noundef %cond14, ptr noundef %add.ptr23, ptr noundef %cond29, ptr noundef %mem)
   %24 = load i64, ptr %dstrides, align 8
   %add.ptr31 = getelementptr i8, ptr %dptr.addr.035, i64 %24
   %25 = load i64, ptr %sstrides, align 8
-  %add.ptr33 = getelementptr i8, ptr %sptr.addr.034, i64 %25
-  %inc = add nuw nsw i64 %i.033, 1
+  %add.ptr33 = getelementptr i8, ptr %sptr.addr.033, i64 %25
+  %inc = add nuw nsw i64 %i.034, 1
   %26 = load i64, ptr %shape, align 8
   %cmp1 = icmp slt i64 %inc, %26
   br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !13
@@ -5239,9 +5239,9 @@ if.then:                                          ; preds = %entry
   br label %return
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %ptr.049 = phi ptr [ %0, %for.body.lr.ph ], [ %phi.call, %for.inc ]
-  %dim.048 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %dim.048
+  %dim.049 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %ptr.048 = phi ptr [ %0, %for.body.lr.ph ], [ %phi.call, %for.inc ]
+  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %dim.049
   %4 = load ptr, ptr %arrayidx, align 8
   %5 = load ptr, ptr @PyExc_IndexError, align 8
   %call6 = tail call i64 @PyNumber_AsSsize_t(ptr noundef %4, ptr noundef %5) #11
@@ -5250,7 +5250,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.body.split:                                   ; preds = %for.body
   %6 = load ptr, ptr %shape.i, align 8
-  %sext = shl i64 %dim.048, 32
+  %sext = shl i64 %dim.049, 32
   %idxprom.i = ashr exact i64 %sext, 32
   %arrayidx.i = getelementptr i64, ptr %6, i64 %idxprom.i
   %7 = load i64, ptr %arrayidx.i, align 8
@@ -5263,7 +5263,7 @@ for.body.split:                                   ; preds = %for.body
   br i1 %or.cond.i, label %if.end5.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %for.body.split
-  %conv1213 = trunc i64 %dim.048 to i32
+  %conv1213 = trunc i64 %dim.049 to i32
   %8 = load ptr, ptr @PyExc_IndexError, align 8
   %add4.i = add i32 %conv1213, 1
   %call.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %8, ptr noundef nonnull @.str.24, i32 noundef %add4.i) #11
@@ -5274,7 +5274,7 @@ if.end5.i:                                        ; preds = %for.body.split
   %arrayidx7.i = getelementptr i64, ptr %9, i64 %idxprom.i
   %10 = load i64, ptr %arrayidx7.i, align 8
   %mul.i = mul i64 %10, %spec.select.i
-  %add.ptr.i = getelementptr i8, ptr %ptr.049, i64 %mul.i
+  %add.ptr.i = getelementptr i8, ptr %ptr.048, i64 %mul.i
   %11 = load ptr, ptr %suboffsets.i, align 8
   %tobool.not.i = icmp eq ptr %11, null
   br i1 %tobool.not.i, label %if.end11, label %land.lhs.true.i
@@ -5292,7 +5292,7 @@ land.lhs.true:                                    ; preds = %for.body
 
 land.lhs.true.split:                              ; preds = %land.lhs.true
   %13 = load ptr, ptr %shape.i, align 8
-  %sext44 = shl i64 %dim.048, 32
+  %sext44 = shl i64 %dim.049, 32
   %idxprom.i18 = ashr exact i64 %sext44, 32
   %arrayidx.i19 = getelementptr i64, ptr %13, i64 %idxprom.i18
   %14 = load i64, ptr %arrayidx.i19, align 8
@@ -5300,7 +5300,7 @@ land.lhs.true.split:                              ; preds = %land.lhs.true
   br i1 %or.cond.i24, label %if.end5.i29, label %if.then3.i25
 
 if.then3.i25:                                     ; preds = %land.lhs.true.split
-  %conv1215 = trunc i64 %dim.048 to i32
+  %conv1215 = trunc i64 %dim.049 to i32
   %15 = load ptr, ptr @PyExc_IndexError, align 8
   %add4.i26 = add i32 %conv1215, 1
   %call.i27 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %15, ptr noundef nonnull @.str.24, i32 noundef %add4.i26) #11
@@ -5312,7 +5312,7 @@ if.end5.i29:                                      ; preds = %land.lhs.true.split
   %arrayidx7.i31 = getelementptr i64, ptr %16, i64 %idxprom.i18
   %17 = load i64, ptr %arrayidx7.i31, align 8
   %mul.i32 = mul i64 %17, %spec.select.i21
-  %add.ptr.i33 = getelementptr i8, ptr %ptr.049, i64 %mul.i32
+  %add.ptr.i33 = getelementptr i8, ptr %ptr.048, i64 %mul.i32
   %18 = load ptr, ptr %suboffsets.i, align 8
   %tobool.not.i35 = icmp eq ptr %18, null
   br i1 %tobool.not.i35, label %if.end11, label %land.lhs.true.i36
@@ -5336,7 +5336,7 @@ if.end11:                                         ; preds = %if.end11.sink.split
   br i1 %cmp14, label %return, label %for.inc
 
 for.inc:                                          ; preds = %if.end11
-  %inc = add nuw nsw i64 %dim.048, 1
+  %inc = add nuw nsw i64 %dim.049, 1
   %exitcond.not = icmp eq i64 %inc, %tup.val
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !19
 
@@ -7114,48 +7114,48 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
   br i1 %tobool4.not, label %for.body.us.us, label %for.body.us
 
 for.body.us.us:                                   ; preds = %for.body.lr.ph.split.us, %for.inc.us.us
-  %p.addr.015.us.us = phi ptr [ %add.ptr16.us.us, %for.inc.us.us ], [ %p, %for.body.lr.ph.split.us ]
-  %q.addr.014.us.us = phi ptr [ %add.ptr18.us.us, %for.inc.us.us ], [ %q, %for.body.lr.ph.split.us ]
-  %i.013.us.us = phi i64 [ %inc.us.us, %for.inc.us.us ], [ 0, %for.body.lr.ph.split.us ]
-  %call.us.us = tail call fastcc i32 @unpack_cmp(ptr noundef %p.addr.015.us.us, ptr noundef %q.addr.014.us.us, i8 noundef signext %fmt, ptr noundef %unpack_p, ptr noundef %unpack_q)
+  %i.015.us.us = phi i64 [ %inc.us.us, %for.inc.us.us ], [ 0, %for.body.lr.ph.split.us ]
+  %p.addr.014.us.us = phi ptr [ %add.ptr16.us.us, %for.inc.us.us ], [ %p, %for.body.lr.ph.split.us ]
+  %q.addr.013.us.us = phi ptr [ %add.ptr18.us.us, %for.inc.us.us ], [ %q, %for.body.lr.ph.split.us ]
+  %call.us.us = tail call fastcc i32 @unpack_cmp(ptr noundef %p.addr.014.us.us, ptr noundef %q.addr.013.us.us, i8 noundef signext %fmt, ptr noundef %unpack_p, ptr noundef %unpack_q)
   %cmp14.us.us = icmp slt i32 %call.us.us, 1
   br i1 %cmp14.us.us, label %return, label %for.inc.us.us
 
 for.inc.us.us:                                    ; preds = %for.body.us.us
   %1 = load i64, ptr %pstrides, align 8
-  %add.ptr16.us.us = getelementptr i8, ptr %p.addr.015.us.us, i64 %1
+  %add.ptr16.us.us = getelementptr i8, ptr %p.addr.014.us.us, i64 %1
   %2 = load i64, ptr %qstrides, align 8
-  %add.ptr18.us.us = getelementptr i8, ptr %q.addr.014.us.us, i64 %2
-  %inc.us.us = add nuw nsw i64 %i.013.us.us, 1
+  %add.ptr18.us.us = getelementptr i8, ptr %q.addr.013.us.us, i64 %2
+  %inc.us.us = add nuw nsw i64 %i.015.us.us, 1
   %3 = load i64, ptr %shape, align 8
   %cmp.us.us = icmp slt i64 %inc.us.us, %3
   br i1 %cmp.us.us, label %for.body.us.us, label %return, !llvm.loop !20
 
 for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %for.inc.us
-  %p.addr.015.us = phi ptr [ %add.ptr16.us, %for.inc.us ], [ %p, %for.body.lr.ph.split.us ]
-  %q.addr.014.us = phi ptr [ %add.ptr18.us, %for.inc.us ], [ %q, %for.body.lr.ph.split.us ]
-  %i.013.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph.split.us ]
+  %i.015.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph.split.us ]
+  %p.addr.014.us = phi ptr [ %add.ptr16.us, %for.inc.us ], [ %p, %for.body.lr.ph.split.us ]
+  %q.addr.013.us = phi ptr [ %add.ptr18.us, %for.inc.us ], [ %q, %for.body.lr.ph.split.us ]
   %4 = load i64, ptr %qsuboffsets, align 8
   %cmp7.us = icmp sgt i64 %4, -1
   br i1 %cmp7.us, label %cond.true8.us, label %cond.end12.us
 
 cond.true8.us:                                    ; preds = %for.body.us
-  %5 = load ptr, ptr %q.addr.014.us, align 8
+  %5 = load ptr, ptr %q.addr.013.us, align 8
   %add.ptr10.us = getelementptr i8, ptr %5, i64 %4
   br label %cond.end12.us
 
 cond.end12.us:                                    ; preds = %cond.true8.us, %for.body.us
-  %cond13.us = phi ptr [ %add.ptr10.us, %cond.true8.us ], [ %q.addr.014.us, %for.body.us ]
-  %call.us = tail call fastcc i32 @unpack_cmp(ptr noundef %p.addr.015.us, ptr noundef %cond13.us, i8 noundef signext %fmt, ptr noundef %unpack_p, ptr noundef %unpack_q)
+  %cond13.us = phi ptr [ %add.ptr10.us, %cond.true8.us ], [ %q.addr.013.us, %for.body.us ]
+  %call.us = tail call fastcc i32 @unpack_cmp(ptr noundef %p.addr.014.us, ptr noundef %cond13.us, i8 noundef signext %fmt, ptr noundef %unpack_p, ptr noundef %unpack_q)
   %cmp14.us = icmp slt i32 %call.us, 1
   br i1 %cmp14.us, label %return, label %for.inc.us
 
 for.inc.us:                                       ; preds = %cond.end12.us
   %6 = load i64, ptr %pstrides, align 8
-  %add.ptr16.us = getelementptr i8, ptr %p.addr.015.us, i64 %6
+  %add.ptr16.us = getelementptr i8, ptr %p.addr.014.us, i64 %6
   %7 = load i64, ptr %qstrides, align 8
-  %add.ptr18.us = getelementptr i8, ptr %q.addr.014.us, i64 %7
-  %inc.us = add nuw nsw i64 %i.013.us, 1
+  %add.ptr18.us = getelementptr i8, ptr %q.addr.013.us, i64 %7
+  %inc.us = add nuw nsw i64 %i.015.us, 1
   %8 = load i64, ptr %shape, align 8
   %cmp.us = icmp slt i64 %inc.us, %8
   br i1 %cmp.us, label %for.body.us, label %return, !llvm.loop !20
@@ -7164,70 +7164,70 @@ for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
   br i1 %tobool4.not, label %for.body.us18, label %for.body
 
 for.body.us18:                                    ; preds = %for.body.lr.ph.split, %for.inc.us28
-  %p.addr.015.us19 = phi ptr [ %add.ptr16.us29, %for.inc.us28 ], [ %p, %for.body.lr.ph.split ]
-  %q.addr.014.us20 = phi ptr [ %add.ptr18.us30, %for.inc.us28 ], [ %q, %for.body.lr.ph.split ]
-  %i.013.us21 = phi i64 [ %inc.us31, %for.inc.us28 ], [ 0, %for.body.lr.ph.split ]
+  %i.015.us19 = phi i64 [ %inc.us31, %for.inc.us28 ], [ 0, %for.body.lr.ph.split ]
+  %p.addr.014.us20 = phi ptr [ %add.ptr16.us29, %for.inc.us28 ], [ %p, %for.body.lr.ph.split ]
+  %q.addr.013.us21 = phi ptr [ %add.ptr18.us30, %for.inc.us28 ], [ %q, %for.body.lr.ph.split ]
   %9 = load i64, ptr %psuboffsets, align 8
   %cmp2.us = icmp sgt i64 %9, -1
   br i1 %cmp2.us, label %cond.true.us, label %cond.end.us22
 
 cond.true.us:                                     ; preds = %for.body.us18
-  %10 = load ptr, ptr %p.addr.015.us19, align 8
+  %10 = load ptr, ptr %p.addr.014.us20, align 8
   %add.ptr.us = getelementptr i8, ptr %10, i64 %9
   br label %cond.end.us22
 
 cond.end.us22:                                    ; preds = %cond.true.us, %for.body.us18
-  %cond.us23 = phi ptr [ %add.ptr.us, %cond.true.us ], [ %p.addr.015.us19, %for.body.us18 ]
-  %call.us26 = tail call fastcc i32 @unpack_cmp(ptr noundef %cond.us23, ptr noundef %q.addr.014.us20, i8 noundef signext %fmt, ptr noundef %unpack_p, ptr noundef %unpack_q)
+  %cond.us23 = phi ptr [ %add.ptr.us, %cond.true.us ], [ %p.addr.014.us20, %for.body.us18 ]
+  %call.us26 = tail call fastcc i32 @unpack_cmp(ptr noundef %cond.us23, ptr noundef %q.addr.013.us21, i8 noundef signext %fmt, ptr noundef %unpack_p, ptr noundef %unpack_q)
   %cmp14.us27 = icmp slt i32 %call.us26, 1
   br i1 %cmp14.us27, label %return, label %for.inc.us28
 
 for.inc.us28:                                     ; preds = %cond.end.us22
   %11 = load i64, ptr %pstrides, align 8
-  %add.ptr16.us29 = getelementptr i8, ptr %p.addr.015.us19, i64 %11
+  %add.ptr16.us29 = getelementptr i8, ptr %p.addr.014.us20, i64 %11
   %12 = load i64, ptr %qstrides, align 8
-  %add.ptr18.us30 = getelementptr i8, ptr %q.addr.014.us20, i64 %12
-  %inc.us31 = add nuw nsw i64 %i.013.us21, 1
+  %add.ptr18.us30 = getelementptr i8, ptr %q.addr.013.us21, i64 %12
+  %inc.us31 = add nuw nsw i64 %i.015.us19, 1
   %13 = load i64, ptr %shape, align 8
   %cmp.us32 = icmp slt i64 %inc.us31, %13
   br i1 %cmp.us32, label %for.body.us18, label %return, !llvm.loop !20
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.inc
-  %p.addr.015 = phi ptr [ %add.ptr16, %for.inc ], [ %p, %for.body.lr.ph.split ]
-  %q.addr.014 = phi ptr [ %add.ptr18, %for.inc ], [ %q, %for.body.lr.ph.split ]
-  %i.013 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph.split ]
+  %i.015 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph.split ]
+  %p.addr.014 = phi ptr [ %add.ptr16, %for.inc ], [ %p, %for.body.lr.ph.split ]
+  %q.addr.013 = phi ptr [ %add.ptr18, %for.inc ], [ %q, %for.body.lr.ph.split ]
   %14 = load i64, ptr %psuboffsets, align 8
   %cmp2 = icmp sgt i64 %14, -1
   br i1 %cmp2, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %for.body
-  %15 = load ptr, ptr %p.addr.015, align 8
+  %15 = load ptr, ptr %p.addr.014, align 8
   %add.ptr = getelementptr i8, ptr %15, i64 %14
   br label %cond.end
 
 cond.end:                                         ; preds = %for.body, %cond.true
-  %cond = phi ptr [ %add.ptr, %cond.true ], [ %p.addr.015, %for.body ]
+  %cond = phi ptr [ %add.ptr, %cond.true ], [ %p.addr.014, %for.body ]
   %16 = load i64, ptr %qsuboffsets, align 8
   %cmp7 = icmp sgt i64 %16, -1
   br i1 %cmp7, label %cond.true8, label %cond.end12
 
 cond.true8:                                       ; preds = %cond.end
-  %17 = load ptr, ptr %q.addr.014, align 8
+  %17 = load ptr, ptr %q.addr.013, align 8
   %add.ptr10 = getelementptr i8, ptr %17, i64 %16
   br label %cond.end12
 
 cond.end12:                                       ; preds = %cond.end, %cond.true8
-  %cond13 = phi ptr [ %add.ptr10, %cond.true8 ], [ %q.addr.014, %cond.end ]
+  %cond13 = phi ptr [ %add.ptr10, %cond.true8 ], [ %q.addr.013, %cond.end ]
   %call = tail call fastcc i32 @unpack_cmp(ptr noundef %cond, ptr noundef %cond13, i8 noundef signext %fmt, ptr noundef %unpack_p, ptr noundef %unpack_q)
   %cmp14 = icmp slt i32 %call, 1
   br i1 %cmp14, label %return, label %for.inc
 
 for.inc:                                          ; preds = %cond.end12
   %18 = load i64, ptr %pstrides, align 8
-  %add.ptr16 = getelementptr i8, ptr %p.addr.015, i64 %18
+  %add.ptr16 = getelementptr i8, ptr %p.addr.014, i64 %18
   %19 = load i64, ptr %qstrides, align 8
-  %add.ptr18 = getelementptr i8, ptr %q.addr.014, i64 %19
-  %inc = add nuw nsw i64 %i.013, 1
+  %add.ptr18 = getelementptr i8, ptr %q.addr.013, i64 %19
+  %inc = add nuw nsw i64 %i.015, 1
   %20 = load i64, ptr %shape, align 8
   %cmp = icmp slt i64 %inc, %20
   br i1 %cmp, label %for.body, label %return, !llvm.loop !20
@@ -7265,48 +7265,48 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
   br i1 %tobool5.not, label %for.body.us.us, label %for.body.us
 
 for.body.us.us:                                   ; preds = %for.body.lr.ph.split.us, %for.inc.us.us
-  %p.addr.033.us.us = phi ptr [ %add.ptr35.us.us, %for.inc.us.us ], [ %p, %for.body.lr.ph.split.us ]
-  %q.addr.032.us.us = phi ptr [ %add.ptr37.us.us, %for.inc.us.us ], [ %q, %for.body.lr.ph.split.us ]
-  %i.031.us.us = phi i64 [ %inc.us.us, %for.inc.us.us ], [ 0, %for.body.lr.ph.split.us ]
-  %call30.us.us = tail call fastcc i32 @cmp_rec(ptr noundef %p.addr.033.us.us, ptr noundef %q.addr.032.us.us, i64 noundef %sub, ptr noundef %add.ptr15, ptr noundef %add.ptr16, ptr noundef %cond22, ptr noundef %add.ptr23, ptr noundef %cond29, i8 noundef signext %fmt, ptr noundef %unpack_p, ptr noundef %unpack_q)
+  %i.033.us.us = phi i64 [ %inc.us.us, %for.inc.us.us ], [ 0, %for.body.lr.ph.split.us ]
+  %p.addr.032.us.us = phi ptr [ %add.ptr35.us.us, %for.inc.us.us ], [ %p, %for.body.lr.ph.split.us ]
+  %q.addr.031.us.us = phi ptr [ %add.ptr37.us.us, %for.inc.us.us ], [ %q, %for.body.lr.ph.split.us ]
+  %call30.us.us = tail call fastcc i32 @cmp_rec(ptr noundef %p.addr.032.us.us, ptr noundef %q.addr.031.us.us, i64 noundef %sub, ptr noundef %add.ptr15, ptr noundef %add.ptr16, ptr noundef %cond22, ptr noundef %add.ptr23, ptr noundef %cond29, i8 noundef signext %fmt, ptr noundef %unpack_p, ptr noundef %unpack_q)
   %cmp31.us.us = icmp slt i32 %call30.us.us, 1
   br i1 %cmp31.us.us, label %return, label %for.inc.us.us
 
 for.inc.us.us:                                    ; preds = %for.body.us.us
   %1 = load i64, ptr %pstrides, align 8
-  %add.ptr35.us.us = getelementptr i8, ptr %p.addr.033.us.us, i64 %1
+  %add.ptr35.us.us = getelementptr i8, ptr %p.addr.032.us.us, i64 %1
   %2 = load i64, ptr %qstrides, align 8
-  %add.ptr37.us.us = getelementptr i8, ptr %q.addr.032.us.us, i64 %2
-  %inc.us.us = add nuw nsw i64 %i.031.us.us, 1
+  %add.ptr37.us.us = getelementptr i8, ptr %q.addr.031.us.us, i64 %2
+  %inc.us.us = add nuw nsw i64 %i.033.us.us, 1
   %3 = load i64, ptr %shape, align 8
   %cmp1.us.us = icmp slt i64 %inc.us.us, %3
   br i1 %cmp1.us.us, label %for.body.us.us, label %return, !llvm.loop !21
 
 for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %for.inc.us
-  %p.addr.033.us = phi ptr [ %add.ptr35.us, %for.inc.us ], [ %p, %for.body.lr.ph.split.us ]
-  %q.addr.032.us = phi ptr [ %add.ptr37.us, %for.inc.us ], [ %q, %for.body.lr.ph.split.us ]
-  %i.031.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph.split.us ]
+  %i.033.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph.split.us ]
+  %p.addr.032.us = phi ptr [ %add.ptr35.us, %for.inc.us ], [ %p, %for.body.lr.ph.split.us ]
+  %q.addr.031.us = phi ptr [ %add.ptr37.us, %for.inc.us ], [ %q, %for.body.lr.ph.split.us ]
   %4 = load i64, ptr %qsuboffsets, align 8
   %cmp8.us = icmp sgt i64 %4, -1
   br i1 %cmp8.us, label %cond.true9.us, label %cond.end13.us
 
 cond.true9.us:                                    ; preds = %for.body.us
-  %5 = load ptr, ptr %q.addr.032.us, align 8
+  %5 = load ptr, ptr %q.addr.031.us, align 8
   %add.ptr11.us = getelementptr i8, ptr %5, i64 %4
   br label %cond.end13.us
 
 cond.end13.us:                                    ; preds = %cond.true9.us, %for.body.us
-  %cond14.us = phi ptr [ %add.ptr11.us, %cond.true9.us ], [ %q.addr.032.us, %for.body.us ]
-  %call30.us = tail call fastcc i32 @cmp_rec(ptr noundef %p.addr.033.us, ptr noundef %cond14.us, i64 noundef %sub, ptr noundef %add.ptr15, ptr noundef %add.ptr16, ptr noundef %cond22, ptr noundef %add.ptr23, ptr noundef %add.ptr26, i8 noundef signext %fmt, ptr noundef %unpack_p, ptr noundef %unpack_q)
+  %cond14.us = phi ptr [ %add.ptr11.us, %cond.true9.us ], [ %q.addr.031.us, %for.body.us ]
+  %call30.us = tail call fastcc i32 @cmp_rec(ptr noundef %p.addr.032.us, ptr noundef %cond14.us, i64 noundef %sub, ptr noundef %add.ptr15, ptr noundef %add.ptr16, ptr noundef %cond22, ptr noundef %add.ptr23, ptr noundef %add.ptr26, i8 noundef signext %fmt, ptr noundef %unpack_p, ptr noundef %unpack_q)
   %cmp31.us = icmp slt i32 %call30.us, 1
   br i1 %cmp31.us, label %return, label %for.inc.us
 
 for.inc.us:                                       ; preds = %cond.end13.us
   %6 = load i64, ptr %pstrides, align 8
-  %add.ptr35.us = getelementptr i8, ptr %p.addr.033.us, i64 %6
+  %add.ptr35.us = getelementptr i8, ptr %p.addr.032.us, i64 %6
   %7 = load i64, ptr %qstrides, align 8
-  %add.ptr37.us = getelementptr i8, ptr %q.addr.032.us, i64 %7
-  %inc.us = add nuw nsw i64 %i.031.us, 1
+  %add.ptr37.us = getelementptr i8, ptr %q.addr.031.us, i64 %7
+  %inc.us = add nuw nsw i64 %i.033.us, 1
   %8 = load i64, ptr %shape, align 8
   %cmp1.us = icmp slt i64 %inc.us, %8
   br i1 %cmp1.us, label %for.body.us, label %return, !llvm.loop !21
@@ -7315,30 +7315,30 @@ for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
   br i1 %tobool5.not, label %for.body.us36, label %for.body
 
 for.body.us36:                                    ; preds = %for.body.lr.ph.split, %for.inc.us46
-  %p.addr.033.us37 = phi ptr [ %add.ptr35.us47, %for.inc.us46 ], [ %p, %for.body.lr.ph.split ]
-  %q.addr.032.us38 = phi ptr [ %add.ptr37.us48, %for.inc.us46 ], [ %q, %for.body.lr.ph.split ]
-  %i.031.us39 = phi i64 [ %inc.us49, %for.inc.us46 ], [ 0, %for.body.lr.ph.split ]
+  %i.033.us37 = phi i64 [ %inc.us49, %for.inc.us46 ], [ 0, %for.body.lr.ph.split ]
+  %p.addr.032.us38 = phi ptr [ %add.ptr35.us47, %for.inc.us46 ], [ %p, %for.body.lr.ph.split ]
+  %q.addr.031.us39 = phi ptr [ %add.ptr37.us48, %for.inc.us46 ], [ %q, %for.body.lr.ph.split ]
   %9 = load i64, ptr %psuboffsets, align 8
   %cmp3.us = icmp sgt i64 %9, -1
   br i1 %cmp3.us, label %cond.true.us, label %cond.end.us40
 
 cond.true.us:                                     ; preds = %for.body.us36
-  %10 = load ptr, ptr %p.addr.033.us37, align 8
+  %10 = load ptr, ptr %p.addr.032.us38, align 8
   %add.ptr.us = getelementptr i8, ptr %10, i64 %9
   br label %cond.end.us40
 
 cond.end.us40:                                    ; preds = %cond.true.us, %for.body.us36
-  %cond.us41 = phi ptr [ %add.ptr.us, %cond.true.us ], [ %p.addr.033.us37, %for.body.us36 ]
-  %call30.us44 = tail call fastcc i32 @cmp_rec(ptr noundef %cond.us41, ptr noundef %q.addr.032.us38, i64 noundef %sub, ptr noundef %add.ptr15, ptr noundef %add.ptr16, ptr noundef %add.ptr19, ptr noundef %add.ptr23, ptr noundef %cond29, i8 noundef signext %fmt, ptr noundef %unpack_p, ptr noundef %unpack_q)
+  %cond.us41 = phi ptr [ %add.ptr.us, %cond.true.us ], [ %p.addr.032.us38, %for.body.us36 ]
+  %call30.us44 = tail call fastcc i32 @cmp_rec(ptr noundef %cond.us41, ptr noundef %q.addr.031.us39, i64 noundef %sub, ptr noundef %add.ptr15, ptr noundef %add.ptr16, ptr noundef %add.ptr19, ptr noundef %add.ptr23, ptr noundef %cond29, i8 noundef signext %fmt, ptr noundef %unpack_p, ptr noundef %unpack_q)
   %cmp31.us45 = icmp slt i32 %call30.us44, 1
   br i1 %cmp31.us45, label %return, label %for.inc.us46
 
 for.inc.us46:                                     ; preds = %cond.end.us40
   %11 = load i64, ptr %pstrides, align 8
-  %add.ptr35.us47 = getelementptr i8, ptr %p.addr.033.us37, i64 %11
+  %add.ptr35.us47 = getelementptr i8, ptr %p.addr.032.us38, i64 %11
   %12 = load i64, ptr %qstrides, align 8
-  %add.ptr37.us48 = getelementptr i8, ptr %q.addr.032.us38, i64 %12
-  %inc.us49 = add nuw nsw i64 %i.031.us39, 1
+  %add.ptr37.us48 = getelementptr i8, ptr %q.addr.031.us39, i64 %12
+  %inc.us49 = add nuw nsw i64 %i.033.us37, 1
   %13 = load i64, ptr %shape, align 8
   %cmp1.us50 = icmp slt i64 %inc.us49, %13
   br i1 %cmp1.us50, label %for.body.us36, label %return, !llvm.loop !21
@@ -7348,41 +7348,41 @@ if.then:                                          ; preds = %entry
   br label %return
 
 for.body:                                         ; preds = %for.body.lr.ph.split, %for.inc
-  %p.addr.033 = phi ptr [ %add.ptr35, %for.inc ], [ %p, %for.body.lr.ph.split ]
-  %q.addr.032 = phi ptr [ %add.ptr37, %for.inc ], [ %q, %for.body.lr.ph.split ]
-  %i.031 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph.split ]
+  %i.033 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph.split ]
+  %p.addr.032 = phi ptr [ %add.ptr35, %for.inc ], [ %p, %for.body.lr.ph.split ]
+  %q.addr.031 = phi ptr [ %add.ptr37, %for.inc ], [ %q, %for.body.lr.ph.split ]
   %14 = load i64, ptr %psuboffsets, align 8
   %cmp3 = icmp sgt i64 %14, -1
   br i1 %cmp3, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %for.body
-  %15 = load ptr, ptr %p.addr.033, align 8
+  %15 = load ptr, ptr %p.addr.032, align 8
   %add.ptr = getelementptr i8, ptr %15, i64 %14
   br label %cond.end
 
 cond.end:                                         ; preds = %for.body, %cond.true
-  %cond = phi ptr [ %add.ptr, %cond.true ], [ %p.addr.033, %for.body ]
+  %cond = phi ptr [ %add.ptr, %cond.true ], [ %p.addr.032, %for.body ]
   %16 = load i64, ptr %qsuboffsets, align 8
   %cmp8 = icmp sgt i64 %16, -1
   br i1 %cmp8, label %cond.true9, label %cond.end13
 
 cond.true9:                                       ; preds = %cond.end
-  %17 = load ptr, ptr %q.addr.032, align 8
+  %17 = load ptr, ptr %q.addr.031, align 8
   %add.ptr11 = getelementptr i8, ptr %17, i64 %16
   br label %cond.end13
 
 cond.end13:                                       ; preds = %cond.end, %cond.true9
-  %cond14 = phi ptr [ %add.ptr11, %cond.true9 ], [ %q.addr.032, %cond.end ]
+  %cond14 = phi ptr [ %add.ptr11, %cond.true9 ], [ %q.addr.031, %cond.end ]
   %call30 = tail call fastcc i32 @cmp_rec(ptr noundef %cond, ptr noundef %cond14, i64 noundef %sub, ptr noundef %add.ptr15, ptr noundef %add.ptr16, ptr noundef %add.ptr19, ptr noundef %add.ptr23, ptr noundef %add.ptr26, i8 noundef signext %fmt, ptr noundef %unpack_p, ptr noundef %unpack_q)
   %cmp31 = icmp slt i32 %call30, 1
   br i1 %cmp31, label %return, label %for.inc
 
 for.inc:                                          ; preds = %cond.end13
   %18 = load i64, ptr %pstrides, align 8
-  %add.ptr35 = getelementptr i8, ptr %p.addr.033, i64 %18
+  %add.ptr35 = getelementptr i8, ptr %p.addr.032, i64 %18
   %19 = load i64, ptr %qstrides, align 8
-  %add.ptr37 = getelementptr i8, ptr %q.addr.032, i64 %19
-  %inc = add nuw nsw i64 %i.031, 1
+  %add.ptr37 = getelementptr i8, ptr %q.addr.031, i64 %19
+  %inc = add nuw nsw i64 %i.033, 1
   %20 = load i64, ptr %shape, align 8
   %cmp1 = icmp slt i64 %inc, %20
   br i1 %cmp1, label %for.body, label %return, !llvm.loop !21

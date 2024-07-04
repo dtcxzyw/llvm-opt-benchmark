@@ -1390,10 +1390,10 @@ if.end101:                                        ; preds = %file_read_asn1.exit
 
 again.i:                                          ; preds = %store_info_free.exit50.i, %if.end101
   %matchcount.3 = phi i32 [ %matchcount.2, %if.end101 ], [ %matchcount.7, %store_info_free.exit50.i ]
-  %new_mem.0.i = phi ptr [ null, %if.end101 ], [ %87, %store_info_free.exit50.i ]
-  %new_pem_name.0.i = phi ptr [ null, %if.end101 ], [ %86, %store_info_free.exit50.i ]
   %len.addr.0.i = phi i64 [ %66, %if.end101 ], [ %89, %store_info_free.exit50.i ]
   %data.addr.0.i = phi ptr [ %65, %if.end101 ], [ %88, %store_info_free.exit50.i ]
+  %new_mem.0.i = phi ptr [ null, %if.end101 ], [ %87, %store_info_free.exit50.i ]
+  %new_pem_name.0.i = phi ptr [ null, %if.end101 ], [ %86, %store_info_free.exit50.i ]
   %pem_name.addr.0.i = phi ptr [ %63, %if.end101 ], [ %86, %store_info_free.exit50.i ]
   store ptr null, ptr %handler_ctx.i, align 8
   %call.i146 = call noalias ptr @CRYPTO_zalloc(i64 noundef 56, ptr noundef nonnull @.str.2, i32 noundef 1178) #10
@@ -1402,9 +1402,9 @@ again.i:                                          ; preds = %store_info_free.exi
 
 for.body.i:                                       ; preds = %again.i, %for.inc.i
   %matchcount.4 = phi i32 [ %matchcount.5, %for.inc.i ], [ 0, %again.i ]
-  %result.157.i = phi ptr [ %result.4.i, %for.inc.i ], [ null, %again.i ]
-  %i.056.i = phi i64 [ %inc.i155, %for.inc.i ], [ 0, %again.i ]
-  %arrayidx.i = getelementptr inbounds [7 x ptr], ptr @file_handlers, i64 0, i64 %i.056.i
+  %i.057.i = phi i64 [ %inc.i155, %for.inc.i ], [ 0, %again.i ]
+  %result.156.i = phi ptr [ %result.4.i, %for.inc.i ], [ null, %again.i ]
+  %arrayidx.i = getelementptr inbounds [7 x ptr], ptr @file_handlers, i64 0, i64 %i.057.i
   %67 = load ptr, ptr %arrayidx.i, align 8
   store i32 0, ptr %try_matchcount.i141, align 4
   store ptr null, ptr %tmp_handler_ctx.i, align 8
@@ -1457,11 +1457,11 @@ if.end17.i:                                       ; preds = %if.then16.i, %if.th
   br i1 %cmp18.i, label %if.then19.i, label %if.end25.i
 
 if.then19.i:                                      ; preds = %if.end17.i
-  %cmp.not.i36.i = icmp eq ptr %result.157.i, null
+  %cmp.not.i36.i = icmp eq ptr %result.156.i, null
   br i1 %cmp.not.i36.i, label %store_info_free.exit.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then19.i
-  %call.i.i.i = call ptr @OSSL_STORE_INFO_get0_data(i32 noundef -1, ptr noundef nonnull %result.157.i) #10
+  %call.i.i.i = call ptr @OSSL_STORE_INFO_get0_data(i32 noundef -1, ptr noundef nonnull %result.156.i) #10
   %cmp1.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp1.not.i.i, label %store_info_free.exit.i, label %if.then.i.i162
 
@@ -1475,7 +1475,7 @@ if.then.i.i162:                                   ; preds = %land.lhs.true.i.i
   br label %store_info_free.exit.i
 
 store_info_free.exit.i:                           ; preds = %if.then.i.i162, %land.lhs.true.i.i, %if.then19.i
-  call void @OSSL_STORE_INFO_free(ptr noundef %result.157.i) #10
+  call void @OSSL_STORE_INFO_free(ptr noundef %result.156.i) #10
   %cmp.not.i37.i = icmp eq ptr %call3.i151, null
   br i1 %cmp.not.i37.i, label %store_info_free.exit43.i, label %land.lhs.true.i38.i
 
@@ -1509,7 +1509,7 @@ if.end24.i:                                       ; preds = %if.then22.i, %store
   br label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.end24.i, %if.end17.i
-  %result.2.i = phi ptr [ null, %if.end24.i ], [ %result.157.i, %if.end17.i ]
+  %result.2.i = phi ptr [ null, %if.end24.i ], [ %result.156.i, %if.end17.i ]
   %tmp_result.0.i = phi ptr [ null, %if.end24.i ], [ %call3.i151, %if.end17.i ]
   %cmp26.i = icmp eq ptr %result.2.i, null
   %spec.select.i = select i1 %cmp26.i, ptr %tmp_result.0.i, ptr %result.2.i
@@ -1518,8 +1518,8 @@ if.end25.i:                                       ; preds = %if.end24.i, %if.end
 
 for.inc.i:                                        ; preds = %if.end25.i, %if.end12.i
   %matchcount.5 = phi i32 [ %add.i160, %if.end25.i ], [ %matchcount.4, %if.end12.i ]
-  %result.4.i = phi ptr [ %spec.select.i, %if.end25.i ], [ %result.157.i, %if.end12.i ]
-  %inc.i155 = add nuw nsw i64 %i.056.i, 1
+  %result.4.i = phi ptr [ %spec.select.i, %if.end25.i ], [ %result.156.i, %if.end12.i ]
+  %inc.i155 = add nuw nsw i64 %i.057.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i155, 7
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
 

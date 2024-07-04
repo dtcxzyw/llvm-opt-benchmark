@@ -106,8 +106,8 @@ define i64 @_ZN6common3cpu14get_cpu_budget17h98b86ed8cdaa4d53E(i64 %0) unnamed_a
   %2 = icmp slt i64 %0, 0
   %3 = icmp ne i64 %0, 0
   %. = zext i1 %3 to i8
-  %.0 = select i1 %2, i8 -1, i8 %.
-  switch i8 %.0, label %default.unreachable9 [
+  %.07 = select i1 %2, i8 -1, i8 %.
+  switch i8 %.07, label %default.unreachable9 [
     i8 -1, label %4
     i8 0, label %8
     i8 1, label %24
@@ -162,8 +162,8 @@ _ZN6common8defaults30default_cpu_budget_unallocated17h95d79e4d07f68050E.exit: ; 
   br label %24
 
 24:                                               ; preds = %.sink.split, %1
-  %.07 = phi i64 [ %0, %1 ], [ %23, %.sink.split ]
-  ret i64 %.07
+  %.0 = phi i64 [ %0, %1 ], [ %23, %.sink.split ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nonlazybind uwtable

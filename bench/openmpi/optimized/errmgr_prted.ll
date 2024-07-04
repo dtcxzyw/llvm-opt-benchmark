@@ -1432,7 +1432,7 @@ pmix_pointer_array_get_item.exit390:              ; preds = %pmix_pointer_array_
   br label %729
 
 .loopexit:                                        ; preds = %494, %469
-  %.0 = phi ptr [ %254, %469 ], [ %493, %494 ]
+  %.0261 = phi ptr [ %254, %469 ], [ %493, %494 ]
   %533 = getelementptr inbounds i8, ptr %72, i64 784
   %534 = tail call zeroext i1 @prte_get_attribute(ptr noundef nonnull %533, i16 noundef zeroext 228, ptr noundef null, i16 noundef zeroext 1) #12
   br i1 %534, label %588, label %535
@@ -1472,9 +1472,9 @@ pmix_pointer_array_get_item.exit390:              ; preds = %pmix_pointer_array_
   br label %754
 
 546:                                              ; preds = %541
-  %547 = getelementptr inbounds i8, ptr %.0, i64 428
+  %547 = getelementptr inbounds i8, ptr %.0261, i64 428
   store i32 %15, ptr %547, align 4
-  %548 = call fastcc i32 @pack_state_for_proc(ptr noundef %536, ptr noundef nonnull %.0)
+  %548 = call fastcc i32 @pack_state_for_proc(ptr noundef %536, ptr noundef nonnull %.0261)
   switch i32 %548, label %549 [
     i32 0, label %552
     i32 -2, label %551
@@ -1503,7 +1503,7 @@ pmix_pointer_array_get_item.exit390:              ; preds = %pmix_pointer_array_
 
 559:                                              ; preds = %554
   %560 = call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #12
-  %561 = getelementptr inbounds i8, ptr %.0, i64 144
+  %561 = getelementptr inbounds i8, ptr %.0261, i64 144
   %562 = call ptr @prte_util_print_name_args(ptr noundef nonnull %561) #12
   %563 = getelementptr inbounds i8, ptr %72, i64 776
   %564 = load i32, ptr %563, align 8
@@ -1546,7 +1546,7 @@ pmix_pointer_array_get_item.exit390:              ; preds = %pmix_pointer_array_
   br label %581
 
 581:                                              ; preds = %575, %580
-  %582 = getelementptr inbounds i8, ptr %.0, i64 472
+  %582 = getelementptr inbounds i8, ptr %.0261, i64 472
   %583 = load i16, ptr %582, align 8
   %584 = or i16 %583, 16384
   store i16 %584, ptr %582, align 8
@@ -1558,7 +1558,7 @@ pmix_pointer_array_get_item.exit390:              ; preds = %pmix_pointer_array_
   br label %588
 
 588:                                              ; preds = %581, %586, %.loopexit
-  %589 = getelementptr inbounds i8, ptr %.0, i64 472
+  %589 = getelementptr inbounds i8, ptr %.0261, i64 472
   %590 = load i16, ptr %589, align 8
   %591 = and i16 %590, 1792
   %or.cond377 = icmp eq i16 %591, 768

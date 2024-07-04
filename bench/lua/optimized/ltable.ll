@@ -1595,19 +1595,19 @@ setlimittosize.exit:                              ; preds = %if.then45, %if.else
 
 for.body.i100:                                    ; preds = %for.end.i109, %setlimittosize.exit
   %indvars.iv.i101 = phi i64 [ 0, %setlimittosize.exit ], [ %indvars.iv.next.i111, %for.end.i109 ]
-  %i.020.i = phi i32 [ 1, %setlimittosize.exit ], [ %i.1.lcssa.i, %for.end.i109 ]
-  %ause.019.i = phi i32 [ 0, %setlimittosize.exit ], [ %add15.i, %for.end.i109 ]
-  %ttlg.018.i = phi i32 [ 1, %setlimittosize.exit ], [ %mul.i112, %for.end.i109 ]
-  %cmp1.i102 = icmp ugt i32 %ttlg.018.i, %retval.0.i.i117
+  %i.021.i = phi i32 [ 1, %setlimittosize.exit ], [ %i.1.lcssa.i, %for.end.i109 ]
+  %ause.020.i = phi i32 [ 0, %setlimittosize.exit ], [ %add15.i, %for.end.i109 ]
+  %ttlg.019.i = phi i32 [ 1, %setlimittosize.exit ], [ %mul.i112, %for.end.i109 ]
+  %cmp1.i102 = icmp ugt i32 %ttlg.019.i, %retval.0.i.i117
   br i1 %cmp1.i102, label %if.then.i113, label %if.end4.i
 
 if.then.i113:                                     ; preds = %for.body.i100
-  %cmp2.i114 = icmp ugt i32 %i.020.i, %retval.0.i.i117
+  %cmp2.i114 = icmp ugt i32 %i.021.i, %retval.0.i.i117
   br i1 %cmp2.i114, label %numusearray.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then.i113, %for.body.i100
-  %lim.0.i = phi i32 [ %retval.0.i.i117, %if.then.i113 ], [ %ttlg.018.i, %for.body.i100 ]
-  %cmp6.not14.i = icmp ugt i32 %i.020.i, %lim.0.i
+  %lim.0.i = phi i32 [ %retval.0.i.i117, %if.then.i113 ], [ %ttlg.019.i, %for.body.i100 ]
+  %cmp6.not14.i = icmp ugt i32 %i.021.i, %lim.0.i
   br i1 %cmp6.not14.i, label %for.end.i109, label %for.body7.lr.ph.i
 
 for.body7.lr.ph.i:                                ; preds = %if.end4.i
@@ -1616,7 +1616,7 @@ for.body7.lr.ph.i:                                ; preds = %if.end4.i
 
 for.body7.i:                                      ; preds = %for.body7.i, %for.body7.lr.ph.i
   %lc.016.i = phi i32 [ 0, %for.body7.lr.ph.i ], [ %spec.select.i107, %for.body7.i ]
-  %i.115.i = phi i32 [ %i.020.i, %for.body7.lr.ph.i ], [ %inc12.i, %for.body7.i ]
+  %i.115.i = phi i32 [ %i.021.i, %for.body7.lr.ph.i ], [ %inc12.i, %for.body7.i ]
   %sub.i103 = add i32 %i.115.i, -1
   %idxprom.i104 = zext i32 %sub.i103 to i64
   %tt_.i105 = getelementptr inbounds %struct.TValue, ptr %15, i64 %idxprom.i104, i32 1
@@ -1634,20 +1634,20 @@ for.end.i109.loopexit:                            ; preds = %for.body7.i
   br label %for.end.i109
 
 for.end.i109:                                     ; preds = %for.end.i109.loopexit, %if.end4.i
-  %i.1.lcssa.i = phi i32 [ %i.020.i, %if.end4.i ], [ %18, %for.end.i109.loopexit ]
+  %i.1.lcssa.i = phi i32 [ %i.021.i, %if.end4.i ], [ %18, %for.end.i109.loopexit ]
   %lc.0.lcssa.i = phi i32 [ 0, %if.end4.i ], [ %spec.select.i107, %for.end.i109.loopexit ]
   %arrayidx14.i = getelementptr inbounds i32, ptr %nums.i, i64 %indvars.iv.i101
   %19 = load i32, ptr %arrayidx14.i, align 4
   %add.i110 = add i32 %19, %lc.0.lcssa.i
   store i32 %add.i110, ptr %arrayidx14.i, align 4
-  %add15.i = add i32 %lc.0.lcssa.i, %ause.019.i
+  %add15.i = add i32 %lc.0.lcssa.i, %ause.020.i
   %indvars.iv.next.i111 = add nuw nsw i64 %indvars.iv.i101, 1
-  %mul.i112 = shl i32 %ttlg.018.i, 1
+  %mul.i112 = shl i32 %ttlg.019.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next.i111, 32
   br i1 %exitcond23.not.i, label %numusearray.exit, label %for.body.i100, !llvm.loop !14
 
 numusearray.exit:                                 ; preds = %if.then.i113, %for.end.i109
-  %ause.0.lcssa.i = phi i32 [ %ause.019.i, %if.then.i113 ], [ %add15.i, %for.end.i109 ]
+  %ause.0.lcssa.i = phi i32 [ %ause.020.i, %if.then.i113 ], [ %add15.i, %for.end.i109 ]
   %lsizenode.i = getelementptr inbounds i8, ptr %t, i64 11
   %20 = load i8, ptr %lsizenode.i, align 1
   %conv.i = zext nneg i8 %20 to i32
@@ -1659,8 +1659,8 @@ numusearray.exit:                                 ; preds = %if.then.i113, %for.
 
 while.body.i88:                                   ; preds = %if.end7.i, %numusearray.exit
   %indvars.iv.i89 = phi i64 [ %21, %numusearray.exit ], [ %indvars.iv.next.i97, %if.end7.i ]
-  %totaluse.09.i = phi i32 [ 0, %numusearray.exit ], [ %totaluse.1.i, %if.end7.i ]
-  %ause.08.i = phi i32 [ 0, %numusearray.exit ], [ %ause.2.i, %if.end7.i ]
+  %ause.09.i = phi i32 [ 0, %numusearray.exit ], [ %ause.2.i, %if.end7.i ]
+  %totaluse.08.i = phi i32 [ 0, %numusearray.exit ], [ %totaluse.1.i, %if.end7.i ]
   %22 = load ptr, ptr %node.i87, align 8
   %arrayidx.i90 = getelementptr inbounds %union.Node, ptr %22, i64 %indvars.iv.i89
   %tt_.i91 = getelementptr inbounds i8, ptr %arrayidx.i90, i64 8
@@ -1694,17 +1694,17 @@ if.then.i.i:                                      ; preds = %if.then6.i
 
 countint.exit.i:                                  ; preds = %if.then.i.i, %if.then6.i
   %retval.0.i.i = phi i32 [ 1, %if.then.i.i ], [ 0, %if.then6.i ]
-  %add.i99 = add nsw i32 %retval.0.i.i, %ause.08.i
+  %add.i99 = add nsw i32 %retval.0.i.i, %ause.09.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %countint.exit.i, %if.then.i93
-  %ause.1.i = phi i32 [ %add.i99, %countint.exit.i ], [ %ause.08.i, %if.then.i93 ]
-  %inc.i96 = add nsw i32 %totaluse.09.i, 1
+  %ause.1.i = phi i32 [ %add.i99, %countint.exit.i ], [ %ause.09.i, %if.then.i93 ]
+  %inc.i96 = add nsw i32 %totaluse.08.i, 1
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i, %while.body.i88
-  %ause.2.i = phi i32 [ %ause.08.i, %while.body.i88 ], [ %ause.1.i, %if.end.i ]
-  %totaluse.1.i = phi i32 [ %totaluse.09.i, %while.body.i88 ], [ %inc.i96, %if.end.i ]
+  %totaluse.1.i = phi i32 [ %totaluse.08.i, %while.body.i88 ], [ %inc.i96, %if.end.i ]
+  %ause.2.i = phi i32 [ %ause.09.i, %while.body.i88 ], [ %ause.1.i, %if.end.i ]
   %indvars.iv.next.i97 = add nsw i64 %indvars.iv.i89, -1
   %29 = icmp eq i64 %indvars.iv.i89, 0
   br i1 %29, label %numusehash.exit, label %while.body.i88, !llvm.loop !15
@@ -1997,9 +1997,9 @@ if.then23:                                        ; preds = %ispow2realasize.exi
   br label %return
 
 while.body.i:                                     ; preds = %land.lhs.true5, %while.body.i
-  %i.addr.010.i = phi i32 [ %i.addr.0.div6.i, %while.body.i ], [ 0, %land.lhs.true5 ]
-  %j.addr.09.i = phi i32 [ %div6.j.addr.0.i, %while.body.i ], [ %0, %land.lhs.true5 ]
-  %add.i = add i32 %j.addr.09.i, %i.addr.010.i
+  %j.addr.010.i = phi i32 [ %div6.j.addr.0.i, %while.body.i ], [ %0, %land.lhs.true5 ]
+  %i.addr.09.i = phi i32 [ %i.addr.0.div6.i, %while.body.i ], [ 0, %land.lhs.true5 ]
+  %add.i = add i32 %i.addr.09.i, %j.addr.010.i
   %div6.i = lshr i32 %add.i, 1
   %sub1.i = add nsw i32 %div6.i, -1
   %idxprom.i = zext i32 %sub1.i to i64
@@ -2007,8 +2007,8 @@ while.body.i:                                     ; preds = %land.lhs.true5, %wh
   %9 = load i8, ptr %tt_.i, align 8
   %10 = and i8 %9, 15
   %cmp2.i = icmp eq i8 %10, 0
-  %div6.j.addr.0.i = select i1 %cmp2.i, i32 %div6.i, i32 %j.addr.09.i
-  %i.addr.0.div6.i = select i1 %cmp2.i, i32 %i.addr.010.i, i32 %div6.i
+  %i.addr.0.div6.i = select i1 %cmp2.i, i32 %i.addr.09.i, i32 %div6.i
+  %div6.j.addr.0.i = select i1 %cmp2.i, i32 %div6.i, i32 %j.addr.010.i
   %sub.i = sub i32 %div6.j.addr.0.i, %i.addr.0.div6.i
   %cmp.i42 = icmp ugt i32 %sub.i, 1
   br i1 %cmp.i42, label %while.body.i, label %binsearch.exit, !llvm.loop !18
@@ -2103,9 +2103,9 @@ if.then79:                                        ; preds = %luaH_realasize.exit
   br i1 %cmp8.i73, label %while.body.i75, label %binsearch.exit88
 
 while.body.i75:                                   ; preds = %if.then79, %while.body.i75
-  %i.addr.010.i76 = phi i32 [ %i.addr.0.div6.i85, %while.body.i75 ], [ %0, %if.then79 ]
-  %j.addr.09.i77 = phi i32 [ %div6.j.addr.0.i84, %while.body.i75 ], [ %inc.i70, %if.then79 ]
-  %add.i78 = add i32 %j.addr.09.i77, %i.addr.010.i76
+  %j.addr.010.i76 = phi i32 [ %div6.j.addr.0.i85, %while.body.i75 ], [ %inc.i70, %if.then79 ]
+  %i.addr.09.i77 = phi i32 [ %i.addr.0.div6.i84, %while.body.i75 ], [ %0, %if.then79 ]
+  %add.i78 = add i32 %i.addr.09.i77, %j.addr.010.i76
   %div6.i79 = lshr i32 %add.i78, 1
   %sub1.i80 = add nsw i32 %div6.i79, -1
   %idxprom.i81 = zext i32 %sub1.i80 to i64
@@ -2113,19 +2113,19 @@ while.body.i75:                                   ; preds = %if.then79, %while.b
   %21 = load i8, ptr %tt_.i82, align 8
   %22 = and i8 %21, 15
   %cmp2.i83 = icmp eq i8 %22, 0
-  %div6.j.addr.0.i84 = select i1 %cmp2.i83, i32 %div6.i79, i32 %j.addr.09.i77
-  %i.addr.0.div6.i85 = select i1 %cmp2.i83, i32 %i.addr.010.i76, i32 %div6.i79
-  %sub.i86 = sub i32 %div6.j.addr.0.i84, %i.addr.0.div6.i85
+  %i.addr.0.div6.i84 = select i1 %cmp2.i83, i32 %i.addr.09.i77, i32 %div6.i79
+  %div6.j.addr.0.i85 = select i1 %cmp2.i83, i32 %div6.i79, i32 %j.addr.010.i76
+  %sub.i86 = sub i32 %div6.j.addr.0.i85, %i.addr.0.div6.i84
   %cmp.i87 = icmp ugt i32 %sub.i86, 1
   br i1 %cmp.i87, label %while.body.i75, label %binsearch.exit88.loopexit, !llvm.loop !18
 
 binsearch.exit88.loopexit:                        ; preds = %while.body.i75
-  %.pre = zext i32 %i.addr.0.div6.i85 to i64
+  %.pre = zext i32 %i.addr.0.div6.i84 to i64
   br label %binsearch.exit88
 
 binsearch.exit88:                                 ; preds = %binsearch.exit88.loopexit, %if.then79
   %conv85.pre-phi = phi i64 [ %.pre, %binsearch.exit88.loopexit ], [ %idxprom59, %if.then79 ]
-  %i.addr.0.lcssa.i74 = phi i32 [ %i.addr.0.div6.i85, %binsearch.exit88.loopexit ], [ %0, %if.then79 ]
+  %i.addr.0.lcssa.i74 = phi i32 [ %i.addr.0.div6.i84, %binsearch.exit88.loopexit ], [ %0, %if.then79 ]
   store i32 %i.addr.0.lcssa.i74, ptr %alimit, align 4
   br label %return
 

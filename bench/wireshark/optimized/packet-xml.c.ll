@@ -463,13 +463,13 @@ define hidden void @proto_register_xml() local_unnamed_addr #3 {
   br label %29
 
 29:                                               ; preds = %27, %0
-  %.040.i = phi ptr [ %28, %27 ], [ %25, %0 ]
-  %30 = tail call i32 @test_for_directory(ptr noundef %.040.i) #10
+  %.0.i = phi ptr [ %28, %27 ], [ %25, %0 ]
+  %30 = tail call i32 @test_for_directory(ptr noundef %.0.i) #10
   %31 = icmp eq i32 %30, 21
   br i1 %31, label %32, label %333
 
 32:                                               ; preds = %29
-  %33 = tail call ptr @g_dir_open(ptr noundef %.040.i, i32 noundef 0, ptr noundef nonnull %15) #10
+  %33 = tail call ptr @g_dir_open(ptr noundef %.0.i, i32 noundef 0, ptr noundef nonnull %15) #10
   %.not45.i = icmp eq ptr %33, null
   br i1 %.not45.i, label %333, label %34
 
@@ -519,14 +519,14 @@ define hidden void @proto_register_xml() local_unnamed_addr #3 {
 
 68:                                               ; preds = %62
   %69 = call ptr @g_string_truncate(ptr noundef %35, i64 noundef 0) #10
-  %70 = call ptr @dtd_preparse(ptr noundef %.040.i, ptr noundef nonnull %58, ptr noundef %35) #10
+  %70 = call ptr @dtd_preparse(ptr noundef %.0.i, ptr noundef nonnull %58, ptr noundef %35) #10
   %71 = load i64, ptr %37, align 8
   %.not48.i = icmp eq i64 %71, 0
   br i1 %.not48.i, label %75, label %72
 
 72:                                               ; preds = %68
   %73 = load ptr, ptr %35, align 8
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.67, ptr noundef %.040.i, i32 noundef 47, ptr noundef nonnull %58, ptr noundef %73) #10
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.67, ptr noundef %.0.i, i32 noundef 47, ptr noundef nonnull %58, ptr noundef %73) #10
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %330, %register_dtd.exit.i, %82, %72, %62, %57
@@ -546,7 +546,7 @@ define hidden void @proto_register_xml() local_unnamed_addr #3 {
 
 82:                                               ; preds = %75
   %83 = load ptr, ptr %79, align 8
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.68, ptr noundef %.040.i, i32 noundef 47, ptr noundef nonnull %58, ptr noundef %83) #10
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.68, ptr noundef %.0.i, i32 noundef 47, ptr noundef nonnull %58, ptr noundef %83) #10
   call fastcc void @destroy_dtd_data(ptr noundef nonnull %76)
   br label %.backedge.i
 
@@ -1020,7 +1020,7 @@ register_dtd.exit.i:                              ; preds = %323, %.loopexit.i.i
 
 330:                                              ; preds = %register_dtd.exit.i
   %331 = load ptr, ptr %35, align 8
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.69, ptr noundef %.040.i, i32 noundef 47, ptr noundef nonnull %58, ptr noundef %331) #10
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.69, ptr noundef %.0.i, i32 noundef 47, ptr noundef nonnull %58, ptr noundef %331) #10
   br label %.backedge.i
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %34
@@ -1029,7 +1029,7 @@ register_dtd.exit.i:                              ; preds = %323, %.loopexit.i.i
   br label %333
 
 333:                                              ; preds = %._crit_edge.i, %32, %29
-  call void @g_free(ptr noundef %.040.i) #10
+  call void @g_free(ptr noundef %.0.i) #10
   br label %334
 
 334:                                              ; preds = %342, %333
@@ -2141,18 +2141,18 @@ define internal void @after_attrib(ptr nocapture noundef readonly %0, ptr nocapt
   br label %38
 
 38:                                               ; preds = %37, %33
-  %.048.in = phi ptr [ @hf_unknowwn_attrib, %37 ], [ %36, %33 ]
-  %.0 = phi ptr [ %2, %37 ], [ %18, %33 ]
-  %.048 = load i32, ptr %.048.in, align 4
+  %.048 = phi ptr [ %2, %37 ], [ %18, %33 ]
+  %.0.in = phi ptr [ @hf_unknowwn_attrib, %37 ], [ %36, %33 ]
+  %.0 = load i32, ptr %.0.in, align 4
   %39 = getelementptr inbounds i8, ptr %10, i64 72
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %.0, i64 16
+  %41 = getelementptr inbounds i8, ptr %.048, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %.0, i64 24
+  %43 = getelementptr inbounds i8, ptr %.048, i64 24
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %.0, i64 28
+  %45 = getelementptr inbounds i8, ptr %.048, i64 28
   %46 = load i32, ptr %45, align 4
-  %47 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %.048, ptr noundef %42, i32 noundef %44, i32 noundef %46, i32 noundef 2) #10
+  %47 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %.0, ptr noundef %42, i32 noundef %44, i32 noundef %46, i32 noundef 2) #10
   %48 = tail call ptr @wmem_packet_scope() #10
   %49 = getelementptr inbounds i8, ptr %2, i64 16
   %50 = load ptr, ptr %49, align 8
@@ -2351,7 +2351,7 @@ define internal void @after_token(ptr nocapture noundef readonly %0, ptr nocaptu
   br label %20
 
 20:                                               ; preds = %17, %12
-  %.0 = phi i32 [ %16, %12 ], [ %spec.select, %17 ]
+  %.038 = phi i32 [ %16, %12 ], [ %spec.select, %17 ]
   %21 = getelementptr inbounds i8, ptr %10, i64 72
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %2, i64 16
@@ -2360,7 +2360,7 @@ define internal void @after_token(ptr nocapture noundef readonly %0, ptr nocaptu
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %2, i64 28
   %28 = load i32, ptr %27, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %.0, ptr noundef %24, i32 noundef %26, i32 noundef %28, i32 noundef 2) #10
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %.038, ptr noundef %24, i32 noundef %26, i32 noundef %28, i32 noundef 2) #10
   %30 = tail call ptr @wmem_packet_scope() #10
   %31 = load ptr, ptr %23, align 8
   %32 = load i32, ptr %25, align 8

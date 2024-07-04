@@ -94,8 +94,8 @@ define ptr @parse_url_path(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zer
   br label %7
 
 7:                                                ; preds = %3, %83
-  %.03251 = phi ptr [ %0, %3 ], [ %84, %83 ]
-  %8 = load i8, ptr %.03251, align 1
+  %.051 = phi ptr [ %0, %3 ], [ %84, %83 ]
+  %8 = load i8, ptr %.051, align 1
   %.not36 = icmp eq i8 %8, 0
   br i1 %.not36, label %.critedge, label %9
 
@@ -134,13 +134,13 @@ switch.early.test.i:                              ; preds = %9
   br i1 %20, label %21, label %.thread47
 
 21:                                               ; preds = %18
-  %22 = load i8, ptr %.03251, align 1
+  %22 = load i8, ptr %.051, align 1
   %23 = sext i8 %22 to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str, ptr noundef nonnull @__func__.parse_url_path, i32 noundef %23) #4
   br label %.thread47
 
 24:                                               ; preds = %17
-  %25 = call ptr @xstrstr(ptr noundef nonnull %.03251, ptr noundef nonnull @.str.1) #4
+  %25 = call ptr @xstrstr(ptr noundef nonnull %.051, ptr noundef nonnull @.str.1) #4
   %.not39 = icmp eq ptr %25, null
   br i1 %.not39, label %26, label %30
 
@@ -155,14 +155,14 @@ switch.early.test.i:                              ; preds = %9
 
 30:                                               ; preds = %24
   %31 = ptrtoint ptr %25 to i64
-  %32 = ptrtoint ptr %.03251 to i64
+  %32 = ptrtoint ptr %.051 to i64
   %reass.sub = sub i64 %31, %32
   %33 = add i64 %reass.sub, 1
-  call void @_xstrncat(ptr noundef nonnull %4, ptr noundef nonnull %.03251, i64 noundef %33) #4
+  call void @_xstrncat(ptr noundef nonnull %4, ptr noundef nonnull %.051, i64 noundef %33) #4
   br label %83
 
 34:                                               ; preds = %switch.early.test.i
-  %35 = getelementptr inbounds i8, ptr %.03251, i64 1
+  %35 = getelementptr inbounds i8, ptr %.051, i64 1
   %36 = load i8, ptr %35, align 1
   %37 = sext i8 %36 to i64
   %38 = getelementptr inbounds i16, ptr %11, i64 %37
@@ -172,7 +172,7 @@ switch.early.test.i:                              ; preds = %9
   br i1 %.not.i, label %65, label %41
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds i8, ptr %.03251, i64 2
+  %42 = getelementptr inbounds i8, ptr %.051, i64 2
   %43 = load i8, ptr %42, align 1
   %44 = sext i8 %43 to i64
   %45 = getelementptr inbounds i16, ptr %11, i64 %44
@@ -218,7 +218,7 @@ switch.early.test.i:                              ; preds = %9
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %65
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__._decode_seq, ptr noundef nonnull %.03251) #4
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__._decode_seq, ptr noundef nonnull %.051) #4
   br label %69
 
 _decode_seq.exit:                                 ; preds = %64, %61
@@ -231,7 +231,7 @@ _decode_seq.exit:                                 ; preds = %64, %61
   br i1 %71, label %72, label %.thread47
 
 72:                                               ; preds = %69
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.parse_url_path, ptr noundef nonnull %.03251) #4
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.parse_url_path, ptr noundef nonnull %.051) #4
   br label %.thread47
 
 73:                                               ; preds = %switch.early.test.i
@@ -249,16 +249,16 @@ _decode_seq.exit:                                 ; preds = %64, %61
   br i1 %79, label %80, label %.thread47
 
 80:                                               ; preds = %77
-  %81 = load i8, ptr %.03251, align 1
+  %81 = load i8, ptr %.051, align 1
   %82 = sext i8 %81 to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.parse_url_path, i32 noundef %82) #4
   br label %.thread47
 
 83:                                               ; preds = %30, %_decode_seq.exit, %75, %73, %16
-  %.133 = phi ptr [ %.03251, %16 ], [ %.03251, %75 ], [ %.03251, %73 ], [ %42, %_decode_seq.exit ], [ %25, %30 ]
-  %.1 = phi i32 [ 0, %16 ], [ %76, %75 ], [ 0, %73 ], [ 0, %_decode_seq.exit ], [ 0, %30 ]
-  %84 = getelementptr inbounds i8, ptr %.133, i64 1
-  %.not = icmp eq i32 %.1, 0
+  %.132 = phi i32 [ 0, %16 ], [ %76, %75 ], [ 0, %73 ], [ 0, %_decode_seq.exit ], [ 0, %30 ]
+  %.1 = phi ptr [ %.051, %16 ], [ %.051, %75 ], [ %.051, %73 ], [ %42, %_decode_seq.exit ], [ %25, %30 ]
+  %84 = getelementptr inbounds i8, ptr %.1, i64 1
+  %.not = icmp eq i32 %.132, 0
   br i1 %.not, label %7, label %.thread47, !llvm.loop !6
 
 .critedge:                                        ; preds = %7
@@ -280,8 +280,8 @@ _decode_seq.exit:                                 ; preds = %64, %61
   br label %.thread
 
 .thread:                                          ; preds = %.critedge, %86, %.thread47, %88
-  %.0 = phi ptr [ null, %88 ], [ null, %.thread47 ], [ %6, %86 ], [ %6, %.critedge ]
-  ret ptr %.0
+  %.033 = phi ptr [ null, %88 ], [ null, %.thread47 ], [ %6, %86 ], [ %6, %.critedge ]
+  ret ptr %.033
 }
 
 declare ptr @data_set_list(ptr noundef) local_unnamed_addr #1

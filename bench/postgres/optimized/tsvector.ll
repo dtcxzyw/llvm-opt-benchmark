@@ -53,11 +53,11 @@ define dso_local noundef i64 @tsvectorin(ptr nocapture noundef %0) local_unnamed
   br i1 %14, label %.lr.ph166, label %._crit_edge167
 
 .lr.ph166:                                        ; preds = %1, %77
-  %.0112164 = phi ptr [ %.1, %77 ], [ %12, %1 ]
-  %.0113163 = phi i32 [ %.1114, %77 ], [ 64, %1 ]
-  %.0115162 = phi i32 [ %80, %77 ], [ 0, %1 ]
-  %.0117161 = phi ptr [ %68, %77 ], [ %13, %1 ]
-  %.0119160 = phi ptr [ %.1120.lcssa, %77 ], [ %13, %1 ]
+  %.0112164 = phi ptr [ %68, %77 ], [ %13, %1 ]
+  %.0113163 = phi ptr [ %.1114.lcssa, %77 ], [ %13, %1 ]
+  %.0118162 = phi i32 [ %80, %77 ], [ 0, %1 ]
+  %.0120161 = phi i32 [ %.1121, %77 ], [ 64, %1 ]
+  %.0122160 = phi ptr [ %.1123, %77 ], [ %12, %1 ]
   %.0135159 = phi i32 [ %.1136.lcssa, %77 ], [ 256, %1 ]
   %15 = load i32, ptr %3, align 4
   %16 = icmp sgt i32 %15, 2046
@@ -76,8 +76,8 @@ define dso_local noundef i64 @tsvectorin(ptr nocapture noundef %0) local_unnamed
   br label %316
 
 24:                                               ; preds = %.lr.ph166
-  %25 = ptrtoint ptr %.0117161 to i64
-  %26 = ptrtoint ptr %.0119160 to i64
+  %25 = ptrtoint ptr %.0112164 to i64
+  %26 = ptrtoint ptr %.0113163 to i64
   %27 = sub i64 %25, %26
   %28 = icmp sgt i64 %27, 1048575
   br i1 %28, label %29, label %34
@@ -93,21 +93,21 @@ define dso_local noundef i64 @tsvectorin(ptr nocapture noundef %0) local_unnamed
   br label %316
 
 34:                                               ; preds = %24
-  %.not129 = icmp slt i32 %.0115162, %.0113163
+  %.not129 = icmp slt i32 %.0118162, %.0120161
   br i1 %.not129, label %40, label %35
 
 35:                                               ; preds = %34
-  %36 = shl i32 %.0113163, 1
+  %36 = shl i32 %.0120161, 1
   %37 = sext i32 %36 to i64
   %38 = mul nsw i64 %37, 24
-  %39 = call ptr @repalloc(ptr noundef %.0112164, i64 noundef %38) #9
+  %39 = call ptr @repalloc(ptr noundef %.0122160, i64 noundef %38) #9
   %.pre = load i32, ptr %3, align 4
   br label %40
 
 40:                                               ; preds = %35, %34
   %41 = phi i32 [ %.pre, %35 ], [ %15, %34 ]
-  %.1114 = phi i32 [ %36, %35 ], [ %.0113163, %34 ]
-  %.1 = phi ptr [ %39, %35 ], [ %.0112164, %34 ]
+  %.1123 = phi ptr [ %39, %35 ], [ %.0122160, %34 ]
+  %.1121 = phi i32 [ %36, %35 ], [ %.0120161, %34 ]
   %42 = sext i32 %41 to i64
   %43 = add i64 %27, %42
   %44 = sext i32 %.0135159 to i64
@@ -116,11 +116,11 @@ define dso_local noundef i64 @tsvectorin(ptr nocapture noundef %0) local_unnamed
 
 .lr.ph:                                           ; preds = %40, %.lr.ph
   %45 = phi i64 [ %49, %.lr.ph ], [ %27, %40 ]
-  %.1120154 = phi ptr [ %48, %.lr.ph ], [ %.0119160, %40 ]
+  %.1114154 = phi ptr [ %48, %.lr.ph ], [ %.0113163, %40 ]
   %.1136153 = phi i32 [ %46, %.lr.ph ], [ %.0135159, %40 ]
   %46 = shl i32 %.1136153, 1
   %47 = sext i32 %46 to i64
-  %48 = call ptr @repalloc(ptr noundef %.1120154, i64 noundef %47) #9
+  %48 = call ptr @repalloc(ptr noundef %.1114154, i64 noundef %47) #9
   %sext = shl i64 %45, 32
   %49 = ashr exact i64 %sext, 32
   %50 = load i32, ptr %3, align 4
@@ -135,12 +135,12 @@ define dso_local noundef i64 @tsvectorin(ptr nocapture noundef %0) local_unnamed
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %40
   %.1136.lcssa = phi i32 [ %.0135159, %40 ], [ %46, %._crit_edge.loopexit ]
-  %.1120.lcssa = phi ptr [ %.0119160, %40 ], [ %48, %._crit_edge.loopexit ]
-  %.1118.lcssa = phi ptr [ %.0117161, %40 ], [ %53, %._crit_edge.loopexit ]
+  %.1114.lcssa = phi ptr [ %.0113163, %40 ], [ %48, %._crit_edge.loopexit ]
+  %.1.lcssa = phi ptr [ %.0112164, %40 ], [ %53, %._crit_edge.loopexit ]
   %.lcssa142 = phi i64 [ %27, %40 ], [ %49, %._crit_edge.loopexit ]
   %.lcssa = phi i32 [ %41, %40 ], [ %50, %._crit_edge.loopexit ]
-  %54 = sext i32 %.0115162 to i64
-  %55 = getelementptr %struct.WordEntryIN, ptr %.1, i64 %54
+  %54 = sext i32 %.0118162 to i64
+  %55 = getelementptr %struct.WordEntryIN, ptr %.1123, i64 %54
   %56 = load i32, ptr %55, align 8
   %57 = shl i32 %.lcssa, 1
   %58 = and i32 %56, 1
@@ -153,10 +153,10 @@ define dso_local noundef i64 @tsvectorin(ptr nocapture noundef %0) local_unnamed
   %63 = load ptr, ptr %2, align 8
   %64 = load i32, ptr %3, align 4
   %65 = sext i32 %64 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1118.lcssa, ptr align 1 %63, i64 %65, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1.lcssa, ptr align 1 %63, i64 %65, i1 false)
   %66 = load i32, ptr %3, align 4
   %67 = sext i32 %66 to i64
-  %68 = getelementptr i8, ptr %.1118.lcssa, i64 %67
+  %68 = getelementptr i8, ptr %.1.lcssa, i64 %67
   %69 = load i32, ptr %5, align 4
   %.not131 = icmp eq i32 %69, 0
   %70 = load i32, ptr %55, align 8
@@ -181,14 +181,14 @@ define dso_local noundef i64 @tsvectorin(ptr nocapture noundef %0) local_unnamed
   store ptr %.sink184, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %55, i64 16
   store i32 %.sink, ptr %79, align 8
-  %80 = add i32 %.0115162, 1
+  %80 = add i32 %.0118162, 1
   %81 = call zeroext i1 @gettoken_tsvector(ptr noundef %11, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null) #9
   br i1 %81, label %.lr.ph166, label %._crit_edge167, !llvm.loop !7
 
 ._crit_edge167:                                   ; preds = %77, %1
-  %.0119.lcssa = phi ptr [ %13, %1 ], [ %.1120.lcssa, %77 ]
-  %.0115.lcssa = phi i32 [ 0, %1 ], [ %80, %77 ]
-  %.0112.lcssa = phi ptr [ %12, %1 ], [ %.1, %77 ]
+  %.0122.lcssa = phi ptr [ %12, %1 ], [ %.1123, %77 ]
+  %.0118.lcssa = phi i32 [ 0, %1 ], [ %80, %77 ]
+  %.0113.lcssa = phi ptr [ %13, %1 ], [ %.1114.lcssa, %77 ]
   call void @close_tsvector_parser(ptr noundef %11) #9
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %91, label %82
@@ -210,29 +210,29 @@ define dso_local noundef i64 @tsvectorin(ptr nocapture noundef %0) local_unnamed
   br label %316
 
 91:                                               ; preds = %85, %82, %._crit_edge167
-  %92 = icmp sgt i32 %.0115.lcssa, 0
+  %92 = icmp sgt i32 %.0118.lcssa, 0
   br i1 %92, label %93, label %.thread
 
 93:                                               ; preds = %91
-  %.not141 = icmp eq i32 %.0115.lcssa, 1
-  %94 = zext nneg i32 %.0115.lcssa to i64
+  %.not141 = icmp eq i32 %.0118.lcssa, 1
+  %94 = zext nneg i32 %.0118.lcssa to i64
   br i1 %.not141, label %95, label %.lr.ph.preheader.i
 
 95:                                               ; preds = %93
-  %96 = ptrtoint ptr %.0112.lcssa to i64
+  %96 = ptrtoint ptr %.0122.lcssa to i64
   br label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %93
-  call void @qsort_arg(ptr noundef %.0112.lcssa, i64 noundef %94, i64 noundef 24, ptr noundef nonnull @compareentry, ptr noundef %.0119.lcssa) #9
-  %97 = ptrtoint ptr %.0112.lcssa to i64
-  %.06487.i = getelementptr i8, ptr %.0112.lcssa, i64 24
+  call void @qsort_arg(ptr noundef %.0122.lcssa, i64 noundef %94, i64 noundef 24, ptr noundef nonnull @compareentry, ptr noundef %.0113.lcssa) #9
+  %97 = ptrtoint ptr %.0122.lcssa to i64
+  %.06487.i = getelementptr i8, ptr %.0122.lcssa, i64 24
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %194, %.lr.ph.preheader.i
   %.06491.i = phi ptr [ %.064.i, %194 ], [ %.06487.i, %.lr.ph.preheader.i ]
   %.090.i = phi i32 [ %.2.i, %194 ], [ 0, %.lr.ph.preheader.i ]
-  %.06289.i = phi ptr [ %.163.i, %194 ], [ %.0112.lcssa, %.lr.ph.preheader.i ]
-  %.pn88.i = phi ptr [ %.06491.i, %194 ], [ %.0112.lcssa, %.lr.ph.preheader.i ]
+  %.06289.i = phi ptr [ %.163.i, %194 ], [ %.0122.lcssa, %.lr.ph.preheader.i ]
+  %.pn88.i = phi ptr [ %.06491.i, %194 ], [ %.0122.lcssa, %.lr.ph.preheader.i ]
   %98 = load i32, ptr %.06491.i, align 8
   %99 = lshr i32 %98, 1
   %100 = and i32 %99, 2047
@@ -245,10 +245,10 @@ define dso_local noundef i64 @tsvectorin(ptr nocapture noundef %0) local_unnamed
 105:                                              ; preds = %.lr.ph.i
   %106 = lshr i32 %98, 12
   %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr i8, ptr %.0119.lcssa, i64 %107
+  %108 = getelementptr i8, ptr %.0113.lcssa, i64 %107
   %109 = lshr i32 %101, 12
   %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr i8, ptr %.0119.lcssa, i64 %110
+  %111 = getelementptr i8, ptr %.0113.lcssa, i64 %110
   %112 = zext nneg i32 %100 to i64
   %113 = call i32 @strncmp(ptr noundef %108, ptr noundef %111, i64 noundef %112) #10
   %114 = icmp eq i32 %113, 0
@@ -408,7 +408,7 @@ uniquePos.exit.i:                                 ; preds = %._crit_edge.i.i, %1
 
 ._crit_edge.i:                                    ; preds = %194, %95
   %199 = phi i64 [ %96, %95 ], [ %97, %194 ]
-  %.062.lcssa.i = phi ptr [ %.0112.lcssa, %95 ], [ %.163.i, %194 ]
+  %.062.lcssa.i = phi ptr [ %.0122.lcssa, %95 ], [ %.163.i, %194 ]
   %.0.lcssa.i = phi i32 [ 0, %95 ], [ %.2.i, %194 ]
   %200 = load i32, ptr %.062.lcssa.i, align 8
   %201 = lshr i32 %200, 1
@@ -516,10 +516,10 @@ uniquePos.exit86.i:                               ; preds = %._crit_edge.i83.i, 
   br label %316
 
 .thread:                                          ; preds = %91, %246
-  %.1116140 = phi i32 [ %251, %246 ], [ %.0115.lcssa, %91 ]
+  %.1119140 = phi i32 [ %251, %246 ], [ %.0118.lcssa, %91 ]
   %.2139 = phi i32 [ %.3.i, %246 ], [ 0, %91 ]
-  %258 = sext i32 %.1116140 to i64
-  %259 = shl i32 %.1116140, 2
+  %258 = sext i32 %.1119140 to i64
+  %259 = shl i32 %.1119140, 2
   %260 = add i32 %259, 8
   %261 = add i32 %260, %.2139
   %262 = sext i32 %261 to i64
@@ -527,38 +527,38 @@ uniquePos.exit86.i:                               ; preds = %._crit_edge.i83.i, 
   %264 = shl i32 %261, 2
   store i32 %264, ptr %263, align 4
   %265 = getelementptr inbounds i8, ptr %263, i64 4
-  store i32 %.1116140, ptr %265, align 4
+  store i32 %.1119140, ptr %265, align 4
   %266 = getelementptr inbounds i8, ptr %263, i64 8
   %267 = getelementptr [0 x %struct.WordEntry], ptr %266, i64 0, i64 %258
-  %268 = icmp sgt i32 %.1116140, 0
+  %268 = icmp sgt i32 %.1119140, 0
   br i1 %268, label %.lr.ph173.preheader, label %._crit_edge174
 
 .lr.ph173.preheader:                              ; preds = %.thread
-  %wide.trip.count = zext nneg i32 %.1116140 to i64
+  %wide.trip.count = zext nneg i32 %.1119140 to i64
   br label %.lr.ph173
 
 .lr.ph173:                                        ; preds = %.lr.ph173.preheader, %312
   %indvars.iv = phi i64 [ 0, %.lr.ph173.preheader ], [ %indvars.iv.next, %312 ]
-  %.0121172 = phi i32 [ 0, %.lr.ph173.preheader ], [ %.1122, %312 ]
-  %269 = sext i32 %.0121172 to i64
+  %.0115172 = phi i32 [ 0, %.lr.ph173.preheader ], [ %.1116, %312 ]
+  %269 = sext i32 %.0115172 to i64
   %270 = getelementptr i8, ptr %267, i64 %269
-  %271 = getelementptr %struct.WordEntryIN, ptr %.0112.lcssa, i64 %indvars.iv
+  %271 = getelementptr %struct.WordEntryIN, ptr %.0122.lcssa, i64 %indvars.iv
   %272 = load i32, ptr %271, align 8
   %273 = lshr i32 %272, 12
   %274 = zext nneg i32 %273 to i64
-  %275 = getelementptr i8, ptr %.0119.lcssa, i64 %274
+  %275 = getelementptr i8, ptr %.0113.lcssa, i64 %274
   %276 = lshr i32 %272, 1
   %277 = and i32 %276, 2047
   %278 = zext nneg i32 %277 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %270, ptr align 1 %275, i64 %278, i1 false)
   %279 = load i32, ptr %271, align 8
-  %280 = shl i32 %.0121172, 12
+  %280 = shl i32 %.0115172, 12
   %281 = and i32 %279, 4095
   %282 = or disjoint i32 %281, %280
   store i32 %282, ptr %271, align 8
   %283 = lshr i32 %279, 1
   %284 = and i32 %283, 2047
-  %285 = add i32 %284, %.0121172
+  %285 = add i32 %284, %.0115172
   %286 = and i32 %279, 1
   %.not128 = icmp eq i32 %286, 0
   br i1 %.not128, label %312, label %287
@@ -602,7 +602,7 @@ uniquePos.exit86.i:                               ; preds = %._crit_edge.i83.i, 
 
 312:                                              ; preds = %294, %.lr.ph173
   %313 = phi i32 [ %.pre185, %294 ], [ %282, %.lr.ph173 ]
-  %.1122 = phi i32 [ %310, %294 ], [ %285, %.lr.ph173 ]
+  %.1116 = phi i32 [ %310, %294 ], [ %285, %.lr.ph173 ]
   %314 = getelementptr %struct.WordEntry, ptr %266, i64 %indvars.iv
   store i32 %313, ptr %314, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -666,13 +666,13 @@ define dso_local i64 @tsvectorout(ptr nocapture noundef readonly %0) local_unnam
 
 .lr.ph:                                           ; preds = %1, %.lr.ph._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph._crit_edge ], [ 0, %1 ]
-  %.07895 = phi i32 [ %.179, %.lr.ph._crit_edge ], [ %10, %1 ]
+  %.07696 = phi i32 [ %.177, %.lr.ph._crit_edge ], [ %10, %1 ]
   %12 = getelementptr %struct.WordEntry, ptr %6, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 4094
   %15 = tail call i32 @pg_database_encoding_max_length() #9
   %16 = mul i32 %14, %15
-  %17 = add i32 %16, %.07895
+  %17 = add i32 %16, %.07696
   %18 = load i32, ptr %12, align 4
   %19 = and i32 %18, 1
   %.not90 = icmp eq i32 %19, 0
@@ -698,14 +698,14 @@ define dso_local i64 @tsvectorout(ptr nocapture noundef readonly %0) local_unnam
   br label %.lr.ph._crit_edge
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %20
-  %.179 = phi i32 [ %33, %20 ], [ %17, %.lr.ph ]
+  %.177 = phi i32 [ %33, %20 ], [ %17, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = icmp slt i64 %indvars.iv.next, %.pre127
   br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph._crit_edge, %1
-  %.078.lcssa = phi i32 [ %10, %1 ], [ %.179, %.lr.ph._crit_edge ]
-  %35 = sext i32 %.078.lcssa to i64
+  %.076.lcssa = phi i32 [ %10, %1 ], [ %.177, %.lr.ph._crit_edge ]
+  %35 = sext i32 %.076.lcssa to i64
   %36 = tail call ptr @palloc(i64 noundef %35) #9
   %37 = load i32, ptr %7, align 4
   %38 = icmp sgt i32 %37, 0
@@ -714,15 +714,15 @@ define dso_local i64 @tsvectorout(ptr nocapture noundef readonly %0) local_unnam
 .lr.ph119:                                        ; preds = %._crit_edge, %.thread
   %39 = phi i32 [ %114, %.thread ], [ %37, %._crit_edge ]
   %.071117 = phi ptr [ %.8, %.thread ], [ %36, %._crit_edge ]
-  %.175116 = phi i32 [ %116, %.thread ], [ 0, %._crit_edge ]
-  %.076115 = phi ptr [ %115, %.thread ], [ %6, %._crit_edge ]
+  %.074116 = phi ptr [ %115, %.thread ], [ %6, %._crit_edge ]
+  %.179115 = phi i32 [ %116, %.thread ], [ 0, %._crit_edge ]
   %40 = sext i32 %39 to i64
   %41 = getelementptr [0 x %struct.WordEntry], ptr %6, i64 0, i64 %40
-  %42 = load i32, ptr %.076115, align 4
+  %42 = load i32, ptr %.074116, align 4
   %43 = lshr i32 %42, 12
   %44 = zext nneg i32 %43 to i64
   %45 = getelementptr i8, ptr %41, i64 %44
-  %.not84 = icmp eq i32 %.175116, 0
+  %.not84 = icmp eq i32 %.179115, 0
   br i1 %.not84, label %48, label %46
 
 46:                                               ; preds = %.lr.ph119
@@ -735,7 +735,7 @@ define dso_local i64 @tsvectorout(ptr nocapture noundef readonly %0) local_unnam
   %49 = getelementptr i8, ptr %.1, i64 1
   store i8 39, ptr %.1, align 1
   %50 = ptrtoint ptr %45 to i64
-  %51 = load i32, ptr %.076115, align 4
+  %51 = load i32, ptr %.074116, align 4
   %52 = and i32 %51, 4094
   %.not122 = icmp eq i32 %52, 0
   br i1 %.not122, label %._crit_edge109, label %.lr.ph108
@@ -745,7 +745,7 @@ define dso_local i64 @tsvectorout(ptr nocapture noundef readonly %0) local_unnam
   %.4.lcssa = phi ptr [ %.3, %63 ], [ %67, %.lr.ph102 ]
   %53 = ptrtoint ptr %.173.lcssa to i64
   %54 = sub i64 %53, %50
-  %55 = load i32, ptr %.076115, align 4
+  %55 = load i32, ptr %.074116, align 4
   %56 = lshr i32 %55, 1
   %57 = and i32 %56, 2047
   %58 = zext nneg i32 %57 to i64
@@ -788,7 +788,7 @@ define dso_local i64 @tsvectorout(ptr nocapture noundef readonly %0) local_unnam
   %.2.lcssa = phi ptr [ %49, %48 ], [ %.4.lcssa, %.loopexit ]
   %68 = getelementptr i8, ptr %.2.lcssa, i64 1
   store i8 39, ptr %.2.lcssa, align 1
-  %69 = load i32, ptr %.076115, align 4
+  %69 = load i32, ptr %.074116, align 4
   %70 = and i32 %69, 1
   %.not85 = icmp eq i32 %70, 0
   %.pre126 = load i32, ptr %7, align 4
@@ -816,7 +816,7 @@ define dso_local i64 @tsvectorout(ptr nocapture noundef readonly %0) local_unnam
   %85 = load i32, ptr %7, align 4
   %86 = sext i32 %85 to i64
   %87 = getelementptr [0 x %struct.WordEntry], ptr %6, i64 0, i64 %86
-  %88 = load i32, ptr %.076115, align 4
+  %88 = load i32, ptr %.074116, align 4
   %89 = lshr i32 %88, 12
   %90 = lshr i32 %88, 1
   %91 = and i32 %90, 2047
@@ -830,7 +830,7 @@ define dso_local i64 @tsvectorout(ptr nocapture noundef readonly %0) local_unnam
 96:                                               ; preds = %82, %112
   %.pn = phi ptr [ %95, %82 ], [ %.0114, %112 ]
   %.5113 = phi ptr [ %84, %82 ], [ %.7, %112 ]
-  %.077112 = phi i32 [ %83, %82 ], [ %113, %112 ]
+  %.075112 = phi i32 [ %83, %82 ], [ %113, %112 ]
   %.0114 = getelementptr i8, ptr %.pn, i64 2
   %97 = load i16, ptr %.0114, align 2
   %98 = and i16 %97, 16383
@@ -864,7 +864,7 @@ default.unreachable128:                           ; preds = %96
 
 108:                                              ; preds = %.sink.split130, %96
   %.6 = phi ptr [ %102, %96 ], [ %107, %.sink.split130 ]
-  %109 = icmp sgt i32 %.077112, 1
+  %109 = icmp sgt i32 %.075112, 1
   br i1 %109, label %110, label %112
 
 110:                                              ; preds = %108
@@ -874,7 +874,7 @@ default.unreachable128:                           ; preds = %96
 
 112:                                              ; preds = %110, %108
   %.7 = phi ptr [ %111, %110 ], [ %.6, %108 ]
-  %113 = add nsw i32 %.077112, -1
+  %113 = add nsw i32 %.075112, -1
   %.not88 = icmp eq i32 %113, 0
   br i1 %.not88, label %.thread.loopexit, label %96, !llvm.loop !14
 
@@ -885,8 +885,8 @@ default.unreachable128:                           ; preds = %96
 .thread:                                          ; preds = %.thread.loopexit, %._crit_edge109, %71
   %114 = phi i32 [ %.pre126, %71 ], [ %.pre126, %._crit_edge109 ], [ %.pre125, %.thread.loopexit ]
   %.8 = phi ptr [ %68, %71 ], [ %68, %._crit_edge109 ], [ %.7, %.thread.loopexit ]
-  %115 = getelementptr i8, ptr %.076115, i64 4
-  %116 = add nuw nsw i32 %.175116, 1
+  %115 = getelementptr i8, ptr %.074116, i64 4
+  %116 = add nuw nsw i32 %.179115, 1
   %117 = icmp slt i32 %116, %114
   br i1 %117, label %.lr.ph119, label %._crit_edge120, !llvm.loop !15
 
@@ -941,11 +941,11 @@ define dso_local i64 @tsvectorsend(ptr nocapture noundef readonly %0) local_unna
 
 .lr.ph:                                           ; preds = %1, %.loopexit
   %19 = phi i32 [ %79, %.loopexit ], [ %17, %1 ]
-  %.034 = phi i32 [ %78, %.loopexit ], [ 0, %1 ]
-  %.02733 = phi ptr [ %77, %.loopexit ], [ %7, %1 ]
+  %.034 = phi ptr [ %77, %.loopexit ], [ %7, %1 ]
+  %.02733 = phi i32 [ %78, %.loopexit ], [ 0, %1 ]
   %20 = sext i32 %19 to i64
   %21 = getelementptr [0 x %struct.WordEntry], ptr %7, i64 0, i64 %20
-  %22 = load i32, ptr %.02733, align 4
+  %22 = load i32, ptr %.034, align 4
   %23 = lshr i32 %22, 12
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr i8, ptr %21, i64 %24
@@ -961,7 +961,7 @@ define dso_local i64 @tsvectorsend(ptr nocapture noundef readonly %0) local_unna
   store i8 0, ptr %31, align 1, !noalias !19
   %32 = add i32 %29, 1
   store i32 %32, ptr %12, align 8, !alias.scope !19
-  %33 = load i32, ptr %.02733, align 4
+  %33 = load i32, ptr %.034, align 4
   %34 = and i32 %33, 1
   %.not = icmp eq i32 %34, 0
   br i1 %.not, label %47, label %35
@@ -1000,7 +1000,7 @@ define dso_local i64 @tsvectorsend(ptr nocapture noundef readonly %0) local_unna
   %56 = load i32, ptr %8, align 4
   %57 = sext i32 %56 to i64
   %58 = getelementptr [0 x %struct.WordEntry], ptr %7, i64 0, i64 %57
-  %59 = load i32, ptr %.02733, align 4
+  %59 = load i32, ptr %.034, align 4
   %60 = lshr i32 %59, 12
   %61 = lshr i32 %59, 1
   %62 = and i32 %61, 2047
@@ -1032,8 +1032,8 @@ define dso_local i64 @tsvectorsend(ptr nocapture noundef readonly %0) local_unna
   br i1 %exitcond.not, label %.loopexit, label %68, !llvm.loop !28
 
 .loopexit:                                        ; preds = %68, %47
-  %77 = getelementptr i8, ptr %.02733, i64 4
-  %78 = add nuw nsw i32 %.034, 1
+  %77 = getelementptr i8, ptr %.034, i64 4
+  %78 = add nuw nsw i32 %.02733, 1
   %79 = load i32, ptr %8, align 4
   %80 = icmp slt i32 %78, %79
   br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !29
@@ -1088,10 +1088,10 @@ define dso_local i64 @tsvectorrecv(ptr nocapture noundef readonly %0) local_unna
 
 17:                                               ; preds = %.lr.ph139, %122
   %indvars.iv149 = phi i64 [ 0, %.lr.ph139 ], [ %indvars.iv.next150, %122 ]
-  %.0137 = phi ptr [ %14, %.lr.ph139 ], [ %.1.lcssa, %122 ]
-  %.090135 = phi i32 [ 0, %.lr.ph139 ], [ %.2, %122 ]
-  %.092134 = phi i64 [ %13, %.lr.ph139 ], [ %.193.lcssa, %122 ]
-  %.094133 = phi i1 [ false, %.lr.ph139 ], [ %.195, %122 ]
+  %.088137 = phi i1 [ false, %.lr.ph139 ], [ %.1, %122 ]
+  %.089136 = phi i64 [ %13, %.lr.ph139 ], [ %.190.lcssa, %122 ]
+  %.091135 = phi i32 [ 0, %.lr.ph139 ], [ %.2, %122 ]
+  %.094133 = phi ptr [ %14, %.lr.ph139 ], [ %.195.lcssa, %122 ]
   %18 = tail call ptr @pq_getmsgstring(ptr noundef %4) #9
   %19 = tail call i32 @pq_getmsgint(ptr noundef %4, i32 noundef 2) #9
   %20 = trunc i32 %19 to i16
@@ -1107,7 +1107,7 @@ define dso_local i64 @tsvectorrecv(ptr nocapture noundef readonly %0) local_unna
   unreachable
 
 26:                                               ; preds = %17
-  %27 = icmp sgt i32 %.090135, 1048575
+  %27 = icmp sgt i32 %.091135, 1048575
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %26
@@ -1123,7 +1123,7 @@ define dso_local i64 @tsvectorrecv(ptr nocapture noundef readonly %0) local_unna
   br i1 %33, label %42, label %.preheader
 
 .preheader:                                       ; preds = %31
-  %34 = sext i32 %.090135 to i64
+  %34 = sext i32 %.091135 to i64
   %35 = add nsw i64 %21, %34
   %36 = add nsw i64 %35, 1
   %37 = and i64 %36, -2
@@ -1132,7 +1132,7 @@ define dso_local i64 @tsvectorrecv(ptr nocapture noundef readonly %0) local_unna
   %39 = zext nneg i32 %38 to i64
   %40 = add nuw nsw i64 %16, %39
   %41 = add nsw i64 %40, %37
-  %.not125 = icmp ult i64 %41, %.092134
+  %.not125 = icmp ult i64 %41, %.089136
   br i1 %.not125, label %._crit_edge, label %.lr.ph
 
 42:                                               ; preds = %31
@@ -1143,27 +1143,27 @@ define dso_local i64 @tsvectorrecv(ptr nocapture noundef readonly %0) local_unna
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.1127 = phi ptr [ %46, %.lr.ph ], [ %.0137, %.preheader ]
-  %.193126 = phi i64 [ %45, %.lr.ph ], [ %.092134, %.preheader ]
-  %45 = shl i64 %.193126, 1
-  %46 = tail call ptr @repalloc(ptr noundef %.1127, i64 noundef %45) #9
+  %.190127 = phi i64 [ %45, %.lr.ph ], [ %.089136, %.preheader ]
+  %.195126 = phi ptr [ %46, %.lr.ph ], [ %.094133, %.preheader ]
+  %45 = shl i64 %.190127, 1
+  %46 = tail call ptr @repalloc(ptr noundef %.195126, i64 noundef %45) #9
   %.not = icmp ult i64 %41, %45
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.193.lcssa = phi i64 [ %.092134, %.preheader ], [ %45, %.lr.ph ]
-  %.1.lcssa = phi ptr [ %.0137, %.preheader ], [ %46, %.lr.ph ]
+  %.195.lcssa = phi ptr [ %.094133, %.preheader ], [ %46, %.lr.ph ]
+  %.190.lcssa = phi i64 [ %.089136, %.preheader ], [ %45, %.lr.ph ]
   %.not103 = icmp ne i32 %32, 0
   %47 = zext i1 %.not103 to i32
-  %48 = getelementptr inbounds i8, ptr %.1.lcssa, i64 8
+  %48 = getelementptr inbounds i8, ptr %.195.lcssa, i64 8
   %49 = getelementptr [0 x %struct.WordEntry], ptr %48, i64 0, i64 %indvars.iv149
   %50 = trunc nuw nsw i64 %21 to i32
   %51 = shl nuw nsw i32 %50, 1
   %52 = or disjoint i32 %51, %47
-  %53 = shl i32 %.090135, 12
+  %53 = shl i32 %.091135, 12
   %54 = or disjoint i32 %52, %53
   store i32 %54, ptr %49, align 4
-  %55 = getelementptr inbounds i8, ptr %.1.lcssa, i64 4
+  %55 = getelementptr inbounds i8, ptr %.195.lcssa, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = sext i32 %56 to i64
   %58 = getelementptr [0 x %struct.WordEntry], ptr %48, i64 0, i64 %57
@@ -1192,11 +1192,11 @@ define dso_local i64 @tsvectorrecv(ptr nocapture noundef readonly %0) local_unna
   %75 = and i32 %74, 2047
   %76 = tail call i32 @tsCompareString(ptr noundef %68, i32 noundef %70, ptr noundef %73, i32 noundef %75, i1 noundef zeroext false) #9
   %77 = icmp slt i32 %76, 1
-  %spec.select = select i1 %77, i1 true, i1 %.094133
+  %spec.select = select i1 %77, i1 true, i1 %.088137
   br label %78
 
 78:                                               ; preds = %60, %._crit_edge
-  %.195 = phi i1 [ %.094133, %._crit_edge ], [ %spec.select, %60 ]
+  %.1 = phi i1 [ %.088137, %._crit_edge ], [ %spec.select, %60 ]
   br i1 %.not103, label %79, label %122
 
 79:                                               ; preds = %78
@@ -1219,7 +1219,7 @@ define dso_local i64 @tsvectorrecv(ptr nocapture noundef readonly %0) local_unna
 
 88:                                               ; preds = %83, %79
   %.pre-phi = phi i64 [ %.pre153, %83 ], [ %80, %79 ]
-  %.191 = phi i64 [ %82, %83 ], [ %35, %79 ]
+  %.192 = phi i64 [ %82, %83 ], [ %35, %79 ]
   %89 = load i32, ptr %55, align 4
   %90 = sext i32 %89 to i64
   %91 = getelementptr [0 x %struct.WordEntry], ptr %48, i64 0, i64 %90
@@ -1273,7 +1273,7 @@ define dso_local i64 @tsvectorrecv(ptr nocapture noundef readonly %0) local_unna
 
 119:                                              ; preds = %118
   %120 = add nuw nsw i64 %39, 2
-  %121 = add nsw i64 %120, %.191
+  %121 = add nsw i64 %120, %.192
   br label %122
 
 122:                                              ; preds = %78, %119
@@ -1286,12 +1286,12 @@ define dso_local i64 @tsvectorrecv(ptr nocapture noundef readonly %0) local_unna
 ._crit_edge140:                                   ; preds = %122
   %123 = add i32 %narrow, %.2
   %124 = shl i32 %123, 2
-  store i32 %124, ptr %.1.lcssa, align 4
-  br i1 %.195, label %125, label %131
+  store i32 %124, ptr %.195.lcssa, align 4
+  br i1 %.1, label %125, label %131
 
 125:                                              ; preds = %._crit_edge140
-  %126 = getelementptr inbounds i8, ptr %.1.lcssa, i64 8
-  %127 = getelementptr inbounds i8, ptr %.1.lcssa, i64 4
+  %126 = getelementptr inbounds i8, ptr %.195.lcssa, i64 8
+  %127 = getelementptr inbounds i8, ptr %.195.lcssa, i64 4
   %128 = load i32, ptr %127, align 4
   %129 = sext i32 %128 to i64
   %130 = getelementptr [0 x %struct.WordEntry], ptr %126, i64 0, i64 %129
@@ -1299,8 +1299,8 @@ define dso_local i64 @tsvectorrecv(ptr nocapture noundef readonly %0) local_unna
   br label %131
 
 131:                                              ; preds = %._crit_edge140.thread, %125, %._crit_edge140
-  %.0.lcssa157 = phi ptr [ %14, %._crit_edge140.thread ], [ %.1.lcssa, %125 ], [ %.1.lcssa, %._crit_edge140 ]
-  %132 = ptrtoint ptr %.0.lcssa157 to i64
+  %.094.lcssa157 = phi ptr [ %14, %._crit_edge140.thread ], [ %.195.lcssa, %125 ], [ %.195.lcssa, %._crit_edge140 ]
+  %132 = ptrtoint ptr %.094.lcssa157 to i64
   ret i64 %132
 }
 

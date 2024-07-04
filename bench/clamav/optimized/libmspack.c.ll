@@ -482,9 +482,9 @@ define internal noalias noundef ptr @mspack_fmap_open(ptr nocapture noundef read
   br label %26
 
 18:                                               ; preds = %7, %16, %15
-  %.024 = phi ptr [ @.str.4, %16 ], [ @.str.3, %15 ], [ @.str.2, %7 ]
+  %.0 = phi ptr [ @.str.4, %16 ], [ @.str.3, %15 ], [ @.str.2, %7 ]
   store i32 2, ptr %calloc, align 8
-  %19 = tail call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull %.024)
+  %19 = tail call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull %.0)
   %20 = getelementptr inbounds i8, ptr %calloc, i64 32
   store ptr %19, ptr %20, align 8
   %.not28 = icmp eq ptr %19, null
@@ -506,8 +506,8 @@ define internal noalias noundef ptr @mspack_fmap_open(ptr nocapture noundef read
   br label %27
 
 27:                                               ; preds = %26, %22, %8, %6, %4
-  %.0 = phi ptr [ null, %26 ], [ %calloc, %22 ], [ %calloc, %8 ], [ null, %6 ], [ null, %4 ]
-  ret ptr %.0
+  %.024 = phi ptr [ null, %26 ], [ %calloc, %22 ], [ %calloc, %8 ], [ null, %6 ], [ null, %4 ]
+  ret ptr %.024
 }
 
 ; Function Attrs: nounwind uwtable
@@ -598,18 +598,18 @@ define internal i32 @mspack_fmap_read(ptr noundef %0, ptr nocapture noundef %1, 
   br label %48
 
 fmap_readn.exit:                                  ; preds = %31, %11
-  %.0.i = phi i64 [ %spec.select.i, %31 ], [ 0, %11 ]
-  %33 = trunc nuw nsw i64 %.0.i to i32
+  %.020.i = phi i64 [ %spec.select.i, %31 ], [ 0, %11 ]
+  %33 = trunc nuw nsw i64 %.020.i to i32
   %34 = icmp ult i32 %33, %2
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %fmap_readn.exit
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.mspack_fmap_read, i32 noundef 158, i32 noundef %2, i64 noundef %.0.i) #14
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.mspack_fmap_read, i32 noundef 158, i32 noundef %2, i64 noundef %.020.i) #14
   br label %36
 
 36:                                               ; preds = %fmap_readn.exit, %35
   %37 = load i64, ptr %12, align 8
-  %38 = add nsw i64 %37, %.0.i
+  %38 = add nsw i64 %37, %.020.i
   store i64 %38, ptr %12, align 8
   br label %48
 
@@ -762,8 +762,8 @@ define internal noundef i32 @mspack_fmap_seek(ptr noundef %0, i64 noundef %1, i3
   br label %35
 
 35:                                               ; preds = %31, %30, %27, %26, %15, %4
-  %.018 = phi i32 [ -1, %15 ], [ -1, %26 ], [ 0, %27 ], [ -1, %30 ], [ %34, %31 ], [ -1, %4 ]
-  ret i32 %.018
+  %.019 = phi i32 [ -1, %15 ], [ -1, %26 ], [ 0, %27 ], [ -1, %30 ], [ %34, %31 ], [ -1, %4 ]
+  ret i32 %.019
 }
 
 ; Function Attrs: nofree nounwind uwtable

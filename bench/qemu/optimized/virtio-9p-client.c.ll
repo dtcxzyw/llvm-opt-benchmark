@@ -1405,7 +1405,7 @@ for.body.lr.ph:                                   ; preds = %if.end34
 
 for.body:                                         ; preds = %for.body.lr.ph, %do.end51
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %do.end51 ]
-  %body_size.050 = phi i32 [ 10, %for.body.lr.ph ], [ %add, %do.end51 ]
+  %body_size.051 = phi i32 [ 10, %for.body.lr.ph ], [ %add, %do.end51 ]
   %arrayidx = getelementptr ptr, ptr %11, i64 %indvars.iv
   %12 = load ptr, ptr %arrayidx, align 8
   %call.i23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %12) #14
@@ -1422,17 +1422,17 @@ v9fs_string_size.exit:                            ; preds = %for.body, %if.else.
   %conv2.i = add i32 %13, 2
   %conv42 = and i32 %conv2.i, 65535
   %sub = xor i32 %conv42, -1
-  %cmp44.not = icmp ugt i32 %body_size.050, %sub
+  %cmp44.not = icmp ugt i32 %body_size.051, %sub
   br i1 %cmp44.not, label %if.else47, label %do.end51
 
 if.else47:                                        ; preds = %v9fs_string_size.exit
-  %conv48 = uitofp i32 %body_size.050 to x86_fp80
+  %conv48 = uitofp i32 %body_size.051 to x86_fp80
   %conv49 = uitofp i32 %sub to x86_fp80
   tail call void @g_assertion_message_cmpnum(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 443, ptr noundef nonnull @__func__.v9fs_twalk, ptr noundef nonnull @.str.28, x86_fp80 noundef %conv48, ptr noundef nonnull @.str.2, x86_fp80 noundef %conv49, i8 noundef signext 105) #13
   br label %do.end51
 
 do.end51:                                         ; preds = %if.else47, %v9fs_string_size.exit
-  %add = add i32 %conv42, %body_size.050
+  %add = add i32 %conv42, %body_size.051
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8

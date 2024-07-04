@@ -121,10 +121,10 @@ for.body7.lr.ph:                                  ; preds = %for.body
 
 for.body7:                                        ; preds = %for.body7.lr.ph, %for.inc
   %nf.018 = phi i32 [ 0, %for.body7.lr.ph ], [ %nf.1, %for.inc ]
-  %nu.017 = phi i32 [ 0, %for.body7.lr.ph ], [ %nu.1, %for.inc ]
-  %__begin2.016 = phi ptr [ %m_lits.i.ptr, %for.body7.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %__begin2.017 = phi ptr [ %m_lits.i.ptr, %for.body7.lr.ph ], [ %incdec.ptr, %for.inc ]
+  %nu.016 = phi i32 [ 0, %for.body7.lr.ph ], [ %nu.1, %for.inc ]
   %is_taut.015 = phi i1 [ false, %for.body7.lr.ph ], [ %is_taut.1, %for.inc ]
-  %lit.sroa.0.0.copyload = load i32, ptr %__begin2.016, align 4
+  %lit.sroa.0.0.copyload = load i32, ptr %__begin2.017, align 4
   %idxprom.i.i.i = zext i32 %lit.sroa.0.0.copyload to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %8, i64 %idxprom.i.i.i
   %9 = load i8, ptr %arrayidx.i.i.i, align 1
@@ -146,14 +146,14 @@ sw.bb:                                            ; preds = %for.body7
   br label %for.inc
 
 sw.default:                                       ; preds = %for.body7
-  %inc16 = add i32 %nu.017, 1
+  %inc16 = add i32 %nu.016, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %sw.bb, %for.body7, %sw.default
   %is_taut.1 = phi i1 [ %is_taut.015, %sw.default ], [ %is_taut.015, %sw.bb ], [ true, %for.body7 ]
-  %nu.1 = phi i32 [ %inc16, %sw.default ], [ %nu.017, %sw.bb ], [ %nu.017, %for.body7 ]
+  %nu.1 = phi i32 [ %inc16, %sw.default ], [ %nu.016, %sw.bb ], [ %nu.016, %for.body7 ]
   %nf.1 = phi i32 [ %nf.018, %sw.default ], [ %spec.select, %sw.bb ], [ %nf.018, %for.body7 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.016, i64 4
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.017, i64 4
   %cmp6.not = icmp eq ptr %incdec.ptr, %add.ptr.i12.ptr
   br i1 %cmp6.not, label %for.end, label %for.body7
 
@@ -344,10 +344,10 @@ invoke.cont27.lr.ph:                              ; preds = %_ZN6vectorIjLb0EjE3
 invoke.cont27:                                    ; preds = %invoke.cont27.lr.ph, %for.inc172
   %best_v.0235 = phi i32 [ 2147483647, %invoke.cont27.lr.ph ], [ %best_v.3, %for.inc172 ]
   %best_score.0234 = phi double [ -1.000000e+00, %invoke.cont27.lr.ph ], [ %best_score.3, %for.inc172 ]
-  %ns.0231 = phi i32 [ 0, %invoke.cont27.lr.ph ], [ %ns.2, %for.inc172 ]
+  %__begin1.0232 = phi ptr [ %20, %invoke.cont27.lr.ph ], [ %incdec.ptr, %for.inc172 ]
   %n.0230 = phi i32 [ 0, %invoke.cont27.lr.ph ], [ %n.2, %for.inc172 ]
-  %__begin1.0229 = phi ptr [ %20, %invoke.cont27.lr.ph ], [ %incdec.ptr, %for.inc172 ]
-  %23 = load i32, ptr %__begin1.0229, align 4
+  %ns.0229 = phi i32 [ 0, %invoke.cont27.lr.ph ], [ %ns.2, %for.inc172 ]
+  %23 = load i32, ptr %__begin1.0232, align 4
   %24 = load ptr, ptr %this, align 8
   %m_bool_var2expr.i34 = getelementptr inbounds i8, ptr %24, i64 9384
   %25 = load ptr, ptr %m_bool_var2expr.i34, align 8
@@ -474,10 +474,10 @@ for.body7.lr.ph.i:                                ; preds = %for.body.i
 
 for.body7.i:                                      ; preds = %for.inc.i, %for.body7.lr.ph.i
   %nf.018.i = phi i32 [ 0, %for.body7.lr.ph.i ], [ %nf.1.i, %for.inc.i ]
-  %nu.017.i = phi i32 [ 0, %for.body7.lr.ph.i ], [ %nu.1.i, %for.inc.i ]
-  %__begin2.016.i = phi ptr [ %m_lits.i.ptr.i, %for.body7.lr.ph.i ], [ %incdec.ptr.i, %for.inc.i ]
+  %__begin2.017.i = phi ptr [ %m_lits.i.ptr.i, %for.body7.lr.ph.i ], [ %incdec.ptr.i, %for.inc.i ]
+  %nu.016.i = phi i32 [ 0, %for.body7.lr.ph.i ], [ %nu.1.i, %for.inc.i ]
   %is_taut.015.i = phi i1 [ false, %for.body7.lr.ph.i ], [ %is_taut.1.i, %for.inc.i ]
-  %lit.sroa.0.0.copyload.i = load i32, ptr %__begin2.016.i, align 4
+  %lit.sroa.0.0.copyload.i = load i32, ptr %__begin2.017.i, align 4
   %idxprom.i.i.i.i49 = zext i32 %lit.sroa.0.0.copyload.i to i64
   %arrayidx.i.i.i.i50 = getelementptr inbounds i8, ptr %51, i64 %idxprom.i.i.i.i49
   %52 = load i8, ptr %arrayidx.i.i.i.i50, align 1
@@ -499,14 +499,14 @@ sw.bb.i51:                                        ; preds = %for.body7.i
   br label %for.inc.i
 
 sw.default.i:                                     ; preds = %for.body7.i
-  %inc16.i = add i32 %nu.017.i, 1
+  %inc16.i = add i32 %nu.016.i, 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %sw.default.i, %sw.bb.i51, %for.body7.i
   %is_taut.1.i = phi i1 [ %is_taut.015.i, %sw.default.i ], [ %is_taut.015.i, %sw.bb.i51 ], [ true, %for.body7.i ]
-  %nu.1.i = phi i32 [ %inc16.i, %sw.default.i ], [ %nu.017.i, %sw.bb.i51 ], [ %nu.017.i, %for.body7.i ]
+  %nu.1.i = phi i32 [ %inc16.i, %sw.default.i ], [ %nu.016.i, %sw.bb.i51 ], [ %nu.016.i, %for.body7.i ]
   %nf.1.i = phi i32 [ %nf.018.i, %sw.default.i ], [ %spec.select.i, %sw.bb.i51 ], [ %nf.018.i, %for.body7.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.016.i, i64 4
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.017.i, i64 4
   %cmp6.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i12.ptr.i
   br i1 %cmp6.not.i, label %for.end.i, label %for.body7.i
 
@@ -683,10 +683,10 @@ for.body7.lr.ph.i103:                             ; preds = %for.body.i96
 
 for.body7.i107:                                   ; preds = %for.inc.i115, %for.body7.lr.ph.i103
   %nf.018.i108 = phi i32 [ 0, %for.body7.lr.ph.i103 ], [ %nf.1.i118, %for.inc.i115 ]
-  %nu.017.i109 = phi i32 [ 0, %for.body7.lr.ph.i103 ], [ %nu.1.i117, %for.inc.i115 ]
-  %__begin2.016.i110 = phi ptr [ %m_lits.i.ptr.i104, %for.body7.lr.ph.i103 ], [ %incdec.ptr.i119, %for.inc.i115 ]
+  %__begin2.017.i109 = phi ptr [ %m_lits.i.ptr.i104, %for.body7.lr.ph.i103 ], [ %incdec.ptr.i119, %for.inc.i115 ]
+  %nu.016.i110 = phi i32 [ 0, %for.body7.lr.ph.i103 ], [ %nu.1.i117, %for.inc.i115 ]
   %is_taut.015.i111 = phi i1 [ false, %for.body7.lr.ph.i103 ], [ %is_taut.1.i116, %for.inc.i115 ]
-  %lit.sroa.0.0.copyload.i112 = load i32, ptr %__begin2.016.i110, align 4
+  %lit.sroa.0.0.copyload.i112 = load i32, ptr %__begin2.017.i109, align 4
   %idxprom.i.i.i.i113 = zext i32 %lit.sroa.0.0.copyload.i112 to i64
   %arrayidx.i.i.i.i114 = getelementptr inbounds i8, ptr %87, i64 %idxprom.i.i.i.i113
   %88 = load i8, ptr %arrayidx.i.i.i.i114, align 1
@@ -708,14 +708,14 @@ sw.bb.i133:                                       ; preds = %for.body7.i107
   br label %for.inc.i115
 
 sw.default.i142:                                  ; preds = %for.body7.i107
-  %inc16.i143 = add i32 %nu.017.i109, 1
+  %inc16.i143 = add i32 %nu.016.i110, 1
   br label %for.inc.i115
 
 for.inc.i115:                                     ; preds = %sw.default.i142, %sw.bb.i133, %for.body7.i107
   %is_taut.1.i116 = phi i1 [ %is_taut.015.i111, %sw.default.i142 ], [ %is_taut.015.i111, %sw.bb.i133 ], [ true, %for.body7.i107 ]
-  %nu.1.i117 = phi i32 [ %inc16.i143, %sw.default.i142 ], [ %nu.017.i109, %sw.bb.i133 ], [ %nu.017.i109, %for.body7.i107 ]
+  %nu.1.i117 = phi i32 [ %inc16.i143, %sw.default.i142 ], [ %nu.016.i110, %sw.bb.i133 ], [ %nu.016.i110, %for.body7.i107 ]
   %nf.1.i118 = phi i32 [ %nf.018.i108, %sw.default.i142 ], [ %spec.select.i141, %sw.bb.i133 ], [ %nf.018.i108, %for.body7.i107 ]
-  %incdec.ptr.i119 = getelementptr inbounds i8, ptr %__begin2.016.i110, i64 4
+  %incdec.ptr.i119 = getelementptr inbounds i8, ptr %__begin2.017.i109, i64 4
   %cmp6.not.i120 = icmp eq ptr %incdec.ptr.i119, %add.ptr.i12.ptr.i101
   br i1 %cmp6.not.i120, label %for.end.i121, label %for.body7.i107
 
@@ -811,8 +811,8 @@ if.then164:                                       ; preds = %invoke.cont160
   br label %if.end166
 
 if.end166:                                        ; preds = %if.else, %invoke.cont160, %if.then164, %invoke.cont151
+  %ns.1 = phi i32 [ 0, %invoke.cont151 ], [ 0, %if.then164 ], [ %ns.0229, %invoke.cont160 ], [ %ns.0229, %if.else ]
   %n.1 = phi i32 [ %inc153, %invoke.cont151 ], [ 0, %if.then164 ], [ %n.0230, %invoke.cont160 ], [ %n.0230, %if.else ]
-  %ns.1 = phi i32 [ 0, %invoke.cont151 ], [ 0, %if.then164 ], [ %ns.0231, %invoke.cont160 ], [ %ns.0231, %if.else ]
   %best_score.2 = phi double [ %best_score.1, %invoke.cont151 ], [ %94, %if.then164 ], [ %best_score.0234, %invoke.cont160 ], [ %best_score.0234, %if.else ]
   %best_v.2 = phi i32 [ %best_v.1, %invoke.cont151 ], [ %23, %if.then164 ], [ %best_v.0235, %invoke.cont160 ], [ %best_v.0235, %if.else ]
   %inc168 = add i32 %ns.1, 1
@@ -820,11 +820,11 @@ if.end166:                                        ; preds = %if.else, %invoke.co
   br i1 %cmp169, label %invoke.cont178, label %for.inc172
 
 for.inc172:                                       ; preds = %invoke.cont83.invoke, %if.end166, %invoke.cont27
+  %ns.2 = phi i32 [ %inc168, %if.end166 ], [ %ns.0229, %invoke.cont27 ], [ %ns.0229, %invoke.cont83.invoke ]
   %n.2 = phi i32 [ %n.1, %if.end166 ], [ %n.0230, %invoke.cont27 ], [ %n.0230, %invoke.cont83.invoke ]
-  %ns.2 = phi i32 [ %inc168, %if.end166 ], [ %ns.0231, %invoke.cont27 ], [ %ns.0231, %invoke.cont83.invoke ]
   %best_score.3 = phi double [ %best_score.2, %if.end166 ], [ %best_score.0234, %invoke.cont27 ], [ %best_score.0234, %invoke.cont83.invoke ]
   %best_v.3 = phi i32 [ %best_v.2, %if.end166 ], [ %best_v.0235, %invoke.cont27 ], [ %best_v.0235, %invoke.cont83.invoke ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0229, i64 4
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.0232, i64 4
   %cmp23.not = icmp eq ptr %incdec.ptr, %add.ptr.i32
   br i1 %cmp23.not, label %invoke.cont178, label %invoke.cont27
 

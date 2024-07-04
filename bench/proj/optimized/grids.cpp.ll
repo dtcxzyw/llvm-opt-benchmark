@@ -1450,15 +1450,15 @@ _ZN5osgeo4projL10swap_wordsEPvmm.exit59:          ; preds = %._crit_edge.us.i57
   %44 = extractelement <2 x double> %37, i64 1
   %45 = fcmp ult double %44, 1.800000e+02
   %46 = fadd double %44, -3.600000e+02
-  %.050 = select i1 %45, double %44, double %46
-  %47 = fcmp ult double %.050, 0.000000e+00
+  %.049 = select i1 %45, double %44, double %46
+  %47 = fcmp ult double %.049, 0.000000e+00
   br i1 %47, label %55, label %48
 
 48:                                               ; preds = %43
   %49 = extractelement <2 x i32> %33, i64 1
   %50 = uitofp nneg i32 %49 to double
   %51 = extractelement <2 x double> %32, i64 1
-  %52 = call double @llvm.fmuladd.f64(double %51, double %50, double %.050)
+  %52 = call double @llvm.fmuladd.f64(double %51, double %50, double %.049)
   %53 = fcmp ogt double %52, 1.800000e+02
   br i1 %53, label %54, label %55
 
@@ -1467,13 +1467,13 @@ _ZN5osgeo4projL10swap_wordsEPvmm.exit59:          ; preds = %._crit_edge.us.i57
   br label %55
 
 55:                                               ; preds = %54, %48, %43
-  %56 = insertelement <2 x double> poison, double %.050, i64 0
+  %56 = insertelement <2 x double> poison, double %.049, i64 0
   %57 = shufflevector <2 x double> %56, <2 x double> %37, <2 x i32> <i32 0, i32 2>
   %58 = fmul <2 x double> %57, <double 0x3F91DF46A2529D39, double 0x3F91DF46A2529D39>
   %59 = fmul <2 x double> %32, <double 0x3F91DF46A2529D39, double 0x3F91DF46A2529D39>
   %60 = add nsw <2 x i32> %33, <i32 -1, i32 -1>
   %61 = uitofp <2 x i32> %60 to <2 x double>
-  %62 = insertelement <2 x double> %37, double %.050, i64 1
+  %62 = insertelement <2 x double> %37, double %.049, i64 1
   %63 = call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %32, <2 x double> %61, <2 x double> %62)
   %64 = fmul <2 x double> %63, <double 0x3F91DF46A2529D39, double 0x3F91DF46A2529D39>
   %65 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %59
@@ -1565,8 +1565,8 @@ _ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EED2Ev.exit
   resume { ptr, i32 } %.pn65
 
 100:                                              ; preds = %_ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EED2Ev.exit, %42, %11
-  %.049 = phi ptr [ null, %11 ], [ null, %42 ], [ %82, %_ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EED2Ev.exit ]
-  ret ptr %.049
+  %.050 = phi ptr [ null, %11 ], [ null, %42 ], [ %82, %_ZNSt10unique_ptrIN5osgeo4proj14FloatLineCacheESt14default_deleteIS2_EED2Ev.exit ]
+  ret ptr %.050
 }
 
 declare void @_Z6pj_logP6pj_ctxiPKcz(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
@@ -3397,8 +3397,8 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid7valueAtEtiiRf(ptr no
 
 44:                                               ; preds = %27, %31, %18
   %.071 = phi i32 [ %26, %18 ], [ %43, %31 ], [ 0, %27 ]
-  %.069 = phi i32 [ %22, %18 ], [ %39, %31 ], [ %14, %27 ]
-  %.066 = phi i32 [ %20, %18 ], [ %35, %31 ], [ %2, %27 ]
+  %.070 = phi i32 [ %22, %18 ], [ %39, %31 ], [ %14, %27 ]
+  %.068 = phi i32 [ %20, %18 ], [ %35, %31 ], [ %2, %27 ]
   %45 = getelementptr inbounds i8, ptr %0, i64 162
   %46 = load i16, ptr %45, align 2
   %47 = icmp eq i16 %46, 2
@@ -3646,15 +3646,15 @@ _ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE
           to label %404 unwind label %405
 
 _ZN5osgeo4proj10BlockCache3getEjj.exit:           ; preds = %56, %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit.i.i, %170, %185
-  %.070 = phi ptr [ %115, %170 ], [ %115, %185 ], [ %57, %56 ], [ %105, %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit.i.i ]
+  %.069 = phi ptr [ %115, %170 ], [ %115, %185 ], [ %57, %56 ], [ %105, %_ZNSt7__cxx114listIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEESaIS8_EE6spliceESt20_List_const_iteratorIS8_ERSA_SC_.exit.i.i ]
   %188 = load i8, ptr %15, align 1
   %189 = trunc i8 %188 to i1
-  %190 = shl i32 %.069, 8
+  %190 = shl i32 %.070, 8
   %191 = getelementptr inbounds i8, ptr %0, i64 180
   %192 = load i32, ptr %191, align 4
-  %193 = mul i32 %192, %.069
+  %193 = mul i32 %192, %.070
   %.pn = select i1 %189, i32 %190, i32 %193
-  %.0 = add i32 %.pn, %.066
+  %.0 = add i32 %.pn, %.068
   %194 = load i16, ptr %45, align 2
   %195 = icmp eq i16 %194, 1
   %196 = getelementptr inbounds i8, ptr %0, i64 160
@@ -3675,7 +3675,7 @@ _ZN5osgeo4proj10BlockCache3getEjj.exit:           ; preds = %56, %_ZNSt7__cxx114
   ]
 
 203:                                              ; preds = %_ZN5osgeo4proj10BlockCache3getEjj.exit
-  %204 = load ptr, ptr %.070, align 8
+  %204 = load ptr, ptr %.069, align 8
   %205 = zext i32 %.1 to i64
   %206 = getelementptr inbounds i16, ptr %204, i64 %205
   %207 = load i16, ptr %206, align 2
@@ -3726,7 +3726,7 @@ _ZNK5osgeo4proj9GTiffGrid9readValueIsEEfRKSt6vectorIhSaIhEEjt.exit: ; preds = %2
   br label %403
 
 237:                                              ; preds = %_ZN5osgeo4proj10BlockCache3getEjj.exit
-  %238 = load ptr, ptr %.070, align 8
+  %238 = load ptr, ptr %.069, align 8
   %239 = zext i32 %.1 to i64
   %240 = getelementptr inbounds i16, ptr %238, i64 %239
   %241 = load i16, ptr %240, align 2
@@ -3777,7 +3777,7 @@ _ZNK5osgeo4proj9GTiffGrid9readValueItEEfRKSt6vectorIhSaIhEEjt.exit: ; preds = %2
   br label %403
 
 271:                                              ; preds = %_ZN5osgeo4proj10BlockCache3getEjj.exit
-  %272 = load ptr, ptr %.070, align 8
+  %272 = load ptr, ptr %.069, align 8
   %273 = zext i32 %.1 to i64
   %274 = getelementptr inbounds i32, ptr %272, i64 %273
   %275 = load i32, ptr %274, align 4
@@ -3828,7 +3828,7 @@ _ZNK5osgeo4proj9GTiffGrid9readValueIiEEfRKSt6vectorIhSaIhEEjt.exit: ; preds = %2
   br label %403
 
 305:                                              ; preds = %_ZN5osgeo4proj10BlockCache3getEjj.exit
-  %306 = load ptr, ptr %.070, align 8
+  %306 = load ptr, ptr %.069, align 8
   %307 = zext i32 %.1 to i64
   %308 = getelementptr inbounds i32, ptr %306, i64 %307
   %309 = load i32, ptr %308, align 4
@@ -3879,7 +3879,7 @@ _ZNK5osgeo4proj9GTiffGrid9readValueIjEEfRKSt6vectorIhSaIhEEjt.exit: ; preds = %3
   br label %403
 
 339:                                              ; preds = %_ZN5osgeo4proj10BlockCache3getEjj.exit
-  %340 = load ptr, ptr %.070, align 8
+  %340 = load ptr, ptr %.069, align 8
   %341 = zext i32 %.1 to i64
   %342 = getelementptr inbounds float, ptr %340, i64 %341
   %343 = load float, ptr %342, align 4
@@ -3923,7 +3923,7 @@ _ZNK5osgeo4proj9GTiffGrid9readValueIfEEfRKSt6vectorIhSaIhEEjt.exit: ; preds = %3
   br label %403
 
 371:                                              ; preds = %_ZN5osgeo4proj10BlockCache3getEjj.exit
-  %372 = load ptr, ptr %.070, align 8
+  %372 = load ptr, ptr %.069, align 8
   %373 = zext i32 %.1 to i64
   %374 = getelementptr inbounds double, ptr %372, i64 %373
   %375 = load double, ptr %374, align 8
@@ -4372,7 +4372,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
           to label %308 unwind label %309
 
 179:                                              ; preds = %.thread, %161, %176, %88
-  %.0152 = phi ptr [ %105, %161 ], [ %105, %176 ], [ %93, %88 ], [ %87, %.thread ]
+  %.0154 = phi ptr [ %105, %161 ], [ %105, %176 ], [ %93, %88 ], [ %87, %.thread ]
   %180 = getelementptr inbounds i8, ptr %0, i64 160
   %181 = load i16, ptr %180, align 8
   %182 = zext i16 %181 to i32
@@ -4391,12 +4391,12 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
 
 189:                                              ; preds = %.lr.ph, %189
   %.0148214 = phi ptr [ %7, %.lr.ph ], [ %206, %189 ]
-  %.0155213 = phi i32 [ 0, %.lr.ph ], [ %207, %189 ]
+  %.0153213 = phi i32 [ 0, %.lr.ph ], [ %207, %189 ]
   %190 = load i8, ptr %28, align 4
   %191 = trunc i8 %190 to i1
-  %192 = xor i32 %.0155213, -1
+  %192 = xor i32 %.0153213, -1
   %193 = add nsw i32 %192, %4
-  %194 = select i1 %191, i32 %.0155213, i32 %193
+  %194 = select i1 %191, i32 %.0153213, i32 %193
   %195 = add i32 %79, %194
   %196 = shl i32 %195, 8
   %197 = add i32 %196, %22
@@ -4405,12 +4405,12 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   %200 = mul i32 %197, %199
   %201 = load i32, ptr %6, align 4
   %202 = add i32 %200, %201
-  %203 = load ptr, ptr %.0152, align 8
+  %203 = load ptr, ptr %.0154, align 8
   %204 = zext i32 %202 to i64
   %205 = getelementptr inbounds float, ptr %203, i64 %204
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.0148214, ptr align 4 %205, i64 %188, i1 false)
   %206 = getelementptr inbounds float, ptr %.0148214, i64 %187
-  %207 = add nuw nsw i32 %.0155213, 1
+  %207 = add nuw nsw i32 %.0153213, 1
   %exitcond249.not = icmp eq i32 %207, %4
   br i1 %exitcond249.not, label %.loopexit, label %189, !llvm.loop !21
 
@@ -4442,7 +4442,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   %220 = mul i32 %218, %219
   %221 = load i32, ptr %6, align 4
   %222 = add i32 %220, %221
-  %223 = load ptr, ptr %.0152, align 8
+  %223 = load ptr, ptr %.0154, align 8
   %224 = zext i32 %222 to i64
   %225 = getelementptr inbounds float, ptr %223, i64 %224
   br label %226
@@ -4484,7 +4484,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   %243 = mul i32 %241, %242
   %244 = load i32, ptr %6, align 4
   %245 = add i32 %243, %244
-  %246 = load ptr, ptr %.0152, align 8
+  %246 = load ptr, ptr %.0154, align 8
   %247 = zext i32 %245 to i64
   %248 = getelementptr inbounds float, ptr %246, i64 %247
   br label %249
@@ -4514,12 +4514,12 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
 .lr.ph.us210:                                     ; preds = %.preheader181, %._crit_edge.us211
   %257 = phi i16 [ %275, %._crit_edge.us211 ], [ %181, %.preheader181 ]
   %.1208.us = phi ptr [ %278, %._crit_edge.us211 ], [ %7, %.preheader181 ]
-  %.0153207.us = phi i32 [ %280, %._crit_edge.us211 ], [ 0, %.preheader181 ]
+  %.0152207.us = phi i32 [ %280, %._crit_edge.us211 ], [ 0, %.preheader181 ]
   %258 = load i8, ptr %28, align 4
   %259 = trunc i8 %258 to i1
-  %260 = xor i32 %.0153207.us, -1
+  %260 = xor i32 %.0152207.us, -1
   %261 = add nsw i32 %260, %4
-  %262 = select i1 %259, i32 %.0153207.us, i32 %261
+  %262 = select i1 %259, i32 %.0152207.us, i32 %261
   %263 = add i32 %79, %262
   %264 = shl i32 %263, 8
   %265 = add i32 %264, %22
@@ -4527,7 +4527,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   %267 = mul i32 %265, %266
   %268 = load i32, ptr %6, align 4
   %269 = add i32 %267, %268
-  %270 = load ptr, ptr %.0152, align 8
+  %270 = load ptr, ptr %.0154, align 8
   %271 = zext i32 %269 to i64
   %272 = getelementptr inbounds float, ptr %270, i64 %271
   br label %273
@@ -4547,7 +4547,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   br i1 %exitcond247.not, label %._crit_edge.us211, label %273, !llvm.loop !26
 
 ._crit_edge.us211:                                ; preds = %273
-  %280 = add nuw nsw i32 %.0153207.us, 1
+  %280 = add nuw nsw i32 %.0152207.us, 1
   %exitcond248.not = icmp eq i32 %280, %4
   br i1 %exitcond248.not, label %.loopexit, label %.lr.ph.us210, !llvm.loop !27
 
@@ -9642,8 +9642,8 @@ _ZN5osgeo4projL10swap_wordsEPvmm.exit:            ; preds = %38, %33
   br label %60
 
 60:                                               ; preds = %.lr.ph, %215
-  %.063192 = phi i32 [ 1, %.lr.ph ], [ %spec.select, %215 ]
-  %.066191 = phi i32 [ 0, %.lr.ph ], [ %216, %215 ]
+  %.064192 = phi i32 [ 1, %.lr.ph ], [ %spec.select, %215 ]
+  %.067191 = phi i32 [ 0, %.lr.ph ], [ %216, %215 ]
   %61 = load ptr, ptr %11, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
@@ -9804,7 +9804,7 @@ _ZN5osgeo4projL10swap_wordsEPvmm.exit108:         ; preds = %.preheader.us.i101.
   %128 = fadd <2 x double> %127, <double 1.000000e+00, double 1.000000e+00>
   %129 = fptosi <2 x double> %128 to <2 x i32>
   %130 = extractelement <2 x i32> %129, i64 0
-  %spec.select = call i32 @llvm.smax.i32(i32 %.063192, i32 %130)
+  %spec.select = call i32 @llvm.smax.i32(i32 %.064192, i32 %130)
   %131 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #29
   %132 = fmul double %102, 0x404CA5DC1A63C1F8
   %133 = fmul double %110, 0x404CA5DC1A63C1F8
@@ -9876,7 +9876,7 @@ _ZN5osgeo4projL10swap_wordsEPvmm.exit108:         ; preds = %.preheader.us.i101.
   %160 = getelementptr inbounds i8, ptr %146, i64 160
   store ptr null, ptr %160, align 8
   %161 = getelementptr inbounds i8, ptr %146, i64 168
-  store i32 %.066191, ptr %161, align 8
+  store i32 %.067191, ptr %161, align 8
   %162 = getelementptr inbounds i8, ptr %146, i64 176
   store i64 %144, ptr %162, align 8
   %163 = getelementptr inbounds i8, ptr %146, i64 184
@@ -10026,7 +10026,7 @@ _ZNKSt14default_deleteIN5osgeo4proj8NTv2GridEEclEPS2_.exit.i110: ; preds = %210
 215:                                              ; preds = %210, %_ZNKSt14default_deleteIN5osgeo4proj8NTv2GridEEclEPS2_.exit.i110
   store ptr null, ptr %8, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #29
-  %216 = add nuw i32 %.066191, 1
+  %216 = add nuw i32 %.067191, 1
   %exitcond233.not = icmp eq i32 %216, %.0.copyload31
   br i1 %exitcond233.not, label %._crit_edge, label %60, !llvm.loop !68
 
@@ -10036,12 +10036,12 @@ _ZNKSt14default_deleteIN5osgeo4proj8NTv2GridEEclEPS2_.exit.i110: ; preds = %210
   br label %245
 
 ._crit_edge:                                      ; preds = %215, %_ZN5osgeo4projL10swap_wordsEPvmm.exit
-  %.063.lcssa = phi i32 [ 1, %_ZN5osgeo4projL10swap_wordsEPvmm.exit ], [ %spec.select, %215 ]
+  %.064.lcssa = phi i32 [ 1, %_ZN5osgeo4projL10swap_wordsEPvmm.exit ], [ %spec.select, %215 ]
   %218 = invoke noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #32
           to label %219 unwind label %.loopexit.split-lp
 
 219:                                              ; preds = %._crit_edge
-  %220 = udiv i32 1048576, %.063.lcssa
+  %220 = udiv i32 1048576, %.064.lcssa
   %221 = zext nneg i32 %220 to i64
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEEE, i64 16), ptr %218, align 8, !noalias !69
   %222 = getelementptr inbounds i8, ptr %218, i64 16
@@ -17151,9 +17151,9 @@ _ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSet
 
 250:                                              ; preds = %242, %237
   %.2125.i = phi ptr [ %207, %237 ], [ %.0123.i, %242 ]
+  %.sroa.5.0.i = phi double [ 0x7FEFFFFFFFFFFFFF, %237 ], [ %249, %242 ]
   %.sroa.032.0.i = phi double [ 0x7FEFFFFFFFFFFFFF, %237 ], [ %248, %242 ]
   %.1108.i = phi ptr [ %219, %237 ], [ %.0107.i, %242 ]
-  %.sroa.5.0.i = phi double [ 0x7FEFFFFFFFFFFFFF, %237 ], [ %249, %242 ]
   %.1.i = phi ptr [ %204, %237 ], [ %.0.i18, %242 ]
   %251 = phi <2 x double> [ %222, %237 ], [ %247, %242 ]
   %252 = phi <2 x double> [ %241, %237 ], [ %185, %242 ]

@@ -115,29 +115,29 @@ Abc_Clock.exit:                                   ; preds = %5, %10
   br label %145
 
 24:                                               ; preds = %.outer, %26
-  %.0105 = phi i32 [ %27, %26 ], [ 0, %.outer ]
+  %.0104 = phi i32 [ %27, %26 ], [ 0, %.outer ]
   %25 = call i32 @fgetc(ptr noundef nonnull %19)
   %.not = icmp eq i32 %25, -1
   br i1 %.not, label %31, label %26
 
 26:                                               ; preds = %24
-  %27 = add nuw nsw i32 %.0105, 1
+  %27 = add nuw nsw i32 %.0104, 1
   %.not131 = icmp eq i32 %25, 10
   br i1 %.not131, label %28, label %24, !llvm.loop !4
 
 28:                                               ; preds = %26
-  %29 = add nuw nsw i32 %.0107.ph, 1
-  %30 = call noundef i32 @llvm.smax.i32(i32 %.0106.ph, i32 %27)
+  %29 = add nuw nsw i32 %.0106.ph, 1
+  %30 = call noundef i32 @llvm.smax.i32(i32 %.0105.ph, i32 %27)
   br label %.outer, !llvm.loop !4
 
 .outer:                                           ; preds = %18, %28
-  %.0107.ph = phi i32 [ %29, %28 ], [ 0, %18 ]
-  %.0106.ph = phi i32 [ %30, %28 ], [ 0, %18 ]
+  %.0106.ph = phi i32 [ %29, %28 ], [ 0, %18 ]
+  %.0105.ph = phi i32 [ %30, %28 ], [ 0, %18 ]
   br label %24
 
 31:                                               ; preds = %24
-  %32 = add nuw nsw i32 %.0107.ph, 10
-  %reass.add = shl i32 %.0106.ph, 1
+  %32 = add nuw nsw i32 %.0106.ph, 10
+  %reass.add = shl i32 %.0105.ph, 1
   %33 = add i32 %reass.add, 100
   %.not123 = icmp eq ptr %1, null
   br i1 %.not123, label %37, label %34
@@ -177,12 +177,12 @@ Abc_Clock.exit:                                   ; preds = %5, %10
 .lr.ph141:                                        ; preds = %51, %75
   %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #19
   %54 = trunc i64 %53 to i32
-  %.0103136 = add i32 %54, -1
-  %55 = icmp sgt i32 %.0103136, -1
+  %.0102136 = add i32 %54, -1
+  %55 = icmp sgt i32 %.0102136, -1
   br i1 %55, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph141
-  %56 = zext nneg i32 %.0103136 to i64
+  %56 = zext nneg i32 %.0102136 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
@@ -259,12 +259,12 @@ Abc_Clock.exit:                                   ; preds = %5, %10
   %indvars.iv157 = phi i64 [ 0, %.lr.ph151 ], [ %indvars.iv.next158, %116 ]
   %80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #19
   %81 = trunc i64 %80 to i32
-  %.1104142 = add i32 %81, -1
-  %82 = icmp sgt i32 %.1104142, -1
+  %.1103142 = add i32 %81, -1
+  %82 = icmp sgt i32 %.1103142, -1
   br i1 %82, label %.lr.ph145.preheader, label %._crit_edge146
 
 .lr.ph145.preheader:                              ; preds = %79
-  %83 = zext nneg i32 %.1104142 to i64
+  %83 = zext nneg i32 %.1103142 to i64
   br label %.lr.ph145
 
 .lr.ph145:                                        ; preds = %.lr.ph145.preheader, %86
@@ -312,12 +312,12 @@ Abc_UtilStrsav.exit:                              ; preds = %89
   br label %98
 
 98:                                               ; preds = %Abc_UtilStrsav.exit, %90
-  %.0 = phi ptr [ %91, %90 ], [ %96, %Abc_UtilStrsav.exit ]
+  %.0107 = phi ptr [ %91, %90 ], [ %96, %Abc_UtilStrsav.exit ]
   br i1 %.not129, label %.preheader, label %99
 
 99:                                               ; preds = %98
   %100 = load ptr, ptr @stdout, align 8
-  %101 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.8, ptr noundef %.0) #15
+  %101 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %100, ptr noundef nonnull @.str.8, ptr noundef %.0107) #15
   %102 = load ptr, ptr @stdout, align 8
   %103 = call i32 @fflush(ptr noundef %102)
   br label %.preheader
@@ -339,7 +339,7 @@ Abc_UtilStrsav.exit:                              ; preds = %89
   store volatile i32 %112, ptr @nThreadsRunning, align 4
   %113 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mutex) #15
   %114 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv157
-  %115 = call i32 @pthread_create(ptr noundef %114, ptr noundef null, ptr noundef nonnull @Abc_RunThread, ptr noundef %.0) #15
+  %115 = call i32 @pthread_create(ptr noundef %114, ptr noundef null, ptr noundef nonnull @Abc_RunThread, ptr noundef %.0107) #15
   br label %116
 
 116:                                              ; preds = %._crit_edge146, %._crit_edge146, %._crit_edge146, %._crit_edge146, %._crit_edge146, %._crit_edge146, %109

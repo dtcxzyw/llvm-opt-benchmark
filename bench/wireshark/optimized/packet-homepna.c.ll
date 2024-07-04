@@ -104,10 +104,10 @@ define internal i32 @dissect_homepna(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %28
 
 28:                                               ; preds = %24, %20
-  %.053 = phi i32 [ 2, %20 ], [ 4, %24 ]
+  %.052 = phi i32 [ 2, %20 ], [ 4, %24 ]
   %29 = load i32, ptr @hf_homepna_version, align 4
-  %30 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %29, ptr noundef %0, i32 noundef %.053, i32 noundef 1, i32 noundef 0) #2
-  %31 = or disjoint i32 %.053, 1
+  %30 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %29, ptr noundef %0, i32 noundef %.052, i32 noundef 1, i32 noundef 0) #2
+  %31 = or disjoint i32 %.052, 1
   %32 = load i32, ptr @hf_homepna_data, align 4
   %33 = load i32, ptr %5, align 4
   %34 = add i32 %33, -3
@@ -147,8 +147,8 @@ define internal i32 @dissect_homepna(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %55
 
 55:                                               ; preds = %4, %53
-  %.0 = phi i32 [ %54, %53 ], [ 0, %4 ]
-  ret i32 %.0
+  %.053 = phi i32 [ %54, %53 ], [ 0, %4 ]
+  ret i32 %.053
 }
 
 ; Function Attrs: nounwind uwtable

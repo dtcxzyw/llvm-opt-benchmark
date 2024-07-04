@@ -62,8 +62,8 @@ define dso_local i64 @toast_compress_datum(i64 noundef %0, i8 noundef signext %1
   %.not23 = icmp eq i8 %1, 0
   %24 = load i32, ptr @default_toast_compression, align 4
   %25 = trunc i32 %24 to i8
-  %.022 = select i1 %.not23, i8 %25, i8 %1
-  switch i8 %.022, label %30 [
+  %.021 = select i1 %.not23, i8 %25, i8 %1
+  switch i8 %.021, label %30 [
     i8 112, label %26
     i8 108, label %28
   ]
@@ -77,7 +77,7 @@ define dso_local i64 @toast_compress_datum(i64 noundef %0, i8 noundef signext %1
   br label %34
 
 30:                                               ; preds = %22
-  %31 = sext i8 %.022 to i32
+  %31 = sext i8 %.021 to i32
   %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %32)
   %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %31) #6
@@ -85,13 +85,13 @@ define dso_local i64 @toast_compress_datum(i64 noundef %0, i8 noundef signext %1
   unreachable
 
 34:                                               ; preds = %28, %26
-  %.021 = phi ptr [ %29, %28 ], [ %27, %26 ]
+  %.020 = phi ptr [ %29, %28 ], [ %27, %26 ]
   %.0 = phi i32 [ 1073741824, %28 ], [ 0, %26 ]
-  %35 = icmp eq ptr %.021, null
+  %35 = icmp eq ptr %.020, null
   br i1 %35, label %46, label %36
 
 36:                                               ; preds = %34
-  %37 = load i32, ptr %.021, align 4
+  %37 = load i32, ptr %.020, align 4
   %38 = lshr i32 %37, 2
   %39 = add nsw i32 %23, -2
   %40 = icmp ult i32 %38, %39
@@ -99,18 +99,18 @@ define dso_local i64 @toast_compress_datum(i64 noundef %0, i8 noundef signext %1
 
 41:                                               ; preds = %36
   %42 = or i32 %.0, %23
-  %43 = getelementptr inbounds i8, ptr %.021, i64 4
+  %43 = getelementptr inbounds i8, ptr %.020, i64 4
   store i32 %42, ptr %43, align 4
-  %44 = ptrtoint ptr %.021 to i64
+  %44 = ptrtoint ptr %.020 to i64
   br label %46
 
 45:                                               ; preds = %36
-  tail call void @pfree(ptr noundef nonnull %.021) #6
+  tail call void @pfree(ptr noundef nonnull %.020) #6
   br label %46
 
 46:                                               ; preds = %34, %45, %41
-  %.020 = phi i64 [ %44, %41 ], [ 0, %45 ], [ 0, %34 ]
-  ret i64 %.020
+  %.022 = phi i64 [ %44, %41 ], [ 0, %45 ], [ 0, %34 ]
+  ret i64 %.022
 }
 
 declare ptr @pglz_compress_datum(ptr noundef) local_unnamed_addr #1
@@ -174,10 +174,10 @@ define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0
   br label %40
 
 40:                                               ; preds = %28, %34, %23
-  %.067 = phi ptr [ %24, %23 ], [ %30, %34 ], [ %30, %28 ]
-  %.066 = phi i32 [ %26, %23 ], [ %33, %34 ], [ %33, %28 ]
-  %.sroa.033.0 = phi i32 [ %27, %23 ], [ %37, %34 ], [ %32, %28 ]
   %.sroa.4.0 = phi i32 [ %26, %23 ], [ %39, %34 ], [ %33, %28 ]
+  %.sroa.033.0 = phi i32 [ %27, %23 ], [ %37, %34 ], [ %32, %28 ]
+  %.066 = phi ptr [ %24, %23 ], [ %30, %34 ], [ %30, %28 ]
+  %.065 = phi i32 [ %26, %23 ], [ %33, %34 ], [ %33, %28 ]
   %41 = getelementptr inbounds i8, ptr %0, i64 464
   %42 = load i32, ptr %41, align 8
   %.not72 = icmp eq i32 %42, 0
@@ -213,14 +213,14 @@ define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 10
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 1
   %57 = tail call fastcc zeroext i1 @toastrel_valueid_exists(ptr noundef nonnull %16, i32 noundef %.sroa.1.0.copyload)
-  %spec.select = select i1 %57, i32 0, i32 %.066
+  %spec.select = select i1 %57, i32 0, i32 %.065
   %58 = icmp eq i32 %.sroa.1.0.copyload, 0
   %.pre.pre = load ptr, ptr %5, align 8
   br i1 %58, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.thread, %56
   %.pre.pre95 = phi ptr [ %.pre.pre93, %.thread ], [ %.pre.pre, %56 ]
-  %.194 = phi i32 [ %.066, %.thread ], [ %spec.select, %56 ]
+  %.194 = phi i32 [ %.065, %.thread ], [ %spec.select, %56 ]
   %59 = sext i32 %19 to i64
   %60 = getelementptr ptr, ptr %.pre.pre95, i64 %59
   br label %61
@@ -239,8 +239,8 @@ define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0
 .loopexit:                                        ; preds = %61, %56, %43
   %.pre = phi ptr [ %.pre.pre, %56 ], [ %46, %43 ], [ %.pre.pre95, %61 ]
   %.sroa.15.077 = phi i32 [ %42, %56 ], [ %45, %43 ], [ %42, %61 ]
-  %.2 = phi i32 [ %spec.select, %56 ], [ %.066, %43 ], [ %.194, %61 ]
   %.sroa.7.1 = phi i32 [ %.sroa.1.0.copyload, %56 ], [ %52, %43 ], [ %65, %61 ]
+  %.2 = phi i32 [ %spec.select, %56 ], [ %.065, %43 ], [ %.194, %61 ]
   %69 = zext i32 %.sroa.7.1 to i64
   store i64 %69, ptr %6, align 16
   %70 = ptrtoint ptr %8 to i64
@@ -267,9 +267,9 @@ define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0
   br label %.lr.ph84.split.us
 
 .lr.ph84.split.us:                                ; preds = %.lr.ph84.split.us.preheader, %._crit_edge.us
-  %.06582.us = phi i32 [ %102, %._crit_edge.us ], [ 0, %.lr.ph84.split.us.preheader ]
-  %.381.us = phi i32 [ %103, %._crit_edge.us ], [ %.2, %.lr.ph84.split.us.preheader ]
-  %.16880.us = phi ptr [ %104, %._crit_edge.us ], [ %.067, %.lr.ph84.split.us.preheader ]
+  %.382.us = phi i32 [ %103, %._crit_edge.us ], [ %.2, %.lr.ph84.split.us.preheader ]
+  %.16781.us = phi ptr [ %104, %._crit_edge.us ], [ %.066, %.lr.ph84.split.us.preheader ]
+  %.06880.us = phi i32 [ %102, %._crit_edge.us ], [ 0, %.lr.ph84.split.us.preheader ]
   %78 = load volatile i32, ptr @InterruptPending, align 4
   %.not75.us = icmp eq i32 %78, 0
   br i1 %.not75.us, label %.lr.ph.us, label %79
@@ -279,14 +279,14 @@ define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %79, %.lr.ph84.split.us
-  %80 = call i32 @llvm.umin.i32(i32 %.381.us, i32 1996)
-  %81 = sext i32 %.06582.us to i64
+  %80 = call i32 @llvm.umin.i32(i32 %.382.us, i32 1996)
+  %81 = sext i32 %.06880.us to i64
   store i64 %81, ptr %75, align 8
   %82 = shl nuw nsw i32 %80, 2
   %83 = add nuw nsw i32 %82, 16
   store i32 %83, ptr %8, align 4
   %84 = zext nneg i32 %80 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %76, ptr align 1 %.16880.us, i64 %84, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %76, ptr align 1 %.16781.us, i64 %84, i1 false)
   %85 = call ptr @heap_form_tuple(ptr noundef %18, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
   call void @heap_insert(ptr noundef %16, ptr noundef %85, i32 noundef %10, i32 noundef %3, ptr noundef null) #6
   %86 = getelementptr inbounds i8, ptr %85, i64 4
@@ -317,17 +317,17 @@ define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0
   br i1 %exitcond.not, label %._crit_edge.us, label %87, !llvm.loop !7
 
 ._crit_edge.us:                                   ; preds = %101
-  %102 = add i32 %.06582.us, 1
+  %102 = add i32 %.06880.us, 1
   call void @heap_freetuple(ptr noundef %85) #6
-  %103 = sub nsw i32 %.381.us, %80
-  %104 = getelementptr i8, ptr %.16880.us, i64 %84
+  %103 = sub nsw i32 %.382.us, %80
+  %104 = getelementptr i8, ptr %.16781.us, i64 %84
   %105 = icmp sgt i32 %103, 0
   br i1 %105, label %.lr.ph84.split.us, label %._crit_edge85, !llvm.loop !8
 
 .lr.ph84.split:                                   ; preds = %.lr.ph84, %108
-  %.06582 = phi i32 [ %110, %108 ], [ 0, %.lr.ph84 ]
-  %.381 = phi i32 [ %116, %108 ], [ %.2, %.lr.ph84 ]
-  %.16880 = phi ptr [ %117, %108 ], [ %.067, %.lr.ph84 ]
+  %.382 = phi i32 [ %116, %108 ], [ %.2, %.lr.ph84 ]
+  %.16781 = phi ptr [ %117, %108 ], [ %.066, %.lr.ph84 ]
+  %.06880 = phi i32 [ %110, %108 ], [ 0, %.lr.ph84 ]
   %106 = load volatile i32, ptr @InterruptPending, align 4
   %.not75 = icmp eq i32 %106, 0
   br i1 %.not75, label %108, label %107
@@ -337,20 +337,20 @@ define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0
   br label %108
 
 108:                                              ; preds = %.lr.ph84.split, %107
-  %109 = call i32 @llvm.umin.i32(i32 %.381, i32 1996)
-  %110 = add i32 %.06582, 1
-  %111 = sext i32 %.06582 to i64
+  %109 = call i32 @llvm.umin.i32(i32 %.382, i32 1996)
+  %110 = add i32 %.06880, 1
+  %111 = sext i32 %.06880 to i64
   store i64 %111, ptr %75, align 8
   %112 = shl nuw nsw i32 %109, 2
   %113 = add nuw nsw i32 %112, 16
   store i32 %113, ptr %8, align 4
   %114 = zext nneg i32 %109 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %76, ptr align 1 %.16880, i64 %114, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %76, ptr align 1 %.16781, i64 %114, i1 false)
   %115 = call ptr @heap_form_tuple(ptr noundef %18, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
   call void @heap_insert(ptr noundef %16, ptr noundef %115, i32 noundef %10, i32 noundef %3, ptr noundef null) #6
   call void @heap_freetuple(ptr noundef %115) #6
-  %116 = sub nsw i32 %.381, %109
-  %117 = getelementptr i8, ptr %.16880, i64 %114
+  %116 = sub nsw i32 %.382, %109
+  %117 = getelementptr i8, ptr %.16781, i64 %114
   %118 = icmp sgt i32 %116, 0
   br i1 %118, label %.lr.ph84.split, label %._crit_edge85, !llvm.loop !8
 

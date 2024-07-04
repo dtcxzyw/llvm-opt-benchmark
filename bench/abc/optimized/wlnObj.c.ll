@@ -1077,7 +1077,7 @@ Vec_IntPush.exit72.i:                             ; preds = %316, %Vec_IntGrow.e
   br label %Hash_Int2ManInsert.exit
 
 Hash_Int2ManInsert.exit:                          ; preds = %187, %Vec_IntPush.exit72.i
-  %.0.i = phi i32 [ %105, %Vec_IntPush.exit72.i ], [ %.pr.i, %187 ]
+  %.031.i = phi i32 [ %105, %Vec_IntPush.exit72.i ], [ %.pr.i, %187 ]
   %323 = getelementptr inbounds i8, ptr %0, i64 100
   %324 = load i32, ptr %323, align 4
   %325 = load i32, ptr %99, align 8
@@ -1143,7 +1143,7 @@ Vec_IntPush.exit63:                               ; preds = %.Vec_IntGrow.exit10
   store i32 %351, ptr %323, align 4
   %352 = sext i32 %350 to i64
   %353 = getelementptr inbounds i32, ptr %349, i64 %352
-  store i32 %.0.i, ptr %353, align 4
+  store i32 %.031.i, ptr %353, align 4
   %354 = getelementptr i8, ptr %0, i64 80
   %.val50 = load ptr, ptr %354, align 8
   %355 = sext i32 %.val46 to i64

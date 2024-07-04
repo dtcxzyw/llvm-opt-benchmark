@@ -1246,30 +1246,30 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit:       ; preds = %.lr.ph.i, %.lr.ph23
 
 .lr.ph24.i:                                       ; preds = %.loopexit.i, %.lr.ph24.preheader.i
   %41 = phi i64 [ %40, %.loopexit.i ], [ %.pre.i, %.lr.ph24.preheader.i ]
-  %.023.i = phi i64 [ %42, %.loopexit.i ], [ 0, %.lr.ph24.preheader.i ]
-  %42 = add nuw nsw i64 %.023.i, 1
+  %.02123.i = phi i64 [ %42, %.loopexit.i ], [ 0, %.lr.ph24.preheader.i ]
+  %42 = add nuw nsw i64 %.02123.i, 1
   %43 = getelementptr inbounds i64, ptr %36, i64 %42
   %44 = load i64, ptr %43, align 8
   %45 = icmp slt i64 %41, %44
   br i1 %45, label %.lr.ph.i10, label %.loopexit.i
 
 .lr.ph.i10:                                       ; preds = %.lr.ph24.i
-  %46 = getelementptr inbounds double, ptr %33, i64 %.023.i
+  %46 = getelementptr inbounds double, ptr %33, i64 %.02123.i
   br label %47
 
 47:                                               ; preds = %47, %.lr.ph.i10
-  %.02122.i = phi i64 [ %41, %.lr.ph.i10 ], [ %57, %47 ]
-  %48 = getelementptr inbounds i64, ptr %38, i64 %.02122.i
+  %.022.i = phi i64 [ %41, %.lr.ph.i10 ], [ %57, %47 ]
+  %48 = getelementptr inbounds i64, ptr %38, i64 %.022.i
   %49 = load i64, ptr %48, align 8
   %50 = getelementptr inbounds double, ptr %31, i64 %49
   %51 = load double, ptr %50, align 8
   %52 = fmul double %29, %51
   %53 = load double, ptr %46, align 8
-  %54 = getelementptr inbounds double, ptr %24, i64 %.02122.i
+  %54 = getelementptr inbounds double, ptr %24, i64 %.022.i
   %55 = load double, ptr %54, align 8
   %56 = tail call double @llvm.fmuladd.f64(double %52, double %53, double %55)
   store double %56, ptr %54, align 8
-  %57 = add nsw i64 %.02122.i, 1
+  %57 = add nsw i64 %.022.i, 1
   %58 = load i64, ptr %43, align 8
   %59 = icmp slt i64 %57, %58
   br i1 %59, label %47, label %.loopexit.i, !llvm.loop !11
@@ -4229,20 +4229,20 @@ define linkonce_odr hidden void @_ZN6casadi12casadi_rank1INS_6SXElemEEEvPT_PKxS2
 
 .lr.ph31:                                         ; preds = %.lr.ph31.preheader, %.loopexit
   %16 = phi i64 [ %15, %.loopexit ], [ %.pre, %.lr.ph31.preheader ]
-  %.02330 = phi i64 [ %17, %.loopexit ], [ 0, %.lr.ph31.preheader ]
-  %17 = add nuw nsw i64 %.02330, 1
+  %.02430 = phi i64 [ %17, %.loopexit ], [ 0, %.lr.ph31.preheader ]
+  %17 = add nuw nsw i64 %.02430, 1
   %18 = getelementptr inbounds i64, ptr %11, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = icmp slt i64 %16, %19
   br i1 %20, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph31
-  %21 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %.02330
+  %21 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %.02430
   br label %22
 
 22:                                               ; preds = %.lr.ph, %30
-  %.02429 = phi i64 [ %16, %.lr.ph ], [ %31, %30 ]
-  %23 = getelementptr inbounds i64, ptr %13, i64 %.02429
+  %.02329 = phi i64 [ %16, %.lr.ph ], [ %31, %30 ]
+  %23 = getelementptr inbounds i64, ptr %13, i64 %.02329
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds %"class.casadi::SXElem", ptr %3, i64 %24
   call void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %8, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %25)
@@ -4250,7 +4250,7 @@ define linkonce_odr hidden void @_ZN6casadi12casadi_rank1INS_6SXElemEEEvPT_PKxS2
           to label %_ZN6casadimlERKNS_6SXElemES2_.exit unwind label %34
 
 _ZN6casadimlERKNS_6SXElemES2_.exit:               ; preds = %22
-  %26 = getelementptr inbounds %"class.casadi::SXElem", ptr %0, i64 %.02429
+  %26 = getelementptr inbounds %"class.casadi::SXElem", ptr %0, i64 %.02329
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %6, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %.noexc unwind label %36
@@ -4270,7 +4270,7 @@ _ZN6casadimlERKNS_6SXElemES2_.exit:               ; preds = %22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #16
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #16
-  %31 = add nsw i64 %.02429, 1
+  %31 = add nsw i64 %.02329, 1
   %32 = load i64, ptr %18, align 8
   %33 = icmp slt i64 %31, %32
   br i1 %33, label %22, label %.loopexit, !llvm.loop !53

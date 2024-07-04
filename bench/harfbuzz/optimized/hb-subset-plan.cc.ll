@@ -10606,8 +10606,8 @@ for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %_ZNK2OT8GSUBGPOS16g
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i
-  %ref.tmp13.sroa.0.0.i.i.i.i = phi ptr [ %40, %for.body.lr.ph.i.i.i.i.i.i ], [ %ref.tmp13.sroa.0.1.i.i.i.i, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i.i.i ]
   %ref.tmp13.sroa.4.0.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i ], [ %ref.tmp13.sroa.4.1.i.i.i.i, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i.i.i ]
+  %ref.tmp13.sroa.0.0.i.i.i.i = phi ptr [ %40, %for.body.lr.ph.i.i.i.i.i.i ], [ %ref.tmp13.sroa.0.1.i.i.i.i, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i.i.i ]
   %dec.i.i.i.i37.i.i.i.i.i.i = phi i32 [ %.sroa.speculated.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i ], [ %dec.i.i.i.i.i.i.i.i.i.i, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i.i46.i.i.i.i.i.i = phi ptr [ %arrayZ.i.i.i40.i.i, %for.body.lr.ph.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i.i.i ]
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i = load i32, ptr %incdec.ptr.i.i.i.i46.i.i.i.i.i.i, align 1
@@ -10623,8 +10623,8 @@ _ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i.i.i: ; preds = %if.then.i.i.
   %ref.tmp13.sroa.0.1.idx.i.i.i.i = phi i64 [ 0, %if.then.i.i.i.i.i.i.i.i.i ], [ 4, %for.body.i.i.i.i.i.i ]
   %retval.0.i.i.i.i.i.i.i.i.i = phi ptr [ @_hb_CrapPool, %if.then.i.i.i.i.i.i.i.i.i ], [ %ref.tmp13.sroa.0.0.i.i.i.i, %for.body.i.i.i.i.i.i ]
   store i32 %add14.i.i.i.i.i.i.i.i.i, ptr %retval.0.i.i.i.i.i.i.i.i.i, align 4
-  %ref.tmp13.sroa.0.1.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp13.sroa.0.0.i.i.i.i, i64 %ref.tmp13.sroa.0.1.idx.i.i.i.i
   %ref.tmp13.sroa.4.1.i.i.i.i = call i32 @llvm.usub.sat.i32(i32 %ref.tmp13.sroa.4.0.i.i.i.i, i32 1)
+  %ref.tmp13.sroa.0.1.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp13.sroa.0.0.i.i.i.i, i64 %ref.tmp13.sroa.0.1.idx.i.i.i.i
   %dec.i.i.i.i.i.i.i.i.i.i = add nsw i32 %dec.i.i.i.i37.i.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i.i46.i.i.i.i.i.i, i64 6
   %tobool.i.i.i.i.not.i.i.i.i.i.i = icmp eq i32 %dec.i.i.i.i.i.i.i.i.i.i, 0
@@ -10762,13 +10762,13 @@ for.body.lr.ph.i.i.i.i132.i.i:                    ; preds = %_ZNK2OT8GSUBGPOS15g
   br label %for.body.i.i.i.i134.i.i
 
 for.body.i.i.i.i134.i.i:                          ; preds = %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i142.i.i, %for.body.lr.ph.i.i.i.i132.i.i
-  %ref.tmp13.sroa.0.0.i.i135.i.i = phi ptr [ %57, %for.body.lr.ph.i.i.i.i132.i.i ], [ %ref.tmp13.sroa.0.1.i.i145.i.i, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i142.i.i ]
-  %ref.tmp13.sroa.4.0.i.i136.i.i = phi i32 [ %.sroa.speculated.i.i.i.i130.i.i, %for.body.lr.ph.i.i.i.i132.i.i ], [ %ref.tmp13.sroa.4.1.i.i146.i.i, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i142.i.i ]
+  %ref.tmp13.sroa.4.0.i.i135.i.i = phi i32 [ %.sroa.speculated.i.i.i.i130.i.i, %for.body.lr.ph.i.i.i.i132.i.i ], [ %ref.tmp13.sroa.4.1.i.i145.i.i, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i142.i.i ]
+  %ref.tmp13.sroa.0.0.i.i136.i.i = phi ptr [ %57, %for.body.lr.ph.i.i.i.i132.i.i ], [ %ref.tmp13.sroa.0.1.i.i146.i.i, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i142.i.i ]
   %dec.i.i.i.i37.i.i.i.i137.i.i = phi i32 [ %.sroa.speculated.i.i.i.i130.i.i, %for.body.lr.ph.i.i.i.i132.i.i ], [ %dec.i.i.i.i.i.i.i.i147.i.i, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i142.i.i ]
   %incdec.ptr.i.i.i.i46.i.i.i.i138.i.i = phi ptr [ %arrayZ.i.i.i133.i.i, %for.body.lr.ph.i.i.i.i132.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i.i148.i.i, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i142.i.i ]
   %agg.tmp.sroa.0.0.copyload.i.i.i.i139.i.i = load i32, ptr %incdec.ptr.i.i.i.i46.i.i.i.i138.i.i, align 1
   %add14.i.i.i.i.i.i.i140.i.i = call i32 @llvm.bswap.i32(i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i139.i.i)
-  %tobool.not.i.i.i.i.i.i.i141.i.i = icmp eq i32 %ref.tmp13.sroa.4.0.i.i136.i.i, 0
+  %tobool.not.i.i.i.i.i.i.i141.i.i = icmp eq i32 %ref.tmp13.sroa.4.0.i.i135.i.i, 0
   br i1 %tobool.not.i.i.i.i.i.i.i141.i.i, label %if.then.i.i.i.i.i.i.i155.i.i, label %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i142.i.i
 
 if.then.i.i.i.i.i.i.i155.i.i:                     ; preds = %for.body.i.i.i.i134.i.i
@@ -10777,10 +10777,10 @@ if.then.i.i.i.i.i.i.i155.i.i:                     ; preds = %for.body.i.i.i.i134
 
 _ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i142.i.i: ; preds = %if.then.i.i.i.i.i.i.i155.i.i, %for.body.i.i.i.i134.i.i
   %ref.tmp13.sroa.0.1.idx.i.i143.i.i = phi i64 [ 0, %if.then.i.i.i.i.i.i.i155.i.i ], [ 4, %for.body.i.i.i.i134.i.i ]
-  %retval.0.i.i.i.i.i.i.i144.i.i = phi ptr [ @_hb_CrapPool, %if.then.i.i.i.i.i.i.i155.i.i ], [ %ref.tmp13.sroa.0.0.i.i135.i.i, %for.body.i.i.i.i134.i.i ]
+  %retval.0.i.i.i.i.i.i.i144.i.i = phi ptr [ @_hb_CrapPool, %if.then.i.i.i.i.i.i.i155.i.i ], [ %ref.tmp13.sroa.0.0.i.i136.i.i, %for.body.i.i.i.i134.i.i ]
   store i32 %add14.i.i.i.i.i.i.i140.i.i, ptr %retval.0.i.i.i.i.i.i.i144.i.i, align 4
-  %ref.tmp13.sroa.0.1.i.i145.i.i = getelementptr inbounds i8, ptr %ref.tmp13.sroa.0.0.i.i135.i.i, i64 %ref.tmp13.sroa.0.1.idx.i.i143.i.i
-  %ref.tmp13.sroa.4.1.i.i146.i.i = call i32 @llvm.usub.sat.i32(i32 %ref.tmp13.sroa.4.0.i.i136.i.i, i32 1)
+  %ref.tmp13.sroa.4.1.i.i145.i.i = call i32 @llvm.usub.sat.i32(i32 %ref.tmp13.sroa.4.0.i.i135.i.i, i32 1)
+  %ref.tmp13.sroa.0.1.i.i146.i.i = getelementptr inbounds i8, ptr %ref.tmp13.sroa.0.0.i.i136.i.i, i64 %ref.tmp13.sroa.0.1.idx.i.i143.i.i
   %dec.i.i.i.i.i.i.i.i147.i.i = add nsw i32 %dec.i.i.i.i37.i.i.i.i137.i.i, -1
   %incdec.ptr.i.i.i.i.i.i.i.i148.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i.i46.i.i.i.i138.i.i, i64 6
   %tobool.i.i.i.i.not.i.i.i.i149.i.i = icmp eq i32 %dec.i.i.i.i.i.i.i.i147.i.i, 0
@@ -11737,13 +11737,13 @@ for.body.lr.ph.i.i.i.i.i.i299:                    ; preds = %_ZNK2OT8GSUBGPOS16g
   br label %for.body.i.i.i.i.i.i301
 
 for.body.i.i.i.i.i.i301:                          ; preds = %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i.i.i309, %for.body.lr.ph.i.i.i.i.i.i299
-  %ref.tmp13.sroa.0.0.i.i.i.i302 = phi ptr [ %182, %for.body.lr.ph.i.i.i.i.i.i299 ], [ %ref.tmp13.sroa.0.1.i.i.i.i312, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i.i.i309 ]
-  %ref.tmp13.sroa.4.0.i.i.i.i303 = phi i32 [ %.sroa.speculated.i.i.i.i.i.i297, %for.body.lr.ph.i.i.i.i.i.i299 ], [ %ref.tmp13.sroa.4.1.i.i.i.i313, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i.i.i309 ]
+  %ref.tmp13.sroa.4.0.i.i.i.i302 = phi i32 [ %.sroa.speculated.i.i.i.i.i.i297, %for.body.lr.ph.i.i.i.i.i.i299 ], [ %ref.tmp13.sroa.4.1.i.i.i.i312, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i.i.i309 ]
+  %ref.tmp13.sroa.0.0.i.i.i.i303 = phi ptr [ %182, %for.body.lr.ph.i.i.i.i.i.i299 ], [ %ref.tmp13.sroa.0.1.i.i.i.i313, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i.i.i309 ]
   %dec.i.i.i.i37.i.i.i.i.i.i304 = phi i32 [ %.sroa.speculated.i.i.i.i.i.i297, %for.body.lr.ph.i.i.i.i.i.i299 ], [ %dec.i.i.i.i.i.i.i.i.i.i314, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i.i.i309 ]
   %incdec.ptr.i.i.i.i46.i.i.i.i.i.i305 = phi ptr [ %arrayZ.i.i.i40.i.i300, %for.body.lr.ph.i.i.i.i.i.i299 ], [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i315, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i.i.i309 ]
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i306 = load i32, ptr %incdec.ptr.i.i.i.i46.i.i.i.i.i.i305, align 1
   %add14.i.i.i.i.i.i.i.i.i307 = call i32 @llvm.bswap.i32(i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i306)
-  %tobool.not.i.i.i.i.i.i.i.i.i308 = icmp eq i32 %ref.tmp13.sroa.4.0.i.i.i.i303, 0
+  %tobool.not.i.i.i.i.i.i.i.i.i308 = icmp eq i32 %ref.tmp13.sroa.4.0.i.i.i.i302, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i308, label %if.then.i.i.i.i.i.i.i.i.i665, label %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i.i.i309
 
 if.then.i.i.i.i.i.i.i.i.i665:                     ; preds = %for.body.i.i.i.i.i.i301
@@ -11752,10 +11752,10 @@ if.then.i.i.i.i.i.i.i.i.i665:                     ; preds = %for.body.i.i.i.i.i.
 
 _ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i.i.i309: ; preds = %if.then.i.i.i.i.i.i.i.i.i665, %for.body.i.i.i.i.i.i301
   %ref.tmp13.sroa.0.1.idx.i.i.i.i310 = phi i64 [ 0, %if.then.i.i.i.i.i.i.i.i.i665 ], [ 4, %for.body.i.i.i.i.i.i301 ]
-  %retval.0.i.i.i.i.i.i.i.i.i311 = phi ptr [ @_hb_CrapPool, %if.then.i.i.i.i.i.i.i.i.i665 ], [ %ref.tmp13.sroa.0.0.i.i.i.i302, %for.body.i.i.i.i.i.i301 ]
+  %retval.0.i.i.i.i.i.i.i.i.i311 = phi ptr [ @_hb_CrapPool, %if.then.i.i.i.i.i.i.i.i.i665 ], [ %ref.tmp13.sroa.0.0.i.i.i.i303, %for.body.i.i.i.i.i.i301 ]
   store i32 %add14.i.i.i.i.i.i.i.i.i307, ptr %retval.0.i.i.i.i.i.i.i.i.i311, align 4
-  %ref.tmp13.sroa.0.1.i.i.i.i312 = getelementptr inbounds i8, ptr %ref.tmp13.sroa.0.0.i.i.i.i302, i64 %ref.tmp13.sroa.0.1.idx.i.i.i.i310
-  %ref.tmp13.sroa.4.1.i.i.i.i313 = call i32 @llvm.usub.sat.i32(i32 %ref.tmp13.sroa.4.0.i.i.i.i303, i32 1)
+  %ref.tmp13.sroa.4.1.i.i.i.i312 = call i32 @llvm.usub.sat.i32(i32 %ref.tmp13.sroa.4.0.i.i.i.i302, i32 1)
+  %ref.tmp13.sroa.0.1.i.i.i.i313 = getelementptr inbounds i8, ptr %ref.tmp13.sroa.0.0.i.i.i.i303, i64 %ref.tmp13.sroa.0.1.idx.i.i.i.i310
   %dec.i.i.i.i.i.i.i.i.i.i314 = add nsw i32 %dec.i.i.i.i37.i.i.i.i.i.i304, -1
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i315 = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i.i46.i.i.i.i.i.i305, i64 6
   %tobool.i.i.i.i.not.i.i.i.i.i.i316 = icmp eq i32 %dec.i.i.i.i.i.i.i.i.i.i314, 0
@@ -11893,13 +11893,13 @@ for.body.lr.ph.i.i.i.i132.i.i378:                 ; preds = %_ZNK2OT8GSUBGPOS15g
   br label %for.body.i.i.i.i134.i.i380
 
 for.body.i.i.i.i134.i.i380:                       ; preds = %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i142.i.i388, %for.body.lr.ph.i.i.i.i132.i.i378
-  %ref.tmp13.sroa.0.0.i.i135.i.i381 = phi ptr [ %199, %for.body.lr.ph.i.i.i.i132.i.i378 ], [ %ref.tmp13.sroa.0.1.i.i145.i.i391, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i142.i.i388 ]
-  %ref.tmp13.sroa.4.0.i.i136.i.i382 = phi i32 [ %.sroa.speculated.i.i.i.i130.i.i376, %for.body.lr.ph.i.i.i.i132.i.i378 ], [ %ref.tmp13.sroa.4.1.i.i146.i.i392, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i142.i.i388 ]
+  %ref.tmp13.sroa.4.0.i.i135.i.i381 = phi i32 [ %.sroa.speculated.i.i.i.i130.i.i376, %for.body.lr.ph.i.i.i.i132.i.i378 ], [ %ref.tmp13.sroa.4.1.i.i145.i.i391, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i142.i.i388 ]
+  %ref.tmp13.sroa.0.0.i.i136.i.i382 = phi ptr [ %199, %for.body.lr.ph.i.i.i.i132.i.i378 ], [ %ref.tmp13.sroa.0.1.i.i146.i.i392, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i142.i.i388 ]
   %dec.i.i.i.i37.i.i.i.i137.i.i383 = phi i32 [ %.sroa.speculated.i.i.i.i130.i.i376, %for.body.lr.ph.i.i.i.i132.i.i378 ], [ %dec.i.i.i.i.i.i.i.i147.i.i393, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i142.i.i388 ]
   %incdec.ptr.i.i.i.i46.i.i.i.i138.i.i384 = phi ptr [ %arrayZ.i.i.i133.i.i379, %for.body.lr.ph.i.i.i.i132.i.i378 ], [ %incdec.ptr.i.i.i.i.i.i.i.i148.i.i394, %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i142.i.i388 ]
   %agg.tmp.sroa.0.0.copyload.i.i.i.i139.i.i385 = load i32, ptr %incdec.ptr.i.i.i.i46.i.i.i.i138.i.i384, align 1
   %add14.i.i.i.i.i.i.i140.i.i386 = call i32 @llvm.bswap.i32(i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i139.i.i385)
-  %tobool.not.i.i.i.i.i.i.i141.i.i387 = icmp eq i32 %ref.tmp13.sroa.4.0.i.i136.i.i382, 0
+  %tobool.not.i.i.i.i.i.i.i141.i.i387 = icmp eq i32 %ref.tmp13.sroa.4.0.i.i135.i.i381, 0
   br i1 %tobool.not.i.i.i.i.i.i.i141.i.i387, label %if.then.i.i.i.i.i.i.i155.i.i639, label %_ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i142.i.i388
 
 if.then.i.i.i.i.i.i.i155.i.i639:                  ; preds = %for.body.i.i.i.i134.i.i380
@@ -11908,10 +11908,10 @@ if.then.i.i.i.i.i.i.i155.i.i639:                  ; preds = %for.body.i.i.i.i134
 
 _ZN9hb_iter_tI10hb_array_tIjERjEdeEv.exit.i.i.i.i.i142.i.i388: ; preds = %if.then.i.i.i.i.i.i.i155.i.i639, %for.body.i.i.i.i134.i.i380
   %ref.tmp13.sroa.0.1.idx.i.i143.i.i389 = phi i64 [ 0, %if.then.i.i.i.i.i.i.i155.i.i639 ], [ 4, %for.body.i.i.i.i134.i.i380 ]
-  %retval.0.i.i.i.i.i.i.i144.i.i390 = phi ptr [ @_hb_CrapPool, %if.then.i.i.i.i.i.i.i155.i.i639 ], [ %ref.tmp13.sroa.0.0.i.i135.i.i381, %for.body.i.i.i.i134.i.i380 ]
+  %retval.0.i.i.i.i.i.i.i144.i.i390 = phi ptr [ @_hb_CrapPool, %if.then.i.i.i.i.i.i.i155.i.i639 ], [ %ref.tmp13.sroa.0.0.i.i136.i.i382, %for.body.i.i.i.i134.i.i380 ]
   store i32 %add14.i.i.i.i.i.i.i140.i.i386, ptr %retval.0.i.i.i.i.i.i.i144.i.i390, align 4
-  %ref.tmp13.sroa.0.1.i.i145.i.i391 = getelementptr inbounds i8, ptr %ref.tmp13.sroa.0.0.i.i135.i.i381, i64 %ref.tmp13.sroa.0.1.idx.i.i143.i.i389
-  %ref.tmp13.sroa.4.1.i.i146.i.i392 = call i32 @llvm.usub.sat.i32(i32 %ref.tmp13.sroa.4.0.i.i136.i.i382, i32 1)
+  %ref.tmp13.sroa.4.1.i.i145.i.i391 = call i32 @llvm.usub.sat.i32(i32 %ref.tmp13.sroa.4.0.i.i135.i.i381, i32 1)
+  %ref.tmp13.sroa.0.1.i.i146.i.i392 = getelementptr inbounds i8, ptr %ref.tmp13.sroa.0.0.i.i136.i.i382, i64 %ref.tmp13.sroa.0.1.idx.i.i143.i.i389
   %dec.i.i.i.i.i.i.i.i147.i.i393 = add nsw i32 %dec.i.i.i.i37.i.i.i.i137.i.i383, -1
   %incdec.ptr.i.i.i.i.i.i.i.i148.i.i394 = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i.i46.i.i.i.i138.i.i384, i64 6
   %tobool.i.i.i.i.not.i.i.i.i149.i.i395 = icmp eq i32 %dec.i.i.i.i.i.i.i.i147.i.i393, 0
@@ -37025,8 +37025,8 @@ land.rhs.lr.ph.i.split.i.i302:                    ; preds = %land.rhs.lr.ph.i.i.
   br label %land.rhs.i.i.i304
 
 land.rhs.i.i.i304:                                ; preds = %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.i.i.i338, %land.rhs.lr.ph.i.split.i.i302
-  %other_f_iter.sroa.0.0 = phi ptr [ %arrayZ.i.i.i277, %land.rhs.lr.ph.i.split.i.i302 ], [ %incdec.ptr.i.i.i.i.i341, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.i.i.i338 ]
   %other_f_iter.sroa.8.sroa.0.0 = phi i32 [ %other_f_iter.sroa.8.sroa.0.0.extract.trunc, %land.rhs.lr.ph.i.split.i.i302 ], [ %dec.i.i.i.i.i339, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.i.i.i338 ]
+  %other_f_iter.sroa.0.0 = phi ptr [ %arrayZ.i.i.i277, %land.rhs.lr.ph.i.split.i.i302 ], [ %incdec.ptr.i.i.i.i.i341, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.i.i.i338 ]
   %call9.val.i.i.i305 = load i8, ptr %other_f_iter.sroa.0.0, align 1, !noalias !295
   %99 = getelementptr i8, ptr %other_f_iter.sroa.0.0, i64 1
   %call9.val1.i.i.i306 = load i8, ptr %99, align 1, !noalias !295
@@ -37083,31 +37083,31 @@ _ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.i.i.i338: ; preds = %if.
   br i1 %tobool.i.i.not.i.i.i342, label %"_ZorI10hb_array_tIKN2OT5IndexEE24hb_filter_iter_factory_tIRPK8hb_map_tRK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSL_.exit345", label %land.rhs.i.i.i304, !llvm.loop !294
 
 "_ZorI10hb_array_tIKN2OT5IndexEE24hb_filter_iter_factory_tIRPK8hb_map_tRK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSL_.exit345": ; preds = %"_ZNK4$_14clIRPK8hb_map_tRKN2OT5IndexEEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSA_OSB_.exit.i.i.i334", %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.i.i.i338, %"_ZorI10hb_array_tIKN2OT5IndexEE24hb_filter_iter_factory_tIRPK8hb_map_tRK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSL_.exit", %land.rhs.lr.ph.i.split.us.i.i343
-  %other_f_iter.sroa.0.1 = phi ptr [ %arrayZ.i.i.i277, %"_ZorI10hb_array_tIKN2OT5IndexEE24hb_filter_iter_factory_tIRPK8hb_map_tRK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSL_.exit" ], [ %scevgep.i.i344, %land.rhs.lr.ph.i.split.us.i.i343 ], [ %other_f_iter.sroa.0.0, %"_ZNK4$_14clIRPK8hb_map_tRKN2OT5IndexEEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSA_OSB_.exit.i.i.i334" ], [ %incdec.ptr.i.i.i.i.i341, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.i.i.i338 ]
   %other_f_iter.sroa.8.sroa.0.1 = phi i32 [ 0, %"_ZorI10hb_array_tIKN2OT5IndexEE24hb_filter_iter_factory_tIRPK8hb_map_tRK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSL_.exit" ], [ 0, %land.rhs.lr.ph.i.split.us.i.i343 ], [ %other_f_iter.sroa.8.sroa.0.0, %"_ZNK4$_14clIRPK8hb_map_tRKN2OT5IndexEEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSA_OSB_.exit.i.i.i334" ], [ 0, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.i.i.i338 ]
+  %other_f_iter.sroa.0.1 = phi ptr [ %arrayZ.i.i.i277, %"_ZorI10hb_array_tIKN2OT5IndexEE24hb_filter_iter_factory_tIRPK8hb_map_tRK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSL_.exit" ], [ %scevgep.i.i344, %land.rhs.lr.ph.i.split.us.i.i343 ], [ %other_f_iter.sroa.0.0, %"_ZNK4$_14clIRPK8hb_map_tRKN2OT5IndexEEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSA_OSB_.exit.i.i.i334" ], [ %incdec.ptr.i.i.i.i.i341, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.i.i.i338 ]
   %tobool.i.i.i.i.not521 = icmp eq i32 %f_iter.sroa.8.sroa.0.1, 0
   br i1 %tobool.i.i.i.i.not521, label %lor.lhs.false68, label %land.rhs
 
 land.rhs:                                         ; preds = %"_ZorI10hb_array_tIKN2OT5IndexEE24hb_filter_iter_factory_tIRPK8hb_map_tRK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSL_.exit345", %"_ZN9hb_iter_tI16hb_filter_iter_tI10hb_array_tIKN2OT5IndexEERPK8hb_map_tRK4$_10LPv0EERS4_EppEi.exit456"
-  %f_iter.sroa.8.sroa.0.2526 = phi i32 [ %f_iter.sroa.8.sroa.0.4, %"_ZN9hb_iter_tI16hb_filter_iter_tI10hb_array_tIKN2OT5IndexEERPK8hb_map_tRK4$_10LPv0EERS4_EppEi.exit456" ], [ %f_iter.sroa.8.sroa.0.1, %"_ZorI10hb_array_tIKN2OT5IndexEE24hb_filter_iter_factory_tIRPK8hb_map_tRK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSL_.exit345" ]
-  %f_iter.sroa.0.2525 = phi ptr [ %f_iter.sroa.0.4, %"_ZN9hb_iter_tI16hb_filter_iter_tI10hb_array_tIKN2OT5IndexEERPK8hb_map_tRK4$_10LPv0EERS4_EppEi.exit456" ], [ %f_iter.sroa.0.1, %"_ZorI10hb_array_tIKN2OT5IndexEE24hb_filter_iter_factory_tIRPK8hb_map_tRK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSL_.exit345" ]
-  %other_f_iter.sroa.8.sroa.0.2523 = phi i32 [ %other_f_iter.sroa.8.sroa.0.4, %"_ZN9hb_iter_tI16hb_filter_iter_tI10hb_array_tIKN2OT5IndexEERPK8hb_map_tRK4$_10LPv0EERS4_EppEi.exit456" ], [ %other_f_iter.sroa.8.sroa.0.1, %"_ZorI10hb_array_tIKN2OT5IndexEE24hb_filter_iter_factory_tIRPK8hb_map_tRK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSL_.exit345" ]
-  %other_f_iter.sroa.0.2522 = phi ptr [ %other_f_iter.sroa.0.4, %"_ZN9hb_iter_tI16hb_filter_iter_tI10hb_array_tIKN2OT5IndexEERPK8hb_map_tRK4$_10LPv0EERS4_EppEi.exit456" ], [ %other_f_iter.sroa.0.1, %"_ZorI10hb_array_tIKN2OT5IndexEE24hb_filter_iter_factory_tIRPK8hb_map_tRK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSL_.exit345" ]
-  %tobool.i.i.i.i346.not = icmp eq i32 %other_f_iter.sroa.8.sroa.0.2523, 0
+  %other_f_iter.sroa.0.2526 = phi ptr [ %other_f_iter.sroa.0.4, %"_ZN9hb_iter_tI16hb_filter_iter_tI10hb_array_tIKN2OT5IndexEERPK8hb_map_tRK4$_10LPv0EERS4_EppEi.exit456" ], [ %other_f_iter.sroa.0.1, %"_ZorI10hb_array_tIKN2OT5IndexEE24hb_filter_iter_factory_tIRPK8hb_map_tRK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSL_.exit345" ]
+  %other_f_iter.sroa.8.sroa.0.2525 = phi i32 [ %other_f_iter.sroa.8.sroa.0.4, %"_ZN9hb_iter_tI16hb_filter_iter_tI10hb_array_tIKN2OT5IndexEERPK8hb_map_tRK4$_10LPv0EERS4_EppEi.exit456" ], [ %other_f_iter.sroa.8.sroa.0.1, %"_ZorI10hb_array_tIKN2OT5IndexEE24hb_filter_iter_factory_tIRPK8hb_map_tRK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSL_.exit345" ]
+  %f_iter.sroa.8.sroa.0.2523 = phi i32 [ %f_iter.sroa.8.sroa.0.4, %"_ZN9hb_iter_tI16hb_filter_iter_tI10hb_array_tIKN2OT5IndexEERPK8hb_map_tRK4$_10LPv0EERS4_EppEi.exit456" ], [ %f_iter.sroa.8.sroa.0.1, %"_ZorI10hb_array_tIKN2OT5IndexEE24hb_filter_iter_factory_tIRPK8hb_map_tRK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSL_.exit345" ]
+  %f_iter.sroa.0.2522 = phi ptr [ %f_iter.sroa.0.4, %"_ZN9hb_iter_tI16hb_filter_iter_tI10hb_array_tIKN2OT5IndexEERPK8hb_map_tRK4$_10LPv0EERS4_EppEi.exit456" ], [ %f_iter.sroa.0.1, %"_ZorI10hb_array_tIKN2OT5IndexEE24hb_filter_iter_factory_tIRPK8hb_map_tRK4$_10ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSF_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISF_Efp_EEEOSF_OSL_.exit345" ]
+  %tobool.i.i.i.i346.not = icmp eq i32 %other_f_iter.sroa.8.sroa.0.2525, 0
   br i1 %tobool.i.i.i.i346.not, label %for.inc73, label %for.body57
 
 for.body57:                                       ; preds = %land.rhs
-  %105 = load i8, ptr %f_iter.sroa.0.2525, align 1
+  %105 = load i8, ptr %f_iter.sroa.0.2522, align 1
   %conv.i.i = zext i8 %105 to i32
   %shl.i.i = shl nuw nsw i32 %conv.i.i, 8
-  %arrayidx3.i.i = getelementptr inbounds i8, ptr %f_iter.sroa.0.2525, i64 1
+  %arrayidx3.i.i = getelementptr inbounds i8, ptr %f_iter.sroa.0.2522, i64 1
   %106 = load i8, ptr %arrayidx3.i.i, align 1
   %conv4.i.i = zext i8 %106 to i32
   %add.i.i347 = or disjoint i32 %shl.i.i, %conv4.i.i
-  %107 = load i8, ptr %other_f_iter.sroa.0.2522, align 1
+  %107 = load i8, ptr %other_f_iter.sroa.0.2526, align 1
   %conv.i.i350 = zext i8 %107 to i32
   %shl.i.i351 = shl nuw nsw i32 %conv.i.i350, 8
-  %arrayidx3.i.i352 = getelementptr inbounds i8, ptr %other_f_iter.sroa.0.2522, i64 1
+  %arrayidx3.i.i352 = getelementptr inbounds i8, ptr %other_f_iter.sroa.0.2526, i64 1
   %108 = load i8, ptr %arrayidx3.i.i352, align 1
   %conv4.i.i353 = zext i8 %108 to i32
   %add.i.i354 = or disjoint i32 %shl.i.i351, %conv4.i.i353
@@ -37115,8 +37115,8 @@ for.body57:                                       ; preds = %land.rhs
   br i1 %cmp62.not, label %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.lr.ph.i.i.i, label %for.inc73
 
 _ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.lr.ph.i.i.i: ; preds = %for.body57
-  %dec.i.i.i2.i.i = add i32 %f_iter.sroa.8.sroa.0.2526, -1
-  %incdec.ptr.i.i.i4.i.i = getelementptr inbounds i8, ptr %f_iter.sroa.0.2525, i64 2
+  %dec.i.i.i2.i.i = add i32 %f_iter.sroa.8.sroa.0.2523, -1
+  %incdec.ptr.i.i.i4.i.i = getelementptr inbounds i8, ptr %f_iter.sroa.0.2522, i64 2
   %tobool.i.i.not.i5.i.i = icmp eq i32 %dec.i.i.i2.i.i, 0
   br i1 %tobool.i.i.not.i5.i.i, label %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.lr.ph.i.i.i399, label %land.rhs.i.i.i357.preheader
 
@@ -37126,10 +37126,10 @@ land.rhs.i.i.i357.preheader:                      ; preds = %_ZNR9hb_iter_tI10hb
   br i1 %tobool.not.i.i.i.i.i.i364, label %land.rhs.i.i.i357.us.preheader, label %land.rhs.i.i.i357.preheader.split
 
 land.rhs.i.i.i357.us.preheader:                   ; preds = %land.rhs.i.i.i357.preheader
-  %110 = add i32 %f_iter.sroa.8.sroa.0.2526, -2
+  %110 = add i32 %f_iter.sroa.8.sroa.0.2523, -2
   %111 = zext i32 %110 to i64
   %112 = shl nuw nsw i64 %111, 1
-  %scevgep = getelementptr i8, ptr %f_iter.sroa.0.2525, i64 4
+  %scevgep = getelementptr i8, ptr %f_iter.sroa.0.2522, i64 4
   %scevgep548 = getelementptr i8, ptr %scevgep, i64 %112
   br label %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.lr.ph.i.i.i399
 
@@ -37140,7 +37140,7 @@ land.rhs.i.i.i357.preheader.split:                ; preds = %land.rhs.i.i.i357.p
 land.rhs.i.i.i357:                                ; preds = %land.rhs.i.i.i357.preheader.split, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i
   %f_iter.sroa.0.3 = phi ptr [ %incdec.ptr.i.i.i.i.i394, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i ], [ %incdec.ptr.i.i.i4.i.i, %land.rhs.i.i.i357.preheader.split ]
   %f_iter.sroa.8.sroa.0.3 = phi i32 [ %dec.i.i.i.i.i392, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i ], [ %dec.i.i.i2.i.i, %land.rhs.i.i.i357.preheader.split ]
-  %114 = phi ptr [ %f_iter.sroa.0.3, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i ], [ %f_iter.sroa.0.2525, %land.rhs.i.i.i357.preheader.split ]
+  %114 = phi ptr [ %f_iter.sroa.0.3, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i ], [ %f_iter.sroa.0.2522, %land.rhs.i.i.i357.preheader.split ]
   %call8.val.i.i.i = load i8, ptr %f_iter.sroa.0.3, align 1, !noalias !300
   %115 = getelementptr i8, ptr %114, i64 3
   %call8.val1.i.i.i = load i8, ptr %115, align 1, !noalias !300
@@ -37199,8 +37199,8 @@ if.end.i.i.i.i.i.i.i377:                          ; preds = %while.body.lr.ph.i.
 _ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.lr.ph.i.i.i399: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i, %land.rhs.i.i.i357.us.preheader, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.lr.ph.i.i.i
   %f_iter.sroa.0.4 = phi ptr [ %incdec.ptr.i.i.i4.i.i, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.lr.ph.i.i.i ], [ %scevgep548, %land.rhs.i.i.i357.us.preheader ], [ %f_iter.sroa.0.3, %if.then.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i394, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i ]
   %f_iter.sroa.8.sroa.0.4 = phi i32 [ 0, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.lr.ph.i.i.i ], [ 0, %land.rhs.i.i.i357.us.preheader ], [ %f_iter.sroa.8.sroa.0.3, %if.then.i.i.i.i.i.i.i ], [ 0, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i ]
-  %dec.i.i.i2.i.i404 = add i32 %other_f_iter.sroa.8.sroa.0.2523, -1
-  %incdec.ptr.i.i.i4.i.i406 = getelementptr inbounds i8, ptr %other_f_iter.sroa.0.2522, i64 2
+  %dec.i.i.i2.i.i404 = add i32 %other_f_iter.sroa.8.sroa.0.2525, -1
+  %incdec.ptr.i.i.i4.i.i406 = getelementptr inbounds i8, ptr %other_f_iter.sroa.0.2526, i64 2
   %tobool.i.i.not.i5.i.i407 = icmp eq i32 %dec.i.i.i2.i.i404, 0
   br i1 %tobool.i.i.not.i5.i.i407, label %"_ZN9hb_iter_tI16hb_filter_iter_tI10hb_array_tIKN2OT5IndexEERPK8hb_map_tRK4$_10LPv0EERS4_EppEi.exit456", label %land.rhs.i.i.i408.preheader
 
@@ -37210,10 +37210,10 @@ land.rhs.i.i.i408.preheader:                      ; preds = %_ZNR9hb_iter_tI10hb
   br i1 %tobool.not.i.i.i.i.i.i420, label %land.rhs.i.i.i408.us.preheader, label %land.rhs.i.i.i408.preheader.split
 
 land.rhs.i.i.i408.us.preheader:                   ; preds = %land.rhs.i.i.i408.preheader
-  %122 = add i32 %other_f_iter.sroa.8.sroa.0.2523, -2
+  %122 = add i32 %other_f_iter.sroa.8.sroa.0.2525, -2
   %123 = zext i32 %122 to i64
   %124 = shl nuw nsw i64 %123, 1
-  %scevgep549 = getelementptr i8, ptr %other_f_iter.sroa.0.2522, i64 4
+  %scevgep549 = getelementptr i8, ptr %other_f_iter.sroa.0.2526, i64 4
   %scevgep550 = getelementptr i8, ptr %scevgep549, i64 %124
   br label %"_ZN9hb_iter_tI16hb_filter_iter_tI10hb_array_tIKN2OT5IndexEERPK8hb_map_tRK4$_10LPv0EERS4_EppEi.exit456"
 
@@ -37222,9 +37222,9 @@ land.rhs.i.i.i408.preheader.split:                ; preds = %land.rhs.i.i.i408.p
   br label %land.rhs.i.i.i408
 
 land.rhs.i.i.i408:                                ; preds = %land.rhs.i.i.i408.preheader.split, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i451
-  %other_f_iter.sroa.0.3 = phi ptr [ %incdec.ptr.i.i.i.i.i454, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i451 ], [ %incdec.ptr.i.i.i4.i.i406, %land.rhs.i.i.i408.preheader.split ]
   %other_f_iter.sroa.8.sroa.0.3 = phi i32 [ %dec.i.i.i.i.i452, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i451 ], [ %dec.i.i.i2.i.i404, %land.rhs.i.i.i408.preheader.split ]
-  %126 = phi ptr [ %other_f_iter.sroa.0.3, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i451 ], [ %other_f_iter.sroa.0.2522, %land.rhs.i.i.i408.preheader.split ]
+  %other_f_iter.sroa.0.3 = phi ptr [ %incdec.ptr.i.i.i.i.i454, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i451 ], [ %incdec.ptr.i.i.i4.i.i406, %land.rhs.i.i.i408.preheader.split ]
+  %126 = phi ptr [ %other_f_iter.sroa.0.3, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i451 ], [ %other_f_iter.sroa.0.2526, %land.rhs.i.i.i408.preheader.split ]
   %call8.val.i.i.i413 = load i8, ptr %other_f_iter.sroa.0.3, align 1, !noalias !304
   %127 = getelementptr i8, ptr %126, i64 3
   %call8.val1.i.i.i414 = load i8, ptr %127, align 1, !noalias !304
@@ -37281,8 +37281,8 @@ if.end.i.i.i.i.i.i.i434:                          ; preds = %while.body.lr.ph.i.
   br i1 %tobool.i.not.i.i.i.i.i.i.i444, label %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i451, label %while.body.i.i.i.i.i.i.i445, !llvm.loop !15
 
 "_ZN9hb_iter_tI16hb_filter_iter_tI10hb_array_tIKN2OT5IndexEERPK8hb_map_tRK4$_10LPv0EERS4_EppEi.exit456": ; preds = %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i451, %if.then.i.i.i.i.i.i.i447, %land.rhs.i.i.i408.us.preheader, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.lr.ph.i.i.i399
-  %other_f_iter.sroa.0.4 = phi ptr [ %incdec.ptr.i.i.i4.i.i406, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.lr.ph.i.i.i399 ], [ %scevgep550, %land.rhs.i.i.i408.us.preheader ], [ %other_f_iter.sroa.0.3, %if.then.i.i.i.i.i.i.i447 ], [ %incdec.ptr.i.i.i.i.i454, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i451 ]
   %other_f_iter.sroa.8.sroa.0.4 = phi i32 [ 0, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.lr.ph.i.i.i399 ], [ 0, %land.rhs.i.i.i408.us.preheader ], [ %other_f_iter.sroa.8.sroa.0.3, %if.then.i.i.i.i.i.i.i447 ], [ 0, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i451 ]
+  %other_f_iter.sroa.0.4 = phi ptr [ %incdec.ptr.i.i.i4.i.i406, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.lr.ph.i.i.i399 ], [ %scevgep550, %land.rhs.i.i.i408.us.preheader ], [ %other_f_iter.sroa.0.3, %if.then.i.i.i.i.i.i.i447 ], [ %incdec.ptr.i.i.i.i.i454, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i451 ]
   %tobool.i.i.i.i.not = icmp eq i32 %f_iter.sroa.8.sroa.0.4, 0
   br i1 %tobool.i.i.i.i.not, label %lor.lhs.false68, label %land.rhs, !llvm.loop !307
 
@@ -45145,24 +45145,24 @@ for.body.lr.ph:                                   ; preds = %if.end5
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end15
-  %should_keep.041 = phi i1 [ false, %for.body.lr.ph ], [ %spec.select, %if.end15 ]
-  %num_kept_cond.040 = phi i32 [ 0, %for.body.lr.ph ], [ %num_kept_cond.1, %if.end15 ]
-  %__begin2.039 = phi ptr [ %arrayZ.i.ptr, %for.body.lr.ph ], [ %incdec.ptr, %if.end15 ]
-  %cond_idx.038 = phi i32 [ 0, %for.body.lr.ph ], [ %inc19, %if.end15 ]
-  %2 = load i8, ptr %__begin2.039, align 1
+  %__begin2.041 = phi ptr [ %arrayZ.i.ptr, %for.body.lr.ph ], [ %incdec.ptr, %if.end15 ]
+  %should_keep.040 = phi i1 [ false, %for.body.lr.ph ], [ %spec.select, %if.end15 ]
+  %cond_idx.039 = phi i32 [ 0, %for.body.lr.ph ], [ %inc19, %if.end15 ]
+  %num_kept_cond.038 = phi i32 [ 0, %for.body.lr.ph ], [ %num_kept_cond.1, %if.end15 ]
+  %2 = load i8, ptr %__begin2.041, align 1
   %conv.i.i.i.i.i = zext i8 %2 to i32
   %shl.i.i.i.i.i = shl nuw i32 %conv.i.i.i.i.i, 24
-  %arrayidx3.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.039, i64 1
+  %arrayidx3.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.041, i64 1
   %3 = load i8, ptr %arrayidx3.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i = zext i8 %3 to i32
   %shl5.i.i.i.i.i = shl nuw nsw i32 %conv4.i.i.i.i.i, 16
   %add.i.i.i.i.i = or disjoint i32 %shl5.i.i.i.i.i, %shl.i.i.i.i.i
-  %arrayidx7.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.039, i64 2
+  %arrayidx7.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.041, i64 2
   %4 = load i8, ptr %arrayidx7.i.i.i.i.i, align 1
   %conv8.i.i.i.i.i = zext i8 %4 to i32
   %shl9.i.i.i.i.i = shl nuw nsw i32 %conv8.i.i.i.i.i, 8
   %add10.i.i.i.i.i = or disjoint i32 %add.i.i.i.i.i, %shl9.i.i.i.i.i
-  %arrayidx12.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.039, i64 3
+  %arrayidx12.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.041, i64 3
   %5 = load i8, ptr %arrayidx12.i.i.i.i.i, align 1
   %conv13.i.i.i.i.i = zext i8 %5 to i32
   %add14.i.i.i.i.i = or disjoint i32 %add10.i.i.i.i.i, %conv13.i.i.i.i.i
@@ -45192,18 +45192,18 @@ _ZNK2OT9Condition20keep_with_variationsEPNS_49hb_collect_feature_substitutes_wit
   ]
 
 if.then14:                                        ; preds = %_ZNK2OT9Condition20keep_with_variationsEPNS_49hb_collect_feature_substitutes_with_var_context_tEP8hb_map_t.exit.thread, %_ZNK2OT9Condition20keep_with_variationsEPNS_49hb_collect_feature_substitutes_with_var_context_tEP8hb_map_t.exit
-  tail call void @_ZN23hb_bit_set_invertible_t3addEj(ptr noundef nonnull align 8 dereferenceable(49) %s.i, i32 noundef %cond_idx.038)
-  %inc = add i32 %num_kept_cond.040, 1
+  tail call void @_ZN23hb_bit_set_invertible_t3addEj(ptr noundef nonnull align 8 dereferenceable(49) %s.i, i32 noundef %cond_idx.039)
+  %inc = add i32 %num_kept_cond.038, 1
   br label %if.end15
 
 if.end15:                                         ; preds = %_ZNK2OT9Condition20keep_with_variationsEPNS_49hb_collect_feature_substitutes_with_var_context_tEP8hb_map_t.exit, %if.then14
   %retval.0.i29 = phi i32 [ 0, %if.then14 ], [ %call3.i, %_ZNK2OT9Condition20keep_with_variationsEPNS_49hb_collect_feature_substitutes_with_var_context_tEP8hb_map_t.exit ]
-  %num_kept_cond.1 = phi i32 [ %inc, %if.then14 ], [ %num_kept_cond.040, %_ZNK2OT9Condition20keep_with_variationsEPNS_49hb_collect_feature_substitutes_with_var_context_tEP8hb_map_t.exit ]
-  %should_keep.1 = phi i1 [ true, %if.then14 ], [ %should_keep.041, %_ZNK2OT9Condition20keep_with_variationsEPNS_49hb_collect_feature_substitutes_with_var_context_tEP8hb_map_t.exit ]
+  %num_kept_cond.1 = phi i32 [ %inc, %if.then14 ], [ %num_kept_cond.038, %_ZNK2OT9Condition20keep_with_variationsEPNS_49hb_collect_feature_substitutes_with_var_context_tEP8hb_map_t.exit ]
+  %should_keep.1 = phi i1 [ true, %if.then14 ], [ %should_keep.040, %_ZNK2OT9Condition20keep_with_variationsEPNS_49hb_collect_feature_substitutes_with_var_context_tEP8hb_map_t.exit ]
   %cmp16 = icmp eq i32 %retval.0.i29, 1
   %spec.select = select i1 %cmp16, i1 true, i1 %should_keep.1
-  %inc19 = add i32 %cond_idx.038, 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.039, i64 4
+  %inc19 = add i32 %cond_idx.039, 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.041, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -45233,8 +45233,8 @@ _ZN9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EdeEv.exit.i.us.i
   br label %_ZN9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EdeEv.exit.i.us.i.i.i.i.i.i.i
 
 _ZN9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EdeEv.exit.i.us.i.i.i.i.i.i.i: ; preds = %_ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EppEv.exit.i.us.i.i.i.i.i.i.i, %_ZN9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EdeEv.exit.i.us.i.i.i.preheader.i.i.i.i
-  %ref.tmp2.sroa.0.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.us.i.i.i.i.i.i.i, %_ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EppEv.exit.i.us.i.i.i.i.i.i.i ], [ %this.val1.i.i.i.i, %_ZN9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EdeEv.exit.i.us.i.i.i.preheader.i.i.i.i ]
   %ref.tmp2.sroa.3.sroa.0.0.i.i.i.i = phi i32 [ %dec.i.i.i.us.i.i.i.i.i.i.i, %_ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EppEv.exit.i.us.i.i.i.i.i.i.i ], [ %add.i.i.i.i.i.i, %_ZN9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EdeEv.exit.i.us.i.i.i.preheader.i.i.i.i ]
+  %ref.tmp2.sroa.0.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.us.i.i.i.i.i.i.i, %_ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EppEv.exit.i.us.i.i.i.i.i.i.i ], [ %this.val1.i.i.i.i, %_ZN9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EdeEv.exit.i.us.i.i.i.preheader.i.i.i.i ]
   %is_real_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.sroa.0.0.i.i.i.i, i64 4
   %bf.load.i.i.i.i.i.i = load i32, ptr %is_real_.i.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i, 1
@@ -45335,8 +45335,8 @@ _ZN9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EdeEv.exit.i.us.i
   br label %_ZN9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EdeEv.exit.i.us.i.i.i.i.i.i
 
 _ZN9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EdeEv.exit.i.us.i.i.i.i.i.i: ; preds = %_ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EppEv.exit.i.us.i.i.i.i.i.i, %_ZN9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EdeEv.exit.i.us.i.i.i.preheader.i.i.i
-  %ref.tmp2.sroa.0.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i.us.i.i.i.i.i.i, %_ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EppEv.exit.i.us.i.i.i.i.i.i ], [ %this.val1.i.i.i, %_ZN9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EdeEv.exit.i.us.i.i.i.preheader.i.i.i ]
   %ref.tmp2.sroa.3.sroa.0.0.i.i.i = phi i32 [ %dec.i.i.i.us.i.i.i.i.i.i, %_ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EppEv.exit.i.us.i.i.i.i.i.i ], [ %add.i.i.i.i.i, %_ZN9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EdeEv.exit.i.us.i.i.i.preheader.i.i.i ]
+  %ref.tmp2.sroa.0.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i.us.i.i.i.i.i.i, %_ZNR9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EppEv.exit.i.us.i.i.i.i.i.i ], [ %this.val1.i.i.i, %_ZN9hb_iter_tI10hb_array_tIN12hb_hashmap_tIjjLb1EE6item_tEERS3_EdeEv.exit.i.us.i.i.i.preheader.i.i.i ]
   %is_real_.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.sroa.0.0.i.i.i, i64 4
   %bf.load.i.i.i.i.i = load i32, ptr %is_real_.i.i.i.i.i, align 4
   %bf.clear.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i, 1
@@ -47846,9 +47846,9 @@ while.body.lr.ph:                                 ; preds = %if.end4
 while.body:                                       ; preds = %while.body.lr.ph, %if.end13
   %bf.load.i52 = phi i32 [ %bf.load.i45, %while.body.lr.ph ], [ %bf.load.i, %if.end13 ]
   %arrayidx51 = phi ptr [ %arrayidx43, %while.body.lr.ph ], [ %arrayidx, %if.end13 ]
-  %tombstone.050 = phi i32 [ -1, %while.body.lr.ph ], [ %spec.select, %if.end13 ]
-  %step.049 = phi i32 [ 0, %while.body.lr.ph ], [ %inc, %if.end13 ]
-  %i.047 = phi i32 [ %rem, %while.body.lr.ph ], [ %and24, %if.end13 ]
+  %step.050 = phi i32 [ 0, %while.body.lr.ph ], [ %inc, %if.end13 ]
+  %i.048 = phi i32 [ %rem, %while.body.lr.ph ], [ %and24, %if.end13 ]
+  %tombstone.047 = phi i32 [ -1, %while.body.lr.ph ], [ %spec.select, %if.end13 ]
   %8 = load i32, ptr %arrayidx51, align 4
   %cmp.i = icmp eq i32 %8, %6
   br i1 %cmp.i, label %if.then10, label %if.end13
@@ -47859,11 +47859,11 @@ if.then10:                                        ; preds = %while.body
 if.end13:                                         ; preds = %while.body
   %bf.clear.i = and i32 %bf.load.i52, 1
   %tobool.i20 = icmp ne i32 %bf.clear.i, 0
-  %cmp19 = icmp ne i32 %tombstone.050, -1
+  %cmp19 = icmp ne i32 %tombstone.047, -1
   %or.cond.not = select i1 %tobool.i20, i1 true, i1 %cmp19
-  %spec.select = select i1 %or.cond.not, i32 %tombstone.050, i32 %i.047
-  %inc = add i32 %step.049, 1
-  %add22 = add i32 %inc, %i.047
+  %spec.select = select i1 %or.cond.not, i32 %tombstone.047, i32 %i.048
+  %inc = add i32 %step.050, 1
+  %add22 = add i32 %inc, %i.048
   %and24 = and i32 %7, %add22
   %idxprom = zext i32 %and24 to i64
   %arrayidx = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, hb_pair_t<const void *, const void *>>::item_t", ptr %4, i64 %idxprom
@@ -47874,16 +47874,16 @@ if.end13:                                         ; preds = %while.body
   br i1 %tobool.i.not, label %while.end, label %while.body, !llvm.loop !361
 
 while.end:                                        ; preds = %if.end13, %if.then10
-  %i.041 = phi i32 [ %i.047, %if.then10 ], [ %and24, %if.end13 ]
-  %length.039 = phi i32 [ %step.049, %if.then10 ], [ %inc, %if.end13 ]
-  %tombstone.037 = phi i32 [ %tombstone.050, %if.then10 ], [ %spec.select, %if.end13 ]
-  %tombstone.037.fr = freeze i32 %tombstone.037
-  %cmp27 = icmp eq i32 %tombstone.037.fr, -1
-  %spec.select70 = select i1 %cmp27, i32 %i.041, i32 %tombstone.037.fr
+  %tombstone.041 = phi i32 [ %tombstone.047, %if.then10 ], [ %spec.select, %if.end13 ]
+  %i.039 = phi i32 [ %i.048, %if.then10 ], [ %and24, %if.end13 ]
+  %length.037 = phi i32 [ %step.050, %if.then10 ], [ %inc, %if.end13 ]
+  %tombstone.041.fr = freeze i32 %tombstone.041
+  %cmp27 = icmp eq i32 %tombstone.041.fr, -1
+  %spec.select70 = select i1 %cmp27, i32 %i.039, i32 %tombstone.041.fr
   br label %while.end.thread
 
 while.end.thread:                                 ; preds = %while.end, %if.end4
-  %length.03965 = phi i32 [ 0, %if.end4 ], [ %length.039, %while.end ]
+  %length.03765 = phi i32 [ 0, %if.end4 ], [ %length.037, %while.end ]
   %10 = phi i32 [ %rem, %if.end4 ], [ %spec.select70, %while.end ]
   %idxprom28 = zext i32 %10 to i64
   %arrayidx29 = getelementptr inbounds %"struct.hb_hashmap_t<unsigned int, hb_pair_t<const void *, const void *>>::item_t", ptr %4, i64 %idxprom28
@@ -47926,7 +47926,7 @@ if.end34:                                         ; preds = %if.then31, %while.e
   %max_chain_length = getelementptr inbounds i8, ptr %this, i64 18
   %21 = load i16, ptr %max_chain_length, align 2
   %conv43 = zext i16 %21 to i32
-  %cmp44 = icmp ugt i32 %length.03965, %conv43
+  %cmp44 = icmp ugt i32 %length.03765, %conv43
   br i1 %cmp44, label %land.lhs.true45, label %return
 
 land.lhs.true45:                                  ; preds = %if.end34
@@ -50735,11 +50735,11 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.l
   br i1 %or.cond.i15.i, label %for.body.i.i, label %"_ZorI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_22LigatureSubstFormat1_2ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EERK4$_34TnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS17_6item_tEEE5valueEvE4typeELSQ_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS17_Efp_EEEOS17_OS1C_.exit"
 
 for.body.i.i:                                     ; preds = %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_22LigatureSubstFormat1_2ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.i.i"
-  %it.sroa.19.037.i20.i = phi i32 [ %it.sroa.19.3.us.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_22LigatureSubstFormat1_2ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.i.i" ], [ %ref.tmp3.sroa.18.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ]
-  %it.sroa.10.038.i19.i = phi i32 [ %it.sroa.10.3.us.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_22LigatureSubstFormat1_2ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.i.i" ], [ %ref.tmp3.sroa.10.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ]
-  %it.sroa.23.039.i18.i = phi i32 [ %it.sroa.23.2.us.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_22LigatureSubstFormat1_2ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.i.i" ], [ %ref.tmp3.sroa.23.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ]
-  %it.sroa.2817.040.i17.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.us.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_22LigatureSubstFormat1_2ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.i.i" ], [ %ref.tmp3.sroa.30.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ]
-  %it.sroa.31.041.i16.i = phi i32 [ %dec.i.i.i.i.i.i.i.i.i.i.us.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_22LigatureSubstFormat1_2ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.i.i" ], [ %ref.tmp3.sroa.33.sroa.0.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ]
+  %it.sroa.31.038.i20.i = phi i32 [ %dec.i.i.i.i.i.i.i.i.i.i.us.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_22LigatureSubstFormat1_2ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.i.i" ], [ %ref.tmp3.sroa.33.sroa.0.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ]
+  %it.sroa.2817.039.i19.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.us.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_22LigatureSubstFormat1_2ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.i.i" ], [ %ref.tmp3.sroa.30.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ]
+  %it.sroa.23.040.i18.i = phi i32 [ %it.sroa.23.2.us.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_22LigatureSubstFormat1_2ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.i.i" ], [ %ref.tmp3.sroa.23.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ]
+  %it.sroa.19.041.i17.i = phi i32 [ %it.sroa.19.3.us.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_22LigatureSubstFormat1_2ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.i.i" ], [ %ref.tmp3.sroa.18.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ]
+  %it.sroa.10.042.i16.i = phi i32 [ %it.sroa.10.3.us.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_22LigatureSubstFormat1_2ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.i.i" ], [ %ref.tmp3.sroa.10.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ]
   br i1 %cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZNK9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EERSH_EdeEv.exit.i.i.i.i"
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %for.body.i.i
@@ -50747,8 +50747,8 @@ if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %for.body.i.i
   br label %"_ZNK9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EERSH_EdeEv.exit.i.i.i.i"
 
 "_ZNK9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GSUB_impl11LigatureSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EERSH_EdeEv.exit.i.i.i.i": ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i
-  %call2.val.i.i.i.i = load i8, ptr %it.sroa.2817.040.i17.i, align 1
-  %48 = getelementptr i8, ptr %it.sroa.2817.040.i17.i, i64 1
+  %call2.val.i.i.i.i = load i8, ptr %it.sroa.2817.039.i19.i, align 1
+  %48 = getelementptr i8, ptr %it.sroa.2817.039.i19.i, i64 1
   %call2.val2.i.i.i.i = load i8, ptr %48, align 1
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext i8 %call2.val.i.i.i.i to i32
   %shl.i.i.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 8
@@ -50973,11 +50973,11 @@ do.body.i.i.i.i.i.i.us.i.i.preheader:             ; preds = %"_ZNR9hb_iter_tI13h
   br label %do.body.i.i.i.i.i.i.us.i.i
 
 do.body.i.i.i.i.i.i.us.i.i:                       ; preds = %do.body.i.i.i.i.i.i.us.i.i.backedge, %do.body.i.i.i.i.i.i.us.i.i.preheader
-  %it.sroa.19.1.us.i.i = phi i32 [ %it.sroa.19.037.i20.i, %do.body.i.i.i.i.i.i.us.i.i.preheader ], [ %it.sroa.19.3.us.i.i, %do.body.i.i.i.i.i.i.us.i.i.backedge ]
-  %it.sroa.10.1.us.i.i = phi i32 [ %it.sroa.10.038.i19.i, %do.body.i.i.i.i.i.i.us.i.i.preheader ], [ %it.sroa.10.3.us.i.i, %do.body.i.i.i.i.i.i.us.i.i.backedge ]
-  %it.sroa.23.1.us.i.i = phi i32 [ %it.sroa.23.039.i18.i, %do.body.i.i.i.i.i.i.us.i.i.preheader ], [ %it.sroa.23.2.us.i.i, %do.body.i.i.i.i.i.i.us.i.i.backedge ]
-  %it.sroa.2817.1.us.i.i = phi ptr [ %it.sroa.2817.040.i17.i, %do.body.i.i.i.i.i.i.us.i.i.preheader ], [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.us.i.i, %do.body.i.i.i.i.i.i.us.i.i.backedge ]
-  %it.sroa.31.1.us.i.i = phi i32 [ %it.sroa.31.041.i16.i, %do.body.i.i.i.i.i.i.us.i.i.preheader ], [ %dec.i.i.i.i.i.i.i.i.i.i.us.i.i, %do.body.i.i.i.i.i.i.us.i.i.backedge ]
+  %it.sroa.31.1.us.i.i = phi i32 [ %it.sroa.31.038.i20.i, %do.body.i.i.i.i.i.i.us.i.i.preheader ], [ %dec.i.i.i.i.i.i.i.i.i.i.us.i.i, %do.body.i.i.i.i.i.i.us.i.i.backedge ]
+  %it.sroa.2817.1.us.i.i = phi ptr [ %it.sroa.2817.039.i19.i, %do.body.i.i.i.i.i.i.us.i.i.preheader ], [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.us.i.i, %do.body.i.i.i.i.i.i.us.i.i.backedge ]
+  %it.sroa.23.1.us.i.i = phi i32 [ %it.sroa.23.040.i18.i, %do.body.i.i.i.i.i.i.us.i.i.preheader ], [ %it.sroa.23.2.us.i.i, %do.body.i.i.i.i.i.i.us.i.i.backedge ]
+  %it.sroa.19.1.us.i.i = phi i32 [ %it.sroa.19.041.i17.i, %do.body.i.i.i.i.i.i.us.i.i.preheader ], [ %it.sroa.19.3.us.i.i, %do.body.i.i.i.i.i.i.us.i.i.backedge ]
+  %it.sroa.10.1.us.i.i = phi i32 [ %it.sroa.10.042.i16.i, %do.body.i.i.i.i.i.i.us.i.i.preheader ], [ %it.sroa.10.3.us.i.i, %do.body.i.i.i.i.i.i.us.i.i.backedge ]
   switch i32 %add.i.i.i.i, label %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.us.i.i [
     i32 1, label %sw.bb.i.us.i.i
     i32 2, label %sw.bb2.i.us.i.i
@@ -51043,8 +51043,8 @@ if.then5.i.i.us.i.i:                              ; preds = %if.then.i.i.us.i.i
   %add.i.i15.i.i.us.i.i = or disjoint i32 %shl.i.i12.i.i.us.i.i, %conv4.i.i14.i.i.us.i.i
   %add.i.i.us.i.i = add i32 %it.sroa.19.1.us.i.i, 1
   %cmp20.not.i.i.us.i.i = icmp eq i32 %add.i.i15.i.i.us.i.i, %add.i.i.us.i.i
-  %spec.select.us.i.i = select i1 %cmp20.not.i.i.us.i.i, i32 %inc.i2.i.us.i.i, i32 %add.i.i.i5.i.i.us.i.i
-  %spec.select25.us.i.i = select i1 %cmp20.not.i.i.us.i.i, i32 %add.i.i10.i.i.us.i.i, i32 0
+  %spec.select.us.i.i = select i1 %cmp20.not.i.i.us.i.i, i32 %add.i.i10.i.i.us.i.i, i32 0
+  %spec.select25.us.i.i = select i1 %cmp20.not.i.i.us.i.i, i32 %inc.i2.i.us.i.i, i32 %add.i.i.i5.i.i.us.i.i
   br label %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.us.i.i
 
 if.end29.i.i.us.i.i:                              ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.us.i.i
@@ -51057,9 +51057,9 @@ sw.bb.i.us.i.i:                                   ; preds = %do.body.i.i.i.i.i.i
   br label %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.us.i.i
 
 _ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.us.i.i: ; preds = %sw.bb.i.us.i.i, %if.end29.i.i.us.i.i, %if.then5.i.i.us.i.i, %if.then.i.i.us.i.i, %do.body.i.i.i.i.i.i.us.i.i
+  %it.sroa.23.2.us.i.i = phi i32 [ %it.sroa.23.1.us.i.i, %do.body.i.i.i.i.i.i.us.i.i ], [ %it.sroa.23.1.us.i.i, %sw.bb.i.us.i.i ], [ %inc33.i.i.us.i.i, %if.end29.i.i.us.i.i ], [ 0, %if.then.i.i.us.i.i ], [ %spec.select.us.i.i, %if.then5.i.i.us.i.i ]
   %it.sroa.19.3.us.i.i = phi i32 [ %it.sroa.19.1.us.i.i, %do.body.i.i.i.i.i.i.us.i.i ], [ %it.sroa.19.1.us.i.i, %sw.bb.i.us.i.i ], [ %inc31.i.i.us.i.i, %if.end29.i.i.us.i.i ], [ %it.sroa.19.1.us.i.i, %if.then.i.i.us.i.i ], [ %add.i.i15.i.i.us.i.i, %if.then5.i.i.us.i.i ]
-  %it.sroa.10.3.us.i.i = phi i32 [ %it.sroa.10.1.us.i.i, %do.body.i.i.i.i.i.i.us.i.i ], [ %inc.i.i.us.i.i, %sw.bb.i.us.i.i ], [ %it.sroa.10.1.us.i.i, %if.end29.i.i.us.i.i ], [ %inc.i2.i.us.i.i, %if.then.i.i.us.i.i ], [ %spec.select.us.i.i, %if.then5.i.i.us.i.i ]
-  %it.sroa.23.2.us.i.i = phi i32 [ %it.sroa.23.1.us.i.i, %do.body.i.i.i.i.i.i.us.i.i ], [ %it.sroa.23.1.us.i.i, %sw.bb.i.us.i.i ], [ %inc33.i.i.us.i.i, %if.end29.i.i.us.i.i ], [ 0, %if.then.i.i.us.i.i ], [ %spec.select25.us.i.i, %if.then5.i.i.us.i.i ]
+  %it.sroa.10.3.us.i.i = phi i32 [ %it.sroa.10.1.us.i.i, %do.body.i.i.i.i.i.i.us.i.i ], [ %inc.i.i.us.i.i, %sw.bb.i.us.i.i ], [ %it.sroa.10.1.us.i.i, %if.end29.i.i.us.i.i ], [ %inc.i2.i.us.i.i, %if.then.i.i.us.i.i ], [ %spec.select25.us.i.i, %if.then5.i.i.us.i.i ]
   %dec.i.i.i.i.i.i.i.i.i.i.us.i.i = add i32 %it.sroa.31.1.us.i.i, -1
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.us.i.i = getelementptr inbounds i8, ptr %it.sroa.2817.1.us.i.i, i64 2
   %84 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i.i, align 1
@@ -53655,17 +53655,17 @@ for.body.lr.ph:                                   ; preds = %if.end10
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %__begin0.sroa.9.054 = phi i32 [ %add.i.i.i.i.i.i.i, %for.body.lr.ph ], [ %__begin0.sroa.9.1, %for.inc ]
-  %__begin0.sroa.5.053 = phi ptr [ %arrayZ.i.i.i.i.i.ptr, %for.body.lr.ph ], [ %__begin0.sroa.5.1, %for.inc ]
-  %__begin0.sroa.0.052 = phi i32 [ 0, %for.body.lr.ph ], [ %add.i.i.i.i.i, %for.inc ]
+  %__begin0.sroa.0.053 = phi i32 [ 0, %for.body.lr.ph ], [ %add.i.i.i.i.i, %for.inc ]
+  %__begin0.sroa.5.052 = phi ptr [ %arrayZ.i.i.i.i.i.ptr, %for.body.lr.ph ], [ %__begin0.sroa.5.1, %for.inc ]
   %tobool.not.i.i.i.i.not = icmp eq i32 %__begin0.sroa.9.054, 0
-  %spec.select.i.i.i.i = select i1 %tobool.not.i.i.i.i.not, ptr @_hb_NullPool, ptr %__begin0.sroa.5.053
+  %spec.select.i.i.i.i = select i1 %tobool.not.i.i.i.i.not, ptr @_hb_NullPool, ptr %__begin0.sroa.5.052
   %23 = load i8, ptr %startGlyph, align 1
   %conv.i.i24 = zext i8 %23 to i32
   %shl.i.i25 = shl nuw nsw i32 %conv.i.i24, 8
   %24 = load i8, ptr %arrayidx3.i.i, align 1
   %conv4.i.i27 = zext i8 %24 to i32
   %add.i.i28 = or disjoint i32 %shl.i.i25, %conv4.i.i27
-  %add18 = add i32 %add.i.i28, %__begin0.sroa.0.052
+  %add18 = add i32 %add.i.i28, %__begin0.sroa.0.053
   %shr.i.i.i.i.i.i.i = lshr i32 %add18, 9
   %25 = load atomic i32, ptr %last_page_lookup.i.i.i.i.i.i monotonic, align 4
   %26 = load i32, ptr %length.i.i.i.i.i.i, align 4
@@ -53768,9 +53768,9 @@ if.then20:                                        ; preds = %_ZNK14hb_sparseset_
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit.thr_comm, %_ZNK14hb_sparseset_tI23hb_bit_set_invertible_tE3hasEj.exit, %if.then20
-  %add.i.i.i.i.i = add i32 %__begin0.sroa.0.052, 1
+  %add.i.i.i.i.i = add i32 %__begin0.sroa.0.053, 1
   %__begin0.sroa.5.1.idx = select i1 %tobool.not.i.i.i.i.not, i64 0, i64 2
-  %__begin0.sroa.5.1 = getelementptr inbounds i8, ptr %__begin0.sroa.5.053, i64 %__begin0.sroa.5.1.idx
+  %__begin0.sroa.5.1 = getelementptr inbounds i8, ptr %__begin0.sroa.5.052, i64 %__begin0.sroa.5.1.idx
   %__begin0.sroa.9.1 = call i32 @llvm.usub.sat.i32(i32 %__begin0.sroa.9.054, i32 1)
   %cmp.not.i.i = icmp ne ptr %__begin0.sroa.5.1, %add.ptr.i.i.i.i.i.i.i.i.ptr
   %cmp4.i.i = icmp ugt i32 %__begin0.sroa.9.054, 1
@@ -60315,10 +60315,10 @@ for.body46.lr.ph:                                 ; preds = %if.else
 
 for.body46:                                       ; preds = %for.body46.lr.ph, %for.inc62
   %__begin342.sroa.0.0191 = phi i32 [ 0, %for.body46.lr.ph ], [ %add.i.i.i.i.i157, %for.inc62 ]
-  %__begin342.sroa.9.0190 = phi i32 [ %add.i.i.i.i.i.i.i65, %for.body46.lr.ph ], [ %__begin342.sroa.9.1, %for.inc62 ]
-  %__begin342.sroa.5.0189 = phi ptr [ %arrayZ.i.i.i.i.i60.ptr, %for.body46.lr.ph ], [ %__begin342.sroa.5.1, %for.inc62 ]
-  %tobool.not.i.i.i.i96.not = icmp eq i32 %__begin342.sroa.9.0190, 0
-  %spec.select.i.i.i.i97 = select i1 %tobool.not.i.i.i.i96.not, ptr @_hb_NullPool, ptr %__begin342.sroa.5.0189
+  %__begin342.sroa.5.0190 = phi ptr [ %arrayZ.i.i.i.i.i60.ptr, %for.body46.lr.ph ], [ %__begin342.sroa.5.1, %for.inc62 ]
+  %__begin342.sroa.9.0189 = phi i32 [ %add.i.i.i.i.i.i.i65, %for.body46.lr.ph ], [ %__begin342.sroa.9.1, %for.inc62 ]
+  %tobool.not.i.i.i.i96.not = icmp eq i32 %__begin342.sroa.9.0189, 0
+  %spec.select.i.i.i.i97 = select i1 %tobool.not.i.i.i.i96.not, ptr @_hb_NullPool, ptr %__begin342.sroa.5.0190
   %offset52 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i97, i64 4
   %42 = load i8, ptr %offset52, align 1
   %conv.i.i.i.i.i100 = zext i8 %42 to i32
@@ -60412,11 +60412,11 @@ _ZNK12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EE3getERKj.exit154: ; preds =
 
 for.inc62:                                        ; preds = %for.body46, %_ZNK12hb_hashmap_tIjN2hb10unique_ptrI8hb_set_tEELb0EE3getERKj.exit154
   %add.i.i.i.i.i157 = add i32 %__begin342.sroa.0.0191, 1
+  %__begin342.sroa.9.1 = call i32 @llvm.usub.sat.i32(i32 %__begin342.sroa.9.0189, i32 1)
   %__begin342.sroa.5.1.idx = select i1 %tobool.not.i.i.i.i96.not, i64 0, i64 6
-  %__begin342.sroa.5.1 = getelementptr inbounds i8, ptr %__begin342.sroa.5.0189, i64 %__begin342.sroa.5.1.idx
-  %__begin342.sroa.9.1 = call i32 @llvm.usub.sat.i32(i32 %__begin342.sroa.9.0190, i32 1)
+  %__begin342.sroa.5.1 = getelementptr inbounds i8, ptr %__begin342.sroa.5.0190, i64 %__begin342.sroa.5.1.idx
   %cmp.not.i.i89 = icmp ne ptr %__begin342.sroa.5.1, %add.ptr.i.i.i.i.i.i.i.i80.ptr
-  %cmp4.i.i92 = icmp ugt i32 %__begin342.sroa.9.0190, 1
+  %cmp4.i.i92 = icmp ugt i32 %__begin342.sroa.9.0189, 1
   %57 = or i1 %cmp.not.i.i89, %cmp4.i.i92
   br i1 %57, label %for.body46, label %if.end65
 
@@ -60912,8 +60912,8 @@ land.rhs.lr.ph:                                   ; preds = %"_ZorI10hb_array_tI
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI10hb_array_tIKN2OT5IndexEERPK8hb_map_tRK4$_10LPv0EESA_L24hb_function_sortedness_t0ELSE_0EERKjEppEi.exit216"
   %iter.sroa.6.sroa.0.0252 = phi i32 [ %ref.tmp.sroa.4.sroa.0.1, %land.rhs.lr.ph ], [ %iter.sroa.6.sroa.0.2275, %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI10hb_array_tIKN2OT5IndexEERPK8hb_map_tRK4$_10LPv0EESA_L24hb_function_sortedness_t0ELSE_0EERKjEppEi.exit216" ]
   %iter.sroa.0.0251 = phi ptr [ %ref.tmp.sroa.0.1, %land.rhs.lr.ph ], [ %iter.sroa.0.2273, %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI10hb_array_tIKN2OT5IndexEERPK8hb_map_tRK4$_10LPv0EESA_L24hb_function_sortedness_t0ELSE_0EERKjEppEi.exit216" ]
+  %o_iter.sroa.0.0250 = phi ptr [ %ref.tmp11.sroa.0.1, %land.rhs.lr.ph ], [ %o_iter.sroa.0.2, %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI10hb_array_tIKN2OT5IndexEERPK8hb_map_tRK4$_10LPv0EESA_L24hb_function_sortedness_t0ELSE_0EERKjEppEi.exit216" ]
   %o_iter.sroa.6.sroa.0.0249 = phi i32 [ %ref.tmp11.sroa.4.sroa.0.1, %land.rhs.lr.ph ], [ %o_iter.sroa.6.sroa.0.2, %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI10hb_array_tIKN2OT5IndexEERPK8hb_map_tRK4$_10LPv0EESA_L24hb_function_sortedness_t0ELSE_0EERKjEppEi.exit216" ]
-  %o_iter.sroa.0.0248 = phi ptr [ %ref.tmp11.sroa.0.1, %land.rhs.lr.ph ], [ %o_iter.sroa.0.2, %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI10hb_array_tIKN2OT5IndexEERPK8hb_map_tRK4$_10LPv0EESA_L24hb_function_sortedness_t0ELSE_0EERKjEppEi.exit216" ]
   %tobool.i.i.i.i.i.i81.not = icmp eq i32 %o_iter.sroa.6.sroa.0.0249, 0
   br i1 %tobool.i.i.i.i.i.i81.not, label %return, label %for.body
 
@@ -60979,8 +60979,8 @@ if.end.i.i.i.i.i.i.i94:                           ; preds = %while.body.lr.ph.i.
 if.end.i.i.i.i.i.i121:                            ; preds = %if.end.i.i.i.i.i.i.i94, %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.ph = phi ptr [ %spec.select.i.i.i.i3.i.i, %if.then.i.i.i.i.i.i.i ], [ @minus_1, %if.end.i.i.i.i.i.i ], [ @minus_1, %if.end.i.i.i.i.i.i.i94 ]
   %42 = load i32, ptr %retval.0.i.i.i.i.i.ph, align 4
-  %call2.val.i.i113226 = load i8, ptr %o_iter.sroa.0.0248, align 1
-  %43 = getelementptr i8, ptr %o_iter.sroa.0.0248, i64 1
+  %call2.val.i.i113226 = load i8, ptr %o_iter.sroa.0.0250, align 1
+  %43 = getelementptr i8, ptr %o_iter.sroa.0.0250, i64 1
   %call2.val2.i.i114227 = load i8, ptr %43, align 1
   %conv.i.i.i.i.i.i115228 = zext i8 %call2.val.i.i113226 to i32
   %shl.i.i.i.i.i.i116229 = shl nuw nsw i32 %conv.i.i.i.i.i.i115228, 8
@@ -61114,7 +61114,7 @@ _ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.lr.ph.i.i.i.i.i159: ; pr
   %iter.sroa.0.2 = phi ptr [ %incdec.ptr.i.i.i4.i.i.i.i, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.lr.ph.i.i.i.i.i ], [ %iter.sroa.0.1, %if.then.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i.i.i ]
   %iter.sroa.6.sroa.0.2 = phi i32 [ 0, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.lr.ph.i.i.i.i.i ], [ %iter.sroa.6.sroa.0.1, %if.then.i.i.i.i.i.i.i.i.i ], [ 0, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i.i.i ]
   %dec.i.i.i2.i.i.i.i164 = add i32 %o_iter.sroa.6.sroa.0.0249, -1
-  %incdec.ptr.i.i.i4.i.i.i.i166 = getelementptr inbounds i8, ptr %o_iter.sroa.0.0248, i64 2
+  %incdec.ptr.i.i.i4.i.i.i.i166 = getelementptr inbounds i8, ptr %o_iter.sroa.0.0250, i64 2
   %tobool.i.i.not.i5.i.i.i.i167 = icmp eq i32 %dec.i.i.i2.i.i.i.i164, 0
   br i1 %tobool.i.i.not.i5.i.i.i.i167, label %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI10hb_array_tIKN2OT5IndexEERPK8hb_map_tRK4$_10LPv0EESA_L24hb_function_sortedness_t0ELSE_0EERKjEppEi.exit216", label %land.rhs.i.i.i.i.i168.preheader
 
@@ -61136,7 +61136,7 @@ land.rhs.i.i.i.i.i168.us.preheader:               ; preds = %_ZNR9hb_iter_tI10hb
   %63 = add i32 %o_iter.sroa.6.sroa.0.0249, -2
   %64 = zext i32 %63 to i64
   %65 = shl nuw nsw i64 %64, 1
-  %scevgep265 = getelementptr i8, ptr %o_iter.sroa.0.0248, i64 4
+  %scevgep265 = getelementptr i8, ptr %o_iter.sroa.0.0250, i64 4
   %scevgep266 = getelementptr i8, ptr %scevgep265, i64 %65
   br label %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI10hb_array_tIKN2OT5IndexEERPK8hb_map_tRK4$_10LPv0EESA_L24hb_function_sortedness_t0ELSE_0EERKjEppEi.exit216"
 
@@ -61145,9 +61145,9 @@ land.rhs.i.i.i.i.i168.preheader.split:            ; preds = %land.rhs.i.i.i.i.i1
   br label %land.rhs.i.i.i.i.i168
 
 land.rhs.i.i.i.i.i168:                            ; preds = %land.rhs.i.i.i.i.i168.preheader.split, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i.i.i211
-  %o_iter.sroa.0.1 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i214, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i.i.i211 ], [ %incdec.ptr.i.i.i4.i.i.i.i166, %land.rhs.i.i.i.i.i168.preheader.split ]
   %o_iter.sroa.6.sroa.0.1 = phi i32 [ %dec.i.i.i.i.i.i.i212, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i.i.i211 ], [ %dec.i.i.i2.i.i.i.i164, %land.rhs.i.i.i.i.i168.preheader.split ]
-  %67 = phi ptr [ %o_iter.sroa.0.1, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i.i.i211 ], [ %o_iter.sroa.0.0248, %land.rhs.i.i.i.i.i168.preheader.split ]
+  %o_iter.sroa.0.1 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i214, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i.i.i211 ], [ %incdec.ptr.i.i.i4.i.i.i.i166, %land.rhs.i.i.i.i.i168.preheader.split ]
+  %67 = phi ptr [ %o_iter.sroa.0.1, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i.i.i211 ], [ %o_iter.sroa.0.0250, %land.rhs.i.i.i.i.i168.preheader.split ]
   %call8.val.i.i.i.i.i173 = load i8, ptr %o_iter.sroa.0.1, align 1, !noalias !468
   %68 = getelementptr i8, ptr %67, i64 3
   %call8.val1.i.i.i.i.i174 = load i8, ptr %68, align 1, !noalias !468
@@ -61206,8 +61206,8 @@ if.end.i.i.i.i.i.i.i.i.i194:                      ; preds = %while.body.lr.ph.i.
 "_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI10hb_array_tIKN2OT5IndexEERPK8hb_map_tRK4$_10LPv0EESA_L24hb_function_sortedness_t0ELSE_0EERKjEppEi.exit216": ; preds = %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i.i.i211, %if.then.i.i.i.i.i.i.i.i.i207, %land.rhs.i.i.i.i.i168.us.preheader, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.lr.ph.i.i.i.i.i159
   %iter.sroa.6.sroa.0.2275 = phi i32 [ %iter.sroa.6.sroa.0.2, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.lr.ph.i.i.i.i.i159 ], [ %iter.sroa.6.sroa.0.2274282, %land.rhs.i.i.i.i.i168.us.preheader ], [ %iter.sroa.6.sroa.0.2, %if.then.i.i.i.i.i.i.i.i.i207 ], [ %iter.sroa.6.sroa.0.2, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i.i.i211 ]
   %iter.sroa.0.2273 = phi ptr [ %iter.sroa.0.2, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.lr.ph.i.i.i.i.i159 ], [ %iter.sroa.0.2272283, %land.rhs.i.i.i.i.i168.us.preheader ], [ %iter.sroa.0.2, %if.then.i.i.i.i.i.i.i.i.i207 ], [ %iter.sroa.0.2, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i.i.i211 ]
-  %o_iter.sroa.0.2 = phi ptr [ %incdec.ptr.i.i.i4.i.i.i.i166, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.lr.ph.i.i.i.i.i159 ], [ %scevgep266, %land.rhs.i.i.i.i.i168.us.preheader ], [ %incdec.ptr.i.i.i.i.i.i.i214, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i.i.i211 ], [ %o_iter.sroa.0.1, %if.then.i.i.i.i.i.i.i.i.i207 ]
   %o_iter.sroa.6.sroa.0.2 = phi i32 [ 0, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.lr.ph.i.i.i.i.i159 ], [ 0, %land.rhs.i.i.i.i.i168.us.preheader ], [ 0, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i.i.i211 ], [ %o_iter.sroa.6.sroa.0.1, %if.then.i.i.i.i.i.i.i.i.i207 ]
+  %o_iter.sroa.0.2 = phi ptr [ %incdec.ptr.i.i.i4.i.i.i.i166, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.lr.ph.i.i.i.i.i159 ], [ %scevgep266, %land.rhs.i.i.i.i.i168.us.preheader ], [ %incdec.ptr.i.i.i.i.i.i.i214, %_ZNR9hb_iter_tI10hb_array_tIKN2OT5IndexEERS3_EppEv.exit.backedge.i.i.i.i.i211 ], [ %o_iter.sroa.0.1, %if.then.i.i.i.i.i.i.i.i.i207 ]
   %tobool.i.i.i.i.i.i.not = icmp eq i32 %iter.sroa.6.sroa.0.2275, 0
   br i1 %tobool.i.i.i.i.i.i.not, label %lor.lhs.false, label %land.rhs, !llvm.loop !471
 
@@ -67030,16 +67030,16 @@ land.rhs.i.i.i.lr.ph:                             ; preds = %_ZNK9hb_iter_tIN2OT
   br label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %land.rhs.i.i.i.lr.ph, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit
-  %ref.tmp25.sroa.26.093 = phi i32 [ %ref.tmp26.sroa.9.0.copyload, %land.rhs.i.i.i.lr.ph ], [ %dec.i.i.i.i.i.i.i, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ]
-  %ref.tmp25.sroa.2465.092 = phi ptr [ %ref.tmp26.sroa.8.0.copyload, %land.rhs.i.i.i.lr.ph ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ]
+  %ref.tmp25.sroa.8.093 = phi i32 [ %ref.tmp26.sroa.4.0.copyload, %land.rhs.i.i.i.lr.ph ], [ %ref.tmp25.sroa.8.2, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ]
+  %ref.tmp25.sroa.15.092 = phi i32 [ %ref.tmp26.sroa.5.0.copyload, %land.rhs.i.i.i.lr.ph ], [ %ref.tmp25.sroa.15.2, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ]
   %ref.tmp25.sroa.19.091 = phi i32 [ %ref.tmp26.sroa.6.0.copyload, %land.rhs.i.i.i.lr.ph ], [ %ref.tmp25.sroa.19.1, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ]
-  %ref.tmp25.sroa.15.090 = phi i32 [ %ref.tmp26.sroa.5.0.copyload, %land.rhs.i.i.i.lr.ph ], [ %ref.tmp25.sroa.15.2, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ]
-  %ref.tmp25.sroa.8.089 = phi i32 [ %ref.tmp26.sroa.4.0.copyload, %land.rhs.i.i.i.lr.ph ], [ %ref.tmp25.sroa.8.2, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ]
+  %ref.tmp25.sroa.2465.090 = phi ptr [ %ref.tmp26.sroa.8.0.copyload, %land.rhs.i.i.i.lr.ph ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ]
+  %ref.tmp25.sroa.26.089 = phi i32 [ %ref.tmp26.sroa.9.0.copyload, %land.rhs.i.i.i.lr.ph ], [ %dec.i.i.i.i.i.i.i, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ]
   br i1 %switch.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS2_9GPOS_impl7PairSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE9hb_pair_tIjRSF_EEdeEv.exit.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  %idxprom.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %ref.tmp25.sroa.8.089 to i64
+  %idxprom.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %ref.tmp25.sroa.8.093 to i64
   %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i.i
   %37 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 1
   %conv.i.i.i.i.i.i.i.i.i.i.i = zext i8 %37 to i32
@@ -67149,7 +67149,7 @@ while.body.i.i.i:                                 ; preds = %"_ZNK4$_14clIRK8hb_
   ]
 
 sw.bb.i:                                          ; preds = %while.body.i.i.i
-  %inc.i.i = add i32 %ref.tmp25.sroa.8.089, 1
+  %inc.i.i = add i32 %ref.tmp25.sroa.8.093, 1
   br label %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit
 
 sw.bb2.i:                                         ; preds = %while.body.i.i.i
@@ -67159,12 +67159,12 @@ sw.bb2.i:                                         ; preds = %while.body.i.i.i
   %51 = load i8, ptr %arrayidx3.i.i.i4.i.i.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i40 = zext i8 %51 to i32
   %add.i.i.i.i.i41 = or disjoint i32 %shl.i.i.i.i.i38, %conv4.i.i.i.i.i40
-  %cmp.not.i.i.i = icmp ugt i32 %add.i.i.i.i.i41, %ref.tmp25.sroa.8.089
+  %cmp.not.i.i.i = icmp ugt i32 %add.i.i.i.i.i41, %ref.tmp25.sroa.8.093
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i46, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 if.end.i.i.i46:                                   ; preds = %sw.bb2.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  %idxprom.i.i.i = zext nneg i32 %ref.tmp25.sroa.8.089 to i64
+  %idxprom.i.i.i = zext nneg i32 %ref.tmp25.sroa.8.093 to i64
   %arrayidx.i.i.i = getelementptr inbounds [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %arrayZ.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
@@ -67182,7 +67182,7 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   br i1 %cmp.not.i.i, label %if.end29.i.i, label %if.then.i.i43
 
 if.then.i.i43:                                    ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
-  %inc.i2.i = add i32 %ref.tmp25.sroa.8.089, 1
+  %inc.i2.i = add i32 %ref.tmp25.sroa.8.093, 1
   %54 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i.i, align 1
   %conv.i.i.i1.i.i = zext i8 %54 to i32
   %shl.i.i.i2.i.i = shl nuw nsw i32 %conv.i.i.i1.i.i, 8
@@ -67210,23 +67210,23 @@ if.then5.i.i:                                     ; preds = %if.then.i.i43
   %59 = load i8, ptr %arrayidx3.i.i13.i.i, align 1
   %conv4.i.i14.i.i = zext i8 %59 to i32
   %add.i.i15.i.i = or disjoint i32 %shl.i.i12.i.i, %conv4.i.i14.i.i
-  %add.i.i45 = add i32 %ref.tmp25.sroa.15.090, 1
+  %add.i.i45 = add i32 %ref.tmp25.sroa.15.092, 1
   %cmp20.not.i.i = icmp eq i32 %add.i.i15.i.i, %add.i.i45
-  %spec.select = select i1 %cmp20.not.i.i, i32 %inc.i2.i, i32 %add.i.i.i5.i.i
-  %spec.select75 = select i1 %cmp20.not.i.i, i32 %add.i.i10.i.i, i32 0
+  %spec.select = select i1 %cmp20.not.i.i, i32 %add.i.i10.i.i, i32 0
+  %spec.select75 = select i1 %cmp20.not.i.i, i32 %inc.i2.i, i32 %add.i.i.i5.i.i
   br label %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit
 
 if.end29.i.i:                                     ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
-  %inc31.i.i = add i32 %ref.tmp25.sroa.15.090, 1
+  %inc31.i.i = add i32 %ref.tmp25.sroa.15.092, 1
   %inc33.i.i = add nuw nsw i32 %ref.tmp25.sroa.19.091, 1
   br label %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit
 
 _ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit: ; preds = %if.then5.i.i, %if.then.i.i43, %if.end29.i.i, %while.body.i.i.i, %sw.bb.i
-  %ref.tmp25.sroa.8.2 = phi i32 [ %ref.tmp25.sroa.8.089, %while.body.i.i.i ], [ %inc.i.i, %sw.bb.i ], [ %ref.tmp25.sroa.8.089, %if.end29.i.i ], [ %inc.i2.i, %if.then.i.i43 ], [ %spec.select, %if.then5.i.i ]
-  %ref.tmp25.sroa.15.2 = phi i32 [ %ref.tmp25.sroa.15.090, %while.body.i.i.i ], [ %ref.tmp25.sroa.15.090, %sw.bb.i ], [ %inc31.i.i, %if.end29.i.i ], [ %ref.tmp25.sroa.15.090, %if.then.i.i43 ], [ %add.i.i15.i.i, %if.then5.i.i ]
-  %ref.tmp25.sroa.19.1 = phi i32 [ %ref.tmp25.sroa.19.091, %while.body.i.i.i ], [ %ref.tmp25.sroa.19.091, %sw.bb.i ], [ %inc33.i.i, %if.end29.i.i ], [ 0, %if.then.i.i43 ], [ %spec.select75, %if.then5.i.i ]
-  %dec.i.i.i.i.i.i.i = add i32 %ref.tmp25.sroa.26.093, -1
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp25.sroa.2465.092, i64 2
+  %ref.tmp25.sroa.19.1 = phi i32 [ %ref.tmp25.sroa.19.091, %while.body.i.i.i ], [ %ref.tmp25.sroa.19.091, %sw.bb.i ], [ %inc33.i.i, %if.end29.i.i ], [ 0, %if.then.i.i43 ], [ %spec.select, %if.then5.i.i ]
+  %ref.tmp25.sroa.15.2 = phi i32 [ %ref.tmp25.sroa.15.092, %while.body.i.i.i ], [ %ref.tmp25.sroa.15.092, %sw.bb.i ], [ %inc31.i.i, %if.end29.i.i ], [ %ref.tmp25.sroa.15.092, %if.then.i.i43 ], [ %add.i.i15.i.i, %if.then5.i.i ]
+  %ref.tmp25.sroa.8.2 = phi i32 [ %ref.tmp25.sroa.8.093, %while.body.i.i.i ], [ %inc.i.i, %sw.bb.i ], [ %ref.tmp25.sroa.8.093, %if.end29.i.i ], [ %inc.i2.i, %if.then.i.i43 ], [ %spec.select75, %if.then5.i.i ]
+  %dec.i.i.i.i.i.i.i = add i32 %ref.tmp25.sroa.26.089, -1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp25.sroa.2465.090, i64 2
   %60 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i.i, align 1
   %conv.i.i.i2.i.i.i.i.i.i.i = zext i8 %60 to i32
   %shl.i.i.i3.i.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i2.i.i.i.i.i.i.i, 8
@@ -67239,11 +67239,11 @@ _ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit: ; preds = %if.then5.i.i, %
   br i1 %or.cond.i.i.i, label %land.rhs.i.i.i, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i, !llvm.loop !483
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i: ; preds = %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.thr_comm.i.i.i", %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.i.i.i", %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader
-  %ref.tmp25.sroa.8.0.lcssa = phi i32 [ %ref.tmp26.sroa.4.0.copyload, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader ], [ %ref.tmp25.sroa.8.2, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ], [ %ref.tmp25.sroa.8.089, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.thr_comm.i.i.i" ], [ %ref.tmp25.sroa.8.089, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.i.i.i" ]
-  %ref.tmp25.sroa.15.0.lcssa = phi i32 [ %ref.tmp26.sroa.5.0.copyload, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader ], [ %ref.tmp25.sroa.15.2, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ], [ %ref.tmp25.sroa.15.090, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.thr_comm.i.i.i" ], [ %ref.tmp25.sroa.15.090, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.i.i.i" ]
+  %ref.tmp25.sroa.26.0.lcssa = phi i32 [ %ref.tmp26.sroa.9.0.copyload, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader ], [ %dec.i.i.i.i.i.i.i, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ], [ %ref.tmp25.sroa.26.089, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.thr_comm.i.i.i" ], [ %ref.tmp25.sroa.26.089, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.i.i.i" ]
+  %ref.tmp25.sroa.2465.0.lcssa = phi ptr [ %ref.tmp26.sroa.8.0.copyload, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ], [ %ref.tmp25.sroa.2465.090, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.thr_comm.i.i.i" ], [ %ref.tmp25.sroa.2465.090, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.i.i.i" ]
   %ref.tmp25.sroa.19.0.lcssa = phi i32 [ %ref.tmp26.sroa.6.0.copyload, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader ], [ %ref.tmp25.sroa.19.1, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ], [ %ref.tmp25.sroa.19.091, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.thr_comm.i.i.i" ], [ %ref.tmp25.sroa.19.091, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.i.i.i" ]
-  %ref.tmp25.sroa.2465.0.lcssa = phi ptr [ %ref.tmp26.sroa.8.0.copyload, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ], [ %ref.tmp25.sroa.2465.092, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.thr_comm.i.i.i" ], [ %ref.tmp25.sroa.2465.092, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.i.i.i" ]
-  %ref.tmp25.sroa.26.0.lcssa = phi i32 [ %ref.tmp26.sroa.9.0.copyload, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader ], [ %dec.i.i.i.i.i.i.i, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ], [ %ref.tmp25.sroa.26.093, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.thr_comm.i.i.i" ], [ %ref.tmp25.sroa.26.093, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.i.i.i" ]
+  %ref.tmp25.sroa.15.0.lcssa = phi i32 [ %ref.tmp26.sroa.5.0.copyload, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader ], [ %ref.tmp25.sroa.15.2, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ], [ %ref.tmp25.sroa.15.092, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.thr_comm.i.i.i" ], [ %ref.tmp25.sroa.15.092, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.i.i.i" ]
+  %ref.tmp25.sroa.8.0.lcssa = phi i32 [ %ref.tmp26.sroa.4.0.copyload, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader ], [ %ref.tmp25.sroa.8.2, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ], [ %ref.tmp25.sroa.8.093, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.thr_comm.i.i.i" ], [ %ref.tmp25.sroa.8.093, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.i.i.i" ]
   %cond.i.i.i.i.i.i = icmp eq i32 %ref.tmp26.sroa.0.0.copyload, 1
   %valueFormat.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %arrayZ.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp26.sroa.3.0.copyload, i64 4
@@ -67263,11 +67263,11 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.l
   br i1 %or.cond.us.i9.i, label %for.body.us.i.i, label %return
 
 for.body.us.i.i:                                  ; preds = %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.split.us.us.i.i"
-  %it.sroa.19.030.us.i14.i = phi i32 [ %it.sroa.19.3.us.us.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.split.us.us.i.i" ], [ %ref.tmp25.sroa.15.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ]
-  %it.sroa.10.031.us.i13.i = phi i32 [ %it.sroa.10.3.us.us.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.split.us.us.i.i" ], [ %ref.tmp25.sroa.8.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ]
-  %it.sroa.23.032.us.i12.i = phi i32 [ %it.sroa.23.2.us.us.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.split.us.us.i.i" ], [ %ref.tmp25.sroa.19.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ]
-  %it.sroa.2817.033.us.i11.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.us.us.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.split.us.us.i.i" ], [ %ref.tmp25.sroa.2465.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ]
-  %it.sroa.31.034.us.i10.i = phi i32 [ %dec.i.i.i.i.i.i.i.i.i.i.us.us.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.split.us.us.i.i" ], [ %ref.tmp25.sroa.26.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ]
+  %it.sroa.31.031.us.i14.i = phi i32 [ %dec.i.i.i.i.i.i.i.i.i.i.us.us.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.split.us.us.i.i" ], [ %ref.tmp25.sroa.26.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ]
+  %it.sroa.2817.032.us.i13.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.us.us.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.split.us.us.i.i" ], [ %ref.tmp25.sroa.2465.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ]
+  %it.sroa.23.033.us.i12.i = phi i32 [ %it.sroa.23.2.us.us.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.split.us.us.i.i" ], [ %ref.tmp25.sroa.19.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ]
+  %it.sroa.19.034.us.i11.i = phi i32 [ %it.sroa.19.3.us.us.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.split.us.us.i.i" ], [ %ref.tmp25.sroa.15.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ]
+  %it.sroa.10.035.us.i10.i = phi i32 [ %it.sroa.10.3.us.us.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEppEv.exit.split.us.us.i.i" ], [ %ref.tmp25.sroa.8.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ]
   br i1 %cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.us.i.i, label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEdeEv.exit.us.i.i"
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.us.i.i:          ; preds = %for.body.us.i.i
@@ -67275,8 +67275,8 @@ if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.us.i.i:          ; preds = %for.body.us.i.i
   br label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEdeEv.exit.us.i.i"
 
 "_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEdeEv.exit.us.i.i": ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.us.i.i, %for.body.us.i.i
-  %call2.val.i.i.us.i.i = load i8, ptr %it.sroa.2817.033.us.i11.i, align 1
-  %64 = getelementptr i8, ptr %it.sroa.2817.033.us.i11.i, i64 1
+  %call2.val.i.i.us.i.i = load i8, ptr %it.sroa.2817.032.us.i13.i, align 1
+  %64 = getelementptr i8, ptr %it.sroa.2817.032.us.i13.i, i64 1
   %call2.val2.i.i.us.i.i = load i8, ptr %64, align 1
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.us.i.i = zext i8 %call2.val.i.i.us.i.i to i32
   %shl.i.i.i.i.i.i.i.i.i.i.i.i.us.i.i = shl nuw nsw i32 %conv.i.i.i.i.i.i.i.i.i.i.i.i.us.i.i, 8
@@ -67290,11 +67290,11 @@ if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.us.i.i:          ; preds = %for.body.us.i.i
   br i1 %call2.i.i.i.i.i.i.i.us.i.i, label %return, label %do.body.i.i.i.i.i.i.us.us.i.i
 
 do.body.i.i.i.i.i.i.us.us.i.i:                    ; preds = %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEdeEv.exit.us.i.i", %do.body.i.i.i.i.i.i.us.us.i.i.backedge
-  %it.sroa.19.1.us.us.i.i = phi i32 [ %it.sroa.19.3.us.us.i.i, %do.body.i.i.i.i.i.i.us.us.i.i.backedge ], [ %it.sroa.19.030.us.i14.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEdeEv.exit.us.i.i" ]
-  %it.sroa.10.1.us.us.i.i = phi i32 [ %it.sroa.10.3.us.us.i.i, %do.body.i.i.i.i.i.i.us.us.i.i.backedge ], [ %it.sroa.10.031.us.i13.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEdeEv.exit.us.i.i" ]
-  %it.sroa.23.1.us.us.i.i = phi i32 [ %it.sroa.23.2.us.us.i.i, %do.body.i.i.i.i.i.i.us.us.i.i.backedge ], [ %it.sroa.23.032.us.i12.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEdeEv.exit.us.i.i" ]
-  %it.sroa.2817.1.us.us.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.us.us.i.i, %do.body.i.i.i.i.i.i.us.us.i.i.backedge ], [ %it.sroa.2817.033.us.i11.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEdeEv.exit.us.i.i" ]
-  %it.sroa.31.1.us.us.i.i = phi i32 [ %dec.i.i.i.i.i.i.i.i.i.i.us.us.i.i, %do.body.i.i.i.i.i.i.us.us.i.i.backedge ], [ %it.sroa.31.034.us.i10.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEdeEv.exit.us.i.i" ]
+  %it.sroa.31.1.us.us.i.i = phi i32 [ %dec.i.i.i.i.i.i.i.i.i.i.us.us.i.i, %do.body.i.i.i.i.i.i.us.us.i.i.backedge ], [ %it.sroa.31.031.us.i14.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEdeEv.exit.us.i.i" ]
+  %it.sroa.2817.1.us.us.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.us.us.i.i, %do.body.i.i.i.i.i.i.us.us.i.i.backedge ], [ %it.sroa.2817.032.us.i13.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEdeEv.exit.us.i.i" ]
+  %it.sroa.23.1.us.us.i.i = phi i32 [ %it.sroa.23.2.us.us.i.i, %do.body.i.i.i.i.i.i.us.us.i.i.backedge ], [ %it.sroa.23.033.us.i12.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEdeEv.exit.us.i.i" ]
+  %it.sroa.19.1.us.us.i.i = phi i32 [ %it.sroa.19.3.us.us.i.i, %do.body.i.i.i.i.i.i.us.us.i.i.backedge ], [ %it.sroa.19.034.us.i11.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEdeEv.exit.us.i.i" ]
+  %it.sroa.10.1.us.us.i.i = phi i32 [ %it.sroa.10.3.us.us.i.i, %do.body.i.i.i.i.i.i.us.us.i.i.backedge ], [ %it.sroa.10.035.us.i10.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSQ_0EEZNKSA_16PairPosFormat1_3ISC_E10intersectsEPSL_EUlRSH_E_LSV_0ELSQ_0EEbEdeEv.exit.us.i.i" ]
   switch i32 %ref.tmp26.sroa.0.0.copyload, label %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.us.us.i.i [
     i32 1, label %sw.bb.i.us.us.i.i
     i32 2, label %sw.bb2.i.us.us.i.i
@@ -67360,8 +67360,8 @@ if.then5.i.i.us.us.i.i:                           ; preds = %if.then.i.i.us.us.i
   %add.i.i15.i.i.us.us.i.i = or disjoint i32 %shl.i.i12.i.i.us.us.i.i, %conv4.i.i14.i.i.us.us.i.i
   %add.i.i.us.us.i.i = add i32 %it.sroa.19.1.us.us.i.i, 1
   %cmp20.not.i.i.us.us.i.i = icmp eq i32 %add.i.i15.i.i.us.us.i.i, %add.i.i.us.us.i.i
-  %spec.select.us.us.i.i = select i1 %cmp20.not.i.i.us.us.i.i, i32 %inc.i2.i.us.us.i.i, i32 %add.i.i.i5.i.i.us.us.i.i
-  %spec.select22.us.us.i.i = select i1 %cmp20.not.i.i.us.us.i.i, i32 %add.i.i10.i.i.us.us.i.i, i32 0
+  %spec.select.us.us.i.i = select i1 %cmp20.not.i.i.us.us.i.i, i32 %add.i.i10.i.i.us.us.i.i, i32 0
+  %spec.select22.us.us.i.i = select i1 %cmp20.not.i.i.us.us.i.i, i32 %inc.i2.i.us.us.i.i, i32 %add.i.i.i5.i.i.us.us.i.i
   br label %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.us.us.i.i
 
 if.end29.i.i.us.us.i.i:                           ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i.us.us.i.i
@@ -67374,9 +67374,9 @@ sw.bb.i.us.us.i.i:                                ; preds = %do.body.i.i.i.i.i.i
   br label %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.us.us.i.i
 
 _ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit.us.us.i.i: ; preds = %sw.bb.i.us.us.i.i, %if.end29.i.i.us.us.i.i, %if.then5.i.i.us.us.i.i, %if.then.i.i.us.us.i.i, %do.body.i.i.i.i.i.i.us.us.i.i
+  %it.sroa.23.2.us.us.i.i = phi i32 [ %it.sroa.23.1.us.us.i.i, %do.body.i.i.i.i.i.i.us.us.i.i ], [ %it.sroa.23.1.us.us.i.i, %sw.bb.i.us.us.i.i ], [ %inc33.i.i.us.us.i.i, %if.end29.i.i.us.us.i.i ], [ 0, %if.then.i.i.us.us.i.i ], [ %spec.select.us.us.i.i, %if.then5.i.i.us.us.i.i ]
   %it.sroa.19.3.us.us.i.i = phi i32 [ %it.sroa.19.1.us.us.i.i, %do.body.i.i.i.i.i.i.us.us.i.i ], [ %it.sroa.19.1.us.us.i.i, %sw.bb.i.us.us.i.i ], [ %inc31.i.i.us.us.i.i, %if.end29.i.i.us.us.i.i ], [ %it.sroa.19.1.us.us.i.i, %if.then.i.i.us.us.i.i ], [ %add.i.i15.i.i.us.us.i.i, %if.then5.i.i.us.us.i.i ]
-  %it.sroa.10.3.us.us.i.i = phi i32 [ %it.sroa.10.1.us.us.i.i, %do.body.i.i.i.i.i.i.us.us.i.i ], [ %inc.i.i.us.us.i.i, %sw.bb.i.us.us.i.i ], [ %it.sroa.10.1.us.us.i.i, %if.end29.i.i.us.us.i.i ], [ %inc.i2.i.us.us.i.i, %if.then.i.i.us.us.i.i ], [ %spec.select.us.us.i.i, %if.then5.i.i.us.us.i.i ]
-  %it.sroa.23.2.us.us.i.i = phi i32 [ %it.sroa.23.1.us.us.i.i, %do.body.i.i.i.i.i.i.us.us.i.i ], [ %it.sroa.23.1.us.us.i.i, %sw.bb.i.us.us.i.i ], [ %inc33.i.i.us.us.i.i, %if.end29.i.i.us.us.i.i ], [ 0, %if.then.i.i.us.us.i.i ], [ %spec.select22.us.us.i.i, %if.then5.i.i.us.us.i.i ]
+  %it.sroa.10.3.us.us.i.i = phi i32 [ %it.sroa.10.1.us.us.i.i, %do.body.i.i.i.i.i.i.us.us.i.i ], [ %inc.i.i.us.us.i.i, %sw.bb.i.us.us.i.i ], [ %it.sroa.10.1.us.us.i.i, %if.end29.i.i.us.us.i.i ], [ %inc.i2.i.us.us.i.i, %if.then.i.i.us.us.i.i ], [ %spec.select22.us.us.i.i, %if.then5.i.i.us.us.i.i ]
   %dec.i.i.i.i.i.i.i.i.i.i.us.us.i.i = add i32 %it.sroa.31.1.us.us.i.i, -1
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.us.us.i.i = getelementptr inbounds i8, ptr %it.sroa.2817.1.us.us.i.i, i64 2
   %75 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i.i, align 1
@@ -80602,9 +80602,9 @@ if.end.i:                                         ; preds = %sw.bb2
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.end22.i, %if.end.i
+  %glyph.0.i = phi ptr [ %add.ptr13.i, %if.end.i ], [ %glyph.1.i, %if.end22.i ]
   %coord_bytes.0.i = phi i32 [ 0, %if.end.i ], [ %add45.i, %if.end22.i ]
   %coords_with_flags.0.i = phi i32 [ 0, %if.end.i ], [ %add46.i, %if.end22.i ]
-  %glyph.0.i = phi ptr [ %add.ptr13.i, %if.end.i ], [ %glyph.1.i, %if.end22.i ]
   %cmp14.i = icmp ult ptr %glyph.0.i, %add.ptr.i
   br i1 %cmp14.i, label %while.body.i, label %while.end.i
 
@@ -80650,9 +80650,9 @@ if.end22.i:                                       ; preds = %if.end18.i, %while.
   br i1 %cmp47.not.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !519
 
 while.end.i:                                      ; preds = %if.end22.i, %while.cond.i
+  %glyph.2.i = phi ptr [ %glyph.1.i, %if.end22.i ], [ %glyph.0.i, %while.cond.i ]
   %coord_bytes.1.i = phi i32 [ %add45.i, %if.end22.i ], [ %coord_bytes.0.i, %while.cond.i ]
   %coords_with_flags.1.i = phi i32 [ %add46.i, %if.end22.i ], [ %coords_with_flags.0.i, %while.cond.i ]
-  %glyph.2.i = phi ptr [ %glyph.1.i, %if.end22.i ], [ %glyph.0.i, %while.cond.i ]
   %cmp50.not.i = icmp eq i32 %coords_with_flags.1.i, %add.i
   br i1 %cmp50.not.i, label %if.end52.i, label %return
 
@@ -84131,9 +84131,9 @@ for.body.i.i.preheader:                           ; preds = %_ZNK9hb_iter_tIN2OT
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_8LigGlyphENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSO_0EE12hb_partial_tILj2EPK4$_39PKNS3_12LigCaretListEELST_0ELSO_0EERKSA_EppEv.exit.i.i"
   %49 = phi i32 [ %dec.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_8LigGlyphENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSO_0EE12hb_partial_tILj2EPK4$_39PKNS3_12LigCaretListEELST_0ELSO_0EERKSA_EppEv.exit.i.i" ], [ %ref.tmp3.sroa.33.sroa.0.0.lcssa, %for.body.i.i.preheader ]
   %50 = phi i32 [ %91, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_8LigGlyphENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSO_0EE12hb_partial_tILj2EPK4$_39PKNS3_12LigCaretListEELST_0ELSO_0EERKSA_EppEv.exit.i.i" ], [ %ref.tmp3.sroa.10.0.lcssa, %for.body.i.i.preheader ]
-  %agg.tmp1.sroa.175.021.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_8LigGlyphENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSO_0EE12hb_partial_tILj2EPK4$_39PKNS3_12LigCaretListEELST_0ELSO_0EERKSA_EppEv.exit.i.i" ], [ %ref.tmp3.sroa.30.0.lcssa, %for.body.i.i.preheader ]
-  %agg.tmp1.sroa.9.020.i = phi i32 [ %agg.tmp1.sroa.9.3.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_8LigGlyphENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSO_0EE12hb_partial_tILj2EPK4$_39PKNS3_12LigCaretListEELST_0ELSO_0EERKSA_EppEv.exit.i.i" ], [ %ref.tmp3.sroa.18.0.lcssa, %for.body.i.i.preheader ]
-  %agg.tmp1.sroa.13.019.i = phi i32 [ %agg.tmp1.sroa.13.2.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_8LigGlyphENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSO_0EE12hb_partial_tILj2EPK4$_39PKNS3_12LigCaretListEELST_0ELSO_0EERKSA_EppEv.exit.i.i" ], [ %ref.tmp3.sroa.23.0.lcssa, %for.body.i.i.preheader ]
+  %agg.tmp1.sroa.9.022.i = phi i32 [ %agg.tmp1.sroa.9.3.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_8LigGlyphENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSO_0EE12hb_partial_tILj2EPK4$_39PKNS3_12LigCaretListEELST_0ELSO_0EERKSA_EppEv.exit.i.i" ], [ %ref.tmp3.sroa.18.0.lcssa, %for.body.i.i.preheader ]
+  %agg.tmp1.sroa.13.021.i = phi i32 [ %agg.tmp1.sroa.13.2.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_8LigGlyphENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSO_0EE12hb_partial_tILj2EPK4$_39PKNS3_12LigCaretListEELST_0ELSO_0EERKSA_EppEv.exit.i.i" ], [ %ref.tmp3.sroa.23.0.lcssa, %for.body.i.i.preheader ]
+  %agg.tmp1.sroa.175.019.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_8LigGlyphENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSO_0EE12hb_partial_tILj2EPK4$_39PKNS3_12LigCaretListEELST_0ELSO_0EERKSA_EppEv.exit.i.i" ], [ %ref.tmp3.sroa.30.0.lcssa, %for.body.i.i.preheader ]
   br i1 %cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_8LigGlyphENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSO_0EE12hb_partial_tILj2EPK4$_39PKNS3_12LigCaretListEELST_0ELSO_0EERKSA_EdeEv.exit.i.i"
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %for.body.i.i
@@ -84141,8 +84141,8 @@ if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %for.body.i.i
   br label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_8LigGlyphENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSO_0EE12hb_partial_tILj2EPK4$_39PKNS3_12LigCaretListEELST_0ELSO_0EERKSA_EdeEv.exit.i.i"
 
 "_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_8LigGlyphENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSO_0EE12hb_partial_tILj2EPK4$_39PKNS3_12LigCaretListEELST_0ELSO_0EERKSA_EdeEv.exit.i.i": ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i
-  %call2.val.i.i.i.i = load i8, ptr %agg.tmp1.sroa.175.021.i, align 1
-  %51 = getelementptr i8, ptr %agg.tmp1.sroa.175.021.i, i64 1
+  %call2.val.i.i.i.i = load i8, ptr %agg.tmp1.sroa.175.019.i, align 1
+  %51 = getelementptr i8, ptr %agg.tmp1.sroa.175.019.i, i64 1
   %call2.val1.i.i.i.i = load i8, ptr %51, align 1
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i2.i.i.i.i = zext i8 %call2.val.i.i.i.i to i32
   %shl.i.i.i.i.i.i.i.i.i.i.i.i.i3.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i2.i.i.i.i, 8
@@ -84373,10 +84373,10 @@ do.body.i.i.i.i.i.i.i.i.preheader:                ; preds = %_ZNK2OT10CaretValue
   br label %do.body.i.i.i.i.i.i.i.i
 
 do.body.i.i.i.i.i.i.i.i:                          ; preds = %do.body.i.i.i.i.i.i.i.i.backedge, %do.body.i.i.i.i.i.i.i.i.preheader
-  %agg.tmp1.sroa.13.1.i = phi i32 [ %agg.tmp1.sroa.13.019.i, %do.body.i.i.i.i.i.i.i.i.preheader ], [ %agg.tmp1.sroa.13.2.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
-  %agg.tmp1.sroa.9.1.i = phi i32 [ %agg.tmp1.sroa.9.020.i, %do.body.i.i.i.i.i.i.i.i.preheader ], [ %agg.tmp1.sroa.9.3.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
+  %agg.tmp1.sroa.13.1.i = phi i32 [ %agg.tmp1.sroa.13.021.i, %do.body.i.i.i.i.i.i.i.i.preheader ], [ %agg.tmp1.sroa.13.2.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
+  %agg.tmp1.sroa.9.1.i = phi i32 [ %agg.tmp1.sroa.9.022.i, %do.body.i.i.i.i.i.i.i.i.preheader ], [ %agg.tmp1.sroa.9.3.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
   %78 = phi i32 [ %50, %do.body.i.i.i.i.i.i.i.i.preheader ], [ %91, %do.body.i.i.i.i.i.i.i.i.backedge ]
-  %79 = phi ptr [ %agg.tmp1.sroa.175.021.i, %do.body.i.i.i.i.i.i.i.i.preheader ], [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
+  %79 = phi ptr [ %agg.tmp1.sroa.175.019.i, %do.body.i.i.i.i.i.i.i.i.preheader ], [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
   %80 = phi i32 [ %49, %do.body.i.i.i.i.i.i.i.i.preheader ], [ %dec.i.i.i.i.i.i.i.i.i.i.i.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
   switch i32 %add.i.i.i.i, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i8.i.i [
     i32 1, label %sw.bb.i.i.i
@@ -86340,9 +86340,9 @@ for.body.i.i.preheader:                           ; preds = %_ZNK9hb_iter_tIN2OT
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EppEv.exit.i.i"
   %34 = phi i32 [ %dec.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EppEv.exit.i.i" ], [ %ref.tmp.sroa.26.0.lcssa, %for.body.i.i.preheader ]
   %35 = phi i32 [ %50, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EppEv.exit.i.i" ], [ %ref.tmp.sroa.8.0.lcssa, %for.body.i.i.preheader ]
-  %agg.tmp1.sroa.175.019.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EppEv.exit.i.i" ], [ %ref.tmp.sroa.2443.0.lcssa, %for.body.i.i.preheader ]
-  %agg.tmp1.sroa.9.018.i = phi i32 [ %agg.tmp1.sroa.9.3.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EppEv.exit.i.i" ], [ %ref.tmp.sroa.15.0.lcssa, %for.body.i.i.preheader ]
-  %agg.tmp1.sroa.13.017.i = phi i32 [ %agg.tmp1.sroa.13.2.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EppEv.exit.i.i" ], [ %ref.tmp.sroa.19.0.lcssa, %for.body.i.i.preheader ]
+  %agg.tmp1.sroa.9.020.i = phi i32 [ %agg.tmp1.sroa.9.3.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EppEv.exit.i.i" ], [ %ref.tmp.sroa.15.0.lcssa, %for.body.i.i.preheader ]
+  %agg.tmp1.sroa.13.019.i = phi i32 [ %agg.tmp1.sroa.13.2.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EppEv.exit.i.i" ], [ %ref.tmp.sroa.19.0.lcssa, %for.body.i.i.preheader ]
+  %agg.tmp1.sroa.175.017.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EppEv.exit.i.i" ], [ %ref.tmp.sroa.2443.0.lcssa, %for.body.i.i.preheader ]
   br i1 %cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EdeEv.exit.i.i"
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %for.body.i.i
@@ -86350,8 +86350,8 @@ if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %for.body.i.i
   br label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EdeEv.exit.i.i"
 
 "_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EdeEv.exit.i.i": ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i
-  %call2.val.i.i.i.i = load i8, ptr %agg.tmp1.sroa.175.019.i, align 1
-  %36 = getelementptr i8, ptr %agg.tmp1.sroa.175.019.i, i64 1
+  %call2.val.i.i.i.i = load i8, ptr %agg.tmp1.sroa.175.017.i, align 1
+  %36 = getelementptr i8, ptr %agg.tmp1.sroa.175.017.i, i64 1
   %call2.val1.i.i.i.i = load i8, ptr %36, align 1
   %conv.i.i.i.i.i.i.i.i.i.i.i.i.i2.i.i.i.i = zext i8 %call2.val.i.i.i.i to i32
   %shl.i.i.i.i.i.i.i.i.i.i.i.i.i3.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i.i.i.i.i.i.i.i.i.i2.i.i.i.i, 8
@@ -86365,10 +86365,10 @@ if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %for.body.i.i
   br label %do.body.i.i.i.i.i.i.i.i
 
 do.body.i.i.i.i.i.i.i.i:                          ; preds = %do.body.i.i.i.i.i.i.i.i.backedge, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EdeEv.exit.i.i"
-  %agg.tmp1.sroa.13.1.i = phi i32 [ %agg.tmp1.sroa.13.017.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EdeEv.exit.i.i" ], [ %agg.tmp1.sroa.13.2.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
-  %agg.tmp1.sroa.9.1.i = phi i32 [ %agg.tmp1.sroa.9.018.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EdeEv.exit.i.i" ], [ %agg.tmp1.sroa.9.3.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
+  %agg.tmp1.sroa.13.1.i = phi i32 [ %agg.tmp1.sroa.13.019.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EdeEv.exit.i.i" ], [ %agg.tmp1.sroa.13.2.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
+  %agg.tmp1.sroa.9.1.i = phi i32 [ %agg.tmp1.sroa.9.020.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EdeEv.exit.i.i" ], [ %agg.tmp1.sroa.9.3.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
   %37 = phi i32 [ %35, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EdeEv.exit.i.i" ], [ %50, %do.body.i.i.i.i.i.i.i.i.backedge ]
-  %38 = phi ptr [ %agg.tmp1.sroa.175.019.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EdeEv.exit.i.i" ], [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
+  %38 = phi ptr [ %agg.tmp1.sroa.175.017.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EdeEv.exit.i.i" ], [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
   %39 = phi i32 [ %34, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS4_9GPOS_impl7PairSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSR_0EE12hb_partial_tILj2EPK4$_39PKNSA_16PairPosFormat1_3ISC_EEELSW_0ELSR_0EERKSD_EdeEv.exit.i.i" ], [ %dec.i.i.i.i.i.i.i.i.i.i.i.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
   switch i32 %ref.tmp5.sroa.0.0.copyload, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i9.i.i [
     i32 1, label %sw.bb.i.i.i
@@ -89038,9 +89038,9 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph
 for.body.i.i:                                     ; preds = %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl15EntryExitRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSL_0EERSB_EppEv.exit.i.i"
   %49 = phi i32 [ %dec.i.i.i.i.i.i.i.i.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl15EntryExitRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSL_0EERSB_EppEv.exit.i.i" ], [ %ref.tmp2.sroa.33.sroa.0.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i ]
   %50 = phi i32 [ %72, %"_ZNR9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl15EntryExitRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSL_0EERSB_EppEv.exit.i.i" ], [ %ref.tmp2.sroa.10.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i ]
-  %agg.tmp1.sroa.175.018.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl15EntryExitRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSL_0EERSB_EppEv.exit.i.i" ], [ %ref.tmp2.sroa.30.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i ]
-  %agg.tmp1.sroa.9.017.i = phi i32 [ %agg.tmp1.sroa.9.3.i, %"_ZNR9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl15EntryExitRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSL_0EERSB_EppEv.exit.i.i" ], [ %ref.tmp2.sroa.18.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i ]
-  %agg.tmp1.sroa.13.016.i = phi i32 [ %agg.tmp1.sroa.13.2.i, %"_ZNR9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl15EntryExitRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSL_0EERSB_EppEv.exit.i.i" ], [ %ref.tmp2.sroa.23.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i ]
+  %agg.tmp1.sroa.9.018.i = phi i32 [ %agg.tmp1.sroa.9.3.i, %"_ZNR9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl15EntryExitRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSL_0EERSB_EppEv.exit.i.i" ], [ %ref.tmp2.sroa.18.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i ]
+  %agg.tmp1.sroa.13.017.i = phi i32 [ %agg.tmp1.sroa.13.2.i, %"_ZNR9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl15EntryExitRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSL_0EERSB_EppEv.exit.i.i" ], [ %ref.tmp2.sroa.23.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i ]
+  %agg.tmp1.sroa.175.016.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl15EntryExitRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSL_0EERSB_EppEv.exit.i.i" ], [ %ref.tmp2.sroa.30.0.lcssa, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i ]
   br i1 %cond.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl15EntryExitRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSL_0EERSB_EdeEv.exit.i.i"
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i
@@ -89048,10 +89048,10 @@ if.end.i.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i
   br label %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl15EntryExitRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSL_0EERSB_EdeEv.exit.i.i"
 
 "_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl15EntryExitRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSL_0EERSB_EdeEv.exit.i.i": ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i
-  %51 = load i8, ptr %agg.tmp1.sroa.175.018.i, align 1
+  %51 = load i8, ptr %agg.tmp1.sroa.175.016.i, align 1
   %conv.i.i.i.i.i.i.i.i.i.i.i12 = zext i8 %51 to i32
   %shl.i.i.i.i.i.i.i.i.i.i.i13 = shl nuw nsw i32 %conv.i.i.i.i.i.i.i.i.i.i.i12, 8
-  %arrayidx3.i.i.i.i.i.i.i.i.i.i.i14 = getelementptr inbounds i8, ptr %agg.tmp1.sroa.175.018.i, i64 1
+  %arrayidx3.i.i.i.i.i.i.i.i.i.i.i14 = getelementptr inbounds i8, ptr %agg.tmp1.sroa.175.016.i, i64 1
   %52 = load i8, ptr %arrayidx3.i.i.i.i.i.i.i.i.i.i.i14, align 1
   %conv4.i.i.i.i.i.i.i.i.i.i.i15 = zext i8 %52 to i32
   %add.i.i.i.i.i.i.i.i.i.i.i16 = or disjoint i32 %shl.i.i.i.i.i.i.i.i.i.i.i13, %conv4.i.i.i.i.i.i.i.i.i.i.i15
@@ -89074,11 +89074,11 @@ sw.bb2.i.i.i.i.i.i.i:                             ; preds = %"_ZN9hb_iter_tI13hb
   br label %_ZNK2OT6Layout9GPOS_impl6Anchor25collect_variation_indicesEPNS_38hb_collect_variation_indices_context_tE.exit.i.i.i.i.i.i
 
 _ZNK2OT6Layout9GPOS_impl6Anchor25collect_variation_indicesEPNS_38hb_collect_variation_indices_context_tE.exit.i.i.i.i.i.i: ; preds = %sw.bb2.i.i.i.i.i.i.i, %"_ZN9hb_iter_tI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl15EntryExitRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSL_0EERSB_EdeEv.exit.i.i"
-  %exitAnchor.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.sroa.175.018.i, i64 2
+  %exitAnchor.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.sroa.175.016.i, i64 2
   %55 = load i8, ptr %exitAnchor.i.i.i.i.i.i, align 1
   %conv.i.i.i.i.i2.i.i.i.i.i.i = zext i8 %55 to i32
   %shl.i.i.i.i.i3.i.i.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i.i2.i.i.i.i.i.i, 8
-  %arrayidx3.i.i.i.i.i4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.sroa.175.018.i, i64 3
+  %arrayidx3.i.i.i.i.i4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.sroa.175.016.i, i64 3
   %56 = load i8, ptr %arrayidx3.i.i.i.i.i4.i.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i5.i.i.i.i.i.i = zext i8 %56 to i32
   %add.i.i.i.i.i6.i.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i3.i.i.i.i.i.i, %conv4.i.i.i.i.i5.i.i.i.i.i.i
@@ -89104,10 +89104,10 @@ do.body.i.i.i.i.i.i.preheader:                    ; preds = %sw.bb2.i17.i.i.i.i.
   br label %do.body.i.i.i.i.i.i
 
 do.body.i.i.i.i.i.i:                              ; preds = %do.body.i.i.i.i.i.i.backedge, %do.body.i.i.i.i.i.i.preheader
-  %agg.tmp1.sroa.13.1.i = phi i32 [ %agg.tmp1.sroa.13.016.i, %do.body.i.i.i.i.i.i.preheader ], [ %agg.tmp1.sroa.13.2.i, %do.body.i.i.i.i.i.i.backedge ]
-  %agg.tmp1.sroa.9.1.i = phi i32 [ %agg.tmp1.sroa.9.017.i, %do.body.i.i.i.i.i.i.preheader ], [ %agg.tmp1.sroa.9.3.i, %do.body.i.i.i.i.i.i.backedge ]
+  %agg.tmp1.sroa.13.1.i = phi i32 [ %agg.tmp1.sroa.13.017.i, %do.body.i.i.i.i.i.i.preheader ], [ %agg.tmp1.sroa.13.2.i, %do.body.i.i.i.i.i.i.backedge ]
+  %agg.tmp1.sroa.9.1.i = phi i32 [ %agg.tmp1.sroa.9.018.i, %do.body.i.i.i.i.i.i.preheader ], [ %agg.tmp1.sroa.9.3.i, %do.body.i.i.i.i.i.i.backedge ]
   %59 = phi i32 [ %50, %do.body.i.i.i.i.i.i.preheader ], [ %72, %do.body.i.i.i.i.i.i.backedge ]
-  %60 = phi ptr [ %agg.tmp1.sroa.175.018.i, %do.body.i.i.i.i.i.i.preheader ], [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %do.body.i.i.i.i.i.i.backedge ]
+  %60 = phi ptr [ %agg.tmp1.sroa.175.016.i, %do.body.i.i.i.i.i.i.preheader ], [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %do.body.i.i.i.i.i.i.backedge ]
   %61 = phi i32 [ %49, %do.body.i.i.i.i.i.i.preheader ], [ %dec.i.i.i.i.i.i.i.i.i.i, %do.body.i.i.i.i.i.i.backedge ]
   switch i32 %add.i.i.i.i, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i9.i.i [
     i32 1, label %sw.bb.i.i.i
@@ -90463,14 +90463,14 @@ land.rhs.i.i.i.lr.ph:                             ; preds = %_ZNK9hb_iter_tIN2OT
 land.rhs.i.i.i:                                   ; preds = %land.rhs.i.i.i.lr.ph, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit
   %ref.tmp2.sroa.26.070 = phi i32 [ %ref.tmp3.sroa.9.0.copyload, %land.rhs.i.i.i.lr.ph ], [ %dec.i.i.i.i.i.i.i, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ]
   %ref.tmp2.sroa.2443.069 = phi ptr [ %ref.tmp3.sroa.8.0.copyload, %land.rhs.i.i.i.lr.ph ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ]
-  %ref.tmp2.sroa.19.068 = phi i32 [ %ref.tmp3.sroa.6.0.copyload, %land.rhs.i.i.i.lr.ph ], [ %ref.tmp2.sroa.19.1, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ]
+  %ref.tmp2.sroa.8.068 = phi i32 [ %ref.tmp3.sroa.4.0.copyload, %land.rhs.i.i.i.lr.ph ], [ %ref.tmp2.sroa.8.2, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ]
   %ref.tmp2.sroa.15.067 = phi i32 [ %ref.tmp3.sroa.5.0.copyload, %land.rhs.i.i.i.lr.ph ], [ %ref.tmp2.sroa.15.2, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ]
-  %ref.tmp2.sroa.8.066 = phi i32 [ %ref.tmp3.sroa.4.0.copyload, %land.rhs.i.i.i.lr.ph ], [ %ref.tmp2.sroa.8.2, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ]
+  %ref.tmp2.sroa.19.066 = phi i32 [ %ref.tmp3.sroa.6.0.copyload, %land.rhs.i.i.i.lr.ph ], [ %ref.tmp2.sroa.19.1, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ]
   br i1 %switch.i.i.i, label %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i, label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_9GPOS_impl10MarkRecordEEE9hb_pair_tIjRS9_EEdeEv.exit.i.i.i
 
 _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i: ; preds = %land.rhs.i.i.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  %idxprom.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %ref.tmp2.sroa.8.066 to i64
+  %idxprom.i.i.i.i.i.i.i.i.i.i = zext nneg i32 %ref.tmp2.sroa.8.068 to i64
   %arrayidx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds [1 x %"struct.OT::HBGlyphID16"], ptr %arrayZ.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i.i.i.i.i.i
   %2 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i.i.i, align 1
   %conv.i.i.i.i.i.i.i.i.i.i.i = zext i8 %2 to i32
@@ -90482,7 +90482,7 @@ _ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.e
   br label %_ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_9GPOS_impl10MarkRecordEEE9hb_pair_tIjRS9_EEdeEv.exit.i.i.i
 
 _ZN9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_9GPOS_impl10MarkRecordEEE9hb_pair_tIjRS9_EEdeEv.exit.i.i.i: ; preds = %land.rhs.i.i.i, %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i
-  %retval.0.i.i.i.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i.i.i.i.i.i.i, %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i ], [ %ref.tmp2.sroa.19.068, %land.rhs.i.i.i ]
+  %retval.0.i.i.i.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i.i.i.i.i.i.i, %_ZNK2OT6Layout6Common17CoverageFormat1_3INS0_10SmallTypesEE6iter_t9get_glyphEv.exit.i.i.i.i.i.i.i.i ], [ %ref.tmp2.sroa.19.066, %land.rhs.i.i.i ]
   %shr.i.i.i.i.i.i.i.i.i.i.i.i = lshr i32 %retval.0.i.i.i.i.i.i.i.i, 9
   %4 = load atomic i32, ptr %last_page_lookup.i.i.i.i.i.i.i.i.i.i.i monotonic, align 8
   %5 = load i32, ptr %length.i.i.i.i.i.i.i.i.i.i.i, align 4
@@ -90580,7 +90580,7 @@ while.body.i.i.i:                                 ; preds = %"_ZNK4$_14clIRK8hb_
   ]
 
 sw.bb.i:                                          ; preds = %while.body.i.i.i
-  %inc.i.i24 = add i32 %ref.tmp2.sroa.8.066, 1
+  %inc.i.i24 = add i32 %ref.tmp2.sroa.8.068, 1
   br label %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit
 
 sw.bb2.i:                                         ; preds = %while.body.i.i.i
@@ -90590,12 +90590,12 @@ sw.bb2.i:                                         ; preds = %while.body.i.i.i
   %16 = load i8, ptr %arrayidx3.i.i.i4.i.i.i.i.i.i.i, align 1
   %conv4.i.i.i.i.i = zext i8 %16 to i32
   %add.i.i.i.i.i = or disjoint i32 %shl.i.i.i.i.i, %conv4.i.i.i.i.i
-  %cmp.not.i.i.i = icmp ugt i32 %add.i.i.i.i.i, %ref.tmp2.sroa.8.066
+  %cmp.not.i.i.i = icmp ugt i32 %add.i.i.i.i.i, %ref.tmp2.sroa.8.068
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %sw.bb2.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  %idxprom.i.i.i = zext nneg i32 %ref.tmp2.sroa.8.066 to i64
+  %idxprom.i.i.i = zext nneg i32 %ref.tmp2.sroa.8.068 to i64
   %arrayidx.i.i.i = getelementptr inbounds [1 x %"struct.OT::Layout::Common::RangeRecord"], ptr %arrayZ.i.i.i.i.i.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i
   br label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
 
@@ -90609,11 +90609,11 @@ _ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItL
   %18 = load i8, ptr %arrayidx3.i.i.i.i, align 1
   %conv4.i.i.i.i = zext i8 %18 to i32
   %add.i.i.i.i18 = or disjoint i32 %shl.i.i.i.i, %conv4.i.i.i.i
-  %cmp.not.i.i = icmp ult i32 %ref.tmp2.sroa.19.068, %add.i.i.i.i18
+  %cmp.not.i.i = icmp ult i32 %ref.tmp2.sroa.19.066, %add.i.i.i.i18
   br i1 %cmp.not.i.i, label %if.end29.i.i, label %if.then.i.i19
 
 if.then.i.i19:                                    ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
-  %inc.i2.i = add i32 %ref.tmp2.sroa.8.066, 1
+  %inc.i2.i = add i32 %ref.tmp2.sroa.8.068, 1
   %19 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i.i, align 1
   %conv.i.i.i1.i.i = zext i8 %19 to i32
   %shl.i.i.i2.i.i = shl nuw nsw i32 %conv.i.i.i1.i.i, 8
@@ -90643,19 +90643,19 @@ if.then5.i.i:                                     ; preds = %if.then.i.i19
   %add.i.i15.i.i = or disjoint i32 %shl.i.i12.i.i, %conv4.i.i14.i.i
   %add.i.i23 = add i32 %ref.tmp2.sroa.15.067, 1
   %cmp20.not.i.i = icmp eq i32 %add.i.i15.i.i, %add.i.i23
-  %spec.select = select i1 %cmp20.not.i.i, i32 %inc.i2.i, i32 %add.i.i.i5.i.i
-  %spec.select53 = select i1 %cmp20.not.i.i, i32 %add.i.i10.i.i, i32 0
+  %spec.select = select i1 %cmp20.not.i.i, i32 %add.i.i10.i.i, i32 0
+  %spec.select53 = select i1 %cmp20.not.i.i, i32 %inc.i2.i, i32 %add.i.i.i5.i.i
   br label %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit
 
 if.end29.i.i:                                     ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEEixEi.exit.i.i
   %inc31.i.i = add i32 %ref.tmp2.sroa.15.067, 1
-  %inc33.i.i = add nuw nsw i32 %ref.tmp2.sroa.19.068, 1
+  %inc33.i.i = add nuw nsw i32 %ref.tmp2.sroa.19.066, 1
   br label %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit
 
 _ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit: ; preds = %if.then5.i.i, %if.then.i.i19, %if.end29.i.i, %while.body.i.i.i, %sw.bb.i
-  %ref.tmp2.sroa.8.2 = phi i32 [ %ref.tmp2.sroa.8.066, %while.body.i.i.i ], [ %inc.i.i24, %sw.bb.i ], [ %ref.tmp2.sroa.8.066, %if.end29.i.i ], [ %inc.i2.i, %if.then.i.i19 ], [ %spec.select, %if.then5.i.i ]
+  %ref.tmp2.sroa.19.1 = phi i32 [ %ref.tmp2.sroa.19.066, %while.body.i.i.i ], [ %ref.tmp2.sroa.19.066, %sw.bb.i ], [ %inc33.i.i, %if.end29.i.i ], [ 0, %if.then.i.i19 ], [ %spec.select, %if.then5.i.i ]
   %ref.tmp2.sroa.15.2 = phi i32 [ %ref.tmp2.sroa.15.067, %while.body.i.i.i ], [ %ref.tmp2.sroa.15.067, %sw.bb.i ], [ %inc31.i.i, %if.end29.i.i ], [ %ref.tmp2.sroa.15.067, %if.then.i.i19 ], [ %add.i.i15.i.i, %if.then5.i.i ]
-  %ref.tmp2.sroa.19.1 = phi i32 [ %ref.tmp2.sroa.19.068, %while.body.i.i.i ], [ %ref.tmp2.sroa.19.068, %sw.bb.i ], [ %inc33.i.i, %if.end29.i.i ], [ 0, %if.then.i.i19 ], [ %spec.select53, %if.then5.i.i ]
+  %ref.tmp2.sroa.8.2 = phi i32 [ %ref.tmp2.sroa.8.068, %while.body.i.i.i ], [ %inc.i.i24, %sw.bb.i ], [ %ref.tmp2.sroa.8.068, %if.end29.i.i ], [ %inc.i2.i, %if.then.i.i19 ], [ %spec.select53, %if.then5.i.i ]
   %dec.i.i.i.i.i.i.i = add i32 %ref.tmp2.sroa.26.070, -1
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2.sroa.2443.069, i64 4
   %25 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i.i, align 1
@@ -90670,9 +90670,9 @@ _ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit: ; preds = %if.then5.i.i, %
   br i1 %or.cond.i.i.i, label %land.rhs.i.i.i, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i.loopexit, !llvm.loop !705
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i.loopexit: ; preds = %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.i.i.i", %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.thr_comm.i.i.i", %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit
-  %ref.tmp2.sroa.8.0.lcssa.ph = phi i32 [ %ref.tmp2.sroa.8.2, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ], [ %ref.tmp2.sroa.8.066, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.thr_comm.i.i.i" ], [ %ref.tmp2.sroa.8.066, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.i.i.i" ]
+  %ref.tmp2.sroa.19.0.lcssa.ph = phi i32 [ %ref.tmp2.sroa.19.1, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ], [ %ref.tmp2.sroa.19.066, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.thr_comm.i.i.i" ], [ %ref.tmp2.sroa.19.066, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.i.i.i" ]
   %ref.tmp2.sroa.15.0.lcssa.ph = phi i32 [ %ref.tmp2.sroa.15.2, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ], [ %ref.tmp2.sroa.15.067, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.thr_comm.i.i.i" ], [ %ref.tmp2.sroa.15.067, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.i.i.i" ]
-  %ref.tmp2.sroa.19.0.lcssa.ph = phi i32 [ %ref.tmp2.sroa.19.1, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ], [ %ref.tmp2.sroa.19.068, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.thr_comm.i.i.i" ], [ %ref.tmp2.sroa.19.068, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.i.i.i" ]
+  %ref.tmp2.sroa.8.0.lcssa.ph = phi i32 [ %ref.tmp2.sroa.8.2, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ], [ %ref.tmp2.sroa.8.068, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.thr_comm.i.i.i" ], [ %ref.tmp2.sroa.8.068, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.i.i.i" ]
   %ref.tmp2.sroa.2443.0.lcssa.ph = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ], [ %ref.tmp2.sroa.2443.069, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.thr_comm.i.i.i" ], [ %ref.tmp2.sroa.2443.069, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.i.i.i" ]
   %ref.tmp2.sroa.26.0.lcssa.ph = phi i32 [ %dec.i.i.i.i.i.i.i, %_ZN2OT6Layout6Common8Coverage6iter_t8__next__Ev.exit ], [ %ref.tmp2.sroa.26.070, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.thr_comm.i.i.i" ], [ %ref.tmp2.sroa.26.070, %"_ZNK4$_14clIRK8hb_set_tjEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOS5_OS6_.exit.i.i.i" ]
   %.pre107 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i.i, align 1
@@ -90685,9 +90685,9 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.l
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i: ; preds = %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i.loopexit, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader
   %add.i.i.i6.i.i.i.i.i.i.i.i.i.i.i19.i.pre-phi = phi i32 [ %.pre112, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i.loopexit ], [ %add.i.i.i6.i.i.i.i.i.i.i62, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader ]
-  %ref.tmp2.sroa.8.0.lcssa = phi i32 [ %ref.tmp2.sroa.8.0.lcssa.ph, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i.loopexit ], [ %ref.tmp3.sroa.4.0.copyload, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader ]
-  %ref.tmp2.sroa.15.0.lcssa = phi i32 [ %ref.tmp2.sroa.15.0.lcssa.ph, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i.loopexit ], [ %ref.tmp3.sroa.5.0.copyload, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader ]
   %ref.tmp2.sroa.19.0.lcssa = phi i32 [ %ref.tmp2.sroa.19.0.lcssa.ph, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i.loopexit ], [ %ref.tmp3.sroa.6.0.copyload, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader ]
+  %ref.tmp2.sroa.15.0.lcssa = phi i32 [ %ref.tmp2.sroa.15.0.lcssa.ph, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i.loopexit ], [ %ref.tmp3.sroa.5.0.copyload, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader ]
+  %ref.tmp2.sroa.8.0.lcssa = phi i32 [ %ref.tmp2.sroa.8.0.lcssa.ph, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i.loopexit ], [ %ref.tmp3.sroa.4.0.copyload, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader ]
   %ref.tmp2.sroa.2443.0.lcssa = phi ptr [ %ref.tmp2.sroa.2443.0.lcssa.ph, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i.loopexit ], [ %ref.tmp3.sroa.8.0.copyload, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader ]
   %ref.tmp2.sroa.26.0.lcssa = phi i32 [ %ref.tmp2.sroa.26.0.lcssa.ph, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i.loopexit ], [ %ref.tmp3.sroa.9.0.copyload, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.preheader ]
   %cond.i.i.i.i.i.i = icmp eq i32 %ref.tmp3.sroa.0.0.copyload, 1
@@ -90707,10 +90707,10 @@ for.body.i.lr.ph.i:                               ; preds = %_ZNK9hb_iter_tIN2OT
 
 for.body.i.i:                                     ; preds = %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEppEv.exit.i.i", %for.body.i.lr.ph.i
   %27 = phi i32 [ %ref.tmp2.sroa.26.0.lcssa, %for.body.i.lr.ph.i ], [ %dec.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEppEv.exit.i.i" ]
-  %agg.tmp1.sroa.2210.026.i = phi ptr [ %ref.tmp2.sroa.2443.0.lcssa, %for.body.i.lr.ph.i ], [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEppEv.exit.i.i" ]
-  %agg.tmp1.sroa.7.025.i = phi i32 [ %ref.tmp2.sroa.8.0.lcssa, %for.body.i.lr.ph.i ], [ %agg.tmp1.sroa.7.3.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEppEv.exit.i.i" ]
-  %agg.tmp1.sroa.14.024.i = phi i32 [ %ref.tmp2.sroa.15.0.lcssa, %for.body.i.lr.ph.i ], [ %agg.tmp1.sroa.14.3.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEppEv.exit.i.i" ]
-  %agg.tmp1.sroa.18.023.i = phi i32 [ %ref.tmp2.sroa.19.0.lcssa, %for.body.i.lr.ph.i ], [ %agg.tmp1.sroa.18.2.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEppEv.exit.i.i" ]
+  %agg.tmp1.sroa.7.027.i = phi i32 [ %ref.tmp2.sroa.8.0.lcssa, %for.body.i.lr.ph.i ], [ %agg.tmp1.sroa.7.3.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEppEv.exit.i.i" ]
+  %agg.tmp1.sroa.14.026.i = phi i32 [ %ref.tmp2.sroa.15.0.lcssa, %for.body.i.lr.ph.i ], [ %agg.tmp1.sroa.14.3.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEppEv.exit.i.i" ]
+  %agg.tmp1.sroa.18.025.i = phi i32 [ %ref.tmp2.sroa.19.0.lcssa, %for.body.i.lr.ph.i ], [ %agg.tmp1.sroa.18.2.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEppEv.exit.i.i" ]
+  %agg.tmp1.sroa.2210.024.i = phi ptr [ %ref.tmp2.sroa.2443.0.lcssa, %for.body.i.lr.ph.i ], [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZNR9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEppEv.exit.i.i" ]
   br i1 %cond.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEdeEv.exit.i.i"
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %for.body.i.i
@@ -90718,10 +90718,10 @@ if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %for.body.i.i
   br label %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEdeEv.exit.i.i"
 
 "_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEdeEv.exit.i.i": ; preds = %for.body.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %28 = load i8, ptr %agg.tmp1.sroa.2210.026.i, align 1
+  %28 = load i8, ptr %agg.tmp1.sroa.2210.024.i, align 1
   %conv.i.i.i = zext i8 %28 to i32
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i, 8
-  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.sroa.2210.026.i, i64 1
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.sroa.2210.024.i, i64 1
   %29 = load i8, ptr %arrayidx3.i.i.i, align 1
   %conv4.i.i.i = zext i8 %29 to i32
   %add.i.i.i = or disjoint i32 %shl.i.i.i, %conv4.i.i.i
@@ -90729,10 +90729,10 @@ if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %for.body.i.i
   br label %do.body.i.i.i.i.i.i.i.i
 
 do.body.i.i.i.i.i.i.i.i:                          ; preds = %do.body.i.i.i.i.i.i.i.i.backedge, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEdeEv.exit.i.i"
-  %agg.tmp1.sroa.18.1.i = phi i32 [ %agg.tmp1.sroa.18.023.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEdeEv.exit.i.i" ], [ %agg.tmp1.sroa.18.2.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
-  %agg.tmp1.sroa.14.1.i = phi i32 [ %agg.tmp1.sroa.14.024.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEdeEv.exit.i.i" ], [ %agg.tmp1.sroa.14.3.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
-  %agg.tmp1.sroa.7.1.i = phi i32 [ %agg.tmp1.sroa.7.025.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEdeEv.exit.i.i" ], [ %agg.tmp1.sroa.7.3.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
-  %agg.tmp1.sroa.2210.1.i = phi ptr [ %agg.tmp1.sroa.2210.026.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEdeEv.exit.i.i" ], [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
+  %agg.tmp1.sroa.2210.1.i = phi ptr [ %agg.tmp1.sroa.2210.024.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEdeEv.exit.i.i" ], [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
+  %agg.tmp1.sroa.18.1.i = phi i32 [ %agg.tmp1.sroa.18.025.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEdeEv.exit.i.i" ], [ %agg.tmp1.sroa.18.2.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
+  %agg.tmp1.sroa.14.1.i = phi i32 [ %agg.tmp1.sroa.14.026.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEdeEv.exit.i.i" ], [ %agg.tmp1.sroa.14.3.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
+  %agg.tmp1.sroa.7.1.i = phi i32 [ %agg.tmp1.sroa.7.027.i, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEdeEv.exit.i.i" ], [ %agg.tmp1.sroa.7.3.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
   %30 = phi i32 [ %27, %"_ZN9hb_iter_tI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EEMSA_KFjvELSP_0ELSK_0EEjEdeEv.exit.i.i" ], [ %dec.i.i.i.i.i.i.i.i.i.i.i.i, %do.body.i.i.i.i.i.i.i.i.backedge ]
   switch i32 %ref.tmp3.sroa.0.0.copyload, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i8.i.i [
     i32 1, label %sw.bb.i.i.i
@@ -99807,9 +99807,9 @@ entry:
   br i1 %cmp.not20, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %if.end24
-  %v.022 = phi i32 [ %v.1, %if.end24 ], [ 0, %entry ]
-  %__begin2.021 = phi ptr [ %incdec.ptr26, %if.end24 ], [ %points_.coerce0, %entry ]
-  %flag2 = getelementptr inbounds i8, ptr %__begin2.021, i64 8
+  %__begin2.022 = phi ptr [ %incdec.ptr26, %if.end24 ], [ %points_.coerce0, %entry ]
+  %v.021 = phi i32 [ %v.1, %if.end24 ], [ 0, %entry ]
+  %flag2 = getelementptr inbounds i8, ptr %__begin2.022, i64 8
   %0 = load i8, ptr %flag2, align 4
   %conv = zext i8 %0 to i32
   %and = and i32 %conv, %short_flag
@@ -99831,11 +99831,11 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool6.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %add = add i32 %v.022, %conv.i17
+  %add = add i32 %v.021, %conv.i17
   br label %if.end24
 
 if.else:                                          ; preds = %if.end
-  %sub = sub i32 %v.022, %conv.i17
+  %sub = sub i32 %v.021, %conv.i17
   br label %if.end24
 
 if.else12:                                        ; preds = %for.body
@@ -99858,16 +99858,16 @@ if.end19:                                         ; preds = %if.then15
   %conv4.i.i = zext i8 %5 to i16
   %add.i.i = or disjoint i16 %shl.i.i, %conv4.i.i
   %conv.i18 = sext i16 %add.i.i to i32
-  %add21 = add nsw i32 %v.022, %conv.i18
+  %add21 = add nsw i32 %v.021, %conv.i18
   store ptr %add.ptr16, ptr %p, align 8
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else12, %if.end19, %if.then7, %if.else
-  %v.1 = phi i32 [ %add, %if.then7 ], [ %sub, %if.else ], [ %v.022, %if.else12 ], [ %add21, %if.end19 ]
+  %v.1 = phi i32 [ %add, %if.then7 ], [ %sub, %if.else ], [ %v.021, %if.else12 ], [ %add21, %if.end19 ]
   %conv25 = sitofp i32 %v.1 to float
-  %memptr.offset = getelementptr inbounds i8, ptr %__begin2.021, i64 %m
+  %memptr.offset = getelementptr inbounds i8, ptr %__begin2.022, i64 %m
   store float %conv25, ptr %memptr.offset, align 4
-  %incdec.ptr26 = getelementptr inbounds i8, ptr %__begin2.021, i64 12
+  %incdec.ptr26 = getelementptr inbounds i8, ptr %__begin2.022, i64 12
   %cmp.not = icmp eq ptr %incdec.ptr26, %add.ptr.i
   br i1 %cmp.not, label %return, label %for.body
 

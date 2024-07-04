@@ -1388,8 +1388,8 @@ Wln_ObjFanin.exit:                                ; preds = %39, %42
   br label %61
 
 61:                                               ; preds = %2, %.critedge, %47, %33, %10
-  %.0 = phi i32 [ 0, %10 ], [ 1, %33 ], [ 0, %47 ], [ 1, %.critedge ], [ 1, %2 ]
-  ret i32 %.0
+  %.042 = phi i32 [ 0, %10 ], [ 1, %33 ], [ 0, %47 ], [ 1, %.critedge ], [ 1, %2 ]
+  ret i32 %.042
 }
 
 ; Function Attrs: nofree nounwind
@@ -2400,8 +2400,8 @@ Wln_ObjFanin.exit:                                ; preds = %17, %20
   br label %31
 
 31:                                               ; preds = %5, %3, %.critedge
-  %.0 = phi i32 [ %30, %.critedge ], [ 0, %3 ], [ %9, %5 ]
-  ret i32 %.0
+  %.019 = phi i32 [ %30, %.critedge ], [ 0, %3 ], [ %9, %5 ]
+  ret i32 %.019
 }
 
 ; Function Attrs: nounwind uwtable

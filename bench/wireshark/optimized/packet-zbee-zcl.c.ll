@@ -1052,13 +1052,13 @@ define hidden void @dissect_zcl_read_attr(ptr noundef %0, ptr nocapture readnone
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %dissect_zcl_attr_id.exit.us
   %11 = phi i32 [ %28, %dissect_zcl_attr_id.exit.us ], [ %9, %.lr.ph ]
   %12 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
-  %.089.i.i.us = load ptr, ptr @acluster_desc, align 8
-  %.not10.i.i.us = icmp eq ptr %.089.i.i.us, null
+  %.09.i.i.us = load ptr, ptr @acluster_desc, align 8
+  %.not10.i.i.us = icmp eq ptr %.09.i.i.us, null
   br i1 %.not10.i.i.us, label %dissect_zcl_attr_id.exit.us, label %.lr.ph.i.i.us
 
 .lr.ph.i.i.us:                                    ; preds = %.lr.ph.split.us, %21
-  %.0811.i.i.us = phi ptr [ %.08.i.i.us, %21 ], [ %.089.i.i.us, %.lr.ph.split.us ]
-  %13 = load ptr, ptr %.0811.i.i.us, align 8
+  %.011.i.i.us = phi ptr [ %.0.i.i.us, %21 ], [ %.09.i.i.us, %.lr.ph.split.us ]
+  %13 = load ptr, ptr %.011.i.i.us, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 44
   %15 = load i16, ptr %14, align 4
   %16 = icmp eq i16 %15, %4
@@ -1071,9 +1071,9 @@ define hidden void @dissect_zcl_read_attr(ptr noundef %0, ptr nocapture readnone
   br i1 %20, label %zbee_zcl_get_cluster_desc.exit.i.us, label %21
 
 21:                                               ; preds = %17, %.lr.ph.i.i.us
-  %22 = getelementptr inbounds i8, ptr %.0811.i.i.us, i64 8
-  %.08.i.i.us = load ptr, ptr %22, align 8
-  %.not.i.i.us = icmp eq ptr %.08.i.i.us, null
+  %22 = getelementptr inbounds i8, ptr %.011.i.i.us, i64 8
+  %.0.i.i.us = load ptr, ptr %22, align 8
+  %.not.i.i.us = icmp eq ptr %.0.i.i.us, null
   br i1 %.not.i.i.us, label %dissect_zcl_attr_id.exit.us, label %.lr.ph.i.i.us, !llvm.loop !4
 
 zbee_zcl_get_cluster_desc.exit.i.us:              ; preds = %17
@@ -1095,13 +1095,13 @@ dissect_zcl_attr_id.exit.us:                      ; preds = %21, %zbee_zcl_get_c
 .lr.ph.split:                                     ; preds = %.lr.ph, %dissect_zcl_attr_id.exit
   %30 = phi i32 [ %47, %dissect_zcl_attr_id.exit ], [ %9, %.lr.ph ]
   %31 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
-  %.089.i.i = load ptr, ptr @acluster_desc, align 8
-  %.not10.i.i = icmp eq ptr %.089.i.i, null
+  %.09.i.i = load ptr, ptr @acluster_desc, align 8
+  %.not10.i.i = icmp eq ptr %.09.i.i, null
   br i1 %.not10.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.split, %40
-  %.0811.i.i = phi ptr [ %.08.i.i, %40 ], [ %.089.i.i, %.lr.ph.split ]
-  %32 = load ptr, ptr %.0811.i.i, align 8
+  %.011.i.i = phi ptr [ %.0.i.i, %40 ], [ %.09.i.i, %.lr.ph.split ]
+  %32 = load ptr, ptr %.011.i.i, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 44
   %34 = load i16, ptr %33, align 4
   %35 = icmp eq i16 %34, %4
@@ -1114,9 +1114,9 @@ dissect_zcl_attr_id.exit.us:                      ; preds = %21, %zbee_zcl_get_c
   br i1 %39, label %zbee_zcl_get_cluster_desc.exit.i, label %40
 
 40:                                               ; preds = %36, %.lr.ph.i.i
-  %41 = getelementptr inbounds i8, ptr %.0811.i.i, i64 8
-  %.08.i.i = load ptr, ptr %41, align 8
-  %.not.i.i = icmp eq ptr %.08.i.i, null
+  %41 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %.0.i.i = load ptr, ptr %41, align 8
+  %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %36
@@ -1144,13 +1144,13 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden void @dissect_zcl_attr_id(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
-  %.089.i = load ptr, ptr @acluster_desc, align 8
-  %.not10.i = icmp eq ptr %.089.i, null
+  %.09.i = load ptr, ptr @acluster_desc, align 8
+  %.not10.i = icmp eq ptr %.09.i, null
   br i1 %.not10.i, label %zbee_zcl_get_cluster_desc.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6, %16
-  %.0811.i = phi ptr [ %.08.i, %16 ], [ %.089.i, %6 ]
-  %8 = load ptr, ptr %.0811.i, align 8
+  %.011.i = phi ptr [ %.0.i, %16 ], [ %.09.i, %6 ]
+  %8 = load ptr, ptr %.011.i, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 44
   %10 = load i16, ptr %9, align 4
   %11 = icmp eq i16 %10, %3
@@ -1163,9 +1163,9 @@ define hidden void @dissect_zcl_attr_id(ptr noundef %0, ptr noundef %1, ptr noca
   br i1 %15, label %zbee_zcl_get_cluster_desc.exit, label %16
 
 16:                                               ; preds = %12, %.lr.ph.i
-  %17 = getelementptr inbounds i8, ptr %.0811.i, i64 8
-  %.08.i = load ptr, ptr %17, align 8
-  %.not.i = icmp eq ptr %.08.i, null
+  %17 = getelementptr inbounds i8, ptr %.011.i, i64 8
+  %.0.i = load ptr, ptr %17, align 8
+  %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %zbee_zcl_get_cluster_desc.exit.thread, label %.lr.ph.i, !llvm.loop !4
 
 zbee_zcl_get_cluster_desc.exit:                   ; preds = %12
@@ -1215,13 +1215,13 @@ define hidden void @dissect_zcl_read_attr_resp(ptr noundef %0, ptr nocapture rea
   %17 = load i32, ptr %3, align 4
   %18 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %17) #5
   %19 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
-  %.089.i.i = load ptr, ptr @acluster_desc, align 8
-  %.not10.i.i = icmp eq ptr %.089.i.i, null
+  %.09.i.i = load ptr, ptr @acluster_desc, align 8
+  %.not10.i.i = icmp eq ptr %.09.i.i, null
   br i1 %.not10.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph, %28
-  %.0811.i.i = phi ptr [ %.08.i.i, %28 ], [ %.089.i.i, %.lr.ph ]
-  %20 = load ptr, ptr %.0811.i.i, align 8
+  %.011.i.i = phi ptr [ %.0.i.i, %28 ], [ %.09.i.i, %.lr.ph ]
+  %20 = load ptr, ptr %.011.i.i, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 44
   %22 = load i16, ptr %21, align 4
   %23 = icmp eq i16 %22, %4
@@ -1234,9 +1234,9 @@ define hidden void @dissect_zcl_read_attr_resp(ptr noundef %0, ptr nocapture rea
   br i1 %27, label %zbee_zcl_get_cluster_desc.exit.i, label %28
 
 28:                                               ; preds = %24, %.lr.ph.i.i
-  %29 = getelementptr inbounds i8, ptr %.0811.i.i, i64 8
-  %.08.i.i = load ptr, ptr %29, align 8
-  %.not.i.i = icmp eq ptr %.08.i.i, null
+  %29 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %.0.i.i = load ptr, ptr %29, align 8
+  %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %24
@@ -1312,13 +1312,13 @@ define hidden range(i32 0, 256) i32 @dissect_zcl_attr_uint8(ptr noundef %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @dissect_zcl_attr_data_type_val(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #0 {
-  %.089.i = load ptr, ptr @acluster_desc, align 8
-  %.not10.i = icmp eq ptr %.089.i, null
+  %.09.i = load ptr, ptr @acluster_desc, align 8
+  %.not10.i = icmp eq ptr %.09.i, null
   br i1 %.not10.i, label %zbee_zcl_get_cluster_desc.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7, %16
-  %.0811.i = phi ptr [ %.08.i, %16 ], [ %.089.i, %7 ]
-  %8 = load ptr, ptr %.0811.i, align 8
+  %.011.i = phi ptr [ %.0.i, %16 ], [ %.09.i, %7 ]
+  %8 = load ptr, ptr %.011.i, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 44
   %10 = load i16, ptr %9, align 4
   %11 = icmp eq i16 %10, %4
@@ -1331,9 +1331,9 @@ define hidden void @dissect_zcl_attr_data_type_val(ptr noundef %0, ptr noundef %
   br i1 %15, label %zbee_zcl_get_cluster_desc.exit, label %16
 
 16:                                               ; preds = %12, %.lr.ph.i
-  %17 = getelementptr inbounds i8, ptr %.0811.i, i64 8
-  %.08.i = load ptr, ptr %17, align 8
-  %.not.i = icmp eq ptr %.08.i, null
+  %17 = getelementptr inbounds i8, ptr %.011.i, i64 8
+  %.0.i = load ptr, ptr %17, align 8
+  %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %zbee_zcl_get_cluster_desc.exit.thread, label %.lr.ph.i, !llvm.loop !4
 
 zbee_zcl_get_cluster_desc.exit:                   ; preds = %12
@@ -1395,13 +1395,13 @@ define hidden void @dissect_zcl_write_attr(ptr noundef %0, ptr nocapture readnon
   %17 = load i32, ptr %3, align 4
   %18 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %17) #5
   %19 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
-  %.089.i.i = load ptr, ptr @acluster_desc, align 8
-  %.not10.i.i = icmp eq ptr %.089.i.i, null
+  %.09.i.i = load ptr, ptr @acluster_desc, align 8
+  %.not10.i.i = icmp eq ptr %.09.i.i, null
   br i1 %.not10.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph, %28
-  %.0811.i.i = phi ptr [ %.08.i.i, %28 ], [ %.089.i.i, %.lr.ph ]
-  %20 = load ptr, ptr %.0811.i.i, align 8
+  %.011.i.i = phi ptr [ %.0.i.i, %28 ], [ %.09.i.i, %.lr.ph ]
+  %20 = load ptr, ptr %.011.i.i, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 44
   %22 = load i16, ptr %21, align 4
   %23 = icmp eq i16 %22, %4
@@ -1414,9 +1414,9 @@ define hidden void @dissect_zcl_write_attr(ptr noundef %0, ptr nocapture readnon
   br i1 %27, label %zbee_zcl_get_cluster_desc.exit.i, label %28
 
 28:                                               ; preds = %24, %.lr.ph.i.i
-  %29 = getelementptr inbounds i8, ptr %.0811.i.i, i64 8
-  %.08.i.i = load ptr, ptr %29, align 8
-  %.not.i.i = icmp eq ptr %.08.i.i, null
+  %29 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %.0.i.i = load ptr, ptr %29, align 8
+  %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %24
@@ -1476,13 +1476,13 @@ define hidden void @dissect_zcl_report_attr(ptr noundef %0, ptr nocapture readno
   %17 = load i32, ptr %3, align 4
   %18 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %17) #5
   %19 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
-  %.089.i.i = load ptr, ptr @acluster_desc, align 8
-  %.not10.i.i = icmp eq ptr %.089.i.i, null
+  %.09.i.i = load ptr, ptr @acluster_desc, align 8
+  %.not10.i.i = icmp eq ptr %.09.i.i, null
   br i1 %.not10.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph, %28
-  %.0811.i.i = phi ptr [ %.08.i.i, %28 ], [ %.089.i.i, %.lr.ph ]
-  %20 = load ptr, ptr %.0811.i.i, align 8
+  %.011.i.i = phi ptr [ %.0.i.i, %28 ], [ %.09.i.i, %.lr.ph ]
+  %20 = load ptr, ptr %.011.i.i, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 44
   %22 = load i16, ptr %21, align 4
   %23 = icmp eq i16 %22, %4
@@ -1495,9 +1495,9 @@ define hidden void @dissect_zcl_report_attr(ptr noundef %0, ptr nocapture readno
   br i1 %27, label %zbee_zcl_get_cluster_desc.exit.i, label %28
 
 28:                                               ; preds = %24, %.lr.ph.i.i
-  %29 = getelementptr inbounds i8, ptr %.0811.i.i, i64 8
-  %.08.i.i = load ptr, ptr %29, align 8
-  %.not.i.i = icmp eq ptr %.08.i.i, null
+  %29 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %.0.i.i = load ptr, ptr %29, align 8
+  %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %24
@@ -2335,7 +2335,7 @@ define internal fastcc void @dissect_zcl_array_type(ptr noundef %0, ptr noundef 
 13:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %14 = phi i32 [ %8, %.lr.ph ], [ %21, %24 ]
-  %.031 = phi i16 [ %4, %.lr.ph ], [ %25, %24 ]
+  %.02730 = phi i16 [ %4, %.lr.ph ], [ %25, %24 ]
   %15 = icmp ult i64 %indvars.iv, 15
   %16 = getelementptr [16 x i32], ptr @ett_zbee_zcl_array_elements, i64 0, i64 %indvars.iv
   %.sink37 = select i1 %15, ptr %16, ptr getelementptr inbounds (i8, ptr @ett_zbee_zcl_array_elements, i64 60)
@@ -2353,7 +2353,7 @@ define internal fastcc void @dissect_zcl_array_type(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 24:                                               ; preds = %13
-  %25 = add i16 %.031, -1
+  %25 = add i16 %.02730, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = icmp ult i32 %21, %7
   %27 = icmp ne i16 %25, 0
@@ -2380,7 +2380,7 @@ define internal fastcc void @dissect_zcl_set_type(ptr noundef %0, ptr noundef %1
 13:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %14 = phi i32 [ %8, %.lr.ph ], [ %20, %23 ]
-  %.029 = phi i16 [ %4, %.lr.ph ], [ %24, %23 ]
+  %.02528 = phi i16 [ %4, %.lr.ph ], [ %24, %23 ]
   %15 = icmp ult i64 %indvars.iv, 15
   %16 = getelementptr [16 x i32], ptr @ett_zbee_zcl_array_elements, i64 0, i64 %indvars.iv
   %.sink34 = select i1 %15, ptr %16, ptr getelementptr inbounds (i8, ptr @ett_zbee_zcl_array_elements, i64 60)
@@ -2397,7 +2397,7 @@ define internal fastcc void @dissect_zcl_set_type(ptr noundef %0, ptr noundef %1
   br label %.loopexit
 
 23:                                               ; preds = %13
-  %24 = add i16 %.029, -1
+  %24 = add i16 %.02528, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = icmp ult i32 %20, %7
   %26 = icmp ne i16 %24, 0
@@ -2620,13 +2620,13 @@ define internal i32 @dissect_zbee_zcl(ptr noundef %0, ptr noundef %1, ptr nounde
   %65 = zext i16 %11 to i32
   %66 = or disjoint i32 %64, %65
   %67 = tail call ptr @dissector_get_uint_handle(ptr noundef %62, i32 noundef %66) #5
-  %.089.i = load ptr, ptr @acluster_desc, align 8
-  %.not10.i = icmp eq ptr %.089.i, null
+  %.09.i = load ptr, ptr @acluster_desc, align 8
+  %.not10.i = icmp eq ptr %.09.i, null
   br i1 %.not10.i, label %zbee_zcl_get_cluster_desc.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %51, %76
-  %.0811.i = phi ptr [ %.08.i, %76 ], [ %.089.i, %51 ]
-  %68 = load ptr, ptr %.0811.i, align 8
+  %.011.i = phi ptr [ %.0.i, %76 ], [ %.09.i, %51 ]
+  %68 = load ptr, ptr %.011.i, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 44
   %70 = load i16, ptr %69, align 4
   %71 = icmp eq i16 %70, %11
@@ -2639,9 +2639,9 @@ define internal i32 @dissect_zbee_zcl(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %75, label %zbee_zcl_get_cluster_desc.exit, label %76
 
 76:                                               ; preds = %72, %.lr.ph.i
-  %77 = getelementptr inbounds i8, ptr %.0811.i, i64 8
-  %.08.i = load ptr, ptr %77, align 8
-  %.not.i = icmp eq ptr %.08.i, null
+  %77 = getelementptr inbounds i8, ptr %.011.i, i64 8
+  %.0.i = load ptr, ptr %77, align 8
+  %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %zbee_zcl_get_cluster_desc.exit.thread, label %.lr.ph.i, !llvm.loop !4
 
 zbee_zcl_get_cluster_desc.exit:                   ; preds = %72
@@ -2963,13 +2963,13 @@ define internal fastcc void @dissect_zcl_write_attr_resp(ptr noundef %0, ptr nou
 
 22:                                               ; preds = %.lr.ph
   %23 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
-  %.089.i.i = load ptr, ptr @acluster_desc, align 8
-  %.not10.i.i = icmp eq ptr %.089.i.i, null
+  %.09.i.i = load ptr, ptr @acluster_desc, align 8
+  %.not10.i.i = icmp eq ptr %.09.i.i, null
   br i1 %.not10.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %22, %32
-  %.0811.i.i = phi ptr [ %.08.i.i, %32 ], [ %.089.i.i, %22 ]
-  %24 = load ptr, ptr %.0811.i.i, align 8
+  %.011.i.i = phi ptr [ %.0.i.i, %32 ], [ %.09.i.i, %22 ]
+  %24 = load ptr, ptr %.011.i.i, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 44
   %26 = load i16, ptr %25, align 4
   %27 = icmp eq i16 %26, %3
@@ -2982,9 +2982,9 @@ define internal fastcc void @dissect_zcl_write_attr_resp(ptr noundef %0, ptr nou
   br i1 %31, label %zbee_zcl_get_cluster_desc.exit.i, label %32
 
 32:                                               ; preds = %28, %.lr.ph.i.i
-  %33 = getelementptr inbounds i8, ptr %.0811.i.i, i64 8
-  %.08.i.i = load ptr, ptr %33, align 8
-  %.not.i.i = icmp eq ptr %.08.i.i, null
+  %33 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %.0.i.i = load ptr, ptr %33, align 8
+  %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %28
@@ -3061,13 +3061,13 @@ define internal fastcc void @dissect_zcl_config_report(ptr noundef %0, ptr nound
 26:                                               ; preds = %12
   %27 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %24) #5
   %28 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
-  %.089.i.i = load ptr, ptr @acluster_desc, align 8
-  %.not10.i.i = icmp eq ptr %.089.i.i, null
+  %.09.i.i = load ptr, ptr @acluster_desc, align 8
+  %.not10.i.i = icmp eq ptr %.09.i.i, null
   br i1 %.not10.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %26, %37
-  %.0811.i.i = phi ptr [ %.08.i.i, %37 ], [ %.089.i.i, %26 ]
-  %29 = load ptr, ptr %.0811.i.i, align 8
+  %.011.i.i = phi ptr [ %.0.i.i, %37 ], [ %.09.i.i, %26 ]
+  %29 = load ptr, ptr %.011.i.i, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 44
   %31 = load i16, ptr %30, align 4
   %32 = icmp eq i16 %31, %3
@@ -3080,9 +3080,9 @@ define internal fastcc void @dissect_zcl_config_report(ptr noundef %0, ptr nound
   br i1 %36, label %zbee_zcl_get_cluster_desc.exit.i, label %37
 
 37:                                               ; preds = %33, %.lr.ph.i.i
-  %38 = getelementptr inbounds i8, ptr %.0811.i.i, i64 8
-  %.08.i.i = load ptr, ptr %38, align 8
-  %.not.i.i = icmp eq ptr %.08.i.i, null
+  %38 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %.0.i.i = load ptr, ptr %38, align 8
+  %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %33
@@ -3139,13 +3139,13 @@ dissect_zcl_attr_id.exit:                         ; preds = %37, %26, %39, %43
   ]
 
 69:                                               ; preds = %68, %68, %dissect_zcl_attr_id.exit
-  %.089.i.i53 = load ptr, ptr @acluster_desc, align 8
-  %.not10.i.i54 = icmp eq ptr %.089.i.i53, null
+  %.09.i.i53 = load ptr, ptr @acluster_desc, align 8
+  %.not10.i.i54 = icmp eq ptr %.09.i.i53, null
   br i1 %.not10.i.i54, label %zbee_zcl_get_cluster_desc.exit.thread.i, label %.lr.ph.i.i55
 
 .lr.ph.i.i55:                                     ; preds = %69, %78
-  %.0811.i.i56 = phi ptr [ %.08.i.i57, %78 ], [ %.089.i.i53, %69 ]
-  %70 = load ptr, ptr %.0811.i.i56, align 8
+  %.011.i.i56 = phi ptr [ %.0.i.i57, %78 ], [ %.09.i.i53, %69 ]
+  %70 = load ptr, ptr %.011.i.i56, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 44
   %72 = load i16, ptr %71, align 4
   %73 = icmp eq i16 %72, %3
@@ -3158,9 +3158,9 @@ dissect_zcl_attr_id.exit:                         ; preds = %37, %26, %39, %43
   br i1 %77, label %zbee_zcl_get_cluster_desc.exit.i59, label %78
 
 78:                                               ; preds = %74, %.lr.ph.i.i55
-  %79 = getelementptr inbounds i8, ptr %.0811.i.i56, i64 8
-  %.08.i.i57 = load ptr, ptr %79, align 8
-  %.not.i.i58 = icmp eq ptr %.08.i.i57, null
+  %79 = getelementptr inbounds i8, ptr %.011.i.i56, i64 8
+  %.0.i.i57 = load ptr, ptr %79, align 8
+  %.not.i.i58 = icmp eq ptr %.0.i.i57, null
   br i1 %.not.i.i58, label %zbee_zcl_get_cluster_desc.exit.thread.i, label %.lr.ph.i.i55, !llvm.loop !4
 
 zbee_zcl_get_cluster_desc.exit.i59:               ; preds = %74
@@ -3179,13 +3179,13 @@ zbee_zcl_get_cluster_desc.exit.thread.i:          ; preds = %78, %zbee_zcl_get_c
 
 83:                                               ; preds = %12
   %84 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
-  %.089.i.i60 = load ptr, ptr @acluster_desc, align 8
-  %.not10.i.i61 = icmp eq ptr %.089.i.i60, null
+  %.09.i.i60 = load ptr, ptr @acluster_desc, align 8
+  %.not10.i.i61 = icmp eq ptr %.09.i.i60, null
   br i1 %.not10.i.i61, label %dissect_zcl_attr_id.exit72, label %.lr.ph.i.i62
 
 .lr.ph.i.i62:                                     ; preds = %83, %93
-  %.0811.i.i63 = phi ptr [ %.08.i.i64, %93 ], [ %.089.i.i60, %83 ]
-  %85 = load ptr, ptr %.0811.i.i63, align 8
+  %.011.i.i63 = phi ptr [ %.0.i.i64, %93 ], [ %.09.i.i60, %83 ]
+  %85 = load ptr, ptr %.011.i.i63, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 44
   %87 = load i16, ptr %86, align 4
   %88 = icmp eq i16 %87, %3
@@ -3198,9 +3198,9 @@ zbee_zcl_get_cluster_desc.exit.thread.i:          ; preds = %78, %zbee_zcl_get_c
   br i1 %92, label %zbee_zcl_get_cluster_desc.exit.i68, label %93
 
 93:                                               ; preds = %89, %.lr.ph.i.i62
-  %94 = getelementptr inbounds i8, ptr %.0811.i.i63, i64 8
-  %.08.i.i64 = load ptr, ptr %94, align 8
-  %.not.i.i65 = icmp eq ptr %.08.i.i64, null
+  %94 = getelementptr inbounds i8, ptr %.011.i.i63, i64 8
+  %.0.i.i64 = load ptr, ptr %94, align 8
+  %.not.i.i65 = icmp eq ptr %.0.i.i64, null
   br i1 %.not.i.i65, label %dissect_zcl_attr_id.exit72, label %.lr.ph.i.i62, !llvm.loop !4
 
 zbee_zcl_get_cluster_desc.exit.i68:               ; preds = %89
@@ -3317,13 +3317,13 @@ define internal fastcc void @dissect_zcl_config_report_resp(ptr noundef %0, ptr 
 53:                                               ; preds = %29, %50
   %54 = phi i1 [ %52, %50 ], [ true, %29 ]
   %55 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
-  %.089.i.i = load ptr, ptr @acluster_desc, align 8
-  %.not10.i.i = icmp eq ptr %.089.i.i, null
+  %.09.i.i = load ptr, ptr @acluster_desc, align 8
+  %.not10.i.i = icmp eq ptr %.09.i.i, null
   br i1 %.not10.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %53, %64
-  %.0811.i.i = phi ptr [ %.08.i.i, %64 ], [ %.089.i.i, %53 ]
-  %56 = load ptr, ptr %.0811.i.i, align 8
+  %.011.i.i = phi ptr [ %.0.i.i, %64 ], [ %.09.i.i, %53 ]
+  %56 = load ptr, ptr %.011.i.i, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 44
   %58 = load i16, ptr %57, align 4
   %59 = icmp eq i16 %58, %4
@@ -3336,9 +3336,9 @@ define internal fastcc void @dissect_zcl_config_report_resp(ptr noundef %0, ptr 
   br i1 %63, label %zbee_zcl_get_cluster_desc.exit.i, label %64
 
 64:                                               ; preds = %60, %.lr.ph.i.i
-  %65 = getelementptr inbounds i8, ptr %.0811.i.i, i64 8
-  %.08.i.i = load ptr, ptr %65, align 8
-  %.not.i.i = icmp eq ptr %.08.i.i, null
+  %65 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %.0.i.i = load ptr, ptr %65, align 8
+  %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %60
@@ -3413,13 +3413,13 @@ define internal fastcc void @dissect_zcl_read_report_config(ptr noundef %0, ptr 
 29:                                               ; preds = %12, %26
   %30 = phi i1 [ %28, %26 ], [ true, %12 ]
   %31 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
-  %.089.i.i = load ptr, ptr @acluster_desc, align 8
-  %.not10.i.i = icmp eq ptr %.089.i.i, null
+  %.09.i.i = load ptr, ptr @acluster_desc, align 8
+  %.not10.i.i = icmp eq ptr %.09.i.i, null
   br i1 %.not10.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %29, %40
-  %.0811.i.i = phi ptr [ %.08.i.i, %40 ], [ %.089.i.i, %29 ]
-  %32 = load ptr, ptr %.0811.i.i, align 8
+  %.011.i.i = phi ptr [ %.0.i.i, %40 ], [ %.09.i.i, %29 ]
+  %32 = load ptr, ptr %.011.i.i, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 44
   %34 = load i16, ptr %33, align 4
   %35 = icmp eq i16 %34, %3
@@ -3432,9 +3432,9 @@ define internal fastcc void @dissect_zcl_read_report_config(ptr noundef %0, ptr 
   br i1 %39, label %zbee_zcl_get_cluster_desc.exit.i, label %40
 
 40:                                               ; preds = %36, %.lr.ph.i.i
-  %41 = getelementptr inbounds i8, ptr %.0811.i.i, i64 8
-  %.08.i.i = load ptr, ptr %41, align 8
-  %.not.i.i = icmp eq ptr %.08.i.i, null
+  %41 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %.0.i.i = load ptr, ptr %41, align 8
+  %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %36
@@ -3519,13 +3519,13 @@ define internal fastcc void @dissect_zcl_read_report_config_resp(ptr noundef %0,
 38:                                               ; preds = %13, %35
   %39 = phi i1 [ %37, %35 ], [ true, %13 ]
   %40 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
-  %.089.i.i = load ptr, ptr @acluster_desc, align 8
-  %.not10.i.i = icmp eq ptr %.089.i.i, null
+  %.09.i.i = load ptr, ptr @acluster_desc, align 8
+  %.not10.i.i = icmp eq ptr %.09.i.i, null
   br i1 %.not10.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %38, %49
-  %.0811.i.i = phi ptr [ %.08.i.i, %49 ], [ %.089.i.i, %38 ]
-  %41 = load ptr, ptr %.0811.i.i, align 8
+  %.011.i.i = phi ptr [ %.0.i.i, %49 ], [ %.09.i.i, %38 ]
+  %41 = load ptr, ptr %.011.i.i, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 44
   %43 = load i16, ptr %42, align 4
   %44 = icmp eq i16 %43, %3
@@ -3538,9 +3538,9 @@ define internal fastcc void @dissect_zcl_read_report_config_resp(ptr noundef %0,
   br i1 %48, label %zbee_zcl_get_cluster_desc.exit.i, label %49
 
 49:                                               ; preds = %45, %.lr.ph.i.i
-  %50 = getelementptr inbounds i8, ptr %.0811.i.i, i64 8
-  %.08.i.i = load ptr, ptr %50, align 8
-  %.not.i.i = icmp eq ptr %.08.i.i, null
+  %50 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %.0.i.i = load ptr, ptr %50, align 8
+  %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %45
@@ -3604,13 +3604,13 @@ dissect_zcl_attr_id.exit:                         ; preds = %49, %38, %51, %55
   ]
 
 84:                                               ; preds = %83, %83, %65
-  %.089.i.i56 = load ptr, ptr @acluster_desc, align 8
-  %.not10.i.i57 = icmp eq ptr %.089.i.i56, null
+  %.09.i.i56 = load ptr, ptr @acluster_desc, align 8
+  %.not10.i.i57 = icmp eq ptr %.09.i.i56, null
   br i1 %.not10.i.i57, label %zbee_zcl_get_cluster_desc.exit.thread.i, label %.lr.ph.i.i58
 
 .lr.ph.i.i58:                                     ; preds = %84, %93
-  %.0811.i.i59 = phi ptr [ %.08.i.i60, %93 ], [ %.089.i.i56, %84 ]
-  %85 = load ptr, ptr %.0811.i.i59, align 8
+  %.011.i.i59 = phi ptr [ %.0.i.i60, %93 ], [ %.09.i.i56, %84 ]
+  %85 = load ptr, ptr %.011.i.i59, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 44
   %87 = load i16, ptr %86, align 4
   %88 = icmp eq i16 %87, %3
@@ -3623,9 +3623,9 @@ dissect_zcl_attr_id.exit:                         ; preds = %49, %38, %51, %55
   br i1 %92, label %zbee_zcl_get_cluster_desc.exit.i62, label %93
 
 93:                                               ; preds = %89, %.lr.ph.i.i58
-  %94 = getelementptr inbounds i8, ptr %.0811.i.i59, i64 8
-  %.08.i.i60 = load ptr, ptr %94, align 8
-  %.not.i.i61 = icmp eq ptr %.08.i.i60, null
+  %94 = getelementptr inbounds i8, ptr %.011.i.i59, i64 8
+  %.0.i.i60 = load ptr, ptr %94, align 8
+  %.not.i.i61 = icmp eq ptr %.0.i.i60, null
   br i1 %.not.i.i61, label %zbee_zcl_get_cluster_desc.exit.thread.i, label %.lr.ph.i.i58, !llvm.loop !4
 
 zbee_zcl_get_cluster_desc.exit.i62:               ; preds = %89
@@ -3724,13 +3724,13 @@ define internal fastcc void @dissect_zcl_discover_attr_resp(ptr noundef %0, ptr 
   %21 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %18, i32 noundef 3, i32 noundef %20, ptr noundef null, ptr noundef nonnull @.str.919) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
-  %.089.i.i = load ptr, ptr @acluster_desc, align 8
-  %.not10.i.i = icmp eq ptr %.089.i.i, null
+  %.09.i.i = load ptr, ptr @acluster_desc, align 8
+  %.not10.i.i = icmp eq ptr %.09.i.i, null
   br i1 %.not10.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph, %31
-  %.0811.i.i = phi ptr [ %.08.i.i, %31 ], [ %.089.i.i, %.lr.ph ]
-  %23 = load ptr, ptr %.0811.i.i, align 8
+  %.011.i.i = phi ptr [ %.0.i.i, %31 ], [ %.09.i.i, %.lr.ph ]
+  %23 = load ptr, ptr %.011.i.i, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 44
   %25 = load i16, ptr %24, align 4
   %26 = icmp eq i16 %25, %3
@@ -3743,9 +3743,9 @@ define internal fastcc void @dissect_zcl_discover_attr_resp(ptr noundef %0, ptr 
   br i1 %30, label %zbee_zcl_get_cluster_desc.exit.i, label %31
 
 31:                                               ; preds = %27, %.lr.ph.i.i
-  %32 = getelementptr inbounds i8, ptr %.0811.i.i, i64 8
-  %.08.i.i = load ptr, ptr %32, align 8
-  %.not.i.i = icmp eq ptr %.08.i.i, null
+  %32 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %.0.i.i = load ptr, ptr %32, align 8
+  %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %27
@@ -3812,13 +3812,13 @@ define internal fastcc void @dissect_zcl_read_attr_struct(ptr noundef %0, ptr no
   %17 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %14, i32 noundef 0, i32 noundef %16, ptr noundef null, ptr noundef nonnull @.str.920) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
-  %.089.i.i = load ptr, ptr @acluster_desc, align 8
-  %.not10.i.i = icmp eq ptr %.089.i.i, null
+  %.09.i.i = load ptr, ptr @acluster_desc, align 8
+  %.not10.i.i = icmp eq ptr %.09.i.i, null
   br i1 %.not10.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph5, %27
-  %.0811.i.i = phi ptr [ %.08.i.i, %27 ], [ %.089.i.i, %.lr.ph5 ]
-  %19 = load ptr, ptr %.0811.i.i, align 8
+  %.011.i.i = phi ptr [ %.0.i.i, %27 ], [ %.09.i.i, %.lr.ph5 ]
+  %19 = load ptr, ptr %.011.i.i, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 44
   %21 = load i16, ptr %20, align 4
   %22 = icmp eq i16 %21, %3
@@ -3831,9 +3831,9 @@ define internal fastcc void @dissect_zcl_read_attr_struct(ptr noundef %0, ptr no
   br i1 %26, label %zbee_zcl_get_cluster_desc.exit.i, label %27
 
 27:                                               ; preds = %23, %.lr.ph.i.i
-  %28 = getelementptr inbounds i8, ptr %.0811.i.i, i64 8
-  %.08.i.i = load ptr, ptr %28, align 8
-  %.not.i.i = icmp eq ptr %.08.i.i, null
+  %28 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %.0.i.i = load ptr, ptr %28, align 8
+  %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %23
@@ -3872,11 +3872,11 @@ dissect_zcl_attr_id.exit:                         ; preds = %27, %.lr.ph5, %29, 
   br i1 %.not6, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %dissect_zcl_attr_id.exit, %.lr.ph
-  %.0283 = phi i32 [ %50, %.lr.ph ], [ 0, %dissect_zcl_attr_id.exit ]
+  %.03 = phi i32 [ %50, %.lr.ph ], [ 0, %dissect_zcl_attr_id.exit ]
   %storemerge2 = phi i32 [ %52, %.lr.ph ], [ %46, %dissect_zcl_attr_id.exit ]
   %48 = load i32, ptr @hf_zbee_zcl_index, align 4
   %49 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %48, ptr noundef %0, i32 noundef %storemerge2, i32 noundef 2, i32 noundef -2147483648) #5
-  %50 = add nuw nsw i32 %.0283, 1
+  %50 = add nuw nsw i32 %.03, 1
   %51 = load i32, ptr %2, align 4
   %52 = add i32 %51, 2
   store i32 %52, ptr %2, align 4
@@ -3909,13 +3909,13 @@ define internal fastcc void @dissect_zcl_write_attr_struct(ptr noundef %0, ptr n
   %19 = load i32, ptr %2, align 4
   %20 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %19) #5
   %21 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
-  %.089.i.i = load ptr, ptr @acluster_desc, align 8
-  %.not10.i.i = icmp eq ptr %.089.i.i, null
+  %.09.i.i = load ptr, ptr @acluster_desc, align 8
+  %.not10.i.i = icmp eq ptr %.09.i.i, null
   br i1 %.not10.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph4, %30
-  %.0811.i.i = phi ptr [ %.08.i.i, %30 ], [ %.089.i.i, %.lr.ph4 ]
-  %22 = load ptr, ptr %.0811.i.i, align 8
+  %.011.i.i = phi ptr [ %.0.i.i, %30 ], [ %.09.i.i, %.lr.ph4 ]
+  %22 = load ptr, ptr %.011.i.i, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 44
   %24 = load i16, ptr %23, align 4
   %25 = icmp eq i16 %24, %3
@@ -3928,9 +3928,9 @@ define internal fastcc void @dissect_zcl_write_attr_struct(ptr noundef %0, ptr n
   br i1 %29, label %zbee_zcl_get_cluster_desc.exit.i, label %30
 
 30:                                               ; preds = %26, %.lr.ph.i.i
-  %31 = getelementptr inbounds i8, ptr %.0811.i.i, i64 8
-  %.08.i.i = load ptr, ptr %31, align 8
-  %.not.i.i = icmp eq ptr %.08.i.i, null
+  %31 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %.0.i.i = load ptr, ptr %31, align 8
+  %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %26
@@ -3973,10 +3973,10 @@ dissect_zcl_attr_id.exit:                         ; preds = %30, %.lr.ph4, %32, 
   br i1 %.not5, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %44, %.lr.ph
-  %.0432 = phi i32 [ %54, %.lr.ph ], [ 0, %44 ]
+  %.02 = phi i32 [ %54, %.lr.ph ], [ 0, %44 ]
   %52 = load i32, ptr @hf_zbee_zcl_index, align 4
   %53 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %52, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #5
-  %54 = add nuw nsw i32 %.0432, 1
+  %54 = add nuw nsw i32 %.02, 1
   %55 = load i32, ptr %2, align 4
   %56 = add i32 %55, 2
   store i32 %56, ptr %2, align 4
@@ -3992,8 +3992,8 @@ dissect_zcl_attr_id.exit:                         ; preds = %30, %.lr.ph4, %32, 
   br i1 %60, label %.lr.ph4, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.loopexit, %6
-  %.0.lcssa = phi ptr [ null, %6 ], [ %18, %.loopexit ]
-  %61 = tail call ptr @proto_tree_get_parent(ptr noundef %.0.lcssa) #5
+  %.044.lcssa = phi ptr [ null, %6 ], [ %18, %.loopexit ]
+  %61 = tail call ptr @proto_tree_get_parent(ptr noundef %.044.lcssa) #5
   %62 = load i32, ptr %2, align 4
   tail call void @proto_item_set_end(ptr noundef %61, ptr noundef %0, i32 noundef %62) #5
   ret void
@@ -4031,13 +4031,13 @@ define internal fastcc void @dissect_zcl_write_attr_struct_resp(ptr noundef %0, 
 
 25:                                               ; preds = %.lr.ph5
   %26 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
-  %.089.i.i = load ptr, ptr @acluster_desc, align 8
-  %.not10.i.i = icmp eq ptr %.089.i.i, null
+  %.09.i.i = load ptr, ptr @acluster_desc, align 8
+  %.not10.i.i = icmp eq ptr %.09.i.i, null
   br i1 %.not10.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %25, %35
-  %.0811.i.i = phi ptr [ %.08.i.i, %35 ], [ %.089.i.i, %25 ]
-  %27 = load ptr, ptr %.0811.i.i, align 8
+  %.011.i.i = phi ptr [ %.0.i.i, %35 ], [ %.09.i.i, %25 ]
+  %27 = load ptr, ptr %.011.i.i, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 44
   %29 = load i16, ptr %28, align 4
   %30 = icmp eq i16 %29, %3
@@ -4050,9 +4050,9 @@ define internal fastcc void @dissect_zcl_write_attr_struct_resp(ptr noundef %0, 
   br i1 %34, label %zbee_zcl_get_cluster_desc.exit.i, label %35
 
 35:                                               ; preds = %31, %.lr.ph.i.i
-  %36 = getelementptr inbounds i8, ptr %.0811.i.i, i64 8
-  %.08.i.i = load ptr, ptr %36, align 8
-  %.not.i.i = icmp eq ptr %.08.i.i, null
+  %36 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %.0.i.i = load ptr, ptr %36, align 8
+  %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %31
@@ -4094,10 +4094,10 @@ dissect_zcl_attr_id.exit:                         ; preds = %35, %25, %37, %41
   br i1 %.not6, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %48, %.lr.ph
-  %.0343 = phi i32 [ %58, %.lr.ph ], [ 0, %48 ]
+  %.03 = phi i32 [ %58, %.lr.ph ], [ 0, %48 ]
   %56 = load i32, ptr @hf_zbee_zcl_index, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %56, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #5
-  %58 = add nuw nsw i32 %.0343, 1
+  %58 = add nuw nsw i32 %.03, 1
   %59 = load i32, ptr %2, align 4
   %60 = add i32 %59, 2
   store i32 %60, ptr %2, align 4
@@ -4213,13 +4213,13 @@ define internal fastcc void @dissect_zcl_discover_cmd_attr_extended_resp(ptr nou
   %26 = load i32, ptr %2, align 4
   %27 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %26) #5
   %28 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
-  %.089.i.i = load ptr, ptr @acluster_desc, align 8
-  %.not10.i.i = icmp eq ptr %.089.i.i, null
+  %.09.i.i = load ptr, ptr @acluster_desc, align 8
+  %.not10.i.i = icmp eq ptr %.09.i.i, null
   br i1 %.not10.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph, %37
-  %.0811.i.i = phi ptr [ %.08.i.i, %37 ], [ %.089.i.i, %.lr.ph ]
-  %29 = load ptr, ptr %.0811.i.i, align 8
+  %.011.i.i = phi ptr [ %.0.i.i, %37 ], [ %.09.i.i, %.lr.ph ]
+  %29 = load ptr, ptr %.011.i.i, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 44
   %31 = load i16, ptr %30, align 4
   %32 = icmp eq i16 %31, %3
@@ -4232,9 +4232,9 @@ define internal fastcc void @dissect_zcl_discover_cmd_attr_extended_resp(ptr nou
   br i1 %36, label %zbee_zcl_get_cluster_desc.exit.i, label %37
 
 37:                                               ; preds = %33, %.lr.ph.i.i
-  %38 = getelementptr inbounds i8, ptr %.0811.i.i, i64 8
-  %.08.i.i = load ptr, ptr %38, align 8
-  %.not.i.i = icmp eq ptr %.08.i.i, null
+  %38 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %.0.i.i = load ptr, ptr %38, align 8
+  %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %dissect_zcl_attr_id.exit, label %.lr.ph.i.i, !llvm.loop !4
 
 zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %33

@@ -786,9 +786,9 @@ entry:
 if.then:                                          ; preds = %entry
   %cmp2 = icmp eq i32 %s, 0
   %0 = load ptr, ptr %this, align 8
-  %previousTer.0 = select i1 %cmp2, i32 0, i32 256
   %index.0.in.idx = select i1 %cmp2, i64 0, i64 4
   %index.0.in = getelementptr inbounds i8, ptr %0, i64 %index.0.in.idx
+  %previousTer.0 = select i1 %cmp2, i32 0, i32 256
   %index.0 = load i32, ptr %index.0.in, align 4
   %idxprom = sext i32 %index.0 to i64
   %arrayidx7 = getelementptr inbounds i32, ptr %0, i64 %idxprom
@@ -899,9 +899,9 @@ _ZNK6icu_7521CollationRootElements11findPrimaryEj.exit: ; preds = %for.cond20.pr
 
 if.end10:                                         ; preds = %_ZNK6icu_7521CollationRootElements11findPrimaryEj.exit, %if.then
   %15 = phi ptr [ %0, %if.then ], [ %2, %_ZNK6icu_7521CollationRootElements11findPrimaryEj.exit ]
+  %index.1 = phi i32 [ %index.0, %if.then ], [ %add, %_ZNK6icu_7521CollationRootElements11findPrimaryEj.exit ]
   %previousTer.1 = phi i32 [ %previousTer.0, %if.then ], [ 256, %_ZNK6icu_7521CollationRootElements11findPrimaryEj.exit ]
   %secTer.0 = phi i32 [ %and, %if.then ], [ %retval.0.i, %_ZNK6icu_7521CollationRootElements11findPrimaryEj.exit ]
-  %index.1 = phi i32 [ %index.0, %if.then ], [ %add, %_ZNK6icu_7521CollationRootElements11findPrimaryEj.exit ]
   %shl = shl i32 %s, 16
   %or = or i32 %shl, %t
   %cmp1115 = icmp ugt i32 %or, %secTer.0
@@ -913,11 +913,11 @@ while.body.lr.ph:                                 ; preds = %if.end10
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %indvars.iv = phi i64 [ %16, %while.body.lr.ph ], [ %indvars.iv.next, %while.body ]
-  %secTer.117 = phi i32 [ %secTer.0, %while.body.lr.ph ], [ %and18, %while.body ]
-  %previousTer.216 = phi i32 [ %previousTer.1, %while.body.lr.ph ], [ %spec.select, %while.body ]
-  %shr = lshr i32 %secTer.117, 16
+  %secTer.118 = phi i32 [ %secTer.0, %while.body.lr.ph ], [ %and18, %while.body ]
+  %previousTer.217 = phi i32 [ %previousTer.1, %while.body.lr.ph ], [ %spec.select, %while.body ]
+  %shr = lshr i32 %secTer.118, 16
   %cmp12 = icmp eq i32 %shr, %s
-  %spec.select = select i1 %cmp12, i32 %secTer.117, i32 %previousTer.216
+  %spec.select = select i1 %cmp12, i32 %secTer.118, i32 %previousTer.217
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %arrayidx17 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
   %17 = load i32, ptr %arrayidx17, align 4

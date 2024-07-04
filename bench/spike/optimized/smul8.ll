@@ -737,11 +737,11 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_smul8P11pr
   br label %46
 
 46:                                               ; preds = %43, %46
-  %.05281 = phi i64 [ %23, %43 ], [ %72, %46 ]
-  %.05380 = phi i64 [ 3, %43 ], [ %73, %46 ]
-  %47 = shl i64 %.05380, 4
+  %.05281 = phi i64 [ 3, %43 ], [ %73, %46 ]
+  %.05380 = phi i64 [ %23, %43 ], [ %72, %46 ]
+  %47 = shl i64 %.05281, 4
   %48 = and i64 %47, 4294967280
-  %49 = shl i64 %.05380, 3
+  %49 = shl i64 %.05281, 3
   %50 = and i64 %49, 4294967288
   %51 = shl i64 255, %50
   %52 = and i64 %51, %34
@@ -760,7 +760,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_smul8P11pr
   %narrow = mul nsw i16 %62, %61
   %63 = shl i64 65535, %48
   %64 = xor i64 %63, -1
-  %65 = and i64 %.05281, %64
+  %65 = and i64 %.05380, %64
   %66 = sext i16 %narrow to i64
   %67 = shl i64 131070, %48
   %68 = xor i64 %67, -1
@@ -768,8 +768,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_smul8P11pr
   %70 = mul i64 %69, %66
   %71 = and i64 %70, %63
   %72 = or i64 %71, %65
-  %73 = add nsw i64 %.05380, -1
-  %.not82 = icmp eq i64 %.05380, 0
+  %73 = add nsw i64 %.05281, -1
+  %.not82 = icmp eq i64 %.05281, 0
   br i1 %.not82, label %74, label %46, !llvm.loop !10
 
 74:                                               ; preds = %46
@@ -895,11 +895,11 @@ define noundef i64 @_Z16fast_rv64e_smul8P11processor_t6insn_tm(ptr nocapture nou
   br label %46
 
 46:                                               ; preds = %43, %46
-  %.04565 = phi i64 [ %23, %43 ], [ %72, %46 ]
-  %.04664 = phi i64 [ 3, %43 ], [ %73, %46 ]
-  %47 = shl i64 %.04664, 4
+  %.04565 = phi i64 [ 3, %43 ], [ %73, %46 ]
+  %.04664 = phi i64 [ %23, %43 ], [ %72, %46 ]
+  %47 = shl i64 %.04565, 4
   %48 = and i64 %47, 4294967280
-  %49 = shl i64 %.04664, 3
+  %49 = shl i64 %.04565, 3
   %50 = and i64 %49, 4294967288
   %51 = shl i64 255, %50
   %52 = and i64 %51, %34
@@ -918,7 +918,7 @@ define noundef i64 @_Z16fast_rv64e_smul8P11processor_t6insn_tm(ptr nocapture nou
   %narrow = mul nsw i16 %62, %61
   %63 = shl i64 65535, %48
   %64 = xor i64 %63, -1
-  %65 = and i64 %.04565, %64
+  %65 = and i64 %.04664, %64
   %66 = sext i16 %narrow to i64
   %67 = shl i64 131070, %48
   %68 = xor i64 %67, -1
@@ -926,8 +926,8 @@ define noundef i64 @_Z16fast_rv64e_smul8P11processor_t6insn_tm(ptr nocapture nou
   %70 = mul i64 %69, %66
   %71 = and i64 %70, %63
   %72 = or i64 %71, %65
-  %73 = add nsw i64 %.04664, -1
-  %.not = icmp eq i64 %.04664, 0
+  %73 = add nsw i64 %.04565, -1
+  %.not = icmp eq i64 %.04565, 0
   br i1 %.not, label %74, label %46, !llvm.loop !11
 
 74:                                               ; preds = %46

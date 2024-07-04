@@ -190,23 +190,23 @@ define hidden i32 @mdssvc_dissect_struct_blob(ptr noundef %0, i32 noundef %1, pt
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #3
   %29 = load i32, ptr @ett_mdssvc_mdssvc_blob, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #3
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_mdssvc_mdssvc_blob_length, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #3
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #3
   %34 = load i32, ptr @hf_mdssvc_mdssvc_blob_size, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #3
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #3
   %36 = getelementptr i8, ptr %4, i64 28
   %.val = load i32, ptr %36, align 4
   %.not.i = icmp eq i32 %.val, 0
@@ -220,14 +220,14 @@ define hidden i32 @mdssvc_dissect_struct_blob(ptr noundef %0, i32 noundef %1, pt
 39:                                               ; preds = %37
   %40 = add i32 %35, 16
   %41 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %40) #3
-  %42 = tail call i32 @call_dissector(ptr noundef nonnull %38, ptr noundef %41, ptr noundef %2, ptr noundef %.043) #3
+  %42 = tail call i32 @call_dissector(ptr noundef nonnull %38, ptr noundef %41, ptr noundef %2, ptr noundef %.0) #3
   %43 = add i32 %42, %40
   br label %mdssvc_dissect_element_blob_spotlight_blob.exit
 
 mdssvc_dissect_element_blob_spotlight_blob.exit:  ; preds = %31, %37, %39
   %.0.i = phi i32 [ %43, %39 ], [ %35, %31 ], [ %35, %37 ]
-  %44 = sub i32 %.0.i, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %44) #3
+  %44 = sub i32 %.0.i, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %44) #3
   %45 = load ptr, ptr %9, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 96
   %47 = load i32, ptr %46, align 8

@@ -866,19 +866,19 @@ define internal i32 @php_sqlite_collation_callback(ptr noundef %0, i32 noundef %
   %65 = icmp sgt i64 %64, 0
   %.lobit = ashr i64 %64, 63
   %spec.select = trunc nsw i64 %.lobit to i32
-  %.0148 = select i1 %65, i32 1, i32 %spec.select
+  %.0 = select i1 %65, i32 1, i32 %spec.select
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #11
   br label %66
 
 66:                                               ; preds = %44, %63, %43
-  %.1 = phi i32 [ -1, %43 ], [ %41, %44 ], [ %.0148, %63 ]
+  %.1 = phi i32 [ -1, %43 ], [ %41, %44 ], [ %.0, %63 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %27) #11
   br label %67
 
 67:                                               ; preds = %47, %61, %62, %54, %66
-  %.0 = phi i32 [ %.1, %66 ], [ -1, %54 ], [ -1, %62 ], [ -1, %61 ], [ -1, %47 ]
-  ret i32 %.0
+  %.0148 = phi i32 [ %.1, %66 ], [ -1, %54 ], [ -1, %62 ], [ -1, %61 ], [ -1, %47 ]
+  ret i32 %.0148
 }
 
 declare void @zend_declare_class_constant_long(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
@@ -982,13 +982,13 @@ define internal i64 @php_pdosqlite3_stream_read(ptr nocapture noundef %0, ptr no
   br label %16
 
 16:                                               ; preds = %11, %3
-  %.015 = phi i64 [ %12, %11 ], [ %2, %3 ]
-  %.not17 = icmp eq i64 %.015, 0
+  %.0 = phi i64 [ %12, %11 ], [ %2, %3 ]
+  %.not17 = icmp eq i64 %.0, 0
   br i1 %.not17, label %26, label %17
 
 17:                                               ; preds = %16
   %18 = load ptr, ptr %5, align 8
-  %19 = trunc i64 %.015 to i32
+  %19 = trunc i64 %.0 to i32
   %20 = load i64, ptr %6, align 8
   %21 = trunc i64 %20 to i32
   %22 = tail call i32 @sqlite3_blob_read(ptr noundef %18, ptr noundef %1, i32 noundef %19, i32 noundef %21) #11
@@ -997,13 +997,13 @@ define internal i64 @php_pdosqlite3_stream_read(ptr nocapture noundef %0, ptr no
 
 23:                                               ; preds = %17
   %24 = load i64, ptr %6, align 8
-  %25 = add i64 %24, %.015
+  %25 = add i64 %24, %.0
   store i64 %25, ptr %6, align 8
   br label %26
 
 26:                                               ; preds = %16, %23, %17
-  %.0 = phi i64 [ -1, %17 ], [ %.015, %23 ], [ 0, %16 ]
-  ret i64 %.0
+  %.015 = phi i64 [ -1, %17 ], [ %.0, %23 ], [ 0, %16 ]
+  ret i64 %.015
 }
 
 ; Function Attrs: nounwind uwtable

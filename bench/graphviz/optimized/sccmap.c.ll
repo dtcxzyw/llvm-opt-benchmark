@@ -222,27 +222,27 @@ scanArgs.exit:                                    ; preds = %51, %53
   store i32 0, ptr %3, align 4
   %70 = call fastcc i32 @label(ptr noundef nonnull %.02948.i.i, i32 noundef 0, ptr noundef nonnull %3)
   %71 = load i32, ptr %3, align 4
-  %72 = add nsw i32 %71, %.03346.i.i
-  %73 = add i32 %.03545.i.i, 1
+  %72 = add nsw i32 %71, %.03545.i.i
+  %73 = add i32 %.03346.i.i, 1
   %74 = sub i32 %73, %70
   %75 = add i32 %74, %71
   br label %76
 
 76:                                               ; preds = %68, %.lr.ph.i.i
-  %.136.i.i = phi i32 [ %.03545.i.i, %.lr.ph.i.i ], [ %75, %68 ]
-  %.134.i.i = phi i32 [ %.03346.i.i, %.lr.ph.i.i ], [ %72, %68 ]
+  %.136.i.i = phi i32 [ %.03545.i.i, %.lr.ph.i.i ], [ %72, %68 ]
+  %.134.i.i = phi i32 [ %.03346.i.i, %.lr.ph.i.i ], [ %75, %68 ]
   %.132.i.i = phi i32 [ %.03147.i.i, %.lr.ph.i.i ], [ %69, %68 ]
   %77 = call ptr @agnxtnode(ptr noundef nonnull %61, ptr noundef nonnull %.02948.i.i) #11
   %.not.i.i = icmp eq ptr %77, null
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i
 
 ._crit_edge.loopexit.i.i:                         ; preds = %76
-  %78 = sitofp i32 %.136.i.i to float
+  %78 = sitofp i32 %.134.i.i to float
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %64
-  %.035.lcssa.i.i = phi float [ 0.000000e+00, %64 ], [ %78, %._crit_edge.loopexit.i.i ]
-  %.033.lcssa.i.i = phi i32 [ 0, %64 ], [ %.134.i.i, %._crit_edge.loopexit.i.i ]
+  %.035.lcssa.i.i = phi i32 [ 0, %64 ], [ %.136.i.i, %._crit_edge.loopexit.i.i ]
+  %.033.lcssa.i.i = phi float [ 0.000000e+00, %64 ], [ %78, %._crit_edge.loopexit.i.i ]
   %.031.lcssa.i.i = phi i32 [ 0, %64 ], [ %.132.i.i, %._crit_edge.loopexit.i.i ]
   %79 = call ptr @agfstnode(ptr noundef nonnull %61) #11
   %.not4151.i.i = icmp eq ptr %79, null
@@ -263,9 +263,9 @@ scanArgs.exit:                                    ; preds = %51, %53
 
 countComponents.exit.i:                           ; preds = %.lr.ph55.i.i, %._crit_edge.i.i
   %.0.lcssa.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %spec.select.i.i, %.lr.ph55.i.i ]
-  %84 = icmp sgt i32 %.033.lcssa.i.i, 0
-  %85 = uitofp nneg i32 %.033.lcssa.i.i to float
-  %86 = fdiv float %.035.lcssa.i.i, %85
+  %84 = icmp sgt i32 %.035.lcssa.i.i, 0
+  %85 = uitofp nneg i32 %.035.lcssa.i.i to float
+  %86 = fdiv float %.033.lcssa.i.i, %85
   %87 = fpext float %86 to double
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %88 = select i1 %84, double %87, double 0.000000e+00
@@ -587,18 +587,18 @@ stack_push.exit:                                  ; preds = %._crit_edge.i.i.i.i
   br i1 %.not38.i, label %nodeInduce.exit, label %.lr.ph41.i
 
 .lr.ph41.i:                                       ; preds = %91, %._crit_edge.i
-  %.039.i = phi ptr [ %130, %._crit_edge.i ], [ %93, %91 ]
-  %94 = call ptr @agfstout(ptr noundef %92, ptr noundef nonnull %.039.i) #11
+  %.02839.i = phi ptr [ %130, %._crit_edge.i ], [ %93, %91 ]
+  %94 = call ptr @agfstout(ptr noundef %92, ptr noundef nonnull %.02839.i) #11
   %.not3136.i = icmp eq ptr %94, null
   br i1 %.not3136.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph41.i, %128
-  %.02837.i = phi ptr [ %129, %128 ], [ %94, %.lr.ph41.i ]
-  %95 = load i32, ptr %.02837.i, align 8
+  %.037.i = phi ptr [ %129, %128 ], [ %94, %.lr.ph41.i ]
+  %95 = load i32, ptr %.037.i, align 8
   %96 = and i32 %95, 3
   %97 = icmp eq i32 %96, 2
-  %98 = getelementptr inbounds i8, ptr %.02837.i, i64 -64
-  %99 = select i1 %97, ptr %.02837.i, ptr %98
+  %98 = getelementptr inbounds i8, ptr %.037.i, i64 -64
+  %99 = select i1 %97, ptr %.037.i, ptr %98
   %100 = getelementptr inbounds i8, ptr %99, i64 56
   %101 = load ptr, ptr %100, align 8
   %102 = call ptr @agsubnode(ptr noundef %72, ptr noundef %101, i32 noundef 0) #11
@@ -606,15 +606,15 @@ stack_push.exit:                                  ; preds = %._crit_edge.i.i.i.i
   br i1 %.not32.i, label %105, label %103
 
 103:                                              ; preds = %.lr.ph.i
-  %104 = call ptr @agsubedge(ptr noundef %72, ptr noundef nonnull %.02837.i, i32 noundef 1) #11
+  %104 = call ptr @agsubedge(ptr noundef %72, ptr noundef nonnull %.037.i, i32 noundef 1) #11
   br label %128
 
 105:                                              ; preds = %.lr.ph.i
-  %106 = load i32, ptr %.02837.i, align 8
+  %106 = load i32, ptr %.037.i, align 8
   %107 = and i32 %106, 3
   %108 = icmp eq i32 %107, 3
   %.idx.i = select i1 %108, i64 0, i64 64
-  %109 = getelementptr inbounds i8, ptr %.02837.i, i64 %.idx.i
+  %109 = getelementptr inbounds i8, ptr %.037.i, i64 %.idx.i
   %110 = getelementptr inbounds i8, ptr %109, i64 56
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr i8, ptr %111, i64 16
@@ -622,7 +622,7 @@ stack_push.exit:                                  ; preds = %._crit_edge.i.i.i.i
   %113 = getelementptr i8, ptr %.val.i, i64 24
   %.val.val.i = load ptr, ptr %113, align 8
   %114 = icmp eq i32 %107, 2
-  %115 = select i1 %114, ptr %.02837.i, ptr %98
+  %115 = select i1 %114, ptr %.037.i, ptr %98
   %116 = getelementptr inbounds i8, ptr %115, i64 56
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr i8, ptr %117, i64 16
@@ -647,12 +647,12 @@ stack_push.exit:                                  ; preds = %._crit_edge.i.i.i.i
   br label %128
 
 128:                                              ; preds = %122, %105, %103
-  %129 = call ptr @agnxtout(ptr noundef %92, ptr noundef nonnull %.02837.i) #11
+  %129 = call ptr @agnxtout(ptr noundef %92, ptr noundef nonnull %.037.i) #11
   %.not31.i = icmp eq ptr %129, null
   br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %128, %.lr.ph41.i
-  %130 = call ptr @agnxtnode(ptr noundef %72, ptr noundef nonnull %.039.i) #11
+  %130 = call ptr @agnxtnode(ptr noundef %72, ptr noundef nonnull %.02839.i) #11
   %.not.i = icmp eq ptr %130, null
   br i1 %.not.i, label %nodeInduce.exit, label %.lr.ph41.i
 

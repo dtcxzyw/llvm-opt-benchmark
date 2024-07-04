@@ -5217,8 +5217,8 @@ for.body.lr.ph.i:                                 ; preds = %_ZN6hermes2vm18Segm
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, %for.body.lr.ph.i
-  %agg.tmp2072.sroa.5.0 = phi i32 [ %agg.tmp2072.sroa.5.0.copyload, %for.body.lr.ph.i ], [ %40, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
   %agg.tmp2474.sroa.6.0 = phi i32 [ %agg.tmp2474.sroa.6.0.copyload88, %for.body.lr.ph.i ], [ %41, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
+  %agg.tmp2072.sroa.5.0 = phi i32 [ %agg.tmp2072.sroa.5.0.copyload, %for.body.lr.ph.i ], [ %40, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
   %cmp.i.i2.i = icmp ult i32 %agg.tmp2474.sroa.6.0, 4096
   br i1 %cmp.i.i2.i, label %if.then.i.i.i, label %if.else.i.i.i
 
@@ -5385,8 +5385,8 @@ for.body.lr.ph.i:                                 ; preds = %_ZN6hermes2vm18Segm
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i, %for.body.lr.ph.i
-  %agg.tmp6.sroa.5.0 = phi i32 [ %agg.tmp6.sroa.5.0.copyload, %for.body.lr.ph.i ], [ %17, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
   %agg.tmp38.sroa.6.0 = phi i32 [ %agg.tmp38.sroa.6.0.copyload18, %for.body.lr.ph.i ], [ %18, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
+  %agg.tmp6.sroa.5.0 = phi i32 [ %agg.tmp6.sroa.5.0.copyload, %for.body.lr.ph.i ], [ %17, %_ZN6hermes2vm17GCHermesValueBaseINS0_13HermesValue32EE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit.i ]
   %cmp.i.i2.i = icmp ult i32 %agg.tmp38.sroa.6.0, 4096
   br i1 %cmp.i.i2.i, label %if.then.i.i.i, label %if.else.i.i.i
 

@@ -187,16 +187,16 @@ Vec_IntPush.exit:                                 ; preds = %.lr.ph.i42, %Vec_In
   br i1 %25, label %.preheader66, label %._crit_edge
 
 .lr.phthread-pre-split:                           ; preds = %Vec_IntPush.exit56
-  %26 = add nuw i32 %.071, 1
+  %26 = add nuw i32 %.03570, 1
   %27 = mul nsw i32 %26, %.0.lcssa.i
-  %28 = add nsw i32 %27, %.03370
+  %28 = add nsw i32 %27, %.071
   %.pr = load i32, ptr %19, align 4
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.phthread-pre-split, %.lr.ph.preheader
   %29 = phi i32 [ %.pr, %.lr.phthread-pre-split ], [ 1, %.lr.ph.preheader ]
-  %.071 = phi i32 [ %26, %.lr.phthread-pre-split ], [ 0, %.lr.ph.preheader ]
-  %.03370 = phi i32 [ %28, %.lr.phthread-pre-split ], [ %22, %.lr.ph.preheader ]
+  %.071 = phi i32 [ %28, %.lr.phthread-pre-split ], [ %22, %.lr.ph.preheader ]
+  %.03570 = phi i32 [ %26, %.lr.phthread-pre-split ], [ 0, %.lr.ph.preheader ]
   %30 = load i32, ptr %18, align 8
   %31 = icmp eq i32 %29, %30
   br i1 %31, label %32, label %.Vec_IntGrow.exit10_crit_edge.i50
@@ -256,8 +256,8 @@ Vec_IntPush.exit56:                               ; preds = %.Vec_IntGrow.exit10
   store i32 %53, ptr %19, align 4
   %54 = sext i32 %29 to i64
   %55 = getelementptr inbounds i32, ptr %52, i64 %54
-  store i32 %.03370, ptr %55, align 4
-  %exitcond.not = icmp eq i32 %.071, %2
+  store i32 %.071, ptr %55, align 4
+  %exitcond.not = icmp eq i32 %.03570, %2
   br i1 %exitcond.not, label %.preheader67, label %.lr.phthread-pre-split, !llvm.loop !8
 
 .preheader66:                                     ; preds = %.preheader66.lr.ph, %.split.us

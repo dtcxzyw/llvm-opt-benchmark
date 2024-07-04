@@ -405,19 +405,19 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr nocapture
   br label %13
 
 13:                                               ; preds = %.lr.ph66, %._crit_edge62
-  %.03765 = phi i32 [ %3, %.lr.ph66 ], [ %.lcssa52, %._crit_edge62 ]
-  %.03864 = phi ptr [ %8, %.lr.ph66 ], [ %89, %._crit_edge62 ]
-  %14 = load i32, ptr %.03864, align 4
+  %.03665 = phi ptr [ %8, %.lr.ph66 ], [ %89, %._crit_edge62 ]
+  %.03764 = phi i32 [ %3, %.lr.ph66 ], [ %.lcssa52, %._crit_edge62 ]
+  %14 = load i32, ptr %.03665, align 4
   %15 = icmp ugt i32 %14, -131073
   %16 = add nsw i32 %14, 1
   %17 = lshr i32 %16, 1
   %18 = and i32 %17, 2147450879
   %.0.i45 = select i1 %15, i32 %18, i32 %14
   %19 = add nuw i32 %.0.i45, 65537
-  store i32 %19, ptr %.03864, align 4
+  store i32 %19, ptr %.03665, align 4
   %20 = load ptr, ptr %12, align 8
-  %21 = add i32 %.03765, 1
-  %22 = sext i32 %.03765 to i64
+  %21 = add i32 %.03764, 1
+  %22 = sext i32 %.03764 to i64
   %23 = getelementptr inbounds i16, ptr %20, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = icmp eq i16 %24, 0
@@ -429,8 +429,8 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr nocapture
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %26, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.13954 = phi ptr [ %.03864, %.lr.ph.preheader ], [ %38, %.lr.ph ]
-  %27 = getelementptr inbounds i8, ptr %.13954, i64 4
+  %.154 = phi ptr [ %.03665, %.lr.ph.preheader ], [ %38, %.lr.ph ]
+  %27 = getelementptr inbounds i8, ptr %.154, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = icmp ugt i32 %28, -131073
   %30 = add nsw i32 %28, 1
@@ -457,10 +457,10 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr nocapture
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %13
   %.lcssa53 = phi i16 [ %24, %13 ], [ %41, %._crit_edge.loopexit ]
-  %.139.lcssa = phi ptr [ %.03864, %13 ], [ %38, %._crit_edge.loopexit ]
+  %.1.lcssa = phi ptr [ %.03665, %13 ], [ %38, %._crit_edge.loopexit ]
   %.lcssa52 = phi i32 [ %21, %13 ], [ %43, %._crit_edge.loopexit ]
   %44 = sext i16 %.lcssa53 to i32
-  %45 = getelementptr inbounds i8, ptr %.139.lcssa, i64 4
+  %45 = getelementptr inbounds i8, ptr %.1.lcssa, i64 4
   %46 = add nsw i32 %44, 1
   %47 = icmp ult i32 %46, 3
   %48 = select i1 %47, i32 65536, i32 65537
@@ -490,14 +490,14 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr nocapture
 
 .lr.ph61:                                         ; preds = %57
   %66 = zext i16 %65 to i32
-  %67 = getelementptr inbounds i8, ptr %.139.lcssa, i64 12
+  %67 = getelementptr inbounds i8, ptr %.1.lcssa, i64 12
   br label %68
 
 68:                                               ; preds = %.lr.ph61, %83
   %indvars.iv73 = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next74, %83 ]
-  %.03658 = phi i32 [ %66, %.lr.ph61 ], [ %69, %83 ]
-  %69 = lshr i32 %.03658, 1
-  %70 = and i32 %.03658, 2
+  %.03558 = phi i32 [ %66, %.lr.ph61 ], [ %69, %83 ]
+  %69 = lshr i32 %.03558, 1
+  %70 = and i32 %.03558, 2
   %.not44 = icmp eq i32 %70, 0
   br i1 %.not44, label %83, label %71
 
@@ -520,7 +520,7 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr nocapture
 
 83:                                               ; preds = %68, %71
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %.not43 = icmp ult i32 %.03658, 4
+  %.not43 = icmp ult i32 %.03558, 4
   br i1 %.not43, label %._crit_edge62, label %68, !llvm.loop !18
 
 ._crit_edge62:                                    ; preds = %83, %57, %._crit_edge
@@ -536,27 +536,27 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr nocapture
   br i1 %.not, label %._crit_edge67, label %13, !llvm.loop !19
 
 ._crit_edge67:                                    ; preds = %._crit_edge62, %.preheader
-  %.038.lcssa = phi ptr [ %8, %.preheader ], [ %89, %._crit_edge62 ]
   %.037.lcssa = phi i32 [ %3, %.preheader ], [ %.lcssa52, %._crit_edge62 ]
+  %.036.lcssa = phi ptr [ %8, %.preheader ], [ %89, %._crit_edge62 ]
   %91 = icmp slt i32 %.037.lcssa, 16
   br i1 %91, label %.sink.split, label %98
 
 .sink.split:                                      ; preds = %._crit_edge67, %2
-  %.038.lcssa.sink88 = phi ptr [ %8, %2 ], [ %.038.lcssa, %._crit_edge67 ]
-  %.0.ph = phi i32 [ 0, %2 ], [ 1, %._crit_edge67 ]
-  %92 = load i32, ptr %.038.lcssa.sink88, align 4
+  %.036.lcssa.sink88 = phi ptr [ %8, %2 ], [ %.036.lcssa, %._crit_edge67 ]
+  %.039.ph = phi i32 [ 0, %2 ], [ 1, %._crit_edge67 ]
+  %92 = load i32, ptr %.036.lcssa.sink88, align 4
   %93 = icmp ugt i32 %92, -131073
   %94 = add nsw i32 %92, 1
   %95 = lshr i32 %94, 1
   %96 = and i32 %95, 2147450879
   %.0.i50 = select i1 %93, i32 %96, i32 %92
   %97 = add nuw i32 %.0.i50, 65536
-  store i32 %97, ptr %.038.lcssa.sink88, align 4
+  store i32 %97, ptr %.036.lcssa.sink88, align 4
   br label %98
 
 98:                                               ; preds = %.sink.split, %._crit_edge67
-  %.0 = phi i32 [ 1, %._crit_edge67 ], [ %.0.ph, %.sink.split ]
-  ret i32 %.0
+  %.039 = phi i32 [ 1, %._crit_edge67 ], [ %.039.ph, %.sink.split ]
+  ret i32 %.039
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

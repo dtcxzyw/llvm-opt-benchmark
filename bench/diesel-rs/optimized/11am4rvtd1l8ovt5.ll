@@ -709,8 +709,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17ha9
   br label %23
 
 23:                                               ; preds = %.noexc4, %19
-  %.026.i.i = phi i16 [ %22, %19 ], [ %36, %.noexc4 ]
-  %.not.not.i.i.i = icmp eq i16 %.026.i.i, 0
+  %.0.i.i = phi i16 [ %22, %19 ], [ %36, %.noexc4 ]
+  %.not.not.i.i.i = icmp eq i16 %.0.i.i, 0
   br i1 %.not.not.i.i.i, label %24, label %25
 
 24:                                               ; preds = %23
@@ -718,7 +718,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17ha9
   br i1 %.not.i.i, label %44, label %37
 
 25:                                               ; preds = %23
-  %26 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.026.i.i, i1 true)
+  %26 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
   %27 = zext nneg i16 %26 to i64
   %28 = add i64 %.sroa.0.025.i.i, %27
   %29 = and i64 %28, %.val4.i
@@ -731,8 +731,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17ha9
           to label %.noexc4 unwind label %.loopexit
 
 .noexc4:                                          ; preds = %25
-  %35 = add i16 %.026.i.i, -1
-  %36 = and i16 %35, %.026.i.i
+  %35 = add i16 %.0.i.i, -1
+  %36 = and i16 %35, %.0.i.i
   br i1 %34, label %61, label %23
 
 37:                                               ; preds = %24

@@ -1040,18 +1040,18 @@ r_verb_suffix.exit.thread:                        ; preds = %190, %193, %234, %2
   br i1 %353, label %r_attached_pronoun.exit, label %r_vowel_suffix.exit.sink.split
 
 r_vowel_suffix.exit.sink.split:                   ; preds = %347, %349, %351
-  %.pre107 = load i32, ptr %38, align 4
+  %.pre106 = load i32, ptr %38, align 4
   br label %r_vowel_suffix.exit
 
 r_vowel_suffix.exit:                              ; preds = %r_vowel_suffix.exit.sink.split, %341, %337
-  %354 = phi i32 [ %339, %341 ], [ %339, %337 ], [ %.pre107, %r_vowel_suffix.exit.sink.split ]
+  %354 = phi i32 [ %339, %341 ], [ %339, %337 ], [ %.pre106, %r_vowel_suffix.exit.sink.split ]
   %355 = load i32, ptr %142, align 8
   store i32 %355, ptr %2, align 8
   br label %356
 
 356:                                              ; preds = %381, %r_vowel_suffix.exit
-  %357 = phi i32 [ %.pre109, %381 ], [ %354, %r_vowel_suffix.exit ]
-  %358 = phi i32 [ %.pre108, %381 ], [ %355, %r_vowel_suffix.exit ]
+  %357 = phi i32 [ %.pre108, %381 ], [ %354, %r_vowel_suffix.exit ]
+  %358 = phi i32 [ %.pre107, %381 ], [ %355, %r_vowel_suffix.exit ]
   store i32 %358, ptr %4, align 4
   %.not.i80 = icmp slt i32 %358, %357
   br i1 %.not.i80, label %359, label %.thread40.i
@@ -1072,8 +1072,8 @@ r_vowel_suffix.exit:                              ; preds = %r_vowel_suffix.exit
 
 364:                                              ; preds = %359, %359
   %365 = tail call i32 @find_among(ptr noundef nonnull %0, ptr noundef nonnull @a_1, i32 noundef 3) #2
-  %.not36.i82 = icmp eq i32 %365, 0
-  br i1 %.not36.i82, label %382, label %366
+  %.not36.i81 = icmp eq i32 %365, 0
+  br i1 %.not36.i81, label %382, label %366
 
 366:                                              ; preds = %364
   %367 = load i32, ptr %2, align 8
@@ -1081,11 +1081,11 @@ r_vowel_suffix.exit:                              ; preds = %r_vowel_suffix.exit
   switch i32 %365, label %381 [
     i32 1, label %368
     i32 2, label %371
-    i32 3, label %._crit_edge.i83
+    i32 3, label %._crit_edge.i82
   ]
 
-._crit_edge.i83:                                  ; preds = %366
-  %.pre.i84 = load i32, ptr %38, align 4
+._crit_edge.i82:                                  ; preds = %366
+  %.pre.i83 = load i32, ptr %38, align 4
   br label %374
 
 368:                                              ; preds = %366
@@ -1098,9 +1098,9 @@ r_vowel_suffix.exit:                              ; preds = %r_vowel_suffix.exit
   %373 = icmp slt i32 %372, 0
   br i1 %373, label %r_attached_pronoun.exit, label %381
 
-374:                                              ; preds = %._crit_edge.i83, %.thread40.i
-  %375 = phi i32 [ %357, %.thread40.i ], [ %.pre.i84, %._crit_edge.i83 ]
-  %376 = phi i32 [ %358, %.thread40.i ], [ %367, %._crit_edge.i83 ]
+374:                                              ; preds = %._crit_edge.i82, %.thread40.i
+  %375 = phi i32 [ %357, %.thread40.i ], [ %.pre.i83, %._crit_edge.i82 ]
+  %376 = phi i32 [ %358, %.thread40.i ], [ %367, %._crit_edge.i82 ]
   %377 = load ptr, ptr %0, align 8
   %378 = tail call i32 @skip_utf8(ptr noundef %377, i32 noundef %376, i32 noundef %375, i32 noundef 1) #2
   %379 = icmp slt i32 %378, 0
@@ -1111,8 +1111,8 @@ r_vowel_suffix.exit:                              ; preds = %r_vowel_suffix.exit
   br label %381
 
 381:                                              ; preds = %380, %371, %368, %366
-  %.pre108 = load i32, ptr %2, align 8
-  %.pre109 = load i32, ptr %38, align 4
+  %.pre107 = load i32, ptr %2, align 8
+  %.pre108 = load i32, ptr %38, align 4
   br label %356
 
 382:                                              ; preds = %374, %364

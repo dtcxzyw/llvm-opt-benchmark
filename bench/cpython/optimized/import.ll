@@ -1567,13 +1567,13 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp8.not42, label %if.then30, label %while.body
 
 while.body:                                       ; preds = %if.end, %Py_DECREF.exit
-  %in_importlib.046 = phi i1 [ %13, %Py_DECREF.exit ], [ false, %if.end ]
-  %prev_link.045 = phi ptr [ %prev_link.1, %Py_DECREF.exit ], [ %base_tb, %if.end ]
-  %outer_link.044 = phi ptr [ %spec.select38, %Py_DECREF.exit ], [ null, %if.end ]
-  %tb.043 = phi ptr [ %4, %Py_DECREF.exit ], [ %call7, %if.end ]
-  %tb_next = getelementptr inbounds i8, ptr %tb.043, i64 16
+  %tb.046 = phi ptr [ %4, %Py_DECREF.exit ], [ %call7, %if.end ]
+  %outer_link.045 = phi ptr [ %spec.select38, %Py_DECREF.exit ], [ null, %if.end ]
+  %prev_link.044 = phi ptr [ %prev_link.1, %Py_DECREF.exit ], [ %base_tb, %if.end ]
+  %in_importlib.043 = phi i1 [ %13, %Py_DECREF.exit ], [ false, %if.end ]
+  %tb_next = getelementptr inbounds i8, ptr %tb.046, i64 16
   %4 = load ptr, ptr %tb_next, align 8
-  %tb_frame = getelementptr inbounds i8, ptr %tb.043, i64 24
+  %tb_frame = getelementptr inbounds i8, ptr %tb.046, i64 24
   %5 = load ptr, ptr %tb_frame, align 8
   %call9 = tail call ptr @PyFrame_GetCode(ptr noundef %5) #19
   %co_filename = getelementptr inbounds i8, ptr %call9, i64 112
@@ -1583,15 +1583,15 @@ while.body:                                       ; preds = %if.end, %Py_DECREF.
   br i1 %tobool11.not, label %lor.end, label %lor.end.thread
 
 lor.end.thread:                                   ; preds = %while.body
-  %spec.select37 = select i1 %in_importlib.046, ptr %outer_link.044, ptr %prev_link.045
+  %spec.select37 = select i1 %in_importlib.043, ptr %outer_link.045, ptr %prev_link.044
   br label %land.lhs.true20
 
 lor.end:                                          ; preds = %while.body
   %7 = load ptr, ptr %co_filename, align 8
   %call13 = tail call i32 @_PyUnicode_EqualToASCIIString(ptr noundef %7, ptr noundef nonnull @.str.59) #19
   %tobool14.not = icmp eq i32 %call13, 0
-  %or.cond = or i1 %in_importlib.046, %tobool14.not
-  %spec.select = select i1 %or.cond, ptr %outer_link.044, ptr %prev_link.045
+  %or.cond = or i1 %in_importlib.043, %tobool14.not
+  %spec.select = select i1 %or.cond, ptr %outer_link.045, ptr %prev_link.044
   br i1 %tobool14.not, label %if.end28, label %land.lhs.true20
 
 land.lhs.true20:                                  ; preds = %lor.end.thread, %lor.end
@@ -1642,7 +1642,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then1.i.i, %if.end.i.i, %if.then.i, %_Py_XNewRef.exit, %lor.end, %lor.lhs.false22
-  %spec.select38 = phi ptr [ %spec.select39, %lor.lhs.false22 ], [ %outer_link.044, %lor.end ], [ %spec.select39, %_Py_XNewRef.exit ], [ %spec.select39, %if.then.i ], [ %spec.select39, %if.end.i.i ], [ %spec.select39, %if.then1.i.i ]
+  %spec.select38 = phi ptr [ %spec.select39, %lor.lhs.false22 ], [ %outer_link.045, %lor.end ], [ %spec.select39, %_Py_XNewRef.exit ], [ %spec.select39, %if.then.i ], [ %spec.select39, %if.end.i.i ], [ %spec.select39, %if.then1.i.i ]
   %13 = phi i1 [ true, %lor.lhs.false22 ], [ false, %lor.end ], [ true, %_Py_XNewRef.exit ], [ true, %if.then.i ], [ true, %if.end.i.i ], [ true, %if.then1.i.i ]
   %prev_link.1 = phi ptr [ %tb_next, %lor.lhs.false22 ], [ %tb_next, %lor.end ], [ %spec.select39, %_Py_XNewRef.exit ], [ %spec.select39, %if.then.i ], [ %spec.select39, %if.end.i.i ], [ %spec.select39, %if.then1.i.i ]
   %14 = load i64, ptr %call9, align 8
@@ -2458,8 +2458,8 @@ if.end8.i.i:                                      ; preds = %if.end3.i.i
   br label %finally.i.i
 
 finally.i.i:                                      ; preds = %if.end8.i.i, %if.end3.i.i, %if.end.i13.i, %extensions_lock_acquire.exit.i.i
-  %key.0.i.i = phi ptr [ null, %extensions_lock_acquire.exit.i.i ], [ null, %if.end.i13.i ], [ %call.i.i, %if.end3.i.i ], [ %call.i.i, %if.end8.i.i ]
   %def.0.i.i = phi ptr [ null, %extensions_lock_acquire.exit.i.i ], [ null, %if.end.i13.i ], [ null, %if.end3.i.i ], [ %8, %if.end8.i.i ]
+  %key.0.i.i = phi ptr [ null, %extensions_lock_acquire.exit.i.i ], [ null, %if.end.i13.i ], [ %call.i.i, %if.end3.i.i ], [ %call.i.i, %if.end8.i.i ]
   %9 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2216), i8 1, i8 0 seq_cst seq_cst, align 1
   %10 = extractvalue { i8, i1 } %9, 1
   br i1 %10, label %extensions_lock_release.exit.i.i, label %if.then.i.i5.i.i
@@ -4762,8 +4762,8 @@ if.end12:                                         ; preds = %PyImport_ImportModu
   br i1 %cmp14, label %if.then.i51, label %if.end17
 
 if.end17:                                         ; preds = %if.end12, %Py_INCREF.exit
-  %builtins.0 = phi ptr [ %call5, %Py_INCREF.exit ], [ %call1.i, %if.end12 ]
   %globals.0 = phi ptr [ %call2, %Py_INCREF.exit ], [ %call13, %if.end12 ]
+  %builtins.0 = phi ptr [ %call5, %Py_INCREF.exit ], [ %call1.i, %if.end12 ]
   %5 = getelementptr i8, ptr %builtins.0, i64 8
   %builtins.0.val = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %builtins.0.val, i64 168
@@ -4875,10 +4875,10 @@ if.then39:                                        ; preds = %land.lhs.true, %_Py
   br label %if.then.i44
 
 if.then.i44:                                      ; preds = %Py_INCREF.exit, %if.end27, %if.end30, %_PyErr_Occurred.exit, %if.then39, %import_get_module.exit, %if.end27.thread
+  %globals.1.ph = phi ptr [ %globals.0, %if.end27.thread ], [ %globals.0, %import_get_module.exit ], [ %globals.0, %if.then39 ], [ %globals.0, %_PyErr_Occurred.exit ], [ %globals.0, %if.end30 ], [ %globals.0, %if.end27 ], [ %call2, %Py_INCREF.exit ]
   %import.1.ph = phi ptr [ null, %if.end27.thread ], [ %import.084, %import_get_module.exit ], [ %import.084, %if.then39 ], [ %import.084, %_PyErr_Occurred.exit ], [ %import.084, %if.end30 ], [ null, %if.end27 ], [ null, %Py_INCREF.exit ]
   %builtins.1.ph = phi ptr [ %builtins.0, %if.end27.thread ], [ %builtins.0, %import_get_module.exit ], [ %builtins.0, %if.then39 ], [ %builtins.0, %_PyErr_Occurred.exit ], [ %builtins.0, %if.end30 ], [ %builtins.0, %if.end27 ], [ null, %Py_INCREF.exit ]
   %r.0.ph = phi ptr [ null, %if.end27.thread ], [ %17, %import_get_module.exit ], [ null, %if.then39 ], [ null, %_PyErr_Occurred.exit ], [ null, %if.end30 ], [ null, %if.end27 ], [ null, %Py_INCREF.exit ]
-  %globals.1.ph = phi ptr [ %globals.0, %if.end27.thread ], [ %globals.0, %import_get_module.exit ], [ %globals.0, %if.then39 ], [ %globals.0, %_PyErr_Occurred.exit ], [ %globals.0, %if.end30 ], [ %globals.0, %if.end27 ], [ %call2, %Py_INCREF.exit ]
   %21 = load i64, ptr %globals.1.ph, align 8
   %22 = and i64 %21, 2147483648
   %cmp.i2.not.i = icmp eq i64 %22, 0
@@ -4899,48 +4899,48 @@ Py_XDECREF.exit:                                  ; preds = %if.then.i44, %if.en
   br i1 %cmp.not.i50, label %Py_XDECREF.exit58, label %if.then.i51
 
 if.then.i51:                                      ; preds = %if.end12, %Py_XDECREF.exit
-  %import.195114 = phi ptr [ %import.1.ph, %Py_XDECREF.exit ], [ null, %if.end12 ]
-  %builtins.197113 = phi ptr [ %builtins.1.ph, %Py_XDECREF.exit ], [ %call1.i, %if.end12 ]
-  %r.099112 = phi ptr [ %r.0.ph, %Py_XDECREF.exit ], [ null, %if.end12 ]
-  %23 = load i64, ptr %builtins.197113, align 8
+  %import.196114 = phi ptr [ %import.1.ph, %Py_XDECREF.exit ], [ null, %if.end12 ]
+  %builtins.198113 = phi ptr [ %builtins.1.ph, %Py_XDECREF.exit ], [ %call1.i, %if.end12 ]
+  %r.0100112 = phi ptr [ %r.0.ph, %Py_XDECREF.exit ], [ null, %if.end12 ]
+  %23 = load i64, ptr %builtins.198113, align 8
   %24 = and i64 %23, 2147483648
   %cmp.i2.not.i52 = icmp eq i64 %24, 0
   br i1 %cmp.i2.not.i52, label %if.end.i.i54, label %Py_XDECREF.exit58
 
 if.end.i.i54:                                     ; preds = %if.then.i51
   %dec.i.i55 = add i64 %23, -1
-  store i64 %dec.i.i55, ptr %builtins.197113, align 8
+  store i64 %dec.i.i55, ptr %builtins.198113, align 8
   %cmp.i.i56 = icmp eq i64 %dec.i.i55, 0
   br i1 %cmp.i.i56, label %if.then1.i.i57, label %Py_XDECREF.exit58
 
 if.then1.i.i57:                                   ; preds = %if.end.i.i54
-  call void @_Py_Dealloc(ptr noundef nonnull %builtins.197113) #19
+  call void @_Py_Dealloc(ptr noundef nonnull %builtins.198113) #19
   br label %Py_XDECREF.exit58
 
 Py_XDECREF.exit58:                                ; preds = %Py_XDECREF.exit, %if.then.i51, %if.end.i.i54, %if.then1.i.i57
-  %import.195106 = phi ptr [ %import.1.ph, %Py_XDECREF.exit ], [ %import.195114, %if.then.i51 ], [ %import.195114, %if.end.i.i54 ], [ %import.195114, %if.then1.i.i57 ]
-  %r.099105 = phi ptr [ %r.0.ph, %Py_XDECREF.exit ], [ %r.099112, %if.then.i51 ], [ %r.099112, %if.end.i.i54 ], [ %r.099112, %if.then1.i.i57 ]
-  %cmp.not.i59 = icmp eq ptr %import.195106, null
+  %import.196106 = phi ptr [ %import.1.ph, %Py_XDECREF.exit ], [ %import.196114, %if.then.i51 ], [ %import.196114, %if.end.i.i54 ], [ %import.196114, %if.then1.i.i57 ]
+  %r.0100105 = phi ptr [ %r.0.ph, %Py_XDECREF.exit ], [ %r.0100112, %if.then.i51 ], [ %r.0100112, %if.end.i.i54 ], [ %r.0100112, %if.then1.i.i57 ]
+  %cmp.not.i59 = icmp eq ptr %import.196106, null
   br i1 %cmp.not.i59, label %if.then.i69, label %if.then.i60
 
 if.then.i60:                                      ; preds = %Py_XDECREF.exit58
-  %25 = load i64, ptr %import.195106, align 8
+  %25 = load i64, ptr %import.196106, align 8
   %26 = and i64 %25, 2147483648
   %cmp.i2.not.i61 = icmp eq i64 %26, 0
   br i1 %cmp.i2.not.i61, label %if.end.i.i63, label %if.then.i69
 
 if.end.i.i63:                                     ; preds = %if.then.i60
   %dec.i.i64 = add i64 %25, -1
-  store i64 %dec.i.i64, ptr %import.195106, align 8
+  store i64 %dec.i.i64, ptr %import.196106, align 8
   %cmp.i.i65 = icmp eq i64 %dec.i.i64, 0
   br i1 %cmp.i.i65, label %if.then1.i.i66, label %if.then.i69
 
 if.then1.i.i66:                                   ; preds = %if.end.i.i63
-  call void @_Py_Dealloc(ptr noundef nonnull %import.195106) #19
+  call void @_Py_Dealloc(ptr noundef nonnull %import.196106) #19
   br label %if.then.i69
 
 if.then.i69:                                      ; preds = %if.else, %PyImport_ImportModuleLevel.exit, %if.then1.i.i66, %if.end.i.i63, %if.then.i60, %Py_XDECREF.exit58
-  %r.099105118120 = phi ptr [ %r.099105, %Py_XDECREF.exit58 ], [ %r.099105, %if.then.i60 ], [ %r.099105, %if.end.i.i63 ], [ %r.099105, %if.then1.i.i66 ], [ null, %PyImport_ImportModuleLevel.exit ], [ null, %if.else ]
+  %r.0100105118120 = phi ptr [ %r.0100105, %Py_XDECREF.exit58 ], [ %r.0100105, %if.then.i60 ], [ %r.0100105, %if.end.i.i63 ], [ %r.0100105, %if.then1.i.i66 ], [ null, %PyImport_ImportModuleLevel.exit ], [ null, %if.else ]
   %27 = load i64, ptr %call1, align 8
   %28 = and i64 %27, 2147483648
   %cmp.i2.not.i70 = icmp eq i64 %28, 0
@@ -4957,8 +4957,8 @@ if.then1.i.i75:                                   ; preds = %if.end.i.i72
   br label %Py_XDECREF.exit76
 
 Py_XDECREF.exit76:                                ; preds = %entry, %if.then.i69, %if.end.i.i72, %if.then1.i.i75
-  %r.099105118121 = phi ptr [ %r.099105118120, %if.then.i69 ], [ %r.099105118120, %if.end.i.i72 ], [ %r.099105118120, %if.then1.i.i75 ], [ null, %entry ]
-  ret ptr %r.099105118121
+  %r.0100105118121 = phi ptr [ %r.0100105118120, %if.then.i69 ], [ %r.0100105118120, %if.end.i.i72 ], [ %r.0100105118120, %if.then1.i.i75 ], [ null, %entry ]
+  ret ptr %r.0100105118121
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5285,10 +5285,10 @@ for.cond.preheader.i:                             ; preds = %if.end95.i
   br i1 %cmp10070.i.not, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i
-  %last_dot.072.i = phi i64 [ %call101.i, %for.inc.i ], [ %.val47.i, %for.cond.preheader.i ]
-  %level_up.071.i = phi i32 [ %add.i, %for.inc.i ], [ 1, %for.cond.preheader.i ]
+  %level_up.072.i = phi i32 [ %add.i, %for.inc.i ], [ 1, %for.cond.preheader.i ]
+  %last_dot.071.i = phi i64 [ %call101.i, %for.inc.i ], [ %.val47.i, %for.cond.preheader.i ]
   %47 = load ptr, ptr %package.i, align 8
-  %call101.i = call i64 @PyUnicode_FindChar(ptr noundef %47, i32 noundef 46, i64 noundef 0, i64 noundef %last_dot.072.i, i32 noundef -1) #19
+  %call101.i = call i64 @PyUnicode_FindChar(ptr noundef %47, i32 noundef 46, i64 noundef 0, i64 noundef %last_dot.071.i, i32 noundef -1) #19
   switch i64 %call101.i, label %for.inc.i [
     i64 -2, label %error.i
     i64 -1, label %if.then106.i
@@ -5300,7 +5300,7 @@ if.then106.i:                                     ; preds = %for.body.i
   br label %error.i
 
 for.inc.i:                                        ; preds = %for.body.i
-  %add.i = add nuw nsw i32 %level_up.071.i, 1
+  %add.i = add nuw nsw i32 %level_up.072.i, 1
   %exitcond.not.i = icmp eq i32 %add.i, %level
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !13
 
@@ -5751,8 +5751,8 @@ if.end.i.i116:                                    ; preds = %if.else101
   br label %if.then.i120
 
 if.then.i120:                                     ; preds = %Py_XDECREF.exit, %_PyErr_Occurred.exit, %if.then30, %if.then45, %if.else92, %if.then98, %if.then56, %if.then66, %if.end70, %if.then1.i114, %if.end.i111, %if.else72, %_PyErr_Occurred.exit108, %if.then84, %Py_DECREF.exit, %import_find_and_load.exit, %if.then62, %if.end.i.i101, %if.else89, %if.end.i.i111, %if.else101, %if.end.i.i116
-  %mod.1.ph = phi ptr [ %mod.0, %if.end.i.i116 ], [ %mod.0, %if.else101 ], [ %mod.0, %if.end.i.i111 ], [ %mod.0, %if.else89 ], [ %mod.0, %if.end.i.i101 ], [ %mod.0, %if.then62 ], [ null, %import_find_and_load.exit ], [ %mod.0, %Py_DECREF.exit ], [ %mod.0, %if.then84 ], [ %mod.0, %_PyErr_Occurred.exit108 ], [ %mod.0, %if.else72 ], [ %mod.0, %if.end.i111 ], [ %mod.0, %if.then1.i114 ], [ %mod.0, %if.end70 ], [ %mod.0, %if.then66 ], [ %mod.0, %if.then56 ], [ %mod.0, %if.then98 ], [ %mod.0, %if.else92 ], [ %mod.0, %if.then45 ], [ %72, %if.then30 ], [ null, %_PyErr_Occurred.exit ], [ null, %Py_XDECREF.exit ]
   %final_mod.0.ph = phi ptr [ %mod.0, %if.end.i.i116 ], [ %mod.0, %if.else101 ], [ %mod.0, %if.end.i.i111 ], [ %mod.0, %if.else89 ], [ %mod.0, %if.end.i.i101 ], [ %mod.0, %if.then62 ], [ null, %import_find_and_load.exit ], [ %call79, %Py_DECREF.exit ], [ null, %if.then84 ], [ null, %_PyErr_Occurred.exit108 ], [ null, %if.else72 ], [ %call71, %if.end.i111 ], [ %call71, %if.then1.i114 ], [ %call71, %if.end70 ], [ null, %if.then66 ], [ null, %if.then56 ], [ %call100, %if.then98 ], [ null, %if.else92 ], [ null, %if.then45 ], [ null, %if.then30 ], [ null, %_PyErr_Occurred.exit ], [ null, %Py_XDECREF.exit ]
+  %mod.1.ph = phi ptr [ %mod.0, %if.end.i.i116 ], [ %mod.0, %if.else101 ], [ %mod.0, %if.end.i.i111 ], [ %mod.0, %if.else89 ], [ %mod.0, %if.end.i.i101 ], [ %mod.0, %if.then62 ], [ null, %import_find_and_load.exit ], [ %mod.0, %Py_DECREF.exit ], [ %mod.0, %if.then84 ], [ %mod.0, %_PyErr_Occurred.exit108 ], [ %mod.0, %if.else72 ], [ %mod.0, %if.end.i111 ], [ %mod.0, %if.then1.i114 ], [ %mod.0, %if.end70 ], [ %mod.0, %if.then66 ], [ %mod.0, %if.then56 ], [ %mod.0, %if.then98 ], [ %mod.0, %if.else92 ], [ %mod.0, %if.then45 ], [ %72, %if.then30 ], [ null, %_PyErr_Occurred.exit ], [ null, %Py_XDECREF.exit ]
   %107 = load i64, ptr %abs_name.0, align 8
   %108 = and i64 %107, 2147483648
   %cmp.i2.not.i121 = icmp eq i64 %108, 0
@@ -5797,8 +5797,8 @@ if.then106:                                       ; preds = %if.then, %if.then7,
   br label %if.end107
 
 if.end107:                                        ; preds = %if.then106, %Py_XDECREF.exit136
-  %final_mod.0173178181 = phi ptr [ null, %if.then106 ], [ %final_mod.0.ph, %Py_XDECREF.exit136 ]
-  ret ptr %final_mod.0173178181
+  %final_mod.0172178181 = phi ptr [ null, %if.then106 ], [ %final_mod.0.ph, %Py_XDECREF.exit136 ]
+  ret ptr %final_mod.0172178181
 }
 
 declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
@@ -7019,8 +7019,8 @@ if.end8.i:                                        ; preds = %if.end3.i
   br label %finally.i
 
 finally.i:                                        ; preds = %if.end8.i, %if.end3.i, %if.end.i41, %extensions_lock_acquire.exit.i
-  %key.0.i = phi ptr [ null, %extensions_lock_acquire.exit.i ], [ null, %if.end.i41 ], [ %call.i, %if.end3.i ], [ %call.i, %if.end8.i ]
   %def.0.i = phi ptr [ null, %extensions_lock_acquire.exit.i ], [ null, %if.end.i41 ], [ null, %if.end3.i ], [ %5, %if.end8.i ]
+  %key.0.i = phi ptr [ null, %extensions_lock_acquire.exit.i ], [ null, %if.end.i41 ], [ %call.i, %if.end3.i ], [ %call.i, %if.end8.i ]
   %6 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 2216), i8 1, i8 0 seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 1
   br i1 %7, label %extensions_lock_release.exit.i, label %if.then.i.i5.i

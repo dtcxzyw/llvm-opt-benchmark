@@ -1235,8 +1235,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__typeinfo_init_phase2(ptr nocap
   br label %31
 
 31:                                               ; preds = %.lr.ph, %46
-  %.03336 = phi i64 [ 0, %.lr.ph ], [ %47, %46 ]
-  %32 = getelementptr inbounds %struct.H5D_dset_io_info_t, ptr %28, i64 %.03336
+  %.036 = phi i64 [ 0, %.lr.ph ], [ %47, %46 ]
+  %32 = getelementptr inbounds %struct.H5D_dset_io_info_t, ptr %28, i64 %.036
   %33 = getelementptr inbounds i8, ptr %32, i64 280
   %34 = load i32, ptr %33, align 8
   %.not35 = icmp eq i32 %34, 0
@@ -1260,7 +1260,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__typeinfo_init_phase2(ptr nocap
   br label %46
 
 46:                                               ; preds = %31, %45, %35
-  %47 = add nuw i64 %.03336, 1
+  %47 = add nuw i64 %.036, 1
   %exitcond.not = icmp eq i64 %47, %26
   br i1 %exitcond.not, label %._crit_edge, label %31
 
@@ -1315,8 +1315,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__typeinfo_init_phase2(ptr nocap
   br label %72
 
 72:                                               ; preds = %.thread42, %.thread, %19, %66, %64, %50
-  %.0 = phi i32 [ -1, %50 ], [ 0, %66 ], [ 0, %64 ], [ 0, %19 ], [ 0, %.thread ], [ 0, %.thread42 ]
-  ret i32 %.0
+  %.033 = phi i32 [ -1, %50 ], [ 0, %66 ], [ 0, %64 ], [ 0, %19 ], [ 0, %.thread ], [ 0, %.thread42 ]
+  ret i32 %.033
 }
 
 ; Function Attrs: nounwind uwtable

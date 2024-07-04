@@ -167,8 +167,8 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr nocapture nounde
   br label %87
 
 87:                                               ; preds = %85, %22
-  %.0 = phi i64 [ 1, %22 ], [ %86, %85 ]
-  ret i64 %.0
+  %.047 = phi i64 [ 1, %22 ], [ %86, %85 ]
+  ret i64 %.047
 }
 
 declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1

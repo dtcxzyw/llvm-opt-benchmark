@@ -21937,11 +21937,11 @@ for.body.lr.ph:                                   ; preds = %invoke.cont.i
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %key_field.072 = phi ptr [ null, %for.body.lr.ph ], [ %key_field.2, %for.inc ]
-  %field_pos.071 = phi i32 [ -1, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %field_pos.072 = phi i32 [ -1, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %key_field.071 = phi ptr [ null, %for.body.lr.ph ], [ %key_field.2, %for.inc ]
   %it.sroa.0.070 = phi ptr [ %cond.i.i.i.i, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
   %36 = load ptr, ptr %it.sroa.0.070, align 8
-  %inc = add nsw i32 %field_pos.071, 1
+  %inc = add nsw i32 %field_pos.072, 1
   %deprecated = getelementptr inbounds i8, ptr %36, i64 272
   %37 = load i8, ptr %deprecated, align 8
   %tobool45 = trunc i8 %37 to i1
@@ -22039,7 +22039,7 @@ if.end:                                           ; preds = %for.body
   %key = getelementptr inbounds i8, ptr %36, i64 273
   %50 = load i8, ptr %key, align 1
   %tobool47 = trunc i8 %50 to i1
-  %spec.select = select i1 %tobool47, ptr %36, ptr %key_field.072
+  %spec.select = select i1 %tobool47, ptr %36, ptr %key_field.071
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %ss.i)
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i)
           to label %.noexc50 unwind label %lpad51.loopexit
@@ -22161,7 +22161,7 @@ lpad76:                                           ; preds = %invoke.cont75
   br label %ehcleanup110
 
 for.inc:                                          ; preds = %invoke.cont60, %invoke.cont77, %for.body
-  %key_field.2 = phi ptr [ %key_field.072, %for.body ], [ %spec.select, %invoke.cont77 ], [ %spec.select, %invoke.cont60 ]
+  %key_field.2 = phi ptr [ %key_field.071, %for.body ], [ %spec.select, %invoke.cont77 ], [ %spec.select, %invoke.cont60 ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.070, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i.i.i.i.i.i.i.i
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body, !llvm.loop !145

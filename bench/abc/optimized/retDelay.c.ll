@@ -56,8 +56,8 @@ define internal fastcc void @Abc_NtkRetimeMinDelayTry(ptr noundef %0, i32 nounde
 
 .thread:                                          ; preds = %10, %9, %15, %13
   %or.cond121 = phi i1 [ false, %15 ], [ true, %13 ], [ true, %9 ], [ true, %10 ]
-  %.083120 = phi ptr [ null, %15 ], [ null, %13 ], [ null, %9 ], [ %12, %10 ]
-  %.088119 = phi ptr [ null, %15 ], [ null, %13 ], [ null, %9 ], [ %11, %10 ]
+  %.087120 = phi ptr [ null, %15 ], [ null, %13 ], [ null, %9 ], [ %11, %10 ]
+  %.088119 = phi ptr [ null, %15 ], [ null, %13 ], [ null, %9 ], [ %12, %10 ]
   %16 = getelementptr i8, ptr %0, i64 128
   %.val = load i32, ptr %16, align 8
   %17 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
@@ -80,8 +80,8 @@ define internal fastcc void @Abc_NtkRetimeMinDelayTry(ptr noundef %0, i32 nounde
   br label %30
 
 30:                                               ; preds = %525, %.thread
-  %.087 = phi i32 [ 0, %.thread ], [ %526, %525 ]
-  %.084 = phi i32 [ 0, %.thread ], [ %.185, %525 ]
+  %.086 = phi i32 [ 0, %.thread ], [ %526, %525 ]
+  %.083 = phi i32 [ 0, %.thread ], [ %.184, %525 ]
   %.081 = phi i32 [ 1000000000, %.thread ], [ %.182, %525 ]
   %.079 = phi i32 [ -1, %.thread ], [ %spec.select, %525 ]
   %.0 = phi i32 [ %.val, %.thread ], [ %.1, %525 ]
@@ -1273,7 +1273,7 @@ Vec_IntFillExtra.exit265.i:                       ; preds = %._crit_edge.i255.i,
 
 Abc_NtkRetimeTiming.exit:                         ; preds = %.critedge14.i, %498
   tail call void @free(ptr noundef nonnull %46) #8
-  %499 = icmp eq i32 %.087, 0
+  %499 = icmp eq i32 %.086, 0
   %spec.select = select i1 %499, i32 %.10.i, i32 %.079
   %500 = icmp sgt i32 %.081, %.10.i
   br i1 %500, label %501, label %513
@@ -1292,16 +1292,16 @@ Abc_NtkRetimeTiming.exit:                         ; preds = %.critedge14.i, %498
   %509 = sitofp i32 %.val104.pre136 to double
   %510 = fdiv double %508, %509
   %511 = fdiv double %510, %506
-  %512 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %28, i32 noundef %.087, i32 noundef %.10.i, i32 noundef %.val104.pre136, double noundef %507, double noundef %511)
+  %512 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %28, i32 noundef %.086, i32 noundef %.10.i, i32 noundef %.val104.pre136, double noundef %507, double noundef %511)
   %.val104.pre = load i32, ptr %16, align 8
   br label %513
 
 513:                                              ; preds = %501, %502, %Abc_NtkRetimeTiming.exit
-  %.185 = phi i32 [ %.084, %Abc_NtkRetimeTiming.exit ], [ %.087, %502 ], [ %.087, %501 ]
+  %.184 = phi i32 [ %.083, %Abc_NtkRetimeTiming.exit ], [ %.086, %502 ], [ %.086, %501 ]
   %.182 = phi i32 [ %.081, %Abc_NtkRetimeTiming.exit ], [ %.10.i, %502 ], [ %.10.i, %501 ]
   %.1 = phi i32 [ %.0, %Abc_NtkRetimeTiming.exit ], [ %.val104.pre, %502 ], [ %.val104.pre136, %501 ]
-  %514 = icmp ne i32 %.087, %4
-  %515 = sub nsw i32 %.087, %.185
+  %514 = icmp ne i32 %.086, %4
+  %515 = sub nsw i32 %.086, %.184
   %516 = icmp slt i32 %515, 21
   %or.cond98.not131 = select i1 %514, i1 %516, i1 false
   %.not92 = icmp sgt i32 %.10.i, %1
@@ -1344,7 +1344,7 @@ Abc_NtkRetimeTiming.exit:                         ; preds = %.critedge14.i, %498
   br label %525
 
 525:                                              ; preds = %.critedge, %524
-  %526 = add nuw nsw i32 %.087, 1
+  %526 = add nuw nsw i32 %.086, 1
   br label %30
 
 527:                                              ; preds = %513
@@ -1368,9 +1368,9 @@ Vec_PtrFree.exit:                                 ; preds = %527, %529
   br label %536
 
 532:                                              ; preds = %530
-  tail call void @Abc_NtkRetimeBackwardInitialFinish(ptr noundef %0, ptr noundef %.083120, ptr noundef %.088119, i32 noundef %6) #8
-  tail call void @Abc_NtkDelete(ptr noundef %.083120) #8
-  %533 = getelementptr inbounds i8, ptr %.088119, i64 8
+  tail call void @Abc_NtkRetimeBackwardInitialFinish(ptr noundef %0, ptr noundef %.088119, ptr noundef %.087120, i32 noundef %6) #8
+  tail call void @Abc_NtkDelete(ptr noundef %.088119) #8
+  %533 = getelementptr inbounds i8, ptr %.087120, i64 8
   %534 = load ptr, ptr %533, align 8
   %.not.i108 = icmp eq ptr %534, null
   br i1 %.not.i108, label %Vec_IntFree.exit, label %535
@@ -1380,7 +1380,7 @@ Vec_PtrFree.exit:                                 ; preds = %527, %529
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %532, %535
-  tail call void @free(ptr noundef nonnull %.088119) #8
+  tail call void @free(ptr noundef nonnull %.087120) #8
   br label %536
 
 536:                                              ; preds = %531, %Vec_IntFree.exit, %Vec_PtrFree.exit
@@ -1388,12 +1388,12 @@ Vec_IntFree.exit:                                 ; preds = %532, %535
 
 537:                                              ; preds = %536
   %538 = select i1 %.not.i, ptr @.str.6, ptr @.str.5
-  %539 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %538, i32 noundef %spec.select, i32 noundef %.182, i32 noundef %.185, i32 noundef %4)
+  %539 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %538, i32 noundef %spec.select, i32 noundef %.182, i32 noundef %.184, i32 noundef %4)
   br label %540
 
 540:                                              ; preds = %537, %536
   %541 = icmp eq i32 %4, 1
-  %542 = select i1 %541, i32 1, i32 %.185
+  %542 = select i1 %541, i32 1, i32 %.184
   store i32 %542, ptr %5, align 4
   ret void
 }

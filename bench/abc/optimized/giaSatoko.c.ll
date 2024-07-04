@@ -810,7 +810,7 @@ Gia_ManSatokoInit.exit:                           ; preds = %38, %39
   br label %49
 
 49:                                               ; preds = %.lr.ph, %Abc_Clock.exit70
-  %.086 = phi i32 [ 0, %.lr.ph ], [ %56, %Abc_Clock.exit70 ]
+  %.05186 = phi i32 [ 0, %.lr.ph ], [ %56, %Abc_Clock.exit70 ]
   %.val62 = load ptr, ptr %40, align 8
   %.not55 = icmp eq ptr %.val62, null
   br i1 %.not55, label %.critedge, label %50
@@ -832,7 +832,7 @@ Gia_ManSatokoInit.exit:                           ; preds = %38, %39
 Abc_Clock.exit67:                                 ; preds = %50, %53
   %.0.i66.neg = phi i64 [ %.neg78, %53 ], [ 1, %50 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %56 = add nuw nsw i32 %.086, 1
+  %56 = add nuw nsw i32 %.05186, 1
   %57 = shl nuw nsw i32 %56, 1
   call void @satoko_assump_push(ptr noundef %.014.i, i32 noundef %57) #15
   %58 = load ptr, ptr %46, align 8
@@ -874,7 +874,7 @@ Abc_Clock.exit70:                                 ; preds = %Vec_IntFree.exit, %
   %.0.i69 = phi i64 [ %74, %69 ], [ -1, %Vec_IntFree.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %75 = add i64 %.0.i69, %.0.i66.neg
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str, i32 noundef %.086)
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str, i32 noundef %.05186)
   %switch.selectcmp.i = icmp eq i32 %65, 1
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.3, ptr @.str.4
   %switch.selectcmp6.i = icmp eq i32 %65, 0

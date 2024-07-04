@@ -249,10 +249,10 @@ define noundef i64 @_Z19fast_rv64i_ukcras16P11processor_t6insn_tm(ptr nocapture 
   br label %35
 
 35:                                               ; preds = %20, %86
-  %.06379 = phi i64 [ %25, %20 ], [ %92, %86 ]
-  %.06478 = phi i64 [ 3, %20 ], [ %93, %86 ]
-  %.064.tr = trunc i64 %.06478 to i32
-  %36 = shl i32 %.064.tr, 4
+  %.06379 = phi i64 [ 3, %20 ], [ %93, %86 ]
+  %.06478 = phi i64 [ %25, %20 ], [ %92, %86 ]
+  %.063.tr = trunc i64 %.06379 to i32
+  %36 = shl i32 %.063.tr, 4
   %37 = zext nneg i32 %36 to i64
   %38 = shl i64 65535, %37
   %39 = and i64 %38, %29
@@ -282,7 +282,7 @@ define noundef i64 @_Z19fast_rv64i_ukcras16P11processor_t6insn_tm(ptr nocapture 
 
 59:                                               ; preds = %57, %35
   %60 = xor i64 %38, -1
-  %61 = and i64 %.06379, %60
+  %61 = and i64 %.06478, %60
   %62 = zext i16 %56 to i64
   %63 = mul i64 %42, %62
   %64 = and i64 %63, %38
@@ -321,8 +321,8 @@ define noundef i64 @_Z19fast_rv64i_ukcras16P11processor_t6insn_tm(ptr nocapture 
   %90 = mul i64 %72, %89
   %91 = and i64 %90, %68
   %92 = or i64 %91, %88
-  %93 = add nsw i64 %.06478, -2
-  %94 = icmp ugt i64 %.06478, 1
+  %93 = add nsw i64 %.06379, -2
+  %94 = icmp ugt i64 %.06379, 1
   br i1 %94, label %35, label %95, !llvm.loop !4
 
 95:                                               ; preds = %86
@@ -947,10 +947,10 @@ define noundef i64 @_Z19fast_rv64e_ukcras16P11processor_t6insn_tm(ptr nocapture 
   br label %56
 
 56:                                               ; preds = %52, %107
-  %.07195 = phi i64 [ %32, %52 ], [ %113, %107 ]
-  %.07294 = phi i64 [ 3, %52 ], [ %114, %107 ]
-  %.072.tr = trunc i64 %.07294 to i32
-  %57 = shl i32 %.072.tr, 4
+  %.07195 = phi i64 [ 3, %52 ], [ %114, %107 ]
+  %.07294 = phi i64 [ %32, %52 ], [ %113, %107 ]
+  %.071.tr = trunc i64 %.07195 to i32
+  %57 = shl i32 %.071.tr, 4
   %58 = zext nneg i32 %57 to i64
   %59 = shl i64 65535, %58
   %60 = and i64 %59, %43
@@ -980,7 +980,7 @@ define noundef i64 @_Z19fast_rv64e_ukcras16P11processor_t6insn_tm(ptr nocapture 
 
 80:                                               ; preds = %78, %56
   %81 = xor i64 %59, -1
-  %82 = and i64 %.07195, %81
+  %82 = and i64 %.07294, %81
   %83 = zext i16 %77 to i64
   %84 = mul i64 %63, %83
   %85 = and i64 %84, %59
@@ -1019,8 +1019,8 @@ define noundef i64 @_Z19fast_rv64e_ukcras16P11processor_t6insn_tm(ptr nocapture 
   %111 = mul i64 %93, %110
   %112 = and i64 %111, %89
   %113 = or i64 %112, %109
-  %114 = add nsw i64 %.07294, -2
-  %115 = icmp ugt i64 %.07294, 1
+  %114 = add nsw i64 %.07195, -2
+  %115 = icmp ugt i64 %.07195, 1
   br i1 %115, label %56, label %116, !llvm.loop !8
 
 116:                                              ; preds = %107

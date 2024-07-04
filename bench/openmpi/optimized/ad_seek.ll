@@ -58,10 +58,10 @@ define i64 @ADIOI_GEN_SeekIndividual(ptr nocapture noundef %0, i64 noundef %1, i
 
 38:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %.03749 = phi i64 [ 0, %.lr.ph ], [ %41, %37 ]
+  %.049 = phi i64 [ 0, %.lr.ph ], [ %41, %37 ]
   %39 = getelementptr inbounds i64, ptr %36, i64 %indvars.iv
   %40 = load i64, ptr %39, align 8
-  %41 = add nsw i64 %40, %.03749
+  %41 = add nsw i64 %40, %.049
   %42 = icmp sgt i64 %41, %31
   br i1 %42, label %43, label %37
 
@@ -70,30 +70,30 @@ define i64 @ADIOI_GEN_SeekIndividual(ptr nocapture noundef %0, i64 noundef %1, i
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i64, ptr %45, i64 %indvars.iv
   %47 = load i64, ptr %46, align 8
-  %48 = sub i64 %31, %.03749
+  %48 = sub i64 %31, %.049
   %49 = add i64 %48, %47
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %27, %43
-  %.039 = phi i64 [ %49, %43 ], [ 0, %27 ], [ 0, %37 ]
+  %.037 = phi i64 [ %49, %43 ], [ 0, %27 ], [ 0, %37 ]
   %50 = getelementptr inbounds i8, ptr %0, i64 104
   %51 = load i64, ptr %50, align 8
   %52 = load i64, ptr %8, align 8
   %53 = mul nsw i64 %52, %29
-  %54 = add i64 %51, %.039
+  %54 = add i64 %51, %.037
   %55 = add i64 %54, %53
   br label %56
 
 56:                                               ; preds = %.loopexit, %14
-  %.038 = phi i64 [ %18, %14 ], [ %55, %.loopexit ]
+  %.039 = phi i64 [ %18, %14 ], [ %55, %.loopexit ]
   %57 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %.038, ptr %57, align 8
+  store i64 %.039, ptr %57, align 8
   br label %58
 
 58:                                               ; preds = %19, %56
-  %.0 = phi i64 [ %.038, %56 ], [ 0, %19 ]
+  %.038 = phi i64 [ %.039, %56 ], [ 0, %19 ]
   store i32 0, ptr %3, align 4
-  ret i64 %.0
+  ret i64 %.038
 }
 
 declare void @ADIOI_Datatype_iscontig(ptr noundef, ptr noundef) local_unnamed_addr #1

@@ -110,9 +110,9 @@ sub_2:                                            ; preds = %sub_1
 .preheader108:                                    ; preds = %23, %120
   %_ZL7inverse.0 = phi i32 [ %_ZL7inverse.4, %120 ], [ %24, %23 ]
   %.in = phi i32 [ %.4, %120 ], [ %0, %23 ]
-  %.066126 = phi ptr [ %.268, %120 ], [ %1, %23 ]
+  %.063126 = phi ptr [ %.265, %120 ], [ %1, %23 ]
   %31 = add nsw i32 %.in, -1
-  %32 = getelementptr inbounds i8, ptr %.066126, i64 8
+  %32 = getelementptr inbounds i8, ptr %.063126, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load i8, ptr %33, align 1
   switch i8 %34, label %115 [
@@ -122,15 +122,15 @@ sub_2:                                            ; preds = %sub_1
 
 .outer:                                           ; preds = %.preheader108, %.outer.backedge
   %_ZL7inverse.1 = phi i32 [ %_ZL7inverse.2, %.outer.backedge ], [ %_ZL7inverse.0, %.preheader108 ]
-  %.167.ph = phi ptr [ %65, %.outer.backedge ], [ %32, %.preheader108 ]
-  %.063.ph = phi ptr [ %35, %.outer.backedge ], [ %33, %.preheader108 ]
-  %.1.ph = phi i32 [ %.1.ph.be, %.outer.backedge ], [ %31, %.preheader108 ]
+  %.167.ph = phi i32 [ %.167.ph.be, %.outer.backedge ], [ %31, %.preheader108 ]
+  %.164.ph = phi ptr [ %65, %.outer.backedge ], [ %32, %.preheader108 ]
+  %.062.ph = phi ptr [ %35, %.outer.backedge ], [ %33, %.preheader108 ]
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.outer
   %_ZL7inverse.2 = phi i32 [ %_ZL7inverse.1, %.outer ], [ %_ZL7inverse.3, %.backedge.backedge ]
-  %.063 = phi ptr [ %.063.ph, %.outer ], [ %.063.be, %.backedge.backedge ]
-  %35 = getelementptr inbounds i8, ptr %.063, i64 1
+  %.062 = phi ptr [ %.062.ph, %.outer ], [ %.062.be, %.backedge.backedge ]
+  %35 = getelementptr inbounds i8, ptr %.062, i64 1
   %36 = load i8, ptr %35, align 1
   switch i8 %36, label %104 [
     i8 0, label %37
@@ -146,7 +146,7 @@ sub_2:                                            ; preds = %sub_1
   ]
 
 37:                                               ; preds = %.backedge
-  %38 = load i8, ptr %.063, align 1
+  %38 = load i8, ptr %.062, align 1
   %39 = icmp eq i8 %38, 45
   br i1 %39, label %40, label %120
 
@@ -164,7 +164,7 @@ sub_2:                                            ; preds = %sub_1
   br label %.backedge.backedge
 
 46:                                               ; preds = %.backedge
-  %47 = getelementptr inbounds i8, ptr %.063, i64 2
+  %47 = getelementptr inbounds i8, ptr %.062, i64 2
   %48 = load i8, ptr %47, align 1
   %.not98 = icmp eq i8 %48, 0
   br i1 %.not98, label %51, label %49
@@ -179,7 +179,7 @@ sub_2:                                            ; preds = %sub_1
   br label %.backedge.backedge
 
 52:                                               ; preds = %.backedge, %.backedge
-  %53 = getelementptr inbounds i8, ptr %.063, i64 2
+  %53 = getelementptr inbounds i8, ptr %.062, i64 2
   %54 = load i8, ptr %53, align 1
   %55 = sext i8 %54 to i32
   %isdigittmp = add nsw i32 %55, -48
@@ -194,7 +194,7 @@ sub_2:                                            ; preds = %sub_1
 
 .backedge.backedge:                               ; preds = %.backedge, %56, %59, %49, %51, %45, %103
   %_ZL7inverse.3 = phi i32 [ %_ZL7inverse.2, %103 ], [ %_ZL7inverse.2, %56 ], [ %_ZL7inverse.2, %59 ], [ %_ZL7inverse.2, %51 ], [ %_ZL7inverse.2, %49 ], [ %_ZL7inverse.2, %45 ], [ 1, %.backedge ]
-  %.063.be = phi ptr [ %35, %103 ], [ %53, %56 ], [ %35, %59 ], [ %35, %51 ], [ %47, %49 ], [ %35, %45 ], [ %35, %.backedge ]
+  %.062.be = phi ptr [ %35, %103 ], [ %53, %56 ], [ %35, %59 ], [ %35, %51 ], [ %47, %49 ], [ %35, %45 ], [ %35, %.backedge ]
   br label %.backedge, !llvm.loop !5
 
 59:                                               ; preds = %52
@@ -202,31 +202,31 @@ sub_2:                                            ; preds = %sub_1
   br label %.backedge.backedge
 
 60:                                               ; preds = %.backedge
-  %61 = add nsw i32 %.1.ph, -1
-  %62 = icmp slt i32 %.1.ph, 2
+  %61 = add nsw i32 %.167.ph, -1
+  %62 = icmp slt i32 %.167.ph, 2
   br i1 %62, label %63, label %.outer.backedge
 
 63:                                               ; preds = %67, %60
-  %.2 = phi i32 [ %68, %67 ], [ %61, %60 ]
+  %.268 = phi i32 [ %68, %67 ], [ %61, %60 ]
   %64 = zext nneg i8 %36 to i32
   tail call void (i32, ptr, ...) @_Z5emessiPKcz(i32 noundef 1, ptr noundef nonnull @.str.5, i32 noundef %64)
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %60, %63, %67
   %_ZL5oform.sink = phi ptr [ @_ZL6osform, %67 ], [ @_ZL5oform, %63 ], [ @_ZL5oform, %60 ]
-  %.1.ph.be = phi i32 [ %68, %67 ], [ %.2, %63 ], [ %61, %60 ]
-  %65 = getelementptr inbounds i8, ptr %.167.ph, i64 8
+  %.167.ph.be = phi i32 [ %68, %67 ], [ %.268, %63 ], [ %61, %60 ]
+  %65 = getelementptr inbounds i8, ptr %.164.ph, i64 8
   %66 = load ptr, ptr %65, align 8
   store ptr %66, ptr %_ZL5oform.sink, align 8
   br label %.outer, !llvm.loop !5
 
 67:                                               ; preds = %.backedge
-  %68 = add nsw i32 %.1.ph, -1
-  %69 = icmp slt i32 %.1.ph, 2
+  %68 = add nsw i32 %.167.ph, -1
+  %69 = icmp slt i32 %.167.ph, 2
   br i1 %69, label %63, label %.outer.backedge
 
 70:                                               ; preds = %.backedge
-  %71 = getelementptr inbounds i8, ptr %.063, i64 2
+  %71 = getelementptr inbounds i8, ptr %.062, i64 2
   %72 = load i8, ptr %71, align 1
   switch i8 %72, label %101 [
     i8 0, label %73
@@ -242,15 +242,15 @@ sub_2:                                            ; preds = %sub_1
 
 .lr.ph137:                                        ; preds = %73, %.lr.ph137
   %76 = phi ptr [ %85, %.lr.ph137 ], [ %75, %73 ]
-  %.060136 = phi ptr [ %84, %.lr.ph137 ], [ %74, %73 ]
-  %77 = getelementptr inbounds i8, ptr %.060136, i64 8
+  %.059136 = phi ptr [ %84, %.lr.ph137 ], [ %74, %73 ]
+  %77 = getelementptr inbounds i8, ptr %.059136, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %.060136, i64 16
+  %79 = getelementptr inbounds i8, ptr %.059136, i64 16
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %.060136, i64 24
+  %81 = getelementptr inbounds i8, ptr %.059136, i64 24
   %82 = load ptr, ptr %81, align 8
   %83 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull %76, ptr noundef %78, ptr noundef %80, ptr noundef %82)
-  %84 = getelementptr inbounds i8, ptr %.060136, i64 32
+  %84 = getelementptr inbounds i8, ptr %.059136, i64 32
   %85 = load ptr, ptr %84, align 8
   %.not96 = icmp eq ptr %85, null
   br i1 %.not96, label %.loopexit, label %.lr.ph137, !llvm.loop !7
@@ -339,8 +339,8 @@ sub_2:                                            ; preds = %sub_1
 
 120:                                              ; preds = %115, %114, %109, %37, %40, %104
   %_ZL7inverse.4 = phi i32 [ %_ZL7inverse.0, %115 ], [ %_ZL7inverse.0, %109 ], [ %_ZL7inverse.0, %114 ], [ %_ZL7inverse.2, %104 ], [ %_ZL7inverse.2, %40 ], [ %_ZL7inverse.2, %37 ]
-  %.268 = phi ptr [ %32, %115 ], [ %32, %109 ], [ %32, %114 ], [ %.167.ph, %104 ], [ %.167.ph, %40 ], [ %.167.ph, %37 ]
-  %.4 = phi i32 [ %31, %115 ], [ %31, %109 ], [ %31, %114 ], [ %.1.ph, %104 ], [ %.1.ph, %40 ], [ %.1.ph, %37 ]
+  %.4 = phi i32 [ %31, %115 ], [ %31, %109 ], [ %31, %114 ], [ %.167.ph, %104 ], [ %.167.ph, %40 ], [ %.167.ph, %37 ]
+  %.265 = phi ptr [ %32, %115 ], [ %32, %109 ], [ %32, %114 ], [ %.164.ph, %104 ], [ %.164.ph, %40 ], [ %.164.ph, %37 ]
   %121 = icmp sgt i32 %.4, 1
   br i1 %121, label %.preheader108, label %122, !llvm.loop !8
 
@@ -424,8 +424,8 @@ sub_2:                                            ; preds = %sub_1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %360
-  %.062128 = phi ptr [ %361, %360 ], [ %1, %.lr.ph.preheader ]
-  %157 = load ptr, ptr %.062128, align 8
+  %.061128 = phi ptr [ %361, %360 ], [ %1, %.lr.ph.preheader ]
+  %157 = load ptr, ptr %.061128, align 8
   %158 = load i8, ptr %157, align 1
   %159 = icmp eq i8 %158, 45
   br i1 %159, label %160, label %162
@@ -437,7 +437,7 @@ sub_2:                                            ; preds = %sub_1
 162:                                              ; preds = %.lr.ph
   %163 = call noalias ptr @fopen(ptr noundef nonnull %157, ptr noundef nonnull @.str.14)
   %164 = icmp eq ptr %163, null
-  %165 = load ptr, ptr %.062128, align 8
+  %165 = load ptr, ptr %.061128, align 8
   br i1 %164, label %166, label %167
 
 166:                                              ; preds = %162
@@ -446,12 +446,12 @@ sub_2:                                            ; preds = %sub_1
 
 167:                                              ; preds = %162, %160
   %storemerge91 = phi ptr [ @.str.13, %160 ], [ %165, %162 ]
-  %.061 = phi ptr [ %161, %160 ], [ %163, %162 ]
+  %.060 = phi ptr [ %161, %160 ], [ %163, %162 ]
   store ptr %storemerge91, ptr @emess_dat, align 8
   call void @llvm.lifetime.start.p0(i64 203, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i32 1, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
-  %168 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 200, ptr noundef %.061)
+  %168 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 200, ptr noundef %.060)
   store ptr %168, ptr %4, align 8
   %.not17.i = icmp eq ptr %168, null
   br i1 %.not17.i, label %_ZL7processP8_IO_FILE.exit, label %.lr.ph.i100
@@ -469,7 +469,7 @@ sub_2:                                            ; preds = %sub_1
   br label %172
 
 172:                                              ; preds = %172, %171
-  %173 = call i32 @fgetc(ptr noundef %.061)
+  %173 = call i32 @fgetc(ptr noundef %.060)
   switch i32 %173, label %172 [
     i32 -1, label %.loopexit.loopexit.i
     i32 10, label %.loopexit.loopexit.i
@@ -496,7 +496,7 @@ sub_2:                                            ; preds = %sub_1
   %182 = load i32, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
   %183 = add nsw i32 %182, 1
   store i32 %183, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
-  %184 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 200, ptr noundef %.061)
+  %184 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 200, ptr noundef %.060)
   store ptr %184, ptr %4, align 8
   %.not.i101 = icmp eq ptr %184, null
   br i1 %.not.i101, label %_ZL7processP8_IO_FILE.exit, label %.lr.ph.i100, !llvm.loop !10
@@ -779,12 +779,12 @@ _ZL7printLLdd.exit:                               ; preds = %327, %334
 _ZL7processP8_IO_FILE.exit:                       ; preds = %.backedge.i, %167
   call void @llvm.lifetime.end.p0(i64 203, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %359 = call i32 @fclose(ptr noundef %.061)
+  %359 = call i32 @fclose(ptr noundef %.060)
   store ptr null, ptr @emess_dat, align 8
   br label %360
 
 360:                                              ; preds = %_ZL7processP8_IO_FILE.exit, %166
-  %361 = getelementptr inbounds i8, ptr %.062128, i64 8
+  %361 = getelementptr inbounds i8, ptr %.061128, i64 8
   %362 = load i32, ptr @_ZZ4mainE5eargc, align 4
   %363 = add nsw i32 %362, -1
   store i32 %363, ptr @_ZZ4mainE5eargc, align 4

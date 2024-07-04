@@ -158,20 +158,20 @@ define dso_local noundef zeroext i1 @file_namesplit(ptr noundef %0, ptr nocaptur
   br i1 %5, label %33, label %.preheader
 
 .preheader:                                       ; preds = %3, %6
-  %.034.in = phi i64 [ %.034, %6 ], [ %4, %3 ]
-  %.034 = add i64 %.034.in, -1
-  %.not = icmp eq i64 %.034, 0
+  %.033.in = phi i64 [ %.033, %6 ], [ %4, %3 ]
+  %.033 = add i64 %.033.in, -1
+  %.not = icmp eq i64 %.033, 0
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %0, i64 %.034
+  %7 = getelementptr inbounds i8, ptr %0, i64 %.033
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 47
   br i1 %9, label %10, label %.preheader, !llvm.loop !10
 
 10:                                               ; preds = %6, %.preheader
-  %.033 = phi i64 [ -1, %.preheader ], [ %.034, %6 ]
-  %11 = xor i64 %.033, -1
+  %.034 = phi i64 [ -1, %.preheader ], [ %.033, %6 ]
+  %11 = xor i64 %.034, -1
   %12 = add i64 %4, %11
   switch i64 %12, label %23 [
     i64 1, label %13
@@ -196,7 +196,7 @@ define dso_local noundef zeroext i1 @file_namesplit(ptr noundef %0, ptr nocaptur
   br i1 %22, label %33, label %23
 
 23:                                               ; preds = %16, %13, %19, %10
-  %24 = getelementptr i8, ptr %0, i64 %.033
+  %24 = getelementptr i8, ptr %0, i64 %.034
   %25 = getelementptr i8, ptr %24, i64 1
   %26 = tail call ptr @str_copy(ptr noundef %25, i64 noundef %12) #17
   store ptr %26, ptr %1, align 8
@@ -208,7 +208,7 @@ define dso_local noundef zeroext i1 @file_namesplit(ptr noundef %0, ptr nocaptur
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %27
-  %30 = tail call ptr @str_copy(ptr noundef %0, i64 noundef %.033) #17
+  %30 = tail call ptr @str_copy(ptr noundef %0, i64 noundef %.034) #17
   store ptr %30, ptr %2, align 8
   br label %33
 
@@ -330,21 +330,21 @@ define dso_local ptr @file_read_all(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %.not45, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %28
-  %.044 = phi i64 [ %.1, %28 ], [ 0, %17 ]
-  %.03743 = phi i64 [ %29, %28 ], [ 0, %17 ]
-  %19 = getelementptr i8, ptr %10, i64 %.03743
-  %20 = getelementptr i8, ptr %19, i64 %.044
+  %.044 = phi i64 [ %29, %28 ], [ 0, %17 ]
+  %.03743 = phi i64 [ %.138, %28 ], [ 0, %17 ]
+  %19 = getelementptr i8, ptr %10, i64 %.044
+  %20 = getelementptr i8, ptr %19, i64 %.03743
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 13
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %.lr.ph
-  %24 = add i64 %.044, 1
-  %25 = add i64 %.03743, -1
+  %24 = add i64 %.03743, 1
+  %25 = add i64 %.044, -1
   br label %28
 
 26:                                               ; preds = %.lr.ph
-  %.not = icmp eq i64 %.044, 0
+  %.not = icmp eq i64 %.03743, 0
   br i1 %.not, label %28, label %27
 
 27:                                               ; preds = %26
@@ -352,16 +352,16 @@ define dso_local ptr @file_read_all(ptr noundef %0, ptr nocapture noundef writeo
   br label %28
 
 28:                                               ; preds = %26, %27, %23
-  %.138 = phi i64 [ %25, %23 ], [ %.03743, %27 ], [ %.03743, %26 ]
-  %.1 = phi i64 [ %24, %23 ], [ %.044, %27 ], [ 0, %26 ]
-  %29 = add i64 %.138, 1
-  %30 = sub i64 %8, %.1
+  %.138 = phi i64 [ %24, %23 ], [ %.03743, %27 ], [ 0, %26 ]
+  %.1 = phi i64 [ %25, %23 ], [ %.044, %27 ], [ %.044, %26 ]
+  %29 = add i64 %.1, 1
+  %30 = sub i64 %8, %.138
   %31 = icmp ult i64 %29, %30
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %28, %17
-  %.0.lcssa = phi i64 [ 0, %17 ], [ %.1, %28 ]
-  %32 = sub i64 %14, %.0.lcssa
+  %.037.lcssa = phi i64 [ 0, %17 ], [ %.138, %28 ]
+  %32 = sub i64 %14, %.037.lcssa
   %33 = getelementptr inbounds i8, ptr %10, i64 %32
   store i8 0, ptr %33, align 1
   %34 = tail call i32 @fclose(ptr noundef nonnull %3)

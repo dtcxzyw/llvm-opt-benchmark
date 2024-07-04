@@ -64,7 +64,7 @@ define range(i32 0, 2) i32 @lu_decompose(ptr nocapture noundef readonly %0, i32 
 
 21:                                               ; preds = %.preheader83.us, %21
   %indvars.iv = phi i64 [ 0, %.preheader83.us ], [ %indvars.iv.next, %21 ]
-  %.06687.us = phi double [ 0.000000e+00, %.preheader83.us ], [ %28, %21 ]
+  %.06587.us = phi double [ 0.000000e+00, %.preheader83.us ], [ %28, %21 ]
   %22 = load ptr, ptr %14, align 8
   %23 = getelementptr inbounds double, ptr %22, i64 %indvars.iv
   %24 = load double, ptr %23, align 8
@@ -72,7 +72,7 @@ define range(i32 0, 2) i32 @lu_decompose(ptr nocapture noundef readonly %0, i32 
   %26 = getelementptr inbounds double, ptr %25, i64 %indvars.iv
   store double %24, ptr %26, align 8
   %27 = tail call double @llvm.fabs.f64(double %24)
-  %28 = tail call double @llvm.maxnum.f64(double %.06687.us, double %27)
+  %28 = tail call double @llvm.maxnum.f64(double %.06587.us, double %27)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count109
   br i1 %exitcond.not, label %._crit_edge.us, label %21
@@ -106,14 +106,14 @@ define range(i32 0, 2) i32 @lu_decompose(ptr nocapture noundef readonly %0, i32 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit
   %indvars.iv118 = phi i64 [ 1, %.preheader.lr.ph ], [ %indvars.iv.next119, %.loopexit ]
   %indvars.iv111 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next112, %.loopexit ]
-  %.071101 = phi i32 [ 0, %.preheader.lr.ph ], [ %.273, %.loopexit ]
+  %.066101 = phi i32 [ 0, %.preheader.lr.ph ], [ %.268, %.loopexit ]
   %33 = icmp slt i64 %indvars.iv111, %8
   br i1 %33, label %.lr.ph, label %.loopexit82
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv113 = phi i64 [ %indvars.iv.next114, %.lr.ph ], [ %indvars.iv111, %.preheader ]
-  %.16790 = phi double [ %.268, %.lr.ph ], [ 0.000000e+00, %.preheader ]
-  %.17289 = phi i32 [ %.273, %.lr.ph ], [ %.071101, %.preheader ]
+  %.191 = phi double [ %.2, %.lr.ph ], [ 0.000000e+00, %.preheader ]
+  %.16790 = phi i32 [ %.268, %.lr.ph ], [ %.066101, %.preheader ]
   %34 = getelementptr inbounds i32, ptr %.pre133.pre, i64 %indvars.iv113
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
@@ -125,27 +125,27 @@ define range(i32 0, 2) i32 @lu_decompose(ptr nocapture noundef readonly %0, i32 
   %42 = getelementptr inbounds double, ptr %11, i64 %36
   %43 = load double, ptr %42, align 8
   %44 = fmul double %41, %43
-  %45 = fcmp olt double %.16790, %44
+  %45 = fcmp olt double %.191, %44
   %46 = trunc nuw nsw i64 %indvars.iv113 to i32
-  %.273 = select i1 %45, i32 %46, i32 %.17289
-  %.268 = select i1 %45, double %44, double %.16790
+  %.268 = select i1 %45, i32 %46, i32 %.16790
+  %.2 = select i1 %45, double %44, double %.191
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count116
   br i1 %exitcond117.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %47 = fcmp ugt double %.268, 0.000000e+00
+  %47 = fcmp ugt double %.2, 0.000000e+00
   br i1 %47, label %48, label %.loopexit82
 
 48:                                               ; preds = %._crit_edge
-  %49 = zext i32 %.273 to i64
+  %49 = zext i32 %.268 to i64
   %.not80 = icmp eq i64 %indvars.iv111, %49
   br i1 %.not80, label %.lr.ph95.us.preheader, label %50
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds i32, ptr %.pre133.pre, i64 %indvars.iv111
   %52 = load i32, ptr %51, align 4
-  %53 = sext i32 %.273 to i64
+  %53 = sext i32 %.268 to i64
   %54 = getelementptr inbounds i32, ptr %.pre133.pre, i64 %53
   %55 = load i32, ptr %54, align 4
   store i32 %55, ptr %51, align 4

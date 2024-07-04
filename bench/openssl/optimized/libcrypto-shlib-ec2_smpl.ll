@@ -353,8 +353,8 @@ if.end11:                                         ; preds = %if.end7
   br label %err
 
 err:                                              ; preds = %if.end11, %if.end7, %if.end3, %if.then2
-  %ret.0 = phi i32 [ 0, %if.then2 ], [ 0, %if.end3 ], [ 0, %if.end7 ], [ %spec.select, %if.end11 ]
   %ctx.addr.1 = phi ptr [ null, %if.then2 ], [ %ctx.addr.0, %if.end3 ], [ %ctx.addr.0, %if.end7 ], [ %ctx.addr.0, %if.end11 ]
+  %ret.0 = phi i32 [ 0, %if.then2 ], [ 0, %if.end3 ], [ 0, %if.end7 ], [ %spec.select, %if.end11 ]
   %new_ctx.1 = phi ptr [ null, %if.then2 ], [ %new_ctx.0, %if.end3 ], [ %new_ctx.0, %if.end7 ], [ %new_ctx.0, %if.end11 ]
   tail call void @BN_CTX_end(ptr noundef %ctx.addr.1) #4
   tail call void @BN_CTX_free(ptr noundef %new_ctx.1) #4

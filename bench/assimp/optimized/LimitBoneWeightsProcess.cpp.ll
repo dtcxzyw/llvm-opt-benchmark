@@ -545,7 +545,7 @@ if.then149:                                       ; preds = %for.end148
 
 for.body.i:                                       ; preds = %if.then149, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.then149 ]
-  %writeBone.010.i = phi i32 [ %writeBone.1.i, %for.inc.i ], [ 0, %if.then149 ]
+  %writeBone.09.i = phi i32 [ %writeBone.1.i, %for.inc.i ], [ 0, %if.then149 ]
   %73 = load ptr, ptr %mBones.i, align 8
   %arrayidx.i72 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv.i
   %74 = load ptr, ptr %arrayidx.i72, align 8
@@ -555,8 +555,8 @@ for.body.i:                                       ; preds = %if.then149, %for.in
   br i1 %cmp1.not.i, label %delete.notnull.i, label %if.then.i73
 
 if.then.i73:                                      ; preds = %for.body.i
-  %inc.i74 = add i32 %writeBone.010.i, 1
-  %idxprom3.i = zext i32 %writeBone.010.i to i64
+  %inc.i74 = add i32 %writeBone.09.i, 1
+  %idxprom3.i = zext i32 %writeBone.09.i to i64
   %arrayidx4.i = getelementptr inbounds ptr, ptr %73, i64 %idxprom3.i
   store ptr %74, ptr %arrayidx4.i, align 8
   br label %for.inc.i
@@ -576,7 +576,7 @@ _ZN6aiBoneD2Ev.exit.i:                            ; preds = %delete.notnull.i.i7
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZN6aiBoneD2Ev.exit.i, %if.then.i73
-  %writeBone.1.i = phi i32 [ %inc.i74, %if.then.i73 ], [ %writeBone.010.i, %_ZN6aiBoneD2Ev.exit.i ]
+  %writeBone.1.i = phi i32 [ %inc.i74, %if.then.i73 ], [ %writeBone.09.i, %_ZN6aiBoneD2Ev.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %77 = load i32, ptr %mNumBones.i, align 8
   %78 = zext i32 %77 to i64
@@ -1110,8 +1110,8 @@ while.body.i:                                     ; preds = %entry, %_ZSt10__pop
   br i1 %cmp23.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i, %while.body.i.i.i
-  %__holeIndex.addr.024.i.i.i = phi i64 [ %spec.select.i.i.i, %while.body.i.i.i ], [ 0, %while.body.i ]
-  %add.i.i.i = shl i64 %__holeIndex.addr.024.i.i.i, 1
+  %__secondChild.024.i.i.i = phi i64 [ %spec.select.i.i.i, %while.body.i.i.i ], [ 0, %while.body.i ]
+  %add.i.i.i = shl i64 %__secondChild.024.i.i.i, 1
   %mul.i.i.i = add i64 %add.i.i.i, 2
   %sub1.i.i.i = or disjoint i64 %add.i.i.i, 1
   %mWeight.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %mul.i.i.i, i32 1
@@ -1121,14 +1121,14 @@ while.body.i.i.i:                                 ; preds = %while.body.i, %whil
   %cmp.i.i.i.i.i = fcmp ogt float %1, %2
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %sub1.i.i.i, i64 %mul.i.i.i
   %add.ptr3.i.i.i = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %spec.select.i.i.i
-  %add.ptr4.i.i.i = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %__holeIndex.addr.024.i.i.i
+  %add.ptr4.i.i.i = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %__secondChild.024.i.i.i
   %3 = load i64, ptr %add.ptr3.i.i.i, align 4
   store i64 %3, ptr %add.ptr4.i.i.i, align 4
   %cmp.i.i.i = icmp slt i64 %spec.select.i.i.i, %div.i.i.i
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !24
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %while.body.i
-  %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ 0, %while.body.i ], [ %spec.select.i.i.i, %while.body.i.i.i ]
+  %__secondChild.0.lcssa.i.i.i = phi i64 [ 0, %while.body.i ], [ %spec.select.i.i.i, %while.body.i.i.i ]
   %4 = and i64 %sub.ptr.sub.i.i, 8
   %cmp5.i.i.i = icmp eq i64 %4, 0
   br i1 %cmp5.i.i.i, label %land.lhs.true.i.i.i, label %if.end16.i.i.i
@@ -1136,20 +1136,20 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
 land.lhs.true.i.i.i:                              ; preds = %while.end.i.i.i
   %sub6.i.i.i = add nsw i64 %sub.ptr.div.i.i, -2
   %div7.i.i.i = ashr exact i64 %sub6.i.i.i, 1
-  %cmp8.i.i.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i, %div7.i.i.i
+  %cmp8.i.i.i = icmp eq i64 %__secondChild.0.lcssa.i.i.i, %div7.i.i.i
   br i1 %cmp8.i.i.i, label %if.then9.i.i.i, label %if.end16.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
-  %add10.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i, 1
+  %add10.i.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i.i, 1
   %sub12.i.i.i = or disjoint i64 %add10.i.i.i, 1
   %add.ptr13.i.i.i = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %sub12.i.i.i
-  %add.ptr14.i.i.i = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i
+  %add.ptr14.i.i.i = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %__secondChild.0.lcssa.i.i.i
   %5 = load i64, ptr %add.ptr13.i.i.i, align 4
   store i64 %5, ptr %add.ptr14.i.i.i, align 4
   br label %if.end16.i.i.i
 
 if.end16.i.i.i:                                   ; preds = %if.then9.i.i.i, %land.lhs.true.i.i.i, %while.end.i.i.i
-  %__holeIndex.addr.1.i.i.i = phi i64 [ %sub12.i.i.i, %if.then9.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i, %land.lhs.true.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i, %while.end.i.i.i ]
+  %__holeIndex.addr.1.i.i.i = phi i64 [ %sub12.i.i.i, %if.then9.i.i.i ], [ %__secondChild.0.lcssa.i.i.i, %land.lhs.true.i.i.i ], [ %__secondChild.0.lcssa.i.i.i, %while.end.i.i.i ]
   %__value.sroa.2.0.extract.shift.i.i.i.i = lshr i64 %__value.sroa.0.0.copyload.i.i, 32
   %__value.sroa.2.0.extract.trunc.i.i.i.i = trunc nuw i64 %__value.sroa.2.0.extract.shift.i.i.i.i to i32
   %6 = bitcast i32 %__value.sroa.2.0.extract.trunc.i.i.i.i to float
@@ -1231,8 +1231,8 @@ if.then.us:                                       ; preds = %for.body.us
   br label %while.body.i.i.us
 
 while.body.i.i.us:                                ; preds = %if.then.us, %while.body.i.i.us
-  %__holeIndex.addr.024.i.i.us = phi i64 [ %spec.select.i.i.us, %while.body.i.i.us ], [ 0, %if.then.us ]
-  %add.i.i.us = shl i64 %__holeIndex.addr.024.i.i.us, 1
+  %__secondChild.024.i.i.us = phi i64 [ %spec.select.i.i.us, %while.body.i.i.us ], [ 0, %if.then.us ]
+  %add.i.i.us = shl i64 %__secondChild.024.i.i.us, 1
   %mul.i.i.us = add i64 %add.i.i.us, 2
   %sub1.i.i.us = or disjoint i64 %add.i.i.us, 1
   %mWeight.i.i.i.i.us = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %mul.i.i.us, i32 1
@@ -1242,7 +1242,7 @@ while.body.i.i.us:                                ; preds = %if.then.us, %while.
   %cmp.i.i.i.i.us = fcmp ogt float %4, %5
   %spec.select.i.i.us = select i1 %cmp.i.i.i.i.us, i64 %sub1.i.i.us, i64 %mul.i.i.us
   %add.ptr3.i.i.us = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %spec.select.i.i.us
-  %add.ptr4.i.i.us = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %__holeIndex.addr.024.i.i.us
+  %add.ptr4.i.i.us = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %__secondChild.024.i.i.us
   %6 = load i64, ptr %add.ptr3.i.i.us, align 4
   store i64 %6, ptr %add.ptr4.i.i.us, align 4
   %cmp.i.i8.us = icmp slt i64 %spec.select.i.i.us, %div.i.i
@@ -1424,8 +1424,8 @@ if.end.split:                                     ; preds = %entry
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
-  %__holeIndex.addr.024.i = phi i64 [ %spec.select.i, %while.body.i ], [ %div13, %if.end.split ]
-  %add.i = shl i64 %__holeIndex.addr.024.i, 1
+  %__secondChild.024.i = phi i64 [ %spec.select.i, %while.body.i ], [ %div13, %if.end.split ]
+  %add.i = shl i64 %__secondChild.024.i, 1
   %mul.i = add i64 %add.i, 2
   %sub1.i = or disjoint i64 %add.i, 1
   %mWeight.i.i.i = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %mul.i, i32 1
@@ -1435,32 +1435,32 @@ while.body.i:                                     ; preds = %if.end.split, %whil
   %cmp.i.i.i = fcmp ogt float %0, %1
   %spec.select.i = select i1 %cmp.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %__holeIndex.addr.024.i
+  %add.ptr4.i = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %__secondChild.024.i
   %2 = load i64, ptr %add.ptr3.i, align 4
   store i64 %2, ptr %add.ptr4.i, align 4
   %cmp.i = icmp slt i64 %spec.select.i, %div.i6264
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !24
 
 while.end.i:                                      ; preds = %while.body.i, %if.end.split
-  %__holeIndex.addr.0.lcssa.i = phi i64 [ %div13, %if.end.split ], [ %spec.select.i, %while.body.i ]
+  %__secondChild.0.lcssa.i = phi i64 [ %div13, %if.end.split ], [ %spec.select.i, %while.body.i ]
   %3 = and i64 %sub.ptr.sub, 8
   %cmp5.i = icmp eq i64 %3, 0
   %div7.i = ashr exact i64 %sub, 1
-  %cmp8.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i, %div7.i
+  %cmp8.i = icmp eq i64 %__secondChild.0.lcssa.i, %div7.i
   %or.cond = select i1 %cmp5.i, i1 %cmp8.i, i1 false
   br i1 %or.cond, label %if.then9.i, label %if.end16.i
 
 if.then9.i:                                       ; preds = %while.end.i
-  %add10.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i, 1
+  %add10.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
   %sub12.i = or disjoint i64 %add10.i, 1
   %add.ptr13.i = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %sub12.i
-  %add.ptr14.i = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr14.i = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %__secondChild.0.lcssa.i
   %4 = load i64, ptr %add.ptr13.i, align 4
   store i64 %4, ptr %add.ptr14.i, align 4
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then9.i, %while.end.i
-  %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
+  %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__secondChild.0.lcssa.i, %while.end.i ]
   %__value.sroa.2.0.extract.shift.i.i = lshr i64 %__value.sroa.0.0.copyload10, 32
   %__value.sroa.2.0.extract.trunc.i.i = trunc nuw i64 %__value.sroa.2.0.extract.shift.i.i to i32
   %5 = bitcast i32 %__value.sroa.2.0.extract.trunc.i.i to float
@@ -1517,8 +1517,8 @@ while.end.i17.us.thread:                          ; preds = %if.end8.split.us
   br label %_ZSt13__adjust_heapIPN6Assimp23LimitBoneWeightsProcess6WeightElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_.exit61.us
 
 while.body.i49.us:                                ; preds = %if.end8.split.us, %while.body.i49.us
-  %__holeIndex.addr.024.i50.us = phi i64 [ %spec.select.i57.us, %while.body.i49.us ], [ %dec.us, %if.end8.split.us ]
-  %add.i51.us = shl i64 %__holeIndex.addr.024.i50.us, 1
+  %__secondChild.024.i50.us = phi i64 [ %spec.select.i57.us, %while.body.i49.us ], [ %dec.us, %if.end8.split.us ]
+  %add.i51.us = shl i64 %__secondChild.024.i50.us, 1
   %mul.i52.us = add i64 %add.i51.us, 2
   %sub1.i53.us = or disjoint i64 %add.i51.us, 1
   %mWeight.i.i.i54.us = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %mul.i52.us, i32 1
@@ -1528,7 +1528,7 @@ while.body.i49.us:                                ; preds = %if.end8.split.us, %
   %cmp.i.i.i56.us = fcmp ogt float %8, %9
   %spec.select.i57.us = select i1 %cmp.i.i.i56.us, i64 %sub1.i53.us, i64 %mul.i52.us
   %add.ptr3.i58.us = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %spec.select.i57.us
-  %add.ptr4.i59.us = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %__holeIndex.addr.024.i50.us
+  %add.ptr4.i59.us = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %__secondChild.024.i50.us
   %10 = load i64, ptr %add.ptr3.i58.us, align 4
   store i64 %10, ptr %add.ptr4.i59.us, align 4
   %cmp.i60.us = icmp slt i64 %spec.select.i57.us, %div.i6264
@@ -1578,8 +1578,8 @@ if.end8.split:                                    ; preds = %if.end8.split.prehe
   br i1 %cmp23.i16.not, label %while.end.i17, label %while.body.i49
 
 while.body.i49:                                   ; preds = %if.end8.split, %while.body.i49
-  %__holeIndex.addr.024.i50 = phi i64 [ %spec.select.i57, %while.body.i49 ], [ %dec, %if.end8.split ]
-  %add.i51 = shl i64 %__holeIndex.addr.024.i50, 1
+  %__secondChild.024.i50 = phi i64 [ %spec.select.i57, %while.body.i49 ], [ %dec, %if.end8.split ]
+  %add.i51 = shl i64 %__secondChild.024.i50, 1
   %mul.i52 = add i64 %add.i51, 2
   %sub1.i53 = or disjoint i64 %add.i51, 1
   %mWeight.i.i.i54 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %mul.i52, i32 1
@@ -1589,15 +1589,15 @@ while.body.i49:                                   ; preds = %if.end8.split, %whi
   %cmp.i.i.i56 = fcmp ogt float %14, %15
   %spec.select.i57 = select i1 %cmp.i.i.i56, i64 %sub1.i53, i64 %mul.i52
   %add.ptr3.i58 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %spec.select.i57
-  %add.ptr4.i59 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %__holeIndex.addr.024.i50
+  %add.ptr4.i59 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %__secondChild.024.i50
   %16 = load i64, ptr %add.ptr3.i58, align 4
   store i64 %16, ptr %add.ptr4.i59, align 4
   %cmp.i60 = icmp slt i64 %spec.select.i57, %div.i6264
   br i1 %cmp.i60, label %while.body.i49, label %while.end.i17, !llvm.loop !24
 
 while.end.i17:                                    ; preds = %while.body.i49, %if.end8.split
-  %__holeIndex.addr.0.lcssa.i18 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i57, %while.body.i49 ]
-  %cmp8.i43 = icmp eq i64 %__holeIndex.addr.0.lcssa.i18, %div7.i
+  %__secondChild.0.lcssa.i18 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i57, %while.body.i49 ]
+  %cmp8.i43 = icmp eq i64 %__secondChild.0.lcssa.i18, %div7.i
   br i1 %cmp8.i43, label %if.then9.i44, label %if.end16.i21
 
 if.then9.i44:                                     ; preds = %while.end.i17
@@ -1606,7 +1606,7 @@ if.then9.i44:                                     ; preds = %while.end.i17
   br label %if.end16.i21
 
 if.end16.i21:                                     ; preds = %if.then9.i44, %while.end.i17
-  %__holeIndex.addr.1.i22 = phi i64 [ %sub12.i46, %if.then9.i44 ], [ %__holeIndex.addr.0.lcssa.i18, %while.end.i17 ]
+  %__holeIndex.addr.1.i22 = phi i64 [ %sub12.i46, %if.then9.i44 ], [ %__secondChild.0.lcssa.i18, %while.end.i17 ]
   %__value.sroa.2.0.extract.shift.i.i23 = lshr i64 %__value.sroa.0.0.copyload12, 32
   %__value.sroa.2.0.extract.trunc.i.i24 = trunc nuw i64 %__value.sroa.2.0.extract.shift.i.i23 to i32
   %18 = bitcast i32 %__value.sroa.2.0.extract.trunc.i.i24 to float

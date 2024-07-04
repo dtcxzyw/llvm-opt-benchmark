@@ -24020,15 +24020,15 @@ _ZNSt6vectorIP11RasterModelSaIS1_EE9push_backERKS1_.exit: ; preds = %._crit_edge
   br i1 %.not456551, label %.loopexit467, label %.lr.ph555
 
 .lr.ph555:                                        ; preds = %.preheader466, %587
-  %.065554 = phi ptr [ %.166, %587 ], [ %576, %.preheader466 ]
-  %.068553 = phi float [ %.169, %587 ], [ 0xC7EFFFFFE0000000, %.preheader466 ]
+  %.065554 = phi float [ %.166, %587 ], [ 0xC7EFFFFFE0000000, %.preheader466 ]
+  %.067553 = phi ptr [ %.168, %587 ], [ %576, %.preheader466 ]
   %.sroa.0381.0552 = phi ptr [ %588, %587 ], [ %.sroa.0393.1, %.preheader466 ]
   %581 = load ptr, ptr %.sroa.0381.0552, align 8
   %582 = invoke noundef float @_ZN10VisibleSet9getWeightEPK11RasterModelR6CFaceO(ptr noundef nonnull align 8 dereferenceable(44) %2, ptr noundef %581, ptr noundef nonnull align 8 dereferenceable(48) %271)
           to label %583 unwind label %.loopexit.split-lp.loopexit
 
 583:                                              ; preds = %.lr.ph555
-  %584 = fcmp ogt float %582, %.068553
+  %584 = fcmp ogt float %582, %.065554
   br i1 %584, label %585, label %587
 
 585:                                              ; preds = %583
@@ -24036,8 +24036,8 @@ _ZNSt6vectorIP11RasterModelSaIS1_EE9push_backERKS1_.exit: ; preds = %._crit_edge
   br label %587
 
 587:                                              ; preds = %583, %585
-  %.169 = phi float [ %582, %585 ], [ %.068553, %583 ]
-  %.166 = phi ptr [ %586, %585 ], [ %.065554, %583 ]
+  %.168 = phi ptr [ %586, %585 ], [ %.067553, %583 ]
+  %.166 = phi float [ %582, %585 ], [ %.065554, %583 ]
   %588 = getelementptr inbounds i8, ptr %.sroa.0381.0552, i64 8
   %.not456 = icmp eq ptr %588, %.sroa.10.1
   br i1 %.not456, label %.loopexit467.loopexit, label %.lr.ph555, !llvm.loop !222
@@ -24065,14 +24065,14 @@ _ZNSt6vectorIP11RasterModelSaIS1_EE9push_backERKS1_.exit: ; preds = %._crit_edge
 .loopexit467:                                     ; preds = %.loopexit467.loopexit, %.preheader466, %591, %589
   %.pre-phi600 = phi i64 [ %.pre599, %.loopexit467.loopexit ], [ %573, %.preheader466 ], [ %573, %591 ], [ %573, %589 ]
   %593 = phi ptr [ %.pre592, %.loopexit467.loopexit ], [ %574, %.preheader466 ], [ %574, %591 ], [ %574, %589 ]
-  %.267 = phi ptr [ %.166, %.loopexit467.loopexit ], [ %576, %.preheader466 ], [ %592, %591 ], [ %576, %589 ]
+  %.269 = phi ptr [ %.168, %.loopexit467.loopexit ], [ %576, %.preheader466 ], [ %592, %591 ], [ %576, %589 ]
   %594 = getelementptr inbounds %"class.VisibleSet::FaceVisInfo", ptr %593, i64 %.pre-phi600, i32 1
   %595 = load ptr, ptr %594, align 8
-  %.not74 = icmp eq ptr %.267, %595
+  %.not74 = icmp eq ptr %.269, %595
   br i1 %.not74, label %.loopexit464, label %596
 
 596:                                              ; preds = %.loopexit467
-  store ptr %.267, ptr %594, align 8
+  store ptr %.269, ptr %594, align 8
   %597 = load ptr, ptr %35, align 8
   %.not457556 = icmp eq ptr %597, %33
   br i1 %.not457556, label %.loopexit464, label %.lr.ph559
@@ -24099,7 +24099,7 @@ _ZNSt6vectorIP11RasterModelSaIS1_EE9push_backERKS1_.exit: ; preds = %._crit_edge
   %609 = load ptr, ptr %38, align 8
   %610 = getelementptr inbounds %"class.VisibleSet::FaceVisInfo", ptr %609, i64 %608, i32 1
   %611 = load ptr, ptr %610, align 8
-  %.not77 = icmp eq ptr %611, %.267
+  %.not77 = icmp eq ptr %611, %.269
   br i1 %.not77, label %_ZNSt3setIP6CFaceOSt4lessIS1_ESaIS1_EE6insertERKS1_.exit201, label %612
 
 612:                                              ; preds = %600
@@ -31254,7 +31254,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg10RectPackerIfE4PackERKSt6vectorI
   br label %8
 
 8:                                                ; preds = %25, %4
-  %.01423 = phi float [ 0.000000e+00, %4 ], [ %.01622, %25 ]
+  %.01523 = phi float [ 0.000000e+00, %4 ], [ %.01622, %25 ]
   %.01622 = phi float [ 0x3FB99999A0000000, %4 ], [ %28, %25 ]
   %9 = load i32, ptr @_ZZN3vcg10RectPackerIfE4statEvE2_s, align 4
   %10 = add nsw i32 %9, 1
@@ -31315,7 +31315,7 @@ _ZNSt6vectorIN3vcg11Similarity2IfEESaIS2_EED2Ev.exit: ; preds = %21, %24
   br label %_ZNSt6vectorIN3vcg11Similarity2IfEESaIS2_EED2Ev.exit20
 
 _ZNSt6vectorIN3vcg11Similarity2IfEESaIS2_EED2Ev.exit20: ; preds = %29, %36
-  %37 = fcmp ogt float %.01423, 0.000000e+00
+  %37 = fcmp ogt float %.01523, 0.000000e+00
   ret i1 %37
 }
 
@@ -31355,8 +31355,8 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg10RectPackerIfE13PackOccupancyERK
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.04681 = phi float [ %32, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
-  %.04880 = phi i64 [ %33, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %22 = getelementptr inbounds %"class.vcg::Box2", ptr %17, i64 %.04880
+  %.05180 = phi i64 [ %33, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %22 = getelementptr inbounds %"class.vcg::Box2", ptr %17, i64 %.05180
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load float, ptr %23, align 4
   %25 = load float, ptr %22, align 4
@@ -31367,7 +31367,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg10RectPackerIfE13PackOccupancyERK
   %30 = load float, ptr %29, align 4
   %31 = fsub float %28, %30
   %32 = tail call float @llvm.fmuladd.f32(float %26, float %31, float %.04681)
-  %33 = add nuw i64 %.04880, 1
+  %33 = add nuw i64 %.05180, 1
   %exitcond.not = icmp eq i64 %33, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !285
 
@@ -31417,8 +31417,8 @@ _ZNSt6vectorIN3vcg6Point2IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %.lr.ph84
   %53 = phi ptr [ %74, %.lr.ph84 ], [ %49, %.lr.ph84.preheader ]
   %54 = phi ptr [ %78, %.lr.ph84 ], [ %40, %.lr.ph84.preheader ]
-  %.04982 = phi i64 [ %76, %.lr.ph84 ], [ 0, %.lr.ph84.preheader ]
-  %55 = getelementptr inbounds %"class.vcg::Box2", ptr %54, i64 %.04982
+  %.04882 = phi i64 [ %76, %.lr.ph84 ], [ 0, %.lr.ph84.preheader ]
+  %55 = getelementptr inbounds %"class.vcg::Box2", ptr %54, i64 %.04882
   %56 = getelementptr inbounds i8, ptr %55, i64 8
   %57 = load float, ptr %56, align 4
   %58 = load float, ptr %55, align 4
@@ -31426,10 +31426,10 @@ _ZNSt6vectorIN3vcg6Point2IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds 
   %60 = fmul float %38, %59
   %61 = tail call noundef float @llvm.ceil.f32(float %60)
   %62 = fptosi float %61 to i32
-  %63 = getelementptr inbounds %"class.vcg::Point2", ptr %53, i64 %.04982
+  %63 = getelementptr inbounds %"class.vcg::Point2", ptr %53, i64 %.04882
   store i32 %62, ptr %63, align 4
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds %"class.vcg::Box2", ptr %64, i64 %.04982
+  %65 = getelementptr inbounds %"class.vcg::Box2", ptr %64, i64 %.04882
   %66 = getelementptr inbounds i8, ptr %65, i64 12
   %67 = load float, ptr %66, align 4
   %68 = getelementptr inbounds i8, ptr %65, i64 4
@@ -31439,9 +31439,9 @@ _ZNSt6vectorIN3vcg6Point2IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds 
   %72 = tail call noundef float @llvm.ceil.f32(float %71)
   %73 = fptosi float %72 to i32
   %74 = load ptr, ptr %7, align 8
-  %75 = getelementptr inbounds %"class.vcg::Point2", ptr %74, i64 %.04982, i32 0, i64 1
+  %75 = getelementptr inbounds %"class.vcg::Point2", ptr %74, i64 %.04882, i32 0, i64 1
   store i32 %73, ptr %75, align 4
-  %76 = add nuw i64 %.04982, 1
+  %76 = add nuw i64 %.04882, 1
   %77 = load ptr, ptr %15, align 8
   %78 = load ptr, ptr %0, align 8
   %79 = ptrtoint ptr %77 to i64
@@ -31923,12 +31923,12 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN3vcg10RectPackerI
 
 .lr.ph314:                                        ; preds = %.lr.ph314.preheader, %._crit_edge308
   %93 = phi i32 [ %81, %.lr.ph314.preheader ], [ %.3, %._crit_edge308 ]
-  %94 = phi i32 [ %.pre, %.lr.ph314.preheader ], [ %.3157, %._crit_edge308 ]
+  %94 = phi i32 [ %.pre, %.lr.ph314.preheader ], [ %.3144, %._crit_edge308 ]
   %indvars.iv350 = phi i64 [ 1, %.lr.ph314.preheader ], [ %indvars.iv.next351, %._crit_edge308 ]
-  %.0151312 = phi i32 [ undef, %.lr.ph314.preheader ], [ %.3, %._crit_edge308 ]
-  %.0154311 = phi i32 [ undef, %.lr.ph314.preheader ], [ %.3157, %._crit_edge308 ]
-  %.0158310 = phi i32 [ undef, %.lr.ph314.preheader ], [ %.3161, %._crit_edge308 ]
-  %.0162309 = phi i32 [ undef, %.lr.ph314.preheader ], [ %.3165, %._crit_edge308 ]
+  %.0138313 = phi i32 [ undef, %.lr.ph314.preheader ], [ %.3, %._crit_edge308 ]
+  %.0141312 = phi i32 [ undef, %.lr.ph314.preheader ], [ %.3144, %._crit_edge308 ]
+  %.0145311 = phi i32 [ undef, %.lr.ph314.preheader ], [ %.3148, %._crit_edge308 ]
+  %.0149310 = phi i32 [ undef, %.lr.ph314.preheader ], [ %.3152, %._crit_edge308 ]
   %95 = getelementptr inbounds i32, ptr %.sroa.0214.0, i64 %indvars.iv350
   %96 = load i32, ptr %95, align 4
   %97 = sext i32 %96 to i64
@@ -31963,11 +31963,11 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN3vcg10RectPackerI
 
 .preheader258:                                    ; preds = %.preheader258.preheader, %.thread244
   %indvars.iv339 = phi i64 [ 0, %.preheader258.preheader ], [ %indvars.iv.next340, %.thread244 ]
-  %.0148283 = phi i32 [ -1, %.preheader258.preheader ], [ %.1149255, %.thread244 ]
-  %.1152282 = phi i32 [ %.0151312, %.preheader258.preheader ], [ %.2153254, %.thread244 ]
-  %.1155281 = phi i32 [ %.0154311, %.preheader258.preheader ], [ %.2156253, %.thread244 ]
-  %.1159280 = phi i32 [ %.0158310, %.preheader258.preheader ], [ %.2160252, %.thread244 ]
-  %.1163279 = phi i32 [ %.0162309, %.preheader258.preheader ], [ %.2164251, %.thread244 ]
+  %.0135285 = phi i32 [ -1, %.preheader258.preheader ], [ %.1136255, %.thread244 ]
+  %.1139284 = phi i32 [ %.0138313, %.preheader258.preheader ], [ %.2140254, %.thread244 ]
+  %.1142283 = phi i32 [ %.0141312, %.preheader258.preheader ], [ %.2143253, %.thread244 ]
+  %.1146282 = phi i32 [ %.0145311, %.preheader258.preheader ], [ %.2147252, %.thread244 ]
+  %.1150281 = phi i32 [ %.0149310, %.preheader258.preheader ], [ %.2151251, %.thread244 ]
   %114 = add nsw i64 %indvars.iv339, %109
   %115 = add nsw i64 %114, -1
   %116 = mul nsw i64 %115, %110
@@ -31977,8 +31977,8 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN3vcg10RectPackerI
   br label %120
 
 120:                                              ; preds = %.preheader258, %.thread
-  %.1139276 = phi i32 [ 0, %.preheader258 ], [ %143, %.thread ]
-  %121 = sext i32 %.1139276 to i64
+  %.1164276 = phi i32 [ 0, %.preheader258 ], [ %143, %.thread ]
+  %121 = sext i32 %.1164276 to i64
   %122 = add nsw i64 %116, %121
   %123 = getelementptr inbounds i32, ptr %.sroa.0226.0, i64 %122
   %124 = load i32, ptr %123, align 4
@@ -31986,7 +31986,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN3vcg10RectPackerI
   br i1 %.not177, label %125, label %.thread
 
 125:                                              ; preds = %120
-  %126 = add i32 %118, %.1139276
+  %126 = add i32 %118, %.1164276
   %127 = sext i32 %126 to i64
   %128 = getelementptr inbounds i32, ptr %.sroa.0226.0, i64 %127
   %129 = load i32, ptr %128, align 4
@@ -31994,7 +31994,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN3vcg10RectPackerI
   br i1 %.not178, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %125
-  %130 = add nsw i32 %.1139276, %100
+  %130 = add nsw i32 %.1164276, %100
   br i1 %113, label %.lr.ph270.preheader, label %.preheader._crit_edge
 
 .lr.ph270.preheader:                              ; preds = %.preheader
@@ -32031,8 +32031,8 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN3vcg10RectPackerI
   %144 = trunc nsw i64 %114 to i32
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %93, i32 %144)
   %145 = mul nsw i32 %.sroa.speculated202, %.sroa.speculated
-  %146 = icmp eq i32 %.0148283, -1
-  %147 = icmp sgt i32 %.0148283, %145
+  %146 = icmp eq i32 %.0135285, -1
+  %147 = icmp sgt i32 %.0135285, %145
   %or.cond = select i1 %146, i1 true, i1 %147
   br i1 %or.cond, label %148, label %.thread244
 
@@ -32044,32 +32044,32 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN3vcg10RectPackerI
   br i1 %or.cond256, label %.thread244, label %._crit_edge286
 
 .thread244:                                       ; preds = %.thread, %.preheader._crit_edge, %148
-  %.1149255 = phi i32 [ %.0148283, %.preheader._crit_edge ], [ %145, %148 ], [ %.0148283, %.thread ]
-  %.2153254 = phi i32 [ %.1152282, %.preheader._crit_edge ], [ %.sroa.speculated, %148 ], [ %.1152282, %.thread ]
-  %.2156253 = phi i32 [ %.1155281, %.preheader._crit_edge ], [ %.sroa.speculated202, %148 ], [ %.1155281, %.thread ]
-  %.2160252 = phi i32 [ %.1159280, %.preheader._crit_edge ], [ %150, %148 ], [ %.1159280, %.thread ]
-  %.2164251 = phi i32 [ %.1163279, %.preheader._crit_edge ], [ %.1139276, %148 ], [ %.1163279, %.thread ]
+  %.1136255 = phi i32 [ %.0135285, %.preheader._crit_edge ], [ %145, %148 ], [ %.0135285, %.thread ]
+  %.2140254 = phi i32 [ %.1139284, %.preheader._crit_edge ], [ %.sroa.speculated, %148 ], [ %.1139284, %.thread ]
+  %.2143253 = phi i32 [ %.1142283, %.preheader._crit_edge ], [ %.sroa.speculated202, %148 ], [ %.1142283, %.thread ]
+  %.2147252 = phi i32 [ %.1146282, %.preheader._crit_edge ], [ %150, %148 ], [ %.1146282, %.thread ]
+  %.2151251 = phi i32 [ %.1150281, %.preheader._crit_edge ], [ %.1164276, %148 ], [ %.1150281, %.thread ]
   %indvars.iv.next340 = add nuw nsw i64 %indvars.iv339, 1
   %exitcond343.not = icmp eq i64 %indvars.iv.next340, %wide.trip.count342
   br i1 %exitcond343.not, label %._crit_edge286, label %.preheader258, !llvm.loop !293
 
 ._crit_edge286:                                   ; preds = %.thread244, %148
-  %.3165 = phi i32 [ %.2164251, %.thread244 ], [ %.1139276, %148 ]
-  %.3161 = phi i32 [ %.2160252, %.thread244 ], [ %150, %148 ]
-  %.3157 = phi i32 [ %.2156253, %.thread244 ], [ %.sroa.speculated202, %148 ]
-  %.3 = phi i32 [ %.2153254, %.thread244 ], [ %.sroa.speculated, %148 ]
-  %.2150 = phi i32 [ %.1149255, %.thread244 ], [ %145, %148 ]
-  %151 = icmp ne i32 %.2150, -1
+  %.3152 = phi i32 [ %.2151251, %.thread244 ], [ %.1164276, %148 ]
+  %.3148 = phi i32 [ %.2147252, %.thread244 ], [ %150, %148 ]
+  %.3144 = phi i32 [ %.2143253, %.thread244 ], [ %.sroa.speculated202, %148 ]
+  %.3 = phi i32 [ %.2140254, %.thread244 ], [ %.sroa.speculated, %148 ]
+  %.2137 = phi i32 [ %.1136255, %.thread244 ], [ %145, %148 ]
+  %151 = icmp ne i32 %.2137, -1
   br i1 %151, label %152, label %_ZNSt6vectorIiSaIiEED2Ev.exit195
 
 152:                                              ; preds = %._crit_edge286
   %153 = load ptr, ptr %2, align 8
   %154 = getelementptr inbounds %"class.vcg::Point2", ptr %153, i64 %97
-  store i32 %.3165, ptr %154, align 4
+  store i32 %.3152, ptr %154, align 4
   %155 = load ptr, ptr %2, align 8
   %156 = getelementptr inbounds %"class.vcg::Point2", ptr %155, i64 %97, i32 0, i64 1
-  store i32 %.3161, ptr %156, align 4
-  store i32 %.3157, ptr %3, align 4
+  store i32 %.3148, ptr %156, align 4
+  store i32 %.3144, ptr %3, align 4
   store i32 %.3, ptr %80, align 4
   %157 = load ptr, ptr %2, align 8
   %158 = getelementptr inbounds %"class.vcg::Point2", ptr %157, i64 %97
@@ -32127,7 +32127,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN3vcg10RectPackerI
   br i1 %exitcond354.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit195, label %.lr.ph314, !llvm.loop !296
 
 _ZNSt6vectorIiSaIiEED2Ev.exit195:                 ; preds = %.preheader258.lr.ph, %.lr.ph314, %._crit_edge286, %._crit_edge308, %.preheader259, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN3vcg10RectPackerIfE17ComparisonFunctorEEvT_SB_T0_.exit, %68
-  %.0 = phi i1 [ false, %68 ], [ false, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN3vcg10RectPackerIfE17ComparisonFunctorEEvT_SB_T0_.exit ], [ true, %.preheader259 ], [ false, %.preheader258.lr.ph ], [ false, %.lr.ph314 ], [ false, %._crit_edge286 ], [ %151, %._crit_edge308 ]
+  %.0153 = phi i1 [ false, %68 ], [ false, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN3vcg10RectPackerIfE17ComparisonFunctorEEvT_SB_T0_.exit ], [ true, %.preheader259 ], [ false, %.preheader258.lr.ph ], [ false, %.lr.ph314 ], [ false, %._crit_edge286 ], [ %151, %._crit_edge308 ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0214.0) #26
   %.not.i.i.i196 = icmp eq ptr %.sroa.0226.0, null
   br i1 %.not.i.i.i196, label %_ZNSt6vectorIiSaIiEED2Ev.exit197, label %183
@@ -32137,7 +32137,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit195:                 ; preds = %.preheader258.lr.ph
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit197
 
 _ZNSt6vectorIiSaIiEED2Ev.exit197:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit195, %183
-  ret i1 %.0
+  ret i1 %.0153
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %75, %73, %51
   %.pn = phi { ptr, i32 } [ %52, %51 ], [ %74, %73 ], [ %74, %75 ]
@@ -32867,8 +32867,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEE
   br label %65
 
 65:                                               ; preds = %98, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN3vcg10RectPackerIfE17ComparisonFunctorEEEEvT_SE_SE_SE_T0_.exit
-  %.sroa.011.0.i = phi ptr [ %1, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN3vcg10RectPackerIfE17ComparisonFunctorEEEEvT_SE_SE_SE_T0_.exit ], [ %.sroa.011.1.i, %98 ]
   %.sroa.014.0.i = phi ptr [ %10, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN3vcg10RectPackerIfE17ComparisonFunctorEEEEvT_SE_SE_SE_T0_.exit ], [ %99, %98 ]
+  %.sroa.011.0.i = phi ptr [ %1, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIN3vcg10RectPackerIfE17ComparisonFunctorEEEEvT_SE_SE_SE_T0_.exit ], [ %.sroa.011.1.i, %98 ]
   %66 = load i32, ptr %0, align 4
   %67 = load ptr, ptr %2, align 8
   %68 = sext i32 %66 to i64

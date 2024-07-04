@@ -112,13 +112,13 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %57
   br label %65
 
 65:                                               ; preds = %30, %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit, %23
-  %.041 = phi ptr [ %20, %23 ], [ %20, %30 ], [ %41, %opal_obj_run_destructors.exit ], [ %41, %opal_thread_add_fetch_32.exit ]
-  store ptr %.041, ptr %4, align 8
+  %.0 = phi ptr [ %20, %23 ], [ %20, %30 ], [ %41, %opal_obj_run_destructors.exit ], [ %41, %opal_thread_add_fetch_32.exit ]
+  store ptr %.0, ptr %4, align 8
   br label %66
 
 66:                                               ; preds = %65, %13
-  %.0 = phi i32 [ %14, %13 ], [ 0, %65 ]
-  ret i32 %.0
+  %.041 = phi i32 [ %14, %13 ], [ 0, %65 ]
+  ret i32 %.041
 }
 
 declare i32 @ompi_datatype_duplicate(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -224,13 +224,13 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %53
   br label %61
 
 61:                                               ; preds = %31, %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit, %25
-  %.041 = phi ptr [ %20, %25 ], [ %20, %31 ], [ %39, %opal_obj_run_destructors.exit ], [ %39, %opal_thread_add_fetch_32.exit ]
-  store ptr %.041, ptr %4, align 8
+  %.0 = phi ptr [ %20, %25 ], [ %20, %31 ], [ %39, %opal_obj_run_destructors.exit ], [ %39, %opal_thread_add_fetch_32.exit ]
+  store ptr %.0, ptr %4, align 8
   br label %62
 
 62:                                               ; preds = %61, %13
-  %.0 = phi i32 [ %14, %13 ], [ 0, %61 ]
-  ret i32 %.0
+  %.041 = phi i32 [ %14, %13 ], [ 0, %61 ]
+  ret i32 %.041
 }
 
 declare i32 @opal_datatype_add(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1

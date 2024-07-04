@@ -159,18 +159,18 @@ if.end12:                                         ; preds = %if.then9, %disas_in
   br i1 %cmp13.not13, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end12, %for.inc
-  %size.addr.015 = phi i64 [ %sub, %for.inc ], [ %size, %if.end12 ]
-  %pc.014 = phi i64 [ %add, %for.inc ], [ %code, %if.end12 ]
-  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %out, ptr noundef nonnull @.str, i64 noundef %pc.014)
+  %pc.015 = phi i64 [ %add, %for.inc ], [ %code, %if.end12 ]
+  %size.addr.014 = phi i64 [ %sub, %for.inc ], [ %size, %if.end12 ]
+  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %out, ptr noundef nonnull @.str, i64 noundef %pc.015)
   %3 = load ptr, ptr %print_insn22, align 8
-  %call18 = call i32 %3(i64 noundef %pc.014, ptr noundef nonnull %s) #10
+  %call18 = call i32 %3(i64 noundef %pc.015, ptr noundef nonnull %s) #10
   %fputc = call i32 @fputc(i32 10, ptr %out)
   %cmp20 = icmp slt i32 %call18, 0
   br i1 %cmp20, label %for.end, label %if.end23
 
 if.end23:                                         ; preds = %for.body
   %conv24 = zext nneg i32 %call18 to i64
-  %cmp25 = icmp ult i64 %size.addr.015, %conv24
+  %cmp25 = icmp ult i64 %size.addr.014, %conv24
   br i1 %cmp25, label %if.then27, label %for.inc
 
 if.then27:                                        ; preds = %if.end23
@@ -178,8 +178,8 @@ if.then27:                                        ; preds = %if.end23
   br label %for.end
 
 for.inc:                                          ; preds = %if.end23
-  %add = add i64 %pc.014, %conv24
-  %sub = sub i64 %size.addr.015, %conv24
+  %add = add i64 %pc.015, %conv24
+  %sub = sub i64 %size.addr.014, %conv24
   %cmp13.not = icmp eq i64 %sub, 0
   br i1 %cmp13.not, label %for.end, label %for.body, !llvm.loop !5
 
@@ -386,19 +386,19 @@ if.end13:
   br i1 %cmp14.not11, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end13, %for.inc
-  %size.addr.013 = phi i64 [ %sub, %for.inc ], [ %size, %if.end13 ]
-  %pc.012 = phi i64 [ %add, %for.inc ], [ %1, %if.end13 ]
-  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %out, ptr noundef nonnull @.str, i64 noundef %pc.012)
+  %pc.013 = phi i64 [ %add, %for.inc ], [ %1, %if.end13 ]
+  %size.addr.012 = phi i64 [ %sub, %for.inc ], [ %size, %if.end13 ]
+  %call = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %out, ptr noundef nonnull @.str, i64 noundef %pc.013)
   %2 = load ptr, ptr %print_insn, align 8
-  %call19 = call i32 %2(i64 noundef %pc.012, ptr noundef nonnull %s) #10
+  %call19 = call i32 %2(i64 noundef %pc.013, ptr noundef nonnull %s) #10
   %fputc = call i32 @fputc(i32 10, ptr %out)
   %cmp21 = icmp slt i32 %call19, 0
   br i1 %cmp21, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %for.body
   %conv25 = zext nneg i32 %call19 to i64
-  %add = add i64 %pc.012, %conv25
-  %sub = sub i64 %size.addr.013, %conv25
+  %add = add i64 %pc.013, %conv25
+  %sub = sub i64 %size.addr.012, %conv25
   %cmp14.not = icmp eq i64 %sub, 0
   br i1 %cmp14.not, label %for.end, label %for.body, !llvm.loop !8
 

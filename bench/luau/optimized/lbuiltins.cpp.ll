@@ -2255,14 +2255,14 @@ define internal noundef i32 @_ZL13luauF_tunpackP9lua_StateP10lua_TValueS2_iS2_i(
   br label %32
 
 32:                                               ; preds = %29, %15
-  %.037 = phi i32 [ %16, %15 ], [ %31, %29 ]
-  %33 = icmp sgt i32 %.037, -1
+  %.038 = phi i32 [ %16, %15 ], [ %31, %29 ]
+  %33 = icmp sgt i32 %.038, -1
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds i8, ptr %14, i64 8
   %36 = load i32, ptr %35, align 8
-  %.not = icmp sgt i32 %.037, %36
+  %.not = icmp sgt i32 %.038, %36
   br i1 %.not, label %.thread, label %37
 
 37:                                               ; preds = %34
@@ -2273,8 +2273,8 @@ define internal noundef i32 @_ZL13luauF_tunpackP9lua_StateP10lua_TValueS2_iS2_i(
   %42 = sub i64 %40, %41
   %43 = lshr exact i64 %42, 4
   %44 = trunc i64 %43 to i32
-  %.not41 = icmp sle i32 %.037, %44
-  %45 = add nuw nsw i32 %.037, %5
+  %.not41 = icmp sle i32 %.038, %44
+  %45 = add nuw nsw i32 %.038, %5
   %46 = icmp ult i32 %45, 8001
   %or.cond43 = select i1 %.not41, i1 %46, i1 false
   br i1 %or.cond43, label %47, label %.thread
@@ -2282,11 +2282,11 @@ define internal noundef i32 @_ZL13luauF_tunpackP9lua_StateP10lua_TValueS2_iS2_i(
 47:                                               ; preds = %37
   %48 = getelementptr inbounds i8, ptr %14, i64 24
   %49 = load ptr, ptr %48, align 8
-  %.not46 = icmp eq i32 %.037, 0
+  %.not46 = icmp eq i32 %.038, 0
   br i1 %.not46, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %47
-  %wide.trip.count = zext nneg i32 %.037 to i64
+  %wide.trip.count = zext nneg i32 %.038 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2313,7 +2313,7 @@ define internal noundef i32 @_ZL13luauF_tunpackP9lua_StateP10lua_TValueS2_iS2_i(
   br label %.thread
 
 .thread:                                          ; preds = %13, %17, %21, %26, %6, %9, %37, %34, %32, %._crit_edge, %58
-  %.0 = phi i32 [ %.037, %58 ], [ %.037, %._crit_edge ], [ -1, %32 ], [ -1, %34 ], [ -1, %37 ], [ -1, %9 ], [ -1, %6 ], [ -1, %26 ], [ -1, %21 ], [ -1, %17 ], [ -1, %13 ]
+  %.0 = phi i32 [ %.038, %58 ], [ %.038, %._crit_edge ], [ -1, %32 ], [ -1, %34 ], [ -1, %37 ], [ -1, %9 ], [ -1, %6 ], [ -1, %26 ], [ -1, %21 ], [ -1, %17 ], [ -1, %13 ]
   ret i32 %.0
 }
 

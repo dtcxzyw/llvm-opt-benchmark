@@ -116,15 +116,15 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br label %56
 
 56:                                               ; preds = %1, %50
-  %.0341 = phi i32 [ %55, %50 ], [ 0, %1 ]
+  %.0339 = phi i32 [ %55, %50 ], [ 0, %1 ]
   %57 = load ptr, ptr @block_levels, align 8
   %58 = sext i32 %48 to i64
   %59 = tail call i64 @bit_ffs_from_bit(ptr noundef %57, i64 noundef %58) #8
   %60 = trunc i64 %59 to i32
-  %61 = shl nuw i32 1, %.0341
+  %61 = shl nuw i32 1, %.0339
   %62 = load i16, ptr @bblock_node_cnt, align 2
   %63 = zext i16 %62 to i32
-  %64 = shl i32 %63, %.0341
+  %64 = shl i32 %63, %.0339
   %65 = add i32 %42, %64
   %66 = sdiv i32 %65, %64
   %67 = load ptr, ptr %24, align 8
@@ -243,10 +243,10 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
 
 128:                                              ; preds = %.lr.ph, %176
   %129 = phi ptr [ %125, %.lr.ph ], [ %186, %176 ]
-  %.0346591 = phi i64 [ %39, %.lr.ph ], [ %.1347, %176 ]
-  %.0366590 = phi i32 [ %34, %.lr.ph ], [ %.1367, %176 ]
-  %.0378589 = phi i32 [ %38, %.lr.ph ], [ %.1379, %176 ]
-  %.0390588 = phi i32 [ %29, %.lr.ph ], [ %.1391, %176 ]
+  %.0355591 = phi i32 [ %29, %.lr.ph ], [ %.1356, %176 ]
+  %.0363590 = phi i32 [ %38, %.lr.ph ], [ %.1364, %176 ]
+  %.0375589 = phi i32 [ %34, %.lr.ph ], [ %.1376, %176 ]
+  %.0387588 = phi i64 [ %39, %.lr.ph ], [ %.1388, %176 ]
   br i1 %.not497, label %165, label %130
 
 130:                                              ; preds = %128
@@ -258,9 +258,9 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
 
 134:                                              ; preds = %130
   %135 = load i32, ptr %14, align 4
-  call void @eval_nodes_select_cores(ptr noundef nonnull %0, i32 noundef %135, i32 noundef %.0390588) #8
+  call void @eval_nodes_select_cores(ptr noundef nonnull %0, i32 noundef %135, i32 noundef %.0355591) #8
   %136 = load i32, ptr %14, align 4
-  call void @eval_nodes_cpus_to_use(ptr noundef nonnull %0, i32 noundef %136, i64 noundef %.0346591, i32 noundef %.0390588) #8
+  call void @eval_nodes_cpus_to_use(ptr noundef nonnull %0, i32 noundef %136, i64 noundef %.0387588, i32 noundef %.0355591) #8
   br i1 %.fr670, label %137, label %145
 
 137:                                              ; preds = %134
@@ -293,23 +293,23 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   %154 = sext i32 %153 to i64
   %155 = getelementptr inbounds i16, ptr %122, i64 %154
   store i16 %146, ptr %155, align 2
-  %156 = add nsw i32 %.0378589, -1
-  %157 = add nsw i32 %.0390588, -1
+  %156 = add nsw i32 %.0363590, -1
+  %157 = add nsw i32 %.0355591, -1
   %158 = load i32, ptr %126, align 8
   %159 = add i32 %158, -1
   store i32 %159, ptr %126, align 8
   %160 = load i16, ptr %32, align 8
   %161 = zext i16 %160 to i32
-  %162 = sub nsw i32 %.0366590, %161
+  %162 = sub nsw i32 %.0375589, %161
   %163 = zext i16 %160 to i64
-  %164 = sub nsw i64 %.0346591, %163
+  %164 = sub nsw i64 %.0387588, %163
   br label %165
 
 165:                                              ; preds = %152, %130, %128
-  %.1391 = phi i32 [ %157, %152 ], [ %.0390588, %130 ], [ %.0390588, %128 ]
-  %.1379 = phi i32 [ %156, %152 ], [ %.0378589, %130 ], [ %.0378589, %128 ]
-  %.1367 = phi i32 [ %162, %152 ], [ %.0366590, %130 ], [ %.0366590, %128 ]
-  %.1347 = phi i64 [ %164, %152 ], [ %.0346591, %130 ], [ %.0346591, %128 ]
+  %.1388 = phi i64 [ %164, %152 ], [ %.0387588, %130 ], [ %.0387588, %128 ]
+  %.1376 = phi i32 [ %162, %152 ], [ %.0375589, %130 ], [ %.0375589, %128 ]
+  %.1364 = phi i32 [ %156, %152 ], [ %.0363590, %130 ], [ %.0363590, %128 ]
+  %.1356 = phi i32 [ %157, %152 ], [ %.0355591, %130 ], [ %.0355591, %128 ]
   %166 = getelementptr inbounds i8, ptr %129, i64 424
   %167 = load i64, ptr %166, align 8
   store i64 %167, ptr %127, align 8
@@ -330,12 +330,12 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br label %176
 
 176:                                              ; preds = %169, %165
-  %.0345 = phi ptr [ %168, %165 ], [ %170, %169 ]
-  %177 = load ptr, ptr %.0345, align 8
+  %.0399 = phi ptr [ %168, %165 ], [ %170, %169 ]
+  %177 = load ptr, ptr %.0399, align 8
   %178 = load i32, ptr %14, align 4
   %179 = sext i32 %178 to i64
   call void @bit_set(ptr noundef %177, i64 noundef %179) #8
-  %180 = getelementptr inbounds i8, ptr %.0345, i64 8
+  %180 = getelementptr inbounds i8, ptr %.0399, i64 8
   %181 = load i32, ptr %180, align 8
   %182 = add nsw i32 %181, 1
   store i32 %182, ptr %180, align 8
@@ -348,10 +348,10 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br i1 %.not438, label %._crit_edge, label %128, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %176, %119
-  %.0390.lcssa = phi i32 [ %29, %119 ], [ %.1391, %176 ]
-  %.0378.lcssa = phi i32 [ %38, %119 ], [ %.1379, %176 ]
-  %.0366.lcssa = phi i32 [ %34, %119 ], [ %.1367, %176 ]
-  %.0346.lcssa = phi i64 [ %39, %119 ], [ %.1347, %176 ]
+  %.0387.lcssa = phi i64 [ %39, %119 ], [ %.1388, %176 ]
+  %.0375.lcssa = phi i32 [ %34, %119 ], [ %.1376, %176 ]
+  %.0363.lcssa = phi i32 [ %38, %119 ], [ %.1364, %176 ]
+  %.0355.lcssa = phi i32 [ %29, %119 ], [ %.1356, %176 ]
   call void @list_sort(ptr noundef %123, ptr noundef nonnull @eval_nodes_topo_weight_sort) #8
   %187 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %188 = and i64 %187, 1
@@ -380,10 +380,10 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
 
 201:                                              ; preds = %195, %193
   %202 = phi i32 [ %194, %193 ], [ %197, %195 ]
-  %.0356 = phi i32 [ 1, %193 ], [ %200, %195 ]
-  %.0355 = phi i32 [ %194, %193 ], [ %196, %195 ]
-  %203 = shl i32 %66, %.0341
-  %.not440 = icmp eq i32 %.0355, %203
+  %.0345 = phi i32 [ 1, %193 ], [ %200, %195 ]
+  %.0344 = phi i32 [ %194, %193 ], [ %196, %195 ]
+  %203 = shl i32 %66, %.0339
+  %.not440 = icmp eq i32 %.0344, %203
   br i1 %.not440, label %210, label %204
 
 204:                                              ; preds = %201
@@ -397,7 +397,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
 
 210:                                              ; preds = %201, %204
   %211 = phi ptr [ %209, %204 ], [ null, %201 ]
-  %.0339 = phi i32 [ %207, %204 ], [ 0, %201 ]
+  %.0335 = phi i32 [ %207, %204 ], [ 0, %201 ]
   %212 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %213 = and i64 %212, 1
   %.not441 = icmp eq i64 %213, 0
@@ -409,11 +409,11 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br i1 %216, label %217, label %218
 
 217:                                              ; preds = %214
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.eval_nodes_block, ptr noundef nonnull @__func__.eval_nodes_block, i32 noundef %.0355, i32 noundef %.0378.lcssa, i32 noundef %.0339, i32 noundef %66, i32 noundef %.0341) #8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.eval_nodes_block, ptr noundef nonnull @__func__.eval_nodes_block, i32 noundef %.0344, i32 noundef %.0363.lcssa, i32 noundef %.0335, i32 noundef %66, i32 noundef %.0339) #8
   br label %218
 
 218:                                              ; preds = %210, %214, %217
-  %219 = sext i32 %.0356 to i64
+  %219 = sext i32 %.0345 to i64
   %220 = call ptr @slurm_xcalloc(i64 noundef %219, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.5, i32 noundef 307, ptr noundef nonnull @__func__.eval_nodes_block) #8
   store ptr %220, ptr %2, align 8
   %221 = call ptr @slurm_xcalloc(i64 noundef %219, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.5, i32 noundef 308, ptr noundef nonnull @__func__.eval_nodes_block) #8
@@ -441,7 +441,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
 
 .preheader563:                                    ; preds = %263, %218
   store i32 0, ptr %14, align 4
-  %233 = icmp sgt i32 %.0356, 0
+  %233 = icmp sgt i32 %.0345, 0
   br i1 %233, label %.lr.ph610, label %._crit_edge611
 
 .lr.ph610:                                        ; preds = %.preheader563
@@ -452,13 +452,13 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
 .lr.ph597:                                        ; preds = %.lr.ph597.preheader, %263
   %236 = phi ptr [ %264, %263 ], [ %211, %.lr.ph597.preheader ]
   %237 = phi i32 [ %266, %263 ], [ 0, %.lr.ph597.preheader ]
-  %.0338595 = phi ptr [ %267, %263 ], [ %232, %.lr.ph597.preheader ]
-  %238 = sdiv i32 %237, %.0355
+  %.0401595 = phi ptr [ %267, %263 ], [ %232, %.lr.ph597.preheader ]
+  %238 = sdiv i32 %237, %.0344
   %239 = sext i32 %238 to i64
   %240 = getelementptr inbounds ptr, ptr %222, i64 %239
   %241 = load ptr, ptr %240, align 8
   %.not495 = icmp eq ptr %241, null
-  %242 = getelementptr inbounds i8, ptr %.0338595, i64 16
+  %242 = getelementptr inbounds i8, ptr %.0401595, i64 16
   %243 = load ptr, ptr %242, align 8
   br i1 %.not495, label %245, label %244
 
@@ -483,7 +483,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
 252:                                              ; preds = %248
   %253 = load i32, ptr %14, align 4
   %254 = sdiv i32 %253, %61
-  %255 = getelementptr inbounds i8, ptr %.0338595, i64 16
+  %255 = getelementptr inbounds i8, ptr %.0401595, i64 16
   %256 = load ptr, ptr %255, align 8
   %257 = load ptr, ptr %112, align 8
   %258 = call i32 @bit_overlap(ptr noundef %256, ptr noundef %257) #8
@@ -499,7 +499,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   %265 = load i32, ptr %14, align 4
   %266 = add nsw i32 %265, 1
   store i32 %266, ptr %14, align 4
-  %267 = getelementptr inbounds i8, ptr %.0338595, i64 40
+  %267 = getelementptr inbounds i8, ptr %.0401595, i64 40
   %268 = load i32, ptr @block_record_cnt, align 4
   %269 = icmp slt i32 %266, %268
   br i1 %269, label %.lr.ph597, label %.preheader563, !llvm.loop !8
@@ -508,8 +508,8 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   %271 = phi ptr [ %223, %.lr.ph610 ], [ %340, %368 ]
   %272 = phi ptr [ %211, %.lr.ph610 ], [ %306, %368 ]
   %273 = phi ptr [ %222, %.lr.ph610 ], [ %307, %368 ]
-  %.0358609 = phi i64 [ 0, %.lr.ph610 ], [ %.1359, %368 ]
-  %.0360608 = phi i32 [ -1, %.lr.ph610 ], [ %.1361, %368 ]
+  %.0347609 = phi i64 [ 0, %.lr.ph610 ], [ %.1348, %368 ]
+  %.0349608 = phi i32 [ -1, %.lr.ph610 ], [ %.1350, %368 ]
   %storemerge442607 = phi i32 [ 0, %.lr.ph610 ], [ %370, %368 ]
   %274 = sext i32 %storemerge442607 to i64
   %275 = getelementptr inbounds ptr, ptr %273, i64 %274
@@ -532,7 +532,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br label %.loopexit562
 
 287:                                              ; preds = %270
-  %288 = sdiv i32 %.0355, %61
+  %288 = sdiv i32 %.0344, %61
   %289 = load i32, ptr %14, align 4
   %290 = mul nsw i32 %289, %288
   %291 = sext i32 %290 to i64
@@ -577,14 +577,14 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br i1 %.not446601, label %._crit_edge605, label %.lr.ph604
 
 .lr.ph604:                                        ; preds = %.loopexit562, %.lr.ph604
-  %.0334602 = phi i32 [ %319, %.lr.ph604 ], [ 0, %.loopexit562 ]
+  %.0332602 = phi i32 [ %319, %.lr.ph604 ], [ 0, %.loopexit562 ]
   %313 = load i32, ptr %15, align 4
   %314 = sext i32 %313 to i64
   %315 = getelementptr inbounds ptr, ptr %27, i64 %314
   %316 = load ptr, ptr %315, align 8
   %317 = load i16, ptr %316, align 8
   %318 = zext i16 %317 to i32
-  %319 = add i32 %.0334602, %318
+  %319 = add i32 %.0332602, %318
   %320 = add nsw i32 %313, 1
   store i32 %320, ptr %15, align 4
   %321 = load i32, ptr %14, align 4
@@ -596,12 +596,12 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br i1 %.not446, label %._crit_edge605, label %.lr.ph604, !llvm.loop !10
 
 ._crit_edge605:                                   ; preds = %.lr.ph604, %.loopexit562
-  %.0334.lcssa = phi i32 [ 0, %.loopexit562 ], [ %319, %.lr.ph604 ]
+  %.0332.lcssa = phi i32 [ 0, %.loopexit562 ], [ %319, %.lr.ph604 ]
   %326 = load ptr, ptr %2, align 8
   %327 = load i32, ptr %14, align 4
   %328 = sext i32 %327 to i64
   %329 = getelementptr inbounds i32, ptr %326, i64 %328
-  store i32 %.0334.lcssa, ptr %329, align 4
+  store i32 %.0332.lcssa, ptr %329, align 4
   br i1 %235, label %330, label %339
 
 330:                                              ; preds = %._crit_edge605
@@ -611,7 +611,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   %334 = load ptr, ptr %333, align 8
   %335 = call i32 @bit_overlap_any(ptr noundef nonnull %.0, ptr noundef %334) #8
   %336 = icmp ne i32 %335, 0
-  %337 = icmp eq i32 %.0360608, -1
+  %337 = icmp eq i32 %.0349608, -1
   %or.cond17 = select i1 %336, i1 %337, i1 false
   br i1 %or.cond17, label %.thread, label %339
 
@@ -625,7 +625,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   %342 = sext i32 %341 to i64
   %343 = getelementptr inbounds i32, ptr %340, i64 %342
   %344 = load i32, ptr %343, align 4
-  %345 = call zeroext i1 @eval_nodes_enough_nodes(i32 noundef %344, i32 noundef %.0378.lcssa, i32 noundef %29, i32 noundef %31) #8
+  %345 = call zeroext i1 @eval_nodes_enough_nodes(i32 noundef %344, i32 noundef %.0363.lcssa, i32 noundef %29, i32 noundef %31) #8
   %.pre745 = load i32, ptr %14, align 4
   br i1 %345, label %346, label %368
 
@@ -633,7 +633,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   %347 = sext i32 %.pre745 to i64
   %348 = getelementptr inbounds i32, ptr %326, i64 %347
   %349 = load i32, ptr %348, align 4
-  %350 = icmp ugt i32 %.0366.lcssa, %349
+  %350 = icmp ugt i32 %.0375.lcssa, %349
   %or.cond19 = or i1 %235, %350
   br i1 %or.cond19, label %368, label %351
 
@@ -649,7 +649,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br label %368
 
 355:                                              ; preds = %351
-  %356 = icmp eq i32 %.0360608, -1
+  %356 = icmp eq i32 %.0349608, -1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %354, i64 16
   %.pre741 = load i64, ptr %.phi.trans.insert, align 8
   br i1 %356, label %._crit_edge740, label %357
@@ -659,50 +659,50 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br label %368
 
 357:                                              ; preds = %355
-  %358 = icmp ult i64 %.pre741, %.0358609
+  %358 = icmp ult i64 %.pre741, %.0347609
   %.pre766 = load i32, ptr %14, align 4
   br i1 %358, label %368, label %359
 
 359:                                              ; preds = %357
-  %360 = icmp eq i64 %.pre741, %.0358609
+  %360 = icmp eq i64 %.pre741, %.0347609
   br i1 %360, label %361, label %368
 
 361:                                              ; preds = %359
   %362 = sext i32 %.pre766 to i64
   %363 = getelementptr inbounds i32, ptr %340, i64 %362
   %364 = load i32, ptr %363, align 4
-  %365 = sext i32 %.0360608 to i64
+  %365 = sext i32 %.0349608 to i64
   %366 = getelementptr inbounds i32, ptr %340, i64 %365
   %367 = load i32, ptr %366, align 4
   %.not448 = icmp ugt i32 %364, %367
-  %spec.select805 = select i1 %.not448, i32 %.0360608, i32 %.pre766
+  %spec.select805 = select i1 %.not448, i32 %.0349608, i32 %.pre766
   br label %368
 
 368:                                              ; preds = %361, %357, %._crit_edge740, %._crit_edge742, %359, %339, %346
   %369 = phi i32 [ %.pre745, %346 ], [ %.pre766, %359 ], [ %.pre743, %._crit_edge742 ], [ %.pre745, %339 ], [ %.pre765, %._crit_edge740 ], [ %.pre766, %357 ], [ %.pre766, %361 ]
-  %.1361 = phi i32 [ %.0360608, %346 ], [ %.0360608, %359 ], [ %.0360608, %._crit_edge742 ], [ %.0360608, %339 ], [ %.pre765, %._crit_edge740 ], [ %.pre766, %357 ], [ %spec.select805, %361 ]
-  %.1359 = phi i64 [ %.0358609, %346 ], [ %.0358609, %359 ], [ %.0358609, %._crit_edge742 ], [ %.0358609, %339 ], [ %.pre741, %._crit_edge740 ], [ %.pre741, %357 ], [ %.0358609, %361 ]
+  %.1350 = phi i32 [ %.0349608, %346 ], [ %.0349608, %359 ], [ %.0349608, %._crit_edge742 ], [ %.0349608, %339 ], [ %.pre765, %._crit_edge740 ], [ %.pre766, %357 ], [ %spec.select805, %361 ]
+  %.1348 = phi i64 [ %.0347609, %346 ], [ %.0347609, %359 ], [ %.0347609, %._crit_edge742 ], [ %.0347609, %339 ], [ %.pre741, %._crit_edge740 ], [ %.pre741, %357 ], [ %.0347609, %361 ]
   %370 = add nsw i32 %369, 1
   store i32 %370, ptr %14, align 4
-  %371 = icmp slt i32 %370, %.0356
+  %371 = icmp slt i32 %370, %.0345
   br i1 %371, label %270, label %._crit_edge611, !llvm.loop !11
 
 ._crit_edge611:                                   ; preds = %368, %.preheader563
   %372 = phi ptr [ %222, %.preheader563 ], [ %307, %368 ]
-  %.0360.lcssa = phi i32 [ -1, %.preheader563 ], [ %.1361, %368 ]
+  %.0349.lcssa = phi i32 [ -1, %.preheader563 ], [ %.1350, %368 ]
   %.not549 = icmp eq ptr %.0, null
   br i1 %.not549, label %.thread772, label %373
 
 373:                                              ; preds = %.thread, %._crit_edge611
   %374 = phi ptr [ %307, %.thread ], [ %372, %._crit_edge611 ]
-  %.2362540 = phi i32 [ %338, %.thread ], [ %.0360.lcssa, %._crit_edge611 ]
-  %375 = icmp eq i32 %.2362540, -1
+  %.2351540 = phi i32 [ %338, %.thread ], [ %.0349.lcssa, %._crit_edge611 ]
+  %375 = icmp eq i32 %.2351540, -1
   br i1 %375, label %378, label %385
 
 .thread772:                                       ; preds = %._crit_edge611
   %376 = load ptr, ptr %112, align 8
   call void @bit_clear_all(ptr noundef %376) #8
-  %377 = icmp eq i32 %.0360.lcssa, -1
+  %377 = icmp eq i32 %.0349.lcssa, -1
   br i1 %377, label %378, label %..critedge514_crit_edge
 
 378:                                              ; preds = %.thread772, %373
@@ -721,11 +721,11 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br label %.loopexit
 
 ..critedge514_crit_edge:                          ; preds = %.thread772
-  %.pre770 = sext i32 %.0360.lcssa to i64
+  %.pre770 = sext i32 %.0349.lcssa to i64
   br label %.critedge514
 
 385:                                              ; preds = %373
-  %386 = sext i32 %.2362540 to i64
+  %386 = sext i32 %.2351540 to i64
   %387 = getelementptr inbounds ptr, ptr %374, i64 %386
   %388 = load ptr, ptr %387, align 8
   %389 = call i32 @bit_super_set(ptr noundef nonnull %.0, ptr noundef %388) #8
@@ -757,12 +757,12 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
 
 .lr.ph617:                                        ; preds = %.lr.ph617.preheader, %416
   %.0329615 = phi i32 [ %.1330, %416 ], [ -1, %.lr.ph617.preheader ]
-  %.0342614 = phi i32 [ %.1343, %416 ], [ %66, %.lr.ph617.preheader ]
+  %.0340614 = phi i32 [ %.1341, %416 ], [ %66, %.lr.ph617.preheader ]
   %storemerge450613 = phi i32 [ %418, %416 ], [ 0, %.lr.ph617.preheader ]
   %400 = sext i32 %storemerge450613 to i64
   %401 = getelementptr inbounds i32, ptr %.pre746, i64 %400
   %402 = load i32, ptr %401, align 4
-  %.not492 = icmp eq i32 %.2362540, %402
+  %.not492 = icmp eq i32 %.2351540, %402
   br i1 %.not492, label %403, label %416
 
 403:                                              ; preds = %.lr.ph617
@@ -779,17 +779,17 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   %410 = sext i32 %.pre747 to i64
   call void @bit_set(ptr noundef %409, i64 noundef %410) #8
   %411 = load i32, ptr %14, align 4
-  %412 = ashr i32 %.0329615, %.0341
-  %413 = ashr i32 %411, %.0341
+  %412 = ashr i32 %.0329615, %.0339
+  %413 = ashr i32 %411, %.0339
   %414 = icmp ne i32 %412, %413
   %415 = sext i1 %414 to i32
-  %spec.select545 = add nsw i32 %.0342614, %415
+  %spec.select545 = add nsw i32 %.0340614, %415
   %spec.select546 = select i1 %414, i32 %411, i32 %.0329615
   br label %416
 
 416:                                              ; preds = %408, %403, %.lr.ph617
   %417 = phi i32 [ %storemerge450613, %.lr.ph617 ], [ %.pre747, %403 ], [ %411, %408 ]
-  %.1343 = phi i32 [ %.0342614, %.lr.ph617 ], [ %.0342614, %403 ], [ %spec.select545, %408 ]
+  %.1341 = phi i32 [ %.0340614, %.lr.ph617 ], [ %.0340614, %403 ], [ %spec.select545, %408 ]
   %.1330 = phi i32 [ %.0329615, %.lr.ph617 ], [ %.0329615, %403 ], [ %spec.select546, %408 ]
   %418 = add nsw i32 %417, 1
   store i32 %418, ptr %14, align 4
@@ -798,8 +798,8 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br i1 %420, label %.lr.ph617, label %._crit_edge618, !llvm.loop !12
 
 ._crit_edge618:                                   ; preds = %416, %394
-  %.0342.lcssa = phi i32 [ %66, %394 ], [ %.1343, %416 ]
-  %421 = icmp slt i32 %.0342.lcssa, 0
+  %.0340.lcssa = phi i32 [ %66, %394 ], [ %.1341, %416 ]
+  %421 = icmp slt i32 %.0340.lcssa, 0
   br i1 %421, label %422, label %426
 
 422:                                              ; preds = %._crit_edge618
@@ -812,8 +812,8 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br label %.loopexit
 
 426:                                              ; preds = %._crit_edge618
-  %427 = icmp slt i32 %.0378.lcssa, 1
-  %428 = icmp slt i32 %.0366.lcssa, 1
+  %427 = icmp slt i32 %.0363.lcssa, 1
+  %428 = icmp slt i32 %.0375.lcssa, 1
   %or.cond = select i1 %427, i1 %428, i1 false
   br i1 %or.cond, label %429, label %434
 
@@ -841,9 +841,9 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
 
 .critedge514:                                     ; preds = %..critedge514_crit_edge, %434
   %442 = phi i1 [ false, %..critedge514_crit_edge ], [ true, %434 ]
-  %.2362540774777 = phi i32 [ %.0360.lcssa, %..critedge514_crit_edge ], [ %.2362540, %434 ]
+  %.2351540774777 = phi i32 [ %.0349.lcssa, %..critedge514_crit_edge ], [ %.2351540, %434 ]
   %.pre-phi771 = phi i64 [ %.pre770, %..critedge514_crit_edge ], [ %386, %434 ]
-  %.2344 = phi i32 [ %66, %..critedge514_crit_edge ], [ %.0342.lcssa, %434 ]
+  %.2342 = phi i32 [ %66, %..critedge514_crit_edge ], [ %.0340.lcssa, %434 ]
   %443 = load i32, ptr @node_record_count, align 4
   %444 = sext i32 %443 to i64
   %445 = call ptr @bit_alloc(i64 noundef %444) #8
@@ -853,9 +853,9 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
 
 .outer.split:                                     ; preds = %.outer.split.backedge, %.critedge514
   %447 = phi i1 [ false, %.critedge514 ], [ %.be, %.outer.split.backedge ]
-  %.0332.ph634 = phi i32 [ 0, %.critedge514 ], [ %.1333.lcssa, %.outer.split.backedge ]
-  %.0335.ph633 = phi i32 [ 0, %.critedge514 ], [ %.1336.lcssa, %.outer.split.backedge ]
-  %.0363.ph632 = phi i8 [ 0, %.critedge514 ], [ %.1364, %.outer.split.backedge ]
+  %.0333.ph634 = phi i32 [ 0, %.critedge514 ], [ %.1334.lcssa, %.outer.split.backedge ]
+  %.0336.ph633 = phi i32 [ 0, %.critedge514 ], [ %.1337.lcssa, %.outer.split.backedge ]
+  %.0352.ph632 = phi i8 [ 0, %.critedge514 ], [ %.1353, %.outer.split.backedge ]
   br i1 %447, label %.outer.split.split.us, label %.outer.split.split
 
 .outer.split.split.us:                            ; preds = %.outer.split, %454
@@ -903,8 +903,8 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br i1 %.not455625, label %._crit_edge629, label %.lr.ph628
 
 .lr.ph628:                                        ; preds = %.preheader561, %501
-  %.1333627 = phi i32 [ %.2, %501 ], [ %.0332.ph634, %.preheader561 ]
-  %.1336626 = phi i32 [ %.2337, %501 ], [ %.0335.ph633, %.preheader561 ]
+  %.1334627 = phi i32 [ %.2, %501 ], [ %.0333.ph634, %.preheader561 ]
+  %.1337626 = phi i32 [ %.2338, %501 ], [ %.0336.ph633, %.preheader561 ]
   br i1 %442, label %463, label %467
 
 463:                                              ; preds = %.lr.ph628
@@ -926,7 +926,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
 
 474:                                              ; preds = %467
   %475 = load i32, ptr %14, align 4
-  call void @eval_nodes_select_cores(ptr noundef %0, i32 noundef %475, i32 noundef %.0390.lcssa) #8
+  call void @eval_nodes_select_cores(ptr noundef %0, i32 noundef %475, i32 noundef %.0355.lcssa) #8
   %476 = load i16, ptr %32, align 8
   %477 = icmp eq i16 %476, 0
   br i1 %477, label %478, label %482
@@ -949,8 +949,8 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   %489 = getelementptr inbounds i16, ptr %486, i64 %488
   store i16 %485, ptr %489, align 2
   %490 = zext i16 %485 to i32
-  %491 = add nsw i32 %.1333627, %490
-  %492 = add i32 %.1336626, 1
+  %491 = add nsw i32 %.1334627, %490
+  %492 = add i32 %.1337626, 1
   br i1 %.fr670, label %493, label %501
 
 493:                                              ; preds = %482
@@ -965,8 +965,8 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br label %501
 
 501:                                              ; preds = %482, %493, %467, %463, %478
-  %.2337 = phi i32 [ %.1336626, %463 ], [ %.1336626, %478 ], [ %492, %493 ], [ %492, %482 ], [ %.1336626, %467 ]
-  %.2 = phi i32 [ %.1333627, %463 ], [ %.1333627, %478 ], [ %491, %493 ], [ %491, %482 ], [ %.1333627, %467 ]
+  %.2338 = phi i32 [ %.1337626, %463 ], [ %.1337626, %478 ], [ %492, %493 ], [ %492, %482 ], [ %.1337626, %467 ]
+  %.2 = phi i32 [ %.1334627, %463 ], [ %.1334627, %478 ], [ %491, %493 ], [ %491, %482 ], [ %.1334627, %467 ]
   %502 = load i32, ptr %14, align 4
   %503 = add nsw i32 %502, 1
   store i32 %503, ptr %14, align 4
@@ -976,17 +976,17 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br i1 %.not455, label %._crit_edge629, label %.lr.ph628, !llvm.loop !14
 
 ._crit_edge629:                                   ; preds = %501, %.preheader561
-  %.1336.lcssa = phi i32 [ %.0335.ph633, %.preheader561 ], [ %.2337, %501 ]
-  %.1333.lcssa = phi i32 [ %.0332.ph634, %.preheader561 ], [ %.2, %501 ]
-  %506 = trunc nuw i8 %.0363.ph632 to i1
+  %.1337.lcssa = phi i32 [ %.0336.ph633, %.preheader561 ], [ %.2338, %501 ]
+  %.1334.lcssa = phi i32 [ %.0333.ph634, %.preheader561 ], [ %.2, %501 ]
+  %506 = trunc nuw i8 %.0352.ph632 to i1
   br i1 %506, label %.thread541, label %507
 
 507:                                              ; preds = %._crit_edge629
-  %.not456 = icmp slt i32 %.1333.lcssa, %.0366.lcssa
+  %.not456 = icmp slt i32 %.1334.lcssa, %.0375.lcssa
   br i1 %.not456, label %.thread541, label %508
 
 508:                                              ; preds = %507
-  %509 = call zeroext i1 @eval_nodes_enough_nodes(i32 noundef %.1336.lcssa, i32 noundef %.0378.lcssa, i32 noundef %29, i32 noundef %31) #8
+  %509 = call zeroext i1 @eval_nodes_enough_nodes(i32 noundef %.1337.lcssa, i32 noundef %.0363.lcssa, i32 noundef %29, i32 noundef %31) #8
   %510 = zext i1 %509 to i8
   %511 = and i1 %509, %.fr670
   br i1 %511, label %512, label %.thread541
@@ -999,9 +999,9 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br label %.thread541
 
 .thread541:                                       ; preds = %507, %508, %512, %._crit_edge629
-  %.1364 = phi i8 [ %.0363.ph632, %._crit_edge629 ], [ %516, %512 ], [ %510, %508 ], [ 0, %507 ]
-  %.not457 = icmp sge i32 %.1336.lcssa, %.0378.lcssa
-  %.not458 = icmp sge i32 %.1333.lcssa, %.0366.lcssa
+  %.1353 = phi i8 [ %.0352.ph632, %._crit_edge629 ], [ %516, %512 ], [ %510, %508 ], [ 0, %507 ]
+  %.not457 = icmp sge i32 %.1337.lcssa, %.0363.lcssa
+  %.not458 = icmp sge i32 %.1334.lcssa, %.0375.lcssa
   %or.cond517.not550 = select i1 %.not457, i1 %.not458, i1 false
   %brmerge519.not = and i1 %or.cond517.not550, %.fr670
   br i1 %brmerge519.not, label %517, label %.outer
@@ -1016,13 +1016,13 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br i1 %or.cond517.not550, label %.critedge.split, label %.outer.split.backedge
 
 .outer.split.backedge:                            ; preds = %.outer, %517
-  %.be = icmp sgt i32 %.1336.lcssa, 0
+  %.be = icmp sgt i32 %.1337.lcssa, 0
   br label %.outer.split, !llvm.loop !13
 
 .critedge.split:                                  ; preds = %.outer, %517, %.outer.split.split, %.outer.split.split.us
-  %.0363.ph.lcssa.split = phi i8 [ %.0363.ph632, %.outer.split.split.us ], [ %.0363.ph632, %.outer.split.split ], [ %.1364, %517 ], [ %.1364, %.outer ]
-  %.0335.ph.lcssa.split = phi i32 [ %.0335.ph633, %.outer.split.split.us ], [ %.0335.ph633, %.outer.split.split ], [ %.1336.lcssa, %517 ], [ %.1336.lcssa, %.outer ]
-  %.0332.ph.lcssa.split = phi i32 [ %.0332.ph634, %.outer.split.split.us ], [ %.0332.ph634, %.outer.split.split ], [ %.1333.lcssa, %517 ], [ %.1333.lcssa, %.outer ]
+  %.0352.ph.lcssa.split = phi i8 [ %.0352.ph632, %.outer.split.split.us ], [ %.0352.ph632, %.outer.split.split ], [ %.1353, %517 ], [ %.1353, %.outer ]
+  %.0336.ph.lcssa.split = phi i32 [ %.0336.ph633, %.outer.split.split.us ], [ %.0336.ph633, %.outer.split.split ], [ %.1337.lcssa, %517 ], [ %.1337.lcssa, %.outer ]
+  %.0333.ph.lcssa.split = phi i32 [ %.0333.ph634, %.outer.split.split.us ], [ %.0333.ph634, %.outer.split.split ], [ %.1334.lcssa, %517 ], [ %.1334.lcssa, %.outer ]
   call void @list_iterator_destroy(ptr noundef %446) #8
   %521 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %522 = and i64 %521, 1
@@ -1070,7 +1070,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
 
 539:                                              ; preds = %536
   %540 = load ptr, ptr %21, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.14, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.eval_nodes_block, ptr noundef %540, i32 noundef %.0335.ph.lcssa.split, i32 noundef %.0332.ph.lcssa.split, ptr noundef nonnull %.0328) #8
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.14, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.eval_nodes_block, ptr noundef %540, i32 noundef %.0336.ph.lcssa.split, i32 noundef %.0333.ph.lcssa.split, ptr noundef nonnull %.0328) #8
   br label %541
 
 541:                                              ; preds = %539, %536
@@ -1079,7 +1079,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br label %542
 
 542:                                              ; preds = %541, %.critedge.split
-  %543 = trunc nuw i8 %.0363.ph.lcssa.split to i1
+  %543 = trunc nuw i8 %.0352.ph.lcssa.split to i1
   br i1 %543, label %551, label %544
 
 544:                                              ; preds = %542
@@ -1110,10 +1110,10 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br i1 %.not466635, label %.critedge3, label %.lr.ph640
 
 .lr.ph640:                                        ; preds = %.preheader560, %570
-  %.2348639 = phi i64 [ %579, %570 ], [ %.0346.lcssa, %.preheader560 ]
-  %.2368638 = phi i32 [ %577, %570 ], [ %.0366.lcssa, %.preheader560 ]
-  %.2380637 = phi i32 [ %571, %570 ], [ %.0378.lcssa, %.preheader560 ]
-  %.2392636 = phi i32 [ %572, %570 ], [ %.0390.lcssa, %.preheader560 ]
+  %.2357639 = phi i32 [ %572, %570 ], [ %.0355.lcssa, %.preheader560 ]
+  %.2365638 = phi i32 [ %571, %570 ], [ %.0363.lcssa, %.preheader560 ]
+  %.2377637 = phi i32 [ %577, %570 ], [ %.0375.lcssa, %.preheader560 ]
+  %.2389636 = phi i64 [ %579, %570 ], [ %.0387.lcssa, %.preheader560 ]
   %555 = load i32, ptr %553, align 8
   %.not467 = icmp eq i32 %555, 0
   br i1 %.not467, label %.critedge3, label %556
@@ -1125,7 +1125,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   %560 = getelementptr inbounds i16, ptr %557, i64 %559
   %561 = load i16, ptr %560, align 2
   store i16 %561, ptr %32, align 8
-  call void @eval_nodes_cpus_to_use(ptr noundef nonnull %0, i32 noundef %558, i64 noundef %.2348639, i32 noundef %.2392636) #8
+  call void @eval_nodes_cpus_to_use(ptr noundef nonnull %0, i32 noundef %558, i64 noundef %.2389636, i32 noundef %.2357639) #8
   br i1 %.fr670, label %562, label %570
 
 562:                                              ; preds = %556
@@ -1140,16 +1140,16 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br label %570
 
 570:                                              ; preds = %562, %556
-  %571 = add nsw i32 %.2380637, -1
-  %572 = add nsw i32 %.2392636, -1
+  %571 = add nsw i32 %.2365638, -1
+  %572 = add nsw i32 %.2357639, -1
   %573 = load i32, ptr %553, align 8
   %574 = add i32 %573, -1
   store i32 %574, ptr %553, align 8
   %575 = load i16, ptr %32, align 8
   %576 = zext i16 %575 to i32
-  %577 = sub nsw i32 %.2368638, %576
+  %577 = sub nsw i32 %.2377637, %576
   %578 = zext i16 %575 to i64
-  %579 = sub nsw i64 %.2348639, %578
+  %579 = sub nsw i64 %.2389636, %578
   %580 = load i32, ptr %14, align 4
   %581 = add nsw i32 %580, 1
   store i32 %581, ptr %14, align 4
@@ -1158,14 +1158,14 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br i1 %.not466, label %.critedge3, label %.lr.ph640, !llvm.loop !15
 
 .critedge3:                                       ; preds = %.lr.ph640, %570, %.preheader560
-  %.2392.lcssa = phi i32 [ %.0390.lcssa, %.preheader560 ], [ %572, %570 ], [ %.2392636, %.lr.ph640 ]
-  %.2380.lcssa = phi i32 [ %.0378.lcssa, %.preheader560 ], [ %571, %570 ], [ %.2380637, %.lr.ph640 ]
-  %.2368.lcssa = phi i32 [ %.0366.lcssa, %.preheader560 ], [ %577, %570 ], [ %.2368638, %.lr.ph640 ]
-  %.2348.lcssa = phi i64 [ %.0346.lcssa, %.preheader560 ], [ %579, %570 ], [ %.2348639, %.lr.ph640 ]
+  %.2389.lcssa = phi i64 [ %.0387.lcssa, %.preheader560 ], [ %579, %570 ], [ %.2389636, %.lr.ph640 ]
+  %.2377.lcssa = phi i32 [ %.0375.lcssa, %.preheader560 ], [ %577, %570 ], [ %.2377637, %.lr.ph640 ]
+  %.2365.lcssa = phi i32 [ %.0363.lcssa, %.preheader560 ], [ %571, %570 ], [ %.2365638, %.lr.ph640 ]
+  %.2357.lcssa = phi i32 [ %.0355.lcssa, %.preheader560 ], [ %572, %570 ], [ %.2357639, %.lr.ph640 ]
   %583 = load ptr, ptr %112, align 8
   call void @bit_or(ptr noundef %583, ptr noundef nonnull %552) #8
-  %584 = icmp slt i32 %.2380.lcssa, 1
-  %585 = icmp slt i32 %.2368.lcssa, 1
+  %584 = icmp slt i32 %.2365.lcssa, 1
+  %585 = icmp slt i32 %.2377.lcssa, 1
   %or.cond5 = select i1 %584, i1 %585, i1 false
   br i1 %or.cond5, label %586, label %594
 
@@ -1209,12 +1209,12 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
 
 .lr.ph653:                                        ; preds = %.lr.ph653.preheader, %625
   %.0327652 = phi i32 [ %.1, %625 ], [ -1, %.lr.ph653.preheader ]
-  %.3651 = phi i32 [ %.4, %625 ], [ %.2344, %.lr.ph653.preheader ]
+  %.3651 = phi i32 [ %.4, %625 ], [ %.2342, %.lr.ph653.preheader ]
   %storemerge468650 = phi i32 [ %627, %625 ], [ 0, %.lr.ph653.preheader ]
   %603 = sext i32 %storemerge468650 to i64
   %604 = getelementptr inbounds i32, ptr %.pre748, i64 %603
   %605 = load i32, ptr %604, align 4
-  %.not489 = icmp eq i32 %.2362540774777, %605
+  %.not489 = icmp eq i32 %.2351540774777, %605
   br i1 %.not489, label %606, label %625
 
 606:                                              ; preds = %.lr.ph653
@@ -1242,8 +1242,8 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   %619 = sext i32 %.pre749 to i64
   call void @bit_set(ptr noundef %607, i64 noundef %619) #8
   %620 = load i32, ptr %14, align 4
-  %621 = ashr i32 %.0327652, %.0341
-  %622 = ashr i32 %620, %.0341
+  %621 = ashr i32 %.0327652, %.0339
+  %622 = ashr i32 %620, %.0339
   %623 = icmp ne i32 %621, %622
   %624 = sext i1 %623 to i32
   %spec.select547 = add nsw i32 %.3651, %624
@@ -1261,11 +1261,11 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br i1 %629, label %.lr.ph653, label %.loopexit559, !llvm.loop !16
 
 .loopexit559:                                     ; preds = %625, %.preheader558, %551
-  %.3393 = phi i32 [ %.0390.lcssa, %551 ], [ %.2392.lcssa, %.preheader558 ], [ %.2392.lcssa, %625 ]
-  %.3381 = phi i32 [ %.0378.lcssa, %551 ], [ %.2380.lcssa, %.preheader558 ], [ %.2380.lcssa, %625 ]
-  %.3369 = phi i32 [ %.0366.lcssa, %551 ], [ %.2368.lcssa, %.preheader558 ], [ %.2368.lcssa, %625 ]
-  %.3349 = phi i64 [ %.0346.lcssa, %551 ], [ %.2348.lcssa, %.preheader558 ], [ %.2348.lcssa, %625 ]
-  %.5 = phi i32 [ %.2344, %551 ], [ %.2344, %.preheader558 ], [ %.4, %625 ]
+  %.3390 = phi i64 [ %.0387.lcssa, %551 ], [ %.2389.lcssa, %.preheader558 ], [ %.2389.lcssa, %625 ]
+  %.3378 = phi i32 [ %.0375.lcssa, %551 ], [ %.2377.lcssa, %.preheader558 ], [ %.2377.lcssa, %625 ]
+  %.3366 = phi i32 [ %.0363.lcssa, %551 ], [ %.2365.lcssa, %.preheader558 ], [ %.2365.lcssa, %625 ]
+  %.3358 = phi i32 [ %.0355.lcssa, %551 ], [ %.2357.lcssa, %.preheader558 ], [ %.2357.lcssa, %625 ]
+  %.5 = phi i32 [ %.2342, %551 ], [ %.2342, %.preheader558 ], [ %.4, %625 ]
   %630 = icmp slt i32 %.5, 0
   br i1 %630, label %631, label %635
 
@@ -1296,10 +1296,10 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br label %640
 
 640:                                              ; preds = %.lr.ph676, %.loopexit554
-  %.4350675 = phi i64 [ %.3349, %.lr.ph676 ], [ %.7353, %.loopexit554 ]
-  %.4370674 = phi i32 [ %.3369, %.lr.ph676 ], [ %.7373, %.loopexit554 ]
-  %.4382673 = phi i32 [ %.3381, %.lr.ph676 ], [ %.7385, %.loopexit554 ]
-  %.4394672 = phi i32 [ %.3393, %.lr.ph676 ], [ %.7397, %.loopexit554 ]
+  %.4359675 = phi i32 [ %.3358, %.lr.ph676 ], [ %.7362, %.loopexit554 ]
+  %.4367674 = phi i32 [ %.3366, %.lr.ph676 ], [ %.7370, %.loopexit554 ]
+  %.4379673 = phi i32 [ %.3378, %.lr.ph676 ], [ %.7382, %.loopexit554 ]
+  %.4391672 = phi i64 [ %.3390, %.lr.ph676 ], [ %.7394, %.loopexit554 ]
   %storemerge469671 = phi i32 [ 0, %.lr.ph676 ], [ %720, %.loopexit554 ]
   %641 = sext i32 %storemerge469671 to i64
   %642 = call i32 @bit_test(ptr noundef %.pre750, i64 noundef %641) #8
@@ -1344,10 +1344,10 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br i1 %.fr670, label %.lr.ph661.split.us, label %.lr.ph661.split
 
 .lr.ph661.split.us:                               ; preds = %.lr.ph661, %691
-  %.5351659.us = phi i64 [ %.6352.us, %691 ], [ %.4350675, %.lr.ph661 ]
-  %.5371658.us = phi i32 [ %.6372.us, %691 ], [ %.4370674, %.lr.ph661 ]
-  %.5383657.us = phi i32 [ %.6384.us, %691 ], [ %.4382673, %.lr.ph661 ]
-  %.5395656.us = phi i32 [ %.6396.us, %691 ], [ %.4394672, %.lr.ph661 ]
+  %.5360659.us = phi i32 [ %.6361.us, %691 ], [ %.4359675, %.lr.ph661 ]
+  %.5368658.us = phi i32 [ %.6369.us, %691 ], [ %.4367674, %.lr.ph661 ]
+  %.5380657.us = phi i32 [ %.6381.us, %691 ], [ %.4379673, %.lr.ph661 ]
+  %.5392656.us = phi i64 [ %.6393.us, %691 ], [ %.4391672, %.lr.ph661 ]
   %660 = load i32, ptr %15, align 4
   %661 = sext i32 %660 to i64
   %662 = getelementptr inbounds i16, ptr %.pre754, i64 %661
@@ -1358,7 +1358,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
 664:                                              ; preds = %.lr.ph661.split.us
   store i16 %663, ptr %32, align 8
   %665 = load i32, ptr %14, align 4
-  call void @eval_nodes_cpus_to_use(ptr noundef %0, i32 noundef %665, i64 noundef %.5351659.us, i32 noundef %.5395656.us) #8
+  call void @eval_nodes_cpus_to_use(ptr noundef %0, i32 noundef %665, i64 noundef %.5392656.us, i32 noundef %.5360659.us) #8
   %666 = load ptr, ptr %35, align 8
   %667 = load i32, ptr %15, align 4
   %668 = sext i32 %667 to i64
@@ -1367,21 +1367,21 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   %671 = getelementptr inbounds i8, ptr %670, i64 32
   %672 = load ptr, ptr %671, align 8
   call void @gres_sched_add(ptr noundef %666, ptr noundef %672, ptr noundef nonnull %32) #8
-  %673 = add nsw i32 %.5383657.us, -1
-  %674 = add nsw i32 %.5395656.us, -1
+  %673 = add nsw i32 %.5368658.us, -1
+  %674 = add nsw i32 %.5360659.us, -1
   %675 = load i32, ptr %638, align 8
   %676 = add i32 %675, -1
   store i32 %676, ptr %638, align 8
   %677 = load i16, ptr %32, align 8
   %678 = zext i16 %677 to i32
-  %679 = sub nsw i32 %.5371658.us, %678
+  %679 = sub nsw i32 %.5380657.us, %678
   %680 = zext i16 %677 to i64
-  %681 = sub nsw i64 %.5351659.us, %680
+  %681 = sub nsw i64 %.5392656.us, %680
   %682 = load ptr, ptr %112, align 8
   %683 = load i32, ptr %15, align 4
   %684 = sext i32 %683 to i64
   call void @bit_set(ptr noundef %682, i64 noundef %684) #8
-  %685 = icmp slt i32 %.5383657.us, 2
+  %685 = icmp slt i32 %.5368658.us, 2
   %686 = icmp slt i32 %679, 1
   %or.cond9.us = select i1 %685, i1 %686, i1 false
   br i1 %or.cond9.us, label %687, label %691
@@ -1393,10 +1393,10 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br i1 %690, label %.loopexit, label %691
 
 691:                                              ; preds = %687, %664, %.lr.ph661.split.us
-  %.6396.us = phi i32 [ %674, %687 ], [ %674, %664 ], [ %.5395656.us, %.lr.ph661.split.us ]
-  %.6384.us = phi i32 [ %673, %687 ], [ %673, %664 ], [ %.5383657.us, %.lr.ph661.split.us ]
-  %.6372.us = phi i32 [ %679, %687 ], [ %679, %664 ], [ %.5371658.us, %.lr.ph661.split.us ]
-  %.6352.us = phi i64 [ %681, %687 ], [ %681, %664 ], [ %.5351659.us, %.lr.ph661.split.us ]
+  %.6393.us = phi i64 [ %681, %687 ], [ %681, %664 ], [ %.5392656.us, %.lr.ph661.split.us ]
+  %.6381.us = phi i32 [ %679, %687 ], [ %679, %664 ], [ %.5380657.us, %.lr.ph661.split.us ]
+  %.6369.us = phi i32 [ %673, %687 ], [ %673, %664 ], [ %.5368658.us, %.lr.ph661.split.us ]
+  %.6361.us = phi i32 [ %674, %687 ], [ %674, %664 ], [ %.5360659.us, %.lr.ph661.split.us ]
   %692 = load i32, ptr %15, align 4
   %693 = add nsw i32 %692, 1
   store i32 %693, ptr %15, align 4
@@ -1405,10 +1405,10 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br i1 %.not487.us, label %.loopexit554, label %.lr.ph661.split.us, !llvm.loop !17
 
 .lr.ph661.split:                                  ; preds = %.lr.ph661, %715
-  %.5351659 = phi i64 [ %.6352, %715 ], [ %.4350675, %.lr.ph661 ]
-  %.5371658 = phi i32 [ %.6372, %715 ], [ %.4370674, %.lr.ph661 ]
-  %.5383657 = phi i32 [ %.6384, %715 ], [ %.4382673, %.lr.ph661 ]
-  %.5395656 = phi i32 [ %.6396, %715 ], [ %.4394672, %.lr.ph661 ]
+  %.5360659 = phi i32 [ %.6361, %715 ], [ %.4359675, %.lr.ph661 ]
+  %.5368658 = phi i32 [ %.6369, %715 ], [ %.4367674, %.lr.ph661 ]
+  %.5380657 = phi i32 [ %.6381, %715 ], [ %.4379673, %.lr.ph661 ]
+  %.5392656 = phi i64 [ %.6393, %715 ], [ %.4391672, %.lr.ph661 ]
   %695 = load i32, ptr %15, align 4
   %696 = sext i32 %695 to i64
   %697 = getelementptr inbounds i16, ptr %.pre754, i64 %696
@@ -1419,36 +1419,36 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
 699:                                              ; preds = %.lr.ph661.split
   store i16 %698, ptr %32, align 8
   %700 = load i32, ptr %14, align 4
-  call void @eval_nodes_cpus_to_use(ptr noundef %0, i32 noundef %700, i64 noundef %.5351659, i32 noundef %.5395656) #8
+  call void @eval_nodes_cpus_to_use(ptr noundef %0, i32 noundef %700, i64 noundef %.5392656, i32 noundef %.5360659) #8
   %701 = load i32, ptr %638, align 8
   %702 = add i32 %701, -1
   store i32 %702, ptr %638, align 8
   %703 = load i16, ptr %32, align 8
   %704 = zext i16 %703 to i32
-  %705 = sub nsw i32 %.5371658, %704
+  %705 = sub nsw i32 %.5380657, %704
   %706 = load ptr, ptr %112, align 8
   %707 = load i32, ptr %15, align 4
   %708 = sext i32 %707 to i64
   call void @bit_set(ptr noundef %706, i64 noundef %708) #8
-  %709 = icmp slt i32 %.5383657, 2
+  %709 = icmp slt i32 %.5368658, 2
   %710 = icmp slt i32 %705, 1
   %or.cond9 = select i1 %709, i1 %710, i1 false
   br i1 %or.cond9, label %.loopexit, label %._crit_edge752
 
 ._crit_edge752:                                   ; preds = %699
   %711 = zext i16 %703 to i64
-  %712 = sub nsw i64 %.5351659, %711
-  %713 = add nsw i32 %.5395656, -1
-  %714 = add nsw i32 %.5383657, -1
+  %712 = sub nsw i64 %.5392656, %711
+  %713 = add nsw i32 %.5360659, -1
+  %714 = add nsw i32 %.5368658, -1
   %.pre753 = load i32, ptr %15, align 4
   br label %715
 
 715:                                              ; preds = %._crit_edge752, %.lr.ph661.split
   %716 = phi i32 [ %.pre753, %._crit_edge752 ], [ %695, %.lr.ph661.split ]
-  %.6396 = phi i32 [ %713, %._crit_edge752 ], [ %.5395656, %.lr.ph661.split ]
-  %.6384 = phi i32 [ %714, %._crit_edge752 ], [ %.5383657, %.lr.ph661.split ]
-  %.6372 = phi i32 [ %705, %._crit_edge752 ], [ %.5371658, %.lr.ph661.split ]
-  %.6352 = phi i64 [ %712, %._crit_edge752 ], [ %.5351659, %.lr.ph661.split ]
+  %.6393 = phi i64 [ %712, %._crit_edge752 ], [ %.5392656, %.lr.ph661.split ]
+  %.6381 = phi i32 [ %705, %._crit_edge752 ], [ %.5380657, %.lr.ph661.split ]
+  %.6369 = phi i32 [ %714, %._crit_edge752 ], [ %.5368658, %.lr.ph661.split ]
+  %.6361 = phi i32 [ %713, %._crit_edge752 ], [ %.5360659, %.lr.ph661.split ]
   %717 = add nsw i32 %716, 1
   store i32 %717, ptr %15, align 4
   %718 = call ptr @next_node_bitmap(ptr noundef %654, ptr noundef nonnull %15) #8
@@ -1456,10 +1456,10 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br i1 %.not487, label %.loopexit554, label %.lr.ph661.split, !llvm.loop !17
 
 .loopexit554:                                     ; preds = %715, %691, %653, %640
-  %.7397 = phi i32 [ %.4394672, %640 ], [ %.4394672, %653 ], [ %.6396.us, %691 ], [ %.6396, %715 ]
-  %.7385 = phi i32 [ %.4382673, %640 ], [ %.4382673, %653 ], [ %.6384.us, %691 ], [ %.6384, %715 ]
-  %.7373 = phi i32 [ %.4370674, %640 ], [ %.4370674, %653 ], [ %.6372.us, %691 ], [ %.6372, %715 ]
-  %.7353 = phi i64 [ %.4350675, %640 ], [ %.4350675, %653 ], [ %.6352.us, %691 ], [ %.6352, %715 ]
+  %.7394 = phi i64 [ %.4391672, %640 ], [ %.4391672, %653 ], [ %.6393.us, %691 ], [ %.6393, %715 ]
+  %.7382 = phi i32 [ %.4379673, %640 ], [ %.4379673, %653 ], [ %.6381.us, %691 ], [ %.6381, %715 ]
+  %.7370 = phi i32 [ %.4367674, %640 ], [ %.4367674, %653 ], [ %.6369.us, %691 ], [ %.6369, %715 ]
+  %.7362 = phi i32 [ %.4359675, %640 ], [ %.4359675, %653 ], [ %.6361.us, %691 ], [ %.6361, %715 ]
   %719 = load i32, ptr %14, align 4
   %720 = add nsw i32 %719, 1
   store i32 %720, ptr %14, align 4
@@ -1469,10 +1469,10 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
 
 .loopexit557:                                     ; preds = %.loopexit554, %.preheader556, %635
   %723 = phi i32 [ %.pre755, %635 ], [ %.pre755, %.preheader556 ], [ %721, %.loopexit554 ]
-  %.8398 = phi i32 [ %.3393, %635 ], [ %.3393, %.preheader556 ], [ %.7397, %.loopexit554 ]
-  %.8386 = phi i32 [ %.3381, %635 ], [ %.3381, %.preheader556 ], [ %.7385, %.loopexit554 ]
-  %.8374 = phi i32 [ %.3369, %635 ], [ %.3369, %.preheader556 ], [ %.7373, %.loopexit554 ]
-  %.8 = phi i64 [ %.3349, %635 ], [ %.3349, %.preheader556 ], [ %.7353, %.loopexit554 ]
+  %.8395 = phi i64 [ %.3390, %635 ], [ %.3390, %.preheader556 ], [ %.7394, %.loopexit554 ]
+  %.8383 = phi i32 [ %.3378, %635 ], [ %.3378, %.preheader556 ], [ %.7382, %.loopexit554 ]
+  %.8371 = phi i32 [ %.3366, %635 ], [ %.3366, %.preheader556 ], [ %.7370, %.loopexit554 ]
+  %.8 = phi i32 [ %.3358, %635 ], [ %.3358, %.preheader556 ], [ %.7362, %.loopexit554 ]
   %724 = sext i32 %723 to i64
   %725 = call ptr @slurm_xcalloc(i64 noundef %724, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.5, i32 noundef 646, ptr noundef nonnull @__func__.eval_nodes_block) #8
   store ptr %725, ptr %7, align 8
@@ -1485,7 +1485,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   br i1 %.not470, label %733, label %730
 
 730:                                              ; preds = %.loopexit557
-  %731 = sext i32 %.0339 to i64
+  %731 = sext i32 %.0335 to i64
   %732 = shl nsw i64 %731, 2
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %729, i8 0, i64 %732, i1 false)
   br label %733
@@ -1508,7 +1508,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   %740 = sext i32 %storemerge471681 to i64
   %741 = getelementptr inbounds i32, ptr %.pre756, i64 %740
   %742 = load i32, ptr %741, align 4
-  %.not481 = icmp eq i32 %.2362540774777, %742
+  %.not481 = icmp eq i32 %.2351540774777, %742
   br i1 %.not481, label %743, label %785
 
 743:                                              ; preds = %736
@@ -1584,7 +1584,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   %793 = phi ptr [ %728, %733 ], [ %789, %785 ]
   %794 = phi ptr [ %729, %733 ], [ %786, %785 ]
   %795 = phi ptr [ %725, %733 ], [ %787, %785 ]
-  %796 = shl nsw i32 -1, %.0341
+  %796 = shl nsw i32 -1, %.0339
   %797 = xor i32 %796, -1
   %798 = getelementptr inbounds i8, ptr %0, i64 56
   %799 = getelementptr inbounds i8, ptr %23, i64 392
@@ -1593,10 +1593,10 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
 
 .preheader552:                                    ; preds = %._crit_edge684, %.critedge11
   %.6715 = phi i32 [ %.5, %._crit_edge684 ], [ %spec.select520, %.critedge11 ]
-  %.9714 = phi i64 [ %.8, %._crit_edge684 ], [ %.10.lcssa, %.critedge11 ]
-  %.9375713 = phi i32 [ %.8374, %._crit_edge684 ], [ %.10376.lcssa, %.critedge11 ]
-  %.9387712 = phi i32 [ %.8386, %._crit_edge684 ], [ %.10388.lcssa, %.critedge11 ]
-  %.9399711 = phi i32 [ %.8398, %._crit_edge684 ], [ %.10400.lcssa, %.critedge11 ]
+  %.9714 = phi i32 [ %.8, %._crit_edge684 ], [ %.10.lcssa, %.critedge11 ]
+  %.9372713 = phi i32 [ %.8371, %._crit_edge684 ], [ %.10373.lcssa, %.critedge11 ]
+  %.9384712 = phi i32 [ %.8383, %._crit_edge684 ], [ %.10385.lcssa, %.critedge11 ]
+  %.9396711 = phi i64 [ %.8395, %._crit_edge684 ], [ %.10397.lcssa, %.critedge11 ]
   store i32 0, ptr %14, align 4
   %800 = load i32, ptr @block_record_cnt, align 4
   %801 = icmp sgt i32 %800, 0
@@ -1614,7 +1614,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   %802 = sext i32 %storemerge472690 to i64
   %803 = getelementptr inbounds i32, ptr %.pre760, i64 %802
   %804 = load i32, ptr %803, align 4
-  %.not479 = icmp eq i32 %.2362540774777, %804
+  %.not479 = icmp eq i32 %.2351540774777, %804
   br i1 %.not479, label %805, label %_choose_best_bblock.exit
 
 805:                                              ; preds = %.lr.ph691
@@ -1628,12 +1628,12 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   %810 = sext i32 %809 to i64
   %811 = getelementptr inbounds i32, ptr %795, i64 %810
   %812 = load i32, ptr %811, align 4
-  %813 = icmp uge i32 %812, %.9387712
+  %813 = icmp uge i32 %812, %.9372713
   br i1 %.not.i, label %thread-pre-split.i, label %814
 
 814:                                              ; preds = %808
-  %815 = ashr i32 %.0536685, %.0341
-  %816 = ashr i32 %809, %.0341
+  %815 = ashr i32 %.0536685, %.0339
+  %816 = ashr i32 %809, %.0339
   %817 = icmp eq i32 %815, %816
   br i1 %817, label %thread-pre-split.i, label %818
 
@@ -1665,7 +1665,7 @@ define range(i32 -1, 1) i32 @eval_nodes_block(ptr noundef %0) local_unnamed_addr
   %829 = call i32 @bit_test(ptr noundef %806, i64 noundef %indvars.iv.i) #8
   %.not70.i = icmp ne i32 %829, 0
   %830 = trunc nsw i64 %indvars.iv.i to i32
-  %831 = ashr i32 %830, %.0341
+  %831 = ashr i32 %830, %.0339
   %832 = icmp eq i32 %831, %816
   %or.cond.i = select i1 %.not70.i, i1 %832, i1 false
   br i1 %or.cond.i, label %.critedge.i, label %825
@@ -1757,7 +1757,7 @@ _choose_best_bblock.exit:                         ; preds = %859, %.critedge78.i
   br i1 %868, label %869, label %870
 
 869:                                              ; preds = %866
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.19, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.eval_nodes_block, ptr noundef nonnull @__func__.eval_nodes_block, i32 noundef %.9387712, i32 noundef %.0536.lcssa) #8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.19, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.eval_nodes_block, ptr noundef nonnull @__func__.eval_nodes_block, i32 noundef %.9372713, i32 noundef %.0536.lcssa) #8
   br label %870
 
 870:                                              ; preds = %._crit_edge692, %866, %869
@@ -1784,7 +1784,7 @@ _choose_best_bblock.exit:                         ; preds = %859, %.critedge78.i
   br i1 %881, label %882, label %.loopexit553
 
 882:                                              ; preds = %879
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.eval_nodes_block, ptr noundef nonnull @__func__.eval_nodes_block, i32 noundef %.9399711) #8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.eval_nodes_block, ptr noundef nonnull @__func__.eval_nodes_block, i32 noundef %.9714) #8
   br label %.loopexit553
 
 883:                                              ; preds = %874, %872
@@ -1801,10 +1801,10 @@ _choose_best_bblock.exit:                         ; preds = %859, %.critedge78.i
   br i1 %.not476695, label %.critedge11, label %.lr.ph701
 
 .lr.ph701:                                        ; preds = %883, %926
-  %.10699 = phi i64 [ %.11, %926 ], [ %.9714, %883 ]
-  %.10376698 = phi i32 [ %.11377, %926 ], [ %.9375713, %883 ]
-  %.10388697 = phi i32 [ %.11389, %926 ], [ %.9387712, %883 ]
-  %.10400696 = phi i32 [ %.11401, %926 ], [ %.9399711, %883 ]
+  %.10699 = phi i32 [ %.11, %926 ], [ %.9714, %883 ]
+  %.10373698 = phi i32 [ %.11374, %926 ], [ %.9372713, %883 ]
+  %.10385697 = phi i32 [ %.11386, %926 ], [ %.9384712, %883 ]
+  %.10397696 = phi i64 [ %.11398, %926 ], [ %.9396711, %883 ]
   %890 = load i32, ptr %798, align 8
   %.not477 = icmp eq i32 %890, 0
   br i1 %.not477, label %.critedge11, label %891
@@ -1820,7 +1820,7 @@ _choose_best_bblock.exit:                         ; preds = %859, %.critedge78.i
 
 897:                                              ; preds = %891
   store i16 %896, ptr %32, align 8
-  call void @eval_nodes_cpus_to_use(ptr noundef nonnull %0, i32 noundef %893, i64 noundef %.10699, i32 noundef %.10400696) #8
+  call void @eval_nodes_cpus_to_use(ptr noundef nonnull %0, i32 noundef %893, i64 noundef %.10397696, i32 noundef %.10699) #8
   br i1 %.fr670, label %898, label %906
 
 898:                                              ; preds = %897
@@ -1835,21 +1835,21 @@ _choose_best_bblock.exit:                         ; preds = %859, %.critedge78.i
   br label %906
 
 906:                                              ; preds = %898, %897
-  %907 = add nsw i32 %.10388697, -1
-  %908 = add nsw i32 %.10400696, -1
+  %907 = add nsw i32 %.10373698, -1
+  %908 = add nsw i32 %.10699, -1
   %909 = load i32, ptr %798, align 8
   %910 = add i32 %909, -1
   store i32 %910, ptr %798, align 8
   %911 = load i16, ptr %32, align 8
   %912 = zext i16 %911 to i32
-  %913 = sub nsw i32 %.10376698, %912
+  %913 = sub nsw i32 %.10385697, %912
   %914 = zext i16 %911 to i64
-  %915 = sub nsw i64 %.10699, %914
+  %915 = sub nsw i64 %.10397696, %914
   %916 = load ptr, ptr %112, align 8
   %917 = load i32, ptr %14, align 4
   %918 = sext i32 %917 to i64
   call void @bit_set(ptr noundef %916, i64 noundef %918) #8
-  %919 = icmp slt i32 %.10388697, 2
+  %919 = icmp slt i32 %.10373698, 2
   %920 = icmp slt i32 %913, 1
   %or.cond13 = select i1 %919, i1 %920, i1 false
   br i1 %or.cond13, label %921, label %926
@@ -1864,10 +1864,10 @@ _choose_best_bblock.exit:                         ; preds = %859, %.critedge78.i
   br i1 %925, label %.loopexit, label %926
 
 926:                                              ; preds = %906, %922, %891
-  %.11401 = phi i32 [ %908, %922 ], [ %908, %906 ], [ %.10400696, %891 ]
-  %.11389 = phi i32 [ %907, %922 ], [ %907, %906 ], [ %.10388697, %891 ]
-  %.11377 = phi i32 [ %913, %922 ], [ %913, %906 ], [ %.10376698, %891 ]
-  %.11 = phi i64 [ %915, %922 ], [ %915, %906 ], [ %.10699, %891 ]
+  %.11398 = phi i64 [ %915, %922 ], [ %915, %906 ], [ %.10397696, %891 ]
+  %.11386 = phi i32 [ %913, %922 ], [ %913, %906 ], [ %.10385697, %891 ]
+  %.11374 = phi i32 [ %907, %922 ], [ %907, %906 ], [ %.10373698, %891 ]
+  %.11 = phi i32 [ %908, %922 ], [ %908, %906 ], [ %.10699, %891 ]
   %927 = load i32, ptr %14, align 4
   %928 = add nsw i32 %927, 1
   store i32 %928, ptr %14, align 4
@@ -1876,22 +1876,22 @@ _choose_best_bblock.exit:                         ; preds = %859, %.critedge78.i
   br i1 %.not476, label %.critedge11, label %.lr.ph701, !llvm.loop !22
 
 .critedge11:                                      ; preds = %.lr.ph701, %926, %883
-  %.10400.lcssa = phi i32 [ %.9399711, %883 ], [ %.11401, %926 ], [ %.10400696, %.lr.ph701 ]
-  %.10388.lcssa = phi i32 [ %.9387712, %883 ], [ %.11389, %926 ], [ %.10388697, %.lr.ph701 ]
-  %.10376.lcssa = phi i32 [ %.9375713, %883 ], [ %.11377, %926 ], [ %.10376698, %.lr.ph701 ]
-  %.10.lcssa = phi i64 [ %.9714, %883 ], [ %.11, %926 ], [ %.10699, %.lr.ph701 ]
+  %.10397.lcssa = phi i64 [ %.9396711, %883 ], [ %.11398, %926 ], [ %.10397696, %.lr.ph701 ]
+  %.10385.lcssa = phi i32 [ %.9384712, %883 ], [ %.11386, %926 ], [ %.10385697, %.lr.ph701 ]
+  %.10373.lcssa = phi i32 [ %.9372713, %883 ], [ %.11374, %926 ], [ %.10373698, %.lr.ph701 ]
+  %.10.lcssa = phi i32 [ %.9714, %883 ], [ %.11, %926 ], [ %.10699, %.lr.ph701 ]
   %930 = and i8 %.0530.lcssa, 1
   %931 = xor i8 %930, 1
   %932 = zext nneg i8 %931 to i32
   %spec.select520 = sub i32 %.6715, %932
-  %933 = icmp eq i32 %.9387712, %.10388.lcssa
+  %933 = icmp eq i32 %.9372713, %.10373.lcssa
   br i1 %933, label %.loopexit553, label %.preheader552
 
 .loopexit553:                                     ; preds = %870, %.critedge11, %882, %879, %876
-  %.9399573 = phi i32 [ %.9399711, %882 ], [ %.9399711, %879 ], [ %.9399711, %876 ], [ %.10400.lcssa, %.critedge11 ], [ %.9399711, %870 ]
-  %.9375570 = phi i32 [ %.9375713, %882 ], [ %.9375713, %879 ], [ %.9375713, %876 ], [ %.10376.lcssa, %.critedge11 ], [ %.9375713, %870 ]
-  %934 = icmp slt i32 %.9399573, 1
-  %935 = icmp slt i32 %.9375570, 1
+  %.9384573 = phi i32 [ %.9384712, %882 ], [ %.9384712, %879 ], [ %.9384712, %876 ], [ %.10385.lcssa, %.critedge11 ], [ %.9384712, %870 ]
+  %.9570 = phi i32 [ %.9714, %882 ], [ %.9714, %879 ], [ %.9714, %876 ], [ %.10.lcssa, %.critedge11 ], [ %.9714, %870 ]
+  %934 = icmp slt i32 %.9570, 1
+  %935 = icmp slt i32 %.9384573, 1
   %or.cond15 = select i1 %934, i1 %935, i1 false
   br i1 %or.cond15, label %936, label %941
 
@@ -1908,8 +1908,8 @@ _choose_best_bblock.exit:                         ; preds = %859, %.critedge78.i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %699, %687, %921, %922, %936, %937, %550, %547, %544, %429, %384, %381, %378, %148, %151, %115, %118, %102, %105, %94, %97, %84, %87, %74, %77, %592, %941, %393, %390, %425, %422, %441, %438, %602, %599, %634, %631
-  %.1357 = phi i32 [ %.0356, %425 ], [ %.0356, %422 ], [ %.0356, %441 ], [ %.0356, %438 ], [ %.0356, %592 ], [ %.0356, %602 ], [ %.0356, %599 ], [ %.0356, %634 ], [ %.0356, %631 ], [ %.0356, %941 ], [ %.0356, %393 ], [ %.0356, %390 ], [ -1, %77 ], [ -1, %74 ], [ -1, %87 ], [ -1, %84 ], [ -1, %97 ], [ -1, %94 ], [ -1, %105 ], [ -1, %102 ], [ -1, %118 ], [ -1, %115 ], [ -1, %151 ], [ -1, %148 ], [ %.0356, %378 ], [ %.0356, %381 ], [ %.0356, %384 ], [ %.0356, %429 ], [ %.0356, %544 ], [ %.0356, %547 ], [ %.0356, %550 ], [ %.0356, %937 ], [ %.0356, %936 ], [ %.0356, %922 ], [ %.0356, %921 ], [ %.0356, %687 ], [ %.0356, %699 ]
-  %.0340 = phi ptr [ %123, %425 ], [ %123, %422 ], [ %123, %441 ], [ %123, %438 ], [ %123, %592 ], [ %123, %602 ], [ %123, %599 ], [ %123, %634 ], [ %123, %631 ], [ %123, %941 ], [ %123, %393 ], [ %123, %390 ], [ null, %77 ], [ null, %74 ], [ null, %87 ], [ null, %84 ], [ null, %97 ], [ null, %94 ], [ null, %105 ], [ null, %102 ], [ null, %118 ], [ null, %115 ], [ %123, %151 ], [ %123, %148 ], [ %123, %378 ], [ %123, %381 ], [ %123, %384 ], [ %123, %429 ], [ %123, %544 ], [ %123, %547 ], [ %123, %550 ], [ %123, %937 ], [ %123, %936 ], [ %123, %922 ], [ %123, %921 ], [ %123, %687 ], [ %123, %699 ]
+  %.0400 = phi ptr [ %123, %425 ], [ %123, %422 ], [ %123, %441 ], [ %123, %438 ], [ %123, %592 ], [ %123, %602 ], [ %123, %599 ], [ %123, %634 ], [ %123, %631 ], [ %123, %941 ], [ %123, %393 ], [ %123, %390 ], [ null, %77 ], [ null, %74 ], [ null, %87 ], [ null, %84 ], [ null, %97 ], [ null, %94 ], [ null, %105 ], [ null, %102 ], [ null, %118 ], [ null, %115 ], [ %123, %151 ], [ %123, %148 ], [ %123, %378 ], [ %123, %381 ], [ %123, %384 ], [ %123, %429 ], [ %123, %544 ], [ %123, %547 ], [ %123, %550 ], [ %123, %937 ], [ %123, %936 ], [ %123, %922 ], [ %123, %921 ], [ %123, %687 ], [ %123, %699 ]
+  %.1346 = phi i32 [ %.0345, %425 ], [ %.0345, %422 ], [ %.0345, %441 ], [ %.0345, %438 ], [ %.0345, %592 ], [ %.0345, %602 ], [ %.0345, %599 ], [ %.0345, %634 ], [ %.0345, %631 ], [ %.0345, %941 ], [ %.0345, %393 ], [ %.0345, %390 ], [ -1, %77 ], [ -1, %74 ], [ -1, %87 ], [ -1, %84 ], [ -1, %97 ], [ -1, %94 ], [ -1, %105 ], [ -1, %102 ], [ -1, %118 ], [ -1, %115 ], [ -1, %151 ], [ -1, %148 ], [ %.0345, %378 ], [ %.0345, %381 ], [ %.0345, %384 ], [ %.0345, %429 ], [ %.0345, %544 ], [ %.0345, %547 ], [ %.0345, %550 ], [ %.0345, %937 ], [ %.0345, %936 ], [ %.0345, %922 ], [ %.0345, %921 ], [ %.0345, %687 ], [ %.0345, %699 ]
   %.0331 = phi i32 [ -1, %425 ], [ -1, %422 ], [ -1, %441 ], [ -1, %438 ], [ 0, %592 ], [ -1, %602 ], [ -1, %599 ], [ -1, %634 ], [ -1, %631 ], [ -1, %941 ], [ -1, %393 ], [ -1, %390 ], [ -1, %77 ], [ -1, %74 ], [ -1, %87 ], [ -1, %84 ], [ -1, %97 ], [ -1, %94 ], [ -1, %105 ], [ -1, %102 ], [ -1, %118 ], [ -1, %115 ], [ -1, %151 ], [ -1, %148 ], [ -1, %378 ], [ -1, %381 ], [ -1, %384 ], [ 0, %429 ], [ -1, %544 ], [ -1, %547 ], [ -1, %550 ], [ 0, %937 ], [ 0, %936 ], [ 0, %922 ], [ 0, %921 ], [ 0, %687 ], [ 0, %699 ]
   %942 = load ptr, ptr %16, align 8
   %.not500 = icmp eq ptr %942, null
@@ -1921,11 +1921,11 @@ _choose_best_bblock.exit:                         ; preds = %859, %.critedge78.i
 
 944:                                              ; preds = %943, %.loopexit
   store ptr null, ptr %16, align 8
-  %.not501 = icmp eq ptr %.0340, null
+  %.not501 = icmp eq ptr %.0400, null
   br i1 %.not501, label %946, label %945
 
 945:                                              ; preds = %944
-  call void @list_destroy(ptr noundef nonnull %.0340) #8
+  call void @list_destroy(ptr noundef nonnull %.0400) #8
   br label %946
 
 946:                                              ; preds = %945, %944
@@ -1979,7 +1979,7 @@ _choose_best_bblock.exit:                         ; preds = %859, %.critedge78.i
 
 .preheader551:                                    ; preds = %958
   store i32 0, ptr %14, align 4
-  %960 = icmp sgt i32 %.1357, 0
+  %960 = icmp sgt i32 %.1346, 0
   br i1 %960, label %.lr.ph717, label %._crit_edge718
 
 .lr.ph717:                                        ; preds = %.preheader551, %966
@@ -2006,7 +2006,7 @@ _choose_best_bblock.exit:                         ; preds = %859, %.critedge78.i
   store ptr null, ptr %969, align 8
   %970 = add nsw i32 %967, 1
   store i32 %970, ptr %14, align 4
-  %971 = icmp slt i32 %970, %.1357
+  %971 = icmp slt i32 %970, %.1346
   br i1 %971, label %.lr.ph717, label %._crit_edge718, !llvm.loop !23
 
 ._crit_edge718:                                   ; preds = %966, %.preheader551

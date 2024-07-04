@@ -175,18 +175,18 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   br label %99
 
 99:                                               ; preds = %.lr.ph2670, %_ZN3gmx17EnergyAccumulatorILb0ELb1EE15reduceIEnergiesEb.exit
-  %.sroa.01888.02669 = phi ptr [ %87, %.lr.ph2670 ], [ %1777, %_ZN3gmx17EnergyAccumulatorILb0ELb1EE15reduceIEnergiesEb.exit ]
-  %.sroa.51838.02668 = phi <8 x float> [ undef, %.lr.ph2670 ], [ %.sroa.51838.1, %_ZN3gmx17EnergyAccumulatorILb0ELb1EE15reduceIEnergiesEb.exit ]
-  %.sroa.01834.02667 = phi <8 x float> [ undef, %.lr.ph2670 ], [ %.sroa.01834.1, %_ZN3gmx17EnergyAccumulatorILb0ELb1EE15reduceIEnergiesEb.exit ]
-  %100 = getelementptr inbounds i8, ptr %.sroa.01888.02669, i64 4
+  %.sroa.01888.02667 = phi ptr [ %87, %.lr.ph2670 ], [ %1777, %_ZN3gmx17EnergyAccumulatorILb0ELb1EE15reduceIEnergiesEb.exit ]
+  %.sroa.51838.02666 = phi <8 x float> [ undef, %.lr.ph2670 ], [ %.sroa.51838.1, %_ZN3gmx17EnergyAccumulatorILb0ELb1EE15reduceIEnergiesEb.exit ]
+  %.sroa.01834.02665 = phi <8 x float> [ undef, %.lr.ph2670 ], [ %.sroa.01834.1, %_ZN3gmx17EnergyAccumulatorILb0ELb1EE15reduceIEnergiesEb.exit ]
+  %100 = getelementptr inbounds i8, ptr %.sroa.01888.02667, i64 4
   %101 = load i32, ptr %100, align 4
   %102 = and i32 %101, 127
   %103 = mul nuw nsw i32 %102, 3
-  %104 = getelementptr inbounds i8, ptr %.sroa.01888.02669, i64 8
+  %104 = getelementptr inbounds i8, ptr %.sroa.01888.02667, i64 8
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds i8, ptr %.sroa.01888.02669, i64 12
+  %106 = getelementptr inbounds i8, ptr %.sroa.01888.02667, i64 12
   %107 = load i32, ptr %106, align 4
-  %108 = load i32, ptr %.sroa.01888.02669, align 4
+  %108 = load i32, ptr %.sroa.01888.02667, align 4
   %109 = icmp eq i32 %102, 22
   %110 = select i1 %109, i32 %108, i32 -1
   %111 = zext nneg i32 %103 to i64
@@ -320,8 +320,8 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   br label %.loopexit2455._crit_edge
 
 .loopexit2455._crit_edge:                         ; preds = %.loopexit2455, %189
-  %.sroa.01834.1 = phi <8 x float> [ %195, %189 ], [ %.sroa.01834.02667, %.loopexit2455 ]
-  %.sroa.51838.1 = phi <8 x float> [ %201, %189 ], [ %.sroa.51838.02668, %.loopexit2455 ]
+  %.sroa.01834.1 = phi <8 x float> [ %195, %189 ], [ %.sroa.01834.02665, %.loopexit2455 ]
+  %.sroa.51838.1 = phi <8 x float> [ %201, %189 ], [ %.sroa.51838.02666, %.loopexit2455 ]
   %202 = load i32, ptr %1, align 8
   %203 = shl i32 %202, 1
   br label %204
@@ -1114,8 +1114,8 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %787 = icmp eq i32 %753, %110
   %788 = select <8 x i1> %783, <8 x i32> %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload.i244127563023, <8 x i32> zeroinitializer
   %789 = select <8 x i1> %785, <8 x i32> %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0.copyload.i244227573024, <8 x i32> zeroinitializer
-  %.sroa.02321.0 = select i1 %787, <8 x i32> %788, <8 x i32> %784
   %.sroa.62325.0 = select i1 %787, <8 x i32> %789, <8 x i32> %786
+  %.sroa.02321.0 = select i1 %787, <8 x i32> %788, <8 x i32> %784
   %790 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %777, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
   %791 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %782, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
   %792 = tail call noundef <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> %790)
@@ -2410,7 +2410,7 @@ _ZN3gmx17EnergyAccumulatorILb0ELb1EE15reduceIEnergiesEb.exit: ; preds = %.loopex
   %1775 = load float, ptr %98, align 4
   %1776 = fadd float %1775, %1774
   store float %1776, ptr %98, align 4
-  %1777 = getelementptr inbounds i8, ptr %.sroa.01888.02669, i64 16
+  %1777 = getelementptr inbounds i8, ptr %.sroa.01888.02667, i64 16
   %.not2443 = icmp eq ptr %1777, %89
   br i1 %.not2443, label %._crit_edge, label %99
 

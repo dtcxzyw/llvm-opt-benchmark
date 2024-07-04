@@ -638,8 +638,8 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %19, %21, %23, %25
 
 34:                                               ; preds = %.lr.ph24, %.loopexit
   %35 = phi ptr [ %26, %.lr.ph24 ], [ %85, %.loopexit ]
-  %.022 = phi i64 [ 0, %.lr.ph24 ], [ %83, %.loopexit ]
-  %36 = getelementptr inbounds double, ptr %35, i64 %.022
+  %.01722 = phi i64 [ 0, %.lr.ph24 ], [ %83, %.loopexit ]
+  %36 = getelementptr inbounds double, ptr %35, i64 %.01722
   %37 = load double, ptr %36, align 8
   %38 = fcmp oeq double %37, 0.000000e+00
   br i1 %38, label %40, label %.preheader
@@ -689,42 +689,42 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %19, %21, %23, %25
 _ZN3gmx22ComputeDebyeScattering21computeIntensityZeroQEv.exit: ; preds = %.lr.ph.i6.i, %.lr.ph.i.i, %43, %51
   %.0.i = phi double [ 0.000000e+00, %43 ], [ 0.000000e+00, %51 ], [ %49, %.lr.ph.i.i ], [ %55, %.lr.ph.i6.i ]
   %57 = load ptr, ptr %2, align 8
-  %58 = getelementptr inbounds double, ptr %57, i64 %.022
+  %58 = getelementptr inbounds double, ptr %57, i64 %.01722
   store double %.0.i, ptr %58, align 8
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.01721 = phi i64 [ %80, %.lr.ph ], [ 0, %.preheader ]
+  %.021 = phi i64 [ %80, %.lr.ph ], [ 0, %.preheader ]
   %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds double, ptr %59, i64 %.022
+  %60 = getelementptr inbounds double, ptr %59, i64 %.01722
   %61 = load double, ptr %60, align 8
   %62 = load ptr, ptr %29, align 8
-  %63 = getelementptr inbounds double, ptr %62, i64 %.01721
+  %63 = getelementptr inbounds double, ptr %62, i64 %.021
   %64 = load double, ptr %63, align 8
   %65 = fmul double %61, %64
   %66 = load i8, ptr %30, align 8
   %67 = trunc i8 %66 to i1
   %68 = load ptr, ptr %32, align 8
-  %69 = getelementptr inbounds %"class.std::vector", ptr %68, i64 %.022
+  %69 = getelementptr inbounds %"class.std::vector", ptr %68, i64 %.01722
   %.sink = select i1 %67, ptr %69, ptr %31
   %70 = load ptr, ptr %.sink, align 8
-  %71 = getelementptr inbounds double, ptr %70, i64 %.01721
+  %71 = getelementptr inbounds double, ptr %70, i64 %.021
   %72 = load double, ptr %71, align 8
   %73 = tail call double @sin(double noundef %65) #23
   %74 = fmul double %72, %73
   %75 = fdiv double %74, %65
   %76 = load ptr, ptr %2, align 8
-  %77 = getelementptr inbounds double, ptr %76, i64 %.022
+  %77 = getelementptr inbounds double, ptr %76, i64 %.01722
   %78 = load double, ptr %77, align 8
   %79 = fadd double %78, %75
   store double %79, ptr %77, align 8
-  %80 = add nuw i64 %.01721, 1
+  %80 = add nuw i64 %.021, 1
   %81 = load i64, ptr %28, align 8
   %82 = icmp ult i64 %80, %81
   br i1 %82, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %_ZN3gmx22ComputeDebyeScattering21computeIntensityZeroQEv.exit
-  %83 = add nuw i64 %.022, 1
+  %83 = add nuw i64 %.01722, 1
   %84 = load ptr, ptr %4, align 8
   %85 = load ptr, ptr %3, align 8
   %86 = ptrtoint ptr %84 to i64

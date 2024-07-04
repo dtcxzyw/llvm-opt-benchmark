@@ -212,15 +212,15 @@ while.cond.loopexit:                              ; preds = %for.inc50
   br i1 %tobool.not, label %return, label %while.body, !llvm.loop !8
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.loopexit
-  %data.addr.049 = phi ptr [ %data, %while.body.lr.ph ], [ %data.addr.3, %while.cond.loopexit ]
-  %size.addr.048 = phi i64 [ %size, %while.body.lr.ph ], [ %size.addr.3, %while.cond.loopexit ]
-  %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %data.addr.049) #7
+  %size.addr.049 = phi i64 [ %size, %while.body.lr.ph ], [ %size.addr.3, %while.cond.loopexit ]
+  %data.addr.048 = phi ptr [ %data, %while.body.lr.ph ], [ %data.addr.3, %while.cond.loopexit ]
+  %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %data.addr.048) #7
   %add = add i64 %call2, 1
-  %cmp.not = icmp ugt i64 %size.addr.048, %add
+  %cmp.not = icmp ugt i64 %size.addr.049, %add
   br i1 %cmp.not, label %if.end, label %error
 
 if.end:                                           ; preds = %while.body
-  %call4 = tail call ptr @string_list_insert(ptr noundef %call, ptr noundef %data.addr.049) #6
+  %call4 = tail call ptr @string_list_insert(ptr noundef %call, ptr noundef %data.addr.048) #6
   %util = getelementptr inbounds i8, ptr %call4, i64 8
   %3 = load ptr, ptr %util, align 8
   %tobool5.not = icmp eq ptr %3, null
@@ -233,8 +233,8 @@ if.then6:                                         ; preds = %if.end
 
 if.end9:                                          ; preds = %if.then6, %if.end
   %4 = phi ptr [ %call7, %if.then6 ], [ %3, %if.end ]
-  %sub = sub i64 %size.addr.048, %add
-  %add.ptr = getelementptr inbounds i8, ptr %data.addr.049, i64 %add
+  %sub = sub i64 %size.addr.049, %add
+  %add.ptr = getelementptr inbounds i8, ptr %data.addr.048, i64 %add
   br label %for.body
 
 for.cond30.preheader:                             ; preds = %if.end27
@@ -243,15 +243,15 @@ for.cond30.preheader:                             ; preds = %if.end27
 
 for.body:                                         ; preds = %if.end9, %if.end27
   %indvars.iv = phi i64 [ 0, %if.end9 ], [ %indvars.iv.next, %if.end27 ]
-  %data.addr.143 = phi ptr [ %add.ptr, %if.end9 ], [ %add.ptr29, %if.end27 ]
   %size.addr.142 = phi i64 [ %sub, %if.end9 ], [ %sub28, %if.end27 ]
-  %call13 = call i64 @strtoul(ptr noundef %data.addr.143, ptr noundef nonnull %endptr, i32 noundef 8) #6
+  %data.addr.141 = phi ptr [ %add.ptr, %if.end9 ], [ %add.ptr29, %if.end27 ]
+  %call13 = call i64 @strtoul(ptr noundef %data.addr.141, ptr noundef nonnull %endptr, i32 noundef 8) #6
   %conv14 = trunc i64 %call13 to i32
   %arrayidx = getelementptr inbounds [3 x i32], ptr %4, i64 0, i64 %indvars.iv
   store i32 %conv14, ptr %arrayidx, align 4
   %5 = load ptr, ptr %endptr, align 8
   %tobool15.not = icmp eq ptr %5, null
-  %cmp16 = icmp eq ptr %5, %data.addr.143
+  %cmp16 = icmp eq ptr %5, %data.addr.141
   %or.cond = or i1 %tobool15.not, %cmp16
   br i1 %or.cond, label %error, label %lor.lhs.false18
 
@@ -263,22 +263,22 @@ lor.lhs.false18:                                  ; preds = %for.body
 if.end22:                                         ; preds = %lor.lhs.false18
   %add.ptr23 = getelementptr inbounds i8, ptr %5, i64 1
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr23 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %data.addr.143 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %data.addr.141 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp24.not = icmp ugt i64 %size.addr.142, %sub.ptr.sub
   br i1 %cmp24.not, label %if.end27, label %error
 
 if.end27:                                         ; preds = %if.end22
   %sub28 = sub i64 %size.addr.142, %sub.ptr.sub
-  %add.ptr29 = getelementptr inbounds i8, ptr %data.addr.143, i64 %sub.ptr.sub
+  %add.ptr29 = getelementptr inbounds i8, ptr %data.addr.141, i64 %sub.ptr.sub
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.cond30.preheader, label %for.body, !llvm.loop !9
 
 for.body33:                                       ; preds = %for.cond30.preheader, %for.inc50
   %indvars.iv53 = phi i64 [ 0, %for.cond30.preheader ], [ %indvars.iv.next54, %for.inc50 ]
-  %data.addr.246 = phi ptr [ %add.ptr29, %for.cond30.preheader ], [ %data.addr.3, %for.inc50 ]
   %size.addr.245 = phi i64 [ %sub28, %for.cond30.preheader ], [ %size.addr.3, %for.inc50 ]
+  %data.addr.244 = phi ptr [ %add.ptr29, %for.cond30.preheader ], [ %data.addr.3, %for.inc50 ]
   %arrayidx36 = getelementptr inbounds [3 x i32], ptr %4, i64 0, i64 %indvars.iv53
   %7 = load i32, ptr %arrayidx36, align 4
   %tobool37.not = icmp eq i32 %7, 0
@@ -295,7 +295,7 @@ if.end44:                                         ; preds = %if.end39
   %9 = load ptr, ptr %hash_algo.i, align 8
   %rawsz.i = getelementptr inbounds i8, ptr %9, i64 16
   %10 = load i64, ptr %rawsz.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %arrayidx46, ptr readonly align 1 %data.addr.246, i64 %10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %arrayidx46, ptr readonly align 1 %data.addr.244, i64 %10, i1 false)
   %11 = load ptr, ptr @the_repository, align 8
   %hash_algo2.i = getelementptr inbounds i8, ptr %11, i64 256
   %12 = load ptr, ptr %hash_algo2.i, align 8
@@ -306,12 +306,12 @@ if.end44:                                         ; preds = %if.end39
   %algo.i = getelementptr inbounds i8, ptr %arrayidx46, i64 32
   store i32 %conv.i.i, ptr %algo.i, align 4
   %sub48 = sub i64 %size.addr.245, %conv40
-  %add.ptr49 = getelementptr inbounds i8, ptr %data.addr.246, i64 %conv40
+  %add.ptr49 = getelementptr inbounds i8, ptr %data.addr.244, i64 %conv40
   br label %for.inc50
 
 for.inc50:                                        ; preds = %for.body33, %if.end44
+  %data.addr.3 = phi ptr [ %add.ptr49, %if.end44 ], [ %data.addr.244, %for.body33 ]
   %size.addr.3 = phi i64 [ %sub48, %if.end44 ], [ %size.addr.245, %for.body33 ]
-  %data.addr.3 = phi ptr [ %add.ptr49, %if.end44 ], [ %data.addr.246, %for.body33 ]
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 3
   br i1 %exitcond56.not, label %while.cond.loopexit, label %for.body33, !llvm.loop !10

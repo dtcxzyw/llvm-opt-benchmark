@@ -418,8 +418,8 @@ pmix_strncpy.exit:                                ; preds = %.preheader, %41
   br label %45
 
 45:                                               ; preds = %38, %pmix_strncpy.exit
-  %.079 = phi ptr [ %10, %pmix_strncpy.exit ], [ %0, %38 ]
-  %.078 = phi i64 [ 1, %pmix_strncpy.exit ], [ %1, %38 ]
+  %.078 = phi ptr [ %10, %pmix_strncpy.exit ], [ %0, %38 ]
+  %.0 = phi i64 [ 1, %pmix_strncpy.exit ], [ %1, %38 ]
   %46 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_buffer_t_class, i64 56), align 8
   %47 = tail call noalias noundef ptr @malloc(i64 noundef %46) #11
   %48 = load i32, ptr @pmix_class_init_epoch, align 4
@@ -464,7 +464,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %51, %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store i8 3, ptr %7, align 1
-  store i64 %.078, ptr %8, align 8
+  store i64 %.0, ptr %8, align 8
   store i64 %3, ptr %9, align 8
   %63 = load i32, ptr @pmix_bfrops_base_output, align 4
   %or.cond.i = icmp ult i32 %63, 64
@@ -624,7 +624,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %51, %5
   %.sink104.i = load ptr, ptr %.sink104.in.i, align 8
   %.sink105.i = load i64, ptr %8, align 8
   %157 = trunc i64 %.sink105.i to i32
-  %158 = call i32 %.sink104.i(ptr noundef nonnull %47, ptr noundef nonnull %.079, i32 noundef %157, i16 noundef zeroext 22) #10
+  %158 = call i32 %.sink104.i(ptr noundef nonnull %47, ptr noundef nonnull %.078, i32 noundef %157, i16 noundef zeroext 22) #10
   switch i32 %158, label %pack_fence.exit [
     i32 0, label %159
     i32 -2, label %pack_fence.exit.thread
@@ -1058,8 +1058,8 @@ pmix_obj_run_destructors.exit119:                 ; preds = %.lr.ph.i116, %345
   br label %359
 
 359:                                              ; preds = %30, %298, %339, %358, %356, %232, %251, %249, %35, %27
-  %.0 = phi i32 [ -31, %27 ], [ -27, %35 ], [ %.061.i123, %249 ], [ %.061.i123, %251 ], [ %.061.i123, %232 ], [ -25, %356 ], [ -25, %358 ], [ -25, %339 ], [ 0, %298 ], [ -25, %30 ]
-  ret i32 %.0
+  %.080 = phi i32 [ -31, %27 ], [ -27, %35 ], [ %.061.i123, %249 ], [ %.061.i123, %251 ], [ %.061.i123, %232 ], [ -25, %356 ], [ -25, %358 ], [ -25, %339 ], [ 0, %298 ], [ -25, %30 ]
+  ret i32 %.080
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1189,8 +1189,8 @@ define internal void @wait_cbfunc(ptr nocapture readnone %0, ptr nocapture readn
   ]
 
 .thread.i:                                        ; preds = %60, %51
-  %.01628.i = phi i32 [ %65, %60 ], [ -20, %51 ]
-  %66 = call ptr @PMIx_Error_string(i32 noundef %.01628.i) #10
+  %.028.i = phi i32 [ %65, %60 ], [ -20, %51 ]
+  %66 = call ptr @PMIx_Error_string(i32 noundef %.028.i) #10
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %66, ptr noundef nonnull @.str.2, i32 noundef 196) #10
   br label %unpack_return.exit
 
@@ -1252,13 +1252,13 @@ define internal void @wait_cbfunc(ptr nocapture readnone %0, ptr nocapture readn
   br label %unpack_return.exit
 
 unpack_return.exit:                               ; preds = %60, %.thread.i, %90, %94, %96
-  %.0.i = phi i32 [ %97, %96 ], [ %65, %60 ], [ %.01628.i, %.thread.i ], [ %93, %90 ], [ %93, %94 ]
+  %.016.i = phi i32 [ %97, %96 ], [ %65, %60 ], [ %.028.i, %.thread.i ], [ %93, %90 ], [ %93, %94 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %98
 
 98:                                               ; preds = %18, %22, %unpack_return.exit
-  %.0 = phi i32 [ %.0.i, %unpack_return.exit ], [ -25, %22 ], [ -25, %18 ]
+  %.0 = phi i32 [ %.016.i, %unpack_return.exit ], [ -25, %22 ], [ -25, %18 ]
   %99 = getelementptr inbounds i8, ptr %3, i64 680
   %100 = load ptr, ptr %99, align 8
   %.not = icmp eq ptr %100, null

@@ -1043,14 +1043,14 @@ for.body:                                         ; preds = %_ZN3ue211hash_detai
   br i1 %cmp.i.not5.i.i, label %_ZN3ue211hash_detail12hash_combineISt6vectorItSaItEEEEvRmRKT_.exit, label %for.body.i.i7
 
 for.body.i.i7:                                    ; preds = %for.body, %for.body.i.i7
-  %v.07.i.i = phi i64 [ %add.i.i.i11, %for.body.i.i7 ], [ 0, %for.body ]
-  %__begin0.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i7 ], [ %4, %for.body ]
-  %6 = load i16, ptr %__begin0.sroa.0.06.i.i, align 2
+  %__begin0.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i7 ], [ %4, %for.body ]
+  %v.06.i.i = phi i64 [ %add.i.i.i11, %for.body.i.i7 ], [ 0, %for.body ]
+  %6 = load i16, ptr %__begin0.sroa.0.07.i.i, align 2
   %conv.i.i.i.i8 = zext i16 %6 to i64
   %mul.i.i.i9 = mul i64 %conv.i.i.i.i8, 814605021516865831
-  %xor.i.i.i10 = xor i64 %mul.i.i.i9, %v.07.i.i
+  %xor.i.i.i10 = xor i64 %mul.i.i.i9, %v.06.i.i
   %add.i.i.i11 = add i64 %xor.i.i.i10, 3571081485394615273
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.06.i.i, i64 2
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.07.i.i, i64 2
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %5
   br i1 %cmp.i.not.i.i, label %_ZNK3ue211hash_detail8ue2_hashISt6vectorItSaItEEvEclERKS4_.exit.loopexit.i, label %for.body.i.i7
 
@@ -1134,14 +1134,14 @@ for.body.i:                                       ; preds = %_ZN3ue211hash_detai
   br i1 %cmp.i.not5.i.i.i, label %_ZN3ue211hash_detail12hash_combineISt6vectorItSaItEEEEvRmRKT_.exit.i, label %for.body.i.i7.i
 
 for.body.i.i7.i:                                  ; preds = %for.body.i, %for.body.i.i7.i
-  %v.07.i.i.i = phi i64 [ %add.i.i.i11.i, %for.body.i.i7.i ], [ 0, %for.body.i ]
-  %__begin0.sroa.0.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i7.i ], [ %5, %for.body.i ]
-  %7 = load i16, ptr %__begin0.sroa.0.06.i.i.i, align 2
+  %__begin0.sroa.0.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i7.i ], [ %5, %for.body.i ]
+  %v.06.i.i.i = phi i64 [ %add.i.i.i11.i, %for.body.i.i7.i ], [ 0, %for.body.i ]
+  %7 = load i16, ptr %__begin0.sroa.0.07.i.i.i, align 2
   %conv.i.i.i.i8.i = zext i16 %7 to i64
   %mul.i.i.i9.i = mul i64 %conv.i.i.i.i8.i, 814605021516865831
-  %xor.i.i.i10.i = xor i64 %mul.i.i.i9.i, %v.07.i.i.i
+  %xor.i.i.i10.i = xor i64 %mul.i.i.i9.i, %v.06.i.i.i
   %add.i.i.i11.i = add i64 %xor.i.i.i10.i, 3571081485394615273
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.06.i.i.i, i64 2
+  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.07.i.i.i, i64 2
   %cmp.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %6
   br i1 %cmp.i.not.i.i.i, label %_ZNK3ue211hash_detail8ue2_hashISt6vectorItSaItEEvEclERKS4_.exit.loopexit.i.i, label %for.body.i.i7.i
 
@@ -1223,15 +1223,15 @@ _ZN3ue211all_reportsERKNS_7raw_dfaE.exit:         ; preds = %for.inc.i
   br i1 %cmp.i.not5.i.i, label %invoke.cont, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN3ue211all_reportsERKNS_7raw_dfaE.exit, %for.body.i.i
-  %v.07.i.i = phi i64 [ %add.i.i.i9, %for.body.i.i ], [ 0, %_ZN3ue211all_reportsERKNS_7raw_dfaE.exit ]
-  %__begin0.sroa.0.06.i.i = phi ptr [ %call.i.i.i, %for.body.i.i ], [ %.pre, %_ZN3ue211all_reportsERKNS_7raw_dfaE.exit ]
-  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.06.i.i, i64 32
+  %__begin0.sroa.0.07.i.i = phi ptr [ %call.i.i.i, %for.body.i.i ], [ %.pre, %_ZN3ue211all_reportsERKNS_7raw_dfaE.exit ]
+  %v.06.i.i = phi i64 [ %add.i.i.i9, %for.body.i.i ], [ 0, %_ZN3ue211all_reportsERKNS_7raw_dfaE.exit ]
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.07.i.i, i64 32
   %15 = load i32, ptr %_M_storage.i.i.i.i, align 4
   %conv.i.i.i.i7 = zext i32 %15 to i64
   %mul.i.i.i8 = mul i64 %conv.i.i.i.i7, 814605021516865831
-  %xor.i.i.i = xor i64 %mul.i.i.i8, %v.07.i.i
+  %xor.i.i.i = xor i64 %mul.i.i.i8, %v.06.i.i
   %add.i.i.i9 = add i64 %xor.i.i.i, 3571081485394615273
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin0.sroa.0.06.i.i) #23
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin0.sroa.0.07.i.i) #23
   %cmp.i.not.i.i = icmp eq ptr %call.i.i.i, %9
   br i1 %cmp.i.not.i.i, label %_ZNK3ue211hash_detail8ue2_hashISt3setIjSt4lessIjESaIjEEvEclERKS6_.exit.loopexit.i, label %for.body.i.i
 

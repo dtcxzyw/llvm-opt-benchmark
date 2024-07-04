@@ -1264,8 +1264,8 @@ uv__stream_open.exit.thread38:                    ; preds = %uv__stream_open.exi
   br label %58
 
 58:                                               ; preds = %53, %49, %48, %54, %6, %2
-  %.0 = phi i32 [ -11, %2 ], [ -22, %6 ], [ %.1, %53 ], [ 0, %54 ], [ %.145, %48 ], [ %.145, %49 ]
-  ret i32 %.0
+  %.026 = phi i32 [ -11, %2 ], [ -22, %6 ], [ %.1, %53 ], [ 0, %54 ], [ %.145, %48 ], [ %.145, %49 ]
+  ret i32 %.026
 }
 
 declare i32 @uv__close(i32 noundef) local_unnamed_addr #1

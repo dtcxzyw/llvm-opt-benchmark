@@ -952,10 +952,10 @@ invoke.cont12:                                    ; preds = %_ZNSt12_Vector_base
 for.body:                                         ; preds = %invoke.cont12, %for.inc
   %required_by_manifest.sroa.0.399 = phi ptr [ %required_by_manifest.sroa.0.4, %for.inc ], [ %required_by_manifest.sroa.8.0, %invoke.cont12 ]
   %required_by_manifest.sroa.8.198 = phi ptr [ %required_by_manifest.sroa.8.2, %for.inc ], [ %required_by_manifest.sroa.8.0, %invoke.cont12 ]
-  %required_by_manifest.sroa.15.197 = phi ptr [ %required_by_manifest.sroa.15.2, %for.inc ], [ %required_by_manifest.sroa.15.0, %invoke.cont12 ]
-  %__begin2.sroa.0.096 = phi ptr [ %call.i, %for.inc ], [ %8, %invoke.cont12 ]
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.096, i64 32
-  %cmp.not.i = icmp eq ptr %required_by_manifest.sroa.8.198, %required_by_manifest.sroa.15.197
+  %__begin2.sroa.0.097 = phi ptr [ %call.i, %for.inc ], [ %8, %invoke.cont12 ]
+  %required_by_manifest.sroa.15.196 = phi ptr [ %required_by_manifest.sroa.15.2, %for.inc ], [ %required_by_manifest.sroa.15.0, %invoke.cont12 ]
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.097, i64 32
+  %cmp.not.i = icmp eq ptr %required_by_manifest.sroa.8.198, %required_by_manifest.sroa.15.196
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i13
 
 if.then.i13:                                      ; preds = %for.body
@@ -1018,11 +1018,11 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, %if.then.i13
-  %required_by_manifest.sroa.15.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %required_by_manifest.sroa.15.197, %if.then.i13 ]
+  %required_by_manifest.sroa.15.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %required_by_manifest.sroa.15.196, %if.then.i13 ]
   %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %required_by_manifest.sroa.8.198, %if.then.i13 ]
   %required_by_manifest.sroa.0.4 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %required_by_manifest.sroa.0.399, %if.then.i13 ]
   %required_by_manifest.sroa.8.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.096) #20
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.097) #20
   %cmp.i12.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i12.not, label %for.end, label %for.body
 
@@ -1314,35 +1314,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end16.i
-  %__value.addr.021.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
-  %__n.020.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
-  %cmp5.i = icmp ult i64 %__value.addr.021.i, 100
+  %__n.021.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
+  %__value.addr.020.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
+  %cmp5.i = icmp ult i64 %__value.addr.020.i, 100
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.020.i, 1
+  %add.i = add i32 %__n.021.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end7.i:                                        ; preds = %if.end.i
-  %cmp9.i = icmp ult i64 %__value.addr.021.i, 1000
+  %cmp9.i = icmp ult i64 %__value.addr.020.i, 1000
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.end7.i
-  %add11.i = add i32 %__n.020.i, 2
+  %add11.i = add i32 %__n.021.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end12.i:                                       ; preds = %if.end7.i
-  %cmp13.i = icmp ult i64 %__value.addr.021.i, 10000
+  %cmp13.i = icmp ult i64 %__value.addr.020.i, 10000
   br i1 %cmp13.i, label %if.then14.i, label %if.end16.i
 
 if.then14.i:                                      ; preds = %if.end12.i
-  %add15.i = add i32 %__n.020.i, 3
+  %add15.i = add i32 %__n.021.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %div.i = udiv i64 %__value.addr.021.i, 10000
-  %add17.i = add i32 %__n.020.i, 4
-  %cmp.i = icmp ult i64 %__value.addr.021.i, 100000
+  %div.i = udiv i64 %__value.addr.020.i, 10000
+  %add17.i = add i32 %__n.021.i, 4
+  %cmp.i = icmp ult i64 %__value.addr.020.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !12
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i

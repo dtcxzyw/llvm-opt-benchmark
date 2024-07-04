@@ -804,28 +804,28 @@ define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr nocapture noun
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %1
-  %.032 = phi double [ 0.000000e+00, %1 ], [ %.2, %.backedge.backedge ]
-  %.029 = phi i32 [ 0, %1 ], [ %26, %.backedge.backedge ]
-  %.028 = phi double [ 0.000000e+00, %1 ], [ %.1, %.backedge.backedge ]
-  %.not = icmp eq i32 %.029, 0
+  %.032 = phi double [ 0.000000e+00, %1 ], [ %.133, %.backedge.backedge ]
+  %.030 = phi double [ 0.000000e+00, %1 ], [ %.2, %.backedge.backedge ]
+  %.028 = phi i32 [ 0, %1 ], [ %26, %.backedge.backedge ]
+  %.not = icmp eq i32 %.028, 0
   br i1 %.not, label %25, label %4
 
 4:                                                ; preds = %.backedge
-  %5 = fcmp oeq double %.028, 0.000000e+00
+  %5 = fcmp oeq double %.032, 0.000000e+00
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %4
-  %7 = fcmp olt double %.032, 3.000000e+02
+  %7 = fcmp olt double %.030, 3.000000e+02
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %6
-  %9 = uitofp nneg i32 %.029 to double
+  %9 = uitofp nneg i32 %.028 to double
   %10 = fmul double %9, 5.000000e-01
   br label %11
 
 11:                                               ; preds = %4, %6, %8
-  %.133 = phi double [ %10, %8 ], [ %.032, %6 ], [ 1.000000e-01, %4 ]
-  %12 = icmp eq i32 %.029, 1
+  %.131 = phi double [ %10, %8 ], [ %.030, %6 ], [ 1.000000e-01, %4 ]
+  %12 = icmp eq i32 %.028, 1
   %13 = tail call i32 @get_log_level() #9
   br i1 %12, label %14, label %17
 
@@ -842,20 +842,20 @@ define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr nocapture noun
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %17
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.30, double noundef %.028, double noundef %.133) #9
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.30, double noundef %.032, double noundef %.131) #9
   br label %20
 
 20:                                               ; preds = %17, %19, %14, %16
-  %21 = fmul double %.133, 1.000000e+06
+  %21 = fmul double %.131, 1.000000e+06
   %22 = fptoui double %21 to i32
   %23 = tail call i32 @usleep(i32 noundef %22) #9
-  %24 = fadd double %.028, %.133
+  %24 = fadd double %.032, %.131
   br label %25
 
 25:                                               ; preds = %20, %.backedge
-  %.2 = phi double [ %.133, %20 ], [ %.032, %.backedge ]
-  %.1 = phi double [ %24, %20 ], [ %.028, %.backedge ]
-  %26 = add nuw nsw i32 %.029, 1
+  %.133 = phi double [ %24, %20 ], [ %.032, %.backedge ]
+  %.2 = phi double [ %.131, %20 ], [ %.030, %.backedge ]
+  %26 = add nuw nsw i32 %.028, 1
   %27 = load i32, ptr %2, align 8
   %28 = tail call i32 @slurm_job_node_ready(i32 noundef %27) #9
   %29 = icmp eq i32 %28, -2
@@ -916,9 +916,9 @@ define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr nocapture noun
   br label %53
 
 53:                                               ; preds = %46, %.thread48, %47, %43, %40
-  %.131 = phi i32 [ 1, %43 ], [ 1, %40 ], [ 0, %47 ], [ 0, %.thread48 ], [ 0, %46 ]
+  %.1 = phi i32 [ 1, %43 ], [ 1, %40 ], [ 0, %47 ], [ 0, %.thread48 ], [ 0, %46 ]
   store i32 0, ptr @pending_job_id, align 4
-  ret i32 %.131
+  ret i32 %.1
 }
 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
@@ -967,12 +967,12 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %0, %18
   %7 = phi ptr [ %22, %18 ], [ %5, %0 ]
-  %.084139 = phi ptr [ %spec.select, %18 ], [ null, %0 ]
-  %.086138 = phi ptr [ %spec.select125, %18 ], [ null, %0 ]
+  %.083139 = phi ptr [ %spec.select, %18 ], [ null, %0 ]
+  %.085138 = phi ptr [ %spec.select125, %18 ], [ null, %0 ]
   %8 = getelementptr inbounds i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
-  %.not121 = icmp eq ptr %.084139, null
-  %spec.select = select i1 %.not121, ptr %7, ptr %.084139
+  %.not121 = icmp eq ptr %.083139, null
+  %spec.select = select i1 %.not121, ptr %7, ptr %.083139
   %10 = getelementptr inbounds i8, ptr %9, i64 188
   %11 = load i32, ptr %10, align 4
   %.not122 = icmp eq i32 %11, -2
@@ -996,8 +996,8 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   br label %134
 
 18:                                               ; preds = %13
-  %.not123 = icmp eq ptr %.086138, null
-  %spec.select125 = select i1 %.not123, ptr %14, ptr %.086138
+  %.not123 = icmp eq ptr %.085138, null
+  %spec.select125 = select i1 %.not123, ptr %14, ptr %.085138
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 224), align 8
   %20 = tail call ptr @xstrdup(ptr noundef %19) #9
   %21 = getelementptr inbounds i8, ptr %14, i64 464
@@ -1099,7 +1099,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   br i1 %59, label %46, label %.loopexit
 
 .loopexit:                                        ; preds = %57, %58, %52, %55, %.split
-  %.183 = phi ptr [ %49, %55 ], [ %49, %52 ], [ %49, %.split ], [ %49, %57 ], [ null, %58 ]
+  %.182 = phi ptr [ %49, %55 ], [ %49, %52 ], [ %49, %.split ], [ %49, %57 ], [ null, %58 ]
   %.not110 = icmp eq ptr %2, null
   br i1 %.not110, label %61, label %60
 
@@ -1108,7 +1108,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   br label %61
 
 61:                                               ; preds = %60, %.loopexit
-  %62 = icmp eq ptr %.183, null
+  %62 = icmp eq ptr %.182, null
   %63 = load i32, ptr @destroy_job, align 4
   %64 = icmp ne i32 %63, 0
   %or.cond = select i1 %62, i1 true, i1 %64
@@ -1117,11 +1117,11 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
 65:                                               ; preds = %61
   %66 = load ptr, ptr @opt_list, align 8
   %67 = call ptr @list_iterator_create(ptr noundef %66) #9
-  %68 = call ptr @list_iterator_create(ptr noundef nonnull %.183) #9
+  %68 = call ptr @list_iterator_create(ptr noundef nonnull %.182) #9
   br label %69
 
 69:                                               ; preds = %110, %65
-  %.081 = phi i32 [ 0, %65 ], [ %.1, %110 ]
+  %.080 = phi i32 [ 0, %65 ], [ %.1, %110 ]
   %70 = call ptr @list_next(ptr noundef %67) #9
   %.not111 = icmp eq ptr %70, null
   br i1 %.not111, label %116, label %71
@@ -1143,7 +1143,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   br label %79
 
 79:                                               ; preds = %76, %73
-  %80 = icmp eq i32 %.081, 0
+  %80 = icmp eq i32 %.080, 0
   br i1 %80, label %81, label %89
 
 81:                                               ; preds = %79
@@ -1151,7 +1151,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   %83 = load i32, ptr %82, align 8
   %84 = load ptr, ptr @opt_list, align 8
   %85 = call i32 @list_count(ptr noundef %84) #9
-  %86 = call i32 @list_count(ptr noundef %.183) #9
+  %86 = call i32 @list_count(ptr noundef %.182) #9
   %.not113 = icmp eq i32 %85, %86
   br i1 %.not113, label %89, label %87
 
@@ -1160,7 +1160,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   br label %120
 
 89:                                               ; preds = %81, %79
-  %.1 = phi i32 [ %83, %81 ], [ %.081, %79 ]
+  %.1 = phi i32 [ %83, %81 ], [ %.080, %79 ]
   %90 = getelementptr inbounds i8, ptr %70, i64 448
   %91 = load i64, ptr %90, align 8
   %.not114 = icmp eq i64 %91, -2
@@ -1237,7 +1237,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   br i1 %121, label %.thread128, label %125
 
 .thread128:                                       ; preds = %.thread, %120
-  %122 = call ptr @list_peek(ptr noundef nonnull %.183) #9
+  %122 = call ptr @list_peek(ptr noundef nonnull %.182) #9
   %123 = getelementptr inbounds i8, ptr %122, i64 8
   %124 = load i32, ptr %123, align 8
   br label %125
@@ -1255,7 +1255,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   br label %131
 
 131:                                              ; preds = %129, %125
-  call void @list_destroy(ptr noundef nonnull %.183) #9
+  call void @list_destroy(ptr noundef nonnull %.182) #9
   br label %132
 
 132:                                              ; preds = %.thread, %131
@@ -1264,8 +1264,8 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   unreachable
 
 134:                                              ; preds = %28, %30, %._crit_edge.thread, %25, %16, %17, %118
-  %.0 = phi ptr [ %.183, %118 ], [ null, %17 ], [ null, %16 ], [ null, %25 ], [ null, %._crit_edge.thread ], [ null, %30 ], [ null, %28 ]
-  ret ptr %.0
+  %.087 = phi ptr [ %.182, %118 ], [ null, %17 ], [ null, %16 ], [ null, %25 ], [ null, %._crit_edge.thread ], [ null, %30 ], [ null, %28 ]
+  ret ptr %.087
 }
 
 declare ptr @list_create(ptr noundef) local_unnamed_addr #1

@@ -87,8 +87,8 @@ define dso_local noundef i32 @thrmgr_printstats(i32 noundef %0, i8 noundef signe
 
 11:                                               ; preds = %.lr.ph164, %._crit_edge141
   %.1162 = phi ptr [ %.1155, %.lr.ph164 ], [ %.1, %._crit_edge141 ]
-  %.084161 = phi i32 [ 0, %.lr.ph164 ], [ %.3, %._crit_edge141 ]
-  %.086160 = phi ptr [ null, %.lr.ph164 ], [ %.389, %._crit_edge141 ]
+  %.084161 = phi ptr [ null, %.lr.ph164 ], [ %.3, %._crit_edge141 ]
+  %.086160 = phi i32 [ 0, %.lr.ph164 ], [ %.389, %._crit_edge141 ]
   %.098157 = phi i64 [ 0, %.lr.ph164 ], [ %.4, %._crit_edge141 ]
   %12 = phi <2 x i64> [ zeroinitializer, %.lr.ph164 ], [ %91, %._crit_edge141 ]
   %13 = load ptr, ptr %.1162, align 8
@@ -148,8 +148,8 @@ switch.lookup:                                    ; preds = %14
 
 .lr.ph140:                                        ; preds = %19, %88
   %.081138 = phi ptr [ %.081, %88 ], [ %.081131, %19 ]
-  %.185137 = phi i32 [ %.2, %88 ], [ %.084161, %19 ]
-  %.187136 = phi ptr [ %.288, %88 ], [ %.086160, %19 ]
+  %.185137 = phi ptr [ %.2, %88 ], [ %.084161, %19 ]
+  %.187136 = phi i32 [ %.288, %88 ], [ %.086160, %19 ]
   %.199133 = phi i64 [ %.2100, %88 ], [ %.098157, %19 ]
   %48 = phi <2 x i64> [ %89, %88 ], [ %12, %19 ]
   %49 = load i64, ptr %10, align 8
@@ -183,7 +183,7 @@ switch.lookup:                                    ; preds = %14
 
 .lr.ph126:                                        ; preds = %.preheader, %71
   %.080125 = phi i64 [ %72, %71 ], [ 0, %.preheader ]
-  %68 = getelementptr inbounds ptr, ptr %.187136, i64 %.080125
+  %68 = getelementptr inbounds ptr, ptr %.185137, i64 %.080125
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, %67
   br i1 %70, label %._crit_edge127, label %71
@@ -201,7 +201,7 @@ switch.lookup:                                    ; preds = %14
 ._crit_edge127.thread:                            ; preds = %71, %._crit_edge127
   %74 = add i64 %.199133, 1
   %75 = shl i64 %74, 3
-  %76 = call ptr @realloc(ptr noundef %.187136, i64 noundef %75) #13
+  %76 = call ptr @realloc(ptr noundef %.185137, i64 noundef %75) #13
   %.not116 = icmp eq ptr %76, null
   br i1 %.not116, label %._crit_edge141, label %77
 
@@ -219,13 +219,13 @@ switch.lookup:                                    ; preds = %14
   %84 = insertelement <2 x i64> poison, i64 %82, i64 0
   %85 = insertelement <2 x i64> %84, i64 %83, i64 1
   %86 = add <2 x i64> %85, %48
-  %87 = add i32 %.185137, 1
+  %87 = add i32 %.187136, 1
   br label %88
 
 88:                                               ; preds = %.lr.ph140, %77, %81, %._crit_edge127
   %.2100 = phi i64 [ %74, %81 ], [ %74, %77 ], [ %.199133, %._crit_edge127 ], [ %.199133, %.lr.ph140 ]
-  %.288 = phi ptr [ %76, %81 ], [ %76, %77 ], [ %.187136, %._crit_edge127 ], [ %.187136, %.lr.ph140 ]
-  %.2 = phi i32 [ %87, %81 ], [ %.185137, %77 ], [ %.185137, %._crit_edge127 ], [ %.185137, %.lr.ph140 ]
+  %.288 = phi i32 [ %87, %81 ], [ %.187136, %77 ], [ %.187136, %._crit_edge127 ], [ %.187136, %.lr.ph140 ]
+  %.2 = phi ptr [ %76, %81 ], [ %76, %77 ], [ %.185137, %._crit_edge127 ], [ %.185137, %.lr.ph140 ]
   %89 = phi <2 x i64> [ %86, %81 ], [ %48, %77 ], [ %48, %._crit_edge127 ], [ %48, %.lr.ph140 ]
   %90 = getelementptr inbounds i8, ptr %.081138, i64 40
   %.081 = load ptr, ptr %90, align 8
@@ -236,8 +236,8 @@ switch.lookup:                                    ; preds = %14
   %.str.11.sink = phi ptr [ @.str.1, %11 ], [ @.str.11, %19 ], [ @.str.11, %88 ], [ @.str.11, %._crit_edge127.thread ]
   %.not109 = phi i1 [ true, %11 ], [ true, %19 ], [ false, %._crit_edge127.thread ], [ true, %88 ]
   %.4 = phi i64 [ %.098157, %11 ], [ %.098157, %19 ], [ %74, %._crit_edge127.thread ], [ %.2100, %88 ]
-  %.389 = phi ptr [ %.086160, %11 ], [ %.086160, %19 ], [ %.187136, %._crit_edge127.thread ], [ %.288, %88 ]
-  %.3 = phi i32 [ %.084161, %11 ], [ %.084161, %19 ], [ %.185137, %._crit_edge127.thread ], [ %.2, %88 ]
+  %.389 = phi i32 [ %.086160, %11 ], [ %.086160, %19 ], [ %.187136, %._crit_edge127.thread ], [ %.288, %88 ]
+  %.3 = phi ptr [ %.084161, %11 ], [ %.084161, %19 ], [ %.185137, %._crit_edge127.thread ], [ %.2, %88 ]
   %91 = phi <2 x i64> [ %12, %11 ], [ %12, %19 ], [ %48, %._crit_edge127.thread ], [ %89, %88 ]
   %92 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %0, ptr noundef nonnull %.str.11.sink) #12
   %93 = getelementptr inbounds i8, ptr %.1162, i64 8
@@ -249,7 +249,7 @@ switch.lookup:                                    ; preds = %14
 ._crit_edge165:                                   ; preds = %._crit_edge141
   %96 = uitofp <2 x i64> %91 to <2 x double>
   %97 = fmul <2 x double> %96, <double 0x3EB0000000000000, double 0x3EB0000000000000>
-  call void @free(ptr noundef %.389) #12
+  call void @free(ptr noundef %.3) #12
   br i1 %.not109, label %._crit_edge165.thread, label %98
 
 98:                                               ; preds = %._crit_edge165
@@ -257,11 +257,11 @@ switch.lookup:                                    ; preds = %14
   br label %104
 
 ._crit_edge165.thread:                            ; preds = %._crit_edge, %._crit_edge165
-  %.084.lcssa182 = phi i32 [ %.3, %._crit_edge165 ], [ 0, %._crit_edge ]
+  %.086.lcssa182 = phi i32 [ %.389, %._crit_edge165 ], [ 0, %._crit_edge ]
   %100 = phi <2 x double> [ %97, %._crit_edge165 ], [ zeroinitializer, %._crit_edge ]
   %101 = extractelement <2 x double> %100, i64 0
   %102 = extractelement <2 x double> %100, i64 1
-  %103 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %0, ptr noundef nonnull @.str.16, i32 noundef %.084.lcssa182, double noundef %101, double noundef %102) #12
+  %103 = call i32 (i32, ptr, ...) @mdprintf(i32 noundef %0, ptr noundef nonnull @.str.16, i32 noundef %.086.lcssa182, double noundef %101, double noundef %102) #12
   br label %104
 
 104:                                              ; preds = %._crit_edge165.thread, %98

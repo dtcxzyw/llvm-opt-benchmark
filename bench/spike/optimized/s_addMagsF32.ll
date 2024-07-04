@@ -139,8 +139,8 @@ softfloat_shiftRightJam32.exit79:                 ; preds = %66, %76
   br label %81
 
 81:                                               ; preds = %softfloat_shiftRightJam32.exit79, %softfloat_shiftRightJam32.exit
-  %.063 = phi i64 [ %32, %softfloat_shiftRightJam32.exit ], [ %80, %softfloat_shiftRightJam32.exit79 ]
-  %.062 = phi i64 [ %58, %softfloat_shiftRightJam32.exit ], [ %31, %softfloat_shiftRightJam32.exit79 ]
+  %.063 = phi i64 [ %58, %softfloat_shiftRightJam32.exit ], [ %31, %softfloat_shiftRightJam32.exit79 ]
+  %.062 = phi i64 [ %32, %softfloat_shiftRightJam32.exit ], [ %80, %softfloat_shiftRightJam32.exit79 ]
   %.059 = phi i64 [ %7, %softfloat_shiftRightJam32.exit ], [ %4, %softfloat_shiftRightJam32.exit79 ]
   %82 = add nuw nsw i64 %.063, 536870912
   %83 = add nuw nsw i64 %82, %.062

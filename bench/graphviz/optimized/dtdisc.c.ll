@@ -132,8 +132,8 @@ define ptr @dtdisc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not51, label %.loopexit, label %50
 
 .loopexit:                                        ; preds = %70, %.loopexit52, %17, %6, %5
-  %.0 = phi ptr [ %1, %5 ], [ %4, %6 ], [ %4, %17 ], [ %4, %.loopexit52 ], [ %4, %70 ]
-  ret ptr %.0
+  %.042 = phi ptr [ %1, %5 ], [ %4, %6 ], [ %4, %17 ], [ %4, %.loopexit52 ], [ %4, %70 ]
+  ret ptr %.042
 }
 
 declare i32 @dtrestore(ptr noundef, ptr noundef) local_unnamed_addr #1

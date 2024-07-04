@@ -1155,7 +1155,7 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not125, label %30, label %94
 
 30:                                               ; preds = %28, %23, %24
-  %.0111 = phi i64 [ %19, %23 ], [ %26, %24 ], [ 0, %28 ]
+  %.0110 = phi i64 [ %19, %23 ], [ %26, %24 ], [ 0, %28 ]
   %31 = getelementptr inbounds i8, ptr %7, i64 216
   %32 = tail call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %31) #7
   br i1 %32, label %39, label %33
@@ -1216,11 +1216,11 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.thread
 
 .thread:                                          ; preds = %61, %56, %52
-  store i64 %.0111, ptr %18, align 8
+  store i64 %.0110, ptr %18, align 8
   br label %64
 
 63:                                               ; preds = %.critedge
-  store i64 %.0111, ptr %18, align 8
+  store i64 %.0110, ptr %18, align 8
   br i1 %51, label %64, label %77
 
 64:                                               ; preds = %.thread, %63
@@ -1241,7 +1241,7 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
   %74 = load i32, ptr %46, align 8
   %75 = load ptr, ptr %7, align 8
   %76 = tail call i32 @nghttp2_session_get_remote_window_size(ptr noundef %75) #7
-  tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.63, i32 noundef %74, i64 noundef %3, i32 noundef %76, i64 noundef %49, i64 noundef %.0111) #7
+  tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.63, i32 noundef %74, i64 noundef %3, i32 noundef %76, i64 noundef %49, i64 noundef %.0110) #7
   br label %77
 
 77:                                               ; preds = %63, %64, %68, %73
@@ -1287,7 +1287,7 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %94
 
 94:                                               ; preds = %.sink.split, %78, %28
-  %.1 = phi i64 [ %.0111, %78 ], [ %26, %28 ], [ -1, %.sink.split ]
+  %.1 = phi i64 [ %.0110, %78 ], [ %26, %28 ], [ -1, %.sink.split ]
   %95 = getelementptr inbounds i8, ptr %7, i64 152
   %96 = tail call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %95) #7
   br i1 %96, label %drain_tunnel.exit, label %97
@@ -1387,8 +1387,8 @@ drain_tunnel.exit.thread:                         ; preds = %108, %124, %drain_t
   br label %148
 
 148:                                              ; preds = %145, %11
-  %.0 = phi i64 [ -1, %11 ], [ %.1, %145 ]
-  ret i64 %.0
+  %.0111 = phi i64 [ -1, %11 ], [ %.1, %145 ]
+  ret i64 %.0111
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1708,12 +1708,12 @@ tunnel_recv.exit.thread:                          ; preds = %60, %tunnel_recv.ex
   br label %drain_tunnel.exit
 
 drain_tunnel.exit:                                ; preds = %157, %141, %tunnel_recv.exit.thread, %158, %15
-  %.068 = phi i64 [ -1, %15 ], [ -1, %158 ], [ %.145.i88, %tunnel_recv.exit.thread ], [ %.145.i88, %141 ], [ %.145.i88, %157 ]
+  %.0 = phi i64 [ -1, %15 ], [ -1, %158 ], [ %.145.i88, %tunnel_recv.exit.thread ], [ %.145.i88, %141 ], [ %.145.i88, %157 ]
   %159 = tail call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %13) #7
   br i1 %159, label %drain_tunnel.exit86, label %160
 
 160:                                              ; preds = %drain_tunnel.exit
-  %161 = icmp sgt i64 %.068, -1
+  %161 = icmp sgt i64 %.0, -1
   br i1 %161, label %165, label %162
 
 162:                                              ; preds = %160
@@ -1790,7 +1790,7 @@ drain_tunnel.exit86.thread:                       ; preds = %172, %188, %drain_t
   %198 = getelementptr inbounds i8, ptr %7, i64 288
   %199 = load i32, ptr %198, align 8
   %200 = load i32, ptr %4, align 4
-  tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.68, i32 noundef %199, i64 noundef %3, i64 noundef %.068, i32 noundef %200) #7
+  tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.68, i32 noundef %199, i64 noundef %3, i64 noundef %.0, i32 noundef %200) #7
   br label %201
 
 201:                                              ; preds = %197, %192, %drain_tunnel.exit86.thread, %drain_tunnel.exit86
@@ -1800,8 +1800,8 @@ drain_tunnel.exit86.thread:                       ; preds = %172, %188, %drain_t
   br label %204
 
 204:                                              ; preds = %201, %10
-  %.0 = phi i64 [ -1, %10 ], [ %.068, %201 ]
-  ret i64 %.0
+  %.068 = phi i64 [ -1, %10 ], [ %.0, %201 ]
+  ret i64 %.068
 }
 
 declare i32 @Curl_cf_def_cntrl(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1

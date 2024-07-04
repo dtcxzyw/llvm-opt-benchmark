@@ -216,12 +216,12 @@ define noundef i64 @_Z18fast_rv64i_smslxdaP11processor_t6insn_tm(ptr nocapture n
   br label %25
 
 25:                                               ; preds = %11, %25
-  %.045 = phi i64 [ %24, %11 ], [ %43, %25 ]
   %26 = phi i1 [ true, %11 ], [ false, %25 ]
-  %.02944 = phi i64 [ 0, %11 ], [ 32, %25 ]
-  %27 = shl nuw i64 4294967295, %.02944
+  %.045 = phi i64 [ 0, %11 ], [ 32, %25 ]
+  %.02944 = phi i64 [ %24, %11 ], [ %43, %25 ]
+  %27 = shl nuw i64 4294967295, %.045
   %28 = and i64 %27, %16
-  %29 = shl i64 8589934590, %.02944
+  %29 = shl i64 8589934590, %.045
   %30 = xor i64 %29, -1
   %31 = and i64 %27, %30
   %32 = udiv i64 %28, %31
@@ -238,7 +238,7 @@ define noundef i64 @_Z18fast_rv64i_smslxdaP11processor_t6insn_tm(ptr nocapture n
   %.neg = mul nsw i64 %38, %36
   %.neg42 = mul nsw i64 %42, %40
   %reass.add = add nsw i64 %.neg, %.neg42
-  %43 = sub i64 %.045, %reass.add
+  %43 = sub i64 %.02944, %reass.add
   br i1 %26, label %25, label %44, !llvm.loop !4
 
 44:                                               ; preds = %25
@@ -830,12 +830,12 @@ define noundef i64 @_Z18fast_rv64e_smslxdaP11processor_t6insn_tm(ptr nocapture n
   br label %46
 
 46:                                               ; preds = %43, %46
-  %.03864 = phi i64 [ %45, %43 ], [ %64, %46 ]
   %47 = phi i1 [ true, %43 ], [ false, %46 ]
-  %.03963 = phi i64 [ 0, %43 ], [ 32, %46 ]
-  %48 = shl nuw i64 4294967295, %.03963
+  %.03764 = phi i64 [ 0, %43 ], [ 32, %46 ]
+  %.03863 = phi i64 [ %45, %43 ], [ %64, %46 ]
+  %48 = shl nuw i64 4294967295, %.03764
   %49 = and i64 %48, %23
-  %50 = shl i64 8589934590, %.03963
+  %50 = shl i64 8589934590, %.03764
   %51 = xor i64 %50, -1
   %52 = and i64 %48, %51
   %53 = udiv i64 %49, %52
@@ -852,7 +852,7 @@ define noundef i64 @_Z18fast_rv64e_smslxdaP11processor_t6insn_tm(ptr nocapture n
   %.neg = mul nsw i64 %59, %57
   %.neg61 = mul nsw i64 %63, %61
   %reass.add = add nsw i64 %.neg, %.neg61
-  %64 = sub i64 %.03864, %reass.add
+  %64 = sub i64 %.03863, %reass.add
   br i1 %47, label %46, label %65, !llvm.loop !8
 
 65:                                               ; preds = %46

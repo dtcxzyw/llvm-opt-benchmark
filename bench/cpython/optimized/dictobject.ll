@@ -1690,8 +1690,8 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end44, %entry
-  %hash.pn = phi i64 [ %hash, %entry ], [ %add48, %if.end44 ]
   %perturb.0 = phi i64 [ %hash, %entry ], [ %shr45, %if.end44 ]
+  %hash.pn = phi i64 [ %hash, %entry ], [ %add48, %if.end44 ]
   %i.0 = and i64 %hash.pn, %sub
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -1983,8 +1983,8 @@ if.else:                                          ; preds = %if.then
 
 for.cond.i:                                       ; preds = %if.end35.i, %if.else
   %.pr26.i = phi i8 [ %.pr.i, %if.end35.i ], [ %4, %if.else ]
-  %hash.pn.i = phi i64 [ %add36.i, %if.end35.i ], [ %hash, %if.else ]
   %perturb.0.i = phi i64 [ %shr.i, %if.end35.i ], [ %hash, %if.else ]
+  %hash.pn.i = phi i64 [ %add36.i, %if.end35.i ], [ %hash, %if.else ]
   %i.0.i = and i64 %hash.pn.i, %sub.i
   %cmp.i25.i = icmp ult i8 %.pr26.i, 8
   br i1 %cmp.i25.i, label %if.then.i.i, label %if.else.i.i
@@ -2140,9 +2140,9 @@ if.else21:                                        ; preds = %start
 
 for.cond.i38:                                     ; preds = %if.end33.i, %if.else21
   %.pr26.i39 = phi i8 [ %.pr.i54, %if.end33.i ], [ %19, %if.else21 ]
-  %hash.pn.i40 = phi i64 [ %add34.i, %if.end33.i ], [ %hash, %if.else21 ]
-  %perturb.0.i41 = phi i64 [ %shr.i55, %if.end33.i ], [ %hash, %if.else21 ]
-  %i.0.i42 = and i64 %hash.pn.i40, %sub.i36
+  %perturb.0.i40 = phi i64 [ %shr.i55, %if.end33.i ], [ %hash, %if.else21 ]
+  %hash.pn.i41 = phi i64 [ %add34.i, %if.end33.i ], [ %hash, %if.else21 ]
+  %i.0.i42 = and i64 %hash.pn.i41, %sub.i36
   %cmp.i25.i43 = icmp ult i8 %.pr26.i39, 8
   br i1 %cmp.i25.i43, label %if.then.i.i77, label %if.else.i.i44
 
@@ -2249,7 +2249,7 @@ if.else28.i:                                      ; preds = %dictkeys_get_index.
 
 if.end33.i:                                       ; preds = %if.else28.i, %if.then21.if.end33_crit_edge.i, %if.end.i62
   %.pr.i54 = phi i8 [ %.pr.pre.i67, %if.then21.if.end33_crit_edge.i ], [ %.pr26.i39, %if.else28.i ], [ %.pr26.i39, %if.end.i62 ]
-  %shr.i55 = lshr i64 %perturb.0.i41, 5
+  %shr.i55 = lshr i64 %perturb.0.i40, 5
   %mul.i56 = mul i64 %i.0.i42, 5
   %add.i57 = add nuw nsw i64 %shr.i55, 1
   %add34.i = add i64 %add.i57, %mul.i56
@@ -2496,8 +2496,8 @@ if.end58.i:                                       ; preds = %land.rhs46.i
 
 if.end62.i:                                       ; preds = %land.rhs.i, %if.end58.i, %if.end6.i
   %value.0.i = phi ptr [ %value.0.pre.i, %if.end6.i ], [ %14, %if.end58.i ], [ %13, %land.rhs.i ]
-  %key.0.i.in = phi ptr [ %arrayidx11.i, %if.end6.i ], [ %me_key59.i, %if.end58.i ], [ %entry_ptr.062.i, %land.rhs.i ]
   %i.2.i = phi i64 [ %3, %if.end6.i ], [ %i.164.i, %if.end58.i ], [ %i.061.i, %land.rhs.i ]
+  %key.0.i.in = phi ptr [ %arrayidx11.i, %if.end6.i ], [ %me_key59.i, %if.end58.i ], [ %entry_ptr.062.i, %land.rhs.i ]
   %key.0.i = load ptr, ptr %key.0.i.in, align 8
   %add.i = add nuw nsw i64 %i.2.i, 1
   store i64 %add.i, ptr %ppos, align 8
@@ -2906,7 +2906,7 @@ for.body.preheader:                               ; preds = %entry
   br i1 %cmp.i16.not31, label %if.end, label %for.end
 
 for.body:                                         ; preds = %if.end
-  %add.ptr = getelementptr ptr, ptr %ks.02232, i64 %keys_offset
+  %add.ptr = getelementptr ptr, ptr %ks.02133, i64 %keys_offset
   %5 = load ptr, ptr %add.ptr, align 8
   %6 = getelementptr i8, ptr %5, i64 8
   %.val = load ptr, ptr %6, align 8
@@ -2914,9 +2914,9 @@ for.body:                                         ; preds = %if.end
   br i1 %cmp.i16.not, label %if.end, label %for.end.loopexit, !llvm.loop !18
 
 if.end:                                           ; preds = %for.body.preheader, %for.body
-  %i.02133 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %ks.02232 = phi ptr [ %add.ptr, %for.body ], [ %keys, %for.body.preheader ]
-  %inc = add nuw nsw i64 %i.02133, 1
+  %ks.02133 = phi ptr [ %add.ptr, %for.body ], [ %keys, %for.body.preheader ]
+  %i.02232 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
+  %inc = add nuw nsw i64 %i.02232, 1
   %exitcond = icmp eq i64 %inc, %length
   br i1 %exitcond, label %for.end.loopexit, label %for.body, !llvm.loop !18
 
@@ -3578,8 +3578,8 @@ if.then.i:                                        ; preds = %entry
 
 for.body.i.i:                                     ; preds = %if.end6.i.i, %if.then.i
   %indvars.iv.i.i = phi i64 [ 0, %if.then.i ], [ %indvars.iv.next.i.i, %if.end6.i.i ]
-  %watcher_bits.addr.08.i.i = phi i32 [ %conv.i, %if.then.i ], [ %shr.i.i, %if.end6.i.i ]
-  %and.i.i = and i32 %watcher_bits.addr.08.i.i, 1
+  %watcher_bits.addr.07.i.i = phi i32 [ %conv.i, %if.then.i ], [ %shr.i.i, %if.end6.i.i ]
+  %and.i.i = and i32 %watcher_bits.addr.07.i.i, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end6.i.i, label %if.then.i.i
 
@@ -3599,7 +3599,7 @@ if.then4.i.i:                                     ; preds = %land.lhs.true.i.i
   br label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then4.i.i, %land.lhs.true.i.i, %if.then.i.i, %for.body.i.i
-  %shr.i.i = lshr i32 %watcher_bits.addr.08.i.i, 1
+  %shr.i.i = lshr i32 %watcher_bits.addr.07.i.i, 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_PyDict_SendEvent.exit.i, label %for.body.i.i, !llvm.loop !20
@@ -3973,8 +3973,8 @@ if.then.i:                                        ; preds = %if.then24
 
 for.body.i.i:                                     ; preds = %if.end6.i.i, %if.then.i
   %indvars.iv.i.i = phi i64 [ 0, %if.then.i ], [ %indvars.iv.next.i.i, %if.end6.i.i ]
-  %watcher_bits.addr.08.i.i = phi i32 [ %conv.i89, %if.then.i ], [ %shr.i.i, %if.end6.i.i ]
-  %and.i.i91 = and i32 %watcher_bits.addr.08.i.i, 1
+  %watcher_bits.addr.07.i.i = phi i32 [ %conv.i89, %if.then.i ], [ %shr.i.i, %if.end6.i.i ]
+  %and.i.i91 = and i32 %watcher_bits.addr.07.i.i, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i91, 0
   br i1 %tobool.not.i.i, label %if.end6.i.i, label %if.then.i.i
 
@@ -3994,7 +3994,7 @@ if.then4.i.i:                                     ; preds = %land.lhs.true.i.i
   br label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then4.i.i, %land.lhs.true.i.i, %if.then.i.i, %for.body.i.i
-  %shr.i.i = lshr i32 %watcher_bits.addr.08.i.i, 1
+  %shr.i.i = lshr i32 %watcher_bits.addr.07.i.i, 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_PyDict_SendEvent.exit.i, label %for.body.i.i, !llvm.loop !20
@@ -4307,8 +4307,8 @@ if.then.i124:                                     ; preds = %if.then77
 
 for.body.i.i127:                                  ; preds = %if.end6.i.i138, %if.then.i124
   %indvars.iv.i.i128 = phi i64 [ 0, %if.then.i124 ], [ %indvars.iv.next.i.i140, %if.end6.i.i138 ]
-  %watcher_bits.addr.08.i.i129 = phi i32 [ %conv.i122, %if.then.i124 ], [ %shr.i.i139, %if.end6.i.i138 ]
-  %and.i.i130 = and i32 %watcher_bits.addr.08.i.i129, 1
+  %watcher_bits.addr.07.i.i129 = phi i32 [ %conv.i122, %if.then.i124 ], [ %shr.i.i139, %if.end6.i.i138 ]
+  %and.i.i130 = and i32 %watcher_bits.addr.07.i.i129, 1
   %tobool.not.i.i131 = icmp eq i32 %and.i.i130, 0
   br i1 %tobool.not.i.i131, label %if.end6.i.i138, label %if.then.i.i132
 
@@ -4328,7 +4328,7 @@ if.then4.i.i148:                                  ; preds = %land.lhs.true.i.i13
   br label %if.end6.i.i138
 
 if.end6.i.i138:                                   ; preds = %if.then4.i.i148, %land.lhs.true.i.i135, %if.then.i.i132, %for.body.i.i127
-  %shr.i.i139 = lshr i32 %watcher_bits.addr.08.i.i129, 1
+  %shr.i.i139 = lshr i32 %watcher_bits.addr.07.i.i129, 1
   %indvars.iv.next.i.i140 = add nuw nsw i64 %indvars.iv.i.i128, 1
   %exitcond.not.i.i141 = icmp eq i64 %indvars.iv.next.i.i140, 8
   br i1 %exitcond.not.i.i141, label %_PyDict_SendEvent.exit.i142, label %for.body.i.i127, !llvm.loop !20
@@ -4633,8 +4633,8 @@ if.then.i:                                        ; preds = %if.end8
 
 for.body.i.i:                                     ; preds = %if.end6.i.i, %if.then.i
   %indvars.iv.i.i = phi i64 [ 0, %if.then.i ], [ %indvars.iv.next.i.i, %if.end6.i.i ]
-  %watcher_bits.addr.08.i.i = phi i32 [ %conv.i9, %if.then.i ], [ %shr.i.i, %if.end6.i.i ]
-  %and.i.i = and i32 %watcher_bits.addr.08.i.i, 1
+  %watcher_bits.addr.07.i.i = phi i32 [ %conv.i9, %if.then.i ], [ %shr.i.i, %if.end6.i.i ]
+  %and.i.i = and i32 %watcher_bits.addr.07.i.i, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end6.i.i, label %if.then.i.i
 
@@ -4654,7 +4654,7 @@ if.then4.i.i:                                     ; preds = %land.lhs.true.i.i
   br label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then4.i.i, %land.lhs.true.i.i, %if.then.i.i, %for.body.i.i
-  %shr.i.i = lshr i32 %watcher_bits.addr.08.i.i, 1
+  %shr.i.i = lshr i32 %watcher_bits.addr.07.i.i, 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_PyDict_SendEvent.exit.i, label %for.body.i.i, !llvm.loop !20
@@ -4709,8 +4709,8 @@ if.then:                                          ; preds = %entry
 
 for.body.i:                                       ; preds = %if.end6.i, %if.then
   %indvars.iv.i = phi i64 [ 0, %if.then ], [ %indvars.iv.next.i, %if.end6.i ]
-  %watcher_bits.addr.08.i = phi i32 [ %conv, %if.then ], [ %shr.i, %if.end6.i ]
-  %and.i = and i32 %watcher_bits.addr.08.i, 1
+  %watcher_bits.addr.07.i = phi i32 [ %conv, %if.then ], [ %shr.i, %if.end6.i ]
+  %and.i = and i32 %watcher_bits.addr.07.i, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %if.end6.i, label %if.then.i
 
@@ -4731,7 +4731,7 @@ switch.lookup:                                    ; preds = %land.lhs.true.i
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %switch.lookup, %land.lhs.true.i, %if.then.i, %for.body.i
-  %shr.i = lshr i32 %watcher_bits.addr.08.i, 1
+  %shr.i = lshr i32 %watcher_bits.addr.07.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
   br i1 %exitcond.not.i, label %_PyDict_SendEvent.exit, label %for.body.i, !llvm.loop !20
@@ -4993,8 +4993,8 @@ if.then.i:                                        ; preds = %if.then19
 
 for.body.i.i:                                     ; preds = %if.end6.i.i, %if.then.i
   %indvars.iv.i.i = phi i64 [ 0, %if.then.i ], [ %indvars.iv.next.i.i, %if.end6.i.i ]
-  %watcher_bits.addr.08.i.i = phi i32 [ %conv.i14, %if.then.i ], [ %shr.i.i, %if.end6.i.i ]
-  %and.i.i = and i32 %watcher_bits.addr.08.i.i, 1
+  %watcher_bits.addr.07.i.i = phi i32 [ %conv.i14, %if.then.i ], [ %shr.i.i, %if.end6.i.i ]
+  %and.i.i = and i32 %watcher_bits.addr.07.i.i, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end6.i.i, label %if.then.i.i
 
@@ -5014,7 +5014,7 @@ if.then4.i.i:                                     ; preds = %land.lhs.true.i.i
   br label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then4.i.i, %land.lhs.true.i.i, %if.then.i.i, %for.body.i.i
-  %shr.i.i = lshr i32 %watcher_bits.addr.08.i.i, 1
+  %shr.i.i = lshr i32 %watcher_bits.addr.07.i.i, 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_PyDict_SendEvent.exit.i, label %for.body.i.i, !llvm.loop !20
@@ -5211,8 +5211,8 @@ if.then.i:                                        ; preds = %if.end3
 
 for.body.i.i:                                     ; preds = %if.end6.i.i, %if.then.i
   %indvars.iv.i.i = phi i64 [ 0, %if.then.i ], [ %indvars.iv.next.i.i, %if.end6.i.i ]
-  %watcher_bits.addr.08.i.i = phi i32 [ %conv.i24, %if.then.i ], [ %shr.i.i, %if.end6.i.i ]
-  %and.i.i = and i32 %watcher_bits.addr.08.i.i, 1
+  %watcher_bits.addr.07.i.i = phi i32 [ %conv.i24, %if.then.i ], [ %shr.i.i, %if.end6.i.i ]
+  %and.i.i = and i32 %watcher_bits.addr.07.i.i, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end6.i.i, label %if.then.i.i
 
@@ -5232,7 +5232,7 @@ if.then4.i.i:                                     ; preds = %land.lhs.true.i.i
   br label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then4.i.i, %land.lhs.true.i.i, %if.then.i.i, %for.body.i.i
-  %shr.i.i = lshr i32 %watcher_bits.addr.08.i.i, 1
+  %shr.i.i = lshr i32 %watcher_bits.addr.07.i.i, 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_PyDict_SendEvent.exit.i, label %for.body.i.i, !llvm.loop !20
@@ -5613,9 +5613,9 @@ if.end58:                                         ; preds = %land.rhs46
 
 if.end62:                                         ; preds = %if.end33, %if.end58, %if.end6
   %value.0 = phi ptr [ %value.0.pre, %if.end6 ], [ %15, %if.end33 ], [ %18, %if.end58 ]
+  %i.2 = phi i64 [ %3, %if.end6 ], [ %i.061, %if.end33 ], [ %i.164, %if.end58 ]
   %key.0 = phi ptr [ %9, %if.end6 ], [ %16, %if.end33 ], [ %19, %if.end58 ]
   %hash.0.in = phi ptr [ %10, %if.end6 ], [ %17, %if.end33 ], [ %entry_ptr39.065, %if.end58 ]
-  %i.2 = phi i64 [ %3, %if.end6 ], [ %i.061, %if.end33 ], [ %i.164, %if.end58 ]
   %hash.0 = load i64, ptr %hash.0.in, align 8
   %add = add nuw nsw i64 %i.2, 1
   store i64 %add, ptr %ppos, align 8
@@ -5710,8 +5710,8 @@ if.then.i:                                        ; preds = %if.end15
 
 for.body.i.i:                                     ; preds = %if.end6.i.i, %if.then.i
   %indvars.iv.i.i = phi i64 [ 0, %if.then.i ], [ %indvars.iv.next.i.i, %if.end6.i.i ]
-  %watcher_bits.addr.08.i.i = phi i32 [ %conv.i, %if.then.i ], [ %shr.i.i, %if.end6.i.i ]
-  %and.i.i = and i32 %watcher_bits.addr.08.i.i, 1
+  %watcher_bits.addr.07.i.i = phi i32 [ %conv.i, %if.then.i ], [ %shr.i.i, %if.end6.i.i ]
+  %and.i.i = and i32 %watcher_bits.addr.07.i.i, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end6.i.i, label %if.then.i.i
 
@@ -5731,7 +5731,7 @@ if.then4.i.i:                                     ; preds = %land.lhs.true.i.i
   br label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then4.i.i, %land.lhs.true.i.i, %if.then.i.i, %for.body.i.i
-  %shr.i.i = lshr i32 %watcher_bits.addr.08.i.i, 1
+  %shr.i.i = lshr i32 %watcher_bits.addr.07.i.i, 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_PyDict_SendEvent.exit.i, label %for.body.i.i, !llvm.loop !20
@@ -6251,9 +6251,9 @@ if.end58.i:                                       ; preds = %land.rhs46.i
   br label %while.body
 
 while.body:                                       ; preds = %if.end58.i, %if.end33.i, %if.end6.i
+  %i.2.i = phi i64 [ %pos.0, %if.end6.i ], [ %i.061.i, %if.end33.i ], [ %i.164.i, %if.end58.i ]
   %key.0.i = phi ptr [ %23, %if.end6.i ], [ %30, %if.end33.i ], [ %33, %if.end58.i ]
   %hash.0.in.i = phi ptr [ %24, %if.end6.i ], [ %31, %if.end33.i ], [ %entry_ptr39.065.i, %if.end58.i ]
-  %i.2.i = phi i64 [ %pos.0, %if.end6.i ], [ %i.061.i, %if.end33.i ], [ %i.164.i, %if.end58.i ]
   %hash.0.i = load i64, ptr %hash.0.in.i, align 8
   %add.i72 = add nuw nsw i64 %i.2.i, 1
   %34 = load i32, ptr %key.0.i, align 8
@@ -7449,8 +7449,8 @@ if.then.i:                                        ; preds = %if.then40
 
 for.body.i.i:                                     ; preds = %if.end6.i.i, %if.then.i
   %indvars.iv.i.i = phi i64 [ 0, %if.then.i ], [ %indvars.iv.next.i.i, %if.end6.i.i ]
-  %watcher_bits.addr.08.i.i = phi i32 [ %conv.i78, %if.then.i ], [ %shr.i.i, %if.end6.i.i ]
-  %and.i.i = and i32 %watcher_bits.addr.08.i.i, 1
+  %watcher_bits.addr.07.i.i = phi i32 [ %conv.i78, %if.then.i ], [ %shr.i.i, %if.end6.i.i ]
+  %and.i.i = and i32 %watcher_bits.addr.07.i.i, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end6.i.i, label %if.then.i.i
 
@@ -7470,7 +7470,7 @@ if.then4.i.i:                                     ; preds = %land.lhs.true.i.i
   br label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then4.i.i, %land.lhs.true.i.i, %if.then.i.i, %for.body.i.i
-  %shr.i.i = lshr i32 %watcher_bits.addr.08.i.i, 1
+  %shr.i.i = lshr i32 %watcher_bits.addr.07.i.i, 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_PyDict_SendEvent.exit.i, label %for.body.i.i, !llvm.loop !20
@@ -7895,8 +7895,8 @@ if.then.i149:                                     ; preds = %if.then112
 
 for.body.i.i152:                                  ; preds = %if.end6.i.i163, %if.then.i149
   %indvars.iv.i.i153 = phi i64 [ 0, %if.then.i149 ], [ %indvars.iv.next.i.i165, %if.end6.i.i163 ]
-  %watcher_bits.addr.08.i.i154 = phi i32 [ %conv.i147, %if.then.i149 ], [ %shr.i.i164, %if.end6.i.i163 ]
-  %and.i.i155 = and i32 %watcher_bits.addr.08.i.i154, 1
+  %watcher_bits.addr.07.i.i154 = phi i32 [ %conv.i147, %if.then.i149 ], [ %shr.i.i164, %if.end6.i.i163 ]
+  %and.i.i155 = and i32 %watcher_bits.addr.07.i.i154, 1
   %tobool.not.i.i156 = icmp eq i32 %and.i.i155, 0
   br i1 %tobool.not.i.i156, label %if.end6.i.i163, label %if.then.i.i157
 
@@ -7916,7 +7916,7 @@ if.then4.i.i173:                                  ; preds = %land.lhs.true.i.i16
   br label %if.end6.i.i163
 
 if.end6.i.i163:                                   ; preds = %if.then4.i.i173, %land.lhs.true.i.i160, %if.then.i.i157, %for.body.i.i152
-  %shr.i.i164 = lshr i32 %watcher_bits.addr.08.i.i154, 1
+  %shr.i.i164 = lshr i32 %watcher_bits.addr.07.i.i154, 1
   %indvars.iv.next.i.i165 = add nuw nsw i64 %indvars.iv.i.i153, 1
   %exitcond.not.i.i166 = icmp eq i64 %indvars.iv.next.i.i165, 8
   br i1 %exitcond.not.i.i166, label %_PyDict_SendEvent.exit.i167, label %for.body.i.i152, !llvm.loop !20
@@ -8344,9 +8344,9 @@ if.end58.i:                                       ; preds = %land.rhs46.i
 
 while.body:                                       ; preds = %if.end58.i, %if.end33.i, %if.end6.i
   %value.0.i = phi ptr [ %value.0.pre.i, %if.end6.i ], [ %46, %if.end33.i ], [ %49, %if.end58.i ]
+  %i.2.i = phi i64 [ %pos.0, %if.end6.i ], [ %i.061.i, %if.end33.i ], [ %i.164.i, %if.end58.i ]
   %key.0.i = phi ptr [ %42, %if.end6.i ], [ %47, %if.end33.i ], [ %50, %if.end58.i ]
   %hash.0.in.i = phi ptr [ %43, %if.end6.i ], [ %48, %if.end33.i ], [ %entry_ptr39.065.i, %if.end58.i ]
-  %i.2.i = phi i64 [ %pos.0, %if.end6.i ], [ %i.061.i, %if.end33.i ], [ %i.164.i, %if.end58.i ]
   %hash.0.i = load i64, ptr %hash.0.in.i, align 8
   %add.i125 = add nuw nsw i64 %i.2.i, 1
   %51 = load i32, ptr %key.0.i, align 8
@@ -9274,17 +9274,17 @@ for.body.preheader:                               ; preds = %if.end
   %sh_prom.i.i24 = zext nneg i8 %8 to i64
   %shl.i.i25 = shl nuw i64 1, %sh_prom.i.i24
   %arrayidx.i.i26 = getelementptr i8, ptr %dk_indices.i.i22, i64 %shl.i.i25
-  %me_key11 = getelementptr inbounds i8, ptr %arrayidx.i.i26, i64 8
-  %pkey.0 = select i1 %cmp5.not, ptr %me_key11, ptr %arrayidx.i.i26
   %me_value12 = getelementptr inbounds i8, ptr %arrayidx.i.i26, i64 16
+  %me_key11 = getelementptr inbounds i8, ptr %arrayidx.i.i26, i64 8
   %pvalue.0 = select i1 %cmp5.not, ptr %me_value12, ptr %me_key11
+  %pkey.0 = select i1 %cmp5.not, ptr %me_key11, ptr %arrayidx.i.i26
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %if.end19
   %i.030 = phi i64 [ %inc, %if.end19 ], [ 0, %for.body.preheader ]
-  %pkey.129 = phi ptr [ %add.ptr20, %if.end19 ], [ %pkey.0, %for.body.preheader ]
-  %pvalue.128 = phi ptr [ %add.ptr, %if.end19 ], [ %pvalue.0, %for.body.preheader ]
-  %9 = load ptr, ptr %pvalue.128, align 8
+  %pvalue.129 = phi ptr [ %add.ptr, %if.end19 ], [ %pvalue.0, %for.body.preheader ]
+  %pkey.128 = phi ptr [ %add.ptr20, %if.end19 ], [ %pkey.0, %for.body.preheader ]
+  %9 = load ptr, ptr %pvalue.129, align 8
   %cmp16.not = icmp eq ptr %9, null
   br i1 %cmp16.not, label %if.end19, label %if.then18
 
@@ -9299,7 +9299,7 @@ if.end.i26:                                       ; preds = %if.then18
   br label %Py_INCREF.exit28
 
 Py_INCREF.exit28:                                 ; preds = %if.then18, %if.end.i26
-  %11 = load ptr, ptr %pkey.129, align 8
+  %11 = load ptr, ptr %pkey.128, align 8
   %12 = load i32, ptr %11, align 8
   %add.i = add i32 %12, 1
   %cmp.i = icmp eq i32 %add.i, 0
@@ -9310,8 +9310,8 @@ if.end.i:                                         ; preds = %Py_INCREF.exit28
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end.i, %Py_INCREF.exit28, %for.body
-  %add.ptr = getelementptr ptr, ptr %pvalue.128, i64 %offs.0
-  %add.ptr20 = getelementptr ptr, ptr %pkey.129, i64 %offs.0
+  %add.ptr = getelementptr ptr, ptr %pvalue.129, i64 %offs.0
+  %add.ptr20 = getelementptr ptr, ptr %pkey.128, i64 %offs.0
   %inc = add nuw nsw i64 %i.030, 1
   %exitcond.not = icmp eq i64 %inc, %7
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !42
@@ -9511,8 +9511,8 @@ if.end58.i.i:                                     ; preds = %land.rhs46.i.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.i.i, %if.end58.i.i, %if.end6.i.i
-  %key.0.i.in.i = phi ptr [ %arrayidx11.i.i, %if.end6.i.i ], [ %me_key59.i.i, %if.end58.i.i ], [ %entry_ptr.062.i.i, %land.rhs.i.i ]
   %i.2.i.i = phi i64 [ %pos.033.i, %if.end6.i.i ], [ %i.164.i.i, %if.end58.i.i ], [ %i.061.i.i, %land.rhs.i.i ]
+  %key.0.i.in.i = phi ptr [ %arrayidx11.i.i, %if.end6.i.i ], [ %me_key59.i.i, %if.end58.i.i ], [ %entry_ptr.062.i.i, %land.rhs.i.i ]
   %key.0.i.i = load ptr, ptr %key.0.i.in.i, align 8
   %add.i.i = add nuw nsw i64 %i.2.i.i, 1
   %23 = load i32, ptr %key.0.i.i, align 8
@@ -9925,8 +9925,8 @@ if.end58.i.i:                                     ; preds = %land.rhs46.i.i
 
 while.body.i:                                     ; preds = %land.rhs.i.i, %if.end58.i.i, %if.end6.i.i
   %value.0.i.i = phi ptr [ %value.0.pre.i.i, %if.end6.i.i ], [ %24, %if.end58.i.i ], [ %23, %land.rhs.i.i ]
-  %key.0.i.in.i = phi ptr [ %arrayidx11.i.i, %if.end6.i.i ], [ %me_key59.i.i, %if.end58.i.i ], [ %entry_ptr.062.i.i, %land.rhs.i.i ]
   %i.2.i.i = phi i64 [ %pos.057.i, %if.end6.i.i ], [ %i.164.i.i, %if.end58.i.i ], [ %i.061.i.i, %land.rhs.i.i ]
+  %key.0.i.in.i = phi ptr [ %arrayidx11.i.i, %if.end6.i.i ], [ %me_key59.i.i, %if.end58.i.i ], [ %entry_ptr.062.i.i, %land.rhs.i.i ]
   %key.0.i.i = load ptr, ptr %key.0.i.in.i, align 8
   %add.i.i = add nuw nsw i64 %i.2.i.i, 1
   %25 = load ptr, ptr %ob_item.i, align 8
@@ -10252,8 +10252,8 @@ if.then.i:                                        ; preds = %Py_SET_REFCNT.exit
 
 for.body.i.i:                                     ; preds = %if.end6.i.i, %if.then.i
   %indvars.iv.i.i = phi i64 [ 0, %if.then.i ], [ %indvars.iv.next.i.i, %if.end6.i.i ]
-  %watcher_bits.addr.08.i.i = phi i32 [ %conv.i, %if.then.i ], [ %shr.i.i, %if.end6.i.i ]
-  %and.i.i = and i32 %watcher_bits.addr.08.i.i, 1
+  %watcher_bits.addr.07.i.i = phi i32 [ %conv.i, %if.then.i ], [ %shr.i.i, %if.end6.i.i ]
+  %and.i.i = and i32 %watcher_bits.addr.07.i.i, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %if.end6.i.i, label %if.then.i.i
 
@@ -10273,7 +10273,7 @@ if.then4.i.i:                                     ; preds = %land.lhs.true.i.i
   br label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then4.i.i, %land.lhs.true.i.i, %if.then.i.i, %for.body.i.i
-  %shr.i.i = lshr i32 %watcher_bits.addr.08.i.i, 1
+  %shr.i.i = lshr i32 %watcher_bits.addr.07.i.i, 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %_PyDict_NotifyEvent.exit, label %for.body.i.i, !llvm.loop !20
@@ -10564,8 +10564,8 @@ if.end58.i.i:                                     ; preds = %land.rhs46.i.i
 
 while.body:                                       ; preds = %land.rhs.i.i, %if.end58.i.i, %if.end6.i.i
   %value.0.i.i = phi ptr [ %value.0.pre.i.i, %if.end6.i.i ], [ %16, %if.end58.i.i ], [ %15, %land.rhs.i.i ]
-  %key.0.i.in.i = phi ptr [ %arrayidx11.i.i, %if.end6.i.i ], [ %me_key59.i.i, %if.end58.i.i ], [ %entry_ptr.062.i.i, %land.rhs.i.i ]
   %i.2.i.i = phi i64 [ %i.067, %if.end6.i.i ], [ %i.164.i.i, %if.end58.i.i ], [ %i.061.i.i, %land.rhs.i.i ]
+  %key.0.i.in.i = phi ptr [ %arrayidx11.i.i, %if.end6.i.i ], [ %me_key59.i.i, %if.end58.i.i ], [ %entry_ptr.062.i.i, %land.rhs.i.i ]
   %key.0.i.i = load ptr, ptr %key.0.i.in.i, align 8
   %add.i.i = add nuw nsw i64 %i.2.i.i, 1
   %17 = load i32, ptr %key.0.i.i, align 8
@@ -10966,9 +10966,9 @@ if.else17.i:                                      ; preds = %for.body.i
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.else17.i, %if.else.i, %if.then13.i
+  %key.0.i = phi ptr [ %14, %if.then13.i ], [ %14, %if.else.i ], [ %17, %if.else17.i ]
   %aval.0.in.i = phi ptr [ %arrayidx15.i, %if.then13.i ], [ %me_value.i, %if.else.i ], [ %me_value23.i, %if.else17.i ]
   %hash.0.i = phi i64 [ %.val.i, %if.then13.i ], [ %.val.i, %if.else.i ], [ %18, %if.else17.i ]
-  %key.0.i = phi ptr [ %14, %if.then13.i ], [ %14, %if.else.i ], [ %17, %if.else17.i ]
   %aval.0.i = load ptr, ptr %aval.0.in.i, align 8
   %cmp25.not.i = icmp eq ptr %aval.0.i, null
   br i1 %cmp25.not.i, label %for.inc.i, label %if.then27.i
@@ -11991,8 +11991,8 @@ if.end44:                                         ; preds = %land.rhs32
   br label %if.end47
 
 if.end47:                                         ; preds = %land.rhs, %if.end44, %if.end9
-  %i.2 = phi i64 [ %4, %if.end9 ], [ %i.158, %if.end44 ], [ %i.055, %land.rhs ]
   %key.0.in = phi ptr [ %arrayidx, %if.end9 ], [ %me_key45, %if.end44 ], [ %entry_ptr.056, %land.rhs ]
+  %i.2 = phi i64 [ %4, %if.end9 ], [ %i.158, %if.end44 ], [ %i.055, %land.rhs ]
   %len = getelementptr inbounds i8, ptr %di, i64 48
   %15 = load i64, ptr %len, align 8
   %cmp48 = icmp eq i64 %15, 0
@@ -12156,8 +12156,8 @@ if.end50.loopexit61:                              ; preds = %land.rhs
   br label %if.end50
 
 if.end50:                                         ; preds = %if.end50.loopexit61, %if.end50.loopexit, %if.end9
-  %i.2 = phi i64 [ %4, %if.end9 ], [ %i.153, %if.end50.loopexit ], [ %i.050, %if.end50.loopexit61 ]
   %value.0.in = phi ptr [ %arrayidx, %if.end9 ], [ %me_value36.le, %if.end50.loopexit ], [ %me_value.le, %if.end50.loopexit61 ]
+  %i.2 = phi i64 [ %4, %if.end9 ], [ %i.153, %if.end50.loopexit ], [ %i.050, %if.end50.loopexit61 ]
   %len = getelementptr inbounds i8, ptr %di, i64 48
   %14 = load i64, ptr %len, align 8
   %cmp51 = icmp eq i64 %14, 0
@@ -12328,8 +12328,8 @@ if.end52:                                         ; preds = %land.rhs40
 
 if.end56:                                         ; preds = %land.rhs, %if.end52, %if.end9
   %value.0 = phi ptr [ %value.0.pre, %if.end9 ], [ %15, %if.end52 ], [ %13, %land.rhs ]
-  %i.2 = phi i64 [ %4, %if.end9 ], [ %i.1105, %if.end52 ], [ %i.0102, %land.rhs ]
   %key.0.in = phi ptr [ %arrayidx, %if.end9 ], [ %me_key53, %if.end52 ], [ %entry_ptr.0103, %land.rhs ]
+  %i.2 = phi i64 [ %4, %if.end9 ], [ %i.1105, %if.end52 ], [ %i.0102, %land.rhs ]
   %key.0 = load ptr, ptr %key.0.in, align 8
   %len = getelementptr inbounds i8, ptr %di, i64 48
   %16 = load i64, ptr %len, align 8
@@ -12568,15 +12568,15 @@ if.then15:                                        ; preds = %if.else
   br i1 %cmp18117, label %while.body, label %if.end45
 
 while.body:                                       ; preds = %if.then15, %if.end23
-  %i.0119 = phi i64 [ %dec, %if.end23 ], [ %4, %if.then15 ]
-  %entry_ptr.0118 = phi ptr [ %incdec.ptr, %if.end23 ], [ %arrayidx17, %if.then15 ]
-  %cmp20 = icmp slt i64 %i.0119, 1
+  %entry_ptr.0119 = phi ptr [ %incdec.ptr, %if.end23 ], [ %arrayidx17, %if.then15 ]
+  %i.0118 = phi i64 [ %dec, %if.end23 ], [ %4, %if.then15 ]
+  %cmp20 = icmp slt i64 %i.0118, 1
   br i1 %cmp20, label %fail, label %if.end23
 
 if.end23:                                         ; preds = %while.body
-  %dec = add nsw i64 %i.0119, -1
-  %incdec.ptr = getelementptr i8, ptr %entry_ptr.0118, i64 -16
-  %me_value = getelementptr i8, ptr %entry_ptr.0118, i64 -8
+  %dec = add nsw i64 %i.0118, -1
+  %incdec.ptr = getelementptr i8, ptr %entry_ptr.0119, i64 -16
+  %me_value = getelementptr i8, ptr %entry_ptr.0119, i64 -8
   %12 = load ptr, ptr %me_value, align 8
   %cmp18 = icmp eq ptr %12, null
   br i1 %cmp18, label %while.body, label %if.end45, !llvm.loop !60
@@ -12589,30 +12589,30 @@ if.else26:                                        ; preds = %if.else
   br i1 %cmp32123, label %while.body34, label %while.end41
 
 while.body34:                                     ; preds = %if.else26, %if.end39
-  %i.1125 = phi i64 [ %dec35, %if.end39 ], [ %4, %if.else26 ]
-  %entry_ptr27.0124 = phi ptr [ %incdec.ptr40, %if.end39 ], [ %arrayidx29, %if.else26 ]
-  %cmp36 = icmp slt i64 %i.1125, 1
+  %entry_ptr27.0125 = phi ptr [ %incdec.ptr40, %if.end39 ], [ %arrayidx29, %if.else26 ]
+  %i.1124 = phi i64 [ %dec35, %if.end39 ], [ %4, %if.else26 ]
+  %cmp36 = icmp slt i64 %i.1124, 1
   br i1 %cmp36, label %fail, label %if.end39
 
 if.end39:                                         ; preds = %while.body34
-  %dec35 = add nsw i64 %i.1125, -1
-  %incdec.ptr40 = getelementptr i8, ptr %entry_ptr27.0124, i64 -24
-  %me_value31 = getelementptr i8, ptr %entry_ptr27.0124, i64 -8
+  %dec35 = add nsw i64 %i.1124, -1
+  %incdec.ptr40 = getelementptr i8, ptr %entry_ptr27.0125, i64 -24
+  %me_value31 = getelementptr i8, ptr %entry_ptr27.0125, i64 -8
   %14 = load ptr, ptr %me_value31, align 8
   %cmp32 = icmp eq ptr %14, null
   br i1 %cmp32, label %while.body34, label %while.end41, !llvm.loop !61
 
 while.end41:                                      ; preds = %if.end39, %if.else26
-  %entry_ptr27.0.lcssa = phi ptr [ %arrayidx29, %if.else26 ], [ %incdec.ptr40, %if.end39 ]
   %i.1.lcssa = phi i64 [ %4, %if.else26 ], [ %dec35, %if.end39 ]
+  %entry_ptr27.0.lcssa = phi ptr [ %arrayidx29, %if.else26 ], [ %incdec.ptr40, %if.end39 ]
   %.lcssa = phi ptr [ %13, %if.else26 ], [ %14, %if.end39 ]
   %me_key42 = getelementptr inbounds i8, ptr %entry_ptr27.0.lcssa, i64 8
   br label %if.end45
 
 if.end45:                                         ; preds = %if.end23, %if.then15, %while.end41, %if.then8
-  %value.0 = phi ptr [ %9, %if.then8 ], [ %.lcssa, %while.end41 ], [ %11, %if.then15 ], [ %12, %if.end23 ]
-  %key.0.in = phi ptr [ %arrayidx, %if.then8 ], [ %me_key42, %while.end41 ], [ %arrayidx17, %if.then15 ], [ %incdec.ptr, %if.end23 ]
   %i.2 = phi i64 [ %4, %if.then8 ], [ %i.1.lcssa, %while.end41 ], [ %4, %if.then15 ], [ %dec, %if.end23 ]
+  %key.0.in = phi ptr [ %arrayidx, %if.then8 ], [ %me_key42, %while.end41 ], [ %arrayidx17, %if.then15 ], [ %incdec.ptr, %if.end23 ]
+  %value.0 = phi ptr [ %9, %if.then8 ], [ %.lcssa, %while.end41 ], [ %11, %if.then15 ], [ %12, %if.end23 ]
   %key.0 = load ptr, ptr %key.0.in, align 8
   %sub = add nsw i64 %i.2, -1
   store i64 %sub, ptr %di_pos, align 8
@@ -12908,13 +12908,13 @@ lor.rhs.i50:                                      ; preds = %lor.lhs.false
 PyObject_TypeCheck.exit54:                        ; preds = %lor.lhs.false, %lor.rhs.i50
   %lor.ext.i53 = phi i32 [ 1, %lor.lhs.false ], [ %1, %lor.rhs.i50 ]
   %tobool2.not = icmp eq i32 %lor.ext.i53, 0
-  %spec.select = select i1 %tobool2.not, ptr %self, ptr %other
-  %spec.select43 = select i1 %tobool2.not, ptr %other, ptr %self
+  %spec.select = select i1 %tobool2.not, ptr %other, ptr %self
+  %spec.select43 = select i1 %tobool2.not, ptr %self, ptr %other
   br label %if.end
 
 if.end:                                           ; preds = %entry, %PyObject_TypeCheck.exit54, %PyObject_TypeCheck.exit
-  %other.addr.0 = phi ptr [ %other, %PyObject_TypeCheck.exit ], [ %spec.select, %PyObject_TypeCheck.exit54 ], [ %other, %entry ]
-  %self.addr.0 = phi ptr [ %self, %PyObject_TypeCheck.exit ], [ %spec.select43, %PyObject_TypeCheck.exit54 ], [ %self, %entry ]
+  %self.addr.0 = phi ptr [ %self, %PyObject_TypeCheck.exit ], [ %spec.select, %PyObject_TypeCheck.exit54 ], [ %self, %entry ]
+  %other.addr.0 = phi ptr [ %other, %PyObject_TypeCheck.exit ], [ %spec.select43, %PyObject_TypeCheck.exit54 ], [ %other, %entry ]
   %dv_dict.i = getelementptr inbounds i8, ptr %self.addr.0, i64 16
   %2 = load ptr, ptr %dv_dict.i, align 8
   %cmp.not.i = icmp eq ptr %2, null
@@ -12979,13 +12979,13 @@ if.then.i72:                                      ; preds = %if.then15
 dictview_len.exit76:                              ; preds = %if.then15, %if.then.i72
   %len.0.i75 = phi i64 [ %6, %if.then.i72 ], [ 0, %if.then15 ]
   %cmp17 = icmp sgt i64 %len.0.i75, %len.0.i
-  %spec.select44 = select i1 %cmp17, ptr %self.addr.0, ptr %other.addr.0
-  %spec.select45 = select i1 %cmp17, ptr %other.addr.0, ptr %self.addr.0
+  %spec.select44 = select i1 %cmp17, ptr %other.addr.0, ptr %self.addr.0
+  %spec.select45 = select i1 %cmp17, ptr %self.addr.0, ptr %other.addr.0
   br label %if.end21
 
 if.end21:                                         ; preds = %dictview_len.exit76, %PyObject_TypeCheck.exit69
-  %other.addr.1 = phi ptr [ %other.addr.0, %PyObject_TypeCheck.exit69 ], [ %spec.select44, %dictview_len.exit76 ]
-  %self.addr.1 = phi ptr [ %self.addr.0, %PyObject_TypeCheck.exit69 ], [ %spec.select45, %dictview_len.exit76 ]
+  %self.addr.1 = phi ptr [ %self.addr.0, %PyObject_TypeCheck.exit69 ], [ %spec.select44, %dictview_len.exit76 ]
+  %other.addr.1 = phi ptr [ %other.addr.0, %PyObject_TypeCheck.exit69 ], [ %spec.select45, %dictview_len.exit76 ]
   %call22 = tail call ptr @PySet_New(ptr noundef null) #17
   %cmp23 = icmp eq ptr %call22, null
   br i1 %cmp23, label %return, label %if.end25
@@ -14187,16 +14187,16 @@ dictkeys_incref.exit:                             ; preds = %entry, %if.end.i
   br i1 %cmp23.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %dictkeys_incref.exit, %for.inc
-  %used.026 = phi i64 [ %used.1, %for.inc ], [ 0, %dictkeys_incref.exit ]
+  %i.026 = phi i64 [ %inc, %for.inc ], [ 0, %dictkeys_incref.exit ]
   %track.025 = phi i64 [ %track.1, %for.inc ], [ 0, %dictkeys_incref.exit ]
-  %i.024 = phi i64 [ %inc, %for.inc ], [ 0, %dictkeys_incref.exit ]
-  %arrayidx = getelementptr [1 x ptr], ptr %values, i64 0, i64 %i.024
+  %used.024 = phi i64 [ %used.1, %for.inc ], [ 0, %dictkeys_incref.exit ]
+  %arrayidx = getelementptr [1 x ptr], ptr %values, i64 0, i64 %i.026
   %3 = load ptr, ptr %arrayidx, align 8
   %cmp2.not = icmp eq ptr %3, null
   br i1 %cmp2.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %add = add i64 %used.026, 1
+  %add = add i64 %used.024, 1
   %call.i = tail call i32 @PyObject_IS_GC(ptr noundef nonnull %3) #17
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %_PyObject_GC_MAY_BE_TRACKED.exit, label %if.end.i12
@@ -14220,9 +14220,9 @@ _PyObject_GC_MAY_BE_TRACKED.exit:                 ; preds = %if.then, %if.end.i1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_PyObject_GC_MAY_BE_TRACKED.exit
+  %used.1 = phi i64 [ %add, %_PyObject_GC_MAY_BE_TRACKED.exit ], [ %used.024, %for.body ]
   %track.1 = phi i64 [ %add4, %_PyObject_GC_MAY_BE_TRACKED.exit ], [ %track.025, %for.body ]
-  %used.1 = phi i64 [ %add, %_PyObject_GC_MAY_BE_TRACKED.exit ], [ %used.026, %for.body ]
-  %inc = add nuw i64 %i.024, 1
+  %inc = add nuw i64 %i.026, 1
   %exitcond.not = icmp eq i64 %inc, %add.i
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !64
 
@@ -14231,8 +14231,8 @@ for.end.loopexit:                                 ; preds = %for.inc
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %dictkeys_incref.exit
-  %track.0.lcssa = phi i1 [ false, %dictkeys_incref.exit ], [ %6, %for.end.loopexit ]
   %used.0.lcssa = phi i64 [ 0, %dictkeys_incref.exit ], [ %used.1, %for.end.loopexit ]
+  %track.0.lcssa = phi i1 [ false, %dictkeys_incref.exit ], [ %6, %for.end.loopexit ]
   %dict_state.i.i = getelementptr inbounds i8, ptr %interp, i64 303904
   %numfree.i = getelementptr inbounds i8, ptr %interp, i64 305200
   %7 = load i32, ptr %numfree.i, align 8
@@ -15763,8 +15763,8 @@ entry:
 
 for.body:                                         ; preds = %entry, %if.end6
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %if.end6 ]
-  %watcher_bits.addr.08 = phi i32 [ %watcher_bits, %entry ], [ %shr, %if.end6 ]
-  %and = and i32 %watcher_bits.addr.08, 1
+  %watcher_bits.addr.07 = phi i32 [ %watcher_bits, %entry ], [ %shr, %if.end6 ]
+  %and = and i32 %watcher_bits.addr.07, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end6, label %if.then
 
@@ -15785,7 +15785,7 @@ switch.lookup:                                    ; preds = %land.lhs.true
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then, %land.lhs.true, %switch.lookup, %for.body
-  %shr = ashr i32 %watcher_bits.addr.08, 1
+  %shr = ashr i32 %watcher_bits.addr.07, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !20
@@ -16965,8 +16965,8 @@ if.then.i.i:                                      ; preds = %while.end.i
 
 for.body.i.i.i:                                   ; preds = %if.end6.i.i.i, %if.then.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %if.then.i.i ], [ %indvars.iv.next.i.i.i, %if.end6.i.i.i ]
-  %watcher_bits.addr.08.i.i.i = phi i32 [ %conv.i.i, %if.then.i.i ], [ %shr.i.i.i, %if.end6.i.i.i ]
-  %and.i.i.i = and i32 %watcher_bits.addr.08.i.i.i, 1
+  %watcher_bits.addr.07.i.i.i = phi i32 [ %conv.i.i, %if.then.i.i ], [ %shr.i.i.i, %if.end6.i.i.i ]
+  %and.i.i.i = and i32 %watcher_bits.addr.07.i.i.i, 1
   %tobool.not.i.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %if.end6.i.i.i, label %if.then.i.i.i
 
@@ -16986,7 +16986,7 @@ if.then4.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
   br label %if.end6.i.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.then4.i.i.i, %land.lhs.true.i.i.i, %if.then.i.i.i, %for.body.i.i.i
-  %shr.i.i.i = lshr i32 %watcher_bits.addr.08.i.i.i, 1
+  %shr.i.i.i = lshr i32 %watcher_bits.addr.07.i.i.i, 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
   br i1 %exitcond.not.i.i.i, label %_PyDict_SendEvent.exit.i.i, label %for.body.i.i.i, !llvm.loop !20
@@ -17049,8 +17049,8 @@ if.then.i68.i:                                    ; preds = %while.end53.i
 
 for.body.i.i71.i:                                 ; preds = %if.end6.i.i82.i, %if.then.i68.i
   %indvars.iv.i.i72.i = phi i64 [ 0, %if.then.i68.i ], [ %indvars.iv.next.i.i84.i, %if.end6.i.i82.i ]
-  %watcher_bits.addr.08.i.i73.i = phi i32 [ %conv.i66.i, %if.then.i68.i ], [ %shr.i.i83.i, %if.end6.i.i82.i ]
-  %and.i.i74.i = and i32 %watcher_bits.addr.08.i.i73.i, 1
+  %watcher_bits.addr.07.i.i73.i = phi i32 [ %conv.i66.i, %if.then.i68.i ], [ %shr.i.i83.i, %if.end6.i.i82.i ]
+  %and.i.i74.i = and i32 %watcher_bits.addr.07.i.i73.i, 1
   %tobool.not.i.i75.i = icmp eq i32 %and.i.i74.i, 0
   br i1 %tobool.not.i.i75.i, label %if.end6.i.i82.i, label %if.then.i.i76.i
 
@@ -17070,7 +17070,7 @@ if.then4.i.i92.i:                                 ; preds = %land.lhs.true.i.i79
   br label %if.end6.i.i82.i
 
 if.end6.i.i82.i:                                  ; preds = %if.then4.i.i92.i, %land.lhs.true.i.i79.i, %if.then.i.i76.i, %for.body.i.i71.i
-  %shr.i.i83.i = lshr i32 %watcher_bits.addr.08.i.i73.i, 1
+  %shr.i.i83.i = lshr i32 %watcher_bits.addr.07.i.i73.i, 1
   %indvars.iv.next.i.i84.i = add nuw nsw i64 %indvars.iv.i.i72.i, 1
   %exitcond.not.i.i85.i = icmp eq i64 %indvars.iv.next.i.i84.i, 8
   br i1 %exitcond.not.i.i85.i, label %_PyDict_SendEvent.exit.i86.i, label %for.body.i.i71.i, !llvm.loop !20
@@ -17102,11 +17102,11 @@ _PyDict_NotifyEvent.exit96.i:                     ; preds = %if.end.i93.i, %_PyD
   br label %if.end66.i
 
 if.end66.i:                                       ; preds = %_PyDict_NotifyEvent.exit96.i, %_PyDict_NotifyEvent.exit.i
+  %i.2.i = phi i64 [ %i.0.lcssa.i, %_PyDict_NotifyEvent.exit.i ], [ %i.1.lcssa.i, %_PyDict_NotifyEvent.exit96.i ]
   %new_version.0.i = phi i64 [ %retval.0.i.i, %_PyDict_NotifyEvent.exit.i ], [ %retval.0.i91.i, %_PyDict_NotifyEvent.exit96.i ]
   %key.0.i = phi ptr [ %19, %_PyDict_NotifyEvent.exit.i ], [ %30, %_PyDict_NotifyEvent.exit96.i ]
   %value.0.i = phi ptr [ %28, %_PyDict_NotifyEvent.exit.i ], [ %39, %_PyDict_NotifyEvent.exit96.i ]
   %hash.0.i = phi i64 [ %.val.i, %_PyDict_NotifyEvent.exit.i ], [ %38, %_PyDict_NotifyEvent.exit96.i ]
-  %i.2.i = phi i64 [ %i.0.lcssa.i, %_PyDict_NotifyEvent.exit.i ], [ %i.1.lcssa.i, %_PyDict_NotifyEvent.exit96.i ]
   %40 = load ptr, ptr %ma_keys.i, align 8
   %call68.i = tail call fastcc i64 @lookdict_index(ptr noundef %40, i64 noundef %hash.0.i, i64 noundef %i.2.i)
   %dk_log2_size.i.i = getelementptr inbounds i8, ptr %40, i64 8
@@ -17936,9 +17936,9 @@ if.end58.i.i:                                     ; preds = %land.rhs46.i.i
 
 while.body.i:                                     ; preds = %if.end58.i.i, %if.end33.i.i, %if.end6.i.i
   %value.0.i.i = phi ptr [ %value.0.pre.i.i, %if.end6.i.i ], [ %21, %if.end33.i.i ], [ %24, %if.end58.i.i ]
+  %i.2.i.i = phi i64 [ %pos.045.i, %if.end6.i.i ], [ %i.061.i.i, %if.end33.i.i ], [ %i.164.i.i, %if.end58.i.i ]
   %key.0.i.i = phi ptr [ %15, %if.end6.i.i ], [ %22, %if.end33.i.i ], [ %25, %if.end58.i.i ]
   %hash.0.in.i.i = phi ptr [ %16, %if.end6.i.i ], [ %23, %if.end33.i.i ], [ %entry_ptr39.065.i.i, %if.end58.i.i ]
-  %i.2.i.i = phi i64 [ %pos.045.i, %if.end6.i.i ], [ %i.061.i.i, %if.end33.i.i ], [ %i.164.i.i, %if.end58.i.i ]
   %hash.0.i.i = load i64, ptr %hash.0.in.i.i, align 8
   %add.i48.i = add nuw nsw i64 %i.2.i.i, 1
   %26 = load i32, ptr %key.0.i.i, align 8
@@ -18548,13 +18548,13 @@ dictview_len.exit51:                              ; preds = %if.then20, %if.then
 
 if.end25:                                         ; preds = %dictview_len.exit51
   %cmp26 = icmp sgt i64 %call22, %len.0.i50
-  %spec.select = select i1 %cmp26, ptr %self, ptr %other
-  %spec.select29 = select i1 %cmp26, ptr %other, ptr %self
+  %spec.select = select i1 %cmp26, ptr %other, ptr %self
+  %spec.select29 = select i1 %cmp26, ptr %self, ptr %other
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end25, %PyObject_TypeCheck.exit44
-  %other.addr.0 = phi ptr [ %other, %PyObject_TypeCheck.exit44 ], [ %spec.select, %if.end25 ]
-  %self.addr.0 = phi ptr [ %self, %PyObject_TypeCheck.exit44 ], [ %spec.select29, %if.end25 ]
+  %self.addr.0 = phi ptr [ %self, %PyObject_TypeCheck.exit44 ], [ %spec.select, %if.end25 ]
+  %other.addr.0 = phi ptr [ %other, %PyObject_TypeCheck.exit44 ], [ %spec.select29, %if.end25 ]
   %call30 = tail call ptr @PyObject_GetIter(ptr noundef nonnull %other.addr.0) #17
   %cmp31 = icmp eq ptr %call30, null
   br i1 %cmp31, label %return, label %while.cond

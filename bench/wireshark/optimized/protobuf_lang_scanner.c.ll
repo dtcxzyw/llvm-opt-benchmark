@@ -137,16 +137,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %49 = load i64, ptr %48, align 8
   %50 = getelementptr ptr, ptr %47, i64 %49
   store ptr %46, ptr %50, align 8
-  %.pre1297 = load ptr, ptr %20, align 8
-  %.pre1298 = load i64, ptr %48, align 8
-  %.phi.trans.insert1299 = getelementptr ptr, ptr %.pre1297, i64 %.pre1298
-  %.pre1300 = load ptr, ptr %.phi.trans.insert1299, align 8
+  %.pre1296 = load ptr, ptr %20, align 8
+  %.pre1297 = load i64, ptr %48, align 8
+  %.phi.trans.insert1298 = getelementptr ptr, ptr %.pre1296, i64 %.pre1297
+  %.pre1299 = load ptr, ptr %.phi.trans.insert1298, align 8
   br label %51
 
 51:                                               ; preds = %protobuf_lang_ensure_buffer_stack.exit, %22
-  %52 = phi ptr [ %.pre1300, %protobuf_lang_ensure_buffer_stack.exit ], [ %26, %22 ]
-  %53 = phi i64 [ %.pre1298, %protobuf_lang_ensure_buffer_stack.exit ], [ %24, %22 ]
-  %54 = phi ptr [ %.pre1297, %protobuf_lang_ensure_buffer_stack.exit ], [ %21, %22 ]
+  %52 = phi ptr [ %.pre1299, %protobuf_lang_ensure_buffer_stack.exit ], [ %26, %22 ]
+  %53 = phi i64 [ %.pre1297, %protobuf_lang_ensure_buffer_stack.exit ], [ %24, %22 ]
+  %54 = phi ptr [ %.pre1296, %protobuf_lang_ensure_buffer_stack.exit ], [ %21, %22 ]
   %55 = getelementptr ptr, ptr %54, i64 %53
   %56 = getelementptr inbounds i8, ptr %52, i64 28
   %57 = load i32, ptr %56, align 4
@@ -191,26 +191,26 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.loopexit
-  %.0636 = phi ptr [ %82, %.loopexit ], [ %.0636.be, %.backedge.backedge ]
+  %.0634 = phi i32 [ %84, %.loopexit ], [ %.0634.be, %.backedge.backedge ]
   %.0632 = phi ptr [ %82, %.loopexit ], [ %.0632.be, %.backedge.backedge ]
-  %.0628 = phi i32 [ %84, %.loopexit ], [ %.0628.be, %.backedge.backedge ]
+  %.0630 = phi ptr [ %82, %.loopexit ], [ %.0630.be, %.backedge.backedge ]
   br label %85
 
 85:                                               ; preds = %._crit_edge, %.backedge
+  %.1635 = phi i32 [ %.0634, %.backedge ], [ %122, %._crit_edge ]
   %.1633 = phi ptr [ %.0632, %.backedge ], [ %123, %._crit_edge ]
-  %.1 = phi i32 [ %.0628, %.backedge ], [ %122, %._crit_edge ]
   %86 = load i8, ptr %.1633, align 1
   %87 = zext i8 %86 to i64
   %88 = getelementptr [256 x i8], ptr @yy_ec, i64 0, i64 %87
   %89 = load i8, ptr %88, align 1
-  %90 = sext i32 %.1 to i64
+  %90 = sext i32 %.1635 to i64
   %91 = getelementptr [185 x i16], ptr @yy_accept, i64 0, i64 %90
   %92 = load i16, ptr %91, align 2
   %.not647 = icmp eq i16 %92, 0
   br i1 %.not647, label %94, label %93
 
 93:                                               ; preds = %85
-  store i32 %.1, ptr %72, align 8
+  store i32 %.1635, ptr %72, align 8
   store ptr %.1633, ptr %73, align 8
   br label %94
 
@@ -223,13 +223,13 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %100 = getelementptr [331 x i16], ptr @yy_chk, i64 0, i64 %99
   %101 = load i16, ptr %100, align 2
   %102 = sext i16 %101 to i32
-  %.not6481181 = icmp eq i32 %.1, %102
-  br i1 %.not6481181, label %._crit_edge, label %.lr.ph
+  %.not6481180 = icmp eq i32 %.1635, %102
+  br i1 %.not6481180, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %94, %111
   %103 = phi i64 [ %116, %111 ], [ %98, %94 ]
   %104 = phi i64 [ %112, %111 ], [ %90, %94 ]
-  %.06301182 = phi i8 [ %.1631, %111 ], [ %89, %94 ]
+  %.06281181 = phi i8 [ %.1, %111 ], [ %89, %94 ]
   %105 = getelementptr [193 x i16], ptr @yy_def, i64 0, i64 %104
   %106 = load i16, ptr %105, align 2
   %107 = icmp sgt i16 %106, 184
@@ -241,12 +241,12 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br label %111
 
 111:                                              ; preds = %108, %.lr.ph
-  %.1631 = phi i8 [ %110, %108 ], [ %.06301182, %.lr.ph ]
+  %.1 = phi i8 [ %110, %108 ], [ %.06281181, %.lr.ph ]
   %112 = sext i16 %106 to i64
   %113 = getelementptr [193 x i16], ptr @yy_base, i64 0, i64 %112
   %114 = load i16, ptr %113, align 2
   %115 = sext i16 %114 to i64
-  %116 = zext i8 %.1631 to i64
+  %116 = zext i8 %.1 to i64
   %117 = add nsw i64 %115, %116
   %118 = getelementptr [331 x i16], ptr @yy_chk, i64 0, i64 %117
   %119 = load i16, ptr %118, align 2
@@ -267,46 +267,46 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %124
-  %.1637.ph = phi ptr [ %.0636, %124 ], [ %.1637.ph.be, %.outer.backedge ]
-  %.2634.in.ph = phi ptr [ %73, %124 ], [ %.2634.in.ph.be, %.outer.backedge ]
   %.3.ph = phi i32 [ %125, %124 ], [ %.3.ph.be, %.outer.backedge ]
-  %126 = ptrtoint ptr %.1637.ph to i64
+  %.2.in.ph = phi ptr [ %73, %124 ], [ %.2.in.ph.be, %.outer.backedge ]
+  %.1631.ph = phi ptr [ %.0630, %124 ], [ %.1631.ph.be, %.outer.backedge ]
+  %126 = ptrtoint ptr %.1631.ph to i64
   br label %127
 
 127:                                              ; preds = %.outer, %165
-  %.2634.in = phi ptr [ %73, %165 ], [ %.2634.in.ph, %.outer ]
   %.3 = phi i32 [ %167, %165 ], [ %.3.ph, %.outer ]
-  %.2634 = load ptr, ptr %.2634.in, align 8
+  %.2.in = phi ptr [ %73, %165 ], [ %.2.in.ph, %.outer ]
+  %.2 = load ptr, ptr %.2.in, align 8
   %128 = sext i32 %.3 to i64
   %129 = getelementptr [185 x i16], ptr @yy_accept, i64 0, i64 %128
   %130 = load i16, ptr %129, align 2
   %131 = sext i16 %130 to i32
-  store ptr %.1637.ph, ptr %74, align 8
-  %132 = ptrtoint ptr %.2634 to i64
+  store ptr %.1631.ph, ptr %74, align 8
+  %132 = ptrtoint ptr %.2 to i64
   %133 = sub i64 %132, %126
   %134 = trunc i64 %133 to i32
   store i32 %134, ptr %75, align 8
-  %135 = load i8, ptr %.2634, align 1
+  %135 = load i8, ptr %.2, align 1
   store i8 %135, ptr %70, align 8
-  store i8 0, ptr %.2634, align 1
-  store ptr %.2634, ptr %69, align 8
+  store i8 0, ptr %.2, align 1
+  store ptr %.2, ptr %69, align 8
   %136 = and i64 %128, 9223372036854775807
   %.not650 = icmp eq i64 %136, 5
-  br i1 %.not650, label %.loopexit971.preheader, label %137
+  br i1 %.not650, label %.loopexit970.preheader, label %137
 
 137:                                              ; preds = %127
   %138 = sext i16 %130 to i64
   %139 = and i64 %138, 4611686018427387903
   %140 = add nsw i64 %139, -69
   %.not651 = icmp ult i64 %140, -2
-  br i1 %.not651, label %.loopexit971.preheader, label %.preheader
+  br i1 %.not651, label %.loopexit970.preheader, label %.preheader
 
 .preheader:                                       ; preds = %137
   %141 = load i32, ptr %75, align 8
   %142 = icmp sgt i32 %141, 0
-  br i1 %142, label %.lr.ph1184, label %.loopexit971.preheader
+  br i1 %142, label %.lr.ph1183, label %.loopexit970.preheader
 
-.lr.ph1184:                                       ; preds = %.preheader, %161
+.lr.ph1183:                                       ; preds = %.preheader, %161
   %143 = phi i32 [ %162, %161 ], [ %141, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %161 ], [ 0, %.preheader ]
   %144 = load ptr, ptr %74, align 8
@@ -315,7 +315,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %147 = icmp eq i8 %146, 10
   br i1 %147, label %148, label %161
 
-148:                                              ; preds = %.lr.ph1184
+148:                                              ; preds = %.lr.ph1183
   %149 = load ptr, ptr %76, align 8
   %150 = load i64, ptr %77, align 8
   %151 = getelementptr ptr, ptr %149, i64 %150
@@ -330,22 +330,22 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr inbounds i8, ptr %159, i64 48
   store i32 0, ptr %160, align 8
-  %.pre1301 = load i32, ptr %75, align 8
+  %.pre1300 = load i32, ptr %75, align 8
   br label %161
 
-161:                                              ; preds = %.lr.ph1184, %148
-  %162 = phi i32 [ %143, %.lr.ph1184 ], [ %.pre1301, %148 ]
+161:                                              ; preds = %.lr.ph1183, %148
+  %162 = phi i32 [ %143, %.lr.ph1183 ], [ %.pre1300, %148 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %163 = sext i32 %162 to i64
   %164 = icmp slt i64 %indvars.iv.next, %163
-  br i1 %164, label %.lr.ph1184, label %.loopexit971.preheader, !llvm.loop !7
+  br i1 %164, label %.lr.ph1183, label %.loopexit970.preheader, !llvm.loop !7
 
-.loopexit971.preheader:                           ; preds = %161, %.preheader, %137, %127
-  br label %.loopexit971
+.loopexit970.preheader:                           ; preds = %161, %.preheader, %137, %127
+  br label %.loopexit970
 
-.loopexit971:                                     ; preds = %.loopexit971.preheader, %yy_get_next_buffer.exit.thread
-  %.0635 = phi i32 [ %1701, %yy_get_next_buffer.exit.thread ], [ %131, %.loopexit971.preheader ]
-  switch i32 %.0635, label %1715 [
+.loopexit970:                                     ; preds = %.loopexit970.preheader, %yy_get_next_buffer.exit.thread
+  %.0629 = phi i32 [ %1701, %yy_get_next_buffer.exit.thread ], [ %131, %.loopexit970.preheader ]
+  switch i32 %.0629, label %1715 [
     i32 0, label %165
     i32 1, label %168
     i32 2, label %188
@@ -417,18 +417,18 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
     i32 68, label %.loopexit.backedge
     i32 69, label %1436
     i32 70, label %1438
-    i32 72, label %.loopexit970
-    i32 73, label %.loopexit970
+    i32 72, label %.loopexit969
+    i32 73, label %.loopexit969
     i32 71, label %1444
   ]
 
-165:                                              ; preds = %.loopexit971
+165:                                              ; preds = %.loopexit970
   %166 = load i8, ptr %70, align 8
-  store i8 %166, ptr %.2634, align 1
+  store i8 %166, ptr %.2, align 1
   %167 = load i32, ptr %72, align 8
   br label %127
 
-168:                                              ; preds = %.loopexit971
+168:                                              ; preds = %.loopexit970
   %169 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %170 = load ptr, ptr %0, align 8
   %171 = getelementptr inbounds i8, ptr %170, i64 56
@@ -449,16 +449,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %179, ptr %182, align 8
   %183 = load ptr, ptr %76, align 8
   %.not.i716 = icmp eq ptr %183, null
-  br i1 %.not.i716, label %.loopexit970.sink.split, label %184
+  br i1 %.not.i716, label %.loopexit969.sink.split, label %184
 
 184:                                              ; preds = %168
   %185 = load i64, ptr %77, align 8
   %186 = getelementptr ptr, ptr %183, i64 %185
   %187 = load ptr, ptr %186, align 8
   %.not8.i = icmp eq ptr %187, null
-  br i1 %.not8.i, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-188:                                              ; preds = %.loopexit971
+188:                                              ; preds = %.loopexit970
   %189 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %190 = load ptr, ptr %0, align 8
   %191 = getelementptr inbounds i8, ptr %190, i64 56
@@ -479,16 +479,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %199, ptr %202, align 8
   %203 = load ptr, ptr %76, align 8
   %.not.i717 = icmp eq ptr %203, null
-  br i1 %.not.i717, label %.loopexit970.sink.split, label %204
+  br i1 %.not.i717, label %.loopexit969.sink.split, label %204
 
 204:                                              ; preds = %188
   %205 = load i64, ptr %77, align 8
   %206 = getelementptr ptr, ptr %203, i64 %205
   %207 = load ptr, ptr %206, align 8
   %.not8.i718 = icmp eq ptr %207, null
-  br i1 %.not8.i718, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i718, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-208:                                              ; preds = %.loopexit971
+208:                                              ; preds = %.loopexit970
   %209 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %210 = load ptr, ptr %0, align 8
   %211 = getelementptr inbounds i8, ptr %210, i64 56
@@ -509,16 +509,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %219, ptr %222, align 8
   %223 = load ptr, ptr %76, align 8
   %.not.i721 = icmp eq ptr %223, null
-  br i1 %.not.i721, label %.loopexit970.sink.split, label %224
+  br i1 %.not.i721, label %.loopexit969.sink.split, label %224
 
 224:                                              ; preds = %208
   %225 = load i64, ptr %77, align 8
   %226 = getelementptr ptr, ptr %223, i64 %225
   %227 = load ptr, ptr %226, align 8
   %.not8.i722 = icmp eq ptr %227, null
-  br i1 %.not8.i722, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i722, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-228:                                              ; preds = %.loopexit971
+228:                                              ; preds = %.loopexit970
   %229 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %230 = load ptr, ptr %0, align 8
   %231 = getelementptr inbounds i8, ptr %230, i64 56
@@ -539,16 +539,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %239, ptr %242, align 8
   %243 = load ptr, ptr %76, align 8
   %.not.i725 = icmp eq ptr %243, null
-  br i1 %.not.i725, label %.loopexit970.sink.split, label %244
+  br i1 %.not.i725, label %.loopexit969.sink.split, label %244
 
 244:                                              ; preds = %228
   %245 = load i64, ptr %77, align 8
   %246 = getelementptr ptr, ptr %243, i64 %245
   %247 = load ptr, ptr %246, align 8
   %.not8.i726 = icmp eq ptr %247, null
-  br i1 %.not8.i726, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i726, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-248:                                              ; preds = %.loopexit971
+248:                                              ; preds = %.loopexit970
   %249 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %250 = load ptr, ptr %0, align 8
   %251 = getelementptr inbounds i8, ptr %250, i64 56
@@ -569,16 +569,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %259, ptr %262, align 8
   %263 = load ptr, ptr %76, align 8
   %.not.i729 = icmp eq ptr %263, null
-  br i1 %.not.i729, label %.loopexit970.sink.split, label %264
+  br i1 %.not.i729, label %.loopexit969.sink.split, label %264
 
 264:                                              ; preds = %248
   %265 = load i64, ptr %77, align 8
   %266 = getelementptr ptr, ptr %263, i64 %265
   %267 = load ptr, ptr %266, align 8
   %.not8.i730 = icmp eq ptr %267, null
-  br i1 %.not8.i730, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i730, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-268:                                              ; preds = %.loopexit971
+268:                                              ; preds = %.loopexit970
   %269 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %270 = load ptr, ptr %0, align 8
   %271 = getelementptr inbounds i8, ptr %270, i64 56
@@ -599,16 +599,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %279, ptr %282, align 8
   %283 = load ptr, ptr %76, align 8
   %.not.i733 = icmp eq ptr %283, null
-  br i1 %.not.i733, label %.loopexit970.sink.split, label %284
+  br i1 %.not.i733, label %.loopexit969.sink.split, label %284
 
 284:                                              ; preds = %268
   %285 = load i64, ptr %77, align 8
   %286 = getelementptr ptr, ptr %283, i64 %285
   %287 = load ptr, ptr %286, align 8
   %.not8.i734 = icmp eq ptr %287, null
-  br i1 %.not8.i734, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i734, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-288:                                              ; preds = %.loopexit971
+288:                                              ; preds = %.loopexit970
   %289 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %290 = load ptr, ptr %0, align 8
   %291 = getelementptr inbounds i8, ptr %290, i64 56
@@ -629,16 +629,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %299, ptr %302, align 8
   %303 = load ptr, ptr %76, align 8
   %.not.i737 = icmp eq ptr %303, null
-  br i1 %.not.i737, label %.loopexit970.sink.split, label %304
+  br i1 %.not.i737, label %.loopexit969.sink.split, label %304
 
 304:                                              ; preds = %288
   %305 = load i64, ptr %77, align 8
   %306 = getelementptr ptr, ptr %303, i64 %305
   %307 = load ptr, ptr %306, align 8
   %.not8.i738 = icmp eq ptr %307, null
-  br i1 %.not8.i738, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i738, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-308:                                              ; preds = %.loopexit971
+308:                                              ; preds = %.loopexit970
   %309 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %310 = load ptr, ptr %0, align 8
   %311 = getelementptr inbounds i8, ptr %310, i64 56
@@ -659,16 +659,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %319, ptr %322, align 8
   %323 = load ptr, ptr %76, align 8
   %.not.i741 = icmp eq ptr %323, null
-  br i1 %.not.i741, label %.loopexit970.sink.split, label %324
+  br i1 %.not.i741, label %.loopexit969.sink.split, label %324
 
 324:                                              ; preds = %308
   %325 = load i64, ptr %77, align 8
   %326 = getelementptr ptr, ptr %323, i64 %325
   %327 = load ptr, ptr %326, align 8
   %.not8.i742 = icmp eq ptr %327, null
-  br i1 %.not8.i742, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i742, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-328:                                              ; preds = %.loopexit971
+328:                                              ; preds = %.loopexit970
   %329 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %330 = load ptr, ptr %0, align 8
   %331 = getelementptr inbounds i8, ptr %330, i64 56
@@ -689,16 +689,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %339, ptr %342, align 8
   %343 = load ptr, ptr %76, align 8
   %.not.i745 = icmp eq ptr %343, null
-  br i1 %.not.i745, label %.loopexit970.sink.split, label %344
+  br i1 %.not.i745, label %.loopexit969.sink.split, label %344
 
 344:                                              ; preds = %328
   %345 = load i64, ptr %77, align 8
   %346 = getelementptr ptr, ptr %343, i64 %345
   %347 = load ptr, ptr %346, align 8
   %.not8.i746 = icmp eq ptr %347, null
-  br i1 %.not8.i746, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i746, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-348:                                              ; preds = %.loopexit971
+348:                                              ; preds = %.loopexit970
   %349 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %350 = load ptr, ptr %0, align 8
   %351 = getelementptr inbounds i8, ptr %350, i64 56
@@ -719,16 +719,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %359, ptr %362, align 8
   %363 = load ptr, ptr %76, align 8
   %.not.i749 = icmp eq ptr %363, null
-  br i1 %.not.i749, label %.loopexit970.sink.split, label %364
+  br i1 %.not.i749, label %.loopexit969.sink.split, label %364
 
 364:                                              ; preds = %348
   %365 = load i64, ptr %77, align 8
   %366 = getelementptr ptr, ptr %363, i64 %365
   %367 = load ptr, ptr %366, align 8
   %.not8.i750 = icmp eq ptr %367, null
-  br i1 %.not8.i750, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i750, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-368:                                              ; preds = %.loopexit971
+368:                                              ; preds = %.loopexit970
   %369 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %370 = load ptr, ptr %0, align 8
   %371 = getelementptr inbounds i8, ptr %370, i64 56
@@ -749,16 +749,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %379, ptr %382, align 8
   %383 = load ptr, ptr %76, align 8
   %.not.i753 = icmp eq ptr %383, null
-  br i1 %.not.i753, label %.loopexit970.sink.split, label %384
+  br i1 %.not.i753, label %.loopexit969.sink.split, label %384
 
 384:                                              ; preds = %368
   %385 = load i64, ptr %77, align 8
   %386 = getelementptr ptr, ptr %383, i64 %385
   %387 = load ptr, ptr %386, align 8
   %.not8.i754 = icmp eq ptr %387, null
-  br i1 %.not8.i754, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i754, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-388:                                              ; preds = %.loopexit971
+388:                                              ; preds = %.loopexit970
   %389 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %390 = load ptr, ptr %0, align 8
   %391 = getelementptr inbounds i8, ptr %390, i64 56
@@ -779,16 +779,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %399, ptr %402, align 8
   %403 = load ptr, ptr %76, align 8
   %.not.i757 = icmp eq ptr %403, null
-  br i1 %.not.i757, label %.loopexit970.sink.split, label %404
+  br i1 %.not.i757, label %.loopexit969.sink.split, label %404
 
 404:                                              ; preds = %388
   %405 = load i64, ptr %77, align 8
   %406 = getelementptr ptr, ptr %403, i64 %405
   %407 = load ptr, ptr %406, align 8
   %.not8.i758 = icmp eq ptr %407, null
-  br i1 %.not8.i758, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i758, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-408:                                              ; preds = %.loopexit971
+408:                                              ; preds = %.loopexit970
   %409 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %410 = load ptr, ptr %0, align 8
   %411 = getelementptr inbounds i8, ptr %410, i64 56
@@ -809,16 +809,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %419, ptr %422, align 8
   %423 = load ptr, ptr %76, align 8
   %.not.i761 = icmp eq ptr %423, null
-  br i1 %.not.i761, label %.loopexit970.sink.split, label %424
+  br i1 %.not.i761, label %.loopexit969.sink.split, label %424
 
 424:                                              ; preds = %408
   %425 = load i64, ptr %77, align 8
   %426 = getelementptr ptr, ptr %423, i64 %425
   %427 = load ptr, ptr %426, align 8
   %.not8.i762 = icmp eq ptr %427, null
-  br i1 %.not8.i762, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i762, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-428:                                              ; preds = %.loopexit971
+428:                                              ; preds = %.loopexit970
   %429 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %430 = load ptr, ptr %0, align 8
   %431 = getelementptr inbounds i8, ptr %430, i64 56
@@ -839,16 +839,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %439, ptr %442, align 8
   %443 = load ptr, ptr %76, align 8
   %.not.i765 = icmp eq ptr %443, null
-  br i1 %.not.i765, label %.loopexit970.sink.split, label %444
+  br i1 %.not.i765, label %.loopexit969.sink.split, label %444
 
 444:                                              ; preds = %428
   %445 = load i64, ptr %77, align 8
   %446 = getelementptr ptr, ptr %443, i64 %445
   %447 = load ptr, ptr %446, align 8
   %.not8.i766 = icmp eq ptr %447, null
-  br i1 %.not8.i766, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i766, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-448:                                              ; preds = %.loopexit971
+448:                                              ; preds = %.loopexit970
   %449 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %450 = load ptr, ptr %0, align 8
   %451 = getelementptr inbounds i8, ptr %450, i64 56
@@ -869,16 +869,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %459, ptr %462, align 8
   %463 = load ptr, ptr %76, align 8
   %.not.i769 = icmp eq ptr %463, null
-  br i1 %.not.i769, label %.loopexit970.sink.split, label %464
+  br i1 %.not.i769, label %.loopexit969.sink.split, label %464
 
 464:                                              ; preds = %448
   %465 = load i64, ptr %77, align 8
   %466 = getelementptr ptr, ptr %463, i64 %465
   %467 = load ptr, ptr %466, align 8
   %.not8.i770 = icmp eq ptr %467, null
-  br i1 %.not8.i770, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i770, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-468:                                              ; preds = %.loopexit971
+468:                                              ; preds = %.loopexit970
   %469 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %470 = load ptr, ptr %0, align 8
   %471 = getelementptr inbounds i8, ptr %470, i64 56
@@ -899,16 +899,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %479, ptr %482, align 8
   %483 = load ptr, ptr %76, align 8
   %.not.i773 = icmp eq ptr %483, null
-  br i1 %.not.i773, label %.loopexit970.sink.split, label %484
+  br i1 %.not.i773, label %.loopexit969.sink.split, label %484
 
 484:                                              ; preds = %468
   %485 = load i64, ptr %77, align 8
   %486 = getelementptr ptr, ptr %483, i64 %485
   %487 = load ptr, ptr %486, align 8
   %.not8.i774 = icmp eq ptr %487, null
-  br i1 %.not8.i774, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i774, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-488:                                              ; preds = %.loopexit971
+488:                                              ; preds = %.loopexit970
   %489 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %490 = load ptr, ptr %0, align 8
   %491 = getelementptr inbounds i8, ptr %490, i64 56
@@ -929,16 +929,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %499, ptr %502, align 8
   %503 = load ptr, ptr %76, align 8
   %.not.i777 = icmp eq ptr %503, null
-  br i1 %.not.i777, label %.loopexit970.sink.split, label %504
+  br i1 %.not.i777, label %.loopexit969.sink.split, label %504
 
 504:                                              ; preds = %488
   %505 = load i64, ptr %77, align 8
   %506 = getelementptr ptr, ptr %503, i64 %505
   %507 = load ptr, ptr %506, align 8
   %.not8.i778 = icmp eq ptr %507, null
-  br i1 %.not8.i778, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i778, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-508:                                              ; preds = %.loopexit971
+508:                                              ; preds = %.loopexit970
   %509 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %510 = load ptr, ptr %0, align 8
   %511 = getelementptr inbounds i8, ptr %510, i64 56
@@ -959,16 +959,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %519, ptr %522, align 8
   %523 = load ptr, ptr %76, align 8
   %.not.i781 = icmp eq ptr %523, null
-  br i1 %.not.i781, label %.loopexit970.sink.split, label %524
+  br i1 %.not.i781, label %.loopexit969.sink.split, label %524
 
 524:                                              ; preds = %508
   %525 = load i64, ptr %77, align 8
   %526 = getelementptr ptr, ptr %523, i64 %525
   %527 = load ptr, ptr %526, align 8
   %.not8.i782 = icmp eq ptr %527, null
-  br i1 %.not8.i782, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i782, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-528:                                              ; preds = %.loopexit971
+528:                                              ; preds = %.loopexit970
   %529 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %530 = load ptr, ptr %0, align 8
   %531 = getelementptr inbounds i8, ptr %530, i64 56
@@ -989,16 +989,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %539, ptr %542, align 8
   %543 = load ptr, ptr %76, align 8
   %.not.i785 = icmp eq ptr %543, null
-  br i1 %.not.i785, label %.loopexit970.sink.split, label %544
+  br i1 %.not.i785, label %.loopexit969.sink.split, label %544
 
 544:                                              ; preds = %528
   %545 = load i64, ptr %77, align 8
   %546 = getelementptr ptr, ptr %543, i64 %545
   %547 = load ptr, ptr %546, align 8
   %.not8.i786 = icmp eq ptr %547, null
-  br i1 %.not8.i786, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i786, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-548:                                              ; preds = %.loopexit971
+548:                                              ; preds = %.loopexit970
   %549 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %550 = load ptr, ptr %0, align 8
   %551 = getelementptr inbounds i8, ptr %550, i64 56
@@ -1019,16 +1019,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %559, ptr %562, align 8
   %563 = load ptr, ptr %76, align 8
   %.not.i789 = icmp eq ptr %563, null
-  br i1 %.not.i789, label %.loopexit970.sink.split, label %564
+  br i1 %.not.i789, label %.loopexit969.sink.split, label %564
 
 564:                                              ; preds = %548
   %565 = load i64, ptr %77, align 8
   %566 = getelementptr ptr, ptr %563, i64 %565
   %567 = load ptr, ptr %566, align 8
   %.not8.i790 = icmp eq ptr %567, null
-  br i1 %.not8.i790, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i790, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-568:                                              ; preds = %.loopexit971
+568:                                              ; preds = %.loopexit970
   %569 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %570 = load ptr, ptr %0, align 8
   %571 = getelementptr inbounds i8, ptr %570, i64 56
@@ -1049,16 +1049,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %579, ptr %582, align 8
   %583 = load ptr, ptr %76, align 8
   %.not.i793 = icmp eq ptr %583, null
-  br i1 %.not.i793, label %.loopexit970.sink.split, label %584
+  br i1 %.not.i793, label %.loopexit969.sink.split, label %584
 
 584:                                              ; preds = %568
   %585 = load i64, ptr %77, align 8
   %586 = getelementptr ptr, ptr %583, i64 %585
   %587 = load ptr, ptr %586, align 8
   %.not8.i794 = icmp eq ptr %587, null
-  br i1 %.not8.i794, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i794, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-588:                                              ; preds = %.loopexit971
+588:                                              ; preds = %.loopexit970
   %589 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %590 = load ptr, ptr %0, align 8
   %591 = getelementptr inbounds i8, ptr %590, i64 56
@@ -1079,16 +1079,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %599, ptr %602, align 8
   %603 = load ptr, ptr %76, align 8
   %.not.i797 = icmp eq ptr %603, null
-  br i1 %.not.i797, label %.loopexit970.sink.split, label %604
+  br i1 %.not.i797, label %.loopexit969.sink.split, label %604
 
 604:                                              ; preds = %588
   %605 = load i64, ptr %77, align 8
   %606 = getelementptr ptr, ptr %603, i64 %605
   %607 = load ptr, ptr %606, align 8
   %.not8.i798 = icmp eq ptr %607, null
-  br i1 %.not8.i798, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i798, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-608:                                              ; preds = %.loopexit971
+608:                                              ; preds = %.loopexit970
   %609 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %610 = load ptr, ptr %0, align 8
   %611 = getelementptr inbounds i8, ptr %610, i64 56
@@ -1109,16 +1109,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %619, ptr %622, align 8
   %623 = load ptr, ptr %76, align 8
   %.not.i801 = icmp eq ptr %623, null
-  br i1 %.not.i801, label %.loopexit970.sink.split, label %624
+  br i1 %.not.i801, label %.loopexit969.sink.split, label %624
 
 624:                                              ; preds = %608
   %625 = load i64, ptr %77, align 8
   %626 = getelementptr ptr, ptr %623, i64 %625
   %627 = load ptr, ptr %626, align 8
   %.not8.i802 = icmp eq ptr %627, null
-  br i1 %.not8.i802, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i802, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-628:                                              ; preds = %.loopexit971
+628:                                              ; preds = %.loopexit970
   %629 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %630 = load ptr, ptr %0, align 8
   %631 = getelementptr inbounds i8, ptr %630, i64 56
@@ -1139,16 +1139,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %639, ptr %642, align 8
   %643 = load ptr, ptr %76, align 8
   %.not.i805 = icmp eq ptr %643, null
-  br i1 %.not.i805, label %.loopexit970.sink.split, label %644
+  br i1 %.not.i805, label %.loopexit969.sink.split, label %644
 
 644:                                              ; preds = %628
   %645 = load i64, ptr %77, align 8
   %646 = getelementptr ptr, ptr %643, i64 %645
   %647 = load ptr, ptr %646, align 8
   %.not8.i806 = icmp eq ptr %647, null
-  br i1 %.not8.i806, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i806, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-648:                                              ; preds = %.loopexit971
+648:                                              ; preds = %.loopexit970
   %649 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %650 = load ptr, ptr %0, align 8
   %651 = getelementptr inbounds i8, ptr %650, i64 56
@@ -1169,16 +1169,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %659, ptr %662, align 8
   %663 = load ptr, ptr %76, align 8
   %.not.i809 = icmp eq ptr %663, null
-  br i1 %.not.i809, label %.loopexit970.sink.split, label %664
+  br i1 %.not.i809, label %.loopexit969.sink.split, label %664
 
 664:                                              ; preds = %648
   %665 = load i64, ptr %77, align 8
   %666 = getelementptr ptr, ptr %663, i64 %665
   %667 = load ptr, ptr %666, align 8
   %.not8.i810 = icmp eq ptr %667, null
-  br i1 %.not8.i810, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i810, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-668:                                              ; preds = %.loopexit971
+668:                                              ; preds = %.loopexit970
   %669 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %670 = load ptr, ptr %0, align 8
   %671 = getelementptr inbounds i8, ptr %670, i64 56
@@ -1199,16 +1199,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %679, ptr %682, align 8
   %683 = load ptr, ptr %76, align 8
   %.not.i813 = icmp eq ptr %683, null
-  br i1 %.not.i813, label %.loopexit970.sink.split, label %684
+  br i1 %.not.i813, label %.loopexit969.sink.split, label %684
 
 684:                                              ; preds = %668
   %685 = load i64, ptr %77, align 8
   %686 = getelementptr ptr, ptr %683, i64 %685
   %687 = load ptr, ptr %686, align 8
   %.not8.i814 = icmp eq ptr %687, null
-  br i1 %.not8.i814, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i814, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-688:                                              ; preds = %.loopexit971
+688:                                              ; preds = %.loopexit970
   %689 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %690 = load ptr, ptr %0, align 8
   %691 = getelementptr inbounds i8, ptr %690, i64 56
@@ -1229,16 +1229,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %699, ptr %702, align 8
   %703 = load ptr, ptr %76, align 8
   %.not.i817 = icmp eq ptr %703, null
-  br i1 %.not.i817, label %.loopexit970.sink.split, label %704
+  br i1 %.not.i817, label %.loopexit969.sink.split, label %704
 
 704:                                              ; preds = %688
   %705 = load i64, ptr %77, align 8
   %706 = getelementptr ptr, ptr %703, i64 %705
   %707 = load ptr, ptr %706, align 8
   %.not8.i818 = icmp eq ptr %707, null
-  br i1 %.not8.i818, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i818, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-708:                                              ; preds = %.loopexit971
+708:                                              ; preds = %.loopexit970
   %709 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %710 = load ptr, ptr %0, align 8
   %711 = getelementptr inbounds i8, ptr %710, i64 56
@@ -1259,16 +1259,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %719, ptr %722, align 8
   %723 = load ptr, ptr %76, align 8
   %.not.i821 = icmp eq ptr %723, null
-  br i1 %.not.i821, label %.loopexit970.sink.split, label %724
+  br i1 %.not.i821, label %.loopexit969.sink.split, label %724
 
 724:                                              ; preds = %708
   %725 = load i64, ptr %77, align 8
   %726 = getelementptr ptr, ptr %723, i64 %725
   %727 = load ptr, ptr %726, align 8
   %.not8.i822 = icmp eq ptr %727, null
-  br i1 %.not8.i822, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i822, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-728:                                              ; preds = %.loopexit971
+728:                                              ; preds = %.loopexit970
   %729 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %730 = load ptr, ptr %0, align 8
   %731 = getelementptr inbounds i8, ptr %730, i64 56
@@ -1289,16 +1289,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %739, ptr %742, align 8
   %743 = load ptr, ptr %76, align 8
   %.not.i825 = icmp eq ptr %743, null
-  br i1 %.not.i825, label %.loopexit970.sink.split, label %744
+  br i1 %.not.i825, label %.loopexit969.sink.split, label %744
 
 744:                                              ; preds = %728
   %745 = load i64, ptr %77, align 8
   %746 = getelementptr ptr, ptr %743, i64 %745
   %747 = load ptr, ptr %746, align 8
   %.not8.i826 = icmp eq ptr %747, null
-  br i1 %.not8.i826, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i826, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-748:                                              ; preds = %.loopexit971
+748:                                              ; preds = %.loopexit970
   %749 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %750 = load ptr, ptr %0, align 8
   %751 = getelementptr inbounds i8, ptr %750, i64 56
@@ -1319,16 +1319,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %759, ptr %762, align 8
   %763 = load ptr, ptr %76, align 8
   %.not.i829 = icmp eq ptr %763, null
-  br i1 %.not.i829, label %.loopexit970.sink.split, label %764
+  br i1 %.not.i829, label %.loopexit969.sink.split, label %764
 
 764:                                              ; preds = %748
   %765 = load i64, ptr %77, align 8
   %766 = getelementptr ptr, ptr %763, i64 %765
   %767 = load ptr, ptr %766, align 8
   %.not8.i830 = icmp eq ptr %767, null
-  br i1 %.not8.i830, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i830, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-768:                                              ; preds = %.loopexit971
+768:                                              ; preds = %.loopexit970
   %769 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %770 = load ptr, ptr %0, align 8
   %771 = getelementptr inbounds i8, ptr %770, i64 56
@@ -1349,16 +1349,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %779, ptr %782, align 8
   %783 = load ptr, ptr %76, align 8
   %.not.i833 = icmp eq ptr %783, null
-  br i1 %.not.i833, label %.loopexit970.sink.split, label %784
+  br i1 %.not.i833, label %.loopexit969.sink.split, label %784
 
 784:                                              ; preds = %768
   %785 = load i64, ptr %77, align 8
   %786 = getelementptr ptr, ptr %783, i64 %785
   %787 = load ptr, ptr %786, align 8
   %.not8.i834 = icmp eq ptr %787, null
-  br i1 %.not8.i834, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i834, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-788:                                              ; preds = %.loopexit971
+788:                                              ; preds = %.loopexit970
   %789 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %790 = load ptr, ptr %0, align 8
   %791 = getelementptr inbounds i8, ptr %790, i64 56
@@ -1379,16 +1379,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %799, ptr %802, align 8
   %803 = load ptr, ptr %76, align 8
   %.not.i837 = icmp eq ptr %803, null
-  br i1 %.not.i837, label %.loopexit970.sink.split, label %804
+  br i1 %.not.i837, label %.loopexit969.sink.split, label %804
 
 804:                                              ; preds = %788
   %805 = load i64, ptr %77, align 8
   %806 = getelementptr ptr, ptr %803, i64 %805
   %807 = load ptr, ptr %806, align 8
   %.not8.i838 = icmp eq ptr %807, null
-  br i1 %.not8.i838, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i838, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-808:                                              ; preds = %.loopexit971
+808:                                              ; preds = %.loopexit970
   %809 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %810 = load ptr, ptr %0, align 8
   %811 = getelementptr inbounds i8, ptr %810, i64 56
@@ -1409,16 +1409,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %819, ptr %822, align 8
   %823 = load ptr, ptr %76, align 8
   %.not.i841 = icmp eq ptr %823, null
-  br i1 %.not.i841, label %.loopexit970.sink.split, label %824
+  br i1 %.not.i841, label %.loopexit969.sink.split, label %824
 
 824:                                              ; preds = %808
   %825 = load i64, ptr %77, align 8
   %826 = getelementptr ptr, ptr %823, i64 %825
   %827 = load ptr, ptr %826, align 8
   %.not8.i842 = icmp eq ptr %827, null
-  br i1 %.not8.i842, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i842, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-828:                                              ; preds = %.loopexit971
+828:                                              ; preds = %.loopexit970
   %829 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %830 = load ptr, ptr %0, align 8
   %831 = getelementptr inbounds i8, ptr %830, i64 56
@@ -1439,16 +1439,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %839, ptr %842, align 8
   %843 = load ptr, ptr %76, align 8
   %.not.i845 = icmp eq ptr %843, null
-  br i1 %.not.i845, label %.loopexit970.sink.split, label %844
+  br i1 %.not.i845, label %.loopexit969.sink.split, label %844
 
 844:                                              ; preds = %828
   %845 = load i64, ptr %77, align 8
   %846 = getelementptr ptr, ptr %843, i64 %845
   %847 = load ptr, ptr %846, align 8
   %.not8.i846 = icmp eq ptr %847, null
-  br i1 %.not8.i846, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i846, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-848:                                              ; preds = %.loopexit971
+848:                                              ; preds = %.loopexit970
   %849 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %850 = load ptr, ptr %0, align 8
   %851 = getelementptr inbounds i8, ptr %850, i64 56
@@ -1469,16 +1469,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %859, ptr %862, align 8
   %863 = load ptr, ptr %76, align 8
   %.not.i849 = icmp eq ptr %863, null
-  br i1 %.not.i849, label %.loopexit970.sink.split, label %864
+  br i1 %.not.i849, label %.loopexit969.sink.split, label %864
 
 864:                                              ; preds = %848
   %865 = load i64, ptr %77, align 8
   %866 = getelementptr ptr, ptr %863, i64 %865
   %867 = load ptr, ptr %866, align 8
   %.not8.i850 = icmp eq ptr %867, null
-  br i1 %.not8.i850, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i850, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-868:                                              ; preds = %.loopexit971
+868:                                              ; preds = %.loopexit970
   %869 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %870 = load ptr, ptr %0, align 8
   %871 = getelementptr inbounds i8, ptr %870, i64 56
@@ -1499,16 +1499,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %879, ptr %882, align 8
   %883 = load ptr, ptr %76, align 8
   %.not.i853 = icmp eq ptr %883, null
-  br i1 %.not.i853, label %.loopexit970.sink.split, label %884
+  br i1 %.not.i853, label %.loopexit969.sink.split, label %884
 
 884:                                              ; preds = %868
   %885 = load i64, ptr %77, align 8
   %886 = getelementptr ptr, ptr %883, i64 %885
   %887 = load ptr, ptr %886, align 8
   %.not8.i854 = icmp eq ptr %887, null
-  br i1 %.not8.i854, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i854, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-888:                                              ; preds = %.loopexit971
+888:                                              ; preds = %.loopexit970
   %889 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %890 = load ptr, ptr %0, align 8
   %891 = getelementptr inbounds i8, ptr %890, i64 56
@@ -1529,16 +1529,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %899, ptr %902, align 8
   %903 = load ptr, ptr %76, align 8
   %.not.i857 = icmp eq ptr %903, null
-  br i1 %.not.i857, label %.loopexit970.sink.split, label %904
+  br i1 %.not.i857, label %.loopexit969.sink.split, label %904
 
 904:                                              ; preds = %888
   %905 = load i64, ptr %77, align 8
   %906 = getelementptr ptr, ptr %903, i64 %905
   %907 = load ptr, ptr %906, align 8
   %.not8.i858 = icmp eq ptr %907, null
-  br i1 %.not8.i858, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i858, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-908:                                              ; preds = %.loopexit971
+908:                                              ; preds = %.loopexit970
   %909 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %910 = load ptr, ptr %0, align 8
   %911 = getelementptr inbounds i8, ptr %910, i64 56
@@ -1559,16 +1559,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %919, ptr %922, align 8
   %923 = load ptr, ptr %76, align 8
   %.not.i861 = icmp eq ptr %923, null
-  br i1 %.not.i861, label %.loopexit970.sink.split, label %924
+  br i1 %.not.i861, label %.loopexit969.sink.split, label %924
 
 924:                                              ; preds = %908
   %925 = load i64, ptr %77, align 8
   %926 = getelementptr ptr, ptr %923, i64 %925
   %927 = load ptr, ptr %926, align 8
   %.not8.i862 = icmp eq ptr %927, null
-  br i1 %.not8.i862, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i862, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-928:                                              ; preds = %.loopexit971
+928:                                              ; preds = %.loopexit970
   %929 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %930 = load ptr, ptr %0, align 8
   %931 = getelementptr inbounds i8, ptr %930, i64 56
@@ -1589,16 +1589,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %939, ptr %942, align 8
   %943 = load ptr, ptr %76, align 8
   %.not.i865 = icmp eq ptr %943, null
-  br i1 %.not.i865, label %.loopexit970.sink.split, label %944
+  br i1 %.not.i865, label %.loopexit969.sink.split, label %944
 
 944:                                              ; preds = %928
   %945 = load i64, ptr %77, align 8
   %946 = getelementptr ptr, ptr %943, i64 %945
   %947 = load ptr, ptr %946, align 8
   %.not8.i866 = icmp eq ptr %947, null
-  br i1 %.not8.i866, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i866, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-948:                                              ; preds = %.loopexit971
+948:                                              ; preds = %.loopexit970
   %949 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %950 = load ptr, ptr %0, align 8
   %951 = getelementptr inbounds i8, ptr %950, i64 56
@@ -1619,16 +1619,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %959, ptr %962, align 8
   %963 = load ptr, ptr %76, align 8
   %.not.i869 = icmp eq ptr %963, null
-  br i1 %.not.i869, label %.loopexit970.sink.split, label %964
+  br i1 %.not.i869, label %.loopexit969.sink.split, label %964
 
 964:                                              ; preds = %948
   %965 = load i64, ptr %77, align 8
   %966 = getelementptr ptr, ptr %963, i64 %965
   %967 = load ptr, ptr %966, align 8
   %.not8.i870 = icmp eq ptr %967, null
-  br i1 %.not8.i870, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i870, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-968:                                              ; preds = %.loopexit971
+968:                                              ; preds = %.loopexit970
   %969 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %970 = load ptr, ptr %0, align 8
   %971 = getelementptr inbounds i8, ptr %970, i64 56
@@ -1649,16 +1649,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %979, ptr %982, align 8
   %983 = load ptr, ptr %76, align 8
   %.not.i873 = icmp eq ptr %983, null
-  br i1 %.not.i873, label %.loopexit970.sink.split, label %984
+  br i1 %.not.i873, label %.loopexit969.sink.split, label %984
 
 984:                                              ; preds = %968
   %985 = load i64, ptr %77, align 8
   %986 = getelementptr ptr, ptr %983, i64 %985
   %987 = load ptr, ptr %986, align 8
   %.not8.i874 = icmp eq ptr %987, null
-  br i1 %.not8.i874, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i874, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-988:                                              ; preds = %.loopexit971
+988:                                              ; preds = %.loopexit970
   %989 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %990 = load ptr, ptr %0, align 8
   %991 = getelementptr inbounds i8, ptr %990, i64 56
@@ -1679,16 +1679,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %999, ptr %1002, align 8
   %1003 = load ptr, ptr %76, align 8
   %.not.i877 = icmp eq ptr %1003, null
-  br i1 %.not.i877, label %.loopexit970.sink.split, label %1004
+  br i1 %.not.i877, label %.loopexit969.sink.split, label %1004
 
 1004:                                             ; preds = %988
   %1005 = load i64, ptr %77, align 8
   %1006 = getelementptr ptr, ptr %1003, i64 %1005
   %1007 = load ptr, ptr %1006, align 8
   %.not8.i878 = icmp eq ptr %1007, null
-  br i1 %.not8.i878, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i878, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-1008:                                             ; preds = %.loopexit971
+1008:                                             ; preds = %.loopexit970
   %1009 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %1010 = load ptr, ptr %0, align 8
   %1011 = getelementptr inbounds i8, ptr %1010, i64 56
@@ -1709,16 +1709,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1019, ptr %1022, align 8
   %1023 = load ptr, ptr %76, align 8
   %.not.i881 = icmp eq ptr %1023, null
-  br i1 %.not.i881, label %.loopexit970.sink.split, label %1024
+  br i1 %.not.i881, label %.loopexit969.sink.split, label %1024
 
 1024:                                             ; preds = %1008
   %1025 = load i64, ptr %77, align 8
   %1026 = getelementptr ptr, ptr %1023, i64 %1025
   %1027 = load ptr, ptr %1026, align 8
   %.not8.i882 = icmp eq ptr %1027, null
-  br i1 %.not8.i882, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i882, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-1028:                                             ; preds = %.loopexit971
+1028:                                             ; preds = %.loopexit970
   %1029 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %1030 = load ptr, ptr %0, align 8
   %1031 = getelementptr inbounds i8, ptr %1030, i64 56
@@ -1739,16 +1739,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1039, ptr %1042, align 8
   %1043 = load ptr, ptr %76, align 8
   %.not.i885 = icmp eq ptr %1043, null
-  br i1 %.not.i885, label %.loopexit970.sink.split, label %1044
+  br i1 %.not.i885, label %.loopexit969.sink.split, label %1044
 
 1044:                                             ; preds = %1028
   %1045 = load i64, ptr %77, align 8
   %1046 = getelementptr ptr, ptr %1043, i64 %1045
   %1047 = load ptr, ptr %1046, align 8
   %.not8.i886 = icmp eq ptr %1047, null
-  br i1 %.not8.i886, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i886, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-1048:                                             ; preds = %.loopexit971
+1048:                                             ; preds = %.loopexit970
   %1049 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %1050 = load ptr, ptr %0, align 8
   %1051 = getelementptr inbounds i8, ptr %1050, i64 56
@@ -1769,16 +1769,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1059, ptr %1062, align 8
   %1063 = load ptr, ptr %76, align 8
   %.not.i889 = icmp eq ptr %1063, null
-  br i1 %.not.i889, label %.loopexit970.sink.split, label %1064
+  br i1 %.not.i889, label %.loopexit969.sink.split, label %1064
 
 1064:                                             ; preds = %1048
   %1065 = load i64, ptr %77, align 8
   %1066 = getelementptr ptr, ptr %1063, i64 %1065
   %1067 = load ptr, ptr %1066, align 8
   %.not8.i890 = icmp eq ptr %1067, null
-  br i1 %.not8.i890, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i890, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-1068:                                             ; preds = %.loopexit971
+1068:                                             ; preds = %.loopexit970
   %1069 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %1070 = load ptr, ptr %0, align 8
   %1071 = getelementptr inbounds i8, ptr %1070, i64 56
@@ -1799,16 +1799,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1079, ptr %1082, align 8
   %1083 = load ptr, ptr %76, align 8
   %.not.i893 = icmp eq ptr %1083, null
-  br i1 %.not.i893, label %.loopexit970.sink.split, label %1084
+  br i1 %.not.i893, label %.loopexit969.sink.split, label %1084
 
 1084:                                             ; preds = %1068
   %1085 = load i64, ptr %77, align 8
   %1086 = getelementptr ptr, ptr %1083, i64 %1085
   %1087 = load ptr, ptr %1086, align 8
   %.not8.i894 = icmp eq ptr %1087, null
-  br i1 %.not8.i894, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i894, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-1088:                                             ; preds = %.loopexit971
+1088:                                             ; preds = %.loopexit970
   %1089 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %1090 = load ptr, ptr %0, align 8
   %1091 = getelementptr inbounds i8, ptr %1090, i64 56
@@ -1829,16 +1829,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1099, ptr %1102, align 8
   %1103 = load ptr, ptr %76, align 8
   %.not.i897 = icmp eq ptr %1103, null
-  br i1 %.not.i897, label %.loopexit970.sink.split, label %1104
+  br i1 %.not.i897, label %.loopexit969.sink.split, label %1104
 
 1104:                                             ; preds = %1088
   %1105 = load i64, ptr %77, align 8
   %1106 = getelementptr ptr, ptr %1103, i64 %1105
   %1107 = load ptr, ptr %1106, align 8
   %.not8.i898 = icmp eq ptr %1107, null
-  br i1 %.not8.i898, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i898, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-1108:                                             ; preds = %.loopexit971
+1108:                                             ; preds = %.loopexit970
   %1109 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %1110 = load ptr, ptr %0, align 8
   %1111 = getelementptr inbounds i8, ptr %1110, i64 56
@@ -1859,16 +1859,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1119, ptr %1122, align 8
   %1123 = load ptr, ptr %76, align 8
   %.not.i901 = icmp eq ptr %1123, null
-  br i1 %.not.i901, label %.loopexit970.sink.split, label %1124
+  br i1 %.not.i901, label %.loopexit969.sink.split, label %1124
 
 1124:                                             ; preds = %1108
   %1125 = load i64, ptr %77, align 8
   %1126 = getelementptr ptr, ptr %1123, i64 %1125
   %1127 = load ptr, ptr %1126, align 8
   %.not8.i902 = icmp eq ptr %1127, null
-  br i1 %.not8.i902, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i902, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-1128:                                             ; preds = %.loopexit971
+1128:                                             ; preds = %.loopexit970
   %1129 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %1130 = load ptr, ptr %0, align 8
   %1131 = getelementptr inbounds i8, ptr %1130, i64 56
@@ -1889,16 +1889,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1139, ptr %1142, align 8
   %1143 = load ptr, ptr %76, align 8
   %.not.i905 = icmp eq ptr %1143, null
-  br i1 %.not.i905, label %.loopexit970.sink.split, label %1144
+  br i1 %.not.i905, label %.loopexit969.sink.split, label %1144
 
 1144:                                             ; preds = %1128
   %1145 = load i64, ptr %77, align 8
   %1146 = getelementptr ptr, ptr %1143, i64 %1145
   %1147 = load ptr, ptr %1146, align 8
   %.not8.i906 = icmp eq ptr %1147, null
-  br i1 %.not8.i906, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i906, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-1148:                                             ; preds = %.loopexit971
+1148:                                             ; preds = %.loopexit970
   %1149 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %1150 = load ptr, ptr %0, align 8
   %1151 = getelementptr inbounds i8, ptr %1150, i64 56
@@ -1919,16 +1919,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1159, ptr %1162, align 8
   %1163 = load ptr, ptr %76, align 8
   %.not.i909 = icmp eq ptr %1163, null
-  br i1 %.not.i909, label %.loopexit970.sink.split, label %1164
+  br i1 %.not.i909, label %.loopexit969.sink.split, label %1164
 
 1164:                                             ; preds = %1148
   %1165 = load i64, ptr %77, align 8
   %1166 = getelementptr ptr, ptr %1163, i64 %1165
   %1167 = load ptr, ptr %1166, align 8
   %.not8.i910 = icmp eq ptr %1167, null
-  br i1 %.not8.i910, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i910, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-1168:                                             ; preds = %.loopexit971
+1168:                                             ; preds = %.loopexit970
   %1169 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %1170 = load ptr, ptr %0, align 8
   %1171 = getelementptr inbounds i8, ptr %1170, i64 56
@@ -1949,16 +1949,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1179, ptr %1182, align 8
   %1183 = load ptr, ptr %76, align 8
   %.not.i913 = icmp eq ptr %1183, null
-  br i1 %.not.i913, label %.loopexit970.sink.split, label %1184
+  br i1 %.not.i913, label %.loopexit969.sink.split, label %1184
 
 1184:                                             ; preds = %1168
   %1185 = load i64, ptr %77, align 8
   %1186 = getelementptr ptr, ptr %1183, i64 %1185
   %1187 = load ptr, ptr %1186, align 8
   %.not8.i914 = icmp eq ptr %1187, null
-  br i1 %.not8.i914, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i914, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-1188:                                             ; preds = %.loopexit971
+1188:                                             ; preds = %.loopexit970
   %1189 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %1190 = load ptr, ptr %0, align 8
   %1191 = getelementptr inbounds i8, ptr %1190, i64 56
@@ -1979,16 +1979,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1199, ptr %1202, align 8
   %1203 = load ptr, ptr %76, align 8
   %.not.i917 = icmp eq ptr %1203, null
-  br i1 %.not.i917, label %.loopexit970.sink.split, label %1204
+  br i1 %.not.i917, label %.loopexit969.sink.split, label %1204
 
 1204:                                             ; preds = %1188
   %1205 = load i64, ptr %77, align 8
   %1206 = getelementptr ptr, ptr %1203, i64 %1205
   %1207 = load ptr, ptr %1206, align 8
   %.not8.i918 = icmp eq ptr %1207, null
-  br i1 %.not8.i918, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i918, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-1208:                                             ; preds = %.loopexit971
+1208:                                             ; preds = %.loopexit970
   %1209 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %1210 = load ptr, ptr %0, align 8
   %1211 = getelementptr inbounds i8, ptr %1210, i64 56
@@ -2009,16 +2009,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1219, ptr %1222, align 8
   %1223 = load ptr, ptr %76, align 8
   %.not.i921 = icmp eq ptr %1223, null
-  br i1 %.not.i921, label %.loopexit970.sink.split, label %1224
+  br i1 %.not.i921, label %.loopexit969.sink.split, label %1224
 
 1224:                                             ; preds = %1208
   %1225 = load i64, ptr %77, align 8
   %1226 = getelementptr ptr, ptr %1223, i64 %1225
   %1227 = load ptr, ptr %1226, align 8
   %.not8.i922 = icmp eq ptr %1227, null
-  br i1 %.not8.i922, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i922, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-1228:                                             ; preds = %.loopexit971
+1228:                                             ; preds = %.loopexit970
   %1229 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %1230 = load ptr, ptr %0, align 8
   %1231 = getelementptr inbounds i8, ptr %1230, i64 56
@@ -2039,16 +2039,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1239, ptr %1242, align 8
   %1243 = load ptr, ptr %76, align 8
   %.not.i925 = icmp eq ptr %1243, null
-  br i1 %.not.i925, label %.loopexit970.sink.split, label %1244
+  br i1 %.not.i925, label %.loopexit969.sink.split, label %1244
 
 1244:                                             ; preds = %1228
   %1245 = load i64, ptr %77, align 8
   %1246 = getelementptr ptr, ptr %1243, i64 %1245
   %1247 = load ptr, ptr %1246, align 8
   %.not8.i926 = icmp eq ptr %1247, null
-  br i1 %.not8.i926, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i926, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-1248:                                             ; preds = %.loopexit971
+1248:                                             ; preds = %.loopexit970
   %1249 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %1250 = load ptr, ptr %0, align 8
   %1251 = getelementptr inbounds i8, ptr %1250, i64 56
@@ -2069,16 +2069,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1259, ptr %1262, align 8
   %1263 = load ptr, ptr %76, align 8
   %.not.i929 = icmp eq ptr %1263, null
-  br i1 %.not.i929, label %.loopexit970.sink.split, label %1264
+  br i1 %.not.i929, label %.loopexit969.sink.split, label %1264
 
 1264:                                             ; preds = %1248
   %1265 = load i64, ptr %77, align 8
   %1266 = getelementptr ptr, ptr %1263, i64 %1265
   %1267 = load ptr, ptr %1266, align 8
   %.not8.i930 = icmp eq ptr %1267, null
-  br i1 %.not8.i930, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i930, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-1268:                                             ; preds = %.loopexit971
+1268:                                             ; preds = %.loopexit970
   %1269 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %1270 = load ptr, ptr %0, align 8
   %1271 = getelementptr inbounds i8, ptr %1270, i64 56
@@ -2099,16 +2099,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1279, ptr %1282, align 8
   %1283 = load ptr, ptr %76, align 8
   %.not.i933 = icmp eq ptr %1283, null
-  br i1 %.not.i933, label %.loopexit970.sink.split, label %1284
+  br i1 %.not.i933, label %.loopexit969.sink.split, label %1284
 
 1284:                                             ; preds = %1268
   %1285 = load i64, ptr %77, align 8
   %1286 = getelementptr ptr, ptr %1283, i64 %1285
   %1287 = load ptr, ptr %1286, align 8
   %.not8.i934 = icmp eq ptr %1287, null
-  br i1 %.not8.i934, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i934, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-1288:                                             ; preds = %.loopexit971
+1288:                                             ; preds = %.loopexit970
   %1289 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %1290 = load ptr, ptr %0, align 8
   %1291 = getelementptr inbounds i8, ptr %1290, i64 56
@@ -2129,16 +2129,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1299, ptr %1302, align 8
   %1303 = load ptr, ptr %76, align 8
   %.not.i937 = icmp eq ptr %1303, null
-  br i1 %.not.i937, label %.loopexit970.sink.split, label %1304
+  br i1 %.not.i937, label %.loopexit969.sink.split, label %1304
 
 1304:                                             ; preds = %1288
   %1305 = load i64, ptr %77, align 8
   %1306 = getelementptr ptr, ptr %1303, i64 %1305
   %1307 = load ptr, ptr %1306, align 8
   %.not8.i938 = icmp eq ptr %1307, null
-  br i1 %.not8.i938, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i938, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-1308:                                             ; preds = %.loopexit971
+1308:                                             ; preds = %.loopexit970
   %1309 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %1310 = load ptr, ptr %0, align 8
   %1311 = getelementptr inbounds i8, ptr %1310, i64 56
@@ -2159,16 +2159,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1319, ptr %1322, align 8
   %1323 = load ptr, ptr %76, align 8
   %.not.i941 = icmp eq ptr %1323, null
-  br i1 %.not.i941, label %.loopexit970.sink.split, label %1324
+  br i1 %.not.i941, label %.loopexit969.sink.split, label %1324
 
 1324:                                             ; preds = %1308
   %1325 = load i64, ptr %77, align 8
   %1326 = getelementptr ptr, ptr %1323, i64 %1325
   %1327 = load ptr, ptr %1326, align 8
   %.not8.i942 = icmp eq ptr %1327, null
-  br i1 %.not8.i942, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i942, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-1328:                                             ; preds = %.loopexit971
+1328:                                             ; preds = %.loopexit970
   %1329 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %1330 = load ptr, ptr %0, align 8
   %1331 = getelementptr inbounds i8, ptr %1330, i64 56
@@ -2189,16 +2189,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1339, ptr %1342, align 8
   %1343 = load ptr, ptr %76, align 8
   %.not.i945 = icmp eq ptr %1343, null
-  br i1 %.not.i945, label %.loopexit970.sink.split, label %1344
+  br i1 %.not.i945, label %.loopexit969.sink.split, label %1344
 
 1344:                                             ; preds = %1328
   %1345 = load i64, ptr %77, align 8
   %1346 = getelementptr ptr, ptr %1343, i64 %1345
   %1347 = load ptr, ptr %1346, align 8
   %.not8.i946 = icmp eq ptr %1347, null
-  br i1 %.not8.i946, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i946, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-1348:                                             ; preds = %.loopexit971
+1348:                                             ; preds = %.loopexit970
   %1349 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %1350 = load ptr, ptr %0, align 8
   %1351 = getelementptr inbounds i8, ptr %1350, i64 56
@@ -2219,16 +2219,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1359, ptr %1362, align 8
   %1363 = load ptr, ptr %76, align 8
   %.not.i949 = icmp eq ptr %1363, null
-  br i1 %.not.i949, label %.loopexit970.sink.split, label %1364
+  br i1 %.not.i949, label %.loopexit969.sink.split, label %1364
 
 1364:                                             ; preds = %1348
   %1365 = load i64, ptr %77, align 8
   %1366 = getelementptr ptr, ptr %1363, i64 %1365
   %1367 = load ptr, ptr %1366, align 8
   %.not8.i950 = icmp eq ptr %1367, null
-  br i1 %.not8.i950, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i950, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-1368:                                             ; preds = %.loopexit971
+1368:                                             ; preds = %.loopexit970
   %1369 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %1370 = load ptr, ptr %0, align 8
   %1371 = getelementptr inbounds i8, ptr %1370, i64 56
@@ -2249,16 +2249,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1379, ptr %1382, align 8
   %1383 = load ptr, ptr %76, align 8
   %.not.i953 = icmp eq ptr %1383, null
-  br i1 %.not.i953, label %.loopexit970.sink.split, label %1384
+  br i1 %.not.i953, label %.loopexit969.sink.split, label %1384
 
 1384:                                             ; preds = %1368
   %1385 = load i64, ptr %77, align 8
   %1386 = getelementptr ptr, ptr %1383, i64 %1385
   %1387 = load ptr, ptr %1386, align 8
   %.not8.i954 = icmp eq ptr %1387, null
-  br i1 %.not8.i954, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i954, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-1388:                                             ; preds = %.loopexit971
+1388:                                             ; preds = %.loopexit970
   %1389 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %1390 = load ptr, ptr %0, align 8
   %1391 = getelementptr inbounds i8, ptr %1390, i64 56
@@ -2279,16 +2279,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1399, ptr %1402, align 8
   %1403 = load ptr, ptr %76, align 8
   %.not.i957 = icmp eq ptr %1403, null
-  br i1 %.not.i957, label %.loopexit970.sink.split, label %1404
+  br i1 %.not.i957, label %.loopexit969.sink.split, label %1404
 
 1404:                                             ; preds = %1388
   %1405 = load i64, ptr %77, align 8
   %1406 = getelementptr ptr, ptr %1403, i64 %1405
   %1407 = load ptr, ptr %1406, align 8
   %.not8.i958 = icmp eq ptr %1407, null
-  br i1 %.not8.i958, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i958, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-1408:                                             ; preds = %.loopexit971
+1408:                                             ; preds = %.loopexit970
   %1409 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #27
   %1410 = load ptr, ptr %0, align 8
   %1411 = getelementptr inbounds i8, ptr %1410, i64 56
@@ -2309,16 +2309,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store ptr %1419, ptr %1422, align 8
   %1423 = load ptr, ptr %76, align 8
   %.not.i961 = icmp eq ptr %1423, null
-  br i1 %.not.i961, label %.loopexit970.sink.split, label %1424
+  br i1 %.not.i961, label %.loopexit969.sink.split, label %1424
 
 1424:                                             ; preds = %1408
   %1425 = load i64, ptr %77, align 8
   %1426 = getelementptr ptr, ptr %1423, i64 %1425
   %1427 = load ptr, ptr %1426, align 8
   %.not8.i962 = icmp eq ptr %1427, null
-  br i1 %.not8.i962, label %.loopexit970.sink.split, label %.loopexit970.sink.split.sink.split
+  br i1 %.not8.i962, label %.loopexit969.sink.split, label %.loopexit969.sink.split.sink.split
 
-1428:                                             ; preds = %.loopexit971
+1428:                                             ; preds = %.loopexit970
   %1429 = load i32, ptr %71, align 4
   %1430 = add i32 %1429, -1
   %1431 = sdiv i32 %1430, 2
@@ -2326,19 +2326,19 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   store i32 3, ptr %71, align 4
   br label %.loopexit.backedge
 
-1432:                                             ; preds = %.loopexit971
+1432:                                             ; preds = %.loopexit970
   %1433 = load i32, ptr @old_status, align 4
   %1434 = shl i32 %1433, 1
   %1435 = or disjoint i32 %1434, 1
   store i32 %1435, ptr %71, align 4
   br label %.loopexit.backedge
 
-1436:                                             ; preds = %.loopexit971
+1436:                                             ; preds = %.loopexit970
   %1437 = load ptr, ptr %0, align 8
   tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %1437, ptr noundef nonnull @.str) #28
   br label %.loopexit.backedge
 
-1438:                                             ; preds = %.loopexit971
+1438:                                             ; preds = %.loopexit970
   %1439 = load ptr, ptr %74, align 8
   %1440 = load i32, ptr %75, align 8
   %1441 = sext i32 %1440 to i64
@@ -2346,13 +2346,13 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1443 = tail call i64 @fwrite(ptr noundef %1439, i64 noundef %1441, i64 noundef 1, ptr noundef %1442)
   br label %.loopexit.backedge
 
-.loopexit.backedge:                               ; preds = %.loopexit971, %.loopexit971, %.loopexit971, %1438, %1436, %1432, %1428
+.loopexit.backedge:                               ; preds = %.loopexit970, %.loopexit970, %.loopexit970, %1438, %1436, %1432, %1428
   br label %.loopexit
 
-1444:                                             ; preds = %.loopexit971
+1444:                                             ; preds = %.loopexit970
   %1445 = load ptr, ptr %74, align 8
   %1446 = load i8, ptr %70, align 8
-  store i8 %1446, ptr %.2634, align 1
+  store i8 %1446, ptr %.2, align 1
   %1447 = load ptr, ptr %76, align 8
   %1448 = load i64, ptr %77, align 8
   %1449 = getelementptr ptr, ptr %1447, i64 %1448
@@ -2375,16 +2375,16 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1462 = load ptr, ptr %1461, align 8
   %1463 = getelementptr inbounds i8, ptr %1462, i64 56
   store i32 1, ptr %1463, align 8
-  %.pre1302 = load ptr, ptr %76, align 8
-  %.pre1303 = load i64, ptr %77, align 8
-  %.phi.trans.insert1304 = getelementptr ptr, ptr %.pre1302, i64 %.pre1303
-  %.pre1305 = load ptr, ptr %.phi.trans.insert1304, align 8
+  %.pre1301 = load ptr, ptr %76, align 8
+  %.pre1302 = load i64, ptr %77, align 8
+  %.phi.trans.insert1303 = getelementptr ptr, ptr %.pre1301, i64 %.pre1302
+  %.pre1304 = load ptr, ptr %.phi.trans.insert1303, align 8
   br label %1464
 
 1464:                                             ; preds = %1454, %1444
-  %1465 = phi ptr [ %.pre1305, %1454 ], [ %1450, %1444 ]
-  %1466 = phi i64 [ %.pre1303, %1454 ], [ %1448, %1444 ]
-  %1467 = phi ptr [ %.pre1302, %1454 ], [ %1447, %1444 ]
+  %1465 = phi ptr [ %.pre1304, %1454 ], [ %1450, %1444 ]
+  %1466 = phi i64 [ %.pre1302, %1454 ], [ %1448, %1444 ]
+  %1467 = phi ptr [ %.pre1301, %1454 ], [ %1447, %1444 ]
   %1468 = load ptr, ptr %69, align 8
   %1469 = getelementptr inbounds i8, ptr %1465, i64 8
   %1470 = load ptr, ptr %1469, align 8
@@ -2416,19 +2416,19 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %1484, %1702
-  %.0636.be = phi ptr [ %1483, %1484 ], [ %1710, %1702 ]
+  %.0634.be = phi i32 [ %1482, %1484 ], [ %1708, %1702 ]
   %.0632.be = phi ptr [ %1486, %1484 ], [ %1709, %1702 ]
-  %.0628.be = phi i32 [ %1482, %1484 ], [ %1708, %1702 ]
+  %.0630.be = phi ptr [ %1483, %1484 ], [ %1710, %1702 ]
   br label %.backedge
 
 1487:                                             ; preds = %1474
   %1488 = load i32, ptr %72, align 8
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %1487, %yy_get_next_buffer.exit.thread968
-  %.1637.ph.be = phi ptr [ %1714, %yy_get_next_buffer.exit.thread968 ], [ %1483, %1487 ]
-  %.2634.in.ph.be = phi ptr [ %69, %yy_get_next_buffer.exit.thread968 ], [ %73, %1487 ]
-  %.3.ph.be = phi i32 [ %1713, %yy_get_next_buffer.exit.thread968 ], [ %1488, %1487 ]
+.outer.backedge:                                  ; preds = %1487, %yy_get_next_buffer.exit.thread967
+  %.3.ph.be = phi i32 [ %1713, %yy_get_next_buffer.exit.thread967 ], [ %1488, %1487 ]
+  %.2.in.ph.be = phi ptr [ %69, %yy_get_next_buffer.exit.thread967 ], [ %73, %1487 ]
+  %.1631.ph.be = phi ptr [ %1714, %yy_get_next_buffer.exit.thread967 ], [ %1483, %1487 ]
   br label %.outer
 
 1489:                                             ; preds = %1464
@@ -2454,7 +2454,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
 1502:                                             ; preds = %1496
   %1503 = sub i64 %1500, %1501
   %1504 = icmp eq i64 %1503, 1
-  br i1 %1504, label %yy_get_next_buffer.exit.thread, label %yy_get_next_buffer.exit.thread968
+  br i1 %1504, label %yy_get_next_buffer.exit.thread, label %yy_get_next_buffer.exit.thread967
 
 1505:                                             ; preds = %1496
   %1506 = xor i64 %1501, -1
@@ -2464,14 +2464,14 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br i1 %1509, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %1505, %.lr.ph.i
-  %.0129161.i = phi ptr [ %1512, %.lr.ph.i ], [ %1470, %1505 ]
-  %.0130160.i = phi ptr [ %1510, %.lr.ph.i ], [ %1490, %1505 ]
-  %.0131159.i = phi i32 [ %1513, %.lr.ph.i ], [ 0, %1505 ]
-  %1510 = getelementptr i8, ptr %.0130160.i, i64 1
-  %1511 = load i8, ptr %.0130160.i, align 1
-  %1512 = getelementptr i8, ptr %.0129161.i, i64 1
-  store i8 %1511, ptr %.0129161.i, align 1
-  %1513 = add nuw nsw i32 %.0131159.i, 1
+  %.0131161.i = phi i32 [ %1513, %.lr.ph.i ], [ 0, %1505 ]
+  %.0132160.i = phi ptr [ %1510, %.lr.ph.i ], [ %1490, %1505 ]
+  %.0133159.i = phi ptr [ %1512, %.lr.ph.i ], [ %1470, %1505 ]
+  %1510 = getelementptr i8, ptr %.0132160.i, i64 1
+  %1511 = load i8, ptr %.0132160.i, align 1
+  %1512 = getelementptr i8, ptr %.0133159.i, i64 1
+  store i8 %1511, ptr %.0133159.i, align 1
+  %1513 = add nuw nsw i32 %.0131161.i, 1
   %exitcond.not.i = icmp eq i32 %1513, %1508
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
@@ -2500,8 +2500,8 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1523 = xor i32 %1508, -1
   %.pn.in162.i = getelementptr inbounds i8, ptr %1514, i64 24
   %.pn163.i = load i32, ptr %.pn.in162.i, align 8
-  %.0132164.i = add i32 %.pn163.i, %1523
-  %1524 = icmp slt i32 %.0132164.i, 1
+  %.0129164.i = add i32 %.pn163.i, %1523
+  %1524 = icmp slt i32 %.0129164.i, 1
   br i1 %1524, label %.lr.ph166.preheader.i, label %._crit_edge167.i
 
 .lr.ph166.preheader.i:                            ; preds = %1522
@@ -2562,14 +2562,14 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1552 = load ptr, ptr %1551, align 8
   %.pn.in.i = getelementptr inbounds i8, ptr %1552, i64 24
   %.pn.i = load i32, ptr %.pn.in.i, align 8
-  %.0132.i = add i32 %.pn.i, %1523
-  %1553 = icmp slt i32 %.0132.i, 1
+  %.0129.i = add i32 %.pn.i, %1523
+  %1553 = icmp slt i32 %.0129.i, 1
   br i1 %1553, label %.lr.ph166.i, label %._crit_edge167.i, !llvm.loop !9
 
 ._crit_edge167.i:                                 ; preds = %1546, %1522
   %1554 = phi ptr [ %1514, %1522 ], [ %1552, %1546 ]
-  %.0132.lcssa.i = phi i32 [ %.0132164.i, %1522 ], [ %.0132.i, %1546 ]
-  %1555 = tail call i32 @llvm.umin.i32(i32 %.0132.lcssa.i, i32 8192)
+  %.0129.lcssa.i = phi i32 [ %.0129164.i, %1522 ], [ %.0129.i, %1546 ]
+  %1555 = tail call i32 @llvm.umin.i32(i32 %.0129.lcssa.i, i32 8192)
   %1556 = getelementptr inbounds i8, ptr %1554, i64 36
   %1557 = load i32, ptr %1556, align 4
   %.not.i965 = icmp eq i32 %1557, 0
@@ -2610,7 +2610,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %1562, %.critedge.split.loop.exit.i
-  %.0126.lcssa.i = phi i32 [ %1572, %.critedge.split.loop.exit.i ], [ %1555, %1562 ]
+  %.0.lcssa.i = phi i32 [ %1572, %.critedge.split.loop.exit.i ], [ %1555, %1562 ]
   switch i32 %1561, label %1587 [
     i32 10, label %.thread152.i
     i32 -1, label %1583
@@ -2624,8 +2624,8 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   %1577 = getelementptr inbounds i8, ptr %1576, i64 8
   %1578 = load ptr, ptr %1577, align 8
   %1579 = getelementptr i8, ptr %1578, i64 %1558
-  %1580 = add nuw i32 %.0126.lcssa.i, 1
-  %1581 = zext nneg i32 %.0126.lcssa.i to i64
+  %1580 = add nuw i32 %.0.lcssa.i, 1
+  %1581 = zext nneg i32 %.0.lcssa.i to i64
   %1582 = getelementptr i8, ptr %1579, i64 %1581
   store i8 10, ptr %1582, align 1
   br label %1587
@@ -2641,7 +2641,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   unreachable
 
 1587:                                             ; preds = %1583, %.thread152.i, %.critedge.i
-  %.1154.i = phi i32 [ %1580, %.thread152.i ], [ %.0126.lcssa.i, %1583 ], [ %.0126.lcssa.i, %.critedge.i ]
+  %.1154.i = phi i32 [ %1580, %.thread152.i ], [ %.0.lcssa.i, %1583 ], [ %.0.lcssa.i, %.critedge.i ]
   store i32 %.1154.i, ptr %78, align 4
   br label %.critedge2.i
 
@@ -2734,7 +2734,7 @@ protobuf_lang_ensure_buffer_stack.exit:           ; preds = %30, %33, %42
   br label %1640
 
 1640:                                             ; preds = %1634, %1632, %1625
-  %.0133.i = phi i32 [ 1, %1632 ], [ 2, %1634 ], [ 0, %1625 ]
+  %.0130.i = phi i32 [ 1, %1632 ], [ 2, %1634 ], [ 0, %1625 ]
   %1641 = load i32, ptr %78, align 4
   %1642 = add i32 %1641, %1508
   %1643 = load ptr, ptr %76, align 8
@@ -2812,20 +2812,20 @@ yy_get_next_buffer.exit:                          ; preds = %1640, %1669
   %1694 = getelementptr inbounds i8, ptr %1693, i64 8
   %1695 = load ptr, ptr %1694, align 8
   store ptr %1695, ptr %74, align 8
-  switch i32 %.0133.i, label %default.unreachable1311 [
+  switch i32 %.0130.i, label %default.unreachable1310 [
     i32 1, label %yy_get_next_buffer.exit.thread
     i32 0, label %1702
-    i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread968_crit_edge
+    i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread967_crit_edge
   ]
 
-yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread968_crit_edge: ; preds = %yy_get_next_buffer.exit
+yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread967_crit_edge: ; preds = %yy_get_next_buffer.exit
   %1696 = getelementptr ptr, ptr %1690, i64 %1691
-  %.pre1306 = load ptr, ptr %1696, align 8
-  %.phi.trans.insert1307 = getelementptr inbounds i8, ptr %.pre1306, i64 8
-  %.pre1308 = load ptr, ptr %.phi.trans.insert1307, align 8
-  %.pre1309 = load i32, ptr %78, align 4
-  %.pre1310 = sext i32 %.pre1309 to i64
-  br label %yy_get_next_buffer.exit.thread968
+  %.pre1305 = load ptr, ptr %1696, align 8
+  %.phi.trans.insert1306 = getelementptr inbounds i8, ptr %.pre1305, i64 8
+  %.pre1307 = load ptr, ptr %.phi.trans.insert1306, align 8
+  %.pre1308 = load i32, ptr %78, align 4
+  %.pre1309 = sext i32 %.pre1308 to i64
+  br label %yy_get_next_buffer.exit.thread967
 
 yy_get_next_buffer.exit.thread:                   ; preds = %1502, %yy_get_next_buffer.exit
   %1697 = phi ptr [ %1490, %1502 ], [ %1695, %yy_get_next_buffer.exit ]
@@ -2835,14 +2835,14 @@ yy_get_next_buffer.exit.thread:                   ; preds = %1502, %yy_get_next_
   %1699 = add i32 %1698, -1
   %1700 = sdiv i32 %1699, 2
   %1701 = add nsw i32 %1700, 72
-  br label %.loopexit971
+  br label %.loopexit970
 
 1702:                                             ; preds = %yy_get_next_buffer.exit
   %1703 = ptrtoint ptr %1445 to i64
   %1704 = xor i64 %1703, -1
   %1705 = add i64 %1704, %132
-  %sext1195 = shl i64 %1705, 32
-  %1706 = ashr exact i64 %sext1195, 32
+  %sext1194 = shl i64 %1705, 32
+  %1706 = ashr exact i64 %sext1194, 32
   %1707 = getelementptr i8, ptr %1695, i64 %1706
   store ptr %1707, ptr %69, align 8
   %1708 = tail call fastcc i32 @yy_get_previous_state(ptr noundef nonnull %0)
@@ -2850,42 +2850,42 @@ yy_get_next_buffer.exit.thread:                   ; preds = %1502, %yy_get_next_
   %1710 = load ptr, ptr %74, align 8
   br label %.backedge.backedge
 
-yy_get_next_buffer.exit.thread968:                ; preds = %1502, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread968_crit_edge
-  %.pre-phi = phi i64 [ %.pre1310, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread968_crit_edge ], [ %1472, %1502 ]
-  %1711 = phi ptr [ %.pre1308, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread968_crit_edge ], [ %1470, %1502 ]
+yy_get_next_buffer.exit.thread967:                ; preds = %1502, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread967_crit_edge
+  %.pre-phi = phi i64 [ %.pre1309, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread967_crit_edge ], [ %1472, %1502 ]
+  %1711 = phi ptr [ %.pre1307, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread967_crit_edge ], [ %1470, %1502 ]
   %1712 = getelementptr i8, ptr %1711, i64 %.pre-phi
   store ptr %1712, ptr %69, align 8
   %1713 = tail call fastcc i32 @yy_get_previous_state(ptr noundef nonnull %0)
   %1714 = load ptr, ptr %74, align 8
   br label %.outer.backedge
 
-1715:                                             ; preds = %.loopexit971
+1715:                                             ; preds = %.loopexit970
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #25
   unreachable
 
-default.unreachable1311:                          ; preds = %yy_get_next_buffer.exit
+default.unreachable1310:                          ; preds = %yy_get_next_buffer.exit
   unreachable
 
-.loopexit970.sink.split.sink.split:               ; preds = %1424, %1404, %1384, %1364, %1344, %1324, %1304, %1284, %1264, %1244, %1224, %1204, %1184, %1164, %1144, %1124, %1104, %1084, %1064, %1044, %1024, %1004, %984, %964, %944, %924, %904, %884, %864, %844, %824, %804, %784, %764, %744, %724, %704, %684, %664, %644, %624, %604, %584, %564, %544, %524, %504, %484, %464, %444, %424, %404, %384, %364, %344, %324, %304, %284, %264, %244, %224, %204, %184
-  %.sink1446 = phi ptr [ %187, %184 ], [ %207, %204 ], [ %227, %224 ], [ %247, %244 ], [ %267, %264 ], [ %287, %284 ], [ %307, %304 ], [ %327, %324 ], [ %347, %344 ], [ %367, %364 ], [ %387, %384 ], [ %407, %404 ], [ %427, %424 ], [ %447, %444 ], [ %467, %464 ], [ %487, %484 ], [ %507, %504 ], [ %527, %524 ], [ %547, %544 ], [ %567, %564 ], [ %587, %584 ], [ %607, %604 ], [ %627, %624 ], [ %647, %644 ], [ %667, %664 ], [ %687, %684 ], [ %707, %704 ], [ %727, %724 ], [ %747, %744 ], [ %767, %764 ], [ %787, %784 ], [ %807, %804 ], [ %827, %824 ], [ %847, %844 ], [ %867, %864 ], [ %887, %884 ], [ %907, %904 ], [ %927, %924 ], [ %947, %944 ], [ %967, %964 ], [ %987, %984 ], [ %1007, %1004 ], [ %1027, %1024 ], [ %1047, %1044 ], [ %1067, %1064 ], [ %1087, %1084 ], [ %1107, %1104 ], [ %1127, %1124 ], [ %1147, %1144 ], [ %1167, %1164 ], [ %1187, %1184 ], [ %1207, %1204 ], [ %1227, %1224 ], [ %1247, %1244 ], [ %1267, %1264 ], [ %1287, %1284 ], [ %1307, %1304 ], [ %1327, %1324 ], [ %1347, %1344 ], [ %1367, %1364 ], [ %1387, %1384 ], [ %1407, %1404 ], [ %1427, %1424 ]
-  %.0.ph.ph = phi i32 [ 26, %184 ], [ 27, %204 ], [ 32, %224 ], [ 33, %244 ], [ 29, %264 ], [ 30, %284 ], [ 34, %304 ], [ 35, %324 ], [ 36, %344 ], [ 37, %364 ], [ 38, %384 ], [ 39, %404 ], [ 24, %424 ], [ 40, %444 ], [ 41, %464 ], [ 42, %484 ], [ 43, %504 ], [ 44, %524 ], [ 45, %544 ], [ 46, %564 ], [ 47, %584 ], [ 48, %604 ], [ 49, %624 ], [ 50, %644 ], [ 51, %664 ], [ 52, %684 ], [ 53, %704 ], [ 54, %724 ], [ 55, %744 ], [ 25, %764 ], [ 28, %784 ], [ 56, %804 ], [ 57, %824 ], [ 58, %844 ], [ 59, %864 ], [ 2, %884 ], [ 3, %904 ], [ 4, %924 ], [ 5, %944 ], [ 6, %964 ], [ 7, %984 ], [ 8, %1004 ], [ 9, %1024 ], [ 10, %1044 ], [ 11, %1064 ], [ 12, %1084 ], [ 13, %1104 ], [ 14, %1124 ], [ 15, %1144 ], [ 16, %1164 ], [ 17, %1184 ], [ 18, %1204 ], [ 19, %1224 ], [ 20, %1244 ], [ 21, %1264 ], [ 22, %1284 ], [ 23, %1304 ], [ 60, %1324 ], [ 61, %1344 ], [ 62, %1364 ], [ 1, %1384 ], [ 31, %1404 ], [ 31, %1424 ]
-  %1716 = getelementptr inbounds i8, ptr %.sink1446, i64 44
+.loopexit969.sink.split.sink.split:               ; preds = %1424, %1404, %1384, %1364, %1344, %1324, %1304, %1284, %1264, %1244, %1224, %1204, %1184, %1164, %1144, %1124, %1104, %1084, %1064, %1044, %1024, %1004, %984, %964, %944, %924, %904, %884, %864, %844, %824, %804, %784, %764, %744, %724, %704, %684, %664, %644, %624, %604, %584, %564, %544, %524, %504, %484, %464, %444, %424, %404, %384, %364, %344, %324, %304, %284, %264, %244, %224, %204, %184
+  %.sink1445 = phi ptr [ %187, %184 ], [ %207, %204 ], [ %227, %224 ], [ %247, %244 ], [ %267, %264 ], [ %287, %284 ], [ %307, %304 ], [ %327, %324 ], [ %347, %344 ], [ %367, %364 ], [ %387, %384 ], [ %407, %404 ], [ %427, %424 ], [ %447, %444 ], [ %467, %464 ], [ %487, %484 ], [ %507, %504 ], [ %527, %524 ], [ %547, %544 ], [ %567, %564 ], [ %587, %584 ], [ %607, %604 ], [ %627, %624 ], [ %647, %644 ], [ %667, %664 ], [ %687, %684 ], [ %707, %704 ], [ %727, %724 ], [ %747, %744 ], [ %767, %764 ], [ %787, %784 ], [ %807, %804 ], [ %827, %824 ], [ %847, %844 ], [ %867, %864 ], [ %887, %884 ], [ %907, %904 ], [ %927, %924 ], [ %947, %944 ], [ %967, %964 ], [ %987, %984 ], [ %1007, %1004 ], [ %1027, %1024 ], [ %1047, %1044 ], [ %1067, %1064 ], [ %1087, %1084 ], [ %1107, %1104 ], [ %1127, %1124 ], [ %1147, %1144 ], [ %1167, %1164 ], [ %1187, %1184 ], [ %1207, %1204 ], [ %1227, %1224 ], [ %1247, %1244 ], [ %1267, %1264 ], [ %1287, %1284 ], [ %1307, %1304 ], [ %1327, %1324 ], [ %1347, %1344 ], [ %1367, %1364 ], [ %1387, %1384 ], [ %1407, %1404 ], [ %1427, %1424 ]
+  %.0637.ph.ph = phi i32 [ 26, %184 ], [ 27, %204 ], [ 32, %224 ], [ 33, %244 ], [ 29, %264 ], [ 30, %284 ], [ 34, %304 ], [ 35, %324 ], [ 36, %344 ], [ 37, %364 ], [ 38, %384 ], [ 39, %404 ], [ 24, %424 ], [ 40, %444 ], [ 41, %464 ], [ 42, %484 ], [ 43, %504 ], [ 44, %524 ], [ 45, %544 ], [ 46, %564 ], [ 47, %584 ], [ 48, %604 ], [ 49, %624 ], [ 50, %644 ], [ 51, %664 ], [ 52, %684 ], [ 53, %704 ], [ 54, %724 ], [ 55, %744 ], [ 25, %764 ], [ 28, %784 ], [ 56, %804 ], [ 57, %824 ], [ 58, %844 ], [ 59, %864 ], [ 2, %884 ], [ 3, %904 ], [ 4, %924 ], [ 5, %944 ], [ 6, %964 ], [ 7, %984 ], [ 8, %1004 ], [ 9, %1024 ], [ 10, %1044 ], [ 11, %1064 ], [ 12, %1084 ], [ 13, %1104 ], [ 14, %1124 ], [ 15, %1144 ], [ 16, %1164 ], [ 17, %1184 ], [ 18, %1204 ], [ 19, %1224 ], [ 20, %1244 ], [ 21, %1264 ], [ 22, %1284 ], [ 23, %1304 ], [ 60, %1324 ], [ 61, %1344 ], [ 62, %1364 ], [ 1, %1384 ], [ 31, %1404 ], [ 31, %1424 ]
+  %1716 = getelementptr inbounds i8, ptr %.sink1445, i64 44
   %1717 = load i32, ptr %1716, align 4
-  br label %.loopexit970.sink.split
+  br label %.loopexit969.sink.split
 
-.loopexit970.sink.split:                          ; preds = %.loopexit970.sink.split.sink.split, %1424, %1408, %1404, %1388, %1384, %1368, %1364, %1348, %1344, %1328, %1324, %1308, %1304, %1288, %1284, %1268, %1264, %1248, %1244, %1228, %1224, %1208, %1204, %1188, %1184, %1168, %1164, %1148, %1144, %1128, %1124, %1108, %1104, %1088, %1084, %1068, %1064, %1048, %1044, %1028, %1024, %1008, %1004, %988, %984, %968, %964, %948, %944, %928, %924, %908, %904, %888, %884, %868, %864, %848, %844, %828, %824, %808, %804, %788, %784, %768, %764, %748, %744, %728, %724, %708, %704, %688, %684, %668, %664, %648, %644, %628, %624, %608, %604, %588, %584, %568, %564, %548, %544, %528, %524, %508, %504, %488, %484, %468, %464, %448, %444, %428, %424, %408, %404, %388, %384, %368, %364, %348, %344, %328, %324, %308, %304, %288, %284, %268, %264, %248, %244, %228, %224, %208, %204, %188, %184, %168
-  %.0.i963.sink = phi i32 [ 0, %168 ], [ 0, %184 ], [ 0, %188 ], [ 0, %204 ], [ 0, %208 ], [ 0, %224 ], [ 0, %228 ], [ 0, %244 ], [ 0, %248 ], [ 0, %264 ], [ 0, %268 ], [ 0, %284 ], [ 0, %288 ], [ 0, %304 ], [ 0, %308 ], [ 0, %324 ], [ 0, %328 ], [ 0, %344 ], [ 0, %348 ], [ 0, %364 ], [ 0, %368 ], [ 0, %384 ], [ 0, %388 ], [ 0, %404 ], [ 0, %408 ], [ 0, %424 ], [ 0, %428 ], [ 0, %444 ], [ 0, %448 ], [ 0, %464 ], [ 0, %468 ], [ 0, %484 ], [ 0, %488 ], [ 0, %504 ], [ 0, %508 ], [ 0, %524 ], [ 0, %528 ], [ 0, %544 ], [ 0, %548 ], [ 0, %564 ], [ 0, %568 ], [ 0, %584 ], [ 0, %588 ], [ 0, %604 ], [ 0, %608 ], [ 0, %624 ], [ 0, %628 ], [ 0, %644 ], [ 0, %648 ], [ 0, %664 ], [ 0, %668 ], [ 0, %684 ], [ 0, %688 ], [ 0, %704 ], [ 0, %708 ], [ 0, %724 ], [ 0, %728 ], [ 0, %744 ], [ 0, %748 ], [ 0, %764 ], [ 0, %768 ], [ 0, %784 ], [ 0, %788 ], [ 0, %804 ], [ 0, %808 ], [ 0, %824 ], [ 0, %828 ], [ 0, %844 ], [ 0, %848 ], [ 0, %864 ], [ 0, %868 ], [ 0, %884 ], [ 0, %888 ], [ 0, %904 ], [ 0, %908 ], [ 0, %924 ], [ 0, %928 ], [ 0, %944 ], [ 0, %948 ], [ 0, %964 ], [ 0, %968 ], [ 0, %984 ], [ 0, %988 ], [ 0, %1004 ], [ 0, %1008 ], [ 0, %1024 ], [ 0, %1028 ], [ 0, %1044 ], [ 0, %1048 ], [ 0, %1064 ], [ 0, %1068 ], [ 0, %1084 ], [ 0, %1088 ], [ 0, %1104 ], [ 0, %1108 ], [ 0, %1124 ], [ 0, %1128 ], [ 0, %1144 ], [ 0, %1148 ], [ 0, %1164 ], [ 0, %1168 ], [ 0, %1184 ], [ 0, %1188 ], [ 0, %1204 ], [ 0, %1208 ], [ 0, %1224 ], [ 0, %1228 ], [ 0, %1244 ], [ 0, %1248 ], [ 0, %1264 ], [ 0, %1268 ], [ 0, %1284 ], [ 0, %1288 ], [ 0, %1304 ], [ 0, %1308 ], [ 0, %1324 ], [ 0, %1328 ], [ 0, %1344 ], [ 0, %1348 ], [ 0, %1364 ], [ 0, %1368 ], [ 0, %1384 ], [ 0, %1388 ], [ 0, %1404 ], [ 0, %1408 ], [ 0, %1424 ], [ %1717, %.loopexit970.sink.split.sink.split ]
-  %.0.ph = phi i32 [ 26, %168 ], [ 26, %184 ], [ 27, %188 ], [ 27, %204 ], [ 32, %208 ], [ 32, %224 ], [ 33, %228 ], [ 33, %244 ], [ 29, %248 ], [ 29, %264 ], [ 30, %268 ], [ 30, %284 ], [ 34, %288 ], [ 34, %304 ], [ 35, %308 ], [ 35, %324 ], [ 36, %328 ], [ 36, %344 ], [ 37, %348 ], [ 37, %364 ], [ 38, %368 ], [ 38, %384 ], [ 39, %388 ], [ 39, %404 ], [ 24, %408 ], [ 24, %424 ], [ 40, %428 ], [ 40, %444 ], [ 41, %448 ], [ 41, %464 ], [ 42, %468 ], [ 42, %484 ], [ 43, %488 ], [ 43, %504 ], [ 44, %508 ], [ 44, %524 ], [ 45, %528 ], [ 45, %544 ], [ 46, %548 ], [ 46, %564 ], [ 47, %568 ], [ 47, %584 ], [ 48, %588 ], [ 48, %604 ], [ 49, %608 ], [ 49, %624 ], [ 50, %628 ], [ 50, %644 ], [ 51, %648 ], [ 51, %664 ], [ 52, %668 ], [ 52, %684 ], [ 53, %688 ], [ 53, %704 ], [ 54, %708 ], [ 54, %724 ], [ 55, %728 ], [ 55, %744 ], [ 25, %748 ], [ 25, %764 ], [ 28, %768 ], [ 28, %784 ], [ 56, %788 ], [ 56, %804 ], [ 57, %808 ], [ 57, %824 ], [ 58, %828 ], [ 58, %844 ], [ 59, %848 ], [ 59, %864 ], [ 2, %868 ], [ 2, %884 ], [ 3, %888 ], [ 3, %904 ], [ 4, %908 ], [ 4, %924 ], [ 5, %928 ], [ 5, %944 ], [ 6, %948 ], [ 6, %964 ], [ 7, %968 ], [ 7, %984 ], [ 8, %988 ], [ 8, %1004 ], [ 9, %1008 ], [ 9, %1024 ], [ 10, %1028 ], [ 10, %1044 ], [ 11, %1048 ], [ 11, %1064 ], [ 12, %1068 ], [ 12, %1084 ], [ 13, %1088 ], [ 13, %1104 ], [ 14, %1108 ], [ 14, %1124 ], [ 15, %1128 ], [ 15, %1144 ], [ 16, %1148 ], [ 16, %1164 ], [ 17, %1168 ], [ 17, %1184 ], [ 18, %1188 ], [ 18, %1204 ], [ 19, %1208 ], [ 19, %1224 ], [ 20, %1228 ], [ 20, %1244 ], [ 21, %1248 ], [ 21, %1264 ], [ 22, %1268 ], [ 22, %1284 ], [ 23, %1288 ], [ 23, %1304 ], [ 60, %1308 ], [ 60, %1324 ], [ 61, %1328 ], [ 61, %1344 ], [ 62, %1348 ], [ 62, %1364 ], [ 1, %1368 ], [ 1, %1384 ], [ 31, %1388 ], [ 31, %1404 ], [ 31, %1408 ], [ 31, %1424 ], [ %.0.ph.ph, %.loopexit970.sink.split.sink.split ]
+.loopexit969.sink.split:                          ; preds = %.loopexit969.sink.split.sink.split, %1424, %1408, %1404, %1388, %1384, %1368, %1364, %1348, %1344, %1328, %1324, %1308, %1304, %1288, %1284, %1268, %1264, %1248, %1244, %1228, %1224, %1208, %1204, %1188, %1184, %1168, %1164, %1148, %1144, %1128, %1124, %1108, %1104, %1088, %1084, %1068, %1064, %1048, %1044, %1028, %1024, %1008, %1004, %988, %984, %968, %964, %948, %944, %928, %924, %908, %904, %888, %884, %868, %864, %848, %844, %828, %824, %808, %804, %788, %784, %768, %764, %748, %744, %728, %724, %708, %704, %688, %684, %668, %664, %648, %644, %628, %624, %608, %604, %588, %584, %568, %564, %548, %544, %528, %524, %508, %504, %488, %484, %468, %464, %448, %444, %428, %424, %408, %404, %388, %384, %368, %364, %348, %344, %328, %324, %308, %304, %288, %284, %268, %264, %248, %244, %228, %224, %208, %204, %188, %184, %168
+  %.0.i963.sink = phi i32 [ 0, %168 ], [ 0, %184 ], [ 0, %188 ], [ 0, %204 ], [ 0, %208 ], [ 0, %224 ], [ 0, %228 ], [ 0, %244 ], [ 0, %248 ], [ 0, %264 ], [ 0, %268 ], [ 0, %284 ], [ 0, %288 ], [ 0, %304 ], [ 0, %308 ], [ 0, %324 ], [ 0, %328 ], [ 0, %344 ], [ 0, %348 ], [ 0, %364 ], [ 0, %368 ], [ 0, %384 ], [ 0, %388 ], [ 0, %404 ], [ 0, %408 ], [ 0, %424 ], [ 0, %428 ], [ 0, %444 ], [ 0, %448 ], [ 0, %464 ], [ 0, %468 ], [ 0, %484 ], [ 0, %488 ], [ 0, %504 ], [ 0, %508 ], [ 0, %524 ], [ 0, %528 ], [ 0, %544 ], [ 0, %548 ], [ 0, %564 ], [ 0, %568 ], [ 0, %584 ], [ 0, %588 ], [ 0, %604 ], [ 0, %608 ], [ 0, %624 ], [ 0, %628 ], [ 0, %644 ], [ 0, %648 ], [ 0, %664 ], [ 0, %668 ], [ 0, %684 ], [ 0, %688 ], [ 0, %704 ], [ 0, %708 ], [ 0, %724 ], [ 0, %728 ], [ 0, %744 ], [ 0, %748 ], [ 0, %764 ], [ 0, %768 ], [ 0, %784 ], [ 0, %788 ], [ 0, %804 ], [ 0, %808 ], [ 0, %824 ], [ 0, %828 ], [ 0, %844 ], [ 0, %848 ], [ 0, %864 ], [ 0, %868 ], [ 0, %884 ], [ 0, %888 ], [ 0, %904 ], [ 0, %908 ], [ 0, %924 ], [ 0, %928 ], [ 0, %944 ], [ 0, %948 ], [ 0, %964 ], [ 0, %968 ], [ 0, %984 ], [ 0, %988 ], [ 0, %1004 ], [ 0, %1008 ], [ 0, %1024 ], [ 0, %1028 ], [ 0, %1044 ], [ 0, %1048 ], [ 0, %1064 ], [ 0, %1068 ], [ 0, %1084 ], [ 0, %1088 ], [ 0, %1104 ], [ 0, %1108 ], [ 0, %1124 ], [ 0, %1128 ], [ 0, %1144 ], [ 0, %1148 ], [ 0, %1164 ], [ 0, %1168 ], [ 0, %1184 ], [ 0, %1188 ], [ 0, %1204 ], [ 0, %1208 ], [ 0, %1224 ], [ 0, %1228 ], [ 0, %1244 ], [ 0, %1248 ], [ 0, %1264 ], [ 0, %1268 ], [ 0, %1284 ], [ 0, %1288 ], [ 0, %1304 ], [ 0, %1308 ], [ 0, %1324 ], [ 0, %1328 ], [ 0, %1344 ], [ 0, %1348 ], [ 0, %1364 ], [ 0, %1368 ], [ 0, %1384 ], [ 0, %1388 ], [ 0, %1404 ], [ 0, %1408 ], [ 0, %1424 ], [ %1717, %.loopexit969.sink.split.sink.split ]
+  %.0637.ph = phi i32 [ 26, %168 ], [ 26, %184 ], [ 27, %188 ], [ 27, %204 ], [ 32, %208 ], [ 32, %224 ], [ 33, %228 ], [ 33, %244 ], [ 29, %248 ], [ 29, %264 ], [ 30, %268 ], [ 30, %284 ], [ 34, %288 ], [ 34, %304 ], [ 35, %308 ], [ 35, %324 ], [ 36, %328 ], [ 36, %344 ], [ 37, %348 ], [ 37, %364 ], [ 38, %368 ], [ 38, %384 ], [ 39, %388 ], [ 39, %404 ], [ 24, %408 ], [ 24, %424 ], [ 40, %428 ], [ 40, %444 ], [ 41, %448 ], [ 41, %464 ], [ 42, %468 ], [ 42, %484 ], [ 43, %488 ], [ 43, %504 ], [ 44, %508 ], [ 44, %524 ], [ 45, %528 ], [ 45, %544 ], [ 46, %548 ], [ 46, %564 ], [ 47, %568 ], [ 47, %584 ], [ 48, %588 ], [ 48, %604 ], [ 49, %608 ], [ 49, %624 ], [ 50, %628 ], [ 50, %644 ], [ 51, %648 ], [ 51, %664 ], [ 52, %668 ], [ 52, %684 ], [ 53, %688 ], [ 53, %704 ], [ 54, %708 ], [ 54, %724 ], [ 55, %728 ], [ 55, %744 ], [ 25, %748 ], [ 25, %764 ], [ 28, %768 ], [ 28, %784 ], [ 56, %788 ], [ 56, %804 ], [ 57, %808 ], [ 57, %824 ], [ 58, %828 ], [ 58, %844 ], [ 59, %848 ], [ 59, %864 ], [ 2, %868 ], [ 2, %884 ], [ 3, %888 ], [ 3, %904 ], [ 4, %908 ], [ 4, %924 ], [ 5, %928 ], [ 5, %944 ], [ 6, %948 ], [ 6, %964 ], [ 7, %968 ], [ 7, %984 ], [ 8, %988 ], [ 8, %1004 ], [ 9, %1008 ], [ 9, %1024 ], [ 10, %1028 ], [ 10, %1044 ], [ 11, %1048 ], [ 11, %1064 ], [ 12, %1068 ], [ 12, %1084 ], [ 13, %1088 ], [ 13, %1104 ], [ 14, %1108 ], [ 14, %1124 ], [ 15, %1128 ], [ 15, %1144 ], [ 16, %1148 ], [ 16, %1164 ], [ 17, %1168 ], [ 17, %1184 ], [ 18, %1188 ], [ 18, %1204 ], [ 19, %1208 ], [ 19, %1224 ], [ 20, %1228 ], [ 20, %1244 ], [ 21, %1248 ], [ 21, %1264 ], [ 22, %1268 ], [ 22, %1284 ], [ 23, %1288 ], [ 23, %1304 ], [ 60, %1308 ], [ 60, %1324 ], [ 61, %1328 ], [ 61, %1344 ], [ 62, %1348 ], [ 62, %1364 ], [ 1, %1368 ], [ 1, %1384 ], [ 31, %1388 ], [ 31, %1404 ], [ 31, %1408 ], [ 31, %1424 ], [ %.0637.ph.ph, %.loopexit969.sink.split.sink.split ]
   %1718 = load ptr, ptr %0, align 8
   %1719 = getelementptr inbounds i8, ptr %1718, i64 56
   %1720 = load ptr, ptr %1719, align 8
   %1721 = getelementptr inbounds i8, ptr %1720, i64 8
   store i32 %.0.i963.sink, ptr %1721, align 8
-  br label %.loopexit970
+  br label %.loopexit969
 
-.loopexit970:                                     ; preds = %.loopexit971, %.loopexit971, %.loopexit970.sink.split
-  %.0 = phi i32 [ %.0.ph, %.loopexit970.sink.split ], [ 0, %.loopexit971 ], [ 0, %.loopexit971 ]
-  ret i32 %.0
+.loopexit969:                                     ; preds = %.loopexit970, %.loopexit970, %.loopexit969.sink.split
+  %.0637 = phi i32 [ %.0637.ph, %.loopexit969.sink.split ], [ 0, %.loopexit970 ], [ 0, %.loopexit970 ]
+  ret i32 %.0637
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3068,9 +3068,9 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
   br label %11
 
 11:                                               ; preds = %.lr.ph31, %._crit_edge
-  %.02129 = phi i32 [ %3, %.lr.ph31 ], [ %51, %._crit_edge ]
-  %.02328 = phi ptr [ %5, %.lr.ph31 ], [ %52, %._crit_edge ]
-  %12 = load i8, ptr %.02328, align 1
+  %.02129 = phi ptr [ %5, %.lr.ph31 ], [ %52, %._crit_edge ]
+  %.02228 = phi i32 [ %3, %.lr.ph31 ], [ %51, %._crit_edge ]
+  %12 = load i8, ptr %.02129, align 1
   %.not = icmp eq i8 %12, 0
   br i1 %.not, label %17, label %13
 
@@ -3082,15 +3082,15 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
 
 17:                                               ; preds = %11, %13
   %18 = phi i8 [ %16, %13 ], [ 1, %11 ]
-  %19 = sext i32 %.02129 to i64
+  %19 = sext i32 %.02228 to i64
   %20 = getelementptr [185 x i16], ptr @yy_accept, i64 0, i64 %19
   %21 = load i16, ptr %20, align 2
   %.not24 = icmp eq i16 %21, 0
   br i1 %.not24, label %23, label %22
 
 22:                                               ; preds = %17
-  store i32 %.02129, ptr %9, align 8
-  store ptr %.02328, ptr %10, align 8
+  store i32 %.02228, ptr %9, align 8
+  store ptr %.02129, ptr %10, align 8
   br label %23
 
 23:                                               ; preds = %22, %17
@@ -3102,7 +3102,7 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
   %29 = getelementptr [331 x i16], ptr @yy_chk, i64 0, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = sext i16 %30 to i32
-  %.not2526 = icmp eq i32 %.02129, %31
+  %.not2526 = icmp eq i32 %.02228, %31
   br i1 %.not2526, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23, %40
@@ -3137,13 +3137,13 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
   %49 = getelementptr [331 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa
   %50 = load i16, ptr %49, align 2
   %51 = sext i16 %50 to i32
-  %52 = getelementptr i8, ptr %.02328, i64 1
+  %52 = getelementptr i8, ptr %.02129, i64 1
   %exitcond.not = icmp eq ptr %52, %7
   br i1 %exitcond.not, label %._crit_edge32, label %11, !llvm.loop !13
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %1
-  %.021.lcssa = phi i32 [ %3, %1 ], [ %51, %._crit_edge ]
-  ret i32 %.021.lcssa
+  %.022.lcssa = phi i32 [ %3, %1 ], [ %51, %._crit_edge ]
+  ret i32 %.022.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable

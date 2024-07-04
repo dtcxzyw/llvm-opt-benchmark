@@ -595,7 +595,7 @@ define internal fastcc noundef ptr @_ZL7xvgrstrRKNSt7__cxx1112basic_stringIcSt11
   br label %118
 
 118:                                              ; preds = %114, %.critedge
-  %.0114 = phi i8 [ %117, %114 ], [ %109, %.critedge ]
+  %.0113 = phi i8 [ %117, %114 ], [ %109, %.critedge ]
   %119 = sext i32 %.0111128 to i64
   %120 = getelementptr inbounds i8, ptr %2, i64 %119
   switch i32 %5, label %127 [
@@ -604,12 +604,12 @@ define internal fastcc noundef ptr @_ZL7xvgrstrRKNSt7__cxx1112basic_stringIcSt11
   ]
 
 121:                                              ; preds = %118
-  %122 = sext i8 %.0114 to i32
+  %122 = sext i8 %.0113 to i32
   %123 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %120, ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef nonnull @.str.27, i32 noundef %122, ptr noundef nonnull @.str.25) #20
   br label %144
 
 124:                                              ; preds = %118
-  %125 = sext i8 %.0114 to i32
+  %125 = sext i8 %.0113 to i32
   %126 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %120, ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef nonnull @.str.28, i32 noundef %125, ptr noundef nonnull @.str.26) #20
   br label %144
 
@@ -1656,9 +1656,9 @@ define internal fastcc noundef ptr @_ZL6fgets3P8_IO_FILEPPcPii(ptr nocapture nou
   br label %5
 
 5:                                                ; preds = %26, %3
-  %.026 = phi i32 [ %4, %3 ], [ 1, %26 ]
-  %.025 = phi i32 [ 0, %3 ], [ %28, %26 ]
-  %6 = icmp slt i32 %.026, 2
+  %.025 = phi i32 [ %4, %3 ], [ 1, %26 ]
+  %.0 = phi i32 [ 0, %3 ], [ %28, %26 ]
+  %6 = icmp slt i32 %.025, 2
   br i1 %6, label %7, label %16
 
 7:                                                ; preds = %5
@@ -1669,7 +1669,7 @@ define internal fastcc noundef ptr @_ZL6fgets3P8_IO_FILEPPcPii(ptr nocapture nou
 10:                                               ; preds = %7
   %11 = add nsw i32 %8, 4096
   store i32 %11, ptr %2, align 4
-  %12 = add nsw i32 %.026, 4096
+  %12 = add nsw i32 %.025, 4096
   %13 = sext i32 %11 to i64
   %14 = load ptr, ptr %1, align 8
   %15 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.22, i32 noundef 452, ptr noundef %14, i64 noundef %13, i64 noundef 1)
@@ -1677,12 +1677,12 @@ define internal fastcc noundef ptr @_ZL6fgets3P8_IO_FILEPPcPii(ptr nocapture nou
   br label %16
 
 16:                                               ; preds = %7, %10, %5
-  %.127 = phi i32 [ %12, %10 ], [ %.026, %5 ], [ 4096, %7 ]
-  %.1 = phi i32 [ %.025, %10 ], [ %.025, %5 ], [ 0, %7 ]
+  %.126 = phi i32 [ %12, %10 ], [ %.025, %5 ], [ 4096, %7 ]
+  %.1 = phi i32 [ %.0, %10 ], [ %.0, %5 ], [ 0, %7 ]
   %17 = load ptr, ptr %1, align 8
   %18 = sext i32 %.1 to i64
   %19 = getelementptr inbounds i8, ptr %17, i64 %18
-  %20 = tail call ptr @fgets(ptr noundef %19, i32 noundef %.127, ptr noundef %0)
+  %20 = tail call ptr @fgets(ptr noundef %19, i32 noundef %.126, ptr noundef %0)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.loopexit, label %22
 
@@ -1693,7 +1693,7 @@ define internal fastcc noundef ptr @_ZL6fgets3P8_IO_FILEPPcPii(ptr nocapture nou
   br i1 %25, label %26, label %.critedge
 
 26:                                               ; preds = %22
-  %27 = add nsw i32 %.127, -1
+  %27 = add nsw i32 %.126, -1
   %28 = add nsw i32 %27, %.1
   %29 = tail call i32 @feof(ptr noundef %0) #20
   %30 = icmp eq i32 %29, 0
@@ -1726,8 +1726,8 @@ define internal fastcc noundef ptr @_ZL6fgets3P8_IO_FILEPPcPii(ptr nocapture nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %35, %43, %33, %.critedge
-  %.0 = phi ptr [ null, %.critedge ], [ null, %33 ], [ %.pre, %43 ], [ %36, %35 ], [ null, %16 ]
-  ret ptr %.0
+  %.027 = phi ptr [ null, %.critedge ], [ null, %33 ], [ %.pre, %43 ], [ %36, %35 ], [ null, %16 ]
+  ret ptr %.027
 }
 
 declare void @_Z4trimPc(ptr noundef) local_unnamed_addr #1

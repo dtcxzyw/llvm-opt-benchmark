@@ -34,13 +34,13 @@ define noundef i32 @pmix_pstrg_base_select() local_unnamed_addr #0 {
 
 5:                                                ; preds = %0
   store i8 1, ptr getelementptr inbounds (i8, ptr @pmix_pstrg_base, i64 280), align 8
-  %.02638 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pstrg_base_framework, i64 320), align 8
-  %.not39 = icmp eq ptr %.02638, getelementptr inbounds (i8, ptr @pmix_pstrg_base_framework, i64 200)
+  %.02538 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pstrg_base_framework, i64 320), align 8
+  %.not39 = icmp eq ptr %.02538, getelementptr inbounds (i8, ptr @pmix_pstrg_base_framework, i64 200)
   br i1 %.not39, label %._crit_edge, label %.lr.ph41
 
 .lr.ph41:                                         ; preds = %5, %65
-  %.02640 = phi ptr [ %.026, %65 ], [ %.02638, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.02640, i64 144
+  %.02540 = phi ptr [ %.025, %65 ], [ %.02538, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.02540, i64 144
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_pstrg_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %8, 64
@@ -125,21 +125,21 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %32, %3
   store ptr %7, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %28, i64 152
   store ptr %21, ptr %47, align 8
-  %.02535 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pstrg_base, i64 240), align 8
-  %.not33.not36 = icmp eq ptr %.02535, getelementptr inbounds (i8, ptr @pmix_pstrg_base, i64 120)
+  %.02435 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_pstrg_base, i64 240), align 8
+  %.not33.not36 = icmp eq ptr %.02435, getelementptr inbounds (i8, ptr @pmix_pstrg_base, i64 120)
   br i1 %.not33.not36, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %pmix_obj_new_tma.exit, %57
-  %.02537 = phi ptr [ %.025, %57 ], [ %.02535, %pmix_obj_new_tma.exit ]
-  %48 = getelementptr inbounds i8, ptr %.02537, i64 160
+  %.02437 = phi ptr [ %.024, %57 ], [ %.02435, %pmix_obj_new_tma.exit ]
+  %48 = getelementptr inbounds i8, ptr %.02437, i64 160
   %49 = load i32, ptr %48, align 8
   %50 = icmp sgt i32 %44, %49
   br i1 %50, label %51, label %57
 
 51:                                               ; preds = %.lr.ph
   %52 = getelementptr inbounds i8, ptr %28, i64 120
-  store ptr %.02537, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %.02537, i64 128
+  store ptr %.02437, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %.02437, i64 128
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %28, i64 128
   store ptr %54, ptr %55, align 8
@@ -148,9 +148,9 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %32, %3
   br label %.sink.split
 
 57:                                               ; preds = %.lr.ph
-  %58 = getelementptr inbounds i8, ptr %.02537, i64 120
-  %.025 = load ptr, ptr %58, align 8
-  %.not33.not = icmp eq ptr %.025, getelementptr inbounds (i8, ptr @pmix_pstrg_base, i64 120)
+  %58 = getelementptr inbounds i8, ptr %.02437, i64 120
+  %.024 = load ptr, ptr %58, align 8
+  %.not33.not = icmp eq ptr %.024, getelementptr inbounds (i8, ptr @pmix_pstrg_base, i64 120)
   br i1 %.not33.not, label %.critedge, label %.lr.ph, !llvm.loop !6
 
 .critedge:                                        ; preds = %57, %pmix_obj_new_tma.exit
@@ -172,9 +172,9 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %32, %3
   br label %65
 
 65:                                               ; preds = %.sink.split, %24, %16
-  %66 = getelementptr inbounds i8, ptr %.02640, i64 120
-  %.026 = load ptr, ptr %66, align 8
-  %.not = icmp eq ptr %.026, getelementptr inbounds (i8, ptr @pmix_pstrg_base_framework, i64 200)
+  %66 = getelementptr inbounds i8, ptr %.02540, i64 120
+  %.025 = load ptr, ptr %66, align 8
+  %.not = icmp eq ptr %.025, getelementptr inbounds (i8, ptr @pmix_pstrg_base_framework, i64 200)
   br i1 %.not, label %._crit_edge, label %.lr.ph41, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %65, %5

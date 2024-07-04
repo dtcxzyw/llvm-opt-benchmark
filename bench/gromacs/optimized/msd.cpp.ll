@@ -2000,13 +2000,13 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaI
   br label %209
 
 209:                                              ; preds = %209, %.lr.ph.i.i.i
-  %.sroa.019.024.i.i.i = phi ptr [ %204, %.lr.ph.i.i.i ], [ %216, %209 ]
-  %.sroa.017.022.i.i.i = phi ptr [ %208, %.lr.ph.i.i.i ], [ %217, %209 ]
-  %.sroa.07.0.copyload.i.i.i = load <2 x float>, ptr %.sroa.019.024.i.i.i, align 4
-  %.sroa.28.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.019.024.i.i.i, i64 8
+  %.sroa.015.024.i.i.i = phi ptr [ %204, %.lr.ph.i.i.i ], [ %216, %209 ]
+  %.sroa.017.023.i.i.i = phi ptr [ %208, %.lr.ph.i.i.i ], [ %217, %209 ]
+  %.sroa.07.0.copyload.i.i.i = load <2 x float>, ptr %.sroa.015.024.i.i.i, align 4
+  %.sroa.28.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.015.024.i.i.i, i64 8
   %.sroa.28.0.copyload.i.i.i = load float, ptr %.sroa.28.0..sroa_idx.i.i.i, align 4
-  %.sroa.05.0.copyload.i.i.i = load <2 x float>, ptr %.sroa.017.022.i.i.i, align 4
-  %.sroa.26.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.017.022.i.i.i, i64 8
+  %.sroa.05.0.copyload.i.i.i = load <2 x float>, ptr %.sroa.017.023.i.i.i, align 4
+  %.sroa.26.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.017.023.i.i.i, i64 8
   %.sroa.26.0.copyload.i.i.i = load float, ptr %.sroa.26.0..sroa_idx.i.i.i, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11)
@@ -2025,10 +2025,10 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPN3gmx11BasicVectorIfEESt6vectorIS4_SaI
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12)
-  store <2 x float> %213, ptr %.sroa.019.024.i.i.i, align 4
+  store <2 x float> %213, ptr %.sroa.015.024.i.i.i, align 4
   store float %215, ptr %.sroa.28.0..sroa_idx.i.i.i, align 4
-  %216 = getelementptr i8, ptr %.sroa.019.024.i.i.i, i64 12
-  %217 = getelementptr inbounds i8, ptr %.sroa.017.022.i.i.i, i64 12
+  %216 = getelementptr i8, ptr %.sroa.015.024.i.i.i, i64 12
+  %217 = getelementptr inbounds i8, ptr %.sroa.017.023.i.i.i, i64 12
   %.not.i.i35.i = icmp eq ptr %216, %206
   br i1 %.not.i.i35.i, label %_ZN3gmx15analysismodules12_GLOBAL__N_120MsdCoordinateManager16buildCoordinatesERKNS_9SelectionEP5t_pbc.exit, label %209, !llvm.loop !29
 

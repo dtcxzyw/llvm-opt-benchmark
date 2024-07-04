@@ -157,14 +157,14 @@ _multi_cluster.exit.thread:                       ; preds = %prepend_cluster_nam
 
 .lr.ph.i:                                         ; preds = %prepend_cluster_name.exit.i, %59
   %49 = phi ptr [ %64, %59 ], [ %48, %prepend_cluster_name.exit.i ]
-  %.013.i = phi i1 [ %.2.i, %59 ], [ true, %prepend_cluster_name.exit.i ]
-  %.0812.i = phi i32 [ %spec.select.i, %59 ], [ 0, %prepend_cluster_name.exit.i ]
+  %.013.i = phi i32 [ %spec.select.i, %59 ], [ 0, %prepend_cluster_name.exit.i ]
+  %.0812.i = phi i1 [ %.2.i, %59 ], [ true, %prepend_cluster_name.exit.i ]
   %50 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 44), align 4
   %51 = trunc i8 %50 to i1
   br i1 %51, label %59, label %52
 
 52:                                               ; preds = %.lr.ph.i
-  br i1 %.013.i, label %54, label %53
+  br i1 %.0812.i, label %54, label %53
 
 53:                                               ; preds = %52
   %putchar.i = tail call i32 @putchar(i32 10)
@@ -181,13 +181,13 @@ _multi_cluster.exit.thread:                       ; preds = %prepend_cluster_nam
 
 59:                                               ; preds = %54, %.lr.ph.i
   %60 = phi ptr [ %49, %.lr.ph.i ], [ %.pre14.i, %54 ]
-  %.2.i = phi i1 [ %.013.i, %.lr.ph.i ], [ false, %54 ]
+  %.2.i = phi i1 [ %.0812.i, %.lr.ph.i ], [ false, %54 ]
   %61 = getelementptr inbounds i8, ptr %60, i64 272
   %62 = load ptr, ptr %61, align 8
   %63 = tail call fastcc i32 @_get_info(i1 noundef zeroext true, ptr noundef null, ptr noundef %62, i32 noundef %0, ptr noundef nonnull %1)
   %.fr = freeze i32 %63
   %.not10.i = icmp eq i32 %.fr, 0
-  %spec.select.i = select i1 %.not10.i, i32 %.0812.i, i32 1
+  %spec.select.i = select i1 %.not10.i, i32 %.013.i, i32 1
   %64 = tail call ptr @list_next(ptr noundef %47) #13
   store ptr %64, ptr @working_cluster_rec, align 8
   %.not.i = icmp eq ptr %64, null
@@ -1870,11 +1870,11 @@ define internal noalias noundef ptr @_load_job_prio_thread(ptr noundef %0) #4 {
   %spec.select = select i1 %7, ptr %8, ptr null
   %9 = load i8, ptr @params, align 8
   %10 = trunc i8 %9 to i1
-  %.026 = select i1 %10, i16 9, i16 8
+  %.028 = select i1 %10, i16 9, i16 8
   %11 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 40), align 8
   %12 = trunc i8 %11 to i1
-  %13 = or disjoint i16 %.026, 128
-  %.1 = select i1 %12, i16 %13, i16 %.026
+  %13 = or disjoint i16 %.028, 128
+  %.1 = select i1 %12, i16 %13, i16 %.028
   %14 = call i32 @slurm_load_partitions2(i64 noundef 0, ptr noundef nonnull %3, i16 noundef zeroext %.1, ptr noundef %5) #13
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %16, label %15
@@ -1900,8 +1900,8 @@ define internal noalias noundef ptr @_load_job_prio_thread(ptr noundef %0) #4 {
   br label %24
 
 24:                                               ; preds = %22, %20
-  %.027 = phi i32 [ %21, %20 ], [ %23, %22 ]
-  %.not31 = icmp eq i32 %.027, 0
+  %.026 = phi i32 [ %21, %20 ], [ %23, %22 ]
+  %.not31 = icmp eq i32 %.026, 0
   br i1 %.not31, label %26, label %25
 
 25:                                               ; preds = %24
@@ -1994,24 +1994,24 @@ define internal fastcc void @_build_sinfo_data(ptr noundef %0, ptr nocapture nou
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %33
-  %.0125 = phi ptr [ %35, %33 ], [ %16, %.lr.ph.preheader ]
-  %.069124 = phi i32 [ %34, %33 ], [ 0, %.lr.ph.preheader ]
+  %.0125 = phi i32 [ %34, %33 ], [ 0, %.lr.ph.preheader ]
+  %.069124 = phi ptr [ %35, %33 ], [ %16, %.lr.ph.preheader ]
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 136), align 8
   %.not85 = icmp eq ptr %17, null
   br i1 %.not85, label %22, label %18
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %.0125, i64 152
+  %19 = getelementptr inbounds i8, ptr %.069124, i64 152
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @list_find_first(ptr noundef nonnull %17, ptr noundef nonnull @_find_part_list, ptr noundef %20) #13
   %.not86 = icmp eq ptr %21, null
   br i1 %.not86, label %33, label %22
 
 22:                                               ; preds = %18, %.lr.ph
-  %23 = trunc i32 %.069124 to i16
+  %23 = trunc i32 %.0125 to i16
   %24 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 280, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 1161, ptr noundef nonnull @__func__._create_sinfo) #13
   %25 = getelementptr inbounds i8, ptr %24, i64 264
-  store ptr %.0125, ptr %25, align 8
+  store ptr %.069124, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %24, i64 272
   store i16 %23, ptr %26, align 8
   %27 = tail call ptr @hostlist_create(ptr noundef null) #13
@@ -2027,8 +2027,8 @@ define internal fastcc void @_build_sinfo_data(ptr noundef %0, ptr nocapture nou
   br label %33
 
 33:                                               ; preds = %18, %22
-  %34 = add nuw nsw i32 %.069124, 1
-  %35 = getelementptr inbounds i8, ptr %.0125, i64 232
+  %34 = add nuw nsw i32 %.0125, 1
+  %35 = getelementptr inbounds i8, ptr %.069124, i64 232
   %36 = load i32, ptr %13, align 8
   %37 = icmp ult i32 %34, %36
   br i1 %37, label %.lr.ph, label %.loopexit107, !llvm.loop !15
@@ -2258,8 +2258,8 @@ _filter_out.exit:                                 ; preds = %74, %._crit_edge.i,
   br label %135
 
 135:                                              ; preds = %.lr.ph130, %207
-  %.1129 = phi ptr [ %132, %.lr.ph130 ], [ %209, %207 ]
-  %.2128 = phi i32 [ 0, %.lr.ph130 ], [ %208, %207 ]
+  %.2129 = phi i32 [ 0, %.lr.ph130 ], [ %208, %207 ]
+  %.170128 = phi ptr [ %132, %.lr.ph130 ], [ %209, %207 ]
   %136 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 41), align 1
   %137 = trunc i8 %136 to i1
   %138 = load ptr, ptr getelementptr inbounds (i8, ptr @params, i64 136), align 8
@@ -2268,7 +2268,7 @@ _filter_out.exit:                                 ; preds = %74, %._crit_edge.i,
   br i1 %or.cond, label %140, label %144
 
 140:                                              ; preds = %135
-  %141 = getelementptr inbounds i8, ptr %.1129, i64 152
+  %141 = getelementptr inbounds i8, ptr %.170128, i64 152
   %142 = load ptr, ptr %141, align 8
   %143 = call ptr @list_find_first(ptr noundef nonnull %138, ptr noundef nonnull @_find_part_list, ptr noundef %142) #13
   %.not91 = icmp eq ptr %143, null
@@ -2287,7 +2287,7 @@ _filter_out.exit:                                 ; preds = %74, %._crit_edge.i,
   br i1 %151, label %207, label %152
 
 152:                                              ; preds = %147
-  %153 = getelementptr inbounds i8, ptr %.1129, i64 168
+  %153 = getelementptr inbounds i8, ptr %.170128, i64 168
   %154 = load ptr, ptr %153, align 8
   %155 = icmp eq ptr %154, null
   br i1 %155, label %207, label %156
@@ -2303,18 +2303,18 @@ _filter_out.exit:                                 ; preds = %74, %._crit_edge.i,
   br i1 %162, label %207, label %163
 
 163:                                              ; preds = %156
-  %164 = trunc i32 %.2128 to i16
-  call fastcc void @_insert_node_ptr(ptr noundef %0, i16 noundef zeroext %164, ptr noundef nonnull %.1129, ptr noundef nonnull %148)
+  %164 = trunc i32 %.2129 to i16
+  call fastcc void @_insert_node_ptr(ptr noundef %0, i16 noundef zeroext %164, ptr noundef nonnull %.170128, ptr noundef nonnull %148)
   br label %207
 
 165:                                              ; preds = %144
   %166 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 633, ptr noundef nonnull @__func__._build_sinfo_data) #13
   store ptr %2, ptr %166, align 8
-  %167 = trunc i32 %.2128 to i16
+  %167 = trunc i32 %.2129 to i16
   %168 = getelementptr inbounds i8, ptr %166, i64 8
   store i16 %167, ptr %168, align 8
   %169 = getelementptr inbounds i8, ptr %166, i64 16
-  store ptr %.1129, ptr %169, align 8
+  store ptr %.170128, ptr %169, align 8
   %170 = getelementptr inbounds i8, ptr %166, i64 24
   store ptr %0, ptr %170, align 8
   %171 = call i32 @pthread_mutex_lock(ptr noundef nonnull @sinfo_cnt_mutex) #13
@@ -2408,8 +2408,8 @@ _filter_out.exit:                                 ; preds = %74, %._crit_edge.i,
   br label %207
 
 207:                                              ; preds = %202, %204, %156, %147, %152, %140, %163
-  %208 = add nuw nsw i32 %.2128, 1
-  %209 = getelementptr inbounds i8, ptr %.1129, i64 232
+  %208 = add nuw nsw i32 %.2129, 1
+  %209 = getelementptr inbounds i8, ptr %.170128, i64 232
   %210 = load i32, ptr %129, align 8
   %211 = icmp ult i32 %208, %210
   br i1 %211, label %135, label %._crit_edge, !llvm.loop !18

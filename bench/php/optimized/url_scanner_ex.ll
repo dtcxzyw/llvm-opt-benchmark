@@ -758,21 +758,21 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
   br i1 %.not908, label %189, label %188
 
 188:                                              ; preds = %180, %182
-  %.0781 = phi i64 [ 1, %180 ], [ %185, %182 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0781) #16
+  %.0797 = phi i64 [ 1, %180 ], [ %185, %182 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0797) #16
   %.pre1030 = load ptr, ptr %1, align 8
   br label %189
 
 189:                                              ; preds = %188, %182
   %190 = phi ptr [ %.pre1030, %188 ], [ %181, %182 ]
-  %.1782 = phi i64 [ %.0781, %188 ], [ %185, %182 ]
+  %.1798 = phi i64 [ %.0797, %188 ], [ %185, %182 ]
   %191 = getelementptr inbounds i8, ptr %190, i64 24
-  %192 = add i64 %.1782, -1
+  %192 = add i64 %.1798, -1
   %193 = getelementptr inbounds [1 x i8], ptr %191, i64 0, i64 %192
   store i8 47, ptr %193, align 1
   %194 = load ptr, ptr %1, align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 16
-  store i64 %.1782, ptr %195, align 8
+  store i64 %.1798, ptr %195, align 8
   %196 = load ptr, ptr %1, align 8
   %.not909 = icmp eq ptr %196, null
   br i1 %.not909, label %203, label %197
@@ -787,21 +787,21 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
   br i1 %.not910, label %204, label %203
 
 203:                                              ; preds = %189, %197
-  %.0779 = phi i64 [ 1, %189 ], [ %200, %197 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0779) #16
+  %.0791 = phi i64 [ 1, %189 ], [ %200, %197 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0791) #16
   %.pre1031 = load ptr, ptr %1, align 8
   br label %204
 
 204:                                              ; preds = %203, %197
   %205 = phi ptr [ %.pre1031, %203 ], [ %196, %197 ]
-  %.1780 = phi i64 [ %.0779, %203 ], [ %200, %197 ]
+  %.1792 = phi i64 [ %.0791, %203 ], [ %200, %197 ]
   %206 = getelementptr inbounds i8, ptr %205, i64 24
-  %207 = add i64 %.1780, -1
+  %207 = add i64 %.1792, -1
   %208 = getelementptr inbounds [1 x i8], ptr %206, i64 0, i64 %207
   store i8 63, ptr %208, align 1
   %209 = load ptr, ptr %1, align 8
   %210 = getelementptr inbounds i8, ptr %209, i64 16
-  store i64 %.1780, ptr %210, align 8
+  store i64 %.1792, ptr %210, align 8
   %211 = load ptr, ptr %2, align 8
   %.not911 = icmp eq ptr %211, null
   br i1 %.not911, label %232, label %212
@@ -873,8 +873,8 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
   br i1 %.not919, label %246, label %245
 
 245:                                              ; preds = %235, %239
-  %.0783 = phi i64 [ %237, %235 ], [ %242, %239 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0783) #16
+  %.0801 = phi i64 [ %237, %235 ], [ %242, %239 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0801) #16
   %.pre983 = load ptr, ptr %1, align 8
   %.phi.trans.insert984 = getelementptr inbounds i8, ptr %.pre983, i64 16
   %.pre985 = load i64, ptr %.phi.trans.insert984, align 8
@@ -883,13 +883,13 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
 246:                                              ; preds = %245, %239
   %247 = phi i64 [ %.pre985, %245 ], [ %241, %239 ]
   %248 = phi ptr [ %.pre983, %245 ], [ %238, %239 ]
-  %.1784 = phi i64 [ %.0783, %245 ], [ %242, %239 ]
+  %.1802 = phi i64 [ %.0801, %245 ], [ %242, %239 ]
   %249 = getelementptr inbounds i8, ptr %248, i64 24
   %250 = getelementptr inbounds i8, ptr %249, i64 %247
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %250, ptr nonnull align 1 %236, i64 %237, i1 false)
   %251 = load ptr, ptr %1, align 8
   %252 = getelementptr inbounds i8, ptr %251, i64 16
-  store i64 %.1784, ptr %252, align 8
+  store i64 %.1802, ptr %252, align 8
   %253 = load ptr, ptr %1, align 8
   %.not920 = icmp eq ptr %253, null
   br i1 %.not920, label %260, label %254
@@ -904,8 +904,8 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
   br i1 %.not921, label %261, label %260
 
 260:                                              ; preds = %246, %254
-  %.0785 = phi i64 [ 3, %246 ], [ %257, %254 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0785) #16
+  %.0799 = phi i64 [ 3, %246 ], [ %257, %254 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0799) #16
   %.pre986 = load ptr, ptr %1, align 8
   %.phi.trans.insert987 = getelementptr inbounds i8, ptr %.pre986, i64 16
   %.pre988 = load i64, ptr %.phi.trans.insert987, align 8
@@ -914,7 +914,7 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
 261:                                              ; preds = %260, %254
   %262 = phi i64 [ %.pre988, %260 ], [ %256, %254 ]
   %263 = phi ptr [ %.pre986, %260 ], [ %253, %254 ]
-  %.1786 = phi i64 [ %.0785, %260 ], [ %257, %254 ]
+  %.1800 = phi i64 [ %.0799, %260 ], [ %257, %254 ]
   %264 = getelementptr inbounds i8, ptr %263, i64 24
   %265 = getelementptr inbounds i8, ptr %264, i64 %262
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %265, ptr noundef nonnull align 1 dereferenceable(3) @.str.2, i64 3, i1 false)
@@ -948,8 +948,8 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
   br i1 %.not917, label %284, label %283
 
 283:                                              ; preds = %275, %277
-  %.0787 = phi i64 [ 2, %275 ], [ %280, %277 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0787) #16
+  %.0795 = phi i64 [ 2, %275 ], [ %280, %277 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0795) #16
   %.pre989 = load ptr, ptr %1, align 8
   %.phi.trans.insert990 = getelementptr inbounds i8, ptr %.pre989, i64 16
   %.pre991 = load i64, ptr %.phi.trans.insert990, align 8
@@ -958,17 +958,17 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
 284:                                              ; preds = %283, %277
   %285 = phi i64 [ %.pre991, %283 ], [ %279, %277 ]
   %286 = phi ptr [ %.pre989, %283 ], [ %276, %277 ]
-  %.1788 = phi i64 [ %.0787, %283 ], [ %280, %277 ]
+  %.1796 = phi i64 [ %.0795, %283 ], [ %280, %277 ]
   %287 = getelementptr inbounds i8, ptr %286, i64 24
   %288 = getelementptr inbounds i8, ptr %287, i64 %285
   store i16 12079, ptr %288, align 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %261, %284
-  %.1788.sink = phi i64 [ %.1788, %284 ], [ %.1786, %261 ]
+  %.1796.sink = phi i64 [ %.1796, %284 ], [ %.1800, %261 ]
   %289 = load ptr, ptr %1, align 8
   %290 = getelementptr inbounds i8, ptr %289, i64 16
-  store i64 %.1788.sink, ptr %290, align 8
+  store i64 %.1796.sink, ptr %290, align 8
   br label %291
 
 291:                                              ; preds = %.sink.split, %266, %271
@@ -994,8 +994,8 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
   br i1 %.not924, label %305, label %304
 
 304:                                              ; preds = %294, %298
-  %.0789 = phi i64 [ %296, %294 ], [ %301, %298 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0789) #16
+  %.0793 = phi i64 [ %296, %294 ], [ %301, %298 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0793) #16
   %.pre992 = load ptr, ptr %1, align 8
   %.phi.trans.insert993 = getelementptr inbounds i8, ptr %.pre992, i64 16
   %.pre994 = load i64, ptr %.phi.trans.insert993, align 8
@@ -1004,13 +1004,13 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
 305:                                              ; preds = %304, %298
   %306 = phi i64 [ %.pre994, %304 ], [ %300, %298 ]
   %307 = phi ptr [ %.pre992, %304 ], [ %297, %298 ]
-  %.1790 = phi i64 [ %.0789, %304 ], [ %301, %298 ]
+  %.1794 = phi i64 [ %.0793, %304 ], [ %301, %298 ]
   %308 = getelementptr inbounds i8, ptr %307, i64 24
   %309 = getelementptr inbounds i8, ptr %308, i64 %306
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %309, ptr nonnull align 1 %295, i64 %296, i1 false)
   %310 = load ptr, ptr %1, align 8
   %311 = getelementptr inbounds i8, ptr %310, i64 16
-  store i64 %.1790, ptr %311, align 8
+  store i64 %.1794, ptr %311, align 8
   %312 = getelementptr inbounds i8, ptr %14, i64 16
   %313 = load ptr, ptr %312, align 8
   %.not925 = icmp eq ptr %313, null
@@ -1033,8 +1033,8 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
   br i1 %.not927, label %325, label %324
 
 324:                                              ; preds = %314, %318
-  %.0791 = phi i64 [ %316, %314 ], [ %321, %318 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0791) #16
+  %.0789 = phi i64 [ %316, %314 ], [ %321, %318 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0789) #16
   %.pre995 = load ptr, ptr %1, align 8
   %.phi.trans.insert996 = getelementptr inbounds i8, ptr %.pre995, i64 16
   %.pre997 = load i64, ptr %.phi.trans.insert996, align 8
@@ -1043,13 +1043,13 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
 325:                                              ; preds = %324, %318
   %326 = phi i64 [ %.pre997, %324 ], [ %320, %318 ]
   %327 = phi ptr [ %.pre995, %324 ], [ %317, %318 ]
-  %.1792 = phi i64 [ %.0791, %324 ], [ %321, %318 ]
+  %.1790 = phi i64 [ %.0789, %324 ], [ %321, %318 ]
   %328 = getelementptr inbounds i8, ptr %327, i64 24
   %329 = getelementptr inbounds i8, ptr %328, i64 %326
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %329, ptr nonnull align 1 %315, i64 %316, i1 false)
   %330 = load ptr, ptr %1, align 8
   %331 = getelementptr inbounds i8, ptr %330, i64 16
-  store i64 %.1792, ptr %331, align 8
+  store i64 %.1790, ptr %331, align 8
   %332 = load ptr, ptr %1, align 8
   %.not928 = icmp eq ptr %332, null
   br i1 %.not928, label %339, label %333
@@ -1064,21 +1064,21 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
   br i1 %.not929, label %340, label %339
 
 339:                                              ; preds = %325, %333
-  %.0777 = phi i64 [ 1, %325 ], [ %336, %333 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0777) #16
+  %.0787 = phi i64 [ 1, %325 ], [ %336, %333 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0787) #16
   %.pre998 = load ptr, ptr %1, align 8
   br label %340
 
 340:                                              ; preds = %339, %333
   %341 = phi ptr [ %.pre998, %339 ], [ %332, %333 ]
-  %.1778 = phi i64 [ %.0777, %339 ], [ %336, %333 ]
+  %.1788 = phi i64 [ %.0787, %339 ], [ %336, %333 ]
   %342 = getelementptr inbounds i8, ptr %341, i64 24
-  %343 = add i64 %.1778, -1
+  %343 = add i64 %.1788, -1
   %344 = getelementptr inbounds [1 x i8], ptr %342, i64 0, i64 %343
   store i8 58, ptr %344, align 1
   %345 = load ptr, ptr %1, align 8
   %346 = getelementptr inbounds i8, ptr %345, i64 16
-  store i64 %.1778, ptr %346, align 8
+  store i64 %.1788, ptr %346, align 8
   br label %347
 
 347:                                              ; preds = %340, %305
@@ -1096,21 +1096,21 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
   br i1 %.not931, label %356, label %355
 
 355:                                              ; preds = %347, %349
-  %.0775 = phi i64 [ 1, %347 ], [ %352, %349 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0775) #16
+  %.0781 = phi i64 [ 1, %347 ], [ %352, %349 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0781) #16
   %.pre999 = load ptr, ptr %1, align 8
   br label %356
 
 356:                                              ; preds = %355, %349
   %357 = phi ptr [ %.pre999, %355 ], [ %348, %349 ]
-  %.1776 = phi i64 [ %.0775, %355 ], [ %352, %349 ]
+  %.1782 = phi i64 [ %.0781, %355 ], [ %352, %349 ]
   %358 = getelementptr inbounds i8, ptr %357, i64 24
-  %359 = add i64 %.1776, -1
+  %359 = add i64 %.1782, -1
   %360 = getelementptr inbounds [1 x i8], ptr %358, i64 0, i64 %359
   store i8 64, ptr %360, align 1
   %361 = load ptr, ptr %1, align 8
   %362 = getelementptr inbounds i8, ptr %361, i64 16
-  store i64 %.1776, ptr %362, align 8
+  store i64 %.1782, ptr %362, align 8
   br label %363
 
 363:                                              ; preds = %356, %291
@@ -1135,8 +1135,8 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
   br i1 %.not934, label %376, label %375
 
 375:                                              ; preds = %365, %369
-  %.0793 = phi i64 [ %367, %365 ], [ %372, %369 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0793) #16
+  %.0785 = phi i64 [ %367, %365 ], [ %372, %369 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0785) #16
   %.pre1000 = load ptr, ptr %1, align 8
   %.phi.trans.insert1001 = getelementptr inbounds i8, ptr %.pre1000, i64 16
   %.pre1002 = load i64, ptr %.phi.trans.insert1001, align 8
@@ -1145,13 +1145,13 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
 376:                                              ; preds = %375, %369
   %377 = phi i64 [ %.pre1002, %375 ], [ %371, %369 ]
   %378 = phi ptr [ %.pre1000, %375 ], [ %368, %369 ]
-  %.1794 = phi i64 [ %.0793, %375 ], [ %372, %369 ]
+  %.1786 = phi i64 [ %.0785, %375 ], [ %372, %369 ]
   %379 = getelementptr inbounds i8, ptr %378, i64 24
   %380 = getelementptr inbounds i8, ptr %379, i64 %377
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %380, ptr nonnull align 1 %366, i64 %367, i1 false)
   %381 = load ptr, ptr %1, align 8
   %382 = getelementptr inbounds i8, ptr %381, i64 16
-  store i64 %.1794, ptr %382, align 8
+  store i64 %.1786, ptr %382, align 8
   br label %383
 
 383:                                              ; preds = %376, %363
@@ -1175,21 +1175,21 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
   br i1 %.not937, label %395, label %394
 
 394:                                              ; preds = %386, %388
-  %.0773 = phi i64 [ 1, %386 ], [ %391, %388 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0773) #16
+  %.0777 = phi i64 [ 1, %386 ], [ %391, %388 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0777) #16
   %.pre1003 = load ptr, ptr %1, align 8
   br label %395
 
 395:                                              ; preds = %394, %388
   %396 = phi ptr [ %.pre1003, %394 ], [ %387, %388 ]
-  %.1774 = phi i64 [ %.0773, %394 ], [ %391, %388 ]
+  %.1778 = phi i64 [ %.0777, %394 ], [ %391, %388 ]
   %397 = getelementptr inbounds i8, ptr %396, i64 24
-  %398 = add i64 %.1774, -1
+  %398 = add i64 %.1778, -1
   %399 = getelementptr inbounds [1 x i8], ptr %397, i64 0, i64 %398
   store i8 58, ptr %399, align 1
   %400 = load ptr, ptr %1, align 8
   %401 = getelementptr inbounds i8, ptr %400, i64 16
-  store i64 %.1774, ptr %401, align 8
+  store i64 %.1778, ptr %401, align 8
   %402 = load i16, ptr %384, align 8
   %403 = zext i16 %402 to i64
   %404 = getelementptr inbounds i8, ptr %5, i64 31
@@ -1267,8 +1267,8 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
   br i1 %.not943, label %443, label %442
 
 442:                                              ; preds = %432, %436
-  %.0795 = phi i64 [ %434, %432 ], [ %439, %436 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0795) #16
+  %.0783 = phi i64 [ %434, %432 ], [ %439, %436 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0783) #16
   %.pre1007 = load ptr, ptr %1, align 8
   %.phi.trans.insert1008 = getelementptr inbounds i8, ptr %.pre1007, i64 16
   %.pre1009 = load i64, ptr %.phi.trans.insert1008, align 8
@@ -1277,13 +1277,13 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
 443:                                              ; preds = %442, %436
   %444 = phi i64 [ %.pre1009, %442 ], [ %438, %436 ]
   %445 = phi ptr [ %.pre1007, %442 ], [ %435, %436 ]
-  %.1796 = phi i64 [ %.0795, %442 ], [ %439, %436 ]
+  %.1784 = phi i64 [ %.0783, %442 ], [ %439, %436 ]
   %446 = getelementptr inbounds i8, ptr %445, i64 24
   %447 = getelementptr inbounds i8, ptr %446, i64 %444
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %447, ptr nonnull align 1 %433, i64 %434, i1 false)
   %448 = load ptr, ptr %1, align 8
   %449 = getelementptr inbounds i8, ptr %448, i64 16
-  store i64 %.1796, ptr %449, align 8
+  store i64 %.1784, ptr %449, align 8
   br label %450
 
 450:                                              ; preds = %443, %430
@@ -1338,8 +1338,8 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
   br i1 %.not952, label %479, label %478
 
 478:                                              ; preds = %468, %472
-  %.0797 = phi i64 [ %470, %468 ], [ %475, %472 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0797) #16
+  %.0779 = phi i64 [ %470, %468 ], [ %475, %472 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0779) #16
   %.pre1011 = load ptr, ptr %1, align 8
   %.phi.trans.insert1012 = getelementptr inbounds i8, ptr %.pre1011, i64 16
   %.pre1013 = load i64, ptr %.phi.trans.insert1012, align 8
@@ -1348,13 +1348,13 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
 479:                                              ; preds = %478, %472
   %480 = phi i64 [ %.pre1013, %478 ], [ %474, %472 ]
   %481 = phi ptr [ %.pre1011, %478 ], [ %471, %472 ]
-  %.1798 = phi i64 [ %.0797, %478 ], [ %475, %472 ]
+  %.1780 = phi i64 [ %.0779, %478 ], [ %475, %472 ]
   %482 = getelementptr inbounds i8, ptr %481, i64 24
   %483 = getelementptr inbounds i8, ptr %482, i64 %480
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %483, ptr nonnull align 1 %469, i64 %470, i1 false)
   %484 = load ptr, ptr %1, align 8
   %485 = getelementptr inbounds i8, ptr %484, i64 16
-  store i64 %.1798, ptr %485, align 8
+  store i64 %.1780, ptr %485, align 8
   %486 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #17
   %487 = load ptr, ptr %1, align 8
   %.not953 = icmp eq ptr %487, null
@@ -1370,8 +1370,8 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
   br i1 %.not954, label %495, label %494
 
 494:                                              ; preds = %479, %488
-  %.0799 = phi i64 [ %486, %479 ], [ %491, %488 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0799) #16
+  %.0775 = phi i64 [ %486, %479 ], [ %491, %488 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0775) #16
   %.pre1014 = load ptr, ptr %1, align 8
   %.phi.trans.insert1015 = getelementptr inbounds i8, ptr %.pre1014, i64 16
   %.pre1016 = load i64, ptr %.phi.trans.insert1015, align 8
@@ -1380,13 +1380,13 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
 495:                                              ; preds = %494, %488
   %496 = phi i64 [ %.pre1016, %494 ], [ %490, %488 ]
   %497 = phi ptr [ %.pre1014, %494 ], [ %487, %488 ]
-  %.1800 = phi i64 [ %.0799, %494 ], [ %491, %488 ]
+  %.1776 = phi i64 [ %.0775, %494 ], [ %491, %488 ]
   %498 = getelementptr inbounds i8, ptr %497, i64 24
   %499 = getelementptr inbounds i8, ptr %498, i64 %496
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %499, ptr align 1 %3, i64 %486, i1 false)
   %500 = load ptr, ptr %1, align 8
   %501 = getelementptr inbounds i8, ptr %500, i64 16
-  store i64 %.1800, ptr %501, align 8
+  store i64 %.1776, ptr %501, align 8
   %502 = load ptr, ptr %2, align 8
   %.not955 = icmp eq ptr %502, null
   br i1 %.not955, label %543, label %503
@@ -1531,8 +1531,8 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
   br i1 %.not963, label %572, label %571
 
 571:                                              ; preds = %554, %565
-  %.0801 = phi i64 [ %563, %554 ], [ %568, %565 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0801) #16
+  %.0773 = phi i64 [ %563, %554 ], [ %568, %565 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0773) #16
   %.pre1024 = load ptr, ptr %1, align 8
   %.phi.trans.insert1025 = getelementptr inbounds i8, ptr %.pre1024, i64 16
   %.pre1026 = load i64, ptr %.phi.trans.insert1025, align 8
@@ -1541,13 +1541,13 @@ define internal fastcc void @append_modified_url(ptr nocapture noundef readonly 
 572:                                              ; preds = %571, %565
   %573 = phi i64 [ %.pre1026, %571 ], [ %567, %565 ]
   %574 = phi ptr [ %.pre1024, %571 ], [ %564, %565 ]
-  %.1802 = phi i64 [ %.0801, %571 ], [ %568, %565 ]
+  %.1774 = phi i64 [ %.0773, %571 ], [ %568, %565 ]
   %575 = getelementptr inbounds i8, ptr %574, i64 24
   %576 = getelementptr inbounds i8, ptr %575, i64 %573
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %576, ptr nonnull align 1 %562, i64 %563, i1 false)
   %577 = load ptr, ptr %1, align 8
   %578 = getelementptr inbounds i8, ptr %577, i64 16
-  store i64 %.1802, ptr %578, align 8
+  store i64 %.1774, ptr %578, align 8
   br label %579
 
 579:                                              ; preds = %572, %543
@@ -2522,8 +2522,8 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
   br i1 %.not535, label %50, label %49
 
 49:                                               ; preds = %35, %43
-  %.0477 = phi i64 [ %41, %35 ], [ %46, %43 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %5, i64 noundef %.0477) #16
+  %.0479 = phi i64 [ %41, %35 ], [ %46, %43 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %5, i64 noundef %.0479) #16
   %.pre653 = load ptr, ptr %5, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre653, i64 16
   %.pre654 = load i64, ptr %.phi.trans.insert, align 8
@@ -2532,13 +2532,13 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
 50:                                               ; preds = %49, %43
   %51 = phi i64 [ %.pre654, %49 ], [ %45, %43 ]
   %52 = phi ptr [ %.pre653, %49 ], [ %42, %43 ]
-  %.1478 = phi i64 [ %.0477, %49 ], [ %46, %43 ]
+  %.1480 = phi i64 [ %.0479, %49 ], [ %46, %43 ]
   %53 = getelementptr inbounds i8, ptr %52, i64 24
   %54 = getelementptr inbounds i8, ptr %53, i64 %51
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr nonnull align 1 %39, i64 %41, i1 false)
   %55 = load ptr, ptr %5, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 16
-  store i64 %.1478, ptr %56, align 8
+  store i64 %.1480, ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %38, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %58, 64
@@ -2584,8 +2584,8 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
   br i1 %.not529, label %80, label %79
 
 79:                                               ; preds = %64, %73
-  %.0481 = phi i64 [ %71, %64 ], [ %76, %73 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %5, i64 noundef %.0481) #16
+  %.0477 = phi i64 [ %71, %64 ], [ %76, %73 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %5, i64 noundef %.0477) #16
   %.pre658 = load ptr, ptr %5, align 8
   %.phi.trans.insert659 = getelementptr inbounds i8, ptr %.pre658, i64 16
   %.pre660 = load i64, ptr %.phi.trans.insert659, align 8
@@ -2594,13 +2594,13 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
 80:                                               ; preds = %79, %73
   %81 = phi i64 [ %.pre660, %79 ], [ %75, %73 ]
   %82 = phi ptr [ %.pre658, %79 ], [ %72, %73 ]
-  %.1482 = phi i64 [ %.0481, %79 ], [ %76, %73 ]
+  %.1478 = phi i64 [ %.0477, %79 ], [ %76, %73 ]
   %83 = getelementptr inbounds i8, ptr %82, i64 24
   %84 = getelementptr inbounds i8, ptr %83, i64 %81
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr nonnull align 1 %14, i64 %71, i1 false)
   %85 = load ptr, ptr %5, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 16
-  store i64 %.1482, ptr %86, align 8
+  store i64 %.1478, ptr %86, align 8
   br label %87
 
 87:                                               ; preds = %50, %63, %62, %80
@@ -2859,10 +2859,10 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
   br label %212
 
 212:                                              ; preds = %.lr.ph, %222
-  %.0461626 = phi ptr [ %.ptr, %.lr.ph ], [ %223, %222 ]
-  %213 = ptrtoint ptr %.0461626 to i64
+  %.0462626 = phi ptr [ %.ptr, %.lr.ph ], [ %223, %222 ]
+  %213 = ptrtoint ptr %.0462626 to i64
   %214 = sub i64 %209, %213
-  %215 = call ptr @memchr(ptr noundef nonnull %.0461626, i32 noundef %207, i64 noundef %214) #17
+  %215 = call ptr @memchr(ptr noundef nonnull %.0462626, i32 noundef %207, i64 noundef %214) #17
   %.not557 = icmp eq ptr %215, null
   br i1 %.not557, label %php_url_scanner_reset_vars_impl.exit, label %216
 
@@ -2888,8 +2888,8 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
   br label %226
 
 226:                                              ; preds = %224, %192
-  %.0458 = phi ptr [ %195, %192 ], [ %225, %224 ]
-  %.not559 = icmp eq ptr %.0458, null
+  %.0460 = phi ptr [ %195, %192 ], [ %225, %224 ]
+  %.not559 = icmp eq ptr %.0460, null
   br i1 %.not559, label %php_url_scanner_reset_vars_impl.exit, label %..thread598_crit_edge
 
 ..thread598_crit_edge:                            ; preds = %226
@@ -2905,38 +2905,38 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
   %227 = phi i64 [ %.pre682, %..thread598_crit_edge ], [ %188, %175 ], [ %188, %220 ]
   %228 = phi i64 [ %.pre679, %..thread598_crit_edge ], [ %190, %175 ], [ %190, %220 ]
   %229 = phi ptr [ %.pre677, %..thread598_crit_edge ], [ %184, %175 ], [ %184, %220 ]
-  %.0458601 = phi ptr [ %.0458, %..thread598_crit_edge ], [ %.ptr, %175 ], [ %215, %220 ]
+  %.0460601 = phi ptr [ %.0460, %..thread598_crit_edge ], [ %.ptr, %175 ], [ %215, %220 ]
   %230 = getelementptr inbounds i8, ptr %229, i64 24
   %231 = getelementptr inbounds i8, ptr %230, i64 %228
-  %232 = getelementptr inbounds i8, ptr %.0458601, i64 %227
+  %232 = getelementptr inbounds i8, ptr %.0460601, i64 %227
   %233 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 200), align 8
   %234 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %233) #17
   %235 = icmp ult ptr %232, %231
   br i1 %235, label %.lr.ph629, label %.thread602
 
 .lr.ph629:                                        ; preds = %.thread598, %236
-  %.0459628 = phi ptr [ %237, %236 ], [ %232, %.thread598 ]
-  %bcmp560 = call i32 @bcmp(ptr %.0459628, ptr %233, i64 %234)
+  %.0458628 = phi ptr [ %237, %236 ], [ %232, %.thread598 ]
+  %bcmp560 = call i32 @bcmp(ptr %.0458628, ptr %233, i64 %234)
   %.not561 = icmp eq i32 %bcmp560, 0
   br i1 %.not561, label %239, label %236
 
 236:                                              ; preds = %.lr.ph629
-  %237 = getelementptr inbounds i8, ptr %.0459628, i64 1
+  %237 = getelementptr inbounds i8, ptr %.0458628, i64 1
   %238 = icmp ult ptr %237, %231
   br i1 %238, label %.lr.ph629, label %.thread602
 
 239:                                              ; preds = %.lr.ph629
-  %240 = getelementptr inbounds i8, ptr %.0459628, i64 %234
+  %240 = getelementptr inbounds i8, ptr %.0458628, i64 %234
   %241 = ptrtoint ptr %240 to i64
-  %242 = ptrtoint ptr %.0458601 to i64
+  %242 = ptrtoint ptr %.0460601 to i64
   %243 = sub i64 %241, %242
   %244 = icmp eq i64 %228, %243
   br i1 %244, label %249, label %262
 
 .thread602:                                       ; preds = %236, %.thread598
-  %.0459.lcssa = phi ptr [ %232, %.thread598 ], [ %237, %236 ]
-  %245 = ptrtoint ptr %.0459.lcssa to i64
-  %246 = ptrtoint ptr %.0458601 to i64
+  %.0458.lcssa = phi ptr [ %232, %.thread598 ], [ %237, %236 ]
+  %245 = ptrtoint ptr %.0458.lcssa to i64
+  %246 = ptrtoint ptr %.0460601 to i64
   %247 = sub i64 %245, %246
   %248 = icmp eq i64 %228, %247
   br i1 %248, label %249, label %.thread605
@@ -2973,22 +2973,22 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
 
 259:                                              ; preds = %.thread605
   %260 = sub i64 0, %234
-  %261 = getelementptr inbounds i8, ptr %.0458601, i64 %260
+  %261 = getelementptr inbounds i8, ptr %.0460601, i64 %260
   %bcmp563 = call i32 @bcmp(ptr nonnull %261, ptr %233, i64 %234)
   %.not564 = icmp eq i32 %bcmp563, 0
-  %spec.select = select i1 %.not564, ptr %261, ptr %.0458601
+  %spec.select = select i1 %.not564, ptr %261, ptr %.0460601
   %.pre689 = ptrtoint ptr %spec.select to i64
   br label %262
 
 262:                                              ; preds = %239, %259, %.thread605
   %.pre-phi = phi i64 [ %242, %239 ], [ %.pre689, %259 ], [ %246, %.thread605 ]
-  %.1604608 = phi ptr [ %240, %239 ], [ %.0459.lcssa, %259 ], [ %.0459.lcssa, %.thread605 ]
+  %.1604608 = phi ptr [ %240, %239 ], [ %.0458.lcssa, %259 ], [ %.0458.lcssa, %.thread605 ]
   %263 = phi i64 [ %241, %239 ], [ %245, %259 ], [ %245, %.thread605 ]
-  %.0460 = phi ptr [ %.0458601, %239 ], [ %spec.select, %259 ], [ %.0458601, %.thread605 ]
+  %.0459 = phi ptr [ %.0460601, %239 ], [ %spec.select, %259 ], [ %.0460601, %.thread605 ]
   %264 = ptrtoint ptr %230 to i64
   %.neg = add i64 %228, %264
   %265 = sub i64 %.neg, %263
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.0460, ptr align 1 %.1604608, i64 %265, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.0459, ptr align 1 %.1604608, i64 %265, i1 false)
   %.neg565 = sub i64 %.pre-phi, %263
   %266 = load ptr, ptr %8, align 8
   %267 = getelementptr inbounds i8, ptr %266, i64 16
@@ -3083,8 +3083,8 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
   br label %318
 
 318:                                              ; preds = %316, %284
-  %.0462 = phi ptr [ %287, %284 ], [ %317, %316 ]
-  %.not570 = icmp eq ptr %.0462, null
+  %.0463 = phi ptr [ %287, %284 ], [ %317, %316 ]
+  %.not570 = icmp eq ptr %.0463, null
   br i1 %.not570, label %.thread610, label %..thread614_crit_edge
 
 ..thread614_crit_edge:                            ; preds = %318
@@ -3124,10 +3124,10 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
   %326 = phi i64 [ %.pre688, %..thread614_crit_edge ], [ %280, %262 ], [ %280, %312 ]
   %327 = phi i64 [ %.pre685, %..thread614_crit_edge ], [ %282, %262 ], [ %282, %312 ]
   %328 = phi ptr [ %.pre683, %..thread614_crit_edge ], [ %276, %262 ], [ %276, %312 ]
-  %.0462617 = phi ptr [ %.0462, %..thread614_crit_edge ], [ %.ptr642, %262 ], [ %307, %312 ]
+  %.0463617 = phi ptr [ %.0463, %..thread614_crit_edge ], [ %.ptr642, %262 ], [ %307, %312 ]
   %329 = getelementptr inbounds i8, ptr %328, i64 24
   %330 = getelementptr inbounds i8, ptr %329, i64 %327
-  %331 = getelementptr inbounds i8, ptr %.0462617, i64 %326
+  %331 = getelementptr inbounds i8, ptr %.0463617, i64 %326
   %332 = icmp ult ptr %331, %330
   br i1 %332, label %.lr.ph635, label %.loopexit
 
@@ -3146,8 +3146,8 @@ define internal fastcc range(i32 -1, 1) i32 @php_url_scanner_reset_var_impl(ptr 
   %338 = ptrtoint ptr %329 to i64
   %.neg571 = add i64 %327, %338
   %339 = sub i64 %.neg571, %337
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0462617, ptr align 1 %.3, i64 %339, i1 false)
-  %340 = ptrtoint ptr %.0462617 to i64
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0463617, ptr align 1 %.3, i64 %339, i1 false)
+  %340 = ptrtoint ptr %.0463617 to i64
   %.neg572 = sub i64 %340, %337
   %341 = load ptr, ptr %275, align 8
   %342 = getelementptr inbounds i8, ptr %341, i64 16
@@ -3282,8 +3282,8 @@ php_url_scanner_reset_vars_impl.exit:             ; preds = %212, %222, %202, %1
   br label %403
 
 403:                                              ; preds = %390, %397, %402, %393, %3, %10
-  %.0463 = phi i32 [ 0, %10 ], [ 0, %3 ], [ %.0457, %393 ], [ %.0457, %402 ], [ %.0457, %397 ], [ %.0457, %390 ]
-  ret i32 %.0463
+  %.0461 = phi i32 [ 0, %10 ], [ 0, %3 ], [ %.0457, %393 ], [ %.0457, %402 ], [ %.0457, %397 ], [ %.0457, %390 ]
+  ret i32 %.0461
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3678,8 +3678,8 @@ define internal fastcc void @php_url_scanner_session_handler_impl(ptr noundef %0
   %.not = icmp eq i32 %5, 0
   %. = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1112), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 888)
   %.val = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1208), align 8
-  %.val137 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 984), align 8
-  %7 = select i1 %.not, ptr %.val, ptr %.val137
+  %.val136 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 984), align 8
+  %7 = select i1 %.not, ptr %.val, ptr %.val136
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8
   %.not117 = icmp eq i64 %9, 0
@@ -3697,9 +3697,9 @@ define internal fastcc void @php_url_scanner_session_handler_impl(ptr noundef %0
   %16 = getelementptr inbounds i8, ptr %14, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %1
-  %.val138 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1168), align 8
-  %.val139 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 944), align 8
-  %19 = select i1 %.not, i64 %.val138, i64 %.val139
+  %.val137 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1168), align 8
+  %.val138 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 944), align 8
+  %19 = select i1 %.not, i64 %.val137, i64 %.val138
   %.not247.i.i = icmp ult i64 %18, %19
   br i1 %.not247.i.i, label %21, label %20
 
@@ -3874,9 +3874,9 @@ passthru.exit283.i.i:                             ; preds = %67, %62
   %86 = getelementptr inbounds i8, ptr %84, i64 16
   %87 = load i64, ptr %86, align 8
   %88 = add i64 %87, 1
-  %.val150 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
-  %.val151 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
-  %89 = select i1 %.not, i64 %.val150, i64 %.val151
+  %.val149 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
+  %.val150 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
+  %89 = select i1 %.not, i64 %.val149, i64 %.val150
   %.not28.i285.i.i = icmp ult i64 %88, %89
   br i1 %.not28.i285.i.i, label %passthru.exit291.i.i, label %90
 
@@ -4007,9 +4007,9 @@ passthru.exit291.i.i:                             ; preds = %90, %85
   %141 = getelementptr inbounds i8, ptr %139, i64 16
   %142 = load i64, ptr %141, align 8
   %143 = add i64 %142, %138
-  %.val140 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
-  %.val141 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
-  %144 = select i1 %.not, i64 %.val140, i64 %.val141
+  %.val139 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
+  %.val140 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
+  %144 = select i1 %.not, i64 %.val139, i64 %.val140
   %.not28.i293.i.i = icmp ult i64 %143, %144
   br i1 %.not28.i293.i.i, label %passthru.exit299.i.i, label %145
 
@@ -4080,9 +4080,9 @@ passthru.exit299.i.i:                             ; preds = %145, %140
   %172 = getelementptr inbounds i8, ptr %170, i64 16
   %173 = load i64, ptr %172, align 8
   %174 = add i64 %173, 1
-  %.val146 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
-  %.val147 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
-  %175 = select i1 %.not, i64 %.val146, i64 %.val147
+  %.val145 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
+  %.val146 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
+  %175 = select i1 %.not, i64 %.val145, i64 %.val146
   %.not28.i301.i.i = icmp ult i64 %174, %175
   br i1 %.not28.i301.i.i, label %passthru.exit307.i.i, label %176
 
@@ -4181,9 +4181,9 @@ passthru.exit307.i.i:                             ; preds = %176, %171
   %213 = getelementptr inbounds i8, ptr %211, i64 16
   %214 = load i64, ptr %213, align 8
   %215 = add i64 %214, %210
-  %.val142 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
-  %.val143 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
-  %216 = select i1 %.not, i64 %.val142, i64 %.val143
+  %.val141 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
+  %.val142 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
+  %216 = select i1 %.not, i64 %.val141, i64 %.val142
   %.not28.i.i = icmp ult i64 %215, %216
   br i1 %.not28.i.i, label %passthru.exit.i, label %217
 
@@ -4286,9 +4286,9 @@ passthru.exit.i:                                  ; preds = %217, %212
   %258 = getelementptr inbounds i8, ptr %256, i64 16
   %259 = load i64, ptr %258, align 8
   %260 = add i64 %259, %255
-  %.val144 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
-  %.val145 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
-  %261 = select i1 %.not, i64 %.val144, i64 %.val145
+  %.val143 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
+  %.val144 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
+  %261 = select i1 %.not, i64 %.val143, i64 %.val144
   %.not28.i309.i.i = icmp ult i64 %260, %261
   br i1 %.not28.i309.i.i, label %passthru.exit315.i.i, label %262
 
@@ -4423,7 +4423,7 @@ xx_mainloop.exit.i:                               ; preds = %297, %.loopexit.i.i
 
 308:                                              ; preds = %._crit_edge, %.thread
   %309 = phi i64 [ %304, %.thread ], [ %.pre, %._crit_edge ]
-  %storemerge.i136 = phi i64 [ %304, %.thread ], [ 0, %._crit_edge ]
+  %storemerge.i135 = phi i64 [ %304, %.thread ], [ 0, %._crit_edge ]
   %310 = phi ptr [ %302, %.thread ], [ %.pr, %._crit_edge ]
   %311 = getelementptr inbounds i8, ptr %310, i64 24
   %312 = getelementptr inbounds [1 x i8], ptr %311, i64 0, i64 %309
@@ -4451,14 +4451,14 @@ xx_mainloop.exit.i:                               ; preds = %297, %.loopexit.i.i
   %323 = getelementptr inbounds i8, ptr %.pre218.pre.i, i64 16
   %324 = load i64, ptr %323, align 8
   %325 = add i64 %324, %321
-  %.val148 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
-  %.val149 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
-  %326 = select i1 %.not, i64 %.val148, i64 %.val149
+  %.val147 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
+  %.val148 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
+  %326 = select i1 %.not, i64 %.val147, i64 %.val148
   %.not143.i = icmp ult i64 %325, %326
   br i1 %.not143.i, label %330, label %327
 
 327:                                              ; preds = %322, %317, %.thread.i
-  %storemerge.i135 = phi i64 [ %storemerge.i136, %317 ], [ %storemerge.i136, %322 ], [ 0, %.thread.i ]
+  %storemerge.i134 = phi i64 [ %storemerge.i135, %317 ], [ %storemerge.i135, %322 ], [ 0, %.thread.i ]
   %328 = phi i64 [ %321, %317 ], [ %321, %322 ], [ %316, %.thread.i ]
   %329 = phi ptr [ %319, %317 ], [ %319, %322 ], [ %314, %.thread.i ]
   %.0.i = phi i64 [ %321, %317 ], [ %325, %322 ], [ %316, %.thread.i ]
@@ -4469,7 +4469,7 @@ xx_mainloop.exit.i:                               ; preds = %297, %.loopexit.i.i
   br label %330
 
 330:                                              ; preds = %322, %327
-  %storemerge.i134 = phi i64 [ %storemerge.i135, %327 ], [ %storemerge.i136, %322 ]
+  %storemerge.i133 = phi i64 [ %storemerge.i134, %327 ], [ %storemerge.i135, %322 ]
   %331 = phi i64 [ %328, %327 ], [ %321, %322 ]
   %332 = phi ptr [ %329, %327 ], [ %319, %322 ]
   %333 = phi i64 [ %.pre216.i, %327 ], [ %324, %322 ]
@@ -4484,7 +4484,7 @@ xx_mainloop.exit.i:                               ; preds = %297, %.loopexit.i.i
   %339 = load ptr, ptr %13, align 8
   %340 = getelementptr inbounds i8, ptr %339, i64 16
   %341 = load i64, ptr %340, align 8
-  %342 = add i64 %341, %storemerge.i134
+  %342 = add i64 %341, %storemerge.i133
   %343 = getelementptr inbounds i8, ptr %339, i64 4
   %344 = load i32, ptr %343, align 4
   %345 = and i32 %344, 64
@@ -4576,7 +4576,7 @@ xx_mainloop.exit.i:                               ; preds = %297, %.loopexit.i.i
   br label %384
 
 384:                                              ; preds = %382, %308
-  %.0130 = phi i64 [ %342, %382 ], [ %storemerge.i136, %308 ]
+  %.0 = phi i64 [ %342, %382 ], [ %storemerge.i135, %308 ]
   %385 = phi ptr [ %.pre217.i, %382 ], [ %.pre218.pre.i, %308 ]
   %386 = getelementptr inbounds i8, ptr %385, i64 24
   %387 = getelementptr inbounds i8, ptr %385, i64 16
@@ -4614,7 +4614,7 @@ url_adapt_ext.exit:                               ; preds = %384, %401
   %402 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960)
   store i64 0, ptr %402, align 8
   store ptr %389, ptr %2, align 8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %.0130, i64 4294967295)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %.0, i64 4294967295)
   store i64 %spec.select, ptr %3, align 8
   br label %479
 
@@ -4641,24 +4641,24 @@ url_adapt_ext.exit:                               ; preds = %384, %401
   %414 = getelementptr inbounds i8, ptr %412, i64 16
   %415 = load i64, ptr %414, align 8
   %416 = add i64 %415, %408
-  %.val152 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
-  %.val153 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
-  %417 = select i1 %.not, i64 %.val152, i64 %.val153
+  %.val151 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
+  %.val152 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
+  %417 = select i1 %.not, i64 %.val151, i64 %.val152
   %.not121 = icmp ult i64 %416, %417
   br i1 %.not121, label %419, label %418
 
 418:                                              ; preds = %409, %413
-  %.0 = phi i64 [ %408, %409 ], [ %416, %413 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %410, i64 noundef %.0) #16
-  %.pre213 = load ptr, ptr %410, align 8
-  %.phi.trans.insert214 = getelementptr inbounds i8, ptr %.pre213, i64 16
-  %.pre215 = load i64, ptr %.phi.trans.insert214, align 8
+  %.0106 = phi i64 [ %408, %409 ], [ %416, %413 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %410, i64 noundef %.0106) #16
+  %.pre212 = load ptr, ptr %410, align 8
+  %.phi.trans.insert213 = getelementptr inbounds i8, ptr %.pre212, i64 16
+  %.pre214 = load i64, ptr %.phi.trans.insert213, align 8
   br label %419
 
 419:                                              ; preds = %418, %413
-  %420 = phi i64 [ %.pre215, %418 ], [ %415, %413 ]
-  %421 = phi ptr [ %.pre213, %418 ], [ %412, %413 ]
-  %.1 = phi i64 [ %.0, %418 ], [ %416, %413 ]
+  %420 = phi i64 [ %.pre214, %418 ], [ %415, %413 ]
+  %421 = phi ptr [ %.pre212, %418 ], [ %412, %413 ]
+  %.1 = phi i64 [ %.0106, %418 ], [ %416, %413 ]
   %422 = getelementptr inbounds i8, ptr %421, i64 24
   %423 = getelementptr inbounds i8, ptr %422, i64 %420
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %423, ptr nonnull align 1 %411, i64 %408, i1 false)
@@ -4673,23 +4673,23 @@ url_adapt_ext.exit:                               ; preds = %384, %401
   %428 = getelementptr inbounds i8, ptr %426, i64 16
   %429 = load i64, ptr %428, align 8
   %430 = add i64 %429, %1
-  %.val154 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
-  %.val155 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
-  %431 = select i1 %.not, i64 %.val154, i64 %.val155
+  %.val153 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), align 8
+  %.val154 = load i64, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960), align 8
+  %431 = select i1 %.not, i64 %.val153, i64 %.val154
   %.not123 = icmp ult i64 %430, %431
   br i1 %.not123, label %433, label %432
 
 432:                                              ; preds = %419, %427
   %.0107 = phi i64 [ %1, %419 ], [ %430, %427 ]
   tail call void @smart_str_erealloc(ptr noundef nonnull %410, i64 noundef %.0107) #16
-  %.pre216 = load ptr, ptr %410, align 8
-  %.phi.trans.insert217 = getelementptr inbounds i8, ptr %.pre216, i64 16
-  %.pre218 = load i64, ptr %.phi.trans.insert217, align 8
+  %.pre215 = load ptr, ptr %410, align 8
+  %.phi.trans.insert216 = getelementptr inbounds i8, ptr %.pre215, i64 16
+  %.pre217 = load i64, ptr %.phi.trans.insert216, align 8
   br label %433
 
 433:                                              ; preds = %432, %427
-  %434 = phi i64 [ %.pre218, %432 ], [ %429, %427 ]
-  %435 = phi ptr [ %.pre216, %432 ], [ %426, %427 ]
+  %434 = phi i64 [ %.pre217, %432 ], [ %429, %427 ]
+  %435 = phi ptr [ %.pre215, %432 ], [ %426, %427 ]
   %.1108 = phi i64 [ %.0107, %432 ], [ %430, %427 ]
   %436 = getelementptr inbounds i8, ptr %435, i64 24
   %437 = getelementptr inbounds i8, ptr %436, i64 %434
@@ -5631,34 +5631,34 @@ define internal fastcc range(i32 -1, 1) i32 @php_ini_on_update_tags(ptr noundef 
   br label %19
 
 19:                                               ; preds = %.lr.ph6, %64
-  %.01384 = phi ptr [ %17, %.lr.ph6 ], [ %65, %64 ]
-  %20 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.01384, i32 noundef 61) #17
+  %.01364 = phi ptr [ %17, %.lr.ph6 ], [ %65, %64 ]
+  %20 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.01364, i32 noundef 61) #17
   %.not148 = icmp eq ptr %20, null
   br i1 %.not148, label %64, label %21
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds i8, ptr %20, i64 1
   store i8 0, ptr %20, align 1
-  %23 = load i8, ptr %.01384, align 1
+  %23 = load i8, ptr %.01364, align 1
   %.not1491 = icmp eq i8 %23, 0
   br i1 %.not1491, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %24 = phi i8 [ %29, %.lr.ph ], [ %23, %21 ]
-  %.01362 = phi ptr [ %28, %.lr.ph ], [ %.01384, %21 ]
+  %.02 = phi ptr [ %28, %.lr.ph ], [ %.01364, %21 ]
   %25 = sext i8 %24 to i32
   %26 = call i32 @tolower(i32 noundef %25) #17
   %27 = trunc i32 %26 to i8
-  store i8 %27, ptr %.01362, align 1
-  %28 = getelementptr inbounds i8, ptr %.01362, i64 1
+  store i8 %27, ptr %.02, align 1
+  %28 = getelementptr inbounds i8, ptr %.02, i64 1
   %29 = load i8, ptr %28, align 1
   %.not149 = icmp eq i8 %29, 0
   br i1 %.not149, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %21
-  %.0136.lcssa = phi ptr [ %.01384, %21 ], [ %28, %.lr.ph ]
-  %30 = ptrtoint ptr %.0136.lcssa to i64
-  %31 = ptrtoint ptr %.01384 to i64
+  %.0.lcssa = phi ptr [ %.01364, %21 ], [ %28, %.lr.ph ]
+  %30 = ptrtoint ptr %.0.lcssa to i64
+  %31 = ptrtoint ptr %.01364 to i64
   %32 = sub i64 %30, %31
   %33 = and i64 %32, -8
   %34 = add i64 %33, 32
@@ -5671,7 +5671,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_ini_on_update_tags(ptr noundef 
   %38 = getelementptr inbounds i8, ptr %35, i64 16
   store i64 %32, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %35, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr nonnull align 1 %.01384, i64 %32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr nonnull align 1 %.01364, i64 %32, i1 false)
   %40 = getelementptr inbounds [1 x i8], ptr %39, i64 0, i64 %32
   store i8 0, ptr %40, align 1
   %41 = load ptr, ptr %9, align 8
@@ -5733,8 +5733,8 @@ define internal fastcc range(i32 -1, 1) i32 @php_ini_on_update_tags(ptr noundef 
   br label %66
 
 66:                                               ; preds = %._crit_edge7, %14
-  %.0 = phi i32 [ 0, %._crit_edge7 ], [ -1, %14 ]
-  ret i32 %.0
+  %.0138 = phi i32 [ 0, %._crit_edge7 ], [ -1, %14 ]
+  ret i32 %.0138
 }
 
 declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #2
@@ -5772,14 +5772,14 @@ define internal fastcc void @php_ini_on_update_hosts(ptr noundef %0, i32 noundef
   br i1 %.not863, label %._crit_edge5, label %.preheader
 
 .preheader:                                       ; preds = %2, %._crit_edge.thread
-  %.0824 = phi ptr [ %37, %._crit_edge.thread ], [ %8, %2 ]
-  %9 = load i8, ptr %.0824, align 1
+  %.0814 = phi ptr [ %37, %._crit_edge.thread ], [ %8, %2 ]
+  %9 = load i8, ptr %.0814, align 1
   %.not871 = icmp eq i8 %9, 0
   br i1 %.not871, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %10 = phi i8 [ %15, %.lr.ph ], [ %9, %.preheader ]
-  %.02 = phi ptr [ %14, %.lr.ph ], [ %.0824, %.preheader ]
+  %.02 = phi ptr [ %14, %.lr.ph ], [ %.0814, %.preheader ]
   %11 = sext i8 %10 to i32
   %12 = call i32 @tolower(i32 noundef %11) #17
   %13 = trunc i32 %12 to i8
@@ -5791,7 +5791,7 @@ define internal fastcc void @php_ini_on_update_hosts(ptr noundef %0, i32 noundef
 
 16:                                               ; preds = %.lr.ph
   %17 = ptrtoint ptr %14 to i64
-  %18 = ptrtoint ptr %.0824 to i64
+  %18 = ptrtoint ptr %.0814 to i64
   %19 = sub i64 %17, %18
   %20 = and i64 %19, -8
   %21 = add i64 %20, 32
@@ -5804,7 +5804,7 @@ define internal fastcc void @php_ini_on_update_hosts(ptr noundef %0, i32 noundef
   %25 = getelementptr inbounds i8, ptr %22, i64 16
   store i64 %19, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %22, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %26, ptr noundef nonnull align 1 dereferenceable(1) %.0824, i64 %19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %26, ptr noundef nonnull align 1 dereferenceable(1) %.0814, i64 %19, i1 false)
   %27 = getelementptr inbounds [1 x i8], ptr %26, i64 0, i64 %19
   store i8 0, ptr %27, align 1
   %28 = call ptr @zend_hash_add_empty_element(ptr noundef nonnull %., ptr noundef nonnull %22) #16

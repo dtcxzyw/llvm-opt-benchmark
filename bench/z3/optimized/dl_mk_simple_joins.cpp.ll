@@ -1332,9 +1332,9 @@ if.end.i.i:                                       ; preds = %for.end
   br i1 %cmp4.not6.i.i, label %if.end18.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.inc.i.i
-  %overhead.08.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i ]
-  %curr.07.i.i = phi ptr [ %incdec.ptr.i.i15, %for.inc.i.i ], [ %13, %if.end.i.i ]
-  %m_state.i.i.i13 = getelementptr inbounds i8, ptr %curr.07.i.i, i64 4
+  %curr.08.i.i = phi ptr [ %incdec.ptr.i.i15, %for.inc.i.i ], [ %13, %if.end.i.i ]
+  %overhead.07.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i ]
+  %m_state.i.i.i13 = getelementptr inbounds i8, ptr %curr.08.i.i, i64 4
   %15 = load i32, ptr %m_state.i.i.i13, align 4
   %cmp.i.i.i14 = icmp eq i32 %15, 0
   br i1 %cmp.i.i.i14, label %if.else.i.i, label %if.then5.i.i
@@ -1344,12 +1344,12 @@ if.then5.i.i:                                     ; preds = %for.body.i.i
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %inc.i.i = add i32 %overhead.08.i.i, 1
+  %inc.i.i = add i32 %overhead.07.i.i, 1
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then5.i.i
-  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.08.i.i, %if.then5.i.i ]
-  %incdec.ptr.i.i15 = getelementptr inbounds i8, ptr %curr.07.i.i, i64 32
+  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.07.i.i, %if.then5.i.i ]
+  %incdec.ptr.i.i15 = getelementptr inbounds i8, ptr %curr.08.i.i, i64 32
   %cmp4.not.i.i = icmp eq ptr %incdec.ptr.i.i15, %add.ptr.i.i12
   br i1 %cmp4.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !10
 
@@ -8825,12 +8825,12 @@ invoke.cont97:                                    ; preds = %for.cond.i194, %for
   br i1 %cmp.i196.le, label %if.then99, label %if.else
 
 if.then99:                                        ; preds = %for.body.preheader.i190, %invoke.cont97
-  %spec.select = call i32 @llvm.umin.i32(i32 %storemerge528, i32 %48)
-  %spec.select501 = call i32 @llvm.umax.i32(i32 %storemerge528, i32 %48)
+  %spec.select = call i32 @llvm.umax.i32(i32 %storemerge528, i32 %48)
+  %spec.select501 = call i32 @llvm.umin.i32(i32 %storemerge528, i32 %48)
   %129 = load ptr, ptr %m_value.i, align 8, !nonnull !66, !noundef !66
   %arrayidx.i200 = getelementptr inbounds i8, ptr %129, i64 -4
   %130 = load i32, ptr %arrayidx.i200, align 4
-  %cmp105498 = icmp ult i32 %spec.select501, %130
+  %cmp105498 = icmp ult i32 %spec.select, %130
   br i1 %cmp105498, label %invoke.cont107, label %if.end110
 
 invoke.cont107:                                   ; preds = %if.then99
@@ -8838,7 +8838,7 @@ invoke.cont107:                                   ; preds = %if.then99
   %132 = zext i32 %131 to i64
   %arrayidx.i1.i = getelementptr inbounds ptr, ptr %129, i64 %132
   %133 = load ptr, ptr %arrayidx.i1.i, align 8
-  %idxprom.i207 = zext i32 %spec.select501 to i64
+  %idxprom.i207 = zext i32 %spec.select to i64
   %arrayidx.i208 = getelementptr inbounds ptr, ptr %129, i64 %idxprom.i207
   store ptr %133, ptr %arrayidx.i208, align 8
   %.pre541 = load ptr, ptr %m_value.i, align 8
@@ -8853,7 +8853,7 @@ if.end110:                                        ; preds = %if.then99, %invoke.
   %136 = load ptr, ptr %m_value.i, align 8, !nonnull !66, !noundef !66
   %arrayidx.i212 = getelementptr inbounds i8, ptr %136, i64 -4
   %137 = load i32, ptr %arrayidx.i212, align 4
-  %cmp114500 = icmp ult i32 %spec.select, %137
+  %cmp114500 = icmp ult i32 %spec.select501, %137
   br i1 %cmp114500, label %invoke.cont116, label %if.end119
 
 invoke.cont116:                                   ; preds = %if.end110
@@ -8861,7 +8861,7 @@ invoke.cont116:                                   ; preds = %if.end110
   %139 = zext i32 %138 to i64
   %arrayidx.i1.i219 = getelementptr inbounds ptr, ptr %136, i64 %139
   %140 = load ptr, ptr %arrayidx.i1.i219, align 8
-  %idxprom.i221 = zext i32 %spec.select to i64
+  %idxprom.i221 = zext i32 %spec.select501 to i64
   %arrayidx.i222 = getelementptr inbounds ptr, ptr %136, i64 %idxprom.i221
   store ptr %140, ptr %arrayidx.i222, align 8
   %.pre542 = load ptr, ptr %m_value.i, align 8
@@ -9170,7 +9170,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_
   br label %if.end139
 
 if.end139:                                        ; preds = %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit349, %invoke.cont123
-  %i1.1 = phi i32 [ %spec.select501, %invoke.cont123 ], [ %storemerge528, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit349 ]
+  %i1.1 = phi i32 [ %spec.select, %invoke.cont123 ], [ %storemerge528, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit349 ]
   %len.1 = phi i32 [ %sub, %invoke.cont123 ], [ %dec, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit349 ]
   %199 = load ptr, ptr %non_local_vars, align 8
   %tobool.not.i.i.i.i350 = icmp eq ptr %199, null

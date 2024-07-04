@@ -608,9 +608,9 @@ for.body.lr.ph.i:                                 ; preds = %for.end
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc54.i, %for.body.lr.ph.i
-  %i.033.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc55.i, %for.inc54.i ]
-  %gens.032.i = phi ptr [ null, %for.body.lr.ph.i ], [ %gens.1.i, %for.inc54.i ]
-  %call3.i = call ptr @sk_value(ptr noundef %36, i64 noundef %i.033.i) #11
+  %gens.033.i = phi ptr [ null, %for.body.lr.ph.i ], [ %gens.1.i, %for.inc54.i ]
+  %i.032.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc55.i, %for.inc54.i ]
+  %call3.i = call ptr @sk_value(ptr noundef %36, i64 noundef %i.032.i) #11
   %call4.i = call ptr @X509_REVOKED_get_ext_d2i(ptr noundef %call3.i, i32 noundef 771, ptr noundef nonnull %j.i, ptr noundef null) #11
   %tobool.i = icmp eq ptr %call4.i, null
   %37 = load i32, ptr %j.i, align 4
@@ -639,7 +639,7 @@ if.end16.i:                                       ; preds = %if.then9.i, %if.the
   br i1 %tobool19.not.i, label %crl_set_issuers.exit, label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.end16.i, %if.end.i54
-  %gens.1.i = phi ptr [ %call4.i, %if.end16.i ], [ %gens.032.i, %if.end.i54 ]
+  %gens.1.i = phi ptr [ %call4.i, %if.end16.i ], [ %gens.033.i, %if.end.i54 ]
   %issuer.i55 = getelementptr inbounds i8, ptr %call3.i, i64 24
   store ptr %gens.1.i, ptr %issuer.i55, align 8
   %call23.i = call ptr @X509_REVOKED_get_ext_d2i(ptr noundef %call3.i, i32 noundef 141, ptr noundef nonnull %j.i, ptr noundef null) #11
@@ -699,7 +699,7 @@ for.inc.i:                                        ; preds = %if.then45.i, %for.b
   br i1 %cmp39.i, label %for.body41.i, label %for.inc54.i, !llvm.loop !9
 
 for.inc54.i:                                      ; preds = %for.inc.i, %if.end50.i, %if.end36.i
-  %inc55.i = add nuw i64 %i.033.i, 1
+  %inc55.i = add nuw i64 %i.032.i, 1
   %call.i57 = call i64 @sk_num(ptr noundef %36) #11
   %cmp.i58 = icmp ult i64 %inc55.i, %call.i57
   br i1 %cmp.i58, label %for.body.i, label %if.end43, !llvm.loop !10

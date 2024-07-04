@@ -17,13 +17,13 @@ entry:
   br i1 %cmp, label %if.end84, label %if.end
 
 if.end:                                           ; preds = %entry
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %idx2, i32 %idx1)
-  %spec.select76 = tail call i32 @llvm.umin.i32(i32 %idx2, i32 %idx1)
-  %idxprom = zext i32 %spec.select76 to i64
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %idx2, i32 %idx1)
+  %spec.select76 = tail call i32 @llvm.umax.i32(i32 %idx2, i32 %idx1)
+  %idxprom = zext i32 %spec.select to i64
   %arrayidx = getelementptr inbounds i32, ptr %cluster_size, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %conv = zext i32 %0 to i64
-  %idxprom8 = zext i32 %spec.select to i64
+  %idxprom8 = zext i32 %spec.select76 to i64
   %arrayidx9 = getelementptr inbounds i32, ptr %cluster_size, i64 %idxprom8
   %1 = load i32, ptr %arrayidx9, align 4
   %conv10 = zext i32 %1 to i64
@@ -159,7 +159,7 @@ HistogramPairIsLess.exit:                         ; preds = %land.lhs.true
   %19 = load i32, ptr %idx2.i, align 4
   %20 = load i32, ptr %pairs, align 8
   %sub.i = sub i32 %19, %20
-  %sub8.i = sub i32 %spec.select, %spec.select76
+  %sub8.i = sub i32 %spec.select76, %spec.select
   %cmp9.i = icmp ugt i32 %sub.i, %sub8.i
   br i1 %cmp9.i, label %if.then68, label %if.else76
 
@@ -176,9 +176,9 @@ if.then71:                                        ; preds = %if.then68
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then71, %if.then68
-  store i32 %spec.select76, ptr %pairs, align 8
+  store i32 %spec.select, ptr %pairs, align 8
   %p.sroa.5.0.arrayidx75.sroa_idx = getelementptr inbounds i8, ptr %pairs, i64 4
-  store i32 %spec.select, ptr %p.sroa.5.0.arrayidx75.sroa_idx, align 4
+  store i32 %spec.select76, ptr %p.sroa.5.0.arrayidx75.sroa_idx, align 4
   %p.sroa.8.0.arrayidx75.sroa_idx = getelementptr inbounds i8, ptr %pairs, i64 8
   store double %p.sroa.8.0.ph, ptr %p.sroa.8.0.arrayidx75.sroa_idx, align 8
   store double %add, ptr %cost_diff.i, align 8
@@ -190,9 +190,9 @@ if.else76:                                        ; preds = %if.then.i, %Histogr
 
 if.then79:                                        ; preds = %if.else76
   %arrayidx80 = getelementptr inbounds %struct.HistogramPair, ptr %pairs, i64 %17
-  store i32 %spec.select76, ptr %arrayidx80, align 8
+  store i32 %spec.select, ptr %arrayidx80, align 8
   %p.sroa.5.0.arrayidx80.sroa_idx = getelementptr inbounds i8, ptr %arrayidx80, i64 4
-  store i32 %spec.select, ptr %p.sroa.5.0.arrayidx80.sroa_idx, align 4
+  store i32 %spec.select76, ptr %p.sroa.5.0.arrayidx80.sroa_idx, align 4
   %p.sroa.8.0.arrayidx80.sroa_idx = getelementptr inbounds i8, ptr %arrayidx80, i64 8
   store double %p.sroa.8.0.ph, ptr %p.sroa.8.0.arrayidx80.sroa_idx, align 8
   %p.sroa.13.0.arrayidx80.sroa_idx = getelementptr inbounds i8, ptr %arrayidx80, i64 16
@@ -260,13 +260,13 @@ for.body3:                                        ; preds = %for.body3.lr.ph, %B
   br i1 %cmp.i91, label %BrotliCompareAndPushToQueueLiteral.exit, label %if.end.i92
 
 if.end.i92:                                       ; preds = %for.body3
-  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %1, i32 %0)
-  %spec.select76.i = tail call i32 @llvm.umin.i32(i32 %1, i32 %0)
-  %idxprom.i = zext i32 %spec.select76.i to i64
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %1, i32 %0)
+  %spec.select76.i = tail call i32 @llvm.umax.i32(i32 %1, i32 %0)
+  %idxprom.i = zext i32 %spec.select.i to i64
   %arrayidx.i93 = getelementptr inbounds i32, ptr %cluster_size, i64 %idxprom.i
   %2 = load i32, ptr %arrayidx.i93, align 4
   %conv.i = zext i32 %2 to i64
-  %idxprom8.i = zext i32 %spec.select.i to i64
+  %idxprom8.i = zext i32 %spec.select76.i to i64
   %arrayidx9.i = getelementptr inbounds i32, ptr %cluster_size, i64 %idxprom8.i
   %3 = load i32, ptr %arrayidx9.i, align 4
   %conv10.i = zext i32 %3 to i64
@@ -396,7 +396,7 @@ HistogramPairIsLess.exit.i:                       ; preds = %land.lhs.true.i
   %19 = load i32, ptr %idx2.i.i, align 4
   %20 = load i32, ptr %pairs, align 8
   %sub.i.i = sub i32 %19, %20
-  %sub8.i.i = sub i32 %spec.select.i, %spec.select76.i
+  %sub8.i.i = sub i32 %spec.select76.i, %spec.select.i
   %cmp9.i.i = icmp ugt i32 %sub.i.i, %sub8.i.i
   br i1 %cmp9.i.i, label %if.then68.i, label %if.else76.i
 
@@ -412,8 +412,8 @@ if.then71.i:                                      ; preds = %if.then68.i
 
 if.end74.i:                                       ; preds = %if.then71.i, %if.then68.i
   %num_pairs.2 = phi i64 [ %inc.i97, %if.then71.i ], [ %num_pairs.1211, %if.then68.i ]
-  store i32 %spec.select76.i, ptr %pairs, align 8
-  store i32 %spec.select.i, ptr %idx2.i.i, align 4
+  store i32 %spec.select.i, ptr %pairs, align 8
+  store i32 %spec.select76.i, ptr %idx2.i.i, align 4
   store double %p.sroa.8.0.ph.i, ptr %p.sroa.8.0.arrayidx75.sroa_idx.i, align 8
   store double %add.i96, ptr %cost_diff43.i, align 8
   br label %BrotliCompareAndPushToQueueLiteral.exit
@@ -424,9 +424,9 @@ if.else76.i:                                      ; preds = %HistogramPairIsLess
 
 if.then79.i:                                      ; preds = %if.else76.i
   %arrayidx80.i = getelementptr inbounds %struct.HistogramPair, ptr %pairs, i64 %num_pairs.1211
-  store i32 %spec.select76.i, ptr %arrayidx80.i, align 8
+  store i32 %spec.select.i, ptr %arrayidx80.i, align 8
   %p.sroa.5.0.arrayidx80.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx80.i, i64 4
-  store i32 %spec.select.i, ptr %p.sroa.5.0.arrayidx80.sroa_idx.i, align 4
+  store i32 %spec.select76.i, ptr %p.sroa.5.0.arrayidx80.sroa_idx.i, align 4
   %p.sroa.8.0.arrayidx80.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx80.i, i64 8
   store double %p.sroa.8.0.ph.i, ptr %p.sroa.8.0.arrayidx80.sroa_idx.i, align 8
   %p.sroa.13.0.arrayidx80.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx80.i, i64 16
@@ -442,9 +442,9 @@ BrotliCompareAndPushToQueueLiteral.exit:          ; preds = %for.body3, %Histogr
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %while.cond.preheader
   %num_pairs.4.ph = phi i64 [ %num_pairs.0.lcssa, %while.cond.preheader ], [ %num_pairs.4.ph.be, %while.cond.outer.backedge ]
+  %num_clusters.addr.0.ph = phi i64 [ %num_clusters, %while.cond.preheader ], [ %dec, %while.cond.outer.backedge ]
   %cost_diff_threshold.0.ph = phi double [ 0.000000e+00, %while.cond.preheader ], [ %cost_diff_threshold.0, %while.cond.outer.backedge ]
   %min_cluster_size.0.ph = phi i64 [ 1, %while.cond.preheader ], [ %min_cluster_size.0, %while.cond.outer.backedge ]
-  %num_clusters.addr.0.ph = phi i64 [ %num_clusters, %while.cond.preheader ], [ %dec, %while.cond.outer.backedge ]
   %umax = tail call i64 @llvm.umax.i64(i64 %num_clusters.addr.0.ph, i64 1)
   br label %while.cond
 
@@ -620,13 +620,13 @@ for.body81:                                       ; preds = %for.cond79.preheade
   br i1 %cmp.i98, label %BrotliCompareAndPushToQueueLiteral.exit198, label %if.end.i99
 
 if.end.i99:                                       ; preds = %for.body81
-  %spec.select.i100 = tail call i32 @llvm.umax.i32(i32 %40, i32 %22)
-  %spec.select76.i101 = tail call i32 @llvm.umin.i32(i32 %40, i32 %22)
-  %idxprom.i102 = zext i32 %spec.select76.i101 to i64
+  %spec.select.i100 = tail call i32 @llvm.umin.i32(i32 %40, i32 %22)
+  %spec.select76.i101 = tail call i32 @llvm.umax.i32(i32 %40, i32 %22)
+  %idxprom.i102 = zext i32 %spec.select.i100 to i64
   %arrayidx.i103 = getelementptr inbounds i32, ptr %cluster_size, i64 %idxprom.i102
   %41 = load i32, ptr %arrayidx.i103, align 4
   %conv.i104 = zext i32 %41 to i64
-  %idxprom8.i105 = zext i32 %spec.select.i100 to i64
+  %idxprom8.i105 = zext i32 %spec.select76.i101 to i64
   %arrayidx9.i106 = getelementptr inbounds i32, ptr %cluster_size, i64 %idxprom8.i105
   %42 = load i32, ptr %arrayidx9.i106, align 4
   %conv10.i107 = zext i32 %42 to i64
@@ -756,7 +756,7 @@ HistogramPairIsLess.exit.i169:                    ; preds = %land.lhs.true.i166
   %58 = load i32, ptr %idx215, align 4
   %59 = load i32, ptr %pairs, align 8
   %sub.i.i171 = sub i32 %58, %59
-  %sub8.i.i172 = sub i32 %spec.select.i100, %spec.select76.i101
+  %sub8.i.i172 = sub i32 %spec.select76.i101, %spec.select.i100
   %cmp9.i.i173 = icmp ugt i32 %sub.i.i171, %sub8.i.i172
   br i1 %cmp9.i.i173, label %if.then68.i182, label %if.else76.i174
 
@@ -772,8 +772,8 @@ if.then71.i187:                                   ; preds = %if.then68.i182
 
 if.end74.i184:                                    ; preds = %if.then71.i187, %if.then68.i182
   %num_pairs.6 = phi i64 [ %inc.i189, %if.then71.i187 ], [ %num_pairs.5227, %if.then68.i182 ]
-  store i32 %spec.select76.i101, ptr %pairs, align 8
-  store i32 %spec.select.i100, ptr %idx215, align 4
+  store i32 %spec.select.i100, ptr %pairs, align 8
+  store i32 %spec.select76.i101, ptr %idx215, align 4
   store double %p.sroa.8.0.ph.i163, ptr %cost_combo, align 8
   store double %add.i164, ptr %cost_diff, align 8
   br label %BrotliCompareAndPushToQueueLiteral.exit198
@@ -784,9 +784,9 @@ if.else76.i174:                                   ; preds = %HistogramPairIsLess
 
 if.then79.i176:                                   ; preds = %if.else76.i174
   %arrayidx80.i177 = getelementptr inbounds %struct.HistogramPair, ptr %pairs, i64 %num_pairs.5227
-  store i32 %spec.select76.i101, ptr %arrayidx80.i177, align 8
+  store i32 %spec.select.i100, ptr %arrayidx80.i177, align 8
   %p.sroa.5.0.arrayidx80.sroa_idx.i178 = getelementptr inbounds i8, ptr %arrayidx80.i177, i64 4
-  store i32 %spec.select.i100, ptr %p.sroa.5.0.arrayidx80.sroa_idx.i178, align 4
+  store i32 %spec.select76.i101, ptr %p.sroa.5.0.arrayidx80.sroa_idx.i178, align 4
   %p.sroa.8.0.arrayidx80.sroa_idx.i179 = getelementptr inbounds i8, ptr %arrayidx80.i177, i64 8
   store double %p.sroa.8.0.ph.i163, ptr %p.sroa.8.0.arrayidx80.sroa_idx.i179, align 8
   %p.sroa.13.0.arrayidx80.sroa_idx.i180 = getelementptr inbounds i8, ptr %arrayidx80.i177, i64 16
@@ -1250,19 +1250,19 @@ for.body20:                                       ; preds = %for.body, %for.body
 
 for.body38.preheader:                             ; preds = %for.body20, %for.end45
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.end45 ], [ %in_size, %for.body20 ]
-  %num_clusters.0104 = phi i64 [ %add49, %for.end45 ], [ 0, %for.body20 ]
-  %i.2103 = phi i64 [ %add51, %for.end45 ], [ 0, %for.body20 ]
+  %i.2104 = phi i64 [ %add51, %for.end45 ], [ 0, %for.body20 ]
+  %num_clusters.0103 = phi i64 [ %add49, %for.end45 ], [ 0, %for.body20 ]
   %umin = tail call i64 @llvm.umin.i64(i64 %indvars.iv, i64 64)
   %umax = tail call i64 @llvm.umax.i64(i64 %umin, i64 1)
-  %sub = sub i64 %in_size, %i.2103
+  %sub = sub i64 %in_size, %i.2104
   %cond.i89 = tail call i64 @llvm.umin.i64(i64 %sub, i64 64)
   br label %for.body38
 
 for.body38:                                       ; preds = %for.body38.preheader, %for.body38
   %j.0101 = phi i64 [ %inc44, %for.body38 ], [ 0, %for.body38.preheader ]
-  %add39 = add nuw nsw i64 %j.0101, %i.2103
+  %add39 = add nuw nsw i64 %j.0101, %i.2104
   %conv40 = trunc i64 %add39 to i32
-  %add41 = add i64 %j.0101, %num_clusters.0104
+  %add41 = add i64 %j.0101, %num_clusters.0103
   %arrayidx42 = getelementptr inbounds i32, ptr %cond7, i64 %add41
   store i32 %conv40, ptr %arrayidx42, align 4
   %inc44 = add nuw nsw i64 %j.0101, 1
@@ -1270,11 +1270,11 @@ for.body38:                                       ; preds = %for.body38.preheade
   br i1 %exitcond106.not, label %for.end45, label %for.body38, !llvm.loop !24
 
 for.end45:                                        ; preds = %for.body38
-  %arrayidx46 = getelementptr inbounds i32, ptr %histogram_symbols, i64 %i.2103
-  %arrayidx47 = getelementptr inbounds i32, ptr %cond7, i64 %num_clusters.0104
+  %arrayidx46 = getelementptr inbounds i32, ptr %histogram_symbols, i64 %i.2104
+  %arrayidx47 = getelementptr inbounds i32, ptr %cond7, i64 %num_clusters.0103
   %call48 = tail call i64 @BrotliHistogramCombineLiteral(ptr noundef %out, ptr noundef %call16, ptr noundef %cond95, ptr noundef %arrayidx46, ptr noundef %arrayidx47, ptr noundef %call12, i64 noundef %cond.i89, i64 noundef %cond.i89, i64 noundef %max_histograms, i64 noundef 2048)
-  %add49 = add i64 %call48, %num_clusters.0104
-  %add51 = add i64 %i.2103, 64
+  %add49 = add i64 %call48, %num_clusters.0103
+  %add51 = add i64 %i.2104, 64
   %cmp31 = icmp ult i64 %add51, %in_size
   %indvars.iv.next = add i64 %indvars.iv, -64
   br i1 %cmp31, label %for.body38.preheader, label %for.end52, !llvm.loop !25
@@ -1321,13 +1321,13 @@ entry:
   br i1 %cmp, label %if.end84, label %if.end
 
 if.end:                                           ; preds = %entry
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %idx2, i32 %idx1)
-  %spec.select76 = tail call i32 @llvm.umin.i32(i32 %idx2, i32 %idx1)
-  %idxprom = zext i32 %spec.select76 to i64
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %idx2, i32 %idx1)
+  %spec.select76 = tail call i32 @llvm.umax.i32(i32 %idx2, i32 %idx1)
+  %idxprom = zext i32 %spec.select to i64
   %arrayidx = getelementptr inbounds i32, ptr %cluster_size, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %conv = zext i32 %0 to i64
-  %idxprom8 = zext i32 %spec.select to i64
+  %idxprom8 = zext i32 %spec.select76 to i64
   %arrayidx9 = getelementptr inbounds i32, ptr %cluster_size, i64 %idxprom8
   %1 = load i32, ptr %arrayidx9, align 4
   %conv10 = zext i32 %1 to i64
@@ -1463,7 +1463,7 @@ HistogramPairIsLess.exit:                         ; preds = %land.lhs.true
   %19 = load i32, ptr %idx2.i, align 4
   %20 = load i32, ptr %pairs, align 8
   %sub.i = sub i32 %19, %20
-  %sub8.i = sub i32 %spec.select, %spec.select76
+  %sub8.i = sub i32 %spec.select76, %spec.select
   %cmp9.i = icmp ugt i32 %sub.i, %sub8.i
   br i1 %cmp9.i, label %if.then68, label %if.else76
 
@@ -1480,9 +1480,9 @@ if.then71:                                        ; preds = %if.then68
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then71, %if.then68
-  store i32 %spec.select76, ptr %pairs, align 8
+  store i32 %spec.select, ptr %pairs, align 8
   %p.sroa.5.0.arrayidx75.sroa_idx = getelementptr inbounds i8, ptr %pairs, i64 4
-  store i32 %spec.select, ptr %p.sroa.5.0.arrayidx75.sroa_idx, align 4
+  store i32 %spec.select76, ptr %p.sroa.5.0.arrayidx75.sroa_idx, align 4
   %p.sroa.8.0.arrayidx75.sroa_idx = getelementptr inbounds i8, ptr %pairs, i64 8
   store double %p.sroa.8.0.ph, ptr %p.sroa.8.0.arrayidx75.sroa_idx, align 8
   store double %add, ptr %cost_diff.i, align 8
@@ -1494,9 +1494,9 @@ if.else76:                                        ; preds = %if.then.i, %Histogr
 
 if.then79:                                        ; preds = %if.else76
   %arrayidx80 = getelementptr inbounds %struct.HistogramPair, ptr %pairs, i64 %17
-  store i32 %spec.select76, ptr %arrayidx80, align 8
+  store i32 %spec.select, ptr %arrayidx80, align 8
   %p.sroa.5.0.arrayidx80.sroa_idx = getelementptr inbounds i8, ptr %arrayidx80, i64 4
-  store i32 %spec.select, ptr %p.sroa.5.0.arrayidx80.sroa_idx, align 4
+  store i32 %spec.select76, ptr %p.sroa.5.0.arrayidx80.sroa_idx, align 4
   %p.sroa.8.0.arrayidx80.sroa_idx = getelementptr inbounds i8, ptr %arrayidx80, i64 8
   store double %p.sroa.8.0.ph, ptr %p.sroa.8.0.arrayidx80.sroa_idx, align 8
   %p.sroa.13.0.arrayidx80.sroa_idx = getelementptr inbounds i8, ptr %arrayidx80, i64 16
@@ -1561,13 +1561,13 @@ for.body3:                                        ; preds = %for.body3.lr.ph, %B
   br i1 %cmp.i91, label %BrotliCompareAndPushToQueueCommand.exit, label %if.end.i92
 
 if.end.i92:                                       ; preds = %for.body3
-  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %1, i32 %0)
-  %spec.select76.i = tail call i32 @llvm.umin.i32(i32 %1, i32 %0)
-  %idxprom.i = zext i32 %spec.select76.i to i64
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %1, i32 %0)
+  %spec.select76.i = tail call i32 @llvm.umax.i32(i32 %1, i32 %0)
+  %idxprom.i = zext i32 %spec.select.i to i64
   %arrayidx.i93 = getelementptr inbounds i32, ptr %cluster_size, i64 %idxprom.i
   %2 = load i32, ptr %arrayidx.i93, align 4
   %conv.i = zext i32 %2 to i64
-  %idxprom8.i = zext i32 %spec.select.i to i64
+  %idxprom8.i = zext i32 %spec.select76.i to i64
   %arrayidx9.i = getelementptr inbounds i32, ptr %cluster_size, i64 %idxprom8.i
   %3 = load i32, ptr %arrayidx9.i, align 4
   %conv10.i = zext i32 %3 to i64
@@ -1697,7 +1697,7 @@ HistogramPairIsLess.exit.i:                       ; preds = %land.lhs.true.i
   %19 = load i32, ptr %idx2.i.i, align 4
   %20 = load i32, ptr %pairs, align 8
   %sub.i.i = sub i32 %19, %20
-  %sub8.i.i = sub i32 %spec.select.i, %spec.select76.i
+  %sub8.i.i = sub i32 %spec.select76.i, %spec.select.i
   %cmp9.i.i = icmp ugt i32 %sub.i.i, %sub8.i.i
   br i1 %cmp9.i.i, label %if.then68.i, label %if.else76.i
 
@@ -1713,8 +1713,8 @@ if.then71.i:                                      ; preds = %if.then68.i
 
 if.end74.i:                                       ; preds = %if.then71.i, %if.then68.i
   %num_pairs.2 = phi i64 [ %inc.i97, %if.then71.i ], [ %num_pairs.1211, %if.then68.i ]
-  store i32 %spec.select76.i, ptr %pairs, align 8
-  store i32 %spec.select.i, ptr %idx2.i.i, align 4
+  store i32 %spec.select.i, ptr %pairs, align 8
+  store i32 %spec.select76.i, ptr %idx2.i.i, align 4
   store double %p.sroa.8.0.ph.i, ptr %p.sroa.8.0.arrayidx75.sroa_idx.i, align 8
   store double %add.i96, ptr %cost_diff43.i, align 8
   br label %BrotliCompareAndPushToQueueCommand.exit
@@ -1725,9 +1725,9 @@ if.else76.i:                                      ; preds = %HistogramPairIsLess
 
 if.then79.i:                                      ; preds = %if.else76.i
   %arrayidx80.i = getelementptr inbounds %struct.HistogramPair, ptr %pairs, i64 %num_pairs.1211
-  store i32 %spec.select76.i, ptr %arrayidx80.i, align 8
+  store i32 %spec.select.i, ptr %arrayidx80.i, align 8
   %p.sroa.5.0.arrayidx80.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx80.i, i64 4
-  store i32 %spec.select.i, ptr %p.sroa.5.0.arrayidx80.sroa_idx.i, align 4
+  store i32 %spec.select76.i, ptr %p.sroa.5.0.arrayidx80.sroa_idx.i, align 4
   %p.sroa.8.0.arrayidx80.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx80.i, i64 8
   store double %p.sroa.8.0.ph.i, ptr %p.sroa.8.0.arrayidx80.sroa_idx.i, align 8
   %p.sroa.13.0.arrayidx80.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx80.i, i64 16
@@ -1743,9 +1743,9 @@ BrotliCompareAndPushToQueueCommand.exit:          ; preds = %for.body3, %Histogr
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %while.cond.preheader
   %num_pairs.4.ph = phi i64 [ %num_pairs.0.lcssa, %while.cond.preheader ], [ %num_pairs.4.ph.be, %while.cond.outer.backedge ]
+  %num_clusters.addr.0.ph = phi i64 [ %num_clusters, %while.cond.preheader ], [ %dec, %while.cond.outer.backedge ]
   %cost_diff_threshold.0.ph = phi double [ 0.000000e+00, %while.cond.preheader ], [ %cost_diff_threshold.0, %while.cond.outer.backedge ]
   %min_cluster_size.0.ph = phi i64 [ 1, %while.cond.preheader ], [ %min_cluster_size.0, %while.cond.outer.backedge ]
-  %num_clusters.addr.0.ph = phi i64 [ %num_clusters, %while.cond.preheader ], [ %dec, %while.cond.outer.backedge ]
   %umax = tail call i64 @llvm.umax.i64(i64 %num_clusters.addr.0.ph, i64 1)
   br label %while.cond
 
@@ -1921,13 +1921,13 @@ for.body81:                                       ; preds = %for.cond79.preheade
   br i1 %cmp.i98, label %BrotliCompareAndPushToQueueCommand.exit198, label %if.end.i99
 
 if.end.i99:                                       ; preds = %for.body81
-  %spec.select.i100 = tail call i32 @llvm.umax.i32(i32 %40, i32 %22)
-  %spec.select76.i101 = tail call i32 @llvm.umin.i32(i32 %40, i32 %22)
-  %idxprom.i102 = zext i32 %spec.select76.i101 to i64
+  %spec.select.i100 = tail call i32 @llvm.umin.i32(i32 %40, i32 %22)
+  %spec.select76.i101 = tail call i32 @llvm.umax.i32(i32 %40, i32 %22)
+  %idxprom.i102 = zext i32 %spec.select.i100 to i64
   %arrayidx.i103 = getelementptr inbounds i32, ptr %cluster_size, i64 %idxprom.i102
   %41 = load i32, ptr %arrayidx.i103, align 4
   %conv.i104 = zext i32 %41 to i64
-  %idxprom8.i105 = zext i32 %spec.select.i100 to i64
+  %idxprom8.i105 = zext i32 %spec.select76.i101 to i64
   %arrayidx9.i106 = getelementptr inbounds i32, ptr %cluster_size, i64 %idxprom8.i105
   %42 = load i32, ptr %arrayidx9.i106, align 4
   %conv10.i107 = zext i32 %42 to i64
@@ -2057,7 +2057,7 @@ HistogramPairIsLess.exit.i169:                    ; preds = %land.lhs.true.i166
   %58 = load i32, ptr %idx215, align 4
   %59 = load i32, ptr %pairs, align 8
   %sub.i.i171 = sub i32 %58, %59
-  %sub8.i.i172 = sub i32 %spec.select.i100, %spec.select76.i101
+  %sub8.i.i172 = sub i32 %spec.select76.i101, %spec.select.i100
   %cmp9.i.i173 = icmp ugt i32 %sub.i.i171, %sub8.i.i172
   br i1 %cmp9.i.i173, label %if.then68.i182, label %if.else76.i174
 
@@ -2073,8 +2073,8 @@ if.then71.i187:                                   ; preds = %if.then68.i182
 
 if.end74.i184:                                    ; preds = %if.then71.i187, %if.then68.i182
   %num_pairs.6 = phi i64 [ %inc.i189, %if.then71.i187 ], [ %num_pairs.5227, %if.then68.i182 ]
-  store i32 %spec.select76.i101, ptr %pairs, align 8
-  store i32 %spec.select.i100, ptr %idx215, align 4
+  store i32 %spec.select.i100, ptr %pairs, align 8
+  store i32 %spec.select76.i101, ptr %idx215, align 4
   store double %p.sroa.8.0.ph.i163, ptr %cost_combo, align 8
   store double %add.i164, ptr %cost_diff, align 8
   br label %BrotliCompareAndPushToQueueCommand.exit198
@@ -2085,9 +2085,9 @@ if.else76.i174:                                   ; preds = %HistogramPairIsLess
 
 if.then79.i176:                                   ; preds = %if.else76.i174
   %arrayidx80.i177 = getelementptr inbounds %struct.HistogramPair, ptr %pairs, i64 %num_pairs.5227
-  store i32 %spec.select76.i101, ptr %arrayidx80.i177, align 8
+  store i32 %spec.select.i100, ptr %arrayidx80.i177, align 8
   %p.sroa.5.0.arrayidx80.sroa_idx.i178 = getelementptr inbounds i8, ptr %arrayidx80.i177, i64 4
-  store i32 %spec.select.i100, ptr %p.sroa.5.0.arrayidx80.sroa_idx.i178, align 4
+  store i32 %spec.select76.i101, ptr %p.sroa.5.0.arrayidx80.sroa_idx.i178, align 4
   %p.sroa.8.0.arrayidx80.sroa_idx.i179 = getelementptr inbounds i8, ptr %arrayidx80.i177, i64 8
   store double %p.sroa.8.0.ph.i163, ptr %p.sroa.8.0.arrayidx80.sroa_idx.i179, align 8
   %p.sroa.13.0.arrayidx80.sroa_idx.i180 = getelementptr inbounds i8, ptr %arrayidx80.i177, i64 16
@@ -2544,19 +2544,19 @@ for.body20:                                       ; preds = %for.body, %for.body
 
 for.body38.preheader:                             ; preds = %for.body20, %for.end45
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.end45 ], [ %in_size, %for.body20 ]
-  %num_clusters.0104 = phi i64 [ %add49, %for.end45 ], [ 0, %for.body20 ]
-  %i.2103 = phi i64 [ %add51, %for.end45 ], [ 0, %for.body20 ]
+  %i.2104 = phi i64 [ %add51, %for.end45 ], [ 0, %for.body20 ]
+  %num_clusters.0103 = phi i64 [ %add49, %for.end45 ], [ 0, %for.body20 ]
   %umin = tail call i64 @llvm.umin.i64(i64 %indvars.iv, i64 64)
   %umax = tail call i64 @llvm.umax.i64(i64 %umin, i64 1)
-  %sub = sub i64 %in_size, %i.2103
+  %sub = sub i64 %in_size, %i.2104
   %cond.i89 = tail call i64 @llvm.umin.i64(i64 %sub, i64 64)
   br label %for.body38
 
 for.body38:                                       ; preds = %for.body38.preheader, %for.body38
   %j.0101 = phi i64 [ %inc44, %for.body38 ], [ 0, %for.body38.preheader ]
-  %add39 = add nuw nsw i64 %j.0101, %i.2103
+  %add39 = add nuw nsw i64 %j.0101, %i.2104
   %conv40 = trunc i64 %add39 to i32
-  %add41 = add i64 %j.0101, %num_clusters.0104
+  %add41 = add i64 %j.0101, %num_clusters.0103
   %arrayidx42 = getelementptr inbounds i32, ptr %cond7, i64 %add41
   store i32 %conv40, ptr %arrayidx42, align 4
   %inc44 = add nuw nsw i64 %j.0101, 1
@@ -2564,11 +2564,11 @@ for.body38:                                       ; preds = %for.body38.preheade
   br i1 %exitcond106.not, label %for.end45, label %for.body38, !llvm.loop !45
 
 for.end45:                                        ; preds = %for.body38
-  %arrayidx46 = getelementptr inbounds i32, ptr %histogram_symbols, i64 %i.2103
-  %arrayidx47 = getelementptr inbounds i32, ptr %cond7, i64 %num_clusters.0104
+  %arrayidx46 = getelementptr inbounds i32, ptr %histogram_symbols, i64 %i.2104
+  %arrayidx47 = getelementptr inbounds i32, ptr %cond7, i64 %num_clusters.0103
   %call48 = tail call i64 @BrotliHistogramCombineCommand(ptr noundef %out, ptr noundef %call16, ptr noundef %cond95, ptr noundef %arrayidx46, ptr noundef %arrayidx47, ptr noundef %call12, i64 noundef %cond.i89, i64 noundef %cond.i89, i64 noundef %max_histograms, i64 noundef 2048)
-  %add49 = add i64 %call48, %num_clusters.0104
-  %add51 = add i64 %i.2103, 64
+  %add49 = add i64 %call48, %num_clusters.0103
+  %add51 = add i64 %i.2104, 64
   %cmp31 = icmp ult i64 %add51, %in_size
   %indvars.iv.next = add i64 %indvars.iv, -64
   br i1 %cmp31, label %for.body38.preheader, label %for.end52, !llvm.loop !46
@@ -2615,13 +2615,13 @@ entry:
   br i1 %cmp, label %if.end84, label %if.end
 
 if.end:                                           ; preds = %entry
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %idx2, i32 %idx1)
-  %spec.select76 = tail call i32 @llvm.umin.i32(i32 %idx2, i32 %idx1)
-  %idxprom = zext i32 %spec.select76 to i64
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %idx2, i32 %idx1)
+  %spec.select76 = tail call i32 @llvm.umax.i32(i32 %idx2, i32 %idx1)
+  %idxprom = zext i32 %spec.select to i64
   %arrayidx = getelementptr inbounds i32, ptr %cluster_size, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %conv = zext i32 %0 to i64
-  %idxprom8 = zext i32 %spec.select to i64
+  %idxprom8 = zext i32 %spec.select76 to i64
   %arrayidx9 = getelementptr inbounds i32, ptr %cluster_size, i64 %idxprom8
   %1 = load i32, ptr %arrayidx9, align 4
   %conv10 = zext i32 %1 to i64
@@ -2757,7 +2757,7 @@ HistogramPairIsLess.exit:                         ; preds = %land.lhs.true
   %19 = load i32, ptr %idx2.i, align 4
   %20 = load i32, ptr %pairs, align 8
   %sub.i = sub i32 %19, %20
-  %sub8.i = sub i32 %spec.select, %spec.select76
+  %sub8.i = sub i32 %spec.select76, %spec.select
   %cmp9.i = icmp ugt i32 %sub.i, %sub8.i
   br i1 %cmp9.i, label %if.then68, label %if.else76
 
@@ -2774,9 +2774,9 @@ if.then71:                                        ; preds = %if.then68
   br label %if.end74
 
 if.end74:                                         ; preds = %if.then71, %if.then68
-  store i32 %spec.select76, ptr %pairs, align 8
+  store i32 %spec.select, ptr %pairs, align 8
   %p.sroa.5.0.arrayidx75.sroa_idx = getelementptr inbounds i8, ptr %pairs, i64 4
-  store i32 %spec.select, ptr %p.sroa.5.0.arrayidx75.sroa_idx, align 4
+  store i32 %spec.select76, ptr %p.sroa.5.0.arrayidx75.sroa_idx, align 4
   %p.sroa.8.0.arrayidx75.sroa_idx = getelementptr inbounds i8, ptr %pairs, i64 8
   store double %p.sroa.8.0.ph, ptr %p.sroa.8.0.arrayidx75.sroa_idx, align 8
   store double %add, ptr %cost_diff.i, align 8
@@ -2788,9 +2788,9 @@ if.else76:                                        ; preds = %if.then.i, %Histogr
 
 if.then79:                                        ; preds = %if.else76
   %arrayidx80 = getelementptr inbounds %struct.HistogramPair, ptr %pairs, i64 %17
-  store i32 %spec.select76, ptr %arrayidx80, align 8
+  store i32 %spec.select, ptr %arrayidx80, align 8
   %p.sroa.5.0.arrayidx80.sroa_idx = getelementptr inbounds i8, ptr %arrayidx80, i64 4
-  store i32 %spec.select, ptr %p.sroa.5.0.arrayidx80.sroa_idx, align 4
+  store i32 %spec.select76, ptr %p.sroa.5.0.arrayidx80.sroa_idx, align 4
   %p.sroa.8.0.arrayidx80.sroa_idx = getelementptr inbounds i8, ptr %arrayidx80, i64 8
   store double %p.sroa.8.0.ph, ptr %p.sroa.8.0.arrayidx80.sroa_idx, align 8
   %p.sroa.13.0.arrayidx80.sroa_idx = getelementptr inbounds i8, ptr %arrayidx80, i64 16
@@ -2855,13 +2855,13 @@ for.body3:                                        ; preds = %for.body3.lr.ph, %B
   br i1 %cmp.i91, label %BrotliCompareAndPushToQueueDistance.exit, label %if.end.i92
 
 if.end.i92:                                       ; preds = %for.body3
-  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %1, i32 %0)
-  %spec.select76.i = tail call i32 @llvm.umin.i32(i32 %1, i32 %0)
-  %idxprom.i = zext i32 %spec.select76.i to i64
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %1, i32 %0)
+  %spec.select76.i = tail call i32 @llvm.umax.i32(i32 %1, i32 %0)
+  %idxprom.i = zext i32 %spec.select.i to i64
   %arrayidx.i93 = getelementptr inbounds i32, ptr %cluster_size, i64 %idxprom.i
   %2 = load i32, ptr %arrayidx.i93, align 4
   %conv.i = zext i32 %2 to i64
-  %idxprom8.i = zext i32 %spec.select.i to i64
+  %idxprom8.i = zext i32 %spec.select76.i to i64
   %arrayidx9.i = getelementptr inbounds i32, ptr %cluster_size, i64 %idxprom8.i
   %3 = load i32, ptr %arrayidx9.i, align 4
   %conv10.i = zext i32 %3 to i64
@@ -2991,7 +2991,7 @@ HistogramPairIsLess.exit.i:                       ; preds = %land.lhs.true.i
   %19 = load i32, ptr %idx2.i.i, align 4
   %20 = load i32, ptr %pairs, align 8
   %sub.i.i = sub i32 %19, %20
-  %sub8.i.i = sub i32 %spec.select.i, %spec.select76.i
+  %sub8.i.i = sub i32 %spec.select76.i, %spec.select.i
   %cmp9.i.i = icmp ugt i32 %sub.i.i, %sub8.i.i
   br i1 %cmp9.i.i, label %if.then68.i, label %if.else76.i
 
@@ -3007,8 +3007,8 @@ if.then71.i:                                      ; preds = %if.then68.i
 
 if.end74.i:                                       ; preds = %if.then71.i, %if.then68.i
   %num_pairs.2 = phi i64 [ %inc.i97, %if.then71.i ], [ %num_pairs.1211, %if.then68.i ]
-  store i32 %spec.select76.i, ptr %pairs, align 8
-  store i32 %spec.select.i, ptr %idx2.i.i, align 4
+  store i32 %spec.select.i, ptr %pairs, align 8
+  store i32 %spec.select76.i, ptr %idx2.i.i, align 4
   store double %p.sroa.8.0.ph.i, ptr %p.sroa.8.0.arrayidx75.sroa_idx.i, align 8
   store double %add.i96, ptr %cost_diff43.i, align 8
   br label %BrotliCompareAndPushToQueueDistance.exit
@@ -3019,9 +3019,9 @@ if.else76.i:                                      ; preds = %HistogramPairIsLess
 
 if.then79.i:                                      ; preds = %if.else76.i
   %arrayidx80.i = getelementptr inbounds %struct.HistogramPair, ptr %pairs, i64 %num_pairs.1211
-  store i32 %spec.select76.i, ptr %arrayidx80.i, align 8
+  store i32 %spec.select.i, ptr %arrayidx80.i, align 8
   %p.sroa.5.0.arrayidx80.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx80.i, i64 4
-  store i32 %spec.select.i, ptr %p.sroa.5.0.arrayidx80.sroa_idx.i, align 4
+  store i32 %spec.select76.i, ptr %p.sroa.5.0.arrayidx80.sroa_idx.i, align 4
   %p.sroa.8.0.arrayidx80.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx80.i, i64 8
   store double %p.sroa.8.0.ph.i, ptr %p.sroa.8.0.arrayidx80.sroa_idx.i, align 8
   %p.sroa.13.0.arrayidx80.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx80.i, i64 16
@@ -3037,9 +3037,9 @@ BrotliCompareAndPushToQueueDistance.exit:         ; preds = %for.body3, %Histogr
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %while.cond.preheader
   %num_pairs.4.ph = phi i64 [ %num_pairs.0.lcssa, %while.cond.preheader ], [ %num_pairs.4.ph.be, %while.cond.outer.backedge ]
+  %num_clusters.addr.0.ph = phi i64 [ %num_clusters, %while.cond.preheader ], [ %dec, %while.cond.outer.backedge ]
   %cost_diff_threshold.0.ph = phi double [ 0.000000e+00, %while.cond.preheader ], [ %cost_diff_threshold.0, %while.cond.outer.backedge ]
   %min_cluster_size.0.ph = phi i64 [ 1, %while.cond.preheader ], [ %min_cluster_size.0, %while.cond.outer.backedge ]
-  %num_clusters.addr.0.ph = phi i64 [ %num_clusters, %while.cond.preheader ], [ %dec, %while.cond.outer.backedge ]
   %umax = tail call i64 @llvm.umax.i64(i64 %num_clusters.addr.0.ph, i64 1)
   br label %while.cond
 
@@ -3215,13 +3215,13 @@ for.body81:                                       ; preds = %for.cond79.preheade
   br i1 %cmp.i98, label %BrotliCompareAndPushToQueueDistance.exit198, label %if.end.i99
 
 if.end.i99:                                       ; preds = %for.body81
-  %spec.select.i100 = tail call i32 @llvm.umax.i32(i32 %40, i32 %22)
-  %spec.select76.i101 = tail call i32 @llvm.umin.i32(i32 %40, i32 %22)
-  %idxprom.i102 = zext i32 %spec.select76.i101 to i64
+  %spec.select.i100 = tail call i32 @llvm.umin.i32(i32 %40, i32 %22)
+  %spec.select76.i101 = tail call i32 @llvm.umax.i32(i32 %40, i32 %22)
+  %idxprom.i102 = zext i32 %spec.select.i100 to i64
   %arrayidx.i103 = getelementptr inbounds i32, ptr %cluster_size, i64 %idxprom.i102
   %41 = load i32, ptr %arrayidx.i103, align 4
   %conv.i104 = zext i32 %41 to i64
-  %idxprom8.i105 = zext i32 %spec.select.i100 to i64
+  %idxprom8.i105 = zext i32 %spec.select76.i101 to i64
   %arrayidx9.i106 = getelementptr inbounds i32, ptr %cluster_size, i64 %idxprom8.i105
   %42 = load i32, ptr %arrayidx9.i106, align 4
   %conv10.i107 = zext i32 %42 to i64
@@ -3351,7 +3351,7 @@ HistogramPairIsLess.exit.i169:                    ; preds = %land.lhs.true.i166
   %58 = load i32, ptr %idx215, align 4
   %59 = load i32, ptr %pairs, align 8
   %sub.i.i171 = sub i32 %58, %59
-  %sub8.i.i172 = sub i32 %spec.select.i100, %spec.select76.i101
+  %sub8.i.i172 = sub i32 %spec.select76.i101, %spec.select.i100
   %cmp9.i.i173 = icmp ugt i32 %sub.i.i171, %sub8.i.i172
   br i1 %cmp9.i.i173, label %if.then68.i182, label %if.else76.i174
 
@@ -3367,8 +3367,8 @@ if.then71.i187:                                   ; preds = %if.then68.i182
 
 if.end74.i184:                                    ; preds = %if.then71.i187, %if.then68.i182
   %num_pairs.6 = phi i64 [ %inc.i189, %if.then71.i187 ], [ %num_pairs.5227, %if.then68.i182 ]
-  store i32 %spec.select76.i101, ptr %pairs, align 8
-  store i32 %spec.select.i100, ptr %idx215, align 4
+  store i32 %spec.select.i100, ptr %pairs, align 8
+  store i32 %spec.select76.i101, ptr %idx215, align 4
   store double %p.sroa.8.0.ph.i163, ptr %cost_combo, align 8
   store double %add.i164, ptr %cost_diff, align 8
   br label %BrotliCompareAndPushToQueueDistance.exit198
@@ -3379,9 +3379,9 @@ if.else76.i174:                                   ; preds = %HistogramPairIsLess
 
 if.then79.i176:                                   ; preds = %if.else76.i174
   %arrayidx80.i177 = getelementptr inbounds %struct.HistogramPair, ptr %pairs, i64 %num_pairs.5227
-  store i32 %spec.select76.i101, ptr %arrayidx80.i177, align 8
+  store i32 %spec.select.i100, ptr %arrayidx80.i177, align 8
   %p.sroa.5.0.arrayidx80.sroa_idx.i178 = getelementptr inbounds i8, ptr %arrayidx80.i177, i64 4
-  store i32 %spec.select.i100, ptr %p.sroa.5.0.arrayidx80.sroa_idx.i178, align 4
+  store i32 %spec.select76.i101, ptr %p.sroa.5.0.arrayidx80.sroa_idx.i178, align 4
   %p.sroa.8.0.arrayidx80.sroa_idx.i179 = getelementptr inbounds i8, ptr %arrayidx80.i177, i64 8
   store double %p.sroa.8.0.ph.i163, ptr %p.sroa.8.0.arrayidx80.sroa_idx.i179, align 8
   %p.sroa.13.0.arrayidx80.sroa_idx.i180 = getelementptr inbounds i8, ptr %arrayidx80.i177, i64 16
@@ -3838,19 +3838,19 @@ for.body20:                                       ; preds = %for.body, %for.body
 
 for.body38.preheader:                             ; preds = %for.body20, %for.end45
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.end45 ], [ %in_size, %for.body20 ]
-  %num_clusters.0104 = phi i64 [ %add49, %for.end45 ], [ 0, %for.body20 ]
-  %i.2103 = phi i64 [ %add51, %for.end45 ], [ 0, %for.body20 ]
+  %i.2104 = phi i64 [ %add51, %for.end45 ], [ 0, %for.body20 ]
+  %num_clusters.0103 = phi i64 [ %add49, %for.end45 ], [ 0, %for.body20 ]
   %umin = tail call i64 @llvm.umin.i64(i64 %indvars.iv, i64 64)
   %umax = tail call i64 @llvm.umax.i64(i64 %umin, i64 1)
-  %sub = sub i64 %in_size, %i.2103
+  %sub = sub i64 %in_size, %i.2104
   %cond.i89 = tail call i64 @llvm.umin.i64(i64 %sub, i64 64)
   br label %for.body38
 
 for.body38:                                       ; preds = %for.body38.preheader, %for.body38
   %j.0101 = phi i64 [ %inc44, %for.body38 ], [ 0, %for.body38.preheader ]
-  %add39 = add nuw nsw i64 %j.0101, %i.2103
+  %add39 = add nuw nsw i64 %j.0101, %i.2104
   %conv40 = trunc i64 %add39 to i32
-  %add41 = add i64 %j.0101, %num_clusters.0104
+  %add41 = add i64 %j.0101, %num_clusters.0103
   %arrayidx42 = getelementptr inbounds i32, ptr %cond7, i64 %add41
   store i32 %conv40, ptr %arrayidx42, align 4
   %inc44 = add nuw nsw i64 %j.0101, 1
@@ -3858,11 +3858,11 @@ for.body38:                                       ; preds = %for.body38.preheade
   br i1 %exitcond106.not, label %for.end45, label %for.body38, !llvm.loop !66
 
 for.end45:                                        ; preds = %for.body38
-  %arrayidx46 = getelementptr inbounds i32, ptr %histogram_symbols, i64 %i.2103
-  %arrayidx47 = getelementptr inbounds i32, ptr %cond7, i64 %num_clusters.0104
+  %arrayidx46 = getelementptr inbounds i32, ptr %histogram_symbols, i64 %i.2104
+  %arrayidx47 = getelementptr inbounds i32, ptr %cond7, i64 %num_clusters.0103
   %call48 = tail call i64 @BrotliHistogramCombineDistance(ptr noundef %out, ptr noundef %call16, ptr noundef %cond95, ptr noundef %arrayidx46, ptr noundef %arrayidx47, ptr noundef %call12, i64 noundef %cond.i89, i64 noundef %cond.i89, i64 noundef %max_histograms, i64 noundef 2048)
-  %add49 = add i64 %call48, %num_clusters.0104
-  %add51 = add i64 %i.2103, 64
+  %add49 = add i64 %call48, %num_clusters.0103
+  %add51 = add i64 %i.2104, 64
   %cmp31 = icmp ult i64 %add51, %in_size
   %indvars.iv.next = add i64 %indvars.iv, -64
   br i1 %cmp31, label %for.body38.preheader, label %for.end52, !llvm.loop !67
@@ -3915,10 +3915,10 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare i64 @llvm.umin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #6
+declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #6
+declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #6

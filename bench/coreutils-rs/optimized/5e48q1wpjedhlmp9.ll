@@ -4210,23 +4210,23 @@ define hidden void @"_ZN5uu_ls16create_hyperlink28_$u7b$$u7b$closure$u7d$$u7d$17
   br i1 %96, label %.lr.ph.i38.i.i, label %._crit_edge.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %109, %101
-  %.sroa.025.0138.i.i.i = phi i64 [ %97, %101 ], [ 0, %109 ]
-  %.165137.i.i.i = phi i8 [ %.2.i.i.i, %101 ], [ %.064139.i.i.i, %109 ]
-  %97 = add nuw nsw i64 %.sroa.025.0138.i.i.i, 1
-  %98 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0138.i.i.i
+  %.165138.i.i.i = phi i8 [ %.2.i.i.i, %101 ], [ %.064139.i.i.i, %109 ]
+  %.sroa.025.0137.i.i.i = phi i64 [ %97, %101 ], [ 0, %109 ]
+  %97 = add nuw nsw i64 %.sroa.025.0137.i.i.i, 1
+  %98 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0137.i.i.i
   %99 = load i16, ptr %98, align 2, !noalias !2106, !noundef !4
   %100 = icmp eq i16 %99, 0
   br i1 %100, label %101, label %102
 
 101:                                              ; preds = %102, %.preheader.i.i.i
-  %.2.i.i.i = phi i8 [ %.165137.i.i.i, %.preheader.i.i.i ], [ %108, %102 ]
+  %.2.i.i.i = phi i8 [ %.165138.i.i.i, %.preheader.i.i.i ], [ %108, %102 ]
   %exitcond155.not.i.i.i = icmp eq i64 %97, 4
   br i1 %exitcond155.not.i.i.i, label %93, label %.preheader.i.i.i
 
 102:                                              ; preds = %.preheader.i.i.i
-  %103 = shl nuw nsw i64 %.sroa.025.0138.i.i.i, 4
+  %103 = shl nuw nsw i64 %.sroa.025.0137.i.i.i, 4
   %104 = add nuw nsw i64 %103, %.062140.i.i.i
-  %105 = trunc nuw i8 %.165137.i.i.i to i1
+  %105 = trunc nuw i8 %.165138.i.i.i to i1
   %106 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h20ccccf50bf81a60E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %104, i16 noundef %99, i1 noundef zeroext %105)
   %107 = or i1 %106, %105
   %108 = zext i1 %107 to i8
@@ -4351,8 +4351,8 @@ _ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit.i.i: ; preds = %64
   br label %164
 
 .loopexit.i.i.i:                                  ; preds = %224, %222, %220
-  %.013.i.i.i.i = phi i64 [ 1, %220 ], [ %..i.i.i.i, %224 ], [ 2, %222 ]
-  %163 = add i64 %.013.i.i.i.i, %165
+  %.012.i.i.i.i = phi i64 [ 1, %220 ], [ %..i.i.i.i, %224 ], [ 2, %222 ]
+  %163 = add i64 %.012.i.i.i.i, %165
   br label %164
 
 164:                                              ; preds = %.loopexit.i.i.i, %.lr.ph106.i.i.i

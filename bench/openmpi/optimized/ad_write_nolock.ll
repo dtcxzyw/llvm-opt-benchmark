@@ -95,7 +95,7 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
   br label %69
 
 69:                                               ; preds = %63, %55
-  %.0270 = phi i64 [ %59, %55 ], [ %68, %63 ]
+  %.0269 = phi i64 [ %59, %55 ], [ %68, %63 ]
   %70 = icmp sgt i32 %2, 0
   br i1 %70, label %.preheader.lr.ph, label %._crit_edge442.thread
 
@@ -117,8 +117,8 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
   %indvars.iv470 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next471, %._crit_edge ]
   %.0258441 = phi i64 [ %53, %.preheader.preheader ], [ %.1.lcssa, %._crit_edge ]
   %.0259440 = phi ptr [ %49, %.preheader.preheader ], [ %.1260.lcssa, %._crit_edge ]
-  %.0264439 = phi i32 [ 0, %.preheader.preheader ], [ %.1265.lcssa, %._crit_edge ]
-  %.1271438 = phi i64 [ %.0270, %.preheader.preheader ], [ %.2272.lcssa, %._crit_edge ]
+  %.0263439 = phi i32 [ 0, %.preheader.preheader ], [ %.1264.lcssa, %._crit_edge ]
+  %.1270438 = phi i64 [ %.0269, %.preheader.preheader ], [ %.2271.lcssa, %._crit_edge ]
   %78 = icmp sgt i64 %77, 0
   br i1 %78, label %.lr.ph432, label %._crit_edge
 
@@ -131,8 +131,8 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
   %indvars.iv467 = phi i64 [ 0, %.lr.ph432 ], [ %indvars.iv.next468, %127 ]
   %.1430 = phi i64 [ %.0258441, %.lr.ph432 ], [ %.3, %127 ]
   %.1260429 = phi ptr [ %.0259440, %.lr.ph432 ], [ %.3262, %127 ]
-  %.1265428 = phi i32 [ %.0264439, %.lr.ph432 ], [ %.5, %127 ]
-  %.2272427 = phi i64 [ %.1271438, %.lr.ph432 ], [ %.3273, %127 ]
+  %.1264428 = phi i32 [ %.0263439, %.lr.ph432 ], [ %.5, %127 ]
+  %.2271427 = phi i64 [ %.1270438, %.lr.ph432 ], [ %.3272, %127 ]
   %81 = getelementptr inbounds i64, ptr %80, i64 %indvars.iv467
   %82 = load i64, ptr %81, align 8
   %83 = icmp sle i64 %82, %.1430
@@ -149,7 +149,7 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
   %90 = sub nsw i64 %89, %.1430
   %91 = call i64 @write(i32 noundef %85, ptr noundef %49, i64 noundef %90) #7
   %92 = icmp eq i64 %91, -1
-  %spec.select = select i1 %92, i32 1, i32 %.1265428
+  %spec.select = select i1 %92, i32 1, i32 %.1264428
   %93 = load ptr, ptr %44, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 64
   %95 = load i32, ptr %94, align 8
@@ -161,7 +161,7 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
 
 97:                                               ; preds = %84, %79
   %98 = phi i64 [ %.pre476, %84 ], [ %82, %79 ]
-  %.3267 = phi i32 [ %spec.select, %84 ], [ %.1265428, %79 ]
+  %.3266 = phi i32 [ %spec.select, %84 ], [ %.1264428, %79 ]
   %.2261 = phi ptr [ %49, %84 ], [ %.1260429, %79 ]
   %.2 = phi i64 [ %96, %84 ], [ %.1430, %79 ]
   %.not357 = icmp slt i64 %98, %.2
@@ -179,7 +179,7 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
   %108 = and i64 %98, 4294967295
   %109 = call i64 @write(i32 noundef %100, ptr noundef %107, i64 noundef %108) #7
   %110 = icmp eq i64 %109, -1
-  %spec.select359 = select i1 %110, i32 1, i32 %.3267
+  %spec.select359 = select i1 %110, i32 1, i32 %.3266
   %111 = load ptr, ptr %72, align 8
   %112 = getelementptr inbounds i64, ptr %111, i64 %indvars.iv467
   %113 = load i64, ptr %112, align 8
@@ -204,10 +204,10 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
 127:                                              ; preds = %99, %114
   %128 = phi ptr [ %111, %99 ], [ %122, %114 ]
   %.pn = phi i64 [ %113, %99 ], [ %124, %114 ]
-  %.5 = phi i32 [ %spec.select359, %99 ], [ %.3267, %114 ]
+  %.5 = phi i32 [ %spec.select359, %99 ], [ %.3266, %114 ]
   %.3262 = phi ptr [ %.2261, %99 ], [ %125, %114 ]
   %.3 = phi i64 [ %.2, %99 ], [ %126, %114 ]
-  %.3273 = add nsw i64 %.pn, %.2272427
+  %.3272 = add nsw i64 %.pn, %.2271427
   %indvars.iv.next468 = add nuw nsw i64 %indvars.iv467, 1
   %129 = load i64, ptr %71, align 8
   %130 = icmp sgt i64 %129, %indvars.iv.next468
@@ -215,8 +215,8 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
 
 ._crit_edge:                                      ; preds = %127, %.preheader
   %131 = phi i64 [ %77, %.preheader ], [ %129, %127 ]
-  %.2272.lcssa = phi i64 [ %.1271438, %.preheader ], [ %.3273, %127 ]
-  %.1265.lcssa = phi i32 [ %.0264439, %.preheader ], [ %.5, %127 ]
+  %.2271.lcssa = phi i64 [ %.1270438, %.preheader ], [ %.3272, %127 ]
+  %.1264.lcssa = phi i32 [ %.0263439, %.preheader ], [ %.5, %127 ]
   %.1260.lcssa = phi ptr [ %.0259440, %.preheader ], [ %.3262, %127 ]
   %.1.lcssa = phi i64 [ %.0258441, %.preheader ], [ %.3, %127 ]
   %indvars.iv.next471 = add nuw nsw i64 %indvars.iv470, 1
@@ -237,18 +237,18 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
   %139 = sub nsw i64 %138, %.1.lcssa
   %140 = call i64 @write(i32 noundef %134, ptr noundef %49, i64 noundef %139) #7
   %141 = icmp eq i64 %140, -1
-  %spec.select360 = select i1 %141, i32 1, i32 %.1265.lcssa
+  %spec.select360 = select i1 %141, i32 1, i32 %.1264.lcssa
   br label %._crit_edge442.thread
 
 ._crit_edge442.thread:                            ; preds = %.preheader.lr.ph, %69, %132, %._crit_edge442
-  %.1271.lcssa482 = phi i64 [ %.2272.lcssa, %._crit_edge442 ], [ %.2272.lcssa, %132 ], [ %.0270, %69 ], [ %.0270, %.preheader.lr.ph ]
-  %.6 = phi i32 [ %.1265.lcssa, %._crit_edge442 ], [ %spec.select360, %132 ], [ 0, %69 ], [ 0, %.preheader.lr.ph ]
+  %.1270.lcssa482 = phi i64 [ %.2271.lcssa, %._crit_edge442 ], [ %.2271.lcssa, %132 ], [ %.0269, %69 ], [ %.0269, %.preheader.lr.ph ]
+  %.6 = phi i32 [ %.1264.lcssa, %._crit_edge442 ], [ %spec.select360, %132 ], [ 0, %69 ], [ 0, %.preheader.lr.ph ]
   %142 = icmp eq i32 %4, 101
   br i1 %142, label %143, label %145
 
 143:                                              ; preds = %._crit_edge442.thread
   %144 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %.1271.lcssa482, ptr %144, align 8
+  store i64 %.1270.lcssa482, ptr %144, align 8
   br label %145
 
 145:                                              ; preds = %143, %._crit_edge442.thread
@@ -284,8 +284,8 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
   br label %.lr.ph398.us, !llvm.loop !8
 
 .lr.ph398.us:                                     ; preds = %.lr.ph398.us.loopexit, %.split.us
-  %.0300400.us = phi i64 [ -1, %.split.us ], [ %163, %.lr.ph398.us.loopexit ]
-  %163 = add nsw i64 %.0300400.us, 1
+  %.0287401.us = phi i64 [ -1, %.split.us ], [ %163, %.lr.ph398.us.loopexit ]
+  %163 = add nsw i64 %.0287401.us, 1
   %164 = mul nsw i64 %158, %163
   br label %165
 
@@ -327,10 +327,10 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
 
 185:                                              ; preds = %.lr.ph, %199
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %199 ]
-  %.0295395 = phi i64 [ 0, %.lr.ph ], [ %188, %199 ]
+  %.0285395 = phi i64 [ 0, %.lr.ph ], [ %188, %199 ]
   %186 = getelementptr inbounds i64, ptr %184, i64 %indvars.iv
   %187 = load i64, ptr %186, align 8
-  %188 = add nsw i64 %187, %.0295395
+  %188 = add nsw i64 %187, %.0285395
   %189 = icmp sgt i64 %188, %179
   br i1 %189, label %190, label %199
 
@@ -341,7 +341,7 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
   %194 = load ptr, ptr %193, align 8
   %195 = getelementptr inbounds i64, ptr %194, i64 %indvars.iv
   %196 = load i64, ptr %195, align 8
-  %197 = sub i64 %179, %.0295395
+  %197 = sub i64 %179, %.0285395
   %198 = add i64 %197, %196
   br label %.loopexit388
 
@@ -351,12 +351,12 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
   br i1 %exitcond.not, label %.loopexit388, label %185, !llvm.loop !9
 
 .loopexit388:                                     ; preds = %199, %174, %190
-  %.2312 = phi i64 [ %192, %190 ], [ 0, %174 ], [ 0, %199 ]
-  %.2298 = phi i32 [ %191, %190 ], [ 0, %174 ], [ 0, %199 ]
-  %.0294 = phi i64 [ %198, %190 ], [ 0, %174 ], [ 0, %199 ]
+  %.2313 = phi i32 [ %191, %190 ], [ 0, %174 ], [ 0, %199 ]
+  %.2304 = phi i64 [ %192, %190 ], [ 0, %174 ], [ 0, %199 ]
+  %.0284 = phi i64 [ %198, %190 ], [ 0, %174 ], [ 0, %199 ]
   %200 = load i64, ptr %12, align 8
   %201 = mul nsw i64 %200, %177
-  %202 = add i64 %.0294, %150
+  %202 = add i64 %.0284, %150
   %203 = add i64 %202, %201
   br label %.loopexit387
 
@@ -367,10 +367,10 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
 
 .loopexit387:                                     ; preds = %.loopexit387.loopexit, %.loopexit388
   %206 = phi i64 [ %200, %.loopexit388 ], [ %158, %.loopexit387.loopexit ]
-  %.3313 = phi i64 [ %.2312, %.loopexit388 ], [ %205, %.loopexit387.loopexit ]
-  %.1301 = phi i64 [ %177, %.loopexit388 ], [ %163, %.loopexit387.loopexit ]
-  %.3299 = phi i32 [ %.2298, %.loopexit388 ], [ %204, %.loopexit387.loopexit ]
-  %.0263 = phi i64 [ %203, %.loopexit388 ], [ %154, %.loopexit387.loopexit ]
+  %.3314 = phi i32 [ %.2313, %.loopexit388 ], [ %204, %.loopexit387.loopexit ]
+  %.3305 = phi i64 [ %.2304, %.loopexit388 ], [ %205, %.loopexit387.loopexit ]
+  %.1288 = phi i64 [ %177, %.loopexit388 ], [ %163, %.loopexit387.loopexit ]
+  %.0286 = phi i64 [ %203, %.loopexit388 ], [ %154, %.loopexit387.loopexit ]
   %207 = load i32, ptr %14, align 4
   %208 = icmp eq i32 %207, 0
   %209 = load i32, ptr %15, align 4
@@ -383,7 +383,7 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
   br i1 %212, label %.lr.ph411, label %.loopexit
 
 .lr.ph411:                                        ; preds = %211
-  %213 = call i64 @llvm.smin.i64(i64 %.3313, i64 %37)
+  %213 = call i64 @llvm.smin.i64(i64 %.3305, i64 %37)
   %214 = getelementptr inbounds i8, ptr %0, i64 4
   %215 = getelementptr inbounds i8, ptr %148, i64 24
   %216 = getelementptr inbounds i8, ptr %148, i64 16
@@ -393,21 +393,21 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
 218:                                              ; preds = %.lr.ph411, %261
   %219 = phi i64 [ %206, %.lr.ph411 ], [ %230, %261 ]
   %.7410 = phi i32 [ 0, %.lr.ph411 ], [ %.9, %261 ]
-  %.4274409 = phi i64 [ %.0263, %.lr.ph411 ], [ %.5275, %261 ]
-  %.1286408 = phi i32 [ %.3299, %.lr.ph411 ], [ %.3288, %261 ]
-  %.2302407 = phi i64 [ %.1301, %.lr.ph411 ], [ %.4304, %261 ]
-  %.4314406 = phi i64 [ %213, %.lr.ph411 ], [ %.5315, %261 ]
-  %.0318405 = phi i64 [ 0, %.lr.ph411 ], [ %231, %261 ]
-  %.not347 = icmp eq i64 %.4314406, 0
+  %.4273409 = phi i64 [ %.0286, %.lr.ph411 ], [ %.5274, %261 ]
+  %.2289408 = phi i64 [ %.1288, %.lr.ph411 ], [ %.4291, %261 ]
+  %.0296407 = phi i64 [ 0, %.lr.ph411 ], [ %231, %261 ]
+  %.4306406 = phi i64 [ %213, %.lr.ph411 ], [ %.5307, %261 ]
+  %.1318405 = phi i32 [ %.3314, %.lr.ph411 ], [ %.3320, %261 ]
+  %.not347 = icmp eq i64 %.4306406, 0
   br i1 %.not347, label %229, label %220
 
 220:                                              ; preds = %218
   %221 = load i32, ptr %214, align 4
-  %222 = call i64 @lseek(i32 noundef %221, i64 noundef %.4274409, i32 noundef 0) #7
+  %222 = call i64 @lseek(i32 noundef %221, i64 noundef %.4273409, i32 noundef 0) #7
   %223 = icmp eq i64 %222, -1
   %224 = load i32, ptr %214, align 4
-  %225 = getelementptr inbounds i8, ptr %1, i64 %.0318405
-  %226 = call i64 @write(i32 noundef %224, ptr noundef %225, i64 noundef %.4314406) #7
+  %225 = getelementptr inbounds i8, ptr %1, i64 %.0296407
+  %226 = call i64 @write(i32 noundef %224, ptr noundef %225, i64 noundef %.4306406) #7
   %227 = icmp eq i64 %226, -1
   %228 = select i1 %227, i1 true, i1 %223
   %spec.select363 = select i1 %228, i32 1, i32 %.7410
@@ -417,10 +417,10 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
 229:                                              ; preds = %220, %218
   %230 = phi i64 [ %219, %218 ], [ %.pre, %220 ]
   %.9 = phi i32 [ %.7410, %218 ], [ %spec.select363, %220 ]
-  %231 = add nsw i64 %.4314406, %.0318405
-  %232 = add nsw i64 %.4274409, %.4314406
+  %231 = add nsw i64 %.0296407, %.4306406
+  %232 = add nsw i64 %.4273409, %.4306406
   %233 = load ptr, ptr %215, align 8
-  %234 = sext i32 %.1286408 to i64
+  %234 = sext i32 %.1318405 to i64
   %235 = getelementptr inbounds i64, ptr %233, i64 %234
   %236 = load i64, ptr %235, align 8
   %237 = add nsw i64 %236, %150
@@ -428,7 +428,7 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
   %239 = getelementptr inbounds i64, ptr %238, i64 %234
   %240 = load i64, ptr %239, align 8
   %241 = add nsw i64 %237, %240
-  %242 = mul nsw i64 %230, %.2302407
+  %242 = mul nsw i64 %230, %.2289408
   %243 = add nsw i64 %241, %242
   %244 = icmp slt i64 %232, %243
   br i1 %244, label %261, label %245
@@ -437,15 +437,15 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
   %246 = load i64, ptr %217, align 8
   %247 = add nsw i64 %246, -1
   %248 = icmp sle i64 %247, %234
-  %249 = add nsw i32 %.1286408, 1
+  %249 = add nsw i32 %.1318405, 1
+  %.2319 = select i1 %248, i32 0, i32 %249
   %250 = zext i1 %248 to i64
-  %.3303 = add nsw i64 %.2302407, %250
-  %.2287 = select i1 %248, i32 0, i32 %249
-  %251 = sext i32 %.2287 to i64
+  %.3290 = add nsw i64 %.2289408, %250
+  %251 = sext i32 %.2319 to i64
   %252 = getelementptr inbounds i64, ptr %233, i64 %251
   %253 = load i64, ptr %252, align 8
   %254 = add nsw i64 %253, %150
-  %255 = mul nsw i64 %.3303, %230
+  %255 = mul nsw i64 %.3290, %230
   %256 = add nsw i64 %254, %255
   %257 = getelementptr inbounds i64, ptr %238, i64 %251
   %258 = load i64, ptr %257, align 8
@@ -454,10 +454,10 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
   br label %261
 
 261:                                              ; preds = %229, %245
-  %.5315 = phi i64 [ %260, %245 ], [ %.4314406, %229 ]
-  %.4304 = phi i64 [ %.3303, %245 ], [ %.2302407, %229 ]
-  %.3288 = phi i32 [ %.2287, %245 ], [ %.1286408, %229 ]
-  %.5275 = phi i64 [ %256, %245 ], [ %232, %229 ]
+  %.3320 = phi i32 [ %.2319, %245 ], [ %.1318405, %229 ]
+  %.5307 = phi i64 [ %260, %245 ], [ %.4306406, %229 ]
+  %.4291 = phi i64 [ %.3290, %245 ], [ %.2289408, %229 ]
+  %.5274 = phi i64 [ %256, %245 ], [ %232, %229 ]
   %262 = icmp slt i64 %231, %37
   br i1 %262, label %218, label %.loopexit, !llvm.loop !10
 
@@ -482,27 +482,27 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
 
 277:                                              ; preds = %.lr.ph424, %330
   %.10423 = phi i32 [ 0, %.lr.ph424 ], [ %.12, %330 ]
-  %.6276422 = phi i64 [ %.0263, %.lr.ph424 ], [ %.8278, %330 ]
-  %.0280421 = phi i32 [ 0, %.lr.ph424 ], [ %.1281, %330 ]
-  %.0282420 = phi i64 [ %271, %.lr.ph424 ], [ %.2284, %330 ]
-  %.4289419 = phi i32 [ %.3299, %.lr.ph424 ], [ %.6291373, %330 ]
-  %.0292418 = phi i32 [ 0, %.lr.ph424 ], [ %.1293, %330 ]
-  %.5305417 = phi i64 [ %.1301, %.lr.ph424 ], [ %.7307372, %330 ]
-  %.0308416 = phi i64 [ -1, %.lr.ph424 ], [ %.1309, %330 ]
-  %.6316415 = phi i64 [ %.3313, %.lr.ph424 ], [ %.1320, %330 ]
-  %.0317414 = phi i64 [ 0, %.lr.ph424 ], [ %331, %330 ]
-  %.0323413 = phi i64 [ %269, %.lr.ph424 ], [ %.1322, %330 ]
-  %278 = icmp slt i64 %.6316415, %.0323413
-  %279 = call i64 @llvm.smin.i64(i64 %.6316415, i64 %.0323413)
+  %.6275422 = phi i64 [ %.0286, %.lr.ph424 ], [ %.8277, %330 ]
+  %.0279421 = phi i32 [ 0, %.lr.ph424 ], [ %.1280, %330 ]
+  %.0281420 = phi i64 [ %271, %.lr.ph424 ], [ %.2283, %330 ]
+  %.5292419 = phi i64 [ %.1288, %.lr.ph424 ], [ %.7294373, %330 ]
+  %.0295418 = phi i64 [ 0, %.lr.ph424 ], [ %331, %330 ]
+  %.0301417 = phi i64 [ %269, %.lr.ph424 ], [ %.1300, %330 ]
+  %.6308416 = phi i64 [ %.3305, %.lr.ph424 ], [ %.1298, %330 ]
+  %.0309415 = phi i64 [ -1, %.lr.ph424 ], [ %.1310, %330 ]
+  %.0315414 = phi i32 [ 0, %.lr.ph424 ], [ %.1316, %330 ]
+  %.4321413 = phi i32 [ %.3314, %.lr.ph424 ], [ %.6323372, %330 ]
+  %278 = icmp slt i64 %.6308416, %.0301417
+  %279 = call i64 @llvm.smin.i64(i64 %.6308416, i64 %.0301417)
   %.not349 = icmp eq i64 %279, 0
   br i1 %.not349, label %289, label %280
 
 280:                                              ; preds = %277
   %281 = load i32, ptr %272, align 4
-  %282 = call i64 @lseek(i32 noundef %281, i64 noundef %.6276422, i32 noundef 0) #7
-  %283 = icmp eq i64 %.0308416, -1
+  %282 = call i64 @lseek(i32 noundef %281, i64 noundef %.6275422, i32 noundef 0) #7
+  %283 = icmp eq i64 %.0309415, -1
   %284 = load i32, ptr %272, align 4
-  %285 = getelementptr inbounds i8, ptr %1, i64 %.0282420
+  %285 = getelementptr inbounds i8, ptr %1, i64 %.0281420
   %286 = call i64 @write(i32 noundef %284, ptr noundef %285, i64 noundef %279) #7
   %287 = icmp eq i64 %286, -1
   %288 = select i1 %287, i1 true, i1 %283
@@ -510,27 +510,27 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
   br label %289
 
 289:                                              ; preds = %280, %277
-  %.1309 = phi i64 [ %.0308416, %277 ], [ %286, %280 ]
+  %.1310 = phi i64 [ %.0309415, %277 ], [ %286, %280 ]
   %.12 = phi i32 [ %.10423, %277 ], [ %spec.select365, %280 ]
-  %.not350 = icmp sgt i64 %.6316415, %.0323413
+  %.not350 = icmp sgt i64 %.6308416, %.0301417
   br i1 %.not350, label %.thread374, label %290
 
 290:                                              ; preds = %289
-  %291 = sext i32 %.4289419 to i64
+  %291 = sext i32 %.4321413 to i64
   %292 = load i64, ptr %273, align 8
   %293 = add nsw i64 %292, -1
   %294 = icmp sle i64 %293, %291
-  %295 = add nsw i32 %.4289419, 1
+  %295 = add nsw i32 %.4321413, 1
+  %.5322 = select i1 %294, i32 0, i32 %295
   %296 = zext i1 %294 to i64
-  %.6306 = add nsw i64 %.5305417, %296
-  %.5290 = select i1 %294, i32 0, i32 %295
+  %.6293 = add nsw i64 %.5292419, %296
   %297 = load ptr, ptr %274, align 8
-  %298 = sext i32 %.5290 to i64
+  %298 = sext i32 %.5322 to i64
   %299 = getelementptr inbounds i64, ptr %297, i64 %298
   %300 = load i64, ptr %299, align 8
   %301 = add nsw i64 %300, %150
   %302 = load i64, ptr %12, align 8
-  %303 = mul nsw i64 %.6306, %302
+  %303 = mul nsw i64 %.6293, %302
   %304 = add nsw i64 %301, %303
   %305 = load ptr, ptr %275, align 8
   %306 = getelementptr inbounds i64, ptr %305, i64 %298
@@ -538,21 +538,21 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
   br i1 %278, label %.thread, label %.thread374
 
 .thread:                                          ; preds = %290
-  %308 = add nsw i64 %.0282420, %279
-  %309 = sub nsw i64 %.0323413, %279
+  %308 = add nsw i64 %.0281420, %279
+  %309 = sub nsw i64 %.0301417, %279
   br label %330
 
 .thread374:                                       ; preds = %290, %289
-  %.7277384 = phi i64 [ %.6276422, %289 ], [ %304, %290 ]
-  %.6291383 = phi i32 [ %.4289419, %289 ], [ %.5290, %290 ]
-  %.7307382 = phi i64 [ %.5305417, %289 ], [ %.6306, %290 ]
-  %.0319381 = phi i64 [ %.6316415, %289 ], [ %307, %290 ]
-  %310 = add nsw i32 %.0292418, 1
+  %.7276384 = phi i64 [ %.6275422, %289 ], [ %304, %290 ]
+  %.7294383 = phi i64 [ %.5292419, %289 ], [ %.6293, %290 ]
+  %.0297382 = phi i64 [ %.6308416, %289 ], [ %307, %290 ]
+  %.6323381 = phi i32 [ %.4321413, %289 ], [ %.5322, %290 ]
+  %310 = add nsw i32 %.0315414, 1
   %311 = sext i32 %310 to i64
   %312 = load i64, ptr %276, align 8
   %313 = srem i64 %311, %312
   %314 = trunc nsw i64 %313 to i32
-  %315 = add nsw i32 %.0280421, 1
+  %315 = add nsw i32 %.0279421, 1
   %316 = load i64, ptr %13, align 8
   %317 = sext i32 %315 to i64
   %318 = sdiv i64 %317, %312
@@ -567,31 +567,31 @@ define void @ADIOI_NOLOCK_WriteStrided(ptr nocapture noundef %0, ptr nocapture n
   br i1 %.not350, label %327, label %330
 
 327:                                              ; preds = %.thread374
-  %328 = add nsw i64 %.7277384, %279
-  %329 = sub nsw i64 %.0319381, %279
+  %328 = add nsw i64 %.7276384, %279
+  %329 = sub nsw i64 %.0297382, %279
   br label %330
 
 330:                                              ; preds = %.thread, %.thread374, %327
-  %.6291373 = phi i32 [ %.6291383, %327 ], [ %.6291383, %.thread374 ], [ %.5290, %.thread ]
-  %.7307372 = phi i64 [ %.7307382, %327 ], [ %.7307382, %.thread374 ], [ %.6306, %.thread ]
-  %.1322 = phi i64 [ %326, %327 ], [ %326, %.thread374 ], [ %309, %.thread ]
-  %.1320 = phi i64 [ %329, %327 ], [ %.0319381, %.thread374 ], [ %307, %.thread ]
-  %.1293 = phi i32 [ %314, %327 ], [ %314, %.thread374 ], [ %.0292418, %.thread ]
-  %.2284 = phi i64 [ %323, %327 ], [ %323, %.thread374 ], [ %308, %.thread ]
-  %.1281 = phi i32 [ %315, %327 ], [ %315, %.thread374 ], [ %.0280421, %.thread ]
-  %.8278 = phi i64 [ %328, %327 ], [ %.7277384, %.thread374 ], [ %304, %.thread ]
-  %331 = add nsw i64 %279, %.0317414
+  %.7294373 = phi i64 [ %.7294383, %327 ], [ %.7294383, %.thread374 ], [ %.6293, %.thread ]
+  %.6323372 = phi i32 [ %.6323381, %327 ], [ %.6323381, %.thread374 ], [ %.5322, %.thread ]
+  %.1316 = phi i32 [ %314, %327 ], [ %314, %.thread374 ], [ %.0315414, %.thread ]
+  %.1300 = phi i64 [ %326, %327 ], [ %326, %.thread374 ], [ %309, %.thread ]
+  %.1298 = phi i64 [ %329, %327 ], [ %.0297382, %.thread374 ], [ %307, %.thread ]
+  %.2283 = phi i64 [ %323, %327 ], [ %323, %.thread374 ], [ %308, %.thread ]
+  %.1280 = phi i32 [ %315, %327 ], [ %315, %.thread374 ], [ %.0279421, %.thread ]
+  %.8277 = phi i64 [ %328, %327 ], [ %.7276384, %.thread374 ], [ %304, %.thread ]
+  %331 = add nsw i64 %.0295418, %279
   %332 = icmp slt i64 %331, %37
   br i1 %332, label %277, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %261, %330, %211, %263
-  %.9279 = phi i64 [ %.0263, %263 ], [ %.0263, %211 ], [ %.8278, %330 ], [ %.5275, %261 ]
+  %.9278 = phi i64 [ %.0286, %263 ], [ %.0286, %211 ], [ %.8277, %330 ], [ %.5274, %261 ]
   %.13 = phi i32 [ 0, %263 ], [ 0, %211 ], [ %.12, %330 ], [ %.9, %261 ]
   br i1 %151, label %333, label %335
 
 333:                                              ; preds = %.loopexit
   %334 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %.9279, ptr %334, align 8
+  store i64 %.9278, ptr %334, align 8
   br label %335
 
 335:                                              ; preds = %333, %.loopexit

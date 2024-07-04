@@ -96,17 +96,17 @@ define noundef ptr @Pobsopen(ptr nocapture noundef readonly %0, i32 noundef %1) 
 
 .lr.ph88:                                         ; preds = %.lr.ph88.preheader, %._crit_edge83
   %indvars.iv102 = phi i64 [ 0, %.lr.ph88.preheader ], [ %indvars.iv.next103, %._crit_edge83 ]
-  %.07085 = phi i32 [ 0, %.lr.ph88.preheader ], [ %.171.lcssa, %._crit_edge83 ]
+  %.06886 = phi i32 [ 0, %.lr.ph88.preheader ], [ %.1.lcssa, %._crit_edge83 ]
   %33 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv102
-  store i32 %.07085, ptr %33, align 4
+  store i32 %.06886, ptr %33, align 4
   %34 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv102
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 8
   %37 = load i32, ptr %36, align 8
-  %38 = add i32 %.07085, -1
+  %38 = add i32 %.06886, -1
   %39 = add i32 %38, %37
   %40 = icmp sgt i32 %37, 0
-  %41 = sext i32 %.07085 to i64
+  %41 = sext i32 %.06886 to i64
   br i1 %40, label %.lr.ph82.preheader, label %._crit_edge83
 
 .lr.ph82.preheader:                               ; preds = %.lr.ph88
@@ -137,10 +137,10 @@ define noundef ptr @Pobsopen(ptr nocapture noundef readonly %0, i32 noundef %1) 
   br i1 %55, label %.lr.ph82, label %._crit_edge83
 
 ._crit_edge83:                                    ; preds = %.lr.ph82, %.lr.ph88
-  %.171.lcssa = phi i32 [ %.07085, %.lr.ph88 ], [ %49, %.lr.ph82 ]
+  %.1.lcssa = phi i32 [ %.06886, %.lr.ph88 ], [ %49, %.lr.ph82 ]
   %56 = sext i32 %39 to i64
   %57 = getelementptr inbounds i32, ptr %19, i64 %56
-  store i32 %.07085, ptr %57, align 4
+  store i32 %.06886, ptr %57, align 4
   %58 = getelementptr inbounds i32, ptr %21, i64 %41
   store i32 %39, ptr %58, align 4
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
@@ -152,16 +152,16 @@ define noundef ptr @Pobsopen(ptr nocapture noundef readonly %0, i32 noundef %1) 
   br label %._crit_edge89
 
 ._crit_edge89:                                    ; preds = %32, %._crit_edge89.loopexit
-  %.070.lcssa = phi i32 [ %.171.lcssa, %._crit_edge89.loopexit ], [ 0, %32 ]
-  %.1.lcssa = phi i64 [ %59, %._crit_edge89.loopexit ], [ 0, %32 ]
-  %60 = getelementptr inbounds i32, ptr %17, i64 %.1.lcssa
-  store i32 %.070.lcssa, ptr %60, align 4
+  %.171.lcssa = phi i64 [ %59, %._crit_edge89.loopexit ], [ 0, %32 ]
+  %.068.lcssa = phi i32 [ %.1.lcssa, %._crit_edge89.loopexit ], [ 0, %32 ]
+  %60 = getelementptr inbounds i32, ptr %17, i64 %.171.lcssa
+  store i32 %.068.lcssa, ptr %60, align 4
   tail call void @visibility(ptr noundef nonnull %3) #11
   br label %61
 
 61:                                               ; preds = %2, %._crit_edge89, %31, %12
-  %.068 = phi ptr [ null, %12 ], [ null, %31 ], [ %3, %._crit_edge89 ], [ null, %2 ]
-  ret ptr %.068
+  %.072 = phi ptr [ null, %12 ], [ null, %31 ], [ %3, %._crit_edge89 ], [ null, %2 ]
+  ret ptr %.072
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -220,13 +220,13 @@ define void @Pobspath(ptr noundef %0, double %1, double %2, i32 noundef %3, doub
   br label %15
 
 15:                                               ; preds = %15, %8
-  %.046 = phi i64 [ 1, %8 ], [ %16, %15 ]
-  %.pn.in = phi i32 [ %13, %8 ], [ %.045, %15 ]
+  %.pn.in = phi i32 [ %13, %8 ], [ %.046, %15 ]
+  %.045 = phi i64 [ 1, %8 ], [ %16, %15 ]
   %.pn = sext i32 %.pn.in to i64
-  %.045.in = getelementptr inbounds i32, ptr %11, i64 %.pn
-  %.045 = load i32, ptr %.045.in, align 4
-  %.not = icmp eq i32 %.045, %14
-  %16 = add i64 %.046, 1
+  %.046.in = getelementptr inbounds i32, ptr %11, i64 %.pn
+  %.046 = load i32, ptr %.046.in, align 4
+  %.not = icmp eq i32 %.046, %14
+  %16 = add i64 %.045, 1
   br i1 %.not, label %17, label %15
 
 17:                                               ; preds = %15
@@ -254,12 +254,12 @@ define void @Pobspath(ptr noundef %0, double %1, double %2, i32 noundef %3, doub
   unreachable
 
 gv_calloc.exit:                                   ; preds = %21
-  %29 = getelementptr inbounds %struct.Pxy_t, ptr %23, i64 %.046
+  %29 = getelementptr inbounds %struct.Pxy_t, ptr %23, i64 %.045
   store double %4, ptr %29, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
   store double %5, ptr %.sroa.4.0..sroa_idx, align 8
   %30 = sext i32 %13 to i64
-  %.049 = add nsw i64 %.046, -1
+  %.049 = add nsw i64 %.045, -1
   %.1.in50 = getelementptr inbounds i32, ptr %11, i64 %30
   %.151 = load i32, ptr %.1.in50, align 4
   %.not4852 = icmp eq i32 %.151, %14

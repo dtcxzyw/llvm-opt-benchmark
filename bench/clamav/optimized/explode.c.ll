@@ -1082,30 +1082,30 @@ define internal fastcc range(i32 0, 2) i32 @unpack_tree(ptr nocapture noundef re
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %15
-  %.042 = phi ptr [ %scevgep77, %15 ], [ %4, %.preheader.preheader ]
-  %.041 = phi ptr [ %18, %15 ], [ %7, %.preheader.preheader ]
-  %.040 = phi i8 [ %23, %15 ], [ %8, %.preheader.preheader ]
-  %.139 = phi i32 [ %22, %15 ], [ %2, %.preheader.preheader ]
-  %11 = load i8, ptr %.041, align 1
+  %.041 = phi ptr [ %scevgep77, %15 ], [ %4, %.preheader.preheader ]
+  %.040 = phi ptr [ %18, %15 ], [ %7, %.preheader.preheader ]
+  %.039 = phi i8 [ %23, %15 ], [ %8, %.preheader.preheader ]
+  %.138 = phi i32 [ %22, %15 ], [ %2, %.preheader.preheader ]
+  %11 = load i8, ptr %.040, align 1
   %12 = lshr i8 %11, 4
   %narrow = add nuw nsw i8 %12, 1
   %13 = zext nneg i8 %narrow to i32
-  %14 = icmp ult i32 %.139, %13
+  %14 = icmp ult i32 %.138, %13
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %.preheader
   %16 = and i8 %11, 15
   %17 = add nuw nsw i8 %16, 1
-  %18 = getelementptr inbounds i8, ptr %.041, i64 1
+  %18 = getelementptr inbounds i8, ptr %.040, i64 1
   %19 = lshr i8 %11, 4
   %20 = zext nneg i8 %19 to i64
   %21 = add nuw nsw i64 %20, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.042, i8 %17, i64 %21, i1 false)
-  %22 = sub i32 %.139, %13
-  %scevgep = getelementptr i8, ptr %.042, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.041, i8 %17, i64 %21, i1 false)
+  %22 = sub i32 %.138, %13
+  %scevgep = getelementptr i8, ptr %.041, i64 1
   %scevgep77 = getelementptr i8, ptr %scevgep, i64 %20
-  %23 = add i8 %.040, -1
-  %.not46 = icmp eq i8 %.040, 0
+  %23 = add i8 %.039, -1
+  %.not46 = icmp eq i8 %.039, 0
   br i1 %.not46, label %24, label %.preheader
 
 24:                                               ; preds = %15
@@ -1241,23 +1241,23 @@ bs.exit:                                          ; preds = %._crit_edge.i, %._c
 
 75:                                               ; preds = %75, %bs.exit
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %75 ], [ %74, %bs.exit ]
-  %.037 = phi i32 [ %77, %75 ], [ 0, %bs.exit ]
-  %.035 = phi i16 [ %.136, %75 ], [ 0, %bs.exit ]
-  %.034 = phi i16 [ %83, %75 ], [ 0, %bs.exit ]
-  %76 = zext i16 %.035 to i32
-  %77 = add i32 %.037, %76
+  %.036 = phi i32 [ %77, %75 ], [ 0, %bs.exit ]
+  %.034 = phi i16 [ %.135, %75 ], [ 0, %bs.exit ]
+  %.033 = phi i16 [ %83, %75 ], [ 0, %bs.exit ]
+  %76 = zext i16 %.034 to i32
+  %77 = add i32 %.036, %76
   %78 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %indvars.iv78
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i64
   %81 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %80
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i16
-  %.not48 = icmp eq i16 %.034, %83
+  %.not48 = icmp eq i16 %.033, %83
   %84 = zext i8 %82 to i32
   %85 = sub nsw i32 16, %84
   %86 = shl nuw nsw i32 1, %85
   %87 = trunc i32 %86 to i16
-  %.136 = select i1 %.not48, i16 %.035, i16 %87
+  %.135 = select i1 %.not48, i16 %.034, i16 %87
   %88 = and i32 %77, 65535
   %89 = shl nuw nsw i32 %84, 16
   %90 = or disjoint i32 %89, %88
@@ -1268,8 +1268,8 @@ bs.exit:                                          ; preds = %._crit_edge.i, %._c
   br i1 %.not49, label %.loopexit, label %75
 
 .loopexit:                                        ; preds = %.preheader, %75, %24
-  %.0 = phi i32 [ 1, %24 ], [ 0, %75 ], [ 1, %.preheader ]
-  ret i32 %.0
+  %.043 = phi i32 [ 1, %24 ], [ 0, %75 ], [ 1, %.preheader ]
+  ret i32 %.043
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

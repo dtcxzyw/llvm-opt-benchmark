@@ -295,19 +295,19 @@ define void @realpath_cache_del(ptr noundef readonly %0, i64 noundef %1) local_u
   br i1 %4, label %.lr.ph.i, label %realpath_cache_key.exit
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
-  %.09.i = phi ptr [ %6, %.lr.ph.i ], [ %0, %2 ]
-  %.078.i = phi i64 [ %9, %.lr.ph.i ], [ 2166136261, %2 ]
-  %5 = mul i64 %.078.i, 16777619
-  %6 = getelementptr inbounds i8, ptr %.09.i, i64 1
-  %7 = load i8, ptr %.09.i, align 1
+  %.09.i = phi i64 [ %9, %.lr.ph.i ], [ 2166136261, %2 ]
+  %.078.i = phi ptr [ %6, %.lr.ph.i ], [ %0, %2 ]
+  %5 = mul i64 %.09.i, 16777619
+  %6 = getelementptr inbounds i8, ptr %.078.i, i64 1
+  %7 = load i8, ptr %.078.i, align 1
   %8 = sext i8 %7 to i64
   %9 = xor i64 %5, %8
   %10 = icmp ult ptr %6, %3
   br i1 %10, label %.lr.ph.i, label %realpath_cache_key.exit
 
 realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %2
-  %.07.lcssa.i = phi i64 [ 2166136261, %2 ], [ %9, %.lr.ph.i ]
-  %11 = and i64 %.07.lcssa.i, 1023
+  %.0.lcssa.i = phi i64 [ 2166136261, %2 ], [ %9, %.lr.ph.i ]
+  %11 = and i64 %.0.lcssa.i, 1023
   %12 = getelementptr inbounds [1024 x ptr], ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 40), i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8
   %.not33 = icmp eq ptr %13, null
@@ -317,7 +317,7 @@ realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %2
   %14 = phi ptr [ %50, %48 ], [ %13, %realpath_cache_key.exit ]
   %.034 = phi ptr [ %49, %48 ], [ %12, %realpath_cache_key.exit ]
   %15 = load i64, ptr %14, align 8
-  %16 = icmp eq i64 %.07.lcssa.i, %15
+  %16 = icmp eq i64 %.0.lcssa.i, %15
   br i1 %16, label %17, label %48
 
 17:                                               ; preds = %.lr.ph
@@ -393,19 +393,19 @@ define internal fastcc ptr @realpath_cache_find(ptr noundef readonly %0, i64 nou
   br i1 %5, label %.lr.ph.i, label %realpath_cache_key.exit
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.09.i = phi ptr [ %7, %.lr.ph.i ], [ %0, %3 ]
-  %.078.i = phi i64 [ %10, %.lr.ph.i ], [ 2166136261, %3 ]
-  %6 = mul i64 %.078.i, 16777619
-  %7 = getelementptr inbounds i8, ptr %.09.i, i64 1
-  %8 = load i8, ptr %.09.i, align 1
+  %.09.i = phi i64 [ %10, %.lr.ph.i ], [ 2166136261, %3 ]
+  %.078.i = phi ptr [ %7, %.lr.ph.i ], [ %0, %3 ]
+  %6 = mul i64 %.09.i, 16777619
+  %7 = getelementptr inbounds i8, ptr %.078.i, i64 1
+  %8 = load i8, ptr %.078.i, align 1
   %9 = sext i8 %8 to i64
   %10 = xor i64 %6, %9
   %11 = icmp ult ptr %7, %4
   br i1 %11, label %.lr.ph.i, label %realpath_cache_key.exit
 
 realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %3
-  %.07.lcssa.i = phi i64 [ 2166136261, %3 ], [ %10, %.lr.ph.i ]
-  %12 = and i64 %.07.lcssa.i, 1023
+  %.0.lcssa.i = phi i64 [ 2166136261, %3 ], [ %10, %.lr.ph.i ]
+  %12 = and i64 %.0.lcssa.i, 1023
   %13 = getelementptr inbounds [1024 x ptr], ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 40), i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8
   %.not34 = icmp eq ptr %14, null
@@ -419,7 +419,7 @@ realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %3
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %29
   %17 = phi ptr [ %31, %29 ], [ %14, %.lr.ph ]
   %18 = load i64, ptr %17, align 8
-  %19 = icmp eq i64 %.07.lcssa.i, %18
+  %19 = icmp eq i64 %.0.lcssa.i, %18
   br i1 %19, label %20, label %29
 
 20:                                               ; preds = %.lr.ph.split.us
@@ -445,7 +445,7 @@ realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %3
 .lr.ph.split:                                     ; preds = %.lr.ph, %74
   %32 = phi i64 [ %75, %74 ], [ %15, %.lr.ph ]
   %33 = phi ptr [ %76, %74 ], [ %14, %.lr.ph ]
-  %.02535 = phi ptr [ %.1, %74 ], [ %13, %.lr.ph ]
+  %.035 = phi ptr [ %.1, %74 ], [ %13, %.lr.ph ]
   %.not28 = icmp eq i64 %32, 0
   br i1 %.not28, label %60, label %34
 
@@ -458,7 +458,7 @@ realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %3
 38:                                               ; preds = %34
   %39 = getelementptr inbounds i8, ptr %33, i64 24
   %40 = load ptr, ptr %39, align 8
-  store ptr %40, ptr %.02535, align 8
+  store ptr %40, ptr %.035, align 8
   %41 = getelementptr inbounds i8, ptr %33, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %33, i64 16
@@ -494,7 +494,7 @@ realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %3
 
 60:                                               ; preds = %34, %.lr.ph.split
   %61 = load i64, ptr %33, align 8
-  %62 = icmp eq i64 %.07.lcssa.i, %61
+  %62 = icmp eq i64 %.0.lcssa.i, %61
   br i1 %62, label %63, label %72
 
 63:                                               ; preds = %60
@@ -517,7 +517,7 @@ realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %3
 
 74:                                               ; preds = %72, %59
   %75 = phi i64 [ %.pre, %59 ], [ %32, %72 ]
-  %.1 = phi ptr [ %.02535, %59 ], [ %73, %72 ]
+  %.1 = phi ptr [ %.035, %59 ], [ %73, %72 ]
   %76 = load ptr, ptr %.1, align 8
   %.not = icmp eq ptr %76, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !4
@@ -616,16 +616,16 @@ define range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef %0, ptr nocapture nound
   br label %43
 
 43:                                               ; preds = %19, %36, %33, %41
+  %.0112 = phi i64 [ %8, %41 ], [ %8, %19 ], [ %22, %33 ], [ %40, %36 ]
   %44 = phi i1 [ true, %41 ], [ false, %19 ], [ true, %33 ], [ true, %36 ]
-  %.0112 = phi i64 [ 1, %41 ], [ 0, %19 ], [ 1, %33 ], [ 1, %36 ]
-  %.0111 = phi i64 [ %8, %41 ], [ %8, %19 ], [ %22, %33 ], [ %40, %36 ]
+  %.0111 = phi i64 [ 1, %41 ], [ 0, %19 ], [ 1, %33 ], [ 1, %36 ]
   %45 = icmp ne i32 %3, 2
-  %46 = icmp ne i64 %.0111, 0
+  %46 = icmp ne i64 %.0112, 0
   %or.cond3 = and i1 %45, %46
   br i1 %or.cond3, label %47, label %52
 
 47:                                               ; preds = %43
-  %48 = add i64 %.0111, -1
+  %48 = add i64 %.0112, -1
   %49 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %48
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 47
@@ -637,7 +637,7 @@ define range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef %0, ptr nocapture nound
   %.not = icmp eq i64 %54, 0
   %55 = sext i1 %.not to i64
   store i64 %55, ptr %7, align 8
-  %56 = call fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %5, i64 noundef %.0112, i64 noundef %.0111, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %3, i1 noundef zeroext false, ptr noundef null)
+  %56 = call fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %5, i64 noundef %.0111, i64 noundef %.0112, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %3, i1 noundef zeroext false, ptr noundef null)
   %57 = icmp eq i64 %56, -1
   br i1 %57, label %58, label %60
 
@@ -728,8 +728,8 @@ define range(i32 -1, 2) i32 @virtual_file_ex(ptr noundef %0, ptr nocapture nound
   br label %99
 
 99:                                               ; preds = %93, %92, %90, %70, %58, %25, %10
-  %.0 = phi i32 [ 1, %10 ], [ 1, %58 ], [ 1, %25 ], [ -1, %70 ], [ 1, %90 ], [ 0, %92 ], [ 0, %93 ]
-  ret i32 %.0
+  %.0113 = phi i32 [ 1, %10 ], [ 1, %58 ], [ 1, %25 ], [ -1, %70 ], [ 1, %90 ], [ 0, %92 ], [ 0, %93 ]
+  ret i32 %.0113
 }
 
 ; Function Attrs: nounwind uwtable
@@ -747,7 +747,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
 
 .preheader290:                                    ; preds = %.preheader290.lr.ph, %26
   %.0246297 = phi i64 [ %2, %.preheader290.lr.ph ], [ %27, %26 ]
-  %.0247296 = phi i1 [ %6, %.preheader290.lr.ph ], [ true, %26 ]
+  %.0250296 = phi i1 [ %6, %.preheader290.lr.ph ], [ true, %26 ]
   %11 = add i64 %.0246297, -1
   %umin = tail call i64 @llvm.umin.i64(i64 %1, i64 %11)
   br label %13
@@ -761,46 +761,46 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
   br label %263
 
 13:                                               ; preds = %.preheader290, %15
-  %.0250294 = phi i64 [ %.0246297, %.preheader290 ], [ %16, %15 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.0250294
+  %.0249294 = phi i64 [ %.0246297, %.preheader290 ], [ %16, %15 ]
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.0249294
   %14 = load i8, ptr %gep, align 1
   %.not268 = icmp eq i8 %14, 47
   br i1 %.not268, label %.critedge, label %15
 
 15:                                               ; preds = %13
-  %16 = add i64 %.0250294, -1
+  %16 = add i64 %.0249294, -1
   %17 = icmp ugt i64 %16, %1
   br i1 %17, label %13, label %.critedge
 
 .critedge:                                        ; preds = %15, %13
-  %.0250.lcssa = phi i64 [ %umin, %15 ], [ %.0250294, %13 ]
-  %18 = icmp eq i64 %.0250.lcssa, %.0246297
+  %.0249.lcssa = phi i64 [ %umin, %15 ], [ %.0249294, %13 ]
+  %18 = icmp eq i64 %.0249.lcssa, %.0246297
   br i1 %18, label %26, label %19
 
 19:                                               ; preds = %.critedge
-  %20 = add i64 %.0250.lcssa, 1
+  %20 = add i64 %.0249.lcssa, 1
   %21 = icmp eq i64 %20, %.0246297
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 %.0250.lcssa
+  %23 = getelementptr inbounds i8, ptr %0, i64 %.0249.lcssa
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 46
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %22, %.critedge
-  %27 = tail call i64 @llvm.usub.sat.i64(i64 %.0250.lcssa, i64 1)
+  %27 = tail call i64 @llvm.usub.sat.i64(i64 %.0249.lcssa, i64 1)
   %.not267 = icmp ugt i64 %27, %1
   br i1 %.not267, label %.preheader290, label %._crit_edge
 
 28:                                               ; preds = %22, %19
   %.lcssa298 = phi i64 [ %.0246297, %22 ], [ %20, %19 ]
-  %29 = add i64 %.0250.lcssa, 2
+  %29 = add i64 %.0249.lcssa, 2
   %30 = icmp eq i64 %29, %.0246297
   br i1 %30, label %31, label %92
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 %.0250.lcssa
+  %32 = getelementptr inbounds i8, ptr %0, i64 %.0249.lcssa
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 46
   br i1 %34, label %35, label %92
@@ -821,7 +821,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
 
 41:                                               ; preds = %40, %39
   %42 = add nuw nsw i64 %1, 1
-  %.not278 = icmp ugt i64 %.0250.lcssa, %42
+  %.not278 = icmp ugt i64 %.0249.lcssa, %42
   br i1 %.not278, label %45, label %43
 
 43:                                               ; preds = %41
@@ -830,7 +830,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
   br label %263
 
 45:                                               ; preds = %41
-  %46 = add i64 %.0250.lcssa, -1
+  %46 = add i64 %.0249.lcssa, -1
   %47 = tail call fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %46, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext true, ptr noundef null)
   %48 = icmp ugt i64 %47, %1
   %49 = icmp ne i64 %47, -1
@@ -838,25 +838,25 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
   br i1 %or.cond, label %.preheader, label %87
 
 .preheader:                                       ; preds = %45, %51
-  %.0249.in = phi i64 [ %.0249, %51 ], [ %47, %45 ]
-  %.0249 = add i64 %.0249.in, -1
-  %50 = icmp ugt i64 %.0249, %1
+  %.0248.in = phi i64 [ %.0248, %51 ], [ %47, %45 ]
+  %.0248 = add i64 %.0248.in, -1
+  %50 = icmp ugt i64 %.0248, %1
   br i1 %50, label %51, label %.critedge3
 
 51:                                               ; preds = %.preheader
-  %52 = getelementptr inbounds i8, ptr %0, i64 %.0249
+  %52 = getelementptr inbounds i8, ptr %0, i64 %.0248
   %53 = load i8, ptr %52, align 1
   %.not279 = icmp eq i8 %53, 47
   br i1 %.not279, label %.critedge3, label %.preheader
 
 .critedge3:                                       ; preds = %.preheader, %51
-  %.0249.in.lcssa = phi i64 [ %42, %.preheader ], [ %.0249.in, %51 ]
-  %.0249.lcssa = phi i64 [ %1, %.preheader ], [ %.0249, %51 ]
+  %.0248.in.lcssa = phi i64 [ %42, %.preheader ], [ %.0248.in, %51 ]
+  %.0248.lcssa = phi i64 [ %1, %.preheader ], [ %.0248, %51 ]
   %.not280 = icmp eq i64 %1, 0
   br i1 %.not280, label %54, label %263
 
 54:                                               ; preds = %.critedge3
-  %cond = icmp eq i64 %.0249.lcssa, 0
+  %cond = icmp eq i64 %.0248.lcssa, 0
   br i1 %cond, label %55, label %70
 
 55:                                               ; preds = %54
@@ -886,7 +886,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
   br label %263
 
 70:                                               ; preds = %54
-  %71 = getelementptr inbounds i8, ptr %0, i64 %.0249.in.lcssa
+  %71 = getelementptr inbounds i8, ptr %0, i64 %.0248.in.lcssa
   %72 = load i8, ptr %71, align 1
   %73 = icmp eq i8 %72, 46
   br i1 %73, label %74, label %263
@@ -906,7 +906,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
 82:                                               ; preds = %78
   %83 = getelementptr i8, ptr %71, i64 3
   store i8 46, ptr %83, align 1
-  %84 = add i64 %.0249.in.lcssa, 5
+  %84 = add i64 %.0248.in.lcssa, 5
   %85 = getelementptr i8, ptr %71, i64 4
   store i8 46, ptr %85, align 1
   %86 = getelementptr inbounds i8, ptr %0, i64 %84
@@ -954,7 +954,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
   br i1 %.not270, label %.thread, label %105
 
 105:                                              ; preds = %102
-  br i1 %.0247296, label %106, label %110
+  br i1 %.0250296, label %106, label %110
 
 106:                                              ; preds = %105
   %107 = getelementptr inbounds i8, ptr %104, i64 44
@@ -1000,7 +1000,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
   br i1 %129, label %263, label %130
 
 130:                                              ; preds = %128, %.thread, %125
-  %.0248.shrunk = phi i1 [ true, %.thread ], [ false, %125 ], [ false, %128 ]
+  %.0247.shrunk = phi i1 [ true, %.thread ], [ false, %125 ], [ false, %128 ]
   %131 = add i64 %.0246297, 1
   %132 = icmp ugt i64 %131, 32768
   br i1 %132, label %133, label %135
@@ -1016,7 +1016,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
 137:                                              ; preds = %133, %135
   %138 = phi ptr [ %136, %135 ], [ %134, %133 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %138, ptr nonnull align 1 %0, i64 %131, i1 false)
-  br i1 %.0248.shrunk, label %139, label %.critedge286
+  br i1 %.0247.shrunk, label %139, label %.critedge286
 
 139:                                              ; preds = %137
   %140 = getelementptr inbounds i8, ptr %10, i64 24
@@ -1052,7 +1052,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
   br i1 %156, label %157, label %162
 
 157:                                              ; preds = %153
-  %158 = call fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef 1, i64 noundef %149, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %.0247296, ptr noundef nonnull %9)
+  %158 = call fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef 1, i64 noundef %149, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %.0250296, ptr noundef nonnull %9)
   %159 = icmp eq i64 %158, -1
   br i1 %159, label %160, label %176
 
@@ -1064,7 +1064,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
   br label %263
 
 162:                                              ; preds = %153
-  %163 = add i64 %149, %.0250.lcssa
+  %163 = add i64 %149, %.0249.lcssa
   %164 = icmp ugt i64 %163, 4094
   br i1 %164, label %165, label %167
 
@@ -1076,14 +1076,14 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
   br label %263
 
 167:                                              ; preds = %162
-  %168 = getelementptr inbounds i8, ptr %0, i64 %.0250.lcssa
+  %168 = getelementptr inbounds i8, ptr %0, i64 %.0249.lcssa
   %169 = add nuw i64 %149, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %168, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %169, i1 false)
-  %170 = add i64 %.0250.lcssa, -1
+  %170 = add i64 %.0249.lcssa, -1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %138, i64 %170, i1 false)
   %171 = getelementptr inbounds i8, ptr %0, i64 %170
   store i8 47, ptr %171, align 1
-  %172 = call fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %163, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %.0247296, ptr noundef nonnull %9)
+  %172 = call fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %163, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %.0250296, ptr noundef nonnull %9)
   %173 = icmp eq i64 %172, -1
   br i1 %173, label %174, label %176
 
@@ -1117,7 +1117,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
 
 183:                                              ; preds = %182, %179
   %184 = xor i1 %180, true
-  %or.cond12.not = and i1 %.0247296, %184
+  %or.cond12.not = and i1 %.0250296, %184
   br i1 %or.cond12.not, label %185, label %.critedge286
 
 185:                                              ; preds = %183
@@ -1129,12 +1129,12 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
 
 .critedge286:                                     ; preds = %137, %183
   %187 = add nuw nsw i64 %1, 1
-  %.not = icmp ugt i64 %.0250.lcssa, %187
+  %.not = icmp ugt i64 %.0249.lcssa, %187
   br i1 %.not, label %188, label %.thread287
 
 188:                                              ; preds = %.critedge286
-  %189 = add i64 %.0250.lcssa, -1
-  %190 = select i1 %.0248.shrunk, i32 1, i32 %5
+  %189 = add i64 %.0249.lcssa, -1
+  %190 = select i1 %.0247.shrunk, i32 1, i32 %5
   %191 = tail call fastcc i64 @tsrm_realpath_r(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %189, ptr noundef %3, ptr noundef %4, i32 noundef %190, i1 noundef zeroext true, ptr noundef null)
   %192 = icmp ugt i64 %191, %1
   %193 = icmp ne i64 %191, -1
@@ -1155,7 +1155,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
 .thread287:                                       ; preds = %.critedge286, %197
   %.3289 = phi i64 [ %.3, %197 ], [ %1, %.critedge286 ]
   %199 = add i64 %.3289, %.0246297
-  %200 = add i64 %.0250.lcssa, 4095
+  %200 = add i64 %.0249.lcssa, 4095
   %.not273 = icmp ult i64 %199, %200
   br i1 %.not273, label %203, label %201
 
@@ -1168,8 +1168,8 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
 
 203:                                              ; preds = %.thread287
   %204 = getelementptr inbounds i8, ptr %0, i64 %.3289
-  %205 = getelementptr inbounds i8, ptr %138, i64 %.0250.lcssa
-  %206 = sub i64 %.0246297, %.0250.lcssa
+  %205 = getelementptr inbounds i8, ptr %138, i64 %.0249.lcssa
+  %206 = sub i64 %.0246297, %.0249.lcssa
   %207 = add i64 %206, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %204, ptr align 1 %205, i64 %207, i1 false)
   %208 = add i64 %.3289, %206
@@ -1177,7 +1177,7 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
 
 209:                                              ; preds = %176, %177, %203
   %.4 = phi i64 [ %.2, %177 ], [ %.2, %176 ], [ %208, %203 ]
-  %or.cond16 = and i1 %95, %.0248.shrunk
+  %or.cond16 = and i1 %95, %.0247.shrunk
   %210 = load i64, ptr getelementptr inbounds (i8, ptr @cwd_globals, i64 24), align 8
   %211 = icmp ne i64 %210, 0
   %or.cond19 = select i1 %or.cond16, i1 %211, i1 false
@@ -1219,19 +1219,19 @@ define internal fastcc i64 @tsrm_realpath_r(ptr noundef %0, i64 noundef %1, i64 
   br i1 %228, label %.lr.ph.i.i, label %realpath_cache_key.exit.i
 
 .lr.ph.i.i:                                       ; preds = %226, %.lr.ph.i.i
-  %.09.i.i = phi ptr [ %230, %.lr.ph.i.i ], [ %138, %226 ]
-  %.078.i.i = phi i64 [ %233, %.lr.ph.i.i ], [ 2166136261, %226 ]
-  %229 = mul i64 %.078.i.i, 16777619
-  %230 = getelementptr inbounds i8, ptr %.09.i.i, i64 1
-  %231 = load i8, ptr %.09.i.i, align 1
+  %.09.i.i = phi i64 [ %233, %.lr.ph.i.i ], [ 2166136261, %226 ]
+  %.078.i.i = phi ptr [ %230, %.lr.ph.i.i ], [ %138, %226 ]
+  %229 = mul i64 %.09.i.i, 16777619
+  %230 = getelementptr inbounds i8, ptr %.078.i.i, i64 1
+  %231 = load i8, ptr %.078.i.i, align 1
   %232 = sext i8 %231 to i64
   %233 = xor i64 %229, %232
   %234 = icmp ult ptr %230, %227
   br i1 %234, label %.lr.ph.i.i, label %realpath_cache_key.exit.i
 
 realpath_cache_key.exit.i:                        ; preds = %.lr.ph.i.i, %226
-  %.07.lcssa.i.i = phi i64 [ 2166136261, %226 ], [ %233, %.lr.ph.i.i ]
-  store i64 %.07.lcssa.i.i, ptr %224, align 8
+  %.0.lcssa.i.i = phi i64 [ 2166136261, %226 ], [ %233, %.lr.ph.i.i ]
+  store i64 %.0.lcssa.i.i, ptr %224, align 8
   %235 = getelementptr inbounds i8, ptr %224, i64 48
   %236 = getelementptr inbounds i8, ptr %224, i64 8
   store ptr %235, ptr %236, align 8
@@ -1259,7 +1259,7 @@ realpath_cache_key.exit.i:                        ; preds = %.lr.ph.i.i, %226
   br label %246
 
 246:                                              ; preds = %241, %239
-  %247 = phi i64 [ %.pre47.i, %241 ], [ %.07.lcssa.i.i, %239 ]
+  %247 = phi i64 [ %.pre47.i, %241 ], [ %.0.lcssa.i.i, %239 ]
   %248 = phi i8 [ %245, %241 ], [ 0, %239 ]
   %249 = trunc i64 %.4 to i16
   %250 = getelementptr inbounds i8, ptr %224, i64 42
@@ -1290,7 +1290,7 @@ realpath_cache_add.exit:                          ; preds = %246, %223, %220, %2
   br label %263
 
 263:                                              ; preds = %55, %58, %62, %262, %realpath_cache_add.exit, %202, %201, %186, %185, %175, %174, %166, %165, %161, %160, %152, %151, %128, %106, %66, %82, %78, %74, %70, %.critedge3, %89, %87, %._crit_edge, %12, %116, %43
-  %.0 = phi i64 [ %44, %43 ], [ %124, %116 ], [ %1, %12 ], [ %1, %._crit_edge ], [ %.0249.lcssa, %.critedge3 ], [ 5, %66 ], [ %84, %82 ], [ %.0249.lcssa, %78 ], [ %.0249.lcssa, %74 ], [ %.0249.lcssa, %70 ], [ %47, %87 ], [ 2, %89 ], [ -1, %106 ], [ -1, %128 ], [ -1, %151 ], [ -1, %152 ], [ -1, %160 ], [ -1, %161 ], [ -1, %165 ], [ -1, %166 ], [ -1, %174 ], [ -1, %175 ], [ -1, %185 ], [ -1, %186 ], [ -1, %201 ], [ -1, %202 ], [ %.4, %realpath_cache_add.exit ], [ %.4, %262 ], [ 0, %62 ], [ 0, %58 ], [ 0, %55 ]
+  %.0 = phi i64 [ %44, %43 ], [ %124, %116 ], [ %1, %12 ], [ %1, %._crit_edge ], [ %.0248.lcssa, %.critedge3 ], [ 5, %66 ], [ %84, %82 ], [ %.0248.lcssa, %78 ], [ %.0248.lcssa, %74 ], [ %.0248.lcssa, %70 ], [ %47, %87 ], [ 2, %89 ], [ -1, %106 ], [ -1, %128 ], [ -1, %151 ], [ -1, %152 ], [ -1, %160 ], [ -1, %161 ], [ -1, %165 ], [ -1, %166 ], [ -1, %174 ], [ -1, %175 ], [ -1, %185 ], [ -1, %186 ], [ -1, %201 ], [ -1, %202 ], [ %.4, %realpath_cache_add.exit ], [ %.4, %262 ], [ 0, %62 ], [ 0, %58 ], [ 0, %55 ]
   ret i64 %.0
 }
 
@@ -2077,16 +2077,16 @@ define noalias noundef ptr @virtual_popen(ptr nocapture noundef readonly %0, ptr
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.0145 = phi i32 [ %12, %.lr.ph ], [ %5, %2 ]
-  %.0136144 = phi ptr [ %11, %.lr.ph ], [ %6, %2 ]
-  %.0140143 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %2 ]
-  %8 = load i8, ptr %.0136144, align 1
+  %.0145 = phi ptr [ %11, %.lr.ph ], [ %6, %2 ]
+  %.0138144 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %2 ]
+  %.0140143 = phi i32 [ %12, %.lr.ph ], [ %5, %2 ]
+  %8 = load i8, ptr %.0145, align 1
   %9 = icmp eq i8 %8, 39
-  %10 = add nsw i32 %.0140143, 3
-  %spec.select = select i1 %9, i32 %10, i32 %.0140143
-  %11 = getelementptr inbounds i8, ptr %.0136144, i64 1
-  %12 = add nsw i32 %.0145, -1
-  %13 = icmp ugt i32 %.0145, 1
+  %10 = add nsw i32 %.0138144, 3
+  %spec.select = select i1 %9, i32 %10, i32 %.0138144
+  %11 = getelementptr inbounds i8, ptr %.0145, i64 1
+  %12 = add nsw i32 %.0140143, -1
+  %13 = icmp ugt i32 %.0140143, 1
   br i1 %13, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -2094,12 +2094,12 @@ define noalias noundef ptr @virtual_popen(ptr nocapture noundef readonly %0, ptr
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2, %._crit_edge.loopexit
-  %.0140.lcssa = phi i64 [ 0, %2 ], [ %14, %._crit_edge.loopexit ]
+  %.0138.lcssa = phi i64 [ 0, %2 ], [ %14, %._crit_edge.loopexit ]
   %15 = add i64 %3, 11
   %sext = shl i64 %4, 32
   %16 = ashr exact i64 %sext, 32
   %17 = add i64 %15, %16
-  %18 = add i64 %17, %.0140.lcssa
+  %18 = add i64 %17, %.0138.lcssa
   %19 = tail call noalias ptr @_emalloc(i64 noundef %18) #23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %19, ptr noundef nonnull align 1 dereferenceable(3) @.str, i64 noundef 3, i1 false) #21
   %20 = getelementptr inbounds i8, ptr %19, i64 3
@@ -2117,37 +2117,37 @@ define noalias noundef ptr @virtual_popen(ptr nocapture noundef readonly %0, ptr
   br i1 %7, label %.lr.ph150, label %._crit_edge151
 
 .lr.ph150:                                        ; preds = %25, %31
-  %.1148 = phi i32 [ %35, %31 ], [ %5, %25 ]
-  %.1137147 = phi ptr [ %34, %31 ], [ %6, %25 ]
-  %.0138146 = phi ptr [ %33, %31 ], [ %23, %25 ]
-  %26 = load i8, ptr %.1137147, align 1
+  %.1148 = phi ptr [ %34, %31 ], [ %6, %25 ]
+  %.0136147 = phi ptr [ %33, %31 ], [ %23, %25 ]
+  %.1141146 = phi i32 [ %35, %31 ], [ %5, %25 ]
+  %26 = load i8, ptr %.1148, align 1
   %cond = icmp eq i8 %26, 39
   br i1 %cond, label %27, label %31
 
 27:                                               ; preds = %.lr.ph150
-  %28 = getelementptr inbounds i8, ptr %.0138146, i64 1
-  store i8 39, ptr %.0138146, align 1
-  %29 = getelementptr inbounds i8, ptr %.0138146, i64 2
+  %28 = getelementptr inbounds i8, ptr %.0136147, i64 1
+  store i8 39, ptr %.0136147, align 1
+  %29 = getelementptr inbounds i8, ptr %.0136147, i64 2
   store i8 92, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %.0138146, i64 3
+  %30 = getelementptr inbounds i8, ptr %.0136147, i64 3
   store i8 39, ptr %29, align 1
-  %.pre = load i8, ptr %.1137147, align 1
+  %.pre = load i8, ptr %.1148, align 1
   br label %31
 
 31:                                               ; preds = %.lr.ph150, %27
   %32 = phi i8 [ %.pre, %27 ], [ %26, %.lr.ph150 ]
-  %.1139 = phi ptr [ %30, %27 ], [ %.0138146, %.lr.ph150 ]
-  %33 = getelementptr inbounds i8, ptr %.1139, i64 1
-  store i8 %32, ptr %.1139, align 1
-  %34 = getelementptr inbounds i8, ptr %.1137147, i64 1
-  %35 = add nsw i32 %.1148, -1
-  %36 = icmp sgt i32 %.1148, 1
+  %.1137 = phi ptr [ %30, %27 ], [ %.0136147, %.lr.ph150 ]
+  %33 = getelementptr inbounds i8, ptr %.1137, i64 1
+  store i8 %32, ptr %.1137, align 1
+  %34 = getelementptr inbounds i8, ptr %.1148, i64 1
+  %35 = add nsw i32 %.1141146, -1
+  %36 = icmp sgt i32 %.1141146, 1
   br i1 %36, label %.lr.ph150, label %._crit_edge151
 
 ._crit_edge151:                                   ; preds = %31, %25
-  %.0138.lcssa = phi ptr [ %23, %25 ], [ %33, %31 ]
-  %37 = getelementptr inbounds i8, ptr %.0138.lcssa, i64 1
-  store i8 39, ptr %.0138.lcssa, align 1
+  %.0136.lcssa = phi ptr [ %23, %25 ], [ %33, %31 ]
+  %37 = getelementptr inbounds i8, ptr %.0136.lcssa, i64 1
+  store i8 39, ptr %.0136.lcssa, align 1
   br label %38
 
 38:                                               ; preds = %._crit_edge151, %24

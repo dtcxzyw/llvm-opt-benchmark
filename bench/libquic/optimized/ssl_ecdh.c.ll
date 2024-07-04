@@ -228,8 +228,8 @@ lor.lhs.false19:                                  ; preds = %lor.lhs.false
   br label %err
 
 err:                                              ; preds = %do.body, %lor.lhs.false19, %do.end, %lor.lhs.false, %if.end4
-  %public_key.0 = phi ptr [ null, %if.end4 ], [ null, %do.end ], [ %call15, %lor.lhs.false ], [ %call15, %lor.lhs.false19 ], [ null, %do.body ]
   %ret.0 = phi i32 [ 0, %if.end4 ], [ 0, %do.end ], [ 0, %lor.lhs.false ], [ %spec.select, %lor.lhs.false19 ], [ 0, %do.body ]
+  %public_key.0 = phi ptr [ null, %if.end4 ], [ null, %do.end ], [ %call15, %lor.lhs.false ], [ %call15, %lor.lhs.false19 ], [ null, %do.body ]
   tail call void @EC_GROUP_free(ptr noundef %call5) #7
   tail call void @EC_POINT_free(ptr noundef %public_key.0) #7
   tail call void @BN_CTX_end(ptr noundef nonnull %call1) #7
@@ -311,10 +311,10 @@ if.end33:                                         ; preds = %lor.lhs.false29
   br label %err
 
 err:                                              ; preds = %if.end24, %lor.lhs.false29, %if.end17, %lor.lhs.false20, %if.end10, %if.end4, %if.end, %if.end33, %if.then16
+  %ret.0 = phi i32 [ 0, %if.end ], [ 0, %if.end4 ], [ 0, %if.end10 ], [ 0, %if.end24 ], [ 1, %if.end33 ], [ 0, %lor.lhs.false29 ], [ 0, %lor.lhs.false20 ], [ 0, %if.end17 ], [ 0, %if.then16 ]
   %peer_point.0 = phi ptr [ null, %if.end ], [ %call5, %if.end4 ], [ %call5, %if.end10 ], [ %call5, %if.end24 ], [ %call5, %if.end33 ], [ %call5, %lor.lhs.false29 ], [ %call5, %lor.lhs.false20 ], [ %call5, %if.end17 ], [ %call5, %if.then16 ]
   %result.0 = phi ptr [ null, %if.end ], [ %call6, %if.end4 ], [ %call6, %if.end10 ], [ %call6, %if.end24 ], [ %call6, %if.end33 ], [ %call6, %lor.lhs.false29 ], [ %call6, %lor.lhs.false20 ], [ %call6, %if.end17 ], [ %call6, %if.then16 ]
   %secret.0 = phi ptr [ null, %if.end ], [ null, %if.end4 ], [ null, %if.end10 ], [ null, %if.end24 ], [ null, %if.end33 ], [ %call26, %lor.lhs.false29 ], [ null, %lor.lhs.false20 ], [ null, %if.end17 ], [ null, %if.then16 ]
-  %ret.0 = phi i32 [ 0, %if.end ], [ 0, %if.end4 ], [ 0, %if.end10 ], [ 0, %if.end24 ], [ 1, %if.end33 ], [ 0, %lor.lhs.false29 ], [ 0, %lor.lhs.false20 ], [ 0, %if.end17 ], [ 0, %if.then16 ]
   tail call void @EC_GROUP_free(ptr noundef %call1) #7
   tail call void @EC_POINT_free(ptr noundef %peer_point.0) #7
   tail call void @EC_POINT_free(ptr noundef %result.0) #7

@@ -182,10 +182,10 @@ for.cond18.us.preheader:                          ; preds = %invoke.cont16
 
 invoke.cont22.us:                                 ; preds = %for.cond18.us.preheader, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit.us
   %cmp.not.i.i.us32 = phi i1 [ %cmp.not.i.i.us, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit.us ], [ true, %for.cond18.us.preheader ]
-  %__begin112.sroa.5.0.us31 = phi ptr [ %__begin112.sroa.5.1.us, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit.us ], [ %5, %for.cond18.us.preheader ]
-  %__begin112.sroa.0.0.us30 = phi ptr [ %__begin112.sroa.0.1.us, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit.us ], [ null, %for.cond18.us.preheader ]
-  %add.ptr.i.i.us = getelementptr inbounds i8, ptr %__begin112.sroa.5.0.us31, i64 8
-  %retval.0.i.us = select i1 %cmp.not.i.i.us32, ptr %add.ptr.i.i.us, ptr %__begin112.sroa.0.0.us30
+  %__begin112.sroa.0.0.us31 = phi ptr [ %__begin112.sroa.0.1.us, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit.us ], [ null, %for.cond18.us.preheader ]
+  %__begin112.sroa.5.0.us30 = phi ptr [ %__begin112.sroa.5.1.us, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit.us ], [ %5, %for.cond18.us.preheader ]
+  %add.ptr.i.i.us = getelementptr inbounds i8, ptr %__begin112.sroa.5.0.us30, i64 8
+  %retval.0.i.us = select i1 %cmp.not.i.i.us32, ptr %add.ptr.i.i.us, ptr %__begin112.sroa.0.0.us31
   %second.us = getelementptr inbounds i8, ptr %retval.0.i.us, i64 8
   %6 = load ptr, ptr %second.us, align 8
   invoke void @_ZN3net14QuicSpdyStream12ClearSessionEv(ptr noundef nonnull align 8 dereferenceable(664) %6)
@@ -195,16 +195,16 @@ for.inc25.us:                                     ; preds = %invoke.cont22.us
   br i1 %cmp.not.i.i.us32, label %if.else.i.us, label %if.then.i.us
 
 if.then.i.us:                                     ; preds = %for.inc25.us
-  %incdec.ptr.i9.us = getelementptr inbounds i8, ptr %__begin112.sroa.0.0.us30, i64 16
+  %incdec.ptr.i9.us = getelementptr inbounds i8, ptr %__begin112.sroa.0.0.us31, i64 16
   br label %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit.us
 
 if.else.i.us:                                     ; preds = %for.inc25.us
-  %7 = load ptr, ptr %__begin112.sroa.5.0.us31, align 8
+  %7 = load ptr, ptr %__begin112.sroa.5.0.us30, align 8
   br label %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit.us
 
 _ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit.us: ; preds = %if.else.i.us, %if.then.i.us
+  %__begin112.sroa.5.1.us = phi ptr [ %7, %if.else.i.us ], [ %__begin112.sroa.5.0.us30, %if.then.i.us ]
   %__begin112.sroa.0.1.us = phi ptr [ null, %if.else.i.us ], [ %incdec.ptr.i9.us, %if.then.i.us ]
-  %__begin112.sroa.5.1.us = phi ptr [ %7, %if.else.i.us ], [ %__begin112.sroa.5.0.us31, %if.then.i.us ]
   %cmp.not.i.i.us = icmp eq ptr %__begin112.sroa.0.1.us, null
   %cmp4.i.i.us = icmp eq ptr %__begin112.sroa.0.1.us, %retval.sroa.0.0.i5
   %cmp.i.i.i.us = icmp eq ptr %__begin112.sroa.5.1.us, null
@@ -218,10 +218,10 @@ terminate.lpad.loopexit.split.us:                 ; preds = %invoke.cont22.us
 
 invoke.cont22:                                    ; preds = %for.cond18.preheader, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit
   %cmp.not.i.i28 = phi i1 [ %cmp.not.i.i, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit ], [ true, %for.cond18.preheader ]
-  %__begin112.sroa.5.027 = phi ptr [ %__begin112.sroa.5.1, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit ], [ null, %for.cond18.preheader ]
-  %__begin112.sroa.0.026 = phi ptr [ %__begin112.sroa.0.1, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit ], [ %4, %for.cond18.preheader ]
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %__begin112.sroa.5.027, i64 8
-  %retval.0.i = select i1 %cmp.not.i.i28, ptr %__begin112.sroa.0.026, ptr %add.ptr.i.i
+  %__begin112.sroa.0.027 = phi ptr [ %__begin112.sroa.0.1, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit ], [ %4, %for.cond18.preheader ]
+  %__begin112.sroa.5.026 = phi ptr [ %__begin112.sroa.5.1, %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit ], [ null, %for.cond18.preheader ]
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %__begin112.sroa.5.026, i64 8
+  %retval.0.i = select i1 %cmp.not.i.i28, ptr %__begin112.sroa.0.027, ptr %add.ptr.i.i
   %second = getelementptr inbounds i8, ptr %retval.0.i, i64 8
   %8 = load ptr, ptr %second, align 8
   invoke void @_ZN3net14QuicSpdyStream12ClearSessionEv(ptr noundef nonnull align 8 dereferenceable(664) %8)
@@ -231,16 +231,16 @@ for.inc25:                                        ; preds = %invoke.cont22
   br i1 %cmp.not.i.i28, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.inc25
-  %incdec.ptr.i9 = getelementptr inbounds i8, ptr %__begin112.sroa.0.026, i64 16
+  %incdec.ptr.i9 = getelementptr inbounds i8, ptr %__begin112.sroa.0.027, i64 16
   br label %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit
 
 if.else.i:                                        ; preds = %for.inc25
-  %9 = load ptr, ptr %__begin112.sroa.5.027, align 8
+  %9 = load ptr, ptr %__begin112.sroa.5.026, align 8
   br label %_ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit
 
 _ZN4base8SmallMapISt13unordered_mapIjPN3net18ReliableQuicStreamESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEELi10ES8_NS_8internal19SmallMapDefaultInitISD_EEE8iteratorppEv.exit: ; preds = %if.then.i, %if.else.i
+  %__begin112.sroa.5.1 = phi ptr [ %9, %if.else.i ], [ %__begin112.sroa.5.026, %if.then.i ]
   %__begin112.sroa.0.1 = phi ptr [ null, %if.else.i ], [ %incdec.ptr.i9, %if.then.i ]
-  %__begin112.sroa.5.1 = phi ptr [ %9, %if.else.i ], [ %__begin112.sroa.5.027, %if.then.i ]
   %cmp.not.i.i = icmp ne ptr %__begin112.sroa.0.1, null
   %cmp4.i.i = icmp eq ptr %__begin112.sroa.0.1, %retval.sroa.0.0.i5
   %or.cond = select i1 %cmp.not.i.i, i1 %cmp4.i.i, i1 false

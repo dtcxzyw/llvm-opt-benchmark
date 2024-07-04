@@ -155,15 +155,15 @@ define internal i32 @dissect_mactelnet(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.split.loop.exit172
 
 .split.loop.exit172:                              ; preds = %21, %.split.loop.exit169, %.split.loop.exit
+  %.0148 = phi i32 [ %23, %.split.loop.exit ], [ -1, %.split.loop.exit169 ], [ -1, %21 ]
   %.0147 = phi i32 [ -1, %.split.loop.exit ], [ %24, %.split.loop.exit169 ], [ -1, %21 ]
-  %.0146 = phi i32 [ %23, %.split.loop.exit ], [ -1, %.split.loop.exit169 ], [ -1, %21 ]
-  %25 = and i32 %.0146, %.0147
+  %25 = and i32 %.0147, %.0148
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %124, label %.thread
 
 .thread:                                          ; preds = %7, %.split.loop.exit172
-  %.0146156 = phi i32 [ %.0146, %.split.loop.exit172 ], [ -1, %7 ]
-  %.0147155 = phi i32 [ %.0147, %.split.loop.exit172 ], [ -1, %7 ]
+  %.0147156 = phi i32 [ %.0147, %.split.loop.exit172 ], [ -1, %7 ]
+  %.0148155 = phi i32 [ %.0148, %.split.loop.exit172 ], [ -1, %7 ]
   %27 = getelementptr inbounds i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void @col_set_str(ptr noundef %28, i32 noundef 34, ptr noundef nonnull @.str.41) #2
@@ -173,7 +173,7 @@ define internal i32 @dissect_mactelnet(ptr noundef %0, ptr noundef %1, ptr nound
   %32 = tail call ptr @tvb_address_to_str(ptr noundef %31, ptr noundef %0, i32 noundef 1, i32 noundef 2) #2
   %33 = load ptr, ptr %30, align 8
   %34 = tail call ptr @tvb_address_to_str(ptr noundef %33, ptr noundef %0, i32 noundef 1, i32 noundef 8) #2
-  %35 = icmp sgt i32 %.0146156, -1
+  %35 = icmp sgt i32 %.0148155, -1
   %36 = or i1 %10, %35
   %37 = select i1 %36, ptr @.str.60, ptr @.str.61
   %38 = tail call ptr @val_to_str(i32 noundef %9, ptr noundef nonnull @packettypenames, ptr noundef nonnull @.str.62) #2
@@ -194,7 +194,7 @@ define internal i32 @dissect_mactelnet(ptr noundef %0, ptr noundef %1, ptr nound
   %49 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %48, ptr noundef %0, i32 noundef 2, i32 noundef 6, i32 noundef 0) #2
   %50 = load i32, ptr @hf_mactelnet_destination_mac, align 4
   %51 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %50, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0) #2
-  %52 = icmp sgt i32 %.0147155, -1
+  %52 = icmp sgt i32 %.0147156, -1
   br i1 %52, label %53, label %58
 
 53:                                               ; preds = %39
@@ -219,17 +219,17 @@ define internal i32 @dissect_mactelnet(ptr noundef %0, ptr noundef %1, ptr nound
   br label %65
 
 65:                                               ; preds = %64, %59, %53
-  %.0148 = phi i32 [ 18, %53 ], [ 18, %59 ], [ %spec.select, %64 ]
+  %.0145 = phi i32 [ 18, %53 ], [ 18, %59 ], [ %spec.select, %64 ]
   br i1 %or.cond.not, label %120, label %66
 
 66:                                               ; preds = %65
   %67 = load i32, ptr @hf_mactelnet_databytes, align 4
-  %68 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %67, ptr noundef %0, i32 noundef %.0148, i32 noundef 4, i32 noundef 0) #2
+  %68 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %67, ptr noundef %0, i32 noundef %.0145, i32 noundef 4, i32 noundef 0) #2
   %69 = icmp eq i8 %8, 1
   br i1 %69, label %.preheader, label %.thread160
 
 .preheader:                                       ; preds = %66
-  %70 = add nuw nsw i32 %.0148, 4
+  %70 = add nuw nsw i32 %.0145, 4
   %71 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %70) #2
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %.lr.ph, label %.thread160
@@ -314,7 +314,7 @@ define internal i32 @dissect_mactelnet(ptr noundef %0, ptr noundef %1, ptr nound
   br label %124
 
 120:                                              ; preds = %65
-  %121 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0148) #2
+  %121 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0145) #2
   %122 = tail call i32 @call_data_dissector(ptr noundef %121, ptr noundef nonnull %1, ptr noundef %43) #2
   br label %124
 

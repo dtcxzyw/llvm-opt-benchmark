@@ -808,10 +808,10 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end22
-  %sector_num.addr.024 = phi i64 [ %sector_num, %while.body.lr.ph ], [ %add, %if.end22 ]
-  %nb_sectors.addr.023 = phi i32 [ %nb_sectors, %while.body.lr.ph ], [ %sub, %if.end22 ]
-  %ret.022 = phi i32 [ 0, %while.body.lr.ph ], [ %ret.1, %if.end22 ]
-  %bytes_done.021 = phi i64 [ 0, %while.body.lr.ph ], [ %add25, %if.end22 ]
+  %ret.024 = phi i32 [ 0, %while.body.lr.ph ], [ %ret.1, %if.end22 ]
+  %bytes_done.023 = phi i64 [ 0, %while.body.lr.ph ], [ %add25, %if.end22 ]
+  %sector_num.addr.022 = phi i64 [ %sector_num, %while.body.lr.ph ], [ %add, %if.end22 ]
+  %nb_sectors.addr.021 = phi i32 [ %nb_sectors, %while.body.lr.ph ], [ %sub, %if.end22 ]
   call void @qemu_co_mutex_lock(ptr noundef %0) #15
   %3 = load i32, ptr %tracks.i.i, align 4
   %conv.i.i = zext i32 %3 to i64
@@ -821,13 +821,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 while.body.i:                                     ; preds = %if.end5.i, %while.body
   %n.0 = phi i32 [ 0, %while.body ], [ %add7.i, %if.end5.i ]
   %cmp123.i = phi i1 [ true, %while.body ], [ %cmp1.i, %if.end5.i ]
-  %sector_num.addr.022.i = phi i64 [ %sector_num.addr.024, %while.body ], [ %add.i, %if.end5.i ]
-  %nb_sectors.addr.021.i = phi i32 [ %nb_sectors.addr.023, %while.body ], [ %sub.i, %if.end5.i ]
-  %prev_end_off.020.i = phi i64 [ -2, %while.body ], [ %spec.select.i, %if.end5.i ]
-  %start_off.019.i = phi i64 [ -2, %while.body ], [ %start_off.1.i, %if.end5.i ]
-  %div.i.i = sdiv i64 %sector_num.addr.022.i, %conv.i.i
+  %prev_end_off.022.i = phi i64 [ -2, %while.body ], [ %spec.select.i, %if.end5.i ]
+  %start_off.021.i = phi i64 [ -2, %while.body ], [ %start_off.1.i, %if.end5.i ]
+  %sector_num.addr.020.i = phi i64 [ %sector_num.addr.022, %while.body ], [ %add.i, %if.end5.i ]
+  %nb_sectors.addr.019.i = phi i32 [ %nb_sectors.addr.021, %while.body ], [ %sub.i, %if.end5.i ]
+  %div.i.i = sdiv i64 %sector_num.addr.020.i, %conv.i.i
   %conv1.i.i = trunc i64 %div.i.i to i32
-  %rem.i.i = srem i64 %sector_num.addr.022.i, %conv.i.i
+  %rem.i.i = srem i64 %sector_num.addr.020.i, %conv.i.i
   %cmp.not.i.i = icmp ugt i32 %4, %conv1.i.i
   br i1 %cmp.not.i.i, label %lor.lhs.false.i.i, label %seek_to_sector.exit.i
 
@@ -853,18 +853,18 @@ seek_to_sector.exit.i:                            ; preds = %if.end.i.i, %lor.lh
   br i1 %cmp123.i, label %if.end5.i, label %if.else.i
 
 if.else.i:                                        ; preds = %seek_to_sector.exit.i
-  %cmp3.not.i = icmp eq i64 %retval.0.i.i, %prev_end_off.020.i
+  %cmp3.not.i = icmp eq i64 %retval.0.i.i, %prev_end_off.022.i
   br i1 %cmp3.not.i, label %if.end5.i, label %block_status.exit
 
 if.end5.i:                                        ; preds = %if.else.i, %seek_to_sector.exit.i
-  %start_off.1.i = phi i64 [ %start_off.019.i, %if.else.i ], [ %retval.0.i.i, %seek_to_sector.exit.i ]
-  %prev_end_off.1.i = phi i64 [ %prev_end_off.020.i, %if.else.i ], [ %retval.0.i.i, %seek_to_sector.exit.i ]
+  %start_off.1.i = phi i64 [ %start_off.021.i, %if.else.i ], [ %retval.0.i.i, %seek_to_sector.exit.i ]
+  %prev_end_off.1.i = phi i64 [ %prev_end_off.022.i, %if.else.i ], [ %retval.0.i.i, %seek_to_sector.exit.i ]
   %7 = trunc i64 %rem.i.i to i32
   %conv3.i.i = sub i32 %3, %7
-  %cond.i.i = call i32 @llvm.smin.i32(i32 %conv3.i.i, i32 %nb_sectors.addr.021.i)
-  %sub.i = sub i32 %nb_sectors.addr.021.i, %cond.i.i
+  %cond.i.i = call i32 @llvm.smin.i32(i32 %conv3.i.i, i32 %nb_sectors.addr.019.i)
+  %sub.i = sub i32 %nb_sectors.addr.019.i, %cond.i.i
   %conv.i = sext i32 %cond.i.i to i64
-  %add.i = add i64 %sector_num.addr.022.i, %conv.i
+  %add.i = add i64 %sector_num.addr.020.i, %conv.i
   %add7.i = add i32 %cond.i.i, %n.0
   %cmp8.i = icmp sgt i64 %retval.0.i.i, 0
   %add12.i = select i1 %cmp8.i, i64 %conv.i, i64 0
@@ -876,12 +876,12 @@ if.end5.i:                                        ; preds = %if.else.i, %seek_to
 
 block_status.exit:                                ; preds = %if.else.i, %if.end5.i
   %n.1 = phi i32 [ %add7.i, %if.end5.i ], [ %n.0, %if.else.i ]
-  %start_off.0.lcssa.i = phi i64 [ %start_off.1.i, %if.end5.i ], [ %start_off.019.i, %if.else.i ]
+  %start_off.0.lcssa.i = phi i64 [ %start_off.1.i, %if.end5.i ], [ %start_off.021.i, %if.else.i ]
   call void @qemu_co_mutex_unlock(ptr noundef %0) #15
   %shl = shl i32 %n.1, 9
   call void @qemu_iovec_reset(ptr noundef nonnull %hd_qiov) #15
   %conv = sext i32 %shl to i64
-  call void @qemu_iovec_concat(ptr noundef nonnull %hd_qiov, ptr noundef %qiov, i64 noundef %bytes_done.021, i64 noundef %conv) #15
+  call void @qemu_iovec_concat(ptr noundef nonnull %hd_qiov, ptr noundef %qiov, i64 noundef %bytes_done.023, i64 noundef %conv) #15
   %cmp2 = icmp slt i64 %start_off.0.lcssa.i, 0
   br i1 %cmp2, label %if.then, label %if.else14
 
@@ -891,7 +891,7 @@ if.then:                                          ; preds = %block_status.exit
   br i1 %tobool.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %mul = shl i64 %sector_num.addr.024, 9
+  %mul = shl i64 %sector_num.addr.022, 9
   %call7 = call i32 @bdrv_co_preadv(ptr noundef nonnull %9, i64 noundef %mul, i64 noundef %conv, ptr noundef nonnull %hd_qiov, i32 noundef 0) #15
   %cmp8 = icmp slt i32 %call7, 0
   br i1 %cmp8, label %while.end, label %if.end22
@@ -908,11 +908,11 @@ if.else14:                                        ; preds = %block_status.exit
   br i1 %cmp18, label %while.end, label %if.end22
 
 if.end22:                                         ; preds = %if.else14, %if.else, %if.then4
-  %ret.1 = phi i32 [ %call7, %if.then4 ], [ %ret.022, %if.else ], [ %call17, %if.else14 ]
-  %sub = sub i32 %nb_sectors.addr.023, %n.1
+  %ret.1 = phi i32 [ %call7, %if.then4 ], [ %ret.024, %if.else ], [ %call17, %if.else14 ]
+  %sub = sub i32 %nb_sectors.addr.021, %n.1
   %conv23 = sext i32 %n.1 to i64
-  %add = add i64 %sector_num.addr.024, %conv23
-  %add25 = add i64 %bytes_done.021, %conv
+  %add = add i64 %sector_num.addr.022, %conv23
+  %add25 = add i64 %bytes_done.023, %conv
   %cmp = icmp sgt i32 %sub, 0
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !8
 
@@ -940,11 +940,11 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end9
-  %sector_num.addr.017 = phi i64 [ %sector_num, %while.body.lr.ph ], [ %add, %if.end9 ]
-  %nb_sectors.addr.016 = phi i32 [ %nb_sectors, %while.body.lr.ph ], [ %sub, %if.end9 ]
-  %bytes_done.015 = phi i64 [ 0, %while.body.lr.ph ], [ %add12, %if.end9 ]
+  %bytes_done.017 = phi i64 [ 0, %while.body.lr.ph ], [ %add12, %if.end9 ]
+  %sector_num.addr.016 = phi i64 [ %sector_num, %while.body.lr.ph ], [ %add, %if.end9 ]
+  %nb_sectors.addr.015 = phi i32 [ %nb_sectors, %while.body.lr.ph ], [ %sub, %if.end9 ]
   call void @qemu_co_mutex_lock(ptr noundef %0) #15
-  %call = call i64 @allocate_clusters(ptr noundef nonnull %bs, i64 noundef %sector_num.addr.017, i32 noundef %nb_sectors.addr.016, ptr noundef nonnull %n)
+  %call = call i64 @allocate_clusters(ptr noundef nonnull %bs, i64 noundef %sector_num.addr.016, i32 noundef %nb_sectors.addr.015, ptr noundef nonnull %n)
   call void @qemu_co_mutex_unlock(ptr noundef %0) #15
   %cmp2 = icmp slt i64 %call, 0
   br i1 %cmp2, label %if.then, label %if.end
@@ -958,7 +958,7 @@ if.end:                                           ; preds = %while.body
   %shl = shl i32 %2, 9
   call void @qemu_iovec_reset(ptr noundef nonnull %hd_qiov) #15
   %conv3 = sext i32 %shl to i64
-  call void @qemu_iovec_concat(ptr noundef nonnull %hd_qiov, ptr noundef %qiov, i64 noundef %bytes_done.015, i64 noundef %conv3) #15
+  call void @qemu_iovec_concat(ptr noundef nonnull %hd_qiov, ptr noundef %qiov, i64 noundef %bytes_done.017, i64 noundef %conv3) #15
   %3 = load ptr, ptr %file, align 8
   %mul = shl i64 %call, 9
   %call5 = call i32 @bdrv_co_pwritev(ptr noundef %3, i64 noundef %mul, i64 noundef %conv3, ptr noundef nonnull %hd_qiov, i32 noundef 0) #15
@@ -966,10 +966,10 @@ if.end:                                           ; preds = %while.body
   br i1 %cmp6, label %while.end, label %if.end9
 
 if.end9:                                          ; preds = %if.end
-  %sub = sub i32 %nb_sectors.addr.016, %2
+  %sub = sub i32 %nb_sectors.addr.015, %2
   %conv10 = sext i32 %2 to i64
-  %add = add i64 %sector_num.addr.017, %conv10
-  %add12 = add i64 %bytes_done.015, %conv3
+  %add = add i64 %sector_num.addr.016, %conv10
+  %add12 = add i64 %bytes_done.017, %conv3
   %cmp = icmp sgt i32 %sub, 0
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !9
 
@@ -1029,12 +1029,12 @@ for.body.lr.ph:                                   ; preds = %if.end10
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %ret.033 = phi i32 [ 0, %for.body.lr.ph ], [ %ret.1, %for.inc ]
-  %count.032 = phi i32 [ %conv17, %for.body.lr.ph ], [ %dec, %for.inc ]
-  %cluster.031 = phi i32 [ %conv13, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %count.033 = phi i32 [ %conv17, %for.body.lr.ph ], [ %dec, %for.inc ]
+  %cluster.032 = phi i32 [ %conv13, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %ret.031 = phi i32 [ 0, %for.body.lr.ph ], [ %ret.1, %for.inc ]
   %.val = load ptr, ptr %3, align 8
   %.val21 = load i32, ptr %4, align 4
-  %idxprom.i = zext i32 %cluster.031 to i64
+  %idxprom.i = zext i32 %cluster.032 to i64
   %arrayidx.i = getelementptr i32, ptr %.val, i64 %idxprom.i
   %6 = load i32, ptr %arrayidx.i, align 4
   %conv.i = zext i32 %6 to i64
@@ -1057,7 +1057,7 @@ if.end30:                                         ; preds = %if.end23
   %arrayidx.i25 = getelementptr i32, ptr %9, i64 %idxprom.i
   store i32 0, ptr %arrayidx.i25, align 4
   %10 = load ptr, ptr %bat_dirty_bmap.i, align 8
-  %mul.i.i = shl i32 %cluster.031, 2
+  %mul.i.i = shl i32 %cluster.032, 2
   %add.i.i = add i32 %mul.i.i, 64
   %11 = load i32, ptr %bat_dirty_block.i, align 8
   %div.i = udiv i32 %add.i.i, %11
@@ -1075,9 +1075,9 @@ if.end30:                                         ; preds = %if.end23
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end30
-  %ret.1 = phi i32 [ %ret.033, %for.body ], [ %call26, %if.end30 ]
-  %inc = add i32 %cluster.031, 1
-  %dec = add i32 %count.032, -1
+  %ret.1 = phi i32 [ %ret.031, %for.body ], [ %call26, %if.end30 ]
+  %inc = add i32 %cluster.032, 1
+  %dec = add i32 %count.033, -1
   %cmp18.not = icmp eq i32 %dec, 0
   br i1 %cmp18.not, label %done, label %for.body, !llvm.loop !10
 
@@ -1122,13 +1122,13 @@ if.end:                                           ; preds = %entry
 while.body.i:                                     ; preds = %if.end5.i, %if.end
   %count.0 = phi i32 [ 0, %if.end ], [ %add7.i, %if.end5.i ]
   %cmp123.i = phi i1 [ true, %if.end ], [ %cmp1.i, %if.end5.i ]
-  %sector_num.addr.022.i = phi i64 [ %shr, %if.end ], [ %add.i, %if.end5.i ]
-  %nb_sectors.addr.021.i = phi i32 [ %conv, %if.end ], [ %sub.i, %if.end5.i ]
-  %prev_end_off.020.i = phi i64 [ -2, %if.end ], [ %spec.select.i, %if.end5.i ]
-  %start_off.019.i = phi i64 [ -2, %if.end ], [ %start_off.1.i, %if.end5.i ]
-  %div.i.i = sdiv i64 %sector_num.addr.022.i, %conv.i.i
+  %prev_end_off.022.i = phi i64 [ -2, %if.end ], [ %spec.select.i, %if.end5.i ]
+  %start_off.021.i = phi i64 [ -2, %if.end ], [ %start_off.1.i, %if.end5.i ]
+  %sector_num.addr.020.i = phi i64 [ %shr, %if.end ], [ %add.i, %if.end5.i ]
+  %nb_sectors.addr.019.i = phi i32 [ %conv, %if.end ], [ %sub.i, %if.end5.i ]
+  %div.i.i = sdiv i64 %sector_num.addr.020.i, %conv.i.i
   %conv1.i.i = trunc i64 %div.i.i to i32
-  %rem.i.i = srem i64 %sector_num.addr.022.i, %conv.i.i
+  %rem.i.i = srem i64 %sector_num.addr.020.i, %conv.i.i
   %cmp.not.i.i = icmp ugt i32 %3, %conv1.i.i
   br i1 %cmp.not.i.i, label %lor.lhs.false.i.i, label %seek_to_sector.exit.i
 
@@ -1154,18 +1154,18 @@ seek_to_sector.exit.i:                            ; preds = %if.end.i.i, %lor.lh
   br i1 %cmp123.i, label %if.end5.i, label %if.else.i
 
 if.else.i:                                        ; preds = %seek_to_sector.exit.i
-  %cmp3.not.i = icmp eq i64 %retval.0.i.i, %prev_end_off.020.i
+  %cmp3.not.i = icmp eq i64 %retval.0.i.i, %prev_end_off.022.i
   br i1 %cmp3.not.i, label %if.end5.i, label %block_status.exit
 
 if.end5.i:                                        ; preds = %if.else.i, %seek_to_sector.exit.i
-  %start_off.1.i = phi i64 [ %start_off.019.i, %if.else.i ], [ %retval.0.i.i, %seek_to_sector.exit.i ]
-  %prev_end_off.1.i = phi i64 [ %prev_end_off.020.i, %if.else.i ], [ %retval.0.i.i, %seek_to_sector.exit.i ]
+  %start_off.1.i = phi i64 [ %start_off.021.i, %if.else.i ], [ %retval.0.i.i, %seek_to_sector.exit.i ]
+  %prev_end_off.1.i = phi i64 [ %prev_end_off.022.i, %if.else.i ], [ %retval.0.i.i, %seek_to_sector.exit.i ]
   %6 = trunc i64 %rem.i.i to i32
   %conv3.i.i = sub i32 %2, %6
-  %cond.i.i = tail call i32 @llvm.smin.i32(i32 %conv3.i.i, i32 %nb_sectors.addr.021.i)
-  %sub.i = sub i32 %nb_sectors.addr.021.i, %cond.i.i
+  %cond.i.i = tail call i32 @llvm.smin.i32(i32 %conv3.i.i, i32 %nb_sectors.addr.019.i)
+  %sub.i = sub i32 %nb_sectors.addr.019.i, %cond.i.i
   %conv.i = sext i32 %cond.i.i to i64
-  %add.i = add i64 %sector_num.addr.022.i, %conv.i
+  %add.i = add i64 %sector_num.addr.020.i, %conv.i
   %add7.i = add i32 %cond.i.i, %count.0
   %cmp8.i = icmp sgt i64 %retval.0.i.i, 0
   %add12.i = select i1 %cmp8.i, i64 %conv.i, i64 0
@@ -1177,7 +1177,7 @@ if.end5.i:                                        ; preds = %if.else.i, %seek_to
 
 block_status.exit:                                ; preds = %if.else.i, %if.end5.i
   %count.1 = phi i32 [ %add7.i, %if.end5.i ], [ %count.0, %if.else.i ]
-  %start_off.0.lcssa.i = phi i64 [ %start_off.1.i, %if.end5.i ], [ %start_off.019.i, %if.else.i ]
+  %start_off.0.lcssa.i = phi i64 [ %start_off.1.i, %if.end5.i ], [ %start_off.021.i, %if.else.i ]
   tail call void @qemu_co_mutex_unlock(ptr noundef %0) #15
   %conv3 = sext i32 %count.1 to i64
   %mul = shl nsw i64 %conv3, 9
@@ -1838,15 +1838,15 @@ entry:
 while.body.i:                                     ; preds = %if.end5.i, %entry
   %2 = phi i32 [ 0, %entry ], [ %add7.i, %if.end5.i ]
   %cmp123.i = phi i1 [ true, %entry ], [ %cmp1.i, %if.end5.i ]
-  %sector_num.addr.022.i = phi i64 [ %sector_num, %entry ], [ %add.i, %if.end5.i ]
-  %nb_sectors.addr.021.i = phi i32 [ %nb_sectors, %entry ], [ %sub.i, %if.end5.i ]
-  %prev_end_off.020.i = phi i64 [ -2, %entry ], [ %spec.select.i, %if.end5.i ]
-  %start_off.019.i = phi i64 [ -2, %entry ], [ %start_off.1.i, %if.end5.i ]
+  %prev_end_off.022.i = phi i64 [ -2, %entry ], [ %spec.select.i, %if.end5.i ]
+  %start_off.021.i = phi i64 [ -2, %entry ], [ %start_off.1.i, %if.end5.i ]
+  %sector_num.addr.020.i = phi i64 [ %sector_num, %entry ], [ %add.i, %if.end5.i ]
+  %nb_sectors.addr.019.i = phi i32 [ %nb_sectors, %entry ], [ %sub.i, %if.end5.i ]
   %3 = load i32, ptr %tracks.i.i, align 4
   %conv.i.i = zext i32 %3 to i64
-  %div.i.i = sdiv i64 %sector_num.addr.022.i, %conv.i.i
+  %div.i.i = sdiv i64 %sector_num.addr.020.i, %conv.i.i
   %conv1.i.i = trunc i64 %div.i.i to i32
-  %rem.i.i = srem i64 %sector_num.addr.022.i, %conv.i.i
+  %rem.i.i = srem i64 %sector_num.addr.020.i, %conv.i.i
   %4 = load i32, ptr %bat_size.i.i, align 8
   %cmp.not.i.i = icmp ugt i32 %4, %conv1.i.i
   br i1 %cmp.not.i.i, label %lor.lhs.false.i.i, label %seek_to_sector.exit.i
@@ -1873,18 +1873,18 @@ seek_to_sector.exit.i:                            ; preds = %if.end.i.i, %lor.lh
   br i1 %cmp123.i, label %if.end5.i, label %if.else.i
 
 if.else.i:                                        ; preds = %seek_to_sector.exit.i
-  %cmp3.not.i = icmp eq i64 %retval.0.i.i, %prev_end_off.020.i
+  %cmp3.not.i = icmp eq i64 %retval.0.i.i, %prev_end_off.022.i
   br i1 %cmp3.not.i, label %if.end5.i, label %block_status.exit
 
 if.end5.i:                                        ; preds = %if.else.i, %seek_to_sector.exit.i
-  %start_off.1.i = phi i64 [ %start_off.019.i, %if.else.i ], [ %retval.0.i.i, %seek_to_sector.exit.i ]
-  %prev_end_off.1.i = phi i64 [ %prev_end_off.020.i, %if.else.i ], [ %retval.0.i.i, %seek_to_sector.exit.i ]
+  %start_off.1.i = phi i64 [ %start_off.021.i, %if.else.i ], [ %retval.0.i.i, %seek_to_sector.exit.i ]
+  %prev_end_off.1.i = phi i64 [ %prev_end_off.022.i, %if.else.i ], [ %retval.0.i.i, %seek_to_sector.exit.i ]
   %7 = trunc i64 %rem.i.i to i32
   %conv3.i.i = sub i32 %3, %7
-  %cond.i.i = tail call i32 @llvm.smin.i32(i32 %conv3.i.i, i32 %nb_sectors.addr.021.i)
-  %sub.i = sub i32 %nb_sectors.addr.021.i, %cond.i.i
+  %cond.i.i = tail call i32 @llvm.smin.i32(i32 %conv3.i.i, i32 %nb_sectors.addr.019.i)
+  %sub.i = sub i32 %nb_sectors.addr.019.i, %cond.i.i
   %conv.i = sext i32 %cond.i.i to i64
-  %add.i = add i64 %sector_num.addr.022.i, %conv.i
+  %add.i = add i64 %sector_num.addr.020.i, %conv.i
   %add7.i = add i32 %cond.i.i, %2
   store i32 %add7.i, ptr %pnum, align 4
   %cmp8.i = icmp sgt i64 %retval.0.i.i, 0
@@ -1897,7 +1897,7 @@ if.end5.i:                                        ; preds = %if.else.i, %seek_to
 
 block_status.exit:                                ; preds = %if.else.i, %if.end5.i
   %9 = phi i32 [ %2, %if.else.i ], [ %add7.i, %if.end5.i ]
-  %start_off.0.lcssa.i = phi i64 [ %start_off.019.i, %if.else.i ], [ %start_off.1.i, %if.end5.i ]
+  %start_off.0.lcssa.i = phi i64 [ %start_off.021.i, %if.else.i ], [ %start_off.1.i, %if.end5.i ]
   %cmp = icmp sgt i64 %start_off.0.lcssa.i, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -2056,8 +2056,8 @@ if.then101:                                       ; preds = %if.then93
   br label %return
 
 if.end105:                                        ; preds = %if.end79, %land.lhs.true88, %if.then93, %if.end50
-  %host_off.0 = phi i64 [ %mul27, %if.end50 ], [ %add84, %if.then93 ], [ %add84, %land.lhs.true88 ], [ %add84, %if.end79 ]
   %to_allocate.1 = phi i64 [ %sub8, %if.end50 ], [ %to_allocate.0, %if.then93 ], [ %to_allocate.0, %land.lhs.true88 ], [ %to_allocate.0, %if.end79 ]
+  %host_off.0 = phi i64 [ %mul27, %if.end50 ], [ %add84, %if.then93 ], [ %add84, %land.lhs.true88 ], [ %add84, %if.end79 ]
   %backing = getelementptr inbounds i8, ptr %bs, i64 16832
   %33 = load ptr, ptr %backing, align 8
   %tobool.not = icmp eq ptr %33, null
@@ -2162,11 +2162,11 @@ for.body.lr.ph:                                   ; preds = %mark_used.exit
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %i.0136 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %host_off.1135 = phi i64 [ %host_off.0, %for.body.lr.ph ], [ %add152, %for.body ]
-  %add144 = add i64 %i.0136, %div
+  %host_off.1136 = phi i64 [ %host_off.0, %for.body.lr.ph ], [ %add152, %for.body ]
+  %i.0135 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %add144 = add i64 %i.0135, %div
   %conv145 = trunc i64 %add144 to i32
-  %div146105 = lshr i64 %host_off.1135, 9
+  %div146105 = lshr i64 %host_off.1136, 9
   %45 = load i32, ptr %1, align 4
   %conv147 = zext i32 %45 to i64
   %div148 = udiv i64 %div146105, %conv147
@@ -2184,8 +2184,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   call void @bitmap_set(ptr noundef %47, i64 noundef %conv.i123, i64 noundef 1) #15
   %49 = load i32, ptr %cluster_size150, align 8
   %conv151 = zext i32 %49 to i64
-  %add152 = add i64 %host_off.1135, %conv151
-  %inc = add nuw nsw i64 %i.0136, 1
+  %add152 = add i64 %host_off.1136, %conv151
+  %inc = add nuw nsw i64 %i.0135, 1
   %exitcond.not = icmp eq i64 %inc, %to_allocate.1
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 

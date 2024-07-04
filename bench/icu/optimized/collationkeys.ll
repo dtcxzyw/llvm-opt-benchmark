@@ -789,18 +789,18 @@ invoke.cont16:                                    ; preds = %if.end
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %invoke.cont16, %if.end457
-  %secSegmentStart.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %secSegmentStart.1, %if.end457 ]
-  %prevSecondary.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %prevSecondary.1, %if.end457 ]
-  %commonQuaternaries.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %commonQuaternaries.6, %if.end457 ]
-  %commonTertiaries.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %commonTertiaries.7, %if.end457 ]
-  %commonSecondaries.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %commonSecondaries.5, %if.end457 ]
-  %commonCases.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %commonCases.6, %if.end457 ]
   %prevReorderedPrimary.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %prevReorderedPrimary.2, %if.end457 ]
+  %commonCases.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %commonCases.6, %if.end457 ]
+  %commonSecondaries.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %commonSecondaries.5, %if.end457 ]
+  %commonTertiaries.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %commonTertiaries.7, %if.end457 ]
+  %commonQuaternaries.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %commonQuaternaries.6, %if.end457 ]
+  %prevSecondary.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %prevSecondary.1, %if.end457 ]
+  %secSegmentStart.0.ph = phi i32 [ 0, %invoke.cont16 ], [ %secSegmentStart.1, %if.end457 ]
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.outer, %if.end134
-  %commonQuaternaries.0 = phi i32 [ %commonQuaternaries.3, %if.end134 ], [ %commonQuaternaries.0.ph, %for.cond.outer ]
   %prevReorderedPrimary.0 = phi i32 [ %prevReorderedPrimary.2, %if.end134 ], [ %prevReorderedPrimary.0.ph, %for.cond.outer ]
+  %commonQuaternaries.0 = phi i32 [ %commonQuaternaries.3, %if.end134 ], [ %commonQuaternaries.0.ph, %for.cond.outer ]
   %5 = load i32, ptr %cesIndex.i, align 8
   %6 = load i32, ptr %ceBuffer.i, align 8
   %cmp.i253 = icmp eq i32 %5, %6
@@ -1357,9 +1357,9 @@ do.cond57:                                        ; preds = %invoke.cont52
   br i1 %56, label %do.body, label %if.end61, !llvm.loop !6
 
 if.end61:                                         ; preds = %do.cond57, %do.cond57.us, %invoke.cont21
+  %commonQuaternaries.3 = phi i32 [ %commonQuaternaries.0, %invoke.cont21 ], [ 0, %do.cond57.us ], [ 0, %do.cond57 ]
   %ce.0 = phi i64 [ %call22, %invoke.cont21 ], [ %call53.us, %do.cond57.us ], [ %call53, %do.cond57 ]
   %p.2 = phi i32 [ %conv, %invoke.cont21 ], [ %conv55.us, %do.cond57.us ], [ %conv55, %do.cond57 ]
-  %commonQuaternaries.3 = phi i32 [ %commonQuaternaries.0, %invoke.cont21 ], [ 0, %do.cond57.us ], [ 0, %do.cond57 ]
   %cmp62 = icmp ult i32 %p.2, 2
   %or.cond204 = or i1 %cmp65.not, %cmp62
   br i1 %or.cond204, label %if.end134, label %if.then66
@@ -1587,8 +1587,8 @@ if.then123:                                       ; preds = %land.lhs.true119
   br i1 %or.cond1526, label %cleanup.sink.split, label %cleanup
 
 if.end134:                                        ; preds = %if.end117, %land.lhs.true119, %if.end61
-  %p.4 = phi i32 [ %p.3, %if.end117 ], [ %p.3, %land.lhs.true119 ], [ %p.2, %if.end61 ]
   %prevReorderedPrimary.2 = phi i32 [ %prevReorderedPrimary.1, %if.end117 ], [ %prevReorderedPrimary.1, %land.lhs.true119 ], [ %prevReorderedPrimary.0, %if.end61 ]
+  %p.4 = phi i32 [ %p.3, %if.end117 ], [ %p.3, %land.lhs.true119 ], [ %p.2, %if.end61 ]
   %conv135 = trunc i64 %ce.0 to i32
   %cmp136 = icmp eq i32 %conv135, 0
   br i1 %cmp136, label %for.cond, label %if.end138, !llvm.loop !8
@@ -2245,9 +2245,9 @@ if.else.i701:                                     ; preds = %if.then.i700
   br label %if.end227
 
 if.end227:                                        ; preds = %if.else.i701, %if.then8.i, %if.then12.i.i726, %lor.lhs.false.i704, %if.then12.i, %if.then.i545, %if.then12.i.i573, %lor.lhs.false.i550, %if.then141, %invoke.cont218, %if.then152, %if.end138
-  %secSegmentStart.1 = phi i32 [ %secSegmentStart.0.ph, %if.then141 ], [ %secSegmentStart.0.ph, %if.then152 ], [ %secondaries.val222, %invoke.cont218 ], [ %secSegmentStart.0.ph, %if.end138 ], [ %secSegmentStart.0.ph, %lor.lhs.false.i550 ], [ %secSegmentStart.0.ph, %if.then12.i.i573 ], [ %secSegmentStart.0.ph, %if.then.i545 ], [ %secSegmentStart.0.ph, %if.then12.i ], [ %secSegmentStart.0.ph, %lor.lhs.false.i704 ], [ %secSegmentStart.0.ph, %if.then12.i.i726 ], [ %secSegmentStart.0.ph, %if.then8.i ], [ %secSegmentStart.0.ph, %if.else.i701 ]
-  %prevSecondary.1 = phi i32 [ %prevSecondary.0.ph, %if.then141 ], [ %prevSecondary.0.ph, %if.then152 ], [ 0, %invoke.cont218 ], [ %prevSecondary.0.ph, %if.end138 ], [ %prevSecondary.0.ph, %lor.lhs.false.i550 ], [ %prevSecondary.0.ph, %if.then12.i.i573 ], [ %prevSecondary.0.ph, %if.then.i545 ], [ %prevSecondary.0.ph, %if.then12.i ], [ %shr142, %lor.lhs.false.i704 ], [ %shr142, %if.then12.i.i726 ], [ %shr142, %if.then8.i ], [ %shr142, %if.else.i701 ]
   %commonSecondaries.5 = phi i32 [ %commonSecondaries.0.ph, %if.then141 ], [ %inc, %if.then152 ], [ %commonSecondaries.4, %invoke.cont218 ], [ %commonSecondaries.0.ph, %if.end138 ], [ 0, %lor.lhs.false.i550 ], [ 0, %if.then12.i.i573 ], [ 0, %if.then.i545 ], [ 0, %if.then12.i ], [ %commonSecondaries.4, %lor.lhs.false.i704 ], [ %commonSecondaries.4, %if.then12.i.i726 ], [ %commonSecondaries.4, %if.then8.i ], [ %commonSecondaries.4, %if.else.i701 ]
+  %prevSecondary.1 = phi i32 [ %prevSecondary.0.ph, %if.then141 ], [ %prevSecondary.0.ph, %if.then152 ], [ 0, %invoke.cont218 ], [ %prevSecondary.0.ph, %if.end138 ], [ %prevSecondary.0.ph, %lor.lhs.false.i550 ], [ %prevSecondary.0.ph, %if.then12.i.i573 ], [ %prevSecondary.0.ph, %if.then.i545 ], [ %prevSecondary.0.ph, %if.then12.i ], [ %shr142, %lor.lhs.false.i704 ], [ %shr142, %if.then12.i.i726 ], [ %shr142, %if.then8.i ], [ %shr142, %if.else.i701 ]
+  %secSegmentStart.1 = phi i32 [ %secSegmentStart.0.ph, %if.then141 ], [ %secSegmentStart.0.ph, %if.then152 ], [ %secondaries.val222, %invoke.cont218 ], [ %secSegmentStart.0.ph, %if.end138 ], [ %secSegmentStart.0.ph, %lor.lhs.false.i550 ], [ %secSegmentStart.0.ph, %if.then12.i.i573 ], [ %secSegmentStart.0.ph, %if.then.i545 ], [ %secSegmentStart.0.ph, %if.then12.i ], [ %secSegmentStart.0.ph, %lor.lhs.false.i704 ], [ %secSegmentStart.0.ph, %if.then12.i.i726 ], [ %secSegmentStart.0.ph, %if.then8.i ], [ %secSegmentStart.0.ph, %if.else.i701 ]
   br i1 %cmp229.not, label %if.end307, label %if.then230
 
 if.then230:                                       ; preds = %if.end227

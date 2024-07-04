@@ -95,9 +95,9 @@ define hidden ptr @pm_static_literals_add(ptr noundef %0, ptr nocapture noundef 
 40:                                               ; preds = %._crit_edge.i, %._crit_edge67.i
   %.pre-phi.i = phi i32 [ %.pre68.i, %._crit_edge67.i ], [ %25, %._crit_edge.i ]
   %41 = tail call fastcc i32 @node_hash(ptr noundef %0, ptr noundef nonnull %2)
-  %.04554.i = and i32 %41, %.pre-phi.i
+  %.054.i = and i32 %41, %.pre-phi.i
   %42 = load ptr, ptr %12, align 8
-  %43 = zext i32 %.04554.i to i64
+  %43 = zext i32 %.054.i to i64
   %44 = getelementptr ptr, ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8
   %.not5155.i = icmp eq ptr %45, null
@@ -112,10 +112,10 @@ define hidden ptr @pm_static_literals_add(ptr noundef %0, ptr nocapture noundef 
   br i1 %50, label %._crit_edge59.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph58.i.preheader, %.lr.ph58.i
-  %.04556.i39 = phi i32 [ %.045.i, %.lr.ph58.i ], [ %.04554.i, %.lr.ph58.i.preheader ]
-  %51 = add i32 %.04556.i39, 1
-  %.045.i = and i32 %51, %.pre-phi.i
-  %52 = zext i32 %.045.i to i64
+  %.056.i39 = phi i32 [ %.0.i, %.lr.ph58.i ], [ %.054.i, %.lr.ph58.i.preheader ]
+  %51 = add i32 %.056.i39, 1
+  %.0.i = and i32 %51, %.pre-phi.i
+  %52 = zext i32 %.0.i to i64
   %53 = getelementptr ptr, ptr %42, i64 %52
   %54 = load ptr, ptr %53, align 8
   %.not51.i = icmp eq ptr %54, null
@@ -252,9 +252,9 @@ define internal fastcc ptr @pm_node_hash_insert(ptr nocapture noundef %0, ptr no
 32:                                               ; preds = %._crit_edge67, %._crit_edge
   %.pre-phi = phi i32 [ %.pre68, %._crit_edge67 ], [ %17, %._crit_edge ]
   %33 = tail call fastcc i32 @node_hash(ptr noundef %1, ptr noundef %2)
-  %.04554 = and i32 %33, %.pre-phi
+  %.054 = and i32 %33, %.pre-phi
   %34 = load ptr, ptr %0, align 8
-  %35 = zext i32 %.04554 to i64
+  %35 = zext i32 %.054 to i64
   %36 = getelementptr ptr, ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8
   %.not5155 = icmp eq ptr %37, null
@@ -268,10 +268,10 @@ define internal fastcc ptr @pm_node_hash_insert(ptr nocapture noundef %0, ptr no
 
 .lr.ph79:                                         ; preds = %.lr.ph58.preheader, %.lr.ph58
   %.pre64.pre78 = phi ptr [ %.pre64.pre, %.lr.ph58 ], [ %.pre64.pre76, %.lr.ph58.preheader ]
-  %.0455677 = phi i32 [ %.045, %.lr.ph58 ], [ %.04554, %.lr.ph58.preheader ]
-  %40 = add i32 %.0455677, 1
-  %.045 = and i32 %40, %.pre-phi
-  %41 = zext i32 %.045 to i64
+  %.05677 = phi i32 [ %.0, %.lr.ph58 ], [ %.054, %.lr.ph58.preheader ]
+  %40 = add i32 %.05677, 1
+  %.0 = and i32 %40, %.pre-phi
+  %41 = zext i32 %.0 to i64
   %42 = getelementptr ptr, ptr %.pre64.pre78, i64 %41
   %43 = load ptr, ptr %42, align 8
   %.not51 = icmp eq ptr %43, null
@@ -312,8 +312,8 @@ define internal fastcc ptr @pm_node_hash_insert(ptr nocapture noundef %0, ptr no
   br label %56
 
 56:                                               ; preds = %10, %53
-  %.0 = phi ptr [ %55, %53 ], [ null, %10 ]
-  ret ptr %.0
+  %.045 = phi ptr [ %55, %53 ], [ null, %10 ]
+  ret ptr %.045
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

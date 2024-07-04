@@ -2991,7 +2991,7 @@ if.then.i1185:                                    ; preds = %_ZN4node21FIXED_ONE
   br label %_ZNK2v85MaybeIbE5CheckEv.exit1186
 
 _ZNK2v85MaybeIbE5CheckEv.exit1186:                ; preds = %if.then.i1185, %_ZN4node21FIXED_ONE_BYTE_STRINGILi12EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
-  call void @_ZN4node9SetMethodEN2v85LocalINS0_7ContextEEENS1_INS0_6ObjectEEESt17basic_string_viewIcSt11char_traitsIcEEPFvRKNS0_20FunctionCallbackInfoINS0_5ValueEEEE(ptr nonnull %context.coerce, ptr nonnull %target.coerce, i64 31, ptr nonnull @.str.31, ptr noundef nonnull @_ZN4node8v8_utils31UpdateHeapSpaceStatisticsBufferERKN2v820FunctionCallbackInfoINS1_5ValueEEE) #20
+  call void @_ZN4node9SetMethodEN2v85LocalINS0_7ContextEEENS1_INS0_6ObjectEEESt17basic_string_viewIcSt11char_traitsIcEEPFvRKNS0_20FunctionCallbackInfoINS0_5ValueEEEE(ptr nonnull %context.coerce, ptr %target.coerce, i64 31, ptr nonnull @.str.31, ptr noundef nonnull @_ZN4node8v8_utils31UpdateHeapSpaceStatisticsBufferERKN2v820FunctionCallbackInfoINS1_5ValueEEE) #20
   %21 = load ptr, ptr %isolate_.i, align 8
   %call.i.i97 = call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %21, ptr noundef nonnull @.str.32, i32 noundef 0, i32 noundef 19) #20
   %cmp.i.i.i.i98 = icmp eq ptr %call.i.i97, null

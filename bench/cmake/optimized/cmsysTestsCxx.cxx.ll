@@ -84,10 +84,10 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 25:                                               ; preds = %22, %2
   %26 = phi i32 [ %18, %22 ], [ 0, %2 ]
-  %.079 = phi i32 [ %18, %22 ], [ -1, %2 ]
+  %.078 = phi i32 [ %18, %22 ], [ -1, %2 ]
   %.072 = phi ptr [ %24, %22 ], [ %1, %2 ]
   %.071 = phi i32 [ %23, %22 ], [ %0, %2 ]
-  %27 = icmp eq i32 %.079, -1
+  %27 = icmp eq i32 %.078, -1
   %28 = icmp sgt i32 %.071, 1
   %or.cond = select i1 %27, i1 %28, i1 false
   br i1 %or.cond, label %sub_0, label %90
@@ -219,8 +219,8 @@ _ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.thread: ; preds = %47, %_ZN12_GLOB
 
 .thread114:                                       ; preds = %sub_0, %sub_1121, %.tail119, %90
   %91 = phi i1 [ false, %90 ], [ %41, %.tail119 ], [ %41, %sub_1121 ], [ false, %sub_0 ]
-  %.078107111116 = phi i32 [ 0, %90 ], [ %40, %.tail119 ], [ %40, %sub_1121 ], [ 0, %sub_0 ]
-  %92 = add nuw nsw i32 %.078107111116, 1
+  %.083106111116 = phi i32 [ 0, %90 ], [ %40, %.tail119 ], [ %40, %sub_1121 ], [ 0, %sub_0 ]
+  %92 = add nuw nsw i32 %.083106111116, 1
   %93 = zext nneg i32 %92 to i64
   %94 = getelementptr inbounds ptr, ptr %.072, i64 %93
   %95 = load ptr, ptr %94, align 8
@@ -252,8 +252,8 @@ _ZN12_GLOBAL__N_19lowercaseEPKc.exit:             ; preds = %.lr.ph.i97
   br i1 %27, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.thread114, %100, %_ZN12_GLOBAL__N_19lowercaseEPKc.exit
-  %.082166 = phi ptr [ %98, %_ZN12_GLOBAL__N_19lowercaseEPKc.exit ], [ %98, %100 ], [ null, %.thread114 ]
-  %109 = icmp eq i32 %.078107111116, 0
+  %.081166 = phi ptr [ %98, %_ZN12_GLOBAL__N_19lowercaseEPKc.exit ], [ %98, %100 ], [ null, %.thread114 ]
+  %109 = icmp eq i32 %.083106111116, 0
   br label %110
 
 110:                                              ; preds = %.lr.ph, %139
@@ -291,7 +291,7 @@ _ZN12_GLOBAL__N_19lowercaseEPKc.exit102:          ; preds = %.lr.ph.i99, %110, %
   br i1 %91, label %127, label %132
 
 127:                                              ; preds = %_ZN12_GLOBAL__N_19lowercaseEPKc.exit102
-  %128 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %115, ptr noundef nonnull dereferenceable(1) %.082166) #10
+  %128 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %115, ptr noundef nonnull dereferenceable(1) %.081166) #10
   %.not91 = icmp eq ptr %128, null
   br i1 %.not91, label %132, label %129
 
@@ -304,7 +304,7 @@ _ZN12_GLOBAL__N_19lowercaseEPKc.exit102:          ; preds = %.lr.ph.i99, %110, %
   br i1 %109, label %133, label %139
 
 133:                                              ; preds = %132
-  %134 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %115, ptr noundef nonnull dereferenceable(1) %.082166) #10
+  %134 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %115, ptr noundef nonnull dereferenceable(1) %.081166) #10
   %135 = icmp eq i32 %134, 0
   br i1 %135, label %136, label %139
 
@@ -314,30 +314,30 @@ _ZN12_GLOBAL__N_19lowercaseEPKc.exit102:          ; preds = %.lr.ph.i99, %110, %
   br label %139
 
 139:                                              ; preds = %132, %133, %136, %129
-  %.281 = phi i32 [ %126, %129 ], [ %126, %136 ], [ -1, %133 ], [ -1, %132 ]
+  %.280 = phi i32 [ %126, %129 ], [ %126, %136 ], [ -1, %133 ], [ -1, %132 ]
   %.274 = phi ptr [ %131, %129 ], [ %138, %136 ], [ %.173127, %133 ], [ %.173127, %132 ]
   %.2 = phi i32 [ %130, %129 ], [ %137, %136 ], [ %.1128, %133 ], [ %.1128, %132 ]
   call void @free(ptr noundef %115) #11
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %140 = icmp ult i64 %indvars.iv144, 10
-  %141 = icmp eq i32 %.281, -1
+  %141 = icmp eq i32 %.280, -1
   %142 = and i1 %141, %140
   br i1 %142, label %110, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge.thread:                               ; preds = %_ZN12_GLOBAL__N_19lowercaseEPKc.exit, %90
-  %.082167.ph = phi ptr [ %98, %_ZN12_GLOBAL__N_19lowercaseEPKc.exit ], [ null, %90 ]
-  call void @free(ptr noundef %.082167.ph) #11
+  %.081167.ph = phi ptr [ %98, %_ZN12_GLOBAL__N_19lowercaseEPKc.exit ], [ null, %90 ]
+  call void @free(ptr noundef %.081167.ph) #11
   br label %143
 
 ._crit_edge:                                      ; preds = %139
-  call void @free(ptr noundef %.082166) #11
+  call void @free(ptr noundef %.081166) #11
   br i1 %141, label %151, label %143
 
 143:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %.1.lcssa178 = phi i32 [ %.071, %._crit_edge.thread ], [ %.2, %._crit_edge ]
   %.173.lcssa177 = phi ptr [ %.072, %._crit_edge.thread ], [ %.274, %._crit_edge ]
-  %.180.lcssa176 = phi i32 [ %.079, %._crit_edge.thread ], [ %.281, %._crit_edge ]
-  %or.cond5 = icmp ugt i32 %.180.lcssa176, 10
+  %.179.lcssa176 = phi i32 [ %.078, %._crit_edge.thread ], [ %.280, %._crit_edge ]
+  %or.cond5 = icmp ugt i32 %.179.lcssa176, 10
   br i1 %or.cond5, label %144, label %146
 
 144:                                              ; preds = %143
@@ -345,7 +345,7 @@ _ZN12_GLOBAL__N_19lowercaseEPKc.exit102:          ; preds = %.lr.ph.i99, %110, %
   br label %161
 
 146:                                              ; preds = %143
-  %147 = zext nneg i32 %.180.lcssa176 to i64
+  %147 = zext nneg i32 %.179.lcssa176 to i64
   %148 = getelementptr inbounds [12 x %"struct.(anonymous namespace)::functionMapEntry"], ptr @_ZN12_GLOBAL__N_132cmakeGeneratedFunctionMapEntriesE, i64 0, i64 %147, i32 1
   %149 = load ptr, ptr %148, align 8
   %150 = call noundef i32 %149(i32 noundef %.1.lcssa178, ptr noundef %.173.lcssa177)

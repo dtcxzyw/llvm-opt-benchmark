@@ -105,10 +105,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z15fast_rv32i_cpopP11pro
 
 16:                                               ; preds = %.preheader, %16
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %16 ]
-  %.020 = phi i64 [ 0, %.preheader ], [ %spec.select, %16 ]
+  %.01519 = phi i64 [ 0, %.preheader ], [ %spec.select, %16 ]
   %17 = lshr i64 %10, %indvars.iv
   %18 = and i64 %17, 1
-  %spec.select = add i64 %18, %.020
+  %spec.select = add i64 %18, %.01519
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %19, label %16, !llvm.loop !4
@@ -177,10 +177,10 @@ define noundef i64 @_Z15fast_rv64i_cpopP11processor_t6insn_tm(ptr nocapture noun
 
 16:                                               ; preds = %.preheader, %16
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %16 ]
-  %.020 = phi i64 [ 0, %.preheader ], [ %spec.select, %16 ]
+  %.01519 = phi i64 [ 0, %.preheader ], [ %spec.select, %16 ]
   %17 = lshr i64 %10, %indvars.iv
   %18 = and i64 %17, 1
-  %spec.select = add i64 %18, %.020
+  %spec.select = add i64 %18, %.01519
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %19, label %16, !llvm.loop !6
@@ -231,10 +231,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17logged_rv32i_cpopP11p
 
 16:                                               ; preds = %.preheader, %16
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %16 ]
-  %.025 = phi i64 [ 0, %.preheader ], [ %spec.select, %16 ]
+  %.01824 = phi i64 [ 0, %.preheader ], [ %spec.select, %16 ]
   %17 = lshr i64 %10, %indvars.iv
   %18 = and i64 %17, 1
-  %spec.select = add i64 %18, %.025
+  %spec.select = add i64 %18, %.01824
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %19, label %16, !llvm.loop !7
@@ -346,10 +346,10 @@ define noundef i64 @_Z17logged_rv64i_cpopP11processor_t6insn_tm(ptr noundef %0, 
 
 16:                                               ; preds = %.preheader, %16
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %16 ]
-  %.025 = phi i64 [ 0, %.preheader ], [ %spec.select, %16 ]
+  %.01824 = phi i64 [ 0, %.preheader ], [ %spec.select, %16 ]
   %17 = lshr i64 %10, %indvars.iv
   %18 = and i64 %17, 1
-  %spec.select = add i64 %18, %.025
+  %spec.select = add i64 %18, %.01824
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %19, label %16, !llvm.loop !9
@@ -461,10 +461,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z15fast_rv32e_cpopP11pro
 
 17:                                               ; preds = %.preheader.split, %17
   %indvars.iv = phi i64 [ 0, %.preheader.split ], [ %indvars.iv.next, %17 ]
-  %.02032 = phi i64 [ 0, %.preheader.split ], [ %spec.select, %17 ]
+  %.01931 = phi i64 [ 0, %.preheader.split ], [ %spec.select, %17 ]
   %18 = lshr i64 %11, %indvars.iv
   %19 = and i64 %18, 1
-  %spec.select = add i64 %19, %.02032
+  %spec.select = add i64 %19, %.01931
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %25, label %17, !llvm.loop !10
@@ -551,10 +551,10 @@ define noundef i64 @_Z15fast_rv64e_cpopP11processor_t6insn_tm(ptr nocapture noun
 
 17:                                               ; preds = %.preheader.split, %17
   %indvars.iv = phi i64 [ 0, %.preheader.split ], [ %indvars.iv.next, %17 ]
-  %.02032 = phi i64 [ 0, %.preheader.split ], [ %spec.select, %17 ]
+  %.01931 = phi i64 [ 0, %.preheader.split ], [ %spec.select, %17 ]
   %18 = lshr i64 %11, %indvars.iv
   %19 = and i64 %18, 1
-  %spec.select = add i64 %19, %.02032
+  %spec.select = add i64 %19, %.01931
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %25, label %17, !llvm.loop !11
@@ -637,10 +637,10 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17logged_rv32e_cpopP11p
 
 17:                                               ; preds = %.preheader.split, %17
   %indvars.iv = phi i64 [ 0, %.preheader.split ], [ %indvars.iv.next, %17 ]
-  %.02337 = phi i64 [ 0, %.preheader.split ], [ %spec.select, %17 ]
+  %.02336 = phi i64 [ 0, %.preheader.split ], [ %spec.select, %17 ]
   %18 = lshr i64 %11, %indvars.iv
   %19 = and i64 %18, 1
-  %spec.select = add i64 %19, %.02337
+  %spec.select = add i64 %19, %.02336
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %25, label %17, !llvm.loop !12
@@ -784,10 +784,10 @@ define noundef i64 @_Z17logged_rv64e_cpopP11processor_t6insn_tm(ptr noundef %0, 
 
 17:                                               ; preds = %.preheader.split, %17
   %indvars.iv = phi i64 [ 0, %.preheader.split ], [ %indvars.iv.next, %17 ]
-  %.02337 = phi i64 [ 0, %.preheader.split ], [ %spec.select, %17 ]
+  %.02336 = phi i64 [ 0, %.preheader.split ], [ %spec.select, %17 ]
   %18 = lshr i64 %11, %indvars.iv
   %19 = and i64 %18, 1
-  %spec.select = add i64 %19, %.02337
+  %spec.select = add i64 %19, %.02336
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %25, label %17, !llvm.loop !13

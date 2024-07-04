@@ -457,12 +457,12 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream
   br i1 %.not32.i, label %.loopexit53.i, label %.preheader.i
 
 57:                                               ; preds = %.preheader.i
-  %58 = add nuw nsw i32 %.02646.i, 1
+  %58 = add nuw nsw i32 %.02546.i, 1
   %exitcond.not.i = icmp eq i32 %58, 5
   br i1 %exitcond.not.i, label %_ZN6google8protobuf2io16CodedInputStream20ReadVarint32FallbackEj.exit, label %.preheader.i, !llvm.loop !4
 
 .preheader.i:                                     ; preds = %50, %57
-  %.02646.i = phi i32 [ %58, %57 ], [ 0, %50 ]
+  %.02546.i = phi i32 [ %58, %57 ], [ 0, %50 ]
   %.04145.i = phi ptr [ %59, %57 ], [ %52, %50 ]
   %59 = getelementptr inbounds i8, ptr %.04145.i, i64 1
   %60 = load i8, ptr %.04145.i, align 1
@@ -471,8 +471,8 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream
 
 .loopexit53.i:                                    ; preds = %.preheader.i, %50, %43, %36, %28
   %.1.i = phi ptr [ %31, %28 ], [ %38, %36 ], [ %45, %43 ], [ %52, %50 ], [ %59, %.preheader.i ]
-  %.0.i = phi i32 [ %35, %28 ], [ %42, %36 ], [ %49, %43 ], [ %56, %50 ], [ %56, %.preheader.i ]
-  %61 = zext i32 %.0.i to i64
+  %.026.i = phi i32 [ %35, %28 ], [ %42, %36 ], [ %49, %43 ], [ %56, %50 ], [ %56, %.preheader.i ]
+  %61 = zext i32 %.026.i to i64
   store ptr %.1.i, ptr %0, align 8
   br label %_ZN6google8protobuf2io16CodedInputStream20ReadVarint32FallbackEj.exit
 
@@ -486,10 +486,10 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream
   br label %_ZN6google8protobuf2io16CodedInputStream20ReadVarint32FallbackEj.exit
 
 _ZN6google8protobuf2io16CodedInputStream20ReadVarint32FallbackEj.exit: ; preds = %57, %.loopexit53.i, %.thread14
-  %.025.i = phi i64 [ %61, %.loopexit53.i ], [ %67, %.thread14 ], [ -1, %57 ]
-  %68 = trunc i64 %.025.i to i32
+  %.0.i = phi i64 [ %61, %.loopexit53.i ], [ %67, %.thread14 ], [ -1, %57 ]
+  %68 = trunc i64 %.0.i to i32
   store i32 %68, ptr %1, align 4
-  %69 = icmp sgt i64 %.025.i, -1
+  %69 = icmp sgt i64 %.0.i, -1
   br label %70
 
 70:                                               ; preds = %_ZN6google8protobuf2io16CodedInputStream20ReadVarint32FallbackEj.exit, %11
@@ -1640,12 +1640,12 @@ define noundef range(i64 -1, 4294967296) i64 @_ZN6google8protobuf2io16CodedInput
   br i1 %.not32, label %.loopexit53, label %.preheader
 
 45:                                               ; preds = %.preheader
-  %46 = add nuw nsw i32 %.02646, 1
+  %46 = add nuw nsw i32 %.02546, 1
   %exitcond.not = icmp eq i32 %46, 5
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !4
 
 .preheader:                                       ; preds = %38, %45
-  %.02646 = phi i32 [ %46, %45 ], [ 0, %38 ]
+  %.02546 = phi i32 [ %46, %45 ], [ 0, %38 ]
   %.04145 = phi ptr [ %47, %45 ], [ %40, %38 ]
   %47 = getelementptr inbounds i8, ptr %.04145, i64 1
   %48 = load i8, ptr %.04145, align 1
@@ -1654,8 +1654,8 @@ define noundef range(i64 -1, 4294967296) i64 @_ZN6google8protobuf2io16CodedInput
 
 .loopexit53:                                      ; preds = %.preheader, %16, %24, %31, %38
   %.1 = phi ptr [ %19, %16 ], [ %26, %24 ], [ %33, %31 ], [ %40, %38 ], [ %47, %.preheader ]
-  %.0 = phi i32 [ %23, %16 ], [ %30, %24 ], [ %37, %31 ], [ %44, %38 ], [ %44, %.preheader ]
-  %49 = zext i32 %.0 to i64
+  %.026 = phi i32 [ %23, %16 ], [ %30, %24 ], [ %37, %31 ], [ %44, %38 ], [ %44, %.preheader ]
+  %49 = zext i32 %.026 to i64
   store ptr %.1, ptr %0, align 8
   br label %.loopexit
 
@@ -1669,8 +1669,8 @@ define noundef range(i64 -1, 4294967296) i64 @_ZN6google8protobuf2io16CodedInput
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %50, %.loopexit53
-  %.025 = phi i64 [ %49, %.loopexit53 ], [ %56, %50 ], [ -1, %45 ]
-  ret i64 %.025
+  %.0 = phi i64 [ %49, %.loopexit53 ], [ %56, %50 ], [ -1, %45 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2107,12 +2107,12 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream15ReadTagFallbackEj(
   br i1 %.not37, label %.loopexit, label %.preheader
 
 49:                                               ; preds = %.preheader
-  %50 = add nuw nsw i32 %.02948, 1
+  %50 = add nuw nsw i32 %.03048, 1
   %exitcond.not = icmp eq i32 %50, 5
   br i1 %exitcond.not, label %_ZN6google8protobuf2io16CodedInputStream11ReadTagSlowEv.exit, label %.preheader, !llvm.loop !4
 
 .preheader:                                       ; preds = %42, %49
-  %.02948 = phi i32 [ %50, %49 ], [ 0, %42 ]
+  %.03048 = phi i32 [ %50, %49 ], [ 0, %42 ]
   %.04547 = phi ptr [ %51, %49 ], [ %44, %42 ]
   %51 = getelementptr inbounds i8, ptr %.04547, i64 1
   %52 = load i8, ptr %.04547, align 1
@@ -2221,8 +2221,8 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.i: ; preds = %91,
   br label %_ZN6google8protobuf2io16CodedInputStream11ReadTagSlowEv.exit
 
 _ZN6google8protobuf2io16CodedInputStream11ReadTagSlowEv.exit: ; preds = %49, %100, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.i, %85, %79, %66, %.loopexit, %18
-  %.030 = phi i32 [ 0, %18 ], [ %.031.ph, %.loopexit ], [ 0, %66 ], [ %101, %100 ], [ 0, %85 ], [ 0, %79 ], [ 0, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.i ], [ 0, %49 ]
-  ret i32 %.030
+  %.029 = phi i32 [ 0, %18 ], [ %.031.ph, %.loopexit ], [ 0, %66 ], [ %101, %100 ], [ 0, %85 ], [ 0, %79 ], [ 0, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.i ], [ 0, %49 ]
+  ret i32 %.029
 }
 
 ; Function Attrs: mustprogress uwtable

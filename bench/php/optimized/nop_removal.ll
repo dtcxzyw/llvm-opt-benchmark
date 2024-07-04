@@ -36,9 +36,9 @@ define hidden void @zend_optimizer_nop_removal(ptr noundef %0, ptr nocapture nou
 
 .lr.ph:                                           ; preds = %12, %55
   %.0107123 = phi ptr [ %57, %55 ], [ %15, %12 ]
-  %.0108122 = phi i32 [ %.1109, %55 ], [ 0, %12 ]
-  %.0111121 = phi i32 [ %.1112, %55 ], [ 0, %12 ]
-  %.0113120 = phi i32 [ %56, %55 ], [ 0, %12 ]
+  %.0109122 = phi i32 [ %.1110, %55 ], [ 0, %12 ]
+  %.0111121 = phi i32 [ %56, %55 ], [ 0, %12 ]
+  %.0112120 = phi i32 [ %.1113, %55 ], [ 0, %12 ]
   %19 = getelementptr inbounds i8, ptr %.0107123, i64 28
   %20 = load i8, ptr %19, align 4
   %21 = icmp eq i8 %20, 42
@@ -50,7 +50,7 @@ define hidden void @zend_optimizer_nop_removal(ptr noundef %0, ptr nocapture nou
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i8, ptr %.0107123, i64 %25
   %27 = load ptr, ptr %14, align 8
-  %28 = zext i32 %.0113120 to i64
+  %28 = zext i32 %.0111121 to i64
   %29 = getelementptr inbounds %struct._zend_op, ptr %27, i64 %28
   %30 = icmp ugt ptr %26, %29
   br i1 %30, label %.preheader119, label %.thread
@@ -69,65 +69,65 @@ define hidden void @zend_optimizer_nop_removal(ptr noundef %0, ptr nocapture nou
 
 .thread134:                                       ; preds = %34
   store i8 0, ptr %19, align 4
-  %36 = add i32 %.0113120, 1
+  %36 = add i32 %.0111121, 1
   %37 = getelementptr inbounds i32, ptr %13, i64 %28
-  store i32 %.0111121, ptr %37, align 4
+  store i32 %.0109122, ptr %37, align 4
   br label %44
 
 .thread:                                          ; preds = %34, %22
-  %38 = add i32 %.0113120, 1
+  %38 = add i32 %.0111121, 1
   %39 = getelementptr inbounds i32, ptr %13, i64 %28
-  store i32 %.0111121, ptr %39, align 4
+  store i32 %.0109122, ptr %39, align 4
   br label %47
 
 40:                                               ; preds = %.lr.ph
-  %.pre = zext i32 %.0113120 to i64
-  %41 = add i32 %.0113120, 1
+  %.pre = zext i32 %.0111121 to i64
+  %41 = add i32 %.0111121, 1
   %42 = getelementptr inbounds i32, ptr %13, i64 %.pre
-  store i32 %.0111121, ptr %42, align 4
+  store i32 %.0109122, ptr %42, align 4
   %43 = icmp eq i8 %20, 0
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %.thread134, %40
   %45 = phi i32 [ %36, %.thread134 ], [ %41, %40 ]
-  %46 = add i32 %.0111121, 1
+  %46 = add i32 %.0109122, 1
   br label %55
 
 47:                                               ; preds = %.thread, %40
   %48 = phi i32 [ %38, %.thread ], [ %41, %40 ]
-  %.not118 = icmp eq i32 %.0111121, 0
+  %.not118 = icmp eq i32 %.0109122, 0
   br i1 %.not118, label %53, label %49
 
 49:                                               ; preds = %47
   %50 = load ptr, ptr %14, align 8
-  %51 = zext i32 %.0108122 to i64
+  %51 = zext i32 %.0112120 to i64
   %52 = getelementptr inbounds %struct._zend_op, ptr %50, i64 %51
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %.0107123, i64 32, i1 false)
   tail call void @zend_optimizer_migrate_jump(ptr noundef %0, ptr noundef %52, ptr noundef nonnull %.0107123) #5
   br label %53
 
 53:                                               ; preds = %49, %47
-  %54 = add i32 %.0108122, 1
+  %54 = add i32 %.0112120, 1
   br label %55
 
 55:                                               ; preds = %44, %53
   %56 = phi i32 [ %45, %44 ], [ %48, %53 ]
-  %.1112 = phi i32 [ %46, %44 ], [ %.0111121, %53 ]
-  %.1109 = phi i32 [ %.0108122, %44 ], [ %54, %53 ]
+  %.1113 = phi i32 [ %.0112120, %44 ], [ %54, %53 ]
+  %.1110 = phi i32 [ %46, %44 ], [ %.0109122, %53 ]
   %57 = getelementptr inbounds i8, ptr %.0107123, i64 32
   %58 = icmp ult ptr %57, %18
   br i1 %58, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %55
-  %59 = icmp eq i32 %.1112, 0
+  %59 = icmp eq i32 %.1110, 0
   br i1 %59, label %.loopexit, label %60
 
 60:                                               ; preds = %._crit_edge
-  store i32 %.1109, ptr %3, align 4
+  store i32 %.1113, ptr %3, align 4
   %61 = load ptr, ptr %14, align 8
-  %62 = zext i32 %.1109 to i64
+  %62 = zext i32 %.1113 to i64
   %63 = getelementptr inbounds %struct._zend_op, ptr %61, i64 %62
-  %.not131 = icmp eq i32 %.1109, 0
+  %.not131 = icmp eq i32 %.1113, 0
   br i1 %.not131, label %.preheader, label %.lr.ph127
 
 .preheader:                                       ; preds = %.lr.ph127, %60

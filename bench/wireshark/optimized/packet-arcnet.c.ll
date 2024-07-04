@@ -268,12 +268,12 @@ define internal fastcc void @dissect_arcnet_common(ptr noundef %0, ptr noundef %
   br label %44
 
 44:                                               ; preds = %41, %5
-  %.0 = phi i32 [ 4, %41 ], [ 2, %5 ]
-  %45 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0) #3
+  %.080 = phi i32 [ 4, %41 ], [ 2, %5 ]
+  %45 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.080) #3
   %46 = load i32, ptr @hf_arcnet_protID, align 4
   %47 = zext i8 %45 to i32
-  %48 = tail call ptr @proto_tree_add_uint(ptr noundef %34, i32 noundef %46, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef %47) #3
-  %49 = or disjoint i32 %.0, 1
+  %48 = tail call ptr @proto_tree_add_uint(ptr noundef %34, i32 noundef %46, ptr noundef %0, i32 noundef %.080, i32 noundef 1, i32 noundef %47) #3
+  %49 = or disjoint i32 %.080, 1
   switch i8 %45, label %50 [
     i8 -16, label %73
     i8 -15, label %73
@@ -291,21 +291,21 @@ define internal fastcc void @dissect_arcnet_common(ptr noundef %0, ptr noundef %
 54:                                               ; preds = %50
   %55 = load i32, ptr @hf_arcnet_exception_flag, align 4
   %56 = tail call ptr @proto_tree_add_uint(ptr noundef %34, i32 noundef %55, ptr noundef %0, i32 noundef %49, i32 noundef 1, i32 noundef 255) #3
-  %57 = add nuw nsw i32 %.0, 2
+  %57 = add nuw nsw i32 %.080, 2
   %58 = load i32, ptr @hf_arcnet_padding, align 4
   %59 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %58, ptr noundef %0, i32 noundef %57, i32 noundef 2, i32 noundef 0) #3
-  %60 = add nuw nsw i32 %.0, 4
+  %60 = add nuw nsw i32 %.080, 4
   %61 = load i32, ptr @hf_arcnet_protID, align 4
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %61, ptr noundef %0, i32 noundef %60, i32 noundef 1, i32 noundef 0) #3
-  %63 = add nuw nsw i32 %.0, 5
+  %63 = add nuw nsw i32 %.080, 5
   %64 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %63) #3
   br label %65
 
 65:                                               ; preds = %54, %50
-  %.080 = phi i8 [ %64, %54 ], [ %51, %50 ]
   %.1 = phi i32 [ %63, %54 ], [ %49, %50 ]
+  %.0 = phi i8 [ %64, %54 ], [ %51, %50 ]
   %66 = load i32, ptr @hf_arcnet_split_flag, align 4
-  %67 = zext i8 %.080 to i32
+  %67 = zext i8 %.0 to i32
   %68 = tail call ptr @proto_tree_add_uint(ptr noundef %34, i32 noundef %66, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef %67) #3
   %69 = add nuw nsw i32 %.1, 1
   %70 = load i32, ptr @hf_arcnet_sequence, align 4

@@ -1116,8 +1116,8 @@ Aig_ObjChild1CopyRepr.exit:                       ; preds = %Aig_ObjChild1Copy.e
   br i1 %.not.i.i67, label %Aig_ObjGetRepr.exit.thread, label %Aig_ObjRepr.exit.i
 
 Aig_ObjRepr.exit.i:                               ; preds = %Aig_ObjChild1CopyRepr.exit, %Aig_ObjGetRepr.exit
-  %.0 = phi ptr [ %120, %Aig_ObjGetRepr.exit ], [ %98, %Aig_ObjChild1CopyRepr.exit ]
-  %99 = ptrtoint ptr %.0 to i64
+  %.043 = phi ptr [ %120, %Aig_ObjGetRepr.exit ], [ %98, %Aig_ObjChild1CopyRepr.exit ]
+  %99 = ptrtoint ptr %.043 to i64
   %100 = and i64 %99, -2
   %101 = inttoptr i64 %100 to ptr
   %102 = getelementptr inbounds i8, ptr %101, i64 36
@@ -1143,11 +1143,11 @@ Aig_ObjGetRepr.exit:                              ; preds = %Aig_ObjRepr.exit.i
   %118 = zext nneg i32 %116 to i64
   %119 = xor i64 %118, %117
   %120 = inttoptr i64 %119 to ptr
-  %121 = icmp eq ptr %.0, %120
+  %121 = icmp eq ptr %.043, %120
   br i1 %121, label %Aig_ObjGetRepr.exit.thread, label %Aig_ObjRepr.exit.i
 
 Aig_ObjGetRepr.exit.thread:                       ; preds = %Aig_ObjGetRepr.exit, %Aig_ObjRepr.exit.i, %Aig_ObjChild1CopyRepr.exit
-  %.us-phi = phi ptr [ %98, %Aig_ObjChild1CopyRepr.exit ], [ %120, %Aig_ObjGetRepr.exit ], [ %.0, %Aig_ObjRepr.exit.i ]
+  %.us-phi = phi ptr [ %98, %Aig_ObjChild1CopyRepr.exit ], [ %120, %Aig_ObjGetRepr.exit ], [ %.043, %Aig_ObjRepr.exit.i ]
   %122 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %.us-phi, ptr %122, align 8
   br i1 %.not73, label %175, label %123
@@ -1248,8 +1248,8 @@ Dch_ObjCheckTfi.exit:                             ; preds = %153, %Aig_ObjEquiv.
   br label %167
 
 167:                                              ; preds = %167, %165
-  %.043 = phi ptr [ %131, %165 ], [ %172, %167 ]
-  %168 = getelementptr inbounds i8, ptr %.043, i64 36
+  %.0 = phi ptr [ %131, %165 ], [ %172, %167 ]
+  %168 = getelementptr inbounds i8, ptr %.0, i64 36
   %169 = load i32, ptr %168, align 4
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds ptr, ptr %166, i64 %170

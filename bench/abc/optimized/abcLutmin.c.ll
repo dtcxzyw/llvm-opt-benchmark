@@ -1473,14 +1473,14 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr nocapture noundef readonl
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   %.val113 = phi i32 [ %.val114123, %3 ], [ %.val113.pre, %._crit_edge.loopexit ]
   %.099.lcssa = phi i32 [ 0, %3 ], [ %.099.lcssa.ph, %._crit_edge.loopexit ]
-  %.1105 = phi ptr [ null, %3 ], [ %21, %._crit_edge.loopexit ]
-  %.1103 = phi ptr [ null, %3 ], [ %19, %._crit_edge.loopexit ]
+  %.1106 = phi ptr [ null, %3 ], [ %19, %._crit_edge.loopexit ]
+  %.1104 = phi ptr [ null, %3 ], [ %21, %._crit_edge.loopexit ]
   %.not109 = phi i1 [ false, %3 ], [ %.not, %._crit_edge.loopexit ]
   %28 = icmp eq i32 %.099.lcssa, %.val113
   br i1 %28, label %95, label %29
 
 29:                                               ; preds = %._crit_edge
-  %30 = select i1 %.not109, ptr %.1103, ptr %.1105
+  %30 = select i1 %.not109, ptr %.1106, ptr %.1104
   %31 = tail call ptr @Cudd_Support(ptr noundef %6, ptr noundef %30) #18
   tail call void @Cudd_Ref(ptr noundef %31) #18
   %.val112143 = load i32, ptr %9, align 4
@@ -1515,8 +1515,8 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %42, label %.lr.ph140._crit_edge, label %.lr.ph185, !llvm.loop !24
 
 .lr.ph185:                                        ; preds = %.lr.ph140.preheader, %.lr.ph140
-  %.0106139184 = phi ptr [ %44, %.lr.ph140 ], [ %31, %.lr.ph140.preheader ]
-  %43 = getelementptr inbounds i8, ptr %.0106139184, i64 16
+  %.0102139184 = phi ptr [ %44, %.lr.ph140 ], [ %31, %.lr.ph140.preheader ]
+  %43 = getelementptr inbounds i8, ptr %.0102139184, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = and i64 %45, -2
@@ -1544,12 +1544,12 @@ define ptr @Abc_NtkBddFindCofactor(ptr noundef %0, ptr nocapture noundef readonl
 .thread:                                          ; preds = %50, %.lr.ph140._crit_edge, %.preheader, %.lr.ph185, %29
   %.098 = phi i32 [ -1, %29 ], [ %.0100144, %.lr.ph185 ], [ %.0100144, %.preheader ], [ -1, %50 ], [ %.0100144, %.lr.ph140._crit_edge ]
   tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %31) #18
-  %53 = tail call ptr @Extra_TransferLevelByLevel(ptr noundef %6, ptr noundef %8, ptr noundef %.1103) #18
+  %53 = tail call ptr @Extra_TransferLevelByLevel(ptr noundef %6, ptr noundef %8, ptr noundef %.1106) #18
   tail call void @Cudd_Ref(ptr noundef %53) #18
-  %54 = tail call ptr @Extra_TransferLevelByLevel(ptr noundef %6, ptr noundef %8, ptr noundef %.1105) #18
+  %54 = tail call ptr @Extra_TransferLevelByLevel(ptr noundef %6, ptr noundef %8, ptr noundef %.1104) #18
   tail call void @Cudd_Ref(ptr noundef %54) #18
-  tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %.1103) #18
-  tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %.1105) #18
+  tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %.1106) #18
+  tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %.1104) #18
   %55 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #18
   %.val111150 = load i32, ptr %9, align 4
   %56 = icmp sgt i32 %.val111150, 0

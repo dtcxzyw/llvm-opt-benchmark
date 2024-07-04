@@ -261,11 +261,11 @@ while.cond.preheader.i:                           ; preds = %_ZL17strcmpAfterPre
   br i1 %cmp1274.i, label %while.body.i, label %return
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %if.end28.i
-  %start.078.i = phi i32 [ %start.1.i, %if.end28.i ], [ 1, %while.cond.preheader.i ]
-  %limit.077.i = phi i32 [ %limit.1.i, %if.end28.i ], [ %dec.i, %while.cond.preheader.i ]
+  %limit.078.i = phi i32 [ %limit.1.i, %if.end28.i ], [ %dec.i, %while.cond.preheader.i ]
+  %start.077.i = phi i32 [ %start.1.i, %if.end28.i ], [ 1, %while.cond.preheader.i ]
   %limitPrefixLength.076.i = phi i32 [ %limitPrefixLength.1.i, %if.end28.i ], [ %pl.0.lcssa.i35.i, %while.cond.preheader.i ]
   %startPrefixLength.075.i = phi i32 [ %startPrefixLength.1.i, %if.end28.i ], [ %pl.0.lcssa.i.i, %while.cond.preheader.i ]
-  %add.i = add nuw nsw i32 %limit.077.i, %start.078.i
+  %add.i = add nuw nsw i32 %start.077.i, %limit.078.i
   %div18.i = lshr i32 %add.i, 1
   %cond.i = tail call i32 @llvm.smin.i32(i32 %startPrefixLength.075.i, i32 %limitPrefixLength.076.i)
   %idxprom15.i = zext nneg i32 %div18.i to i64
@@ -315,8 +315,8 @@ if.else25.i:                                      ; preds = %if.else.i
 if.end28.i:                                       ; preds = %if.else25.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit64.i
   %startPrefixLength.1.i = phi i32 [ %pl.0.lcssa.i58.i, %if.else25.i ], [ %startPrefixLength.075.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit64.i ]
   %limitPrefixLength.1.i = phi i32 [ %limitPrefixLength.076.i, %if.else25.i ], [ %pl.0.lcssa.i58.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit64.i ]
-  %limit.1.i = phi i32 [ %limit.077.i, %if.else25.i ], [ %div18.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit64.i ]
-  %start.1.i = phi i32 [ %add26.i, %if.else25.i ], [ %start.078.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit64.i ]
+  %start.1.i = phi i32 [ %add26.i, %if.else25.i ], [ %start.077.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit64.i ]
+  %limit.1.i = phi i32 [ %limit.078.i, %if.else25.i ], [ %div18.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit64.i ]
   %cmp12.i = icmp slt i32 %start.1.i, %limit.1.i
   br i1 %cmp12.i, label %while.body.i, label %return, !llvm.loop !6
 
@@ -456,11 +456,11 @@ while.cond.preheader.i:                           ; preds = %_ZL17strcmpAfterPre
   br i1 %cmp1072.i, label %while.body.i, label %return
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %if.end24.i
-  %start.076.i = phi i32 [ %start.1.i, %if.end24.i ], [ 1, %while.cond.preheader.i ]
-  %limit.075.i = phi i32 [ %limit.1.i, %if.end24.i ], [ %dec.i, %while.cond.preheader.i ]
+  %limit.076.i = phi i32 [ %limit.1.i, %if.end24.i ], [ %dec.i, %while.cond.preheader.i ]
+  %start.075.i = phi i32 [ %start.1.i, %if.end24.i ], [ 1, %while.cond.preheader.i ]
   %limitPrefixLength.074.i = phi i32 [ %limitPrefixLength.1.i, %if.end24.i ], [ %pl.0.lcssa.i33.i, %while.cond.preheader.i ]
   %startPrefixLength.073.i = phi i32 [ %startPrefixLength.1.i, %if.end24.i ], [ %pl.0.lcssa.i.i, %while.cond.preheader.i ]
-  %add.i = add nuw nsw i32 %limit.075.i, %start.076.i
+  %add.i = add nuw nsw i32 %start.075.i, %limit.076.i
   %div16.i = lshr i32 %add.i, 1
   %cond.i = tail call i32 @llvm.smin.i32(i32 %startPrefixLength.073.i, i32 %limitPrefixLength.074.i)
   %idxprom13.i = zext nneg i32 %div16.i to i64
@@ -508,8 +508,8 @@ if.else21.i:                                      ; preds = %if.else.i
 if.end24.i:                                       ; preds = %if.else21.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit62.i
   %startPrefixLength.1.i = phi i32 [ %pl.0.lcssa.i56.i, %if.else21.i ], [ %startPrefixLength.073.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit62.i ]
   %limitPrefixLength.1.i = phi i32 [ %limitPrefixLength.074.i, %if.else21.i ], [ %pl.0.lcssa.i56.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit62.i ]
-  %limit.1.i = phi i32 [ %limit.075.i, %if.else21.i ], [ %div16.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit62.i ]
-  %start.1.i = phi i32 [ %add22.i, %if.else21.i ], [ %start.076.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit62.i ]
+  %start.1.i = phi i32 [ %add22.i, %if.else21.i ], [ %start.075.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit62.i ]
+  %limit.1.i = phi i32 [ %limit.076.i, %if.else21.i ], [ %div16.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit62.i ]
   %cmp10.i = icmp slt i32 %start.1.i, %limit.1.i
   br i1 %cmp10.i, label %while.body.i, label %return, !llvm.loop !7
 

@@ -1180,13 +1180,13 @@ define internal fastcc range(i32 2, 65539) i32 @awdl_add_tagged_field(ptr nounde
   br label %17
 
 17:                                               ; preds = %14, %11
-  %.058 = phi i32 [ %13, %11 ], [ %16, %14 ]
+  %.059 = phi i32 [ %13, %11 ], [ %16, %14 ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %25, label %18
 
 18:                                               ; preds = %17
   %19 = load i32, ptr @hf_awdl_tag, align 4
-  %20 = add nuw nsw i32 %.058, %4
+  %20 = add nuw nsw i32 %.059, %4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %19, ptr noundef %2, i32 noundef %3, i32 noundef %20, i32 noundef 0) #5
   %22 = tail call ptr @val_to_str_ext(i32 noundef %8, ptr noundef nonnull @tag_num_vals_ext, ptr noundef nonnull @.str.537) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef nonnull @.str.536, ptr noundef %22) #5
@@ -1195,17 +1195,17 @@ define internal fastcc range(i32 2, 65539) i32 @awdl_add_tagged_field(ptr nounde
   br label %25
 
 25:                                               ; preds = %18, %17
-  %.059 = phi ptr [ %21, %18 ], [ null, %17 ]
+  %.058 = phi ptr [ %21, %18 ], [ null, %17 ]
   %.0 = phi ptr [ %24, %18 ], [ null, %17 ]
   %26 = load i32, ptr @hf_awdl_tag_number, align 4
   %27 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %26, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef %8) #5
   %28 = load i32, ptr @hf_awdl_tag_length, align 4
   %29 = add i32 %3, 1
   %30 = add nsw i32 %4, -1
-  %31 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %28, ptr noundef %2, i32 noundef %29, i32 noundef %30, i32 noundef %.058) #5
+  %31 = tail call ptr @proto_tree_add_uint(ptr noundef %.0, i32 noundef %28, ptr noundef %2, i32 noundef %29, i32 noundef %30, i32 noundef %.059) #5
   %32 = add i32 %4, %3
   %33 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %32) #5
-  %34 = icmp ugt i32 %.058, %33
+  %34 = icmp ugt i32 %.059, %33
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %25
@@ -1213,8 +1213,8 @@ define internal fastcc range(i32 2, 65539) i32 @awdl_add_tagged_field(ptr nounde
   br label %37
 
 37:                                               ; preds = %35, %25
-  %38 = tail call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %32, i32 noundef %.058) #5
-  store ptr %.059, ptr %6, align 8
+  %38 = tail call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %32, i32 noundef %.059) #5
+  store ptr %.058, ptr %6, align 8
   %39 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %31, ptr %39, align 8
   %40 = load ptr, ptr @tagged_field_table, align 8
@@ -1224,26 +1224,26 @@ define internal fastcc range(i32 2, 65539) i32 @awdl_add_tagged_field(ptr nounde
 
 42:                                               ; preds = %37
   %43 = load i32, ptr @hf_awdl_tag_data, align 4
-  %44 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %43, ptr noundef %38, i32 noundef 0, i32 noundef %.058, i32 noundef 0) #5
+  %44 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %43, ptr noundef %38, i32 noundef 0, i32 noundef %.059, i32 noundef 0) #5
   %45 = call ptr @val_to_str_ext(i32 noundef %8, ptr noundef nonnull @tag_num_vals_ext, ptr noundef nonnull @.str.540) #5
   %46 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %27, ptr noundef nonnull @ei_awdl_tag_data, ptr noundef nonnull @.str.539, ptr noundef %45) #5
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.059, ptr noundef nonnull @.str.541) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.058, ptr noundef nonnull @.str.541) #5
   br label %54
 
 47:                                               ; preds = %37
   %48 = icmp sgt i32 %41, 0
-  %49 = icmp ult i32 %41, %.058
+  %49 = icmp ult i32 %41, %.059
   %or.cond = select i1 %48, i1 %49, i1 false
   br i1 %or.cond, label %50, label %54
 
 50:                                               ; preds = %47
   %51 = load i32, ptr @hf_awdl_tag_padding, align 4
-  %52 = sub nsw i32 %.058, %41
+  %52 = sub nsw i32 %.059, %41
   %53 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %51, ptr noundef %38, i32 noundef %41, i32 noundef %52, i32 noundef 0) #5
   br label %54
 
 54:                                               ; preds = %47, %50, %42
-  %55 = add nuw nsw i32 %.058, %4
+  %55 = add nuw nsw i32 %.059, %4
   ret i32 %55
 }
 
@@ -1509,41 +1509,41 @@ define internal i32 @awdl_tag_service_params(ptr noundef %0, ptr nocapture readn
   br i1 %.not, label %40, label %.preheader
 
 .preheader:                                       ; preds = %4, %37
-  %.04962 = phi i32 [ %.1, %37 ], [ 9, %4 ]
+  %.04962 = phi i32 [ %38, %37 ], [ 0, %4 ]
   %.05061 = phi i32 [ %.3, %37 ], [ 0, %4 ]
-  %.05360 = phi i32 [ %38, %37 ], [ 0, %4 ]
-  %17 = shl nuw i32 1, %.05360
+  %.05160 = phi i32 [ %.152, %37 ], [ 9, %4 ]
+  %17 = shl nuw i32 1, %.04962
   %18 = and i32 %17, %16
   %.not55 = icmp eq i32 %18, 0
   br i1 %.not55, label %37, label %19
 
 19:                                               ; preds = %.preheader
-  %20 = shl nuw nsw i32 %.05360, 3
+  %20 = shl nuw nsw i32 %.04962, 3
   %21 = load i32, ptr @hf_awdl_serviceparams_values, align 4
   %22 = load i32, ptr @ett_awdl_serviceparams_value, align 4
-  %23 = tail call ptr @proto_tree_add_bitmask(ptr noundef %12, ptr noundef %0, i32 noundef %.04962, i32 noundef %21, i32 noundef %22, ptr noundef nonnull @awdl_tag_service_params.value_fields, i32 noundef -2147483648) #5
-  %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.04962) #5
+  %23 = tail call ptr @proto_tree_add_bitmask(ptr noundef %12, ptr noundef %0, i32 noundef %.05160, i32 noundef %21, i32 noundef %22, ptr noundef nonnull @awdl_tag_service_params.value_fields, i32 noundef -2147483648) #5
+  %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.05160) #5
   %25 = zext i8 %24 to i32
   br label %26
 
 26:                                               ; preds = %19, %33
   %.058 = phi i32 [ 0, %19 ], [ %34, %33 ]
-  %.15157 = phi i32 [ %.05061, %19 ], [ %.252, %33 ]
+  %.157 = phi i32 [ %.05061, %19 ], [ %.2, %33 ]
   %27 = shl nuw nsw i32 1, %.058
   %28 = and i32 %27, %25
   %.not56 = icmp eq i32 %28, 0
   br i1 %.not56, label %33, label %29
 
 29:                                               ; preds = %26
-  %30 = icmp eq i32 %.15157, 0
+  %30 = icmp eq i32 %.157, 0
   %31 = or disjoint i32 %.058, %20
   %.str.555..str.556 = select i1 %30, ptr @.str.555, ptr @.str.556
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull %.str.555..str.556, i32 noundef %31) #5
-  %32 = add i32 %.15157, 1
+  %32 = add i32 %.157, 1
   br label %33
 
 33:                                               ; preds = %26, %29
-  %.252 = phi i32 [ %32, %29 ], [ %.15157, %26 ]
+  %.2 = phi i32 [ %32, %29 ], [ %.157, %26 ]
   %34 = add nuw nsw i32 %.058, 1
   %exitcond.not = icmp eq i32 %34, 8
   br i1 %exitcond.not, label %35, label %26, !llvm.loop !8
@@ -1551,23 +1551,23 @@ define internal i32 @awdl_tag_service_params(ptr noundef %0, ptr nocapture readn
 35:                                               ; preds = %33
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.556, i32 noundef %20) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.557, i32 noundef %20) #5
-  %36 = add i32 %.04962, 1
+  %36 = add i32 %.05160, 1
   br label %37
 
 37:                                               ; preds = %.preheader, %35
-  %.3 = phi i32 [ %.252, %35 ], [ %.05061, %.preheader ]
-  %.1 = phi i32 [ %36, %35 ], [ %.04962, %.preheader ]
-  %38 = add nuw nsw i32 %.05360, 1
+  %.152 = phi i32 [ %36, %35 ], [ %.05160, %.preheader ]
+  %.3 = phi i32 [ %.2, %35 ], [ %.05061, %.preheader ]
+  %38 = add nuw nsw i32 %.04962, 1
   %exitcond63.not = icmp eq i32 %38, 32
   br i1 %exitcond63.not, label %39, label %.preheader, !llvm.loop !9
 
 39:                                               ; preds = %37
-  tail call void @proto_item_set_end(ptr noundef %10, ptr noundef %0, i32 noundef %.1) #5
+  tail call void @proto_item_set_end(ptr noundef %10, ptr noundef %0, i32 noundef %.152) #5
   br label %40
 
 40:                                               ; preds = %39, %4
-  %.2 = phi i32 [ %.1, %39 ], [ 9, %4 ]
-  ret i32 %.2
+  %.253 = phi i32 [ %.152, %39 ], [ 9, %4 ]
+  ret i32 %.253
 }
 
 ; Function Attrs: nounwind uwtable

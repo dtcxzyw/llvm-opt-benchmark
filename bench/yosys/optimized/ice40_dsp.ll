@@ -6159,7 +6159,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1064:            ; preds = %_ZN5Yosys5RTLIL8IdS
   br label %common.resume
 
 381:                                              ; preds = %"_ZZN12_GLOBAL__N_116create_ice40_dspERNS_12ice40_dsp_pmEENK3$_0clEv.exit.thread", %_ZN5Yosys5RTLIL8IdStringD2Ev.exit, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1064
-  %.0425 = phi ptr [ %336, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1064 ], [ %274, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ], [ %274, %"_ZZN12_GLOBAL__N_116create_ice40_dspERNS_12ice40_dsp_pmEENK3$_0clEv.exit.thread" ]
+  %.0750 = phi ptr [ %336, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1064 ], [ %274, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit ], [ %274, %"_ZZN12_GLOBAL__N_116create_ice40_dspERNS_12ice40_dsp_pmEENK3$_0clEv.exit.thread" ]
   call void @_ZN5Yosys5RTLIL7SigSpecC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(64) %246)
   %382 = load ptr, ptr %242, align 8
   %383 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5Yosys5RTLIL4Cell8getParamERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %382, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID8A_SIGNEDE)
@@ -6351,7 +6351,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %435, %_ZN5Yosys5RTL
           to label %447 unwind label %440
 
 447:                                              ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1AE, ptr noundef nonnull %19)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1AE, ptr noundef nonnull %19)
           to label %448 unwind label %703
 
 448:                                              ; preds = %447
@@ -6406,7 +6406,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1080:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %462 unwind label %440
 
 462:                                              ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1080
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1BE, ptr noundef nonnull %20)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1BE, ptr noundef nonnull %20)
           to label %463 unwind label %705
 
 463:                                              ; preds = %462
@@ -6461,7 +6461,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1093:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %477 unwind label %440
 
 477:                                              ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1093
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1CE, ptr noundef nonnull %21)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1CE, ptr noundef nonnull %21)
           to label %478 unwind label %707
 
 478:                                              ; preds = %477
@@ -6516,7 +6516,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1106:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %492 unwind label %440
 
 492:                                              ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1106
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1DE, ptr noundef nonnull %22)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1DE, ptr noundef nonnull %22)
           to label %493 unwind label %709
 
 493:                                              ; preds = %492
@@ -6617,7 +6617,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1119:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %529 unwind label %711
 
 529:                                              ; preds = %525
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %24)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull %24)
           to label %530 unwind label %713
 
 530:                                              ; preds = %529
@@ -6710,7 +6710,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1127:            ; preds = %_ZN5Yosys5RTLIL5Con
           to label %571 unwind label %718
 
 571:                                              ; preds = %567
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull %26)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull %26)
           to label %572 unwind label %720
 
 572:                                              ; preds = %571
@@ -6803,7 +6803,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1135:            ; preds = %_ZN5Yosys5RTLIL5Con
           to label %613 unwind label %725
 
 613:                                              ; preds = %609
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %27, ptr noundef nonnull %28)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %27, ptr noundef nonnull %28)
           to label %614 unwind label %727
 
 614:                                              ; preds = %613
@@ -6895,7 +6895,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1143:            ; preds = %_ZN5Yosys5RTLIL5Con
           to label %654 unwind label %732
 
 654:                                              ; preds = %651
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef nonnull %30)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef nonnull %30)
           to label %655 unwind label %734
 
 655:                                              ; preds = %654
@@ -7875,7 +7875,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1229: ; preds =
           to label %974 unwind label %1179
 
 974:                                              ; preds = %973
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %61, ptr noundef nonnull %62)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %61, ptr noundef nonnull %62)
           to label %975 unwind label %1181
 
 975:                                              ; preds = %974
@@ -8001,7 +8001,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1250:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %1023 unwind label %1184
 
 1023:                                             ; preds = %1022
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %63, ptr noundef nonnull %64)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %63, ptr noundef nonnull %64)
           to label %1024 unwind label %1186
 
 1024:                                             ; preds = %1023
@@ -8127,7 +8127,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1269:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %1072 unwind label %1189
 
 1072:                                             ; preds = %1071
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %65, ptr noundef nonnull %66)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %65, ptr noundef nonnull %66)
           to label %1073 unwind label %1191
 
 1073:                                             ; preds = %1072
@@ -8253,7 +8253,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1288:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %1121 unwind label %1194
 
 1121:                                             ; preds = %1120
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %67, ptr noundef nonnull %68)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %67, ptr noundef nonnull %68)
           to label %1122 unwind label %1196
 
 1122:                                             ; preds = %1121
@@ -8958,7 +8958,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1353: ; preds =
           to label %1350 unwind label %1563
 
 1350:                                             ; preds = %1349
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %89, ptr noundef nonnull %90)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %89, ptr noundef nonnull %90)
           to label %1351 unwind label %1565
 
 1351:                                             ; preds = %1350
@@ -9084,7 +9084,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1374:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %1399 unwind label %1568
 
 1399:                                             ; preds = %1398
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %91, ptr noundef nonnull %92)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %91, ptr noundef nonnull %92)
           to label %1400 unwind label %1570
 
 1400:                                             ; preds = %1399
@@ -9178,7 +9178,7 @@ _ZNK5Yosys5RTLIL6SigBitneERKS1_.exit.thread:      ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %1434 unwind label %1199
 
 1434:                                             ; preds = %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit.thread
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID3CLKE, ptr noundef nonnull %93)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID3CLKE, ptr noundef nonnull %93)
           to label %1435 unwind label %1573
 
 1435:                                             ; preds = %1434
@@ -9275,7 +9275,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1407:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %1468 unwind label %1575
 
 1468:                                             ; preds = %1467
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %94, ptr noundef nonnull %95)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %94, ptr noundef nonnull %95)
           to label %1469 unwind label %1577
 
 1469:                                             ; preds = %1468
@@ -9405,7 +9405,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1426:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %1520 unwind label %1580
 
 1520:                                             ; preds = %1516
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %96, ptr noundef nonnull %97)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %96, ptr noundef nonnull %97)
           to label %1521 unwind label %1582
 
 1521:                                             ; preds = %1520
@@ -9687,7 +9687,7 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit1454: ; preds = %1614
           to label %1619 unwind label %1199
 
 1619:                                             ; preds = %1618
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID3CLKE, ptr noundef nonnull %99)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID3CLKE, ptr noundef nonnull %99)
           to label %1620 unwind label %1722
 
 1620:                                             ; preds = %1619
@@ -9784,7 +9784,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1467:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %1653 unwind label %1724
 
 1653:                                             ; preds = %1652
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %100, ptr noundef nonnull %101)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %100, ptr noundef nonnull %101)
           to label %1654 unwind label %1726
 
 1654:                                             ; preds = %1653
@@ -9910,7 +9910,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1486:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %1702 unwind label %1729
 
 1702:                                             ; preds = %1701
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %102, ptr noundef nonnull %103)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %102, ptr noundef nonnull %103)
           to label %1703 unwind label %1731
 
 1703:                                             ; preds = %1702
@@ -10043,7 +10043,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1494:            ; preds = %1718, %1711, %_ZN5Y
           to label %1755 unwind label %2013
 
 1755:                                             ; preds = %1754
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %104, ptr noundef nonnull %105)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %104, ptr noundef nonnull %105)
           to label %1756 unwind label %2015
 
 1756:                                             ; preds = %1755
@@ -10188,7 +10188,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1515:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %1810 unwind label %2024
 
 1810:                                             ; preds = %1809
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %106, ptr noundef nonnull %107)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %106, ptr noundef nonnull %107)
           to label %1811 unwind label %2026
 
 1811:                                             ; preds = %1810
@@ -10305,7 +10305,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1536:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %1855 unwind label %1199
 
 1855:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1536
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID2CIE, ptr noundef nonnull %113)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID2CIE, ptr noundef nonnull %113)
           to label %1856 unwind label %2032
 
 1856:                                             ; preds = %1855
@@ -10402,7 +10402,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1549:             ; preds = %_ZSt8_DestroyIPN5Yo
           to label %1889 unwind label %2034
 
 1889:                                             ; preds = %1888
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %114, ptr noundef nonnull %115)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %114, ptr noundef nonnull %115)
           to label %1890 unwind label %2036
 
 1890:                                             ; preds = %1889
@@ -10547,7 +10547,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1568:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %1944 unwind label %2045
 
 1944:                                             ; preds = %1943
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %116, ptr noundef nonnull %117)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %116, ptr noundef nonnull %117)
           to label %1945 unwind label %2047
 
 1945:                                             ; preds = %1944
@@ -10910,7 +10910,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i: ; preds = %2066, %2060
           to label %2078 unwind label %2053
 
 2078:                                             ; preds = %2076
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID2COE, ptr noundef nonnull %126)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID2COE, ptr noundef nonnull %126)
           to label %2079 unwind label %2093
 
 2079:                                             ; preds = %2078
@@ -10994,7 +10994,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1604:             ; preds = %2092, %_ZSt8_Destro
           to label %2102 unwind label %2138
 
 2102:                                             ; preds = %2101
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID2COE, ptr noundef nonnull %127)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID2COE, ptr noundef nonnull %127)
           to label %2103 unwind label %2140
 
 2103:                                             ; preds = %2102
@@ -11235,7 +11235,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1621:            ; preds = %2158, %2163, %2170
           to label %2186 unwind label %2053
 
 2186:                                             ; preds = %2185
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1OE, ptr noundef nonnull %138)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1OE, ptr noundef nonnull %138)
           to label %2187 unwind label %2221
 
 2187:                                             ; preds = %2186
@@ -11445,7 +11445,7 @@ _ZN5YosysL6log_idINS_5RTLIL4CellEEEPKcPT_S4_.exit1638: ; preds = %.thread2379
           to label %2275 unwind label %2406
 
 2275:                                             ; preds = %2270
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %139, ptr noundef nonnull %140)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %139, ptr noundef nonnull %140)
           to label %2276 unwind label %2408
 
 2276:                                             ; preds = %2275
@@ -11646,7 +11646,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1663:            ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %2362 unwind label %2411
 
 2362:                                             ; preds = %2357
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %142, ptr noundef nonnull %143)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %142, ptr noundef nonnull %143)
           to label %2363 unwind label %2413
 
 2363:                                             ; preds = %2362
@@ -11842,7 +11842,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1686:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %2436 unwind label %2515
 
 2436:                                             ; preds = %2435
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %145, ptr noundef nonnull %146)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %145, ptr noundef nonnull %146)
           to label %2437 unwind label %2517
 
 2437:                                             ; preds = %2436
@@ -11968,7 +11968,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1707:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %2485 unwind label %2520
 
 2485:                                             ; preds = %2484
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %147, ptr noundef nonnull %148)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %147, ptr noundef nonnull %148)
           to label %2486 unwind label %2522
 
 2486:                                             ; preds = %2485
@@ -12391,7 +12391,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1748: ; preds =
           to label %2628 unwind label %2734
 
 2628:                                             ; preds = %2627
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %159, ptr noundef nonnull %160)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %159, ptr noundef nonnull %160)
           to label %2629 unwind label %2736
 
 2629:                                             ; preds = %2628
@@ -12517,7 +12517,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1769:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %2677 unwind label %2739
 
 2677:                                             ; preds = %2676
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %161, ptr noundef nonnull %162)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %161, ptr noundef nonnull %162)
           to label %2678 unwind label %2741
 
 2678:                                             ; preds = %2677
@@ -12935,7 +12935,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1810: ; preds =
           to label %2817 unwind label %2908
 
 2817:                                             ; preds = %2816
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %173, ptr noundef nonnull %174)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %173, ptr noundef nonnull %174)
           to label %2818 unwind label %2910
 
 2818:                                             ; preds = %2817
@@ -13061,7 +13061,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1831:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %2866 unwind label %2913
 
 2866:                                             ; preds = %2865
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %175, ptr noundef nonnull %176)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %175, ptr noundef nonnull %176)
           to label %2867 unwind label %2915
 
 2867:                                             ; preds = %2866
@@ -13494,7 +13494,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1850:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %3013 unwind label %3567
 
 3013:                                             ; preds = %3012
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %194, ptr noundef nonnull %195)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %194, ptr noundef nonnull %195)
           to label %3014 unwind label %3569
 
 3014:                                             ; preds = %3013
@@ -13620,7 +13620,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1869:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %3062 unwind label %3572
 
 3062:                                             ; preds = %3061
-  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %196, ptr noundef nonnull %197)
+  invoke void @_ZN5Yosys5RTLIL4Cell7setPortERKNS0_8IdStringENS0_7SigSpecE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %196, ptr noundef nonnull %197)
           to label %3063 unwind label %3574
 
 3063:                                             ; preds = %3062
@@ -13750,7 +13750,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1888:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %3114 unwind label %3577
 
 3114:                                             ; preds = %3110
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %198, ptr noundef nonnull %199)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %198, ptr noundef nonnull %199)
           to label %3115 unwind label %3579
 
 3115:                                             ; preds = %3114
@@ -13842,7 +13842,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1896:            ; preds = %_ZN5Yosys5RTLIL5Con
           to label %3155 unwind label %3584
 
 3155:                                             ; preds = %3152
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %200, ptr noundef nonnull %201)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %200, ptr noundef nonnull %201)
           to label %3156 unwind label %3586
 
 3156:                                             ; preds = %3155
@@ -13934,7 +13934,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1904:            ; preds = %_ZN5Yosys5RTLIL5Con
           to label %3196 unwind label %3591
 
 3196:                                             ; preds = %3193
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %202, ptr noundef nonnull %203)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %202, ptr noundef nonnull %203)
           to label %3197 unwind label %3593
 
 3197:                                             ; preds = %3196
@@ -14027,7 +14027,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1912:            ; preds = %_ZN5Yosys5RTLIL5Con
           to label %3238 unwind label %3598
 
 3238:                                             ; preds = %3234
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %204, ptr noundef nonnull %205)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %204, ptr noundef nonnull %205)
           to label %3239 unwind label %3600
 
 3239:                                             ; preds = %3238
@@ -14116,7 +14116,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1920:            ; preds = %_ZN5Yosys5RTLIL5Con
           to label %3277 unwind label %3605
 
 3277:                                             ; preds = %3276
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %206, ptr noundef nonnull %207)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %206, ptr noundef nonnull %207)
           to label %3278 unwind label %3607
 
 3278:                                             ; preds = %3277
@@ -14207,7 +14207,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1928:            ; preds = %_ZN5Yosys5RTLIL5Con
           to label %3317 unwind label %3612
 
 3317:                                             ; preds = %3315
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %208, ptr noundef nonnull %209)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %208, ptr noundef nonnull %209)
           to label %3318 unwind label %3614
 
 3318:                                             ; preds = %3317
@@ -14296,7 +14296,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1936:            ; preds = %_ZN5Yosys5RTLIL5Con
           to label %3356 unwind label %3619
 
 3356:                                             ; preds = %3355
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %210, ptr noundef nonnull %211)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %210, ptr noundef nonnull %211)
           to label %3357 unwind label %3621
 
 3357:                                             ; preds = %3356
@@ -14385,7 +14385,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1944:            ; preds = %_ZN5Yosys5RTLIL5Con
           to label %3395 unwind label %3626
 
 3395:                                             ; preds = %3394
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %212, ptr noundef nonnull %213)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %212, ptr noundef nonnull %213)
           to label %3396 unwind label %3628
 
 3396:                                             ; preds = %3395
@@ -14474,7 +14474,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1952:            ; preds = %_ZN5Yosys5RTLIL5Con
           to label %3434 unwind label %3633
 
 3434:                                             ; preds = %3433
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %214, ptr noundef nonnull %215)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %214, ptr noundef nonnull %215)
           to label %3435 unwind label %3635
 
 3435:                                             ; preds = %3434
@@ -14563,7 +14563,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1960:            ; preds = %_ZN5Yosys5RTLIL5Con
           to label %3473 unwind label %3640
 
 3473:                                             ; preds = %3472
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %216, ptr noundef nonnull %217)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %216, ptr noundef nonnull %217)
           to label %3474 unwind label %3642
 
 3474:                                             ; preds = %3473
@@ -14652,7 +14652,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1968:            ; preds = %_ZN5Yosys5RTLIL5Con
           to label %3512 unwind label %3647
 
 3512:                                             ; preds = %3511
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %218, ptr noundef nonnull %219)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %218, ptr noundef nonnull %219)
           to label %3513 unwind label %3649
 
 3513:                                             ; preds = %3512
@@ -14709,7 +14709,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1976:            ; preds = %_ZN5Yosys5RTLIL5Con
           to label %3538 unwind label %2918
 
 3538:                                             ; preds = %3536
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID8A_SIGNEDE, ptr noundef nonnull %220)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID8A_SIGNEDE, ptr noundef nonnull %220)
           to label %3539 unwind label %3654
 
 3539:                                             ; preds = %3538
@@ -14737,7 +14737,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit1978:               ; preds = %3539, %3542
           to label %3549 unwind label %2918
 
 3549:                                             ; preds = %3547
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID8B_SIGNEDE, ptr noundef nonnull %221)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID8B_SIGNEDE, ptr noundef nonnull %221)
           to label %3550 unwind label %3659
 
 3550:                                             ; preds = %3549
@@ -14773,7 +14773,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit1980:               ; preds = %3550, %3553
           to label %3563 unwind label %3664
 
 3563:                                             ; preds = %3560
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %222, ptr noundef nonnull %223)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %222, ptr noundef nonnull %223)
           to label %3564 unwind label %3666
 
 3564:                                             ; preds = %3563
@@ -15111,7 +15111,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit2010:               ; preds = %3670, %3666, %3664
           to label %3673 unwind label %3677
 
 3673:                                             ; preds = %3672
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %224, ptr noundef nonnull %225)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %224, ptr noundef nonnull %225)
           to label %3674 unwind label %3679
 
 3674:                                             ; preds = %3673
@@ -15311,7 +15311,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2029:            ; preds = %_ZN5Yosys5RTLIL7Sig
           to label %3744 unwind label %3778
 
 3744:                                             ; preds = %3743
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %232, ptr noundef nonnull %233)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %232, ptr noundef nonnull %233)
           to label %3745 unwind label %3780
 
 3745:                                             ; preds = %3744
@@ -15472,7 +15472,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit2039:               ; preds = %3784, %3780, %3778
           to label %3807 unwind label %3868
 
 3807:                                             ; preds = %3804
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %234, ptr noundef nonnull %235)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %234, ptr noundef nonnull %235)
           to label %3808 unwind label %3870
 
 3808:                                             ; preds = %3807
@@ -15564,7 +15564,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit2047:            ; preds = %_ZN5Yosys5RTLIL5Con
           to label %3848 unwind label %3875
 
 3848:                                             ; preds = %3845
-  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0425, ptr noundef nonnull align 4 dereferenceable(4) %236, ptr noundef nonnull %237)
+  invoke void @_ZN5Yosys5RTLIL4Cell8setParamERKNS0_8IdStringENS0_5ConstE(ptr noundef nonnull align 8 dereferenceable(192) %.0750, ptr noundef nonnull align 4 dereferenceable(4) %236, ptr noundef nonnull %237)
           to label %3849 unwind label %3877
 
 3849:                                             ; preds = %3848
@@ -15652,7 +15652,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit2059:               ; preds = %3881, %3877, %3875
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit2037:            ; preds = %3864, %3857, %_ZN5Yosys5RTLIL5ConstD2Ev.exit2053, %3760, %3753, %_ZN5Yosys5RTLIL5ConstD2Ev.exit2035
   %3882 = load ptr, ptr %242, align 8
-  %.not977 = icmp eq ptr %.0425, %3882
+  %.not977 = icmp eq ptr %.0750, %3882
   br i1 %.not977, label %3887, label %3883
 
 3883:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit2037
@@ -31955,14 +31955,14 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %8
   br label %230
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.01673, i64 1
+  %30 = getelementptr inbounds i8, ptr %.073, i64 1
   %31 = load i8, ptr %30, align 1
   %.not19 = icmp eq i8 %31, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !284
 
 .lr.ph:                                           ; preds = %.preheader, %29
   %32 = phi i8 [ %31, %29 ], [ %7, %.preheader ]
-  %.01673 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
+  %.073 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
   %33 = icmp ult i8 %32, 33
   br i1 %33, label %34, label %29
 
@@ -32409,8 +32409,8 @@ _ZNSt6vectorIiSaIiEE2atEm.exit57:                 ; preds = %_ZNSt6vectorIPcSaIS
   br label %230
 
 230:                                              ; preds = %_ZNSt6vectorIiSaIiEE2atEm.exit57, %227, %1, %_ZNSt6vectorIiSaIiEE2atEm.exit
-  %.0 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
-  ret i32 %.0
+  %.016 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
+  ret i32 %.016
 }
 
 ; Function Attrs: mustprogress uwtable

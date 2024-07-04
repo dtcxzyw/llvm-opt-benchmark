@@ -8574,9 +8574,9 @@ invoke.cont10.thread.i:                           ; preds = %_ZNSt10shared_ptrIN
 for.body.i:                                       ; preds = %_ZNSt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEED2Ev.exit, %for.inc.i22
   %resolution_notes.sroa.0.021.i = phi ptr [ %resolution_notes.sroa.0.2.i, %for.inc.i22 ], [ null, %_ZNSt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEED2Ev.exit ]
   %resolution_notes.sroa.6.020.i = phi ptr [ %resolution_notes.sroa.6.2.i, %for.inc.i22 ], [ null, %_ZNSt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEED2Ev.exit ]
-  %resolution_notes.sroa.11.019.i = phi ptr [ %resolution_notes.sroa.11.2.i, %for.inc.i22 ], [ null, %_ZNSt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEED2Ev.exit ]
-  %__begin2.sroa.0.018.i = phi ptr [ %incdec.ptr.i.i23, %for.inc.i22 ], [ %this.val, %_ZNSt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEED2Ev.exit ]
-  %resolution_note.i17 = getelementptr inbounds i8, ptr %__begin2.sroa.0.018.i, i64 24
+  %__begin2.sroa.0.019.i = phi ptr [ %incdec.ptr.i.i23, %for.inc.i22 ], [ %this.val, %_ZNSt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEED2Ev.exit ]
+  %resolution_notes.sroa.11.018.i = phi ptr [ %resolution_notes.sroa.11.2.i, %for.inc.i22 ], [ null, %_ZNSt10shared_ptrIN9grpc_core25EndpointAddressesIteratorEED2Ev.exit ]
+  %resolution_note.i17 = getelementptr inbounds i8, ptr %__begin2.sroa.0.019.i, i64 24
   %call6.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %resolution_note.i17) #27, !noalias !89
   br i1 %call6.i, label %for.inc.i22, label %if.then.i18
 
@@ -8584,7 +8584,7 @@ if.then.i18:                                      ; preds = %for.body.i
   %call8.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %resolution_note.i17) #27, !noalias !89
   %46 = extractvalue { i64, ptr } %call8.i, 0
   %47 = extractvalue { i64, ptr } %call8.i, 1
-  %cmp.not.i.i.i19 = icmp eq ptr %resolution_notes.sroa.6.020.i, %resolution_notes.sroa.11.019.i
+  %cmp.not.i.i.i19 = icmp eq ptr %resolution_notes.sroa.6.020.i, %resolution_notes.sroa.11.018.i
   br i1 %cmp.not.i.i.i19, label %if.else.i.i.i, label %if.then.i.i.i20
 
 if.then.i.i.i20:                                  ; preds = %if.then.i18
@@ -8676,10 +8676,10 @@ if.then.i.i.i.i28:                                ; preds = %lpad.body.i25
   br label %ehcleanup
 
 for.inc.i22:                                      ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i, %if.then.i.i.i20, %for.body.i
-  %resolution_notes.sroa.11.2.i = phi ptr [ %resolution_notes.sroa.11.019.i, %for.body.i ], [ %add.ptr19.i.i.i.i, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ], [ %resolution_notes.sroa.11.019.i, %if.then.i.i.i20 ]
+  %resolution_notes.sroa.11.2.i = phi ptr [ %resolution_notes.sroa.11.018.i, %for.body.i ], [ %add.ptr19.i.i.i.i, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ], [ %resolution_notes.sroa.11.018.i, %if.then.i.i.i20 ]
   %resolution_notes.sroa.6.2.i = phi ptr [ %resolution_notes.sroa.6.020.i, %for.body.i ], [ %incdec.ptr.i.i.i.i, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ], [ %incdec.ptr.i.i.i21, %if.then.i.i.i20 ]
   %resolution_notes.sroa.0.2.i = phi ptr [ %resolution_notes.sroa.0.021.i, %for.body.i ], [ %cond.i10.i.i.i.i, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i ], [ %resolution_notes.sroa.0.021.i, %if.then.i.i.i20 ]
-  %incdec.ptr.i.i23 = getelementptr inbounds i8, ptr %__begin2.sroa.0.018.i, i64 88
+  %incdec.ptr.i.i23 = getelementptr inbounds i8, ptr %__begin2.sroa.0.019.i, i64 88
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i23, %this.val2
   br i1 %cmp.i.not.i, label %for.end.i24, label %for.body.i
 
@@ -10099,11 +10099,11 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc607
-  %priority_priorities.sroa.0.010433 = phi ptr [ null, %for.body.lr.ph ], [ %priority_priorities.sroa.0.1.lcssa, %for.inc607 ]
-  %priority_priorities.sroa.11.010429 = phi ptr [ null, %for.body.lr.ph ], [ %priority_priorities.sroa.11.1.lcssa, %for.inc607 ]
-  %__begin2.sroa.0.010428 = phi ptr [ %discovery_mechanisms_.val, %for.body.lr.ph ], [ %incdec.ptr.i1377, %for.inc607 ]
-  %priority_priorities.sroa.21.010427 = phi ptr [ null, %for.body.lr.ph ], [ %priority_priorities.sroa.21.1.lcssa, %for.inc607 ]
-  %latest_update = getelementptr inbounds i8, ptr %__begin2.sroa.0.010428, i64 8
+  %__begin2.sroa.0.010430 = phi ptr [ %discovery_mechanisms_.val, %for.body.lr.ph ], [ %incdec.ptr.i1377, %for.inc607 ]
+  %priority_priorities.sroa.21.010429 = phi ptr [ null, %for.body.lr.ph ], [ %priority_priorities.sroa.21.1.lcssa, %for.inc607 ]
+  %priority_priorities.sroa.11.010428 = phi ptr [ null, %for.body.lr.ph ], [ %priority_priorities.sroa.11.1.lcssa, %for.inc607 ]
+  %priority_priorities.sroa.0.010427 = phi ptr [ null, %for.body.lr.ph ], [ %priority_priorities.sroa.0.1.lcssa, %for.inc607 ]
+  %latest_update = getelementptr inbounds i8, ptr %__begin2.sroa.0.010430, i64 8
   %23 = load ptr, ptr %latest_update, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %24 = load atomic i8, ptr @_ZGVZN9grpc_core12_GLOBAL__N_121GetUpdatePriorityListERKNS_19XdsEndpointResourceEE30kPriorityListWithEmptyPriority acquire, align 8
@@ -10138,7 +10138,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i, %ini
   %cmp.i.i.i = icmp eq ptr %27, %28
   %spec.select.i = select i1 %cmp.i.i.i, ptr @_ZZN9grpc_core12_GLOBAL__N_121GetUpdatePriorityListERKNS_19XdsEndpointResourceEE30kPriorityListWithEmptyPriority, ptr %priorities.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i)
-  %call5.val88 = load ptr, ptr %__begin2.sroa.0.010428, align 8
+  %call5.val88 = load ptr, ptr %__begin2.sroa.0.010430, align 8
   %29 = getelementptr i8, ptr %call5.val88, i64 16
   %call5.val88.val = load ptr, ptr %29, align 8
   %30 = getelementptr i8, ptr %call5.val88, i64 24
@@ -10161,16 +10161,16 @@ for.body12.lr.ph:                                 ; preds = %invoke.cont
   %eds_service_name = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 144
   %_M_engaged.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 128
   %lrs_load_reporting_server = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 32
-  %priority_child_numbers.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.010428, i64 56
+  %priority_child_numbers.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.010430, i64 56
   br label %for.body12
 
 for.body12:                                       ; preds = %for.body12.lr.ph, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350
   %priority.010419 = phi i64 [ 0, %for.body12.lr.ph ], [ %inc, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
-  %priority_priorities.sroa.0.110418 = phi ptr [ %priority_priorities.sroa.0.010433, %for.body12.lr.ph ], [ %priority_priorities.sroa.0.212883, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
-  %priority_priorities.sroa.11.110414 = phi ptr [ %priority_priorities.sroa.11.010429, %for.body12.lr.ph ], [ %priority_priorities.sroa.11.212888, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
-  %priority_priorities.sroa.21.110413 = phi ptr [ %priority_priorities.sroa.21.010427, %for.body12.lr.ph ], [ %priority_priorities.sroa.21.212881, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
+  %priority_priorities.sroa.21.110415 = phi ptr [ %priority_priorities.sroa.21.010429, %for.body12.lr.ph ], [ %priority_priorities.sroa.21.212886, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
+  %priority_priorities.sroa.11.110414 = phi ptr [ %priority_priorities.sroa.11.010428, %for.body12.lr.ph ], [ %priority_priorities.sroa.11.212888, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
+  %priority_priorities.sroa.0.110413 = phi ptr [ %priority_priorities.sroa.0.010427, %for.body12.lr.ph ], [ %priority_priorities.sroa.0.212881, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 16
-  %call5.val87 = load ptr, ptr %__begin2.sroa.0.010428, align 8
+  %call5.val87 = load ptr, ptr %__begin2.sroa.0.010430, align 8
   %vtable = load ptr, ptr %call5.val87, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %35 = load ptr, ptr %vfn, align 8
@@ -10207,7 +10207,7 @@ _ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EED2Ev.exit: ; preds = %invoke
   br i1 %cmp.i.i, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EED2Ev.exit
-  %call5.val86 = load ptr, ptr %__begin2.sroa.0.010428, align 8
+  %call5.val86 = load ptr, ptr %__begin2.sroa.0.010430, align 8
   %vtable21 = load ptr, ptr %call5.val86, align 8
   %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 32
   %39 = load ptr, ptr %vfn22, align 8
@@ -14578,7 +14578,7 @@ invoke.cont331:                                   ; preds = %if.end311, %_ZN9grp
   store ptr %9, ptr %_M_left.i.i.i.i.i815, align 8
   store ptr %9, ptr %_M_right.i.i.i.i.i816, align 8
   store i64 0, ptr %_M_node_count.i.i.i.i.i817, align 8
-  %call5.val89 = load ptr, ptr %__begin2.sroa.0.010428, align 8
+  %call5.val89 = load ptr, ptr %__begin2.sroa.0.010430, align 8
   %494 = getelementptr i8, ptr %call5.val89, i64 16
   %call5.val89.val = load ptr, ptr %494, align 8
   %495 = getelementptr i8, ptr %call5.val89, i64 24
@@ -15859,7 +15859,7 @@ terminate.lpad.i.i.i.i1075:                       ; preds = %if.end.i.i.i1074
 
 _ZN9grpc_core12experimental4JsonD2Ev.exit1077:    ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit1070, %.noexc.i.i1076
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1071)
-  %this.val.i = load ptr, ptr %__begin2.sroa.0.010428, align 8, !noalias !186
+  %this.val.i = load ptr, ptr %__begin2.sroa.0.010430, align 8, !noalias !186
   %648 = getelementptr i8, ptr %this.val.i, i64 16
   %this.val.val.i = load ptr, ptr %648, align 8, !noalias !186
   %649 = getelementptr i8, ptr %this.val.i, i64 24
@@ -15942,7 +15942,7 @@ invoke.cont529:                                   ; preds = %.noexc2885, %.noexc
   store i8 3, ptr %_M_index.i.i.i.i.i.i.i.i.i.i1083, align 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i2872) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i2872)
-  %cmp.not.i = icmp eq ptr %priority_priorities.sroa.11.110414, %priority_priorities.sroa.21.110413
+  %cmp.not.i = icmp eq ptr %priority_priorities.sroa.11.110414, %priority_priorities.sroa.21.110415
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i1089
 
 if.then.i1089:                                    ; preds = %invoke.cont529
@@ -16066,8 +16066,8 @@ terminate.lpad.i.i.i.i.i1091:                     ; preds = %if.end.i.i.i.i.i.i.
   unreachable
 
 if.else.i:                                        ; preds = %invoke.cont529
-  %sub.ptr.lhs.cast.i.i.i2891 = ptrtoint ptr %priority_priorities.sroa.11.110414 to i64
-  %sub.ptr.rhs.cast.i.i.i2892 = ptrtoint ptr %priority_priorities.sroa.0.110418 to i64
+  %sub.ptr.lhs.cast.i.i.i2891 = ptrtoint ptr %priority_priorities.sroa.21.110415 to i64
+  %sub.ptr.rhs.cast.i.i.i2892 = ptrtoint ptr %priority_priorities.sroa.0.110413 to i64
   %sub.ptr.sub.i.i.i2893 = sub i64 %sub.ptr.lhs.cast.i.i.i2891, %sub.ptr.rhs.cast.i.i.i2892
   %cmp.i.i2894 = icmp eq i64 %sub.ptr.sub.i.i.i2893, 9223372036854775800
   br i1 %cmp.i.i2894, label %if.then.i.i2917, label %_ZNKSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE12_M_check_lenEmPKc.exit.i
@@ -16210,12 +16210,12 @@ terminate.lpad.i.i.i.i.i2908:                     ; preds = %if.end.i.i.i.i.i.i.
   unreachable
 
 _ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i2910: ; preds = %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEE7emplaceILm0EJS0_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS0_bS4_SA_SI_SL_EE4typeEDpT0_EERSR_E4typeEDpOSS_.exit.i.i.i.i.i2909, %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i2902
-  %cmp.not5.i.i.i.i = icmp eq ptr %priority_priorities.sroa.0.110418, %priority_priorities.sroa.11.110414
+  %cmp.not5.i.i.i.i = icmp eq ptr %priority_priorities.sroa.0.110413, %priority_priorities.sroa.21.110415
   br i1 %cmp.not5.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i, label %for.body.i.i.i.i2911
 
 for.body.i.i.i.i2911:                             ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i2910, %_ZSt19__relocate_object_aIN9grpc_core12experimental4JsonES2_SaIS2_EEvPT_PT0_RT1_.exit3770
   %__cur.07.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %_ZSt19__relocate_object_aIN9grpc_core12experimental4JsonES2_SaIS2_EEvPT_PT0_RT1_.exit3770 ], [ %cond.i10.i, %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i2910 ]
-  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i2912, %_ZSt19__relocate_object_aIN9grpc_core12experimental4JsonES2_SaIS2_EEvPT_PT0_RT1_.exit3770 ], [ %priority_priorities.sroa.0.110418, %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i2910 ]
+  %__first.addr.06.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i2912, %_ZSt19__relocate_object_aIN9grpc_core12experimental4JsonES2_SaIS2_EEvPT_PT0_RT1_.exit3770 ], [ %priority_priorities.sroa.0.110413, %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i2910 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !198)
   call void @llvm.experimental.noalias.scope.decl(metadata !201)
   %_M_index.i.i.i.i.i.i.i.i.i.i.i3758 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 48
@@ -16360,16 +16360,16 @@ _ZSt19__relocate_object_aIN9grpc_core12experimental4JsonES2_SaIS2_EEvPT_PT0_RT1_
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i3755), !noalias !203
   %incdec.ptr.i.i.i.i2912 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i, i64 56
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 56
-  %cmp.not.i.i.i.i2913 = icmp eq ptr %incdec.ptr.i.i.i.i2912, %priority_priorities.sroa.11.110414
+  %cmp.not.i.i.i.i2913 = icmp eq ptr %incdec.ptr.i.i.i.i2912, %priority_priorities.sroa.21.110415
   br i1 %cmp.not.i.i.i.i2913, label %_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i, label %for.body.i.i.i.i2911, !llvm.loop !161
 
 _ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i: ; preds = %_ZSt19__relocate_object_aIN9grpc_core12experimental4JsonES2_SaIS2_EEvPT_PT0_RT1_.exit3770, %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i2910
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt16allocator_traitsISaIN9grpc_core12experimental4JsonEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_.exit.i2910 ], [ %incdec.ptr1.i.i.i.i, %_ZSt19__relocate_object_aIN9grpc_core12experimental4JsonES2_SaIS2_EEvPT_PT0_RT1_.exit3770 ]
-  %tobool.not.i.i2915 = icmp eq ptr %priority_priorities.sroa.0.110418, null
+  %tobool.not.i.i2915 = icmp eq ptr %priority_priorities.sroa.0.110413, null
   br i1 %tobool.not.i.i2915, label %.noexc1096, label %if.then.i20.i
 
 if.then.i20.i:                                    ; preds = %_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i
-  call void @_ZdlPv(ptr noundef nonnull %priority_priorities.sroa.0.110418) #29
+  call void @_ZdlPv(ptr noundef nonnull %priority_priorities.sroa.0.110413) #29
   br label %.noexc1096
 
 .noexc1096:                                       ; preds = %if.then.i20.i, %_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit19.i
@@ -16377,9 +16377,9 @@ if.then.i20.i:                                    ; preds = %_ZNSt6vectorIN9grpc
   br label %invoke.cont531
 
 invoke.cont531:                                   ; preds = %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i, %.noexc1096
-  %priority_priorities.sroa.21.2.ph = phi ptr [ %priority_priorities.sroa.21.110413, %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i ], [ %add.ptr19.i, %.noexc1096 ]
+  %priority_priorities.sroa.0.2.ph = phi ptr [ %priority_priorities.sroa.0.110413, %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i ], [ %cond.i10.i, %.noexc1096 ]
   %__cur.0.lcssa.i.i.i.i.pn.ph = phi ptr [ %priority_priorities.sroa.11.110414, %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i ], [ %__cur.0.lcssa.i.i.i.i, %.noexc1096 ]
-  %priority_priorities.sroa.0.2.ph = phi ptr [ %priority_priorities.sroa.0.110418, %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i ], [ %cond.i10.i, %.noexc1096 ]
+  %priority_priorities.sroa.21.2.ph = phi ptr [ %priority_priorities.sroa.21.110415, %_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEC2EOSM_.exit.i.i.i.i ], [ %add.ptr19.i, %.noexc1096 ]
   %.pr12874 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i1083, align 16
   %priority_priorities.sroa.11.2 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.pn.ph, i64 56
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1097)
@@ -16388,8 +16388,8 @@ invoke.cont531:                                   ; preds = %_ZNSt7variantIJSt9m
 
 if.end.i.i.i1100:                                 ; preds = %invoke.cont531.thread, %invoke.cont531
   %priority_priorities.sroa.11.212887 = phi ptr [ %priority_priorities.sroa.11.212878, %invoke.cont531.thread ], [ %priority_priorities.sroa.11.2, %invoke.cont531 ]
-  %priority_priorities.sroa.0.212882 = phi ptr [ %priority_priorities.sroa.0.110418, %invoke.cont531.thread ], [ %priority_priorities.sroa.0.2.ph, %invoke.cont531 ]
-  %priority_priorities.sroa.21.212880 = phi ptr [ %priority_priorities.sroa.21.110413, %invoke.cont531.thread ], [ %priority_priorities.sroa.21.2.ph, %invoke.cont531 ]
+  %priority_priorities.sroa.21.212885 = phi ptr [ %priority_priorities.sroa.21.110415, %invoke.cont531.thread ], [ %priority_priorities.sroa.21.2.ph, %invoke.cont531 ]
+  %priority_priorities.sroa.0.212880 = phi ptr [ %priority_priorities.sroa.0.110413, %invoke.cont531.thread ], [ %priority_priorities.sroa.0.2.ph, %invoke.cont531 ]
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISD_S6_St4lessISD_ESaISt4pairIKSD_S6_EEESt6vectorIS6_SaIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_bS7_SD_SL_SO_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i1097, ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp527)
           to label %.noexc.i.i1102 unwind label %terminate.lpad.i.i.i.i1101
 
@@ -16406,8 +16406,8 @@ terminate.lpad.i.i.i.i1101:                       ; preds = %if.end.i.i.i1100
 
 _ZN9grpc_core12experimental4JsonD2Ev.exit1103:    ; preds = %invoke.cont531, %.noexc.i.i1102
   %priority_priorities.sroa.11.212888 = phi ptr [ %priority_priorities.sroa.11.2, %invoke.cont531 ], [ %priority_priorities.sroa.11.212887, %.noexc.i.i1102 ]
-  %priority_priorities.sroa.0.212883 = phi ptr [ %priority_priorities.sroa.0.2.ph, %invoke.cont531 ], [ %priority_priorities.sroa.0.212882, %.noexc.i.i1102 ]
-  %priority_priorities.sroa.21.212881 = phi ptr [ %priority_priorities.sroa.21.2.ph, %invoke.cont531 ], [ %priority_priorities.sroa.21.212880, %.noexc.i.i1102 ]
+  %priority_priorities.sroa.21.212886 = phi ptr [ %priority_priorities.sroa.21.2.ph, %invoke.cont531 ], [ %priority_priorities.sroa.21.212885, %.noexc.i.i1102 ]
+  %priority_priorities.sroa.0.212881 = phi ptr [ %priority_priorities.sroa.0.2.ph, %invoke.cont531 ], [ %priority_priorities.sroa.0.212880, %.noexc.i.i1102 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1097)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i1106)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i1106) #27
@@ -16615,7 +16615,7 @@ terminate.lpad.i.i.i.i.i1150:                     ; preds = %if.end.i.i.i.i1148
 _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit1152: ; preds = %arraydestroy.body556.preheader, %.noexc.i.i.i1151
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i1145)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp535) #27
-  %call5.val = load ptr, ptr %__begin2.sroa.0.010428, align 8
+  %call5.val = load ptr, ptr %__begin2.sroa.0.010430, align 8
   %vtable570 = load ptr, ptr %call5.val, align 8
   %vfn571 = getelementptr inbounds i8, ptr %vtable570, i64 40
   %727 = load ptr, ptr %vfn571, align 8
@@ -17362,29 +17362,29 @@ ehcleanup597:                                     ; preds = %lpad592, %ehcleanup
   br label %ehcleanup598
 
 ehcleanup598:                                     ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit1257, %lpad.body.i1109, %lpad.i1085.body, %ehcleanup597, %lpad530
-  %priority_priorities.sroa.11.3 = phi ptr [ %priority_priorities.sroa.11.110414, %lpad530 ], [ %priority_priorities.sroa.11.212888, %ehcleanup597 ], [ %priority_priorities.sroa.11.110414, %lpad.i1085.body ], [ %priority_priorities.sroa.11.212888, %lpad.body.i1109 ], [ %priority_priorities.sroa.11.212888, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit1257 ]
-  %priority_priorities.sroa.0.3 = phi ptr [ %priority_priorities.sroa.0.110418, %lpad530 ], [ %priority_priorities.sroa.0.212883, %ehcleanup597 ], [ %priority_priorities.sroa.0.110418, %lpad.i1085.body ], [ %priority_priorities.sroa.0.212883, %lpad.body.i1109 ], [ %priority_priorities.sroa.0.212883, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit1257 ]
+  %priority_priorities.sroa.0.3 = phi ptr [ %priority_priorities.sroa.0.110413, %lpad530 ], [ %priority_priorities.sroa.0.212881, %ehcleanup597 ], [ %priority_priorities.sroa.0.110413, %lpad.i1085.body ], [ %priority_priorities.sroa.0.212881, %lpad.body.i1109 ], [ %priority_priorities.sroa.0.212881, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit1257 ]
+  %priority_priorities.sroa.11.3 = phi ptr [ %priority_priorities.sroa.21.110415, %lpad530 ], [ %priority_priorities.sroa.11.212888, %ehcleanup597 ], [ %priority_priorities.sroa.11.110414, %lpad.i1085.body ], [ %priority_priorities.sroa.11.212888, %lpad.body.i1109 ], [ %priority_priorities.sroa.11.212888, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit1257 ]
   %.pn68.pn = phi { ptr, i32 } [ %lpad.phi4449, %lpad530 ], [ %.pn68, %ehcleanup597 ], [ %eh.lpad-body2886, %lpad.i1085.body ], [ %eh.lpad-body.i1110, %lpad.body.i1109 ], [ %723, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit1257 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %child_name) #27
   br label %ehcleanup599
 
 ehcleanup599:                                     ; preds = %ehcleanup598, %lpad525
+  %priority_priorities.sroa.0.4 = phi ptr [ %priority_priorities.sroa.0.3, %ehcleanup598 ], [ %priority_priorities.sroa.0.110413, %lpad525 ]
   %priority_priorities.sroa.11.4 = phi ptr [ %priority_priorities.sroa.11.3, %ehcleanup598 ], [ %priority_priorities.sroa.11.110414, %lpad525 ]
-  %priority_priorities.sroa.0.4 = phi ptr [ %priority_priorities.sroa.0.3, %ehcleanup598 ], [ %priority_priorities.sroa.0.110418, %lpad525 ]
   %.pn68.pn.pn = phi { ptr, i32 } [ %.pn68.pn, %ehcleanup598 ], [ %768, %lpad525 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %locality_picking_policy) #27
   br label %ehcleanup600
 
 ehcleanup600:                                     ; preds = %ehcleanup504, %ehcleanup419, %ehcleanup599, %lpad330.body
+  %priority_priorities.sroa.0.5 = phi ptr [ %priority_priorities.sroa.0.4, %ehcleanup599 ], [ %priority_priorities.sroa.0.110413, %ehcleanup504 ], [ %priority_priorities.sroa.0.110413, %ehcleanup419 ], [ %priority_priorities.sroa.0.110413, %lpad330.body ]
   %priority_priorities.sroa.11.5 = phi ptr [ %priority_priorities.sroa.11.4, %ehcleanup599 ], [ %priority_priorities.sroa.11.110414, %ehcleanup504 ], [ %priority_priorities.sroa.11.110414, %ehcleanup419 ], [ %priority_priorities.sroa.11.110414, %lpad330.body ]
-  %priority_priorities.sroa.0.5 = phi ptr [ %priority_priorities.sroa.0.4, %ehcleanup599 ], [ %priority_priorities.sroa.0.110418, %ehcleanup504 ], [ %priority_priorities.sroa.0.110418, %ehcleanup419 ], [ %priority_priorities.sroa.0.110418, %lpad330.body ]
   %.pn68.pn.pn.pn = phi { ptr, i32 } [ %.pn68.pn.pn, %ehcleanup599 ], [ %.pn63.pn, %ehcleanup504 ], [ %.pn58.pn.pn.pn, %ehcleanup419 ], [ %507, %lpad330.body ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %outlier_detection_config) #27
   br label %ehcleanup601
 
 ehcleanup601:                                     ; preds = %if.then.i.i.i684, %invoke.cont.i682, %invoke.cont.i682.thread, %lpad200, %lpad.i689.body, %ehcleanup600, %ehcleanup327, %ehcleanup309
+  %priority_priorities.sroa.0.6 = phi ptr [ %priority_priorities.sroa.0.5, %ehcleanup600 ], [ %priority_priorities.sroa.0.110413, %ehcleanup327 ], [ %priority_priorities.sroa.0.110413, %ehcleanup309 ], [ %priority_priorities.sroa.0.110413, %lpad.i689.body ], [ %priority_priorities.sroa.0.110413, %lpad200 ], [ %priority_priorities.sroa.0.110413, %invoke.cont.i682.thread ], [ %priority_priorities.sroa.0.110413, %invoke.cont.i682 ], [ %priority_priorities.sroa.0.110413, %if.then.i.i.i684 ]
   %priority_priorities.sroa.11.6 = phi ptr [ %priority_priorities.sroa.11.5, %ehcleanup600 ], [ %priority_priorities.sroa.11.110414, %ehcleanup327 ], [ %priority_priorities.sroa.11.110414, %ehcleanup309 ], [ %priority_priorities.sroa.11.110414, %lpad.i689.body ], [ %priority_priorities.sroa.11.110414, %lpad200 ], [ %priority_priorities.sroa.11.110414, %invoke.cont.i682.thread ], [ %priority_priorities.sroa.11.110414, %invoke.cont.i682 ], [ %priority_priorities.sroa.11.110414, %if.then.i.i.i684 ]
-  %priority_priorities.sroa.0.6 = phi ptr [ %priority_priorities.sroa.0.5, %ehcleanup600 ], [ %priority_priorities.sroa.0.110418, %ehcleanup327 ], [ %priority_priorities.sroa.0.110418, %ehcleanup309 ], [ %priority_priorities.sroa.0.110418, %lpad.i689.body ], [ %priority_priorities.sroa.0.110418, %lpad200 ], [ %priority_priorities.sroa.0.110418, %invoke.cont.i682.thread ], [ %priority_priorities.sroa.0.110418, %invoke.cont.i682 ], [ %priority_priorities.sroa.0.110418, %if.then.i.i.i684 ]
   %.pn73.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn68.pn.pn.pn, %ehcleanup600 ], [ %.pn56, %ehcleanup327 ], [ %.pn54, %ehcleanup309 ], [ %eh.lpad-body2300, %lpad.i689.body ], [ %396, %lpad200 ], [ %.pn52, %invoke.cont.i682.thread ], [ %.pn73.pn.pn.pn.pn, %invoke.cont.i682 ], [ %.pn73.pn.pn.pn.pn, %if.then.i.i.i684 ]
   %813 = load ptr, ptr %_M_parent.i.i.i.i.i353, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %xds_cluster_impl_config, ptr noundef %813)
@@ -17405,8 +17405,8 @@ ehcleanup602:                                     ; preds = %lpad.i252, %lpad.i1
   br label %ehcleanup603
 
 ehcleanup603:                                     ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit565, %ehcleanup188, %ehcleanup601, %ehcleanup602, %lpad.body.i133, %ehcleanup127, %ehcleanup
+  %priority_priorities.sroa.0.8 = phi ptr [ %priority_priorities.sroa.0.110413, %ehcleanup127 ], [ %priority_priorities.sroa.0.110413, %ehcleanup ], [ %priority_priorities.sroa.0.110413, %lpad.body.i133 ], [ %priority_priorities.sroa.0.110413, %ehcleanup602 ], [ %priority_priorities.sroa.0.6, %ehcleanup601 ], [ %priority_priorities.sroa.0.110413, %ehcleanup188 ], [ %priority_priorities.sroa.0.110413, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit565 ]
   %priority_priorities.sroa.11.8 = phi ptr [ %priority_priorities.sroa.11.110414, %ehcleanup127 ], [ %priority_priorities.sroa.11.110414, %ehcleanup ], [ %priority_priorities.sroa.11.110414, %lpad.body.i133 ], [ %priority_priorities.sroa.11.110414, %ehcleanup602 ], [ %priority_priorities.sroa.11.6, %ehcleanup601 ], [ %priority_priorities.sroa.11.110414, %ehcleanup188 ], [ %priority_priorities.sroa.11.110414, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit565 ]
-  %priority_priorities.sroa.0.8 = phi ptr [ %priority_priorities.sroa.0.110418, %ehcleanup127 ], [ %priority_priorities.sroa.0.110418, %ehcleanup ], [ %priority_priorities.sroa.0.110418, %lpad.body.i133 ], [ %priority_priorities.sroa.0.110418, %ehcleanup602 ], [ %priority_priorities.sroa.0.6, %ehcleanup601 ], [ %priority_priorities.sroa.0.110418, %ehcleanup188 ], [ %priority_priorities.sroa.0.110418, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit565 ]
   %.pn73.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn44.pn, %ehcleanup127 ], [ %.pn42, %ehcleanup ], [ %eh.lpad-body.i134, %lpad.body.i133 ], [ %.pn73.pn.pn.pn.pn.pn.pn, %ehcleanup602 ], [ %.pn73.pn.pn.pn.pn.pn, %ehcleanup601 ], [ %.pn47.pn, %ehcleanup188 ], [ %.pn47.pn, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit565 ]
   %816 = load ptr, ptr %_M_parent.i.i.i.i.i118, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12experimental4JsonEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull align 8 dereferenceable(48) %xds_override_host_lb_config, ptr noundef %816)
@@ -17420,8 +17420,8 @@ terminate.lpad.i.i1368:                           ; preds = %ehcleanup603
   unreachable
 
 ehcleanup604:                                     ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit175, %ehcleanup603, %lpad.body.i, %lpad14
+  %priority_priorities.sroa.0.9 = phi ptr [ %priority_priorities.sroa.0.110413, %lpad14 ], [ %priority_priorities.sroa.0.110413, %lpad.body.i ], [ %priority_priorities.sroa.0.8, %ehcleanup603 ], [ %priority_priorities.sroa.0.110413, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit175 ]
   %priority_priorities.sroa.11.9 = phi ptr [ %priority_priorities.sroa.11.110414, %lpad14 ], [ %priority_priorities.sroa.11.110414, %lpad.body.i ], [ %priority_priorities.sroa.11.8, %ehcleanup603 ], [ %priority_priorities.sroa.11.110414, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit175 ]
-  %priority_priorities.sroa.0.9 = phi ptr [ %priority_priorities.sroa.0.110418, %lpad14 ], [ %priority_priorities.sroa.0.110418, %lpad.body.i ], [ %priority_priorities.sroa.0.8, %ehcleanup603 ], [ %priority_priorities.sroa.0.110418, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit175 ]
   %.pn73.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %54, %lpad14 ], [ %eh.lpad-body.i, %lpad.body.i ], [ %.pn73.pn.pn.pn.pn.pn.pn.pn, %ehcleanup603 ], [ %72, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit175 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i1370)
   %819 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 16
@@ -17448,17 +17448,17 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit1376:    ; preds = %ehcleanup604, %.noe
   br label %ehcleanup793
 
 for.inc607:                                       ; preds = %_ZN9grpc_core12experimental4JsonD2Ev.exit1350, %invoke.cont
-  %priority_priorities.sroa.21.1.lcssa = phi ptr [ %priority_priorities.sroa.21.010427, %invoke.cont ], [ %priority_priorities.sroa.21.212881, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
-  %priority_priorities.sroa.11.1.lcssa = phi ptr [ %priority_priorities.sroa.11.010429, %invoke.cont ], [ %priority_priorities.sroa.11.212888, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
-  %priority_priorities.sroa.0.1.lcssa = phi ptr [ %priority_priorities.sroa.0.010433, %invoke.cont ], [ %priority_priorities.sroa.0.212883, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
-  %incdec.ptr.i1377 = getelementptr inbounds i8, ptr %__begin2.sroa.0.010428, i64 88
+  %priority_priorities.sroa.0.1.lcssa = phi ptr [ %priority_priorities.sroa.0.010427, %invoke.cont ], [ %priority_priorities.sroa.0.212881, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
+  %priority_priorities.sroa.11.1.lcssa = phi ptr [ %priority_priorities.sroa.11.010428, %invoke.cont ], [ %priority_priorities.sroa.11.212888, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
+  %priority_priorities.sroa.21.1.lcssa = phi ptr [ %priority_priorities.sroa.21.010429, %invoke.cont ], [ %priority_priorities.sroa.21.212886, %_ZN9grpc_core12experimental4JsonD2Ev.exit1350 ]
+  %incdec.ptr.i1377 = getelementptr inbounds i8, ptr %__begin2.sroa.0.010430, i64 88
   %cmp.i.not = icmp eq ptr %incdec.ptr.i1377, %discovery_mechanisms_.val84
   br i1 %cmp.i.not, label %for.end609, label %for.body
 
 for.end609:                                       ; preds = %for.inc607, %entry
-  %priority_priorities.sroa.21.0.lcssa = phi ptr [ null, %entry ], [ %priority_priorities.sroa.21.1.lcssa, %for.inc607 ]
-  %priority_priorities.sroa.11.0.lcssa = phi ptr [ null, %entry ], [ %priority_priorities.sroa.11.1.lcssa, %for.inc607 ]
   %priority_priorities.sroa.0.0.lcssa = phi ptr [ null, %entry ], [ %priority_priorities.sroa.0.1.lcssa, %for.inc607 ]
+  %priority_priorities.sroa.11.0.lcssa = phi ptr [ null, %entry ], [ %priority_priorities.sroa.11.1.lcssa, %for.inc607 ]
+  %priority_priorities.sroa.21.0.lcssa = phi ptr [ null, %entry ], [ %priority_priorities.sroa.21.1.lcssa, %for.inc607 ]
   %_M_index.i.i.i.i.i.i.i.i.i.i1378 = getelementptr inbounds i8, ptr %ref.tmp626, i64 48
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i1378, align 8, !alias.scope !211
   %call.i1379 = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEaSISI_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS0_bS4_SA_SI_SL_EE4typeEE18is_constructible_vIST_SQ_E15is_assignable_vIRST_SQ_EERSM_E4typeESR_(ptr noundef nonnull align 8 dereferenceable(49) %ref.tmp626, ptr noundef nonnull align 8 dereferenceable(48) %priority_children) #27
@@ -18187,8 +18187,8 @@ ehcleanup791:                                     ; preds = %ehcleanup789, %lpad
   br label %_ZNSt6vectorIN9grpc_core12experimental4JsonESaIS2_EED2Ev.exit1568
 
 ehcleanup793:                                     ; preds = %ehcleanup714.thread, %lpad.i, %_ZN9grpc_core12experimental4JsonD2Ev.exit1376
-  %priority_priorities.sroa.11.12 = phi ptr [ %priority_priorities.sroa.11.9, %_ZN9grpc_core12experimental4JsonD2Ev.exit1376 ], [ %priority_priorities.sroa.11.010429, %lpad.i ], [ %priority_priorities.sroa.11.0.lcssa, %ehcleanup714.thread ]
-  %priority_priorities.sroa.0.12 = phi ptr [ %priority_priorities.sroa.0.9, %_ZN9grpc_core12experimental4JsonD2Ev.exit1376 ], [ %priority_priorities.sroa.0.010433, %lpad.i ], [ %priority_priorities.sroa.0.0.lcssa, %ehcleanup714.thread ]
+  %priority_priorities.sroa.0.12 = phi ptr [ %priority_priorities.sroa.0.9, %_ZN9grpc_core12experimental4JsonD2Ev.exit1376 ], [ %priority_priorities.sroa.0.010427, %lpad.i ], [ %priority_priorities.sroa.0.0.lcssa, %ehcleanup714.thread ]
+  %priority_priorities.sroa.11.12 = phi ptr [ %priority_priorities.sroa.11.9, %_ZN9grpc_core12experimental4JsonD2Ev.exit1376 ], [ %priority_priorities.sroa.11.010428, %lpad.i ], [ %priority_priorities.sroa.11.0.lcssa, %ehcleanup714.thread ]
   %.pn73.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn73.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN9grpc_core12experimental4JsonD2Ev.exit1376 ], [ %26, %lpad.i ], [ %862, %ehcleanup714.thread ]
   %cmp.not.i.i1.i1557 = icmp eq ptr %priority_priorities.sroa.0.12, %priority_priorities.sroa.11.12
   br i1 %cmp.not.i.i1.i1557, label %invoke.cont.i1564, label %for.body.i.i.i1558

@@ -98,10 +98,10 @@ define i16 @softfloat_mulAddF16(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   %54 = or i64 %53, 16384
   %55 = mul i64 %54, %52
   %56 = icmp ult i64 %55, 536870912
-  %.0146.v = select i1 %56, i8 -15, i8 -14
-  %.0146 = add i8 %50, %.0146.v
+  %.0142.v = select i1 %56, i8 -15, i8 -14
+  %.0142 = add i8 %50, %.0142.v
   %57 = zext i1 %56 to i64
-  %.0145 = shl nuw nsw i64 %55, %57
+  %.0141 = shl nuw nsw i64 %55, %57
   %.not166 = icmp eq i8 %19, 0
   br i1 %.not166, label %58, label %70
 
@@ -110,9 +110,9 @@ define i16 @softfloat_mulAddF16(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br i1 %.not167, label %59, label %66
 
 59:                                               ; preds = %58
-  %60 = add i8 %.0146, -1
-  %61 = lshr i64 %.0145, 15
-  %62 = and i64 %.0145, 32512
+  %60 = add i8 %.0142, -1
+  %61 = lshr i64 %.0141, 15
+  %62 = and i64 %.0141, 32512
   %63 = icmp ne i64 %62, 0
   %64 = zext i1 %63 to i64
   %65 = or i64 %61, %64
@@ -125,11 +125,11 @@ define i16 @softfloat_mulAddF16(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   br label %70
 
 70:                                               ; preds = %66, %49
-  %.0135 = phi i64 [ %20, %49 ], [ %69, %66 ]
+  %.0146 = phi i64 [ %20, %49 ], [ %69, %66 ]
   %.0134 = phi i8 [ %19, %49 ], [ %68, %66 ]
-  %71 = shl i64 %.0135, 3
+  %71 = shl i64 %.0146, 3
   %72 = or i64 %71, 8192
-  %73 = sub i8 %.0146, %.0134
+  %73 = sub i8 %.0142, %.0134
   %74 = xor i1 %25, %16
   br i1 %74, label %122, label %75
 
@@ -139,7 +139,7 @@ define i16 @softfloat_mulAddF16(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
 
 77:                                               ; preds = %75
   %78 = sext i8 %73 to i64
-  %79 = trunc i64 %.0145 to i32
+  %79 = trunc i64 %.0141 to i32
   %80 = sub nsw i64 16, %78
   %81 = icmp ult i64 %80, 31
   br i1 %81, label %82, label %91
@@ -186,7 +186,7 @@ softfloat_shiftRightJam32.exit:                   ; preds = %82, %91
 
 softfloat_shiftRightJam32.exit178:                ; preds = %97, %99
   %110 = phi i64 [ %109, %99 ], [ 1, %97 ]
-  %111 = add i64 %110, %.0145
+  %111 = add i64 %110, %.0141
   %112 = lshr i64 %111, 16
   %113 = and i64 %111, 65535
   %114 = icmp ne i64 %113, 0
@@ -195,14 +195,14 @@ softfloat_shiftRightJam32.exit178:                ; preds = %97, %99
   br label %117
 
 117:                                              ; preds = %softfloat_shiftRightJam32.exit178, %softfloat_shiftRightJam32.exit
-  %.0141 = phi i8 [ %.0134, %softfloat_shiftRightJam32.exit ], [ %.0146, %softfloat_shiftRightJam32.exit178 ]
-  %.0139 = phi i64 [ %96, %softfloat_shiftRightJam32.exit ], [ %116, %softfloat_shiftRightJam32.exit178 ]
-  %118 = icmp ult i64 %.0139, 16384
+  %.0137 = phi i8 [ %.0134, %softfloat_shiftRightJam32.exit ], [ %.0142, %softfloat_shiftRightJam32.exit178 ]
+  %.0136 = phi i64 [ %96, %softfloat_shiftRightJam32.exit ], [ %116, %softfloat_shiftRightJam32.exit178 ]
+  %118 = icmp ult i64 %.0136, 16384
   br i1 %118, label %119, label %198
 
 119:                                              ; preds = %117
-  %120 = add i8 %.0141, -1
-  %121 = shl nuw nsw i64 %.0139, 1
+  %120 = add i8 %.0137, -1
+  %121 = shl nuw nsw i64 %.0136, 1
   br label %198
 
 122:                                              ; preds = %70
@@ -212,7 +212,7 @@ softfloat_shiftRightJam32.exit178:                ; preds = %97, %99
 
 125:                                              ; preds = %122
   %126 = sext i8 %73 to i64
-  %127 = trunc i64 %.0145 to i32
+  %127 = trunc i64 %.0141 to i32
   %128 = sub nsw i64 0, %126
   %129 = icmp ult i64 %128, 31
   br i1 %129, label %130, label %139
@@ -240,11 +240,11 @@ softfloat_shiftRightJam32.exit179:                ; preds = %130, %139
   br label %168
 
 145:                                              ; preds = %122
-  %.not168 = icmp eq i8 %.0146, %.0134
+  %.not168 = icmp eq i8 %.0142, %.0134
   br i1 %.not168, label %146, label %153
 
 146:                                              ; preds = %145
-  %147 = sub i64 %.0145, %123
+  %147 = sub i64 %.0141, %123
   %.not169 = icmp eq i64 %147, 0
   br i1 %.not169, label %218, label %148
 
@@ -277,14 +277,14 @@ softfloat_shiftRightJam32.exit179:                ; preds = %130, %139
 
 softfloat_shiftRightJam32.exit180:                ; preds = %153, %155
   %166 = phi i64 [ %165, %155 ], [ 1, %153 ]
-  %167 = sub i64 %.0145, %166
+  %167 = sub i64 %.0141, %166
   br label %168
 
 168:                                              ; preds = %softfloat_shiftRightJam32.exit180, %150, %148, %softfloat_shiftRightJam32.exit179
-  %.0143 = phi i1 [ %16, %softfloat_shiftRightJam32.exit179 ], [ %25, %softfloat_shiftRightJam32.exit180 ], [ %151, %150 ], [ %25, %148 ]
-  %.1142 = phi i8 [ %.0134, %softfloat_shiftRightJam32.exit179 ], [ %.0146, %softfloat_shiftRightJam32.exit180 ], [ %.0146, %150 ], [ %.0146, %148 ]
-  %.0137 = phi i64 [ %144, %softfloat_shiftRightJam32.exit179 ], [ %167, %softfloat_shiftRightJam32.exit180 ], [ %152, %150 ], [ %147, %148 ]
-  %169 = trunc i64 %.0137 to i32
+  %.0139 = phi i1 [ %16, %softfloat_shiftRightJam32.exit179 ], [ %25, %softfloat_shiftRightJam32.exit180 ], [ %151, %150 ], [ %25, %148 ]
+  %.1138 = phi i8 [ %.0134, %softfloat_shiftRightJam32.exit179 ], [ %.0142, %softfloat_shiftRightJam32.exit180 ], [ %.0142, %150 ], [ %.0142, %148 ]
+  %.0135 = phi i64 [ %144, %softfloat_shiftRightJam32.exit179 ], [ %167, %softfloat_shiftRightJam32.exit180 ], [ %152, %150 ], [ %147, %148 ]
+  %169 = trunc i64 %.0135 to i32
   %170 = icmp ult i32 %169, 65536
   %171 = shl nuw i32 %169, 16
   %spec.select.i = select i1 %170, i32 %171, i32 %169
@@ -299,7 +299,7 @@ softfloat_shiftRightJam32.exit180:                ; preds = %153, %155
   %177 = getelementptr inbounds [256 x i8], ptr @softfloat_countLeadingZeros8, i64 0, i64 %176
   %178 = load i8, ptr %177, align 1
   %179 = add i8 %.1.i, %178
-  %.neg181 = add i8 %.1142, 1
+  %.neg181 = add i8 %.1138, 1
   %180 = sub i8 %.neg181, %179
   %181 = add i8 %179, -17
   %182 = sext i8 %181 to i32
@@ -309,11 +309,11 @@ softfloat_shiftRightJam32.exit180:                ; preds = %153, %155
 184:                                              ; preds = %168
   %185 = sub nsw i32 0, %182
   %186 = zext nneg i32 %185 to i64
-  %187 = lshr i64 %.0137, %186
+  %187 = lshr i64 %.0135, %186
   %188 = and i32 %182, 31
   %189 = zext nneg i32 %188 to i64
   %190 = lshr i64 4294967295, %189
-  %191 = and i64 %190, %.0137
+  %191 = and i64 %190, %.0135
   %192 = icmp ne i64 %191, 0
   %193 = zext i1 %192 to i64
   %194 = or i64 %187, %193
@@ -321,15 +321,15 @@ softfloat_shiftRightJam32.exit180:                ; preds = %153, %155
 
 195:                                              ; preds = %168
   %196 = zext nneg i32 %182 to i64
-  %197 = shl i64 %.0137, %196
+  %197 = shl i64 %.0135, %196
   br label %198
 
 198:                                              ; preds = %119, %117, %195, %184, %59
-  %.1144 = phi i1 [ %25, %119 ], [ %25, %117 ], [ %.0143, %184 ], [ %.0143, %195 ], [ %25, %59 ]
-  %.2 = phi i8 [ %120, %119 ], [ %.0141, %117 ], [ %180, %184 ], [ %180, %195 ], [ %60, %59 ]
-  %.1140 = phi i64 [ %121, %119 ], [ %.0139, %117 ], [ %194, %184 ], [ %197, %195 ], [ %65, %59 ]
+  %.1140 = phi i1 [ %25, %119 ], [ %25, %117 ], [ %.0139, %184 ], [ %.0139, %195 ], [ %25, %59 ]
+  %.2 = phi i8 [ %120, %119 ], [ %.0137, %117 ], [ %180, %184 ], [ %180, %195 ], [ %60, %59 ]
+  %.1 = phi i64 [ %121, %119 ], [ %.0136, %117 ], [ %194, %184 ], [ %197, %195 ], [ %65, %59 ]
   %199 = sext i8 %.2 to i64
-  %200 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %.1144, i64 noundef %199, i64 noundef %.1140) #2
+  %200 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %.1140, i64 noundef %199, i64 noundef %.1) #2
   br label %224
 
 201:                                              ; preds = %33, %27, %28
@@ -362,8 +362,8 @@ softfloat_shiftRightJam32.exit180:                ; preds = %153, %155
   br label %212
 
 212:                                              ; preds = %36, %208, %211, %201
-  %.0138 = phi i64 [ %202, %201 ], [ %207, %208 ], [ 32256, %211 ], [ 0, %36 ]
-  %213 = tail call i64 @softfloat_propagateNaNF16UI(i64 noundef %.0138, i64 noundef %2) #2
+  %.0143 = phi i64 [ %202, %201 ], [ %207, %208 ], [ 32256, %211 ], [ 0, %36 ]
+  %213 = tail call i64 @softfloat_propagateNaNF16UI(i64 noundef %.0143, i64 noundef %2) #2
   br label %222
 
 214:                                              ; preds = %44, %38
@@ -381,8 +381,8 @@ softfloat_shiftRightJam32.exit180:                ; preds = %153, %155
   br label %222
 
 222:                                              ; preds = %36, %214, %218, %209, %206, %212
-  %.1 = phi i64 [ %213, %212 ], [ %207, %206 ], [ %207, %209 ], [ %221, %218 ], [ %2, %214 ], [ %2, %36 ]
-  %223 = trunc i64 %.1 to i16
+  %.1144 = phi i64 [ %213, %212 ], [ %207, %206 ], [ %207, %209 ], [ %221, %218 ], [ %2, %214 ], [ %2, %36 ]
+  %223 = trunc i64 %.1144 to i16
   br label %224
 
 224:                                              ; preds = %222, %198

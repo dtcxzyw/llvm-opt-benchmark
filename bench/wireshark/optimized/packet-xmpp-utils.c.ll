@@ -926,13 +926,13 @@ xmpp_steal_element_by_name.exit._crit_edge:       ; preds = %xmpp_steal_element_
 ; Function Attrs: nounwind uwtable
 define hidden ptr @xmpp_steal_element_by_attr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %.025 = load ptr, ptr %4, align 8
-  %.not26 = icmp eq ptr %.025, null
+  %.01625 = load ptr, ptr %4, align 8
+  %.not26 = icmp eq ptr %.01625, null
   br i1 %.not26, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %xmpp_get_attr.exit.thread21
-  %.027 = phi ptr [ %.0, %xmpp_get_attr.exit.thread21 ], [ %.025, %3 ]
-  %5 = load ptr, ptr %.027, align 8
+  %.01627 = phi ptr [ %.016, %xmpp_get_attr.exit.thread21 ], [ %.01625, %3 ]
+  %5 = load ptr, ptr %.01627, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %1) #8
@@ -961,32 +961,32 @@ xmpp_get_attr.exit:                               ; preds = %9, %.lr.ph
   br i1 %19, label %20, label %xmpp_get_attr.exit.thread21
 
 20:                                               ; preds = %16
-  %21 = load ptr, ptr %.027, align 8
+  %21 = load ptr, ptr %.01627, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 56
   store i32 1, ptr %22, align 8
   br label %.loopexit
 
 xmpp_get_attr.exit.thread21:                      ; preds = %9, %16, %xmpp_get_attr.exit
-  %23 = getelementptr inbounds i8, ptr %.027, i64 8
-  %.0 = load ptr, ptr %23, align 8
-  %.not = icmp eq ptr %.0, null
+  %23 = getelementptr inbounds i8, ptr %.01627, i64 8
+  %.016 = load ptr, ptr %23, align 8
+  %.not = icmp eq ptr %.016, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %xmpp_get_attr.exit.thread21, %3, %20
-  %.016 = phi ptr [ %21, %20 ], [ null, %3 ], [ null, %xmpp_get_attr.exit.thread21 ]
-  ret ptr %.016
+  %.0 = phi ptr [ %21, %20 ], [ null, %3 ], [ null, %xmpp_get_attr.exit.thread21 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @xmpp_steal_element_by_name_and_attr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %.027 = load ptr, ptr %5, align 8
-  %.not28 = icmp eq ptr %.027, null
+  %.01827 = load ptr, ptr %5, align 8
+  %.not28 = icmp eq ptr %.01827, null
   br i1 %.not28, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %xmpp_get_attr.exit.thread23
-  %.029 = phi ptr [ %.0, %xmpp_get_attr.exit.thread23 ], [ %.027, %4 ]
-  %6 = load ptr, ptr %.029, align 8
+  %.01829 = phi ptr [ %.018, %xmpp_get_attr.exit.thread23 ], [ %.01827, %4 ]
+  %6 = load ptr, ptr %.01829, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %2) #8
@@ -1021,20 +1021,20 @@ xmpp_get_attr.exit:                               ; preds = %10, %.lr.ph
   br i1 %24, label %25, label %xmpp_get_attr.exit.thread23
 
 25:                                               ; preds = %21
-  %26 = load ptr, ptr %.029, align 8
+  %26 = load ptr, ptr %.01829, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 56
   store i32 1, ptr %27, align 8
   br label %.loopexit
 
 xmpp_get_attr.exit.thread23:                      ; preds = %10, %21, %17, %xmpp_get_attr.exit
-  %28 = getelementptr inbounds i8, ptr %.029, i64 8
-  %.0 = load ptr, ptr %28, align 8
-  %.not = icmp eq ptr %.0, null
+  %28 = getelementptr inbounds i8, ptr %.01829, i64 8
+  %.018 = load ptr, ptr %28, align 8
+  %.not = icmp eq ptr %.018, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %xmpp_get_attr.exit.thread23, %4, %25
-  %.018 = phi ptr [ %26, %25 ], [ null, %4 ], [ null, %xmpp_get_attr.exit.thread23 ]
-  ret ptr %.018
+  %.0 = phi ptr [ %26, %25 ], [ null, %4 ], [ null, %xmpp_get_attr.exit.thread23 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -1671,10 +1671,10 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
   br label %19
 
 19:                                               ; preds = %.lr.ph, %64
-  %.060 = phi ptr [ %13, %.lr.ph ], [ %66, %64 ]
-  %.05159 = phi ptr [ %15, %.lr.ph ], [ %68, %64 ]
-  %.05258 = phi i32 [ 0, %.lr.ph ], [ %.2, %64 ]
-  %20 = load ptr, ptr %.05159, align 8
+  %.060 = phi i32 [ 0, %.lr.ph ], [ %.2, %64 ]
+  %.05159 = phi ptr [ %13, %.lr.ph ], [ %66, %64 ]
+  %.05258 = phi ptr [ %15, %.lr.ph ], [ %68, %64 ]
+  %20 = load ptr, ptr %.05258, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8
   %.not = icmp eq i32 %22, 0
@@ -1684,17 +1684,17 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
   br i1 %.not55, label %27, label %24
 
 24:                                               ; preds = %23
-  %.not56 = icmp eq i32 %.05258, 0
+  %.not56 = icmp eq i32 %.060, 0
   %.str.20..str.21 = select i1 %.not56, ptr @.str.20, ptr @.str.21
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull %.str.20..str.21) #8
-  %25 = load ptr, ptr %.060, align 8
+  %25 = load ptr, ptr %.05159, align 8
   %26 = load ptr, ptr %20, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.22, ptr noundef %25, ptr noundef %26) #8
   br label %27
 
 27:                                               ; preds = %24, %23
-  %.1 = phi i32 [ 1, %24 ], [ %.05258, %23 ]
-  %28 = load ptr, ptr %.060, align 8
+  %.1 = phi i32 [ 1, %24 ], [ %.060, %23 ]
+  %28 = load ptr, ptr %.05159, align 8
   %29 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(6) @.str.4) #9
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %39
@@ -1715,7 +1715,7 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
   br i1 %.not57, label %52, label %41
 
 41:                                               ; preds = %39
-  %42 = load ptr, ptr %.060, align 8
+  %42 = load ptr, ptr %.05159, align 8
   %43 = icmp eq ptr %40, %42
   br i1 %43, label %44, label %52
 
@@ -1745,10 +1745,10 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
   br label %64
 
 64:                                               ; preds = %31, %52, %44, %19
-  %.2 = phi i32 [ %.05258, %19 ], [ %.1, %31 ], [ %.1, %44 ], [ %.1, %52 ]
-  %65 = getelementptr inbounds i8, ptr %.060, i64 8
+  %.2 = phi i32 [ %.060, %19 ], [ %.1, %31 ], [ %.1, %44 ], [ %.1, %52 ]
+  %65 = getelementptr inbounds i8, ptr %.05159, i64 8
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %.05159, i64 8
+  %67 = getelementptr inbounds i8, ptr %.05258, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = icmp ne ptr %66, null
   %70 = icmp ne ptr %68, null
@@ -1817,13 +1817,13 @@ define hidden void @xmpp_display_attrs_ext(ptr noundef %0, ptr nocapture noundef
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %.0151.us = phi ptr [ %133, %._crit_edge.us ], [ %12, %.preheader.us.preheader ]
-  %.0107150.us = phi ptr [ %131, %._crit_edge.us ], [ %10, %.preheader.us.preheader ]
-  %.0109149.us = phi i32 [ %.3.us, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %.0106150.us = phi ptr [ %131, %._crit_edge.us ], [ %10, %.preheader.us.preheader ]
+  %.0107149.us = phi i32 [ %.3.us, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
   br label %26
 
 26:                                               ; preds = %.preheader.us, %128
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %128 ]
-  %.1146.us = phi i32 [ %.0109149.us, %.preheader.us ], [ %.3.us, %128 ]
+  %.1147.us = phi i32 [ %.0107149.us, %.preheader.us ], [ %.3.us, %128 ]
   %27 = load ptr, ptr %.0151.us, align 8
   %28 = getelementptr %struct._xmpp_attr_info_ext, ptr %4, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
@@ -1834,7 +1834,7 @@ define hidden void @xmpp_display_attrs_ext(ptr noundef %0, ptr nocapture noundef
 32:                                               ; preds = %26
   %33 = getelementptr inbounds i8, ptr %28, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %.0107150.us, align 8
+  %35 = load ptr, ptr %.0106150.us, align 8
   %strcmpload.i.us = load i8, ptr %35, align 1
   %36 = icmp eq i8 %strcmpload.i.us, 0
   br i1 %36, label %45, label %37
@@ -1877,7 +1877,7 @@ define hidden void @xmpp_display_attrs_ext(ptr noundef %0, ptr nocapture noundef
   br i1 %.not121.us, label %112, label %56
 
 56:                                               ; preds = %54
-  %57 = load ptr, ptr %.0107150.us, align 8
+  %57 = load ptr, ptr %.0106150.us, align 8
   %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(1) %55) #9
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %112
@@ -1954,7 +1954,7 @@ xmpp_get_attr_ext.exit137.us:                     ; preds = %60, %66, %48, %51
   br i1 %.not127.us, label %119, label %102
 
 102:                                              ; preds = %99
-  %.not128.us = icmp eq i32 %.1146.us, 0
+  %.not128.us = icmp eq i32 %.1147.us, 0
   br i1 %.not128.us, label %104, label %103
 
 103:                                              ; preds = %102
@@ -1991,8 +1991,8 @@ xmpp_get_attr_ext.exit137.us:                     ; preds = %60, %66, %48, %51
 
 119:                                              ; preds = %115, %112, %109, %99
   %.not122144.us = phi i1 [ false, %109 ], [ false, %99 ], [ true, %115 ], [ true, %112 ]
-  %.0106142.us = phi ptr [ %.023.i134.us.sink, %109 ], [ %.023.i134.us.sink, %99 ], [ null, %115 ], [ null, %112 ]
-  %.2.us = phi i32 [ 1, %109 ], [ %.1146.us, %99 ], [ %.1146.us, %115 ], [ %.1146.us, %112 ]
+  %.0109142.us = phi ptr [ %.023.i134.us.sink, %109 ], [ %.023.i134.us.sink, %99 ], [ null, %115 ], [ null, %112 ]
+  %.2.us = phi i32 [ 1, %109 ], [ %.1147.us, %99 ], [ %.1147.us, %115 ], [ %.1147.us, %112 ]
   %120 = getelementptr inbounds i8, ptr %28, i64 32
   %121 = load ptr, ptr %120, align 8
   %.not130.us = icmp eq ptr %121, null
@@ -2003,7 +2003,7 @@ xmpp_get_attr_ext.exit137.us:                     ; preds = %60, %66, %48, %51
   br i1 %.not122144.us, label %.sink.split, label %124
 
 124:                                              ; preds = %122
-  %125 = load ptr, ptr %.0106142.us, align 8
+  %125 = load ptr, ptr %.0109142.us, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %122, %124
@@ -2014,13 +2014,13 @@ xmpp_get_attr_ext.exit137.us:                     ; preds = %60, %66, %48, %51
   br label %128
 
 128:                                              ; preds = %.sink.split, %119, %26
-  %.3.us = phi i32 [ %.2.us, %119 ], [ %.1146.us, %26 ], [ %.2.us, %.sink.split ]
+  %.3.us = phi i32 [ %.2.us, %119 ], [ %.1147.us, %26 ], [ %.2.us, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %129 = icmp ult i64 %indvars.iv.next, %25
   br i1 %129, label %26, label %._crit_edge.us, !llvm.loop !15
 
 ._crit_edge.us:                                   ; preds = %128
-  %130 = getelementptr inbounds i8, ptr %.0107150.us, i64 8
+  %130 = getelementptr inbounds i8, ptr %.0106150.us, i64 8
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %.0151.us, i64 8
   %133 = load ptr, ptr %132, align 8
@@ -2069,13 +2069,13 @@ define hidden void @xmpp_display_elems(ptr noundef %0, ptr nocapture noundef rea
   %13 = getelementptr %struct._xmpp_elem_info, ptr %4, i64 %indvars.iv
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %.critedge [
-    i32 2, label %.critedge126
-    i32 0, label %.critedge127
-    i32 1, label %.critedge128
-    i32 3, label %.critedge129
+    i32 2, label %.critedge125
+    i32 0, label %.critedge126
+    i32 1, label %.critedge127
+    i32 3, label %.critedge128
   ]
 
-.critedge126:                                     ; preds = %12
+.critedge125:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
@@ -2084,17 +2084,17 @@ define hidden void @xmpp_display_elems(ptr noundef %0, ptr nocapture noundef rea
   %20 = getelementptr inbounds i8, ptr %13, i64 24
   br label %21
 
-21:                                               ; preds = %.critedge126, %select.unfold
+21:                                               ; preds = %.critedge125, %select.unfold
   %22 = load ptr, ptr %16, align 8
   %23 = load ptr, ptr %17, align 8
   %24 = load ptr, ptr %18, align 8
-  %.027.i = load ptr, ptr %10, align 8
-  %.not28.i = icmp eq ptr %.027.i, null
+  %.01827.i = load ptr, ptr %10, align 8
+  %.not28.i = icmp eq ptr %.01827.i, null
   br i1 %.not28.i, label %.critedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21, %xmpp_get_attr.exit.thread23.i
-  %.029.i = phi ptr [ %.0.i, %xmpp_get_attr.exit.thread23.i ], [ %.027.i, %21 ]
-  %25 = load ptr, ptr %.029.i, align 8
+  %.01829.i = phi ptr [ %.018.i, %xmpp_get_attr.exit.thread23.i ], [ %.01827.i, %21 ]
+  %25 = load ptr, ptr %.01829.i, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr @g_hash_table_lookup(ptr noundef %27, ptr noundef %23) #8
@@ -2129,13 +2129,13 @@ xmpp_get_attr.exit.i:                             ; preds = %29, %.lr.ph.i
   br i1 %43, label %select.unfold, label %xmpp_get_attr.exit.thread23.i
 
 xmpp_get_attr.exit.thread23.i:                    ; preds = %40, %36, %xmpp_get_attr.exit.i, %29
-  %44 = getelementptr inbounds i8, ptr %.029.i, i64 8
-  %.0.i = load ptr, ptr %44, align 8
-  %.not.i = icmp eq ptr %.0.i, null
+  %44 = getelementptr inbounds i8, ptr %.01829.i, i64 8
+  %.018.i = load ptr, ptr %44, align 8
+  %.not.i = icmp eq ptr %.018.i, null
   br i1 %.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !10
 
 select.unfold:                                    ; preds = %40
-  %45 = load ptr, ptr %.029.i, align 8
+  %45 = load ptr, ptr %.01829.i, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 56
   store i32 1, ptr %46, align 8
   %47 = load ptr, ptr %19, align 8
@@ -2144,14 +2144,14 @@ select.unfold:                                    ; preds = %40
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %.critedge, label %21
 
-.critedge127:                                     ; preds = %12
+.critedge126:                                     ; preds = %12
   %50 = getelementptr inbounds i8, ptr %13, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %13, i64 16
   %53 = getelementptr inbounds i8, ptr %13, i64 24
   br label %54
 
-54:                                               ; preds = %.critedge127, %select.unfold114
+54:                                               ; preds = %.critedge126, %select.unfold113
   %55 = tail call ptr @wmem_packet_scope() #8
   %56 = tail call noalias ptr @wmem_alloc(ptr noundef %55, i64 noundef 64) #8
   %57 = tail call ptr @wmem_packet_scope() #8
@@ -2160,9 +2160,9 @@ select.unfold:                                    ; preds = %40
   %59 = load ptr, ptr %10, align 8
   %60 = tail call ptr @g_list_find_custom(ptr noundef %59, ptr noundef nonnull %56, ptr noundef nonnull @xmpp_element_t_cmp) #8
   %.not.i100 = icmp eq ptr %60, null
-  br i1 %.not.i100, label %.critedge, label %select.unfold114
+  br i1 %.not.i100, label %.critedge, label %select.unfold113
 
-select.unfold114:                                 ; preds = %54
+select.unfold113:                                 ; preds = %54
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 56
   store i32 1, ptr %62, align 8
@@ -2172,7 +2172,7 @@ select.unfold114:                                 ; preds = %54
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %.critedge, label %54
 
-.critedge128:                                     ; preds = %12
+.critedge127:                                     ; preds = %12
   %66 = getelementptr inbounds i8, ptr %13, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 8
@@ -2181,51 +2181,51 @@ select.unfold114:                                 ; preds = %54
   %71 = getelementptr inbounds i8, ptr %13, i64 24
   br label %72
 
-72:                                               ; preds = %.critedge128, %select.unfold117
+72:                                               ; preds = %.critedge127, %select.unfold116
   %73 = load ptr, ptr %68, align 8
   %74 = load ptr, ptr %69, align 8
-  %.025.i = load ptr, ptr %10, align 8
-  %.not26.i = icmp eq ptr %.025.i, null
+  %.01625.i = load ptr, ptr %10, align 8
+  %.not26.i = icmp eq ptr %.01625.i, null
   br i1 %.not26.i, label %.critedge, label %.lr.ph.i102
 
 .lr.ph.i102:                                      ; preds = %72, %xmpp_get_attr.exit.thread21.i
-  %.027.i103 = phi ptr [ %.0.i107, %xmpp_get_attr.exit.thread21.i ], [ %.025.i, %72 ]
-  %75 = load ptr, ptr %.027.i103, align 8
+  %.01627.i = phi ptr [ %.016.i, %xmpp_get_attr.exit.thread21.i ], [ %.01625.i, %72 ]
+  %75 = load ptr, ptr %.01627.i, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 24
   %77 = load ptr, ptr %76, align 8
   %78 = tail call ptr @g_hash_table_lookup(ptr noundef %77, ptr noundef %73) #8
-  %.not.i.i104 = icmp eq ptr %78, null
-  br i1 %.not.i.i104, label %79, label %xmpp_get_attr.exit.i105
+  %.not.i.i103 = icmp eq ptr %78, null
+  br i1 %.not.i.i103, label %79, label %xmpp_get_attr.exit.i104
 
 79:                                               ; preds = %.lr.ph.i102
   %80 = load ptr, ptr %76, align 8
   %81 = tail call ptr @g_hash_table_find(ptr noundef %80, ptr noundef nonnull @attr_find_pred, ptr noundef %73) #8
-  %.not9.i.i109 = icmp eq ptr %81, null
-  br i1 %.not9.i.i109, label %xmpp_get_attr.exit.thread21.i, label %xmpp_get_attr.exit.i105
+  %.not9.i.i108 = icmp eq ptr %81, null
+  br i1 %.not9.i.i108, label %xmpp_get_attr.exit.thread21.i, label %xmpp_get_attr.exit.i104
 
-xmpp_get_attr.exit.i105:                          ; preds = %79, %.lr.ph.i102
-  %.012.i.i106 = phi ptr [ %81, %79 ], [ %78, %.lr.ph.i102 ]
-  %82 = getelementptr inbounds i8, ptr %.012.i.i106, i64 24
+xmpp_get_attr.exit.i104:                          ; preds = %79, %.lr.ph.i102
+  %.012.i.i105 = phi ptr [ %81, %79 ], [ %78, %.lr.ph.i102 ]
+  %82 = getelementptr inbounds i8, ptr %.012.i.i105, i64 24
   store i32 0, ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %75, i64 56
   %84 = load i32, ptr %83, align 8
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %xmpp_get_attr.exit.thread21.i
 
-86:                                               ; preds = %xmpp_get_attr.exit.i105
-  %87 = load ptr, ptr %.012.i.i106, align 8
+86:                                               ; preds = %xmpp_get_attr.exit.i104
+  %87 = load ptr, ptr %.012.i.i105, align 8
   %88 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull readonly dereferenceable(1) %74) #9
   %89 = icmp eq i32 %88, 0
-  br i1 %89, label %select.unfold117, label %xmpp_get_attr.exit.thread21.i
+  br i1 %89, label %select.unfold116, label %xmpp_get_attr.exit.thread21.i
 
-xmpp_get_attr.exit.thread21.i:                    ; preds = %86, %xmpp_get_attr.exit.i105, %79
-  %90 = getelementptr inbounds i8, ptr %.027.i103, i64 8
-  %.0.i107 = load ptr, ptr %90, align 8
-  %.not.i108 = icmp eq ptr %.0.i107, null
-  br i1 %.not.i108, label %.critedge, label %.lr.ph.i102, !llvm.loop !9
+xmpp_get_attr.exit.thread21.i:                    ; preds = %86, %xmpp_get_attr.exit.i104, %79
+  %90 = getelementptr inbounds i8, ptr %.01627.i, i64 8
+  %.016.i = load ptr, ptr %90, align 8
+  %.not.i106 = icmp eq ptr %.016.i, null
+  br i1 %.not.i106, label %.critedge, label %.lr.ph.i102, !llvm.loop !9
 
-select.unfold117:                                 ; preds = %86
-  %91 = load ptr, ptr %.027.i103, align 8
+select.unfold116:                                 ; preds = %86
+  %91 = load ptr, ptr %.01627.i, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 56
   store i32 1, ptr %92, align 8
   %93 = load ptr, ptr %70, align 8
@@ -2234,7 +2234,7 @@ select.unfold117:                                 ; preds = %86
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %.critedge, label %72
 
-.critedge129:                                     ; preds = %12
+.critedge128:                                     ; preds = %12
   %96 = getelementptr inbounds i8, ptr %13, i64 8
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 8
@@ -2242,18 +2242,18 @@ select.unfold117:                                 ; preds = %86
   %100 = getelementptr inbounds i8, ptr %13, i64 24
   br label %101
 
-101:                                              ; preds = %.critedge129, %select.unfold120
+101:                                              ; preds = %.critedge128, %select.unfold119
   %102 = load ptr, ptr %97, align 8
   %103 = load i32, ptr %98, align 8
   %104 = icmp sgt i32 %103, 0
-  br i1 %104, label %.lr.ph.i110, label %.critedge
+  br i1 %104, label %.lr.ph.i109, label %.critedge
 
-.lr.ph.i110:                                      ; preds = %101
+.lr.ph.i109:                                      ; preds = %101
   %wide.trip.count.i = zext nneg i32 %103 to i64
   br label %105
 
-105:                                              ; preds = %xmpp_steal_element_by_name.exit.thread.i, %.lr.ph.i110
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i110 ], [ %indvars.iv.next.i, %xmpp_steal_element_by_name.exit.thread.i ]
+105:                                              ; preds = %xmpp_steal_element_by_name.exit.thread.i, %.lr.ph.i109
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i109 ], [ %indvars.iv.next.i, %xmpp_steal_element_by_name.exit.thread.i ]
   %106 = getelementptr ptr, ptr %102, i64 %indvars.iv.i
   %107 = load ptr, ptr %106, align 8
   %108 = tail call ptr @wmem_packet_scope() #8
@@ -2263,15 +2263,15 @@ select.unfold117:                                 ; preds = %86
   store ptr %111, ptr %109, align 8
   %112 = load ptr, ptr %10, align 8
   %113 = tail call ptr @g_list_find_custom(ptr noundef %112, ptr noundef nonnull %109, ptr noundef nonnull @xmpp_element_t_cmp) #8
-  %.not.i.i111 = icmp eq ptr %113, null
-  br i1 %.not.i.i111, label %xmpp_steal_element_by_name.exit.thread.i, label %select.unfold120
+  %.not.i.i110 = icmp eq ptr %113, null
+  br i1 %.not.i.i110, label %xmpp_steal_element_by_name.exit.thread.i, label %select.unfold119
 
 xmpp_steal_element_by_name.exit.thread.i:         ; preds = %105
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.critedge, label %105, !llvm.loop !8
 
-select.unfold120:                                 ; preds = %105
+select.unfold119:                                 ; preds = %105
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 56
   store i32 1, ptr %115, align 8
@@ -2281,7 +2281,7 @@ select.unfold120:                                 ; preds = %105
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %.critedge, label %101
 
-.critedge:                                        ; preds = %101, %select.unfold120, %72, %select.unfold117, %54, %select.unfold114, %21, %select.unfold, %xmpp_steal_element_by_name.exit.thread.i, %xmpp_get_attr.exit.thread21.i, %xmpp_get_attr.exit.thread23.i, %12
+.critedge:                                        ; preds = %101, %select.unfold119, %72, %select.unfold116, %54, %select.unfold113, %21, %select.unfold, %xmpp_steal_element_by_name.exit.thread.i, %xmpp_get_attr.exit.thread21.i, %xmpp_get_attr.exit.thread23.i, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %119 = icmp ult i64 %indvars.iv.next, %11
   br i1 %119, label %12, label %._crit_edge, !llvm.loop !17

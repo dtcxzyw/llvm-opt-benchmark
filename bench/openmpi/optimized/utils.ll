@@ -129,10 +129,10 @@ define i32 @ADIOI_Type_create_hindexed_x(i32 noundef %0, ptr nocapture noundef r
   br label %.loopexit
 
 .loopexit:                                        ; preds = %55, %._crit_edge.thread64, %._crit_edge.thread
-  %.044 = phi i32 [ %56, %._crit_edge.thread ], [ %50, %._crit_edge.thread64 ], [ %50, %55 ]
+  %.042 = phi i32 [ %56, %._crit_edge.thread ], [ %50, %._crit_edge.thread64 ], [ %50, %55 ]
   call void @ADIOI_Free_fn(ptr noundef %15, i32 noundef 101, ptr noundef nonnull @.str) #3
   call void @ADIOI_Free_fn(ptr noundef %17, i32 noundef 102, ptr noundef nonnull @.str) #3
-  ret i32 %.044
+  ret i32 %.042
 }
 
 declare ptr @ADIOI_Malloc_fn(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

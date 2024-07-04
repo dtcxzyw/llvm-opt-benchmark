@@ -87,8 +87,8 @@ define internal i32 @unmap_anonymous(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %23
 
 23:                                               ; preds = %17, %21, %4
-  %.026 = phi i32 [ -38, %4 ], [ %20, %17 ], [ 0, %21 ]
-  ret i32 %.026
+  %.027 = phi i32 [ -38, %4 ], [ %20, %17 ], [ 0, %21 ]
+  ret i32 %.027
 }
 
 declare i32 @mm_map_add(ptr noundef, ptr noundef) local_unnamed_addr #2

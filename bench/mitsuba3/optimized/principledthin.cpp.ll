@@ -282,8 +282,8 @@ define hidden noundef zeroext i1 @_ZN7mitsuba8get_flagERKNSt3__112basic_stringIc
   resume { ptr, i32 } %14
 
 .thread11:                                        ; preds = %5, %12, %10, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %10 ], [ true, %5 ]
-  ret i1 %.0
+  %.010 = phi i1 [ false, %2 ], [ false, %12 ], [ true, %10 ], [ true, %5 ]
+  ret i1 %.010
 }
 
 declare noundef zeroext i1 @_ZNK7mitsuba10Properties12has_propertyERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
@@ -472,10 +472,10 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   br label %.body
 
 78:                                               ; preds = %75, %73, %.noexc34, %.noexc
-  %.0.i = phi i8 [ 0, %.noexc ], [ 0, %75 ], [ 1, %73 ], [ 1, %.noexc34 ]
+  %.010.i = phi i8 [ 0, %.noexc ], [ 0, %75 ], [ 1, %73 ], [ 1, %.noexc34 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %79 = getelementptr inbounds i8, ptr %0, i64 165
-  store i8 %.0.i, ptr %79, align 1
+  store i8 %.010.i, ptr %79, align 1
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #21
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull @.str.2, i64 noundef 11)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit37 unwind label %219
@@ -556,10 +556,10 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   br label %.body49
 
 97:                                               ; preds = %94, %92, %.noexc47, %.noexc46
-  %.0.i45 = phi i8 [ 0, %.noexc46 ], [ 0, %94 ], [ 1, %92 ], [ 1, %.noexc47 ]
+  %.010.i45 = phi i8 [ 0, %.noexc46 ], [ 0, %94 ], [ 1, %92 ], [ 1, %.noexc47 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   %98 = getelementptr inbounds i8, ptr %0, i64 162
-  store i8 %.0.i45, ptr %98, align 2
+  store i8 %.010.i45, ptr %98, align 2
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #21
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull @.str.3, i64 noundef 10)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit53 unwind label %219
@@ -640,10 +640,10 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   br label %.body65
 
 116:                                              ; preds = %113, %111, %.noexc63, %.noexc62
-  %.0.i61 = phi i8 [ 0, %.noexc62 ], [ 0, %113 ], [ 1, %111 ], [ 1, %.noexc63 ]
+  %.010.i61 = phi i8 [ 0, %.noexc62 ], [ 0, %113 ], [ 1, %111 ], [ 1, %.noexc63 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %117 = getelementptr inbounds i8, ptr %0, i64 160
-  store i8 %.0.i61, ptr %117, align 8
+  store i8 %.010.i61, ptr %117, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #21
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull @.str.4, i64 noundef 5)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit69 unwind label %219
@@ -724,10 +724,10 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   br label %.body81
 
 135:                                              ; preds = %132, %130, %.noexc79, %.noexc78
-  %.0.i77 = phi i8 [ 0, %.noexc78 ], [ 0, %132 ], [ 1, %130 ], [ 1, %.noexc79 ]
+  %.010.i77 = phi i8 [ 0, %.noexc78 ], [ 0, %132 ], [ 1, %130 ], [ 1, %.noexc79 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %136 = getelementptr inbounds i8, ptr %0, i64 164
-  store i8 %.0.i77, ptr %136, align 4
+  store i8 %.010.i77, ptr %136, align 4
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #21
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull @.str.5, i64 noundef 10)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit85 unwind label %219
@@ -808,10 +808,10 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   br label %.body97
 
 154:                                              ; preds = %151, %149, %.noexc95, %.noexc94
-  %.0.i93 = phi i8 [ 0, %.noexc94 ], [ 0, %151 ], [ 1, %149 ], [ 1, %.noexc95 ]
+  %.010.i93 = phi i8 [ 0, %.noexc94 ], [ 0, %151 ], [ 1, %149 ], [ 1, %.noexc95 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %155 = getelementptr inbounds i8, ptr %0, i64 166
-  store i8 %.0.i93, ptr %155, align 2
+  store i8 %.010.i93, ptr %155, align 2
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #21
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull @.str.6, i64 noundef 8)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit101 unwind label %219
@@ -892,10 +892,10 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   br label %.body113
 
 173:                                              ; preds = %170, %168, %.noexc111, %.noexc110
-  %.0.i109 = phi i8 [ 0, %.noexc110 ], [ 0, %170 ], [ 1, %168 ], [ 1, %.noexc111 ]
+  %.010.i109 = phi i8 [ 0, %.noexc110 ], [ 0, %170 ], [ 1, %168 ], [ 1, %.noexc111 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %174 = getelementptr inbounds i8, ptr %0, i64 163
-  store i8 %.0.i109, ptr %174, align 1
+  store i8 %.010.i109, ptr %174, align 1
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #21
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull @.str.7, i64 noundef 9)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit117 unwind label %219
@@ -1013,10 +1013,10 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   br label %.body136
 
 198:                                              ; preds = %195, %193, %.noexc134, %.noexc133
-  %.0.i132 = phi i8 [ 0, %.noexc133 ], [ 0, %195 ], [ 1, %193 ], [ 1, %.noexc134 ]
+  %.010.i132 = phi i8 [ 0, %.noexc133 ], [ 0, %195 ], [ 1, %193 ], [ 1, %.noexc134 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %199 = getelementptr inbounds i8, ptr %0, i64 161
-  store i8 %.0.i132, ptr %199, align 1
+  store i8 %.010.i132, ptr %199, align 1
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #21
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull @.str.9, i64 noundef 10)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit140 unwind label %219

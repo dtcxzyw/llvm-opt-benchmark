@@ -6943,35 +6943,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end16.i
-  %__value.addr.021.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
-  %__n.020.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
-  %cmp5.i = icmp ult i64 %__value.addr.021.i, 100
+  %__n.021.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
+  %__value.addr.020.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
+  %cmp5.i = icmp ult i64 %__value.addr.020.i, 100
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.020.i, 1
+  %add.i = add i32 %__n.021.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end7.i:                                        ; preds = %if.end.i
-  %cmp9.i = icmp ult i64 %__value.addr.021.i, 1000
+  %cmp9.i = icmp ult i64 %__value.addr.020.i, 1000
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.end7.i
-  %add11.i = add i32 %__n.020.i, 2
+  %add11.i = add i32 %__n.021.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end12.i:                                       ; preds = %if.end7.i
-  %cmp13.i = icmp ult i64 %__value.addr.021.i, 10000
+  %cmp13.i = icmp ult i64 %__value.addr.020.i, 10000
   br i1 %cmp13.i, label %if.then14.i, label %if.end16.i
 
 if.then14.i:                                      ; preds = %if.end12.i
-  %add15.i = add i32 %__n.020.i, 3
+  %add15.i = add i32 %__n.021.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %div.i = udiv i64 %__value.addr.021.i, 10000
-  %add17.i = add i32 %__n.020.i, 4
-  %cmp.i = icmp ult i64 %__value.addr.021.i, 100000
+  %div.i = udiv i64 %__value.addr.020.i, 10000
+  %add17.i = add i32 %__n.021.i, 4
+  %cmp.i = icmp ult i64 %__value.addr.020.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !38
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
@@ -8793,9 +8793,9 @@ for.body198.lr.ph:                                ; preds = %for.cond195.prehead
 
 for.body198:                                      ; preds = %for.body198.lr.ph, %for.body198
   %indvars.iv = phi i64 [ 0, %for.body198.lr.ph ], [ %indvars.iv.next, %for.body198 ]
-  %compact_bytes_read.0291 = phi i64 [ 0, %for.body198.lr.ph ], [ %add209, %for.body198 ]
-  %compact_micros.0289 = phi i64 [ 0, %for.body198.lr.ph ], [ %add223, %for.body198 ]
-  %compact_bytes_write.0288 = phi i64 [ 0, %for.body198.lr.ph ], [ %add219, %for.body198 ]
+  %compact_micros.0290 = phi i64 [ 0, %for.body198.lr.ph ], [ %add223, %for.body198 ]
+  %compact_bytes_write.0289 = phi i64 [ 0, %for.body198.lr.ph ], [ %add219, %for.body198 ]
+  %compact_bytes_read.0288 = phi i64 [ 0, %for.body198.lr.ph ], [ %add209, %for.body198 ]
   %add.ptr.i198 = getelementptr inbounds %"struct.rocksdb::InternalStats::CompactionStats", ptr %84, i64 %indvars.iv
   %bytes_read_output_level = getelementptr inbounds i8, ptr %add.ptr.i198, i64 24
   %85 = load i64, ptr %bytes_read_output_level, align 8
@@ -8803,25 +8803,25 @@ for.body198:                                      ; preds = %for.body198.lr.ph, 
   %86 = load i64, ptr %bytes_read_non_output_levels, align 8
   %bytes_read_blob = getelementptr inbounds i8, ptr %add.ptr.i198, i64 32
   %87 = load i64, ptr %bytes_read_blob, align 8
-  %add204 = add i64 %85, %compact_bytes_read.0291
+  %add204 = add i64 %85, %compact_bytes_read.0288
   %add208 = add i64 %add204, %86
   %add209 = add i64 %add208, %87
   %bytes_written213 = getelementptr inbounds i8, ptr %add.ptr.i198, i64 40
   %88 = load i64, ptr %bytes_written213, align 8
   %bytes_written_blob217 = getelementptr inbounds i8, ptr %add.ptr.i198, i64 48
   %89 = load i64, ptr %bytes_written_blob217, align 8
-  %add218 = add i64 %88, %compact_bytes_write.0288
+  %add218 = add i64 %88, %compact_bytes_write.0289
   %add219 = add i64 %add218, %89
   %90 = load i64, ptr %add.ptr.i198, align 8
-  %add223 = add i64 %90, %compact_micros.0289
+  %add223 = add i64 %90, %compact_micros.0290
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end226, label %for.body198, !llvm.loop !71
 
 for.end226:                                       ; preds = %for.body198, %for.cond195.preheader
+  %compact_bytes_read.0.lcssa = phi i64 [ 0, %for.cond195.preheader ], [ %add209, %for.body198 ]
   %compact_bytes_write.0.lcssa = phi i64 [ 0, %for.cond195.preheader ], [ %add219, %for.body198 ]
   %compact_micros.0.lcssa = phi i64 [ 0, %for.cond195.preheader ], [ %add223, %for.body198 ]
-  %compact_bytes_read.0.lcssa = phi i64 [ 0, %for.cond195.preheader ], [ %add209, %for.body198 ]
   %conv228 = uitofp i64 %compact_bytes_write.0.lcssa to double
   %div229 = fmul double %conv228, 0x3E10000000000000
   %div231 = fmul double %conv228, 0x3EB0000000000000
@@ -9387,21 +9387,21 @@ entry:
 
 for.cond2.preheader:                              ; preds = %entry, %for.inc17
   %total_delays.064 = phi i64 [ 0, %entry ], [ %total_delays.3, %for.inc17 ]
-  %total_stops.063 = phi i64 [ 0, %entry ], [ %total_stops.3, %for.inc17 ]
-  %i.062 = phi i32 [ 0, %entry ], [ %inc18, %for.inc17 ]
+  %i.063 = phi i32 [ 0, %entry ], [ %inc18, %for.inc17 ]
+  %total_stops.062 = phi i64 [ 0, %entry ], [ %total_stops.3, %for.inc17 ]
   br label %for.body4
 
 for.body4:                                        ; preds = %for.cond2.preheader, %for.inc
   %total_delays.161 = phi i64 [ %total_delays.064, %for.cond2.preheader ], [ %total_delays.3, %for.inc ]
-  %total_stops.160 = phi i64 [ %total_stops.063, %for.cond2.preheader ], [ %total_stops.3, %for.inc ]
   %cmp10 = phi i1 [ true, %for.cond2.preheader ], [ false, %for.inc ]
-  %j.059 = phi i32 [ 0, %for.cond2.preheader ], [ 1, %for.inc ]
-  %call = call noundef i32 @_ZN7rocksdb14InternalCFStatENS_15WriteStallCauseENS_19WriteStallConditionE(i32 noundef %i.062, i32 noundef %j.059)
+  %j.060 = phi i32 [ 0, %for.cond2.preheader ], [ 1, %for.inc ]
+  %total_stops.159 = phi i64 [ %total_stops.062, %for.cond2.preheader ], [ %total_stops.3, %for.inc ]
+  %call = call noundef i32 @_ZN7rocksdb14InternalCFStatENS_15WriteStallCauseENS_19WriteStallConditionE(i32 noundef %i.063, i32 noundef %j.060)
   %cmp5 = icmp eq i32 %call, 14
   br i1 %cmp5, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body4
-  call void @_ZN7rocksdb22WriteStallStatsMapKeys19CauseConditionCountB5cxx11ENS_15WriteStallCauseENS_19WriteStallConditionE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %name, i32 noundef %i.062, i32 noundef %j.059)
+  call void @_ZN7rocksdb22WriteStallStatsMapKeys19CauseConditionCountB5cxx11ENS_15WriteStallCauseENS_19WriteStallConditionE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %name, i32 noundef %i.063, i32 noundef %j.060)
   %conv = zext i32 %call to i64
   %arrayidx = getelementptr inbounds [14 x i64], ptr %cf_stats_count_, i64 0, i64 %conv
   %0 = load i64, ptr %arrayidx, align 8
@@ -9559,7 +9559,7 @@ invoke.cont7:                                     ; preds = %call12.i.noexc, %_Z
   %call9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #28
   %add14 = select i1 %cmp10, i64 0, i64 %0
-  %total_stops.2 = add i64 %add14, %total_stops.160
+  %total_stops.2 = add i64 %add14, %total_stops.159
   %add = select i1 %cmp10, i64 %0, i64 0
   %total_delays.2 = add i64 %add, %total_delays.161
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #28
@@ -9581,12 +9581,12 @@ lpad6.body:                                       ; preds = %lpad6, %lpad7.i.i, 
   br label %eh.resume
 
 for.inc:                                          ; preds = %for.body4, %invoke.cont7
-  %total_stops.3 = phi i64 [ %total_stops.160, %for.body4 ], [ %total_stops.2, %invoke.cont7 ]
+  %total_stops.3 = phi i64 [ %total_stops.159, %for.body4 ], [ %total_stops.2, %invoke.cont7 ]
   %total_delays.3 = phi i64 [ %total_delays.161, %for.body4 ], [ %total_delays.2, %invoke.cont7 ]
   br i1 %cmp10, label %for.body4, label %for.inc17, !llvm.loop !74
 
 for.inc17:                                        ; preds = %for.inc
-  %inc18 = add nuw nsw i32 %i.062, 1
+  %inc18 = add nuw nsw i32 %i.063, 1
   %exitcond.not = icmp eq i32 %inc18, 3
   br i1 %exitcond.not, label %for.end19, label %for.cond2.preheader, !llvm.loop !75
 
@@ -10643,9 +10643,9 @@ for.end41:                                        ; preds = %for.inc39
 
 for.body48:                                       ; preds = %for.end41, %for.inc114
   %21 = phi i32 [ %3, %for.end41 ], [ %49, %for.inc114 ]
-  %total_files.0154 = phi i32 [ 0, %for.end41 ], [ %add51, %for.inc114 ]
+  %total_file_size.0154 = phi double [ 0.000000e+00, %for.end41 ], [ %total_file_size.1, %for.inc114 ]
   %total_files_being_compacted.0153 = phi i32 [ 0, %for.end41 ], [ %add54, %for.inc114 ]
-  %total_file_size.0152 = phi double [ 0.000000e+00, %for.end41 ], [ %total_file_size.1, %for.inc114 ]
+  %total_files.0152 = phi i32 [ 0, %for.end41 ], [ %add51, %for.inc114 ]
   %storemerge151 = phi i32 [ 0, %for.end41 ], [ %inc115, %for.inc114 ]
   %22 = load ptr, ptr %files_.i52, align 8
   %idxprom.i53 = sext i32 %storemerge151 to i64
@@ -10658,7 +10658,7 @@ for.body48:                                       ; preds = %for.end41, %for.inc
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i55 = trunc i64 %sub.ptr.div.i.i to i32
-  %add51 = add nsw i32 %total_files.0154, %conv.i55
+  %add51 = add nsw i32 %total_files.0152, %conv.i55
   %add.ptr.i56 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i50, i64 %idxprom.i53
   %25 = load i32, ptr %add.ptr.i56, align 4
   %add54 = add nsw i32 %25, %total_files_being_compacted.0153
@@ -10684,7 +10684,7 @@ if.then64:                                        ; preds = %lor.lhs.false, %for
 
 invoke.cont69:                                    ; preds = %if.then64
   %conv71 = uitofp i64 %call70 to double
-  %add72 = fadd double %total_file_size.0152, %conv71
+  %add72 = fadd double %total_file_size.0154, %conv71
   %30 = load i32, ptr %level44, align 4
   %cmp73 = icmp eq i32 %30, 0
   br i1 %cmp73, label %if.end82, label %if.else
@@ -10816,7 +10816,7 @@ ehcleanup.thread182:                              ; preds = %cond.end95, %invoke
 for.inc114:                                       ; preds = %invoke.cont111.for.inc114_crit_edge, %lor.lhs.false
   %49 = phi i32 [ %21, %lor.lhs.false ], [ %.pre169, %invoke.cont111.for.inc114_crit_edge ]
   %50 = phi i32 [ %storemerge151, %lor.lhs.false ], [ %.pre, %invoke.cont111.for.inc114_crit_edge ]
-  %total_file_size.1 = phi double [ %total_file_size.0152, %lor.lhs.false ], [ %add72, %invoke.cont111.for.inc114_crit_edge ]
+  %total_file_size.1 = phi double [ %total_file_size.0154, %lor.lhs.false ], [ %add72, %invoke.cont111.for.inc114_crit_edge ]
   %inc115 = add nsw i32 %50, 1
   store i32 %inc115, ptr %level44, align 4
   %cmp47 = icmp slt i32 %inc115, %49
@@ -10825,9 +10825,9 @@ for.inc114:                                       ; preds = %invoke.cont111.for.
 for.end116:                                       ; preds = %for.inc114, %for.end41.thread
   %add181 = phi i64 [ %add178, %for.end41.thread ], [ %add, %for.inc114 ]
   %files_being_compacted.sroa.0.0172180 = phi ptr [ null, %for.end41.thread ], [ %call5.i.i.i.i2.i.i50, %for.inc114 ]
-  %total_file_size.0.lcssa = phi double [ 0.000000e+00, %for.end41.thread ], [ %total_file_size.1, %for.inc114 ]
-  %total_files_being_compacted.0.lcssa = phi i32 [ 0, %for.end41.thread ], [ %add54, %for.inc114 ]
   %total_files.0.lcssa = phi i32 [ 0, %for.end41.thread ], [ %add51, %for.inc114 ]
+  %total_files_being_compacted.0.lcssa = phi i32 [ 0, %for.end41.thread ], [ %add54, %for.inc114 ]
+  %total_file_size.0.lcssa = phi double [ 0.000000e+00, %for.end41.thread ], [ %total_file_size.1, %for.inc114 ]
   %cmp118 = icmp eq i64 %add181, 0
   br i1 %cmp118, label %cond.end127, label %cond.false120
 
@@ -10970,35 +10970,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end14.i
-  %__value.addr.021.i = phi i32 [ %0, %if.end14.i ], [ %cond, %entry ]
-  %__n.020.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
-  %cmp3.i = icmp ult i32 %__value.addr.021.i, 100
+  %__n.021.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
+  %__value.addr.020.i = phi i32 [ %0, %if.end14.i ], [ %cond, %entry ]
+  %cmp3.i = icmp ult i32 %__value.addr.020.i, 100
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.020.i, 1
+  %add.i = add i32 %__n.021.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ult i32 %__value.addr.021.i, 1000
+  %cmp6.i = icmp ult i32 %__value.addr.020.i, 1000
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %add8.i = add i32 %__n.020.i, 2
+  %add8.i = add i32 %__n.021.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %cmp11.i = icmp ult i32 %__value.addr.021.i, 10000
+  %cmp11.i = icmp ult i32 %__value.addr.020.i, 10000
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %add13.i = add i32 %__n.020.i, 3
+  %add13.i = add i32 %__n.021.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end14.i:                                       ; preds = %if.end9.i
-  %0 = udiv i32 %__value.addr.021.i, 10000
-  %add17.i = add i32 %__n.020.i, 4
-  %cmp.i = icmp ult i32 %__value.addr.021.i, 100000
+  %0 = udiv i32 %__value.addr.020.i, 10000
+  %add17.i = add i32 %__n.021.i, 4
+  %cmp.i = icmp ult i32 %__value.addr.020.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !86
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i

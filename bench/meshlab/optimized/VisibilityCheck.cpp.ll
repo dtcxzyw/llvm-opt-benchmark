@@ -10302,28 +10302,28 @@ define noundef zeroext i1 @_ZN23VisibilityCheck_VMV20029iterationERSt6vectorIhSa
   %51 = phi i32 [ %86, %._crit_edge75 ], [ %47, %.lr.ph88 ]
   %52 = phi i32 [ %87, %._crit_edge75 ], [ %44, %.lr.ph88 ]
   %53 = phi i32 [ %88, %._crit_edge75 ], [ %44, %.lr.ph88 ]
-  %.04486 = phi i32 [ %.1.lcssa, %._crit_edge75 ], [ 0, %.lr.ph88 ]
-  %.04585 = phi i32 [ %89, %._crit_edge75 ], [ %48, %.lr.ph88 ]
-  %.04684 = phi i32 [ %.147.lcssa, %._crit_edge75 ], [ %46, %.lr.ph88 ]
-  %.04883 = phi i32 [ %.149.lcssa, %._crit_edge75 ], [ %47, %.lr.ph88 ]
-  %.05282 = phi i32 [ %.153.lcssa, %._crit_edge75 ], [ %46, %.lr.ph88 ]
-  %.05681 = phi i32 [ %.157.lcssa, %._crit_edge75 ], [ %44, %.lr.ph88 ]
+  %.04386 = phi i32 [ %.1.lcssa, %._crit_edge75 ], [ 0, %.lr.ph88 ]
+  %.04485 = phi i32 [ %89, %._crit_edge75 ], [ %48, %.lr.ph88 ]
+  %.04584 = phi i32 [ %.146.lcssa, %._crit_edge75 ], [ %46, %.lr.ph88 ]
+  %.04783 = phi i32 [ %.148.lcssa, %._crit_edge75 ], [ %47, %.lr.ph88 ]
+  %.05182 = phi i32 [ %.152.lcssa, %._crit_edge75 ], [ %46, %.lr.ph88 ]
+  %.05581 = phi i32 [ %.156.lcssa, %._crit_edge75 ], [ %44, %.lr.ph88 ]
   %54 = load i32, ptr %33, align 8
   %.not6166 = icmp sgt i32 %54, %53
   br i1 %.not6166, label %._crit_edge75, label %.lr.ph74.preheader
 
 .lr.ph74.preheader:                               ; preds = %.lr.ph88.split
-  %55 = sext i32 %.04486 to i64
+  %55 = sext i32 %.04386 to i64
   br label %.lr.ph74
 
 .lr.ph74:                                         ; preds = %.lr.ph74.preheader, %82
   %56 = phi i32 [ %52, %.lr.ph74.preheader ], [ %83, %82 ]
   %indvars.iv100 = phi i64 [ %55, %.lr.ph74.preheader ], [ %indvars.iv.next101, %82 ]
-  %.04372 = phi i32 [ %54, %.lr.ph74.preheader ], [ %84, %82 ]
-  %.14770 = phi i32 [ %.04684, %.lr.ph74.preheader ], [ %.3, %82 ]
-  %.14969 = phi i32 [ %.04883, %.lr.ph74.preheader ], [ %.351, %82 ]
-  %.15368 = phi i32 [ %.05282, %.lr.ph74.preheader ], [ %.355, %82 ]
-  %.15767 = phi i32 [ %.05681, %.lr.ph74.preheader ], [ %.359, %82 ]
+  %.072 = phi i32 [ %54, %.lr.ph74.preheader ], [ %84, %82 ]
+  %.14670 = phi i32 [ %.04584, %.lr.ph74.preheader ], [ %.3, %82 ]
+  %.14869 = phi i32 [ %.04783, %.lr.ph74.preheader ], [ %.350, %82 ]
+  %.15268 = phi i32 [ %.05182, %.lr.ph74.preheader ], [ %.354, %82 ]
+  %.15667 = phi i32 [ %.05581, %.lr.ph74.preheader ], [ %.358, %82 ]
   %57 = load ptr, ptr %1, align 8
   %58 = getelementptr i8, ptr %57, i64 %indvars.iv100
   %59 = load i8, ptr %58, align 1
@@ -10347,10 +10347,10 @@ define noundef zeroext i1 @_ZN23VisibilityCheck_VMV20029iterationERSt6vectorIhSa
   br i1 %76, label %77, label %82
 
 77:                                               ; preds = %.lr.ph74
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %.04372, i32 %.15767)
-  %.254 = tail call i32 @llvm.smax.i32(i32 %.04372, i32 %.15368)
-  %.250 = tail call i32 @llvm.smin.i32(i32 %.04585, i32 %.14969)
-  %.2 = tail call i32 @llvm.smax.i32(i32 %.04585, i32 %.14770)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %.072, i32 %.15667)
+  %.253 = tail call i32 @llvm.smax.i32(i32 %.072, i32 %.15268)
+  %.249 = tail call i32 @llvm.smin.i32(i32 %.04485, i32 %.14869)
+  %.2 = tail call i32 @llvm.smax.i32(i32 %.04485, i32 %.14670)
   %78 = load ptr, ptr %49, align 8
   %79 = zext nneg i32 %75 to i64
   %80 = getelementptr i8, ptr %78, i64 %79
@@ -10361,13 +10361,13 @@ define noundef zeroext i1 @_ZN23VisibilityCheck_VMV20029iterationERSt6vectorIhSa
 
 82:                                               ; preds = %.lr.ph74, %77
   %83 = phi i32 [ %.pre103, %77 ], [ %56, %.lr.ph74 ]
-  %.359 = phi i32 [ %spec.select, %77 ], [ %.15767, %.lr.ph74 ]
-  %.355 = phi i32 [ %.254, %77 ], [ %.15368, %.lr.ph74 ]
-  %.351 = phi i32 [ %.250, %77 ], [ %.14969, %.lr.ph74 ]
-  %.3 = phi i32 [ %.2, %77 ], [ %.14770, %.lr.ph74 ]
-  %84 = add nsw i32 %.04372, 1
+  %.358 = phi i32 [ %spec.select, %77 ], [ %.15667, %.lr.ph74 ]
+  %.354 = phi i32 [ %.253, %77 ], [ %.15268, %.lr.ph74 ]
+  %.350 = phi i32 [ %.249, %77 ], [ %.14869, %.lr.ph74 ]
+  %.3 = phi i32 [ %.2, %77 ], [ %.14670, %.lr.ph74 ]
+  %84 = add nsw i32 %.072, 1
   %indvars.iv.next101 = add nsw i64 %indvars.iv100, 4
-  %.not61.not = icmp slt i32 %.04372, %83
+  %.not61.not = icmp slt i32 %.072, %83
   br i1 %.not61.not, label %.lr.ph74, label %._crit_edge75.loopexit, !llvm.loop !87
 
 ._crit_edge75.loopexit:                           ; preds = %82
@@ -10379,31 +10379,31 @@ define noundef zeroext i1 @_ZN23VisibilityCheck_VMV20029iterationERSt6vectorIhSa
   %86 = phi i32 [ %51, %.lr.ph88.split ], [ %.pre104, %._crit_edge75.loopexit ]
   %87 = phi i32 [ %52, %.lr.ph88.split ], [ %83, %._crit_edge75.loopexit ]
   %88 = phi i32 [ %53, %.lr.ph88.split ], [ %83, %._crit_edge75.loopexit ]
-  %.157.lcssa = phi i32 [ %.05681, %.lr.ph88.split ], [ %.359, %._crit_edge75.loopexit ]
-  %.153.lcssa = phi i32 [ %.05282, %.lr.ph88.split ], [ %.355, %._crit_edge75.loopexit ]
-  %.149.lcssa = phi i32 [ %.04883, %.lr.ph88.split ], [ %.351, %._crit_edge75.loopexit ]
-  %.147.lcssa = phi i32 [ %.04684, %.lr.ph88.split ], [ %.3, %._crit_edge75.loopexit ]
-  %.1.lcssa = phi i32 [ %.04486, %.lr.ph88.split ], [ %85, %._crit_edge75.loopexit ]
-  %89 = add nsw i32 %.04585, 1
-  %.not.not = icmp slt i32 %.04585, %86
+  %.156.lcssa = phi i32 [ %.05581, %.lr.ph88.split ], [ %.358, %._crit_edge75.loopexit ]
+  %.152.lcssa = phi i32 [ %.05182, %.lr.ph88.split ], [ %.354, %._crit_edge75.loopexit ]
+  %.148.lcssa = phi i32 [ %.04783, %.lr.ph88.split ], [ %.350, %._crit_edge75.loopexit ]
+  %.146.lcssa = phi i32 [ %.04584, %.lr.ph88.split ], [ %.3, %._crit_edge75.loopexit ]
+  %.1.lcssa = phi i32 [ %.04386, %.lr.ph88.split ], [ %85, %._crit_edge75.loopexit ]
+  %89 = add nsw i32 %.04485, 1
+  %.not.not = icmp slt i32 %.04485, %86
   br i1 %.not.not, label %.lr.ph88.split, label %._crit_edge89, !llvm.loop !88
 
 ._crit_edge89:                                    ; preds = %._crit_edge75, %.lr.ph88, %._crit_edge
-  %.056.lcssa = phi i32 [ %44, %._crit_edge ], [ %44, %.lr.ph88 ], [ %.157.lcssa, %._crit_edge75 ]
-  %.052.lcssa = phi i32 [ %46, %._crit_edge ], [ %46, %.lr.ph88 ], [ %.153.lcssa, %._crit_edge75 ]
-  %.048.lcssa = phi i32 [ %47, %._crit_edge ], [ %47, %.lr.ph88 ], [ %.149.lcssa, %._crit_edge75 ]
-  %.046.lcssa = phi i32 [ %46, %._crit_edge ], [ %46, %.lr.ph88 ], [ %.147.lcssa, %._crit_edge75 ]
-  %.sroa.263.0.insert.ext = zext i32 %.048.lcssa to i64
+  %.055.lcssa = phi i32 [ %44, %._crit_edge ], [ %44, %.lr.ph88 ], [ %.156.lcssa, %._crit_edge75 ]
+  %.051.lcssa = phi i32 [ %46, %._crit_edge ], [ %46, %.lr.ph88 ], [ %.152.lcssa, %._crit_edge75 ]
+  %.047.lcssa = phi i32 [ %47, %._crit_edge ], [ %47, %.lr.ph88 ], [ %.148.lcssa, %._crit_edge75 ]
+  %.045.lcssa = phi i32 [ %46, %._crit_edge ], [ %46, %.lr.ph88 ], [ %.146.lcssa, %._crit_edge75 ]
+  %.sroa.263.0.insert.ext = zext i32 %.047.lcssa to i64
   %.sroa.263.0.insert.shift = shl nuw i64 %.sroa.263.0.insert.ext, 32
-  %.sroa.062.0.insert.ext = zext i32 %.056.lcssa to i64
+  %.sroa.062.0.insert.ext = zext i32 %.055.lcssa to i64
   %.sroa.062.0.insert.insert = or disjoint i64 %.sroa.263.0.insert.shift, %.sroa.062.0.insert.ext
   store i64 %.sroa.062.0.insert.insert, ptr %33, align 8
-  %.sroa.2.0.insert.ext = zext i32 %.046.lcssa to i64
+  %.sroa.2.0.insert.ext = zext i32 %.045.lcssa to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
-  %.sroa.0.0.insert.ext = zext i32 %.052.lcssa to i64
+  %.sroa.0.0.insert.ext = zext i32 %.051.lcssa to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   store i64 %.sroa.0.0.insert.insert, ptr %37, align 8
-  %90 = icmp slt i32 %.056.lcssa, %.052.lcssa
+  %90 = icmp slt i32 %.055.lcssa, %.051.lcssa
   ret i1 %90
 }
 

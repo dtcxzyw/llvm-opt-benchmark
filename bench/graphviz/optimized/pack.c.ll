@@ -71,17 +71,17 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   br label %13
 
 13:                                               ; preds = %63, %.lr.ph.i
-  %.0186223.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %63 ]
-  %.0189219.i = phi i64 [ 0, %.lr.ph.i ], [ %64, %63 ]
+  %.0187223.i = phi i64 [ 0, %.lr.ph.i ], [ %64, %63 ]
+  %.0188218.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %63 ]
   %14 = phi <2 x i32> [ zeroinitializer, %.lr.ph.i ], [ %45, %63 ]
   %15 = phi <2 x i32> [ zeroinitializer, %.lr.ph.i ], [ %46, %63 ]
-  %16 = getelementptr inbounds ptr, ptr %1, i64 %.0189219.i
+  %16 = getelementptr inbounds ptr, ptr %1, i64 %.0187223.i
   %17 = load ptr, ptr %16, align 8
   tail call void @compute_bb(ptr noundef %17) #18
   br i1 %.not203.i, label %44, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %12, i64 %.0189219.i
+  %19 = getelementptr inbounds i8, ptr %12, i64 %.0187223.i
   %20 = load i8, ptr %19, align 1
   %21 = trunc i8 %20 to i1
   br i1 %21, label %22, label %44
@@ -101,22 +101,22 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   %34 = select <2 x i1> %33, <2 x double> <double -5.000000e-01, double -5.000000e-01>, <2 x double> <double 5.000000e-01, double 5.000000e-01>
   %35 = fadd <2 x double> %32, %34
   %36 = fptosi <2 x double> %35 to <2 x i32>
-  %.not207.i = icmp eq i32 %.0186223.i, 0
+  %.not207.i = icmp eq i32 %.0188218.i, 0
   br i1 %.not207.i, label %40, label %37
 
 37:                                               ; preds = %22
-  %38 = tail call <2 x i32> @llvm.smin.v2i32(<2 x i32> %14, <2 x i32> %31)
-  %39 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %15, <2 x i32> %36)
+  %38 = tail call <2 x i32> @llvm.smin.v2i32(<2 x i32> %15, <2 x i32> %31)
+  %39 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %14, <2 x i32> %36)
   br label %40
 
 40:                                               ; preds = %37, %22
-  %41 = phi <2 x i32> [ %38, %37 ], [ %31, %22 ]
-  %42 = phi <2 x i32> [ %39, %37 ], [ %36, %22 ]
-  %43 = add nsw i32 %.0186223.i, 1
+  %41 = phi <2 x i32> [ %39, %37 ], [ %36, %22 ]
+  %42 = phi <2 x i32> [ %38, %37 ], [ %31, %22 ]
+  %43 = add nsw i32 %.0188218.i, 1
   br label %44
 
 44:                                               ; preds = %40, %18, %13
-  %.1.i = phi i32 [ %43, %40 ], [ %.0186223.i, %18 ], [ %.0186223.i, %13 ]
+  %.1.i = phi i32 [ %43, %40 ], [ %.0188218.i, %18 ], [ %.0188218.i, %13 ]
   %45 = phi <2 x i32> [ %41, %40 ], [ %14, %18 ], [ %14, %13 ]
   %46 = phi <2 x i32> [ %42, %40 ], [ %15, %18 ], [ %15, %13 ]
   %47 = load i8, ptr @Verbose, align 1
@@ -140,7 +140,7 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   br label %63
 
 63:                                               ; preds = %49, %44
-  %64 = add nuw i64 %.0189219.i, 1
+  %64 = add nuw i64 %.0187223.i, 1
   %exitcond.not.i = icmp eq i64 %64, %0
   br i1 %exitcond.not.i, label %.lr.ph229.preheader.i, label %13
 
@@ -149,15 +149,15 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   br label %.lr.ph229.i
 
 .lr.ph229.i:                                      ; preds = %.lr.ph229.i, %.lr.ph229.preheader.i
-  %.0188227.i = phi i64 [ %72, %.lr.ph229.i ], [ 0, %.lr.ph229.preheader.i ]
-  %66 = getelementptr inbounds %struct.boxf, ptr %65, i64 %.0188227.i
-  %67 = getelementptr inbounds ptr, ptr %1, i64 %.0188227.i
+  %.0186227.i = phi i64 [ %72, %.lr.ph229.i ], [ 0, %.lr.ph229.preheader.i ]
+  %66 = getelementptr inbounds %struct.boxf, ptr %65, i64 %.0186227.i
+  %67 = getelementptr inbounds ptr, ptr %1, i64 %.0186227.i
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, ptr noundef nonnull align 8 dereferenceable(32) %71, i64 32, i1 false)
-  %72 = add nuw i64 %.0188227.i, 1
+  %72 = add nuw i64 %.0186227.i, 1
   %exitcond261.not.i = icmp eq i64 %72, %0
   br i1 %exitcond261.not.i, label %._crit_edge230.i, label %.lr.ph229.i
 
@@ -205,12 +205,12 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   br label %93
 
 93:                                               ; preds = %499, %.lr.ph233.i
-  %.0187231.i = phi i64 [ 0, %.lr.ph233.i ], [ %500, %499 ]
-  %94 = getelementptr inbounds ptr, ptr %1, i64 %.0187231.i
+  %.0185231.i = phi i64 [ 0, %.lr.ph233.i ], [ %500, %499 ]
+  %94 = getelementptr inbounds ptr, ptr %1, i64 %.0185231.i
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds %struct.ginfo, ptr %88, i64 %.0187231.i
+  %96 = getelementptr inbounds %struct.ginfo, ptr %88, i64 %.0185231.i
   %97 = getelementptr inbounds i8, ptr %96, i64 24
-  store i64 %.0187231.i, ptr %97, align 8
+  store i64 %.0185231.i, ptr %97, align 8
   %98 = load i32, ptr %8, align 8
   %99 = icmp eq i32 %98, 3
   br i1 %99, label %100, label %106
@@ -274,8 +274,8 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
 
 .lr.ph509.i.i:                                    ; preds = %125, %.lr.ph509.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph509.i.i ], [ 0, %125 ]
-  %.0392506.i.i = phi ptr [ %142, %.lr.ph509.i.i ], [ %129, %125 ]
-  %137 = getelementptr inbounds i8, ptr %.0392506.i.i, i64 16
+  %.0400506.i.i = phi ptr [ %142, %.lr.ph509.i.i ], [ %129, %125 ]
+  %137 = getelementptr inbounds i8, ptr %.0400506.i.i, i64 16
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 152
   %140 = load ptr, ptr %139, align 8
@@ -283,7 +283,7 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   %141 = getelementptr inbounds ptr, ptr %128, i64 %indvars.iv.i.i
   store ptr %140, ptr %141, align 8
   store ptr null, ptr %139, align 8
-  %142 = tail call ptr @agnxtnode(ptr noundef %95, ptr noundef nonnull %.0392506.i.i) #18
+  %142 = tail call ptr @agnxtnode(ptr noundef %95, ptr noundef nonnull %.0400506.i.i) #18
   %.not456.i.i = icmp eq ptr %142, null
   br i1 %.not456.i.i, label %.preheader489.i.i, label %.lr.ph509.i.i
 
@@ -399,19 +399,19 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   br i1 %or.cond574.i.i, label %._crit_edge516.i.i, label %.preheader487.i.i
 
 .preheader487.i.i:                                ; preds = %219, %._crit_edge513.i.i
-  %.0398515.i.i = phi i32 [ %223, %._crit_edge513.i.i ], [ %193, %219 ]
+  %.0394515.i.i = phi i32 [ %223, %._crit_edge513.i.i ], [ %193, %219 ]
   br label %221
 
 221:                                              ; preds = %221, %.preheader487.i.i
-  %.0401511.i.i = phi i32 [ %202, %.preheader487.i.i ], [ %222, %221 ]
-  tail call void @addPS(ptr noundef %110, i32 noundef %.0398515.i.i, i32 noundef %.0401511.i.i) #18
-  %222 = add i32 %.0401511.i.i, 1
-  %exitcond560.not.i.i = icmp eq i32 %.0401511.i.i, %220
+  %.0391511.i.i = phi i32 [ %202, %.preheader487.i.i ], [ %222, %221 ]
+  tail call void @addPS(ptr noundef %110, i32 noundef %.0394515.i.i, i32 noundef %.0391511.i.i) #18
+  %222 = add i32 %.0391511.i.i, 1
+  %exitcond560.not.i.i = icmp eq i32 %.0391511.i.i, %220
   br i1 %exitcond560.not.i.i, label %._crit_edge513.i.i, label %221
 
 ._crit_edge513.i.i:                               ; preds = %221
-  %223 = add i32 %.0398515.i.i, 1
-  %exitcond561.not.i.i = icmp eq i32 %.0398515.i.i, %211
+  %223 = add i32 %.0394515.i.i, 1
+  %exitcond561.not.i.i = icmp eq i32 %.0394515.i.i, %211
   br i1 %exitcond561.not.i.i, label %._crit_edge516.i.i, label %.preheader487.i.i
 
 ._crit_edge516.i.i:                               ; preds = %._crit_edge513.i.i, %219
@@ -420,12 +420,12 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   br i1 %.not472517.i.i, label %.loopexit488.i.i, label %.lr.ph520.i.i
 
 .lr.ph520.i.i:                                    ; preds = %._crit_edge516.i.i, %.lr.ph520.i.i
-  %.1393518.i.i = phi ptr [ %228, %.lr.ph520.i.i ], [ %224, %._crit_edge516.i.i ]
-  %225 = getelementptr inbounds i8, ptr %.1393518.i.i, i64 16
+  %.1401518.i.i = phi ptr [ %228, %.lr.ph520.i.i ], [ %224, %._crit_edge516.i.i ]
+  %225 = getelementptr inbounds i8, ptr %.1401518.i.i, i64 16
   %226 = load ptr, ptr %225, align 8
   %227 = getelementptr inbounds i8, ptr %226, i64 336
   store ptr %148, ptr %227, align 8
-  %228 = tail call ptr @agnxtnode(ptr noundef %148, ptr noundef nonnull %.1393518.i.i) #18
+  %228 = tail call ptr @agnxtnode(ptr noundef %148, ptr noundef nonnull %.1401518.i.i) #18
   %.not472.i.i = icmp eq ptr %228, null
   br i1 %.not472.i.i, label %.loopexit488.i.i, label %.lr.ph520.i.i
 
@@ -448,8 +448,8 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   br label %235
 
 235:                                              ; preds = %.loopexit485.i.i, %.lr.ph543.i.i
-  %.2394541.i.i = phi ptr [ %233, %.lr.ph543.i.i ], [ %361, %.loopexit485.i.i ]
-  %236 = tail call { double, double } @coord(ptr noundef nonnull %.2394541.i.i) #18
+  %.2402541.i.i = phi ptr [ %233, %.lr.ph543.i.i ], [ %361, %.loopexit485.i.i ]
+  %236 = tail call { double, double } @coord(ptr noundef nonnull %.2402541.i.i) #18
   %237 = extractvalue { double, double } %236, 0
   %238 = extractvalue { double, double } %236, 1
   %239 = fcmp ult double %237, 0.000000e+00
@@ -462,7 +462,7 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   %242 = fptosi double %.in461.i.i to i32
   %243 = add nsw i32 %117, %240
   %244 = add nsw i32 %122, %242
-  %245 = getelementptr inbounds i8, ptr %.2394541.i.i, i64 16
+  %245 = getelementptr inbounds i8, ptr %.2402541.i.i, i64 16
   %246 = load ptr, ptr %245, align 8
   %247 = getelementptr inbounds i8, ptr %246, i64 336
   %248 = load ptr, ptr %247, align 8
@@ -563,19 +563,19 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   br i1 %or.cond575.i.i, label %._crit_edge535.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %297, %._crit_edge532.i.i
-  %.1399534.i.i = phi i32 [ %301, %._crit_edge532.i.i ], [ %271, %297 ]
+  %.1395534.i.i = phi i32 [ %301, %._crit_edge532.i.i ], [ %271, %297 ]
   br label %299
 
 299:                                              ; preds = %299, %.preheader.i.i
-  %.1402530.i.i = phi i32 [ %280, %.preheader.i.i ], [ %300, %299 ]
-  tail call void @addPS(ptr noundef %110, i32 noundef %.1399534.i.i, i32 noundef %.1402530.i.i) #18
-  %300 = add i32 %.1402530.i.i, 1
-  %exitcond565.not.i.i = icmp eq i32 %.1402530.i.i, %298
+  %.1392530.i.i = phi i32 [ %280, %.preheader.i.i ], [ %300, %299 ]
+  tail call void @addPS(ptr noundef %110, i32 noundef %.1395534.i.i, i32 noundef %.1392530.i.i) #18
+  %300 = add i32 %.1392530.i.i, 1
+  %exitcond565.not.i.i = icmp eq i32 %.1392530.i.i, %298
   br i1 %exitcond565.not.i.i, label %._crit_edge532.i.i, label %299
 
 ._crit_edge532.i.i:                               ; preds = %299
-  %301 = add i32 %.1399534.i.i, 1
-  %exitcond566.not.i.i = icmp eq i32 %.1399534.i.i, %289
+  %301 = add i32 %.1395534.i.i, 1
+  %exitcond566.not.i.i = icmp eq i32 %.1395534.i.i, %289
   br i1 %exitcond566.not.i.i, label %._crit_edge535.i.i, label %.preheader.i.i
 
 ._crit_edge535.i.i:                               ; preds = %._crit_edge532.i.i, %297
@@ -609,7 +609,7 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
 
 318:                                              ; preds = %314, %312
   %319 = phi i32 [ %313, %312 ], [ %317, %314 ]
-  %320 = tail call ptr @agfstout(ptr noundef %..i.i, ptr noundef nonnull %.2394541.i.i) #18
+  %320 = tail call ptr @agfstout(ptr noundef %..i.i, ptr noundef nonnull %.2402541.i.i) #18
   %.not464536.i.i = icmp eq ptr %320, null
   br i1 %.not464536.i.i, label %.loopexit485.i.i, label %.lr.ph539.i.i
 
@@ -621,9 +621,9 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   br label %321
 
 321:                                              ; preds = %321, %.lr.ph539.i.i
-  %.0395537.i.i = phi ptr [ %320, %.lr.ph539.i.i ], [ %322, %321 ]
-  tail call fastcc void @fillEdge(ptr noundef nonnull %.0395537.i.i, i64 %.sroa.0186.0.insert.insert205.i.i, ptr noundef %110, i32 noundef %117, i32 noundef %122, i32 noundef %75, i1 noundef zeroext %109)
-  %322 = tail call ptr @agnxtout(ptr noundef %..i.i, ptr noundef nonnull %.0395537.i.i) #18
+  %.0397537.i.i = phi ptr [ %320, %.lr.ph539.i.i ], [ %322, %321 ]
+  tail call fastcc void @fillEdge(ptr noundef nonnull %.0397537.i.i, i64 %.sroa.0186.0.insert.insert205.i.i, ptr noundef %110, i32 noundef %117, i32 noundef %122, i32 noundef %75, i1 noundef zeroext %109)
+  %322 = tail call ptr @agnxtout(ptr noundef %..i.i, ptr noundef nonnull %.0397537.i.i) #18
   %.not464.i.i = icmp eq ptr %322, null
   br i1 %.not464.i.i, label %.loopexit485.i.i, label %321
 
@@ -658,7 +658,7 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
 
 340:                                              ; preds = %336, %334
   %341 = phi i32 [ %335, %334 ], [ %339, %336 ]
-  %342 = tail call ptr @agfstout(ptr noundef %..i.i, ptr noundef nonnull %.2394541.i.i) #18
+  %342 = tail call ptr @agfstout(ptr noundef %..i.i, ptr noundef nonnull %.2402541.i.i) #18
   %.not466525.i.i = icmp eq ptr %342, null
   br i1 %.not466525.i.i, label %.loopexit485.i.i, label %.lr.ph528.i.i
 
@@ -670,15 +670,15 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   br label %343
 
 343:                                              ; preds = %359, %.lr.ph528.i.i
-  %.1396526.i.i = phi ptr [ %342, %.lr.ph528.i.i ], [ %360, %359 ]
+  %.1398526.i.i = phi ptr [ %342, %.lr.ph528.i.i ], [ %360, %359 ]
   %344 = load ptr, ptr %245, align 8
   %345 = getelementptr inbounds i8, ptr %344, i64 336
   %346 = load ptr, ptr %345, align 8
-  %347 = load i32, ptr %.1396526.i.i, align 8
+  %347 = load i32, ptr %.1398526.i.i, align 8
   %348 = and i32 %347, 3
   %349 = icmp eq i32 %348, 2
   %.idx.i.i = select i1 %349, i64 0, i64 -64
-  %350 = getelementptr inbounds i8, ptr %.1396526.i.i, i64 %.idx.i.i
+  %350 = getelementptr inbounds i8, ptr %.1398526.i.i, i64 %.idx.i.i
   %351 = getelementptr inbounds i8, ptr %350, i64 56
   %352 = load ptr, ptr %351, align 8
   %353 = getelementptr inbounds i8, ptr %352, i64 16
@@ -689,16 +689,16 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   br i1 %357, label %359, label %358
 
 358:                                              ; preds = %343
-  tail call fastcc void @fillEdge(ptr noundef nonnull %.1396526.i.i, i64 %.sroa.0186.0.insert.insert209.i.i, ptr noundef %110, i32 noundef %117, i32 noundef %122, i32 noundef %75, i1 noundef zeroext %109)
+  tail call fastcc void @fillEdge(ptr noundef nonnull %.1398526.i.i, i64 %.sroa.0186.0.insert.insert209.i.i, ptr noundef %110, i32 noundef %117, i32 noundef %122, i32 noundef %75, i1 noundef zeroext %109)
   br label %359
 
 359:                                              ; preds = %358, %343
-  %360 = tail call ptr @agnxtout(ptr noundef %..i.i, ptr noundef nonnull %.1396526.i.i) #18
+  %360 = tail call ptr @agnxtout(ptr noundef %..i.i, ptr noundef nonnull %.1398526.i.i) #18
   %.not466.i.i = icmp eq ptr %360, null
   br i1 %.not466.i.i, label %.loopexit485.i.i, label %343
 
 .loopexit485.i.i:                                 ; preds = %359, %321, %340, %318
-  %361 = tail call ptr @agnxtnode(ptr noundef %95, ptr noundef nonnull %.2394541.i.i) #18
+  %361 = tail call ptr @agnxtnode(ptr noundef %95, ptr noundef nonnull %.2402541.i.i) #18
   %.not458.i.i = icmp eq ptr %361, null
   br i1 %.not458.i.i, label %._crit_edge544.i.i, label %235
 
@@ -844,19 +844,19 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   br i1 %or.cond576.i.i, label %._crit_edge496.i.i, label %.preheader490.i.i
 
 .preheader490.i.i:                                ; preds = %431, %._crit_edge.i.i
-  %.2400495.i.i = phi i32 [ %435, %._crit_edge.i.i ], [ %405, %431 ]
+  %.2396495.i.i = phi i32 [ %435, %._crit_edge.i.i ], [ %405, %431 ]
   br label %433
 
 433:                                              ; preds = %433, %.preheader490.i.i
-  %.2403493.i.i = phi i32 [ %414, %.preheader490.i.i ], [ %434, %433 ]
-  tail call void @addPS(ptr noundef %110, i32 noundef %.2400495.i.i, i32 noundef %.2403493.i.i) #18
-  %434 = add i32 %.2403493.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %.2403493.i.i, %432
+  %.2393493.i.i = phi i32 [ %414, %.preheader490.i.i ], [ %434, %433 ]
+  tail call void @addPS(ptr noundef %110, i32 noundef %.2396495.i.i, i32 noundef %.2393493.i.i) #18
+  %434 = add i32 %.2393493.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %.2393493.i.i, %432
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %433
 
 ._crit_edge.i.i:                                  ; preds = %433
-  %435 = add i32 %.2400495.i.i, 1
-  %exitcond558.not.i.i = icmp eq i32 %.2400495.i.i, %423
+  %435 = add i32 %.2396495.i.i, 1
+  %exitcond558.not.i.i = icmp eq i32 %.2396495.i.i, %423
   br i1 %exitcond558.not.i.i, label %._crit_edge496.i.i, label %.preheader490.i.i
 
 ._crit_edge496.i.i:                               ; preds = %._crit_edge.i.i, %431
@@ -902,9 +902,9 @@ define noalias noundef ptr @putGraphs(i64 noundef %0, ptr nocapture noundef read
   br label %455
 
 455:                                              ; preds = %455, %.lr.ph.i.i
-  %.2397498.i.i = phi ptr [ %454, %.lr.ph.i.i ], [ %456, %455 ]
-  tail call fastcc void @fillEdge(ptr noundef nonnull %.2397498.i.i, i64 %.sroa.0186.0.insert.insert221.i.i, ptr noundef %110, i32 noundef %117, i32 noundef %122, i32 noundef %75, i1 noundef zeroext %109)
-  %456 = tail call ptr @agnxtout(ptr noundef %..i.i, ptr noundef nonnull %.2397498.i.i) #18
+  %.2399498.i.i = phi ptr [ %454, %.lr.ph.i.i ], [ %456, %455 ]
+  tail call fastcc void @fillEdge(ptr noundef nonnull %.2399498.i.i, i64 %.sroa.0186.0.insert.insert221.i.i, ptr noundef %110, i32 noundef %117, i32 noundef %122, i32 noundef %75, i1 noundef zeroext %109)
+  %456 = tail call ptr @agnxtout(ptr noundef %..i.i, ptr noundef nonnull %.2399498.i.i) #18
   %.not454.i.i = icmp eq ptr %456, null
   br i1 %.not454.i.i, label %._crit_edge500.i.i, label %455
 
@@ -975,7 +975,7 @@ genPoly.exit.i:                                   ; preds = %.lr.ph553.i.i, %486
   br label %499
 
 499:                                              ; preds = %genPoly.exit.i, %100
-  %500 = add nuw i64 %.0187231.i, 1
+  %500 = add nuw i64 %.0185231.i, 1
   %exitcond262.not.i = icmp eq i64 %500, %0
   br i1 %exitcond262.not.i, label %.lr.ph237.preheader.i, label %93
 
@@ -984,11 +984,11 @@ genPoly.exit.i:                                   ; preds = %.lr.ph553.i.i, %486
   br label %.lr.ph237.i
 
 .lr.ph237.i:                                      ; preds = %.lr.ph237.i, %.lr.ph237.preheader.i
-  %.0185235.i = phi i64 [ %504, %.lr.ph237.i ], [ 0, %.lr.ph237.preheader.i ]
-  %502 = getelementptr inbounds %struct.ginfo, ptr %88, i64 %.0185235.i
-  %503 = getelementptr inbounds ptr, ptr %501, i64 %.0185235.i
+  %.0184235.i = phi i64 [ %504, %.lr.ph237.i ], [ 0, %.lr.ph237.preheader.i ]
+  %502 = getelementptr inbounds %struct.ginfo, ptr %88, i64 %.0184235.i
+  %503 = getelementptr inbounds ptr, ptr %501, i64 %.0184235.i
   store ptr %502, ptr %503, align 8
-  %504 = add nuw i64 %.0185235.i, 1
+  %504 = add nuw i64 %.0184235.i, 1
   %exitcond263.not.i = icmp eq i64 %504, %0
   br i1 %exitcond263.not.i, label %._crit_edge238.i, label %.lr.ph237.i
 
@@ -1195,13 +1195,13 @@ placeFixed.exit.i:                                ; preds = %528, %._crit_edge.i
   br label %598
 
 598:                                              ; preds = %.loopexit, %595, %._crit_edge
-  %.039 = phi ptr [ %592, %595 ], [ %592, %.loopexit ], [ null, %._crit_edge ]
+  %.038 = phi ptr [ %592, %595 ], [ %592, %.loopexit ], [ null, %._crit_edge ]
   call void @free(ptr noundef %563) #18
   br label %polyGraphs.exit
 
 polyGraphs.exit:                                  ; preds = %.lr.ph250.i, %._crit_edge248.i, %82, %4, %598
-  %.038 = phi ptr [ %.039, %598 ], [ null, %4 ], [ null, %82 ], [ %506, %._crit_edge248.i ], [ %506, %.lr.ph250.i ]
-  ret ptr %.038
+  %.039 = phi ptr [ %.038, %598 ], [ null, %4 ], [ null, %82 ], [ %506, %._crit_edge248.i ], [ %506, %.lr.ph250.i ]
+  ret ptr %.039
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1304,8 +1304,8 @@ define internal fastcc noalias noundef ptr @arrayRects(i64 noundef %0, ptr nocap
   br label %37
 
 37:                                               ; preds = %25, %30, %12, %17
-  %.0181 = phi i64 [ %16, %12 ], [ %23, %17 ], [ %26, %25 ], [ %33, %30 ]
-  %.0 = phi i64 [ %13, %12 ], [ %20, %17 ], [ %29, %25 ], [ %36, %30 ]
+  %.0191 = phi i64 [ %13, %12 ], [ %20, %17 ], [ %29, %25 ], [ %36, %30 ]
+  %.0190 = phi i64 [ %16, %12 ], [ %23, %17 ], [ %26, %25 ], [ %33, %30 ]
   %38 = load i8, ptr @Verbose, align 1
   %.not204 = icmp eq i8 %38, 0
   br i1 %.not204, label %43, label %39
@@ -1313,13 +1313,13 @@ define internal fastcc noalias noundef ptr @arrayRects(i64 noundef %0, ptr nocap
 39:                                               ; preds = %37
   %40 = load ptr, ptr @stderr, align 8
   %41 = select i1 %.not.not.not.not, ptr @.str.31, ptr @.str.32
-  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.30, ptr noundef nonnull %41, i64 noundef %.0, i64 noundef %.0181) #19
+  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.30, ptr noundef nonnull %41, i64 noundef %.0191, i64 noundef %.0190) #19
   br label %43
 
 43:                                               ; preds = %39, %37
-  %44 = add i64 %.0181, 1
+  %44 = add i64 %.0190, 1
   %45 = tail call fastcc ptr @gv_calloc(i64 noundef %44, i64 noundef 8)
-  %46 = add i64 %.0, 1
+  %46 = add i64 %.0191, 1
   %47 = tail call fastcc ptr @gv_calloc(i64 noundef %46, i64 noundef 8)
   %48 = tail call fastcc ptr @gv_calloc(i64 noundef %0, i64 noundef 24)
   %.not250 = icmp eq i64 %0, 0
@@ -1334,19 +1334,19 @@ define internal fastcc noalias noundef ptr @arrayRects(i64 noundef %0, ptr nocap
   br label %54
 
 54:                                               ; preds = %.lr.ph, %54
-  %.0182225 = phi i64 [ 0, %.lr.ph ], [ %61, %54 ]
-  %.0183224 = phi ptr [ %48, %.lr.ph ], [ %62, %54 ]
-  %55 = getelementptr inbounds %struct.boxf, ptr %1, i64 %.0182225
+  %.0180225 = phi i64 [ 0, %.lr.ph ], [ %61, %54 ]
+  %.0181224 = phi ptr [ %48, %.lr.ph ], [ %62, %54 ]
+  %55 = getelementptr inbounds %struct.boxf, ptr %1, i64 %.0180225
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %55, i64 16
   %56 = load <2 x double>, ptr %55, align 8
   %57 = load <2 x double>, ptr %.sroa.8.0..sroa_idx, align 8
   %58 = fsub <2 x double> %57, %56
   %59 = fadd <2 x double> %58, %53
-  store <2 x double> %59, ptr %.0183224, align 8
-  %60 = getelementptr inbounds i8, ptr %.0183224, i64 16
-  store i64 %.0182225, ptr %60, align 8
-  %61 = add nuw i64 %.0182225, 1
-  %62 = getelementptr inbounds i8, ptr %.0183224, i64 24
+  store <2 x double> %59, ptr %.0181224, align 8
+  %60 = getelementptr inbounds i8, ptr %.0181224, i64 16
+  store i64 %.0180225, ptr %60, align 8
+  %61 = add nuw i64 %.0180225, 1
+  %62 = getelementptr inbounds i8, ptr %.0181224, i64 24
   %exitcond.not = icmp eq i64 %61, %0
   br i1 %exitcond.not, label %.lr.ph228.preheader, label %54
 
@@ -1355,11 +1355,11 @@ define internal fastcc noalias noundef ptr @arrayRects(i64 noundef %0, ptr nocap
   br label %.lr.ph228
 
 .lr.ph228:                                        ; preds = %.lr.ph228.preheader, %.lr.ph228
-  %.0180226 = phi i64 [ %66, %.lr.ph228 ], [ 0, %.lr.ph228.preheader ]
-  %64 = getelementptr inbounds %struct.ainfo, ptr %48, i64 %.0180226
-  %65 = getelementptr inbounds ptr, ptr %63, i64 %.0180226
+  %.0179226 = phi i64 [ %66, %.lr.ph228 ], [ 0, %.lr.ph228.preheader ]
+  %64 = getelementptr inbounds %struct.ainfo, ptr %48, i64 %.0179226
+  %65 = getelementptr inbounds ptr, ptr %63, i64 %.0179226
   store ptr %64, ptr %65, align 8
-  %66 = add nuw i64 %.0180226, 1
+  %66 = add nuw i64 %.0179226, 1
   %exitcond254.not = icmp eq i64 %66, %0
   br i1 %exitcond254.not, label %._crit_edge229, label %.lr.ph228
 
@@ -1422,18 +1422,18 @@ gv_sort.exit:                                     ; preds = %.thread, %74, %77
   br label %.preheader223
 
 .lr.ph234:                                        ; preds = %86, %108
-  %.0179232 = phi i64 [ %109, %108 ], [ 0, %86 ]
-  %.0184231 = phi i64 [ %.1, %108 ], [ 0, %86 ]
-  %.0185230 = phi i64 [ %.1186, %108 ], [ 0, %86 ]
-  %88 = getelementptr inbounds ptr, ptr %87, i64 %.0179232
+  %.0178232 = phi i64 [ %109, %108 ], [ 0, %86 ]
+  %.0185231 = phi i64 [ %.1, %108 ], [ 0, %86 ]
+  %.0186230 = phi i64 [ %.1187, %108 ], [ 0, %86 ]
+  %88 = getelementptr inbounds ptr, ptr %87, i64 %.0178232
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds double, ptr %45, i64 %.0185230
+  %90 = getelementptr inbounds double, ptr %45, i64 %.0185231
   %91 = load double, ptr %90, align 8
   %92 = load double, ptr %89, align 8
   %93 = fcmp ogt double %91, %92
   %. = select i1 %93, double %91, double %92
   store double %., ptr %90, align 8
-  %94 = getelementptr inbounds double, ptr %47, i64 %.0184231
+  %94 = getelementptr inbounds double, ptr %47, i64 %.0186230
   %95 = load double, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %89, i64 8
   %97 = load double, ptr %96, align 8
@@ -1443,58 +1443,58 @@ gv_sort.exit:                                     ; preds = %.thread, %74, %77
   br i1 %.not.not.not.not, label %100, label %104
 
 100:                                              ; preds = %.lr.ph234
-  %101 = add i64 %.0185230, 1
-  %102 = icmp eq i64 %101, %.0181
-  %spec.select = select i1 %102, i64 0, i64 %101
+  %101 = add i64 %.0185231, 1
+  %102 = icmp eq i64 %101, %.0190
   %103 = zext i1 %102 to i64
-  %spec.select215 = add i64 %.0184231, %103
+  %spec.select = add i64 %.0186230, %103
+  %spec.select215 = select i1 %102, i64 0, i64 %101
   br label %108
 
 104:                                              ; preds = %.lr.ph234
-  %105 = add i64 %.0184231, 1
-  %106 = icmp eq i64 %105, %.0
+  %105 = add i64 %.0186230, 1
+  %106 = icmp eq i64 %105, %.0191
+  %spec.select216 = select i1 %106, i64 0, i64 %105
   %107 = zext i1 %106 to i64
-  %spec.select216 = add i64 %.0185230, %107
-  %spec.select217 = select i1 %106, i64 0, i64 %105
+  %spec.select217 = add i64 %.0185231, %107
   br label %108
 
 108:                                              ; preds = %104, %100
-  %.1186 = phi i64 [ %spec.select, %100 ], [ %spec.select216, %104 ]
+  %.1187 = phi i64 [ %spec.select, %100 ], [ %spec.select216, %104 ]
   %.1 = phi i64 [ %spec.select215, %100 ], [ %spec.select217, %104 ]
-  %109 = add nuw i64 %.0179232, 1
+  %109 = add nuw i64 %.0178232, 1
   %exitcond255.not = icmp eq i64 %109, %0
   br i1 %exitcond255.not, label %.preheader223.preheader, label %.lr.ph234
 
 .preheader:                                       ; preds = %.preheader223
-  %.not208237 = icmp eq i64 %.0, 0
+  %.not208237 = icmp eq i64 %.0191, 0
   br i1 %.not208237, label %._crit_edge241, label %.lr.ph240
 
 .preheader223:                                    ; preds = %.preheader223.preheader, %.preheader223
-  %.0178236 = phi i64 [ %113, %.preheader223 ], [ 0, %.preheader223.preheader ]
-  %.0190235 = phi double [ %112, %.preheader223 ], [ 0.000000e+00, %.preheader223.preheader ]
-  %110 = getelementptr inbounds double, ptr %45, i64 %.0178236
+  %.0177236 = phi i64 [ %113, %.preheader223 ], [ 0, %.preheader223.preheader ]
+  %.0184235 = phi double [ %112, %.preheader223 ], [ 0.000000e+00, %.preheader223.preheader ]
+  %110 = getelementptr inbounds double, ptr %45, i64 %.0177236
   %111 = load double, ptr %110, align 8
-  store double %.0190235, ptr %110, align 8
-  %112 = fadd double %.0190235, %111
-  %113 = add i64 %.0178236, 1
-  %.not207 = icmp ugt i64 %113, %.0181
+  store double %.0184235, ptr %110, align 8
+  %112 = fadd double %.0184235, %111
+  %113 = add i64 %.0177236, 1
+  %.not207 = icmp ugt i64 %113, %.0190
   br i1 %.not207, label %.preheader, label %.preheader223
 
 .lr.ph240:                                        ; preds = %.preheader, %.lr.ph240
-  %.0177239 = phi i64 [ %118, %.lr.ph240 ], [ %.0, %.preheader ]
-  %.0191238 = phi double [ %117, %.lr.ph240 ], [ 0.000000e+00, %.preheader ]
-  %114 = getelementptr double, ptr %47, i64 %.0177239
+  %.0176239 = phi i64 [ %118, %.lr.ph240 ], [ %.0191, %.preheader ]
+  %.0183238 = phi double [ %117, %.lr.ph240 ], [ 0.000000e+00, %.preheader ]
+  %114 = getelementptr double, ptr %47, i64 %.0176239
   %115 = getelementptr i8, ptr %114, i64 -8
   %116 = load double, ptr %115, align 8
-  store double %.0191238, ptr %114, align 8
-  %117 = fadd double %.0191238, %116
-  %118 = add i64 %.0177239, -1
+  store double %.0183238, ptr %114, align 8
+  %117 = fadd double %.0183238, %116
+  %118 = add i64 %.0176239, -1
   %.not208 = icmp eq i64 %118, 0
   br i1 %.not208, label %._crit_edge241, label %.lr.ph240
 
 ._crit_edge241:                                   ; preds = %.lr.ph240, %.preheader
-  %.0191.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %117, %.lr.ph240 ]
-  store double %.0191.lcssa, ptr %47, align 8
+  %.0183.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %117, %.lr.ph240 ]
+  store double %.0183.lcssa, ptr %47, align 8
   %invariant.gep = getelementptr i8, ptr %45, i64 8
   %invariant.gep242 = getelementptr i8, ptr %47, i64 8
   br i1 %.not250, label %._crit_edge249, label %.lr.ph248
@@ -1512,10 +1512,10 @@ gv_sort.exit:                                     ; preds = %.thread, %74, %77
   br label %128
 
 128:                                              ; preds = %.lr.ph248, %182
-  %.0176246 = phi i64 [ 0, %.lr.ph248 ], [ %183, %182 ]
+  %.0246 = phi i64 [ 0, %.lr.ph248 ], [ %183, %182 ]
   %.2245 = phi i64 [ 0, %.lr.ph248 ], [ %.3, %182 ]
-  %.2187244 = phi i64 [ 0, %.lr.ph248 ], [ %.3188, %182 ]
-  %129 = getelementptr inbounds ptr, ptr %87, i64 %.0176246
+  %.2188244 = phi i64 [ 0, %.lr.ph248 ], [ %.3189, %182 ]
+  %129 = getelementptr inbounds ptr, ptr %87, i64 %.0246
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 16
   %132 = load i64, ptr %131, align 8
@@ -1530,7 +1530,7 @@ gv_sort.exit:                                     ; preds = %.thread, %74, %77
   br i1 %127, label %137, label %134
 
 134:                                              ; preds = %128
-  %135 = getelementptr inbounds double, ptr %45, i64 %.2187244
+  %135 = getelementptr inbounds double, ptr %45, i64 %.2245
   %136 = load double, ptr %135, align 8
   br label %151
 
@@ -1538,14 +1538,14 @@ gv_sort.exit:                                     ; preds = %.thread, %74, %77
   br i1 %126, label %142, label %138
 
 138:                                              ; preds = %137
-  %gep = getelementptr double, ptr %invariant.gep, i64 %.2187244
+  %gep = getelementptr double, ptr %invariant.gep, i64 %.2245
   %139 = load double, ptr %gep, align 8
   %140 = fsub double %.sroa.8.0.copyload81, %.sroa.0.0.copyload75
   %141 = fsub double %139, %140
   br label %151
 
 142:                                              ; preds = %137
-  %143 = getelementptr inbounds double, ptr %45, i64 %.2187244
+  %143 = getelementptr inbounds double, ptr %45, i64 %.2245
   %144 = load double, ptr %143, align 8
   %145 = getelementptr i8, ptr %143, i64 8
   %146 = load double, ptr %145, align 8
@@ -1563,7 +1563,7 @@ gv_sort.exit:                                     ; preds = %.thread, %74, %77
   br i1 %125, label %159, label %154
 
 154:                                              ; preds = %151
-  %155 = getelementptr inbounds double, ptr %47, i64 %.2245
+  %155 = getelementptr inbounds double, ptr %47, i64 %.2188244
   %156 = load double, ptr %155, align 8
   %157 = fsub double %.sroa.11.0.copyload85, %.sroa.5.0.copyload77
   %158 = fsub double %156, %157
@@ -1573,12 +1573,12 @@ gv_sort.exit:                                     ; preds = %.thread, %74, %77
   br i1 %124, label %162, label %160
 
 160:                                              ; preds = %159
-  %gep243 = getelementptr double, ptr %invariant.gep242, i64 %.2245
+  %gep243 = getelementptr double, ptr %invariant.gep242, i64 %.2188244
   %161 = load double, ptr %gep243, align 8
   br label %171
 
 162:                                              ; preds = %159
-  %163 = getelementptr inbounds double, ptr %47, i64 %.2245
+  %163 = getelementptr inbounds double, ptr %47, i64 %.2188244
   %164 = load double, ptr %163, align 8
   %165 = getelementptr i8, ptr %163, i64 8
   %166 = load double, ptr %165, align 8
@@ -1596,25 +1596,25 @@ gv_sort.exit:                                     ; preds = %.thread, %74, %77
   br i1 %.not.not.not.not, label %174, label %178
 
 174:                                              ; preds = %171
-  %175 = add i64 %.2187244, 1
-  %176 = icmp eq i64 %175, %.0181
-  %spec.select218 = select i1 %176, i64 0, i64 %175
+  %175 = add i64 %.2245, 1
+  %176 = icmp eq i64 %175, %.0190
   %177 = zext i1 %176 to i64
-  %spec.select219 = add i64 %.2245, %177
+  %spec.select218 = add i64 %.2188244, %177
+  %spec.select219 = select i1 %176, i64 0, i64 %175
   br label %182
 
 178:                                              ; preds = %171
-  %179 = add i64 %.2245, 1
-  %180 = icmp eq i64 %179, %.0
+  %179 = add i64 %.2188244, 1
+  %180 = icmp eq i64 %179, %.0191
+  %spec.select220 = select i1 %180, i64 0, i64 %179
   %181 = zext i1 %180 to i64
-  %spec.select220 = add i64 %.2187244, %181
-  %spec.select221 = select i1 %180, i64 0, i64 %179
+  %spec.select221 = add i64 %.2245, %181
   br label %182
 
 182:                                              ; preds = %178, %174
-  %.3188 = phi i64 [ %spec.select218, %174 ], [ %spec.select220, %178 ]
+  %.3189 = phi i64 [ %spec.select218, %174 ], [ %spec.select220, %178 ]
   %.3 = phi i64 [ %spec.select219, %174 ], [ %spec.select221, %178 ]
-  %183 = add nuw i64 %.0176246, 1
+  %183 = add nuw i64 %.0246, 1
   %exitcond256.not = icmp eq i64 %183, %0
   br i1 %exitcond256.not, label %._crit_edge249, label %128
 
@@ -1664,14 +1664,14 @@ define noalias noundef ptr @putRects(i64 noundef %0, ptr nocapture noundef reado
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.i
-  %.06366.i = phi i64 [ %24, %.lr.ph.i ], [ 0, %18 ]
-  %20 = getelementptr inbounds %struct.ginfo, ptr %19, i64 %.06366.i
+  %.06266.i = phi i64 [ %24, %.lr.ph.i ], [ 0, %18 ]
+  %20 = getelementptr inbounds %struct.ginfo, ptr %19, i64 %.06266.i
   %21 = getelementptr inbounds i8, ptr %20, i64 24
-  store i64 %.06366.i, ptr %21, align 8
-  %22 = getelementptr inbounds %struct.boxf, ptr %1, i64 %.06366.i
+  store i64 %.06266.i, ptr %21, align 8
+  %22 = getelementptr inbounds %struct.boxf, ptr %1, i64 %.06266.i
   %23 = load i32, ptr %9, align 8
   tail call fastcc void @genBox(ptr noundef byval(%struct.boxf) align 8 %22, ptr noundef %20, i32 noundef %11, i32 noundef %23, i64 0, ptr noundef nonnull @.str.33)
-  %24 = add nuw i64 %.06366.i, 1
+  %24 = add nuw i64 %.06266.i, 1
   %exitcond.not.i = icmp eq i64 %24, %0
   br i1 %exitcond.not.i, label %.lr.ph69.preheader.i, label %.lr.ph.i
 
@@ -1680,11 +1680,11 @@ define noalias noundef ptr @putRects(i64 noundef %0, ptr nocapture noundef reado
   br label %.lr.ph69.i
 
 .lr.ph69.i:                                       ; preds = %.lr.ph69.i, %.lr.ph69.preheader.i
-  %.06267.i = phi i64 [ %28, %.lr.ph69.i ], [ 0, %.lr.ph69.preheader.i ]
-  %26 = getelementptr inbounds %struct.ginfo, ptr %19, i64 %.06267.i
-  %27 = getelementptr inbounds ptr, ptr %25, i64 %.06267.i
+  %.06167.i = phi i64 [ %28, %.lr.ph69.i ], [ 0, %.lr.ph69.preheader.i ]
+  %26 = getelementptr inbounds %struct.ginfo, ptr %19, i64 %.06167.i
+  %27 = getelementptr inbounds ptr, ptr %25, i64 %.06167.i
   store ptr %26, ptr %27, align 8
-  %28 = add nuw i64 %.06267.i, 1
+  %28 = add nuw i64 %.06167.i, 1
   %exitcond85.not.i = icmp eq i64 %28, %0
   br i1 %exitcond85.not.i, label %._crit_edge70.i, label %.lr.ph69.i
 
@@ -2666,9 +2666,9 @@ define internal fastcc i32 @computeStep(i64 noundef %0, ptr nocapture noundef re
 
 10:                                               ; preds = %.lr.ph, %10
   %.05157 = phi double [ 0.000000e+00, %.lr.ph ], [ %19, %10 ]
-  %.05256 = phi double [ 0.000000e+00, %.lr.ph ], [ %21, %10 ]
-  %.05355 = phi i64 [ 0, %.lr.ph ], [ %22, %10 ]
-  %11 = getelementptr inbounds %struct.boxf, ptr %1, i64 %.05355
+  %.05256 = phi i64 [ 0, %.lr.ph ], [ %22, %10 ]
+  %.05355 = phi double [ 0.000000e+00, %.lr.ph ], [ %21, %10 ]
+  %11 = getelementptr inbounds %struct.boxf, ptr %1, i64 %.05256
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
   %12 = load <2 x double>, ptr %11, align 8
   %13 = load <2 x double>, ptr %.sroa.3.0..sroa_idx, align 8
@@ -2679,16 +2679,16 @@ define internal fastcc i32 @computeStep(i64 noundef %0, ptr nocapture noundef re
   %18 = fadd double %16, %17
   %19 = fsub double %.05157, %18
   %20 = fneg double %16
-  %21 = tail call double @llvm.fmuladd.f64(double %20, double %17, double %.05256)
-  %22 = add nuw i64 %.05355, 1
+  %21 = tail call double @llvm.fmuladd.f64(double %20, double %17, double %.05355)
+  %22 = add nuw i64 %.05256, 1
   %exitcond.not = icmp eq i64 %22, %0
   br i1 %exitcond.not, label %._crit_edge, label %10
 
 ._crit_edge:                                      ; preds = %10, %3
-  %.052.lcssa = phi double [ 0.000000e+00, %3 ], [ %21, %10 ]
+  %.053.lcssa = phi double [ 0.000000e+00, %3 ], [ %21, %10 ]
   %.051.lcssa = phi double [ 0.000000e+00, %3 ], [ %19, %10 ]
   %23 = fmul double %5, -4.000000e+00
-  %24 = fmul double %23, %.052.lcssa
+  %24 = fmul double %23, %.053.lcssa
   %25 = tail call double @llvm.fmuladd.f64(double %.051.lcssa, double %.051.lcssa, double %24)
   %26 = fcmp olt double %25, 0.000000e+00
   br i1 %26, label %27, label %29
@@ -2715,7 +2715,7 @@ define internal fastcc i32 @computeStep(i64 noundef %0, ptr nocapture noundef re
   %41 = load ptr, ptr @stderr, align 8
   %42 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 27, i64 1, ptr %41) #23
   %43 = load ptr, ptr @stderr, align 8
-  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.21, double noundef %5, double noundef %.051.lcssa, double noundef %.052.lcssa, double noundef %25, double noundef %30) #19
+  %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.21, double noundef %5, double noundef %.051.lcssa, double noundef %.053.lcssa, double noundef %25, double noundef %30) #19
   %45 = load ptr, ptr @stderr, align 8
   %46 = fptosi double %40 to i32
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.22, i32 noundef %spec.store.select, double noundef %33, i32 noundef %46, double noundef %40) #19
@@ -2723,11 +2723,11 @@ define internal fastcc i32 @computeStep(i64 noundef %0, ptr nocapture noundef re
   %49 = fmul double %5, %33
   %50 = fmul double %.051.lcssa, %33
   %51 = tail call double @llvm.fmuladd.f64(double %49, double %33, double %50)
-  %52 = fadd double %.052.lcssa, %51
+  %52 = fadd double %.053.lcssa, %51
   %53 = fmul double %5, %40
   %54 = fmul double %.051.lcssa, %40
   %55 = tail call double @llvm.fmuladd.f64(double %53, double %40, double %54)
-  %56 = fadd double %.052.lcssa, %55
+  %56 = fadd double %.053.lcssa, %55
   %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str.23, double noundef %52, double noundef %56) #19
   br label %58
 
@@ -2973,49 +2973,49 @@ define internal fastcc void @placeGraph(i64 noundef %0, ptr nocapture noundef re
   br i1 %.not136, label %.lr.ph185.preheader, label %.preheader164
 
 .preheader164:                                    ; preds = %35, %._crit_edge
-  %.0131 = phi i32 [ %60, %._crit_edge ], [ 1, %35 ]
-  %40 = sub nsw i32 0, %.0131
+  %.0 = phi i32 [ %60, %._crit_edge ], [ 1, %35 ]
+  %40 = sub nsw i32 0, %.0
   br label %41
 
 41:                                               ; preds = %.preheader164, %43
-  %.0173 = phi i32 [ 0, %.preheader164 ], [ %44, %43 ]
-  %42 = tail call fastcc i32 @fits(i32 noundef %.0173, i32 noundef %40, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
+  %.0128173 = phi i32 [ 0, %.preheader164 ], [ %44, %43 ]
+  %42 = tail call fastcc i32 @fits(i32 noundef %.0128173, i32 noundef %40, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
   %.not146 = icmp eq i32 %42, 0
   br i1 %.not146, label %43, label %.loopexit
 
 43:                                               ; preds = %41
-  %44 = add nuw nsw i32 %.0173, 1
-  %exitcond.not = icmp eq i32 %44, %.0131
+  %44 = add nuw nsw i32 %.0128173, 1
+  %exitcond.not = icmp eq i32 %44, %.0
   br i1 %exitcond.not, label %.lr.ph, label %41
 
 .lr.ph:                                           ; preds = %43, %46
   %.0126174 = phi i32 [ %47, %46 ], [ %40, %43 ]
-  %45 = tail call fastcc i32 @fits(i32 noundef %.0131, i32 noundef %.0126174, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
+  %45 = tail call fastcc i32 @fits(i32 noundef %.0, i32 noundef %.0126174, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
   %.not145 = icmp eq i32 %45, 0
   br i1 %.not145, label %46, label %.loopexit
 
 46:                                               ; preds = %.lr.ph
   %47 = add i32 %.0126174, 1
-  %exitcond217.not = icmp eq i32 %47, %.0131
+  %exitcond217.not = icmp eq i32 %47, %.0
   br i1 %exitcond217.not, label %.lr.ph176, label %.lr.ph
 
 .lr.ph176:                                        ; preds = %46, %49
-  %.1175 = phi i32 [ %50, %49 ], [ %.0131, %46 ]
-  %48 = tail call fastcc i32 @fits(i32 noundef %.1175, i32 noundef %.0131, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
+  %.1129175 = phi i32 [ %50, %49 ], [ %.0, %46 ]
+  %48 = tail call fastcc i32 @fits(i32 noundef %.1129175, i32 noundef %.0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
   %.not144 = icmp eq i32 %48, 0
   br i1 %.not144, label %49, label %.loopexit
 
 49:                                               ; preds = %.lr.ph176
-  %50 = add nsw i32 %.1175, -1
+  %50 = add nsw i32 %.1129175, -1
   %51 = icmp sgt i32 %50, %40
   br i1 %51, label %.lr.ph176, label %.lr.ph179
 
 .preheader155:                                    ; preds = %54
-  %52 = icmp slt i32 %.1175, 1
+  %52 = icmp slt i32 %.1129175, 1
   br i1 %52, label %.lr.ph182, label %._crit_edge
 
 .lr.ph179:                                        ; preds = %49, %54
-  %.1127178 = phi i32 [ %55, %54 ], [ %.0131, %49 ]
+  %.1127178 = phi i32 [ %55, %54 ], [ %.0, %49 ]
   %53 = tail call fastcc i32 @fits(i32 noundef %50, i32 noundef %.1127178, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
   %.not143 = icmp eq i32 %53, 0
   br i1 %.not143, label %54, label %.loopexit
@@ -3026,94 +3026,94 @@ define internal fastcc void @placeGraph(i64 noundef %0, ptr nocapture noundef re
   br i1 %56, label %.lr.ph179, label %.preheader155
 
 57:                                               ; preds = %.lr.ph182
-  %58 = add i32 %.2181, 1
+  %58 = add i32 %.2130181, 1
   %exitcond218.not = icmp eq i32 %58, 0
   br i1 %exitcond218.not, label %._crit_edge, label %.lr.ph182
 
 .lr.ph182:                                        ; preds = %.preheader155, %57
-  %.2181 = phi i32 [ %58, %57 ], [ %50, %.preheader155 ]
-  %59 = tail call fastcc i32 @fits(i32 noundef %.2181, i32 noundef %55, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
+  %.2130181 = phi i32 [ %58, %57 ], [ %50, %.preheader155 ]
+  %59 = tail call fastcc i32 @fits(i32 noundef %.2130181, i32 noundef %55, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
   %.not142 = icmp eq i32 %59, 0
   br i1 %.not142, label %57, label %.loopexit
 
 ._crit_edge:                                      ; preds = %57, %.preheader155
-  %60 = add nuw nsw i32 %.0131, 1
+  %60 = add nuw nsw i32 %.0, 1
   br label %.preheader164
 
 .lr.ph185.preheader:                              ; preds = %35, %._crit_edge198
-  %.1132 = phi i32 [ %81, %._crit_edge198 ], [ 1, %35 ]
-  %61 = sub nsw i32 0, %.1132
+  %.1 = phi i32 [ %81, %._crit_edge198 ], [ 1, %35 ]
+  %61 = sub nsw i32 0, %.1
   br label %.lr.ph185
 
 .lr.ph185:                                        ; preds = %.lr.ph185.preheader, %63
-  %.2128183 = phi i32 [ %64, %63 ], [ 0, %.lr.ph185.preheader ]
-  %62 = tail call fastcc i32 @fits(i32 noundef %61, i32 noundef %.2128183, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
+  %.2183 = phi i32 [ %64, %63 ], [ 0, %.lr.ph185.preheader ]
+  %62 = tail call fastcc i32 @fits(i32 noundef %61, i32 noundef %.2183, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
   %.not141 = icmp eq i32 %62, 0
   br i1 %.not141, label %63, label %.loopexit
 
 63:                                               ; preds = %.lr.ph185
-  %64 = add nsw i32 %.2128183, -1
+  %64 = add nsw i32 %.2183, -1
   %65 = icmp sgt i32 %64, %61
   br i1 %65, label %.lr.ph185, label %.lr.ph188
 
 .preheader149:                                    ; preds = %67
-  %.not221 = icmp sgt i32 %.2128183, %.1132
+  %.not221 = icmp sgt i32 %.2183, %.1
   br i1 %.not221, label %.lr.ph194.preheader, label %.lr.ph191
 
 .lr.ph188:                                        ; preds = %63, %67
-  %.3187 = phi i32 [ %68, %67 ], [ %61, %63 ]
-  %66 = tail call fastcc i32 @fits(i32 noundef %.3187, i32 noundef %64, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
+  %.3131187 = phi i32 [ %68, %67 ], [ %61, %63 ]
+  %66 = tail call fastcc i32 @fits(i32 noundef %.3131187, i32 noundef %64, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
   %.not140 = icmp eq i32 %66, 0
   br i1 %.not140, label %67, label %.loopexit
 
 67:                                               ; preds = %.lr.ph188
-  %68 = add i32 %.3187, 1
-  %exitcond219.not = icmp eq i32 %68, %.1132
+  %68 = add i32 %.3131187, 1
+  %exitcond219.not = icmp eq i32 %68, %.1
   br i1 %exitcond219.not, label %.preheader149, label %.lr.ph188
 
 .lr.ph194.preheader:                              ; preds = %70, %.preheader149
-  %.3129.lcssa = phi i32 [ %64, %.preheader149 ], [ %.1132, %70 ]
+  %.3.lcssa = phi i32 [ %64, %.preheader149 ], [ %.1, %70 ]
   br label %.lr.ph194
 
 .lr.ph191:                                        ; preds = %.preheader149, %70
-  %.3129190 = phi i32 [ %71, %70 ], [ %64, %.preheader149 ]
-  %69 = tail call fastcc i32 @fits(i32 noundef %.1132, i32 noundef %.3129190, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
+  %.3190 = phi i32 [ %71, %70 ], [ %64, %.preheader149 ]
+  %69 = tail call fastcc i32 @fits(i32 noundef %.1, i32 noundef %.3190, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
   %.not139 = icmp eq i32 %69, 0
   br i1 %.not139, label %70, label %.loopexit
 
 70:                                               ; preds = %.lr.ph191
-  %71 = add i32 %.3129190, 1
-  %exitcond220.not = icmp eq i32 %71, %.1132
+  %71 = add i32 %.3190, 1
+  %exitcond220.not = icmp eq i32 %71, %.1
   br i1 %exitcond220.not, label %.lr.ph194.preheader, label %.lr.ph191
 
 .preheader:                                       ; preds = %74
-  %72 = icmp sgt i32 %.3129.lcssa, 0
+  %72 = icmp sgt i32 %.3.lcssa, 0
   br i1 %72, label %.lr.ph197, label %._crit_edge198
 
 .lr.ph194:                                        ; preds = %.lr.ph194.preheader, %74
-  %.4193 = phi i32 [ %75, %74 ], [ %.1132, %.lr.ph194.preheader ]
-  %73 = tail call fastcc i32 @fits(i32 noundef %.4193, i32 noundef %.3129.lcssa, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
+  %.4132193 = phi i32 [ %75, %74 ], [ %.1, %.lr.ph194.preheader ]
+  %73 = tail call fastcc i32 @fits(i32 noundef %.4132193, i32 noundef %.3.lcssa, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
   %.not138 = icmp eq i32 %73, 0
   br i1 %.not138, label %74, label %.loopexit
 
 74:                                               ; preds = %.lr.ph194
-  %75 = add nsw i32 %.4193, -1
+  %75 = add nsw i32 %.4132193, -1
   %76 = icmp sgt i32 %75, %61
   br i1 %76, label %.lr.ph194, label %.preheader
 
 77:                                               ; preds = %.lr.ph197
-  %78 = add nsw i32 %.4130196, -1
-  %79 = icmp sgt i32 %.4130196, 1
+  %78 = add nsw i32 %.4196, -1
+  %79 = icmp sgt i32 %.4196, 1
   br i1 %79, label %.lr.ph197, label %._crit_edge198
 
 .lr.ph197:                                        ; preds = %.preheader, %77
-  %.4130196 = phi i32 [ %78, %77 ], [ %.3129.lcssa, %.preheader ]
-  %80 = tail call fastcc i32 @fits(i32 noundef %75, i32 noundef %.4130196, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
+  %.4196 = phi i32 [ %78, %77 ], [ %.3.lcssa, %.preheader ]
+  %80 = tail call fastcc i32 @fits(i32 noundef %75, i32 noundef %.4196, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %6)
   %.not137 = icmp eq i32 %80, 0
   br i1 %.not137, label %77, label %.loopexit
 
 ._crit_edge198:                                   ; preds = %77, %.preheader
-  %81 = add nuw nsw i32 %.1132, 1
+  %81 = add nuw nsw i32 %.1, 1
   br label %.lr.ph185.preheader
 
 .loopexit:                                        ; preds = %41, %.lr.ph, %.lr.ph176, %.lr.ph179, %.lr.ph182, %.lr.ph185, %.lr.ph188, %.lr.ph191, %.lr.ph194, %.lr.ph197, %33, %14
@@ -3260,15 +3260,15 @@ define internal fastcc void @fillEdge(ptr nocapture noundef readonly %0, i64 %1,
 
 68:                                               ; preds = %66, %65
   %.sink = phi i64 [ 24, %66 ], [ 8, %65 ]
-  %.sroa.03.0.in = phi ptr [ %67, %66 ], [ %.sroa.075.0.copyload, %65 ]
-  %.sroa.057.0.in = phi ptr [ %.sroa.075.0.copyload, %66 ], [ %.sroa.8.0..sroa_idx, %65 ]
   %.sroa.15.0.in = phi ptr [ %.sroa.15.0..sroa_idx66, %66 ], [ %.sroa.9.0..sroa_idx, %65 ]
+  %.sroa.057.0.in = phi ptr [ %.sroa.075.0.copyload, %66 ], [ %.sroa.8.0..sroa_idx, %65 ]
+  %.sroa.03.0.in = phi ptr [ %67, %66 ], [ %.sroa.075.0.copyload, %65 ]
   %.0125 = phi i64 [ 2, %66 ], [ 1, %65 ]
   %.sroa.35.0..sroa_idx28 = getelementptr inbounds i8, ptr %.sroa.075.0.copyload, i64 %.sink
-  %.sroa.15.0 = load double, ptr %.sroa.15.0.in, align 8
-  %.sroa.057.0 = load double, ptr %.sroa.057.0.in, align 8
   %.sroa.03.0 = load double, ptr %.sroa.03.0.in, align 8
   %.sroa.35.0 = load double, ptr %.sroa.35.0..sroa_idx28, align 8
+  %.sroa.057.0 = load double, ptr %.sroa.057.0.in, align 8
+  %.sroa.15.0 = load double, ptr %.sroa.15.0.in, align 8
   %69 = fadd double %.sroa.057.0, %23
   %70 = fadd double %.sroa.15.0, %24
   %71 = fcmp ult double %69, 0.000000e+00
@@ -3346,15 +3346,15 @@ define internal fastcc void @fillEdge(ptr nocapture noundef readonly %0, i64 %1,
   br label %.lr.ph83.i
 
 .lr.ph83.i:                                       ; preds = %.lr.ph83.i, %.lr.ph83.preheader.i
-  %.082.i = phi i32 [ %138, %.lr.ph83.i ], [ %130, %.lr.ph83.preheader.i ]
+  %.05680.i = phi i32 [ %138, %.lr.ph83.i ], [ %130, %.lr.ph83.preheader.i ]
   %132 = phi <2 x i32> [ %137, %.lr.ph83.i ], [ %108, %.lr.ph83.preheader.i ]
-  %133 = icmp sgt i32 %.082.i, -1
-  %134 = select i1 %133, i32 %120, i32 0
-  %135 = select i1 %133, i32 %121, i32 0
-  %136 = insertelement <2 x i32> %131, i32 %134, i64 1
-  %137 = add nsw <2 x i32> %132, %136
-  %.1.i = add i32 %.082.i, %122
-  %138 = sub i32 %.1.i, %135
+  %133 = icmp sgt i32 %.05680.i, -1
+  %134 = select i1 %133, i32 %121, i32 0
+  %135 = select i1 %133, i32 %120, i32 0
+  %136 = insertelement <2 x i32> %131, i32 %135, i64 1
+  %137 = add nsw <2 x i32> %136, %132
+  %.157.i = add i32 %.05680.i, %122
+  %138 = sub i32 %.157.i, %134
   %139 = extractelement <2 x i32> %137, i64 0
   %140 = extractelement <2 x i32> %137, i64 1
   tail call void @addPS(ptr noundef %2, i32 noundef %139, i32 noundef %140) #18
@@ -3372,16 +3372,16 @@ define internal fastcc void @fillEdge(ptr nocapture noundef readonly %0, i64 %1,
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.279.i = phi i32 [ %151, %.lr.ph.i ], [ %146, %.lr.ph.preheader.i ]
+  %.279.i = phi i32 [ %150, %.lr.ph.i ], [ %125, %.lr.ph.preheader.i ]
   %.15478.i = phi i32 [ %.255.i, %.lr.ph.i ], [ %124, %.lr.ph.preheader.i ]
-  %.25877.i = phi i32 [ %150, %.lr.ph.i ], [ %125, %.lr.ph.preheader.i ]
-  %147 = icmp sgt i32 %.279.i, -1
-  %148 = select i1 %147, i32 %118, i32 0
-  %.255.i = add nsw i32 %148, %.15478.i
-  %149 = select i1 %147, i32 %122, i32 0
-  %150 = add nsw i32 %.25877.i, %120
-  %.3.i = add i32 %.279.i, %121
-  %151 = sub i32 %.3.i, %149
+  %.25877.i = phi i32 [ %151, %.lr.ph.i ], [ %146, %.lr.ph.preheader.i ]
+  %147 = icmp sgt i32 %.25877.i, -1
+  %148 = select i1 %147, i32 %122, i32 0
+  %149 = select i1 %147, i32 %118, i32 0
+  %.255.i = add nsw i32 %149, %.15478.i
+  %150 = add nsw i32 %.279.i, %120
+  %.3.i = add i32 %.25877.i, %121
+  %151 = sub i32 %.3.i, %148
   tail call void @addPS(ptr noundef %2, i32 noundef %.255.i, i32 noundef %150) #18
   %152 = icmp eq i32 %150, %143
   br i1 %152, label %fillLine.exit, label %.lr.ph.i
@@ -3472,17 +3472,17 @@ define internal fastcc void @fillLine(double %0, double %1, double %2, double %3
   br label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %.lr.ph83.preheader, %.lr.ph83
-  %.082 = phi i32 [ %39, %.lr.ph83 ], [ %34, %.lr.ph83.preheader ]
+  %.082 = phi i32 [ %.1, %.lr.ph83 ], [ %25, %.lr.ph83.preheader ]
   %.05381 = phi i32 [ %38, %.lr.ph83 ], [ %19, %.lr.ph83.preheader ]
-  %.05680 = phi i32 [ %.157, %.lr.ph83 ], [ %25, %.lr.ph83.preheader ]
-  %35 = icmp sgt i32 %.082, -1
-  %36 = select i1 %35, i32 %29, i32 0
-  %.157 = add nsw i32 %36, %.05680
-  %37 = select i1 %35, i32 %22, i32 0
+  %.05680 = phi i32 [ %39, %.lr.ph83 ], [ %34, %.lr.ph83.preheader ]
+  %35 = icmp sgt i32 %.05680, -1
+  %36 = select i1 %35, i32 %22, i32 0
+  %37 = select i1 %35, i32 %29, i32 0
+  %.1 = add nsw i32 %.082, %37
   %38 = add nsw i32 %.05381, %23
-  %.1 = add i32 %.082, %28
-  %39 = sub i32 %.1, %37
-  tail call void @addPS(ptr noundef %4, i32 noundef %38, i32 noundef %.157) #18
+  %.157 = add i32 %.05680, %28
+  %39 = sub i32 %.157, %36
+  tail call void @addPS(ptr noundef %4, i32 noundef %38, i32 noundef %.1) #18
   %40 = icmp eq i32 %38, %18
   br i1 %40, label %.loopexit, label %.lr.ph83
 
@@ -3496,16 +3496,16 @@ define internal fastcc void @fillLine(double %0, double %1, double %2, double %3
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.279 = phi i32 [ %49, %.lr.ph ], [ %44, %.lr.ph.preheader ]
+  %.279 = phi i32 [ %48, %.lr.ph ], [ %25, %.lr.ph.preheader ]
   %.15478 = phi i32 [ %.255, %.lr.ph ], [ %19, %.lr.ph.preheader ]
-  %.25877 = phi i32 [ %48, %.lr.ph ], [ %25, %.lr.ph.preheader ]
-  %45 = icmp sgt i32 %.279, -1
-  %46 = select i1 %45, i32 %23, i32 0
-  %.255 = add nsw i32 %46, %.15478
-  %47 = select i1 %45, i32 %28, i32 0
-  %48 = add nsw i32 %.25877, %29
-  %.3 = add i32 %.279, %22
-  %49 = sub i32 %.3, %47
+  %.25877 = phi i32 [ %49, %.lr.ph ], [ %44, %.lr.ph.preheader ]
+  %45 = icmp sgt i32 %.25877, -1
+  %46 = select i1 %45, i32 %28, i32 0
+  %47 = select i1 %45, i32 %23, i32 0
+  %.255 = add nsw i32 %47, %.15478
+  %48 = add nsw i32 %.279, %29
+  %.3 = add i32 %.25877, %22
+  %49 = sub i32 %.3, %46
   tail call void @addPS(ptr noundef %4, i32 noundef %.255, i32 noundef %48) #18
   %50 = icmp eq i32 %48, %24
   br i1 %50, label %.loopexit, label %.lr.ph
@@ -3532,10 +3532,10 @@ define internal fastcc range(i32 0, 2) i32 @fits(i32 noundef %0, i32 noundef %1,
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
-  %.05868 = phi ptr [ %17, %16 ], [ %12, %.lr.ph.preheader ]
-  %.05967 = phi i32 [ %18, %16 ], [ 0, %.lr.ph.preheader ]
-  %.sroa.04.0.copyload = load i32, ptr %.05868, align 4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %.05868, i64 4
+  %.05868 = phi i32 [ %18, %16 ], [ 0, %.lr.ph.preheader ]
+  %.05967 = phi ptr [ %17, %16 ], [ %12, %.lr.ph.preheader ]
+  %.sroa.04.0.copyload = load i32, ptr %.05967, align 4
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %.05967, i64 4
   %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 4
   %13 = add nsw i32 %.sroa.04.0.copyload, %0
   %14 = add nsw i32 %.sroa.8.0.copyload, %1
@@ -3548,8 +3548,8 @@ define internal fastcc range(i32 0, 2) i32 @fits(i32 noundef %0, i32 noundef %1,
   br i1 %.not, label %16, label %.loopexit
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds i8, ptr %.05868, i64 8
-  %18 = add nuw nsw i32 %.05967, 1
+  %17 = getelementptr inbounds i8, ptr %.05967, i64 8
+  %18 = add nuw nsw i32 %.05868, 1
   %exitcond.not = icmp eq i32 %18, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
@@ -3577,10 +3577,10 @@ define internal fastcc range(i32 0, 2) i32 @fits(i32 noundef %0, i32 noundef %1,
   br label %.lr.ph72
 
 .lr.ph72:                                         ; preds = %.lr.ph72.preheader, %.lr.ph72
-  %.170 = phi ptr [ %37, %.lr.ph72 ], [ %34, %.lr.ph72.preheader ]
-  %.16069 = phi i32 [ %38, %.lr.ph72 ], [ 0, %.lr.ph72.preheader ]
-  %.sroa.04.0.copyload7 = load i32, ptr %.170, align 4
-  %.sroa.8.0..sroa_idx12 = getelementptr inbounds i8, ptr %.170, i64 4
+  %.170 = phi i32 [ %38, %.lr.ph72 ], [ 0, %.lr.ph72.preheader ]
+  %.16069 = phi ptr [ %37, %.lr.ph72 ], [ %34, %.lr.ph72.preheader ]
+  %.sroa.04.0.copyload7 = load i32, ptr %.16069, align 4
+  %.sroa.8.0..sroa_idx12 = getelementptr inbounds i8, ptr %.16069, i64 4
   %.sroa.8.0.copyload13 = load i32, ptr %.sroa.8.0..sroa_idx12, align 4
   %35 = add nsw i32 %.sroa.04.0.copyload7, %0
   %36 = add nsw i32 %.sroa.8.0.copyload13, %1
@@ -3589,8 +3589,8 @@ define internal fastcc range(i32 0, 2) i32 @fits(i32 noundef %0, i32 noundef %1,
   %.sroa.04.0.insert.ext9 = zext i32 %35 to i64
   %.sroa.04.0.insert.insert11 = or disjoint i64 %.sroa.8.0.insert.shift16, %.sroa.04.0.insert.ext9
   tail call void @insertPS(ptr noundef %3, i64 %.sroa.04.0.insert.insert11) #18
-  %37 = getelementptr inbounds i8, ptr %.170, i64 8
-  %38 = add nuw nsw i32 %.16069, 1
+  %37 = getelementptr inbounds i8, ptr %.16069, i64 8
+  %38 = add nuw nsw i32 %.170, 1
   %exitcond74.not = icmp eq i32 %38, %10
   br i1 %exitcond74.not, label %._crit_edge73, label %.lr.ph72
 
@@ -3701,10 +3701,10 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i32> @llvm.smin.v2i32(<2 x i32>, <2 x i32>) #15
+declare <2 x i32> @llvm.smax.v2i32(<2 x i32>, <2 x i32>) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x i32> @llvm.smax.v2i32(<2 x i32>, <2 x i32>) #15
+declare <2 x i32> @llvm.smin.v2i32(<2 x i32>, <2 x i32>) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <2 x double> @llvm.ceil.v2f64(<2 x double>) #15

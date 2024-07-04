@@ -49,7 +49,7 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
 
 23:                                               ; preds = %.thread, %15
   %24 = phi ptr [ %14, %.thread ], [ %20, %15 ]
-  %.06780 = phi ptr [ %12, %.thread ], [ %18, %15 ]
+  %.06680 = phi ptr [ %12, %.thread ], [ %18, %15 ]
   %25 = tail call ptr @ExecTypeFromTL(ptr noundef %24) #5
   br label %30
 
@@ -61,15 +61,15 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
 
 30:                                               ; preds = %26, %23
   %.sink = phi ptr [ %29, %26 ], [ %25, %23 ]
-  %.06779 = phi ptr [ %18, %26 ], [ %.06780, %23 ]
-  %.066 = phi i32 [ %5, %26 ], [ -3, %23 ]
+  %.06679 = phi ptr [ %18, %26 ], [ %.06680, %23 ]
+  %.067 = phi i32 [ %5, %26 ], [ -3, %23 ]
   tail call void @ExecInitScanTupleSlot(ptr noundef %1, ptr noundef nonnull %6, ptr noundef %.sink, ptr noundef nonnull @TTSOpsHeapTuple) #5
   %31 = getelementptr inbounds i8, ptr %6, i64 192
   store i8 0, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %6, i64 196
   store i8 1, ptr %32, align 4
   tail call void @ExecInitResultTypeTL(ptr noundef nonnull %6) #5
-  tail call void @ExecAssignScanProjectionInfoWithVarno(ptr noundef nonnull %6, i32 noundef %.066) #5
+  tail call void @ExecAssignScanProjectionInfoWithVarno(ptr noundef nonnull %6, i32 noundef %.067) #5
   %33 = getelementptr inbounds i8, ptr %0, i64 56
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr @ExecInitQual(ptr noundef %34, ptr noundef nonnull %6) #5
@@ -97,7 +97,7 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
   %51 = getelementptr inbounds i8, ptr %6, i64 144
   store i8 %50, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %6, i64 248
-  store ptr %.06779, ptr %52, align 8
+  store ptr %.06679, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %6, i64 256
   store ptr null, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 116
@@ -163,7 +163,7 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
 
 .sink.split:                                      ; preds = %81, %84
   %.sink83 = phi i64 [ 184, %84 ], [ 32, %81 ]
-  %88 = getelementptr inbounds i8, ptr %.06779, i64 %.sink83
+  %88 = getelementptr inbounds i8, ptr %.06679, i64 %.sink83
   %89 = load ptr, ptr %88, align 8
   tail call void %89(ptr noundef nonnull %6, i32 noundef %2) #5
   br label %90

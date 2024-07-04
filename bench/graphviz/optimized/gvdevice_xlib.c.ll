@@ -331,11 +331,11 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %77
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %79, %agxbfree.exit, %26
-  %.082 = phi i8 [ 0, %agxbfree.exit ], [ 0, %26 ], [ 1, %79 ]
-  %.081 = phi i32 [ %75, %agxbfree.exit ], [ 0, %26 ], [ 0, %79 ]
-  %.080 = phi i1 [ true, %agxbfree.exit ], [ false, %26 ], [ false, %79 ]
-  %.079 = phi i32 [ 0, %agxbfree.exit ], [ 0, %26 ], [ %80, %79 ]
-  %.078 = phi i32 [ %78, %agxbfree.exit ], [ %23, %26 ], [ %81, %79 ]
+  %.087 = phi i32 [ %78, %agxbfree.exit ], [ %23, %26 ], [ %81, %79 ]
+  %.086 = phi i32 [ 0, %agxbfree.exit ], [ 0, %26 ], [ %80, %79 ]
+  %.080 = phi i8 [ 0, %agxbfree.exit ], [ 0, %26 ], [ 1, %79 ]
+  %.079 = phi i32 [ %75, %agxbfree.exit ], [ 0, %26 ], [ 0, %79 ]
+  %.078 = phi i1 [ true, %agxbfree.exit ], [ false, %26 ], [ false, %79 ]
   %82 = getelementptr inbounds i8, ptr %11, i64 232
   %83 = sext i32 %13 to i64
   %84 = getelementptr inbounds i8, ptr %6, i64 8
@@ -356,10 +356,10 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %77
   %95 = shl nuw i64 1, %94
   %96 = getelementptr inbounds i8, ptr %0, i64 200
   %97 = getelementptr inbounds i8, ptr %0, i64 56
-  %98 = sdiv i32 %.079, 64
+  %98 = sdiv i32 %.086, 64
   %99 = sext i32 %98 to i64
   %100 = getelementptr inbounds [16 x i64], ptr %8, i64 0, i64 %99
-  %101 = srem i32 %.079, 64
+  %101 = srem i32 %.086, 64
   %102 = zext nneg i32 %101 to i64
   %103 = shl nuw i64 1, %102
   %104 = xor i64 %103, -1
@@ -380,7 +380,7 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %77
   %119 = sdiv i32 %23, 64
   %120 = sext i32 %119 to i64
   %121 = getelementptr inbounds [16 x i64], ptr %8, i64 0, i64 %120
-  %122 = add nsw i32 %.078, 1
+  %122 = add nsw i32 %.087, 1
   br label %257
 
 123:                                              ; preds = %.lr.ph, %init_window.exit
@@ -627,8 +627,8 @@ init_window.exit:                                 ; preds = %126, %update_displa
   br i1 %.not94, label %.preheader127, label %123
 
 257:                                              ; preds = %.preheader127, %528
-  %.183 = phi i8 [ %.4, %528 ], [ %.082, %.preheader127 ]
-  br i1 %.080, label %258, label %315
+  %.181 = phi i8 [ %.4, %528 ], [ %.080, %.preheader127 ]
+  br i1 %.078, label %258, label %315
 
 258:                                              ; preds = %257
   %259 = load i64, ptr %92, align 8
@@ -686,9 +686,9 @@ handle_file_events.exit.thread117:                ; preds = %267
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %299
   %.03248.i = phi i32 [ %306, %299 ], [ %277, %.preheader.i ]
-  %.03347.i = phi i32 [ %.1.i, %299 ], [ 0, %.preheader.i ]
-  %.03546.i = phi ptr [ %304, %299 ], [ %271, %.preheader.i ]
-  %283 = getelementptr inbounds i8, ptr %.03546.i, i64 4
+  %.03447.i = phi ptr [ %304, %299 ], [ %271, %.preheader.i ]
+  %.03546.i = phi i32 [ %.1.i, %299 ], [ 0, %.preheader.i ]
+  %283 = getelementptr inbounds i8, ptr %.03447.i, i64 4
   %284 = load i32, ptr %283, align 4
   %285 = icmp eq i32 %284, 2
   br i1 %285, label %286, label %299
@@ -698,9 +698,9 @@ handle_file_events.exit.thread117:                ; preds = %267
   %288 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %287, i32 noundef 47) #23
   %.not45.i = icmp eq ptr %288, null
   %289 = getelementptr inbounds i8, ptr %288, i64 1
-  %.034.i = select i1 %.not45.i, ptr %287, ptr %289
-  %290 = getelementptr inbounds i8, ptr %.03546.i, i64 16
-  %291 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %290, ptr noundef nonnull dereferenceable(1) %.034.i) #23
+  %.033.i = select i1 %.not45.i, ptr %287, ptr %289
+  %290 = getelementptr inbounds i8, ptr %.03447.i, i64 16
+  %291 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %290, ptr noundef nonnull dereferenceable(1) %.033.i) #23
   %292 = icmp eq i32 %291, 0
   br i1 %292, label %293, label %299
 
@@ -710,16 +710,16 @@ handle_file_events.exit.thread117:                ; preds = %267
   %296 = load ptr, ptr %295, align 8
   %297 = load ptr, ptr %97, align 8
   call void %296(ptr noundef nonnull %0, ptr noundef %287, ptr noundef %297) #19
-  %298 = add nsw i32 %.03347.i, 1
+  %298 = add nsw i32 %.03546.i, 1
   br label %299
 
 299:                                              ; preds = %293, %286, %.lr.ph.i
-  %.1.i = phi i32 [ %298, %293 ], [ %.03347.i, %286 ], [ %.03347.i, %.lr.ph.i ]
-  %300 = getelementptr inbounds i8, ptr %.03546.i, i64 12
+  %.1.i = phi i32 [ %298, %293 ], [ %.03546.i, %286 ], [ %.03546.i, %.lr.ph.i ]
+  %300 = getelementptr inbounds i8, ptr %.03447.i, i64 12
   %301 = load i32, ptr %300, align 4
   %302 = zext i32 %301 to i64
   %303 = add nuw nsw i64 %302, 16
-  %304 = getelementptr inbounds i8, ptr %.03546.i, i64 %303
+  %304 = getelementptr inbounds i8, ptr %.03447.i, i64 %303
   %305 = trunc i64 %303 to i32
   %306 = sub nsw i32 %.03248.i, %305
   %307 = icmp sgt i32 %306, 0
@@ -755,15 +755,15 @@ handle_file_events.exit:                          ; preds = %._crit_edge.i
   br i1 %311, label %.loopexit, label %312
 
 312:                                              ; preds = %handle_file_events.exit.thread173, %handle_file_events.exit.thread117, %handle_file_events.exit, %258
-  %.084 = phi i32 [ 0, %258 ], [ %.1.i, %handle_file_events.exit ], [ 0, %handle_file_events.exit.thread117 ], [ 0, %handle_file_events.exit.thread173 ]
+  %.082 = phi i32 [ 0, %258 ], [ %.1.i, %handle_file_events.exit ], [ 0, %handle_file_events.exit.thread117 ], [ 0, %handle_file_events.exit.thread173 ]
   %313 = load i64, ptr %92, align 8
   %314 = or i64 %313, %95
   store i64 %314, ptr %92, align 8
   br label %315
 
 315:                                              ; preds = %312, %257
-  %.185 = phi i32 [ %.084, %312 ], [ 0, %257 ]
-  %316 = trunc nuw i8 %.183 to i1
+  %.183 = phi i32 [ %.082, %312 ], [ 0, %257 ]
+  %316 = trunc nuw i8 %.181 to i1
   br i1 %316, label %317, label %338
 
 317:                                              ; preds = %315
@@ -795,13 +795,13 @@ handle_stdin_events.exit:                         ; preds = %320
 
 331:                                              ; preds = %handle_stdin_events.exit, %328
   %.0.i106120 = phi i32 [ -1, %328 ], [ 1, %handle_stdin_events.exit ]
-  %.2 = phi i8 [ 0, %328 ], [ %.183, %handle_stdin_events.exit ]
-  %332 = add nsw i32 %.0.i106120, %.185
+  %.2 = phi i8 [ 0, %328 ], [ %.181, %handle_stdin_events.exit ]
+  %332 = add nsw i32 %.0.i106120, %.183
   br label %333
 
 333:                                              ; preds = %331, %317
-  %.286 = phi i32 [ %332, %331 ], [ %.185, %317 ]
-  %.3 = phi i8 [ %.2, %331 ], [ %.183, %317 ]
+  %.284 = phi i32 [ %332, %331 ], [ %.183, %317 ]
+  %.3 = phi i8 [ %.2, %331 ], [ %.181, %317 ]
   %334 = trunc nuw i8 %.3 to i1
   br i1 %334, label %335, label %338
 
@@ -812,8 +812,8 @@ handle_stdin_events.exit:                         ; preds = %320
   br label %338
 
 338:                                              ; preds = %333, %335, %315
-  %.387 = phi i32 [ %.286, %335 ], [ %.286, %333 ], [ %.185, %315 ]
-  %.4 = phi i8 [ %.3, %335 ], [ %.3, %333 ], [ %.183, %315 ]
+  %.385 = phi i32 [ %.284, %335 ], [ %.284, %333 ], [ %.183, %315 ]
+  %.4 = phi i8 [ %.3, %335 ], [ %.3, %333 ], [ %.181, %315 ]
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %3)
   %339 = call i32 @XPending(ptr noundef %11) #19
   %.not53.i = icmp eq i32 %339, 0
@@ -1081,7 +1081,7 @@ handle_xlib_events.exit:                          ; preds = %..loopexit_crit_edg
   %475 = or i64 %474, %118
   store i64 %475, ptr %121, align 8
   %476 = sub nsw i32 0, %.035.i123
-  %.not97 = icmp eq i32 %.387, %476
+  %.not97 = icmp eq i32 %.385, %476
   br i1 %.not97, label %528, label %.lr.ph148
 
 .lr.ph148:                                        ; preds = %473, %update_display.exit
@@ -1174,10 +1174,10 @@ update_display.exit:                              ; preds = %494, %496
   br label %.loopexit
 
 .loopexit:                                        ; preds = %handle_xlib_events.exit, %handle_file_events.exit, %handle_xlib_events.exit.thread124, %handle_file_events.exit.thread, %531
-  br i1 %.080, label %534, label %536
+  br i1 %.078, label %534, label %536
 
 534:                                              ; preds = %.loopexit
-  %535 = call i32 @inotify_rm_watch(i32 noundef %16, i32 noundef %.081) #19
+  %535 = call i32 @inotify_rm_watch(i32 noundef %16, i32 noundef %.079) #19
   br label %536
 
 536:                                              ; preds = %534, %.loopexit

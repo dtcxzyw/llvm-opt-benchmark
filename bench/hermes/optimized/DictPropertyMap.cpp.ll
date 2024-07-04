@@ -171,8 +171,8 @@ entry:
 
 for.cond:                                         ; preds = %if.end17, %entry
   %deleted.0 = phi ptr [ null, %entry ], [ %deleted.1, %if.end17 ]
-  %step.0 = phi i32 [ 1, %entry ], [ %inc, %if.end17 ]
   %call2.pn = phi i32 [ %symbolID.coerce, %entry ], [ %add, %if.end17 ]
+  %step.0 = phi i32 [ 1, %entry ], [ %inc, %if.end17 ]
   %index.0 = and i32 %call2.pn, %sub
   %idx.ext = zext i32 %index.0 to i64
   %add.ptr = getelementptr inbounds %"class.hermes::vm::detail::DPMHashPair", ptr %add.ptr.i.i.i, i64 %idx.ext
@@ -271,8 +271,8 @@ if.end12:                                         ; preds = %for.body
 
 for.cond.i:                                       ; preds = %if.end17.i, %if.end12
   %deleted.0.i = phi ptr [ null, %if.end12 ], [ %deleted.1.i, %if.end17.i ]
-  %step.0.i = phi i32 [ 1, %if.end12 ], [ %inc.i, %if.end17.i ]
   %call2.pn.i = phi i32 [ %5, %if.end12 ], [ %add.i, %if.end17.i ]
+  %step.0.i = phi i32 [ 1, %if.end12 ], [ %inc.i, %if.end17.i ]
   %index.0.i = and i32 %call2.pn.i, %sub.i
   %idx.ext.i = zext i32 %index.0.i to i64
   %add.ptr.i = getelementptr inbounds %"class.hermes::vm::detail::DPMHashPair", ptr %add.ptr.i.i.i.i, i64 %idx.ext.i
@@ -396,8 +396,8 @@ entry:
 
 for.cond.i:                                       ; preds = %if.end17.i, %entry
   %deleted.0.i = phi ptr [ null, %entry ], [ %deleted.1.i, %if.end17.i ]
-  %step.0.i = phi i32 [ 1, %entry ], [ %inc.i, %if.end17.i ]
   %call2.pn.i = phi i32 [ %id.coerce, %entry ], [ %add.i, %if.end17.i ]
+  %step.0.i = phi i32 [ 1, %entry ], [ %inc.i, %if.end17.i ]
   %index.0.i = and i32 %call2.pn.i, %sub.i
   %idx.ext.i = zext i32 %index.0.i to i64
   %add.ptr.i = getelementptr inbounds %"class.hermes::vm::detail::DPMHashPair", ptr %add.ptr.i.i.i.i, i64 %idx.ext.i
@@ -489,9 +489,9 @@ if.end30:                                         ; preds = %if.end26
 
 for.cond.i45:                                     ; preds = %if.end17.i59, %if.end30
   %deleted.0.i46 = phi ptr [ null, %if.end30 ], [ %deleted.1.i60, %if.end17.i59 ]
-  %step.0.i47 = phi i32 [ 1, %if.end30 ], [ %inc.i62, %if.end17.i59 ]
-  %call2.pn.i48 = phi i32 [ %id.coerce, %if.end30 ], [ %add.i61, %if.end17.i59 ]
-  %index.0.i49 = and i32 %call2.pn.i48, %sub.i40
+  %call2.pn.i47 = phi i32 [ %id.coerce, %if.end30 ], [ %add.i61, %if.end17.i59 ]
+  %step.0.i48 = phi i32 [ 1, %if.end30 ], [ %inc.i62, %if.end17.i59 ]
+  %index.0.i49 = and i32 %call2.pn.i47, %sub.i40
   %idx.ext.i50 = zext i32 %index.0.i49 to i64
   %add.ptr.i51 = getelementptr inbounds %"class.hermes::vm::detail::DPMHashPair", ptr %add.ptr.i.i.i.i44, i64 %idx.ext.i50
   %bf.load.i.i52 = load i32, ptr %add.ptr.i51, align 4
@@ -520,14 +520,14 @@ if.else.i54:                                      ; preds = %for.cond.i45
 
 if.end17.i59:                                     ; preds = %if.else.i54, %_ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit.i72, %if.then.i70
   %deleted.1.i60 = phi ptr [ %deleted.0.i46, %_ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit.i72 ], [ %deleted.0.i46, %if.then.i70 ], [ %.sroa.speculated.i65, %if.else.i54 ]
-  %add.i61 = add i32 %index.0.i49, %step.0.i47
-  %inc.i62 = add i32 %step.0.i47, 1
+  %add.i61 = add i32 %index.0.i49, %step.0.i48
+  %inc.i62 = add i32 %step.0.i48, 1
   br label %for.cond.i45, !llvm.loop !14
 
 if.end39:                                         ; preds = %_ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit.i72, %if.else.i54, %if.end
   %found.sroa.2.0 = phi ptr [ %.sroa.speculated.i, %if.end ], [ %add.ptr.i51, %_ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit.i72 ], [ %.sroa.speculated.i65, %if.else.i54 ]
-  %numDescriptors.0 = phi i32 [ %2, %if.end ], [ %13, %if.else.i54 ], [ %13, %_ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit.i72 ]
   %self.0 = phi ptr [ %1, %if.end ], [ %12, %if.else.i54 ], [ %12, %_ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit.i72 ]
+  %numDescriptors.0 = phi i32 [ %2, %if.end ], [ %13, %if.else.i54 ], [ %13, %_ZNK6hermes2vm15DictPropertyMap7isMatchEPKNS0_6detail11DPMHashPairENS0_8SymbolIDE.exit.i72 ]
   %numProperties_40 = getelementptr inbounds i8, ptr %self.0, i64 16
   %20 = load i32, ptr %numProperties_40, align 4
   %inc = add i32 %20, 1

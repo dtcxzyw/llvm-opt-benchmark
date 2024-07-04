@@ -1308,8 +1308,8 @@ Vec_IntFree.exit:                                 ; preds = %.critedge6, %209
   br label %210
 
 210:                                              ; preds = %Vec_IntFree.exit, %9
-  %.0 = phi float [ -1.000000e+09, %9 ], [ %.1114.lcssa, %Vec_IntFree.exit ]
-  ret float %.0
+  %.0112 = phi float [ -1.000000e+09, %9 ], [ %.1114.lcssa, %Vec_IntFree.exit ]
+  ret float %.0112
 }
 
 declare i32 @Gia_ManLutSizeMax(ptr noundef) local_unnamed_addr #4
@@ -1440,10 +1440,10 @@ define float @Gia_ManDelayTraceLutPrint(ptr noundef %0, i32 noundef %1) local_un
 
 .lr.ph64.split.us:                                ; preds = %.lr.ph64, %.lr.ph64.split.us
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.lr.ph64.split.us ], [ 0, %.lr.ph64 ]
-  %.04961.us = phi i32 [ %61, %.lr.ph64.split.us ], [ 0, %.lr.ph64 ]
+  %.062.us = phi i32 [ %61, %.lr.ph64.split.us ], [ 0, %.lr.ph64 ]
   %59 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv70
   %60 = load i32, ptr %59, align 4
-  %61 = add nsw i32 %60, %.04961.us
+  %61 = add nsw i32 %60, %.062.us
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %62 = sitofp i32 %61 to double
   %63 = fmul double %62, 1.000000e+02
@@ -1458,10 +1458,10 @@ define float @Gia_ManDelayTraceLutPrint(ptr noundef %0, i32 noundef %1) local_un
 
 .lr.ph64.split:                                   ; preds = %.lr.ph64, %.lr.ph64.split
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.lr.ph64.split ], [ 0, %.lr.ph64 ]
-  %.04961 = phi i32 [ %73, %.lr.ph64.split ], [ 0, %.lr.ph64 ]
+  %.062 = phi i32 [ %73, %.lr.ph64.split ], [ 0, %.lr.ph64 ]
   %71 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv67
   %72 = load i32, ptr %71, align 4
-  %73 = add nsw i32 %72, %.04961
+  %73 = add nsw i32 %72, %.062
   %74 = trunc nuw nsw i64 %indvars.iv67 to i32
   %75 = mul i32 %74, 5
   %76 = add i32 %75, 5
@@ -1513,8 +1513,8 @@ define float @Gia_ManDelayTraceLutPrint(ptr noundef %0, i32 noundef %1) local_un
   br label %Gia_ManTimeStop.exit
 
 Gia_ManTimeStop.exit:                             ; preds = %.thread.i.i, %93, %86, %10
-  %.0 = phi float [ -1.000000e+09, %10 ], [ %24, %86 ], [ %24, %93 ], [ %24, %.thread.i.i ]
-  ret float %.0
+  %.049 = phi float [ -1.000000e+09, %10 ], [ %24, %86 ], [ %24, %93 ], [ %24, %.thread.i.i ]
+  ret float %.049
 }
 
 declare i32 @Gia_ManLutLevel(ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -1943,7 +1943,7 @@ define void @Gia_ManSpeedupObj(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %..critedge_crit_edge, %5
-  %.1 = phi ptr [ %25, %..critedge_crit_edge ], [ null, %5 ], [ null, %15 ]
+  %.193 = phi ptr [ %25, %..critedge_crit_edge ], [ null, %5 ], [ null, %15 ]
   %26 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %27 = getelementptr inbounds i8, ptr %26, i64 4
   store i32 0, ptr %27, align 4
@@ -1986,7 +1986,7 @@ Vec_IntFree.exit:                                 ; preds = %31, %33
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge6
   %indvars.iv185 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next186, %.critedge6 ]
-  %.2161 = phi ptr [ %.1, %.preheader.lr.ph ], [ %.7.lcssa, %.critedge6 ]
+  %.294160 = phi ptr [ %.193, %.preheader.lr.ph ], [ %.7.lcssa, %.critedge6 ]
   %.val128145 = load i32, ptr %12, align 4
   %39 = icmp sgt i32 %.val128145, 0
   br i1 %39, label %.lr.ph147, label %.critedge2
@@ -2013,7 +2013,7 @@ Vec_IntFree.exit:                                 ; preds = %31, %33
   br i1 %48, label %.lr.ph147, label %.critedge2, !llvm.loop !29
 
 .critedge2:                                       ; preds = %.lr.ph147, %40, %.preheader
-  %.4 = phi ptr [ %.2161, %.preheader ], [ %44, %40 ], [ null, %.lr.ph147 ]
+  %.4 = phi ptr [ %.294160, %.preheader ], [ %44, %40 ], [ null, %.lr.ph147 ]
   %.val127150 = load i32, ptr %35, align 4
   %49 = icmp sgt i32 %.val127150, 0
   br i1 %49, label %.lr.ph152.preheader, label %.critedge4
@@ -2330,8 +2330,8 @@ define ptr @Gia_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
 
 59:                                               ; preds = %.lr.ph387, %106
   %indvars.iv438 = phi i64 [ 1, %.lr.ph387 ], [ %indvars.iv.next439, %106 ]
-  %.0241385 = phi i32 [ 0, %.lr.ph387 ], [ %.1242, %106 ]
-  %.0244384 = phi i32 [ 0, %.lr.ph387 ], [ %107, %106 ]
+  %.0239386 = phi i32 [ 0, %.lr.ph387 ], [ %.1240, %106 ]
+  %.0241385 = phi i32 [ 0, %.lr.ph387 ], [ %107, %106 ]
   %60 = getelementptr inbounds i32, ptr %.val317.val, i64 %indvars.iv438
   %61 = load i32, ptr %60, align 4
   %.not368 = icmp eq i32 %61, 0
@@ -2352,7 +2352,7 @@ define ptr @Gia_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
 
 67:                                               ; preds = %.lr.ph383, %83
   %indvars.iv433 = phi i64 [ 0, %.lr.ph383 ], [ %indvars.iv.next434, %83 ]
-  %.1245382 = phi i32 [ %.0244384, %.lr.ph383 ], [ %.2246, %83 ]
+  %.1242382 = phi i32 [ %.0241385, %.lr.ph383 ], [ %.2243, %83 ]
   %68 = getelementptr inbounds i32, ptr %66, i64 %indvars.iv433
   %69 = load i32, ptr %68, align 4
   %70 = sext i32 %69 to i64
@@ -2375,17 +2375,17 @@ define ptr @Gia_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   br i1 %80, label %81, label %83
 
 81:                                               ; preds = %73
-  %82 = add nsw i32 %.1245382, 1
+  %82 = add nsw i32 %.1242382, 1
   br label %83
 
 83:                                               ; preds = %67, %73, %81
-  %.2246 = phi i32 [ %.1245382, %67 ], [ %82, %81 ], [ %.1245382, %73 ]
+  %.2243 = phi i32 [ %.1242382, %67 ], [ %82, %81 ], [ %.1242382, %73 ]
   %indvars.iv.next434 = add nuw nsw i64 %indvars.iv433, 1
   %exitcond437.not = icmp eq i64 %indvars.iv.next434, %wide.trip.count436
   br i1 %exitcond437.not, label %.critedge, label %67, !llvm.loop !37
 
 .critedge:                                        ; preds = %83, %.preheader375
-  %.1245.lcssa = phi i32 [ %.0244384, %.preheader375 ], [ %.2246, %83 ]
+  %.1242.lcssa = phi i32 [ %.0241385, %.preheader375 ], [ %.2243, %83 ]
   %84 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv438
   %85 = load i32, ptr %84, align 4
   %86 = and i32 %85, 1431655765
@@ -2406,14 +2406,14 @@ define ptr @Gia_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %101 = add nuw nsw i32 %100, %98
   %102 = and i32 %101, 31
   %103 = lshr i32 %101, 16
-  %104 = add i32 %103, %.0241385
+  %104 = add i32 %103, %.0239386
   %105 = add i32 %104, %102
   br label %106
 
 106:                                              ; preds = %.critedge, %59
-  %.3247 = phi i32 [ %.1245.lcssa, %.critedge ], [ %.0244384, %59 ]
-  %.1242 = phi i32 [ %105, %.critedge ], [ %.0241385, %59 ]
-  %107 = freeze i32 %.3247
+  %.3244 = phi i32 [ %.1242.lcssa, %.critedge ], [ %.0241385, %59 ]
+  %.1240 = phi i32 [ %105, %.critedge ], [ %.0239386, %59 ]
+  %107 = freeze i32 %.3244
   %indvars.iv.next439 = add nuw nsw i64 %indvars.iv438, 1
   %exitcond442.not = icmp eq i64 %indvars.iv.next439, %wide.trip.count441
   br i1 %exitcond442.not, label %._crit_edge388, label %59, !llvm.loop !38
@@ -2421,15 +2421,15 @@ define ptr @Gia_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
 ._crit_edge388:                                   ; preds = %106, %.thread498
   %108 = phi ptr [ %34, %.thread498 ], [ %36, %106 ]
   %109 = phi ptr [ %32, %.thread498 ], [ %37, %106 ]
-  %.0244.lcssa = phi i32 [ 0, %.thread498 ], [ %107, %106 ]
-  %.0241.lcssa = phi i32 [ 0, %.thread498 ], [ %.1242, %106 ]
+  %.0241.lcssa = phi i32 [ 0, %.thread498 ], [ %107, %106 ]
+  %.0239.lcssa = phi i32 [ 0, %.thread498 ], [ %.1240, %106 ]
   %110 = tail call i32 @Gia_ManLutFaninCount(ptr noundef %0) #13
-  %.not264 = icmp eq i32 %.0244.lcssa, 0
-  %111 = sitofp i32 %.0241.lcssa to double
-  %112 = sitofp i32 %.0244.lcssa to double
+  %.not264 = icmp eq i32 %.0241.lcssa, 0
+  %111 = sitofp i32 %.0239.lcssa to double
+  %112 = sitofp i32 %.0241.lcssa to double
   %113 = fdiv double %111, %112
   %114 = select i1 %.not264, double 0.000000e+00, double %113
-  %115 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %110, i32 noundef %.0244.lcssa, i32 noundef %.0241.lcssa, double noundef %114)
+  %115 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %110, i32 noundef %.0241.lcssa, i32 noundef %.0239.lcssa, double noundef %114)
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %27, %._crit_edge388, %._crit_edge
@@ -2496,8 +2496,8 @@ define ptr @Gia_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
 
 145:                                              ; preds = %.lr.ph428, %.critedge5.thread
   %indvars.iv468 = phi i64 [ 1, %.lr.ph428 ], [ %indvars.iv.next469, %.critedge5.thread ]
-  %.2243423 = phi i32 [ 0, %.lr.ph428 ], [ %.3, %.critedge5.thread ]
-  %.4248422 = phi i32 [ 0, %.lr.ph428 ], [ %.5, %.critedge5.thread ]
+  %.2426 = phi i32 [ 0, %.lr.ph428 ], [ %.3, %.critedge5.thread ]
+  %.4245425 = phi i32 [ 0, %.lr.ph428 ], [ %.5, %.critedge5.thread ]
   %.val316 = load ptr, ptr %140, align 8
   %146 = getelementptr i8, ptr %.val316, i64 8
   %.val316.val = load ptr, ptr %146, align 8
@@ -2533,7 +2533,7 @@ define ptr @Gia_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
 
 161:                                              ; preds = %.lr.ph397, %172
   %indvars.iv448 = phi i64 [ 0, %.lr.ph397 ], [ %indvars.iv.next449, %172 ]
-  %.0239396 = phi i32 [ 0, %.lr.ph397 ], [ %.1240, %172 ]
+  %.0238396 = phi i32 [ 0, %.lr.ph397 ], [ %.1, %172 ]
   %162 = getelementptr inbounds i32, ptr %159, i64 %indvars.iv448
   %163 = load i32, ptr %162, align 4
   %164 = sext i32 %163 to i64
@@ -2548,23 +2548,23 @@ define ptr @Gia_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %169 = trunc nuw nsw i64 %indvars.iv448 to i32
   %170 = lshr i32 %168, %169
   %171 = and i32 %170, 1
-  %spec.select = add nsw i32 %171, %.0239396
+  %spec.select = add nsw i32 %171, %.0238396
   br label %172
 
 172:                                              ; preds = %167, %161
-  %.1240 = phi i32 [ %.0239396, %161 ], [ %spec.select, %167 ]
+  %.1 = phi i32 [ %.0238396, %161 ], [ %spec.select, %167 ]
   %indvars.iv.next449 = add nuw nsw i64 %indvars.iv448, 1
   %exitcond452.not = icmp eq i64 %indvars.iv.next449, %wide.trip.count451
   br i1 %exitcond452.not, label %.critedge2, label %161, !llvm.loop !40
 
 .critedge2:                                       ; preds = %172, %.preheader374
-  %.0239.lcssa = phi i32 [ 0, %.preheader374 ], [ %.1240, %172 ]
-  %173 = icmp eq i32 %.0239.lcssa, 0
+  %.0238.lcssa = phi i32 [ 0, %.preheader374 ], [ %.1, %172 ]
+  %173 = icmp eq i32 %.0238.lcssa, 0
   %or.cond = select i1 %143, i1 %173, i1 false
   br i1 %or.cond, label %.critedge5.thread, label %174
 
 174:                                              ; preds = %.critedge2
-  %175 = add nsw i32 %.4248422, 1
+  %175 = add nsw i32 %.4245425, 1
   store i32 0, ptr %132, align 4
   %brmerge = or i1 %173, %158
   br i1 %brmerge, label %.critedge5.thread, label %.lr.ph406
@@ -2748,7 +2748,7 @@ Vec_IntPushUnique.exit:                           ; preds = %211, %Vec_IntPush.e
   br i1 %or.cond366, label %.critedge5.thread, label %259
 
 259:                                              ; preds = %.critedge5
-  %260 = add nsw i32 %.2243423, 1
+  %260 = add nsw i32 %.2426, 1
   store i32 0, ptr %136, align 4
   %261 = getelementptr i8, ptr %.val291, i64 8
   %.val289.val412 = load ptr, ptr %261, align 8
@@ -2923,7 +2923,7 @@ Vec_IntPushUnique.exit361:                        ; preds = %290, %Vec_IntPush.e
 336:                                              ; preds = %.critedge9
   %.val323 = load i32, ptr %136, align 4
   %337 = trunc nuw nsw i64 %indvars.iv468 to i32
-  %338 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %175, i32 noundef %337, i32 noundef %.0239.lcssa, i32 noundef %.val322.pre, i32 noundef %.val323)
+  %338 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %175, i32 noundef %337, i32 noundef %.0238.lcssa, i32 noundef %.val322.pre, i32 noundef %.val323)
   %.val287416 = load ptr, ptr %140, align 8
   %339 = getelementptr i8, ptr %.val287416, i64 8
   %.val287.val417 = load ptr, ptr %339, align 8
@@ -3080,8 +3080,8 @@ Vec_IntPushUnique.exit361:                        ; preds = %290, %Vec_IntPush.e
   br label %.loopexit
 
 .critedge5.thread:                                ; preds = %174, %145, %.thread, %373, %.critedge5, %.critedge2, %149
-  %.5 = phi i32 [ %.4248422, %149 ], [ %.4248422, %.critedge2 ], [ %175, %.critedge5 ], [ %175, %373 ], [ %175, %.thread ], [ %.4248422, %145 ], [ %175, %174 ]
-  %.3 = phi i32 [ %.2243423, %149 ], [ %.2243423, %.critedge2 ], [ %.2243423, %.critedge5 ], [ %260, %373 ], [ %260, %.thread ], [ %.2243423, %145 ], [ %.2243423, %174 ]
+  %.5 = phi i32 [ %.4245425, %149 ], [ %.4245425, %.critedge2 ], [ %175, %.critedge5 ], [ %175, %373 ], [ %175, %.thread ], [ %.4245425, %145 ], [ %175, %174 ]
+  %.3 = phi i32 [ %.2426, %149 ], [ %.2426, %.critedge2 ], [ %.2426, %.critedge5 ], [ %260, %373 ], [ %260, %.thread ], [ %.2426, %145 ], [ %.2426, %174 ]
   %indvars.iv.next469 = add nuw nsw i64 %indvars.iv468, 1
   %.val311 = load i32, ptr %117, align 8
   %429 = sext i32 %.val311 to i64

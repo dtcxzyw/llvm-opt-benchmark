@@ -56,7 +56,7 @@ define zeroext i1 @ws_ipv6_addr_and_prefix_contains(ptr nocapture noundef readon
 
 .lr.ph.i:                                         ; preds = %2, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %2 ]
-  %.02842.i = phi i32 [ %17, %16 ], [ %..i, %2 ]
+  %.02841.i = phi i32 [ %17, %16 ], [ %..i, %2 ]
   %8 = getelementptr [16 x i8], ptr %0, i64 0, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = getelementptr [16 x i8], ptr %3, i64 0, i64 %indvars.iv
@@ -71,7 +71,7 @@ define zeroext i1 @ws_ipv6_addr_and_prefix_contains(ptr nocapture noundef readon
   br label %compare_ipv6.exit
 
 16:                                               ; preds = %.lr.ph.i
-  %17 = add i32 %.02842.i, -8
+  %17 = add i32 %.02841.i, -8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = icmp ugt i32 %17, 7
   br i1 %18, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !4
@@ -81,19 +81,19 @@ define zeroext i1 @ws_ipv6_addr_and_prefix_contains(ptr nocapture noundef readon
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %2
-  %.029.lcssa.i = phi i64 [ 0, %2 ], [ %19, %._crit_edge.loopexit.i ]
   %.028.lcssa.i = phi i32 [ %..i, %2 ], [ %17, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i = phi i64 [ 0, %2 ], [ %19, %._crit_edge.loopexit.i ]
   %.not.i = icmp eq i32 %.028.lcssa.i, 0
   br i1 %.not.i, label %compare_ipv6.exit, label %20
 
 20:                                               ; preds = %._crit_edge.i
-  %21 = getelementptr [16 x i8], ptr %0, i64 0, i64 %.029.lcssa.i
+  %21 = getelementptr [16 x i8], ptr %0, i64 0, i64 %.0.lcssa.i
   %22 = load i8, ptr %21, align 1
   %23 = zext nneg i32 %.028.lcssa.i to i64
   %24 = getelementptr [9 x i8], ptr @bitmasks, i64 0, i64 %23
   %25 = load i8, ptr %24, align 1
   %26 = and i8 %25, %22
-  %27 = getelementptr [16 x i8], ptr %3, i64 0, i64 %.029.lcssa.i
+  %27 = getelementptr [16 x i8], ptr %3, i64 0, i64 %.0.lcssa.i
   %28 = load i8, ptr %27, align 1
   %29 = and i8 %28, %25
   %.not36.i = icmp eq i8 %26, %29
@@ -106,8 +106,8 @@ define zeroext i1 @ws_ipv6_addr_and_prefix_contains(ptr nocapture noundef readon
   br label %compare_ipv6.exit
 
 compare_ipv6.exit:                                ; preds = %12, %._crit_edge.i, %20, %30
-  %.0.i = phi i32 [ %15, %12 ], [ %33, %30 ], [ 0, %20 ], [ 0, %._crit_edge.i ]
-  %34 = icmp eq i32 %.0.i, 0
+  %.029.i = phi i32 [ %15, %12 ], [ %33, %30 ], [ 0, %20 ], [ 0, %._crit_edge.i ]
+  %34 = icmp eq i32 %.029.i, 0
   ret i1 %34
 }
 

@@ -2269,15 +2269,15 @@ for.cond.preheader.preheader:                     ; preds = %if.end23
   br label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %for.cond.preheader.preheader, %if.end158
-  %out.addr.0133 = phi ptr [ %out.addr.6, %if.end158 ], [ %out, %for.cond.preheader.preheader ]
-  %p.0132 = phi ptr [ %incdec.ptr118, %if.end158 ], [ %6, %for.cond.preheader.preheader ]
-  %bl.0131 = phi ptr [ %bl.1115, %if.end158 ], [ null, %for.cond.preheader.preheader ]
-  %tobool76.not130 = phi i1 [ true, %if.end158 ], [ false, %for.cond.preheader.preheader ]
-  %out_len.addr.0129 = phi i32 [ %out_len.addr.6, %if.end158 ], [ %out_len, %for.cond.preheader.preheader ]
-  %len.0128 = phi i32 [ %dec119, %if.end158 ], [ %5, %for.cond.preheader.preheader ]
-  %n.0127 = phi i32 [ %n.2, %if.end158 ], [ 0, %for.cond.preheader.preheader ]
-  %7 = load i8, ptr %p.0132, align 1
-  %dec110 = add nsw i32 %len.0128, -1
+  %p.0133 = phi ptr [ %incdec.ptr118, %if.end158 ], [ %6, %for.cond.preheader.preheader ]
+  %bl.0132 = phi ptr [ %bl.1115, %if.end158 ], [ null, %for.cond.preheader.preheader ]
+  %tobool76.not131 = phi i1 [ true, %if.end158 ], [ false, %for.cond.preheader.preheader ]
+  %len.0130 = phi i32 [ %dec119, %if.end158 ], [ %5, %for.cond.preheader.preheader ]
+  %n.0129 = phi i32 [ %n.2, %if.end158 ], [ 0, %for.cond.preheader.preheader ]
+  %out.addr.0128 = phi ptr [ %out.addr.6, %if.end158 ], [ %out, %for.cond.preheader.preheader ]
+  %out_len.addr.0127 = phi i32 [ %out_len.addr.6, %if.end158 ], [ %out_len, %for.cond.preheader.preheader ]
+  %7 = load i8, ptr %p.0133, align 1
+  %dec110 = add nsw i32 %len.0130, -1
   %cmp27111 = icmp ne i32 %dec110, 0
   %tobool31.not112 = icmp sgt i8 %7, -1
   %or.cond84113 = select i1 %cmp27111, i1 true, i1 %tobool31.not112
@@ -2287,9 +2287,9 @@ if.end33:                                         ; preds = %for.cond.preheader,
   %tobool31.not120 = phi i1 [ %tobool31.not, %if.end75 ], [ %tobool31.not112, %for.cond.preheader ]
   %dec119 = phi i32 [ %dec, %if.end75 ], [ %dec110, %for.cond.preheader ]
   %8 = phi i8 [ %10, %if.end75 ], [ %7, %for.cond.preheader ]
-  %incdec.ptr118.pn = phi ptr [ %incdec.ptr118, %if.end75 ], [ %p.0132, %for.cond.preheader ]
+  %incdec.ptr118.pn = phi ptr [ %incdec.ptr118, %if.end75 ], [ %p.0133, %for.cond.preheader ]
   %l.0116 = phi i64 [ %l.2, %if.end75 ], [ 0, %for.cond.preheader ]
-  %bl.1115 = phi ptr [ %bl.3100, %if.end75 ], [ %bl.0131, %for.cond.preheader ]
+  %bl.1115 = phi ptr [ %bl.3100, %if.end75 ], [ %bl.0132, %for.cond.preheader ]
   %use_bn.0114 = phi i32 [ %use_bn.197, %if.end75 ], [ 0, %for.cond.preheader ]
   %incdec.ptr118 = getelementptr inbounds i8, ptr %incdec.ptr118.pn, i64 1
   %tobool34.not = icmp eq i32 %use_bn.0114, 0
@@ -2356,7 +2356,7 @@ if.end75:                                         ; preds = %if.then69, %if.else
   br i1 %or.cond84, label %if.end33, label %err
 
 for.end:                                          ; preds = %if.end46
-  br i1 %tobool76.not130, label %if.end103, label %if.then77
+  br i1 %tobool76.not131, label %if.end103, label %if.then77
 
 if.then77:                                        ; preds = %for.end
   %cmp78 = icmp ugt i64 %l.1, 79
@@ -2384,30 +2384,30 @@ if.else89:                                        ; preds = %if.then77
 if.end93:                                         ; preds = %if.else87, %if.then82, %if.else89
   %i.0 = phi i8 [ 2, %if.then82 ], [ 2, %if.else87 ], [ %conv90, %if.else89 ]
   %l.3 = phi i64 [ %l.1, %if.then82 ], [ %sub, %if.else87 ], [ %sub92, %if.else89 ]
-  %tobool94 = icmp ne ptr %out.addr.0133, null
-  %cmp96 = icmp sgt i32 %out_len.addr.0129, 1
+  %tobool94 = icmp ne ptr %out.addr.0128, null
+  %cmp96 = icmp sgt i32 %out_len.addr.0127, 1
   %or.cond2 = select i1 %tobool94, i1 %cmp96, i1 false
   br i1 %or.cond2, label %if.then98, label %if.end102
 
 if.then98:                                        ; preds = %if.end93
   %add = or disjoint i8 %i.0, 48
-  %incdec.ptr100 = getelementptr inbounds i8, ptr %out.addr.0133, i64 1
-  store i8 %add, ptr %out.addr.0133, align 1
+  %incdec.ptr100 = getelementptr inbounds i8, ptr %out.addr.0128, i64 1
+  store i8 %add, ptr %out.addr.0128, align 1
   store i8 48, ptr %incdec.ptr100, align 1
-  %dec101 = add nsw i32 %out_len.addr.0129, -1
+  %dec101 = add nsw i32 %out_len.addr.0127, -1
   br label %if.end102
 
 if.end102:                                        ; preds = %if.then98, %if.end93
-  %out_len.addr.1 = phi i32 [ %dec101, %if.then98 ], [ %out_len.addr.0129, %if.end93 ]
-  %out.addr.1 = phi ptr [ %incdec.ptr100, %if.then98 ], [ %out.addr.0133, %if.end93 ]
-  %inc = add nsw i32 %n.0127, 1
+  %out_len.addr.1 = phi i32 [ %dec101, %if.then98 ], [ %out_len.addr.0127, %if.end93 ]
+  %out.addr.1 = phi ptr [ %incdec.ptr100, %if.then98 ], [ %out.addr.0128, %if.end93 ]
+  %inc = add nsw i32 %n.0129, 1
   br label %if.end103
 
 if.end103:                                        ; preds = %if.end102, %for.end
-  %n.1 = phi i32 [ %inc, %if.end102 ], [ %n.0127, %for.end ]
-  %out_len.addr.2 = phi i32 [ %out_len.addr.1, %if.end102 ], [ %out_len.addr.0129, %for.end ]
+  %out_len.addr.2 = phi i32 [ %out_len.addr.1, %if.end102 ], [ %out_len.addr.0127, %for.end ]
+  %out.addr.2 = phi ptr [ %out.addr.1, %if.end102 ], [ %out.addr.0128, %for.end ]
+  %n.1 = phi i32 [ %inc, %if.end102 ], [ %n.0129, %for.end ]
   %l.4 = phi i64 [ %l.3, %if.end102 ], [ %l.1, %for.end ]
-  %out.addr.2 = phi ptr [ %out.addr.1, %if.end102 ], [ %out.addr.0133, %for.end ]
   br i1 %tobool34.not, label %if.else133, label %if.then105
 
 if.then105:                                       ; preds = %if.end103
@@ -2492,9 +2492,9 @@ if.end156:                                        ; preds = %if.then148, %if.els
   br label %if.end158
 
 if.end158:                                        ; preds = %if.end156, %if.end130
-  %n.2 = phi i32 [ %add132, %if.end130 ], [ %add157, %if.end156 ]
   %out_len.addr.6 = phi i32 [ %out_len.addr.4, %if.end130 ], [ %out_len.addr.5, %if.end156 ]
   %out.addr.6 = phi ptr [ %out.addr.4, %if.end130 ], [ %out.addr.5, %if.end156 ]
+  %n.2 = phi i32 [ %add132, %if.end130 ], [ %add157, %if.end156 ]
   %cmp25 = icmp sgt i32 %dec119, 0
   br i1 %cmp25, label %for.cond.preheader, label %while.end, !llvm.loop !7
 
@@ -2505,7 +2505,7 @@ while.end:                                        ; preds = %if.end158, %if.end2
   br label %return
 
 err:                                              ; preds = %if.then105, %if.then82, %for.cond.preheader, %if.then35, %land.lhs.true58, %if.end62, %if.then69, %if.end75
-  %bl.4 = phi ptr [ %bl.1115, %if.then35 ], [ null, %land.lhs.true58 ], [ %bl.2, %if.end62 ], [ %bl.399, %if.then69 ], [ %bl.3100, %if.end75 ], [ %bl.0131, %for.cond.preheader ], [ %bl.1115, %if.then82 ], [ %bl.1115, %if.then105 ]
+  %bl.4 = phi ptr [ %bl.1115, %if.then35 ], [ null, %land.lhs.true58 ], [ %bl.2, %if.end62 ], [ %bl.399, %if.then69 ], [ %bl.3100, %if.end75 ], [ %bl.0132, %for.cond.preheader ], [ %bl.1115, %if.then82 ], [ %bl.1115, %if.then105 ]
   call void @BN_free(ptr noundef %bl.4) #10
   br label %return
 

@@ -66,7 +66,7 @@ define dso_local ptr @gimme_tree(ptr noundef %0, ptr nocapture noundef readonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.02952 = phi ptr [ null, %.lr.ph.preheader ], [ %17, %.lr.ph ]
+  %.03152 = phi ptr [ null, %.lr.ph.preheader ], [ %17, %.lr.ph ]
   %7 = getelementptr i32, ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = load ptr, ptr %5, align 8
@@ -80,7 +80,7 @@ define dso_local ptr @gimme_tree(ptr noundef %0, ptr nocapture noundef readonly 
   store ptr %14, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   store i32 1, ptr %16, align 8
-  %17 = tail call fastcc ptr @merge_clump(ptr noundef %0, ptr noundef %.02952, ptr noundef nonnull %15, i1 noundef zeroext false)
+  %17 = tail call fastcc ptr @merge_clump(ptr noundef %0, ptr noundef %.03152, ptr noundef nonnull %15, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
@@ -101,11 +101,11 @@ list_length.exit:                                 ; preds = %._crit_edge
 
 22:                                               ; preds = %.lr.ph55, %22
   %indvars.iv60 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next61, %22 ]
-  %.03153 = phi ptr [ null, %.lr.ph55 ], [ %26, %22 ]
+  %.03053 = phi ptr [ null, %.lr.ph55 ], [ %26, %22 ]
   %23 = load ptr, ptr %21, align 8
   %24 = getelementptr %union.ListCell, ptr %23, i64 %indvars.iv60
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call fastcc ptr @merge_clump(ptr noundef %0, ptr noundef %.03153, ptr noundef %25, i1 noundef zeroext true)
+  %26 = tail call fastcc ptr @merge_clump(ptr noundef %0, ptr noundef %.03053, ptr noundef %25, i1 noundef zeroext true)
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %27 = load i32, ptr %18, align 4
   %28 = sext i32 %27 to i64
@@ -316,8 +316,8 @@ list_length.exit:                                 ; preds = %69
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %list_length.exit, %._crit_edge.loopexit.split.loop.exit, %list_length.exit.preheader
-  %.049.lcssa = phi i32 [ 0, %list_length.exit.preheader ], [ %75, %._crit_edge.loopexit.split.loop.exit ], [ %62, %list_length.exit ]
-  %76 = tail call ptr @list_insert_nth(ptr noundef nonnull %.us-phi, i32 noundef %.049.lcssa, ptr noundef %.us-phi73) #2
+  %.048.lcssa = phi i32 [ 0, %list_length.exit.preheader ], [ %75, %._crit_edge.loopexit.split.loop.exit ], [ %62, %list_length.exit ]
+  %76 = tail call ptr @list_insert_nth(ptr noundef nonnull %.us-phi, i32 noundef %.048.lcssa, ptr noundef %.us-phi73) #2
   br label %77
 
 77:                                               ; preds = %._crit_edge, %.thread57

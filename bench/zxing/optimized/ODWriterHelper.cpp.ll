@@ -43,13 +43,13 @@ define void @_ZN5ZXing4OneD12WriterHelper12RenderResultERKSt6vectorIbSaIbEEiii(p
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %36
-  %.036 = phi i32 [ %37, %36 ], [ 0, %.lr.ph.preheader ]
-  %.02235 = phi i32 [ %38, %36 ], [ %21, %.lr.ph.preheader ]
+  %.036 = phi i32 [ %38, %36 ], [ %21, %.lr.ph.preheader ]
+  %.02235 = phi i32 [ %37, %36 ], [ 0, %.lr.ph.preheader ]
   %22 = load ptr, ptr %1, align 8
-  %23 = lshr i32 %.036, 6
+  %23 = lshr i32 %.02235, 6
   %.zext = zext nneg i32 %23 to i64
   %24 = getelementptr inbounds i64, ptr %22, i64 %.zext
-  %25 = and i32 %.036, 63
+  %25 = and i32 %.02235, 63
   %26 = zext nneg i32 %25 to i64
   %27 = shl nuw i64 1, %26
   %28 = load i64, ptr %24, align 8
@@ -58,7 +58,7 @@ define void @_ZN5ZXing4OneD12WriterHelper12RenderResultERKSt6vectorIbSaIbEEiii(p
   br i1 %.not, label %36, label %30
 
 30:                                               ; preds = %.lr.ph
-  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.02235, i32 noundef 0, i32 noundef %17, i32 noundef %.sroa.speculated)
+  invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.036, i32 noundef 0, i32 noundef %17, i32 noundef %.sroa.speculated)
           to label %36 unwind label %31
 
 31:                                               ; preds = %30
@@ -77,8 +77,8 @@ _ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %31, %35
   resume { ptr, i32 } %32
 
 36:                                               ; preds = %.lr.ph, %30
-  %37 = add nuw nsw i32 %.036, 1
-  %38 = add nsw i32 %.02235, %17
+  %37 = add nuw nsw i32 %.02235, 1
+  %38 = add nsw i32 %.036, %17
   %39 = icmp slt i32 %37, %15
   br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
@@ -188,18 +188,18 @@ define noundef i32 @_ZN5ZXing4OneD12WriterHelper13AppendPatternERSt6vectorIbSaIb
   br i1 %.not, label %._crit_edge29, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %5, %._crit_edge
-  %.01526 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %1, %5 ]
-  %.01625 = phi i64 [ %37, %._crit_edge ], [ 0, %5 ]
-  %.01724 = phi i32 [ %35, %._crit_edge ], [ 0, %5 ]
-  %.018.in23 = phi i1 [ %36, %._crit_edge ], [ %4, %5 ]
-  %6 = getelementptr inbounds i32, ptr %2, i64 %.01625
+  %.01526 = phi i64 [ %37, %._crit_edge ], [ 0, %5 ]
+  %.01625 = phi i32 [ %35, %._crit_edge ], [ 0, %5 ]
+  %.017.in24 = phi i1 [ %36, %._crit_edge ], [ %4, %5 ]
+  %.01823 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %1, %5 ]
+  %6 = getelementptr inbounds i32, ptr %2, i64 %.01526
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph28
-  %9 = sext i32 %.01526 to i64
-  br i1 %.018.in23, label %_ZNSt14_Bit_referenceaSEb.exit.us, label %_ZNSt14_Bit_referenceaSEb.exit
+  %9 = sext i32 %.01823 to i64
+  br i1 %.017.in24, label %_ZNSt14_Bit_referenceaSEb.exit.us, label %_ZNSt14_Bit_referenceaSEb.exit
 
 _ZNSt14_Bit_referenceaSEb.exit.us:                ; preds = %.lr.ph, %_ZNSt14_Bit_referenceaSEb.exit.us
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %_ZNSt14_Bit_referenceaSEb.exit.us ], [ %9, %.lr.ph ]
@@ -255,16 +255,16 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %.lr.ph, %_ZNSt14_Bi
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit31, %._crit_edge.loopexit, %.lr.ph28
-  %.1.lcssa = phi i32 [ %.01526, %.lr.ph28 ], [ %33, %._crit_edge.loopexit ], [ %34, %._crit_edge.loopexit31 ]
-  %35 = add nsw i32 %7, %.01724
-  %36 = xor i1 %.018.in23, true
-  %37 = add nuw i64 %.01625, 1
+  %.1.lcssa = phi i32 [ %.01823, %.lr.ph28 ], [ %33, %._crit_edge.loopexit ], [ %34, %._crit_edge.loopexit31 ]
+  %35 = add nsw i32 %7, %.01625
+  %36 = xor i1 %.017.in24, true
+  %37 = add nuw i64 %.01526, 1
   %exitcond39.not = icmp eq i64 %37, %3
   br i1 %exitcond39.not, label %._crit_edge29, label %.lr.ph28, !llvm.loop !7
 
 ._crit_edge29:                                    ; preds = %._crit_edge, %5
-  %.017.lcssa = phi i32 [ 0, %5 ], [ %35, %._crit_edge ]
-  ret i32 %.017.lcssa
+  %.016.lcssa = phi i32 [ 0, %5 ], [ %35, %._crit_edge ]
+  ret i32 %.016.lcssa
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr

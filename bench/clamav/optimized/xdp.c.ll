@@ -224,8 +224,8 @@ dump_xdp.exit:                                    ; preds = %.outer.i, %.prehead
   br label %95
 
 95:                                               ; preds = %47, %1, %.loopexit
-  %.052 = phi i32 [ %.3, %.loopexit ], [ 12, %1 ], [ 0, %47 ]
-  ret i32 %.052
+  %.053 = phi i32 [ %.3, %.loopexit ], [ 12, %1 ], [ 0, %47 ]
+  ret i32 %.053
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)

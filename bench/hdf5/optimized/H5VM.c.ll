@@ -1244,21 +1244,21 @@ H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
   %.03260.us.i = phi i64 [ %343, %._crit_edge.us.i ], [ 0, %.lr.ph.us.preheader.i ]
-  %.03359.us.i = phi ptr [ %335, %._crit_edge.us.i ], [ %319, %.lr.ph.us.preheader.i ]
-  %.03558.us.i = phi ptr [ %332, %._crit_edge.us.i ], [ %326, %.lr.ph.us.preheader.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03359.us.i, ptr align 1 %.03558.us.i, i64 %.1173.ph, i1 false)
+  %.03359.us.i = phi ptr [ %332, %._crit_edge.us.i ], [ %326, %.lr.ph.us.preheader.i ]
+  %.03558.us.i = phi ptr [ %335, %._crit_edge.us.i ], [ %319, %.lr.ph.us.preheader.i ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03558.us.i, ptr align 1 %.03359.us.i, i64 %.1173.ph, i1 false)
   br label %329
 
 329:                                              ; preds = %339, %.lr.ph.us.i
   %indvars.iv.i = phi i64 [ %328, %.lr.ph.us.i ], [ %indvars.iv.next.i, %339 ]
-  %.13454.us.i = phi ptr [ %.03359.us.i, %.lr.ph.us.i ], [ %335, %339 ]
-  %.13653.us.i = phi ptr [ %.03558.us.i, %.lr.ph.us.i ], [ %332, %339 ]
+  %.13454.us.i = phi ptr [ %.03359.us.i, %.lr.ph.us.i ], [ %332, %339 ]
+  %.13653.us.i = phi ptr [ %.03558.us.i, %.lr.ph.us.i ], [ %335, %339 ]
   %330 = getelementptr inbounds i64, ptr %11, i64 %indvars.iv.i
   %331 = load i64, ptr %330, align 8
-  %332 = getelementptr inbounds i8, ptr %.13653.us.i, i64 %331
+  %332 = getelementptr inbounds i8, ptr %.13454.us.i, i64 %331
   %333 = getelementptr inbounds i64, ptr %12, i64 %indvars.iv.i
   %334 = load i64, ptr %333, align 8
-  %335 = getelementptr inbounds i8, ptr %.13454.us.i, i64 %334
+  %335 = getelementptr inbounds i8, ptr %.13653.us.i, i64 %334
   %336 = getelementptr inbounds [33 x i64], ptr %9, i64 0, i64 %indvars.iv.i
   %337 = load i64, ptr %336, align 8
   %338 = add i64 %337, -1
@@ -1343,21 +1343,21 @@ H5VM_vector_reduce_product.exit:                  ; preds = %.lr.ph.i
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %.03260.us = phi i64 [ %33, %._crit_edge.us ], [ 0, %.lr.ph.us.preheader ]
-  %.03359.us = phi ptr [ %24, %._crit_edge.us ], [ %4, %.lr.ph.us.preheader ]
-  %.03558.us = phi ptr [ %21, %._crit_edge.us ], [ %6, %.lr.ph.us.preheader ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03359.us, ptr align 1 %.03558.us, i64 %1, i1 false)
+  %.03359.us = phi ptr [ %21, %._crit_edge.us ], [ %6, %.lr.ph.us.preheader ]
+  %.03558.us = phi ptr [ %24, %._crit_edge.us ], [ %4, %.lr.ph.us.preheader ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03558.us, ptr align 1 %.03359.us, i64 %1, i1 false)
   br label %18
 
 18:                                               ; preds = %.lr.ph.us, %28
   %indvars.iv = phi i64 [ %17, %.lr.ph.us ], [ %indvars.iv.next, %28 ]
-  %.13454.us = phi ptr [ %.03359.us, %.lr.ph.us ], [ %24, %28 ]
-  %.13653.us = phi ptr [ %.03558.us, %.lr.ph.us ], [ %21, %28 ]
+  %.13454.us = phi ptr [ %.03359.us, %.lr.ph.us ], [ %21, %28 ]
+  %.13653.us = phi ptr [ %.03558.us, %.lr.ph.us ], [ %24, %28 ]
   %19 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %.13653.us, i64 %20
+  %21 = getelementptr inbounds i8, ptr %.13454.us, i64 %20
   %22 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.13454.us, i64 %23
+  %24 = getelementptr inbounds i8, ptr %.13653.us, i64 %23
   %25 = getelementptr inbounds [33 x i64], ptr %8, i64 0, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, -1
@@ -1436,21 +1436,21 @@ H5VM_vector_reduce_product.exit:                  ; preds = %.lr.ph.i
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %.03260.us = phi i64 [ %33, %._crit_edge.us ], [ 0, %.lr.ph.us.preheader ]
-  %.03359.us = phi ptr [ %24, %._crit_edge.us ], [ %4, %.lr.ph.us.preheader ]
-  %.03558.us = phi ptr [ %21, %._crit_edge.us ], [ %6, %.lr.ph.us.preheader ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03359.us, ptr align 1 %.03558.us, i64 %1, i1 false)
+  %.03359.us = phi ptr [ %21, %._crit_edge.us ], [ %6, %.lr.ph.us.preheader ]
+  %.03558.us = phi ptr [ %24, %._crit_edge.us ], [ %4, %.lr.ph.us.preheader ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03558.us, ptr align 1 %.03359.us, i64 %1, i1 false)
   br label %18
 
 18:                                               ; preds = %.lr.ph.us, %28
   %indvars.iv = phi i64 [ %17, %.lr.ph.us ], [ %indvars.iv.next, %28 ]
-  %.13454.us = phi ptr [ %.03359.us, %.lr.ph.us ], [ %24, %28 ]
-  %.13653.us = phi ptr [ %.03558.us, %.lr.ph.us ], [ %21, %28 ]
+  %.13454.us = phi ptr [ %.03359.us, %.lr.ph.us ], [ %21, %28 ]
+  %.13653.us = phi ptr [ %.03558.us, %.lr.ph.us ], [ %24, %28 ]
   %19 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %.13653.us, i64 %20
+  %21 = getelementptr inbounds i8, ptr %.13454.us, i64 %20
   %22 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.13454.us, i64 %23
+  %24 = getelementptr inbounds i8, ptr %.13653.us, i64 %23
   %25 = getelementptr inbounds [33 x i64], ptr %8, i64 0, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, -1
@@ -2048,8 +2048,8 @@ define i64 @H5VM_memcpyvv(ptr nocapture noundef writeonly %0, i64 noundef %1, pt
   br i1 %25, label %26, label %44
 
 26:                                               ; preds = %79, %61, %10
-  %.0147 = phi ptr [ %24, %10 ], [ %55, %61 ], [ %73, %79 ]
-  %.0141 = phi ptr [ %22, %10 ], [ %59, %61 ], [ %77, %79 ]
+  %.0147 = phi ptr [ %22, %10 ], [ %59, %61 ], [ %77, %79 ]
+  %.0141 = phi ptr [ %24, %10 ], [ %55, %61 ], [ %73, %79 ]
   %.0135 = phi ptr [ %13, %10 ], [ %50, %61 ], [ %68, %79 ]
   %.0129 = phi ptr [ %16, %10 ], [ %.2131, %61 ], [ %67, %79 ]
   %.0124 = phi ptr [ %12, %10 ], [ %56, %61 ], [ %74, %79 ]
@@ -2060,14 +2060,14 @@ define i64 @H5VM_memcpyvv(ptr nocapture noundef writeonly %0, i64 noundef %1, pt
   br label %27
 
 27:                                               ; preds = %34, %26
-  %.1148 = phi ptr [ %.0147, %26 ], [ %39, %34 ]
-  %.1142 = phi ptr [ %.0141, %26 ], [ %35, %34 ]
+  %.1148 = phi ptr [ %.0147, %26 ], [ %35, %34 ]
+  %.1142 = phi ptr [ %.0141, %26 ], [ %39, %34 ]
   %.1130 = phi ptr [ %.0129, %26 ], [ %30, %34 ]
   %.1120 = phi ptr [ %.0119, %26 ], [ %36, %34 ]
   %.1116 = phi i64 [ %.0115, %26 ], [ %29, %34 ]
   %.1112 = phi i64 [ %.0111, %26 ], [ %37, %34 ]
   %.0107 = phi i64 [ 0, %26 ], [ %28, %34 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1142, ptr align 1 %.1148, i64 %.1112, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1148, ptr align 1 %.1142, i64 %.1112, i1 false)
   %28 = add i64 %.0107, %.1112
   %29 = sub i64 %.1116, %.1112
   %30 = getelementptr inbounds i8, ptr %.1130, i64 8
@@ -2082,7 +2082,7 @@ define i64 @H5VM_memcpyvv(ptr nocapture noundef writeonly %0, i64 noundef %1, pt
   br label %.loopexit
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds i8, ptr %.1142, i64 %.1112
+  %35 = getelementptr inbounds i8, ptr %.1148, i64 %.1112
   %36 = getelementptr inbounds i8, ptr %.1120, i64 8
   %37 = load i64, ptr %36, align 8
   %38 = load i64, ptr %30, align 8
@@ -2100,8 +2100,8 @@ define i64 @H5VM_memcpyvv(ptr nocapture noundef writeonly %0, i64 noundef %1, pt
   br i1 %45, label %46, label %64
 
 46:                                               ; preds = %79, %44, %41
-  %.2149 = phi ptr [ %39, %41 ], [ %73, %79 ], [ %24, %44 ]
-  %.2143 = phi ptr [ %35, %41 ], [ %77, %79 ], [ %22, %44 ]
+  %.2149 = phi ptr [ %35, %41 ], [ %77, %79 ], [ %22, %44 ]
+  %.2143 = phi ptr [ %39, %41 ], [ %73, %79 ], [ %24, %44 ]
   %.1136 = phi ptr [ %.0135, %41 ], [ %68, %79 ], [ %13, %44 ]
   %.2131 = phi ptr [ %30, %41 ], [ %67, %79 ], [ %16, %44 ]
   %.1125 = phi ptr [ %.0124, %41 ], [ %74, %79 ], [ %12, %44 ]
@@ -2112,14 +2112,14 @@ define i64 @H5VM_memcpyvv(ptr nocapture noundef writeonly %0, i64 noundef %1, pt
   br label %47
 
 47:                                               ; preds = %54, %46
-  %.3150 = phi ptr [ %.2149, %46 ], [ %55, %54 ]
-  %.3144 = phi ptr [ %.2143, %46 ], [ %59, %54 ]
+  %.3150 = phi ptr [ %.2149, %46 ], [ %59, %54 ]
+  %.3144 = phi ptr [ %.2143, %46 ], [ %55, %54 ]
   %.2137 = phi ptr [ %.1136, %46 ], [ %50, %54 ]
   %.2126 = phi ptr [ %.1125, %46 ], [ %56, %54 ]
   %.3118 = phi i64 [ %.2117, %46 ], [ %57, %54 ]
   %.3114 = phi i64 [ %.2113, %46 ], [ %49, %54 ]
   %.1108 = phi i64 [ 0, %46 ], [ %48, %54 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3144, ptr align 1 %.3150, i64 %.3118, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3150, ptr align 1 %.3144, i64 %.3118, i1 false)
   %48 = add i64 %.1108, %.3118
   %49 = sub i64 %.3114, %.3118
   %50 = getelementptr inbounds i8, ptr %.2137, i64 8
@@ -2134,7 +2134,7 @@ define i64 @H5VM_memcpyvv(ptr nocapture noundef writeonly %0, i64 noundef %1, pt
   br label %.loopexit
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %.3150, i64 %.3118
+  %55 = getelementptr inbounds i8, ptr %.3144, i64 %.3118
   %56 = getelementptr inbounds i8, ptr %.2126, i64 8
   %57 = load i64, ptr %56, align 8
   %58 = load i64, ptr %50, align 8
@@ -2148,8 +2148,8 @@ define i64 @H5VM_memcpyvv(ptr nocapture noundef writeonly %0, i64 noundef %1, pt
   br i1 %63, label %26, label %64
 
 64:                                               ; preds = %44, %61, %41
-  %.4151 = phi ptr [ %55, %61 ], [ %39, %41 ], [ %24, %44 ]
-  %.4145 = phi ptr [ %59, %61 ], [ %35, %41 ], [ %22, %44 ]
+  %.4151 = phi ptr [ %59, %61 ], [ %35, %41 ], [ %22, %44 ]
+  %.4145 = phi ptr [ %55, %61 ], [ %39, %41 ], [ %24, %44 ]
   %.3138 = phi ptr [ %50, %61 ], [ %.0135, %41 ], [ %13, %44 ]
   %.3132 = phi ptr [ %.2131, %61 ], [ %30, %41 ], [ %16, %44 ]
   %.3127 = phi ptr [ %56, %61 ], [ %.0124, %41 ], [ %12, %44 ]
@@ -2159,15 +2159,15 @@ define i64 @H5VM_memcpyvv(ptr nocapture noundef writeonly %0, i64 noundef %1, pt
   br label %65
 
 65:                                               ; preds = %69, %64
-  %.5152 = phi ptr [ %.4151, %64 ], [ %73, %69 ]
-  %.5146 = phi ptr [ %.4145, %64 ], [ %77, %69 ]
+  %.5152 = phi ptr [ %.4151, %64 ], [ %77, %69 ]
+  %.5146 = phi ptr [ %.4145, %64 ], [ %73, %69 ]
   %.4139 = phi ptr [ %.3138, %64 ], [ %68, %69 ]
   %.4133 = phi ptr [ %.3132, %64 ], [ %67, %69 ]
   %.4128 = phi ptr [ %.3127, %64 ], [ %74, %69 ]
   %.4123 = phi ptr [ %.3122, %64 ], [ %70, %69 ]
   %.5 = phi i64 [ %.4, %64 ], [ %71, %69 ]
   %.2109 = phi i64 [ 0, %64 ], [ %66, %69 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.5146, ptr align 1 %.5152, i64 %.5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.5152, ptr align 1 %.5146, i64 %.5, i1 false)
   %66 = add i64 %.2109, %.5
   %67 = getelementptr inbounds i8, ptr %.4133, i64 8
   %68 = getelementptr inbounds i8, ptr %.4139, i64 8

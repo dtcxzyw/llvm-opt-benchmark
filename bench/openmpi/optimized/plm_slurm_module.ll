@@ -831,7 +831,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %194, %214
 pmix_pointer_array_get_item.exit180:              ; preds = %264, %310
   %indvars.iv199 = phi i64 [ %indvars.iv.next200, %310 ], [ 0, %264 ]
   %283 = phi ptr [ %313, %310 ], [ %279, %264 ]
-  %.0120191 = phi ptr [ %.2, %310 ], [ null, %264 ]
+  %.0118192 = phi ptr [ %.2, %310 ], [ null, %264 ]
   %284 = getelementptr inbounds i8, ptr %283, i64 152
   %285 = load ptr, ptr %284, align 8
   %286 = getelementptr inbounds ptr, ptr %285, i64 %indvars.iv199
@@ -848,16 +848,16 @@ pmix_pointer_array_get_item.exit180:              ; preds = %264, %310
   br i1 %.not154, label %310, label %293
 
 293:                                              ; preds = %289
-  %cond = icmp eq ptr %.0120191, null
+  %cond = icmp eq ptr %.0118192, null
   br i1 %cond, label %298, label %294
 
 294:                                              ; preds = %293
-  %295 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0120191, ptr noundef nonnull dereferenceable(1) %292) #19
+  %295 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0118192, ptr noundef nonnull dereferenceable(1) %292) #19
   %.not156 = icmp eq i32 %295, 0
   br i1 %.not156, label %308, label %296
 
 296:                                              ; preds = %294
-  %297 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.21, i32 noundef 1, ptr noundef nonnull %.0120191, ptr noundef nonnull %292) #15
+  %297 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.21, i32 noundef 1, ptr noundef nonnull %.0118192, ptr noundef nonnull %292) #15
   br label %344
 
 298:                                              ; preds = %293
@@ -881,12 +881,12 @@ pmix_pointer_array_get_item.exit180:              ; preds = %264, %310
 
 308:                                              ; preds = %294, %298, %301, %306
   %309 = phi ptr [ %.pre204, %306 ], [ %292, %301 ], [ %292, %298 ], [ %292, %294 ]
-  %.1121 = phi ptr [ %299, %306 ], [ %299, %301 ], [ %299, %298 ], [ %.0120191, %294 ]
+  %.1 = phi ptr [ %299, %306 ], [ %299, %301 ], [ %299, %298 ], [ %.0118192, %294 ]
   call void @free(ptr noundef %309) #15
   br label %310
 
 310:                                              ; preds = %289, %308, %pmix_pointer_array_get_item.exit180
-  %.2 = phi ptr [ %.0120191, %pmix_pointer_array_get_item.exit180 ], [ %.1121, %308 ], [ %.0120191, %289 ]
+  %.2 = phi ptr [ %.0118192, %pmix_pointer_array_get_item.exit180 ], [ %.1, %308 ], [ %.0118192, %289 ]
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %311 = load ptr, ptr %24, align 8
   %312 = getelementptr inbounds i8, ptr %311, i64 440
@@ -955,8 +955,8 @@ pmix_pointer_array_get_item.exit180:              ; preds = %264, %310
   br label %344
 
 344:                                              ; preds = %335, %22, %338, %27, %340, %296, %263, %223, %92
-  %.4 = phi ptr [ null, %27 ], [ null, %92 ], [ null, %223 ], [ null, %263 ], [ %.0120191, %296 ], [ %.3, %338 ], [ %.3, %340 ], [ null, %22 ], [ %.3, %335 ]
-  %.0119 = phi i1 [ true, %27 ], [ true, %92 ], [ true, %223 ], [ true, %263 ], [ true, %296 ], [ true, %338 ], [ false, %340 ], [ true, %22 ], [ true, %335 ]
+  %.4 = phi ptr [ null, %27 ], [ null, %92 ], [ null, %223 ], [ null, %263 ], [ %.0118192, %296 ], [ %.3, %338 ], [ %.3, %340 ], [ null, %22 ], [ %.3, %335 ]
+  %.0 = phi i1 [ true, %27 ], [ true, %92 ], [ true, %223 ], [ true, %263 ], [ true, %296 ], [ true, %338 ], [ false, %340 ], [ true, %22 ], [ true, %335 ]
   %345 = load ptr, ptr %4, align 8
   %.not161 = icmp eq ptr %345, null
   br i1 %.not161, label %347, label %346
@@ -974,7 +974,7 @@ pmix_pointer_array_get_item.exit180:              ; preds = %264, %310
   br label %349
 
 349:                                              ; preds = %348, %347
-  br i1 %.0119, label %350, label %380
+  br i1 %.0, label %350, label %380
 
 350:                                              ; preds = %349
   %351 = load ptr, ptr %24, align 8

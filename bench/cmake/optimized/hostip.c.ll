@@ -624,8 +624,8 @@ Curl_ipv6works.exit:                              ; preds = %8, %10
   br label %22
 
 22:                                               ; preds = %20, %18, %15
-  %.0 = phi i1 [ %17, %15 ], [ false, %18 ], [ true, %20 ]
-  ret i1 %.0
+  %.08 = phi i1 [ %17, %15 ], [ false, %18 ], [ true, %20 ]
+  ret i1 %.08
 }
 
 ; Function Attrs: nounwind
@@ -1096,8 +1096,8 @@ Curl_host_is_ipnum.exit:                          ; preds = %13
   br i1 %.not3954, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27, %47
-  %.055 = phi ptr [ %49, %47 ], [ %19, %27 ]
-  %29 = getelementptr inbounds i8, ptr %.055, i64 4
+  %.02955 = phi ptr [ %49, %47 ], [ %19, %27 ]
+  %29 = getelementptr inbounds i8, ptr %.02955, i64 4
   %30 = load i32, ptr %29, align 4
   switch i32 %30, label %47 [
     i32 10, label %31
@@ -1119,7 +1119,7 @@ Curl_host_is_ipnum.exit:                          ; preds = %13
 
 .sink.split.i:                                    ; preds = %35, %31
   %.sink16.i = phi i64 [ 8, %35 ], [ 4, %31 ]
-  %36 = getelementptr inbounds i8, ptr %.055, i64 32
+  %36 = getelementptr inbounds i8, ptr %.02955, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 %.sink16.i
   %39 = call ptr @inet_ntop(i32 noundef %30, ptr noundef nonnull %38, ptr noundef nonnull %6, i32 noundef 46) #12
@@ -1151,7 +1151,7 @@ Curl_printable_address.exit:                      ; preds = %31, %.sink.split.i
   br label %.critedge
 
 47:                                               ; preds = %.lr.ph, %.thread
-  %48 = getelementptr inbounds i8, ptr %.055, i64 40
+  %48 = getelementptr inbounds i8, ptr %.02955, i64 40
   %49 = load ptr, ptr %48, align 8
   %.not39 = icmp eq ptr %49, null
   br i1 %.not39, label %._crit_edge, label %.lr.ph, !llvm.loop !13
@@ -1369,8 +1369,8 @@ define dso_local range(i32 0, 50) i32 @Curl_loadhostpairs(ptr noundef %0) local_
   %7 = and i32 %6, -262145
   store i32 %7, ptr %5, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 4608
-  %.0118231 = load ptr, ptr %8, align 8
-  %.not232 = icmp eq ptr %.0118231, null
+  %.0132231 = load ptr, ptr %8, align 8
+  %.not232 = icmp eq ptr %.0132231, null
   br i1 %.not232, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
@@ -1380,8 +1380,8 @@ define dso_local range(i32 0, 50) i32 @Curl_loadhostpairs(ptr noundef %0) local_
   br label %12
 
 12:                                               ; preds = %.lr.ph, %163
-  %.0118233 = phi ptr [ %.0118231, %.lr.ph ], [ %.0118, %163 ]
-  %13 = load ptr, ptr %.0118233, align 8
+  %.0132233 = phi ptr [ %.0132231, %.lr.ph ], [ %.0132, %163 ]
+  %13 = load ptr, ptr %.0132233, align 8
   %.not151 = icmp eq ptr %13, null
   br i1 %.not151, label %163, label %14
 
@@ -1411,7 +1411,7 @@ define dso_local range(i32 0, 50) i32 @Curl_loadhostpairs(ptr noundef %0) local_
   br i1 %.not176, label %163, label %27
 
 27:                                               ; preds = %.thread
-  %28 = load ptr, ptr %.0118233, align 8
+  %28 = load ptr, ptr %.0132233, align 8
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %28) #12
   br label %163
 
@@ -1419,7 +1419,7 @@ select.unfold.preheader.i:                        ; preds = %20
   %29 = ptrtoint ptr %18 to i64
   %30 = ptrtoint ptr %19 to i64
   %31 = sub i64 %30, %29
-  %32 = load ptr, ptr %.0118233, align 8
+  %32 = load ptr, ptr %.0132233, align 8
   %spec.select27.i = call i64 @llvm.umin.i64(i64 %31, i64 255)
   br label %select.unfold.i
 
@@ -1494,23 +1494,23 @@ create_hostcache_id.exit:                         ; preds = %select.unfold.i
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %99, %65
-  %.0126.lcssa228230.ph = phi ptr [ %61, %65 ], [ %.0126, %99 ]
-  %.0130.ph.ph = phi ptr [ null, %65 ], [ %94, %99 ]
+  %.0122.lcssa228230.ph = phi ptr [ %61, %65 ], [ %.0122, %99 ]
+  %.0125.ph.ph = phi ptr [ null, %65 ], [ %94, %99 ]
   br label %.outer
 
 .outer:                                           ; preds = %.outer.outer, %100
-  %.0126.lcssa228230 = phi ptr [ %.0126, %100 ], [ %.0126.lcssa228230.ph, %.outer.outer ]
-  %.0130.ph = phi ptr [ %94, %100 ], [ %.0130.ph.ph, %.outer.outer ]
+  %.0122.lcssa228230 = phi ptr [ %.0122, %100 ], [ %.0122.lcssa228230.ph, %.outer.outer ]
+  %.0125.ph = phi ptr [ %94, %100 ], [ %.0125.ph.ph, %.outer.outer ]
   br label %68
 
 68:                                               ; preds = %.outer, %86
-  %.0126227 = phi ptr [ %.0126.lcssa228230, %.outer ], [ %.0126, %86 ]
-  %69 = load i8, ptr %.0126227, align 1
+  %.0122227 = phi ptr [ %.0122.lcssa228230, %.outer ], [ %.0122, %86 ]
+  %69 = load i8, ptr %.0122227, align 1
   %.not154 = icmp eq i8 %69, 0
   br i1 %.not154, label %102, label %70
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %.0126227, i64 1
+  %71 = getelementptr inbounds i8, ptr %.0122227, i64 1
   %72 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %71, i32 noundef 44) #13
   %.not156 = icmp eq ptr %72, null
   br i1 %.not156, label %73, label %76
@@ -1521,41 +1521,41 @@ create_hostcache_id.exit:                         ; preds = %select.unfold.i
   br label %76
 
 76:                                               ; preds = %73, %70
-  %.0126 = phi ptr [ %72, %70 ], [ %75, %73 ]
+  %.0122 = phi ptr [ %72, %70 ], [ %75, %73 ]
   %77 = load i8, ptr %71, align 1
   %78 = icmp eq i8 %77, 91
   br i1 %78, label %79, label %86
 
 79:                                               ; preds = %76
-  %80 = icmp eq ptr %.0126, %71
+  %80 = icmp eq ptr %.0122, %71
   br i1 %80, label %.thread200.loopexit.loopexit, label %81
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %.0126, i64 -1
+  %82 = getelementptr inbounds i8, ptr %.0122, i64 -1
   %83 = load i8, ptr %82, align 1
   %.not157 = icmp eq i8 %83, 93
   br i1 %.not157, label %84, label %.thread200.loopexit.loopexit
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %.0126227, i64 2
+  %85 = getelementptr inbounds i8, ptr %.0122227, i64 2
   br label %86
 
 86:                                               ; preds = %84, %76
-  %.0127 = phi ptr [ %85, %84 ], [ %71, %76 ]
-  %.1 = phi ptr [ %82, %84 ], [ %.0126, %76 ]
-  %.not158 = icmp eq ptr %.1, %.0127
+  %.0123 = phi ptr [ %85, %84 ], [ %71, %76 ]
+  %.1 = phi ptr [ %82, %84 ], [ %.0122, %76 ]
+  %.not158 = icmp eq ptr %.1, %.0123
   br i1 %.not158, label %68, label %87, !llvm.loop !14
 
 87:                                               ; preds = %86
-  store ptr %.0126, ptr %4, align 8
+  store ptr %.0122, ptr %4, align 8
   %88 = ptrtoint ptr %.1 to i64
-  %89 = ptrtoint ptr %.0127 to i64
+  %89 = ptrtoint ptr %.0123 to i64
   %90 = sub i64 %88, %89
   %91 = icmp ugt i64 %90, 63
   br i1 %91, label %.thread200, label %92
 
 92:                                               ; preds = %87
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %.0127, i64 %90, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %.0123, i64 %90, i1 false)
   %93 = getelementptr inbounds [64 x i8], ptr %3, i64 0, i64 %90
   store i8 0, ptr %93, align 1
   %94 = call ptr @Curl_str2addr(ptr noundef nonnull %3, i32 noundef %66) #12
@@ -1573,26 +1573,26 @@ create_hostcache_id.exit:                         ; preds = %select.unfold.i
   br label %.thread200
 
 99:                                               ; preds = %92
-  %.not162 = icmp eq ptr %.0130.ph, null
+  %.not162 = icmp eq ptr %.0125.ph, null
   br i1 %.not162, label %.outer.outer, label %100, !llvm.loop !14
 
 100:                                              ; preds = %99
-  %101 = getelementptr inbounds i8, ptr %.0130.ph, i64 40
+  %101 = getelementptr inbounds i8, ptr %.0125.ph, i64 40
   store ptr %94, ptr %101, align 8
   br label %.outer, !llvm.loop !14
 
 102:                                              ; preds = %68
-  store ptr %.0126227, ptr %4, align 8
-  %.not155 = icmp eq ptr %.0130.ph.ph, null
+  store ptr %.0122227, ptr %4, align 8
+  %.not155 = icmp eq ptr %.0125.ph.ph, null
   br i1 %.not155, label %.thread200, label %104
 
 .thread200.loopexit.loopexit:                     ; preds = %81, %79
-  store ptr %.0126, ptr %4, align 8
+  store ptr %.0122, ptr %4, align 8
   br label %.thread200
 
 .thread200:                                       ; preds = %51, %63, %60, %53, %102, %87, %.thread200.loopexit.loopexit, %95, %98
-  %.2206 = phi ptr [ %.0130.ph.ph, %95 ], [ %.0130.ph.ph, %98 ], [ %.0130.ph.ph, %.thread200.loopexit.loopexit ], [ %.0130.ph.ph, %87 ], [ null, %102 ], [ null, %53 ], [ null, %60 ], [ null, %63 ], [ null, %51 ]
-  %103 = load ptr, ptr %.0118233, align 8
+  %.2206 = phi ptr [ %.0125.ph.ph, %95 ], [ %.0125.ph.ph, %98 ], [ %.0125.ph.ph, %.thread200.loopexit.loopexit ], [ %.0125.ph.ph, %87 ], [ null, %102 ], [ null, %53 ], [ null, %60 ], [ null, %63 ], [ null, %51 ]
+  %103 = load ptr, ptr %.0132233, align 8
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef %103) #12
   call void @Curl_freeaddrinfo(ptr noundef %.2206) #12
   br label %165
@@ -1666,7 +1666,7 @@ create_hostcache_id.exit196:                      ; preds = %select.unfold.i187,
   br label %130
 
 130:                                              ; preds = %127, %117
-  %131 = call ptr @Curl_cache_addr(ptr noundef nonnull %0, ptr noundef nonnull %.0130.ph.ph, ptr noundef nonnull %spec.select179, i64 noundef %56, i32 noundef %66)
+  %131 = call ptr @Curl_cache_addr(ptr noundef nonnull %0, ptr noundef nonnull %.0125.ph.ph, ptr noundef nonnull %spec.select179, i64 noundef %56, i32 noundef %66)
   %.not167 = icmp eq ptr %131, null
   br i1 %.not167, label %139, label %132
 
@@ -1698,7 +1698,7 @@ create_hostcache_id.exit196:                      ; preds = %select.unfold.i187,
   br i1 %.not167, label %144, label %145
 
 144:                                              ; preds = %143
-  call void @Curl_freeaddrinfo(ptr noundef nonnull %.0130.ph.ph) #12
+  call void @Curl_freeaddrinfo(ptr noundef nonnull %.0125.ph.ph) #12
   br label %165
 
 145:                                              ; preds = %143
@@ -1739,9 +1739,9 @@ create_hostcache_id.exit196:                      ; preds = %select.unfold.i187,
   br label %163
 
 163:                                              ; preds = %49, %43, %160, %153, %151, %27, %.thread, %12
-  %164 = getelementptr inbounds i8, ptr %.0118233, i64 8
-  %.0118 = load ptr, ptr %164, align 8
-  %.not = icmp eq ptr %.0118, null
+  %164 = getelementptr inbounds i8, ptr %.0132233, i64 8
+  %.0132 = load ptr, ptr %164, align 8
+  %.not = icmp eq ptr %.0132, null
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %163, %1
@@ -1749,8 +1749,8 @@ create_hostcache_id.exit196:                      ; preds = %select.unfold.i187,
   br label %165
 
 165:                                              ; preds = %._crit_edge, %144, %.thread200
-  %.0 = phi i32 [ 49, %.thread200 ], [ 27, %144 ], [ 0, %._crit_edge ]
-  ret i32 %.0
+  %.0133 = phi i32 [ 49, %.thread200 ], [ 27, %144 ], [ 0, %._crit_edge ]
+  ret i32 %.0133
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

@@ -2234,11 +2234,11 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit
-  %__begin1.sroa.5.017 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select12, %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit ]
-  %__begin1.sroa.0.016 = phi ptr [ %0, %for.body.lr.ph ], [ %spec.select, %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit ]
-  %sh_prom.i = zext nneg i32 %__begin1.sroa.5.017 to i64
+  %__begin1.sroa.0.017 = phi ptr [ %0, %for.body.lr.ph ], [ %spec.select12, %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit ]
+  %__begin1.sroa.5.016 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select, %_ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit ]
+  %sh_prom.i = zext nneg i32 %__begin1.sroa.5.016 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
-  %3 = load i64, ptr %__begin1.sroa.0.016, align 8
+  %3 = load i64, ptr %__begin1.sroa.0.017, align 8
   %and.i.i = and i64 %3, %shl.i
   %tobool.i.i = icmp ne i64 %and.i.i, 0
   %4 = load ptr, ptr %data_.i.i.i.i, align 8
@@ -2272,13 +2272,13 @@ _ZN5arrow12ArrayBuilder20UnsafeAppendToBitmapEb.exit: ; preds = %for.body, %if.t
   %11 = load i64, ptr %length_3.i, align 8
   %inc4.i = add nsw i64 %11, 1
   store i64 %inc4.i, ptr %length_3.i, align 8
-  %inc.i.i6 = add i32 %__begin1.sroa.5.017, 1
-  %cmp.i.i7 = icmp eq i32 %__begin1.sroa.5.017, 63
-  %spec.select.idx = select i1 %cmp.i.i7, i64 8, i64 0
-  %spec.select = getelementptr inbounds i8, ptr %__begin1.sroa.0.016, i64 %spec.select.idx
-  %spec.select12 = select i1 %cmp.i.i7, i32 0, i32 %inc.i.i6
-  %cmp.i.i = icmp ne ptr %spec.select, %1
-  %cmp3.i.i = icmp ne i32 %spec.select12, %2
+  %inc.i.i6 = add i32 %__begin1.sroa.5.016, 1
+  %cmp.i.i7 = icmp eq i32 %__begin1.sroa.5.016, 63
+  %spec.select = select i1 %cmp.i.i7, i32 0, i32 %inc.i.i6
+  %spec.select12.idx = select i1 %cmp.i.i7, i64 8, i64 0
+  %spec.select12 = getelementptr inbounds i8, ptr %__begin1.sroa.0.017, i64 %spec.select12.idx
+  %cmp.i.i = icmp ne ptr %spec.select12, %1
+  %cmp3.i.i = icmp ne i32 %spec.select, %2
   %.not.i = select i1 %cmp.i.i, i1 true, i1 %cmp3.i.i
   br i1 %.not.i, label %for.body, label %for.end
 

@@ -699,12 +699,12 @@ define dso_local noundef ptr @archive_acl_to_text_w(ptr nocapture noundef readon
 15:                                               ; preds = %.split, %.split63
   %.08.i91 = phi i32 [ %.08.i92, %.split ], [ 768, %.split63 ]
   %phi.call = phi i64 [ %12, %.split ], [ %14, %.split63 ]
-  %.056 = phi i32 [ %2, %.split ], [ %13, %.split63 ]
+  %.061 = phi i32 [ %2, %.split ], [ %13, %.split63 ]
   %16 = icmp eq i64 %phi.call, 0
   br i1 %16, label %archive_acl_text_want_type.exit.thread93, label %17
 
 17:                                               ; preds = %15
-  %18 = and i32 %.056, 8
+  %18 = and i32 %.061, 8
   %.not = icmp eq i32 %18, 0
   %. = select i1 %.not, i32 10, i32 44
   %19 = shl i64 %phi.call, 2
@@ -735,7 +735,7 @@ define dso_local noundef ptr @archive_acl_to_text_w(ptr nocapture noundef readon
   %33 = getelementptr inbounds i32, ptr %20, i64 %32
   %34 = getelementptr inbounds i8, ptr %33, i64 4
   store i32 58, ptr %33, align 4
-  %35 = and i32 %.056, 4
+  %35 = and i32 %.061, 4
   %36 = getelementptr inbounds i8, ptr %33, i64 8
   store i32 58, ptr %34, align 4
   %37 = getelementptr inbounds i8, ptr %33, i64 16
@@ -808,27 +808,27 @@ append_entry_w.exit:                              ; preds = %29, %69
 
 81:                                               ; preds = %append_entry_w.exit, %27
   %82 = phi ptr [ %80, %append_entry_w.exit ], [ %20, %27 ]
-  %.057 = phi i32 [ 3, %append_entry_w.exit ], [ 0, %27 ]
+  %.060 = phi i32 [ 3, %append_entry_w.exit ], [ 0, %27 ]
   %83 = getelementptr inbounds i8, ptr %0, i64 8
-  %.059106 = load ptr, ptr %83, align 8
-  %.not71107 = icmp eq ptr %.059106, null
+  %.057106 = load ptr, ptr %83, align 8
+  %.not71107 = icmp eq ptr %.057106, null
   br i1 %.not71107, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %81
-  %84 = and i32 %.056, 2
+  %84 = and i32 %.061, 2
   %.not74 = icmp eq i32 %84, 0
-  %85 = and i32 %.056, 1
+  %85 = and i32 %.061, 1
   %.not75 = icmp eq i32 %85, 0
-  %86 = and i32 %.056, 4
+  %86 = and i32 %.061, 4
   %87 = icmp eq i32 %86, 0
-  %88 = and i32 %.056, 16
+  %88 = and i32 %.061, 16
   %89 = icmp eq i32 %88, 0
   br label %90
 
 90:                                               ; preds = %.lr.ph, %244
-  %.059109 = phi ptr [ %.059106, %.lr.ph ], [ %.059, %244 ]
-  %.1108 = phi i32 [ %.057, %.lr.ph ], [ %.2, %244 ]
-  %91 = getelementptr inbounds i8, ptr %.059109, i64 8
+  %.057109 = phi ptr [ %.057106, %.lr.ph ], [ %.057, %244 ]
+  %.1108 = phi i32 [ %.060, %.lr.ph ], [ %.2, %244 ]
+  %91 = getelementptr inbounds i8, ptr %.057109, i64 8
   %92 = load i32, ptr %91, align 8
   %93 = and i32 %92, %.08.i91
   %94 = icmp eq i32 %93, 0
@@ -839,7 +839,7 @@ append_entry_w.exit:                              ; preds = %29, %69
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds i8, ptr %.059109, i64 12
+  %98 = getelementptr inbounds i8, ptr %.057109, i64 12
   %99 = load i32, ptr %98, align 4
   switch i32 %99, label %100 [
     i32 10002, label %244
@@ -850,7 +850,7 @@ append_entry_w.exit:                              ; preds = %29, %69
 100:                                              ; preds = %97, %95
   %101 = icmp ne i32 %92, 512
   %or.cond = or i1 %.not74, %101
-  %102 = getelementptr inbounds i8, ptr %.059109, i64 24
+  %102 = getelementptr inbounds i8, ptr %.057109, i64 24
   %103 = call i32 @archive_mstring_get_wcs(ptr noundef %3, ptr noundef nonnull %102, ptr noundef nonnull %5) #19
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %237
@@ -870,17 +870,17 @@ append_entry_w.exit:                              ; preds = %29, %69
   br i1 %.not75, label %114, label %111
 
 111:                                              ; preds = %110
-  %112 = getelementptr inbounds i8, ptr %.059109, i64 20
+  %112 = getelementptr inbounds i8, ptr %.057109, i64 20
   %113 = load i32, ptr %112, align 4
   br label %114
 
 114:                                              ; preds = %110, %111
-  %.058 = phi i32 [ %113, %111 ], [ -1, %110 ]
+  %.056 = phi i32 [ %113, %111 ], [ -1, %110 ]
   %115 = load i32, ptr %91, align 8
-  %116 = getelementptr inbounds i8, ptr %.059109, i64 12
+  %116 = getelementptr inbounds i8, ptr %.057109, i64 12
   %117 = load i32, ptr %116, align 4
   %118 = load ptr, ptr %5, align 8
-  %119 = getelementptr inbounds i8, ptr %.059109, i64 16
+  %119 = getelementptr inbounds i8, ptr %.057109, i64 16
   %120 = load i32, ptr %119, align 8
   br i1 %or.cond, label %126, label %121
 
@@ -928,7 +928,7 @@ append_entry_w.exit:                              ; preds = %29, %69
 131:                                              ; preds = %127, %._crit_edge118.i
   %132 = phi ptr [ %.pre119.i, %._crit_edge118.i ], [ %.pre120.i87, %127 ]
   %.079.i = phi ptr [ %118, %._crit_edge118.i ], [ null, %127 ]
-  %.077.i = phi i32 [ %.058, %._crit_edge118.i ], [ -1, %127 ]
+  %.077.i = phi i32 [ %.056, %._crit_edge118.i ], [ -1, %127 ]
   %133 = call ptr @wcscpy(ptr noundef %132, ptr noundef nonnull @.str.9) #19
   br label %150
 
@@ -945,7 +945,7 @@ append_entry_w.exit:                              ; preds = %29, %69
 138:                                              ; preds = %134, %._crit_edge.i
   %139 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.pre117.i86, %134 ]
   %.180.i = phi ptr [ %118, %._crit_edge.i ], [ null, %134 ]
-  %.178.i = phi i32 [ %.058, %._crit_edge.i ], [ -1, %134 ]
+  %.178.i = phi i32 [ %.056, %._crit_edge.i ], [ -1, %134 ]
   %140 = call ptr @wcscpy(ptr noundef %139, ptr noundef nonnull @.str.10) #19
   br label %150
 
@@ -967,7 +967,7 @@ append_entry_w.exit:                              ; preds = %29, %69
 150:                                              ; preds = %._crit_edge113, %147, %144, %141, %138, %136, %131, %129
   %151 = phi ptr [ %.pre, %._crit_edge113 ], [ %148, %147 ], [ %145, %144 ], [ %142, %141 ], [ %139, %138 ], [ %.pre117.i86, %136 ], [ %132, %131 ], [ %.pre120.i87, %129 ]
   %.281.i = phi ptr [ %118, %._crit_edge113 ], [ null, %147 ], [ null, %144 ], [ null, %141 ], [ %.180.i, %138 ], [ null, %136 ], [ %.079.i, %131 ], [ null, %129 ]
-  %.2.i = phi i32 [ %.058, %._crit_edge113 ], [ -1, %147 ], [ -1, %144 ], [ -1, %141 ], [ %.178.i, %138 ], [ -1, %136 ], [ %.077.i, %131 ], [ -1, %129 ]
+  %.2.i = phi i32 [ %.056, %._crit_edge113 ], [ -1, %147 ], [ -1, %144 ], [ -1, %141 ], [ %.178.i, %138 ], [ -1, %136 ], [ %.077.i, %131 ], [ -1, %129 ]
   %152 = call i64 @wcslen(ptr noundef %151) #24
   %153 = getelementptr inbounds i32, ptr %151, i64 %152
   %154 = getelementptr inbounds i8, ptr %153, i64 4
@@ -1206,8 +1206,8 @@ append_entry_w.exit88:                            ; preds = %232, %234
 
 244:                                              ; preds = %97, %97, %97, %append_entry_w.exit88, %239, %237, %90
   %.2 = phi i32 [ %.1108, %90 ], [ %.1108, %97 ], [ %236, %append_entry_w.exit88 ], [ %.1108, %239 ], [ %.1108, %237 ], [ %.1108, %97 ], [ %.1108, %97 ]
-  %.059 = load ptr, ptr %.059109, align 8
-  %.not71 = icmp eq ptr %.059, null
+  %.057 = load ptr, ptr %.057109, align 8
+  %.not71 = icmp eq ptr %.057, null
   br i1 %.not71, label %._crit_edge.loopexit, label %90, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %244
@@ -1659,10 +1659,10 @@ append_entry.exit:                                ; preds = %29, %68
 
 80:                                               ; preds = %append_entry.exit, %27
   %81 = phi ptr [ %79, %append_entry.exit ], [ %20, %27 ]
-  %.054 = phi i32 [ 3, %append_entry.exit ], [ 0, %27 ]
+  %.058 = phi i32 [ 3, %append_entry.exit ], [ 0, %27 ]
   %82 = getelementptr inbounds i8, ptr %0, i64 8
-  %.056104 = load ptr, ptr %82, align 8
-  %.not67105 = icmp eq ptr %.056104, null
+  %.055104 = load ptr, ptr %82, align 8
+  %.not67105 = icmp eq ptr %.055104, null
   br i1 %.not67105, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %80
@@ -1677,9 +1677,9 @@ append_entry.exit:                                ; preds = %29, %68
   br label %89
 
 89:                                               ; preds = %.lr.ph, %229
-  %.056107 = phi ptr [ %.056104, %.lr.ph ], [ %.056, %229 ]
-  %.1106 = phi i32 [ %.054, %.lr.ph ], [ %.2, %229 ]
-  %90 = getelementptr inbounds i8, ptr %.056107, i64 8
+  %.055107 = phi ptr [ %.055104, %.lr.ph ], [ %.055, %229 ]
+  %.1106 = phi i32 [ %.058, %.lr.ph ], [ %.2, %229 ]
+  %90 = getelementptr inbounds i8, ptr %.055107, i64 8
   %91 = load i32, ptr %90, align 8
   %92 = and i32 %91, %.08.i89
   %93 = icmp eq i32 %92, 0
@@ -1690,7 +1690,7 @@ append_entry.exit:                                ; preds = %29, %68
   br i1 %95, label %96, label %99
 
 96:                                               ; preds = %94
-  %97 = getelementptr inbounds i8, ptr %.056107, i64 12
+  %97 = getelementptr inbounds i8, ptr %.055107, i64 12
   %98 = load i32, ptr %97, align 4
   switch i32 %98, label %99 [
     i32 10002, label %229
@@ -1701,7 +1701,7 @@ append_entry.exit:                                ; preds = %29, %68
 99:                                               ; preds = %96, %94
   %100 = icmp ne i32 %91, 512
   %or.cond = or i1 %.not70, %100
-  %101 = getelementptr inbounds i8, ptr %.056107, i64 24
+  %101 = getelementptr inbounds i8, ptr %.055107, i64 24
   %102 = call i32 @archive_mstring_get_mbs_l(ptr noundef null, ptr noundef nonnull %101, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef %3) #19
   %.not71 = icmp eq i32 %102, 0
   br i1 %.not71, label %104, label %103
@@ -1728,16 +1728,16 @@ append_entry.exit:                                ; preds = %29, %68
   br i1 %or.cond73, label %115, label %112
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %.056107, i64 20
+  %113 = getelementptr inbounds i8, ptr %.055107, i64 20
   %114 = load i32, ptr %113, align 4
   br label %115
 
 115:                                              ; preds = %109, %112
-  %.055 = phi i32 [ %114, %112 ], [ -1, %109 ]
+  %.054 = phi i32 [ %114, %112 ], [ -1, %109 ]
   %116 = load i32, ptr %90, align 8
-  %117 = getelementptr inbounds i8, ptr %.056107, i64 12
+  %117 = getelementptr inbounds i8, ptr %.055107, i64 12
   %118 = load i32, ptr %117, align 4
-  %119 = getelementptr inbounds i8, ptr %.056107, i64 16
+  %119 = getelementptr inbounds i8, ptr %.055107, i64 16
   %120 = load i32, ptr %119, align 8
   br i1 %or.cond, label %125, label %121
 
@@ -1785,7 +1785,7 @@ append_entry.exit:                                ; preds = %29, %68
 129:                                              ; preds = %126, %._crit_edge118.i
   %130 = phi ptr [ %.pre119.i, %._crit_edge118.i ], [ %.pre120.i85, %126 ]
   %.079.i = phi ptr [ %110, %._crit_edge118.i ], [ null, %126 ]
-  %.077.i = phi i32 [ %.055, %._crit_edge118.i ], [ -1, %126 ]
+  %.077.i = phi i32 [ %.054, %._crit_edge118.i ], [ -1, %126 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %130, ptr noundef nonnull align 1 dereferenceable(5) @.str.23, i64 5, i1 false) #19
   br label %142
 
@@ -1802,7 +1802,7 @@ append_entry.exit:                                ; preds = %29, %68
 134:                                              ; preds = %131, %._crit_edge.i
   %135 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.pre117.i84, %131 ]
   %.180.i = phi ptr [ %110, %._crit_edge.i ], [ null, %131 ]
-  %.178.i = phi i32 [ %.055, %._crit_edge.i ], [ -1, %131 ]
+  %.178.i = phi i32 [ %.054, %._crit_edge.i ], [ -1, %131 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %135, ptr noundef nonnull align 1 dereferenceable(6) @.str.24, i64 6, i1 false) #19
   br label %142
 
@@ -1824,7 +1824,7 @@ append_entry.exit:                                ; preds = %29, %68
 142:                                              ; preds = %._crit_edge111, %140, %138, %136, %134, %133, %129, %128
   %143 = phi ptr [ %.pre, %._crit_edge111 ], [ %141, %140 ], [ %139, %138 ], [ %137, %136 ], [ %135, %134 ], [ %.pre117.i84, %133 ], [ %130, %129 ], [ %.pre120.i85, %128 ]
   %.281.i = phi ptr [ %110, %._crit_edge111 ], [ null, %140 ], [ null, %138 ], [ null, %136 ], [ %.180.i, %134 ], [ null, %133 ], [ %.079.i, %129 ], [ null, %128 ]
-  %.2.i = phi i32 [ %.055, %._crit_edge111 ], [ -1, %140 ], [ -1, %138 ], [ -1, %136 ], [ %.178.i, %134 ], [ -1, %133 ], [ %.077.i, %129 ], [ -1, %128 ]
+  %.2.i = phi i32 [ %.054, %._crit_edge111 ], [ -1, %140 ], [ -1, %138 ], [ -1, %136 ], [ %.178.i, %134 ], [ -1, %133 ], [ %.077.i, %129 ], [ -1, %128 ]
   %144 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %143) #24
   %145 = getelementptr inbounds i8, ptr %143, i64 %144
   %146 = getelementptr inbounds i8, ptr %145, i64 1
@@ -2058,8 +2058,8 @@ append_entry.exit86:                              ; preds = %224, %226
 
 229:                                              ; preds = %96, %96, %96, %89, %append_entry.exit86
   %.2 = phi i32 [ %.1106, %89 ], [ %.1106, %96 ], [ %228, %append_entry.exit86 ], [ %.1106, %96 ], [ %.1106, %96 ]
-  %.056 = load ptr, ptr %.056107, align 8
-  %.not67 = icmp eq ptr %.056, null
+  %.055 = load ptr, ptr %.055107, align 8
+  %.not67 = icmp eq ptr %.055, null
   br i1 %.not67, label %._crit_edge.loopexit, label %89, !llvm.loop !18
 
 ._crit_edge.loopexit:                             ; preds = %229
@@ -2113,17 +2113,17 @@ define dso_local range(i32 -30, 1) i32 @archive_acl_from_text_w(ptr nocapture no
   br label %7
 
 7:                                                ; preds = %3, %3, %5, %6
-  %.1119 = phi i32 [ %2, %6 ], [ %2, %3 ], [ %2, %3 ], [ 256, %5 ]
-  %.0117 = phi i32 [ 6, %6 ], [ 5, %3 ], [ 5, %3 ], [ 5, %5 ]
+  %.1118 = phi i32 [ %2, %6 ], [ %2, %3 ], [ %2, %3 ], [ 256, %5 ]
+  %.0116 = phi i32 [ 6, %6 ], [ 5, %3 ], [ 5, %3 ], [ 5, %5 ]
   %.not326 = icmp eq ptr %1, null
   br i1 %.not326, label %.critedge, label %.lr.ph335
 
 .lr.ph335:                                        ; preds = %7
-  %.not137 = icmp eq i32 %.1119, 15360
+  %.not137 = icmp eq i32 %.1118, 15360
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.6.0..sroa_idx96 = getelementptr inbounds i8, ptr %4, i64 24
-  %10 = zext nneg i32 %.0117 to i64
+  %10 = zext nneg i32 %.0116 to i64
   %11 = add nuw nsw i64 %10, 4294967294
   %invariant.gep = getelementptr inbounds i8, ptr %4, i64 16
   %12 = load i32, ptr %1, align 4
@@ -2230,7 +2230,7 @@ define dso_local range(i32 -30, 1) i32 @archive_acl_from_text_w(ptr nocapture no
 .preheader318:                                    ; preds = %29
   %31 = trunc nuw nsw i64 %indvars.iv to i32
   %32 = trunc nuw i64 %indvars.iv.next to i32
-  %33 = icmp ugt i32 %.0117, %32
+  %33 = icmp ugt i32 %.0116, %32
   br i1 %33, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader318
@@ -2289,9 +2289,9 @@ define dso_local range(i32 -30, 1) i32 @archive_acl_from_text_w(ptr nocapture no
   br label %.thread
 
 .thread:                                          ; preds = %51, %48, %53, %55, %59, %60
-  %.1114 = phi i32 [ 0, %60 ], [ 1, %59 ], [ 0, %55 ], [ 0, %53 ], [ 0, %48 ], [ 1, %51 ]
-  %.0106 = phi i32 [ 512, %60 ], [ 512, %59 ], [ %.1119, %55 ], [ %.1119, %53 ], [ %.1119, %48 ], [ 512, %51 ]
-  %62 = add nuw nsw i32 %.1114, 1
+  %.1113 = phi i32 [ 0, %60 ], [ 1, %59 ], [ 0, %55 ], [ 0, %53 ], [ 0, %48 ], [ 1, %51 ]
+  %.0106 = phi i32 [ 512, %60 ], [ 512, %59 ], [ %.1118, %55 ], [ %.1118, %53 ], [ %.1118, %48 ], [ 512, %51 ]
+  %62 = add nuw nsw i32 %.1113, 1
   %63 = zext nneg i32 %62 to i64
   %64 = getelementptr inbounds [6 x %struct.anon], ptr %4, i64 0, i64 %63
   %65 = load ptr, ptr %64, align 16
@@ -2335,7 +2335,7 @@ isint_w.exit:                                     ; preds = %79
   br i1 %82, label %isint_w.exit.thread, label %isint_w.exit164
 
 isint_w.exit.thread:                              ; preds = %.preheader.i154, %.thread, %isint_w.exit
-  %83 = add nuw nsw i32 %.1114, 3
+  %83 = add nuw nsw i32 %.1113, 3
   %.not140 = icmp ugt i32 %83, %31
   br i1 %.not140, label %isint_w.exit164, label %84
 
@@ -2380,7 +2380,7 @@ isint_w.exit.thread:                              ; preds = %.preheader.i154, %.
 
 isint_w.exit164:                                  ; preds = %.preheader.i158, %101, %84, %isint_w.exit.thread, %isint_w.exit
   %.2220 = phi i32 [ -1, %isint_w.exit.thread ], [ %.1.i, %isint_w.exit ], [ -1, %84 ], [ %.1.i163, %101 ], [ -1, %.preheader.i158 ]
-  %104 = zext nneg i32 %.1114 to i64
+  %104 = zext nneg i32 %.1113 to i64
   %105 = getelementptr inbounds [6 x %struct.anon], ptr %4, i64 0, i64 %104
   %106 = load ptr, ptr %105, align 16
   %107 = getelementptr inbounds i8, ptr %106, i64 4
@@ -2486,7 +2486,7 @@ isint_w.exit164:                                  ; preds = %.preheader.i158, %1
 
 ismode_w.exit.thread:                             ; preds = %.preheader317, %132
   %.3228 = phi i32 [ 0, %132 ], [ %.0225, %.preheader317 ]
-  %144 = or disjoint i32 %.1114, 2
+  %144 = or disjoint i32 %.1113, 2
   %145 = icmp eq i32 %144, %31
   %brmerge.not = and i1 %145, %.not.i
   br i1 %brmerge.not, label %is_nfs4_perms_w.exit.backedge, label %ismode_w.exit
@@ -2512,7 +2512,7 @@ ismode_w.exit.thread250:                          ; preds = %146, %134, %147, %i
   %.0111.neg259 = phi i32 [ %.0111.neg, %ismode_w.exit ], [ 0, %147 ], [ 0, %134 ], [ 0, %146 ]
   %.sroa.0.0258 = phi ptr [ null, %ismode_w.exit ], [ %65, %147 ], [ null, %134 ], [ null, %146 ]
   %.sroa.6.0257 = phi ptr [ null, %ismode_w.exit ], [ %67, %147 ], [ null, %134 ], [ null, %146 ]
-  %149 = or disjoint i32 %.1114, 2
+  %149 = or disjoint i32 %.1113, 2
   %150 = add nsw i32 %149, %.0111.neg259
   %151 = zext nneg i32 %150 to i64
   %152 = getelementptr inbounds [6 x %struct.anon], ptr %4, i64 0, i64 %151
@@ -2631,8 +2631,8 @@ isint_w.exit183:                                  ; preds = %.preheader.i177, %1
   %.4222 = phi i32 [ -1, %.thread267.thread ], [ -1, %176 ], [ -1, %178 ], [ -1, %173 ], [ -1, %.preheader.i177 ], [ %.1.i182, %191 ]
   %.sroa.6.1 = phi ptr [ %.sroa.6.0.copyload97, %.thread267.thread ], [ null, %176 ], [ null, %178 ], [ null, %173 ], [ %.sroa.6.0.copyload97, %191 ], [ %.sroa.6.0.copyload97, %.preheader.i177 ]
   %.sroa.0.1 = phi ptr [ %.sroa.0.0.copyload95, %.thread267.thread ], [ null, %176 ], [ null, %178 ], [ null, %173 ], [ %.sroa.0.0.copyload95, %191 ], [ %.sroa.0.0.copyload95, %.preheader.i177 ]
-  %.2115 = phi i32 [ 1, %.thread267.thread ], [ 0, %176 ], [ 0, %178 ], [ 0, %173 ], [ 1, %191 ], [ 1, %.preheader.i177 ]
-  %194 = add nuw nsw i32 %.2115, 1
+  %.2114 = phi i32 [ 1, %.thread267.thread ], [ 0, %176 ], [ 0, %178 ], [ 0, %173 ], [ 1, %191 ], [ 1, %.preheader.i177 ]
+  %194 = add nuw nsw i32 %.2114, 1
   %195 = zext nneg i32 %194 to i64
   %196 = getelementptr inbounds [6 x %struct.anon], ptr %4, i64 0, i64 %195
   %197 = load ptr, ptr %196, align 16
@@ -2715,7 +2715,7 @@ isint_w.exit183:                                  ; preds = %.preheader.i177, %1
 
 .loopexit315:                                     ; preds = %217, %isint_w.exit183
   %.10.ph = phi i32 [ 0, %isint_w.exit183 ], [ %.9, %217 ]
-  %219 = or disjoint i32 %.2115, 2
+  %219 = or disjoint i32 %.2114, 2
   %220 = zext nneg i32 %219 to i64
   %221 = getelementptr inbounds [6 x %struct.anon], ptr %4, i64 0, i64 %220
   %222 = load ptr, ptr %221, align 16
@@ -2770,7 +2770,7 @@ isint_w.exit183:                                  ; preds = %.preheader.i177, %1
 
 .loopexit:                                        ; preds = %235, %.loopexit315
   %.13.ph = phi i32 [ %.10.ph, %.loopexit315 ], [ %.12, %235 ]
-  %237 = add nuw nsw i32 %.2115, 3
+  %237 = add nuw nsw i32 %.2114, 3
   %238 = zext nneg i32 %237 to i64
   %239 = getelementptr inbounds [6 x %struct.anon], ptr %4, i64 0, i64 %238
   %240 = load ptr, ptr %239, align 16
@@ -2806,7 +2806,7 @@ isint_w.exit183:                                  ; preds = %.preheader.i177, %1
 
 .thread279:                                       ; preds = %251, %248, %254, %246
   %.1107281 = phi i32 [ 2048, %246 ], [ 8192, %254 ], [ 4096, %251 ], [ 1024, %248 ]
-  %256 = or disjoint i32 %.2115, 4
+  %256 = or disjoint i32 %.2114, 4
   %257 = zext nneg i32 %256 to i64
   %258 = getelementptr inbounds [6 x %struct.anon], ptr %4, i64 0, i64 %257
   %259 = load ptr, ptr %258, align 16
@@ -2979,8 +2979,8 @@ archive_acl_reset.exit:                           ; preds = %.lr.ph.i.i, %.crite
   br label %archive_acl_add_entry_w_len.exit
 
 archive_acl_add_entry_w_len.exit:                 ; preds = %298, %3, %archive_acl_reset.exit
-  %.0112 = phi i32 [ %.0109.lcssa, %archive_acl_reset.exit ], [ -30, %3 ], [ -25, %298 ]
-  ret i32 %.0112
+  %.0119 = phi i32 [ %.0109.lcssa, %archive_acl_reset.exit ], [ -30, %3 ], [ -25, %298 ]
+  ret i32 %.0119
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -3004,7 +3004,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_acl_from_text_l(ptr noca
 
 8:                                                ; preds = %4, %4, %6, %7
   %.1120 = phi i32 [ %2, %7 ], [ %2, %4 ], [ %2, %4 ], [ 256, %6 ]
-  %.0118 = phi i32 [ 6, %7 ], [ 5, %4 ], [ 5, %4 ], [ 5, %6 ]
+  %.0117 = phi i32 [ 6, %7 ], [ 5, %4 ], [ 5, %4 ], [ 5, %6 ]
   %.not352 = icmp eq ptr %1, null
   br i1 %.not352, label %.critedge, label %.lr.ph361
 
@@ -3013,7 +3013,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_acl_from_text_l(ptr noca
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.6.0..sroa_idx96 = getelementptr inbounds i8, ptr %5, i64 24
-  %11 = zext nneg i32 %.0118 to i64
+  %11 = zext nneg i32 %.0117 to i64
   %12 = add nuw nsw i64 %11, 4294967294
   %invariant.gep = getelementptr inbounds i8, ptr %5, i64 16
   %13 = load i8, ptr %1, align 1
@@ -3120,7 +3120,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_acl_from_text_l(ptr noca
 .preheader344:                                    ; preds = %30
   %32 = trunc nuw nsw i64 %indvars.iv to i32
   %33 = trunc nuw i64 %indvars.iv.next to i32
-  %34 = icmp ugt i32 %.0118, %33
+  %34 = icmp ugt i32 %.0117, %33
   br i1 %34, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader344
@@ -3179,9 +3179,9 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_acl_from_text_l(ptr noca
   br label %.thread
 
 .thread:                                          ; preds = %52, %49, %54, %56, %59, %60
-  %.1115 = phi i32 [ 0, %60 ], [ 1, %59 ], [ 0, %56 ], [ 0, %54 ], [ 0, %49 ], [ 1, %52 ]
+  %.1114 = phi i32 [ 0, %60 ], [ 1, %59 ], [ 0, %56 ], [ 0, %54 ], [ 0, %49 ], [ 1, %52 ]
   %.0107 = phi i32 [ 512, %60 ], [ 512, %59 ], [ %.1120, %56 ], [ %.1120, %54 ], [ %.1120, %49 ], [ 512, %52 ]
-  %62 = add nuw nsw i32 %.1115, 1
+  %62 = add nuw nsw i32 %.1114, 1
   %63 = zext nneg i32 %62 to i64
   %64 = getelementptr inbounds [6 x %struct.anon.0], ptr %5, i64 0, i64 %63
   %65 = load ptr, ptr %64, align 16
@@ -3226,7 +3226,7 @@ isint.exit:                                       ; preds = %80
   br i1 %82, label %isint.exit.thread, label %isint.exit175
 
 isint.exit.thread:                                ; preds = %.preheader.i164, %.thread, %isint.exit
-  %83 = add nuw nsw i32 %.1115, 3
+  %83 = add nuw nsw i32 %.1114, 3
   %.not146 = icmp ugt i32 %83, %32
   br i1 %.not146, label %isint.exit175, label %84
 
@@ -3272,7 +3272,7 @@ isint.exit.thread:                                ; preds = %.preheader.i164, %.
 
 isint.exit175:                                    ; preds = %.preheader.i168, %102, %84, %isint.exit.thread, %isint.exit
   %.2239 = phi i32 [ -1, %isint.exit.thread ], [ %.1.i, %isint.exit ], [ -1, %84 ], [ %.1.i173, %102 ], [ -1, %.preheader.i168 ]
-  %104 = zext nneg i32 %.1115 to i64
+  %104 = zext nneg i32 %.1114 to i64
   %105 = getelementptr inbounds [6 x %struct.anon.0], ptr %5, i64 0, i64 %104
   %106 = load ptr, ptr %105, align 16
   %107 = getelementptr inbounds i8, ptr %106, i64 1
@@ -3383,7 +3383,7 @@ isint.exit175:                                    ; preds = %.preheader.i168, %1
 
 ismode.exit.thread:                               ; preds = %.preheader343, %131
   %.3247 = phi i32 [ 0, %131 ], [ %.0244, %.preheader343 ]
-  %142 = or disjoint i32 %.1115, 2
+  %142 = or disjoint i32 %.1114, 2
   %143 = icmp eq i32 %142, %32
   %brmerge.not = and i1 %143, %.not.i
   br i1 %brmerge.not, label %is_nfs4_perms.exit.backedge, label %ismode.exit
@@ -3409,7 +3409,7 @@ ismode.exit.thread269:                            ; preds = %144, %133, %145, %i
   %.0112.neg278 = phi i32 [ %.0112.neg, %ismode.exit ], [ 0, %145 ], [ 0, %133 ], [ 0, %144 ]
   %.sroa.0.0277 = phi ptr [ null, %ismode.exit ], [ %65, %145 ], [ null, %133 ], [ null, %144 ]
   %.sroa.6.0276 = phi ptr [ null, %ismode.exit ], [ %67, %145 ], [ null, %133 ], [ null, %144 ]
-  %147 = or disjoint i32 %.1115, 2
+  %147 = or disjoint i32 %.1114, 2
   %148 = add nsw i32 %147, %.0112.neg278
   %149 = zext nneg i32 %148 to i64
   %150 = getelementptr inbounds [6 x %struct.anon.0], ptr %5, i64 0, i64 %149
@@ -3528,8 +3528,8 @@ isint.exit197:                                    ; preds = %.preheader.i190, %1
   %.4241 = phi i32 [ -1, %.thread286.thread ], [ -1, %169 ], [ -1, %170 ], [ -1, %167 ], [ -1, %.preheader.i190 ], [ %.1.i195, %183 ]
   %.sroa.6.1 = phi ptr [ %.sroa.6.0.copyload97, %.thread286.thread ], [ null, %169 ], [ null, %170 ], [ null, %167 ], [ %.sroa.6.0.copyload97, %183 ], [ %.sroa.6.0.copyload97, %.preheader.i190 ]
   %.sroa.0.1 = phi ptr [ %.sroa.0.0.copyload95, %.thread286.thread ], [ null, %169 ], [ null, %170 ], [ null, %167 ], [ %.sroa.0.0.copyload95, %183 ], [ %.sroa.0.0.copyload95, %.preheader.i190 ]
-  %.2116 = phi i32 [ 1, %.thread286.thread ], [ 0, %169 ], [ 0, %170 ], [ 0, %167 ], [ 1, %183 ], [ 1, %.preheader.i190 ]
-  %185 = add nuw nsw i32 %.2116, 1
+  %.2115 = phi i32 [ 1, %.thread286.thread ], [ 0, %169 ], [ 0, %170 ], [ 0, %167 ], [ 1, %183 ], [ 1, %.preheader.i190 ]
+  %185 = add nuw nsw i32 %.2115, 1
   %186 = zext nneg i32 %185 to i64
   %187 = getelementptr inbounds [6 x %struct.anon.0], ptr %5, i64 0, i64 %186
   %188 = load ptr, ptr %187, align 16
@@ -3612,7 +3612,7 @@ isint.exit197:                                    ; preds = %.preheader.i190, %1
 
 .loopexit341:                                     ; preds = %208, %isint.exit197
   %.10.ph = phi i32 [ 0, %isint.exit197 ], [ %.9, %208 ]
-  %209 = or disjoint i32 %.2116, 2
+  %209 = or disjoint i32 %.2115, 2
   %210 = zext nneg i32 %209 to i64
   %211 = getelementptr inbounds [6 x %struct.anon.0], ptr %5, i64 0, i64 %210
   %212 = load ptr, ptr %211, align 16
@@ -3667,7 +3667,7 @@ isint.exit197:                                    ; preds = %.preheader.i190, %1
 
 .loopexit:                                        ; preds = %225, %.loopexit341
   %.13.ph = phi i32 [ %.10.ph, %.loopexit341 ], [ %.12, %225 ]
-  %226 = add nuw nsw i32 %.2116, 3
+  %226 = add nuw nsw i32 %.2115, 3
   %227 = zext nneg i32 %226 to i64
   %228 = getelementptr inbounds [6 x %struct.anon.0], ptr %5, i64 0, i64 %227
   %229 = load ptr, ptr %228, align 16
@@ -3703,7 +3703,7 @@ isint.exit197:                                    ; preds = %.preheader.i190, %1
 
 .thread298:                                       ; preds = %238, %236, %240, %235
   %.1108300 = phi i32 [ 2048, %235 ], [ 8192, %240 ], [ 4096, %238 ], [ 1024, %236 ]
-  %241 = or disjoint i32 %.2116, 4
+  %241 = or disjoint i32 %.2115, 4
   %242 = zext nneg i32 %241 to i64
   %243 = getelementptr inbounds [6 x %struct.anon.0], ptr %5, i64 0, i64 %242
   %244 = load ptr, ptr %243, align 16
@@ -3884,8 +3884,8 @@ archive_acl_reset.exit:                           ; preds = %.lr.ph.i.i, %.crite
   br label %archive_acl_add_entry_len_l.exit
 
 archive_acl_add_entry_len_l.exit:                 ; preds = %297, %283, %4, %archive_acl_reset.exit
-  %.0113 = phi i32 [ %.0110.lcssa, %archive_acl_reset.exit ], [ -30, %4 ], [ -30, %297 ], [ -25, %283 ]
-  ret i32 %.0113
+  %.0118 = phi i32 [ %.0110.lcssa, %archive_acl_reset.exit ], [ -30, %4 ], [ -30, %297 ], [ -25, %283 ]
+  ret i32 %.0118
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)

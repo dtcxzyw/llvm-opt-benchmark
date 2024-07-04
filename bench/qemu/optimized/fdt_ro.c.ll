@@ -1727,24 +1727,24 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp536, label %while.cond.preheader, label %return
 
 while.cond.preheader:                             ; preds = %if.end3, %for.inc
-  %pdepth.039 = phi i32 [ %pdepth.2, %for.inc ], [ 0, %if.end3 ]
-  %offset.038 = phi i32 [ %call43, %for.inc ], [ 0, %if.end3 ]
-  %p.037 = phi i32 [ %p.3, %for.inc ], [ 0, %if.end3 ]
+  %offset.039 = phi i32 [ %call43, %for.inc ], [ 0, %if.end3 ]
+  %p.038 = phi i32 [ %p.3, %for.inc ], [ 0, %if.end3 ]
+  %pdepth.037 = phi i32 [ %pdepth.2, %for.inc ], [ 0, %if.end3 ]
   %0 = load i32, ptr %depth, align 4
-  %cmp631 = icmp sgt i32 %pdepth.039, %0
+  %cmp631 = icmp sgt i32 %pdepth.037, %0
   br i1 %cmp631, label %do.body.preheader.preheader, label %while.end
 
 do.body.preheader.preheader:                      ; preds = %while.cond.preheader
-  %1 = add nsw i32 %pdepth.039, -1
+  %1 = add nsw i32 %pdepth.037, -1
   br label %do.body.preheader
 
 do.body.preheader:                                ; preds = %do.body.preheader.preheader, %do.end
-  %pdepth.133 = phi i32 [ %dec9, %do.end ], [ %pdepth.039, %do.body.preheader.preheader ]
-  %p.132 = phi i32 [ %dec, %do.end ], [ %p.037, %do.body.preheader.preheader ]
+  %p.133 = phi i32 [ %dec, %do.end ], [ %p.038, %do.body.preheader.preheader ]
+  %pdepth.132 = phi i32 [ %dec9, %do.end ], [ %pdepth.037, %do.body.preheader.preheader ]
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %do.body
-  %p.2 = phi i32 [ %dec, %do.body ], [ %p.132, %do.body.preheader ]
+  %p.2 = phi i32 [ %dec, %do.body ], [ %p.133, %do.body.preheader ]
   %dec = add i32 %p.2, -1
   %sub = add i32 %p.2, -2
   %idxprom = sext i32 %sub to i64
@@ -1754,7 +1754,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   br i1 %cmp7.not, label %do.end, label %do.body, !llvm.loop !12
 
 do.end:                                           ; preds = %do.body
-  %dec9 = add nsw i32 %pdepth.133, -1
+  %dec9 = add nsw i32 %pdepth.132, -1
   %cmp6 = icmp sgt i32 %dec9, %0
   br i1 %cmp6, label %do.body.preheader, label %while.end.loopexit, !llvm.loop !13
 
@@ -1763,13 +1763,13 @@ while.end.loopexit:                               ; preds = %do.end
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %while.cond.preheader
-  %p.1.lcssa = phi i32 [ %p.037, %while.cond.preheader ], [ %dec, %while.end.loopexit ]
-  %pdepth.1.lcssa = phi i32 [ %pdepth.039, %while.cond.preheader ], [ %smin, %while.end.loopexit ]
+  %pdepth.1.lcssa = phi i32 [ %pdepth.037, %while.cond.preheader ], [ %smin, %while.end.loopexit ]
+  %p.1.lcssa = phi i32 [ %p.038, %while.cond.preheader ], [ %dec, %while.end.loopexit ]
   %cmp10.not = icmp slt i32 %pdepth.1.lcssa, %0
   br i1 %cmp10.not, label %if.end26, label %if.then12
 
 if.then12:                                        ; preds = %while.end
-  %call13 = call ptr @fdt_get_name(ptr noundef %fdt, i32 noundef %offset.038, ptr noundef nonnull %namelen)
+  %call13 = call ptr @fdt_get_name(ptr noundef %fdt, i32 noundef %offset.039, ptr noundef nonnull %namelen)
   %tobool.not = icmp eq ptr %call13, null
   %3 = load i32, ptr %namelen, align 4
   br i1 %tobool.not, label %return, label %if.end15
@@ -1792,9 +1792,9 @@ if.then19:                                        ; preds = %if.end15
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end15, %if.then19, %while.end
-  %p.3 = phi i32 [ %add16, %if.then19 ], [ %p.1.lcssa, %if.end15 ], [ %p.1.lcssa, %while.end ]
   %pdepth.2 = phi i32 [ %inc24, %if.then19 ], [ %pdepth.1.lcssa, %if.end15 ], [ %pdepth.1.lcssa, %while.end ]
-  %cmp27 = icmp eq i32 %offset.038, %nodeoffset
+  %p.3 = phi i32 [ %add16, %if.then19 ], [ %p.1.lcssa, %if.end15 ], [ %p.1.lcssa, %while.end ]
+  %cmp27 = icmp eq i32 %offset.039, %nodeoffset
   br i1 %cmp27, label %if.then29, label %for.inc
 
 if.then29:                                        ; preds = %if.end26
@@ -1813,7 +1813,7 @@ if.end34:                                         ; preds = %if.then29
   br label %return
 
 for.inc:                                          ; preds = %if.end26
-  %call43 = call i32 @fdt_next_node(ptr noundef %fdt, i32 noundef %offset.038, ptr noundef nonnull %depth) #9
+  %call43 = call i32 @fdt_next_node(ptr noundef %fdt, i32 noundef %offset.039, ptr noundef nonnull %depth) #9
   %.not = icmp ugt i32 %call43, %nodeoffset
   br i1 %.not, label %for.end, label %while.cond.preheader, !llvm.loop !14
 
@@ -2224,25 +2224,25 @@ entry:
   br i1 %cmp.not9, label %return, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end9
-  %strlist.addr.011 = phi ptr [ %add.ptr, %if.end9 ], [ %strlist, %entry ]
-  %listlen.addr.010 = phi i32 [ %conv12, %if.end9 ], [ %listlen, %entry ]
-  %bcmp = tail call i32 @bcmp(ptr %str, ptr %strlist.addr.011, i64 %conv2)
+  %listlen.addr.011 = phi i32 [ %conv12, %if.end9 ], [ %listlen, %entry ]
+  %strlist.addr.010 = phi ptr [ %add.ptr, %if.end9 ], [ %strlist, %entry ]
+  %bcmp = tail call i32 @bcmp(ptr %str, ptr %strlist.addr.010, i64 %conv2)
   %cmp4 = icmp eq i32 %bcmp, 0
   br i1 %cmp4, label %return, label %if.end
 
 if.end:                                           ; preds = %while.body
-  %conv6 = sext i32 %listlen.addr.010 to i64
-  %call7 = tail call ptr @memchr(ptr noundef %strlist.addr.011, i32 noundef 0, i64 noundef %conv6) #10
+  %conv6 = sext i32 %listlen.addr.011 to i64
+  %call7 = tail call ptr @memchr(ptr noundef %strlist.addr.010, i32 noundef 0, i64 noundef %conv6) #10
   %tobool.not = icmp eq ptr %call7, null
   br i1 %tobool.not, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.end
   %sub.ptr.lhs.cast = ptrtoint ptr %call7 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %strlist.addr.011 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %strlist.addr.010 to i64
   %0 = xor i64 %sub.ptr.lhs.cast, -1
   %add10.neg = add i64 %0, %sub.ptr.rhs.cast
   %1 = trunc i64 %add10.neg to i32
-  %conv12 = add i32 %listlen.addr.010, %1
+  %conv12 = add i32 %listlen.addr.011, %1
   %add.ptr = getelementptr i8, ptr %call7, i64 1
   %cmp.not = icmp slt i32 %conv12, %conv
   br i1 %cmp.not, label %return, label %while.body, !llvm.loop !18
@@ -2668,25 +2668,25 @@ if.end:                                           ; preds = %fdt_getprop.exit.th
   br i1 %cmp.not9.i, label %return, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end, %if.end9.i
-  %strlist.addr.011.i = phi ptr [ %add.ptr.i, %if.end9.i ], [ %retval.0.i.i9, %if.end ]
-  %listlen.addr.010.i = phi i32 [ %conv12.i, %if.end9.i ], [ %7, %if.end ]
-  %bcmp.i = call i32 @bcmp(ptr readonly %compatible, ptr %strlist.addr.011.i, i64 %conv2.i)
+  %listlen.addr.011.i = phi i32 [ %conv12.i, %if.end9.i ], [ %7, %if.end ]
+  %strlist.addr.010.i = phi ptr [ %add.ptr.i, %if.end9.i ], [ %retval.0.i.i9, %if.end ]
+  %bcmp.i = call i32 @bcmp(ptr readonly %compatible, ptr %strlist.addr.010.i, i64 %conv2.i)
   %cmp4.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp4.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.i
-  %conv6.i = sext i32 %listlen.addr.010.i to i64
-  %call7.i = call ptr @memchr(ptr noundef %strlist.addr.011.i, i32 noundef 0, i64 noundef %conv6.i) #10
+  %conv6.i = sext i32 %listlen.addr.011.i to i64
+  %call7.i = call ptr @memchr(ptr noundef %strlist.addr.010.i, i32 noundef 0, i64 noundef %conv6.i) #10
   %tobool.not.i = icmp eq ptr %call7.i, null
   br i1 %tobool.not.i, label %return, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call7.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %strlist.addr.011.i to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %strlist.addr.010.i to i64
   %8 = xor i64 %sub.ptr.lhs.cast.i, -1
   %add10.neg.i = add i64 %8, %sub.ptr.rhs.cast.i
   %9 = trunc i64 %add10.neg.i to i32
-  %conv12.i = add i32 %listlen.addr.010.i, %9
+  %conv12.i = add i32 %listlen.addr.011.i, %9
   %add.ptr.i = getelementptr i8, ptr %call7.i, i64 1
   %cmp.not.i = icmp slt i32 %conv12.i, %conv.i3
   br i1 %cmp.not.i, label %return, label %while.body.i, !llvm.loop !18

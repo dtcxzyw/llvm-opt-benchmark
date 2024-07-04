@@ -115,9 +115,9 @@ lookup_prop_name.exit:                            ; preds = %8, %14
   br label %39
 
 39:                                               ; preds = %lookup_prop_name.exit, %33
-  %.085 = phi i32 [ %38, %33 ], [ 0, %lookup_prop_name.exit ]
-  %.084 = phi i32 [ %35, %33 ], [ %2, %lookup_prop_name.exit ]
-  %40 = icmp slt i32 %.085, %4
+  %.085 = phi i32 [ %35, %33 ], [ %2, %lookup_prop_name.exit ]
+  %.084 = phi i32 [ %38, %33 ], [ 0, %lookup_prop_name.exit ]
+  %40 = icmp slt i32 %.084, %4
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %39
@@ -126,7 +126,7 @@ lookup_prop_name.exit:                            ; preds = %8, %14
   br label %239
 
 43:                                               ; preds = %39
-  %44 = tail call ptr @GetIndexAmRoutineByAmId(i32 noundef %.084, i1 noundef zeroext true) #2
+  %44 = tail call ptr @GetIndexAmRoutineByAmId(i32 noundef %.085, i1 noundef zeroext true) #2
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %48
 

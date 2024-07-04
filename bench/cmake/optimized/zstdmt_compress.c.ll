@@ -3438,11 +3438,11 @@ ZSTDMT_serialState_update.exit:                   ; preds = %207, %212
 
 234:                                              ; preds = %.lr.ph, %240
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %240 ]
-  %.0116150 = phi ptr [ %229, %.lr.ph ], [ %241, %240 ]
-  %.0118148 = phi ptr [ %.sroa.045.0, %.lr.ph ], [ %242, %240 ]
-  %235 = ptrtoint ptr %.0118148 to i64
+  %.0116149 = phi ptr [ %.sroa.045.0, %.lr.ph ], [ %242, %240 ]
+  %.0117148 = phi ptr [ %229, %.lr.ph ], [ %241, %240 ]
+  %235 = ptrtoint ptr %.0116149 to i64
   %236 = sub i64 %232, %235
-  %237 = call i64 @ZSTD_compressContinue_public(ptr noundef nonnull %.0.i, ptr noundef %.0118148, i64 noundef %236, ptr noundef %.0116150, i64 noundef 524288) #15
+  %237 = call i64 @ZSTD_compressContinue_public(ptr noundef nonnull %.0.i, ptr noundef %.0116149, i64 noundef %236, ptr noundef %.0117148, i64 noundef 524288) #15
   %238 = icmp ult i64 %237, -119
   br i1 %238, label %240, label %239
 
@@ -3451,8 +3451,8 @@ ZSTDMT_serialState_update.exit:                   ; preds = %207, %212
   br label %271
 
 240:                                              ; preds = %234
-  %241 = getelementptr inbounds i8, ptr %.0116150, i64 524288
-  %242 = getelementptr inbounds i8, ptr %.0118148, i64 %237
+  %241 = getelementptr inbounds i8, ptr %.0117148, i64 524288
+  %242 = getelementptr inbounds i8, ptr %.0116149, i64 %237
   %243 = load i64, ptr %233, align 8
   %244 = add i64 %243, %237
   store i64 %244, ptr %233, align 8
@@ -3463,8 +3463,8 @@ ZSTDMT_serialState_update.exit:                   ; preds = %207, %212
   br i1 %exitcond.not, label %._crit_edge, label %234, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %240, %224
-  %.0118.lcssa = phi ptr [ %.sroa.045.0, %224 ], [ %242, %240 ]
-  %.0116.lcssa = phi ptr [ %229, %224 ], [ %241, %240 ]
+  %.0117.lcssa = phi ptr [ %229, %224 ], [ %241, %240 ]
+  %.0116.lcssa = phi ptr [ %.sroa.045.0, %224 ], [ %242, %240 ]
   %246 = icmp sgt i32 %228, 0
   %247 = zext i1 %246 to i32
   %248 = getelementptr inbounds i8, ptr %0, i64 112
@@ -3482,16 +3482,16 @@ ZSTDMT_serialState_update.exit:                   ; preds = %207, %212
   %257 = select i1 %256, i64 524288, i64 %253
   %.not134 = icmp eq i32 %249, 0
   %258 = ptrtoint ptr %230 to i64
-  %259 = ptrtoint ptr %.0118.lcssa to i64
+  %259 = ptrtoint ptr %.0116.lcssa to i64
   %260 = sub i64 %258, %259
   br i1 %.not134, label %263, label %261
 
 261:                                              ; preds = %251
-  %262 = call i64 @ZSTD_compressEnd_public(ptr noundef nonnull %.0.i, ptr noundef %.0118.lcssa, i64 noundef %260, ptr noundef %.0116.lcssa, i64 noundef %257) #15
+  %262 = call i64 @ZSTD_compressEnd_public(ptr noundef nonnull %.0.i, ptr noundef %.0116.lcssa, i64 noundef %260, ptr noundef %.0117.lcssa, i64 noundef %257) #15
   br label %265
 
 263:                                              ; preds = %251
-  %264 = call i64 @ZSTD_compressContinue_public(ptr noundef nonnull %.0.i, ptr noundef %.0118.lcssa, i64 noundef %260, ptr noundef %.0116.lcssa, i64 noundef %257) #15
+  %264 = call i64 @ZSTD_compressContinue_public(ptr noundef nonnull %.0.i, ptr noundef %.0116.lcssa, i64 noundef %260, ptr noundef %.0117.lcssa, i64 noundef %257) #15
   br label %265
 
 265:                                              ; preds = %263, %261
@@ -3505,12 +3505,12 @@ ZSTDMT_serialState_update.exit:                   ; preds = %207, %212
   br label %271
 
 270:                                              ; preds = %265, %._crit_edge
-  %.0 = phi i64 [ 0, %._crit_edge ], [ %266, %265 ]
+  %.0118 = phi i64 [ 0, %._crit_edge ], [ %266, %265 ]
   call void @ZSTD_CCtx_trace(ptr noundef nonnull %.0.i, i64 noundef 0) #15
   br label %271
 
 271:                                              ; preds = %270, %268, %239, %221, %137, %128, %121, %112, %96, %88, %53
-  %.1 = phi i64 [ 0, %53 ], [ 0, %88 ], [ 0, %96 ], [ 0, %112 ], [ 0, %239 ], [ 0, %268 ], [ %.0, %270 ], [ 0, %221 ], [ 0, %121 ], [ 0, %137 ], [ 0, %128 ]
+  %.1 = phi i64 [ 0, %53 ], [ 0, %88 ], [ 0, %96 ], [ 0, %112 ], [ 0, %239 ], [ 0, %268 ], [ %.0118, %270 ], [ 0, %221 ], [ 0, %121 ], [ 0, %137 ], [ 0, %128 ]
   %272 = getelementptr inbounds i8, ptr %0, i64 48
   %273 = load ptr, ptr %272, align 8
   %274 = getelementptr inbounds i8, ptr %0, i64 104

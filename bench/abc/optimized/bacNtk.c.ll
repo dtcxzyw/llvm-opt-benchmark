@@ -2386,8 +2386,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %3, %Vec_IntPush.exit
-  %.0 = phi i32 [ 1, %Vec_IntPush.exit ], [ %7, %3 ], [ 0, %32 ]
-  ret i32 %.0
+  %.028 = phi i32 [ 1, %Vec_IntPush.exit ], [ %7, %3 ], [ 0, %32 ]
+  ret i32 %.028
 }
 
 ; Function Attrs: nounwind uwtable

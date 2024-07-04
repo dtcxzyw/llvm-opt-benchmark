@@ -114,8 +114,8 @@ if.end5:                                          ; preds = %if.else
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end, %if.end5
-  %scheme_end.0 = phi ptr [ %call, %if.end5 ], [ %url, %if.end ]
   %p.0 = phi ptr [ %add.ptr, %if.end5 ], [ %url, %if.end ]
+  %scheme_end.0 = phi ptr [ %call, %if.end5 ], [ %url, %if.end ]
   %call7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %p.0, i32 noundef 64) #5
   %cmp8.not = icmp eq ptr %call7, null
   %incdec.ptr = getelementptr inbounds i8, ptr %call7, i64 1
@@ -161,13 +161,13 @@ if.then41:                                        ; preds = %if.end38
   br label %if.end45
 
 if.end45:                                         ; preds = %if.else22, %if.end28, %if.end33, %if.end38, %if.then41, %if.end20
-  %p.1 = phi ptr [ %incdec.ptr21, %if.end20 ], [ %add.ptr43, %if.then41 ], [ %call37, %if.end38 ], [ %call32, %if.end33 ], [ %call27, %if.end28 ], [ %call23, %if.else22 ]
-  %1 = load i8, ptr %p.1, align 1
+  %host_end.4 = phi ptr [ %incdec.ptr21, %if.end20 ], [ %add.ptr43, %if.then41 ], [ %call37, %if.end38 ], [ %call32, %if.end33 ], [ %call27, %if.end28 ], [ %call23, %if.else22 ]
+  %1 = load i8, ptr %host_end.4, align 1
   %cmp47 = icmp eq i8 %1, 58
-  %incdec.ptr50 = getelementptr inbounds i8, ptr %p.1, i64 1
-  %spec.select = select i1 %cmp47, ptr %incdec.ptr50, ptr @.str.2
-  %spec.select84 = select i1 %cmp47, ptr %incdec.ptr50, ptr %p.1
-  %call52 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.3, ptr noundef nonnull %portnum) #4
+  %incdec.ptr50 = getelementptr inbounds i8, ptr %host_end.4, i64 1
+  %spec.select = select i1 %cmp47, ptr %incdec.ptr50, ptr %host_end.4
+  %spec.select84 = select i1 %cmp47, ptr %incdec.ptr50, ptr @.str.2
+  %call52 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %spec.select84, ptr noundef nonnull @.str.3, ptr noundef nonnull %portnum) #4
   %cmp53 = icmp slt i32 %call52, 1
   %2 = load i32, ptr %portnum, align 4
   %cmp55 = icmp ugt i32 %2, 65535
@@ -177,11 +177,11 @@ if.end45:                                         ; preds = %if.else22, %if.end2
 if.then57:                                        ; preds = %if.end45
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 122, ptr noundef nonnull @__func__.OSSL_parse_url) #4
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 61, i32 noundef 123, ptr noundef nonnull @.str.4, ptr noundef nonnull %spec.select) #4
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 61, i32 noundef 123, ptr noundef nonnull @.str.4, ptr noundef nonnull %spec.select84) #4
   br label %err
 
 for.cond:                                         ; preds = %if.end45, %for.cond
-  %port_end.0 = phi ptr [ %incdec.ptr65, %for.cond ], [ %spec.select, %if.end45 ]
+  %port_end.0 = phi ptr [ %incdec.ptr65, %for.cond ], [ %spec.select84, %if.end45 ]
   %3 = load i8, ptr %port_end.0, align 1
   %4 = add i8 %3, -48
   %or.cond85 = icmp ult i8 %4, 10
@@ -189,12 +189,12 @@ for.cond:                                         ; preds = %if.end45, %for.cond
   br i1 %or.cond85, label %for.cond, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.cond
-  %cmp66 = icmp eq ptr %spec.select, %spec.select84
+  %cmp66 = icmp eq ptr %spec.select84, %spec.select
   %sub.ptr.lhs.cast = ptrtoint ptr %port_end.0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %spec.select to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %spec.select84 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %p.3.idx = select i1 %cmp66, i64 %sub.ptr.sub, i64 0
-  %p.3 = getelementptr inbounds i8, ptr %spec.select84, i64 %p.3.idx
+  %p.3 = getelementptr inbounds i8, ptr %spec.select, i64 %p.3.idx
   %5 = load i8, ptr %p.3, align 1
   switch i8 %5, label %if.then85 [
     i8 0, label %if.end86
@@ -215,10 +215,10 @@ if.end86:                                         ; preds = %for.end, %for.end, 
   %call89 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %p.3, i32 noundef 63) #5
   %cmp90.not = icmp eq ptr %call89, null
   %add.ptr96 = getelementptr inbounds i8, ptr %call89, i64 1
+  %p.4 = select i1 %cmp90.not, ptr %p.3, ptr %call89
   %6 = or i1 %cmp.not.i106, %cmp90.not
   %path_end.0 = select i1 %6, ptr %add.ptr88, ptr %call89
   %query.0 = select i1 %6, ptr %add.ptr88, ptr %add.ptr96
-  %p.4 = select i1 %cmp90.not, ptr %p.3, ptr %call89
   %call99 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %p.4, i32 noundef 35) #5
   %cmp100.not = icmp eq ptr %call99, null
   %cmp103 = icmp eq ptr %query.0, %path_end.0
@@ -242,7 +242,7 @@ lor.lhs.false110:                                 ; preds = %if.end86, %copy_sub
   br i1 %cmp.not.i92, label %lor.lhs.false113, label %copy_substring.exit117
 
 copy_substring.exit117:                           ; preds = %lor.lhs.false110
-  %sub.ptr.lhs.cast.i111 = ptrtoint ptr %p.1 to i64
+  %sub.ptr.lhs.cast.i111 = ptrtoint ptr %host_end.4 to i64
   %sub.ptr.rhs.cast.i112 = ptrtoint ptr %host.0 to i64
   %sub.ptr.sub.i113 = sub i64 %sub.ptr.lhs.cast.i111, %sub.ptr.rhs.cast.i112
   %call.i114 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %host.0, i64 noundef %sub.ptr.sub.i113, ptr noundef nonnull @.str, i32 noundef 35) #4
@@ -254,7 +254,7 @@ lor.lhs.false113:                                 ; preds = %lor.lhs.false110, %
   br i1 %cmp.not.i95, label %lor.lhs.false116, label %copy_substring.exit126
 
 copy_substring.exit126:                           ; preds = %lor.lhs.false113
-  %call.i123 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %spec.select, i64 noundef %sub.ptr.sub, ptr noundef nonnull @.str, i32 noundef 35) #4
+  %call.i123 = call noalias ptr @CRYPTO_strndup(ptr noundef nonnull %spec.select84, i64 noundef %sub.ptr.sub, ptr noundef nonnull @.str, i32 noundef 35) #4
   store ptr %call.i123, ptr %pport, align 8
   %cmp1.i124.not = icmp eq ptr %call.i123, null
   br i1 %cmp1.i124.not, label %err, label %lor.lhs.false116

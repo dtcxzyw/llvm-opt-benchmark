@@ -1551,8 +1551,8 @@ invoke.cont16.lr.ph:                              ; preds = %invoke.cont9
   br label %invoke.cont16
 
 invoke.cont16:                                    ; preds = %invoke.cont16.lr.ph, %while.end.i.i
-  %__begin2.sroa.6.041 = phi ptr [ %retval.sroa.5.0.i, %invoke.cont16.lr.ph ], [ %__begin2.sroa.6.1, %while.end.i.i ]
-  %__begin2.sroa.0.040 = phi ptr [ %retval.sroa.0.0.i, %invoke.cont16.lr.ph ], [ %__begin2.sroa.0.1, %while.end.i.i ]
+  %__begin2.sroa.0.041 = phi ptr [ %retval.sroa.0.0.i, %invoke.cont16.lr.ph ], [ %__begin2.sroa.0.1, %while.end.i.i ]
+  %__begin2.sroa.6.040 = phi ptr [ %retval.sroa.5.0.i, %invoke.cont16.lr.ph ], [ %__begin2.sroa.6.1, %while.end.i.i ]
   %17 = load ptr, ptr %_M_manager.i.i8, align 8
   %tobool.not.i.i9 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i9, label %if.then.i11, label %if.end.i
@@ -1565,15 +1565,15 @@ if.then.i11:                                      ; preds = %invoke.cont16
   unreachable
 
 if.end.i:                                         ; preds = %invoke.cont16
-  %second = getelementptr inbounds i8, ptr %__begin2.sroa.6.041, i64 16
+  %second = getelementptr inbounds i8, ptr %__begin2.sroa.6.040, i64 16
   %18 = load ptr, ptr %second, align 8
   %19 = load ptr, ptr %_M_invoker.i10, align 8
   invoke void %19(ptr noundef nonnull align 8 dereferenceable(16) %visitor, ptr noundef nonnull align 8 dereferenceable(8) %18)
           to label %for.inc19 unwind label %lpad.loopexit
 
 for.inc19:                                        ; preds = %if.end.i
-  %incdec.ptr.i14 = getelementptr inbounds i8, ptr %__begin2.sroa.0.040, i64 1
-  %incdec.ptr4.i = getelementptr inbounds i8, ptr %__begin2.sroa.6.041, i64 24
+  %incdec.ptr.i14 = getelementptr inbounds i8, ptr %__begin2.sroa.0.041, i64 1
+  %incdec.ptr4.i = getelementptr inbounds i8, ptr %__begin2.sroa.6.040, i64 24
   %20 = load i8, ptr %incdec.ptr.i14, align 1
   %cmp.i3.i.i15 = icmp slt i8 %20, -1
   br i1 %cmp.i3.i.i15, label %while.body.i.i18, label %while.end.i.i
@@ -1595,8 +1595,8 @@ while.body.i.i18:                                 ; preds = %for.inc19, %while.b
   br i1 %cmp.i.i.i25, label %while.body.i.i18, label %while.end.i.i, !llvm.loop !34
 
 while.end.i.i:                                    ; preds = %while.body.i.i18, %for.inc19
-  %__begin2.sroa.0.1 = phi ptr [ %incdec.ptr.i14, %for.inc19 ], [ %add.ptr.i.i23, %while.body.i.i18 ]
   %__begin2.sroa.6.1 = phi ptr [ %incdec.ptr4.i, %for.inc19 ], [ %add.ptr6.i.i24, %while.body.i.i18 ]
+  %__begin2.sroa.0.1 = phi ptr [ %incdec.ptr.i14, %for.inc19 ], [ %add.ptr.i.i23, %while.body.i.i18 ]
   %.lcssa.i.i16 = phi i8 [ %20, %for.inc19 ], [ %26, %while.body.i.i18 ]
   %cmp.i.i17 = icmp eq i8 %.lcssa.i.i16, -1
   br i1 %cmp.i.i17, label %for.end22, label %invoke.cont16

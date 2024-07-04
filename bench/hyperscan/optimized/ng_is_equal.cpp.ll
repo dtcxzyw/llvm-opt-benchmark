@@ -145,7 +145,7 @@ entry:
   br i1 %cmp.i.i.i.i.not34, label %for.end18, label %for.body
 
 for.cond.loopexit:                                ; preds = %for.body9, %_ZN3ue211hash_detail12hash_combineINS_9CharReachEEEvRmRKT_.exit
-  %rv.1.lcssa = phi i64 [ %rv.128, %_ZN3ue211hash_detail12hash_combineINS_9CharReachEEEvRmRKT_.exit ], [ %rv.1, %for.body9 ]
+  %rv.1.lcssa = phi i64 [ %rv.129, %_ZN3ue211hash_detail12hash_combineINS_9CharReachEEEvRmRKT_.exit ], [ %rv.1, %for.body9 ]
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.036, align 8
   %cmp.i.i.i.i.not = icmp eq ptr %__begin1.sroa.0.0, %m_header.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.not, label %for.end18, label %for.body
@@ -177,22 +177,22 @@ _ZN3ue211hash_detail12hash_combineINS_9CharReachEEEvRmRKT_.exit: ; preds = %for.
   %mul.i.i8 = mul i64 %add.i.i.i.i.i.i.i, 814605021516865831
   %xor.i.i9 = xor i64 %mul.i.i8, %add.i.i
   %m_header.i.i.i.i.i.i11 = getelementptr inbounds i8, ptr %__begin1.sroa.0.036, i64 136
-  %rv.128 = add i64 %xor.i.i9, 3571081485394615273
-  %__begin2.sroa.0.029 = load ptr, ptr %m_header.i.i.i.i.i.i11, align 8
-  %cmp.i.i.i.i.i.i.i.not30 = icmp eq ptr %__begin2.sroa.0.029, %m_header.i.i.i.i.i.i11
+  %__begin2.sroa.0.028 = load ptr, ptr %m_header.i.i.i.i.i.i11, align 8
+  %rv.129 = add i64 %xor.i.i9, 3571081485394615273
+  %cmp.i.i.i.i.i.i.i.not30 = icmp eq ptr %__begin2.sroa.0.028, %m_header.i.i.i.i.i.i11
   br i1 %cmp.i.i.i.i.i.i.i.not30, label %for.cond.loopexit, label %for.body9
 
 for.body9:                                        ; preds = %_ZN3ue211hash_detail12hash_combineINS_9CharReachEEEvRmRKT_.exit, %for.body9
-  %__begin2.sroa.0.032 = phi ptr [ %__begin2.sroa.0.0, %for.body9 ], [ %__begin2.sroa.0.029, %_ZN3ue211hash_detail12hash_combineINS_9CharReachEEEvRmRKT_.exit ]
-  %rv.131 = phi i64 [ %rv.1, %for.body9 ], [ %rv.128, %_ZN3ue211hash_detail12hash_combineINS_9CharReachEEEvRmRKT_.exit ]
-  %target.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.032, i64 40
+  %rv.132 = phi i64 [ %rv.1, %for.body9 ], [ %rv.129, %_ZN3ue211hash_detail12hash_combineINS_9CharReachEEEvRmRKT_.exit ]
+  %__begin2.sroa.0.031 = phi ptr [ %__begin2.sroa.0.0, %for.body9 ], [ %__begin2.sroa.0.028, %_ZN3ue211hash_detail12hash_combineINS_9CharReachEEEvRmRKT_.exit ]
+  %target.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.031, i64 40
   %2 = load ptr, ptr %target.i.i.i, align 8
   %index14 = getelementptr inbounds i8, ptr %2, i64 80
   %3 = load i64, ptr %index14, align 8
   %mul.i.i18 = mul i64 %3, 814605021516865831
-  %xor.i.i19 = xor i64 %mul.i.i18, %rv.131
+  %xor.i.i19 = xor i64 %mul.i.i18, %rv.132
+  %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.031, align 8
   %rv.1 = add i64 %xor.i.i19, 3571081485394615273
-  %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.032, align 8
   %cmp.i.i.i.i.i.i.i.not = icmp eq ptr %__begin2.sroa.0.0, %m_header.i.i.i.i.i.i11
   br i1 %cmp.i.i.i.i.i.i.i.not, label %for.cond.loopexit, label %for.body9
 

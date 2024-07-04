@@ -1420,7 +1420,7 @@ ossl_pkey_check_public_key.exit:                  ; preds = %14
   br label %23
 
 23:                                               ; preds = %21, %ossl_pkey_check_public_key.exit
-  %.015 = phi ptr [ null, %ossl_pkey_check_public_key.exit ], [ %22, %21 ]
+  %.0 = phi ptr [ null, %ossl_pkey_check_public_key.exit ], [ %22, %21 ]
   %24 = call i64 @rb_string_value(ptr noundef nonnull %6) #8
   %25 = call i64 @rb_string_value(ptr noundef nonnull %7) #8
   %26 = call ptr @EVP_MD_CTX_new() #8
@@ -1433,7 +1433,7 @@ ossl_pkey_check_public_key.exit:                  ; preds = %14
   unreachable
 
 29:                                               ; preds = %23
-  %30 = call i32 @EVP_DigestVerifyInit(ptr noundef nonnull %26, ptr noundef nonnull %9, ptr noundef %.015, ptr noundef null, ptr noundef nonnull %11) #8
+  %30 = call i32 @EVP_DigestVerifyInit(ptr noundef nonnull %26, ptr noundef nonnull %9, ptr noundef %.0, ptr noundef null, ptr noundef nonnull %11) #8
   %31 = icmp slt i32 %30, 1
   br i1 %31, label %32, label %34
 
@@ -1520,8 +1520,8 @@ RSTRING_PTR.exit25:                               ; preds = %RSTRING_PTR.exit, %
   br label %69
 
 69:                                               ; preds = %67, %68
-  %.0 = phi i64 [ 0, %68 ], [ 20, %67 ]
-  ret i64 %.0
+  %.015 = phi i64 [ 0, %68 ], [ 20, %67 ]
+  ret i64 %.015
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1747,7 +1747,7 @@ ossl_pkey_check_public_key.exit:                  ; preds = %13
   br label %22
 
 22:                                               ; preds = %20, %ossl_pkey_check_public_key.exit
-  %.019 = phi ptr [ null, %ossl_pkey_check_public_key.exit ], [ %21, %20 ]
+  %.0 = phi ptr [ null, %ossl_pkey_check_public_key.exit ], [ %21, %20 ]
   %23 = call i64 @rb_string_value(ptr noundef nonnull %6) #8
   %24 = call i64 @rb_string_value(ptr noundef nonnull %7) #8
   %25 = call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %10, ptr noundef null) #8
@@ -1771,11 +1771,11 @@ ossl_pkey_check_public_key.exit:                  ; preds = %13
   unreachable
 
 33:                                               ; preds = %28
-  %.not24 = icmp eq ptr %.019, null
+  %.not24 = icmp eq ptr %.0, null
   br i1 %.not24, label %39, label %34
 
 34:                                               ; preds = %33
-  %35 = call i32 @EVP_PKEY_CTX_set_signature_md(ptr noundef nonnull %25, ptr noundef nonnull %.019) #8
+  %35 = call i32 @EVP_PKEY_CTX_set_signature_md(ptr noundef nonnull %25, ptr noundef nonnull %.0) #8
   %36 = icmp slt i32 %35, 1
   br i1 %36, label %37, label %39
 
@@ -1861,8 +1861,8 @@ RSTRING_PTR.exit30:                               ; preds = %RSTRING_PTR.exit, %
   br label %73
 
 73:                                               ; preds = %71, %72
-  %.0 = phi i64 [ 0, %72 ], [ 20, %71 ]
-  ret i64 %.0
+  %.019 = phi i64 [ 0, %72 ], [ 20, %71 ]
+  ret i64 %.019
 }
 
 ; Function Attrs: nounwind uwtable

@@ -92,8 +92,8 @@ consume.exit39:                                   ; preds = %8
   br label %consume.exit44
 
 consume.exit44:                                   ; preds = %32, %consume.exit39
-  %.037 = phi i64 [ 0, %consume.exit39 ], [ %27, %32 ]
-  %.035 = phi ptr [ %15, %consume.exit39 ], [ %.136, %32 ]
+  %.036 = phi ptr [ %15, %consume.exit39 ], [ %.137, %32 ]
+  %.035 = phi i64 [ 0, %consume.exit39 ], [ %27, %32 ]
   %.034 = phi i64 [ 16, %consume.exit39 ], [ %.1, %32 ]
   %17 = tail call ptr @json_parse(ptr noundef nonnull %0)
   %18 = load ptr, ptr %16, align 8
@@ -101,7 +101,7 @@ consume.exit44:                                   ; preds = %32, %consume.exit39
   br i1 %.not, label %19, label %.loopexit
 
 19:                                               ; preds = %consume.exit44
-  %.not38 = icmp ult i64 %.037, %.034
+  %.not38 = icmp ult i64 %.035, %.034
   br i1 %.not38, label %26, label %20
 
 20:                                               ; preds = %19
@@ -110,14 +110,14 @@ consume.exit44:                                   ; preds = %32, %consume.exit39
   %23 = load ptr, ptr %11, align 8
   %24 = shl i64 %.034, 4
   %25 = tail call ptr %23(i64 noundef %24) #8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %.035, i64 %21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %.036, i64 %21, i1 false)
   br label %26
 
 26:                                               ; preds = %20, %19
-  %.136 = phi ptr [ %25, %20 ], [ %.035, %19 ]
+  %.137 = phi ptr [ %25, %20 ], [ %.036, %19 ]
   %.1 = phi i64 [ %22, %20 ], [ %.034, %19 ]
-  %27 = add i64 %.037, 1
-  %28 = getelementptr inbounds ptr, ptr %.136, i64 %.037
+  %27 = add i64 %.035, 1
+  %28 = getelementptr inbounds ptr, ptr %.137, i64 %.035
   store ptr %17, ptr %28, align 8
   %29 = load i32, ptr %2, align 8
   switch i32 %29, label %consume.exit41 [
@@ -147,7 +147,7 @@ json_error.exit43:                                ; preds = %consume.exit41, %31
 consume.exit40.thread:                            ; preds = %32, %26
   tail call fastcc void @json_lexer_advance(ptr noundef nonnull %0)
   %35 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %.136, ptr %35, align 8
+  store ptr %.137, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %13, i64 16
   store i64 %27, ptr %36, align 8
   br label %.loopexit
@@ -304,8 +304,8 @@ consume.exit59:                                   ; preds = %8
 
 consume.exit70:                                   ; preds = %49, %consume.exit59
   %20 = phi i32 [ %.pr, %consume.exit59 ], [ %50, %49 ]
-  %.057 = phi i64 [ 0, %consume.exit59 ], [ %44, %49 ]
-  %.055 = phi ptr [ %17, %consume.exit59 ], [ %.156, %49 ]
+  %.056 = phi ptr [ %17, %consume.exit59 ], [ %.157, %49 ]
+  %.055 = phi i64 [ 0, %consume.exit59 ], [ %44, %49 ]
   %.053 = phi ptr [ %15, %consume.exit59 ], [ %.154, %49 ]
   %.052 = phi i64 [ 16, %consume.exit59 ], [ %.1, %49 ]
   %21 = load ptr, ptr %18, align 8
@@ -352,7 +352,7 @@ json_error.exit65:                                ; preds = %consume.exit63, %29
   br i1 %.not, label %33, label %.loopexit
 
 33:                                               ; preds = %30
-  %.not58 = icmp ult i64 %.057, %.052
+  %.not58 = icmp ult i64 %.055, %.052
   br i1 %.not58, label %42, label %34
 
 34:                                               ; preds = %33
@@ -364,17 +364,17 @@ json_error.exit65:                                ; preds = %consume.exit63, %29
   %40 = load ptr, ptr %11, align 8
   %41 = tail call ptr %40(i64 noundef %38) #8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %39, ptr align 8 %.053, i64 %35, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %.055, i64 %35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr align 8 %.056, i64 %35, i1 false)
   br label %42
 
 42:                                               ; preds = %34, %33
-  %.156 = phi ptr [ %41, %34 ], [ %.055, %33 ]
+  %.157 = phi ptr [ %41, %34 ], [ %.056, %33 ]
   %.154 = phi ptr [ %39, %34 ], [ %.053, %33 ]
   %.1 = phi i64 [ %36, %34 ], [ %.052, %33 ]
-  %43 = getelementptr inbounds ptr, ptr %.156, i64 %.057
+  %43 = getelementptr inbounds ptr, ptr %.157, i64 %.055
   store ptr %21, ptr %43, align 8
-  %44 = add i64 %.057, 1
-  %45 = getelementptr inbounds ptr, ptr %.154, i64 %.057
+  %44 = add i64 %.055, 1
+  %45 = getelementptr inbounds ptr, ptr %.154, i64 %.055
   store ptr %31, ptr %45, align 8
   %46 = load i32, ptr %2, align 8
   switch i32 %46, label %consume.exit67 [
@@ -406,7 +406,7 @@ consume.exit66.thread:                            ; preds = %49, %42
   %52 = getelementptr inbounds i8, ptr %13, i64 8
   store ptr %.154, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %13, i64 16
-  store ptr %.156, ptr %53, align 8
+  store ptr %.157, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %13, i64 24
   store i64 %44, ptr %54, align 8
   br label %.loopexit
@@ -613,9 +613,9 @@ define internal fastcc void @json_lexer_advance(ptr nocapture noundef %0) unname
   br label %47
 
 47:                                               ; preds = %.backedge, %44
-  %.0.i = phi ptr [ %46, %44 ], [ %.0.i.be, %.backedge ]
-  %48 = getelementptr inbounds i8, ptr %.0.i, i64 1
-  %49 = load i8, ptr %.0.i, align 1
+  %.040.i = phi ptr [ %46, %44 ], [ %.040.i.be, %.backedge ]
+  %48 = getelementptr inbounds i8, ptr %.040.i, i64 1
+  %49 = load i8, ptr %.040.i, align 1
   switch i8 %49, label %.backedge [
     i8 34, label %53
     i8 0, label %53
@@ -625,12 +625,12 @@ define internal fastcc void @json_lexer_advance(ptr nocapture noundef %0) unname
 50:                                               ; preds = %47
   %51 = load i8, ptr %48, align 1
   %.not44.i = icmp eq i8 %51, 0
-  %52 = getelementptr inbounds i8, ptr %.0.i, i64 2
+  %52 = getelementptr inbounds i8, ptr %.040.i, i64 2
   %spec.select.i = select i1 %.not44.i, ptr %48, ptr %52
   br label %.backedge
 
 .backedge:                                        ; preds = %50, %47
-  %.0.i.be = phi ptr [ %48, %47 ], [ %spec.select.i, %50 ]
+  %.040.i.be = phi ptr [ %48, %47 ], [ %spec.select.i, %50 ]
   br label %47, !llvm.loop !10
 
 53:                                               ; preds = %47, %47
@@ -644,7 +644,7 @@ define internal fastcc void @json_lexer_advance(ptr nocapture noundef %0) unname
   br label %60
 
 60:                                               ; preds = %.backedge.i32, %53
-  %.041.i = phi ptr [ %59, %53 ], [ %.041.be.i, %.backedge.i32 ]
+  %.0.i = phi ptr [ %59, %53 ], [ %.0.be.i, %.backedge.i32 ]
   %61 = load ptr, ptr %2, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 1
   store ptr %62, ptr %2, align 8
@@ -672,13 +672,13 @@ json_error.exit.i:                                ; preds = %67, %64
 68:                                               ; preds = %60
   %69 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %59, ptr %69, align 8
-  store i8 0, ptr %.041.i, align 1
+  store i8 0, ptr %.0.i, align 1
   br label %json_parse_string.exit
 
 .backedge.i32:                                    ; preds = %106, %77, %76, %75, %74, %73, %70, %70, %70, %60
   %storemerge.i = phi i8 [ %63, %60 ], [ %117, %106 ], [ 9, %77 ], [ 13, %76 ], [ 12, %75 ], [ 10, %74 ], [ 8, %73 ], [ %72, %70 ], [ %72, %70 ], [ %72, %70 ]
-  %.041.be.i = getelementptr inbounds i8, ptr %.041.i, i64 1
-  store i8 %storemerge.i, ptr %.041.i, align 1
+  %.0.be.i = getelementptr inbounds i8, ptr %.0.i, i64 1
+  store i8 %storemerge.i, ptr %.0.i, align 1
   br label %60
 
 70:                                               ; preds = %60

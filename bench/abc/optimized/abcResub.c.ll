@@ -422,7 +422,7 @@ Abc_ManResubStart.exit:                           ; preds = %Vec_PtrAlloc.exit92
   br label %208
 
 208:                                              ; preds = %206, %Abc_ManResubStart.exit
-  %.0109 = phi ptr [ %207, %206 ], [ null, %Abc_ManResubStart.exit ]
+  %.0108 = phi ptr [ %207, %206 ], [ null, %Abc_ManResubStart.exit ]
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %210, label %209
 
@@ -496,7 +496,7 @@ Abc_ManResubStart.exit:                           ; preds = %Vec_PtrAlloc.exit92
   %240 = getelementptr inbounds i8, ptr %27, i64 8
   %241 = getelementptr inbounds i8, ptr %26, i64 8
   %242 = getelementptr inbounds i8, ptr %calloc.i, i64 136
-  %.not119 = icmp eq ptr %.0109, null
+  %.not119 = icmp eq ptr %.0108, null
   %243 = getelementptr inbounds i8, ptr %25, i64 8
   %244 = getelementptr inbounds i8, ptr %24, i64 8
   %245 = getelementptr inbounds i8, ptr %calloc.i, i64 144
@@ -645,9 +645,9 @@ Abc_Clock.exit146:                                ; preds = %Abc_Clock.exit144, 
 Abc_Clock.exit148:                                ; preds = %323, %326
   %.0.i147.neg = phi i64 [ %.neg183, %326 ], [ 1, %323 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25)
-  call void @Abc_NtkDontCareClear(ptr noundef nonnull %.0109) #17
+  call void @Abc_NtkDontCareClear(ptr noundef nonnull %.0108) #17
   %329 = load ptr, ptr %107, align 8
-  %330 = call i32 @Abc_NtkDontCareCompute(ptr noundef nonnull %.0109, ptr noundef nonnull %288, ptr noundef %311, ptr noundef %329) #17
+  %330 = call i32 @Abc_NtkDontCareCompute(ptr noundef nonnull %.0108, ptr noundef nonnull %288, ptr noundef %311, ptr noundef %329) #17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24)
   %331 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %24) #17
   %332 = icmp slt i32 %331, 0
@@ -3344,11 +3344,11 @@ Vec_PtrFree.exit34.i:                             ; preds = %1630, %Vec_PtrFree.
 Abc_ManResubStop.exit:                            ; preds = %Vec_PtrFree.exit34.i, %1632
   call void @free(ptr noundef nonnull %calloc.i) #17
   call void @Abc_NtkManCutStop(ptr noundef %38) #17
-  %.not121 = icmp eq ptr %.0109, null
+  %.not121 = icmp eq ptr %.0108, null
   br i1 %.not121, label %1634, label %1633
 
 1633:                                             ; preds = %Abc_ManResubStop.exit
-  call void @Abc_NtkDontCareFree(ptr noundef nonnull %.0109) #17
+  call void @Abc_NtkDontCareFree(ptr noundef nonnull %.0108) #17
   br label %1634
 
 1634:                                             ; preds = %1633, %Abc_ManResubStop.exit
@@ -3449,8 +3449,8 @@ Abc_ManResubStop.exit:                            ; preds = %Vec_PtrFree.exit34.
   br label %1675
 
 1675:                                             ; preds = %1672, %1674
-  %.0 = phi i32 [ 0, %1674 ], [ 1, %1672 ]
-  ret i32 %.0
+  %.0109 = phi i32 [ 0, %1674 ], [ 1, %1672 ]
+  ret i32 %.0109
 }
 
 declare i32 @Abc_AigCleanup(ptr noundef) local_unnamed_addr #1
@@ -4757,8 +4757,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   br label %22
 
 .critedge2.loopexit:                              ; preds = %.critedge4.loopexit, %.critedge4.loopexit.us, %22
-  %.1383.lcssa = phi ptr [ %.0382654, %22 ], [ %.2384.lcssa.us, %.critedge4.loopexit.us ], [ %.2384.lcssa, %.critedge4.loopexit ]
-  %.1369.lcssa = phi ptr [ %.0368655, %22 ], [ %.2370.lcssa.us, %.critedge4.loopexit.us ], [ %.2370.lcssa, %.critedge4.loopexit ]
+  %.1382.lcssa = phi ptr [ %.0381654, %22 ], [ %.2383.lcssa.us, %.critedge4.loopexit.us ], [ %.2383.lcssa, %.critedge4.loopexit ]
+  %.1368.lcssa = phi ptr [ %.0367655, %22 ], [ %.2369.lcssa.us, %.critedge4.loopexit.us ], [ %.2369.lcssa, %.critedge4.loopexit ]
   %.1.lcssa = phi i32 [ %.0657, %22 ], [ %.2.lcssa.us, %.critedge4.loopexit.us ], [ %.2.lcssa, %.critedge4.loopexit ]
   %indvars.iv.next796 = add nuw nsw i64 %indvars.iv795, 1
   %indvars.iv.next803 = add nuw nsw i64 %indvars.iv802, 1
@@ -4766,8 +4766,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   br i1 %exitcond843.not, label %.critedge.preheader, label %22, !llvm.loop !46
 
 .critedge.preheader:                              ; preds = %.critedge2.loopexit, %1
-  %.0382.lcssa = phi ptr [ null, %1 ], [ %.1383.lcssa, %.critedge2.loopexit ]
-  %.0368.lcssa = phi ptr [ null, %1 ], [ %.1369.lcssa, %.critedge2.loopexit ]
+  %.0381.lcssa = phi ptr [ null, %1 ], [ %.1382.lcssa, %.critedge2.loopexit ]
+  %.0367.lcssa = phi ptr [ null, %1 ], [ %.1368.lcssa, %.critedge2.loopexit ]
   %.0.lcssa = phi i32 [ undef, %1 ], [ %.1.lcssa, %.critedge2.loopexit ]
   %14 = getelementptr inbounds i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
@@ -4790,8 +4790,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %indvars.iv802 = phi i64 [ 1, %.lr.ph658 ], [ %indvars.iv.next803, %.critedge2.loopexit ]
   %indvars.iv795 = phi i64 [ 2, %.lr.ph658 ], [ %indvars.iv.next796, %.critedge2.loopexit ]
   %.0657 = phi i32 [ undef, %.lr.ph658 ], [ %.1.lcssa, %.critedge2.loopexit ]
-  %.0368655 = phi ptr [ null, %.lr.ph658 ], [ %.1369.lcssa, %.critedge2.loopexit ]
-  %.0382654 = phi ptr [ null, %.lr.ph658 ], [ %.1383.lcssa, %.critedge2.loopexit ]
+  %.0367655 = phi ptr [ null, %.lr.ph658 ], [ %.1368.lcssa, %.critedge2.loopexit ]
+  %.0381654 = phi ptr [ null, %.lr.ph658 ], [ %.1382.lcssa, %.critedge2.loopexit ]
   %23 = getelementptr inbounds ptr, ptr %.val484, i64 %indvars.iv839
   %24 = load ptr, ptr %23, align 8
   %.fr = freeze ptr %24
@@ -4814,8 +4814,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %indvars.iv834 = phi i64 [ %indvars.iv.next835, %.critedge4.loopexit.us ], [ %indvars.iv802, %.lr.ph644 ]
   %indvars.iv829 = phi i64 [ %indvars.iv.next830, %.critedge4.loopexit.us ], [ %indvars.iv795, %.lr.ph644 ]
   %.1643.us = phi i32 [ %.2.lcssa.us, %.critedge4.loopexit.us ], [ %.0657, %.lr.ph644 ]
-  %.1369641.us = phi ptr [ %.2370.lcssa.us, %.critedge4.loopexit.us ], [ %.0368655, %.lr.ph644 ]
-  %.1383640.us = phi ptr [ %.2384.lcssa.us, %.critedge4.loopexit.us ], [ %.0382654, %.lr.ph644 ]
+  %.1368641.us = phi ptr [ %.2369.lcssa.us, %.critedge4.loopexit.us ], [ %.0367655, %.lr.ph644 ]
+  %.1382640.us = phi ptr [ %.2383.lcssa.us, %.critedge4.loopexit.us ], [ %.0381654, %.lr.ph644 ]
   %33 = getelementptr inbounds ptr, ptr %.val484, i64 %indvars.iv834
   %34 = load ptr, ptr %33, align 8
   %35 = ptrtoint ptr %34 to i64
@@ -4829,8 +4829,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   br i1 %41, label %.lr.ph631.us, label %.critedge4.loopexit.us
 
 .critedge4.loopexit.us:                           ; preds = %149, %.lr.ph644.split.us
-  %.2384.lcssa.us = phi ptr [ %.1383640.us, %.lr.ph644.split.us ], [ %.6388.us.us, %149 ]
-  %.2370.lcssa.us = phi ptr [ %.1369641.us, %.lr.ph644.split.us ], [ %.6374.us.us, %149 ]
+  %.2383.lcssa.us = phi ptr [ %.1382640.us, %.lr.ph644.split.us ], [ %.6387.us.us, %149 ]
+  %.2369.lcssa.us = phi ptr [ %.1368641.us, %.lr.ph644.split.us ], [ %.6373.us.us, %149 ]
   %.2.lcssa.us = phi i32 [ %.1643.us, %.lr.ph644.split.us ], [ %.11.us.us914, %149 ]
   %indvars.iv.next830 = add nuw nsw i64 %indvars.iv829, 1
   %exitcond838.not = icmp eq i64 %indvars.iv.next835, %wide.trip.count842
@@ -4854,8 +4854,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
 49:                                               ; preds = %149, %.lr.ph631.us
   %indvars.iv831 = phi i64 [ %indvars.iv.next832, %149 ], [ %indvars.iv829, %.lr.ph631.us ]
   %.2630.us.us = phi i32 [ %.11.us.us914, %149 ], [ %.1643.us, %.lr.ph631.us ]
-  %.2370628.us.us = phi ptr [ %.6374.us.us, %149 ], [ %.1369641.us, %.lr.ph631.us ]
-  %.2384627.us.us = phi ptr [ %.6388.us.us, %149 ], [ %.1383640.us, %.lr.ph631.us ]
+  %.2369628.us.us = phi ptr [ %.6373.us.us, %149 ], [ %.1368641.us, %.lr.ph631.us ]
+  %.2383627.us.us = phi ptr [ %.6387.us.us, %149 ], [ %.1382640.us, %.lr.ph631.us ]
   %50 = getelementptr inbounds ptr, ptr %.val484, i64 %indvars.iv831
   %51 = load ptr, ptr %50, align 8
   %52 = ptrtoint ptr %51 to i64
@@ -5012,31 +5012,31 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %142 = tail call i32 @llvm.umax.i32(i32 %138, i32 %141)
   %143 = tail call i32 @llvm.umax.i32(i32 %136, i32 %142)
   %.not543.us.us = icmp ult i32 %136, %142
-  %.0396.us.us = select i1 %.not543.us.us, ptr null, ptr %.fr
-  %.3385.us.us = select i1 %.not543.us.us, ptr %.2384627.us.us, ptr %34
-  %.3371.us.us = select i1 %.not543.us.us, ptr %.2370628.us.us, ptr %51
+  %.0395.us.us = select i1 %.not543.us.us, ptr null, ptr %.fr
+  %.3384.us.us = select i1 %.not543.us.us, ptr %.2383627.us.us, ptr %34
+  %.3370.us.us = select i1 %.not543.us.us, ptr %.2369628.us.us, ptr %51
   %144 = icmp eq i32 %138, %143
   br i1 %144, label %145, label %146
 
 145:                                              ; preds = %.loopexit559.us.us.thread
-  %.not472.us.us = icmp eq ptr %.0396.us.us, null
+  %.not472.us.us = icmp eq ptr %.0395.us.us, null
   br i1 %.not472.us.us, label %146, label %149
 
 146:                                              ; preds = %145, %.loopexit559.us.us.thread
-  %.1397.us.us = phi ptr [ %.0396.us.us, %.loopexit559.us.us.thread ], [ %34, %145 ]
-  %.4386.us.us = phi ptr [ %.3385.us.us, %.loopexit559.us.us.thread ], [ %.fr, %145 ]
-  %.4372.us.us = phi ptr [ %.3371.us.us, %.loopexit559.us.us.thread ], [ %51, %145 ]
+  %.1396.us.us = phi ptr [ %.0395.us.us, %.loopexit559.us.us.thread ], [ %34, %145 ]
+  %.4385.us.us = phi ptr [ %.3384.us.us, %.loopexit559.us.us.thread ], [ %.fr, %145 ]
+  %.4371.us.us = phi ptr [ %.3370.us.us, %.loopexit559.us.us.thread ], [ %51, %145 ]
   %147 = icmp eq i32 %141, %143
   br i1 %147, label %148, label %.split.us
 
 148:                                              ; preds = %146
-  %.not473.us.us = icmp eq ptr %.1397.us.us, null
+  %.not473.us.us = icmp eq ptr %.1396.us.us, null
   br i1 %.not473.us.us, label %.split.us, label %149
 
 149:                                              ; preds = %148, %145, %.loopexit559.us.us
   %.11.us.us914 = phi i32 [ %.11.us.us915, %145 ], [ %.11.us.us915, %148 ], [ %.11.us.us, %.loopexit559.us.us ]
-  %.6388.us.us = phi ptr [ %.3385.us.us, %145 ], [ %.4386.us.us, %148 ], [ %.2384627.us.us, %.loopexit559.us.us ]
-  %.6374.us.us = phi ptr [ %.3371.us.us, %145 ], [ %.4372.us.us, %148 ], [ %.2370628.us.us, %.loopexit559.us.us ]
+  %.6387.us.us = phi ptr [ %.3384.us.us, %145 ], [ %.4385.us.us, %148 ], [ %.2383627.us.us, %.loopexit559.us.us ]
+  %.6373.us.us = phi ptr [ %.3370.us.us, %145 ], [ %.4371.us.us, %148 ], [ %.2369628.us.us, %.loopexit559.us.us ]
   %indvars.iv.next832 = add nuw nsw i64 %indvars.iv831, 1
   %150 = trunc nuw i64 %indvars.iv.next832 to i32
   %151 = icmp sgt i32 %.val478, %150
@@ -5073,8 +5073,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   br label %114
 
 .critedge4.loopexit:                              ; preds = %280, %.lr.ph644.split
-  %.2384.lcssa = phi ptr [ %.1383640, %.lr.ph644.split ], [ %.6388, %280 ]
-  %.2370.lcssa = phi ptr [ %.1369641, %.lr.ph644.split ], [ %.6374, %280 ]
+  %.2383.lcssa = phi ptr [ %.1382640, %.lr.ph644.split ], [ %.6387, %280 ]
+  %.2369.lcssa = phi ptr [ %.1368641, %.lr.ph644.split ], [ %.6373, %280 ]
   %.2.lcssa = phi i32 [ %.1643, %.lr.ph644.split ], [ %.11917, %280 ]
   %indvars.iv.next798 = add nuw nsw i64 %indvars.iv797, 1
   %exitcond808.not = icmp eq i64 %indvars.iv.next805, %wide.trip.count842
@@ -5084,8 +5084,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %indvars.iv804 = phi i64 [ %indvars.iv.next805, %.critedge4.loopexit ], [ %indvars.iv802, %.lr.ph644 ]
   %indvars.iv797 = phi i64 [ %indvars.iv.next798, %.critedge4.loopexit ], [ %indvars.iv795, %.lr.ph644 ]
   %.1643 = phi i32 [ %.2.lcssa, %.critedge4.loopexit ], [ %.0657, %.lr.ph644 ]
-  %.1369641 = phi ptr [ %.2370.lcssa, %.critedge4.loopexit ], [ %.0368655, %.lr.ph644 ]
-  %.1383640 = phi ptr [ %.2384.lcssa, %.critedge4.loopexit ], [ %.0382654, %.lr.ph644 ]
+  %.1368641 = phi ptr [ %.2369.lcssa, %.critedge4.loopexit ], [ %.0367655, %.lr.ph644 ]
+  %.1382640 = phi ptr [ %.2383.lcssa, %.critedge4.loopexit ], [ %.0381654, %.lr.ph644 ]
   %157 = getelementptr inbounds ptr, ptr %.val484, i64 %indvars.iv804
   %158 = load ptr, ptr %157, align 8
   %159 = ptrtoint ptr %158 to i64
@@ -5116,8 +5116,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
 173:                                              ; preds = %.lr.ph631, %280
   %indvars.iv799 = phi i64 [ %indvars.iv797, %.lr.ph631 ], [ %indvars.iv.next800, %280 ]
   %.2630 = phi i32 [ %.1643, %.lr.ph631 ], [ %.11917, %280 ]
-  %.2370628 = phi ptr [ %.1369641, %.lr.ph631 ], [ %.6374, %280 ]
-  %.2384627 = phi ptr [ %.1383640, %.lr.ph631 ], [ %.6388, %280 ]
+  %.2369628 = phi ptr [ %.1368641, %.lr.ph631 ], [ %.6373, %280 ]
+  %.2383627 = phi ptr [ %.1382640, %.lr.ph631 ], [ %.6387, %280 ]
   %174 = getelementptr inbounds ptr, ptr %.val484, i64 %indvars.iv799
   %175 = load ptr, ptr %174, align 8
   %176 = ptrtoint ptr %175 to i64
@@ -5305,31 +5305,31 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %269 = tail call i32 @llvm.umax.i32(i32 %265, i32 %268)
   %270 = tail call i32 @llvm.umax.i32(i32 %263, i32 %269)
   %.not543 = icmp ult i32 %263, %269
-  %.0396 = select i1 %.not543, ptr null, ptr %.fr
-  %.3385 = select i1 %.not543, ptr %.2384627, ptr %158
-  %.3371 = select i1 %.not543, ptr %.2370628, ptr %175
+  %.0395 = select i1 %.not543, ptr null, ptr %.fr
+  %.3384 = select i1 %.not543, ptr %.2383627, ptr %158
+  %.3370 = select i1 %.not543, ptr %.2369628, ptr %175
   %271 = icmp eq i32 %265, %270
   br i1 %271, label %272, label %273
 
 272:                                              ; preds = %.loopexit567.thread
-  %.not472 = icmp eq ptr %.0396, null
+  %.not472 = icmp eq ptr %.0395, null
   br i1 %.not472, label %273, label %280
 
 273:                                              ; preds = %272, %.loopexit567.thread
-  %.1397 = phi ptr [ %.0396, %.loopexit567.thread ], [ %158, %272 ]
-  %.4386 = phi ptr [ %.3385, %.loopexit567.thread ], [ %.fr, %272 ]
-  %.4372 = phi ptr [ %.3371, %.loopexit567.thread ], [ %175, %272 ]
+  %.1396 = phi ptr [ %.0395, %.loopexit567.thread ], [ %158, %272 ]
+  %.4385 = phi ptr [ %.3384, %.loopexit567.thread ], [ %.fr, %272 ]
+  %.4371 = phi ptr [ %.3370, %.loopexit567.thread ], [ %175, %272 ]
   %274 = icmp eq i32 %268, %270
   br i1 %274, label %275, label %.split.us
 
 275:                                              ; preds = %273
-  %.not473 = icmp eq ptr %.1397, null
+  %.not473 = icmp eq ptr %.1396, null
   br i1 %.not473, label %.split.us, label %280
 
 .split.us:                                        ; preds = %273, %275, %148, %146
-  %.us-phi = phi ptr [ %.1397.us.us, %146 ], [ %51, %148 ], [ %.1397, %273 ], [ %175, %275 ]
-  %.us-phi635 = phi ptr [ %.4386.us.us, %146 ], [ %.fr, %148 ], [ %.4386, %273 ], [ %.fr, %275 ]
-  %.us-phi636 = phi ptr [ %.4372.us.us, %146 ], [ %34, %148 ], [ %.4372, %273 ], [ %158, %275 ]
+  %.us-phi = phi ptr [ %.1396.us.us, %146 ], [ %51, %148 ], [ %.1396, %273 ], [ %175, %275 ]
+  %.us-phi635 = phi ptr [ %.4385.us.us, %146 ], [ %.fr, %148 ], [ %.4385, %273 ], [ %.fr, %275 ]
+  %.us-phi636 = phi ptr [ %.4371.us.us, %146 ], [ %34, %148 ], [ %.4371, %273 ], [ %158, %275 ]
   %276 = getelementptr inbounds i8, ptr %0, i64 248
   %277 = load i32, ptr %276, align 8
   %278 = add nsw i32 %277, 1
@@ -5339,16 +5339,16 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
 
 280:                                              ; preds = %.loopexit567, %275, %272
   %.11917 = phi i32 [ %.11918, %272 ], [ %.11918, %275 ], [ %.11, %.loopexit567 ]
-  %.6388 = phi ptr [ %.3385, %272 ], [ %.4386, %275 ], [ %.2384627, %.loopexit567 ]
-  %.6374 = phi ptr [ %.3371, %272 ], [ %.4372, %275 ], [ %.2370628, %.loopexit567 ]
+  %.6387 = phi ptr [ %.3384, %272 ], [ %.4385, %275 ], [ %.2383627, %.loopexit567 ]
+  %.6373 = phi ptr [ %.3370, %272 ], [ %.4371, %275 ], [ %.2369628, %.loopexit567 ]
   %indvars.iv.next800 = add nuw nsw i64 %indvars.iv799, 1
   %281 = trunc nuw i64 %indvars.iv.next800 to i32
   %282 = icmp sgt i32 %.val478, %281
   br i1 %282, label %173, label %.critedge4.loopexit, !llvm.loop !51
 
 .critedge.loopexit:                               ; preds = %.critedge10.loopexit, %.critedge10.loopexit.us, %283
-  %.8390.lcssa = phi ptr [ %.7389732, %283 ], [ %.9391.lcssa.us, %.critedge10.loopexit.us ], [ %.9391.lcssa, %.critedge10.loopexit ]
-  %.8376.lcssa = phi ptr [ %.7375733, %283 ], [ %.9377.lcssa.us, %.critedge10.loopexit.us ], [ %.9377.lcssa, %.critedge10.loopexit ]
+  %.8389.lcssa = phi ptr [ %.7388732, %283 ], [ %.9390.lcssa.us, %.critedge10.loopexit.us ], [ %.9390.lcssa, %.critedge10.loopexit ]
+  %.8375.lcssa = phi ptr [ %.7374733, %283 ], [ %.9376.lcssa.us, %.critedge10.loopexit.us ], [ %.9376.lcssa, %.critedge10.loopexit ]
   %.13.lcssa = phi i32 [ %.12735, %283 ], [ %.14.lcssa.us, %.critedge10.loopexit.us ], [ %.14.lcssa, %.critedge10.loopexit ]
   %indvars.iv.next865 = add nuw nsw i64 %indvars.iv864, 1
   %indvars.iv.next872 = add nuw nsw i64 %indvars.iv871, 1
@@ -5360,8 +5360,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %indvars.iv871 = phi i64 [ 1, %.lr.ph736 ], [ %indvars.iv.next872, %.critedge.loopexit ]
   %indvars.iv864 = phi i64 [ 2, %.lr.ph736 ], [ %indvars.iv.next865, %.critedge.loopexit ]
   %.12735 = phi i32 [ %.0.lcssa, %.lr.ph736 ], [ %.13.lcssa, %.critedge.loopexit ]
-  %.7375733 = phi ptr [ %.0368.lcssa, %.lr.ph736 ], [ %.8376.lcssa, %.critedge.loopexit ]
-  %.7389732 = phi ptr [ %.0382.lcssa, %.lr.ph736 ], [ %.8390.lcssa, %.critedge.loopexit ]
+  %.7374733 = phi ptr [ %.0367.lcssa, %.lr.ph736 ], [ %.8375.lcssa, %.critedge.loopexit ]
+  %.7388732 = phi ptr [ %.0381.lcssa, %.lr.ph736 ], [ %.8389.lcssa, %.critedge.loopexit ]
   %284 = getelementptr inbounds ptr, ptr %.val481, i64 %indvars.iv908
   %285 = load ptr, ptr %284, align 8
   %.fr740 = freeze ptr %285
@@ -5384,8 +5384,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %indvars.iv903 = phi i64 [ %indvars.iv.next904, %.critedge10.loopexit.us ], [ %indvars.iv871, %.lr.ph722 ]
   %indvars.iv898 = phi i64 [ %indvars.iv.next899, %.critedge10.loopexit.us ], [ %indvars.iv864, %.lr.ph722 ]
   %.13721.us = phi i32 [ %.14.lcssa.us, %.critedge10.loopexit.us ], [ %.12735, %.lr.ph722 ]
-  %.8376719.us = phi ptr [ %.9377.lcssa.us, %.critedge10.loopexit.us ], [ %.7375733, %.lr.ph722 ]
-  %.8390718.us = phi ptr [ %.9391.lcssa.us, %.critedge10.loopexit.us ], [ %.7389732, %.lr.ph722 ]
+  %.8375719.us = phi ptr [ %.9376.lcssa.us, %.critedge10.loopexit.us ], [ %.7374733, %.lr.ph722 ]
+  %.8389718.us = phi ptr [ %.9390.lcssa.us, %.critedge10.loopexit.us ], [ %.7388732, %.lr.ph722 ]
   %294 = getelementptr inbounds ptr, ptr %.val481, i64 %indvars.iv903
   %295 = load ptr, ptr %294, align 8
   %296 = ptrtoint ptr %295 to i64
@@ -5399,8 +5399,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   br i1 %302, label %.lr.ph706.us, label %.critedge10.loopexit.us
 
 .critedge10.loopexit.us:                          ; preds = %410, %.lr.ph722.split.us
-  %.9391.lcssa.us = phi ptr [ %.8390718.us, %.lr.ph722.split.us ], [ %.13395.us.us, %410 ]
-  %.9377.lcssa.us = phi ptr [ %.8376719.us, %.lr.ph722.split.us ], [ %.13381.us.us, %410 ]
+  %.9390.lcssa.us = phi ptr [ %.8389718.us, %.lr.ph722.split.us ], [ %.13394.us.us, %410 ]
+  %.9376.lcssa.us = phi ptr [ %.8375719.us, %.lr.ph722.split.us ], [ %.13380.us.us, %410 ]
   %.14.lcssa.us = phi i32 [ %.13721.us, %.lr.ph722.split.us ], [ %.23.us.us920, %410 ]
   %indvars.iv.next899 = add nuw nsw i64 %indvars.iv898, 1
   %exitcond907.not = icmp eq i64 %indvars.iv.next904, %wide.trip.count911
@@ -5424,8 +5424,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
 310:                                              ; preds = %410, %.lr.ph706.us
   %indvars.iv900 = phi i64 [ %indvars.iv.next901, %410 ], [ %indvars.iv898, %.lr.ph706.us ]
   %.14705.us.us = phi i32 [ %.23.us.us920, %410 ], [ %.13721.us, %.lr.ph706.us ]
-  %.9377703.us.us = phi ptr [ %.13381.us.us, %410 ], [ %.8376719.us, %.lr.ph706.us ]
-  %.9391702.us.us = phi ptr [ %.13395.us.us, %410 ], [ %.8390718.us, %.lr.ph706.us ]
+  %.9376703.us.us = phi ptr [ %.13380.us.us, %410 ], [ %.8375719.us, %.lr.ph706.us ]
+  %.9390702.us.us = phi ptr [ %.13394.us.us, %410 ], [ %.8389718.us, %.lr.ph706.us ]
   %311 = getelementptr inbounds ptr, ptr %.val481, i64 %indvars.iv900
   %312 = load ptr, ptr %311, align 8
   %313 = ptrtoint ptr %312 to i64
@@ -5582,31 +5582,31 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %403 = tail call i32 @llvm.umax.i32(i32 %399, i32 %402)
   %404 = tail call i32 @llvm.umax.i32(i32 %397, i32 %403)
   %.not542.us.us = icmp ult i32 %397, %403
-  %.3399.us.us = select i1 %.not542.us.us, ptr null, ptr %.fr740
-  %.10392.us.us = select i1 %.not542.us.us, ptr %.9391702.us.us, ptr %295
-  %.10378.us.us = select i1 %.not542.us.us, ptr %.9377703.us.us, ptr %312
+  %.3398.us.us = select i1 %.not542.us.us, ptr null, ptr %.fr740
+  %.10391.us.us = select i1 %.not542.us.us, ptr %.9390702.us.us, ptr %295
+  %.10377.us.us = select i1 %.not542.us.us, ptr %.9376703.us.us, ptr %312
   %405 = icmp eq i32 %399, %404
   br i1 %405, label %406, label %407
 
 406:                                              ; preds = %.loopexit.us.us.thread
-  %.not435.us.us = icmp eq ptr %.3399.us.us, null
+  %.not435.us.us = icmp eq ptr %.3398.us.us, null
   br i1 %.not435.us.us, label %407, label %410
 
 407:                                              ; preds = %406, %.loopexit.us.us.thread
-  %.4400.us.us = phi ptr [ %.3399.us.us, %.loopexit.us.us.thread ], [ %295, %406 ]
-  %.11393.us.us = phi ptr [ %.10392.us.us, %.loopexit.us.us.thread ], [ %.fr740, %406 ]
-  %.11379.us.us = phi ptr [ %.10378.us.us, %.loopexit.us.us.thread ], [ %312, %406 ]
+  %.4399.us.us = phi ptr [ %.3398.us.us, %.loopexit.us.us.thread ], [ %295, %406 ]
+  %.11392.us.us = phi ptr [ %.10391.us.us, %.loopexit.us.us.thread ], [ %.fr740, %406 ]
+  %.11378.us.us = phi ptr [ %.10377.us.us, %.loopexit.us.us.thread ], [ %312, %406 ]
   %408 = icmp eq i32 %402, %404
   br i1 %408, label %409, label %.split711.us
 
 409:                                              ; preds = %407
-  %.not436.us.us = icmp eq ptr %.4400.us.us, null
+  %.not436.us.us = icmp eq ptr %.4399.us.us, null
   br i1 %.not436.us.us, label %.split711.us, label %410
 
 410:                                              ; preds = %409, %406, %.loopexit.us.us
   %.23.us.us920 = phi i32 [ %.23.us.us921, %406 ], [ %.23.us.us921, %409 ], [ %.23.us.us, %.loopexit.us.us ]
-  %.13395.us.us = phi ptr [ %.10392.us.us, %406 ], [ %.11393.us.us, %409 ], [ %.9391702.us.us, %.loopexit.us.us ]
-  %.13381.us.us = phi ptr [ %.10378.us.us, %406 ], [ %.11379.us.us, %409 ], [ %.9377703.us.us, %.loopexit.us.us ]
+  %.13394.us.us = phi ptr [ %.10391.us.us, %406 ], [ %.11392.us.us, %409 ], [ %.9390702.us.us, %.loopexit.us.us ]
+  %.13380.us.us = phi ptr [ %.10377.us.us, %406 ], [ %.11378.us.us, %409 ], [ %.9376703.us.us, %.loopexit.us.us ]
   %indvars.iv.next901 = add nuw nsw i64 %indvars.iv900, 1
   %411 = trunc nuw i64 %indvars.iv.next901 to i32
   %412 = icmp sgt i32 %.val475, %411
@@ -5643,8 +5643,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   br label %375
 
 .critedge10.loopexit:                             ; preds = %593, %.lr.ph722.split
-  %.9391.lcssa = phi ptr [ %.8390718, %.lr.ph722.split ], [ %.13395, %593 ]
-  %.9377.lcssa = phi ptr [ %.8376719, %.lr.ph722.split ], [ %.13381, %593 ]
+  %.9390.lcssa = phi ptr [ %.8389718, %.lr.ph722.split ], [ %.13394, %593 ]
+  %.9376.lcssa = phi ptr [ %.8375719, %.lr.ph722.split ], [ %.13380, %593 ]
   %.14.lcssa = phi i32 [ %.13721, %.lr.ph722.split ], [ %.23923, %593 ]
   %indvars.iv.next867 = add nuw nsw i64 %indvars.iv866, 1
   %exitcond877.not = icmp eq i64 %indvars.iv.next874, %wide.trip.count911
@@ -5654,8 +5654,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %indvars.iv873 = phi i64 [ %indvars.iv.next874, %.critedge10.loopexit ], [ %indvars.iv871, %.lr.ph722 ]
   %indvars.iv866 = phi i64 [ %indvars.iv.next867, %.critedge10.loopexit ], [ %indvars.iv864, %.lr.ph722 ]
   %.13721 = phi i32 [ %.14.lcssa, %.critedge10.loopexit ], [ %.12735, %.lr.ph722 ]
-  %.8376719 = phi ptr [ %.9377.lcssa, %.critedge10.loopexit ], [ %.7375733, %.lr.ph722 ]
-  %.8390718 = phi ptr [ %.9391.lcssa, %.critedge10.loopexit ], [ %.7389732, %.lr.ph722 ]
+  %.8375719 = phi ptr [ %.9376.lcssa, %.critedge10.loopexit ], [ %.7374733, %.lr.ph722 ]
+  %.8389718 = phi ptr [ %.9390.lcssa, %.critedge10.loopexit ], [ %.7388732, %.lr.ph722 ]
   %418 = getelementptr inbounds ptr, ptr %.val481, i64 %indvars.iv873
   %419 = load ptr, ptr %418, align 8
   %420 = ptrtoint ptr %419 to i64
@@ -5686,8 +5686,8 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
 434:                                              ; preds = %.lr.ph706, %593
   %indvars.iv868 = phi i64 [ %indvars.iv866, %.lr.ph706 ], [ %indvars.iv.next869, %593 ]
   %.14705 = phi i32 [ %.13721, %.lr.ph706 ], [ %.23923, %593 ]
-  %.9377703 = phi ptr [ %.8376719, %.lr.ph706 ], [ %.13381, %593 ]
-  %.9391702 = phi ptr [ %.8390718, %.lr.ph706 ], [ %.13395, %593 ]
+  %.9376703 = phi ptr [ %.8375719, %.lr.ph706 ], [ %.13380, %593 ]
+  %.9390702 = phi ptr [ %.8389718, %.lr.ph706 ], [ %.13394, %593 ]
   %435 = getelementptr inbounds ptr, ptr %.val481, i64 %indvars.iv868
   %436 = load ptr, ptr %435, align 8
   %437 = ptrtoint ptr %436 to i64
@@ -5875,31 +5875,31 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
   %530 = tail call i32 @llvm.umax.i32(i32 %526, i32 %529)
   %531 = tail call i32 @llvm.umax.i32(i32 %524, i32 %530)
   %.not542 = icmp ult i32 %524, %530
-  %.3399 = select i1 %.not542, ptr null, ptr %.fr740
-  %.10392 = select i1 %.not542, ptr %.9391702, ptr %419
-  %.10378 = select i1 %.not542, ptr %.9377703, ptr %436
+  %.3398 = select i1 %.not542, ptr null, ptr %.fr740
+  %.10391 = select i1 %.not542, ptr %.9390702, ptr %419
+  %.10377 = select i1 %.not542, ptr %.9376703, ptr %436
   %532 = icmp eq i32 %526, %531
   br i1 %532, label %533, label %534
 
 533:                                              ; preds = %.loopexit551.thread
-  %.not435 = icmp eq ptr %.3399, null
+  %.not435 = icmp eq ptr %.3398, null
   br i1 %.not435, label %534, label %593
 
 534:                                              ; preds = %533, %.loopexit551.thread
-  %.4400 = phi ptr [ %.3399, %.loopexit551.thread ], [ %419, %533 ]
-  %.11393 = phi ptr [ %.10392, %.loopexit551.thread ], [ %.fr740, %533 ]
-  %.11379 = phi ptr [ %.10378, %.loopexit551.thread ], [ %436, %533 ]
+  %.4399 = phi ptr [ %.3398, %.loopexit551.thread ], [ %419, %533 ]
+  %.11392 = phi ptr [ %.10391, %.loopexit551.thread ], [ %.fr740, %533 ]
+  %.11378 = phi ptr [ %.10377, %.loopexit551.thread ], [ %436, %533 ]
   %535 = icmp eq i32 %529, %531
   br i1 %535, label %536, label %.split711.us
 
 536:                                              ; preds = %534
-  %.not436 = icmp eq ptr %.4400, null
+  %.not436 = icmp eq ptr %.4399, null
   br i1 %.not436, label %.split711.us, label %593
 
 .split711.us:                                     ; preds = %534, %536, %409, %407
-  %.us-phi712 = phi ptr [ %.4400.us.us, %407 ], [ %312, %409 ], [ %.4400, %534 ], [ %436, %536 ]
-  %.us-phi713 = phi ptr [ %.11393.us.us, %407 ], [ %.fr740, %409 ], [ %.11393, %534 ], [ %.fr740, %536 ]
-  %.us-phi714 = phi ptr [ %.11379.us.us, %407 ], [ %295, %409 ], [ %.11379, %534 ], [ %419, %536 ]
+  %.us-phi712 = phi ptr [ %.4399.us.us, %407 ], [ %312, %409 ], [ %.4399, %534 ], [ %436, %536 ]
+  %.us-phi713 = phi ptr [ %.11392.us.us, %407 ], [ %.fr740, %409 ], [ %.11392, %534 ], [ %.fr740, %536 ]
+  %.us-phi714 = phi ptr [ %.11378.us.us, %407 ], [ %295, %409 ], [ %.11378, %534 ], [ %419, %536 ]
   %537 = getelementptr inbounds i8, ptr %0, i64 252
   %538 = load i32, ptr %537, align 4
   %539 = add nsw i32 %538, 1
@@ -5981,16 +5981,16 @@ define internal fastcc noalias noundef ptr @Abc_ManResubDivs12(ptr nocapture nou
 
 593:                                              ; preds = %.loopexit551, %536, %533
   %.23923 = phi i32 [ %.23924, %533 ], [ %.23924, %536 ], [ %.23, %.loopexit551 ]
-  %.13395 = phi ptr [ %.10392, %533 ], [ %.11393, %536 ], [ %.9391702, %.loopexit551 ]
-  %.13381 = phi ptr [ %.10378, %533 ], [ %.11379, %536 ], [ %.9377703, %.loopexit551 ]
+  %.13394 = phi ptr [ %.10391, %533 ], [ %.11392, %536 ], [ %.9390702, %.loopexit551 ]
+  %.13380 = phi ptr [ %.10377, %533 ], [ %.11378, %536 ], [ %.9376703, %.loopexit551 ]
   %indvars.iv.next869 = add nuw nsw i64 %indvars.iv868, 1
   %594 = trunc nuw i64 %indvars.iv.next869 to i32
   %595 = icmp sgt i32 %.val475, %594
   br i1 %595, label %434, label %.critedge10.loopexit, !llvm.loop !62
 
 .critedge6:                                       ; preds = %.critedge.loopexit, %.critedge.preheader, %.split711.us, %.split.us
-  %.0367 = phi ptr [ %279, %.split.us ], [ %calloc.i.i, %.split711.us ], [ null, %.critedge.preheader ], [ null, %.critedge.loopexit ]
-  ret ptr %.0367
+  %.0401 = phi ptr [ %279, %.split.us ], [ %calloc.i.i, %.split711.us ], [ null, %.critedge.preheader ], [ null, %.critedge.loopexit ]
+  ret ptr %.0401
 }
 
 ; Function Attrs: nounwind uwtable

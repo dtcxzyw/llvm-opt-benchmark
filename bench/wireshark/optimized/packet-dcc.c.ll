@@ -345,58 +345,58 @@ define internal range(i32 0, 2) i32 @dissect_dcc(ptr noundef %0, ptr noundef %1,
   br label %80
 
 80:                                               ; preds = %77, %83
-  %.0239256 = phi i32 [ 28, %77 ], [ %97, %83 ]
-  %.0240255 = phi i32 [ 0, %77 ], [ %98, %83 ]
-  %81 = add nuw nsw i32 %.0239256, 16
+  %.0239256 = phi i32 [ 0, %77 ], [ %98, %83 ]
+  %.0240255 = phi i32 [ 28, %77 ], [ %97, %83 ]
+  %81 = add nuw nsw i32 %.0240255, 16
   %82 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %81, i32 noundef 1) #2
   %.not249 = icmp eq i32 %82, 0
   br i1 %.not249, label %.critedge, label %83
 
 83:                                               ; preds = %80
   %84 = load i32, ptr @ett_dcc_ck, align 4
-  %85 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0239256) #2
+  %85 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0240255) #2
   %86 = zext i8 %85 to i32
   %87 = tail call ptr @val_to_str(i32 noundef %86, ptr noundef nonnull @dcc_cktype_vals, ptr noundef nonnull @.str.135) #2
-  %88 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %73, ptr noundef %0, i32 noundef %.0239256, i32 noundef 18, i32 noundef %84, ptr noundef null, ptr noundef nonnull @.str.134, ptr noundef %87) #2
+  %88 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %73, ptr noundef %0, i32 noundef %.0240255, i32 noundef 18, i32 noundef %84, ptr noundef null, ptr noundef nonnull @.str.134, ptr noundef %87) #2
   %89 = load i32, ptr @hf_dcc_ck_type, align 4
-  %90 = tail call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %89, ptr noundef %0, i32 noundef %.0239256, i32 noundef 1, i32 noundef 0) #2
-  %91 = or disjoint i32 %.0239256, 1
+  %90 = tail call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %89, ptr noundef %0, i32 noundef %.0240255, i32 noundef 1, i32 noundef 0) #2
+  %91 = or disjoint i32 %.0240255, 1
   %92 = load i32, ptr @hf_dcc_ck_len, align 4
   %93 = tail call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %92, ptr noundef %0, i32 noundef %91, i32 noundef 1, i32 noundef 0) #2
-  %94 = add nuw nsw i32 %.0239256, 2
+  %94 = add nuw nsw i32 %.0240255, 2
   %95 = load i32, ptr @hf_dcc_ck_sum, align 4
   %96 = tail call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %95, ptr noundef %0, i32 noundef %94, i32 noundef 16, i32 noundef 0) #2
-  %97 = add nuw nsw i32 %.0239256, 18
-  %98 = add nuw nsw i32 %.0240255, 1
+  %97 = add nuw nsw i32 %.0240255, 18
+  %98 = add nuw nsw i32 %.0239256, 1
   %exitcond257.not = icmp eq i32 %98, 15
   br i1 %exitcond257.not, label %.critedge, label %80, !llvm.loop !4
 
 .critedge:                                        ; preds = %83, %80
-  %.0239.lcssa = phi i32 [ 298, %83 ], [ %.0239256, %80 ]
+  %.0240.lcssa = phi i32 [ 298, %83 ], [ %.0240255, %80 ]
   %99 = load i32, ptr @hf_dcc_signature, align 4
-  %100 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %99, ptr noundef %0, i32 noundef %.0239.lcssa, i32 noundef 16, i32 noundef 0) #2
+  %100 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %99, ptr noundef %0, i32 noundef %.0240.lcssa, i32 noundef 16, i32 noundef 0) #2
   br label %193
 
 .preheader:                                       ; preds = %61, %103
-  %.1254 = phi i32 [ %106, %103 ], [ 24, %61 ]
-  %.1241253 = phi i32 [ %107, %103 ], [ 0, %61 ]
-  %101 = add nuw nsw i32 %.1254, 16
+  %.1254 = phi i32 [ %107, %103 ], [ 0, %61 ]
+  %.1241253 = phi i32 [ %106, %103 ], [ 24, %61 ]
+  %101 = add nuw nsw i32 %.1241253, 16
   %102 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %101, i32 noundef 1) #2
   %.not248 = icmp eq i32 %102, 0
   br i1 %.not248, label %.critedge2, label %103
 
 103:                                              ; preds = %.preheader
   %104 = load i32, ptr @hf_dcc_target, align 4
-  %105 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %104, ptr noundef %0, i32 noundef %.1254, i32 noundef 4, i32 noundef 0) #2
-  %106 = add nuw nsw i32 %.1254, 4
-  %107 = add nuw nsw i32 %.1241253, 1
+  %105 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %104, ptr noundef %0, i32 noundef %.1241253, i32 noundef 4, i32 noundef 0) #2
+  %106 = add nuw nsw i32 %.1241253, 4
+  %107 = add nuw nsw i32 %.1254, 1
   %exitcond.not = icmp eq i32 %107, 15
   br i1 %exitcond.not, label %.critedge2, label %.preheader, !llvm.loop !6
 
 .critedge2:                                       ; preds = %103, %.preheader
-  %.1.lcssa = phi i32 [ 84, %103 ], [ %.1254, %.preheader ]
+  %.1241.lcssa = phi i32 [ 84, %103 ], [ %.1241253, %.preheader ]
   %108 = load i32, ptr @hf_dcc_signature, align 4
-  %109 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %108, ptr noundef %0, i32 noundef %.1.lcssa, i32 noundef 16, i32 noundef 0) #2
+  %109 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %108, ptr noundef %0, i32 noundef %.1241.lcssa, i32 noundef 16, i32 noundef 0) #2
   br label %193
 
 110:                                              ; preds = %61

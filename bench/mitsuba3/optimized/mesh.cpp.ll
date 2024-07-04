@@ -9252,9 +9252,9 @@ _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit: ; preds =
   %354 = fsub contract float 1.000000e+00, %313
   %355 = fmul contract float %354, 5.000000e-01
   %356 = select i1 %30, i1 %219, i1 false
-  %.sroa.01610.4.vec.insert1613 = insertelement <4 x float> %.sroa.01610.0, float %353, i64 1
-  %.sroa.01610.8.vec.insert1615 = insertelement <4 x float> %.sroa.01610.4.vec.insert1613, float %355, i64 2
-  %.sroa.01610.2 = select i1 %356, <4 x float> %.sroa.01610.8.vec.insert1615, <4 x float> %.sroa.01610.0
+  %.sroa.01610.4.vec.insert = insertelement <4 x float> %.sroa.01610.0, float %353, i64 1
+  %.sroa.01610.8.vec.insert = insertelement <4 x float> %.sroa.01610.4.vec.insert, float %355, i64 2
+  %.sroa.01610.2 = select i1 %356, <4 x float> %.sroa.01610.8.vec.insert, <4 x float> %.sroa.01610.0
   %357 = and i32 %217, 8
   %358 = icmp eq i32 %357, 0
   %.not1633 = and i1 %30, %358
@@ -9298,12 +9298,12 @@ _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit: ; preds =
   %392 = fcmp contract olt float %391, 0.000000e+00
   %393 = fadd contract float %391, 1.000000e+00
   %394 = select contract i1 %392, float %393, float %391
-  %.sroa.01610.4.vec.insert = insertelement <4 x float> %.sroa.01610.2, float %394, i64 1
-  %.sroa.01610.8.vec.insert = insertelement <4 x float> %.sroa.01610.4.vec.insert, float %364, i64 2
+  %.sroa.01610.4.vec.insert1613 = insertelement <4 x float> %.sroa.01610.2, float %394, i64 1
+  %.sroa.01610.8.vec.insert1615 = insertelement <4 x float> %.sroa.01610.4.vec.insert1613, float %364, i64 2
   br label %395
 
 395:                                              ; preds = %215, %3, %359
-  %.sroa.01610.4 = phi <4 x float> [ %.sroa.01610.8.vec.insert, %359 ], [ zeroinitializer, %3 ], [ %.sroa.01610.2, %215 ]
+  %.sroa.01610.4 = phi <4 x float> [ %.sroa.01610.8.vec.insert1615, %359 ], [ zeroinitializer, %3 ], [ %.sroa.01610.2, %215 ]
   ret <4 x float> %.sroa.01610.4
 }
 
@@ -12373,8 +12373,8 @@ _ZNSt3__128__exception_guard_exceptionsINS_6vectorINS_4pairIjjEENS_9allocatorIS3
   br i1 %.not129, label %.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %71, %.preheader
-  %.0114 = phi i32 [ %80, %.preheader ], [ %77, %71 ]
-  %78 = zext i32 %.0114 to i64
+  %.0103 = phi i32 [ %80, %.preheader ], [ %77, %71 ]
+  %78 = zext i32 %.0103 to i64
   %79 = getelementptr inbounds %"struct.std::__1::pair.248", ptr %48, i64 %78, i32 1
   %80 = load i32, ptr %79, align 4
   %.not130 = icmp eq i32 %80, -1
@@ -13275,7 +13275,7 @@ define weak_odr void @_ZN7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EE
   br label %166
 
 166:                                              ; preds = %151, %148, %1
-  %.0721 = phi i1 [ %93, %148 ], [ %165, %151 ], [ %93, %1 ]
+  %.0719 = phi i1 [ %93, %148 ], [ %165, %151 ], [ %93, %1 ]
   %167 = load ptr, ptr %18, align 16
   %.sroa.024.sroa.0.0.copyload.i874 = load <3 x i32>, ptr %167, align 1
   %.sroa.024.sroa.0.0.vec.expand.i875 = shufflevector <3 x i32> %.sroa.024.sroa.0.0.copyload.i874, <3 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
@@ -13308,7 +13308,7 @@ define weak_odr void @_ZN7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EE
   %184 = fadd contract <4 x float> %shift1072, %183
   %185 = extractelement <4 x float> %184, i64 0
   %186 = tail call contract noundef float @llvm.sqrt.f32(float %185)
-  %narrow = select i1 %.0721, i1 true, i1 %6
+  %narrow = select i1 %.0719, i1 true, i1 %6
   %spec.select = select i1 %narrow, float %186, float 0.000000e+00
   %187 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znam(i64 noundef 4) #30
   store float %spec.select, ptr %187, align 4
@@ -20684,14 +20684,14 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit:    ; preds = %_ZNSt3__119__alloca
 
 24:                                               ; preds = %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit, %40
   %25 = phi i64 [ 0, %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit ], [ %46, %40 ]
-  %.081114 = phi i32 [ 0, %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit ], [ %45, %40 ]
-  %.082113 = phi double [ 0.000000e+00, %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit ], [ %28, %40 ]
-  %.086112 = phi ptr [ %1, %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit ], [ %41, %40 ]
+  %.0114 = phi i32 [ 0, %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit ], [ %45, %40 ]
+  %.081113 = phi double [ 0.000000e+00, %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit ], [ %28, %40 ]
+  %.085112 = phi ptr [ %1, %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit ], [ %41, %40 ]
   %spec.store.select104111 = phi i32 [ -1, %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit ], [ %spec.store.select103, %40 ]
-  %.081108110 = phi i32 [ -1, %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit ], [ %.081107, %40 ]
-  %26 = load float, ptr %.086112, align 4
+  %.0108110 = phi i32 [ -1, %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit ], [ %.0107, %40 ]
+  %26 = load float, ptr %.085112, align 4
   %27 = fpext float %26 to double
-  %28 = fadd contract double %.082113, %27
+  %28 = fadd contract double %.081113, %27
   %29 = fptrunc double %28 to float
   %30 = getelementptr inbounds float, ptr %19, i64 %25
   store float %29, ptr %30, align 4
@@ -20722,20 +20722,20 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit:    ; preds = %_ZNSt3__119__alloca
   br label %76
 
 40:                                               ; preds = %24
-  %41 = getelementptr inbounds i8, ptr %.086112, i64 4
+  %41 = getelementptr inbounds i8, ptr %.085112, i64 4
   %42 = fcmp contract ogt float %26, 0.000000e+00
   %43 = icmp eq i32 %spec.store.select104111, -1
-  %.081107 = select i1 %42, i32 %.081114, i32 %.081108110
+  %.0107 = select i1 %42, i32 %.0114, i32 %.0108110
   %44 = select i1 %42, i1 %43, i1 false
-  %spec.store.select103 = select i1 %44, i32 %.081114, i32 %spec.store.select104111
-  %45 = add i32 %.081114, 1
+  %spec.store.select103 = select i1 %44, i32 %.0114, i32 %spec.store.select104111
+  %45 = add i32 %.0114, 1
   %46 = zext i32 %45 to i64
   %47 = icmp ult i64 %46, %2
   br i1 %47, label %24, label %.critedge, !llvm.loop !503
 
 .critedge:                                        ; preds = %40
   %.sroa.0.0.insert.ext = zext i32 %spec.store.select103 to i64
-  %.sroa.0.4.insert.ext = zext i32 %.081107 to i64
+  %.sroa.0.4.insert.ext = zext i32 %.0107 to i64
   %.sroa.0.4.insert.shift = shl nuw i64 %.sroa.0.4.insert.ext, 32
   %.sroa.0.4.insert.insert = or disjoint i64 %.sroa.0.4.insert.shift, %.sroa.0.0.insert.ext
   %48 = bitcast i64 %.sroa.0.4.insert.insert to <2 x i32>

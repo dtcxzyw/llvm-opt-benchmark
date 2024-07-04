@@ -966,15 +966,15 @@ _bit_getrange.exit:                               ; preds = %.sink.split.i, %19
   unreachable
 
 .split:                                           ; preds = %_bit_getrange.exit, %_bit_getrange.exit42
-  %.074 = phi i32 [ %34, %_bit_getrange.exit42 ], [ 0, %_bit_getrange.exit ]
-  %.01573 = phi i1 [ %spec.select61, %_bit_getrange.exit42 ], [ false, %_bit_getrange.exit ]
+  %.074 = phi i1 [ %spec.select61, %_bit_getrange.exit42 ], [ false, %_bit_getrange.exit ]
+  %.01573 = phi i32 [ %34, %_bit_getrange.exit42 ], [ 0, %_bit_getrange.exit ]
   %.472 = phi i32 [ %.7, %_bit_getrange.exit42 ], [ %.2, %_bit_getrange.exit ]
   %.55371 = phi i32 [ %.10, %_bit_getrange.exit42 ], [ %.351, %_bit_getrange.exit ]
-  %29 = icmp eq i32 %.074, 0
+  %29 = icmp eq i32 %.01573, 0
   %30 = icmp eq i32 %.55371, 0
   %or.cond = select i1 %29, i1 %30, i1 false
   %spec.select60 = select i1 %or.cond, i32 -1, i32 %.55371
-  %spec.select61 = select i1 %or.cond, i1 true, i1 %.01573
+  %spec.select61 = select i1 %or.cond, i1 true, i1 %.074
   %31 = load i32, ptr getelementptr inbounds (i8, ptr @step_complete, i64 88), align 8
   %32 = add i32 %31, 1
   %33 = add i32 %32, %spec.select60
@@ -1911,7 +1911,7 @@ define dso_local i32 @job_manager(ptr noundef %0) local_unnamed_addr #0 {
   br label %182
 
 182:                                              ; preds = %180, %178
-  %.0101.i = phi i32 [ -1, %180 ], [ 0, %178 ]
+  %.0100.i = phi i32 [ -1, %180 ], [ 0, %178 ]
   %183 = call i32 @waitpid(i32 noundef %169, ptr noundef nonnull %22, i32 noundef 0) #15
   %.not125.i = icmp eq i32 %183, %169
   br i1 %.not125.i, label %184, label %.thread141.i
@@ -1931,7 +1931,7 @@ _need_join_container.exit.i:                      ; preds = %165, %162
   br label %189
 
 189:                                              ; preds = %_need_join_container.exit.i, %184
-  %.1.i = phi i32 [ %.0101.i, %184 ], [ %188, %_need_join_container.exit.i ]
+  %.1.i = phi i32 [ %.0100.i, %184 ], [ %188, %_need_join_container.exit.i ]
   %.not127.i = icmp eq i32 %.1.i, 0
   br i1 %.not127.i, label %.thread.i, label %190
 
@@ -2294,7 +2294,7 @@ _local_jobacctinfo_aggregate.exit.i:              ; preds = %293, %291
   br label %_spawn_job_container.exit
 
 _spawn_job_container.exit:                        ; preds = %88, %97, %105, %114, %123, %362
-  %.0100.i = phi i32 [ -1, %88 ], [ 1011, %97 ], [ -1, %105 ], [ -1, %114 ], [ -1, %123 ], [ %.3.i, %362 ]
+  %.0101.i = phi i32 [ -1, %88 ], [ 1011, %97 ], [ -1, %105 ], [ -1, %114 ], [ -1, %123 ], [ %.3.i, %362 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
@@ -2496,7 +2496,7 @@ thread-pre-split:                                 ; preds = %436
   %447 = getelementptr inbounds i8, ptr %0, i64 200
   %448 = load i32, ptr %447, align 8
   %.not156.i143 = icmp eq i32 %448, -2
-  %.0144.i = select i1 %.not156.i143, i32 0, i32 %448
+  %.0138.i = select i1 %.not156.i143, i32 0, i32 %448
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %15, i8 0, i64 20, i1 false)
   %449 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #15
   %450 = tail call i32 @task_g_pre_setuid(ptr noundef nonnull %0) #15
@@ -2686,8 +2686,8 @@ _setup_normal_io.exit.thread.i:                   ; preds = %479
 
 543:                                              ; preds = %540, %._crit_edge.i.i, %._crit_edge90.i.i
   %544 = phi i8 [ %522, %._crit_edge.i.i ], [ %.pre.i.i, %._crit_edge90.i.i ], [ %541, %540 ]
-  %.052.i.i = phi i32 [ -2, %._crit_edge.i.i ], [ -1, %._crit_edge90.i.i ], [ -2, %540 ]
-  %.051.i.i = phi i32 [ %spec.select70.i.i, %._crit_edge.i.i ], [ -1, %._crit_edge90.i.i ], [ %spec.select71.i.i, %540 ]
+  %.051.i.i = phi i32 [ -2, %._crit_edge.i.i ], [ -1, %._crit_edge90.i.i ], [ -2, %540 ]
+  %.0.i.i = phi i32 [ %spec.select70.i.i, %._crit_edge.i.i ], [ -1, %._crit_edge90.i.i ], [ %spec.select71.i.i, %540 ]
   %545 = trunc i8 %544 to i1
   br i1 %545, label %.loopexit.i.i, label %546
 
@@ -2756,9 +2756,9 @@ _setup_normal_io.exit.thread.i:                   ; preds = %479
   br label %586
 
 .loopexit.i.i:                                    ; preds = %551, %571, %.preheader.i.i, %546, %543, %487
-  %.153.i.i = phi i32 [ %.052.i.i, %543 ], [ -1, %487 ], [ %.052.i.i, %546 ], [ %.052.i.i, %571 ], [ %.052.i.i, %.preheader.i.i ], [ %.052.i.i, %551 ]
-  %.1.i.i = phi i32 [ %.051.i.i, %543 ], [ -1, %487 ], [ %.051.i.i, %546 ], [ -2, %571 ], [ -2, %.preheader.i.i ], [ -2, %551 ]
-  %584 = call i32 @io_initial_client_connect(ptr noundef %490, ptr noundef nonnull %0, i32 noundef %.153.i.i, i32 noundef %.1.i.i) #15
+  %.152.i.i = phi i32 [ %.051.i.i, %543 ], [ -1, %487 ], [ %.051.i.i, %546 ], [ %.051.i.i, %571 ], [ %.051.i.i, %.preheader.i.i ], [ %.051.i.i, %551 ]
+  %.1.i.i = phi i32 [ %.0.i.i, %543 ], [ -1, %487 ], [ %.0.i.i, %546 ], [ -2, %571 ], [ -2, %.preheader.i.i ], [ -2, %551 ]
+  %584 = call i32 @io_initial_client_connect(ptr noundef %490, ptr noundef nonnull %0, i32 noundef %.152.i.i, i32 noundef %.1.i.i) #15
   %585 = icmp sgt i32 %584, -1
   %spec.select73.i.i = select i1 %585, i32 0, i32 4021
   br label %586
@@ -3107,13 +3107,13 @@ _setup_normal_io.exit.i:                          ; preds = %604, %601
   %757 = getelementptr inbounds i8, ptr %0, i64 8
   %758 = getelementptr inbounds i8, ptr %11, i64 4
   %759 = getelementptr inbounds i8, ptr %0, i64 408
-  %760 = zext i32 %.0144.i to i64
+  %760 = zext i32 %.0138.i to i64
   %761 = getelementptr inbounds i8, ptr %0, i64 668
   br label %762
 
 762:                                              ; preds = %926, %.lr.ph.i149
   %indvars.iv.i150 = phi i64 [ 0, %.lr.ph.i149 ], [ %indvars.iv.next.i151, %926 ]
-  %.0138247.i = phi ptr [ %745, %.lr.ph.i149 ], [ %.1139.i, %926 ]
+  %.0140247.i = phi ptr [ %745, %.lr.ph.i149 ], [ %.1141.i, %926 ]
   %763 = trunc nuw nsw i64 %indvars.iv.i150 to i32
   %764 = call i32 @acct_gather_profile_g_task_start(i32 noundef %763) #15
   %765 = call fastcc ptr @_fork_child_with_wait_info(i32 noundef %763)
@@ -3122,7 +3122,7 @@ _setup_normal_io.exit.i:                          ; preds = %604, %601
 
 767:                                              ; preds = %762
   %768 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.104) #15
-  call fastcc void @exec_wait_kill_children(ptr noundef %.0138247.i)
+  call fastcc void @exec_wait_kill_children(ptr noundef %.0140247.i)
   br label %1053
 
 769:                                              ; preds = %762
@@ -3132,11 +3132,11 @@ _setup_normal_io.exit.i:                          ; preds = %604, %601
   br i1 %771, label %772, label %906
 
 772:                                              ; preds = %769
-  %.not171.i = icmp eq ptr %.0138247.i, null
+  %.not171.i = icmp eq ptr %.0140247.i, null
   br i1 %.not171.i, label %774, label %773
 
 773:                                              ; preds = %772
-  call void @list_destroy(ptr noundef nonnull %.0138247.i) #15
+  call void @list_destroy(ptr noundef nonnull %.0140247.i) #15
   br label %774
 
 774:                                              ; preds = %773, %772
@@ -3416,8 +3416,8 @@ _exec_wait_child_wait_for_parent.exit.i:          ; preds = %prepare_stdio.exit.
   br label %906
 
 906:                                              ; preds = %905, %769
-  %.1139.i = phi ptr [ null, %905 ], [ %.0138247.i, %769 ]
-  call void @list_append(ptr noundef %.1139.i, ptr noundef nonnull %765) #15
+  %.1141.i = phi ptr [ null, %905 ], [ %.0140247.i, %769 ]
+  call void @list_append(ptr noundef %.1141.i, ptr noundef nonnull %765) #15
   %907 = call i64 @log_timestamp(ptr noundef nonnull %17, i64 noundef 256) #15
   %908 = call i32 @get_log_level() #15
   %909 = icmp sgt i32 %908, 3
@@ -3456,7 +3456,7 @@ _exec_wait_child_wait_for_parent.exit.i:          ; preds = %prepare_stdio.exit.
   br i1 %929, label %762, label %._crit_edge.i152, !llvm.loop !22
 
 ._crit_edge.i152:                                 ; preds = %926, %751
-  %.0138.lcssa.i = phi ptr [ %745, %751 ], [ %.1139.i, %926 ]
+  %.0140.lcssa.i = phi ptr [ %745, %751 ], [ %.1141.i, %926 ]
   %930 = call i32 @reclaim_privileges(ptr noundef nonnull %11) #15
   %931 = icmp slt i32 %930, 0
   br i1 %931, label %932, label %934
@@ -3539,7 +3539,7 @@ _exec_wait_child_wait_for_parent.exit.i:          ; preds = %prepare_stdio.exit.
   %983 = load ptr, ptr %982, align 8
   %984 = getelementptr inbounds i8, ptr %983, i64 60
   %985 = load i32, ptr %984, align 4
-  %986 = add i32 %985, %.0144.i
+  %986 = add i32 %985, %.0138.i
   store i32 %986, ptr %12, align 8
   store ptr %0, ptr %945, align 8
   %987 = load i32, ptr %752, align 8
@@ -3639,12 +3639,12 @@ _exec_wait_child_wait_for_parent.exit.i:          ; preds = %prepare_stdio.exit.
   br i1 %1036, label %946, label %._crit_edge252.i, !llvm.loop !23
 
 ._crit_edge252.i:                                 ; preds = %1033, %940
-  %1037 = call i32 @list_for_each(ptr noundef %.0138.lcssa.i, ptr noundef nonnull @exec_wait_signal, ptr noundef nonnull %0) #15
-  %.not167.i = icmp eq ptr %.0138.lcssa.i, null
+  %1037 = call i32 @list_for_each(ptr noundef %.0140.lcssa.i, ptr noundef nonnull @exec_wait_signal, ptr noundef nonnull %0) #15
+  %.not167.i = icmp eq ptr %.0140.lcssa.i, null
   br i1 %.not167.i, label %1039, label %1038
 
 1038:                                             ; preds = %._crit_edge252.i
-  call void @list_destroy(ptr noundef nonnull %.0138.lcssa.i) #15
+  call void @list_destroy(ptr noundef nonnull %.0140.lcssa.i) #15
   br label %1039
 
 1039:                                             ; preds = %1038, %._crit_edge252.i
@@ -3676,7 +3676,7 @@ _exec_wait_child_wait_for_parent.exit.i:          ; preds = %prepare_stdio.exit.
   br label %_fork_all_tasks.exit.thread
 
 1053:                                             ; preds = %767, %740
-  %.2140.i = phi ptr [ null, %740 ], [ %.0138247.i, %767 ]
+  %.2142.i = phi ptr [ null, %740 ], [ %.0140247.i, %767 ]
   %1054 = getelementptr inbounds i8, ptr %11, i64 20
   %1055 = call i32 @chdir(ptr noundef nonnull %1054) #15
   %1056 = icmp slt i32 %1055, 0
@@ -3684,12 +3684,12 @@ _exec_wait_child_wait_for_parent.exit.i:          ; preds = %prepare_stdio.exit.
 
 .sink.split.i:                                    ; preds = %1053, %718
   %.str.108.sink.i = phi ptr [ @.str.101, %718 ], [ @.str.108, %1053 ]
-  %.3141.ph.i = phi ptr [ null, %718 ], [ %.2140.i, %1053 ]
+  %.3143.ph.i = phi ptr [ null, %718 ], [ %.2142.i, %1053 ]
   %1057 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.108.sink.i) #15
   br label %1058
 
 1058:                                             ; preds = %.sink.split.i, %1053
-  %.3141.i = phi ptr [ %.2140.i, %1053 ], [ %.3141.ph.i, %.sink.split.i ]
+  %.3143.i = phi ptr [ %.2142.i, %1053 ], [ %.3143.ph.i, %.sink.split.i ]
   %1059 = call i32 @reclaim_privileges(ptr noundef nonnull %11) #15
   %1060 = icmp slt i32 %1059, 0
   br i1 %1060, label %1061, label %1063
@@ -3699,12 +3699,12 @@ _exec_wait_child_wait_for_parent.exit.i:          ; preds = %prepare_stdio.exit.
   br label %1063
 
 1063:                                             ; preds = %1061, %1058, %1030, %1005, %976
-  %.4142.i = phi ptr [ %.3141.i, %1061 ], [ %.3141.i, %1058 ], [ %.0138.lcssa.i, %976 ], [ %.0138.lcssa.i, %1005 ], [ %.0138.lcssa.i, %1030 ]
-  %.not177.i = icmp eq ptr %.4142.i, null
+  %.4144.i = phi ptr [ %.3143.i, %1061 ], [ %.3143.i, %1058 ], [ %.0140.lcssa.i, %976 ], [ %.0140.lcssa.i, %1005 ], [ %.0140.lcssa.i, %1030 ]
+  %.not177.i = icmp eq ptr %.4144.i, null
   br i1 %.not177.i, label %.thread217.i, label %1064
 
 1064:                                             ; preds = %1063
-  call void @list_destroy(ptr noundef nonnull %.4142.i) #15
+  call void @list_destroy(ptr noundef nonnull %.4144.i) #15
   br label %.thread217.i
 
 .thread217.i:                                     ; preds = %.lr.ph255.i, %1064, %1063, %711
@@ -4087,7 +4087,7 @@ _wait_for_io.exit:                                ; preds = %1144
   br label %1214
 
 1214:                                             ; preds = %1195, %1213, %_spawn_job_container.exit
-  %.0 = phi i32 [ %.0100.i, %_spawn_job_container.exit ], [ %.2170, %1213 ], [ %.2170, %1195 ]
+  %.0 = phi i32 [ %.0101.i, %_spawn_job_container.exit ], [ %.2170, %1213 ], [ %.2170, %1195 ]
   ret i32 %.0
 }
 
@@ -4369,9 +4369,9 @@ define dso_local i32 @stepd_send_pending_exit_msgs(ptr nocapture noundef readonl
 12:                                               ; preds = %.lr.ph, %34
   %13 = phi i32 [ %10, %.lr.ph ], [ %35, %34 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %.02231 = phi i1 [ false, %.lr.ph ], [ %.2, %34 ]
-  %.02330 = phi i32 [ 0, %.lr.ph ], [ %.225, %34 ]
-  %.02629 = phi i32 [ 0, %.lr.ph ], [ %.127, %34 ]
+  %.032 = phi i1 [ false, %.lr.ph ], [ %.2, %34 ]
+  %.02231 = phi i32 [ 0, %.lr.ph ], [ %.224, %34 ]
+  %.02530 = phi i32 [ 0, %.lr.ph ], [ %.126, %34 ]
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
@@ -4389,18 +4389,18 @@ define dso_local i32 @stepd_send_pending_exit_msgs(ptr nocapture noundef readonl
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %16, i64 148
   %26 = load i32, ptr %25, align 4
-  br i1 %.02231, label %27, label %28
+  br i1 %.032, label %27, label %28
 
 27:                                               ; preds = %24
-  %.not28 = icmp eq i32 %.02330, %26
+  %.not28 = icmp eq i32 %.02231, %26
   br i1 %.not28, label %28, label %34
 
 28:                                               ; preds = %24, %27
-  %.124 = phi i32 [ %.02330, %27 ], [ %26, %24 ]
+  %.123 = phi i32 [ %.02231, %27 ], [ %26, %24 ]
   %29 = getelementptr inbounds i8, ptr %16, i64 60
   %30 = load i32, ptr %29, align 4
-  %31 = add nsw i32 %.02629, 1
-  %32 = sext i32 %.02629 to i64
+  %31 = add nsw i32 %.02530, 1
+  %32 = sext i32 %.02530 to i64
   %33 = getelementptr inbounds i32, ptr %9, i64 %32
   store i32 %30, ptr %33, align 4
   store i8 1, ptr %21, align 2
@@ -4409,16 +4409,16 @@ define dso_local i32 @stepd_send_pending_exit_msgs(ptr nocapture noundef readonl
 
 34:                                               ; preds = %27, %12, %20, %28
   %35 = phi i32 [ %13, %20 ], [ %13, %27 ], [ %.pre, %28 ], [ %13, %12 ]
-  %.127 = phi i32 [ %.02629, %20 ], [ %.02629, %27 ], [ %31, %28 ], [ %.02629, %12 ]
-  %.225 = phi i32 [ %.02330, %20 ], [ %.02330, %27 ], [ %.124, %28 ], [ %.02330, %12 ]
-  %.2 = phi i1 [ %.02231, %20 ], [ true, %27 ], [ true, %28 ], [ %.02231, %12 ]
+  %.126 = phi i32 [ %.02530, %20 ], [ %.02530, %27 ], [ %31, %28 ], [ %.02530, %12 ]
+  %.224 = phi i32 [ %.02231, %20 ], [ %.02231, %27 ], [ %.123, %28 ], [ %.02231, %12 ]
+  %.2 = phi i1 [ %.032, %20 ], [ true, %27 ], [ true, %28 ], [ %.032, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = zext i32 %35 to i64
   %37 = icmp ult i64 %indvars.iv.next, %36
   br i1 %37, label %12, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %34
-  %.not = icmp eq i32 %.127, 0
+  %.not = icmp eq i32 %.126, 0
   br i1 %.not, label %._crit_edge.thread, label %38
 
 38:                                               ; preds = %._crit_edge
@@ -4427,8 +4427,8 @@ define dso_local i32 @stepd_send_pending_exit_msgs(ptr nocapture noundef readonl
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %38
-  %42 = tail call ptr @slurm_strerror(i32 noundef %.225) #15
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.38, ptr noundef nonnull @__func__.stepd_send_pending_exit_msgs, i32 noundef %.127, i32 noundef %.225, ptr noundef %42) #15
+  %42 = tail call ptr @slurm_strerror(i32 noundef %.224) #15
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.38, ptr noundef nonnull @__func__.stepd_send_pending_exit_msgs, i32 noundef %.126, i32 noundef %.224, ptr noundef %42) #15
   br label %43
 
 43:                                               ; preds = %41, %38
@@ -4443,22 +4443,22 @@ define dso_local i32 @stepd_send_pending_exit_msgs(ptr nocapture noundef readonl
   %48 = load i8, ptr %47, align 2
   %49 = trunc i8 %48 to i1
   %50 = select i1 %49, ptr @.str.147, ptr @.str.148
-  %51 = tail call ptr @slurm_strerror(i32 noundef %.225) #15
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.146, ptr noundef nonnull @__func__._send_exit_msg, i32 noundef %.127, ptr noundef nonnull %50, ptr noundef %51) #15
+  %51 = tail call ptr @slurm_strerror(i32 noundef %.224) #15
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.146, ptr noundef nonnull @__func__._send_exit_msg, i32 noundef %.126, ptr noundef nonnull %50, ptr noundef %51) #15
   br label %52
 
 52:                                               ; preds = %46, %43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   %53 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %9, ptr %53, align 8
-  store i32 %.127, ptr %3, align 8
+  store i32 %.126, ptr %3, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 826
   %55 = load i8, ptr %54, align 2
   %56 = trunc i8 %55 to i1
   br i1 %56, label %.sink.split.i, label %57
 
 57:                                               ; preds = %52
-  %58 = shl i32 %.225, 24
+  %58 = shl i32 %.224, 24
   %59 = and i32 %58, 2130706432
   %sext.i = add nuw i32 %59, 16777216
   %60 = icmp sgt i32 %sext.i, 33554431
@@ -4472,7 +4472,7 @@ define dso_local i32 @stepd_send_pending_exit_msgs(ptr nocapture noundef readonl
   br i1 %.not.i, label %.sink.split.i, label %66
 
 .sink.split.i:                                    ; preds = %61, %57, %52
-  %.sink.i = phi i32 [ 253, %52 ], [ %.225, %61 ], [ %.225, %57 ]
+  %.sink.i = phi i32 [ 253, %52 ], [ %.224, %61 ], [ %.224, %57 ]
   %65 = getelementptr inbounds i8, ptr %3, i64 16
   store i32 %.sink.i, ptr %65, align 8
   br label %66
@@ -4571,9 +4571,9 @@ _send_exit_msg.exit:                              ; preds = %.backedge.i, %_rand
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %1, %_send_exit_msg.exit, %._crit_edge
-  %.026.lcssa38 = phi i32 [ %.127, %_send_exit_msg.exit ], [ 0, %._crit_edge ], [ 0, %1 ]
+  %.025.lcssa38 = phi i32 [ %.126, %_send_exit_msg.exit ], [ 0, %._crit_edge ], [ 0, %1 ]
   call void @slurm_xfree(ptr noundef nonnull %4) #15
-  ret i32 %.026.lcssa38
+  ret i32 %.025.lcssa38
 }
 
 declare void @pam_finish(...) local_unnamed_addr #1

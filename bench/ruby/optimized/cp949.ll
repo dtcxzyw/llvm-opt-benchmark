@@ -114,12 +114,12 @@ define internal ptr @cp949_left_adjust_char_head(ptr noundef readnone %0, ptr no
   br i1 %.not32, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %5, %11
-  %.026 = phi ptr [ %12, %11 ], [ %1, %5 ]
-  %10 = icmp ugt ptr %.026, %0
+  %.0 = phi ptr [ %12, %11 ], [ %1, %5 ]
+  %10 = icmp ugt ptr %.0, %0
   br i1 %10, label %11, label %.loopexit
 
 11:                                               ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %.026, i64 -1
+  %12 = getelementptr inbounds i8, ptr %.0, i64 -1
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i64
   %15 = add nsw i64 %14, -129
@@ -127,7 +127,7 @@ define internal ptr @cp949_left_adjust_char_head(ptr noundef readnone %0, ptr no
   br i1 %16, label %.preheader, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %11, %.preheader, %5
-  %.1 = phi ptr [ %1, %5 ], [ %.026, %.preheader ], [ %.026, %11 ]
+  %.1 = phi ptr [ %1, %5 ], [ %.0, %.preheader ], [ %.0, %11 ]
   %17 = getelementptr inbounds i8, ptr %3, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %3, i64 20
@@ -160,8 +160,8 @@ define internal ptr @cp949_left_adjust_char_head(ptr noundef readnone %0, ptr no
   br label %37
 
 37:                                               ; preds = %26, %4, %31
-  %.0 = phi ptr [ %36, %31 ], [ %1, %4 ], [ %.1, %26 ]
-  ret ptr %.0
+  %.026 = phi ptr [ %36, %31 ], [ %1, %4 ], [ %.1, %26 ]
+  ret ptr %.026
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

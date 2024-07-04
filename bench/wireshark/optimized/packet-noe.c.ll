@@ -874,8 +874,8 @@ decode_key_name.exit.i:                           ; preds = %125, %121, %decode_
   br label %209
 
 209:                                              ; preds = %205, %192
-  %.041.i = phi i32 [ %208, %205 ], [ %203, %192 ]
-  %.0.i = phi i32 [ 7, %205 ], [ 5, %192 ]
+  %.041.i = phi i32 [ 7, %205 ], [ 5, %192 ]
+  %.0.i = phi i32 [ %208, %205 ], [ %203, %192 ]
   switch i8 %22, label %234 [
     i8 6, label %210
     i8 5, label %216
@@ -884,30 +884,30 @@ decode_key_name.exit.i:                           ; preds = %125, %121, %decode_
 
 210:                                              ; preds = %209
   %211 = load i32, ptr @hf_noe_method_index, align 4
-  %212 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %211, ptr noundef %0, i32 noundef %.0.i, i32 noundef 1, i32 noundef 0) #5
-  %213 = add nsw i32 %.041.i, -1
+  %212 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %211, ptr noundef %0, i32 noundef %.041.i, i32 noundef 1, i32 noundef 0) #5
+  %213 = add nsw i32 %.0.i, -1
   %.not.i61 = icmp eq i32 %213, 0
   br i1 %.not.i61, label %decode_evt.exit, label %214
 
 214:                                              ; preds = %210
-  %215 = add nuw nsw i32 %.0.i, 1
+  %215 = add nuw nsw i32 %.041.i, 1
   tail call fastcc void @decode_tlv(ptr noundef %8, ptr noundef %0, i8 noundef zeroext %196, i32 noundef %215, i32 noundef %213)
   br label %decode_evt.exit
 
 216:                                              ; preds = %209
   %217 = load i32, ptr @hf_noe_method_index, align 4
-  %218 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %217, ptr noundef %0, i32 noundef %.0.i, i32 noundef 1, i32 noundef 0) #5
+  %218 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %217, ptr noundef %0, i32 noundef %.041.i, i32 noundef 1, i32 noundef 0) #5
   br label %decode_evt.exit
 
 219:                                              ; preds = %209
   %220 = load i32, ptr @ett_property, align 4
-  %221 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %.0.i, i32 noundef %.041.i, i32 noundef %220, ptr noundef null, ptr noundef nonnull @.str.441) #5
-  %.not19.i.i = icmp eq i32 %.041.i, 0
+  %221 = tail call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %0, i32 noundef %.041.i, i32 noundef %.0.i, i32 noundef %220, ptr noundef null, ptr noundef nonnull @.str.441) #5
+  %.not19.i.i = icmp eq i32 %.0.i, 0
   br i1 %.not19.i.i, label %decode_evt.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %219, %233
-  %.021.i.i = phi i32 [ %.1.i.i, %233 ], [ %.0.i, %219 ]
-  %.01720.i.i = phi i32 [ %.118.i.i, %233 ], [ %.041.i, %219 ]
+  %.021.i.i = phi i32 [ %.1.i.i, %233 ], [ %.041.i, %219 ]
+  %.01720.i.i = phi i32 [ %.118.i.i, %233 ], [ %.0.i, %219 ]
   %222 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.021.i.i) #5
   %223 = load i32, ptr @hf_noe_pcode, align 4
   %224 = tail call ptr @proto_tree_add_item(ptr noundef %221, i32 noundef %223, ptr noundef %0, i32 noundef %.021.i.i, i32 noundef 1, i32 noundef 0) #5
@@ -930,11 +930,11 @@ decode_key_name.exit.i:                           ; preds = %125, %121, %decode_
   br i1 %.not.i.i60, label %decode_evt.exit, label %.lr.ph.i.i, !llvm.loop !6
 
 234:                                              ; preds = %209
-  %.not43.i = icmp eq i32 %.041.i, 0
+  %.not43.i = icmp eq i32 %.0.i, 0
   br i1 %.not43.i, label %decode_evt.exit, label %235
 
 235:                                              ; preds = %234
-  tail call fastcc void @decode_tlv(ptr noundef %8, ptr noundef %0, i8 noundef zeroext %196, i32 noundef %.0.i, i32 noundef %.041.i)
+  tail call fastcc void @decode_tlv(ptr noundef %8, ptr noundef %0, i8 noundef zeroext %196, i32 noundef %.041.i, i32 noundef %.0.i)
   br label %decode_evt.exit
 
 decode_evt.exit:                                  ; preds = %233, %235, %234, %219, %216, %214, %210, %191, %187, %176, %173, %170, %167, %163, %156, %153, %133, %132, %decode_key_name.exit.i, %42
@@ -1002,32 +1002,32 @@ define internal fastcc void @decode_tlv(ptr noundef %0, ptr noundef %1, i8 nound
   br label %12
 
 12:                                               ; preds = %.lr.ph, %65
-  %.06576 = phi i32 [ %3, %.lr.ph ], [ %67, %65 ]
-  %.06675 = phi i32 [ %4, %.lr.ph ], [ %68, %65 ]
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.06576) #5
+  %.06576 = phi i32 [ %4, %.lr.ph ], [ %68, %65 ]
+  %.06675 = phi i32 [ %3, %.lr.ph ], [ %67, %65 ]
+  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.06675) #5
   %14 = load i32, ptr @hf_noe_pcode, align 4
-  %15 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %14, ptr noundef %1, i32 noundef %.06576, i32 noundef 1, i32 noundef 0) #5
-  %16 = add i32 %.06576, 1
-  %17 = add i32 %.06675, -1
+  %15 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %14, ptr noundef %1, i32 noundef %.06675, i32 noundef 1, i32 noundef 0) #5
+  %16 = add i32 %.06675, 1
+  %17 = add i32 %.06576, -1
   %18 = icmp slt i8 %13, 0
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %12
   %20 = load i32, ptr @hf_noe_aindx, align 4
   %21 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %20, ptr noundef %1, i32 noundef %16, i32 noundef 1, i32 noundef 0) #5
-  %22 = add i32 %.06576, 2
-  %23 = add i32 %.06675, -2
+  %22 = add i32 %.06675, 2
+  %23 = add i32 %.06576, -2
   br label %24
 
 24:                                               ; preds = %19, %12
-  %.167 = phi i32 [ %23, %19 ], [ %17, %12 ]
-  %.1 = phi i32 [ %22, %19 ], [ %16, %12 ]
-  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1) #5
+  %.167 = phi i32 [ %22, %19 ], [ %16, %12 ]
+  %.1 = phi i32 [ %23, %19 ], [ %17, %12 ]
+  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.167) #5
   %.not69 = icmp sgt i8 %25, -1
   br i1 %.not69, label %29, label %26
 
 26:                                               ; preds = %24
-  %27 = call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.1) #5
+  %27 = call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.167) #5
   %28 = and i16 %27, 32767
   br label %31
 
@@ -1040,9 +1040,9 @@ define internal fastcc void @decode_tlv(ptr noundef %0, ptr noundef %1, i8 nound
   %.sink = phi i32 [ -1, %29 ], [ -2, %26 ]
   %.0 = phi i16 [ %30, %29 ], [ %28, %26 ]
   %32 = load i32, ptr @hf_noe_psize, align 4
-  %33 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %32, ptr noundef %1, i32 noundef %.1, i32 noundef %.sink79, i32 noundef 0) #5
-  %34 = add i32 %.1, %.sink79
-  %35 = add i32 %.167, %.sink
+  %33 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %32, ptr noundef %1, i32 noundef %.167, i32 noundef %.sink79, i32 noundef 0) #5
+  %34 = add i32 %.167, %.sink79
+  %35 = add i32 %.1, %.sink
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %36 = zext i8 %13 to i32
   %37 = or disjoint i32 %11, %36

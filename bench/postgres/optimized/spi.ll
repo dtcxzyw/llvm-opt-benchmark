@@ -935,14 +935,14 @@ define internal fastcc i32 @_SPI_execute_plan(ptr nocapture noundef readonly %0,
   br label %23
 
 23:                                               ; preds = %21, %22, %5
-  %.0124 = phi i8 [ 1, %21 ], [ 1, %22 ], [ 0, %5 ]
+  %.0122 = phi i8 [ 1, %21 ], [ 1, %22 ], [ 0, %5 ]
   %24 = getelementptr inbounds i8, ptr %0, i64 4
   %25 = load i8, ptr %24, align 4
   %26 = trunc i8 %25 to i1
   %27 = icmp eq ptr %10, null
   %28 = load ptr, ptr @CurrentResourceOwner, align 8
   %spec.select = select i1 %27, ptr %28, ptr %10
-  %.0128 = select i1 %26, ptr %spec.select, ptr null
+  %.0121 = select i1 %26, ptr %spec.select, ptr null
   %29 = getelementptr inbounds i8, ptr %1, i64 10
   %30 = load i8, ptr %29, align 2
   %31 = trunc i8 %30 to i1
@@ -985,10 +985,10 @@ define internal fastcc i32 @_SPI_execute_plan(ptr nocapture noundef readonly %0,
   br i1 %55, label %.lr.ph340, label %.thread
 
 .lr.ph340:                                        ; preds = %.lr.ph220, %293
-  %.1125215339 = phi i8 [ %.2126255, %293 ], [ %.0124, %.lr.ph220 ]
-  %.0118216338 = phi ptr [ %.1119.lcssa, %293 ], [ null, %.lr.ph220 ]
-  %.0114217337 = phi i64 [ %.1115.lcssa, %293 ], [ 0, %.lr.ph220 ]
-  %.0218336 = phi i32 [ %.1.lcssa, %293 ], [ 0, %.lr.ph220 ]
+  %.0131214339 = phi i64 [ %.1132.lcssa, %293 ], [ 0, %.lr.ph220 ]
+  %.0127215338 = phi ptr [ %.1128.lcssa, %293 ], [ null, %.lr.ph220 ]
+  %.1123216337 = phi i8 [ %.2124255, %293 ], [ %.0122, %.lr.ph220 ]
+  %.0113218336 = phi i32 [ %.1.lcssa, %293 ], [ 0, %.lr.ph220 ]
   %indvars.iv246335 = phi i64 [ %indvars.iv.next247, %293 ], [ 0, %.lr.ph220 ]
   %56 = load ptr, ptr %42, align 8
   %57 = getelementptr %union.ListCell, ptr %56, i64 %indvars.iv246335
@@ -1029,13 +1029,13 @@ define internal fastcc i32 @_SPI_execute_plan(ptr nocapture noundef readonly %0,
   br label %82
 
 82:                                               ; preds = %63, %69, %75
-  %.0130 = phi ptr [ %74, %69 ], [ %81, %75 ], [ null, %63 ]
+  %.0116 = phi ptr [ %74, %69 ], [ %81, %75 ], [ null, %63 ]
   %83 = load ptr, ptr %46, align 8
   %84 = load i32, ptr %47, align 8
   %85 = load ptr, ptr %44, align 8
   %86 = load ptr, ptr %45, align 8
   %87 = load i32, ptr %48, align 4
-  call void @CompleteCachedPlan(ptr noundef nonnull %58, ptr noundef %.0130, ptr noundef null, ptr noundef %83, i32 noundef %84, ptr noundef %85, ptr noundef %86, i32 noundef %87, i1 noundef zeroext false) #15
+  call void @CompleteCachedPlan(ptr noundef nonnull %58, ptr noundef %.0116, ptr noundef null, ptr noundef %83, i32 noundef %84, ptr noundef %85, ptr noundef %86, i32 noundef %87, i1 noundef zeroext false) #15
   br label %88
 
 88:                                               ; preds = %82, %.lr.ph340
@@ -1060,11 +1060,11 @@ define internal fastcc i32 @_SPI_execute_plan(ptr nocapture noundef readonly %0,
   br label %100
 
 100:                                              ; preds = %94, %98
-  %.0129 = phi ptr [ %99, %98 ], [ @.str.58, %94 ]
+  %.0115 = phi ptr [ %99, %98 ], [ @.str.58, %94 ]
   %101 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   call void @llvm.assume(i1 %101)
   %102 = call i32 @errcode(i32 noundef 16801924) #15
-  %103 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.65, ptr noundef %.0129) #15
+  %103 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.65, ptr noundef %.0115) #15
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2548, ptr noundef nonnull @__func__._SPI_execute_plan) #15
   unreachable
 
@@ -1073,7 +1073,7 @@ define internal fastcc i32 @_SPI_execute_plan(ptr nocapture noundef readonly %0,
   %106 = load ptr, ptr @_SPI_current, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 64
   %108 = load ptr, ptr %107, align 8
-  %109 = call ptr @GetCachedPlan(ptr noundef nonnull %58, ptr noundef %105, ptr noundef %.0128, ptr noundef %108) #15
+  %109 = call ptr @GetCachedPlan(ptr noundef nonnull %58, ptr noundef %105, ptr noundef %.0121, ptr noundef %108) #15
   %110 = getelementptr inbounds i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8
   %.not.i = icmp eq ptr %111, null
@@ -1109,7 +1109,7 @@ list_length.exit160:                              ; preds = %list_length.exit
   br i1 %125, label %.lr.ph, label %126
 
 126:                                              ; preds = %123
-  %127 = trunc nuw i8 %.1125215339 to i1
+  %127 = trunc nuw i8 %.1123216337 to i1
   br i1 %127, label %128, label %129
 
 128:                                              ; preds = %126
@@ -1125,10 +1125,10 @@ list_length.exit160.thread:                       ; preds = %104
   br i1 %.not.i, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %list_length.exit160, %116, %129, %123, %120, %list_length.exit160.thread
-  %.2126254 = phi i8 [ %.1125215339, %list_length.exit160.thread ], [ %.1125215339, %list_length.exit160 ], [ %.1125215339, %116 ], [ 1, %129 ], [ %.1125215339, %123 ], [ %.1125215339, %120 ]
+  %.2124254 = phi i8 [ %.1123216337, %list_length.exit160.thread ], [ %.1123216337, %list_length.exit160 ], [ %.1123216337, %116 ], [ 1, %129 ], [ %.1123216337, %123 ], [ %.1123216337, %120 ]
   %131 = getelementptr inbounds i8, ptr %111, i64 4
   %132 = getelementptr inbounds i8, ptr %111, i64 16
-  %133 = trunc nuw i8 %.2126254 to i1
+  %133 = trunc nuw i8 %.2124254 to i1
   %.not230 = xor i1 %133, true
   %134 = load i32, ptr %131, align 4
   %135 = icmp sgt i32 %134, 0
@@ -1142,9 +1142,9 @@ list_length.exit160.thread:                       ; preds = %104
   br i1 %139, label %.lr.ph332, label %._crit_edge
 
 .lr.ph332:                                        ; preds = %.lr.ph, %136
-  %.1119205331 = phi ptr [ %.2120, %136 ], [ %.0118216338, %.lr.ph ]
-  %.1115206330 = phi i64 [ %.2116, %136 ], [ %.0114217337, %.lr.ph ]
-  %.1207329 = phi i32 [ %.2, %136 ], [ %.0218336, %.lr.ph ]
+  %.1132204331 = phi i64 [ %.2133, %136 ], [ %.0131214339, %.lr.ph ]
+  %.1128205330 = phi ptr [ %.2129, %136 ], [ %.0127215338, %.lr.ph ]
+  %.1207329 = phi i32 [ %.2, %136 ], [ %.0113218336, %.lr.ph ]
   %indvars.iv328 = phi i64 [ %indvars.iv.next, %136 ], [ 0, %.lr.ph ]
   %140 = load ptr, ptr %132, align 8
   %141 = getelementptr %union.ListCell, ptr %140, i64 %indvars.iv328
@@ -1219,7 +1219,7 @@ list_length.exit160.thread:                       ; preds = %104
   br label %173
 
 173:                                              ; preds = %.sink.split, %170
-  %.0122 = phi ptr [ %171, %170 ], [ %172, %.sink.split ]
+  %.0114 = phi ptr [ %171, %170 ], [ %172, %.sink.split ]
   %174 = load ptr, ptr %147, align 8
   %175 = icmp eq ptr %174, null
   br i1 %175, label %176, label %244
@@ -1233,13 +1233,13 @@ list_length.exit160.thread:                       ; preds = %104
   br label %180
 
 180:                                              ; preds = %176, %178
-  %.0113 = phi ptr [ %179, %178 ], [ null, %176 ]
+  %.0112 = phi ptr [ %179, %178 ], [ null, %176 ]
   %181 = load ptr, ptr %59, align 8
   %182 = load ptr, ptr %1, align 8
   %183 = load ptr, ptr @_SPI_current, align 8
   %184 = getelementptr inbounds i8, ptr %183, i64 64
   %185 = load ptr, ptr %184, align 8
-  %186 = call ptr @CreateQueryDesc(ptr noundef nonnull %142, ptr noundef %181, ptr noundef %.0113, ptr noundef %3, ptr noundef %.0122, ptr noundef %182, ptr noundef %185, i32 noundef 0) #15
+  %186 = call ptr @CreateQueryDesc(ptr noundef nonnull %142, ptr noundef %181, ptr noundef %.0112, ptr noundef %3, ptr noundef %.0114, ptr noundef %182, ptr noundef %185, i32 noundef 0) #15
   br i1 %145, label %187, label %189
 
 187:                                              ; preds = %180
@@ -1365,14 +1365,14 @@ _SPI_pquery.exit:                                 ; preds = %189, %243
   br label %252
 
 252:                                              ; preds = %249, %244
-  %.0112 = phi i32 [ 1, %244 ], [ %spec.select158, %249 ]
+  %.0 = phi i32 [ 1, %244 ], [ %spec.select158, %249 ]
   call void @InitializeQueryCompletion(ptr noundef nonnull %8) #15
   %253 = load ptr, ptr %59, align 8
   %254 = load ptr, ptr %1, align 8
   %255 = load ptr, ptr @_SPI_current, align 8
   %256 = getelementptr inbounds i8, ptr %255, i64 64
   %257 = load ptr, ptr %256, align 8
-  call void @ProcessUtility(ptr noundef nonnull %142, ptr noundef %253, i1 noundef zeroext true, i32 noundef %.0112, ptr noundef %254, ptr noundef %257, ptr noundef %.0122, ptr noundef nonnull %8) #15
+  call void @ProcessUtility(ptr noundef nonnull %142, ptr noundef %253, i1 noundef zeroext true, i32 noundef %.0, ptr noundef %254, ptr noundef %257, ptr noundef %.0114, ptr noundef nonnull %8) #15
   %258 = load ptr, ptr @_SPI_current, align 8
   %259 = getelementptr inbounds i8, ptr %258, i64 8
   %260 = load ptr, ptr %259, align 8
@@ -1411,13 +1411,13 @@ _SPI_pquery.exit:                                 ; preds = %189, %243
   br label %276
 
 276:                                              ; preds = %267, %264, %274, %_SPI_pquery.exit
-  %.0123 = phi i32 [ %.019.i, %_SPI_pquery.exit ], [ 4, %274 ], [ %spec.select157, %267 ], [ 4, %264 ]
+  %.0126 = phi i32 [ %.019.i, %_SPI_pquery.exit ], [ 4, %274 ], [ %spec.select157, %267 ], [ 4, %264 ]
   %277 = load ptr, ptr @_SPI_current, align 8
   br i1 %145, label %278, label %283
 
 278:                                              ; preds = %276
   %279 = load i64, ptr %277, align 8
-  call void @SPI_freetuptable(ptr noundef %.1119205331)
+  call void @SPI_freetuptable(ptr noundef %.1128205330)
   %280 = load ptr, ptr @_SPI_current, align 8
   %281 = getelementptr inbounds i8, ptr %280, i64 8
   %282 = load ptr, ptr %281, align 8
@@ -1433,18 +1433,18 @@ _SPI_pquery.exit:                                 ; preds = %189, %243
   br label %288
 
 288:                                              ; preds = %283, %278
-  %.2120 = phi ptr [ %282, %278 ], [ %.1119205331, %283 ]
-  %.2116 = phi i64 [ %279, %278 ], [ %.1115206330, %283 ]
-  %.2 = phi i32 [ %.0123, %278 ], [ %.1207329, %283 ]
-  %289 = icmp slt i32 %.0123, 0
+  %.2133 = phi i64 [ %279, %278 ], [ %.1132204331, %283 ]
+  %.2129 = phi ptr [ %282, %278 ], [ %.1128205330, %283 ]
+  %.2 = phi i32 [ %.0126, %278 ], [ %.1207329, %283 ]
+  %289 = icmp slt i32 %.0126, 0
   br i1 %289, label %.thread, label %136
 
 ._crit_edge:                                      ; preds = %136, %.lr.ph, %list_length.exit160.thread
-  %.2126255 = phi i8 [ %.1125215339, %list_length.exit160.thread ], [ %.2126254, %.lr.ph ], [ %.2126254, %136 ]
-  %.1119.lcssa = phi ptr [ %.0118216338, %list_length.exit160.thread ], [ %.0118216338, %.lr.ph ], [ %.2120, %136 ]
-  %.1115.lcssa = phi i64 [ %.0114217337, %list_length.exit160.thread ], [ %.0114217337, %.lr.ph ], [ %.2116, %136 ]
-  %.1.lcssa = phi i32 [ %.0218336, %list_length.exit160.thread ], [ %.0218336, %.lr.ph ], [ %.2, %136 ]
-  call void @ReleaseCachedPlan(ptr noundef %109, ptr noundef %.0128) #15
+  %.2124255 = phi i8 [ %.1123216337, %list_length.exit160.thread ], [ %.2124254, %.lr.ph ], [ %.2124254, %136 ]
+  %.1132.lcssa = phi i64 [ %.0131214339, %list_length.exit160.thread ], [ %.0131214339, %.lr.ph ], [ %.2133, %136 ]
+  %.1128.lcssa = phi ptr [ %.0127215338, %list_length.exit160.thread ], [ %.0127215338, %.lr.ph ], [ %.2129, %136 ]
+  %.1.lcssa = phi i32 [ %.0113218336, %list_length.exit160.thread ], [ %.0113218336, %.lr.ph ], [ %.2, %136 ]
+  call void @ReleaseCachedPlan(ptr noundef %109, ptr noundef %.0121) #15
   %290 = load i8, ptr %49, align 8
   %291 = trunc i8 %290 to i1
   br i1 %291, label %293, label %292
@@ -1461,12 +1461,12 @@ _SPI_pquery.exit:                                 ; preds = %189, %243
   br i1 %296, label %.lr.ph340, label %.thread
 
 .thread:                                          ; preds = %293, %288, %149, %151, %.lr.ph220, %40
-  %.1132 = phi ptr [ null, %40 ], [ null, %.lr.ph220 ], [ %109, %151 ], [ %109, %149 ], [ %109, %288 ], [ null, %293 ]
-  %.3127 = phi i8 [ %.0124, %40 ], [ %.0124, %.lr.ph220 ], [ %.2126254, %151 ], [ %.2126254, %149 ], [ %.2126254, %288 ], [ %.2126255, %293 ]
-  %.3121 = phi ptr [ null, %40 ], [ null, %.lr.ph220 ], [ %.2120, %288 ], [ %.1119205331, %149 ], [ %.1119205331, %151 ], [ %.1119.lcssa, %293 ]
-  %.3117 = phi i64 [ 0, %40 ], [ 0, %.lr.ph220 ], [ %.2116, %288 ], [ %.1115206330, %149 ], [ %.1115206330, %151 ], [ %.1115.lcssa, %293 ]
-  %.3 = phi i32 [ 0, %40 ], [ 0, %.lr.ph220 ], [ %.0123, %288 ], [ -8, %149 ], [ -2, %151 ], [ %.1.lcssa, %293 ]
-  %297 = trunc nuw i8 %.3127 to i1
+  %.3134 = phi i64 [ 0, %40 ], [ 0, %.lr.ph220 ], [ %.2133, %288 ], [ %.1132204331, %149 ], [ %.1132204331, %151 ], [ %.1132.lcssa, %293 ]
+  %.3130 = phi ptr [ null, %40 ], [ null, %.lr.ph220 ], [ %.2129, %288 ], [ %.1128205330, %149 ], [ %.1128205330, %151 ], [ %.1128.lcssa, %293 ]
+  %.3125 = phi i8 [ %.0122, %40 ], [ %.0122, %.lr.ph220 ], [ %.2124254, %151 ], [ %.2124254, %149 ], [ %.2124254, %288 ], [ %.2124255, %293 ]
+  %.1120 = phi ptr [ null, %40 ], [ null, %.lr.ph220 ], [ %109, %151 ], [ %109, %149 ], [ %109, %288 ], [ null, %293 ]
+  %.3 = phi i32 [ 0, %40 ], [ 0, %.lr.ph220 ], [ %.0126, %288 ], [ -8, %149 ], [ -2, %151 ], [ %.1.lcssa, %293 ]
+  %297 = trunc nuw i8 %.3125 to i1
   br i1 %297, label %298, label %299
 
 298:                                              ; preds = %.thread
@@ -1474,18 +1474,18 @@ _SPI_pquery.exit:                                 ; preds = %189, %243
   br label %299
 
 299:                                              ; preds = %298, %.thread
-  %.not156 = icmp eq ptr %.1132, null
+  %.not156 = icmp eq ptr %.1120, null
   br i1 %.not156, label %301, label %300
 
 300:                                              ; preds = %299
-  call void @ReleaseCachedPlan(ptr noundef nonnull %.1132, ptr noundef %.0128) #15
+  call void @ReleaseCachedPlan(ptr noundef nonnull %.1120, ptr noundef %.0121) #15
   br label %301
 
 301:                                              ; preds = %300, %299
   %302 = load ptr, ptr %7, align 8
   store ptr %302, ptr @error_context_stack, align 8
-  store i64 %.3117, ptr @SPI_processed, align 8
-  store ptr %.3121, ptr @SPI_tuptable, align 8
+  store i64 %.3134, ptr @SPI_processed, align 8
+  store ptr %.3130, ptr @SPI_tuptable, align 8
   %303 = load ptr, ptr @_SPI_current, align 8
   %304 = getelementptr inbounds i8, ptr %303, i64 8
   store ptr null, ptr %304, align 8
@@ -1697,8 +1697,8 @@ _SPI_begin_call.exit.thread:                      ; preds = %18
   br i1 %exitcond.not.i, label %_SPI_convert_params.exit, label %.split.i, !llvm.loop !9
 
 _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.us.i, %_SPI_begin_call.exit.thread
-  %.0.i21 = phi ptr [ null, %_SPI_begin_call.exit.thread ], [ %31, %.split.us.i ], [ %31, %.split.i ]
-  store ptr %.0.i21, ptr %6, align 8
+  %.018.i = phi ptr [ null, %_SPI_begin_call.exit.thread ], [ %31, %.split.us.i ], [ %31, %.split.i ]
+  store ptr %.018.i, ptr %6, align 8
   %53 = getelementptr inbounds i8, ptr %6, i64 8
   store i8 %7, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %6, i64 16
@@ -1910,8 +1910,8 @@ _SPI_begin_call.exit.thread:                      ; preds = %21
   br i1 %exitcond.not.i, label %_SPI_convert_params.exit, label %.split.i, !llvm.loop !9
 
 _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.us.i, %_SPI_begin_call.exit.thread
-  %.0.i24 = phi ptr [ null, %_SPI_begin_call.exit.thread ], [ %34, %.split.us.i ], [ %34, %.split.i ]
-  store ptr %.0.i24, ptr %9, align 8
+  %.018.i = phi ptr [ null, %_SPI_begin_call.exit.thread ], [ %34, %.split.us.i ], [ %34, %.split.i ]
+  store ptr %.018.i, ptr %9, align 8
   %56 = getelementptr inbounds i8, ptr %9, i64 8
   store i8 %10, ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %9, i64 16
@@ -1959,8 +1959,8 @@ define dso_local i32 @SPI_execute_with_args(ptr noundef %0, i32 noundef %1, ptr 
 
 20:                                               ; preds = %17, %16
   %21 = load ptr, ptr @_SPI_current, align 8
-  %.not33 = icmp eq ptr %21, null
-  br i1 %.not33, label %_SPI_begin_call.exit, label %_SPI_begin_call.exit.thread
+  %.not32 = icmp eq ptr %21, null
+  br i1 %.not32, label %_SPI_begin_call.exit, label %_SPI_begin_call.exit.thread
 
 _SPI_begin_call.exit.thread:                      ; preds = %20
   %22 = tail call i32 @GetCurrentSubTransactionId() #15
@@ -2030,7 +2030,7 @@ _SPI_begin_call.exit.thread:                      ; preds = %20
   br i1 %exitcond.not.i, label %_SPI_convert_params.exit, label %.split.i, !llvm.loop !9
 
 _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.us.i, %_SPI_begin_call.exit.thread
-  %.0.i28 = phi ptr [ null, %_SPI_begin_call.exit.thread ], [ %32, %.split.us.i ], [ %32, %.split.i ]
+  %.018.i = phi ptr [ null, %_SPI_begin_call.exit.thread ], [ %32, %.split.us.i ], [ %32, %.split.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   store ptr %0, ptr %8, align 8
@@ -2045,8 +2045,8 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
   store ptr %9, ptr @error_context_stack, align 8
   %58 = call ptr @raw_parser(ptr noundef %0, i32 noundef 0) #15
   %59 = getelementptr inbounds i8, ptr %58, i64 4
-  %.not.i29 = icmp eq ptr %58, null
-  br i1 %.not.i29, label %_SPI_prepare_oneshot_plan.exit, label %.lr.ph.i
+  %.not.i28 = icmp eq ptr %58, null
+  br i1 %.not.i28, label %_SPI_prepare_oneshot_plan.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_SPI_convert_params.exit
   %60 = getelementptr inbounds i8, ptr %58, i64 16
@@ -2055,20 +2055,20 @@ _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.u
   br i1 %62, label %.lr.ph30.i, label %_SPI_prepare_oneshot_plan.exit
 
 .lr.ph30.i:                                       ; preds = %.lr.ph.i, %.lr.ph30.i
-  %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %.lr.ph30.i ], [ 0, %.lr.ph.i ]
+  %indvars.iv.i29 = phi i64 [ %indvars.iv.next.i30, %.lr.ph30.i ], [ 0, %.lr.ph.i ]
   %.02428.i = phi ptr [ %70, %.lr.ph30.i ], [ null, %.lr.ph.i ]
   %63 = load ptr, ptr %60, align 8
-  %64 = getelementptr %union.ListCell, ptr %63, i64 %indvars.iv.i30
+  %64 = getelementptr %union.ListCell, ptr %63, i64 %indvars.iv.i29
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = call i32 @CreateCommandTag(ptr noundef %67) #15
   %69 = call ptr @CreateOneShotCachedPlan(ptr noundef %65, ptr noundef %0, i32 noundef %68) #15
   %70 = call ptr @lappend(ptr noundef %.02428.i, ptr noundef %69) #15
-  %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
+  %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
   %71 = load i32, ptr %59, align 4
   %72 = sext i32 %71 to i64
-  %73 = icmp slt i64 %indvars.iv.next.i31, %72
+  %73 = icmp slt i64 %indvars.iv.next.i30, %72
   br i1 %73, label %.lr.ph30.i, label %_SPI_prepare_oneshot_plan.exit
 
 _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph30.i, %_SPI_convert_params.exit, %.lr.ph.i
@@ -2083,7 +2083,7 @@ _SPI_prepare_oneshot_plan.exit:                   ; preds = %.lr.ph30.i, %_SPI_c
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %77 = getelementptr inbounds i8, ptr %11, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %77, i8 0, i64 32, i1 false)
-  store ptr %.0.i28, ptr %11, align 8
+  store ptr %.018.i, ptr %11, align 8
   %78 = getelementptr inbounds i8, ptr %11, i64 8
   store i8 %12, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %11, i64 16
@@ -2266,7 +2266,7 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef %0, ptr nocapture nou
   br i1 %20, label %.lr.ph49, label %._crit_edge
 
 .lr.ph49:                                         ; preds = %.lr.ph, %42
-  %.04348 = phi ptr [ %48, %42 ], [ null, %.lr.ph ]
+  %.0354248 = phi ptr [ %48, %42 ], [ null, %.lr.ph ]
   %indvars.iv47 = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr %13, align 8
   %22 = getelementptr %union.ListCell, ptr %21, i64 %indvars.iv47
@@ -2297,14 +2297,14 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef %0, ptr nocapture nou
   br label %42
 
 42:                                               ; preds = %35, %29
-  %.034 = phi ptr [ %34, %29 ], [ %41, %35 ]
+  %.0 = phi ptr [ %34, %29 ], [ %41, %35 ]
   %43 = load ptr, ptr %16, align 8
   %44 = load i32, ptr %17, align 8
   %45 = load ptr, ptr %14, align 8
   %46 = load ptr, ptr %15, align 8
   %47 = load i32, ptr %18, align 4
-  call void @CompleteCachedPlan(ptr noundef %27, ptr noundef %.034, ptr noundef null, ptr noundef %43, i32 noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef %47, i1 noundef zeroext false) #15
-  %48 = call ptr @lappend(ptr noundef %.04348, ptr noundef %27) #15
+  call void @CompleteCachedPlan(ptr noundef %27, ptr noundef %.0, ptr noundef null, ptr noundef %43, i32 noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef %47, i1 noundef zeroext false) #15
+  %48 = call ptr @lappend(ptr noundef %.0354248, ptr noundef %27) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv47, 1
   %49 = load i32, ptr %12, align 4
   %50 = sext i32 %49 to i64
@@ -2312,9 +2312,9 @@ define internal fastcc void @_SPI_prepare_plan(ptr noundef %0, ptr nocapture nou
   br i1 %51, label %.lr.ph49, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %42, %.lr.ph, %2
-  %.0.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph ], [ %48, %42 ]
+  %.035.lcssa = phi ptr [ null, %2 ], [ null, %.lr.ph ], [ %48, %42 ]
   %52 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %.0.lcssa, ptr %52, align 8
+  store ptr %.035.lcssa, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %1, i64 5
   store i8 0, ptr %53, align 1
   %54 = load ptr, ptr %4, align 8
@@ -3007,15 +3007,15 @@ define dso_local ptr @SPI_modifytuple(ptr noundef readonly %0, ptr noundef %1, i
   br label %77
 
 77:                                               ; preds = %76, %._crit_edge.thread
-  %.054 = phi ptr [ %64, %._crit_edge.thread ], [ null, %76 ]
+  %.053 = phi ptr [ %64, %._crit_edge.thread ], [ null, %76 ]
   tail call void @pfree(ptr noundef %29) #15
   tail call void @pfree(ptr noundef %30) #15
   store ptr %23, ptr @CurrentMemoryContext, align 8
   br label %78
 
 78:                                               ; preds = %77, %19, %15
-  %.053 = phi ptr [ null, %15 ], [ null, %19 ], [ %.054, %77 ]
-  ret ptr %.053
+  %.054 = phi ptr [ null, %15 ], [ null, %19 ], [ %.053, %77 ]
+  ret ptr %.054
 }
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #2
@@ -3077,8 +3077,8 @@ define dso_local i32 @SPI_fnumber(ptr noundef %0, ptr noundef %1) local_unnamed_
   br label %27
 
 27:                                               ; preds = %._crit_edge, %23, %15
-  %.0 = phi i32 [ %17, %15 ], [ %26, %23 ], [ -9, %._crit_edge ]
-  ret i32 %.0
+  %.012 = phi i32 [ %17, %15 ], [ %26, %23 ], [ -9, %._crit_edge ]
+  ret i32 %.012
 }
 
 declare i32 @namestrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -3754,11 +3754,11 @@ list_length.exit.thread:                          ; preds = %SPI_is_cursor_plan.
   br label %35
 
 35:                                               ; preds = %27, %33
-  %.059 = phi ptr [ %34, %33 ], [ @.str.58, %27 ]
+  %.058 = phi ptr [ %34, %33 ], [ @.str.58, %27 ]
   %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %36)
   %37 = tail call i32 @errcode(i32 noundef 17170564) #15
-  %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.59, ptr noundef %.059) #15
+  %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.59, ptr noundef %.058) #15
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1610, ptr noundef nonnull @__func__.SPI_cursor_open_internal) #15
   unreachable
 
@@ -3802,8 +3802,8 @@ _SPI_begin_call.exit:                             ; preds = %39
   br label %56
 
 56:                                               ; preds = %54, %52
-  %.060 = phi ptr [ %53, %52 ], [ %55, %54 ]
-  %57 = getelementptr inbounds i8, ptr %.060, i64 16
+  %.059 = phi ptr [ %53, %52 ], [ %55, %54 ]
+  %57 = getelementptr inbounds i8, ptr %.059, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %17, i64 16
   %60 = load ptr, ptr %59, align 8
@@ -3842,33 +3842,33 @@ _SPI_begin_call.exit:                             ; preds = %39
   br label %82
 
 82:                                               ; preds = %78, %56
-  %.063 = phi ptr [ %74, %56 ], [ %81, %78 ]
   %.062 = phi ptr [ %72, %56 ], [ null, %78 ]
+  %.061 = phi ptr [ %74, %56 ], [ %81, %78 ]
   %83 = getelementptr inbounds i8, ptr %17, i64 24
   %84 = load i32, ptr %83, align 8
-  call void @PortalDefineQuery(ptr noundef nonnull %.060, ptr noundef null, ptr noundef %61, i32 noundef %84, ptr noundef %.063, ptr noundef %.062) #15
+  call void @PortalDefineQuery(ptr noundef nonnull %.059, ptr noundef null, ptr noundef %61, i32 noundef %84, ptr noundef %.061, ptr noundef %.062) #15
   %85 = getelementptr inbounds i8, ptr %1, i64 28
   %86 = load i32, ptr %85, align 4
-  %87 = getelementptr inbounds i8, ptr %.060, i64 124
+  %87 = getelementptr inbounds i8, ptr %.059, i64 124
   store i32 %86, ptr %87, align 4
   %88 = and i32 %86, 6
   %.not67 = icmp eq i32 %88, 0
   br i1 %.not67, label %89, label %110
 
 89:                                               ; preds = %82
-  %.not.i82 = icmp eq ptr %.063, null
+  %.not.i82 = icmp eq ptr %.061, null
   br i1 %.not.i82, label %list_length.exit83.thread, label %list_length.exit83
 
 list_length.exit83:                               ; preds = %89
-  %90 = getelementptr inbounds i8, ptr %.063, i64 4
+  %90 = getelementptr inbounds i8, ptr %.061, i64 4
   %91 = load i32, ptr %90, align 4
   %92 = icmp eq i32 %91, 1
   br i1 %92, label %93, label %list_length.exit83.thread
 
 93:                                               ; preds = %list_length.exit83
-  %94 = getelementptr i8, ptr %.063, i64 16
-  %.063.val = load ptr, ptr %94, align 8
-  %95 = load ptr, ptr %.063.val, align 8
+  %94 = getelementptr i8, ptr %.061, i64 16
+  %.061.val = load ptr, ptr %94, align 8
+  %95 = load ptr, ptr %.061.val, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 4
   %97 = load i32, ptr %96, align 4
   %.not68 = icmp eq i32 %97, 6
@@ -3905,20 +3905,20 @@ list_length.exit83.thread:                        ; preds = %89, %102, %98, %93,
   %111 = phi i32 [ %86, %82 ], [ %.sink, %.sink.split ]
   %112 = and i32 %111, 2
   %.not69 = icmp eq i32 %112, 0
-  %.not.i84 = icmp eq ptr %.063, null
+  %.not.i84 = icmp eq ptr %.061, null
   %or.cond = or i1 %.not.i84, %.not69
   br i1 %or.cond, label %list_length.exit85.thread, label %list_length.exit85
 
 list_length.exit85:                               ; preds = %110
-  %113 = getelementptr inbounds i8, ptr %.063, i64 4
+  %113 = getelementptr inbounds i8, ptr %.061, i64 4
   %114 = load i32, ptr %113, align 4
   %115 = icmp eq i32 %114, 1
   br i1 %115, label %116, label %list_length.exit85.thread
 
 116:                                              ; preds = %list_length.exit85
-  %117 = getelementptr i8, ptr %.063, i64 16
-  %.063.val78 = load ptr, ptr %117, align 8
-  %118 = load ptr, ptr %.063.val78, align 8
+  %117 = getelementptr i8, ptr %.061, i64 16
+  %.061.val78 = load ptr, ptr %117, align 8
+  %118 = load ptr, ptr %.061.val78, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 4
   %120 = load i32, ptr %119, align 4
   %.not70 = icmp eq i32 %120, 6
@@ -3943,7 +3943,7 @@ list_length.exit85.thread:                        ; preds = %list_length.exit85,
   %129 = load ptr, ptr @_SPI_current, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 64
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %.060, i64 112
+  %132 = getelementptr inbounds i8, ptr %.059, i64 112
   store ptr %131, ptr %132, align 8
   br i1 %3, label %.preheader, label %.critedge
 
@@ -3951,8 +3951,8 @@ list_length.exit85.thread:                        ; preds = %list_length.exit85,
   br i1 %.not.i84, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %133 = getelementptr inbounds i8, ptr %.063, i64 4
-  %134 = getelementptr inbounds i8, ptr %.063, i64 16
+  %133 = getelementptr inbounds i8, ptr %.061, i64 4
+  %134 = getelementptr inbounds i8, ptr %.061, i64 16
   %135 = load i32, ptr %133, align 4
   %136 = icmp sgt i32 %135, 0
   br i1 %136, label %.lr.ph95, label %._crit_edge
@@ -3991,7 +3991,7 @@ list_length.exit85.thread:                        ; preds = %list_length.exit85,
   br label %151
 
 151:                                              ; preds = %.critedge, %._crit_edge
-  %.061 = phi ptr [ %149, %._crit_edge ], [ %150, %.critedge ]
+  %.060 = phi ptr [ %149, %._crit_edge ], [ %150, %.critedge ]
   %.not74 = icmp eq ptr %2, null
   br i1 %.not74, label %156, label %152
 
@@ -4004,8 +4004,8 @@ list_length.exit85.thread:                        ; preds = %list_length.exit85,
   br label %156
 
 156:                                              ; preds = %152, %151
-  %.0 = phi ptr [ %155, %152 ], [ null, %151 ]
-  call void @PortalStart(ptr noundef %.060, ptr noundef %.0, i32 noundef 0, ptr noundef %.061) #15
+  %.063 = phi ptr [ %155, %152 ], [ null, %151 ]
+  call void @PortalStart(ptr noundef %.059, ptr noundef %.063, i32 noundef 0, ptr noundef %.060) #15
   %157 = load ptr, ptr %6, align 8
   store ptr %157, ptr @error_context_stack, align 8
   %158 = load ptr, ptr @_SPI_current, align 8
@@ -4017,7 +4017,7 @@ list_length.exit85.thread:                        ; preds = %list_length.exit85,
   %162 = getelementptr inbounds i8, ptr %158, i64 40
   %163 = load ptr, ptr %162, align 8
   call void @MemoryContextReset(ptr noundef %163) #15
-  ret ptr %.060
+  ret ptr %.059
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4054,8 +4054,8 @@ define dso_local ptr @SPI_cursor_open_with_args(ptr noundef %0, ptr noundef %1, 
 
 22:                                               ; preds = %16, %15
   %23 = load ptr, ptr @_SPI_current, align 8
-  %.not22 = icmp eq ptr %23, null
-  br i1 %.not22, label %_SPI_begin_call.exit, label %_SPI_begin_call.exit.thread
+  %.not21 = icmp eq ptr %23, null
+  br i1 %.not21, label %_SPI_begin_call.exit, label %_SPI_begin_call.exit.thread
 
 _SPI_begin_call.exit.thread:                      ; preds = %22
   %24 = tail call i32 @GetCurrentSubTransactionId() #15
@@ -4134,9 +4134,9 @@ _SPI_begin_call.exit:                             ; preds = %22
   br i1 %exitcond.not.i, label %_SPI_convert_params.exit, label %.split.i, !llvm.loop !9
 
 _SPI_convert_params.exit:                         ; preds = %.split.i, %.split.us.i, %_SPI_begin_call.exit.thread
-  %.0.i20 = phi ptr [ null, %_SPI_begin_call.exit.thread ], [ %36, %.split.us.i ], [ %36, %.split.i ]
+  %.018.i = phi ptr [ null, %_SPI_begin_call.exit.thread ], [ %36, %.split.us.i ], [ %36, %.split.i ]
   call fastcc void @_SPI_prepare_plan(ptr noundef %1, ptr noundef nonnull %9)
-  %58 = call fastcc ptr @SPI_cursor_open_internal(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %.0.i20, i1 noundef zeroext %6)
+  %58 = call fastcc ptr @SPI_cursor_open_internal(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %.018.i, i1 noundef zeroext %6)
   %59 = load ptr, ptr @_SPI_current, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 32
   %61 = load ptr, ptr %60, align 8

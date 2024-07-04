@@ -50,9 +50,9 @@ define i64 @f32_to_i64(i32 %0, i8 noundef zeroext %1, i1 noundef zeroext %2) loc
   br label %softfloat_shiftRightJam64Extra.exit
 
 softfloat_shiftRightJam64Extra.exit:              ; preds = %26, %22, %16
-  %.027 = phi i64 [ 0, %16 ], [ %25, %22 ], [ %30, %26 ]
-  %.026 = phi i64 [ %19, %16 ], [ %23, %22 ], [ 0, %26 ]
-  %31 = tail call i64 @softfloat_roundToI64(i1 noundef zeroext %5, i64 noundef %.026, i64 noundef %.027, i8 noundef zeroext %1, i1 noundef zeroext %2) #2
+  %.027 = phi i64 [ %19, %16 ], [ %23, %22 ], [ 0, %26 ]
+  %.026 = phi i64 [ 0, %16 ], [ %25, %22 ], [ %30, %26 ]
+  %31 = tail call i64 @softfloat_roundToI64(i1 noundef zeroext %5, i64 noundef %.027, i64 noundef %.026, i8 noundef zeroext %1, i1 noundef zeroext %2) #2
   br label %32
 
 32:                                               ; preds = %softfloat_shiftRightJam64Extra.exit, %11

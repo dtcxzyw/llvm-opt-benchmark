@@ -63,9 +63,9 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
 
 .lr.ph75.split.us.split.us:                       ; preds = %.lr.ph75.split.us, %._crit_edge.split.us.split.us.us.us
   %indvars.iv175 = phi i64 [ %indvars.iv.next176, %._crit_edge.split.us.split.us.us.us ], [ 0, %.lr.ph75.split.us ]
-  %.05372.us.us = phi i32 [ %.1.lcssa.us.us, %._crit_edge.split.us.split.us.us.us ], [ 0, %.lr.ph75.split.us ]
+  %.05173.us.us = phi i32 [ %.1.lcssa.us.us, %._crit_edge.split.us.split.us.us.us ], [ 0, %.lr.ph75.split.us ]
   %38 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv175
-  store i32 %.05372.us.us, ptr %38, align 4
+  store i32 %.05173.us.us, ptr %38, align 4
   %39 = trunc nuw nsw i64 %indvars.iv175 to i32
   br i1 %.not61, label %43, label %40
 
@@ -85,16 +85,16 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
   br i1 %50, label %.lr.ph.us.us.preheader, label %._crit_edge.split.us.split.us.us.us
 
 .lr.ph.us.us.preheader:                           ; preds = %43
-  %51 = sext i32 %47 to i64
-  %52 = sext i32 %.05372.us.us to i64
+  %51 = sext i32 %.05173.us.us to i64
+  %52 = sext i32 %47 to i64
   br label %.lr.ph.us.us
 
 ._crit_edge.split.us.split.us.us.us.loopexit:     ; preds = %.lr.ph.us.us
-  %53 = trunc nsw i64 %indvars.iv.next171 to i32
+  %53 = trunc nsw i64 %indvars.iv.next169 to i32
   br label %._crit_edge.split.us.split.us.us.us
 
 ._crit_edge.split.us.split.us.us.us:              ; preds = %._crit_edge.split.us.split.us.us.us.loopexit, %43
-  %.1.lcssa.us.us = phi i32 [ %.05372.us.us, %43 ], [ %53, %._crit_edge.split.us.split.us.us.us.loopexit ]
+  %.1.lcssa.us.us = phi i32 [ %.05173.us.us, %43 ], [ %53, %._crit_edge.split.us.split.us.us.us.loopexit ]
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count178
   br i1 %exitcond179.not, label %._crit_edge76, label %.lr.ph75.split.us.split.us, !llvm.loop !4
@@ -102,15 +102,15 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
 .lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %.lr.ph.us.us
   %indvars.iv170 = phi i64 [ %52, %.lr.ph.us.us.preheader ], [ %indvars.iv.next171, %.lr.ph.us.us ]
   %indvars.iv168 = phi i64 [ %51, %.lr.ph.us.us.preheader ], [ %indvars.iv.next169, %.lr.ph.us.us ]
-  %54 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv168
+  %54 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv170
   %55 = load i32, ptr %54, align 4
-  %indvars.iv.next171 = add nsw i64 %indvars.iv170, 1
-  %56 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv170
-  store i32 %55, ptr %56, align 4
   %indvars.iv.next169 = add nsw i64 %indvars.iv168, 1
+  %56 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv168
+  store i32 %55, ptr %56, align 4
+  %indvars.iv.next171 = add nsw i64 %indvars.iv170, 1
   %57 = load i32, ptr %48, align 4
   %58 = sext i32 %57 to i64
-  %59 = icmp slt i64 %indvars.iv.next169, %58
+  %59 = icmp slt i64 %indvars.iv.next171, %58
   br i1 %59, label %.lr.ph.us.us, label %._crit_edge.split.us.split.us.us.us.loopexit, !llvm.loop !6
 
 .lr.ph75.split.us.split:                          ; preds = %.lr.ph75.split.us
@@ -118,9 +118,9 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
 
 .lr.ph75.split.us.split.split.us:                 ; preds = %.lr.ph75.split.us.split, %._crit_edge.split.us.split.us80.us
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %._crit_edge.split.us.split.us80.us ], [ 0, %.lr.ph75.split.us.split ]
-  %.05372.us.us97 = phi i32 [ %.1.lcssa.us.us98, %._crit_edge.split.us.split.us80.us ], [ 0, %.lr.ph75.split.us.split ]
+  %.05173.us.us96 = phi i32 [ %.1.lcssa.us.us98, %._crit_edge.split.us.split.us80.us ], [ 0, %.lr.ph75.split.us.split ]
   %60 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv163
-  store i32 %.05372.us.us97, ptr %60, align 4
+  store i32 %.05173.us.us96, ptr %60, align 4
   %61 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv163
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr i8, ptr %61, i64 4
@@ -129,16 +129,16 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
   br i1 %65, label %.lr.ph.us.us99.preheader, label %._crit_edge.split.us.split.us80.us
 
 .lr.ph.us.us99.preheader:                         ; preds = %.lr.ph75.split.us.split.split.us
-  %66 = sext i32 %62 to i64
-  %67 = sext i32 %.05372.us.us97 to i64
+  %66 = sext i32 %.05173.us.us96 to i64
+  %67 = sext i32 %62 to i64
   br label %.lr.ph.us.us99
 
 ._crit_edge.split.us.split.us80.us.loopexit:      ; preds = %.lr.ph.us.us99
-  %68 = trunc nsw i64 %indvars.iv.next159 to i32
+  %68 = trunc nsw i64 %indvars.iv.next157 to i32
   br label %._crit_edge.split.us.split.us80.us
 
 ._crit_edge.split.us.split.us80.us:               ; preds = %._crit_edge.split.us.split.us80.us.loopexit, %.lr.ph75.split.us.split.split.us
-  %.1.lcssa.us.us98 = phi i32 [ %.05372.us.us97, %.lr.ph75.split.us.split.split.us ], [ %68, %._crit_edge.split.us.split.us80.us.loopexit ]
+  %.1.lcssa.us.us98 = phi i32 [ %.05173.us.us96, %.lr.ph75.split.us.split.split.us ], [ %68, %._crit_edge.split.us.split.us80.us.loopexit ]
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count178
   br i1 %exitcond167.not, label %._crit_edge76, label %.lr.ph75.split.us.split.split.us, !llvm.loop !4
@@ -146,25 +146,25 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
 .lr.ph.us.us99:                                   ; preds = %.lr.ph.us.us99.preheader, %.lr.ph.us.us99
   %indvars.iv158 = phi i64 [ %67, %.lr.ph.us.us99.preheader ], [ %indvars.iv.next159, %.lr.ph.us.us99 ]
   %indvars.iv156 = phi i64 [ %66, %.lr.ph.us.us99.preheader ], [ %indvars.iv.next157, %.lr.ph.us.us99 ]
-  %69 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv156
+  %69 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv158
   %70 = load i32, ptr %69, align 4
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds i32, ptr %1, i64 %71
   %73 = load i32, ptr %72, align 4
-  %indvars.iv.next159 = add nsw i64 %indvars.iv158, 1
-  %74 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv158
-  store i32 %73, ptr %74, align 4
   %indvars.iv.next157 = add nsw i64 %indvars.iv156, 1
+  %74 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv156
+  store i32 %73, ptr %74, align 4
+  %indvars.iv.next159 = add nsw i64 %indvars.iv158, 1
   %75 = load i32, ptr %63, align 4
   %76 = sext i32 %75 to i64
-  %77 = icmp slt i64 %indvars.iv.next157, %76
+  %77 = icmp slt i64 %indvars.iv.next159, %76
   br i1 %77, label %.lr.ph.us.us99, label %._crit_edge.split.us.split.us80.us.loopexit, !llvm.loop !6
 
 .lr.ph75.split.us.split.split:                    ; preds = %.lr.ph75.split.us.split, %._crit_edge.split.us.split.us80
   %indvars.iv151 = phi i64 [ %indvars.iv.next152, %._crit_edge.split.us.split.us80 ], [ 0, %.lr.ph75.split.us.split ]
-  %.05372.us = phi i32 [ %.1.lcssa.us, %._crit_edge.split.us.split.us80 ], [ 0, %.lr.ph75.split.us.split ]
+  %.05173.us = phi i32 [ %.1.lcssa.us, %._crit_edge.split.us.split.us80 ], [ 0, %.lr.ph75.split.us.split ]
   %78 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv151
-  store i32 %.05372.us, ptr %78, align 4
+  store i32 %.05173.us, ptr %78, align 4
   %79 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv151
   %80 = load i32, ptr %79, align 4
   %81 = sext i32 %80 to i64
@@ -176,16 +176,16 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
   br i1 %86, label %.lr.ph.us.preheader, label %._crit_edge.split.us.split.us80
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph75.split.us.split.split
-  %87 = sext i32 %83 to i64
-  %88 = sext i32 %.05372.us to i64
+  %87 = sext i32 %.05173.us to i64
+  %88 = sext i32 %83 to i64
   br label %.lr.ph.us
 
 ._crit_edge.split.us.split.us80.loopexit:         ; preds = %.lr.ph.us
-  %89 = trunc nsw i64 %indvars.iv.next147 to i32
+  %89 = trunc nsw i64 %indvars.iv.next145 to i32
   br label %._crit_edge.split.us.split.us80
 
 ._crit_edge.split.us.split.us80:                  ; preds = %._crit_edge.split.us.split.us80.loopexit, %.lr.ph75.split.us.split.split
-  %.1.lcssa.us = phi i32 [ %.05372.us, %.lr.ph75.split.us.split.split ], [ %89, %._crit_edge.split.us.split.us80.loopexit ]
+  %.1.lcssa.us = phi i32 [ %.05173.us, %.lr.ph75.split.us.split.split ], [ %89, %._crit_edge.split.us.split.us80.loopexit ]
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count178
   br i1 %exitcond155.not, label %._crit_edge76, label %.lr.ph75.split.us.split.split, !llvm.loop !4
@@ -193,18 +193,18 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %indvars.iv146 = phi i64 [ %88, %.lr.ph.us.preheader ], [ %indvars.iv.next147, %.lr.ph.us ]
   %indvars.iv144 = phi i64 [ %87, %.lr.ph.us.preheader ], [ %indvars.iv.next145, %.lr.ph.us ]
-  %90 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv144
+  %90 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv146
   %91 = load i32, ptr %90, align 4
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds i32, ptr %1, i64 %92
   %94 = load i32, ptr %93, align 4
-  %indvars.iv.next147 = add nsw i64 %indvars.iv146, 1
-  %95 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv146
-  store i32 %94, ptr %95, align 4
   %indvars.iv.next145 = add nsw i64 %indvars.iv144, 1
+  %95 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv144
+  store i32 %94, ptr %95, align 4
+  %indvars.iv.next147 = add nsw i64 %indvars.iv146, 1
   %96 = load i32, ptr %84, align 4
   %97 = sext i32 %96 to i64
-  %98 = icmp slt i64 %indvars.iv.next145, %97
+  %98 = icmp slt i64 %indvars.iv.next147, %97
   br i1 %98, label %.lr.ph.us, label %._crit_edge.split.us.split.us80.loopexit, !llvm.loop !6
 
 .lr.ph75.split:                                   ; preds = %.lr.ph75
@@ -212,9 +212,9 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
 
 .lr.ph75.split.split.us:                          ; preds = %.lr.ph75.split, %._crit_edge.split.split.us.us
   %indvars.iv139 = phi i64 [ %indvars.iv.next140, %._crit_edge.split.split.us.us ], [ 0, %.lr.ph75.split ]
-  %.05372.us85 = phi i32 [ %.1.lcssa.us86, %._crit_edge.split.split.us.us ], [ 0, %.lr.ph75.split ]
+  %.05173.us84 = phi i32 [ %.1.lcssa.us86, %._crit_edge.split.split.us.us ], [ 0, %.lr.ph75.split ]
   %99 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv139
-  store i32 %.05372.us85, ptr %99, align 4
+  store i32 %.05173.us84, ptr %99, align 4
   %100 = trunc nuw nsw i64 %indvars.iv139 to i32
   br i1 %.not61, label %104, label %101
 
@@ -234,16 +234,16 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
   br i1 %111, label %.lr.ph.us87.preheader, label %._crit_edge.split.split.us.us
 
 .lr.ph.us87.preheader:                            ; preds = %104
-  %112 = sext i32 %108 to i64
-  %113 = sext i32 %.05372.us85 to i64
+  %112 = sext i32 %.05173.us84 to i64
+  %113 = sext i32 %108 to i64
   br label %.lr.ph.us87
 
 ._crit_edge.split.split.us.us.loopexit:           ; preds = %.lr.ph.us87
-  %114 = trunc nsw i64 %indvars.iv.next135 to i32
+  %114 = trunc nsw i64 %indvars.iv.next133 to i32
   br label %._crit_edge.split.split.us.us
 
 ._crit_edge.split.split.us.us:                    ; preds = %._crit_edge.split.split.us.us.loopexit, %104
-  %.1.lcssa.us86 = phi i32 [ %.05372.us85, %104 ], [ %114, %._crit_edge.split.split.us.us.loopexit ]
+  %.1.lcssa.us86 = phi i32 [ %.05173.us84, %104 ], [ %114, %._crit_edge.split.split.us.us.loopexit ]
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count178
   br i1 %exitcond143.not, label %._crit_edge76, label %.lr.ph75.split.split.us, !llvm.loop !4
@@ -251,19 +251,19 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
 .lr.ph.us87:                                      ; preds = %.lr.ph.us87.preheader, %.lr.ph.us87
   %indvars.iv134 = phi i64 [ %113, %.lr.ph.us87.preheader ], [ %indvars.iv.next135, %.lr.ph.us87 ]
   %indvars.iv132 = phi i64 [ %112, %.lr.ph.us87.preheader ], [ %indvars.iv.next133, %.lr.ph.us87 ]
-  %115 = getelementptr inbounds double, ptr %19, i64 %indvars.iv132
+  %115 = getelementptr inbounds double, ptr %19, i64 %indvars.iv134
   %116 = load double, ptr %115, align 8
-  %117 = getelementptr inbounds double, ptr %.fr, i64 %indvars.iv134
+  %117 = getelementptr inbounds double, ptr %.fr, i64 %indvars.iv132
   store double %116, ptr %117, align 8
-  %118 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv132
+  %118 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv134
   %119 = load i32, ptr %118, align 4
-  %indvars.iv.next135 = add nsw i64 %indvars.iv134, 1
-  %120 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv134
-  store i32 %119, ptr %120, align 4
   %indvars.iv.next133 = add nsw i64 %indvars.iv132, 1
+  %120 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv132
+  store i32 %119, ptr %120, align 4
+  %indvars.iv.next135 = add nsw i64 %indvars.iv134, 1
   %121 = load i32, ptr %109, align 4
   %122 = sext i32 %121 to i64
-  %123 = icmp slt i64 %indvars.iv.next133, %122
+  %123 = icmp slt i64 %indvars.iv.next135, %122
   br i1 %123, label %.lr.ph.us87, label %._crit_edge.split.split.us.us.loopexit, !llvm.loop !6
 
 .lr.ph75.split.split:                             ; preds = %.lr.ph75.split
@@ -271,9 +271,9 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
 
 .lr.ph75.split.split.split.us:                    ; preds = %.lr.ph75.split.split, %._crit_edge.split.split.us
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %._crit_edge.split.split.us ], [ 0, %.lr.ph75.split.split ]
-  %.05372.us90 = phi i32 [ %.1.lcssa.us91, %._crit_edge.split.split.us ], [ 0, %.lr.ph75.split.split ]
+  %.05173.us89 = phi i32 [ %.1.lcssa.us91, %._crit_edge.split.split.us ], [ 0, %.lr.ph75.split.split ]
   %124 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv127
-  store i32 %.05372.us90, ptr %124, align 4
+  store i32 %.05173.us89, ptr %124, align 4
   %125 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv127
   %126 = load i32, ptr %125, align 4
   %127 = getelementptr i8, ptr %125, i64 4
@@ -282,16 +282,16 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
   br i1 %129, label %.lr.ph.us92.preheader, label %._crit_edge.split.split.us
 
 .lr.ph.us92.preheader:                            ; preds = %.lr.ph75.split.split.split.us
-  %130 = sext i32 %126 to i64
-  %131 = sext i32 %.05372.us90 to i64
+  %130 = sext i32 %.05173.us89 to i64
+  %131 = sext i32 %126 to i64
   br label %.lr.ph.us92
 
 ._crit_edge.split.split.us.loopexit:              ; preds = %.lr.ph.us92
-  %132 = trunc nsw i64 %indvars.iv.next123 to i32
+  %132 = trunc nsw i64 %indvars.iv.next121 to i32
   br label %._crit_edge.split.split.us
 
 ._crit_edge.split.split.us:                       ; preds = %._crit_edge.split.split.us.loopexit, %.lr.ph75.split.split.split.us
-  %.1.lcssa.us91 = phi i32 [ %.05372.us90, %.lr.ph75.split.split.split.us ], [ %132, %._crit_edge.split.split.us.loopexit ]
+  %.1.lcssa.us91 = phi i32 [ %.05173.us89, %.lr.ph75.split.split.split.us ], [ %132, %._crit_edge.split.split.us.loopexit ]
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count178
   br i1 %exitcond131.not, label %._crit_edge76, label %.lr.ph75.split.split.split.us, !llvm.loop !4
@@ -299,29 +299,29 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
 .lr.ph.us92:                                      ; preds = %.lr.ph.us92.preheader, %.lr.ph.us92
   %indvars.iv122 = phi i64 [ %131, %.lr.ph.us92.preheader ], [ %indvars.iv.next123, %.lr.ph.us92 ]
   %indvars.iv120 = phi i64 [ %130, %.lr.ph.us92.preheader ], [ %indvars.iv.next121, %.lr.ph.us92 ]
-  %133 = getelementptr inbounds double, ptr %19, i64 %indvars.iv120
+  %133 = getelementptr inbounds double, ptr %19, i64 %indvars.iv122
   %134 = load double, ptr %133, align 8
-  %135 = getelementptr inbounds double, ptr %.fr, i64 %indvars.iv122
+  %135 = getelementptr inbounds double, ptr %.fr, i64 %indvars.iv120
   store double %134, ptr %135, align 8
-  %136 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv120
+  %136 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv122
   %137 = load i32, ptr %136, align 4
   %138 = sext i32 %137 to i64
   %139 = getelementptr inbounds i32, ptr %1, i64 %138
   %140 = load i32, ptr %139, align 4
-  %indvars.iv.next123 = add nsw i64 %indvars.iv122, 1
-  %141 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv122
-  store i32 %140, ptr %141, align 4
   %indvars.iv.next121 = add nsw i64 %indvars.iv120, 1
+  %141 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv120
+  store i32 %140, ptr %141, align 4
+  %indvars.iv.next123 = add nsw i64 %indvars.iv122, 1
   %142 = load i32, ptr %127, align 4
   %143 = sext i32 %142 to i64
-  %144 = icmp slt i64 %indvars.iv.next121, %143
+  %144 = icmp slt i64 %indvars.iv.next123, %143
   br i1 %144, label %.lr.ph.us92, label %._crit_edge.split.split.us.loopexit, !llvm.loop !6
 
 .lr.ph75.split.split.split:                       ; preds = %.lr.ph75.split.split, %._crit_edge.split.split
   %indvars.iv117 = phi i64 [ %indvars.iv.next118, %._crit_edge.split.split ], [ 0, %.lr.ph75.split.split ]
-  %.05372 = phi i32 [ %.1.lcssa, %._crit_edge.split.split ], [ 0, %.lr.ph75.split.split ]
+  %.05173 = phi i32 [ %.1.lcssa, %._crit_edge.split.split ], [ 0, %.lr.ph75.split.split ]
   %145 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv117
-  store i32 %.05372, ptr %145, align 4
+  store i32 %.05173, ptr %145, align 4
   %146 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv117
   %147 = load i32, ptr %146, align 4
   %148 = sext i32 %147 to i64
@@ -333,45 +333,45 @@ define ptr @cs_permute(ptr noundef readonly %0, ptr noundef readonly %1, ptr nou
   br i1 %153, label %.lr.ph.preheader, label %._crit_edge.split.split
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph75.split.split.split
-  %154 = sext i32 %150 to i64
-  %155 = sext i32 %.05372 to i64
+  %154 = sext i32 %.05173 to i64
+  %155 = sext i32 %150 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv112 = phi i64 [ %155, %.lr.ph.preheader ], [ %indvars.iv.next113, %.lr.ph ]
   %indvars.iv = phi i64 [ %154, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %156 = getelementptr inbounds double, ptr %19, i64 %indvars.iv
+  %156 = getelementptr inbounds double, ptr %19, i64 %indvars.iv112
   %157 = load double, ptr %156, align 8
-  %158 = getelementptr inbounds double, ptr %.fr, i64 %indvars.iv112
+  %158 = getelementptr inbounds double, ptr %.fr, i64 %indvars.iv
   store double %157, ptr %158, align 8
-  %159 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv
+  %159 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv112
   %160 = load i32, ptr %159, align 4
   %161 = sext i32 %160 to i64
   %162 = getelementptr inbounds i32, ptr %1, i64 %161
   %163 = load i32, ptr %162, align 4
-  %indvars.iv.next113 = add nsw i64 %indvars.iv112, 1
-  %164 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv112
-  store i32 %163, ptr %164, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %164 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv
+  store i32 %163, ptr %164, align 4
+  %indvars.iv.next113 = add nsw i64 %indvars.iv112, 1
   %165 = load i32, ptr %151, align 4
   %166 = sext i32 %165 to i64
-  %167 = icmp slt i64 %indvars.iv.next, %166
+  %167 = icmp slt i64 %indvars.iv.next113, %166
   br i1 %167, label %.lr.ph, label %._crit_edge.split.split.loopexit, !llvm.loop !6
 
 ._crit_edge.split.split.loopexit:                 ; preds = %.lr.ph
-  %168 = trunc nsw i64 %indvars.iv.next113 to i32
+  %168 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge.split.split
 
 ._crit_edge.split.split:                          ; preds = %._crit_edge.split.split.loopexit, %.lr.ph75.split.split.split
-  %.1.lcssa = phi i32 [ %.05372, %.lr.ph75.split.split.split ], [ %168, %._crit_edge.split.split.loopexit ]
+  %.1.lcssa = phi i32 [ %.05173, %.lr.ph75.split.split.split ], [ %168, %._crit_edge.split.split.loopexit ]
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count178
   br i1 %exitcond.not, label %._crit_edge76, label %.lr.ph75.split.split.split, !llvm.loop !4
 
 ._crit_edge76:                                    ; preds = %._crit_edge.split.split, %._crit_edge.split.split.us, %._crit_edge.split.split.us.us, %._crit_edge.split.us.split.us80, %._crit_edge.split.us.split.us80.us, %._crit_edge.split.us.split.us.us.us, %30
-  %.053.lcssa = phi i32 [ 0, %30 ], [ %.1.lcssa.us.us, %._crit_edge.split.us.split.us.us.us ], [ %.1.lcssa.us.us98, %._crit_edge.split.us.split.us80.us ], [ %.1.lcssa.us, %._crit_edge.split.us.split.us80 ], [ %.1.lcssa.us86, %._crit_edge.split.split.us.us ], [ %.1.lcssa.us91, %._crit_edge.split.split.us ], [ %.1.lcssa, %._crit_edge.split.split ]
+  %.051.lcssa = phi i32 [ 0, %30 ], [ %.1.lcssa.us.us, %._crit_edge.split.us.split.us.us.us ], [ %.1.lcssa.us.us98, %._crit_edge.split.us.split.us80.us ], [ %.1.lcssa.us, %._crit_edge.split.us.split.us80 ], [ %.1.lcssa.us86, %._crit_edge.split.split.us.us ], [ %.1.lcssa.us91, %._crit_edge.split.split.us ], [ %.1.lcssa, %._crit_edge.split.split ]
   %169 = getelementptr inbounds i32, ptr %32, i64 %20
-  store i32 %.053.lcssa, ptr %169, align 4
+  store i32 %.051.lcssa, ptr %169, align 4
   %170 = tail call ptr @cs_done(ptr noundef nonnull %27, ptr noundef null, ptr noundef null, i32 noundef 1) #2
   br label %171
 

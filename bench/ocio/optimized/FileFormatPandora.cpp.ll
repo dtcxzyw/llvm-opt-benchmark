@@ -429,8 +429,8 @@ while.cond.outer:                                 ; preds = %while.cond.outer.ba
   %raw3d.sroa.0.0.ph = phi ptr [ null, %if.end ], [ %raw3d.sroa.0.0.ph.be, %while.cond.outer.backedge ]
   %raw3d.sroa.15.0.ph = phi ptr [ null, %if.end ], [ %raw3d.sroa.15.0.ph.be, %while.cond.outer.backedge ]
   %raw3d.sroa.32.0.ph = phi ptr [ null, %if.end ], [ %raw3d.sroa.32.0.ph.be, %while.cond.outer.backedge ]
-  %lineNumber.0.ph = phi i32 [ 0, %if.end ], [ %inc, %while.cond.outer.backedge ]
   %inLut3d.0.ph = phi i1 [ false, %if.end ], [ %inLut3d.0.ph.be, %while.cond.outer.backedge ]
+  %lineNumber.0.ph = phi i32 [ 0, %if.end ], [ %inc, %while.cond.outer.backedge ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %while.cond.outer

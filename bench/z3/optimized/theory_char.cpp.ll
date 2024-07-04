@@ -4286,10 +4286,10 @@ if.then37:                                        ; preds = %invoke.cont34
           to label %cleanup unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 for.body47:                                       ; preds = %invoke.cont45.preheader, %for.inc
+  %__begin3.sroa.0.0358 = phi ptr [ %68, %for.inc ], [ %38, %invoke.cont45.preheader ]
   %__begin3.sroa.5.0357 = phi ptr [ %spec.select318, %for.inc ], [ null, %invoke.cont45.preheader ]
-  %__begin3.sroa.0.0356 = phi ptr [ %68, %for.inc ], [ %38, %invoke.cont45.preheader ]
   %54 = load i32, ptr %m_id.i, align 8
-  %call53 = invoke noundef i32 @_ZNK3smt5enode10get_th_varEi(ptr noundef nonnull align 8 dereferenceable(112) %__begin3.sroa.0.0356, i32 noundef %54)
+  %call53 = invoke noundef i32 @_ZNK3smt5enode10get_th_varEi(ptr noundef nonnull align 8 dereferenceable(112) %__begin3.sroa.0.0358, i32 noundef %54)
           to label %invoke.cont52 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont52:                                    ; preds = %for.body47
@@ -4382,8 +4382,8 @@ if.end63:                                         ; preds = %land.rhs.i.i65, %if
 
 for.inc:                                          ; preds = %invoke.cont52, %if.end63
   %tobool.not.i101 = icmp eq ptr %__begin3.sroa.5.0357, null
-  %spec.select318 = select i1 %tobool.not.i101, ptr %__begin3.sroa.0.0356, ptr %__begin3.sroa.5.0357
-  %m_next.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0356, i64 16
+  %spec.select318 = select i1 %tobool.not.i101, ptr %__begin3.sroa.0.0358, ptr %__begin3.sroa.5.0357
+  %m_next.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0358, i64 16
   %68 = load ptr, ptr %m_next.i, align 8
   %cmp.i.i59 = icmp ne ptr %spec.select318, %38
   %cmp4.i.i = icmp ne ptr %68, %38

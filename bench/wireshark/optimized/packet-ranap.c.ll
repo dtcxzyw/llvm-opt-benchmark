@@ -11541,7 +11541,7 @@ private_data_set_transportLayerAddress_ipv4.exit: ; preds = %15, %27
 
 48:                                               ; preds = %46, %36
   %49 = phi ptr [ %.pre, %36 ], [ %47, %46 ]
-  %.032 = phi ptr [ %44, %36 ], [ %47, %46 ]
+  %.0 = phi ptr [ %44, %36 ], [ %47, %46 ]
   %50 = load i32, ptr @hf_ranap_transportLayerAddress_nsap, align 4
   %51 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %50, ptr noundef %49, i32 noundef 0, i32 noundef %10, i32 noundef 0) #3
   %52 = load i32, ptr @ett_ranap_transportLayerAddress_nsap, align 4
@@ -11555,29 +11555,29 @@ private_data_set_transportLayerAddress_ipv4.exit: ; preds = %15, %27
   %58 = load ptr, ptr %6, align 8
   %59 = call i32 @tvb_get_ipv4(ptr noundef %58, i32 noundef 3) #3
   %60 = getelementptr i8, ptr %2, i64 16
-  %.val34 = load ptr, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %.val34, i64 408
+  %.val35 = load ptr, ptr %60, align 8
+  %61 = getelementptr inbounds i8, ptr %.val35, i64 408
   %62 = load ptr, ptr %61, align 8
   %63 = load i32, ptr @proto_ranap, align 4
-  %64 = call ptr @p_get_proto_data(ptr noundef %62, ptr noundef %.val34, i32 noundef %63, i32 noundef 0) #3
+  %64 = call ptr @p_get_proto_data(ptr noundef %62, ptr noundef %.val35, i32 noundef %63, i32 noundef 0) #3
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %66, label %private_data_set_transportLayerAddress_ipv4.exit36
+  br i1 %65, label %66, label %private_data_set_transportLayerAddress_ipv4.exit37
 
 66:                                               ; preds = %57
   %67 = load ptr, ptr %61, align 8
   %68 = call noalias ptr @wmem_alloc0(ptr noundef %67, i64 noundef 12) #3
   %69 = load ptr, ptr %61, align 8
   %70 = load i32, ptr @proto_ranap, align 4
-  call void @p_add_proto_data(ptr noundef %69, ptr noundef nonnull %.val34, i32 noundef %70, i32 noundef 0, ptr noundef %68) #3
-  br label %private_data_set_transportLayerAddress_ipv4.exit36
+  call void @p_add_proto_data(ptr noundef %69, ptr noundef nonnull %.val35, i32 noundef %70, i32 noundef 0, ptr noundef %68) #3
+  br label %private_data_set_transportLayerAddress_ipv4.exit37
 
-private_data_set_transportLayerAddress_ipv4.exit36: ; preds = %57, %66
-  %.0.i.i35 = phi ptr [ %68, %66 ], [ %64, %57 ]
-  store i32 %59, ptr %.0.i.i35, align 4
+private_data_set_transportLayerAddress_ipv4.exit37: ; preds = %57, %66
+  %.0.i.i36 = phi ptr [ %68, %66 ], [ %64, %57 ]
+  store i32 %59, ptr %.0.i.i36, align 4
   br label %71
 
-71:                                               ; preds = %private_data_set_transportLayerAddress_ipv4.exit36, %48
-  call void @dissect_nsap(ptr noundef %.032, i32 noundef 0, i32 noundef 20, ptr noundef %53) #3
+71:                                               ; preds = %private_data_set_transportLayerAddress_ipv4.exit37, %48
+  call void @dissect_nsap(ptr noundef %.0, i32 noundef 0, i32 noundef 20, ptr noundef %53) #3
   br label %.thread
 
 .thread:                                          ; preds = %9, %32, %private_data_set_transportLayerAddress_ipv4.exit, %71, %5

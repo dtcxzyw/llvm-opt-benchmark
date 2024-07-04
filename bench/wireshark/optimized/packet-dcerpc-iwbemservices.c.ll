@@ -181,24 +181,24 @@ define hidden i32 @IWbemServices_dissect_struct_IWbemClassObject(ptr noundef %0,
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #3
   %16 = load i32, ptr @ett_IWbemServices_IWbemClassObject, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #3
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_IWbemServices_IWbemClassObject_count, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
-  %21 = tail call i32 @dissect_ndr_ucarray_block(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @IWbemServices_dissect_element_IWbemClassObject_objects_) #3
-  %22 = sub i32 %21, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %22) #3
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
+  %21 = tail call i32 @dissect_ndr_ucarray_block(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @IWbemServices_dissect_element_IWbemClassObject_objects_) #3
+  %22 = sub i32 %21, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %22) #3
   %23 = getelementptr inbounds i8, ptr %4, i64 72
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 96
@@ -237,24 +237,24 @@ define hidden i32 @IWbemServices_dissect_struct_MInterfacePointer(ptr noundef %0
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #3
   %16 = load i32, ptr @ett_IWbemServices_MInterfacePointer, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #3
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_IWbemServices_MInterfacePointer_ulCntData, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
-  %21 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @IWbemServices_dissect_element_MInterfacePointer_abData_) #3
-  %22 = sub i32 %21, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %22) #3
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #3
+  %21 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @IWbemServices_dissect_element_MInterfacePointer_abData_) #3
+  %22 = sub i32 %21, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %22) #3
   %23 = getelementptr inbounds i8, ptr %4, i64 72
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 96
@@ -317,25 +317,25 @@ define hidden i32 @IWbemServices_dissect_struct_IWbemContext(ptr noundef %0, i32
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #3
   %29 = load i32, ptr @ett_IWbemServices_IWbemContext, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #3
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_IWbemServices_IWbemContext_u, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #3
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #3
   %34 = load i32, ptr @hf_IWbemServices_IWbemContext_intPtr, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @IWbemServices_dissect_element_IWbemContext_intPtr_, i32 noundef 2, ptr noundef nonnull @.str.39, i32 noundef %34) #3
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #3
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @IWbemServices_dissect_element_IWbemContext_intPtr_, i32 noundef 2, ptr noundef nonnull @.str.39, i32 noundef %34) #3
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #3
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8

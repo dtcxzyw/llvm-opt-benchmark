@@ -86,10 +86,10 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %max_len.030 = phi i64 [ 0, %for.body.preheader ], [ %add, %for.body ]
+  %max_len.029 = phi i64 [ 0, %for.body.preheader ], [ %add, %for.body ]
   %iov_len = getelementptr %struct.iovec, ptr %iov, i64 %indvars.iv, i32 1
   %2 = load i64, ptr %iov_len, align 8
-  %add = add i64 %2, %max_len.030
+  %add = add i64 %2, %max_len.029
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !7
@@ -468,10 +468,10 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %max_len.030.i = phi i64 [ 0, %for.body.preheader.i ], [ %add.i, %for.body.i ]
+  %max_len.029.i = phi i64 [ 0, %for.body.preheader.i ], [ %add.i, %for.body.i ]
   %iov_len.i = getelementptr %struct.iovec, ptr %iov, i64 %indvars.iv.i, i32 1
   %2 = load i64, ptr %iov_len.i, align 8
-  %add.i = add i64 %2, %max_len.030.i
+  %add.i = add i64 %2, %max_len.029.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !7
@@ -563,10 +563,10 @@ for.body.preheader.i47:                           ; preds = %for.cond.preheader.
 
 for.body.i49:                                     ; preds = %for.body.i49, %for.body.preheader.i47
   %indvars.iv.i50 = phi i64 [ 0, %for.body.preheader.i47 ], [ %indvars.iv.next.i54, %for.body.i49 ]
-  %max_len.030.i51 = phi i64 [ 0, %for.body.preheader.i47 ], [ %add.i53, %for.body.i49 ]
+  %max_len.029.i51 = phi i64 [ 0, %for.body.preheader.i47 ], [ %add.i53, %for.body.i49 ]
   %iov_len.i52 = getelementptr %struct.iovec, ptr %iov, i64 %indvars.iv.i50, i32 1
   %15 = load i64, ptr %iov_len.i52, align 8
-  %add.i53 = add i64 %15, %max_len.030.i51
+  %add.i53 = add i64 %15, %max_len.029.i51
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i50, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, %wide.trip.count.i48
   br i1 %exitcond.not.i55, label %for.end.loopexit.i56, label %for.body.i49, !llvm.loop !7

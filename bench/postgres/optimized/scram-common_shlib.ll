@@ -71,7 +71,7 @@ define range(i32 -1, 1) i32 @scram_SaltedPassword(ptr noundef %0, i32 noundef %1
   br label %.lr.ph46.split.us
 
 .lr.ph46.split.us:                                ; preds = %.lr.ph46.split.us.preheader, %._crit_edge.us
-  %.04044.us = phi i32 [ %49, %._crit_edge.us ], [ 2, %.lr.ph46.split.us.preheader ]
+  %.03944.us = phi i32 [ %49, %._crit_edge.us ], [ 2, %.lr.ph46.split.us.preheader ]
   %36 = call i32 @pg_hmac_init(ptr noundef nonnull %13, ptr noundef %0, i64 noundef %18) #7
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %.split.us, label %38
@@ -100,12 +100,12 @@ define range(i32 -1, 1) i32 @scram_SaltedPassword(ptr noundef %0, i32 noundef %1
 
 ._crit_edge.us:                                   ; preds = %.preheader.us
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 16 %10, i64 %29, i1 false)
-  %49 = add i32 %.04044.us, 1
+  %49 = add i32 %.03944.us, 1
   %.not.us = icmp sgt i32 %49, %5
   br i1 %.not.us, label %._crit_edge47, label %.lr.ph46.split.us, !llvm.loop !6
 
 .lr.ph46.split:                                   ; preds = %.lr.ph46, %.preheader
-  %.04044 = phi i32 [ %58, %.preheader ], [ 2, %.lr.ph46 ]
+  %.03944 = phi i32 [ %58, %.preheader ], [ 2, %.lr.ph46 ]
   %50 = call i32 @pg_hmac_init(ptr noundef nonnull %13, ptr noundef %0, i64 noundef %18) #7
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %.split.us, label %52
@@ -122,7 +122,7 @@ define range(i32 -1, 1) i32 @scram_SaltedPassword(ptr noundef %0, i32 noundef %1
 
 .preheader:                                       ; preds = %55
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 16 %10, i64 %29, i1 false)
-  %58 = add i32 %.04044, 1
+  %58 = add i32 %.03944, 1
   %.not = icmp sgt i32 %58, %5
   br i1 %.not, label %._crit_edge47, label %.lr.ph46.split, !llvm.loop !6
 
@@ -137,8 +137,8 @@ define range(i32 -1, 1) i32 @scram_SaltedPassword(ptr noundef %0, i32 noundef %1
   br label %60
 
 60:                                               ; preds = %._crit_edge47, %.split.us, %32, %15
-  %.0 = phi i32 [ -1, %15 ], [ -1, %32 ], [ -1, %.split.us ], [ 0, %._crit_edge47 ]
-  ret i32 %.0
+  %.040 = phi i32 [ -1, %15 ], [ -1, %32 ], [ -1, %.split.us ], [ 0, %._crit_edge47 ]
+  ret i32 %.040
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

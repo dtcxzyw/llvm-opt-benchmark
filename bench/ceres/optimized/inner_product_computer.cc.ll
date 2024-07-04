@@ -340,7 +340,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
   %69 = phi ptr [ %102, %100 ], [ %62, %39 ]
   %70 = phi ptr [ %103, %100 ], [ %53, %39 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %100 ], [ 1, %39 ]
-  %.03742 = phi i32 [ %.1, %100 ], [ %61, %39 ]
+  %.03841 = phi i32 [ %.1, %100 ], [ %61, %39 ]
   %71 = getelementptr %"struct.ceres::internal::InnerProductComputer::ProductTerm", ptr %68, i64 %indvars.iv
   %72 = getelementptr i8, ptr %71, i64 -12
   %73 = load i32, ptr %71, align 4
@@ -377,7 +377,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
   %96 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %91, i64 %95
   %97 = load i32, ptr %96, align 4
   %98 = mul nsw i32 %97, %93
-  %99 = add nsw i32 %98, %.03742
+  %99 = add nsw i32 %98, %.03841
   %.pre46 = load ptr, ptr %36, align 8
   %.pre47 = load ptr, ptr %1, align 8
   br label %100
@@ -386,7 +386,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
   %101 = phi ptr [ %.pre47, %.lr.ph._crit_edge ], [ %68, %77 ]
   %102 = phi ptr [ %.pre46, %.lr.ph._crit_edge ], [ %69, %77 ]
   %103 = phi ptr [ %91, %.lr.ph._crit_edge ], [ %70, %77 ]
-  %.1 = phi i32 [ %99, %.lr.ph._crit_edge ], [ %.03742, %77 ]
+  %.1 = phi i32 [ %99, %.lr.ph._crit_edge ], [ %.03841, %77 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %104 = ptrtoint ptr %102 to i64
   %105 = ptrtoint ptr %101 to i64
@@ -946,14 +946,14 @@ _ZNSt10unique_ptrIN5ceres8internal25CompressedRowSparseMatrixESt14default_delete
 .lr.ph:                                           ; preds = %.preheader110, %.lr.ph
   %45 = phi i32 [ %49, %.lr.ph ], [ %41, %.preheader110 ]
   %.1112 = phi ptr [ %50, %.lr.ph ], [ %.089114, %.preheader110 ]
-  %.091111 = phi i32 [ %51, %.lr.ph ], [ 0, %.preheader110 ]
+  %.099111 = phi i32 [ %51, %.lr.ph ], [ 0, %.preheader110 ]
   %46 = load ptr, ptr %4, align 8
   %47 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4
   %49 = add nsw i32 %48, %45
   %50 = getelementptr inbounds i8, ptr %.1112, i64 4
   store i32 %49, ptr %50, align 4
-  %51 = add nuw nsw i32 %.091111, 1
+  %51 = add nuw nsw i32 %.099111, 1
   %52 = load ptr, ptr %6, align 8
   %53 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %52, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4
@@ -1123,8 +1123,8 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %90, %88, %86, %84
 .lr.ph127:                                        ; preds = %.preheader107, %.loopexit
   %indvars.iv143 = phi i64 [ %indvars.iv.next144, %.loopexit ], [ 1, %.preheader107 ]
   %146 = phi ptr [ %233, %.loopexit ], [ %124, %.preheader107 ]
-  %.092126 = phi i32 [ %.2, %.loopexit ], [ 0, %.preheader107 ]
-  %.097124 = phi i32 [ %.299, %.loopexit ], [ 0, %.preheader107 ]
+  %.094125 = phi i32 [ %.2, %.loopexit ], [ 0, %.preheader107 ]
+  %.096124 = phi i32 [ %.298, %.loopexit ], [ 0, %.preheader107 ]
   %147 = getelementptr %"struct.ceres::internal::InnerProductComputer::ProductTerm", ptr %146, i64 %indvars.iv143
   %148 = getelementptr i8, ptr %147, i64 -12
   %149 = load i32, ptr %148, align 4
@@ -1159,7 +1159,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %90, %88, %86, %84
   %171 = load ptr, ptr %6, align 8
   %172 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %171, i64 %170
   %173 = load i32, ptr %172, align 4
-  %174 = add nsw i32 %173, %.092126
+  %174 = add nsw i32 %173, %.096124
   %.pre148 = load ptr, ptr %4, align 8
   br label %185
 
@@ -1172,7 +1172,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %90, %88, %86, %84
   %181 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %180, i64 %176
   %182 = load i32, ptr %181, align 4
   %183 = mul nsw i32 %182, %179
-  %184 = add nsw i32 %183, %.097124
+  %184 = add nsw i32 %183, %.094125
   %.phi.trans.insert = getelementptr inbounds i8, ptr %147, i64 4
   %.pre147 = load i32, ptr %.phi.trans.insert, align 4
   br label %185
@@ -1180,15 +1180,15 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %90, %88, %86, %84
 185:                                              ; preds = %175, %169
   %186 = phi ptr [ %.pre148, %169 ], [ %177, %175 ]
   %187 = phi i32 [ %156, %169 ], [ %.pre147, %175 ]
-  %.198 = phi i32 [ %.097124, %169 ], [ %184, %175 ]
-  %.193 = phi i32 [ %174, %169 ], [ 0, %175 ]
+  %.197 = phi i32 [ %174, %169 ], [ 0, %175 ]
+  %.195 = phi i32 [ %.094125, %169 ], [ %184, %175 ]
   %188 = sext i32 %150 to i64
   %189 = getelementptr inbounds i32, ptr %186, i64 %188
   %190 = load i32, ptr %189, align 4
   %191 = load ptr, ptr %28, align 8
   %192 = getelementptr inbounds i8, ptr %191, i64 40
   %193 = load ptr, ptr %192, align 8
-  %194 = add i32 %.193, %.198
+  %194 = add i32 %.195, %.197
   %195 = getelementptr inbounds i8, ptr %147, i64 8
   %196 = load i32, ptr %195, align 4
   %197 = sext i32 %196 to i64
@@ -1251,8 +1251,8 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %90, %88, %86, %84
   br i1 %231, label %.preheader, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %._crit_edge122, %.preheader.lr.ph, %185, %158
-  %.299 = phi i32 [ %.097124, %158 ], [ %.198, %185 ], [ %.198, %.preheader.lr.ph ], [ %.198, %._crit_edge122 ]
-  %.2 = phi i32 [ %.092126, %158 ], [ %.193, %185 ], [ %.193, %.preheader.lr.ph ], [ %.193, %._crit_edge122 ]
+  %.298 = phi i32 [ %.096124, %158 ], [ %.197, %185 ], [ %.197, %.preheader.lr.ph ], [ %.197, %._crit_edge122 ]
+  %.2 = phi i32 [ %.094125, %158 ], [ %.195, %185 ], [ %.195, %.preheader.lr.ph ], [ %.195, %._crit_edge122 ]
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %232 = load ptr, ptr %69, align 8
   %233 = load ptr, ptr %2, align 8
@@ -2505,11 +2505,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
 23:                                               ; preds = %.lr.ph.us, %23
   %.091115.us = phi ptr [ %22, %.lr.ph.us ], [ %27, %23 ]
   %.092114.us = phi ptr [ %17, %.lr.ph.us ], [ %28, %23 ]
-  %.093113.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %26, %23 ]
+  %.099113.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %26, %23 ]
   %.0100112.us = phi i32 [ 0, %.lr.ph.us ], [ %29, %23 ]
   %24 = load double, ptr %.091115.us, align 8
   %25 = load double, ptr %.092114.us, align 8
-  %26 = tail call double @llvm.fmuladd.f64(double %24, double %25, double %.093113.us)
+  %26 = tail call double @llvm.fmuladd.f64(double %24, double %25, double %.099113.us)
   %27 = getelementptr inbounds double, ptr %.091115.us, i64 %19
   %28 = getelementptr inbounds double, ptr %.092114.us, i64 %20
   %29 = add nuw nsw i32 %.0100112.us, 1
@@ -2612,18 +2612,18 @@ define linkonce_odr hidden void @_ZN5ceres8internal34MatrixTransposeMatrixMultip
   br label %81
 
 81:                                               ; preds = %.lr.ph.us130, %81
-  %.094124.us = phi i32 [ 0, %.lr.ph.us130 ], [ %90, %81 ]
-  %.097121.us = phi ptr [ %53, %.lr.ph.us130 ], [ %89, %81 ]
-  %.098120.us = phi ptr [ %80, %.lr.ph.us130 ], [ %88, %81 ]
+  %.093124.us = phi i32 [ 0, %.lr.ph.us130 ], [ %90, %81 ]
+  %.096121.us = phi ptr [ %53, %.lr.ph.us130 ], [ %89, %81 ]
+  %.097120.us = phi ptr [ %80, %.lr.ph.us130 ], [ %88, %81 ]
   %82 = phi <2 x double> [ zeroinitializer, %.lr.ph.us130 ], [ %87, %81 ]
-  %83 = load double, ptr %.098120.us, align 8
-  %84 = load <2 x double>, ptr %.097121.us, align 8
+  %83 = load double, ptr %.097120.us, align 8
+  %84 = load <2 x double>, ptr %.096121.us, align 8
   %85 = insertelement <2 x double> poison, double %83, i64 0
   %86 = shufflevector <2 x double> %85, <2 x double> poison, <2 x i32> zeroinitializer
   %87 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %86, <2 x double> %84, <2 x double> %82)
-  %88 = getelementptr inbounds double, ptr %.098120.us, i64 %55
-  %89 = getelementptr inbounds double, ptr %.097121.us, i64 %56
-  %90 = add nuw nsw i32 %.094124.us, 1
+  %88 = getelementptr inbounds double, ptr %.097120.us, i64 %55
+  %89 = getelementptr inbounds double, ptr %.096121.us, i64 %56
+  %90 = add nuw nsw i32 %.093124.us, 1
   %exitcond199.not = icmp eq i32 %90, %1
   br i1 %exitcond199.not, label %._crit_edge.us131, label %81, !llvm.loop !49
 
@@ -2837,9 +2837,9 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph164
   br label %.preheader.i.us134.us.us.lver.check
 
 .preheader.i.us134.us.us.lver.check:              ; preds = %.preheader.us.us164.preheader, %._crit_edge.split.split.us.us.us
-  %.090141.us.us165 = phi i32 [ %252, %._crit_edge.split.split.us.us.us ], [ 0, %.preheader.us.us164.preheader ]
-  %217 = add i32 %214, %.090141.us.us165
-  %218 = add i32 %.090141.us.us165, %8
+  %.089141.us.us165 = phi i32 [ %252, %._crit_edge.split.split.us.us.us ], [ 0, %.preheader.us.us164.preheader ]
+  %217 = add i32 %214, %.089141.us.us165
+  %218 = add i32 %.089141.us.us165, %8
   %219 = add i32 %217, %215
   %220 = icmp slt i32 %219, %217
   %221 = or i1 %220, %216
@@ -2866,7 +2866,7 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph164
   br i1 %exitcond217.not.lver.orig, label %._crit_edge.split.split.us.us.us, label %.preheader.i.us134.us.us.lver.orig, !llvm.loop !52
 
 .preheader.i.us134.us.us.ph:                      ; preds = %.preheader.i.us134.us.us.lver.check
-  %234 = add i32 %214, %.090141.us.us165
+  %234 = add i32 %214, %.089141.us.us165
   %235 = sext i32 %234 to i64
   %236 = shl nsw i64 %235, 3
   %scevgep267 = getelementptr i8, ptr %scevgep, i64 %236
@@ -2898,7 +2898,7 @@ _ZN5ceres8internalL10MTM_mat1x4EiPKdiS2_iPdi.exit.us.us.us: ; preds = %.lr.ph164
   br i1 %exitcond217.not, label %._crit_edge.split.split.us.us.us, label %.preheader.i.us134.us.us, !llvm.loop !52
 
 ._crit_edge.split.split.us.us.us:                 ; preds = %.preheader.i.us134.us.us, %.preheader.i.us134.us.us.lver.orig
-  %252 = add nuw nsw i32 %.090141.us.us165, 4
+  %252 = add nuw nsw i32 %.089141.us.us165, 4
   %253 = icmp slt i32 %252, %110
   br i1 %253, label %.preheader.i.us134.us.us.lver.check, label %.loopexit, !llvm.loop !53
 

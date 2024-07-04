@@ -57634,33 +57634,33 @@ cond.end42:                                       ; preds = %cond.end42.lr.ph, %
   %indvars.iv = phi i64 [ 0, %cond.end42.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %use_index.0497 = phi i32 [ 0, %cond.end42.lr.ph ], [ %use_index.1, %for.inc ]
   %set_use_index.0496.not = phi i1 [ true, %cond.end42.lr.ph ], [ false, %for.inc ]
-  %min_id.0495 = phi i32 [ 379, %cond.end42.lr.ph ], [ %min_id.1, %for.inc ]
-  %max_index.0494 = phi i32 [ 0, %cond.end42.lr.ph ], [ %max_index.1, %for.inc ]
+  %max_index.0495 = phi i32 [ 0, %cond.end42.lr.ph ], [ %max_index.1, %for.inc ]
+  %min_id.0494 = phi i32 [ 379, %cond.end42.lr.ph ], [ %min_id.1, %for.inc ]
   %add.ptr.i83 = getelementptr inbounds %"class.cvc5::internal::theory::strings::CoreInferInfo", ptr %1, i64 %indvars.iv
   %d_id.i460 = getelementptr inbounds i8, ptr %add.ptr.i83, i64 8
   %3 = load i32, ptr %d_id.i460, align 8
-  %cmp44 = icmp slt i32 %3, %min_id.0495
+  %cmp44 = icmp slt i32 %3, %min_id.0494
   %or.cond498 = select i1 %set_use_index.0496.not, i1 true, i1 %cmp44
   br i1 %or.cond498, label %if.then, label %lor.lhs.false45
 
 lor.lhs.false45:                                  ; preds = %cond.end42
-  %cmp47 = icmp eq i32 %3, %min_id.0495
+  %cmp47 = icmp eq i32 %3, %min_id.0494
   %d_index = getelementptr inbounds i8, ptr %add.ptr.i83, i64 200
   %4 = load i32, ptr %d_index, align 8
-  %cmp48 = icmp ugt i32 %4, %max_index.0494
+  %cmp48 = icmp ugt i32 %4, %max_index.0495
   %or.cond = select i1 %cmp47, i1 %cmp48, i1 false
   br i1 %or.cond, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %cond.end42, %lor.lhs.false45
-  %5 = phi i32 [ %min_id.0495, %lor.lhs.false45 ], [ %3, %cond.end42 ]
+  %5 = phi i32 [ %min_id.0494, %lor.lhs.false45 ], [ %3, %cond.end42 ]
   %d_index50 = getelementptr inbounds i8, ptr %add.ptr.i83, i64 200
   %6 = load i32, ptr %d_index50, align 8
   %7 = trunc nuw i64 %indvars.iv to i32
   br label %for.inc
 
 for.inc:                                          ; preds = %lor.lhs.false45, %if.then
-  %max_index.1 = phi i32 [ %6, %if.then ], [ %max_index.0494, %lor.lhs.false45 ]
-  %min_id.1 = phi i32 [ %5, %if.then ], [ %min_id.0495, %lor.lhs.false45 ]
+  %min_id.1 = phi i32 [ %5, %if.then ], [ %min_id.0494, %lor.lhs.false45 ]
+  %max_index.1 = phi i32 [ %6, %if.then ], [ %max_index.0495, %lor.lhs.false45 ]
   %use_index.1 = phi i32 [ %7, %if.then ], [ %use_index.0497, %lor.lhs.false45 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -57700,12 +57700,12 @@ cond.end42.i:                                     ; preds = %if.then, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.then ]
   %use_index.0497.i = phi i32 [ %use_index.1.i, %for.inc.i ], [ 0, %if.then ]
   %set_use_index.0496.not.i = phi i1 [ false, %for.inc.i ], [ true, %if.then ]
-  %min_id.0495.i = phi i32 [ %min_id.1.i, %for.inc.i ], [ 379, %if.then ]
-  %max_index.0494.i = phi i32 [ %max_index.1.i, %for.inc.i ], [ 0, %if.then ]
+  %max_index.0495.i = phi i32 [ %max_index.1.i, %for.inc.i ], [ 0, %if.then ]
+  %min_id.0494.i = phi i32 [ %min_id.1.i, %for.inc.i ], [ 379, %if.then ]
   %add.ptr.i83.i = getelementptr inbounds %"class.cvc5::internal::theory::strings::CoreInferInfo", ptr %0, i64 %indvars.iv.i
   %d_id.i460.i = getelementptr inbounds i8, ptr %add.ptr.i83.i, i64 8
   %3 = load i32, ptr %d_id.i460.i, align 8
-  %cmp44.i = icmp slt i32 %3, %min_id.0495.i
+  %cmp44.i = icmp slt i32 %3, %min_id.0494.i
   %or.cond498.i = select i1 %set_use_index.0496.not.i, i1 true, i1 %cmp44.i
   br i1 %or.cond498.i, label %cond.end42.i.if.then.i_crit_edge, label %lor.lhs.false45.i
 
@@ -57715,22 +57715,22 @@ cond.end42.i.if.then.i_crit_edge:                 ; preds = %cond.end42.i
   br label %if.then.i
 
 lor.lhs.false45.i:                                ; preds = %cond.end42.i
-  %cmp47.i = icmp eq i32 %3, %min_id.0495.i
+  %cmp47.i = icmp eq i32 %3, %min_id.0494.i
   %d_index.i = getelementptr inbounds i8, ptr %add.ptr.i83.i, i64 200
   %4 = load i32, ptr %d_index.i, align 8
-  %cmp48.i = icmp ugt i32 %4, %max_index.0494.i
+  %cmp48.i = icmp ugt i32 %4, %max_index.0495.i
   %or.cond.i = select i1 %cmp47.i, i1 %cmp48.i, i1 false
   br i1 %or.cond.i, label %if.then.i, label %for.inc.i
 
 if.then.i:                                        ; preds = %cond.end42.i.if.then.i_crit_edge, %lor.lhs.false45.i
   %5 = phi i32 [ %4, %lor.lhs.false45.i ], [ %.pre, %cond.end42.i.if.then.i_crit_edge ]
-  %6 = phi i32 [ %min_id.0495.i, %lor.lhs.false45.i ], [ %3, %cond.end42.i.if.then.i_crit_edge ]
+  %6 = phi i32 [ %min_id.0494.i, %lor.lhs.false45.i ], [ %3, %cond.end42.i.if.then.i_crit_edge ]
   %7 = trunc nuw i64 %indvars.iv.i to i32
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %lor.lhs.false45.i
-  %max_index.1.i = phi i32 [ %5, %if.then.i ], [ %max_index.0494.i, %lor.lhs.false45.i ]
-  %min_id.1.i = phi i32 [ %6, %if.then.i ], [ %min_id.0495.i, %lor.lhs.false45.i ]
+  %min_id.1.i = phi i32 [ %6, %if.then.i ], [ %min_id.0494.i, %lor.lhs.false45.i ]
+  %max_index.1.i = phi i32 [ %5, %if.then.i ], [ %max_index.0495.i, %lor.lhs.false45.i ]
   %use_index.1.i = phi i32 [ %7, %if.then.i ], [ %use_index.0497.i, %lor.lhs.false45.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %2

@@ -77,10 +77,10 @@ if.then.i:                                        ; preds = %land.rhs.i, %entry
   unreachable
 
 for.body.i:                                       ; preds = %cond.end43.i, %for.body.lr.ph.i
-  %buf.048.i = phi ptr [ %frame_size_buffer.i, %for.body.lr.ph.i ], [ %add.ptr.i, %cond.end43.i ]
-  %i.047.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %cond.end43.i ]
-  %remaining.046.i = phi i64 [ 4, %for.body.lr.ph.i ], [ %sub.i, %cond.end43.i ]
-  %arrayidx.i = getelementptr inbounds %struct.grpc_slice, ptr %2, i64 %i.047.i
+  %i.048.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %cond.end43.i ]
+  %remaining.047.i = phi i64 [ 4, %for.body.lr.ph.i ], [ %sub.i, %cond.end43.i ]
+  %buf.046.i = phi ptr [ %frame_size_buffer.i, %for.body.lr.ph.i ], [ %add.ptr.i, %cond.end43.i ]
+  %arrayidx.i = getelementptr inbounds %struct.grpc_slice, ptr %2, i64 %i.048.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   %data8.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
@@ -89,29 +89,29 @@ for.body.i:                                       ; preds = %cond.end43.i, %for.
 cond.end.i:                                       ; preds = %for.body.i
   %4 = load i8, ptr %data8.i, align 8
   %conv.i = zext i8 %4 to i64
-  %cmp10.not.i = icmp ugt i64 %remaining.046.i, %conv.i
+  %cmp10.not.i = icmp ugt i64 %remaining.047.i, %conv.i
   %bytes41.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 9
   br i1 %cmp10.not.i, label %cond.end43.i, label %do.body46.thread.i
 
 cond.end.thread.i:                                ; preds = %for.body.i
   %5 = load i64, ptr %data8.i, align 8
-  %cmp10.not31.i = icmp ugt i64 %remaining.046.i, %5
+  %cmp10.not31.i = icmp ugt i64 %remaining.047.i, %5
   %bytes36.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %6 = load ptr, ptr %bytes36.i, align 8
   br i1 %cmp10.not31.i, label %cond.end43.i, label %do.body46.thread.i
 
 do.body46.thread.i:                               ; preds = %cond.end.i, %cond.end.thread.i
   %cond27.i = phi ptr [ %6, %cond.end.thread.i ], [ %bytes41.i, %cond.end.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.048.i, ptr align 1 %cond27.i, i64 %remaining.046.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.046.i, ptr align 1 %cond27.i, i64 %remaining.047.i, i1 false)
   br label %_ZL15read_frame_sizePK17grpc_slice_buffer.exit
 
 cond.end43.i:                                     ; preds = %cond.end.i, %cond.end.thread.i
   %cond3234.i = phi i64 [ %5, %cond.end.thread.i ], [ %conv.i, %cond.end.i ]
   %cond44.i = phi ptr [ %6, %cond.end.thread.i ], [ %bytes41.i, %cond.end.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.048.i, ptr align 1 %cond44.i, i64 %cond3234.i, i1 false)
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf.048.i, i64 %cond3234.i
-  %sub.i = sub i64 %remaining.046.i, %cond3234.i
-  %inc.i = add nuw i64 %i.047.i, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.046.i, ptr align 1 %cond44.i, i64 %cond3234.i, i1 false)
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf.046.i, i64 %cond3234.i
+  %sub.i = sub i64 %remaining.047.i, %cond3234.i
+  %inc.i = add nuw i64 %i.048.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %1
   br i1 %exitcond.not.i, label %do.body46.i, label %for.body.i, !llvm.loop !4
 
@@ -1408,10 +1408,10 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   br label %for.body.i
 
 for.body.i:                                       ; preds = %cond.end43.i, %for.body.lr.ph.i
-  %buf.048.i = phi ptr [ %frame_size_buffer.i, %for.body.lr.ph.i ], [ %add.ptr.i, %cond.end43.i ]
-  %i.047.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %cond.end43.i ]
-  %remaining.046.i = phi i64 [ 4, %for.body.lr.ph.i ], [ %sub.i, %cond.end43.i ]
-  %arrayidx.i = getelementptr inbounds %struct.grpc_slice, ptr %4, i64 %i.047.i
+  %i.048.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %cond.end43.i ]
+  %remaining.047.i = phi i64 [ 4, %for.body.lr.ph.i ], [ %sub.i, %cond.end43.i ]
+  %buf.046.i = phi ptr [ %frame_size_buffer.i, %for.body.lr.ph.i ], [ %add.ptr.i, %cond.end43.i ]
+  %arrayidx.i = getelementptr inbounds %struct.grpc_slice, ptr %4, i64 %i.048.i
   %5 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %5, null
   %data8.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
@@ -1420,29 +1420,29 @@ for.body.i:                                       ; preds = %cond.end43.i, %for.
 cond.end.i:                                       ; preds = %for.body.i
   %6 = load i8, ptr %data8.i, align 8
   %conv.i = zext i8 %6 to i64
-  %cmp10.not.i = icmp ugt i64 %remaining.046.i, %conv.i
+  %cmp10.not.i = icmp ugt i64 %remaining.047.i, %conv.i
   %bytes41.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 9
   br i1 %cmp10.not.i, label %cond.end43.i, label %do.body46.thread.i
 
 cond.end.thread.i:                                ; preds = %for.body.i
   %7 = load i64, ptr %data8.i, align 8
-  %cmp10.not31.i = icmp ugt i64 %remaining.046.i, %7
+  %cmp10.not31.i = icmp ugt i64 %remaining.047.i, %7
   %bytes36.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %8 = load ptr, ptr %bytes36.i, align 8
   br i1 %cmp10.not31.i, label %cond.end43.i, label %do.body46.thread.i
 
 do.body46.thread.i:                               ; preds = %cond.end.i, %cond.end.thread.i
   %cond27.i = phi ptr [ %8, %cond.end.thread.i ], [ %bytes41.i, %cond.end.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.048.i, ptr align 1 %cond27.i, i64 %remaining.046.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.046.i, ptr align 1 %cond27.i, i64 %remaining.047.i, i1 false)
   br label %_ZL15read_frame_sizePK17grpc_slice_buffer.exit
 
 cond.end43.i:                                     ; preds = %cond.end.i, %cond.end.thread.i
   %cond3234.i = phi i64 [ %7, %cond.end.thread.i ], [ %conv.i, %cond.end.i ]
   %cond44.i = phi ptr [ %8, %cond.end.thread.i ], [ %bytes41.i, %cond.end.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.048.i, ptr align 1 %cond44.i, i64 %cond3234.i, i1 false)
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf.048.i, i64 %cond3234.i
-  %sub.i = sub i64 %remaining.046.i, %cond3234.i
-  %inc.i = add nuw i64 %i.047.i, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.046.i, ptr align 1 %cond44.i, i64 %cond3234.i, i1 false)
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf.046.i, i64 %cond3234.i
+  %sub.i = sub i64 %remaining.047.i, %cond3234.i
+  %inc.i = add nuw i64 %i.048.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %3
   br i1 %exitcond.not.i, label %do.body46.i, label %for.body.i, !llvm.loop !4
 

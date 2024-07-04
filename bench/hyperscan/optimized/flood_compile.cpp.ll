@@ -153,8 +153,8 @@ if.then:                                          ; preds = %land.lhs.true27
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true27, %invoke.cont13
-  %nocase.0.shrunk = phi i1 [ true, %land.lhs.true27 ], [ %cond, %invoke.cont13 ], [ false, %if.then ]
   %c17.0 = phi i8 [ %7, %land.lhs.true27 ], [ %7, %invoke.cont13 ], [ %spec.select, %if.then ]
+  %nocase.0.shrunk = phi i1 [ true, %land.lhs.true27 ], [ %cond, %invoke.cont13 ], [ false, %if.then ]
   %nocase.0.shrunk.fr = freeze i1 %nocase.0.shrunk
   %cond53 = tail call i32 @llvm.umax.i32(i32 %conv.i.i, i32 %conv16)
   %cmp55224.not = icmp eq i32 %cond53, 0

@@ -94,9 +94,9 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
   br label %97
 
 44:                                               ; preds = %35, %41
-  %.049 = phi i32 [ %spec.select, %35 ], [ %3, %41 ]
+  %.0 = phi i32 [ %spec.select, %35 ], [ %3, %41 ]
   %45 = getelementptr inbounds [4 x %struct.VP8QuantMatrix], ptr %33, i64 0, i64 %indvars.iv
-  %46 = add nsw i32 %.049, %8
+  %46 = add nsw i32 %.0, %8
   %47 = tail call i32 @llvm.smin.i32(i32 %46, i32 127)
   %48 = tail call i32 @llvm.smax.i32(i32 %47, i32 0)
   %49 = zext nneg i32 %48 to i64
@@ -104,7 +104,7 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
   store i32 %52, ptr %45, align 4
-  %53 = tail call i32 @llvm.smin.i32(i32 %.049, i32 127)
+  %53 = tail call i32 @llvm.smin.i32(i32 %.0, i32 127)
   %54 = tail call i32 @llvm.smax.i32(i32 %53, i32 0)
   %55 = zext nneg i32 %54 to i64
   %56 = getelementptr inbounds [128 x i16], ptr @kAcTable, i64 0, i64 %55
@@ -112,7 +112,7 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
   %58 = zext i16 %57 to i32
   %59 = getelementptr inbounds i8, ptr %45, i64 4
   store i32 %58, ptr %59, align 4
-  %60 = add nsw i32 %.049, %13
+  %60 = add nsw i32 %.0, %13
   %61 = tail call i32 @llvm.smin.i32(i32 %60, i32 127)
   %62 = tail call i32 @llvm.smax.i32(i32 %61, i32 0)
   %63 = zext nneg i32 %62 to i64
@@ -122,7 +122,7 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
   %67 = shl nuw nsw i32 %66, 1
   %68 = getelementptr inbounds i8, ptr %45, i64 8
   store i32 %67, ptr %68, align 4
-  %69 = add nsw i32 %.049, %18
+  %69 = add nsw i32 %.0, %18
   %70 = tail call i32 @llvm.smin.i32(i32 %69, i32 127)
   %71 = tail call i32 @llvm.smax.i32(i32 %70, i32 0)
   %72 = zext nneg i32 %71 to i64
@@ -135,7 +135,7 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
   %79 = icmp slt i32 %69, 2
   %spec.select57 = select i1 %79, i32 8, i32 %77
   store i32 %spec.select57, ptr %78, align 4
-  %80 = add nsw i32 %.049, %23
+  %80 = add nsw i32 %.0, %23
   %81 = tail call i32 @llvm.smin.i32(i32 %80, i32 117)
   %82 = tail call i32 @llvm.smax.i32(i32 %81, i32 0)
   %83 = zext nneg i32 %82 to i64
@@ -144,7 +144,7 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
   %86 = zext i8 %85 to i32
   %87 = getelementptr inbounds i8, ptr %45, i64 16
   store i32 %86, ptr %87, align 4
-  %88 = add nsw i32 %.049, %28
+  %88 = add nsw i32 %.0, %28
   %89 = tail call i32 @llvm.smin.i32(i32 %88, i32 127)
   %90 = tail call i32 @llvm.smax.i32(i32 %89, i32 0)
   %91 = zext nneg i32 %90 to i64

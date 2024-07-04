@@ -429,16 +429,16 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %27, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %31, %.lr.ph.i
-  %.04675.i = phi i64 [ %40, %.lr.ph.i ], [ 0, %31 ]
+  %.04375.i = phi i64 [ %40, %.lr.ph.i ], [ 0, %31 ]
   %.06974.i = phi float [ %.sroa.speculated.i, %.lr.ph.i ], [ 0xC7EFFFFFE0000000, %31 ]
   %.07073.i = phi float [ %.sroa.speculated60.i, %.lr.ph.i ], [ 0x47EFFFFFE0000000, %31 ]
-  %36 = getelementptr inbounds float, ptr %35, i64 %.04675.i
+  %36 = getelementptr inbounds float, ptr %35, i64 %.04375.i
   %37 = load float, ptr %36, align 4
   %38 = fcmp olt float %37, %.07073.i
   %.sroa.speculated60.i = select i1 %38, float %37, float %.07073.i
   %39 = fcmp olt float %.06974.i, %37
   %.sroa.speculated.i = select i1 %39, float %37, float %.06974.i
-  %40 = add nuw nsw i64 %.04675.i, 1
+  %40 = add nuw nsw i64 %.04375.i, 1
   %exitcond.not.i = icmp eq i64 %40, %13
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
@@ -673,42 +673,42 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EE17_S_check_init_le
 
 _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.noexc90.i, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
   %.sroa.0.0.i = phi ptr [ %31, %.noexc90.i ], [ null, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %31, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %.not148.i = icmp eq i64 %1, 0
-  br i1 %.not148.i, label %._crit_edge153.i, label %.lr.ph152.i
+  %.not149.i = icmp eq i64 %1, 0
+  br i1 %.not149.i, label %._crit_edge154.i, label %.lr.ph153.i
 
-.lr.ph152.i:                                      ; preds = %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i
+.lr.ph153.i:                                      ; preds = %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i
   %37 = icmp sgt i32 %10, 0
   %38 = sub i64 %18, %14
   %39 = shl nsw i64 %19, 2
   br label %40
 
-40:                                               ; preds = %._crit_edge147.i, %.lr.ph152.i
-  %.071151.i = phi ptr [ %2, %.lr.ph152.i ], [ %136, %._crit_edge147.i ]
-  %.072150.i = phi ptr [ %3, %.lr.ph152.i ], [ %138, %._crit_edge147.i ]
-  %storemerge149.i = phi i64 [ %1, %.lr.ph152.i ], [ %139, %._crit_edge147.i ]
-  %.sroa.speculated110.i = tail call i64 @llvm.umin.i64(i64 %storemerge149.i, i64 %6)
+40:                                               ; preds = %._crit_edge148.i, %.lr.ph153.i
+  %.070152.i = phi ptr [ %3, %.lr.ph153.i ], [ %138, %._crit_edge148.i ]
+  %.071151.i = phi ptr [ %2, %.lr.ph153.i ], [ %136, %._crit_edge148.i ]
+  %storemerge150.i = phi i64 [ %1, %.lr.ph153.i ], [ %139, %._crit_edge148.i ]
+  %.sroa.speculated110.i = tail call i64 @llvm.umin.i64(i64 %storemerge150.i, i64 %6)
   %41 = icmp sgt i64 %.sroa.speculated110.i, 0
-  br i1 %41, label %.lr.ph143.i, label %._crit_edge144.i
+  br i1 %41, label %.lr.ph144.i, label %._crit_edge145.i
 
-.lr.ph143.i:                                      ; preds = %40, %.loopexit.i
-  %.074141.i = phi i64 [ %122, %.loopexit.i ], [ 0, %40 ]
-  %42 = mul i64 %.074141.i, %39
+.lr.ph144.i:                                      ; preds = %40, %.loopexit.i
+  %.069142.i = phi i64 [ %122, %.loopexit.i ], [ 0, %40 ]
+  %42 = mul i64 %.069142.i, %39
   %scevgep.i = getelementptr i8, ptr %.sroa.0116.0.i, i64 %42
-  %43 = mul nsw i64 %.074141.i, %19
+  %43 = mul nsw i64 %.069142.i, %19
   %44 = getelementptr inbounds float, ptr %.071151.i, i64 %43
   br i1 %37, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph143.i, %.lr.ph.i
-  %.073134.i = phi i64 [ %49, %.lr.ph.i ], [ 0, %.lr.ph143.i ]
-  %.0133.i = phi float [ %.sroa.speculated.i, %.lr.ph.i ], [ 0xC7EFFFFFE0000000, %.lr.ph143.i ]
-  %.0128132.i = phi float [ %.sroa.speculated105.i, %.lr.ph.i ], [ 0x47EFFFFFE0000000, %.lr.ph143.i ]
-  %45 = getelementptr inbounds float, ptr %44, i64 %.073134.i
+.lr.ph.i:                                         ; preds = %.lr.ph144.i, %.lr.ph.i
+  %.068135.i = phi i64 [ %49, %.lr.ph.i ], [ 0, %.lr.ph144.i ]
+  %.0128134.i = phi float [ %.sroa.speculated.i, %.lr.ph.i ], [ 0xC7EFFFFFE0000000, %.lr.ph144.i ]
+  %.0129133.i = phi float [ %.sroa.speculated105.i, %.lr.ph.i ], [ 0x47EFFFFFE0000000, %.lr.ph144.i ]
+  %45 = getelementptr inbounds float, ptr %44, i64 %.068135.i
   %46 = load float, ptr %45, align 4
-  %47 = fcmp olt float %46, %.0128132.i
-  %.sroa.speculated105.i = select i1 %47, float %46, float %.0128132.i
-  %48 = fcmp olt float %.0133.i, %46
-  %.sroa.speculated.i = select i1 %48, float %46, float %.0133.i
-  %49 = add nuw nsw i64 %.073134.i, 1
+  %47 = fcmp olt float %46, %.0129133.i
+  %.sroa.speculated105.i = select i1 %47, float %46, float %.0129133.i
+  %48 = fcmp olt float %.0128134.i, %46
+  %.sroa.speculated.i = select i1 %48, float %46, float %.0128134.i
+  %49 = add nuw nsw i64 %.068135.i, 1
   %exitcond.not.i = icmp eq i64 %49, %19
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
@@ -717,7 +717,7 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: 
           cleanup
   br label %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EED2Ev.exit.i
 
-52:                                               ; preds = %._crit_edge144.i
+52:                                               ; preds = %._crit_edge145.i
   %53 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i.i = icmp eq ptr %.sroa.0.0.i, null
@@ -727,13 +727,13 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: 
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0.i) #22
   br label %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EED2Ev.exit.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph143.i
-  %.0128.lcssa.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph143.i ], [ %.sroa.speculated105.i, %.lr.ph.i ]
-  %.0.lcssa.i = phi float [ 0xC7EFFFFFE0000000, %.lr.ph143.i ], [ %.sroa.speculated.i, %.lr.ph.i ]
-  %55 = fsub float %.0.lcssa.i, %.0128.lcssa.i
-  %56 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::StorageMinMaxFP16", ptr %.sroa.0.0.i, i64 %.074141.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph144.i
+  %.0129.lcssa.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph144.i ], [ %.sroa.speculated105.i, %.lr.ph.i ]
+  %.0128.lcssa.i = phi float [ 0xC7EFFFFFE0000000, %.lr.ph144.i ], [ %.sroa.speculated.i, %.lr.ph.i ]
+  %55 = fsub float %.0128.lcssa.i, %.0129.lcssa.i
+  %56 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::StorageMinMaxFP16", ptr %.sroa.0.0.i, i64 %.069142.i
   %57 = insertelement <2 x float> poison, float %55, i64 0
-  %58 = insertelement <2 x float> %57, float %.0128.lcssa.i, i64 1
+  %58 = insertelement <2 x float> %57, float %.0129.lcssa.i, i64 1
   %59 = bitcast <2 x float> %58 to <2 x i32>
   %60 = tail call <2 x float> @llvm.fabs.v2f32(<2 x float> %58)
   %61 = bitcast <2 x float> %60 to <2 x i32>
@@ -784,8 +784,8 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: 
   %104 = bitcast float %103 to i32
   %105 = icmp eq i32 %98, 0
   %106 = select i1 %105, i32 %104, i32 %99
-  %sext129.i = shl i32 %95, 16
-  %107 = and i32 %sext129.i, -2147483648
+  %sext130.i = shl i32 %95, 16
+  %107 = and i32 %sext130.i, -2147483648
   %108 = icmp eq i32 %98, 260046848
   %109 = select i1 %108, i32 %100, i32 %106
   %110 = or i32 %109, %107
@@ -795,76 +795,76 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: 
   br i1 %113, label %.preheader.i, label %114
 
 .preheader.i:                                     ; preds = %._crit_edge.i
-  br i1 %37, label %.lr.ph140.preheader.i, label %.loopexit.i
+  br i1 %37, label %.lr.ph141.preheader.i, label %.loopexit.i
 
-.lr.ph140.preheader.i:                            ; preds = %.preheader.i
+.lr.ph141.preheader.i:                            ; preds = %.preheader.i
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i, i8 0, i64 %39, i1 false)
   br label %.loopexit.i
 
 114:                                              ; preds = %._crit_edge.i
   %115 = fdiv float 1.000000e+00, %94
-  br i1 %37, label %.lr.ph138.i, label %.loopexit.i
+  br i1 %37, label %.lr.ph139.i, label %.loopexit.i
 
-.lr.ph138.i:                                      ; preds = %114, %.lr.ph138.i
-  %.067136.i = phi i64 [ %121, %.lr.ph138.i ], [ 0, %114 ]
-  %116 = getelementptr inbounds float, ptr %44, i64 %.067136.i
+.lr.ph139.i:                                      ; preds = %114, %.lr.ph139.i
+  %.066137.i = phi i64 [ %121, %.lr.ph139.i ], [ 0, %114 ]
+  %116 = getelementptr inbounds float, ptr %44, i64 %.066137.i
   %117 = load float, ptr %116, align 4
   %118 = fsub float %117, %111
   %119 = fmul float %115, %118
-  %120 = getelementptr inbounds float, ptr %112, i64 %.067136.i
+  %120 = getelementptr inbounds float, ptr %112, i64 %.066137.i
   store float %119, ptr %120, align 4
-  %121 = add nuw nsw i64 %.067136.i, 1
-  %exitcond155.not.i = icmp eq i64 %121, %19
-  br i1 %exitcond155.not.i, label %.loopexit.i, label %.lr.ph138.i, !llvm.loop !10
+  %121 = add nuw nsw i64 %.066137.i, 1
+  %exitcond156.not.i = icmp eq i64 %121, %19
+  br i1 %exitcond156.not.i, label %.loopexit.i, label %.lr.ph139.i, !llvm.loop !10
 
-.loopexit.i:                                      ; preds = %.lr.ph138.i, %114, %.lr.ph140.preheader.i, %.preheader.i
-  %122 = add nuw nsw i64 %.074141.i, 1
-  %exitcond156.not.i = icmp eq i64 %122, %.sroa.speculated110.i
-  br i1 %exitcond156.not.i, label %._crit_edge144.i, label %.lr.ph143.i, !llvm.loop !11
+.loopexit.i:                                      ; preds = %.lr.ph139.i, %114, %.lr.ph141.preheader.i, %.preheader.i
+  %122 = add nuw nsw i64 %.069142.i, 1
+  %exitcond157.not.i = icmp eq i64 %122, %.sroa.speculated110.i
+  br i1 %exitcond157.not.i, label %._crit_edge145.i, label %.lr.ph144.i, !llvm.loop !11
 
-._crit_edge144.i:                                 ; preds = %.loopexit.i, %40
+._crit_edge145.i:                                 ; preds = %.loopexit.i, %40
   %123 = load ptr, ptr %8, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 144
   %125 = load ptr, ptr %124, align 8
-  invoke void %125(ptr noundef nonnull align 8 dereferenceable(36) %8, i64 noundef %.sroa.speculated110.i, ptr noundef %.sroa.0116.0.i, ptr noundef %.072150.i)
-          to label %.preheader131.i unwind label %52
+  invoke void %125(ptr noundef nonnull align 8 dereferenceable(36) %8, i64 noundef %.sroa.speculated110.i, ptr noundef %.sroa.0116.0.i, ptr noundef %.070152.i)
+          to label %.preheader132.i unwind label %52
 
-.preheader131.i:                                  ; preds = %._crit_edge144.i
-  br i1 %41, label %.lr.ph146.i, label %._crit_edge147.i
+.preheader132.i:                                  ; preds = %._crit_edge145.i
+  br i1 %41, label %.lr.ph147.i, label %._crit_edge148.i
 
-.lr.ph146.i:                                      ; preds = %.preheader131.i, %.lr.ph146.i
-  %.066145.i = phi i64 [ %126, %.lr.ph146.i ], [ %.sroa.speculated110.i, %.preheader131.i ]
-  %126 = add nsw i64 %.066145.i, -1
+.lr.ph147.i:                                      ; preds = %.preheader132.i, %.lr.ph147.i
+  %.0146.i = phi i64 [ %126, %.lr.ph147.i ], [ %.sroa.speculated110.i, %.preheader132.i ]
+  %126 = add nsw i64 %.0146.i, -1
   %127 = mul i64 %126, %18
-  %128 = getelementptr inbounds i8, ptr %.072150.i, i64 %127
+  %128 = getelementptr inbounds i8, ptr %.070152.i, i64 %127
   %129 = getelementptr inbounds i8, ptr %128, i64 %38
   %130 = mul i64 %126, %14
-  %131 = getelementptr inbounds i8, ptr %.072150.i, i64 %130
+  %131 = getelementptr inbounds i8, ptr %.070152.i, i64 %130
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %129, ptr align 1 %131, i64 %14, i1 false)
   %132 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::StorageMinMaxFP16", ptr %.sroa.0.0.i, i64 %126
   %133 = load i32, ptr %132, align 2
   store i32 %133, ptr %128, align 2
-  %134 = icmp ugt i64 %.066145.i, 1
-  br i1 %134, label %.lr.ph146.i, label %._crit_edge147.i, !llvm.loop !12
+  %134 = icmp ugt i64 %.0146.i, 1
+  br i1 %134, label %.lr.ph147.i, label %._crit_edge148.i, !llvm.loop !12
 
-._crit_edge147.i:                                 ; preds = %.lr.ph146.i, %.preheader131.i
+._crit_edge148.i:                                 ; preds = %.lr.ph147.i, %.preheader132.i
   %135 = mul nsw i64 %.sroa.speculated110.i, %19
   %136 = getelementptr inbounds float, ptr %.071151.i, i64 %135
   %137 = mul i64 %.sroa.speculated110.i, %18
-  %138 = getelementptr inbounds i8, ptr %.072150.i, i64 %137
-  %139 = sub i64 %storemerge149.i, %.sroa.speculated110.i
+  %138 = getelementptr inbounds i8, ptr %.070152.i, i64 %137
+  %139 = sub i64 %storemerge150.i, %.sroa.speculated110.i
   %.not.i = icmp eq i64 %139, 0
-  br i1 %.not.i, label %._crit_edge153.i, label %40, !llvm.loop !13
+  br i1 %.not.i, label %._crit_edge154.i, label %40, !llvm.loop !13
 
-._crit_edge153.i:                                 ; preds = %._crit_edge147.i, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i
+._crit_edge154.i:                                 ; preds = %._crit_edge148.i, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i
   %.not.i.i.i93.i = icmp eq ptr %.sroa.0.0.i, null
   br i1 %.not.i.i.i93.i, label %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EED2Ev.exit94.i, label %140
 
-140:                                              ; preds = %._crit_edge153.i
+140:                                              ; preds = %._crit_edge154.i
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0.i) #22
   br label %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EED2Ev.exit94.i
 
-_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EED2Ev.exit94.i: ; preds = %140, %._crit_edge153.i
+_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EED2Ev.exit94.i: ; preds = %140, %._crit_edge154.i
   %.not.i.i.i95.i = icmp eq ptr %.sroa.0116.0.i, null
   br i1 %.not.i.i.i95.i, label %_ZN5faiss12_GLOBAL__N_114sa_encode_implINS0_17StorageMinMaxFP16EEEvPKNS_22IndexRowwiseMinMaxBaseElPKfPh.exit, label %141
 
@@ -980,25 +980,25 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: 
   br label %40
 
 40:                                               ; preds = %._crit_edge102.i, %.lr.ph107.i
-  %.056106.i = phi ptr [ %2, %.lr.ph107.i ], [ %98, %._crit_edge102.i ]
-  %.057105.i = phi ptr [ %3, %.lr.ph107.i ], [ %100, %._crit_edge102.i ]
+  %.053106.i = phi ptr [ %3, %.lr.ph107.i ], [ %100, %._crit_edge102.i ]
+  %.054105.i = phi ptr [ %2, %.lr.ph107.i ], [ %98, %._crit_edge102.i ]
   %storemerge104.i = phi i64 [ %1, %.lr.ph107.i ], [ %101, %._crit_edge102.i ]
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %storemerge104.i, i64 %6)
   %41 = icmp sgt i64 %.sroa.speculated.i, 0
   br i1 %41, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %40
-  %invariant.gep.i = getelementptr i8, ptr %.056106.i, i64 %37
+  %invariant.gep.i = getelementptr i8, ptr %.054105.i, i64 %37
   br label %42
 
 42:                                               ; preds = %42, %.lr.ph.i
-  %.05595.i = phi i64 [ 0, %.lr.ph.i ], [ %46, %42 ]
-  %43 = mul i64 %.05595.i, %14
+  %.05295.i = phi i64 [ 0, %.lr.ph.i ], [ %46, %42 ]
+  %43 = mul i64 %.05295.i, %14
   %44 = getelementptr inbounds i8, ptr %.sroa.083.0.i, i64 %43
-  %45 = mul i64 %.05595.i, %18
+  %45 = mul i64 %.05295.i, %18
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %45
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 1 %gep.i, i64 %14, i1 false)
-  %46 = add nuw nsw i64 %.05595.i, 1
+  %46 = add nuw nsw i64 %.05295.i, 1
   %exitcond.not.i = icmp eq i64 %46, %.sroa.speculated.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %42, !llvm.loop !14
 
@@ -1011,16 +1011,16 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: 
   %49 = load ptr, ptr %8, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 152
   %51 = load ptr, ptr %50, align 8
-  invoke void %51(ptr noundef nonnull align 8 dereferenceable(36) %8, i64 noundef %.sroa.speculated.i, ptr noundef %.sroa.083.0.i, ptr noundef %.057105.i)
+  invoke void %51(ptr noundef nonnull align 8 dereferenceable(36) %8, i64 noundef %.sroa.speculated.i, ptr noundef %.sroa.083.0.i, ptr noundef %.053106.i)
           to label %.preheader.i unwind label %93
 
 .preheader.i:                                     ; preds = %._crit_edge.i
   br i1 %41, label %.lr.ph101.i, label %._crit_edge102.i
 
 .lr.ph101.i:                                      ; preds = %.preheader.i, %._crit_edge99.i
-  %.054100.i = phi i64 [ %96, %._crit_edge99.i ], [ 0, %.preheader.i ]
-  %52 = mul i64 %.054100.i, %18
-  %53 = getelementptr inbounds i8, ptr %.056106.i, i64 %52
+  %.051100.i = phi i64 [ %96, %._crit_edge99.i ], [ 0, %.preheader.i ]
+  %52 = mul i64 %.051100.i, %18
+  %53 = getelementptr inbounds i8, ptr %.054105.i, i64 %52
   %54 = load i32, ptr %53, align 2
   %55 = shl i32 %54, 13
   %56 = and i32 %55, 268427264
@@ -1055,8 +1055,8 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: 
   %84 = select i1 %83, i32 %75, i32 %81
   %85 = or i32 %84, %82
   %86 = bitcast i32 %85 to float
-  %87 = mul nsw i64 %.054100.i, %38
-  %88 = getelementptr inbounds float, ptr %.057105.i, i64 %87
+  %87 = mul nsw i64 %.051100.i, %38
+  %88 = getelementptr inbounds float, ptr %.053106.i, i64 %87
   br i1 %39, label %.lr.ph98.i, label %._crit_edge99.i
 
 .lr.ph98.i:                                       ; preds = %.lr.ph101.i, %.lr.ph98.i
@@ -1080,15 +1080,15 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: 
   br label %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EED2Ev.exit.i
 
 ._crit_edge99.i:                                  ; preds = %.lr.ph98.i, %.lr.ph101.i
-  %96 = add nuw nsw i64 %.054100.i, 1
+  %96 = add nuw nsw i64 %.051100.i, 1
   %exitcond110.not.i = icmp eq i64 %96, %.sroa.speculated.i
   br i1 %exitcond110.not.i, label %._crit_edge102.i, label %.lr.ph101.i, !llvm.loop !16
 
 ._crit_edge102.i:                                 ; preds = %._crit_edge99.i, %.preheader.i
   %97 = mul i64 %.sroa.speculated.i, %18
-  %98 = getelementptr inbounds i8, ptr %.056106.i, i64 %97
+  %98 = getelementptr inbounds i8, ptr %.054105.i, i64 %97
   %99 = mul nsw i64 %.sroa.speculated.i, %38
-  %100 = getelementptr inbounds float, ptr %.057105.i, i64 %99
+  %100 = getelementptr inbounds float, ptr %.053106.i, i64 %99
   %101 = sub i64 %storemerge104.i, %.sroa.speculated.i
   %.not.i = icmp eq i64 %101, 0
   br i1 %.not.i, label %._crit_edge108.i, label %40, !llvm.loop !17
@@ -1205,16 +1205,16 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.thr
   br i1 %26, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %32, %.lr.ph.i
-  %.062104.i = phi i64 [ %40, %.lr.ph.i ], [ 0, %32 ]
+  %.059104.i = phi i64 [ %40, %.lr.ph.i ], [ 0, %32 ]
   %.092103.i = phi float [ %.sroa.speculated.i, %.lr.ph.i ], [ 0xC7EFFFFFE0000000, %32 ]
   %.093102.i = phi float [ %.sroa.speculated87.i, %.lr.ph.i ], [ 0x47EFFFFFE0000000, %32 ]
-  %36 = getelementptr inbounds float, ptr %35, i64 %.062104.i
+  %36 = getelementptr inbounds float, ptr %35, i64 %.059104.i
   %37 = load float, ptr %36, align 4
   %38 = fcmp olt float %37, %.093102.i
   %.sroa.speculated87.i = select i1 %38, float %37, float %.093102.i
   %39 = fcmp olt float %.092103.i, %37
   %.sroa.speculated.i = select i1 %39, float %37, float %.092103.i
-  %40 = add nuw nsw i64 %.062104.i, 1
+  %40 = add nuw nsw i64 %.059104.i, 1
   %exitcond.not.i = icmp eq i64 %40, %25
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
 
@@ -1296,13 +1296,13 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.thr
   br i1 %26, label %.lr.ph108.i, label %.loopexit.i
 
 .lr.ph108.i:                                      ; preds = %99, %.lr.ph108.i
-  %.058106.i = phi i64 [ %105, %.lr.ph108.i ], [ 0, %99 ]
-  %101 = getelementptr inbounds float, ptr %35, i64 %.058106.i
+  %.057106.i = phi i64 [ %105, %.lr.ph108.i ], [ 0, %99 ]
+  %101 = getelementptr inbounds float, ptr %35, i64 %.057106.i
   %102 = load float, ptr %101, align 4
   %103 = fsub float %102, %97
   %104 = fmul float %100, %103
   store float %104, ptr %101, align 4
-  %105 = add nuw nsw i64 %.058106.i, 1
+  %105 = add nuw nsw i64 %.057106.i, 1
   %exitcond124.not.i = icmp eq i64 %105, %25
   br i1 %exitcond124.not.i, label %.loopexit.i, label %.lr.ph108.i, !llvm.loop !19
 
@@ -1338,8 +1338,8 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.thr
   br label %.lr.ph117.us.i
 
 .lr.ph117.us.i:                                   ; preds = %._crit_edge118.us.i, %.lr.ph117.us.preheader.i
-  %.057119.us.i = phi i64 [ %157, %._crit_edge118.us.i ], [ 0, %.lr.ph117.us.preheader.i ]
-  %112 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::StorageMinMaxFP16", ptr %.sroa.0.095.i, i64 %.057119.us.i
+  %.056119.us.i = phi i64 [ %157, %._crit_edge118.us.i ], [ 0, %.lr.ph117.us.preheader.i ]
+  %112 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::StorageMinMaxFP16", ptr %.sroa.0.095.i, i64 %.056119.us.i
   %113 = load i16, ptr %112, align 2
   %114 = zext i16 %113 to i32
   %115 = shl nuw nsw i32 %114, 13
@@ -1379,7 +1379,7 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.thr
   %147 = select i1 %146, i32 %138, i32 %144
   %148 = or i32 %147, %145
   %149 = bitcast i32 %148 to float
-  %150 = mul nuw nsw i64 %.057119.us.i, %110
+  %150 = mul nuw nsw i64 %.056119.us.i, %110
   %151 = getelementptr inbounds float, ptr %2, i64 %150
   br label %152
 
@@ -1394,7 +1394,7 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.thr
   br i1 %exitcond126.not.i, label %._crit_edge118.us.i, label %152, !llvm.loop !20
 
 ._crit_edge118.us.i:                              ; preds = %152
-  %157 = add nuw nsw i64 %.057119.us.i, 1
+  %157 = add nuw nsw i64 %.056119.us.i, 1
   %exitcond127.not.i = icmp eq i64 %157, %smax.i
   br i1 %exitcond127.not.i, label %._crit_edge121.i, label %.lr.ph117.us.i, !llvm.loop !21
 
@@ -1588,16 +1588,16 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %exitcond115.not.i, label %._crit_edge85.i, label %.lr.ph.us.us.i
 
 44:                                               ; preds = %44, %.lr.ph.us.us.i
-  %.04674.us.us.i = phi i64 [ 0, %.lr.ph.us.us.i ], [ %49, %44 ]
+  %.04374.us.us.i = phi i64 [ 0, %.lr.ph.us.us.i ], [ %49, %44 ]
   %.06973.us.us.i = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.us.us.i ], [ %.sroa.speculated.us.us.i, %44 ]
   %.07072.us.us.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph.us.us.i ], [ %.sroa.speculated60.us.us.i, %44 ]
-  %45 = getelementptr inbounds float, ptr %34, i64 %.04674.us.us.i
+  %45 = getelementptr inbounds float, ptr %34, i64 %.04374.us.us.i
   %46 = load float, ptr %45, align 4
   %47 = fcmp olt float %46, %.07072.us.us.i
   %.sroa.speculated60.us.us.i = select i1 %47, float %46, float %.07072.us.us.i
   %48 = fcmp olt float %.06973.us.us.i, %46
   %.sroa.speculated.us.us.i = select i1 %48, float %46, float %.06973.us.us.i
-  %49 = add nuw nsw i64 %.04674.us.us.i, 1
+  %49 = add nuw nsw i64 %.04374.us.us.i, 1
   %exitcond.not.i = icmp eq i64 %49, %13
   br i1 %exitcond.not.i, label %._crit_edge.us.us.i, label %44, !llvm.loop !23
 
@@ -1749,140 +1749,140 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EE17_S_check_init_le
 
 _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EEC2EmRKS3_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.noexc90.i, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
   %.sroa.0.0.i = phi ptr [ %31, %.noexc90.i ], [ null, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i ], [ %31, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
-  %.not147.i = icmp eq i64 %1, 0
-  br i1 %.not147.i, label %._crit_edge152.i, label %.lr.ph151.i
+  %.not148.i = icmp eq i64 %1, 0
+  br i1 %.not148.i, label %._crit_edge153.i, label %.lr.ph152.i
 
-.lr.ph151.i:                                      ; preds = %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EEC2EmRKS3_.exit.i
+.lr.ph152.i:                                      ; preds = %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EEC2EmRKS3_.exit.i
   %37 = icmp sgt i32 %.fr3, 0
   %38 = sub i64 %18, %14
   %39 = shl nsw i64 %19, 2
-  br i1 %37, label %.lr.ph151.i.split.us, label %.lr.ph151.i.split
+  br i1 %37, label %.lr.ph152.i.split.us, label %.lr.ph152.i.split
 
-.lr.ph151.i.split.us:                             ; preds = %.lr.ph151.i, %._crit_edge146.i.us
-  %.071150.i.us = phi ptr [ %54, %._crit_edge146.i.us ], [ %2, %.lr.ph151.i ]
-  %.072149.i.us = phi ptr [ %56, %._crit_edge146.i.us ], [ %3, %.lr.ph151.i ]
-  %storemerge148.i.us = phi i64 [ %57, %._crit_edge146.i.us ], [ %1, %.lr.ph151.i ]
-  %.sroa.speculated110.i.us = tail call i64 @llvm.umin.i64(i64 %storemerge148.i.us, i64 %6)
+.lr.ph152.i.split.us:                             ; preds = %.lr.ph152.i, %._crit_edge147.i.us
+  %.070151.i.us = phi ptr [ %56, %._crit_edge147.i.us ], [ %3, %.lr.ph152.i ]
+  %.071150.i.us = phi ptr [ %54, %._crit_edge147.i.us ], [ %2, %.lr.ph152.i ]
+  %storemerge149.i.us = phi i64 [ %57, %._crit_edge147.i.us ], [ %1, %.lr.ph152.i ]
+  %.sroa.speculated110.i.us = tail call i64 @llvm.umin.i64(i64 %storemerge149.i.us, i64 %6)
   %40 = icmp sgt i64 %.sroa.speculated110.i.us, 0
-  br i1 %40, label %.lr.ph142.i.us.us, label %._crit_edge143.i.us
+  br i1 %40, label %.lr.ph143.i.us.us, label %._crit_edge144.i.us
 
-._crit_edge143.i.us:                              ; preds = %.loopexit.i.us.us, %.lr.ph151.i.split.us
+._crit_edge144.i.us:                              ; preds = %.loopexit.i.us.us, %.lr.ph152.i.split.us
   %41 = load ptr, ptr %8, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 144
   %43 = load ptr, ptr %42, align 8
-  invoke void %43(ptr noundef nonnull align 8 dereferenceable(36) %8, i64 noundef %.sroa.speculated110.i.us, ptr noundef %.sroa.0116.0.i, ptr noundef %.072149.i.us)
-          to label %.preheader130.i.us unwind label %.split.us
+  invoke void %43(ptr noundef nonnull align 8 dereferenceable(36) %8, i64 noundef %.sroa.speculated110.i.us, ptr noundef %.sroa.0116.0.i, ptr noundef %.070151.i.us)
+          to label %.preheader131.i.us unwind label %.split.us
 
-.preheader130.i.us:                               ; preds = %._crit_edge143.i.us
-  br i1 %40, label %.lr.ph145.i.us, label %._crit_edge146.i.us
+.preheader131.i.us:                               ; preds = %._crit_edge144.i.us
+  br i1 %40, label %.lr.ph146.i.us, label %._crit_edge147.i.us
 
-.lr.ph145.i.us:                                   ; preds = %.preheader130.i.us, %.lr.ph145.i.us
-  %.066144.i.us = phi i64 [ %44, %.lr.ph145.i.us ], [ %.sroa.speculated110.i.us, %.preheader130.i.us ]
-  %44 = add nsw i64 %.066144.i.us, -1
+.lr.ph146.i.us:                                   ; preds = %.preheader131.i.us, %.lr.ph146.i.us
+  %.0145.i.us = phi i64 [ %44, %.lr.ph146.i.us ], [ %.sroa.speculated110.i.us, %.preheader131.i.us ]
+  %44 = add nsw i64 %.0145.i.us, -1
   %45 = mul i64 %44, %18
-  %46 = getelementptr inbounds i8, ptr %.072149.i.us, i64 %45
+  %46 = getelementptr inbounds i8, ptr %.070151.i.us, i64 %45
   %47 = getelementptr inbounds i8, ptr %46, i64 %38
   %48 = mul i64 %44, %14
-  %49 = getelementptr inbounds i8, ptr %.072149.i.us, i64 %48
+  %49 = getelementptr inbounds i8, ptr %.070151.i.us, i64 %48
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %47, ptr align 1 %49, i64 %14, i1 false)
   %50 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::StorageMinMaxFP32", ptr %.sroa.0.0.i, i64 %44
   %51 = load i64, ptr %50, align 4
   store i64 %51, ptr %46, align 4
-  %52 = icmp ugt i64 %.066144.i.us, 1
-  br i1 %52, label %.lr.ph145.i.us, label %._crit_edge146.i.us, !llvm.loop !25
+  %52 = icmp ugt i64 %.0145.i.us, 1
+  br i1 %52, label %.lr.ph146.i.us, label %._crit_edge147.i.us, !llvm.loop !25
 
-._crit_edge146.i.us:                              ; preds = %.lr.ph145.i.us, %.preheader130.i.us
+._crit_edge147.i.us:                              ; preds = %.lr.ph146.i.us, %.preheader131.i.us
   %53 = mul nuw nsw i64 %.sroa.speculated110.i.us, %19
   %54 = getelementptr inbounds float, ptr %.071150.i.us, i64 %53
   %55 = mul i64 %.sroa.speculated110.i.us, %18
-  %56 = getelementptr inbounds i8, ptr %.072149.i.us, i64 %55
-  %57 = sub i64 %storemerge148.i.us, %.sroa.speculated110.i.us
+  %56 = getelementptr inbounds i8, ptr %.070151.i.us, i64 %55
+  %57 = sub i64 %storemerge149.i.us, %.sroa.speculated110.i.us
   %.not.i.us = icmp eq i64 %57, 0
-  br i1 %.not.i.us, label %._crit_edge152.i, label %.lr.ph151.i.split.us, !llvm.loop !26
+  br i1 %.not.i.us, label %._crit_edge153.i, label %.lr.ph152.i.split.us, !llvm.loop !26
 
-.lr.ph142.i.us.us:                                ; preds = %.lr.ph151.i.split.us, %.loopexit.i.us.us
-  %.074140.i.us.us = phi i64 [ %78, %.loopexit.i.us.us ], [ 0, %.lr.ph151.i.split.us ]
-  %58 = mul nuw nsw i64 %.074140.i.us.us, %39
-  %59 = mul nuw nsw i64 %.074140.i.us.us, %19
+.lr.ph143.i.us.us:                                ; preds = %.lr.ph152.i.split.us, %.loopexit.i.us.us
+  %.069141.i.us.us = phi i64 [ %78, %.loopexit.i.us.us ], [ 0, %.lr.ph152.i.split.us ]
+  %58 = mul nuw nsw i64 %.069141.i.us.us, %39
+  %59 = mul nuw nsw i64 %.069141.i.us.us, %19
   %60 = getelementptr inbounds float, ptr %.071150.i.us, i64 %59
   br label %.lr.ph.i.us.us
 
-.lr.ph.i.us.us:                                   ; preds = %.lr.ph.i.us.us, %.lr.ph142.i.us.us
-  %.073133.i.us.us = phi i64 [ %65, %.lr.ph.i.us.us ], [ 0, %.lr.ph142.i.us.us ]
-  %.0132.i.us.us = phi float [ %.sroa.speculated.i.us.us, %.lr.ph.i.us.us ], [ 0xC7EFFFFFE0000000, %.lr.ph142.i.us.us ]
-  %.0128131.i.us.us = phi float [ %.sroa.speculated105.i.us.us, %.lr.ph.i.us.us ], [ 0x47EFFFFFE0000000, %.lr.ph142.i.us.us ]
-  %61 = getelementptr inbounds float, ptr %60, i64 %.073133.i.us.us
+.lr.ph.i.us.us:                                   ; preds = %.lr.ph.i.us.us, %.lr.ph143.i.us.us
+  %.068134.i.us.us = phi i64 [ %65, %.lr.ph.i.us.us ], [ 0, %.lr.ph143.i.us.us ]
+  %.0128133.i.us.us = phi float [ %.sroa.speculated.i.us.us, %.lr.ph.i.us.us ], [ 0xC7EFFFFFE0000000, %.lr.ph143.i.us.us ]
+  %.0129132.i.us.us = phi float [ %.sroa.speculated105.i.us.us, %.lr.ph.i.us.us ], [ 0x47EFFFFFE0000000, %.lr.ph143.i.us.us ]
+  %61 = getelementptr inbounds float, ptr %60, i64 %.068134.i.us.us
   %62 = load float, ptr %61, align 4
-  %63 = fcmp olt float %62, %.0128131.i.us.us
-  %.sroa.speculated105.i.us.us = select i1 %63, float %62, float %.0128131.i.us.us
-  %64 = fcmp olt float %.0132.i.us.us, %62
-  %.sroa.speculated.i.us.us = select i1 %64, float %62, float %.0132.i.us.us
-  %65 = add nuw nsw i64 %.073133.i.us.us, 1
+  %63 = fcmp olt float %62, %.0129132.i.us.us
+  %.sroa.speculated105.i.us.us = select i1 %63, float %62, float %.0129132.i.us.us
+  %64 = fcmp olt float %.0128133.i.us.us, %62
+  %.sroa.speculated.i.us.us = select i1 %64, float %62, float %.0128133.i.us.us
+  %65 = add nuw nsw i64 %.068134.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %65, %19
   br i1 %exitcond.not.i.us.us, label %._crit_edge.i.us.us, label %.lr.ph.i.us.us, !llvm.loop !27
 
 ._crit_edge.i.us.us:                              ; preds = %.lr.ph.i.us.us
   %66 = fsub float %.sroa.speculated.i.us.us, %.sroa.speculated105.i.us.us
-  %67 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::StorageMinMaxFP32", ptr %.sroa.0.0.i, i64 %.074140.i.us.us
+  %67 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::StorageMinMaxFP32", ptr %.sroa.0.0.i, i64 %.069141.i.us.us
   store float %66, ptr %67, align 4
   %68 = getelementptr inbounds i8, ptr %67, i64 4
   store float %.sroa.speculated105.i.us.us, ptr %68, align 4
   %69 = getelementptr inbounds float, ptr %.sroa.0116.0.i, i64 %59
   %70 = fcmp oeq float %66, 0.000000e+00
-  br i1 %70, label %.preheader.i.us.us, label %.lr.ph137.i.preheader.us.us
+  br i1 %70, label %.preheader.i.us.us, label %.lr.ph138.i.preheader.us.us
 
-.lr.ph137.i.preheader.us.us:                      ; preds = %._crit_edge.i.us.us
+.lr.ph138.i.preheader.us.us:                      ; preds = %._crit_edge.i.us.us
   %71 = fdiv float 1.000000e+00, %66
-  br label %.lr.ph137.i.us.us
+  br label %.lr.ph138.i.us.us
 
-.lr.ph137.i.us.us:                                ; preds = %.lr.ph137.i.us.us, %.lr.ph137.i.preheader.us.us
-  %.067135.i.us.us = phi i64 [ %77, %.lr.ph137.i.us.us ], [ 0, %.lr.ph137.i.preheader.us.us ]
-  %72 = getelementptr inbounds float, ptr %60, i64 %.067135.i.us.us
+.lr.ph138.i.us.us:                                ; preds = %.lr.ph138.i.us.us, %.lr.ph138.i.preheader.us.us
+  %.066136.i.us.us = phi i64 [ %77, %.lr.ph138.i.us.us ], [ 0, %.lr.ph138.i.preheader.us.us ]
+  %72 = getelementptr inbounds float, ptr %60, i64 %.066136.i.us.us
   %73 = load float, ptr %72, align 4
   %74 = fsub float %73, %.sroa.speculated105.i.us.us
   %75 = fmul float %71, %74
-  %76 = getelementptr inbounds float, ptr %69, i64 %.067135.i.us.us
+  %76 = getelementptr inbounds float, ptr %69, i64 %.066136.i.us.us
   store float %75, ptr %76, align 4
-  %77 = add nuw nsw i64 %.067135.i.us.us, 1
-  %exitcond154.not.i.us.us = icmp eq i64 %77, %19
-  br i1 %exitcond154.not.i.us.us, label %.loopexit.i.us.us, label %.lr.ph137.i.us.us, !llvm.loop !28
+  %77 = add nuw nsw i64 %.066136.i.us.us, 1
+  %exitcond155.not.i.us.us = icmp eq i64 %77, %19
+  br i1 %exitcond155.not.i.us.us, label %.loopexit.i.us.us, label %.lr.ph138.i.us.us, !llvm.loop !28
 
 .preheader.i.us.us:                               ; preds = %._crit_edge.i.us.us
   %scevgep.i.us.us = getelementptr i8, ptr %.sroa.0116.0.i, i64 %58
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.us.us, i8 0, i64 %39, i1 false)
   br label %.loopexit.i.us.us
 
-.loopexit.i.us.us:                                ; preds = %.lr.ph137.i.us.us, %.preheader.i.us.us
-  %78 = add nuw nsw i64 %.074140.i.us.us, 1
-  %exitcond155.not.i.us.us = icmp eq i64 %78, %.sroa.speculated110.i.us
-  br i1 %exitcond155.not.i.us.us, label %._crit_edge143.i.us, label %.lr.ph142.i.us.us, !llvm.loop !29
+.loopexit.i.us.us:                                ; preds = %.lr.ph138.i.us.us, %.preheader.i.us.us
+  %78 = add nuw nsw i64 %.069141.i.us.us, 1
+  %exitcond156.not.i.us.us = icmp eq i64 %78, %.sroa.speculated110.i.us
+  br i1 %exitcond156.not.i.us.us, label %._crit_edge144.i.us, label %.lr.ph143.i.us.us, !llvm.loop !29
 
-.split.us:                                        ; preds = %._crit_edge143.i.us
+.split.us:                                        ; preds = %._crit_edge144.i.us
   %79 = landingpad { ptr, i32 }
           cleanup
   br label %86
 
-.lr.ph151.i.split:                                ; preds = %.lr.ph151.i, %._crit_edge146.i
-  %.072149.i = phi ptr [ %101, %._crit_edge146.i ], [ %3, %.lr.ph151.i ]
-  %storemerge148.i = phi i64 [ %102, %._crit_edge146.i ], [ %1, %.lr.ph151.i ]
-  %.sroa.speculated110.i = tail call i64 @llvm.umin.i64(i64 %storemerge148.i, i64 %6)
+.lr.ph152.i.split:                                ; preds = %.lr.ph152.i, %._crit_edge147.i
+  %.070151.i = phi ptr [ %101, %._crit_edge147.i ], [ %3, %.lr.ph152.i ]
+  %storemerge149.i = phi i64 [ %102, %._crit_edge147.i ], [ %1, %.lr.ph152.i ]
+  %.sroa.speculated110.i = tail call i64 @llvm.umin.i64(i64 %storemerge149.i, i64 %6)
   %80 = icmp sgt i64 %.sroa.speculated110.i, 0
-  br i1 %80, label %.lr.ph142.i, label %._crit_edge143.i
+  br i1 %80, label %.lr.ph143.i, label %._crit_edge144.i
 
-.lr.ph142.i:                                      ; preds = %.lr.ph151.i.split, %.lr.ph142.i
-  %.074140.i = phi i64 [ %82, %.lr.ph142.i ], [ 0, %.lr.ph151.i.split ]
-  %81 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::StorageMinMaxFP32", ptr %.sroa.0.0.i, i64 %.074140.i
+.lr.ph143.i:                                      ; preds = %.lr.ph152.i.split, %.lr.ph143.i
+  %.069141.i = phi i64 [ %82, %.lr.ph143.i ], [ 0, %.lr.ph152.i.split ]
+  %81 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::StorageMinMaxFP32", ptr %.sroa.0.0.i, i64 %.069141.i
   store <2 x float> <float 0xFFF0000000000000, float 0x47EFFFFFE0000000>, ptr %81, align 4
-  %82 = add nuw nsw i64 %.074140.i, 1
-  %exitcond155.not.i = icmp eq i64 %82, %.sroa.speculated110.i
-  br i1 %exitcond155.not.i, label %._crit_edge143.i, label %.lr.ph142.i, !llvm.loop !29
+  %82 = add nuw nsw i64 %.069141.i, 1
+  %exitcond156.not.i = icmp eq i64 %82, %.sroa.speculated110.i
+  br i1 %exitcond156.not.i, label %._crit_edge144.i, label %.lr.ph143.i, !llvm.loop !29
 
 83:                                               ; preds = %29, %28
   %84 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EED2Ev.exit.i
 
-.split:                                           ; preds = %._crit_edge143.i
+.split:                                           ; preds = %._crit_edge144.i
   %85 = landingpad { ptr, i32 }
           cleanup
   br label %86
@@ -1896,47 +1896,47 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EEC2EmRKS3_.exit.i: 
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0.i) #22
   br label %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EED2Ev.exit.i
 
-._crit_edge143.i:                                 ; preds = %.lr.ph142.i, %.lr.ph151.i.split
+._crit_edge144.i:                                 ; preds = %.lr.ph143.i, %.lr.ph152.i.split
   %88 = load ptr, ptr %8, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 144
   %90 = load ptr, ptr %89, align 8
-  invoke void %90(ptr noundef nonnull align 8 dereferenceable(36) %8, i64 noundef %.sroa.speculated110.i, ptr noundef %.sroa.0116.0.i, ptr noundef %.072149.i)
-          to label %.preheader130.i unwind label %.split
+  invoke void %90(ptr noundef nonnull align 8 dereferenceable(36) %8, i64 noundef %.sroa.speculated110.i, ptr noundef %.sroa.0116.0.i, ptr noundef %.070151.i)
+          to label %.preheader131.i unwind label %.split
 
-.preheader130.i:                                  ; preds = %._crit_edge143.i
-  br i1 %80, label %.lr.ph145.i, label %._crit_edge146.i
+.preheader131.i:                                  ; preds = %._crit_edge144.i
+  br i1 %80, label %.lr.ph146.i, label %._crit_edge147.i
 
-.lr.ph145.i:                                      ; preds = %.preheader130.i, %.lr.ph145.i
-  %.066144.i = phi i64 [ %91, %.lr.ph145.i ], [ %.sroa.speculated110.i, %.preheader130.i ]
-  %91 = add nsw i64 %.066144.i, -1
+.lr.ph146.i:                                      ; preds = %.preheader131.i, %.lr.ph146.i
+  %.0145.i = phi i64 [ %91, %.lr.ph146.i ], [ %.sroa.speculated110.i, %.preheader131.i ]
+  %91 = add nsw i64 %.0145.i, -1
   %92 = mul i64 %91, %18
-  %93 = getelementptr inbounds i8, ptr %.072149.i, i64 %92
+  %93 = getelementptr inbounds i8, ptr %.070151.i, i64 %92
   %94 = getelementptr inbounds i8, ptr %93, i64 %38
   %95 = mul i64 %91, %14
-  %96 = getelementptr inbounds i8, ptr %.072149.i, i64 %95
+  %96 = getelementptr inbounds i8, ptr %.070151.i, i64 %95
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %94, ptr align 1 %96, i64 %14, i1 false)
   %97 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::StorageMinMaxFP32", ptr %.sroa.0.0.i, i64 %91
   %98 = load i64, ptr %97, align 4
   store i64 %98, ptr %93, align 4
-  %99 = icmp ugt i64 %.066144.i, 1
-  br i1 %99, label %.lr.ph145.i, label %._crit_edge146.i, !llvm.loop !25
+  %99 = icmp ugt i64 %.0145.i, 1
+  br i1 %99, label %.lr.ph146.i, label %._crit_edge147.i, !llvm.loop !25
 
-._crit_edge146.i:                                 ; preds = %.lr.ph145.i, %.preheader130.i
+._crit_edge147.i:                                 ; preds = %.lr.ph146.i, %.preheader131.i
   %100 = mul i64 %.sroa.speculated110.i, %18
-  %101 = getelementptr inbounds i8, ptr %.072149.i, i64 %100
-  %102 = sub i64 %storemerge148.i, %.sroa.speculated110.i
+  %101 = getelementptr inbounds i8, ptr %.070151.i, i64 %100
+  %102 = sub i64 %storemerge149.i, %.sroa.speculated110.i
   %.not.i = icmp eq i64 %102, 0
-  br i1 %.not.i, label %._crit_edge152.i, label %.lr.ph151.i.split, !llvm.loop !26
+  br i1 %.not.i, label %._crit_edge153.i, label %.lr.ph152.i.split, !llvm.loop !26
 
-._crit_edge152.i:                                 ; preds = %._crit_edge146.i, %._crit_edge146.i.us, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EEC2EmRKS3_.exit.i
+._crit_edge153.i:                                 ; preds = %._crit_edge147.i, %._crit_edge147.i.us, %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EEC2EmRKS3_.exit.i
   %.not.i.i.i93.i = icmp eq ptr %.sroa.0.0.i, null
   br i1 %.not.i.i.i93.i, label %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EED2Ev.exit94.i, label %103
 
-103:                                              ; preds = %._crit_edge152.i
+103:                                              ; preds = %._crit_edge153.i
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0.i) #22
   br label %_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EED2Ev.exit94.i
 
-_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EED2Ev.exit94.i: ; preds = %103, %._crit_edge152.i
+_ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EED2Ev.exit94.i: ; preds = %103, %._crit_edge153.i
   %.not.i.i.i95.i = icmp eq ptr %.sroa.0116.0.i, null
   br i1 %.not.i.i.i95.i, label %_ZN5faiss12_GLOBAL__N_114sa_encode_implINS0_17StorageMinMaxFP32EEEvPKNS_22IndexRowwiseMinMaxBaseElPKfPh.exit, label %104
 
@@ -2053,8 +2053,8 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: 
   br i1 %39, label %.lr.ph109.split.us.i, label %.lr.ph109.split.i
 
 .lr.ph109.split.us.i:                             ; preds = %.lr.ph109.i, %._crit_edge102.split.us.us.i
-  %.056107.us.i = phi ptr [ %45, %._crit_edge102.split.us.us.i ], [ %2, %.lr.ph109.i ]
-  %.057105.us.i = phi ptr [ %47, %._crit_edge102.split.us.us.i ], [ %3, %.lr.ph109.i ]
+  %.053107.us.i = phi ptr [ %47, %._crit_edge102.split.us.us.i ], [ %3, %.lr.ph109.i ]
+  %.054105.us.i = phi ptr [ %45, %._crit_edge102.split.us.us.i ], [ %2, %.lr.ph109.i ]
   %storemerge104.us.i = phi i64 [ %48, %._crit_edge102.split.us.us.i ], [ %1, %.lr.ph109.i ]
   %.sroa.speculated.us.i = tail call i64 @llvm.umin.i64(i64 %storemerge104.us.i, i64 %6)
   %40 = icmp sgt i64 %.sroa.speculated.us.i, 0
@@ -2064,26 +2064,26 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: 
   %41 = load ptr, ptr %8, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 152
   %43 = load ptr, ptr %42, align 8
-  invoke void %43(ptr noundef nonnull align 8 dereferenceable(36) %8, i64 noundef %.sroa.speculated.us.i, ptr noundef %.sroa.084.0.i, ptr noundef %.057105.us.i)
+  invoke void %43(ptr noundef nonnull align 8 dereferenceable(36) %8, i64 noundef %.sroa.speculated.us.i, ptr noundef %.sroa.084.0.i, ptr noundef %.053107.us.i)
           to label %.preheader.us.i unwind label %.split.us.i
 
 ._crit_edge102.split.us.us.i:                     ; preds = %._crit_edge99.us.us.i, %.preheader.us.i
   %44 = mul i64 %.sroa.speculated.us.i, %18
-  %45 = getelementptr inbounds i8, ptr %.056107.us.i, i64 %44
+  %45 = getelementptr inbounds i8, ptr %.054105.us.i, i64 %44
   %46 = mul nsw i64 %.sroa.speculated.us.i, %38
-  %47 = getelementptr inbounds float, ptr %.057105.us.i, i64 %46
+  %47 = getelementptr inbounds float, ptr %.053107.us.i, i64 %46
   %48 = sub i64 %storemerge104.us.i, %.sroa.speculated.us.i
   %.not.us.i = icmp eq i64 %48, 0
   br i1 %.not.us.i, label %._crit_edge110.i, label %.lr.ph109.split.us.i, !llvm.loop !30
 
 49:                                               ; preds = %.lr.ph.us.i, %49
-  %.05595.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %53, %49 ]
-  %50 = mul i64 %.05595.us.i, %14
+  %.05295.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %53, %49 ]
+  %50 = mul i64 %.05295.us.i, %14
   %51 = getelementptr inbounds i8, ptr %.sroa.084.0.i, i64 %50
-  %52 = mul i64 %.05595.us.i, %18
+  %52 = mul i64 %.05295.us.i, %18
   %gep.us.i = getelementptr i8, ptr %invariant.gep.us.i, i64 %52
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr align 1 %gep.us.i, i64 %14, i1 false)
-  %53 = add nuw nsw i64 %.05595.us.i, 1
+  %53 = add nuw nsw i64 %.05295.us.i, 1
   %exitcond113.not.i = icmp eq i64 %53, %.sroa.speculated.us.i
   br i1 %exitcond113.not.i, label %._crit_edge.us.i, label %49, !llvm.loop !31
 
@@ -2091,18 +2091,18 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: 
   br i1 %40, label %.lr.ph98.us.us.i, label %._crit_edge102.split.us.us.i
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph109.split.us.i
-  %invariant.gep.us.i = getelementptr i8, ptr %.056107.us.i, i64 %37
+  %invariant.gep.us.i = getelementptr i8, ptr %.054105.us.i, i64 %37
   br label %49
 
 .lr.ph98.us.us.i:                                 ; preds = %.preheader.us.i, %._crit_edge99.us.us.i
-  %.054100.us.us.i = phi i64 [ %65, %._crit_edge99.us.us.i ], [ 0, %.preheader.us.i ]
-  %54 = mul i64 %.054100.us.us.i, %18
-  %55 = getelementptr inbounds i8, ptr %.056107.us.i, i64 %54
+  %.051100.us.us.i = phi i64 [ %65, %._crit_edge99.us.us.i ], [ 0, %.preheader.us.i ]
+  %54 = mul i64 %.051100.us.us.i, %18
+  %55 = getelementptr inbounds i8, ptr %.054105.us.i, i64 %54
   %56 = load float, ptr %55, align 4
   %.sroa_idx.us.us.i = getelementptr inbounds i8, ptr %55, i64 4
   %57 = load float, ptr %.sroa_idx.us.us.i, align 4
-  %58 = mul nuw nsw i64 %.054100.us.us.i, %38
-  %59 = getelementptr inbounds float, ptr %.057105.us.i, i64 %58
+  %58 = mul nuw nsw i64 %.051100.us.us.i, %38
+  %59 = getelementptr inbounds float, ptr %.053107.us.i, i64 %58
   br label %60
 
 60:                                               ; preds = %60, %.lr.ph98.us.us.i
@@ -2116,7 +2116,7 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: 
   br i1 %exitcond114.not.i, label %._crit_edge99.us.us.i, label %60, !llvm.loop !32
 
 ._crit_edge99.us.us.i:                            ; preds = %60
-  %65 = add nuw nsw i64 %.054100.us.us.i, 1
+  %65 = add nuw nsw i64 %.051100.us.us.i, 1
   %exitcond115.not.i = icmp eq i64 %65, %.sroa.speculated.us.i
   br i1 %exitcond115.not.i, label %._crit_edge102.split.us.us.i, label %.lr.ph98.us.us.i, !llvm.loop !33
 
@@ -2126,25 +2126,25 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: 
   br label %79
 
 .lr.ph109.split.i:                                ; preds = %.lr.ph109.i, %._crit_edge102.split.i
-  %.056107.i = phi ptr [ %82, %._crit_edge102.split.i ], [ %2, %.lr.ph109.i ]
-  %.057105.i = phi ptr [ %84, %._crit_edge102.split.i ], [ %3, %.lr.ph109.i ]
+  %.053107.i = phi ptr [ %84, %._crit_edge102.split.i ], [ %3, %.lr.ph109.i ]
+  %.054105.i = phi ptr [ %82, %._crit_edge102.split.i ], [ %2, %.lr.ph109.i ]
   %storemerge104.i = phi i64 [ %85, %._crit_edge102.split.i ], [ %1, %.lr.ph109.i ]
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %storemerge104.i, i64 %6)
   %67 = icmp sgt i64 %.sroa.speculated.i, 0
   br i1 %67, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph109.split.i
-  %invariant.gep.i = getelementptr i8, ptr %.056107.i, i64 %37
+  %invariant.gep.i = getelementptr i8, ptr %.054105.i, i64 %37
   br label %68
 
 68:                                               ; preds = %68, %.lr.ph.i
-  %.05595.i = phi i64 [ 0, %.lr.ph.i ], [ %72, %68 ]
-  %69 = mul i64 %.05595.i, %14
+  %.05295.i = phi i64 [ 0, %.lr.ph.i ], [ %72, %68 ]
+  %69 = mul i64 %.05295.i, %14
   %70 = getelementptr inbounds i8, ptr %.sroa.084.0.i, i64 %69
-  %71 = mul i64 %.05595.i, %18
+  %71 = mul i64 %.05295.i, %18
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %71
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr align 1 %gep.i, i64 %14, i1 false)
-  %72 = add nuw nsw i64 %.05595.i, 1
+  %72 = add nuw nsw i64 %.05295.i, 1
   %exitcond.not.i = icmp eq i64 %72, %.sroa.speculated.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %68, !llvm.loop !31
 
@@ -2157,7 +2157,7 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: 
   %75 = load ptr, ptr %8, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 152
   %77 = load ptr, ptr %76, align 8
-  invoke void %77(ptr noundef nonnull align 8 dereferenceable(36) %8, i64 noundef %.sroa.speculated.i, ptr noundef %.sroa.084.0.i, ptr noundef %.057105.i)
+  invoke void %77(ptr noundef nonnull align 8 dereferenceable(36) %8, i64 noundef %.sroa.speculated.i, ptr noundef %.sroa.084.0.i, ptr noundef %.053107.i)
           to label %._crit_edge102.split.i unwind label %.split.i
 
 .split.i:                                         ; preds = %._crit_edge.i
@@ -2176,9 +2176,9 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP16ESaIS2_EEC2EmRKS3_.exit.i: 
 
 ._crit_edge102.split.i:                           ; preds = %._crit_edge.i
   %81 = mul i64 %.sroa.speculated.i, %18
-  %82 = getelementptr inbounds i8, ptr %.056107.i, i64 %81
+  %82 = getelementptr inbounds i8, ptr %.054105.i, i64 %81
   %83 = mul nsw i64 %.sroa.speculated.i, %38
-  %84 = getelementptr inbounds float, ptr %.057105.i, i64 %83
+  %84 = getelementptr inbounds float, ptr %.053107.i, i64 %83
   %85 = sub i64 %storemerge104.i, %.sroa.speculated.i
   %.not.i = icmp eq i64 %85, 0
   br i1 %.not.i, label %._crit_edge110.i, label %.lr.ph109.split.i, !llvm.loop !30
@@ -2301,13 +2301,13 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EEC2EmRKS3_.exit.thr
   br label %.lr.ph105.us.i
 
 .lr.ph105.us.i:                                   ; preds = %.lr.ph105.us.i, %.lr.ph105.us.preheader.i
-  %.058103.us.i = phi i64 [ %40, %.lr.ph105.us.i ], [ 0, %.lr.ph105.us.preheader.i ]
-  %36 = getelementptr inbounds float, ptr %34, i64 %.058103.us.i
+  %.057103.us.i = phi i64 [ %40, %.lr.ph105.us.i ], [ 0, %.lr.ph105.us.preheader.i ]
+  %36 = getelementptr inbounds float, ptr %34, i64 %.057103.us.i
   %37 = load float, ptr %36, align 4
   %38 = fsub float %37, %.sroa.speculated85.us.i
   %39 = fmul float %35, %38
   store float %39, ptr %36, align 4
-  %40 = add nuw nsw i64 %.058103.us.i, 1
+  %40 = add nuw nsw i64 %.057103.us.i, 1
   %exitcond128.not.i = icmp eq i64 %40, %25
   br i1 %exitcond128.not.i, label %.loopexit.us.i, label %.lr.ph105.us.i, !llvm.loop !34
 
@@ -2318,16 +2318,16 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EEC2EmRKS3_.exit.thr
   br i1 %exitcond129.not.i, label %._crit_edge111.i, label %.lr.ph.us.i
 
 42:                                               ; preds = %42, %.lr.ph.us.i
-  %.062101.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %47, %42 ]
+  %.059101.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %47, %42 ]
   %.090100.us.i = phi float [ 0xC7EFFFFFE0000000, %.lr.ph.us.i ], [ %.sroa.speculated.us.i, %42 ]
   %.09199.us.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph.us.i ], [ %.sroa.speculated85.us.i, %42 ]
-  %43 = getelementptr inbounds float, ptr %34, i64 %.062101.us.i
+  %43 = getelementptr inbounds float, ptr %34, i64 %.059101.us.i
   %44 = load float, ptr %43, align 4
   %45 = fcmp olt float %44, %.09199.us.i
   %.sroa.speculated85.us.i = select i1 %45, float %44, float %.09199.us.i
   %46 = fcmp olt float %.090100.us.i, %44
   %.sroa.speculated.us.i = select i1 %46, float %44, float %.090100.us.i
-  %47 = add nuw nsw i64 %.062101.us.i, 1
+  %47 = add nuw nsw i64 %.059101.us.i, 1
   %exitcond127.not.i = icmp eq i64 %47, %25
   br i1 %exitcond127.not.i, label %._crit_edge.us.i, label %42, !llvm.loop !35
 
@@ -2379,12 +2379,12 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EEC2EmRKS3_.exit.thr
   br label %.lr.ph.us122.i
 
 .lr.ph.us122.i:                                   ; preds = %._crit_edge.us123.i, %.lr.ph.us122.preheader.i
-  %.057119.us.i = phi i64 [ %70, %._crit_edge.us123.i ], [ 0, %.lr.ph.us122.preheader.i ]
-  %59 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::StorageMinMaxFP32", ptr %.sroa.0.093.i, i64 %.057119.us.i
+  %.056119.us.i = phi i64 [ %70, %._crit_edge.us123.i ], [ 0, %.lr.ph.us122.preheader.i ]
+  %59 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::StorageMinMaxFP32", ptr %.sroa.0.093.i, i64 %.056119.us.i
   %60 = load float, ptr %59, align 4
   %61 = getelementptr inbounds i8, ptr %59, i64 4
   %62 = load float, ptr %61, align 4
-  %63 = mul nuw nsw i64 %.057119.us.i, %57
+  %63 = mul nuw nsw i64 %.056119.us.i, %57
   %64 = getelementptr inbounds float, ptr %2, i64 %63
   br label %65
 
@@ -2399,7 +2399,7 @@ _ZNSt6vectorIN5faiss12_GLOBAL__N_117StorageMinMaxFP32ESaIS2_EEC2EmRKS3_.exit.thr
   br i1 %exitcond130.not.i, label %._crit_edge.us123.i, label %65, !llvm.loop !36
 
 ._crit_edge.us123.i:                              ; preds = %65
-  %70 = add nuw nsw i64 %.057119.us.i, 1
+  %70 = add nuw nsw i64 %.056119.us.i, 1
   %exitcond131.not.i = icmp eq i64 %70, %smax.i
   br i1 %exitcond131.not.i, label %._crit_edge121.i, label %.lr.ph.us122.i, !llvm.loop !37
 

@@ -1871,24 +1871,24 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__flush_api_common(i64 noundef %
 11:                                               ; preds = %4, %4, %4, %4, %4
   %.not = icmp eq ptr %3, null
   %12 = tail call ptr @H5VL_vol_object(i64 noundef %0) #4
-  br i1 %.not, label %.cont, label %.cont.thread
+  br i1 %.not, label %.cont24, label %.cont24.thread
 
-.cont:                                            ; preds = %11
+.cont24:                                          ; preds = %11
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %15, label %.cont24
+  br i1 %13, label %15, label %.cont
 
-.cont.thread:                                     ; preds = %11
+.cont24.thread:                                   ; preds = %11
   store ptr %12, ptr %3, align 8
   %14 = icmp eq ptr %12, null
-  br i1 %14, label %15, label %.cont24
+  br i1 %14, label %15, label %.cont
 
-15:                                               ; preds = %.cont.thread, %.cont
+15:                                               ; preds = %.cont24.thread, %.cont24
   %16 = load i64, ptr @H5E_ARGS_g, align 8
   %17 = load i64, ptr @H5E_BADTYPE_g, align 8
   %18 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5F__flush_api_common, i32 noundef 936, i64 noundef %16, i64 noundef %17, ptr noundef nonnull @.str.22) #4
   br label %28
 
-.cont24:                                          ; preds = %.cont.thread, %.cont
+.cont:                                            ; preds = %.cont24.thread, %.cont24
   store i32 0, ptr %5, align 8
   %19 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %6, ptr %19, align 8
@@ -1899,14 +1899,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__flush_api_common(i64 noundef %
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %28
 
-24:                                               ; preds = %.cont24
+24:                                               ; preds = %.cont
   %25 = load i64, ptr @H5E_FILE_g, align 8
   %26 = load i64, ptr @H5E_CANTFLUSH_g, align 8
   %27 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5F__flush_api_common, i32 noundef 945, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.129) #4
   br label %28
 
-28:                                               ; preds = %.cont24, %24, %15, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %15 ], [ -1, %24 ], [ 0, %.cont24 ]
+28:                                               ; preds = %.cont, %24, %15, %7
+  %.0 = phi i32 [ -1, %7 ], [ -1, %15 ], [ -1, %24 ], [ 0, %.cont ]
   ret i32 %.0
 }
 
@@ -2544,7 +2544,7 @@ define range(i32 -1, 1) i32 @H5Fmount(i64 noundef %0, ptr noundef %1, i64 nounde
   br label %.thread108
 
 103:                                              ; preds = %96, %88
-  %.052 = phi ptr [ %91, %88 ], [ %97, %96 ]
+  %.054 = phi ptr [ %91, %88 ], [ %97, %96 ]
   %104 = call ptr @H5I_object(i64 noundef %2) #4
   %105 = icmp eq ptr %104, null
   br i1 %105, label %106, label %110
@@ -2556,7 +2556,7 @@ define range(i32 -1, 1) i32 @H5Fmount(i64 noundef %0, ptr noundef %1, i64 nounde
   br label %141
 
 110:                                              ; preds = %103
-  %111 = getelementptr inbounds i8, ptr %.052, i64 8
+  %111 = getelementptr inbounds i8, ptr %.054, i64 8
   %112 = load ptr, ptr %111, align 8
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds i8, ptr %104, i64 8
@@ -2593,7 +2593,7 @@ define range(i32 -1, 1) i32 @H5Fmount(i64 noundef %0, ptr noundef %1, i64 nounde
   %133 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 %.0, ptr %133, align 8
   %134 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
-  %135 = call i32 @H5VL_group_specific(ptr noundef nonnull %.052, ptr noundef nonnull %5, i64 noundef %134, ptr noundef null) #4
+  %135 = call i32 @H5VL_group_specific(ptr noundef nonnull %.054, ptr noundef nonnull %5, i64 noundef %134, ptr noundef null) #4
   %136 = icmp slt i32 %135, 0
   br i1 %136, label %137, label %141
 
@@ -2611,9 +2611,9 @@ define range(i32 -1, 1) i32 @H5Fmount(i64 noundef %0, ptr noundef %1, i64 nounde
 142:                                              ; preds = %.thread79, %141
   %.04789 = phi i1 [ true, %.thread79 ], [ %.047, %141 ]
   %.04987 = phi i32 [ -1, %.thread79 ], [ %.049, %141 ]
-  %.15386 = phi ptr [ null, %.thread79 ], [ %.052, %141 ]
+  %.15586 = phi ptr [ null, %.thread79 ], [ %.054, %141 ]
   %143 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
-  %144 = call i32 @H5VL_group_close(ptr noundef %.15386, i64 noundef %143, ptr noundef null) #4
+  %144 = call i32 @H5VL_group_close(ptr noundef %.15586, i64 noundef %143, ptr noundef null) #4
   %145 = icmp slt i32 %144, 0
   br i1 %145, label %146, label %150
 
@@ -2626,7 +2626,7 @@ define range(i32 -1, 1) i32 @H5Fmount(i64 noundef %0, ptr noundef %1, i64 nounde
 150:                                              ; preds = %146, %142
   %.150 = phi i32 [ -1, %146 ], [ %.04987, %142 ]
   %.1 = phi i1 [ true, %146 ], [ %.04789, %142 ]
-  %151 = call i32 @H5VL_free_object(ptr noundef %.15386) #4
+  %151 = call i32 @H5VL_free_object(ptr noundef %.15586) #4
   %152 = icmp slt i32 %151, 0
   br i1 %152, label %.thread111, label %158
 

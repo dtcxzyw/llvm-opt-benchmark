@@ -3143,21 +3143,21 @@ define internal i32 @netlogon_dissect_netrserverpasswordset2_rqst(ptr noundef %0
   br label %20
 
 20:                                               ; preds = %17, %6
-  %.022.i = phi ptr [ %19, %17 ], [ null, %6 ]
+  %.021.i = phi ptr [ %19, %17 ], [ null, %6 ]
   br label %21
 
 21:                                               ; preds = %21, %20
   %.025.i = phi i32 [ 0, %20 ], [ %24, %21 ]
-  %.02124.i = phi i32 [ %16, %20 ], [ %23, %21 ]
+  %.02224.i = phi i32 [ %16, %20 ], [ %23, %21 ]
   %22 = load i32, ptr @hf_netlogon_unknown_short, align 4
-  %23 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %.02124.i, ptr noundef %2, ptr noundef %.022.i, ptr noundef %4, ptr noundef %5, i32 noundef %22, ptr noundef null) #9
+  %23 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %.02224.i, ptr noundef %2, ptr noundef %.021.i, ptr noundef %4, ptr noundef %5, i32 noundef %22, ptr noundef null) #9
   %24 = add nuw nsw i32 %.025.i, 1
   %exitcond.not.i = icmp eq i32 %24, 256
   br i1 %exitcond.not.i, label %netlogon_dissect_UNICODE_STRING_512.exit, label %21, !llvm.loop !8
 
 netlogon_dissect_UNICODE_STRING_512.exit:         ; preds = %21
   %25 = load i32, ptr @hf_netlogon_unknown_long, align 4
-  %26 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.022.i, ptr noundef %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #9
+  %26 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.021.i, ptr noundef %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #9
   %27 = load ptr, ptr %7, align 8
   %28 = sub i32 %26, %16
   call void @proto_item_set_len(ptr noundef %27, i32 noundef %28) #9
@@ -4930,9 +4930,9 @@ define internal i32 @netlogon_dissect_DELTA_ENUM(ptr noundef %0, i32 noundef %1,
   br label %26
 
 26:                                               ; preds = %23, %16
-  %.0142.i = phi ptr [ %25, %23 ], [ null, %16 ]
+  %.0.i = phi ptr [ %25, %23 ], [ null, %16 ]
   %27 = load i32, ptr @hf_netlogon_delta_type, align 4
-  %28 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.0142.i, ptr noundef %4, ptr noundef %5, i32 noundef %27, ptr noundef nonnull %10) #9
+  %28 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %27, ptr noundef nonnull %10) #9
   %29 = getelementptr inbounds i8, ptr %4, i64 28
   %30 = load i32, ptr %29, align 4
   %.not144.i = icmp ne i32 %30, 0
@@ -4941,7 +4941,7 @@ define internal i32 @netlogon_dissect_DELTA_ENUM(ptr noundef %0, i32 noundef %1,
   %or.cond.i = select i1 %.not144.i, i1 true, i1 %.not145.i
   %32 = and i32 %28, -4
   %33 = add i32 %32, 4
-  %.0.i = select i1 %or.cond.i, i32 %28, i32 %33
+  %.0142.i = select i1 %or.cond.i, i32 %28, i32 %33
   %34 = load i16, ptr %10, align 2
   switch i16 %34, label %netlogon_dissect_DELTA_ID_UNION.exit [
     i16 1, label %35
@@ -4969,106 +4969,106 @@ define internal i32 @netlogon_dissect_DELTA_ENUM(ptr noundef %0, i32 noundef %1,
 
 35:                                               ; preds = %26
   %36 = load i32, ptr @hf_netlogon_group_rid, align 4
-  %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0142.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef null) #9
+  %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0142.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef null) #9
   br label %netlogon_dissect_DELTA_ID_UNION.exit
 
 38:                                               ; preds = %26
   %39 = load i32, ptr @hf_netlogon_user_rid, align 4
-  %40 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0142.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef null) #9
+  %40 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0142.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef null) #9
   br label %netlogon_dissect_DELTA_ID_UNION.exit
 
 41:                                               ; preds = %26
   %42 = load i32, ptr @hf_netlogon_user_rid, align 4
-  %43 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0142.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, ptr noundef null) #9
+  %43 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0142.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, ptr noundef null) #9
   br label %netlogon_dissect_DELTA_ID_UNION.exit
 
 44:                                               ; preds = %26
   %45 = load i32, ptr @hf_netlogon_user_rid, align 4
-  %46 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0142.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, ptr noundef null) #9
+  %46 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0142.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, ptr noundef null) #9
   br label %netlogon_dissect_DELTA_ID_UNION.exit
 
 47:                                               ; preds = %26
   %48 = load i32, ptr @hf_netlogon_user_rid, align 4
-  %49 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0142.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %48, ptr noundef null) #9
+  %49 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0142.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %48, ptr noundef null) #9
   br label %netlogon_dissect_DELTA_ID_UNION.exit
 
 50:                                               ; preds = %26
   %51 = load i32, ptr @hf_netlogon_user_rid, align 4
-  %52 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0142.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %51, ptr noundef null) #9
+  %52 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0142.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %51, ptr noundef null) #9
   br label %netlogon_dissect_DELTA_ID_UNION.exit
 
 53:                                               ; preds = %26
   %54 = load i32, ptr @hf_netlogon_user_rid, align 4
-  %55 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0142.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, ptr noundef null) #9
+  %55 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0142.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, ptr noundef null) #9
   br label %netlogon_dissect_DELTA_ID_UNION.exit
 
 56:                                               ; preds = %26
   %57 = load i32, ptr @hf_netlogon_user_rid, align 4
-  %58 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0142.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %57, ptr noundef null) #9
+  %58 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0142.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %57, ptr noundef null) #9
   br label %netlogon_dissect_DELTA_ID_UNION.exit
 
 59:                                               ; preds = %26
   %60 = load i32, ptr @hf_netlogon_user_rid, align 4
-  %61 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0142.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, ptr noundef null) #9
+  %61 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0142.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, ptr noundef null) #9
   br label %netlogon_dissect_DELTA_ID_UNION.exit
 
 62:                                               ; preds = %26
   %63 = load i32, ptr @hf_netlogon_user_rid, align 4
-  %64 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0142.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %63, ptr noundef null) #9
+  %64 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0142.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %63, ptr noundef null) #9
   br label %netlogon_dissect_DELTA_ID_UNION.exit
 
 65:                                               ; preds = %26
   %66 = load i32, ptr @hf_netlogon_user_rid, align 4
-  %67 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0142.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %66, ptr noundef null) #9
+  %67 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0142.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %66, ptr noundef null) #9
   br label %netlogon_dissect_DELTA_ID_UNION.exit
 
 68:                                               ; preds = %26
   %69 = load i32, ptr @hf_netlogon_user_rid, align 4
-  %70 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0142.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %69, ptr noundef null) #9
+  %70 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0142.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %69, ptr noundef null) #9
   br label %netlogon_dissect_DELTA_ID_UNION.exit
 
 71:                                               ; preds = %26
-  %72 = call i32 @dissect_ndr_nt_PSID(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0142.i, ptr noundef nonnull %4, ptr noundef %5) #9
+  %72 = call i32 @dissect_ndr_nt_PSID(ptr noundef %0, i32 noundef %.0142.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5) #9
   br label %netlogon_dissect_DELTA_ID_UNION.exit
 
 73:                                               ; preds = %26
-  %74 = call i32 @dissect_ndr_nt_PSID(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0142.i, ptr noundef nonnull %4, ptr noundef %5) #9
+  %74 = call i32 @dissect_ndr_nt_PSID(ptr noundef %0, i32 noundef %.0142.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5) #9
   br label %netlogon_dissect_DELTA_ID_UNION.exit
 
 75:                                               ; preds = %26
-  %76 = call i32 @dissect_ndr_nt_PSID(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0142.i, ptr noundef nonnull %4, ptr noundef %5) #9
+  %76 = call i32 @dissect_ndr_nt_PSID(ptr noundef %0, i32 noundef %.0142.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5) #9
   br label %netlogon_dissect_DELTA_ID_UNION.exit
 
 77:                                               ; preds = %26
-  %78 = call i32 @dissect_ndr_nt_PSID(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0142.i, ptr noundef nonnull %4, ptr noundef %5) #9
+  %78 = call i32 @dissect_ndr_nt_PSID(ptr noundef %0, i32 noundef %.0142.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5) #9
   br label %netlogon_dissect_DELTA_ID_UNION.exit
 
 79:                                               ; preds = %26
-  %80 = call i32 @dissect_ndr_nt_PSID(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0142.i, ptr noundef nonnull %4, ptr noundef %5) #9
+  %80 = call i32 @dissect_ndr_nt_PSID(ptr noundef %0, i32 noundef %.0142.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5) #9
   br label %netlogon_dissect_DELTA_ID_UNION.exit
 
 81:                                               ; preds = %26
   %82 = load i32, ptr @hf_netlogon_unknown_string, align 4
-  %83 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0142.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.1050, i32 noundef %82, i32 noundef 0) #9
+  %83 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %.0142.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.1050, i32 noundef %82, i32 noundef 0) #9
   br label %netlogon_dissect_DELTA_ID_UNION.exit
 
 84:                                               ; preds = %26
   %85 = load i32, ptr @hf_netlogon_unknown_string, align 4
-  %86 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0142.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.1050, i32 noundef %85, i32 noundef 0) #9
+  %86 = call i32 @dissect_ndr_str_pointer_item(ptr noundef %0, i32 noundef %.0142.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 2, ptr noundef nonnull @.str.1050, i32 noundef %85, i32 noundef 0) #9
   br label %netlogon_dissect_DELTA_ID_UNION.exit
 
 87:                                               ; preds = %26
   %88 = load i32, ptr @hf_netlogon_user_rid, align 4
-  %89 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0142.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %88, ptr noundef null) #9
+  %89 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0142.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %88, ptr noundef null) #9
   br label %netlogon_dissect_DELTA_ID_UNION.exit
 
 90:                                               ; preds = %26
   %91 = load i32, ptr @hf_netlogon_user_rid, align 4
-  %92 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0142.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %91, ptr noundef null) #9
+  %92 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0142.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %91, ptr noundef null) #9
   br label %netlogon_dissect_DELTA_ID_UNION.exit
 
 netlogon_dissect_DELTA_ID_UNION.exit:             ; preds = %26, %35, %38, %41, %44, %47, %50, %53, %56, %59, %62, %65, %68, %71, %73, %75, %77, %79, %81, %84, %87, %90
-  %.1.i = phi i32 [ %.0.i, %26 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %68 ], [ %67, %65 ], [ %64, %62 ], [ %61, %59 ], [ %58, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ]
+  %.1.i = phi i32 [ %.0142.i, %26 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %70, %68 ], [ %67, %65 ], [ %64, %62 ], [ %61, %59 ], [ %58, %56 ], [ %55, %53 ], [ %52, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %41 ], [ %40, %38 ], [ %37, %35 ]
   %93 = load ptr, ptr %9, align 8
   %94 = sub i32 %.1.i, %18
   call void @proto_item_set_len(ptr noundef %93, i32 noundef %94) #9
@@ -5086,17 +5086,17 @@ netlogon_dissect_DELTA_ID_UNION.exit:             ; preds = %26, %35, %38, %41, 
   br label %98
 
 98:                                               ; preds = %95, %netlogon_dissect_DELTA_ID_UNION.exit
-  %.0112.i = phi ptr [ %97, %95 ], [ null, %netlogon_dissect_DELTA_ID_UNION.exit ]
+  %.0.i27 = phi ptr [ %97, %95 ], [ null, %netlogon_dissect_DELTA_ID_UNION.exit ]
   %99 = load i32, ptr @hf_netlogon_delta_type, align 4
-  %100 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %.1.i, ptr noundef %2, ptr noundef %.0112.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %99, ptr noundef nonnull %8) #9
+  %100 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %.1.i, ptr noundef %2, ptr noundef %.0.i27, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %99, ptr noundef nonnull %8) #9
   %101 = load i32, ptr %29, align 4
   %.not114.i = icmp ne i32 %101, 0
   %102 = and i32 %100, 3
   %.not115.i = icmp eq i32 %102, 0
-  %or.cond.i27 = select i1 %.not114.i, i1 true, i1 %.not115.i
+  %or.cond.i28 = select i1 %.not114.i, i1 true, i1 %.not115.i
   %103 = and i32 %100, -4
   %104 = add i32 %103, 4
-  %.0.i28 = select i1 %or.cond.i27, i32 %100, i32 %104
+  %.0112.i = select i1 %or.cond.i28, i32 %100, i32 %104
   %105 = load i16, ptr %8, align 2
   switch i16 %105, label %netlogon_dissect_DELTA_UNION.exit [
     i16 1, label %106
@@ -5118,74 +5118,74 @@ netlogon_dissect_DELTA_ID_UNION.exit:             ; preds = %26, %35, %38, %41, 
   ]
 
 106:                                              ; preds = %98
-  %107 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0.i28, ptr noundef %2, ptr noundef %.0112.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_DOMAIN, i32 noundef 2, ptr noundef nonnull @.str.1052, i32 noundef -1) #9
+  %107 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0112.i, ptr noundef %2, ptr noundef %.0.i27, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_DOMAIN, i32 noundef 2, ptr noundef nonnull @.str.1052, i32 noundef -1) #9
   br label %netlogon_dissect_DELTA_UNION.exit
 
 108:                                              ; preds = %98
-  %109 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0.i28, ptr noundef %2, ptr noundef %.0112.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_GROUP, i32 noundef 2, ptr noundef nonnull @.str.1053, i32 noundef -1) #9
+  %109 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0112.i, ptr noundef %2, ptr noundef %.0.i27, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_GROUP, i32 noundef 2, ptr noundef nonnull @.str.1053, i32 noundef -1) #9
   br label %netlogon_dissect_DELTA_UNION.exit
 
 110:                                              ; preds = %98
   %111 = load i32, ptr @hf_netlogon_group_name, align 4
-  %112 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0.i28, ptr noundef %2, ptr noundef %.0112.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_RENAME, i32 noundef 2, ptr noundef nonnull @.str.1054, i32 noundef %111) #9
+  %112 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0112.i, ptr noundef %2, ptr noundef %.0.i27, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_RENAME, i32 noundef 2, ptr noundef nonnull @.str.1054, i32 noundef %111) #9
   br label %netlogon_dissect_DELTA_UNION.exit
 
 113:                                              ; preds = %98
-  %114 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0.i28, ptr noundef %2, ptr noundef %.0112.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_USER, i32 noundef 2, ptr noundef nonnull @.str.1055, i32 noundef -1) #9
+  %114 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0112.i, ptr noundef %2, ptr noundef %.0.i27, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_USER, i32 noundef 2, ptr noundef nonnull @.str.1055, i32 noundef -1) #9
   br label %netlogon_dissect_DELTA_UNION.exit
 
 115:                                              ; preds = %98
   %116 = load i32, ptr @hf_netlogon_acct_name, align 4
-  %117 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0.i28, ptr noundef %2, ptr noundef %.0112.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_RENAME, i32 noundef 2, ptr noundef nonnull @.str.1056, i32 noundef %116) #9
+  %117 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0112.i, ptr noundef %2, ptr noundef %.0.i27, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_RENAME, i32 noundef 2, ptr noundef nonnull @.str.1056, i32 noundef %116) #9
   br label %netlogon_dissect_DELTA_UNION.exit
 
 118:                                              ; preds = %98
-  %119 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0.i28, ptr noundef %2, ptr noundef %.0112.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_GROUP_MEMBER, i32 noundef 2, ptr noundef nonnull @.str.1057, i32 noundef -1) #9
+  %119 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0112.i, ptr noundef %2, ptr noundef %.0.i27, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_GROUP_MEMBER, i32 noundef 2, ptr noundef nonnull @.str.1057, i32 noundef -1) #9
   br label %netlogon_dissect_DELTA_UNION.exit
 
 120:                                              ; preds = %98
-  %121 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0.i28, ptr noundef %2, ptr noundef %.0112.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_ALIAS, i32 noundef 2, ptr noundef nonnull @.str.1058, i32 noundef -1) #9
+  %121 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0112.i, ptr noundef %2, ptr noundef %.0.i27, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_ALIAS, i32 noundef 2, ptr noundef nonnull @.str.1058, i32 noundef -1) #9
   br label %netlogon_dissect_DELTA_UNION.exit
 
 122:                                              ; preds = %98
   %123 = load i32, ptr @hf_netlogon_alias_name, align 4
-  %124 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0.i28, ptr noundef %2, ptr noundef %.0112.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_RENAME, i32 noundef 2, ptr noundef nonnull @.str.1059, i32 noundef %123) #9
+  %124 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0112.i, ptr noundef %2, ptr noundef %.0.i27, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_RENAME, i32 noundef 2, ptr noundef nonnull @.str.1059, i32 noundef %123) #9
   br label %netlogon_dissect_DELTA_UNION.exit
 
 125:                                              ; preds = %98
-  %126 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0.i28, ptr noundef %2, ptr noundef %.0112.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_ALIAS_MEMBER, i32 noundef 2, ptr noundef nonnull @.str.1060, i32 noundef -1) #9
+  %126 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0112.i, ptr noundef %2, ptr noundef %.0.i27, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_ALIAS_MEMBER, i32 noundef 2, ptr noundef nonnull @.str.1060, i32 noundef -1) #9
   br label %netlogon_dissect_DELTA_UNION.exit
 
 127:                                              ; preds = %98
-  %128 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0.i28, ptr noundef %2, ptr noundef %.0112.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_POLICY, i32 noundef 2, ptr noundef nonnull @.str.1061, i32 noundef -1) #9
+  %128 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0112.i, ptr noundef %2, ptr noundef %.0.i27, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_POLICY, i32 noundef 2, ptr noundef nonnull @.str.1061, i32 noundef -1) #9
   br label %netlogon_dissect_DELTA_UNION.exit
 
 129:                                              ; preds = %98
-  %130 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0.i28, ptr noundef %2, ptr noundef %.0112.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_TRUSTED_DOMAINS, i32 noundef 2, ptr noundef nonnull @.str.1062, i32 noundef -1) #9
+  %130 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0112.i, ptr noundef %2, ptr noundef %.0.i27, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_TRUSTED_DOMAINS, i32 noundef 2, ptr noundef nonnull @.str.1062, i32 noundef -1) #9
   br label %netlogon_dissect_DELTA_UNION.exit
 
 131:                                              ; preds = %98
-  %132 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0.i28, ptr noundef %2, ptr noundef %.0112.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_ACCOUNTS, i32 noundef 2, ptr noundef nonnull @.str.1063, i32 noundef -1) #9
+  %132 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0112.i, ptr noundef %2, ptr noundef %.0.i27, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_ACCOUNTS, i32 noundef 2, ptr noundef nonnull @.str.1063, i32 noundef -1) #9
   br label %netlogon_dissect_DELTA_UNION.exit
 
 133:                                              ; preds = %98
-  %134 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0.i28, ptr noundef %2, ptr noundef %.0112.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_SECRET, i32 noundef 2, ptr noundef nonnull @.str.1064, i32 noundef -1) #9
+  %134 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0112.i, ptr noundef %2, ptr noundef %.0.i27, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_SECRET, i32 noundef 2, ptr noundef nonnull @.str.1064, i32 noundef -1) #9
   br label %netlogon_dissect_DELTA_UNION.exit
 
 135:                                              ; preds = %98
-  %136 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0.i28, ptr noundef %2, ptr noundef %.0112.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_DELETE_USER, i32 noundef 2, ptr noundef nonnull @.str.1065, i32 noundef -1) #9
+  %136 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0112.i, ptr noundef %2, ptr noundef %.0.i27, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_DELETE_USER, i32 noundef 2, ptr noundef nonnull @.str.1065, i32 noundef -1) #9
   br label %netlogon_dissect_DELTA_UNION.exit
 
 137:                                              ; preds = %98
-  %138 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0.i28, ptr noundef %2, ptr noundef %.0112.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_DELETE_USER, i32 noundef 2, ptr noundef nonnull @.str.1066, i32 noundef -1) #9
+  %138 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0112.i, ptr noundef %2, ptr noundef %.0.i27, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_DELTA_DELETE_USER, i32 noundef 2, ptr noundef nonnull @.str.1066, i32 noundef -1) #9
   br label %netlogon_dissect_DELTA_UNION.exit
 
 139:                                              ; preds = %98
-  %140 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0.i28, ptr noundef %2, ptr noundef %.0112.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_MODIFIED_COUNT, i32 noundef 2, ptr noundef nonnull @.str.1067, i32 noundef -1) #9
+  %140 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0112.i, ptr noundef %2, ptr noundef %.0.i27, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @netlogon_dissect_MODIFIED_COUNT, i32 noundef 2, ptr noundef nonnull @.str.1067, i32 noundef -1) #9
   br label %netlogon_dissect_DELTA_UNION.exit
 
 netlogon_dissect_DELTA_UNION.exit:                ; preds = %98, %106, %108, %110, %113, %115, %118, %120, %122, %125, %127, %129, %131, %133, %135, %137, %139
-  %.1.i29 = phi i32 [ %.0.i28, %98 ], [ %140, %139 ], [ %138, %137 ], [ %136, %135 ], [ %134, %133 ], [ %132, %131 ], [ %130, %129 ], [ %128, %127 ], [ %126, %125 ], [ %124, %122 ], [ %121, %120 ], [ %119, %118 ], [ %117, %115 ], [ %114, %113 ], [ %112, %110 ], [ %109, %108 ], [ %107, %106 ]
+  %.1.i29 = phi i32 [ %.0112.i, %98 ], [ %140, %139 ], [ %138, %137 ], [ %136, %135 ], [ %134, %133 ], [ %132, %131 ], [ %130, %129 ], [ %128, %127 ], [ %126, %125 ], [ %124, %122 ], [ %121, %120 ], [ %119, %118 ], [ %117, %115 ], [ %114, %113 ], [ %112, %110 ], [ %109, %108 ], [ %107, %106 ]
   %141 = load ptr, ptr %7, align 8
   %142 = sub i32 %.1.i29, %.1.i
   call void @proto_item_set_len(ptr noundef %141, i32 noundef %142) #9
@@ -6129,9 +6129,9 @@ define internal i32 @netlogon_dissect_ServerCapabilities(ptr noundef %0, i32 nou
   br label %14
 
 14:                                               ; preds = %11, %6
-  %.036 = phi ptr [ %13, %11 ], [ null, %6 ]
+  %.0 = phi ptr [ %13, %11 ], [ null, %6 ]
   %15 = load i32, ptr @hf_netlogon_level, align 4
-  %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.036, ptr noundef %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %8) #9
+  %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %8) #9
   %17 = getelementptr inbounds i8, ptr %4, i64 28
   %18 = load i32, ptr %17, align 4
   %.not38 = icmp ne i32 %18, 0
@@ -6140,7 +6140,7 @@ define internal i32 @netlogon_dissect_ServerCapabilities(ptr noundef %0, i32 nou
   %or.cond = select i1 %.not38, i1 true, i1 %.not39
   %20 = and i32 %16, -4
   %21 = add i32 %20, 4
-  %.0 = select i1 %or.cond, i32 %16, i32 %21
+  %.036 = select i1 %or.cond, i32 %16, i32 %21
   %22 = load i32, ptr %8, align 4
   switch i32 %22, label %30 [
     i32 1, label %.sink.split
@@ -6152,17 +6152,17 @@ define internal i32 @netlogon_dissect_ServerCapabilities(ptr noundef %0, i32 nou
 
 .sink.split:                                      ; preds = %14, %23
   %.sink = phi ptr [ %10, %23 ], [ %9, %14 ]
-  %24 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.036, ptr noundef nonnull %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %.sink) #9
+  %24 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef -1, ptr noundef nonnull %.sink) #9
   %.sink42 = load i32, ptr %.sink, align 4
   %25 = load i32, ptr @hf_netlogon_neg_flags, align 4
   %26 = load i32, ptr @ett_authenticate_flags, align 4
   %27 = zext i32 %.sink42 to i64
-  %28 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %.036, ptr noundef %0, i32 noundef %.0, i32 noundef %25, i32 noundef %26, ptr noundef nonnull @netlogon_dissect_neg_options.hf_flags, i64 noundef %27, i32 noundef 1) #9
-  %29 = add i32 %.0, 4
+  %28 = call ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef %.0, ptr noundef %0, i32 noundef %.036, i32 noundef %25, i32 noundef %26, ptr noundef nonnull @netlogon_dissect_neg_options.hf_flags, i64 noundef %27, i32 noundef 1) #9
+  %29 = add i32 %.036, 4
   br label %30
 
 30:                                               ; preds = %.sink.split, %14
-  %.1 = phi i32 [ %.0, %14 ], [ %29, %.sink.split ]
+  %.1 = phi i32 [ %.036, %14 ], [ %29, %.sink.split ]
   %31 = load ptr, ptr %7, align 8
   %32 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %31, i32 noundef %32) #9
@@ -7626,8 +7626,8 @@ define internal fastcc ptr @dissect_packet_data(ptr noundef %0, ptr nocapture no
   br label %32
 
 32:                                               ; preds = %.preheader, %38
-  %.03319 = phi ptr [ %30, %.preheader ], [ %40, %38 ]
-  %33 = getelementptr inbounds i8, ptr %.03319, i64 388
+  %.019 = phi ptr [ %30, %.preheader ], [ %40, %38 ]
+  %33 = getelementptr inbounds i8, ptr %.019, i64 388
   %34 = load i32, ptr %33, align 4
   %.not39 = icmp eq i32 %34, -1
   br i1 %.not39, label %.critedge, label %35
@@ -7638,19 +7638,19 @@ define internal fastcc ptr @dissect_packet_data(ptr noundef %0, ptr nocapture no
   br i1 %37, label %38, label %.critedge
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %.03319, i64 392
+  %39 = getelementptr inbounds i8, ptr %.019, i64 392
   %40 = load ptr, ptr %39, align 8
   %cond = icmp eq ptr %40, null
   br i1 %cond, label %.loopexit, label %32, !llvm.loop !16
 
 .critedge:                                        ; preds = %35, %32
-  %41 = getelementptr inbounds i8, ptr %.03319, i64 372
+  %41 = getelementptr inbounds i8, ptr %.019, i64 372
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, 1
   br i1 %43, label %44, label %.loopexit
 
 44:                                               ; preds = %.critedge
-  %45 = getelementptr inbounds i8, ptr %.03319, i64 360
+  %45 = getelementptr inbounds i8, ptr %.019, i64 360
   %46 = load i64, ptr %45, align 8
   store i64 %46, ptr %12, align 8
   %47 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #9
@@ -7658,7 +7658,7 @@ define internal fastcc ptr @dissect_packet_data(ptr noundef %0, ptr nocapture no
   br i1 %48, label %.loopexit, label %49
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %.03319, i64 344
+  %50 = getelementptr inbounds i8, ptr %.019, i64 344
   %51 = load i32, ptr %50, align 8
   %52 = and i32 %51, 16777216
   %.not.i42 = icmp eq i32 %52, 0
@@ -7668,7 +7668,7 @@ define internal fastcc ptr @dissect_packet_data(ptr noundef %0, ptr nocapture no
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   store ptr null, ptr %9, align 8
-  %54 = getelementptr inbounds i8, ptr %.03319, i64 352
+  %54 = getelementptr inbounds i8, ptr %.019, i64 352
   %55 = load i64, ptr %54, align 8
   store i64 %55, ptr %10, align 16
   %56 = getelementptr inbounds i8, ptr %10, i64 8
@@ -7699,7 +7699,7 @@ define internal fastcc ptr @dissect_packet_data(ptr noundef %0, ptr nocapture no
 
 68:                                               ; preds = %61
   %69 = load ptr, ptr %9, align 8
-  %70 = getelementptr inbounds i8, ptr %.03319, i64 312
+  %70 = getelementptr inbounds i8, ptr %.019, i64 312
   %71 = call i32 @gcry_cipher_setkey(ptr noundef %69, ptr noundef nonnull %70, i64 noundef 16) #9
   %.not16.i.i = icmp eq i32 %71, 0
   br i1 %.not16.i.i, label %76, label %72
@@ -7735,12 +7735,12 @@ prepare_decryption_cipher.exit.thread:            ; preds = %58, %64, %72, %76
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr null, ptr %4, align 8
   store i32 0, ptr %5, align 4
-  %81 = getelementptr inbounds i8, ptr %.03319, i64 352
+  %81 = getelementptr inbounds i8, ptr %.019, i64 352
   %82 = load i64, ptr %81, align 8
   store i64 %82, ptr %6, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %83 = getelementptr inbounds i8, ptr %.03319, i64 312
+  %83 = getelementptr inbounds i8, ptr %.019, i64 312
   %84 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %5, i64 noundef 4, ptr noundef nonnull %83, i64 noundef 16) #9
   %.not.i8.i = icmp eq i32 %84, 0
   br i1 %.not.i8.i, label %88, label %85
@@ -7835,8 +7835,8 @@ prepare_decryption_cipher.exit.thread9:           ; preds = %78, %prepare_decryp
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %118, %.critedge, %3, %44, %prepare_decryption_cipher.exit.thread9
-  %.0 = phi ptr [ null, %prepare_decryption_cipher.exit.thread9 ], [ null, %44 ], [ null, %3 ], [ %120, %118 ], [ null, %.critedge ], [ null, %38 ]
-  ret ptr %.0
+  %.033 = phi ptr [ null, %prepare_decryption_cipher.exit.thread9 ], [ null, %44 ], [ null, %3 ], [ %120, %118 ], [ null, %.critedge ], [ null, %38 ]
+  ret ptr %.033
 }
 
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1

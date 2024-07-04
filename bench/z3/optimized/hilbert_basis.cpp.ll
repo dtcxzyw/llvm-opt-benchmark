@@ -1587,9 +1587,9 @@ if.end.i.i:                                       ; preds = %_ZN13hilbert_basis1
   br i1 %cmp4.not6.i.i, label %if.end18.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.inc.i.i
-  %overhead.08.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i ]
-  %curr.07.i.i = phi ptr [ %incdec.ptr.i.i30, %for.inc.i.i ], [ %21, %if.end.i.i ]
-  %m_state.i.i.i28 = getelementptr inbounds i8, ptr %curr.07.i.i, i64 4
+  %curr.08.i.i = phi ptr [ %incdec.ptr.i.i30, %for.inc.i.i ], [ %21, %if.end.i.i ]
+  %overhead.07.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i ]
+  %m_state.i.i.i28 = getelementptr inbounds i8, ptr %curr.08.i.i, i64 4
   %23 = load i32, ptr %m_state.i.i.i28, align 4
   %cmp.i.i.i29 = icmp eq i32 %23, 0
   br i1 %cmp.i.i.i29, label %if.else.i.i, label %if.then5.i.i
@@ -1599,12 +1599,12 @@ if.then5.i.i:                                     ; preds = %for.body.i.i
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %inc.i.i = add i32 %overhead.08.i.i, 1
+  %inc.i.i = add i32 %overhead.07.i.i, 1
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then5.i.i
-  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.08.i.i, %if.then5.i.i ]
-  %incdec.ptr.i.i30 = getelementptr inbounds i8, ptr %curr.07.i.i, i64 24
+  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.07.i.i, %if.then5.i.i ]
+  %incdec.ptr.i.i30 = getelementptr inbounds i8, ptr %curr.08.i.i, i64 24
   %cmp4.not.i.i = icmp eq ptr %incdec.ptr.i.i30, %add.ptr.i.i27
   br i1 %cmp4.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !8
 
@@ -7740,8 +7740,8 @@ _ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split: ; preds = %_ZNK1
 
 for.cond:                                         ; preds = %_Z3absRK13checked_int64ILb1EE.exit31, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %_Z3absRK13checked_int64ILb1EE.exit31 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split ]
-  %b.sroa.0.0 = phi i64 [ %add.i32, %_Z3absRK13checked_int64ILb1EE.exit31 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split ]
   %a.sroa.0.0 = phi i64 [ %add.i, %_Z3absRK13checked_int64ILb1EE.exit31 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split ]
+  %b.sroa.0.0 = phi i64 [ %add.i32, %_Z3absRK13checked_int64ILb1EE.exit31 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body
 
@@ -7815,9 +7815,9 @@ if.then.i46:                                      ; preds = %_Z3absRK13checked_i
   unreachable
 
 for.end:                                          ; preds = %for.cond, %entry, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split
-  %.us-phi = phi i64 [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split ], [ 0, %entry ], [ %b.sroa.0.0, %for.cond ]
-  %.us-phi67 = phi i64 [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split ], [ 0, %entry ], [ %a.sroa.0.0, %for.cond ]
-  %cmp.i49 = icmp slt i64 %.us-phi67, %.us-phi
+  %.us-phi = phi i64 [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split ], [ 0, %entry ], [ %a.sroa.0.0, %for.cond ]
+  %.us-phi67 = phi i64 [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split ], [ 0, %entry ], [ %b.sroa.0.0, %for.cond ]
+  %cmp.i49 = icmp slt i64 %.us-phi, %.us-phi67
   ret i1 %cmp.i49
 }
 
@@ -15249,8 +15249,8 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   br i1 %cmp23.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit73
-  %__holeIndex.addr.024.i.i = phi i64 [ %spec.select.i.i, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit73 ], [ 0, %while.body.i ]
-  %add.i.i = shl i64 %__holeIndex.addr.024.i.i, 1
+  %__secondChild.024.i.i = phi i64 [ %spec.select.i.i, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit73 ], [ 0, %while.body.i ]
+  %add.i.i = shl i64 %__secondChild.024.i.i, 1
   %mul.i.i = add i64 %add.i.i, 2
   %sub3.i.i = or disjoint i64 %add.i.i, 1
   %1 = load ptr, ptr %m_ineqs.i.i11, align 8
@@ -15291,8 +15291,8 @@ _ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i27: ; preds = %_
 
 for.cond.i30:                                     ; preds = %_Z3absRK13checked_int64ILb1EE.exit31.i55, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i27
   %indvars.iv.i31 = phi i64 [ %indvars.iv.next.i61, %_Z3absRK13checked_int64ILb1EE.exit31.i55 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i27 ]
-  %b.sroa.0.0.i32 = phi i64 [ %add.i32.i57, %_Z3absRK13checked_int64ILb1EE.exit31.i55 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i27 ]
-  %a.sroa.0.0.i33 = phi i64 [ %add.i.i44, %_Z3absRK13checked_int64ILb1EE.exit31.i55 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i27 ]
+  %a.sroa.0.0.i32 = phi i64 [ %add.i.i44, %_Z3absRK13checked_int64ILb1EE.exit31.i55 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i27 ]
+  %b.sroa.0.0.i33 = phi i64 [ %add.i32.i57, %_Z3absRK13checked_int64ILb1EE.exit31.i55 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i27 ]
   %exitcond.not.i34 = icmp eq i64 %indvars.iv.i31, %wide.trip.count.i29
   br i1 %exitcond.not.i34, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit73, label %for.body.i35
 
@@ -15318,8 +15318,8 @@ if.end5.i.i.i40:                                  ; preds = %if.end.i.i19.i38
 
 _Z3absRK13checked_int64ILb1EE.exit.i42:           ; preds = %if.end5.i.i.i40, %for.body.i35
   %retval.sroa.0.0.i.i.i43 = phi i64 [ %sub.i.i.i41, %if.end5.i.i.i40 ], [ %9, %for.body.i35 ]
-  %add.i.i44 = add i64 %retval.sroa.0.0.i.i.i43, %a.sroa.0.0.i33
-  %cmp.i.i45 = icmp sgt i64 %a.sroa.0.0.i33, 0
+  %add.i.i44 = add i64 %retval.sroa.0.0.i.i.i43, %a.sroa.0.0.i32
+  %cmp.i.i45 = icmp sgt i64 %a.sroa.0.0.i32, 0
   %cmp7.i.i46 = icmp slt i64 %add.i.i44, 1
   %or.cond.i47 = select i1 %cmp.i.i45, i1 %cmp7.i.i46, i1 false
   br i1 %or.cond.i47, label %if.then.i.i66, label %_ZN13checked_int64ILb1EEpLERKS0_.exit.i48
@@ -15352,8 +15352,8 @@ if.end5.i.i26.i53:                                ; preds = %if.end.i.i24.i51
 
 _Z3absRK13checked_int64ILb1EE.exit31.i55:         ; preds = %if.end5.i.i26.i53, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i48
   %retval.sroa.0.0.i.i28.i56 = phi i64 [ %sub.i.i27.i54, %if.end5.i.i26.i53 ], [ %10, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i48 ]
-  %add.i32.i57 = add i64 %retval.sroa.0.0.i.i28.i56, %b.sroa.0.0.i32
-  %cmp.i33.i58 = icmp sgt i64 %b.sroa.0.0.i32, 0
+  %add.i32.i57 = add i64 %retval.sroa.0.0.i.i28.i56, %b.sroa.0.0.i33
+  %cmp.i33.i58 = icmp sgt i64 %b.sroa.0.0.i33, 0
   %cmp7.i44.i59 = icmp slt i64 %add.i32.i57, 1
   %or.cond58.i60 = select i1 %cmp.i33.i58, i1 %cmp7.i44.i59, i1 false
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i31, 1
@@ -15366,19 +15366,19 @@ if.then.i46.i62:                                  ; preds = %_Z3absRK13checked_i
   unreachable
 
 _ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit73: ; preds = %for.cond.i30, %while.body.i.i, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.i13, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.i24
-  %.us-phi.i70 = phi i64 [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.i13 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.i24 ], [ 0, %while.body.i.i ], [ %b.sroa.0.0.i32, %for.cond.i30 ]
-  %.us-phi67.i71 = phi i64 [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.i13 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.i24 ], [ 0, %while.body.i.i ], [ %a.sroa.0.0.i33, %for.cond.i30 ]
-  %cmp.i49.i72 = icmp slt i64 %.us-phi67.i71, %.us-phi.i70
+  %.us-phi.i70 = phi i64 [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.i13 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.i24 ], [ 0, %while.body.i.i ], [ %a.sroa.0.0.i32, %for.cond.i30 ]
+  %.us-phi67.i71 = phi i64 [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.i13 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.i24 ], [ 0, %while.body.i.i ], [ %b.sroa.0.0.i33, %for.cond.i30 ]
+  %cmp.i49.i72 = icmp slt i64 %.us-phi.i70, %.us-phi67.i71
   %spec.select.i.i = select i1 %cmp.i49.i72, i64 %sub3.i.i, i64 %mul.i.i
   %add.ptr5.i.i = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %__first, i64 %spec.select.i.i
-  %add.ptr6.i.i = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %__first, i64 %__holeIndex.addr.024.i.i
+  %add.ptr6.i.i = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %__first, i64 %__secondChild.024.i.i
   %11 = load i32, ptr %add.ptr5.i.i, align 4
   store i32 %11, ptr %add.ptr6.i.i, align 4
   %cmp.i.i = icmp slt i64 %spec.select.i.i, %div.i.i
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !111
 
 while.end.i.i:                                    ; preds = %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit73, %while.body.i
-  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ 0, %while.body.i ], [ %spec.select.i.i, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit73 ]
+  %__secondChild.0.lcssa.i.i = phi i64 [ 0, %while.body.i ], [ %spec.select.i.i, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit73 ]
   %12 = and i64 %sub.ptr.sub.i5, 4
   %cmp7.i.i = icmp eq i64 %12, 0
   br i1 %cmp7.i.i, label %land.lhs.true.i.i, label %if.end18.i.i
@@ -15386,20 +15386,20 @@ while.end.i.i:                                    ; preds = %_ZNK13hilbert_basis
 land.lhs.true.i.i:                                ; preds = %while.end.i.i
   %sub8.i.i = add nsw i64 %sub.ptr.div.i, -2
   %div9.i.i = ashr exact i64 %sub8.i.i, 1
-  %cmp10.i.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i, %div9.i.i
+  %cmp10.i.i = icmp eq i64 %__secondChild.0.lcssa.i.i, %div9.i.i
   br i1 %cmp10.i.i, label %if.then11.i.i, label %if.end18.i.i
 
 if.then11.i.i:                                    ; preds = %land.lhs.true.i.i
-  %add12.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i, 1
+  %add12.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i, 1
   %sub14.i.i = or disjoint i64 %add12.i.i, 1
   %add.ptr15.i.i = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %__first, i64 %sub14.i.i
-  %add.ptr16.i.i = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
+  %add.ptr16.i.i = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %__first, i64 %__secondChild.0.lcssa.i.i
   %13 = load i32, ptr %add.ptr15.i.i, align 4
   store i32 %13, ptr %add.ptr16.i.i, align 4
   br label %if.end18.i.i
 
 if.end18.i.i:                                     ; preds = %if.then11.i.i, %land.lhs.true.i.i, %while.end.i.i
-  %__holeIndex.addr.1.i.i = phi i64 [ %sub14.i.i, %if.then11.i.i ], [ %__holeIndex.addr.0.lcssa.i.i, %land.lhs.true.i.i ], [ %__holeIndex.addr.0.lcssa.i.i, %while.end.i.i ]
+  %__holeIndex.addr.1.i.i = phi i64 [ %sub14.i.i, %if.then11.i.i ], [ %__secondChild.0.lcssa.i.i, %land.lhs.true.i.i ], [ %__secondChild.0.lcssa.i.i, %while.end.i.i ]
   %cmp13.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i, 0
   br i1 %cmp13.i.i.i, label %land.rhs.i.i.i.preheader, label %_ZSt10__pop_heapIPN13hilbert_basis8offset_tEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_S8_S8_RT0_.exit
 
@@ -15446,8 +15446,8 @@ _ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i: ; preds = %_ZN
 
 for.cond.i:                                       ; preds = %_Z3absRK13checked_int64ILb1EE.exit31.i, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i ]
-  %b.sroa.0.0.i = phi i64 [ %add.i32.i, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i ]
   %a.sroa.0.0.i = phi i64 [ %add.i.i8, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i ]
+  %b.sroa.0.0.i = phi i64 [ %add.i32.i, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit, label %for.body.i
 
@@ -15588,8 +15588,8 @@ while.body.i.i.preheader:                         ; preds = %if.then
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit75
-  %__holeIndex.addr.024.i.i = phi i64 [ %spec.select.i.i, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit75 ], [ 0, %while.body.i.i.preheader ]
-  %add.i.i = shl i64 %__holeIndex.addr.024.i.i, 1
+  %__secondChild.024.i.i = phi i64 [ %spec.select.i.i, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit75 ], [ 0, %while.body.i.i.preheader ]
+  %add.i.i = shl i64 %__secondChild.024.i.i, 1
   %mul.i.i = add i64 %add.i.i, 2
   %sub3.i.i = or disjoint i64 %add.i.i, 1
   %3 = load ptr, ptr %m_ineqs.i.i13, align 8
@@ -15630,8 +15630,8 @@ _ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i29: ; preds = %_
 
 for.cond.i32:                                     ; preds = %_Z3absRK13checked_int64ILb1EE.exit31.i57, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i29
   %indvars.iv.i33 = phi i64 [ %indvars.iv.next.i63, %_Z3absRK13checked_int64ILb1EE.exit31.i57 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i29 ]
-  %b.sroa.0.0.i34 = phi i64 [ %add.i32.i59, %_Z3absRK13checked_int64ILb1EE.exit31.i57 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i29 ]
-  %a.sroa.0.0.i35 = phi i64 [ %add.i.i46, %_Z3absRK13checked_int64ILb1EE.exit31.i57 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i29 ]
+  %a.sroa.0.0.i34 = phi i64 [ %add.i.i46, %_Z3absRK13checked_int64ILb1EE.exit31.i57 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i29 ]
+  %b.sroa.0.0.i35 = phi i64 [ %add.i32.i59, %_Z3absRK13checked_int64ILb1EE.exit31.i57 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i29 ]
   %exitcond.not.i36 = icmp eq i64 %indvars.iv.i33, %wide.trip.count.i31
   br i1 %exitcond.not.i36, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit75, label %for.body.i37
 
@@ -15657,8 +15657,8 @@ if.end5.i.i.i42:                                  ; preds = %if.end.i.i19.i40
 
 _Z3absRK13checked_int64ILb1EE.exit.i44:           ; preds = %if.end5.i.i.i42, %for.body.i37
   %retval.sroa.0.0.i.i.i45 = phi i64 [ %sub.i.i.i43, %if.end5.i.i.i42 ], [ %11, %for.body.i37 ]
-  %add.i.i46 = add i64 %retval.sroa.0.0.i.i.i45, %a.sroa.0.0.i35
-  %cmp.i.i47 = icmp sgt i64 %a.sroa.0.0.i35, 0
+  %add.i.i46 = add i64 %retval.sroa.0.0.i.i.i45, %a.sroa.0.0.i34
+  %cmp.i.i47 = icmp sgt i64 %a.sroa.0.0.i34, 0
   %cmp7.i.i48 = icmp slt i64 %add.i.i46, 1
   %or.cond.i49 = select i1 %cmp.i.i47, i1 %cmp7.i.i48, i1 false
   br i1 %or.cond.i49, label %if.then.i.i68, label %_ZN13checked_int64ILb1EEpLERKS0_.exit.i50
@@ -15691,8 +15691,8 @@ if.end5.i.i26.i55:                                ; preds = %if.end.i.i24.i53
 
 _Z3absRK13checked_int64ILb1EE.exit31.i57:         ; preds = %if.end5.i.i26.i55, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i50
   %retval.sroa.0.0.i.i28.i58 = phi i64 [ %sub.i.i27.i56, %if.end5.i.i26.i55 ], [ %12, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i50 ]
-  %add.i32.i59 = add i64 %retval.sroa.0.0.i.i28.i58, %b.sroa.0.0.i34
-  %cmp.i33.i60 = icmp sgt i64 %b.sroa.0.0.i34, 0
+  %add.i32.i59 = add i64 %retval.sroa.0.0.i.i28.i58, %b.sroa.0.0.i35
+  %cmp.i33.i60 = icmp sgt i64 %b.sroa.0.0.i35, 0
   %cmp7.i44.i61 = icmp slt i64 %add.i32.i59, 1
   %or.cond58.i62 = select i1 %cmp.i33.i60, i1 %cmp7.i44.i61, i1 false
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i33, 1
@@ -15705,20 +15705,20 @@ if.then.i46.i64:                                  ; preds = %_Z3absRK13checked_i
   unreachable
 
 _ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit75: ; preds = %for.cond.i32, %while.body.i.i, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.i15, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.i26
-  %.us-phi.i72 = phi i64 [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.i15 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.i26 ], [ 0, %while.body.i.i ], [ %b.sroa.0.0.i34, %for.cond.i32 ]
-  %.us-phi67.i73 = phi i64 [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.i15 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.i26 ], [ 0, %while.body.i.i ], [ %a.sroa.0.0.i35, %for.cond.i32 ]
-  %cmp.i49.i74 = icmp slt i64 %.us-phi67.i73, %.us-phi.i72
+  %.us-phi.i72 = phi i64 [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.i15 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.i26 ], [ 0, %while.body.i.i ], [ %a.sroa.0.0.i34, %for.cond.i32 ]
+  %.us-phi67.i73 = phi i64 [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.i15 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.i26 ], [ 0, %while.body.i.i ], [ %b.sroa.0.0.i35, %for.cond.i32 ]
+  %cmp.i49.i74 = icmp slt i64 %.us-phi.i72, %.us-phi67.i73
   %spec.select.i.i = select i1 %cmp.i49.i74, i64 %sub3.i.i, i64 %mul.i.i
   %add.ptr5.i.i = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %__first, i64 %spec.select.i.i
-  %add.ptr6.i.i = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %__first, i64 %__holeIndex.addr.024.i.i
+  %add.ptr6.i.i = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %__first, i64 %__secondChild.024.i.i
   %13 = load i32, ptr %add.ptr5.i.i, align 4
   store i32 %13, ptr %add.ptr6.i.i, align 4
   %cmp.i.i = icmp slt i64 %spec.select.i.i, %div.i.i
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !111
 
 while.end.i.i:                                    ; preds = %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit75, %if.then
-  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ 0, %if.then ], [ %spec.select.i.i, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit75 ]
-  %cmp10.i.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i, %div9.i.i
+  %__secondChild.0.lcssa.i.i = phi i64 [ 0, %if.then ], [ %spec.select.i.i, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit75 ]
+  %cmp10.i.i = icmp eq i64 %__secondChild.0.lcssa.i.i, %div9.i.i
   %or.cond = select i1 %cmp7.i.i, i1 %cmp10.i.i, i1 false
   br i1 %or.cond, label %if.then11.i.i, label %if.end18.i.i
 
@@ -15728,7 +15728,7 @@ if.then11.i.i:                                    ; preds = %while.end.i.i
   br label %if.end18.i.i
 
 if.end18.i.i:                                     ; preds = %if.then11.i.i, %while.end.i.i
-  %__holeIndex.addr.1.i.i = phi i64 [ %sub14.i.i, %if.then11.i.i ], [ %__holeIndex.addr.0.lcssa.i.i, %while.end.i.i ]
+  %__holeIndex.addr.1.i.i = phi i64 [ %sub14.i.i, %if.then11.i.i ], [ %__secondChild.0.lcssa.i.i, %while.end.i.i ]
   %cmp13.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i, 0
   br i1 %cmp13.i.i.i, label %land.rhs.i.i.i.preheader, label %_ZSt10__pop_heapIPN13hilbert_basis8offset_tEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_S8_S8_RT0_.exit
 
@@ -15777,8 +15777,8 @@ _ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i: ; preds = %_ZN
 
 for.cond.i:                                       ; preds = %_Z3absRK13checked_int64ILb1EE.exit31.i, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i ]
-  %b.sroa.0.0.i = phi i64 [ %add.i32.i, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i ]
   %a.sroa.0.0.i = phi i64 [ %add.i.i10, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i ]
+  %b.sroa.0.0.i = phi i64 [ %add.i32.i, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit, label %for.body.i
 
@@ -15898,8 +15898,8 @@ if.end.split:                                     ; preds = %entry
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
-  %__holeIndex.addr.024.i = phi i64 [ %spec.select.i, %while.body.i ], [ %div15, %if.end.split ]
-  %add.i = shl i64 %__holeIndex.addr.024.i, 1
+  %__secondChild.024.i = phi i64 [ %spec.select.i, %while.body.i ], [ %div15, %if.end.split ]
+  %add.i = shl i64 %__secondChild.024.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %__first, i64 %mul.i
   %sub3.i = or disjoint i64 %add.i, 1
@@ -15909,32 +15909,32 @@ while.body.i:                                     ; preds = %if.end.split, %whil
   %call.i.i.i = tail call noundef zeroext i1 @_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_(ptr noundef nonnull align 8 dereferenceable(127) %agg.tmp5.sroa.0.0.copyload11, i32 %agg.tmp.sroa.0.0.copyload.i.i, i32 %agg.tmp2.sroa.0.0.copyload.i.i)
   %spec.select.i = select i1 %call.i.i.i, i64 %sub3.i, i64 %mul.i
   %add.ptr5.i = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %__first, i64 %spec.select.i
-  %add.ptr6.i = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %__first, i64 %__holeIndex.addr.024.i
+  %add.ptr6.i = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %__first, i64 %__secondChild.024.i
   %0 = load i32, ptr %add.ptr5.i, align 4
   store i32 %0, ptr %add.ptr6.i, align 4
   %cmp.i = icmp slt i64 %spec.select.i, %div.i130132
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !111
 
 while.end.i:                                      ; preds = %while.body.i, %if.end.split
-  %__holeIndex.addr.0.lcssa.i = phi i64 [ %div15, %if.end.split ], [ %spec.select.i, %while.body.i ]
+  %__secondChild.0.lcssa.i = phi i64 [ %div15, %if.end.split ], [ %spec.select.i, %while.body.i ]
   %1 = and i64 %sub.ptr.sub, 4
   %cmp7.i = icmp eq i64 %1, 0
   %div9.i = ashr exact i64 %sub, 1
-  %cmp10.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i, %div9.i
+  %cmp10.i = icmp eq i64 %__secondChild.0.lcssa.i, %div9.i
   %or.cond = select i1 %cmp7.i, i1 %cmp10.i, i1 false
   br i1 %or.cond, label %if.then11.i, label %if.end18.i
 
 if.then11.i:                                      ; preds = %while.end.i
-  %add12.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i, 1
+  %add12.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
   %sub14.i = or disjoint i64 %add12.i, 1
   %add.ptr15.i = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %__first, i64 %sub14.i
-  %add.ptr16.i = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr16.i = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %__first, i64 %__secondChild.0.lcssa.i
   %2 = load i32, ptr %add.ptr15.i, align 4
   store i32 %2, ptr %add.ptr16.i, align 4
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then11.i, %while.end.i
-  %__holeIndex.addr.1.i = phi i64 [ %sub14.i, %if.then11.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
+  %__holeIndex.addr.1.i = phi i64 [ %sub14.i, %if.then11.i ], [ %__secondChild.0.lcssa.i, %while.end.i ]
   %cmp13.i.i = icmp sgt i64 %__holeIndex.addr.1.i, %div15
   br i1 %cmp13.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN13hilbert_basis8offset_tElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_T0_S9_T1_T2_.exit
 
@@ -15982,8 +15982,8 @@ while.body.i47.preheader:                         ; preds = %if.end10.split
   br label %while.body.i47
 
 while.body.i47:                                   ; preds = %while.body.i47.preheader, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit126
-  %__holeIndex.addr.024.i48 = phi i64 [ %spec.select.i57, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit126 ], [ %dec, %while.body.i47.preheader ]
-  %add.i49 = shl i64 %__holeIndex.addr.024.i48, 1
+  %__secondChild.024.i48 = phi i64 [ %spec.select.i57, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit126 ], [ %dec, %while.body.i47.preheader ]
+  %add.i49 = shl i64 %__secondChild.024.i48, 1
   %mul.i50 = add i64 %add.i49, 2
   %sub3.i52 = or disjoint i64 %add.i49, 1
   %4 = load ptr, ptr %m_ineqs.i.i64, align 8
@@ -16024,8 +16024,8 @@ _ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i80: ; preds = %_
 
 for.cond.i83:                                     ; preds = %_Z3absRK13checked_int64ILb1EE.exit31.i108, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i80
   %indvars.iv.i84 = phi i64 [ %indvars.iv.next.i114, %_Z3absRK13checked_int64ILb1EE.exit31.i108 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i80 ]
-  %b.sroa.0.0.i85 = phi i64 [ %add.i32.i110, %_Z3absRK13checked_int64ILb1EE.exit31.i108 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i80 ]
-  %a.sroa.0.0.i86 = phi i64 [ %add.i.i97, %_Z3absRK13checked_int64ILb1EE.exit31.i108 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i80 ]
+  %a.sroa.0.0.i85 = phi i64 [ %add.i.i97, %_Z3absRK13checked_int64ILb1EE.exit31.i108 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i80 ]
+  %b.sroa.0.0.i86 = phi i64 [ %add.i32.i110, %_Z3absRK13checked_int64ILb1EE.exit31.i108 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i80 ]
   %exitcond.not.i87 = icmp eq i64 %indvars.iv.i84, %wide.trip.count.i82
   br i1 %exitcond.not.i87, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit126, label %for.body.i88
 
@@ -16051,8 +16051,8 @@ if.end5.i.i.i93:                                  ; preds = %if.end.i.i19.i91
 
 _Z3absRK13checked_int64ILb1EE.exit.i95:           ; preds = %if.end5.i.i.i93, %for.body.i88
   %retval.sroa.0.0.i.i.i96 = phi i64 [ %sub.i.i.i94, %if.end5.i.i.i93 ], [ %12, %for.body.i88 ]
-  %add.i.i97 = add i64 %retval.sroa.0.0.i.i.i96, %a.sroa.0.0.i86
-  %cmp.i.i98 = icmp sgt i64 %a.sroa.0.0.i86, 0
+  %add.i.i97 = add i64 %retval.sroa.0.0.i.i.i96, %a.sroa.0.0.i85
+  %cmp.i.i98 = icmp sgt i64 %a.sroa.0.0.i85, 0
   %cmp7.i.i99 = icmp slt i64 %add.i.i97, 1
   %or.cond.i100 = select i1 %cmp.i.i98, i1 %cmp7.i.i99, i1 false
   br i1 %or.cond.i100, label %if.then.i.i119, label %_ZN13checked_int64ILb1EEpLERKS0_.exit.i101
@@ -16085,8 +16085,8 @@ if.end5.i.i26.i106:                               ; preds = %if.end.i.i24.i104
 
 _Z3absRK13checked_int64ILb1EE.exit31.i108:        ; preds = %if.end5.i.i26.i106, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i101
   %retval.sroa.0.0.i.i28.i109 = phi i64 [ %sub.i.i27.i107, %if.end5.i.i26.i106 ], [ %13, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i101 ]
-  %add.i32.i110 = add i64 %retval.sroa.0.0.i.i28.i109, %b.sroa.0.0.i85
-  %cmp.i33.i111 = icmp sgt i64 %b.sroa.0.0.i85, 0
+  %add.i32.i110 = add i64 %retval.sroa.0.0.i.i28.i109, %b.sroa.0.0.i86
+  %cmp.i33.i111 = icmp sgt i64 %b.sroa.0.0.i86, 0
   %cmp7.i44.i112 = icmp slt i64 %add.i32.i110, 1
   %or.cond58.i113 = select i1 %cmp.i33.i111, i1 %cmp7.i44.i112, i1 false
   %indvars.iv.next.i114 = add nuw nsw i64 %indvars.iv.i84, 1
@@ -16099,20 +16099,20 @@ if.then.i46.i115:                                 ; preds = %_Z3absRK13checked_i
   unreachable
 
 _ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit126: ; preds = %for.cond.i83, %while.body.i47, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.i66, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.i77
-  %.us-phi.i123 = phi i64 [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.i66 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.i77 ], [ 0, %while.body.i47 ], [ %b.sroa.0.0.i85, %for.cond.i83 ]
-  %.us-phi67.i124 = phi i64 [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.i66 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.i77 ], [ 0, %while.body.i47 ], [ %a.sroa.0.0.i86, %for.cond.i83 ]
-  %cmp.i49.i125 = icmp slt i64 %.us-phi67.i124, %.us-phi.i123
+  %.us-phi.i123 = phi i64 [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.i66 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.i77 ], [ 0, %while.body.i47 ], [ %a.sroa.0.0.i85, %for.cond.i83 ]
+  %.us-phi67.i124 = phi i64 [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.i66 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.i77 ], [ 0, %while.body.i47 ], [ %b.sroa.0.0.i86, %for.cond.i83 ]
+  %cmp.i49.i125 = icmp slt i64 %.us-phi.i123, %.us-phi67.i124
   %spec.select.i57 = select i1 %cmp.i49.i125, i64 %sub3.i52, i64 %mul.i50
   %add.ptr5.i58 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %__first, i64 %spec.select.i57
-  %add.ptr6.i59 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %__first, i64 %__holeIndex.addr.024.i48
+  %add.ptr6.i59 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %__first, i64 %__secondChild.024.i48
   %14 = load i32, ptr %add.ptr5.i58, align 4
   store i32 %14, ptr %add.ptr6.i59, align 4
   %cmp.i60 = icmp slt i64 %spec.select.i57, %div.i130132
   br i1 %cmp.i60, label %while.body.i47, label %while.end.i19, !llvm.loop !111
 
 while.end.i19:                                    ; preds = %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit126, %if.end10.split
-  %__holeIndex.addr.0.lcssa.i20 = phi i64 [ %dec, %if.end10.split ], [ %spec.select.i57, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit126 ]
-  %cmp10.i41 = icmp eq i64 %__holeIndex.addr.0.lcssa.i20, %div9.i
+  %__secondChild.0.lcssa.i20 = phi i64 [ %dec, %if.end10.split ], [ %spec.select.i57, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit126 ]
+  %cmp10.i41 = icmp eq i64 %__secondChild.0.lcssa.i20, %div9.i
   %or.cond131 = select i1 %cmp7.i, i1 %cmp10.i41, i1 false
   br i1 %or.cond131, label %if.then11.i42, label %if.end18.i23
 
@@ -16122,7 +16122,7 @@ if.then11.i42:                                    ; preds = %while.end.i19
   br label %if.end18.i23
 
 if.end18.i23:                                     ; preds = %if.then11.i42, %while.end.i19
-  %__holeIndex.addr.1.i24 = phi i64 [ %sub14.i44, %if.then11.i42 ], [ %__holeIndex.addr.0.lcssa.i20, %while.end.i19 ]
+  %__holeIndex.addr.1.i24 = phi i64 [ %sub14.i44, %if.then11.i42 ], [ %__secondChild.0.lcssa.i20, %while.end.i19 ]
   %cmp13.i.i25.not = icmp slt i64 %__holeIndex.addr.1.i24, %__parent.0150
   br i1 %cmp13.i.i25.not, label %_ZSt13__adjust_heapIPN13hilbert_basis8offset_tElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_T0_S9_T1_T2_.exit61, label %land.rhs.i.i28.preheader
 
@@ -16171,8 +16171,8 @@ _ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i: ; preds = %_ZN
 
 for.cond.i:                                       ; preds = %_Z3absRK13checked_int64ILb1EE.exit31.i, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i ]
-  %b.sroa.0.0.i = phi i64 [ %add.i32.i, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i ]
   %a.sroa.0.0.i = phi i64 [ %add.i.i, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i ]
+  %b.sroa.0.0.i = phi i64 [ %add.i32.i, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit, label %for.body.i
 
@@ -16395,8 +16395,8 @@ while.cond2:                                      ; preds = %while.body3, %while
 
 for.cond.i:                                       ; preds = %_Z3absRK13checked_int64ILb1EE.exit31.i, %while.cond2
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %while.cond2 ]
-  %b.sroa.0.0.i = phi i64 [ %add.i32.i, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %while.cond2 ]
   %a.sroa.0.0.i = phi i64 [ %add.i.i, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %while.cond2 ]
+  %b.sroa.0.0.i = phi i64 [ %add.i32.i, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %while.cond2 ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit.loopexit, label %for.body.i
 
@@ -16522,8 +16522,8 @@ while.cond5:                                      ; preds = %while.cond5.prehead
 
 for.cond.i33:                                     ; preds = %_Z3absRK13checked_int64ILb1EE.exit31.i58, %while.cond5
   %indvars.iv.i34 = phi i64 [ %indvars.iv.next.i64, %_Z3absRK13checked_int64ILb1EE.exit31.i58 ], [ 0, %while.cond5 ]
-  %b.sroa.0.0.i35 = phi i64 [ %add.i32.i60, %_Z3absRK13checked_int64ILb1EE.exit31.i58 ], [ 0, %while.cond5 ]
-  %a.sroa.0.0.i36 = phi i64 [ %add.i.i47, %_Z3absRK13checked_int64ILb1EE.exit31.i58 ], [ 0, %while.cond5 ]
+  %a.sroa.0.0.i35 = phi i64 [ %add.i.i47, %_Z3absRK13checked_int64ILb1EE.exit31.i58 ], [ 0, %while.cond5 ]
+  %b.sroa.0.0.i36 = phi i64 [ %add.i32.i60, %_Z3absRK13checked_int64ILb1EE.exit31.i58 ], [ 0, %while.cond5 ]
   %exitcond.not.i37 = icmp eq i64 %indvars.iv.i34, %wide.trip.count.i32
   br i1 %exitcond.not.i37, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit76, label %for.body.i38
 
@@ -16549,8 +16549,8 @@ if.end5.i.i.i43:                                  ; preds = %if.end.i.i19.i41
 
 _Z3absRK13checked_int64ILb1EE.exit.i45:           ; preds = %if.end5.i.i.i43, %for.body.i38
   %retval.sroa.0.0.i.i.i46 = phi i64 [ %sub.i.i.i44, %if.end5.i.i.i43 ], [ %17, %for.body.i38 ]
-  %add.i.i47 = add i64 %retval.sroa.0.0.i.i.i46, %a.sroa.0.0.i36
-  %cmp.i.i48 = icmp sgt i64 %a.sroa.0.0.i36, 0
+  %add.i.i47 = add i64 %retval.sroa.0.0.i.i.i46, %a.sroa.0.0.i35
+  %cmp.i.i48 = icmp sgt i64 %a.sroa.0.0.i35, 0
   %cmp7.i.i49 = icmp slt i64 %add.i.i47, 1
   %or.cond.i50 = select i1 %cmp.i.i48, i1 %cmp7.i.i49, i1 false
   br i1 %or.cond.i50, label %if.then.i.i69, label %_ZN13checked_int64ILb1EEpLERKS0_.exit.i51
@@ -16583,8 +16583,8 @@ if.end5.i.i26.i56:                                ; preds = %if.end.i.i24.i54
 
 _Z3absRK13checked_int64ILb1EE.exit31.i58:         ; preds = %if.end5.i.i26.i56, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i51
   %retval.sroa.0.0.i.i28.i59 = phi i64 [ %sub.i.i27.i57, %if.end5.i.i26.i56 ], [ %18, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i51 ]
-  %add.i32.i60 = add i64 %retval.sroa.0.0.i.i28.i59, %b.sroa.0.0.i35
-  %cmp.i33.i61 = icmp sgt i64 %b.sroa.0.0.i35, 0
+  %add.i32.i60 = add i64 %retval.sroa.0.0.i.i28.i59, %b.sroa.0.0.i36
+  %cmp.i33.i61 = icmp sgt i64 %b.sroa.0.0.i36, 0
   %cmp7.i44.i62 = icmp slt i64 %add.i32.i60, 1
   %or.cond58.i63 = select i1 %cmp.i33.i61, i1 %cmp7.i44.i62, i1 false
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i34, 1
@@ -16597,7 +16597,7 @@ if.then.i46.i65:                                  ; preds = %_Z3absRK13checked_i
   unreachable
 
 _ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit76: ; preds = %for.cond.i33
-  %cmp.i49.i75 = icmp slt i64 %a.sroa.0.0.i36, %b.sroa.0.0.i35
+  %cmp.i49.i75 = icmp slt i64 %a.sroa.0.0.i35, %b.sroa.0.0.i36
   br i1 %cmp.i49.i75, label %while.cond5, label %while.end9, !llvm.loop !117
 
 while.end9.sink.split:                            ; preds = %while.cond5.preheader.split173.split, %while.cond5.preheader.split173, %while.cond5.preheader, %while.cond5.preheader.thread238
@@ -16714,8 +16714,8 @@ _ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i: ; preds = %_ZN
 
 for.cond.i:                                       ; preds = %_Z3absRK13checked_int64ILb1EE.exit31.i, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i ]
-  %b.sroa.0.0.i = phi i64 [ %add.i32.i, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i ]
   %a.sroa.0.0.i = phi i64 [ %add.i.i, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i ]
+  %b.sroa.0.0.i = phi i64 [ %add.i32.i, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit, label %for.body.i
 
@@ -16867,8 +16867,8 @@ _ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i: ; preds = %_ZN
 
 for.cond.i:                                       ; preds = %_Z3absRK13checked_int64ILb1EE.exit31.i, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i ]
-  %b.sroa.0.0.i = phi i64 [ %add.i32.i, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i ]
   %a.sroa.0.0.i = phi i64 [ %add.i.i, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i ]
+  %b.sroa.0.0.i = phi i64 [ %add.i32.i, %_Z3absRK13checked_int64ILb1EE.exit31.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit13.split.split.split.i ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit, label %for.body.i
 

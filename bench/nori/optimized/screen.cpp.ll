@@ -2723,32 +2723,32 @@ define hidden void @_ZN7nanogui6ScreenC2ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic
 
 50:                                               ; preds = %42
   %spec.select = select i1 %5, i32 32, i32 0
-  %.148 = select i1 %6, i32 24, i32 %spec.select
-  %.046 = select i1 %6, i32 8, i32 0
+  %.142 = select i1 %6, i32 24, i32 %spec.select
+  %.040 = select i1 %6, i32 8, i32 0
   %51 = load i8, ptr %33, align 4
   %52 = trunc i8 %51 to i1
-  %.049 = select i1 %52, i32 16, i32 8
-  invoke void @glfwWindowHint(i32 noundef 135169, i32 noundef %.049)
+  %.043 = select i1 %52, i32 16, i32 8
+  invoke void @glfwWindowHint(i32 noundef 135169, i32 noundef %.043)
           to label %53 unwind label %.loopexit.split-lp
 
 53:                                               ; preds = %50
-  invoke void @glfwWindowHint(i32 noundef 135170, i32 noundef %.049)
+  invoke void @glfwWindowHint(i32 noundef 135170, i32 noundef %.043)
           to label %54 unwind label %.loopexit.split-lp
 
 54:                                               ; preds = %53
-  invoke void @glfwWindowHint(i32 noundef 135171, i32 noundef %.049)
+  invoke void @glfwWindowHint(i32 noundef 135171, i32 noundef %.043)
           to label %55 unwind label %.loopexit.split-lp
 
 55:                                               ; preds = %54
-  invoke void @glfwWindowHint(i32 noundef 135172, i32 noundef %.049)
+  invoke void @glfwWindowHint(i32 noundef 135172, i32 noundef %.043)
           to label %56 unwind label %.loopexit.split-lp
 
 56:                                               ; preds = %55
-  invoke void @glfwWindowHint(i32 noundef 135174, i32 noundef %.046)
+  invoke void @glfwWindowHint(i32 noundef 135174, i32 noundef %.040)
           to label %57 unwind label %.loopexit.split-lp
 
 57:                                               ; preds = %56
-  invoke void @glfwWindowHint(i32 noundef 135173, i32 noundef %.148)
+  invoke void @glfwWindowHint(i32 noundef 135173, i32 noundef %.142)
           to label %58 unwind label %.loopexit.split-lp
 
 58:                                               ; preds = %57
@@ -3148,40 +3148,40 @@ define linkonce_odr dso_local void @_ZNSt7__cxx119to_stringEj(ptr dead_on_unwind
   br i1 %4, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %16
-  %.02230.i = phi i32 [ %17, %16 ], [ %1, %2 ]
-  %.02329.i = phi i32 [ %18, %16 ], [ 1, %2 ]
-  %5 = icmp ult i32 %.02230.i, 100
+  %.030.i = phi i32 [ %18, %16 ], [ 1, %2 ]
+  %.02329.i = phi i32 [ %17, %16 ], [ %1, %2 ]
+  %5 = icmp ult i32 %.02329.i, 100
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %.lr.ph.i
-  %7 = add i32 %.02329.i, 1
+  %7 = add i32 %.030.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = icmp ult i32 %.02230.i, 1000
+  %9 = icmp ult i32 %.02329.i, 1000
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = add i32 %.02329.i, 2
+  %11 = add i32 %.030.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 12:                                               ; preds = %8
-  %13 = icmp ult i32 %.02230.i, 10000
+  %13 = icmp ult i32 %.02329.i, 10000
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
-  %15 = add i32 %.02329.i, 3
+  %15 = add i32 %.030.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 16:                                               ; preds = %12
-  %17 = udiv i32 %.02230.i, 10000
-  %18 = add i32 %.02329.i, 4
-  %19 = icmp ult i32 %.02230.i, 100000
+  %17 = udiv i32 %.02329.i, 10000
+  %18 = add i32 %.030.i, 4
+  %19 = icmp ult i32 %.02329.i, 100000
   br i1 %19, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !22
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %14
-  %.0.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
-  %20 = zext i32 %.0.i to i64
+  %.022.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
+  %20 = zext i32 %.022.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #30
   %21 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %61
@@ -5939,19 +5939,19 @@ _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE9push_backEOS2_.exit: ; preds = %62, %_ZN
   br label %.lr.ph48
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01644 = phi i64 [ %98, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.01743 = phi i64 [ %spec.select, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %95 = getelementptr inbounds ptr, ptr %93, i64 %.01644
+  %.01544 = phi i64 [ %98, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.01643 = phi i64 [ %spec.select, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %95 = getelementptr inbounds ptr, ptr %93, i64 %.01544
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, %1
-  %spec.select = select i1 %97, i64 %.01644, i64 %.01743
-  %98 = add nuw i64 %.01644, 1
+  %spec.select = select i1 %97, i64 %.01544, i64 %.01643
+  %98 = add nuw i64 %.01544, 1
   %exitcond.not = icmp eq i64 %98, %umax
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !50
 
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %.thread
-  %.01547 = phi i64 [ %114, %.thread ], [ 0, %.lr.ph48.preheader ]
-  %99 = getelementptr inbounds ptr, ptr %93, i64 %.01547
+  %.047 = phi i64 [ %114, %.thread ], [ 0, %.lr.ph48.preheader ]
+  %99 = getelementptr inbounds ptr, ptr %93, i64 %.047
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
   br i1 %101, label %.thread, label %102
@@ -5965,7 +5965,7 @@ _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE9push_backEOS2_.exit: ; preds = %62, %_ZN
   %105 = getelementptr inbounds i8, ptr %103, i64 192
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %106, %1
-  %108 = icmp ult i64 %.01547, %spec.select
+  %108 = icmp ult i64 %.047, %spec.select
   %or.cond = select i1 %107, i1 %108, i1 false
   br i1 %or.cond, label %109, label %.thread
 
@@ -5980,7 +5980,7 @@ _ZNSt6vectorIPN7nanogui6WidgetESaIS2_EE9push_backEOS2_.exit: ; preds = %62, %_ZN
   br i1 %.not49, label %.critedge, label %.lr.ph.preheader, !llvm.loop !51
 
 .thread:                                          ; preds = %.lr.ph48, %102, %104
-  %114 = add nuw i64 %.01547, 1
+  %114 = add nuw i64 %.047, 1
   %exitcond57.not = icmp eq i64 %114, %umax56
   br i1 %exitcond57.not, label %.critedge, label %.lr.ph48, !llvm.loop !52
 

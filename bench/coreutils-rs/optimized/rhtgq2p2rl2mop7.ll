@@ -459,9 +459,9 @@ define hidden void @_ZN5uu_od15parse_nrofbytes21parse_number_of_bytes17h20a54255
 
 14:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit78", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit83"
   %15 = phi i1 [ true, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit78" ], [ true, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit" ], [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit83" ]
-  %.061 = phi i32 [ 16, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit78" ], [ 16, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit" ], [ 8, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit83" ]
+  %.060 = phi i32 [ 16, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit78" ], [ 16, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit" ], [ 8, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit83" ]
   %16 = phi i1 [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit78" ], [ false, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit" ], [ true, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit83" ]
-  %.057 = phi i64 [ 2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit78" ], [ 2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit" ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit83" ]
+  %.059 = phi i64 [ 2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit78" ], [ 2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit" ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h57e879f43ee09a0aE.exit83" ]
   %17 = getelementptr inbounds i8, ptr %1, i64 %2
   %18 = getelementptr inbounds i8, ptr %17, i64 -1
   %19 = load i8, ptr %18, align 1, !noalias !77, !noundef !4
@@ -540,25 +540,25 @@ define hidden void @_ZN5uu_od15parse_nrofbytes21parse_number_of_bytes17h20a54255
   ]
 
 .thread110:                                       ; preds = %81, %69, %129, %130, %131, %132, %133, %124, %124, %54, %83, %79, %77, %75, %73, %71
-  %.058 = phi i64 [ 1, %83 ], [ 1125899906842624, %79 ], [ 1099511627776, %77 ], [ 1073741824, %75 ], [ 1048576, %73 ], [ 1024, %71 ], [ 1, %54 ], [ %spec.select, %69 ], [ %spec.select65, %81 ], [ 1000000000000000000, %133 ], [ 1000000000000000, %132 ], [ 1000000000000, %131 ], [ 1000000000, %130 ], [ 1000000, %129 ], [ 1000, %124 ], [ 1000, %124 ]
+  %.061 = phi i64 [ 1, %83 ], [ 1125899906842624, %79 ], [ 1099511627776, %77 ], [ 1073741824, %75 ], [ 1048576, %73 ], [ 1024, %71 ], [ 1, %54 ], [ %spec.select, %69 ], [ %spec.select65, %81 ], [ 1000000000000000000, %133 ], [ 1000000000000000, %132 ], [ 1000000000000, %131 ], [ 1000000000, %130 ], [ 1000000, %129 ], [ 1000, %124 ], [ 1000, %124 ]
   %.0 = phi i64 [ %2, %83 ], [ %80, %79 ], [ %78, %77 ], [ %76, %75 ], [ %74, %73 ], [ %72, %71 ], [ %2, %54 ], [ %spec.select64, %69 ], [ %spec.select66, %81 ], [ %85, %133 ], [ %85, %132 ], [ %85, %131 ], [ %85, %130 ], [ %85, %129 ], [ %85, %124 ], [ %85, %124 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %.not.i84 = icmp ugt i64 %.057, %.0
+  %.not.i84 = icmp ugt i64 %.059, %.0
   br i1 %.not.i84, label %134, label %55
 
 55:                                               ; preds = %.thread110
   br i1 %16, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i", label %56
 
 56:                                               ; preds = %55
-  %.not.i.i = icmp ult i64 %.057, %2
+  %.not.i.i = icmp ult i64 %.059, %2
   br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", label %57
 
 57:                                               ; preds = %56
-  %58 = icmp eq i64 %.057, %2
+  %58 = icmp eq i64 %.059, %2
   br i1 %58, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i", label %134
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i": ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %1, i64 %.057
+  %59 = getelementptr inbounds i8, ptr %1, i64 %.059
   %60 = load i8, ptr %59, align 1, !alias.scope !80, !noundef !4
   %61 = icmp sgt i8 %60, -65
   br i1 %61, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i", label %134
@@ -727,13 +727,13 @@ define hidden void @_ZN5uu_od15parse_nrofbytes21parse_number_of_bytes17h20a54255
   br label %.thread110
 
 134:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %.thread110, %57, %64
-  tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %.057, i64 noundef %.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f13c4c14c678e35a14317366f76eb135.32) #11
+  tail call void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %.059, i64 noundef %.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f13c4c14c678e35a14317366f76eb135.32) #11
   unreachable
 
 135:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i", %64, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i"
-  %136 = getelementptr inbounds i8, ptr %1, i64 %.057
-  %137 = sub i64 %.0, %.057
-  call void @"_ZN4core3num21_$LT$impl$u20$u64$GT$14from_str_radix17hf41f6e5d064fa014E"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 1 %136, i64 noundef %137, i32 noundef %.061)
+  %136 = getelementptr inbounds i8, ptr %1, i64 %.059
+  %137 = sub i64 %.0, %.059
+  call void @"_ZN4core3num21_$LT$impl$u20$u64$GT$14from_str_radix17hf41f6e5d064fa014E"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 1 %136, i64 noundef %137, i32 noundef %.060)
   %138 = load i8, ptr %8, align 8, !range !91, !noundef !4
   %trunc = trunc nuw i8 %138 to i1
   br i1 %trunc, label %144, label %139
@@ -742,7 +742,7 @@ define hidden void @_ZN5uu_od15parse_nrofbytes21parse_number_of_bytes17h20a54255
   %140 = getelementptr inbounds i8, ptr %8, i64 8
   %141 = load i64, ptr %140, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %142 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %141, i64 %.058)
+  %142 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %141, i64 %.061)
   %143 = extractvalue { i64, i1 } %142, 1
   br i1 %143, label %161, label %166
 

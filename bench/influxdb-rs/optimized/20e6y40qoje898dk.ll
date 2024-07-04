@@ -1104,7 +1104,7 @@ _ZN10serde_json3ser9Formatter9end_array17hf0b6687dfba311f6E.exit.i: ; preds = %2
   %.not.i = icmp ne ptr %289, null
   %290 = getelementptr inbounds i8, ptr %0, i64 16
   %291 = load i64, ptr %290, align 8
-  %.sroa.641.0 = select i1 %.not.i, i64 %291, i64 undef
+  %.sroa.10.0 = select i1 %.not.i, i64 %291, i64 undef
   %.sink22.i = zext i1 %.not.i to i64
   %.sink.i = select i1 %.not.i, i64 %264, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
@@ -1114,7 +1114,7 @@ _ZN10serde_json3ser9Formatter9end_array17hf0b6687dfba311f6E.exit.i: ; preds = %2
   %.sroa.01.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %289, ptr %.sroa.01.sroa.6.0..sroa_idx, align 8
   %.sroa.01.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
-  store i64 %.sroa.641.0, ptr %.sroa.01.sroa.7.0..sroa_idx, align 8
+  store i64 %.sroa.10.0, ptr %.sroa.01.sroa.7.0..sroa_idx, align 8
   %.sroa.01.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
   store i64 %.sink22.i, ptr %.sroa.01.sroa.8.0..sroa_idx, align 8
   %.sroa.01.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 40
@@ -1122,7 +1122,7 @@ _ZN10serde_json3ser9Formatter9end_array17hf0b6687dfba311f6E.exit.i: ; preds = %2
   %.sroa.01.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 48
   store ptr %289, ptr %.sroa.01.sroa.10.0..sroa_idx, align 8
   %.sroa.01.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 56
-  store i64 %.sroa.641.0, ptr %.sroa.01.sroa.11.0..sroa_idx, align 8
+  store i64 %.sroa.10.0, ptr %.sroa.01.sroa.11.0..sroa_idx, align 8
   %.sroa.01.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 64
   store i64 %.sink.i, ptr %.sroa.01.sroa.12.0..sroa_idx, align 8
   br label %292

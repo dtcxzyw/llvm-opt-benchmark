@@ -1420,8 +1420,8 @@ if.end60.i.i:                                     ; preds = %if.then43.i.i, %do.
   br label %do.body76.i.i
 
 do.body76.i.i:                                    ; preds = %if.end60.i.i, %if.end.i21.i
-  %parent.0.i.i = phi ptr [ %elm.addr.03.i.i, %if.end60.i.i ], [ %20, %if.end.i21.i ]
   %elm.addr.1.i.i = phi ptr [ %20, %if.end60.i.i ], [ %elm.addr.03.i.i, %if.end.i21.i ]
+  %parent.0.i.i = phi ptr [ %elm.addr.03.i.i, %if.end60.i.i ], [ %20, %if.end.i21.i ]
   %rbe_color78.i.i = getelementptr inbounds i8, ptr %parent.0.i.i, i64 136
   store i32 0, ptr %rbe_color78.i.i, align 8
   %rbe_color80.i.i = getelementptr inbounds i8, ptr %22, i64 136
@@ -1522,8 +1522,8 @@ if.end199.i.i:                                    ; preds = %if.then180.i.i, %do
   br label %do.body215.i.i
 
 do.body215.i.i:                                   ; preds = %if.end199.i.i, %if.end154.i.i
-  %parent.1.i.i = phi ptr [ %elm.addr.03.i.i, %if.end199.i.i ], [ %20, %if.end154.i.i ]
   %elm.addr.2.i.i = phi ptr [ %20, %if.end199.i.i ], [ %elm.addr.03.i.i, %if.end154.i.i ]
+  %parent.1.i.i = phi ptr [ %elm.addr.03.i.i, %if.end199.i.i ], [ %20, %if.end154.i.i ]
   %rbe_color217.i.i = getelementptr inbounds i8, ptr %parent.1.i.i, i64 136
   store i32 0, ptr %rbe_color217.i.i, align 8
   %rbe_color219.i.i = getelementptr inbounds i8, ptr %22, i64 136
@@ -1735,9 +1735,9 @@ entry:
   br label %do.body.outer
 
 do.body.outer:                                    ; preds = %do.cond, %entry
+  %bytes.0.ph = phi i64 [ %bytes.1, %do.cond ], [ 0, %entry ]
   %cmp46.ph = phi i1 [ true, %do.cond ], [ false, %entry ]
   %end.0.ph = phi i64 [ 512, %do.cond ], [ 0, %entry ]
-  %bytes.0.ph = phi i64 [ %bytes.1, %do.cond ], [ 0, %entry ]
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %bytes.0.ph
   %sub = sub nuw nsw i64 512, %bytes.0.ph
   %cmp15.not = icmp eq i64 %bytes.0.ph, 0
@@ -1839,8 +1839,8 @@ if.then41:                                        ; preds = %for.end
   br label %do.cond
 
 do.cond:                                          ; preds = %land.lhs.true, %land.lhs.true.us, %for.end, %if.then41
-  %end.1 = phi i64 [ %div24, %if.then41 ], [ %div24, %for.end ], [ %end.0.ph, %land.lhs.true.us ], [ %end.0, %land.lhs.true ]
   %bytes.1 = phi i64 [ %sub39, %if.then41 ], [ 0, %for.end ], [ 0, %land.lhs.true.us ], [ %bytes.0.ph, %land.lhs.true ]
+  %end.1 = phi i64 [ %div24, %if.then41 ], [ %div24, %for.end ], [ %end.0.ph, %land.lhs.true.us ], [ %end.0, %land.lhs.true ]
   %cmp46.old = icmp eq i64 %end.1, 512
   br i1 %cmp46.old, label %do.body.outer, label %do.end
 

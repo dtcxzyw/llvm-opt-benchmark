@@ -151,7 +151,7 @@ nonconstraint_edge.exit:                          ; preds = %14, %12, %10, %8
   br label %73
 
 73:                                               ; preds = %61, %43
-  %.040.i = phi i32 [ %72, %61 ], [ 0, %43 ]
+  %.039.i = phi i32 [ %72, %61 ], [ 0, %43 ]
   %.idx44.i = select i1 %50, i64 0, i64 -64
   %74 = getelementptr inbounds i8, ptr %.03750, i64 %.idx44.i
   %75 = getelementptr inbounds i8, ptr %74, i64 56
@@ -178,17 +178,17 @@ nonconstraint_edge.exit:                          ; preds = %14, %12, %10, %8
   br label %interclust1.exit
 
 interclust1.exit:                                 ; preds = %73, %81
-  %.039.neg.i = phi i32 [ %.neg.i, %81 ], [ 0, %73 ]
+  %.038.neg.i = phi i32 [ %.neg.i, %81 ], [ 0, %73 ]
   %92 = load ptr, ptr %4, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 228
   %94 = load i32, ptr %93, align 4
-  %95 = add i32 %.039.neg.i, %.040.i
+  %95 = add i32 %.038.neg.i, %.039.i
   %96 = add i32 %95, %94
   %97 = icmp sgt i32 %96, 0
   %98 = sub nsw i32 0, %96
   %99 = uitofp nneg i32 %98 to double
-  %.03846.i = tail call i32 @llvm.smax.i32(i32 %96, i32 0)
-  %.038.i = uitofp nneg i32 %.03846.i to double
+  %.04046.i = tail call i32 @llvm.smax.i32(i32 %96, i32 0)
+  %.040.i = uitofp nneg i32 %.04046.i to double
   %.0.i47 = select i1 %97, double 0.000000e+00, double %99
   %100 = tail call ptr @virtual_node(ptr noundef %0) #3
   %101 = getelementptr inbounds i8, ptr %100, i64 16
@@ -205,7 +205,7 @@ interclust1.exit:                                 ; preds = %73, %81
   %111 = load ptr, ptr %4, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 212
   %113 = load i32, ptr %112, align 4
-  %114 = tail call ptr @make_aux_edge(ptr noundef %100, ptr noundef %105, double noundef %.038.i, i32 noundef %113) #3
+  %114 = tail call ptr @make_aux_edge(ptr noundef %100, ptr noundef %105, double noundef %.040.i, i32 noundef %113) #3
   %115 = getelementptr inbounds i8, ptr %114, i64 16
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 160

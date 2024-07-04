@@ -9112,7 +9112,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br label %35
 
 35:                                               ; preds = %.lr.ph, %_ZN5TCLAP7CmdLine14_emptyCombinedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread62
-  %.04495 = phi i32 [ 0, %.lr.ph ], [ %.1455965, %_ZN5TCLAP7CmdLine14_emptyCombinedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread62 ]
+  %.03595 = phi i32 [ 0, %.lr.ph ], [ %.1365965, %_ZN5TCLAP7CmdLine14_emptyCombinedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread62 ]
   br label %36
 
 36:                                               ; preds = %44, %35
@@ -9140,7 +9140,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
           to label %.thread unwind label %.loopexit.split-lp.loopexit
 
 .thread:                                          ; preds = %45
-  %49 = add nsw i32 %48, %.04495
+  %49 = add nsw i32 %48, %.03595
   br label %_ZN5TCLAP7CmdLine14_emptyCombinedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread62
 
 .loopexit:                                        ; preds = %37
@@ -9226,14 +9226,14 @@ _ZN5TCLAP7CmdLine14_emptyCombinedERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %80
 
 78:                                               ; preds = %71, %76
-  %.034 = phi i1 [ false, %76 ], [ true, %71 ]
+  %.029 = phi i1 [ false, %76 ], [ true, %71 ]
   %79 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5TCLAP12ArgExceptionE
           catch ptr @_ZTIN5TCLAP13ExitExceptionE
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #25
-  br i1 %.034, label %80, label %.loopexit.split-lp
+  br i1 %.029, label %80, label %.loopexit.split-lp
 
 80:                                               ; preds = %.thread70, %78
   %.pn4973 = phi { ptr, i32 } [ %77, %.thread70 ], [ %79, %78 ]
@@ -9241,7 +9241,7 @@ _ZN5TCLAP7CmdLine14_emptyCombinedERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %.loopexit.split-lp
 
 _ZN5TCLAP7CmdLine14_emptyCombinedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread62: ; preds = %62, %59, %.thread, %_ZN5TCLAP7CmdLine14_emptyCombinedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread66
-  %.1455965 = phi i32 [ %.04495, %_ZN5TCLAP7CmdLine14_emptyCombinedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread66 ], [ %.04495, %59 ], [ %49, %.thread ], [ %.04495, %62 ]
+  %.1365965 = phi i32 [ %.03595, %_ZN5TCLAP7CmdLine14_emptyCombinedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread66 ], [ %.03595, %59 ], [ %49, %.thread ], [ %.03595, %62 ]
   %81 = load i32, ptr %3, align 4
   %82 = add nsw i32 %81, 1
   store i32 %82, ptr %3, align 4
@@ -9256,10 +9256,10 @@ _ZN5TCLAP7CmdLine14_emptyCombinedERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br i1 %90, label %35, label %._crit_edge, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %_ZN5TCLAP7CmdLine14_emptyCombinedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread62, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit
-  %.044.lcssa = phi i32 [ 0, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit ], [ %.1455965, %_ZN5TCLAP7CmdLine14_emptyCombinedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread62 ]
+  %.035.lcssa = phi i32 [ 0, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit ], [ %.1365965, %_ZN5TCLAP7CmdLine14_emptyCombinedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread62 ]
   %91 = getelementptr inbounds i8, ptr %0, i64 128
   %92 = load i32, ptr %91, align 8
-  %93 = icmp slt i32 %.044.lcssa, %92
+  %93 = icmp slt i32 %.035.lcssa, %92
   br i1 %93, label %94, label %95
 
 94:                                               ; preds = %._crit_edge
@@ -9272,7 +9272,7 @@ _ZN5TCLAP7CmdLine14_emptyCombinedERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 95:                                               ; preds = %._crit_edge99, %._crit_edge
   %96 = phi i32 [ %.pre, %._crit_edge99 ], [ %92, %._crit_edge ]
-  %97 = icmp sgt i32 %.044.lcssa, %96
+  %97 = icmp sgt i32 %.035.lcssa, %96
   br i1 %97, label %98, label %.thread82
 
 98:                                               ; preds = %95
@@ -9310,7 +9310,7 @@ _ZN5TCLAP7CmdLine14_emptyCombinedERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %108
 
 106:                                              ; preds = %102, %101
-  %.031 = phi i1 [ false, %102 ], [ true, %101 ]
+  %.027 = phi i1 [ false, %102 ], [ true, %101 ]
   %107 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5TCLAP12ArgExceptionE
@@ -9320,11 +9320,11 @@ _ZN5TCLAP7CmdLine14_emptyCombinedERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 108:                                              ; preds = %104, %106
   %.pn = phi { ptr, i32 } [ %107, %106 ], [ %105, %104 ]
-  %.132 = phi i1 [ %.031, %106 ], [ true, %104 ]
+  %.128 = phi i1 [ %.027, %106 ], [ true, %104 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #25
-  br i1 %.132, label %109, label %.loopexit.split-lp
+  br i1 %.128, label %109, label %.loopexit.split-lp
 
 109:                                              ; preds = %.thread74, %108
   %.pn.pn77 = phi { ptr, i32 } [ %103, %.thread74 ], [ %.pn, %108 ]
@@ -9334,9 +9334,9 @@ _ZN5TCLAP7CmdLine14_emptyCombinedERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %108, %109, %78, %80
   %.pn49.pn = phi { ptr, i32 } [ %.pn4973, %80 ], [ %79, %78 ], [ %.pn.pn77, %109 ], [ %.pn, %108 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit88, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp89, %.loopexit.split-lp.loopexit.split-lp ]
   %.3 = extractvalue { ptr, i32 } %.pn49.pn, 0
-  %.339 = extractvalue { ptr, i32 } %.pn49.pn, 1
+  %.343 = extractvalue { ptr, i32 } %.pn49.pn, 1
   %110 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5TCLAP12ArgExceptionE) #25
-  %111 = icmp eq i32 %.339, %110
+  %111 = icmp eq i32 %.343, %110
   br i1 %111, label %112, label %118
 
 112:                                              ; preds = %.loopexit.split-lp
@@ -9352,7 +9352,7 @@ _ZN5TCLAP7CmdLine14_emptyCombinedERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 118:                                              ; preds = %.loopexit.split-lp
   %119 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5TCLAP13ExitExceptionE) #25
-  %120 = icmp eq i32 %.339, %119
+  %120 = icmp eq i32 %.343, %119
   br i1 %120, label %121, label %153
 
 121:                                              ; preds = %118
@@ -9415,13 +9415,13 @@ _ZN5TCLAP7CmdLine14_emptyCombinedERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %.thread82
 
 .thread85:                                        ; preds = %148, %.thread78
-  %.12881 = phi i32 [ %131, %.thread78 ], [ %150, %148 ]
+  %.13281 = phi i32 [ %131, %.thread78 ], [ %150, %148 ]
   call void @__cxa_end_catch()
-  call void @exit(i32 noundef %.12881) #24
+  call void @exit(i32 noundef %.13281) #24
   unreachable
 
 152:                                              ; preds = %142, %132
-  %.440 = phi i32 [ %135, %132 ], [ %145, %142 ]
+  %.444 = phi i32 [ %135, %132 ], [ %145, %142 ]
   %.4 = phi ptr [ %134, %132 ], [ %144, %142 ]
   invoke void @__cxa_end_catch()
           to label %153 unwind label %156
@@ -9430,10 +9430,10 @@ _ZN5TCLAP7CmdLine14_emptyCombinedERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   ret void
 
 153:                                              ; preds = %152, %127, %118
-  %.541 = phi i32 [ %.440, %152 ], [ %130, %127 ], [ %.339, %118 ]
+  %.545 = phi i32 [ %.444, %152 ], [ %130, %127 ], [ %.343, %118 ]
   %.5 = phi ptr [ %.4, %152 ], [ %129, %127 ], [ %.3, %118 ]
   %154 = insertvalue { ptr, i32 } poison, ptr %.5, 0
-  %155 = insertvalue { ptr, i32 } %154, i32 %.541, 1
+  %155 = insertvalue { ptr, i32 } %154, i32 %.545, 1
   resume { ptr, i32 } %155
 
 156:                                              ; preds = %152, %127

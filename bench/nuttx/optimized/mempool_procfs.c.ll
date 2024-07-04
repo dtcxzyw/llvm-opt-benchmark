@@ -56,8 +56,8 @@ define internal i64 @mempool_read(ptr nocapture noundef %0, ptr noundef %1, i64 
   %11 = tail call i32 (ptr, i64, ptr, ...) @procfs_snprintf(ptr noundef nonnull %10, i64 noundef 80, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #13
   %12 = sext i32 %11 to i64
   %13 = call i64 @procfs_memcpy(ptr noundef nonnull %10, i64 noundef %12, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4) #13
-  %.03435 = load ptr, ptr @g_mempool_procfs, align 8
-  %.not36 = icmp eq ptr %.03435, null
+  %.03235 = load ptr, ptr @g_mempool_procfs, align 8
+  %.not36 = icmp eq ptr %.03235, null
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -69,22 +69,22 @@ define internal i64 @mempool_read(ptr nocapture noundef %0, ptr noundef %1, i64 
   br label %19
 
 19:                                               ; preds = %.lr.ph, %39
-  %.03441 = phi ptr [ %.03435, %.lr.ph ], [ %.034, %39 ]
+  %.03241 = phi ptr [ %.03235, %.lr.ph ], [ %.032, %39 ]
   %.040 = phi ptr [ %1, %.lr.ph ], [ %.1, %39 ]
   %.02839 = phi i64 [ %13, %.lr.ph ], [ %.129, %39 ]
   %.03038 = phi i64 [ %13, %.lr.ph ], [ %.131, %39 ]
-  %.03237 = phi i64 [ %2, %.lr.ph ], [ %.133, %39 ]
-  %20 = icmp ult i64 %.02839, %.03237
+  %.03337 = phi i64 [ %2, %.lr.ph ], [ %.134, %39 ]
+  %20 = icmp ult i64 %.02839, %.03337
   br i1 %20, label %21, label %39
 
 21:                                               ; preds = %19
-  %22 = ptrtoint ptr %.03441 to i64
+  %22 = ptrtoint ptr %.03241 to i64
   %23 = add i64 %22, -168
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds i8, ptr %.040, i64 %.03038
-  %26 = sub i64 %.03237, %.03038
+  %26 = sub i64 %.03337, %.03038
   %27 = call i32 @mempool_info(ptr noundef %24, ptr noundef nonnull %5) #13
-  %28 = load ptr, ptr %.03441, align 8
+  %28 = load ptr, ptr %.03241, align 8
   %29 = load i64, ptr %5, align 8
   %30 = load i64, ptr %14, align 8
   %31 = load i64, ptr %15, align 8
@@ -98,13 +98,13 @@ define internal i64 @mempool_read(ptr nocapture noundef %0, ptr noundef %1, i64 
   br label %39
 
 39:                                               ; preds = %19, %21
-  %.133 = phi i64 [ %26, %21 ], [ %.03237, %19 ]
+  %.134 = phi i64 [ %26, %21 ], [ %.03337, %19 ]
   %.131 = phi i64 [ %37, %21 ], [ %.03038, %19 ]
   %.129 = phi i64 [ %38, %21 ], [ %.02839, %19 ]
   %.1 = phi ptr [ %25, %21 ], [ %.040, %19 ]
-  %40 = getelementptr inbounds i8, ptr %.03441, i64 8
-  %.034 = load ptr, ptr %40, align 8
-  %.not = icmp eq ptr %.034, null
+  %40 = getelementptr inbounds i8, ptr %.03241, i64 8
+  %.032 = load ptr, ptr %40, align 8
+  %.not = icmp eq ptr %.032, null
   br i1 %.not, label %._crit_edge, label %19, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %39, %3

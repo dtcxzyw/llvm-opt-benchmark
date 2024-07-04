@@ -121,9 +121,9 @@ define internal i32 @dissect_bzr(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %37
   %26 = phi i32 [ %38, %37 ], [ %23, %.preheader.i ]
-  %.0271.i = phi i32 [ %.1.i, %37 ], [ %21, %.preheader.i ]
+  %.01.i = phi i32 [ %.1.i, %37 ], [ %21, %.preheader.i ]
   %27 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %26) #3
-  %28 = add i32 %.0271.i, 1
+  %28 = add i32 %.01.i, 1
   switch i8 %27, label %37 [
     i8 115, label %29
     i8 98, label %29
@@ -134,13 +134,13 @@ define internal i32 @dissect_bzr(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 29:                                               ; preds = %.lr.ph.i, %.lr.ph.i
   %30 = add i32 %28, %.02631
   %31 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %30) #3
-  %32 = add i32 %.0271.i, 5
+  %32 = add i32 %.01.i, 5
   %33 = add i32 %32, %31
   %34 = icmp sgt i32 %28, %33
   br i1 %34, label %get_bzr_pdu_len.exit.thread, label %37
 
 35:                                               ; preds = %.lr.ph.i
-  %36 = add i32 %.0271.i, 2
+  %36 = add i32 %.01.i, 2
   br label %37
 
 37:                                               ; preds = %35, %29, %.lr.ph.i

@@ -3091,8 +3091,8 @@ common.resume:                                    ; preds = %.body130, %.body123
           to label %common.resume unwind label %166
 
 216:                                              ; preds = %180, %.noexc93
-  %.sroa.11.0151.ph = phi i32 [ %179, %180 ], [ undef, %.noexc93 ]
-  %.sroa.6.0149.ph = phi i32 [ 1, %180 ], [ 0, %.noexc93 ]
+  %.sroa.6.0151.ph = phi i32 [ 1, %180 ], [ 0, %.noexc93 ]
+  %.sroa.11.0149.ph = phi i32 [ %179, %180 ], [ undef, %.noexc93 ]
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %20)
   invoke fastcc void @_ZN3syn4expr7parsing10unary_expr17hbf6e4b32ec58d12bE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(176) %20, ptr noundef nonnull align 8 %1)
@@ -3364,9 +3364,9 @@ common.resume:                                    ; preds = %.body130, %.body123
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.sroa.0, i64 24, i1 false)
   %.sroa.7.sroa.7.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i32 %.sroa.6.0149.ph, ptr %.sroa.7.sroa.7.0..sroa.7.0..sroa_idx.sroa_idx, align 8
+  store i32 %.sroa.6.0151.ph, ptr %.sroa.7.sroa.7.0..sroa.7.0..sroa_idx.sroa_idx, align 8
   %.sroa.7.sroa.8.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 36
-  store i32 %.sroa.11.0151.ph, ptr %.sroa.7.sroa.8.0..sroa.7.0..sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.11.0149.ph, ptr %.sroa.7.sroa.8.0..sroa.7.0..sroa_idx.sroa_idx, align 4
   %.sroa.7.sroa.9.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %265, ptr %.sroa.7.sroa.9.0..sroa.7.0..sroa_idx.sroa_idx, align 8
   %.sroa.7.sroa.10.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 48

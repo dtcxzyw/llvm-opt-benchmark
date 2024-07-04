@@ -51,14 +51,14 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   %spec.select = getelementptr inbounds i8, ptr %18, i64 %spec.select.idx
   %21 = load i8, ptr %spec.select, align 1
   %22 = icmp eq i8 %21, 13
-  %.1125.idx = zext i1 %22 to i64
-  %.1125 = getelementptr inbounds i8, ptr %spec.select, i64 %.1125.idx
-  %23 = load i8, ptr %.1125, align 1
+  %.1124.idx = zext i1 %22 to i64
+  %.1124 = getelementptr inbounds i8, ptr %spec.select, i64 %.1124.idx
+  %23 = load i8, ptr %.1124, align 1
   %24 = icmp eq i8 %23, 10
   br i1 %24, label %25, label %159
 
 25:                                               ; preds = %16
-  %26 = getelementptr inbounds i8, ptr %.1125, i64 1
+  %26 = getelementptr inbounds i8, ptr %.1124, i64 1
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
   %28 = getelementptr inbounds i8, ptr %15, i64 %27
   %29 = load i8, ptr %28, align 1
@@ -89,10 +89,10 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br i1 %43, label %44, label %110
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %.1125, i64 23
+  %45 = getelementptr inbounds i8, ptr %.1124, i64 23
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 13
-  %48 = getelementptr inbounds i8, ptr %.1125, i64 24
+  %48 = getelementptr inbounds i8, ptr %.1124, i64 24
   %spec.select154 = select i1 %47, ptr %48, ptr %45
   %49 = load i8, ptr %spec.select154, align 1
   %50 = icmp eq i8 %49, 10
@@ -152,16 +152,16 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br label %79
 
 79:                                               ; preds = %67, %.thread, %77, %65
-  %.3127 = phi ptr [ %66, %65 ], [ %78, %77 ], [ %52, %.thread ], [ %52, %67 ]
+  %.3126 = phi ptr [ %66, %65 ], [ %78, %77 ], [ %52, %.thread ], [ %52, %67 ]
   %80 = phi i1 [ false, %65 ], [ false, %77 ], [ true, %.thread ], [ true, %67 ]
   %.0 = phi i32 [ 37, %65 ], [ 33, %77 ], [ 0, %.thread ], [ 0, %67 ]
-  %81 = ptrtoint ptr %.3127 to i64
+  %81 = ptrtoint ptr %.3126 to i64
   %82 = sub i64 %38, %81
   %83 = icmp sgt i64 %82, 13
   br i1 %83, label %84, label %102
 
 84:                                               ; preds = %79
-  %bcmp143 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %.3127, ptr noundef nonnull dereferenceable(14) @.str.3, i64 14)
+  %bcmp143 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %.3126, ptr noundef nonnull dereferenceable(14) @.str.3, i64 14)
   %85 = icmp eq i32 %bcmp143, 0
   br i1 %85, label %86, label %102
 
@@ -170,23 +170,23 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br i1 %87, label %159, label %88
 
 88:                                               ; preds = %86
-  %bcmp144 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %.3127, ptr noundef nonnull dereferenceable(22) @.str.4, i64 22)
+  %bcmp144 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %.3126, ptr noundef nonnull dereferenceable(22) @.str.4, i64 22)
   %89 = icmp eq i32 %bcmp144, 0
   br i1 %89, label %94, label %90
 
 90:                                               ; preds = %88
-  %bcmp145 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %.3127, ptr noundef nonnull dereferenceable(22) @.str.5, i64 22)
+  %bcmp145 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %.3126, ptr noundef nonnull dereferenceable(22) @.str.5, i64 22)
   %91 = icmp eq i32 %bcmp145, 0
   br i1 %91, label %94, label %92
 
 92:                                               ; preds = %90
-  %bcmp146 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %.3127, ptr noundef nonnull dereferenceable(22) @.str.6, i64 22)
+  %bcmp146 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %.3126, ptr noundef nonnull dereferenceable(22) @.str.6, i64 22)
   %93 = icmp eq i32 %bcmp146, 0
   br i1 %93, label %94, label %159
 
 94:                                               ; preds = %92, %90, %88
   %.1 = phi i32 [ 5, %88 ], [ 6, %90 ], [ 7, %92 ]
-  %95 = getelementptr inbounds i8, ptr %.3127, i64 22
+  %95 = getelementptr inbounds i8, ptr %.3126, i64 22
   %96 = ptrtoint ptr %95 to i64
   %97 = sub i64 %38, %96
   %98 = icmp slt i64 %97, 32
@@ -198,7 +198,7 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br i1 %.not147, label %.thread156, label %159
 
 .thread156:                                       ; preds = %99
-  %101 = getelementptr inbounds i8, ptr %.3127, i64 54
+  %101 = getelementptr inbounds i8, ptr %.3126, i64 54
   br label %103
 
 102:                                              ; preds = %84, %79
@@ -206,7 +206,7 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
 
 103:                                              ; preds = %.thread156, %102
   %.2160 = phi i32 [ %.1, %.thread156 ], [ %.0, %102 ]
-  %.4159 = phi ptr [ %101, %.thread156 ], [ %.3127, %102 ]
+  %.4159 = phi ptr [ %101, %.thread156 ], [ %.3126, %102 ]
   %104 = load i8, ptr %.4159, align 1
   %105 = icmp eq i8 %104, 13
   %spec.select155.idx = zext i1 %105 to i64
@@ -303,8 +303,8 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br label %.thread161
 
 .thread161:                                       ; preds = %131, %134, %140, %143, %137
-  %.1129 = phi i32 [ %139, %137 ], [ %142, %140 ], [ %145, %143 ], [ %136, %134 ], [ %133, %131 ]
-  %.not151 = icmp eq i32 %.1129, 0
+  %.1130 = phi i32 [ %139, %137 ], [ %142, %140 ], [ %145, %143 ], [ %136, %134 ], [ %133, %131 ]
+  %.not151 = icmp eq i32 %.1130, 0
   br i1 %.not151, label %.thread163, label %146
 
 146:                                              ; preds = %.thread161
@@ -340,8 +340,8 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br label %159
 
 159:                                              ; preds = %111, %116, %110, %103, %102, %94, %99, %92, %86, %70, %75, %58, %63, %44, %16, %14, %11, %7, %156, %155, %146, %128, %122
-  %.0123 = phi i32 [ %124, %122 ], [ -4864, %128 ], [ %.1129, %146 ], [ -4992, %155 ], [ 0, %156 ], [ -5248, %7 ], [ -4224, %11 ], [ -4224, %14 ], [ -4224, %16 ], [ -4352, %44 ], [ -4608, %63 ], [ -4608, %58 ], [ -4608, %75 ], [ -4608, %70 ], [ -4736, %86 ], [ -4736, %92 ], [ -4608, %99 ], [ -4608, %94 ], [ -4736, %102 ], [ -4352, %103 ], [ -4352, %110 ], [ -4480, %116 ], [ -4396, %111 ]
-  ret i32 %.0123
+  %.0127 = phi i32 [ %124, %122 ], [ -4864, %128 ], [ %.1130, %146 ], [ -4992, %155 ], [ 0, %156 ], [ -5248, %7 ], [ -4224, %11 ], [ -4224, %14 ], [ -4224, %16 ], [ -4352, %44 ], [ -4608, %63 ], [ -4608, %58 ], [ -4608, %75 ], [ -4608, %70 ], [ -4736, %86 ], [ -4736, %92 ], [ -4608, %99 ], [ -4608, %94 ], [ -4736, %102 ], [ -4352, %103 ], [ -4352, %110 ], [ -4480, %116 ], [ -4396, %111 ]
+  ret i32 %.0127
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

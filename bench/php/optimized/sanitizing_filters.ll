@@ -378,8 +378,8 @@ define internal fastcc void @php_filter_encode_html(ptr noundef %0, ptr nocaptur
 
 14:                                               ; preds = %.lr.ph, %76
   %15 = phi ptr [ null, %.lr.ph ], [ %.sink257, %76 ]
-  %.0212249 = phi ptr [ %.ptr, %.lr.ph ], [ %78, %76 ]
-  %16 = load i8, ptr %.0212249, align 1
+  %.0249 = phi ptr [ %.ptr, %.lr.ph ], [ %78, %76 ]
+  %16 = load i8, ptr %.0249, align 1
   %17 = zext i8 %16 to i64
   %18 = getelementptr inbounds i8, ptr %1, i64 %17
   %19 = load i8, ptr %18, align 1
@@ -399,8 +399,8 @@ define internal fastcc void @php_filter_encode_html(ptr noundef %0, ptr nocaptur
   br i1 %.not243, label %27, label %26
 
 26:                                               ; preds = %20, %21
-  %.0220 = phi i64 [ 2, %20 ], [ %24, %21 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %4, i64 noundef %.0220) #10
+  %.0218 = phi i64 [ 2, %20 ], [ %24, %21 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %4, i64 noundef %.0218) #10
   %.pre = load ptr, ptr %4, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 16
   %.pre251 = load i64, ptr %.phi.trans.insert, align 8
@@ -409,14 +409,14 @@ define internal fastcc void @php_filter_encode_html(ptr noundef %0, ptr nocaptur
 27:                                               ; preds = %26, %21
   %28 = phi i64 [ %.pre251, %26 ], [ %23, %21 ]
   %29 = phi ptr [ %.pre, %26 ], [ %15, %21 ]
-  %.1221 = phi i64 [ %.0220, %26 ], [ %24, %21 ]
+  %.1219 = phi i64 [ %.0218, %26 ], [ %24, %21 ]
   %30 = getelementptr inbounds i8, ptr %29, i64 24
   %31 = getelementptr inbounds i8, ptr %30, i64 %28
   store i16 8998, ptr %31, align 1
   %32 = load ptr, ptr %4, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 16
-  store i64 %.1221, ptr %33, align 8
-  %34 = load i8, ptr %.0212249, align 1
+  store i64 %.1219, ptr %33, align 8
+  %34 = load i8, ptr %.0249, align 1
   %35 = zext i8 %34 to i64
   store i8 0, ptr %12, align 1
   br label %36
@@ -447,8 +447,8 @@ define internal fastcc void @php_filter_encode_html(ptr noundef %0, ptr nocaptur
   br i1 %.not246, label %50, label %49
 
 49:                                               ; preds = %42, %45
-  %.0218 = phi i64 [ %44, %42 ], [ %47, %45 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %4, i64 noundef %.0218) #10
+  %.0220 = phi i64 [ %44, %42 ], [ %47, %45 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %4, i64 noundef %.0220) #10
   %.pre252 = load ptr, ptr %4, align 8
   %.phi.trans.insert253 = getelementptr inbounds i8, ptr %.pre252, i64 16
   %.pre254 = load i64, ptr %.phi.trans.insert253, align 8
@@ -457,14 +457,14 @@ define internal fastcc void @php_filter_encode_html(ptr noundef %0, ptr nocaptur
 50:                                               ; preds = %45, %49
   %51 = phi i64 [ %.pre254, %49 ], [ %46, %45 ]
   %52 = phi ptr [ %.pre252, %49 ], [ %32, %45 ]
-  %.1219 = phi i64 [ %.0218, %49 ], [ %47, %45 ]
+  %.1221 = phi i64 [ %.0220, %49 ], [ %47, %45 ]
   %53 = getelementptr inbounds i8, ptr %52, i64 24
   %54 = getelementptr inbounds i8, ptr %53, i64 %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %54, ptr noundef nonnull align 1 dereferenceable(1) %40, i64 %44, i1 false)
   %55 = load ptr, ptr %4, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 16
-  store i64 %.1219, ptr %56, align 8
-  %57 = add i64 %.1219, 1
+  store i64 %.1221, ptr %56, align 8
+  %57 = add i64 %.1221, 1
   %58 = load i64, ptr %11, align 8
   %.not248 = icmp ult i64 %57, %58
   br i1 %.not248, label %60, label %59
@@ -477,7 +477,7 @@ define internal fastcc void @php_filter_encode_html(ptr noundef %0, ptr nocaptur
 60:                                               ; preds = %59, %50
   %61 = phi ptr [ %.pre255, %59 ], [ %55, %50 ]
   %62 = getelementptr inbounds i8, ptr %61, i64 24
-  %63 = getelementptr inbounds [1 x i8], ptr %62, i64 0, i64 %.1219
+  %63 = getelementptr inbounds [1 x i8], ptr %62, i64 0, i64 %.1221
   store i8 59, ptr %63, align 1
   br label %76
 
@@ -512,7 +512,7 @@ define internal fastcc void @php_filter_encode_html(ptr noundef %0, ptr nocaptur
   %.sink257 = load ptr, ptr %4, align 8
   %77 = getelementptr inbounds i8, ptr %.sink257, i64 16
   store i64 %.1.sink, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %.0212249, i64 1
+  %78 = getelementptr inbounds i8, ptr %.0249, i64 1
   %79 = icmp ult ptr %78, %.ptr250
   br i1 %79, label %14, label %._crit_edge
 
@@ -597,12 +597,12 @@ define internal fastcc void @php_filter_encode_html(ptr noundef %0, ptr nocaptur
   br label %126
 
 126:                                              ; preds = %109, %122, %100
-  %.0 = phi ptr [ %103, %100 ], [ %112, %122 ], [ %112, %109 ]
+  %.0211 = phi ptr [ %103, %100 ], [ %112, %122 ], [ %112, %109 ]
   store i64 %91, ptr %88, align 8
   br label %127
 
 127:                                              ; preds = %126, %87, %81
-  %128 = phi ptr [ %.0, %126 ], [ %86, %87 ], [ null, %81 ]
+  %128 = phi ptr [ %.0211, %126 ], [ %86, %87 ], [ null, %81 ]
   store ptr null, ptr %4, align 8
   br label %131
 
@@ -611,9 +611,9 @@ define internal fastcc void @php_filter_encode_html(ptr noundef %0, ptr nocaptur
   br label %131
 
 131:                                              ; preds = %129, %127
-  %.0211 = phi ptr [ %128, %127 ], [ %130, %129 ]
-  store ptr %.0211, ptr %0, align 8
-  %132 = getelementptr inbounds i8, ptr %.0211, i64 4
+  %.0212 = phi ptr [ %128, %127 ], [ %130, %129 ]
+  store ptr %.0212, ptr %0, align 8
+  %132 = getelementptr inbounds i8, ptr %.0212, i64 4
   %133 = load i32, ptr %132, align 4
   %134 = and i32 %133, 64
   %.not238 = icmp eq i32 %134, 0

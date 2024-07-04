@@ -389,14 +389,14 @@ define dso_local void @sortDumpableObjects(ptr nocapture noundef %0, i32 noundef
   br i1 %.not.i, label %._crit_edge104.i, label %.lr.ph103.i, !llvm.loop !10
 
 .lr.ph103.i:                                      ; preds = %._crit_edge96.i, %.loopexit.i
-  %.278101.i = phi i32 [ %68, %.loopexit.i ], [ %1, %._crit_edge96.i ]
+  %.277101.i = phi i32 [ %68, %.loopexit.i ], [ %1, %._crit_edge96.i ]
   %63 = call ptr @binaryheap_remove_first(ptr noundef nonnull %13) #9
   %64 = ptrtoint ptr %63 to i64
   %sext.i = shl i64 %64, 32
   %65 = ashr exact i64 %sext.i, 29
   %66 = getelementptr i8, ptr %0, i64 %65
   %67 = load ptr, ptr %66, align 8
-  %68 = add i32 %.278101.i, -1
+  %68 = add i32 %.277101.i, -1
   %69 = sext i32 %68 to i64
   %70 = getelementptr ptr, ptr %10, i64 %69
   store ptr %67, ptr %70, align 8
@@ -501,7 +501,7 @@ TopoSort.exit:                                    ; preds = %104, %._crit_edge10
 
 .outer.i:                                         ; preds = %.loopexit.thread.i, %.lr.ph60.i
   %indvars.iv83.ph.i = phi i64 [ %indvars.iv.next8492.i, %.loopexit.thread.i ], [ 0, %.lr.ph60.i ]
-  %.02559.ph.i = phi i1 [ true, %.loopexit.thread.i ], [ false, %.lr.ph60.i ]
+  %.02658.ph.i = phi i1 [ true, %.loopexit.thread.i ], [ false, %.lr.ph60.i ]
   br label %117
 
 117:                                              ; preds = %.loopexit.i12, %.outer.i
@@ -1787,7 +1787,7 @@ describeDumpableObject.exit.i.i:                  ; preds = %806, %802, %798, %7
   br i1 %exitcond86.not93.i, label %findDependencyLoops.exit, label %.outer.i, !llvm.loop !29
 
 ._crit_edge.i13:                                  ; preds = %.loopexit.i12
-  br i1 %.02559.ph.i, label %findDependencyLoops.exit, label %.critedge.i
+  br i1 %.02658.ph.i, label %findDependencyLoops.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %._crit_edge.i13, %105
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.2) #9
@@ -1957,8 +1957,8 @@ define internal fastcc i32 @findLoop(ptr noundef %0, i32 noundef %1, ptr nocaptu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %32, %41, %13, %6, %._crit_edge54
-  %.0 = phi i32 [ 0, %._crit_edge54 ], [ 0, %6 ], [ 0, %13 ], [ %42, %41 ], [ %22, %32 ], [ 0, %.lr.ph ]
-  ret i32 %.0
+  %.038 = phi i32 [ 0, %._crit_edge54 ], [ 0, %6 ], [ 0, %13 ], [ %42, %41 ], [ %22, %32 ], [ 0, %.lr.ph ]
+  ret i32 %.038
 }
 
 declare ptr @findObjectByDumpId(i32 noundef) local_unnamed_addr #1

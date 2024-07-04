@@ -2914,13 +2914,13 @@ _ZN5Yosys10LibertyAst4findENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.
   br label %376
 
 325:                                              ; preds = %320, %305, %301
-  %.0100 = phi ptr [ @.str.8, %301 ], [ @.str.8, %305 ], [ @.str.62, %320 ]
+  %.078 = phi ptr [ @.str.8, %301 ], [ @.str.8, %305 ], [ @.str.62, %320 ]
   %326 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #22
   br i1 %326, label %334, label %327
 
 327:                                              ; preds = %325
   %328 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #22
-  %329 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63, ptr noundef nonnull %.0100, ptr noundef %328)
+  %329 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63, ptr noundef nonnull %.078, ptr noundef %328)
   %330 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
   %331 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef %330)
   %332 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
@@ -2929,13 +2929,13 @@ _ZN5Yosys10LibertyAst4findENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.
   br label %334
 
 334:                                              ; preds = %327, %325
-  %.1101 = phi ptr [ %.0100, %325 ], [ @.str.62, %327 ]
+  %.179 = phi ptr [ %.078, %325 ], [ @.str.62, %327 ]
   %335 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #22
   br i1 %335, label %343, label %336
 
 336:                                              ; preds = %334
   %337 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #22
-  %338 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63, ptr noundef nonnull %.1101, ptr noundef %337)
+  %338 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63, ptr noundef nonnull %.179, ptr noundef %337)
   %339 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
   %340 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef %339)
   %341 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
@@ -2944,13 +2944,13 @@ _ZN5Yosys10LibertyAst4findENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.
   br label %343
 
 343:                                              ; preds = %336, %334
-  %.2102 = phi ptr [ %.1101, %334 ], [ @.str.62, %336 ]
-  %344 = load i8, ptr %.2102, align 1
+  %.280 = phi ptr [ %.179, %334 ], [ @.str.62, %336 ]
+  %344 = load i8, ptr %.280, align 1
   %.not147 = icmp eq i8 %344, 0
   br i1 %.not147, label %347, label %345
 
 345:                                              ; preds = %343
-  %346 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.64, ptr noundef nonnull %.2102)
+  %346 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.64, ptr noundef nonnull %.280)
   br label %347
 
 347:                                              ; preds = %345, %343

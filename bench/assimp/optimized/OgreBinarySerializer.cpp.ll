@@ -7421,8 +7421,8 @@ cond.false.i:                                     ; preds = %if.end11
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i, %cond.false.i
-  %s2.addr.0.i.i = phi ptr [ %call4.i, %cond.false.i ], [ %incdec.ptr2.i.i, %do.body.i.i ]
   %s1.addr.0.i.i = phi ptr [ %call3.i, %cond.false.i ], [ %incdec.ptr.i.i, %do.body.i.i ]
+  %s2.addr.0.i.i = phi ptr [ %call4.i, %cond.false.i ], [ %incdec.ptr2.i.i, %do.body.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %s1.addr.0.i.i, i64 1
   %2 = load i8, ptr %s1.addr.0.i.i, align 1
   %conv.i.i = zext i8 %2 to i32

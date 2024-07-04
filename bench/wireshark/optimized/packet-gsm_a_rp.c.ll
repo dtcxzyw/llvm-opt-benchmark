@@ -389,9 +389,9 @@ define internal i32 @dissect_rp(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 26:                                               ; preds = %18, %14
   %27 = phi ptr [ @.str.77, %14 ], [ %11, %18 ]
-  %.042 = phi ptr [ %17, %14 ], [ %24, %18 ]
+  %.0 = phi ptr [ %17, %14 ], [ %24, %18 ]
   %28 = load i32, ptr @hf_gsm_a_rp_msg_type, align 4
-  %29 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.042, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %10, ptr noundef nonnull @.str.76, ptr noundef nonnull %27) #4
+  %29 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.0, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %10, ptr noundef nonnull @.str.76, ptr noundef nonnull %27) #4
   %30 = icmp ult i32 %8, 2
   %or.cond = select i1 %12, i1 true, i1 %30
   br i1 %or.cond, label %46, label %31
@@ -406,14 +406,14 @@ define internal i32 @dissect_rp(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 36:                                               ; preds = %31
   %37 = load i32, ptr @hf_gsm_a_rp_message_elements, align 4
   %38 = add i32 %8, -1
-  %39 = call ptr @proto_tree_add_item(ptr noundef %.042, i32 noundef %37, ptr noundef %0, i32 noundef 1, i32 noundef %38, i32 noundef 0) #4
+  %39 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %37, ptr noundef %0, i32 noundef 1, i32 noundef %38, i32 noundef 0) #4
   br label %44
 
 40:                                               ; preds = %31
   %41 = getelementptr [8 x ptr], ptr @rp_msg_fcn, i64 0, i64 %33
   %42 = load ptr, ptr %41, align 8
   %43 = add i32 %8, -1
-  call void %42(ptr noundef %0, ptr noundef %.042, ptr noundef nonnull %1, i32 noundef 1, i32 noundef %43) #4
+  call void %42(ptr noundef %0, ptr noundef %.0, ptr noundef nonnull %1, i32 noundef 1, i32 noundef %43) #4
   br label %44
 
 44:                                               ; preds = %40, %36
@@ -421,8 +421,8 @@ define internal i32 @dissect_rp(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %46
 
 46:                                               ; preds = %26, %44
-  %.0 = phi i32 [ %45, %44 ], [ 1, %26 ]
-  ret i32 %.0
+  %.042 = phi i32 [ %45, %44 ], [ 1, %26 ]
+  ret i32 %.042
 }
 
 ; Function Attrs: nounwind uwtable

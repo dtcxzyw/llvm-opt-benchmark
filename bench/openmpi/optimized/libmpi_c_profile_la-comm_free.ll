@@ -48,8 +48,8 @@ define i32 @PMPI_Comm_free(ptr noundef %0) #0 {
   %10 = load ptr, ptr %0, align 8
   %11 = icmp eq ptr %10, null
   %12 = icmp eq ptr %10, @ompi_mpi_comm_null
-  %or.cond24 = or i1 %11, %12
-  br i1 %or.cond24, label %ompi_comm_invalid.exit.thread, label %ompi_comm_invalid.exit
+  %or.cond21 = or i1 %11, %12
+  br i1 %or.cond21, label %ompi_comm_invalid.exit.thread, label %ompi_comm_invalid.exit
 
 ompi_comm_invalid.exit:                           ; preds = %9
   %13 = getelementptr inbounds i8, ptr %10, i64 224
@@ -139,17 +139,17 @@ opal_pointer_array_get_item.exit.i:               ; preds = %49, %43, %.lr.ph.i
   br label %ompi_errcode_get_mpi_code.exit
 
 ompi_errcode_get_mpi_code.exit:                   ; preds = %32, %28, %.preheader.i, %54
-  %.0.i21 = phi i32 [ %27, %28 ], [ %56, %54 ], [ 14, %.preheader.i ], [ 14, %32 ]
+  %.010.i = phi i32 [ %27, %28 ], [ %56, %54 ], [ 14, %.preheader.i ], [ 14, %32 ]
   %57 = load ptr, ptr %0, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 296
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %57, i64 304
   %61 = load i32, ptr %60, align 8
-  %62 = tail call i32 @ompi_errhandler_invoke(ptr noundef %59, ptr noundef %57, i32 noundef %61, i32 noundef %.0.i21, ptr noundef nonnull @FUNC_NAME) #3
+  %62 = tail call i32 @ompi_errhandler_invoke(ptr noundef %59, ptr noundef %57, i32 noundef %61, i32 noundef %.010.i, ptr noundef nonnull @FUNC_NAME) #3
   br label %63
 
 63:                                               ; preds = %26, %ompi_errcode_get_mpi_code.exit, %20, %ompi_comm_invalid.exit.thread
-  %.0 = phi i32 [ %16, %ompi_comm_invalid.exit.thread ], [ %25, %20 ], [ %.0.i21, %ompi_errcode_get_mpi_code.exit ], [ 0, %26 ]
+  %.0 = phi i32 [ %16, %ompi_comm_invalid.exit.thread ], [ %25, %20 ], [ %.010.i, %ompi_errcode_get_mpi_code.exit ], [ 0, %26 ]
   ret i32 %.0
 }
 

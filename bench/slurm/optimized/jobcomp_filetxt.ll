@@ -204,12 +204,12 @@ define range(i32 -1, 1) i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed_
   %.not129 = icmp eq ptr %41, null
   %42 = getelementptr inbounds i8, ptr %41, i64 212
   %spec.select = select i1 %.not129, ptr %36, ptr %42
-  %.097.pr = load i32, ptr %spec.select, align 4
+  %.0.pr = load i32, ptr %spec.select, align 4
   br label %43
 
 43:                                               ; preds = %39, %33
-  %.097 = phi i32 [ %.097.pr, %39 ], [ %37, %33 ]
-  %44 = icmp eq i32 %.097, -1
+  %.0 = phi i32 [ %.0.pr, %39 ], [ %37, %33 ]
+  %44 = icmp eq i32 %.0, -1
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %43
@@ -217,7 +217,7 @@ define range(i32 -1, 1) i32 @jobcomp_p_log_record(ptr noundef %0) local_unnamed_
   br label %49
 
 46:                                               ; preds = %43
-  %47 = zext i32 %.097 to i64
+  %47 = zext i32 %.0 to i64
   %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 32, ptr noundef nonnull @.str.6, i64 noundef %47) #11
   br label %49
 
@@ -350,7 +350,7 @@ _make_time_str.exit157:                           ; preds = %100, %101
   br label %104
 
 104:                                              ; preds = %_make_time_str.exit157, %_make_time_str.exit154
-  %.0104 = phi ptr [ %56, %_make_time_str.exit154 ], [ %78, %_make_time_str.exit157 ]
+  %.0100 = phi ptr [ %56, %_make_time_str.exit154 ], [ %78, %_make_time_str.exit157 ]
   %105 = getelementptr inbounds i8, ptr %0, i64 216
   %106 = load ptr, ptr %105, align 8
   %.not133 = icmp eq ptr %106, null
@@ -366,7 +366,7 @@ _make_time_str.exit157:                           ; preds = %100, %101
   br label %111
 
 111:                                              ; preds = %107, %110
-  %.0103 = phi ptr [ @.str.8, %110 ], [ %109, %107 ]
+  %.099 = phi ptr [ @.str.8, %110 ], [ %109, %107 ]
   %112 = getelementptr inbounds i8, ptr %0, i64 808
   %113 = load ptr, ptr %112, align 8
   %.not135 = icmp eq ptr %113, null
@@ -381,7 +381,7 @@ _make_time_str.exit157:                           ; preds = %100, %101
   br label %117
 
 117:                                              ; preds = %114, %116
-  %.0101 = phi ptr [ @.str.9, %116 ], [ %113, %114 ]
+  %.0106 = phi ptr [ @.str.9, %116 ], [ %113, %114 ]
   %118 = getelementptr inbounds i8, ptr %0, i64 1032
   %119 = load ptr, ptr %118, align 8
   %.not137 = icmp eq ptr %119, null
@@ -396,7 +396,7 @@ _make_time_str.exit157:                           ; preds = %100, %101
   br label %123
 
 123:                                              ; preds = %120, %122
-  %.0109 = phi ptr [ @.str.9, %122 ], [ %119, %120 ]
+  %.0105 = phi ptr [ @.str.9, %122 ], [ %119, %120 ]
   %124 = getelementptr inbounds i8, ptr %0, i64 8
   %125 = load ptr, ptr %124, align 8
   %.not139 = icmp eq ptr %125, null
@@ -411,7 +411,7 @@ _make_time_str.exit157:                           ; preds = %100, %101
   br label %129
 
 129:                                              ; preds = %126, %128
-  %.0108 = phi ptr [ @.str.9, %128 ], [ %125, %126 ]
+  %.0104 = phi ptr [ @.str.9, %128 ], [ %125, %126 ]
   %130 = getelementptr inbounds i8, ptr %0, i64 760
   %131 = load ptr, ptr %130, align 8
   %.not141 = icmp eq ptr %131, null
@@ -423,7 +423,7 @@ _make_time_str.exit157:                           ; preds = %100, %101
   br label %135
 
 135:                                              ; preds = %129, %132
-  %.0107 = phi ptr [ %134, %132 ], [ @.str.9, %129 ]
+  %.0103 = phi ptr [ %134, %132 ], [ @.str.9, %129 ]
   %136 = getelementptr inbounds i8, ptr %0, i64 1088
   %137 = load ptr, ptr %136, align 8
   %.not142 = icmp eq ptr %137, null
@@ -438,7 +438,7 @@ _make_time_str.exit157:                           ; preds = %100, %101
   br label %141
 
 141:                                              ; preds = %138, %140
-  %.0106 = phi ptr [ @.str.9, %140 ], [ %137, %138 ]
+  %.0102 = phi ptr [ @.str.9, %140 ], [ %137, %138 ]
   %142 = getelementptr inbounds i8, ptr %0, i64 72
   %143 = load ptr, ptr %142, align 8
   %.not144 = icmp eq ptr %143, null
@@ -450,7 +450,7 @@ _make_time_str.exit157:                           ; preds = %100, %101
   br label %147
 
 147:                                              ; preds = %141, %144
-  %.0105 = phi ptr [ %146, %144 ], [ @.str.8, %141 ]
+  %.0101 = phi ptr [ %146, %144 ], [ @.str.8, %141 ]
   br i1 %.not133, label %153, label %148
 
 148:                                              ; preds = %147
@@ -548,9 +548,9 @@ _make_time_str.exit159:                           ; preds = %156
   br label %191
 
 191:                                              ; preds = %182, %188, %186, %178
-  %.099 = phi i32 [ 0, %178 ], [ 0, %188 ], [ 0, %186 ], [ %183, %182 ]
-  %.098 = phi i32 [ 0, %178 ], [ %190, %188 ], [ 0, %186 ], [ 0, %182 ]
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.12, i32 noundef %.098, i32 noundef %.099) #11
+  %.0108 = phi i32 [ 0, %178 ], [ %190, %188 ], [ 0, %186 ], [ 0, %182 ]
+  %.0107 = phi i32 [ 0, %178 ], [ 0, %188 ], [ 0, %186 ], [ %183, %182 ]
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.12, i32 noundef %.0108, i32 noundef %.0107) #11
   %192 = getelementptr inbounds i8, ptr %0, i64 252
   %193 = load i32, ptr %192, align 4
   %194 = icmp eq i32 %193, -2
@@ -573,9 +573,9 @@ _make_time_str.exit159:                           ; preds = %156
   br label %204
 
 204:                                              ; preds = %195, %201, %199, %191
-  %.1100 = phi i32 [ 0, %191 ], [ 0, %201 ], [ 0, %199 ], [ %196, %195 ]
-  %.1 = phi i32 [ 0, %191 ], [ %203, %201 ], [ 0, %199 ], [ 0, %195 ]
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %16, ptr noundef nonnull @.str.12, i32 noundef %.1, i32 noundef %.1100) #11
+  %.1109 = phi i32 [ 0, %191 ], [ %203, %201 ], [ 0, %199 ], [ 0, %195 ]
+  %.1 = phi i32 [ 0, %191 ], [ 0, %201 ], [ 0, %199 ], [ %196, %195 ]
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %16, ptr noundef nonnull @.str.12, i32 noundef %.1109, i32 noundef %.1) #11
   %205 = getelementptr inbounds i8, ptr %0, i64 392
   %206 = load i32, ptr %205, align 8
   %207 = zext i32 %206 to i64
@@ -599,15 +599,15 @@ _make_time_str.exit159:                           ; preds = %156
   %225 = load i32, ptr %224, align 8
   %226 = load ptr, ptr %17, align 8
   %227 = load ptr, ptr %16, align 8
-  %228 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 1024, ptr noundef nonnull @.str.13, i64 noundef %207, ptr noundef %208, i64 noundef %211, ptr noundef %212, i64 noundef %215, ptr noundef %217, ptr noundef %.0104, ptr noundef %219, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %221, i32 noundef %223, i32 noundef %225, ptr noundef nonnull %.0103, ptr noundef nonnull %.0101, ptr noundef nonnull %.0109, ptr noundef nonnull %.0108, ptr noundef %.0107, ptr noundef nonnull %.0106, ptr noundef %.0105, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef %226, ptr noundef %227) #11
+  %228 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 1024, ptr noundef nonnull @.str.13, i64 noundef %207, ptr noundef %208, i64 noundef %211, ptr noundef %212, i64 noundef %215, ptr noundef %217, ptr noundef %.0100, ptr noundef %219, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %221, i32 noundef %223, i32 noundef %225, ptr noundef nonnull %.099, ptr noundef nonnull %.0106, ptr noundef nonnull %.0105, ptr noundef nonnull %.0104, ptr noundef %.0103, ptr noundef nonnull %.0102, ptr noundef %.0101, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef %226, ptr noundef %227) #11
   %229 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #14
   %.not167 = icmp eq i64 %229, 0
   br i1 %.not167, label %.split, label %.outer.split.preheader
 
 .outer.split.preheader:                           ; preds = %204, %.outer
   %230 = phi i64 [ %241, %.outer ], [ %229, %204 ]
-  %.0102.ph166 = phi i64 [ %239, %.outer ], [ 0, %204 ]
-  %231 = getelementptr inbounds i8, ptr %10, i64 %.0102.ph166
+  %.098.ph166 = phi i64 [ %239, %.outer ], [ 0, %204 ]
+  %231 = getelementptr inbounds i8, ptr %10, i64 %.098.ph166
   br label %.outer.split
 
 .outer.split:                                     ; preds = %.outer.split.preheader, %235
@@ -623,13 +623,13 @@ _make_time_str.exit159:                           ; preds = %156
   br i1 %238, label %.outer.split, label %.split, !llvm.loop !6
 
 .outer:                                           ; preds = %.outer.split
-  %239 = add i64 %233, %.0102.ph166
+  %239 = add i64 %233, %.098.ph166
   %240 = icmp ult i64 %239, %229
   %241 = sub i64 %229, %239
   br i1 %240, label %.outer.split.preheader, label %.split, !llvm.loop !6
 
 .split:                                           ; preds = %.outer, %235, %204
-  %.096.split = phi i32 [ 0, %204 ], [ -1, %235 ], [ 0, %.outer ]
+  %.097.split = phi i32 [ 0, %204 ], [ -1, %235 ], [ 0, %.outer ]
   call void @slurm_xfree(ptr noundef nonnull %14) #11
   call void @slurm_xfree(ptr noundef nonnull %15) #11
   call void @slurm_xfree(ptr noundef nonnull %17) #11
@@ -645,8 +645,8 @@ _make_time_str.exit159:                           ; preds = %156
   unreachable
 
 245:                                              ; preds = %.split, %27
-  %.0 = phi i32 [ -1, %27 ], [ %.096.split, %.split ]
-  ret i32 %.0
+  %.096 = phi i32 [ -1, %27 ], [ %.097.split, %.split ]
+  ret i32 %.096
 }
 
 declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #2

@@ -192,7 +192,7 @@ define hidden range(i32 -2147483648, 2) i32 @dutch_UTF_8_stem(ptr noundef %0) lo
   br label %.outer
 
 .outer:                                           ; preds = %.preheader, %91
-  %.ph78 = phi i32 [ %.ph, %.preheader ], [ %89, %91 ]
+  %.ph76 = phi i32 [ %.ph, %.preheader ], [ %89, %91 ]
   br label %60
 
 60:                                               ; preds = %.outer, %86
@@ -260,14 +260,14 @@ define hidden range(i32 -2147483648, 2) i32 @dutch_UTF_8_stem(ptr noundef %0) lo
   br i1 %85, label %r_prelude.exit.thread, label %86
 
 86:                                               ; preds = %82, %73
-  store i32 %.ph78, ptr %2, align 8
+  store i32 %.ph76, ptr %2, align 8
   br label %60
 
 .thread.i:                                        ; preds = %79, %76, %62, %._crit_edge144.i
   %87 = phi i32 [ %.pre147.i, %._crit_edge144.i ], [ %63, %62 ], [ %77, %79 ], [ %63, %76 ]
   %88 = phi ptr [ %.pre145.i, %._crit_edge144.i ], [ %.pre146.pre150.i, %62 ], [ %.pre146.i, %79 ], [ %.pre146.i, %76 ]
-  store i32 %.ph78, ptr %2, align 8
-  %89 = tail call i32 @skip_utf8(ptr noundef %88, i32 noundef %.ph78, i32 noundef %87, i32 noundef 1) #2
+  store i32 %.ph76, ptr %2, align 8
+  %89 = tail call i32 @skip_utf8(ptr noundef %88, i32 noundef %.ph76, i32 noundef %87, i32 noundef 1) #2
   %90 = icmp slt i32 %89, 0
   br i1 %90, label %92, label %91
 
@@ -339,8 +339,8 @@ r_mark_regions.exit:                              ; preds = %92, %100, %115, %11
   %128 = load i32, ptr %5, align 4
   store i32 %128, ptr %2, align 8
   store i32 %128, ptr %6, align 8
-  %.not.i32 = icmp sgt i32 %128, %3
-  br i1 %.not.i32, label %129, label %159
+  %.not.i31 = icmp sgt i32 %128, %3
+  br i1 %.not.i31, label %129, label %159
 
 129:                                              ; preds = %r_mark_regions.exit
   %130 = load ptr, ptr %0, align 8
@@ -349,8 +349,8 @@ r_mark_regions.exit:                              ; preds = %92, %100, %115, %11
   %133 = getelementptr i8, ptr %132, i64 -1
   %134 = load i8, ptr %133, align 1
   %135 = zext i8 %134 to i32
-  %.mask.i34 = and i32 %135, 224
-  %.not252.i = icmp eq i32 %.mask.i34, 96
+  %.mask.i33 = and i32 %135, 224
+  %.not252.i = icmp eq i32 %.mask.i33, 96
   br i1 %.not252.i, label %136, label %159
 
 136:                                              ; preds = %129
@@ -774,11 +774,11 @@ r_en_ending.exit.thread.i:                        ; preds = %r_en_ending.exit.i,
   br label %328
 
 328:                                              ; preds = %353, %325
-  %329 = phi i32 [ %.pre59, %353 ], [ %326, %325 ]
+  %329 = phi i32 [ %.pre57, %353 ], [ %326, %325 ]
   %330 = phi i32 [ %.pre, %353 ], [ %327, %325 ]
   store i32 %330, ptr %4, align 4
-  %.not.i35 = icmp slt i32 %330, %329
-  br i1 %.not.i35, label %331, label %.thread40.i
+  %.not.i34 = icmp slt i32 %330, %329
+  br i1 %.not.i34, label %331, label %.thread40.i
 
 331:                                              ; preds = %328
   %332 = load ptr, ptr %0, align 8
@@ -805,11 +805,11 @@ r_en_ending.exit.thread.i:                        ; preds = %r_en_ending.exit.i,
   switch i32 %337, label %353 [
     i32 1, label %340
     i32 2, label %343
-    i32 3, label %._crit_edge.i37
+    i32 3, label %._crit_edge.i35
   ]
 
-._crit_edge.i37:                                  ; preds = %338
-  %.pre.i38 = load i32, ptr %5, align 4
+._crit_edge.i35:                                  ; preds = %338
+  %.pre.i36 = load i32, ptr %5, align 4
   br label %346
 
 340:                                              ; preds = %338
@@ -822,9 +822,9 @@ r_en_ending.exit.thread.i:                        ; preds = %r_en_ending.exit.i,
   %345 = icmp slt i32 %344, 0
   br i1 %345, label %r_prelude.exit.thread, label %353
 
-346:                                              ; preds = %._crit_edge.i37, %.thread40.i
-  %347 = phi i32 [ %329, %.thread40.i ], [ %.pre.i38, %._crit_edge.i37 ]
-  %348 = phi i32 [ %330, %.thread40.i ], [ %339, %._crit_edge.i37 ]
+346:                                              ; preds = %._crit_edge.i35, %.thread40.i
+  %347 = phi i32 [ %329, %.thread40.i ], [ %.pre.i36, %._crit_edge.i35 ]
+  %348 = phi i32 [ %330, %.thread40.i ], [ %339, %._crit_edge.i35 ]
   %349 = load ptr, ptr %0, align 8
   %350 = tail call i32 @skip_utf8(ptr noundef %349, i32 noundef %348, i32 noundef %347, i32 noundef 1) #2
   %351 = icmp slt i32 %350, 0
@@ -836,7 +836,7 @@ r_en_ending.exit.thread.i:                        ; preds = %r_en_ending.exit.i,
 
 353:                                              ; preds = %352, %343, %340, %338
   %.pre = load i32, ptr %2, align 8
-  %.pre59 = load i32, ptr %5, align 4
+  %.pre57 = load i32, ptr %5, align 4
   br label %328
 
 354:                                              ; preds = %346, %336

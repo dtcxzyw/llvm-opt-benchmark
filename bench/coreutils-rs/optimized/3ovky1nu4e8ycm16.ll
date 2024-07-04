@@ -3244,8 +3244,8 @@ _ZN3std2fs8metadata17h6eaac3c086c5bff1E.exit:     ; preds = %18, %23
   br label %24
 
 24:                                               ; preds = %_ZN3std2fs8metadata17h6eaac3c086c5bff1E.exit, %_ZN3std2fs16symlink_metadata17h7f4ac47d5718ef43E.exit
-  %.sroa.02.2 = phi i64 [ %13, %_ZN3std2fs16symlink_metadata17h7f4ac47d5718ef43E.exit ], [ %19, %_ZN3std2fs8metadata17h6eaac3c086c5bff1E.exit ]
   %.sroa.13.2 = phi ptr [ %16, %_ZN3std2fs16symlink_metadata17h7f4ac47d5718ef43E.exit ], [ %22, %_ZN3std2fs8metadata17h6eaac3c086c5bff1E.exit ]
+  %.sroa.02.2 = phi i64 [ %13, %_ZN3std2fs16symlink_metadata17h7f4ac47d5718ef43E.exit ], [ %19, %_ZN3std2fs8metadata17h6eaac3c086c5bff1E.exit ]
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %10)
   %25 = icmp eq i64 %.sroa.02.2, 2
   br i1 %25, label %137, label %26

@@ -3452,12 +3452,12 @@ define internal void @DC16_SSE2(ptr nocapture noundef %0) #5 {
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %.023 = phi i32 [ 0, %1 ], [ %8, %4 ]
+  %.02122 = phi i32 [ 0, %1 ], [ %8, %4 ]
   %5 = shl nuw nsw i64 %indvars.iv, 5
   %gep = getelementptr i8, ptr %invariant.gep, i64 %5
   %6 = load i8, ptr %gep, align 1
   %7 = zext i8 %6 to i32
-  %8 = add nuw nsw i32 %.023, %7
+  %8 = add nuw nsw i32 %.02122, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %9, label %4, !llvm.loop !12
@@ -3662,12 +3662,12 @@ define internal void @DC8uv_SSE2(ptr nocapture noundef %0) #5 {
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %.020 = phi i32 [ 0, %1 ], [ %8, %4 ]
+  %.01819 = phi i32 [ 0, %1 ], [ %8, %4 ]
   %5 = shl nuw nsw i64 %indvars.iv, 5
   %gep = getelementptr i8, ptr %invariant.gep, i64 %5
   %6 = load i8, ptr %gep, align 1
   %7 = zext i8 %6 to i32
-  %8 = add nuw nsw i32 %.020, %7
+  %8 = add nuw nsw i32 %.01819, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %9, label %4, !llvm.loop !18

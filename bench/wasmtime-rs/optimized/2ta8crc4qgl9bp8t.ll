@@ -19649,8 +19649,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h4b21eb63674ba
   br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17he8a29dc553f2d213E.llvm.12393783928750787229.exit._crit_edge", label %7
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h2949a533d04f1bc6E.llvm.12393783928750787229.exit": ; preds = %.noexc, %2
-  %.sroa.7.1 = phi i64 [ 0, %2 ], [ %16, %.noexc ]
   %.sroa.14.0 = phi i64 [ 0, %2 ], [ 1, %.noexc ]
+  %.sroa.7.1 = phi i64 [ 0, %2 ], [ %16, %.noexc ]
   %.not1.i = icmp eq i64 %.sroa.7.1, %4
   br i1 %.not1.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17he8a29dc553f2d213E.llvm.12393783928750787229.exit._crit_edge", label %.lr.ph.i2
 
@@ -19660,8 +19660,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h4b21eb63674ba
   br label %20
 
 20:                                               ; preds = %.backedge.i, %.lr.ph.i2
-  %.sroa.7.3 = phi i64 [ %.sroa.7.1, %.lr.ph.i2 ], [ %.sink.i, %.backedge.i ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.lr.ph.i2 ], [ %.sroa.14.3, %.backedge.i ]
+  %.sroa.7.3 = phi i64 [ %.sroa.7.1, %.lr.ph.i2 ], [ %.sink.i, %.backedge.i ]
   %21 = phi i64 [ %.sroa.14.0, %.lr.ph.i2 ], [ %30, %.backedge.i ]
   %22 = getelementptr inbounds ptr, ptr %19, i64 %.sroa.7.3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3475)
@@ -34250,7 +34250,7 @@ default.unreachable31:                            ; preds = %1
   %61 = load i64, ptr %60, align 8, !noundef !5
   %.not15 = icmp eq i8 %59, 0
   %62 = tail call i64 @llvm.bswap.i64(i64 %61)
-  %.012 = select i1 %.not15, i64 %61, i64 %62
+  %.011 = select i1 %.not15, i64 %61, i64 %62
   br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$7address17h5a6a79ed5f1c28b5E.exit"
 
 63:                                               ; preds = %1
@@ -34279,7 +34279,7 @@ default.unreachable31:                            ; preds = %1
   %82 = load i64, ptr %81, align 4
   %.not = icmp eq i8 %80, 0
   %83 = tail call i64 @llvm.bswap.i64(i64 %82)
-  %.011 = select i1 %.not, i64 %82, i64 %83
+  %.012 = select i1 %.not, i64 %82, i64 %83
   br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$7address17h5a6a79ed5f1c28b5E.exit"
 
 84:                                               ; preds = %1
@@ -34398,7 +34398,7 @@ default.unreachable31:                            ; preds = %1
   br label %"_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$7address17h5a6a79ed5f1c28b5E.exit"
 
 "_ZN109_$LT$object..read..coff..symbol..CoffSymbol$LT$R$C$Coff$GT$$u20$as$u20$object..read..traits..ObjectSymbol$GT$7address17h5a6a79ed5f1c28b5E.exit": ; preds = %135, %132, %129, %126, %119, %111, %105, %98, %90, %84, %42, %34, %28, %21, %13, %7, %74, %63, %55, %46
-  %.0 = phi i64 [ %.011, %74 ], [ %73, %63 ], [ %.012, %55 ], [ %54, %46 ], [ %.0.i, %13 ], [ 0, %7 ], [ 0, %21 ], [ %.0.i18, %34 ], [ 0, %28 ], [ 0, %42 ], [ %.0.i21, %90 ], [ 0, %84 ], [ 0, %98 ], [ %.0.i25, %111 ], [ 0, %105 ], [ 0, %119 ], [ %131, %129 ], [ 0, %126 ], [ %136, %135 ], [ 0, %132 ]
+  %.0 = phi i64 [ %.012, %74 ], [ %73, %63 ], [ %.011, %55 ], [ %54, %46 ], [ %.0.i, %13 ], [ 0, %7 ], [ 0, %21 ], [ %.0.i18, %34 ], [ 0, %28 ], [ 0, %42 ], [ %.0.i21, %90 ], [ 0, %84 ], [ 0, %98 ], [ %.0.i25, %111 ], [ 0, %105 ], [ 0, %119 ], [ %131, %129 ], [ 0, %126 ], [ %136, %135 ], [ 0, %132 ]
   ret i64 %.0
 }
 

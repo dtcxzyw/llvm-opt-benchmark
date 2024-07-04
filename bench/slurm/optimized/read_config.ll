@@ -937,13 +937,13 @@ define ptr @conf_get_opt_str(ptr noundef %0, ptr noundef %1) #0 {
   br label %12
 
 12:                                               ; preds = %.lr.ph, %19
-  %.01322 = phi ptr [ %10, %.lr.ph ], [ %20, %19 ]
-  %13 = call i32 @xstrncmp(ptr noundef nonnull %.01322, ptr noundef %1, i64 noundef %11) #18
+  %.022 = phi ptr [ %10, %.lr.ph ], [ %20, %19 ]
+  %13 = call i32 @xstrncmp(ptr noundef nonnull %.022, ptr noundef %1, i64 noundef %11) #18
   %.not18 = icmp eq i32 %13, 0
   br i1 %.not18, label %14, label %19
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %.01322, i64 %11
+  %15 = getelementptr inbounds i8, ptr %.022, i64 %11
   %16 = load i8, ptr %15, align 1
   %.not19 = icmp eq i8 %16, 0
   br i1 %.not19, label %.loopexit, label %17
@@ -958,13 +958,13 @@ define ptr @conf_get_opt_str(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not17, label %.loopexit, label %12, !llvm.loop !6
 
 .loopexit:                                        ; preds = %19, %7, %14, %17
-  %.014 = phi ptr [ %18, %17 ], [ null, %14 ], [ null, %7 ], [ null, %19 ]
+  %.013 = phi ptr [ %18, %17 ], [ null, %14 ], [ null, %7 ], [ null, %19 ]
   call void @slurm_xfree(ptr noundef nonnull %3) #18
   br label %21
 
 21:                                               ; preds = %2, %5, %.loopexit
-  %.0 = phi ptr [ %.014, %.loopexit ], [ null, %5 ], [ null, %2 ]
-  ret ptr %.0
+  %.014 = phi ptr [ %.013, %.loopexit ], [ null, %5 ], [ null, %2 ]
+  ret ptr %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2966,8 +2966,8 @@ define internal range(i32 -1, 2) i32 @_parse_partitionname(ptr nocapture noundef
   br label %478
 
 478:                                              ; preds = %477, %473, %443, %427, %369, %324, %241, %225, %22
-  %.0 = phi i32 [ 0, %22 ], [ -1, %225 ], [ -1, %241 ], [ -1, %324 ], [ -1, %443 ], [ 1, %477 ], [ -1, %473 ], [ -1, %427 ], [ -1, %369 ]
-  ret i32 %.0
+  %.0258 = phi i32 [ 0, %22 ], [ -1, %225 ], [ -1, %241 ], [ -1, %324 ], [ -1, %443 ], [ 1, %477 ], [ -1, %473 ], [ -1, %427 ], [ -1, %369 ]
+  ret i32 %.0258
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3212,19 +3212,19 @@ define range(i32 0, 23) i32 @job_defaults_list(ptr noundef %0, ptr nocapture nou
   br i1 %.not3748, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %25
-  %.03149 = phi ptr [ %28, %25 ], [ %12, %9 ]
-  %13 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03149, i32 noundef 61) #19
+  %.03049 = phi ptr [ %28, %25 ], [ %12, %9 ]
+  %13 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03049, i32 noundef 61) #19
   %.not38 = icmp eq ptr %13, null
   br i1 %.not38, label %29, label %14
 
 14:                                               ; preds = %.lr.ph
   store i8 0, ptr %13, align 1
-  %15 = call i32 @xstrcasecmp(ptr noundef nonnull %.03149, ptr noundef nonnull @.str.391) #18
+  %15 = call i32 @xstrcasecmp(ptr noundef nonnull %.03049, ptr noundef nonnull @.str.391) #18
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %select.unfold, label %16
 
 16:                                               ; preds = %14
-  %17 = call i32 @xstrcasecmp(ptr noundef nonnull %.03149, ptr noundef nonnull @.str.45) #18
+  %17 = call i32 @xstrcasecmp(ptr noundef nonnull %.03049, ptr noundef nonnull @.str.45) #18
   %.not2.i = icmp eq i32 %17, 0
   br i1 %.not2.i, label %select.unfold, label %29
 
@@ -11761,8 +11761,8 @@ _validate_bcast_exclude.exit:                     ; preds = %.lr.ph.i1260
   br i1 %.not102332, label %.loopexit, label %.lr.ph35
 
 .lr.ph35:                                         ; preds = %460, %466
-  %.091833 = phi ptr [ %467, %466 ], [ %462, %460 ]
-  %463 = call i32 @xstrcasecmp(ptr noundef nonnull %.091833, ptr noundef nonnull @.str.502) #18
+  %.091733 = phi ptr [ %467, %466 ], [ %462, %460 ]
+  %463 = call i32 @xstrcasecmp(ptr noundef nonnull %.091733, ptr noundef nonnull @.str.502) #18
   %464 = icmp eq i32 %463, 0
   br i1 %464, label %465, label %466
 
@@ -14368,73 +14368,73 @@ _normalize_debug_level.exit1263:                  ; preds = %_normalize_debug_le
   br i1 %.not122836, label %._crit_edge42, label %.lr.ph41
 
 .lr.ph41:                                         ; preds = %1614, %1675
-  %.091339 = phi i1 [ %.1, %1675 ], [ false, %1614 ]
-  %.091438 = phi i8 [ %.1915, %1675 ], [ 0, %1614 ]
-  %.091637 = phi ptr [ %1676, %1675 ], [ %1616, %1614 ]
-  %1617 = call i32 @xstrcasecmp(ptr noundef nonnull %.091637, ptr noundef nonnull @.str.473) #18
+  %.039 = phi i1 [ %.1, %1675 ], [ false, %1614 ]
+  %.091338 = phi i8 [ %.1914, %1675 ], [ 0, %1614 ]
+  %.091537 = phi ptr [ %1676, %1675 ], [ %1616, %1614 ]
+  %1617 = call i32 @xstrcasecmp(ptr noundef nonnull %.091537, ptr noundef nonnull @.str.473) #18
   %1618 = icmp eq i32 %1617, 0
   br i1 %1618, label %1619, label %1623
 
 1619:                                             ; preds = %.lr.ph41
-  %1620 = trunc nuw i8 %.091438 to i1
+  %1620 = trunc nuw i8 %.091338 to i1
   br i1 %1620, label %1621, label %.sink.split98
 
 1621:                                             ; preds = %1619
-  %1622 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.648, ptr noundef nonnull %.091637) #18
+  %1622 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.648, ptr noundef nonnull %.091537) #18
   br label %1803
 
 1623:                                             ; preds = %.lr.ph41
-  %1624 = call i32 @xstrcasecmp(ptr noundef nonnull %.091637, ptr noundef nonnull @.str.649) #18
+  %1624 = call i32 @xstrcasecmp(ptr noundef nonnull %.091537, ptr noundef nonnull @.str.649) #18
   %1625 = icmp eq i32 %1624, 0
   br i1 %1625, label %1626, label %1630
 
 1626:                                             ; preds = %1623
-  %1627 = trunc nuw i8 %.091438 to i1
+  %1627 = trunc nuw i8 %.091338 to i1
   br i1 %1627, label %1628, label %.sink.split98
 
 1628:                                             ; preds = %1626
-  %1629 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.648, ptr noundef nonnull %.091637) #18
+  %1629 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.648, ptr noundef nonnull %.091537) #18
   br label %1803
 
 1630:                                             ; preds = %1623
-  %1631 = call i32 @xstrcasecmp(ptr noundef nonnull %.091637, ptr noundef nonnull @.str.650) #18
+  %1631 = call i32 @xstrcasecmp(ptr noundef nonnull %.091537, ptr noundef nonnull @.str.650) #18
   %1632 = icmp eq i32 %1631, 0
   br i1 %1632, label %1633, label %1637
 
 1633:                                             ; preds = %1630
-  %1634 = trunc nuw i8 %.091438 to i1
+  %1634 = trunc nuw i8 %.091338 to i1
   br i1 %1634, label %1635, label %.sink.split98
 
 1635:                                             ; preds = %1633
-  %1636 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.648, ptr noundef nonnull %.091637) #18
+  %1636 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.648, ptr noundef nonnull %.091537) #18
   br label %1803
 
 1637:                                             ; preds = %1630
-  %1638 = call i32 @xstrcasecmp(ptr noundef nonnull %.091637, ptr noundef nonnull @.str.651) #18
+  %1638 = call i32 @xstrcasecmp(ptr noundef nonnull %.091537, ptr noundef nonnull @.str.651) #18
   %1639 = icmp eq i32 %1638, 0
   br i1 %1639, label %1640, label %1644
 
 1640:                                             ; preds = %1637
-  %1641 = trunc nuw i8 %.091438 to i1
+  %1641 = trunc nuw i8 %.091338 to i1
   br i1 %1641, label %1642, label %.sink.split98
 
 1642:                                             ; preds = %1640
-  %1643 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.648, ptr noundef nonnull %.091637) #18
+  %1643 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.648, ptr noundef nonnull %.091537) #18
   br label %1803
 
 1644:                                             ; preds = %1637
-  %1645 = call i32 @xstrcasecmp(ptr noundef nonnull %.091637, ptr noundef nonnull @.str.652) #18
+  %1645 = call i32 @xstrcasecmp(ptr noundef nonnull %.091537, ptr noundef nonnull @.str.652) #18
   %1646 = icmp eq i32 %1645, 0
   br i1 %1646, label %.sink.split98, label %1647
 
 1647:                                             ; preds = %1644
-  %1648 = call i32 @xstrncasecmp(ptr noundef nonnull %.091637, ptr noundef nonnull @.str.653, i64 noundef 9) #18
+  %1648 = call i32 @xstrncasecmp(ptr noundef nonnull %.091537, ptr noundef nonnull @.str.653, i64 noundef 9) #18
   %1649 = icmp eq i32 %1648, 0
   br i1 %1649, label %1650, label %1668
 
 1650:                                             ; preds = %1647
-  %1651 = getelementptr inbounds i8, ptr %.091637, i64 9
-  br i1 %.091339, label %1652, label %1654
+  %1651 = getelementptr inbounds i8, ptr %.091537, i64 9
+  br i1 %.039, label %1652, label %1654
 
 1652:                                             ; preds = %1650
   %1653 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.654) #18
@@ -14465,25 +14465,25 @@ _normalize_debug_level.exit1263:                  ; preds = %_normalize_debug_le
   br label %1803
 
 1668:                                             ; preds = %1647
-  %1669 = call i32 @xstrcasecmp(ptr noundef nonnull %.091637, ptr noundef nonnull @.str.656) #18
+  %1669 = call i32 @xstrcasecmp(ptr noundef nonnull %.091537, ptr noundef nonnull @.str.656) #18
   %1670 = icmp eq i32 %1669, 0
   br i1 %1670, label %.sink.split98, label %1671
 
 1671:                                             ; preds = %1668
-  %1672 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.648, ptr noundef nonnull %.091637) #18
+  %1672 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.648, ptr noundef nonnull %.091537) #18
   br label %1803
 
 .sink.split98:                                    ; preds = %1668, %1663, %1660, %1657, %1644, %1640, %1633, %1626, %1619
   %.sink101 = phi i32 [ 32, %1619 ], [ 8, %1626 ], [ 4, %1633 ], [ 2, %1640 ], [ 1, %1644 ], [ 16384, %1657 ], [ 65536, %1660 ], [ 131072, %1663 ], [ 262144, %1668 ]
-  %.1915.ph = phi i8 [ 1, %1619 ], [ 1, %1626 ], [ 1, %1633 ], [ 1, %1640 ], [ %.091438, %1644 ], [ %.091438, %1657 ], [ %.091438, %1660 ], [ %.091438, %1663 ], [ %.091438, %1668 ]
-  %.1.ph = phi i1 [ %.091339, %1619 ], [ %.091339, %1626 ], [ %.091339, %1633 ], [ %.091339, %1640 ], [ %.091339, %1644 ], [ true, %1657 ], [ true, %1660 ], [ true, %1663 ], [ %.091339, %1668 ]
+  %.1914.ph = phi i8 [ 1, %1619 ], [ 1, %1626 ], [ 1, %1633 ], [ 1, %1640 ], [ %.091338, %1644 ], [ %.091338, %1657 ], [ %.091338, %1660 ], [ %.091338, %1663 ], [ %.091338, %1668 ]
+  %.1.ph = phi i1 [ %.039, %1619 ], [ %.039, %1626 ], [ %.039, %1633 ], [ %.039, %1640 ], [ %.039, %1644 ], [ true, %1657 ], [ true, %1660 ], [ true, %1663 ], [ %.039, %1668 ]
   %1673 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1424), align 8
   %1674 = or i32 %1673, %.sink101
   store i32 %1674, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1424), align 8
   br label %1675
 
 1675:                                             ; preds = %.sink.split98, %1654
-  %.1915 = phi i8 [ %.091438, %1654 ], [ %.1915.ph, %.sink.split98 ]
+  %.1914 = phi i8 [ %.091338, %1654 ], [ %.1914.ph, %.sink.split98 ]
   %.1 = phi i1 [ true, %1654 ], [ %.1.ph, %.sink.split98 ]
   %1676 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.229, ptr noundef nonnull %23) #18
   %.not1228 = icmp eq ptr %1676, null
@@ -14773,8 +14773,8 @@ _normalize_debug_level.exit1263:                  ; preds = %_normalize_debug_le
   br label %1803
 
 1803:                                             ; preds = %_validate_bcast_exclude.exit, %_load_slurmctld_host.exit, %1800, %1802, %1671, %1666, %1652, %1642, %1635, %1628, %1621, %1590, %1546, %1534, %1472, %1448, %1441, %1425, %1408, %1389, %1377, %1364, %1350, %1343, %1280, %1271, %1260, %1251, %1098, %1092, %1055, %962, %950, %938, %928, %918, %905, %902, %893, %876, %802, %713, %698, %688, %652, %640, %632, %395, %376, %39
-  %.0 = phi i32 [ -1, %376 ], [ -1, %395 ], [ -1, %632 ], [ -1, %640 ], [ -1, %652 ], [ -1, %688 ], [ -1, %802 ], [ -1, %893 ], [ -1, %902 ], [ -1, %905 ], [ -1, %928 ], [ -1, %950 ], [ -1, %962 ], [ -1, %1055 ], [ -1, %1251 ], [ -1, %1260 ], [ -1, %1280 ], [ -1, %1350 ], [ -1, %1364 ], [ -1, %1377 ], [ -1, %1389 ], [ -1, %1408 ], [ -1, %1425 ], [ -1, %1441 ], [ -1, %1472 ], [ -1, %1546 ], [ -1, %1590 ], [ -1, %1621 ], [ -1, %1628 ], [ -1, %1635 ], [ -1, %1642 ], [ -1, %1652 ], [ -1, %1666 ], [ -1, %1671 ], [ -1, %1534 ], [ -1, %1448 ], [ -1, %1343 ], [ -1, %1271 ], [ -1, %1092 ], [ -1, %1098 ], [ -1, %938 ], [ -1, %918 ], [ -1, %876 ], [ -1, %713 ], [ -1, %698 ], [ -1, %39 ], [ -1, %_load_slurmctld_host.exit ], [ -1, %_validate_bcast_exclude.exit ], [ 0, %1802 ], [ 0, %1800 ]
-  ret i32 %.0
+  %.0916 = phi i32 [ -1, %376 ], [ -1, %395 ], [ -1, %632 ], [ -1, %640 ], [ -1, %652 ], [ -1, %688 ], [ -1, %802 ], [ -1, %893 ], [ -1, %902 ], [ -1, %905 ], [ -1, %928 ], [ -1, %950 ], [ -1, %962 ], [ -1, %1055 ], [ -1, %1251 ], [ -1, %1260 ], [ -1, %1280 ], [ -1, %1350 ], [ -1, %1364 ], [ -1, %1377 ], [ -1, %1389 ], [ -1, %1408 ], [ -1, %1425 ], [ -1, %1441 ], [ -1, %1472 ], [ -1, %1546 ], [ -1, %1590 ], [ -1, %1621 ], [ -1, %1628 ], [ -1, %1635 ], [ -1, %1642 ], [ -1, %1652 ], [ -1, %1666 ], [ -1, %1671 ], [ -1, %1534 ], [ -1, %1448 ], [ -1, %1343 ], [ -1, %1271 ], [ -1, %1092 ], [ -1, %1098 ], [ -1, %938 ], [ -1, %918 ], [ -1, %876 ], [ -1, %713 ], [ -1, %698 ], [ -1, %39 ], [ -1, %_load_slurmctld_host.exit ], [ -1, %_validate_bcast_exclude.exit ], [ 0, %1802 ], [ 0, %1800 ]
+  ret i32 %.0916
 }
 
 declare zeroext i1 @running_in_slurmd() local_unnamed_addr #1

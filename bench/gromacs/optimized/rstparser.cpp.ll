@@ -286,20 +286,20 @@ _ZN3gmx12_GLOBAL__N_114startsListItemERKNSt7__cxx1112basic_stringIcSt11char_trai
   br i1 %127, label %.lr.ph.i45, label %.loopexit73
 
 128:                                              ; preds = %134
-  %129 = add nuw i64 %.01114.i, 1
+  %129 = add nuw i64 %.014.i, 1
   %130 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %121) #7
   %131 = icmp ult i64 %129, %130
   br i1 %131, label %.lr.ph.i45, label %.loopexit73, !llvm.loop !11
 
 .lr.ph.i45:                                       ; preds = %.preheader.i43, %128
-  %.01114.i = phi i64 [ %129, %128 ], [ %.032, %.preheader.i43 ]
-  %132 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %121, i64 noundef %.01114.i) #7
+  %.014.i = phi i64 [ %129, %128 ], [ %.032, %.preheader.i43 ]
+  %132 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %121, i64 noundef %.014.i) #7
   %133 = load i8, ptr %132, align 1
   %.not12.i = icmp eq i8 %133, 10
   br i1 %.not12.i, label %.loopexit73, label %134
 
 134:                                              ; preds = %.lr.ph.i45
-  %135 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %121, i64 noundef %.01114.i) #7
+  %135 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %121, i64 noundef %.014.i) #7
   %136 = load i8, ptr %135, align 1
   %.not13.i = icmp eq i8 %136, %123
   br i1 %.not13.i, label %128, label %_ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit

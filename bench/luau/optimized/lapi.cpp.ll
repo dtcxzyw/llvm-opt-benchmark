@@ -2856,8 +2856,8 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %54, %45, %_ZL10getc
   br i1 %.not30, label %77, label %74
 
 74:                                               ; preds = %72, %_ZL11pseudo2addrP9lua_Statei.exit
-  %.024 = phi ptr [ %.0, %_ZL11pseudo2addrP9lua_Statei.exit ], [ %73, %72 ]
-  %75 = load double, ptr %.024, align 8
+  %.023 = phi ptr [ %.0, %_ZL11pseudo2addrP9lua_Statei.exit ], [ %73, %72 ]
+  %75 = load double, ptr %.023, align 8
   %76 = fptosi double %75 to i32
   %.not32 = icmp eq ptr %2, null
   br i1 %.not32, label %78, label %.sink.split
@@ -2868,13 +2868,13 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %54, %45, %_ZL10getc
 
 .sink.split:                                      ; preds = %77, %74
   %.sink = phi i32 [ 1, %74 ], [ 0, %77 ]
-  %.023.ph = phi i32 [ %76, %74 ], [ 0, %77 ]
+  %.024.ph = phi i32 [ %76, %74 ], [ 0, %77 ]
   store i32 %.sink, ptr %2, align 4
   br label %78
 
 78:                                               ; preds = %.sink.split, %77, %74
-  %.023 = phi i32 [ %76, %74 ], [ 0, %77 ], [ %.023.ph, %.sink.split ]
-  ret i32 %.023
+  %.024 = phi i32 [ %76, %74 ], [ 0, %77 ], [ %.024.ph, %.sink.split ]
+  ret i32 %.024
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2995,8 +2995,8 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %54, %45, %_ZL10getc
   br i1 %.not30, label %78, label %74
 
 74:                                               ; preds = %72, %_ZL11pseudo2addrP9lua_Statei.exit
-  %.024 = phi ptr [ %.0, %_ZL11pseudo2addrP9lua_Statei.exit ], [ %73, %72 ]
-  %75 = load double, ptr %.024, align 8
+  %.023 = phi ptr [ %.0, %_ZL11pseudo2addrP9lua_Statei.exit ], [ %73, %72 ]
+  %75 = load double, ptr %.023, align 8
   %76 = fptosi double %75 to i64
   %77 = trunc i64 %76 to i32
   %.not32 = icmp eq ptr %2, null
@@ -3008,13 +3008,13 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %54, %45, %_ZL10getc
 
 .sink.split:                                      ; preds = %78, %74
   %.sink = phi i32 [ 1, %74 ], [ 0, %78 ]
-  %.023.ph = phi i32 [ %77, %74 ], [ 0, %78 ]
+  %.024.ph = phi i32 [ %77, %74 ], [ 0, %78 ]
   store i32 %.sink, ptr %2, align 4
   br label %79
 
 79:                                               ; preds = %.sink.split, %78, %74
-  %.023 = phi i32 [ %77, %74 ], [ 0, %78 ], [ %.023.ph, %.sink.split ]
-  ret i32 %.023
+  %.024 = phi i32 [ %77, %74 ], [ 0, %78 ], [ %.024.ph, %.sink.split ]
+  ret i32 %.024
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -3412,8 +3412,8 @@ _ZL11pseudo2addrP9lua_Statei.exit64:              ; preds = %136, %128, %_ZL10ge
   br label %159
 
 159:                                              ; preds = %79, %80, %156
-  %.046 = phi ptr [ %158, %156 ], [ null, %80 ], [ null, %79 ]
-  ret ptr %.046
+  %.045 = phi ptr [ %158, %156 ], [ null, %80 ], [ null, %79 ]
+  ret ptr %.045
 }
 
 declare hidden noundef i32 @_Z13luaV_tostringP9lua_StateP10lua_TValue(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -7948,8 +7948,8 @@ _ZL10getcurrenvP9lua_State.exit.i:                ; preds = %35, %33
   br label %_ZL11pseudo2addrP9lua_Statei.exit
 
 _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %52, %43, %_ZL10getcurrenvP9lua_State.exit.i, %20, %4, %14
-  %.0 = phi ptr [ %18, %14 ], [ %.luaO_nilobject_, %4 ], [ %66, %52 ], [ %51, %43 ], [ %42, %_ZL10getcurrenvP9lua_State.exit.i ], [ %23, %20 ]
-  %67 = getelementptr inbounds i8, ptr %.0, i64 12
+  %.026 = phi ptr [ %18, %14 ], [ %.luaO_nilobject_, %4 ], [ %66, %52 ], [ %51, %43 ], [ %42, %_ZL10getcurrenvP9lua_State.exit.i ], [ %23, %20 ]
+  %67 = getelementptr inbounds i8, ptr %.026, i64 12
   %68 = load i32, ptr %67, align 4
   switch i32 %68, label %90 [
     i32 7, label %70
@@ -7965,10 +7965,10 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %52, %43, %_ZL10getc
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 -16
   %74 = load ptr, ptr %73, align 8
-  %75 = load ptr, ptr %.0, align 8
+  %75 = load ptr, ptr %.026, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 %.sink38
   store ptr %74, ptr %76, align 8
-  %77 = load ptr, ptr %.0, align 8
+  %77 = load ptr, ptr %.026, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 1
   %79 = load i8, ptr %78, align 1
   %80 = and i8 %79, 4
@@ -7991,12 +7991,12 @@ _ZL11pseudo2addrP9lua_Statei.exit:                ; preds = %52, %43, %_ZL10getc
   br label %90
 
 90:                                               ; preds = %_ZL11pseudo2addrP9lua_Statei.exit, %70, %81, %89
-  %.02635 = phi i32 [ 1, %70 ], [ 1, %81 ], [ 1, %89 ], [ 0, %_ZL11pseudo2addrP9lua_Statei.exit ]
+  %.035 = phi i32 [ 1, %70 ], [ 1, %81 ], [ 1, %89 ], [ 0, %_ZL11pseudo2addrP9lua_Statei.exit ]
   %91 = getelementptr inbounds i8, ptr %0, i64 8
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 -16
   store ptr %93, ptr %91, align 8
-  ret i32 %.02635
+  ret i32 %.035
 }
 
 ; Function Attrs: mustprogress uwtable

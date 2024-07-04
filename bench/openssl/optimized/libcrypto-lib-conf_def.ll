@@ -1631,14 +1631,14 @@ for.cond.preheader:                               ; preds = %if.end
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %while.end215, %for.cond.preheader
+  %from.addr.0.ph = phi ptr [ %e.3, %while.end215 ], [ %from, %for.cond.preheader ]
   %rr.0.ph = phi i8 [ %rr.1, %while.end215 ], [ 0, %for.cond.preheader ]
   %to.0.ph = phi i32 [ %to.3.lcssa, %while.end215 ], [ 0, %for.cond.preheader ]
-  %from.addr.0.ph = phi ptr [ %e.3, %while.end215 ], [ %from, %for.cond.preheader ]
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.outer
-  %to.0 = phi i32 [ %to.0.ph, %for.cond.outer ], [ %to.0.be, %for.cond.backedge ]
   %from.addr.0 = phi ptr [ %from.addr.0.ph, %for.cond.outer ], [ %from.addr.0.be, %for.cond.backedge ]
+  %to.0 = phi i32 [ %to.0.ph, %for.cond.outer ], [ %to.0.be, %for.cond.backedge ]
   %0 = load i8, ptr %from.addr.0, align 1
   %cmp.i = icmp slt i8 %0, 0
   br i1 %cmp.i, label %if.else223, label %is_keytype.exit
@@ -1771,8 +1771,8 @@ while.end57:                                      ; preds = %if.then43, %is_keyt
   br label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %while.end57, %while.end, %if.else223, %if.end97
-  %to.0.be = phi i32 [ %inc99, %if.end97 ], [ %inc226, %if.else223 ], [ %17, %while.end ], [ %28, %while.end57 ]
   %from.addr.0.be = phi ptr [ %incdec.ptr69, %if.end97 ], [ %incdec.ptr224, %if.else223 ], [ %spec.select, %while.end ], [ %spec.select111, %while.end57 ]
+  %to.0.be = phi i32 [ %inc99, %if.end97 ], [ %inc226, %if.else223 ], [ %17, %while.end ], [ %28, %while.end57 ]
   br label %for.cond
 
 is_keytype.exit172:                               ; preds = %is_keytype.exit152

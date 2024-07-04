@@ -8096,10 +8096,10 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit251.sink.split: ; preds = %804, %571
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit251:     ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit251.sink.split, %804, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit342, %571, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit249
   %.pn70 = phi double [ %561, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit249 ], [ %561, %571 ], [ %794, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit342 ], [ %794, %804 ], [ %.pn70.ph, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit251.sink.split ]
   %.pn69 = fmul double %442, %.pn70
-  %.030 = fsub double %.pn69, %433
+  %.0 = fsub double %.pn69, %433
   %828 = call double @llvm.fmuladd.f64(double %1, double %.sroa.speculated.i, double %245)
   %829 = fneg double %828
-  %830 = call double @llvm.fmuladd.f64(double %1, double %433, double %.030)
+  %830 = call double @llvm.fmuladd.f64(double %1, double %433, double %.0)
   %831 = fdiv double %829, %830
   %832 = load ptr, ptr %22, align 8
   %.not.i.i353 = icmp eq ptr %832, null
@@ -8192,7 +8192,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit358:     ; preds = %861, %856, %_ZN5Ipo
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit360
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit356:     ; preds = %434, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit354, %843, %848
-  %.031 = phi double [ 0.000000e+00, %434 ], [ %831, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit354 ], [ %831, %843 ], [ %831, %848 ]
+  %.030 = phi double [ 0.000000e+00, %434 ], [ %831, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit354 ], [ %831, %843 ], [ %831, %848 ]
   %875 = getelementptr inbounds i8, ptr %286, i64 8
   %876 = load i32, ptr %875, align 8
   %877 = add nsw i32 %876, -1
@@ -8397,7 +8397,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit381:     ; preds = %968, %_ZN5Ipopt8Sma
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit383
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit383:     ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit381, %976
-  ret double %.031
+  ret double %.030
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit360:     ; preds = %612, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit358, %866, %871
   %.pn52.pn.pn.pn = phi { ptr, i32 } [ %613, %612 ], [ %.pn52.pn.pn, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit358 ], [ %.pn52.pn.pn, %866 ], [ %.pn52.pn.pn, %871 ]

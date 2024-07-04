@@ -365,7 +365,7 @@ define void @_ZN4pkpy12LineProfiler9_step_endEiPNS_5FrameEi(ptr nocapture nounde
   br label %40
 
 38:                                               ; preds = %30, %29
-  %.022 = phi i1 [ false, %30 ], [ true, %29 ]
+  %.0 = phi i1 [ false, %30 ], [ true, %29 ]
   %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
@@ -373,23 +373,23 @@ define void @_ZN4pkpy12LineProfiler9_step_endEiPNS_5FrameEi(ptr nocapture nounde
 
 40:                                               ; preds = %38, %36
   %.pn = phi { ptr, i32 } [ %39, %38 ], [ %37, %36 ]
-  %.123 = phi i1 [ %.022, %38 ], [ true, %36 ]
+  %.1 = phi i1 [ %.0, %38 ], [ true, %36 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
   br label %41
 
 41:                                               ; preds = %40, %34
   %.pn.pn = phi { ptr, i32 } [ %.pn, %40 ], [ %35, %34 ]
-  %.224 = phi i1 [ %.123, %40 ], [ true, %34 ]
+  %.2 = phi i1 [ %.1, %40 ], [ true, %34 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   br label %42
 
 42:                                               ; preds = %32, %41
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %41 ], [ %33, %32 ]
-  %.325 = phi i1 [ %.224, %41 ], [ true, %32 ]
+  %.3 = phi i1 [ %.2, %41 ], [ true, %32 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #20
-  br i1 %.325, label %43, label %92
+  br i1 %.3, label %43, label %92
 
 43:                                               ; preds = %.thread, %42
   %.pn.pn.pn.pn49 = phi { ptr, i32 } [ %31, %.thread ], [ %.pn.pn.pn, %42 ]
@@ -694,41 +694,41 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   br i1 %5, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %17
-  %.02230.i = phi i32 [ %18, %17 ], [ %4, %2 ]
-  %.02329.i = phi i32 [ %19, %17 ], [ 1, %2 ]
-  %6 = icmp ult i32 %.02230.i, 100
+  %.030.i = phi i32 [ %19, %17 ], [ 1, %2 ]
+  %.02329.i = phi i32 [ %18, %17 ], [ %4, %2 ]
+  %6 = icmp ult i32 %.02329.i, 100
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = add i32 %.02329.i, 1
+  %8 = add i32 %.030.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = icmp ult i32 %.02230.i, 1000
+  %10 = icmp ult i32 %.02329.i, 1000
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = add i32 %.02329.i, 2
+  %12 = add i32 %.030.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 13:                                               ; preds = %9
-  %14 = icmp ult i32 %.02230.i, 10000
+  %14 = icmp ult i32 %.02329.i, 10000
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = add i32 %.02329.i, 3
+  %16 = add i32 %.030.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 17:                                               ; preds = %13
-  %18 = udiv i32 %.02230.i, 10000
-  %19 = add i32 %.02329.i, 4
-  %20 = icmp ult i32 %.02230.i, 100000
+  %18 = udiv i32 %.02329.i, 10000
+  %19 = add i32 %.030.i, 4
+  %20 = icmp ult i32 %.02329.i, 100000
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !7
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.022.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
-  %21 = add i32 %.0.i, %.lobit
+  %21 = add i32 %.022.i, %.lobit
   %22 = zext i32 %21 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   %23 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -759,7 +759,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br i1 %29, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %28
-  %30 = add i32 %.0.i, -1
+  %30 = add i32 %.022.i, -1
   br label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %.lr.ph.i12, %.lr.ph.preheader.i
@@ -1074,26 +1074,26 @@ define void @_ZN4pkpy12LineProfiler5statsEv(ptr dead_on_unwind noalias writable 
 
 67:                                               ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ %65, %.lr.ph ], [ %indvars.iv.next, %68 ]
-  %.050199 = phi i64 [ 0, %.lr.ph ], [ %71, %68 ]
+  %.052198 = phi i64 [ 0, %.lr.ph ], [ %71, %68 ]
   %.not.i.i = icmp ugt i64 %64, %indvars.iv
   br i1 %.not.i.i, label %68, label %.invoke
 
 68:                                               ; preds = %67
   %69 = getelementptr inbounds %"struct.pkpy::_LineRecord", ptr %57, i64 %indvars.iv, i32 2
   %70 = load i64, ptr %69, align 8
-  %71 = add nsw i64 %70, %.050199
+  %71 = add nsw i64 %70, %.052198
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %66, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %67, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %68, %.preheader124
-  %.050.lcssa = phi i64 [ 0, %.preheader124 ], [ %71, %68 ]
+  %.052.lcssa = phi i64 [ 0, %.preheader124 ], [ %71, %68 ]
   %72 = invoke noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(20) %14, ptr noundef nonnull @.str.3)
           to label %73 unwind label %.loopexit.split-lp.loopexit
 
 73:                                               ; preds = %._crit_edge
-  %74 = sitofp i64 %.050.lcssa to double
+  %74 = sitofp i64 %.052.lcssa to double
   %75 = fdiv double %74, 1.000000e+06
   %76 = invoke noundef nonnull align 8 dereferenceable(20) ptr @_ZN4pkpy7SStreamlsEd(ptr noundef nonnull align 8 dereferenceable(20) %72, double noundef %75)
           to label %77 unwind label %.loopexit.split-lp.loopexit
@@ -1150,7 +1150,7 @@ define void @_ZN4pkpy12LineProfiler5statsEv(ptr dead_on_unwind noalias writable 
   br i1 %.not197, label %._crit_edge203, label %.lr.ph202
 
 .lr.ph202:                                        ; preds = %.preheader
-  %101 = icmp eq i64 %.050.lcssa, 0
+  %101 = icmp eq i64 %.052.lcssa, 0
   %102 = sext i32 %44 to i64
   %103 = add i32 %46, 1
   br label %104
@@ -1189,41 +1189,41 @@ define void @_ZN4pkpy12LineProfiler5statsEv(ptr dead_on_unwind noalias writable 
   br i1 %119, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %116, %131
-  %.02230.i.i = phi i32 [ %132, %131 ], [ %118, %116 ]
-  %.02329.i.i = phi i32 [ %133, %131 ], [ 1, %116 ]
-  %120 = icmp ult i32 %.02230.i.i, 100
+  %.030.i.i = phi i32 [ %133, %131 ], [ 1, %116 ]
+  %.02329.i.i = phi i32 [ %132, %131 ], [ %118, %116 ]
+  %120 = icmp ult i32 %.02329.i.i, 100
   br i1 %120, label %121, label %123
 
 121:                                              ; preds = %.lr.ph.i.i
-  %122 = add i32 %.02329.i.i, 1
+  %122 = add i32 %.030.i.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
 
 123:                                              ; preds = %.lr.ph.i.i
-  %124 = icmp ult i32 %.02230.i.i, 1000
+  %124 = icmp ult i32 %.02329.i.i, 1000
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %123
-  %126 = add i32 %.02329.i.i, 2
+  %126 = add i32 %.030.i.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
 
 127:                                              ; preds = %123
-  %128 = icmp ult i32 %.02230.i.i, 10000
+  %128 = icmp ult i32 %.02329.i.i, 10000
   br i1 %128, label %129, label %131
 
 129:                                              ; preds = %127
-  %130 = add i32 %.02329.i.i, 3
+  %130 = add i32 %.030.i.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
 
 131:                                              ; preds = %127
-  %132 = udiv i32 %.02230.i.i, 10000
-  %133 = add i32 %.02329.i.i, 4
-  %134 = icmp ult i32 %.02230.i.i, 100000
+  %132 = udiv i32 %.02329.i.i, 10000
+  %133 = add i32 %.030.i.i, 4
+  %134 = icmp ult i32 %.02329.i.i, 100000
   br i1 %134, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !7
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %131, %129, %125, %121, %116
-  %.0.i.i = phi i32 [ %122, %121 ], [ %126, %125 ], [ %130, %129 ], [ 1, %116 ], [ %133, %131 ]
+  %.022.i.i = phi i32 [ %122, %121 ], [ %126, %125 ], [ %130, %129 ], [ 1, %116 ], [ %133, %131 ]
   %.lobit.i = lshr i32 %117, 31
-  %135 = add i32 %.0.i.i, %.lobit.i
+  %135 = add i32 %.022.i.i, %.lobit.i
   %136 = zext i32 %135 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #20, !noalias !10
   %137 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %17)
@@ -1254,7 +1254,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   br i1 %143, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %142
-  %144 = add i32 %.0.i.i, -1
+  %144 = add i32 %.022.i.i, -1
   br label %.lr.ph.i12.i
 
 .lr.ph.i12.i:                                     ; preds = %.lr.ph.i12.i, %.lr.ph.preheader.i.i
@@ -1978,42 +1978,42 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEl(ptr dead_on_unwind noalias w
   br i1 %5, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %17
-  %.02229.i = phi i64 [ %18, %17 ], [ %4, %2 ]
-  %.02328.i = phi i32 [ %19, %17 ], [ 1, %2 ]
-  %6 = icmp ult i64 %.02229.i, 100
+  %.029.i = phi i32 [ %19, %17 ], [ 1, %2 ]
+  %.02328.i = phi i64 [ %18, %17 ], [ %4, %2 ]
+  %6 = icmp ult i64 %.02328.i, 100
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = add i32 %.02328.i, 1
+  %8 = add i32 %.029.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = icmp ult i64 %.02229.i, 1000
+  %10 = icmp ult i64 %.02328.i, 1000
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = add i32 %.02328.i, 2
+  %12 = add i32 %.029.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 13:                                               ; preds = %9
-  %14 = icmp ult i64 %.02229.i, 10000
+  %14 = icmp ult i64 %.02328.i, 10000
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = add i32 %.02328.i, 3
+  %16 = add i32 %.029.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 17:                                               ; preds = %13
-  %18 = udiv i64 %.02229.i, 10000
-  %19 = add i32 %.02328.i, 4
-  %20 = icmp ult i64 %.02229.i, 100000
+  %18 = udiv i64 %.02328.i, 10000
+  %19 = add i32 %.029.i, 4
+  %20 = icmp ult i64 %.02328.i, 100000
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %.lr.ph.i, !llvm.loop !29
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.022.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i64 %1, 63
   %21 = trunc nuw nsw i64 %.lobit to i32
-  %22 = add i32 %.0.i, %21
+  %22 = add i32 %.022.i, %21
   %23 = zext i32 %22 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   %24 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -2043,7 +2043,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br i1 %29, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %28
-  %30 = add i32 %.0.i, -1
+  %30 = add i32 %.022.i, -1
   br label %.lr.ph.i16
 
 .lr.ph.i16:                                       ; preds = %.lr.ph.i16, %.lr.ph.preheader.i

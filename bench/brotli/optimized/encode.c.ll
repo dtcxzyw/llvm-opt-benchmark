@@ -434,13 +434,13 @@ if.then31:                                        ; preds = %fallback
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.then31, %if.end33.i
-  %size.038.i = phi i64 [ %sub42.i, %if.end33.i ], [ %input_size, %if.then31 ]
-  %offset.037.i = phi i64 [ %add40.i, %if.end33.i ], [ 0, %if.then31 ]
-  %result.036.i = phi i64 [ %add38.i, %if.end33.i ], [ 2, %if.then31 ]
-  %cond34.i = call i64 @llvm.umin.i64(i64 %size.038.i, i64 16777216)
+  %offset.038.i = phi i64 [ %add40.i, %if.end33.i ], [ 0, %if.then31 ]
+  %result.037.i = phi i64 [ %add38.i, %if.end33.i ], [ 2, %if.then31 ]
+  %size.036.i = phi i64 [ %sub42.i, %if.end33.i ], [ %input_size, %if.then31 ]
+  %cond34.i = call i64 @llvm.umin.i64(i64 %size.036.i, i64 16777216)
   %cond.i53 = trunc nuw nsw i64 %cond34.i to i32
-  %cmp6.i = icmp ugt i64 %size.038.i, 65536
-  %cmp9.i = icmp ugt i64 %size.038.i, 1048576
+  %cmp6.i = icmp ugt i64 %size.036.i, 65536
+  %cmp9.i = icmp ugt i64 %size.036.i, 1048576
   %cond11.i = select i1 %cmp9.i, i32 2, i32 1
   %nibbles.0.i = select i1 %cmp6.i, i32 %cond11.i, i32 0
   %shl.i = shl nuw nsw i32 %nibbles.0.i, 1
@@ -451,7 +451,7 @@ while.body.i:                                     ; preds = %if.then31, %if.end3
   %shl14.i = shl nuw nsw i32 524288, %mul.i54
   %or15.i = or i32 %or.i, %shl14.i
   %conv16.i = trunc i32 %or.i to i8
-  %arrayidx18.i = getelementptr inbounds i8, ptr %encoded_buffer, i64 %result.036.i
+  %arrayidx18.i = getelementptr inbounds i8, ptr %encoded_buffer, i64 %result.037.i
   store i8 %conv16.i, ptr %arrayidx18.i, align 1
   %shr.i = lshr i32 %shl13.i, 8
   %conv19.i = trunc i32 %shr.i to i8
@@ -459,7 +459,7 @@ while.body.i:                                     ; preds = %if.then31, %if.end3
   store i8 %conv19.i, ptr %arrayidx21.i, align 1
   %shr22.i = lshr i32 %or15.i, 16
   %conv23.i = trunc i32 %shr22.i to i8
-  %inc24.i = add i64 %result.036.i, 3
+  %inc24.i = add i64 %result.037.i, 3
   %arrayidx25.i = getelementptr i8, ptr %arrayidx18.i, i64 2
   store i8 %conv23.i, ptr %arrayidx25.i, align 1
   br i1 %cmp9.i, label %if.then28.i, label %if.end33.i
@@ -467,7 +467,7 @@ while.body.i:                                     ; preds = %if.then31, %if.end3
 if.then28.i:                                      ; preds = %while.body.i
   %shr29.i = lshr i32 %or15.i, 24
   %conv30.i = trunc nuw i32 %shr29.i to i8
-  %inc31.i = add i64 %result.036.i, 4
+  %inc31.i = add i64 %result.037.i, 4
   %arrayidx32.i = getelementptr inbounds i8, ptr %encoded_buffer, i64 %inc24.i
   store i8 %conv30.i, ptr %arrayidx32.i, align 1
   br label %if.end33.i
@@ -475,11 +475,11 @@ if.then28.i:                                      ; preds = %while.body.i
 if.end33.i:                                       ; preds = %if.then28.i, %while.body.i
   %result.1.i = phi i64 [ %inc31.i, %if.then28.i ], [ %inc24.i, %while.body.i ]
   %arrayidx34.i = getelementptr inbounds i8, ptr %encoded_buffer, i64 %result.1.i
-  %arrayidx35.i = getelementptr inbounds i8, ptr %input_buffer, i64 %offset.037.i
+  %arrayidx35.i = getelementptr inbounds i8, ptr %input_buffer, i64 %offset.038.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx34.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %arrayidx35.i, i64 %cond34.i, i1 false)
   %add38.i = add i64 %result.1.i, %cond34.i
-  %add40.i = add i64 %cond34.i, %offset.037.i
-  %sub42.i = sub i64 %size.038.i, %cond34.i
+  %add40.i = add i64 %cond34.i, %offset.038.i
+  %sub42.i = sub i64 %size.036.i, %cond34.i
   %cmp4.not.i = icmp eq i64 %sub42.i, 0
   br i1 %cmp4.not.i, label %MakeUncompressedStream.exit, label %while.body.i, !llvm.loop !4
 
@@ -596,8 +596,8 @@ if.else.i91.i:                                    ; preds = %if.then.i90.i
   br label %if.end.i92.i
 
 if.end.i92.i:                                     ; preds = %if.else.i91.i, %if.then.i90.i
-  %num_direct_distance_codes.0.i.i = phi i32 [ %9, %if.else.i91.i ], [ 12, %if.then.i90.i ]
   %distance_postfix_bits.0.i.i = phi i32 [ %8, %if.else.i91.i ], [ 1, %if.then.i90.i ]
+  %num_direct_distance_codes.0.i.i = phi i32 [ %9, %if.else.i91.i ], [ 12, %if.then.i90.i ]
   %cmp6.i.i = icmp ugt i32 %distance_postfix_bits.0.i.i, 3
   %cmp7.i.i = icmp ugt i32 %num_direct_distance_codes.0.i.i, 120
   %or.cond.i.i = select i1 %cmp6.i.i, i1 true, i1 %cmp7.i.i
@@ -614,8 +614,8 @@ if.then10.i94.i:                                  ; preds = %lor.lhs.false8.i.i,
   br label %ChooseDistanceParams.exit.i
 
 ChooseDistanceParams.exit.i:                      ; preds = %if.then10.i94.i, %lor.lhs.false8.i.i, %ComputeLgBlock.exit.i
-  %num_direct_distance_codes.1.i.i = phi i32 [ 0, %if.then10.i94.i ], [ %num_direct_distance_codes.0.i.i, %lor.lhs.false8.i.i ], [ 0, %ComputeLgBlock.exit.i ]
   %distance_postfix_bits.1.i.i = phi i32 [ 0, %if.then10.i94.i ], [ %distance_postfix_bits.0.i.i, %lor.lhs.false8.i.i ], [ 0, %ComputeLgBlock.exit.i ]
+  %num_direct_distance_codes.1.i.i = phi i32 [ 0, %if.then10.i94.i ], [ %num_direct_distance_codes.0.i.i, %lor.lhs.false8.i.i ], [ 0, %ComputeLgBlock.exit.i ]
   %dist13.i.i = getelementptr inbounds i8, ptr %s, i64 56
   %large_window.i89.i = getelementptr inbounds i8, ptr %s, i64 36
   %10 = load i32, ptr %large_window.i89.i, align 4
@@ -1179,10 +1179,10 @@ cond.true25.i:                                    ; preds = %if.else.i168
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %cond.true25.i, %if.else.i168, %if.then19.i, %if.end.i97
-  %literal_buf.0.i = phi ptr [ %83, %if.then19.i ], [ null, %if.end.i97 ], [ %call27.i, %cond.true25.i ], [ null, %if.else.i168 ]
-  %tmp_literal_buf.0.i = phi ptr [ null, %if.then19.i ], [ null, %if.end.i97 ], [ %call27.i, %cond.true25.i ], [ null, %if.else.i168 ]
-  %command_buf.0.i = phi ptr [ %82, %if.then19.i ], [ null, %if.end.i97 ], [ %call23.i169, %cond.true25.i ], [ null, %if.else.i168 ]
   %tmp_command_buf.0.i = phi ptr [ null, %if.then19.i ], [ null, %if.end.i97 ], [ %call23.i169, %cond.true25.i ], [ null, %if.else.i168 ]
+  %command_buf.0.i = phi ptr [ %82, %if.then19.i ], [ null, %if.end.i97 ], [ %call23.i169, %cond.true25.i ], [ null, %if.else.i168 ]
+  %tmp_literal_buf.0.i = phi ptr [ null, %if.then19.i ], [ null, %if.end.i97 ], [ %call27.i, %cond.true25.i ], [ null, %if.else.i168 ]
+  %literal_buf.0.i = phi ptr [ %83, %if.then19.i ], [ null, %if.end.i97 ], [ %call27.i, %cond.true25.i ], [ null, %if.else.i168 ]
   %last_bytes_bits_.i.i98 = getelementptr inbounds i8, ptr %s, i64 1610
   %last_bytes_.i.i.i99 = getelementptr inbounds i8, ptr %s, i64 1608
   %next_out_.i.i.i100 = getelementptr inbounds i8, ptr %s, i64 6920
@@ -6951,14 +6951,14 @@ for.inc33.i:                                      ; preds = %for.inc33.loopexit.
 
 while.body.i84.i:                                 ; preds = %FastLog2.exit.i, %while.cond.i77.preheader.i
   %population.addr.i66.0.idx89.i = phi i64 [ 0, %while.cond.i77.preheader.i ], [ %incdec.ptr.i85.add.i, %FastLog2.exit.i ]
-  %sum.i69.088.i = phi i64 [ 0, %while.cond.i77.preheader.i ], [ %add5.i94.i, %FastLog2.exit.i ]
-  %retval1.i70.087.i = phi double [ 0.000000e+00, %while.cond.i77.preheader.i ], [ %16, %FastLog2.exit.i ]
+  %retval1.i70.088.i = phi double [ 0.000000e+00, %while.cond.i77.preheader.i ], [ %16, %FastLog2.exit.i ]
+  %sum.i69.087.i = phi i64 [ 0, %while.cond.i77.preheader.i ], [ %add5.i94.i, %FastLog2.exit.i ]
   %population.addr.i66.0.ptr.i = getelementptr inbounds i8, ptr %arena, i64 %population.addr.i66.0.idx89.i
   %population.addr.i66.0.add.i = or disjoint i64 %population.addr.i66.0.idx89.i, 4
   %incdec.ptr.i85.ptr.i = getelementptr inbounds i8, ptr %arena, i64 %population.addr.i66.0.add.i
   %11 = load i32, ptr %population.addr.i66.0.ptr.i, align 4
   %conv.i86.i = zext i32 %11 to i64
-  %add.i87.i = add i64 %sum.i69.088.i, %conv.i86.i
+  %add.i87.i = add i64 %sum.i69.087.i, %conv.i86.i
   %conv2.i88.i = uitofp i32 %11 to double
   %cmp.i107.i = icmp ult i32 %11, 256
   br i1 %cmp.i107.i, label %if.then.i111.i, label %if.end.i108.i
@@ -6975,7 +6975,7 @@ if.end.i108.i:                                    ; preds = %while.body.i84.i
 FastLog2.exit113.i:                               ; preds = %if.end.i108.i, %if.then.i111.i
   %retval.i105.0.i = phi double [ %12, %if.then.i111.i ], [ %call.i110.i, %if.end.i108.i ]
   %neg.i90.i = fneg double %conv2.i88.i
-  %13 = tail call double @llvm.fmuladd.f64(double %neg.i90.i, double %retval.i105.0.i, double %retval1.i70.087.i)
+  %13 = tail call double @llvm.fmuladd.f64(double %neg.i90.i, double %retval.i105.0.i, double %retval1.i70.088.i)
   %incdec.ptr.i85.add.i = add nuw nsw i64 %population.addr.i66.0.idx89.i, 8
   %14 = load i32, ptr %incdec.ptr.i85.ptr.i, align 4
   %conv4.i93.i = zext i32 %14 to i64
@@ -7035,11 +7035,11 @@ for.body41.i:                                     ; preds = %ShannonEntropy.exit
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %FastLog2.exit131.i, %for.body41.i
-  %population.addr.i.0.idx92.i = phi i64 [ 0, %for.body41.i ], [ %incdec.ptr.i.add.i, %FastLog2.exit131.i ]
+  %retval1.i.092.i = phi double [ 0.000000e+00, %for.body41.i ], [ %24, %FastLog2.exit131.i ]
   %sum.i.091.i = phi i64 [ 0, %for.body41.i ], [ %add5.i.i, %FastLog2.exit131.i ]
-  %retval1.i.090.i = phi double [ 0.000000e+00, %for.body41.i ], [ %24, %FastLog2.exit131.i ]
-  %population.addr.i.0.ptr.i = getelementptr inbounds i8, ptr %add.ptr43.i, i64 %population.addr.i.0.idx92.i
-  %population.addr.i.0.add.i = or disjoint i64 %population.addr.i.0.idx92.i, 4
+  %population.addr.i.0.idx90.i = phi i64 [ 0, %for.body41.i ], [ %incdec.ptr.i.add.i, %FastLog2.exit131.i ]
+  %population.addr.i.0.ptr.i = getelementptr inbounds i8, ptr %add.ptr43.i, i64 %population.addr.i.0.idx90.i
+  %population.addr.i.0.add.i = or disjoint i64 %population.addr.i.0.idx90.i, 4
   %incdec.ptr.i.ptr.i = getelementptr inbounds i8, ptr %add.ptr43.i, i64 %population.addr.i.0.add.i
   %19 = load i32, ptr %population.addr.i.0.ptr.i, align 4
   %conv.i.i = zext i32 %19 to i64
@@ -7060,8 +7060,8 @@ if.end.i135.i:                                    ; preds = %while.body.i.i
 FastLog2.exit140.i:                               ; preds = %if.end.i135.i, %if.then.i138.i
   %retval.i132.0.i = phi double [ %20, %if.then.i138.i ], [ %call.i137.i, %if.end.i135.i ]
   %neg.i.i = fneg double %conv2.i.i
-  %21 = tail call double @llvm.fmuladd.f64(double %neg.i.i, double %retval.i132.0.i, double %retval1.i.090.i)
-  %incdec.ptr.i.add.i = add nuw nsw i64 %population.addr.i.0.idx92.i, 8
+  %21 = tail call double @llvm.fmuladd.f64(double %neg.i.i, double %retval.i132.0.i, double %retval1.i.092.i)
+  %incdec.ptr.i.add.i = add nuw nsw i64 %population.addr.i.0.idx90.i, 8
   %22 = load i32, ptr %incdec.ptr.i.ptr.i, align 4
   %conv4.i.i = zext i32 %22 to i64
   %add5.i.i = add i64 %add.i.i, %conv4.i.i
@@ -7082,7 +7082,7 @@ FastLog2.exit131.i:                               ; preds = %if.end.i126.i, %if.
   %retval.i123.0.i = phi double [ %23, %if.then.i129.i ], [ %call.i128.i, %if.end.i126.i ]
   %neg8.i.i = fneg double %conv6.i.i
   %24 = tail call double @llvm.fmuladd.f64(double %neg8.i.i, double %retval.i123.0.i, double %21)
-  %cmp.i.i = icmp ult i64 %population.addr.i.0.idx92.i, 120
+  %cmp.i.i = icmp ult i64 %population.addr.i.0.idx90.i, 120
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !72
 
 while.end.i.i:                                    ; preds = %FastLog2.exit131.i
@@ -7240,11 +7240,11 @@ FastLog2.exit179.i:                               ; preds = %if.end.i174.i, %if.
   br label %odd_number_of_elements_left.i157.i
 
 odd_number_of_elements_left.i157.i:               ; preds = %odd_number_of_elements_left.i157.i.preheader, %FastLog2.exit179.i
-  %retval1.i136.1.i = phi double [ %38, %FastLog2.exit179.i ], [ 0.000000e+00, %odd_number_of_elements_left.i157.i.preheader ]
-  %sum.i135.1.i = phi i64 [ %add.i153.i, %FastLog2.exit179.i ], [ 0, %odd_number_of_elements_left.i157.i.preheader ]
   %cmp.i144.i = phi i1 [ false, %FastLog2.exit179.i ], [ true, %odd_number_of_elements_left.i157.i.preheader ]
   %population.addr.i132.1.idx.sroa.phi.i = phi ptr [ %population.addr.i132.1.idx.sroa.gep.i, %FastLog2.exit179.i ], [ %monogram_histo.i, %odd_number_of_elements_left.i157.i.preheader ]
   %population.addr.i132.1.idx.i.sroa.phi = phi ptr [ %population.addr.i132.1.idx.i.sroa.gep, %FastLog2.exit179.i ], [ %population.addr.i132.1.idx.i.sroa.gep53, %odd_number_of_elements_left.i157.i.preheader ]
+  %sum.i135.1.i = phi i64 [ %add.i153.i, %FastLog2.exit179.i ], [ 0, %odd_number_of_elements_left.i157.i.preheader ]
+  %retval1.i136.1.i = phi double [ %38, %FastLog2.exit179.i ], [ 0.000000e+00, %odd_number_of_elements_left.i157.i.preheader ]
   %39 = load i32, ptr %population.addr.i132.1.idx.sroa.phi.i, align 4
   %conv4.i159.i = zext i32 %39 to i64
   %add5.i160.i = add i64 %sum.i135.1.i, %conv4.i159.i

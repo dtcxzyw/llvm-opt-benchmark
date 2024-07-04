@@ -254,10 +254,10 @@ define hidden void @zif_header_remove(ptr noundef %0, ptr nocapture noundef read
 
 26:                                               ; preds = %.thread83, %25
   %.094 = phi i32 [ 1, %.thread83 ], [ 9, %25 ]
-  %.06193 = phi i32 [ 0, %.thread83 ], [ 5, %25 ]
-  %.06292 = phi ptr [ null, %.thread83 ], [ %11, %25 ]
-  %.06391 = phi i32 [ 0, %.thread83 ], [ 1, %25 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.094, i32 noundef %.06391, ptr noundef null, i32 noundef %.06193, ptr noundef %.06292) #9
+  %.06093 = phi i32 [ 0, %.thread83 ], [ 5, %25 ]
+  %.06192 = phi ptr [ null, %.thread83 ], [ %11, %25 ]
+  %.06291 = phi i32 [ 0, %.thread83 ], [ 1, %25 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.094, i32 noundef %.06291, ptr noundef null, i32 noundef %.06093, ptr noundef %.06192) #9
   br label %32
 
 .thread:                                          ; preds = %8, %25
@@ -685,8 +685,8 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   br i1 %.not750, label %203, label %202
 
 202:                                              ; preds = %185, %197
-  %.0639 = phi i64 [ %195, %185 ], [ %200, %197 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef %.0639) #9
+  %.0640 = phi i64 [ %195, %185 ], [ %200, %197 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef %.0640) #9
   %.pre806 = load ptr, ptr %12, align 8
   %.phi.trans.insert807 = getelementptr inbounds i8, ptr %.pre806, i64 16
   %.pre808 = load i64, ptr %.phi.trans.insert807, align 8
@@ -695,13 +695,13 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
 203:                                              ; preds = %202, %197
   %204 = phi i64 [ %.pre808, %202 ], [ %199, %197 ]
   %205 = phi ptr [ %.pre806, %202 ], [ %196, %197 ]
-  %.1640 = phi i64 [ %.0639, %202 ], [ %200, %197 ]
+  %.1641 = phi i64 [ %.0640, %202 ], [ %200, %197 ]
   %206 = getelementptr inbounds i8, ptr %205, i64 24
   %207 = getelementptr inbounds i8, ptr %206, i64 %204
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %207, ptr nonnull align 1 %193, i64 %195, i1 false)
   %208 = load ptr, ptr %12, align 8
   %209 = getelementptr inbounds i8, ptr %208, i64 16
-  store i64 %.1640, ptr %209, align 8
+  store i64 %.1641, ptr %209, align 8
   %210 = getelementptr inbounds i8, ptr %192, i64 4
   %211 = load i32, ptr %210, align 4
   %212 = and i32 %211, 64
@@ -1154,8 +1154,8 @@ define i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %
   br label %423
 
 423:                                              ; preds = %402, %421, %422, %414, %40, %36, %30, %25, %19, %15
-  %.0641 = phi i32 [ -1, %19 ], [ -1, %25 ], [ -1, %30 ], [ -1, %36 ], [ -1, %40 ], [ -1, %15 ], [ %409, %414 ], [ %409, %422 ], [ %409, %421 ], [ %409, %402 ]
-  ret i32 %.0641
+  %.0631 = phi i32 [ -1, %19 ], [ -1, %25 ], [ -1, %30 ], [ -1, %36 ], [ -1, %40 ], [ -1, %15 ], [ %409, %414 ], [ %409, %422 ], [ %409, %421 ], [ %409, %402 ]
+  ret i32 %.0631
 }
 
 declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
@@ -1400,34 +1400,34 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
 
 .lr.ph.i:                                         ; preds = %203, %.lr.ph.preheader.i
   %.0345 = phi ptr [ null, %.lr.ph.preheader.i ], [ %.1346, %203 ]
-  %.085117.i = phi i32 [ %91, %.lr.ph.preheader.i ], [ %204, %203 ]
-  %.086116.i = phi ptr [ %93, %.lr.ph.preheader.i ], [ %.1.i, %203 ]
-  %.087115.i = phi ptr [ null, %.lr.ph.preheader.i ], [ %.188.i, %203 ]
+  %.0117.i = phi i32 [ %91, %.lr.ph.preheader.i ], [ %204, %203 ]
+  %.085116.i = phi ptr [ %93, %.lr.ph.preheader.i ], [ %.1.i, %203 ]
+  %.088114.i = phi ptr [ null, %.lr.ph.preheader.i ], [ %.189.i, %203 ]
   %94 = load i32, ptr %89, align 8
   %95 = and i32 %94, 4
   %.not97.i = icmp eq i32 %95, 0
   br i1 %.not97.i, label %98, label %96
 
 96:                                               ; preds = %.lr.ph.i
-  %97 = getelementptr inbounds i8, ptr %.086116.i, i64 16
+  %97 = getelementptr inbounds i8, ptr %.085116.i, i64 16
   br label %102
 
 98:                                               ; preds = %.lr.ph.i
-  %99 = getelementptr inbounds i8, ptr %.086116.i, i64 32
-  %100 = getelementptr inbounds i8, ptr %.086116.i, i64 24
+  %99 = getelementptr inbounds i8, ptr %.085116.i, i64 32
+  %100 = getelementptr inbounds i8, ptr %.085116.i, i64 24
   %101 = load ptr, ptr %100, align 8
   br label %102
 
 102:                                              ; preds = %98, %96
-  %.188.i = phi ptr [ %.087115.i, %96 ], [ %101, %98 ]
+  %.189.i = phi ptr [ %.088114.i, %96 ], [ %101, %98 ]
   %.1.i = phi ptr [ %97, %96 ], [ %99, %98 ]
-  %103 = getelementptr inbounds i8, ptr %.086116.i, i64 8
+  %103 = getelementptr inbounds i8, ptr %.085116.i, i64 8
   %104 = load i8, ptr %103, align 8
   %105 = icmp eq i8 %104, 0
   br i1 %105, label %203, label %106
 
 106:                                              ; preds = %102
-  %.not98.i = icmp eq ptr %.188.i, null
+  %.not98.i = icmp eq ptr %.189.i, null
   br i1 %.not98.i, label %107, label %109
 
 107:                                              ; preds = %106
@@ -1436,13 +1436,13 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
   br label %php_head_parse_cookie_options_array.exit.thread
 
 109:                                              ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %.188.i, i64 16
+  %110 = getelementptr inbounds i8, ptr %.189.i, i64 16
   %111 = load i64, ptr %110, align 8
   %112 = icmp eq i64 %111, 7
   br i1 %112, label %113, label %125
 
 113:                                              ; preds = %109
-  %114 = getelementptr inbounds i8, ptr %.188.i, i64 24
+  %114 = getelementptr inbounds i8, ptr %.189.i, i64 24
   %115 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %114, i64 noundef 7, ptr noundef nonnull @.str.24, i64 noundef 7) #9
   %.not99.i = icmp eq i32 %115, 0
   br i1 %.not99.i, label %116, label %thread-pre-split.i
@@ -1453,11 +1453,11 @@ define internal fastcc void @php_setcookie_common(ptr noundef %0, ptr nocapture 
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %116
-  %120 = load i64, ptr %.086116.i, align 8
+  %120 = load i64, ptr %.085116.i, align 8
   br label %123
 
 121:                                              ; preds = %116
-  %122 = call i64 @zval_get_long_func(ptr noundef nonnull %.086116.i, i1 noundef zeroext false) #9
+  %122 = call i64 @zval_get_long_func(ptr noundef nonnull %.085116.i, i1 noundef zeroext false) #9
   br label %123
 
 123:                                              ; preds = %121, %119
@@ -1475,7 +1475,7 @@ thread-pre-split.i:                               ; preds = %113
   br i1 %127, label %128, label %146
 
 128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %.188.i, i64 24
+  %129 = getelementptr inbounds i8, ptr %.189.i, i64 24
   %130 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %129, i64 noundef 4, ptr noundef nonnull @.str.25, i64 noundef 4) #9
   %.not100.i = icmp eq i32 %130, 0
   br i1 %.not100.i, label %131, label %._crit_edge.i
@@ -1490,7 +1490,7 @@ thread-pre-split.i:                               ; preds = %113
   br i1 %133, label %134, label %142
 
 134:                                              ; preds = %131
-  %135 = load ptr, ptr %.086116.i, align 8
+  %135 = load ptr, ptr %.085116.i, align 8
   %136 = getelementptr inbounds i8, ptr %135, i64 4
   %137 = load i32, ptr %136, align 4
   %138 = and i32 %137, 64
@@ -1504,7 +1504,7 @@ thread-pre-split.i:                               ; preds = %113
   br label %144
 
 142:                                              ; preds = %131
-  %143 = call ptr @zval_get_string_func(ptr noundef nonnull %.086116.i) #9
+  %143 = call ptr @zval_get_string_func(ptr noundef nonnull %.085116.i) #9
   br label %144
 
 144:                                              ; preds = %142, %139, %134
@@ -1518,7 +1518,7 @@ thread-pre-split.i:                               ; preds = %113
   br i1 %148, label %149, label %.thread.i
 
 149:                                              ; preds = %146
-  %150 = getelementptr inbounds i8, ptr %.188.i, i64 24
+  %150 = getelementptr inbounds i8, ptr %.189.i, i64 24
   %151 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %150, i64 noundef 6, ptr noundef nonnull @.str.26, i64 noundef 6) #9
   %.not102.i = icmp eq i32 %151, 0
   br i1 %.not102.i, label %152, label %167
@@ -1529,7 +1529,7 @@ thread-pre-split.i:                               ; preds = %113
   br i1 %154, label %155, label %163
 
 155:                                              ; preds = %152
-  %156 = load ptr, ptr %.086116.i, align 8
+  %156 = load ptr, ptr %.085116.i, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 4
   %158 = load i32, ptr %157, align 4
   %159 = and i32 %158, 64
@@ -1543,7 +1543,7 @@ thread-pre-split.i:                               ; preds = %113
   br label %165
 
 163:                                              ; preds = %152
-  %164 = call ptr @zval_get_string_func(ptr noundef nonnull %.086116.i) #9
+  %164 = call ptr @zval_get_string_func(ptr noundef nonnull %.085116.i) #9
   br label %165
 
 165:                                              ; preds = %163, %160, %155
@@ -1562,7 +1562,7 @@ thread-pre-split.i:                               ; preds = %113
   br i1 %.not104.i, label %171, label %thread-pre-split110.i
 
 171:                                              ; preds = %169
-  %172 = call i32 @zend_is_true(ptr noundef nonnull %.086116.i) #9
+  %172 = call i32 @zend_is_true(ptr noundef nonnull %.085116.i) #9
   %173 = icmp ne i32 %172, 0
   %174 = zext i1 %173 to i8
   store i8 %174, ptr %9, align 1
@@ -1578,13 +1578,13 @@ thread-pre-split110.i:                            ; preds = %169
   br i1 %176, label %177, label %.thread122.i
 
 177:                                              ; preds = %.thread.i
-  %178 = getelementptr inbounds i8, ptr %.188.i, i64 24
+  %178 = getelementptr inbounds i8, ptr %.189.i, i64 24
   %179 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %178, i64 noundef 8, ptr noundef nonnull @.str.28, i64 noundef 8) #9
   %.not105.i = icmp eq i32 %179, 0
   br i1 %.not105.i, label %180, label %184
 
 180:                                              ; preds = %177
-  %181 = call i32 @zend_is_true(ptr noundef nonnull %.086116.i) #9
+  %181 = call i32 @zend_is_true(ptr noundef nonnull %.085116.i) #9
   %182 = icmp ne i32 %181, 0
   %183 = zext i1 %182 to i8
   store i8 %183, ptr %10, align 1
@@ -1606,7 +1606,7 @@ thread-pre-split110.i:                            ; preds = %169
   br i1 %190, label %191, label %199
 
 191:                                              ; preds = %188
-  %192 = load ptr, ptr %.086116.i, align 8
+  %192 = load ptr, ptr %.085116.i, align 8
   %193 = getelementptr inbounds i8, ptr %192, i64 4
   %194 = load i32, ptr %193, align 4
   %195 = and i32 %194, 64
@@ -1620,18 +1620,18 @@ thread-pre-split110.i:                            ; preds = %169
   br label %203
 
 199:                                              ; preds = %188
-  %200 = call ptr @zval_get_string_func(ptr noundef nonnull %.086116.i) #9
+  %200 = call ptr @zval_get_string_func(ptr noundef nonnull %.085116.i) #9
   br label %203
 
 .thread122.i:                                     ; preds = %186, %184, %.thread.i
   %201 = call ptr @get_active_function_name() #9
-  %202 = getelementptr inbounds i8, ptr %.188.i, i64 24
+  %202 = getelementptr inbounds i8, ptr %.189.i, i64 24
   call void (ptr, ...) @zend_value_error(ptr noundef nonnull @.str.30, ptr noundef %201, ptr noundef nonnull %202) #9
   br label %php_head_parse_cookie_options_array.exit.thread
 
 203:                                              ; preds = %191, %196, %199, %180, %171, %165, %144, %123, %102
   %.1346 = phi ptr [ %.0345, %102 ], [ %.0345, %123 ], [ %.0345, %144 ], [ %.0345, %165 ], [ %.0345, %171 ], [ %.0345, %180 ], [ %200, %199 ], [ %192, %196 ], [ %192, %191 ]
-  %204 = add i32 %.085117.i, -1
+  %204 = add i32 %.0117.i, -1
   %.not.i = icmp eq i32 %204, 0
   br i1 %.not.i, label %php_head_parse_cookie_options_array.exit, label %.lr.ph.i
 
@@ -1795,8 +1795,8 @@ define hidden void @zif_headers_sent(ptr nocapture noundef readonly %0, ptr noca
 
 15:                                               ; preds = %11, %6
   %16 = phi i32 [ %.pre, %11 ], [ %4, %6 ]
-  %.0142 = phi i64 [ %14, %11 ], [ 0, %6 ]
-  %.0 = phi ptr [ %13, %11 ], [ @.str.19, %6 ]
+  %.0143 = phi i64 [ %14, %11 ], [ 0, %6 ]
+  %.0142 = phi ptr [ %13, %11 ], [ @.str.19, %6 ]
   switch i32 %16, label %52 [
     i32 2, label %17
     i32 1, label %26
@@ -1810,19 +1810,19 @@ define hidden void @zif_headers_sent(ptr nocapture noundef readonly %0, ptr noca
   br i1 %.not154, label %23, label %21
 
 21:                                               ; preds = %17
-  %22 = tail call i32 @zend_try_assign_typed_ref_long(ptr noundef nonnull %18, i64 noundef %.0142) #9
+  %22 = tail call i32 @zend_try_assign_typed_ref_long(ptr noundef nonnull %18, i64 noundef %.0143) #9
   br label %26
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds i8, ptr %18, i64 8
   tail call void @zval_ptr_dtor(ptr noundef nonnull %24) #9
-  store i64 %.0142, ptr %24, align 8
+  store i64 %.0143, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %18, i64 16
   store i32 4, ptr %25, align 8
   br label %26
 
 26:                                               ; preds = %23, %21, %15
-  %.not155 = icmp eq ptr %.0, null
+  %.not155 = icmp eq ptr %.0142, null
   %27 = load ptr, ptr %7, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
@@ -1833,13 +1833,13 @@ define hidden void @zif_headers_sent(ptr nocapture noundef readonly %0, ptr noca
   br i1 %.not156, label %33, label %31
 
 31:                                               ; preds = %30
-  %32 = tail call i32 @zend_try_assign_typed_ref_string(ptr noundef nonnull %27, ptr noundef nonnull %.0) #9
+  %32 = tail call i32 @zend_try_assign_typed_ref_string(ptr noundef nonnull %27, ptr noundef nonnull %.0142) #9
   br label %52
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds i8, ptr %27, i64 8
   tail call void @zval_ptr_dtor(ptr noundef nonnull %34) #9
-  %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #10
+  %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0142) #10
   %36 = and i64 %35, -8
   %37 = add i64 %36, 32
   %38 = tail call noalias ptr @_emalloc(i64 noundef %37) #12
@@ -1851,7 +1851,7 @@ define hidden void @zif_headers_sent(ptr nocapture noundef readonly %0, ptr noca
   %41 = getelementptr inbounds i8, ptr %38, i64 16
   store i64 %35, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %38, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr nonnull align 1 %.0, i64 %35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr nonnull align 1 %.0142, i64 %35, i1 false)
   %43 = getelementptr inbounds [1 x i8], ptr %42, i64 0, i64 %35
   store i8 0, ptr %43, align 1
   store ptr %38, ptr %34, align 8
@@ -1992,10 +1992,10 @@ define hidden void @zif_http_response_code(ptr noundef %0, ptr nocapture noundef
   br label %17
 
 17:                                               ; preds = %15, %.thread97
-  %.068104 = phi i32 [ 0, %.thread97 ], [ 1, %15 ]
-  %.069103 = phi ptr [ null, %.thread97 ], [ %10, %15 ]
-  %.071102 = phi i32 [ 1, %.thread97 ], [ 9, %15 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.071102, i32 noundef %.068104, ptr noundef null, i32 noundef 0, ptr noundef %.069103) #9
+  %.068104 = phi i32 [ 1, %.thread97 ], [ 9, %15 ]
+  %.070103 = phi ptr [ null, %.thread97 ], [ %10, %15 ]
+  %.071102 = phi i32 [ 0, %.thread97 ], [ 1, %15 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.068104, i32 noundef %.071102, ptr noundef null, i32 noundef 0, ptr noundef %.070103) #9
   br label %45
 
 .thread105:                                       ; preds = %..thread105thread-pre-split_crit_edge, %.thread87

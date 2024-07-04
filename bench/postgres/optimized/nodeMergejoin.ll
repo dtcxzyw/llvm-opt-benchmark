@@ -602,15 +602,15 @@ ExecProcNode.exit:                                ; preds = %54, %56
   store ptr %70, ptr %71, align 8
   %72 = load i32, ptr %37, align 8
   %73 = icmp sgt i32 %72, 0
-  br i1 %73, label %.lr.ph.i, label %MJEvalOuterValues.exit.thread386
+  br i1 %73, label %.lr.ph.i, label %MJEvalOuterValues.exit.thread385
 
-MJEvalOuterValues.exit.thread386:                 ; preds = %65
+MJEvalOuterValues.exit.thread385:                 ; preds = %65
   store ptr %69, ptr @CurrentMemoryContext, align 8
   br label %98
 
 .lr.ph.i:                                         ; preds = %65, %94
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %94 ], [ 0, %65 ]
-  %.02327.i = phi i32 [ %.1.i, %94 ], [ 0, %65 ]
+  %.02326.i = phi i32 [ %.1.i, %94 ], [ 0, %65 ]
   %74 = load ptr, ptr %38, align 8
   %75 = getelementptr %struct.MergeJoinClauseData, ptr %74, i64 %indvars.iv.i
   %76 = load ptr, ptr %75, align 8
@@ -640,11 +640,11 @@ MJEvalOuterValues.exit.thread386:                 ; preds = %65
   br i1 %92, label %93, label %94
 
 93:                                               ; preds = %90, %86, %84
-  %spec.store.select.i = call i32 @llvm.umax.i32(i32 %.02327.i, i32 1)
+  %spec.store.select.i = call i32 @llvm.umax.i32(i32 %.02326.i, i32 1)
   br label %94
 
 94:                                               ; preds = %93, %90, %.lr.ph.i
-  %.1.i = phi i32 [ %spec.store.select.i, %93 ], [ %.02327.i, %.lr.ph.i ], [ 2, %90 ]
+  %.1.i = phi i32 [ %spec.store.select.i, %93 ], [ %.02326.i, %.lr.ph.i ], [ 2, %90 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %95 = load i32, ptr %37, align 8
   %96 = sext i32 %95 to i64
@@ -653,13 +653,13 @@ MJEvalOuterValues.exit.thread386:                 ; preds = %65
 
 MJEvalOuterValues.exit:                           ; preds = %94
   store ptr %69, ptr @CurrentMemoryContext, align 8
-  switch i32 %.1.i, label %default.unreachable559 [
+  switch i32 %.1.i, label %default.unreachable558 [
     i32 0, label %98
     i32 1, label %99
     i32 2, label %MJEvalOuterValues.exit.thread
   ]
 
-98:                                               ; preds = %MJEvalOuterValues.exit.thread386, %MJEvalOuterValues.exit
+98:                                               ; preds = %MJEvalOuterValues.exit.thread385, %MJEvalOuterValues.exit
   store i32 2, ptr %26, align 8
   br label %.backedge
 
@@ -714,15 +714,15 @@ ExecProcNode.exit244:                             ; preds = %103, %105
   store ptr %107, ptr %119, align 8
   %120 = load i32, ptr %37, align 8
   %121 = icmp sgt i32 %120, 0
-  br i1 %121, label %.lr.ph.i249, label %MJEvalInnerValues.exit.thread389
+  br i1 %121, label %.lr.ph.i249, label %MJEvalInnerValues.exit.thread388
 
-MJEvalInnerValues.exit.thread389:                 ; preds = %114
+MJEvalInnerValues.exit.thread388:                 ; preds = %114
   store ptr %118, ptr @CurrentMemoryContext, align 8
   br label %147
 
 .lr.ph.i249:                                      ; preds = %114, %143
   %indvars.iv.i250 = phi i64 [ %indvars.iv.next.i253, %143 ], [ 0, %114 ]
-  %.02327.i251 = phi i32 [ %.1.i252, %143 ], [ 0, %114 ]
+  %.02326.i251 = phi i32 [ %.1.i252, %143 ], [ 0, %114 ]
   %122 = load ptr, ptr %38, align 8
   %123 = getelementptr %struct.MergeJoinClauseData, ptr %122, i64 %indvars.iv.i250
   %124 = getelementptr inbounds i8, ptr %123, i64 8
@@ -753,11 +753,11 @@ MJEvalInnerValues.exit.thread389:                 ; preds = %114
   br i1 %141, label %142, label %143
 
 142:                                              ; preds = %139, %135, %133
-  %spec.store.select.i254 = call i32 @llvm.umax.i32(i32 %.02327.i251, i32 1)
+  %spec.store.select.i254 = call i32 @llvm.umax.i32(i32 %.02326.i251, i32 1)
   br label %143
 
 143:                                              ; preds = %142, %139, %.lr.ph.i249
-  %.1.i252 = phi i32 [ %spec.store.select.i254, %142 ], [ %.02327.i251, %.lr.ph.i249 ], [ 2, %139 ]
+  %.1.i252 = phi i32 [ %spec.store.select.i254, %142 ], [ %.02326.i251, %.lr.ph.i249 ], [ 2, %139 ]
   %indvars.iv.next.i253 = add nuw nsw i64 %indvars.iv.i250, 1
   %144 = load i32, ptr %37, align 8
   %145 = sext i32 %144 to i64
@@ -766,13 +766,13 @@ MJEvalInnerValues.exit.thread389:                 ; preds = %114
 
 MJEvalInnerValues.exit:                           ; preds = %143
   store ptr %118, ptr @CurrentMemoryContext, align 8
-  switch i32 %.1.i252, label %default.unreachable559 [
+  switch i32 %.1.i252, label %default.unreachable558 [
     i32 0, label %147
     i32 1, label %148
     i32 2, label %MJEvalInnerValues.exit.thread
   ]
 
-147:                                              ; preds = %MJEvalInnerValues.exit.thread389, %MJEvalInnerValues.exit
+147:                                              ; preds = %MJEvalInnerValues.exit.thread388, %MJEvalInnerValues.exit
   store i32 7, ptr %26, align 8
   br label %.backedge
 
@@ -817,9 +817,9 @@ ExecQual.exit:                                    ; preds = %156
   %161 = load ptr, ptr %46, align 8
   %162 = call i64 %161(ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %4) #7
   store ptr %160, ptr @CurrentMemoryContext, align 8
-  %.not433 = icmp eq i64 %162, 0
+  %.not432 = icmp eq i64 %162, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br i1 %.not433, label %205, label %.critedge
+  br i1 %.not432, label %205, label %.critedge
 
 .critedge:                                        ; preds = %156, %ExecQual.exit
   store i8 1, ptr %27, align 1
@@ -830,7 +830,7 @@ ExecQual.exit:                                    ; preds = %156
     i32 6, label %.backedge
   ]
 
-.backedge:                                        ; preds = %.critedge, %736, %721, %697, %698, %705, %634, %635, %642, %573, %583, %582, %466, %510, %511, %512, %372, %373, %380, %321, %MJEvalInnerValues.exit270.thread, %318, %315, %201, %199, %205, %207, %147, %155, %153, %152, %98, %102, %100, %99, %164
+.backedge:                                        ; preds = %.critedge, %736, %721, %697, %698, %705, %634, %635, %642, %573, %583, %582, %466, %510, %511, %512, %372, %373, %380, %321, %MJEvalInnerValues.exit269.thread, %318, %315, %201, %199, %205, %207, %147, %155, %153, %152, %98, %102, %100, %99, %164
   br label %52
 
 164:                                              ; preds = %.critedge
@@ -847,9 +847,9 @@ ExecQual.exit:                                    ; preds = %156
   br label %169
 
 169:                                              ; preds = %168, %165
-  br i1 %50, label %.critedge241, label %ExecQual.exit257
+  br i1 %50, label %.critedge241, label %ExecQual.exit256
 
-ExecQual.exit257:                                 ; preds = %169
+ExecQual.exit256:                                 ; preds = %169
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   %170 = load ptr, ptr %24, align 8
   %171 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -857,11 +857,11 @@ ExecQual.exit257:                                 ; preds = %169
   %172 = load ptr, ptr %51, align 8
   %173 = call i64 %172(ptr noundef nonnull %17, ptr noundef nonnull %13, ptr noundef nonnull %3) #7
   store ptr %171, ptr @CurrentMemoryContext, align 8
-  %.not434 = icmp eq i64 %173, 0
+  %.not433 = icmp eq i64 %173, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br i1 %.not434, label %199, label %.critedge241
+  br i1 %.not433, label %199, label %.critedge241
 
-.critedge241:                                     ; preds = %169, %ExecQual.exit257
+.critedge241:                                     ; preds = %169, %ExecQual.exit256
   %174 = getelementptr inbounds i8, ptr %0, i64 136
   %175 = load ptr, ptr %174, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -896,7 +896,7 @@ ExecQual.exit257:                                 ; preds = %169
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   br label %.loopexit
 
-199:                                              ; preds = %ExecQual.exit257
+199:                                              ; preds = %ExecQual.exit256
   %200 = load ptr, ptr %47, align 8
   %.not237 = icmp eq ptr %200, null
   br i1 %.not237, label %.backedge, label %201
@@ -936,28 +936,28 @@ ExecQual.exit257:                                 ; preds = %169
 
 217:                                              ; preds = %215, %212, %211
   %218 = load ptr, ptr %33, align 8
-  %.not.i258 = icmp eq ptr %218, null
-  br i1 %.not.i258, label %ExecProcNode.exit259, label %219
+  %.not.i257 = icmp eq ptr %218, null
+  br i1 %.not.i257, label %ExecProcNode.exit258, label %219
 
 219:                                              ; preds = %217
   call void @ExecReScan(ptr noundef nonnull %9) #7
-  br label %ExecProcNode.exit259
+  br label %ExecProcNode.exit258
 
-ExecProcNode.exit259:                             ; preds = %217, %219
+ExecProcNode.exit258:                             ; preds = %217, %219
   %220 = load ptr, ptr %34, align 8
   %221 = call ptr %220(ptr noundef nonnull %9) #7
   store ptr %221, ptr %35, align 8
   store i8 0, ptr %31, align 2
   %222 = load ptr, ptr %36, align 8
   %223 = icmp eq ptr %221, null
-  br i1 %223, label %MJEvalInnerValues.exit270.thread, label %224
+  br i1 %223, label %MJEvalInnerValues.exit269.thread, label %224
 
-224:                                              ; preds = %ExecProcNode.exit259
+224:                                              ; preds = %ExecProcNode.exit258
   %225 = getelementptr inbounds i8, ptr %221, i64 4
   %226 = load i16, ptr %225, align 4
   %227 = and i16 %226, 2
-  %.not.i260 = icmp eq i16 %227, 0
-  br i1 %.not.i260, label %228, label %MJEvalInnerValues.exit270.thread
+  %.not.i259 = icmp eq i16 %227, 0
+  br i1 %.not.i259, label %228, label %MJEvalInnerValues.exit269.thread
 
 228:                                              ; preds = %224
   %229 = getelementptr inbounds i8, ptr %222, i64 40
@@ -970,17 +970,17 @@ ExecProcNode.exit259:                             ; preds = %217, %219
   store ptr %221, ptr %233, align 8
   %234 = load i32, ptr %37, align 8
   %235 = icmp sgt i32 %234, 0
-  br i1 %235, label %.lr.ph.i264, label %MJEvalInnerValues.exit270.thread392
+  br i1 %235, label %.lr.ph.i263, label %MJEvalInnerValues.exit269.thread391
 
-MJEvalInnerValues.exit270.thread392:              ; preds = %228
+MJEvalInnerValues.exit269.thread391:              ; preds = %228
   store ptr %232, ptr @CurrentMemoryContext, align 8
   br label %261
 
-.lr.ph.i264:                                      ; preds = %228, %257
-  %indvars.iv.i265 = phi i64 [ %indvars.iv.next.i268, %257 ], [ 0, %228 ]
-  %.02327.i266 = phi i32 [ %.1.i267, %257 ], [ 0, %228 ]
+.lr.ph.i263:                                      ; preds = %228, %257
+  %indvars.iv.i264 = phi i64 [ %indvars.iv.next.i267, %257 ], [ 0, %228 ]
+  %.02326.i265 = phi i32 [ %.1.i266, %257 ], [ 0, %228 ]
   %236 = load ptr, ptr %38, align 8
-  %237 = getelementptr %struct.MergeJoinClauseData, ptr %236, i64 %indvars.iv.i265
+  %237 = getelementptr %struct.MergeJoinClauseData, ptr %236, i64 %indvars.iv.i264
   %238 = getelementptr inbounds i8, ptr %237, i64 8
   %239 = load ptr, ptr %238, align 8
   %240 = getelementptr inbounds i8, ptr %237, i64 33
@@ -993,8 +993,8 @@ MJEvalInnerValues.exit270.thread392:              ; preds = %228
   %246 = trunc i8 %245 to i1
   br i1 %246, label %247, label %257
 
-247:                                              ; preds = %.lr.ph.i264
-  %248 = icmp eq i64 %indvars.iv.i265, 0
+247:                                              ; preds = %.lr.ph.i263
+  %248 = icmp eq i64 %indvars.iv.i264, 0
   br i1 %248, label %249, label %256
 
 249:                                              ; preds = %247
@@ -1009,26 +1009,26 @@ MJEvalInnerValues.exit270.thread392:              ; preds = %228
   br i1 %255, label %256, label %257
 
 256:                                              ; preds = %253, %249, %247
-  %spec.store.select.i269 = call i32 @llvm.umax.i32(i32 %.02327.i266, i32 1)
+  %spec.store.select.i268 = call i32 @llvm.umax.i32(i32 %.02326.i265, i32 1)
   br label %257
 
-257:                                              ; preds = %256, %253, %.lr.ph.i264
-  %.1.i267 = phi i32 [ %spec.store.select.i269, %256 ], [ %.02327.i266, %.lr.ph.i264 ], [ 2, %253 ]
-  %indvars.iv.next.i268 = add nuw nsw i64 %indvars.iv.i265, 1
+257:                                              ; preds = %256, %253, %.lr.ph.i263
+  %.1.i266 = phi i32 [ %spec.store.select.i268, %256 ], [ %.02326.i265, %.lr.ph.i263 ], [ 2, %253 ]
+  %indvars.iv.next.i267 = add nuw nsw i64 %indvars.iv.i264, 1
   %258 = load i32, ptr %37, align 8
   %259 = sext i32 %258 to i64
-  %260 = icmp slt i64 %indvars.iv.next.i268, %259
-  br i1 %260, label %.lr.ph.i264, label %MJEvalInnerValues.exit270, !llvm.loop !7
+  %260 = icmp slt i64 %indvars.iv.next.i267, %259
+  br i1 %260, label %.lr.ph.i263, label %MJEvalInnerValues.exit269, !llvm.loop !7
 
-MJEvalInnerValues.exit270:                        ; preds = %257
+MJEvalInnerValues.exit269:                        ; preds = %257
   store ptr %232, ptr @CurrentMemoryContext, align 8
-  switch i32 %.1.i267, label %default.unreachable559 [
+  switch i32 %.1.i266, label %default.unreachable558 [
     i32 0, label %261
     i32 1, label %321
-    i32 2, label %MJEvalInnerValues.exit270.thread
+    i32 2, label %MJEvalInnerValues.exit269.thread
   ]
 
-261:                                              ; preds = %MJEvalInnerValues.exit270.thread392, %MJEvalInnerValues.exit270
+261:                                              ; preds = %MJEvalInnerValues.exit269.thread391, %MJEvalInnerValues.exit269
   %262 = load ptr, ptr %12, align 8
   %263 = getelementptr inbounds i8, ptr %262, i64 40
   %264 = load ptr, ptr %263, align 8
@@ -1042,62 +1042,62 @@ MJEvalInnerValues.exit270:                        ; preds = %257
 
 .outer.i:                                         ; preds = %261, %ApplySortComparator.exit.thread27.i
   %.ph.i = phi i32 [ %.pre.i, %ApplySortComparator.exit.thread27.i ], [ %267, %261 ]
-  %indvars.iv.ph.i = phi i64 [ %indvars.iv.next.i274, %ApplySortComparator.exit.thread27.i ], [ 0, %261 ]
-  %.02038.ph.i = phi i1 [ %.02038.i.lcssa, %ApplySortComparator.exit.thread27.i ], [ false, %261 ]
+  %indvars.iv.ph.i = phi i64 [ %indvars.iv.next.i273, %ApplySortComparator.exit.thread27.i ], [ 0, %261 ]
+  %.02137.ph.i = phi i1 [ %.02137.i.lcssa, %ApplySortComparator.exit.thread27.i ], [ false, %261 ]
   %269 = load ptr, ptr %38, align 8
   %270 = sext i32 %.ph.i to i64
   %271 = getelementptr %struct.MergeJoinClauseData, ptr %269, i64 %indvars.iv.ph.i
   %272 = getelementptr inbounds i8, ptr %271, i64 32
   %273 = load i8, ptr %272, align 8
   %274 = trunc i8 %273 to i1
-  br i1 %274, label %.lr.ph508, label %._crit_edge509
+  br i1 %274, label %.lr.ph507, label %._crit_edge508
 
 275:                                              ; preds = %ApplySortComparator.exit.thread27.thread.i
   %276 = getelementptr %struct.MergeJoinClauseData, ptr %269, i64 %indvars.iv.next43.i
   %277 = getelementptr inbounds i8, ptr %276, i64 32
   %278 = load i8, ptr %277, align 8
   %279 = trunc i8 %278 to i1
-  br i1 %279, label %.lr.ph508, label %._crit_edge509, !llvm.loop !8
+  br i1 %279, label %.lr.ph507, label %._crit_edge508, !llvm.loop !8
 
-.lr.ph508:                                        ; preds = %.outer.i, %275
+.lr.ph507:                                        ; preds = %.outer.i, %275
   %280 = phi ptr [ %276, %275 ], [ %271, %.outer.i ]
-  %indvars.iv.i272507 = phi i64 [ %indvars.iv.next43.i, %275 ], [ %indvars.iv.ph.i, %.outer.i ]
+  %indvars.iv.i271506 = phi i64 [ %indvars.iv.next43.i, %275 ], [ %indvars.iv.ph.i, %.outer.i ]
   %281 = getelementptr inbounds i8, ptr %280, i64 33
   %282 = load i8, ptr %281, align 1
   %283 = trunc i8 %282 to i1
   br i1 %283, label %ApplySortComparator.exit.thread27.thread.i, label %284
 
-284:                                              ; preds = %.lr.ph508
+284:                                              ; preds = %.lr.ph507
   %285 = getelementptr inbounds i8, ptr %280, i64 53
   %286 = load i8, ptr %285, align 1
   %287 = trunc i8 %286 to i1
-  br i1 %287, label %.thread399, label %.thread
+  br i1 %287, label %.thread398, label %.thread
 
-._crit_edge509:                                   ; preds = %275, %.outer.i
-  %indvars.iv.i272.lcssa = phi i64 [ %indvars.iv.ph.i, %.outer.i ], [ %indvars.iv.next43.i, %275 ]
-  %.02038.i.lcssa = phi i1 [ %.02038.ph.i, %.outer.i ], [ true, %275 ]
-  %.lcssa468 = phi ptr [ %271, %.outer.i ], [ %276, %275 ]
-  %288 = getelementptr inbounds i8, ptr %.lcssa468, i64 33
+._crit_edge508:                                   ; preds = %275, %.outer.i
+  %indvars.iv.i271.lcssa = phi i64 [ %indvars.iv.ph.i, %.outer.i ], [ %indvars.iv.next43.i, %275 ]
+  %.02137.i.lcssa = phi i1 [ %.02137.ph.i, %.outer.i ], [ true, %275 ]
+  %.lcssa467 = phi ptr [ %271, %.outer.i ], [ %276, %275 ]
+  %288 = getelementptr inbounds i8, ptr %.lcssa467, i64 33
   %289 = load i8, ptr %288, align 1
   %290 = trunc i8 %289 to i1
   br i1 %290, label %291, label %295
 
-291:                                              ; preds = %._crit_edge509
-  %292 = getelementptr inbounds i8, ptr %.lcssa468, i64 53
+291:                                              ; preds = %._crit_edge508
+  %292 = getelementptr inbounds i8, ptr %.lcssa467, i64 53
   %293 = load i8, ptr %292, align 1
   %294 = trunc i8 %293 to i1
-  br i1 %294, label %.thread, label %.thread399
+  br i1 %294, label %.thread, label %.thread398
 
-295:                                              ; preds = %._crit_edge509
-  %296 = getelementptr inbounds i8, ptr %.lcssa468, i64 40
-  %297 = getelementptr inbounds i8, ptr %.lcssa468, i64 24
+295:                                              ; preds = %._crit_edge508
+  %296 = getelementptr inbounds i8, ptr %.lcssa467, i64 40
+  %297 = getelementptr inbounds i8, ptr %.lcssa467, i64 24
   %298 = load i64, ptr %297, align 8
-  %299 = getelementptr inbounds i8, ptr %.lcssa468, i64 16
+  %299 = getelementptr inbounds i8, ptr %.lcssa467, i64 16
   %300 = load i64, ptr %299, align 8
-  %301 = getelementptr inbounds i8, ptr %.lcssa468, i64 64
+  %301 = getelementptr inbounds i8, ptr %.lcssa467, i64 64
   %302 = load ptr, ptr %301, align 8
   %303 = call i32 %302(i64 noundef %300, i64 noundef %298, ptr noundef nonnull %296) #7
-  %304 = getelementptr inbounds i8, ptr %.lcssa468, i64 52
+  %304 = getelementptr inbounds i8, ptr %.lcssa467, i64 52
   %305 = load i8, ptr %304, align 4
   %306 = trunc i8 %305 to i1
   br i1 %306, label %307, label %ApplySortComparator.exit.i
@@ -1109,25 +1109,25 @@ MJEvalInnerValues.exit270:                        ; preds = %257
 
 ApplySortComparator.exit.i:                       ; preds = %307, %295
   %.0.i.i = phi i32 [ %309, %307 ], [ %303, %295 ]
-  %.not.i273 = icmp eq i32 %.0.i.i, 0
-  br i1 %.not.i273, label %ApplySortComparator.exit.thread27.i, label %316
+  %.not.i272 = icmp eq i32 %.0.i.i, 0
+  br i1 %.not.i272, label %ApplySortComparator.exit.thread27.i, label %316
 
 ApplySortComparator.exit.thread27.i:              ; preds = %ApplySortComparator.exit.i
   %.pre.i = load i32, ptr %37, align 8
-  %indvars.iv.next.i274 = add nuw nsw i64 %indvars.iv.i272.lcssa, 1
+  %indvars.iv.next.i273 = add nuw nsw i64 %indvars.iv.i271.lcssa, 1
   %310 = sext i32 %.pre.i to i64
-  %311 = icmp slt i64 %indvars.iv.next.i274, %310
-  br i1 %311, label %.outer.i, label %._crit_edge.i275, !llvm.loop !8
+  %311 = icmp slt i64 %indvars.iv.next.i273, %310
+  br i1 %311, label %.outer.i, label %._crit_edge.i274, !llvm.loop !8
 
-ApplySortComparator.exit.thread27.thread.i:       ; preds = %.lr.ph508
-  %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv.i272507, 1
+ApplySortComparator.exit.thread27.thread.i:       ; preds = %.lr.ph507
+  %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv.i271506, 1
   %312 = icmp slt i64 %indvars.iv.next43.i, %270
   br i1 %312, label %275, label %.thread, !llvm.loop !8
 
-._crit_edge.i275:                                 ; preds = %ApplySortComparator.exit.thread27.i
-  br i1 %.02038.i.lcssa, label %.thread, label %.critedge.i
+._crit_edge.i274:                                 ; preds = %ApplySortComparator.exit.thread27.i
+  br i1 %.02137.i.lcssa, label %.thread, label %.critedge.i
 
-.critedge.i:                                      ; preds = %._crit_edge.i275, %261
+.critedge.i:                                      ; preds = %._crit_edge.i274, %261
   %313 = load i8, ptr %40, align 2
   %314 = trunc i8 %313 to i1
   br i1 %314, label %.thread, label %315
@@ -1137,35 +1137,35 @@ ApplySortComparator.exit.thread27.thread.i:       ; preds = %.lr.ph508
   store i32 3, ptr %26, align 8
   br label %.backedge
 
-.thread:                                          ; preds = %284, %.critedge.i, %._crit_edge.i275, %291, %307, %ApplySortComparator.exit.thread27.thread.i
+.thread:                                          ; preds = %284, %.critedge.i, %._crit_edge.i274, %291, %307, %ApplySortComparator.exit.thread27.thread.i
   store ptr %266, ptr @CurrentMemoryContext, align 8
-  br label %.loopexit439
+  br label %.loopexit438
 
-.thread399:                                       ; preds = %291, %284
+.thread398:                                       ; preds = %291, %284
   store ptr %266, ptr @CurrentMemoryContext, align 8
   br label %318
 
 316:                                              ; preds = %ApplySortComparator.exit.i
   store ptr %266, ptr @CurrentMemoryContext, align 8
   %317 = icmp slt i32 %.0.i.i, 0
-  br i1 %317, label %318, label %.loopexit439
+  br i1 %317, label %318, label %.loopexit438
 
-318:                                              ; preds = %.thread399, %316
+318:                                              ; preds = %.thread398, %316
   store i32 4, ptr %26, align 8
   br label %.backedge
 
-.loopexit439:                                     ; preds = %316, %.thread
+.loopexit438:                                     ; preds = %316, %.thread
   %319 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %319)
   %320 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #7
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 907, ptr noundef nonnull @__func__.ExecMergeJoin) #7
   unreachable
 
-321:                                              ; preds = %MJEvalInnerValues.exit270
+321:                                              ; preds = %MJEvalInnerValues.exit269
   store i32 4, ptr %26, align 8
   br label %.backedge
 
-MJEvalInnerValues.exit270.thread:                 ; preds = %ExecProcNode.exit259, %224, %MJEvalInnerValues.exit270
+MJEvalInnerValues.exit269.thread:                 ; preds = %ExecProcNode.exit258, %224, %MJEvalInnerValues.exit269
   store ptr null, ptr %35, align 8
   store i32 4, ptr %26, align 8
   br label %.backedge
@@ -1186,28 +1186,28 @@ MJEvalInnerValues.exit270.thread:                 ; preds = %ExecProcNode.exit25
 
 328:                                              ; preds = %326, %323, %322
   %329 = load ptr, ptr %28, align 8
-  %.not.i276 = icmp eq ptr %329, null
-  br i1 %.not.i276, label %ExecProcNode.exit277, label %330
+  %.not.i275 = icmp eq ptr %329, null
+  br i1 %.not.i275, label %ExecProcNode.exit276, label %330
 
 330:                                              ; preds = %328
   call void @ExecReScan(ptr noundef nonnull %11) #7
-  br label %ExecProcNode.exit277
+  br label %ExecProcNode.exit276
 
-ExecProcNode.exit277:                             ; preds = %328, %330
+ExecProcNode.exit276:                             ; preds = %328, %330
   %331 = load ptr, ptr %29, align 8
   %332 = call ptr %331(ptr noundef nonnull %11) #7
   store ptr %332, ptr %30, align 8
   store i8 0, ptr %27, align 1
   %333 = load ptr, ptr %39, align 8
   %334 = icmp eq ptr %332, null
-  br i1 %334, label %MJEvalOuterValues.exit288.thread, label %335
+  br i1 %334, label %MJEvalOuterValues.exit287.thread, label %335
 
-335:                                              ; preds = %ExecProcNode.exit277
+335:                                              ; preds = %ExecProcNode.exit276
   %336 = getelementptr inbounds i8, ptr %332, i64 4
   %337 = load i16, ptr %336, align 4
   %338 = and i16 %337, 2
-  %.not.i278 = icmp eq i16 %338, 0
-  br i1 %.not.i278, label %339, label %MJEvalOuterValues.exit288.thread
+  %.not.i277 = icmp eq i16 %338, 0
+  br i1 %.not.i277, label %339, label %MJEvalOuterValues.exit287.thread
 
 339:                                              ; preds = %335
   %340 = getelementptr inbounds i8, ptr %333, i64 40
@@ -1221,17 +1221,17 @@ ExecProcNode.exit277:                             ; preds = %328, %330
   store ptr %344, ptr %345, align 8
   %346 = load i32, ptr %37, align 8
   %347 = icmp sgt i32 %346, 0
-  br i1 %347, label %.lr.ph.i282, label %MJEvalOuterValues.exit288.thread402
+  br i1 %347, label %.lr.ph.i281, label %MJEvalOuterValues.exit287.thread401
 
-MJEvalOuterValues.exit288.thread402:              ; preds = %339
+MJEvalOuterValues.exit287.thread401:              ; preds = %339
   store ptr %343, ptr @CurrentMemoryContext, align 8
   br label %372
 
-.lr.ph.i282:                                      ; preds = %339, %368
-  %indvars.iv.i283 = phi i64 [ %indvars.iv.next.i286, %368 ], [ 0, %339 ]
-  %.02327.i284 = phi i32 [ %.1.i285, %368 ], [ 0, %339 ]
+.lr.ph.i281:                                      ; preds = %339, %368
+  %indvars.iv.i282 = phi i64 [ %indvars.iv.next.i285, %368 ], [ 0, %339 ]
+  %.02326.i283 = phi i32 [ %.1.i284, %368 ], [ 0, %339 ]
   %348 = load ptr, ptr %38, align 8
-  %349 = getelementptr %struct.MergeJoinClauseData, ptr %348, i64 %indvars.iv.i283
+  %349 = getelementptr %struct.MergeJoinClauseData, ptr %348, i64 %indvars.iv.i282
   %350 = load ptr, ptr %349, align 8
   %351 = getelementptr inbounds i8, ptr %349, i64 32
   %352 = getelementptr inbounds i8, ptr %350, i64 32
@@ -1243,8 +1243,8 @@ MJEvalOuterValues.exit288.thread402:              ; preds = %339
   %357 = trunc i8 %356 to i1
   br i1 %357, label %358, label %368
 
-358:                                              ; preds = %.lr.ph.i282
-  %359 = icmp eq i64 %indvars.iv.i283, 0
+358:                                              ; preds = %.lr.ph.i281
+  %359 = icmp eq i64 %indvars.iv.i282, 0
   br i1 %359, label %360, label %367
 
 360:                                              ; preds = %358
@@ -1259,40 +1259,40 @@ MJEvalOuterValues.exit288.thread402:              ; preds = %339
   br i1 %366, label %367, label %368
 
 367:                                              ; preds = %364, %360, %358
-  %spec.store.select.i287 = call i32 @llvm.umax.i32(i32 %.02327.i284, i32 1)
+  %spec.store.select.i286 = call i32 @llvm.umax.i32(i32 %.02326.i283, i32 1)
   br label %368
 
-368:                                              ; preds = %367, %364, %.lr.ph.i282
-  %.1.i285 = phi i32 [ %spec.store.select.i287, %367 ], [ %.02327.i284, %.lr.ph.i282 ], [ 2, %364 ]
-  %indvars.iv.next.i286 = add nuw nsw i64 %indvars.iv.i283, 1
+368:                                              ; preds = %367, %364, %.lr.ph.i281
+  %.1.i284 = phi i32 [ %spec.store.select.i286, %367 ], [ %.02326.i283, %.lr.ph.i281 ], [ 2, %364 ]
+  %indvars.iv.next.i285 = add nuw nsw i64 %indvars.iv.i282, 1
   %369 = load i32, ptr %37, align 8
   %370 = sext i32 %369 to i64
-  %371 = icmp slt i64 %indvars.iv.next.i286, %370
-  br i1 %371, label %.lr.ph.i282, label %MJEvalOuterValues.exit288, !llvm.loop !5
+  %371 = icmp slt i64 %indvars.iv.next.i285, %370
+  br i1 %371, label %.lr.ph.i281, label %MJEvalOuterValues.exit287, !llvm.loop !5
 
-MJEvalOuterValues.exit288:                        ; preds = %368
+MJEvalOuterValues.exit287:                        ; preds = %368
   store ptr %343, ptr @CurrentMemoryContext, align 8
-  switch i32 %.1.i285, label %default.unreachable559 [
+  switch i32 %.1.i284, label %default.unreachable558 [
     i32 0, label %372
     i32 1, label %373
-    i32 2, label %MJEvalOuterValues.exit288.thread
+    i32 2, label %MJEvalOuterValues.exit287.thread
   ]
 
-372:                                              ; preds = %MJEvalOuterValues.exit288.thread402, %MJEvalOuterValues.exit288
+372:                                              ; preds = %MJEvalOuterValues.exit287.thread401, %MJEvalOuterValues.exit287
   store i32 5, ptr %26, align 8
   br label %.backedge
 
-373:                                              ; preds = %MJEvalOuterValues.exit288
+373:                                              ; preds = %MJEvalOuterValues.exit287
   store i32 4, ptr %26, align 8
   br label %.backedge
 
-MJEvalOuterValues.exit288.thread:                 ; preds = %ExecProcNode.exit277, %335, %MJEvalOuterValues.exit288
+MJEvalOuterValues.exit287.thread:                 ; preds = %ExecProcNode.exit276, %335, %MJEvalOuterValues.exit287
   %374 = load ptr, ptr %35, align 8
   %375 = icmp ne ptr %374, null
   %or.cond.not = select i1 %23, i1 %375, i1 false
   br i1 %or.cond.not, label %376, label %.loopexit
 
-376:                                              ; preds = %MJEvalOuterValues.exit288.thread
+376:                                              ; preds = %MJEvalOuterValues.exit287.thread
   %377 = getelementptr inbounds i8, ptr %374, i64 4
   %378 = load i16, ptr %377, align 4
   %379 = and i16 %378, 2
@@ -1307,14 +1307,14 @@ MJEvalOuterValues.exit288.thread:                 ; preds = %ExecProcNode.exit27
   %382 = load ptr, ptr %42, align 8
   %383 = load ptr, ptr %36, align 8
   %384 = icmp eq ptr %382, null
-  br i1 %384, label %MJEvalInnerValues.exit299, label %385
+  br i1 %384, label %MJEvalInnerValues.exit298, label %385
 
 385:                                              ; preds = %381
   %386 = getelementptr inbounds i8, ptr %382, i64 4
   %387 = load i16, ptr %386, align 4
   %388 = and i16 %387, 2
-  %.not.i289 = icmp eq i16 %388, 0
-  br i1 %.not.i289, label %389, label %MJEvalInnerValues.exit299
+  %.not.i288 = icmp eq i16 %388, 0
+  br i1 %.not.i288, label %389, label %MJEvalInnerValues.exit298
 
 389:                                              ; preds = %385
   %390 = getelementptr inbounds i8, ptr %383, i64 40
@@ -1327,12 +1327,12 @@ MJEvalOuterValues.exit288.thread:                 ; preds = %ExecProcNode.exit27
   store ptr %382, ptr %394, align 8
   %395 = load i32, ptr %37, align 8
   %396 = icmp sgt i32 %395, 0
-  br i1 %396, label %.lr.ph.i293, label %._crit_edge.i291
+  br i1 %396, label %.lr.ph.i292, label %._crit_edge.i290
 
-.lr.ph.i293:                                      ; preds = %389, %.lr.ph.i293
-  %indvars.iv.i294 = phi i64 [ %indvars.iv.next.i297, %.lr.ph.i293 ], [ 0, %389 ]
+.lr.ph.i292:                                      ; preds = %389, %.lr.ph.i292
+  %indvars.iv.i293 = phi i64 [ %indvars.iv.next.i296, %.lr.ph.i292 ], [ 0, %389 ]
   %397 = load ptr, ptr %38, align 8
-  %398 = getelementptr %struct.MergeJoinClauseData, ptr %397, i64 %indvars.iv.i294
+  %398 = getelementptr %struct.MergeJoinClauseData, ptr %397, i64 %indvars.iv.i293
   %399 = getelementptr inbounds i8, ptr %398, i64 8
   %400 = load ptr, ptr %399, align 8
   %401 = getelementptr inbounds i8, ptr %398, i64 33
@@ -1341,17 +1341,17 @@ MJEvalOuterValues.exit288.thread:                 ; preds = %ExecProcNode.exit27
   %404 = call i64 %403(ptr noundef %400, ptr noundef %383, ptr noundef nonnull %401) #7
   %405 = getelementptr inbounds i8, ptr %398, i64 24
   store i64 %404, ptr %405, align 8
-  %indvars.iv.next.i297 = add nuw nsw i64 %indvars.iv.i294, 1
+  %indvars.iv.next.i296 = add nuw nsw i64 %indvars.iv.i293, 1
   %406 = load i32, ptr %37, align 8
   %407 = sext i32 %406 to i64
-  %408 = icmp slt i64 %indvars.iv.next.i297, %407
-  br i1 %408, label %.lr.ph.i293, label %._crit_edge.i291, !llvm.loop !7
+  %408 = icmp slt i64 %indvars.iv.next.i296, %407
+  br i1 %408, label %.lr.ph.i292, label %._crit_edge.i290, !llvm.loop !7
 
-._crit_edge.i291:                                 ; preds = %.lr.ph.i293, %389
+._crit_edge.i290:                                 ; preds = %.lr.ph.i292, %389
   store ptr %393, ptr @CurrentMemoryContext, align 8
-  br label %MJEvalInnerValues.exit299
+  br label %MJEvalInnerValues.exit298
 
-MJEvalInnerValues.exit299:                        ; preds = %381, %385, %._crit_edge.i291
+MJEvalInnerValues.exit298:                        ; preds = %381, %385, %._crit_edge.i290
   %409 = load ptr, ptr %12, align 8
   %410 = getelementptr inbounds i8, ptr %409, i64 40
   %411 = load ptr, ptr %410, align 8
@@ -1361,101 +1361,101 @@ MJEvalInnerValues.exit299:                        ; preds = %381, %385, %._crit_
   store ptr %412, ptr @CurrentMemoryContext, align 8
   %414 = load i32, ptr %37, align 8
   %415 = icmp sgt i32 %414, 0
-  br i1 %415, label %.outer.i304, label %.critedge.i300
+  br i1 %415, label %.outer.i303, label %.critedge.i299
 
-.outer.i304:                                      ; preds = %MJEvalInnerValues.exit299, %ApplySortComparator.exit.thread27.i313
-  %.ph.i305 = phi i32 [ %.pre.i314, %ApplySortComparator.exit.thread27.i313 ], [ %414, %MJEvalInnerValues.exit299 ]
-  %indvars.iv.ph.i306 = phi i64 [ %indvars.iv.next.i315, %ApplySortComparator.exit.thread27.i313 ], [ 0, %MJEvalInnerValues.exit299 ]
-  %.02038.ph.i307 = phi i1 [ %.02038.i309.lcssa, %ApplySortComparator.exit.thread27.i313 ], [ false, %MJEvalInnerValues.exit299 ]
+.outer.i303:                                      ; preds = %MJEvalInnerValues.exit298, %ApplySortComparator.exit.thread27.i312
+  %.ph.i304 = phi i32 [ %.pre.i313, %ApplySortComparator.exit.thread27.i312 ], [ %414, %MJEvalInnerValues.exit298 ]
+  %indvars.iv.ph.i305 = phi i64 [ %indvars.iv.next.i314, %ApplySortComparator.exit.thread27.i312 ], [ 0, %MJEvalInnerValues.exit298 ]
+  %.02137.ph.i306 = phi i1 [ %.02137.i308.lcssa, %ApplySortComparator.exit.thread27.i312 ], [ false, %MJEvalInnerValues.exit298 ]
   %416 = load ptr, ptr %38, align 8
-  %417 = sext i32 %.ph.i305 to i64
-  %418 = getelementptr %struct.MergeJoinClauseData, ptr %416, i64 %indvars.iv.ph.i306
+  %417 = sext i32 %.ph.i304 to i64
+  %418 = getelementptr %struct.MergeJoinClauseData, ptr %416, i64 %indvars.iv.ph.i305
   %419 = getelementptr inbounds i8, ptr %418, i64 32
   %420 = load i8, ptr %419, align 8
   %421 = trunc i8 %420 to i1
-  br i1 %421, label %.lr.ph502, label %._crit_edge503
+  br i1 %421, label %.lr.ph501, label %._crit_edge502
 
-422:                                              ; preds = %ApplySortComparator.exit.thread27.thread.i319
-  %423 = getelementptr %struct.MergeJoinClauseData, ptr %416, i64 %indvars.iv.next43.i320
+422:                                              ; preds = %ApplySortComparator.exit.thread27.thread.i318
+  %423 = getelementptr %struct.MergeJoinClauseData, ptr %416, i64 %indvars.iv.next43.i319
   %424 = getelementptr inbounds i8, ptr %423, i64 32
   %425 = load i8, ptr %424, align 8
   %426 = trunc i8 %425 to i1
-  br i1 %426, label %.lr.ph502, label %._crit_edge503, !llvm.loop !8
+  br i1 %426, label %.lr.ph501, label %._crit_edge502, !llvm.loop !8
 
-.lr.ph502:                                        ; preds = %.outer.i304, %422
-  %427 = phi ptr [ %423, %422 ], [ %418, %.outer.i304 ]
-  %indvars.iv.i308501 = phi i64 [ %indvars.iv.next43.i320, %422 ], [ %indvars.iv.ph.i306, %.outer.i304 ]
+.lr.ph501:                                        ; preds = %.outer.i303, %422
+  %427 = phi ptr [ %423, %422 ], [ %418, %.outer.i303 ]
+  %indvars.iv.i307500 = phi i64 [ %indvars.iv.next43.i319, %422 ], [ %indvars.iv.ph.i305, %.outer.i303 ]
   %428 = getelementptr inbounds i8, ptr %427, i64 33
   %429 = load i8, ptr %428, align 1
   %430 = trunc i8 %429 to i1
-  br i1 %430, label %ApplySortComparator.exit.thread27.thread.i319, label %431
+  br i1 %430, label %ApplySortComparator.exit.thread27.thread.i318, label %431
 
-431:                                              ; preds = %.lr.ph502
+431:                                              ; preds = %.lr.ph501
   %432 = getelementptr inbounds i8, ptr %427, i64 53
   %433 = load i8, ptr %432, align 1
   %434 = trunc i8 %433 to i1
-  br i1 %434, label %.thread412, label %.thread409
+  br i1 %434, label %.thread411, label %.thread408
 
-._crit_edge503:                                   ; preds = %422, %.outer.i304
-  %indvars.iv.i308.lcssa = phi i64 [ %indvars.iv.ph.i306, %.outer.i304 ], [ %indvars.iv.next43.i320, %422 ]
-  %.02038.i309.lcssa = phi i1 [ %.02038.ph.i307, %.outer.i304 ], [ true, %422 ]
-  %.lcssa454 = phi ptr [ %418, %.outer.i304 ], [ %423, %422 ]
-  %435 = getelementptr inbounds i8, ptr %.lcssa454, i64 33
+._crit_edge502:                                   ; preds = %422, %.outer.i303
+  %indvars.iv.i307.lcssa = phi i64 [ %indvars.iv.ph.i305, %.outer.i303 ], [ %indvars.iv.next43.i319, %422 ]
+  %.02137.i308.lcssa = phi i1 [ %.02137.ph.i306, %.outer.i303 ], [ true, %422 ]
+  %.lcssa453 = phi ptr [ %418, %.outer.i303 ], [ %423, %422 ]
+  %435 = getelementptr inbounds i8, ptr %.lcssa453, i64 33
   %436 = load i8, ptr %435, align 1
   %437 = trunc i8 %436 to i1
   br i1 %437, label %438, label %442
 
-438:                                              ; preds = %._crit_edge503
-  %439 = getelementptr inbounds i8, ptr %.lcssa454, i64 53
+438:                                              ; preds = %._crit_edge502
+  %439 = getelementptr inbounds i8, ptr %.lcssa453, i64 53
   %440 = load i8, ptr %439, align 1
   %441 = trunc i8 %440 to i1
-  br i1 %441, label %.thread409, label %.thread412
+  br i1 %441, label %.thread408, label %.thread411
 
-442:                                              ; preds = %._crit_edge503
-  %443 = getelementptr inbounds i8, ptr %.lcssa454, i64 40
-  %444 = getelementptr inbounds i8, ptr %.lcssa454, i64 24
+442:                                              ; preds = %._crit_edge502
+  %443 = getelementptr inbounds i8, ptr %.lcssa453, i64 40
+  %444 = getelementptr inbounds i8, ptr %.lcssa453, i64 24
   %445 = load i64, ptr %444, align 8
-  %446 = getelementptr inbounds i8, ptr %.lcssa454, i64 16
+  %446 = getelementptr inbounds i8, ptr %.lcssa453, i64 16
   %447 = load i64, ptr %446, align 8
-  %448 = getelementptr inbounds i8, ptr %.lcssa454, i64 64
+  %448 = getelementptr inbounds i8, ptr %.lcssa453, i64 64
   %449 = load ptr, ptr %448, align 8
   %450 = call i32 %449(i64 noundef %447, i64 noundef %445, ptr noundef nonnull %443) #7
-  %451 = getelementptr inbounds i8, ptr %.lcssa454, i64 52
+  %451 = getelementptr inbounds i8, ptr %.lcssa453, i64 52
   %452 = load i8, ptr %451, align 4
   %453 = trunc i8 %452 to i1
-  br i1 %453, label %454, label %ApplySortComparator.exit.i310
+  br i1 %453, label %454, label %ApplySortComparator.exit.i309
 
 454:                                              ; preds = %442
   %455 = icmp slt i32 %450, 0
   %456 = sub nsw i32 0, %450
-  br i1 %455, label %.thread409, label %ApplySortComparator.exit.i310
+  br i1 %455, label %.thread408, label %ApplySortComparator.exit.i309
 
-ApplySortComparator.exit.i310:                    ; preds = %454, %442
-  %.0.i.i311 = phi i32 [ %456, %454 ], [ %450, %442 ]
-  %.not.i312 = icmp eq i32 %.0.i.i311, 0
-  br i1 %.not.i312, label %ApplySortComparator.exit.thread27.i313, label %467
+ApplySortComparator.exit.i309:                    ; preds = %454, %442
+  %.0.i.i310 = phi i32 [ %456, %454 ], [ %450, %442 ]
+  %.not.i311 = icmp eq i32 %.0.i.i310, 0
+  br i1 %.not.i311, label %ApplySortComparator.exit.thread27.i312, label %467
 
-ApplySortComparator.exit.thread27.i313:           ; preds = %ApplySortComparator.exit.i310
-  %.pre.i314 = load i32, ptr %37, align 8
-  %indvars.iv.next.i315 = add nuw nsw i64 %indvars.iv.i308.lcssa, 1
-  %457 = sext i32 %.pre.i314 to i64
-  %458 = icmp slt i64 %indvars.iv.next.i315, %457
-  br i1 %458, label %.outer.i304, label %._crit_edge.i316, !llvm.loop !8
+ApplySortComparator.exit.thread27.i312:           ; preds = %ApplySortComparator.exit.i309
+  %.pre.i313 = load i32, ptr %37, align 8
+  %indvars.iv.next.i314 = add nuw nsw i64 %indvars.iv.i307.lcssa, 1
+  %457 = sext i32 %.pre.i313 to i64
+  %458 = icmp slt i64 %indvars.iv.next.i314, %457
+  br i1 %458, label %.outer.i303, label %._crit_edge.i315, !llvm.loop !8
 
-ApplySortComparator.exit.thread27.thread.i319:    ; preds = %.lr.ph502
-  %indvars.iv.next43.i320 = add nuw nsw i64 %indvars.iv.i308501, 1
-  %459 = icmp slt i64 %indvars.iv.next43.i320, %417
-  br i1 %459, label %422, label %.thread409, !llvm.loop !8
+ApplySortComparator.exit.thread27.thread.i318:    ; preds = %.lr.ph501
+  %indvars.iv.next43.i319 = add nuw nsw i64 %indvars.iv.i307500, 1
+  %459 = icmp slt i64 %indvars.iv.next43.i319, %417
+  br i1 %459, label %422, label %.thread408, !llvm.loop !8
 
-._crit_edge.i316:                                 ; preds = %ApplySortComparator.exit.thread27.i313
-  br i1 %.02038.i309.lcssa, label %.thread409, label %.critedge.i300
+._crit_edge.i315:                                 ; preds = %ApplySortComparator.exit.thread27.i312
+  br i1 %.02137.i308.lcssa, label %.thread408, label %.critedge.i299
 
-.critedge.i300:                                   ; preds = %._crit_edge.i316, %MJEvalInnerValues.exit299
+.critedge.i299:                                   ; preds = %._crit_edge.i315, %MJEvalInnerValues.exit298
   %460 = load i8, ptr %40, align 2
   %461 = trunc i8 %460 to i1
-  br i1 %461, label %.thread409, label %462
+  br i1 %461, label %.thread408, label %462
 
-462:                                              ; preds = %.critedge.i300
+462:                                              ; preds = %.critedge.i299
   store ptr %413, ptr @CurrentMemoryContext, align 8
   %463 = load i8, ptr %41, align 4
   %464 = trunc i8 %463 to i1
@@ -1470,31 +1470,31 @@ ApplySortComparator.exit.thread27.thread.i319:    ; preds = %.lr.ph502
   store i32 3, ptr %26, align 8
   br label %.backedge
 
-.thread409:                                       ; preds = %454, %ApplySortComparator.exit.thread27.thread.i319, %431, %.critedge.i300, %._crit_edge.i316, %438
+.thread408:                                       ; preds = %454, %ApplySortComparator.exit.thread27.thread.i318, %431, %.critedge.i299, %._crit_edge.i315, %438
   store ptr %413, ptr @CurrentMemoryContext, align 8
   br label %469
 
-.thread412:                                       ; preds = %438, %431
+.thread411:                                       ; preds = %438, %431
   store ptr %413, ptr @CurrentMemoryContext, align 8
-  br label %.loopexit438
+  br label %.loopexit437
 
-467:                                              ; preds = %ApplySortComparator.exit.i310
+467:                                              ; preds = %ApplySortComparator.exit.i309
   store ptr %413, ptr @CurrentMemoryContext, align 8
-  %468 = icmp sgt i32 %.0.i.i311, 0
-  br i1 %468, label %469, label %.loopexit438
+  %468 = icmp sgt i32 %.0.i.i310, 0
+  br i1 %468, label %469, label %.loopexit437
 
-469:                                              ; preds = %.thread409, %467
+469:                                              ; preds = %.thread408, %467
   %470 = load ptr, ptr %35, align 8
   %471 = load ptr, ptr %36, align 8
   %472 = icmp eq ptr %470, null
-  br i1 %472, label %MJEvalInnerValues.exit332.thread, label %473
+  br i1 %472, label %MJEvalInnerValues.exit331.thread, label %473
 
 473:                                              ; preds = %469
   %474 = getelementptr inbounds i8, ptr %470, i64 4
   %475 = load i16, ptr %474, align 4
   %476 = and i16 %475, 2
-  %.not.i322 = icmp eq i16 %476, 0
-  br i1 %.not.i322, label %477, label %MJEvalInnerValues.exit332.thread
+  %.not.i321 = icmp eq i16 %476, 0
+  br i1 %.not.i321, label %477, label %MJEvalInnerValues.exit331.thread
 
 477:                                              ; preds = %473
   %478 = getelementptr inbounds i8, ptr %471, i64 40
@@ -1507,17 +1507,17 @@ ApplySortComparator.exit.thread27.thread.i319:    ; preds = %.lr.ph502
   store ptr %470, ptr %482, align 8
   %483 = load i32, ptr %37, align 8
   %484 = icmp sgt i32 %483, 0
-  br i1 %484, label %.lr.ph.i326, label %MJEvalInnerValues.exit332.thread415
+  br i1 %484, label %.lr.ph.i325, label %MJEvalInnerValues.exit331.thread414
 
-MJEvalInnerValues.exit332.thread415:              ; preds = %477
+MJEvalInnerValues.exit331.thread414:              ; preds = %477
   store ptr %481, ptr @CurrentMemoryContext, align 8
   br label %510
 
-.lr.ph.i326:                                      ; preds = %477, %506
-  %indvars.iv.i327 = phi i64 [ %indvars.iv.next.i330, %506 ], [ 0, %477 ]
-  %.02327.i328 = phi i32 [ %.1.i329, %506 ], [ 0, %477 ]
+.lr.ph.i325:                                      ; preds = %477, %506
+  %indvars.iv.i326 = phi i64 [ %indvars.iv.next.i329, %506 ], [ 0, %477 ]
+  %.02326.i327 = phi i32 [ %.1.i328, %506 ], [ 0, %477 ]
   %485 = load ptr, ptr %38, align 8
-  %486 = getelementptr %struct.MergeJoinClauseData, ptr %485, i64 %indvars.iv.i327
+  %486 = getelementptr %struct.MergeJoinClauseData, ptr %485, i64 %indvars.iv.i326
   %487 = getelementptr inbounds i8, ptr %486, i64 8
   %488 = load ptr, ptr %487, align 8
   %489 = getelementptr inbounds i8, ptr %486, i64 33
@@ -1530,8 +1530,8 @@ MJEvalInnerValues.exit332.thread415:              ; preds = %477
   %495 = trunc i8 %494 to i1
   br i1 %495, label %496, label %506
 
-496:                                              ; preds = %.lr.ph.i326
-  %497 = icmp eq i64 %indvars.iv.i327, 0
+496:                                              ; preds = %.lr.ph.i325
+  %497 = icmp eq i64 %indvars.iv.i326, 0
   br i1 %497, label %498, label %505
 
 498:                                              ; preds = %496
@@ -1546,41 +1546,41 @@ MJEvalInnerValues.exit332.thread415:              ; preds = %477
   br i1 %504, label %505, label %506
 
 505:                                              ; preds = %502, %498, %496
-  %spec.store.select.i331 = call i32 @llvm.umax.i32(i32 %.02327.i328, i32 1)
+  %spec.store.select.i330 = call i32 @llvm.umax.i32(i32 %.02326.i327, i32 1)
   br label %506
 
-506:                                              ; preds = %505, %502, %.lr.ph.i326
-  %.1.i329 = phi i32 [ %spec.store.select.i331, %505 ], [ %.02327.i328, %.lr.ph.i326 ], [ 2, %502 ]
-  %indvars.iv.next.i330 = add nuw nsw i64 %indvars.iv.i327, 1
+506:                                              ; preds = %505, %502, %.lr.ph.i325
+  %.1.i328 = phi i32 [ %spec.store.select.i330, %505 ], [ %.02326.i327, %.lr.ph.i325 ], [ 2, %502 ]
+  %indvars.iv.next.i329 = add nuw nsw i64 %indvars.iv.i326, 1
   %507 = load i32, ptr %37, align 8
   %508 = sext i32 %507 to i64
-  %509 = icmp slt i64 %indvars.iv.next.i330, %508
-  br i1 %509, label %.lr.ph.i326, label %MJEvalInnerValues.exit332, !llvm.loop !7
+  %509 = icmp slt i64 %indvars.iv.next.i329, %508
+  br i1 %509, label %.lr.ph.i325, label %MJEvalInnerValues.exit331, !llvm.loop !7
 
-MJEvalInnerValues.exit332:                        ; preds = %506
+MJEvalInnerValues.exit331:                        ; preds = %506
   store ptr %481, ptr @CurrentMemoryContext, align 8
-  switch i32 %.1.i329, label %default.unreachable559 [
+  switch i32 %.1.i328, label %default.unreachable558 [
     i32 0, label %510
     i32 1, label %511
-    i32 2, label %MJEvalInnerValues.exit332.thread
+    i32 2, label %MJEvalInnerValues.exit331.thread
   ]
 
-510:                                              ; preds = %MJEvalInnerValues.exit332.thread415, %MJEvalInnerValues.exit332
+510:                                              ; preds = %MJEvalInnerValues.exit331.thread414, %MJEvalInnerValues.exit331
   store i32 7, ptr %26, align 8
   br label %.backedge
 
-511:                                              ; preds = %MJEvalInnerValues.exit332
+511:                                              ; preds = %MJEvalInnerValues.exit331
   store i32 9, ptr %26, align 8
   br label %.backedge
 
-MJEvalInnerValues.exit332.thread:                 ; preds = %469, %473, %MJEvalInnerValues.exit332
+MJEvalInnerValues.exit331.thread:                 ; preds = %469, %473, %MJEvalInnerValues.exit331
   br i1 %20, label %512, label %.loopexit
 
-512:                                              ; preds = %MJEvalInnerValues.exit332.thread
+512:                                              ; preds = %MJEvalInnerValues.exit331.thread
   store i32 11, ptr %26, align 8
   br label %.backedge
 
-.loopexit438:                                     ; preds = %467, %.thread412
+.loopexit437:                                     ; preds = %467, %.thread411
   %513 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %513)
   %514 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #7
@@ -1597,45 +1597,45 @@ MJEvalInnerValues.exit332.thread:                 ; preds = %469, %473, %MJEvalI
   store ptr %519, ptr @CurrentMemoryContext, align 8
   %521 = load i32, ptr %37, align 8
   %522 = icmp sgt i32 %521, 0
-  br i1 %522, label %.outer.i337, label %.critedge.i333
+  br i1 %522, label %.outer.i336, label %.critedge.i332
 
-.outer.i337:                                      ; preds = %515, %ApplySortComparator.exit.thread27.i346
-  %.ph.i338 = phi i32 [ %.pre.i347, %ApplySortComparator.exit.thread27.i346 ], [ %521, %515 ]
-  %indvars.iv.ph.i339 = phi i64 [ %indvars.iv.next.i348, %ApplySortComparator.exit.thread27.i346 ], [ 0, %515 ]
-  %.02038.ph.i340 = phi i1 [ %.02038.i342.lcssa, %ApplySortComparator.exit.thread27.i346 ], [ false, %515 ]
+.outer.i336:                                      ; preds = %515, %ApplySortComparator.exit.thread27.i345
+  %.ph.i337 = phi i32 [ %.pre.i346, %ApplySortComparator.exit.thread27.i345 ], [ %521, %515 ]
+  %indvars.iv.ph.i338 = phi i64 [ %indvars.iv.next.i347, %ApplySortComparator.exit.thread27.i345 ], [ 0, %515 ]
+  %.02137.ph.i339 = phi i1 [ %.02137.i341.lcssa, %ApplySortComparator.exit.thread27.i345 ], [ false, %515 ]
   %523 = load ptr, ptr %38, align 8
-  %524 = sext i32 %.ph.i338 to i64
-  %525 = getelementptr %struct.MergeJoinClauseData, ptr %523, i64 %indvars.iv.ph.i339
+  %524 = sext i32 %.ph.i337 to i64
+  %525 = getelementptr %struct.MergeJoinClauseData, ptr %523, i64 %indvars.iv.ph.i338
   %526 = getelementptr inbounds i8, ptr %525, i64 32
   %527 = load i8, ptr %526, align 8
   %528 = trunc i8 %527 to i1
   br i1 %528, label %.lr.ph, label %._crit_edge
 
-529:                                              ; preds = %ApplySortComparator.exit.thread27.thread.i352
-  %530 = getelementptr %struct.MergeJoinClauseData, ptr %523, i64 %indvars.iv.next43.i353
+529:                                              ; preds = %ApplySortComparator.exit.thread27.thread.i351
+  %530 = getelementptr %struct.MergeJoinClauseData, ptr %523, i64 %indvars.iv.next43.i352
   %531 = getelementptr inbounds i8, ptr %530, i64 32
   %532 = load i8, ptr %531, align 8
   %533 = trunc i8 %532 to i1
   br i1 %533, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
-.lr.ph:                                           ; preds = %.outer.i337, %529
-  %534 = phi ptr [ %530, %529 ], [ %525, %.outer.i337 ]
-  %indvars.iv.i341498 = phi i64 [ %indvars.iv.next43.i353, %529 ], [ %indvars.iv.ph.i339, %.outer.i337 ]
+.lr.ph:                                           ; preds = %.outer.i336, %529
+  %534 = phi ptr [ %530, %529 ], [ %525, %.outer.i336 ]
+  %indvars.iv.i340497 = phi i64 [ %indvars.iv.next43.i352, %529 ], [ %indvars.iv.ph.i338, %.outer.i336 ]
   %535 = getelementptr inbounds i8, ptr %534, i64 33
   %536 = load i8, ptr %535, align 1
   %537 = trunc i8 %536 to i1
-  br i1 %537, label %ApplySortComparator.exit.thread27.thread.i352, label %538
+  br i1 %537, label %ApplySortComparator.exit.thread27.thread.i351, label %538
 
 538:                                              ; preds = %.lr.ph
   %539 = getelementptr inbounds i8, ptr %534, i64 53
   %540 = load i8, ptr %539, align 1
   %541 = trunc i8 %540 to i1
-  br i1 %541, label %.thread425, label %.thread422
+  br i1 %541, label %.thread424, label %.thread421
 
-._crit_edge:                                      ; preds = %529, %.outer.i337
-  %indvars.iv.i341.lcssa = phi i64 [ %indvars.iv.ph.i339, %.outer.i337 ], [ %indvars.iv.next43.i353, %529 ]
-  %.02038.i342.lcssa = phi i1 [ %.02038.ph.i340, %.outer.i337 ], [ true, %529 ]
-  %.lcssa = phi ptr [ %525, %.outer.i337 ], [ %530, %529 ]
+._crit_edge:                                      ; preds = %529, %.outer.i336
+  %indvars.iv.i340.lcssa = phi i64 [ %indvars.iv.ph.i338, %.outer.i336 ], [ %indvars.iv.next43.i352, %529 ]
+  %.02137.i341.lcssa = phi i1 [ %.02137.ph.i339, %.outer.i336 ], [ true, %529 ]
+  %.lcssa = phi ptr [ %525, %.outer.i336 ], [ %530, %529 ]
   %542 = getelementptr inbounds i8, ptr %.lcssa, i64 33
   %543 = load i8, ptr %542, align 1
   %544 = trunc i8 %543 to i1
@@ -1645,7 +1645,7 @@ MJEvalInnerValues.exit332.thread:                 ; preds = %469, %473, %MJEvalI
   %546 = getelementptr inbounds i8, ptr %.lcssa, i64 53
   %547 = load i8, ptr %546, align 1
   %548 = trunc i8 %547 to i1
-  br i1 %548, label %.thread422, label %.thread425
+  br i1 %548, label %.thread421, label %.thread424
 
 549:                                              ; preds = %._crit_edge
   %550 = getelementptr inbounds i8, ptr %.lcssa, i64 40
@@ -1659,39 +1659,39 @@ MJEvalInnerValues.exit332.thread:                 ; preds = %469, %473, %MJEvalI
   %558 = getelementptr inbounds i8, ptr %.lcssa, i64 52
   %559 = load i8, ptr %558, align 4
   %560 = trunc i8 %559 to i1
-  br i1 %560, label %561, label %ApplySortComparator.exit.i343
+  br i1 %560, label %561, label %ApplySortComparator.exit.i342
 
 561:                                              ; preds = %549
   %562 = icmp slt i32 %557, 0
   %563 = sub nsw i32 0, %557
-  br i1 %562, label %.thread422, label %ApplySortComparator.exit.i343
+  br i1 %562, label %.thread421, label %ApplySortComparator.exit.i342
 
-ApplySortComparator.exit.i343:                    ; preds = %561, %549
-  %.0.i.i344 = phi i32 [ %563, %561 ], [ %557, %549 ]
-  %.not.i345 = icmp eq i32 %.0.i.i344, 0
-  br i1 %.not.i345, label %ApplySortComparator.exit.thread27.i346, label %580
+ApplySortComparator.exit.i342:                    ; preds = %561, %549
+  %.0.i.i343 = phi i32 [ %563, %561 ], [ %557, %549 ]
+  %.not.i344 = icmp eq i32 %.0.i.i343, 0
+  br i1 %.not.i344, label %ApplySortComparator.exit.thread27.i345, label %580
 
-ApplySortComparator.exit.thread27.i346:           ; preds = %ApplySortComparator.exit.i343
-  %.pre.i347 = load i32, ptr %37, align 8
-  %indvars.iv.next.i348 = add nuw nsw i64 %indvars.iv.i341.lcssa, 1
-  %564 = sext i32 %.pre.i347 to i64
-  %565 = icmp slt i64 %indvars.iv.next.i348, %564
-  br i1 %565, label %.outer.i337, label %._crit_edge.i349, !llvm.loop !8
+ApplySortComparator.exit.thread27.i345:           ; preds = %ApplySortComparator.exit.i342
+  %.pre.i346 = load i32, ptr %37, align 8
+  %indvars.iv.next.i347 = add nuw nsw i64 %indvars.iv.i340.lcssa, 1
+  %564 = sext i32 %.pre.i346 to i64
+  %565 = icmp slt i64 %indvars.iv.next.i347, %564
+  br i1 %565, label %.outer.i336, label %._crit_edge.i348, !llvm.loop !8
 
-ApplySortComparator.exit.thread27.thread.i352:    ; preds = %.lr.ph
-  %indvars.iv.next43.i353 = add nuw nsw i64 %indvars.iv.i341498, 1
-  %566 = icmp slt i64 %indvars.iv.next43.i353, %524
-  br i1 %566, label %529, label %.thread422, !llvm.loop !8
+ApplySortComparator.exit.thread27.thread.i351:    ; preds = %.lr.ph
+  %indvars.iv.next43.i352 = add nuw nsw i64 %indvars.iv.i340497, 1
+  %566 = icmp slt i64 %indvars.iv.next43.i352, %524
+  br i1 %566, label %529, label %.thread421, !llvm.loop !8
 
-._crit_edge.i349:                                 ; preds = %ApplySortComparator.exit.thread27.i346
-  br i1 %.02038.i342.lcssa, label %.thread422, label %.critedge.i333
+._crit_edge.i348:                                 ; preds = %ApplySortComparator.exit.thread27.i345
+  br i1 %.02137.i341.lcssa, label %.thread421, label %.critedge.i332
 
-.critedge.i333:                                   ; preds = %._crit_edge.i349, %515
+.critedge.i332:                                   ; preds = %._crit_edge.i348, %515
   %567 = load i8, ptr %40, align 2
   %568 = trunc i8 %567 to i1
-  br i1 %568, label %.thread422, label %569
+  br i1 %568, label %.thread421, label %569
 
-569:                                              ; preds = %.critedge.i333
+569:                                              ; preds = %.critedge.i332
   store ptr %520, ptr @CurrentMemoryContext, align 8
   %570 = load i8, ptr %41, align 4
   %571 = trunc i8 %570 to i1
@@ -1712,24 +1712,24 @@ ApplySortComparator.exit.thread27.thread.i352:    ; preds = %.lr.ph
   store i32 3, ptr %26, align 8
   br label %.backedge
 
-.thread422:                                       ; preds = %561, %ApplySortComparator.exit.thread27.thread.i352, %538, %.critedge.i333, %._crit_edge.i349, %545
+.thread421:                                       ; preds = %561, %ApplySortComparator.exit.thread27.thread.i351, %538, %.critedge.i332, %._crit_edge.i348, %545
   store ptr %520, ptr @CurrentMemoryContext, align 8
   br label %583
 
-.thread425:                                       ; preds = %545, %538
+.thread424:                                       ; preds = %545, %538
   store ptr %520, ptr @CurrentMemoryContext, align 8
   br label %582
 
-580:                                              ; preds = %ApplySortComparator.exit.i343
+580:                                              ; preds = %ApplySortComparator.exit.i342
   store ptr %520, ptr @CurrentMemoryContext, align 8
-  %581 = icmp slt i32 %.0.i.i344, 0
+  %581 = icmp slt i32 %.0.i.i343, 0
   br i1 %581, label %582, label %583
 
-582:                                              ; preds = %.thread425, %580
+582:                                              ; preds = %.thread424, %580
   store i32 8, ptr %26, align 8
   br label %.backedge
 
-583:                                              ; preds = %.thread422, %580
+583:                                              ; preds = %.thread421, %580
   store i32 9, ptr %26, align 8
   br label %.backedge
 
@@ -1749,28 +1749,28 @@ ApplySortComparator.exit.thread27.thread.i352:    ; preds = %.lr.ph
 
 590:                                              ; preds = %588, %585, %584
   %591 = load ptr, ptr %28, align 8
-  %.not.i355 = icmp eq ptr %591, null
-  br i1 %.not.i355, label %ExecProcNode.exit356, label %592
+  %.not.i354 = icmp eq ptr %591, null
+  br i1 %.not.i354, label %ExecProcNode.exit355, label %592
 
 592:                                              ; preds = %590
   call void @ExecReScan(ptr noundef nonnull %11) #7
-  br label %ExecProcNode.exit356
+  br label %ExecProcNode.exit355
 
-ExecProcNode.exit356:                             ; preds = %590, %592
+ExecProcNode.exit355:                             ; preds = %590, %592
   %593 = load ptr, ptr %29, align 8
   %594 = call ptr %593(ptr noundef nonnull %11) #7
   store ptr %594, ptr %30, align 8
   store i8 0, ptr %27, align 1
   %595 = load ptr, ptr %39, align 8
   %596 = icmp eq ptr %594, null
-  br i1 %596, label %MJEvalOuterValues.exit367.thread, label %597
+  br i1 %596, label %MJEvalOuterValues.exit366.thread, label %597
 
-597:                                              ; preds = %ExecProcNode.exit356
+597:                                              ; preds = %ExecProcNode.exit355
   %598 = getelementptr inbounds i8, ptr %594, i64 4
   %599 = load i16, ptr %598, align 4
   %600 = and i16 %599, 2
-  %.not.i357 = icmp eq i16 %600, 0
-  br i1 %.not.i357, label %601, label %MJEvalOuterValues.exit367.thread
+  %.not.i356 = icmp eq i16 %600, 0
+  br i1 %.not.i356, label %601, label %MJEvalOuterValues.exit366.thread
 
 601:                                              ; preds = %597
   %602 = getelementptr inbounds i8, ptr %595, i64 40
@@ -1784,17 +1784,17 @@ ExecProcNode.exit356:                             ; preds = %590, %592
   store ptr %606, ptr %607, align 8
   %608 = load i32, ptr %37, align 8
   %609 = icmp sgt i32 %608, 0
-  br i1 %609, label %.lr.ph.i361, label %MJEvalOuterValues.exit367.thread428
+  br i1 %609, label %.lr.ph.i360, label %MJEvalOuterValues.exit366.thread427
 
-MJEvalOuterValues.exit367.thread428:              ; preds = %601
+MJEvalOuterValues.exit366.thread427:              ; preds = %601
   store ptr %605, ptr @CurrentMemoryContext, align 8
   br label %634
 
-.lr.ph.i361:                                      ; preds = %601, %630
-  %indvars.iv.i362 = phi i64 [ %indvars.iv.next.i365, %630 ], [ 0, %601 ]
-  %.02327.i363 = phi i32 [ %.1.i364, %630 ], [ 0, %601 ]
+.lr.ph.i360:                                      ; preds = %601, %630
+  %indvars.iv.i361 = phi i64 [ %indvars.iv.next.i364, %630 ], [ 0, %601 ]
+  %.02326.i362 = phi i32 [ %.1.i363, %630 ], [ 0, %601 ]
   %610 = load ptr, ptr %38, align 8
-  %611 = getelementptr %struct.MergeJoinClauseData, ptr %610, i64 %indvars.iv.i362
+  %611 = getelementptr %struct.MergeJoinClauseData, ptr %610, i64 %indvars.iv.i361
   %612 = load ptr, ptr %611, align 8
   %613 = getelementptr inbounds i8, ptr %611, i64 32
   %614 = getelementptr inbounds i8, ptr %612, i64 32
@@ -1806,8 +1806,8 @@ MJEvalOuterValues.exit367.thread428:              ; preds = %601
   %619 = trunc i8 %618 to i1
   br i1 %619, label %620, label %630
 
-620:                                              ; preds = %.lr.ph.i361
-  %621 = icmp eq i64 %indvars.iv.i362, 0
+620:                                              ; preds = %.lr.ph.i360
+  %621 = icmp eq i64 %indvars.iv.i361, 0
   br i1 %621, label %622, label %629
 
 622:                                              ; preds = %620
@@ -1822,40 +1822,40 @@ MJEvalOuterValues.exit367.thread428:              ; preds = %601
   br i1 %628, label %629, label %630
 
 629:                                              ; preds = %626, %622, %620
-  %spec.store.select.i366 = call i32 @llvm.umax.i32(i32 %.02327.i363, i32 1)
+  %spec.store.select.i365 = call i32 @llvm.umax.i32(i32 %.02326.i362, i32 1)
   br label %630
 
-630:                                              ; preds = %629, %626, %.lr.ph.i361
-  %.1.i364 = phi i32 [ %spec.store.select.i366, %629 ], [ %.02327.i363, %.lr.ph.i361 ], [ 2, %626 ]
-  %indvars.iv.next.i365 = add nuw nsw i64 %indvars.iv.i362, 1
+630:                                              ; preds = %629, %626, %.lr.ph.i360
+  %.1.i363 = phi i32 [ %spec.store.select.i365, %629 ], [ %.02326.i362, %.lr.ph.i360 ], [ 2, %626 ]
+  %indvars.iv.next.i364 = add nuw nsw i64 %indvars.iv.i361, 1
   %631 = load i32, ptr %37, align 8
   %632 = sext i32 %631 to i64
-  %633 = icmp slt i64 %indvars.iv.next.i365, %632
-  br i1 %633, label %.lr.ph.i361, label %MJEvalOuterValues.exit367, !llvm.loop !5
+  %633 = icmp slt i64 %indvars.iv.next.i364, %632
+  br i1 %633, label %.lr.ph.i360, label %MJEvalOuterValues.exit366, !llvm.loop !5
 
-MJEvalOuterValues.exit367:                        ; preds = %630
+MJEvalOuterValues.exit366:                        ; preds = %630
   store ptr %605, ptr @CurrentMemoryContext, align 8
-  switch i32 %.1.i364, label %default.unreachable559 [
+  switch i32 %.1.i363, label %default.unreachable558 [
     i32 0, label %634
     i32 1, label %635
-    i32 2, label %MJEvalOuterValues.exit367.thread
+    i32 2, label %MJEvalOuterValues.exit366.thread
   ]
 
-634:                                              ; preds = %MJEvalOuterValues.exit367.thread428, %MJEvalOuterValues.exit367
+634:                                              ; preds = %MJEvalOuterValues.exit366.thread427, %MJEvalOuterValues.exit366
   store i32 7, ptr %26, align 8
   br label %.backedge
 
-635:                                              ; preds = %MJEvalOuterValues.exit367
+635:                                              ; preds = %MJEvalOuterValues.exit366
   store i32 8, ptr %26, align 8
   br label %.backedge
 
-MJEvalOuterValues.exit367.thread:                 ; preds = %ExecProcNode.exit356, %597, %MJEvalOuterValues.exit367
+MJEvalOuterValues.exit366.thread:                 ; preds = %ExecProcNode.exit355, %597, %MJEvalOuterValues.exit366
   %636 = load ptr, ptr %35, align 8
   %637 = icmp ne ptr %636, null
   %or.cond4.not = select i1 %23, i1 %637, i1 false
   br i1 %or.cond4.not, label %638, label %.loopexit
 
-638:                                              ; preds = %MJEvalOuterValues.exit367.thread
+638:                                              ; preds = %MJEvalOuterValues.exit366.thread
   %639 = getelementptr inbounds i8, ptr %636, i64 4
   %640 = load i16, ptr %639, align 4
   %641 = and i16 %640, 2
@@ -1891,28 +1891,28 @@ MJEvalOuterValues.exit367.thread:                 ; preds = %ExecProcNode.exit35
 
 653:                                              ; preds = %652, %649
   %654 = load ptr, ptr %33, align 8
-  %.not.i368 = icmp eq ptr %654, null
-  br i1 %.not.i368, label %ExecProcNode.exit369, label %655
+  %.not.i367 = icmp eq ptr %654, null
+  br i1 %.not.i367, label %ExecProcNode.exit368, label %655
 
 655:                                              ; preds = %653
   call void @ExecReScan(ptr noundef nonnull %9) #7
-  br label %ExecProcNode.exit369
+  br label %ExecProcNode.exit368
 
-ExecProcNode.exit369:                             ; preds = %653, %655
+ExecProcNode.exit368:                             ; preds = %653, %655
   %656 = load ptr, ptr %34, align 8
   %657 = call ptr %656(ptr noundef nonnull %9) #7
   store ptr %657, ptr %35, align 8
   store i8 0, ptr %31, align 2
   %658 = load ptr, ptr %36, align 8
   %659 = icmp eq ptr %657, null
-  br i1 %659, label %MJEvalInnerValues.exit380.thread, label %660
+  br i1 %659, label %MJEvalInnerValues.exit379.thread, label %660
 
-660:                                              ; preds = %ExecProcNode.exit369
+660:                                              ; preds = %ExecProcNode.exit368
   %661 = getelementptr inbounds i8, ptr %657, i64 4
   %662 = load i16, ptr %661, align 4
   %663 = and i16 %662, 2
-  %.not.i370 = icmp eq i16 %663, 0
-  br i1 %.not.i370, label %664, label %MJEvalInnerValues.exit380.thread
+  %.not.i369 = icmp eq i16 %663, 0
+  br i1 %.not.i369, label %664, label %MJEvalInnerValues.exit379.thread
 
 664:                                              ; preds = %660
   %665 = getelementptr inbounds i8, ptr %658, i64 40
@@ -1925,17 +1925,17 @@ ExecProcNode.exit369:                             ; preds = %653, %655
   store ptr %657, ptr %669, align 8
   %670 = load i32, ptr %37, align 8
   %671 = icmp sgt i32 %670, 0
-  br i1 %671, label %.lr.ph.i374, label %MJEvalInnerValues.exit380.thread431
+  br i1 %671, label %.lr.ph.i373, label %MJEvalInnerValues.exit379.thread430
 
-MJEvalInnerValues.exit380.thread431:              ; preds = %664
+MJEvalInnerValues.exit379.thread430:              ; preds = %664
   store ptr %668, ptr @CurrentMemoryContext, align 8
   br label %697
 
-.lr.ph.i374:                                      ; preds = %664, %693
-  %indvars.iv.i375 = phi i64 [ %indvars.iv.next.i378, %693 ], [ 0, %664 ]
-  %.02327.i376 = phi i32 [ %.1.i377, %693 ], [ 0, %664 ]
+.lr.ph.i373:                                      ; preds = %664, %693
+  %indvars.iv.i374 = phi i64 [ %indvars.iv.next.i377, %693 ], [ 0, %664 ]
+  %.02326.i375 = phi i32 [ %.1.i376, %693 ], [ 0, %664 ]
   %672 = load ptr, ptr %38, align 8
-  %673 = getelementptr %struct.MergeJoinClauseData, ptr %672, i64 %indvars.iv.i375
+  %673 = getelementptr %struct.MergeJoinClauseData, ptr %672, i64 %indvars.iv.i374
   %674 = getelementptr inbounds i8, ptr %673, i64 8
   %675 = load ptr, ptr %674, align 8
   %676 = getelementptr inbounds i8, ptr %673, i64 33
@@ -1948,8 +1948,8 @@ MJEvalInnerValues.exit380.thread431:              ; preds = %664
   %682 = trunc i8 %681 to i1
   br i1 %682, label %683, label %693
 
-683:                                              ; preds = %.lr.ph.i374
-  %684 = icmp eq i64 %indvars.iv.i375, 0
+683:                                              ; preds = %.lr.ph.i373
+  %684 = icmp eq i64 %indvars.iv.i374, 0
   br i1 %684, label %685, label %692
 
 685:                                              ; preds = %683
@@ -1964,40 +1964,40 @@ MJEvalInnerValues.exit380.thread431:              ; preds = %664
   br i1 %691, label %692, label %693
 
 692:                                              ; preds = %689, %685, %683
-  %spec.store.select.i379 = call i32 @llvm.umax.i32(i32 %.02327.i376, i32 1)
+  %spec.store.select.i378 = call i32 @llvm.umax.i32(i32 %.02326.i375, i32 1)
   br label %693
 
-693:                                              ; preds = %692, %689, %.lr.ph.i374
-  %.1.i377 = phi i32 [ %spec.store.select.i379, %692 ], [ %.02327.i376, %.lr.ph.i374 ], [ 2, %689 ]
-  %indvars.iv.next.i378 = add nuw nsw i64 %indvars.iv.i375, 1
+693:                                              ; preds = %692, %689, %.lr.ph.i373
+  %.1.i376 = phi i32 [ %spec.store.select.i378, %692 ], [ %.02326.i375, %.lr.ph.i373 ], [ 2, %689 ]
+  %indvars.iv.next.i377 = add nuw nsw i64 %indvars.iv.i374, 1
   %694 = load i32, ptr %37, align 8
   %695 = sext i32 %694 to i64
-  %696 = icmp slt i64 %indvars.iv.next.i378, %695
-  br i1 %696, label %.lr.ph.i374, label %MJEvalInnerValues.exit380, !llvm.loop !7
+  %696 = icmp slt i64 %indvars.iv.next.i377, %695
+  br i1 %696, label %.lr.ph.i373, label %MJEvalInnerValues.exit379, !llvm.loop !7
 
-MJEvalInnerValues.exit380:                        ; preds = %693
+MJEvalInnerValues.exit379:                        ; preds = %693
   store ptr %668, ptr @CurrentMemoryContext, align 8
-  switch i32 %.1.i377, label %default.unreachable559 [
+  switch i32 %.1.i376, label %default.unreachable558 [
     i32 0, label %697
     i32 1, label %698
-    i32 2, label %MJEvalInnerValues.exit380.thread
+    i32 2, label %MJEvalInnerValues.exit379.thread
   ]
 
-697:                                              ; preds = %MJEvalInnerValues.exit380.thread431, %MJEvalInnerValues.exit380
+697:                                              ; preds = %MJEvalInnerValues.exit379.thread430, %MJEvalInnerValues.exit379
   store i32 7, ptr %26, align 8
   br label %.backedge
 
-698:                                              ; preds = %MJEvalInnerValues.exit380
+698:                                              ; preds = %MJEvalInnerValues.exit379
   store i32 9, ptr %26, align 8
   br label %.backedge
 
-MJEvalInnerValues.exit380.thread:                 ; preds = %ExecProcNode.exit369, %660, %MJEvalInnerValues.exit380
+MJEvalInnerValues.exit379.thread:                 ; preds = %ExecProcNode.exit368, %660, %MJEvalInnerValues.exit379
   %699 = load ptr, ptr %30, align 8
   %700 = icmp ne ptr %699, null
   %or.cond7.not = select i1 %20, i1 %700, i1 false
   br i1 %or.cond7.not, label %701, label %.loopexit
 
-701:                                              ; preds = %MJEvalInnerValues.exit380.thread
+701:                                              ; preds = %MJEvalInnerValues.exit379.thread
   %702 = getelementptr inbounds i8, ptr %699, i64 4
   %703 = load i16, ptr %702, align 4
   %704 = and i16 %703, 2
@@ -2030,14 +2030,14 @@ MJEvalInnerValues.exit380.thread:                 ; preds = %ExecProcNode.exit36
 
 715:                                              ; preds = %714, %711
   %716 = load ptr, ptr %33, align 8
-  %.not.i381 = icmp eq ptr %716, null
-  br i1 %.not.i381, label %ExecProcNode.exit382, label %717
+  %.not.i380 = icmp eq ptr %716, null
+  br i1 %.not.i380, label %ExecProcNode.exit381, label %717
 
 717:                                              ; preds = %715
   call void @ExecReScan(ptr noundef nonnull %9) #7
-  br label %ExecProcNode.exit382
+  br label %ExecProcNode.exit381
 
-ExecProcNode.exit382:                             ; preds = %715, %717
+ExecProcNode.exit381:                             ; preds = %715, %717
   %718 = load ptr, ptr %34, align 8
   %719 = call ptr %718(ptr noundef nonnull %9) #7
   store ptr %719, ptr %35, align 8
@@ -2045,7 +2045,7 @@ ExecProcNode.exit382:                             ; preds = %715, %717
   %720 = icmp eq ptr %719, null
   br i1 %720, label %.loopexit, label %721
 
-721:                                              ; preds = %ExecProcNode.exit382
+721:                                              ; preds = %ExecProcNode.exit381
   %722 = getelementptr inbounds i8, ptr %719, i64 4
   %723 = load i16, ptr %722, align 4
   %724 = and i16 %723, 2
@@ -2065,14 +2065,14 @@ ExecProcNode.exit382:                             ; preds = %715, %717
 
 730:                                              ; preds = %728, %725
   %731 = load ptr, ptr %28, align 8
-  %.not.i383 = icmp eq ptr %731, null
-  br i1 %.not.i383, label %ExecProcNode.exit384, label %732
+  %.not.i382 = icmp eq ptr %731, null
+  br i1 %.not.i382, label %ExecProcNode.exit383, label %732
 
 732:                                              ; preds = %730
   call void @ExecReScan(ptr noundef nonnull %11) #7
-  br label %ExecProcNode.exit384
+  br label %ExecProcNode.exit383
 
-ExecProcNode.exit384:                             ; preds = %730, %732
+ExecProcNode.exit383:                             ; preds = %730, %732
   %733 = load ptr, ptr %29, align 8
   %734 = call ptr %733(ptr noundef nonnull %11) #7
   store ptr %734, ptr %30, align 8
@@ -2080,7 +2080,7 @@ ExecProcNode.exit384:                             ; preds = %730, %732
   %735 = icmp eq ptr %734, null
   br i1 %735, label %.loopexit, label %736
 
-736:                                              ; preds = %ExecProcNode.exit384
+736:                                              ; preds = %ExecProcNode.exit383
   %737 = getelementptr inbounds i8, ptr %734, i64 4
   %738 = load i16, ptr %737, align 4
   %739 = and i16 %738, 2
@@ -2095,11 +2095,11 @@ ExecProcNode.exit384:                             ; preds = %730, %732
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1434, ptr noundef nonnull @__func__.ExecMergeJoin) #7
   unreachable
 
-default.unreachable559:                           ; preds = %MJEvalInnerValues.exit380, %MJEvalOuterValues.exit367, %MJEvalInnerValues.exit332, %MJEvalOuterValues.exit288, %MJEvalInnerValues.exit270, %MJEvalInnerValues.exit, %MJEvalOuterValues.exit
+default.unreachable558:                           ; preds = %MJEvalInnerValues.exit379, %MJEvalOuterValues.exit366, %MJEvalInnerValues.exit331, %MJEvalOuterValues.exit287, %MJEvalInnerValues.exit269, %MJEvalInnerValues.exit, %MJEvalOuterValues.exit
   unreachable
 
-.loopexit:                                        ; preds = %ExecProcNode.exit384, %736, %728, %ExecProcNode.exit382, %721, %709, %MJEvalInnerValues.exit380.thread, %701, %647, %MJEvalOuterValues.exit367.thread, %638, %588, %MJEvalInnerValues.exit332.thread, %MJEvalOuterValues.exit288.thread, %376, %326, %215, %MJEvalInnerValues.exit.thread, %153, %MJEvalOuterValues.exit.thread, %100, %.critedge241
-  %.0 = phi ptr [ %180, %.critedge241 ], [ null, %ExecProcNode.exit384 ], [ null, %736 ], [ %729, %728 ], [ null, %ExecProcNode.exit382 ], [ null, %721 ], [ %710, %709 ], [ null, %MJEvalInnerValues.exit380.thread ], [ null, %701 ], [ %648, %647 ], [ null, %MJEvalOuterValues.exit367.thread ], [ null, %638 ], [ %589, %588 ], [ null, %MJEvalInnerValues.exit332.thread ], [ null, %MJEvalOuterValues.exit288.thread ], [ null, %376 ], [ %327, %326 ], [ %216, %215 ], [ null, %MJEvalInnerValues.exit.thread ], [ %154, %153 ], [ null, %MJEvalOuterValues.exit.thread ], [ %101, %100 ]
+.loopexit:                                        ; preds = %ExecProcNode.exit383, %736, %728, %ExecProcNode.exit381, %721, %709, %MJEvalInnerValues.exit379.thread, %701, %647, %MJEvalOuterValues.exit366.thread, %638, %588, %MJEvalInnerValues.exit331.thread, %MJEvalOuterValues.exit287.thread, %376, %326, %215, %MJEvalInnerValues.exit.thread, %153, %MJEvalOuterValues.exit.thread, %100, %.critedge241
+  %.0 = phi ptr [ %180, %.critedge241 ], [ null, %ExecProcNode.exit383 ], [ null, %736 ], [ %729, %728 ], [ null, %ExecProcNode.exit381 ], [ null, %721 ], [ %710, %709 ], [ null, %MJEvalInnerValues.exit379.thread ], [ null, %701 ], [ %648, %647 ], [ null, %MJEvalOuterValues.exit366.thread ], [ null, %638 ], [ %589, %588 ], [ null, %MJEvalInnerValues.exit331.thread ], [ null, %MJEvalOuterValues.exit287.thread ], [ null, %376 ], [ %327, %326 ], [ %216, %215 ], [ null, %MJEvalInnerValues.exit.thread ], [ %154, %153 ], [ null, %MJEvalOuterValues.exit.thread ], [ %101, %100 ]
   ret ptr %.0
 }
 

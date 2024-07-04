@@ -534,13 +534,13 @@ define noundef i32 @fdt_next_tag(ptr noundef readonly %0, i32 noundef %1, ptr no
   ]
 
 .preheader:                                       ; preds = %5, %9
-  %.031 = phi i32 [ %10, %9 ], [ %7, %5 ]
-  %8 = tail call ptr @fdt_offset_ptr(ptr noundef %0, i32 noundef %.031, i32 noundef 1)
+  %.0 = phi i32 [ %10, %9 ], [ %7, %5 ]
+  %8 = tail call ptr @fdt_offset_ptr(ptr noundef %0, i32 noundef %.0, i32 noundef 1)
   %.not37 = icmp eq ptr %8, null
   br i1 %.not37, label %.critedge40, label %9
 
 9:                                                ; preds = %.preheader
-  %10 = add nsw i32 %.031, 1
+  %10 = add nsw i32 %.0, 1
   %11 = load i8, ptr %8, align 1
   %.not38 = icmp eq i8 %11, 0
   br i1 %.not38, label %.critedge, label %.preheader, !llvm.loop !4
@@ -599,8 +599,8 @@ define noundef i32 @fdt_next_tag(ptr noundef readonly %0, i32 noundef %1, ptr no
   br label %.critedge40
 
 .critedge40:                                      ; preds = %.preheader, %.critedge, %5, %12, %3, %43
-  %.0 = phi i32 [ %rev.i, %43 ], [ 9, %3 ], [ 9, %12 ], [ 9, %5 ], [ 9, %.critedge ], [ 9, %.preheader ]
-  ret i32 %.0
+  %.031 = phi i32 [ %rev.i, %43 ], [ 9, %3 ], [ 9, %12 ], [ 9, %5 ], [ 9, %.critedge ], [ 9, %.preheader ]
+  ret i32 %.031
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

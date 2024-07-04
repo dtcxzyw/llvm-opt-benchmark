@@ -575,8 +575,8 @@ define internal fastcc i32 @nsis_unpack_next(ptr noundef %0, ptr noundef %1) unn
   %29 = load i64, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %28, i64 88
   %31 = load i64, ptr %30, align 8
-  %or.cond208.not = icmp ugt i64 %31, %29
-  br i1 %or.cond208.not, label %32, label %fmap_readn.exit.thread
+  %or.cond207.not = icmp ugt i64 %31, %29
+  br i1 %or.cond207.not, label %32, label %fmap_readn.exit.thread
 
 32:                                               ; preds = %26
   %33 = sub i64 %31, %29
@@ -711,11 +711,11 @@ fmap_readn.exit.thread:                           ; preds = %32, %26, %fmap_read
   %91 = call fastcc i32 @nsis_decomp(ptr noundef nonnull %0)
   %92 = icmp eq i32 %91, 0
   %93 = ptrtoint ptr %4 to i64
-  br i1 %92, label %.lr.ph243, label %.loopexit
+  br i1 %92, label %.lr.ph242, label %.loopexit
 
-.lr.ph243:                                        ; preds = %86, %114
-  %.0118242 = phi i32 [ %.1, %114 ], [ 0, %86 ]
-  %.0124241 = phi i32 [ %.1125, %114 ], [ 0, %86 ]
+.lr.ph242:                                        ; preds = %86, %114
+  %.0118241 = phi i32 [ %.1, %114 ], [ 0, %86 ]
+  %.0124240 = phi i32 [ %.1125, %114 ], [ 0, %86 ]
   %94 = load ptr, ptr %89, align 8
   %95 = ptrtoint ptr %94 to i64
   %96 = sub i64 %95, %93
@@ -723,7 +723,7 @@ fmap_readn.exit.thread:                           ; preds = %32, %26, %fmap_read
   %.not162 = icmp eq i64 %97, 0
   br i1 %.not162, label %110, label %98
 
-98:                                               ; preds = %.lr.ph243
+98:                                               ; preds = %.lr.ph242
   %99 = load i32, ptr %69, align 8
   %100 = and i64 %96, 4294967295
   %101 = call i64 @cli_writen(i32 noundef %99, ptr noundef nonnull %4, i64 noundef %100) #10
@@ -750,9 +750,9 @@ fmap_readn.exit.thread:                           ; preds = %32, %26, %fmap_read
   call fastcc void @nsis_shutdown(ptr noundef nonnull %0)
   br label %255
 
-110:                                              ; preds = %.lr.ph243
-  %111 = add nuw nsw i32 %.0124241, 1
-  %112 = icmp ugt i32 %.0124241, 19
+110:                                              ; preds = %.lr.ph242
+  %111 = add nuw nsw i32 %.0124240, 1
+  %112 = icmp ugt i32 %.0124240, 19
   br i1 %112, label %113, label %114
 
 113:                                              ; preds = %110
@@ -761,19 +761,19 @@ fmap_readn.exit.thread:                           ; preds = %32, %26, %fmap_read
 
 114:                                              ; preds = %110, %105
   %.1125 = phi i32 [ 0, %105 ], [ %111, %110 ]
-  %.1 = phi i32 [ 1, %105 ], [ %.0118242, %110 ]
+  %.1 = phi i32 [ 1, %105 ], [ %.0118241, %110 ]
   %115 = call fastcc i32 @nsis_decomp(ptr noundef nonnull %0)
   %116 = icmp eq i32 %115, 0
-  br i1 %116, label %.lr.ph243, label %.loopexit
+  br i1 %116, label %.lr.ph242, label %.loopexit
 
 .loopexit:                                        ; preds = %114, %86
   %.0118.lcssa = phi i32 [ 0, %86 ], [ %.1, %114 ]
-  %.lcssa211 = phi i32 [ %91, %86 ], [ %115, %114 ]
-  %117 = icmp eq i32 %.lcssa211, 22
+  %.lcssa210 = phi i32 [ %91, %86 ], [ %115, %114 ]
+  %117 = icmp eq i32 %.lcssa210, 22
   br label %118
 
 118:                                              ; preds = %.loopexit, %113
-  %.0118218 = phi i32 [ %.0118.lcssa, %.loopexit ], [ %.0118242, %113 ]
+  %.0118217 = phi i32 [ %.0118.lcssa, %.loopexit ], [ %.0118241, %113 ]
   %.0119 = phi i1 [ %117, %.loopexit ], [ false, %113 ]
   call fastcc void @nsis_shutdown(ptr noundef nonnull %0)
   %119 = load ptr, ptr %89, align 8
@@ -801,15 +801,15 @@ fmap_readn.exit.thread:                           ; preds = %32, %26, %fmap_read
   br i1 %.0119, label %255, label %133
 
 .thread:                                          ; preds = %123
-  br i1 %.0119, label %255, label %.thread203
+  br i1 %.0119, label %255, label %.thread202
 
-.thread203:                                       ; preds = %.thread
+.thread202:                                       ; preds = %.thread
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.21) #10
   br label %255
 
 133:                                              ; preds = %132
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.21) #10
-  %.not165 = icmp eq i32 %.0118218, 0
+  %.not165 = icmp eq i32 %.0118217, 0
   br i1 %.not165, label %134, label %255
 
 134:                                              ; preds = %133
@@ -848,8 +848,8 @@ fmap_readn.exit.thread:                           ; preds = %32, %26, %fmap_read
   %147 = getelementptr inbounds i8, ptr %0, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %147, i8 0, i64 200, i1 false)
   %148 = tail call i32 @cli_LzmaInit(ptr noundef nonnull %147, i64 noundef -1) #10
-  %.not.i184 = icmp eq i32 %148, 0
-  br i1 %.not.i184, label %.sink.split.i, label %nsis_init.exit
+  %.not.i183 = icmp eq i32 %148, 0
+  br i1 %.not.i183, label %.sink.split.i, label %nsis_init.exit
 
 149:                                              ; preds = %140
   %150 = getelementptr inbounds i8, ptr %0, i64 368
@@ -931,7 +931,7 @@ nsis_init.exit:                                   ; preds = %146, %143
   %.2126 = phi i32 [ 0, %181 ], [ %194, %193 ]
   %186 = call fastcc i32 @nsis_decomp(ptr noundef nonnull %0)
   %187 = icmp eq i32 %186, 0
-  br i1 %187, label %188, label %.loopexit210
+  br i1 %187, label %188, label %.loopexit209
 
 188:                                              ; preds = %185
   %189 = load ptr, ptr %182, align 8
@@ -947,9 +947,9 @@ nsis_init.exit:                                   ; preds = %146, %143
 
 195:                                              ; preds = %193
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24) #10
-  br label %.loopexit210
+  br label %.loopexit209
 
-.loopexit210:                                     ; preds = %185, %195
+.loopexit209:                                     ; preds = %185, %195
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.25) #10
   br label %255
 
@@ -988,8 +988,8 @@ nsis_init.exit:                                   ; preds = %146, %143
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %231
-  %.3229 = phi i32 [ %.4, %231 ], [ 0, %.lr.ph.preheader ]
-  %.3127228 = phi i32 [ %.4128, %231 ], [ 0, %.lr.ph.preheader ]
+  %.3228 = phi i32 [ %.4, %231 ], [ 0, %.lr.ph.preheader ]
+  %.3127227 = phi i32 [ %.4128, %231 ], [ 0, %.lr.ph.preheader ]
   %209 = phi i32 [ %232, %231 ], [ %196, %.lr.ph.preheader ]
   %210 = call fastcc i32 @nsis_decomp(ptr noundef nonnull %0)
   %211 = icmp eq i32 %210, 0
@@ -1024,8 +1024,8 @@ nsis_init.exit:                                   ; preds = %146, %143
   br label %231
 
 227:                                              ; preds = %212
-  %228 = add nuw nsw i32 %.3127228, 1
-  %229 = icmp ugt i32 %.3127228, 19
+  %228 = add nuw nsw i32 %.3127227, 1
+  %229 = icmp ugt i32 %.3127227, 19
   br i1 %229, label %230, label %231
 
 230:                                              ; preds = %227
@@ -1035,12 +1035,12 @@ nsis_init.exit:                                   ; preds = %146, %143
 231:                                              ; preds = %227, %224
   %232 = phi i32 [ %225, %224 ], [ %209, %227 ]
   %.4128 = phi i32 [ 0, %224 ], [ %228, %227 ]
-  %.4 = phi i32 [ 1, %224 ], [ %.3229, %227 ]
+  %.4 = phi i32 [ 1, %224 ], [ %.3228, %227 ]
   %.not174 = icmp eq i32 %232, 0
   br i1 %.not174, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %231, %230
-  %.3221 = phi i32 [ %.3229, %230 ], [ %.4, %231 ], [ %.3229, %.lr.ph ]
+  %.3220 = phi i32 [ %.3228, %230 ], [ %.4, %231 ], [ %.3228, %.lr.ph ]
   %.4123 = phi i32 [ 26, %230 ], [ %210, %231 ], [ %210, %.lr.ph ]
   %233 = load ptr, ptr %182, align 8
   %234 = ptrtoint ptr %233 to i64
@@ -1064,7 +1064,7 @@ nsis_init.exit:                                   ; preds = %146, %143
   br label %255
 
 246:                                              ; preds = %237, %.critedge
-  %.5 = phi i32 [ 1, %237 ], [ %.3221, %.critedge ]
+  %.5 = phi i32 [ 1, %237 ], [ %.3220, %.critedge ]
   switch i32 %.4123, label %252 [
     i32 26, label %247
     i32 22, label %251
@@ -1091,8 +1091,8 @@ nsis_init.exit:                                   ; preds = %146, %143
   %254 = call i32 @close(i32 noundef %253) #10
   br label %255
 
-255:                                              ; preds = %.thread203, %.thread, %246, %251, %.critedge182, %76, %132, %134, %133, %8, %252, %248, %243, %221, %208, %201, %.loopexit210, %180, %171, %nsis_init.exit, %129, %107, %102, %83, %78, %71, %65, %56, %51, %46, %43, %fmap_readn.exit.thread, %7
-  %.0 = phi i32 [ 22, %7 ], [ 22, %180 ], [ 26, %.loopexit210 ], [ 0, %201 ], [ 9, %208 ], [ 14, %221 ], [ 14, %243 ], [ 26, %252 ], [ 24, %248 ], [ 7, %nsis_init.exit ], [ 12, %171 ], [ 22, %fmap_readn.exit.thread ], [ 22, %43 ], [ 22, %51 ], [ %55, %56 ], [ 9, %71 ], [ 14, %78 ], [ %82, %83 ], [ 14, %102 ], [ %106, %107 ], [ 14, %129 ], [ 12, %65 ], [ 0, %46 ], [ %9, %8 ], [ 24, %134 ], [ 0, %133 ], [ 0, %132 ], [ 0, %76 ], [ %198, %.critedge182 ], [ 0, %251 ], [ %.4123, %246 ], [ 0, %.thread ], [ 0, %.thread203 ]
+255:                                              ; preds = %.thread202, %.thread, %246, %251, %.critedge182, %76, %132, %134, %133, %8, %252, %248, %243, %221, %208, %201, %.loopexit209, %180, %171, %nsis_init.exit, %129, %107, %102, %83, %78, %71, %65, %56, %51, %46, %43, %fmap_readn.exit.thread, %7
+  %.0 = phi i32 [ 22, %7 ], [ 22, %180 ], [ 26, %.loopexit209 ], [ 0, %201 ], [ 9, %208 ], [ 14, %221 ], [ 14, %243 ], [ 26, %252 ], [ 24, %248 ], [ 7, %nsis_init.exit ], [ 12, %171 ], [ 22, %fmap_readn.exit.thread ], [ 22, %43 ], [ 22, %51 ], [ %55, %56 ], [ 9, %71 ], [ 14, %78 ], [ %82, %83 ], [ 14, %102 ], [ %106, %107 ], [ 14, %129 ], [ 12, %65 ], [ 0, %46 ], [ %9, %8 ], [ 24, %134 ], [ 0, %133 ], [ 0, %132 ], [ 0, %76 ], [ %198, %.critedge182 ], [ 0, %251 ], [ %.4123, %246 ], [ 0, %.thread ], [ 0, %.thread202 ]
   ret i32 %.0
 }
 

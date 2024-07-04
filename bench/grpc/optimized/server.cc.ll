@@ -17641,8 +17641,8 @@ if.else.i.i.i:                                    ; preds = %invoke.cont31
 
 cleanup:                                          ; preds = %invoke.cont, %if.then.i.i.i, %if.else.i.i.i
   %cmp13.not52 = phi i1 [ false, %if.else.i.i.i ], [ false, %if.then.i.i.i ], [ true, %invoke.cont ]
-  %rc8.144 = phi ptr [ null, %if.else.i.i.i ], [ null, %if.then.i.i.i ], [ %call21, %invoke.cont ]
-  %cq_idx9.142 = phi i64 [ %cq_idx9.0.lcssa, %if.else.i.i.i ], [ %cq_idx9.0.lcssa, %if.then.i.i.i ], [ %rem18, %invoke.cont ]
+  %cq_idx9.144 = phi i64 [ %cq_idx9.0.lcssa, %if.else.i.i.i ], [ %cq_idx9.0.lcssa, %if.then.i.i.i ], [ %rem18, %invoke.cont ]
+  %rc8.142 = phi ptr [ null, %if.else.i.i.i ], [ null, %if.then.i.i.i ], [ %call21, %invoke.cont ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_call_)
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit36 unwind label %terminate.lpad.i35
 
@@ -17659,7 +17659,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit36:      ; preds = %cleanup
 cleanup.cont:                                     ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit36
   %state_.i37 = getelementptr inbounds i8, ptr %calld, i64 16
   store atomic i32 2, ptr %state_.i37 monotonic, align 4
-  call void @_ZN9grpc_core6Server8CallData7PublishEmPNS0_13RequestedCallE(ptr noundef nonnull align 8 dereferenceable(376) %calld, i64 noundef %cq_idx9.142, ptr noundef %rc8.144)
+  call void @_ZN9grpc_core6Server8CallData7PublishEmPNS0_13RequestedCallE(ptr noundef nonnull align 8 dereferenceable(376) %calld, i64 noundef %cq_idx9.144, ptr noundef %rc8.142)
   br label %return
 
 return:                                           ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit36, %cleanup.cont, %if.then

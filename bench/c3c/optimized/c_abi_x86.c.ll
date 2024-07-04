@@ -62,8 +62,8 @@ define dso_local ptr @x86_classify_return(i32 %0, ptr nocapture noundef %1, ptr 
   br label %24
 
 24:                                               ; preds = %21, %20
-  %.051 = phi i32 [ %23, %21 ], [ %18, %20 ]
-  %25 = and i32 %.051, -2
+  %.050 = phi i32 [ %23, %21 ], [ %18, %20 ]
+  %25 = and i32 %.050, -2
   %26 = icmp eq i32 %25, 26
   br i1 %26, label %27, label %44
 
@@ -118,8 +118,8 @@ define dso_local ptr @x86_classify_return(i32 %0, ptr nocapture noundef %1, ptr 
   br label %55
 
 55:                                               ; preds = %51, %48
-  %.050 = phi i32 [ %54, %51 ], [ %49, %48 ]
-  %56 = add i32 %.050, -13
+  %.051 = phi i32 [ %54, %51 ], [ %49, %48 ]
+  %56 = add i32 %.051, -13
   %57 = icmp ult i32 %56, 5
   br i1 %57, label %58, label %60
 
@@ -138,8 +138,8 @@ define dso_local ptr @x86_classify_return(i32 %0, ptr nocapture noundef %1, ptr 
   br label %66
 
 66:                                               ; preds = %63, %60
-  %.049 = phi i32 [ %65, %63 ], [ %61, %60 ]
-  %67 = icmp eq i32 %.049, 23
+  %.052 = phi i32 [ %65, %63 ], [ %61, %60 ]
+  %67 = icmp eq i32 %.052, 23
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %66
@@ -242,8 +242,8 @@ define dso_local ptr @x86_classify_return(i32 %0, ptr nocapture noundef %1, ptr 
   br label %create_indirect_return_x86.exit
 
 create_indirect_return_x86.exit:                  ; preds = %114, %110, %107, %79, %75, %72, %40, %36, %33, %118, %96, %70, %68, %58, %14, %9
-  %.052 = phi ptr [ %10, %9 ], [ %15, %14 ], [ %59, %58 ], [ %69, %68 ], [ %71, %70 ], [ %97, %96 ], [ %119, %118 ], [ %34, %33 ], [ %34, %36 ], [ %34, %40 ], [ %73, %72 ], [ %73, %75 ], [ %73, %79 ], [ %108, %107 ], [ %108, %110 ], [ %108, %114 ]
-  ret ptr %.052
+  %.049 = phi ptr [ %10, %9 ], [ %15, %14 ], [ %59, %58 ], [ %69, %68 ], [ %71, %70 ], [ %97, %96 ], [ %119, %118 ], [ %34, %33 ], [ %34, %36 ], [ %34, %40 ], [ %73, %72 ], [ %73, %75 ], [ %73, %79 ], [ %108, %107 ], [ %108, %110 ], [ %108, %114 ]
+  ret ptr %.049
 }
 
 ; Function Attrs: nounwind uwtable
@@ -499,8 +499,8 @@ tailrecurse:                                      ; preds = %8
   br i1 %or.cond109.not, label %.lr.ph76, label %is_power_of_two.exit.thread, !llvm.loop !7
 
 is_power_of_two.exit.thread:                      ; preds = %tailrecurse, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %.lr.ph, %.lr.ph76, %17, %1, %22, %10
-  %.019 = phi i1 [ %11, %10 ], [ true, %22 ], [ false, %1 ], [ true, %17 ], [ %31, %.lr.ph76 ], [ false, %tailrecurse ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ false, %.lr.ph ]
-  ret i1 %.019
+  %.020 = phi i1 [ %11, %10 ], [ true, %22 ], [ false, %1 ], [ true, %17 ], [ %31, %.lr.ph76 ], [ false, %tailrecurse ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ false, %.lr.ph ]
+  ret i1 %.020
 }
 
 declare ptr @type_abi_find_single_struct_element(ptr noundef) local_unnamed_addr #1
@@ -831,8 +831,8 @@ x86_try_put_primitive_in_reg.exit.i:              ; preds = %47, %x86_try_use_fr
   br label %81
 
 81:                                               ; preds = %77, %73
-  %.0.i.i12 = phi i32 [ %80, %77 ], [ %75, %73 ]
-  %82 = add i32 %.0.i.i12, -3
+  %.09.i.i = phi i32 [ %80, %77 ], [ %75, %73 ]
+  %82 = add i32 %.09.i.i, -3
   %83 = icmp ult i32 %82, 10
   br i1 %83, label %x86_is_mmxtype.exit.i, label %x86_is_mmxtype.exit.thread.i
 
@@ -909,8 +909,8 @@ x86_stack_alignment.exit.thread19.i.i:            ; preds = %x86_stack_alignment
   %117 = tail call i32 @type_size(ptr noundef nonnull %3) #4
   %118 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %119 = and i8 %118, 2
-  %.not.i.i13 = icmp eq i8 %119, 0
-  br i1 %.not.i.i13, label %120, label %130
+  %.not.i.i12 = icmp eq i8 %119, 0
+  br i1 %.not.i.i12, label %120, label %130
 
 120:                                              ; preds = %116
   %121 = load i32, ptr %3, align 8
@@ -978,14 +978,14 @@ x86_try_use_free_regs.exit.i:                     ; preds = %143
   br label %154
 
 154:                                              ; preds = %151, %147
-  %.0.i14 = phi ptr [ %150, %147 ], [ %153, %151 ]
+  %.0.i13 = phi ptr [ %150, %147 ], [ %153, %151 ]
   %155 = load i8, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
   %156 = and i8 %155, 4
   %.not28.i = icmp eq i8 %156, 0
   br i1 %.not28.i, label %157, label %x86_classify_primitives.exit
 
 157:                                              ; preds = %154
-  %158 = getelementptr inbounds i8, ptr %.0.i14, i64 5
+  %158 = getelementptr inbounds i8, ptr %.0.i13, i64 5
   %159 = load i8, ptr %158, align 1
   %160 = or i8 %159, 1
   store i8 %160, ptr %158, align 1
@@ -1018,8 +1018,8 @@ x86_try_use_free_regs.exit.thread.i:              ; preds = %x86_try_use_free_re
   br label %174
 
 174:                                              ; preds = %170, %167
-  %.020.i.i = phi i32 [ %173, %170 ], [ %168, %167 ]
-  %175 = and i32 %.020.i.i, -2
+  %.021.i.i = phi i32 [ %173, %170 ], [ %168, %167 ]
+  %175 = and i32 %.021.i.i, -2
   %176 = icmp eq i32 %175, 26
   br i1 %176, label %177, label %x86_can_expand_indirect_aggregate_arg.exit.thread.i
 
@@ -1118,7 +1118,7 @@ x86_stack_alignment.exit.thread19.i34.i:          ; preds = %x86_stack_alignment
   unreachable
 
 x86_classify_primitives.exit:                     ; preds = %x86_stack_alignment.exit.thread19.i34.i, %209, %194, %157, %154, %x86_stack_alignment.exit.thread19.i.i, %113, %x86_is_mmxtype.exit.thread.i, %86, %.critedge.i, %65, %16, %12, %9
-  %.0 = phi ptr [ %66, %65 ], [ %67, %.critedge.i ], [ %10, %9 ], [ %10, %12 ], [ %10, %16 ], [ %88, %86 ], [ %89, %x86_is_mmxtype.exit.thread.i ], [ %195, %194 ], [ %.0.i14, %157 ], [ %.0.i14, %154 ], [ %114, %113 ], [ %115, %x86_stack_alignment.exit.thread19.i.i ], [ %210, %209 ], [ %211, %x86_stack_alignment.exit.thread19.i34.i ]
+  %.0 = phi ptr [ %66, %65 ], [ %67, %.critedge.i ], [ %10, %9 ], [ %10, %12 ], [ %10, %16 ], [ %88, %86 ], [ %89, %x86_is_mmxtype.exit.thread.i ], [ %195, %194 ], [ %.0.i13, %157 ], [ %.0.i13, %154 ], [ %114, %113 ], [ %115, %x86_stack_alignment.exit.thread19.i.i ], [ %210, %209 ], [ %211, %x86_stack_alignment.exit.thread19.i34.i ]
   ret ptr %.0
 }
 
@@ -1157,8 +1157,8 @@ define internal fastcc noundef zeroext i1 @type_is_union_struct_with_simd_vector
   br label %8
 
 8:                                                ; preds = %4, %1
-  %.019 = phi i32 [ %7, %4 ], [ %2, %1 ]
-  %9 = and i32 %.019, -2
+  %.021 = phi i32 [ %7, %4 ], [ %2, %1 ]
+  %9 = and i32 %.021, -2
   %10 = icmp eq i32 %9, 26
   br i1 %10, label %11, label %.loopexit
 
@@ -1207,8 +1207,8 @@ type_is_simd_vector.exit.thread:                  ; preds = %.lr.ph, %type_is_si
   br i1 %29, label %.loopexit, label %19
 
 .loopexit:                                        ; preds = %type_is_simd_vector.exit, %type_is_simd_vector.exit.thread, %19, %11, %16, %8
-  %.021 = phi i1 [ false, %8 ], [ false, %16 ], [ false, %11 ], [ true, %type_is_simd_vector.exit ], [ true, %type_is_simd_vector.exit.thread ], [ false, %19 ]
-  ret i1 %.021
+  %.020 = phi i1 [ false, %8 ], [ false, %16 ], [ false, %11 ], [ true, %type_is_simd_vector.exit ], [ true, %type_is_simd_vector.exit.thread ], [ false, %19 ]
+  ret i1 %.020
 }
 
 declare ptr @abi_arg_new_direct_coerce_type(ptr noundef) local_unnamed_addr #1

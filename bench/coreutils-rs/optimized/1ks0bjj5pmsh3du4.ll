@@ -59,15 +59,15 @@ define internal fastcc void @"_ZN4core3ptr181drop_in_place$LT$hashbrown..scopegu
   br i1 %exitcond.not.i.i, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb90054bb6b10003cE.exit", label %9
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb90054bb6b10003cE.exit": ; preds = %26, %1, %4
-  %27 = getelementptr inbounds i8, ptr %.val2.i, i64 8
-  %28 = load i64, ptr %27, align 8, !noalias !4, !noundef !7
-  %29 = icmp ult i64 %28, 8
-  %30 = add i64 %28, 1
-  %31 = lshr i64 %30, 3
-  %32 = mul nuw i64 %31, 7
-  %.0.i.i = select i1 %29, i64 %28, i64 %32
-  %33 = icmp ne ptr %.val2.i, null
-  tail call void @llvm.assume(i1 %33)
+  %27 = icmp ne ptr %.val2.i, null
+  tail call void @llvm.assume(i1 %27)
+  %28 = getelementptr inbounds i8, ptr %.val2.i, i64 8
+  %29 = load i64, ptr %28, align 8, !noalias !4, !noundef !7
+  %30 = icmp ult i64 %29, 8
+  %31 = add i64 %29, 1
+  %32 = lshr i64 %31, 3
+  %33 = mul nuw i64 %32, 7
+  %.0.i.i = select i1 %30, i64 %29, i64 %33
   %34 = getelementptr inbounds i8, ptr %.val2.i, i64 24
   %35 = load i64, ptr %34, align 8, !noalias !4, !noundef !7
   %36 = getelementptr inbounds i8, ptr %.val2.i, i64 16
@@ -302,16 +302,16 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   br label %common.resume
 
 .noexc.preheader:                                 ; preds = %.noexc.preheader.lr.ph, %166
-  %.sroa.1341.0103 = phi i16 [ %77, %.noexc.preheader.lr.ph ], [ %96, %166 ]
-  %.sroa.939.0102 = phi i64 [ %72, %.noexc.preheader.lr.ph ], [ %100, %166 ]
-  %.sroa.036.0101 = phi ptr [ %73, %.noexc.preheader.lr.ph ], [ %.sroa.036.1.lcssa, %166 ]
-  %.sroa.537.0100 = phi i64 [ 0, %.noexc.preheader.lr.ph ], [ %.sroa.537.1.lcssa, %166 ]
-  %.not.i6.not92 = icmp eq i16 %.sroa.1341.0103, 0
+  %.sroa.036.0103 = phi ptr [ %73, %.noexc.preheader.lr.ph ], [ %.sroa.036.1.lcssa, %166 ]
+  %.sroa.537.0102 = phi i64 [ 0, %.noexc.preheader.lr.ph ], [ %.sroa.537.1.lcssa, %166 ]
+  %.sroa.939.0101 = phi i64 [ %72, %.noexc.preheader.lr.ph ], [ %100, %166 ]
+  %.sroa.1341.0100 = phi i16 [ %77, %.noexc.preheader.lr.ph ], [ %96, %166 ]
+  %.not.i6.not92 = icmp eq i16 %.sroa.1341.0100, 0
   br i1 %.not.i6.not92, label %.noexc2, label %.noexc._crit_edge
 
 .noexc2:                                          ; preds = %.noexc.preheader, %.noexc2
-  %.sroa.036.194 = phi ptr [ %89, %.noexc2 ], [ %.sroa.036.0101, %.noexc.preheader ]
-  %.sroa.537.193 = phi i64 [ %93, %.noexc2 ], [ %.sroa.537.0100, %.noexc.preheader ]
+  %.sroa.036.194 = phi ptr [ %89, %.noexc2 ], [ %.sroa.036.0103, %.noexc.preheader ]
+  %.sroa.537.193 = phi i64 [ %93, %.noexc2 ], [ %.sroa.537.0102, %.noexc.preheader ]
   %88 = icmp ne ptr %.sroa.036.194, null
   call void @llvm.assume(i1 %88)
   %89 = getelementptr inbounds i8, ptr %.sroa.036.194, i64 16
@@ -327,15 +327,15 @@ _ZN9hashbrown3raw13RawTableInner20full_buckets_indices17h06ca43303e366e4dE.exit.
   br label %.noexc._crit_edge
 
 .noexc._crit_edge:                                ; preds = %.noexc._crit_edge.loopexit, %.noexc.preheader
-  %.sroa.1341.1.lcssa91 = phi i16 [ %.sroa.1341.0103, %.noexc.preheader ], [ %94, %.noexc._crit_edge.loopexit ]
-  %.sroa.537.1.lcssa = phi i64 [ %.sroa.537.0100, %.noexc.preheader ], [ %93, %.noexc._crit_edge.loopexit ]
-  %.sroa.036.1.lcssa = phi ptr [ %.sroa.036.0101, %.noexc.preheader ], [ %89, %.noexc._crit_edge.loopexit ]
+  %.sroa.1341.1.lcssa91 = phi i16 [ %.sroa.1341.0100, %.noexc.preheader ], [ %94, %.noexc._crit_edge.loopexit ]
+  %.sroa.537.1.lcssa = phi i64 [ %.sroa.537.0102, %.noexc.preheader ], [ %93, %.noexc._crit_edge.loopexit ]
+  %.sroa.036.1.lcssa = phi ptr [ %.sroa.036.0103, %.noexc.preheader ], [ %89, %.noexc._crit_edge.loopexit ]
   %95 = add i16 %.sroa.1341.1.lcssa91, -1
   %96 = and i16 %95, %.sroa.1341.1.lcssa91
   %97 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.1341.1.lcssa91, i1 true)
   %98 = zext nneg i16 %97 to i64
   %99 = add i64 %.sroa.537.1.lcssa, %98
-  %100 = add i64 %.sroa.939.0102, -1
+  %100 = add i64 %.sroa.939.0101, -1
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
   %101 = load ptr, ptr %0, align 8, !alias.scope !56, !noalias !57, !nonnull !7, !noundef !7
   %102 = sub nsw i64 0, %99

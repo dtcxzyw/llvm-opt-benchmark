@@ -174,8 +174,8 @@ define range(i32 -1, -2147483648) i32 @H5Pregister1(i64 noundef %0, ptr noundef 
   br label %80
 
 80:                                               ; preds = %77, %.thread44
-  %.04147 = phi i32 [ -1, %.thread44 ], [ %54, %77 ]
-  ret i32 %.04147
+  %.0293947 = phi i32 [ -1, %.thread44 ], [ %54, %77 ]
+  ret i32 %.0293947
 }
 
 declare i32 @H5_init_library() local_unnamed_addr #1

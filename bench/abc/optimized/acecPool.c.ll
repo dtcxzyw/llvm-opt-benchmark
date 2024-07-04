@@ -967,8 +967,8 @@ Acec_ManCheckCarryMap.exit:                       ; preds = %96
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %78
-  %.089.lcssa = phi i32 [ 0, %78 ], [ %112, %.critedge4.loopexit ]
-  %113 = icmp eq i32 %.089.lcssa, %.val99
+  %.0.lcssa = phi i32 [ 0, %78 ], [ %112, %.critedge4.loopexit ]
+  %113 = icmp eq i32 %.0.lcssa, %.val99
   br i1 %113, label %.critedge6, label %114
 
 114:                                              ; preds = %.critedge4
@@ -2472,7 +2472,7 @@ Vec_IntStart.exit:
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_IntFillExtra.exit ]
   %storemerge36 = phi ptr [ %calloc, %.lr.ph ], [ %storemerge37, %Vec_IntFillExtra.exit ]
   %9 = phi i32 [ 100, %.lr.ph ], [ %37, %Vec_IntFillExtra.exit ]
-  %.02233 = phi i32 [ 0, %.lr.ph ], [ %42, %Vec_IntFillExtra.exit ]
+  %.034 = phi i32 [ 0, %.lr.ph ], [ %42, %Vec_IntFillExtra.exit ]
   %10 = or disjoint i64 %indvars.iv, 1
   %.val27 = load ptr, ptr %6, align 8
   %11 = getelementptr inbounds i32, ptr %.val27, i64 %10
@@ -2547,7 +2547,7 @@ Vec_IntFillExtra.exit:                            ; preds = %.lr.ph.i, %8
   %40 = load i32, ptr %39, align 4
   %41 = add nsw i32 %40, 1
   store i32 %41, ptr %39, align 4
-  %42 = tail call noundef i32 @llvm.smax.i32(i32 %.02233, i32 %12)
+  %42 = tail call noundef i32 @llvm.smax.i32(i32 %.034, i32 %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.val = load i32, ptr %4, align 4
   %43 = trunc i64 %indvars.iv.next to i32

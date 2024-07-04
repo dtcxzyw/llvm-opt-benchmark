@@ -52,7 +52,7 @@ define i64 @softfloat_subMagsF64(i64 noundef %0, i64 noundef %1, i1 noundef zero
   br label %27
 
 27:                                               ; preds = %24, %22
-  %.066 = phi i1 [ %25, %24 ], [ %2, %22 ]
+  %.067 = phi i1 [ %25, %24 ], [ %2, %22 ]
   %.064 = phi i64 [ %26, %24 ], [ %17, %22 ]
   %28 = tail call zeroext i8 @softfloat_countLeadingZeros64(i64 noundef %.064) #3
   %29 = add i8 %28, -11
@@ -62,7 +62,7 @@ define i64 @softfloat_subMagsF64(i64 noundef %0, i64 noundef %1, i1 noundef zero
   %33 = trunc i64 %spec.select to i8
   %spec.select82 = select i1 %32, i8 %33, i8 %29
   %spec.select83 = tail call i64 @llvm.smax.i64(i64 %31, i64 0)
-  %34 = select i1 %.066, i64 -9223372036854775808, i64 0
+  %34 = select i1 %.067, i64 -9223372036854775808, i64 0
   %35 = shl nuw i64 %spec.select83, 52
   %36 = add i64 %35, %34
   %37 = sext i8 %spec.select82 to i64
@@ -145,12 +145,12 @@ define i64 @softfloat_subMagsF64(i64 noundef %0, i64 noundef %1, i1 noundef zero
 softfloat_shiftRightJam64.exit:                   ; preds = %81, %73, %63, %56
   %.sink87 = phi i64 [ %43, %56 ], [ %43, %63 ], [ %42, %73 ], [ %42, %81 ]
   %.sink86 = phi i64 [ %62, %56 ], [ %65, %63 ], [ %80, %73 ], [ %83, %81 ]
-  %.167.in = phi i1 [ %51, %56 ], [ %51, %63 ], [ %2, %73 ], [ %2, %81 ]
+  %.168.in = phi i1 [ %51, %56 ], [ %51, %63 ], [ %2, %73 ], [ %2, %81 ]
   %.1 = phi i64 [ %8, %56 ], [ %8, %63 ], [ %5, %73 ], [ %5, %81 ]
   %84 = or disjoint i64 %.sink87, 4611686018427387904
   %85 = sub nsw i64 %84, %.sink86
   %86 = add nsw i64 %.1, -1
-  %87 = tail call i64 @softfloat_normRoundPackToF64(i1 noundef zeroext %.167.in, i64 noundef %86, i64 noundef %85) #3
+  %87 = tail call i64 @softfloat_normRoundPackToF64(i1 noundef zeroext %.168.in, i64 noundef %86, i64 noundef %85) #3
   br label %90
 
 88:                                               ; preds = %68, %47, %13

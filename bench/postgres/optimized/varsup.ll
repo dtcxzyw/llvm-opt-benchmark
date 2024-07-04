@@ -212,8 +212,8 @@ define dso_local i64 @GetNewTransactionId(i1 noundef zeroext %0) local_unnamed_a
   br label %FullTransactionIdAdvance.exit
 
 FullTransactionIdAdvance.exit:                    ; preds = %80, %24
-  %.0 = phi i32 [ %86, %80 ], [ %30, %24 ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload28, %80 ], [ %.sroa.0.0.copyload, %24 ]
+  %.0 = phi i32 [ %86, %80 ], [ %30, %24 ]
   tail call void @ExtendCLOG(i32 noundef %.0) #7
   tail call void @ExtendCommitTs(i32 noundef %.0) #7
   tail call void @ExtendSUBTRANS(i32 noundef %.0) #7
@@ -413,16 +413,16 @@ define dso_local void @SetTransactionIdLimit(i32 noundef %0, i32 noundef %1) loc
   %6 = add i32 %spec.select, -3000000
   %7 = icmp ult i32 %6, 3
   %8 = add nuw nsw i32 %spec.select, -3000003
-  %.033 = select i1 %7, i32 %8, i32 %6
+  %.032 = select i1 %7, i32 %8, i32 %6
   %9 = add i32 %spec.select, -40000000
   %10 = icmp ult i32 %9, 3
   %11 = add nuw nsw i32 %spec.select, -40000003
-  %.034 = select i1 %10, i32 %11, i32 %9
+  %.033 = select i1 %10, i32 %11, i32 %9
   %12 = load i32, ptr @autovacuum_freeze_max_age, align 4
   %13 = add i32 %12, %0
   %14 = icmp ult i32 %13, 3
   %15 = add nuw nsw i32 %13, 3
-  %.031 = select i1 %14, i32 %15, i32 %13
+  %.034 = select i1 %14, i32 %15, i32 %13
   %16 = load ptr, ptr @MainLWLockArray, align 8
   %17 = getelementptr i8, ptr %16, i64 384
   %18 = tail call zeroext i1 @LWLockAcquire(ptr noundef %17, i32 noundef 0) #7
@@ -430,11 +430,11 @@ define dso_local void @SetTransactionIdLimit(i32 noundef %0, i32 noundef %1) loc
   %20 = getelementptr inbounds i8, ptr %19, i64 16
   store i32 %0, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %19, i64 20
-  store i32 %.031, ptr %21, align 4
+  store i32 %.034, ptr %21, align 4
   %22 = getelementptr inbounds i8, ptr %19, i64 24
-  store i32 %.034, ptr %22, align 8
+  store i32 %.033, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %19, i64 28
-  store i32 %.033, ptr %23, align 4
+  store i32 %.032, ptr %23, align 4
   %24 = getelementptr inbounds i8, ptr %19, i64 32
   store i32 %spec.select, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %19, i64 36
@@ -454,7 +454,7 @@ define dso_local void @SetTransactionIdLimit(i32 noundef %0, i32 noundef %1) loc
   br label %34
 
 34:                                               ; preds = %2, %32
-  %35 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %28, i32 noundef %.031) #7
+  %35 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %28, i32 noundef %.034) #7
   br i1 %35, label %36, label %43
 
 36:                                               ; preds = %34
@@ -472,7 +472,7 @@ define dso_local void @SetTransactionIdLimit(i32 noundef %0, i32 noundef %1) loc
   br label %43
 
 43:                                               ; preds = %42, %39, %36, %34
-  %44 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %28, i32 noundef %.034) #7
+  %44 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %28, i32 noundef %.033) #7
   br i1 %44, label %45, label %62
 
 45:                                               ; preds = %43

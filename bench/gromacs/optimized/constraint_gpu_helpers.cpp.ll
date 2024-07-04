@@ -1443,15 +1443,15 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit.thread:         ; preds = %23
   br label %44
 
 40:                                               ; preds = %67
-  %41 = add i32 %.075152, 1
+  %41 = add i32 %.069152, 1
   %42 = zext i32 %41 to i64
   %43 = icmp ugt i64 %36, %42
   br i1 %43, label %44, label %._crit_edge, !llvm.loop !12
 
 44:                                               ; preds = %.lr.ph, %40
-  %.075152 = phi i32 [ 0, %.lr.ph ], [ %41, %40 ]
+  %.069152 = phi i32 [ 0, %.lr.ph ], [ %41, %40 ]
   %45 = phi <2 x float> [ %9, %.lr.ph ], [ %62, %40 ]
-  %46 = mul i32 %.075152, %11
+  %46 = mul i32 %.069152, %11
   %47 = add i32 %46, 1
   %48 = zext i32 %47 to i64
   %49 = getelementptr inbounds i32, ptr %37, i64 %48
@@ -1594,8 +1594,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.loopexit, %.loopex
   %103 = phi ptr [ %141, %_ZN15InteractionListD2Ev.exit96 ], [ %88, %.lr.ph171.preheader ]
   %104 = phi i32 [ %142, %_ZN15InteractionListD2Ev.exit96 ], [ %.pre193, %.lr.ph171.preheader ]
   %105 = phi i64 [ %144, %_ZN15InteractionListD2Ev.exit96 ], [ 0, %.lr.ph171.preheader ]
-  %.061170 = phi i32 [ %143, %_ZN15InteractionListD2Ev.exit96 ], [ 0, %.lr.ph171.preheader ]
-  %.062169 = phi i32 [ %.163.lcssa226, %_ZN15InteractionListD2Ev.exit96 ], [ -1, %.lr.ph171.preheader ]
+  %.060170 = phi i32 [ %143, %_ZN15InteractionListD2Ev.exit96 ], [ 0, %.lr.ph171.preheader ]
+  %.061169 = phi i32 [ %.1.lcssa226, %_ZN15InteractionListD2Ev.exit96 ], [ -1, %.lr.ph171.preheader ]
   %106 = add i32 %104, 1
   %107 = getelementptr inbounds %struct.gmx_moltype_t, ptr %102, i64 %105, i32 2, i32 0, i64 64
   %108 = getelementptr inbounds i8, ptr %107, i64 8
@@ -1649,8 +1649,8 @@ _ZN15InteractionListC2ERKS_.exit94:               ; preds = %117, %121
 
 .lr.ph166:                                        ; preds = %.lr.ph166.preheader, %138
   %indvars.iv = phi i64 [ 0, %.lr.ph166.preheader ], [ %indvars.iv.next, %138 ]
-  %.163164 = phi i32 [ %.062169, %.lr.ph166.preheader ], [ %.264, %138 ]
-  %127 = icmp eq i32 %.163164, -1
+  %.1164 = phi i32 [ %.061169, %.lr.ph166.preheader ], [ %.2, %138 ]
+  %127 = icmp eq i32 %.1164, -1
   %128 = getelementptr inbounds i32, ptr %120, i64 %indvars.iv
   %129 = load i32, ptr %128, align 4
   br i1 %127, label %138, label %132
@@ -1661,7 +1661,7 @@ _ZN15InteractionListC2ERKS_.exit94:               ; preds = %117, %121
   br label %_ZN15InteractionListD2Ev.exit98
 
 132:                                              ; preds = %.lr.ph166
-  %.not = icmp eq i32 %129, %.163164
+  %.not = icmp eq i32 %129, %.1164
   br i1 %.not, label %138, label %133
 
 133:                                              ; preds = %132
@@ -1682,7 +1682,7 @@ _ZN15InteractionListC2ERKS_.exit94:               ; preds = %117, %121
   br label %_ZN15InteractionListD2Ev.exit98
 
 138:                                              ; preds = %.lr.ph166, %132
-  %.264 = phi i32 [ %.163164, %132 ], [ %129, %.lr.ph166 ]
+  %.2 = phi i32 [ %.1164, %132 ], [ %129, %.lr.ph166 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, %125
   %139 = icmp slt i64 %indvars.iv.next, %126
   br i1 %139, label %.lr.ph166, label %._crit_edge167.thread, !llvm.loop !14
@@ -1692,7 +1692,7 @@ _ZN15InteractionListC2ERKS_.exit94:               ; preds = %117, %121
   br i1 %.not.i.i.i.i95, label %_ZN15InteractionListD2Ev.exit96, label %._crit_edge167.thread
 
 ._crit_edge167.thread:                            ; preds = %138, %._crit_edge167
-  %.163.lcssa225 = phi i32 [ %.062169, %._crit_edge167 ], [ %.264, %138 ]
+  %.1.lcssa225 = phi i32 [ %.061169, %._crit_edge167 ], [ %.2, %138 ]
   tail call void @_ZdlPv(ptr noundef nonnull %120) #20
   %.pre192 = load i32, ptr getelementptr inbounds (i8, ptr @interaction_function, i64 2064), align 16
   %.pre196 = load ptr, ptr %4, align 8
@@ -1700,11 +1700,11 @@ _ZN15InteractionListC2ERKS_.exit94:               ; preds = %117, %121
   br label %_ZN15InteractionListD2Ev.exit96
 
 _ZN15InteractionListD2Ev.exit96:                  ; preds = %._crit_edge167, %._crit_edge167.thread
-  %.163.lcssa226 = phi i32 [ %.062169, %._crit_edge167 ], [ %.163.lcssa225, %._crit_edge167.thread ]
+  %.1.lcssa226 = phi i32 [ %.061169, %._crit_edge167 ], [ %.1.lcssa225, %._crit_edge167.thread ]
   %140 = phi ptr [ %102, %._crit_edge167 ], [ %.pre197, %._crit_edge167.thread ]
   %141 = phi ptr [ %103, %._crit_edge167 ], [ %.pre196, %._crit_edge167.thread ]
   %142 = phi i32 [ %104, %._crit_edge167 ], [ %.pre192, %._crit_edge167.thread ]
-  %143 = add i32 %.061170, 1
+  %143 = add i32 %.060170, 1
   %144 = zext i32 %143 to i64
   %145 = ptrtoint ptr %141 to i64
   %146 = ptrtoint ptr %140 to i64
@@ -1719,7 +1719,7 @@ _ZN15InteractionListD2Ev.exit98:                  ; preds = %136, %130
   br label %_ZN15InteractionListD2Ev.exit89
 
 ._crit_edge172:                                   ; preds = %_ZN15InteractionListD2Ev.exit96
-  %150 = icmp sgt i32 %.163.lcssa226, -1
+  %150 = icmp sgt i32 %.1.lcssa226, -1
   br i1 %150, label %151, label %._crit_edge172.thread
 
 ._crit_edge172.thread:                            ; preds = %.preheader, %._crit_edge172
@@ -1728,7 +1728,7 @@ _ZN15InteractionListD2Ev.exit98:                  ; preds = %136, %130
 
 151:                                              ; preds = %._crit_edge172
   %152 = getelementptr inbounds i8, ptr %0, i64 40
-  %153 = zext nneg i32 %.163.lcssa226 to i64
+  %153 = zext nneg i32 %.1.lcssa226 to i64
   %154 = load ptr, ptr %152, align 8
   %155 = getelementptr inbounds %union.t_iparams, ptr %154, i64 %153
   %156 = load <2 x float>, ptr %155, align 4

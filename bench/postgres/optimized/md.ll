@@ -799,7 +799,7 @@ define internal fastcc ptr @_mdfd_getseg(ptr nocapture noundef %0, i32 noundef %
 
 30:                                               ; preds = %._crit_edge, %21
   %31 = phi i32 [ %10, %21 ], [ %.pre, %._crit_edge ]
-  %.058 = phi ptr [ %27, %21 ], [ %29, %._crit_edge ]
+  %.059 = phi ptr [ %27, %21 ], [ %29, %._crit_edge ]
   %.not6887 = icmp ugt i32 %31, %6
   br i1 %.not6887, label %.loopexit, label %.lr.ph
 
@@ -819,9 +819,9 @@ define internal fastcc ptr @_mdfd_getseg(ptr nocapture noundef %0, i32 noundef %
   br i1 %34, label %.lr.ph.split.us.split.us.split, label %.lr.ph.split.us.split.us.split.us
 
 .lr.ph.split.us.split.us.split.us:                ; preds = %.lr.ph.split.us.split.us, %44
-  %.189.us.us.us = phi ptr [ %42, %44 ], [ %.058, %.lr.ph.split.us.split.us ]
-  %.05988.us.us.us = phi i32 [ %45, %44 ], [ %31, %.lr.ph.split.us.split.us ]
-  %36 = load i32, ptr %.189.us.us.us, align 4
+  %.05889.us.us.us = phi i32 [ %45, %44 ], [ %31, %.lr.ph.split.us.split.us ]
+  %.188.us.us.us = phi ptr [ %42, %44 ], [ %.059, %.lr.ph.split.us.split.us ]
+  %36 = load i32, ptr %.188.us.us.us, align 4
   %37 = tail call i64 @FileSize(i32 noundef %36) #14
   %38 = icmp slt i64 %37, 0
   br i1 %38, label %.split91.us, label %_mdnblocks.exit.us.us.us
@@ -833,19 +833,19 @@ _mdnblocks.exit.us.us.us:                         ; preds = %.lr.ph.split.us.spl
   br i1 %41, label %.split93.us, label %.split.us.us.us
 
 .split.us.us.us:                                  ; preds = %_mdnblocks.exit.us.us.us
-  %42 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05988.us.us.us, i32 noundef 0)
+  %42 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05889.us.us.us, i32 noundef 0)
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.split99.us, label %44
 
 44:                                               ; preds = %.split.us.us.us
-  %45 = add i32 %.05988.us.us.us, 1
-  %exitcond190.not = icmp eq i32 %.05988.us.us.us, %6
+  %45 = add i32 %.05889.us.us.us, 1
+  %exitcond190.not = icmp eq i32 %.05889.us.us.us, %6
   br i1 %exitcond190.not, label %.loopexit, label %.lr.ph.split.us.split.us.split.us, !llvm.loop !7
 
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %55
-  %.189.us.us = phi ptr [ %53, %55 ], [ %.058, %.lr.ph.split.us.split.us ]
-  %.05988.us.us = phi i32 [ %56, %55 ], [ %31, %.lr.ph.split.us.split.us ]
-  %46 = load i32, ptr %.189.us.us, align 4
+  %.05889.us.us = phi i32 [ %56, %55 ], [ %31, %.lr.ph.split.us.split.us ]
+  %.188.us.us = phi ptr [ %53, %55 ], [ %.059, %.lr.ph.split.us.split.us ]
+  %46 = load i32, ptr %.188.us.us, align 4
   %47 = tail call i64 @FileSize(i32 noundef %46) #14
   %48 = icmp slt i64 %47, 0
   br i1 %48, label %.split91.us, label %_mdnblocks.exit.us.us
@@ -861,22 +861,22 @@ _mdnblocks.exit.us.us:                            ; preds = %.lr.ph.split.us.spl
   br i1 %.not123, label %.split.us.us, label %.split95.us
 
 .split.us.us:                                     ; preds = %52
-  %53 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05988.us.us, i32 noundef 0)
+  %53 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05889.us.us, i32 noundef 0)
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.split99.us, label %55
 
 55:                                               ; preds = %.split.us.us
-  %56 = add i32 %.05988.us.us, 1
-  %exitcond191.not = icmp eq i32 %.05988.us.us, %6
+  %56 = add i32 %.05889.us.us, 1
+  %exitcond191.not = icmp eq i32 %.05889.us.us, %6
   br i1 %exitcond191.not, label %.loopexit, label %.lr.ph.split.us.split.us.split, !llvm.loop !7
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
   br i1 %34, label %.lr.ph.split.us.split.split, label %.lr.ph.split.us.split.split.us
 
 .lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %73
-  %.189.us.us107 = phi ptr [ %71, %73 ], [ %.058, %.lr.ph.split.us.split ]
-  %.05988.us.us108 = phi i32 [ %74, %73 ], [ %31, %.lr.ph.split.us.split ]
-  %57 = load i32, ptr %.189.us.us107, align 4
+  %.05889.us.us107 = phi i32 [ %74, %73 ], [ %31, %.lr.ph.split.us.split ]
+  %.188.us.us108 = phi ptr [ %71, %73 ], [ %.059, %.lr.ph.split.us.split ]
+  %57 = load i32, ptr %.188.us.us108, align 4
   %58 = tail call i64 @FileSize(i32 noundef %57) #14
   %59 = icmp slt i64 %58, 0
   br i1 %59, label %.split91.us, label %_mdnblocks.exit.us.us109
@@ -898,7 +898,7 @@ _mdnblocks.exit.us.us109:                         ; preds = %.lr.ph.split.us.spl
 
 67:                                               ; preds = %66
   %68 = tail call ptr @palloc_aligned(i64 noundef 8192, i64 noundef 4096, i32 noundef 4) #14
-  %69 = shl nuw i32 %.05988.us.us108, 17
+  %69 = shl nuw i32 %.05889.us.us107, 17
   %70 = add i32 %69, -1
   tail call void @mdextend(ptr noundef %0, i32 noundef %1, i32 noundef %70, ptr noundef %68, i1 noundef zeroext %3)
   tail call void @pfree(ptr noundef %68) #14
@@ -906,19 +906,19 @@ _mdnblocks.exit.us.us109:                         ; preds = %.lr.ph.split.us.spl
 
 .split.us.us111:                                  ; preds = %66, %67, %63
   %.sink = phi i32 [ 0, %63 ], [ 64, %67 ], [ 64, %66 ]
-  %71 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05988.us.us108, i32 noundef %.sink)
+  %71 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05889.us.us107, i32 noundef %.sink)
   %72 = icmp eq ptr %71, null
   br i1 %72, label %.split99.us, label %73
 
 73:                                               ; preds = %.split.us.us111
-  %74 = add i32 %.05988.us.us108, 1
-  %exitcond188.not = icmp eq i32 %.05988.us.us108, %6
+  %74 = add i32 %.05889.us.us107, 1
+  %exitcond188.not = icmp eq i32 %.05889.us.us107, %6
   br i1 %exitcond188.not, label %.loopexit, label %.lr.ph.split.us.split.split.us, !llvm.loop !7
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %92
-  %.189.us = phi ptr [ %90, %92 ], [ %.058, %.lr.ph.split.us.split ]
-  %.05988.us = phi i32 [ %93, %92 ], [ %31, %.lr.ph.split.us.split ]
-  %75 = load i32, ptr %.189.us, align 4
+  %.05889.us = phi i32 [ %93, %92 ], [ %31, %.lr.ph.split.us.split ]
+  %.188.us = phi ptr [ %90, %92 ], [ %.059, %.lr.ph.split.us.split ]
+  %75 = load i32, ptr %.188.us, align 4
   %76 = tail call i64 @FileSize(i32 noundef %75) #14
   %77 = icmp slt i64 %76, 0
   br i1 %77, label %.split91.us, label %_mdnblocks.exit.us
@@ -943,7 +943,7 @@ _mdnblocks.exit.us:                               ; preds = %.lr.ph.split.us.spl
 
 86:                                               ; preds = %85
   %87 = tail call ptr @palloc_aligned(i64 noundef 8192, i64 noundef 4096, i32 noundef 4) #14
-  %88 = shl nuw i32 %.05988.us, 17
+  %88 = shl nuw i32 %.05889.us, 17
   %89 = add i32 %88, -1
   tail call void @mdextend(ptr noundef %0, i32 noundef %1, i32 noundef %89, ptr noundef %87, i1 noundef zeroext %3)
   tail call void @pfree(ptr noundef %87) #14
@@ -951,25 +951,25 @@ _mdnblocks.exit.us:                               ; preds = %.lr.ph.split.us.spl
 
 .split.us:                                        ; preds = %85, %86, %84
   %.sink255 = phi i32 [ 0, %84 ], [ 64, %86 ], [ 64, %85 ]
-  %90 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05988.us, i32 noundef %.sink255)
+  %90 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05889.us, i32 noundef %.sink255)
   %91 = icmp eq ptr %90, null
   br i1 %91, label %.split99.us, label %92
 
 92:                                               ; preds = %.split.us
-  %93 = add i32 %.05988.us, 1
-  %exitcond189.not = icmp eq i32 %.05988.us, %6
+  %93 = add i32 %.05889.us, 1
+  %exitcond189.not = icmp eq i32 %.05889.us, %6
   br i1 %exitcond189.not, label %.loopexit, label %.lr.ph.split.us.split.split, !llvm.loop !7
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %132
-  %.189 = phi ptr [ %112, %132 ], [ %.058, %.lr.ph ]
-  %.05988 = phi i32 [ %133, %132 ], [ %31, %.lr.ph ]
-  %94 = load i32, ptr %.189, align 4
+  %.05889 = phi i32 [ %133, %132 ], [ %31, %.lr.ph ]
+  %.188 = phi ptr [ %112, %132 ], [ %.059, %.lr.ph ]
+  %94 = load i32, ptr %.188, align 4
   %95 = tail call i64 @FileSize(i32 noundef %94) #14
   %96 = icmp slt i64 %95, 0
   br i1 %96, label %.split91.us, label %_mdnblocks.exit
 
 .split91.us:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us.split.us, %.lr.ph.split.us.split.us.split
-  %.us-phi = phi ptr [ %.189.us.us, %.lr.ph.split.us.split.us.split ], [ %.189.us.us.us, %.lr.ph.split.us.split.us.split.us ], [ %.189.us, %.lr.ph.split.us.split.split ], [ %.189.us.us107, %.lr.ph.split.us.split.split.us ], [ %.189, %.lr.ph.split ]
+  %.us-phi = phi ptr [ %.188.us.us, %.lr.ph.split.us.split.us.split ], [ %.188.us.us.us, %.lr.ph.split.us.split.us.split.us ], [ %.188.us, %.lr.ph.split.us.split.split ], [ %.188.us.us108, %.lr.ph.split.us.split.split.us ], [ %.188, %.lr.ph.split ]
   %97 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   tail call void @llvm.assume(i1 %97)
   %98 = tail call i32 @errcode_for_file_access() #14
@@ -998,20 +998,20 @@ _mdnblocks.exit:                                  ; preds = %.lr.ph.split
 
 108:                                              ; preds = %107
   %109 = tail call ptr @palloc_aligned(i64 noundef 8192, i64 noundef 4096, i32 noundef 4) #14
-  %110 = shl nuw i32 %.05988, 17
+  %110 = shl nuw i32 %.05889, 17
   %111 = add i32 %110, -1
   tail call void @mdextend(ptr noundef %0, i32 noundef %1, i32 noundef %111, ptr noundef %109, i1 noundef zeroext %3)
   tail call void @pfree(ptr noundef %109) #14
   br label %.split61
 
 .split61:                                         ; preds = %107, %108
-  %112 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05988, i32 noundef 64)
+  %112 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05889, i32 noundef 64)
   %113 = icmp eq ptr %112, null
   br i1 %113, label %.split99.us, label %132
 
 .split95.us:                                      ; preds = %84, %52
   %.us-phi103 = phi i32 [ %50, %52 ], [ %79, %84 ]
-  %.us-phi104 = phi i32 [ %.05988.us.us, %52 ], [ %.05988.us, %84 ]
+  %.us-phi104 = phi i32 [ %.05889.us.us, %52 ], [ %.05889.us, %84 ]
   %114 = and i32 %4, 2
   %.not71 = icmp eq i32 %114, 0
   br i1 %.not71, label %117, label %115
@@ -1031,7 +1031,7 @@ _mdnblocks.exit:                                  ; preds = %.lr.ph.split
   unreachable
 
 .split99.us:                                      ; preds = %.split61, %.split.us.us111, %.split.us, %.split.us.us.us, %.split.us.us
-  %.us-phi100 = phi i32 [ %.05988.us.us, %.split.us.us ], [ %.05988.us.us.us, %.split.us.us.us ], [ %.05988.us, %.split.us ], [ %.05988.us.us108, %.split.us.us111 ], [ %.05988, %.split61 ]
+  %.us-phi100 = phi i32 [ %.05889.us.us, %.split.us.us ], [ %.05889.us.us.us, %.split.us.us.us ], [ %.05889.us, %.split.us ], [ %.05889.us.us107, %.split.us.us111 ], [ %.05889, %.split61 ]
   %122 = and i32 %4, 2
   %.not73 = icmp eq i32 %122, 0
   br i1 %.not73, label %127, label %123
@@ -1052,12 +1052,12 @@ _mdnblocks.exit:                                  ; preds = %.lr.ph.split
   unreachable
 
 132:                                              ; preds = %.split61
-  %133 = add i32 %.05988, 1
-  %exitcond.not = icmp eq i32 %.05988, %6
+  %133 = add i32 %.05889, 1
+  %exitcond.not = icmp eq i32 %.05889, %6
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !7
 
 .loopexit:                                        ; preds = %132, %73, %92, %44, %55, %30, %123, %28, %18, %115, %12
-  %.0 = phi ptr [ %17, %12 ], [ null, %115 ], [ null, %18 ], [ null, %28 ], [ null, %123 ], [ %.058, %30 ], [ %53, %55 ], [ %42, %44 ], [ %90, %92 ], [ %71, %73 ], [ %112, %132 ]
+  %.0 = phi ptr [ %17, %12 ], [ null, %115 ], [ null, %18 ], [ null, %28 ], [ null, %123 ], [ %.059, %30 ], [ %53, %55 ], [ %42, %44 ], [ %90, %92 ], [ %71, %73 ], [ %112, %132 ]
   ret ptr %.0
 }
 
@@ -1083,18 +1083,18 @@ define dso_local void @mdzeroextend(ptr nocapture noundef %0, i32 noundef %1, i3
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %28
   %.044.us = phi i32 [ %30, %28 ], [ %2, %.lr.ph ]
-  %.03943.us = phi i32 [ %29, %28 ], [ %3, %.lr.ph ]
+  %.04043.us = phi i32 [ %29, %28 ], [ %3, %.lr.ph ]
   %12 = and i32 %.044.us, 131071
   %13 = shl nuw nsw i32 %12, 13
   %14 = zext nneg i32 %13 to i64
-  %15 = add nuw i32 %12, %.03943.us
+  %15 = add nuw i32 %12, %.04043.us
   %16 = icmp ugt i32 %15, 131072
   %17 = sub nuw nsw i32 131072, %12
-  %.040.us = select i1 %16, i32 %17, i32 %.03943.us
+  %.039.us = select i1 %16, i32 %17, i32 %.04043.us
   %18 = tail call fastcc ptr @_mdfd_getseg(ptr noundef %0, i32 noundef %1, i32 noundef %.044.us, i1 noundef zeroext true, i32 noundef 4)
-  %19 = icmp ugt i32 %.040.us, 8
+  %19 = icmp ugt i32 %.039.us, 8
   %20 = load i32, ptr %18, align 4
-  %21 = shl nuw nsw i32 %.040.us, 13
+  %21 = shl nuw nsw i32 %.039.us, 13
   %22 = zext nneg i32 %21 to i64
   br i1 %19, label %26, label %23
 
@@ -1109,8 +1109,8 @@ define dso_local void @mdzeroextend(ptr nocapture noundef %0, i32 noundef %1, i3
   br i1 %.not.us, label %28, label %.split46.us
 
 28:                                               ; preds = %26, %23
-  %29 = sub nsw i32 %.03943.us, %.040.us
-  %30 = add i32 %.040.us, %.044.us
+  %29 = sub nsw i32 %.04043.us, %.039.us
+  %30 = add i32 %.039.us, %.044.us
   %31 = icmp sgt i32 %29, 0
   br i1 %31, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !8
 
@@ -1132,18 +1132,18 @@ define dso_local void @mdzeroextend(ptr nocapture noundef %0, i32 noundef %1, i3
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %75
   %.044 = phi i32 [ %77, %75 ], [ %2, %.lr.ph ]
-  %.03943 = phi i32 [ %76, %75 ], [ %3, %.lr.ph ]
+  %.04043 = phi i32 [ %76, %75 ], [ %3, %.lr.ph ]
   %44 = and i32 %.044, 131071
   %45 = shl nuw nsw i32 %44, 13
   %46 = zext nneg i32 %45 to i64
-  %47 = add nuw i32 %44, %.03943
+  %47 = add nuw i32 %44, %.04043
   %48 = icmp ugt i32 %47, 131072
   %49 = sub nuw nsw i32 131072, %44
-  %.040 = select i1 %48, i32 %49, i32 %.03943
+  %.039 = select i1 %48, i32 %49, i32 %.04043
   %50 = tail call fastcc ptr @_mdfd_getseg(ptr noundef %0, i32 noundef %1, i32 noundef %.044, i1 noundef zeroext false, i32 noundef 4)
-  %51 = icmp ugt i32 %.040, 8
+  %51 = icmp ugt i32 %.039, 8
   %52 = load i32, ptr %50, align 4
-  %53 = shl nuw nsw i32 %.040, 13
+  %53 = shl nuw nsw i32 %.039, 13
   %54 = zext nneg i32 %53 to i64
   br i1 %51, label %55, label %63
 
@@ -1191,8 +1191,8 @@ define dso_local void @mdzeroextend(ptr nocapture noundef %0, i32 noundef %1, i3
   br label %75
 
 75:                                               ; preds = %74, %72
-  %76 = sub nsw i32 %.03943, %.040
-  %77 = add i32 %.040, %.044
+  %76 = sub nsw i32 %.04043, %.039
+  %77 = add i32 %.039, %.044
   %78 = icmp sgt i32 %76, 0
   br i1 %78, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
 
@@ -1268,17 +1268,17 @@ define dso_local void @mdreadv(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   br label %8
 
 8:                                                ; preds = %.lr.ph83, %.loopexit
-  %.04880 = phi i32 [ %2, %.lr.ph83 ], [ %84, %.loopexit ]
-  %.05079 = phi ptr [ %3, %.lr.ph83 ], [ %83, %.loopexit ]
-  %.05178 = phi i32 [ %4, %.lr.ph83 ], [ %81, %.loopexit ]
-  %9 = call fastcc ptr @_mdfd_getseg(ptr noundef %0, i32 noundef %1, i32 noundef %.04880, i1 noundef zeroext false, i32 noundef 9)
-  %10 = and i32 %.04880, 131071
+  %.05181 = phi i32 [ %4, %.lr.ph83 ], [ %81, %.loopexit ]
+  %.05280 = phi ptr [ %3, %.lr.ph83 ], [ %83, %.loopexit ]
+  %.05378 = phi i32 [ %2, %.lr.ph83 ], [ %84, %.loopexit ]
+  %9 = call fastcc ptr @_mdfd_getseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05378, i1 noundef zeroext false, i32 noundef 9)
+  %10 = and i32 %.05378, 131071
   %11 = shl nuw nsw i32 %10, 13
   %12 = zext nneg i32 %11 to i64
   %13 = sub nuw nsw i32 131072, %10
-  %14 = call i32 @llvm.umin.i32(i32 %.05178, i32 %13)
+  %14 = call i32 @llvm.umin.i32(i32 %.05181, i32 %13)
   %15 = call i32 @llvm.umin.i32(i32 %14, i32 32)
-  %16 = load ptr, ptr %.05079, align 8
+  %16 = load ptr, ptr %.05280, align 8
   store ptr %16, ptr %6, align 16
   store i64 8192, ptr %7, align 8
   %17 = icmp ugt i32 %14, 1
@@ -1291,11 +1291,11 @@ define dso_local void @mdreadv(ptr nocapture noundef %0, i32 noundef %1, i32 nou
 .lr.ph.i:                                         ; preds = %31, %.lr.ph.preheader.i
   %18 = phi ptr [ %16, %.lr.ph.preheader.i ], [ %32, %31 ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %31 ]
-  %.029.i = phi ptr [ %6, %.lr.ph.preheader.i ], [ %.1.i, %31 ]
-  %.02327.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %.124.i, %31 ]
-  %19 = getelementptr ptr, ptr %.05079, i64 %indvars.iv.i
+  %.02228.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %.1.i, %31 ]
+  %.02327.i = phi ptr [ %6, %.lr.ph.preheader.i ], [ %.124.i, %31 ]
+  %19 = getelementptr ptr, ptr %.05280, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %.029.i, i64 8
+  %21 = getelementptr inbounds i8, ptr %.02327.i, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr i8, ptr %18, i64 %22
   %24 = icmp eq ptr %23, %20
@@ -1307,27 +1307,27 @@ define dso_local void @mdreadv(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   br label %31
 
 27:                                               ; preds = %.lr.ph.i
-  %28 = getelementptr i8, ptr %.029.i, i64 16
+  %28 = getelementptr i8, ptr %.02327.i, i64 16
   store ptr %20, ptr %28, align 8
-  %29 = getelementptr i8, ptr %.029.i, i64 24
+  %29 = getelementptr i8, ptr %.02327.i, i64 24
   store i64 8192, ptr %29, align 8
-  %30 = add i32 %.02327.i, 1
+  %30 = add i32 %.02228.i, 1
   br label %31
 
 31:                                               ; preds = %27, %25
   %32 = phi ptr [ %18, %25 ], [ %20, %27 ]
-  %.124.i = phi i32 [ %.02327.i, %25 ], [ %30, %27 ]
-  %.1.i = phi ptr [ %.029.i, %25 ], [ %28, %27 ]
+  %.124.i = phi ptr [ %.02327.i, %25 ], [ %28, %27 ]
+  %.1.i = phi i32 [ %.02228.i, %25 ], [ %30, %27 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %buffers_to_iovec.exit, label %.lr.ph.i, !llvm.loop !10
 
 buffers_to_iovec.exit:                            ; preds = %31, %8
-  %.023.lcssa.i = phi i32 [ 1, %8 ], [ %.124.i, %31 ]
+  %.022.lcssa.i = phi i32 [ 1, %8 ], [ %.1.i, %31 ]
   %33 = shl nuw nsw i32 %15, 13
   %34 = zext nneg i32 %33 to i64
   %35 = load i32, ptr %9, align 4
-  %36 = call i64 @FileReadV(i32 noundef %35, ptr noundef nonnull %6, i32 noundef %.023.lcssa.i, i64 noundef %12, i32 noundef 167772177) #14
+  %36 = call i64 @FileReadV(i32 noundef %35, ptr noundef nonnull %6, i32 noundef %.022.lcssa.i, i64 noundef %12, i32 noundef 167772177) #14
   %37 = trunc i64 %36 to i32
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %buffers_to_iovec.exit._crit_edge, label %.lr.ph
@@ -1336,20 +1336,20 @@ buffers_to_iovec.exit._crit_edge:                 ; preds = %buffers_to_iovec.ex
   %39 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   call void @llvm.assume(i1 %39)
   %40 = call i32 @errcode_for_file_access() #14
-  %41 = add i32 %.04880, -1
+  %41 = add i32 %.05378, -1
   %42 = add i32 %41, %15
   %43 = load i32, ptr %9, align 4
   %44 = call ptr @FilePathName(i32 noundef %43) #14
-  %45 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %.04880, i32 noundef %42, ptr noundef %44) #14
+  %45 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %.05378, i32 noundef %42, ptr noundef %44) #14
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 875, ptr noundef nonnull @__func__.mdreadv) #14
   unreachable
 
 .lr.ph:                                           ; preds = %buffers_to_iovec.exit, %74
   %46 = phi i32 [ %79, %74 ], [ %37, %buffers_to_iovec.exit ]
   %47 = phi i64 [ %78, %74 ], [ %36, %buffers_to_iovec.exit ]
-  %.04968 = phi i64 [ %72, %74 ], [ 0, %buffers_to_iovec.exit ]
-  %.05267 = phi i64 [ %75, %74 ], [ %12, %buffers_to_iovec.exit ]
-  %.05366 = phi i32 [ %76, %74 ], [ %.023.lcssa.i, %buffers_to_iovec.exit ]
+  %.04868 = phi i64 [ %72, %74 ], [ 0, %buffers_to_iovec.exit ]
+  %.04967 = phi i64 [ %75, %74 ], [ %12, %buffers_to_iovec.exit ]
+  %.05066 = phi i32 [ %76, %74 ], [ %.022.lcssa.i, %buffers_to_iovec.exit ]
   %48 = icmp eq i32 %46, 0
   br i1 %48, label %49, label %70
 
@@ -1364,7 +1364,7 @@ buffers_to_iovec.exit._crit_edge:                 ; preds = %buffers_to_iovec.ex
   br i1 %54, label %55, label %62
 
 55:                                               ; preds = %52, %49
-  %56 = lshr i64 %.04968, 13
+  %56 = lshr i64 %.04868, 13
   %57 = trunc i64 %56 to i32
   %58 = icmp ugt i32 %15, %57
   br i1 %58, label %.lr.ph76.preheader, label %.loopexit
@@ -1376,7 +1376,7 @@ buffers_to_iovec.exit._crit_edge:                 ; preds = %buffers_to_iovec.ex
 
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
   %indvars.iv = phi i64 [ %59, %.lr.ph76.preheader ], [ %indvars.iv.next, %.lr.ph76 ]
-  %60 = getelementptr ptr, ptr %.05079, i64 %indvars.iv
+  %60 = getelementptr ptr, ptr %.05280, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %61, i8 0, i64 8192, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1387,23 +1387,23 @@ buffers_to_iovec.exit._crit_edge:                 ; preds = %buffers_to_iovec.ex
   %63 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   call void @llvm.assume(i1 %63)
   %64 = call i32 @errcode(i32 noundef 16779816) #14
-  %65 = add i32 %.04880, -1
+  %65 = add i32 %.05378, -1
   %66 = add i32 %65, %15
   %67 = load i32, ptr %9, align 4
   %68 = call ptr @FilePathName(i32 noundef %67) #14
-  %69 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %.04880, i32 noundef %66, ptr noundef %68, i64 noundef %.04968, i64 noundef %34) #14
+  %69 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %.05378, i32 noundef %66, ptr noundef %68, i64 noundef %.04868, i64 noundef %34) #14
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 903, ptr noundef nonnull @__func__.mdreadv) #14
   unreachable
 
 70:                                               ; preds = %.lr.ph
   %71 = and i64 %47, 2147483647
-  %72 = add i64 %71, %.04968
+  %72 = add i64 %71, %.04868
   %73 = icmp eq i64 %72, %34
   br i1 %73, label %.loopexit, label %74
 
 74:                                               ; preds = %70
-  %75 = add i64 %71, %.05267
-  %76 = call i32 @compute_remaining_iovec(ptr noundef nonnull %6, ptr noundef nonnull %6, i32 noundef %.05366, i64 noundef %71) #14
+  %75 = add i64 %71, %.04967
+  %76 = call i32 @compute_remaining_iovec(ptr noundef nonnull %6, ptr noundef nonnull %6, i32 noundef %.05066, i64 noundef %71) #14
   %77 = load i32, ptr %9, align 4
   %78 = call i64 @FileReadV(i32 noundef %77, ptr noundef nonnull %6, i32 noundef %76, i64 noundef %75, i32 noundef 167772177) #14
   %79 = trunc i64 %78 to i32
@@ -1411,10 +1411,10 @@ buffers_to_iovec.exit._crit_edge:                 ; preds = %buffers_to_iovec.ex
   br i1 %80, label %buffers_to_iovec.exit._crit_edge, label %.lr.ph
 
 .loopexit:                                        ; preds = %70, %.lr.ph76, %55
-  %81 = sub i32 %.05178, %15
+  %81 = sub i32 %.05181, %15
   %82 = zext nneg i32 %15 to i64
-  %83 = getelementptr ptr, ptr %.05079, i64 %82
-  %84 = add i32 %15, %.04880
+  %83 = getelementptr ptr, ptr %.05280, i64 %82
+  %84 = add i32 %15, %.05378
   %.not = icmp eq i32 %81, 0
   br i1 %.not, label %._crit_edge84, label %8, !llvm.loop !12
 
@@ -1442,16 +1442,16 @@ define dso_local void @mdwritev(ptr nocapture noundef %0, i32 noundef %1, i32 no
 
 10:                                               ; preds = %.lr.ph67, %67
   %.065 = phi i32 [ %2, %.lr.ph67 ], [ %71, %67 ]
-  %.04264 = phi ptr [ %3, %.lr.ph67 ], [ %70, %67 ]
-  %.04463 = phi i32 [ %4, %.lr.ph67 ], [ %68, %67 ]
+  %.04564 = phi ptr [ %3, %.lr.ph67 ], [ %70, %67 ]
+  %.04663 = phi i32 [ %4, %.lr.ph67 ], [ %68, %67 ]
   %11 = call fastcc ptr @_mdfd_getseg(ptr noundef %0, i32 noundef %1, i32 noundef %.065, i1 noundef zeroext %5, i32 noundef 9)
   %12 = and i32 %.065, 131071
   %13 = shl nuw nsw i32 %12, 13
   %14 = zext nneg i32 %13 to i64
   %15 = sub nuw nsw i32 131072, %12
-  %16 = call i32 @llvm.umin.i32(i32 %.04463, i32 %15)
+  %16 = call i32 @llvm.umin.i32(i32 %.04663, i32 %15)
   %17 = call i32 @llvm.umin.i32(i32 %16, i32 32)
-  %18 = load ptr, ptr %.04264, align 8
+  %18 = load ptr, ptr %.04564, align 8
   store ptr %18, ptr %7, align 16
   store i64 8192, ptr %8, align 8
   %19 = icmp ugt i32 %16, 1
@@ -1464,11 +1464,11 @@ define dso_local void @mdwritev(ptr nocapture noundef %0, i32 noundef %1, i32 no
 .lr.ph.i:                                         ; preds = %33, %.lr.ph.preheader.i
   %20 = phi ptr [ %18, %.lr.ph.preheader.i ], [ %34, %33 ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %33 ]
-  %.029.i = phi ptr [ %7, %.lr.ph.preheader.i ], [ %.1.i, %33 ]
-  %.02327.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %.124.i, %33 ]
-  %21 = getelementptr ptr, ptr %.04264, i64 %indvars.iv.i
+  %.02228.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %.1.i, %33 ]
+  %.02327.i = phi ptr [ %7, %.lr.ph.preheader.i ], [ %.124.i, %33 ]
+  %21 = getelementptr ptr, ptr %.04564, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %.029.i, i64 8
+  %23 = getelementptr inbounds i8, ptr %.02327.i, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr i8, ptr %20, i64 %24
   %26 = icmp eq ptr %25, %22
@@ -1480,27 +1480,27 @@ define dso_local void @mdwritev(ptr nocapture noundef %0, i32 noundef %1, i32 no
   br label %33
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = getelementptr i8, ptr %.029.i, i64 16
+  %30 = getelementptr i8, ptr %.02327.i, i64 16
   store ptr %22, ptr %30, align 8
-  %31 = getelementptr i8, ptr %.029.i, i64 24
+  %31 = getelementptr i8, ptr %.02327.i, i64 24
   store i64 8192, ptr %31, align 8
-  %32 = add i32 %.02327.i, 1
+  %32 = add i32 %.02228.i, 1
   br label %33
 
 33:                                               ; preds = %29, %27
   %34 = phi ptr [ %20, %27 ], [ %22, %29 ]
-  %.124.i = phi i32 [ %.02327.i, %27 ], [ %32, %29 ]
-  %.1.i = phi ptr [ %.029.i, %27 ], [ %30, %29 ]
+  %.124.i = phi ptr [ %.02327.i, %27 ], [ %30, %29 ]
+  %.1.i = phi i32 [ %.02228.i, %27 ], [ %32, %29 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %buffers_to_iovec.exit, label %.lr.ph.i, !llvm.loop !10
 
 buffers_to_iovec.exit:                            ; preds = %33, %10
-  %.023.lcssa.i = phi i32 [ 1, %10 ], [ %.124.i, %33 ]
+  %.022.lcssa.i = phi i32 [ 1, %10 ], [ %.1.i, %33 ]
   %35 = shl nuw nsw i32 %17, 13
   %36 = zext nneg i32 %35 to i64
   %37 = load i32, ptr %11, align 4
-  %38 = call i64 @FileWriteV(i32 noundef %37, ptr noundef nonnull %7, i32 noundef %.023.lcssa.i, i64 noundef %14, i32 noundef 167772180) #14
+  %38 = call i64 @FileWriteV(i32 noundef %37, ptr noundef nonnull %7, i32 noundef %.022.lcssa.i, i64 noundef %14, i32 noundef 167772180) #14
   %39 = and i64 %38, 2147483648
   %.not4953 = icmp eq i64 %39, 0
   br i1 %.not4953, label %.lr.ph, label %buffers_to_iovec.exit._crit_edge
@@ -1529,17 +1529,17 @@ buffers_to_iovec.exit._crit_edge:                 ; preds = %buffers_to_iovec.ex
 
 .lr.ph:                                           ; preds = %buffers_to_iovec.exit, %57
   %53 = phi i64 [ %61, %57 ], [ %38, %buffers_to_iovec.exit ]
-  %.04356 = phi i64 [ %55, %57 ], [ 0, %buffers_to_iovec.exit ]
-  %.04555 = phi i32 [ %59, %57 ], [ %.023.lcssa.i, %buffers_to_iovec.exit ]
-  %.04654 = phi i64 [ %58, %57 ], [ %14, %buffers_to_iovec.exit ]
+  %.04256 = phi i64 [ %55, %57 ], [ 0, %buffers_to_iovec.exit ]
+  %.04355 = phi i64 [ %58, %57 ], [ %14, %buffers_to_iovec.exit ]
+  %.04454 = phi i32 [ %59, %57 ], [ %.022.lcssa.i, %buffers_to_iovec.exit ]
   %54 = and i64 %53, 2147483647
-  %55 = add i64 %54, %.04356
+  %55 = add i64 %54, %.04256
   %56 = icmp eq i64 %55, %36
   br i1 %56, label %63, label %57
 
 57:                                               ; preds = %.lr.ph
-  %58 = add i64 %54, %.04654
-  %59 = call i32 @compute_remaining_iovec(ptr noundef nonnull %7, ptr noundef nonnull %7, i32 noundef %.04555, i64 noundef %54) #14
+  %58 = add i64 %54, %.04355
+  %59 = call i32 @compute_remaining_iovec(ptr noundef nonnull %7, ptr noundef nonnull %7, i32 noundef %.04454, i64 noundef %54) #14
   %60 = load i32, ptr %11, align 4
   %61 = call i64 @FileWriteV(i32 noundef %60, ptr noundef nonnull %7, i32 noundef %59, i64 noundef %58, i32 noundef 167772180) #14
   %62 = and i64 %61, 2147483648
@@ -1559,9 +1559,9 @@ buffers_to_iovec.exit._crit_edge:                 ; preds = %buffers_to_iovec.ex
   br label %67
 
 67:                                               ; preds = %66, %64, %63
-  %68 = sub i32 %.04463, %17
+  %68 = sub i32 %.04663, %17
   %69 = zext nneg i32 %17 to i64
-  %70 = getelementptr ptr, ptr %.04264, i64 %69
+  %70 = getelementptr ptr, ptr %.04564, i64 %69
   %71 = add i32 %17, %.065
   %.not = icmp eq i32 %68, 0
   br i1 %.not, label %._crit_edge68, label %10, !llvm.loop !13
@@ -1642,9 +1642,9 @@ define dso_local i32 @mdnblocks(ptr nocapture noundef %0, i32 noundef %1) local_
   br label %14
 
 14:                                               ; preds = %34, %2
-  %.021 = phi ptr [ %13, %2 ], [ %36, %34 ]
+  %.020 = phi ptr [ %13, %2 ], [ %36, %34 ]
   %.0 = phi i32 [ %8, %2 ], [ %35, %34 ]
-  %15 = load i32, ptr %.021, align 4
+  %15 = load i32, ptr %.020, align 4
   %16 = tail call i64 @FileSize(i32 noundef %15) #14
   %17 = icmp slt i64 %16, 0
   br i1 %17, label %18, label %_mdnblocks.exit
@@ -1653,7 +1653,7 @@ define dso_local i32 @mdnblocks(ptr nocapture noundef %0, i32 noundef %1) local_
   %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   tail call void @llvm.assume(i1 %19)
   %20 = tail call i32 @errcode_for_file_access() #14
-  %21 = load i32, ptr %.021, align 4
+  %21 = load i32, ptr %.020, align 4
   %22 = tail call ptr @FilePathName(i32 noundef %21) #14
   %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %22) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1727, ptr noundef nonnull @__func__._mdnblocks) #14
@@ -1692,8 +1692,8 @@ _mdnblocks.exit:                                  ; preds = %14
   br label %40
 
 40:                                               ; preds = %38, %31
-  %.020 = phi i32 [ %33, %31 ], [ %39, %38 ]
-  ret i32 %.020
+  %.021 = phi i32 [ %33, %31 ], [ %39, %38 ]
+  ret i32 %.021
 }
 
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
@@ -2315,17 +2315,17 @@ _mdfd_segpath.exit:                               ; preds = %22, %33
   br i1 %39, label %49, label %40
 
 40:                                               ; preds = %_mdfd_segpath.exit, %14
-  %.024 = phi i32 [ %19, %14 ], [ %38, %_mdfd_segpath.exit ]
+  %.025 = phi i32 [ %19, %14 ], [ %38, %_mdfd_segpath.exit ]
   %41 = load i8, ptr @track_io_timing, align 1
   %42 = trunc i8 %41 to i1
   %43 = tail call i64 @pgstat_prepare_io_time(i1 noundef zeroext %42) #14
-  %44 = tail call i32 @FileSync(i32 noundef %.024, i32 noundef 167772178) #14
+  %44 = tail call i32 @FileSync(i32 noundef %.025, i32 noundef 167772178) #14
   %45 = tail call ptr @__errno_location() #15
   %46 = load i32, ptr %45, align 4
   br i1 %.not, label %48, label %47
 
 47:                                               ; preds = %40
-  tail call void @FileClose(i32 noundef %.024) #14
+  tail call void @FileClose(i32 noundef %.025) #14
   br label %48
 
 48:                                               ; preds = %47, %40

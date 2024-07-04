@@ -3579,7 +3579,7 @@ _ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.threa
   br label %467
 
 467:                                              ; preds = %900, %464
-  %.0171 = phi i64 [ 0, %464 ], [ %489, %900 ]
+  %.0166 = phi i64 [ 0, %464 ], [ %489, %900 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %57)
   invoke void @"_ZN95_$LT$typst..util..GroupByKey$LT$T$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h52ba0906f07f47caE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], ptr, [1 x i64] }) align 8 dereferenceable(24) %57, ptr noalias noundef nonnull align 8 dereferenceable(16) %58)
           to label %468 unwind label %906
@@ -3637,7 +3637,7 @@ _ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.threa
 486:                                              ; preds = %468
   %487 = load float, ptr %57, align 8, !noundef !12
   %488 = load i64, ptr %116, align 8, !noundef !12
-  %489 = add i64 %488, %.0171
+  %489 = add i64 %488, %.0166
   %490 = fcmp une float %487, 0.000000e+00
   br i1 %490, label %901, label %900
 
@@ -3724,25 +3724,25 @@ _ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.threa
   br i1 %514, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %519
-  %.sroa.025.047.i.i = phi i64 [ %515, %519 ], [ 0, %.preheader.i.i.preheader ]
-  %.16546.i.i = phi i8 [ %.2.i.i, %519 ], [ %.06448.i.i, %.preheader.i.i.preheader ]
-  %515 = add nuw nsw i64 %.sroa.025.047.i.i, 1
-  %516 = getelementptr inbounds [4 x i16], ptr %28, i64 0, i64 %.sroa.025.047.i.i
+  %.16547.i.i = phi i8 [ %.2.i.i, %519 ], [ %.06448.i.i, %.preheader.i.i.preheader ]
+  %.sroa.025.046.i.i = phi i64 [ %515, %519 ], [ 0, %.preheader.i.i.preheader ]
+  %515 = add nuw nsw i64 %.sroa.025.046.i.i, 1
+  %516 = getelementptr inbounds [4 x i16], ptr %28, i64 0, i64 %.sroa.025.046.i.i
   %517 = load i16, ptr %516, align 2, !noalias !631, !noundef !12
   %518 = icmp eq i16 %517, 0
   br i1 %518, label %519, label %520
 
 519:                                              ; preds = %"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h68c0554069c8884fE.exit", %.preheader.i.i
-  %.2.i.i = phi i8 [ %.16546.i.i, %.preheader.i.i ], [ %529, %"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h68c0554069c8884fE.exit" ]
+  %.2.i.i = phi i8 [ %.16547.i.i, %.preheader.i.i ], [ %529, %"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h68c0554069c8884fE.exit" ]
   %exitcond64.not.i.i = icmp eq i64 %515, 4
   br i1 %exitcond64.not.i.i, label %511, label %.preheader.i.i
 
 520:                                              ; preds = %.preheader.i.i
-  %521 = trunc nuw i8 %.16546.i.i to i1
+  %521 = trunc nuw i8 %.16547.i.i to i1
   br i1 %521, label %"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h68c0554069c8884fE.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %520
-  %522 = shl nuw nsw i64 %.sroa.025.047.i.i, 4
+  %522 = shl nuw nsw i64 %.sroa.025.046.i.i, 4
   %gep663 = getelementptr i8, ptr %gep, i64 %522
   br label %.lr.ph.split.i
 
@@ -3764,8 +3764,8 @@ _ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.i: ; preds 
 
 "_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h68c0554069c8884fE.exit": ; preds = %.lr.ph.split.i, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.i, %520
   %.1.i = phi i8 [ 0, %520 ], [ 1, %.lr.ph.split.i ], [ 0, %_ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.i ]
-  %.16546.i.i.masked = and i8 %.16546.i.i, 1
-  %529 = or i8 %.1.i, %.16546.i.i.masked
+  %.16547.i.i.masked = and i8 %.16547.i.i, 1
+  %529 = or i8 %.1.i, %.16547.i.i.masked
   br label %519
 
 .lr.ph57.i.i:                                     ; preds = %._crit_edge.i.i, %547
@@ -3860,7 +3860,7 @@ _ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.i: ; preds 
   %.not571 = icmp eq i8 %568, 2
   %569 = and i8 %568, 1
   %570 = zext nneg i8 %569 to i32
-  %.1173 = or disjoint i32 %566, %570
+  %.1168 = or disjoint i32 %566, %570
   call void @llvm.experimental.noalias.scope.decl(metadata !661)
   %571 = getelementptr inbounds i8, ptr %191, i64 1608
   %.sroa.0.0.copyload.i = load ptr, ptr %571, align 8, !alias.scope !661
@@ -3878,12 +3878,12 @@ _ZN4core3str7pattern14small_slice_eq17h18dee583e8575278E.exit.thread.i: ; preds 
 _ZN10ttf_parser4Face9is_italic17hacc65e7f03a8c211E.exit: ; preds = %573
   %575 = icmp eq i8 %574, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27), !noalias !661
-  %576 = or disjoint i32 %.1173, 64
-  %spec.select = select i1 %575, i32 %576, i32 %.1173
+  %576 = or disjoint i32 %.1168, 64
+  %spec.select = select i1 %575, i32 %576, i32 %.1168
   br label %_ZN10ttf_parser4Face9is_italic17hacc65e7f03a8c211E.exit.thread
 
 _ZN10ttf_parser4Face9is_italic17hacc65e7f03a8c211E.exit.thread: ; preds = %_ZN10ttf_parser4Face9is_italic17hacc65e7f03a8c211E.exit, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h15ba4cda5247ddcbE.exit.thread493"
-  %577 = phi i32 [ %.1173, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h15ba4cda5247ddcbE.exit.thread493" ], [ %spec.select, %_ZN10ttf_parser4Face9is_italic17hacc65e7f03a8c211E.exit ]
+  %577 = phi i32 [ %.1168, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h15ba4cda5247ddcbE.exit.thread493" ], [ %spec.select, %_ZN10ttf_parser4Face9is_italic17hacc65e7f03a8c211E.exit ]
   %578 = or i32 %577, 131076
   %579 = getelementptr inbounds i8, ptr %191, i64 2330
   %580 = load i16, ptr %579, align 2, !noundef !12
@@ -4921,7 +4921,7 @@ _ZN10pdf_writer6object3Obj9primitive17h1295cd226a0d2412E.exit.i: ; preds = %.noe
   br label %467
 
 901:                                              ; preds = %486
-  %902 = trunc i64 %.0171 to i16
+  %902 = trunc i64 %.0166 to i16
   %903 = trunc i64 %489 to i16
   %904 = add i16 %903, -1
   %905 = invoke noundef align 8 dereferenceable(16) ptr @_ZN10pdf_writer4font6Widths4same17hbc617cc559bf0788E(ptr noalias noundef nonnull align 8 dereferenceable(16) %59, i16 noundef %902, i16 noundef %904, float noundef %487)

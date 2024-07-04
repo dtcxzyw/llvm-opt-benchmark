@@ -1625,8 +1625,8 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %best_irq.029 = phi i32 [ -1, %for.body.lr.ph ], [ %best_irq.1, %for.inc ]
   %best_iprio.028 = phi i32 [ -1, %for.body.lr.ph ], [ %best_iprio.1, %for.inc ]
+  %best_irq.027 = phi i32 [ -1, %for.body.lr.ph ], [ %best_irq.1, %for.inc ]
   %arrayidx3 = getelementptr i32, ptr %4, i64 %indvars.iv
   %6 = load i32, ptr %arrayidx3, align 4
   %and = and i32 %6, 3
@@ -1648,14 +1648,14 @@ if.end12:                                         ; preds = %if.end6
   %or.cond = icmp uge i32 %5, %10
   %cmp20 = icmp ult i32 %10, %best_iprio.028
   %or.cond24 = select i1 %or.cond, i1 %cmp20, i1 false
-  %spec.select = select i1 %or.cond24, i32 %10, i32 %best_iprio.028
   %11 = trunc nuw i64 %indvars.iv to i32
-  %spec.select25 = select i1 %or.cond24, i32 %11, i32 %best_irq.029
+  %spec.select = select i1 %or.cond24, i32 %11, i32 %best_irq.027
+  %spec.select25 = select i1 %or.cond24, i32 %10, i32 %best_iprio.028
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end12, %if.end6, %for.body
-  %best_iprio.1 = phi i32 [ %best_iprio.028, %for.body ], [ %best_iprio.028, %if.end6 ], [ %spec.select, %if.end12 ]
-  %best_irq.1 = phi i32 [ %best_irq.029, %for.body ], [ %best_irq.029, %if.end6 ], [ %spec.select25, %if.end12 ]
+  %best_irq.1 = phi i32 [ %best_irq.027, %for.body ], [ %best_irq.027, %if.end6 ], [ %spec.select, %if.end12 ]
+  %best_iprio.1 = phi i32 [ %best_iprio.028, %for.body ], [ %best_iprio.028, %if.end6 ], [ %spec.select25, %if.end12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
@@ -1710,8 +1710,8 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %best_irq.029.i = phi i32 [ -1, %for.body.lr.ph.i ], [ %best_irq.1.i, %for.inc.i ]
   %best_iprio.028.i = phi i32 [ -1, %for.body.lr.ph.i ], [ %best_iprio.1.i, %for.inc.i ]
+  %best_irq.027.i = phi i32 [ -1, %for.body.lr.ph.i ], [ %best_irq.1.i, %for.inc.i ]
   %arrayidx3.i = getelementptr i32, ptr %4, i64 %indvars.iv.i
   %6 = load i32, ptr %arrayidx3.i, align 4
   %and.i = and i32 %6, 3
@@ -1733,14 +1733,14 @@ if.end12.i:                                       ; preds = %if.end6.i
   %or.cond.i = icmp uge i32 %5, %10
   %cmp20.i = icmp ult i32 %10, %best_iprio.028.i
   %or.cond24.i = select i1 %or.cond.i, i1 %cmp20.i, i1 false
-  %spec.select.i = select i1 %or.cond24.i, i32 %10, i32 %best_iprio.028.i
   %11 = trunc nuw i64 %indvars.iv.i to i32
-  %spec.select25.i = select i1 %or.cond24.i, i32 %11, i32 %best_irq.029.i
+  %spec.select.i = select i1 %or.cond24.i, i32 %11, i32 %best_irq.027.i
+  %spec.select25.i = select i1 %or.cond24.i, i32 %10, i32 %best_iprio.028.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end12.i, %if.end6.i, %for.body.i
-  %best_iprio.1.i = phi i32 [ %best_iprio.028.i, %for.body.i ], [ %best_iprio.028.i, %if.end6.i ], [ %spec.select.i, %if.end12.i ]
-  %best_irq.1.i = phi i32 [ %best_irq.029.i, %for.body.i ], [ %best_irq.029.i, %if.end6.i ], [ %spec.select25.i, %if.end12.i ]
+  %best_irq.1.i = phi i32 [ %best_irq.027.i, %for.body.i ], [ %best_irq.027.i, %if.end6.i ], [ %spec.select.i, %if.end12.i ]
+  %best_iprio.1.i = phi i32 [ %best_iprio.028.i, %for.body.i ], [ %best_iprio.028.i, %if.end6.i ], [ %spec.select25.i, %if.end12.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !15
@@ -1846,8 +1846,8 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %best_irq.029.i = phi i32 [ -1, %for.body.lr.ph.i ], [ %best_irq.1.i, %for.inc.i ]
   %best_iprio.028.i = phi i32 [ -1, %for.body.lr.ph.i ], [ %best_iprio.1.i, %for.inc.i ]
+  %best_irq.027.i = phi i32 [ -1, %for.body.lr.ph.i ], [ %best_irq.1.i, %for.inc.i ]
   %arrayidx3.i = getelementptr i32, ptr %5, i64 %indvars.iv.i
   %7 = load i32, ptr %arrayidx3.i, align 4
   %and.i = and i32 %7, 3
@@ -1869,14 +1869,14 @@ if.end12.i:                                       ; preds = %if.end6.i
   %or.cond.i = icmp uge i32 %6, %11
   %cmp20.i = icmp ult i32 %11, %best_iprio.028.i
   %or.cond24.i = select i1 %or.cond.i, i1 %cmp20.i, i1 false
-  %spec.select.i = select i1 %or.cond24.i, i32 %11, i32 %best_iprio.028.i
   %12 = trunc nuw i64 %indvars.iv.i to i32
-  %spec.select25.i = select i1 %or.cond24.i, i32 %12, i32 %best_irq.029.i
+  %spec.select.i = select i1 %or.cond24.i, i32 %12, i32 %best_irq.027.i
+  %spec.select25.i = select i1 %or.cond24.i, i32 %11, i32 %best_iprio.028.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end12.i, %if.end6.i, %for.body.i
-  %best_iprio.1.i = phi i32 [ %best_iprio.028.i, %for.body.i ], [ %best_iprio.028.i, %if.end6.i ], [ %spec.select.i, %if.end12.i ]
-  %best_irq.1.i = phi i32 [ %best_irq.029.i, %for.body.i ], [ %best_irq.029.i, %if.end6.i ], [ %spec.select25.i, %if.end12.i ]
+  %best_irq.1.i = phi i32 [ %best_irq.027.i, %for.body.i ], [ %best_irq.027.i, %if.end6.i ], [ %spec.select.i, %if.end12.i ]
+  %best_iprio.1.i = phi i32 [ %best_iprio.028.i, %for.body.i ], [ %best_iprio.028.i, %if.end6.i ], [ %spec.select25.i, %if.end12.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !15

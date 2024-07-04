@@ -316,8 +316,8 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 
 .lr.ph:                                           ; preds = %.preheader, %57
   %32 = phi ptr [ %60, %57 ], [ %31, %.preheader ]
-  %.01629 = phi i64 [ %58, %57 ], [ 0, %.preheader ]
-  %33 = getelementptr inbounds %"struct.std::pair", ptr %32, i64 %.01629
+  %.01529 = phi i64 [ %58, %57 ], [ 0, %.preheader ]
+  %33 = getelementptr inbounds %"struct.std::pair", ptr %32, i64 %.01529
   %34 = load ptr, ptr %33, align 8, !nonnull !5, !noundef !5
   %35 = tail call ptr @__dynamic_cast(ptr nonnull %34, ptr nonnull @_ZTIN5faiss5IndexE, ptr nonnull @_ZTIN5faiss17IndexIVFInterfaceE, i64 -2) #19
   %36 = getelementptr inbounds i8, ptr %35, i64 8
@@ -370,7 +370,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
           to label %57 unwind label %.loopexit
 
 57:                                               ; preds = %53
-  %58 = add nuw i64 %.01629, 1
+  %58 = add nuw i64 %.01529, 1
   %59 = load ptr, ptr %29, align 8
   %60 = load ptr, ptr %28, align 8
   %61 = ptrtoint ptr %59 to i64

@@ -32,9 +32,9 @@ entry:
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %if.end38, %entry
-  %cpConsumed.0.ph = phi i32 [ %add, %if.end38 ], [ 0, %entry ]
-  %converted.0.ph = phi i32 [ %add39, %if.end38 ], [ 0, %entry ]
   %alias.0.ph = phi ptr [ %add.ptr42, %if.end38 ], [ %patternSpecification, %entry ]
+  %converted.0.ph = phi i32 [ %add39, %if.end38 ], [ 0, %entry ]
+  %cpConsumed.0.ph = phi i32 [ %add, %if.end38 ], [ 0, %entry ]
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.outer

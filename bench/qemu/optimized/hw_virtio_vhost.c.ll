@@ -3405,16 +3405,16 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %2 = phi i32 [ %0, %while.body.lr.ph ], [ %3, %while.body ]
-  %features.addr.07 = phi i64 [ %features, %while.body.lr.ph ], [ %features.addr.1, %while.body ]
-  %bit.06 = phi ptr [ %feature_bits, %while.body.lr.ph ], [ %incdec.ptr, %while.body ]
+  %bit.07 = phi ptr [ %feature_bits, %while.body.lr.ph ], [ %incdec.ptr, %while.body ]
+  %features.addr.06 = phi i64 [ %features, %while.body.lr.ph ], [ %features.addr.1, %while.body ]
   %sh_prom = zext nneg i32 %2 to i64
   %shl = shl nuw i64 1, %sh_prom
   %and = and i64 %1, %shl
   %tobool.not = icmp eq i64 %and, 0
   %not = xor i64 %shl, -1
   %and2 = select i1 %tobool.not, i64 %not, i64 -1
-  %features.addr.1 = and i64 %and2, %features.addr.07
-  %incdec.ptr = getelementptr i8, ptr %bit.06, i64 4
+  %features.addr.1 = and i64 %and2, %features.addr.06
+  %incdec.ptr = getelementptr i8, ptr %bit.07, i64 4
   %3 = load i32, ptr %incdec.ptr, align 4
   %cmp.not = icmp eq i32 %3, 255
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !26
@@ -5476,8 +5476,8 @@ while.body.preheader:                             ; preds = %if.then23
 
 while.body:                                       ; preds = %while.body.preheader, %if.end65
   %.compoundliteral.sroa.0.186 = phi i32 [ %bf.clear31, %if.end65 ], [ %.compoundliteral.sroa.0.088, %while.body.preheader ]
-  %used_phys24.085 = phi i64 [ %add78, %if.end65 ], [ %.pre94, %while.body.preheader ]
-  %used_size26.084 = phi i64 [ %sub77, %if.end65 ], [ %conv, %while.body.preheader ]
+  %used_size26.085 = phi i64 [ %sub77, %if.end65 ], [ %conv, %while.body.preheader ]
+  %used_phys24.084 = phi i64 [ %add78, %if.end65 ], [ %.pre94, %while.body.preheader ]
   %call.i65 = call ptr @get_ptr_rcu_reader() #18
   %depth.i = getelementptr inbounds i8, ptr %call.i65, i64 12
   %18 = load i32, ptr %depth.i, align 4
@@ -5500,7 +5500,7 @@ rcu_read_lock.exit:                               ; preds = %while.body, %while.
   %21 = load ptr, ptr %dma_as, align 8
   %bf.set = and i32 %.compoundliteral.sroa.0.186, -67108864
   %bf.clear31 = or disjoint i32 %bf.set, 1
-  call void @address_space_get_iotlb_entry(ptr nonnull sret(%struct.IOMMUTLBEntry) align 8 %tmp29, ptr noundef %21, i64 noundef %used_phys24.085, i1 noundef zeroext true, i32 %bf.clear31) #18
+  call void @address_space_get_iotlb_entry(ptr nonnull sret(%struct.IOMMUTLBEntry) align 8 %tmp29, ptr noundef %21, i64 noundef %used_phys24.084, i1 noundef zeroext true, i32 %bf.clear31) #18
   %iotlb.sroa.0.0.copyload = load ptr, ptr %tmp29, align 8
   %iotlb.sroa.223.0.copyload = load i64, ptr %iotlb.sroa.223.0.tmp29.sroa_idx, align 8
   %iotlb.sroa.3.0.copyload = load i64, ptr %iotlb.sroa.3.0.tmp29.sroa_idx, align 8
@@ -5545,20 +5545,20 @@ do.body:                                          ; preds = %rcu_read_unlock.exi
   br i1 %cmp.i71.not, label %return, label %if.then63
 
 if.then63:                                        ; preds = %do.body
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i64 noundef %used_phys24.085) #18
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i64 noundef %used_phys24.084) #18
   br label %return
 
 if.end65:                                         ; preds = %rcu_read_unlock.exit
-  %and = and i64 %iotlb.sroa.3.0.copyload, %used_phys24.085
+  %and = and i64 %iotlb.sroa.3.0.copyload, %used_phys24.084
   %add = add i64 %and, %iotlb.sroa.223.0.copyload
   %sub = sub i64 %iotlb.sroa.3.0.copyload, %and
-  %sub67 = add i64 %used_size26.084, -1
+  %sub67 = add i64 %used_size26.085, -1
   %cond74 = call i64 @llvm.umin.i64(i64 %sub, i64 %sub67)
   %add75 = add nuw i64 %cond74, 1
   %sub.i73 = add i64 %cond74, %add
   call fastcc void @vhost_dev_sync_region(ptr noundef nonnull %dev, ptr noundef nonnull %section, i64 noundef %2, i64 noundef %cond8, i64 noundef %add, i64 noundef %sub.i73)
-  %sub77 = sub i64 %used_size26.084, %add75
-  %add78 = add i64 %add75, %used_phys24.085
+  %sub77 = sub i64 %used_size26.085, %add75
+  %add78 = add i64 %add75, %used_phys24.084
   %tobool28.not = icmp eq i64 %sub77, 0
   br i1 %tobool28.not, label %for.inc85, label %while.body, !llvm.loop !37
 

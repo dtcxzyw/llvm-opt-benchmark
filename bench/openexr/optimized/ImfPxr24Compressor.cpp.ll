@@ -362,12 +362,12 @@ sw.bb:                                            ; preds = %if.end22
 
 for.cond40.preheader:                             ; preds = %sw.bb, %for.end
   %inPtr.addr.287 = phi ptr [ %incdec.ptr, %for.end ], [ %inPtr.addr.193, %sw.bb ]
-  %ptr.sroa.32.086 = phi ptr [ %incdec.ptr56, %for.end ], [ %add.ptr32, %sw.bb ]
-  %ptr.sroa.24.085 = phi ptr [ %incdec.ptr53, %for.end ], [ %add.ptr28, %sw.bb ]
-  %ptr.sroa.12.084 = phi ptr [ %incdec.ptr49, %for.end ], [ %add.ptr, %sw.bb ]
-  %j.083 = phi i32 [ %inc58, %for.end ], [ 0, %sw.bb ]
-  %previousPixel.082 = phi i32 [ %17, %for.end ], [ 0, %sw.bb ]
-  %ptr.sroa.0.081 = phi ptr [ %incdec.ptr45, %for.end ], [ %tmpBufferEnd.192, %sw.bb ]
+  %j.086 = phi i32 [ %inc58, %for.end ], [ 0, %sw.bb ]
+  %previousPixel.085 = phi i32 [ %17, %for.end ], [ 0, %sw.bb ]
+  %ptr.sroa.0.084 = phi ptr [ %incdec.ptr45, %for.end ], [ %tmpBufferEnd.192, %sw.bb ]
+  %ptr.sroa.12.083 = phi ptr [ %incdec.ptr49, %for.end ], [ %add.ptr, %sw.bb ]
+  %ptr.sroa.24.082 = phi ptr [ %incdec.ptr53, %for.end ], [ %add.ptr28, %sw.bb ]
+  %ptr.sroa.32.081 = phi ptr [ %incdec.ptr56, %for.end ], [ %add.ptr32, %sw.bb ]
   br label %for.body42
 
 for.body42:                                       ; preds = %for.cond40.preheader, %for.body42
@@ -383,23 +383,23 @@ for.body42:                                       ; preds = %for.cond40.preheade
 
 for.end:                                          ; preds = %for.body42
   %17 = load i32, ptr %pixel, align 4
-  %sub = sub i32 %17, %previousPixel.082
+  %sub = sub i32 %17, %previousPixel.085
   %shr = lshr i32 %sub, 24
   %conv = trunc nuw i32 %shr to i8
-  %incdec.ptr45 = getelementptr inbounds i8, ptr %ptr.sroa.0.081, i64 1
-  store i8 %conv, ptr %ptr.sroa.0.081, align 1
+  %incdec.ptr45 = getelementptr inbounds i8, ptr %ptr.sroa.0.084, i64 1
+  store i8 %conv, ptr %ptr.sroa.0.084, align 1
   %shr46 = lshr i32 %sub, 16
   %conv47 = trunc i32 %shr46 to i8
-  %incdec.ptr49 = getelementptr inbounds i8, ptr %ptr.sroa.12.084, i64 1
-  store i8 %conv47, ptr %ptr.sroa.12.084, align 1
+  %incdec.ptr49 = getelementptr inbounds i8, ptr %ptr.sroa.12.083, i64 1
+  store i8 %conv47, ptr %ptr.sroa.12.083, align 1
   %shr50 = lshr i32 %sub, 8
   %conv51 = trunc i32 %shr50 to i8
-  %incdec.ptr53 = getelementptr inbounds i8, ptr %ptr.sroa.24.085, i64 1
-  store i8 %conv51, ptr %ptr.sroa.24.085, align 1
+  %incdec.ptr53 = getelementptr inbounds i8, ptr %ptr.sroa.24.082, i64 1
+  store i8 %conv51, ptr %ptr.sroa.24.082, align 1
   %conv54 = trunc i32 %sub to i8
-  %incdec.ptr56 = getelementptr inbounds i8, ptr %ptr.sroa.32.086, i64 1
-  store i8 %conv54, ptr %ptr.sroa.32.086, align 1
-  %inc58 = add nuw nsw i32 %j.083, 1
+  %incdec.ptr56 = getelementptr inbounds i8, ptr %ptr.sroa.32.081, i64 1
+  store i8 %conv54, ptr %ptr.sroa.32.081, align 1
+  %inc58 = add nuw nsw i32 %j.086, 1
   %exitcond107.not = icmp eq i32 %inc58, %call23
   br i1 %exitcond107.not, label %for.inc136, label %for.cond40.preheader, !llvm.loop !6
 
@@ -413,20 +413,20 @@ sw.bb60:                                          ; preds = %if.end22
 for.body72:                                       ; preds = %sw.bb60, %for.body72
   %inPtr.addr.475 = phi ptr [ %add.ptr74, %for.body72 ], [ %inPtr.addr.193, %sw.bb60 ]
   %j69.074 = phi i32 [ %inc89, %for.body72 ], [ 0, %sw.bb60 ]
-  %ptr.sroa.12.173 = phi ptr [ %incdec.ptr87, %for.body72 ], [ %add.ptr64, %sw.bb60 ]
-  %previousPixel.172 = phi i32 [ %conv77, %for.body72 ], [ 0, %sw.bb60 ]
-  %ptr.sroa.0.171 = phi ptr [ %incdec.ptr84, %for.body72 ], [ %tmpBufferEnd.192, %sw.bb60 ]
+  %previousPixel.173 = phi i32 [ %conv77, %for.body72 ], [ 0, %sw.bb60 ]
+  %ptr.sroa.0.172 = phi ptr [ %incdec.ptr84, %for.body72 ], [ %tmpBufferEnd.192, %sw.bb60 ]
+  %ptr.sroa.12.171 = phi ptr [ %incdec.ptr87, %for.body72 ], [ %add.ptr64, %sw.bb60 ]
   %18 = load i16, ptr %inPtr.addr.475, align 2
   %add.ptr74 = getelementptr inbounds i8, ptr %inPtr.addr.475, i64 2
   %conv77 = zext i16 %18 to i32
-  %sub78 = sub nsw i32 %conv77, %previousPixel.172
+  %sub78 = sub nsw i32 %conv77, %previousPixel.173
   %shr81 = lshr i32 %sub78, 8
   %conv82 = trunc i32 %shr81 to i8
-  %incdec.ptr84 = getelementptr inbounds i8, ptr %ptr.sroa.0.171, i64 1
-  store i8 %conv82, ptr %ptr.sroa.0.171, align 1
+  %incdec.ptr84 = getelementptr inbounds i8, ptr %ptr.sroa.0.172, i64 1
+  store i8 %conv82, ptr %ptr.sroa.0.172, align 1
   %conv85 = trunc i32 %sub78 to i8
-  %incdec.ptr87 = getelementptr inbounds i8, ptr %ptr.sroa.12.173, i64 1
-  store i8 %conv85, ptr %ptr.sroa.12.173, align 1
+  %incdec.ptr87 = getelementptr inbounds i8, ptr %ptr.sroa.12.171, i64 1
+  store i8 %conv85, ptr %ptr.sroa.12.171, align 1
   %inc89 = add nuw nsw i32 %j69.074, 1
   %exitcond104.not = icmp eq i32 %inc89, %call23
   br i1 %exitcond104.not, label %for.inc136, label %for.body72, !llvm.loop !7
@@ -442,10 +442,10 @@ sw.bb91:                                          ; preds = %if.end22
 for.cond111.preheader:                            ; preds = %sw.bb91, %_ZN7Imf_3_212_GLOBAL__N_114floatToFloat24Ef.exit
   %inPtr.addr.569 = phi ptr [ %incdec.ptr114, %_ZN7Imf_3_212_GLOBAL__N_114floatToFloat24Ef.exit ], [ %inPtr.addr.193, %sw.bb91 ]
   %j104.068 = phi i32 [ %inc134, %_ZN7Imf_3_212_GLOBAL__N_114floatToFloat24Ef.exit ], [ 0, %sw.bb91 ]
-  %ptr.sroa.24.167 = phi ptr [ %incdec.ptr132, %_ZN7Imf_3_212_GLOBAL__N_114floatToFloat24Ef.exit ], [ %add.ptr99, %sw.bb91 ]
-  %ptr.sroa.12.266 = phi ptr [ %incdec.ptr129, %_ZN7Imf_3_212_GLOBAL__N_114floatToFloat24Ef.exit ], [ %add.ptr95, %sw.bb91 ]
-  %previousPixel.265 = phi i32 [ %or19.i, %_ZN7Imf_3_212_GLOBAL__N_114floatToFloat24Ef.exit ], [ 0, %sw.bb91 ]
-  %ptr.sroa.0.264 = phi ptr [ %incdec.ptr125, %_ZN7Imf_3_212_GLOBAL__N_114floatToFloat24Ef.exit ], [ %tmpBufferEnd.192, %sw.bb91 ]
+  %previousPixel.267 = phi i32 [ %or19.i, %_ZN7Imf_3_212_GLOBAL__N_114floatToFloat24Ef.exit ], [ 0, %sw.bb91 ]
+  %ptr.sroa.0.266 = phi ptr [ %incdec.ptr125, %_ZN7Imf_3_212_GLOBAL__N_114floatToFloat24Ef.exit ], [ %tmpBufferEnd.192, %sw.bb91 ]
+  %ptr.sroa.12.265 = phi ptr [ %incdec.ptr129, %_ZN7Imf_3_212_GLOBAL__N_114floatToFloat24Ef.exit ], [ %add.ptr95, %sw.bb91 ]
+  %ptr.sroa.24.164 = phi ptr [ %incdec.ptr132, %_ZN7Imf_3_212_GLOBAL__N_114floatToFloat24Ef.exit ], [ %add.ptr99, %sw.bb91 ]
   br label %for.body113
 
 for.body113:                                      ; preds = %for.cond111.preheader, %for.body113
@@ -494,18 +494,18 @@ _ZN7Imf_3_212_GLOBAL__N_114floatToFloat24Ef.exit: ; preds = %if.then.i, %if.then
   %and.i = lshr i32 %21, 8
   %shr18.i = and i32 %and.i, 8388608
   %or19.i = or i32 %i.0.i, %shr18.i
-  %sub121 = sub nsw i32 %or19.i, %previousPixel.265
+  %sub121 = sub nsw i32 %or19.i, %previousPixel.267
   %shr122 = lshr i32 %sub121, 16
   %conv123 = trunc i32 %shr122 to i8
-  %incdec.ptr125 = getelementptr inbounds i8, ptr %ptr.sroa.0.264, i64 1
-  store i8 %conv123, ptr %ptr.sroa.0.264, align 1
+  %incdec.ptr125 = getelementptr inbounds i8, ptr %ptr.sroa.0.266, i64 1
+  store i8 %conv123, ptr %ptr.sroa.0.266, align 1
   %shr126 = lshr i32 %sub121, 8
   %conv127 = trunc i32 %shr126 to i8
-  %incdec.ptr129 = getelementptr inbounds i8, ptr %ptr.sroa.12.266, i64 1
-  store i8 %conv127, ptr %ptr.sroa.12.266, align 1
+  %incdec.ptr129 = getelementptr inbounds i8, ptr %ptr.sroa.12.265, i64 1
+  store i8 %conv127, ptr %ptr.sroa.12.265, align 1
   %conv130 = trunc i32 %sub121 to i8
-  %incdec.ptr132 = getelementptr inbounds i8, ptr %ptr.sroa.24.167, i64 1
-  store i8 %conv130, ptr %ptr.sroa.24.167, align 1
+  %incdec.ptr132 = getelementptr inbounds i8, ptr %ptr.sroa.24.164, i64 1
+  store i8 %conv130, ptr %ptr.sroa.24.164, align 1
   %inc134 = add nuw nsw i32 %j104.068, 1
   %exitcond103.not = icmp eq i32 %inc134, %call23
   br i1 %exitcond103.not, label %for.inc136, label %for.cond111.preheader, !llvm.loop !9
@@ -784,24 +784,24 @@ lpad.i:                                           ; preds = %if.then46
   br label %common.resume
 
 for.body50:                                       ; preds = %for.cond48.preheader, %for.inc71
-  %writePtr.2100 = phi ptr [ %incdec.ptr70, %for.inc71 ], [ %writePtr.1105, %for.cond48.preheader ]
-  %j.099 = phi i32 [ %inc72, %for.inc71 ], [ 0, %for.cond48.preheader ]
-  %ptr.sroa.0.098 = phi ptr [ %incdec.ptr, %for.inc71 ], [ %tmpBufferEnd.1106, %for.cond48.preheader ]
-  %ptr.sroa.12.097 = phi ptr [ %incdec.ptr54, %for.inc71 ], [ %add.ptr, %for.cond48.preheader ]
-  %ptr.sroa.24.096 = phi ptr [ %incdec.ptr58, %for.inc71 ], [ %add.ptr35, %for.cond48.preheader ]
-  %ptr.sroa.32.095 = phi ptr [ %incdec.ptr63, %for.inc71 ], [ %add.ptr39, %for.cond48.preheader ]
-  %24 = load i8, ptr %ptr.sroa.0.098, align 1
+  %j.0100 = phi i32 [ %inc72, %for.inc71 ], [ 0, %for.cond48.preheader ]
+  %ptr.sroa.0.099 = phi ptr [ %incdec.ptr, %for.inc71 ], [ %tmpBufferEnd.1106, %for.cond48.preheader ]
+  %ptr.sroa.12.098 = phi ptr [ %incdec.ptr54, %for.inc71 ], [ %add.ptr, %for.cond48.preheader ]
+  %ptr.sroa.24.097 = phi ptr [ %incdec.ptr58, %for.inc71 ], [ %add.ptr35, %for.cond48.preheader ]
+  %ptr.sroa.32.096 = phi ptr [ %incdec.ptr63, %for.inc71 ], [ %add.ptr39, %for.cond48.preheader ]
+  %writePtr.295 = phi ptr [ %incdec.ptr70, %for.inc71 ], [ %writePtr.1105, %for.cond48.preheader ]
+  %24 = load i8, ptr %ptr.sroa.0.099, align 1
   %conv52 = zext i8 %24 to i32
   %shl = shl nuw i32 %conv52, 24
-  %25 = load i8, ptr %ptr.sroa.12.097, align 1
+  %25 = load i8, ptr %ptr.sroa.12.098, align 1
   %conv55 = zext i8 %25 to i32
   %shl56 = shl nuw nsw i32 %conv55, 16
   %or = or disjoint i32 %shl56, %shl
-  %26 = load i8, ptr %ptr.sroa.24.096, align 1
+  %26 = load i8, ptr %ptr.sroa.24.097, align 1
   %conv59 = zext i8 %26 to i32
   %shl60 = shl nuw nsw i32 %conv59, 8
   %or61 = or disjoint i32 %or, %shl60
-  %27 = load i8, ptr %ptr.sroa.32.095, align 1
+  %27 = load i8, ptr %ptr.sroa.32.096, align 1
   %conv64 = zext i8 %27 to i32
   %or65 = or disjoint i32 %or61, %conv64
   %28 = load i32, ptr %pixel, align 4
@@ -810,22 +810,22 @@ for.body50:                                       ; preds = %for.cond48.preheade
   br label %for.body68
 
 for.body68:                                       ; preds = %for.body50, %for.body68
-  %writePtr.393 = phi ptr [ %writePtr.2100, %for.body50 ], [ %incdec.ptr70, %for.body68 ]
-  %pPtr.091.idx = phi i64 [ 0, %for.body50 ], [ %pPtr.091.add, %for.body68 ]
-  %pPtr.091.ptr = getelementptr inbounds i8, ptr %pixel, i64 %pPtr.091.idx
-  %pPtr.091.add = add nuw nsw i64 %pPtr.091.idx, 1
-  %29 = load i8, ptr %pPtr.091.ptr, align 1
-  %incdec.ptr70 = getelementptr inbounds i8, ptr %writePtr.393, i64 1
-  store i8 %29, ptr %writePtr.393, align 1
-  %exitcond119.not = icmp eq i64 %pPtr.091.idx, 3
+  %pPtr.092.idx = phi i64 [ 0, %for.body50 ], [ %pPtr.092.add, %for.body68 ]
+  %writePtr.391 = phi ptr [ %writePtr.295, %for.body50 ], [ %incdec.ptr70, %for.body68 ]
+  %pPtr.092.ptr = getelementptr inbounds i8, ptr %pixel, i64 %pPtr.092.idx
+  %pPtr.092.add = add nuw nsw i64 %pPtr.092.idx, 1
+  %29 = load i8, ptr %pPtr.092.ptr, align 1
+  %incdec.ptr70 = getelementptr inbounds i8, ptr %writePtr.391, i64 1
+  store i8 %29, ptr %writePtr.391, align 1
+  %exitcond119.not = icmp eq i64 %pPtr.092.idx, 3
   br i1 %exitcond119.not, label %for.inc71, label %for.body68, !llvm.loop !12
 
 for.inc71:                                        ; preds = %for.body68
-  %incdec.ptr = getelementptr inbounds i8, ptr %ptr.sroa.0.098, i64 1
-  %incdec.ptr54 = getelementptr inbounds i8, ptr %ptr.sroa.12.097, i64 1
-  %incdec.ptr58 = getelementptr inbounds i8, ptr %ptr.sroa.24.096, i64 1
-  %incdec.ptr63 = getelementptr inbounds i8, ptr %ptr.sroa.32.095, i64 1
-  %inc72 = add nuw nsw i32 %j.099, 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %ptr.sroa.0.099, i64 1
+  %incdec.ptr54 = getelementptr inbounds i8, ptr %ptr.sroa.12.098, i64 1
+  %incdec.ptr58 = getelementptr inbounds i8, ptr %ptr.sroa.24.097, i64 1
+  %incdec.ptr63 = getelementptr inbounds i8, ptr %ptr.sroa.32.096, i64 1
+  %inc72 = add nuw nsw i32 %j.0100, 1
   %exitcond120.not = icmp eq i32 %inc72, %call30
   br i1 %exitcond120.not, label %for.inc162, label %for.body50, !llvm.loop !13
 
@@ -860,25 +860,25 @@ lpad.i50:                                         ; preds = %if.then88
   br label %common.resume
 
 for.body93:                                       ; preds = %for.cond91.preheader, %for.body93
-  %writePtr.489 = phi ptr [ %add.ptr105, %for.body93 ], [ %writePtr.1105, %for.cond91.preheader ]
-  %j90.088 = phi i32 [ %inc107, %for.body93 ], [ 0, %for.cond91.preheader ]
-  %ptr.sroa.0.187 = phi ptr [ %incdec.ptr96, %for.body93 ], [ %tmpBufferEnd.1106, %for.cond91.preheader ]
-  %ptr.sroa.12.186 = phi ptr [ %incdec.ptr100, %for.body93 ], [ %add.ptr78, %for.cond91.preheader ]
-  %incdec.ptr96 = getelementptr inbounds i8, ptr %ptr.sroa.0.187, i64 1
-  %33 = load i8, ptr %ptr.sroa.0.187, align 1
+  %j90.089 = phi i32 [ %inc107, %for.body93 ], [ 0, %for.cond91.preheader ]
+  %ptr.sroa.0.188 = phi ptr [ %incdec.ptr96, %for.body93 ], [ %tmpBufferEnd.1106, %for.cond91.preheader ]
+  %ptr.sroa.12.187 = phi ptr [ %incdec.ptr100, %for.body93 ], [ %add.ptr78, %for.cond91.preheader ]
+  %writePtr.486 = phi ptr [ %add.ptr105, %for.body93 ], [ %writePtr.1105, %for.cond91.preheader ]
+  %incdec.ptr96 = getelementptr inbounds i8, ptr %ptr.sroa.0.188, i64 1
+  %33 = load i8, ptr %ptr.sroa.0.188, align 1
   %conv97 = zext i8 %33 to i32
   %shl98 = shl nuw nsw i32 %conv97, 8
-  %incdec.ptr100 = getelementptr inbounds i8, ptr %ptr.sroa.12.186, i64 1
-  %34 = load i8, ptr %ptr.sroa.12.186, align 1
+  %incdec.ptr100 = getelementptr inbounds i8, ptr %ptr.sroa.12.187, i64 1
+  %34 = load i8, ptr %ptr.sroa.12.187, align 1
   %conv101 = zext i8 %34 to i32
   %or102 = or disjoint i32 %shl98, %conv101
   %35 = load i32, ptr %pixel, align 4
   %add103 = add i32 %or102, %35
   store i32 %add103, ptr %pixel, align 4
   %conv104 = trunc i32 %add103 to i16
-  store i16 %conv104, ptr %writePtr.489, align 2
-  %add.ptr105 = getelementptr inbounds i8, ptr %writePtr.489, i64 2
-  %inc107 = add nuw nsw i32 %j90.088, 1
+  store i16 %conv104, ptr %writePtr.486, align 2
+  %add.ptr105 = getelementptr inbounds i8, ptr %writePtr.486, i64 2
+  %inc107 = add nuw nsw i32 %j90.089, 1
   %exitcond118.not = icmp eq i32 %inc107, %call30
   br i1 %exitcond118.not, label %for.inc162, label %for.body93, !llvm.loop !14
 
@@ -915,18 +915,18 @@ lpad.i54:                                         ; preds = %if.then127
 
 for.body132:                                      ; preds = %for.cond130.preheader, %for.inc159
   %j129.084 = phi i32 [ %inc160, %for.inc159 ], [ 0, %for.cond130.preheader ]
-  %writePtr.583 = phi ptr [ %incdec.ptr155, %for.inc159 ], [ %writePtr.1105, %for.cond130.preheader ]
-  %ptr.sroa.0.282 = phi ptr [ %incdec.ptr135, %for.inc159 ], [ %tmpBufferEnd.1106, %for.cond130.preheader ]
-  %ptr.sroa.12.281 = phi ptr [ %incdec.ptr139, %for.inc159 ], [ %add.ptr113, %for.cond130.preheader ]
-  %ptr.sroa.24.180 = phi ptr [ %incdec.ptr144, %for.inc159 ], [ %add.ptr117, %for.cond130.preheader ]
-  %39 = load i8, ptr %ptr.sroa.0.282, align 1
+  %ptr.sroa.0.283 = phi ptr [ %incdec.ptr135, %for.inc159 ], [ %tmpBufferEnd.1106, %for.cond130.preheader ]
+  %ptr.sroa.12.282 = phi ptr [ %incdec.ptr139, %for.inc159 ], [ %add.ptr113, %for.cond130.preheader ]
+  %ptr.sroa.24.181 = phi ptr [ %incdec.ptr144, %for.inc159 ], [ %add.ptr117, %for.cond130.preheader ]
+  %writePtr.580 = phi ptr [ %incdec.ptr155, %for.inc159 ], [ %writePtr.1105, %for.cond130.preheader ]
+  %39 = load i8, ptr %ptr.sroa.0.283, align 1
   %conv136 = zext i8 %39 to i32
   %shl137 = shl nuw i32 %conv136, 24
-  %40 = load i8, ptr %ptr.sroa.12.281, align 1
+  %40 = load i8, ptr %ptr.sroa.12.282, align 1
   %conv140 = zext i8 %40 to i32
   %shl141 = shl nuw nsw i32 %conv140, 16
   %or142 = or disjoint i32 %shl141, %shl137
-  %41 = load i8, ptr %ptr.sroa.24.180, align 1
+  %41 = load i8, ptr %ptr.sroa.24.181, align 1
   %conv145 = zext i8 %41 to i32
   %shl146 = shl nuw nsw i32 %conv145, 8
   %or147 = or disjoint i32 %or142, %shl146
@@ -937,7 +937,7 @@ for.body132:                                      ; preds = %for.cond130.prehead
 
 for.body153:                                      ; preds = %for.body132, %for.body153
   %pPtr149.077.idx = phi i64 [ 0, %for.body132 ], [ %pPtr149.077.add, %for.body153 ]
-  %writePtr.676 = phi ptr [ %writePtr.583, %for.body132 ], [ %incdec.ptr155, %for.body153 ]
+  %writePtr.676 = phi ptr [ %writePtr.580, %for.body132 ], [ %incdec.ptr155, %for.body153 ]
   %pPtr149.077.ptr = getelementptr inbounds i8, ptr %pixel, i64 %pPtr149.077.idx
   %pPtr149.077.add = add nuw nsw i64 %pPtr149.077.idx, 1
   %43 = load i8, ptr %pPtr149.077.ptr, align 1
@@ -947,9 +947,9 @@ for.body153:                                      ; preds = %for.body132, %for.b
   br i1 %exitcond.not, label %for.inc159, label %for.body153, !llvm.loop !15
 
 for.inc159:                                       ; preds = %for.body153
-  %incdec.ptr135 = getelementptr inbounds i8, ptr %ptr.sroa.0.282, i64 1
-  %incdec.ptr139 = getelementptr inbounds i8, ptr %ptr.sroa.12.281, i64 1
-  %incdec.ptr144 = getelementptr inbounds i8, ptr %ptr.sroa.24.180, i64 1
+  %incdec.ptr135 = getelementptr inbounds i8, ptr %ptr.sroa.0.283, i64 1
+  %incdec.ptr139 = getelementptr inbounds i8, ptr %ptr.sroa.12.282, i64 1
+  %incdec.ptr144 = getelementptr inbounds i8, ptr %ptr.sroa.24.181, i64 1
   %inc160 = add nuw nsw i32 %j129.084, 1
   %exitcond117.not = icmp eq i32 %inc160, %call30
   br i1 %exitcond117.not, label %for.inc162, label %for.body132, !llvm.loop !16

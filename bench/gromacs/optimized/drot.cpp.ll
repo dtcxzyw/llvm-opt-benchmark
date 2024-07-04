@@ -31,24 +31,24 @@ define void @drot_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, 
   %18 = icmp slt i32 %10, 0
   %19 = sub nsw i32 1, %8
   %20 = mul nsw i32 %10, %19
-  %.059 = select i1 %18, i32 %20, i32 0
+  %.0 = select i1 %18, i32 %20, i32 0
   %21 = icmp slt i32 %9, 0
   %22 = mul nsw i32 %19, %9
   %.057 = select i1 %21, i32 %22, i32 0
   %23 = fneg double %12
-  %24 = sext i32 %.057 to i64
-  %25 = sext i32 %9 to i64
-  %26 = sext i32 %.059 to i64
-  %27 = sext i32 %10 to i64
+  %24 = sext i32 %.0 to i64
+  %25 = sext i32 %10 to i64
+  %26 = sext i32 %.057 to i64
+  %27 = sext i32 %9 to i64
   br label %28
 
 28:                                               ; preds = %.lr.ph68, %28
   %indvars.iv73 = phi i64 [ %26, %.lr.ph68 ], [ %indvars.iv.next74, %28 ]
   %indvars.iv71 = phi i64 [ %24, %.lr.ph68 ], [ %indvars.iv.next72, %28 ]
-  %.067 = phi i32 [ 0, %.lr.ph68 ], [ %37, %28 ]
-  %29 = getelementptr inbounds double, ptr %1, i64 %indvars.iv71
+  %.05965 = phi i32 [ 0, %.lr.ph68 ], [ %37, %28 ]
+  %29 = getelementptr inbounds double, ptr %1, i64 %indvars.iv73
   %30 = load double, ptr %29, align 8
-  %31 = getelementptr inbounds double, ptr %3, i64 %indvars.iv73
+  %31 = getelementptr inbounds double, ptr %3, i64 %indvars.iv71
   %32 = load double, ptr %31, align 8
   %33 = fmul double %12, %32
   %34 = tail call double @llvm.fmuladd.f64(double %11, double %30, double %33)
@@ -56,9 +56,9 @@ define void @drot_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, 
   %36 = tail call double @llvm.fmuladd.f64(double %11, double %32, double %35)
   store double %36, ptr %31, align 8
   store double %34, ptr %29, align 8
-  %37 = add nuw nsw i32 %.067, 1
-  %indvars.iv.next72 = add nsw i64 %indvars.iv71, %25
+  %37 = add nuw nsw i32 %.05965, 1
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, %27
+  %indvars.iv.next72 = add nsw i64 %indvars.iv71, %25
   %exitcond78.not = icmp eq i32 %37, %8
   br i1 %exitcond78.not, label %.loopexit, label %28, !llvm.loop !4
 

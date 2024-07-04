@@ -43,7 +43,7 @@ define i32 @xml_escape(ptr nocapture noundef readonly %0, i32 %1, ptr nocapture 
 
 15:                                               ; preds = %.lr.ph, %13
   %16 = phi i8 [ %7, %.lr.ph ], [ %14, %13 ]
-  %.0821 = phi i8 [ 0, %.lr.ph ], [ %16, %13 ]
+  %.0721 = phi i8 [ 0, %.lr.ph ], [ %16, %13 ]
   %.01220 = phi ptr [ %0, %.lr.ph ], [ %.1, %13 ]
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
@@ -138,7 +138,7 @@ xml_isentity.exit.i:                              ; preds = %switch.early.test.i
 
 47:                                               ; preds = %xml_isentity.exit.i, %15
   %48 = icmp ne i8 %16, 32
-  %49 = icmp ne i8 %.0821, 32
+  %49 = icmp ne i8 %.0721, 32
   %or.cond.not103.i = or i1 %49, %48
   %or.cond94.i = select i1 %or.cond.not103.i, i1 true, i1 %.not86.i
   br i1 %or.cond94.i, label %50, label %xml_core.exit
@@ -284,8 +284,8 @@ xml_core.exit:                                    ; preds = %53, %52, %50, %47, 
   br i1 %118, label %._crit_edge, label %13
 
 ._crit_edge:                                      ; preds = %xml_core.exit, %13, %4
-  %.0 = phi i32 [ 0, %4 ], [ %117, %13 ], [ %117, %xml_core.exit ]
-  ret i32 %.0
+  %.08 = phi i32 [ 0, %4 ], [ %117, %13 ], [ %117, %xml_core.exit ]
+  ret i32 %.08
 }
 
 ; Function Attrs: noreturn nounwind uwtable

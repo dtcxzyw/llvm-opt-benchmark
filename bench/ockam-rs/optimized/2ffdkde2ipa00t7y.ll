@@ -13585,8 +13585,8 @@ common.ret:                                       ; preds = %1847, %1844, %250
   br label %670
 
 670:                                              ; preds = %664, %500
-  %.sroa.0135.0.i.i.i = phi i64 [ 0, %664 ], [ 2, %500 ]
   %.sroa.6136.0.i.i.i = phi ptr [ %665, %664 ], [ undef, %500 ]
+  %.sroa.0135.0.i.i.i = phi i64 [ 0, %664 ], [ 2, %500 ]
   %.sroa.9137.sroa.0.0.i.i.i = phi ptr [ %667, %664 ], [ undef, %500 ]
   %.sroa.9137.sroa.6.0.i.i.i = phi i8 [ %669, %664 ], [ 3, %500 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %103), !noalias !1790

@@ -241,14 +241,14 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
   br i1 %or.cond, label %.loopexit, label %.preheader
 
 .preheaderthread-pre-split:                       ; preds = %._crit_edge
-  %.036.pr = load ptr, ptr @tap_listener_queue, align 8
+  %.02636.pr = load ptr, ptr @tap_listener_queue, align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %2, %.preheaderthread-pre-split
-  %.036 = phi ptr [ %.036.pr, %.preheaderthread-pre-split ], [ %4, %2 ]
+  %.02636 = phi ptr [ %.02636.pr, %.preheaderthread-pre-split ], [ %4, %2 ]
   %6 = phi i32 [ %52, %.preheaderthread-pre-split ], [ %3, %2 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheaderthread-pre-split ], [ 0, %2 ]
-  %.not2837 = icmp eq ptr %.036, null
+  %.not2837 = icmp eq ptr %.02636, null
   br i1 %.not2837, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
@@ -259,14 +259,14 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
   br label %11
 
 11:                                               ; preds = %.lr.ph, %51
-  %.038 = phi ptr [ %.036, %.lr.ph ], [ %.0, %51 ]
+  %.02638 = phi ptr [ %.02636, %.lr.ph ], [ %.026, %51 ]
   %12 = load i32, ptr %8, align 4
   %13 = and i32 %12, 1
   %.not29 = icmp eq i32 %13, 0
   br i1 %.not29, label %18, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %.038, i64 20
+  %15 = getelementptr inbounds i8, ptr %.02638, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 4
   %.not30 = icmp eq i32 %17, 0
@@ -274,27 +274,27 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
 
 18:                                               ; preds = %14, %11
   %19 = load i32, ptr %7, align 8
-  %20 = getelementptr inbounds i8, ptr %.038, i64 8
+  %20 = getelementptr inbounds i8, ptr %.02638, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %19, %21
   br i1 %22, label %23, label %51
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %.038, i64 56
+  %24 = getelementptr inbounds i8, ptr %.02638, i64 56
   %25 = load ptr, ptr %24, align 8
   %.not31 = icmp eq ptr %25, null
   br i1 %.not31, label %51, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %.038, i64 16
+  %27 = getelementptr inbounds i8, ptr %.02638, i64 16
   %28 = load i32, ptr %27, align 8
   %.not32 = icmp eq i32 %28, 0
   br i1 %.not32, label %29, label %51
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %.038, i64 20
+  %30 = getelementptr inbounds i8, ptr %.02638, i64 20
   %31 = load i32, ptr %30, align 4
-  %32 = getelementptr inbounds i8, ptr %.038, i64 32
+  %32 = getelementptr inbounds i8, ptr %.02638, i64 32
   %33 = load ptr, ptr %32, align 8
   %.not33 = icmp eq ptr %33, null
   br i1 %.not33, label %41, label %34
@@ -314,20 +314,20 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
   br label %41
 
 41:                                               ; preds = %34, %39, %29
-  %.025 = phi i32 [ %31, %34 ], [ %40, %39 ], [ %31, %29 ]
+  %.0 = phi i32 [ %31, %34 ], [ %40, %39 ], [ %31, %29 ]
   %42 = load ptr, ptr %24, align 8
-  %43 = getelementptr inbounds i8, ptr %.038, i64 40
+  %43 = getelementptr inbounds i8, ptr %.02638, i64 40
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %9, align 8
   %46 = load ptr, ptr %10, align 8
-  %47 = tail call i32 %42(ptr noundef %44, ptr noundef %45, ptr noundef %0, ptr noundef %46, i32 noundef %.025) #8
+  %47 = tail call i32 %42(ptr noundef %44, ptr noundef %45, ptr noundef %0, ptr noundef %46, i32 noundef %.0) #8
   switch i32 %47, label %51 [
     i32 2, label %50
     i32 1, label %48
   ]
 
 48:                                               ; preds = %41
-  %49 = getelementptr inbounds i8, ptr %.038, i64 12
+  %49 = getelementptr inbounds i8, ptr %.02638, i64 12
   store i32 1, ptr %49, align 4
   br label %51
 
@@ -336,8 +336,8 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
   br label %51
 
 51:                                               ; preds = %14, %41, %48, %50, %18, %36, %26, %23
-  %.0 = load ptr, ptr %.038, align 8
-  %.not28 = icmp eq ptr %.0, null
+  %.026 = load ptr, ptr %.02638, align 8
+  %.not28 = icmp eq ptr %.026, null
   br i1 %.not28, label %._crit_edge.loopexit, label %11, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %51
@@ -371,15 +371,15 @@ define ptr @fetch_tapped_data(i32 noundef %0, i32 noundef %1) local_unnamed_addr
 
 .preheader:                                       ; preds = %.preheader.preheader, %12
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %12 ]
-  %.0810 = phi i32 [ %1, %.preheader.preheader ], [ %.1, %12 ]
+  %.0710 = phi i32 [ %1, %.preheader.preheader ], [ %.1, %12 ]
   %4 = getelementptr [5000 x %struct._tap_packet_t], ptr @tap_packet_array, i64 0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %.preheader
-  %8 = add i32 %.0810, -1
-  %.not9 = icmp eq i32 %.0810, 0
+  %8 = add i32 %.0710, -1
+  %.not9 = icmp eq i32 %.0710, 0
   br i1 %.not9, label %9, label %12
 
 9:                                                ; preds = %7
@@ -388,14 +388,14 @@ define ptr @fetch_tapped_data(i32 noundef %0, i32 noundef %1) local_unnamed_addr
   br label %.loopexit
 
 12:                                               ; preds = %.preheader, %7
-  %.1 = phi i32 [ %8, %7 ], [ %.0810, %.preheader ]
+  %.1 = phi i32 [ %8, %7 ], [ %.0710, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %12, %2, %9
-  %.07 = phi ptr [ %11, %9 ], [ null, %2 ], [ null, %12 ]
-  ret ptr %.07
+  %.08 = phi ptr [ %11, %9 ], [ null, %2 ], [ null, %12 ]
+  ret ptr %.08
 }
 
 ; Function Attrs: nounwind uwtable

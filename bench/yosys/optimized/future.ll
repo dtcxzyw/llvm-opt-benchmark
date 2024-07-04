@@ -1627,10 +1627,10 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EED2Ev.exit54.thread.i: ; preds = %92
 
 .lr.ph.i:                                         ; preds = %93, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i
   %.sroa.0164.0375.i = phi ptr [ %.sroa.0164.3.i, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i ], [ null, %93 ]
-  %.sroa.6.0374.i = phi ptr [ %.sroa.6.2.i, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i ], [ null, %93 ]
+  %.sroa.0161.0374.i = phi ptr [ %1397, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i ], [ %94, %93 ]
   %.sroa.11.0373.i = phi ptr [ %.sroa.11.2.i, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i ], [ null, %93 ]
-  %.sroa.0161.0372.i = phi ptr [ %1397, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i ], [ %94, %93 ]
-  %100 = load ptr, ptr %.sroa.0161.0372.i, align 8
+  %.sroa.6.0372.i = phi ptr [ %.sroa.6.2.i, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i ], [ null, %93 ]
+  %100 = load ptr, ptr %.sroa.0161.0374.i, align 8
   %101 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEvE2id acquire, align 8, !noalias !8
   %102 = icmp eq i8 %101, 0
   br i1 %102, label %103, label %109, !prof !11
@@ -4456,16 +4456,16 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i46.i: ; preds =
   br label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit48.i
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit48.i:             ; preds = %1372, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i46.i
-  %.not.i49.i = icmp eq ptr %.sroa.6.0374.i, %.sroa.11.0373.i
+  %.not.i49.i = icmp eq ptr %.sroa.6.0372.i, %.sroa.11.0373.i
   br i1 %.not.i49.i, label %1375, label %1373
 
 1373:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit48.i
-  store ptr %100, ptr %.sroa.6.0374.i, align 8
-  %1374 = getelementptr inbounds i8, ptr %.sroa.6.0374.i, i64 8
+  store ptr %100, ptr %.sroa.6.0372.i, align 8
+  %1374 = getelementptr inbounds i8, ptr %.sroa.6.0372.i, i64 8
   br label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i
 
 1375:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit48.i
-  %1376 = ptrtoint ptr %.sroa.6.0374.i to i64
+  %1376 = ptrtoint ptr %.sroa.11.0373.i to i64
   %1377 = ptrtoint ptr %.sroa.0164.0375.i to i64
   %1378 = sub i64 %1376, %1377
   %1379 = icmp eq i64 %1378, 9223372036854775800
@@ -4519,10 +4519,10 @@ _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_c
   br label %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i
 
 _ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE9push_backERKS3_.exit.i: ; preds = %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %1373, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i, %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.exit.thread.i
+  %.sroa.6.2.i = phi ptr [ %.sroa.6.0372.i, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i ], [ %.sroa.6.0372.i, %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.exit.thread.i ], [ %1394, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %1374, %1373 ]
   %.sroa.11.2.i = phi ptr [ %.sroa.11.0373.i, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i ], [ %.sroa.11.0373.i, %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.exit.thread.i ], [ %1396, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.11.0373.i, %1373 ]
-  %.sroa.6.2.i = phi ptr [ %.sroa.6.0374.i, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i ], [ %.sroa.6.0374.i, %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.exit.thread.i ], [ %1394, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %1374, %1373 ]
   %.sroa.0164.3.i = phi ptr [ %.sroa.0164.0375.i, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit.i ], [ %.sroa.0164.0375.i, %_ZZN12_GLOBAL__N_112FutureWorkerC1EPN5Yosys5RTLIL6ModuleENS_13FutureOptionsEENKUlvE_clEv.exit.thread.i ], [ %1389, %_ZNSt6vectorIPN5Yosys5RTLIL4CellESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %.sroa.0164.0375.i, %1373 ]
-  %1397 = getelementptr inbounds i8, ptr %.sroa.0161.0372.i, i64 8
+  %1397 = getelementptr inbounds i8, ptr %.sroa.0161.0374.i, i64 8
   %.not.i = icmp eq ptr %1397, %95
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
@@ -50405,14 +50405,14 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %8
   br label %230
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.01673, i64 1
+  %30 = getelementptr inbounds i8, ptr %.073, i64 1
   %31 = load i8, ptr %30, align 1
   %.not19 = icmp eq i8 %31, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !394
 
 .lr.ph:                                           ; preds = %.preheader, %29
   %32 = phi i8 [ %31, %29 ], [ %7, %.preheader ]
-  %.01673 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
+  %.073 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
   %33 = icmp ult i8 %32, 33
   br i1 %33, label %34, label %29
 
@@ -50859,8 +50859,8 @@ _ZNSt6vectorIiSaIiEE2atEm.exit57:                 ; preds = %_ZNSt6vectorIPcSaIS
   br label %230
 
 230:                                              ; preds = %_ZNSt6vectorIiSaIiEE2atEm.exit57, %227, %1, %_ZNSt6vectorIiSaIiEE2atEm.exit
-  %.0 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
-  ret i32 %.0
+  %.016 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
+  ret i32 %.016
 }
 
 ; Function Attrs: mustprogress uwtable

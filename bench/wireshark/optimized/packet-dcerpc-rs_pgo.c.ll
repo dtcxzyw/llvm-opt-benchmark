@@ -208,9 +208,9 @@ define internal i32 @rs_pgo_dissect_add_rqst(ptr noundef %0, i32 noundef %1, ptr
   br label %dissect_sec_rgy_domain_t.exit
 
 dissect_sec_rgy_domain_t.exit:                    ; preds = %11, %12
-  %.017.i = phi ptr [ %14, %12 ], [ null, %11 ]
+  %.0.i = phi ptr [ %14, %12 ], [ null, %11 ]
   %15 = load i32, ptr @hf_sec_rgy_domain_t, align 4
-  %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.017.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %8) #3
+  %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %8) #3
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %8, align 4
@@ -278,9 +278,9 @@ define internal i32 @rs_pgo_dissect_delete_rqst(ptr noundef %0, i32 noundef %1, 
   br label %dissect_sec_rgy_domain_t.exit
 
 dissect_sec_rgy_domain_t.exit:                    ; preds = %11, %12
-  %.017.i = phi ptr [ %14, %12 ], [ null, %11 ]
+  %.0.i = phi ptr [ %14, %12 ], [ null, %11 ]
   %15 = load i32, ptr @hf_sec_rgy_domain_t, align 4
-  %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.017.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %8) #3
+  %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %8) #3
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %8, align 4
@@ -346,9 +346,9 @@ define internal i32 @rs_pgo_dissect_replace_rqst(ptr noundef %0, i32 noundef %1,
   br label %dissect_sec_rgy_domain_t.exit
 
 dissect_sec_rgy_domain_t.exit:                    ; preds = %11, %12
-  %.017.i = phi ptr [ %14, %12 ], [ null, %11 ]
+  %.0.i = phi ptr [ %14, %12 ], [ null, %11 ]
   %15 = load i32, ptr @hf_sec_rgy_domain_t, align 4
-  %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.017.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %8) #3
+  %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %8) #3
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %8, align 4
@@ -406,9 +406,9 @@ define internal i32 @rs_pgo_dissect_rename_rqst(ptr noundef %0, i32 noundef %1, 
   br label %dissect_sec_rgy_domain_t.exit
 
 dissect_sec_rgy_domain_t.exit:                    ; preds = %11, %12
-  %.017.i = phi ptr [ %14, %12 ], [ null, %11 ]
+  %.0.i = phi ptr [ %14, %12 ], [ null, %11 ]
   %15 = load i32, ptr @hf_sec_rgy_domain_t, align 4
-  %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.017.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %8) #3
+  %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %8) #3
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %8, align 4
@@ -467,9 +467,9 @@ define internal i32 @rs_pgo_dissect_get_rqst(ptr noundef %0, i32 noundef %1, ptr
   br label %dissect_sec_rgy_domain_t.exit
 
 dissect_sec_rgy_domain_t.exit:                    ; preds = %12, %13
-  %.017.i = phi ptr [ %15, %13 ], [ null, %12 ]
+  %.0.i = phi ptr [ %15, %13 ], [ null, %12 ]
   %16 = load i32, ptr @hf_sec_rgy_domain_t, align 4
-  %17 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.017.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #3
+  %17 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #3
   %18 = getelementptr inbounds i8, ptr %2, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %8, align 4
@@ -537,9 +537,9 @@ define internal i32 @rs_pgo_dissect_key_transfer_rqst(ptr noundef %0, i32 nounde
   br label %dissect_sec_rgy_domain_t.exit
 
 dissect_sec_rgy_domain_t.exit:                    ; preds = %13, %15
-  %.017.i = phi ptr [ %17, %15 ], [ null, %13 ]
+  %.0.i = phi ptr [ %17, %15 ], [ null, %13 ]
   %18 = load i32, ptr @hf_sec_rgy_domain_t, align 4
-  %19 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %.017.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %10) #3
+  %19 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %10) #3
   %20 = getelementptr inbounds i8, ptr %2, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %10, align 4
@@ -565,9 +565,9 @@ dissect_sec_rgy_domain_t.exit:                    ; preds = %13, %15
   br label %30
 
 30:                                               ; preds = %27, %26
-  %.023.i = phi ptr [ %29, %27 ], [ null, %26 ]
+  %.0.i23 = phi ptr [ %29, %27 ], [ null, %26 ]
   %31 = load i32, ptr @hf_rs_pgo_query_t, align 4
-  %32 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %19, ptr noundef nonnull %2, ptr noundef %.023.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, ptr noundef nonnull %8) #3
+  %32 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %19, ptr noundef nonnull %2, ptr noundef %.0.i23, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, ptr noundef nonnull %8) #3
   %33 = load ptr, ptr %20, align 8
   call void @col_append_str(ptr noundef %33, i32 noundef 25, ptr noundef nonnull @.str.95) #3
   %34 = load i8, ptr %8, align 1
@@ -617,10 +617,10 @@ dissect_sec_rgy_domain_t.exit:                    ; preds = %13, %15
   br label %dissect_rs_pgo_query_t.exit
 
 dissect_rs_pgo_query_t.exit:                      ; preds = %dissect_sec_rgy_domain_t.exit, %48
-  %.0.i23 = phi i32 [ %32, %48 ], [ %19, %dissect_sec_rgy_domain_t.exit ]
+  %.023.i = phi i32 [ %32, %48 ], [ %19, %dissect_sec_rgy_domain_t.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
-  %51 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.0.i23, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dissect_rs_pgo_query_key_t, i32 noundef 1, ptr noundef nonnull @.str.73, i32 noundef -1) #3
+  %51 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %.023.i, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dissect_rs_pgo_query_key_t, i32 noundef 1, ptr noundef nonnull @.str.73, i32 noundef -1) #3
   br label %52
 
 52:                                               ; preds = %6, %dissect_rs_pgo_query_t.exit
@@ -668,9 +668,9 @@ define internal i32 @rs_pgo_dissect_add_member_rqst(ptr noundef %0, i32 noundef 
   br label %dissect_sec_rgy_domain_t.exit
 
 dissect_sec_rgy_domain_t.exit:                    ; preds = %11, %12
-  %.017.i = phi ptr [ %14, %12 ], [ null, %11 ]
+  %.0.i = phi ptr [ %14, %12 ], [ null, %11 ]
   %15 = load i32, ptr @hf_sec_rgy_domain_t, align 4
-  %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.017.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %8) #3
+  %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %8) #3
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %8, align 4
@@ -737,9 +737,9 @@ define internal i32 @rs_pgo_dissect_delete_member_rqst(ptr noundef %0, i32 nound
   br label %dissect_sec_rgy_domain_t.exit
 
 dissect_sec_rgy_domain_t.exit:                    ; preds = %11, %12
-  %.017.i = phi ptr [ %14, %12 ], [ null, %11 ]
+  %.0.i = phi ptr [ %14, %12 ], [ null, %11 ]
   %15 = load i32, ptr @hf_sec_rgy_domain_t, align 4
-  %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.017.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %8) #3
+  %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %8) #3
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %8, align 4
@@ -798,9 +798,9 @@ define internal i32 @rs_pgo_dissect_is_member_rqst(ptr noundef %0, i32 noundef %
   br label %dissect_sec_rgy_domain_t.exit
 
 dissect_sec_rgy_domain_t.exit:                    ; preds = %11, %13
-  %.017.i = phi ptr [ %15, %13 ], [ null, %11 ]
+  %.0.i = phi ptr [ %15, %13 ], [ null, %11 ]
   %16 = load i32, ptr @hf_sec_rgy_domain_t, align 4
-  %17 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %12, ptr noundef %2, ptr noundef %.017.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #3
+  %17 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %12, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #3
   %18 = getelementptr inbounds i8, ptr %2, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %8, align 4
@@ -860,9 +860,9 @@ define internal i32 @rs_pgo_dissect_get_members_rqst(ptr noundef %0, i32 noundef
   br label %dissect_sec_rgy_domain_t.exit
 
 dissect_sec_rgy_domain_t.exit:                    ; preds = %12, %13
-  %.017.i = phi ptr [ %15, %13 ], [ null, %12 ]
+  %.0.i = phi ptr [ %15, %13 ], [ null, %12 ]
   %16 = load i32, ptr @hf_sec_rgy_domain_t, align 4
-  %17 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.017.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #3
+  %17 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #3
   %18 = getelementptr inbounds i8, ptr %2, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %8, align 4
@@ -977,13 +977,13 @@ define internal i32 @dissect_sec_rgy_pgo_item_t(ptr noundef %0, i32 noundef %1, 
   br label %22
 
 22:                                               ; preds = %19, %18
-  %.042 = phi ptr [ %21, %19 ], [ null, %18 ]
+  %.0 = phi ptr [ %21, %19 ], [ null, %18 ]
   %23 = load i32, ptr @hf_rs_uuid1, align 4
-  %24 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.042, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %13) #3
+  %24 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %13) #3
   %25 = load i32, ptr @hf_rs_sec_rgy_pgo_item_t_unix_num, align 4
-  %26 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.042, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef nonnull %14) #3
+  %26 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef nonnull %14) #3
   %27 = load i32, ptr @hf_rs_sec_rgy_pgo_item_t_quota, align 4
-  %28 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.042, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef nonnull %15) #3
+  %28 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef nonnull %15) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store ptr null, ptr %10, align 8
@@ -1001,18 +1001,18 @@ dissect_sec_rgy_pgo_flags_t.exit.thread:          ; preds = %22
   br label %dissect_sec_rgy_pname_t.exit
 
 31:                                               ; preds = %22
-  %.not24.i = icmp eq ptr %.042, null
+  %.not24.i = icmp eq ptr %.0, null
   br i1 %.not24.i, label %35, label %32
 
 32:                                               ; preds = %31
   %33 = load i32, ptr @ett_sec_rgy_pgo_flags_t, align 4
-  %34 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.042, ptr noundef %0, i32 noundef %28, i32 noundef -1, i32 noundef %33, ptr noundef nonnull %10, ptr noundef nonnull @.str.56) #3
+  %34 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %28, i32 noundef -1, i32 noundef %33, ptr noundef nonnull %10, ptr noundef nonnull @.str.56) #3
   br label %35
 
 35:                                               ; preds = %32, %31
-  %.022.i = phi ptr [ %34, %32 ], [ null, %31 ]
+  %.0.i = phi ptr [ %34, %32 ], [ null, %31 ]
   %36 = load i32, ptr @hf_sec_rgy_pgo_flags_t, align 4
-  %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.022.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %11) #3
+  %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %11) #3
   %38 = getelementptr inbounds i8, ptr %2, i64 8
   %39 = load ptr, ptr %38, align 8
   call void @col_append_str(ptr noundef %39, i32 noundef 25, ptr noundef nonnull @.str.57) #3
@@ -1080,7 +1080,7 @@ dissect_sec_rgy_pgo_flags_t.exit:                 ; preds = %54, %57
 
 64:                                               ; preds = %dissect_sec_rgy_pgo_flags_t.exit
   %65 = load i32, ptr @ett_sec_rgy_pname_t, align 4
-  %66 = call ptr @proto_tree_add_subtree(ptr noundef %.042, ptr noundef %0, i32 noundef %63, i32 noundef -1, i32 noundef %65, ptr noundef nonnull %7, ptr noundef nonnull @.str.62) #3
+  %66 = call ptr @proto_tree_add_subtree(ptr noundef %.0, ptr noundef %0, i32 noundef %63, i32 noundef -1, i32 noundef %65, ptr noundef nonnull %7, ptr noundef nonnull @.str.62) #3
   %67 = load i32, ptr @hf_sec_rgy_pname_t_size, align 4
   %68 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %63, ptr noundef nonnull %2, ptr noundef %66, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %67, ptr noundef nonnull %9) #3
   %69 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1171,8 +1171,8 @@ dissect_sec_rgy_pname_t.exit:                     ; preds = %dissect_sec_rgy_pgo
   br label %129
 
 129:                                              ; preds = %6, %dissect_sec_rgy_pname_t.exit
-  %.0 = phi i32 [ %.0.i46, %dissect_sec_rgy_pname_t.exit ], [ %1, %6 ]
-  ret i32 %.0
+  %.042 = phi i32 [ %.0.i46, %dissect_sec_rgy_pname_t.exit ], [ %1, %6 ]
+  ret i32 %.042
 }
 
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1214,15 +1214,15 @@ define internal i32 @dissect_rs_cache_data_t(ptr noundef %0, i32 noundef %1, ptr
   br label %18
 
 18:                                               ; preds = %15, %14
-  %.032 = phi ptr [ %17, %15 ], [ null, %14 ]
+  %.0 = phi ptr [ %17, %15 ], [ null, %14 ]
   %19 = load i32, ptr @hf_rs_uuid1, align 4
-  %20 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %11) #3
+  %20 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %11) #3
   %21 = load i32, ptr @hf_rs_timeval, align 4
-  %22 = call i32 @dissect_dcerpc_time_t(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.032, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %8) #3
+  %22 = call i32 @dissect_dcerpc_time_t(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %8) #3
   %23 = load i32, ptr @hf_rs_timeval, align 4
-  %24 = call i32 @dissect_dcerpc_time_t(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.032, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %9) #3
+  %24 = call i32 @dissect_dcerpc_time_t(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %9) #3
   %25 = load i32, ptr @hf_rs_timeval, align 4
-  %26 = call i32 @dissect_dcerpc_time_t(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.032, ptr noundef %5, i32 noundef %25, ptr noundef nonnull %10) #3
+  %26 = call i32 @dissect_dcerpc_time_t(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef %5, i32 noundef %25, ptr noundef nonnull %10) #3
   %27 = getelementptr inbounds i8, ptr %2, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %11, align 4
@@ -1266,8 +1266,8 @@ define internal i32 @dissect_rs_cache_data_t(ptr noundef %0, i32 noundef %1, ptr
   br label %65
 
 65:                                               ; preds = %6, %18
-  %.0 = phi i32 [ %26, %18 ], [ %1, %6 ]
-  ret i32 %.0
+  %.032 = phi i32 [ %26, %18 ], [ %1, %6 ]
+  ret i32 %.032
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1327,9 +1327,9 @@ define internal i32 @dissect_rs_pgo_query_key_t(ptr noundef %0, i32 noundef %1, 
   br label %19
 
 19:                                               ; preds = %16, %15
-  %.048 = phi ptr [ %18, %16 ], [ null, %15 ]
+  %.0 = phi ptr [ %18, %16 ], [ null, %15 ]
   %20 = load i32, ptr @hf_rs_pgo_query_key_t, align 4
-  %21 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.048, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %12) #3
+  %21 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %12) #3
   %22 = getelementptr inbounds i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   call void @col_append_str(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.77) #3
@@ -1346,7 +1346,7 @@ define internal i32 @dissect_rs_pgo_query_key_t(ptr noundef %0, i32 noundef %1, 
 26:                                               ; preds = %19
   %27 = load ptr, ptr %22, align 8
   call void @col_append_str(ptr noundef %27, i32 noundef 25, ptr noundef nonnull @.str.78) #3
-  %28 = call fastcc i32 @dissect_sec_rgy_name_t(ptr noundef %0, i32 noundef %24, ptr noundef nonnull %2, ptr noundef %.048, ptr noundef nonnull %4, ptr noundef %5)
+  %28 = call fastcc i32 @dissect_sec_rgy_name_t(ptr noundef %0, i32 noundef %24, ptr noundef nonnull %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5)
   br label %97
 
 29:                                               ; preds = %19
@@ -1360,19 +1360,19 @@ define internal i32 @dissect_rs_pgo_query_key_t(ptr noundef %0, i32 noundef %1, 
   br i1 %.not.i, label %32, label %dissect_rs_pgo_id_key_t.exit
 
 32:                                               ; preds = %29
-  %.not25.i = icmp eq ptr %.048, null
+  %.not25.i = icmp eq ptr %.0, null
   br i1 %.not25.i, label %36, label %33
 
 33:                                               ; preds = %32
   %34 = load i32, ptr @ett_rs_pgo_id_key_t, align 4
-  %35 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.048, ptr noundef %0, i32 noundef %24, i32 noundef -1, i32 noundef %34, ptr noundef nonnull %9, ptr noundef nonnull @.str.84) #3
+  %35 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %24, i32 noundef -1, i32 noundef %34, ptr noundef nonnull %9, ptr noundef nonnull @.str.84) #3
   br label %36
 
 36:                                               ; preds = %33, %32
-  %.023.i = phi ptr [ %35, %33 ], [ null, %32 ]
+  %.0.i = phi ptr [ %35, %33 ], [ null, %32 ]
   %37 = load i32, ptr @hf_rs_uuid1, align 4
-  %38 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %24, ptr noundef nonnull %2, ptr noundef %.023.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef nonnull %10) #3
-  %39 = call fastcc i32 @dissect_sec_rgy_name_t(ptr noundef %0, i32 noundef %38, ptr noundef nonnull %2, ptr noundef %.023.i, ptr noundef nonnull %4, ptr noundef %5)
+  %38 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %24, ptr noundef nonnull %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef nonnull %10) #3
+  %39 = call fastcc i32 @dissect_sec_rgy_name_t(ptr noundef %0, i32 noundef %38, ptr noundef nonnull %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5)
   %40 = load ptr, ptr %22, align 8
   %41 = load i32, ptr %10, align 4
   %42 = getelementptr inbounds i8, ptr %10, i64 4
@@ -1412,7 +1412,7 @@ define internal i32 @dissect_rs_pgo_query_key_t(ptr noundef %0, i32 noundef %1, 
   br label %dissect_rs_pgo_id_key_t.exit
 
 dissect_rs_pgo_id_key_t.exit:                     ; preds = %29, %36
-  %.0.i = phi i32 [ %39, %36 ], [ %24, %29 ]
+  %.023.i = phi i32 [ %39, %36 ], [ %24, %29 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %97
@@ -1428,19 +1428,19 @@ dissect_rs_pgo_id_key_t.exit:                     ; preds = %29, %36
   br i1 %.not.i52, label %77, label %dissect_rs_pgo_unix_num_key_t.exit
 
 77:                                               ; preds = %74
-  %.not25.i54 = icmp eq ptr %.048, null
+  %.not25.i54 = icmp eq ptr %.0, null
   br i1 %.not25.i54, label %81, label %78
 
 78:                                               ; preds = %77
   %79 = load i32, ptr @ett_rs_pgo_unix_num_key_t, align 4
-  %80 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.048, ptr noundef %0, i32 noundef %24, i32 noundef -1, i32 noundef %79, ptr noundef nonnull %7, ptr noundef nonnull @.str.86) #3
+  %80 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %24, i32 noundef -1, i32 noundef %79, ptr noundef nonnull %7, ptr noundef nonnull @.str.86) #3
   br label %81
 
 81:                                               ; preds = %78, %77
-  %.023.i55 = phi ptr [ %80, %78 ], [ null, %77 ]
+  %.0.i55 = phi ptr [ %80, %78 ], [ null, %77 ]
   %82 = load i32, ptr @hf_rs_pgo_unix_num_key_t, align 4
-  %83 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %24, ptr noundef nonnull %2, ptr noundef %.023.i55, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %82, ptr noundef nonnull %8) #3
-  %84 = call fastcc i32 @dissect_sec_rgy_name_t(ptr noundef %0, i32 noundef %83, ptr noundef nonnull %2, ptr noundef %.023.i55, ptr noundef nonnull %4, ptr noundef %5)
+  %83 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %24, ptr noundef nonnull %2, ptr noundef %.0.i55, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %82, ptr noundef nonnull %8) #3
+  %84 = call fastcc i32 @dissect_sec_rgy_name_t(ptr noundef %0, i32 noundef %83, ptr noundef nonnull %2, ptr noundef %.0.i55, ptr noundef nonnull %4, ptr noundef %5)
   %85 = load ptr, ptr %22, align 8
   %86 = load i32, ptr %8, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %85, i32 noundef 25, ptr noundef nonnull @.str.87, i32 noundef %86) #3
@@ -1450,7 +1450,7 @@ dissect_rs_pgo_id_key_t.exit:                     ; preds = %29, %36
   br label %dissect_rs_pgo_unix_num_key_t.exit
 
 dissect_rs_pgo_unix_num_key_t.exit:               ; preds = %74, %81
-  %.0.i53 = phi i32 [ %84, %81 ], [ %24, %74 ]
+  %.023.i53 = phi i32 [ %84, %81 ], [ %24, %74 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   br label %97
@@ -1458,7 +1458,7 @@ dissect_rs_pgo_unix_num_key_t.exit:               ; preds = %74, %81
 89:                                               ; preds = %19
   %90 = load ptr, ptr %22, align 8
   call void @col_append_str(ptr noundef %90, i32 noundef 25, ptr noundef nonnull @.str.81) #3
-  %91 = call fastcc i32 @dissect_sec_rgy_name_t(ptr noundef %0, i32 noundef %24, ptr noundef nonnull %2, ptr noundef %.048, ptr noundef nonnull %4, ptr noundef %5)
+  %91 = call fastcc i32 @dissect_sec_rgy_name_t(ptr noundef %0, i32 noundef %24, ptr noundef nonnull %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5)
   br label %97
 
 92:                                               ; preds = %19
@@ -1473,15 +1473,15 @@ dissect_rs_pgo_unix_num_key_t.exit:               ; preds = %74, %81
   br label %97
 
 97:                                               ; preds = %94, %92, %89, %dissect_rs_pgo_unix_num_key_t.exit, %dissect_rs_pgo_id_key_t.exit, %26
-  %.049 = phi i32 [ %24, %94 ], [ %24, %92 ], [ %91, %89 ], [ %.0.i53, %dissect_rs_pgo_unix_num_key_t.exit ], [ %.0.i, %dissect_rs_pgo_id_key_t.exit ], [ %28, %26 ]
+  %.049 = phi i32 [ %24, %94 ], [ %24, %92 ], [ %91, %89 ], [ %.023.i53, %dissect_rs_pgo_unix_num_key_t.exit ], [ %.023.i, %dissect_rs_pgo_id_key_t.exit ], [ %28, %26 ]
   %98 = load ptr, ptr %11, align 8
   %99 = sub i32 %.049, %1
   call void @proto_item_set_len(ptr noundef %98, i32 noundef %99) #3
   br label %100
 
 100:                                              ; preds = %6, %97
-  %.0 = phi i32 [ %.049, %97 ], [ %1, %6 ]
-  ret i32 %.0
+  %.048 = phi i32 [ %.049, %97 ], [ %1, %6 ]
+  ret i32 %.048
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1506,13 +1506,13 @@ define internal i32 @dissect_sec_rgy_cursor_t(ptr noundef %0, i32 noundef %1, pt
   br label %17
 
 17:                                               ; preds = %14, %13
-  %.029 = phi ptr [ %16, %14 ], [ null, %13 ]
+  %.0 = phi ptr [ %16, %14 ], [ null, %13 ]
   %18 = load i32, ptr @hf_rs_uuid1, align 4
-  %19 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %8) #3
+  %19 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %8) #3
   %20 = load i32, ptr @hf_rs_sec_rgy_pgo_item_t_unix_num, align 4
-  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %9) #3
+  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %9) #3
   %22 = load i32, ptr @hf_rs_sec_rgy_pgo_item_t_quota, align 4
-  %23 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %10) #3
+  %23 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %10) #3
   %24 = getelementptr inbounds i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %8, align 4
@@ -1555,8 +1555,8 @@ define internal i32 @dissect_sec_rgy_cursor_t(ptr noundef %0, i32 noundef %1, pt
   br label %61
 
 61:                                               ; preds = %6, %17
-  %.0 = phi i32 [ %23, %17 ], [ %1, %6 ]
-  ret i32 %.0
+  %.029 = phi i32 [ %23, %17 ], [ %1, %6 ]
+  ret i32 %.029
 }
 
 declare i32 @dissect_ndr_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -1582,9 +1582,9 @@ define internal i32 @dissect_rs_pgo_query_result_t(ptr noundef %0, i32 noundef %
   br label %16
 
 16:                                               ; preds = %13, %12
-  %.026 = phi ptr [ %15, %13 ], [ null, %12 ]
+  %.025 = phi ptr [ %15, %13 ], [ null, %12 ]
   %17 = load i32, ptr @hf_rs_pgo_query_result_t, align 4
-  %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %9) #3
+  %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.025, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %9) #3
   %19 = load i32, ptr %9, align 4
   %20 = call ptr @val_to_str_ext(i32 noundef %19, ptr noundef nonnull @dce_error_vals_ext, ptr noundef nonnull @.str.68) #3
   %21 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1603,37 +1603,37 @@ define internal i32 @dissect_rs_pgo_query_result_t(ptr noundef %0, i32 noundef %
   br i1 %.not.i, label %27, label %dissect_rs_pgo_result_t.exit
 
 27:                                               ; preds = %25
-  %.not24.i = icmp eq ptr %.026, null
+  %.not24.i = icmp eq ptr %.025, null
   br i1 %.not24.i, label %31, label %28
 
 28:                                               ; preds = %27
   %29 = load i32, ptr @ett_rs_pgo_result_t, align 4
-  %30 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.026, ptr noundef %0, i32 noundef %23, i32 noundef -1, i32 noundef %29, ptr noundef nonnull %7, ptr noundef nonnull @.str.93) #3
+  %30 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.025, ptr noundef %0, i32 noundef %23, i32 noundef -1, i32 noundef %29, ptr noundef nonnull %7, ptr noundef nonnull @.str.93) #3
   br label %31
 
 31:                                               ; preds = %28, %27
-  %.022.i = phi ptr [ %30, %28 ], [ null, %27 ]
-  %32 = call fastcc i32 @dissect_sec_rgy_name_t(ptr noundef %0, i32 noundef %23, ptr noundef nonnull %2, ptr noundef %.022.i, ptr noundef nonnull %4, ptr noundef %5)
-  %33 = call i32 @dissect_sec_rgy_pgo_item_t(ptr noundef %0, i32 noundef %32, ptr noundef nonnull %2, ptr noundef %.022.i, ptr noundef nonnull %4, ptr noundef %5)
+  %.0.i = phi ptr [ %30, %28 ], [ null, %27 ]
+  %32 = call fastcc i32 @dissect_sec_rgy_name_t(ptr noundef %0, i32 noundef %23, ptr noundef nonnull %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5)
+  %33 = call i32 @dissect_sec_rgy_pgo_item_t(ptr noundef %0, i32 noundef %32, ptr noundef nonnull %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5)
   %34 = load ptr, ptr %7, align 8
   %35 = sub i32 %33, %23
   call void @proto_item_set_len(ptr noundef %34, i32 noundef %35) #3
   br label %dissect_rs_pgo_result_t.exit
 
 dissect_rs_pgo_result_t.exit:                     ; preds = %25, %31
-  %.0.i = phi i32 [ %33, %31 ], [ %23, %25 ]
+  %.022.i = phi i32 [ %33, %31 ], [ %23, %25 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %36
 
 36:                                               ; preds = %16, %dissect_rs_pgo_result_t.exit
-  %.025 = phi i32 [ %.0.i, %dissect_rs_pgo_result_t.exit ], [ %23, %16 ]
+  %.026 = phi i32 [ %.022.i, %dissect_rs_pgo_result_t.exit ], [ %23, %16 ]
   %37 = load ptr, ptr %8, align 8
-  %38 = sub i32 %.025, %1
+  %38 = sub i32 %.026, %1
   call void @proto_item_set_len(ptr noundef %37, i32 noundef %38) #3
   br label %39
 
 39:                                               ; preds = %6, %36
-  %.0 = phi i32 [ %.025, %36 ], [ %1, %6 ]
+  %.0 = phi i32 [ %.026, %36 ], [ %1, %6 ]
   ret i32 %.0
 }
 

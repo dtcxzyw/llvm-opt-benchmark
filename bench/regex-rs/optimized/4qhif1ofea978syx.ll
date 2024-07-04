@@ -2546,9 +2546,9 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$9inters
   %.val = load i32, ptr %45, align 4, !range !378, !noundef !4
   %.val31 = load i32, ptr %27, align 4, !range !378, !noundef !4
   %46 = icmp ult i32 %.val, %.val31
-  %.014.sroa.phi.sroa.speculated = select i1 %46, i64 %5, i64 %9
+  %.015.sroa.phi.sroa.speculated = select i1 %46, i64 %5, i64 %9
   %.sroa.speculated = select i1 %46, i64 %.sroa.0.0, i64 %.sroa.023.0
-  %47 = icmp ult i64 %.sroa.speculated, %.014.sroa.phi.sroa.speculated
+  %47 = icmp ult i64 %.sroa.speculated, %.015.sroa.phi.sroa.speculated
   br i1 %47, label %64, label %48
 
 48:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974.exit34"
@@ -2578,8 +2578,8 @@ define hidden void @"_ZN12regex_syntax3hir8interval20IntervalSet$LT$I$GT$9inters
   %61 = trunc nuw i8 %60 to i1
   %62 = getelementptr inbounds i8, ptr %1, i64 24
   %63 = load i8, ptr %62, align 8, !range !28
-  %.015 = select i1 %61, i8 %63, i8 0
-  store i8 %.015, ptr %59, align 8
+  %.014 = select i1 %61, i8 %63, i8 0
+  store i8 %.014, ptr %59, align 8
   br label %11
 
 64:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h29b56b34bbc50903E.llvm.14842887858627331974.exit34"

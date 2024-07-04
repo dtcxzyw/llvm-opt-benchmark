@@ -594,9 +594,9 @@ define hidden void @zim_DOMElement_getAttribute(ptr nocapture noundef readonly %
   br label %45
 
 45:                                               ; preds = %33, %39, %42
-  %.080 = phi i1 [ false, %42 ], [ false, %39 ], [ true, %33 ]
-  %.0 = phi ptr [ %44, %42 ], [ %41, %39 ], [ %38, %33 ]
-  %46 = icmp eq ptr %.0, null
+  %.080 = phi ptr [ %44, %42 ], [ %41, %39 ], [ %38, %33 ]
+  %.0 = phi i1 [ false, %42 ], [ false, %39 ], [ true, %33 ]
+  %46 = icmp eq ptr %.080, null
   br i1 %46, label %.thread, label %49
 
 .thread:                                          ; preds = %26, %45
@@ -607,7 +607,7 @@ define hidden void @zim_DOMElement_getAttribute(ptr nocapture noundef readonly %
   br label %62
 
 49:                                               ; preds = %45
-  %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #9
+  %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.080) #9
   %51 = and i64 %50, -8
   %52 = add i64 %51, 32
   %53 = call noalias ptr @_emalloc(i64 noundef %52) #10
@@ -619,17 +619,17 @@ define hidden void @zim_DOMElement_getAttribute(ptr nocapture noundef readonly %
   %56 = getelementptr inbounds i8, ptr %53, i64 16
   store i64 %50, ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %53, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %57, ptr nonnull align 1 %.0, i64 %50, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %57, ptr nonnull align 1 %.080, i64 %50, i1 false)
   %58 = getelementptr inbounds [1 x i8], ptr %57, i64 0, i64 %50
   store i8 0, ptr %58, align 1
   store ptr %53, ptr %1, align 8
   %59 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 262, ptr %59, align 8
-  br i1 %.080, label %60, label %62
+  br i1 %.0, label %60, label %62
 
 60:                                               ; preds = %49
   %61 = load ptr, ptr @xmlFree, align 8
-  call void %61(ptr noundef nonnull %.0) #8
+  call void %61(ptr noundef nonnull %.080) #8
   br label %62
 
 62:                                               ; preds = %49, %60, %.thread, %18, %9
@@ -658,13 +658,13 @@ define internal fastcc ptr @dom_get_dom1_attribute(ptr noundef %0, ptr noundef %
   br label %13
 
 13:                                               ; preds = %14, %11
-  %.029.in = phi ptr [ %12, %11 ], [ %.029, %14 ]
-  %.029 = load ptr, ptr %.029.in, align 8
-  %.not37 = icmp eq ptr %.029, null
+  %.028.in = phi ptr [ %12, %11 ], [ %.028, %14 ]
+  %.028 = load ptr, ptr %.028.in, align 8
+  %.not37 = icmp eq ptr %.028, null
   br i1 %.not37, label %.loopexit, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %.029, i64 24
+  %15 = getelementptr inbounds i8, ptr %.028, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @xmlStrEqual(ptr noundef %16, ptr noundef nonnull %4) #8
   %.not38 = icmp eq i32 %17, 0
@@ -719,8 +719,8 @@ define internal fastcc ptr @dom_get_dom1_attribute(ptr noundef %0, ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %14, %34, %35, %39, %26
-  %.028 = phi ptr [ %29, %26 ], [ %40, %39 ], [ null, %34 ], [ %.0, %35 ], [ null, %13 ], [ %.029, %14 ]
-  ret ptr %.028
+  %.029 = phi ptr [ %29, %26 ], [ %40, %39 ], [ null, %34 ], [ %.0, %35 ], [ null, %13 ], [ %.028, %14 ]
+  ret ptr %.029
 }
 
 declare ptr @xmlNodeListGetString(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -762,8 +762,8 @@ define hidden void @zim_DOMElement_getAttributeNames(ptr nocapture noundef reado
   store i32 775, ptr %21, align 8
   tail call void @zend_hash_real_init_packed(ptr noundef %20) #8
   %22 = getelementptr inbounds i8, ptr %19, i64 96
-  %.039 = load ptr, ptr %22, align 8
-  %.not3540 = icmp eq ptr %.039, null
+  %.03339 = load ptr, ptr %22, align 8
+  %.not3540 = icmp eq ptr %.03339, null
   br i1 %.not3540, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
@@ -771,8 +771,8 @@ define hidden void @zim_DOMElement_getAttributeNames(ptr nocapture noundef reado
   br label %24
 
 24:                                               ; preds = %.lr.ph, %24
-  %.041 = phi ptr [ %.039, %.lr.ph ], [ %.0, %24 ]
-  %25 = getelementptr inbounds i8, ptr %.041, i64 24
+  %.03341 = phi ptr [ %.03339, %.lr.ph ], [ %.033, %24 ]
+  %25 = getelementptr inbounds i8, ptr %.03341, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #9
   %28 = call ptr @dom_node_concatenated_name_helper(i64 noundef %27, ptr noundef %26, i64 noundef 5, ptr noundef nonnull @.str.6) #8
@@ -784,14 +784,14 @@ define hidden void @zim_DOMElement_getAttributeNames(ptr nocapture noundef reado
   %32 = select i1 %.not38, i32 262, i32 6
   store i32 %32, ptr %23, align 8
   %33 = call ptr @zend_hash_next_index_insert(ptr noundef %20, ptr noundef nonnull %3) #8
-  %.0 = load ptr, ptr %.041, align 8
-  %.not35 = icmp eq ptr %.0, null
+  %.033 = load ptr, ptr %.03341, align 8
+  %.not35 = icmp eq ptr %.033, null
   br i1 %.not35, label %._crit_edge, label %24
 
 ._crit_edge:                                      ; preds = %24, %18
   %34 = getelementptr inbounds i8, ptr %19, i64 88
-  %.03342 = load ptr, ptr %34, align 8
-  %.not3643 = icmp eq ptr %.03342, null
+  %.042 = load ptr, ptr %34, align 8
+  %.not3643 = icmp eq ptr %.042, null
   br i1 %.not3643, label %.loopexit, label %.lr.ph46
 
 .lr.ph46:                                         ; preds = %._crit_edge
@@ -799,8 +799,8 @@ define hidden void @zim_DOMElement_getAttributeNames(ptr nocapture noundef reado
   br label %36
 
 36:                                               ; preds = %.lr.ph46, %36
-  %.03344 = phi ptr [ %.03342, %.lr.ph46 ], [ %.033, %36 ]
-  %37 = call ptr @dom_node_get_node_name_attribute_or_element(ptr noundef nonnull %.03344) #8
+  %.044 = phi ptr [ %.042, %.lr.ph46 ], [ %.0, %36 ]
+  %37 = call ptr @dom_node_get_node_name_attribute_or_element(ptr noundef nonnull %.044) #8
   store ptr %37, ptr %3, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4
@@ -809,9 +809,9 @@ define hidden void @zim_DOMElement_getAttributeNames(ptr nocapture noundef reado
   %41 = select i1 %.not37, i32 262, i32 6
   store i32 %41, ptr %35, align 8
   %42 = call ptr @zend_hash_next_index_insert(ptr noundef %20, ptr noundef nonnull %3) #8
-  %43 = getelementptr inbounds i8, ptr %.03344, i64 48
-  %.033 = load ptr, ptr %43, align 8
-  %.not36 = icmp eq ptr %.033, null
+  %43 = getelementptr inbounds i8, ptr %.044, i64 48
+  %.0 = load ptr, ptr %43, align 8
+  %.not36 = icmp eq ptr %.0, null
   br i1 %.not36, label %.loopexit, label %36
 
 .loopexit.sink.split:                             ; preds = %6, %12
@@ -1102,18 +1102,18 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef %1
   br label %27
 
 .loopexit.i:                                      ; preds = %81, %._crit_edge.i
-  %.190.lcssa.i = phi ptr [ %.089121.i, %._crit_edge.i ], [ %.392.i, %81 ]
-  %.187.lcssa.i = phi i64 [ %28, %._crit_edge.i ], [ %.288.i, %81 ]
-  %.183.lcssa.i = phi i64 [ %.082123.i, %._crit_edge.i ], [ %.385.i, %81 ]
-  %.not.i = icmp eq i64 %.187.lcssa.i, 0
+  %.191.lcssa.i = phi i64 [ %.090121.i, %._crit_edge.i ], [ %.393.i, %81 ]
+  %.186.lcssa.i = phi ptr [ %.085122.i, %._crit_edge.i ], [ %.388.i, %81 ]
+  %.183.lcssa.i = phi i64 [ %28, %._crit_edge.i ], [ %.284.i, %81 ]
+  %.not.i = icmp eq i64 %.183.lcssa.i, 0
   br i1 %.not.i, label %dom_deep_ns_redef.exit, label %27
 
 27:                                               ; preds = %.loopexit.i, %.loopexit
-  %.082123.i = phi i64 [ 128, %.loopexit ], [ %.183.lcssa.i, %.loopexit.i ]
-  %.086122.i = phi i64 [ 1, %.loopexit ], [ %.187.lcssa.i, %.loopexit.i ]
-  %.089121.i = phi ptr [ %23, %.loopexit ], [ %.190.lcssa.i, %.loopexit.i ]
-  %28 = add i64 %.086122.i, -1
-  %29 = getelementptr inbounds %struct._dom_deep_ns_redef_item, ptr %.089121.i, i64 %28
+  %.082123.i = phi i64 [ 1, %.loopexit ], [ %.183.lcssa.i, %.loopexit.i ]
+  %.085122.i = phi ptr [ %23, %.loopexit ], [ %.186.lcssa.i, %.loopexit.i ]
+  %.090121.i = phi i64 [ 128, %.loopexit ], [ %.191.lcssa.i, %.loopexit.i ]
+  %28 = add i64 %.082123.i, -1
+  %29 = getelementptr inbounds %struct._dom_deep_ns_redef_item, ptr %.085122.i, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 8
@@ -1198,16 +1198,16 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef %1
 
 .lr.ph117.i:                                      ; preds = %._crit_edge.i, %81
   %.0115.i = phi ptr [ %.0.i, %81 ], [ %.0110.i, %._crit_edge.i ]
-  %.183114.i = phi i64 [ %.385.i, %81 ], [ %.082123.i, %._crit_edge.i ]
-  %.187113.i = phi i64 [ %.288.i, %81 ], [ %28, %._crit_edge.i ]
-  %.190112.i = phi ptr [ %.392.i, %81 ], [ %.089121.i, %._crit_edge.i ]
+  %.183114.i = phi i64 [ %.284.i, %81 ], [ %28, %._crit_edge.i ]
+  %.186113.i = phi ptr [ %.388.i, %81 ], [ %.085122.i, %._crit_edge.i ]
+  %.191112.i = phi i64 [ %.393.i, %81 ], [ %.090121.i, %._crit_edge.i ]
   %66 = getelementptr inbounds i8, ptr %.0115.i, i64 8
   %67 = load i32, ptr %66, align 8
   %.not99.i = icmp eq i32 %67, 1
   br i1 %.not99.i, label %68, label %81
 
 68:                                               ; preds = %.lr.ph117.i
-  %69 = icmp eq i64 %.187113.i, %.183114.i
+  %69 = icmp eq i64 %.183114.i, %.191112.i
   br i1 %69, label %70, label %77
 
 70:                                               ; preds = %68
@@ -1218,31 +1218,31 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef %1
   %73 = lshr i64 %.183114.i, 1
   %74 = add nuw nsw i64 %73, %.183114.i
   %75 = shl nuw i64 %74, 4
-  %76 = tail call ptr @_erealloc(ptr noundef %.190112.i, i64 noundef %75) #11
+  %76 = tail call ptr @_erealloc(ptr noundef %.186113.i, i64 noundef %75) #11
   br label %77
 
 77:                                               ; preds = %72, %68
-  %.291.i = phi ptr [ %76, %72 ], [ %.190112.i, %68 ]
-  %.284.i = phi i64 [ %74, %72 ], [ %.183114.i, %68 ]
-  %78 = getelementptr inbounds %struct._dom_deep_ns_redef_item, ptr %.291.i, i64 %.187113.i
+  %.292.i = phi i64 [ %74, %72 ], [ %.191112.i, %68 ]
+  %.287.i = phi ptr [ %76, %72 ], [ %.186113.i, %68 ]
+  %78 = getelementptr inbounds %struct._dom_deep_ns_redef_item, ptr %.287.i, i64 %.183114.i
   store ptr %.0115.i, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 8
   store ptr %.2.lcssa.i, ptr %79, align 8
-  %80 = add i64 %.187113.i, 1
+  %80 = add i64 %.183114.i, 1
   br label %81
 
 81:                                               ; preds = %77, %.lr.ph117.i
-  %.392.i = phi ptr [ %.190112.i, %.lr.ph117.i ], [ %.291.i, %77 ]
-  %.288.i = phi i64 [ %.187113.i, %.lr.ph117.i ], [ %80, %77 ]
-  %.385.i = phi i64 [ %.183114.i, %.lr.ph117.i ], [ %.284.i, %77 ]
+  %.393.i = phi i64 [ %.191112.i, %.lr.ph117.i ], [ %.292.i, %77 ]
+  %.388.i = phi ptr [ %.186113.i, %.lr.ph117.i ], [ %.287.i, %77 ]
+  %.284.i = phi i64 [ %.183114.i, %.lr.ph117.i ], [ %80, %77 ]
   %82 = getelementptr inbounds i8, ptr %.0115.i, i64 48
   %.0.i = load ptr, ptr %82, align 8
   %.not98.i = icmp eq ptr %.0.i, null
   br i1 %.not98.i, label %.loopexit.i, label %.lr.ph117.i
 
 dom_deep_ns_redef.exit:                           ; preds = %.loopexit.i, %70
-  %.493.i = phi ptr [ %.190112.i, %70 ], [ %.190.lcssa.i, %.loopexit.i ]
-  tail call void @_efree(ptr noundef %.493.i) #8
+  %.489.i = phi ptr [ %.186113.i, %70 ], [ %.186.lcssa.i, %.loopexit.i ]
+  tail call void @_efree(ptr noundef %.489.i) #8
   br label %83
 
 83:                                               ; preds = %17, %9, %12, %dom_deep_ns_redef.exit

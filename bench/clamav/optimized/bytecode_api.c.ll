@@ -223,7 +223,7 @@ define i32 @cli_bcapi_read(ptr nocapture noundef %0, ptr noundef %1, i32 noundef
   br i1 %.not.i, label %fmap_readn.exit.thread, label %31
 
 fmap_readn.exit.thread:                           ; preds = %24, %22, %14
-  %.0.i28 = phi i32 [ -1, %24 ], [ -1, %22 ], [ 0, %14 ]
+  %.020.i28 = phi i32 [ -1, %24 ], [ -1, %22 ], [ 0, %14 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, i32 noundef %2) #29
   %29 = getelementptr inbounds i8, ptr %0, i64 1312
   %30 = load ptr, ptr %29, align 8
@@ -245,7 +245,7 @@ fmap_readn.exit.thread:                           ; preds = %24, %22, %14
   br label %39
 
 39:                                               ; preds = %31, %fmap_readn.exit.thread, %11, %6
-  %.0 = phi i32 [ -1, %11 ], [ %.0.i28, %fmap_readn.exit.thread ], [ %38, %31 ], [ -1, %6 ]
+  %.0 = phi i32 [ -1, %11 ], [ %.020.i28, %fmap_readn.exit.thread ], [ %38, %31 ], [ -1, %6 ]
   ret i32 %.0
 }
 
@@ -913,15 +913,15 @@ define i32 @cli_bcapi_file_find_limit(ptr nocapture noundef readonly %0, ptr nou
   tail call void @cli_event_fastdata(ptr noundef %23, i32 noundef 9, ptr noundef %1, i32 noundef %2) #29
   %24 = getelementptr inbounds i8, ptr %7, i64 88
   %25 = getelementptr inbounds i8, ptr %7, i64 104
-  %.not63 = icmp eq ptr %1, null
+  %.not62 = icmp eq ptr %1, null
   %26 = getelementptr inbounds i8, ptr %1, i64 1
   %27 = add nsw i32 %2, -1
   %28 = zext nneg i32 %27 to i64
-  br i1 %.not63, label %.split.us, label %.split
+  br i1 %.not62, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %16, %fmap_readn.exit.us
-  %.043.in.us = phi i64 [ %51, %fmap_readn.exit.us ], [ %18, %16 ]
-  %29 = and i64 %.043.in.us, 4294967295
+  %.042.in.us = phi i64 [ %51, %fmap_readn.exit.us ], [ %18, %16 ]
+  %29 = and i64 %.042.in.us, 4294967295
   %30 = add nuw nsw i64 %29, 4096
   %31 = icmp ugt i64 %30, %19
   br i1 %31, label %32, label %36
@@ -960,11 +960,11 @@ define i32 @cli_bcapi_file_find_limit(ptr nocapture noundef readonly %0, ptr nou
   br label %fmap_readn.exit.us
 
 fmap_readn.exit.us:                               ; preds = %46, %36
-  %.0.i.us = phi i64 [ %48, %46 ], [ 0, %36 ]
-  %49 = icmp ult i64 %.0.i.us, %9
-  %50 = icmp eq i64 %.0.i.us, -1
+  %.020.i.us = phi i64 [ %48, %46 ], [ 0, %36 ]
+  %49 = icmp ult i64 %.020.i.us, %9
+  %50 = icmp eq i64 %.020.i.us, -1
   %or.cond8.us = or i1 %49, %50
-  %51 = add i64 %.0.i.us, %29
+  %51 = add i64 %.020.i.us, %29
   br i1 %or.cond8.us, label %fmap_readn.exit.thread, label %.split.us
 
 .split:                                           ; preds = %16
@@ -972,8 +972,8 @@ fmap_readn.exit.us:                               ; preds = %46, %36
   br i1 %52, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %cli_memmem.exit.us
-  %.043.in.us70 = phi i64 [ %78, %cli_memmem.exit.us ], [ %18, %.split ]
-  %53 = and i64 %.043.in.us70, 4294967295
+  %.042.in.us69 = phi i64 [ %78, %cli_memmem.exit.us ], [ %18, %.split ]
+  %53 = and i64 %.042.in.us69, 4294967295
   %54 = add nuw nsw i64 %53, 4096
   %55 = icmp ugt i64 %54, %19
   br i1 %55, label %56, label %60
@@ -987,12 +987,12 @@ fmap_readn.exit.us:                               ; preds = %46, %36
   br label %60
 
 60:                                               ; preds = %58, %.split.split.us
-  %.0.us71 = phi i64 [ %59, %58 ], [ 4096, %.split.split.us ]
+  %.0.us70 = phi i64 [ %59, %58 ], [ 4096, %.split.split.us ]
   %61 = load i64, ptr %24, align 8
   %62 = icmp ne i64 %61, %53
-  %63 = icmp ne i64 %.0.us71, 0
-  %or.cond.i.us72 = and i1 %63, %62
-  br i1 %or.cond.i.us72, label %64, label %fmap_readn.exit.us75
+  %63 = icmp ne i64 %.0.us70, 0
+  %or.cond.i.us71 = and i1 %63, %62
+  br i1 %or.cond.i.us71, label %64, label %fmap_readn.exit.us74
 
 64:                                               ; preds = %60
   %65 = icmp ult i64 %61, %53
@@ -1000,36 +1000,36 @@ fmap_readn.exit.us:                               ; preds = %46, %36
 
 66:                                               ; preds = %64
   %67 = sub i64 %61, %53
-  %spec.select.i.us73 = call i64 @llvm.umin.i64(i64 %67, i64 %.0.us71)
+  %spec.select.i.us72 = call i64 @llvm.umin.i64(i64 %67, i64 %.0.us70)
   %68 = load ptr, ptr %25, align 8
-  %69 = call ptr %68(ptr noundef nonnull %7, i64 noundef %53, i64 noundef %spec.select.i.us73, i32 noundef 0) #29
-  %.not.i.us74 = icmp eq ptr %69, null
-  br i1 %.not.i.us74, label %fmap_readn.exit.thread, label %70
+  %69 = call ptr %68(ptr noundef nonnull %7, i64 noundef %53, i64 noundef %spec.select.i.us72, i32 noundef 0) #29
+  %.not.i.us73 = icmp eq ptr %69, null
+  br i1 %.not.i.us73, label %fmap_readn.exit.thread, label %70
 
 70:                                               ; preds = %66
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %69, i64 %spec.select.i.us73, i1 false)
-  %71 = icmp ult i64 %spec.select.i.us73, 2147483648
-  %72 = select i1 %71, i64 %spec.select.i.us73, i64 -1
-  br label %fmap_readn.exit.us75
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %69, i64 %spec.select.i.us72, i1 false)
+  %71 = icmp ult i64 %spec.select.i.us72, 2147483648
+  %72 = select i1 %71, i64 %spec.select.i.us72, i64 -1
+  br label %fmap_readn.exit.us74
 
-fmap_readn.exit.us75:                             ; preds = %70, %60
-  %.0.i.us76 = phi i64 [ %72, %70 ], [ 0, %60 ]
-  %73 = icmp ult i64 %.0.i.us76, %9
-  %74 = icmp eq i64 %.0.i.us76, -1
-  %or.cond8.us77 = or i1 %73, %74
-  br i1 %or.cond8.us77, label %fmap_readn.exit.thread, label %cli_memmem.exit.us
+fmap_readn.exit.us74:                             ; preds = %70, %60
+  %.020.i.us75 = phi i64 [ %72, %70 ], [ 0, %60 ]
+  %73 = icmp ult i64 %.020.i.us75, %9
+  %74 = icmp eq i64 %.020.i.us75, -1
+  %or.cond8.us76 = or i1 %73, %74
+  br i1 %or.cond8.us76, label %fmap_readn.exit.thread, label %cli_memmem.exit.us
 
-cli_memmem.exit.us:                               ; preds = %fmap_readn.exit.us75
+cli_memmem.exit.us:                               ; preds = %fmap_readn.exit.us74
   %75 = load i8, ptr %1, align 1
   %76 = zext i8 %75 to i32
-  %77 = call ptr @memchr(ptr noundef nonnull %5, i32 noundef %76, i64 noundef %.0.i.us76) #30
+  %77 = call ptr @memchr(ptr noundef nonnull %5, i32 noundef %76, i64 noundef %.020.i.us75) #30
   %.not.us = icmp eq ptr %77, null
-  %78 = add i64 %.0.i.us76, %53
-  br i1 %.not.us, label %.split.split.us, label %cli_memmem.exit.thread59
+  %78 = add i64 %.020.i.us75, %53
+  br i1 %.not.us, label %.split.split.us, label %cli_memmem.exit.thread58
 
 .split.split:                                     ; preds = %.split, %cli_memmem.exit.thread
-  %.043.in = phi i64 [ %119, %cli_memmem.exit.thread ], [ %18, %.split ]
-  %79 = and i64 %.043.in, 4294967295
+  %.042.in = phi i64 [ %119, %cli_memmem.exit.thread ], [ %18, %.split ]
+  %79 = and i64 %.042.in, 4294967295
   %80 = add nuw nsw i64 %79, 4096
   %81 = icmp ugt i64 %80, %19
   br i1 %81, label %82, label %86
@@ -1069,26 +1069,26 @@ cli_memmem.exit.us:                               ; preds = %fmap_readn.exit.us7
   br label %fmap_readn.exit
 
 fmap_readn.exit:                                  ; preds = %86, %96
-  %.0.i = phi i64 [ %98, %96 ], [ 0, %86 ]
-  %99 = icmp ult i64 %.0.i, %9
-  %100 = icmp eq i64 %.0.i, -1
+  %.020.i = phi i64 [ %98, %96 ], [ 0, %86 ]
+  %99 = icmp ult i64 %.020.i, %9
+  %100 = icmp eq i64 %.020.i, -1
   %or.cond8 = or i1 %99, %100
   br i1 %or.cond8, label %fmap_readn.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %fmap_readn.exit
-  %101 = trunc i64 %.0.i to i32
+  %101 = trunc i64 %.020.i to i32
   %102 = load i8, ptr %1, align 1
   %103 = zext i8 %102 to i32
   %.not34.i = icmp ult i32 %101, %2
   br i1 %.not34.i, label %cli_memmem.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %109
-  %.02536.i = phi ptr [ %108, %109 ], [ %5, %.preheader.i ]
-  %.02635.i = phi i32 [ %113, %109 ], [ %101, %.preheader.i ]
-  %reass.sub = sub i32 %.02635.i, %2
+  %.02536.i = phi i32 [ %113, %109 ], [ %101, %.preheader.i ]
+  %.02635.i = phi ptr [ %108, %109 ], [ %5, %.preheader.i ]
+  %reass.sub = sub i32 %.02536.i, %2
   %104 = add i32 %reass.sub, 1
   %105 = zext i32 %104 to i64
-  %106 = call ptr @memchr(ptr noundef nonnull %.02536.i, i32 noundef %103, i64 noundef %105) #30
+  %106 = call ptr @memchr(ptr noundef nonnull %.02635.i, i32 noundef %103, i64 noundef %105) #30
   %.not31.i = icmp eq ptr %106, null
   br i1 %.not31.i, label %cli_memmem.exit.thread, label %107
 
@@ -1096,34 +1096,34 @@ fmap_readn.exit:                                  ; preds = %86, %96
   %108 = getelementptr inbounds i8, ptr %106, i64 1
   %bcmp.i = call i32 @bcmp(ptr nonnull %108, ptr nonnull readonly %26, i64 %28)
   %.not32.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not32.i, label %cli_memmem.exit.thread59, label %109
+  br i1 %.not32.i, label %cli_memmem.exit.thread58, label %109
 
 109:                                              ; preds = %107
-  %110 = ptrtoint ptr %.02536.i to i64
+  %110 = ptrtoint ptr %.02635.i to i64
   %111 = ptrtoint ptr %108 to i64
   %.neg.i = sub i64 %110, %111
   %112 = trunc i64 %.neg.i to i32
-  %113 = add i32 %.02635.i, %112
-  %.not.i54 = icmp ult i32 %113, %2
-  br i1 %.not.i54, label %cli_memmem.exit.thread, label %.lr.ph.i
+  %113 = add i32 %.02536.i, %112
+  %.not.i53 = icmp ult i32 %113, %2
+  br i1 %.not.i53, label %cli_memmem.exit.thread, label %.lr.ph.i
 
-cli_memmem.exit.thread59:                         ; preds = %107, %cli_memmem.exit.us
-  %.043.in69 = phi i64 [ %.043.in.us70, %cli_memmem.exit.us ], [ %.043.in, %107 ]
-  %.0.i5362 = phi ptr [ %77, %cli_memmem.exit.us ], [ %106, %107 ]
-  %114 = ptrtoint ptr %.0.i5362 to i64
+cli_memmem.exit.thread58:                         ; preds = %107, %cli_memmem.exit.us
+  %.042.in68 = phi i64 [ %.042.in.us69, %cli_memmem.exit.us ], [ %.042.in, %107 ]
+  %.0.i61 = phi ptr [ %77, %cli_memmem.exit.us ], [ %106, %107 ]
+  %114 = ptrtoint ptr %.0.i61 to i64
   %115 = ptrtoint ptr %5 to i64
-  %116 = sub i64 %.043.in69, %115
+  %116 = sub i64 %.042.in68, %115
   %117 = add i64 %116, %114
   %118 = trunc i64 %117 to i32
   br label %fmap_readn.exit.thread
 
 cli_memmem.exit.thread:                           ; preds = %109, %.lr.ph.i, %.preheader.i
-  %119 = add i64 %.0.i, %79
+  %119 = add i64 %.020.i, %79
   br label %.split.split
 
-fmap_readn.exit.thread:                           ; preds = %92, %90, %fmap_readn.exit, %82, %56, %64, %66, %fmap_readn.exit.us75, %fmap_readn.exit.us, %42, %40, %32, %cli_memmem.exit.thread59, %13
-  %.042 = phi i32 [ -1, %13 ], [ %118, %cli_memmem.exit.thread59 ], [ -1, %32 ], [ -1, %40 ], [ -1, %42 ], [ -1, %fmap_readn.exit.us ], [ -1, %fmap_readn.exit.us75 ], [ -1, %66 ], [ -1, %64 ], [ -1, %56 ], [ -1, %82 ], [ -1, %fmap_readn.exit ], [ -1, %90 ], [ -1, %92 ]
-  ret i32 %.042
+fmap_readn.exit.thread:                           ; preds = %92, %90, %fmap_readn.exit, %82, %56, %64, %66, %fmap_readn.exit.us74, %fmap_readn.exit.us, %42, %40, %32, %cli_memmem.exit.thread58, %13
+  %.043 = phi i32 [ -1, %13 ], [ %118, %cli_memmem.exit.thread58 ], [ -1, %32 ], [ -1, %40 ], [ -1, %42 ], [ -1, %fmap_readn.exit.us ], [ -1, %fmap_readn.exit.us74 ], [ -1, %66 ], [ -1, %64 ], [ -1, %56 ], [ -1, %82 ], [ -1, %fmap_readn.exit ], [ -1, %90 ], [ -1, %92 ]
+  ret i32 %.043
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2831,8 +2831,8 @@ cli_bcapi_buffer_pipe_write_stopped.exit:         ; preds = %get_buffer.exit.thr
   br label %get_inflate.exit.thread
 
 get_inflate.exit.thread:                          ; preds = %2, %4, %7, %181, %183, %cli_bcapi_buffer_pipe_write_stopped.exit, %cli_bcapi_buffer_pipe_write_get.exit, %117, %119, %get_inflate.exit, %15, %179
-  %.0 = phi i32 [ -4, %179 ], [ -1, %15 ], [ -1, %get_inflate.exit ], [ -1, %119 ], [ -1, %117 ], [ -1, %cli_bcapi_buffer_pipe_write_get.exit ], [ %.2, %cli_bcapi_buffer_pipe_write_stopped.exit ], [ -5, %183 ], [ 1, %181 ], [ -1, %7 ], [ -1, %4 ], [ -1, %2 ]
-  ret i32 %.0
+  %.050 = phi i32 [ -4, %179 ], [ -1, %15 ], [ -1, %get_inflate.exit ], [ -1, %119 ], [ -1, %117 ], [ -1, %cli_bcapi_buffer_pipe_write_get.exit ], [ %.2, %cli_bcapi_buffer_pipe_write_stopped.exit ], [ -5, %183 ], [ 1, %181 ], [ -1, %7 ], [ -1, %4 ], [ -1, %2 ]
+  ret i32 %.050
 }
 
 declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -4780,8 +4780,8 @@ define noundef i32 @cli_bcapi_atoi(ptr nocapture noundef readnone %0, ptr nounde
   br label %.lr.ph
 
 .loopexit:                                        ; preds = %.preheader, %26, %23, %20, %18
-  %.0 = phi i32 [ -1, %18 ], [ -1, %20 ], [ -1, %23 ], [ -1, %26 ], [ 0, %.preheader ]
-  ret i32 %.0
+  %.020 = phi i32 [ -1, %18 ], [ -1, %20 ], [ -1, %23 ], [ -1, %26 ], [ 0, %.preheader ]
+  ret i32 %.020
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
@@ -4865,7 +4865,7 @@ define i32 @cli_bcapi_entropy_buffer(ptr nocapture noundef readnone %0, ptr noun
 
 16:                                               ; preds = %.preheader, %27
   %indvars.iv29 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next30, %27 ]
-  %.02026 = phi double [ 0.000000e+00, %.preheader ], [ %.121, %27 ]
+  %.01927 = phi double [ 0.000000e+00, %.preheader ], [ %.1, %27 ]
   %17 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %indvars.iv29
   %18 = load i32, ptr %17, align 4
   %.not = icmp eq i32 %18, 0
@@ -4878,17 +4878,17 @@ define i32 @cli_bcapi_entropy_buffer(ptr nocapture noundef readnone %0, ptr noun
   %23 = tail call double @log(double noundef %21) #29
   %24 = fmul double %23, %22
   %25 = fdiv double %24, 0x3FE62E42FEFA39EF
-  %26 = fadd double %.02026, %25
+  %26 = fadd double %.01927, %25
   br label %27
 
 27:                                               ; preds = %16, %19
-  %.121 = phi double [ %26, %19 ], [ %.02026, %16 ]
+  %.1 = phi double [ %26, %19 ], [ %.01927, %16 ]
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next30, 256
   br i1 %exitcond32.not, label %28, label %16
 
 28:                                               ; preds = %27
-  %29 = fmul double %.121, 0x4190000000000000
+  %29 = fmul double %.1, 0x4190000000000000
   %30 = fptoui double %29 to i32
   br label %31
 
@@ -5716,13 +5716,13 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
   br label %235
 
 235:                                              ; preds = %33, %39, %45, %51, %49, %60, %67, %74, %81, %88, %95, %102, %109, %116, %123, %121, %133, %140, %147, %154, %161, %168, %175, %182, %189, %196, %203, %201, %213, %211, %223, %230, %228, %218
-  %.0121.ph = phi i32 [ 0, %218 ], [ 0, %228 ], [ %.lobit, %230 ], [ %227, %223 ], [ 0, %211 ], [ %217, %213 ], [ 0, %201 ], [ %.lobit149, %203 ], [ %.lobit151, %196 ], [ %.lobit153, %189 ], [ %.lobit155, %182 ], [ %.lobit157, %175 ], [ %.lobit159, %168 ], [ %.lobit161, %161 ], [ %.lobit163, %154 ], [ %.lobit165, %147 ], [ %.lobit167, %140 ], [ %.lobit169, %133 ], [ 0, %121 ], [ %.lobit181, %123 ], [ %.lobit183, %116 ], [ %.lobit185, %109 ], [ %.lobit187, %102 ], [ %.lobit189, %95 ], [ %.lobit191, %88 ], [ %.lobit193, %81 ], [ %.lobit195, %74 ], [ %.lobit197, %67 ], [ %64, %60 ], [ 0, %49 ], [ %.lobit204, %51 ], [ %.lobit206, %45 ], [ %.lobit208, %39 ], [ %36, %33 ]
+  %.0120.ph = phi i32 [ 0, %218 ], [ 0, %228 ], [ %.lobit, %230 ], [ %227, %223 ], [ 0, %211 ], [ %217, %213 ], [ 0, %201 ], [ %.lobit149, %203 ], [ %.lobit151, %196 ], [ %.lobit153, %189 ], [ %.lobit155, %182 ], [ %.lobit157, %175 ], [ %.lobit159, %168 ], [ %.lobit161, %161 ], [ %.lobit163, %154 ], [ %.lobit165, %147 ], [ %.lobit167, %140 ], [ %.lobit169, %133 ], [ 0, %121 ], [ %.lobit181, %123 ], [ %.lobit183, %116 ], [ %.lobit185, %109 ], [ %.lobit187, %102 ], [ %.lobit189, %95 ], [ %.lobit191, %88 ], [ %.lobit193, %81 ], [ %.lobit195, %74 ], [ %.lobit197, %67 ], [ %64, %60 ], [ 0, %49 ], [ %.lobit204, %51 ], [ %.lobit206, %45 ], [ %.lobit208, %39 ], [ %36, %33 ]
   tail call void @free(ptr noundef nonnull %20) #29
   br label %236
 
 236:                                              ; preds = %7, %16, %22, %235
-  %.0121215 = phi i32 [ %.0121.ph, %235 ], [ 0, %7 ], [ 0, %16 ], [ 0, %22 ]
-  ret i32 %.0121215
+  %.0120215 = phi i32 [ %.0120.ph, %235 ], [ 0, %7 ], [ 0, %16 ], [ 0, %22 ]
+  ret i32 %.0120215
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

@@ -996,14 +996,14 @@ if.then4:                                         ; preds = %if.else
 
 for.body:                                         ; preds = %if.then4, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 1, %if.then4 ]
-  %crc2.065 = phi i32 [ %call19, %for.body ], [ %call, %if.then4 ]
+  %crc2.064 = phi i32 [ %call19, %for.body ], [ %call, %if.then4 ]
   %11 = load ptr, ptr @crc32c, align 8
   %12 = load ptr, ptr %iov, align 8
   %arrayidx13 = getelementptr inbounds %struct.iovec, ptr %12, i64 %indvars.iv
   %13 = load ptr, ptr %arrayidx13, align 8
   %iov_len18 = getelementptr inbounds i8, ptr %arrayidx13, i64 8
   %14 = load i64, ptr %iov_len18, align 8
-  %call19 = tail call i32 %11(i32 noundef %crc2.065, ptr noundef %13, i64 noundef %14) #22
+  %call19 = tail call i32 %11(i32 noundef %crc2.064, ptr noundef %13, i64 noundef %14) #22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %iovcnt, align 8
   %16 = zext i32 %15 to i64
@@ -1790,9 +1790,9 @@ while.body.outer:                                 ; preds = %if.end133, %if.end7
   %page_size.0.ph = phi i64 [ %page_size.276, %if.end133 ], [ 0, %if.end7 ]
   %page_id.0.ph = phi i32 [ %page_id.279, %if.end133 ], [ 0, %if.end7 ]
   %drop_unread.0.ph = phi i1 [ %drop_unread.281, %if.end133 ], [ false, %if.end7 ]
+  %to_sleep.0.ph = phi i32 [ 10000, %if.end133 ], [ %0, %if.end7 ]
   %compacting.0.ph = phi i8 [ %compacting.2, %if.end133 ], [ 0, %if.end7 ]
   %page_offset.0.ph = phi i32 [ %page_offset.2, %if.end133 ], [ 0, %if.end7 ]
-  %to_sleep.0.ph = phi i32 [ 10000, %if.end133 ], [ %0, %if.end7 ]
   %tobool20 = trunc nuw i8 %compacting.0.ph to i1
   br label %while.body
 
@@ -2032,9 +2032,9 @@ do.end103:                                        ; preds = %if.end95, %if.then1
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.end210.i, %do.end103
-  %skipped.0.i = phi i32 [ 0, %do.end103 ], [ %skipped.2.i, %if.end210.i ]
-  %lost.0.i = phi i32 [ 0, %do.end103 ], [ %lost.2.i, %if.end210.i ]
   %rescues.0.i = phi i32 [ 0, %do.end103 ], [ %rescues.2.i, %if.end210.i ]
+  %lost.0.i = phi i32 [ 0, %do.end103 ], [ %lost.2.i, %if.end210.i ]
+  %skipped.0.i = phi i32 [ 0, %do.end103 ], [ %skipped.2.i, %if.end210.i ]
   %offset.0.i = phi i64 [ 0, %do.end103 ], [ %add212.i, %if.end210.i ]
   %cmp.i30 = icmp ult i64 %offset.0.i, %conv105
   br i1 %cmp.i30, label %while.body.i, label %while.end.i
@@ -2154,7 +2154,7 @@ if.end86.i:                                       ; preds = %if.then73.i
   br i1 %cmp80.i, label %if.end209.i, label %if.then88.i
 
 if.then88.i:                                      ; preds = %if.end86.i, %if.then73.i
-  %skipped.191.i = phi i32 [ %spec.select.i40, %if.end86.i ], [ %skipped.0.i, %if.then73.i ]
+  %skipped.190.i = phi i32 [ %spec.select.i40, %if.end86.i ], [ %skipped.0.i, %if.then73.i ]
   store i32 %add15.i, ptr %len.i, align 8
   store i32 1, ptr %mode.i, align 4
   br label %for.body.i38
@@ -2298,16 +2298,16 @@ if.else206.i:                                     ; preds = %if.else97.i
   br label %if.end209.i
 
 if.end209.i:                                      ; preds = %if.else206.i, %if.else202.i, %if.end200.i, %if.then106.i, %if.end86.i, %land.lhs.true67.i, %land.lhs.true62.i, %if.then40.i, %lor.lhs.false.i37, %land.lhs.true.i35, %if.then27.i
-  %skipped.185.i = phi i32 [ %skipped.191.i, %if.then106.i ], [ %skipped.191.i, %if.end200.i ], [ %skipped.191.i, %if.else202.i ], [ %skipped.191.i, %if.else206.i ], [ %spec.select.i40, %if.end86.i ], [ %skipped.0.i, %land.lhs.true.i35 ], [ %skipped.0.i, %land.lhs.true67.i ], [ %skipped.0.i, %land.lhs.true62.i ], [ %skipped.0.i, %if.then40.i ], [ %skipped.0.i, %lor.lhs.false.i37 ], [ %skipped.0.i, %if.then27.i ]
-  %lost.1.i = phi i32 [ %lost.0.i, %if.then106.i ], [ %lost.0.i, %if.end200.i ], [ %inc203.i, %if.else202.i ], [ %inc207.i, %if.else206.i ], [ %lost.0.i, %if.end86.i ], [ %lost.0.i, %land.lhs.true.i35 ], [ %lost.0.i, %land.lhs.true67.i ], [ %lost.0.i, %land.lhs.true62.i ], [ %lost.0.i, %if.then40.i ], [ %lost.0.i, %lor.lhs.false.i37 ], [ %lost.0.i, %if.then27.i ]
+  %skipped.185.i = phi i32 [ %skipped.190.i, %if.then106.i ], [ %skipped.190.i, %if.end200.i ], [ %skipped.190.i, %if.else202.i ], [ %skipped.190.i, %if.else206.i ], [ %spec.select.i40, %if.end86.i ], [ %skipped.0.i, %land.lhs.true.i35 ], [ %skipped.0.i, %land.lhs.true67.i ], [ %skipped.0.i, %land.lhs.true62.i ], [ %skipped.0.i, %if.then40.i ], [ %skipped.0.i, %lor.lhs.false.i37 ], [ %skipped.0.i, %if.then27.i ]
   %rescues.1.i = phi i32 [ %inc113.i, %if.then106.i ], [ %inc201.i, %if.end200.i ], [ %rescues.0.i, %if.else202.i ], [ %rescues.0.i, %if.else206.i ], [ %rescues.0.i, %if.end86.i ], [ %rescues.0.i, %land.lhs.true.i35 ], [ %rescues.0.i, %land.lhs.true67.i ], [ %rescues.0.i, %land.lhs.true62.i ], [ %rescues.0.i, %if.then40.i ], [ %rescues.0.i, %lor.lhs.false.i37 ], [ %rescues.0.i, %if.then27.i ]
+  %lost.1.i = phi i32 [ %lost.0.i, %if.then106.i ], [ %lost.0.i, %if.end200.i ], [ %inc203.i, %if.else202.i ], [ %inc207.i, %if.else206.i ], [ %lost.0.i, %if.end86.i ], [ %lost.0.i, %land.lhs.true.i35 ], [ %lost.0.i, %land.lhs.true67.i ], [ %lost.0.i, %land.lhs.true62.i ], [ %lost.0.i, %if.then40.i ], [ %lost.0.i, %lor.lhs.false.i37 ], [ %lost.0.i, %if.then27.i ]
   call void @do_item_remove(ptr noundef nonnull %call.i) #22
   br label %if.end210.i
 
 if.end210.i:                                      ; preds = %if.end209.i, %if.end.i34
-  %skipped.2.i = phi i32 [ %skipped.185.i, %if.end209.i ], [ %skipped.0.i, %if.end.i34 ]
-  %lost.2.i = phi i32 [ %lost.1.i, %if.end209.i ], [ %lost.0.i, %if.end.i34 ]
   %rescues.2.i = phi i32 [ %rescues.1.i, %if.end209.i ], [ %rescues.0.i, %if.end.i34 ]
+  %lost.2.i = phi i32 [ %lost.1.i, %if.end209.i ], [ %lost.0.i, %if.end.i34 ]
+  %skipped.2.i = phi i32 [ %skipped.185.i, %if.end209.i ], [ %skipped.0.i, %if.end.i34 ]
   call void @item_unlock(i32 noundef %43) #22
   %conv211.i = zext i32 %add15.i to i64
   %add212.i = add nuw nsw i64 %offset.0.i, %conv211.i
@@ -2316,9 +2316,9 @@ if.end210.i:                                      ; preds = %if.end209.i, %if.en
   br i1 %cmp213.i, label %while.end.i, label %while.cond.i, !llvm.loop !15
 
 while.end.i:                                      ; preds = %if.end210.i, %while.body.i, %while.cond.i
-  %skipped.3.i = phi i32 [ %skipped.0.i, %while.body.i ], [ %skipped.2.i, %if.end210.i ], [ %skipped.0.i, %while.cond.i ]
-  %lost.3.i = phi i32 [ %lost.0.i, %while.body.i ], [ %lost.2.i, %if.end210.i ], [ %lost.0.i, %while.cond.i ]
   %rescues.3.i = phi i32 [ %rescues.0.i, %while.body.i ], [ %rescues.2.i, %if.end210.i ], [ %rescues.0.i, %while.cond.i ]
+  %lost.3.i = phi i32 [ %lost.0.i, %while.body.i ], [ %lost.2.i, %if.end210.i ], [ %lost.0.i, %while.cond.i ]
+  %skipped.3.i = phi i32 [ %skipped.0.i, %while.body.i ], [ %skipped.2.i, %if.end210.i ], [ %skipped.0.i, %while.cond.i ]
   %offset.1.i = phi i64 [ %offset.0.i, %while.body.i ], [ %add212.i, %if.end210.i ], [ %offset.0.i, %while.cond.i ]
   call void @STATS_LOCK() #22
   %conv217.i = zext i32 %lost.3.i to i64

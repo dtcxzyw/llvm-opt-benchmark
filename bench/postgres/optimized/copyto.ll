@@ -322,13 +322,13 @@ list_length.exit:                                 ; preds = %73
 
 147:                                              ; preds = %137, %71
   %148 = phi ptr [ %1, %71 ], [ %.pre, %137 ]
-  %.0.in = phi ptr [ %72, %71 ], [ %146, %137 ]
-  %.0 = load ptr, ptr %.0.in, align 8
+  %.0150.in = phi ptr [ %72, %71 ], [ %146, %137 ]
+  %.0150 = load ptr, ptr %.0150.in, align 8
   %149 = getelementptr inbounds i8, ptr %64, i64 32
-  %150 = call ptr @CopyGetAttnums(ptr noundef %.0, ptr noundef %148, ptr noundef %7) #18
+  %150 = call ptr @CopyGetAttnums(ptr noundef %.0150, ptr noundef %148, ptr noundef %7) #18
   %151 = getelementptr inbounds i8, ptr %64, i64 48
   store ptr %150, ptr %151, align 8
-  %152 = load i32, ptr %.0, align 8
+  %152 = load i32, ptr %.0150, align 8
   %153 = sext i32 %152 to i64
   %154 = call ptr @palloc0(i64 noundef %153) #18
   %155 = getelementptr inbounds i8, ptr %64, i64 176
@@ -350,7 +350,7 @@ list_length.exit:                                 ; preds = %73
 
 163:                                              ; preds = %160
   %164 = load ptr, ptr %149, align 8
-  %165 = call ptr @CopyGetAttnums(ptr noundef nonnull %.0, ptr noundef %164, ptr noundef nonnull %162) #18
+  %165 = call ptr @CopyGetAttnums(ptr noundef nonnull %.0150, ptr noundef %164, ptr noundef nonnull %162) #18
   %.not173 = icmp eq ptr %165, null
   br i1 %.not173, label %.thread182, label %.lr.ph
 
@@ -373,7 +373,7 @@ list_length.exit:                                 ; preds = %73
   br i1 %176, label %182, label %.split
 
 .split:                                           ; preds = %.lr.ph188
-  %177 = getelementptr inbounds i8, ptr %.0, i64 24
+  %177 = getelementptr inbounds i8, ptr %.0150, i64 24
   %178 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   call void @llvm.assume(i1 %178)
   %179 = call i32 @errcode(i32 noundef 393348) #18
@@ -842,9 +842,9 @@ SendCopyBegin.exit:                               ; preds = %44, %list_length.ex
   br label %60
 
 60:                                               ; preds = %56, %54
-  %.0.in = phi ptr [ %55, %54 ], [ %59, %56 ]
-  %.0 = load ptr, ptr %.0.in, align 8
-  %61 = load i32, ptr %.0, align 8
+  %.078.in = phi ptr [ %55, %54 ], [ %59, %56 ]
+  %.078 = load ptr, ptr %.078.in, align 8
+  %61 = load i32, ptr %.078, align 8
   %62 = getelementptr inbounds i8, ptr %0, i64 96
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 112
@@ -865,7 +865,7 @@ SendCopyBegin.exit:                               ; preds = %44, %list_length.ex
 
 .lr.ph:                                           ; preds = %60
   %74 = getelementptr inbounds i8, ptr %72, i64 16
-  %75 = getelementptr inbounds i8, ptr %.0, i64 24
+  %75 = getelementptr inbounds i8, ptr %.078, i64 24
   %76 = getelementptr inbounds i8, ptr %0, i64 84
   %77 = load i32, ptr %73, align 4
   %78 = icmp sgt i32 %77, 0
@@ -959,7 +959,7 @@ SendCopyBegin.exit:                               ; preds = %44, %list_length.ex
 .lr.ph111:                                        ; preds = %118
   %121 = getelementptr inbounds i8, ptr %119, i64 16
   %122 = getelementptr inbounds i8, ptr %0, i64 136
-  %123 = getelementptr inbounds i8, ptr %.0, i64 24
+  %123 = getelementptr inbounds i8, ptr %.078, i64 24
   %124 = getelementptr inbounds i8, ptr %0, i64 86
   %125 = load i32, ptr %120, align 4
   %126 = icmp sgt i32 %125, 0
@@ -967,11 +967,11 @@ SendCopyBegin.exit:                               ; preds = %44, %list_length.ex
 
 .lr.ph116:                                        ; preds = %.lr.ph111, %158
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %158 ], [ 0, %.lr.ph111 ]
-  %.081109114 = phi i1 [ true, %158 ], [ false, %.lr.ph111 ]
+  %.0108115 = phi i1 [ true, %158 ], [ false, %.lr.ph111 ]
   %127 = load ptr, ptr %121, align 8
   %128 = getelementptr %union.ListCell, ptr %127, i64 %indvars.iv122
   %129 = load i32, ptr %128, align 8
-  br i1 %.081109114, label %130, label %CopySendChar.exit
+  br i1 %.0108115, label %130, label %CopySendChar.exit
 
 130:                                              ; preds = %.lr.ph116
   %131 = load ptr, ptr %122, align 8
@@ -1138,7 +1138,7 @@ slot_getallattrs.exit:                            ; preds = %194, %200
   br label %223
 
 223:                                              ; preds = %215, %209
-  %.180 = phi i64 [ %.079118, %209 ], [ %222, %215 ]
+  %.1 = phi i64 [ %.079118, %209 ], [ %222, %215 ]
   %224 = load i8, ptr %100, align 4
   %225 = trunc i8 %224 to i1
   br i1 %225, label %226, label %227
@@ -1162,7 +1162,7 @@ slot_getallattrs.exit:                            ; preds = %194, %200
   br label %230
 
 230:                                              ; preds = %229, %227
-  ret i64 %.180
+  ret i64 %.1
 }
 
 declare ptr @makeStringInfo() local_unnamed_addr #3
@@ -1211,7 +1211,7 @@ list_length.exit:                                 ; preds = %3, %15
   br label %25
 
 25:                                               ; preds = %20, %list_length.exit
-  %.067.shrunk = phi i1 [ true, %list_length.exit ], [ %24, %20 ]
+  %.071.shrunk = phi i1 [ true, %list_length.exit ], [ %24, %20 ]
   %26 = getelementptr inbounds i8, ptr %0, i64 28
   %27 = load i8, ptr %26, align 4
   %28 = trunc i8 %27 to i1
@@ -1227,7 +1227,7 @@ list_length.exit:                                 ; preds = %3, %15
 
 35:                                               ; preds = %25, %29
   %.069 = phi ptr [ %34, %29 ], [ %1, %25 ]
-  br i1 %.067.shrunk, label %.critedge, label %36
+  br i1 %.071.shrunk, label %.critedge, label %36
 
 36:                                               ; preds = %35
   %.pre = load i8, ptr %.069, align 1
@@ -1342,24 +1342,24 @@ CopySendChar.exit:                                ; preds = %68, %69
 
 83:                                               ; preds = %.lr.ph92, %120
   %84 = phi i8 [ %80, %.lr.ph92 ], [ %122, %120 ]
-  %.17091 = phi ptr [ %.069, %.lr.ph92 ], [ %121, %120 ]
-  %.07190 = phi ptr [ %.069, %.lr.ph92 ], [ %.172, %120 ]
+  %.06791 = phi ptr [ %.069, %.lr.ph92 ], [ %.168, %120 ]
+  %.17090 = phi ptr [ %.069, %.lr.ph92 ], [ %121, %120 ]
   %85 = icmp eq i8 %84, %9
   %86 = icmp eq i8 %84, %12
   %or.cond = select i1 %85, i1 true, i1 %86
   br i1 %or.cond, label %87, label %CopySendChar.exit84
 
 87:                                               ; preds = %83
-  %88 = icmp ugt ptr %.17091, %.07190
+  %88 = icmp ugt ptr %.17090, %.06791
   br i1 %88, label %89, label %94
 
 89:                                               ; preds = %87
-  %90 = ptrtoint ptr %.17091 to i64
-  %91 = ptrtoint ptr %.07190 to i64
+  %90 = ptrtoint ptr %.17090 to i64
+  %91 = ptrtoint ptr %.06791 to i64
   %92 = sub i64 %90, %91
   %93 = trunc i64 %92 to i32
   %.val80 = load ptr, ptr %61, align 8
-  tail call void @appendBinaryStringInfo(ptr noundef %.val80, ptr noundef %.07190, i32 noundef %93) #18
+  tail call void @appendBinaryStringInfo(ptr noundef %.val80, ptr noundef %.06791, i32 noundef %93) #18
   br label %94
 
 94:                                               ; preds = %87, %89
@@ -1393,7 +1393,7 @@ CopySendChar.exit:                                ; preds = %68, %69
   br label %CopySendChar.exit84
 
 CopySendChar.exit84:                              ; preds = %102, %101, %83
-  %.172 = phi ptr [ %.07190, %83 ], [ %.17091, %101 ], [ %.17091, %102 ]
+  %.168 = phi ptr [ %.06791, %83 ], [ %.17090, %101 ], [ %.17090, %102 ]
   %.not77 = icmp sgt i8 %84, -1
   br i1 %.not77, label %120, label %113
 
@@ -1404,28 +1404,28 @@ CopySendChar.exit84:                              ; preds = %102, %101, %83
 
 116:                                              ; preds = %113
   %117 = load i32, ptr %82, align 8
-  %118 = tail call i32 @pg_encoding_mblen(i32 noundef %117, ptr noundef nonnull %.17091) #18
+  %118 = tail call i32 @pg_encoding_mblen(i32 noundef %117, ptr noundef nonnull %.17090) #18
   %119 = sext i32 %118 to i64
   br label %120
 
 120:                                              ; preds = %CopySendChar.exit84, %113, %116
   %.sink99 = phi i64 [ %119, %116 ], [ 1, %113 ], [ 1, %CopySendChar.exit84 ]
-  %121 = getelementptr i8, ptr %.17091, i64 %.sink99
+  %121 = getelementptr i8, ptr %.17090, i64 %.sink99
   %122 = load i8, ptr %121, align 1
   %.not76 = icmp eq i8 %122, 0
   br i1 %.not76, label %._crit_edge93, label %83, !llvm.loop !19
 
 ._crit_edge93:                                    ; preds = %120
-  %123 = icmp ugt ptr %121, %.172
+  %123 = icmp ugt ptr %121, %.168
   br i1 %123, label %124, label %._crit_edge93.thread
 
 124:                                              ; preds = %._crit_edge93
   %125 = ptrtoint ptr %121 to i64
-  %126 = ptrtoint ptr %.172 to i64
+  %126 = ptrtoint ptr %.168 to i64
   %127 = sub i64 %125, %126
   %128 = trunc i64 %127 to i32
   %.val = load ptr, ptr %61, align 8
-  tail call void @appendBinaryStringInfo(ptr noundef %.val, ptr noundef %.172, i32 noundef %128) #18
+  tail call void @appendBinaryStringInfo(ptr noundef %.val, ptr noundef %.168, i32 noundef %128) #18
   br label %._crit_edge93.thread
 
 ._crit_edge93.thread:                             ; preds = %CopySendChar.exit, %._crit_edge93, %124
@@ -1489,11 +1489,11 @@ define internal fastcc void @CopyAttributeOutText(ptr nocapture noundef readonly
   br label %15
 
 15:                                               ; preds = %2, %9
-  %.0 = phi ptr [ %14, %9 ], [ %1, %2 ]
+  %.076 = phi ptr [ %14, %9 ], [ %1, %2 ]
   %16 = getelementptr inbounds i8, ptr %0, i64 29
   %17 = load i8, ptr %16, align 1
   %18 = trunc i8 %17 to i1
-  %19 = load i8, ptr %.0, align 1
+  %19 = load i8, ptr %.076, align 1
   %.not84147154 = icmp eq i8 %19, 0
   br i1 %18, label %.preheader, label %.preheader102
 
@@ -1514,13 +1514,13 @@ define internal fastcc void @CopyAttributeOutText(ptr nocapture noundef readonly
 
 .lr.ph149:                                        ; preds = %.lr.ph149.lr.ph, %.outer
   %23 = phi i8 [ %19, %.lr.ph149.lr.ph ], [ %117, %.outer ]
-  %.1.ph157 = phi ptr [ %.0, %.lr.ph149.lr.ph ], [ %.2, %.outer ]
-  %.076.ph155 = phi ptr [ %.0, %.lr.ph149.lr.ph ], [ %.177, %.outer ]
+  %.074.ph156 = phi ptr [ %.076, %.lr.ph149.lr.ph ], [ %.175, %.outer ]
+  %.177.ph155 = phi ptr [ %.076, %.lr.ph149.lr.ph ], [ %.278, %.outer ]
   br label %24
 
 24:                                               ; preds = %.lr.ph149, %31
   %25 = phi i8 [ %23, %.lr.ph149 ], [ %33, %31 ]
-  %.1148 = phi ptr [ %.1.ph157, %.lr.ph149 ], [ %32, %31 ]
+  %.177148 = phi ptr [ %.177.ph155, %.lr.ph149 ], [ %32, %31 ]
   %26 = icmp ult i8 %25, 32
   br i1 %26, label %27, label %79
 
@@ -1534,7 +1534,7 @@ define internal fastcc void @CopyAttributeOutText(ptr nocapture noundef readonly
   br i1 %30, label %.loopexit288, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr i8, ptr %.1148, i64 1
+  %32 = getelementptr i8, ptr %.177148, i64 1
   %33 = load i8, ptr %32, align 1
   %.not84 = icmp eq i8 %33, 0
   br i1 %.not84, label %.loopexit, label %24, !llvm.loop !20
@@ -1547,17 +1547,17 @@ switch.lookup:                                    ; preds = %27
   br label %.loopexit288
 
 .loopexit288:                                     ; preds = %29, %switch.lookup
-  %.074 = phi i8 [ %switch.masked, %switch.lookup ], [ %5, %29 ]
-  %35 = icmp ugt ptr %.1148, %.076.ph155
+  %.0 = phi i8 [ %switch.masked, %switch.lookup ], [ %5, %29 ]
+  %35 = icmp ugt ptr %.177148, %.074.ph156
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %.loopexit288
-  %37 = ptrtoint ptr %.1148 to i64
-  %38 = ptrtoint ptr %.076.ph155 to i64
+  %37 = ptrtoint ptr %.177148 to i64
+  %38 = ptrtoint ptr %.074.ph156 to i64
   %39 = sub i64 %37, %38
   %40 = trunc i64 %39 to i32
   %.val90 = load ptr, ptr %22, align 8
-  tail call void @appendBinaryStringInfo(ptr noundef %.val90, ptr noundef %.076.ph155, i32 noundef %40) #18
+  tail call void @appendBinaryStringInfo(ptr noundef %.val90, ptr noundef %.074.ph156, i32 noundef %40) #18
   br label %41
 
 41:                                               ; preds = %.loopexit288, %36
@@ -1601,14 +1601,14 @@ CopySendChar.exit:                                ; preds = %48, %49
   br i1 %.not.i91, label %67, label %66
 
 66:                                               ; preds = %CopySendChar.exit
-  tail call void @appendStringInfoChar(ptr noundef nonnull %60, i8 noundef signext %.074) #18
+  tail call void @appendStringInfoChar(ptr noundef nonnull %60, i8 noundef signext %.0) #18
   br label %CopySendChar.exit92
 
 67:                                               ; preds = %CopySendChar.exit
   %68 = load ptr, ptr %60, align 8
   %69 = sext i32 %62 to i64
   %70 = getelementptr i8, ptr %68, i64 %69
-  store i8 %.074, ptr %70, align 1
+  store i8 %.0, ptr %70, align 1
   %71 = load ptr, ptr %22, align 8
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %71, i64 8
@@ -1621,7 +1621,7 @@ CopySendChar.exit:                                ; preds = %48, %49
   br label %CopySendChar.exit92
 
 CopySendChar.exit92:                              ; preds = %66, %67
-  %78 = getelementptr i8, ptr %.1148, i64 1
+  %78 = getelementptr i8, ptr %.177148, i64 1
   br label %.outer
 
 79:                                               ; preds = %24
@@ -1631,16 +1631,16 @@ CopySendChar.exit92:                              ; preds = %66, %67
   br i1 %or.cond, label %82, label %109
 
 82:                                               ; preds = %79
-  %83 = icmp ugt ptr %.1148, %.076.ph155
+  %83 = icmp ugt ptr %.177148, %.074.ph156
   br i1 %83, label %84, label %89
 
 84:                                               ; preds = %82
-  %85 = ptrtoint ptr %.1148 to i64
-  %86 = ptrtoint ptr %.076.ph155 to i64
+  %85 = ptrtoint ptr %.177148 to i64
+  %86 = ptrtoint ptr %.074.ph156 to i64
   %87 = sub i64 %85, %86
   %88 = trunc i64 %87 to i32
   %.val89 = load ptr, ptr %22, align 8
-  tail call void @appendBinaryStringInfo(ptr noundef %.val89, ptr noundef %.076.ph155, i32 noundef %88) #18
+  tail call void @appendBinaryStringInfo(ptr noundef %.val89, ptr noundef %.074.ph156, i32 noundef %88) #18
   br label %89
 
 89:                                               ; preds = %82, %84
@@ -1674,7 +1674,7 @@ CopySendChar.exit92:                              ; preds = %66, %67
   br label %CopySendChar.exit94
 
 CopySendChar.exit94:                              ; preds = %96, %97
-  %108 = getelementptr i8, ptr %.1148, i64 1
+  %108 = getelementptr i8, ptr %.177148, i64 1
   br label %.outer
 
 109:                                              ; preds = %79
@@ -1683,25 +1683,25 @@ CopySendChar.exit94:                              ; preds = %96, %97
 
 110:                                              ; preds = %109
   %111 = load i32, ptr %21, align 8
-  %112 = tail call i32 @pg_encoding_mblen(i32 noundef %111, ptr noundef nonnull %.1148) #18
+  %112 = tail call i32 @pg_encoding_mblen(i32 noundef %111, ptr noundef nonnull %.177148) #18
   %113 = sext i32 %112 to i64
-  %114 = getelementptr i8, ptr %.1148, i64 %113
+  %114 = getelementptr i8, ptr %.177148, i64 %113
   br label %.outer
 
 115:                                              ; preds = %109
-  %116 = getelementptr i8, ptr %.1148, i64 1
+  %116 = getelementptr i8, ptr %.177148, i64 1
   br label %.outer
 
 .outer:                                           ; preds = %CopySendChar.exit94, %115, %110, %CopySendChar.exit92
-  %.177 = phi ptr [ %78, %CopySendChar.exit92 ], [ %.1148, %CopySendChar.exit94 ], [ %.076.ph155, %110 ], [ %.076.ph155, %115 ]
-  %.2 = phi ptr [ %78, %CopySendChar.exit92 ], [ %108, %CopySendChar.exit94 ], [ %114, %110 ], [ %116, %115 ]
-  %117 = load i8, ptr %.2, align 1
+  %.278 = phi ptr [ %78, %CopySendChar.exit92 ], [ %108, %CopySendChar.exit94 ], [ %114, %110 ], [ %116, %115 ]
+  %.175 = phi ptr [ %78, %CopySendChar.exit92 ], [ %.177148, %CopySendChar.exit94 ], [ %.074.ph156, %110 ], [ %.074.ph156, %115 ]
+  %117 = load i8, ptr %.278, align 1
   %.not84147 = icmp eq i8 %117, 0
   br i1 %.not84147, label %.loopexit, label %.lr.ph149, !llvm.loop !20
 
 118:                                              ; preds = %.lr.ph, %125
   %119 = phi i8 [ %206, %.lr.ph ], [ %127, %125 ]
-  %.3137 = phi ptr [ %.3.ph144, %.lr.ph ], [ %126, %125 ]
+  %.379137 = phi ptr [ %.379.ph142, %.lr.ph ], [ %126, %125 ]
   %120 = icmp ult i8 %119, 32
   br i1 %120, label %121, label %173
 
@@ -1715,7 +1715,7 @@ CopySendChar.exit94:                              ; preds = %96, %97
   br i1 %124, label %.loopexit301, label %125
 
 125:                                              ; preds = %123
-  %126 = getelementptr i8, ptr %.3137, i64 1
+  %126 = getelementptr i8, ptr %.379137, i64 1
   %127 = load i8, ptr %126, align 1
   %.not = icmp eq i8 %127, 0
   br i1 %.not, label %.loopexit, label %118, !llvm.loop !21
@@ -1728,17 +1728,17 @@ switch.lookup282:                                 ; preds = %121
   br label %.loopexit301
 
 .loopexit301:                                     ; preds = %123, %switch.lookup282
-  %.175 = phi i8 [ %switch.masked287, %switch.lookup282 ], [ %5, %123 ]
-  %129 = icmp ugt ptr %.3137, %.278.ph142
+  %.1 = phi i8 [ %switch.masked287, %switch.lookup282 ], [ %5, %123 ]
+  %129 = icmp ugt ptr %.379137, %.2.ph143
   br i1 %129, label %130, label %135
 
 130:                                              ; preds = %.loopexit301
-  %131 = ptrtoint ptr %.3137 to i64
-  %132 = ptrtoint ptr %.278.ph142 to i64
+  %131 = ptrtoint ptr %.379137 to i64
+  %132 = ptrtoint ptr %.2.ph143 to i64
   %133 = sub i64 %131, %132
   %134 = trunc i64 %133 to i32
   %.val88 = load ptr, ptr %20, align 8
-  tail call void @appendBinaryStringInfo(ptr noundef %.val88, ptr noundef %.278.ph142, i32 noundef %134) #18
+  tail call void @appendBinaryStringInfo(ptr noundef %.val88, ptr noundef %.2.ph143, i32 noundef %134) #18
   br label %135
 
 135:                                              ; preds = %.loopexit301, %130
@@ -1782,14 +1782,14 @@ CopySendChar.exit96:                              ; preds = %142, %143
   br i1 %.not.i97, label %161, label %160
 
 160:                                              ; preds = %CopySendChar.exit96
-  tail call void @appendStringInfoChar(ptr noundef nonnull %154, i8 noundef signext %.175) #18
+  tail call void @appendStringInfoChar(ptr noundef nonnull %154, i8 noundef signext %.1) #18
   br label %CopySendChar.exit98
 
 161:                                              ; preds = %CopySendChar.exit96
   %162 = load ptr, ptr %154, align 8
   %163 = sext i32 %156 to i64
   %164 = getelementptr i8, ptr %162, i64 %163
-  store i8 %.175, ptr %164, align 1
+  store i8 %.1, ptr %164, align 1
   %165 = load ptr, ptr %20, align 8
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr inbounds i8, ptr %165, i64 8
@@ -1802,7 +1802,7 @@ CopySendChar.exit96:                              ; preds = %142, %143
   br label %CopySendChar.exit98
 
 CopySendChar.exit98:                              ; preds = %160, %161
-  %172 = getelementptr i8, ptr %.3137, i64 1
+  %172 = getelementptr i8, ptr %.379137, i64 1
   br label %.outer104
 
 173:                                              ; preds = %118
@@ -1812,16 +1812,16 @@ CopySendChar.exit98:                              ; preds = %160, %161
   br i1 %or.cond86, label %176, label %203
 
 176:                                              ; preds = %173
-  %177 = icmp ugt ptr %.3137, %.278.ph142
+  %177 = icmp ugt ptr %.379137, %.2.ph143
   br i1 %177, label %178, label %183
 
 178:                                              ; preds = %176
-  %179 = ptrtoint ptr %.3137 to i64
-  %180 = ptrtoint ptr %.278.ph142 to i64
+  %179 = ptrtoint ptr %.379137 to i64
+  %180 = ptrtoint ptr %.2.ph143 to i64
   %181 = sub i64 %179, %180
   %182 = trunc i64 %181 to i32
   %.val87 = load ptr, ptr %20, align 8
-  tail call void @appendBinaryStringInfo(ptr noundef %.val87, ptr noundef %.278.ph142, i32 noundef %182) #18
+  tail call void @appendBinaryStringInfo(ptr noundef %.val87, ptr noundef %.2.ph143, i32 noundef %182) #18
   br label %183
 
 183:                                              ; preds = %176, %178
@@ -1855,40 +1855,40 @@ CopySendChar.exit98:                              ; preds = %160, %161
   br label %CopySendChar.exit100
 
 CopySendChar.exit100:                             ; preds = %190, %191
-  %202 = getelementptr i8, ptr %.3137, i64 1
+  %202 = getelementptr i8, ptr %.379137, i64 1
   br label %.outer104
 
 203:                                              ; preds = %173
-  %204 = getelementptr i8, ptr %.3137, i64 1
+  %204 = getelementptr i8, ptr %.379137, i64 1
   br label %.outer104
 
 .outer104:                                        ; preds = %CopySendChar.exit100, %203, %CopySendChar.exit98
-  %.379 = phi ptr [ %172, %CopySendChar.exit98 ], [ %.3137, %CopySendChar.exit100 ], [ %.278.ph142, %203 ]
-  %.4 = phi ptr [ %172, %CopySendChar.exit98 ], [ %202, %CopySendChar.exit100 ], [ %204, %203 ]
-  %205 = load i8, ptr %.4, align 1
+  %.480 = phi ptr [ %172, %CopySendChar.exit98 ], [ %202, %CopySendChar.exit100 ], [ %204, %203 ]
+  %.3 = phi ptr [ %172, %CopySendChar.exit98 ], [ %.379137, %CopySendChar.exit100 ], [ %.2.ph143, %203 ]
+  %205 = load i8, ptr %.480, align 1
   %.not136 = icmp eq i8 %205, 0
   br i1 %.not136, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer104
   %206 = phi i8 [ %19, %.lr.ph.lr.ph ], [ %205, %.outer104 ]
-  %.3.ph144 = phi ptr [ %.0, %.lr.ph.lr.ph ], [ %.4, %.outer104 ]
-  %.278.ph142 = phi ptr [ %.0, %.lr.ph.lr.ph ], [ %.379, %.outer104 ]
+  %.2.ph143 = phi ptr [ %.076, %.lr.ph.lr.ph ], [ %.3, %.outer104 ]
+  %.379.ph142 = phi ptr [ %.076, %.lr.ph.lr.ph ], [ %.480, %.outer104 ]
   br label %118
 
 .loopexit:                                        ; preds = %.outer104, %125, %.outer, %31
-  %.480 = phi ptr [ %.076.ph155, %31 ], [ %.177, %.outer ], [ %.278.ph142, %125 ], [ %.379, %.outer104 ]
-  %.5 = phi ptr [ %32, %31 ], [ %.2, %.outer ], [ %126, %125 ], [ %.4, %.outer104 ]
-  %207 = icmp ugt ptr %.5, %.480
+  %.5 = phi ptr [ %32, %31 ], [ %.278, %.outer ], [ %126, %125 ], [ %.480, %.outer104 ]
+  %.4 = phi ptr [ %.074.ph156, %31 ], [ %.175, %.outer ], [ %.2.ph143, %125 ], [ %.3, %.outer104 ]
+  %207 = icmp ugt ptr %.5, %.4
   br i1 %207, label %208, label %.loopexit.thread
 
 208:                                              ; preds = %.loopexit
   %209 = ptrtoint ptr %.5 to i64
-  %210 = ptrtoint ptr %.480 to i64
+  %210 = ptrtoint ptr %.4 to i64
   %211 = sub i64 %209, %210
   %212 = trunc i64 %211 to i32
   %213 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %213, align 8
-  tail call void @appendBinaryStringInfo(ptr noundef %.val, ptr noundef %.480, i32 noundef %212) #18
+  tail call void @appendBinaryStringInfo(ptr noundef %.val, ptr noundef %.4, i32 noundef %212) #18
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader102, %.preheader, %.loopexit, %208

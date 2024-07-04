@@ -449,9 +449,9 @@ invoke.cont:                                      ; preds = %invoke.cont.loopexi
   br i1 %cmp.i.not206.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %invoke.cont, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i
-  %counters.sroa.31.0 = phi ptr [ %counters.sroa.31.1, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ null, %invoke.cont ]
-  %counters.sroa.14.0 = phi ptr [ %counters.sroa.14.1, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ null, %invoke.cont ]
   %counters.sroa.0.0 = phi ptr [ %counters.sroa.0.1, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ null, %invoke.cont ]
+  %counters.sroa.14.0 = phi ptr [ %counters.sroa.14.1, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ null, %invoke.cont ]
+  %counters.sroa.31.0 = phi ptr [ %counters.sroa.31.1, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ null, %invoke.cont ]
   %curr_decomp_offset.0 = phi i32 [ %add.i.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ %conv5, %invoke.cont ]
   %curr_comp_offset.0 = phi i32 [ %add22.i.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ 0, %invoke.cont ]
   %it.sroa.0.0207.i = phi ptr [ %call.i.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ %kilopuffs.val.i, %invoke.cont ]
@@ -469,7 +469,7 @@ if.then.i.i.i51:                                  ; preds = %while.body.i
   br label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE9push_backEOS0_.exit.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %counters.sroa.31.0 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %counters.sroa.14.0 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %counters.sroa.0.0 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i, 9223372036854775800
@@ -522,9 +522,9 @@ _ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17
   br label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE9push_backEOS0_.exit.i
 
 _ZNSt6vectorI16mpv_counter_infoSaIS0_EE9push_backEOS0_.exit.i: ; preds = %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i, %if.then.i.i.i51
-  %counters.sroa.31.1 = phi ptr [ %add.ptr19.i.i.i.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i ], [ %counters.sroa.31.0, %if.then.i.i.i51 ]
-  %add.ptr.i.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i ], [ %counters.sroa.14.0, %if.then.i.i.i51 ]
   %counters.sroa.0.1 = phi ptr [ %cond.i10.i.i.i.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i ], [ %counters.sroa.0.0, %if.then.i.i.i51 ]
+  %add.ptr.i.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i ], [ %counters.sroa.14.0, %if.then.i.i.i51 ]
+  %counters.sroa.31.1 = phi ptr [ %add.ptr19.i.i.i.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i ], [ %counters.sroa.31.0, %if.then.i.i.i51 ]
   %counters.sroa.14.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.pn, i64 24
   %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.0207.i) #24
   %kilopuffs.val8.i.i = load ptr, ptr %_M_left.i.i.i.i.i, align 8
@@ -603,9 +603,9 @@ _ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110Cl
   br i1 %cmp.i.not.i56, label %while.end.i, label %land.rhs.i, !llvm.loop !19
 
 while.end.i:                                      ; preds = %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i, %land.rhs.i, %invoke.cont
-  %counters.sroa.31.2 = phi ptr [ null, %invoke.cont ], [ %counters.sroa.31.1, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ %counters.sroa.31.0, %land.rhs.i ]
-  %counters.sroa.14.2 = phi ptr [ null, %invoke.cont ], [ %counters.sroa.14.1, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ %counters.sroa.14.0, %land.rhs.i ]
   %counters.sroa.0.2 = phi ptr [ null, %invoke.cont ], [ %counters.sroa.0.1, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ %counters.sroa.0.0, %land.rhs.i ]
+  %counters.sroa.14.2 = phi ptr [ null, %invoke.cont ], [ %counters.sroa.14.1, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ %counters.sroa.14.0, %land.rhs.i ]
+  %counters.sroa.31.2 = phi ptr [ null, %invoke.cont ], [ %counters.sroa.31.1, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ %counters.sroa.31.0, %land.rhs.i ]
   %curr_decomp_offset.1 = phi i32 [ %conv5, %invoke.cont ], [ %add.i.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ %curr_decomp_offset.0, %land.rhs.i ]
   %curr_comp_offset.1 = phi i32 [ 0, %invoke.cont ], [ %add22.i.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ %curr_comp_offset.0, %land.rhs.i ]
   %it.sroa.0.0.lcssa.i = phi ptr [ %kilopuffs.val.i, %invoke.cont ], [ %call.i.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ %it.sroa.0.0207.i, %land.rhs.i ]
@@ -638,7 +638,7 @@ if.then.i.i35.i:                                  ; preds = %if.then.i
   br label %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN3ue212_GLOBAL__N_110ClusterKeyESt6vectorINS2_8raw_puffESaIS7_EEEEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit.i76.i
 
 if.else.i.i37.i:                                  ; preds = %if.then.i
-  %sub.ptr.lhs.cast.i.i.i.i.i38.i = ptrtoint ptr %counters.sroa.31.2 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i38.i = ptrtoint ptr %counters.sroa.14.2 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i39.i = ptrtoint ptr %counters.sroa.0.2 to i64
   %sub.ptr.sub.i.i.i.i.i40.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i38.i, %sub.ptr.rhs.cast.i.i.i.i.i39.i
   %cmp.i.i.i.i41.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i40.i, 9223372036854775800
@@ -691,9 +691,9 @@ _ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17
   br label %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN3ue212_GLOBAL__N_110ClusterKeyESt6vectorINS2_8raw_puffESaIS7_EEEEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit.i76.i
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN3ue212_GLOBAL__N_110ClusterKeyESt6vectorINS2_8raw_puffESaIS7_EEEEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit.i76.i: ; preds = %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i61.i, %if.then.i.i35.i
-  %counters.sroa.31.3 = phi ptr [ %add.ptr19.i.i.i62.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i61.i ], [ %counters.sroa.31.2, %if.then.i.i35.i ]
-  %add.ptr.i.i.i.i.i.i57.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i57.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i61.i ], [ %counters.sroa.14.2, %if.then.i.i35.i ]
   %counters.sroa.0.3 = phi ptr [ %cond.i10.i.i.i53.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i61.i ], [ %counters.sroa.0.2, %if.then.i.i35.i ]
+  %add.ptr.i.i.i.i.i.i57.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i57.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i61.i ], [ %counters.sroa.14.2, %if.then.i.i35.i ]
+  %counters.sroa.31.3 = phi ptr [ %add.ptr19.i.i.i62.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i61.i ], [ %counters.sroa.31.2, %if.then.i.i35.i ]
   %counters.sroa.14.3 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i57.i.pn, i64 24
   %kilopuffs.val17.i = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %kilo_begin.i78.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i57.i.pn, i64 16
@@ -757,9 +757,9 @@ _ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110Cl
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit114.i, %while.end22.i, %while.end.i
-  %counters.sroa.31.4 = phi ptr [ %counters.sroa.31.2, %while.end.i ], [ %counters.sroa.31.2, %while.end22.i ], [ %counters.sroa.31.3, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit114.i ]
-  %counters.sroa.14.4 = phi ptr [ %counters.sroa.14.2, %while.end.i ], [ %counters.sroa.14.2, %while.end22.i ], [ %counters.sroa.14.3, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit114.i ]
   %counters.sroa.0.4 = phi ptr [ %counters.sroa.0.2, %while.end.i ], [ %counters.sroa.0.2, %while.end22.i ], [ %counters.sroa.0.3, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit114.i ]
+  %counters.sroa.14.4 = phi ptr [ %counters.sroa.14.2, %while.end.i ], [ %counters.sroa.14.2, %while.end22.i ], [ %counters.sroa.14.3, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit114.i ]
+  %counters.sroa.31.4 = phi ptr [ %counters.sroa.31.2, %while.end.i ], [ %counters.sroa.31.2, %while.end22.i ], [ %counters.sroa.31.3, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit114.i ]
   %curr_decomp_offset.2 = phi i32 [ %curr_decomp_offset.1, %while.end.i ], [ %curr_decomp_offset.1, %while.end22.i ], [ %add.i112.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit114.i ]
   %curr_comp_offset.2 = phi i32 [ %curr_comp_offset.1, %while.end.i ], [ %curr_comp_offset.1, %while.end22.i ], [ %add22.i113.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit114.i ]
   %it.sroa.0.1.lcssa219.i = phi ptr [ %it.sroa.0.0.lcssa.i, %while.end.i ], [ %it.sroa.0.1.lcssa.i, %while.end22.i ], [ %it.sroa.0.1.lcssa.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit114.i ]
@@ -767,9 +767,9 @@ if.end.i:                                         ; preds = %_ZN3ue2L15fillCount
   br i1 %cmp.i116.not215.i, label %invoke.cont7, label %land.rhs37.i
 
 land.rhs37.i:                                     ; preds = %if.end.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i
-  %counters.sroa.31.5 = phi ptr [ %counters.sroa.31.6, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ], [ %counters.sroa.31.4, %if.end.i ]
-  %counters.sroa.14.5 = phi ptr [ %counters.sroa.14.6, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ], [ %counters.sroa.14.4, %if.end.i ]
   %counters.sroa.0.5 = phi ptr [ %counters.sroa.0.6, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ], [ %counters.sroa.0.4, %if.end.i ]
+  %counters.sroa.14.5 = phi ptr [ %counters.sroa.14.6, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ], [ %counters.sroa.14.4, %if.end.i ]
+  %counters.sroa.31.5 = phi ptr [ %counters.sroa.31.6, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ], [ %counters.sroa.31.4, %if.end.i ]
   %curr_decomp_offset.3 = phi i32 [ %add.i199.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ], [ %curr_decomp_offset.2, %if.end.i ]
   %curr_comp_offset.3 = phi i32 [ %add22.i200.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ], [ %curr_comp_offset.2, %if.end.i ]
   %it.sroa.0.2216.i = phi ptr [ %call.i152.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ], [ %it.sroa.0.1.lcssa219.i, %if.end.i ]
@@ -787,7 +787,7 @@ if.then.i.i121.i:                                 ; preds = %while.body43.i
   br label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE9push_backEOS0_.exit151.i
 
 if.else.i.i123.i:                                 ; preds = %while.body43.i
-  %sub.ptr.lhs.cast.i.i.i.i.i124.i = ptrtoint ptr %counters.sroa.31.5 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i124.i = ptrtoint ptr %counters.sroa.14.5 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i125.i = ptrtoint ptr %counters.sroa.0.5 to i64
   %sub.ptr.sub.i.i.i.i.i126.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i124.i, %sub.ptr.rhs.cast.i.i.i.i.i125.i
   %cmp.i.i.i.i127.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i126.i, 9223372036854775800
@@ -840,9 +840,9 @@ _ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17
   br label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE9push_backEOS0_.exit151.i
 
 _ZNSt6vectorI16mpv_counter_infoSaIS0_EE9push_backEOS0_.exit151.i: ; preds = %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i147.i, %if.then.i.i121.i
-  %counters.sroa.31.6 = phi ptr [ %add.ptr19.i.i.i148.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i147.i ], [ %counters.sroa.31.5, %if.then.i.i121.i ]
-  %add.ptr.i.i.i.i.i.i143.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i143.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i147.i ], [ %counters.sroa.14.5, %if.then.i.i121.i ]
   %counters.sroa.0.6 = phi ptr [ %cond.i10.i.i.i139.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i147.i ], [ %counters.sroa.0.5, %if.then.i.i121.i ]
+  %add.ptr.i.i.i.i.i.i143.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i143.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i147.i ], [ %counters.sroa.14.5, %if.then.i.i121.i ]
+  %counters.sroa.31.6 = phi ptr [ %add.ptr19.i.i.i148.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i147.i ], [ %counters.sroa.31.5, %if.then.i.i121.i ]
   %counters.sroa.14.6 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i143.i.pn, i64 24
   %call.i152.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.2216.i) #24
   %kilopuffs.val8.i155.i = load ptr, ptr %_M_left.i.i.i.i.i, align 8
@@ -921,8 +921,8 @@ _ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110Cl
   br i1 %cmp.i116.not.i, label %invoke.cont7, label %land.rhs37.i, !llvm.loop !21
 
 invoke.cont7:                                     ; preds = %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i, %land.rhs37.i, %if.end.i
-  %counters.sroa.14.7 = phi ptr [ %counters.sroa.14.4, %if.end.i ], [ %counters.sroa.14.5, %land.rhs37.i ], [ %counters.sroa.14.6, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ]
   %counters.sroa.0.7 = phi ptr [ %counters.sroa.0.4, %if.end.i ], [ %counters.sroa.0.5, %land.rhs37.i ], [ %counters.sroa.0.6, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ]
+  %counters.sroa.14.7 = phi ptr [ %counters.sroa.14.4, %if.end.i ], [ %counters.sroa.14.5, %land.rhs37.i ], [ %counters.sroa.14.6, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ]
   %curr_decomp_offset.4 = phi i32 [ %curr_decomp_offset.2, %if.end.i ], [ %curr_decomp_offset.3, %land.rhs37.i ], [ %add.i199.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ]
   %curr_comp_offset.4 = phi i32 [ %curr_comp_offset.2, %if.end.i ], [ %curr_comp_offset.3, %land.rhs37.i ], [ %add22.i200.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ]
   %puff_clusters.val30 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
@@ -997,18 +997,18 @@ invoke.cont44:                                    ; preds = %invoke.cont28
 
 invoke.cont56:                                    ; preds = %invoke.cont44, %invoke.cont56
   %__begin1.sroa.0.0246 = phi ptr [ %call.i.i.i.i80, %invoke.cont56 ], [ %r.val.i.i.i, %invoke.cont44 ]
-  %min_repeat.0245 = phi i32 [ %.sroa.speculated179, %invoke.cont56 ], [ -1, %invoke.cont44 ]
-  %max_counter.0244 = phi i32 [ %.sroa.speculated, %invoke.cont56 ], [ 0, %invoke.cont44 ]
+  %max_counter.0245 = phi i32 [ %.sroa.speculated, %invoke.cont56 ], [ 0, %invoke.cont44 ]
+  %min_repeat.0244 = phi i32 [ %.sroa.speculated179, %invoke.cont56 ], [ -1, %invoke.cont44 ]
   %second.i.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0246, i64 80
   %_M_finish.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0246, i64 88
   %52 = load ptr, ptr %_M_finish.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %52, i64 -48
   %53 = load i32, ptr %add.ptr.i.i, align 8
   %add60 = add i32 %53, 1
-  %.sroa.speculated = call i32 @llvm.umax.i32(i32 %max_counter.0244, i32 %add60)
+  %.sroa.speculated = call i32 @llvm.umax.i32(i32 %max_counter.0245, i32 %add60)
   %54 = load ptr, ptr %second.i.i.i.i, align 8
   %55 = load i32, ptr %54, align 4
-  %.sroa.speculated179 = call i32 @llvm.umin.i32(i32 %55, i32 %min_repeat.0245)
+  %.sroa.speculated179 = call i32 @llvm.umin.i32(i32 %55, i32 %min_repeat.0244)
   %call.i.i.i.i80 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.0246) #24
   %cmp.i.i.i.i77.not = icmp eq ptr %call.i.i.i.i80, %4
   br i1 %cmp.i.i.i.i77.not, label %for.end, label %invoke.cont56
@@ -1065,8 +1065,8 @@ lpad33.body:                                      ; preds = %lpad33.loopexit, %l
   br label %ehcleanup
 
 for.end:                                          ; preds = %invoke.cont56, %invoke.cont44
-  %max_counter.0.lcssa = phi i32 [ 0, %invoke.cont44 ], [ %.sroa.speculated, %invoke.cont56 ]
   %min_repeat.0.lcssa = phi i32 [ -1, %invoke.cont44 ], [ %.sroa.speculated179, %invoke.cont56 ]
+  %max_counter.0.lcssa = phi i32 [ 0, %invoke.cont44 ], [ %.sroa.speculated, %invoke.cont56 ]
   %56 = load ptr, ptr %agg.result, align 8
   %add.ptr71 = getelementptr inbounds i8, ptr %56, i64 64
   %puff_clusters.val34 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8

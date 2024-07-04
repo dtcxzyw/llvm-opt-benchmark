@@ -903,11 +903,11 @@ define internal fastcc range(i32 -1, 1) i32 @rebuild_vlists(ptr noundef %0) unna
   br i1 %.not111142, label %._crit_edge146, label %.lr.ph145
 
 .lr.ph145:                                        ; preds = %._crit_edge, %._crit_edge141
-  %.0100143 = phi ptr [ %88, %._crit_edge141 ], [ %17, %._crit_edge ]
+  %.098143 = phi ptr [ %88, %._crit_edge141 ], [ %17, %._crit_edge ]
   %.val = load ptr, ptr %2, align 8
   %18 = getelementptr i8, ptr %.val, i64 392
   %.val.val = load ptr, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %.0100143, i64 16
+  %19 = getelementptr inbounds i8, ptr %.098143, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 360
   %22 = load i32, ptr %21, align 8
@@ -928,21 +928,21 @@ define internal fastcc range(i32 -1, 1) i32 @rebuild_vlists(ptr noundef %0) unna
   br i1 %34, label %35, label %infuse.exit
 
 35:                                               ; preds = %27, %.lr.ph145
-  store ptr %.0100143, ptr %24, align 8
+  store ptr %.098143, ptr %24, align 8
   br label %infuse.exit
 
 infuse.exit:                                      ; preds = %27, %35
-  %36 = tail call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %.0100143) #2
+  %36 = tail call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %.098143) #2
   %.not122139 = icmp eq ptr %36, null
   br i1 %.not122139, label %._crit_edge141, label %.preheader130
 
 .preheader130:                                    ; preds = %infuse.exit, %.critedge
-  %.097140 = phi ptr [ %87, %.critedge ], [ %36, %infuse.exit ]
+  %.096140 = phi ptr [ %87, %.critedge ], [ %36, %infuse.exit ]
   br label %37
 
 37:                                               ; preds = %.preheader130, %37
-  %.098 = phi ptr [ %41, %37 ], [ %.097140, %.preheader130 ]
-  %38 = getelementptr inbounds i8, ptr %.098, i64 16
+  %.097 = phi ptr [ %41, %37 ], [ %.096140, %.preheader130 ]
+  %38 = getelementptr inbounds i8, ptr %.097, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 232
   %41 = load ptr, ptr %40, align 8
@@ -950,11 +950,11 @@ infuse.exit:                                      ; preds = %27, %35
   br i1 %.not123, label %.preheader129, label %37
 
 .preheader129:                                    ; preds = %37
-  %invariant.gep = getelementptr i8, ptr %.097140, i64 56
+  %invariant.gep = getelementptr i8, ptr %.096140, i64 56
   br label %42
 
 42:                                               ; preds = %.preheader129, %infuse.exit128
-  %.1138 = phi ptr [ %.098, %.preheader129 ], [ %86, %infuse.exit128 ]
+  %.1138 = phi ptr [ %.097, %.preheader129 ], [ %86, %infuse.exit128 ]
   %43 = load i32, ptr %.1138, align 8
   %44 = and i32 %43, 3
   %45 = icmp eq i32 %44, 2
@@ -966,7 +966,7 @@ infuse.exit:                                      ; preds = %27, %35
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 360
   %53 = load i32, ptr %52, align 8
-  %54 = load i32, ptr %.097140, align 8
+  %54 = load i32, ptr %.096140, align 8
   %55 = and i32 %54, 3
   %56 = icmp eq i32 %55, 2
   %.idx125 = select i1 %56, i64 0, i64 -64
@@ -1020,12 +1020,12 @@ infuse.exit128:                                   ; preds = %69, %77
   br i1 %.not124, label %.critedge, label %42
 
 .critedge:                                        ; preds = %42, %infuse.exit128
-  %87 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.097140) #2
+  %87 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.096140) #2
   %.not122 = icmp eq ptr %87, null
   br i1 %.not122, label %._crit_edge141, label %.preheader130
 
 ._crit_edge141:                                   ; preds = %.critedge, %infuse.exit
-  %88 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0100143) #2
+  %88 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.098143) #2
   %.not111 = icmp eq ptr %88, null
   br i1 %.not111, label %._crit_edge146, label %.lr.ph145
 
@@ -1126,7 +1126,7 @@ infuse.exit128:                                   ; preds = %69, %77
 .lr.ph150:                                        ; preds = %130, %.critedge126
   %indvars.iv172 = phi i64 [ %indvars.iv.next173, %.critedge126 ], [ 0, %130 ]
   %158 = phi ptr [ %201, %.critedge126 ], [ %154, %130 ]
-  %.0101148 = phi i32 [ %.1102, %.critedge126 ], [ -1, %130 ]
+  %.099148 = phi i32 [ %.1100, %.critedge126 ], [ -1, %130 ]
   %159 = getelementptr inbounds %struct.rank_t, ptr %158, i64 %indvars.iv175, i32 1
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds ptr, ptr %160, i64 %indvars.iv172
@@ -1155,12 +1155,12 @@ infuse.exit128:                                   ; preds = %69, %77
   br label %177
 
 177:                                              ; preds = %178, %173
-  %.096 = phi ptr [ %176, %173 ], [ %182, %178 ]
-  %.not116 = icmp eq ptr %.096, null
+  %.0 = phi ptr [ %176, %173 ], [ %182, %178 ]
+  %.not116 = icmp eq ptr %.0, null
   br i1 %.not116, label %.critedge126, label %178
 
 178:                                              ; preds = %177
-  %179 = getelementptr inbounds i8, ptr %.096, i64 16
+  %179 = getelementptr inbounds i8, ptr %.0, i64 16
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds i8, ptr %180, i64 160
   %182 = load ptr, ptr %181, align 8
@@ -1168,11 +1168,11 @@ infuse.exit128:                                   ; preds = %69, %77
   br i1 %.not117, label %.critedge2, label %177
 
 .critedge2:                                       ; preds = %178
-  %183 = load i32, ptr %.096, align 8
+  %183 = load i32, ptr %.0, align 8
   %184 = and i32 %183, 3
   %185 = icmp eq i32 %184, 3
   %.idx = select i1 %185, i64 0, i64 64
-  %186 = getelementptr inbounds i8, ptr %.096, i64 %.idx
+  %186 = getelementptr inbounds i8, ptr %.0, i64 %.idx
   %187 = getelementptr inbounds i8, ptr %186, i64 56
   %188 = load ptr, ptr %187, align 8
   %189 = tail call i32 @agcontains(ptr noundef %0, ptr noundef %188) #2
@@ -1180,21 +1180,21 @@ infuse.exit128:                                   ; preds = %69, %77
   br i1 %.not118, label %.critedge126, label %190
 
 190:                                              ; preds = %.critedge2
-  %191 = load i32, ptr %.096, align 8
+  %191 = load i32, ptr %.0, align 8
   %192 = and i32 %191, 3
   %193 = icmp eq i32 %192, 2
   %.idx119 = select i1 %193, i64 0, i64 -64
-  %194 = getelementptr inbounds i8, ptr %.096, i64 %.idx119
+  %194 = getelementptr inbounds i8, ptr %.0, i64 %.idx119
   %195 = getelementptr inbounds i8, ptr %194, i64 56
   %196 = load ptr, ptr %195, align 8
   %197 = tail call i32 @agcontains(ptr noundef %0, ptr noundef %196) #2
   %.not120 = icmp eq i32 %197, 0
   %198 = trunc nuw nsw i64 %indvars.iv172 to i32
-  %spec.select = select i1 %.not120, i32 %.0101148, i32 %198
+  %spec.select = select i1 %.not120, i32 %.099148, i32 %198
   br label %.critedge126
 
 .critedge126:                                     ; preds = %177, %190, %170, %.critedge2
-  %.1102 = phi i32 [ %.0101148, %.critedge2 ], [ %172, %170 ], [ %spec.select, %190 ], [ %.0101148, %177 ]
+  %.1100 = phi i32 [ %.099148, %.critedge2 ], [ %172, %170 ], [ %spec.select, %190 ], [ %.099148, %177 ]
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %199 = load ptr, ptr %2, align 8
   %200 = getelementptr inbounds i8, ptr %199, i64 264
@@ -1206,8 +1206,8 @@ infuse.exit128:                                   ; preds = %69, %77
   br i1 %205, label %.lr.ph150, label %._crit_edge151
 
 ._crit_edge151:                                   ; preds = %.critedge126, %.lr.ph150, %170
-  %.0101.lcssa = phi i32 [ %.1102, %.critedge126 ], [ %.0101148, %.lr.ph150 ], [ %.0101148, %170 ]
-  %206 = icmp eq i32 %.0101.lcssa, -1
+  %.099.lcssa = phi i32 [ %.1100, %.critedge126 ], [ %.099148, %.lr.ph150 ], [ %.099148, %170 ]
+  %206 = icmp eq i32 %.099.lcssa, -1
   br i1 %206, label %._crit_edge151.thread, label %210
 
 ._crit_edge151.thread:                            ; preds = %130, %._crit_edge151
@@ -1217,8 +1217,8 @@ infuse.exit128:                                   ; preds = %69, %77
   br label %210
 
 210:                                              ; preds = %._crit_edge151.thread, %._crit_edge151
-  %.0101.lcssa183 = phi i32 [ -1, %._crit_edge151.thread ], [ %.0101.lcssa, %._crit_edge151 ]
-  %211 = add nsw i32 %.0101.lcssa183, 1
+  %.099.lcssa183 = phi i32 [ -1, %._crit_edge151.thread ], [ %.099.lcssa, %._crit_edge151 ]
+  %211 = add nsw i32 %.099.lcssa183, 1
   %212 = load ptr, ptr %2, align 8
   %213 = getelementptr inbounds i8, ptr %212, i64 264
   %214 = load ptr, ptr %213, align 8
@@ -1253,8 +1253,8 @@ infuse.exit128:                                   ; preds = %69, %77
   br i1 %.not114, label %220, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph162, %220, %.preheader, %122, %104
-  %.0 = phi i32 [ -1, %104 ], [ -1, %122 ], [ 0, %.preheader ], [ -1, %.lr.ph162 ], [ 0, %220 ]
-  ret i32 %.0
+  %.0105 = phi i32 [ -1, %104 ], [ -1, %122 ], [ 0, %.preheader ], [ -1, %.lr.ph162 ], [ 0, %220 ]
+  ret i32 %.0105
 }
 
 declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #1

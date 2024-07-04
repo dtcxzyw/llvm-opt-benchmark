@@ -1141,10 +1141,10 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorISt
   br label %390
 
 390:                                              ; preds = %389, %.lr.ph433
-  %.sroa.0267.0 = phi i64 [ %385, %389 ], [ %387, %.lr.ph433 ]
-  %.sroa.6271.0.in = phi i64 [ %.sroa.5276.0.extract.shift, %389 ], [ %.sroa.6271.0.extract.shift, %.lr.ph433 ]
-  %.sroa.0273.0 = phi i32 [ %.sroa.0267.0.extract.trunc, %389 ], [ %.sroa.0273.0.extract.trunc, %.lr.ph433 ]
   %.sroa.5276.0 = phi i64 [ %.sroa.6271.0.extract.shift, %389 ], [ %.sroa.5276.0.extract.shift, %.lr.ph433 ]
+  %.sroa.0273.0 = phi i32 [ %.sroa.0267.0.extract.trunc, %389 ], [ %.sroa.0273.0.extract.trunc, %.lr.ph433 ]
+  %.sroa.6271.0.in = phi i64 [ %.sroa.5276.0.extract.shift, %389 ], [ %.sroa.6271.0.extract.shift, %.lr.ph433 ]
+  %.sroa.0267.0 = phi i64 [ %385, %389 ], [ %387, %.lr.ph433 ]
   %.not = icmp eq i32 %.sroa.0267.0.extract.trunc, %.sroa.0273.0.extract.trunc
   br i1 %.not, label %.critedge, label %391
 
@@ -1988,7 +1988,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i:    ; preds = %_ZN3vcg4Box2IdE3Add
   %111 = phi ptr [ %89, %.lr.ph ], [ %283, %._crit_edge221 ]
   %112 = phi ptr [ %90, %.lr.ph ], [ %284, %._crit_edge221 ]
   %113 = phi i64 [ 0, %.lr.ph ], [ %286, %._crit_edge221 ]
-  %.0222 = phi i32 [ 0, %.lr.ph ], [ %285, %._crit_edge221 ]
+  %.047222 = phi i32 [ 0, %.lr.ph ], [ %285, %._crit_edge221 ]
   %114 = getelementptr inbounds %struct.HalfEdge, ptr %111, i64 %113
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds i8, ptr %114, i64 8
@@ -2185,7 +2185,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit10.i:    ; preds = %_ZN3vcg4Box2IdE3Add
   br i1 %.not.i.i, label %246, label %243
 
 243:                                              ; preds = %.loopexit208
-  store i32 %.0222, ptr %240, align 4
+  store i32 %.047222, ptr %240, align 4
   %244 = load ptr, ptr %239, align 8
   %245 = getelementptr inbounds i8, ptr %244, i64 4
   store ptr %245, ptr %239, align 8
@@ -2224,7 +2224,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %246
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i: ; preds = %258, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %261 = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i ], [ %260, %258 ]
   %262 = getelementptr inbounds i32, ptr %261, i64 %253
-  store i32 %.0222, ptr %262, align 4
+  store i32 %.047222, ptr %262, align 4
   %263 = icmp sgt i64 %250, 0
   br i1 %263, label %264, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
 
@@ -2335,7 +2335,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
 ._crit_edge221:                                   ; preds = %._crit_edge221.loopexit239, %110
   %283 = phi ptr [ %.pre256, %._crit_edge221.loopexit239 ], [ %111, %110 ]
   %284 = phi ptr [ %.pre255, %._crit_edge221.loopexit239 ], [ %112, %110 ]
-  %285 = add i32 %.0222, 1
+  %285 = add i32 %.047222, 1
   %286 = zext i32 %285 to i64
   %287 = ptrtoint ptr %284 to i64
   %288 = ptrtoint ptr %283 to i64
@@ -2385,8 +2385,8 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %310 = phi ptr [ %305, %.loopexit ], [ %297, %.preheader ]
   %.promoted = phi ptr [ %.lcssa226, %.loopexit ], [ %.promoted257, %.preheader ]
   %311 = phi i64 [ %313, %.loopexit ], [ 0, %.preheader ]
-  %.047232 = phi i32 [ %312, %.loopexit ], [ 0, %.preheader ]
-  %312 = add i32 %.047232, 1
+  %.046232 = phi i32 [ %312, %.loopexit ], [ 0, %.preheader ]
+  %312 = add i32 %.046232, 1
   %313 = zext i32 %312 to i64
   %314 = ptrtoint ptr %308 to i64
   %315 = ptrtoint ptr %307 to i64
@@ -2400,7 +2400,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %320 = phi ptr [ %436, %_ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EE9push_backEOS2_.exit ], [ %310, %.lr.ph233 ]
   %321 = phi ptr [ %441, %_ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EE9push_backEOS2_.exit ], [ %307, %.lr.ph233 ]
   %322 = phi i64 [ %439, %_ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EE9push_backEOS2_.exit ], [ %313, %.lr.ph233 ]
-  %.046229 = phi i32 [ %438, %_ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EE9push_backEOS2_.exit ], [ %312, %.lr.ph233 ]
+  %.0229 = phi i32 [ %438, %_ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EE9push_backEOS2_.exit ], [ %312, %.lr.ph233 ]
   %323 = phi ptr [ %437, %_ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EE9push_backEOS2_.exit ], [ %.promoted, %.lr.ph233 ]
   %324 = getelementptr inbounds i32, ptr %321, i64 %311
   %325 = load i32, ptr %324, align 4
@@ -2593,7 +2593,7 @@ _ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EE9push_backEOS2_.exit: ; preds = %386, 
   %435 = phi ptr [ %319, %386 ], [ %319, %376 ], [ %434, %_ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %319, %412 ], [ %319, %.lr.ph231 ], [ %319, %364 ], [ %319, %368 ], [ %319, %372 ]
   %436 = phi ptr [ %320, %386 ], [ %320, %376 ], [ %432, %_ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %413, %412 ], [ %320, %.lr.ph231 ], [ %320, %364 ], [ %320, %368 ], [ %320, %372 ]
   %437 = phi ptr [ %323, %386 ], [ %323, %376 ], [ %428, %_ZNSt6vectorISt4pairI8HalfEdgeS1_ESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %323, %412 ], [ %323, %.lr.ph231 ], [ %323, %364 ], [ %323, %368 ], [ %323, %372 ]
-  %438 = add i32 %.046229, 1
+  %438 = add i32 %.0229, 1
   %439 = zext i32 %438 to i64
   %440 = load ptr, ptr %299, align 8
   %441 = load ptr, ptr %298, align 8

@@ -126,7 +126,7 @@ norm.exit.loopexit:                               ; preds = %.lr.ph.i.i
   br i1 %exitcond.not.i177, label %.lr.ph.preheader.i178, label %.lr.ph.i174
 
 .lr.ph.preheader.i178:                            ; preds = %.lr.ph.i174, %vectors_inner_product.exit235.loopexit
-  %.1154 = phi i32 [ %51, %vectors_inner_product.exit235.loopexit ], [ 0, %.lr.ph.i174 ]
+  %.1151 = phi i32 [ %51, %vectors_inner_product.exit235.loopexit ], [ 0, %.lr.ph.i174 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr nonnull align 8 %14, i64 %11, i1 false)
   br label %.preheader.us.i
 
@@ -157,7 +157,7 @@ norm.exit.loopexit:                               ; preds = %.lr.ph.i.i
 
 .lr.ph.i190.preheader:                            ; preds = %._crit_edge.us.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr nonnull align 8 %7, i64 %11, i1 false)
-  %51 = add nuw nsw i32 %.1154, 1
+  %51 = add nuw nsw i32 %.1151, 1
   br i1 %.not, label %.lr.ph.i.i214.preheader, label %.lr.ph.preheader.i196
 
 .lr.ph.preheader.i196:                            ; preds = %.lr.ph.i190.preheader, %scadd.exit210
@@ -217,7 +217,7 @@ scadd.exit210:                                    ; preds = %.lr.ph.i205, %vecto
 norm.exit219.loopexit:                            ; preds = %.lr.ph.i.i214
   %69 = tail call double @sqrt(double noundef %68) #18
   %70 = fcmp uge double %69, 1.000000e-10
-  %.not168 = icmp slt i32 %.1154, %9
+  %.not168 = icmp slt i32 %.1151, %9
   %or.cond = select i1 %70, i1 %.not168, i1 false
   br i1 %or.cond, label %.lr.ph.preheader.i220, label %.loopexit.loopexit
 
@@ -265,21 +265,21 @@ vectors_inner_product.exit235.loopexit:           ; preds = %.lr.ph.i230
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %5
-  %.0148307 = phi i32 [ 0, %5 ], [ %85, %.loopexit.loopexit ]
-  %.2155 = phi i32 [ 0, %5 ], [ %51, %.loopexit.loopexit ]
-  %86 = icmp slt i32 %.0148307, %spec.select
+  %.0155308 = phi i32 [ 0, %5 ], [ %85, %.loopexit.loopexit ]
+  %.2 = phi i32 [ 0, %5 ], [ %51, %.loopexit.loopexit ]
+  %86 = icmp slt i32 %.0155308, %spec.select
   br i1 %86, label %.lr.ph325, label %.preheader
 
 .lr.ph325:                                        ; preds = %.loopexit
   %87 = icmp sgt i32 %1, 0
   %wide.trip.count.i238 = zext i32 %1 to i64
   %.not7.i245 = icmp eq i32 %1, 0
-  %88 = zext nneg i32 %.0148307 to i64
+  %88 = zext nneg i32 %.0155308 to i64
   %wide.trip.count385 = zext i32 %spec.select to i64
   br label %114
 
 .preheader:                                       ; preds = %82, %vectors_scalar_mult.exit267.loopexit, %.loopexit
-  %.2155413 = phi i32 [ %.2155, %.loopexit ], [ %.2155, %vectors_scalar_mult.exit267.loopexit ], [ %51, %82 ]
+  %.2413 = phi i32 [ %.2, %.loopexit ], [ %.2, %vectors_scalar_mult.exit267.loopexit ], [ %51, %82 ]
   %89 = add i32 %spec.select, -1
   %90 = icmp sgt i32 %spec.select, 1
   br i1 %90, label %.lr.ph335, label %._crit_edge336
@@ -310,7 +310,7 @@ vectors_inner_product.exit235.loopexit:           ; preds = %.lr.ph.i230
   br label %.lr.ph330.us
 
 ._crit_edge331.us:                                ; preds = %.lr.ph330.us
-  %97 = zext i32 %.1152.us to i64
+  %97 = zext i32 %.1149.us to i64
   %.not169.us = icmp eq i64 %indvars.iv406, %97
   br i1 %.not169.us, label %109, label %.lr.ph.preheader.i268.us
 
@@ -318,7 +318,7 @@ vectors_inner_product.exit235.loopexit:           ; preds = %.lr.ph.i230
   %98 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv406
   %99 = load ptr, ptr %98, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %99, i64 %93, i1 false)
-  %100 = sext i32 %.1152.us to i64
+  %100 = sext i32 %.1149.us to i64
   %101 = getelementptr inbounds ptr, ptr %3, i64 %100
   %102 = load ptr, ptr %101, align 8
   br label %.lr.ph.i277.us
@@ -339,7 +339,7 @@ copy_vector.exit281.us:                           ; preds = %.lr.ph.i277.us
   %107 = load double, ptr %94, align 8
   %108 = getelementptr inbounds double, ptr %4, i64 %100
   store double %107, ptr %108, align 8
-  store double %.1150.us, ptr %94, align 8
+  store double %.1.us, ptr %94, align 8
   br label %109
 
 109:                                              ; preds = %copy_vector.exit281.us, %._crit_edge331.us
@@ -349,14 +349,14 @@ copy_vector.exit281.us:                           ; preds = %.lr.ph.i277.us
 
 .lr.ph330.us:                                     ; preds = %.lr.ph330.us.preheader, %.lr.ph330.us
   %indvars.iv401 = phi i64 [ %indvars.iv399, %.lr.ph330.us.preheader ], [ %indvars.iv.next402, %.lr.ph330.us ]
-  %.0149328.us = phi double [ %96, %.lr.ph330.us.preheader ], [ %.1150.us, %.lr.ph330.us ]
-  %.0151327.us = phi i32 [ %95, %.lr.ph330.us.preheader ], [ %.1152.us, %.lr.ph330.us ]
+  %.0328.us = phi double [ %96, %.lr.ph330.us.preheader ], [ %.1.us, %.lr.ph330.us ]
+  %.0148327.us = phi i32 [ %95, %.lr.ph330.us.preheader ], [ %.1149.us, %.lr.ph330.us ]
   %110 = getelementptr inbounds double, ptr %4, i64 %indvars.iv401
   %111 = load double, ptr %110, align 8
-  %112 = fcmp olt double %.0149328.us, %111
+  %112 = fcmp olt double %.0328.us, %111
   %113 = trunc nuw nsw i64 %indvars.iv401 to i32
-  %.1152.us = select i1 %112, i32 %113, i32 %.0151327.us
-  %.1150.us = select i1 %112, double %111, double %.0149328.us
+  %.1149.us = select i1 %112, i32 %113, i32 %.0148327.us
+  %.1.us = select i1 %112, double %111, double %.0328.us
   %indvars.iv.next402 = add nuw nsw i64 %indvars.iv401, 1
   %exitcond405.not = icmp eq i64 %indvars.iv.next402, %wide.trip.count404
   br i1 %exitcond405.not, label %._crit_edge331.us, label %.lr.ph330.us
@@ -461,33 +461,33 @@ vectors_scalar_mult.exit267.loopexit:             ; preds = %.lr.ph.i263
 
 .lr.ph330:                                        ; preds = %.lr.ph335.split.preheader, %.lr.ph330
   %indvars.iv389 = phi i64 [ 1, %.lr.ph335.split.preheader ], [ %indvars.iv.next390, %.lr.ph330 ]
-  %.0149328 = phi double [ %92, %.lr.ph335.split.preheader ], [ %.1150, %.lr.ph330 ]
-  %.0151327 = phi i32 [ 0, %.lr.ph335.split.preheader ], [ %.1152, %.lr.ph330 ]
+  %.0328 = phi double [ %92, %.lr.ph335.split.preheader ], [ %.1, %.lr.ph330 ]
+  %.0148327 = phi i32 [ 0, %.lr.ph335.split.preheader ], [ %.1149, %.lr.ph330 ]
   %144 = getelementptr inbounds double, ptr %4, i64 %indvars.iv389
   %145 = load double, ptr %144, align 8
-  %146 = fcmp olt double %.0149328, %145
+  %146 = fcmp olt double %.0328, %145
   %147 = trunc nuw nsw i64 %indvars.iv389 to i32
-  %.1152 = select i1 %146, i32 %147, i32 %.0151327
-  %.1150 = select i1 %146, double %145, double %.0149328
+  %.1149 = select i1 %146, i32 %147, i32 %.0148327
+  %.1 = select i1 %146, double %145, double %.0328
   %indvars.iv.next390 = add nuw nsw i64 %indvars.iv389, 1
   %exitcond393.not = icmp eq i64 %indvars.iv.next390, %wide.trip.count392
   br i1 %exitcond393.not, label %._crit_edge331, label %.lr.ph330
 
 ._crit_edge331:                                   ; preds = %.lr.ph330
-  %.not169 = icmp eq i32 %.1152, 0
+  %.not169 = icmp eq i32 %.1149, 0
   br i1 %.not169, label %._crit_edge336, label %copy_vector.exit274.thread
 
 copy_vector.exit274.thread:                       ; preds = %._crit_edge331
-  %148 = sext i32 %.1152 to i64
+  %148 = sext i32 %.1149 to i64
   %149 = getelementptr inbounds double, ptr %4, i64 %148
   store double %92, ptr %149, align 8
-  store double %.1150, ptr %4, align 8
+  store double %.1, ptr %4, align 8
   br label %._crit_edge336
 
 ._crit_edge336:                                   ; preds = %109, %._crit_edge331, %copy_vector.exit274.thread, %.preheader
   tail call void @free(ptr noundef %7) #18
   tail call void @free(ptr noundef %8) #18
-  %150 = icmp sle i32 %.2155413, %9
+  %150 = icmp sle i32 %.2413, %9
   ret i1 %150
 }
 
@@ -752,7 +752,7 @@ define void @mult_dense_mat(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 19:                                               ; preds = %19, %.preheader.us.us.us
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %19 ], [ 0, %.preheader.us.us.us ]
-  %.041.us.us.us = phi double [ %27, %19 ], [ 0.000000e+00, %.preheader.us.us.us ]
+  %.03440.us.us.us = phi double [ %27, %19 ], [ 0.000000e+00, %.preheader.us.us.us ]
   %20 = getelementptr inbounds double, ptr %18, i64 %indvars.iv63
   %21 = load double, ptr %20, align 8
   %22 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv63
@@ -760,7 +760,7 @@ define void @mult_dense_mat(ptr nocapture noundef readonly %0, ptr nocapture nou
   %24 = getelementptr inbounds float, ptr %23, i64 %indvars.iv68
   %25 = load float, ptr %24, align 4
   %26 = fpext float %25 to double
-  %27 = tail call double @llvm.fmuladd.f64(double %21, double %26, double %.041.us.us.us)
+  %27 = tail call double @llvm.fmuladd.f64(double %21, double %26, double %.03440.us.us.us)
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
   br i1 %exitcond67.not, label %._crit_edge.us.us.us, label %19
@@ -800,10 +800,10 @@ define void @mult_dense_mat(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 34:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %.03139 = phi ptr [ %9, %.lr.ph ], [ %36, %34 ]
+  %.039 = phi ptr [ %9, %.lr.ph ], [ %36, %34 ]
   %35 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
-  store ptr %.03139, ptr %35, align 8
-  %36 = getelementptr inbounds float, ptr %.03139, i64 %13
+  store ptr %.039, ptr %35, align 8
+  %36 = getelementptr inbounds float, ptr %.039, i64 %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader37, label %34
@@ -859,7 +859,7 @@ define void @mult_dense_mat_d(ptr nocapture noundef readonly %0, ptr nocapture n
 
 19:                                               ; preds = %19, %.preheader.us.us.us
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %19 ], [ 0, %.preheader.us.us.us ]
-  %.03241.us.us.us = phi double [ %27, %19 ], [ 0.000000e+00, %.preheader.us.us.us ]
+  %.03141.us.us.us = phi double [ %27, %19 ], [ 0.000000e+00, %.preheader.us.us.us ]
   %20 = getelementptr inbounds double, ptr %18, i64 %indvars.iv63
   %21 = load double, ptr %20, align 8
   %22 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv63
@@ -867,7 +867,7 @@ define void @mult_dense_mat_d(ptr nocapture noundef readonly %0, ptr nocapture n
   %24 = getelementptr inbounds float, ptr %23, i64 %indvars.iv68
   %25 = load float, ptr %24, align 4
   %26 = fpext float %25 to double
-  %27 = tail call double @llvm.fmuladd.f64(double %21, double %26, double %.03241.us.us.us)
+  %27 = tail call double @llvm.fmuladd.f64(double %21, double %26, double %.03141.us.us.us)
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
   br i1 %exitcond67.not, label %._crit_edge.us.us.us, label %19
@@ -906,10 +906,10 @@ define void @mult_dense_mat_d(ptr nocapture noundef readonly %0, ptr nocapture n
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %.03138 = phi ptr [ %9, %.lr.ph ], [ %35, %33 ]
+  %.039 = phi ptr [ %9, %.lr.ph ], [ %35, %33 ]
   %34 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
-  store ptr %.03138, ptr %34, align 8
-  %35 = getelementptr inbounds double, ptr %.03138, i64 %13
+  store ptr %.039, ptr %34, align 8
+  %35 = getelementptr inbounds double, ptr %.039, i64 %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader37, label %33
@@ -979,7 +979,7 @@ define void @mult_sparse_dense_mat_transpose(ptr nocapture noundef readonly %0, 
 
 25:                                               ; preds = %25, %.preheader.us.us
   %.046.us.us = phi i64 [ 0, %.preheader.us.us ], [ %35, %25 ]
-  %.04045.us.us = phi double [ 0.000000e+00, %.preheader.us.us ], [ %34, %25 ]
+  %.03845.us.us = phi double [ 0.000000e+00, %.preheader.us.us ], [ %34, %25 ]
   %26 = getelementptr inbounds float, ptr %18, i64 %.046.us.us
   %27 = load float, ptr %26, align 4
   %28 = fpext float %27 to double
@@ -988,7 +988,7 @@ define void @mult_sparse_dense_mat_transpose(ptr nocapture noundef readonly %0, 
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds double, ptr %24, i64 %31
   %33 = load double, ptr %32, align 8
-  %34 = tail call double @llvm.fmuladd.f64(double %28, double %33, double %.04045.us.us)
+  %34 = tail call double @llvm.fmuladd.f64(double %28, double %33, double %.03845.us.us)
   %35 = add nuw i64 %.046.us.us, 1
   %exitcond59.not = icmp eq i64 %35, %19
   br i1 %exitcond59.not, label %._crit_edge.us.us, label %25
@@ -1004,10 +1004,10 @@ define void @mult_sparse_dense_mat_transpose(ptr nocapture noundef readonly %0, 
 
 39:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %.03943 = phi ptr [ %8, %.lr.ph ], [ %41, %39 ]
+  %.03744 = phi ptr [ %8, %.lr.ph ], [ %41, %39 ]
   %40 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
-  store ptr %.03943, ptr %40, align 8
-  %41 = getelementptr inbounds float, ptr %.03943, i64 %12
+  store ptr %.03744, ptr %40, align 8
+  %41 = getelementptr inbounds float, ptr %.03744, i64 %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader42, label %39
@@ -1380,20 +1380,20 @@ define void @right_mult_with_vector_ff(ptr nocapture noundef readonly %0, i32 no
 .lr.ph45:                                         ; preds = %.lr.ph45.preheader, %._crit_edge
   %indvars.iv56 = phi i64 [ 0, %.lr.ph45.preheader ], [ %indvars.iv.next57, %._crit_edge ]
   %indvars.iv49 = phi i64 [ 1, %.lr.ph45.preheader ], [ %indvars.iv.next50, %._crit_edge ]
-  %.03243 = phi i32 [ 0, %.lr.ph45.preheader ], [ %.133.lcssa, %._crit_edge ]
+  %.03144 = phi i32 [ 0, %.lr.ph45.preheader ], [ %.1.lcssa, %._crit_edge ]
   %9 = getelementptr inbounds float, ptr %2, i64 %indvars.iv56
   %10 = load float, ptr %9, align 4
-  %11 = sext i32 %.03243 to i64
+  %11 = sext i32 %.03144 to i64
   %12 = getelementptr inbounds float, ptr %0, i64 %11
   %13 = load float, ptr %12, align 4
   %14 = tail call float @llvm.fmuladd.f32(float %13, float %10, float 0.000000e+00)
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
-  %.13337 = add i32 %.03243, 1
+  %.137 = add i32 %.03144, 1
   %15 = icmp ult i64 %indvars.iv.next57, %8
   br i1 %15, label %.lr.ph41.preheader, label %._crit_edge
 
 .lr.ph41.preheader:                               ; preds = %.lr.ph45
-  %16 = sext i32 %.13337 to i64
+  %16 = sext i32 %.137 to i64
   br label %.lr.ph41
 
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %.lr.ph41
@@ -1420,7 +1420,7 @@ define void @right_mult_with_vector_ff(ptr nocapture noundef readonly %0, i32 no
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph45
   %.0.lcssa = phi float [ %14, %.lr.ph45 ], [ %21, %._crit_edge.loopexit ]
-  %.133.lcssa = phi i32 [ %.13337, %.lr.ph45 ], [ %25, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i32 [ %.137, %.lr.ph45 ], [ %25, %._crit_edge.loopexit ]
   %26 = getelementptr inbounds float, ptr %3, i64 %indvars.iv56
   %27 = load float, ptr %26, align 4
   %28 = fadd float %.0.lcssa, %27

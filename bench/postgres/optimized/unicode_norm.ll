@@ -27,10 +27,10 @@ define dso_local noundef ptr @unicode_normalize(i32 noundef %0, ptr nocapture no
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %13 = phi i32 [ %17, %.lr.ph ], [ %12, %2 ]
   %.066111 = phi i32 [ %15, %.lr.ph ], [ 0, %2 ]
-  %.068110 = phi ptr [ %16, %.lr.ph ], [ %1, %2 ]
+  %.076110 = phi ptr [ %16, %.lr.ph ], [ %1, %2 ]
   %14 = tail call fastcc i32 @get_decomposed_size(i32 noundef %13, i1 noundef zeroext %9)
   %15 = add i32 %14, %.066111
-  %16 = getelementptr i8, ptr %.068110, i64 4
+  %16 = getelementptr i8, ptr %.076110, i64 4
   %17 = load i32, ptr %16, align 4
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
@@ -53,9 +53,9 @@ define dso_local noundef ptr @unicode_normalize(i32 noundef %0, ptr nocapture no
 
 .lr.ph115:                                        ; preds = %23, %.lr.ph115
   %25 = phi i32 [ %27, %.lr.ph115 ], [ %24, %23 ]
-  %.169113 = phi ptr [ %26, %.lr.ph115 ], [ %1, %23 ]
+  %.177113 = phi ptr [ %26, %.lr.ph115 ], [ %1, %23 ]
   call fastcc void @decompose_code(i32 noundef %25, i1 noundef zeroext %9, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %26 = getelementptr i8, ptr %.169113, i64 4
+  %26 = getelementptr i8, ptr %.177113, i64 4
   %27 = load i32, ptr %26, align 4
   %.not84 = icmp eq i32 %27, 0
   br i1 %.not84, label %._crit_edge116, label %.lr.ph115, !llvm.loop !7
@@ -152,10 +152,10 @@ get_canonical_class.exit90.thread:                ; preds = %get_canonical_class
 
 .lr.ph127:                                        ; preds = %.lr.ph127.preheader, %111
   %indvars.iv = phi i64 [ 1, %.lr.ph127.preheader ], [ %indvars.iv.next, %111 ]
-  %.070124 = phi i32 [ -1, %.lr.ph127.preheader ], [ %.171, %111 ]
-  %.072123 = phi i32 [ 0, %.lr.ph127.preheader ], [ %.173, %111 ]
-  %.074122 = phi i32 [ 1, %.lr.ph127.preheader ], [ %.175, %111 ]
-  %.076121 = phi i32 [ %57, %.lr.ph127.preheader ], [ %.177, %111 ]
+  %.068124 = phi i32 [ %57, %.lr.ph127.preheader ], [ %.169, %111 ]
+  %.070123 = phi i32 [ 1, %.lr.ph127.preheader ], [ %.171, %111 ]
+  %.072122 = phi i32 [ 0, %.lr.ph127.preheader ], [ %.173, %111 ]
+  %.074121 = phi i32 [ -1, %.lr.ph127.preheader ], [ %.175, %111 ]
   %58 = getelementptr i32, ptr %21, i64 %indvars.iv
   %59 = load i32, ptr %58, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -173,11 +173,11 @@ get_canonical_class.exit90.thread:                ; preds = %get_canonical_class
 get_canonical_class.exit93:                       ; preds = %.lr.ph127, %61
   %.0.i92 = phi i8 [ %63, %61 ], [ 0, %.lr.ph127 ]
   %64 = zext i8 %.0.i92 to i32
-  %65 = icmp slt i32 %.070124, %64
+  %65 = icmp slt i32 %.074121, %64
   br i1 %65, label %66, label %recompose_code.exit
 
 66:                                               ; preds = %get_canonical_class.exit93
-  %67 = add i32 %.076121, -4352
+  %67 = add i32 %.068124, -4352
   %or.cond.i = icmp ult i32 %67, 19
   %68 = add i32 %59, -4449
   %69 = icmp ult i32 %68, 21
@@ -185,14 +185,14 @@ get_canonical_class.exit93:                       ; preds = %.lr.ph127, %61
   br i1 %or.cond5.i, label %70, label %75
 
 70:                                               ; preds = %66
-  %71 = mul nuw nsw i32 %.076121, 21
+  %71 = mul nuw nsw i32 %.068124, 21
   %72 = add nuw nsw i32 %59, %71
   %73 = mul nuw nsw i32 %72, 28
   %74 = add nsw i32 %73, -2639516
   br label %104
 
 75:                                               ; preds = %66
-  %76 = add i32 %.076121, -44032
+  %76 = add i32 %.068124, -44032
   %or.cond7.i = icmp ult i32 %76, 11172
   br i1 %or.cond7.i, label %77, label %.preheader137
 
@@ -209,7 +209,7 @@ get_canonical_class.exit93:                       ; preds = %.lr.ph127, %61
   br i1 %or.cond11.i, label %82, label %.preheader137
 
 82:                                               ; preds = %77
-  %83 = add nuw nsw i32 %80, %.076121
+  %83 = add nuw nsw i32 %80, %.068124
   br label %104
 
 84:                                               ; preds = %.preheader137, %103
@@ -227,7 +227,7 @@ get_canonical_class.exit93:                       ; preds = %.lr.ph127, %61
   %92 = zext i16 %91 to i64
   %93 = getelementptr [5098 x i32], ptr @UnicodeDecomp_codepoints, i64 0, i64 %92
   %94 = load i32, ptr %93, align 4
-  %95 = icmp eq i32 %94, %.076121
+  %95 = icmp eq i32 %94, %.068124
   br i1 %95, label %96, label %103
 
 96:                                               ; preds = %89
@@ -248,38 +248,38 @@ get_canonical_class.exit93:                       ; preds = %.lr.ph127, %61
 
 104:                                              ; preds = %101, %82, %70
   %.195.ph = phi i32 [ %74, %70 ], [ %83, %82 ], [ %102, %101 ]
-  %105 = sext i32 %.072123 to i64
+  %105 = sext i32 %.072122 to i64
   %106 = getelementptr i32, ptr %54, i64 %105
   store i32 %.195.ph, ptr %106, align 4
   br label %111
 
 recompose_code.exit:                              ; preds = %103, %get_canonical_class.exit93
   %107 = icmp eq i8 %.0.i92, 0
-  %108 = add i32 %.074122, 1
-  %109 = sext i32 %.074122 to i64
+  %108 = add i32 %.070123, 1
+  %109 = sext i32 %.070123 to i64
   %110 = getelementptr i32, ptr %54, i64 %109
   store i32 %59, ptr %110, align 4
-  %..076121 = select i1 %107, i32 %59, i32 %.076121
-  %.074122..072123 = select i1 %107, i32 %.074122, i32 %.072123
   %. = select i1 %107, i32 -1, i32 %64
+  %.070123..072122 = select i1 %107, i32 %.070123, i32 %.072122
+  %..068124 = select i1 %107, i32 %59, i32 %.068124
   br label %111
 
 111:                                              ; preds = %recompose_code.exit, %104
-  %.177 = phi i32 [ %.195.ph, %104 ], [ %..076121, %recompose_code.exit ]
-  %.175 = phi i32 [ %.074122, %104 ], [ %108, %recompose_code.exit ]
-  %.173 = phi i32 [ %.072123, %104 ], [ %.074122..072123, %recompose_code.exit ]
-  %.171 = phi i32 [ %.070124, %104 ], [ %., %recompose_code.exit ]
+  %.175 = phi i32 [ %.074121, %104 ], [ %., %recompose_code.exit ]
+  %.173 = phi i32 [ %.072122, %104 ], [ %.070123..072122, %recompose_code.exit ]
+  %.171 = phi i32 [ %.070123, %104 ], [ %108, %recompose_code.exit ]
+  %.169 = phi i32 [ %.195.ph, %104 ], [ %..068124, %recompose_code.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge128.loopexit, label %.lr.ph127, !llvm.loop !10
 
 ._crit_edge128.loopexit:                          ; preds = %111
-  %112 = sext i32 %.175 to i64
+  %112 = sext i32 %.171 to i64
   br label %._crit_edge128
 
 ._crit_edge128:                                   ; preds = %._crit_edge128.loopexit, %56
-  %.074.lcssa = phi i64 [ 1, %56 ], [ %112, %._crit_edge128.loopexit ]
-  %113 = getelementptr i32, ptr %54, i64 %.074.lcssa
+  %.070.lcssa = phi i64 [ 1, %56 ], [ %112, %._crit_edge128.loopexit ]
+  %113 = getelementptr i32, ptr %54, i64 %.070.lcssa
   store i32 0, ptr %113, align 4
   call void @free(ptr noundef %21) #7
   br label %114

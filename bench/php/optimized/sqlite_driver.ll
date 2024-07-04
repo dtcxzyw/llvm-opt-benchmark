@@ -304,12 +304,12 @@ define hidden void @pdo_sqlite_create_function_internal(ptr noundef %0, ptr noca
   br i1 %.fr, label %.thread245, label %.thread223
 
 .thread223:                                       ; preds = %36, %.critedge, %20, %13, %45
-  %.0189233 = phi i32 [ 9, %45 ], [ 9, %36 ], [ %.204, %.critedge ], [ 9, %20 ], [ 1, %13 ]
-  %.0190232 = phi i32 [ 0, %45 ], [ 0, %36 ], [ %., %.critedge ], [ 4, %20 ], [ 0, %13 ]
-  %.0191231 = phi ptr [ %40, %45 ], [ %31, %36 ], [ %25, %.critedge ], [ %15, %20 ], [ null, %13 ]
-  %.0192230 = phi i32 [ 4, %45 ], [ 3, %36 ], [ 2, %.critedge ], [ 1, %20 ], [ 0, %13 ]
+  %.0186233 = phi i32 [ 9, %45 ], [ 9, %36 ], [ %.204, %.critedge ], [ 9, %20 ], [ 1, %13 ]
+  %.0187232 = phi i32 [ 0, %45 ], [ 0, %36 ], [ %., %.critedge ], [ 4, %20 ], [ 0, %13 ]
+  %.0188231 = phi ptr [ %40, %45 ], [ %31, %36 ], [ %25, %.critedge ], [ %15, %20 ], [ null, %13 ]
+  %.0189230 = phi i32 [ 4, %45 ], [ 3, %36 ], [ 2, %.critedge ], [ 1, %20 ], [ 0, %13 ]
   %47 = load ptr, ptr %8, align 8
-  call void @zend_wrong_parameter_error(i32 noundef %.0189233, i32 noundef %.0192230, ptr noundef %47, i32 noundef %.0190232, ptr noundef %.0191231) #11
+  call void @zend_wrong_parameter_error(i32 noundef %.0186233, i32 noundef %.0189230, ptr noundef %47, i32 noundef %.0187232, ptr noundef %.0188231) #11
   br label %94
 
 .thread245:                                       ; preds = %45, %.thread219, %38, %27
@@ -517,11 +517,11 @@ define hidden void @pdo_sqlite_create_aggregate_internal(ptr noundef %0, ptr noc
 
 .thread224:                                       ; preds = %..thread224_crit_edge, %.critedge205, %.critedge, %21, %14
   %43 = phi ptr [ %.pre, %..thread224_crit_edge ], [ %34, %.critedge205 ], [ %31, %.critedge ], [ null, %21 ], [ null, %14 ]
-  %.0188234 = phi i32 [ 4, %..thread224_crit_edge ], [ 3, %.critedge205 ], [ 2, %.critedge ], [ 1, %21 ], [ 0, %14 ]
-  %.0189233 = phi ptr [ %36, %..thread224_crit_edge ], [ %29, %.critedge205 ], [ %26, %.critedge ], [ %16, %21 ], [ null, %14 ]
-  %.0190232 = phi i32 [ 9, %..thread224_crit_edge ], [ %.207, %.critedge205 ], [ %.203, %.critedge ], [ 9, %21 ], [ 1, %14 ]
-  %.0191231 = phi i32 [ 0, %..thread224_crit_edge ], [ %.206, %.critedge205 ], [ %., %.critedge ], [ 4, %21 ], [ 0, %14 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0190232, i32 noundef %.0188234, ptr noundef %43, i32 noundef %.0191231, ptr noundef %.0189233) #11
+  %.0184234 = phi i32 [ 9, %..thread224_crit_edge ], [ %.207, %.critedge205 ], [ %.203, %.critedge ], [ 9, %21 ], [ 1, %14 ]
+  %.0185233 = phi i32 [ 0, %..thread224_crit_edge ], [ %.206, %.critedge205 ], [ %., %.critedge ], [ 4, %21 ], [ 0, %14 ]
+  %.0186232 = phi ptr [ %36, %..thread224_crit_edge ], [ %29, %.critedge205 ], [ %26, %.critedge ], [ %16, %21 ], [ null, %14 ]
+  %.0187231 = phi i32 [ 4, %..thread224_crit_edge ], [ 3, %.critedge205 ], [ 2, %.critedge ], [ 1, %21 ], [ 0, %14 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0184234, i32 noundef %.0187231, ptr noundef %43, i32 noundef %.0185233, ptr noundef %.0186232) #11
   br label %98
 
 .thread245:                                       ; preds = %41, %.thread220, %32
@@ -695,11 +695,11 @@ define hidden void @pdo_sqlite_create_collation_internal(ptr noundef %0, ptr noc
 
 26:                                               ; preds = %11, %18, %.critedge
   %27 = phi ptr [ %25, %.critedge ], [ null, %18 ], [ null, %11 ]
-  %.0115.ph = phi i32 [ %., %.critedge ], [ 4, %18 ], [ 0, %11 ]
-  %.0114.ph = phi ptr [ %23, %.critedge ], [ %13, %18 ], [ null, %11 ]
-  %.0113.ph = phi i32 [ %.126, %.critedge ], [ 9, %18 ], [ 1, %11 ]
-  %.0112.ph = phi i32 [ 2, %.critedge ], [ 1, %18 ], [ 0, %11 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0113.ph, i32 noundef %.0112.ph, ptr noundef %27, i32 noundef %.0115.ph, ptr noundef %.0114.ph) #11
+  %.0113.ph = phi i32 [ 2, %.critedge ], [ 1, %18 ], [ 0, %11 ]
+  %.0112.ph = phi ptr [ %23, %.critedge ], [ %13, %18 ], [ null, %11 ]
+  %.0111.ph = phi i32 [ %., %.critedge ], [ 4, %18 ], [ 0, %11 ]
+  %.0110.ph = phi i32 [ %.126, %.critedge ], [ 9, %18 ], [ 1, %11 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0110.ph, i32 noundef %.0113.ph, ptr noundef %27, i32 noundef %.0111.ph, ptr noundef %.0112.ph) #11
   br label %69
 
 28:                                               ; preds = %21
@@ -963,8 +963,8 @@ pdo_attr_lval.exit:                               ; preds = %25, %26, %33, %35
   br label %42
 
 42:                                               ; preds = %40, %38
-  %.026 = phi i64 [ %.0.i, %38 ], [ %41, %40 ]
-  %43 = trunc i64 %.026 to i32
+  %.0 = phi i64 [ %.0.i, %38 ], [ %41, %40 ]
+  %43 = trunc i64 %.0 to i32
   %44 = tail call i32 @sqlite3_open_v2(ptr noundef nonnull %20, ptr noundef nonnull %11, i32 noundef %43, ptr noundef null) #11
   tail call void @_efree(ptr noundef nonnull %20) #11
   %.not35 = icmp eq i32 %44, 0
@@ -1019,9 +1019,9 @@ pdo_attr_lval.exit42:                             ; preds = %55, %62, %64
   br label %68
 
 68:                                               ; preds = %pdo_attr_lval.exit42, %54
-  %.027 = phi i32 [ %67, %pdo_attr_lval.exit42 ], [ 60000, %54 ]
+  %.026 = phi i32 [ %67, %pdo_attr_lval.exit42 ], [ 60000, %54 ]
   %69 = load ptr, ptr %11, align 8
-  %70 = tail call i32 @sqlite3_busy_timeout(ptr noundef %69, i32 noundef %.027) #11
+  %70 = tail call i32 @sqlite3_busy_timeout(ptr noundef %69, i32 noundef %.026) #11
   %71 = load i32, ptr %3, align 8
   %72 = and i32 %71, -233
   %73 = or disjoint i32 %72, 72
@@ -1029,9 +1029,9 @@ pdo_attr_lval.exit42:                             ; preds = %55, %62, %64
   br label %74
 
 74:                                               ; preds = %68, %45, %21
-  %.0 = phi i32 [ 0, %45 ], [ 1, %68 ], [ 0, %21 ]
+  %.027 = phi i32 [ 0, %45 ], [ 1, %68 ], [ 0, %21 ]
   store ptr @sqlite_methods, ptr %0, align 8
-  ret i32 %.0
+  ret i32 %.027
 }
 
 declare zeroext i1 @zend_parse_arg_str_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

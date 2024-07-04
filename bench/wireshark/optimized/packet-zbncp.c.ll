@@ -1629,13 +1629,13 @@ define internal i32 @dissect_zbncp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %dissect_zbncp_dump_info.exit
 
 dissect_zbncp_dump_info.exit:                     ; preds = %6, %13, %36
-  %.0.i = phi ptr [ %37, %36 ], [ %0, %13 ], [ %0, %6 ]
-  %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.0.i, i32 noundef 0) #4
+  %.035.i = phi ptr [ %37, %36 ], [ %0, %13 ], [ %0, %6 ]
+  %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.035.i, i32 noundef 0) #4
   %.not.i.i = icmp eq i8 %38, -34
   br i1 %.not.i.i, label %39, label %dissect_zbncp_packet.exit
 
 39:                                               ; preds = %dissect_zbncp_dump_info.exit
-  %40 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.0.i, i32 noundef 1) #4
+  %40 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.035.i, i32 noundef 1) #4
   %.not32.i.i = icmp eq i8 %40, -83
   br i1 %.not32.i.i, label %41, label %dissect_zbncp_packet.exit
 
@@ -1644,20 +1644,20 @@ dissect_zbncp_dump_info.exit:                     ; preds = %6, %13, %36
   %43 = load ptr, ptr %42, align 8
   tail call void @col_set_str(ptr noundef %43, i32 noundef 34, ptr noundef nonnull @.str.632) #4
   %44 = load i32, ptr @zbncp_frame, align 4
-  %45 = tail call i32 @tvb_captured_length(ptr noundef %.0.i) #4
-  %46 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %44, ptr noundef %.0.i, i32 noundef 0, i32 noundef %45, ptr noundef nonnull @.str.1104) #4
+  %45 = tail call i32 @tvb_captured_length(ptr noundef %.035.i) #4
+  %46 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %44, ptr noundef %.035.i, i32 noundef 0, i32 noundef %45, ptr noundef nonnull @.str.1104) #4
   %47 = load i32, ptr @ett_zbncp_hdr, align 4
   %48 = tail call ptr @proto_item_add_subtree(ptr noundef %46, i32 noundef %47) #4
   %49 = load i32, ptr @hf_zbncp_hdr_sign, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %49, ptr noundef %.0.i, i32 noundef 0, i32 noundef 2, i32 noundef 0) #4
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %49, ptr noundef %.035.i, i32 noundef 0, i32 noundef 2, i32 noundef 0) #4
   %51 = load i32, ptr @hf_zbncp_packet_len, align 4
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %51, ptr noundef %.0.i, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #4
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %51, ptr noundef %.035.i, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #4
   %53 = load i32, ptr @hf_zbncp_hdr_type, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %53, ptr noundef %.0.i, i32 noundef 4, i32 noundef 1, i32 noundef 0) #4
-  %55 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.0.i, i32 noundef 5) #4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %53, ptr noundef %.035.i, i32 noundef 4, i32 noundef 1, i32 noundef 0) #4
+  %55 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.035.i, i32 noundef 5) #4
   %56 = load i32, ptr @hf_zbncp_hdr_flags, align 4
   %57 = load i32, ptr @ett_zbncp_hdr_flags, align 4
-  %58 = tail call ptr @proto_tree_add_bitmask(ptr noundef %48, ptr noundef %.0.i, i32 noundef 5, i32 noundef %56, i32 noundef %57, ptr noundef nonnull @dissect_zbncp_ll_hdr.packet_flags, i32 noundef 0) #4
+  %58 = tail call ptr @proto_tree_add_bitmask(ptr noundef %48, ptr noundef %.035.i, i32 noundef 5, i32 noundef %56, i32 noundef %57, ptr noundef nonnull @dissect_zbncp_ll_hdr.packet_flags, i32 noundef 0) #4
   %59 = and i8 %55, 1
   %.not33.i.i = icmp eq i8 %59, 0
   br i1 %.not33.i.i, label %62, label %60
@@ -1669,33 +1669,33 @@ dissect_zbncp_dump_info.exit:                     ; preds = %6, %13, %36
 
 62:                                               ; preds = %60, %41
   %63 = load i32, ptr @hf_zbncp_hdr_crc8, align 4
-  %64 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %63, ptr noundef %.0.i, i32 noundef 6, i32 noundef 1, i32 noundef 0) #4
-  %65 = tail call i32 @tvb_reported_length(ptr noundef %.0.i) #4
+  %64 = tail call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %63, ptr noundef %.035.i, i32 noundef 6, i32 noundef 1, i32 noundef 0) #4
+  %65 = tail call i32 @tvb_reported_length(ptr noundef %.035.i) #4
   %66 = icmp ugt i32 %65, 7
   br i1 %66, label %67, label %148
 
 67:                                               ; preds = %62
   %68 = and i8 %55, 64
   %.not47.i = icmp eq i8 %68, 0
-  %69 = tail call i32 @tvb_reported_length(ptr noundef %.0.i) #4
+  %69 = tail call i32 @tvb_reported_length(ptr noundef %.035.i) #4
   %70 = add i32 %69, -7
   %71 = load i32, ptr @ett_zbncp_ll_body, align 4
-  %72 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %.0.i, i32 noundef 7, i32 noundef %70, i32 noundef %71, ptr noundef null, ptr noundef nonnull @.str.1105) #4
+  %72 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %.035.i, i32 noundef 7, i32 noundef %70, i32 noundef %71, ptr noundef null, ptr noundef nonnull @.str.1105) #4
   %73 = load i32, ptr @hf_zbncp_body_data_crc16, align 4
-  %74 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %73, ptr noundef %.0.i, i32 noundef 7, i32 noundef 2, i32 noundef -2147483648) #4
+  %74 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %73, ptr noundef %.035.i, i32 noundef 7, i32 noundef 2, i32 noundef -2147483648) #4
   br i1 %.not47.i, label %120, label %75
 
 75:                                               ; preds = %67
   %76 = load i32, ptr @ett_zbncp_hl_hdr, align 4
-  %77 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %72, ptr noundef %.0.i, i32 noundef 9, i32 noundef 4, i32 noundef %76, ptr noundef null, ptr noundef nonnull @.str.1106) #4
+  %77 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %72, ptr noundef %.035.i, i32 noundef 9, i32 noundef 4, i32 noundef %76, ptr noundef null, ptr noundef nonnull @.str.1106) #4
   %78 = load i32, ptr @hf_zbncp_data_hl_version, align 4
-  %79 = tail call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %78, ptr noundef %.0.i, i32 noundef 9, i32 noundef 1, i32 noundef 0) #4
-  %80 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.0.i, i32 noundef 10) #4
+  %79 = tail call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %78, ptr noundef %.035.i, i32 noundef 9, i32 noundef 1, i32 noundef 0) #4
+  %80 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.035.i, i32 noundef 10) #4
   %81 = load i32, ptr @hf_zbncp_data_hl_packet_type, align 4
-  %82 = tail call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %81, ptr noundef %.0.i, i32 noundef 10, i32 noundef 1, i32 noundef 0) #4
-  %83 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %.0.i, i32 noundef 11, i32 noundef -2147483648) #4
+  %82 = tail call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %81, ptr noundef %.035.i, i32 noundef 10, i32 noundef 1, i32 noundef 0) #4
+  %83 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %.035.i, i32 noundef 11, i32 noundef -2147483648) #4
   %84 = load i32, ptr @hf_zbncp_data_hl_call_id, align 4
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %84, ptr noundef %.0.i, i32 noundef 11, i32 noundef 2, i32 noundef -2147483648) #4
+  %85 = tail call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %84, ptr noundef %.035.i, i32 noundef 11, i32 noundef 2, i32 noundef -2147483648) #4
   %86 = load ptr, ptr %42, align 8
   %87 = zext i8 %80 to i32
   %88 = tail call ptr @val_to_str_const(i32 noundef %87, ptr noundef nonnull @zbncp_hl_type, ptr noundef nonnull @.str.1108) #4
@@ -1709,17 +1709,17 @@ dissect_zbncp_dump_info.exit:                     ; preds = %6, %13, %36
 
 92:                                               ; preds = %75
   %93 = load i32, ptr @hf_zbncp_data_hl_tsn, align 4
-  %94 = tail call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %93, ptr noundef %.0.i, i32 noundef 13, i32 noundef 1, i32 noundef 0) #4
+  %94 = tail call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %93, ptr noundef %.035.i, i32 noundef 13, i32 noundef 1, i32 noundef 0) #4
   %95 = icmp eq i8 %80, 1
   br i1 %95, label %96, label %dissect_zbncp_body.exit.i
 
 96:                                               ; preds = %92
-  %97 = tail call fastcc i32 @dissect_zbncp_status(ptr noundef %.0.i, ptr noundef nonnull %1, ptr noundef %77, i32 noundef 14)
+  %97 = tail call fastcc i32 @dissect_zbncp_status(ptr noundef %.035.i, ptr noundef nonnull %1, ptr noundef %77, i32 noundef 14)
   br label %dissect_zbncp_body.exit.i
 
 dissect_zbncp_body.exit.i:                        ; preds = %96, %92, %75
   %.1.i.i.i.i = phi i32 [ %97, %96 ], [ 14, %92 ], [ 13, %75 ]
-  tail call fastcc void @dissect_zbncp_high_level_body(ptr noundef %.0.i, ptr noundef nonnull %1, ptr noundef %72, i32 noundef %.1.i.i.i.i, i8 noundef zeroext %80, i16 noundef zeroext %83)
+  tail call fastcc void @dissect_zbncp_high_level_body(ptr noundef %.035.i, ptr noundef nonnull %1, ptr noundef %72, i32 noundef %.1.i.i.i.i, i8 noundef zeroext %80, i16 noundef zeroext %83)
   %.not51.i = icmp sgt i8 %55, -1
   br i1 %.not51.i, label %98, label %148
 
@@ -1756,12 +1756,12 @@ dissect_zbncp_body.exit.i:                        ; preds = %96, %92, %75
   br label %148
 
 120:                                              ; preds = %67
-  %121 = tail call i32 @tvb_reported_length(ptr noundef %.0.i) #4
+  %121 = tail call i32 @tvb_reported_length(ptr noundef %.035.i) #4
   %122 = icmp ugt i32 %121, 9
   br i1 %122, label %123, label %dissect_zbncp_fragmentation_body.exit.i
 
 123:                                              ; preds = %120
-  %124 = tail call ptr @tvb_new_subset_remaining(ptr noundef %.0.i, i32 noundef 9) #4
+  %124 = tail call ptr @tvb_new_subset_remaining(ptr noundef %.035.i, i32 noundef 9) #4
   %125 = tail call i32 @call_data_dissector(ptr noundef %124, ptr noundef nonnull %1, ptr noundef %72) #4
   br label %dissect_zbncp_fragmentation_body.exit.i
 
@@ -1808,7 +1808,7 @@ dissect_zbncp_fragmentation_body.exit.i:          ; preds = %123, %120
   br label %148
 
 148:                                              ; preds = %147, %146, %118, %dissect_zbncp_body.exit.i, %62
-  %149 = tail call i32 @tvb_captured_length(ptr noundef %.0.i) #4
+  %149 = tail call i32 @tvb_captured_length(ptr noundef %.035.i) #4
   br label %dissect_zbncp_packet.exit
 
 dissect_zbncp_packet.exit:                        ; preds = %dissect_zbncp_dump_info.exit, %39, %148
@@ -2130,7 +2130,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   br label %56
 
 56:                                               ; preds = %51, %56
-  %.01854 = phi i32 [ 0, %51 ], [ %66, %56 ]
+  %.016731854 = phi i32 [ 0, %51 ], [ %66, %56 ]
   %57 = phi i32 [ %50, %51 ], [ %65, %56 ]
   %58 = load i32, ptr @ett_zbncp_data_channel, align 4
   %59 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %55, ptr noundef %0, i32 noundef %57, i32 noundef 5, i32 noundef %58, ptr noundef null, ptr noundef nonnull @.str.58) #4
@@ -2140,7 +2140,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %63 = load i32, ptr @hf_zbncp_data_ch_mask, align 4
   %64 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %63, ptr noundef %0, i32 noundef %62, i32 noundef 4, i32 noundef -2147483648) #4
   %65 = add i32 %57, 5
-  %66 = add nuw nsw i32 %.01854, 1
+  %66 = add nuw nsw i32 %.016731854, 1
   %exitcond1896.not = icmp eq i32 %66, %52
   br i1 %exitcond1896.not, label %.loopexit, label %56, !llvm.loop !6
 
@@ -2748,7 +2748,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   br i1 %.not1860, label %.loopexit1762, label %.lr.ph1850
 
 .lr.ph1850:                                       ; preds = %398, %.lr.ph1850
-  %.016741849 = phi i32 [ %419, %.lr.ph1850 ], [ 0, %398 ]
+  %.016791849 = phi i32 [ %419, %.lr.ph1850 ], [ 0, %398 ]
   %404 = phi i32 [ %418, %.lr.ph1850 ], [ %403, %398 ]
   %405 = load i32, ptr @hf_zbncp_data_nvram_dataset_type, align 4
   %406 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %405, ptr noundef %0, i32 noundef %404, i32 noundef 2, i32 noundef -2147483648) #4
@@ -2764,7 +2764,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %416 = zext i16 %411 to i32
   %417 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %415, ptr noundef %0, i32 noundef %414, i32 noundef %416, i32 noundef 0) #4
   %418 = add i32 %414, %416
-  %419 = add nuw nsw i32 %.016741849, 1
+  %419 = add nuw nsw i32 %.016791849, 1
   %exitcond1895.not = icmp eq i32 %419, %400
   br i1 %exitcond1895.not, label %..loopexit1762_crit_edge, label %.lr.ph1850, !llvm.loop !7
 
@@ -2976,12 +2976,12 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   br label %553
 
 553:                                              ; preds = %548, %553
-  %.016751841 = phi i32 [ 0, %548 ], [ %558, %553 ]
+  %.016821841 = phi i32 [ 0, %548 ], [ %558, %553 ]
   %554 = phi i32 [ %547, %548 ], [ %557, %553 ]
   %555 = load i32, ptr @hf_zbncp_data_cluster_id, align 4
   %556 = tail call ptr @proto_tree_add_item(ptr noundef %552, i32 noundef %555, ptr noundef %0, i32 noundef %554, i32 noundef 2, i32 noundef -2147483648) #4
   %557 = add i32 %554, 2
-  %558 = add nuw nsw i32 %.016751841, 1
+  %558 = add nuw nsw i32 %.016821841, 1
   %exitcond1893.not = icmp eq i32 %558, %549
   br i1 %exitcond1893.not, label %.loopexit1764, label %553, !llvm.loop !8
 
@@ -3138,12 +3138,12 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   br label %656
 
 656:                                              ; preds = %648, %656
-  %.016761837 = phi i32 [ 0, %648 ], [ %661, %656 ]
+  %.016931837 = phi i32 [ 0, %648 ], [ %661, %656 ]
   %657 = phi i32 [ %651, %648 ], [ %660, %656 ]
   %658 = load i32, ptr @hf_zbncp_data_nwk_addr, align 4
   %659 = tail call ptr @proto_tree_add_item(ptr noundef %655, i32 noundef %658, ptr noundef %0, i32 noundef %657, i32 noundef 2, i32 noundef -2147483648) #4
   %660 = add i32 %657, 2
-  %661 = add nuw nsw i32 %.016761837, 1
+  %661 = add nuw nsw i32 %.016931837, 1
   %exitcond1892.not = icmp eq i32 %661, %652
   br i1 %exitcond1892.not, label %.loopexit1765, label %656, !llvm.loop !10
 
@@ -3201,12 +3201,12 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   br label %698
 
 698:                                              ; preds = %690, %698
-  %.016771833 = phi i32 [ 0, %690 ], [ %703, %698 ]
+  %.016921833 = phi i32 [ 0, %690 ], [ %703, %698 ]
   %699 = phi i32 [ %693, %690 ], [ %702, %698 ]
   %700 = load i32, ptr @hf_zbncp_data_nwk_addr, align 4
   %701 = tail call ptr @proto_tree_add_item(ptr noundef %697, i32 noundef %700, ptr noundef %0, i32 noundef %699, i32 noundef 2, i32 noundef -2147483648) #4
   %702 = add i32 %699, 2
-  %703 = add nuw nsw i32 %.016771833, 1
+  %703 = add nuw nsw i32 %.016921833, 1
   %exitcond1891.not = icmp eq i32 %703, %694
   br i1 %exitcond1891.not, label %.loopexit1766, label %698, !llvm.loop !11
 
@@ -3331,12 +3331,12 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   br label %788
 
 788:                                              ; preds = %783, %788
-  %.016781825 = phi i32 [ 0, %783 ], [ %793, %788 ]
+  %.016901825 = phi i32 [ 0, %783 ], [ %793, %788 ]
   %789 = phi i32 [ %782, %783 ], [ %792, %788 ]
   %790 = load i32, ptr @hf_zbncp_data_cluster_id, align 4
   %791 = tail call ptr @proto_tree_add_item(ptr noundef %787, i32 noundef %790, ptr noundef %0, i32 noundef %789, i32 noundef 2, i32 noundef -2147483648) #4
   %792 = add i32 %789, 2
-  %793 = add nuw nsw i32 %.016781825, 1
+  %793 = add nuw nsw i32 %.016901825, 1
   %exitcond1889.not = icmp eq i32 %793, %784
   br i1 %exitcond1889.not, label %.loopexit1768, label %788, !llvm.loop !12
 
@@ -3353,12 +3353,12 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   br label %800
 
 800:                                              ; preds = %795, %800
-  %.116791829 = phi i32 [ 0, %795 ], [ %805, %800 ]
+  %.116911829 = phi i32 [ 0, %795 ], [ %805, %800 ]
   %801 = phi i32 [ %794, %795 ], [ %804, %800 ]
   %802 = load i32, ptr @hf_zbncp_data_cluster_id, align 4
   %803 = tail call ptr @proto_tree_add_item(ptr noundef %799, i32 noundef %802, ptr noundef %0, i32 noundef %801, i32 noundef 2, i32 noundef -2147483648) #4
   %804 = add i32 %801, 2
-  %805 = add nuw nsw i32 %.116791829, 1
+  %805 = add nuw nsw i32 %.116911829, 1
   %exitcond1890.not = icmp eq i32 %805, %796
   br i1 %exitcond1890.not, label %.loopexit1767, label %800, !llvm.loop !13
 
@@ -3398,12 +3398,12 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   br label %824
 
 824:                                              ; preds = %820, %824
-  %.016801821 = phi i32 [ 0, %820 ], [ %829, %824 ]
+  %.016891821 = phi i32 [ 0, %820 ], [ %829, %824 ]
   %825 = phi i32 [ %819, %820 ], [ %828, %824 ]
   %826 = load i32, ptr @hf_zbncp_data_endpoint, align 4
   %827 = tail call ptr @proto_tree_add_item(ptr noundef %823, i32 noundef %826, ptr noundef %0, i32 noundef %825, i32 noundef 1, i32 noundef 0) #4
   %828 = add i32 %825, 1
-  %829 = add nuw nsw i32 %.016801821, 1
+  %829 = add nuw nsw i32 %.016891821, 1
   %exitcond1888.not = icmp eq i32 %829, %821
   br i1 %exitcond1888.not, label %.loopexit1769, label %824, !llvm.loop !14
 
@@ -3448,12 +3448,12 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   br label %855
 
 855:                                              ; preds = %850, %855
-  %.016811813 = phi i32 [ 0, %850 ], [ %860, %855 ]
+  %.016871813 = phi i32 [ 0, %850 ], [ %860, %855 ]
   %856 = phi i32 [ %849, %850 ], [ %859, %855 ]
   %857 = load i32, ptr @hf_zbncp_data_cluster_id, align 4
   %858 = tail call ptr @proto_tree_add_item(ptr noundef %854, i32 noundef %857, ptr noundef %0, i32 noundef %856, i32 noundef 2, i32 noundef -2147483648) #4
   %859 = add i32 %856, 2
-  %860 = add nuw nsw i32 %.016811813, 1
+  %860 = add nuw nsw i32 %.016871813, 1
   %exitcond1886.not = icmp eq i32 %860, %851
   br i1 %exitcond1886.not, label %.loopexit1771, label %855, !llvm.loop !15
 
@@ -3474,12 +3474,12 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   br label %868
 
 868:                                              ; preds = %863, %868
-  %.116821817 = phi i32 [ 0, %863 ], [ %873, %868 ]
+  %.116881817 = phi i32 [ 0, %863 ], [ %873, %868 ]
   %869 = phi i32 [ %862, %863 ], [ %872, %868 ]
   %870 = load i32, ptr @hf_zbncp_data_cluster_id, align 4
   %871 = tail call ptr @proto_tree_add_item(ptr noundef %867, i32 noundef %870, ptr noundef %0, i32 noundef %869, i32 noundef 2, i32 noundef -2147483648) #4
   %872 = add i32 %869, 2
-  %873 = add nuw nsw i32 %.116821817, 1
+  %873 = add nuw nsw i32 %.116881817, 1
   %exitcond1887.not = icmp eq i32 %873, %864
   br i1 %exitcond1887.not, label %.loopexit1770, label %868, !llvm.loop !16
 
@@ -3498,12 +3498,12 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   br label %883
 
 883:                                              ; preds = %879, %883
-  %.016841809 = phi i32 [ 0, %879 ], [ %888, %883 ]
+  %.016861809 = phi i32 [ 0, %879 ], [ %888, %883 ]
   %884 = phi i32 [ %878, %879 ], [ %887, %883 ]
   %885 = load i32, ptr @hf_zbncp_data_endpoint, align 4
   %886 = tail call ptr @proto_tree_add_item(ptr noundef %882, i32 noundef %885, ptr noundef %0, i32 noundef %884, i32 noundef 1, i32 noundef 0) #4
   %887 = add i32 %884, 1
-  %888 = add nuw nsw i32 %.016841809, 1
+  %888 = add nuw nsw i32 %.016861809, 1
   %exitcond1885.not = icmp eq i32 %888, %880
   br i1 %exitcond1885.not, label %.loopexit1772, label %883, !llvm.loop !17
 
@@ -3651,7 +3651,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   br label %989
 
 989:                                              ; preds = %984, %989
-  %.016861805 = phi i32 [ 0, %984 ], [ %999, %989 ]
+  %.016851805 = phi i32 [ 0, %984 ], [ %999, %989 ]
   %990 = phi i32 [ %983, %984 ], [ %998, %989 ]
   %991 = load i32, ptr @ett_zbncp_data_channel, align 4
   %992 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %988, ptr noundef %0, i32 noundef %990, i32 noundef 5, i32 noundef %991, ptr noundef null, ptr noundef nonnull @.str.58) #4
@@ -3661,7 +3661,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %996 = load i32, ptr @hf_zbncp_data_ch_mask, align 4
   %997 = tail call ptr @proto_tree_add_item(ptr noundef %992, i32 noundef %996, ptr noundef %0, i32 noundef %995, i32 noundef 4, i32 noundef -2147483648) #4
   %998 = add i32 %990, 5
-  %999 = add nuw nsw i32 %.016861805, 1
+  %999 = add nuw nsw i32 %.016851805, 1
   %exitcond1884.not = icmp eq i32 %999, %985
   br i1 %exitcond1884.not, label %.loopexit1773, label %989, !llvm.loop !18
 
@@ -4471,7 +4471,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   br label %1591
 
 1591:                                             ; preds = %1586, %1591
-  %.016901801 = phi i32 [ 0, %1586 ], [ %1601, %1591 ]
+  %.016801801 = phi i32 [ 0, %1586 ], [ %1601, %1591 ]
   %1592 = phi i32 [ %1585, %1586 ], [ %1600, %1591 ]
   %1593 = load i32, ptr @ett_zbncp_data_channel, align 4
   %1594 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1590, ptr noundef %0, i32 noundef %1592, i32 noundef 5, i32 noundef %1593, ptr noundef null, ptr noundef nonnull @.str.58) #4
@@ -4481,7 +4481,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %1598 = load i32, ptr @hf_zbncp_data_ch_mask, align 4
   %1599 = tail call ptr @proto_tree_add_item(ptr noundef %1594, i32 noundef %1598, ptr noundef %0, i32 noundef %1597, i32 noundef 4, i32 noundef -2147483648) #4
   %1600 = add i32 %1592, 5
-  %1601 = add nuw nsw i32 %.016901801, 1
+  %1601 = add nuw nsw i32 %.016801801, 1
   %exitcond1883.not = icmp eq i32 %1601, %1587
   br i1 %exitcond1883.not, label %.loopexit1774, label %1591, !llvm.loop !19
 
@@ -4524,7 +4524,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   br label %1626
 
 1626:                                             ; preds = %1621, %1626
-  %.016921797 = phi i32 [ 0, %1621 ], [ %1636, %1626 ]
+  %.016781797 = phi i32 [ 0, %1621 ], [ %1636, %1626 ]
   %1627 = phi i32 [ %1620, %1621 ], [ %1635, %1626 ]
   %1628 = load i32, ptr @ett_zbncp_data_channel, align 4
   %1629 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1625, ptr noundef %0, i32 noundef %1627, i32 noundef 5, i32 noundef %1628, ptr noundef null, ptr noundef nonnull @.str.58) #4
@@ -4534,7 +4534,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %1633 = load i32, ptr @hf_zbncp_data_ch_mask, align 4
   %1634 = tail call ptr @proto_tree_add_item(ptr noundef %1629, i32 noundef %1633, ptr noundef %0, i32 noundef %1632, i32 noundef 4, i32 noundef -2147483648) #4
   %1635 = add i32 %1627, 5
-  %1636 = add nuw nsw i32 %.016921797, 1
+  %1636 = add nuw nsw i32 %.016781797, 1
   %exitcond1882.not = icmp eq i32 %1636, %1622
   br i1 %exitcond1882.not, label %.loopexit1775, label %1626, !llvm.loop !20
 
@@ -4557,7 +4557,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   br i1 %.not1859, label %.loopexit1762, label %.lr.ph1793
 
 .lr.ph1793:                                       ; preds = %1641, %.lr.ph1793
-  %.016931792 = phi i32 [ %1675, %.lr.ph1793 ], [ 0, %1641 ]
+  %.016771792 = phi i32 [ %1675, %.lr.ph1793 ], [ 0, %1641 ]
   %1647 = phi i32 [ %1674, %.lr.ph1793 ], [ %1645, %1641 ]
   %1648 = load i32, ptr @ett_zbncp_data_nwk_descr, align 4
   %1649 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %13, ptr noundef %0, i32 noundef %1647, i32 noundef 14, i32 noundef %1648, ptr noundef null, ptr noundef nonnull @.str.1123) #4
@@ -4586,7 +4586,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %1672 = load i32, ptr @hf_zbncp_data_rssi, align 4
   %1673 = tail call ptr @proto_tree_add_item(ptr noundef %1649, i32 noundef %1672, ptr noundef %0, i32 noundef %1671, i32 noundef 1, i32 noundef 0) #4
   %1674 = add i32 %1647, 16
-  %1675 = add nuw nsw i32 %.016931792, 1
+  %1675 = add nuw nsw i32 %.016771792, 1
   %exitcond1881.not = icmp eq i32 %1675, %1646
   br i1 %exitcond1881.not, label %..loopexit1776_crit_edge, label %.lr.ph1793, !llvm.loop !21
 
@@ -4618,7 +4618,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   br label %1693
 
 1693:                                             ; preds = %1688, %1693
-  %.016911788 = phi i32 [ 0, %1688 ], [ %1703, %1693 ]
+  %.016761788 = phi i32 [ 0, %1688 ], [ %1703, %1693 ]
   %1694 = phi i32 [ %1687, %1688 ], [ %1702, %1693 ]
   %1695 = load i32, ptr @ett_zbncp_data_channel, align 4
   %1696 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1692, ptr noundef %0, i32 noundef %1694, i32 noundef 5, i32 noundef %1695, ptr noundef null, ptr noundef nonnull @.str.58) #4
@@ -4628,7 +4628,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %1700 = load i32, ptr @hf_zbncp_data_ch_mask, align 4
   %1701 = tail call ptr @proto_tree_add_item(ptr noundef %1696, i32 noundef %1700, ptr noundef %0, i32 noundef %1699, i32 noundef 4, i32 noundef -2147483648) #4
   %1702 = add i32 %1694, 5
-  %1703 = add nuw nsw i32 %.016911788, 1
+  %1703 = add nuw nsw i32 %.016761788, 1
   %exitcond1880.not = icmp eq i32 %1703, %1689
   br i1 %exitcond1880.not, label %.loopexit1777, label %1693, !llvm.loop !22
 
@@ -5061,12 +5061,12 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   br i1 %.not1858, label %.loopexit1762, label %.lr.ph1784
 
 .lr.ph1784:                                       ; preds = %1999, %.lr.ph1784
-  %.016851783 = phi i32 [ %2009, %.lr.ph1784 ], [ 0, %1999 ]
+  %.016751783 = phi i32 [ %2009, %.lr.ph1784 ], [ 0, %1999 ]
   %2005 = phi i32 [ %2008, %.lr.ph1784 ], [ %2003, %1999 ]
   %2006 = load i32, ptr @hf_zbncp_data_pan_id, align 4
   %2007 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %2006, ptr noundef %0, i32 noundef %2005, i32 noundef 2, i32 noundef -2147483648) #4
   %2008 = add i32 %2005, 2
-  %2009 = add nuw nsw i32 %.016851783, 1
+  %2009 = add nuw nsw i32 %.016751783, 1
   %exitcond1879.not = icmp eq i32 %2009, %2004
   br i1 %exitcond1879.not, label %..loopexit1778_crit_edge, label %.lr.ph1784, !llvm.loop !23
 
@@ -5085,12 +5085,12 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   br i1 %.not1857, label %.loopexit1762, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2012, %.lr.ph
-  %.016831780 = phi i32 [ %2022, %.lr.ph ], [ 0, %2012 ]
+  %.016741780 = phi i32 [ %2022, %.lr.ph ], [ 0, %2012 ]
   %2018 = phi i32 [ %2021, %.lr.ph ], [ %2016, %2012 ]
   %2019 = load i32, ptr @hf_zbncp_data_pan_id, align 4
   %2020 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %2019, ptr noundef %0, i32 noundef %2018, i32 noundef 2, i32 noundef -2147483648) #4
   %2021 = add i32 %2018, 2
-  %2022 = add nuw nsw i32 %.016831780, 1
+  %2022 = add nuw nsw i32 %.016741780, 1
   %exitcond.not = icmp eq i32 %2022, %2017
   br i1 %exitcond.not, label %..loopexit1779_crit_edge, label %.lr.ph, !llvm.loop !24
 

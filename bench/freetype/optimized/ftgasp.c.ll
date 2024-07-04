@@ -32,19 +32,19 @@ define range(i32 -1, 65536) i32 @FT_Get_Gasp(ptr noundef readonly %0, i32 nounde
   br label %16
 
 16:                                               ; preds = %20, %11
-  %.015 = phi ptr [ %13, %11 ], [ %21, %20 ]
-  %17 = load i16, ptr %.015, align 2
+  %.0 = phi ptr [ %13, %11 ], [ %21, %20 ]
+  %17 = load i16, ptr %.0, align 2
   %18 = zext i16 %17 to i32
   %19 = icmp ult i32 %18, %1
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %.015, i64 4
+  %21 = getelementptr inbounds i8, ptr %.0, i64 4
   %.not21 = icmp ult ptr %21, %15
   br i1 %.not21, label %16, label %.loopexit, !llvm.loop !4
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %.015, i64 2
+  %23 = getelementptr inbounds i8, ptr %.0, i64 2
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i32
   %26 = load i16, ptr %8, align 8
@@ -54,8 +54,8 @@ define range(i32 -1, 65536) i32 @FT_Get_Gasp(ptr noundef readonly %0, i32 nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %22, %2, %3, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %3 ], [ -1, %2 ], [ %spec.select, %22 ], [ -1, %20 ]
-  ret i32 %.0
+  %.015 = phi i32 [ -1, %7 ], [ -1, %3 ], [ -1, %2 ], [ %spec.select, %22 ], [ -1, %20 ]
+  ret i32 %.015
 }
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

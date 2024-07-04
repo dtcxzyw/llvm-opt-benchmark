@@ -222,23 +222,23 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22fast_rv32i_fcvtmod_w_
   br label %81
 
 81:                                               ; preds = %70, %61, %67, %72
-  %.060 = phi i64 [ %69, %67 ], [ %80, %72 ], [ 0, %61 ], [ 0, %70 ]
-  %.058 = phi i64 [ 0, %67 ], [ %77, %72 ], [ 0, %61 ], [ 1, %70 ]
+  %.058 = phi i64 [ %69, %67 ], [ %80, %72 ], [ 0, %61 ], [ 0, %70 ]
+  %.056 = phi i64 [ 0, %67 ], [ %77, %72 ], [ 0, %61 ], [ 1, %70 ]
   %82 = icmp ugt i32 %56, 1054
   %83 = select i1 %.not64, i64 2147483647, i64 2147483648
-  %84 = icmp ugt i64 %.060, %83
+  %84 = icmp ugt i64 %.058, %83
   %or.cond = select i1 %82, i1 true, i1 %84
-  %.159 = select i1 %or.cond, i64 0, i64 %.058
-  %85 = sub i64 0, %.060
-  %spec.select = select i1 %.not64, i64 %.060, i64 %85
+  %.157 = select i1 %or.cond, i64 0, i64 %.056
+  %85 = sub i64 0, %.058
+  %spec.select = select i1 %.not64, i64 %.058, i64 %85
   %86 = shl i64 %spec.select, 32
   %87 = ashr exact i64 %86, 32
   %88 = select i1 %or.cond, i64 16, i64 0
   br label %89
 
 89:                                               ; preds = %81, %53, %.thread
-  %.161 = phi i64 [ 0, %.thread ], [ 0, %53 ], [ %87, %81 ]
-  %.2 = phi i64 [ %60, %.thread ], [ 0, %53 ], [ %.159, %81 ]
+  %.159 = phi i64 [ 0, %.thread ], [ 0, %53 ], [ %87, %81 ]
+  %.2 = phi i64 [ %60, %.thread ], [ 0, %53 ], [ %.157, %81 ]
   %.1 = phi i64 [ 0, %.thread ], [ 16, %53 ], [ %88, %81 ]
   %90 = lshr i64 %1, 7
   %91 = and i64 %90, 31
@@ -248,7 +248,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22fast_rv32i_fcvtmod_w_
 92:                                               ; preds = %89
   %93 = getelementptr inbounds i8, ptr %0, i64 120
   %94 = getelementptr inbounds [32 x i64], ptr %93, i64 0, i64 %91
-  store i64 %.161, ptr %94, align 8
+  store i64 %.159, ptr %94, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %89, %92
@@ -399,23 +399,23 @@ define noundef i64 @_Z22fast_rv64i_fcvtmod_w_dP11processor_t6insn_tm(ptr nocaptu
   br label %64
 
 64:                                               ; preds = %53, %44, %50, %55
-  %.056 = phi i64 [ %52, %50 ], [ %63, %55 ], [ 0, %44 ], [ 0, %53 ]
-  %.054 = phi i64 [ 0, %50 ], [ %60, %55 ], [ 0, %44 ], [ 1, %53 ]
+  %.054 = phi i64 [ %52, %50 ], [ %63, %55 ], [ 0, %44 ], [ 0, %53 ]
+  %.052 = phi i64 [ 0, %50 ], [ %60, %55 ], [ 0, %44 ], [ 1, %53 ]
   %65 = icmp ugt i32 %39, 1054
   %66 = select i1 %.not, i64 2147483647, i64 2147483648
-  %67 = icmp ugt i64 %.056, %66
+  %67 = icmp ugt i64 %.054, %66
   %or.cond = select i1 %65, i1 true, i1 %67
-  %.155 = select i1 %or.cond, i64 0, i64 %.054
-  %68 = sub i64 0, %.056
-  %spec.select = select i1 %.not, i64 %.056, i64 %68
+  %.153 = select i1 %or.cond, i64 0, i64 %.052
+  %68 = sub i64 0, %.054
+  %spec.select = select i1 %.not, i64 %.054, i64 %68
   %69 = shl i64 %spec.select, 32
   %70 = ashr exact i64 %69, 32
   %71 = select i1 %or.cond, i64 16, i64 0
   br label %72
 
 72:                                               ; preds = %64, %36, %41
-  %.157 = phi i64 [ 0, %41 ], [ 0, %36 ], [ %70, %64 ]
-  %.2 = phi i64 [ %43, %41 ], [ 0, %36 ], [ %.155, %64 ]
+  %.155 = phi i64 [ 0, %41 ], [ 0, %36 ], [ %70, %64 ]
+  %.2 = phi i64 [ %43, %41 ], [ 0, %36 ], [ %.153, %64 ]
   %.1 = phi i64 [ 0, %41 ], [ 16, %36 ], [ %71, %64 ]
   %73 = lshr i64 %1, 7
   %74 = and i64 %73, 31
@@ -425,7 +425,7 @@ define noundef i64 @_Z22fast_rv64i_fcvtmod_w_dP11processor_t6insn_tm(ptr nocaptu
 75:                                               ; preds = %72
   %76 = getelementptr inbounds i8, ptr %0, i64 120
   %77 = getelementptr inbounds [32 x i64], ptr %76, i64 0, i64 %74
-  store i64 %.157, ptr %77, align 8
+  store i64 %.155, ptr %77, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %72, %75
@@ -801,24 +801,24 @@ define noundef i64 @_Z24logged_rv64i_fcvtmod_w_dP11processor_t6insn_tm(ptr nound
   br label %64
 
 64:                                               ; preds = %53, %44, %50, %55
-  %.060 = phi i64 [ 0, %50 ], [ %60, %55 ], [ 0, %44 ], [ 1, %53 ]
-  %.057 = phi i64 [ %52, %50 ], [ %63, %55 ], [ 0, %44 ], [ 0, %53 ]
+  %.060 = phi i64 [ %52, %50 ], [ %63, %55 ], [ 0, %44 ], [ 0, %53 ]
+  %.058 = phi i64 [ 0, %50 ], [ %60, %55 ], [ 0, %44 ], [ 1, %53 ]
   %65 = icmp ugt i32 %39, 1054
   %66 = select i1 %.not, i64 2147483647, i64 2147483648
-  %67 = icmp ugt i64 %.057, %66
+  %67 = icmp ugt i64 %.060, %66
   %or.cond = select i1 %65, i1 true, i1 %67
-  %.161 = select i1 %or.cond, i64 0, i64 %.060
-  %68 = sub i64 0, %.057
-  %spec.select = select i1 %.not, i64 %.057, i64 %68
+  %.159 = select i1 %or.cond, i64 0, i64 %.058
+  %68 = sub i64 0, %.060
+  %spec.select = select i1 %.not, i64 %.060, i64 %68
   %69 = shl i64 %spec.select, 32
   %70 = ashr exact i64 %69, 32
   %71 = select i1 %or.cond, i64 16, i64 0
   br label %72
 
 72:                                               ; preds = %64, %36, %41
-  %.2 = phi i64 [ %43, %41 ], [ 0, %36 ], [ %.161, %64 ]
-  %.159 = phi i64 [ 0, %41 ], [ 16, %36 ], [ %71, %64 ]
-  %.1 = phi i64 [ 0, %41 ], [ 0, %36 ], [ %70, %64 ]
+  %.161 = phi i64 [ 0, %41 ], [ 0, %36 ], [ %70, %64 ]
+  %.2 = phi i64 [ %43, %41 ], [ 0, %36 ], [ %.159, %64 ]
+  %.1 = phi i64 [ 0, %41 ], [ 16, %36 ], [ %71, %64 ]
   %73 = getelementptr inbounds i8, ptr %0, i64 3672
   %74 = lshr i64 %1, 7
   %75 = and i64 %74, 31
@@ -875,7 +875,7 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit: ; preds = %88, %83, %.loopexit.i.i
   %.0.i.pn.i.i = phi ptr [ %84, %83 ], [ %98, %.loopexit.i.i ], [ %90, %88 ]
   %.0.i.i68 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
-  store i64 %.1, ptr %.0.i.i68, align 8
+  store i64 %.161, ptr %.0.i.i68, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   %.not.i = icmp eq i64 %75, 0
@@ -884,7 +884,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 100:                                              ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit
   %101 = getelementptr inbounds i8, ptr %0, i64 120
   %102 = getelementptr inbounds [32 x i64], ptr %101, i64 0, i64 %75
-  store i64 %.1, ptr %102, align 8
+  store i64 %.161, ptr %102, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit, %100
@@ -893,7 +893,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZNSt13unordered_ma
   %105 = getelementptr inbounds i8, ptr %104, i64 40
   %106 = load i64, ptr %105, align 8
   %107 = and i64 %.2, 1
-  %108 = or disjoint i64 %.159, %107
+  %108 = or disjoint i64 %.1, %107
   %109 = or i64 %108, %106
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %104, i64 noundef %109) #13
   ret i64 %103
@@ -1062,23 +1062,23 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22fast_rv32e_fcvtmod_w_
   br label %89
 
 89:                                               ; preds = %78, %69, %75, %80
-  %.066 = phi i64 [ %77, %75 ], [ %88, %80 ], [ 0, %69 ], [ 0, %78 ]
-  %.064 = phi i64 [ 0, %75 ], [ %85, %80 ], [ 0, %69 ], [ 1, %78 ]
+  %.064 = phi i64 [ %77, %75 ], [ %88, %80 ], [ 0, %69 ], [ 0, %78 ]
+  %.062 = phi i64 [ 0, %75 ], [ %85, %80 ], [ 0, %69 ], [ 1, %78 ]
   %90 = icmp ugt i32 %64, 1054
   %91 = select i1 %.not70, i64 2147483647, i64 2147483648
-  %92 = icmp ugt i64 %.066, %91
+  %92 = icmp ugt i64 %.064, %91
   %or.cond = select i1 %90, i1 true, i1 %92
-  %.165 = select i1 %or.cond, i64 0, i64 %.064
-  %93 = sub i64 0, %.066
-  %spec.select = select i1 %.not70, i64 %.066, i64 %93
+  %.163 = select i1 %or.cond, i64 0, i64 %.062
+  %93 = sub i64 0, %.064
+  %spec.select = select i1 %.not70, i64 %.064, i64 %93
   %94 = shl i64 %spec.select, 32
   %95 = ashr exact i64 %94, 32
   %96 = select i1 %or.cond, i64 16, i64 0
   br label %97
 
 97:                                               ; preds = %89, %61, %.thread
-  %.167 = phi i64 [ 0, %.thread ], [ 0, %61 ], [ %95, %89 ]
-  %.2 = phi i64 [ %68, %.thread ], [ 0, %61 ], [ %.165, %89 ]
+  %.165 = phi i64 [ 0, %.thread ], [ 0, %61 ], [ %95, %89 ]
+  %.2 = phi i64 [ %68, %.thread ], [ 0, %61 ], [ %.163, %89 ]
   %.1 = phi i64 [ 0, %.thread ], [ 16, %61 ], [ %96, %89 ]
   %98 = lshr i64 %1, 7
   %99 = and i64 %98, 31
@@ -1104,7 +1104,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22fast_rv32e_fcvtmod_w_
 107:                                              ; preds = %106
   %108 = getelementptr inbounds i8, ptr %0, i64 120
   %109 = getelementptr inbounds [32 x i64], ptr %108, i64 0, i64 %99
-  store i64 %.167, ptr %109, align 8
+  store i64 %.165, ptr %109, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %106, %107
@@ -1236,23 +1236,23 @@ define noundef i64 @_Z22fast_rv64e_fcvtmod_w_dP11processor_t6insn_tm(ptr nocaptu
   br label %64
 
 64:                                               ; preds = %53, %44, %50, %55
-  %.058 = phi i64 [ %52, %50 ], [ %63, %55 ], [ 0, %44 ], [ 0, %53 ]
-  %.056 = phi i64 [ 0, %50 ], [ %60, %55 ], [ 0, %44 ], [ 1, %53 ]
+  %.056 = phi i64 [ %52, %50 ], [ %63, %55 ], [ 0, %44 ], [ 0, %53 ]
+  %.054 = phi i64 [ 0, %50 ], [ %60, %55 ], [ 0, %44 ], [ 1, %53 ]
   %65 = icmp ugt i32 %39, 1054
   %66 = select i1 %.not, i64 2147483647, i64 2147483648
-  %67 = icmp ugt i64 %.058, %66
+  %67 = icmp ugt i64 %.056, %66
   %or.cond = select i1 %65, i1 true, i1 %67
-  %.157 = select i1 %or.cond, i64 0, i64 %.056
-  %68 = sub i64 0, %.058
-  %spec.select = select i1 %.not, i64 %.058, i64 %68
+  %.155 = select i1 %or.cond, i64 0, i64 %.054
+  %68 = sub i64 0, %.056
+  %spec.select = select i1 %.not, i64 %.056, i64 %68
   %69 = shl i64 %spec.select, 32
   %70 = ashr exact i64 %69, 32
   %71 = select i1 %or.cond, i64 16, i64 0
   br label %72
 
 72:                                               ; preds = %64, %36, %41
-  %.159 = phi i64 [ 0, %41 ], [ 0, %36 ], [ %70, %64 ]
-  %.2 = phi i64 [ %43, %41 ], [ 0, %36 ], [ %.157, %64 ]
+  %.157 = phi i64 [ 0, %41 ], [ 0, %36 ], [ %70, %64 ]
+  %.2 = phi i64 [ %43, %41 ], [ 0, %36 ], [ %.155, %64 ]
   %.1 = phi i64 [ 0, %41 ], [ 16, %36 ], [ %71, %64 ]
   %73 = lshr i64 %1, 7
   %74 = and i64 %73, 31
@@ -1278,7 +1278,7 @@ define noundef i64 @_Z22fast_rv64e_fcvtmod_w_dP11processor_t6insn_tm(ptr nocaptu
 82:                                               ; preds = %81
   %83 = getelementptr inbounds i8, ptr %0, i64 120
   %84 = getelementptr inbounds [32 x i64], ptr %83, i64 0, i64 %74
-  store i64 %.159, ptr %84, align 8
+  store i64 %.157, ptr %84, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %81, %82
@@ -1455,23 +1455,23 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z24logged_rv32e_fcvtmod_
   br label %89
 
 89:                                               ; preds = %78, %69, %75, %80
-  %.070 = phi i64 [ %77, %75 ], [ %88, %80 ], [ 0, %69 ], [ 0, %78 ]
-  %.068 = phi i64 [ 0, %75 ], [ %85, %80 ], [ 0, %69 ], [ 1, %78 ]
+  %.069 = phi i64 [ %77, %75 ], [ %88, %80 ], [ 0, %69 ], [ 0, %78 ]
+  %.067 = phi i64 [ 0, %75 ], [ %85, %80 ], [ 0, %69 ], [ 1, %78 ]
   %90 = icmp ugt i32 %64, 1054
   %91 = select i1 %.not74, i64 2147483647, i64 2147483648
-  %92 = icmp ugt i64 %.070, %91
+  %92 = icmp ugt i64 %.069, %91
   %or.cond = select i1 %90, i1 true, i1 %92
-  %.169 = select i1 %or.cond, i64 0, i64 %.068
-  %93 = sub i64 0, %.070
-  %spec.select = select i1 %.not74, i64 %.070, i64 %93
+  %.168 = select i1 %or.cond, i64 0, i64 %.067
+  %93 = sub i64 0, %.069
+  %spec.select = select i1 %.not74, i64 %.069, i64 %93
   %94 = shl i64 %spec.select, 32
   %95 = ashr exact i64 %94, 32
   %96 = select i1 %or.cond, i64 16, i64 0
   br label %97
 
 97:                                               ; preds = %89, %61, %.thread
-  %.171 = phi i64 [ 0, %.thread ], [ 0, %61 ], [ %95, %89 ]
-  %.2 = phi i64 [ %68, %.thread ], [ 0, %61 ], [ %.169, %89 ]
+  %.170 = phi i64 [ 0, %.thread ], [ 0, %61 ], [ %95, %89 ]
+  %.2 = phi i64 [ %68, %.thread ], [ 0, %61 ], [ %.168, %89 ]
   %.1 = phi i64 [ 0, %.thread ], [ 16, %61 ], [ %96, %89 ]
   %98 = getelementptr inbounds i8, ptr %0, i64 3672
   %99 = lshr i64 %1, 7
@@ -1529,7 +1529,7 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit: ; preds = %113, %108, %.loopexit.i.i
   %.0.i.pn.i.i = phi ptr [ %109, %108 ], [ %123, %.loopexit.i.i ], [ %115, %113 ]
   %.0.i.i79 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
-  store i64 %.171, ptr %.0.i.i79, align 8
+  store i64 %.170, ptr %.0.i.i79, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   %125 = icmp ugt i64 %100, 15
@@ -1554,7 +1554,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 132:                                              ; preds = %131
   %133 = getelementptr inbounds i8, ptr %0, i64 120
   %134 = getelementptr inbounds [32 x i64], ptr %133, i64 0, i64 %100
-  store i64 %.171, ptr %134, align 8
+  store i64 %.170, ptr %134, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %131, %132
@@ -1687,24 +1687,24 @@ define noundef i64 @_Z24logged_rv64e_fcvtmod_w_dP11processor_t6insn_tm(ptr nound
   br label %64
 
 64:                                               ; preds = %53, %44, %50, %55
-  %.060 = phi i64 [ 0, %50 ], [ %60, %55 ], [ 0, %44 ], [ 1, %53 ]
-  %.059 = phi i64 [ %52, %50 ], [ %63, %55 ], [ 0, %44 ], [ 0, %53 ]
+  %.061 = phi i64 [ %52, %50 ], [ %63, %55 ], [ 0, %44 ], [ 0, %53 ]
+  %.059 = phi i64 [ 0, %50 ], [ %60, %55 ], [ 0, %44 ], [ 1, %53 ]
   %65 = icmp ugt i32 %39, 1054
   %66 = select i1 %.not, i64 2147483647, i64 2147483648
-  %67 = icmp ugt i64 %.059, %66
+  %67 = icmp ugt i64 %.061, %66
   %or.cond = select i1 %65, i1 true, i1 %67
-  %.161 = select i1 %or.cond, i64 0, i64 %.060
-  %68 = sub i64 0, %.059
-  %spec.select = select i1 %.not, i64 %.059, i64 %68
+  %.160 = select i1 %or.cond, i64 0, i64 %.059
+  %68 = sub i64 0, %.061
+  %spec.select = select i1 %.not, i64 %.061, i64 %68
   %69 = shl i64 %spec.select, 32
   %70 = ashr exact i64 %69, 32
   %71 = select i1 %or.cond, i64 16, i64 0
   br label %72
 
 72:                                               ; preds = %64, %36, %41
-  %.163 = phi i64 [ 0, %41 ], [ 16, %36 ], [ %71, %64 ]
-  %.2 = phi i64 [ %43, %41 ], [ 0, %36 ], [ %.161, %64 ]
-  %.1 = phi i64 [ 0, %41 ], [ 0, %36 ], [ %70, %64 ]
+  %.162 = phi i64 [ 0, %41 ], [ 0, %36 ], [ %70, %64 ]
+  %.2 = phi i64 [ %43, %41 ], [ 0, %36 ], [ %.160, %64 ]
+  %.1 = phi i64 [ 0, %41 ], [ 16, %36 ], [ %71, %64 ]
   %73 = getelementptr inbounds i8, ptr %0, i64 3672
   %74 = lshr i64 %1, 7
   %75 = and i64 %74, 31
@@ -1761,7 +1761,7 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit: ; preds = %88, %83, %.loopexit.i.i
   %.0.i.pn.i.i = phi ptr [ %84, %83 ], [ %98, %.loopexit.i.i ], [ %90, %88 ]
   %.0.i.i70 = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 16
-  store i64 %.1, ptr %.0.i.i70, align 8
+  store i64 %.162, ptr %.0.i.i70, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   %100 = icmp ugt i64 %75, 15
@@ -1786,7 +1786,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 107:                                              ; preds = %106
   %108 = getelementptr inbounds i8, ptr %0, i64 120
   %109 = getelementptr inbounds [32 x i64], ptr %108, i64 0, i64 %75
-  store i64 %.1, ptr %109, align 8
+  store i64 %.162, ptr %109, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %106, %107
@@ -1795,7 +1795,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %106, %107
   %112 = getelementptr inbounds i8, ptr %111, i64 40
   %113 = load i64, ptr %112, align 8
   %114 = and i64 %.2, 1
-  %115 = or disjoint i64 %114, %.163
+  %115 = or disjoint i64 %.1, %114
   %116 = or i64 %115, %113
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %111, i64 noundef %116) #13
   ret i64 %110

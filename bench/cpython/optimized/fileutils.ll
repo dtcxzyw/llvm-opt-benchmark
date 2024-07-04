@@ -1151,31 +1151,31 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %for.inc.us.i
   %4 = phi i8 [ %5, %for.inc.us.i ], [ %3, %for.body.lr.ph.i ]
-  %in.028.us.i = phi ptr [ %incdec.ptr26.us.i, %for.inc.us.i ], [ %arg, %for.body.lr.ph.i ]
-  %out.027.us.i = phi ptr [ %out.1.us.i, %for.inc.us.i ], [ %call5.i, %for.body.lr.ph.i ]
+  %out.028.us.i = phi ptr [ %out.1.us.i, %for.inc.us.i ], [ %call5.i, %for.body.lr.ph.i ]
+  %in.027.us.i = phi ptr [ %incdec.ptr26.us.i, %for.inc.us.i ], [ %arg, %for.body.lr.ph.i ]
   %cmp9.us.i = icmp sgt i8 %4, -1
   br i1 %cmp9.us.i, label %for.inc.us.i, label %if.then14.i
 
 for.inc.us.i:                                     ; preds = %for.body.us.i
   %conv.us.i = zext nneg i8 %4 to i32
-  %out.1.us.i = getelementptr i8, ptr %out.027.us.i, i64 4
-  store i32 %conv.us.i, ptr %out.027.us.i, align 4
-  %incdec.ptr26.us.i = getelementptr i8, ptr %in.028.us.i, i64 1
+  %out.1.us.i = getelementptr i8, ptr %out.028.us.i, i64 4
+  store i32 %conv.us.i, ptr %out.028.us.i, align 4
+  %incdec.ptr26.us.i = getelementptr i8, ptr %in.027.us.i, i64 1
   %5 = load i8, ptr %incdec.ptr26.us.i, align 1
   %tobool8.not.us.i = icmp eq i8 %5, 0
   br i1 %tobool8.not.us.i, label %for.end.i, label %for.body.us.i, !llvm.loop !8
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.body.i
   %6 = phi i8 [ %7, %for.body.i ], [ %3, %for.body.lr.ph.i ]
-  %in.028.i = phi ptr [ %incdec.ptr26.i, %for.body.i ], [ %arg, %for.body.lr.ph.i ]
-  %out.027.i = phi ptr [ %out.1.i, %for.body.i ], [ %call5.i, %for.body.lr.ph.i ]
+  %out.028.i = phi ptr [ %out.1.i, %for.body.i ], [ %call5.i, %for.body.lr.ph.i ]
+  %in.027.i = phi ptr [ %incdec.ptr26.i, %for.body.i ], [ %arg, %for.body.lr.ph.i ]
   %conv.i = zext i8 %6 to i32
   %add23.i = or disjoint i32 %conv.i, 56320
   %cmp931.i = icmp slt i8 %6, 0
   %spec.select.i = select i1 %cmp931.i, i32 %add23.i, i32 %conv.i
-  %out.1.i = getelementptr i8, ptr %out.027.i, i64 4
-  store i32 %spec.select.i, ptr %out.027.i, align 4
-  %incdec.ptr26.i = getelementptr i8, ptr %in.028.i, i64 1
+  %out.1.i = getelementptr i8, ptr %out.028.i, i64 4
+  store i32 %spec.select.i, ptr %out.028.i, align 4
+  %incdec.ptr26.i = getelementptr i8, ptr %in.027.i, i64 1
   %7 = load i8, ptr %incdec.ptr26.i, align 1
   %tobool8.not.i = icmp eq i8 %7, 0
   br i1 %tobool8.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
@@ -1186,7 +1186,7 @@ if.then14.i:                                      ; preds = %for.body.us.i
   br i1 %tobool15.not.i, label %if.end17.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.then14.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %in.028.us.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %in.027.us.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %arg to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   store i64 %sub.ptr.sub.i, ptr %wlen, align 8
@@ -3095,17 +3095,17 @@ if.then33:                                        ; preds = %land.lhs.true29
   br label %if.end39
 
 if.end39:                                         ; preds = %while.cond, %if.end, %land.lhs.true6, %land.lhs.true25, %land.lhs.true29, %if.then33
+  %path.addr.1 = phi ptr [ %path, %land.lhs.true29 ], [ %path, %if.then33 ], [ %path, %land.lhs.true25 ], [ %path, %land.lhs.true6 ], [ %path, %if.end ], [ %path.addr.0, %while.cond ]
+  %p2.0 = phi ptr [ %path, %land.lhs.true29 ], [ %arrayidx30, %if.then33 ], [ %path, %land.lhs.true25 ], [ %path, %land.lhs.true6 ], [ %path, %if.end ], [ %path.addr.0, %while.cond ]
   %minP2.0 = phi ptr [ %path, %land.lhs.true29 ], [ %arrayidx26, %if.then33 ], [ %path, %land.lhs.true25 ], [ %path, %land.lhs.true6 ], [ %path, %if.end ], [ %path.addr.0, %while.cond ]
   %lastC.0 = phi i32 [ 0, %land.lhs.true29 ], [ 47, %if.then33 ], [ 0, %land.lhs.true25 ], [ 0, %land.lhs.true6 ], [ 0, %if.end ], [ 47, %while.cond ]
-  %p1.0 = phi ptr [ %path, %land.lhs.true29 ], [ %arrayidx30, %if.then33 ], [ %path, %land.lhs.true25 ], [ %path, %land.lhs.true6 ], [ %path, %if.end ], [ %path.addr.0, %while.cond ]
-  %path.addr.1 = phi ptr [ %path, %land.lhs.true29 ], [ %path, %if.then33 ], [ %path, %land.lhs.true25 ], [ %path, %land.lhs.true6 ], [ %path, %if.end ], [ %path.addr.0, %while.cond ]
   %tobool40.not = icmp eq ptr %cond, null
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %if.end39
-  %p2.1 = phi ptr [ %p1.0, %if.end39 ], [ %p2.3, %for.inc ]
+  %p1.1 = phi ptr [ %p2.0, %if.end39 ], [ %incdec.ptr171, %for.inc ]
+  %p2.1 = phi ptr [ %p2.0, %if.end39 ], [ %p2.3, %for.inc ]
   %lastC.1 = phi i32 [ %lastC.0, %if.end39 ], [ %lastC.3, %for.inc ]
-  %p1.1 = phi ptr [ %p1.0, %if.end39 ], [ %incdec.ptr171, %for.inc ]
   br i1 %tobool40.not, label %cond.end48, label %cond.true41
 
 cond.true41:                                      ; preds = %for.cond
@@ -3239,9 +3239,9 @@ if.else168:                                       ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else143, %if.then58, %if.then55, %if.then140, %if.else168, %if.else164, %if.else156
+  %p1.2 = phi ptr [ %p1.1, %if.else156 ], [ %p1.1, %if.else164 ], [ %p1.1, %if.else168 ], [ %arrayidx59, %if.then140 ], [ %p1.1, %if.then55 ], [ %p1.1, %if.then58 ], [ %arrayidx59, %if.else143 ]
   %p2.3 = phi ptr [ %incdec.ptr157, %if.else156 ], [ %incdec.ptr165, %if.else164 ], [ %incdec.ptr169, %if.else168 ], [ %incdec.ptr142, %if.then140 ], [ %p2.1, %if.then55 ], [ %p2.1, %if.then58 ], [ %spec.select, %if.else143 ]
   %lastC.3 = phi i32 [ 46, %if.else156 ], [ %7, %if.else164 ], [ %7, %if.else168 ], [ 46, %if.then140 ], [ %7, %if.then55 ], [ 47, %if.then58 ], [ 47, %if.else143 ]
-  %p1.2 = phi ptr [ %p1.1, %if.else156 ], [ %p1.1, %if.else164 ], [ %p1.1, %if.else168 ], [ %arrayidx59, %if.then140 ], [ %p1.1, %if.then55 ], [ %p1.1, %if.then58 ], [ %arrayidx59, %if.else143 ]
   %incdec.ptr171 = getelementptr i8, ptr %p1.2, i64 4
   br label %for.cond, !llvm.loop !21
 

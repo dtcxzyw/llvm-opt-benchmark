@@ -346,8 +346,8 @@ entry:
 
 for.cond.outer:                                   ; preds = %for.end, %entry
   %.ph = phi i32 [ %sub14, %for.end ], [ %.pre, %entry ]
-  %size.addr.0.ph = phi i32 [ %sub, %for.end ], [ %dec, %entry ]
   %buf.addr.0.ph = phi ptr [ %buf.addr.2, %for.end ], [ %buf, %entry ]
+  %size.addr.0.ph = phi i32 [ %sub, %for.end ], [ %dec, %entry ]
   %num.0.ph = phi i32 [ %add, %for.end ], [ 0, %entry ]
   br label %for.cond
 

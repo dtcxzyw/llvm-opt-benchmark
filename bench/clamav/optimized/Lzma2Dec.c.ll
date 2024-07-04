@@ -147,7 +147,7 @@ define i32 @Lzma2Dec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2,
 
 24:                                               ; preds = %.lr.ph, %.backedge
   %25 = phi i32 [ %10, %.lr.ph ], [ %88, %.backedge ]
-  %.093120 = phi ptr [ %2, %.lr.ph ], [ %.093.be, %.backedge ]
+  %.095120 = phi ptr [ %2, %.lr.ph ], [ %.095.be, %.backedge ]
   %26 = load i64, ptr %11, align 8
   %27 = icmp eq i32 %25, 9
   br i1 %27, label %.loopexit, label %28
@@ -170,8 +170,8 @@ define i32 @Lzma2Dec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2,
 35:                                               ; preds = %32
   %36 = add i64 %33, 1
   store i64 %36, ptr %3, align 8
-  %37 = getelementptr inbounds i8, ptr %.093120, i64 1
-  %38 = load i8, ptr %.093120, align 1
+  %37 = getelementptr inbounds i8, ptr %.095120, i64 1
+  %38 = load i8, ptr %.095120, align 1
   %39 = load i32, ptr %9, align 8
   switch i32 %39, label %Lzma2Dec_UpdateState.exit [
     i32 0, label %40
@@ -282,7 +282,7 @@ Lzma2Dec_UpdateState.exit:                        ; preds = %35, %40, %45, %47, 
 
 .backedge:                                        ; preds = %.backedgethread-pre-split, %LzmaDec_UpdateWithUncompressed.exit, %Lzma2Dec_UpdateState.exit
   %88 = phi i32 [ %.pr, %.backedgethread-pre-split ], [ %140, %LzmaDec_UpdateWithUncompressed.exit ], [ %.0.i, %Lzma2Dec_UpdateState.exit ]
-  %.093.be = phi ptr [ %165, %.backedgethread-pre-split ], [ %133, %LzmaDec_UpdateWithUncompressed.exit ], [ %37, %Lzma2Dec_UpdateState.exit ]
+  %.095.be = phi ptr [ %165, %.backedgethread-pre-split ], [ %133, %LzmaDec_UpdateWithUncompressed.exit ], [ %37, %Lzma2Dec_UpdateState.exit ]
   %.not = icmp eq i32 %88, 8
   br i1 %.not, label %.loopexit.sink.split, label %24
 
@@ -294,8 +294,8 @@ Lzma2Dec_UpdateState.exit:                        ; preds = %35, %40, %45, %47, 
   %93 = load i32, ptr %18, align 4
   %94 = zext i32 %93 to i64
   %.not107 = icmp uge i64 %90, %94
-  %spec.select = zext i1 %.not107 to i32
-  %spec.select115 = call i64 @llvm.umin.i64(i64 %90, i64 %94)
+  %spec.select = call i64 @llvm.umin.i64(i64 %90, i64 %94)
+  %spec.select115 = zext i1 %.not107 to i32
   %95 = load i8, ptr %17, align 4
   %96 = icmp sgt i8 %95, -1
   br i1 %96, label %97, label %141
@@ -331,15 +331,15 @@ Lzma2Dec_UpdateState.exit:                        ; preds = %35, %40, %45, %47, 
 
 108:                                              ; preds = %107, %99
   %109 = phi i64 [ %.pre122, %107 ], [ %92, %99 ]
-  %110 = icmp ugt i64 %109, %spec.select115
+  %110 = icmp ugt i64 %109, %spec.select
   br i1 %110, label %111, label %112
 
 111:                                              ; preds = %108
-  store i64 %spec.select115, ptr %7, align 8
+  store i64 %spec.select, ptr %7, align 8
   br label %112
 
 112:                                              ; preds = %111, %108
-  %113 = phi i64 [ %spec.select115, %111 ], [ %109, %108 ]
+  %113 = phi i64 [ %spec.select, %111 ], [ %109, %108 ]
   %114 = icmp eq i64 %113, 0
   br i1 %114, label %.loopexit, label %115
 
@@ -347,7 +347,7 @@ Lzma2Dec_UpdateState.exit:                        ; preds = %35, %40, %45, %47, 
   %116 = load ptr, ptr %21, align 8
   %117 = load i64, ptr %11, align 8
   %118 = getelementptr inbounds i8, ptr %116, i64 %117
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %118, ptr readonly align 1 %.093120, i64 %113, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %118, ptr readonly align 1 %.095120, i64 %113, i1 false)
   %119 = load i64, ptr %11, align 8
   %120 = add i64 %119, %113
   store i64 %120, ptr %11, align 8
@@ -377,7 +377,7 @@ LzmaDec_UpdateWithUncompressed.exit:              ; preds = %._crit_edge.i, %123
   %131 = add i32 %129, %130
   store i32 %131, ptr %.phi.trans.insert.i, align 8
   %132 = load i64, ptr %7, align 8
-  %133 = getelementptr inbounds i8, ptr %.093120, i64 %132
+  %133 = getelementptr inbounds i8, ptr %.095120, i64 %132
   %134 = load i64, ptr %3, align 8
   %135 = add i64 %134, %132
   store i64 %135, ptr %3, align 8
@@ -436,10 +436,10 @@ LzmaDec_UpdateWithUncompressed.exit:              ; preds = %._crit_edge.i, %123
   br label %161
 
 161:                                              ; preds = %160, %155
-  %162 = add i64 %spec.select115, %26
-  %163 = call i32 @LzmaDec_DecodeToDic(ptr noundef nonnull %0, i64 noundef %162, ptr noundef %.093120, ptr noundef nonnull %7, i32 noundef %spec.select, ptr noundef nonnull %5) #4
+  %162 = add i64 %spec.select, %26
+  %163 = call i32 @LzmaDec_DecodeToDic(ptr noundef nonnull %0, i64 noundef %162, ptr noundef %.095120, ptr noundef nonnull %7, i32 noundef %spec.select115, ptr noundef nonnull %5) #4
   %164 = load i64, ptr %7, align 8
-  %165 = getelementptr inbounds i8, ptr %.093120, i64 %164
+  %165 = getelementptr inbounds i8, ptr %.095120, i64 %164
   %166 = load i64, ptr %3, align 8
   %167 = add i64 %166, %164
   store i64 %167, ptr %3, align 8
@@ -517,10 +517,10 @@ define i32 @Lzma2Dec_DecodeToBuf(ptr noundef %0, ptr nocapture noundef writeonly
 
 14:                                               ; preds = %34, %7
   %.046 = phi ptr [ %3, %7 ], [ %38, %34 ]
-  %.045 = phi i64 [ %9, %7 ], [ %35, %34 ]
-  %.044 = phi i64 [ %10, %7 ], [ %37, %34 ]
-  %.042 = phi ptr [ %1, %7 ], [ %36, %34 ]
-  store i64 %.044, ptr %8, align 8
+  %.045 = phi ptr [ %1, %7 ], [ %36, %34 ]
+  %.043 = phi i64 [ %9, %7 ], [ %35, %34 ]
+  %.042 = phi i64 [ %10, %7 ], [ %37, %34 ]
+  store i64 %.042, ptr %8, align 8
   %15 = load i64, ptr %11, align 8
   %16 = load i64, ptr %12, align 8
   %17 = icmp eq i64 %15, %16
@@ -533,11 +533,11 @@ define i32 @Lzma2Dec_DecodeToBuf(ptr noundef %0, ptr nocapture noundef writeonly
 19:                                               ; preds = %18, %14
   %20 = phi i64 [ 0, %18 ], [ %15, %14 ]
   %21 = sub i64 %16, %20
-  %22 = icmp ugt i64 %.045, %21
-  %23 = add i64 %20, %.045
-  %.043 = select i1 %22, i64 %16, i64 %23
-  %.041 = select i1 %22, i32 0, i32 %5
-  %24 = call i32 @Lzma2Dec_DecodeToDic(ptr noundef nonnull %0, i64 noundef %.043, ptr noundef %.046, ptr noundef nonnull %8, i32 noundef %.041, ptr noundef %6)
+  %22 = icmp ugt i64 %.043, %21
+  %23 = add i64 %20, %.043
+  %.041 = select i1 %22, i64 %16, i64 %23
+  %.0 = select i1 %22, i32 0, i32 %5
+  %24 = call i32 @Lzma2Dec_DecodeToDic(ptr noundef nonnull %0, i64 noundef %.041, ptr noundef %.046, ptr noundef nonnull %8, i32 noundef %.0, ptr noundef %6)
   %25 = load i64, ptr %8, align 8
   %26 = load i64, ptr %4, align 8
   %27 = add i64 %26, %25
@@ -546,7 +546,7 @@ define i32 @Lzma2Dec_DecodeToBuf(ptr noundef %0, ptr nocapture noundef writeonly
   %29 = sub i64 %28, %20
   %30 = load ptr, ptr %13, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.042, ptr align 1 %31, i64 %29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.045, ptr align 1 %31, i64 %29, i1 false)
   %32 = load i64, ptr %2, align 8
   %33 = add i64 %32, %29
   store i64 %33, ptr %2, align 8
@@ -554,9 +554,9 @@ define i32 @Lzma2Dec_DecodeToBuf(ptr noundef %0, ptr nocapture noundef writeonly
   br i1 %.not, label %34, label %41
 
 34:                                               ; preds = %19
-  %35 = sub i64 %.045, %29
-  %36 = getelementptr inbounds i8, ptr %.042, i64 %29
-  %37 = sub i64 %.044, %25
+  %35 = sub i64 %.043, %29
+  %36 = getelementptr inbounds i8, ptr %.045, i64 %29
+  %37 = sub i64 %.042, %25
   %38 = getelementptr inbounds i8, ptr %.046, i64 %25
   %39 = icmp eq i64 %28, %20
   %40 = icmp eq i64 %35, 0
@@ -639,13 +639,13 @@ define i32 @Lzma2Decode(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2
   br label %48
 
 48:                                               ; preds = %45, %40
-  %.025 = phi i32 [ %41, %40 ], [ %spec.select, %45 ]
+  %.0 = phi i32 [ %41, %40 ], [ %spec.select, %45 ]
   call void @LzmaDec_FreeProbs(ptr noundef nonnull %9, ptr noundef %7) #4
   br label %Lzma2Dec_GetOldProps.exit
 
 Lzma2Dec_GetOldProps.exit:                        ; preds = %8, %26, %48
-  %.0 = phi i32 [ %.025, %48 ], [ %39, %26 ], [ 4, %8 ]
-  ret i32 %.0
+  %.025 = phi i32 [ %.0, %48 ], [ %39, %26 ], [ 4, %8 ]
+  ret i32 %.025
 }
 
 declare void @LzmaDec_FreeProbs(ptr noundef, ptr noundef) local_unnamed_addr #1

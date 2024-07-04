@@ -199,35 +199,35 @@ define internal fastcc i32 @dissect_kpasswd_common(ptr noundef %0, ptr noundef %
 
 32:                                               ; preds = %._crit_edge, %24, %31
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %26, %24 ], [ %26, %31 ]
-  %.072 = phi ptr [ null, %._crit_edge ], [ %30, %24 ], [ %30, %31 ]
-  %.071 = phi ptr [ null, %._crit_edge ], [ %28, %24 ], [ %28, %31 ]
+  %.072 = phi ptr [ null, %._crit_edge ], [ %28, %24 ], [ %28, %31 ]
+  %.071 = phi ptr [ null, %._crit_edge ], [ %30, %24 ], [ %30, %31 ]
   %33 = load i32, ptr @hf_kpasswd_message_len, align 4
-  %34 = tail call ptr @proto_tree_add_uint(ptr noundef %.072, i32 noundef %33, ptr noundef %0, i32 noundef %.0, i32 noundef 2, i32 noundef %.pre-phi) #2
+  %34 = tail call ptr @proto_tree_add_uint(ptr noundef %.071, i32 noundef %33, ptr noundef %0, i32 noundef %.0, i32 noundef 2, i32 noundef %.pre-phi) #2
   %35 = load i32, ptr @hf_kpasswd_version, align 4
   %36 = zext i16 %21 to i32
-  %37 = tail call ptr @proto_tree_add_uint(ptr noundef %.072, i32 noundef %35, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef %36) #2
+  %37 = tail call ptr @proto_tree_add_uint(ptr noundef %.071, i32 noundef %35, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef %36) #2
   %38 = load ptr, ptr %5, align 8
   %39 = tail call ptr @val_to_str_const(i32 noundef %36, ptr noundef nonnull @vers_vals, ptr noundef nonnull @.str.41) #2
   tail call void @col_set_str(ptr noundef %38, i32 noundef 25, ptr noundef %39) #2
   %40 = load i32, ptr @hf_kpasswd_ap_req_len, align 4
   %41 = zext i16 %23 to i32
-  %42 = tail call ptr @proto_tree_add_uint(ptr noundef %.072, i32 noundef %40, ptr noundef %0, i32 noundef %22, i32 noundef 2, i32 noundef %41) #2
+  %42 = tail call ptr @proto_tree_add_uint(ptr noundef %.071, i32 noundef %40, ptr noundef %0, i32 noundef %22, i32 noundef 2, i32 noundef %41) #2
   %43 = add nuw nsw i32 %.0, 6
   %44 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %43, i32 noundef %41) #2
   %45 = load i32, ptr @hf_kpasswd_ap_req_data, align 4
-  %46 = tail call ptr @proto_tree_add_item(ptr noundef %.072, i32 noundef %45, ptr noundef %44, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %.071, i32 noundef %45, ptr noundef %44, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %47 = load i32, ptr @ett_ap_req_data, align 4
   %48 = tail call ptr @proto_item_add_subtree(ptr noundef %46, i32 noundef %47) #2
   %49 = tail call i32 @dissect_kerberos_main(ptr noundef %44, ptr noundef nonnull %1, ptr noundef %48, i32 noundef 0, ptr noundef null) #2
   %50 = add nuw nsw i32 %43, %41
   %51 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %50) #2
   %.not76 = icmp eq i16 %21, -128
-  %.not.i = icmp eq ptr %.072, null
+  %.not.i = icmp eq ptr %.071, null
   br i1 %.not.i, label %dissect_kpasswd_krb_priv_message.exit, label %52
 
 52:                                               ; preds = %32
   %53 = load i32, ptr @hf_kpasswd_krb_priv_message, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.072, i32 noundef %53, ptr noundef %51, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.071, i32 noundef %53, ptr noundef %51, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %55 = load i32, ptr @ett_krb_priv_message, align 4
   %56 = tail call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %55) #2
   br label %dissect_kpasswd_krb_priv_message.exit
@@ -237,12 +237,12 @@ dissect_kpasswd_krb_priv_message.exit:            ; preds = %32, %52
   %cb_rep.cb_req.i = select i1 %.not76, ptr @cb_req, ptr @cb_rep
   %57 = tail call i32 @dissect_kerberos_main(ptr noundef %51, ptr noundef nonnull %1, ptr noundef %.011.i, i32 noundef 0, ptr noundef nonnull %cb_rep.cb_req.i) #2
   %58 = add i32 %57, %50
-  tail call void @proto_item_set_len(ptr noundef %.071, i32 noundef %58) #2
+  tail call void @proto_item_set_len(ptr noundef %.072, i32 noundef %58) #2
   br label %59
 
 59:                                               ; preds = %8, %dissect_kpasswd_krb_priv_message.exit, %15
-  %.070 = phi i32 [ %17, %15 ], [ %58, %dissect_kpasswd_krb_priv_message.exit ], [ -1, %8 ]
-  ret i32 %.070
+  %.073 = phi i32 [ %17, %15 ], [ %58, %dissect_kpasswd_krb_priv_message.exit ], [ -1, %8 ]
+  ret i32 %.073
 }
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1

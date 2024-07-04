@@ -1995,31 +1995,31 @@ for.body6.lr.ph:                                  ; preds = %for.body
   br label %for.body6
 
 for.body6:                                        ; preds = %for.body6.lr.ph, %if.end
-  %indvars.iv57 = phi i64 [ 0, %for.body6.lr.ph ], [ %indvars.iv.next58, %if.end ]
-  %indvars.iv55 = phi i64 [ %4, %for.body6.lr.ph ], [ %indvars.iv.next56, %if.end ]
-  %rollingFrictionIndex.046 = phi i32 [ %1, %for.body6.lr.ph ], [ %rollingFrictionIndex.2, %if.end ]
-  %frictionIndex.045 = phi i32 [ %mul, %for.body6.lr.ph ], [ %frictionIndex.1.lcssa, %if.end ]
+  %indvars.iv57 = phi i64 [ %4, %for.body6.lr.ph ], [ %indvars.iv.next58, %if.end ]
+  %indvars.iv55 = phi i64 [ 0, %for.body6.lr.ph ], [ %indvars.iv.next56, %if.end ]
+  %rollingFrictionIndex.047 = phi i32 [ %1, %for.body6.lr.ph ], [ %rollingFrictionIndex.2, %if.end ]
+  %frictionIndex.046 = phi i32 [ %mul, %for.body6.lr.ph ], [ %frictionIndex.1.lcssa, %if.end ]
   %5 = load ptr, ptr %m_data.i, align 8
-  %arrayidx.i = getelementptr inbounds %struct.btSolverConstraint, ptr %5, i64 %indvars.iv55
+  %arrayidx.i = getelementptr inbounds %struct.btSolverConstraint, ptr %5, i64 %indvars.iv57
   %6 = load i32, ptr %solverBodyIds, align 4
   %m_solverBodyIdA = getelementptr inbounds i8, ptr %arrayidx.i, i64 152
   store i32 %6, ptr %m_solverBodyIdA, align 8
   %7 = load i32, ptr %arrayidx9, align 4
   %m_solverBodyIdB = getelementptr inbounds i8, ptr %arrayidx.i, i64 156
   store i32 %7, ptr %m_solverBodyIdB, align 4
-  %arrayidx11 = getelementptr inbounds [4 x ptr], ptr %contactPoints, i64 0, i64 %indvars.iv57
+  %arrayidx11 = getelementptr inbounds [4 x ptr], ptr %contactPoints, i64 0, i64 %indvars.iv55
   %8 = load ptr, ptr %arrayidx11, align 8
   %9 = getelementptr inbounds i8, ptr %arrayidx.i, i64 136
   store ptr %8, ptr %9, align 8
   %m_frictionIndex = getelementptr inbounds i8, ptr %arrayidx.i, i64 148
-  store i32 %frictionIndex.045, ptr %m_frictionIndex, align 4
+  store i32 %frictionIndex.046, ptr %m_frictionIndex, align 4
   %10 = load i32, ptr %m_numFrictionDirections, align 8
   %cmp1439 = icmp sgt i32 %10, 0
   br i1 %cmp1439, label %for.body15.preheader, label %for.end
 
 for.body15.preheader:                             ; preds = %for.body6
-  %11 = sext i32 %frictionIndex.045 to i64
-  %12 = trunc nsw i64 %indvars.iv55 to i32
+  %11 = sext i32 %frictionIndex.046 to i64
+  %12 = trunc nsw i64 %indvars.iv57 to i32
   br label %for.body15
 
 for.body15:                                       ; preds = %for.body15.preheader, %for.body15
@@ -2039,18 +2039,18 @@ for.end.loopexit:                                 ; preds = %for.body15
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %for.body6
-  %frictionIndex.1.lcssa = phi i32 [ %frictionIndex.045, %for.body6 ], [ %15, %for.end.loopexit ]
-  %arrayidx21 = getelementptr inbounds [4 x i8], ptr %contactHasRollingFriction, i64 0, i64 %indvars.iv57
+  %frictionIndex.1.lcssa = phi i32 [ %frictionIndex.046, %for.body6 ], [ %15, %for.end.loopexit ]
+  %arrayidx21 = getelementptr inbounds [4 x i8], ptr %contactHasRollingFriction, i64 0, i64 %indvars.iv55
   %16 = load i8, ptr %arrayidx21, align 1
   %tobool = trunc i8 %16 to i1
   %17 = load ptr, ptr %m_data.i36, align 8
-  %arrayidx.i32 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv55
+  %arrayidx.i32 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv57
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.end
-  store i32 %rollingFrictionIndex.046, ptr %arrayidx.i32, align 4
-  %18 = sext i32 %rollingFrictionIndex.046 to i64
-  %19 = trunc nsw i64 %indvars.iv55 to i32
+  store i32 %rollingFrictionIndex.047, ptr %arrayidx.i32, align 4
+  %18 = sext i32 %rollingFrictionIndex.047 to i64
+  %19 = trunc nsw i64 %indvars.iv57 to i32
   br label %for.body27
 
 for.body27:                                       ; preds = %if.then, %for.body27
@@ -2073,12 +2073,12 @@ if.end.loopexit:                                  ; preds = %for.body27
   br label %if.end
 
 if.end:                                           ; preds = %if.end.loopexit, %if.else
-  %rollingFrictionIndex.2 = phi i32 [ %rollingFrictionIndex.046, %if.else ], [ %21, %if.end.loopexit ]
-  %indvars.iv.next56 = add nsw i64 %indvars.iv55, 1
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
+  %rollingFrictionIndex.2 = phi i32 [ %rollingFrictionIndex.047, %if.else ], [ %21, %if.end.loopexit ]
+  %indvars.iv.next58 = add nsw i64 %indvars.iv57, 1
+  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %22 = load i32, ptr %arrayidx, align 8
   %23 = sext i32 %22 to i64
-  %cmp5 = icmp slt i64 %indvars.iv.next58, %23
+  %cmp5 = icmp slt i64 %indvars.iv.next56, %23
   br i1 %cmp5, label %for.body6, label %for.inc42, !llvm.loop !16
 
 for.inc42:                                        ; preds = %if.end, %for.body
@@ -2147,15 +2147,15 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc15
   %indvars.iv295 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next296, %for.inc15 ]
-  %numContacts.0291 = phi i32 [ 0, %for.body.preheader ], [ %add, %for.inc15 ]
-  %numRollingFrictionConstraints.0289 = phi i32 [ 0, %for.body.preheader ], [ %numRollingFrictionConstraints.1.lcssa, %for.inc15 ]
+  %numRollingFrictionConstraints.0290 = phi i32 [ 0, %for.body.preheader ], [ %numRollingFrictionConstraints.1.lcssa, %for.inc15 ]
+  %numContacts.0289 = phi i32 [ 0, %for.body.preheader ], [ %add, %for.inc15 ]
   %arrayidx.i = getelementptr inbounds %"struct.btSequentialImpulseConstraintSolverMt::btContactManifoldCachedInfo", ptr %0, i64 %indvars.iv295
   %contactIndex = getelementptr inbounds i8, ptr %arrayidx.i, i64 12
-  store i32 %numContacts.0291, ptr %contactIndex, align 4
+  store i32 %numContacts.0289, ptr %contactIndex, align 4
   %rollingFrictionIndex = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
-  store i32 %numRollingFrictionConstraints.0289, ptr %rollingFrictionIndex, align 8
+  store i32 %numRollingFrictionConstraints.0290, ptr %rollingFrictionIndex, align 8
   %1 = load i32, ptr %arrayidx.i, align 8
-  %add = add nsw i32 %1, %numContacts.0291
+  %add = add nsw i32 %1, %numContacts.0289
   %cmp12285 = icmp sgt i32 %1, 0
   br i1 %cmp12285, label %for.body13.lr.ph, label %for.inc15
 
@@ -2166,7 +2166,7 @@ for.body13.lr.ph:                                 ; preds = %for.body
 
 for.body13:                                       ; preds = %for.body13.lr.ph, %for.body13
   %indvars.iv = phi i64 [ 0, %for.body13.lr.ph ], [ %indvars.iv.next, %for.body13 ]
-  %numRollingFrictionConstraints.1286 = phi i32 [ %numRollingFrictionConstraints.0289, %for.body13.lr.ph ], [ %spec.select, %for.body13 ]
+  %numRollingFrictionConstraints.1286 = phi i32 [ %numRollingFrictionConstraints.0290, %for.body13.lr.ph ], [ %spec.select, %for.body13 ]
   %arrayidx = getelementptr inbounds [4 x i8], ptr %contactHasRollingFriction, i64 0, i64 %indvars.iv
   %2 = load i8, ptr %arrayidx, align 1
   %tobool = trunc i8 %2 to i1
@@ -2187,14 +2187,14 @@ lpad6:                                            ; preds = %invoke.cont3
   br label %ehcleanup
 
 for.inc15:                                        ; preds = %for.body13, %for.body
-  %numRollingFrictionConstraints.1.lcssa = phi i32 [ %numRollingFrictionConstraints.0289, %for.body ], [ %spec.select, %for.body13 ]
+  %numRollingFrictionConstraints.1.lcssa = phi i32 [ %numRollingFrictionConstraints.0290, %for.body ], [ %spec.select, %for.body13 ]
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
   %exitcond299.not = icmp eq i64 %indvars.iv.next296, %wide.trip.count298
   br i1 %exitcond299.not, label %for.end17, label %for.body, !llvm.loop !19
 
 for.end17:                                        ; preds = %for.inc15, %for.cond.preheader
-  %numRollingFrictionConstraints.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %numRollingFrictionConstraints.1.lcssa, %for.inc15 ]
   %numContacts.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %add, %for.inc15 ]
+  %numRollingFrictionConstraints.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %numRollingFrictionConstraints.1.lcssa, %for.inc15 ]
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile18, ptr noundef nonnull @.str.6)
           to label %invoke.cont19 unwind label %lpad2
 
@@ -2392,7 +2392,7 @@ _ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i88: ; preds 
   br label %invoke.cont31
 
 invoke.cont31:                                    ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i88, %invoke.cont29
-  %add32 = add nsw i32 %div, %numRollingFrictionConstraints.0.lcssa
+  %add32 = add nsw i32 %numRollingFrictionConstraints.0.lcssa, %div
   %m_capacity.i.i104 = getelementptr inbounds i8, ptr %this, i64 144
   %22 = load i32, ptr %m_capacity.i.i104, align 8
   %cmp.i105 = icmp slt i32 %22, %add32

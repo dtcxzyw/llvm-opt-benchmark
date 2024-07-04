@@ -268,7 +268,7 @@ parse_default_stmt.exit:                          ; preds = %parse_case_stmts.ex
   br label %.loopexit
 
 .critedge:                                        ; preds = %76, %parse_default_stmt.exit, %21, %18
-  %.044 = phi ptr [ null, %18 ], [ %19, %21 ], [ null, %parse_default_stmt.exit ], [ %.0.i64, %76 ]
+  %.042 = phi ptr [ null, %18 ], [ %19, %21 ], [ null, %parse_default_stmt.exit ], [ %.0.i64, %76 ]
   %80 = load ptr, ptr %1, align 8
   %.not.i55 = icmp eq ptr %80, null
   br i1 %.not.i55, label %81, label %84
@@ -323,13 +323,13 @@ parse_default_stmt.exit:                          ; preds = %parse_case_stmts.ex
   %109 = add i32 %108, -1
   %110 = zext i32 %109 to i64
   %111 = getelementptr inbounds ptr, ptr %107, i64 %110
-  store ptr %.044, ptr %111, align 8
+  store ptr %.042, ptr %111, align 8
   %112 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 24) #5
   br i1 %112, label %.loopexit, label %15, !llvm.loop !9
 
 .loopexit:                                        ; preds = %21, %76, %104, %.critedge54, %8, %79
-  %.043 = phi i1 [ false, %79 ], [ false, %8 ], [ true, %.critedge54 ], [ false, %21 ], [ false, %76 ], [ true, %104 ]
-  ret i1 %.043
+  %.044 = phi i1 [ false, %79 ], [ false, %8 ], [ true, %.critedge54 ], [ false, %21 ], [ false, %76 ], [ true, %104 ]
+  ret i1 %.044
 }
 
 declare void @advance(ptr noundef) local_unnamed_addr #1
@@ -1979,8 +1979,8 @@ parse_optional_label.exit.thread110:              ; preds = %10, %parse_optional
   br label %119
 
 119:                                              ; preds = %105, %.critedge6, %114, %95, %75, %61, %52, %41, %29
-  %.084 = phi ptr [ %115, %114 ], [ %76, %75 ], [ %96, %95 ], [ %64, %61 ], [ %53, %52 ], [ %44, %41 ], [ %30, %29 ], [ %5, %.critedge6 ], [ %5, %105 ]
-  ret ptr %.084
+  %.0 = phi ptr [ %115, %114 ], [ %76, %75 ], [ %96, %95 ], [ %64, %61 ], [ %53, %52 ], [ %44, %41 ], [ %30, %29 ], [ %5, %.critedge6 ], [ %5, %105 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2149,8 +2149,8 @@ parse_optional_label.exit.thread74:               ; preds = %9, %parse_optional_
   br label %85
 
 85:                                               ; preds = %77, %74, %69, %58, %51, %40, %28
-  %.057 = phi ptr [ %76, %74 ], [ %4, %77 ], [ %70, %69 ], [ %61, %58 ], [ %52, %51 ], [ %43, %40 ], [ %29, %28 ]
-  ret ptr %.057
+  %.0 = phi ptr [ %76, %74 ], [ %4, %77 ], [ %70, %69 ], [ %61, %58 ], [ %52, %51 ], [ %43, %40 ], [ %29, %28 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2472,8 +2472,8 @@ parse_optional_label.exit.thread48:               ; preds = %9, %parse_optional_
   br label %64
 
 64:                                               ; preds = %60, %56, %49, %28
-  %.037 = phi ptr [ %59, %56 ], [ %50, %49 ], [ %29, %28 ], [ %spec.select, %60 ]
-  ret ptr %.037
+  %.0 = phi ptr [ %59, %56 ], [ %50, %49 ], [ %29, %28 ], [ %spec.select, %60 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2672,8 +2672,8 @@ parse_optional_label.exit.thread90:               ; preds = %13, %parse_optional
   br label %102
 
 102:                                              ; preds = %54, %101, %97, %91, %85, %74, %68, %47, %32
-  %.070 = phi ptr [ %100, %97 ], [ %94, %91 ], [ %86, %85 ], [ %77, %74 ], [ %71, %68 ], [ %48, %47 ], [ %33, %32 ], [ %4, %101 ], [ %4, %54 ]
-  ret ptr %.070
+  %.0 = phi ptr [ %100, %97 ], [ %94, %91 ], [ %86, %85 ], [ %77, %74 ], [ %71, %68 ], [ %48, %47 ], [ %33, %32 ], [ %4, %101 ], [ %4, %54 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2971,8 +2971,8 @@ extend_span_with_token.exit:                      ; preds = %118, %119
   br label %139
 
 139:                                              ; preds = %.critedge8, %134, %110, %103, %86, %79, %62, %55, %40, %28
-  %.088 = phi ptr [ %4, %.critedge8 ], [ %135, %134 ], [ %113, %110 ], [ %104, %103 ], [ %89, %86 ], [ %80, %79 ], [ %65, %62 ], [ %56, %55 ], [ %43, %40 ], [ %29, %28 ]
-  ret ptr %.088
+  %.0 = phi ptr [ %4, %.critedge8 ], [ %135, %134 ], [ %113, %110 ], [ %104, %103 ], [ %89, %86 ], [ %80, %79 ], [ %65, %62 ], [ %56, %55 ], [ %43, %40 ], [ %29, %28 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3208,8 +3208,8 @@ extend_span_with_token.exit:                      ; preds = %96, %97
   br label %117
 
 117:                                              ; preds = %.critedge4, %112, %89, %82, %71, %66, %53, %48, %37
-  %.077 = phi ptr [ %4, %.critedge4 ], [ %113, %112 ], [ %92, %89 ], [ %83, %82 ], [ %74, %71 ], [ %67, %66 ], [ %54, %53 ], [ %51, %48 ], [ %38, %37 ]
-  ret ptr %.077
+  %.0 = phi ptr [ %4, %.critedge4 ], [ %113, %112 ], [ %92, %89 ], [ %83, %82 ], [ %74, %71 ], [ %67, %66 ], [ %54, %53 ], [ %51, %48 ], [ %38, %37 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3519,7 +3519,7 @@ define internal fastcc ptr @parse_asm_block_stmt(ptr noundef %0) unnamed_addr #0
   br label %21
 
 21:                                               ; preds = %14, %19, %1
-  %.084 = phi i8 [ 0, %14 ], [ 0, %19 ], [ 1, %1 ]
+  %.082 = phi i8 [ 0, %14 ], [ 0, %19 ], [ 1, %1 ]
   %22 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 17) #5
   br i1 %22, label %23, label %109
 
@@ -3534,7 +3534,7 @@ define internal fastcc ptr @parse_asm_block_stmt(ptr noundef %0) unnamed_addr #0
   br label %28
 
 28:                                               ; preds = %.lr.ph, %.critedge
-  %.085102 = phi ptr [ %26, %.lr.ph ], [ %102, %.critedge ]
+  %.0102 = phi ptr [ %26, %.lr.ph ], [ %102, %.critedge ]
   %29 = load i64, ptr %2, align 8
   %30 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
   store i64 %29, ptr %30, align 8
@@ -3581,7 +3581,7 @@ define internal fastcc ptr @parse_asm_block_stmt(ptr noundef %0) unnamed_addr #0
   br i1 %48, label %parse_asm_stmt.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %47, %.critedge63.backedge.i
-  %.05766.i = phi ptr [ %81, %.critedge63.backedge.i ], [ null, %47 ]
+  %.05566.i = phi ptr [ %81, %.critedge63.backedge.i ], [ null, %47 ]
   %49 = tail call fastcc ptr @parse_asm_expr(ptr noundef %0)
   %50 = icmp eq ptr %49, null
   br i1 %50, label %.critedge.i, label %51
@@ -3594,7 +3594,7 @@ define internal fastcc ptr @parse_asm_block_stmt(ptr noundef %0) unnamed_addr #0
   br i1 %.not.i, label %parse_asm_stmt.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %51, %.lr.ph.i
-  %.not.i.i = icmp eq ptr %.05766.i, null
+  %.not.i.i = icmp eq ptr %.05566.i, null
   br i1 %.not.i.i, label %55, label %58
 
 55:                                               ; preds = %.critedge.i
@@ -3604,8 +3604,8 @@ define internal fastcc ptr @parse_asm_block_stmt(ptr noundef %0) unnamed_addr #0
   br label %60
 
 58:                                               ; preds = %.critedge.i
-  %59 = getelementptr inbounds i8, ptr %.05766.i, i64 -8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.05766.i, i64 -4
+  %59 = getelementptr inbounds i8, ptr %.05566.i, i64 -8
+  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.05566.i, i64 -4
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   br label %60
 
@@ -3664,25 +3664,25 @@ define internal fastcc ptr @parse_asm_block_stmt(ptr noundef %0) unnamed_addr #0
   br label %parse_asm_stmt.exit
 
 parse_asm_stmt.exit.thread:                       ; preds = %.critedge63.backedge.i, %47
-  %.057.lcssa.i = phi ptr [ null, %47 ], [ %81, %.critedge63.backedge.i ]
+  %.055.lcssa.i = phi ptr [ null, %47 ], [ %81, %.critedge63.backedge.i ]
   %92 = getelementptr inbounds i8, ptr %30, i64 32
-  store ptr %.057.lcssa.i, ptr %92, align 8
+  store ptr %.055.lcssa.i, ptr %92, align 8
   br label %94
 
 parse_asm_stmt.exit:                              ; preds = %51, %33, %42, %89
-  %.056.i = load ptr, ptr @poisoned_ast, align 8
-  %93 = icmp eq ptr %.056.i, null
+  %.057.i = load ptr, ptr @poisoned_ast, align 8
+  %93 = icmp eq ptr %.057.i, null
   br i1 %93, label %.critedge, label %94
 
 94:                                               ; preds = %parse_asm_stmt.exit.thread, %parse_asm_stmt.exit
-  %.056.i100 = phi ptr [ %30, %parse_asm_stmt.exit.thread ], [ %.056.i, %parse_asm_stmt.exit ]
-  %95 = getelementptr inbounds i8, ptr %.056.i100, i64 12
+  %.057.i100 = phi ptr [ %30, %parse_asm_stmt.exit.thread ], [ %.057.i, %parse_asm_stmt.exit ]
+  %95 = getelementptr inbounds i8, ptr %.057.i100, i64 12
   %96 = load i8, ptr %95, align 4
   %.not92 = icmp eq i8 %96, 0
   br i1 %.not92, label %98, label %.split
 
 .split:                                           ; preds = %94
-  %97 = ptrtoint ptr %.056.i100 to i64
+  %97 = ptrtoint ptr %.057.i100 to i64
   br label %.critedge
 
 98:                                               ; preds = %94
@@ -3691,14 +3691,14 @@ parse_asm_stmt.exit:                              ; preds = %51, %33, %42, %89
 
 .critedge:                                        ; preds = %parse_asm_stmt.exit, %.split
   %.sink = phi i64 [ %97, %.split ], [ 0, %parse_asm_stmt.exit ]
-  %.056.i99 = phi ptr [ %.056.i100, %.split ], [ null, %parse_asm_stmt.exit ]
+  %.057.i99 = phi ptr [ %.057.i100, %.split ], [ null, %parse_asm_stmt.exit ]
   %.sink106 = load ptr, ptr @ast_arena, align 8
   %100 = ptrtoint ptr %.sink106 to i64
   %101 = sub i64 %.sink, %100
   %phi.call.in = sdiv exact i64 %101, 48
   %phi.call = trunc i64 %phi.call.in to i32
-  store i32 %phi.call, ptr %.085102, align 4
-  %102 = getelementptr inbounds i8, ptr %.056.i99, i64 8
+  store i32 %phi.call, ptr %.0102, align 4
+  %102 = getelementptr inbounds i8, ptr %.057.i99, i64 8
   %103 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 24) #5
   br i1 %103, label %._crit_edge, label %28, !llvm.loop !13
 
@@ -3708,7 +3708,7 @@ parse_asm_stmt.exit:                              ; preds = %51, %33, %42, %89
   store ptr %24, ptr %105, align 8
   %106 = load i8, ptr %104, align 8
   %107 = and i8 %106, -2
-  %108 = or disjoint i8 %107, %.084
+  %108 = or disjoint i8 %107, %.082
   store i8 %108, ptr %104, align 8
   br label %170
 
@@ -3792,7 +3792,7 @@ parse_asm_stmt.exit:                              ; preds = %51, %33, %42, %89
   br label %170
 
 147:                                              ; preds = %144, %.critedge96
-  %.1 = phi i8 [ 0, %144 ], [ %.084, %.critedge96 ]
+  %.1 = phi i8 [ 0, %144 ], [ %.082, %.critedge96 ]
   %148 = load i8, ptr %110, align 8
   %149 = and i8 %148, -2
   %150 = or disjoint i8 %149, %.1
@@ -3841,8 +3841,8 @@ extend_span_with_token.exit:                      ; preds = %154, %155
   br label %170
 
 170:                                              ; preds = %169, %166, %145, %133, %126, %115, %._crit_edge, %98, %17
-  %.083 = phi ptr [ %99, %98 ], [ %4, %._crit_edge ], [ %4, %169 ], [ %168, %166 ], [ null, %145 ], [ %136, %133 ], [ %127, %126 ], [ %118, %115 ], [ null, %17 ]
-  ret ptr %.083
+  %.085 = phi ptr [ %99, %98 ], [ %4, %._crit_edge ], [ %4, %169 ], [ %168, %166 ], [ null, %145 ], [ %136, %133 ], [ %127, %126 ], [ %118, %115 ], [ null, %17 ]
+  ret ptr %.085
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4085,19 +4085,19 @@ define internal fastcc ptr @parse_ct_switch_stmt(ptr noundef %0) unnamed_addr #0
   br label %parse_const_paren_expr.exit
 
 parse_const_paren_expr.exit:                      ; preds = %15, %19, %.critedge30.i
-  %.025.i = phi ptr [ %9, %.critedge30.i ], [ %22, %19 ], [ %16, %15 ]
-  %23 = icmp eq ptr %.025.i, null
+  %.0.i = phi ptr [ %9, %.critedge30.i ], [ %22, %19 ], [ %16, %15 ]
+  %23 = icmp eq ptr %.0.i, null
   br i1 %23, label %.critedge, label %24
 
 24:                                               ; preds = %parse_const_paren_expr.exit
-  %25 = getelementptr inbounds i8, ptr %.025.i, i64 16
+  %25 = getelementptr inbounds i8, ptr %.0.i, i64 16
   %26 = load i16, ptr %25, align 8
   %27 = and i16 %26, 255
   %.not = icmp eq i16 %27, 0
   br i1 %.not, label %29, label %.split
 
 .split:                                           ; preds = %24
-  %28 = ptrtoint ptr %.025.i to i64
+  %28 = ptrtoint ptr %.0.i to i64
   br label %.critedge
 
 29:                                               ; preds = %24
@@ -4106,8 +4106,8 @@ parse_const_paren_expr.exit:                      ; preds = %15, %19, %.critedge
 
 .critedge:                                        ; preds = %parse_const_paren_expr.exit, %.split
   %.sink = phi i64 [ %28, %.split ], [ 0, %parse_const_paren_expr.exit ]
-  %.sink78 = load ptr, ptr @expr_arena, align 8
-  %31 = ptrtoint ptr %.sink78 to i64
+  %.sink79 = load ptr, ptr @expr_arena, align 8
+  %31 = ptrtoint ptr %.sink79 to i64
   %32 = sub i64 %.sink, %31
   %phi.call.in = sdiv exact i64 %32, 56
   %phi.call = trunc i64 %phi.call.in to i32
@@ -4124,7 +4124,7 @@ parse_const_paren_expr.exit:                      ; preds = %15, %19, %.critedge
   br label %37
 
 37:                                               ; preds = %.lr.ph, %123
-  %.05076 = phi ptr [ null, %.lr.ph ], [ %126, %123 ]
+  %.04977 = phi ptr [ null, %.lr.ph ], [ %126, %123 ]
   %38 = load i32, ptr %6, align 8
   switch i32 %38, label %97 [
     i32 149, label %39
@@ -4160,8 +4160,8 @@ parse_const_paren_expr.exit:                      ; preds = %15, %19, %.critedge
   %53 = load i64, ptr %49, align 8
   %54 = load i64, ptr %36, align 8
   %.not.unshifted.i = xor i64 %54, %53
-  %.not.i68 = icmp ult i64 %.not.unshifted.i, 4294967296
-  br i1 %.not.i68, label %56, label %55
+  %.not.i69 = icmp ult i64 %.not.unshifted.i, 4294967296
+  br i1 %.not.i69, label %56, label %55
 
 55:                                               ; preds = %52
   %.sroa.33.0.extract.shift.i = lshr i64 %53, 16
@@ -4202,8 +4202,8 @@ extend_span_with_token.exit:                      ; preds = %55, %56
   %70 = getelementptr inbounds i8, ptr %68, i64 16
   br label %71
 
-71:                                               ; preds = %.critedge.i66, %66
-  %.023.i = phi ptr [ %70, %66 ], [ %84, %.critedge.i66 ]
+71:                                               ; preds = %.critedge.i67, %66
+  %.023.i = phi ptr [ %70, %66 ], [ %84, %.critedge.i67 ]
   %72 = load i32, ptr %6, align 8
   switch i32 %72, label %73 [
     i32 149, label %parse_case_stmts.exit
@@ -4215,27 +4215,27 @@ extend_span_with_token.exit:                      ; preds = %55, %56
 73:                                               ; preds = %71
   %74 = tail call ptr @parse_stmt(ptr noundef nonnull %0)
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %.critedge.i66, label %76
+  br i1 %75, label %.critedge.i67, label %76
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds i8, ptr %74, i64 12
   %78 = load i8, ptr %77, align 4
-  %.not.i65 = icmp eq i8 %78, 0
-  br i1 %.not.i65, label %80, label %.split.i
+  %.not.i66 = icmp eq i8 %78, 0
+  br i1 %.not.i66, label %80, label %.split.i
 
 .split.i:                                         ; preds = %76
   %79 = ptrtoint ptr %74 to i64
-  br label %.critedge.i66
+  br label %.critedge.i67
 
 80:                                               ; preds = %76
   %81 = load ptr, ptr @poisoned_ast, align 8
   br label %parse_case_stmts.exit
 
-.critedge.i66:                                    ; preds = %73, %.split.i
-  %.sink79 = phi i64 [ %79, %.split.i ], [ 0, %73 ]
-  %.sink81 = load ptr, ptr @ast_arena, align 8
-  %82 = ptrtoint ptr %.sink81 to i64
-  %83 = sub i64 %.sink79, %82
+.critedge.i67:                                    ; preds = %73, %.split.i
+  %.sink80 = phi i64 [ %79, %.split.i ], [ 0, %73 ]
+  %.sink82 = load ptr, ptr @ast_arena, align 8
+  %82 = ptrtoint ptr %.sink82 to i64
+  %83 = sub i64 %.sink80, %82
   %phi.call.i.in = sdiv exact i64 %83, 48
   %phi.call.i = trunc i64 %phi.call.i.in to i32
   store i32 %phi.call.i, ptr %.023.i, align 4
@@ -4243,32 +4243,32 @@ extend_span_with_token.exit:                      ; preds = %55, %56
   br label %71, !llvm.loop !7
 
 parse_case_stmts.exit:                            ; preds = %71, %71, %71, %71, %80
-  %.0.i67 = phi ptr [ %81, %80 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ]
-  %85 = icmp eq ptr %.0.i67, null
+  %.0.i68 = phi ptr [ %81, %80 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ], [ %68, %71 ]
+  %85 = icmp eq ptr %.0.i68, null
   br i1 %85, label %parse_default_stmt.exit.thread, label %86
 
 86:                                               ; preds = %parse_case_stmts.exit
-  %87 = getelementptr inbounds i8, ptr %.0.i67, i64 12
+  %87 = getelementptr inbounds i8, ptr %.0.i68, i64 12
   %88 = load i8, ptr %87, align 4
-  %.not.i61 = icmp eq i8 %88, 0
-  br i1 %.not.i61, label %parse_default_stmt.exit, label %parse_default_stmt.exit.thread
+  %.not.i62 = icmp eq i8 %88, 0
+  br i1 %.not.i62, label %parse_default_stmt.exit, label %parse_default_stmt.exit.thread
 
 parse_default_stmt.exit.thread:                   ; preds = %extend_span_with_token.exit, %extend_span_with_token.exit, %extend_span_with_token.exit, %extend_span_with_token.exit, %parse_case_stmts.exit, %86
-  %.0.i6770 = phi ptr [ %.0.i67, %86 ], [ null, %parse_case_stmts.exit ], [ null, %extend_span_with_token.exit ], [ null, %extend_span_with_token.exit ], [ null, %extend_span_with_token.exit ], [ null, %extend_span_with_token.exit ]
+  %.0.i6871 = phi ptr [ %.0.i68, %86 ], [ null, %parse_case_stmts.exit ], [ null, %extend_span_with_token.exit ], [ null, %extend_span_with_token.exit ], [ null, %extend_span_with_token.exit ], [ null, %extend_span_with_token.exit ]
   %89 = getelementptr inbounds i8, ptr %49, i64 16
   %90 = getelementptr inbounds i8, ptr %49, i64 24
-  store ptr %.0.i6770, ptr %90, align 8
+  store ptr %.0.i6871, ptr %90, align 8
   store i32 0, ptr %89, align 8
   br label %92
 
 parse_default_stmt.exit:                          ; preds = %86, %47
-  %.0.i = load ptr, ptr @poisoned_ast, align 8
-  %91 = icmp eq ptr %.0.i, null
+  %.0.i61 = load ptr, ptr @poisoned_ast, align 8
+  %91 = icmp eq ptr %.0.i61, null
   br i1 %91, label %.critedge2, label %92
 
 92:                                               ; preds = %parse_default_stmt.exit.thread, %parse_default_stmt.exit
-  %.0.i72 = phi ptr [ %49, %parse_default_stmt.exit.thread ], [ %.0.i, %parse_default_stmt.exit ]
-  %93 = getelementptr inbounds i8, ptr %.0.i72, i64 12
+  %.0.i6173 = phi ptr [ %49, %parse_default_stmt.exit.thread ], [ %.0.i61, %parse_default_stmt.exit ]
+  %93 = getelementptr inbounds i8, ptr %.0.i6173, i64 12
   %94 = load i8, ptr %93, align 4
   %.not58 = icmp eq i8 %94, 0
   br i1 %.not58, label %95, label %.critedge2
@@ -4284,9 +4284,9 @@ parse_default_stmt.exit:                          ; preds = %86, %47
   br label %131
 
 .critedge2:                                       ; preds = %92, %parse_default_stmt.exit, %42, %39
-  %.051 = phi ptr [ null, %39 ], [ %40, %42 ], [ null, %parse_default_stmt.exit ], [ %.0.i72, %92 ]
-  %.not.i63 = icmp eq ptr %.05076, null
-  br i1 %.not.i63, label %100, label %103
+  %.0 = phi ptr [ null, %39 ], [ %40, %42 ], [ null, %parse_default_stmt.exit ], [ %.0.i6173, %92 ]
+  %.not.i64 = icmp eq ptr %.04977, null
+  br i1 %.not.i64, label %100, label %103
 
 100:                                              ; preds = %.critedge2
   %101 = tail call ptr @calloc_arena(i64 noundef 72) #5
@@ -4295,20 +4295,20 @@ parse_default_stmt.exit:                          ; preds = %86, %47
   br label %105
 
 103:                                              ; preds = %.critedge2
-  %104 = getelementptr inbounds i8, ptr %.05076, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.05076, i64 -4
+  %104 = getelementptr inbounds i8, ptr %.04977, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.04977, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %105
 
 105:                                              ; preds = %103, %100
   %106 = phi i32 [ %.pre.i, %103 ], [ 8, %100 ]
-  %.0.i64 = phi ptr [ %104, %103 ], [ %101, %100 ]
-  %107 = load i32, ptr %.0.i64, align 4
+  %.0.i65 = phi ptr [ %104, %103 ], [ %101, %100 ]
+  %107 = load i32, ptr %.0.i65, align 4
   %108 = icmp eq i32 %107, %106
   br i1 %108, label %109, label %123
 
 109:                                              ; preds = %105
-  %110 = getelementptr inbounds i8, ptr %.0.i64, i64 4
+  %110 = getelementptr inbounds i8, ptr %.0.i65, i64 4
   %111 = shl i32 %106, 1
   %112 = zext i32 %111 to i64
   %113 = shl nuw nsw i64 %112, 3
@@ -4320,7 +4320,7 @@ parse_default_stmt.exit:                          ; preds = %86, %47
   %118 = zext i32 %117 to i64
   %119 = shl nuw nsw i64 %118, 3
   %120 = add nuw nsw i64 %119, 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(1) %.0.i64, i64 %120, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %115, ptr noundef nonnull align 4 dereferenceable(1) %.0.i65, i64 %120, i1 false)
   %121 = load i32, ptr %116, align 4
   %122 = shl i32 %121, 1
   store i32 %122, ptr %116, align 4
@@ -4329,25 +4329,25 @@ parse_default_stmt.exit:                          ; preds = %86, %47
 
 123:                                              ; preds = %105, %109
   %124 = phi i32 [ %.pre18.i, %109 ], [ %107, %105 ]
-  %.1.i = phi ptr [ %115, %109 ], [ %.0.i64, %105 ]
+  %.1.i = phi ptr [ %115, %109 ], [ %.0.i65, %105 ]
   %125 = add i32 %124, 1
   store i32 %125, ptr %.1.i, align 4
   %126 = getelementptr inbounds i8, ptr %.1.i, i64 8
   %127 = zext i32 %124 to i64
   %128 = getelementptr inbounds ptr, ptr %126, i64 %127
-  store ptr %.051, ptr %128, align 8
+  store ptr %.0, ptr %128, align 8
   %129 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 158) #5
   br i1 %129, label %._crit_edge, label %37, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %123, %34
-  %.050.lcssa = phi ptr [ null, %34 ], [ %126, %123 ]
+  %.049.lcssa = phi ptr [ null, %34 ], [ %126, %123 ]
   %130 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr %.050.lcssa, ptr %130, align 8
+  store ptr %.049.lcssa, ptr %130, align 8
   br label %131
 
 131:                                              ; preds = %._crit_edge, %97, %95, %45, %29
-  %.049 = phi ptr [ %46, %45 ], [ %96, %95 ], [ %99, %97 ], [ %4, %._crit_edge ], [ %30, %29 ]
-  ret ptr %.049
+  %.051 = phi ptr [ %46, %45 ], [ %96, %95 ], [ %99, %97 ], [ %4, %._crit_edge ], [ %30, %29 ]
+  ret ptr %.051
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4493,7 +4493,7 @@ define internal fastcc ptr @parse_ct_foreach_stmt(ptr noundef %0) unnamed_addr #
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge2
-  %.07184 = phi ptr [ %92, %.critedge2 ], [ %81, %.lr.ph.preheader ]
+  %.084 = phi ptr [ %92, %.critedge2 ], [ %81, %.lr.ph.preheader ]
   %82 = tail call ptr @parse_stmt(ptr noundef %0)
   %83 = icmp eq ptr %82, null
   br i1 %83, label %.critedge2, label %84
@@ -4519,7 +4519,7 @@ define internal fastcc ptr @parse_ct_foreach_stmt(ptr noundef %0) unnamed_addr #
   %91 = sub i64 %.sink87, %90
   %phi.call76.in = sdiv exact i64 %91, 48
   %phi.call76 = trunc i64 %phi.call76.in to i32
-  store i32 %phi.call76, ptr %.07184, align 4
+  store i32 %phi.call76, ptr %.084, align 4
   %92 = getelementptr inbounds i8, ptr %82, i64 8
   %93 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 156) #5
   br i1 %93, label %.loopexit, label %.lr.ph, !llvm.loop !15
@@ -4706,7 +4706,7 @@ define internal fastcc ptr @parse_ct_for_stmt(ptr noundef %0) unnamed_addr #0 {
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge6
-  %.087112 = phi ptr [ %94, %.critedge6 ], [ %83, %.lr.ph.preheader ]
+  %.0112 = phi ptr [ %94, %.critedge6 ], [ %83, %.lr.ph.preheader ]
   %84 = tail call ptr @parse_stmt(ptr noundef %0)
   %85 = icmp eq ptr %84, null
   br i1 %85, label %.critedge6, label %86
@@ -4732,14 +4732,14 @@ define internal fastcc ptr @parse_ct_for_stmt(ptr noundef %0) unnamed_addr #0 {
   %93 = sub i64 %.sink121, %92
   %phi.call98.in = sdiv exact i64 %93, 48
   %phi.call98 = trunc i64 %phi.call98.in to i32
-  store i32 %phi.call98, ptr %.087112, align 4
+  store i32 %phi.call98, ptr %.0112, align 4
   %94 = getelementptr inbounds i8, ptr %84, i64 8
   %95 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 155) #5
   br i1 %95, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.critedge6, %.critedge109, %90, %68, %62, %47, %40, %29, %23, %9
-  %.088 = phi ptr [ %91, %90 ], [ %71, %68 ], [ %63, %62 ], [ %50, %47 ], [ %41, %40 ], [ %32, %29 ], [ %24, %23 ], [ %12, %9 ], [ %4, %.critedge109 ], [ %4, %.critedge6 ]
-  ret ptr %.088
+  %.086 = phi ptr [ %91, %90 ], [ %71, %68 ], [ %63, %62 ], [ %50, %47 ], [ %41, %40 ], [ %32, %29 ], [ %24, %23 ], [ %12, %9 ], [ %4, %.critedge109 ], [ %4, %.critedge6 ]
+  ret ptr %.086
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4823,7 +4823,7 @@ define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
   br i1 %36, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.critedge2, %68
-  %.04862 = phi ptr [ %71, %68 ], [ null, %.critedge2 ]
+  %.062 = phi ptr [ %71, %68 ], [ null, %.critedge2 ]
   %37 = tail call ptr @parse_expr(ptr noundef %0) #5
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.critedge4, label %39
@@ -4840,7 +4840,7 @@ define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
   br label %consume_eos.exit
 
 .critedge4:                                       ; preds = %.lr.ph, %39
-  %.not.i = icmp eq ptr %.04862, null
+  %.not.i = icmp eq ptr %.062, null
   br i1 %.not.i, label %45, label %48
 
 45:                                               ; preds = %.critedge4
@@ -4850,8 +4850,8 @@ define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
   br label %50
 
 48:                                               ; preds = %.critedge4
-  %49 = getelementptr inbounds i8, ptr %.04862, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.04862, i64 -4
+  %49 = getelementptr inbounds i8, ptr %.062, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.062, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %50
 
@@ -4895,9 +4895,9 @@ define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
   br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %68, %.critedge2
-  %.048.lcssa = phi ptr [ null, %.critedge2 ], [ %71, %68 ]
+  %.0.lcssa = phi ptr [ null, %.critedge2 ], [ %71, %68 ]
   %75 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %.048.lcssa, ptr %75, align 8
+  store ptr %.0.lcssa, ptr %75, align 8
   br label %76
 
 76:                                               ; preds = %.critedge, %._crit_edge
@@ -4921,8 +4921,8 @@ define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
   br label %consume_eos.exit
 
 consume_eos.exit:                                 ; preds = %82, %80, %78, %43, %31, %17, %7
-  %.047 = phi ptr [ %44, %43 ], [ %79, %78 ], [ %32, %31 ], [ %18, %17 ], [ %8, %7 ], [ %85, %82 ], [ %4, %80 ]
-  ret ptr %.047
+  %.048 = phi ptr [ %44, %43 ], [ %79, %78 ], [ %32, %31 ], [ %18, %17 ], [ %8, %7 ], [ %85, %82 ], [ %4, %80 ]
+  ret ptr %.048
 }
 
 declare ptr @token_type_to_string(i32 noundef) local_unnamed_addr #1
@@ -5241,8 +5241,8 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   br i1 %82, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %76, %130
-  %.0112164 = phi ptr [ %133, %130 ], [ %79, %76 ]
-  %.0113163 = phi ptr [ %.1, %130 ], [ null, %76 ]
+  %.0106164 = phi ptr [ %.1, %130 ], [ null, %76 ]
+  %.0107163 = phi ptr [ %133, %130 ], [ %79, %76 ]
   %83 = tail call ptr @copy_type_info_single(ptr noundef %1) #5
   %84 = tail call ptr @parse_local_decl_after_type(ptr noundef %0, ptr noundef %83) #5
   %.not129 = icmp eq ptr %84, null
@@ -5299,9 +5299,9 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   br label %159
 
 113:                                              ; preds = %100, %97
-  %.1 = phi ptr [ %.0113163, %97 ], [ %99, %100 ]
-  %114 = getelementptr inbounds i8, ptr %.0112164, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.0112164, i64 -4
+  %.1 = phi ptr [ %.0106164, %97 ], [ %99, %100 ]
+  %114 = getelementptr inbounds i8, ptr %.0107163, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.0107163, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   %115 = load i32, ptr %114, align 4
   %116 = icmp eq i32 %115, %.pre.i
@@ -5370,8 +5370,8 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph169, !llvm.loop !19
 
 .loopexit:                                        ; preds = %145, %76, %137, %._crit_edge
-  %.0112.lcssa185 = phi ptr [ %133, %137 ], [ %133, %._crit_edge ], [ %79, %76 ], [ %133, %145 ]
-  store ptr %.0112.lcssa185, ptr %14, align 8
+  %.0107.lcssa185 = phi ptr [ %133, %137 ], [ %133, %._crit_edge ], [ %79, %76 ], [ %133, %145 ]
+  store ptr %.0107.lcssa185, ptr %14, align 8
   store i8 16, ptr %6, align 4
   %146 = getelementptr inbounds i8, ptr %0, i64 56
   %147 = load i64, ptr %3, align 8
@@ -5405,8 +5405,8 @@ extend_span_with_token.exit150:                   ; preds = %149, %150
   br label %159
 
 159:                                              ; preds = %.critedge, %extend_span_with_token.exit150, %103, %93, %89, %extend_span_with_token.exit, %38, %33, %12
-  %.0110 = phi ptr [ %36, %33 ], [ %47, %38 ], [ %3, %extend_span_with_token.exit ], [ %96, %93 ], [ %112, %103 ], [ %90, %89 ], [ %3, %extend_span_with_token.exit150 ], [ %13, %12 ], [ %3, %.critedge ]
-  ret ptr %.0110
+  %.0111 = phi ptr [ %36, %33 ], [ %47, %38 ], [ %3, %extend_span_with_token.exit ], [ %96, %93 ], [ %112, %103 ], [ %90, %89 ], [ %3, %extend_span_with_token.exit150 ], [ %13, %12 ], [ %3, %.critedge ]
+  ret ptr %.0111
 }
 
 declare ptr @parse_local_decl_after_type(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -5489,7 +5489,7 @@ extend_span_with_token.exit:                      ; preds = %14, %15
   br label %24
 
 24:                                               ; preds = %2, %2, %extend_span_with_token.exit
-  %.026 = phi ptr [ null, %2 ], [ %6, %extend_span_with_token.exit ], [ null, %2 ]
+  %.0 = phi ptr [ null, %2 ], [ %6, %extend_span_with_token.exit ], [ null, %2 ]
   %25 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 1) #5
   br i1 %25, label %26, label %30
 
@@ -5505,12 +5505,12 @@ extend_span_with_token.exit:                      ; preds = %14, %15
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 48
   %34 = load i64, ptr %33, align 8
-  %35 = tail call ptr @decl_new_var(ptr noundef %32, i64 %34, ptr noundef %.026, i32 noundef 2) #5
+  %35 = tail call ptr @decl_new_var(ptr noundef %32, i64 %34, ptr noundef %.0, i32 noundef 2) #5
   %36 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 64) #5
   br i1 %36, label %41, label %37
 
 37:                                               ; preds = %30
-  %.not30 = icmp eq ptr %.026, null
+  %.not30 = icmp eq ptr %.0, null
   %38 = load i64, ptr %33, align 8
   br i1 %.not30, label %40, label %39
 
@@ -5534,8 +5534,8 @@ extend_span_with_token.exit:                      ; preds = %14, %15
   br label %49
 
 49:                                               ; preds = %7, %41, %40, %39
-  %.0 = phi i1 [ true, %41 ], [ false, %39 ], [ false, %40 ], [ false, %7 ]
-  ret i1 %.0
+  %.026 = phi i1 [ true, %41 ], [ false, %39 ], [ false, %40 ], [ false, %7 ]
+  ret i1 %.026
 }
 
 ; Function Attrs: nounwind uwtable

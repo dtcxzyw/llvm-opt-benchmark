@@ -389,20 +389,20 @@ if.then.preheader:                                ; preds = %entry
   br label %if.then
 
 if.then:                                          ; preds = %if.then.preheader, %if.then4
-  %t1.012 = phi ptr [ %incdec.ptr, %if.then4 ], [ %source, %if.then.preheader ]
-  %s.011 = phi ptr [ %incdec.ptr6, %if.then4 ], [ %out, %if.then.preheader ]
-  %t2.010 = phi ptr [ %incdec.ptr5, %if.then4 ], [ %add.ptr, %if.then.preheader ]
-  %0 = load i8, ptr %t1.012, align 1
-  %incdec.ptr2 = getelementptr inbounds i8, ptr %s.011, i64 1
-  store i8 %0, ptr %s.011, align 1
+  %s.012 = phi ptr [ %incdec.ptr6, %if.then4 ], [ %out, %if.then.preheader ]
+  %t2.011 = phi ptr [ %incdec.ptr5, %if.then4 ], [ %add.ptr, %if.then.preheader ]
+  %t1.010 = phi ptr [ %incdec.ptr, %if.then4 ], [ %source, %if.then.preheader ]
+  %0 = load i8, ptr %t1.010, align 1
+  %incdec.ptr2 = getelementptr inbounds i8, ptr %s.012, i64 1
+  store i8 %0, ptr %s.012, align 1
   %cmp3 = icmp ult ptr %incdec.ptr2, %add.ptr1
   br i1 %cmp3, label %if.then4, label %while.end
 
 if.then4:                                         ; preds = %if.then
-  %incdec.ptr = getelementptr inbounds i8, ptr %t1.012, i64 1
-  %incdec.ptr5 = getelementptr inbounds i8, ptr %t2.010, i64 1
-  %1 = load i8, ptr %t2.010, align 1
-  %incdec.ptr6 = getelementptr inbounds i8, ptr %s.011, i64 2
+  %incdec.ptr = getelementptr inbounds i8, ptr %t1.010, i64 1
+  %incdec.ptr5 = getelementptr inbounds i8, ptr %t2.011, i64 1
+  %1 = load i8, ptr %t2.011, align 1
+  %incdec.ptr6 = getelementptr inbounds i8, ptr %s.012, i64 2
   store i8 %1, ptr %incdec.ptr2, align 1
   %cmp = icmp ult ptr %incdec.ptr6, %add.ptr1
   br i1 %cmp, label %if.then, label %while.end, !llvm.loop !11

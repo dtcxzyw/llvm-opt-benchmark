@@ -93,14 +93,14 @@ pmix_pointer_array_get_item.exit26:               ; preds = %29
   br label %pmix_pointer_array_get_item.exit26.thread
 
 pmix_pointer_array_get_item.exit26.thread:        ; preds = %29, %pmix_pointer_array_get_item.exit26, %37
-  %.016 = phi i32 [ %40, %37 ], [ -16, %pmix_pointer_array_get_item.exit26 ], [ -16, %29 ]
+  %.0 = phi i32 [ %40, %37 ], [ -16, %pmix_pointer_array_get_item.exit26 ], [ -16, %29 ]
   %41 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %41) #6
   br label %pmix_pointer_array_get_item.exit.thread
 
 pmix_pointer_array_get_item.exit.thread:          ; preds = %6, %27, %20, %14, %pmix_pointer_array_get_item.exit, %pmix_pointer_array_get_item.exit26.thread
-  %.0 = phi i32 [ %.016, %pmix_pointer_array_get_item.exit26.thread ], [ 0, %pmix_pointer_array_get_item.exit ], [ 0, %14 ], [ -47, %20 ], [ -1, %27 ], [ 0, %6 ]
-  ret i32 %.0
+  %.016 = phi i32 [ %.0, %pmix_pointer_array_get_item.exit26.thread ], [ 0, %pmix_pointer_array_get_item.exit ], [ 0, %14 ], [ -47, %20 ], [ -1, %27 ], [ 0, %6 ]
+  ret i32 %.016
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -162,8 +162,8 @@ pmix_pointer_array_get_item.exit:                 ; preds = %3
   br label %.thread
 
 .thread:                                          ; preds = %3, %pmix_pointer_array_get_item.exit, %13, %28
-  %.0 = phi i32 [ 0, %28 ], [ %16, %13 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -16, %3 ]
-  ret i32 %.0
+  %.011 = phi i32 [ 0, %28 ], [ %16, %13 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -16, %3 ]
+  ret i32 %.011
 }
 
 declare noalias ptr @hwloc_bitmap_alloc() local_unnamed_addr #2
@@ -568,8 +568,8 @@ pmix_pointer_array_get_item.exit66:               ; preds = %66
   br label %pmix_pointer_array_get_item.exit.thread
 
 pmix_pointer_array_get_item.exit.thread:          ; preds = %72, %pmix_pointer_array_get_item.exit66, %66, %54, %pmix_pointer_array_get_item.exit63, %41, %pmix_pointer_array_get_item.exit60, %7, %.thread, %60, %49, %36, %23, %21, %15, %pmix_pointer_array_get_item.exit
-  %.0 = phi i32 [ 0, %pmix_pointer_array_get_item.exit ], [ 0, %15 ], [ -47, %21 ], [ -1, %23 ], [ %39, %36 ], [ %53, %49 ], [ %65, %60 ], [ -16, %.thread ], [ 0, %7 ], [ -16, %pmix_pointer_array_get_item.exit60 ], [ -16, %41 ], [ -16, %pmix_pointer_array_get_item.exit63 ], [ -16, %54 ], [ %77, %72 ], [ -16, %pmix_pointer_array_get_item.exit66 ], [ -16, %66 ]
-  ret i32 %.0
+  %.041 = phi i32 [ 0, %pmix_pointer_array_get_item.exit ], [ 0, %15 ], [ -47, %21 ], [ -1, %23 ], [ %39, %36 ], [ %53, %49 ], [ %65, %60 ], [ -16, %.thread ], [ 0, %7 ], [ -16, %pmix_pointer_array_get_item.exit60 ], [ -16, %41 ], [ -16, %pmix_pointer_array_get_item.exit63 ], [ -16, %54 ], [ %77, %72 ], [ -16, %pmix_pointer_array_get_item.exit66 ], [ -16, %66 ]
+  ret i32 %.041
 }
 
 declare i32 @hwloc_topology_export_xmlbuffer(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
@@ -761,8 +761,8 @@ pmix_pointer_array_get_item.exit61:               ; preds = %77
   br label %.thread
 
 .thread:                                          ; preds = %3, %pmix_pointer_array_get_item.exit, %14, %91, %.critedge52, %.critedge50, %.critedge, %48, %44, %40, %36, %26, %21
-  %.0 = phi i32 [ 0, %21 ], [ -1, %26 ], [ -1, %36 ], [ -1, %40 ], [ -1, %44 ], [ -1, %48 ], [ -1, %.critedge ], [ -1, %.critedge50 ], [ -1, %.critedge52 ], [ 0, %91 ], [ %17, %14 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -16, %3 ]
-  ret i32 %.0
+  %.036 = phi i32 [ 0, %21 ], [ -1, %26 ], [ -1, %36 ], [ -1, %40 ], [ -1, %44 ], [ -1, %48 ], [ -1, %.critedge ], [ -1, %.critedge50 ], [ -1, %.critedge52 ], [ 0, %91 ], [ %17, %14 ], [ -16, %pmix_pointer_array_get_item.exit ], [ -16, %3 ]
+  ret i32 %.036
 }
 
 declare i32 @hwloc_topology_init(ptr noundef) local_unnamed_addr #2

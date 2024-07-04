@@ -94,8 +94,8 @@ mca_coll_accelerator_memcpy.exit:                 ; preds = %44
   br label %51
 
 51:                                               ; preds = %.thread, %mca_coll_accelerator_memcpy.exit, %38
-  %.049 = phi ptr [ %42, %mca_coll_accelerator_memcpy.exit ], [ null, %38 ], [ null, %.thread ]
-  %.047 = phi ptr [ %50, %mca_coll_accelerator_memcpy.exit ], [ %0, %38 ], [ null, %.thread ]
+  %.050 = phi ptr [ %50, %mca_coll_accelerator_memcpy.exit ], [ %0, %38 ], [ null, %.thread ]
+  %.047 = phi ptr [ %42, %mca_coll_accelerator_memcpy.exit ], [ null, %38 ], [ null, %.thread ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %.not.i63 = icmp eq ptr %1, null
@@ -124,7 +124,7 @@ mca_coll_accelerator_check_buf.exit65:            ; preds = %51
   br i1 %58, label %59, label %60
 
 59:                                               ; preds = %56
-  %.not60 = icmp eq ptr %.049, null
+  %.not60 = icmp eq ptr %.047, null
   br i1 %.not60, label %80, label %.sink.split
 
 60:                                               ; preds = %56
@@ -146,45 +146,45 @@ mca_coll_accelerator_memcpy.exit67:               ; preds = %60
 
 67:                                               ; preds = %.thread78, %mca_coll_accelerator_memcpy.exit67, %55
   %.051 = phi ptr [ %66, %mca_coll_accelerator_memcpy.exit67 ], [ %1, %55 ], [ null, %.thread78 ]
-  %.050 = phi ptr [ %57, %mca_coll_accelerator_memcpy.exit67 ], [ null, %55 ], [ null, %.thread78 ]
-  %.048 = phi ptr [ %1, %mca_coll_accelerator_memcpy.exit67 ], [ null, %55 ], [ null, %.thread78 ]
+  %.048 = phi ptr [ %57, %mca_coll_accelerator_memcpy.exit67 ], [ null, %55 ], [ null, %.thread78 ]
+  %.0 = phi ptr [ %1, %mca_coll_accelerator_memcpy.exit67 ], [ null, %55 ], [ null, %.thread78 ]
   %68 = getelementptr inbounds i8, ptr %6, i64 800
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %6, i64 808
   %71 = load ptr, ptr %70, align 8
-  %72 = call i32 %69(ptr noundef %.047, ptr noundef %.051, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %71) #6
-  %.not58 = icmp eq ptr %.049, null
+  %72 = call i32 %69(ptr noundef %.050, ptr noundef %.051, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %71) #6
+  %.not58 = icmp eq ptr %.047, null
   br i1 %.not58, label %74, label %73
 
 73:                                               ; preds = %67
-  call void @free(ptr noundef nonnull %.049) #6
+  call void @free(ptr noundef nonnull %.047) #6
   br label %74
 
 74:                                               ; preds = %73, %67
-  %.not59 = icmp eq ptr %.050, null
+  %.not59 = icmp eq ptr %.048, null
   br i1 %.not59, label %80, label %75
 
 75:                                               ; preds = %74
   %76 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_accelerator, i64 56), align 8
-  %77 = call i32 %76(i32 noundef -1, i32 noundef -1, ptr noundef %.048, ptr noundef nonnull %.050, i64 noundef %.0.i, i32 noundef 0) #6
+  %77 = call i32 %76(i32 noundef -1, i32 noundef -1, ptr noundef %.0, ptr noundef nonnull %.048, i64 noundef %.0.i, i32 noundef 0) #6
   %.not.i68 = icmp eq i32 %77, 0
   br i1 %.not.i68, label %.sink.split, label %78
 
 78:                                               ; preds = %75
   %79 = trunc i64 %.0.i to i32
-  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str, i32 noundef %77, ptr noundef %.048, ptr noundef nonnull %.050, i32 noundef %79) #6
+  call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str, i32 noundef %77, ptr noundef %.0, ptr noundef nonnull %.048, i32 noundef %79) #6
   call void @abort() #8
   unreachable
 
 .sink.split:                                      ; preds = %75, %59
-  %.050.sink = phi ptr [ %.049, %59 ], [ %.050, %75 ]
-  %.0.ph = phi i32 [ -2, %59 ], [ %72, %75 ]
-  call void @free(ptr noundef nonnull %.050.sink) #6
+  %.048.sink = phi ptr [ %.047, %59 ], [ %.048, %75 ]
+  %.049.ph = phi i32 [ -2, %59 ], [ %72, %75 ]
+  call void @free(ptr noundef nonnull %.048.sink) #6
   br label %80
 
 80:                                               ; preds = %.sink.split, %74, %59, %mca_coll_accelerator_check_buf.exit65, %41, %mca_coll_accelerator_check_buf.exit
-  %.0 = phi i32 [ %36, %mca_coll_accelerator_check_buf.exit ], [ -2, %41 ], [ %53, %mca_coll_accelerator_check_buf.exit65 ], [ -2, %59 ], [ %72, %74 ], [ %.0.ph, %.sink.split ]
-  ret i32 %.0
+  %.049 = phi i32 [ %36, %mca_coll_accelerator_check_buf.exit ], [ -2, %41 ], [ %53, %mca_coll_accelerator_check_buf.exit65 ], [ -2, %59 ], [ %72, %74 ], [ %.049.ph, %.sink.split ]
+  ret i32 %.049
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

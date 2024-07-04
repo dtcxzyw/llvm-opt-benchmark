@@ -368,8 +368,8 @@ _ZNK6vectorIN3sat6eframeELb0EjE4sizeEv.exit:      ; preds = %if.end18, %if.end.i
 
 while.cond.preheader:                             ; preds = %_ZNK6vectorIN3sat6eframeELb0EjE4sizeEv.exit
   %5 = load ptr, ptr %m_stack, align 8
-  %cmp.i2482 = icmp eq ptr %5, null
-  br i1 %cmp.i2482, label %_ZN6vectorIN3sat6eframeELb0EjE12scoped_stackD2Ev.exit, label %_ZNK6vectorIN3sat6eframeELb0EjE4sizeEv.exit28
+  %cmp.i2483 = icmp eq ptr %5, null
+  br i1 %cmp.i2483, label %_ZN6vectorIN3sat6eframeELb0EjE12scoped_stackD2Ev.exit, label %_ZNK6vectorIN3sat6eframeELb0EjE4sizeEv.exit28
 
 _ZNK6vectorIN3sat6eframeELb0EjE4sizeEv.exit28:    ; preds = %while.cond.preheader, %while.cond.backedge
   %6 = phi ptr [ %17, %while.cond.backedge ], [ %5, %while.cond.preheader ]
@@ -396,7 +396,7 @@ if.then31:                                        ; preds = %invoke.cont29
 invoke.cont36:                                    ; preds = %if.then31
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #25
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32, ptr noundef %call37, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38)
-          to label %invoke.cont40 unwind label %ehcleanup43.thread65
+          to label %invoke.cont40 unwind label %ehcleanup43.thread66
 
 invoke.cont40:                                    ; preds = %invoke.cont36
   store ptr getelementptr inbounds (i8, ptr @_ZTV16tactic_exception, i64 16), ptr %exception, align 8
@@ -411,12 +411,12 @@ lpad20.loopexit:                                  ; preds = %while.body71
   br label %ehcleanup107
 
 lpad20.loopexit.split-lp.loopexit:                ; preds = %loop, %_ZNK6vectorIN3sat6eframeELb0EjE4sizeEv.exit34
-  %lpad.loopexit71 = landingpad { ptr, i32 }
+  %lpad.loopexit72 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup107
 
 lpad20.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.end, %land.lhs.true
-  %lpad.loopexit74 = landingpad { ptr, i32 }
+  %lpad.loopexit75 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup107
 
@@ -430,7 +430,7 @@ ehcleanup43.thread:                               ; preds = %if.then31
           cleanup
   br label %cleanup.action
 
-ehcleanup43.thread65:                             ; preds = %invoke.cont36
+ehcleanup43.thread66:                             ; preds = %invoke.cont36
   %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #25
@@ -443,8 +443,8 @@ ehcleanup43:                                      ; preds = %invoke.cont40
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp38) #25
   br label %ehcleanup107
 
-cleanup.action:                                   ; preds = %ehcleanup43.thread65, %ehcleanup43.thread
-  %.pn.pn64 = phi { ptr, i32 } [ %8, %ehcleanup43.thread ], [ %9, %ehcleanup43.thread65 ]
+cleanup.action:                                   ; preds = %ehcleanup43.thread66, %ehcleanup43.thread
+  %.pn.pn65 = phi { ptr, i32 } [ %8, %ehcleanup43.thread ], [ %9, %ehcleanup43.thread66 ]
   call void @__cxa_free_exception(ptr %exception) #25
   br label %ehcleanup107
 
@@ -549,17 +549,17 @@ cleanup:                                          ; preds = %invoke.cont100
   br i1 %tobool.not.i.i, label %_ZN6vectorIN3sat6eframeELb0EjE12scoped_stackD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %_ZNK6vectorIN3sat6eframeELb0EjE4sizeEv.exit28, %cleanup
-  %.pr93 = phi ptr [ %.pr.pre, %cleanup ], [ %6, %_ZNK6vectorIN3sat6eframeELb0EjE4sizeEv.exit28 ]
-  %arrayidx.i.i49 = getelementptr inbounds i8, ptr %.pr93, i64 -4
+  %.pr94 = phi ptr [ %.pr.pre, %cleanup ], [ %6, %_ZNK6vectorIN3sat6eframeELb0EjE4sizeEv.exit28 ]
+  %arrayidx.i.i49 = getelementptr inbounds i8, ptr %.pr94, i64 -4
   store i32 %retval.0.i, ptr %arrayidx.i.i49, align 4
   br label %_ZN6vectorIN3sat6eframeELb0EjE12scoped_stackD2Ev.exit
 
 _ZN6vectorIN3sat6eframeELb0EjE12scoped_stackD2Ev.exit: ; preds = %while.cond.backedge, %while.cond.preheader, %cleanup, %if.then.i.i
-  %cmp286170 = phi i1 [ %cmp28.not, %cleanup ], [ %cmp28.not, %if.then.i.i ], [ true, %while.cond.preheader ], [ true, %while.cond.backedge ]
-  ret i1 %cmp286170
+  %cmp286271 = phi i1 [ %cmp28.not, %cleanup ], [ %cmp28.not, %if.then.i.i ], [ true, %while.cond.preheader ], [ true, %while.cond.backedge ]
+  ret i1 %cmp286271
 
 ehcleanup107:                                     ; preds = %lpad20.loopexit, %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad20.loopexit.split-lp.loopexit, %ehcleanup43, %cleanup.action
-  %.pn18 = phi { ptr, i32 } [ %.pn.pn64, %cleanup.action ], [ %10, %ehcleanup43 ], [ %lpad.loopexit, %lpad20.loopexit ], [ %lpad.loopexit71, %lpad20.loopexit.split-lp.loopexit ], [ %lpad.loopexit74, %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.pn18 = phi { ptr, i32 } [ %.pn.pn65, %cleanup.action ], [ %10, %ehcleanup43 ], [ %lpad.loopexit, %lpad20.loopexit ], [ %lpad.loopexit72, %lpad20.loopexit.split-lp.loopexit ], [ %lpad.loopexit75, %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad20.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %26 = load ptr, ptr %m_stack, align 8
   %tobool.not.i.i50 = icmp eq ptr %26, null
   br i1 %tobool.not.i.i50, label %eh.resume, label %if.then.i.i51

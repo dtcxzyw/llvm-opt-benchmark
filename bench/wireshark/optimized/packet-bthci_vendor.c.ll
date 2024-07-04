@@ -1661,8 +1661,8 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
   br label %9
 
 9:                                                ; preds = %4, %5
-  %.0651 = phi i32 [ %6, %5 ], [ 0, %4 ]
-  %.0650 = phi i32 [ %8, %5 ], [ 0, %4 ]
+  %.0650 = phi i32 [ %6, %5 ], [ 0, %4 ]
+  %.0 = phi i32 [ %8, %5 ], [ 0, %4 ]
   %10 = load i32, ptr @proto_bthci_vendor_intel, align 4
   %11 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef %11, i32 noundef 0) #3
@@ -1718,9 +1718,9 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
   %43 = getelementptr inbounds i8, ptr %1, i64 408
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noalias ptr @wmem_alloc(ptr noundef %44, i64 noundef 32) #3
-  store i32 %.0651, ptr %45, align 8
+  store i32 %.0650, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 4
-  store i32 %.0650, ptr %46, align 4
+  store i32 %.0, ptr %46, align 4
   %47 = getelementptr inbounds i8, ptr %45, i64 24
   store i32 4, ptr %47, align 8
   %48 = lshr i16 %25, 10
@@ -1821,7 +1821,7 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
 
 87:                                               ; preds = %55
   %88 = load i32, ptr @hf_intel_bd_addr, align 4
-  %89 = tail call i32 @dissect_bd_addr(i32 noundef %88, ptr noundef nonnull %1, ptr noundef %14, ptr noundef %0, i32 noundef 3, i32 noundef 0, i32 noundef %.0651, i32 noundef %.0650, ptr noundef null) #3
+  %89 = tail call i32 @dissect_bd_addr(i32 noundef %88, ptr noundef nonnull %1, ptr noundef %14, ptr noundef %0, i32 noundef 3, i32 noundef 0, i32 noundef %.0650, i32 noundef %.0, ptr noundef null) #3
   %90 = load i32, ptr @hf_intel_data, align 4
   %91 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %90, ptr noundef %0, i32 noundef %89, i32 noundef 6, i32 noundef 0) #3
   %92 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %91, ptr noundef nonnull @ei_intel_undecoded) #3
@@ -1848,7 +1848,7 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
 
 110:                                              ; preds = %55
   %111 = load i32, ptr @hf_intel_bd_addr, align 4
-  %112 = tail call i32 @dissect_bd_addr(i32 noundef %111, ptr noundef nonnull %1, ptr noundef %14, ptr noundef %0, i32 noundef 3, i32 noundef 0, i32 noundef %.0651, i32 noundef %.0650, ptr noundef null) #3
+  %112 = tail call i32 @dissect_bd_addr(i32 noundef %111, ptr noundef nonnull %1, ptr noundef %14, ptr noundef %0, i32 noundef 3, i32 noundef 0, i32 noundef %.0650, i32 noundef %.0, ptr noundef null) #3
   br label %.loopexit
 
 113:                                              ; preds = %55
@@ -1872,20 +1872,20 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.0684 = phi i32 [ %137, %.lr.ph ], [ 3, %.preheader ]
-  %.0652683 = phi i8 [ %138, %.lr.ph ], [ %58, %.preheader ]
+  %.0651684 = phi i8 [ %138, %.lr.ph ], [ %58, %.preheader ]
+  %.0653683 = phi i32 [ %137, %.lr.ph ], [ 3, %.preheader ]
   %127 = load i32, ptr @hf_intel_ddc_config_length, align 4
-  %128 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %127, ptr noundef %0, i32 noundef %.0684, i32 noundef 1, i32 noundef 0) #3
-  %129 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0684) #3
-  %130 = add i32 %.0684, 1
+  %128 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %127, ptr noundef %0, i32 noundef %.0653683, i32 noundef 1, i32 noundef 0) #3
+  %129 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0653683) #3
+  %130 = add i32 %.0653683, 1
   %131 = load i32, ptr @hf_intel_identifier, align 4
   %132 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %131, ptr noundef %0, i32 noundef %130, i32 noundef 2, i32 noundef -2147483648) #3
-  %133 = add i32 %.0684, 3
+  %133 = add i32 %.0653683, 3
   %134 = load i32, ptr @hf_intel_data, align 4
   %135 = zext i8 %129 to i32
   %136 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %134, ptr noundef %0, i32 noundef %133, i32 noundef %135, i32 noundef 0) #3
   %137 = add i32 %133, %135
-  %.neg681 = add i8 %.0652683, -4
+  %.neg681 = add i8 %.0651684, -4
   %138 = sub i8 %.neg681, %129
   %.not679 = icmp eq i8 %138, 0
   br i1 %.not679, label %.loopexit, label %.lr.ph, !llvm.loop !4
@@ -1919,19 +1919,19 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %153, %154, %87, %103, %72, %76, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %139, %123, %120, %113, %110, %82, %59
-  %.1653 = phi i8 [ %58, %154 ], [ 0, %153 ], [ %58, %139 ], [ %58, %123 ], [ %58, %120 ], [ %58, %113 ], [ %58, %110 ], [ %58, %103 ], [ %58, %87 ], [ %58, %82 ], [ %58, %76 ], [ %58, %72 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %59 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
-  %.1 = phi i32 [ %159, %154 ], [ 3, %153 ], [ %152, %139 ], [ 11, %123 ], [ 4, %120 ], [ 6, %113 ], [ %112, %110 ], [ %109, %103 ], [ %101, %87 ], [ 5, %82 ], [ %81, %76 ], [ 4, %72 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 12, %59 ], [ 3, %.preheader ], [ %137, %.lr.ph ]
-  %160 = add i32 %.1, -3
-  %161 = zext i8 %.1653 to i32
+  %.1654 = phi i32 [ %159, %154 ], [ 3, %153 ], [ %152, %139 ], [ 11, %123 ], [ 4, %120 ], [ 6, %113 ], [ %112, %110 ], [ %109, %103 ], [ %101, %87 ], [ 5, %82 ], [ %81, %76 ], [ 4, %72 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 12, %59 ], [ 3, %.preheader ], [ %137, %.lr.ph ]
+  %.1 = phi i8 [ %58, %154 ], [ 0, %153 ], [ %58, %139 ], [ %58, %123 ], [ %58, %120 ], [ %58, %113 ], [ %58, %110 ], [ %58, %103 ], [ %58, %87 ], [ %58, %82 ], [ %58, %76 ], [ %58, %72 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %59 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
+  %160 = add i32 %.1654, -3
+  %161 = zext i8 %.1 to i32
   %162 = icmp slt i32 %160, %161
   br i1 %162, label %163, label %452
 
 163:                                              ; preds = %.loopexit
   %164 = load i32, ptr @hf_intel_data, align 4
   %165 = sub i32 %161, %160
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %164, ptr noundef %0, i32 noundef %.1, i32 noundef %165, i32 noundef 0) #3
+  %166 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %164, ptr noundef %0, i32 noundef %.1654, i32 noundef %165, i32 noundef 0) #3
   %167 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %166, ptr noundef nonnull @ei_intel_unexpected_parameter) #3
-  %168 = add i32 %165, %.1
+  %168 = add i32 %165, %.1654
   br label %452
 
 169:                                              ; preds = %9
@@ -1953,9 +1953,9 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
   br label %178
 
 178:                                              ; preds = %176, %174
-  %.0654 = phi ptr [ %175, %174 ], [ %177, %176 ]
+  %.0652 = phi ptr [ %175, %174 ], [ %177, %176 ]
   %179 = load ptr, ptr %17, align 8
-  tail call void @col_append_str(ptr noundef %179, i32 noundef 25, ptr noundef %.0654) #3
+  tail call void @col_append_str(ptr noundef %179, i32 noundef 25, ptr noundef %.0652) #3
   %180 = load i32, ptr @hf_intel_event_code, align 4
   %181 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %180, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %182 = load i32, ptr @bluetooth_hci_summary_tap, align 4
@@ -1967,16 +1967,16 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
   %185 = getelementptr inbounds i8, ptr %1, i64 408
   %186 = load ptr, ptr %185, align 8
   %187 = tail call noalias ptr @wmem_alloc(ptr noundef %186, i64 noundef 32) #3
-  store i32 %.0651, ptr %187, align 8
+  store i32 %.0650, ptr %187, align 8
   %188 = getelementptr inbounds i8, ptr %187, i64 4
-  store i32 %.0650, ptr %188, align 4
+  store i32 %.0, ptr %188, align 4
   %189 = getelementptr inbounds i8, ptr %187, i64 24
   store i32 6, ptr %189, align 8
   %190 = getelementptr inbounds i8, ptr %187, i64 11
   store i8 %171, ptr %190, align 1
   %191 = tail call ptr @try_val_to_str_ext(i32 noundef %172, ptr noundef nonnull @bthci_evt_evt_code_vals_ext) #3
   %.not669 = icmp eq ptr %191, null
-  %spec.select686 = select i1 %.not669, ptr null, ptr %.0654
+  %spec.select686 = select i1 %.not669, ptr null, ptr %.0652
   %192 = getelementptr inbounds i8, ptr %187, i64 16
   store ptr %spec.select686, ptr %192, align 8
   %193 = load i32, ptr @bluetooth_hci_summary_tap, align 4
@@ -2046,9 +2046,9 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
   %223 = getelementptr inbounds i8, ptr %1, i64 408
   %224 = load ptr, ptr %223, align 8
   %225 = tail call noalias ptr @wmem_alloc(ptr noundef %224, i64 noundef 32) #3
-  store i32 %.0651, ptr %225, align 8
+  store i32 %.0650, ptr %225, align 8
   %226 = getelementptr inbounds i8, ptr %225, i64 4
-  store i32 %.0650, ptr %226, align 4
+  store i32 %.0, ptr %226, align 4
   %227 = getelementptr inbounds i8, ptr %225, i64 24
   store i32 5, ptr %227, align 8
   %228 = lshr i16 %205, 10
@@ -2145,7 +2145,7 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
 
 267:                                              ; preds = %235
   %268 = load i32, ptr @hf_intel_bd_addr, align 4
-  %269 = tail call i32 @dissect_bd_addr(i32 noundef %268, ptr noundef nonnull %1, ptr noundef %14, ptr noundef %0, i32 noundef 6, i32 noundef 0, i32 noundef %.0651, i32 noundef %.0650, ptr noundef null) #3
+  %269 = tail call i32 @dissect_bd_addr(i32 noundef %268, ptr noundef nonnull %1, ptr noundef %14, ptr noundef %0, i32 noundef 6, i32 noundef 0, i32 noundef %.0650, i32 noundef %.0, ptr noundef null) #3
   br label %433
 
 270:                                              ; preds = %235
@@ -2323,7 +2323,7 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
 
 400:                                              ; preds = %194
   %401 = load i32, ptr @hf_intel_bd_addr, align 4
-  %402 = tail call i32 @dissect_bd_addr(i32 noundef %401, ptr noundef nonnull %1, ptr noundef %14, ptr noundef %0, i32 noundef 2, i32 noundef 0, i32 noundef %.0651, i32 noundef %.0650, ptr noundef null) #3
+  %402 = tail call i32 @dissect_bd_addr(i32 noundef %401, ptr noundef nonnull %1, ptr noundef %14, ptr noundef %0, i32 noundef 2, i32 noundef 0, i32 noundef %.0650, i32 noundef %.0, ptr noundef null) #3
   %403 = load i32, ptr @hf_intel_reason, align 4
   %404 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %403, ptr noundef %0, i32 noundef %402, i32 noundef 1, i32 noundef 0) #3
   %405 = add i32 %402, 1
@@ -2398,7 +2398,7 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
   br label %452
 
 452:                                              ; preds = %443, %447, %433, %437, %.loopexit, %163
-  %.3 = phi i32 [ %451, %447 ], [ 0, %443 ], [ %442, %437 ], [ %.2, %433 ], [ %168, %163 ], [ %.1, %.loopexit ]
+  %.3 = phi i32 [ %451, %447 ], [ 0, %443 ], [ %442, %437 ], [ %.2, %433 ], [ %168, %163 ], [ %.1654, %.loopexit ]
   %453 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.3) #3
   %454 = icmp sgt i32 %453, 0
   br i1 %454, label %455, label %462

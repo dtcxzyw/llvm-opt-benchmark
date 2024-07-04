@@ -156,14 +156,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_kslraw_uP1
   br i1 %48, label %.sink.split, label %51
 
 .sink.split:                                      ; preds = %47, %44
-  %.029.ph = phi i64 [ 2147483647, %44 ], [ -2147483648, %47 ]
+  %.0.ph = phi i64 [ 2147483647, %44 ], [ -2147483648, %47 ]
   %49 = getelementptr inbounds i8, ptr %0, i64 659712
   %50 = load ptr, ptr %49, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %50, i64 noundef 1) #13
   br label %51
 
 51:                                               ; preds = %.sink.split, %47
-  %.029 = phi i64 [ %45, %47 ], [ %.029.ph, %.sink.split ]
+  %.0 = phi i64 [ %45, %47 ], [ %.0.ph, %.sink.split ]
   %52 = lshr i64 %1, 7
   %53 = and i64 %52, 31
   %.not.i36 = icmp eq i64 %53, 0
@@ -171,9 +171,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_kslraw_uP1
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit.sink.split: ; preds = %51, %37
   %.sink45 = phi i64 [ %36, %37 ], [ %53, %51 ]
-  %.029.sink = phi i64 [ %43, %37 ], [ %.029, %51 ]
+  %.0.sink = phi i64 [ %43, %37 ], [ %.0, %51 ]
   %54 = getelementptr inbounds [32 x i64], ptr %21, i64 0, i64 %.sink45
-  store i64 %.029.sink, ptr %54, align 8
+  store i64 %.0.sink, ptr %54, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.sink.split, %51, %34
@@ -283,14 +283,14 @@ define noundef i64 @_Z19fast_rv64i_kslraw_uP11processor_t6insn_tm(ptr nocapture 
   br i1 %48, label %.sink.split, label %51
 
 .sink.split:                                      ; preds = %47, %44
-  %.029.ph = phi i64 [ 2147483647, %44 ], [ -2147483648, %47 ]
+  %.0.ph = phi i64 [ 2147483647, %44 ], [ -2147483648, %47 ]
   %49 = getelementptr inbounds i8, ptr %0, i64 659712
   %50 = load ptr, ptr %49, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %50, i64 noundef 1) #13
   br label %51
 
 51:                                               ; preds = %.sink.split, %47
-  %.029 = phi i64 [ %45, %47 ], [ %.029.ph, %.sink.split ]
+  %.0 = phi i64 [ %45, %47 ], [ %.0.ph, %.sink.split ]
   %52 = lshr i64 %1, 7
   %53 = and i64 %52, 31
   %.not.i36 = icmp eq i64 %53, 0
@@ -298,9 +298,9 @@ define noundef i64 @_Z19fast_rv64i_kslraw_uP11processor_t6insn_tm(ptr nocapture 
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit.sink.split: ; preds = %51, %37
   %.sink45 = phi i64 [ %36, %37 ], [ %53, %51 ]
-  %.029.sink = phi i64 [ %43, %37 ], [ %.029, %51 ]
+  %.0.sink = phi i64 [ %43, %37 ], [ %.0, %51 ]
   %54 = getelementptr inbounds [32 x i64], ptr %21, i64 0, i64 %.sink45
-  store i64 %.029.sink, ptr %54, align 8
+  store i64 %.0.sink, ptr %54, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.sink.split, %51, %34
@@ -881,14 +881,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_kslraw_uP1
   br i1 %69, label %.sink.split, label %72
 
 .sink.split:                                      ; preds = %68, %65
-  %.038.ph = phi i64 [ 2147483647, %65 ], [ -2147483648, %68 ]
+  %.0.ph = phi i64 [ 2147483647, %65 ], [ -2147483648, %68 ]
   %70 = getelementptr inbounds i8, ptr %0, i64 659712
   %71 = load ptr, ptr %70, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %71, i64 noundef 1) #13
   br label %72
 
 72:                                               ; preds = %.sink.split, %68
-  %.038 = phi i64 [ %66, %68 ], [ %.038.ph, %.sink.split ]
+  %.0 = phi i64 [ %66, %68 ], [ %.0.ph, %.sink.split ]
   %73 = lshr i64 %1, 7
   %74 = and i64 %73, 31
   %75 = icmp ugt i64 %74, 15
@@ -912,9 +912,9 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_kslraw_uP1
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit.sink.split: ; preds = %81, %58
   %.sink61 = phi i64 [ %50, %58 ], [ %74, %81 ]
-  %.038.sink = phi i64 [ %64, %58 ], [ %.038, %81 ]
+  %.0.sink = phi i64 [ %64, %58 ], [ %.0, %81 ]
   %82 = getelementptr inbounds [32 x i64], ptr %30, i64 0, i64 %.sink61
-  store i64 %.038.sink, ptr %82, align 8
+  store i64 %.0.sink, ptr %82, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.sink.split, %81, %57
@@ -1053,14 +1053,14 @@ define noundef i64 @_Z19fast_rv64e_kslraw_uP11processor_t6insn_tm(ptr nocapture 
   br i1 %69, label %.sink.split, label %72
 
 .sink.split:                                      ; preds = %68, %65
-  %.038.ph = phi i64 [ 2147483647, %65 ], [ -2147483648, %68 ]
+  %.0.ph = phi i64 [ 2147483647, %65 ], [ -2147483648, %68 ]
   %70 = getelementptr inbounds i8, ptr %0, i64 659712
   %71 = load ptr, ptr %70, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %71, i64 noundef 1) #13
   br label %72
 
 72:                                               ; preds = %.sink.split, %68
-  %.038 = phi i64 [ %66, %68 ], [ %.038.ph, %.sink.split ]
+  %.0 = phi i64 [ %66, %68 ], [ %.0.ph, %.sink.split ]
   %73 = lshr i64 %1, 7
   %74 = and i64 %73, 31
   %75 = icmp ugt i64 %74, 15
@@ -1084,9 +1084,9 @@ define noundef i64 @_Z19fast_rv64e_kslraw_uP11processor_t6insn_tm(ptr nocapture 
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit.sink.split: ; preds = %81, %58
   %.sink61 = phi i64 [ %50, %58 ], [ %74, %81 ]
-  %.038.sink = phi i64 [ %64, %58 ], [ %.038, %81 ]
+  %.0.sink = phi i64 [ %64, %58 ], [ %.0, %81 ]
   %82 = getelementptr inbounds [32 x i64], ptr %30, i64 0, i64 %.sink61
-  store i64 %.038.sink, ptr %82, align 8
+  store i64 %.0.sink, ptr %82, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.sink.split, %81, %57
@@ -1282,14 +1282,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %93, label %.sink.split, label %96
 
 .sink.split:                                      ; preds = %92, %89
-  %.045.ph = phi i64 [ 2147483647, %89 ], [ -2147483648, %92 ]
+  %.044.ph = phi i64 [ 2147483647, %89 ], [ -2147483648, %92 ]
   %94 = getelementptr inbounds i8, ptr %0, i64 659712
   %95 = load ptr, ptr %94, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %95, i64 noundef 1) #13
   br label %96
 
 96:                                               ; preds = %.sink.split, %92
-  %.045 = phi i64 [ %90, %92 ], [ %.045.ph, %.sink.split ]
+  %.044 = phi i64 [ %90, %92 ], [ %.044.ph, %.sink.split ]
   %97 = getelementptr inbounds i8, ptr %0, i64 3672
   %98 = lshr i64 %1, 7
   %99 = and i64 %98, 31
@@ -1345,7 +1345,7 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit60: ; preds = %112, %107, %.loopexit.i.i56
   %.0.i.pn.i.i58 = phi ptr [ %108, %107 ], [ %122, %.loopexit.i.i56 ], [ %114, %112 ]
   %.0.i.i59 = getelementptr inbounds i8, ptr %.0.i.pn.i.i58, i64 16
-  store i64 %.045, ptr %.0.i.i59, align 8
+  store i64 %.044, ptr %.0.i.i59, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i58, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   %124 = icmp ugt i64 %99, 15
@@ -1369,9 +1369,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit.sink.split: ; preds = %130, %88
   %.sink89 = phi i64 [ %57, %88 ], [ %99, %130 ]
-  %.045.sink = phi i64 [ %54, %88 ], [ %.045, %130 ]
+  %.044.sink = phi i64 [ %54, %88 ], [ %.044, %130 ]
   %131 = getelementptr inbounds [32 x i64], ptr %30, i64 0, i64 %.sink89
-  store i64 %.045.sink, ptr %131, align 8
+  store i64 %.044.sink, ptr %131, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.sink.split, %130, %88
@@ -1569,14 +1569,14 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   br i1 %93, label %.sink.split, label %96
 
 .sink.split:                                      ; preds = %92, %89
-  %.045.ph = phi i64 [ 2147483647, %89 ], [ -2147483648, %92 ]
+  %.044.ph = phi i64 [ 2147483647, %89 ], [ -2147483648, %92 ]
   %94 = getelementptr inbounds i8, ptr %0, i64 659712
   %95 = load ptr, ptr %94, align 8
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %95, i64 noundef 1) #13
   br label %96
 
 96:                                               ; preds = %.sink.split, %92
-  %.045 = phi i64 [ %90, %92 ], [ %.045.ph, %.sink.split ]
+  %.044 = phi i64 [ %90, %92 ], [ %.044.ph, %.sink.split ]
   %97 = getelementptr inbounds i8, ptr %0, i64 3672
   %98 = lshr i64 %1, 7
   %99 = and i64 %98, 31
@@ -1632,7 +1632,7 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit60: ; preds = %112, %107, %.loopexit.i.i56
   %.0.i.pn.i.i58 = phi ptr [ %108, %107 ], [ %122, %.loopexit.i.i56 ], [ %114, %112 ]
   %.0.i.i59 = getelementptr inbounds i8, ptr %.0.i.pn.i.i58, i64 16
-  store i64 %.045, ptr %.0.i.i59, align 8
+  store i64 %.044, ptr %.0.i.i59, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i58, i64 24
   store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   %124 = icmp ugt i64 %99, 15
@@ -1656,9 +1656,9 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit.sink.split: ; preds = %130, %88
   %.sink89 = phi i64 [ %57, %88 ], [ %99, %130 ]
-  %.045.sink = phi i64 [ %54, %88 ], [ %.045, %130 ]
+  %.044.sink = phi i64 [ %54, %88 ], [ %.044, %130 ]
   %131 = getelementptr inbounds [32 x i64], ptr %30, i64 0, i64 %.sink89
-  store i64 %.045.sink, ptr %131, align 8
+  store i64 %.044.sink, ptr %131, align 8
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
 _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit.sink.split, %130, %88

@@ -8099,9 +8099,9 @@ define hidden void @_ZN5osgeo4proj8metadata10Identifier16canonicalizeNameERKNSt7
   br i1 %37, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %36, %45
-  %.011.idx12.i = phi i64 [ %.011.add.i, %45 ], [ 0, %36 ]
-  %.011.ptr13.i = getelementptr inbounds i8, ptr @_ZN5osgeo4proj8metadataL17map_utf8_to_lowerE, i64 %.011.idx12.i
-  %38 = load ptr, ptr %.011.ptr13.i, align 16
+  %.0.idx12.i = phi i64 [ %.0.add.i, %45 ], [ 0, %36 ]
+  %.0.ptr13.i = getelementptr inbounds i8, ptr @_ZN5osgeo4proj8metadataL17map_utf8_to_lowerE, i64 %.0.idx12.i
+  %38 = load ptr, ptr %.0.ptr13.i, align 16
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %6, %39
   br i1 %40, label %41, label %45
@@ -8113,12 +8113,12 @@ define hidden void @_ZN5osgeo4proj8metadata10Identifier16canonicalizeNameERKNSt7
   br i1 %44, label %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit, label %45
 
 45:                                               ; preds = %41, %.preheader
-  %.011.add.i = add nuw nsw i64 %.011.idx12.i, 16
-  %.not.i = icmp eq i64 %.011.add.i, 160
+  %.0.add.i = add nuw nsw i64 %.0.idx12.i, 16
+  %.not.i = icmp eq i64 %.0.add.i, 160
   br i1 %.not.i, label %.thread, label %.preheader
 
 _ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit: ; preds = %41
-  %gep = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj8metadataL17map_utf8_to_lowerE, i64 8), i64 %.011.idx12.i
+  %gep = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj8metadataL17map_utf8_to_lowerE, i64 8), i64 %.0.idx12.i
   %46 = load i8, ptr %gep, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %46)
           to label %47 unwind label %51
@@ -8359,9 +8359,9 @@ _ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit107: ; preds = %_ZN5osgeo4proj8met
   br i1 %60, label %.preheader120, label %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit.thread
 
 .preheader120:                                    ; preds = %59, %68
-  %.011.idx12.i = phi i64 [ %.011.add.i, %68 ], [ 0, %59 ]
-  %.011.ptr13.i = getelementptr inbounds i8, ptr @_ZN5osgeo4proj8metadataL17map_utf8_to_lowerE, i64 %.011.idx12.i
-  %61 = load ptr, ptr %.011.ptr13.i, align 16
+  %.0.idx12.i = phi i64 [ %.0.add.i, %68 ], [ 0, %59 ]
+  %.0.ptr13.i = getelementptr inbounds i8, ptr @_ZN5osgeo4proj8metadataL17map_utf8_to_lowerE, i64 %.0.idx12.i
+  %61 = load ptr, ptr %.0.ptr13.i, align 16
   %62 = load i8, ptr %61, align 1
   %63 = icmp eq i8 %9, %62
   br i1 %63, label %64, label %68
@@ -8373,12 +8373,12 @@ _ZN5osgeo4proj8metadataL13isIgnoredCharEc.exit107: ; preds = %_ZN5osgeo4proj8met
   br i1 %67, label %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit, label %68
 
 68:                                               ; preds = %64, %.preheader120
-  %.011.add.i = add nuw nsw i64 %.011.idx12.i, 16
-  %.not.i = icmp eq i64 %.011.add.i, 160
+  %.0.add.i = add nuw nsw i64 %.0.idx12.i, 16
+  %.not.i = icmp eq i64 %.0.add.i, 160
   br i1 %.not.i, label %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit.thread, label %.preheader120
 
 _ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit: ; preds = %64
-  %gep205 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj8metadataL17map_utf8_to_lowerE, i64 8), i64 %.011.idx12.i
+  %gep205 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj8metadataL17map_utf8_to_lowerE, i64 8), i64 %.0.idx12.i
   %69 = load i8, ptr %gep205, align 8
   %70 = add i64 %.085, -1
   %71 = add i64 %70, %65
@@ -8391,9 +8391,9 @@ _ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit.thread: ; preds = %68, 
   br i1 %72, label %.preheader, label %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit115.thread
 
 .preheader:                                       ; preds = %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit.thread, %80
-  %.011.idx12.i108 = phi i64 [ %.011.add.i110, %80 ], [ 0, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit.thread ]
-  %.011.ptr13.i109 = getelementptr inbounds i8, ptr @_ZN5osgeo4proj8metadataL17map_utf8_to_lowerE, i64 %.011.idx12.i108
-  %73 = load ptr, ptr %.011.ptr13.i109, align 16
+  %.0.idx12.i108 = phi i64 [ %.0.add.i110, %80 ], [ 0, %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit.thread ]
+  %.0.ptr13.i109 = getelementptr inbounds i8, ptr @_ZN5osgeo4proj8metadataL17map_utf8_to_lowerE, i64 %.0.idx12.i108
+  %73 = load ptr, ptr %.0.ptr13.i109, align 16
   %74 = load i8, ptr %73, align 1
   %75 = icmp eq i8 %6, %74
   br i1 %75, label %76, label %80
@@ -8405,12 +8405,12 @@ _ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit.thread: ; preds = %68, 
   br i1 %79, label %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit115, label %80
 
 80:                                               ; preds = %76, %.preheader
-  %.011.add.i110 = add nuw nsw i64 %.011.idx12.i108, 16
-  %.not.i111 = icmp eq i64 %.011.add.i110, 160
+  %.0.add.i110 = add nuw nsw i64 %.0.idx12.i108, 16
+  %.not.i111 = icmp eq i64 %.0.add.i110, 160
   br i1 %.not.i111, label %_ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit115.thread, label %.preheader
 
 _ZN5osgeo4proj8metadataL21get_ascii_replacementEPKc.exit115: ; preds = %76
-  %gep206 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj8metadataL17map_utf8_to_lowerE, i64 8), i64 %.011.idx12.i108
+  %gep206 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZN5osgeo4proj8metadataL17map_utf8_to_lowerE, i64 8), i64 %.0.idx12.i108
   %81 = load i8, ptr %gep206, align 8
   %82 = add i64 %.090.ph, -1
   %83 = add i64 %82, %77

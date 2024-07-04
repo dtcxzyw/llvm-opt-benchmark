@@ -137,8 +137,8 @@ if.then.i:                                        ; preds = %sw.bb2
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %sw.bb2
-  %model_num.0.i = phi i32 [ %add10.i, %if.then.i ], [ %and3.i7, %sw.bb2 ]
   %family.0.i = phi i32 [ %add.i, %if.then.i ], [ %and.i, %sw.bb2 ]
+  %model_num.0.i = phi i32 [ %add10.i, %if.then.i ], [ %and3.i7, %sw.bb2 ]
   switch i32 %family.0.i, label %return [
     i32 23, label %sw.bb.i
     i32 25, label %sw.bb13.i

@@ -2149,12 +2149,12 @@ entry:
 
 for.body:                                         ; preds = %entry, %if.end8
   %tc.015 = phi i32 [ %or, %if.end8 ], [ 0, %entry ]
-  %i.014 = phi i32 [ %inc, %if.end8 ], [ 0, %entry ]
-  %idx.013 = phi i32 [ %inc15, %if.end8 ], [ 0, %entry ]
-  %rem = srem i32 %idx.013, 3
+  %idx.014 = phi i32 [ %inc15, %if.end8 ], [ 0, %entry ]
+  %i.013 = phi i32 [ %inc, %if.end8 ], [ 0, %entry ]
+  %rem = srem i32 %idx.014, 3
   %cmp3 = icmp eq i32 %rem, 2
   %cond = zext i1 %cmp3 to i32
-  %add = add nsw i32 %idx.013, %cond
+  %add = add nsw i32 %idx.014, %cond
   %idxprom = sext i32 %add to i64
   %arrayidx = getelementptr inbounds i8, ptr %str, i64 %idxprom
   %0 = load i8, ptr %arrayidx, align 1
@@ -2163,7 +2163,7 @@ for.body:                                         ; preds = %entry, %if.end8
   br i1 %or.cond, label %return, label %if.end8
 
 if.end8:                                          ; preds = %for.body
-  %mul = shl nuw nsw i32 %i.014, 2
+  %mul = shl nuw nsw i32 %i.013, 2
   %sub10 = sub nuw nsw i32 28, %mul
   %shl13 = shl nuw i32 15, %sub10
   %not = xor i32 %shl13, -1
@@ -2172,7 +2172,7 @@ if.end8:                                          ; preds = %for.body
   %shl12 = zext nneg i8 %2 to i32
   %and14 = shl nuw i32 %shl12, %sub10
   %or = or i32 %and14, %and
-  %inc = add nuw nsw i32 %i.014, 1
+  %inc = add nuw nsw i32 %i.013, 1
   %inc15 = add nsw i32 %add, 1
   %exitcond.not = icmp eq i32 %inc, 8
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !10
@@ -2194,12 +2194,12 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %if.end8.i
   %tc.015.i = phi i32 [ %or.i, %if.end8.i ], [ 0, %entry ]
-  %i.014.i = phi i32 [ %inc.i, %if.end8.i ], [ 0, %entry ]
-  %idx.013.i = phi i32 [ %inc15.i, %if.end8.i ], [ 0, %entry ]
-  %rem.i = srem i32 %idx.013.i, 3
+  %idx.014.i = phi i32 [ %inc15.i, %if.end8.i ], [ 0, %entry ]
+  %i.013.i = phi i32 [ %inc.i, %if.end8.i ], [ 0, %entry ]
+  %rem.i = srem i32 %idx.014.i, 3
   %cmp3.i = icmp eq i32 %rem.i, 2
   %cond.i = zext i1 %cmp3.i to i32
-  %add.i = add nsw i32 %idx.013.i, %cond.i
+  %add.i = add nsw i32 %idx.014.i, %cond.i
   %idxprom.i = sext i32 %add.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %str, i64 %idxprom.i
   %0 = load i8, ptr %arrayidx.i, align 1
@@ -2208,7 +2208,7 @@ for.body.i:                                       ; preds = %entry, %if.end8.i
   br i1 %or.cond.i, label %if.end, label %if.end8.i
 
 if.end8.i:                                        ; preds = %for.body.i
-  %mul.i = shl nuw nsw i32 %i.014.i, 2
+  %mul.i = shl nuw nsw i32 %i.013.i, 2
   %sub10.i = sub nuw nsw i32 28, %mul.i
   %shl13.i = shl nuw i32 15, %sub10.i
   %not.i = xor i32 %shl13.i, -1
@@ -2217,7 +2217,7 @@ if.end8.i:                                        ; preds = %for.body.i
   %shl12.i = zext nneg i8 %2 to i32
   %and14.i = shl nuw i32 %shl12.i, %sub10.i
   %or.i = or i32 %and14.i, %and.i
-  %inc.i = add nuw nsw i32 %i.014.i, 1
+  %inc.i = add nuw nsw i32 %i.013.i, 1
   %inc15.i = add nsw i32 %add.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 8
   br i1 %exitcond.not.i, label %_ZNK3dpx14IndustryHeader12TCFromStringEPKc.exit, label %for.body.i, !llvm.loop !10
@@ -2244,12 +2244,12 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %if.end8.i
   %tc.015.i = phi i32 [ %or.i, %if.end8.i ], [ 0, %entry ]
-  %i.014.i = phi i32 [ %inc.i, %if.end8.i ], [ 0, %entry ]
-  %idx.013.i = phi i32 [ %inc15.i, %if.end8.i ], [ 0, %entry ]
-  %rem.i = srem i32 %idx.013.i, 3
+  %idx.014.i = phi i32 [ %inc15.i, %if.end8.i ], [ 0, %entry ]
+  %i.013.i = phi i32 [ %inc.i, %if.end8.i ], [ 0, %entry ]
+  %rem.i = srem i32 %idx.014.i, 3
   %cmp3.i = icmp eq i32 %rem.i, 2
   %cond.i = zext i1 %cmp3.i to i32
-  %add.i = add nsw i32 %idx.013.i, %cond.i
+  %add.i = add nsw i32 %idx.014.i, %cond.i
   %idxprom.i = sext i32 %add.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %str, i64 %idxprom.i
   %0 = load i8, ptr %arrayidx.i, align 1
@@ -2258,7 +2258,7 @@ for.body.i:                                       ; preds = %entry, %if.end8.i
   br i1 %or.cond.i, label %if.end, label %if.end8.i
 
 if.end8.i:                                        ; preds = %for.body.i
-  %mul.i = shl nuw nsw i32 %i.014.i, 2
+  %mul.i = shl nuw nsw i32 %i.013.i, 2
   %sub10.i = sub nuw nsw i32 28, %mul.i
   %shl13.i = shl nuw i32 15, %sub10.i
   %not.i = xor i32 %shl13.i, -1
@@ -2267,7 +2267,7 @@ if.end8.i:                                        ; preds = %for.body.i
   %shl12.i = zext nneg i8 %2 to i32
   %and14.i = shl nuw i32 %shl12.i, %sub10.i
   %or.i = or i32 %and14.i, %and.i
-  %inc.i = add nuw nsw i32 %i.014.i, 1
+  %inc.i = add nuw nsw i32 %i.013.i, 1
   %inc15.i = add nsw i32 %add.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 8
   br i1 %exitcond.not.i, label %_ZNK3dpx14IndustryHeader12TCFromStringEPKc.exit, label %for.body.i, !llvm.loop !10

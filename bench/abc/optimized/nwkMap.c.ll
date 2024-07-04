@@ -142,13 +142,13 @@ Vec_IntAlloc.exit.i:                              ; preds = %31
   br label %Vec_IntStart.exit
 
 Vec_IntStart.exit:                                ; preds = %44, %Vec_IntAlloc.exit.i, %Vec_IntAlloc.exit.thread.i, %Abc_Clock.exit
-  %.068 = phi ptr [ null, %Abc_Clock.exit ], [ null, %Vec_IntAlloc.exit.thread.i ], [ null, %Vec_IntAlloc.exit.i ], [ %42, %44 ]
-  %.067 = phi ptr [ null, %Abc_Clock.exit ], [ %33, %Vec_IntAlloc.exit.thread.i ], [ %33, %Vec_IntAlloc.exit.i ], [ %33, %44 ]
-  %.065 = phi ptr [ null, %Abc_Clock.exit ], [ %36, %Vec_IntAlloc.exit.thread.i ], [ %36, %Vec_IntAlloc.exit.i ], [ %36, %44 ]
-  %.0 = phi ptr [ null, %Abc_Clock.exit ], [ %15, %Vec_IntAlloc.exit.thread.i ], [ %15, %Vec_IntAlloc.exit.i ], [ %15, %44 ]
+  %.068 = phi ptr [ null, %Abc_Clock.exit ], [ %15, %Vec_IntAlloc.exit.thread.i ], [ %15, %Vec_IntAlloc.exit.i ], [ %15, %44 ]
+  %.067 = phi ptr [ null, %Abc_Clock.exit ], [ %36, %Vec_IntAlloc.exit.thread.i ], [ %36, %Vec_IntAlloc.exit.i ], [ %36, %44 ]
+  %.066 = phi ptr [ null, %Abc_Clock.exit ], [ %33, %Vec_IntAlloc.exit.thread.i ], [ %33, %Vec_IntAlloc.exit.i ], [ %33, %44 ]
+  %.065 = phi ptr [ null, %Abc_Clock.exit ], [ null, %Vec_IntAlloc.exit.thread.i ], [ null, %Vec_IntAlloc.exit.i ], [ %42, %44 ]
   %47 = call ptr @If_ManStart(ptr noundef nonnull %1) #15
   %48 = getelementptr inbounds i8, ptr %47, i64 176
-  store ptr %.065, ptr %48, align 8
+  store ptr %.067, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 32
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr i8, ptr %50, i64 4
@@ -160,14 +160,14 @@ Vec_IntStart.exit:                                ; preds = %44, %Vec_IntAlloc.e
   %53 = getelementptr i8, ptr %47, i64 16
   %54 = getelementptr inbounds i8, ptr %47, i64 84
   %55 = getelementptr i8, ptr %2, i64 8
-  %.not77 = icmp eq ptr %.065, null
+  %.not77 = icmp eq ptr %.067, null
   %56 = getelementptr i8, ptr %0, i64 248
   br label %57
 
 57:                                               ; preds = %.lr.ph120, %Aig_ObjIsChoice.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next, %Aig_ObjIsChoice.exit.thread ]
   %58 = phi ptr [ %50, %.lr.ph120 ], [ %143, %Aig_ObjIsChoice.exit.thread ]
-  %.066117 = phi ptr [ null, %.lr.ph120 ], [ %.2, %Aig_ObjIsChoice.exit.thread ]
+  %.064117 = phi ptr [ null, %.lr.ph120 ], [ %.2, %Aig_ObjIsChoice.exit.thread ]
   %59 = getelementptr i8, ptr %58, i64 8
   %.val81 = load ptr, ptr %59, align 8
   %60 = getelementptr inbounds ptr, ptr %.val81, i64 %indvars.iv
@@ -251,7 +251,7 @@ Vec_IntStart.exit:                                ; preds = %44, %Vec_IntAlloc.e
   br label %111
 
 111:                                              ; preds = %63, %97, %88, %110, %98, %66
-  %.1 = phi ptr [ %87, %66 ], [ %89, %97 ], [ %89, %88 ], [ %109, %98 ], [ %.val93, %110 ], [ %.066117, %63 ]
+  %.1 = phi ptr [ %87, %66 ], [ %89, %97 ], [ %89, %88 ], [ %109, %98 ], [ %.val93, %110 ], [ %.064117, %63 ]
   %.val94 = load ptr, ptr %55, align 8
   %112 = getelementptr inbounds ptr, ptr %.val94, i64 %indvars.iv
   store ptr %.1, ptr %112, align 8
@@ -263,12 +263,12 @@ Vec_IntStart.exit:                                ; preds = %44, %Vec_IntAlloc.e
   %115 = getelementptr inbounds i8, ptr %61, i64 36
   %116 = load i32, ptr %115, align 4
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds float, ptr %.067, i64 %117
+  %118 = getelementptr inbounds float, ptr %.066, i64 %117
   %119 = load float, ptr %118, align 4
   %120 = getelementptr inbounds i8, ptr %.1, i64 4
   %121 = load i32, ptr %120, align 4
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds float, ptr %.068, i64 %122
+  %123 = getelementptr inbounds float, ptr %.065, i64 %122
   store float %119, ptr %123, align 4
   br label %124
 
@@ -298,8 +298,8 @@ Aig_ObjIsChoice.exit:                             ; preds = %125
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %Aig_ObjEquiv.exit103
   %133 = phi ptr [ %135, %Aig_ObjEquiv.exit103 ], [ %.pre, %.lr.ph.preheader ]
-  %.064114 = phi ptr [ %141, %Aig_ObjEquiv.exit103 ], [ %130, %.lr.ph.preheader ]
-  %134 = getelementptr inbounds i8, ptr %.064114, i64 40
+  %.063114 = phi ptr [ %141, %Aig_ObjEquiv.exit103 ], [ %130, %.lr.ph.preheader ]
+  %134 = getelementptr inbounds i8, ptr %.063114, i64 40
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr inbounds i8, ptr %133, i64 40
   store ptr %135, ptr %136, align 8
@@ -308,7 +308,7 @@ Aig_ObjIsChoice.exit:                             ; preds = %125
   br i1 %.not.i102, label %._crit_edge, label %Aig_ObjEquiv.exit103
 
 Aig_ObjEquiv.exit103:                             ; preds = %.lr.ph
-  %137 = getelementptr inbounds i8, ptr %.064114, i64 36
+  %137 = getelementptr inbounds i8, ptr %.063114, i64 36
   %138 = load i32, ptr %137, align 4
   %139 = sext i32 %138 to i64
   %140 = getelementptr inbounds ptr, ptr %.val97, i64 %139
@@ -322,7 +322,7 @@ Aig_ObjEquiv.exit103:                             ; preds = %.lr.ph
   br label %Aig_ObjIsChoice.exit.thread
 
 Aig_ObjIsChoice.exit.thread:                      ; preds = %124, %125, %57, %._crit_edge, %Aig_ObjIsChoice.exit
-  %.2 = phi ptr [ %.066117, %57 ], [ %.1, %._crit_edge ], [ %.1, %Aig_ObjIsChoice.exit ], [ %.1, %125 ], [ %.1, %124 ]
+  %.2 = phi ptr [ %.064117, %57 ], [ %.1, %._crit_edge ], [ %.1, %Aig_ObjIsChoice.exit ], [ %.1, %125 ], [ %.1, %124 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %143 = load ptr, ptr %49, align 8
   %144 = getelementptr i8, ptr %143, i64 4
@@ -332,11 +332,11 @@ Aig_ObjIsChoice.exit.thread:                      ; preds = %124, %125, %57, %._
   br i1 %146, label %57, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %Aig_ObjIsChoice.exit.thread, %Vec_IntStart.exit
-  %.not72 = icmp eq ptr %.0, null
+  %.not72 = icmp eq ptr %.068, null
   br i1 %.not72, label %151, label %147
 
 147:                                              ; preds = %.critedge
-  %148 = getelementptr inbounds i8, ptr %.0, i64 8
+  %148 = getelementptr inbounds i8, ptr %.068, i64 8
   %149 = load ptr, ptr %148, align 8
   %.not.i104 = icmp eq ptr %149, null
   br i1 %.not.i104, label %Vec_IntFree.exit, label %150
@@ -346,7 +346,7 @@ Aig_ObjIsChoice.exit.thread:                      ; preds = %124, %125, %57, %._
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %147, %150
-  call void @free(ptr noundef nonnull %.0) #15
+  call void @free(ptr noundef nonnull %.068) #15
   br label %151
 
 151:                                              ; preds = %Vec_IntFree.exit, %.critedge
@@ -520,8 +520,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %67 = ptrtoint ptr %62 to i64
   %68 = xor i64 %67, 1
   %69 = inttoptr i64 %68 to ptr
-  %.034 = select i1 %.not39, ptr %62, ptr %69
-  store ptr %.034, ptr %5, align 8
+  %.0 = select i1 %.not39, ptr %62, ptr %69
+  store ptr %.0, ptr %5, align 8
   br label %.loopexit
 
 70:                                               ; preds = %43, %.preheader
@@ -535,8 +535,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %.loopexit.loopexit, %Vec_PtrPush.exit, %4
-  %.0 = phi ptr [ %.val, %4 ], [ inttoptr (i64 1 to ptr), %Vec_PtrPush.exit ], [ %.val42.pre, %.loopexit.loopexit ], [ %.034, %48 ]
-  ret ptr %.0
+  %.034 = phi ptr [ %.val, %4 ], [ inttoptr (i64 1 to ptr), %Vec_PtrPush.exit ], [ %.val42.pre, %.loopexit.loopexit ], [ %.0, %48 ]
+  ret ptr %.034
 }
 
 declare ptr @Hop_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -767,7 +767,7 @@ Abc_UtilStrsav.exit96:                            ; preds = %Abc_UtilStrsav.exit
 56:                                               ; preds = %.lr.ph108, %119
   %57 = phi ptr [ %51, %.lr.ph108 ], [ %120, %119 ]
   %indvars.iv113 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next114, %119 ]
-  %.0107 = phi ptr [ null, %.lr.ph108 ], [ %.2, %119 ]
+  %.070106 = phi ptr [ null, %.lr.ph108 ], [ %.2, %119 ]
   %58 = getelementptr i8, ptr %57, i64 8
   %.val81 = load ptr, ptr %58, align 8
   %59 = getelementptr inbounds ptr, ptr %.val81, i64 %indvars.iv113
@@ -879,15 +879,15 @@ Abc_UtilStrsav.exit96:                            ; preds = %Abc_UtilStrsav.exit
   br label %117
 
 117:                                              ; preds = %92, %94, %112, %96, %._crit_edge
-  %.1 = phi ptr [ %80, %._crit_edge ], [ %95, %94 ], [ %97, %96 ], [ %113, %112 ], [ %.0107, %92 ]
+  %.171 = phi ptr [ %80, %._crit_edge ], [ %95, %94 ], [ %97, %96 ], [ %113, %112 ], [ %.070106, %92 ]
   %118 = getelementptr inbounds i8, ptr %60, i64 40
-  store ptr %.1, ptr %118, align 8
+  store ptr %.171, ptr %118, align 8
   %.pre = load ptr, ptr %14, align 8
   br label %119
 
 119:                                              ; preds = %117, %56, %68
   %120 = phi ptr [ %57, %56 ], [ %.pre, %117 ], [ %57, %68 ]
-  %.2 = phi ptr [ %.0107, %56 ], [ %.1, %117 ], [ %.0107, %68 ]
+  %.2 = phi ptr [ %.070106, %56 ], [ %.171, %117 ], [ %.070106, %68 ]
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %121 = getelementptr i8, ptr %120, i64 4
   %.val = load i32, ptr %121, align 4

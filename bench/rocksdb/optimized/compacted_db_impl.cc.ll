@@ -753,10 +753,10 @@ while.body.lr.ph.i.i.i:                           ; preds = %invoke.cont72
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %call2.i.i.i.i.i.noexc, %while.body.lr.ph.i.i.i
-  %__first.addr.015.i.i.i = phi ptr [ %40, %while.body.lr.ph.i.i.i ], [ %__first.addr.1.i.i.i, %call2.i.i.i.i.i.noexc ]
-  %__len.014.i.i.i = phi i64 [ %sub.ptr.div.i.i.i.i.i, %while.body.lr.ph.i.i.i ], [ %__len.1.i.i.i, %call2.i.i.i.i.i.noexc ]
-  %shr.i.i.i = lshr i64 %__len.014.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::FdWithKeyRange", ptr %__first.addr.015.i.i.i, i64 %shr.i.i.i
+  %__len.015.i.i.i = phi i64 [ %sub.ptr.div.i.i.i.i.i, %while.body.lr.ph.i.i.i ], [ %__len.1.i.i.i, %call2.i.i.i.i.i.noexc ]
+  %__first.addr.014.i.i.i = phi ptr [ %40, %while.body.lr.ph.i.i.i ], [ %__first.addr.1.i.i.i, %call2.i.i.i.i.i.noexc ]
+  %shr.i.i.i = lshr i64 %__len.015.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::FdWithKeyRange", ptr %__first.addr.014.i.i.i, i64 %shr.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i)
   %47 = load ptr, ptr %user_comparator_, align 8
   %add.ptr.i.i8.i.i.i = getelementptr inbounds i8, ptr %47, i64 32
@@ -778,9 +778,9 @@ call2.i.i.i.i.i.noexc:                            ; preds = %while.body.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i)
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 80
   %51 = xor i64 %shr.i.i.i, -1
-  %sub3.i.i.i = add nsw i64 %__len.014.i.i.i, %51
+  %sub3.i.i.i = add nsw i64 %__len.015.i.i.i, %51
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i9.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.014.i.i.i
   %__len.1.i.i.i = select i1 %cmp.i.i9.i.i.i, i64 %sub3.i.i.i, i64 %shr.i.i.i
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i9.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.015.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_15CompactedDBImpl8FindFileERKS3_EUlRKS1_S6_E_ET_SA_SA_RKT0_T1_.exit.loopexit.i, !llvm.loop !4
 
@@ -2005,10 +2005,10 @@ while.body.lr.ph.i.i.i:                           ; preds = %invoke.cont91
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %call2.i.i.i.i.i.noexc, %while.body.lr.ph.i.i.i
-  %__first.addr.015.i.i.i = phi ptr [ %59, %while.body.lr.ph.i.i.i ], [ %__first.addr.1.i.i.i, %call2.i.i.i.i.i.noexc ]
-  %__len.014.i.i.i = phi i64 [ %sub.ptr.div.i.i.i.i.i, %while.body.lr.ph.i.i.i ], [ %__len.1.i.i.i, %call2.i.i.i.i.i.noexc ]
-  %shr.i.i.i = lshr i64 %__len.014.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::FdWithKeyRange", ptr %__first.addr.015.i.i.i, i64 %shr.i.i.i
+  %__len.015.i.i.i = phi i64 [ %sub.ptr.div.i.i.i.i.i, %while.body.lr.ph.i.i.i ], [ %__len.1.i.i.i, %call2.i.i.i.i.i.noexc ]
+  %__first.addr.014.i.i.i = phi ptr [ %59, %while.body.lr.ph.i.i.i ], [ %__first.addr.1.i.i.i, %call2.i.i.i.i.i.noexc ]
+  %shr.i.i.i = lshr i64 %__len.015.i.i.i, 1
+  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.rocksdb::FdWithKeyRange", ptr %__first.addr.014.i.i.i, i64 %shr.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i)
   %64 = load ptr, ptr %user_comparator_.i.i.i.i.i, align 8
   %add.ptr.i.i8.i.i.i = getelementptr inbounds i8, ptr %64, i64 32
@@ -2030,9 +2030,9 @@ call2.i.i.i.i.i.noexc:                            ; preds = %while.body.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i.i)
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 80
   %68 = xor i64 %shr.i.i.i, -1
-  %sub3.i.i.i = add nsw i64 %__len.014.i.i.i, %68
+  %sub3.i.i.i = add nsw i64 %__len.015.i.i.i, %68
+  %__first.addr.1.i.i.i = select i1 %cmp.i.i9.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.014.i.i.i
   %__len.1.i.i.i = select i1 %cmp.i.i9.i.i.i, i64 %sub3.i.i.i, i64 %shr.i.i.i
-  %__first.addr.1.i.i.i = select i1 %cmp.i.i9.i.i.i, ptr %incdec.ptr.i.i.i, ptr %__first.addr.015.i.i.i
   %cmp.i.i.i = icmp sgt i64 %__len.1.i.i.i, 0
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZSt11lower_boundIPN7rocksdb14FdWithKeyRangeENS0_5SliceEZNS0_15CompactedDBImpl8FindFileERKS3_EUlRKS1_S6_E_ET_SA_SA_RKT0_T1_.exit.loopexit.i, !llvm.loop !4
 

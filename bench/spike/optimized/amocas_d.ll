@@ -1246,7 +1246,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_amocas_dP1
   br label %50
 
 50:                                               ; preds = %31, %40
-  %.065 = phi i64 [ %49, %40 ], [ 0, %31 ]
+  %.064 = phi i64 [ %49, %40 ], [ 0, %31 ]
   %51 = icmp eq i64 %23, 0
   br i1 %51, label %69, label %52
 
@@ -1279,7 +1279,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_amocas_dP1
   br label %69
 
 69:                                               ; preds = %50, %59
-  %.066 = phi i64 [ %68, %59 ], [ 0, %50 ]
+  %.0 = phi i64 [ %68, %59 ], [ 0, %50 ]
   %70 = lshr i64 %1, 15
   %71 = and i64 %70, 31
   %72 = icmp ugt i64 %71, 15
@@ -1303,7 +1303,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_amocas_dP1
   %81 = getelementptr inbounds i8, ptr %0, i64 120
   %82 = getelementptr inbounds [32 x i64], ptr %81, i64 0, i64 %71
   %83 = load i64, ptr %82, align 8
-  %84 = tail call noundef i64 @_ZN5mmu_t20amo_compare_and_swapImEET_mS1_S1_(ptr noundef nonnull align 8 dereferenceable(43168) %80, i64 noundef %83, i64 noundef %.065, i64 noundef %.066)
+  %84 = tail call noundef i64 @_ZN5mmu_t20amo_compare_and_swapImEET_mS1_S1_(ptr noundef nonnull align 8 dereferenceable(43168) %80, i64 noundef %83, i64 noundef %.064, i64 noundef %.0)
   br i1 %32, label %91, label %85
 
 85:                                               ; preds = %78

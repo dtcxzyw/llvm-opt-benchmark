@@ -34,35 +34,35 @@ for.body.preheader:                               ; preds = %if.then3
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %buffer.addr.0102 = phi ptr [ %incdec.ptr5, %for.body.preheader ], [ %buffer.addr.1, %for.inc ]
-  %runLength.0100 = phi i32 [ 1, %for.body.preheader ], [ %runLength.1, %for.inc ]
-  %runValue.099 = phi i16 [ %0, %for.body.preheader ], [ %runValue.1, %for.inc ]
+  %runLength.0101 = phi i32 [ 1, %for.body.preheader ], [ %runLength.1, %for.inc ]
+  %runValue.0100 = phi i16 [ %0, %for.body.preheader ], [ %runValue.1, %for.inc ]
+  %buffer.addr.099 = phi ptr [ %incdec.ptr5, %for.body.preheader ], [ %buffer.addr.1, %for.inc ]
   %arrayidx8 = getelementptr inbounds i16, ptr %src, i64 %indvars.iv
   %1 = load i16, ptr %arrayidx8, align 2
-  %cmp11 = icmp eq i16 %1, %runValue.099
-  %cmp13 = icmp slt i32 %runLength.0100, 65535
+  %cmp11 = icmp eq i16 %1, %runValue.0100
+  %cmp13 = icmp slt i32 %runLength.0101, 65535
   %or.cond = select i1 %cmp11, i1 %cmp13, i1 false
   br i1 %or.cond, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %for.body
-  %inc = add nsw i32 %runLength.0100, 1
+  %inc = add nsw i32 %runLength.0101, 1
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %cmp.i = icmp slt i32 %runLength.0100, 4
+  %cmp.i = icmp slt i32 %runLength.0101, 4
   br i1 %cmp.i, label %for.cond.preheader.i, label %if.else17.i
 
 for.cond.preheader.i:                             ; preds = %if.else
-  %cmp136.i = icmp sgt i32 %runLength.0100, 0
+  %cmp136.i = icmp sgt i32 %runLength.0101, 0
   br i1 %cmp136.i, label %for.body.lr.ph.i, label %for.inc
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %cmp2.i = icmp eq i16 %runValue.099, -23131
+  %cmp2.i = icmp eq i16 %runValue.0100, -23131
   br i1 %cmp2.i, label %for.body.us.i, label %for.body.i
 
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %for.inc.us.i
   %j.038.us.i = phi i32 [ %inc.us.i, %for.inc.us.i ], [ 0, %for.body.lr.ph.i ]
-  %buffer.addr.037.us.i = phi ptr [ %buffer.addr.2.us.i, %for.inc.us.i ], [ %buffer.addr.0102, %for.body.lr.ph.i ]
+  %buffer.addr.037.us.i = phi ptr [ %buffer.addr.2.us.i, %for.inc.us.i ], [ %buffer.addr.099, %for.body.lr.ph.i ]
   %cmp5.us.i = icmp ult ptr %buffer.addr.037.us.i, %add.ptr
   br i1 %cmp5.us.i, label %if.then7.us.i, label %if.else.us.i
 
@@ -92,18 +92,18 @@ if.then12.us.i:                                   ; preds = %do.body9.us.i
 for.inc.us.i:                                     ; preds = %if.then12.us.i, %if.else14.us.i
   %buffer.addr.2.us.i = phi ptr [ %incdec.ptr13.us.i, %if.then12.us.i ], [ %buffer.addr.1.us.i, %if.else14.us.i ]
   %inc.us.i = add nuw nsw i32 %j.038.us.i, 1
-  %exitcond40.not.i = icmp eq i32 %inc.us.i, %runLength.0100
+  %exitcond40.not.i = icmp eq i32 %inc.us.i, %runLength.0101
   br i1 %exitcond40.not.i, label %for.inc, label %for.body.us.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
   %j.038.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
-  %buffer.addr.037.i = phi ptr [ %buffer.addr.2.i, %for.inc.i ], [ %buffer.addr.0102, %for.body.lr.ph.i ]
+  %buffer.addr.037.i = phi ptr [ %buffer.addr.2.i, %for.inc.i ], [ %buffer.addr.099, %for.body.lr.ph.i ]
   %cmp10.i = icmp ult ptr %buffer.addr.037.i, %add.ptr
   br i1 %cmp10.i, label %if.then12.i, label %if.else14.i
 
 if.then12.i:                                      ; preds = %for.body.i
   %incdec.ptr13.i = getelementptr inbounds i8, ptr %buffer.addr.037.i, i64 2
-  store i16 %runValue.099, ptr %buffer.addr.037.i, align 2
+  store i16 %runValue.0100, ptr %buffer.addr.037.i, align 2
   br label %for.inc.i
 
 if.else14.i:                                      ; preds = %for.body.i
@@ -113,24 +113,24 @@ if.else14.i:                                      ; preds = %for.body.i
 for.inc.i:                                        ; preds = %if.else14.i, %if.then12.i
   %buffer.addr.2.i = phi ptr [ %incdec.ptr13.i, %if.then12.i ], [ %buffer.addr.037.i, %if.else14.i ]
   %inc.i = add nuw nsw i32 %j.038.i, 1
-  %exitcond.not.i = icmp eq i32 %inc.i, %runLength.0100
+  %exitcond.not.i = icmp eq i32 %inc.i, %runLength.0101
   br i1 %exitcond.not.i, label %for.inc, label %for.body.i, !llvm.loop !5
 
 if.else17.i:                                      ; preds = %if.else
-  %cmp18.i = icmp eq i32 %runLength.0100, 42405
+  %cmp18.i = icmp eq i32 %runLength.0101, 42405
   br i1 %cmp18.i, label %if.then20.i, label %do.body43.i
 
 if.then20.i:                                      ; preds = %if.else17.i
-  %cmp22.i = icmp eq i16 %runValue.099, -23131
+  %cmp22.i = icmp eq i16 %runValue.0100, -23131
   br i1 %cmp22.i, label %do.body25.i, label %do.body34.i
 
 do.body25.i:                                      ; preds = %if.then20.i
-  %cmp26.i = icmp ult ptr %buffer.addr.0102, %add.ptr
+  %cmp26.i = icmp ult ptr %buffer.addr.099, %add.ptr
   br i1 %cmp26.i, label %if.then28.i, label %if.else30.i
 
 if.then28.i:                                      ; preds = %do.body25.i
-  %incdec.ptr29.i = getelementptr inbounds i8, ptr %buffer.addr.0102, i64 2
-  store i16 -23131, ptr %buffer.addr.0102, align 2
+  %incdec.ptr29.i = getelementptr inbounds i8, ptr %buffer.addr.099, i64 2
+  store i16 -23131, ptr %buffer.addr.099, align 2
   br label %do.body34.i
 
 if.else30.i:                                      ; preds = %do.body25.i
@@ -138,13 +138,13 @@ if.else30.i:                                      ; preds = %do.body25.i
   br label %do.body34.i
 
 do.body34.i:                                      ; preds = %if.else30.i, %if.then28.i, %if.then20.i
-  %buffer.addr.3.i = phi ptr [ %incdec.ptr29.i, %if.then28.i ], [ %buffer.addr.0102, %if.else30.i ], [ %buffer.addr.0102, %if.then20.i ]
+  %buffer.addr.3.i = phi ptr [ %incdec.ptr29.i, %if.then28.i ], [ %buffer.addr.099, %if.else30.i ], [ %buffer.addr.099, %if.then20.i ]
   %cmp35.i = icmp ult ptr %buffer.addr.3.i, %add.ptr
   br i1 %cmp35.i, label %if.then37.i, label %if.else39.i
 
 if.then37.i:                                      ; preds = %do.body34.i
   %incdec.ptr38.i = getelementptr inbounds i8, ptr %buffer.addr.3.i, i64 2
-  store i16 %runValue.099, ptr %buffer.addr.3.i, align 2
+  store i16 %runValue.0100, ptr %buffer.addr.3.i, align 2
   br label %do.body43.i
 
 if.else39.i:                                      ; preds = %do.body34.i
@@ -152,8 +152,8 @@ if.else39.i:                                      ; preds = %do.body34.i
   br label %do.body43.i
 
 do.body43.i:                                      ; preds = %if.else39.i, %if.then37.i, %if.else17.i
-  %length.addr.0.i = phi i32 [ %runLength.0100, %if.else17.i ], [ 42404, %if.then37.i ], [ 42404, %if.else39.i ]
-  %buffer.addr.5.i = phi ptr [ %buffer.addr.0102, %if.else17.i ], [ %incdec.ptr38.i, %if.then37.i ], [ %buffer.addr.3.i, %if.else39.i ]
+  %length.addr.0.i = phi i32 [ %runLength.0101, %if.else17.i ], [ 42404, %if.then37.i ], [ 42404, %if.else39.i ]
+  %buffer.addr.5.i = phi ptr [ %buffer.addr.099, %if.else17.i ], [ %incdec.ptr38.i, %if.then37.i ], [ %buffer.addr.3.i, %if.else39.i ]
   %cmp44.i = icmp ult ptr %buffer.addr.5.i, %add.ptr
   br i1 %cmp44.i, label %if.then46.i, label %if.else48.i
 
@@ -188,7 +188,7 @@ do.body60.i:                                      ; preds = %if.else57.i, %if.th
 
 if.then63.i:                                      ; preds = %do.body60.i
   %incdec.ptr64.i = getelementptr inbounds i8, ptr %buffer.addr.7.i, i64 2
-  store i16 %runValue.099, ptr %buffer.addr.7.i, align 2
+  store i16 %runValue.0100, ptr %buffer.addr.7.i, align 2
   br label %for.inc
 
 if.else65.i:                                      ; preds = %do.body60.i
@@ -196,9 +196,9 @@ if.else65.i:                                      ; preds = %do.body60.i
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.i, %for.inc.us.i, %if.else65.i, %if.then63.i, %for.cond.preheader.i, %if.then15
-  %runValue.1 = phi i16 [ %runValue.099, %if.then15 ], [ %1, %for.cond.preheader.i ], [ %1, %if.then63.i ], [ %1, %if.else65.i ], [ %1, %for.inc.us.i ], [ %1, %for.inc.i ]
-  %runLength.1 = phi i32 [ %inc, %if.then15 ], [ 1, %for.cond.preheader.i ], [ 1, %if.then63.i ], [ 1, %if.else65.i ], [ 1, %for.inc.us.i ], [ 1, %for.inc.i ]
-  %buffer.addr.1 = phi ptr [ %buffer.addr.0102, %if.then15 ], [ %buffer.addr.0102, %for.cond.preheader.i ], [ %incdec.ptr64.i, %if.then63.i ], [ %buffer.addr.7.i, %if.else65.i ], [ %buffer.addr.2.us.i, %for.inc.us.i ], [ %buffer.addr.2.i, %for.inc.i ]
+  %buffer.addr.1 = phi ptr [ %buffer.addr.099, %if.then15 ], [ %incdec.ptr64.i, %if.then63.i ], [ %buffer.addr.7.i, %if.else65.i ], [ %buffer.addr.099, %for.cond.preheader.i ], [ %buffer.addr.2.us.i, %for.inc.us.i ], [ %buffer.addr.2.i, %for.inc.i ]
+  %runValue.1 = phi i16 [ %runValue.0100, %if.then15 ], [ %1, %if.then63.i ], [ %1, %if.else65.i ], [ %1, %for.cond.preheader.i ], [ %1, %for.inc.us.i ], [ %1, %for.inc.i ]
+  %runLength.1 = phi i32 [ %inc, %if.then15 ], [ 1, %if.then63.i ], [ 1, %if.else65.i ], [ 1, %for.cond.preheader.i ], [ 1, %for.inc.us.i ], [ 1, %for.inc.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
@@ -212,15 +212,15 @@ for.cond.preheader.i63:                           ; preds = %for.end
   br i1 %cmp136.i64, label %for.body.lr.ph.i65, label %if.end21
 
 for.body.lr.ph.i65:                               ; preds = %if.then3, %for.cond.preheader.i63
-  %runValue.0.lcssa111120 = phi i16 [ %runValue.1, %for.cond.preheader.i63 ], [ %0, %if.then3 ]
-  %runLength.0.lcssa112119 = phi i32 [ %runLength.1, %for.cond.preheader.i63 ], [ 1, %if.then3 ]
-  %buffer.addr.0.lcssa113118 = phi ptr [ %buffer.addr.1, %for.cond.preheader.i63 ], [ %incdec.ptr5, %if.then3 ]
-  %cmp2.i66 = icmp eq i16 %runValue.0.lcssa111120, -23131
+  %buffer.addr.0.lcssa111120 = phi ptr [ %buffer.addr.1, %for.cond.preheader.i63 ], [ %incdec.ptr5, %if.then3 ]
+  %runValue.0.lcssa112119 = phi i16 [ %runValue.1, %for.cond.preheader.i63 ], [ %0, %if.then3 ]
+  %runLength.0.lcssa113118 = phi i32 [ %runLength.1, %for.cond.preheader.i63 ], [ 1, %if.then3 ]
+  %cmp2.i66 = icmp eq i16 %runValue.0.lcssa112119, -23131
   br i1 %cmp2.i66, label %for.body.us.i78, label %for.body.i67
 
 for.body.us.i78:                                  ; preds = %for.body.lr.ph.i65, %for.inc.us.i87
   %j.038.us.i79 = phi i32 [ %inc.us.i89, %for.inc.us.i87 ], [ 0, %for.body.lr.ph.i65 ]
-  %buffer.addr.037.us.i80 = phi ptr [ %buffer.addr.2.us.i88, %for.inc.us.i87 ], [ %buffer.addr.0.lcssa113118, %for.body.lr.ph.i65 ]
+  %buffer.addr.037.us.i80 = phi ptr [ %buffer.addr.2.us.i88, %for.inc.us.i87 ], [ %buffer.addr.0.lcssa111120, %for.body.lr.ph.i65 ]
   %cmp5.us.i81 = icmp ult ptr %buffer.addr.037.us.i80, %add.ptr
   br i1 %cmp5.us.i81, label %if.then7.us.i93, label %if.else.us.i82
 
@@ -250,18 +250,18 @@ if.then12.us.i91:                                 ; preds = %do.body9.us.i83
 for.inc.us.i87:                                   ; preds = %if.then12.us.i91, %if.else14.us.i86
   %buffer.addr.2.us.i88 = phi ptr [ %incdec.ptr13.us.i92, %if.then12.us.i91 ], [ %buffer.addr.1.us.i84, %if.else14.us.i86 ]
   %inc.us.i89 = add nuw nsw i32 %j.038.us.i79, 1
-  %exitcond40.not.i90 = icmp eq i32 %inc.us.i89, %runLength.0.lcssa112119
+  %exitcond40.not.i90 = icmp eq i32 %inc.us.i89, %runLength.0.lcssa113118
   br i1 %exitcond40.not.i90, label %if.end21, label %for.body.us.i78, !llvm.loop !5
 
 for.body.i67:                                     ; preds = %for.body.lr.ph.i65, %for.inc.i72
   %j.038.i68 = phi i32 [ %inc.i74, %for.inc.i72 ], [ 0, %for.body.lr.ph.i65 ]
-  %buffer.addr.037.i69 = phi ptr [ %buffer.addr.2.i73, %for.inc.i72 ], [ %buffer.addr.0.lcssa113118, %for.body.lr.ph.i65 ]
+  %buffer.addr.037.i69 = phi ptr [ %buffer.addr.2.i73, %for.inc.i72 ], [ %buffer.addr.0.lcssa111120, %for.body.lr.ph.i65 ]
   %cmp10.i70 = icmp ult ptr %buffer.addr.037.i69, %add.ptr
   br i1 %cmp10.i70, label %if.then12.i76, label %if.else14.i71
 
 if.then12.i76:                                    ; preds = %for.body.i67
   %incdec.ptr13.i77 = getelementptr inbounds i8, ptr %buffer.addr.037.i69, i64 2
-  store i16 %runValue.0.lcssa111120, ptr %buffer.addr.037.i69, align 2
+  store i16 %runValue.0.lcssa112119, ptr %buffer.addr.037.i69, align 2
   br label %for.inc.i72
 
 if.else14.i71:                                    ; preds = %for.body.i67
@@ -271,7 +271,7 @@ if.else14.i71:                                    ; preds = %for.body.i67
 for.inc.i72:                                      ; preds = %if.else14.i71, %if.then12.i76
   %buffer.addr.2.i73 = phi ptr [ %incdec.ptr13.i77, %if.then12.i76 ], [ %buffer.addr.037.i69, %if.else14.i71 ]
   %inc.i74 = add nuw nsw i32 %j.038.i68, 1
-  %exitcond.not.i75 = icmp eq i32 %inc.i74, %runLength.0.lcssa112119
+  %exitcond.not.i75 = icmp eq i32 %inc.i74, %runLength.0.lcssa113118
   br i1 %exitcond.not.i75, label %if.end21, label %for.body.i67, !llvm.loop !5
 
 if.else17.i27:                                    ; preds = %for.end
@@ -404,36 +404,36 @@ for.body.preheader:                               ; preds = %if.then3
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %buffer.addr.033 = phi ptr [ %incdec.ptr5, %for.body.preheader ], [ %buffer.addr.1, %for.inc ]
-  %runLength.031 = phi i32 [ 1, %for.body.preheader ], [ %runLength.1, %for.inc ]
-  %runValue.030 = phi i8 [ %0, %for.body.preheader ], [ %runValue.1, %for.inc ]
+  %runLength.032 = phi i32 [ 1, %for.body.preheader ], [ %runLength.1, %for.inc ]
+  %runValue.031 = phi i8 [ %0, %for.body.preheader ], [ %runValue.1, %for.inc ]
+  %buffer.addr.030 = phi ptr [ %incdec.ptr5, %for.body.preheader ], [ %buffer.addr.1, %for.inc ]
   %arrayidx8 = getelementptr inbounds i8, ptr %src, i64 %indvars.iv
   %1 = load i8, ptr %arrayidx8, align 1
-  %cmp11 = icmp eq i8 %1, %runValue.030
-  %cmp13 = icmp slt i32 %runLength.031, 255
+  %cmp11 = icmp eq i8 %1, %runValue.031
+  %cmp13 = icmp slt i32 %runLength.032, 255
   %or.cond = select i1 %cmp11, i1 %cmp13, i1 false
   br i1 %or.cond, label %if.then15, label %if.else
 
 if.then15:                                        ; preds = %for.body
-  %inc = add nsw i32 %runLength.031, 1
+  %inc = add nsw i32 %runLength.032, 1
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %call = call fastcc ptr @encodeRunByte(ptr noundef %buffer.addr.033, ptr noundef nonnull %add.ptr, i8 noundef zeroext %runValue.030, i32 noundef %runLength.031, ptr noundef nonnull %state, ptr noundef %status)
+  %call = call fastcc ptr @encodeRunByte(ptr noundef %buffer.addr.030, ptr noundef nonnull %add.ptr, i8 noundef zeroext %runValue.031, i32 noundef %runLength.032, ptr noundef nonnull %state, ptr noundef %status)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then15, %if.else
-  %runValue.1 = phi i8 [ %runValue.030, %if.then15 ], [ %1, %if.else ]
+  %buffer.addr.1 = phi ptr [ %buffer.addr.030, %if.then15 ], [ %call, %if.else ]
+  %runValue.1 = phi i8 [ %runValue.031, %if.then15 ], [ %1, %if.else ]
   %runLength.1 = phi i32 [ %inc, %if.then15 ], [ 1, %if.else ]
-  %buffer.addr.1 = phi ptr [ %buffer.addr.033, %if.then15 ], [ %call, %if.else ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %if.then3
+  %buffer.addr.0.lcssa = phi ptr [ %incdec.ptr5, %if.then3 ], [ %buffer.addr.1, %for.inc ]
   %runValue.0.lcssa = phi i8 [ %0, %if.then3 ], [ %runValue.1, %for.inc ]
   %runLength.0.lcssa = phi i32 [ 1, %if.then3 ], [ %runLength.1, %for.inc ]
-  %buffer.addr.0.lcssa = phi ptr [ %incdec.ptr5, %if.then3 ], [ %buffer.addr.1, %for.inc ]
   %call18 = call fastcc ptr @encodeRunByte(ptr noundef %buffer.addr.0.lcssa, ptr noundef nonnull %add.ptr, i8 noundef zeroext %runValue.0.lcssa, i32 noundef %runLength.0.lcssa, ptr noundef nonnull %state, ptr noundef %status)
   %2 = load i8, ptr %state, align 2
   %cmp21.not = icmp eq i8 %2, 0

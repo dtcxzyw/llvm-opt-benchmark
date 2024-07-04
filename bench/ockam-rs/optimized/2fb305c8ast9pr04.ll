@@ -4999,8 +4999,8 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$
   br label %34
 
 34:                                               ; preds = %36, %30
-  %.022.i.i = phi i16 [ %33, %30 ], [ %38, %36 ]
-  %.not.not.i.i.i.not = icmp ne i16 %.022.i.i, 0
+  %.0.i.i = phi i16 [ %33, %30 ], [ %38, %36 ]
+  %.not.not.i.i.i.not = icmp ne i16 %.0.i.i, 0
   br i1 %.not.not.i.i.i.not, label %36, label %35
 
 35:                                               ; preds = %34
@@ -5008,9 +5008,9 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$
   br i1 %.not.i.i, label %45, label %49
 
 36:                                               ; preds = %34
-  %37 = add i16 %.022.i.i, -1
-  %38 = and i16 %37, %.022.i.i
-  %39 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i, i1 true)
+  %37 = add i16 %.0.i.i, -1
+  %38 = and i16 %37, %.0.i.i
+  %39 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
   %40 = zext nneg i16 %39 to i64
   %41 = add i64 %.sroa.0.021.i.i, %40
   %42 = and i64 %41, %.val4.i
@@ -6482,7 +6482,7 @@ define void @"_ZN10ockam_node7context17context_lifecycle55_$LT$impl$u20$ockam_no
   %16 = icmp slt i64 %15, 0
   br i1 %trunc.i, label %20, label %18
 
-17:                                               ; preds = %.thread63
+17:                                               ; preds = %44
   br i1 %.11531, label %45, label %46
 
 18:                                               ; preds = %4
@@ -6502,7 +6502,7 @@ define void @"_ZN10ockam_node7context17context_lifecycle55_$LT$impl$u20$ockam_no
 .thread:                                          ; preds = %23
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread63
+  br label %44
 
 23:                                               ; preds = %18, %20
   %24 = phi i64 [ 0, %18 ], [ 1, %20 ]
@@ -6569,7 +6569,7 @@ define void @"_ZN10ockam_node7context17context_lifecycle55_$LT$impl$u20$ockam_no
   invoke fastcc void @"_ZN4core3ptr236drop_in_place$LT$alloc..sync..Arc$LT$std..sync..rwlock..RwLock$LT$hashbrown..map..HashMap$LT$ockam_core..routing..transport_type..TransportType$C$alloc..sync..Arc$LT$dyn$u20$ockam_transport_core..transport..Transport$GT$$GT$$GT$$GT$$GT$17h734be5b8b2457b22E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6) #30
           to label %.thread58 unwind label %42
 
-42:                                               ; preds = %.thread54, %45, %.thread63, %.thread49, %44, %.thread58, %40
+42:                                               ; preds = %.thread54, %45, %44, %.thread49, %.thread42, %.thread58, %40
   %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #31
@@ -6577,17 +6577,17 @@ define void @"_ZN10ockam_node7context17context_lifecycle55_$LT$impl$u20$ockam_no
 
 .thread58:                                        ; preds = %40
   invoke fastcc void @"_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$tokio..sync..oneshot..Sender$LT$ockam_core..routing..address..Address$GT$$GT$$GT$17hd886998ce4024bf5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7) #30
-          to label %44 unwind label %42
+          to label %.thread42 unwind label %42
 
-44:                                               ; preds = %.thread58
+.thread42:                                        ; preds = %.thread58
   invoke void @"_ZN4core3ptr60drop_in_place$LT$ockam_core..routing..mailbox..Mailboxes$GT$17h11526744c07459c4E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %8) #30
           to label %.thread49 unwind label %42
 
-.thread49:                                        ; preds = %44
+.thread49:                                        ; preds = %.thread42
   invoke void @"_ZN4core3ptr96drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$ockam_node..messages..NodeMessage$GT$$GT$17h72b478b1e99a6a9bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9) #30
-          to label %.thread63 unwind label %42
+          to label %44 unwind label %42
 
-.thread63:                                        ; preds = %.thread49, %.thread
+44:                                               ; preds = %.thread49, %.thread
   %.11531 = phi i1 [ true, %.thread ], [ false, %.thread49 ]
   %.pn.pn30 = phi { ptr, i32 } [ %22, %.thread ], [ %41, %.thread49 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..handle..Handle$GT$17h67b9598334a6afaeE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #30
@@ -6897,8 +6897,8 @@ define void @"_ZN10ockam_node7context10transports55_$LT$impl$u20$ockam_node..con
   br label %84
 
 84:                                               ; preds = %86, %80
-  %.022.i.i.i = phi i16 [ %83, %80 ], [ %88, %86 ]
-  %.not.not.i.i.i.i = icmp eq i16 %.022.i.i.i, 0
+  %.0.i.i.i = phi i16 [ %83, %80 ], [ %88, %86 ]
+  %.not.not.i.i.i.i = icmp eq i16 %.0.i.i.i, 0
   br i1 %.not.not.i.i.i.i, label %85, label %86
 
 85:                                               ; preds = %84
@@ -6906,9 +6906,9 @@ define void @"_ZN10ockam_node7context10transports55_$LT$impl$u20$ockam_node..con
   br i1 %.not.i.i.i, label %97, label %101
 
 86:                                               ; preds = %84
-  %87 = add i16 %.022.i.i.i, -1
-  %88 = and i16 %87, %.022.i.i.i
-  %89 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i.i, i1 true)
+  %87 = add i16 %.0.i.i.i, -1
+  %88 = and i16 %87, %.0.i.i.i
+  %89 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i.i, i1 true)
   %90 = zext nneg i16 %89 to i64
   %91 = add i64 %.sroa.0.021.i.i.i, %90
   %92 = and i64 %91, %.val4.i.i

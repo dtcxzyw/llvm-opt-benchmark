@@ -1046,7 +1046,7 @@ define internal noundef i32 @dissect_systemd_journal_line_entry(ptr noundef %0, 
   %31 = phi ptr [ %88, %83 ], [ %30, %23 ]
   %32 = phi i64 [ %86, %83 ], [ 0, %23 ]
   %.0138151 = phi i32 [ %.1, %83 ], [ 0, %23 ]
-  %.0139150 = phi i32 [ %84, %83 ], [ 0, %23 ]
+  %.0140150 = phi i32 [ %84, %83 ], [ 0, %23 ]
   %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #8
   %34 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef %.0156, ptr noundef nonnull %31, i64 noundef %33) #6
   %35 = icmp eq i32 %34, 0
@@ -1143,7 +1143,7 @@ dissect_sjle_time_usecs.exit:                     ; preds = %45, %52
 
 83:                                               ; preds = %75, %78, %.lr.ph
   %.1 = phi i32 [ %.0138151, %.lr.ph ], [ 1, %78 ], [ 1, %75 ]
-  %84 = add i32 %.0139150, 1
+  %84 = add i32 %.0140150, 1
   %85 = load ptr, ptr @jf_to_hf, align 8
   %86 = sext i32 %84 to i64
   %87 = getelementptr %struct._journal_field_hf_map, ptr %85, i64 %86, i32 1
@@ -1190,7 +1190,7 @@ dissect_sjle_time_usecs.exit:                     ; preds = %45, %52
 108:                                              ; preds = %.lr.ph154, %158
   %109 = phi ptr [ %106, %.lr.ph154 ], [ %163, %158 ]
   %110 = phi i64 [ 0, %.lr.ph154 ], [ %161, %158 ]
-  %.0140153 = phi i32 [ 0, %.lr.ph154 ], [ %159, %158 ]
+  %.0139153 = phi i32 [ 0, %.lr.ph154 ], [ %159, %158 ]
   %111 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %109) #8
   %112 = trunc i64 %111 to i32
   %113 = add i32 %112, -1
@@ -1254,7 +1254,7 @@ dissect_sjle_time_usecs.exit:                     ; preds = %45, %52
   br label %158
 
 158:                                              ; preds = %108, %117, %133, %141, %146
-  %159 = add i32 %.0140153, 1
+  %159 = add i32 %.0139153, 1
   %160 = load ptr, ptr @jf_to_hf, align 8
   %161 = sext i32 %159 to i64
   %162 = getelementptr %struct._journal_field_hf_map, ptr %160, i64 %161, i32 1

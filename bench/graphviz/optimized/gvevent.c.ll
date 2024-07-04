@@ -317,12 +317,12 @@ define internal void @gvevent_button_press(ptr noundef %0, i32 noundef %1, doubl
 
 .lr.ph.i.i:                                       ; preds = %53, %.lr.ph.i.i
   %66 = phi ptr [ %72, %.lr.ph.i.i ], [ %65, %53 ]
-  %.037.i.i = phi i32 [ %70, %.lr.ph.i.i ], [ 2, %53 ]
-  %67 = or disjoint i32 %.037.i.i, 1
+  %.02837.i.i = phi i32 [ %70, %.lr.ph.i.i ], [ 2, %53 ]
+  %67 = or disjoint i32 %.02837.i.i, 1
   %68 = getelementptr inbounds i8, ptr %66, i64 16
   %69 = load ptr, ptr %68, align 8
-  tail call void @gv_argvlist_set_item(ptr noundef nonnull %62, i32 noundef %.037.i.i, ptr noundef %69) #12
-  %70 = add nuw nsw i32 %.037.i.i, 2
+  tail call void @gv_argvlist_set_item(ptr noundef nonnull %62, i32 noundef %.02837.i.i, ptr noundef %69) #12
+  %70 = add nuw nsw i32 %.02837.i.i, 2
   %71 = tail call ptr @agxget(ptr noundef %44, ptr noundef nonnull %66) #12
   tail call void @gv_argvlist_set_item(ptr noundef nonnull %62, i32 noundef %67, ptr noundef %71) #12
   %72 = tail call ptr @agnxtattr(ptr noundef %64, i32 noundef 1, ptr noundef nonnull %66) #12
@@ -330,9 +330,9 @@ define internal void @gvevent_button_press(ptr noundef %0, i32 noundef %1, doubl
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %53
-  %.0.lcssa.i.i = phi i32 [ 2, %53 ], [ %70, %.lr.ph.i.i ]
+  %.028.lcssa.i.i = phi i32 [ 2, %53 ], [ %70, %.lr.ph.i.i ]
   %73 = getelementptr inbounds i8, ptr %0, i64 752
-  store i32 %.0.lcssa.i.i, ptr %73, align 8
+  store i32 %.028.lcssa.i.i, ptr %73, align 8
   %74 = tail call ptr @agraphof(ptr noundef %44) #12
   %75 = tail call ptr @agattr(ptr noundef %74, i32 noundef 1, ptr noundef nonnull @.str.17, ptr noundef null) #12
   %.not31.i.i = icmp eq ptr %75, null
@@ -406,7 +406,7 @@ define internal void @gvevent_button_press(ptr noundef %0, i32 noundef %1, doubl
 
 .lr.ph.i27.i:                                     ; preds = %81, %.outer.i.i
   %124 = phi ptr [ %146, %.outer.i.i ], [ %123, %81 ]
-  %.0.ph81.i.i = phi i32 [ %144, %.outer.i.i ], [ 7, %81 ]
+  %.061.ph81.i.i = phi i32 [ %144, %.outer.i.i ], [ 7, %81 ]
   br label %125
 
 125:                                              ; preds = %137, %.lr.ph.i27.i
@@ -442,10 +442,10 @@ define internal void @gvevent_button_press(ptr noundef %0, i32 noundef %1, doubl
 
 .outer.i.i:                                       ; preds = %134, %.outer.i.i.sink.split
   %141 = getelementptr inbounds i8, ptr %126, i64 16
-  %142 = add nuw nsw i32 %.0.ph81.i.i, 1
+  %142 = add nuw nsw i32 %.061.ph81.i.i, 1
   %143 = load ptr, ptr %141, align 8
-  tail call void @gv_argvlist_set_item(ptr noundef nonnull %114, i32 noundef %.0.ph81.i.i, ptr noundef %143) #12
-  %144 = add nuw nsw i32 %.0.ph81.i.i, 2
+  tail call void @gv_argvlist_set_item(ptr noundef nonnull %114, i32 noundef %.061.ph81.i.i, ptr noundef %143) #12
+  %144 = add nuw nsw i32 %.061.ph81.i.i, 2
   %145 = tail call ptr @agxget(ptr noundef nonnull %44, ptr noundef nonnull %126) #12
   tail call void @gv_argvlist_set_item(ptr noundef nonnull %114, i32 noundef %142, ptr noundef %145) #12
   %146 = tail call ptr @agnxtattr(ptr noundef %122, i32 noundef 2, ptr noundef nonnull %126) #12
@@ -453,9 +453,9 @@ define internal void @gvevent_button_press(ptr noundef %0, i32 noundef %1, doubl
   br i1 %.not6478.i.i, label %.outer._crit_edge.i.i, label %.lr.ph.i27.i
 
 .outer._crit_edge.i.i:                            ; preds = %.outer.i.i, %137, %81
-  %.0.ph.lcssa.i.i = phi i32 [ 7, %81 ], [ %.0.ph81.i.i, %137 ], [ %144, %.outer.i.i ]
+  %.061.ph.lcssa.i.i = phi i32 [ 7, %81 ], [ %.061.ph81.i.i, %137 ], [ %144, %.outer.i.i ]
   %147 = getelementptr inbounds i8, ptr %0, i64 752
-  store i32 %.0.ph.lcssa.i.i, ptr %147, align 8
+  store i32 %.061.ph.lcssa.i.i, ptr %147, align 8
   %148 = load i32, ptr %44, align 8
   %149 = and i32 %148, 3
   %150 = icmp eq i32 %149, 2

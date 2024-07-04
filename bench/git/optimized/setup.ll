@@ -3211,8 +3211,8 @@ if.then4:                                         ; preds = %if.end
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then4, %if.end
-  %gitfile.0 = phi ptr [ %call5, %if.then4 ], [ null, %if.end ]
   %gitdirenv.addr.0 = phi ptr [ %call5, %if.then4 ], [ %gitdirenv, %if.end ]
+  %gitfile.0 = phi ptr [ %call5, %if.then4 ], [ null, %if.end ]
   %call7 = tail call i32 @is_git_directory(ptr noundef %gitdirenv.addr.0)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.then9, label %if.end14

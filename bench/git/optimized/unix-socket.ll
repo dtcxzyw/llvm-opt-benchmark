@@ -158,8 +158,8 @@ if.end22:                                         ; preds = %if.end18
   br i1 %cmp27, label %return, label %if.end31
 
 if.end31:                                         ; preds = %if.end22, %entry
-  %size.0 = phi i32 [ %conv12, %if.end22 ], [ %conv, %entry ]
   %path.addr.0 = phi ptr [ %add.ptr, %if.end22 ], [ %path, %entry ]
+  %size.0 = phi i32 [ %conv12, %if.end22 ], [ %conv, %entry ]
   %2 = getelementptr inbounds i8, ptr %sa, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %2, i8 0, i64 108, i1 false)
   store i16 1, ptr %sa, align 2

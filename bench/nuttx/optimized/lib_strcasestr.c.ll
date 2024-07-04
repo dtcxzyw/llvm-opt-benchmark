@@ -55,8 +55,8 @@ strcasechr.exit:                                  ; preds = %.lr.ph.i
   br i1 %.not8.i, label %strcasechr.exit.thread, label %.lr.ph.i.backedge
 
 strcasechr.exit.thread:                           ; preds = %19, %strcasechr.exit, %22, %14, %5, %2
-  %.0 = phi ptr [ %0, %2 ], [ null, %5 ], [ %.069.i, %19 ], [ null, %strcasechr.exit ], [ null, %22 ], [ null, %14 ]
-  ret ptr %.0
+  %.016 = phi ptr [ %0, %2 ], [ null, %5 ], [ %.069.i, %19 ], [ null, %strcasechr.exit ], [ null, %22 ], [ null, %14 ]
+  ret ptr %.016
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

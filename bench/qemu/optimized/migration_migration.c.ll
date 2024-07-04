@@ -948,8 +948,8 @@ if.end:                                           ; preds = %if.then
   br label %if.end18
 
 if.end18:                                         ; preds = %entry, %if.end
-  %msg_type.0 = phi i32 [ 3, %if.end ], [ 4, %entry ]
   %msglen.0 = phi i16 [ %4, %if.end ], [ 12, %entry ]
+  %msg_type.0 = phi i32 [ 3, %if.end ], [ 4, %entry ]
   %call21 = call fastcc i32 @migrate_send_rp_message(ptr noundef nonnull %mis, i32 noundef %msg_type.0, i16 noundef zeroext %msglen.0, ptr noundef nonnull %bufc)
   ret i32 %call21
 }
@@ -1136,8 +1136,8 @@ if.end.i:                                         ; preds = %if.then.i14
   br label %migrate_send_rp_message_req_pages.exit
 
 migrate_send_rp_message_req_pages.exit:           ; preds = %if.end10, %if.end.i
-  %msg_type.0.i = phi i32 [ 3, %if.end.i ], [ 4, %if.end10 ]
   %msglen.0.i = phi i16 [ %17, %if.end.i ], [ 12, %if.end10 ]
+  %msg_type.0.i = phi i32 [ 3, %if.end.i ], [ 4, %if.end10 ]
   %call21.i = call fastcc i32 @migrate_send_rp_message(ptr noundef nonnull %mis, i32 noundef %msg_type.0.i, i16 noundef zeroext %msglen.0.i, ptr noundef nonnull %bufc.i)
   call void @llvm.lifetime.end.p0(i64 268, ptr nonnull %bufc.i)
   br label %return

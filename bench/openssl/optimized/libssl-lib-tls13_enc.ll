@@ -782,6 +782,9 @@ if.else103:                                       ; preds = %if.else93
   br label %if.end107
 
 if.end107:                                        ; preds = %if.then96, %if.else103, %if.end72, %if.else88, %if.then81
+  %insecret.0 = phi ptr [ %early_secret, %if.end72 ], [ %handshake_secret, %if.then81 ], [ %master_secret, %if.else88 ], [ %handshake_secret97, %if.then96 ], [ %master_secret104, %if.else103 ]
+  %finsecret.0 = phi ptr [ null, %if.end72 ], [ %client_finished_secret, %if.then81 ], [ null, %if.else88 ], [ %server_finished_secret, %if.then96 ], [ null, %if.else103 ]
+  %log_label.0 = phi ptr [ @.str.11, %if.end72 ], [ @.str.13, %if.then81 ], [ @.str.14, %if.else88 ], [ @.str.15, %if.then96 ], [ @.str.16, %if.else103 ]
   %finsecretlen.0 = phi i64 [ 0, %if.end72 ], [ %conv86, %if.then81 ], [ 0, %if.else88 ], [ %conv102, %if.then96 ], [ 0, %if.else103 ]
   %cmp122 = phi i1 [ false, %if.end72 ], [ false, %if.then81 ], [ false, %if.else88 ], [ false, %if.then96 ], [ true, %if.else103 ]
   %cmp129 = phi i1 [ false, %if.end72 ], [ false, %if.then81 ], [ false, %if.else88 ], [ true, %if.then96 ], [ false, %if.else103 ]
@@ -790,9 +793,6 @@ if.end107:                                        ; preds = %if.then96, %if.else
   %label.0 = phi ptr [ @tls13_change_cipher_state.client_early_traffic, %if.end72 ], [ @tls13_change_cipher_state.client_handshake_traffic, %if.then81 ], [ @tls13_change_cipher_state.client_application_traffic, %if.else88 ], [ @tls13_change_cipher_state.server_handshake_traffic, %if.then96 ], [ @tls13_change_cipher_state.server_application_traffic, %if.else103 ]
   %labellen.0 = phi i64 [ 11, %if.end72 ], [ 12, %if.then81 ], [ 12, %if.else88 ], [ 12, %if.then96 ], [ 12, %if.else103 ]
   %md.0 = phi ptr [ %call51, %if.end72 ], [ null, %if.then81 ], [ null, %if.else88 ], [ null, %if.then96 ], [ null, %if.else103 ]
-  %log_label.0 = phi ptr [ @.str.11, %if.end72 ], [ @.str.13, %if.then81 ], [ @.str.14, %if.else88 ], [ @.str.15, %if.then96 ], [ @.str.16, %if.else103 ]
-  %finsecret.0 = phi ptr [ null, %if.end72 ], [ %client_finished_secret, %if.then81 ], [ null, %if.else88 ], [ %server_finished_secret, %if.then96 ], [ null, %if.else103 ]
-  %insecret.0 = phi ptr [ %early_secret, %if.end72 ], [ %handshake_secret, %if.then81 ], [ %master_secret, %if.else88 ], [ %handshake_secret97, %if.then96 ], [ %master_secret104, %if.else103 ]
   %hash.0 = phi ptr [ %hashval, %if.end72 ], [ %handshake_traffic_hash, %if.then81 ], [ %server_finished_hash, %if.else88 ], [ %hashval, %if.then96 ], [ %hashval, %if.else103 ]
   %and108 = and i32 %which, 64
   %tobool109.not = icmp eq i32 %and108, 0

@@ -2433,21 +2433,21 @@ if.end:                                           ; preds = %for.body
 
 for.body20:                                       ; preds = %for.body20.lr.ph, %while.end67
   %field_entry_index.195 = phi i16 [ %field_entry_index.082, %for.body20.lr.ph ], [ %inc78, %while.end67 ]
-  %block.094 = phi ptr [ null, %for.body20.lr.ph ], [ %block.1, %while.end67 ]
+  %last_skip_entry_start.094 = phi i32 [ 0, %for.body20.lr.ph ], [ %sub76, %while.end67 ]
   %start_new_block.093 = phi i8 [ 1, %for.body20.lr.ph ], [ %start_new_block.2, %while.end67 ]
-  %last_skip_entry_start.092 = phi i32 [ 0, %for.body20.lr.ph ], [ %sub76, %while.end67 ]
+  %block.092 = phi ptr [ null, %for.body20.lr.ph ], [ %block.1, %while.end67 ]
   %conv22 = zext i16 %field_entry_index.195 to i64
   %6 = load ptr, ptr %field_descriptors, align 8
   %add.ptr.i30 = getelementptr inbounds ptr, ptr %6, i64 %conv22
   %7 = load ptr, ptr %add.ptr.i30, align 8
   %number_.i31 = getelementptr inbounds i8, ptr %7, i64 4
   %8 = load i32, ptr %number_.i31, align 4
-  %cmp.i = icmp ugt i32 %8, %last_skip_entry_start.092
+  %cmp.i = icmp ugt i32 %8, %last_skip_entry_start.094
   br i1 %cmp.i, label %while.end, label %cond.false.i
 
 cond.false.i:                                     ; preds = %for.body20
   %conv.i = zext i32 %8 to i64
-  %conv1.i = zext i32 %last_skip_entry_start.092 to i64
+  %conv1.i = zext i32 %last_skip_entry_start.094 to i64
   %call.i32 = invoke noundef nonnull ptr @_ZN4absl12lts_2023080212log_internal17MakeCheckOpStringIllEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(i64 noundef %conv.i, i64 noundef %conv1.i, ptr noundef nonnull @.str.105)
           to label %while.body unwind label %lpad.loopexit.split-lp
 
@@ -2465,7 +2465,7 @@ invoke.cont35:                                    ; preds = %while.body
 while.end:                                        ; preds = %for.body20
   %11 = and i8 %start_new_block.093, 1
   %cmp39 = icmp eq i8 %11, 0
-  %sub41 = sub i32 %8, %last_skip_entry_start.092
+  %sub41 = sub i32 %8, %last_skip_entry_start.094
   %cmp42 = icmp ugt i32 %sub41, 96
   %or.cond = and i1 %cmp39, %cmp42
   %start_new_block.1 = select i1 %or.cond, i8 1, i8 %start_new_block.093
@@ -2527,8 +2527,8 @@ if.then.i.i.i.i36:                                ; preds = %lpad49
   br label %ehcleanup
 
 if.end53:                                         ; preds = %_ZN6google8protobuf8compiler3cpp14SkipEntryBlockD2Ev.exit, %while.end
+  %block.1 = phi ptr [ %add.ptr.i.i, %_ZN6google8protobuf8compiler3cpp14SkipEntryBlockD2Ev.exit ], [ %block.092, %while.end ]
   %start_new_block.2 = phi i8 [ 0, %_ZN6google8protobuf8compiler3cpp14SkipEntryBlockD2Ev.exit ], [ %start_new_block.1, %while.end ]
-  %block.1 = phi ptr [ %add.ptr.i.i, %_ZN6google8protobuf8compiler3cpp14SkipEntryBlockD2Ev.exit ], [ %block.094, %while.end ]
   %21 = load i32, ptr %block.1, align 8
   %sub55 = sub i32 %8, %21
   %div27 = lshr i32 %sub55, 4

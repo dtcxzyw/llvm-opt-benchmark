@@ -849,14 +849,14 @@ while.body.lr.ph.i:                               ; preds = %if.end30.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end45.i, %while.body.lr.ph.i
-  %BufPtr.098.i = phi ptr [ %21, %while.body.lr.ph.i ], [ %add.ptr.i, %if.end45.i ]
-  %BytesLeft.097.i = phi i64 [ %MapSize.addr.0.i, %while.body.lr.ph.i ], [ %sub46.i, %if.end45.i ]
-  %add.i = sub i64 %sub.i, %BytesLeft.097.i
+  %BytesLeft.098.i = phi i64 [ %MapSize.addr.0.i, %while.body.lr.ph.i ], [ %sub46.i, %if.end45.i ]
+  %BufPtr.097.i = phi ptr [ %21, %while.body.lr.ph.i ], [ %add.ptr.i, %if.end45.i ]
+  %add.i = sub i64 %sub.i, %BytesLeft.098.i
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %while.body.i
   store i32 0, ptr %call.i46.i, align 4, !noalias !29
-  %call7.i.i = call noundef i64 @pread(i32 noundef %2, ptr noundef %BufPtr.098.i, i64 noundef %BytesLeft.097.i, i64 noundef %add.i) #22, !noalias !29
+  %call7.i.i = call noundef i64 @pread(i32 noundef %2, ptr noundef %BufPtr.097.i, i64 noundef %BytesLeft.098.i, i64 noundef %add.i) #22, !noalias !29
   switch i64 %call7.i.i, label %if.end45.i [
     i64 -1, label %land.rhs.i.i
     i64 0, label %if.then44.i
@@ -868,12 +868,12 @@ land.rhs.i.i:                                     ; preds = %do.body.i.i
   br i1 %cmp9.i.i, label %do.body.i.i, label %cleanup47.i, !llvm.loop !36
 
 if.then44.i:                                      ; preds = %do.body.i.i
-  call void @llvm.memset.p0.i64(ptr align 1 %BufPtr.098.i, i8 0, i64 %BytesLeft.097.i, i1 false), !noalias !29
+  call void @llvm.memset.p0.i64(ptr align 1 %BufPtr.097.i, i8 0, i64 %BytesLeft.098.i, i1 false), !noalias !29
   br label %while.end.i
 
 if.end45.i:                                       ; preds = %do.body.i.i
-  %sub46.i = sub i64 %BytesLeft.097.i, %call7.i.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %BufPtr.098.i, i64 %call7.i.i
+  %sub46.i = sub i64 %BytesLeft.098.i, %call7.i.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %BufPtr.097.i, i64 %call7.i.i
   %tobool33.not.i = icmp eq i64 %sub46.i, 0
   br i1 %tobool33.not.i, label %while.end.i, label %while.body.i, !llvm.loop !38
 
@@ -1563,14 +1563,14 @@ while.body.lr.ph:                                 ; preds = %if.end31
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end46
-  %BufPtr.0103 = phi ptr [ %22, %while.body.lr.ph ], [ %add.ptr, %if.end46 ]
-  %BytesLeft.0102 = phi i64 [ %MapSize.addr.0, %while.body.lr.ph ], [ %sub47, %if.end46 ]
-  %add = sub i64 %sub, %BytesLeft.0102
+  %BytesLeft.0103 = phi i64 [ %MapSize.addr.0, %while.body.lr.ph ], [ %sub47, %if.end46 ]
+  %BufPtr.0102 = phi ptr [ %22, %while.body.lr.ph ], [ %add.ptr, %if.end46 ]
+  %add = sub i64 %sub, %BytesLeft.0103
   br label %do.body.i
 
 do.body.i:                                        ; preds = %land.rhs.i, %while.body
   store i32 0, ptr %call.i52, align 4
-  %call7.i = call noundef i64 @pread(i32 noundef %FD, ptr noundef %BufPtr.0103, i64 noundef %BytesLeft.0102, i64 noundef %add) #22
+  %call7.i = call noundef i64 @pread(i32 noundef %FD, ptr noundef %BufPtr.0102, i64 noundef %BytesLeft.0103, i64 noundef %add) #22
   switch i64 %call7.i, label %if.end46 [
     i64 -1, label %land.rhs.i
     i64 0, label %if.then45
@@ -1582,12 +1582,12 @@ land.rhs.i:                                       ; preds = %do.body.i
   br i1 %cmp9.i, label %do.body.i, label %cleanup48, !llvm.loop !36
 
 if.then45:                                        ; preds = %do.body.i
-  call void @llvm.memset.p0.i64(ptr align 1 %BufPtr.0103, i8 0, i64 %BytesLeft.0102, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %BufPtr.0102, i8 0, i64 %BytesLeft.0103, i1 false)
   br label %while.end
 
 if.end46:                                         ; preds = %do.body.i
-  %sub47 = sub i64 %BytesLeft.0102, %call7.i
-  %add.ptr = getelementptr inbounds i8, ptr %BufPtr.0103, i64 %call7.i
+  %sub47 = sub i64 %BytesLeft.0103, %call7.i
+  %add.ptr = getelementptr inbounds i8, ptr %BufPtr.0102, i64 %call7.i
   %tobool34.not = icmp eq i64 %sub47, 0
   br i1 %tobool34.not, label %while.end, label %while.body, !llvm.loop !45
 

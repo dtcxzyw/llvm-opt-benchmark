@@ -12,8 +12,8 @@ define hidden i64 @pm_strspn_whitespace(ptr nocapture noundef readonly %0, i64 n
   br i1 %3, label %pm_strspn_char_kind.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2, %10
-  %.0911.i = phi i64 [ %11, %10 ], [ 0, %2 ]
-  %4 = getelementptr i8, ptr %0, i64 %.0911.i
+  %.011.i = phi i64 [ %11, %10 ], [ 0, %2 ]
+  %4 = getelementptr i8, ptr %0, i64 %.011.i
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
   %7 = getelementptr [256 x i8], ptr @pm_byte_table, i64 0, i64 %6
@@ -23,13 +23,13 @@ define hidden i64 @pm_strspn_whitespace(ptr nocapture noundef readonly %0, i64 n
   br i1 %.not.i, label %pm_strspn_char_kind.exit, label %10
 
 10:                                               ; preds = %.preheader.i
-  %11 = add nuw nsw i64 %.0911.i, 1
+  %11 = add nuw nsw i64 %.011.i, 1
   %exitcond.not.i = icmp eq i64 %11, %1
   br i1 %exitcond.not.i, label %pm_strspn_char_kind.exit, label %.preheader.i, !llvm.loop !7
 
 pm_strspn_char_kind.exit:                         ; preds = %.preheader.i, %10, %2
-  %.0.i = phi i64 [ 0, %2 ], [ %.0911.i, %.preheader.i ], [ %1, %10 ]
-  ret i64 %.0.i
+  %.09.i = phi i64 [ 0, %2 ], [ %.011.i, %.preheader.i ], [ %1, %10 ]
+  ret i64 %.09.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -38,8 +38,8 @@ define hidden i64 @pm_strspn_whitespace_newlines(ptr noundef %0, i64 noundef %1,
   br i1 %4, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %3, %15
-  %.01315 = phi i64 [ %16, %15 ], [ 0, %3 ]
-  %5 = getelementptr i8, ptr %0, i64 %.01315
+  %.015 = phi i64 [ %16, %15 ], [ 0, %3 ]
+  %5 = getelementptr i8, ptr %0, i64 %.015
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
   %8 = getelementptr [256 x i8], ptr @pm_byte_table, i64 0, i64 %7
@@ -57,13 +57,13 @@ define hidden i64 @pm_strspn_whitespace_newlines(ptr noundef %0, i64 noundef %1,
   br label %15
 
 15:                                               ; preds = %13, %11
-  %16 = add nuw i64 %.01315, 1
+  %16 = add nuw i64 %.015, 1
   %exitcond.not = icmp eq i64 %16, %1
   br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !9
 
 .critedge:                                        ; preds = %.preheader, %15, %3
-  %.0 = phi i64 [ 0, %3 ], [ %1, %15 ], [ %.01315, %.preheader ]
-  ret i64 %.0
+  %.013 = phi i64 [ 0, %3 ], [ %1, %15 ], [ %.015, %.preheader ]
+  ret i64 %.013
 }
 
 declare zeroext i1 @pm_newline_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -74,8 +74,8 @@ define hidden i64 @pm_strspn_inline_whitespace(ptr nocapture noundef readonly %0
   br i1 %3, label %pm_strspn_char_kind.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2, %10
-  %.0911.i = phi i64 [ %11, %10 ], [ 0, %2 ]
-  %4 = getelementptr i8, ptr %0, i64 %.0911.i
+  %.011.i = phi i64 [ %11, %10 ], [ 0, %2 ]
+  %4 = getelementptr i8, ptr %0, i64 %.011.i
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
   %7 = getelementptr [256 x i8], ptr @pm_byte_table, i64 0, i64 %6
@@ -85,13 +85,13 @@ define hidden i64 @pm_strspn_inline_whitespace(ptr nocapture noundef readonly %0
   br i1 %.not.i, label %pm_strspn_char_kind.exit, label %10
 
 10:                                               ; preds = %.preheader.i
-  %11 = add nuw nsw i64 %.0911.i, 1
+  %11 = add nuw nsw i64 %.011.i, 1
   %exitcond.not.i = icmp eq i64 %11, %1
   br i1 %exitcond.not.i, label %pm_strspn_char_kind.exit, label %.preheader.i, !llvm.loop !7
 
 pm_strspn_char_kind.exit:                         ; preds = %.preheader.i, %10, %2
-  %.0.i = phi i64 [ 0, %2 ], [ %.0911.i, %.preheader.i ], [ %1, %10 ]
-  ret i64 %.0.i
+  %.09.i = phi i64 [ 0, %2 ], [ %.011.i, %.preheader.i ], [ %1, %10 ]
+  ret i64 %.09.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
@@ -100,8 +100,8 @@ define hidden i64 @pm_strspn_regexp_option(ptr nocapture noundef readonly %0, i6
   br i1 %3, label %pm_strspn_char_kind.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2, %10
-  %.0911.i = phi i64 [ %11, %10 ], [ 0, %2 ]
-  %4 = getelementptr i8, ptr %0, i64 %.0911.i
+  %.011.i = phi i64 [ %11, %10 ], [ 0, %2 ]
+  %4 = getelementptr i8, ptr %0, i64 %.011.i
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
   %7 = getelementptr [256 x i8], ptr @pm_byte_table, i64 0, i64 %6
@@ -111,13 +111,13 @@ define hidden i64 @pm_strspn_regexp_option(ptr nocapture noundef readonly %0, i6
   br i1 %.not.i, label %pm_strspn_char_kind.exit, label %10
 
 10:                                               ; preds = %.preheader.i
-  %11 = add nuw nsw i64 %.0911.i, 1
+  %11 = add nuw nsw i64 %.011.i, 1
   %exitcond.not.i = icmp eq i64 %11, %1
   br i1 %exitcond.not.i, label %pm_strspn_char_kind.exit, label %.preheader.i, !llvm.loop !7
 
 pm_strspn_char_kind.exit:                         ; preds = %.preheader.i, %10, %2
-  %.0.i = phi i64 [ 0, %2 ], [ %.0911.i, %.preheader.i ], [ %1, %10 ]
-  ret i64 %.0.i
+  %.09.i = phi i64 [ 0, %2 ], [ %.011.i, %.preheader.i ], [ %1, %10 ]
+  ret i64 %.09.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
@@ -147,8 +147,8 @@ define hidden i64 @pm_strspn_binary_number(ptr noundef %0, i64 noundef %1, ptr n
 
 .preheader.i:                                     ; preds = %3, %14
   %.025.i = phi i1 [ %12, %14 ], [ false, %3 ]
-  %.02124.i = phi i64 [ %15, %14 ], [ 0, %3 ]
-  %5 = getelementptr i8, ptr %0, i64 %.02124.i
+  %.02024.i = phi i64 [ %15, %14 ], [ 0, %3 ]
+  %5 = getelementptr i8, ptr %0, i64 %.02024.i
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
   %8 = getelementptr [256 x i8], ptr @pm_number_table, i64 0, i64 %7
@@ -167,13 +167,13 @@ define hidden i64 @pm_strspn_binary_number(ptr noundef %0, i64 noundef %1, ptr n
   br label %14
 
 14:                                               ; preds = %13, %11
-  %15 = add nuw nsw i64 %.02124.i, 1
+  %15 = add nuw nsw i64 %.02024.i, 1
   %exitcond.not.i = icmp eq i64 %15, %1
   br i1 %exitcond.not.i, label %.critedge.i, label %.preheader.i, !llvm.loop !10
 
 .critedge.i:                                      ; preds = %14, %.preheader.i
-  %.021.lcssa.i = phi i64 [ %1, %14 ], [ %.02124.i, %.preheader.i ]
-  %16 = getelementptr i8, ptr %0, i64 %.021.lcssa.i
+  %.020.lcssa.i = phi i64 [ %1, %14 ], [ %.02024.i, %.preheader.i ]
+  %16 = getelementptr i8, ptr %0, i64 %.020.lcssa.i
   %17 = getelementptr i8, ptr %16, i64 -1
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 95
@@ -184,8 +184,8 @@ define hidden i64 @pm_strspn_binary_number(ptr noundef %0, i64 noundef %1, ptr n
   br label %pm_strspn_number_kind_underscores.exit
 
 pm_strspn_number_kind_underscores.exit:           ; preds = %3, %.critedge.i, %20
-  %.020.i = phi i64 [ 0, %3 ], [ %.021.lcssa.i, %20 ], [ %.021.lcssa.i, %.critedge.i ]
-  ret i64 %.020.i
+  %.021.i = phi i64 [ 0, %3 ], [ %.020.lcssa.i, %20 ], [ %.020.lcssa.i, %.critedge.i ]
+  ret i64 %.021.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
@@ -195,8 +195,8 @@ define hidden i64 @pm_strspn_octal_number(ptr noundef %0, i64 noundef %1, ptr no
 
 .preheader.i:                                     ; preds = %3, %14
   %.025.i = phi i1 [ %12, %14 ], [ false, %3 ]
-  %.02124.i = phi i64 [ %15, %14 ], [ 0, %3 ]
-  %5 = getelementptr i8, ptr %0, i64 %.02124.i
+  %.02024.i = phi i64 [ %15, %14 ], [ 0, %3 ]
+  %5 = getelementptr i8, ptr %0, i64 %.02024.i
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
   %8 = getelementptr [256 x i8], ptr @pm_number_table, i64 0, i64 %7
@@ -215,13 +215,13 @@ define hidden i64 @pm_strspn_octal_number(ptr noundef %0, i64 noundef %1, ptr no
   br label %14
 
 14:                                               ; preds = %13, %11
-  %15 = add nuw nsw i64 %.02124.i, 1
+  %15 = add nuw nsw i64 %.02024.i, 1
   %exitcond.not.i = icmp eq i64 %15, %1
   br i1 %exitcond.not.i, label %.critedge.i, label %.preheader.i, !llvm.loop !10
 
 .critedge.i:                                      ; preds = %14, %.preheader.i
-  %.021.lcssa.i = phi i64 [ %1, %14 ], [ %.02124.i, %.preheader.i ]
-  %16 = getelementptr i8, ptr %0, i64 %.021.lcssa.i
+  %.020.lcssa.i = phi i64 [ %1, %14 ], [ %.02024.i, %.preheader.i ]
+  %16 = getelementptr i8, ptr %0, i64 %.020.lcssa.i
   %17 = getelementptr i8, ptr %16, i64 -1
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 95
@@ -232,8 +232,8 @@ define hidden i64 @pm_strspn_octal_number(ptr noundef %0, i64 noundef %1, ptr no
   br label %pm_strspn_number_kind_underscores.exit
 
 pm_strspn_number_kind_underscores.exit:           ; preds = %3, %.critedge.i, %20
-  %.020.i = phi i64 [ 0, %3 ], [ %.021.lcssa.i, %20 ], [ %.021.lcssa.i, %.critedge.i ]
-  ret i64 %.020.i
+  %.021.i = phi i64 [ 0, %3 ], [ %.020.lcssa.i, %20 ], [ %.020.lcssa.i, %.critedge.i ]
+  ret i64 %.021.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
@@ -242,8 +242,8 @@ define hidden i64 @pm_strspn_decimal_digit(ptr nocapture noundef readonly %0, i6
   br i1 %3, label %pm_strspn_number_kind.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2, %10
-  %.0911.i = phi i64 [ %11, %10 ], [ 0, %2 ]
-  %4 = getelementptr i8, ptr %0, i64 %.0911.i
+  %.011.i = phi i64 [ %11, %10 ], [ 0, %2 ]
+  %4 = getelementptr i8, ptr %0, i64 %.011.i
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
   %7 = getelementptr [256 x i8], ptr @pm_number_table, i64 0, i64 %6
@@ -253,13 +253,13 @@ define hidden i64 @pm_strspn_decimal_digit(ptr nocapture noundef readonly %0, i6
   br i1 %.not.i, label %pm_strspn_number_kind.exit, label %10
 
 10:                                               ; preds = %.preheader.i
-  %11 = add nuw nsw i64 %.0911.i, 1
+  %11 = add nuw nsw i64 %.011.i, 1
   %exitcond.not.i = icmp eq i64 %11, %1
   br i1 %exitcond.not.i, label %pm_strspn_number_kind.exit, label %.preheader.i, !llvm.loop !11
 
 pm_strspn_number_kind.exit:                       ; preds = %.preheader.i, %10, %2
-  %.0.i = phi i64 [ 0, %2 ], [ %.0911.i, %.preheader.i ], [ %1, %10 ]
-  ret i64 %.0.i
+  %.09.i = phi i64 [ 0, %2 ], [ %.011.i, %.preheader.i ], [ %1, %10 ]
+  ret i64 %.09.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
@@ -269,8 +269,8 @@ define hidden i64 @pm_strspn_decimal_number(ptr noundef %0, i64 noundef %1, ptr 
 
 .preheader.i:                                     ; preds = %3, %14
   %.025.i = phi i1 [ %12, %14 ], [ false, %3 ]
-  %.02124.i = phi i64 [ %15, %14 ], [ 0, %3 ]
-  %5 = getelementptr i8, ptr %0, i64 %.02124.i
+  %.02024.i = phi i64 [ %15, %14 ], [ 0, %3 ]
+  %5 = getelementptr i8, ptr %0, i64 %.02024.i
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
   %8 = getelementptr [256 x i8], ptr @pm_number_table, i64 0, i64 %7
@@ -289,13 +289,13 @@ define hidden i64 @pm_strspn_decimal_number(ptr noundef %0, i64 noundef %1, ptr 
   br label %14
 
 14:                                               ; preds = %13, %11
-  %15 = add nuw nsw i64 %.02124.i, 1
+  %15 = add nuw nsw i64 %.02024.i, 1
   %exitcond.not.i = icmp eq i64 %15, %1
   br i1 %exitcond.not.i, label %.critedge.i, label %.preheader.i, !llvm.loop !10
 
 .critedge.i:                                      ; preds = %14, %.preheader.i
-  %.021.lcssa.i = phi i64 [ %1, %14 ], [ %.02124.i, %.preheader.i ]
-  %16 = getelementptr i8, ptr %0, i64 %.021.lcssa.i
+  %.020.lcssa.i = phi i64 [ %1, %14 ], [ %.02024.i, %.preheader.i ]
+  %16 = getelementptr i8, ptr %0, i64 %.020.lcssa.i
   %17 = getelementptr i8, ptr %16, i64 -1
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 95
@@ -306,8 +306,8 @@ define hidden i64 @pm_strspn_decimal_number(ptr noundef %0, i64 noundef %1, ptr 
   br label %pm_strspn_number_kind_underscores.exit
 
 pm_strspn_number_kind_underscores.exit:           ; preds = %3, %.critedge.i, %20
-  %.020.i = phi i64 [ 0, %3 ], [ %.021.lcssa.i, %20 ], [ %.021.lcssa.i, %.critedge.i ]
-  ret i64 %.020.i
+  %.021.i = phi i64 [ 0, %3 ], [ %.020.lcssa.i, %20 ], [ %.020.lcssa.i, %.critedge.i ]
+  ret i64 %.021.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
@@ -316,8 +316,8 @@ define hidden i64 @pm_strspn_hexadecimal_digit(ptr nocapture noundef readonly %0
   br i1 %3, label %pm_strspn_number_kind.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2, %10
-  %.0911.i = phi i64 [ %11, %10 ], [ 0, %2 ]
-  %4 = getelementptr i8, ptr %0, i64 %.0911.i
+  %.011.i = phi i64 [ %11, %10 ], [ 0, %2 ]
+  %4 = getelementptr i8, ptr %0, i64 %.011.i
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
   %7 = getelementptr [256 x i8], ptr @pm_number_table, i64 0, i64 %6
@@ -327,13 +327,13 @@ define hidden i64 @pm_strspn_hexadecimal_digit(ptr nocapture noundef readonly %0
   br i1 %.not.i, label %pm_strspn_number_kind.exit, label %10
 
 10:                                               ; preds = %.preheader.i
-  %11 = add nuw nsw i64 %.0911.i, 1
+  %11 = add nuw nsw i64 %.011.i, 1
   %exitcond.not.i = icmp eq i64 %11, %1
   br i1 %exitcond.not.i, label %pm_strspn_number_kind.exit, label %.preheader.i, !llvm.loop !11
 
 pm_strspn_number_kind.exit:                       ; preds = %.preheader.i, %10, %2
-  %.0.i = phi i64 [ 0, %2 ], [ %.0911.i, %.preheader.i ], [ %1, %10 ]
-  ret i64 %.0.i
+  %.09.i = phi i64 [ 0, %2 ], [ %.011.i, %.preheader.i ], [ %1, %10 ]
+  ret i64 %.09.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
@@ -343,8 +343,8 @@ define hidden i64 @pm_strspn_hexadecimal_number(ptr noundef %0, i64 noundef %1, 
 
 .preheader.i:                                     ; preds = %3, %13
   %.025.i = phi i1 [ %11, %13 ], [ false, %3 ]
-  %.02124.i = phi i64 [ %14, %13 ], [ 0, %3 ]
-  %5 = getelementptr i8, ptr %0, i64 %.02124.i
+  %.02024.i = phi i64 [ %14, %13 ], [ 0, %3 ]
+  %5 = getelementptr i8, ptr %0, i64 %.02024.i
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
   %8 = getelementptr [256 x i8], ptr @pm_number_table, i64 0, i64 %7
@@ -362,13 +362,13 @@ define hidden i64 @pm_strspn_hexadecimal_number(ptr noundef %0, i64 noundef %1, 
   br label %13
 
 13:                                               ; preds = %12, %10
-  %14 = add nuw nsw i64 %.02124.i, 1
+  %14 = add nuw nsw i64 %.02024.i, 1
   %exitcond.not.i = icmp eq i64 %14, %1
   br i1 %exitcond.not.i, label %.critedge.i, label %.preheader.i, !llvm.loop !10
 
 .critedge.i:                                      ; preds = %13, %.preheader.i
-  %.021.lcssa.i = phi i64 [ %1, %13 ], [ %.02124.i, %.preheader.i ]
-  %15 = getelementptr i8, ptr %0, i64 %.021.lcssa.i
+  %.020.lcssa.i = phi i64 [ %1, %13 ], [ %.02024.i, %.preheader.i ]
+  %15 = getelementptr i8, ptr %0, i64 %.020.lcssa.i
   %16 = getelementptr i8, ptr %15, i64 -1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 95
@@ -379,8 +379,8 @@ define hidden i64 @pm_strspn_hexadecimal_number(ptr noundef %0, i64 noundef %1, 
   br label %pm_strspn_number_kind_underscores.exit
 
 pm_strspn_number_kind_underscores.exit:           ; preds = %3, %.critedge.i, %19
-  %.020.i = phi i64 [ 0, %3 ], [ %.021.lcssa.i, %19 ], [ %.021.lcssa.i, %.critedge.i ]
-  ret i64 %.020.i
+  %.021.i = phi i64 [ 0, %3 ], [ %.020.lcssa.i, %19 ], [ %.020.lcssa.i, %.critedge.i ]
+  ret i64 %.021.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable

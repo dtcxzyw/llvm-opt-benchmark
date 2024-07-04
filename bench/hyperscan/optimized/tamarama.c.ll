@@ -1147,16 +1147,16 @@ while.body:                                       ; preds = %land.rhs.lr.ph, %la
   br i1 %tobool.not, label %while.cond, label %if.then7, !llvm.loop !8
 
 while.end:                                        ; preds = %land.rhs, %land.rhs.lr.ph
-  %rv.019.lcssa = phi i8 [ 1, %land.rhs.lr.ph ], [ %call3, %land.rhs ]
+  %rv.018.lcssa = phi i8 [ 1, %land.rhs.lr.ph ], [ %call3, %land.rhs ]
   br i1 %cmp2.not34, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %while.cond, %while.body, %while.end
-  %rv.113 = phi i8 [ %rv.019.lcssa, %while.end ], [ %call3, %while.body ], [ %call3, %while.cond ]
+  %rv.113 = phi i8 [ %rv.018.lcssa, %while.end ], [ %call3, %while.body ], [ %call3, %while.cond ]
   call fastcc void @copyBack(ptr noundef nonnull %add.ptr, ptr noundef nonnull %q, ptr noundef nonnull %q1)
   br label %if.end8
 
 if.end8:                                          ; preds = %entry, %if.then7, %while.end
-  %rv.114 = phi i8 [ %rv.113, %if.then7 ], [ %rv.019.lcssa, %while.end ], [ 1, %entry ]
+  %rv.114 = phi i8 [ %rv.113, %if.then7 ], [ %rv.018.lcssa, %while.end ], [ 1, %entry ]
   ret i8 %rv.114
 }
 
@@ -1262,8 +1262,8 @@ lor.rhs.i120:                                     ; preds = %lor.lhs.false3.i
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then7, %lor.lhs.false3.i, %lor.lhs.false3.i, %lor.lhs.false3.i, %lor.lhs.false3.i, %lor.lhs.false3.i, %lor.lhs.false3.i, %lor.lhs.false3.i, %lor.rhs.i120, %loadActiveIdx.exit
-  %event_base.0.neg = phi i32 [ 0, %loadActiveIdx.exit ], [ %lnot.i.neg, %lor.rhs.i120 ], [ -2, %lor.lhs.false3.i ], [ -2, %if.then7 ], [ -2, %lor.lhs.false3.i ], [ -2, %lor.lhs.false3.i ], [ -2, %lor.lhs.false3.i ], [ -2, %lor.lhs.false3.i ], [ -2, %lor.lhs.false3.i ], [ -2, %lor.lhs.false3.i ]
-  %base.0 = phi i32 [ 0, %loadActiveIdx.exit ], [ %13, %lor.rhs.i120 ], [ %13, %lor.lhs.false3.i ], [ %13, %if.then7 ], [ %13, %lor.lhs.false3.i ], [ %13, %lor.lhs.false3.i ], [ %13, %lor.lhs.false3.i ], [ %13, %lor.lhs.false3.i ], [ %13, %lor.lhs.false3.i ], [ %13, %lor.lhs.false3.i ]
+  %base.0 = phi i32 [ 0, %loadActiveIdx.exit ], [ %13, %lor.lhs.false3.i ], [ %13, %lor.rhs.i120 ], [ %13, %if.then7 ], [ %13, %lor.lhs.false3.i ], [ %13, %lor.lhs.false3.i ], [ %13, %lor.lhs.false3.i ], [ %13, %lor.lhs.false3.i ], [ %13, %lor.lhs.false3.i ], [ %13, %lor.lhs.false3.i ]
+  %event_base.0.neg = phi i32 [ 0, %loadActiveIdx.exit ], [ -2, %lor.lhs.false3.i ], [ %lnot.i.neg, %lor.rhs.i120 ], [ -2, %if.then7 ], [ -2, %lor.lhs.false3.i ], [ -2, %lor.lhs.false3.i ], [ -2, %lor.lhs.false3.i ], [ -2, %lor.lhs.false3.i ], [ -2, %lor.lhs.false3.i ], [ -2, %lor.lhs.false3.i ]
   %end11 = getelementptr inbounds i8, ptr %q1, i64 12
   %18 = load i32, ptr %end11, align 4
   %cur12 = getelementptr inbounds i8, ptr %q1, i64 8
@@ -1312,7 +1312,7 @@ if.end33:                                         ; preds = %if.then24, %if.end1
   br i1 %cmp5167.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end33
-  %sub62 = add i32 %base.0, %event_base.0.neg
+  %sub62 = add i32 %event_base.0.neg, %base.0
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end69
@@ -1397,16 +1397,16 @@ while.body:                                       ; preds = %land.lhs.true.lr.ph
   br i1 %tobool.not, label %while.cond, label %if.then9, !llvm.loop !10
 
 while.end:                                        ; preds = %land.lhs.true, %land.lhs.true.lr.ph
-  %rv.020.lcssa = phi i8 [ 0, %land.lhs.true.lr.ph ], [ %call5, %land.lhs.true ]
+  %rv.019.lcssa = phi i8 [ 0, %land.lhs.true.lr.ph ], [ %call5, %land.lhs.true ]
   br i1 %cmp235.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %while.cond, %while.body, %while.end
-  %rv.114 = phi i8 [ %rv.020.lcssa, %while.end ], [ %call5, %while.body ], [ %call5, %while.cond ]
+  %rv.114 = phi i8 [ %rv.019.lcssa, %while.end ], [ %call5, %while.body ], [ %call5, %while.cond ]
   call fastcc void @copyBack(ptr noundef nonnull %add.ptr, ptr noundef nonnull %q, ptr noundef nonnull %q1)
   br label %if.end10
 
 if.end10:                                         ; preds = %entry, %if.then9, %while.end
-  %rv.115 = phi i8 [ %rv.114, %if.then9 ], [ %rv.020.lcssa, %while.end ], [ 0, %entry ]
+  %rv.115 = phi i8 [ %rv.114, %if.then9 ], [ %rv.019.lcssa, %while.end ], [ 0, %entry ]
   ret i8 %rv.115
 }
 

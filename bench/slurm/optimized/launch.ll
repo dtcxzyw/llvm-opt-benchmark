@@ -571,7 +571,7 @@ define dso_local range(i32 0, 2) i32 @launch_g_handle_multi_prog_verify(i32 noun
   br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i
 
 46:                                               ; preds = %.lr.ph.i
-  %47 = add nuw nsw i32 %.028.i, %53
+  %47 = add nuw nsw i32 %.02328.i, %53
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr inbounds i8, ptr %43, i64 %48
   %50 = sub nsw i64 %35, %48
@@ -582,7 +582,7 @@ define dso_local range(i32 0, 2) i32 @launch_g_handle_multi_prog_verify(i32 noun
 
 .lr.ph.i:                                         ; preds = %41, %46
   %53 = phi i32 [ %52, %46 ], [ %45, %41 ]
-  %.028.i = phi i32 [ %47, %46 ], [ 0, %41 ]
+  %.02328.i = phi i32 [ %47, %46 ], [ 0, %41 ]
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %55, label %46
 
@@ -1566,7 +1566,7 @@ _create_job_step_create_request.exit.thread:      ; preds = %430, %241
   br label %503
 
 503:                                              ; preds = %611, %.lr.ph147
-  %.096146 = phi i32 [ 0, %.lr.ph147 ], [ %612, %611 ]
+  %.098146 = phi i32 [ 0, %.lr.ph147 ], [ %612, %611 ]
   store i8 0, ptr %10, align 1
   %504 = load i8, ptr %500, align 8
   %505 = trunc i8 %504 to i1
@@ -1619,8 +1619,8 @@ _create_job_step_create_request.exit.thread:      ; preds = %430, %241
   br label %539
 
 539:                                              ; preds = %529, %525
-  %.098 = phi i64 [ %528, %525 ], [ %538, %529 ]
-  %540 = trunc i64 %.098 to i32
+  %.096 = phi i64 [ %528, %525 ], [ %538, %529 ]
+  %540 = trunc i64 %.096 to i32
   %541 = call ptr @step_ctx_create_timeout(ptr noundef %30, i32 noundef %540, ptr noundef nonnull %10) #18
   br label %542
 
@@ -1636,7 +1636,7 @@ _create_job_step_create_request.exit.thread:      ; preds = %430, %241
   %547 = trunc i32 %546 to i16
   %548 = getelementptr inbounds i8, ptr %543, i64 32
   store i16 %547, ptr %548, align 8
-  %cond = icmp eq i32 %.096146, 0
+  %cond = icmp eq i32 %.098146, 0
   br i1 %cond, label %._crit_edge.thread, label %549
 
 549:                                              ; preds = %544
@@ -1683,13 +1683,13 @@ _create_job_step_create_request.exit.thread:      ; preds = %430, %241
   br label %652
 
 567:                                              ; preds = %563
-  %568 = icmp eq i32 %.096146, 0
+  %568 = icmp eq i32 %.098146, 0
   %569 = call i32 @get_log_level() #18
   %570 = icmp sgt i32 %569, 3
   br i1 %568, label %575, label %595
 
 .thread134:                                       ; preds = %563, %563, %563, %563, %563, %563
-  %571 = icmp eq i32 %.096146, 0
+  %571 = icmp eq i32 %.098146, 0
   %572 = load i8, ptr %10, align 1
   %573 = trunc i8 %572 to i1
   %574 = call i32 @get_log_level() #18
@@ -1783,11 +1783,11 @@ _create_job_step_create_request.exit.thread:      ; preds = %430, %241
   br i1 %.not124156, label %611, label %._crit_edge.thread
 
 611:                                              ; preds = %.loopexit.thread, %.loopexit
-  %612 = add nuw nsw i32 %.096146, 1
+  %612 = add nuw nsw i32 %.098146, 1
   br label %503
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %613 = icmp eq i32 %.096146, 0
+  %613 = icmp eq i32 %.098146, 0
   br i1 %613, label %._crit_edge.thread, label %.thread137
 
 .thread137:                                       ; preds = %549, %552, %._crit_edge
@@ -2592,8 +2592,8 @@ _wait_all_het_job_comps_started.exit:             ; preds = %360
   br label %377
 
 377:                                              ; preds = %368, %372, %367, %376, %373, %302, %291
-  %.0 = phi i32 [ %293, %291 ], [ 0, %367 ], [ 0, %372 ], [ 0, %368 ], [ 0, %376 ], [ 0, %373 ], [ %304, %302 ]
-  ret i32 %.0
+  %.0117 = phi i32 [ %293, %291 ], [ 0, %367 ], [ 0, %372 ], [ 0, %368 ], [ 0, %376 ], [ 0, %373 ], [ %304, %302 ]
+  ret i32 %.0117
 }
 
 declare void @slurm_step_launch_params_t_init(ptr noundef) local_unnamed_addr #2
@@ -3573,7 +3573,7 @@ define internal fastcc i32 @_step_signal(i32 noundef %0) unnamed_addr #1 {
 
 11:                                               ; preds = %.lr.ph, %16
   %12 = phi ptr [ %9, %.lr.ph ], [ %21, %16 ]
-  %.0916 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %16 ]
+  %.016 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %16 ]
   %13 = tail call i32 @get_log_level() #18
   %14 = icmp sgt i32 %13, 2
   br i1 %14, label %15, label %16
@@ -3588,19 +3588,19 @@ define internal fastcc i32 @_step_signal(i32 noundef %0) unnamed_addr #1 {
   %19 = load i32, ptr %18, align 8
   %20 = tail call i32 @slurm_kill_job_step(i32 noundef %17, i32 noundef %19, i16 noundef zeroext %10, i16 noundef zeroext 0) #18
   %.not14 = icmp eq i32 %20, 0
-  %spec.select = select i1 %.not14, i32 %.0916, i32 %20
+  %spec.select = select i1 %.not14, i32 %.016, i32 %20
   %21 = tail call ptr @list_next(ptr noundef %8) #18
   %.not13 = icmp eq ptr %21, null
   br i1 %.not13, label %._crit_edge, label %11, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %16, %7
-  %.09.lcssa = phi i32 [ 0, %7 ], [ %spec.select, %16 ]
+  %.0.lcssa = phi i32 [ 0, %7 ], [ %spec.select, %16 ]
   tail call void @list_iterator_destroy(ptr noundef %8) #18
   br label %22
 
 22:                                               ; preds = %3, %6, %._crit_edge
-  %.0 = phi i32 [ %.09.lcssa, %._crit_edge ], [ -1, %6 ], [ -1, %3 ]
-  ret i32 %.0
+  %.09 = phi i32 [ %.0.lcssa, %._crit_edge ], [ -1, %6 ], [ -1, %3 ]
+  ret i32 %.09
 }
 
 ; Function Attrs: nounwind uwtable

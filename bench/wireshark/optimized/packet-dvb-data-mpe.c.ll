@@ -165,11 +165,11 @@ define internal i32 @dissect_dvb_data_mpe(ptr noundef %0, ptr noundef %1, ptr no
 
 53:                                               ; preds = %39, %53
   %indvars.iv = phi i64 [ 3, %39 ], [ %indvars.iv.next, %53 ]
-  %.088 = phi i32 [ %52, %39 ], [ %56, %53 ]
-  %54 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.088) #2
+  %.08287 = phi i32 [ %52, %39 ], [ %56, %53 ]
+  %54 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08287) #2
   %55 = getelementptr i8, ptr %13, i64 %indvars.iv
   store i8 %54, ptr %55, align 1
-  %56 = add i32 %.088, 1
+  %56 = add i32 %.08287, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not90 = icmp eq i64 %indvars.iv, 0
   br i1 %.not90, label %57, label %53, !llvm.loop !4
@@ -202,8 +202,8 @@ define internal i32 @dissect_dvb_data_mpe(ptr noundef %0, ptr noundef %1, ptr no
   br label %72
 
 72:                                               ; preds = %63, %59
-  %.082 = phi ptr [ %61, %59 ], [ %65, %63 ]
-  call void @proto_tree_set_appendix(ptr noundef %.082, ptr noundef %0, i32 noundef 8, i32 noundef 4) #2
+  %.0 = phi ptr [ %61, %59 ], [ %65, %63 ]
+  call void @proto_tree_set_appendix(ptr noundef %.0, ptr noundef %0, i32 noundef 8, i32 noundef 4) #2
   %73 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %56) #2
   %74 = load i32, ptr %8, align 4
   %.not85 = icmp eq i32 %74, 0

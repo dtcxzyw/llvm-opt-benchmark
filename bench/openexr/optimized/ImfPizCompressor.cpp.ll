@@ -398,13 +398,13 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %tmpBufferEnd.0185 = phi ptr [ %7, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %tmpBufferEnd.0184 = phi ptr [ %7, %for.body.lr.ph ], [ %add.ptr, %for.body ]
   %c.sroa.0.0183 = phi ptr [ %call, %for.body.lr.ph ], [ %call.i.i, %for.body ]
   %10 = load ptr, ptr %_channelData, align 8
   %arrayidx = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %10, i64 %indvars.iv
-  store ptr %tmpBufferEnd.0185, ptr %arrayidx, align 8
+  store ptr %tmpBufferEnd.0184, ptr %arrayidx, align 8
   %end = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  store ptr %tmpBufferEnd.0185, ptr %end, align 8
+  store ptr %tmpBufferEnd.0184, ptr %end, align 8
   %second.i = getelementptr inbounds i8, ptr %c.sroa.0.0183, i64 288
   %xSampling = getelementptr inbounds i8, ptr %c.sroa.0.0183, i64 292
   %11 = load i32, ptr %xSampling, align 4
@@ -430,7 +430,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul = mul i32 %15, %div
   %mul33 = mul i32 %mul, %16
   %idx.ext = sext i32 %mul33 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %tmpBufferEnd.0185, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %tmpBufferEnd.0184, i64 %idx.ext
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %c.sroa.0.0183) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load ptr, ptr %_channels, align 8
@@ -1209,13 +1209,13 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %tmpBufferEnd.0158 = phi ptr [ %7, %for.body.lr.ph ], [ %add.ptr35, %for.body ]
+  %tmpBufferEnd.0157 = phi ptr [ %7, %for.body.lr.ph ], [ %add.ptr35, %for.body ]
   %c.sroa.0.0156 = phi ptr [ %call, %for.body.lr.ph ], [ %call.i.i, %for.body ]
   %10 = load ptr, ptr %_channelData, align 8
   %arrayidx = getelementptr inbounds %"struct.Imf_3_2::PizCompressor::ChannelData", ptr %10, i64 %indvars.iv
-  store ptr %tmpBufferEnd.0158, ptr %arrayidx, align 8
+  store ptr %tmpBufferEnd.0157, ptr %arrayidx, align 8
   %end = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  store ptr %tmpBufferEnd.0158, ptr %end, align 8
+  store ptr %tmpBufferEnd.0157, ptr %end, align 8
   %second.i = getelementptr inbounds i8, ptr %c.sroa.0.0156, i64 288
   %xSampling = getelementptr inbounds i8, ptr %c.sroa.0.0156, i64 292
   %11 = load i32, ptr %xSampling, align 4
@@ -1241,7 +1241,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul = mul i32 %15, %div
   %mul33 = mul i32 %mul, %16
   %idx.ext34 = sext i32 %mul33 to i64
-  %add.ptr35 = getelementptr inbounds i16, ptr %tmpBufferEnd.0158, i64 %idx.ext34
+  %add.ptr35 = getelementptr inbounds i16, ptr %tmpBufferEnd.0157, i64 %idx.ext34
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %c.sroa.0.0156) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load ptr, ptr %_channels, align 8
@@ -1363,34 +1363,34 @@ while.body.preheader.i:                           ; preds = %while.cond.preheade
   br label %_ZN7Imf_3_212_GLOBAL__N_120reverseLutFromBitmapEPKhPt.exit
 
 for.body.i:                                       ; preds = %for.inc.i, %invoke.cont75
-  %k.011.i = phi i32 [ 0, %invoke.cont75 ], [ %k.1.i, %for.inc.i ]
-  %i.010.i = phi i32 [ 0, %invoke.cont75 ], [ %inc6.i, %for.inc.i ]
-  %cmp1.i = icmp eq i32 %i.010.i, 0
+  %i.011.i = phi i32 [ 0, %invoke.cont75 ], [ %inc6.i, %for.inc.i ]
+  %k.010.i = phi i32 [ 0, %invoke.cont75 ], [ %k.1.i, %for.inc.i ]
+  %cmp1.i = icmp eq i32 %i.011.i, 0
   br i1 %cmp1.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
-  %shr.i = lshr i32 %i.010.i, 3
+  %shr.i = lshr i32 %i.011.i, 3
   %idxprom.i = zext nneg i32 %shr.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i, i64 %idxprom.i
   %32 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %32 to i32
-  %and.i = and i32 %i.010.i, 7
+  %and.i = and i32 %i.011.i, 7
   %shl.i = shl nuw nsw i32 1, %and.i
   %and2.i = and i32 %shl.i, %conv.i
   %tobool.not.i = icmp eq i32 %and2.i, 0
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %for.body.i
-  %conv3.i = trunc nuw i32 %i.010.i to i16
-  %inc.i = add nsw i32 %k.011.i, 1
-  %idxprom4.i = sext i32 %k.011.i to i64
+  %conv3.i = trunc nuw i32 %i.011.i to i16
+  %inc.i = add nsw i32 %k.010.i, 1
+  %idxprom4.i = sext i32 %k.010.i to i64
   %arrayidx5.i = getelementptr inbounds i16, ptr %call.i7778, i64 %idxprom4.i
   store i16 %conv3.i, ptr %arrayidx5.i, align 2
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %lor.lhs.false.i
-  %k.1.i = phi i32 [ %inc.i, %if.then.i ], [ %k.011.i, %lor.lhs.false.i ]
-  %inc6.i = add nuw nsw i32 %i.010.i, 1
+  %k.1.i = phi i32 [ %inc.i, %if.then.i ], [ %k.010.i, %lor.lhs.false.i ]
+  %inc6.i = add nuw nsw i32 %i.011.i, 1
   %exitcond.not.i = icmp eq i32 %inc6.i, 65536
   br i1 %exitcond.not.i, label %while.cond.preheader.i, label %for.body.i, !llvm.loop !22
 

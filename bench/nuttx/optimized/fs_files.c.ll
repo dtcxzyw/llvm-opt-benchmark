@@ -623,8 +623,8 @@ files_fget_by_index.exit34:                       ; preds = %94, %100
   br i1 %107, label %.preheader, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.split, %.thread36, %files_fget_by_index.exit34, %.split.us.us.split, %files_fget_by_index.exit34.us.us, %.thread36.us.us, %.split.us.us.split.us.us, %.thread36.us.us.us.us, %files_fget_by_index.exit34.us.us.us.us, %4
-  %.0 = phi i32 [ 0, %4 ], [ %35, %files_fget_by_index.exit34.us.us.us.us ], [ %25, %.thread36.us.us.us.us ], [ 0, %.split.us.us.split.us.us ], [ %70, %files_fget_by_index.exit34.us.us ], [ %60, %.thread36.us.us ], [ 0, %.split.us.us.split ], [ %102, %files_fget_by_index.exit34 ], [ %92, %.thread36 ], [ 0, %.split ]
-  ret i32 %.0
+  %.029 = phi i32 [ 0, %4 ], [ %35, %files_fget_by_index.exit34.us.us.us.us ], [ %25, %.thread36.us.us.us.us ], [ 0, %.split.us.us.split.us.us ], [ %70, %files_fget_by_index.exit34.us.us ], [ %60, %.thread36.us.us ], [ 0, %.split.us.us.split ], [ %102, %files_fget_by_index.exit34 ], [ %92, %.thread36 ], [ 0, %.split ]
+  ret i32 %.029
 }
 
 declare zeroext i1 @spawn_file_is_duplicateable(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2

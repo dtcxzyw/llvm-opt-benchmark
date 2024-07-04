@@ -7099,7 +7099,7 @@ define internal i32 @dissect_zbee_zcl_gp(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not279303, label %.loopexit302, label %.lr.ph
 
 .lr.ph:                                           ; preds = %115, %.lr.ph
-  %.0258304 = phi i8 [ %132, %.lr.ph ], [ %116, %115 ]
+  %.0262304 = phi i8 [ %132, %.lr.ph ], [ %116, %115 ]
   %125 = phi i32 [ %131, %.lr.ph ], [ %124, %115 ]
   %126 = load i32, ptr @hf_zbee_gp_group_list_group_id, align 4
   %127 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %126, ptr noundef %0, i32 noundef %125, i32 noundef 2, i32 noundef -2147483648) #8
@@ -7107,7 +7107,7 @@ define internal i32 @dissect_zbee_zcl_gp(ptr noundef %0, ptr noundef %1, ptr nou
   %129 = load i32, ptr @hf_zbee_gp_group_list_alias, align 4
   %130 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %129, ptr noundef %0, i32 noundef %128, i32 noundef 2, i32 noundef -2147483648) #8
   %131 = add i32 %125, 4
-  %132 = add i8 %.0258304, -1
+  %132 = add i8 %.0262304, -1
   %.not279 = icmp eq i8 %132, 0
   br i1 %.not279, label %.loopexit302, label %.lr.ph, !llvm.loop !24
 
@@ -7162,11 +7162,11 @@ define internal i32 @dissect_zbee_zcl_gp(ptr noundef %0, ptr noundef %1, ptr nou
 
 .preheader:                                       ; preds = %156, %.preheader
   %167 = phi i32 [ %170, %.preheader ], [ %165, %156 ]
-  %.0259 = phi i8 [ %171, %.preheader ], [ %158, %156 ]
+  %.0261 = phi i8 [ %171, %.preheader ], [ %158, %156 ]
   %168 = load i32, ptr @hf_zbee_gp_paired_endpoint, align 4
   %169 = tail call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %168, ptr noundef %0, i32 noundef %167, i32 noundef 1, i32 noundef 0) #8
   %170 = add i32 %167, 1
-  %171 = add i8 %.0259, -1
+  %171 = add i8 %.0261, -1
   %.old9.not = icmp eq i8 %171, 0
   br i1 %.old9.not, label %.loopexit301, label %.preheader
 
@@ -7278,12 +7278,12 @@ define internal i32 @dissect_zbee_zcl_gp(ptr noundef %0, ptr noundef %1, ptr nou
   br label %233
 
 233:                                              ; preds = %229, %233
-  %.0261315 = phi i8 [ %216, %229 ], [ %238, %233 ]
+  %.0259315 = phi i8 [ %216, %229 ], [ %238, %233 ]
   %234 = phi i32 [ %228, %229 ], [ %237, %233 ]
   %235 = load i32, ptr @hf_zbee_gp_gpd_cluster_id, align 4
   %236 = tail call ptr @proto_tree_add_item(ptr noundef %232, i32 noundef %235, ptr noundef %0, i32 noundef %234, i32 noundef 2, i32 noundef -2147483648) #8
   %237 = add i32 %234, 2
-  %238 = add nsw i8 %.0261315, -1
+  %238 = add nsw i8 %.0259315, -1
   %.not289 = icmp eq i8 %238, 0
   br i1 %.not289, label %.loopexit299, label %233, !llvm.loop !26
 
@@ -7303,12 +7303,12 @@ define internal i32 @dissect_zbee_zcl_gp(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.lr.ph321
 
 .lr.ph321:                                        ; preds = %.lr.ph321.preheader, %.lr.ph321
-  %.0262320 = phi i8 [ %248, %.lr.ph321 ], [ %217, %.lr.ph321.preheader ]
+  %.0258320 = phi i8 [ %248, %.lr.ph321 ], [ %217, %.lr.ph321.preheader ]
   %244 = phi i32 [ %247, %.lr.ph321 ], [ %240, %.lr.ph321.preheader ]
   %245 = load i32, ptr @hf_zbee_gp_gpd_cluster_id, align 4
   %246 = tail call ptr @proto_tree_add_item(ptr noundef %243, i32 noundef %245, ptr noundef %0, i32 noundef %244, i32 noundef 2, i32 noundef -2147483648) #8
   %247 = add i32 %244, 2
-  %248 = add nsw i8 %.0262320, -1
+  %248 = add nsw i8 %.0258320, -1
   %.not291 = icmp eq i8 %248, 0
   br i1 %.not291, label %..loopexit_crit_edge, label %.lr.ph321, !llvm.loop !27
 
@@ -7624,8 +7624,8 @@ define internal void @dissect_zcl_gp_attr_data(ptr noundef %0, ptr noundef %1, p
 .preheader.i:                                     ; preds = %9, %24
   %19 = phi i32 [ %.pre.i, %24 ], [ %17, %9 ]
   %20 = phi i32 [ %28, %24 ], [ 0, %9 ]
-  %.01719.i = phi i8 [ %27, %24 ], [ 0, %9 ]
-  %21 = zext i8 %.01719.i to i32
+  %.019.i = phi i8 [ %27, %24 ], [ 0, %9 ]
+  %21 = zext i8 %.019.i to i32
   %22 = add nuw nsw i32 %21, 1
   %23 = call fastcc i32 @dissect_zbee_zcl_gp_sink_table_entry(ptr noundef %1, ptr noundef %14, ptr noundef nonnull %8, i32 noundef %22)
   %.not.i = icmp eq i32 %23, 0
@@ -7635,15 +7635,15 @@ define internal void @dissect_zcl_gp_attr_data(ptr noundef %0, ptr noundef %1, p
 24:                                               ; preds = %.preheader.i
   %25 = sub i32 %20, %19
   %26 = add i32 %25, %.pre.i
-  %27 = add i8 %.01719.i, 1
+  %27 = add i8 %.019.i, 1
   %28 = and i32 %26, 65535
   %29 = icmp ult i32 %28, %12
   br i1 %29, label %.preheader.i, label %dissect_zbee_zcl_gp_sink_table.exit, !llvm.loop !28
 
 dissect_zbee_zcl_gp_sink_table.exit:              ; preds = %.preheader.i, %24, %9
-  %.0.i = phi i32 [ %17, %9 ], [ %.pre.i, %24 ], [ %.pre.i, %.preheader.i ]
+  %.017.i = phi i32 [ %17, %9 ], [ %.pre.i, %24 ], [ %.pre.i, %.preheader.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  store i32 %.0.i, ptr %2, align 4
+  store i32 %.017.i, ptr %2, align 4
   br label %94
 
 30:                                               ; preds = %6
@@ -7708,8 +7708,8 @@ dissect_zbee_zcl_gp_sink_table.exit:              ; preds = %.preheader.i, %24, 
 .preheader.i41:                                   ; preds = %60, %75
   %70 = phi i32 [ %.pre.i44, %75 ], [ %68, %60 ]
   %71 = phi i32 [ %79, %75 ], [ 0, %60 ]
-  %.01719.i42 = phi i8 [ %78, %75 ], [ 0, %60 ]
-  %72 = zext i8 %.01719.i42 to i32
+  %.019.i42 = phi i8 [ %78, %75 ], [ 0, %60 ]
+  %72 = zext i8 %.019.i42 to i32
   %73 = add nuw nsw i32 %72, 1
   %74 = call fastcc i32 @dissect_zbee_zcl_gp_proxy_table_entry(ptr noundef %1, ptr noundef %65, ptr noundef nonnull %7, i32 noundef %73)
   %.not.i43 = icmp eq i32 %74, 0
@@ -7719,15 +7719,15 @@ dissect_zbee_zcl_gp_sink_table.exit:              ; preds = %.preheader.i, %24, 
 75:                                               ; preds = %.preheader.i41
   %76 = sub i32 %71, %70
   %77 = add i32 %76, %.pre.i44
-  %78 = add i8 %.01719.i42, 1
+  %78 = add i8 %.019.i42, 1
   %79 = and i32 %77, 65535
   %80 = icmp ult i32 %79, %63
   br i1 %80, label %.preheader.i41, label %dissect_zbee_zcl_gp_proxy_table.exit, !llvm.loop !29
 
 dissect_zbee_zcl_gp_proxy_table.exit:             ; preds = %.preheader.i41, %75, %60
-  %.0.i45 = phi i32 [ %68, %60 ], [ %.pre.i44, %75 ], [ %.pre.i44, %.preheader.i41 ]
+  %.017.i45 = phi i32 [ %68, %60 ], [ %.pre.i44, %75 ], [ %.pre.i44, %.preheader.i41 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  store i32 %.0.i45, ptr %2, align 4
+  store i32 %.017.i45, ptr %2, align 4
   br label %94
 
 81:                                               ; preds = %6
@@ -9181,21 +9181,21 @@ define internal fastcc noundef i32 @dissect_zbee_zcl_gp_group_list(ptr noundef %
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.025 = phi i32 [ %19, %.lr.ph ], [ %13, %4 ]
-  %.02224 = phi i8 [ %20, %.lr.ph ], [ %5, %4 ]
+  %.025 = phi i8 [ %20, %.lr.ph ], [ %5, %4 ]
+  %.02224 = phi i32 [ %19, %.lr.ph ], [ %13, %4 ]
   %14 = load i32, ptr @hf_zbee_gp_group_list_group_id, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %14, ptr noundef %0, i32 noundef %.025, i32 noundef 2, i32 noundef -2147483648) #8
-  %16 = add i32 %.025, 2
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %14, ptr noundef %0, i32 noundef %.02224, i32 noundef 2, i32 noundef -2147483648) #8
+  %16 = add i32 %.02224, 2
   %17 = load i32, ptr @hf_zbee_gp_group_list_alias, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef 2, i32 noundef -2147483648) #8
-  %19 = add i32 %.025, 4
-  %20 = add i8 %.02224, -1
+  %19 = add i32 %.02224, 4
+  %20 = add i8 %.025, -1
   %.not = icmp eq i8 %20, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
-  %.0.lcssa = phi i32 [ %13, %4 ], [ %19, %.lr.ph ]
-  ret i32 %.0.lcssa
+  %.022.lcssa = phi i32 [ %13, %4 ], [ %19, %.lr.ph ]
+  ret i32 %.022.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9213,21 +9213,21 @@ define internal fastcc noundef i32 @dissect_zbee_zcl_gp_sink_address_list(ptr no
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.025 = phi i32 [ %19, %.lr.ph ], [ %13, %4 ]
-  %.02224 = phi i8 [ %20, %.lr.ph ], [ %5, %4 ]
+  %.025 = phi i8 [ %20, %.lr.ph ], [ %5, %4 ]
+  %.02224 = phi i32 [ %19, %.lr.ph ], [ %13, %4 ]
   %14 = load i32, ptr @hf_zbee_gp_sink_ieee, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %14, ptr noundef %0, i32 noundef %.025, i32 noundef 8, i32 noundef -2147483648) #8
-  %16 = add i32 %.025, 8
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %14, ptr noundef %0, i32 noundef %.02224, i32 noundef 8, i32 noundef -2147483648) #8
+  %16 = add i32 %.02224, 8
   %17 = load i32, ptr @hf_zbee_gp_sink_nwk, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef 2, i32 noundef -2147483648) #8
-  %19 = add i32 %.025, 10
-  %20 = add i8 %.02224, -1
+  %19 = add i32 %.02224, 10
+  %20 = add i8 %.025, -1
   %.not = icmp eq i8 %20, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
-  %.0.lcssa = phi i32 [ %13, %4 ], [ %19, %.lr.ph ]
-  ret i32 %.0.lcssa
+  %.022.lcssa = phi i32 [ %13, %4 ], [ %19, %.lr.ph ]
+  ret i32 %.022.lcssa
 }
 
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1

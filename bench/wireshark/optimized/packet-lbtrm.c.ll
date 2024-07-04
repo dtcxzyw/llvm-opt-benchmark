@@ -2628,8 +2628,8 @@ define internal fastcc ptr @lbtrm_tag_find(ptr nocapture noundef readonly %0) un
   br label %.loopexit
 
 .loopexit:                                        ; preds = %71, %60, %.loopexit.sink.split, %3, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %3 ], [ %72, %.loopexit.sink.split ], [ null, %60 ], [ null, %71 ]
-  ret ptr %.0
+  %.032 = phi ptr [ null, %1 ], [ null, %3 ], [ %72, %.loopexit.sink.split ], [ null, %60 ], [ null, %71 ]
+  ret ptr %.032
 }
 
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1

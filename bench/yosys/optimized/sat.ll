@@ -2377,14 +2377,14 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   %.03721826 = phi i8 [ 0, %.lr.ph ], [ %.1373, %723 ]
   %.03741825 = phi i8 [ 0, %.lr.ph ], [ %.1375, %723 ]
   %.03761824 = phi i1 [ false, %.lr.ph ], [ %.1377, %723 ]
-  %.03781823 = phi i8 [ 0, %.lr.ph ], [ %.1379, %723 ]
-  %.03801822 = phi i1 [ false, %.lr.ph ], [ %.1381, %723 ]
-  %.03821821 = phi i8 [ 0, %.lr.ph ], [ %.1383, %723 ]
-  %.03841820 = phi i8 [ 0, %.lr.ph ], [ %.1385, %723 ]
-  %.03871819 = phi i64 [ 1, %.lr.ph ], [ %724, %723 ]
-  %.04151818 = phi i32 [ 1, %.lr.ph ], [ %.1416, %723 ]
-  %.04171817 = phi i32 [ 0, %.lr.ph ], [ %.1418, %723 ]
-  %128 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %127, i64 %.03871819
+  %.03791823 = phi i64 [ 1, %.lr.ph ], [ %724, %723 ]
+  %.04071822 = phi i32 [ 1, %.lr.ph ], [ %.1408, %723 ]
+  %.04091821 = phi i32 [ 0, %.lr.ph ], [ %.1410, %723 ]
+  %.04111820 = phi i8 [ 0, %.lr.ph ], [ %.1412, %723 ]
+  %.04131819 = phi i8 [ 0, %.lr.ph ], [ %.1414, %723 ]
+  %.04151818 = phi i1 [ false, %.lr.ph ], [ %.1416, %723 ]
+  %.04171817 = phi i8 [ 0, %.lr.ph ], [ %.1418, %723 ]
+  %128 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %127, i64 %.03791823
   %129 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %128, ptr noundef nonnull @.str.119) #24
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %723, label %131
@@ -2401,42 +2401,42 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
 
 131:                                              ; preds = %126
   %132 = load ptr, ptr %1, align 8
-  %133 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %132, i64 %.03871819
+  %133 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %132, i64 %.03791823
   %134 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %133, ptr noundef nonnull @.str.120) #24
   %135 = icmp eq i32 %134, 0
   br i1 %135, label %723, label %136
 
 136:                                              ; preds = %131
   %137 = load ptr, ptr %1, align 8
-  %138 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %137, i64 %.03871819
+  %138 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %137, i64 %.03791823
   %139 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %138, ptr noundef nonnull @.str.121) #24
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %723, label %141
 
 141:                                              ; preds = %136
   %142 = load ptr, ptr %1, align 8
-  %143 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %142, i64 %.03871819
+  %143 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %142, i64 %.03791823
   %144 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef nonnull @.str.122) #24
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %723, label %146
 
 146:                                              ; preds = %141
   %147 = load ptr, ptr %1, align 8
-  %148 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %147, i64 %.03871819
+  %148 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %147, i64 %.03791823
   %149 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %148, ptr noundef nonnull @.str.123) #24
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %723, label %151
 
 151:                                              ; preds = %146
   %152 = load ptr, ptr %1, align 8
-  %153 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %152, i64 %.03871819
+  %153 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %152, i64 %.03791823
   %154 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %153, ptr noundef nonnull @.str.124) #24
   %155 = icmp eq i32 %154, 0
   %.pre = load ptr, ptr %1, align 8
   br i1 %155, label %156, label %168
 
 156:                                              ; preds = %151
-  %157 = add nuw i64 %.03871819, 1
+  %157 = add nuw i64 %.03791823, 1
   %158 = load ptr, ptr %114, align 8
   %159 = ptrtoint ptr %158 to i64
   %160 = ptrtoint ptr %.pre to i64
@@ -2452,14 +2452,14 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br label %723
 
 168:                                              ; preds = %156, %151
-  %169 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre, i64 %.03871819
+  %169 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre, i64 %.03791823
   %170 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %169, ptr noundef nonnull @.str.125) #24
   %171 = icmp eq i32 %170, 0
   %.pre2253 = load ptr, ptr %1, align 8
   br i1 %171, label %172, label %184
 
 172:                                              ; preds = %168
-  %173 = add nuw i64 %.03871819, 1
+  %173 = add nuw i64 %.03791823, 1
   %174 = load ptr, ptr %114, align 8
   %175 = ptrtoint ptr %174 to i64
   %176 = ptrtoint ptr %.pre2253 to i64
@@ -2475,14 +2475,14 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br label %723
 
 184:                                              ; preds = %172, %168
-  %185 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2253, i64 %.03871819
+  %185 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2253, i64 %.03791823
   %186 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %185, ptr noundef nonnull @.str.126) #24
   %187 = icmp eq i32 %186, 0
   %.pre2254 = load ptr, ptr %1, align 8
   br i1 %187, label %188, label %200
 
 188:                                              ; preds = %184
-  %189 = add nuw i64 %.03871819, 1
+  %189 = add nuw i64 %.03791823, 1
   %190 = load ptr, ptr %114, align 8
   %191 = ptrtoint ptr %190 to i64
   %192 = ptrtoint ptr %.pre2254 to i64
@@ -2498,14 +2498,14 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br label %723
 
 200:                                              ; preds = %188, %184
-  %201 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2254, i64 %.03871819
+  %201 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2254, i64 %.03791823
   %202 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %201, ptr noundef nonnull @.str.127) #24
   %203 = icmp eq i32 %202, 0
   %.pre2255 = load ptr, ptr %1, align 8
   br i1 %203, label %204, label %216
 
 204:                                              ; preds = %200
-  %205 = add nuw i64 %.03871819, 1
+  %205 = add nuw i64 %.03791823, 1
   %206 = load ptr, ptr %114, align 8
   %207 = ptrtoint ptr %206 to i64
   %208 = ptrtoint ptr %.pre2255 to i64
@@ -2521,14 +2521,14 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br label %723
 
 216:                                              ; preds = %204, %200
-  %217 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2255, i64 %.03871819
+  %217 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2255, i64 %.03791823
   %218 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %217, ptr noundef nonnull @.str.128) #24
   %219 = icmp eq i32 %218, 0
   %.pre2256 = load ptr, ptr %1, align 8
   br i1 %219, label %220, label %232
 
 220:                                              ; preds = %216
-  %221 = add nuw i64 %.03871819, 1
+  %221 = add nuw i64 %.03791823, 1
   %222 = load ptr, ptr %114, align 8
   %223 = ptrtoint ptr %222 to i64
   %224 = ptrtoint ptr %.pre2256 to i64
@@ -2545,49 +2545,49 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br label %723
 
 232:                                              ; preds = %220, %216
-  %233 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2256, i64 %.03871819
+  %233 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2256, i64 %.03791823
   %234 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %233, ptr noundef nonnull @.str.129) #24
   %235 = icmp eq i32 %234, 0
   br i1 %235, label %723, label %236
 
 236:                                              ; preds = %232
   %237 = load ptr, ptr %1, align 8
-  %238 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %237, i64 %.03871819
+  %238 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %237, i64 %.03791823
   %239 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %238, ptr noundef nonnull @.str.130) #24
   %240 = icmp eq i32 %239, 0
   br i1 %240, label %723, label %241
 
 241:                                              ; preds = %236
   %242 = load ptr, ptr %1, align 8
-  %243 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %242, i64 %.03871819
+  %243 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %242, i64 %.03791823
   %244 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %243, ptr noundef nonnull @.str.131) #24
   %245 = icmp eq i32 %244, 0
   br i1 %245, label %723, label %246
 
 246:                                              ; preds = %241
   %247 = load ptr, ptr %1, align 8
-  %248 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %247, i64 %.03871819
+  %248 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %247, i64 %.03791823
   %249 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %248, ptr noundef nonnull @.str.132) #24
   %250 = icmp eq i32 %249, 0
   br i1 %250, label %723, label %251
 
 251:                                              ; preds = %246
   %252 = load ptr, ptr %1, align 8
-  %253 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %252, i64 %.03871819
+  %253 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %252, i64 %.03791823
   %254 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %253, ptr noundef nonnull @.str.133) #24
   %255 = icmp eq i32 %254, 0
   br i1 %255, label %723, label %256
 
 256:                                              ; preds = %251
   %257 = load ptr, ptr %1, align 8
-  %258 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %257, i64 %.03871819
+  %258 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %257, i64 %.03791823
   %259 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %258, ptr noundef nonnull @.str.134) #24
   %260 = icmp eq i32 %259, 0
   %.pre2257 = load ptr, ptr %1, align 8
   br i1 %260, label %261, label %286
 
 261:                                              ; preds = %256
-  %262 = add i64 %.03871819, 2
+  %262 = add i64 %.03791823, 2
   %263 = load ptr, ptr %114, align 8
   %264 = ptrtoint ptr %263 to i64
   %265 = ptrtoint ptr %.pre2257 to i64
@@ -2597,7 +2597,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br i1 %268, label %269, label %286
 
 269:                                              ; preds = %261
-  %270 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2257, i64 %.03871819
+  %270 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2257, i64 %.03791823
   %271 = getelementptr i8, ptr %270, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %271)
           to label %272 unwind label %.loopexit1073
@@ -2651,14 +2651,14 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br label %.body
 
 286:                                              ; preds = %261, %256
-  %287 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2257, i64 %.03871819
+  %287 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2257, i64 %.03791823
   %288 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %287, ptr noundef nonnull @.str.135) #24
   %289 = icmp eq i32 %288, 0
   %.pre2258 = load ptr, ptr %1, align 8
   br i1 %289, label %290, label %300
 
 290:                                              ; preds = %286
-  %291 = add nuw i64 %.03871819, 1
+  %291 = add nuw i64 %.03791823, 1
   %292 = load ptr, ptr %114, align 8
   %293 = ptrtoint ptr %292 to i64
   %294 = ptrtoint ptr %.pre2258 to i64
@@ -2673,14 +2673,14 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
           to label %723 unwind label %.loopexit1073
 
 300:                                              ; preds = %290, %286
-  %301 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2258, i64 %.03871819
+  %301 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2258, i64 %.03791823
   %302 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %301, ptr noundef nonnull @.str.136) #24
   %303 = icmp eq i32 %302, 0
   %.pre2259 = load ptr, ptr %1, align 8
   br i1 %303, label %304, label %314
 
 304:                                              ; preds = %300
-  %305 = add nuw i64 %.03871819, 1
+  %305 = add nuw i64 %.03791823, 1
   %306 = load ptr, ptr %114, align 8
   %307 = ptrtoint ptr %306 to i64
   %308 = ptrtoint ptr %.pre2259 to i64
@@ -2695,14 +2695,14 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
           to label %723 unwind label %.loopexit1073
 
 314:                                              ; preds = %304, %300
-  %315 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2259, i64 %.03871819
+  %315 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2259, i64 %.03791823
   %316 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %315, ptr noundef nonnull @.str.137) #24
   %317 = icmp eq i32 %316, 0
   %.pre2260 = load ptr, ptr %1, align 8
   br i1 %317, label %318, label %328
 
 318:                                              ; preds = %314
-  %319 = add nuw i64 %.03871819, 1
+  %319 = add nuw i64 %.03791823, 1
   %320 = load ptr, ptr %114, align 8
   %321 = ptrtoint ptr %320 to i64
   %322 = ptrtoint ptr %.pre2260 to i64
@@ -2717,49 +2717,49 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
           to label %723 unwind label %.loopexit1073
 
 328:                                              ; preds = %318, %314
-  %329 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2260, i64 %.03871819
+  %329 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2260, i64 %.03791823
   %330 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %329, ptr noundef nonnull @.str.138) #24
   %331 = icmp eq i32 %330, 0
   br i1 %331, label %723, label %332
 
 332:                                              ; preds = %328
   %333 = load ptr, ptr %1, align 8
-  %334 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %333, i64 %.03871819
+  %334 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %333, i64 %.03791823
   %335 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %334, ptr noundef nonnull @.str.139) #24
   %336 = icmp eq i32 %335, 0
   br i1 %336, label %723, label %337
 
 337:                                              ; preds = %332
   %338 = load ptr, ptr %1, align 8
-  %339 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %338, i64 %.03871819
+  %339 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %338, i64 %.03791823
   %340 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %339, ptr noundef nonnull @.str.140) #24
   %341 = icmp eq i32 %340, 0
   br i1 %341, label %723, label %342
 
 342:                                              ; preds = %337
   %343 = load ptr, ptr %1, align 8
-  %344 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %343, i64 %.03871819
+  %344 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %343, i64 %.03791823
   %345 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %344, ptr noundef nonnull @.str.141) #24
   %346 = icmp eq i32 %345, 0
   br i1 %346, label %723, label %347
 
 347:                                              ; preds = %342
   %348 = load ptr, ptr %1, align 8
-  %349 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %348, i64 %.03871819
+  %349 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %348, i64 %.03791823
   %350 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %349, ptr noundef nonnull @.str.142) #24
   %351 = icmp eq i32 %350, 0
   br i1 %351, label %723, label %352
 
 352:                                              ; preds = %347
   %353 = load ptr, ptr %1, align 8
-  %354 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %353, i64 %.03871819
+  %354 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %353, i64 %.03791823
   %355 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %354, ptr noundef nonnull @.str.143) #24
   %356 = icmp eq i32 %355, 0
   %.pre2261 = load ptr, ptr %1, align 8
   br i1 %356, label %357, label %369
 
 357:                                              ; preds = %352
-  %358 = add nuw i64 %.03871819, 1
+  %358 = add nuw i64 %.03791823, 1
   %359 = load ptr, ptr %114, align 8
   %360 = ptrtoint ptr %359 to i64
   %361 = ptrtoint ptr %.pre2261 to i64
@@ -2775,14 +2775,14 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br label %723
 
 369:                                              ; preds = %357, %352
-  %370 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2261, i64 %.03871819
+  %370 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2261, i64 %.03791823
   %371 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %370, ptr noundef nonnull @.str.144) #24
   %372 = icmp eq i32 %371, 0
   %.pre2262 = load ptr, ptr %1, align 8
   br i1 %372, label %373, label %398
 
 373:                                              ; preds = %369
-  %374 = add i64 %.03871819, 2
+  %374 = add i64 %.03791823, 2
   %375 = load ptr, ptr %114, align 8
   %376 = ptrtoint ptr %375 to i64
   %377 = ptrtoint ptr %.pre2262 to i64
@@ -2792,7 +2792,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br i1 %380, label %381, label %398
 
 381:                                              ; preds = %373
-  %382 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2262, i64 %.03871819
+  %382 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2262, i64 %.03791823
   %383 = getelementptr i8, ptr %382, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %383)
           to label %384 unwind label %.loopexit1073
@@ -2846,14 +2846,14 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br label %.body
 
 398:                                              ; preds = %373, %369
-  %399 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2262, i64 %.03871819
+  %399 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2262, i64 %.03791823
   %400 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %399, ptr noundef nonnull @.str.145) #24
   %401 = icmp eq i32 %400, 0
   %.pre2263 = load ptr, ptr %1, align 8
   br i1 %401, label %402, label %427
 
 402:                                              ; preds = %398
-  %403 = add i64 %.03871819, 2
+  %403 = add i64 %.03791823, 2
   %404 = load ptr, ptr %114, align 8
   %405 = ptrtoint ptr %404 to i64
   %406 = ptrtoint ptr %.pre2263 to i64
@@ -2863,7 +2863,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br i1 %409, label %410, label %427
 
 410:                                              ; preds = %402
-  %411 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2263, i64 %.03871819
+  %411 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2263, i64 %.03791823
   %412 = getelementptr i8, ptr %411, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %412)
           to label %413 unwind label %.loopexit1073
@@ -2917,21 +2917,21 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br label %.body
 
 427:                                              ; preds = %402, %398
-  %428 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2263, i64 %.03871819
+  %428 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2263, i64 %.03791823
   %429 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %428, ptr noundef nonnull @.str.146) #24
   %430 = icmp eq i32 %429, 0
   br i1 %430, label %723, label %431
 
 431:                                              ; preds = %427
   %432 = load ptr, ptr %1, align 8
-  %433 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %432, i64 %.03871819
+  %433 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %432, i64 %.03791823
   %434 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %433, ptr noundef nonnull @.str.147) #24
   %435 = icmp eq i32 %434, 0
   %.pre2264 = load ptr, ptr %1, align 8
   br i1 %435, label %436, label %448
 
 436:                                              ; preds = %431
-  %437 = add nuw i64 %.03871819, 1
+  %437 = add nuw i64 %.03791823, 1
   %438 = load ptr, ptr %114, align 8
   %439 = ptrtoint ptr %438 to i64
   %440 = ptrtoint ptr %.pre2264 to i64
@@ -2947,14 +2947,14 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br label %723
 
 448:                                              ; preds = %436, %431
-  %449 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2264, i64 %.03871819
+  %449 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2264, i64 %.03791823
   %450 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %449, ptr noundef nonnull @.str.148) #24
   %451 = icmp eq i32 %450, 0
   %.pre2265 = load ptr, ptr %1, align 8
   br i1 %451, label %452, label %464
 
 452:                                              ; preds = %448
-  %453 = add nuw i64 %.03871819, 1
+  %453 = add nuw i64 %.03791823, 1
   %454 = load ptr, ptr %114, align 8
   %455 = ptrtoint ptr %454 to i64
   %456 = ptrtoint ptr %.pre2265 to i64
@@ -2970,14 +2970,14 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br label %723
 
 464:                                              ; preds = %452, %448
-  %465 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2265, i64 %.03871819
+  %465 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2265, i64 %.03791823
   %466 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %465, ptr noundef nonnull @.str.149) #24
   %467 = icmp eq i32 %466, 0
   %.pre2266 = load ptr, ptr %1, align 8
   br i1 %467, label %468, label %500
 
 468:                                              ; preds = %464
-  %469 = add i64 %.03871819, 3
+  %469 = add i64 %.03791823, 3
   %470 = load ptr, ptr %114, align 8
   %471 = ptrtoint ptr %470 to i64
   %472 = ptrtoint ptr %.pre2266 to i64
@@ -2987,13 +2987,13 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br i1 %475, label %476, label %500
 
 476:                                              ; preds = %468
-  %477 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2266, i64 %.03871819
+  %477 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2266, i64 %.03791823
   %478 = getelementptr i8, ptr %477, i64 32
   %479 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %478) #24
   %480 = call i32 @atoi(ptr nocapture noundef %479) #26
   store i32 %480, ptr %51, align 4
   %481 = load ptr, ptr %1, align 8
-  %482 = getelementptr %"class.std::__cxx11::basic_string", ptr %481, i64 %.03871819
+  %482 = getelementptr %"class.std::__cxx11::basic_string", ptr %481, i64 %.03791823
   %483 = getelementptr i8, ptr %482, i64 64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %483)
           to label %484 unwind label %.loopexit1073
@@ -3051,14 +3051,14 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br label %.body
 
 500:                                              ; preds = %468, %464
-  %501 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2266, i64 %.03871819
+  %501 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2266, i64 %.03791823
   %502 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %501, ptr noundef nonnull @.str.150) #24
   %503 = icmp eq i32 %502, 0
   %.pre2267 = load ptr, ptr %1, align 8
   br i1 %503, label %504, label %521
 
 504:                                              ; preds = %500
-  %505 = add i64 %.03871819, 2
+  %505 = add i64 %.03791823, 2
   %506 = load ptr, ptr %114, align 8
   %507 = ptrtoint ptr %506 to i64
   %508 = ptrtoint ptr %.pre2267 to i64
@@ -3068,7 +3068,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br i1 %511, label %512, label %521
 
 512:                                              ; preds = %504
-  %513 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2267, i64 %.03871819
+  %513 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2267, i64 %.03791823
   %514 = getelementptr i8, ptr %513, i64 32
   %515 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %514) #24
   %516 = call i32 @atoi(ptr nocapture noundef %515) #26
@@ -3083,14 +3083,14 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
           to label %723 unwind label %.loopexit1073
 
 521:                                              ; preds = %504, %500
-  %522 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2267, i64 %.03871819
+  %522 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2267, i64 %.03791823
   %523 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %522, ptr noundef nonnull @.str.151) #24
   %524 = icmp eq i32 %523, 0
   %.pre2268 = load ptr, ptr %1, align 8
   br i1 %524, label %525, label %542
 
 525:                                              ; preds = %521
-  %526 = add i64 %.03871819, 2
+  %526 = add i64 %.03791823, 2
   %527 = load ptr, ptr %114, align 8
   %528 = ptrtoint ptr %527 to i64
   %529 = ptrtoint ptr %.pre2268 to i64
@@ -3100,7 +3100,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br i1 %532, label %533, label %542
 
 533:                                              ; preds = %525
-  %534 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2268, i64 %.03871819
+  %534 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2268, i64 %.03791823
   %535 = getelementptr i8, ptr %534, i64 32
   %536 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %535) #24
   %537 = call i32 @atoi(ptr nocapture noundef %536) #26
@@ -3115,14 +3115,14 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
           to label %723 unwind label %.loopexit1073
 
 542:                                              ; preds = %525, %521
-  %543 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2268, i64 %.03871819
+  %543 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2268, i64 %.03791823
   %544 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %543, ptr noundef nonnull @.str.152) #24
   %545 = icmp eq i32 %544, 0
   %.pre2269 = load ptr, ptr %1, align 8
   br i1 %545, label %546, label %563
 
 546:                                              ; preds = %542
-  %547 = add i64 %.03871819, 2
+  %547 = add i64 %.03791823, 2
   %548 = load ptr, ptr %114, align 8
   %549 = ptrtoint ptr %548 to i64
   %550 = ptrtoint ptr %.pre2269 to i64
@@ -3132,7 +3132,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br i1 %553, label %554, label %563
 
 554:                                              ; preds = %546
-  %555 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2269, i64 %.03871819
+  %555 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2269, i64 %.03791823
   %556 = getelementptr i8, ptr %555, i64 32
   %557 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %556) #24
   %558 = call i32 @atoi(ptr nocapture noundef %557) #26
@@ -3147,14 +3147,14 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
           to label %723 unwind label %.loopexit1073
 
 563:                                              ; preds = %546, %542
-  %564 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2269, i64 %.03871819
+  %564 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2269, i64 %.03791823
   %565 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %564, ptr noundef nonnull @.str.153) #24
   %566 = icmp eq i32 %565, 0
   %.pre2270 = load ptr, ptr %1, align 8
   br i1 %566, label %567, label %584
 
 567:                                              ; preds = %563
-  %568 = add i64 %.03871819, 2
+  %568 = add i64 %.03791823, 2
   %569 = load ptr, ptr %114, align 8
   %570 = ptrtoint ptr %569 to i64
   %571 = ptrtoint ptr %.pre2270 to i64
@@ -3164,7 +3164,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br i1 %574, label %575, label %584
 
 575:                                              ; preds = %567
-  %576 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2270, i64 %.03871819
+  %576 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2270, i64 %.03791823
   %577 = getelementptr i8, ptr %576, i64 32
   %578 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %577) #24
   %579 = call i32 @atoi(ptr nocapture noundef %578) #26
@@ -3179,14 +3179,14 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
           to label %723 unwind label %.loopexit1073
 
 584:                                              ; preds = %567, %563
-  %585 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2270, i64 %.03871819
+  %585 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2270, i64 %.03791823
   %586 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %585, ptr noundef nonnull @.str.154) #24
   %587 = icmp eq i32 %586, 0
   %.pre2271 = load ptr, ptr %1, align 8
   br i1 %587, label %588, label %613
 
 588:                                              ; preds = %584
-  %589 = add i64 %.03871819, 2
+  %589 = add i64 %.03791823, 2
   %590 = load ptr, ptr %114, align 8
   %591 = ptrtoint ptr %590 to i64
   %592 = ptrtoint ptr %.pre2271 to i64
@@ -3196,7 +3196,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br i1 %595, label %596, label %613
 
 596:                                              ; preds = %588
-  %597 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2271, i64 %.03871819
+  %597 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre2271, i64 %.03791823
   %598 = getelementptr i8, ptr %597, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %598)
           to label %599 unwind label %.loopexit1073
@@ -3250,35 +3250,35 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br label %.body
 
 613:                                              ; preds = %588, %584
-  %614 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2271, i64 %.03871819
+  %614 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2271, i64 %.03791823
   %615 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %614, ptr noundef nonnull @.str.155) #24
   %616 = icmp eq i32 %615, 0
   br i1 %616, label %723, label %617
 
 617:                                              ; preds = %613
   %618 = load ptr, ptr %1, align 8
-  %619 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %618, i64 %.03871819
+  %619 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %618, i64 %.03791823
   %620 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %619, ptr noundef nonnull @.str.156) #24
   %621 = icmp eq i32 %620, 0
   br i1 %621, label %723, label %622
 
 622:                                              ; preds = %617
   %623 = load ptr, ptr %1, align 8
-  %624 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %623, i64 %.03871819
+  %624 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %623, i64 %.03791823
   %625 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %624, ptr noundef nonnull @.str.157) #24
   %626 = icmp eq i32 %625, 0
   br i1 %626, label %723, label %627
 
 627:                                              ; preds = %622
   %628 = load ptr, ptr %1, align 8
-  %629 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %628, i64 %.03871819
+  %629 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %628, i64 %.03791823
   %630 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %629, ptr noundef nonnull @.str.158) #24
   %631 = icmp eq i32 %630, 0
   %.pre2272 = load ptr, ptr %1, align 8
   br i1 %631, label %632, label %642
 
 632:                                              ; preds = %627
-  %633 = add nuw i64 %.03871819, 1
+  %633 = add nuw i64 %.03791823, 1
   %634 = load ptr, ptr %114, align 8
   %635 = ptrtoint ptr %634 to i64
   %636 = ptrtoint ptr %.pre2272 to i64
@@ -3293,63 +3293,63 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
           to label %723 unwind label %.loopexit1073
 
 642:                                              ; preds = %632, %627
-  %643 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2272, i64 %.03871819
+  %643 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2272, i64 %.03791823
   %644 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %643, ptr noundef nonnull @.str.159) #24
   %645 = icmp eq i32 %644, 0
   br i1 %645, label %723, label %646
 
 646:                                              ; preds = %642
   %647 = load ptr, ptr %1, align 8
-  %648 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %647, i64 %.03871819
+  %648 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %647, i64 %.03791823
   %649 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %648, ptr noundef nonnull @.str.160) #24
   %650 = icmp eq i32 %649, 0
   br i1 %650, label %723, label %651
 
 651:                                              ; preds = %646
   %652 = load ptr, ptr %1, align 8
-  %653 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %652, i64 %.03871819
+  %653 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %652, i64 %.03791823
   %654 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %653, ptr noundef nonnull @.str.161) #24
   %655 = icmp eq i32 %654, 0
   br i1 %655, label %723, label %656
 
 656:                                              ; preds = %651
   %657 = load ptr, ptr %1, align 8
-  %658 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %657, i64 %.03871819
+  %658 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %657, i64 %.03791823
   %659 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %658, ptr noundef nonnull @.str.162) #24
   %660 = icmp eq i32 %659, 0
   br i1 %660, label %723, label %661
 
 661:                                              ; preds = %656
   %662 = load ptr, ptr %1, align 8
-  %663 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %662, i64 %.03871819
+  %663 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %662, i64 %.03791823
   %664 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %663, ptr noundef nonnull @.str.163) #24
   %665 = icmp eq i32 %664, 0
   br i1 %665, label %723, label %666
 
 666:                                              ; preds = %661
   %667 = load ptr, ptr %1, align 8
-  %668 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %667, i64 %.03871819
+  %668 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %667, i64 %.03791823
   %669 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %668, ptr noundef nonnull @.str.164) #24
   %670 = icmp eq i32 %669, 0
   br i1 %670, label %723, label %671
 
 671:                                              ; preds = %666
   %672 = load ptr, ptr %1, align 8
-  %673 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %672, i64 %.03871819
+  %673 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %672, i64 %.03791823
   %674 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %673, ptr noundef nonnull @.str.165) #24
   %675 = icmp eq i32 %674, 0
   br i1 %675, label %723, label %676
 
 676:                                              ; preds = %671
   %677 = load ptr, ptr %1, align 8
-  %678 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %677, i64 %.03871819
+  %678 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %677, i64 %.03791823
   %679 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %678, ptr noundef nonnull @.str.166) #24
   %680 = icmp eq i32 %679, 0
   %.pre2273 = load ptr, ptr %1, align 8
   br i1 %680, label %681, label %692
 
 681:                                              ; preds = %676
-  %682 = add nuw i64 %.03871819, 1
+  %682 = add nuw i64 %.03791823, 1
   %683 = load ptr, ptr %114, align 8
   %684 = ptrtoint ptr %683 to i64
   %685 = ptrtoint ptr %.pre2273 to i64
@@ -3364,14 +3364,14 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
           to label %723 unwind label %.loopexit1073
 
 692:                                              ; preds = %681, %676
-  %693 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2273, i64 %.03871819
+  %693 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2273, i64 %.03791823
   %694 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %693, ptr noundef nonnull @.str.167) #24
   %695 = icmp eq i32 %694, 0
   %.pre2274 = load ptr, ptr %1, align 8
   br i1 %695, label %696, label %707
 
 696:                                              ; preds = %692
-  %697 = add nuw i64 %.03871819, 1
+  %697 = add nuw i64 %.03791823, 1
   %698 = load ptr, ptr %114, align 8
   %699 = ptrtoint ptr %698 to i64
   %700 = ptrtoint ptr %.pre2274 to i64
@@ -3386,13 +3386,13 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
           to label %723 unwind label %.loopexit1073
 
 707:                                              ; preds = %696, %692
-  %708 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2274, i64 %.03871819
+  %708 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre2274, i64 %.03791823
   %709 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %708, ptr noundef nonnull @.str.168) #24
   %710 = icmp eq i32 %709, 0
   br i1 %710, label %711, label %._crit_edge
 
 711:                                              ; preds = %707
-  %712 = add nuw i64 %.03871819, 1
+  %712 = add nuw i64 %.03791823, 1
   %713 = load ptr, ptr %114, align 8
   %714 = load ptr, ptr %1, align 8
   %715 = ptrtoint ptr %713 to i64
@@ -3408,13 +3408,13 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
           to label %723 unwind label %.loopexit1073
 
 723:                                              ; preds = %671, %666, %661, %656, %651, %646, %642, %622, %617, %613, %581, %560, %539, %427, %347, %342, %337, %332, %328, %326, %312, %298, %251, %246, %241, %236, %232, %146, %141, %136, %131, %126, %720, %704, %689, %640, %518, %604, %491, %460, %444, %418, %389, %365, %277, %228, %212, %196, %180, %164
-  %.1418 = phi i32 [ %.04171817, %164 ], [ %.04171817, %180 ], [ %.04171817, %196 ], [ %.04171817, %212 ], [ %.04171817, %228 ], [ %.04171817, %277 ], [ %368, %365 ], [ %.04171817, %389 ], [ %.04171817, %418 ], [ %.04171817, %444 ], [ %.04171817, %460 ], [ %.04171817, %491 ], [ %.04171817, %518 ], [ %.04171817, %604 ], [ %.04171817, %640 ], [ %.04171817, %689 ], [ %.04171817, %704 ], [ %.04171817, %720 ], [ %.04171817, %126 ], [ %.04171817, %131 ], [ %.04171817, %136 ], [ %.04171817, %141 ], [ %.04171817, %146 ], [ %.04171817, %232 ], [ %.04171817, %236 ], [ %.04171817, %241 ], [ %.04171817, %246 ], [ %.04171817, %251 ], [ %.04171817, %298 ], [ %.04171817, %312 ], [ %.04171817, %326 ], [ %.04171817, %328 ], [ %.04171817, %332 ], [ %.04171817, %337 ], [ %.04171817, %342 ], [ %.04171817, %347 ], [ %.04171817, %427 ], [ %.04171817, %539 ], [ %.04171817, %560 ], [ %.04171817, %581 ], [ %.04171817, %613 ], [ %.04171817, %617 ], [ %.04171817, %622 ], [ %.04171817, %642 ], [ %.04171817, %646 ], [ %.04171817, %651 ], [ %.04171817, %656 ], [ %.04171817, %661 ], [ %.04171817, %666 ], [ %.04171817, %671 ]
-  %.1416 = phi i32 [ %.04151818, %164 ], [ %.04151818, %180 ], [ %.04151818, %196 ], [ %.04151818, %212 ], [ %.sroa.speculated, %228 ], [ %.04151818, %277 ], [ %.04151818, %365 ], [ %.04151818, %389 ], [ %.04151818, %418 ], [ %.04151818, %444 ], [ %.04151818, %460 ], [ %.04151818, %491 ], [ %.04151818, %518 ], [ %.04151818, %604 ], [ %.04151818, %640 ], [ %.04151818, %689 ], [ %.04151818, %704 ], [ %.04151818, %720 ], [ %.04151818, %126 ], [ %.04151818, %131 ], [ %.04151818, %136 ], [ %.04151818, %141 ], [ %.04151818, %146 ], [ %.04151818, %232 ], [ %.04151818, %236 ], [ %.04151818, %241 ], [ %.04151818, %246 ], [ %.04151818, %251 ], [ %.04151818, %298 ], [ %.04151818, %312 ], [ %.04151818, %326 ], [ %.04151818, %328 ], [ %.04151818, %332 ], [ %.04151818, %337 ], [ %.04151818, %342 ], [ %.04151818, %347 ], [ %.04151818, %427 ], [ %.04151818, %539 ], [ %.04151818, %560 ], [ %.04151818, %581 ], [ %.04151818, %613 ], [ %.04151818, %617 ], [ %.04151818, %622 ], [ %.04151818, %642 ], [ %.04151818, %646 ], [ %.04151818, %651 ], [ %.04151818, %656 ], [ %.04151818, %661 ], [ %.04151818, %666 ], [ %.04151818, %671 ]
-  %.1388 = phi i64 [ %157, %164 ], [ %173, %180 ], [ %189, %196 ], [ %205, %212 ], [ %221, %228 ], [ %262, %277 ], [ %358, %365 ], [ %374, %389 ], [ %403, %418 ], [ %437, %444 ], [ %453, %460 ], [ %469, %491 ], [ %505, %518 ], [ %589, %604 ], [ %633, %640 ], [ %682, %689 ], [ %697, %704 ], [ %712, %720 ], [ %.03871819, %126 ], [ %.03871819, %131 ], [ %.03871819, %136 ], [ %.03871819, %141 ], [ %.03871819, %146 ], [ %.03871819, %232 ], [ %.03871819, %236 ], [ %.03871819, %241 ], [ %.03871819, %246 ], [ %.03871819, %251 ], [ %291, %298 ], [ %305, %312 ], [ %319, %326 ], [ %.03871819, %328 ], [ %.03871819, %332 ], [ %.03871819, %337 ], [ %.03871819, %342 ], [ %.03871819, %347 ], [ %.03871819, %427 ], [ %526, %539 ], [ %547, %560 ], [ %568, %581 ], [ %.03871819, %613 ], [ %.03871819, %617 ], [ %.03871819, %622 ], [ %.03871819, %642 ], [ %.03871819, %646 ], [ %.03871819, %651 ], [ %.03871819, %656 ], [ %.03871819, %661 ], [ %.03871819, %666 ], [ %.03871819, %671 ]
-  %.1385 = phi i8 [ %.03841820, %164 ], [ %.03841820, %180 ], [ %.03841820, %196 ], [ %.03841820, %212 ], [ %.03841820, %228 ], [ %.03841820, %277 ], [ %.03841820, %365 ], [ %.03841820, %389 ], [ %.03841820, %418 ], [ %.03841820, %444 ], [ %.03841820, %460 ], [ %.03841820, %491 ], [ %.03841820, %518 ], [ %.03841820, %604 ], [ %.03841820, %640 ], [ %.03841820, %689 ], [ %.03841820, %704 ], [ %.03841820, %720 ], [ %.03841820, %126 ], [ %.03841820, %131 ], [ %.03841820, %136 ], [ %.03841820, %141 ], [ %.03841820, %146 ], [ %.03841820, %232 ], [ %.03841820, %236 ], [ %.03841820, %241 ], [ %.03841820, %246 ], [ %.03841820, %251 ], [ %.03841820, %298 ], [ %.03841820, %312 ], [ %.03841820, %326 ], [ 1, %328 ], [ %.03841820, %332 ], [ %.03841820, %337 ], [ %.03841820, %342 ], [ %.03841820, %347 ], [ %.03841820, %427 ], [ %.03841820, %539 ], [ %.03841820, %560 ], [ %.03841820, %581 ], [ %.03841820, %613 ], [ %.03841820, %617 ], [ %.03841820, %622 ], [ %.03841820, %642 ], [ %.03841820, %646 ], [ %.03841820, %651 ], [ %.03841820, %656 ], [ %.03841820, %661 ], [ %.03841820, %666 ], [ %.03841820, %671 ]
-  %.1383 = phi i8 [ %.03821821, %164 ], [ %.03821821, %180 ], [ %.03821821, %196 ], [ %.03821821, %212 ], [ %.03821821, %228 ], [ %.03821821, %277 ], [ %.03821821, %365 ], [ %.03821821, %389 ], [ %.03821821, %418 ], [ %.03821821, %444 ], [ %.03821821, %460 ], [ %.03821821, %491 ], [ %.03821821, %518 ], [ %.03821821, %604 ], [ %.03821821, %640 ], [ %.03821821, %689 ], [ %.03821821, %704 ], [ %.03821821, %720 ], [ %.03821821, %126 ], [ %.03821821, %131 ], [ %.03821821, %136 ], [ %.03821821, %141 ], [ %.03821821, %146 ], [ %.03821821, %232 ], [ %.03821821, %236 ], [ %.03821821, %241 ], [ %.03821821, %246 ], [ %.03821821, %251 ], [ %.03821821, %298 ], [ %.03821821, %312 ], [ %.03821821, %326 ], [ %.03821821, %328 ], [ %.03821821, %332 ], [ %.03821821, %337 ], [ %.03821821, %342 ], [ 1, %347 ], [ %.03821821, %427 ], [ %.03821821, %539 ], [ %.03821821, %560 ], [ %.03821821, %581 ], [ %.03821821, %613 ], [ %.03821821, %617 ], [ %.03821821, %622 ], [ %.03821821, %642 ], [ %.03821821, %646 ], [ %.03821821, %651 ], [ %.03821821, %656 ], [ %.03821821, %661 ], [ %.03821821, %666 ], [ %.03821821, %671 ]
-  %.1381 = phi i1 [ %.03801822, %164 ], [ %.03801822, %180 ], [ %.03801822, %196 ], [ %.03801822, %212 ], [ %.03801822, %228 ], [ %.03801822, %277 ], [ %.03801822, %365 ], [ %.03801822, %389 ], [ %.03801822, %418 ], [ %.03801822, %444 ], [ %.03801822, %460 ], [ %.03801822, %491 ], [ %.03801822, %518 ], [ %.03801822, %604 ], [ %.03801822, %640 ], [ %.03801822, %689 ], [ %.03801822, %704 ], [ %.03801822, %720 ], [ %.03801822, %126 ], [ %.03801822, %131 ], [ %.03801822, %136 ], [ %.03801822, %141 ], [ %.03801822, %146 ], [ %.03801822, %232 ], [ %.03801822, %236 ], [ %.03801822, %241 ], [ %.03801822, %246 ], [ %.03801822, %251 ], [ %.03801822, %298 ], [ %.03801822, %312 ], [ %.03801822, %326 ], [ %.03801822, %328 ], [ %.03801822, %332 ], [ %.03801822, %337 ], [ true, %342 ], [ %.03801822, %347 ], [ %.03801822, %427 ], [ %.03801822, %539 ], [ %.03801822, %560 ], [ %.03801822, %581 ], [ %.03801822, %613 ], [ %.03801822, %617 ], [ %.03801822, %622 ], [ %.03801822, %642 ], [ %.03801822, %646 ], [ %.03801822, %651 ], [ %.03801822, %656 ], [ %.03801822, %661 ], [ %.03801822, %666 ], [ %.03801822, %671 ]
-  %.1379 = phi i8 [ %.03781823, %164 ], [ %.03781823, %180 ], [ %.03781823, %196 ], [ %.03781823, %212 ], [ %.03781823, %228 ], [ %.03781823, %277 ], [ %.03781823, %365 ], [ %.03781823, %389 ], [ %.03781823, %418 ], [ %.03781823, %444 ], [ %.03781823, %460 ], [ %.03781823, %491 ], [ %.03781823, %518 ], [ %.03781823, %604 ], [ %.03781823, %640 ], [ %.03781823, %689 ], [ %.03781823, %704 ], [ %.03781823, %720 ], [ %.03781823, %126 ], [ %.03781823, %131 ], [ %.03781823, %136 ], [ %.03781823, %141 ], [ %.03781823, %146 ], [ %.03781823, %232 ], [ %.03781823, %236 ], [ %.03781823, %241 ], [ %.03781823, %246 ], [ %.03781823, %251 ], [ %.03781823, %298 ], [ %.03781823, %312 ], [ %.03781823, %326 ], [ %.03781823, %328 ], [ %.03781823, %332 ], [ %.03781823, %337 ], [ %.03781823, %342 ], [ %.03781823, %347 ], [ %.03781823, %427 ], [ %.03781823, %539 ], [ %.03781823, %560 ], [ %.03781823, %581 ], [ %.03781823, %613 ], [ 1, %617 ], [ %.03781823, %622 ], [ %.03781823, %642 ], [ %.03781823, %646 ], [ %.03781823, %651 ], [ %.03781823, %656 ], [ %.03781823, %661 ], [ %.03781823, %666 ], [ %.03781823, %671 ]
+  %.1418 = phi i8 [ %.04171817, %164 ], [ %.04171817, %180 ], [ %.04171817, %196 ], [ %.04171817, %212 ], [ %.04171817, %228 ], [ %.04171817, %277 ], [ %.04171817, %365 ], [ %.04171817, %389 ], [ %.04171817, %418 ], [ %.04171817, %444 ], [ %.04171817, %460 ], [ %.04171817, %491 ], [ %.04171817, %518 ], [ %.04171817, %604 ], [ %.04171817, %640 ], [ %.04171817, %689 ], [ %.04171817, %704 ], [ %.04171817, %720 ], [ %.04171817, %126 ], [ %.04171817, %131 ], [ %.04171817, %136 ], [ %.04171817, %141 ], [ %.04171817, %146 ], [ %.04171817, %232 ], [ %.04171817, %236 ], [ %.04171817, %241 ], [ %.04171817, %246 ], [ %.04171817, %251 ], [ %.04171817, %298 ], [ %.04171817, %312 ], [ %.04171817, %326 ], [ %.04171817, %328 ], [ %.04171817, %332 ], [ %.04171817, %337 ], [ %.04171817, %342 ], [ %.04171817, %347 ], [ %.04171817, %427 ], [ %.04171817, %539 ], [ %.04171817, %560 ], [ %.04171817, %581 ], [ %.04171817, %613 ], [ 1, %617 ], [ %.04171817, %622 ], [ %.04171817, %642 ], [ %.04171817, %646 ], [ %.04171817, %651 ], [ %.04171817, %656 ], [ %.04171817, %661 ], [ %.04171817, %666 ], [ %.04171817, %671 ]
+  %.1416 = phi i1 [ %.04151818, %164 ], [ %.04151818, %180 ], [ %.04151818, %196 ], [ %.04151818, %212 ], [ %.04151818, %228 ], [ %.04151818, %277 ], [ %.04151818, %365 ], [ %.04151818, %389 ], [ %.04151818, %418 ], [ %.04151818, %444 ], [ %.04151818, %460 ], [ %.04151818, %491 ], [ %.04151818, %518 ], [ %.04151818, %604 ], [ %.04151818, %640 ], [ %.04151818, %689 ], [ %.04151818, %704 ], [ %.04151818, %720 ], [ %.04151818, %126 ], [ %.04151818, %131 ], [ %.04151818, %136 ], [ %.04151818, %141 ], [ %.04151818, %146 ], [ %.04151818, %232 ], [ %.04151818, %236 ], [ %.04151818, %241 ], [ %.04151818, %246 ], [ %.04151818, %251 ], [ %.04151818, %298 ], [ %.04151818, %312 ], [ %.04151818, %326 ], [ %.04151818, %328 ], [ %.04151818, %332 ], [ %.04151818, %337 ], [ true, %342 ], [ %.04151818, %347 ], [ %.04151818, %427 ], [ %.04151818, %539 ], [ %.04151818, %560 ], [ %.04151818, %581 ], [ %.04151818, %613 ], [ %.04151818, %617 ], [ %.04151818, %622 ], [ %.04151818, %642 ], [ %.04151818, %646 ], [ %.04151818, %651 ], [ %.04151818, %656 ], [ %.04151818, %661 ], [ %.04151818, %666 ], [ %.04151818, %671 ]
+  %.1414 = phi i8 [ %.04131819, %164 ], [ %.04131819, %180 ], [ %.04131819, %196 ], [ %.04131819, %212 ], [ %.04131819, %228 ], [ %.04131819, %277 ], [ %.04131819, %365 ], [ %.04131819, %389 ], [ %.04131819, %418 ], [ %.04131819, %444 ], [ %.04131819, %460 ], [ %.04131819, %491 ], [ %.04131819, %518 ], [ %.04131819, %604 ], [ %.04131819, %640 ], [ %.04131819, %689 ], [ %.04131819, %704 ], [ %.04131819, %720 ], [ %.04131819, %126 ], [ %.04131819, %131 ], [ %.04131819, %136 ], [ %.04131819, %141 ], [ %.04131819, %146 ], [ %.04131819, %232 ], [ %.04131819, %236 ], [ %.04131819, %241 ], [ %.04131819, %246 ], [ %.04131819, %251 ], [ %.04131819, %298 ], [ %.04131819, %312 ], [ %.04131819, %326 ], [ %.04131819, %328 ], [ %.04131819, %332 ], [ %.04131819, %337 ], [ %.04131819, %342 ], [ 1, %347 ], [ %.04131819, %427 ], [ %.04131819, %539 ], [ %.04131819, %560 ], [ %.04131819, %581 ], [ %.04131819, %613 ], [ %.04131819, %617 ], [ %.04131819, %622 ], [ %.04131819, %642 ], [ %.04131819, %646 ], [ %.04131819, %651 ], [ %.04131819, %656 ], [ %.04131819, %661 ], [ %.04131819, %666 ], [ %.04131819, %671 ]
+  %.1412 = phi i8 [ %.04111820, %164 ], [ %.04111820, %180 ], [ %.04111820, %196 ], [ %.04111820, %212 ], [ %.04111820, %228 ], [ %.04111820, %277 ], [ %.04111820, %365 ], [ %.04111820, %389 ], [ %.04111820, %418 ], [ %.04111820, %444 ], [ %.04111820, %460 ], [ %.04111820, %491 ], [ %.04111820, %518 ], [ %.04111820, %604 ], [ %.04111820, %640 ], [ %.04111820, %689 ], [ %.04111820, %704 ], [ %.04111820, %720 ], [ %.04111820, %126 ], [ %.04111820, %131 ], [ %.04111820, %136 ], [ %.04111820, %141 ], [ %.04111820, %146 ], [ %.04111820, %232 ], [ %.04111820, %236 ], [ %.04111820, %241 ], [ %.04111820, %246 ], [ %.04111820, %251 ], [ %.04111820, %298 ], [ %.04111820, %312 ], [ %.04111820, %326 ], [ 1, %328 ], [ %.04111820, %332 ], [ %.04111820, %337 ], [ %.04111820, %342 ], [ %.04111820, %347 ], [ %.04111820, %427 ], [ %.04111820, %539 ], [ %.04111820, %560 ], [ %.04111820, %581 ], [ %.04111820, %613 ], [ %.04111820, %617 ], [ %.04111820, %622 ], [ %.04111820, %642 ], [ %.04111820, %646 ], [ %.04111820, %651 ], [ %.04111820, %656 ], [ %.04111820, %661 ], [ %.04111820, %666 ], [ %.04111820, %671 ]
+  %.1410 = phi i32 [ %.04091821, %164 ], [ %.04091821, %180 ], [ %.04091821, %196 ], [ %.04091821, %212 ], [ %.04091821, %228 ], [ %.04091821, %277 ], [ %368, %365 ], [ %.04091821, %389 ], [ %.04091821, %418 ], [ %.04091821, %444 ], [ %.04091821, %460 ], [ %.04091821, %491 ], [ %.04091821, %518 ], [ %.04091821, %604 ], [ %.04091821, %640 ], [ %.04091821, %689 ], [ %.04091821, %704 ], [ %.04091821, %720 ], [ %.04091821, %126 ], [ %.04091821, %131 ], [ %.04091821, %136 ], [ %.04091821, %141 ], [ %.04091821, %146 ], [ %.04091821, %232 ], [ %.04091821, %236 ], [ %.04091821, %241 ], [ %.04091821, %246 ], [ %.04091821, %251 ], [ %.04091821, %298 ], [ %.04091821, %312 ], [ %.04091821, %326 ], [ %.04091821, %328 ], [ %.04091821, %332 ], [ %.04091821, %337 ], [ %.04091821, %342 ], [ %.04091821, %347 ], [ %.04091821, %427 ], [ %.04091821, %539 ], [ %.04091821, %560 ], [ %.04091821, %581 ], [ %.04091821, %613 ], [ %.04091821, %617 ], [ %.04091821, %622 ], [ %.04091821, %642 ], [ %.04091821, %646 ], [ %.04091821, %651 ], [ %.04091821, %656 ], [ %.04091821, %661 ], [ %.04091821, %666 ], [ %.04091821, %671 ]
+  %.1408 = phi i32 [ %.04071822, %164 ], [ %.04071822, %180 ], [ %.04071822, %196 ], [ %.04071822, %212 ], [ %.sroa.speculated, %228 ], [ %.04071822, %277 ], [ %.04071822, %365 ], [ %.04071822, %389 ], [ %.04071822, %418 ], [ %.04071822, %444 ], [ %.04071822, %460 ], [ %.04071822, %491 ], [ %.04071822, %518 ], [ %.04071822, %604 ], [ %.04071822, %640 ], [ %.04071822, %689 ], [ %.04071822, %704 ], [ %.04071822, %720 ], [ %.04071822, %126 ], [ %.04071822, %131 ], [ %.04071822, %136 ], [ %.04071822, %141 ], [ %.04071822, %146 ], [ %.04071822, %232 ], [ %.04071822, %236 ], [ %.04071822, %241 ], [ %.04071822, %246 ], [ %.04071822, %251 ], [ %.04071822, %298 ], [ %.04071822, %312 ], [ %.04071822, %326 ], [ %.04071822, %328 ], [ %.04071822, %332 ], [ %.04071822, %337 ], [ %.04071822, %342 ], [ %.04071822, %347 ], [ %.04071822, %427 ], [ %.04071822, %539 ], [ %.04071822, %560 ], [ %.04071822, %581 ], [ %.04071822, %613 ], [ %.04071822, %617 ], [ %.04071822, %622 ], [ %.04071822, %642 ], [ %.04071822, %646 ], [ %.04071822, %651 ], [ %.04071822, %656 ], [ %.04071822, %661 ], [ %.04071822, %666 ], [ %.04071822, %671 ]
+  %.1380 = phi i64 [ %157, %164 ], [ %173, %180 ], [ %189, %196 ], [ %205, %212 ], [ %221, %228 ], [ %262, %277 ], [ %358, %365 ], [ %374, %389 ], [ %403, %418 ], [ %437, %444 ], [ %453, %460 ], [ %469, %491 ], [ %505, %518 ], [ %589, %604 ], [ %633, %640 ], [ %682, %689 ], [ %697, %704 ], [ %712, %720 ], [ %.03791823, %126 ], [ %.03791823, %131 ], [ %.03791823, %136 ], [ %.03791823, %141 ], [ %.03791823, %146 ], [ %.03791823, %232 ], [ %.03791823, %236 ], [ %.03791823, %241 ], [ %.03791823, %246 ], [ %.03791823, %251 ], [ %291, %298 ], [ %305, %312 ], [ %319, %326 ], [ %.03791823, %328 ], [ %.03791823, %332 ], [ %.03791823, %337 ], [ %.03791823, %342 ], [ %.03791823, %347 ], [ %.03791823, %427 ], [ %526, %539 ], [ %547, %560 ], [ %568, %581 ], [ %.03791823, %613 ], [ %.03791823, %617 ], [ %.03791823, %622 ], [ %.03791823, %642 ], [ %.03791823, %646 ], [ %.03791823, %651 ], [ %.03791823, %656 ], [ %.03791823, %661 ], [ %.03791823, %666 ], [ %.03791823, %671 ]
   %.1377 = phi i1 [ %.03761824, %164 ], [ %.03761824, %180 ], [ %.03761824, %196 ], [ %.03761824, %212 ], [ %.03761824, %228 ], [ %.03761824, %277 ], [ %.03761824, %365 ], [ %.03761824, %389 ], [ %.03761824, %418 ], [ %.03761824, %444 ], [ %.03761824, %460 ], [ %.03761824, %491 ], [ %.03761824, %518 ], [ %.03761824, %604 ], [ %.03761824, %640 ], [ %.03761824, %689 ], [ %.03761824, %704 ], [ %.03761824, %720 ], [ %.03761824, %126 ], [ %.03761824, %131 ], [ %.03761824, %136 ], [ %.03761824, %141 ], [ %.03761824, %146 ], [ %.03761824, %232 ], [ %.03761824, %236 ], [ %.03761824, %241 ], [ %.03761824, %246 ], [ %.03761824, %251 ], [ %.03761824, %298 ], [ %.03761824, %312 ], [ %.03761824, %326 ], [ %.03761824, %328 ], [ %.03761824, %332 ], [ true, %337 ], [ %.03761824, %342 ], [ %.03761824, %347 ], [ %.03761824, %427 ], [ %.03761824, %539 ], [ %.03761824, %560 ], [ %.03761824, %581 ], [ %.03761824, %613 ], [ %.03761824, %617 ], [ %.03761824, %622 ], [ %.03761824, %642 ], [ %.03761824, %646 ], [ %.03761824, %651 ], [ %.03761824, %656 ], [ %.03761824, %661 ], [ %.03761824, %666 ], [ %.03761824, %671 ]
   %.1375 = phi i8 [ %.03741825, %164 ], [ %.03741825, %180 ], [ %.03741825, %196 ], [ %.03741825, %212 ], [ %.03741825, %228 ], [ %.03741825, %277 ], [ %.03741825, %365 ], [ %.03741825, %389 ], [ %.03741825, %418 ], [ %.03741825, %444 ], [ %.03741825, %460 ], [ %.03741825, %491 ], [ %.03741825, %518 ], [ %.03741825, %604 ], [ %.03741825, %640 ], [ %.03741825, %689 ], [ %.03741825, %704 ], [ %.03741825, %720 ], [ %.03741825, %126 ], [ %.03741825, %131 ], [ %.03741825, %136 ], [ 1, %141 ], [ 1, %146 ], [ %.03741825, %232 ], [ %.03741825, %236 ], [ %.03741825, %241 ], [ %.03741825, %246 ], [ %.03741825, %251 ], [ %.03741825, %298 ], [ %.03741825, %312 ], [ %.03741825, %326 ], [ %.03741825, %328 ], [ %.03741825, %332 ], [ %.03741825, %337 ], [ %.03741825, %342 ], [ %.03741825, %347 ], [ %.03741825, %427 ], [ %.03741825, %539 ], [ %.03741825, %560 ], [ %.03741825, %581 ], [ %.03741825, %613 ], [ %.03741825, %617 ], [ %.03741825, %622 ], [ %.03741825, %642 ], [ %.03741825, %646 ], [ %.03741825, %651 ], [ %.03741825, %656 ], [ %.03741825, %661 ], [ %.03741825, %666 ], [ %.03741825, %671 ]
   %.1373 = phi i8 [ %.03721826, %164 ], [ %.03721826, %180 ], [ %.03721826, %196 ], [ %.03721826, %212 ], [ %.03721826, %228 ], [ %.03721826, %277 ], [ %.03721826, %365 ], [ %.03721826, %389 ], [ %.03721826, %418 ], [ %.03721826, %444 ], [ %.03721826, %460 ], [ %.03721826, %491 ], [ %.03721826, %518 ], [ %.03721826, %604 ], [ %.03721826, %640 ], [ %.03721826, %689 ], [ %.03721826, %704 ], [ %.03721826, %720 ], [ %.03721826, %126 ], [ %.03721826, %131 ], [ %.03721826, %136 ], [ %.03721826, %141 ], [ %.03721826, %146 ], [ %.03721826, %232 ], [ %.03721826, %236 ], [ %.03721826, %241 ], [ %.03721826, %246 ], [ %.03721826, %251 ], [ %.03721826, %298 ], [ %.03721826, %312 ], [ %.03721826, %326 ], [ %.03721826, %328 ], [ %.03721826, %332 ], [ %.03721826, %337 ], [ %.03721826, %342 ], [ %.03721826, %347 ], [ %.03721826, %427 ], [ %.03721826, %539 ], [ %.03721826, %560 ], [ %.03721826, %581 ], [ %.03721826, %613 ], [ %.03721826, %617 ], [ %.03721826, %622 ], [ %.03721826, %642 ], [ %.03721826, %646 ], [ %.03721826, %651 ], [ %.03721826, %656 ], [ %.03721826, %661 ], [ %.03721826, %666 ], [ 1, %671 ]
@@ -3440,7 +3440,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   %.1331 = phi i32 [ %.03301846, %164 ], [ %.03301846, %180 ], [ %199, %196 ], [ %.03301846, %212 ], [ %.03301846, %228 ], [ %.03301846, %277 ], [ %.03301846, %365 ], [ %.03301846, %389 ], [ %.03301846, %418 ], [ %.03301846, %444 ], [ %.03301846, %460 ], [ %.03301846, %491 ], [ %.03301846, %518 ], [ %.03301846, %604 ], [ %.03301846, %640 ], [ %.03301846, %689 ], [ %.03301846, %704 ], [ %.03301846, %720 ], [ %.03301846, %126 ], [ %.03301846, %131 ], [ %.03301846, %136 ], [ %.03301846, %141 ], [ %.03301846, %146 ], [ %.03301846, %232 ], [ %.03301846, %236 ], [ %.03301846, %241 ], [ %.03301846, %246 ], [ %.03301846, %251 ], [ %.03301846, %298 ], [ %.03301846, %312 ], [ %.03301846, %326 ], [ %.03301846, %328 ], [ %.03301846, %332 ], [ %.03301846, %337 ], [ %.03301846, %342 ], [ %.03301846, %347 ], [ %.03301846, %427 ], [ %.03301846, %539 ], [ %.03301846, %560 ], [ %.03301846, %581 ], [ %.03301846, %613 ], [ %.03301846, %617 ], [ %.03301846, %622 ], [ %.03301846, %642 ], [ %.03301846, %646 ], [ %.03301846, %651 ], [ %.03301846, %656 ], [ %.03301846, %661 ], [ %.03301846, %666 ], [ %.03301846, %671 ]
   %.1329 = phi i32 [ %.03281847, %164 ], [ %.03281847, %180 ], [ %.03281847, %196 ], [ %.03281847, %212 ], [ %.03281847, %228 ], [ %.03281847, %277 ], [ %.03281847, %365 ], [ %.03281847, %389 ], [ %.03281847, %418 ], [ %.03281847, %444 ], [ %463, %460 ], [ %.03281847, %491 ], [ %.03281847, %518 ], [ %.03281847, %604 ], [ %.03281847, %640 ], [ %.03281847, %689 ], [ %.03281847, %704 ], [ %.03281847, %720 ], [ %.03281847, %126 ], [ %.03281847, %131 ], [ %.03281847, %136 ], [ %.03281847, %141 ], [ %.03281847, %146 ], [ %.03281847, %232 ], [ %.03281847, %236 ], [ %.03281847, %241 ], [ %.03281847, %246 ], [ %.03281847, %251 ], [ %.03281847, %298 ], [ %.03281847, %312 ], [ %.03281847, %326 ], [ %.03281847, %328 ], [ %.03281847, %332 ], [ %.03281847, %337 ], [ %.03281847, %342 ], [ %.03281847, %347 ], [ %.03281847, %427 ], [ %.03281847, %539 ], [ %.03281847, %560 ], [ %.03281847, %581 ], [ %.03281847, %613 ], [ %.03281847, %617 ], [ %.03281847, %622 ], [ %.03281847, %642 ], [ %.03281847, %646 ], [ %.03281847, %651 ], [ %.03281847, %656 ], [ %.03281847, %661 ], [ %.03281847, %666 ], [ %.03281847, %671 ]
   %.1 = phi i32 [ %.03241848, %164 ], [ %183, %180 ], [ %.03241848, %196 ], [ %.03241848, %212 ], [ %.03241848, %228 ], [ %.03241848, %277 ], [ %.03241848, %365 ], [ %.03241848, %389 ], [ %.03241848, %418 ], [ %.03241848, %444 ], [ %.03241848, %460 ], [ %.03241848, %491 ], [ %.03241848, %518 ], [ %.03241848, %604 ], [ %.03241848, %640 ], [ %.03241848, %689 ], [ %.03241848, %704 ], [ %.03241848, %720 ], [ -1, %126 ], [ %.03241848, %131 ], [ %.03241848, %136 ], [ %.03241848, %141 ], [ %.03241848, %146 ], [ %.03241848, %232 ], [ %.03241848, %236 ], [ %.03241848, %241 ], [ %.03241848, %246 ], [ %.03241848, %251 ], [ %.03241848, %298 ], [ %.03241848, %312 ], [ %.03241848, %326 ], [ %.03241848, %328 ], [ %.03241848, %332 ], [ %.03241848, %337 ], [ %.03241848, %342 ], [ %.03241848, %347 ], [ %.03241848, %427 ], [ %.03241848, %539 ], [ %.03241848, %560 ], [ %.03241848, %581 ], [ %.03241848, %613 ], [ %.03241848, %617 ], [ %.03241848, %622 ], [ %.03241848, %642 ], [ %.03241848, %646 ], [ %.03241848, %651 ], [ %.03241848, %656 ], [ %.03241848, %661 ], [ %.03241848, %666 ], [ %.03241848, %671 ]
-  %724 = add nuw i64 %.1388, 1
+  %724 = add nuw i64 %.1380, 1
   %725 = load ptr, ptr %114, align 8
   %726 = load ptr, ptr %1, align 8
   %727 = ptrtoint ptr %725 to i64
@@ -3451,13 +3451,13 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
   br i1 %731, label %126, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %723, %711, %707, %.preheader
-  %.0417.lcssa = phi i32 [ 0, %.preheader ], [ %.04171817, %707 ], [ %.04171817, %711 ], [ %.1418, %723 ]
-  %.0415.lcssa = phi i32 [ 1, %.preheader ], [ %.04151818, %707 ], [ %.04151818, %711 ], [ %.1416, %723 ]
-  %.0387.lcssa = phi i64 [ 1, %.preheader ], [ %.03871819, %707 ], [ %.03871819, %711 ], [ %724, %723 ]
-  %.0384.lcssa = phi i8 [ 0, %.preheader ], [ %.03841820, %707 ], [ %.03841820, %711 ], [ %.1385, %723 ]
-  %.0382.lcssa = phi i8 [ 0, %.preheader ], [ %.03821821, %707 ], [ %.03821821, %711 ], [ %.1383, %723 ]
-  %.0380.lcssa = phi i1 [ false, %.preheader ], [ %.03801822, %707 ], [ %.03801822, %711 ], [ %.1381, %723 ]
-  %.0378.lcssa = phi i8 [ 0, %.preheader ], [ %.03781823, %707 ], [ %.03781823, %711 ], [ %.1379, %723 ]
+  %.0417.lcssa = phi i8 [ 0, %.preheader ], [ %.04171817, %707 ], [ %.04171817, %711 ], [ %.1418, %723 ]
+  %.0415.lcssa = phi i1 [ false, %.preheader ], [ %.04151818, %707 ], [ %.04151818, %711 ], [ %.1416, %723 ]
+  %.0413.lcssa = phi i8 [ 0, %.preheader ], [ %.04131819, %707 ], [ %.04131819, %711 ], [ %.1414, %723 ]
+  %.0411.lcssa = phi i8 [ 0, %.preheader ], [ %.04111820, %707 ], [ %.04111820, %711 ], [ %.1412, %723 ]
+  %.0409.lcssa = phi i32 [ 0, %.preheader ], [ %.04091821, %707 ], [ %.04091821, %711 ], [ %.1410, %723 ]
+  %.0407.lcssa = phi i32 [ 1, %.preheader ], [ %.04071822, %707 ], [ %.04071822, %711 ], [ %.1408, %723 ]
+  %.0379.lcssa = phi i64 [ 1, %.preheader ], [ %.03791823, %707 ], [ %.03791823, %711 ], [ %724, %723 ]
   %.0376.lcssa = phi i1 [ false, %.preheader ], [ %.03761824, %707 ], [ %.03761824, %711 ], [ %.1377, %723 ]
   %.0374.lcssa = phi i8 [ 0, %.preheader ], [ %.03741825, %707 ], [ %.03741825, %711 ], [ %.1375, %723 ]
   %.0372.lcssa = phi i8 [ 0, %.preheader ], [ %.03721826, %707 ], [ %.03721826, %711 ], [ %.1373, %723 ]
@@ -3488,7 +3488,7 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
           to label %732 unwind label %.loopexit.split-lp1074
 
 732:                                              ; preds = %._crit_edge
-  invoke void @_ZN5Yosys4Pass10extra_argsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEmPNS_5RTLIL6DesignEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %62, i64 noundef %.0387.lcssa, ptr noundef %2, i1 noundef zeroext true)
+  invoke void @_ZN5Yosys4Pass10extra_argsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEmPNS_5RTLIL6DesignEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %62, i64 noundef %.0379.lcssa, ptr noundef %2, i1 noundef zeroext true)
           to label %733 unwind label %748
 
 733:                                              ; preds = %732
@@ -3535,7 +3535,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %.not1022, label %._crit_edge1951, label %.lr.ph1950
 
 ._crit_edge1951:                                  ; preds = %744, %740
-  %.0386.lcssa = phi ptr [ null, %740 ], [ %750, %744 ]
+  %.0378.lcssa = phi ptr [ null, %740 ], [ %750, %744 ]
   %.not.i.i.i508 = icmp eq ptr %741, null
   br i1 %.not.i.i.i508, label %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit, label %746
 
@@ -3544,7 +3544,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit: ; preds = %._crit_edge1951, %746
-  %747 = icmp eq ptr %.0386.lcssa, null
+  %747 = icmp eq ptr %.0378.lcssa, null
   br i1 %747, label %.invoke, label %762
 
 748:                                              ; preds = %732
@@ -3554,14 +3554,14 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit: ; preds = %._crit_edge1951
   br label %.body
 
 .lr.ph1950:                                       ; preds = %740, %744
-  %.03861948 = phi ptr [ %750, %744 ], [ null, %740 ]
+  %.03781948 = phi ptr [ %750, %744 ], [ null, %740 ]
   %.sroa.01007.01947 = phi ptr [ %745, %744 ], [ %741, %740 ]
   %750 = load ptr, ptr %.sroa.01007.01947, align 8
-  %.not484 = icmp eq ptr %.03861948, null
+  %.not484 = icmp eq ptr %.03781948, null
   br i1 %.not484, label %744, label %751
 
 751:                                              ; preds = %.lr.ph1950
-  %752 = getelementptr inbounds i8, ptr %.03861948, i64 304
+  %752 = getelementptr inbounds i8, ptr %.03781948, i64 304
   %753 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %752)
           to label %_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit unwind label %757
 
@@ -3635,7 +3635,7 @@ _ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit509: ; preds = %_ZN5YosysL6lo
 .thread:                                          ; preds = %774, %777
   %.mask = and i8 %.0352.lcssa, 1
   %.mask438 = and i8 %.0354.lcssa, 1
-  %.mask439 = and i8 %.0378.lcssa, 1
+  %.mask439 = and i8 %.0417.lcssa, 1
   %narrow = add nuw nsw i8 %.mask438, %.mask439
   %narrow440 = add nuw nsw i8 %narrow, %.mask
   %780 = icmp ugt i8 %narrow440, 1
@@ -3645,8 +3645,8 @@ _ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S4_.exit509: ; preds = %_ZN5YosysL6lo
   br i1 %.0346.lcssa, label %782, label %.loopexit1072
 
 782:                                              ; preds = %781
-  %783 = getelementptr inbounds i8, ptr %.0386.lcssa, i64 168
-  %784 = getelementptr inbounds i8, ptr %.0386.lcssa, i64 176
+  %783 = getelementptr inbounds i8, ptr %.0378.lcssa, i64 168
+  %784 = getelementptr inbounds i8, ptr %.0378.lcssa, i64 176
   %785 = load ptr, ptr %784, align 8
   %786 = load ptr, ptr %783, align 8
   %787 = ptrtoint ptr %785 to i64
@@ -3748,8 +3748,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br i1 %.0362.lcssa, label %828, label %.loopexit1071
 
 828:                                              ; preds = %.loopexit1072
-  %829 = getelementptr inbounds i8, ptr %.0386.lcssa, i64 168
-  %830 = getelementptr inbounds i8, ptr %.0386.lcssa, i64 176
+  %829 = getelementptr inbounds i8, ptr %.0378.lcssa, i64 168
+  %830 = getelementptr inbounds i8, ptr %.0378.lcssa, i64 176
   %831 = load ptr, ptr %830, align 8
   %832 = load ptr, ptr %829, align 8
   %833 = ptrtoint ptr %831 to i64
@@ -3842,8 +3842,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br i1 %.0364.lcssa, label %872, label %.loopexit1070
 
 872:                                              ; preds = %.loopexit1071
-  %873 = getelementptr inbounds i8, ptr %.0386.lcssa, i64 168
-  %874 = getelementptr inbounds i8, ptr %.0386.lcssa, i64 176
+  %873 = getelementptr inbounds i8, ptr %.0378.lcssa, i64 168
+  %874 = getelementptr inbounds i8, ptr %.0378.lcssa, i64 176
   %875 = load ptr, ptr %874, align 8
   %876 = load ptr, ptr %873, align 8
   %877 = ptrtoint ptr %875 to i64
@@ -3937,15 +3937,15 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 
 916:                                              ; preds = %.loopexit1070
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %67, i8 0, i64 48, i1 false)
-  %917 = getelementptr inbounds i8, ptr %.0386.lcssa, i64 224
+  %917 = getelementptr inbounds i8, ptr %.0378.lcssa, i64 224
   %918 = load ptr, ptr %917, align 8, !noalias !18
-  %919 = getelementptr inbounds i8, ptr %.0386.lcssa, i64 232
+  %919 = getelementptr inbounds i8, ptr %.0378.lcssa, i64 232
   %920 = load ptr, ptr %919, align 8, !noalias !18
   %921 = icmp eq ptr %918, %920
   br i1 %921, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.thread, label %.lr.ph1977
 
 .lr.ph1977:                                       ; preds = %916
-  %922 = getelementptr inbounds i8, ptr %.0386.lcssa, i64 140
+  %922 = getelementptr inbounds i8, ptr %.0378.lcssa, i64 140
   %923 = ptrtoint ptr %920 to i64
   %924 = ptrtoint ptr %918 to i64
   %925 = sub i64 %923, %924
@@ -4906,15 +4906,15 @@ _ZN5Yosys7hashlib4poolIPNS_5RTLIL4WireENS0_8hash_opsIS4_EEED2Ev.exit: ; preds = 
   br i1 %.0368.lcssa, label %1357, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit593
 
 1357:                                             ; preds = %_ZN5Yosys7hashlib4poolIPNS_5RTLIL4WireENS0_8hash_opsIS4_EEED2Ev.exit
-  %1358 = getelementptr inbounds i8, ptr %.0386.lcssa, i64 168
+  %1358 = getelementptr inbounds i8, ptr %.0378.lcssa, i64 168
   %1359 = load ptr, ptr %1358, align 8, !noalias !42
-  %1360 = getelementptr inbounds i8, ptr %.0386.lcssa, i64 176
+  %1360 = getelementptr inbounds i8, ptr %.0378.lcssa, i64 176
   %1361 = load ptr, ptr %1360, align 8, !noalias !42
   %1362 = icmp eq ptr %1359, %1361
   br i1 %1362, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit593, label %.lr.ph1990
 
 .lr.ph1990:                                       ; preds = %1357
-  %1363 = getelementptr inbounds i8, ptr %.0386.lcssa, i64 136
+  %1363 = getelementptr inbounds i8, ptr %.0378.lcssa, i64 136
   %1364 = ptrtoint ptr %1361 to i64
   %1365 = ptrtoint ptr %1359 to i64
   %1366 = sub i64 %1364, %1365
@@ -5028,15 +5028,15 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit593: ; preds = %_ZN5Yosys5RTLI
   br i1 %.0370.lcssa, label %1410, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit618
 
 1410:                                             ; preds = %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit593
-  %1411 = getelementptr inbounds i8, ptr %.0386.lcssa, i64 168
+  %1411 = getelementptr inbounds i8, ptr %.0378.lcssa, i64 168
   %1412 = load ptr, ptr %1411, align 8, !noalias !48
-  %1413 = getelementptr inbounds i8, ptr %.0386.lcssa, i64 176
+  %1413 = getelementptr inbounds i8, ptr %.0378.lcssa, i64 176
   %1414 = load ptr, ptr %1413, align 8, !noalias !48
   %1415 = icmp eq ptr %1412, %1414
   br i1 %1415, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit618, label %.lr.ph1996
 
 .lr.ph1996:                                       ; preds = %1410
-  %1416 = getelementptr inbounds i8, ptr %.0386.lcssa, i64 136
+  %1416 = getelementptr inbounds i8, ptr %.0378.lcssa, i64 136
   %1417 = ptrtoint ptr %1414 to i64
   %1418 = ptrtoint ptr %1412 to i64
   %1419 = sub i64 %1417, %1418
@@ -5153,11 +5153,11 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit618: ; preds = %_ZN5Yosys5RTLI
 1465:                                             ; preds = %1463
   %1466 = trunc nuw i8 %.0344.lcssa to i1
   %1467 = trunc nuw i8 %.0348.lcssa to i1
-  invoke fastcc void @_ZN12_GLOBAL__N_19SatHelperC2EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbb(ptr noundef nonnull align 8 dereferenceable(1240) %72, ptr noundef nonnull %2, ptr noundef nonnull %.0386.lcssa, i1 noundef zeroext %1466, i1 noundef zeroext %1467)
+  invoke fastcc void @_ZN12_GLOBAL__N_19SatHelperC2EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbb(ptr noundef nonnull align 8 dereferenceable(1240) %72, ptr noundef nonnull %2, ptr noundef nonnull %.0378.lcssa, i1 noundef zeroext %1466, i1 noundef zeroext %1467)
           to label %1468 unwind label %.loopexit.split-lp1074
 
 1468:                                             ; preds = %1465
-  invoke fastcc void @_ZN12_GLOBAL__N_19SatHelperC2EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbb(ptr noundef nonnull align 8 dereferenceable(1240) %73, ptr noundef nonnull %2, ptr noundef nonnull %.0386.lcssa, i1 noundef zeroext %1466, i1 noundef zeroext %1467)
+  invoke fastcc void @_ZN12_GLOBAL__N_19SatHelperC2EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbb(ptr noundef nonnull align 8 dereferenceable(1240) %73, ptr noundef nonnull %2, ptr noundef nonnull %.0378.lcssa, i1 noundef zeroext %1466, i1 noundef zeroext %1467)
           to label %1469 unwind label %1518
 
 1469:                                             ; preds = %1468
@@ -5167,7 +5167,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit618: ; preds = %_ZN5Yosys5RTLI
 
 1472:                                             ; preds = %1469
   %1473 = getelementptr inbounds i8, ptr %72, i64 753
-  %1474 = and i8 %.0384.lcssa, 1
+  %1474 = and i8 %.0411.lcssa, 1
   store i8 %1474, ptr %1473, align 1
   %1475 = getelementptr inbounds i8, ptr %72, i64 584
   %1476 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %1475, ptr noundef nonnull align 8 dereferenceable(24) %28)
@@ -5250,7 +5250,7 @@ _ZNSt3mapIiSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_E
   br i1 %.not4622005, label %._crit_edge2009, label %.lr.ph2008
 
 .lr.ph2008:                                       ; preds = %1508
-  %1516 = trunc nuw i8 %.0382.lcssa to i1
+  %1516 = trunc nuw i8 %.0413.lcssa to i1
   br i1 %1516, label %._crit_edge2009, label %.lr.ph2008.split
 
 .lr.ph2008.split:                                 ; preds = %.lr.ph2008, %1520
@@ -5331,7 +5331,7 @@ _ZNSt3mapIiSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_E
   store i8 %1513, ptr %1547, align 8
   %1548 = getelementptr inbounds i8, ptr %73, i64 758
   store i8 %1515, ptr %1548, align 2
-  br i1 %.0380.lcssa, label %1555, label %1549
+  br i1 %.0415.lcssa, label %1555, label %1549
 
 1549:                                             ; preds = %1545
   invoke fastcc void @_ZN12_GLOBAL__N_19SatHelper5setupEib(ptr noundef nonnull align 8 dereferenceable(1240) %73, i32 noundef 1, i1 noundef zeroext false)
@@ -5475,12 +5475,12 @@ _ZN5ezSAT3NOTENS_2_VE.exit:                       ; preds = %_ZN5ezSAT2_V3getEPS
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1586, %1584, %1555
   %1596 = icmp eq i32 %.0330.lcssa, 0
-  %invariant.smax = call i32 @llvm.smax.i32(i32 %.0417.lcssa, i32 %.0332.lcssa.fr)
+  %invariant.smax = call i32 @llvm.smax.i32(i32 %.0409.lcssa, i32 %.0332.lcssa.fr)
   %1597 = icmp sgt i32 %.0330.lcssa, -1
   br i1 %1597, label %.lr.ph2011, label %._crit_edge2012
 
 .lr.ph2011:                                       ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %1598 = trunc nuw i8 %.0382.lcssa to i1
+  %1598 = trunc nuw i8 %.0413.lcssa to i1
   %1599 = add nsw i32 %.0328.lcssa, 1
   %1600 = getelementptr inbounds i8, ptr %72, i64 152
   %1601 = getelementptr inbounds i8, ptr %77, i64 8
@@ -5529,7 +5529,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %1586, %1584, %1555
           to label %1625 unwind label %.loopexit
 
 1625:                                             ; preds = %1624, %1622
-  %1626 = icmp slt i32 %.0417.lcssa, %.03342010
+  %1626 = icmp slt i32 %.0409.lcssa, %.03342010
   br i1 %1626, label %1627, label %1686
 
 1627:                                             ; preds = %1625
@@ -5734,7 +5734,7 @@ _ZN12_GLOBAL__N_118print_proof_failedEv.exit:     ; preds = %.noexc661
           to label %1693 unwind label %.loopexit
 
 1686:                                             ; preds = %1625
-  invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.181, i32 noundef %.03342010, i32 noundef %.0417.lcssa)
+  invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.181, i32 noundef %.03342010, i32 noundef %.0409.lcssa)
           to label %1687 unwind label %.loopexit
 
 1687:                                             ; preds = %1686
@@ -5753,7 +5753,7 @@ _ZN12_GLOBAL__N_118print_proof_failedEv.exit:     ; preds = %.noexc661
 
 1695:                                             ; preds = %1693, %1615
   %.pre2278 = add nuw nsw i32 %.03342010, 1
-  br i1 %.0380.lcssa, label %._crit_edge2277, label %1696
+  br i1 %.0415.lcssa, label %._crit_edge2277, label %1696
 
 1696:                                             ; preds = %1695
   invoke fastcc void @_ZN12_GLOBAL__N_19SatHelper5setupEib(ptr noundef nonnull align 8 dereferenceable(1240) %73, i32 noundef %.pre2278, i1 noundef zeroext false)
@@ -5780,16 +5780,16 @@ _ZN12_GLOBAL__N_118print_proof_failedEv.exit:     ; preds = %.noexc661
   br i1 %or.cond501, label %1704, label %1706
 
 1704:                                             ; preds = %1703
-  %1705 = srem i32 %.03342010, %.0415.lcssa
+  %1705 = srem i32 %.03342010, %.0407.lcssa
   %.not467 = icmp eq i32 %1705, 0
   br i1 %.not467, label %1723, label %1706
 
 1706:                                             ; preds = %1704, %1703
-  %1707 = icmp slt i32 %.03342010, %.0417.lcssa
+  %1707 = icmp slt i32 %.03342010, %.0409.lcssa
   br i1 %1707, label %1708, label %1709
 
 1708:                                             ; preds = %1706
-  invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.183, i32 noundef %.03342010, i32 noundef %.0417.lcssa)
+  invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.183, i32 noundef %.03342010, i32 noundef %.0409.lcssa)
           to label %1709 unwind label %.loopexit
 
 1709:                                             ; preds = %1708, %1706
@@ -5797,16 +5797,16 @@ _ZN12_GLOBAL__N_118print_proof_failedEv.exit:     ; preds = %.noexc661
   br i1 %1710, label %1711, label %1712
 
 1711:                                             ; preds = %1709
-  invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.184, i32 noundef %.03342010, i32 noundef %.0417.lcssa)
+  invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.184, i32 noundef %.03342010, i32 noundef %.0409.lcssa)
           to label %1712 unwind label %.loopexit
 
 1712:                                             ; preds = %1711, %1709
-  %1713 = srem i32 %.03342010, %.0415.lcssa
+  %1713 = srem i32 %.03342010, %.0407.lcssa
   %.not469 = icmp eq i32 %1713, 0
   br i1 %.not469, label %1715, label %1714
 
 1714:                                             ; preds = %1712
-  invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.185, i32 noundef %.03342010, i32 noundef %.0415.lcssa)
+  invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.185, i32 noundef %.03342010, i32 noundef %.0407.lcssa)
           to label %1715 unwind label %.loopexit
 
 1715:                                             ; preds = %1714, %1712
@@ -6002,7 +6002,7 @@ _ZN12_GLOBAL__N_19SatHelper5solveEiiiiii.exit669: ; preds = %1776, %.noexc668
   br i1 %1789, label %1614, label %._crit_edge2012, !llvm.loop !56
 
 ._crit_edge2012:                                  ; preds = %._crit_edge2277, %_ZNSt6vectorIiSaIiEED2Ev.exit
-  br i1 %.0380.lcssa, label %1790, label %1791
+  br i1 %.0415.lcssa, label %1790, label %1791
 
 1790:                                             ; preds = %._crit_edge2012
   invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.193, i32 noundef %.0330.lcssa)
@@ -6133,7 +6133,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit648:                 ; preds = %.loopexit, %.loopex
 1817:                                             ; preds = %1815
   %1818 = trunc nuw i8 %.0344.lcssa to i1
   %1819 = trunc nuw i8 %.0348.lcssa to i1
-  invoke fastcc void @_ZN12_GLOBAL__N_19SatHelperC2EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbb(ptr noundef nonnull align 8 dereferenceable(1240) %83, ptr noundef nonnull %2, ptr noundef nonnull %.0386.lcssa, i1 noundef zeroext %1818, i1 noundef zeroext %1819)
+  invoke fastcc void @_ZN12_GLOBAL__N_19SatHelperC2EPN5Yosys5RTLIL6DesignEPNS2_6ModuleEbb(ptr noundef nonnull align 8 dereferenceable(1240) %83, ptr noundef nonnull %2, ptr noundef nonnull %.0378.lcssa, i1 noundef zeroext %1818, i1 noundef zeroext %1819)
           to label %1820 unwind label %.loopexit.split-lp1074
 
 1820:                                             ; preds = %1817
@@ -6143,7 +6143,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit648:                 ; preds = %.loopexit, %.loopex
 
 1823:                                             ; preds = %1820
   %1824 = getelementptr inbounds i8, ptr %83, i64 753
-  %1825 = and i8 %.0384.lcssa, 1
+  %1825 = and i8 %.0411.lcssa, 1
   store i8 %1825, ptr %1824, align 1
   %1826 = getelementptr inbounds i8, ptr %83, i64 584
   %1827 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EEaSERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %1826, ptr noundef nonnull align 8 dereferenceable(24) %28)
@@ -29717,9 +29717,9 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 192:                                              ; preds = %.lr.ph201, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph201 ], [ %indvars.iv.next, %.critedge ]
-  %.sroa.1.1198 = phi ptr [ null, %.lr.ph201 ], [ %.sroa.1.2, %.critedge ]
+  %.sroa.13.1198 = phi ptr [ null, %.lr.ph201 ], [ %.sroa.13.2, %.critedge ]
   %.sroa.8.1197 = phi ptr [ null, %.lr.ph201 ], [ %.sroa.8.2, %.critedge ]
-  %.sroa.13.1196 = phi ptr [ null, %.lr.ph201 ], [ %.sroa.13.2, %.critedge ]
+  %.sroa.1.1196 = phi ptr [ null, %.lr.ph201 ], [ %.sroa.1.2, %.critedge ]
   %193 = load i32, ptr %191, align 4
   %194 = trunc nuw nsw i64 %indvars.iv to i32
   %195 = add nsw i32 %193, %194
@@ -29757,7 +29757,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   %215 = and i64 %214, %213
   %216 = icmp ne i64 %215, 0
   %217 = zext i1 %216 to i8
-  %.not.i.i91 = icmp eq ptr %.sroa.8.1197, %.sroa.13.1196
+  %.not.i.i91 = icmp eq ptr %.sroa.8.1197, %.sroa.13.1198
   br i1 %.not.i.i91, label %219, label %218
 
 218:                                              ; preds = %207
@@ -29765,8 +29765,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit
 
 219:                                              ; preds = %207
-  %220 = ptrtoint ptr %.sroa.8.1197 to i64
-  %221 = ptrtoint ptr %.sroa.1.1198 to i64
+  %220 = ptrtoint ptr %.sroa.13.1198 to i64
+  %221 = ptrtoint ptr %.sroa.1.1196 to i64
   %222 = sub i64 %220, %221
   %223 = icmp eq i64 %222, 9223372036854775807
   br i1 %223, label %224, label %_ZNKSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -29799,15 +29799,15 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i: ; pr
   br i1 %233, label %234, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
 
 234:                                              ; preds = %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %231, ptr align 1 %.sroa.1.1198, i64 %222, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %231, ptr align 1 %.sroa.1.1196, i64 %222, i1 false)
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i: ; preds = %234, %_ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i.i
-  %.not.i17.i.i.i = icmp eq ptr %.sroa.1.1198, null
+  %.not.i17.i.i.i = icmp eq ptr %.sroa.1.1196, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %235
 
 235:                                              ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.1.1198) #25
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.1.1196) #25
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %235, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
@@ -29815,9 +29815,9 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %218
-  %.sroa.13.2 = phi ptr [ %236, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.13.1196, %218 ]
+  %.sroa.1.2 = phi ptr [ %231, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.1.1196, %218 ]
   %.pn145 = phi ptr [ %232, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.8.1197, %218 ]
-  %.sroa.1.2 = phi ptr [ %231, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.1.1198, %218 ]
+  %.sroa.13.2 = phi ptr [ %236, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.13.1198, %218 ]
   %.sroa.8.2 = getelementptr inbounds i8, ptr %.pn145, i64 1
   %237 = load i8, ptr %183, align 2
   %238 = trunc i8 %237 to i1
@@ -29883,13 +29883,13 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %260, %224, %206
-  %.sroa.1.3.ph.ph = phi ptr [ %.sroa.1.1198, %224 ], [ %.sroa.1.2, %260 ], [ %.sroa.1.1198, %206 ]
+  %.sroa.1.3.ph.ph = phi ptr [ %.sroa.1.1196, %224 ], [ %.sroa.1.2, %260 ], [ %.sroa.1.1196, %206 ]
   %lpad.loopexit.split-lp148 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %.sroa.1.3 = phi ptr [ %.sroa.1.1198, %.loopexit ], [ %.sroa.1.1.lcssa, %.loopexit.split-lp.loopexit ], [ %.sroa.1.3.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.1.3 = phi ptr [ %.sroa.1.1196, %.loopexit ], [ %.sroa.1.1.lcssa, %.loopexit.split-lp.loopexit ], [ %.sroa.1.3.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit147, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp148, %.loopexit.split-lp.loopexit.split-lp ]
   %.not.i.i.i.i101 = icmp eq ptr %.sroa.1.3, null
   br i1 %.not.i.i.i.i101, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit, label %271
@@ -33109,14 +33109,14 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %8
   br label %230
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.01673, i64 1
+  %30 = getelementptr inbounds i8, ptr %.073, i64 1
   %31 = load i8, ptr %30, align 1
   %.not19 = icmp eq i8 %31, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !222
 
 .lr.ph:                                           ; preds = %.preheader, %29
   %32 = phi i8 [ %31, %29 ], [ %7, %.preheader ]
-  %.01673 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
+  %.073 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
   %33 = icmp ult i8 %32, 33
   br i1 %33, label %34, label %29
 
@@ -33563,8 +33563,8 @@ _ZNSt6vectorIiSaIiEE2atEm.exit57:                 ; preds = %_ZNSt6vectorIPcSaIS
   br label %230
 
 230:                                              ; preds = %_ZNSt6vectorIiSaIiEE2atEm.exit57, %227, %1, %_ZNSt6vectorIiSaIiEE2atEm.exit
-  %.0 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
-  ret i32 %.0
+  %.016 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
+  ret i32 %.016
 }
 
 ; Function Attrs: mustprogress uwtable

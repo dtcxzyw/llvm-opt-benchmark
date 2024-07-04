@@ -4084,7 +4084,7 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr nocapture noundef %0, i64 nou
   br label %.loopexit
 
 95:                                               ; preds = %71, %77
-  %.0196 = phi ptr [ %76, %77 ], [ %73, %71 ]
+  %.0195 = phi ptr [ %76, %77 ], [ %73, %71 ]
   %.1 = phi i64 [ %78, %77 ], [ %.0181286, %71 ]
   %.not303 = icmp eq i64 %.1, 0
   br i1 %.not303, label %.critedge, label %.lr.ph282
@@ -4094,8 +4094,8 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr nocapture noundef %0, i64 nou
 
 .lr.ph282.split.us:                               ; preds = %.lr.ph282, %100
   %96 = phi i64 [ %102, %100 ], [ 0, %.lr.ph282 ]
-  %.0197280.us = phi i32 [ %101, %100 ], [ 0, %.lr.ph282 ]
-  %97 = getelementptr inbounds i8, ptr %.0196, i64 %96
+  %.0196280.us = phi i32 [ %101, %100 ], [ 0, %.lr.ph282 ]
+  %97 = getelementptr inbounds i8, ptr %.0195, i64 %96
   %98 = load i8, ptr %97, align 1
   store i8 %98, ptr %6, align 1
   %99 = call i64 @fwrite(ptr noundef nonnull %6, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -4103,21 +4103,21 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr nocapture noundef %0, i64 nou
   br i1 %.not249.us, label %100, label %.split.us284
 
 100:                                              ; preds = %.lr.ph282.split.us
-  %101 = add i32 %.0197280.us, 1
+  %101 = add i32 %.0196280.us, 1
   %102 = zext i32 %101 to i64
   %103 = icmp ugt i64 %.1, %102
   br i1 %103, label %.lr.ph282.split.us, label %.critedge
 
 104:                                              ; preds = %111
-  %105 = add i32 %.0197280, 1
+  %105 = add i32 %.0196280, 1
   %106 = zext i32 %105 to i64
   %107 = icmp ugt i64 %.1, %106
   br i1 %107, label %.lr.ph282.split, label %.critedge
 
 .lr.ph282.split:                                  ; preds = %.lr.ph282, %104
   %108 = phi i64 [ %106, %104 ], [ 0, %.lr.ph282 ]
-  %.0197280 = phi i32 [ %105, %104 ], [ 0, %.lr.ph282 ]
-  %109 = getelementptr inbounds i8, ptr %.0196, i64 %108
+  %.0196280 = phi i32 [ %105, %104 ], [ 0, %.lr.ph282 ]
+  %109 = getelementptr inbounds i8, ptr %.0195, i64 %108
   %110 = load i8, ptr %109, align 1
   %.not304 = icmp eq i8 %110, 0
   br i1 %.not304, label %.critedge, label %111
@@ -4177,9 +4177,9 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr nocapture noundef %0, i64 nou
   br label %134
 
 134:                                              ; preds = %.lr.ph276.us, %141
-  %.0194274.us = phi i32 [ 0, %.lr.ph276.us ], [ %142, %141 ]
-  %135 = tail call i64 @H5Tget_member_offset(i64 noundef %2, i32 noundef %.0194274.us) #16
-  %136 = tail call i64 @H5Tget_member_type(i64 noundef %2, i32 noundef %.0194274.us) #16
+  %.0187274.us = phi i32 [ 0, %.lr.ph276.us ], [ %142, %141 ]
+  %135 = tail call i64 @H5Tget_member_offset(i64 noundef %2, i32 noundef %.0187274.us) #16
+  %136 = tail call i64 @H5Tget_member_type(i64 noundef %2, i32 noundef %.0187274.us) #16
   %137 = getelementptr inbounds i8, ptr %133, i64 %135
   %138 = tail call i32 @render_bin_output(ptr noundef %0, i64 noundef %1, i64 noundef %136, ptr noundef %137, i64 noundef 1)
   %139 = icmp slt i32 %138, 0
@@ -4187,7 +4187,7 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr nocapture noundef %0, i64 nou
   br i1 %139, label %.split.us, label %141
 
 141:                                              ; preds = %134
-  %142 = add nuw i32 %.0194274.us, 1
+  %142 = add nuw i32 %.0187274.us, 1
   %exitcond319.not = icmp eq i32 %142, %130
   br i1 %exitcond319.not, label %._crit_edge277.us, label %134
 
@@ -4491,12 +4491,12 @@ define range(i32 -1, 1) i32 @render_bin_output(ptr nocapture noundef %0, i64 nou
   br label %305
 
 305:                                              ; preds = %306, %301
-  %.04.i = phi i64 [ %304, %301 ], [ %307, %306 ]
-  %.not.i = icmp eq i64 %.04.i, 0
+  %.0.i = phi i64 [ %304, %301 ], [ %307, %306 ]
+  %.not.i = icmp eq i64 %.0.i, 0
   br i1 %.not.i, label %316, label %306
 
 306:                                              ; preds = %305
-  %307 = add i64 %.04.i, -1
+  %307 = add i64 %.0.i, -1
   %308 = getelementptr inbounds i8, ptr %8, i64 %307
   %309 = load i8, ptr %308, align 1
   %.not5.i = icmp eq i8 %309, 0
@@ -4668,12 +4668,12 @@ define noundef zeroext i1 @h5tools_is_zero(ptr nocapture noundef readonly %0, i6
   br label %3
 
 3:                                                ; preds = %4, %2
-  %.04 = phi i64 [ %1, %2 ], [ %5, %4 ]
-  %.not = icmp eq i64 %.04, 0
+  %.0 = phi i64 [ %1, %2 ], [ %5, %4 ]
+  %.not = icmp eq i64 %.0, 0
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %3
-  %5 = add i64 %.04, -1
+  %5 = add i64 %.0, -1
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   %7 = load i8, ptr %6, align 1
   %.not5 = icmp eq i8 %7, 0

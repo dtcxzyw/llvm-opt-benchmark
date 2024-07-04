@@ -172,7 +172,7 @@ define noundef i32 @_Z13read_g96_confP8_IO_FILERKNSt10filesystem7__cxx114pathEPP
   br label %73
 
 73:                                               ; preds = %358, %58
-  %.098 = phi i32 [ 0, %58 ], [ %.2, %358 ]
+  %.097 = phi i32 [ 0, %58 ], [ %.2, %358 ]
   %74 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(9) @.str.2) #12
   %75 = icmp eq i32 %74, 0
   %76 = zext i1 %75 to i8
@@ -229,7 +229,7 @@ define noundef i32 @_Z13read_g96_confP8_IO_FILERKNSt10filesystem7__cxx114pathEPP
   br label %107
 
 107:                                              ; preds = %91, %94, %.critedge4, %83
-  %.1101 = phi i1 [ %100, %.critedge4 ], [ false, %83 ], [ true, %94 ], [ true, %91 ]
+  %.199 = phi i1 [ %100, %.critedge4 ], [ false, %83 ], [ true, %94 ], [ true, %91 ]
   br i1 %84, label %108, label %231
 
 108:                                              ; preds = %107
@@ -580,8 +580,8 @@ _ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxfr
   br label %231
 
 231:                                              ; preds = %108, %_ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit, %107
-  %.2102 = phi i1 [ %.1101, %_ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit ], [ %.1101, %107 ], [ true, %108 ]
-  %.199 = phi i32 [ %.287.i, %_ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit ], [ %.098, %107 ], [ %.098, %108 ]
+  %.2100 = phi i1 [ %.199, %_ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit ], [ %.199, %107 ], [ true, %108 ]
+  %.1 = phi i32 [ %.287.i, %_ZL12read_g96_posPcP8t_symtabP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit ], [ %.097, %107 ], [ %.097, %108 ]
   %232 = load ptr, ptr %71, align 8
   %.not107 = icmp ne ptr %232, null
   %brmerge.not = select i1 %.not107, i1 %87, i1 false
@@ -776,7 +776,7 @@ _ZL12read_g96_velPcP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit: 
   br label %299
 
 299:                                              ; preds = %231, %_ZL12read_g96_velPcP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit
-  %.2 = phi i32 [ %.04062.i.lcssa, %_ZL12read_g96_velPcP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit ], [ %.199, %231 ]
+  %.2 = phi i32 [ %.04062.i.lcssa, %_ZL12read_g96_velPcP8_IO_FILERKNSt10filesystem7__cxx114pathEP10t_trxframe.exit ], [ %.1, %231 ]
   br i1 %90, label %.critedge118, label %.critedge6
 
 .critedge118:                                     ; preds = %299
@@ -900,7 +900,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not108, label %.critedge8, label %sub_0
 
 .critedge6:                                       ; preds = %299
-  br i1 %.2102, label %.critedge8, label %358
+  br i1 %.2100, label %.critedge8, label %358
 
 358:                                              ; preds = %.critedge6
   %359 = call noundef ptr @_Z6fgets2PciP8_IO_FILE(ptr noundef %5, i32 noundef 4096, ptr noundef %0)

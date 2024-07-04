@@ -156,18 +156,18 @@ define internal i32 @dissect_kismet(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %37
 
 37:                                               ; preds = %32, %31
-  %.0177 = phi ptr [ %36, %32 ], [ null, %31 ]
+  %.0175 = phi ptr [ %36, %32 ], [ null, %31 ]
   br i1 %.0176192, label %40, label %38
 
 38:                                               ; preds = %37
-  %39 = call i32 @call_data_dissector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0177) #3
+  %39 = call i32 @call_data_dissector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0175) #3
   br label %.loopexit.sink.split
 
 40:                                               ; preds = %37
   %hf_kismet_request.val = load i32, ptr @hf_kismet_request, align 4
   %hf_kismet_response.val = load i32, ptr @hf_kismet_response, align 4
   %41 = select i1 %.not.not, i32 %hf_kismet_request.val, i32 %hf_kismet_response.val
-  %42 = call ptr @proto_tree_add_boolean(ptr noundef %.0177, i32 noundef %41, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef 1) #3
+  %42 = call ptr @proto_tree_add_boolean(ptr noundef %.0175, i32 noundef %41, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef 1) #3
   %.not.i190 = icmp eq ptr %42, null
   br i1 %.not.i190, label %proto_item_set_generated.exit, label %43
 
@@ -195,63 +195,63 @@ proto_item_set_generated.exit:                    ; preds = %40, %43, %46
   br i1 %.not.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %69
-  %.0172197.us = phi ptr [ %.2.us, %69 ], [ %9, %.lr.ph ]
-  %.0173196.us = phi i32 [ %70, %69 ], [ 0, %.lr.ph ]
-  %53 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.0173196.us, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #3
+  %.0170197.us = phi ptr [ %.2.us, %69 ], [ %9, %.lr.ph ]
+  %.0171196.us = phi i32 [ %70, %69 ], [ 0, %.lr.ph ]
+  %53 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.0171196.us, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #3
   %.not185.us = icmp eq i32 %53, 0
   br i1 %.not185.us, label %69, label %54
 
 54:                                               ; preds = %.lr.ph.split.us
   %55 = load i32, ptr %5, align 4
-  %56 = sub i32 %55, %.0173196.us
+  %56 = sub i32 %55, %.0171196.us
   %57 = load i32, ptr @ett_kismet_reqresp, align 4
   %58 = load ptr, ptr %51, align 8
   %59 = add i32 %56, -1
-  %60 = call ptr @tvb_format_text(ptr noundef %58, ptr noundef %0, i32 noundef %.0173196.us, i32 noundef %59) #3
-  %61 = call ptr @proto_tree_add_subtree(ptr noundef %.0177, ptr noundef %0, i32 noundef %.0173196.us, i32 noundef %56, i32 noundef %57, ptr noundef null, ptr noundef %60) #3
+  %60 = call ptr @tvb_format_text(ptr noundef %58, ptr noundef %0, i32 noundef %.0171196.us, i32 noundef %59) #3
+  %61 = call ptr @proto_tree_add_subtree(ptr noundef %.0175, ptr noundef %0, i32 noundef %.0171196.us, i32 noundef %56, i32 noundef %57, ptr noundef null, ptr noundef %60) #3
   %62 = sext i32 %53 to i64
-  %63 = getelementptr i8, ptr %.0172197.us, i64 %62
-  %64 = call i32 @get_token_len(ptr noundef %.0172197.us, ptr noundef %63, ptr noundef nonnull %6) #3
+  %63 = getelementptr i8, ptr %.0170197.us, i64 %62
+  %64 = call i32 @get_token_len(ptr noundef %.0170197.us, ptr noundef %63, ptr noundef nonnull %6) #3
   %.not186.us = icmp eq i32 %64, 0
   br i1 %.not186.us, label %69, label %65
 
 65:                                               ; preds = %54
   %66 = load ptr, ptr %51, align 8
-  %67 = call ptr @tvb_get_string_enc(ptr noundef %66, ptr noundef %0, i32 noundef %.0173196.us, i32 noundef %64, i32 noundef 0) #3
+  %67 = call ptr @tvb_get_string_enc(ptr noundef %66, ptr noundef %0, i32 noundef %.0171196.us, i32 noundef %64, i32 noundef 0) #3
   %68 = load ptr, ptr %6, align 8
   br label %69
 
 69:                                               ; preds = %65, %54, %.lr.ph.split.us
-  %.2.us = phi ptr [ %68, %65 ], [ %.0172197.us, %54 ], [ %.0172197.us, %.lr.ph.split.us ]
+  %.2.us = phi ptr [ %68, %65 ], [ %.0170197.us, %54 ], [ %.0170197.us, %.lr.ph.split.us ]
   %70 = load i32, ptr %5, align 4
   %71 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %70) #3
   %.not.us = icmp eq i32 %71, 0
   br i1 %.not.us, label %.loopexit.sink.split, label %.lr.ph.split.us, !llvm.loop !6
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %205
-  %.0172197 = phi ptr [ %.2, %205 ], [ %9, %.lr.ph ]
-  %.0173196 = phi i32 [ %206, %205 ], [ 0, %.lr.ph ]
-  %72 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.0173196, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #3
+  %.0170197 = phi ptr [ %.2, %205 ], [ %9, %.lr.ph ]
+  %.0171196 = phi i32 [ %206, %205 ], [ 0, %.lr.ph ]
+  %72 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.0171196, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #3
   %.not185 = icmp eq i32 %72, 0
   br i1 %.not185, label %205, label %73
 
 73:                                               ; preds = %.lr.ph.split
   %74 = load i32, ptr %5, align 4
-  %75 = sub i32 %74, %.0173196
+  %75 = sub i32 %74, %.0171196
   %76 = load i32, ptr @ett_kismet_reqresp, align 4
   %77 = load ptr, ptr %51, align 8
   %78 = add i32 %75, -1
-  %79 = call ptr @tvb_format_text(ptr noundef %77, ptr noundef %0, i32 noundef %.0173196, i32 noundef %78) #3
-  %80 = call ptr @proto_tree_add_subtree(ptr noundef %.0177, ptr noundef %0, i32 noundef %.0173196, i32 noundef %75, i32 noundef %76, ptr noundef null, ptr noundef %79) #3
+  %79 = call ptr @tvb_format_text(ptr noundef %77, ptr noundef %0, i32 noundef %.0171196, i32 noundef %78) #3
+  %80 = call ptr @proto_tree_add_subtree(ptr noundef %.0175, ptr noundef %0, i32 noundef %.0171196, i32 noundef %75, i32 noundef %76, ptr noundef null, ptr noundef %79) #3
   %81 = sext i32 %72 to i64
-  %82 = getelementptr i8, ptr %.0172197, i64 %81
-  %83 = call i32 @get_token_len(ptr noundef %.0172197, ptr noundef %82, ptr noundef nonnull %6) #3
+  %82 = getelementptr i8, ptr %.0170197, i64 %81
+  %83 = call i32 @get_token_len(ptr noundef %.0170197, ptr noundef %82, ptr noundef nonnull %6) #3
   %.not186 = icmp eq i32 %83, 0
   br i1 %.not186, label %205, label %84
 
 84:                                               ; preds = %73
   %85 = load ptr, ptr %51, align 8
-  %86 = call ptr @tvb_get_string_enc(ptr noundef %85, ptr noundef %0, i32 noundef %.0173196, i32 noundef %83, i32 noundef 0) #3
+  %86 = call ptr @tvb_get_string_enc(ptr noundef %85, ptr noundef %0, i32 noundef %.0171196, i32 noundef %83, i32 noundef 0) #3
   %87 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(8) @.str.28, i64 noundef 7) #4
   %.not187 = icmp eq i32 %87, 0
   br i1 %.not187, label %88, label %176
@@ -259,10 +259,10 @@ proto_item_set_generated.exit:                    ; preds = %40, %43, %46
 88:                                               ; preds = %84
   %89 = load ptr, ptr %6, align 8
   %90 = ptrtoint ptr %89 to i64
-  %91 = ptrtoint ptr %.0172197 to i64
+  %91 = ptrtoint ptr %.0170197 to i64
   %92 = sub i64 %90, %91
   %93 = trunc i64 %92 to i32
-  %94 = add i32 %.0173196, %93
+  %94 = add i32 %.0171196, %93
   %95 = sub i32 %72, %93
   %96 = sext i32 %95 to i64
   %97 = getelementptr i8, ptr %89, i64 %96
@@ -347,9 +347,9 @@ proto_item_set_generated.exit:                    ; preds = %40, %43, %46
   br label %176
 
 176:                                              ; preds = %88, %84
-  %.1174 = phi i32 [ %.0173196, %84 ], [ %166, %88 ]
-  %.1 = phi ptr [ %.0172197, %84 ], [ %162, %88 ]
-  %.0171 = phi i32 [ %72, %84 ], [ %167, %88 ]
+  %.1172 = phi i32 [ %.0171196, %84 ], [ %166, %88 ]
+  %.1 = phi ptr [ %.0170197, %84 ], [ %162, %88 ]
+  %.0169 = phi i32 [ %72, %84 ], [ %167, %88 ]
   %177 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(6) @.str.29, i64 noundef 5) #4
   %.not188 = icmp eq i32 %177, 0
   br i1 %.not188, label %178, label %203
@@ -361,8 +361,8 @@ proto_item_set_generated.exit:                    ; preds = %40, %43, %46
   %181 = ptrtoint ptr %.1 to i64
   %182 = sub i64 %180, %181
   %183 = trunc i64 %182 to i32
-  %184 = add i32 %.1174, %183
-  %185 = sub i32 %.0171, %183
+  %184 = add i32 %.1172, %183
+  %185 = sub i32 %.0169, %183
   %186 = sext i32 %185 to i64
   %187 = getelementptr i8, ptr %179, i64 %186
   %188 = call i32 @get_token_len(ptr noundef %179, ptr noundef %187, ptr noundef nonnull %6) #3
@@ -379,10 +379,10 @@ proto_item_set_generated.exit:                    ; preds = %40, %43, %46
   br label %197
 
 197:                                              ; preds = %193, %178
-  %.0168 = phi ptr [ %196, %193 ], [ null, %178 ]
+  %.0 = phi ptr [ %196, %193 ], [ null, %178 ]
   %198 = load i32, ptr @hf_kismet_time, align 4
-  %.not189 = icmp eq ptr %.0168, null
-  %199 = select i1 %.not189, ptr @.str.31, ptr %.0168
+  %.not189 = icmp eq ptr %.0, null
+  %199 = select i1 %.not189, ptr @.str.31, ptr %.0
   %200 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef %80, i32 noundef %198, ptr noundef %0, i32 noundef %184, i32 noundef %188, ptr noundef nonnull %7, ptr noundef nonnull @.str.30, ptr noundef nonnull %199) #3
   br i1 %.not189, label %201, label %203
 
@@ -395,7 +395,7 @@ proto_item_set_generated.exit:                    ; preds = %40, %43, %46
   br label %205
 
 205:                                              ; preds = %73, %203, %.lr.ph.split
-  %.2 = phi ptr [ %204, %203 ], [ %.0172197, %73 ], [ %.0172197, %.lr.ph.split ]
+  %.2 = phi ptr [ %204, %203 ], [ %.0170197, %73 ], [ %.0170197, %.lr.ph.split ]
   %206 = load i32, ptr %5, align 4
   %207 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %206) #3
   %.not = icmp eq i32 %207, 0
@@ -406,8 +406,8 @@ proto_item_set_generated.exit:                    ; preds = %40, %43, %46
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split, %4
-  %.0 = phi i32 [ 0, %4 ], [ %208, %.loopexit.sink.split ], [ 0, %.preheader ]
-  ret i32 %.0
+  %.0174 = phi i32 [ 0, %4 ], [ %208, %.loopexit.sink.split ], [ 0, %.preheader ]
+  ret i32 %.0174
 }
 
 ; Function Attrs: nounwind uwtable

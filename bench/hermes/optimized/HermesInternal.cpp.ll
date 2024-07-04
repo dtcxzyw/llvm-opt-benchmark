@@ -423,8 +423,8 @@ if.end19:                                         ; preds = %_ZNK6hermes2vm10Nat
   br label %return
 
 return:                                           ; preds = %if.end19, %if.then12, %if.then
-  %retval.sroa.0.0 = phi i32 [ 1, %if.then ], [ 1, %if.then12 ], [ %call20, %if.end19 ]
   %retval.sroa.4.0 = phi i64 [ %11, %if.then ], [ %16, %if.then12 ], [ undef, %if.end19 ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.then ], [ 1, %if.then12 ], [ %call20, %if.end19 ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert

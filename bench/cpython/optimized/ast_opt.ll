@@ -4729,12 +4729,12 @@ while.body.lr.ph.i.i:                             ; preds = %PyUnicode_DATA.exit
   ]
 
 while.body.us.i.i:                                ; preds = %while.body.lr.ph.i.i, %if.end11.us.i.i
-  %pos.044.us.i.i = phi i64 [ %pos.1.us.i.i, %if.end11.us.i.i ], [ %pos.0.i, %while.body.lr.ph.i.i ]
-  %has_percents.043.us.i.i = phi i32 [ %has_percents.1.us.i.i, %if.end11.us.i.i ], [ 0, %while.body.lr.ph.i.i ]
-  %arrayidx.i.us.i.i = getelementptr i8, ptr %retval.0.i.i.i, i64 %pos.044.us.i.i
+  %has_percents.044.us.i.i = phi i32 [ %has_percents.1.us.i.i, %if.end11.us.i.i ], [ 0, %while.body.lr.ph.i.i ]
+  %pos.043.us.i.i = phi i64 [ %pos.1.us.i.i, %if.end11.us.i.i ], [ %pos.0.i, %while.body.lr.ph.i.i ]
+  %arrayidx.i.us.i.i = getelementptr i8, ptr %retval.0.i.i.i, i64 %pos.043.us.i.i
   %19 = load i8, ptr %arrayidx.i.us.i.i, align 1
   %cmp3.not.us.i.i = icmp eq i8 %19, 37
-  %add.us.i.i = add nsw i64 %pos.044.us.i.i, 1
+  %add.us.i.i = add nsw i64 %pos.043.us.i.i, 1
   br i1 %cmp3.not.us.i.i, label %if.else.us.i.i, label %if.end11.us.i.i
 
 if.else.us.i.i:                                   ; preds = %while.body.us.i.i
@@ -4748,22 +4748,22 @@ PyUnicode_READ.exit41.us.i.i:                     ; preds = %if.else.us.i.i
   br i1 %cmp7.us.i.i, label %if.then8.us.i.i, label %while.end.i.i
 
 if.then8.us.i.i:                                  ; preds = %PyUnicode_READ.exit41.us.i.i
-  %add9.us.i.i = add nsw i64 %pos.044.us.i.i, 2
+  %add9.us.i.i = add nsw i64 %pos.043.us.i.i, 2
   br label %if.end11.us.i.i
 
 if.end11.us.i.i:                                  ; preds = %if.then8.us.i.i, %while.body.us.i.i
-  %has_percents.1.us.i.i = phi i32 [ 1, %if.then8.us.i.i ], [ %has_percents.043.us.i.i, %while.body.us.i.i ]
   %pos.1.us.i.i = phi i64 [ %add9.us.i.i, %if.then8.us.i.i ], [ %add.us.i.i, %while.body.us.i.i ]
+  %has_percents.1.us.i.i = phi i32 [ 1, %if.then8.us.i.i ], [ %has_percents.044.us.i.i, %while.body.us.i.i ]
   %cmp.us.i.i = icmp slt i64 %pos.1.us.i.i, %fmt.val.i.i
   br i1 %cmp.us.i.i, label %while.body.us.i.i, label %while.end.i.i, !llvm.loop !71
 
 while.body.us56.i.i:                              ; preds = %while.body.lr.ph.i.i, %if.end11.us81.i.i
-  %pos.044.us57.i.i = phi i64 [ %pos.1.us83.i.i, %if.end11.us81.i.i ], [ %pos.0.i, %while.body.lr.ph.i.i ]
-  %has_percents.043.us58.i.i = phi i32 [ %has_percents.1.us82.i.i, %if.end11.us81.i.i ], [ 0, %while.body.lr.ph.i.i ]
-  %arrayidx4.i.us.i.i = getelementptr i16, ptr %retval.0.i.i.i, i64 %pos.044.us57.i.i
+  %has_percents.044.us57.i.i = phi i32 [ %has_percents.1.us83.i.i, %if.end11.us81.i.i ], [ 0, %while.body.lr.ph.i.i ]
+  %pos.043.us58.i.i = phi i64 [ %pos.1.us82.i.i, %if.end11.us81.i.i ], [ %pos.0.i, %while.body.lr.ph.i.i ]
+  %arrayidx4.i.us.i.i = getelementptr i16, ptr %retval.0.i.i.i, i64 %pos.043.us58.i.i
   %21 = load i16, ptr %arrayidx4.i.us.i.i, align 2
   %cmp3.not.us61.i.i = icmp eq i16 %21, 37
-  %add.us65.i.i = add nsw i64 %pos.044.us57.i.i, 1
+  %add.us65.i.i = add nsw i64 %pos.043.us58.i.i, 1
   br i1 %cmp3.not.us61.i.i, label %if.else.us64.i.i, label %if.end11.us81.i.i
 
 if.else.us64.i.i:                                 ; preds = %while.body.us56.i.i
@@ -4777,22 +4777,22 @@ PyUnicode_READ.exit41.us76.i.i:                   ; preds = %if.else.us64.i.i
   br i1 %cmp7.us78.i.i, label %if.then8.us79.i.i, label %while.end.i.i
 
 if.then8.us79.i.i:                                ; preds = %PyUnicode_READ.exit41.us76.i.i
-  %add9.us80.i.i = add nsw i64 %pos.044.us57.i.i, 2
+  %add9.us80.i.i = add nsw i64 %pos.043.us58.i.i, 2
   br label %if.end11.us81.i.i
 
 if.end11.us81.i.i:                                ; preds = %if.then8.us79.i.i, %while.body.us56.i.i
-  %has_percents.1.us82.i.i = phi i32 [ 1, %if.then8.us79.i.i ], [ %has_percents.043.us58.i.i, %while.body.us56.i.i ]
-  %pos.1.us83.i.i = phi i64 [ %add9.us80.i.i, %if.then8.us79.i.i ], [ %add.us65.i.i, %while.body.us56.i.i ]
-  %cmp.us84.i.i = icmp slt i64 %pos.1.us83.i.i, %fmt.val.i.i
+  %pos.1.us82.i.i = phi i64 [ %add9.us80.i.i, %if.then8.us79.i.i ], [ %add.us65.i.i, %while.body.us56.i.i ]
+  %has_percents.1.us83.i.i = phi i32 [ 1, %if.then8.us79.i.i ], [ %has_percents.044.us57.i.i, %while.body.us56.i.i ]
+  %cmp.us84.i.i = icmp slt i64 %pos.1.us82.i.i, %fmt.val.i.i
   br i1 %cmp.us84.i.i, label %while.body.us56.i.i, label %while.end.i.i, !llvm.loop !71
 
 while.body.i.i:                                   ; preds = %while.body.lr.ph.i.i, %if.end11.i.i
-  %pos.044.i.i = phi i64 [ %pos.1.i.i, %if.end11.i.i ], [ %pos.0.i, %while.body.lr.ph.i.i ]
-  %has_percents.043.i.i = phi i32 [ %has_percents.1.i.i, %if.end11.i.i ], [ 0, %while.body.lr.ph.i.i ]
-  %arrayidx7.i.i.i = getelementptr i32, ptr %retval.0.i.i.i, i64 %pos.044.i.i
+  %has_percents.044.i.i = phi i32 [ %has_percents.1.i.i, %if.end11.i.i ], [ 0, %while.body.lr.ph.i.i ]
+  %pos.043.i.i = phi i64 [ %pos.1.i.i, %if.end11.i.i ], [ %pos.0.i, %while.body.lr.ph.i.i ]
+  %arrayidx7.i.i.i = getelementptr i32, ptr %retval.0.i.i.i, i64 %pos.043.i.i
   %23 = load i32, ptr %arrayidx7.i.i.i, align 4
   %cmp3.not.i.i = icmp eq i32 %23, 37
-  %add.i.i = add nsw i64 %pos.044.i.i, 1
+  %add.i.i = add nsw i64 %pos.043.i.i, 1
   br i1 %cmp3.not.i.i, label %if.else.i.i, label %if.end11.i.i
 
 if.else.i.i:                                      ; preds = %while.body.i.i
@@ -4806,18 +4806,18 @@ land.lhs.true.i.i:                                ; preds = %if.else.i.i
   br i1 %cmp7.i.i, label %if.then8.i.i, label %while.end.i.i
 
 if.then8.i.i:                                     ; preds = %land.lhs.true.i.i
-  %add9.i.i = add nsw i64 %pos.044.i.i, 2
+  %add9.i.i = add nsw i64 %pos.043.i.i, 2
   br label %if.end11.i.i
 
 if.end11.i.i:                                     ; preds = %if.then8.i.i, %while.body.i.i
-  %has_percents.1.i.i = phi i32 [ 1, %if.then8.i.i ], [ %has_percents.043.i.i, %while.body.i.i ]
   %pos.1.i.i = phi i64 [ %add9.i.i, %if.then8.i.i ], [ %add.i.i, %while.body.i.i ]
+  %has_percents.1.i.i = phi i32 [ 1, %if.then8.i.i ], [ %has_percents.044.i.i, %while.body.i.i ]
   %cmp.i.i = icmp slt i64 %pos.1.i.i, %fmt.val.i.i
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !71
 
 while.end.i.i:                                    ; preds = %if.end11.us81.i.i, %PyUnicode_READ.exit41.us76.i.i, %if.else.us64.i.i, %if.end11.us.i.i, %PyUnicode_READ.exit41.us.i.i, %if.else.us.i.i, %if.end11.i.i, %land.lhs.true.i.i, %if.else.i.i
-  %has_percents.0.lcssa.i.i = phi i32 [ %has_percents.043.i.i, %if.else.i.i ], [ %has_percents.043.i.i, %land.lhs.true.i.i ], [ %has_percents.1.i.i, %if.end11.i.i ], [ %has_percents.043.us.i.i, %if.else.us.i.i ], [ %has_percents.043.us.i.i, %PyUnicode_READ.exit41.us.i.i ], [ %has_percents.1.us.i.i, %if.end11.us.i.i ], [ %has_percents.043.us58.i.i, %if.else.us64.i.i ], [ %has_percents.043.us58.i.i, %PyUnicode_READ.exit41.us76.i.i ], [ %has_percents.1.us82.i.i, %if.end11.us81.i.i ]
-  %pos.0.lcssa.i.i = phi i64 [ %pos.044.i.i, %if.else.i.i ], [ %pos.044.i.i, %land.lhs.true.i.i ], [ %pos.1.i.i, %if.end11.i.i ], [ %pos.044.us.i.i, %if.else.us.i.i ], [ %pos.044.us.i.i, %PyUnicode_READ.exit41.us.i.i ], [ %pos.1.us.i.i, %if.end11.us.i.i ], [ %pos.044.us57.i.i, %if.else.us64.i.i ], [ %pos.044.us57.i.i, %PyUnicode_READ.exit41.us76.i.i ], [ %pos.1.us83.i.i, %if.end11.us81.i.i ]
+  %pos.0.lcssa.i.i = phi i64 [ %pos.043.i.i, %if.else.i.i ], [ %pos.043.i.i, %land.lhs.true.i.i ], [ %pos.1.i.i, %if.end11.i.i ], [ %pos.043.us.i.i, %if.else.us.i.i ], [ %pos.043.us.i.i, %PyUnicode_READ.exit41.us.i.i ], [ %pos.1.us.i.i, %if.end11.us.i.i ], [ %pos.043.us58.i.i, %if.else.us64.i.i ], [ %pos.043.us58.i.i, %PyUnicode_READ.exit41.us76.i.i ], [ %pos.1.us82.i.i, %if.end11.us81.i.i ]
+  %has_percents.0.lcssa.i.i = phi i32 [ %has_percents.044.i.i, %if.else.i.i ], [ %has_percents.044.i.i, %land.lhs.true.i.i ], [ %has_percents.1.i.i, %if.end11.i.i ], [ %has_percents.044.us.i.i, %if.else.us.i.i ], [ %has_percents.044.us.i.i, %PyUnicode_READ.exit41.us.i.i ], [ %has_percents.1.us.i.i, %if.end11.us.i.i ], [ %has_percents.044.us57.i.i, %if.else.us64.i.i ], [ %has_percents.044.us57.i.i, %PyUnicode_READ.exit41.us76.i.i ], [ %has_percents.1.us83.i.i, %if.end11.us81.i.i ]
   %cmp12.i.i = icmp eq i64 %pos.0.lcssa.i.i, %pos.0.i
   br i1 %cmp12.i.i, label %if.else.i, label %if.end14.i.i
 

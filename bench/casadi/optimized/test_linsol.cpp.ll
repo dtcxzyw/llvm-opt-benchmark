@@ -691,9 +691,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit224: ;
   br label %181
 
 181:                                              ; preds = %157, %_ZN6casadi6MatrixIdED2Ev.exit285
-  %.091.idx368 = phi i64 [ 0, %157 ], [ %.091.add, %_ZN6casadi6MatrixIdED2Ev.exit285 ]
-  %.091.ptr = getelementptr inbounds i8, ptr %35, i64 %.091.idx368
-  %182 = load i32, ptr %.091.ptr, align 4
+  %.046.idx368 = phi i64 [ 0, %157 ], [ %.046.add, %_ZN6casadi6MatrixIdED2Ev.exit285 ]
+  %.046.ptr = getelementptr inbounds i8, ptr %35, i64 %.046.idx368
+  %182 = load i32, ptr %.046.ptr, align 4
   invoke void @_ZN6casadi6MatrixIdEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %36)
           to label %183 unwind label %233
 
@@ -2026,8 +2026,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericT
 
 _ZN6casadi6MatrixIdED2Ev.exit285:                 ; preds = %._crit_edge, %554
   call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %180) #20
-  %.091.add = add nuw nsw i64 %.091.idx368, 4
-  %.not = icmp eq i64 %.091.add, 12
+  %.046.add = add nuw nsw i64 %.046.idx368, 4
+  %.not = icmp eq i64 %.046.add, 12
   br i1 %.not, label %556, label %181
 
 555:                                              ; preds = %.loopexit, %.loopexit.split-lp, %552, %272, %256

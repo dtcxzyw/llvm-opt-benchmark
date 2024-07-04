@@ -962,7 +962,7 @@ for.body.lr.ph.i74:                               ; preds = %if.then221
 
 for.body.i77:                                     ; preds = %for.body.lr.ph.i74, %for.inc.i82
   %indvars.iv.i78 = phi i64 [ %indvars.iv.next.i83, %for.inc.i82 ], [ 0, %for.body.lr.ph.i74 ]
-  %retval1.012.i = phi i32 [ %retval1.1.i, %for.inc.i82 ], [ 0, %for.body.lr.ph.i74 ]
+  %retval1.013.i = phi i32 [ %retval1.1.i, %for.inc.i82 ], [ 0, %for.body.lr.ph.i74 ]
   %91 = load ptr, ptr @the_index, align 8
   %arrayidx.i79 = getelementptr inbounds ptr, ptr %91, i64 %indvars.iv.i78
   %92 = load ptr, ptr %arrayidx.i79, align 8
@@ -1010,11 +1010,11 @@ if.end16.i:                                       ; preds = %if.end8.i, %if.end8
 
 if.end22.i:                                       ; preds = %if.end16.i
   %call25.i88 = call i32 @add_file_to_index(ptr noundef nonnull @the_index, ptr noundef nonnull %name.i.i86, i32 noundef %or.i76) #12
-  %or26.i = or i32 %call25.i88, %retval1.012.i
+  %or26.i = or i32 %call25.i88, %retval1.013.i
   br label %for.inc.i82
 
 for.inc.i82:                                      ; preds = %if.end22.i, %if.end16.i, %if.end8.i, %if.end.i81, %lor.lhs.false.i89, %land.lhs.true.i
-  %retval1.1.i = phi i32 [ %retval1.012.i, %if.end.i81 ], [ %or26.i, %if.end22.i ], [ %retval1.012.i, %if.end16.i ], [ %retval1.012.i, %land.lhs.true.i ], [ %retval1.012.i, %lor.lhs.false.i89 ], [ %retval1.012.i, %if.end8.i ]
+  %retval1.1.i = phi i32 [ %retval1.013.i, %if.end.i81 ], [ %or26.i, %if.end22.i ], [ %retval1.013.i, %if.end16.i ], [ %retval1.013.i, %land.lhs.true.i ], [ %retval1.013.i, %lor.lhs.false.i89 ], [ %retval1.013.i, %if.end8.i ]
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i78, 1
   %100 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %101 = zext i32 %100 to i64
@@ -1290,7 +1290,7 @@ for.body.lr.ph.i119:                              ; preds = %if.then237
 
 for.body.us14.i:                                  ; preds = %for.body.lr.ph.i119, %for.inc.us43.i
   %indvars.iv54.i = phi i64 [ %indvars.iv.next55.i, %for.inc.us43.i ], [ 0, %for.body.lr.ph.i119 ]
-  %ret.012.us16.i = phi i32 [ %ret.1.us44.i, %for.inc.us43.i ], [ 0, %for.body.lr.ph.i119 ]
+  %ret.013.us15.i = phi i32 [ %ret.1.us44.i, %for.inc.us43.i ], [ 0, %for.body.lr.ph.i119 ]
   %139 = load ptr, ptr @the_index, align 8
   %arrayidx.us18.i = getelementptr inbounds ptr, ptr %139, i64 %indvars.iv54.i
   %140 = load ptr, ptr %arrayidx.us18.i, align 8
@@ -1346,7 +1346,7 @@ _.exit.us39.i:                                    ; preds = %if.end3.i.us37.i, %
   br label %for.inc.us43.i
 
 for.inc.us43.i:                                   ; preds = %_.exit.us39.i, %if.end8.us29.i, %if.end.us28.i, %lor.lhs.false.us24.i, %land.lhs.true.us20.i
-  %ret.1.us44.i = phi i32 [ -1, %_.exit.us39.i ], [ %ret.012.us16.i, %if.end8.us29.i ], [ %ret.012.us16.i, %if.end.us28.i ], [ %ret.012.us16.i, %land.lhs.true.us20.i ], [ %ret.012.us16.i, %lor.lhs.false.us24.i ]
+  %ret.1.us44.i = phi i32 [ -1, %_.exit.us39.i ], [ %ret.013.us15.i, %if.end8.us29.i ], [ %ret.013.us15.i, %if.end.us28.i ], [ %ret.013.us15.i, %land.lhs.true.us20.i ], [ %ret.013.us15.i, %lor.lhs.false.us24.i ]
   %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
   %146 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %147 = zext i32 %146 to i64
@@ -1355,7 +1355,7 @@ for.inc.us43.i:                                   ; preds = %_.exit.us39.i, %if.
 
 for.body.i123:                                    ; preds = %for.body.lr.ph.i119, %for.inc.i138
   %indvars.iv.i124 = phi i64 [ %indvars.iv.next.i139, %for.inc.i138 ], [ 0, %for.body.lr.ph.i119 ]
-  %ret.012.i = phi i32 [ %ret.1.i, %for.inc.i138 ], [ 0, %for.body.lr.ph.i119 ]
+  %ret.013.i = phi i32 [ %ret.1.i, %for.inc.i138 ], [ 0, %for.body.lr.ph.i119 ]
   %148 = load ptr, ptr @the_index, align 8
   %arrayidx.i125 = getelementptr inbounds ptr, ptr %148, i64 %indvars.iv.i124
   %149 = load ptr, ptr %arrayidx.i125, align 8
@@ -1412,7 +1412,7 @@ _.exit.i136:                                      ; preds = %if.end3.i.i135, %if
   br label %for.inc.i138
 
 for.inc.i138:                                     ; preds = %_.exit.i136, %if.end8.i133, %if.end.i127, %lor.lhs.false.i146, %land.lhs.true.i142
-  %ret.1.i = phi i32 [ -1, %_.exit.i136 ], [ %ret.012.i, %if.end8.i133 ], [ %ret.012.i, %if.end.i127 ], [ %ret.012.i, %land.lhs.true.i142 ], [ %ret.012.i, %lor.lhs.false.i146 ]
+  %ret.1.i = phi i32 [ -1, %_.exit.i136 ], [ %ret.013.i, %if.end8.i133 ], [ %ret.013.i, %if.end.i127 ], [ %ret.013.i, %land.lhs.true.i142 ], [ %ret.013.i, %lor.lhs.false.i146 ]
   %indvars.iv.next.i139 = add nuw nsw i64 %indvars.iv.i124, 1
   %156 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %157 = zext i32 %156 to i64

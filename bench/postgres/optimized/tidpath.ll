@@ -41,7 +41,7 @@ define dso_local void @create_tidscan_paths(ptr noundef %0, ptr noundef %1) loca
 
 .lr.ph27.i:                                       ; preds = %.lr.ph.i, %IsTidRangeClause.exit.thread.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %IsTidRangeClause.exit.thread.i ], [ 0, %.lr.ph.i ]
-  %.0132125.i = phi ptr [ %.1.i, %IsTidRangeClause.exit.thread.i ], [ null, %.lr.ph.i ]
+  %.0132026.i = phi ptr [ %.1.i, %IsTidRangeClause.exit.thread.i ], [ null, %.lr.ph.i ]
   %20 = load ptr, ptr %17, align 8
   %21 = getelementptr %union.ListCell, ptr %20, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8
@@ -58,11 +58,11 @@ IsTidRangeClause.exit.i:                          ; preds = %.lr.ph27.i
   br i1 %or.cond5.i.i, label %29, label %IsTidRangeClause.exit.thread.i
 
 29:                                               ; preds = %IsTidRangeClause.exit.i
-  %30 = tail call ptr @lappend(ptr noundef %.0132125.i, ptr noundef nonnull %22) #3
+  %30 = tail call ptr @lappend(ptr noundef %.0132026.i, ptr noundef nonnull %22) #3
   br label %IsTidRangeClause.exit.thread.i
 
 IsTidRangeClause.exit.thread.i:                   ; preds = %29, %IsTidRangeClause.exit.i, %.lr.ph27.i
-  %.1.i = phi ptr [ %30, %29 ], [ %.0132125.i, %IsTidRangeClause.exit.i ], [ %.0132125.i, %.lr.ph27.i ]
+  %.1.i = phi ptr [ %30, %29 ], [ %.0132026.i, %IsTidRangeClause.exit.i ], [ %.0132026.i, %.lr.ph27.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %31 = load i32, ptr %16, align 4
   %32 = sext i32 %31 to i64

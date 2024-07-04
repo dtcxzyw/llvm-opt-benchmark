@@ -197,8 +197,8 @@ define range(i32 -2, 1) i32 @KINSetMAA(ptr noundef %0, i64 noundef %1) local_unn
   br label %12
 
 12:                                               ; preds = %8, %7, %4
-  %.0 = phi i32 [ -1, %4 ], [ -2, %7 ], [ 0, %8 ]
-  ret i32 %.0
+  %.09 = phi i32 [ -1, %4 ], [ -2, %7 ], [ 0, %8 ]
+  ret i32 %.09
 }
 
 ; Function Attrs: nounwind uwtable

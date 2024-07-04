@@ -1029,9 +1029,9 @@ define internal fastcc range(i32 17, 65536) i32 @dissect_nrlolsr_tc(ptr noundef 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
-  %.04652 = phi i32 [ %38, %30 ], [ %22, %.lr.ph.preheader ]
-  %.04751 = phi i32 [ %35, %30 ], [ %27, %.lr.ph.preheader ]
-  %.04850 = phi i32 [ %33, %30 ], [ %13, %.lr.ph.preheader ]
+  %.053 = phi i32 [ %38, %30 ], [ %22, %.lr.ph.preheader ]
+  %.04652 = phi i32 [ %35, %30 ], [ %27, %.lr.ph.preheader ]
+  %.04851 = phi i32 [ %33, %30 ], [ %13, %.lr.ph.preheader ]
   %28 = load i32, ptr %15, align 8
   switch i32 %28, label %.loopexit [
     i32 2, label %30
@@ -1043,16 +1043,16 @@ define internal fastcc range(i32 17, 65536) i32 @dissect_nrlolsr_tc(ptr noundef 
 
 30:                                               ; preds = %.lr.ph, %29
   %hf_olsr_neighbor6_addr.sink = phi ptr [ @hf_olsr_neighbor6_addr, %29 ], [ @hf_olsr_neighbor_addr, %.lr.ph ]
-  %.sink55 = phi i32 [ 16, %29 ], [ 4, %.lr.ph ]
+  %.sink56 = phi i32 [ 16, %29 ], [ 4, %.lr.ph ]
   %31 = load i32, ptr %hf_olsr_neighbor6_addr.sink, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef %.04850, i32 noundef %.sink55, i32 noundef 0) #3
-  %33 = add i32 %.04850, %.sink55
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef %.04851, i32 noundef %.sink56, i32 noundef 0) #3
+  %33 = add i32 %.04851, %.sink56
   %34 = load i32, ptr @hf_nrlolsr_f1, align 4
-  %35 = add i32 %.04751, 1
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef %.04751, i32 noundef 1, i32 noundef 0) #3
+  %35 = add i32 %.04652, 1
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef %.04652, i32 noundef 1, i32 noundef 0) #3
   %37 = load i32, ptr @hf_nrlolsr_f2, align 4
-  %38 = add nsw i32 %.04652, 1
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef %.04652, i32 noundef 1, i32 noundef 0) #3
+  %38 = add nsw i32 %.053, 1
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef %.053, i32 noundef 1, i32 noundef 0) #3
   %40 = icmp slt i32 %38, %24
   br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !16
 

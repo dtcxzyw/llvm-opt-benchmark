@@ -48,13 +48,13 @@ define hidden range(i32 -1, 2) i32 @rfc7468_open(ptr nocapture noundef %0, ptr n
 
 .lr.ph:                                           ; preds = %11, %16
   %22 = phi i64 [ %19, %16 ], [ %12, %11 ]
-  %.02225 = phi ptr [ %17, %16 ], [ %4, %11 ]
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %.02225, ptr noundef nonnull dereferenceable(11) @PREEB_BEGIN, i64 11)
+  %.025 = phi ptr [ %17, %16 ], [ %4, %11 ]
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %.025, ptr noundef nonnull dereferenceable(11) @PREEB_BEGIN, i64 11)
   %23 = icmp eq i32 %bcmp, 0
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %.lr.ph
-  %25 = call ptr @memchr(ptr noundef %.02225, i32 noundef 10, i64 noundef %22) #6
+  %25 = call ptr @memchr(ptr noundef %.025, i32 noundef 10, i64 noundef %22) #6
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %.loopexit, label %16
 
@@ -81,8 +81,8 @@ define hidden range(i32 -1, 2) i32 @rfc7468_open(ptr nocapture noundef %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %24, %11, %26, %30, %8
-  %.0 = phi i32 [ -1, %8 ], [ 1, %30 ], [ -1, %26 ], [ 0, %11 ], [ 0, %24 ], [ 0, %16 ]
-  ret i32 %.0
+  %.022 = phi i32 [ -1, %8 ], [ 1, %30 ], [ -1, %26 ], [ 0, %11 ], [ 0, %24 ], [ 0, %16 ]
+  ret i32 %.022
 }
 
 declare i32 @file_read(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -178,8 +178,8 @@ define internal fastcc range(i32 0, 2) i32 @rfc7468_read_impl(ptr noundef %0, pt
   br label %21
 
 21:                                               ; preds = %36, %20
-  %.021.i = phi ptr [ %16, %20 ], [ %37, %36 ]
-  %22 = ptrtoint ptr %.021.i to i64
+  %.0.i = phi ptr [ %16, %20 ], [ %37, %36 ]
+  %22 = ptrtoint ptr %.0.i to i64
   %23 = sub i64 %22, %13
   %24 = load i64, ptr %7, align 8
   %25 = load i64, ptr %9, align 8
@@ -197,7 +197,7 @@ define internal fastcc range(i32 0, 2) i32 @rfc7468_read_impl(ptr noundef %0, pt
 
 30:                                               ; preds = %21
   call void @ws_buffer_append(ptr noundef nonnull %2, ptr noundef nonnull %6, i64 noundef %23) #5
-  %31 = getelementptr i8, ptr %.021.i, i64 -1
+  %31 = getelementptr i8, ptr %.0.i, i64 -1
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 10
   br i1 %33, label %46, label %34

@@ -107,24 +107,24 @@ from_oct.exit.i:                                  ; preds = %29, %35, %41, %.cri
   br label %46
 
 46:                                               ; preds = %46, %from_oct.exit.i
-  %.025.idx37.i = phi i64 [ 0, %from_oct.exit.i ], [ %.025.add.i, %46 ]
-  %.02636.i = phi i32 [ 0, %from_oct.exit.i ], [ %49, %46 ]
-  %.025.ptr.i = getelementptr inbounds i8, ptr %11, i64 %.025.idx37.i
-  %.025.add.i = add nuw nsw i64 %.025.idx37.i, 1
-  %47 = load i8, ptr %.025.ptr.i, align 1
+  %.0.idx37.i = phi i64 [ 0, %from_oct.exit.i ], [ %.0.add.i, %46 ]
+  %.02436.i = phi i32 [ 0, %from_oct.exit.i ], [ %49, %46 ]
+  %.0.ptr.i = getelementptr inbounds i8, ptr %11, i64 %.0.idx37.i
+  %.0.add.i = add nuw nsw i64 %.0.idx37.i, 1
+  %47 = load i8, ptr %.0.ptr.i, align 1
   %48 = zext i8 %47 to i32
-  %49 = add nuw nsw i32 %.02636.i, %48
-  %exitcond.not.i = icmp eq i64 %.025.add.i, 512
+  %49 = add nuw nsw i32 %.02436.i, %48
+  %exitcond.not.i = icmp eq i64 %.0.add.i, 512
   br i1 %exitcond.not.i, label %.preheader.i, label %46
 
 .preheader.i:                                     ; preds = %46, %.preheader.i
-  %.02439.i = phi i64 [ %54, %.preheader.i ], [ 0, %46 ]
-  %.138.i = phi i32 [ %53, %.preheader.i ], [ %49, %46 ]
-  %50 = getelementptr inbounds [8 x i8], ptr %20, i64 0, i64 %.02439.i
+  %.139.i = phi i32 [ %53, %.preheader.i ], [ %49, %46 ]
+  %.02538.i = phi i64 [ %54, %.preheader.i ], [ 0, %46 ]
+  %50 = getelementptr inbounds [8 x i8], ptr %20, i64 0, i64 %.02538.i
   %51 = load i8, ptr %50, align 1
   %52 = sext i8 %51 to i32
-  %53 = sub nsw i32 %.138.i, %52
-  %54 = add nuw nsw i64 %.02439.i, 1
+  %53 = sub nsw i32 %.139.i, %52
+  %54 = add nuw nsw i64 %.02538.i, 1
   %exitcond48.not.i = icmp eq i64 %54, 8
   br i1 %exitcond48.not.i, label %55, label %.preheader.i
 
@@ -146,13 +146,13 @@ from_oct.exit.i:                                  ; preds = %29, %35, %41, %.cri
   br label %is_tar.exit
 
 is_tar.exit:                                      ; preds = %61, %57
-  %.0.i = phi i64 [ 2, %57 ], [ %64, %61 ]
+  %.026.i = phi i64 [ 2, %57 ], [ %64, %61 ]
   %65 = icmp eq i32 %5, 1024
   br i1 %65, label %is_tar.exit.thread, label %66
 
 66:                                               ; preds = %is_tar.exit
   %.not15 = icmp eq i32 %5, 0
-  %67 = getelementptr inbounds [3 x [32 x i8]], ptr @tartype, i64 0, i64 %.0.i
+  %67 = getelementptr inbounds [3 x [32 x i8]], ptr @tartype, i64 0, i64 %.026.i
   %68 = select i1 %.not15, ptr %67, ptr @.str.1
   %69 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %68) #7
   %70 = icmp eq i32 %69, -1

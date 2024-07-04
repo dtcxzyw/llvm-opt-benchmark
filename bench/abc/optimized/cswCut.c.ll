@@ -1088,9 +1088,9 @@ Csw_ObjPrepareCuts.exit:                          ; preds = %._crit_edge.i, %58
 
 92:                                               ; preds = %.lr.ph183, %.loopexit164
   %93 = phi i32 [ %76, %.lr.ph183 ], [ %352, %.loopexit164 ]
-  %.093182 = phi ptr [ %81, %.lr.ph183 ], [ %357, %.loopexit164 ]
-  %.096181 = phi i32 [ 0, %.lr.ph183 ], [ %353, %.loopexit164 ]
-  %94 = getelementptr inbounds i8, ptr %.093182, i64 23
+  %.094182 = phi i32 [ 0, %.lr.ph183 ], [ %353, %.loopexit164 ]
+  %.095181 = phi ptr [ %81, %.lr.ph183 ], [ %357, %.loopexit164 ]
+  %94 = getelementptr inbounds i8, ptr %.095181, i64 23
   %95 = load i8, ptr %94, align 1
   %96 = icmp sgt i8 %95, 0
   %97 = icmp sgt i32 %93, 0
@@ -1103,21 +1103,21 @@ Csw_ObjPrepareCuts.exit:                          ; preds = %._crit_edge.i, %58
   %98 = sext i32 %.val109 to i64
   %99 = getelementptr inbounds ptr, ptr %.val108, i64 %98
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %.093182, i64 12
+  %101 = getelementptr inbounds i8, ptr %.095181, i64 12
   br label %102
 
 102:                                              ; preds = %.lr.ph, %Csw_CutMerge.exit.thread
   %103 = phi i32 [ %93, %.lr.ph ], [ %350, %Csw_CutMerge.exit.thread ]
-  %.094180 = phi ptr [ %100, %.lr.ph ], [ %349, %Csw_CutMerge.exit.thread ]
-  %.095179 = phi i32 [ 0, %.lr.ph ], [ %345, %Csw_CutMerge.exit.thread ]
-  %104 = getelementptr inbounds i8, ptr %.094180, i64 23
+  %.093180 = phi i32 [ 0, %.lr.ph ], [ %345, %Csw_CutMerge.exit.thread ]
+  %.097179 = phi ptr [ %100, %.lr.ph ], [ %349, %Csw_CutMerge.exit.thread ]
+  %104 = getelementptr inbounds i8, ptr %.097179, i64 23
   %105 = load i8, ptr %104, align 1
   %106 = icmp sgt i8 %105, 0
   br i1 %106, label %107, label %Csw_CutMerge.exit.thread
 
 107:                                              ; preds = %102
   %108 = load i32, ptr %101, align 4
-  %109 = getelementptr inbounds i8, ptr %.094180, i64 12
+  %109 = getelementptr inbounds i8, ptr %.097179, i64 12
   %110 = load i32, ptr %109, align 4
   %111 = or i32 %110, %108
   %112 = and i32 %111, 1431655765
@@ -1216,12 +1216,12 @@ Abc_Clock.exit:                                   ; preds = %Csw_CutFindFree.exi
   br i1 %164, label %165, label %167
 
 165:                                              ; preds = %Abc_Clock.exit
-  %166 = call fastcc i32 @Csw_CutMergeOrdered(ptr noundef readonly %0, ptr noundef nonnull readonly %.094180, ptr noundef nonnull readonly %.093182, ptr noundef nonnull %.016.i)
+  %166 = call fastcc i32 @Csw_CutMergeOrdered(ptr noundef readonly %0, ptr noundef nonnull readonly %.097179, ptr noundef nonnull readonly %.095181, ptr noundef nonnull %.016.i)
   %.not13.i = icmp eq i32 %166, 0
   br i1 %.not13.i, label %Csw_CutMerge.exit.thread, label %169
 
 167:                                              ; preds = %Abc_Clock.exit
-  %168 = call fastcc i32 @Csw_CutMergeOrdered(ptr noundef readonly %0, ptr noundef nonnull readonly %.093182, ptr noundef nonnull readonly %.094180, ptr noundef nonnull %.016.i)
+  %168 = call fastcc i32 @Csw_CutMergeOrdered(ptr noundef readonly %0, ptr noundef nonnull readonly %.095181, ptr noundef nonnull readonly %.097179, ptr noundef nonnull %.016.i)
   %.not.i125 = icmp eq i32 %168, 0
   br i1 %.not.i125, label %Csw_CutMerge.exit.thread, label %169
 
@@ -1367,7 +1367,7 @@ Csw_CutFilter.exit:                               ; preds = %215
   %226 = ptrtoint ptr %.val120 to i64
   %227 = trunc i64 %226 to i32
   %228 = and i32 %227, 1
-  %229 = call ptr @Csw_CutComputeTruth(ptr noundef %0, ptr noundef %.016.i, ptr noundef %.093182, ptr noundef %.094180, i32 noundef %225, i32 noundef %228)
+  %229 = call ptr @Csw_CutComputeTruth(ptr noundef %0, ptr noundef %.016.i, ptr noundef %.095181, ptr noundef %.097179, i32 noundef %225, i32 noundef %228)
   %230 = getelementptr inbounds i8, ptr %.016.i, i64 23
   %231 = load i8, ptr %230, align 1
   %232 = load i32, ptr %83, align 8
@@ -1596,22 +1596,22 @@ Csw_CutFindCost.exit:                             ; preds = %323, %.lr.ph.i141, 
   br label %Csw_CutMerge.exit.thread
 
 Csw_CutMerge.exit.thread:                         ; preds = %167, %165, %Csw_CutFilter.exit, %102, %Csw_CutFindCost.exit, %107
-  %345 = add nuw nsw i32 %.095179, 1
-  %346 = getelementptr inbounds i8, ptr %.094180, i64 20
+  %345 = add nuw nsw i32 %.093180, 1
+  %346 = getelementptr inbounds i8, ptr %.097179, i64 20
   %347 = load i16, ptr %346, align 4
   %348 = sext i16 %347 to i64
-  %349 = getelementptr inbounds i8, ptr %.094180, i64 %348
+  %349 = getelementptr inbounds i8, ptr %.097179, i64 %348
   %350 = load i32, ptr %34, align 4
   %351 = icmp slt i32 %345, %350
   br i1 %351, label %102, label %.loopexit164, !llvm.loop !23
 
 .loopexit164:                                     ; preds = %Csw_CutMerge.exit.thread, %92
   %352 = phi i32 [ %93, %92 ], [ %350, %Csw_CutMerge.exit.thread ]
-  %353 = add nuw nsw i32 %.096181, 1
-  %354 = getelementptr inbounds i8, ptr %.093182, i64 20
+  %353 = add nuw nsw i32 %.094182, 1
+  %354 = getelementptr inbounds i8, ptr %.095181, i64 20
   %355 = load i16, ptr %354, align 4
   %356 = sext i16 %355 to i64
-  %357 = getelementptr inbounds i8, ptr %.093182, i64 %356
+  %357 = getelementptr inbounds i8, ptr %.095181, i64 %356
   %358 = icmp slt i32 %353, %352
   br i1 %358, label %92, label %._crit_edge, !llvm.loop !24
 
@@ -1652,24 +1652,24 @@ Abc_Clock.exit147:                                ; preds = %._crit_edge, %364
 .lr.ph186:                                        ; preds = %.lr.ph186.preheader, %378
   %373 = phi i32 [ %379, %378 ], [ %368, %.lr.ph186.preheader ]
   %.1185 = phi i32 [ %380, %378 ], [ 0, %.lr.ph186.preheader ]
-  %.097184 = phi ptr [ %384, %378 ], [ %372, %.lr.ph186.preheader ]
-  %374 = getelementptr inbounds i8, ptr %.097184, i64 23
+  %.096184 = phi ptr [ %384, %378 ], [ %372, %.lr.ph186.preheader ]
+  %374 = getelementptr inbounds i8, ptr %.096184, i64 23
   %375 = load i8, ptr %374, align 1
   %376 = icmp sgt i8 %375, 2
   br i1 %376, label %377, label %378
 
 377:                                              ; preds = %.lr.ph186
-  call void @Csw_TableCutInsert(ptr noundef nonnull %0, ptr noundef nonnull %.097184) #8
+  call void @Csw_TableCutInsert(ptr noundef nonnull %0, ptr noundef nonnull %.096184) #8
   %.pre200 = load i32, ptr %34, align 4
   br label %378
 
 378:                                              ; preds = %.lr.ph186, %377
   %379 = phi i32 [ %373, %.lr.ph186 ], [ %.pre200, %377 ]
   %380 = add nuw nsw i32 %.1185, 1
-  %381 = getelementptr inbounds i8, ptr %.097184, i64 20
+  %381 = getelementptr inbounds i8, ptr %.096184, i64 20
   %382 = load i16, ptr %381, align 4
   %383 = sext i16 %382 to i64
-  %384 = getelementptr inbounds i8, ptr %.097184, i64 %383
+  %384 = getelementptr inbounds i8, ptr %.096184, i64 %383
   %385 = icmp slt i32 %380, %379
   br i1 %385, label %.lr.ph186, label %._crit_edge187, !llvm.loop !25
 

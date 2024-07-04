@@ -770,18 +770,18 @@ do.body6:                                         ; preds = %if.end56, %while.bo
 do.end7:                                          ; preds = %while.body.lr.ph, %if.end56
   %13 = phi i64 [ %43, %if.end56 ], [ %12, %while.body.lr.ph ]
   %14 = phi i64 [ %42, %if.end56 ], [ %11, %while.body.lr.ph ]
-  %left.06073 = phi i64 [ %sub19, %if.end56 ], [ %size, %while.body.lr.ph ]
-  %offset.06172 = phi i64 [ %add, %if.end56 ], [ 0, %while.body.lr.ph ]
+  %offset.06073 = phi i64 [ %add, %if.end56 ], [ 0, %while.body.lr.ph ]
+  %left.06172 = phi i64 [ %sub19, %if.end56 ], [ %size, %while.body.lr.ph ]
   %15 = phi ptr [ %41, %if.end56 ], [ %.pre, %while.body.lr.ph ]
   %sub = sub i64 %13, %14
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %left.06073, i64 %sub)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %left.06172, i64 %sub)
   %data_ = getelementptr inbounds i8, ptr %15, i64 40
   %16 = load ptr, ptr %data_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %16, i64 %14
-  %add.ptr18 = getelementptr inbounds i8, ptr %data, i64 %offset.06172
+  %add.ptr18 = getelementptr inbounds i8, ptr %data, i64 %offset.06073
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr18, i64 %spec.select, i1 false)
-  %sub19 = sub i64 %left.06073, %spec.select
-  %add = add i64 %spec.select, %offset.06172
+  %sub19 = sub i64 %left.06172, %spec.select
+  %add = add i64 %spec.select, %offset.06073
   %17 = load i64, ptr %length_, align 8
   %add20 = add i64 %17, %spec.select
   store i64 %add20, ptr %length_, align 8

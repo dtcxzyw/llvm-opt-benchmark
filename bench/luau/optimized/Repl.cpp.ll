@@ -2036,13 +2036,13 @@ define dso_local void @_Z14getCompletionsP9lua_StateRKNSt7__cxx1112basic_stringI
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.preheader.i: ; preds = %3, %102
   %.055.i = phi i1 [ %104, %102 ], [ false, %3 ]
-  %.sroa.5.054.i = phi ptr [ %106, %102 ], [ %13, %3 ]
-  %.sroa.023.053.i = phi i64 [ %107, %102 ], [ %12, %3 ]
+  %.sroa.023.054.i = phi i64 [ %107, %102 ], [ %12, %3 ]
+  %.sroa.5.053.i = phi ptr [ %106, %102 ], [ %13, %3 ]
   br label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %17, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.preheader.i
   %.0914.i.i.i = phi i64 [ %18, %17 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.preheader.i ]
-  %15 = getelementptr inbounds i8, ptr %.sroa.5.054.i, i64 %.0914.i.i.i
+  %15 = getelementptr inbounds i8, ptr %.sroa.5.053.i, i64 %.0914.i.i.i
   %16 = load i8, ptr %15, align 1
   switch i8 %16, label %17 [
     i8 58, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.i
@@ -2051,19 +2051,19 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %17, %_ZNSt11char_tr
 
 17:                                               ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
   %18 = add i64 %.0914.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %18, %.sroa.023.053.i
+  %exitcond.not.i.i.i = icmp eq i64 %18, %.sroa.023.054.i
   br i1 %exitcond.not.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.thread.i, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, !llvm.loop !17
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.i: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
-  %19 = getelementptr inbounds i8, ptr %.sroa.5.054.i, i64 %.0914.i.i.i
-  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.023.053.i, i64 %.0914.i.i.i)
+  %19 = getelementptr inbounds i8, ptr %.sroa.5.053.i, i64 %.0914.i.i.i
+  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.023.054.i, i64 %.0914.i.i.i)
   %20 = icmp eq i64 %.0914.i.i.i, -1
   br i1 %20, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.thread.i, label %84
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.thread.i: ; preds = %102, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.i, %17, %3
-  %.sroa.5.049.i = phi ptr [ %13, %3 ], [ %.sroa.5.054.i, %17 ], [ %106, %102 ], [ %.sroa.5.054.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.i ]
+  %.sroa.5.051.i = phi ptr [ %13, %3 ], [ %.sroa.5.053.i, %17 ], [ %106, %102 ], [ %.sroa.5.053.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.i ]
   %.046.i = phi i1 [ false, %3 ], [ %.055.i, %17 ], [ %104, %102 ], [ %.055.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.i ]
-  %.sroa.speculated.i33.i = phi i64 [ 0, %3 ], [ %.sroa.023.053.i, %17 ], [ 0, %102 ], [ %.sroa.speculated.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.i ]
+  %.sroa.speculated.i33.i = phi i64 [ 0, %3 ], [ %.sroa.023.054.i, %17 ], [ 0, %102 ], [ %.sroa.speculated.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
@@ -2103,7 +2103,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.thread.i
   br i1 %or.cond.i.i, label %78, label %38
 
 38:                                               ; preds = %32
-  %39 = call noundef zeroext i1 @_ZN4Luau10startsWithESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %34, ptr %33, i64 %.sroa.speculated.i33.i, ptr %.sroa.5.049.i)
+  %39 = call noundef zeroext i1 @_ZN4Luau10startsWithESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %34, ptr %33, i64 %.sroa.speculated.i33.i, ptr %.sroa.5.051.i)
   br i1 %39, label %40, label %78
 
 40:                                               ; preds = %38
@@ -2269,7 +2269,7 @@ _ZL22completePartialMatchesP9lua_StatebRKNSt7__cxx1112basic_stringIcSt11char_tra
   br label %_ZL15completeIndexerP9lua_StateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt8functionIFvS8_S8_EE.exit
 
 84:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.i
-  tail call void @_Z15lua_pushlstringP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull %.sroa.5.054.i, i64 noundef %.sroa.speculated.i.i)
+  tail call void @_Z15lua_pushlstringP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull %.sroa.5.053.i, i64 noundef %.sroa.speculated.i.i)
   tail call void @_Z13lua_pushvalueP9lua_Statei(ptr noundef %0, i32 noundef -2)
   tail call void @_Z13lua_pushvalueP9lua_Statei(ptr noundef %0, i32 noundef -2)
   %85 = tail call noundef i32 @_Z10lua_rawgetP9lua_Statei(ptr noundef %0, i32 noundef -2)
@@ -2329,8 +2329,8 @@ _ZL22tryReplaceTopWithIndexP9lua_State.exit.thread.i: ; preds = %100
   %103 = load i8, ptr %19, align 1
   %104 = icmp eq i8 %103, 58
   %105 = add nuw i64 %.0914.i.i.i, 1
-  %106 = getelementptr inbounds i8, ptr %.sroa.5.054.i, i64 %105
-  %107 = sub i64 %.sroa.023.053.i, %105
+  %106 = getelementptr inbounds i8, ptr %.sroa.5.053.i, i64 %105
+  %107 = sub i64 %.sroa.023.054.i, %105
   %.not.i = icmp eq i64 %107, 0
   br i1 %.not.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.thread.i, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.preheader.i, !llvm.loop !21
 
@@ -2368,8 +2368,8 @@ sub_0:                                            ; preds = %sub_0.preheader, %1
   %indvars.iv = phi i64 [ 1, %sub_0.preheader ], [ %indvars.iv.next, %122 ]
   %.088197 = phi i32 [ 0, %sub_0.preheader ], [ %.189, %122 ]
   %.092196 = phi i1 [ false, %sub_0.preheader ], [ %.193, %122 ]
-  %.094195 = phi i1 [ false, %sub_0.preheader ], [ %.195, %122 ]
   %.096194 = phi i1 [ false, %sub_0.preheader ], [ %.197, %122 ]
+  %.098193 = phi i1 [ false, %sub_0.preheader ], [ %.199, %122 ]
   %18 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = load i8, ptr %19, align 1
@@ -2586,8 +2586,8 @@ sub_2137:                                         ; preds = %sub_1136
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 122:                                              ; preds = %89, %72, %.tail121, %46, %58, %84, %99, %116, %95, %88, %78, %71
+  %.199 = phi i1 [ %.098193, %58 ], [ %.098193, %71 ], [ %.098193, %78 ], [ %.098193, %84 ], [ %.098193, %88 ], [ %.098193, %95 ], [ %.098193, %99 ], [ %.098193, %116 ], [ true, %46 ], [ true, %.tail121 ], [ %.098193, %72 ], [ %.098193, %89 ]
   %.197 = phi i1 [ %.096194, %58 ], [ %.096194, %71 ], [ %.096194, %78 ], [ %.096194, %84 ], [ true, %88 ], [ %.096194, %95 ], [ %.096194, %99 ], [ %.096194, %116 ], [ %.096194, %46 ], [ %.096194, %.tail121 ], [ %.096194, %72 ], [ %.096194, %89 ]
-  %.195 = phi i1 [ %.094195, %58 ], [ %.094195, %71 ], [ %.094195, %78 ], [ %.094195, %84 ], [ %.094195, %88 ], [ %.094195, %95 ], [ %.094195, %99 ], [ %.094195, %116 ], [ true, %46 ], [ true, %.tail121 ], [ %.094195, %72 ], [ %.094195, %89 ]
   %.193 = phi i1 [ %.092196, %58 ], [ %.092196, %71 ], [ %.092196, %78 ], [ %.092196, %84 ], [ %.092196, %88 ], [ %.092196, %95 ], [ %.092196, %99 ], [ %.092196, %116 ], [ %.092196, %46 ], [ %.092196, %.tail121 ], [ %.092196, %72 ], [ true, %89 ]
   %.189 = phi i32 [ %.088197, %58 ], [ %.088197, %71 ], [ %80, %78 ], [ %.088197, %84 ], [ %.088197, %88 ], [ %.088197, %95 ], [ %.088197, %99 ], [ %.088197, %116 ], [ %.088197, %46 ], [ %.088197, %.tail121 ], [ 10000, %72 ], [ %.088197, %89 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2595,14 +2595,14 @@ sub_2137:                                         ; preds = %sub_1136
   br i1 %exitcond.not, label %.loopexit139, label %sub_0, !llvm.loop !22
 
 .loopexit139:                                     ; preds = %122, %113
-  %.096182 = phi i1 [ %.096194, %113 ], [ %.197, %122 ]
-  %.094176 = phi i1 [ %.094195, %113 ], [ %.195, %122 ]
+  %.098187 = phi i1 [ %.098193, %113 ], [ %.199, %122 ]
+  %.096181 = phi i1 [ %.096194, %113 ], [ %.197, %122 ]
   %.092170 = phi i1 [ %.092196, %113 ], [ %.193, %122 ]
   %.088164 = phi i32 [ %.088197, %113 ], [ %.189, %122 ]
-  %.099 = phi i32 [ %115, %113 ], [ %0, %122 ]
-  %123 = sub nsw i32 %0, %.099
+  %.095 = phi i32 [ %115, %113 ], [ %0, %122 ]
+  %123 = sub nsw i32 %0, %.095
   store i32 %123, ptr @_ZL12program_argc, align 4
-  %124 = sext i32 %.099 to i64
+  %124 = sext i32 %.095 to i64
   %125 = getelementptr inbounds ptr, ptr %1, i64 %124
   store ptr %125, ptr @program_argv, align 8
   %126 = load i8, ptr @_ZN5FFlag20DebugLuauTimeTracingE, align 8
@@ -2624,7 +2624,7 @@ sub_2137:                                         ; preds = %sub_1136
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 135:                                              ; preds = %.loopexit139
-  br i1 %.096182, label %136, label %.thread
+  br i1 %.096181, label %136, label %.thread
 
 136:                                              ; preds = %135
   %137 = tail call i32 @getpid() #22
@@ -2634,7 +2634,7 @@ sub_2137:                                         ; preds = %sub_1136
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit139.thread, %136, %135
-  %.094176250259 = phi i1 [ %.094176, %136 ], [ %.094176, %135 ], [ false, %.loopexit139.thread ]
+  %.098187249259 = phi i1 [ %.098187, %136 ], [ %.098187, %135 ], [ false, %.loopexit139.thread ]
   %.092170251258 = phi i1 [ %.092170, %136 ], [ %.092170, %135 ], [ false, %.loopexit139.thread ]
   %.088164252257 = phi i32 [ %.088164, %136 ], [ %.088164, %135 ], [ 0, %.loopexit139.thread ]
   %.b103 = load i1, ptr @_ZL7codegen, align 1
@@ -2835,7 +2835,7 @@ _Z10setupStateP9lua_State.exit:                   ; preds = %.noexc110
   %201 = icmp eq i64 %.086202, %200
   %202 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %199, i64 %.086202
   %203 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %202) #22
-  %204 = select i1 %.094176250259, i1 %201, i1 false
+  %204 = select i1 %.098187249259, i1 %201, i1 false
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)

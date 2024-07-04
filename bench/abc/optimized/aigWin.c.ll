@@ -18,8 +18,8 @@ define range(i32 0, 2) i32 @Aig_ManFindCut_int(ptr nocapture noundef %0, ptr noc
 
 8:                                                ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %.03783 = phi i32 [ 100, %.lr.ph ], [ %.170, %.thread ]
-  %.03882 = phi ptr [ null, %.lr.ph ], [ %.13969, %.thread ]
+  %.03683 = phi i32 [ 100, %.lr.ph ], [ %.170, %.thread ]
+  %.03782 = phi ptr [ null, %.lr.ph ], [ %.13869, %.thread ]
   %9 = getelementptr inbounds ptr, ptr %.val44, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 24
@@ -62,18 +62,18 @@ define range(i32 0, 2) i32 @Aig_ManFindCut_int(ptr nocapture noundef %0, ptr noc
 
 Aig_NodeGetLeafCostOne.exit:                      ; preds = %8, %13, %32
   %.0.i = phi i32 [ 999, %8 ], [ %30, %13 ], [ %..i, %32 ]
-  %36 = icmp sgt i32 %.03783, %.0.i
+  %36 = icmp sgt i32 %.03683, %.0.i
   br i1 %36, label %49, label %37
 
 37:                                               ; preds = %Aig_NodeGetLeafCostOne.exit
-  %38 = icmp eq i32 %.03783, %.0.i
+  %38 = icmp eq i32 %.03683, %.0.i
   br i1 %38, label %39, label %.thread
 
 39:                                               ; preds = %37
   %40 = lshr i64 %.val.i, 32
   %41 = trunc nuw i64 %40 to i32
   %42 = and i32 %41, 16777215
-  %43 = getelementptr inbounds i8, ptr %.03882, i64 24
+  %43 = getelementptr inbounds i8, ptr %.03782, i64 24
   %44 = load i64, ptr %43, align 8
   %45 = lshr i64 %44, 32
   %46 = trunc nuw i64 %45 to i32
@@ -86,19 +86,19 @@ Aig_NodeGetLeafCostOne.exit:                      ; preds = %8, %13, %32
   br i1 %50, label %.critedge.thread, label %.thread
 
 .thread:                                          ; preds = %37, %39, %49
-  %.170 = phi i32 [ %.0.i, %49 ], [ %.03783, %39 ], [ %.03783, %37 ]
-  %.13969 = phi ptr [ %10, %49 ], [ %.03882, %39 ], [ %.03882, %37 ]
+  %.170 = phi i32 [ %.0.i, %49 ], [ %.03683, %39 ], [ %.03683, %37 ]
+  %.13869 = phi ptr [ %10, %49 ], [ %.03782, %39 ], [ %.03782, %37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !4
 
 .critedge:                                        ; preds = %.thread
-  %51 = icmp eq ptr %.13969, null
+  %51 = icmp eq ptr %.13869, null
   br i1 %51, label %.critedge.thread90, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %49, %.critedge
   %.274 = phi i32 [ %.170, %.critedge ], [ 0, %49 ]
-  %.24073 = phi ptr [ %.13969, %.critedge ], [ %10, %49 ]
+  %.23973 = phi ptr [ %.13869, %.critedge ], [ %10, %49 ]
   %52 = add nsw i32 %.val, -1
   %53 = add nsw i32 %52, %.274
   %54 = icmp sgt i32 %53, %2
@@ -120,7 +120,7 @@ Aig_NodeGetLeafCostOne.exit:                      ; preds = %8, %13, %32
   %63 = load ptr, ptr %56, align 8
   %64 = getelementptr inbounds ptr, ptr %63, i64 %62
   %65 = load ptr, ptr %64, align 8
-  %66 = icmp eq ptr %65, %.24073
+  %66 = icmp eq ptr %65, %.23973
   br i1 %66, label %67, label %58, !llvm.loop !6
 
 67:                                               ; preds = %61, %58
@@ -152,9 +152,9 @@ Vec_PtrRemove.exit.loopexit:                      ; preds = %70
 Vec_PtrRemove.exit:                               ; preds = %Vec_PtrRemove.exit.loopexit, %67
   %.pre-phi = phi i32 [ %.pre, %Vec_PtrRemove.exit.loopexit ], [ %52, %67 ]
   store i32 %.pre-phi, ptr %5, align 4
-  %78 = getelementptr i8, ptr %.24073, i64 8
-  %.240.val = load ptr, ptr %78, align 8
-  %79 = ptrtoint ptr %.240.val to i64
+  %78 = getelementptr i8, ptr %.23973, i64 8
+  %.239.val = load ptr, ptr %78, align 8
+  %79 = ptrtoint ptr %.239.val to i64
   %80 = and i64 %79, -2
   %81 = inttoptr i64 %80 to ptr
   %82 = getelementptr inbounds i8, ptr %81, i64 24
@@ -297,9 +297,9 @@ Vec_PtrPush.exit52:                               ; preds = %.Vec_PtrGrow.exit11
   br label %146
 
 146:                                              ; preds = %Vec_PtrPush.exit52, %Vec_PtrRemove.exit
-  %147 = getelementptr i8, ptr %.24073, i64 16
-  %.240.val45 = load ptr, ptr %147, align 8
-  %148 = ptrtoint ptr %.240.val45 to i64
+  %147 = getelementptr i8, ptr %.23973, i64 16
+  %.239.val45 = load ptr, ptr %147, align 8
+  %148 = ptrtoint ptr %.239.val45 to i64
   %149 = and i64 %148, -2
   %150 = inttoptr i64 %149 to ptr
   %151 = getelementptr inbounds i8, ptr %150, i64 24
@@ -442,8 +442,8 @@ Vec_PtrPush.exit66:                               ; preds = %.Vec_PtrGrow.exit11
   br label %.critedge.thread90
 
 .critedge.thread90:                               ; preds = %4, %146, %Vec_PtrPush.exit66, %.critedge.thread, %.critedge
-  %.036 = phi i32 [ 0, %.critedge ], [ 0, %.critedge.thread ], [ 1, %Vec_PtrPush.exit66 ], [ 1, %146 ], [ 0, %4 ]
-  ret i32 %.036
+  %.040 = phi i32 [ 0, %.critedge ], [ 0, %.critedge.thread ], [ 1, %Vec_PtrPush.exit66 ], [ 1, %146 ], [ 0, %4 ]
+  ret i32 %.040
 }
 
 ; Function Attrs: nounwind uwtable

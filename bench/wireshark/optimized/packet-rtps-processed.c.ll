@@ -144,9 +144,9 @@ define internal i32 @dissect_rtps_processed(ptr noundef %0, ptr noundef %1, ptr 
   br label %55
 
 55:                                               ; preds = %53, %51
-  %.0121 = phi i32 [ %52, %51 ], [ %54, %53 ]
-  %.0120 = phi ptr [ %38, %51 ], [ null, %53 ]
-  %56 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.0121, i32 noundef 0) #4
+  %.0121 = phi ptr [ %38, %51 ], [ null, %53 ]
+  %.0120 = phi i32 [ %52, %51 ], [ %54, %53 ]
+  %56 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.0120, i32 noundef 0) #4
   %57 = icmp eq i16 %56, 194
   br i1 %57, label %58, label %117
 
@@ -154,26 +154,26 @@ define internal i32 @dissect_rtps_processed(ptr noundef %0, ptr noundef %1, ptr 
   %59 = load i8, ptr %10, align 2
   %.not133 = icmp eq i8 %59, 0
   %60 = select i1 %.not133, ptr @.str.13, ptr @.str.12
-  %61 = add nuw nsw i32 %.0121, 2
+  %61 = add nuw nsw i32 %.0120, 2
   %62 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %61, i32 noundef 0) #4
-  %63 = icmp eq ptr %.0120, null
+  %63 = icmp eq ptr %.0121, null
   br i1 %63, label %64, label %67
 
 64:                                               ; preds = %58
   %65 = load i32, ptr @ett_rtpsproc_security, align 4
-  %66 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %31, ptr noundef %0, i32 noundef %.0121, i32 noundef 0, i32 noundef %65, ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %13) #4
+  %66 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %31, ptr noundef %0, i32 noundef %.0120, i32 noundef 0, i32 noundef %65, ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %13) #4
   br label %67
 
 67:                                               ; preds = %64, %58
-  %.1 = phi ptr [ %66, %64 ], [ %.0120, %58 ]
+  %.1 = phi ptr [ %66, %64 ], [ %.0121, %58 ]
   %68 = load i32, ptr @ett_rtpsproc_advanced_frame1, align 4
-  %69 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.1, ptr noundef %0, i32 noundef %.0121, i32 noundef 0, i32 noundef %68, ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %60) #4
+  %69 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.1, ptr noundef %0, i32 noundef %.0120, i32 noundef 0, i32 noundef %68, ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %60) #4
   %70 = load i32, ptr @hf_rtpsproc_param_id, align 4
-  %71 = tail call ptr @proto_tree_add_uint(ptr noundef %69, i32 noundef %70, ptr noundef %0, i32 noundef %.0121, i32 noundef 2, i32 noundef 194) #4
+  %71 = tail call ptr @proto_tree_add_uint(ptr noundef %69, i32 noundef %70, ptr noundef %0, i32 noundef %.0120, i32 noundef 2, i32 noundef 194) #4
   %72 = load i32, ptr @hf_rtpsproc_param_length, align 4
   %73 = zext i16 %62 to i32
   %74 = tail call ptr @proto_tree_add_uint(ptr noundef %69, i32 noundef %72, ptr noundef %0, i32 noundef %61, i32 noundef 2, i32 noundef %73) #4
-  %75 = add nuw nsw i32 %.0121, 4
+  %75 = add nuw nsw i32 %.0120, 4
   %76 = load i8, ptr %10, align 2
   %.not134 = icmp eq i8 %76, 0
   br i1 %.not134, label %112, label %77
@@ -198,7 +198,7 @@ define internal i32 @dissect_rtps_processed(ptr noundef %0, ptr noundef %1, ptr 
   br label %87
 
 87:                                               ; preds = %80, %82, %77
-  %.0119 = phi ptr [ %85, %82 ], [ null, %80 ], [ null, %77 ]
+  %.0 = phi ptr [ %85, %82 ], [ null, %80 ], [ null, %77 ]
   %88 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %75, i32 noundef %73) #4
   call void @dissect_rtps_submessages(ptr noundef %88, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %69, i16 noundef zeroext %14, i16 noundef zeroext %15, ptr noundef nonnull %5) #4
   %89 = load ptr, ptr %78, align 8
@@ -214,7 +214,7 @@ define internal i32 @dissect_rtps_processed(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not139, label %117, label %95
 
 95:                                               ; preds = %90
-  %96 = call ptr @wmem_strbuf_get_str(ptr noundef %.0119) #4
+  %96 = call ptr @wmem_strbuf_get_str(ptr noundef %.0) #4
   %97 = call noalias ptr @g_strdup(ptr noundef nonnull %91) #4
   %98 = call ptr @strtok(ptr noundef %97, ptr noundef nonnull @.str.16) #4
   %99 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %96, ptr noundef nonnull dereferenceable(1) @.str.15) #5
@@ -222,15 +222,15 @@ define internal i32 @dissect_rtps_processed(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not25.i, label %get_new_colinfo_w_submessages.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %95, %.lr.ph.i
-  %.027.i = phi i64 [ %105, %.lr.ph.i ], [ 0, %95 ]
-  %.02426.i = phi ptr [ %107, %.lr.ph.i ], [ %99, %95 ]
-  %100 = getelementptr i8, ptr %96, i64 %.027.i
-  %101 = ptrtoint ptr %.02426.i to i64
+  %.027.i = phi ptr [ %107, %.lr.ph.i ], [ %99, %95 ]
+  %.02426.i = phi i64 [ %105, %.lr.ph.i ], [ 0, %95 ]
+  %100 = getelementptr i8, ptr %96, i64 %.02426.i
+  %101 = ptrtoint ptr %.027.i to i64
   %102 = ptrtoint ptr %100 to i64
   %103 = sub i64 %101, %102
   call void @wmem_strbuf_append_len(ptr noundef %94, ptr noundef %100, i64 noundef %103) #4
   call void @wmem_strbuf_append(ptr noundef %94, ptr noundef %98) #4
-  %104 = add i64 %.027.i, 33
+  %104 = add i64 %.02426.i, 33
   %105 = add i64 %104, %103
   %106 = getelementptr i8, ptr %96, i64 %105
   %107 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %106, ptr noundef nonnull dereferenceable(1) @.str.15) #5
@@ -238,8 +238,8 @@ define internal i32 @dissect_rtps_processed(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not.i, label %get_new_colinfo_w_submessages.exit, label %.lr.ph.i, !llvm.loop !4
 
 get_new_colinfo_w_submessages.exit:               ; preds = %.lr.ph.i, %95
-  %.0.lcssa.i = phi i64 [ 0, %95 ], [ %105, %.lr.ph.i ]
-  %108 = getelementptr i8, ptr %96, i64 %.0.lcssa.i
+  %.024.lcssa.i = phi i64 [ 0, %95 ], [ %105, %.lr.ph.i ]
+  %108 = getelementptr i8, ptr %96, i64 %.024.lcssa.i
   call void @wmem_strbuf_append(ptr noundef %94, ptr noundef %108) #4
   %109 = load ptr, ptr %78, align 8
   call void @col_clear(ptr noundef %109, i32 noundef 25) #4
@@ -263,8 +263,8 @@ get_new_colinfo_w_submessages.exit:               ; preds = %.lr.ph.i, %95
   br label %119
 
 119:                                              ; preds = %4, %117
-  %.0 = phi i32 [ %118, %117 ], [ 0, %4 ]
-  ret i32 %.0
+  %.0119 = phi i32 [ %118, %117 ], [ 0, %4 ]
+  ret i32 %.0119
 }
 
 declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

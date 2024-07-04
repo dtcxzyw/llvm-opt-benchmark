@@ -113,8 +113,8 @@ define dso_local ptr @GetConfFilesInDir(ptr noundef %0, ptr noundef %1, i32 noun
 
 .lr.ph:                                           ; preds = %26, %.outer
   %29 = phi ptr [ %61, %.outer ], [ %28, %26 ]
-  %.061.ph86 = phi i32 [ %.2, %.outer ], [ 32, %26 ]
-  %.062.ph85 = phi ptr [ %.264, %.outer ], [ %27, %26 ]
+  %.0.ph86 = phi i32 [ %.2, %.outer ], [ 32, %26 ]
+  %.061.ph85 = phi ptr [ %.263, %.outer ], [ %27, %26 ]
   br label %30
 
 30:                                               ; preds = %.lr.ph, %.backedge
@@ -153,28 +153,28 @@ define dso_local ptr @GetConfFilesInDir(ptr noundef %0, ptr noundef %1, i32 noun
 45:                                               ; preds = %43
   %46 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.7, ptr noundef nonnull %6) #4
   store ptr %46, ptr %4, align 8
-  call void @pfree(ptr noundef %.062.ph85) #4
+  call void @pfree(ptr noundef %.061.ph85) #4
   br label %66
 
 47:                                               ; preds = %43
   %48 = load i32, ptr %3, align 4
-  %.not75 = icmp slt i32 %48, %.061.ph86
+  %.not75 = icmp slt i32 %48, %.0.ph86
   br i1 %.not75, label %54, label %49
 
 49:                                               ; preds = %47
-  %50 = add i32 %.061.ph86, 32
+  %50 = add i32 %.0.ph86, 32
   %51 = sext i32 %50 to i64
   %52 = shl nsw i64 %51, 3
-  %53 = call ptr @repalloc(ptr noundef %.062.ph85, i64 noundef %52) #4
+  %53 = call ptr @repalloc(ptr noundef %.061.ph85, i64 noundef %52) #4
   br label %54
 
 54:                                               ; preds = %49, %47
-  %.163 = phi ptr [ %53, %49 ], [ %.062.ph85, %47 ]
-  %.1 = phi i32 [ %50, %49 ], [ %.061.ph86, %47 ]
+  %.162 = phi ptr [ %53, %49 ], [ %.061.ph85, %47 ]
+  %.1 = phi i32 [ %50, %49 ], [ %.0.ph86, %47 ]
   %55 = call ptr @pstrdup(ptr noundef nonnull %6) #4
   %56 = load i32, ptr %3, align 4
   %57 = sext i32 %56 to i64
-  %58 = getelementptr ptr, ptr %.163, i64 %57
+  %58 = getelementptr ptr, ptr %.162, i64 %57
   store ptr %55, ptr %58, align 8
   %59 = load i32, ptr %3, align 4
   %60 = add i32 %59, 1
@@ -182,25 +182,25 @@ define dso_local ptr @GetConfFilesInDir(ptr noundef %0, ptr noundef %1, i32 noun
   br label %.outer
 
 .outer:                                           ; preds = %43, %54
-  %.264 = phi ptr [ %.163, %54 ], [ %.062.ph85, %43 ]
-  %.2 = phi i32 [ %.1, %54 ], [ %.061.ph86, %43 ]
+  %.263 = phi ptr [ %.162, %54 ], [ %.061.ph85, %43 ]
+  %.2 = phi i32 [ %.1, %54 ], [ %.0.ph86, %43 ]
   %61 = call ptr @ReadDir(ptr noundef nonnull %18, ptr noundef %17) #4
   %.not82 = icmp eq ptr %61, null
   br i1 %.not82, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !5
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %26
-  %.062.ph.lcssa81 = phi ptr [ %27, %26 ], [ %.062.ph85, %.backedge ], [ %.264, %.outer ]
+  %.061.ph.lcssa81 = phi ptr [ %27, %26 ], [ %.061.ph85, %.backedge ], [ %.263, %.outer ]
   %62 = load i32, ptr %3, align 4
   %63 = icmp sgt i32 %62, 0
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %.outer._crit_edge
   %65 = zext nneg i32 %62 to i64
-  call void @pg_qsort(ptr noundef %.062.ph.lcssa81, i64 noundef %65, i64 noundef 8, ptr noundef nonnull @pg_qsort_strcmp) #4
+  call void @pg_qsort(ptr noundef %.061.ph.lcssa81, i64 noundef %65, i64 noundef 8, ptr noundef nonnull @pg_qsort_strcmp) #4
   br label %66
 
 66:                                               ; preds = %45, %64, %.outer._crit_edge
-  %.3 = phi ptr [ null, %45 ], [ %.062.ph.lcssa81, %64 ], [ %.062.ph.lcssa81, %.outer._crit_edge ]
+  %.3 = phi ptr [ null, %45 ], [ %.061.ph.lcssa81, %64 ], [ %.061.ph.lcssa81, %.outer._crit_edge ]
   %67 = call i32 @FreeDir(ptr noundef nonnull %18) #4
   br label %68
 
@@ -210,8 +210,8 @@ define dso_local ptr @GetConfFilesInDir(ptr noundef %0, ptr noundef %1, i32 noun
   br label %69
 
 69:                                               ; preds = %68, %15
-  %.0 = phi ptr [ null, %15 ], [ %.378, %68 ]
-  ret ptr %.0
+  %.064 = phi ptr [ null, %15 ], [ %.378, %68 ]
+  ret ptr %.064
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

@@ -267,7 +267,7 @@ if.else:                                          ; preds = %entry
 
 for.body.i:                                       ; preds = %if.else, %if.end.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end.i ], [ 1, %if.else ]
-  %p.015.i = phi ptr [ %2, %if.end.i ], [ %call2.i, %if.else ]
+  %p.014.i = phi ptr [ %2, %if.end.i ], [ %call2.i, %if.else ]
   %cmp.i = icmp eq i64 %indvars.iv.i, 1024
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -276,12 +276,12 @@ if.then.i:                                        ; preds = %for.body.i
   br label %if.end
 
 if.end.i:                                         ; preds = %for.body.i
-  %index.i = getelementptr inbounds i8, ptr %p.015.i, i64 148
+  %index.i = getelementptr inbounds i8, ptr %p.014.i, i64 148
   %1 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %1, ptr %index.i, align 4
   %arrayidx5.i = getelementptr inbounds ptr, ptr %call1.i, i64 %indvars.iv.i
-  store ptr %p.015.i, ptr %arrayidx5.i, align 8
-  %next.i = getelementptr inbounds i8, ptr %p.015.i, i64 16
+  store ptr %p.014.i, ptr %arrayidx5.i, align 8
+  %next.i = getelementptr inbounds i8, ptr %p.014.i, i64 16
   %2 = load ptr, ptr %next.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %tobool.not.i = icmp eq ptr %2, null
@@ -495,9 +495,9 @@ for.body.preheader.i:                             ; preds = %if.then57
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end12.i, %for.body.preheader.i
-  %i.016.i = phi i32 [ %add.i, %if.end12.i ], [ 0, %for.body.preheader.i ]
-  %entry1.015.i = phi ptr [ %incdec.ptr.i, %if.end12.i ], [ %23, %for.body.preheader.i ]
-  %call10.i = call fastcc i32 @locate_object_entry_hash(ptr noundef nonnull %pdata, ptr noundef %entry1.015.i, ptr noundef nonnull %found.i)
+  %entry1.016.i = phi ptr [ %incdec.ptr.i, %if.end12.i ], [ %23, %for.body.preheader.i ]
+  %i.015.i = phi i32 [ %add.i, %if.end12.i ], [ 0, %for.body.preheader.i ]
+  %call10.i = call fastcc i32 @locate_object_entry_hash(ptr noundef nonnull %pdata, ptr noundef %entry1.016.i, ptr noundef nonnull %found.i)
   %24 = load i32, ptr %found.i, align 4
   %tobool.not.i = icmp eq i32 %24, 0
   br i1 %tobool.not.i, label %if.end12.i, label %if.then11.i
@@ -507,12 +507,12 @@ if.then11.i:                                      ; preds = %for.body.i
   unreachable
 
 if.end12.i:                                       ; preds = %for.body.i
-  %add.i = add nuw i32 %i.016.i, 1
+  %add.i = add nuw i32 %i.015.i, 1
   %25 = load ptr, ptr %index.i, align 8
   %idxprom.i = zext i32 %call10.i to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %25, i64 %idxprom.i
   store i32 %add.i, ptr %arrayidx.i, align 4
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %entry1.015.i, i64 96
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %entry1.016.i, i64 96
   %26 = load i32, ptr %nr_objects, align 8
   %cmp8.i = icmp ult i32 %add.i, %26
   br i1 %cmp8.i, label %for.body.i, label %rehash_objects.exit, !llvm.loop !9

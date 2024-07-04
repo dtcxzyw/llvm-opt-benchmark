@@ -179,15 +179,15 @@ pkcs12_pbe_derive_key_iv.exit:                    ; preds = %pkcs12_parse_pbe_pa
   br label %87
 
 87:                                               ; preds = %81, %79, %75, %72, %70, %83
-  %.022 = phi i32 [ %71, %70 ], [ %74, %72 ], [ %78, %75 ], [ %80, %79 ], [ %82, %81 ], [ %spec.store.select, %83 ]
+  %.0 = phi i32 [ %71, %70 ], [ %74, %72 ], [ %78, %75 ], [ %80, %79 ], [ %82, %81 ], [ %spec.store.select, %83 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %13, i64 noundef 32) #6
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %14, i64 noundef 16) #6
   call void @mbedtls_cipher_free(ptr noundef nonnull %15) #6
   br label %88
 
 88:                                               ; preds = %pkcs12_pbe_derive_key_iv.exit.thread, %pkcs12_pbe_derive_key_iv.exit, %19, %9, %87
-  %.0 = phi i32 [ %.022, %87 ], [ -8064, %9 ], [ -7936, %19 ], [ %.022.i, %pkcs12_pbe_derive_key_iv.exit ], [ %.022.i.ph, %pkcs12_pbe_derive_key_iv.exit.thread ]
-  ret i32 %.0
+  %.022 = phi i32 [ %.0, %87 ], [ -8064, %9 ], [ -7936, %19 ], [ %.022.i, %pkcs12_pbe_derive_key_iv.exit ], [ %.022.i.ph, %pkcs12_pbe_derive_key_iv.exit.thread ]
+  ret i32 %.022
 }
 
 declare ptr @mbedtls_cipher_info_from_type(i32 noundef) local_unnamed_addr #1
@@ -298,8 +298,8 @@ pkcs12_fill_buffer.exit121:                       ; preds = %.preheader.i117, %p
   br i1 %.not106161, label %.lr.ph164, label %.loopexit132
 
 .lr.ph164:                                        ; preds = %.lr.ph142, %.loopexit
-  %.090140163 = phi ptr [ %62, %.loopexit ], [ %0, %.lr.ph142 ]
-  %.086141162 = phi i64 [ %61, %.loopexit ], [ %1, %.lr.ph142 ]
+  %.090140163 = phi i64 [ %61, %.loopexit ], [ %1, %.lr.ph142 ]
+  %.088141162 = phi ptr [ %62, %.loopexit ], [ %0, %.lr.ph142 ]
   %48 = call i32 @mbedtls_md_update(ptr noundef nonnull %15, ptr noundef nonnull %10, i64 noundef %.) #6
   %.not107 = icmp eq i32 %48, 0
   br i1 %.not107, label %49, label %.loopexit132
@@ -329,21 +329,21 @@ pkcs12_fill_buffer.exit121:                       ; preds = %.preheader.i117, %p
   br i1 %46, label %.lr.ph, label %._crit_edge
 
 57:                                               ; preds = %.lr.ph
-  %58 = add nuw i64 %.084134, 1
+  %58 = add nuw i64 %.0134, 1
   %exitcond.not = icmp eq i64 %58, %45
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.preheader131, %57
-  %.084134 = phi i64 [ %58, %57 ], [ 1, %.preheader131 ]
+  %.0134 = phi i64 [ %58, %57 ], [ 1, %.preheader131 ]
   %59 = call i32 @mbedtls_md(ptr noundef nonnull %30, ptr noundef nonnull %14, i64 noundef %36, ptr noundef nonnull %14) #6
   %.not115 = icmp eq i32 %59, 0
   br i1 %.not115, label %57, label %.loopexit132
 
 ._crit_edge:                                      ; preds = %57, %.preheader131
-  %60 = call i64 @llvm.umin.i64(i64 %.086141162, i64 %36)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.090140163, ptr nonnull align 16 %14, i64 %60, i1 false)
-  %61 = sub i64 %.086141162, %60
-  %62 = getelementptr inbounds i8, ptr %.090140163, i64 %60
+  %60 = call i64 @llvm.umin.i64(i64 %.090140163, i64 %36)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.088141162, ptr nonnull align 16 %14, i64 %60, i1 false)
+  %61 = sub i64 %.090140163, %60
+  %62 = getelementptr inbounds i8, ptr %.088141162, i64 %60
   %63 = icmp eq i64 %61, 0
   br i1 %63, label %.loopexit132, label %64
 
@@ -382,7 +382,7 @@ pkcs12_fill_buffer.exit127:                       ; preds = %pkcs12_fill_buffer.
 
 .preheader129:                                    ; preds = %73, %.preheader129
   %.2136 = phi i64 [ %74, %.preheader129 ], [ %., %73 ]
-  %.088135 = phi i32 [ %83, %.preheader129 ], [ 0, %73 ]
+  %.086135 = phi i32 [ %83, %.preheader129 ], [ 0, %73 ]
   %74 = add i64 %.2136, -1
   %75 = getelementptr inbounds [128 x i8], ptr %11, i64 0, i64 %74
   %76 = load i8, ptr %75, align 1
@@ -390,7 +390,7 @@ pkcs12_fill_buffer.exit127:                       ; preds = %pkcs12_fill_buffer.
   %78 = getelementptr inbounds [128 x i8], ptr %13, i64 0, i64 %74
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
-  %81 = add nuw nsw i32 %.088135, %77
+  %81 = add nuw nsw i32 %.086135, %77
   %82 = add nuw nsw i32 %81, %80
   %83 = lshr i32 %82, 8
   %84 = trunc i32 %82 to i8
@@ -403,7 +403,7 @@ pkcs12_fill_buffer.exit127:                       ; preds = %pkcs12_fill_buffer.
 
 .preheader:                                       ; preds = %.loopexit130, %.preheader
   %.3138 = phi i64 [ %85, %.preheader ], [ %., %.loopexit130 ]
-  %.189137 = phi i32 [ %94, %.preheader ], [ 0, %.loopexit130 ]
+  %.187137 = phi i32 [ %94, %.preheader ], [ 0, %.loopexit130 ]
   %85 = add i64 %.3138, -1
   %86 = getelementptr inbounds [128 x i8], ptr %12, i64 0, i64 %85
   %87 = load i8, ptr %86, align 1
@@ -411,7 +411,7 @@ pkcs12_fill_buffer.exit127:                       ; preds = %pkcs12_fill_buffer.
   %89 = getelementptr inbounds [128 x i8], ptr %13, i64 0, i64 %85
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i32
-  %92 = add nuw nsw i32 %.189137, %88
+  %92 = add nuw nsw i32 %.187137, %88
   %93 = add nuw nsw i32 %92, %91
   %94 = lshr i32 %93, 8
   %95 = trunc i32 %93 to i8
@@ -425,7 +425,7 @@ pkcs12_fill_buffer.exit127:                       ; preds = %pkcs12_fill_buffer.
   br i1 %.not106, label %.lr.ph164, label %.loopexit132
 
 .loopexit132:                                     ; preds = %._crit_edge, %55, %53, %50, %.lr.ph164, %.loopexit, %.lr.ph, %.lr.ph142, %pkcs12_fill_buffer.exit121
-  %.087 = phi i32 [ 0, %pkcs12_fill_buffer.exit121 ], [ %47, %.lr.ph142 ], [ %59, %.lr.ph ], [ %96, %.loopexit ], [ %48, %.lr.ph164 ], [ %51, %50 ], [ %54, %53 ], [ %56, %55 ], [ 0, %._crit_edge ]
+  %.089 = phi i32 [ 0, %pkcs12_fill_buffer.exit121 ], [ %47, %.lr.ph142 ], [ %59, %.lr.ph ], [ %96, %.loopexit ], [ %48, %.lr.ph164 ], [ %51, %50 ], [ %54, %53 ], [ %56, %55 ], [ 0, %._crit_edge ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %11, i64 noundef 128) #6
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %12, i64 noundef 128) #6
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %13, i64 noundef 128) #6
@@ -434,8 +434,8 @@ pkcs12_fill_buffer.exit127:                       ; preds = %pkcs12_fill_buffer.
   br label %97
 
 97:                                               ; preds = %32, %25, %22, %19, %9, %.loopexit132
-  %.0 = phi i32 [ %.087, %.loopexit132 ], [ -8064, %9 ], [ -8064, %19 ], [ -8064, %22 ], [ -7936, %25 ], [ %33, %32 ]
-  ret i32 %.0
+  %.085 = phi i32 [ %.089, %.loopexit132 ], [ -8064, %9 ], [ -8064, %19 ], [ -8064, %22 ], [ -7936, %25 ], [ %33, %32 ]
+  ret i32 %.085
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

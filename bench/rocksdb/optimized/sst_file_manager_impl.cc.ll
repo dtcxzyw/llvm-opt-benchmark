@@ -2647,9 +2647,9 @@ _ZN7rocksdb6StatusD2Ev.exit77:                    ; preds = %cond.false.i
   br label %ehcleanup
 
 if.end87:                                         ; preds = %_ZN7rocksdb6StatusaSERKS0_.exit, %land.lhs.true, %invoke.cont73
-  %s.sroa.38.3 = phi ptr [ %31, %_ZN7rocksdb6StatusaSERKS0_.exit ], [ %24, %land.lhs.true ], [ %24, %invoke.cont73 ]
-  %s.sroa.17.2 = phi i8 [ %28, %_ZN7rocksdb6StatusaSERKS0_.exit ], [ %23, %land.lhs.true ], [ %23, %invoke.cont73 ]
   %s.sroa.0.2 = phi i8 [ %26, %_ZN7rocksdb6StatusaSERKS0_.exit ], [ 0, %land.lhs.true ], [ %22, %invoke.cont73 ]
+  %s.sroa.17.2 = phi i8 [ %28, %_ZN7rocksdb6StatusaSERKS0_.exit ], [ %23, %land.lhs.true ], [ %23, %invoke.cont73 ]
+  %s.sroa.38.3 = phi ptr [ %31, %_ZN7rocksdb6StatusaSERKS0_.exit ], [ %24, %land.lhs.true ], [ %24, %invoke.cont73 ]
   store ptr null, ptr %cur_instance_, align 8
   %cmp.not.i.i79 = icmp eq ptr %err.sroa.14.0, null
   br i1 %cmp.not.i.i79, label %invoke.cont90, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i80
@@ -2659,9 +2659,9 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %invoke.cont90
 
 invoke.cont90:                                    ; preds = %invoke.cont66, %if.end87, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i80
-  %s.sroa.38.4 = phi ptr [ %24, %invoke.cont66 ], [ %s.sroa.38.3, %if.end87 ], [ %s.sroa.38.3, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i80 ]
-  %s.sroa.17.3 = phi i8 [ %23, %invoke.cont66 ], [ %s.sroa.17.2, %if.end87 ], [ %s.sroa.17.2, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i80 ]
   %s.sroa.0.3 = phi i8 [ %22, %invoke.cont66 ], [ %s.sroa.0.2, %if.end87 ], [ %s.sroa.0.2, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i80 ]
+  %s.sroa.17.3 = phi i8 [ %23, %invoke.cont66 ], [ %s.sroa.17.2, %if.end87 ], [ %s.sroa.17.2, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i80 ]
+  %s.sroa.38.4 = phi ptr [ %24, %invoke.cont66 ], [ %s.sroa.38.3, %if.end87 ], [ %s.sroa.38.3, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i80 ]
   switch i8 %s.sroa.0.3, label %land.lhs.true98 [
     i8 0, label %if.then103
     i8 8, label %if.then103

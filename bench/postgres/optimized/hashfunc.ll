@@ -342,8 +342,8 @@ define dso_local range(i64 0, 4294967296) i64 @hashtext(ptr nocapture noundef re
   br label %17
 
 17:                                               ; preds = %15, %13
-  %.0 = phi ptr [ null, %13 ], [ %16, %15 ]
-  %18 = tail call zeroext i1 @pg_locale_deterministic(ptr noundef %.0) #5
+  %.043 = phi ptr [ null, %13 ], [ %16, %15 ]
+  %18 = tail call zeroext i1 @pg_locale_deterministic(ptr noundef %.043) #5
   %19 = load i8, ptr %5, align 1
   %20 = zext i8 %19 to i32
   %21 = and i32 %20, 1
@@ -419,10 +419,10 @@ define dso_local range(i64 0, 4294967296) i64 @hashtext(ptr nocapture noundef re
 
 65:                                               ; preds = %56, %60, %47
   %66 = phi i64 [ %54, %47 ], [ %59, %56 ], [ %64, %60 ]
-  %67 = tail call i64 @pg_strnxfrm(ptr noundef null, i64 noundef 0, ptr noundef nonnull %24, i64 noundef %66, ptr noundef %.0) #5
+  %67 = tail call i64 @pg_strnxfrm(ptr noundef null, i64 noundef 0, ptr noundef nonnull %24, i64 noundef %66, ptr noundef %.043) #5
   %68 = add i64 %67, 1
   %69 = tail call ptr @palloc(i64 noundef %68) #5
-  %70 = tail call i64 @pg_strnxfrm(ptr noundef %69, i64 noundef %68, ptr noundef nonnull %24, i64 noundef %66, ptr noundef %.0) #5
+  %70 = tail call i64 @pg_strnxfrm(ptr noundef %69, i64 noundef %68, ptr noundef nonnull %24, i64 noundef %66, ptr noundef %.043) #5
   %.not51 = icmp eq i64 %70, %67
   br i1 %.not51, label %74, label %71
 
@@ -440,7 +440,7 @@ define dso_local range(i64 0, 4294967296) i64 @hashtext(ptr nocapture noundef re
   br label %77
 
 77:                                               ; preds = %43, %74
-  %.043.in = phi i32 [ %45, %43 ], [ %76, %74 ]
+  %.0.in = phi i32 [ %45, %43 ], [ %76, %74 ]
   %78 = load i64, ptr %2, align 8
   %79 = inttoptr i64 %78 to ptr
   %.not53 = icmp eq ptr %5, %79
@@ -451,8 +451,8 @@ define dso_local range(i64 0, 4294967296) i64 @hashtext(ptr nocapture noundef re
   br label %81
 
 81:                                               ; preds = %77, %80
-  %.043 = zext i32 %.043.in to i64
-  ret i64 %.043
+  %.0 = zext i32 %.0.in to i64
+  ret i64 %.0
 }
 
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
@@ -511,8 +511,8 @@ define dso_local i64 @hashtextextended(ptr nocapture noundef readonly %0) local_
   br label %17
 
 17:                                               ; preds = %15, %13
-  %.0 = phi ptr [ null, %13 ], [ %16, %15 ]
-  %18 = tail call zeroext i1 @pg_locale_deterministic(ptr noundef %.0) #5
+  %.045 = phi ptr [ null, %13 ], [ %16, %15 ]
+  %18 = tail call zeroext i1 @pg_locale_deterministic(ptr noundef %.045) #5
   %19 = load i8, ptr %5, align 1
   %20 = zext i8 %19 to i32
   %21 = and i32 %20, 1
@@ -590,10 +590,10 @@ define dso_local i64 @hashtextextended(ptr nocapture noundef readonly %0) local_
 
 67:                                               ; preds = %58, %62, %49
   %68 = phi i64 [ %56, %49 ], [ %61, %58 ], [ %66, %62 ]
-  %69 = tail call i64 @pg_strnxfrm(ptr noundef null, i64 noundef 0, ptr noundef nonnull %24, i64 noundef %68, ptr noundef %.0) #5
+  %69 = tail call i64 @pg_strnxfrm(ptr noundef null, i64 noundef 0, ptr noundef nonnull %24, i64 noundef %68, ptr noundef %.045) #5
   %70 = add i64 %69, 1
   %71 = tail call ptr @palloc(i64 noundef %70) #5
-  %72 = tail call i64 @pg_strnxfrm(ptr noundef %71, i64 noundef %70, ptr noundef nonnull %24, i64 noundef %68, ptr noundef %.0) #5
+  %72 = tail call i64 @pg_strnxfrm(ptr noundef %71, i64 noundef %70, ptr noundef nonnull %24, i64 noundef %68, ptr noundef %.045) #5
   %.not53 = icmp eq i64 %72, %69
   br i1 %.not53, label %76, label %73
 
@@ -613,7 +613,7 @@ define dso_local i64 @hashtextextended(ptr nocapture noundef readonly %0) local_
   br label %81
 
 81:                                               ; preds = %43, %76
-  %.045 = phi i64 [ %47, %43 ], [ %80, %76 ]
+  %.0 = phi i64 [ %47, %43 ], [ %80, %76 ]
   %82 = load i64, ptr %2, align 8
   %83 = inttoptr i64 %82 to ptr
   %.not55 = icmp eq ptr %5, %83
@@ -624,7 +624,7 @@ define dso_local i64 @hashtextextended(ptr nocapture noundef readonly %0) local_
   br label %85
 
 85:                                               ; preds = %81, %84
-  ret i64 %.045
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable

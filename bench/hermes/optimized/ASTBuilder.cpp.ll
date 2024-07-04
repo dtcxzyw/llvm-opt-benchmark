@@ -1876,10 +1876,10 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %entry
   br i1 %cmp11.i.i.i.i, label %while.body.i.i.i.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i
 
 while.body.i.i.i.i:                               ; preds = %_ZN4llvh9StringRefC2EPKc.exit, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i
-  %__first.addr.013.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %keys_.i.i.i, %_ZN4llvh9StringRefC2EPKc.exit ]
-  %__len.012.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %15, %_ZN4llvh9StringRefC2EPKc.exit ]
-  %shr.i.i.i.i = lshr i64 %__len.012.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.013.i.i.i.i, i64 %shr.i.i.i.i
+  %__len.013.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %15, %_ZN4llvh9StringRefC2EPKc.exit ]
+  %__first.addr.012.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %keys_.i.i.i, %_ZN4llvh9StringRefC2EPKc.exit ]
+  %shr.i.i.i.i = lshr i64 %__len.013.i.i.i.i, 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.012.i.i.i.i, i64 %shr.i.i.i.i
   %16 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %value_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 16
   %17 = load ptr, ptr %value_.i.i.i.i.i.i.i, align 8
@@ -1907,9 +1907,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameCompar
   %retval.i.0.i.i.i.i.i.i.i = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %cmp12.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
   %18 = xor i64 %shr.i.i.i.i, -1
-  %sub2.i.i.i.i = add nsw i64 %__len.012.i.i.i.i, %18
+  %sub2.i.i.i.i = add nsw i64 %__len.013.i.i.i.i, %18
+  %__first.addr.1.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i.i.i, ptr %__first.addr.012.i.i.i.i
   %__len.1.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i, i64 %sub2.i.i.i.i, i64 %shr.i.i.i.i
-  %__first.addr.1.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i.i.i, ptr %__first.addr.013.i.i.i.i
   %cmp.i.i7.i.i = icmp sgt i64 %__len.1.i.i.i.i, 0
   br i1 %cmp.i.i7.i.i, label %while.body.i.i.i.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i, !llvm.loop !4
 
@@ -2004,10 +2004,10 @@ _ZN4llvh9StringRefC2EPKc.exit6622:                ; preds = %if.end16
   br i1 %cmp11.i.i.i.i, label %while.body.i.i.i.i2516, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i2501
 
 while.body.i.i.i.i2516:                           ; preds = %_ZN4llvh9StringRefC2EPKc.exit6622, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2536
-  %__first.addr.013.i.i.i.i2517 = phi ptr [ %__first.addr.1.i.i.i.i2541, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2536 ], [ %keys_.i.i.i, %_ZN4llvh9StringRefC2EPKc.exit6622 ]
-  %__len.012.i.i.i.i2518 = phi i64 [ %__len.1.i.i.i.i2540, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2536 ], [ %15, %_ZN4llvh9StringRefC2EPKc.exit6622 ]
-  %shr.i.i.i.i2519 = lshr i64 %__len.012.i.i.i.i2518, 1
-  %add.ptr.i.i.i.i.i.i2522 = getelementptr inbounds ptr, ptr %__first.addr.013.i.i.i.i2517, i64 %shr.i.i.i.i2519
+  %__len.013.i.i.i.i2517 = phi i64 [ %__len.1.i.i.i.i2541, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2536 ], [ %15, %_ZN4llvh9StringRefC2EPKc.exit6622 ]
+  %__first.addr.012.i.i.i.i2518 = phi ptr [ %__first.addr.1.i.i.i.i2540, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2536 ], [ %keys_.i.i.i, %_ZN4llvh9StringRefC2EPKc.exit6622 ]
+  %shr.i.i.i.i2519 = lshr i64 %__len.013.i.i.i.i2517, 1
+  %add.ptr.i.i.i.i.i.i2522 = getelementptr inbounds ptr, ptr %__first.addr.012.i.i.i.i2518, i64 %shr.i.i.i.i2519
   %38 = load ptr, ptr %add.ptr.i.i.i.i.i.i2522, align 8
   %value_.i.i.i.i.i.i.i2525 = getelementptr inbounds i8, ptr %38, i64 16
   %39 = load ptr, ptr %value_.i.i.i.i.i.i.i2525, align 8
@@ -2035,14 +2035,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameCompar
   %retval.i.0.i.i.i.i.i.i.i2537 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i2535, %if.then.i.i.i.i.i.i.i.i2534 ], [ %cmp12.i.i.i.i.i.i.i.i2544, %if.end.i.i.i.i.i.i.i.i2543 ]
   %incdec.ptr.i.i.i.i2538 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i2522, i64 8
   %40 = xor i64 %shr.i.i.i.i2519, -1
-  %sub2.i.i.i.i2539 = add nsw i64 %__len.012.i.i.i.i2518, %40
-  %__len.1.i.i.i.i2540 = select i1 %retval.i.0.i.i.i.i.i.i.i2537, i64 %sub2.i.i.i.i2539, i64 %shr.i.i.i.i2519
-  %__first.addr.1.i.i.i.i2541 = select i1 %retval.i.0.i.i.i.i.i.i.i2537, ptr %incdec.ptr.i.i.i.i2538, ptr %__first.addr.013.i.i.i.i2517
-  %cmp.i.i7.i.i2542 = icmp sgt i64 %__len.1.i.i.i.i2540, 0
+  %sub2.i.i.i.i2539 = add nsw i64 %__len.013.i.i.i.i2517, %40
+  %__first.addr.1.i.i.i.i2540 = select i1 %retval.i.0.i.i.i.i.i.i.i2537, ptr %incdec.ptr.i.i.i.i2538, ptr %__first.addr.012.i.i.i.i2518
+  %__len.1.i.i.i.i2541 = select i1 %retval.i.0.i.i.i.i.i.i.i2537, i64 %sub2.i.i.i.i2539, i64 %shr.i.i.i.i2519
+  %cmp.i.i7.i.i2542 = icmp sgt i64 %__len.1.i.i.i.i2541, 0
   br i1 %cmp.i.i7.i.i2542, label %while.body.i.i.i.i2516, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i2501, !llvm.loop !4
 
 _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i2501: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2536, %_ZN4llvh9StringRefC2EPKc.exit6622
-  %__first.addr.0.lcssa.i.i.i.i2502 = phi ptr [ %keys_.i.i.i, %_ZN4llvh9StringRefC2EPKc.exit6622 ], [ %__first.addr.1.i.i.i.i2541, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2536 ]
+  %__first.addr.0.lcssa.i.i.i.i2502 = phi ptr [ %keys_.i.i.i, %_ZN4llvh9StringRefC2EPKc.exit6622 ], [ %__first.addr.1.i.i.i.i2540, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2536 ]
   %cmp.not.i.i2503 = icmp eq ptr %__first.addr.0.lcssa.i.i.i.i2502, %add.ptr.i.i.i
   br i1 %cmp.not.i.i2503, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit, label %land.lhs.true.i.i2504
 
@@ -2080,10 +2080,10 @@ _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cas
   br i1 %cmp11.i.i.i.i, label %while.body.i.i.i.i2569, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i2552
 
 while.body.i.i.i.i2569:                           ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2589
-  %__first.addr.013.i.i.i.i2570 = phi ptr [ %__first.addr.1.i.i.i.i2594, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2589 ], [ %keys_.i.i.i, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit ]
-  %__len.012.i.i.i.i2571 = phi i64 [ %__len.1.i.i.i.i2593, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2589 ], [ %15, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit ]
-  %shr.i.i.i.i2572 = lshr i64 %__len.012.i.i.i.i2571, 1
-  %add.ptr.i.i.i.i.i.i2575 = getelementptr inbounds ptr, ptr %__first.addr.013.i.i.i.i2570, i64 %shr.i.i.i.i2572
+  %__len.013.i.i.i.i2570 = phi i64 [ %__len.1.i.i.i.i2594, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2589 ], [ %15, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit ]
+  %__first.addr.012.i.i.i.i2571 = phi ptr [ %__first.addr.1.i.i.i.i2593, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2589 ], [ %keys_.i.i.i, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit ]
+  %shr.i.i.i.i2572 = lshr i64 %__len.013.i.i.i.i2570, 1
+  %add.ptr.i.i.i.i.i.i2575 = getelementptr inbounds ptr, ptr %__first.addr.012.i.i.i.i2571, i64 %shr.i.i.i.i2572
   %46 = load ptr, ptr %add.ptr.i.i.i.i.i.i2575, align 8
   %value_.i.i.i.i.i.i.i2578 = getelementptr inbounds i8, ptr %46, i64 16
   %47 = load ptr, ptr %value_.i.i.i.i.i.i.i2578, align 8
@@ -2111,14 +2111,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameCompar
   %retval.i.0.i.i.i.i.i.i.i2590 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i2588, %if.then.i.i.i.i.i.i.i.i2587 ], [ %cmp12.i.i.i.i.i.i.i.i2597, %if.end.i.i.i.i.i.i.i.i2596 ]
   %incdec.ptr.i.i.i.i2591 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i2575, i64 8
   %48 = xor i64 %shr.i.i.i.i2572, -1
-  %sub2.i.i.i.i2592 = add nsw i64 %__len.012.i.i.i.i2571, %48
-  %__len.1.i.i.i.i2593 = select i1 %retval.i.0.i.i.i.i.i.i.i2590, i64 %sub2.i.i.i.i2592, i64 %shr.i.i.i.i2572
-  %__first.addr.1.i.i.i.i2594 = select i1 %retval.i.0.i.i.i.i.i.i.i2590, ptr %incdec.ptr.i.i.i.i2591, ptr %__first.addr.013.i.i.i.i2570
-  %cmp.i.i7.i.i2595 = icmp sgt i64 %__len.1.i.i.i.i2593, 0
+  %sub2.i.i.i.i2592 = add nsw i64 %__len.013.i.i.i.i2570, %48
+  %__first.addr.1.i.i.i.i2593 = select i1 %retval.i.0.i.i.i.i.i.i.i2590, ptr %incdec.ptr.i.i.i.i2591, ptr %__first.addr.012.i.i.i.i2571
+  %__len.1.i.i.i.i2594 = select i1 %retval.i.0.i.i.i.i.i.i.i2590, i64 %sub2.i.i.i.i2592, i64 %shr.i.i.i.i2572
+  %cmp.i.i7.i.i2595 = icmp sgt i64 %__len.1.i.i.i.i2594, 0
   br i1 %cmp.i.i7.i.i2595, label %while.body.i.i.i.i2569, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i2552, !llvm.loop !4
 
 _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i2552: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2589, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit
-  %__first.addr.0.lcssa.i.i.i.i2553 = phi ptr [ %keys_.i.i.i, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit ], [ %__first.addr.1.i.i.i.i2594, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2589 ]
+  %__first.addr.0.lcssa.i.i.i.i2553 = phi ptr [ %keys_.i.i.i, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit ], [ %__first.addr.1.i.i.i.i2593, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2589 ]
   %cmp.not.i.i2554 = icmp eq ptr %__first.addr.0.lcssa.i.i.i.i2553, %add.ptr.i.i.i
   br i1 %cmp.not.i.i2554, label %_ZN4llvh9StringRefC2EPKc.exit6642, label %land.lhs.true.i.i2555
 
@@ -2158,10 +2158,10 @@ _ZN4llvh9StringRefC2EPKc.exit6642:                ; preds = %_ZSt11lower_boundIP
   br i1 %cmp11.i.i.i.i, label %while.body.i.i.i.i2627, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i2610
 
 while.body.i.i.i.i2627:                           ; preds = %_ZN4llvh9StringRefC2EPKc.exit6642, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2647
-  %__first.addr.013.i.i.i.i2628 = phi ptr [ %__first.addr.1.i.i.i.i2652, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2647 ], [ %keys_.i.i.i, %_ZN4llvh9StringRefC2EPKc.exit6642 ]
-  %__len.012.i.i.i.i2629 = phi i64 [ %__len.1.i.i.i.i2651, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2647 ], [ %15, %_ZN4llvh9StringRefC2EPKc.exit6642 ]
-  %shr.i.i.i.i2630 = lshr i64 %__len.012.i.i.i.i2629, 1
-  %add.ptr.i.i.i.i.i.i2633 = getelementptr inbounds ptr, ptr %__first.addr.013.i.i.i.i2628, i64 %shr.i.i.i.i2630
+  %__len.013.i.i.i.i2628 = phi i64 [ %__len.1.i.i.i.i2652, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2647 ], [ %15, %_ZN4llvh9StringRefC2EPKc.exit6642 ]
+  %__first.addr.012.i.i.i.i2629 = phi ptr [ %__first.addr.1.i.i.i.i2651, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2647 ], [ %keys_.i.i.i, %_ZN4llvh9StringRefC2EPKc.exit6642 ]
+  %shr.i.i.i.i2630 = lshr i64 %__len.013.i.i.i.i2628, 1
+  %add.ptr.i.i.i.i.i.i2633 = getelementptr inbounds ptr, ptr %__first.addr.012.i.i.i.i2629, i64 %shr.i.i.i.i2630
   %54 = load ptr, ptr %add.ptr.i.i.i.i.i.i2633, align 8
   %value_.i.i.i.i.i.i.i2636 = getelementptr inbounds i8, ptr %54, i64 16
   %55 = load ptr, ptr %value_.i.i.i.i.i.i.i2636, align 8
@@ -2189,14 +2189,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameCompar
   %retval.i.0.i.i.i.i.i.i.i2648 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i2646, %if.then.i.i.i.i.i.i.i.i2645 ], [ %cmp12.i.i.i.i.i.i.i.i2655, %if.end.i.i.i.i.i.i.i.i2654 ]
   %incdec.ptr.i.i.i.i2649 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i2633, i64 8
   %56 = xor i64 %shr.i.i.i.i2630, -1
-  %sub2.i.i.i.i2650 = add nsw i64 %__len.012.i.i.i.i2629, %56
-  %__len.1.i.i.i.i2651 = select i1 %retval.i.0.i.i.i.i.i.i.i2648, i64 %sub2.i.i.i.i2650, i64 %shr.i.i.i.i2630
-  %__first.addr.1.i.i.i.i2652 = select i1 %retval.i.0.i.i.i.i.i.i.i2648, ptr %incdec.ptr.i.i.i.i2649, ptr %__first.addr.013.i.i.i.i2628
-  %cmp.i.i7.i.i2653 = icmp sgt i64 %__len.1.i.i.i.i2651, 0
+  %sub2.i.i.i.i2650 = add nsw i64 %__len.013.i.i.i.i2628, %56
+  %__first.addr.1.i.i.i.i2651 = select i1 %retval.i.0.i.i.i.i.i.i.i2648, ptr %incdec.ptr.i.i.i.i2649, ptr %__first.addr.012.i.i.i.i2629
+  %__len.1.i.i.i.i2652 = select i1 %retval.i.0.i.i.i.i.i.i.i2648, i64 %sub2.i.i.i.i2650, i64 %shr.i.i.i.i2630
+  %cmp.i.i7.i.i2653 = icmp sgt i64 %__len.1.i.i.i.i2652, 0
   br i1 %cmp.i.i7.i.i2653, label %while.body.i.i.i.i2627, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i2610, !llvm.loop !4
 
 _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i2610: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2647, %_ZN4llvh9StringRefC2EPKc.exit6642
-  %__first.addr.0.lcssa.i.i.i.i2611 = phi ptr [ %keys_.i.i.i, %_ZN4llvh9StringRefC2EPKc.exit6642 ], [ %__first.addr.1.i.i.i.i2652, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2647 ]
+  %__first.addr.0.lcssa.i.i.i.i2611 = phi ptr [ %keys_.i.i.i, %_ZN4llvh9StringRefC2EPKc.exit6642 ], [ %__first.addr.1.i.i.i.i2651, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2647 ]
   %cmp.not.i.i2612 = icmp eq ptr %__first.addr.0.lcssa.i.i.i.i2611, %add.ptr.i.i.i
   br i1 %cmp.not.i.i2612, label %if.end45, label %land.lhs.true.i.i2613
 
@@ -2260,11 +2260,11 @@ land.lhs.true.i2672:                              ; preds = %_ZN4llvh16dyn_cast_
   br label %if.end45
 
 if.end45:                                         ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i2610, %land.rhs.i.i.i2620, %land.lhs.true.i.i2613, %land.lhs.true.i2658, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit2656, %land.lhs.true.i2672, %if.then36, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit2604
-  %end.0 = phi ptr [ %52, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit2604 ], [ %cond.i26036428, %if.then36 ], [ %spec.select.i2674, %land.lhs.true.i2672 ], [ %cond.i26036428, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit2656 ], [ %cond.i26036428, %land.lhs.true.i2658 ], [ %cond.i26036428, %land.lhs.true.i.i2613 ], [ %cond.i26036428, %land.rhs.i.i.i2620 ], [ %cond.i26036428, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i2610 ]
   %start.0 = phi ptr [ %cond.i, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit2604 ], [ %cond.i, %if.then36 ], [ %cond.i2668, %land.lhs.true.i2672 ], [ %cond.i, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit2656 ], [ %cond.i, %land.lhs.true.i2658 ], [ %cond.i, %land.lhs.true.i.i2613 ], [ %cond.i, %land.rhs.i.i.i2620 ], [ %cond.i, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i2610 ]
+  %end.0 = phi ptr [ %52, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit2604 ], [ %cond.i26036428, %if.then36 ], [ %spec.select.i2674, %land.lhs.true.i2672 ], [ %cond.i26036428, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit2656 ], [ %cond.i26036428, %land.lhs.true.i2658 ], [ %cond.i26036428, %land.lhs.true.i.i2613 ], [ %cond.i26036428, %land.rhs.i.i.i2620 ], [ %cond.i26036428, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i2610 ]
   %tobool46 = icmp ne ptr %start.0, null
   %tobool47 = icmp ne ptr %end.0, null
-  %or.cond1 = and i1 %tobool47, %tobool46
+  %or.cond1 = and i1 %tobool46, %tobool47
   br i1 %or.cond1, label %if.then48, label %if.end80
 
 if.then48:                                        ; preds = %if.end45
@@ -2344,10 +2344,10 @@ if.then96:                                        ; preds = %if.end.i.i14950
   br i1 %cmp11.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %if.then96, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i
-  %__first.addr.013.i.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i ], [ %keys_.i.i.i, %if.then96 ]
-  %__len.012.i.i.i.i.i = phi i64 [ %__len.1.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i ], [ %15, %if.then96 ]
-  %shr.i.i.i.i.i = lshr i64 %__len.012.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.013.i.i.i.i.i, i64 %shr.i.i.i.i.i
+  %__len.013.i.i.i.i.i = phi i64 [ %__len.1.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i ], [ %15, %if.then96 ]
+  %__first.addr.012.i.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i ], [ %keys_.i.i.i, %if.then96 ]
+  %shr.i.i.i.i.i = lshr i64 %__len.013.i.i.i.i.i, 1
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.012.i.i.i.i.i, i64 %shr.i.i.i.i.i
   %73 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
   %value_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %73, i64 16
   %74 = load ptr, ptr %value_.i.i.i.i.i.i.i.i, align 8
@@ -2375,9 +2375,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameCompar
   %retval.i.0.i.i.i.i.i.i.i.i = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ], [ %cmp12.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 8
   %75 = xor i64 %shr.i.i.i.i.i, -1
-  %sub2.i.i.i.i.i = add nsw i64 %__len.012.i.i.i.i.i, %75
+  %sub2.i.i.i.i.i = add nsw i64 %__len.013.i.i.i.i.i, %75
+  %__first.addr.1.i.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i.i.i.i, ptr %__first.addr.012.i.i.i.i.i
   %__len.1.i.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i.i, i64 %sub2.i.i.i.i.i, i64 %shr.i.i.i.i.i
-  %__first.addr.1.i.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i.i.i.i, ptr %__first.addr.013.i.i.i.i.i
   %cmp.i.i7.i.i.i = icmp sgt i64 %__len.1.i.i.i.i.i, 0
   br i1 %cmp.i.i7.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.i, !llvm.loop !4
 
@@ -2425,10 +2425,10 @@ if.then.i2692:                                    ; preds = %land.lhs.true.i.i26
   br i1 %cmp11.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %if.then.i2692, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i.i
-  %__first.addr.013.i.i.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i.i ], [ %keys_.i.i.i.i.i, %if.then.i2692 ]
-  %__len.012.i.i.i.i.i.i = phi i64 [ %__len.1.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i.i ], [ %82, %if.then.i2692 ]
-  %shr.i.i.i.i.i.i = lshr i64 %__len.012.i.i.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.013.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i
+  %__len.013.i.i.i.i.i.i = phi i64 [ %__len.1.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i.i ], [ %82, %if.then.i2692 ]
+  %__first.addr.012.i.i.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i.i ], [ %keys_.i.i.i.i.i, %if.then.i2692 ]
+  %shr.i.i.i.i.i.i = lshr i64 %__len.013.i.i.i.i.i.i, 1
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.012.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i
   %83 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
   %value_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %83, i64 16
   %84 = load ptr, ptr %value_.i.i.i.i.i.i.i.i.i, align 8
@@ -2456,9 +2456,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameCompar
   %retval.i.0.i.i.i.i.i.i.i.i.i = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %cmp12.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i.i.i.i2696 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i, i64 8
   %85 = xor i64 %shr.i.i.i.i.i.i, -1
-  %sub2.i.i.i.i.i.i = add nsw i64 %__len.012.i.i.i.i.i.i, %85
+  %sub2.i.i.i.i.i.i = add nsw i64 %__len.013.i.i.i.i.i.i, %85
+  %__first.addr.1.i.i.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i.i.i.i.i2696, ptr %__first.addr.012.i.i.i.i.i.i
   %__len.1.i.i.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i.i.i, i64 %sub2.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i
-  %__first.addr.1.i.i.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i.i.i.i.i2696, ptr %__first.addr.013.i.i.i.i.i.i
   %cmp.i.i7.i.i.i.i = icmp sgt i64 %__len.1.i.i.i.i.i.i, 0
   br i1 %cmp.i.i7.i.i.i.i, label %while.body.i.i.i.i.i.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.i.i, !llvm.loop !4
 
@@ -2509,10 +2509,10 @@ _ZN4llvh9StringRefC2EPKc.exit73.i:                ; preds = %_ZNK6hermes6parser1
   br i1 %cmp11.i.i.i.i.i.i, label %while.body.i.i.i.i.i45.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.i24.i
 
 while.body.i.i.i.i.i45.i:                         ; preds = %_ZN4llvh9StringRefC2EPKc.exit73.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i65.i
-  %__first.addr.013.i.i.i.i.i46.i = phi ptr [ %__first.addr.1.i.i.i.i.i70.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i65.i ], [ %keys_.i.i.i.i.i, %_ZN4llvh9StringRefC2EPKc.exit73.i ]
-  %__len.012.i.i.i.i.i47.i = phi i64 [ %__len.1.i.i.i.i.i69.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i65.i ], [ %82, %_ZN4llvh9StringRefC2EPKc.exit73.i ]
-  %shr.i.i.i.i.i48.i = lshr i64 %__len.012.i.i.i.i.i47.i, 1
-  %add.ptr.i.i.i.i.i.i.i51.i = getelementptr inbounds ptr, ptr %__first.addr.013.i.i.i.i.i46.i, i64 %shr.i.i.i.i.i48.i
+  %__len.013.i.i.i.i.i46.i = phi i64 [ %__len.1.i.i.i.i.i70.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i65.i ], [ %82, %_ZN4llvh9StringRefC2EPKc.exit73.i ]
+  %__first.addr.012.i.i.i.i.i47.i = phi ptr [ %__first.addr.1.i.i.i.i.i69.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i65.i ], [ %keys_.i.i.i.i.i, %_ZN4llvh9StringRefC2EPKc.exit73.i ]
+  %shr.i.i.i.i.i48.i = lshr i64 %__len.013.i.i.i.i.i46.i, 1
+  %add.ptr.i.i.i.i.i.i.i51.i = getelementptr inbounds ptr, ptr %__first.addr.012.i.i.i.i.i47.i, i64 %shr.i.i.i.i.i48.i
   %92 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i51.i, align 8
   %value_.i.i.i.i.i.i.i.i54.i = getelementptr inbounds i8, ptr %92, i64 16
   %93 = load ptr, ptr %value_.i.i.i.i.i.i.i.i54.i, align 8
@@ -2540,14 +2540,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameCompar
   %retval.i.0.i.i.i.i.i.i.i.i66.i = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i.i64.i, %if.then.i.i.i.i.i.i.i.i.i63.i ], [ %cmp12.i.i.i.i.i.i.i.i.i73.i, %if.end.i.i.i.i.i.i.i.i.i72.i ]
   %incdec.ptr.i.i.i.i.i67.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i51.i, i64 8
   %94 = xor i64 %shr.i.i.i.i.i48.i, -1
-  %sub2.i.i.i.i.i68.i = add nsw i64 %__len.012.i.i.i.i.i47.i, %94
-  %__len.1.i.i.i.i.i69.i = select i1 %retval.i.0.i.i.i.i.i.i.i.i66.i, i64 %sub2.i.i.i.i.i68.i, i64 %shr.i.i.i.i.i48.i
-  %__first.addr.1.i.i.i.i.i70.i = select i1 %retval.i.0.i.i.i.i.i.i.i.i66.i, ptr %incdec.ptr.i.i.i.i.i67.i, ptr %__first.addr.013.i.i.i.i.i46.i
-  %cmp.i.i7.i.i.i71.i = icmp sgt i64 %__len.1.i.i.i.i.i69.i, 0
+  %sub2.i.i.i.i.i68.i = add nsw i64 %__len.013.i.i.i.i.i46.i, %94
+  %__first.addr.1.i.i.i.i.i69.i = select i1 %retval.i.0.i.i.i.i.i.i.i.i66.i, ptr %incdec.ptr.i.i.i.i.i67.i, ptr %__first.addr.012.i.i.i.i.i47.i
+  %__len.1.i.i.i.i.i70.i = select i1 %retval.i.0.i.i.i.i.i.i.i.i66.i, i64 %sub2.i.i.i.i.i68.i, i64 %shr.i.i.i.i.i48.i
+  %cmp.i.i7.i.i.i71.i = icmp sgt i64 %__len.1.i.i.i.i.i70.i, 0
   br i1 %cmp.i.i7.i.i.i71.i, label %while.body.i.i.i.i.i45.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.i24.i, !llvm.loop !4
 
 _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.i24.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i65.i, %_ZN4llvh9StringRefC2EPKc.exit73.i
-  %__first.addr.0.lcssa.i.i.i.i.i25.i = phi ptr [ %keys_.i.i.i.i.i, %_ZN4llvh9StringRefC2EPKc.exit73.i ], [ %__first.addr.1.i.i.i.i.i70.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i65.i ]
+  %__first.addr.0.lcssa.i.i.i.i.i25.i = phi ptr [ %keys_.i.i.i.i.i, %_ZN4llvh9StringRefC2EPKc.exit73.i ], [ %__first.addr.1.i.i.i.i.i69.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i65.i ]
   %cmp.not.i.i.i26.i = icmp eq ptr %__first.addr.0.lcssa.i.i.i.i.i25.i, %add.ptr.i.i.i.i.i
   br i1 %cmp.not.i.i.i26.i, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit.i33.i, label %land.lhs.true.i.i.i27.i
 
@@ -2639,10 +2639,10 @@ _ZN4llvh9StringRefC2EPKc.exit83.i:                ; preds = %land.lhs.true.i.i26
   br i1 %cmp11.i.i.i.i, label %while.body.i.i.i.i104.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i87.i
 
 while.body.i.i.i.i104.i:                          ; preds = %_ZN4llvh9StringRefC2EPKc.exit83.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i124.i
-  %__first.addr.013.i.i.i.i105.i = phi ptr [ %__first.addr.1.i.i.i.i129.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i124.i ], [ %keys_.i.i.i, %_ZN4llvh9StringRefC2EPKc.exit83.i ]
-  %__len.012.i.i.i.i106.i = phi i64 [ %__len.1.i.i.i.i128.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i124.i ], [ %15, %_ZN4llvh9StringRefC2EPKc.exit83.i ]
-  %shr.i.i.i.i107.i = lshr i64 %__len.012.i.i.i.i106.i, 1
-  %add.ptr.i.i.i.i.i.i110.i = getelementptr inbounds ptr, ptr %__first.addr.013.i.i.i.i105.i, i64 %shr.i.i.i.i107.i
+  %__len.013.i.i.i.i105.i = phi i64 [ %__len.1.i.i.i.i129.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i124.i ], [ %15, %_ZN4llvh9StringRefC2EPKc.exit83.i ]
+  %__first.addr.012.i.i.i.i106.i = phi ptr [ %__first.addr.1.i.i.i.i128.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i124.i ], [ %keys_.i.i.i, %_ZN4llvh9StringRefC2EPKc.exit83.i ]
+  %shr.i.i.i.i107.i = lshr i64 %__len.013.i.i.i.i105.i, 1
+  %add.ptr.i.i.i.i.i.i110.i = getelementptr inbounds ptr, ptr %__first.addr.012.i.i.i.i106.i, i64 %shr.i.i.i.i107.i
   %111 = load ptr, ptr %add.ptr.i.i.i.i.i.i110.i, align 8
   %value_.i.i.i.i.i.i.i113.i = getelementptr inbounds i8, ptr %111, i64 16
   %112 = load ptr, ptr %value_.i.i.i.i.i.i.i113.i, align 8
@@ -2670,14 +2670,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameCompar
   %retval.i.0.i.i.i.i.i.i.i125.i = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i123.i, %if.then.i.i.i.i.i.i.i.i122.i ], [ %cmp12.i.i.i.i.i.i.i.i132.i, %if.end.i.i.i.i.i.i.i.i131.i ]
   %incdec.ptr.i.i.i.i126.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i110.i, i64 8
   %113 = xor i64 %shr.i.i.i.i107.i, -1
-  %sub2.i.i.i.i127.i = add nsw i64 %__len.012.i.i.i.i106.i, %113
-  %__len.1.i.i.i.i128.i = select i1 %retval.i.0.i.i.i.i.i.i.i125.i, i64 %sub2.i.i.i.i127.i, i64 %shr.i.i.i.i107.i
-  %__first.addr.1.i.i.i.i129.i = select i1 %retval.i.0.i.i.i.i.i.i.i125.i, ptr %incdec.ptr.i.i.i.i126.i, ptr %__first.addr.013.i.i.i.i105.i
-  %cmp.i.i7.i.i130.i = icmp sgt i64 %__len.1.i.i.i.i128.i, 0
+  %sub2.i.i.i.i127.i = add nsw i64 %__len.013.i.i.i.i105.i, %113
+  %__first.addr.1.i.i.i.i128.i = select i1 %retval.i.0.i.i.i.i.i.i.i125.i, ptr %incdec.ptr.i.i.i.i126.i, ptr %__first.addr.012.i.i.i.i106.i
+  %__len.1.i.i.i.i129.i = select i1 %retval.i.0.i.i.i.i.i.i.i125.i, i64 %sub2.i.i.i.i127.i, i64 %shr.i.i.i.i107.i
+  %cmp.i.i7.i.i130.i = icmp sgt i64 %__len.1.i.i.i.i129.i, 0
   br i1 %cmp.i.i7.i.i130.i, label %while.body.i.i.i.i104.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i87.i, !llvm.loop !4
 
 _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i87.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i124.i, %_ZN4llvh9StringRefC2EPKc.exit83.i
-  %__first.addr.0.lcssa.i.i.i.i88.i = phi ptr [ %keys_.i.i.i, %_ZN4llvh9StringRefC2EPKc.exit83.i ], [ %__first.addr.1.i.i.i.i129.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i124.i ]
+  %__first.addr.0.lcssa.i.i.i.i88.i = phi ptr [ %keys_.i.i.i, %_ZN4llvh9StringRefC2EPKc.exit83.i ], [ %__first.addr.1.i.i.i.i128.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i124.i ]
   %cmp.not.i.i89.i = icmp eq ptr %__first.addr.0.lcssa.i.i.i.i88.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i89.i, label %if.then21.i, label %land.lhs.true.i.i90.i
 
@@ -2948,10 +2948,10 @@ if.then108:                                       ; preds = %if.end.i.i14969
   br i1 %cmp11.i.i.i.i, label %while.body.i.i.i.i.i.i2846, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.i.i2706
 
 while.body.i.i.i.i.i.i2846:                       ; preds = %if.then108, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i.i2866
-  %__first.addr.013.i.i.i.i.i.i2847 = phi ptr [ %__first.addr.1.i.i.i.i.i.i2871, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i.i2866 ], [ %keys_.i.i.i, %if.then108 ]
-  %__len.012.i.i.i.i.i.i2848 = phi i64 [ %__len.1.i.i.i.i.i.i2870, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i.i2866 ], [ %15, %if.then108 ]
-  %shr.i.i.i.i.i.i2849 = lshr i64 %__len.012.i.i.i.i.i.i2848, 1
-  %add.ptr.i.i.i.i.i.i.i.i2852 = getelementptr inbounds ptr, ptr %__first.addr.013.i.i.i.i.i.i2847, i64 %shr.i.i.i.i.i.i2849
+  %__len.013.i.i.i.i.i.i2847 = phi i64 [ %__len.1.i.i.i.i.i.i2871, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i.i2866 ], [ %15, %if.then108 ]
+  %__first.addr.012.i.i.i.i.i.i2848 = phi ptr [ %__first.addr.1.i.i.i.i.i.i2870, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i.i2866 ], [ %keys_.i.i.i, %if.then108 ]
+  %shr.i.i.i.i.i.i2849 = lshr i64 %__len.013.i.i.i.i.i.i2847, 1
+  %add.ptr.i.i.i.i.i.i.i.i2852 = getelementptr inbounds ptr, ptr %__first.addr.012.i.i.i.i.i.i2848, i64 %shr.i.i.i.i.i.i2849
   %163 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i2852, align 8
   %value_.i.i.i.i.i.i.i.i.i2855 = getelementptr inbounds i8, ptr %163, i64 16
   %164 = load ptr, ptr %value_.i.i.i.i.i.i.i.i.i2855, align 8
@@ -2979,14 +2979,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameCompar
   %retval.i.0.i.i.i.i.i.i.i.i.i2867 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i.i.i2865, %if.then.i.i.i.i.i.i.i.i.i.i2864 ], [ %cmp12.i.i.i.i.i.i.i.i.i.i2874, %if.end.i.i.i.i.i.i.i.i.i.i2873 ]
   %incdec.ptr.i.i.i.i.i.i2868 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i2852, i64 8
   %165 = xor i64 %shr.i.i.i.i.i.i2849, -1
-  %sub2.i.i.i.i.i.i2869 = add nsw i64 %__len.012.i.i.i.i.i.i2848, %165
-  %__len.1.i.i.i.i.i.i2870 = select i1 %retval.i.0.i.i.i.i.i.i.i.i.i2867, i64 %sub2.i.i.i.i.i.i2869, i64 %shr.i.i.i.i.i.i2849
-  %__first.addr.1.i.i.i.i.i.i2871 = select i1 %retval.i.0.i.i.i.i.i.i.i.i.i2867, ptr %incdec.ptr.i.i.i.i.i.i2868, ptr %__first.addr.013.i.i.i.i.i.i2847
-  %cmp.i.i7.i.i.i.i2872 = icmp sgt i64 %__len.1.i.i.i.i.i.i2870, 0
+  %sub2.i.i.i.i.i.i2869 = add nsw i64 %__len.013.i.i.i.i.i.i2847, %165
+  %__first.addr.1.i.i.i.i.i.i2870 = select i1 %retval.i.0.i.i.i.i.i.i.i.i.i2867, ptr %incdec.ptr.i.i.i.i.i.i2868, ptr %__first.addr.012.i.i.i.i.i.i2848
+  %__len.1.i.i.i.i.i.i2871 = select i1 %retval.i.0.i.i.i.i.i.i.i.i.i2867, i64 %sub2.i.i.i.i.i.i2869, i64 %shr.i.i.i.i.i.i2849
+  %cmp.i.i7.i.i.i.i2872 = icmp sgt i64 %__len.1.i.i.i.i.i.i2871, 0
   br i1 %cmp.i.i7.i.i.i.i2872, label %while.body.i.i.i.i.i.i2846, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.i.i2706, !llvm.loop !4
 
 _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.i.i2706: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i.i2866, %if.then108
-  %__first.addr.0.lcssa.i.i.i.i.i.i2707 = phi ptr [ %keys_.i.i.i, %if.then108 ], [ %__first.addr.1.i.i.i.i.i.i2871, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i.i2866 ]
+  %__first.addr.0.lcssa.i.i.i.i.i.i2707 = phi ptr [ %keys_.i.i.i, %if.then108 ], [ %__first.addr.1.i.i.i.i.i.i2870, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i.i2866 ]
   %cmp.not.i.i.i.i2708 = icmp eq ptr %__first.addr.0.lcssa.i.i.i.i.i.i2707, %add.ptr.i.i.i
   br i1 %cmp.not.i.i.i.i2708, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit.i.i2714, label %land.lhs.true.i.i.i.i2709
 
@@ -3031,10 +3031,10 @@ if.end.i:                                         ; preds = %_ZNK6hermes6parser1
   br i1 %cmp11.i.i.i.i, label %while.body.i.i.i.i.i2809, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.i2724
 
 while.body.i.i.i.i.i2809:                         ; preds = %if.end.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i2829
-  %__first.addr.013.i.i.i.i.i2810 = phi ptr [ %__first.addr.1.i.i.i.i.i2834, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i2829 ], [ %keys_.i.i.i, %if.end.i ]
-  %__len.012.i.i.i.i.i2811 = phi i64 [ %__len.1.i.i.i.i.i2833, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i2829 ], [ %15, %if.end.i ]
-  %shr.i.i.i.i.i2812 = lshr i64 %__len.012.i.i.i.i.i2811, 1
-  %add.ptr.i.i.i.i.i.i.i2815 = getelementptr inbounds ptr, ptr %__first.addr.013.i.i.i.i.i2810, i64 %shr.i.i.i.i.i2812
+  %__len.013.i.i.i.i.i2810 = phi i64 [ %__len.1.i.i.i.i.i2834, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i2829 ], [ %15, %if.end.i ]
+  %__first.addr.012.i.i.i.i.i2811 = phi ptr [ %__first.addr.1.i.i.i.i.i2833, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i2829 ], [ %keys_.i.i.i, %if.end.i ]
+  %shr.i.i.i.i.i2812 = lshr i64 %__len.013.i.i.i.i.i2810, 1
+  %add.ptr.i.i.i.i.i.i.i2815 = getelementptr inbounds ptr, ptr %__first.addr.012.i.i.i.i.i2811, i64 %shr.i.i.i.i.i2812
   %172 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i2815, align 8
   %value_.i.i.i.i.i.i.i.i2818 = getelementptr inbounds i8, ptr %172, i64 16
   %173 = load ptr, ptr %value_.i.i.i.i.i.i.i.i2818, align 8
@@ -3062,14 +3062,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameCompar
   %retval.i.0.i.i.i.i.i.i.i.i2830 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i.i2828, %if.then.i.i.i.i.i.i.i.i.i2827 ], [ %cmp12.i.i.i.i.i.i.i.i.i2837, %if.end.i.i.i.i.i.i.i.i.i2836 ]
   %incdec.ptr.i.i.i.i.i2831 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i2815, i64 8
   %174 = xor i64 %shr.i.i.i.i.i2812, -1
-  %sub2.i.i.i.i.i2832 = add nsw i64 %__len.012.i.i.i.i.i2811, %174
-  %__len.1.i.i.i.i.i2833 = select i1 %retval.i.0.i.i.i.i.i.i.i.i2830, i64 %sub2.i.i.i.i.i2832, i64 %shr.i.i.i.i.i2812
-  %__first.addr.1.i.i.i.i.i2834 = select i1 %retval.i.0.i.i.i.i.i.i.i.i2830, ptr %incdec.ptr.i.i.i.i.i2831, ptr %__first.addr.013.i.i.i.i.i2810
-  %cmp.i.i7.i.i.i2835 = icmp sgt i64 %__len.1.i.i.i.i.i2833, 0
+  %sub2.i.i.i.i.i2832 = add nsw i64 %__len.013.i.i.i.i.i2810, %174
+  %__first.addr.1.i.i.i.i.i2833 = select i1 %retval.i.0.i.i.i.i.i.i.i.i2830, ptr %incdec.ptr.i.i.i.i.i2831, ptr %__first.addr.012.i.i.i.i.i2811
+  %__len.1.i.i.i.i.i2834 = select i1 %retval.i.0.i.i.i.i.i.i.i.i2830, i64 %sub2.i.i.i.i.i2832, i64 %shr.i.i.i.i.i2812
+  %cmp.i.i7.i.i.i2835 = icmp sgt i64 %__len.1.i.i.i.i.i2834, 0
   br i1 %cmp.i.i7.i.i.i2835, label %while.body.i.i.i.i.i2809, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.i2724, !llvm.loop !4
 
 _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.i2724: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i2829, %if.end.i
-  %__first.addr.0.lcssa.i.i.i.i.i2725 = phi ptr [ %keys_.i.i.i, %if.end.i ], [ %__first.addr.1.i.i.i.i.i2834, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i2829 ]
+  %__first.addr.0.lcssa.i.i.i.i.i2725 = phi ptr [ %keys_.i.i.i, %if.end.i ], [ %__first.addr.1.i.i.i.i.i2833, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i2829 ]
   %cmp.not.i.i.i2726 = icmp eq ptr %__first.addr.0.lcssa.i.i.i.i.i2725, %add.ptr.i.i.i
   br i1 %cmp.not.i.i.i2726, label %if.then6.i, label %land.lhs.true.i.i.i2727
 
@@ -3119,10 +3119,10 @@ _ZN4llvh9StringRefC2EPKc.exit51.i:                ; preds = %land.lhs.true.i.i27
   br i1 %cmp11.i.i.i.i.i23.i, label %while.body.i.i.i.i.i45.i2780, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.i24.i2742
 
 while.body.i.i.i.i.i45.i2780:                     ; preds = %_ZN4llvh9StringRefC2EPKc.exit51.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i65.i2800
-  %__first.addr.013.i.i.i.i.i46.i2781 = phi ptr [ %__first.addr.1.i.i.i.i.i70.i2805, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i65.i2800 ], [ %keys_.i.i.i.i20.i, %_ZN4llvh9StringRefC2EPKc.exit51.i ]
-  %__len.012.i.i.i.i.i47.i2782 = phi i64 [ %__len.1.i.i.i.i.i69.i2804, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i65.i2800 ], [ %181, %_ZN4llvh9StringRefC2EPKc.exit51.i ]
-  %shr.i.i.i.i.i48.i2783 = lshr i64 %__len.012.i.i.i.i.i47.i2782, 1
-  %add.ptr.i.i.i.i.i.i.i51.i2786 = getelementptr inbounds ptr, ptr %__first.addr.013.i.i.i.i.i46.i2781, i64 %shr.i.i.i.i.i48.i2783
+  %__len.013.i.i.i.i.i46.i2781 = phi i64 [ %__len.1.i.i.i.i.i70.i2805, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i65.i2800 ], [ %181, %_ZN4llvh9StringRefC2EPKc.exit51.i ]
+  %__first.addr.012.i.i.i.i.i47.i2782 = phi ptr [ %__first.addr.1.i.i.i.i.i69.i2804, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i65.i2800 ], [ %keys_.i.i.i.i20.i, %_ZN4llvh9StringRefC2EPKc.exit51.i ]
+  %shr.i.i.i.i.i48.i2783 = lshr i64 %__len.013.i.i.i.i.i46.i2781, 1
+  %add.ptr.i.i.i.i.i.i.i51.i2786 = getelementptr inbounds ptr, ptr %__first.addr.012.i.i.i.i.i47.i2782, i64 %shr.i.i.i.i.i48.i2783
   %182 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i51.i2786, align 8
   %value_.i.i.i.i.i.i.i.i54.i2789 = getelementptr inbounds i8, ptr %182, i64 16
   %183 = load ptr, ptr %value_.i.i.i.i.i.i.i.i54.i2789, align 8
@@ -3150,14 +3150,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameCompar
   %retval.i.0.i.i.i.i.i.i.i.i66.i2801 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i.i64.i2799, %if.then.i.i.i.i.i.i.i.i.i63.i2798 ], [ %cmp12.i.i.i.i.i.i.i.i.i73.i2808, %if.end.i.i.i.i.i.i.i.i.i72.i2807 ]
   %incdec.ptr.i.i.i.i.i67.i2802 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i51.i2786, i64 8
   %184 = xor i64 %shr.i.i.i.i.i48.i2783, -1
-  %sub2.i.i.i.i.i68.i2803 = add nsw i64 %__len.012.i.i.i.i.i47.i2782, %184
-  %__len.1.i.i.i.i.i69.i2804 = select i1 %retval.i.0.i.i.i.i.i.i.i.i66.i2801, i64 %sub2.i.i.i.i.i68.i2803, i64 %shr.i.i.i.i.i48.i2783
-  %__first.addr.1.i.i.i.i.i70.i2805 = select i1 %retval.i.0.i.i.i.i.i.i.i.i66.i2801, ptr %incdec.ptr.i.i.i.i.i67.i2802, ptr %__first.addr.013.i.i.i.i.i46.i2781
-  %cmp.i.i7.i.i.i71.i2806 = icmp sgt i64 %__len.1.i.i.i.i.i69.i2804, 0
+  %sub2.i.i.i.i.i68.i2803 = add nsw i64 %__len.013.i.i.i.i.i46.i2781, %184
+  %__first.addr.1.i.i.i.i.i69.i2804 = select i1 %retval.i.0.i.i.i.i.i.i.i.i66.i2801, ptr %incdec.ptr.i.i.i.i.i67.i2802, ptr %__first.addr.012.i.i.i.i.i47.i2782
+  %__len.1.i.i.i.i.i70.i2805 = select i1 %retval.i.0.i.i.i.i.i.i.i.i66.i2801, i64 %sub2.i.i.i.i.i68.i2803, i64 %shr.i.i.i.i.i48.i2783
+  %cmp.i.i7.i.i.i71.i2806 = icmp sgt i64 %__len.1.i.i.i.i.i70.i2805, 0
   br i1 %cmp.i.i7.i.i.i71.i2806, label %while.body.i.i.i.i.i45.i2780, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.i24.i2742, !llvm.loop !4
 
 _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.i24.i2742: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i65.i2800, %_ZN4llvh9StringRefC2EPKc.exit51.i
-  %__first.addr.0.lcssa.i.i.i.i.i25.i2743 = phi ptr [ %keys_.i.i.i.i20.i, %_ZN4llvh9StringRefC2EPKc.exit51.i ], [ %__first.addr.1.i.i.i.i.i70.i2805, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i65.i2800 ]
+  %__first.addr.0.lcssa.i.i.i.i.i25.i2743 = phi ptr [ %keys_.i.i.i.i20.i, %_ZN4llvh9StringRefC2EPKc.exit51.i ], [ %__first.addr.1.i.i.i.i.i69.i2804, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i65.i2800 ]
   %cmp.not.i.i.i26.i2744 = icmp eq ptr %__first.addr.0.lcssa.i.i.i.i.i25.i2743, %add.ptr.i.i.i.i21.i
   br i1 %cmp.not.i.i.i26.i2744, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit.i33.i2750, label %land.lhs.true.i.i.i27.i2745
 
@@ -3203,10 +3203,10 @@ _ZN4llvh9StringRefC2EPKc.exit61.i:                ; preds = %_ZNK6hermes6parser1
   br i1 %cmp11.i.i.i.i.i23.i, label %while.body.i.i.i.i.i105.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.i84.i
 
 while.body.i.i.i.i.i105.i:                        ; preds = %_ZN4llvh9StringRefC2EPKc.exit61.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i125.i
-  %__first.addr.013.i.i.i.i.i106.i = phi ptr [ %__first.addr.1.i.i.i.i.i130.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i125.i ], [ %keys_.i.i.i.i20.i, %_ZN4llvh9StringRefC2EPKc.exit61.i ]
-  %__len.012.i.i.i.i.i107.i = phi i64 [ %__len.1.i.i.i.i.i129.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i125.i ], [ %181, %_ZN4llvh9StringRefC2EPKc.exit61.i ]
-  %shr.i.i.i.i.i108.i = lshr i64 %__len.012.i.i.i.i.i107.i, 1
-  %add.ptr.i.i.i.i.i.i.i111.i = getelementptr inbounds ptr, ptr %__first.addr.013.i.i.i.i.i106.i, i64 %shr.i.i.i.i.i108.i
+  %__len.013.i.i.i.i.i106.i = phi i64 [ %__len.1.i.i.i.i.i130.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i125.i ], [ %181, %_ZN4llvh9StringRefC2EPKc.exit61.i ]
+  %__first.addr.012.i.i.i.i.i107.i = phi ptr [ %__first.addr.1.i.i.i.i.i129.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i125.i ], [ %keys_.i.i.i.i20.i, %_ZN4llvh9StringRefC2EPKc.exit61.i ]
+  %shr.i.i.i.i.i108.i = lshr i64 %__len.013.i.i.i.i.i106.i, 1
+  %add.ptr.i.i.i.i.i.i.i111.i = getelementptr inbounds ptr, ptr %__first.addr.012.i.i.i.i.i107.i, i64 %shr.i.i.i.i.i108.i
   %191 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i111.i, align 8
   %value_.i.i.i.i.i.i.i.i114.i = getelementptr inbounds i8, ptr %191, i64 16
   %192 = load ptr, ptr %value_.i.i.i.i.i.i.i.i114.i, align 8
@@ -3234,14 +3234,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameCompar
   %retval.i.0.i.i.i.i.i.i.i.i126.i = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i.i124.i, %if.then.i.i.i.i.i.i.i.i.i123.i ], [ %cmp12.i.i.i.i.i.i.i.i.i133.i, %if.end.i.i.i.i.i.i.i.i.i132.i ]
   %incdec.ptr.i.i.i.i.i127.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i111.i, i64 8
   %193 = xor i64 %shr.i.i.i.i.i108.i, -1
-  %sub2.i.i.i.i.i128.i = add nsw i64 %__len.012.i.i.i.i.i107.i, %193
-  %__len.1.i.i.i.i.i129.i = select i1 %retval.i.0.i.i.i.i.i.i.i.i126.i, i64 %sub2.i.i.i.i.i128.i, i64 %shr.i.i.i.i.i108.i
-  %__first.addr.1.i.i.i.i.i130.i = select i1 %retval.i.0.i.i.i.i.i.i.i.i126.i, ptr %incdec.ptr.i.i.i.i.i127.i, ptr %__first.addr.013.i.i.i.i.i106.i
-  %cmp.i.i7.i.i.i131.i = icmp sgt i64 %__len.1.i.i.i.i.i129.i, 0
+  %sub2.i.i.i.i.i128.i = add nsw i64 %__len.013.i.i.i.i.i106.i, %193
+  %__first.addr.1.i.i.i.i.i129.i = select i1 %retval.i.0.i.i.i.i.i.i.i.i126.i, ptr %incdec.ptr.i.i.i.i.i127.i, ptr %__first.addr.012.i.i.i.i.i107.i
+  %__len.1.i.i.i.i.i130.i = select i1 %retval.i.0.i.i.i.i.i.i.i.i126.i, i64 %sub2.i.i.i.i.i128.i, i64 %shr.i.i.i.i.i108.i
+  %cmp.i.i7.i.i.i131.i = icmp sgt i64 %__len.1.i.i.i.i.i130.i, 0
   br i1 %cmp.i.i7.i.i.i131.i, label %while.body.i.i.i.i.i105.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.i84.i, !llvm.loop !4
 
 _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i.i84.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i125.i, %_ZN4llvh9StringRefC2EPKc.exit61.i
-  %__first.addr.0.lcssa.i.i.i.i.i85.i = phi ptr [ %keys_.i.i.i.i20.i, %_ZN4llvh9StringRefC2EPKc.exit61.i ], [ %__first.addr.1.i.i.i.i.i130.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i125.i ]
+  %__first.addr.0.lcssa.i.i.i.i.i85.i = phi ptr [ %keys_.i.i.i.i20.i, %_ZN4llvh9StringRefC2EPKc.exit61.i ], [ %__first.addr.1.i.i.i.i.i129.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i.i125.i ]
   %cmp.not.i.i.i86.i = icmp eq ptr %__first.addr.0.lcssa.i.i.i.i.i85.i, %add.ptr.i.i.i.i21.i
   br i1 %cmp.not.i.i.i86.i, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit.i93.i, label %land.lhs.true.i.i.i87.i
 
@@ -17434,10 +17434,10 @@ entry:
   br i1 %cmp11.i.i.i.i, label %while.body.i.i.i.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i
 
 while.body.i.i.i.i:                               ; preds = %entry, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i
-  %__first.addr.013.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %keys_.i.i.i, %entry ]
-  %__len.012.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %1, %entry ]
-  %shr.i.i.i.i = lshr i64 %__len.012.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.013.i.i.i.i, i64 %shr.i.i.i.i
+  %__len.013.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %1, %entry ]
+  %__first.addr.012.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %keys_.i.i.i, %entry ]
+  %shr.i.i.i.i = lshr i64 %__len.013.i.i.i.i, 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.012.i.i.i.i, i64 %shr.i.i.i.i
   %2 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %value_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %value_.i.i.i.i.i.i.i, align 8
@@ -17465,9 +17465,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameCompar
   %retval.i.0.i.i.i.i.i.i.i = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %cmp12.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
   %4 = xor i64 %shr.i.i.i.i, -1
-  %sub2.i.i.i.i = add nsw i64 %__len.012.i.i.i.i, %4
+  %sub2.i.i.i.i = add nsw i64 %__len.013.i.i.i.i, %4
+  %__first.addr.1.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i.i.i, ptr %__first.addr.012.i.i.i.i
   %__len.1.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i, i64 %sub2.i.i.i.i, i64 %shr.i.i.i.i
-  %__first.addr.1.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i.i.i, ptr %__first.addr.013.i.i.i.i
   %cmp.i.i7.i.i = icmp sgt i64 %__len.1.i.i.i.i, 0
   br i1 %cmp.i.i7.i.i, label %while.body.i.i.i.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i, !llvm.loop !4
 
@@ -17605,10 +17605,10 @@ entry:
   br i1 %cmp11.i.i.i.i, label %while.body.i.i.i.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i
 
 while.body.i.i.i.i:                               ; preds = %entry, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i
-  %__first.addr.013.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %keys_.i.i.i, %entry ]
-  %__len.012.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %1, %entry ]
-  %shr.i.i.i.i = lshr i64 %__len.012.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.013.i.i.i.i, i64 %shr.i.i.i.i
+  %__len.013.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %1, %entry ]
+  %__first.addr.012.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %keys_.i.i.i, %entry ]
+  %shr.i.i.i.i = lshr i64 %__len.013.i.i.i.i, 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.012.i.i.i.i, i64 %shr.i.i.i.i
   %2 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %value_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %value_.i.i.i.i.i.i.i, align 8
@@ -17636,9 +17636,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameCompar
   %retval.i.0.i.i.i.i.i.i.i = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %cmp12.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
   %4 = xor i64 %shr.i.i.i.i, -1
-  %sub2.i.i.i.i = add nsw i64 %__len.012.i.i.i.i, %4
+  %sub2.i.i.i.i = add nsw i64 %__len.013.i.i.i.i, %4
+  %__first.addr.1.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i.i.i, ptr %__first.addr.012.i.i.i.i
   %__len.1.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i, i64 %sub2.i.i.i.i, i64 %shr.i.i.i.i
-  %__first.addr.1.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i.i.i, ptr %__first.addr.013.i.i.i.i
   %cmp.i.i7.i.i = icmp sgt i64 %__len.1.i.i.i.i, 0
   br i1 %cmp.i.i7.i.i, label %while.body.i.i.i.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i, !llvm.loop !4
 
@@ -17710,10 +17710,10 @@ entry:
   br i1 %cmp11.i.i.i.i, label %while.body.i.i.i.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i
 
 while.body.i.i.i.i:                               ; preds = %entry, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i
-  %__first.addr.013.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %keys_.i.i.i, %entry ]
-  %__len.012.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %1, %entry ]
-  %shr.i.i.i.i = lshr i64 %__len.012.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.013.i.i.i.i, i64 %shr.i.i.i.i
+  %__len.013.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %1, %entry ]
+  %__first.addr.012.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %keys_.i.i.i, %entry ]
+  %shr.i.i.i.i = lshr i64 %__len.013.i.i.i.i, 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.012.i.i.i.i, i64 %shr.i.i.i.i
   %2 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %value_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %value_.i.i.i.i.i.i.i, align 8
@@ -17741,9 +17741,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameCompar
   %retval.i.0.i.i.i.i.i.i.i = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %cmp12.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
   %4 = xor i64 %shr.i.i.i.i, -1
-  %sub2.i.i.i.i = add nsw i64 %__len.012.i.i.i.i, %4
+  %sub2.i.i.i.i = add nsw i64 %__len.013.i.i.i.i, %4
+  %__first.addr.1.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i.i.i, ptr %__first.addr.012.i.i.i.i
   %__len.1.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i, i64 %sub2.i.i.i.i, i64 %shr.i.i.i.i
-  %__first.addr.1.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i.i.i, ptr %__first.addr.013.i.i.i.i
   %cmp.i.i7.i.i = icmp sgt i64 %__len.1.i.i.i.i, 0
   br i1 %cmp.i.i7.i.i, label %while.body.i.i.i.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i, !llvm.loop !4
 
@@ -18109,10 +18109,10 @@ entry:
   br i1 %cmp11.i.i.i.i, label %while.body.i.i.i.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i
 
 while.body.i.i.i.i:                               ; preds = %entry, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i
-  %__first.addr.013.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %keys_.i.i.i, %entry ]
-  %__len.012.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %1, %entry ]
-  %shr.i.i.i.i = lshr i64 %__len.012.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.013.i.i.i.i, i64 %shr.i.i.i.i
+  %__len.013.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %1, %entry ]
+  %__first.addr.012.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %keys_.i.i.i, %entry ]
+  %shr.i.i.i.i = lshr i64 %__len.013.i.i.i.i, 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.012.i.i.i.i, i64 %shr.i.i.i.i
   %2 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %value_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %value_.i.i.i.i.i.i.i, align 8
@@ -18140,9 +18140,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameCompar
   %retval.i.0.i.i.i.i.i.i.i = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %cmp12.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
   %4 = xor i64 %shr.i.i.i.i, -1
-  %sub2.i.i.i.i = add nsw i64 %__len.012.i.i.i.i, %4
+  %sub2.i.i.i.i = add nsw i64 %__len.013.i.i.i.i, %4
+  %__first.addr.1.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i.i.i, ptr %__first.addr.012.i.i.i.i
   %__len.1.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i, i64 %sub2.i.i.i.i, i64 %shr.i.i.i.i
-  %__first.addr.1.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i.i.i, ptr %__first.addr.013.i.i.i.i
   %cmp.i.i7.i.i = icmp sgt i64 %__len.1.i.i.i.i, 0
   br i1 %cmp.i.i7.i.i, label %while.body.i.i.i.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i, !llvm.loop !4
 
@@ -18207,10 +18207,10 @@ entry:
   br i1 %cmp11.i.i.i.i, label %while.body.i.i.i.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i
 
 while.body.i.i.i.i:                               ; preds = %entry, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i
-  %__first.addr.013.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %keys_.i.i.i, %entry ]
-  %__len.012.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %1, %entry ]
-  %shr.i.i.i.i = lshr i64 %__len.012.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.013.i.i.i.i, i64 %shr.i.i.i.i
+  %__len.013.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %1, %entry ]
+  %__first.addr.012.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i ], [ %keys_.i.i.i, %entry ]
+  %shr.i.i.i.i = lshr i64 %__len.013.i.i.i.i, 1
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first.addr.012.i.i.i.i, i64 %shr.i.i.i.i
   %2 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %value_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %value_.i.i.i.i.i.i.i, align 8
@@ -18238,9 +18238,9 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameCompar
   %retval.i.0.i.i.i.i.i.i.i = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %cmp12.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ]
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
   %4 = xor i64 %shr.i.i.i.i, -1
-  %sub2.i.i.i.i = add nsw i64 %__len.012.i.i.i.i, %4
+  %sub2.i.i.i.i = add nsw i64 %__len.013.i.i.i.i, %4
+  %__first.addr.1.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i.i.i, ptr %__first.addr.012.i.i.i.i
   %__len.1.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i, i64 %sub2.i.i.i.i, i64 %shr.i.i.i.i
-  %__first.addr.1.i.i.i.i = select i1 %retval.i.0.i.i.i.i.i.i.i, ptr %incdec.ptr.i.i.i.i, ptr %__first.addr.013.i.i.i.i
   %cmp.i.i7.i.i = icmp sgt i64 %__len.1.i.i.i.i, 0
   br i1 %cmp.i.i7.i.i, label %while.body.i.i.i.i, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i, !llvm.loop !4
 

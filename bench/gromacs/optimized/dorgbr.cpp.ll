@@ -47,41 +47,41 @@ define void @dorgbr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br label %.sink.split
 
 .loopexit:                                        ; preds = %38, %.lr.ph116
-  %30 = icmp sgt i32 %.0115, 2
+  %30 = icmp sgt i32 %.098115, 2
   br i1 %30, label %.lr.ph116, label %._crit_edge, !llvm.loop !4
 
 .lr.ph116:                                        ; preds = %.preheader111, %.loopexit
-  %.0115 = phi i32 [ %31, %.loopexit ], [ %20, %.preheader111 ]
-  %31 = add nsw i32 %.0115, -1
+  %.098115 = phi i32 [ %31, %.loopexit ], [ %20, %.preheader111 ]
+  %31 = add nsw i32 %.098115, -1
   %32 = load i32, ptr %5, align 4
   %33 = mul nsw i32 %32, %31
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds double, ptr %4, i64 %34
   store double 0.000000e+00, ptr %35, align 8
   %36 = load i32, ptr %1, align 4
-  %.not110.not113 = icmp slt i32 %.0115, %36
+  %.not110.not113 = icmp slt i32 %.098115, %36
   br i1 %.not110.not113, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph116
-  %37 = add nsw i32 %.0115, -2
+  %37 = add nsw i32 %.098115, -2
   br label %38
 
 38:                                               ; preds = %.lr.ph, %38
-  %.098.in114 = phi i32 [ %.0115, %.lr.ph ], [ %.098, %38 ]
-  %.098 = add nuw nsw i32 %.098.in114, 1
+  %.0.in114 = phi i32 [ %.098115, %.lr.ph ], [ %.0, %38 ]
+  %.0 = add nuw nsw i32 %.0.in114, 1
   %39 = load i32, ptr %5, align 4
   %40 = mul nsw i32 %39, %37
-  %41 = add nsw i32 %40, %.098.in114
+  %41 = add nsw i32 %40, %.0.in114
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds double, ptr %4, i64 %42
   %44 = load double, ptr %43, align 8
   %45 = mul nsw i32 %39, %31
-  %46 = add nsw i32 %45, %.098.in114
+  %46 = add nsw i32 %45, %.0.in114
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds double, ptr %4, i64 %47
   store double %44, ptr %48, align 8
   %49 = load i32, ptr %1, align 4
-  %.not110.not = icmp slt i32 %.098, %49
+  %.not110.not = icmp slt i32 %.0, %49
   br i1 %.not110.not, label %38, label %.loopexit, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader111
@@ -147,9 +147,9 @@ define void @dorgbr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %.not.not, label %.lr.ph127, label %.preheader, !llvm.loop !8
 
 .lr.ph134:                                        ; preds = %.preheader, %._crit_edge131
-  %.1133 = phi i32 [ %87, %._crit_edge131 ], [ 2, %.preheader ]
-  %69 = add nsw i32 %.1133, -1
-  %70 = icmp ugt i32 %.1133, 2
+  %.199133 = phi i32 [ %87, %._crit_edge131 ], [ 2, %.preheader ]
+  %69 = add nsw i32 %.199133, -1
+  %70 = icmp ugt i32 %.199133, 2
   br i1 %70, label %.lr.ph130, label %._crit_edge131
 
 .lr.ph130:                                        ; preds = %.lr.ph134, %.lr.ph130
@@ -175,9 +175,9 @@ define void @dorgbr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %85 = sext i32 %84 to i64
   %86 = getelementptr inbounds double, ptr %4, i64 %85
   store double 0.000000e+00, ptr %86, align 8
-  %87 = add nuw nsw i32 %.1133, 1
+  %87 = add nuw nsw i32 %.199133, 1
   %88 = load i32, ptr %2, align 4
-  %.not107.not = icmp slt i32 %.1133, %88
+  %.not107.not = icmp slt i32 %.199133, %88
   br i1 %.not107.not, label %.lr.ph134, label %._crit_edge135, !llvm.loop !10
 
 ._crit_edge135:                                   ; preds = %._crit_edge131

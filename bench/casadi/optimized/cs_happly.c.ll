@@ -78,8 +78,8 @@ define range(i32 0, 2) i32 @cs_happly(ptr noundef readonly %0, i32 noundef %1, d
   br i1 %45, label %.lr.ph41, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph41, %10, %._crit_edge, %4, %5
-  %.033 = phi i32 [ 0, %5 ], [ 0, %4 ], [ 1, %._crit_edge ], [ 1, %10 ], [ 1, %.lr.ph41 ]
-  ret i32 %.033
+  %.034 = phi i32 [ 0, %5 ], [ 0, %4 ], [ 1, %._crit_edge ], [ 1, %10 ], [ 1, %.lr.ph41 ]
+  ret i32 %.034
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

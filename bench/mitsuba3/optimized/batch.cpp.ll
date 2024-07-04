@@ -1269,20 +1269,20 @@ _ZN5drjit15StaticArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %26 = getelementptr inbounds i8, ptr %15, i64 96
   %27 = getelementptr inbounds i8, ptr %15, i64 32
   %28 = getelementptr inbounds i8, ptr %15, i64 44
-  %.sroa.4.0..sroa_idx388 = getelementptr inbounds i8, ptr %15, i64 16
-  %.sroa.6.0..sroa_idx396 = getelementptr inbounds i8, ptr %15, i64 40
-  %.sroa.10.0..sroa_idx404 = getelementptr inbounds i8, ptr %15, i64 48
-  %.sroa.11.0..sroa_idx407 = getelementptr inbounds i8, ptr %15, i64 49
-  %.sroa.11408.0..sroa_idx411 = getelementptr inbounds i8, ptr %15, i64 64
-  %.sroa.12.0..sroa_idx415 = getelementptr inbounds i8, ptr %15, i64 80
-  %.sroa.13.0..sroa_idx419 = getelementptr inbounds i8, ptr %15, i64 84
-  %.sroa.13421.0..sroa_idx424 = getelementptr inbounds i8, ptr %15, i64 88
+  %.sroa.4.0..sroa_idx386 = getelementptr inbounds i8, ptr %15, i64 16
+  %.sroa.6.0..sroa_idx394 = getelementptr inbounds i8, ptr %15, i64 40
+  %.sroa.10.0..sroa_idx402 = getelementptr inbounds i8, ptr %15, i64 48
+  %.sroa.11.0..sroa_idx406 = getelementptr inbounds i8, ptr %15, i64 49
+  %.sroa.11408.0..sroa_idx409 = getelementptr inbounds i8, ptr %15, i64 64
+  %.sroa.12.0..sroa_idx413 = getelementptr inbounds i8, ptr %15, i64 80
+  %.sroa.13.0..sroa_idx417 = getelementptr inbounds i8, ptr %15, i64 84
+  %.sroa.13421.0..sroa_idx422 = getelementptr inbounds i8, ptr %15, i64 88
   %29 = getelementptr inbounds i8, ptr %16, i64 8
   br label %30
 
 30:                                               ; preds = %.lr.ph, %83
   %31 = phi ptr [ %21, %.lr.ph ], [ %86, %83 ]
-  %.0332441 = phi i64 [ 0, %.lr.ph ], [ %84, %83 ]
+  %.0441 = phi i64 [ 0, %.lr.ph ], [ %84, %83 ]
   %.0364440 = phi i32 [ 0, %.lr.ph ], [ %52, %83 ]
   %.sroa.0.2439 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %.sroa.0.3, %83 ]
   %.sroa.4.2438 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %.sroa.4.3, %83 ]
@@ -1294,20 +1294,20 @@ _ZN5drjit15StaticArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %.sroa.12.2432 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.12.3, %83 ]
   %.sroa.13.2431 = phi i32 [ undef, %.lr.ph ], [ %.sroa.13.3, %83 ]
   %.sroa.13421.2430 = phi ptr [ null, %.lr.ph ], [ %.sroa.13421.3, %83 ]
-  %32 = getelementptr inbounds %"class.mitsuba::ref.30", ptr %31, i64 %.0332441
+  %32 = getelementptr inbounds %"class.mitsuba::ref.30", ptr %31, i64 %.0441
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 16
   %35 = getelementptr inbounds i8, ptr %34, i64 96
   %36 = load ptr, ptr %35, align 8
   call void %36(ptr dead_on_unwind nonnull writable sret(%"struct.std::__1::pair.98") align 16 %15, ptr noundef nonnull align 16 dereferenceable(192) %33, ptr noundef nonnull align 16 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(8) %14, i1 noundef zeroext %4)
   %37 = load ptr, ptr %18, align 16
-  %38 = getelementptr inbounds %"class.mitsuba::ref.30", ptr %37, i64 %.0332441
+  %38 = getelementptr inbounds %"class.mitsuba::ref.30", ptr %37, i64 %.0441
   %39 = load ptr, ptr %38, align 8
   %40 = call noundef ptr @_ZNK7mitsuba6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4filmEv(ptr noundef nonnull align 16 dereferenceable(233) %39)
   %41 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZNK7mitsuba4FilmIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %40)
   %42 = load i32, ptr %41, align 4
   %43 = zext i32 %42 to i64
-  %44 = mul i64 %.0332441, %43
+  %44 = mul i64 %.0441, %43
   %45 = uitofp i64 %44 to float
   %46 = load float, ptr %27, align 16
   %47 = fadd contract float %46, %45
@@ -1332,30 +1332,30 @@ _ZN5drjit15StaticArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   br i1 %58, label %61, label %.critedge.thread
 
 61:                                               ; preds = %.critedge
-  %.sroa.0.0.copyload385 = load <4 x float>, ptr %15, align 16
-  %.sroa.4.0.copyload389 = load <4 x float>, ptr %.sroa.4.0..sroa_idx388, align 16
-  %.sroa.5.0.copyload393 = load <2 x float>, ptr %27, align 16
-  %.sroa.6.0.copyload397 = load float, ptr %.sroa.6.0..sroa_idx396, align 8
-  %.sroa.10.0.copyload405 = load i8, ptr %.sroa.10.0..sroa_idx404, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.11, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.11.0..sroa_idx407, i64 15, i1 false)
-  %.sroa.11408.0.copyload412 = load <4 x float>, ptr %.sroa.11408.0..sroa_idx411, align 16
-  %.sroa.12.0.copyload416 = load float, ptr %.sroa.12.0..sroa_idx415, align 16
-  %.sroa.13.0.copyload420 = load i32, ptr %.sroa.13.0..sroa_idx419, align 4
-  %.sroa.13421.0.copyload425 = load ptr, ptr %.sroa.13421.0..sroa_idx424, align 8
+  %.sroa.0.0.copyload384 = load <4 x float>, ptr %15, align 16
+  %.sroa.4.0.copyload387 = load <4 x float>, ptr %.sroa.4.0..sroa_idx386, align 16
+  %.sroa.5.0.copyload391 = load <2 x float>, ptr %27, align 16
+  %.sroa.6.0.copyload395 = load float, ptr %.sroa.6.0..sroa_idx394, align 8
+  %.sroa.10.0.copyload403 = load i8, ptr %.sroa.10.0..sroa_idx402, align 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.11, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.11.0..sroa_idx406, i64 15, i1 false)
+  %.sroa.11408.0.copyload410 = load <4 x float>, ptr %.sroa.11408.0..sroa_idx409, align 16
+  %.sroa.12.0.copyload414 = load float, ptr %.sroa.12.0..sroa_idx413, align 16
+  %.sroa.13.0.copyload418 = load i32, ptr %.sroa.13.0..sroa_idx417, align 4
+  %.sroa.13421.0.copyload423 = load ptr, ptr %.sroa.13421.0..sroa_idx422, align 8
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %30, %61, %.critedge
   %.0383427.shrunk = phi i32 [ 252645135, %61 ], [ 0, %.critedge ], [ 0, %30 ]
-  %.sroa.13421.3 = phi ptr [ %.sroa.13421.0.copyload425, %61 ], [ %.sroa.13421.2430, %.critedge ], [ %.sroa.13421.2430, %30 ]
-  %.sroa.13.3 = phi i32 [ %.sroa.13.0.copyload420, %61 ], [ %.sroa.13.2431, %.critedge ], [ %.sroa.13.2431, %30 ]
-  %.sroa.12.3 = phi float [ %.sroa.12.0.copyload416, %61 ], [ %.sroa.12.2432, %.critedge ], [ %.sroa.12.2432, %30 ]
-  %.sroa.11408.3 = phi <4 x float> [ %.sroa.11408.0.copyload412, %61 ], [ %.sroa.11408.2433, %.critedge ], [ %.sroa.11408.2433, %30 ]
-  %.sroa.10.3 = phi i8 [ %.sroa.10.0.copyload405, %61 ], [ %.sroa.10.2434, %.critedge ], [ %.sroa.10.2434, %30 ]
+  %.sroa.13421.3 = phi ptr [ %.sroa.13421.0.copyload423, %61 ], [ %.sroa.13421.2430, %.critedge ], [ %.sroa.13421.2430, %30 ]
+  %.sroa.13.3 = phi i32 [ %.sroa.13.0.copyload418, %61 ], [ %.sroa.13.2431, %.critedge ], [ %.sroa.13.2431, %30 ]
+  %.sroa.12.3 = phi float [ %.sroa.12.0.copyload414, %61 ], [ %.sroa.12.2432, %.critedge ], [ %.sroa.12.2432, %30 ]
+  %.sroa.11408.3 = phi <4 x float> [ %.sroa.11408.0.copyload410, %61 ], [ %.sroa.11408.2433, %.critedge ], [ %.sroa.11408.2433, %30 ]
+  %.sroa.10.3 = phi i8 [ %.sroa.10.0.copyload403, %61 ], [ %.sroa.10.2434, %.critedge ], [ %.sroa.10.2434, %30 ]
   %.sroa.7.3 = phi float [ %48, %61 ], [ %.sroa.7.2435, %.critedge ], [ %.sroa.7.2435, %30 ]
-  %.sroa.6.3 = phi float [ %.sroa.6.0.copyload397, %61 ], [ %.sroa.6.2436, %.critedge ], [ %.sroa.6.2436, %30 ]
-  %.sroa.5.3 = phi <2 x float> [ %.sroa.5.0.copyload393, %61 ], [ %.sroa.5.2437, %.critedge ], [ %.sroa.5.2437, %30 ]
-  %.sroa.4.3 = phi <4 x float> [ %.sroa.4.0.copyload389, %61 ], [ %.sroa.4.2438, %.critedge ], [ %.sroa.4.2438, %30 ]
-  %.sroa.0.3 = phi <4 x float> [ %.sroa.0.0.copyload385, %61 ], [ %.sroa.0.2439, %.critedge ], [ %.sroa.0.2439, %30 ]
+  %.sroa.6.3 = phi float [ %.sroa.6.0.copyload395, %61 ], [ %.sroa.6.2436, %.critedge ], [ %.sroa.6.2436, %30 ]
+  %.sroa.5.3 = phi <2 x float> [ %.sroa.5.0.copyload391, %61 ], [ %.sroa.5.2437, %.critedge ], [ %.sroa.5.2437, %30 ]
+  %.sroa.4.3 = phi <4 x float> [ %.sroa.4.0.copyload387, %61 ], [ %.sroa.4.2438, %.critedge ], [ %.sroa.4.2438, %30 ]
+  %.sroa.0.3 = phi <4 x float> [ %.sroa.0.0.copyload384, %61 ], [ %.sroa.0.2439, %.critedge ], [ %.sroa.0.2439, %30 ]
   br label %62
 
 62:                                               ; preds = %62, %.critedge.thread
@@ -1379,18 +1379,18 @@ _ZN5drjit4MaskINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_8MaskBaseIS4_Lm4E
   br label %69
 
 69:                                               ; preds = %65, %69
-  %.0330428 = phi i64 [ 0, %65 ], [ %79, %69 ]
-  %70 = getelementptr inbounds [4 x %"struct.drjit::Mask.114"], ptr %66, i64 0, i64 %.0330428
-  %71 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %67, i64 0, i64 %.0330428
-  %72 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %68, i64 0, i64 %.0330428
+  %.0331428 = phi i64 [ 0, %65 ], [ %79, %69 ]
+  %70 = getelementptr inbounds [4 x %"struct.drjit::Mask.114"], ptr %66, i64 0, i64 %.0331428
+  %71 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %67, i64 0, i64 %.0331428
+  %72 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %68, i64 0, i64 %.0331428
   %73 = load <8 x i1>, ptr %70, align 1, !noalias !17
   %74 = load <4 x float>, ptr %72, align 16, !noalias !17
   %75 = load <4 x float>, ptr %71, align 16, !noalias !17
   %76 = shufflevector <8 x i1> %73, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %77 = select contract <4 x i1> %76, <4 x float> %75, <4 x float> %74
-  %78 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %10, i64 0, i64 %.0330428
+  %78 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %10, i64 0, i64 %.0331428
   store <4 x float> %77, ptr %78, align 16
-  %79 = add nuw nsw i64 %.0330428, 1
+  %79 = add nuw nsw i64 %.0331428, 1
   %exitcond.not = icmp eq i64 %79, 4
   br i1 %exitcond.not, label %80, label %69, !llvm.loop !22
 
@@ -1403,7 +1403,7 @@ _ZN5drjit4MaskINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_8MaskBaseIS4_Lm4E
 
 83:                                               ; preds = %80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %13, ptr noundef nonnull align 16 dereferenceable(256) %11, i64 256, i1 false)
-  %84 = add nuw i64 %.0332441, 1
+  %84 = add nuw i64 %.0441, 1
   %85 = load ptr, ptr %19, align 8
   %86 = load ptr, ptr %18, align 16
   %87 = ptrtoint ptr %85 to i64

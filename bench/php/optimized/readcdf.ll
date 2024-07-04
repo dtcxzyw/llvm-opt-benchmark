@@ -484,9 +484,9 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
   br i1 %.not112.i.i, label %._crit_edge.i.i, label %.lr.ph110.i.i
 
 .lr.ph110.i.i:                                    ; preds = %cdf_clsid_to_mime.exit.i.i, %213
-  %.080109.i.i = phi i64 [ %214, %213 ], [ 0, %cdf_clsid_to_mime.exit.i.i ]
-  %.185108.i.i = phi ptr [ %.286.i.i, %213 ], [ %.084.i.i, %cdf_clsid_to_mime.exit.i.i ]
-  %91 = getelementptr inbounds %struct.cdf_property_info_t, ptr %76, i64 %.080109.i.i
+  %.185109.i.i = phi ptr [ %.286.i.i, %213 ], [ %.084.i.i, %cdf_clsid_to_mime.exit.i.i ]
+  %.087108.i.i = phi i64 [ %214, %213 ], [ 0, %cdf_clsid_to_mime.exit.i.i ]
+  %91 = getelementptr inbounds %struct.cdf_property_info_t, ptr %76, i64 %.087108.i.i
   %92 = load i32, ptr %91, align 8
   %93 = call i32 @cdf_print_property_name(ptr noundef nonnull %14, i64 noundef 64, i32 noundef %92) #8
   %94 = getelementptr inbounds i8, ptr %91, i64 4
@@ -587,15 +587,15 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %166, %.lr.ph.preheader.i.i
-  %.082103.i.i = phi i64 [ %.1.i.i, %166 ], [ 0, %.lr.ph.preheader.i.i ]
-  %.083102.i.i = phi i32 [ %152, %166 ], [ %145, %.lr.ph.preheader.i.i ]
-  %.087101.i.i = phi ptr [ %167, %166 ], [ %149, %.lr.ph.preheader.i.i ]
-  %152 = add nsw i32 %.083102.i.i, -1
-  %.not96.i.i = icmp eq i32 %.083102.i.i, 0
+  %.081103.i.i = phi i64 [ %.1.i.i, %166 ], [ 0, %.lr.ph.preheader.i.i ]
+  %.082102.i.i = phi i32 [ %152, %166 ], [ %145, %.lr.ph.preheader.i.i ]
+  %.083101.i.i = phi ptr [ %167, %166 ], [ %149, %.lr.ph.preheader.i.i ]
+  %152 = add nsw i32 %.082102.i.i, -1
+  %.not96.i.i = icmp eq i32 %.082102.i.i, 0
   br i1 %.not96.i.i, label %.critedge.i.i, label %153
 
 153:                                              ; preds = %.lr.ph.i.i
-  %154 = load i8, ptr %.087101.i.i, align 1
+  %154 = load i8, ptr %.083101.i.i, align 1
   %155 = icmp eq i8 %154, 0
   br i1 %155, label %.critedge.i.i, label %156
 
@@ -610,23 +610,23 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
   br i1 %.not97.i.i, label %166, label %163
 
 163:                                              ; preds = %156
-  %164 = add nuw nsw i64 %.082103.i.i, 1
-  %165 = getelementptr inbounds [1024 x i8], ptr %15, i64 0, i64 %.082103.i.i
+  %164 = add nuw nsw i64 %.081103.i.i, 1
+  %165 = getelementptr inbounds [1024 x i8], ptr %15, i64 0, i64 %.081103.i.i
   store i8 %154, ptr %165, align 1
   br label %166
 
 166:                                              ; preds = %163, %156
-  %.1.i.i = phi i64 [ %164, %163 ], [ %.082103.i.i, %156 ]
-  %167 = getelementptr inbounds i8, ptr %.087101.i.i, i64 %spec.select.i.i
+  %.1.i.i = phi i64 [ %164, %163 ], [ %.081103.i.i, %156 ]
+  %167 = getelementptr inbounds i8, ptr %.083101.i.i, i64 %spec.select.i.i
   %168 = icmp ult ptr %167, %151
   %169 = icmp ult i64 %.1.i.i, 1024
   %or.cond3.i.i = select i1 %168, i1 %169, i1 false
   br i1 %or.cond3.i.i, label %.lr.ph.i.i, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %166, %153, %.lr.ph.i.i
-  %.082.lcssa.ph.i.i = phi i64 [ %.082103.i.i, %.lr.ph.i.i ], [ %.082103.i.i, %153 ], [ %.1.i.i, %166 ]
-  %170 = icmp eq i64 %.082.lcssa.ph.i.i, 1024
-  %spec.select99.i.i = select i1 %170, i64 1023, i64 %.082.lcssa.ph.i.i
+  %.081.lcssa.ph.i.i = phi i64 [ %.081103.i.i, %.lr.ph.i.i ], [ %.081103.i.i, %153 ], [ %.1.i.i, %166 ]
+  %170 = icmp eq i64 %.081.lcssa.ph.i.i, 1024
+  %spec.select99.i.i = select i1 %170, i64 1023, i64 %.081.lcssa.ph.i.i
   %171 = getelementptr inbounds [1024 x i8], ptr %15, i64 0, i64 %spec.select99.i.i
   store i8 0, ptr %171, align 1
   %172 = load i32, ptr %24, align 4
@@ -645,7 +645,7 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
   br i1 %179, label %cdf_file_summary_info.exit, label %213
 
 180:                                              ; preds = %.critedge.i.i
-  %181 = icmp eq ptr %.185108.i.i, null
+  %181 = icmp eq ptr %.185109.i.i, null
   br i1 %181, label %182, label %213
 
 182:                                              ; preds = %180
@@ -706,8 +706,8 @@ cdf_clsid_to_mime.exit.i.i:                       ; preds = %90, %86, %cdf_clsid
   br i1 %212, label %cdf_file_summary_info.exit, label %213
 
 213:                                              ; preds = %210, %206, %197, %192, %187, %185, %182, %180, %177, %175, %143, %138, %134, %128, %124, %119, %115, %110, %106, %100, %96, %.lr.ph110.i.i, %.lr.ph110.i.i
-  %.286.i.i = phi ptr [ %.185108.i.i, %197 ], [ %.185108.i.i, %192 ], [ %.185108.i.i, %210 ], [ %.185108.i.i, %206 ], [ %.185108.i.i, %187 ], [ %.185108.i.i, %177 ], [ %.185108.i.i, %175 ], [ %186, %185 ], [ null, %182 ], [ %.185108.i.i, %180 ], [ %.185108.i.i, %143 ], [ %.185108.i.i, %138 ], [ %.185108.i.i, %134 ], [ %.185108.i.i, %128 ], [ %.185108.i.i, %124 ], [ %.185108.i.i, %119 ], [ %.185108.i.i, %115 ], [ %.185108.i.i, %110 ], [ %.185108.i.i, %106 ], [ %.185108.i.i, %100 ], [ %.185108.i.i, %96 ], [ %.185108.i.i, %.lr.ph110.i.i ], [ %.185108.i.i, %.lr.ph110.i.i ]
-  %214 = add nuw i64 %.080109.i.i, 1
+  %.286.i.i = phi ptr [ %.185109.i.i, %197 ], [ %.185109.i.i, %192 ], [ %.185109.i.i, %210 ], [ %.185109.i.i, %206 ], [ %.185109.i.i, %187 ], [ %.185109.i.i, %177 ], [ %.185109.i.i, %175 ], [ %186, %185 ], [ null, %182 ], [ %.185109.i.i, %180 ], [ %.185109.i.i, %143 ], [ %.185109.i.i, %138 ], [ %.185109.i.i, %134 ], [ %.185109.i.i, %128 ], [ %.185109.i.i, %124 ], [ %.185109.i.i, %119 ], [ %.185109.i.i, %115 ], [ %.185109.i.i, %110 ], [ %.185109.i.i, %106 ], [ %.185109.i.i, %100 ], [ %.185109.i.i, %96 ], [ %.185109.i.i, %.lr.ph110.i.i ], [ %.185109.i.i, %.lr.ph110.i.i ]
+  %214 = add nuw i64 %.087108.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %214, %77
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph110.i.i
 
@@ -759,7 +759,7 @@ cdf_file_summary_info.exit:                       ; preds = %.lr.ph110.i.i, %100
   br i1 %227, label %228, label %229
 
 228:                                              ; preds = %cdf_file_summary_info.exit.thread, %cdf_file_summary_info.exit
-  %.0.i50 = phi i32 [ %.0.i.ph, %cdf_file_summary_info.exit.thread ], [ %226, %cdf_file_summary_info.exit ]
+  %.0.i49 = phi i32 [ %.0.i.ph, %cdf_file_summary_info.exit.thread ], [ %226, %cdf_file_summary_info.exit ]
   store ptr @.str.14, ptr %9, align 8
   br label %cdf_file_catalog_info.exit
 
@@ -771,25 +771,25 @@ cdf_file_summary_info.exit:                       ; preds = %.lr.ph110.i.i, %100
   br label %231
 
 231:                                              ; preds = %.preheader, %243
-  %.03859 = phi i64 [ 0, %.preheader ], [ %249, %243 ]
+  %.03858 = phi i64 [ 0, %.preheader ], [ %249, %243 ]
   %232 = load i64, ptr %230, align 8
-  %.not65 = icmp ult i64 %.03859, %232
-  br i1 %.not65, label %233, label %.critedge
+  %.not64 = icmp ult i64 %.03858, %232
+  br i1 %.not64, label %233, label %.critedge
 
 233:                                              ; preds = %231
   %234 = load ptr, ptr %6, align 8
-  %235 = getelementptr inbounds %struct.cdf_directory_t, ptr %234, i64 %.03859
+  %235 = getelementptr inbounds %struct.cdf_directory_t, ptr %234, i64 %.03858
   br label %236
 
 236:                                              ; preds = %233, %236
-  %.057 = phi i64 [ 0, %233 ], [ %242, %236 ]
-  %237 = getelementptr inbounds [32 x i16], ptr %235, i64 0, i64 %.057
+  %.056 = phi i64 [ 0, %233 ], [ %242, %236 ]
+  %237 = getelementptr inbounds [32 x i16], ptr %235, i64 0, i64 %.056
   %238 = load i16, ptr %237, align 2
   %239 = call zeroext i16 @cdf_tole2(i16 noundef zeroext %238) #8
   %240 = trunc i16 %239 to i8
-  %241 = getelementptr inbounds [32 x i8], ptr %20, i64 0, i64 %.057
+  %241 = getelementptr inbounds [32 x i8], ptr %20, i64 0, i64 %.056
   store i8 %240, ptr %241, align 1
-  %242 = add nuw nsw i64 %.057, 1
+  %242 = add nuw nsw i64 %.056, 1
   %exitcond.not = icmp eq i64 %242, 32
   br i1 %exitcond.not, label %243, label %236
 
@@ -799,7 +799,7 @@ cdf_file_summary_info.exit:                       ; preds = %.lr.ph110.i.i, %100
   %246 = icmp eq i32 %245, 0
   %247 = select i1 %246, ptr @name2desc, ptr @name2mime
   %248 = call fastcc ptr @cdf_app_to_mime(ptr noundef nonnull %20, ptr noundef nonnull %247)
-  %249 = add nuw i64 %.03859, 1
+  %249 = add nuw i64 %.03858, 1
   %250 = icmp eq ptr %248, null
   br i1 %250, label %231, label %.critedge.thread
 
@@ -818,7 +818,7 @@ cdf_file_summary_info.exit:                       ; preds = %.lr.ph110.i.i, %100
 257:                                              ; preds = %.critedge.thread
   %258 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %248) #8
   %259 = icmp eq i32 %258, -1
-  br i1 %259, label %cdf_file_catalog_info.exit, label %.thread51
+  br i1 %259, label %cdf_file_catalog_info.exit, label %.thread50
 
 260:                                              ; preds = %.critedge.thread, %.critedge
   %spec.store.select = phi ptr [ %248, %.critedge.thread ], [ @.str.16, %.critedge ]
@@ -830,9 +830,9 @@ cdf_file_summary_info.exit:                       ; preds = %.lr.ph110.i.i, %100
 263:                                              ; preds = %260
   %264 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, ptr noundef nonnull %spec.store.select) #8
   %265 = icmp eq i32 %264, -1
-  br i1 %265, label %cdf_file_catalog_info.exit, label %.thread51
+  br i1 %265, label %cdf_file_catalog_info.exit, label %.thread50
 
-.thread51:                                        ; preds = %257, %263
+.thread50:                                        ; preds = %257, %263
   br label %cdf_file_catalog_info.exit
 
 266:                                              ; preds = %.critedge, %260
@@ -866,18 +866,18 @@ cdf_file_summary_info.exit:                       ; preds = %.lr.ph110.i.i, %100
   %282 = getelementptr inbounds i8, ptr %281, i64 8
   %283 = load i64, ptr %281, align 8
   %284 = icmp ugt i64 %283, 1
-  br i1 %284, label %.lr.ph.i.i48, label %._crit_edge.i.i47
+  br i1 %284, label %.lr.ph.i.i47, label %._crit_edge.i.i46
 
-285:                                              ; preds = %.lr.ph.i.i48
-  %286 = add nuw i64 %.01416.i.i, 1
+285:                                              ; preds = %.lr.ph.i.i47
+  %286 = add nuw i64 %.016.i.i, 1
   %287 = load ptr, ptr %11, align 8
   %288 = load i64, ptr %287, align 8
   %289 = icmp ult i64 %286, %288
-  br i1 %289, label %.lr.ph.i.i48, label %._crit_edge.i.i47
+  br i1 %289, label %.lr.ph.i.i47, label %._crit_edge.i.i46
 
-.lr.ph.i.i48:                                     ; preds = %280, %285
-  %.01416.i.i = phi i64 [ %286, %285 ], [ 1, %280 ]
-  %290 = getelementptr inbounds %struct.cdf_catalog_entry_t, ptr %282, i64 %.01416.i.i
+.lr.ph.i.i47:                                     ; preds = %280, %285
+  %.016.i.i = phi i64 [ %286, %285 ], [ 1, %280 ]
+  %290 = getelementptr inbounds %struct.cdf_catalog_entry_t, ptr %282, i64 %.016.i.i
   %291 = load i16, ptr %290, align 8
   %292 = zext i16 %291 to i64
   %293 = getelementptr inbounds i8, ptr %290, i64 16
@@ -885,18 +885,18 @@ cdf_file_summary_info.exit:                       ; preds = %.lr.ph110.i.i, %100
   %295 = load ptr, ptr %11, align 8
   %296 = load i64, ptr %295, align 8
   %297 = add i64 %296, -1
-  %298 = icmp eq i64 %.01416.i.i, %297
+  %298 = icmp eq i64 %.016.i.i, %297
   %299 = select i1 %298, ptr @.str.57, ptr @.str.58
   %300 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str.56, ptr noundef %294, ptr noundef nonnull %299) #8
   %301 = icmp eq i32 %300, -1
   br i1 %301, label %302, label %285
 
-302:                                              ; preds = %.lr.ph.i.i48
+302:                                              ; preds = %.lr.ph.i.i47
   %303 = load ptr, ptr %11, align 8
   call void @_efree(ptr noundef %303) #8
   br label %cdf_file_catalog.exit.i
 
-._crit_edge.i.i47:                                ; preds = %285, %280
+._crit_edge.i.i46:                                ; preds = %285, %280
   %.lcssa.i.i = phi ptr [ %281, %280 ], [ %287, %285 ]
   call void @_efree(ptr noundef nonnull %.lcssa.i.i) #8
   br label %309
@@ -911,18 +911,18 @@ cdf_file_summary_info.exit:                       ; preds = %.lr.ph110.i.i, %100
   %308 = icmp eq i32 %307, -1
   br i1 %308, label %cdf_file_catalog.exit.i, label %309
 
-309:                                              ; preds = %306, %304, %._crit_edge.i.i47
+309:                                              ; preds = %306, %304, %._crit_edge.i.i46
   br label %cdf_file_catalog.exit.i
 
 cdf_file_catalog.exit.i:                          ; preds = %309, %306, %302, %277, %274
-  %.0.i.i45 = phi i32 [ -1, %302 ], [ 1, %309 ], [ -1, %274 ], [ -1, %277 ], [ -1, %306 ]
+  %.014.i.i = phi i32 [ -1, %302 ], [ 1, %309 ], [ -1, %274 ], [ -1, %277 ], [ -1, %306 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %12)
   br label %cdf_file_catalog_info.exit
 
-cdf_file_catalog_info.exit:                       ; preds = %cdf_file_catalog.exit.i, %267, %.thread51, %266, %263, %257, %229, %228
-  %.039 = phi i32 [ %.0.i50, %228 ], [ 1, %229 ], [ -1, %257 ], [ -1, %263 ], [ %226, %266 ], [ 1, %.thread51 ], [ -1, %267 ], [ %.0.i.i45, %cdf_file_catalog.exit.i ]
-  ret i32 %.039
+cdf_file_catalog_info.exit:                       ; preds = %cdf_file_catalog.exit.i, %267, %.thread50, %266, %263, %257, %229, %228
+  %.041 = phi i32 [ %.0.i49, %228 ], [ 1, %229 ], [ -1, %257 ], [ -1, %263 ], [ %226, %266 ], [ 1, %.thread50 ], [ -1, %267 ], [ %.014.i.i, %cdf_file_catalog.exit.i ]
+  ret i32 %.041
 }
 
 declare i32 @cdf_read_doc_summary_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -932,8 +932,8 @@ define internal fastcc range(i32 -1, 2) i32 @cdf_file_dir_info(ptr noundef %0, p
   br label %3
 
 3:                                                ; preds = %2, %._crit_edge
-  %.02025 = phi i64 [ 0, %2 ], [ %35, %._crit_edge ]
-  %4 = getelementptr inbounds [6 x %struct.sinfo], ptr @sectioninfo, i64 0, i64 %.02025
+  %.01925 = phi i64 [ 0, %2 ], [ %35, %._crit_edge ]
+  %4 = getelementptr inbounds [6 x %struct.sinfo], ptr @sectioninfo, i64 0, i64 %.01925
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 16
   %.not23 = icmp eq ptr %6, null
@@ -944,7 +944,7 @@ define internal fastcc range(i32 -1, 2) i32 @cdf_file_dir_info(ptr noundef %0, p
   br label %12
 
 8:                                                ; preds = %12
-  %9 = add i64 %.01924, 1
+  %9 = add i64 %.024, 1
   %10 = getelementptr inbounds [5 x ptr], ptr %5, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
@@ -952,8 +952,8 @@ define internal fastcc range(i32 -1, 2) i32 @cdf_file_dir_info(ptr noundef %0, p
 
 12:                                               ; preds = %.lr.ph, %8
   %13 = phi ptr [ %6, %.lr.ph ], [ %11, %8 ]
-  %.01924 = phi i64 [ 0, %.lr.ph ], [ %9, %8 ]
-  %14 = getelementptr inbounds [5 x i32], ptr %7, i64 0, i64 %.01924
+  %.024 = phi i64 [ 0, %.lr.ph ], [ %9, %8 ]
+  %14 = getelementptr inbounds [5 x i32], ptr %7, i64 0, i64 %.024
   %15 = load i32, ptr %14, align 4
   %16 = tail call i32 @cdf_find_stream(ptr noundef %1, ptr noundef nonnull %13, i32 noundef %15) #8
   %17 = icmp sgt i32 %16, 0
@@ -988,13 +988,13 @@ define internal fastcc range(i32 -1, 2) i32 @cdf_file_dir_info(ptr noundef %0, p
   br label %.loopexit
 
 ._crit_edge:                                      ; preds = %8, %3
-  %35 = add nuw nsw i64 %.02025, 1
+  %35 = add nuw nsw i64 %.01925, 1
   %exitcond.not = icmp eq i64 %35, 6
   br i1 %exitcond.not, label %.loopexit, label %3
 
 .loopexit:                                        ; preds = %._crit_edge, %29, %23, %34
-  %.0 = phi i32 [ 1, %34 ], [ -1, %23 ], [ -1, %29 ], [ -1, %._crit_edge ]
-  ret i32 %.0
+  %.020 = phi i32 [ 1, %34 ], [ -1, %23 ], [ -1, %29 ], [ -1, %._crit_edge ]
+  ret i32 %.020
 }
 
 declare void @_efree(ptr noundef) local_unnamed_addr #1

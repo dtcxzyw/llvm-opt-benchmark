@@ -756,14 +756,14 @@ Exp_Truth6.exit:                                  ; preds = %Exp_Truth6Lit.exit3
   br label %.lr.ph.i116
 
 .preheader3.i:                                    ; preds = %.loopexit5.i, %281
-  %.0109.lcssa.i = phi ptr [ null, %281 ], [ %324, %.loopexit5.i ]
+  %.0110.lcssa.i = phi ptr [ null, %281 ], [ %324, %.loopexit5.i ]
   %286 = and i32 %257, 1
   %.not121.i = icmp eq i32 %286, 0
   br i1 %.not121.i, label %.preheader3.split.us.i, label %.preheader3.split.i
 
 .preheader3.split.us.i:                           ; preds = %.preheader3.i, %.preheader3.split.us.i
   %indvars.iv52.i = phi i64 [ %indvars.iv.next53.i, %.preheader3.split.us.i ], [ 0, %.preheader3.i ]
-  %287 = getelementptr inbounds i64, ptr %.0109.lcssa.i, i64 %indvars.iv52.i
+  %287 = getelementptr inbounds i64, ptr %.0110.lcssa.i, i64 %indvars.iv52.i
   %288 = load i64, ptr %287, align 8
   %289 = getelementptr inbounds i64, ptr %249, i64 %indvars.iv52.i
   store i64 %288, ptr %289, align 8
@@ -897,7 +897,7 @@ Exp_Truth6.exit:                                  ; preds = %Exp_Truth6Lit.exit3
 
 .preheader3.split.i:                              ; preds = %.preheader3.i, %.preheader3.split.i
   %indvars.iv48.i = phi i64 [ %indvars.iv.next49.i, %.preheader3.split.i ], [ 0, %.preheader3.i ]
-  %356 = getelementptr inbounds i64, ptr %.0109.lcssa.i, i64 %indvars.iv48.i
+  %356 = getelementptr inbounds i64, ptr %.0110.lcssa.i, i64 %indvars.iv48.i
   %357 = load i64, ptr %356, align 8
   %358 = xor i64 %357, -1
   %359 = getelementptr inbounds i64, ptr %249, i64 %indvars.iv48.i

@@ -80,52 +80,52 @@ define noundef ptr @tvb_uncompress_lz77(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %or.cond.i, label %do_uncompress.exit, label %.preheader.i.outer
 
 .preheader.i.outer:                               ; preds = %100, %29
-  %.079.i.ph = phi i32 [ 0, %29 ], [ %38, %100 ]
-  %.074.i.ph = phi i32 [ 0, %29 ], [ %.6.i, %100 ]
-  %.070.i.ph = phi i32 [ 0, %29 ], [ %.272.i, %100 ]
-  %.068.i.ph = phi i32 [ 0, %29 ], [ %.169.i, %100 ]
+  %.079.i.ph = phi i32 [ 0, %29 ], [ %.180.i, %100 ]
+  %.077.i.ph = phi i32 [ 0, %29 ], [ %38, %100 ]
+  %.072.i.ph = phi i32 [ 0, %29 ], [ %.6.i, %100 ]
+  %.068.i.ph = phi i32 [ 0, %29 ], [ %.270.i, %100 ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.outer, %42
-  %.079.i = phi i32 [ %38, %42 ], [ %.079.i.ph, %.preheader.i.outer ]
-  %.074.i = phi i32 [ %45, %42 ], [ %.074.i.ph, %.preheader.i.outer ]
-  %.068.i = phi i32 [ %.169.i, %42 ], [ %.068.i.ph, %.preheader.i.outer ]
-  %32 = icmp eq i32 %.079.i, 0
+  %.079.i = phi i32 [ %.180.i, %42 ], [ %.079.i.ph, %.preheader.i.outer ]
+  %.077.i = phi i32 [ %38, %42 ], [ %.077.i.ph, %.preheader.i.outer ]
+  %.072.i = phi i32 [ %45, %42 ], [ %.072.i.ph, %.preheader.i.outer ]
+  %32 = icmp eq i32 %.077.i, 0
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %.preheader.i
-  %34 = add i32 %.074.i, %1
+  %34 = add i32 %.072.i, %1
   %35 = call i32 @tvb_get_letohl(ptr noundef nonnull %0, i32 noundef %34) #7
-  %36 = add i32 %.074.i, 4
+  %36 = add i32 %.072.i, 4
   br label %37
 
 37:                                               ; preds = %33, %.preheader.i
-  %.180.i = phi i32 [ 32, %33 ], [ %.079.i, %.preheader.i ]
-  %.175.i = phi i32 [ %36, %33 ], [ %.074.i, %.preheader.i ]
-  %.169.i = phi i32 [ %35, %33 ], [ %.068.i, %.preheader.i ]
-  %38 = add nsw i32 %.180.i, -1
+  %.180.i = phi i32 [ %35, %33 ], [ %.079.i, %.preheader.i ]
+  %.178.i = phi i32 [ 32, %33 ], [ %.077.i, %.preheader.i ]
+  %.173.i = phi i32 [ %36, %33 ], [ %.072.i, %.preheader.i ]
+  %38 = add nsw i32 %.178.i, -1
   %39 = shl nuw i32 1, %38
-  %40 = and i32 %.169.i, %39
+  %40 = and i32 %39, %.180.i
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %37
-  %43 = add i32 %.175.i, %1
+  %43 = add i32 %.173.i, %1
   %44 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %43) #7
   store i8 %44, ptr %4, align 1
   call void @wmem_array_append(ptr noundef %13, ptr noundef nonnull %4, i32 noundef 1) #7
-  %45 = add i32 %.175.i, 1
+  %45 = add i32 %.173.i, 1
   br label %.preheader.i
 
 46:                                               ; preds = %37
-  %47 = icmp eq i32 %.175.i, %2
+  %47 = icmp eq i32 %.173.i, %2
   br i1 %47, label %do_uncompress.exit, label %48
 
 48:                                               ; preds = %46
-  %49 = add i32 %.175.i, %1
+  %49 = add i32 %.173.i, %1
   %50 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %49) #7
   %51 = zext i16 %50 to i32
-  %52 = add i32 %.175.i, 2
+  %52 = add i32 %.173.i, 2
   %53 = and i32 %51, 7
   %54 = lshr i32 %51, 3
   %.neg.i = xor i32 %54, -1
@@ -133,53 +133,53 @@ define noundef ptr @tvb_uncompress_lz77(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %55, label %56, label %92
 
 56:                                               ; preds = %48
-  %57 = icmp eq i32 %.070.i.ph, 0
+  %57 = icmp eq i32 %.068.i.ph, 0
   br i1 %57, label %58, label %63
 
 58:                                               ; preds = %56
   %59 = add i32 %52, %1
   %60 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %59) #7
   %61 = and i8 %60, 15
-  %62 = add i32 %.175.i, 3
+  %62 = add i32 %.173.i, 3
   br label %67
 
 63:                                               ; preds = %56
-  %64 = add i32 %.070.i.ph, %1
+  %64 = add i32 %.068.i.ph, %1
   %65 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %64) #7
   %66 = lshr i8 %65, 4
   br label %67
 
 67:                                               ; preds = %63, %58
-  %.276.i = phi i32 [ %62, %58 ], [ %52, %63 ]
-  %.171.i = phi i32 [ %52, %58 ], [ 0, %63 ]
-  %.067.in.i = phi i8 [ %61, %58 ], [ %66, %63 ]
-  %.067.i = zext nneg i8 %.067.in.i to i32
-  %68 = icmp eq i8 %.067.in.i, 15
+  %.274.i = phi i32 [ %62, %58 ], [ %52, %63 ]
+  %.169.i = phi i32 [ %52, %58 ], [ 0, %63 ]
+  %.066.in.i = phi i8 [ %61, %58 ], [ %66, %63 ]
+  %.066.i = zext nneg i8 %.066.in.i to i32
+  %68 = icmp eq i8 %.066.in.i, 15
   br i1 %68, label %69, label %90
 
 69:                                               ; preds = %67
-  %70 = add i32 %.276.i, %1
+  %70 = add i32 %.274.i, %1
   %71 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %70) #7
   %72 = zext i8 %71 to i32
-  %73 = add i32 %.276.i, 1
+  %73 = add i32 %.274.i, 1
   %74 = icmp eq i8 %71, -1
   br i1 %74, label %75, label %88
 
 75:                                               ; preds = %69
   %76 = add i32 %73, %1
   %77 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %76) #7
-  %78 = add i32 %.276.i, 3
+  %78 = add i32 %.274.i, 3
   %79 = icmp eq i16 %77, 0
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %75
   %81 = add i32 %78, %1
   %82 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %81) #7
-  %83 = add i32 %.276.i, 7
+  %83 = add i32 %.274.i, 7
   br label %84
 
 84:                                               ; preds = %80, %75
-  %.377.i = phi i32 [ %83, %80 ], [ %78, %75 ]
+  %.375.i = phi i32 [ %83, %80 ], [ %78, %75 ]
   %.1.in.i = phi i16 [ %82, %80 ], [ %77, %75 ]
   %85 = icmp ult i16 %.1.in.i, 22
   br i1 %85, label %do_uncompress.exit, label %86
@@ -190,20 +190,20 @@ define noundef ptr @tvb_uncompress_lz77(ptr noundef %0, i32 noundef %1, i32 noun
   br label %88
 
 88:                                               ; preds = %86, %69
-  %.478.i = phi i32 [ %.377.i, %86 ], [ %73, %69 ]
+  %.476.i = phi i32 [ %.375.i, %86 ], [ %73, %69 ]
   %.2.i = phi i32 [ %87, %86 ], [ %72, %69 ]
   %89 = add nuw nsw i32 %.2.i, 15
   br label %90
 
 90:                                               ; preds = %88, %67
-  %.5.i = phi i32 [ %.478.i, %88 ], [ %.276.i, %67 ]
-  %.3.i = phi i32 [ %89, %88 ], [ %.067.i, %67 ]
+  %.5.i = phi i32 [ %.476.i, %88 ], [ %.274.i, %67 ]
+  %.3.i = phi i32 [ %89, %88 ], [ %.066.i, %67 ]
   %91 = add nuw nsw i32 %.3.i, 7
   br label %92
 
 92:                                               ; preds = %90, %48
   %.6.i = phi i32 [ %.5.i, %90 ], [ %52, %48 ]
-  %.272.i = phi i32 [ %.171.i, %90 ], [ %.070.i.ph, %48 ]
+  %.270.i = phi i32 [ %.169.i, %90 ], [ %.068.i.ph, %48 ]
   %.4.i = phi i32 [ %91, %90 ], [ %53, %48 ]
   %93 = add nuw nsw i32 %.4.i, 2
   br label %94
@@ -228,10 +228,10 @@ define noundef ptr @tvb_uncompress_lz77(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %exitcond.not.i, label %.preheader.i.outer, label %94, !llvm.loop !4
 
 do_uncompress.exit:                               ; preds = %46, %84, %94, %96, %28, %29
-  %.066.i = phi i32 [ 0, %28 ], [ 0, %29 ], [ 0, %96 ], [ 0, %94 ], [ 1, %46 ], [ 0, %84 ]
+  %.067.i = phi i32 [ 0, %28 ], [ 0, %29 ], [ 0, %96 ], [ 0, %94 ], [ 1, %46 ], [ 0, %84 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  store volatile i32 %.066.i, ptr %6, align 4
+  store volatile i32 %.067.i, ptr %6, align 4
   br label %102
 
 102:                                              ; preds = %do_uncompress.exit, %26, %23

@@ -231,11 +231,11 @@ sm_btl_first_time_init.exit:                      ; preds = %mca_smsc_base_has_f
 ._crit_edge:                                      ; preds = %106
   %.pre = load ptr, ptr %93, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 40
-  %.pre61 = load i32, ptr %.phi.trans.insert, align 8
+  %.pre60 = load i32, ptr %.phi.trans.insert, align 8
   br label %109
 
 109:                                              ; preds = %._crit_edge, %104
-  %110 = phi i32 [ %.pre61, %._crit_edge ], [ %96, %104 ]
+  %110 = phi i32 [ %.pre60, %._crit_edge ], [ %96, %104 ]
   %111 = phi ptr [ %.pre, %._crit_edge ], [ %94, %104 ]
   %112 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
@@ -276,15 +276,15 @@ sm_btl_first_time_init.exit:                      ; preds = %mca_smsc_base_has_f
   br i1 %.not62.i, label %127, label %.thread77.i
 
 .thread77.i:                                      ; preds = %124, %122, %120
-  %.04880.i = phi i32 [ %125, %124 ], [ -18, %120 ], [ %117, %122 ]
+  %.080.i = phi i32 [ %125, %124 ], [ -18, %120 ], [ %117, %122 ]
   %126 = phi ptr [ %.pr.pre.i, %124 ], [ %118, %120 ], [ %118, %122 ]
   call void @PMIx_Value_free(ptr noundef nonnull %126, i64 noundef 1) #12
   store ptr null, ptr %9, align 8
   br label %127
 
 127:                                              ; preds = %.thread77.i, %124
-  %.04876.i = phi i32 [ %125, %124 ], [ %.04880.i, %.thread77.i ]
-  %.not63.i = icmp eq i32 %.04876.i, 0
+  %.076.i = phi i32 [ %125, %124 ], [ %.080.i, %.thread77.i ]
+  %.not63.i = icmp eq i32 %.076.i, 0
   br i1 %.not63.i, label %128, label %init_sm_endpoint.exit.thread
 
 128:                                              ; preds = %127
@@ -317,8 +317,8 @@ sm_btl_first_time_init.exit:                      ; preds = %mca_smsc_base_has_f
   call void %140(ptr noundef nonnull %132) #12
   %141 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %142 = load ptr, ptr %141, align 8
-  %.not.i.i50 = icmp eq ptr %142, null
-  br i1 %.not.i.i50, label %opal_obj_run_constructors.exit.i, label %.lr.ph.i.i, !llvm.loop !4
+  %.not.i.i49 = icmp eq ptr %142, null
+  br i1 %.not.i.i49, label %opal_obj_run_constructors.exit.i, label %.lr.ph.i.i, !llvm.loop !4
 
 opal_obj_run_constructors.exit.i:                 ; preds = %.lr.ph.i.i, %136
   %143 = load i16, ptr %6, align 2
@@ -343,9 +343,9 @@ opal_obj_run_constructors.exit.i:                 ; preds = %.lr.ph.i.i, %136
   %152 = load i32, ptr %113, align 8
   %153 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %11, i32 noundef %152) #12
   %154 = load i32, ptr %115, align 4
-  %cond64 = icmp eq i32 %154, -1
-  %spec.select65 = select i1 %cond64, i32 -4, i32 %154
-  store i32 %spec.select65, ptr %91, align 4
+  %cond63 = icmp eq i32 %154, -1
+  %spec.select64 = select i1 %cond63, i32 -4, i32 %154
+  store i32 %spec.select64, ptr %91, align 4
   %155 = call i32 @PMIx_Info_load(ptr noundef nonnull %13, ptr noundef nonnull @.str.4, ptr noundef null, i16 noundef zeroext 1) #12
   %156 = call i32 @PMIx_Get(ptr noundef nonnull %11, ptr noundef nonnull %148, ptr noundef nonnull %13, i64 noundef 1, ptr noundef nonnull %12) #12
   call void @PMIx_Info_destruct(ptr noundef nonnull %13) #12
@@ -458,7 +458,7 @@ opal_obj_run_constructors.exit73.i:               ; preds = %.lr.ph.i70.i, %193
   br label %init_sm_endpoint.exit
 
 init_sm_endpoint.exit.thread:                     ; preds = %127, %164, %175, %182, %109, %.thread91.i, %.thread95.i
-  %.0.i49.ph = phi i32 [ -46, %.thread95.i ], [ -2, %.thread91.i ], [ %.04876.i, %127 ], [ %156, %164 ], [ -2, %175 ], [ -1, %182 ], [ -46, %109 ]
+  %.049.i.ph = phi i32 [ -46, %.thread95.i ], [ -2, %.thread91.i ], [ %.076.i, %127 ], [ %156, %164 ], [ -2, %175 ], [ -1, %182 ], [ -46, %109 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 260, ptr nonnull %8)
@@ -489,7 +489,7 @@ init_sm_endpoint.exit:                            ; preds = %opal_obj_run_constr
   br i1 %exitcond.not, label %sm_btl_first_time_init.exit.thread, label %92, !llvm.loop !6
 
 sm_btl_first_time_init.exit.thread:               ; preds = %106, %206, %85, %mca_smsc_base_has_feature.exit.thread.i, %62, %51, %44, %23, %42, %34, %init_sm_endpoint.exit.thread, %16, %5
-  %.033 = phi i32 [ -2, %5 ], [ 0, %16 ], [ %.0.i49.ph, %init_sm_endpoint.exit.thread ], [ %84, %mca_smsc_base_has_feature.exit.thread.i ], [ %71, %62 ], [ %61, %51 ], [ %50, %44 ], [ -2, %23 ], [ -2, %42 ], [ -2, %34 ], [ 0, %85 ], [ %108, %106 ], [ 0, %206 ]
+  %.033 = phi i32 [ -2, %5 ], [ 0, %16 ], [ %.049.i.ph, %init_sm_endpoint.exit.thread ], [ %84, %mca_smsc_base_has_feature.exit.thread.i ], [ %71, %62 ], [ %61, %51 ], [ %50, %44 ], [ -2, %23 ], [ -2, %42 ], [ -2, %34 ], [ 0, %85 ], [ %108, %106 ], [ 0, %206 ]
   ret i32 %.033
 }
 

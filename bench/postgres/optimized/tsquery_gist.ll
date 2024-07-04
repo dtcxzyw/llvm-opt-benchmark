@@ -241,7 +241,7 @@ define dso_local i64 @gtsquery_picksplit(ptr nocapture noundef readonly %0) loca
   %indvars.iv = phi i64 [ 1, %.lr.ph167 ], [ %indvars.iv.next, %.loopexit ]
   %.0105166 = phi i16 [ 0, %.lr.ph167 ], [ %.2, %.loopexit ]
   %.0107165 = phi i16 [ 0, %.lr.ph167 ], [ %.2109, %.loopexit ]
-  %.0113163 = phi i32 [ -1, %.lr.ph167 ], [ %.2115, %.loopexit ]
+  %.0111164 = phi i32 [ -1, %.lr.ph167 ], [ %.2113, %.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = getelementptr [0 x %struct.GISTENTRY], ptr %20, i64 0, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8
@@ -252,9 +252,9 @@ define dso_local i64 @gtsquery_picksplit(ptr nocapture noundef readonly %0) loca
 26:                                               ; preds = %.lr.ph, %hemdist.exit
   %.1106160 = phi i16 [ %.0105166, %.lr.ph ], [ %.2, %hemdist.exit ]
   %.1108159 = phi i16 [ %.0107165, %.lr.ph ], [ %.2109, %hemdist.exit ]
-  %.1114158 = phi i32 [ %.0113163, %.lr.ph ], [ %.2115, %hemdist.exit ]
-  %.0116157 = phi i16 [ %24, %.lr.ph ], [ %37, %hemdist.exit ]
-  %27 = zext i16 %.0116157 to i64
+  %.1112158 = phi i32 [ %.0111164, %.lr.ph ], [ %.2113, %hemdist.exit ]
+  %.0118157 = phi i16 [ %24, %.lr.ph ], [ %37, %hemdist.exit ]
+  %27 = zext i16 %.0118157 to i64
   %28 = getelementptr [0 x %struct.GISTENTRY], ptr %20, i64 0, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = xor i64 %23, %29
@@ -272,11 +272,11 @@ define dso_local i64 @gtsquery_picksplit(ptr nocapture noundef readonly %0) loca
   br i1 %exitcond.not.i.i, label %hemdist.exit, label %31, !llvm.loop !7
 
 hemdist.exit:                                     ; preds = %31
-  %36 = icmp sgt i32 %35, %.1114158
-  %.2115 = tail call i32 @llvm.smax.i32(i32 %35, i32 %.1114158)
+  %36 = icmp sgt i32 %35, %.1112158
+  %.2113 = tail call i32 @llvm.smax.i32(i32 %35, i32 %.1112158)
   %.2109 = select i1 %36, i16 %25, i16 %.1108159
-  %.2 = select i1 %36, i16 %.0116157, i16 %.1106160
-  %37 = add i16 %.0116157, 1
+  %.2 = select i1 %36, i16 %.0118157, i16 %.1106160
+  %37 = add i16 %.0118157, 1
   %.not130 = icmp ugt i16 %37, %21
   br i1 %.not130, label %.loopexit, label %26, !llvm.loop !9
 
@@ -368,8 +368,8 @@ hemdist.exit141:                                  ; preds = %66
   %indvars.iv199 = phi i64 [ %indvars.iv.next200, %116 ], [ 0, %._crit_edge174 ]
   %.0179 = phi ptr [ %.1, %116 ], [ %15, %._crit_edge174 ]
   %.0103178 = phi ptr [ %.1104, %116 ], [ %14, %._crit_edge174 ]
-  %.0118176 = phi i64 [ %.1119, %116 ], [ %46, %._crit_edge174 ]
-  %.0120175 = phi i64 [ %.1121, %116 ], [ %43, %._crit_edge174 ]
+  %.0114177 = phi i64 [ %.1115, %116 ], [ %46, %._crit_edge174 ]
+  %.0116176 = phi i64 [ %.1117, %116 ], [ %43, %._crit_edge174 ]
   %74 = getelementptr %struct.SPLITCOST, ptr %51, i64 %indvars.iv199
   %75 = load i16, ptr %74, align 4
   %76 = icmp eq i16 %75, %spec.select
@@ -393,7 +393,7 @@ hemdist.exit141:                                  ; preds = %66
   %84 = zext i16 %75 to i64
   %85 = getelementptr [0 x %struct.GISTENTRY], ptr %40, i64 0, i64 %84
   %86 = load i64, ptr %85, align 8
-  %87 = xor i64 %86, %.0120175
+  %87 = xor i64 %86, %.0116176
   br label %88
 
 88:                                               ; preds = %88, %83
@@ -408,7 +408,7 @@ hemdist.exit141:                                  ; preds = %66
   br i1 %exitcond.not.i.i145, label %hemdist.exit146, label %88, !llvm.loop !7
 
 hemdist.exit146:                                  ; preds = %88
-  %93 = xor i64 %86, %.0118176
+  %93 = xor i64 %86, %.0114177
   br label %94
 
 94:                                               ; preds = %94, %hemdist.exit146
@@ -437,21 +437,21 @@ hemdist.exit151:                                  ; preds = %94
   br i1 %109, label %110, label %113
 
 110:                                              ; preds = %hemdist.exit151
-  %111 = or i64 %86, %.0120175
+  %111 = or i64 %86, %.0116176
   %112 = getelementptr i8, ptr %.0103178, i64 2
   store i16 %75, ptr %.0103178, align 2
   br label %116
 
 113:                                              ; preds = %hemdist.exit151
-  %114 = or i64 %86, %.0118176
+  %114 = or i64 %86, %.0114177
   %115 = getelementptr i8, ptr %.0179, i64 2
   store i16 %75, ptr %.0179, align 2
   br label %116
 
 116:                                              ; preds = %110, %113, %81, %77
   %.sink = phi ptr [ %18, %110 ], [ %17, %113 ], [ %17, %81 ], [ %18, %77 ]
-  %.1121 = phi i64 [ %111, %110 ], [ %.0120175, %113 ], [ %.0120175, %81 ], [ %.0120175, %77 ]
-  %.1119 = phi i64 [ %.0118176, %110 ], [ %114, %113 ], [ %.0118176, %81 ], [ %.0118176, %77 ]
+  %.1117 = phi i64 [ %111, %110 ], [ %.0116176, %113 ], [ %.0116176, %81 ], [ %.0116176, %77 ]
+  %.1115 = phi i64 [ %.0114177, %110 ], [ %114, %113 ], [ %.0114177, %81 ], [ %.0114177, %77 ]
   %.1104 = phi ptr [ %112, %110 ], [ %.0103178, %113 ], [ %.0103178, %81 ], [ %78, %77 ]
   %.1 = phi ptr [ %.0179, %110 ], [ %115, %113 ], [ %82, %81 ], [ %.0179, %77 ]
   %117 = load i32, ptr %.sink, align 8
@@ -462,16 +462,16 @@ hemdist.exit151:                                  ; preds = %94
   br i1 %exitcond203.not, label %._crit_edge182, label %.lr.ph181, !llvm.loop !11
 
 ._crit_edge182:                                   ; preds = %116, %._crit_edge174.thread, %._crit_edge174
-  %.0120.lcssa = phi i64 [ %43, %._crit_edge174 ], [ %43, %._crit_edge174.thread ], [ %.1121, %116 ]
-  %.0118.lcssa = phi i64 [ %46, %._crit_edge174 ], [ %46, %._crit_edge174.thread ], [ %.1119, %116 ]
+  %.0116.lcssa = phi i64 [ %43, %._crit_edge174 ], [ %43, %._crit_edge174.thread ], [ %.1117, %116 ]
+  %.0114.lcssa = phi i64 [ %46, %._crit_edge174 ], [ %46, %._crit_edge174.thread ], [ %.1115, %116 ]
   %.0103.lcssa = phi ptr [ %14, %._crit_edge174 ], [ %14, %._crit_edge174.thread ], [ %.1104, %116 ]
   %.0.lcssa = phi ptr [ %15, %._crit_edge174 ], [ %15, %._crit_edge174.thread ], [ %.1, %116 ]
   store i16 1, ptr %.0103.lcssa, align 2
   store i16 1, ptr %.0.lcssa, align 2
   %119 = getelementptr inbounds i8, ptr %7, i64 16
-  store i64 %.0120.lcssa, ptr %119, align 8
+  store i64 %.0116.lcssa, ptr %119, align 8
   %120 = getelementptr inbounds i8, ptr %7, i64 48
-  store i64 %.0118.lcssa, ptr %120, align 8
+  store i64 %.0114.lcssa, ptr %120, align 8
   ret i64 %6
 }
 

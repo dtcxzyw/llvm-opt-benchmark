@@ -135,10 +135,10 @@ define internal fastcc i64 @ascend_find_next_packet(ptr nocapture noundef readon
 
 .lr.ph:                                           ; preds = %3, %55
   %7 = phi i32 [ %57, %55 ], [ %6, %3 ]
-  %.04365 = phi i64 [ %.1, %55 ], [ -1, %3 ]
-  %.04464 = phi i32 [ %8, %55 ], [ 262144, %3 ]
-  %.04563 = phi i64 [ %.146, %55 ], [ 0, %3 ]
-  %8 = add nsw i32 %.04464, -1
+  %.04365 = phi i32 [ %8, %55 ], [ 262144, %3 ]
+  %.04464 = phi i64 [ %.1, %55 ], [ 0, %3 ]
+  %.04563 = phi i64 [ %.146, %55 ], [ -1, %3 ]
+  %8 = add nsw i32 %.04365, -1
   %.not56 = icmp eq i32 %8, 0
   br i1 %.not56, label %9, label %.preheader
 
@@ -180,9 +180,9 @@ define internal fastcc i64 @ascend_find_next_packet(ptr nocapture noundef readon
   br label %60
 
 30:                                               ; preds = %23
-  %31 = icmp eq i64 %.04365, -1
+  %31 = icmp eq i64 %.04563, -1
   %32 = sub i64 %25, %21
-  %.048 = select i1 %31, i64 %32, i64 %.04365
+  %.048 = select i1 %31, i64 %32, i64 %.04563
   %33 = load ptr, ptr %0, align 8
   %34 = tail call i64 @file_seek(ptr noundef %33, i64 noundef %.048, i32 noundef 0, ptr noundef %1) #4
   %35 = icmp eq i64 %34, -1
@@ -199,15 +199,15 @@ define internal fastcc i64 @ascend_find_next_packet(ptr nocapture noundef readon
   br i1 %exitcond.not, label %38, label %.preheader, !llvm.loop !4
 
 38:                                               ; preds = %37
-  %39 = getelementptr i8, ptr @ascend_find_next_packet.ascend_date, i64 %.04563
+  %39 = getelementptr i8, ptr @ascend_find_next_packet.ascend_date, i64 %.04464
   %40 = load i8, ptr %39, align 1
   %41 = sext i8 %40 to i32
   %42 = icmp eq i32 %7, %41
   br i1 %42, label %43, label %55
 
 43:                                               ; preds = %38
-  %44 = add nuw nsw i64 %.04563, 1
-  %45 = icmp ugt i64 %.04563, 3
+  %44 = add nuw nsw i64 %.04464, 1
+  %45 = icmp ugt i64 %.04464, 3
   br i1 %45, label %46, label %55
 
 46:                                               ; preds = %43
@@ -227,8 +227,8 @@ define internal fastcc i64 @ascend_find_next_packet(ptr nocapture noundef readon
   br label %55
 
 55:                                               ; preds = %38, %43, %53
-  %.146 = phi i64 [ 0, %53 ], [ %44, %43 ], [ 0, %38 ]
-  %.1 = phi i64 [ %54, %53 ], [ %.04365, %43 ], [ %.04365, %38 ]
+  %.146 = phi i64 [ %54, %53 ], [ %.04563, %43 ], [ %.04563, %38 ]
+  %.1 = phi i64 [ 0, %53 ], [ %44, %43 ], [ 0, %38 ]
   %56 = load ptr, ptr %0, align 8
   %57 = tail call i32 @file_getc(ptr noundef %56) #4
   %.not = icmp eq i32 %57, -1

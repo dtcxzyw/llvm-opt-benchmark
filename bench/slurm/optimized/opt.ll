@@ -365,29 +365,29 @@ define dso_local ptr @get_next_opt(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.i8:                                        ; preds = %45, %.lr.ph.split.i9
   %48 = phi ptr [ %66, %.lr.ph.split.i9 ], [ %47, %45 ]
-  %.014.ph33.i = phi i1 [ %65, %.lr.ph.split.i9 ], [ false, %45 ]
-  br i1 %.014.ph33.i, label %.lr.ph.split.us.i12, label %.lr.ph.split.i9
+  %.0.ph33.i = phi i1 [ %65, %.lr.ph.split.i9 ], [ false, %45 ]
+  br i1 %.0.ph33.i, label %.lr.ph.split.us.i11, label %.lr.ph.split.i9
 
-.lr.ph.split.us.i12:                              ; preds = %.lr.ph.i8
+.lr.ph.split.us.i11:                              ; preds = %.lr.ph.i8
   %49 = icmp sgt i32 %0, -1
   %50 = zext nneg i32 %0 to i64
-  br i1 %49, label %.lr.ph.split.us.i12.split, label %.lr.ph.split.us.i12.split.us
+  br i1 %49, label %.lr.ph.split.us.i11.split, label %.lr.ph.split.us.i11.split.us
 
-.lr.ph.split.us.i12.split.us:                     ; preds = %.lr.ph.split.us.i12, %.lr.ph.split.us.i12.split.us
+.lr.ph.split.us.i11.split.us:                     ; preds = %.lr.ph.split.us.i11, %.lr.ph.split.us.i11.split.us
   %51 = tail call ptr @list_next(ptr noundef %46) #16
   %.not20.us.i.us = icmp eq ptr %51, null
-  br i1 %.not20.us.i.us, label %.outer._crit_edge.i, label %.lr.ph.split.us.i12.split.us, !llvm.loop !9
+  br i1 %.not20.us.i.us, label %.outer._crit_edge.i, label %.lr.ph.split.us.i11.split.us, !llvm.loop !9
 
-.lr.ph.split.us.i12.split:                        ; preds = %.lr.ph.split.us.i12, %63
-  %52 = phi ptr [ %64, %63 ], [ %48, %.lr.ph.split.us.i12 ]
+.lr.ph.split.us.i11.split:                        ; preds = %.lr.ph.split.us.i11, %63
+  %52 = phi ptr [ %64, %63 ], [ %48, %.lr.ph.split.us.i11 ]
   %53 = getelementptr inbounds i8, ptr %52, i64 24
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 144
   %56 = load ptr, ptr %55, align 8
-  %.not16 = icmp eq ptr %56, null
-  br i1 %.not16, label %63, label %57
+  %.not15 = icmp eq ptr %56, null
+  br i1 %.not15, label %63, label %57
 
-57:                                               ; preds = %.lr.ph.split.us.i12.split
+57:                                               ; preds = %.lr.ph.split.us.i11.split
   %58 = tail call i64 @bit_size(ptr noundef nonnull %56) #16
   %59 = icmp sgt i64 %58, %50
   br i1 %59, label %60, label %63
@@ -398,10 +398,10 @@ define dso_local ptr @get_next_opt(i32 noundef %0) local_unnamed_addr #0 {
   %.not21.us.i = icmp eq i32 %62, 0
   br i1 %.not21.us.i, label %63, label %.outer._crit_edge.i
 
-63:                                               ; preds = %60, %57, %.lr.ph.split.us.i12.split
+63:                                               ; preds = %60, %57, %.lr.ph.split.us.i11.split
   %64 = tail call ptr @list_next(ptr noundef %46) #16
   %.not20.us.i = icmp eq ptr %64, null
-  br i1 %.not20.us.i, label %.outer._crit_edge.i, label %.lr.ph.split.us.i12.split, !llvm.loop !9
+  br i1 %.not20.us.i, label %.outer._crit_edge.i, label %.lr.ph.split.us.i11.split, !llvm.loop !9
 
 .lr.ph.split.i9:                                  ; preds = %.lr.ph.i8
   %65 = icmp eq ptr %48, %43
@@ -409,8 +409,8 @@ define dso_local ptr @get_next_opt(i32 noundef %0) local_unnamed_addr #0 {
   %.not2023.i = icmp eq ptr %66, null
   br i1 %.not2023.i, label %.outer._crit_edge.i, label %.lr.ph.i8, !llvm.loop !9
 
-.outer._crit_edge.i:                              ; preds = %.lr.ph.split.i9, %.lr.ph.split.us.i12.split.us, %60, %63, %45
-  %.lcssa.i10 = phi ptr [ null, %45 ], [ null, %63 ], [ %52, %60 ], [ null, %.lr.ph.split.us.i12.split.us ], [ null, %.lr.ph.split.i9 ]
+.outer._crit_edge.i:                              ; preds = %.lr.ph.split.i9, %.lr.ph.split.us.i11.split.us, %60, %63, %45
+  %.lcssa.i10 = phi ptr [ null, %45 ], [ null, %63 ], [ %52, %60 ], [ null, %.lr.ph.split.us.i11.split.us ], [ null, %.lr.ph.split.i9 ]
   tail call void @list_iterator_destroy(ptr noundef %46) #16
   br label %_get_first_opt.exit
 
@@ -434,8 +434,8 @@ define dso_local i32 @get_max_het_group() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %2, %13
   %5 = phi ptr [ %14, %13 ], [ %4, %2 ]
-  %.020 = phi i32 [ %spec.select, %13 ], [ 0, %2 ]
-  %.0819 = phi i32 [ %.19, %13 ], [ 0, %2 ]
+  %.020 = phi i32 [ %.1, %13 ], [ 0, %2 ]
+  %.0819 = phi i32 [ %spec.select, %13 ], [ 0, %2 ]
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 144
@@ -449,14 +449,14 @@ define dso_local i32 @get_max_het_group() local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %10, %.lr.ph
-  %.19 = phi i32 [ %12, %10 ], [ %.0819, %.lr.ph ]
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.19, i32 %.020)
+  %.1 = phi i32 [ %12, %10 ], [ %.020, %.lr.ph ]
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.1, i32 %.0819)
   %14 = tail call ptr @list_next(ptr noundef %3) #16
   %.not15 = icmp eq ptr %14, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %13, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %spec.select, %13 ]
+  %.08.lcssa = phi i32 [ 0, %2 ], [ %spec.select, %13 ]
   tail call void @list_iterator_destroy(ptr noundef %3) #16
   br label %20
 
@@ -471,7 +471,7 @@ define dso_local i32 @get_max_het_group() local_unnamed_addr #0 {
   br label %20
 
 20:                                               ; preds = %15, %17, %._crit_edge
-  %.2 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %19, %17 ], [ 0, %15 ]
+  %.2 = phi i32 [ %.08.lcssa, %._crit_edge ], [ %19, %17 ], [ 0, %15 ]
   ret i32 %.2
 }
 
@@ -1377,7 +1377,7 @@ _opt_args.exit:                                   ; preds = %284, %291, %296, %2
   br label %384
 
 384:                                              ; preds = %383, %380, %378, %376, %373
-  %.092.i = phi i1 [ false, %376 ], [ false, %373 ], [ true, %380 ], [ true, %383 ], [ true, %378 ]
+  %.089.i = phi i1 [ false, %376 ], [ false, %373 ], [ true, %380 ], [ true, %383 ], [ true, %378 ]
   %385 = load i32, ptr getelementptr inbounds (i8, ptr @sropt, i64 200), align 8
   %386 = icmp sgt i32 %385, 6
   br i1 %386, label %387, label %390
@@ -1882,8 +1882,8 @@ _valid_node_list.exit.i:                          ; preds = %518, %516, %513, %5
 
 .thread:                                          ; preds = %610, %618, %617, %.thread177.i
   %621 = phi i1 [ true, %.thread177.i ], [ false, %618 ], [ true, %617 ], [ true, %610 ]
-  %.089181.i = phi ptr [ %612, %.thread177.i ], [ null, %618 ], [ null, %617 ], [ null, %610 ]
-  %.091180.i = phi i32 [ %616, %.thread177.i ], [ 0, %618 ], [ 0, %617 ], [ 0, %610 ]
+  %.090181.i = phi i32 [ %616, %.thread177.i ], [ 0, %618 ], [ 0, %617 ], [ 0, %610 ]
+  %.091180.i = phi ptr [ %612, %.thread177.i ], [ null, %618 ], [ null, %617 ], [ null, %610 ]
   %622 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 136), align 8
   %623 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 140), align 4
   %624 = icmp eq i32 %622, %623
@@ -1937,11 +1937,11 @@ _valid_node_list.exit.i:                          ; preds = %518, %516, %513, %5
   br i1 %.not144.i, label %thread-pre-split.i, label %650
 
 650:                                              ; preds = %648
-  %.not145.i = icmp eq ptr %.089181.i, null
+  %.not145.i = icmp eq ptr %.091180.i, null
   br i1 %.not145.i, label %652, label %651
 
 651:                                              ; preds = %650
-  call void @hostlist_destroy(ptr noundef nonnull %.089181.i) #16
+  call void @hostlist_destroy(ptr noundef nonnull %.091180.i) #16
   %.pre175.i = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 536), align 8
   br label %652
 
@@ -2023,17 +2023,17 @@ _valid_node_list.exit.i:                          ; preds = %518, %516, %513, %5
   call void @slurm_process_option_or_exit(ptr noundef nonnull @opt, i32 noundef 78, ptr noundef %686, i1 noundef zeroext false, i1 noundef zeroext false) #16
   call void @slurm_xfree(ptr noundef nonnull %4) #16
   %687 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 136), align 8
-  %688 = icmp sgt i32 %.091180.i, %687
+  %688 = icmp sgt i32 %.090181.i, %687
   br i1 %688, label %689, label %695
 
 689:                                              ; preds = %685
-  %690 = sub nsw i32 %.091180.i, %687
+  %690 = sub nsw i32 %.090181.i, %687
   %691 = icmp sgt i32 %690, 0
   br i1 %691, label %.lr.ph.i67, label %._crit_edge.i66
 
 .lr.ph.i67:                                       ; preds = %689, %.lr.ph.i67
   %.088166.i = phi i32 [ %693, %.lr.ph.i67 ], [ 0, %689 ]
-  %692 = call ptr @hostlist_pop(ptr noundef %.089181.i) #16
+  %692 = call ptr @hostlist_pop(ptr noundef %.091180.i) #16
   call void @free(ptr noundef %692) #16
   %693 = add nuw nsw i32 %.088166.i, 1
   %exitcond.not.i = icmp eq i32 %693, %690
@@ -2041,7 +2041,7 @@ _valid_node_list.exit.i:                          ; preds = %518, %516, %513, %5
 
 ._crit_edge.i66:                                  ; preds = %.lr.ph.i67, %689
   call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds (i8, ptr @opt, i64 536)) #16
-  %694 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef %.089181.i) #16
+  %694 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef %.091180.i) #16
   store ptr %694, ptr getelementptr inbounds (i8, ptr @opt, i64 536), align 8
   br label %695
 
@@ -2078,7 +2078,7 @@ _valid_node_list.exit.i:                          ; preds = %518, %516, %513, %5
 
 711:                                              ; preds = %708
   %712 = icmp sle i32 %709, %704
-  %brmerge.i = or i1 %.092.i, %712
+  %brmerge.i = or i1 %.089.i, %712
   br i1 %brmerge.i, label %714, label %713
 
 713:                                              ; preds = %711
@@ -2097,13 +2097,13 @@ _valid_node_list.exit.i:                          ; preds = %518, %516, %513, %5
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %716, %708, %701, %670, %669, %667, %648, %618
-  %.190.ph.i = phi ptr [ %.089181.i, %648 ], [ %654, %667 ], [ %.089181.i, %669 ], [ %.089181.i, %670 ], [ %.089181.i, %701 ], [ %.089181.i, %708 ], [ %.089181.i, %716 ], [ null, %618 ]
+  %.192.ph.i = phi ptr [ %.091180.i, %648 ], [ %654, %667 ], [ %.091180.i, %669 ], [ %.091180.i, %670 ], [ %.091180.i, %701 ], [ %.091180.i, %708 ], [ %.091180.i, %716 ], [ null, %618 ]
   %.pr162.i = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 180), align 4
   br label %718
 
 718:                                              ; preds = %thread-pre-split.i, %703
   %719 = phi i32 [ %.pr162.i, %thread-pre-split.i ], [ %704, %703 ]
-  %.190.i = phi ptr [ %.190.ph.i, %thread-pre-split.i ], [ %.089181.i, %703 ]
+  %.192.i = phi ptr [ %.192.ph.i, %thread-pre-split.i ], [ %.091180.i, %703 ]
   %.not150.i = icmp eq i32 %719, -2
   br i1 %.not150.i, label %726, label %720
 
@@ -2120,11 +2120,11 @@ thread-pre-split.i:                               ; preds = %716, %708, %701, %6
   br label %726
 
 726:                                              ; preds = %723, %720, %718
-  %.not151.i = icmp eq ptr %.190.i, null
+  %.not151.i = icmp eq ptr %.192.i, null
   br i1 %.not151.i, label %728, label %727
 
 727:                                              ; preds = %726
-  call void @hostlist_destroy(ptr noundef nonnull %.190.i) #16
+  call void @hostlist_destroy(ptr noundef nonnull %.192.i) #16
   br label %728
 
 728:                                              ; preds = %727, %726
@@ -2689,7 +2689,7 @@ define dso_local range(i32 -1, 1) i32 @spank_set_job_env(ptr noundef %0, ptr nou
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %12
-  %.013.lcssa = phi i64 [ 0, %12 ], [ %36, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %12 ], [ %36, %._crit_edge.loopexit ]
   %.lcssa = phi i32 [ %15, %12 ], [ %33, %._crit_edge.loopexit ]
   %37 = add nsw i32 %.lcssa, 1
   store i32 %37, ptr getelementptr inbounds (i8, ptr @opt, i64 640), align 8
@@ -2698,13 +2698,13 @@ define dso_local range(i32 -1, 1) i32 @spank_set_job_env(ptr noundef %0, ptr nou
   %40 = call ptr @slurm_xrecalloc(ptr noundef nonnull getelementptr inbounds (i8, ptr @opt, i64 632), i64 noundef 1, i64 noundef %39, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.105, i32 noundef 1391, ptr noundef nonnull @__func__.spank_set_job_env) #16
   %41 = load ptr, ptr %4, align 8
   %42 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 632), align 8
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %.013.lcssa
+  %43 = getelementptr inbounds ptr, ptr %42, i64 %.0.lcssa
   store ptr %41, ptr %43, align 8
   br label %44
 
 44:                                               ; preds = %25, %31, %._crit_edge, %11
-  %.0 = phi i32 [ -1, %11 ], [ 0, %._crit_edge ], [ 0, %31 ], [ 0, %25 ]
-  ret i32 %.0
+  %.013 = phi i32 [ -1, %11 ], [ 0, %._crit_edge ], [ 0, %31 ], [ 0, %25 ]
+  ret i32 %.013
 }
 
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
@@ -2770,8 +2770,8 @@ define dso_local ptr @spank_get_job_env(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %10, %26, %9
-  %.0 = phi ptr [ null, %9 ], [ %30, %26 ], [ null, %10 ], [ null, %16 ]
-  ret ptr %.0
+  %.010 = phi ptr [ null, %9 ], [ %30, %26 ], [ null, %10 ], [ null, %16 ]
+  ret ptr %.010
 }
 
 declare void @slurm_seterrno(i32 noundef) local_unnamed_addr #2
@@ -2834,9 +2834,9 @@ define dso_local range(i32 -1, 1) i32 @spank_unset_job_env(ptr noundef %0) local
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 632), align 8
   %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv
   call void @slurm_xfree(ptr noundef %25) #16
-  %.01523 = add nuw nsw i32 %23, 1
+  %.023 = add nuw nsw i32 %23, 1
   %26 = load i32, ptr getelementptr inbounds (i8, ptr @opt, i64 640), align 8
-  %27 = icmp slt i32 %.01523, %26
+  %27 = icmp slt i32 %.023, %26
   br i1 %27, label %.lr.ph26, label %._crit_edge
 
 .lr.ph26:                                         ; preds = %22, %.lr.ph26
@@ -2874,8 +2874,8 @@ define dso_local range(i32 -1, 1) i32 @spank_unset_job_env(ptr noundef %0) local
   br i1 %41, label %16, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %38, %10, %._crit_edge, %37, %9
-  %.0 = phi i32 [ -1, %9 ], [ 0, %37 ], [ 0, %._crit_edge ], [ 0, %10 ], [ 0, %38 ]
-  ret i32 %.0
+  %.016 = phi i32 [ -1, %9 ], [ 0, %37 ], [ 0, %._crit_edge ], [ 0, %10 ], [ 0, %38 ]
+  ret i32 %.016
 }
 
 declare i64 @bit_size(ptr noundef) local_unnamed_addr #2

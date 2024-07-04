@@ -1117,7 +1117,7 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %46
 
 46:                                               ; preds = %22, %40
-  %.0274 = phi i32 [ %45, %40 ], [ -1, %22 ]
+  %.0273 = phi i32 [ %45, %40 ], [ -1, %22 ]
   switch i16 %23, label %50 [
     i16 4, label %47
     i16 2, label %47
@@ -1129,8 +1129,8 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %50
 
 50:                                               ; preds = %.thread305, %46, %47
-  %.0274309 = phi i32 [ -1, %.thread305 ], [ %.0274, %46 ], [ %.0274, %47 ]
-  %.0272304308 = phi i32 [ %39, %.thread305 ], [ -1, %46 ], [ -1, %47 ]
+  %.0273309 = phi i32 [ -1, %.thread305 ], [ %.0273, %46 ], [ %.0273, %47 ]
+  %.0271304308 = phi i32 [ %39, %.thread305 ], [ -1, %46 ], [ -1, %47 ]
   %51 = load i32, ptr @hf_gvcp_acknowledge_required_flag, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %51, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #5
   br label %64
@@ -1152,9 +1152,9 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 64:                                               ; preds = %53, %50
   %hf_gvcp_acknowledge.sink = phi ptr [ @hf_gvcp_acknowledge, %53 ], [ @hf_gvcp_command, %50 ]
   %.sink = phi ptr [ %61, %53 ], [ %28, %50 ]
-  %.0276 = phi i32 [ -1, %53 ], [ %24, %50 ]
-  %.1275 = phi i32 [ -1, %53 ], [ %.0274309, %50 ]
-  %.1273 = phi i32 [ -1, %53 ], [ %.0272304308, %50 ]
+  %.0275 = phi i32 [ -1, %53 ], [ %24, %50 ]
+  %.1274 = phi i32 [ -1, %53 ], [ %.0273309, %50 ]
+  %.1272 = phi i32 [ -1, %53 ], [ %.0271304308, %50 ]
   %65 = load i32, ptr %hf_gvcp_acknowledge.sink, align 4
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %.sink, i32 noundef %65, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #5
   %67 = load i32, ptr @hf_gvcp_length, align 4
@@ -1183,7 +1183,7 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %84
 
 84:                                               ; preds = %77, %64
-  %.0271 = phi ptr [ %76, %64 ], [ %79, %77 ]
+  %.0270 = phi ptr [ %76, %64 ], [ %79, %77 ]
   %85 = getelementptr inbounds i8, ptr %1, i64 80
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 50
@@ -1214,7 +1214,7 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %or.cond9, label %101, label %.loopexit
 
 101:                                              ; preds = %99
-  %102 = load ptr, ptr %.0271, align 8
+  %102 = load ptr, ptr %.0270, align 8
   %103 = zext i16 %73 to i64
   %104 = inttoptr i64 %103 to ptr
   %105 = tail call ptr @wmem_map_lookup(ptr noundef %102, ptr noundef %104) #5
@@ -1224,8 +1224,8 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 106:                                              ; preds = %101
   %107 = tail call i32 @wmem_array_get_count(ptr noundef nonnull %105) #5
-  %.0267322 = add i32 %107, -1
-  %108 = icmp sgt i32 %.0267322, -1
+  %.0266322 = add i32 %107, -1
+  %108 = icmp sgt i32 %.0266322, -1
   br i1 %108, label %.lr.ph324, label %.loopexit
 
 .lr.ph324:                                        ; preds = %106
@@ -1233,9 +1233,9 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %110
 
 110:                                              ; preds = %.lr.ph324, %121
-  %.0267323 = phi i32 [ %.0267322, %.lr.ph324 ], [ %.0267, %121 ]
+  %.0266323 = phi i32 [ %.0266322, %.lr.ph324 ], [ %.0266, %121 ]
   %111 = load ptr, ptr @gvcp_trans_array, align 8
-  %112 = tail call ptr @wmem_array_index(ptr noundef %111, i32 noundef %.0267323) #5
+  %112 = tail call ptr @wmem_array_index(ptr noundef %111, i32 noundef %.0266323) #5
   %.not290 = icmp eq ptr %112, null
   br i1 %.not290, label %121, label %113
 
@@ -1256,12 +1256,12 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %.loopexit317
 
 121:                                              ; preds = %113, %110
-  %.0267 = add nsw i32 %.0267323, -1
-  %122 = icmp sgt i32 %.0267323, 0
+  %.0266 = add nsw i32 %.0266323, -1
+  %122 = icmp sgt i32 %.0266323, 0
   br i1 %122, label %110, label %.loopexit, !llvm.loop !4
 
 123:                                              ; preds = %84
-  %124 = load ptr, ptr %.0271, align 8
+  %124 = load ptr, ptr %.0270, align 8
   %125 = zext i16 %73 to i64
   %126 = inttoptr i64 %125 to ptr
   %127 = tail call ptr @wmem_map_lookup(ptr noundef %124, ptr noundef %126) #5
@@ -1279,9 +1279,9 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %131
 
 131:                                              ; preds = %.lr.ph, %142
-  %.0265321 = phi i32 [ 0, %.lr.ph ], [ %143, %142 ]
+  %.0321 = phi i32 [ 0, %.lr.ph ], [ %143, %142 ]
   %132 = load ptr, ptr @gvcp_trans_array, align 8
-  %133 = tail call ptr @wmem_array_index(ptr noundef %132, i32 noundef %.0265321) #5
+  %133 = tail call ptr @wmem_array_index(ptr noundef %132, i32 noundef %.0321) #5
   %.not293 = icmp eq ptr %133, null
   br i1 %.not293, label %142, label %134
 
@@ -1298,7 +1298,7 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %141, label %.loopexit317, label %142
 
 142:                                              ; preds = %138, %131
-  %143 = add nuw i32 %.0265321, 1
+  %143 = add nuw i32 %.0321, 1
   %exitcond.not = icmp eq i32 %143, %129
   br i1 %exitcond.not, label %.loopexit, label %131, !llvm.loop !6
 
@@ -1346,7 +1346,7 @@ define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %160, %157, %154, %151, %149
-  switch i32 %.0276, label %173 [
+  switch i32 %.0275, label %173 [
     i32 4, label %164
     i32 64, label %165
     i32 128, label %166
@@ -1363,35 +1363,35 @@ proto_item_set_generated.exit:                    ; preds = %160, %157, %154, %1
   br label %173
 
 165:                                              ; preds = %proto_item_set_generated.exit
-  tail call fastcc void @dissect_packetresend_cmd(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, i32 noundef %.1275)
+  tail call fastcc void @dissect_packetresend_cmd(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, i32 noundef %.1274)
   br label %173
 
 166:                                              ; preds = %proto_item_set_generated.exit
-  tail call fastcc void @dissect_readreg_cmd(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0271, ptr noundef %.3315)
+  tail call fastcc void @dissect_readreg_cmd(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0270, ptr noundef %.3315)
   br label %173
 
 167:                                              ; preds = %proto_item_set_generated.exit
-  tail call fastcc void @dissect_writereg_cmd(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0271, ptr noundef %.3315)
+  tail call fastcc void @dissect_writereg_cmd(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0270, ptr noundef %.3315)
   br label %173
 
 168:                                              ; preds = %proto_item_set_generated.exit
-  tail call fastcc void @dissect_readmem_cmd(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.0271)
+  tail call fastcc void @dissect_readmem_cmd(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.0270)
   br label %173
 
 169:                                              ; preds = %proto_item_set_generated.exit
-  tail call fastcc void @dissect_writemem_cmd(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0271, ptr noundef %.3315)
+  tail call fastcc void @dissect_writemem_cmd(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0270, ptr noundef %.3315)
   br label %173
 
 170:                                              ; preds = %proto_item_set_generated.exit
-  tail call fastcc void @dissect_event_cmd(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, i32 noundef %.1275)
+  tail call fastcc void @dissect_event_cmd(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, i32 noundef %.1274)
   br label %173
 
 171:                                              ; preds = %proto_item_set_generated.exit
-  tail call fastcc void @dissect_eventdata_cmd(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.1275)
+  tail call fastcc void @dissect_eventdata_cmd(ptr noundef %150, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.1274)
   br label %173
 
 172:                                              ; preds = %proto_item_set_generated.exit
-  tail call fastcc void @dissect_action_cmd(ptr noundef %150, ptr noundef %0, i32 noundef %.1273)
+  tail call fastcc void @dissect_action_cmd(ptr noundef %150, ptr noundef %0, i32 noundef %.1272)
   br label %173
 
 173:                                              ; preds = %proto_item_set_generated.exit, %172, %171, %170, %169, %168, %167, %166, %165, %164
@@ -1403,7 +1403,7 @@ proto_item_set_generated.exit:                    ; preds = %160, %157, %154, %1
   br i1 %178, label %179, label %213
 
 179:                                              ; preds = %173
-  %180 = load ptr, ptr %.0271, align 8
+  %180 = load ptr, ptr %.0270, align 8
   %181 = zext i16 %73 to i64
   %182 = inttoptr i64 %181 to ptr
   %183 = tail call ptr @wmem_map_lookup(ptr noundef %180, ptr noundef %182) #5
@@ -1420,7 +1420,7 @@ proto_item_set_generated.exit:                    ; preds = %160, %157, %154, %1
   %187 = tail call noalias ptr @wmem_array_new(ptr noundef %186, i64 noundef 24) #5
   store ptr %187, ptr @gvcp_trans_array, align 8
   tail call void @wmem_array_append(ptr noundef %187, ptr noundef %.3315, i32 noundef 1) #5
-  %188 = load ptr, ptr %.0271, align 8
+  %188 = load ptr, ptr %.0270, align 8
   %189 = load ptr, ptr @gvcp_trans_array, align 8
   %190 = tail call ptr @wmem_map_insert(ptr noundef %188, ptr noundef %182, ptr noundef %189) #5
   br label %213
@@ -1469,7 +1469,7 @@ proto_item_set_generated.exit302:                 ; preds = %200, %197, %194, %1
   br label %213
 
 205:                                              ; preds = %proto_item_set_generated.exit302
-  tail call fastcc void @dissect_readreg_ack(ptr noundef %148, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0271, ptr noundef %.3)
+  tail call fastcc void @dissect_readreg_ack(ptr noundef %148, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0270, ptr noundef %.3)
   br label %213
 
 206:                                              ; preds = %proto_item_set_generated.exit302
@@ -1477,11 +1477,11 @@ proto_item_set_generated.exit302:                 ; preds = %200, %197, %194, %1
   br label %213
 
 207:                                              ; preds = %proto_item_set_generated.exit302
-  tail call fastcc void @dissect_readmem_ack(ptr noundef %148, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0271)
+  tail call fastcc void @dissect_readmem_ack(ptr noundef %148, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0270)
   br label %213
 
 208:                                              ; preds = %proto_item_set_generated.exit302
-  tail call fastcc void @dissect_writemem_ack(ptr noundef %148, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0271, ptr noundef %.3)
+  tail call fastcc void @dissect_writemem_ack(ptr noundef %148, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %70, ptr noundef nonnull %.0270, ptr noundef %.3)
   br label %213
 
 209:                                              ; preds = %proto_item_set_generated.exit302
@@ -1498,8 +1498,8 @@ proto_item_set_generated.exit302:                 ; preds = %200, %197, %194, %1
   br label %215
 
 215:                                              ; preds = %7, %4, %213
-  %.0 = phi i32 [ %214, %213 ], [ 0, %4 ], [ 0, %7 ]
-  ret i32 %.0
+  %.0265 = phi i32 [ %214, %213 ], [ 0, %4 ], [ 0, %7 ]
+  ret i32 %.0265
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1746,10 +1746,10 @@ get_register_name_from_address.exit:              ; preds = %6, %22, %.thread.i
   br i1 %.not56, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread, %46
-  %.066 = phi ptr [ %45, %.thread ], [ %0, %46 ]
+  %.03966 = phi ptr [ %45, %.thread ], [ %0, %46 ]
   %.not42 = icmp eq ptr %5, null
   %47 = getelementptr inbounds i8, ptr %5, i64 8
-  %.not44 = icmp eq ptr %.066, null
+  %.not44 = icmp eq ptr %.03966, null
   %48 = getelementptr inbounds i8, ptr %4, i64 8
   br i1 %.not44, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -1757,19 +1757,19 @@ get_register_name_from_address.exit:              ; preds = %6, %22, %.thread.i
   br i1 %.not42, label %dissect_extended_bootstrap_register.exit.us.us, label %.lr.ph.split.us.split
 
 dissect_extended_bootstrap_register.exit.us.us:   ; preds = %.lr.ph.split.us, %dissect_extended_bootstrap_register.exit.us.us
-  %.03855.us.us = phi i32 [ %51, %dissect_extended_bootstrap_register.exit.us.us ], [ 0, %.lr.ph.split.us ]
-  %.03954.us.us = phi i32 [ %50, %dissect_extended_bootstrap_register.exit.us.us ], [ 8, %.lr.ph.split.us ]
-  %49 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.03954.us.us) #5
+  %.055.us.us = phi i32 [ %51, %dissect_extended_bootstrap_register.exit.us.us ], [ 0, %.lr.ph.split.us ]
+  %.03854.us.us = phi i32 [ %50, %dissect_extended_bootstrap_register.exit.us.us ], [ 8, %.lr.ph.split.us ]
+  %49 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.03854.us.us) #5
   store i32 %49, ptr %8, align 4
-  %50 = add i32 %.03954.us.us, 4
-  %51 = add nuw nsw i32 %.03855.us.us, 1
+  %50 = add i32 %.03854.us.us, 4
+  %51 = add nuw nsw i32 %.055.us.us, 1
   %exitcond63.not = icmp eq i32 %51, %9
   br i1 %exitcond63.not, label %._crit_edge, label %dissect_extended_bootstrap_register.exit.us.us, !llvm.loop !8
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %dissect_extended_bootstrap_register.exit.us
-  %.03855.us = phi i32 [ %60, %dissect_extended_bootstrap_register.exit.us ], [ 0, %.lr.ph.split.us ]
-  %.03954.us = phi i32 [ %59, %dissect_extended_bootstrap_register.exit.us ], [ 8, %.lr.ph.split.us ]
-  %52 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.03954.us) #5
+  %.055.us = phi i32 [ %60, %dissect_extended_bootstrap_register.exit.us ], [ 0, %.lr.ph.split.us ]
+  %.03854.us = phi i32 [ %59, %dissect_extended_bootstrap_register.exit.us ], [ 8, %.lr.ph.split.us ]
+  %52 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.03854.us) #5
   store i32 %52, ptr %8, align 4
   %53 = load ptr, ptr %32, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 50
@@ -1784,15 +1784,15 @@ dissect_extended_bootstrap_register.exit.us.us:   ; preds = %.lr.ph.split.us, %d
   br label %dissect_extended_bootstrap_register.exit.us
 
 dissect_extended_bootstrap_register.exit.us:      ; preds = %57, %.lr.ph.split.us.split
-  %59 = add i32 %.03954.us, 4
-  %60 = add nuw nsw i32 %.03855.us, 1
+  %59 = add i32 %.03854.us, 4
+  %60 = add nuw nsw i32 %.055.us, 1
   %exitcond62.not = icmp eq i32 %60, %9
   br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %dissect_extended_bootstrap_register.exit
-  %.03855 = phi i32 [ %93, %dissect_extended_bootstrap_register.exit ], [ 0, %.lr.ph ]
-  %.03954 = phi i32 [ %92, %dissect_extended_bootstrap_register.exit ], [ 8, %.lr.ph ]
-  %61 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.03954) #5
+  %.055 = phi i32 [ %93, %dissect_extended_bootstrap_register.exit ], [ 0, %.lr.ph ]
+  %.03854 = phi i32 [ %92, %dissect_extended_bootstrap_register.exit ], [ 8, %.lr.ph ]
+  %61 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.03854) #5
   store i32 %61, ptr %8, align 4
   br i1 %.not42, label %69, label %62
 
@@ -1818,7 +1818,7 @@ dissect_extended_bootstrap_register.exit.us:      ; preds = %57, %.lr.ph.split.u
 
 72:                                               ; preds = %69
   %73 = load i32, ptr @hf_gvcp_readregcmd_bootstrap_register, align 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef nonnull %.066, i32 noundef %73, ptr noundef %1, i32 noundef %.03954, i32 noundef 4, i32 noundef 0) #5
+  %74 = call ptr @proto_tree_add_item(ptr noundef nonnull %.03966, i32 noundef %73, ptr noundef %1, i32 noundef %.03854, i32 noundef 4, i32 noundef 0) #5
   br label %dissect_extended_bootstrap_register.exit
 
 75:                                               ; preds = %69
@@ -1852,19 +1852,19 @@ switch.lookup:                                    ; preds = %is_extended_bootstr
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %86
   %switch.load = load ptr, ptr %switch.gep, align 8
   %87 = load i32, ptr %switch.load, align 4
-  %88 = call ptr @proto_tree_add_item(ptr noundef nonnull %.066, i32 noundef %87, ptr noundef %1, i32 noundef %.03954, i32 noundef 4, i32 noundef 0) #5
+  %88 = call ptr @proto_tree_add_item(ptr noundef nonnull %.03966, i32 noundef %87, ptr noundef %1, i32 noundef %.03854, i32 noundef 4, i32 noundef 0) #5
   br label %dissect_extended_bootstrap_register.exit
 
 89:                                               ; preds = %77
   %90 = load i32, ptr @hf_gvcp_custom_register_addr, align 4
-  %91 = call ptr @proto_tree_add_item(ptr noundef nonnull %.066, i32 noundef %90, ptr noundef %1, i32 noundef %.03954, i32 noundef 4, i32 noundef 0) #5
+  %91 = call ptr @proto_tree_add_item(ptr noundef nonnull %.03966, i32 noundef %90, ptr noundef %1, i32 noundef %.03854, i32 noundef 4, i32 noundef 0) #5
   store ptr %91, ptr %7, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %91, ptr noundef nonnull @.str.737) #5
   br label %dissect_extended_bootstrap_register.exit
 
 dissect_extended_bootstrap_register.exit:         ; preds = %is_extended_bootstrap_address.exit, %switch.lookup, %72, %89
-  %92 = add i32 %.03954, 4
-  %93 = add nuw nsw i32 %.03855, 1
+  %92 = add i32 %.03854, 4
+  %93 = add nuw nsw i32 %.055, 1
   %exitcond.not = icmp eq i32 %93, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
@@ -1975,20 +1975,20 @@ get_register_name_from_address.exit:              ; preds = %11, %25, %.thread.i
   br label %44
 
 44:                                               ; preds = %.lr.ph, %dissect_extended_bootstrap_register.exit
-  %.06683 = phi i32 [ 8, %.lr.ph ], [ %77, %dissect_extended_bootstrap_register.exit ]
-  %.06782 = phi i32 [ 0, %.lr.ph ], [ %78, %dissect_extended_bootstrap_register.exit ]
-  %45 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.06683) #5
+  %.06683 = phi i32 [ 0, %.lr.ph ], [ %78, %dissect_extended_bootstrap_register.exit ]
+  %.06782 = phi i32 [ 8, %.lr.ph ], [ %77, %dissect_extended_bootstrap_register.exit ]
+  %45 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.06782) #5
   %46 = call ptr @try_val_to_str(i32 noundef %45, ptr noundef nonnull @bootstrapregisternames) #5
   %.not71 = icmp eq ptr %46, null
   br i1 %.not71, label %.preheader, label %47
 
 47:                                               ; preds = %44
   %48 = load i32, ptr @hf_gvcp_writeregcmd_bootstrap_register, align 4
-  %49 = call ptr @proto_tree_add_item(ptr noundef %.090, i32 noundef %48, ptr noundef %1, i32 noundef %.06683, i32 noundef 4, i32 noundef 0) #5
+  %49 = call ptr @proto_tree_add_item(ptr noundef %.090, i32 noundef %48, ptr noundef %1, i32 noundef %.06782, i32 noundef 4, i32 noundef 0) #5
   store ptr %49, ptr %7, align 8
   %50 = load i32, ptr @ett_gvcp_payload_cmd_subtree, align 4
   %51 = call ptr @proto_item_add_subtree(ptr noundef %49, i32 noundef %50) #5
-  %52 = add i32 %.06683, 4
+  %52 = add i32 %.06782, 4
   call fastcc void @dissect_register(i32 noundef %45, ptr noundef %51, ptr noundef %1, i32 noundef %52, i32 noundef 4)
   br label %dissect_extended_bootstrap_register.exit
 
@@ -2010,11 +2010,11 @@ get_register_name_from_address.exit:              ; preds = %11, %25, %.thread.i
 
 is_extended_bootstrap_address.exit:               ; preds = %.preheader
   %58 = load i32, ptr @hf_gvcp_writeregcmd_extended_bootstrap_register, align 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %.090, i32 noundef %58, ptr noundef %1, i32 noundef %.06683, i32 noundef 4, i32 noundef 0) #5
+  %59 = call ptr @proto_tree_add_item(ptr noundef %.090, i32 noundef %58, ptr noundef %1, i32 noundef %.06782, i32 noundef 4, i32 noundef 0) #5
   store ptr %59, ptr %7, align 8
   %60 = load i32, ptr @ett_gvcp_payload_cmd_subtree, align 4
   %61 = call ptr @proto_item_add_subtree(ptr noundef %59, i32 noundef %60) #5
-  %62 = add i32 %.06683, 4
+  %62 = add i32 %.06782, 4
   %63 = sub i32 %45, %55
   %64 = call i32 @llvm.fshl.i32(i32 %63, i32 %63, i32 30)
   %65 = icmp ult i32 %64, 4
@@ -2030,9 +2030,9 @@ switch.lookup:                                    ; preds = %is_extended_bootstr
 
 69:                                               ; preds = %53
   %70 = load i32, ptr @hf_gvcp_custom_register_addr, align 4
-  %71 = call ptr @proto_tree_add_item(ptr noundef %.090, i32 noundef %70, ptr noundef %1, i32 noundef %.06683, i32 noundef 4, i32 noundef 0) #5
+  %71 = call ptr @proto_tree_add_item(ptr noundef %.090, i32 noundef %70, ptr noundef %1, i32 noundef %.06782, i32 noundef 4, i32 noundef 0) #5
   store ptr %71, ptr %7, align 8
-  %72 = add i32 %.06683, 4
+  %72 = add i32 %.06782, 4
   %73 = load i32, ptr @ett_gvcp_payload_cmd_subtree, align 4
   %74 = call ptr @proto_item_add_subtree(ptr noundef %71, i32 noundef %73) #5
   %75 = load i32, ptr @hf_gvcp_custom_register_value, align 4
@@ -2042,7 +2042,7 @@ switch.lookup:                                    ; preds = %is_extended_bootstr
 dissect_extended_bootstrap_register.exit:         ; preds = %is_extended_bootstrap_address.exit, %switch.lookup, %69, %47
   %.1 = phi i32 [ %52, %47 ], [ %72, %69 ], [ %62, %is_extended_bootstrap_address.exit ], [ %62, %switch.lookup ]
   %77 = add i32 %.1, 4
-  %78 = add nuw nsw i32 %.06782, 1
+  %78 = add nuw nsw i32 %.06683, 1
   %exitcond.not = icmp eq i32 %78, %8
   br i1 %exitcond.not, label %.loopexit, label %44, !llvm.loop !9
 
@@ -2712,12 +2712,12 @@ get_register_name_from_address.exit:              ; preds = %16, %31, %.thread.i
   br i1 %.not86110, label %.lr.ph.split.preheader, label %dissect_extended_bootstrap_register.exit.us.preheader
 
 dissect_extended_bootstrap_register.exit.us.preheader: ; preds = %.thread157, %.lr.ph
-  %.079164166 = phi ptr [ %47, %.thread157 ], [ %0, %.lr.ph ]
+  %.080164166 = phi ptr [ %47, %.thread157 ], [ %0, %.lr.ph ]
   br label %dissect_extended_bootstrap_register.exit.us
 
 .lr.ph.split.preheader:                           ; preds = %.thread157, %.lr.ph
   %.076113148155162167 = phi i32 [ %.076114, %.thread157 ], [ %.076113, %.lr.ph ]
-  %.079164165 = phi ptr [ %47, %.thread157 ], [ %0, %.lr.ph ]
+  %.080164165 = phi ptr [ %47, %.thread157 ], [ %0, %.lr.ph ]
   %48 = getelementptr inbounds i8, ptr %5, i64 8
   %49 = getelementptr inbounds i8, ptr %2, i64 408
   %50 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2725,23 +2725,23 @@ dissect_extended_bootstrap_register.exit.us.preheader: ; preds = %.thread157, %.
 
 dissect_extended_bootstrap_register.exit.us:      ; preds = %dissect_extended_bootstrap_register.exit.us.preheader, %dissect_extended_bootstrap_register.exit.us
   %.078132.us = phi i32 [ %53, %dissect_extended_bootstrap_register.exit.us ], [ 8, %dissect_extended_bootstrap_register.exit.us.preheader ]
-  %.080131.us = phi i32 [ %54, %dissect_extended_bootstrap_register.exit.us ], [ 0, %dissect_extended_bootstrap_register.exit.us.preheader ]
+  %.079131.us = phi i32 [ %54, %dissect_extended_bootstrap_register.exit.us ], [ 0, %dissect_extended_bootstrap_register.exit.us.preheader ]
   %51 = load i32, ptr @hf_gvcp_custom_register_value, align 4
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %.079164166, i32 noundef %51, ptr noundef %1, i32 noundef %.078132.us, i32 noundef 4, i32 noundef 0) #5
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %.080164166, i32 noundef %51, ptr noundef %1, i32 noundef %.078132.us, i32 noundef 4, i32 noundef 0) #5
   %53 = add i32 %.078132.us, 4
-  %54 = add nuw nsw i32 %.080131.us, 1
+  %54 = add nuw nsw i32 %.079131.us, 1
   %exitcond.not = icmp eq i32 %54, %7
   br i1 %exitcond.not, label %.loopexit123, label %dissect_extended_bootstrap_register.exit.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %dissect_extended_bootstrap_register.exit
   %.078132 = phi i32 [ %105, %dissect_extended_bootstrap_register.exit ], [ 8, %.lr.ph.split.preheader ]
-  %.080131 = phi i32 [ %106, %dissect_extended_bootstrap_register.exit ], [ 0, %.lr.ph.split.preheader ]
-  %55 = icmp ult i32 %.080131, %.076113148155162167
+  %.079131 = phi i32 [ %106, %dissect_extended_bootstrap_register.exit ], [ 0, %.lr.ph.split.preheader ]
+  %55 = icmp ult i32 %.079131, %.076113148155162167
   br i1 %55, label %56, label %102
 
 56:                                               ; preds = %.lr.ph.split
   %57 = load ptr, ptr %48, align 8
-  %58 = tail call ptr @wmem_array_index(ptr noundef %57, i32 noundef %.080131) #5
+  %58 = tail call ptr @wmem_array_index(ptr noundef %57, i32 noundef %.079131) #5
   %59 = load i32, ptr %58, align 4
   %60 = load ptr, ptr %49, align 8
   %61 = tail call ptr @try_val_to_str(i32 noundef %59, ptr noundef nonnull @bootstrapregisternames) #5
@@ -2819,7 +2819,7 @@ get_register_name_from_address.exit103:           ; preds = %56, %67, %.thread.i
 
 is_extended_bootstrap_address.exit:               ; preds = %.preheader
   %86 = load i32, ptr @hf_gvcp_readregcmd_extended_bootstrap_register, align 4
-  %87 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.079164165, i32 noundef %86, ptr noundef %1, i32 noundef %.078132, i32 noundef 4, i32 noundef %59, ptr noundef nonnull @.str.752, ptr noundef %.1.i94, i32 noundef %59) #5
+  %87 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.080164165, i32 noundef %86, ptr noundef %1, i32 noundef %.078132, i32 noundef 4, i32 noundef %59, ptr noundef nonnull @.str.752, ptr noundef %.1.i94, i32 noundef %59) #5
   %88 = sub i32 %59, %83
   %89 = tail call i32 @llvm.fshl.i32(i32 %88, i32 %88, i32 30)
   %90 = icmp ult i32 %89, 4
@@ -2830,30 +2830,30 @@ switch.lookup:                                    ; preds = %is_extended_bootstr
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_readmem_ack, i64 0, i64 %91
   %switch.load = load ptr, ptr %switch.gep, align 8
   %92 = load i32, ptr %switch.load, align 4
-  %93 = tail call ptr @proto_tree_add_item(ptr noundef %.079164165, i32 noundef %92, ptr noundef %1, i32 noundef %.078132, i32 noundef 4, i32 noundef 0) #5
+  %93 = tail call ptr @proto_tree_add_item(ptr noundef %.080164165, i32 noundef %92, ptr noundef %1, i32 noundef %.078132, i32 noundef 4, i32 noundef 0) #5
   br label %dissect_extended_bootstrap_register.exit
 
 94:                                               ; preds = %81
   %95 = load i32, ptr @hf_gvcp_readregcmd_bootstrap_register, align 4
-  %96 = tail call ptr @proto_tree_add_uint(ptr noundef %.079164165, i32 noundef %95, ptr noundef %1, i32 noundef 0, i32 noundef 4, i32 noundef %59) #5
-  tail call fastcc void @dissect_register(i32 noundef %59, ptr noundef %.079164165, ptr noundef %1, i32 noundef %.078132, i32 noundef %3)
+  %96 = tail call ptr @proto_tree_add_uint(ptr noundef %.080164165, i32 noundef %95, ptr noundef %1, i32 noundef 0, i32 noundef 4, i32 noundef %59) #5
+  tail call fastcc void @dissect_register(i32 noundef %59, ptr noundef %.080164165, ptr noundef %1, i32 noundef %.078132, i32 noundef %3)
   br label %dissect_extended_bootstrap_register.exit
 
 97:                                               ; preds = %.loopexit
   %98 = load i32, ptr @hf_gvcp_custom_read_register_addr, align 4
-  %99 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.079164165, i32 noundef %98, ptr noundef %1, i32 noundef %.078132, i32 noundef 4, i32 noundef %59, ptr noundef nonnull @.str.752, ptr noundef %.1.i94, i32 noundef %59) #5
+  %99 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.080164165, i32 noundef %98, ptr noundef %1, i32 noundef %.078132, i32 noundef 4, i32 noundef %59, ptr noundef nonnull @.str.752, ptr noundef %.1.i94, i32 noundef %59) #5
   %100 = load i32, ptr @hf_gvcp_custom_read_register_value, align 4
-  %101 = tail call ptr @proto_tree_add_item(ptr noundef %.079164165, i32 noundef %100, ptr noundef %1, i32 noundef %.078132, i32 noundef 4, i32 noundef 0) #5
+  %101 = tail call ptr @proto_tree_add_item(ptr noundef %.080164165, i32 noundef %100, ptr noundef %1, i32 noundef %.078132, i32 noundef 4, i32 noundef 0) #5
   br label %dissect_extended_bootstrap_register.exit
 
 102:                                              ; preds = %.lr.ph.split
   %103 = load i32, ptr @hf_gvcp_custom_register_value, align 4
-  %104 = tail call ptr @proto_tree_add_item(ptr noundef %.079164165, i32 noundef %103, ptr noundef %1, i32 noundef %.078132, i32 noundef 4, i32 noundef 0) #5
+  %104 = tail call ptr @proto_tree_add_item(ptr noundef %.080164165, i32 noundef %103, ptr noundef %1, i32 noundef %.078132, i32 noundef 4, i32 noundef 0) #5
   br label %dissect_extended_bootstrap_register.exit
 
 dissect_extended_bootstrap_register.exit:         ; preds = %is_extended_bootstrap_address.exit, %switch.lookup, %97, %94, %102
   %105 = add i32 %.078132, 4
-  %106 = add nuw nsw i32 %.080131, 1
+  %106 = add nuw nsw i32 %.079131, 1
   %exitcond143.not = icmp eq i32 %106, %7
   br i1 %exitcond143.not, label %.loopexit123, label %.lr.ph.split, !llvm.loop !12
 

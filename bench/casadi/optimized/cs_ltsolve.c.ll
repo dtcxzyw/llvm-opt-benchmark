@@ -38,9 +38,9 @@ define range(i32 0, 2) i32 @cs_ltsolve(ptr noundef readonly %0, ptr noundef %1) 
   %19 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv.next42
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv41
-  %.02933 = add nsw i32 %20, 1
+  %.03033 = add nsw i32 %20, 1
   %22 = load i32, ptr %21, align 4
-  %23 = icmp slt i32 %.02933, %22
+  %23 = icmp slt i32 %.03033, %22
   %24 = getelementptr inbounds double, ptr %1, i64 %indvars.iv.next42
   br i1 %23, label %.lr.ph, label %.lr.ph39.._crit_edge_crit_edge
 

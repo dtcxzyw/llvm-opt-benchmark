@@ -381,17 +381,17 @@ if.then8:                                         ; preds = %if.end, %if.end
   br i1 %tobool9.not, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %if.then8, %while.body
-  %line.addr.044 = phi ptr [ %incdec.ptr, %while.body ], [ %line, %if.then8 ]
-  %line_len.addr.043 = phi i64 [ %dec, %while.body ], [ %line_len, %if.then8 ]
-  %2 = load i8, ptr %line.addr.044, align 1
+  %line_len.addr.044 = phi i64 [ %dec, %while.body ], [ %line_len, %if.then8 ]
+  %line.addr.043 = phi ptr [ %incdec.ptr, %while.body ], [ %line, %if.then8 ]
+  %2 = load i8, ptr %line.addr.043, align 1
   switch i8 %2, label %if.end23 [
     i8 32, label %while.body
     i8 9, label %while.body
   ]
 
 while.body:                                       ; preds = %land.rhs, %land.rhs
-  %incdec.ptr = getelementptr inbounds i8, ptr %line.addr.044, i64 1
-  %dec = add i64 %line_len.addr.043, -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %line.addr.043, i64 1
+  %dec = add i64 %line_len.addr.044, -1
   %tobool12.not = icmp eq i64 %dec, 0
   br i1 %tobool12.not, label %return, label %land.rhs, !llvm.loop !8
 
@@ -402,7 +402,7 @@ if.end23:                                         ; preds = %land.rhs
   %5 = load ptr, ptr %arrayidx25, align 8
   %valuelen1.i = getelementptr inbounds i8, ptr %5, i64 24
   %6 = load i64, ptr %valuelen1.i, align 8
-  %add.i = add i64 %line_len.addr.043, 1
+  %add.i = add i64 %line_len.addr.044, 1
   %add2.i = add i64 %add.i, %6
   %7 = load ptr, ptr @Curl_ccalloc, align 8
   %namelen.i = getelementptr inbounds i8, ptr %5, i64 16
@@ -434,7 +434,7 @@ if.end28:                                         ; preds = %if.end23
   %add.ptr17.i = getelementptr inbounds i8, ptr %add.ptr12.i, i64 %15
   store i8 32, ptr %add.ptr17.i, align 1
   %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr17.i, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr18.i, ptr nonnull readonly align 1 %line.addr.044, i64 %line_len.addr.043, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr18.i, ptr nonnull readonly align 1 %line.addr.043, i64 %line_len.addr.044, i1 false)
   %valuelen19.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %add2.i, ptr %valuelen19.i, align 8
   %16 = load ptr, ptr %dynhds, align 8

@@ -311,8 +311,8 @@ define internal i32 @dissect_socks(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %19
 
 19:                                               ; preds = %12, %4
-  %.0160 = phi ptr [ %14, %12 ], [ %10, %4 ]
-  %20 = load i32, ptr %.0160, align 4
+  %.0159 = phi ptr [ %14, %12 ], [ %10, %4 ]
+  %20 = load i32, ptr %.0159, align 4
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %270
 
@@ -343,9 +343,9 @@ define internal i32 @dissect_socks(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %40
 
 40:                                               ; preds = %27, %21
-  %.0161 = phi ptr [ %39, %27 ], [ %22, %21 ]
+  %.0160 = phi ptr [ %39, %27 ], [ %22, %21 ]
   %41 = load i32, ptr @proto_socks, align 4
-  %42 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %.0161, i32 noundef %41) #6
+  %42 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %.0160, i32 noundef %41) #6
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %62
 
@@ -368,24 +368,24 @@ define internal i32 @dissect_socks(ptr noundef %0, ptr noundef %1, ptr noundef %
   %55 = getelementptr inbounds i8, ptr %46, i64 8
   store i32 %54, ptr %55, align 8
   %56 = load i32, ptr @proto_socks, align 4
-  tail call void @conversation_add_proto_data(ptr noundef nonnull %.0161, i32 noundef %56, ptr noundef nonnull %46) #6
+  tail call void @conversation_add_proto_data(ptr noundef nonnull %.0160, i32 noundef %56, ptr noundef nonnull %46) #6
   %57 = getelementptr inbounds i8, ptr %1, i64 20
   %58 = load i32, ptr %57, align 4
-  %59 = tail call ptr @conversation_get_dissector(ptr noundef nonnull %.0161, i32 noundef %58) #6
+  %59 = tail call ptr @conversation_get_dissector(ptr noundef nonnull %.0160, i32 noundef %58) #6
   %.not176 = icmp eq ptr %59, null
   br i1 %.not176, label %62, label %60
 
 60:                                               ; preds = %44
   %61 = load ptr, ptr @socks_handle, align 8
-  tail call void @conversation_set_dissector(ptr noundef nonnull %.0161, ptr noundef %61) #6
+  tail call void @conversation_set_dissector(ptr noundef nonnull %.0160, ptr noundef %61) #6
   br label %62
 
 62:                                               ; preds = %44, %60, %40
-  %.0162 = phi ptr [ %46, %60 ], [ %46, %44 ], [ %42, %40 ]
+  %.0161 = phi ptr [ %46, %60 ], [ %46, %44 ], [ %42, %40 ]
   %63 = getelementptr inbounds i8, ptr %1, i64 8
   %64 = load ptr, ptr %63, align 8
   tail call void @col_set_str(ptr noundef %64, i32 noundef 34, ptr noundef nonnull @.str.56) #6
-  %65 = getelementptr inbounds i8, ptr %.0162, i64 8
+  %65 = getelementptr inbounds i8, ptr %.0161, i64 8
   %66 = load i32, ptr %65, align 8
   %67 = and i32 %66, -2
   %switch = icmp eq i32 %67, 4
@@ -401,7 +401,7 @@ define internal i32 @dissect_socks(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %71
 
 71:                                               ; preds = %70, %69
-  %72 = getelementptr inbounds i8, ptr %.0162, i64 12
+  %72 = getelementptr inbounds i8, ptr %.0161, i64 12
   %73 = load i32, ptr %72, align 4
   %74 = icmp eq i32 %73, 128
   br i1 %74, label %75, label %77
@@ -432,18 +432,18 @@ define internal i32 @dissect_socks(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not177, label %88, label %125
 
 88:                                               ; preds = %82
-  %89 = load i32, ptr %.0162, align 8
+  %89 = load i32, ptr %.0161, align 8
   %90 = icmp eq i32 %89, 5
   br i1 %90, label %91, label %95
 
 91:                                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %.0162, i64 4
+  %92 = getelementptr inbounds i8, ptr %.0161, i64 4
   %93 = load i32, ptr %92, align 4
   %94 = icmp eq i32 %93, 6
   br i1 %94, label %125, label %95
 
 95:                                               ; preds = %91, %88
-  %96 = getelementptr inbounds i8, ptr %.0162, i64 20
+  %96 = getelementptr inbounds i8, ptr %.0161, i64 20
   %97 = load i32, ptr %96, align 4
   %98 = getelementptr inbounds i8, ptr %1, i64 288
   %99 = load i32, ptr %98, align 8
@@ -463,15 +463,15 @@ define internal i32 @dissect_socks(ptr noundef %0, ptr noundef %1, ptr noundef %
   ]
 
 104:                                              ; preds = %102
-  tail call fastcc void @state_machine_v4(ptr noundef nonnull %.0162, ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @state_machine_v4(ptr noundef nonnull %.0161, ptr noundef %0, ptr noundef nonnull %1)
   br label %114
 
 105:                                              ; preds = %102
-  tail call fastcc void @client_state_machine_v5(ptr noundef nonnull %.0162, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, i32 noundef 1)
+  tail call fastcc void @client_state_machine_v5(ptr noundef nonnull %.0161, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, i32 noundef 1)
   br label %114
 
 106:                                              ; preds = %95
-  %107 = getelementptr inbounds i8, ptr %.0162, i64 4
+  %107 = getelementptr inbounds i8, ptr %.0161, i64 4
   %108 = load i32, ptr %107, align 4
   %109 = and i32 %108, -2
   %switch188 = icmp eq i32 %109, 6
@@ -485,20 +485,20 @@ define internal i32 @dissect_socks(ptr noundef %0, ptr noundef %1, ptr noundef %
   ]
 
 112:                                              ; preds = %110
-  tail call fastcc void @state_machine_v4(ptr noundef nonnull %.0162, ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @state_machine_v4(ptr noundef nonnull %.0161, ptr noundef %0, ptr noundef nonnull %1)
   br label %114
 
 113:                                              ; preds = %110
-  tail call fastcc void @server_state_machine_v5(ptr noundef nonnull %.0162, ptr noundef %0, ptr noundef nonnull %1)
+  tail call fastcc void @server_state_machine_v5(ptr noundef nonnull %.0161, ptr noundef %0, ptr noundef nonnull %1)
   br label %114
 
 114:                                              ; preds = %106, %101, %110, %102, %113, %112, %105, %104
-  %115 = load i32, ptr %.0162, align 8
+  %115 = load i32, ptr %.0161, align 8
   %116 = icmp eq i32 %115, 5
   br i1 %116, label %117, label %125
 
 117:                                              ; preds = %114
-  %118 = getelementptr inbounds i8, ptr %.0162, i64 4
+  %118 = getelementptr inbounds i8, ptr %.0161, i64 4
   %119 = load i32, ptr %118, align 4
   %120 = icmp eq i32 %119, 6
   br i1 %120, label %121, label %125
@@ -506,7 +506,7 @@ define internal i32 @dissect_socks(ptr noundef %0, ptr noundef %1, ptr noundef %
 121:                                              ; preds = %117
   %122 = getelementptr inbounds i8, ptr %1, i64 20
   %123 = load i32, ptr %122, align 4
-  %124 = getelementptr inbounds i8, ptr %.0162, i64 64
+  %124 = getelementptr inbounds i8, ptr %.0161, i64 64
   store i32 %123, ptr %124, align 8
   br label %125
 
@@ -521,7 +521,7 @@ define internal i32 @dissect_socks(ptr noundef %0, ptr noundef %1, ptr noundef %
   %130 = tail call ptr @proto_item_add_subtree(ptr noundef %128, i32 noundef %129) #6
   %131 = getelementptr inbounds i8, ptr %1, i64 20
   %132 = load i32, ptr %131, align 4
-  %133 = getelementptr inbounds i8, ptr %.0162, i64 64
+  %133 = getelementptr inbounds i8, ptr %.0161, i64 64
   %134 = load i32, ptr %133, align 8
   %135 = icmp ugt i32 %132, %134
   br i1 %135, label %136, label %193
@@ -567,7 +567,7 @@ proto_item_set_generated.exit:                    ; preds = %136, %140, %143
   br label %proto_item_set_generated.exit193
 
 proto_item_set_generated.exit193:                 ; preds = %proto_item_set_generated.exit, %150, %153
-  %157 = getelementptr inbounds i8, ptr %.0162, i64 40
+  %157 = getelementptr inbounds i8, ptr %.0161, i64 40
   %158 = load i32, ptr %157, align 8
   switch i32 %158, label %proto_item_set_generated.exit196 [
     i32 2, label %159
@@ -576,7 +576,7 @@ proto_item_set_generated.exit193:                 ; preds = %proto_item_set_gene
 
 159:                                              ; preds = %proto_item_set_generated.exit193
   %160 = load i32, ptr @hf_socks_ip_dst, align 4
-  %161 = getelementptr inbounds i8, ptr %.0162, i64 48
+  %161 = getelementptr inbounds i8, ptr %.0161, i64 48
   %162 = load ptr, ptr %161, align 8
   %163 = load i32, ptr %162, align 4
   %164 = tail call ptr @proto_tree_add_ipv4(ptr noundef %130, i32 noundef %160, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %163) #6
@@ -591,7 +591,7 @@ proto_item_set_generated.exit193:                 ; preds = %proto_item_set_gene
 
 168:                                              ; preds = %proto_item_set_generated.exit193
   %169 = load i32, ptr @hf_socks_ip6_dst, align 4
-  %170 = getelementptr inbounds i8, ptr %.0162, i64 48
+  %170 = getelementptr inbounds i8, ptr %.0161, i64 48
   %171 = load ptr, ptr %170, align 8
   %172 = tail call ptr @proto_tree_add_ipv6(ptr noundef %130, i32 noundef %169, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %171) #6
   %.not.i197 = icmp eq ptr %172, null
@@ -619,7 +619,7 @@ proto_item_set_generated.exit196:                 ; preds = %proto_item_set_gene
 
 181:                                              ; preds = %proto_item_set_generated.exit196
   %182 = load i32, ptr @hf_socks_dstport, align 4
-  %183 = getelementptr inbounds i8, ptr %.0162, i64 24
+  %183 = getelementptr inbounds i8, ptr %.0161, i64 24
   %184 = load i32, ptr %183, align 8
   %185 = tail call ptr @proto_tree_add_uint(ptr noundef %130, i32 noundef %182, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %184) #6
   %.not.i200 = icmp eq ptr %185, null
@@ -639,7 +639,7 @@ proto_item_set_generated.exit196:                 ; preds = %proto_item_set_gene
   br label %proto_item_set_generated.exit202
 
 193:                                              ; preds = %126
-  %194 = getelementptr inbounds i8, ptr %.0162, i64 20
+  %194 = getelementptr inbounds i8, ptr %.0161, i64 20
   %195 = load i32, ptr %194, align 4
   %196 = getelementptr inbounds i8, ptr %1, i64 288
   %197 = load i32, ptr %196, align 8
@@ -654,11 +654,11 @@ proto_item_set_generated.exit196:                 ; preds = %proto_item_set_gene
   ]
 
 201:                                              ; preds = %200
-  tail call fastcc void @display_socks_v4(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %130, ptr noundef nonnull %.0162, ptr noundef nonnull %.0160)
+  tail call fastcc void @display_socks_v4(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %130, ptr noundef nonnull %.0161, ptr noundef nonnull %.0159)
   br label %proto_item_set_generated.exit202
 
 202:                                              ; preds = %200
-  tail call fastcc void @client_display_socks_v5(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %130, ptr noundef nonnull %.0162, ptr noundef nonnull %.0160)
+  tail call fastcc void @client_display_socks_v5(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %130, ptr noundef nonnull %.0161, ptr noundef nonnull %.0159)
   br label %proto_item_set_generated.exit202
 
 203:                                              ; preds = %193
@@ -668,18 +668,18 @@ proto_item_set_generated.exit196:                 ; preds = %proto_item_set_gene
   ]
 
 204:                                              ; preds = %203
-  tail call fastcc void @display_socks_v4(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %130, ptr noundef nonnull %.0162, ptr noundef nonnull %.0160)
+  tail call fastcc void @display_socks_v4(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %130, ptr noundef nonnull %.0161, ptr noundef nonnull %.0159)
   br label %proto_item_set_generated.exit202
 
 205:                                              ; preds = %203
-  tail call fastcc void @server_display_socks_v5(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %130, ptr noundef nonnull %.0162, ptr noundef nonnull %.0160)
+  tail call fastcc void @server_display_socks_v5(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %130, ptr noundef nonnull %.0161, ptr noundef nonnull %.0159)
   br label %proto_item_set_generated.exit202
 
 proto_item_set_generated.exit202:                 ; preds = %189, %186, %181, %proto_item_set_generated.exit196, %203, %200, %204, %205, %201, %202, %125
-  %.0159 = phi ptr [ %130, %201 ], [ %130, %202 ], [ %130, %204 ], [ %130, %205 ], [ null, %125 ], [ %130, %proto_item_set_generated.exit196 ], [ %130, %200 ], [ %130, %203 ], [ %130, %181 ], [ %130, %186 ], [ %130, %189 ]
+  %.0162 = phi ptr [ %130, %201 ], [ %130, %202 ], [ %130, %204 ], [ %130, %205 ], [ null, %125 ], [ %130, %proto_item_set_generated.exit196 ], [ %130, %200 ], [ %130, %203 ], [ %130, %181 ], [ %130, %186 ], [ %130, %189 ]
   %206 = getelementptr inbounds i8, ptr %1, i64 20
   %207 = load i32, ptr %206, align 4
-  %208 = getelementptr inbounds i8, ptr %.0162, i64 64
+  %208 = getelementptr inbounds i8, ptr %.0161, i64 64
   %209 = load i32, ptr %208, align 8
   %210 = icmp ugt i32 %207, %209
   br i1 %210, label %211, label %268
@@ -751,12 +751,12 @@ display_ping_and_tracert.exit.i:                  ; preds = %.lr.ph.i.i, %227, %
   %250 = icmp eq i32 %249, 1080
   %251 = getelementptr inbounds i8, ptr %1, i64 284
   %.0.i = select i1 %250, ptr %248, ptr %251
-  %252 = getelementptr inbounds i8, ptr %.0162, i64 24
+  %252 = getelementptr inbounds i8, ptr %.0161, i64 24
   %253 = load i32, ptr %252, align 8
   store i32 %253, ptr %.0.i, align 4
   %254 = tail call ptr @get_tcp_conversation_data(ptr noundef null, ptr noundef nonnull %1) #6
-  store i32 1, ptr %.0160, align 4
-  call void @except_setup_clean(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @clear_in_socks_dissector_flag, ptr noundef nonnull %.0160) #6
+  store i32 1, ptr %.0159, align 4
+  call void @except_setup_clean(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @clear_in_socks_dissector_flag, ptr noundef nonnull %.0159) #6
   %255 = getelementptr inbounds i8, ptr %1, i64 328
   %256 = load i16, ptr %255, align 8
   %257 = getelementptr inbounds i8, ptr %1, i64 330
@@ -767,7 +767,7 @@ display_ping_and_tracert.exit.i:                  ; preds = %.lr.ph.i.i, %227, %
   %261 = load i32, ptr %260, align 4
   %262 = load i32, ptr %251, align 4
   %263 = load i32, ptr %248, align 8
-  call void @dissect_tcp_payload(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0, i32 noundef %259, i32 noundef %261, i32 noundef %262, i32 noundef %263, ptr noundef %2, ptr noundef %.0159, ptr noundef %254, ptr noundef nonnull %3) #6
+  call void @dissect_tcp_payload(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0, i32 noundef %259, i32 noundef %261, i32 noundef %262, i32 noundef %263, ptr noundef %2, ptr noundef %.0162, ptr noundef %254, ptr noundef nonnull %3) #6
   store i16 %256, ptr %255, align 8
   %264 = call ptr @except_pop() #6
   %265 = load ptr, ptr %7, align 8

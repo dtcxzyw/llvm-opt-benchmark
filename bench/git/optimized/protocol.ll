@@ -114,9 +114,9 @@ land.rhs.lr.ph:                                   ; preds = %if.then
   br i1 %cmp17, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.rhs.lr.ph, %for.inc
-  %item.01319 = phi ptr [ %incdec.ptr, %for.inc ], [ %1, %land.rhs.lr.ph ]
-  %version.01418 = phi i32 [ %version.1, %for.inc ], [ 0, %land.rhs.lr.ph ]
-  %3 = load ptr, ptr %item.01319, align 8
+  %version.01319 = phi i32 [ %version.1, %for.inc ], [ 0, %land.rhs.lr.ph ]
+  %item.01418 = phi ptr [ %incdec.ptr, %for.inc ], [ %1, %land.rhs.lr.ph ]
+  %3 = load ptr, ptr %item.01418, align 8
   %scevgep = getelementptr i8, ptr %3, i64 8
   br label %do.body.i
 
@@ -151,12 +151,12 @@ switch.lookup:                                    ; preds = %if.then5
 
 parse_protocol_version.exit:                      ; preds = %if.then5, %switch.lookup
   %retval.0.i = phi i32 [ -1, %if.then5 ], [ %spec.select17.i, %switch.lookup ]
-  %spec.select = call i32 @llvm.smax.i32(i32 %retval.0.i, i32 %version.01418)
+  %spec.select = call i32 @llvm.smax.i32(i32 %retval.0.i, i32 %version.01319)
   br label %for.inc
 
 for.inc:                                          ; preds = %do.cond.i, %parse_protocol_version.exit
-  %version.1 = phi i32 [ %spec.select, %parse_protocol_version.exit ], [ %version.01418, %do.cond.i ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %item.01319, i64 16
+  %version.1 = phi i32 [ %spec.select, %parse_protocol_version.exit ], [ %version.01319, %do.cond.i ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %item.01418, i64 16
   %cmp = icmp ult ptr %incdec.ptr, %add.ptr
   br i1 %cmp, label %for.body, label %for.end
 

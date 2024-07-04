@@ -356,23 +356,23 @@ define void @_ZN16actix_web_actors2ws24handshake_with_protocols17hff1425362f08a8
   br i1 %66, label %.lr.ph.i.i43, label %._crit_edge.i.i
 
 .preheader.i.i:                                   ; preds = %79, %71
-  %.sroa.025.047.i.i = phi i64 [ %67, %71 ], [ 0, %79 ]
-  %.16546.i.i = phi i8 [ %.2.i.i, %71 ], [ %.06448.i.i, %79 ]
-  %67 = add nuw nsw i64 %.sroa.025.047.i.i, 1
-  %68 = getelementptr inbounds [4 x i16], ptr %8, i64 0, i64 %.sroa.025.047.i.i
+  %.16547.i.i = phi i8 [ %.2.i.i, %71 ], [ %.06448.i.i, %79 ]
+  %.sroa.025.046.i.i = phi i64 [ %67, %71 ], [ 0, %79 ]
+  %67 = add nuw nsw i64 %.sroa.025.046.i.i, 1
+  %68 = getelementptr inbounds [4 x i16], ptr %8, i64 0, i64 %.sroa.025.046.i.i
   %69 = load i16, ptr %68, align 2, !noalias !35, !noundef !4
   %70 = icmp eq i16 %69, 0
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %72, %.preheader.i.i
-  %.2.i.i = phi i8 [ %.16546.i.i, %.preheader.i.i ], [ %78, %72 ]
+  %.2.i.i = phi i8 [ %.16547.i.i, %.preheader.i.i ], [ %78, %72 ]
   %exitcond64.not.i.i = icmp eq i64 %67, 4
   br i1 %exitcond64.not.i.i, label %63, label %.preheader.i.i
 
 72:                                               ; preds = %.preheader.i.i
-  %73 = shl nuw nsw i64 %.sroa.025.047.i.i, 4
+  %73 = shl nuw nsw i64 %.sroa.025.046.i.i, 4
   %74 = add nuw nsw i64 %73, %.06249.i.i
-  %75 = trunc nuw i8 %.16546.i.i to i1
+  %75 = trunc nuw i8 %.16547.i.i to i1
   %76 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17he7a43a35f9445261E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %74, i16 noundef %69, i1 noundef zeroext %75)
   %77 = or i1 %76, %75
   %78 = zext i1 %77 to i8

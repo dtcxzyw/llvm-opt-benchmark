@@ -551,15 +551,15 @@ define internal fastcc range(i32 0, 2) i32 @nettl_read_rec(ptr nocapture noundef
   br label %.thread.sink.split
 
 173:                                              ; preds = %111, %109, %107, %105, %132
-  %.0176 = phi i32 [ %151, %132 ], [ %77, %105 ], [ %77, %107 ], [ %77, %109 ], [ %77, %111 ]
-  %.0175 = phi i32 [ %169, %132 ], [ %95, %105 ], [ %95, %107 ], [ %95, %109 ], [ %95, %111 ]
-  %.0173 = phi i32 [ 24, %132 ], [ %106, %105 ], [ 3, %107 ], [ 26, %109 ], [ 8, %111 ]
-  %174 = icmp ult i32 %.0176, %.0173
+  %.0174 = phi i32 [ %151, %132 ], [ %77, %105 ], [ %77, %107 ], [ %77, %109 ], [ %77, %111 ]
+  %.0173 = phi i32 [ %169, %132 ], [ %95, %105 ], [ %95, %107 ], [ %95, %109 ], [ %95, %111 ]
+  %.0172 = phi i32 [ 24, %132 ], [ %106, %105 ], [ 3, %107 ], [ 26, %109 ], [ 8, %111 ]
+  %174 = icmp ult i32 %.0174, %.0172
   br i1 %174, label %175, label %.thread
 
 175:                                              ; preds = %173
   store i32 -13, ptr %4, align 4
-  %176 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %.0176, i32 noundef %.0173) #8
+  %176 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %.0174, i32 noundef %.0172) #8
   store ptr %176, ptr %5, align 8
   br label %365
 
@@ -606,30 +606,30 @@ define internal fastcc range(i32 0, 2) i32 @nettl_read_rec(ptr nocapture noundef
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %58, %116, %130, %96, %173
-  %.0173212 = phi i32 [ %.0173, %173 ], [ 0, %96 ], [ 0, %130 ], [ 0, %116 ], [ 0, %58 ], [ 0, %.thread.sink.split ]
-  %.not196211 = phi i1 [ true, %173 ], [ false, %96 ], [ true, %130 ], [ true, %116 ], [ true, %58 ], [ true, %.thread.sink.split ]
-  %.0175210 = phi i32 [ %.0175, %173 ], [ %95, %96 ], [ %128, %130 ], [ %128, %116 ], [ %95, %58 ], [ %213, %.thread.sink.split ]
-  %.0176209 = phi i32 [ %.0176, %173 ], [ %77, %96 ], [ %122, %130 ], [ %122, %116 ], [ %77, %58 ], [ %195, %.thread.sink.split ]
+  %.0172212 = phi i32 [ %.0172, %173 ], [ 0, %96 ], [ 0, %130 ], [ 0, %116 ], [ 0, %58 ], [ 0, %.thread.sink.split ]
+  %.0173211 = phi i32 [ %.0173, %173 ], [ %95, %96 ], [ %128, %130 ], [ %128, %116 ], [ %95, %58 ], [ %213, %.thread.sink.split ]
+  %.0174210 = phi i32 [ %.0174, %173 ], [ %77, %96 ], [ %122, %130 ], [ %122, %116 ], [ %77, %58 ], [ %195, %.thread.sink.split ]
+  %.not196209 = phi i1 [ true, %173 ], [ false, %96 ], [ true, %130 ], [ true, %116 ], [ true, %58 ], [ true, %.thread.sink.split ]
   store i32 0, ptr %2, align 8
   %214 = call ptr @wtap_block_create(i32 noundef 5) #8
   %215 = getelementptr inbounds i8, ptr %2, i64 232
   store ptr %214, ptr %215, align 8
   %216 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 3, ptr %216, align 4
-  %217 = sub i32 %.0176209, %.0173212
+  %217 = sub i32 %.0174210, %.0172212
   %218 = getelementptr inbounds i8, ptr %2, i64 68
   store i32 %217, ptr %218, align 4
-  %219 = icmp ult i32 %.0175210, %.0173212
+  %219 = icmp ult i32 %.0173211, %.0172212
   br i1 %219, label %220, label %222
 
 220:                                              ; preds = %.thread
   store i32 -13, ptr %4, align 4
-  %221 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %.0175210, i32 noundef %.0173212) #8
+  %221 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %.0173211, i32 noundef %.0172212) #8
   store ptr %221, ptr %5, align 8
   br label %365
 
 222:                                              ; preds = %.thread
-  %223 = sub i32 %.0175210, %.0173212
+  %223 = sub i32 %.0173211, %.0172212
   store i32 %223, ptr %10, align 8
   %224 = getelementptr inbounds i8, ptr %7, i64 40
   %225 = load i8, ptr %224, align 4
@@ -766,7 +766,7 @@ define internal fastcc range(i32 0, 2) i32 @nettl_read_rec(ptr nocapture noundef
   %342 = getelementptr inbounds i8, ptr %3, i64 16
   %343 = load i64, ptr %342, align 8
   %344 = getelementptr i8, ptr %341, i64 %343
-  br i1 %.not196211, label %362, label %345
+  br i1 %.not196209, label %362, label %345
 
 345:                                              ; preds = %339
   %spec.select = call i32 @llvm.umin.i32(i32 %223, i32 15)
@@ -797,9 +797,9 @@ define internal fastcc range(i32 0, 2) i32 @nettl_read_rec(ptr nocapture noundef
   br i1 %358, label %365, label %359
 
 359:                                              ; preds = %356, %350
-  %.0172 = phi i32 [ %357, %356 ], [ %348, %350 ]
+  %.0171 = phi i32 [ %357, %356 ], [ %348, %350 ]
   %360 = getelementptr i8, ptr %344, i64 15
-  %361 = call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef %360, i32 noundef %.0172, ptr noundef %4, ptr noundef %5) #8
+  %361 = call i32 @wtap_read_bytes(ptr noundef %1, ptr noundef %360, i32 noundef %.0171, ptr noundef %4, ptr noundef %5) #8
   %.not200 = icmp eq i32 %361, 0
   br i1 %.not200, label %365, label %364
 
@@ -812,8 +812,8 @@ define internal fastcc range(i32 0, 2) i32 @nettl_read_rec(ptr nocapture noundef
   br label %365
 
 365:                                              ; preds = %362, %359, %356, %354, %347, %345, %132, %130, %113, %111, %109, %107, %100, %98, %24, %21, %6, %364, %336, %220, %175, %18
-  %.0 = phi i32 [ 0, %18 ], [ 0, %175 ], [ 0, %220 ], [ 0, %336 ], [ 1, %364 ], [ 0, %6 ], [ 0, %21 ], [ 0, %24 ], [ 0, %98 ], [ 0, %100 ], [ 0, %107 ], [ 0, %109 ], [ 0, %111 ], [ 0, %113 ], [ 0, %130 ], [ 0, %132 ], [ 0, %345 ], [ 1, %347 ], [ 0, %354 ], [ 1, %356 ], [ 0, %359 ], [ 0, %362 ]
-  ret i32 %.0
+  %.0176 = phi i32 [ 0, %18 ], [ 0, %175 ], [ 0, %220 ], [ 0, %336 ], [ 1, %364 ], [ 0, %6 ], [ 0, %21 ], [ 0, %24 ], [ 0, %98 ], [ 0, %100 ], [ 0, %107 ], [ 0, %109 ], [ 0, %111 ], [ 0, %113 ], [ 0, %130 ], [ 0, %132 ], [ 0, %345 ], [ 1, %347 ], [ 0, %354 ], [ 1, %356 ], [ 0, %359 ], [ 0, %362 ]
+  ret i32 %.0176
 }
 
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2

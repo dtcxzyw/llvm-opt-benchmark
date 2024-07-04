@@ -619,13 +619,13 @@ define ptr @php_stream_filter_create(ptr noundef %0, ptr noundef %1, i8 noundef 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread65
-  %.04979 = phi ptr [ %27, %.thread65 ], [ %16, %.lr.ph.preheader ]
-  %17 = load i8, ptr %.04979, align 1
+  %.079 = phi ptr [ %27, %.thread65 ], [ %16, %.lr.ph.preheader ]
+  %17 = load i8, ptr %.079, align 1
   %18 = icmp eq i8 %17, 46
   tail call void @llvm.assume(i1 %18)
-  %19 = getelementptr inbounds i8, ptr %.04979, i64 1
+  %19 = getelementptr inbounds i8, ptr %.079, i64 1
   store i8 42, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %.04979, i64 2
+  %20 = getelementptr inbounds i8, ptr %.079, i64 2
   store i8 0, ptr %20, align 1
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #13
   %22 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %5, ptr noundef nonnull %11, i64 noundef %21) #14
@@ -640,7 +640,7 @@ define ptr @php_stream_filter_create(ptr noundef %0, ptr noundef %1, i8 noundef 
 
 .thread65:                                        ; preds = %.lr.ph, %23
   %.1 = phi ptr [ %26, %23 ], [ null, %.lr.ph ]
-  store i8 0, ptr %.04979, align 1
+  store i8 0, ptr %.079, align 1
   %27 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 46) #13
   %28 = icmp ne ptr %27, null
   %.not60 = icmp eq ptr %.1, null
@@ -1289,38 +1289,38 @@ define range(i32 -1, 1) i32 @_php_stream_filter_flush(ptr noundef %0, i32 nounde
   br label %.lr.ph
 
 .preheader106:                                    ; preds = %14
-  %.077115.pre = load ptr, ptr %.075112, align 8
-  %.not88116 = icmp eq ptr %.077115.pre, null
+  %.074115.pre = load ptr, ptr %.076112, align 8
+  %.not88116 = icmp eq ptr %.074115.pre, null
   br i1 %.not88116, label %.loopexit, label %.lr.ph119
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
-  %.072114 = phi ptr [ %.075112, %14 ], [ %3, %.lr.ph.preheader ]
-  %.073113 = phi i32 [ 0, %14 ], [ %10, %.lr.ph.preheader ]
-  %.075112 = phi ptr [ %.072114, %14 ], [ %4, %.lr.ph.preheader ]
-  %.076111 = phi ptr [ %16, %14 ], [ %0, %.lr.ph.preheader ]
-  %11 = load ptr, ptr %.076111, align 8
+  %.0114 = phi i32 [ 0, %14 ], [ %10, %.lr.ph.preheader ]
+  %.073113 = phi ptr [ %16, %14 ], [ %0, %.lr.ph.preheader ]
+  %.076112 = phi ptr [ %.077111, %14 ], [ %4, %.lr.ph.preheader ]
+  %.077111 = phi ptr [ %.076112, %14 ], [ %3, %.lr.ph.preheader ]
+  %11 = load ptr, ptr %.073113, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = call i32 %12(ptr noundef nonnull %9, ptr noundef nonnull %.076111, ptr noundef nonnull %.072114, ptr noundef nonnull %.075112, ptr noundef null, i32 noundef %.073113) #14
+  %13 = call i32 %12(ptr noundef nonnull %9, ptr noundef nonnull %.073113, ptr noundef %.077111, ptr noundef nonnull %.076112, ptr noundef null, i32 noundef %.0114) #14
   switch i32 %13, label %14 [
     i32 1, label %.loopexit.loopexit142
     i32 0, label %.loopexit
   ]
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %.076111, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.072114, i8 0, i64 16, i1 false)
+  %15 = getelementptr inbounds i8, ptr %.073113, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.077111, i8 0, i64 16, i1 false)
   %16 = load ptr, ptr %15, align 8
   %.not87 = icmp eq ptr %16, null
   br i1 %.not87, label %.preheader106, label %.lr.ph
 
 .lr.ph119:                                        ; preds = %.preheader106, %.lr.ph119
-  %.077118 = phi ptr [ %.077, %.lr.ph119 ], [ %.077115.pre, %.preheader106 ]
-  %.074117 = phi i64 [ %19, %.lr.ph119 ], [ 0, %.preheader106 ]
-  %17 = getelementptr inbounds i8, ptr %.077118, i64 32
+  %.074118 = phi ptr [ %.074, %.lr.ph119 ], [ %.074115.pre, %.preheader106 ]
+  %.072117 = phi i64 [ %19, %.lr.ph119 ], [ 0, %.preheader106 ]
+  %17 = getelementptr inbounds i8, ptr %.074118, i64 32
   %18 = load i64, ptr %17, align 8
-  %19 = add i64 %18, %.074117
-  %.077 = load ptr, ptr %.077118, align 8
-  %.not88 = icmp eq ptr %.077, null
+  %19 = add i64 %18, %.072117
+  %.074 = load ptr, ptr %.074118, align 8
+  %.not88 = icmp eq ptr %.074, null
   br i1 %.not88, label %._crit_edge, label %.lr.ph119
 
 ._crit_edge:                                      ; preds = %.lr.ph119
@@ -1386,7 +1386,7 @@ define range(i32 -1, 1) i32 @_php_stream_filter_flush(ptr noundef %0, i32 nounde
   br label %59
 
 59:                                               ; preds = %56, %35
-  %60 = load ptr, ptr %.075112, align 8
+  %60 = load ptr, ptr %.076112, align 8
   %.not91123 = icmp eq ptr %60, null
   br i1 %.not91123, label %.loopexit, label %.lr.ph125
 
@@ -1492,7 +1492,7 @@ php_stream_bucket_unlink.exit:                    ; preds = %84, %.sink.split.i
   br label %php_stream_bucket_delref.exit
 
 php_stream_bucket_delref.exit:                    ; preds = %php_stream_bucket_unlink.exit, %105, %106
-  %107 = load ptr, ptr %.075112, align 8
+  %107 = load ptr, ptr %.076112, align 8
   %.not91 = icmp eq ptr %107, null
   br i1 %.not91, label %.loopexit, label %62
 
@@ -1507,7 +1507,7 @@ php_stream_bucket_delref.exit:                    ; preds = %php_stream_bucket_u
   br label %112
 
 112:                                              ; preds = %.lr.ph122, %php_stream_bucket_delref.exit104
-  %113 = phi ptr [ %.077115.pre, %.lr.ph122 ], [ %159, %php_stream_bucket_delref.exit104 ]
+  %113 = phi ptr [ %.074115.pre, %.lr.ph122 ], [ %159, %php_stream_bucket_delref.exit104 ]
   %114 = load ptr, ptr %9, align 8
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds i8, ptr %113, i64 24
@@ -1609,7 +1609,7 @@ php_stream_bucket_unlink.exit100:                 ; preds = %136, %.sink.split.i
   br label %php_stream_bucket_delref.exit104
 
 php_stream_bucket_delref.exit104:                 ; preds = %php_stream_bucket_unlink.exit100, %157, %158
-  %159 = load ptr, ptr %.075112, align 8
+  %159 = load ptr, ptr %.076112, align 8
   %.not89 = icmp eq ptr %159, null
   br i1 %.not89, label %.loopexit, label %112
 
@@ -1617,8 +1617,8 @@ php_stream_bucket_delref.exit104:                 ; preds = %php_stream_bucket_u
   br label %.loopexit
 
 .loopexit:                                        ; preds = %php_stream_bucket_delref.exit104, %php_stream_bucket_delref.exit, %.lr.ph, %.loopexit.loopexit142, %108, %.preheader106, %59, %._crit_edge, %2, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %2 ], [ 0, %._crit_edge ], [ 0, %108 ], [ 0, %59 ], [ 0, %.preheader106 ], [ 0, %.loopexit.loopexit142 ], [ -1, %.lr.ph ], [ 0, %php_stream_bucket_delref.exit ], [ 0, %php_stream_bucket_delref.exit104 ]
-  ret i32 %.0
+  %.075 = phi i32 [ -1, %7 ], [ -1, %2 ], [ 0, %._crit_edge ], [ 0, %108 ], [ 0, %59 ], [ 0, %.preheader106 ], [ 0, %.loopexit.loopexit142 ], [ -1, %.lr.ph ], [ 0, %php_stream_bucket_delref.exit ], [ 0, %php_stream_bucket_delref.exit104 ]
+  ret i32 %.075
 }
 
 ; Function Attrs: nounwind uwtable

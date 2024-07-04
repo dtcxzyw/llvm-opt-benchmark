@@ -2774,12 +2774,12 @@ _ZN5drjit12DynamicArrayIfE5zero_Em.exit:          ; preds = %.lr.ph.split.us.i, 
           to label %.preheader unwind label %270
 
 .preheader:                                       ; preds = %47, %.preheader
-  %.0282371 = phi i64 [ %spec.select310, %.preheader ], [ 0, %47 ]
-  %.0284370 = phi i64 [ %51, %.preheader ], [ 0, %47 ]
-  %49 = getelementptr inbounds [3 x %"struct.drjit::DynamicArray"], ptr %2, i64 0, i64 %.0284370, i32 1
+  %.0283371 = phi i64 [ %spec.select310, %.preheader ], [ 0, %47 ]
+  %.0285370 = phi i64 [ %51, %.preheader ], [ 0, %47 ]
+  %49 = getelementptr inbounds [3 x %"struct.drjit::DynamicArray"], ptr %2, i64 0, i64 %.0285370, i32 1
   %50 = load i64, ptr %49, align 8
-  %spec.select310 = call i64 @llvm.umax.i64(i64 %50, i64 %.0282371)
-  %51 = add nuw nsw i64 %.0284370, 1
+  %spec.select310 = call i64 @llvm.umax.i64(i64 %50, i64 %.0283371)
+  %51 = add nuw nsw i64 %.0285370, 1
   %exitcond384.not = icmp eq i64 %51, 3
   br i1 %exitcond384.not, label %52, label %.preheader, !llvm.loop !26
 
@@ -2818,8 +2818,8 @@ _ZN5drjit12DynamicArrayIfE5zero_Em.exit:          ; preds = %.lr.ph.split.us.i, 
   br label %.lr.ph376.split.us
 
 .lr.ph376.split.us:                               ; preds = %.lr.ph376.split.us.preheader, %.lr.ph376.split.us
-  %.0291374.us = phi i64 [ %80, %.lr.ph376.split.us ], [ 0, %.lr.ph376.split.us.preheader ]
-  %72 = shl nuw i64 %.0291374.us, 4
+  %.0286374.us = phi i64 [ %80, %.lr.ph376.split.us ], [ 0, %.lr.ph376.split.us.preheader ]
+  %72 = shl nuw i64 %.0286374.us, 4
   %73 = getelementptr inbounds float, ptr %.pre, i64 %72
   %74 = load <16 x float>, ptr %73, align 1
   store <16 x float> %74, ptr %15, align 64
@@ -2831,15 +2831,15 @@ _ZN5drjit12DynamicArrayIfE5zero_Em.exit:          ; preds = %.lr.ph.split.us.i, 
   store <16 x float> %78, ptr %58, align 64
   %79 = getelementptr inbounds float, ptr %46, i64 %72
   store <16 x float> zeroinitializer, ptr %79, align 1
-  %80 = add nuw nsw i64 %.0291374.us, 1
+  %80 = add nuw nsw i64 %.0286374.us, 1
   %exitcond387.not = icmp eq i64 %80, %umax386
   br i1 %exitcond387.not, label %._crit_edge377, label %.lr.ph376.split.us, !llvm.loop !30
 
 .lr.ph376.split:                                  ; preds = %.lr.ph376, %._crit_edge
   %81 = phi i64 [ %288, %._crit_edge ], [ %71, %.lr.ph376 ]
-  %.0291374 = phi i64 [ %290, %._crit_edge ], [ 0, %.lr.ph376 ]
+  %.0286374 = phi i64 [ %290, %._crit_edge ], [ 0, %.lr.ph376 ]
   %82 = load ptr, ptr %2, align 8
-  %83 = shl nuw i64 %.0291374, 4
+  %83 = shl nuw i64 %.0286374, 4
   %84 = getelementptr inbounds float, ptr %82, i64 %83
   %85 = load <16 x float>, ptr %84, align 1
   store <16 x float> %85, ptr %15, align 64
@@ -2856,27 +2856,27 @@ _ZN5drjit12DynamicArrayIfE5zero_Em.exit:          ; preds = %.lr.ph.split.us.i, 
 
 .lr.ph:                                           ; preds = %.lr.ph376.split, %245
   %92 = phi i64 [ %264, %245 ], [ %81, %.lr.ph376.split ]
-  %.0292373 = phi i64 [ %263, %245 ], [ 0, %.lr.ph376.split ]
+  %.0282373 = phi i64 [ %263, %245 ], [ 0, %.lr.ph376.split ]
   %.sroa.0343.0372 = phi <16 x float> [ %262, %245 ], [ zeroinitializer, %.lr.ph376.split ]
   %93 = icmp eq i64 %92, 1
-  %spec.store.select = select i1 %93, i64 0, i64 %.0292373
+  %spec.store.select = select i1 %93, i64 0, i64 %.0282373
   %94 = load ptr, ptr %13, align 8
   %95 = getelementptr inbounds float, ptr %94, i64 %spec.store.select
   %96 = load i64, ptr %60, align 8
   %97 = icmp eq i64 %96, 1
-  %spec.store.select2 = select i1 %97, i64 0, i64 %.0292373
+  %spec.store.select2 = select i1 %97, i64 0, i64 %.0282373
   %98 = load ptr, ptr %48, align 8
   %99 = getelementptr inbounds float, ptr %98, i64 %spec.store.select2
   %100 = load float, ptr %95, align 4
   %101 = load float, ptr %99, align 4
   %102 = load i64, ptr %61, align 8
   %103 = icmp eq i64 %102, 1
-  %spec.store.select1 = select i1 %103, i64 0, i64 %.0292373
+  %spec.store.select1 = select i1 %103, i64 0, i64 %.0282373
   %104 = load ptr, ptr %14, align 8
   %105 = getelementptr inbounds float, ptr %104, i64 %spec.store.select1
   %106 = load i64, ptr %62, align 8
   %107 = icmp eq i64 %106, 1
-  %spec.store.select3 = select i1 %107, i64 0, i64 %.0292373
+  %spec.store.select3 = select i1 %107, i64 0, i64 %.0282373
   %108 = load ptr, ptr %53, align 8
   %109 = getelementptr inbounds float, ptr %108, i64 %spec.store.select3
   %110 = load float, ptr %105, align 4
@@ -3115,7 +3115,7 @@ _ZN7mitsuba6VectorIN5drjit6PacketIfLm16EEELm3EECI2NS1_15StaticArrayImplIS3_Lm3EL
   %260 = fmul contract <16 x float> %259, %256
   %261 = fmul contract <16 x float> %260, <float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01>
   %262 = fadd contract <16 x float> %.sroa.0343.0372, %261
-  %263 = add nuw i64 %.0292373, 1
+  %263 = add nuw i64 %.0282373, 1
   %264 = load i64, ptr %59, align 8
   %265 = icmp ult i64 %263, %264
   br i1 %265, label %.lr.ph, label %._crit_edge, !llvm.loop !53
@@ -3172,7 +3172,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit.i:            ; preds = %280, %277, %272
   %.sroa.0343.0.lcssa = phi <16 x float> [ zeroinitializer, %.lr.ph376.split ], [ %262, %245 ]
   %289 = getelementptr inbounds float, ptr %46, i64 %83
   store <16 x float> %.sroa.0343.0.lcssa, ptr %289, align 1
-  %290 = add nuw nsw i64 %.0291374, 1
+  %290 = add nuw nsw i64 %.0286374, 1
   %exitcond385.not = icmp eq i64 %290, %umax386
   br i1 %exitcond385.not, label %._crit_edge377, label %.lr.ph376.split, !llvm.loop !54
 
@@ -3387,12 +3387,12 @@ define linkonce_odr hidden void @_ZN7mitsuba16eval_reflectanceIN5drjit12DynamicA
   br label %29
 
 29:                                               ; preds = %26, %29
-  %.0370 = phi i64 [ 0, %26 ], [ %spec.select, %29 ]
-  %.0280369 = phi i64 [ 0, %26 ], [ %32, %29 ]
-  %30 = getelementptr inbounds [3 x %"struct.drjit::DynamicArray"], ptr %2, i64 0, i64 %.0280369, i32 1
+  %.0280370 = phi i64 [ 0, %26 ], [ %spec.select, %29 ]
+  %.0281369 = phi i64 [ 0, %26 ], [ %32, %29 ]
+  %30 = getelementptr inbounds [3 x %"struct.drjit::DynamicArray"], ptr %2, i64 0, i64 %.0281369, i32 1
   %31 = load i64, ptr %30, align 8
-  %spec.select = call i64 @llvm.umax.i64(i64 %31, i64 %.0370)
-  %32 = add nuw nsw i64 %.0280369, 1
+  %spec.select = call i64 @llvm.umax.i64(i64 %31, i64 %.0280370)
+  %32 = add nuw nsw i64 %.0281369, 1
   %exitcond.not = icmp eq i64 %32, 3
   br i1 %exitcond.not, label %33, label %29, !llvm.loop !26
 
@@ -3439,12 +3439,12 @@ _ZN5drjit12DynamicArrayIfE5zero_Em.exit:          ; preds = %.lr.ph.split.us.i, 
           to label %.preheader unwind label %257
 
 .preheader:                                       ; preds = %44, %.preheader
-  %.0282372 = phi i64 [ %spec.select312, %.preheader ], [ 0, %44 ]
-  %.0284371 = phi i64 [ %48, %.preheader ], [ 0, %44 ]
-  %46 = getelementptr inbounds [3 x %"struct.drjit::DynamicArray"], ptr %2, i64 0, i64 %.0284371, i32 1
+  %.0283372 = phi i64 [ %spec.select312, %.preheader ], [ 0, %44 ]
+  %.0285371 = phi i64 [ %48, %.preheader ], [ 0, %44 ]
+  %46 = getelementptr inbounds [3 x %"struct.drjit::DynamicArray"], ptr %2, i64 0, i64 %.0285371, i32 1
   %47 = load i64, ptr %46, align 8
-  %spec.select312 = call i64 @llvm.umax.i64(i64 %47, i64 %.0282372)
-  %48 = add nuw nsw i64 %.0284371, 1
+  %spec.select312 = call i64 @llvm.umax.i64(i64 %47, i64 %.0283372)
+  %48 = add nuw nsw i64 %.0285371, 1
   %exitcond385.not = icmp eq i64 %48, 3
   br i1 %exitcond385.not, label %49, label %.preheader, !llvm.loop !26
 
@@ -3483,8 +3483,8 @@ _ZN5drjit12DynamicArrayIfE5zero_Em.exit:          ; preds = %.lr.ph.split.us.i, 
   br label %.lr.ph377.split.us
 
 .lr.ph377.split.us:                               ; preds = %.lr.ph377.split.us.preheader, %.lr.ph377.split.us
-  %.0287375.us = phi i64 [ %77, %.lr.ph377.split.us ], [ 0, %.lr.ph377.split.us.preheader ]
-  %69 = shl nuw i64 %.0287375.us, 4
+  %.0282375.us = phi i64 [ %77, %.lr.ph377.split.us ], [ 0, %.lr.ph377.split.us.preheader ]
+  %69 = shl nuw i64 %.0282375.us, 4
   %70 = getelementptr inbounds float, ptr %.pre, i64 %69
   %71 = load <16 x float>, ptr %70, align 1
   store <16 x float> %71, ptr %13, align 64
@@ -3496,15 +3496,15 @@ _ZN5drjit12DynamicArrayIfE5zero_Em.exit:          ; preds = %.lr.ph.split.us.i, 
   store <16 x float> %75, ptr %55, align 64
   %76 = getelementptr inbounds float, ptr %43, i64 %69
   store <16 x float> zeroinitializer, ptr %76, align 1
-  %77 = add nuw nsw i64 %.0287375.us, 1
+  %77 = add nuw nsw i64 %.0282375.us, 1
   %exitcond388.not = icmp eq i64 %77, %umax387
   br i1 %exitcond388.not, label %._crit_edge378, label %.lr.ph377.split.us, !llvm.loop !59
 
 .lr.ph377.split:                                  ; preds = %.lr.ph377, %._crit_edge
   %78 = phi i64 [ %275, %._crit_edge ], [ %68, %.lr.ph377 ]
-  %.0287375 = phi i64 [ %277, %._crit_edge ], [ 0, %.lr.ph377 ]
+  %.0282375 = phi i64 [ %277, %._crit_edge ], [ 0, %.lr.ph377 ]
   %79 = load ptr, ptr %2, align 8
-  %80 = shl nuw i64 %.0287375, 4
+  %80 = shl nuw i64 %.0282375, 4
   %81 = getelementptr inbounds float, ptr %79, i64 %80
   %82 = load <16 x float>, ptr %81, align 1
   store <16 x float> %82, ptr %13, align 64
@@ -3521,27 +3521,27 @@ _ZN5drjit12DynamicArrayIfE5zero_Em.exit:          ; preds = %.lr.ph.split.us.i, 
 
 .lr.ph:                                           ; preds = %.lr.ph377.split, %232
   %89 = phi i64 [ %251, %232 ], [ %78, %.lr.ph377.split ]
-  %.0281374 = phi i64 [ %250, %232 ], [ 0, %.lr.ph377.split ]
+  %.0374 = phi i64 [ %250, %232 ], [ 0, %.lr.ph377.split ]
   %.sroa.0346.0373 = phi <16 x float> [ %249, %232 ], [ zeroinitializer, %.lr.ph377.split ]
   %90 = icmp eq i64 %89, 1
-  %spec.store.select = select i1 %90, i64 0, i64 %.0281374
+  %spec.store.select = select i1 %90, i64 0, i64 %.0374
   %91 = load ptr, ptr %11, align 8
   %92 = getelementptr inbounds float, ptr %91, i64 %spec.store.select
   %93 = load i64, ptr %57, align 8
   %94 = icmp eq i64 %93, 1
-  %spec.store.select2 = select i1 %94, i64 0, i64 %.0281374
+  %spec.store.select2 = select i1 %94, i64 0, i64 %.0374
   %95 = load ptr, ptr %45, align 8
   %96 = getelementptr inbounds float, ptr %95, i64 %spec.store.select2
   %97 = load float, ptr %92, align 4
   %98 = load float, ptr %96, align 4
   %99 = load i64, ptr %58, align 8
   %100 = icmp eq i64 %99, 1
-  %spec.store.select1 = select i1 %100, i64 0, i64 %.0281374
+  %spec.store.select1 = select i1 %100, i64 0, i64 %.0374
   %101 = load ptr, ptr %12, align 8
   %102 = getelementptr inbounds float, ptr %101, i64 %spec.store.select1
   %103 = load i64, ptr %59, align 8
   %104 = icmp eq i64 %103, 1
-  %spec.store.select3 = select i1 %104, i64 0, i64 %.0281374
+  %spec.store.select3 = select i1 %104, i64 0, i64 %.0374
   %105 = load ptr, ptr %50, align 8
   %106 = getelementptr inbounds float, ptr %105, i64 %spec.store.select3
   %107 = load float, ptr %102, align 4
@@ -3750,7 +3750,7 @@ _ZN7mitsuba6VectorIN5drjit6PacketIfLm16EEELm3EECI2NS1_15StaticArrayImplIS3_Lm3EL
   %247 = fmul contract <16 x float> %246, %243
   %248 = fmul contract <16 x float> %247, <float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01>
   %249 = fadd contract <16 x float> %.sroa.0346.0373, %248
-  %250 = add nuw i64 %.0281374, 1
+  %250 = add nuw i64 %.0374, 1
   %251 = load i64, ptr %56, align 8
   %252 = icmp ult i64 %250, %251
   br i1 %252, label %.lr.ph, label %._crit_edge, !llvm.loop !71
@@ -3807,7 +3807,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit.i:            ; preds = %267, %264, %259
   %.sroa.0346.0.lcssa = phi <16 x float> [ zeroinitializer, %.lr.ph377.split ], [ %249, %232 ]
   %276 = getelementptr inbounds float, ptr %43, i64 %80
   store <16 x float> %.sroa.0346.0.lcssa, ptr %276, align 1
-  %277 = add nuw nsw i64 %.0287375, 1
+  %277 = add nuw nsw i64 %.0282375, 1
   %exitcond386.not = icmp eq i64 %277, %umax387
   br i1 %exitcond386.not, label %._crit_edge378, label %.lr.ph377.split, !llvm.loop !72
 

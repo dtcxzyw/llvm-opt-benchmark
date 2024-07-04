@@ -518,8 +518,8 @@ select.unfold:                                    ; preds = %_ZNKSt4lessINSt7__c
           to label %65 unwind label %66
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi15PluginInterfaceINS6_4ExpmEE6PluginESt4lessIS5_ESaISt4pairIKS5_SA_EEE4findERSE_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i, %select.unfold, %63
-  %.0 = phi i1 [ false, %63 ], [ true, %select.unfold ], [ true, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
-  ret i1 %.0
+  %.012 = phi i1 [ false, %63 ], [ true, %select.unfold ], [ true, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
+  ret i1 %.012
 
 65:                                               ; preds = %64, %22
   %.merged = phi { ptr, i32 } [ %.pn.pn.pn, %64 ], [ %23, %22 ]

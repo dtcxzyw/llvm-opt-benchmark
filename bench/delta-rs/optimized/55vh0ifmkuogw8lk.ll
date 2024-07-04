@@ -60,8 +60,8 @@ define internal fastcc { ptr, i64 } @"_ZN100_$LT$core..str..iter..SplitTerminato
   br label %16
 
 .loopexit.i.i:                                    ; preds = %76, %74, %72
-  %.013.i.i.i = phi i64 [ 1, %72 ], [ %..i.i.i, %76 ], [ 2, %74 ]
-  %15 = add i64 %.013.i.i.i, %18
+  %.012.i.i.i = phi i64 [ 1, %72 ], [ %..i.i.i, %76 ], [ 2, %74 ]
+  %15 = add i64 %.012.i.i.i, %18
   store i64 %15, ptr %10, align 8, !alias.scope !20, !noalias !21
   br label %16
 

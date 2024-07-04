@@ -58,8 +58,8 @@ define i64 @f64_div(i64 %0, i64 %1) local_unnamed_addr #0 {
   br label %25
 
 25:                                               ; preds = %15, %21
-  %.079 = phi i64 [ %24, %21 ], [ %8, %15 ]
-  %.078 = phi i64 [ %23, %21 ], [ %7, %15 ]
+  %.081 = phi i64 [ %24, %21 ], [ %8, %15 ]
+  %.080 = phi i64 [ %23, %21 ], [ %7, %15 ]
   %.not93 = icmp eq i64 %4, 0
   br i1 %.not93, label %26, label %31
 
@@ -76,9 +76,9 @@ define i64 @f64_div(i64 %0, i64 %1) local_unnamed_addr #0 {
 31:                                               ; preds = %27, %25
   %.077 = phi i64 [ %5, %25 ], [ %30, %27 ]
   %.0 = phi i64 [ %4, %25 ], [ %29, %27 ]
-  %32 = sub i64 %.0, %.078
+  %32 = sub i64 %.0, %.080
   %33 = or i64 %.077, 4503599627370496
-  %34 = or i64 %.079, 4503599627370496
+  %34 = or i64 %.081, 4503599627370496
   %35 = icmp ult i64 %33, %34
   %.082.v = select i1 %35, i64 1021, i64 1022
   %.082 = add nsw i64 %32, %.082.v
@@ -137,8 +137,8 @@ define i64 @f64_div(i64 %0, i64 %1) local_unnamed_addr #0 {
   br label %77
 
 77:                                               ; preds = %75, %73, %31
-  %.081 = phi i64 [ %74, %73 ], [ %60, %31 ], [ %spec.select, %75 ]
-  %78 = tail call i64 @softfloat_roundPackToF64(i1 noundef zeroext %9, i64 noundef %.082, i64 noundef %.081) #2
+  %.079 = phi i64 [ %74, %73 ], [ %60, %31 ], [ %spec.select, %75 ]
+  %78 = tail call i64 @softfloat_roundPackToF64(i1 noundef zeroext %9, i64 noundef %.082, i64 noundef %.079) #2
   br label %85
 
 79:                                               ; preds = %16, %14, %11

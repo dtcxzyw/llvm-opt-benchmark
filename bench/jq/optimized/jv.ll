@@ -1763,19 +1763,19 @@ jv_copy.exit:                                     ; preds = %jv_copy.exit202, %4
 
 66:                                               ; preds = %66, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %66 ]
-  %.09.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %66 ]
+  %.078.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %66 ]
   %67 = getelementptr inbounds [0 x %struct.object_slot], ptr %65, i64 0, i64 %indvars.iv.i, i32 2
   %68 = load i64, ptr %67, align 8
   %69 = and i64 %68, 15
   %.not.i226 = icmp ne i64 %69, 1
   %70 = zext i1 %.not.i226 to i32
-  %spec.select.i = add nuw nsw i32 %.09.i, %70
+  %spec.select.i = add nuw nsw i32 %.078.i, %70
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %.sroa.1.0.extract.shift.i.i224
   br i1 %exitcond.not.i, label %jvp_object_length.exit, label %66, !llvm.loop !15
 
 jvp_object_length.exit:                           ; preds = %66, %63
-  %.0.lcssa.i = phi i32 [ 0, %63 ], [ %spec.select.i, %66 ]
+  %.07.lcssa.i = phi i32 [ 0, %63 ], [ %spec.select.i, %66 ]
   %.sroa.1.0.extract.shift.i222 = lshr i64 %0, 32
   %.sroa.1.0.extract.trunc.i223 = trunc nuw i64 %.sroa.1.0.extract.shift.i222 to i32
   %71 = icmp sgt i32 %.sroa.1.0.extract.trunc.i223, 0
@@ -1794,7 +1794,7 @@ jvp_object_length.exit:                           ; preds = %66, %63
 
 78:                                               ; preds = %.lr.ph, %129
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %129 ]
-  %.020.i236 = phi i32 [ 0, %.lr.ph ], [ %.1.i, %129 ]
+  %.021.i235 = phi i32 [ 0, %.lr.ph ], [ %.1.i, %129 ]
   %79 = getelementptr inbounds [0 x %struct.object_slot], ptr %72, i64 0, i64 %indvars.iv
   %80 = getelementptr inbounds i8, ptr %79, i64 8
   %81 = load i64, ptr %80, align 8
@@ -1887,18 +1887,18 @@ jv_copy.exit214:                                  ; preds = %jv_copy.exit218, %1
   br i1 %.not23.i, label %jvp_array_equal.exit, label %127
 
 127:                                              ; preds = %jv_copy.exit214
-  %128 = add nsw i32 %.020.i236, 1
+  %128 = add nsw i32 %.021.i235, 1
   br label %129
 
 129:                                              ; preds = %127, %78
-  %.1.i = phi i32 [ %.020.i236, %78 ], [ %128, %127 ]
+  %.1.i = phi i32 [ %.021.i235, %78 ], [ %128, %127 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.sroa.1.0.extract.shift.i222
   br i1 %exitcond.not, label %._crit_edge, label %78, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %129, %jvp_object_length.exit
-  %.020.i.lcssa = phi i32 [ 0, %jvp_object_length.exit ], [ %.1.i, %129 ]
-  %130 = icmp eq i32 %.020.i.lcssa, %.0.lcssa.i
+  %.021.i.lcssa = phi i32 [ 0, %jvp_object_length.exit ], [ %.1.i, %129 ]
+  %130 = icmp eq i32 %.021.i.lcssa, %.07.lcssa.i
   br label %jvp_array_equal.exit
 
 jvp_array_equal.exit:                             ; preds = %84, %jv_copy.exit214, %jvp_string_equal.exit.thread.i.i, %jv_copy.exit, %21, %._crit_edge, %58, %53, %20, %16, %10, %4, %17
@@ -2778,7 +2778,7 @@ define internal fastcc i32 @jvp_string_hash(ptr nocapture %0) unnamed_addr #12 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %16, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.04854 = phi i32 [ 1126864963, %.lr.ph.preheader ], [ %27, %.lr.ph ]
+  %.04953 = phi i32 [ 1126864963, %.lr.ph.preheader ], [ %27, %.lr.ph ]
   %17 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = mul i32 %18, -862048943
@@ -2786,7 +2786,7 @@ define internal fastcc i32 @jvp_string_hash(ptr nocapture %0) unnamed_addr #12 {
   %21 = lshr i32 %19, 17
   %22 = or disjoint i32 %21, %20
   %23 = mul i32 %22, 461845907
-  %24 = xor i32 %23, %.04854
+  %24 = xor i32 %23, %.04953
   %25 = tail call i32 @llvm.fshl.i32(i32 %24, i32 %24, i32 13)
   %26 = mul i32 %25, 5
   %27 = add i32 %26, -430675100
@@ -2795,7 +2795,7 @@ define internal fastcc i32 @jvp_string_hash(ptr nocapture %0) unnamed_addr #12 {
   br i1 %28, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
-  %.048.lcssa = phi i32 [ 1126864963, %8 ], [ %27, %.lr.ph ]
+  %.049.lcssa = phi i32 [ 1126864963, %8 ], [ %27, %.lr.ph ]
   %29 = and i32 %10, 3
   switch i32 %29, label %default.unreachable56 [
     i32 3, label %30
@@ -2830,15 +2830,15 @@ define internal fastcc i32 @jvp_string_hash(ptr nocapture %0) unnamed_addr #12 {
   %47 = lshr i32 %45, 17
   %48 = or disjoint i32 %47, %46
   %49 = mul i32 %48, 461845907
-  %50 = xor i32 %49, %.048.lcssa
+  %50 = xor i32 %49, %.049.lcssa
   br label %51
 
 default.unreachable56:                            ; preds = %._crit_edge
   unreachable
 
 51:                                               ; preds = %._crit_edge, %41
-  %.149 = phi i32 [ %.048.lcssa, %._crit_edge ], [ %50, %41 ]
-  %52 = xor i32 %.149, %10
+  %.150 = phi i32 [ %.049.lcssa, %._crit_edge ], [ %50, %41 ]
+  %52 = xor i32 %.150, %10
   %53 = lshr i32 %52, 16
   %54 = xor i32 %53, %52
   %55 = mul i32 %54, -2048144789
@@ -3795,7 +3795,7 @@ define { i64, ptr } @jv_object_delete(i64 %0, ptr %1, i64 %2, ptr %3) local_unna
 
 22:                                               ; preds = %jvp_string_equal.exit.thread.i, %.lr.ph.i
   %.pn.in.i = phi i32 [ %18, %.lr.ph.i ], [ %.0.val.i, %jvp_string_equal.exit.thread.i ]
-  %.02437.i = phi ptr [ %16, %.lr.ph.i ], [ %.038.i, %jvp_string_equal.exit.thread.i ]
+  %.02337.i = phi ptr [ %16, %.lr.ph.i ], [ %.038.i, %jvp_string_equal.exit.thread.i ]
   %.pn.i = sext i32 %.pn.in.i to i64
   %.038.i = getelementptr inbounds [0 x %struct.object_slot], ptr %8, i64 0, i64 %.pn.i
   %23 = getelementptr inbounds i8, ptr %.038.i, i64 4
@@ -3825,7 +3825,7 @@ jvp_string_equal.exit.i:                          ; preds = %26
   %35 = getelementptr inbounds i8, ptr %.038.i, i64 16
   %36 = getelementptr inbounds i8, ptr %.038.i, i64 8
   %37 = load i32, ptr %.038.i, align 8
-  store i32 %37, ptr %.02437.i, align 4
+  store i32 %37, ptr %.02337.i, align 4
   %38 = load ptr, ptr %35, align 8
   %39 = load i32, ptr %38, align 4
   %40 = add nsw i32 %39, -1
@@ -3869,21 +3869,21 @@ define i32 @jv_object_length(i64 %0, ptr %1) local_unnamed_addr #2 {
 
 5:                                                ; preds = %5, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %5 ]
-  %.09.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %5 ]
+  %.078.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %5 ]
   %6 = getelementptr inbounds [0 x %struct.object_slot], ptr %4, i64 0, i64 %indvars.iv.i, i32 2
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 15
   %.not.i = icmp ne i64 %8, 1
   %9 = zext i1 %.not.i to i32
-  %spec.select.i = add nuw nsw i32 %.09.i, %9
+  %spec.select.i = add nuw nsw i32 %.078.i, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %.sroa.1.0.extract.shift.i.i
   br i1 %exitcond.not.i, label %jvp_object_length.exit, label %5, !llvm.loop !15
 
 jvp_object_length.exit:                           ; preds = %5, %2
-  %.0.lcssa.i = phi i32 [ 0, %2 ], [ %spec.select.i, %5 ]
+  %.07.lcssa.i = phi i32 [ 0, %2 ], [ %spec.select.i, %5 ]
   tail call void @jv_free(i64 %0, ptr %1)
-  ret i32 %.0.lcssa.i
+  ret i32 %.07.lcssa.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4236,7 +4236,7 @@ jv_copy.exit96:                                   ; preds = %jv_copy.exit, %36
 
 .lr.ph.i110:                                      ; preds = %.lr.ph.i110, %.lr.ph.preheader.i109
   %indvars.iv.i111 = phi i64 [ %58, %.lr.ph.preheader.i109 ], [ %indvars.iv.next.i113, %.lr.ph.i110 ]
-  %.04854.i112 = phi i32 [ 1126864963, %.lr.ph.preheader.i109 ], [ %69, %.lr.ph.i110 ]
+  %.04953.i112 = phi i32 [ 1126864963, %.lr.ph.preheader.i109 ], [ %69, %.lr.ph.i110 ]
   %59 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv.i111
   %60 = load i32, ptr %59, align 4
   %61 = mul i32 %60, -862048943
@@ -4244,7 +4244,7 @@ jv_copy.exit96:                                   ; preds = %jv_copy.exit, %36
   %63 = lshr i32 %61, 17
   %64 = or disjoint i32 %63, %62
   %65 = mul i32 %64, 461845907
-  %66 = xor i32 %65, %.04854.i112
+  %66 = xor i32 %65, %.04953.i112
   %67 = tail call i32 @llvm.fshl.i32(i32 %66, i32 %66, i32 13)
   %68 = mul i32 %67, 5
   %69 = add i32 %68, -430675100
@@ -4253,7 +4253,7 @@ jv_copy.exit96:                                   ; preds = %jv_copy.exit, %36
   br i1 %70, label %._crit_edge.i114, label %.lr.ph.i110, !llvm.loop !24
 
 ._crit_edge.i114:                                 ; preds = %.lr.ph.i110, %50
-  %.048.lcssa.i115 = phi i32 [ 1126864963, %50 ], [ %69, %.lr.ph.i110 ]
+  %.049.lcssa.i115 = phi i32 [ 1126864963, %50 ], [ %69, %.lr.ph.i110 ]
   %71 = and i32 %52, 3
   switch i32 %71, label %default.unreachable [
     i32 3, label %72
@@ -4288,15 +4288,15 @@ jv_copy.exit96:                                   ; preds = %jv_copy.exit, %36
   %89 = lshr i32 %87, 17
   %90 = or disjoint i32 %89, %88
   %91 = mul i32 %90, 461845907
-  %92 = xor i32 %91, %.048.lcssa.i115
+  %92 = xor i32 %91, %.049.lcssa.i115
   br label %93
 
 default.unreachable:                              ; preds = %._crit_edge.i114
   unreachable
 
 93:                                               ; preds = %83, %._crit_edge.i114
-  %.149.i116 = phi i32 [ %.048.lcssa.i115, %._crit_edge.i114 ], [ %92, %83 ]
-  %94 = xor i32 %.149.i116, %52
+  %.150.i116 = phi i32 [ %.049.lcssa.i115, %._crit_edge.i114 ], [ %92, %83 ]
+  %94 = xor i32 %.150.i116, %52
   %95 = lshr i32 %94, 16
   %96 = xor i32 %95, %94
   %97 = mul i32 %96, -2048144789
@@ -4581,7 +4581,7 @@ jv_copy.exit121:                                  ; preds = %41, %42
 
 .lr.ph.i173:                                      ; preds = %.lr.ph.i173, %.lr.ph.preheader.i172
   %indvars.iv.i174 = phi i64 [ %59, %.lr.ph.preheader.i172 ], [ %indvars.iv.next.i176, %.lr.ph.i173 ]
-  %.04854.i175 = phi i32 [ 1126864963, %.lr.ph.preheader.i172 ], [ %70, %.lr.ph.i173 ]
+  %.04953.i175 = phi i32 [ 1126864963, %.lr.ph.preheader.i172 ], [ %70, %.lr.ph.i173 ]
   %60 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv.i174
   %61 = load i32, ptr %60, align 4
   %62 = mul i32 %61, -862048943
@@ -4589,7 +4589,7 @@ jv_copy.exit121:                                  ; preds = %41, %42
   %64 = lshr i32 %62, 17
   %65 = or disjoint i32 %64, %63
   %66 = mul i32 %65, 461845907
-  %67 = xor i32 %66, %.04854.i175
+  %67 = xor i32 %66, %.04953.i175
   %68 = tail call i32 @llvm.fshl.i32(i32 %67, i32 %67, i32 13)
   %69 = mul i32 %68, 5
   %70 = add i32 %69, -430675100
@@ -4598,7 +4598,7 @@ jv_copy.exit121:                                  ; preds = %41, %42
   br i1 %71, label %._crit_edge.i177, label %.lr.ph.i173, !llvm.loop !24
 
 ._crit_edge.i177:                                 ; preds = %.lr.ph.i173, %51
-  %.048.lcssa.i178 = phi i32 [ 1126864963, %51 ], [ %70, %.lr.ph.i173 ]
+  %.049.lcssa.i178 = phi i32 [ 1126864963, %51 ], [ %70, %.lr.ph.i173 ]
   %72 = and i32 %53, 3
   switch i32 %72, label %default.unreachable [
     i32 3, label %73
@@ -4633,15 +4633,15 @@ jv_copy.exit121:                                  ; preds = %41, %42
   %90 = lshr i32 %88, 17
   %91 = or disjoint i32 %90, %89
   %92 = mul i32 %91, 461845907
-  %93 = xor i32 %92, %.048.lcssa.i178
+  %93 = xor i32 %92, %.049.lcssa.i178
   br label %94
 
 default.unreachable:                              ; preds = %._crit_edge.i177
   unreachable
 
 94:                                               ; preds = %84, %._crit_edge.i177
-  %.149.i179 = phi i32 [ %.048.lcssa.i178, %._crit_edge.i177 ], [ %93, %84 ]
-  %95 = xor i32 %.149.i179, %53
+  %.150.i179 = phi i32 [ %.049.lcssa.i178, %._crit_edge.i177 ], [ %93, %84 ]
+  %95 = xor i32 %.150.i179, %53
   %96 = lshr i32 %95, 16
   %97 = xor i32 %96, %95
   %98 = mul i32 %97, -2048144789

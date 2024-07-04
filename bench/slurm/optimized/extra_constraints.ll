@@ -343,7 +343,7 @@ _add_child.exit:                                  ; preds = %28, %30, %33
   br label %.backedge
 
 .backedge:                                        ; preds = %_add_child.exit, %73, %_add_child.exit79
-  %46 = phi ptr [ %.pre, %_add_child.exit ], [ %.019.lcssa.i, %73 ], [ %.0.lcssa.i, %_add_child.exit79 ]
+  %46 = phi ptr [ %.pre, %_add_child.exit ], [ %.018.lcssa.i, %73 ], [ %.0.lcssa.i, %_add_child.exit79 ]
   %47 = load i8, ptr %46, align 1
   %.not = icmp eq i8 %47, 0
   br i1 %.not, label %.critedge, label %12, !llvm.loop !9
@@ -376,22 +376,22 @@ _add_child.exit:                                  ; preds = %28, %30, %33
 
 .lr.ph.i:                                         ; preds = %56, %59
   %57 = phi i8 [ %61, %59 ], [ %13, %56 ]
-  %.01926.i = phi ptr [ %60, %59 ], [ %14, %56 ]
+  %.01826.i = phi ptr [ %60, %59 ], [ %14, %56 ]
   %58 = sext i8 %57 to i32
   %memchr85 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.15, i32 %58, i64 4)
   %.not21.i = icmp eq ptr %memchr85, null
   br i1 %.not21.i, label %._crit_edge.i, label %59
 
 59:                                               ; preds = %.lr.ph.i
-  %60 = getelementptr inbounds i8, ptr %.01926.i, i64 1
+  %60 = getelementptr inbounds i8, ptr %.01826.i, i64 1
   %61 = load i8, ptr %60, align 1
   %.not.i65 = icmp eq i8 %61, 0
   br i1 %.not.i65, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %59, %.lr.ph.i
-  %.019.lcssa.i = phi ptr [ %.01926.i, %.lr.ph.i ], [ %60, %59 ]
+  %.018.lcssa.i = phi ptr [ %.01826.i, %.lr.ph.i ], [ %60, %59 ]
   %.lcssa.i = phi i8 [ %57, %.lr.ph.i ], [ 0, %59 ]
-  store i8 0, ptr %.019.lcssa.i, align 1
+  store i8 0, ptr %.018.lcssa.i, align 1
   br label %63
 
 62:                                               ; preds = %63
@@ -400,7 +400,7 @@ _add_child.exit:                                  ; preds = %28, %30, %33
   br i1 %exitcond.not.i, label %_str2op.exit.thread, label %63, !llvm.loop !11
 
 _str2op.exit.thread:                              ; preds = %62
-  store i8 %.lcssa.i, ptr %.019.lcssa.i, align 1
+  store i8 %.lcssa.i, ptr %.018.lcssa.i, align 1
   br label %.critedge.sink.split
 
 63:                                               ; preds = %62, %._crit_edge.i
@@ -416,7 +416,7 @@ _str2op.exit.thread:                              ; preds = %62
   br i1 %.not22.i, label %70, label %62
 
 70:                                               ; preds = %63
-  store i8 %.lcssa.i, ptr %.019.lcssa.i, align 1
+  store i8 %.lcssa.i, ptr %.018.lcssa.i, align 1
   switch i32 %.fr.i, label %_str2op.exit.thread81.fold.split [
     i32 2, label %_str2op.exit.thread81
     i32 0, label %.critedge.sink.split
@@ -435,7 +435,7 @@ _str2op.exit.thread81:                            ; preds = %70, %_str2op.exit.t
 
 73:                                               ; preds = %_str2op.exit.thread81
   store i32 %71, ptr %2, align 8
-  store ptr %.019.lcssa.i, ptr %0, align 8
+  store ptr %.018.lcssa.i, ptr %0, align 8
   br label %.backedge
 
 74:                                               ; preds = %56
@@ -509,7 +509,7 @@ _find_leaf_end.exit:                              ; preds = %.lr.ph.i69, %82
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i73, %104
   %100 = phi i8 [ %106, %104 ], [ %93, %.lr.ph.i73 ]
-  %.01926.i.i = phi ptr [ %105, %104 ], [ %.01550.i, %.lr.ph.i73 ]
+  %.01826.i.i = phi ptr [ %105, %104 ], [ %.01550.i, %.lr.ph.i73 ]
   %101 = zext nneg i8 %100 to i64
   %memchr.bounds42.i = icmp ugt i8 %100, 63
   %102 = shl nuw i64 1, %101
@@ -519,15 +519,15 @@ _find_leaf_end.exit:                              ; preds = %.lr.ph.i69, %82
   br i1 %memchr44.not.i, label %._crit_edge.i.i, label %104
 
 104:                                              ; preds = %.lr.ph.i.i
-  %105 = getelementptr inbounds i8, ptr %.01926.i.i, i64 1
+  %105 = getelementptr inbounds i8, ptr %.01826.i.i, i64 1
   %106 = load i8, ptr %105, align 1
   %.not.i.i = icmp eq i8 %106, 0
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %104, %.lr.ph.i.i
-  %.019.lcssa.i.i = phi ptr [ %.01926.i.i, %.lr.ph.i.i ], [ %105, %104 ]
+  %.018.lcssa.i.i = phi ptr [ %.01826.i.i, %.lr.ph.i.i ], [ %105, %104 ]
   %.lcssa.i.i = phi i8 [ %100, %.lr.ph.i.i ], [ 0, %104 ]
-  store i8 0, ptr %.019.lcssa.i.i, align 1
+  store i8 0, ptr %.018.lcssa.i.i, align 1
   br label %108
 
 107:                                              ; preds = %108
@@ -536,7 +536,7 @@ _find_leaf_end.exit:                              ; preds = %.lr.ph.i69, %82
   br i1 %exitcond.not.i.i, label %_str2op.exit.thread.i, label %108, !llvm.loop !11
 
 _str2op.exit.thread.i:                            ; preds = %107
-  store i8 %.lcssa.i.i, ptr %.019.lcssa.i.i, align 1
+  store i8 %.lcssa.i.i, ptr %.018.lcssa.i.i, align 1
   br label %.loopexit88.sink.split
 
 108:                                              ; preds = %107, %._crit_edge.i.i
@@ -552,7 +552,7 @@ _str2op.exit.thread.i:                            ; preds = %107
   br i1 %.not22.i.i, label %115, label %107
 
 115:                                              ; preds = %108
-  store i8 %.lcssa.i.i, ptr %.019.lcssa.i.i, align 1
+  store i8 %.lcssa.i.i, ptr %.018.lcssa.i.i, align 1
   switch i32 %.fr.i.i, label %_str2op.exit.thread37.fold.split.i [
     i32 2, label %_str2op.exit.thread37.i
     i32 0, label %.loopexit88.sink.split
@@ -588,7 +588,7 @@ _str2op.exit.thread37.i:                          ; preds = %_str2op.exit.thread
   br i1 %.not11.i.i, label %119, label %.loopexit88.sink.split
 
 .preheader.i27.i:                                 ; preds = %119, %.preheader.i.i, %_str2op.exit.thread37.i
-  %124 = load i8, ptr %.019.lcssa.i.i, align 1
+  %124 = load i8, ptr %.018.lcssa.i.i, align 1
   %.not1012.i28.i = icmp eq i8 %124, 0
   br i1 %.not1012.i28.i, label %.loopexit, label %.lr.ph.i29.i
 
@@ -600,7 +600,7 @@ _str2op.exit.thread37.i:                          ; preds = %_str2op.exit.thread
 
 .lr.ph.i29.i:                                     ; preds = %.preheader.i27.i, %125
   %128 = phi i8 [ %127, %125 ], [ %124, %.preheader.i27.i ]
-  %.0613.i30.i = phi ptr [ %126, %125 ], [ %.019.lcssa.i.i, %.preheader.i27.i ]
+  %.0613.i30.i = phi ptr [ %126, %125 ], [ %.018.lcssa.i.i, %.preheader.i27.i ]
   %129 = sext i8 %128 to i32
   %memchr.i31.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.17, i32 %129, i64 8)
   %.not11.i32.i = icmp eq ptr %memchr.i31.i, null
@@ -622,7 +622,7 @@ _str2op.exit.thread37.i:                          ; preds = %_str2op.exit.thread
   %131 = load ptr, ptr %5, align 8
   %132 = getelementptr inbounds i8, ptr %130, i64 24
   store ptr %131, ptr %132, align 8
-  %133 = tail call ptr @xstrdup(ptr noundef nonnull %.019.lcssa.i.i) #7
+  %133 = tail call ptr @xstrdup(ptr noundef nonnull %.018.lcssa.i.i) #7
   %134 = getelementptr inbounds i8, ptr %130, i64 32
   store ptr %133, ptr %134, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)

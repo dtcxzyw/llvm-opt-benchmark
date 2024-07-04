@@ -62,8 +62,8 @@ define void @ADIOI_Get_eof_offset(ptr noundef %0, ptr nocapture noundef writeonl
   br label %.lr.ph.us, !llvm.loop !4
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.loopexit, %.split.us
-  %.05371.us = phi i64 [ -1, %.split.us ], [ %41, %.lr.ph.us.loopexit ]
-  %41 = add nsw i64 %.05371.us, 1
+  %.05470.us = phi i64 [ -1, %.split.us ], [ %41, %.lr.ph.us.loopexit ]
+  %41 = add nsw i64 %.05470.us, 1
   %42 = mul nsw i64 %36, %41
   br label %44
 
@@ -74,10 +74,10 @@ define void @ADIOI_Get_eof_offset(ptr noundef %0, ptr nocapture noundef writeonl
 
 44:                                               ; preds = %.lr.ph.us, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %43 ]
-  %.169.us = phi i64 [ 0, %.lr.ph.us ], [ %47, %43 ]
+  %.15668.us = phi i64 [ 0, %.lr.ph.us ], [ %47, %43 ]
   %45 = getelementptr inbounds i64, ptr %39, i64 %indvars.iv
   %46 = load i64, ptr %45, align 8
-  %47 = add nsw i64 %46, %.169.us
+  %47 = add nsw i64 %46, %.15668.us
   %48 = getelementptr inbounds i64, ptr %40, i64 %indvars.iv
   %49 = load i64, ptr %48, align 8
   %50 = add nsw i64 %49, %32
@@ -93,7 +93,7 @@ define void @ADIOI_Get_eof_offset(ptr noundef %0, ptr nocapture noundef writeonl
   %.not62.us = icmp slt i64 %51, %14
   %.neg.us = add i64 %47, %14
   %53 = sub i64 %.neg.us, %52
-  %.2.us = select i1 %.not62.us, i64 %53, i64 %.169.us
+  %.2.us = select i1 %.not62.us, i64 %53, i64 %.15668.us
   %54 = load i64, ptr %3, align 8
   %55 = mul nsw i64 %54, %41
   %56 = add nsw i64 %55, %.2.us

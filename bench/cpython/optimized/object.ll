@@ -4404,8 +4404,8 @@ if.then1.i105:                                    ; preds = %if.end.i102
   br label %return
 
 if.end27:                                         ; preds = %Py_INCREF.exit76, %land.lhs.true, %if.else, %if.end10
-  %f.0 = phi ptr [ %7, %land.lhs.true ], [ null, %if.else ], [ null, %if.end10 ], [ null, %Py_INCREF.exit76 ]
   %tobool56.not = phi i1 [ true, %land.lhs.true ], [ true, %if.else ], [ true, %if.end10 ], [ false, %Py_INCREF.exit76 ]
+  %f.0 = phi ptr [ %7, %land.lhs.true ], [ null, %if.else ], [ null, %if.end10 ], [ null, %Py_INCREF.exit76 ]
   %tp_flags = getelementptr inbounds i8, ptr %obj.val65, i64 168
   %11 = load i64, ptr %tp_flags, align 8
   %and = and i64 %11, 16

@@ -119,8 +119,8 @@ if.end11:                                         ; preds = %if.then7
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end11, %if.end5
-  %inp.0 = phi ptr [ %add.ptr15, %if.end11 ], [ %_inp, %if.end5 ]
   %len.addr.0 = phi i64 [ %sub16, %if.end11 ], [ %len, %if.end5 ]
+  %inp.0 = phi ptr [ %add.ptr15, %if.end11 ], [ %_inp, %if.end5 ]
   %cmp22.not = icmp ult i64 %len.addr.0, %0
   br i1 %cmp22.not, label %if.end27, label %if.then23
 

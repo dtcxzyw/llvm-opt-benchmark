@@ -224,18 +224,18 @@ define internal fastcc void @desc_recompress_leaf(ptr noundef %0, ptr nocapture 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %38
-  %.03244 = phi i32 [ %39, %38 ], [ 0, %.lr.ph.preheader ]
-  %.03343 = phi ptr [ %.238, %38 ], [ %6, %.lr.ph.preheader ]
-  %7 = getelementptr i8, ptr %.03343, i64 1
-  %8 = load i8, ptr %.03343, align 1
-  %9 = getelementptr i8, ptr %.03343, i64 2
+  %.03244 = phi ptr [ %.238, %38 ], [ %6, %.lr.ph.preheader ]
+  %.03343 = phi i32 [ %39, %38 ], [ 0, %.lr.ph.preheader ]
+  %7 = getelementptr i8, ptr %.03244, i64 1
+  %8 = load i8, ptr %.03244, align 1
+  %9 = getelementptr i8, ptr %.03244, i64 2
   %10 = load i8, ptr %7, align 1
   %11 = and i8 %10, -2
   %or.cond = icmp eq i8 %11, 2
   br i1 %or.cond, label %.thread, label %20
 
 .thread:                                          ; preds = %.lr.ph
-  %12 = getelementptr i8, ptr %.03343, i64 8
+  %12 = getelementptr i8, ptr %.03244, i64 8
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i64
   %15 = add nuw nsw i64 %14, 1
@@ -251,7 +251,7 @@ define internal fastcc void @desc_recompress_leaf(ptr noundef %0, ptr nocapture 
 
 .thread35:                                        ; preds = %20
   %.0.copyload = load i16, ptr %9, align 1
-  %22 = getelementptr i8, ptr %.03343, i64 4
+  %22 = getelementptr i8, ptr %.03244, i64 4
   %23 = zext i16 %.0.copyload to i64
   %24 = mul nuw nsw i64 %23, 6
   %25 = getelementptr i8, ptr %22, i64 %24
@@ -291,7 +291,7 @@ define internal fastcc void @desc_recompress_leaf(ptr noundef %0, ptr nocapture 
 
 38:                                               ; preds = %.thread35, %29, %31, %33
   %.238 = phi ptr [ %25, %.thread35 ], [ %.2, %29 ], [ %.2, %31 ], [ %.2, %33 ]
-  %39 = add nuw nsw i32 %.03244, 1
+  %39 = add nuw nsw i32 %.03343, 1
   %40 = load i16, ptr %1, align 2
   %41 = zext i16 %40 to i32
   %42 = icmp ult i32 %39, %41

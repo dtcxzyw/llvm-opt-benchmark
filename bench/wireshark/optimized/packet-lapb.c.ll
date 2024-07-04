@@ -150,8 +150,8 @@ define internal i32 @dissect_lapb(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %30
 
 30:                                               ; preds = %24, %28, %26
-  %.053.shrunk = phi i1 [ %27, %26 ], [ %29, %28 ], [ false, %24 ]
-  %.053 = zext i1 %.053.shrunk to i32
+  %.0.shrunk = phi i1 [ %27, %26 ], [ %29, %28 ], [ false, %24 ]
+  %.0 = zext i1 %.0.shrunk to i32
   %31 = load i32, ptr @proto_lapb, align 4
   %32 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @.str.21) #3
   %33 = load i32, ptr @ett_lapb, align 4
@@ -160,7 +160,7 @@ define internal i32 @dissect_lapb(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %36 = tail call ptr @proto_tree_add_uint(ptr noundef %34, i32 noundef %35, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %16) #3
   %37 = load i32, ptr @hf_lapb_control, align 4
   %38 = load i32, ptr @ett_lapb_control, align 4
-  %39 = tail call i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %1, ptr noundef %34, i32 noundef %37, i32 noundef %38, ptr noundef nonnull @lapb_cf_items, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %.053, i32 noundef 0, i32 noundef 0) #3
+  %39 = tail call i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %1, ptr noundef %34, i32 noundef %37, i32 noundef %38, ptr noundef nonnull @lapb_cf_items, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %.0, i32 noundef 0, i32 noundef 0) #3
   %40 = and i32 %39, 65535
   %41 = and i32 %39, 1
   %42 = icmp eq i32 %41, 0
@@ -183,8 +183,8 @@ define internal i32 @dissect_lapb(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %50
 
 50:                                               ; preds = %19, %21, %48
-  %.0 = phi i32 [ %49, %48 ], [ 1, %21 ], [ 1, %19 ]
-  ret i32 %.0
+  %.053 = phi i32 [ %49, %48 ], [ 1, %21 ], [ 1, %19 ]
+  ret i32 %.053
 }
 
 ; Function Attrs: nounwind uwtable

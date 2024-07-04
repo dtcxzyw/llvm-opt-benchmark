@@ -384,9 +384,9 @@ if.then.i2.i.i:                                   ; preds = %_ZN4llvh6detail12De
   br label %_ZNSt6vectorIbSaIbEEC2EmRKS0_.exit
 
 _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %_ZN4llvh6detail12DenseSetImplIPN6hermes2vm6DomainENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_EENS0_12DenseSetPairIS5_EEEES9_E6insertEOS5_.exit, %if.then.i2.i.i
+  %ref.tmp12.sroa.1853.0 = phi ptr [ null, %_ZN4llvh6detail12DenseSetImplIPN6hermes2vm6DomainENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_EENS0_12DenseSetPairIS5_EEEES9_E6insertEOS5_.exit ], [ %add.ptr.i.i.i6, %if.then.i2.i.i ]
   %ref.tmp12.sroa.14.0 = phi i32 [ 0, %_ZN4llvh6detail12DenseSetImplIPN6hermes2vm6DomainENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_EENS0_12DenseSetPairIS5_EEEES9_E6insertEOS5_.exit ], [ %conv4.i.i.i.i.i.i, %if.then.i2.i.i ]
   %ref.tmp12.sroa.1052.0 = phi ptr [ null, %_ZN4llvh6detail12DenseSetImplIPN6hermes2vm6DomainENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_EENS0_12DenseSetPairIS5_EEEES9_E6insertEOS5_.exit ], [ %add.ptr.i.i.i.i.i.i, %if.then.i2.i.i ]
-  %ref.tmp12.sroa.1853.0 = phi ptr [ null, %_ZN4llvh6detail12DenseSetImplIPN6hermes2vm6DomainENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_EENS0_12DenseSetPairIS5_EEEES9_E6insertEOS5_.exit ], [ %add.ptr.i.i.i6, %if.then.i2.i.i ]
   %ref.tmp12.sroa.0.0 = phi ptr [ null, %_ZN4llvh6detail12DenseSetImplIPN6hermes2vm6DomainENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_EENS0_12DenseSetPairIS5_EEEES9_E6insertEOS5_.exit ], [ %call5.i.i.i.i.i.i, %if.then.i2.i.i ]
   store ptr %module, ptr %ref.tmp11, align 8, !alias.scope !14
   %second.i.i7 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8

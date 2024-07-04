@@ -923,8 +923,8 @@ if.then24:                                        ; preds = %land.lhs.true
   br label %if.end30
 
 if.end30:                                         ; preds = %land.lhs.true, %if.then12, %if.then24, %if.else
-  %is_subscribe_or_cancel.0 = phi i1 [ true, %if.then12 ], [ true, %if.then24 ], [ false, %if.else ], [ false, %land.lhs.true ]
   %subscribe.0.shrunk = phi i1 [ %cmp.i23, %if.then12 ], [ %cmp27, %if.then24 ], [ false, %if.else ], [ false, %land.lhs.true ]
+  %is_subscribe_or_cancel.0 = phi i1 [ true, %if.then12 ], [ true, %if.then24 ], [ false, %if.else ], [ false, %land.lhs.true ]
   %size.0 = phi i64 [ %call14, %if.then12 ], [ %sub, %if.then24 ], [ 0, %if.else ], [ 0, %land.lhs.true ]
   %data.0 = phi ptr [ %call13, %if.then12 ], [ %add.ptr, %if.then24 ], [ null, %if.else ], [ null, %land.lhs.true ]
   br i1 %tobool, label %if.end37, label %if.then32

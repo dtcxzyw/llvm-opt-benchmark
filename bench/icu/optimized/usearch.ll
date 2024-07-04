@@ -3119,8 +3119,8 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.inc216
-  %mLimit.0 = phi i32 [ %mLimit.2, %for.inc216 ], [ -1, %for.cond.preheader ]
   %mStart.0 = phi i32 [ %mStart.1, %for.inc216 ], [ -1, %for.cond.preheader ]
+  %mLimit.0 = phi i32 [ %mLimit.2, %for.inc216 ], [ -1, %for.cond.preheader ]
   %targetIx.0 = phi i32 [ %inc217, %for.inc216 ], [ 0, %for.cond.preheader ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
   %8 = load i32, ptr %bufSize.i, align 8
@@ -3984,14 +3984,14 @@ invoke.cont208:                                   ; preds = %if.end207
   br i1 %tobool213.not, label %for.inc216, label %for.end218.loopexit
 
 for.inc216:                                       ; preds = %invoke.cont208, %lor.lhs.false50
-  %mLimit.2 = phi i32 [ %mLimit.1.ph, %invoke.cont208 ], [ %mLimit.0, %lor.lhs.false50 ]
   %mStart.1 = phi i32 [ %50, %invoke.cont208 ], [ %mStart.0, %lor.lhs.false50 ]
+  %mLimit.2 = phi i32 [ %mLimit.1.ph, %invoke.cont208 ], [ %mLimit.0, %lor.lhs.false50 ]
   %inc217 = add nuw nsw i32 %targetIx.0, 1
   br label %for.cond, !llvm.loop !10
 
 for.end218.loopexit:                              ; preds = %call14.i.i.noexc389, %call14.i.i.noexc, %if.end111, %invoke.cont112.thread, %if.end186, %invoke.cont197.thread, %invoke.cont208, %lor.lhs.false50, %call14.i.i.noexc342, %land.lhs.true169
-  %mLimit.3.ph = phi i32 [ %mLimit.0, %invoke.cont112.thread ], [ %mLimit.1.ph, %if.end186 ], [ %mLimit.1.ph, %invoke.cont208 ], [ %mLimit.1.ph, %invoke.cont197.thread ], [ %mLimit.0, %lor.lhs.false50 ], [ %51, %call14.i.i.noexc342 ], [ %51, %land.lhs.true169 ], [ %mLimit.0, %if.end111 ], [ %mLimit.0, %call14.i.i.noexc ], [ %mLimit.1.ph, %call14.i.i.noexc389 ]
   %mStart.2.ph = phi i32 [ %50, %invoke.cont112.thread ], [ %50, %if.end186 ], [ %50, %invoke.cont208 ], [ %50, %invoke.cont197.thread ], [ %mStart.0, %lor.lhs.false50 ], [ %50, %call14.i.i.noexc342 ], [ %50, %land.lhs.true169 ], [ %50, %if.end111 ], [ %50, %call14.i.i.noexc ], [ %50, %call14.i.i.noexc389 ]
+  %mLimit.3.ph = phi i32 [ %mLimit.0, %invoke.cont112.thread ], [ %mLimit.1.ph, %if.end186 ], [ %mLimit.1.ph, %invoke.cont208 ], [ %mLimit.1.ph, %invoke.cont197.thread ], [ %mLimit.0, %lor.lhs.false50 ], [ %51, %call14.i.i.noexc342 ], [ %51, %land.lhs.true169 ], [ %mLimit.0, %if.end111 ], [ %mLimit.0, %call14.i.i.noexc ], [ %mLimit.1.ph, %call14.i.i.noexc389 ]
   %found.8.ph = phi i8 [ %spec.select448, %invoke.cont112.thread ], [ %spec.select115, %if.end186 ], [ 1, %invoke.cont208 ], [ %spec.select449, %invoke.cont197.thread ], [ 0, %lor.lhs.false50 ], [ %spec.select115, %call14.i.i.noexc342 ], [ %spec.select115, %land.lhs.true169 ], [ %found.1, %if.end111 ], [ %found.1, %call14.i.i.noexc ], [ %spec.select117, %call14.i.i.noexc389 ]
   %.pre500 = load i32, ptr %status, align 4
   %147 = icmp slt i32 %.pre500, 1
@@ -4000,8 +4000,8 @@ for.end218.loopexit:                              ; preds = %call14.i.i.noexc389
 
 for.end218:                                       ; preds = %for.end218.loopexit, %if.then20
   %cmp.i396 = phi i8 [ 0, %if.then20 ], [ %148, %for.end218.loopexit ]
-  %mLimit.3 = phi i32 [ %mLimit.0, %if.then20 ], [ %mLimit.3.ph, %for.end218.loopexit ]
   %mStart.2 = phi i32 [ %mStart.0, %if.then20 ], [ %mStart.2.ph, %for.end218.loopexit ]
+  %mLimit.3 = phi i32 [ %mLimit.0, %if.then20 ], [ %mLimit.3.ph, %for.end218.loopexit ]
   %cmp225 = icmp eq i8 %cmp.i396, 0
   %mLimit.4 = select i1 %cmp225, i32 -1, i32 %mLimit.3
   %cmp228.not = icmp eq ptr %matchStart, null
@@ -4774,8 +4774,8 @@ for.cond39.preheader:                             ; preds = %if.end33
   br label %for.cond39
 
 for.cond39:                                       ; preds = %for.cond39.preheader, %for.inc203
-  %mLimit.0 = phi i32 [ %mLimit.3, %for.inc203 ], [ -1, %for.cond39.preheader ]
   %mStart.0 = phi i32 [ %mStart.1, %for.inc203 ], [ -1, %for.cond39.preheader ]
+  %mLimit.0 = phi i32 [ %mLimit.3, %for.inc203 ], [ -1, %for.cond39.preheader ]
   %targetIx.2 = phi i32 [ %add204, %for.inc203 ], [ %targetIx.1, %for.cond39.preheader ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i128)
   %31 = load i32, ptr %bufSize.i129, align 8
@@ -5487,14 +5487,14 @@ invoke.cont195:                                   ; preds = %if.end194
   br i1 %tobool200.not, label %for.inc203, label %for.end205.loopexit
 
 for.inc203:                                       ; preds = %invoke.cont195, %lor.lhs.false78
-  %mLimit.3 = phi i32 [ %mLimit.2, %invoke.cont195 ], [ %mLimit.0, %lor.lhs.false78 ]
   %mStart.1 = phi i32 [ %72, %invoke.cont195 ], [ %mStart.0, %lor.lhs.false78 ]
+  %mLimit.3 = phi i32 [ %mLimit.2, %invoke.cont195 ], [ %mLimit.0, %lor.lhs.false78 ]
   %add204 = add nuw nsw i32 %targetIx.2, 1
   br label %for.cond39, !llvm.loop !16
 
 for.end205.loopexit:                              ; preds = %call14.i.i.noexc322, %if.then172, %invoke.cont94, %invoke.cont176.thread, %invoke.cont195, %lor.lhs.false78, %call14.i.i.noexc, %invoke.cont91
-  %mLimit.4.ph = phi i32 [ %mLimit.0, %invoke.cont94 ], [ %mLimit.2, %invoke.cont195 ], [ %mLimit.1, %invoke.cont176.thread ], [ %mLimit.0, %lor.lhs.false78 ], [ %mLimit.0, %call14.i.i.noexc ], [ %mLimit.0, %invoke.cont91 ], [ %mLimit.1, %if.then172 ], [ %mLimit.1, %call14.i.i.noexc322 ]
   %mStart.2.ph = phi i32 [ %72, %invoke.cont94 ], [ %72, %invoke.cont195 ], [ %72, %invoke.cont176.thread ], [ %mStart.0, %lor.lhs.false78 ], [ %72, %call14.i.i.noexc ], [ %72, %invoke.cont91 ], [ %72, %if.then172 ], [ %72, %call14.i.i.noexc322 ]
+  %mLimit.4.ph = phi i32 [ %mLimit.0, %invoke.cont94 ], [ %mLimit.2, %invoke.cont195 ], [ %mLimit.1, %invoke.cont176.thread ], [ %mLimit.0, %lor.lhs.false78 ], [ %mLimit.0, %call14.i.i.noexc ], [ %mLimit.0, %invoke.cont91 ], [ %mLimit.1, %if.then172 ], [ %mLimit.1, %call14.i.i.noexc322 ]
   %found.8.ph = phi i8 [ %spec.select, %invoke.cont94 ], [ 1, %invoke.cont195 ], [ %spec.select392, %invoke.cont176.thread ], [ 0, %lor.lhs.false78 ], [ 1, %call14.i.i.noexc ], [ 1, %invoke.cont91 ], [ %spec.select110, %if.then172 ], [ %spec.select110, %call14.i.i.noexc322 ]
   %.pre434 = load i32, ptr %status, align 4
   %149 = icmp slt i32 %.pre434, 1
@@ -5503,8 +5503,8 @@ for.end205.loopexit:                              ; preds = %call14.i.i.noexc322
 
 for.end205:                                       ; preds = %for.end205.loopexit, %if.then43
   %cmp.i353 = phi i8 [ 0, %if.then43 ], [ %150, %for.end205.loopexit ]
-  %mLimit.4 = phi i32 [ %mLimit.0, %if.then43 ], [ %mLimit.4.ph, %for.end205.loopexit ]
   %mStart.2 = phi i32 [ %mStart.0, %if.then43 ], [ %mStart.2.ph, %for.end205.loopexit ]
+  %mLimit.4 = phi i32 [ %mLimit.0, %if.then43 ], [ %mLimit.4.ph, %for.end205.loopexit ]
   %cmp212 = icmp eq i8 %cmp.i353, 0
   %mLimit.5 = select i1 %cmp212, i32 -1, i32 %mLimit.4
   %cmp215.not = icmp eq ptr %matchStart, null

@@ -3374,8 +3374,8 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io21IPROJStringExportableEEED2
 
 432:                                              ; preds = %431, %425
   %.pn37.pn.pn = phi { ptr, i32 } [ %.pn37.pn, %431 ], [ %426, %425 ]
-  %.215 = extractvalue { ptr, i32 } %.pn37.pn.pn, 1
-  %.218 = extractvalue { ptr, i32 } %.pn37.pn.pn, 0
+  %.214 = extractvalue { ptr, i32 } %.pn37.pn.pn, 1
+  %.217 = extractvalue { ptr, i32 } %.pn37.pn.pn, 0
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io21IPROJStringExportableEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #14
   br label %969
@@ -3523,7 +3523,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit: ; preds = %433, %
   %499 = landingpad { ptr, i32 }
           cleanup
   %.4177 = extractvalue { ptr, i32 } %499, 1
-  %.420178 = extractvalue { ptr, i32 } %499, 0
+  %.419178 = extractvalue { ptr, i32 } %499, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #14
   br label %505
 
@@ -3544,18 +3544,18 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit: ; preds = %433, %
   %.1 = phi i1 [ %.010, %502 ], [ true, %500 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #14
   %.4 = extractvalue { ptr, i32 } %.pn, 1
-  %.420 = extractvalue { ptr, i32 } %.pn, 0
+  %.419 = extractvalue { ptr, i32 } %.pn, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #14
   br i1 %.1, label %505, label %506
 
 505:                                              ; preds = %.thread174, %504
-  %.420182 = phi ptr [ %.420178, %.thread174 ], [ %.420, %504 ]
+  %.419182 = phi ptr [ %.419178, %.thread174 ], [ %.419, %504 ]
   %.4180 = phi i32 [ %.4177, %.thread174 ], [ %.4, %504 ]
   call void @__cxa_free_exception(ptr %490) #14
   br label %506
 
 506:                                              ; preds = %505, %504
-  %.420181 = phi ptr [ %.420182, %505 ], [ %.420, %504 ]
+  %.419181 = phi ptr [ %.419182, %505 ], [ %.419, %504 ]
   %.4179 = phi i32 [ %.4180, %505 ], [ %.4, %504 ]
   invoke void @__cxa_end_catch()
           to label %968 unwind label %972
@@ -4331,7 +4331,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 888:                                              ; preds = %887, %881
   %.pn30.pn = phi { ptr, i32 } [ %.pn30, %887 ], [ %882, %881 ]
   %.6 = extractvalue { ptr, i32 } %.pn30.pn, 1
-  %.622 = extractvalue { ptr, i32 } %.pn30.pn, 0
+  %.621 = extractvalue { ptr, i32 } %.pn30.pn, 0
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #14
   br label %968
 
@@ -4512,12 +4512,12 @@ _ZNKSt14default_deleteIN5osgeo4proj2io19PROJStringFormatterEEclEPS3_.exit.i.i: ;
 967:                                              ; preds = %897, %891, %889
   %.pn35 = phi { ptr, i32 } [ %890, %889 ], [ %.pn33, %897 ], [ %892, %891 ]
   %.8 = extractvalue { ptr, i32 } %.pn35, 1
-  %.824 = extractvalue { ptr, i32 } %.pn35, 0
+  %.823 = extractvalue { ptr, i32 } %.pn35, 0
   call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18PROJBasedOperationEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #14
   br label %968
 
 968:                                              ; preds = %506, %967, %888, %482, %478
-  %.925 = phi ptr [ %.824, %967 ], [ %.622, %888 ], [ %480, %478 ], [ %.420181, %506 ], [ %484, %482 ]
+  %.924 = phi ptr [ %.823, %967 ], [ %.621, %888 ], [ %480, %478 ], [ %.419181, %506 ], [ %484, %482 ]
   %.9 = phi i32 [ %.8, %967 ], [ %.6, %888 ], [ %481, %478 ], [ %.4179, %506 ], [ %485, %482 ]
   call void @_ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14default_deleteIS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #14
   br label %969
@@ -4526,9 +4526,9 @@ _ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14de
   ret void
 
 969:                                              ; preds = %421, %968, %474, %432
-  %.1026 = phi ptr [ %.218, %432 ], [ %.925, %968 ], [ %476, %474 ], [ %424, %421 ]
-  %.10 = phi i32 [ %.215, %432 ], [ %.9, %968 ], [ %477, %474 ], [ %423, %421 ]
-  %970 = insertvalue { ptr, i32 } poison, ptr %.1026, 0
+  %.1025 = phi ptr [ %.217, %432 ], [ %.924, %968 ], [ %476, %474 ], [ %424, %421 ]
+  %.10 = phi i32 [ %.214, %432 ], [ %.9, %968 ], [ %477, %474 ], [ %423, %421 ]
+  %970 = insertvalue { ptr, i32 } poison, ptr %.1025, 0
   %971 = insertvalue { ptr, i32 } %970, i32 %.10, 1
   resume { ptr, i32 } %971
 

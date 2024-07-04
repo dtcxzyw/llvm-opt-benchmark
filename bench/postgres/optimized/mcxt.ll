@@ -1438,7 +1438,7 @@ define internal void @MemoryContextStatsPrint(ptr nocapture noundef readonly %0,
   br i1 %13, label %.thread, label %14
 
 .thread:                                          ; preds = %4, %11
-  %.0.ph = phi ptr [ %8, %4 ], [ %10, %11 ]
+  %.031.ph = phi ptr [ %8, %4 ], [ %10, %11 ]
   store i8 0, ptr %5, align 16
   br label %34
 
@@ -1456,28 +1456,28 @@ define internal void @MemoryContextStatsPrint(ptr nocapture noundef readonly %0,
   br label %22
 
 22:                                               ; preds = %20, %14
-  %.027 = phi i32 [ %21, %20 ], [ %16, %14 ]
-  %23 = icmp sgt i32 %.027, 0
+  %.026 = phi i32 [ %21, %20 ], [ %16, %14 ]
+  %23 = icmp sgt i32 %.026, 0
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %22, %.lr.ph
-  %.144 = phi i32 [ %24, %.lr.ph ], [ %.027, %22 ]
-  %.02843 = phi i32 [ %27, %.lr.ph ], [ %18, %22 ]
-  %.13142 = phi ptr [ %25, %.lr.ph ], [ %10, %22 ]
+  %.144 = phi i32 [ %24, %.lr.ph ], [ %.026, %22 ]
+  %.02743 = phi i32 [ %27, %.lr.ph ], [ %18, %22 ]
+  %.13042 = phi ptr [ %25, %.lr.ph ], [ %10, %22 ]
   %24 = add nsw i32 %.144, -1
-  %25 = getelementptr i8, ptr %.13142, i64 1
-  %26 = load i8, ptr %.13142, align 1
+  %25 = getelementptr i8, ptr %.13042, i64 1
+  %26 = load i8, ptr %.13042, align 1
   %spec.store.select = tail call i8 @llvm.umax.i8(i8 %26, i8 32)
-  %27 = add i32 %.02843, 1
-  %28 = sext i32 %.02843 to i64
+  %27 = add i32 %.02743, 1
+  %28 = sext i32 %.02743 to i64
   %29 = getelementptr [110 x i8], ptr %5, i64 0, i64 %28
   store i8 %spec.store.select, ptr %29, align 1
   %30 = icmp ugt i32 %.144, 1
   br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %22
-  %.028.lcssa = phi i32 [ %18, %22 ], [ %27, %.lr.ph ]
-  %31 = sext i32 %.028.lcssa to i64
+  %.027.lcssa = phi i32 [ %18, %22 ], [ %27, %.lr.ph ]
+  %31 = sext i32 %.027.lcssa to i64
   %32 = getelementptr [110 x i8], ptr %5, i64 0, i64 %31
   store i8 0, ptr %32, align 1
   br i1 %19, label %33, label %34
@@ -1489,7 +1489,7 @@ define internal void @MemoryContextStatsPrint(ptr nocapture noundef readonly %0,
   br label %34
 
 34:                                               ; preds = %.thread, %._crit_edge, %33
-  %.041 = phi ptr [ %.0.ph, %.thread ], [ %8, %._crit_edge ], [ %8, %33 ]
+  %.03141 = phi ptr [ %.031.ph, %.thread ], [ %8, %._crit_edge ], [ %8, %33 ]
   br i1 %3, label %.preheader, label %41
 
 .preheader:                                       ; preds = %34
@@ -1497,16 +1497,16 @@ define internal void @MemoryContextStatsPrint(ptr nocapture noundef readonly %0,
   br i1 %35, label %.lr.ph46, label %._crit_edge47
 
 .lr.ph46:                                         ; preds = %.preheader, %.lr.ph46
-  %.12945 = phi i32 [ %38, %.lr.ph46 ], [ 0, %.preheader ]
+  %.12845 = phi i32 [ %38, %.lr.ph46 ], [ 0, %.preheader ]
   %36 = load ptr, ptr @stderr, align 8
   %37 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %36, ptr noundef nonnull @.str.14) #16
-  %38 = add nuw nsw i32 %.12945, 1
+  %38 = add nuw nsw i32 %.12845, 1
   %exitcond.not = icmp eq i32 %38, %6
   br i1 %exitcond.not, label %._crit_edge47, label %.lr.ph46, !llvm.loop !14
 
 ._crit_edge47:                                    ; preds = %.lr.ph46, %.preheader
   %39 = load ptr, ptr @stderr, align 8
-  %40 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %39, ptr noundef nonnull @.str.20, ptr noundef %.041, ptr noundef %2, ptr noundef nonnull %5) #16
+  %40 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %39, ptr noundef nonnull @.str.20, ptr noundef %.03141, ptr noundef %2, ptr noundef nonnull %5) #16
   br label %47
 
 41:                                               ; preds = %34
@@ -1516,7 +1516,7 @@ define internal void @MemoryContextStatsPrint(ptr nocapture noundef readonly %0,
 43:                                               ; preds = %41
   %44 = tail call i32 @errhidestmt(i1 noundef zeroext true) #16
   %45 = tail call i32 @errhidecontext(i1 noundef zeroext true) #16
-  %46 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21, i32 noundef %6, ptr noundef %.041, ptr noundef %2, ptr noundef nonnull %5) #16
+  %46 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21, i32 noundef %6, ptr noundef %.03141, ptr noundef %2, ptr noundef nonnull %5) #16
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 930, ptr noundef nonnull @__func__.MemoryContextStatsPrint) #16
   br label %47
 

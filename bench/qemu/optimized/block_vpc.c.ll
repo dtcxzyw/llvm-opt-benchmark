@@ -1141,10 +1141,10 @@ get_image_offset.exit:                            ; preds = %lor.lhs.false.i
   br i1 %cmp16, label %fail, label %if.end20
 
 if.end20:                                         ; preds = %get_image_offset.exit, %get_image_offset.exit.thread
-  %cond38 = phi i64 [ %cond, %get_image_offset.exit ], [ %cond35, %get_image_offset.exit.thread ]
-  %sub21 = sub i64 %bytes.addr.042, %cond38
-  %add = add i64 %cond38, %offset.addr.043
-  %add22 = add i64 %cond38, %bytes_done.040
+  %cond37 = phi i64 [ %cond, %get_image_offset.exit ], [ %cond35, %get_image_offset.exit.thread ]
+  %sub21 = sub i64 %bytes.addr.042, %cond37
+  %add = add i64 %cond37, %offset.addr.043
+  %add22 = add i64 %cond37, %bytes_done.040
   %cmp2 = icmp sgt i64 %sub21, 0
   br i1 %cmp2, label %while.body, label %fail, !llvm.loop !9
 

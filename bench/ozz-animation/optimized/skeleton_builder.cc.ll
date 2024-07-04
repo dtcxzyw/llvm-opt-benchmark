@@ -127,12 +127,12 @@ _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_
 
 _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_.exit: ; preds = %.lr.ph, %_ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_.exit ]
-  %.0269286 = phi i64 [ 0, %.lr.ph ], [ %43, %_ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_.exit ]
+  %.0272286 = phi i64 [ 0, %.lr.ph ], [ %43, %_ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_.exit ]
   %38 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %.val, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 32
   %41 = load i64, ptr %40, align 8
-  %42 = add i64 %.0269286, 1
+  %42 = add i64 %.0272286, 1
   %43 = add i64 %42, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -151,8 +151,8 @@ _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_
   br label %.body
 
 _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_.exit._crit_edge: ; preds = %_ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_.exit, %_ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_.exit.preheader
-  %.0269.lcssa = phi i64 [ 0, %_ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_.exit.preheader ], [ %43, %_ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_.exit ]
-  %48 = invoke noundef ptr @_ZN3ozz9animation8Skeleton8AllocateEmm(ptr noundef nonnull align 8 dereferenceable(48) %15, i64 noundef %.0269.lcssa, i64 noundef %18)
+  %.0272.lcssa = phi i64 [ 0, %_ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_.exit.preheader ], [ %43, %_ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_.exit ]
+  %48 = invoke noundef ptr @_ZN3ozz9animation8Skeleton8AllocateEmm(ptr noundef nonnull align 8 dereferenceable(48) %15, i64 noundef %.0272.lcssa, i64 noundef %18)
           to label %.preheader284 unwind label %46
 
 .preheader284:                                    ; preds = %_ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_RKNS1_11RawSkeletonES6_.exit._crit_edge
@@ -176,19 +176,19 @@ _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_
 
 51:                                               ; preds = %.lr.ph289, %51
   %indvars.iv297 = phi i64 [ 0, %.lr.ph289 ], [ %indvars.iv.next298, %51 ]
-  %.0273287 = phi ptr [ %48, %.lr.ph289 ], [ %62, %51 ]
+  %.0271287 = phi ptr [ %48, %.lr.ph289 ], [ %62, %51 ]
   %52 = getelementptr inbounds %"struct.ozz::animation::offline::(anonymous namespace)::JointLister::Joint", ptr %.val281.pre.pre.pre, i64 %indvars.iv297
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %49, align 8
   %55 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv297
-  store ptr %.0273287, ptr %55, align 8
+  store ptr %.0271287, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %53, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0273287, ptr noundef nonnull dereferenceable(1) %57) #15
+  %58 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0271287, ptr noundef nonnull dereferenceable(1) %57) #15
   %59 = getelementptr inbounds i8, ptr %53, i64 32
   %60 = load i64, ptr %59, align 8
   %61 = add i64 %60, 1
-  %62 = getelementptr inbounds i8, ptr %.0273287, i64 %61
+  %62 = getelementptr inbounds i8, ptr %.0271287, i64 %61
   %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
   %exitcond302.not = icmp eq i64 %indvars.iv.next298, %wide.trip.count301
   br i1 %exitcond302.not, label %.preheader283, label %51, !llvm.loop !10

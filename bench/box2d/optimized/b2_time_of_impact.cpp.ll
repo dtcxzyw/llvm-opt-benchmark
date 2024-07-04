@@ -131,8 +131,8 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end82, %entry
-  %iter.0 = phi i32 [ 0, %entry ], [ %inc78, %if.end82 ]
   %t1.0 = phi float [ 0.000000e+00, %entry ], [ %t1.1, %if.end82 ]
+  %iter.0 = phi i32 [ 0, %entry ], [ %inc78, %if.end82 ]
   %sub.i75 = fsub float 1.000000e+00, %t1.0
   %16 = load float, ptr %a0.i, align 8
   %17 = load float, ptr %a.i, align 4

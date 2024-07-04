@@ -1811,9 +1811,9 @@ _ZN4Luau7Printer14visualizeBlockERNS_12AstStatBlockE.exit322: ; preds = %.lr.ph5
   br i1 %.not312497, label %._crit_edge502, label %.lr.ph501
 
 .lr.ph501:                                        ; preds = %184, %_ZN4Luau7Printer9visualizeERKNS_8AstLocalE.exit
-  %.0182499 = phi i1 [ false, %_ZN4Luau7Printer9visualizeERKNS_8AstLocalE.exit ], [ true, %184 ]
+  %.0183499 = phi i1 [ false, %_ZN4Luau7Printer9visualizeERKNS_8AstLocalE.exit ], [ true, %184 ]
   %.0185498 = phi ptr [ %223, %_ZN4Luau7Printer9visualizeERKNS_8AstLocalE.exit ], [ %190, %184 ]
-  br i1 %.0182499, label %199, label %194
+  br i1 %.0183499, label %199, label %194
 
 194:                                              ; preds = %.lr.ph501
   %195 = load ptr, ptr %9, align 8
@@ -1985,7 +1985,7 @@ _ZN4Luau7Printer9visualizeERKNS_8AstLocalE.exit:  ; preds = %199, %214, %217
 
 .lr.ph489:                                        ; preds = %285, %300
   %.0187487 = phi i1 [ false, %300 ], [ true, %285 ]
-  %.0191486 = phi ptr [ %302, %300 ], [ %291, %285 ]
+  %.0192486 = phi ptr [ %302, %300 ], [ %291, %285 ]
   br i1 %.0187487, label %300, label %295
 
 295:                                              ; preds = %.lr.ph489
@@ -1997,9 +1997,9 @@ _ZN4Luau7Printer9visualizeERKNS_8AstLocalE.exit:  ; preds = %199, %214, %217
   br label %300
 
 300:                                              ; preds = %.lr.ph489, %295
-  %301 = load ptr, ptr %.0191486, align 8
+  %301 = load ptr, ptr %.0192486, align 8
   tail call void @_ZN4Luau7Printer9visualizeERKNS_8AstLocalE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(56) %301)
-  %302 = getelementptr inbounds i8, ptr %.0191486, i64 8
+  %302 = getelementptr inbounds i8, ptr %.0192486, i64 8
   %.not309 = icmp eq ptr %302, %294
   br i1 %.not309, label %._crit_edge490, label %.lr.ph489
 
@@ -2019,7 +2019,7 @@ _ZN4Luau7Printer9visualizeERKNS_8AstLocalE.exit:  ; preds = %199, %214, %217
 
 .lr.ph495:                                        ; preds = %._crit_edge490, %317
   %.2189493 = phi i1 [ false, %317 ], [ true, %._crit_edge490 ]
-  %.0192492 = phi ptr [ %319, %317 ], [ %308, %._crit_edge490 ]
+  %.0194492 = phi ptr [ %319, %317 ], [ %308, %._crit_edge490 ]
   br i1 %.2189493, label %317, label %312
 
 312:                                              ; preds = %.lr.ph495
@@ -2031,9 +2031,9 @@ _ZN4Luau7Printer9visualizeERKNS_8AstLocalE.exit:  ; preds = %199, %214, %217
   br label %317
 
 317:                                              ; preds = %.lr.ph495, %312
-  %318 = load ptr, ptr %.0192492, align 8
+  %318 = load ptr, ptr %.0194492, align 8
   tail call void @_ZN4Luau7Printer9visualizeERNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(28) %318)
-  %319 = getelementptr inbounds i8, ptr %.0192492, i64 8
+  %319 = getelementptr inbounds i8, ptr %.0194492, i64 8
   %.not310 = icmp eq ptr %319, %311
   br i1 %.not310, label %._crit_edge496, label %.lr.ph495
 
@@ -2065,9 +2065,9 @@ _ZN4Luau7Printer9visualizeERKNS_8AstLocalE.exit:  ; preds = %199, %214, %217
   br i1 %.not307474, label %._crit_edge479, label %.lr.ph478
 
 .lr.ph478:                                        ; preds = %328, %339
-  %.0193476 = phi i1 [ false, %339 ], [ true, %328 ]
-  %.0197475 = phi ptr [ %341, %339 ], [ %330, %328 ]
-  br i1 %.0193476, label %339, label %334
+  %.0193476 = phi ptr [ %341, %339 ], [ %330, %328 ]
+  %.0195475 = phi i1 [ false, %339 ], [ true, %328 ]
+  br i1 %.0195475, label %339, label %334
 
 334:                                              ; preds = %.lr.ph478
   %335 = load ptr, ptr %9, align 8
@@ -2078,9 +2078,9 @@ _ZN4Luau7Printer9visualizeERKNS_8AstLocalE.exit:  ; preds = %199, %214, %217
   br label %339
 
 339:                                              ; preds = %.lr.ph478, %334
-  %340 = load ptr, ptr %.0197475, align 8
+  %340 = load ptr, ptr %.0193476, align 8
   tail call void @_ZN4Luau7Printer9visualizeERNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(28) %340)
-  %341 = getelementptr inbounds i8, ptr %.0197475, i64 8
+  %341 = getelementptr inbounds i8, ptr %.0193476, i64 8
   %.not307 = icmp eq ptr %341, %333
   br i1 %.not307, label %._crit_edge479, label %.lr.ph478
 
@@ -2094,13 +2094,13 @@ _ZN4Luau7Printer9visualizeERKNS_8AstLocalE.exit:  ; preds = %199, %214, %217
   br i1 %.not308480, label %.loopexit, label %.lr.ph484
 
 .lr.ph484:                                        ; preds = %._crit_edge479, %362
-  %.2195482 = phi i1 [ false, %362 ], [ true, %._crit_edge479 ]
-  %.0198481 = phi ptr [ %364, %362 ], [ %343, %._crit_edge479 ]
+  %.0191482 = phi ptr [ %364, %362 ], [ %343, %._crit_edge479 ]
+  %.2197481 = phi i1 [ false, %362 ], [ true, %._crit_edge479 ]
   %347 = load ptr, ptr %9, align 8
-  br i1 %.2195482, label %348, label %358
+  br i1 %.2197481, label %348, label %358
 
 348:                                              ; preds = %.lr.ph484
-  %349 = load ptr, ptr %.0198481, align 8
+  %349 = load ptr, ptr %.0191482, align 8
   %350 = getelementptr inbounds i8, ptr %349, i64 12
   %351 = load ptr, ptr %347, align 8
   %352 = getelementptr inbounds i8, ptr %351, i64 40
@@ -2121,9 +2121,9 @@ _ZN4Luau7Printer9visualizeERKNS_8AstLocalE.exit:  ; preds = %199, %214, %217
   br label %362
 
 362:                                              ; preds = %358, %348
-  %363 = load ptr, ptr %.0198481, align 8
+  %363 = load ptr, ptr %.0191482, align 8
   tail call void @_ZN4Luau7Printer9visualizeERNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(28) %363)
-  %364 = getelementptr inbounds i8, ptr %.0198481, i64 8
+  %364 = getelementptr inbounds i8, ptr %.0191482, i64 8
   %.not308 = icmp eq ptr %364, %346
   br i1 %.not308, label %.loopexit, label %.lr.ph484
 
@@ -2404,9 +2404,9 @@ _ZN4Luau7Printer9visualizeERKNS_8AstLocalE.exit:  ; preds = %199, %214, %217
   br label %548
 
 548:                                              ; preds = %.lr.ph466, %576
-  %.0184464 = phi ptr [ %543, %.lr.ph466 ], [ %577, %576 ]
+  %.0182464 = phi ptr [ %543, %.lr.ph466 ], [ %577, %576 ]
   %.sroa.0356.0463 = phi i8 [ 1, %.lr.ph466 ], [ %.sroa.0356.1, %576 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.0184464, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.0182464, i64 32, i1 false)
   %549 = trunc nuw i8 %.sroa.0356.0463 to i1
   br i1 %549, label %_ZN4Luau22CommaSeparatorInserterclEv.exit, label %550
 
@@ -2452,7 +2452,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit:        ; preds = %548, %550
   br label %576
 
 576:                                              ; preds = %_ZN4Luau22CommaSeparatorInserterclEv.exit, %565
-  %577 = getelementptr inbounds i8, ptr %.0184464, i64 32
+  %577 = getelementptr inbounds i8, ptr %.0182464, i64 32
   %.not303 = icmp eq ptr %577, %545
   br i1 %.not303, label %._crit_edge467, label %548
 
@@ -3069,9 +3069,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br i1 %.not240437, label %._crit_edge442, label %.lr.ph441
 
 .lr.ph441:                                        ; preds = %219, %278
-  %.0141439 = phi i1 [ false, %278 ], [ true, %219 ]
-  %.0144438 = phi ptr [ %287, %278 ], [ %225, %219 ]
-  br i1 %.0141439, label %234, label %229
+  %.0142439 = phi i1 [ false, %278 ], [ true, %219 ]
+  %.0145438 = phi ptr [ %287, %278 ], [ %225, %219 ]
+  br i1 %.0142439, label %234, label %229
 
 229:                                              ; preds = %.lr.ph441
   %230 = load ptr, ptr %12, align 8
@@ -3082,14 +3082,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %234
 
 234:                                              ; preds = %.lr.ph441, %229
-  %235 = load i32, ptr %.0144438, align 8
+  %235 = load i32, ptr %.0145438, align 8
   switch i32 %235, label %278 [
     i32 2, label %256
     i32 1, label %236
   ]
 
 236:                                              ; preds = %234
-  %237 = getelementptr inbounds i8, ptr %.0144438, i64 8
+  %237 = getelementptr inbounds i8, ptr %.0145438, i64 8
   %238 = load ptr, ptr %237, align 8
   %239 = getelementptr inbounds i8, ptr %238, i64 8
   %240 = load i32, ptr %239, align 8
@@ -3119,7 +3119,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %259 = getelementptr inbounds i8, ptr %258, i64 72
   %260 = load ptr, ptr %259, align 8
   tail call void %260(ptr noundef nonnull align 8 dereferenceable(8) %257, i64 1, ptr nonnull @.str.104)
-  %261 = getelementptr inbounds i8, ptr %.0144438, i64 8
+  %261 = getelementptr inbounds i8, ptr %.0145438, i64 8
   %262 = load ptr, ptr %261, align 8
   tail call void @_ZN4Luau7Printer9visualizeERNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(28) %262)
   %263 = load ptr, ptr %12, align 8
@@ -3131,7 +3131,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 .sink.split:                                      ; preds = %236, %256
   %267 = load ptr, ptr %12, align 8
-  %268 = getelementptr inbounds i8, ptr %.0144438, i64 16
+  %268 = getelementptr inbounds i8, ptr %.0145438, i64 16
   %269 = load ptr, ptr %268, align 8
   %270 = getelementptr inbounds i8, ptr %269, i64 12
   %271 = load ptr, ptr %267, align 8
@@ -3146,7 +3146,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %278
 
 278:                                              ; preds = %.sink.split, %234
-  %279 = getelementptr inbounds i8, ptr %.0144438, i64 16
+  %279 = getelementptr inbounds i8, ptr %.0145438, i64 16
   %280 = load ptr, ptr %279, align 8
   %281 = getelementptr inbounds i8, ptr %280, i64 12
   %282 = load ptr, ptr %12, align 8
@@ -3156,7 +3156,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   tail call void %285(ptr noundef nonnull align 8 dereferenceable(8) %282, ptr noundef nonnull align 4 dereferenceable(8) %281)
   %286 = load ptr, ptr %279, align 8
   tail call void @_ZN4Luau7Printer9visualizeERNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(28) %286)
-  %287 = getelementptr inbounds i8, ptr %.0144438, i64 24
+  %287 = getelementptr inbounds i8, ptr %.0145438, i64 24
   %.not240 = icmp eq ptr %287, %228
   br i1 %.not240, label %._crit_edge442, label %.lr.ph441
 
@@ -3454,11 +3454,11 @@ tailrecurse.backedge:                             ; preds = %310, %313, %318, %3
   br label %454
 
 454:                                              ; preds = %.lr.ph435, %482
-  %.0143433 = phi ptr [ %448, %.lr.ph435 ], [ %484, %482 ]
-  %.0145432 = phi i64 [ 0, %.lr.ph435 ], [ %483, %482 ]
+  %.0141433 = phi ptr [ %448, %.lr.ph435 ], [ %484, %482 ]
+  %.0144432 = phi i64 [ 0, %.lr.ph435 ], [ %483, %482 ]
   %455 = load ptr, ptr %12, align 8
-  %456 = load ptr, ptr %.0143433, align 8
-  %457 = getelementptr inbounds i8, ptr %.0143433, i64 8
+  %456 = load ptr, ptr %.0141433, align 8
+  %457 = getelementptr inbounds i8, ptr %.0141433, i64 8
   %458 = load i64, ptr %457, align 8
   call void @_ZN4Luau6escapeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, i64 %458, ptr %456, i1 noundef zeroext true)
   %459 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #17
@@ -3473,7 +3473,7 @@ tailrecurse.backedge:                             ; preds = %310, %313, %318, %3
 465:                                              ; preds = %454
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #17
   %466 = load i64, ptr %452, align 8
-  %467 = icmp ult i64 %.0145432, %466
+  %467 = icmp ult i64 %.0144432, %466
   br i1 %467, label %468, label %482
 
 468:                                              ; preds = %465
@@ -3483,7 +3483,7 @@ tailrecurse.backedge:                             ; preds = %310, %313, %318, %3
   %472 = load ptr, ptr %471, align 8
   call void %472(ptr noundef nonnull align 8 dereferenceable(8) %469, i64 1, ptr nonnull @.str.106)
   %473 = load ptr, ptr %453, align 8
-  %474 = getelementptr inbounds ptr, ptr %473, i64 %.0145432
+  %474 = getelementptr inbounds ptr, ptr %473, i64 %.0144432
   %475 = load ptr, ptr %474, align 8
   call void @_ZN4Luau7Printer9visualizeERNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(28) %475)
   %476 = load ptr, ptr %12, align 8
@@ -3500,8 +3500,8 @@ tailrecurse.backedge:                             ; preds = %310, %313, %318, %3
   br label %515
 
 482:                                              ; preds = %468, %465
-  %483 = add nuw nsw i64 %.0145432, 1
-  %484 = getelementptr inbounds i8, ptr %.0143433, i64 16
+  %483 = add nuw nsw i64 %.0144432, 1
+  %484 = getelementptr inbounds i8, ptr %.0141433, i64 16
   %.not239 = icmp eq ptr %484, %451
   br i1 %.not239, label %._crit_edge436, label %454
 
@@ -3706,7 +3706,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit:        ; preds = %.lr.ph364, %51
   br i1 %.not197347, label %._crit_edge352, label %.lr.ph351
 
 .lr.ph351:                                        ; preds = %72, %_ZN4Luau22CommaSeparatorInserterclEv.exit213
-  %.0115349 = phi ptr [ %96, %_ZN4Luau22CommaSeparatorInserterclEv.exit213 ], [ %77, %72 ]
+  %.0116349 = phi ptr [ %96, %_ZN4Luau22CommaSeparatorInserterclEv.exit213 ], [ %77, %72 ]
   %.sroa.0303.0348 = phi i8 [ %.sroa.0303.1, %_ZN4Luau22CommaSeparatorInserterclEv.exit213 ], [ 1, %72 ]
   %80 = trunc nuw i8 %.sroa.0303.0348 to i1
   br i1 %80, label %_ZN4Luau22CommaSeparatorInserterclEv.exit213, label %81
@@ -3721,19 +3721,19 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit:        ; preds = %.lr.ph364, %51
 _ZN4Luau22CommaSeparatorInserterclEv.exit213:     ; preds = %.lr.ph351, %81
   %.sroa.0303.1 = phi i8 [ %.sroa.0303.0348, %81 ], [ 0, %.lr.ph351 ]
   %85 = load ptr, ptr %4, align 8
-  %86 = getelementptr inbounds i8, ptr %.0115349, i64 8
+  %86 = getelementptr inbounds i8, ptr %.0116349, i64 8
   %87 = load ptr, ptr %85, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8
   tail call void %89(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef nonnull align 4 dereferenceable(8) %86)
   %90 = load ptr, ptr %4, align 8
-  %91 = load ptr, ptr %.0115349, align 8
+  %91 = load ptr, ptr %.0116349, align 8
   %92 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %91) #17
   %93 = load ptr, ptr %90, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 56
   %95 = load ptr, ptr %94, align 8
   tail call void %95(ptr noundef nonnull align 8 dereferenceable(8) %90, i64 %92, ptr %91)
-  %96 = getelementptr inbounds i8, ptr %.0115349, i64 32
+  %96 = getelementptr inbounds i8, ptr %.0116349, i64 32
   %.not197 = icmp eq ptr %96, %79
   br i1 %.not197, label %._crit_edge352, label %.lr.ph351
 
@@ -3748,7 +3748,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit213:     ; preds = %.lr.ph351, %81
   br i1 %.not198354, label %._crit_edge359, label %.lr.ph358
 
 .lr.ph358:                                        ; preds = %._crit_edge352, %_ZN4Luau22CommaSeparatorInserterclEv.exit214
-  %.0116356 = phi ptr [ %122, %_ZN4Luau22CommaSeparatorInserterclEv.exit214 ], [ %98, %._crit_edge352 ]
+  %.0117356 = phi ptr [ %122, %_ZN4Luau22CommaSeparatorInserterclEv.exit214 ], [ %98, %._crit_edge352 ]
   %.sroa.0303.2355 = phi i8 [ %.sroa.0303.3, %_ZN4Luau22CommaSeparatorInserterclEv.exit214 ], [ %.sroa.0303.0.lcssa, %._crit_edge352 ]
   %102 = trunc nuw i8 %.sroa.0303.2355 to i1
   br i1 %102, label %_ZN4Luau22CommaSeparatorInserterclEv.exit214, label %103
@@ -3763,13 +3763,13 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit213:     ; preds = %.lr.ph351, %81
 _ZN4Luau22CommaSeparatorInserterclEv.exit214:     ; preds = %.lr.ph358, %103
   %.sroa.0303.3 = phi i8 [ %.sroa.0303.2355, %103 ], [ 0, %.lr.ph358 ]
   %107 = load ptr, ptr %4, align 8
-  %108 = getelementptr inbounds i8, ptr %.0116356, i64 8
+  %108 = getelementptr inbounds i8, ptr %.0117356, i64 8
   %109 = load ptr, ptr %107, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 16
   %111 = load ptr, ptr %110, align 8
   tail call void %111(ptr noundef nonnull align 8 dereferenceable(8) %107, ptr noundef nonnull align 4 dereferenceable(8) %108)
   %112 = load ptr, ptr %4, align 8
-  %113 = load ptr, ptr %.0116356, align 8
+  %113 = load ptr, ptr %.0117356, align 8
   %114 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %113) #17
   %115 = load ptr, ptr %112, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 56
@@ -3780,7 +3780,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit214:     ; preds = %.lr.ph358, %103
   %120 = getelementptr inbounds i8, ptr %119, i64 72
   %121 = load ptr, ptr %120, align 8
   tail call void %121(ptr noundef nonnull align 8 dereferenceable(8) %118, i64 3, ptr nonnull @.str.91)
-  %122 = getelementptr inbounds i8, ptr %.0116356, i64 32
+  %122 = getelementptr inbounds i8, ptr %.0117356, i64 32
   %.not198 = icmp eq ptr %122, %101
   br i1 %.not198, label %._crit_edge359, label %.lr.ph358
 
@@ -3876,7 +3876,7 @@ _ZNK4Luau7AstNameeqEPKc.exit.thread:              ; preds = %149, %.thread, %_ZN
   br i1 %.not368, label %._crit_edge.thread, label %.lr.ph346
 
 .lr.ph346:                                        ; preds = %_ZNK4Luau7AstNameeqEPKc.exit.thread, %203
-  %.0118345 = phi i64 [ %204, %203 ], [ 0, %_ZNK4Luau7AstNameeqEPKc.exit.thread ]
+  %.0119345 = phi i64 [ %204, %203 ], [ 0, %_ZNK4Luau7AstNameeqEPKc.exit.thread ]
   %.sroa.0284.0344 = phi i8 [ %.sroa.0284.1, %203 ], [ 1, %_ZNK4Luau7AstNameeqEPKc.exit.thread ]
   %173 = trunc nuw i8 %.sroa.0284.0344 to i1
   br i1 %173, label %_ZN4Luau22CommaSeparatorInserterclEv.exit217, label %174
@@ -3891,7 +3891,7 @@ _ZNK4Luau7AstNameeqEPKc.exit.thread:              ; preds = %149, %.thread, %_ZN
 _ZN4Luau22CommaSeparatorInserterclEv.exit217:     ; preds = %.lr.ph346, %174
   %.sroa.0284.1 = phi i8 [ %.sroa.0284.0344, %174 ], [ 0, %.lr.ph346 ]
   %178 = load ptr, ptr %167, align 8
-  %179 = getelementptr inbounds %"struct.Luau::AstTableProp", ptr %178, i64 %.0118345, i32 1
+  %179 = getelementptr inbounds %"struct.Luau::AstTableProp", ptr %178, i64 %.0119345, i32 1
   %180 = load ptr, ptr %4, align 8
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds i8, ptr %181, i64 16
@@ -3899,7 +3899,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit217:     ; preds = %.lr.ph346, %174
   tail call void %183(ptr noundef nonnull align 8 dereferenceable(8) %180, ptr noundef nonnull align 4 dereferenceable(8) %179)
   %184 = load ptr, ptr %4, align 8
   %185 = load ptr, ptr %167, align 8
-  %186 = getelementptr inbounds %"struct.Luau::AstTableProp", ptr %185, i64 %.0118345
+  %186 = getelementptr inbounds %"struct.Luau::AstTableProp", ptr %185, i64 %.0119345
   %187 = load ptr, ptr %186, align 8
   %188 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %187) #17
   %189 = load ptr, ptr %184, align 8
@@ -3907,7 +3907,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit217:     ; preds = %.lr.ph346, %174
   %191 = load ptr, ptr %190, align 8
   tail call void %191(ptr noundef nonnull align 8 dereferenceable(8) %184, i64 %188, ptr %187)
   %192 = load ptr, ptr %167, align 8
-  %193 = getelementptr inbounds %"struct.Luau::AstTableProp", ptr %192, i64 %.0118345, i32 2
+  %193 = getelementptr inbounds %"struct.Luau::AstTableProp", ptr %192, i64 %.0119345, i32 2
   %194 = load ptr, ptr %193, align 8
   %.not194 = icmp eq ptr %194, null
   br i1 %.not194, label %203, label %195
@@ -3919,13 +3919,13 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit217:     ; preds = %.lr.ph346, %174
   %199 = load ptr, ptr %198, align 8
   tail call void %199(ptr noundef nonnull align 8 dereferenceable(8) %196, i64 1, ptr nonnull @.str.98)
   %200 = load ptr, ptr %167, align 8
-  %201 = getelementptr inbounds %"struct.Luau::AstTableProp", ptr %200, i64 %.0118345, i32 2
+  %201 = getelementptr inbounds %"struct.Luau::AstTableProp", ptr %200, i64 %.0119345, i32 2
   %202 = load ptr, ptr %201, align 8
   tail call void @_ZN4Luau7Printer23visualizeTypeAnnotationERKNS_7AstTypeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(28) %202)
   br label %203
 
 203:                                              ; preds = %_ZN4Luau22CommaSeparatorInserterclEv.exit217, %195
-  %204 = add nuw i64 %.0118345, 1
+  %204 = add nuw i64 %.0119345, 1
   %205 = load i64, ptr %166, align 8
   %206 = icmp ult i64 %204, %205
   br i1 %206, label %.lr.ph346, label %._crit_edge, !llvm.loop !10
@@ -4111,14 +4111,14 @@ _ZNK4Luau7AstNameeqEPKc.exit226:                  ; preds = %276
   br label %common.ret381
 
 .lr.ph343:                                        ; preds = %.lr.ph343.preheader, %335
-  %.0119342 = phi i64 [ %336, %335 ], [ 0, %.lr.ph343.preheader ]
-  %.not189 = icmp eq i64 %.0119342, 0
+  %.0118342 = phi i64 [ %336, %335 ], [ 0, %.lr.ph343.preheader ]
+  %.not189 = icmp eq i64 %.0118342, 0
   %.pre370 = load ptr, ptr %257, align 8
   br i1 %.not189, label %313, label %301
 
 301:                                              ; preds = %.lr.ph343
   %302 = load ptr, ptr %4, align 8
-  %303 = getelementptr inbounds ptr, ptr %.pre370, i64 %.0119342
+  %303 = getelementptr inbounds ptr, ptr %.pre370, i64 %.0118342
   %304 = load ptr, ptr %303, align 8
   %305 = getelementptr inbounds i8, ptr %304, i64 12
   %306 = load ptr, ptr %302, align 8
@@ -4135,7 +4135,7 @@ _ZNK4Luau7AstNameeqEPKc.exit226:                  ; preds = %276
 
 313:                                              ; preds = %301, %.lr.ph343
   %314 = phi ptr [ %.pre, %301 ], [ %.pre370, %.lr.ph343 ]
-  %315 = getelementptr inbounds ptr, ptr %314, i64 %.0119342
+  %315 = getelementptr inbounds ptr, ptr %314, i64 %.0118342
   %316 = load ptr, ptr %315, align 8
   %317 = getelementptr inbounds i8, ptr %316, i64 8
   %318 = load i32, ptr %317, align 8
@@ -4158,7 +4158,7 @@ _ZNK4Luau7AstNameeqEPKc.exit226:                  ; preds = %276
   %327 = load ptr, ptr %326, align 8
   tail call void %327(ptr noundef nonnull align 8 dereferenceable(8) %324, i64 1, ptr nonnull @.str.99)
   %328 = load ptr, ptr %257, align 8
-  %329 = getelementptr inbounds ptr, ptr %328, i64 %.0119342
+  %329 = getelementptr inbounds ptr, ptr %328, i64 %.0118342
   %330 = load ptr, ptr %329, align 8
   tail call void @_ZN4Luau7Printer23visualizeTypeAnnotationERKNS_7AstTypeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(28) %330)
   %331 = load ptr, ptr %4, align 8
@@ -4173,7 +4173,7 @@ _ZNK4Luau7AstNameeqEPKc.exit226:                  ; preds = %276
   br label %335
 
 335:                                              ; preds = %.critedge203, %.critedge209
-  %336 = add nuw i64 %.0119342, 1
+  %336 = add nuw i64 %.0118342, 1
   %337 = load i64, ptr %258, align 8
   %338 = icmp ult i64 %336, %337
   br i1 %338, label %.lr.ph343, label %common.ret381, !llvm.loop !11
@@ -4191,14 +4191,14 @@ _ZNK4Luau7AstNameeqEPKc.exit226:                  ; preds = %276
   br i1 %.not366, label %common.ret381, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %379
-  %.0117341 = phi i64 [ %380, %379 ], [ 0, %.preheader ]
-  %.not185 = icmp eq i64 %.0117341, 0
+  %.0115341 = phi i64 [ %380, %379 ], [ 0, %.preheader ]
+  %.not185 = icmp eq i64 %.0115341, 0
   br i1 %.not185, label %357, label %344
 
 344:                                              ; preds = %.lr.ph
   %345 = load ptr, ptr %4, align 8
   %346 = load ptr, ptr %341, align 8
-  %347 = getelementptr inbounds ptr, ptr %346, i64 %.0117341
+  %347 = getelementptr inbounds ptr, ptr %346, i64 %.0115341
   %348 = load ptr, ptr %347, align 8
   %349 = getelementptr inbounds i8, ptr %348, i64 12
   %350 = load ptr, ptr %345, align 8
@@ -4214,7 +4214,7 @@ _ZNK4Luau7AstNameeqEPKc.exit226:                  ; preds = %276
 
 357:                                              ; preds = %344, %.lr.ph
   %358 = load ptr, ptr %341, align 8
-  %359 = getelementptr inbounds ptr, ptr %358, i64 %.0117341
+  %359 = getelementptr inbounds ptr, ptr %358, i64 %.0115341
   %360 = load ptr, ptr %359, align 8
   %361 = getelementptr inbounds i8, ptr %360, i64 8
   %362 = load i32, ptr %361, align 8
@@ -4237,7 +4237,7 @@ _ZNK4Luau7AstNameeqEPKc.exit226:                  ; preds = %276
   %371 = load ptr, ptr %370, align 8
   tail call void %371(ptr noundef nonnull align 8 dereferenceable(8) %368, i64 1, ptr nonnull @.str.99)
   %372 = load ptr, ptr %341, align 8
-  %373 = getelementptr inbounds ptr, ptr %372, i64 %.0117341
+  %373 = getelementptr inbounds ptr, ptr %372, i64 %.0115341
   %374 = load ptr, ptr %373, align 8
   tail call void @_ZN4Luau7Printer23visualizeTypeAnnotationERKNS_7AstTypeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(28) %374)
   %375 = load ptr, ptr %4, align 8
@@ -4252,7 +4252,7 @@ _ZNK4Luau7AstNameeqEPKc.exit226:                  ; preds = %276
   br label %379
 
 379:                                              ; preds = %.critedge205, %.critedge211
-  %380 = add nuw i64 %.0117341, 1
+  %380 = add nuw i64 %.0115341, 1
   %381 = load i64, ptr %342, align 8
   %382 = icmp ult i64 %380, %381
   br i1 %382, label %.lr.ph, label %common.ret381, !llvm.loop !12
@@ -5619,7 +5619,7 @@ define linkonce_odr dso_local void @_ZN4Luau7Printer21visualizeFunctionBodyERNS_
   br i1 %.not4077, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %_ZN4Luau22CommaSeparatorInserterclEv.exit
-  %.079 = phi ptr [ %34, %_ZN4Luau22CommaSeparatorInserterclEv.exit ], [ %15, %8 ]
+  %.03779 = phi ptr [ %34, %_ZN4Luau22CommaSeparatorInserterclEv.exit ], [ %15, %8 ]
   %.sroa.073.078 = phi i8 [ %.sroa.073.1, %_ZN4Luau22CommaSeparatorInserterclEv.exit ], [ 1, %8 ]
   %18 = trunc nuw i8 %.sroa.073.078 to i1
   br i1 %18, label %_ZN4Luau22CommaSeparatorInserterclEv.exit, label %19
@@ -5634,19 +5634,19 @@ define linkonce_odr dso_local void @_ZN4Luau7Printer21visualizeFunctionBodyERNS_
 _ZN4Luau22CommaSeparatorInserterclEv.exit:        ; preds = %.lr.ph, %19
   %.sroa.073.1 = phi i8 [ %.sroa.073.078, %19 ], [ 0, %.lr.ph ]
   %23 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds i8, ptr %.079, i64 8
+  %24 = getelementptr inbounds i8, ptr %.03779, i64 8
   %25 = load ptr, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 4 dereferenceable(8) %24)
   %28 = load ptr, ptr %10, align 8
-  %29 = load ptr, ptr %.079, align 8
+  %29 = load ptr, ptr %.03779, align 8
   %30 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #17
   %31 = load ptr, ptr %28, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 56
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull align 8 dereferenceable(8) %28, i64 %30, ptr %29)
-  %34 = getelementptr inbounds i8, ptr %.079, i64 32
+  %34 = getelementptr inbounds i8, ptr %.03779, i64 32
   %.not40 = icmp eq ptr %34, %17
   br i1 %.not40, label %._crit_edge, label %.lr.ph
 
@@ -5722,10 +5722,10 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit45:      ; preds = %.lr.ph84, %40
   br label %74
 
 74:                                               ; preds = %.lr.ph89, %105
-  %.03787 = phi i64 [ 0, %.lr.ph89 ], [ %106, %105 ]
+  %.087 = phi i64 [ 0, %.lr.ph89 ], [ %106, %105 ]
   %.sroa.058.086 = phi i8 [ 1, %.lr.ph89 ], [ %.sroa.058.1, %105 ]
   %75 = load ptr, ptr %73, align 8
-  %76 = getelementptr inbounds ptr, ptr %75, i64 %.03787
+  %76 = getelementptr inbounds ptr, ptr %75, i64 %.087
   %77 = load ptr, ptr %76, align 8
   %78 = trunc nuw i8 %.sroa.058.086 to i1
   br i1 %78, label %_ZN4Luau22CommaSeparatorInserterclEv.exit46, label %79
@@ -5773,7 +5773,7 @@ _ZN4Luau22CommaSeparatorInserterclEv.exit46:      ; preds = %74, %79
   br label %105
 
 105:                                              ; preds = %_ZN4Luau22CommaSeparatorInserterclEv.exit46, %96, %99
-  %106 = add nuw i64 %.03787, 1
+  %106 = add nuw i64 %.087, 1
   %107 = load i64, ptr %71, align 8
   %108 = icmp ult i64 %106, %107
   br i1 %108, label %74, label %._crit_edge90, !llvm.loop !16
@@ -6058,9 +6058,9 @@ define linkonce_odr dso_local void @_ZN4Luau7Printer17visualizeTypeListERKNS_11A
   br i1 %.not2238, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %34, %48
-  %.040 = phi i1 [ false, %48 ], [ true, %34 ]
-  %.02039 = phi ptr [ %50, %48 ], [ %40, %34 ]
-  br i1 %.040, label %48, label %43
+  %.040 = phi ptr [ %50, %48 ], [ %40, %34 ]
+  %.02039 = phi i1 [ false, %48 ], [ true, %34 ]
+  br i1 %.02039, label %48, label %43
 
 43:                                               ; preds = %.lr.ph
   %44 = load ptr, ptr %35, align 8
@@ -6071,9 +6071,9 @@ define linkonce_odr dso_local void @_ZN4Luau7Printer17visualizeTypeListERKNS_11A
   br label %48
 
 48:                                               ; preds = %.lr.ph, %43
-  %49 = load ptr, ptr %.02039, align 8
+  %49 = load ptr, ptr %.040, align 8
   tail call void @_ZN4Luau7Printer23visualizeTypeAnnotationERKNS_7AstTypeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(28) %49)
-  %50 = getelementptr inbounds i8, ptr %.02039, i64 8
+  %50 = getelementptr inbounds i8, ptr %.040, i64 8
   %.not22 = icmp eq ptr %50, %42
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
@@ -6113,41 +6113,41 @@ define linkonce_odr dso_local void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind
   br i1 %5, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %17
-  %.02230.i = phi i32 [ %18, %17 ], [ %4, %2 ]
-  %.02329.i = phi i32 [ %19, %17 ], [ 1, %2 ]
-  %6 = icmp ult i32 %.02230.i, 100
+  %.030.i = phi i32 [ %19, %17 ], [ 1, %2 ]
+  %.02329.i = phi i32 [ %18, %17 ], [ %4, %2 ]
+  %6 = icmp ult i32 %.02329.i, 100
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = add i32 %.02329.i, 1
+  %8 = add i32 %.030.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = icmp ult i32 %.02230.i, 1000
+  %10 = icmp ult i32 %.02329.i, 1000
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = add i32 %.02329.i, 2
+  %12 = add i32 %.030.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 13:                                               ; preds = %9
-  %14 = icmp ult i32 %.02230.i, 10000
+  %14 = icmp ult i32 %.02329.i, 10000
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = add i32 %.02329.i, 3
+  %16 = add i32 %.030.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 17:                                               ; preds = %13
-  %18 = udiv i32 %.02230.i, 10000
-  %19 = add i32 %.02329.i, 4
-  %20 = icmp ult i32 %.02230.i, 100000
+  %18 = udiv i32 %.02329.i, 10000
+  %19 = add i32 %.030.i, 4
+  %20 = icmp ult i32 %.02329.i, 100000
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !17
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.022.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
-  %21 = add i32 %.0.i, %.lobit
+  %21 = add i32 %.022.i, %.lobit
   %22 = zext i32 %21 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #17
   %23 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -6178,7 +6178,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br i1 %29, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %28
-  %30 = add i32 %.0.i, -1
+  %30 = add i32 %.022.i, -1
   br label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %.lr.ph.i12, %.lr.ph.preheader.i

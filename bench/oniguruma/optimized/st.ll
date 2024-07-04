@@ -766,8 +766,8 @@ define noalias noundef ptr @onig_st_copy(ptr nocapture noundef readonly %0) loca
   br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !13
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader, %1, %21, %14
-  %.0 = phi ptr [ null, %14 ], [ null, %21 ], [ null, %1 ], [ %4, %.preheader ], [ %4, %._crit_edge ]
-  ret ptr %.0
+  %.029 = phi ptr [ null, %14 ], [ null, %21 ], [ null, %1 ], [ %4, %.preheader ], [ %4, %._crit_edge ]
+  ret ptr %.029
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

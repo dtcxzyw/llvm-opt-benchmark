@@ -4886,8 +4886,8 @@ define ptr @env_array_user_default(ptr noundef %0, i32 noundef %1, i32 noundef %
   unreachable
 
 48:                                               ; preds = %44, %41, %39
-  %.055 = phi ptr [ %40, %39 ], [ @.str.194, %41 ], [ @.str.195, %44 ]
-  %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 256, ptr noundef nonnull @.str.197, ptr noundef nonnull @.str.186, ptr noundef %.055, ptr noundef nonnull @.str.187) #18
+  %.053 = phi ptr [ %40, %39 ], [ @.str.194, %41 ], [ @.str.195, %44 ]
+  %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 256, ptr noundef nonnull @.str.197, ptr noundef nonnull @.str.186, ptr noundef %.053, ptr noundef nonnull @.str.187) #18
   call void @slurm_xfree(ptr noundef nonnull %13) #18
   %50 = call i32 @pipe(ptr noundef nonnull %14) #18
   %51 = icmp slt i32 %50, 0
@@ -4976,7 +4976,7 @@ _clone_env_child.exit:                            ; preds = %64
   %92 = icmp eq i32 %1, 0
   %93 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 384), align 8
   %94 = zext i16 %93 to i32
-  %.050 = select i1 %92, i32 %94, i32 %1
+  %.051 = select i1 %92, i32 %94, i32 %1
   %95 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 262144, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 2164, ptr noundef nonnull @__func__.env_array_user_default) #18
   store ptr %95, ptr %10, align 8
   %96 = load i64, ptr %17, align 8
@@ -4992,14 +4992,14 @@ _clone_env_child.exit:                            ; preds = %64
   %104 = sub nsw i64 %103, %99
   %.neg125132 = sdiv i64 %104, -1000
   %105 = trunc i64 %.neg125132 to i32
-  %reass.add126133 = add i32 %.050, %.neg109124131
+  %reass.add126133 = add i32 %.051, %.neg109124131
   %reass.mul127134 = mul i32 %reass.add126133, 1000
   %106 = add i32 %reass.mul127134, %105
   %107 = icmp slt i32 %106, 1
   br i1 %107, label %.outer._crit_edge, label %.lr.ph128
 
 .outer:                                           ; preds = %162
-  %108 = add nuw nsw i32 %.051.ph135, %170
+  %108 = add nuw nsw i32 %.050.ph135, %170
   %109 = call i32 @gettimeofday(ptr noundef nonnull %18, ptr noundef null) #18
   %110 = load i64, ptr %18, align 8
   %.neg108123 = sub i64 %96, %110
@@ -5008,7 +5008,7 @@ _clone_env_child.exit:                            ; preds = %64
   %112 = sub nsw i64 %111, %99
   %.neg125 = sdiv i64 %112, -1000
   %113 = trunc i64 %.neg125 to i32
-  %reass.add126 = add i32 %.050, %.neg109124
+  %reass.add126 = add i32 %.051, %.neg109124
   %reass.mul127 = mul i32 %reass.add126, 1000
   %114 = add i32 %reass.mul127, %113
   %115 = icmp slt i32 %114, 1
@@ -5016,7 +5016,7 @@ _clone_env_child.exit:                            ; preds = %64
 
 .lr.ph128:                                        ; preds = %88, %.outer
   %116 = phi i32 [ %114, %.outer ], [ %106, %88 ]
-  %.051.ph135 = phi i32 [ %108, %.outer ], [ 0, %88 ]
+  %.050.ph135 = phi i32 [ %108, %.outer ], [ 0, %88 ]
   br label %123
 
 .outer._crit_edge:                                ; preds = %.outer, %136, %88
@@ -5070,7 +5070,7 @@ _clone_env_child.exit:                            ; preds = %64
   %140 = sub nsw i64 %139, %99
   %.neg = sdiv i64 %140, -1000
   %141 = trunc i64 %.neg to i32
-  %reass.add = add i32 %.050, %.neg109
+  %reass.add = add i32 %.051, %.neg109
   %reass.mul = mul i32 %reass.add, 1000
   %142 = add i32 %reass.mul, %141
   %143 = icmp slt i32 %142, 1
@@ -5106,7 +5106,7 @@ _clone_env_child.exit:                            ; preds = %64
   br label %176
 
 158:                                              ; preds = %146
-  %159 = icmp eq i32 %.051.ph135, 262144
+  %159 = icmp eq i32 %.050.ph135, 262144
   br i1 %159, label %160, label %162
 
 160:                                              ; preds = %158
@@ -5114,10 +5114,10 @@ _clone_env_child.exit:                            ; preds = %64
   br label %176
 
 162:                                              ; preds = %158
-  %163 = sub nsw i32 262144, %.051.ph135
+  %163 = sub nsw i32 262144, %.050.ph135
   %164 = load i32, ptr %14, align 4
   %165 = load ptr, ptr %10, align 8
-  %166 = zext nneg i32 %.051.ph135 to i64
+  %166 = zext nneg i32 %.050.ph135 to i64
   %167 = getelementptr inbounds i8, ptr %165, i64 %166
   %168 = sext i32 %163 to i64
   %169 = call i64 @read(i32 noundef %164, ptr noundef %167, i64 noundef %168) #18
@@ -5214,8 +5214,8 @@ env_array_free.exit:                              ; preds = %176, %._crit_edge.i
   br i1 %.not74103, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %201, %205
-  %.052104 = phi ptr [ %206, %205 ], [ %203, %201 ]
-  %204 = call i32 @xstrncmp(ptr noundef nonnull %.052104, ptr noundef nonnull @.str.186, i64 noundef 29) #18
+  %.054104 = phi ptr [ %206, %205 ], [ %203, %201 ]
+  %204 = call i32 @xstrncmp(ptr noundef nonnull %.054104, ptr noundef nonnull @.str.186, i64 noundef 29) #18
   %.not75 = icmp eq i32 %204, 0
   br i1 %.not75, label %210, label %205
 
@@ -5244,20 +5244,20 @@ env_array_free.exit:                              ; preds = %176, %._crit_edge.i
   br i1 %.not77105, label %._crit_edge, label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %210, %_env_array_entry_splitter.exit.thread
-  %.1106 = phi ptr [ %270, %_env_array_entry_splitter.exit.thread ], [ %212, %210 ]
-  %214 = call i32 @xstrncmp(ptr noundef nonnull %.1106, ptr noundef nonnull @.str.187, i64 noundef 29) #18
+  %.155106 = phi ptr [ %270, %_env_array_entry_splitter.exit.thread ], [ %212, %210 ]
+  %214 = call i32 @xstrncmp(ptr noundef nonnull %.155106, ptr noundef nonnull @.str.187, i64 noundef 29) #18
   %.not78 = icmp eq i32 %214, 0
   br i1 %.not78, label %279, label %215
 
 215:                                              ; preds = %.lr.ph107
   %216 = load ptr, ptr %9, align 8
-  %217 = call ptr @xstrchr(ptr noundef nonnull %.1106, i32 noundef 61) #18
+  %217 = call ptr @xstrchr(ptr noundef nonnull %.155106, i32 noundef 61) #18
   %218 = icmp eq ptr %217, null
   br i1 %218, label %_env_array_entry_splitter.exit.thread, label %219
 
 219:                                              ; preds = %215
   %220 = ptrtoint ptr %217 to i64
-  %221 = ptrtoint ptr %.1106 to i64
+  %221 = ptrtoint ptr %.155106 to i64
   %222 = sub i64 %220, %221
   %223 = trunc i64 %222 to i32
   %224 = add i32 %223, 1
@@ -5266,7 +5266,7 @@ env_array_free.exit:                              ; preds = %176, %._crit_edge.i
 
 226:                                              ; preds = %219
   %227 = sext i32 %224 to i64
-  %228 = call i64 @strlcpy(ptr noundef nonnull %8, ptr noundef nonnull dereferenceable(1) %.1106, i64 noundef %227) #18
+  %228 = call i64 @strlcpy(ptr noundef nonnull %8, ptr noundef nonnull dereferenceable(1) %.155106, i64 noundef %227) #18
   %229 = getelementptr inbounds i8, ptr %217, i64 1
   %230 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %229) #19
   %231 = trunc i64 %230 to i32

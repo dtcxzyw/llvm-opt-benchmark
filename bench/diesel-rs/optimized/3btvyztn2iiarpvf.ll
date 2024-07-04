@@ -4280,9 +4280,9 @@ define void @_ZN6diesel5mysql10connection4stmt8iterator17StatementIterator9from_
   invoke void @_ZN6diesel5mysql10connection4stmt9Statement8metadata17h4a61c74f77dcc380E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.0.i)
           to label %23 unwind label %21
 
-"_ZN4core3ptr81drop_in_place$LT$diesel..mysql..connection..stmt..metadata..StatementMetadata$GT$17hf1b9086e810a577fE.exit87": ; preds = %.thread111, %21
-  %.053 = phi i1 [ %.154, %21 ], [ %.255117, %.thread111 ]
-  %.pn64 = phi { ptr, i32 } [ %22, %21 ], [ %.pn62118, %.thread111 ]
+"_ZN4core3ptr81drop_in_place$LT$diesel..mysql..connection..stmt..metadata..StatementMetadata$GT$17hf1b9086e810a577fE.exit87": ; preds = %.thread115, %21
+  %.053 = phi i1 [ %.154, %21 ], [ %.255121, %.thread115 ]
+  %.pn64 = phi { ptr, i32 } [ %22, %21 ], [ %.pn62122, %.thread115 ]
   %20 = load i64, ptr %1, align 8, !range !167
   %.not.i88 = icmp ne i64 %20, -9223372036854775807
   %or.cond.not = select i1 %.053, i1 %.not.i88, i1 false
@@ -4334,16 +4334,16 @@ define void @_ZN6diesel5mysql10connection4stmt8iterator17StatementIterator9from_
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hbeb1d235a6b3b471E.llvm.11731155751478127742"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %.sroa.05.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %9)
           to label %38 unwind label %36
 
-35:                                               ; preds = %.thread119, %53
-  %.0 = phi i1 [ %.1125, %.thread119 ], [ %.2, %53 ]
-  %.pn62 = phi { ptr, i32 } [ %.pn.pn126, %.thread119 ], [ %.pn, %53 ]
-  br i1 %.0, label %.thread111, label %"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h4e932c9ca3e49612E.exit90"
+35:                                               ; preds = %.thread123, %53
+  %.0 = phi i1 [ %.1129, %.thread123 ], [ %.2, %53 ]
+  %.pn62 = phi { ptr, i32 } [ %.pn.pn130, %.thread123 ], [ %.pn, %53 ]
+  br i1 %.0, label %.thread115, label %"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h4e932c9ca3e49612E.exit90"
 
 36:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89a92533f0220769E.llvm.2909037117879540835.exit.i.i.i", %.noexc68, %.noexc, %28
   %.356 = phi i1 [ true, %28 ], [ true, %.noexc ], [ true, %.noexc68 ], [ false, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89a92533f0220769E.llvm.2909037117879540835.exit.i.i.i" ]
   %37 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread111
+  br label %.thread115
 
 38:                                               ; preds = %.noexc68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.05.i, i64 24, i1 false), !noalias !615
@@ -4391,11 +4391,11 @@ define void @_ZN6diesel5mysql10connection4stmt8iterator17StatementIterator9from_
           cleanup
   %49 = load i64, ptr %11, align 8, !range !167, !alias.scope !628, !noalias !623, !noundef !10
   %.not.i12.i = icmp eq i64 %49, -9223372036854775807
-  br i1 %.not.i12.i, label %.thread119, label %50
+  br i1 %.not.i12.i, label %.thread123, label %50
 
 50:                                               ; preds = %47
   invoke void @"_ZN4core3ptr63drop_in_place$LT$diesel..mysql..connection..stmt..Statement$GT$17h0b14d9c308cfee6dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
-          to label %.thread119 unwind label %51, !noalias !616
+          to label %.thread123 unwind label %51, !noalias !616
 
 51:                                               ; preds = %50
   %52 = landingpad { ptr, i32 }
@@ -4404,12 +4404,12 @@ define void @_ZN6diesel5mysql10connection4stmt8iterator17StatementIterator9from_
   unreachable
 
 53:                                               ; preds = %.body73
-  br i1 %.152, label %.thread119, label %35
+  br i1 %.152, label %.thread123, label %35
 
 54:                                               ; preds = %46, %42
   %55 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread119
+  br label %.thread123
 
 .thread:                                          ; preds = %43, %46
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
@@ -4543,7 +4543,7 @@ define void @_ZN6diesel5mysql10connection4stmt8iterator17StatementIterator9from_
 "_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h4e932c9ca3e49612E.exit": ; preds = %107, %111, %108, %85
   ret void
 
-86:                                               ; preds = %112, %.thread111, %.thread119, %.body80, %.body73
+86:                                               ; preds = %112, %.thread115, %.thread123, %.body80, %.body73
   %87 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #30
@@ -4571,7 +4571,7 @@ define void @_ZN6diesel5mysql10connection4stmt8iterator17StatementIterator9from_
   %96 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr92drop_in_place$LT$alloc..raw_vec..RawVec$LT$diesel..mysql..connection..bind..BindData$GT$$GT$17hebd09c9970c9e05aE.llvm.2909037117879540835"(ptr noalias noundef nonnull align 8 dereferenceable(16) %14) #29
-          to label %.thread111 unwind label %105
+          to label %.thread115 unwind label %105
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89a92533f0220769E.llvm.2909037117879540835.exit.i.i.i": ; preds = %88
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !654
@@ -4607,15 +4607,15 @@ define void @_ZN6diesel5mysql10connection4stmt8iterator17StatementIterator9from_
   invoke void @mysql_free_result(ptr noundef nonnull %27)
           to label %"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h4e932c9ca3e49612E.exit" unwind label %21
 
-.thread119:                                       ; preds = %54, %47, %50, %53
-  %.pn.pn126 = phi { ptr, i32 } [ %.pn, %53 ], [ %48, %50 ], [ %48, %47 ], [ %55, %54 ]
-  %.1125 = phi i1 [ %.2, %53 ], [ true, %50 ], [ true, %47 ], [ true, %54 ]
+.thread123:                                       ; preds = %54, %47, %50, %53
+  %.pn.pn130 = phi { ptr, i32 } [ %.pn, %53 ], [ %48, %50 ], [ %48, %47 ], [ %55, %54 ]
+  %.1129 = phi i1 [ %.2, %53 ], [ true, %50 ], [ true, %47 ], [ true, %54 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$diesel..mysql..connection..bind..OutputBinds$GT$17hebbb1f04276e020bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #29
           to label %35 unwind label %86
 
-.thread111:                                       ; preds = %95, %36, %35
-  %.pn62118 = phi { ptr, i32 } [ %.pn62, %35 ], [ %37, %36 ], [ %96, %95 ]
-  %.255117 = phi i1 [ false, %35 ], [ %.356, %36 ], [ false, %95 ]
+.thread115:                                       ; preds = %95, %36, %35
+  %.pn62122 = phi { ptr, i32 } [ %.pn62, %35 ], [ %37, %36 ], [ %96, %95 ]
+  %.255121 = phi i1 [ false, %35 ], [ %.356, %36 ], [ false, %95 ]
   invoke void @mysql_free_result(ptr noundef nonnull %27)
           to label %"_ZN4core3ptr81drop_in_place$LT$diesel..mysql..connection..stmt..metadata..StatementMetadata$GT$17hf1b9086e810a577fE.exit87" unwind label %86
 
@@ -4639,8 +4639,8 @@ define void @_ZN6diesel5mysql10connection4stmt8iterator17StatementIterator9from_
   br label %"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h4e932c9ca3e49612E.exit"
 
 "_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h4e932c9ca3e49612E.exit90": ; preds = %35, %112, %"_ZN4core3ptr81drop_in_place$LT$diesel..mysql..connection..stmt..metadata..StatementMetadata$GT$17hf1b9086e810a577fE.exit87"
-  %.pn64134 = phi { ptr, i32 } [ %.pn64, %112 ], [ %.pn64, %"_ZN4core3ptr81drop_in_place$LT$diesel..mysql..connection..stmt..metadata..StatementMetadata$GT$17hf1b9086e810a577fE.exit87" ], [ %.pn62, %35 ]
-  resume { ptr, i32 } %.pn64134
+  %.pn64138 = phi { ptr, i32 } [ %.pn64, %112 ], [ %.pn64, %"_ZN4core3ptr81drop_in_place$LT$diesel..mysql..connection..stmt..metadata..StatementMetadata$GT$17hf1b9086e810a577fE.exit87" ], [ %.pn62, %35 ]
+  resume { ptr, i32 } %.pn64138
 
 112:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$diesel..mysql..connection..stmt..metadata..StatementMetadata$GT$17hf1b9086e810a577fE.exit87"
   invoke void @"_ZN4core3ptr63drop_in_place$LT$diesel..mysql..connection..stmt..Statement$GT$17h0b14d9c308cfee6dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)

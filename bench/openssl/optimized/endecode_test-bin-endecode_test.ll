@@ -3353,8 +3353,8 @@ if.end30:                                         ; preds = %lor.lhs.false26
   br label %end
 
 end:                                              ; preds = %if.end5, %lor.lhs.false, %lor.lhs.false15, %lor.lhs.false23, %lor.lhs.false26, %if.then, %if.end30
-  %mem_ser.0 = phi ptr [ %call7, %if.end30 ], [ %call7, %lor.lhs.false26 ], [ %call7, %lor.lhs.false23 ], [ %call7, %lor.lhs.false15 ], [ %call7, %lor.lhs.false ], [ %call7, %if.end5 ], [ null, %if.then ]
   %cipher.1 = phi ptr [ %cipher.0, %if.end30 ], [ %cipher.0, %lor.lhs.false26 ], [ %cipher.0, %lor.lhs.false23 ], [ %cipher.0, %lor.lhs.false15 ], [ %cipher.0, %lor.lhs.false ], [ %cipher.0, %if.end5 ], [ %call2, %if.then ]
+  %mem_ser.0 = phi ptr [ %call7, %if.end30 ], [ %call7, %lor.lhs.false26 ], [ %call7, %lor.lhs.false23 ], [ %call7, %lor.lhs.false15 ], [ %call7, %lor.lhs.false ], [ %call7, %if.end5 ], [ null, %if.then ]
   %ok.0 = phi i32 [ 1, %if.end30 ], [ 0, %lor.lhs.false26 ], [ 0, %lor.lhs.false23 ], [ 0, %lor.lhs.false15 ], [ 0, %lor.lhs.false ], [ 0, %if.end5 ], [ 0, %if.then ]
   %call33 = call i32 @BIO_free(ptr noundef %mem_ser.0) #7
   call void @EVP_CIPHER_free(ptr noundef %cipher.1) #7

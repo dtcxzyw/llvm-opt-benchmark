@@ -2389,7 +2389,7 @@ add_interface_id_text.exit.i:                     ; preds = %552, %ht_interface_
   br label %607
 
 607:                                              ; preds = %601, %598, %589
-  %.0418.i = phi i32 [ %593, %589 ], [ %600, %598 ], [ %606, %601 ]
+  %.0421.i = phi i32 [ %593, %589 ], [ %600, %598 ], [ %606, %601 ]
   %608 = add i32 %.0103, 24
   %609 = load i32, ptr @hf_cmp_can_crc, align 4
   %610 = load i32, ptr @ett_asam_cmp_can_crc, align 4
@@ -2426,8 +2426,8 @@ add_interface_id_text.exit.i:                     ; preds = %552, %ht_interface_
   %631 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %628, i32 noundef %629) #5
   %632 = and i16 %580, 1023
   %.not454.i = icmp eq i16 %632, 0
-  %633 = or i32 %.0418.i, 536870912
-  %spec.select.i = select i1 %.not454.i, i32 %.0418.i, i32 %633
+  %633 = or i32 %.0421.i, 536870912
+  %spec.select.i = select i1 %.not454.i, i32 %.0421.i, i32 %633
   store i32 %spec.select.i, ptr %12, align 4
   %634 = load i32, ptr %7, align 4
   store i32 %634, ptr %89, align 4
@@ -2513,7 +2513,7 @@ ht_interface_config_to_bus_id.exit.i:             ; preds = %644, %ht_lookup_cha
   br label %682
 
 682:                                              ; preds = %678, %675, %666
-  %.0420.i = phi i32 [ %670, %666 ], [ %677, %675 ], [ %681, %678 ]
+  %.0419.i = phi i32 [ %670, %666 ], [ %677, %675 ], [ %681, %678 ]
   %683 = add i32 %.0103, 24
   %684 = add i32 %.0103, 30
   %685 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %684) #5
@@ -2539,8 +2539,8 @@ ht_interface_config_to_bus_id.exit.i:             ; preds = %644, %ht_lookup_cha
   %701 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %698, i32 noundef %699) #5
   %702 = and i16 %657, 1023
   %.not448.i = icmp eq i16 %702, 0
-  %703 = or disjoint i32 %.0420.i, 536870912
-  %spec.select459.i = select i1 %.not448.i, i32 %.0420.i, i32 %703
+  %703 = or disjoint i32 %.0419.i, 536870912
+  %spec.select459.i = select i1 %.not448.i, i32 %.0419.i, i32 %703
   store i32 %spec.select459.i, ptr %13, align 4
   %704 = load i32, ptr %7, align 4
   store i32 %704, ptr %86, align 4
@@ -2781,7 +2781,7 @@ ht_interface_config_to_bus_id.exit472.i:          ; preds = %827, %ht_lookup_cha
 
 .lr.ph486.i:                                      ; preds = %840, %868
   %.4485.i = phi i32 [ %869, %868 ], [ %853, %840 ]
-  %.0422484.i = phi i32 [ %870, %868 ], [ 0, %840 ]
+  %.0418484.i = phi i32 [ %870, %868 ], [ 0, %840 ]
   %855 = load i32, ptr @hf_cmp_uart_data, align 4
   %856 = load i32, ptr @ett_asam_cmp_uart_data, align 4
   %857 = call ptr @proto_tree_add_bitmask(ptr noundef %568, ptr noundef %0, i32 noundef %.4485.i, i32 noundef %855, i32 noundef %856, ptr noundef nonnull @dissect_asam_cmp_data_msg.asam_cmp_uart_data, i32 noundef 0) #5
@@ -2809,7 +2809,7 @@ ht_interface_config_to_bus_id.exit472.i:          ; preds = %827, %ht_lookup_cha
 
 868:                                              ; preds = %867, %866, %.lr.ph486.i
   %869 = add i32 %.4485.i, 2
-  %870 = add nuw i32 %.0422484.i, 1
+  %870 = add nuw i32 %.0418484.i, 1
   %871 = load i32, ptr %7, align 4
   %872 = icmp ult i32 %870, %871
   br i1 %872, label %.lr.ph486.i, label %.loopexit.i, !llvm.loop !9

@@ -11848,7 +11848,7 @@ define internal fastcc ptr @gsm_map_get_matching_tcap_info(ptr nocapture noundef
   br label %19
 
 19:                                               ; preds = %13, %7
-  %.017 = phi ptr [ %12, %7 ], [ %15, %13 ]
+  %.0 = phi ptr [ %12, %7 ], [ %15, %13 ]
   store i32 1, ptr %2, align 16
   %20 = load ptr, ptr %4, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 40
@@ -11864,7 +11864,7 @@ define internal fastcc ptr @gsm_map_get_matching_tcap_info(ptr nocapture noundef
   store i32 0, ptr %27, align 16
   %28 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr null, ptr %28, align 8
-  %29 = load ptr, ptr %.017, align 8
+  %29 = load ptr, ptr %.0, align 8
   %30 = call ptr @wmem_tree_lookup32_array_le(ptr noundef %29, ptr noundef nonnull %2) #5
   %.not23 = icmp eq ptr %30, null
   br i1 %.not23, label %38, label %31
@@ -11882,8 +11882,8 @@ define internal fastcc ptr @gsm_map_get_matching_tcap_info(ptr nocapture noundef
   br label %39
 
 39:                                               ; preds = %31, %38
-  %.0 = phi ptr [ null, %38 ], [ %30, %31 ]
-  ret ptr %.0
+  %.017 = phi ptr [ null, %38 ], [ %30, %31 ]
+  ret ptr %.017
 }
 
 declare ptr @wmem_tree_lookup32_array_le(ptr noundef, ptr noundef) local_unnamed_addr #1

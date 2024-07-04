@@ -2355,14 +2355,14 @@ _ZL14Abc_UtilStrsavPc.exit87:                     ; preds = %_ZL14Abc_UtilStrsav
   br i1 %67, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %_ZL14Abc_UtilStrsavPc.exit87, %68
-  %.067102 = phi i32 [ %69, %68 ], [ 0, %_ZL14Abc_UtilStrsavPc.exit87 ]
+  %.0102 = phi i32 [ %69, %68 ], [ 0, %_ZL14Abc_UtilStrsavPc.exit87 ]
   %.val77 = load ptr, ptr %63, align 8
   %.not = icmp eq ptr %.val77, null
   br i1 %.not, label %.critedge, label %68
 
 68:                                               ; preds = %.lr.ph
   tail call fastcc void @_ZL15Gia_ManAppendCiP10Gia_Man_t_(ptr noundef nonnull %46)
-  %69 = add nuw nsw i32 %.067102, 1
+  %69 = add nuw nsw i32 %.0102, 1
   %70 = load ptr, ptr %64, align 8
   %71 = getelementptr i8, ptr %70, i64 4
   %.val76 = load i32, ptr %71, align 4
@@ -7123,14 +7123,14 @@ define linkonce_odr noundef i32 @_ZN5Ttopt10TruthTable7BDDFindEii(ptr noundef no
 
 16:                                               ; preds = %.lr.ph99, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next, %16 ]
-  %.06798 = phi i1 [ true, %.lr.ph99 ], [ %18, %16 ]
-  %.06997 = phi i1 [ true, %.lr.ph99 ], [ %19, %16 ]
+  %.07397 = phi i1 [ true, %.lr.ph99 ], [ %19, %16 ]
+  %.07496 = phi i1 [ true, %.lr.ph99 ], [ %18, %16 ]
   %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
   %17 = load i64, ptr %gep, align 8
   %.not85 = icmp eq i64 %17, 0
-  %18 = and i1 %.06798, %.not85
+  %18 = and i1 %.07496, %.not85
   %.not86 = icmp eq i64 %17, -1
-  %19 = and i1 %.06997, %.not86
+  %19 = and i1 %.07397, %.not86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = icmp slt i64 %indvars.iv.next, %15
   %21 = select i1 %18, i1 true, i1 %19
@@ -7171,7 +7171,7 @@ define linkonce_odr noundef i32 @_ZN5Ttopt10TruthTable7BDDFindEii(ptr noundef no
 
 .lr.ph104.us:                                     ; preds = %.lr.ph104.us.preheader, %45
   %40 = phi i64 [ %47, %45 ], [ 0, %.lr.ph104.us.preheader ]
-  %.074107.us = phi i32 [ %46, %45 ], [ 0, %.lr.ph104.us.preheader ]
+  %.071107.us = phi i32 [ %46, %45 ], [ 0, %.lr.ph104.us.preheader ]
   %41 = getelementptr inbounds i32, ptr %30, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = shl i32 %42, %9
@@ -7180,24 +7180,24 @@ define linkonce_odr noundef i32 @_ZN5Ttopt10TruthTable7BDDFindEii(ptr noundef no
   br label %49
 
 45:                                               ; preds = %..critedge2_crit_edge.us
-  %46 = add i32 %.074107.us, 1
+  %46 = add i32 %.071107.us, 1
   %47 = zext i32 %46 to i64
   %48 = icmp ugt i64 %34, %47
   br i1 %48, label %.lr.ph104.us, label %.loopexit, !llvm.loop !73
 
 49:                                               ; preds = %.lr.ph104.us, %49
   %indvars.iv122 = phi i64 [ 0, %.lr.ph104.us ], [ %indvars.iv.next123, %49 ]
-  %.071102.us = phi i1 [ true, %.lr.ph104.us ], [ %56, %49 ]
-  %.072101.us = phi i1 [ true, %.lr.ph104.us ], [ %53, %49 ]
+  %.069102.us = phi i1 [ true, %.lr.ph104.us ], [ %56, %49 ]
+  %.070101.us = phi i1 [ true, %.lr.ph104.us ], [ %53, %49 ]
   %gep136 = getelementptr i64, ptr %invariant.gep135, i64 %indvars.iv122
   %50 = load i64, ptr %gep136, align 8
   %gep138 = getelementptr i64, ptr %invariant.gep137, i64 %indvars.iv122
   %51 = load i64, ptr %gep138, align 8
   %52 = icmp eq i64 %50, %51
-  %53 = and i1 %.072101.us, %52
+  %53 = and i1 %.070101.us, %52
   %54 = xor i64 %51, %50
   %55 = icmp eq i64 %54, -1
-  %56 = and i1 %.071102.us, %55
+  %56 = and i1 %.069102.us, %55
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %57 = icmp slt i64 %indvars.iv.next123, %39
   %58 = select i1 %53, i1 true, i1 %56
@@ -7208,7 +7208,7 @@ define linkonce_odr noundef i32 @_ZN5Ttopt10TruthTable7BDDFindEii(ptr noundef no
   br i1 %58, label %.split.us.loopexit, label %45
 
 .split.us.loopexit:                               ; preds = %..critedge2_crit_edge.us
-  %59 = shl i32 %.074107.us, 1
+  %59 = shl i32 %.071107.us, 1
   %60 = zext i1 %56 to i32
   %61 = or disjoint i32 %59, %60
   br label %.loopexit
@@ -7254,7 +7254,7 @@ define linkonce_odr noundef i32 @_ZN5Ttopt10TruthTable7BDDFindEii(ptr noundef no
 
 .lr.ph:                                           ; preds = %.preheader89, %110
   %91 = phi i64 [ %112, %110 ], [ 0, %.preheader89 ]
-  %.06895 = phi i32 [ %111, %110 ], [ 0, %.preheader89 ]
+  %.06795 = phi i32 [ %111, %110 ], [ 0, %.preheader89 ]
   %92 = getelementptr inbounds i32, ptr %86, i64 %91
   %93 = load i32, ptr %92, align 4
   %94 = ashr i32 %93, %63
@@ -7270,7 +7270,7 @@ define linkonce_odr noundef i32 @_ZN5Ttopt10TruthTable7BDDFindEii(ptr noundef no
   br i1 %.not83, label %103, label %105
 
 103:                                              ; preds = %.lr.ph
-  %104 = shl i32 %.06895, 1
+  %104 = shl i32 %.06795, 1
   br label %.loopexit
 
 105:                                              ; preds = %.lr.ph
@@ -7279,12 +7279,12 @@ define linkonce_odr noundef i32 @_ZN5Ttopt10TruthTable7BDDFindEii(ptr noundef no
   br i1 %.not84, label %107, label %110
 
 107:                                              ; preds = %105
-  %108 = shl i32 %.06895, 1
+  %108 = shl i32 %.06795, 1
   %109 = or disjoint i32 %108, 1
   br label %.loopexit
 
 110:                                              ; preds = %105
-  %111 = add i32 %.06895, 1
+  %111 = add i32 %.06795, 1
   %112 = zext i32 %111 to i64
   %113 = icmp ugt i64 %90, %112
   br i1 %113, label %.lr.ph, label %.loopexit, !llvm.loop !75
@@ -8285,8 +8285,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.thread:             ; preds = %23
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 .preheader107:                                    ; preds = %.preheader108, %.critedge
-  %.262120 = phi i32 [ %78, %.critedge ], [ 1, %.preheader108 ]
-  %.phi.trans.insert = zext nneg i32 %.262120 to i64
+  %.265120 = phi i32 [ %78, %.critedge ], [ 1, %.preheader108 ]
+  %.phi.trans.insert = zext nneg i32 %.265120 to i64
   %.phi.trans.insert150 = getelementptr inbounds i32, ptr %16, i64 %.phi.trans.insert
   %.pre = load i32, ptr %.phi.trans.insert150, align 4
   %.phi.trans.insert151 = sext i32 %.pre to i64
@@ -8308,8 +8308,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.thread:             ; preds = %23
   br label %79
 
 65:                                               ; preds = %.preheader107, %74
-  %.065119 = phi i32 [ %.262120, %.preheader107 ], [ %66, %74 ]
-  %66 = add nsw i32 %.065119, -1
+  %.062119 = phi i32 [ %.265120, %.preheader107 ], [ %66, %74 ]
+  %66 = add nsw i32 %.062119, -1
   %67 = zext nneg i32 %66 to i64
   %68 = getelementptr inbounds i32, ptr %16, i64 %67
   %69 = load i32, ptr %68, align 4
@@ -8320,23 +8320,23 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.thread:             ; preds = %23
   br i1 %73, label %74, label %.critedge
 
 74:                                               ; preds = %65
-  %75 = zext nneg i32 %.065119 to i64
+  %75 = zext nneg i32 %.062119 to i64
   %76 = getelementptr inbounds i32, ptr %16, i64 %75
   store i32 %69, ptr %76, align 4
   store i32 %.pre, ptr %68, align 4
-  %77 = icmp sgt i32 %.065119, 1
+  %77 = icmp sgt i32 %.062119, 1
   br i1 %77, label %65, label %.critedge, !llvm.loop !80
 
 .critedge:                                        ; preds = %65, %74
-  %78 = add nuw nsw i32 %.262120, 1
+  %78 = add nuw nsw i32 %.265120, 1
   %exitcond149.not = icmp eq i32 %78, %12
   br i1 %exitcond149.not, label %.preheader106, label %.preheader107, !llvm.loop !81
 
 79:                                               ; preds = %.lr.ph136, %149
   %80 = phi i64 [ 0, %.lr.ph136 ], [ %151, %149 ]
   %.0135 = phi i32 [ %5, %.lr.ph136 ], [ %.5, %149 ]
-  %.063134 = phi i32 [ 0, %.lr.ph136 ], [ %150, %149 ]
-  %.064133 = phi i1 [ true, %.lr.ph136 ], [ %139, %149 ]
+  %.060134 = phi i32 [ 0, %.lr.ph136 ], [ %150, %149 ]
+  %.061133 = phi i1 [ true, %.lr.ph136 ], [ %139, %149 ]
   %81 = getelementptr inbounds i32, ptr %16, i64 %80
   %82 = load i32, ptr %81, align 4
   %83 = sext i32 %82 to i64
@@ -8349,13 +8349,13 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.thread:             ; preds = %23
   br i1 %89, label %.lr.ph124, label %._crit_edge
 
 .lr.ph124:                                        ; preds = %79
-  %90 = zext i1 %.064133 to i32
+  %90 = zext i1 %.061133 to i32
   br label %91
 
 91:                                               ; preds = %.lr.ph124, %106
   %.1123 = phi i32 [ %.0135, %.lr.ph124 ], [ %.2, %106 ]
   %.052122 = phi i32 [ %86, %.lr.ph124 ], [ %107, %106 ]
-  %.055121 = phi i1 [ false, %.lr.ph124 ], [ %.156, %106 ]
+  %.053121 = phi i1 [ false, %.lr.ph124 ], [ %.154, %106 ]
   %92 = load ptr, ptr %0, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 80
   %94 = load ptr, ptr %93, align 8
@@ -8404,7 +8404,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.thread:             ; preds = %23
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 106:                                              ; preds = %96, %101
-  %.156 = phi i1 [ true, %101 ], [ %.055121, %96 ]
+  %.154 = phi i1 [ true, %101 ], [ %.053121, %96 ]
   %.2 = phi i32 [ %95, %101 ], [ %.1123, %96 ]
   %107 = add nsw i32 %.052122, 1
   %108 = load i32, ptr %11, align 8
@@ -8413,13 +8413,13 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.thread:             ; preds = %23
   br i1 %110, label %91, label %._crit_edge, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %106, %79
-  %.055.lcssa = phi i1 [ false, %79 ], [ %.156, %106 ]
+  %.053.lcssa = phi i1 [ false, %79 ], [ %.154, %106 ]
   %.1.lcssa = phi i32 [ %.0135, %79 ], [ %.2, %106 ]
   %.not = icmp eq i32 %86, 0
   br i1 %.not, label %.loopexit, label %111
 
 111:                                              ; preds = %._crit_edge
-  %112 = xor i1 %.064133, true
+  %112 = xor i1 %.061133, true
   %113 = zext i1 %112 to i32
   %114 = load ptr, ptr %0, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 8
@@ -8439,13 +8439,13 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.thread:             ; preds = %23
   br i1 %121, label %.lr.ph130, label %.loopexit
 
 .lr.ph130:                                        ; preds = %.preheader
-  %122 = zext i1 %.064133 to i32
+  %122 = zext i1 %.061133 to i32
   br label %123
 
 123:                                              ; preds = %.lr.ph130, %137
   %.049129.in = phi i32 [ %86, %.lr.ph130 ], [ %.049129, %137 ]
   %.3128 = phi i32 [ %.1.lcssa, %.lr.ph130 ], [ %.4, %137 ]
-  %.257127 = phi i1 [ %.055.lcssa, %.lr.ph130 ], [ %.358, %137 ]
+  %.255127 = phi i1 [ %.053.lcssa, %.lr.ph130 ], [ %.356, %137 ]
   %.049129 = add nsw i32 %.049129.in, -1
   %124 = load ptr, ptr %0, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 80
@@ -8471,15 +8471,15 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.thread:             ; preds = %23
           to label %137 unwind label %.loopexit102
 
 137:                                              ; preds = %128, %133
-  %.358 = phi i1 [ true, %133 ], [ %.257127, %128 ]
+  %.356 = phi i1 [ true, %133 ], [ %.255127, %128 ]
   %.4 = phi i32 [ %127, %133 ], [ %.3128, %128 ]
   %138 = icmp ugt i32 %.049129.in, 1
   br i1 %138, label %123, label %.loopexit, !llvm.loop !83
 
 .loopexit:                                        ; preds = %137, %.preheader, %._crit_edge
-  %.459 = phi i1 [ %.055.lcssa, %._crit_edge ], [ %.055.lcssa, %.preheader ], [ %.358, %137 ]
+  %.457 = phi i1 [ %.053.lcssa, %._crit_edge ], [ %.053.lcssa, %.preheader ], [ %.356, %137 ]
   %.5 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %.1.lcssa, %.preheader ], [ %.4, %137 ]
-  %139 = xor i1 %.064133, %.459
+  %139 = xor i1 %.061133, %.457
   %140 = xor i1 %139, true
   %141 = zext i1 %140 to i32
   %142 = load ptr, ptr %0, align 8
@@ -8496,7 +8496,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit.thread:             ; preds = %23
           to label %149 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 149:                                              ; preds = %145
-  %150 = add i32 %.063134, 1
+  %150 = add i32 %.060134, 1
   %151 = zext i32 %150 to i64
   %152 = icmp ugt i64 %63, %151
   br i1 %152, label %79, label %._crit_edge137, !llvm.loop !84
@@ -11615,8 +11615,8 @@ define linkonce_odr noundef i32 @_ZN5Ttopt18TruthTableLevelTSM10BDDFindTSMEii(pt
 
 18:                                               ; preds = %.lr.ph118, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next, %18 ]
-  %.086117 = phi i1 [ true, %.lr.ph118 ], [ %25, %18 ]
-  %.087116 = phi i1 [ true, %.lr.ph118 ], [ %28, %18 ]
+  %.087117 = phi i1 [ true, %.lr.ph118 ], [ %25, %18 ]
+  %.092116 = phi i1 [ true, %.lr.ph118 ], [ %28, %18 ]
   %19 = add nsw i64 %indvars.iv, %16
   %20 = getelementptr inbounds i64, ptr %13, i64 %19
   %21 = load i64, ptr %20, align 8
@@ -11624,11 +11624,11 @@ define linkonce_odr noundef i32 @_ZN5Ttopt18TruthTableLevelTSM10BDDFindTSMEii(pt
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, %21
   %.not104 = icmp eq i64 %24, 0
-  %25 = and i1 %.086117, %.not104
+  %25 = and i1 %.087117, %.not104
   %26 = xor i64 %21, -1
   %27 = and i64 %23, %26
   %.not105 = icmp eq i64 %27, 0
-  %28 = and i1 %.087116, %.not105
+  %28 = and i1 %.092116, %.not105
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = icmp slt i64 %indvars.iv.next, %17
   %30 = select i1 %25, i1 true, i1 %28
@@ -11670,7 +11670,7 @@ define linkonce_odr noundef i32 @_ZN5Ttopt18TruthTableLevelTSM10BDDFindTSMEii(pt
 
 .lr.ph123.us:                                     ; preds = %.lr.ph123.us.preheader, %56
   %51 = phi i64 [ %58, %56 ], [ 0, %.lr.ph123.us.preheader ]
-  %.090126.us = phi i32 [ %57, %56 ], [ 0, %.lr.ph123.us.preheader ]
+  %.091126.us = phi i32 [ %57, %56 ], [ 0, %.lr.ph123.us.preheader ]
   %52 = getelementptr inbounds i32, ptr %39, i64 %51
   %53 = load i32, ptr %52, align 4
   %54 = shl i32 %53, %9
@@ -11678,15 +11678,15 @@ define linkonce_odr noundef i32 @_ZN5Ttopt18TruthTableLevelTSM10BDDFindTSMEii(pt
   br label %60
 
 56:                                               ; preds = %..critedge2_crit_edge.us
-  %57 = add i32 %.090126.us, 1
+  %57 = add i32 %.091126.us, 1
   %58 = zext i32 %57 to i64
   %59 = icmp ugt i64 %43, %58
   br i1 %59, label %.lr.ph123.us, label %.loopexit, !llvm.loop !130
 
 60:                                               ; preds = %.lr.ph123.us, %60
   %indvars.iv147 = phi i64 [ 0, %.lr.ph123.us ], [ %indvars.iv.next148, %60 ]
-  %.091122.us = phi i1 [ true, %.lr.ph123.us ], [ %74, %60 ]
-  %.092121.us = phi i1 [ true, %.lr.ph123.us ], [ %77, %60 ]
+  %.089121.us = phi i1 [ true, %.lr.ph123.us ], [ %77, %60 ]
+  %.090120.us = phi i1 [ true, %.lr.ph123.us ], [ %74, %60 ]
   %61 = add nsw i64 %indvars.iv147, %49
   %62 = getelementptr inbounds i64, ptr %45, i64 %61
   %63 = load i64, ptr %62, align 8
@@ -11701,11 +11701,11 @@ define linkonce_odr noundef i32 @_ZN5Ttopt18TruthTableLevelTSM10BDDFindTSMEii(pt
   %72 = and i64 %71, %69
   %73 = and i64 %72, %67
   %.not102.us = icmp eq i64 %73, 0
-  %74 = and i1 %.091122.us, %.not102.us
+  %74 = and i1 %.090120.us, %.not102.us
   %75 = xor i64 %67, -1
   %76 = and i64 %72, %75
   %.not103.us = icmp eq i64 %76, 0
-  %77 = and i1 %.092121.us, %.not103.us
+  %77 = and i1 %.089121.us, %.not103.us
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %78 = icmp slt i64 %indvars.iv.next148, %50
   %79 = select i1 %74, i1 true, i1 %77
@@ -11779,14 +11779,14 @@ define linkonce_odr noundef i32 @_ZN5Ttopt18TruthTableLevelTSM10BDDFindTSMEii(pt
   br i1 %.not133, label %.loopexit, label %.lr.ph
 
 122:                                              ; preds = %146
-  %123 = add i32 %.088114, 1
+  %123 = add i32 %.0114, 1
   %124 = zext i32 %123 to i64
   %125 = icmp ugt i64 %121, %124
   br i1 %125, label %.lr.ph, label %.loopexit, !llvm.loop !132
 
 .lr.ph:                                           ; preds = %.preheader108, %122
   %126 = phi i64 [ %124, %122 ], [ 0, %.preheader108 ]
-  %.088114 = phi i32 [ %123, %122 ], [ 0, %.preheader108 ]
+  %.0114 = phi i32 [ %123, %122 ], [ 0, %.preheader108 ]
   %127 = getelementptr inbounds i32, ptr %117, i64 %126
   %128 = load i32, ptr %127, align 4
   %129 = ashr i32 %128, %89
@@ -11823,8 +11823,8 @@ define linkonce_odr noundef i32 @_ZN5Ttopt18TruthTableLevelTSM10BDDFindTSMEii(pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %122, %56, %8, %.critedge, %.preheader108, %.preheader, %108, %85, %149, %144, %.split.us
-  %.0 = phi i32 [ %84, %.split.us ], [ %151, %149 ], [ %145, %144 ], [ -2, %85 ], [ -1, %108 ], [ -3, %.preheader ], [ -3, %.preheader108 ], [ %32, %.critedge ], [ -1, %8 ], [ -3, %56 ], [ -3, %122 ]
-  ret i32 %.0
+  %.086 = phi i32 [ %84, %.split.us ], [ %151, %149 ], [ %145, %144 ], [ -2, %85 ], [ -1, %108 ], [ -3, %.preheader ], [ -3, %.preheader108 ], [ %32, %.critedge ], [ -1, %8 ], [ -3, %56 ], [ -3, %122 ]
+  ret i32 %.086
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12500,12 +12500,12 @@ define linkonce_odr void @_ZN5Ttopt17TruthTableRewrite15ShiftToMajorityEii(ptr n
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %.024 = phi i32 [ 0, %.lr.ph ], [ %19, %15 ]
+  %.01723 = phi i32 [ 0, %.lr.ph ], [ %19, %15 ]
   %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
   %16 = load i64, ptr %gep, align 8
   %17 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
   %18 = trunc nuw nsw i64 %17 to i32
-  %19 = add i32 %.024, %18
+  %19 = add i32 %.01723, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !153

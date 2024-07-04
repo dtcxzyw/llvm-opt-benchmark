@@ -59,18 +59,18 @@ define ptr @ADIOI_Strdup(ptr nocapture noundef readonly %0) local_unnamed_addr #
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %6 = phi i8 [ %9, %.lr.ph ], [ %5, %.preheader ]
-  %.015 = phi ptr [ %8, %.lr.ph ], [ %4, %.preheader ]
-  %.0914 = phi ptr [ %7, %.lr.ph ], [ %0, %.preheader ]
-  %7 = getelementptr inbounds i8, ptr %.0914, i64 1
-  %8 = getelementptr inbounds i8, ptr %.015, i64 1
-  store i8 %6, ptr %.015, align 1
+  %.015 = phi ptr [ %7, %.lr.ph ], [ %0, %.preheader ]
+  %.0914 = phi ptr [ %8, %.lr.ph ], [ %4, %.preheader ]
+  %7 = getelementptr inbounds i8, ptr %.015, i64 1
+  %8 = getelementptr inbounds i8, ptr %.0914, i64 1
+  store i8 %6, ptr %.0914, align 1
   %9 = load i8, ptr %7, align 1
   %.not12 = icmp eq i8 %9, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.0.lcssa = phi ptr [ %4, %.preheader ], [ %8, %.lr.ph ]
-  store i8 0, ptr %.0.lcssa, align 1
+  %.09.lcssa = phi ptr [ %4, %.preheader ], [ %8, %.lr.ph ]
+  store i8 0, ptr %.09.lcssa, align 1
   br label %10
 
 10:                                               ; preds = %._crit_edge, %1

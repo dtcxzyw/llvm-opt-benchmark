@@ -30,12 +30,12 @@ define double @missing_nextafter(double noundef %0, double noundef %1) local_unn
 10:                                               ; preds = %8
   %11 = tail call double @ldexp(double noundef 5.000000e-01, i32 noundef -1073) #7
   %12 = fcmp oeq double %11, 0.000000e+00
-  %.041 = select i1 %12, double 0x10000000000000, double %11
+  %.040 = select i1 %12, double 0x10000000000000, double %11
   %13 = fcmp ogt double %1, 0.000000e+00
   br i1 %13, label %59, label %14
 
 14:                                               ; preds = %10
-  %15 = fneg double %.041
+  %15 = fneg double %.040
   br label %59
 
 16:                                               ; preds = %8
@@ -99,7 +99,7 @@ thread-pre-split:                                 ; preds = %36, %41
 
 46:                                               ; preds = %thread-pre-split, %43, %38
   %47 = phi i32 [ %.pr, %thread-pre-split ], [ %45, %43 ], [ %40, %38 ]
-  %.142 = phi double [ %34, %thread-pre-split ], [ 1.000000e+00, %43 ], [ -1.000000e+00, %38 ]
+  %.141 = phi double [ %34, %thread-pre-split ], [ 1.000000e+00, %43 ], [ -1.000000e+00, %38 ]
   %.0 = phi double [ %.0.ph, %thread-pre-split ], [ 0xBCA0000000000000, %43 ], [ 0x3CA0000000000000, %38 ]
   %48 = icmp slt i32 %47, -1021
   br i1 %48, label %49, label %52
@@ -111,12 +111,12 @@ thread-pre-split:                                 ; preds = %36, %41
 
 52:                                               ; preds = %49, %46
   %.1 = phi double [ %51, %49 ], [ %.0, %46 ]
-  %53 = fadd double %.142, %.1
+  %53 = fadd double %.141, %.1
   %54 = fcmp oeq double %53, 0.000000e+00
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %52
-  %56 = fcmp olt double %.142, 0.000000e+00
+  %56 = fcmp olt double %.141, 0.000000e+00
   %. = select i1 %56, double -0.000000e+00, double 0.000000e+00
   br label %59
 
@@ -125,8 +125,8 @@ thread-pre-split:                                 ; preds = %36, %41
   br label %59
 
 59:                                               ; preds = %55, %28, %26, %21, %18, %10, %5, %2, %57, %14
-  %.040 = phi double [ %15, %14 ], [ %58, %57 ], [ %0, %2 ], [ %1, %5 ], [ %.041, %10 ], [ 0xFFEFFFFFFFFFFFFF, %18 ], [ %1, %21 ], [ 0x7FEFFFFFFFFFFFFF, %26 ], [ %1, %28 ], [ %., %55 ]
-  ret double %.040
+  %.042 = phi double [ %15, %14 ], [ %58, %57 ], [ %0, %2 ], [ %1, %5 ], [ %.040, %10 ], [ 0xFFEFFFFFFFFFFFFF, %18 ], [ %1, %21 ], [ 0x7FEFFFFFFFFFFFFF, %26 ], [ %1, %28 ], [ %., %55 ]
+  ret double %.042
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn

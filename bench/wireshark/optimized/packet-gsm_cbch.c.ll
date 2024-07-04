@@ -305,7 +305,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
 82:                                               ; preds = %97, %81
   %indvars.iv254.i = phi i32 [ 0, %81 ], [ %indvars.iv.next255.i, %97 ]
   %.0234.i = phi i32 [ 2, %81 ], [ %98, %97 ]
-  %.0195232.i = phi i8 [ 0, %81 ], [ %.2197.i, %97 ]
+  %.0196232.i = phi i8 [ 0, %81 ], [ %.2198.i, %97 ]
   %83 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %56, i32 noundef %.0234.i) #6
   %84 = zext i8 %83 to i32
   %85 = shl nuw nsw i32 %indvars.iv254.i, 3
@@ -314,7 +314,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 87:                                               ; preds = %96, %82
   %indvars.iv.i = phi i32 [ 0, %82 ], [ %indvars.iv.next.i, %96 ]
-  %.1196231.i = phi i8 [ %.0195232.i, %82 ], [ %.2197.i, %96 ]
+  %.1197230.i = phi i8 [ %.0196232.i, %82 ], [ %.2198.i, %96 ]
   %88 = lshr exact i32 128, %indvars.iv.i
   %89 = and i32 %88, %84
   %.not221.i = icmp eq i32 %89, 0
@@ -322,15 +322,15 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 90:                                               ; preds = %87
   %91 = add nuw nsw i32 %86, %indvars.iv.i
-  %92 = add i8 %.1196231.i, 1
-  %93 = zext i8 %.1196231.i to i64
+  %92 = add i8 %.1197230.i, 1
+  %93 = zext i8 %.1197230.i to i64
   %94 = getelementptr [48 x i8], ptr %5, i64 0, i64 %93
   %95 = trunc nuw nsw i32 %91 to i8
   store i8 %95, ptr %94, align 1
   br label %96
 
 96:                                               ; preds = %90, %87
-  %.2197.i = phi i8 [ %92, %90 ], [ %.1196231.i, %87 ]
+  %.2198.i = phi i8 [ %92, %90 ], [ %.1197230.i, %87 ]
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i32 %indvars.iv.next.i, 8
   br i1 %exitcond.not.i, label %97, label %87, !llvm.loop !4
@@ -343,13 +343,13 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 99:                                               ; preds = %97
   %100 = load i32, ptr @ett_schedule_new_msg, align 4
-  %101 = zext i8 %.2197.i to i32
+  %101 = zext i8 %.2198.i to i32
   %102 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %64, ptr noundef %56, i32 noundef 2, i32 noundef 6, i32 noundef %100, ptr noundef nonnull %7, ptr noundef nonnull @.str.80, i32 noundef %101) #6
-  %.not.i = icmp eq i8 %.2197.i, 0
+  %.not.i = icmp eq i8 %.2198.i, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %99
-  %wide.trip.count.i = zext i8 %.2197.i to i64
+  %wide.trip.count.i = zext i8 %.2198.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %173, %.lr.ph.preheader.i
@@ -480,14 +480,14 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 .lr.ph247.i:                                      ; preds = %._crit_edge.i, %244
   %.3245.i = phi i32 [ %.4.i, %244 ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %.3198244.i = phi i8 [ %.5.i, %244 ], [ 0, %._crit_edge.i ]
-  %.0201243.i = phi i8 [ %spec.store.select.i, %244 ], [ %74, %._crit_edge.i ]
-  %spec.store.select.i = call i8 @llvm.umin.i8(i8 %.0201243.i, i8 48)
-  %178 = icmp ult i8 %.3198244.i, %spec.store.select.i
+  %.3199244.i = phi i8 [ %.5.i, %244 ], [ 0, %._crit_edge.i ]
+  %.0203243.i = phi i8 [ %spec.store.select.i, %244 ], [ %74, %._crit_edge.i ]
+  %spec.store.select.i = call i8 @llvm.umin.i8(i8 %.0203243.i, i8 48)
+  %178 = icmp ult i8 %.3199244.i, %spec.store.select.i
   br i1 %178, label %.lr.ph239.preheader.i, label %.critedge.i
 
 .lr.ph239.preheader.i:                            ; preds = %.lr.ph247.i
-  %179 = zext nneg i8 %.3198244.i to i64
+  %179 = zext nneg i8 %.3199244.i to i64
   %180 = zext nneg i8 %spec.store.select.i to i64
   br label %.lr.ph239.i
 

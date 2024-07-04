@@ -22,11 +22,11 @@ define void @softfloat_addM(i8 noundef zeroext %0, ptr nocapture noundef readonl
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %12 = phi i32 [ %9, %.lr.ph.preheader ], [ %22, %.lr.ph ]
   %13 = phi i32 [ %7, %.lr.ph.preheader ], [ %17, %.lr.ph ]
-  %.01619 = phi i8 [ 0, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
+  %.020 = phi i8 [ 0, %.lr.ph.preheader ], [ %.1, %.lr.ph ]
   %.not = icmp eq i32 %12, %13
   %14 = icmp ult i32 %12, %13
   %15 = zext i1 %14 to i8
-  %.1 = select i1 %.not, i8 %.01619, i8 %15
+  %.1 = select i1 %.not, i8 %.020, i8 %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
   %17 = load i32, ptr %16, align 4

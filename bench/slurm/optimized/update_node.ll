@@ -146,7 +146,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 
 20:                                               ; preds = %.lr.ph, %239
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %239 ]
-  %.0180218 = phi i32 [ 0, %.lr.ph ], [ %.1, %239 ]
+  %.0176219 = phi i32 [ 0, %.lr.ph ], [ %.1, %239 ]
   %21 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %22, i32 noundef 61) #7
@@ -176,7 +176,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 
 40:                                               ; preds = %24
   store ptr %29, ptr %19, align 8
-  %41 = add nsw i32 %.0180218, 1
+  %41 = add nsw i32 %.0176219, 1
   br label %239
 
 42:                                               ; preds = %24
@@ -186,7 +186,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 
 45:                                               ; preds = %42
   store ptr %29, ptr %18, align 8
-  %46 = add nsw i32 %.0180218, 1
+  %46 = add nsw i32 %.0176219, 1
   br label %239
 
 47:                                               ; preds = %42
@@ -209,7 +209,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 
 57:                                               ; preds = %53
   store ptr %29, ptr %16, align 8
-  %58 = add nsw i32 %.0180218, 1
+  %58 = add nsw i32 %.0176219, 1
   br label %239
 
 59:                                               ; preds = %53
@@ -232,7 +232,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
   br label %267
 
 70:                                               ; preds = %64
-  %71 = add nsw i32 %.0180218, 1
+  %71 = add nsw i32 %.0176219, 1
   br label %239
 
 72:                                               ; preds = %59
@@ -242,7 +242,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 
 74:                                               ; preds = %72
   store ptr %29, ptr %14, align 8
-  %75 = add nsw i32 %.0180218, 1
+  %75 = add nsw i32 %.0176219, 1
   br label %239
 
 76:                                               ; preds = %72
@@ -257,7 +257,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 
 80:                                               ; preds = %78, %76
   store ptr %29, ptr %13, align 8
-  %81 = add nsw i32 %.0180218, 1
+  %81 = add nsw i32 %.0176219, 1
   br label %239
 
 82:                                               ; preds = %78
@@ -267,7 +267,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 
 85:                                               ; preds = %82
   store ptr %29, ptr %12, align 8
-  %86 = add nsw i32 %.0180218, 1
+  %86 = add nsw i32 %.0176219, 1
   br label %239
 
 87:                                               ; preds = %82
@@ -279,7 +279,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 
 91:                                               ; preds = %87
   store ptr %29, ptr %11, align 8
-  %92 = add nsw i32 %.0180218, 1
+  %92 = add nsw i32 %.0176219, 1
   br label %239
 
 93:                                               ; preds = %87
@@ -289,7 +289,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 
 95:                                               ; preds = %93
   store ptr %29, ptr %10, align 8
-  %96 = add nsw i32 %.0180218, 1
+  %96 = add nsw i32 %.0176219, 1
   br label %239
 
 97:                                               ; preds = %93
@@ -310,7 +310,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
   br label %267
 
 106:                                              ; preds = %100
-  %107 = add nsw i32 %.0180218, 1
+  %107 = add nsw i32 %.0176219, 1
   br label %239
 
 108:                                              ; preds = %97
@@ -322,7 +322,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 
 112:                                              ; preds = %108
   store ptr %29, ptr %3, align 8
-  %113 = add nsw i32 %.0180218, 1
+  %113 = add nsw i32 %.0176219, 1
   br label %239
 
 114:                                              ; preds = %108
@@ -358,7 +358,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 132:                                              ; preds = %131, %126, %117
   %133 = phi ptr [ %.pre, %131 ], [ %121, %126 ], [ %121, %117 ]
   store ptr %133, ptr %8, align 8
-  %134 = add nsw i32 %.0180218, 1
+  %134 = add nsw i32 %.0176219, 1
   br label %239
 
 135:                                              ; preds = %114
@@ -388,7 +388,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
   br label %267
 
 146:                                              ; preds = %140, %139
-  %147 = add nsw i32 %.0180218, 1
+  %147 = add nsw i32 %.0176219, 1
   br label %239
 
 148:                                              ; preds = %135
@@ -405,7 +405,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 
 156:                                              ; preds = %151
   store i32 2048, ptr %6, align 8
-  %157 = add nsw i32 %.0180218, 1
+  %157 = add nsw i32 %.0176219, 1
   br label %239
 
 158:                                              ; preds = %151
@@ -415,7 +415,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 
 161:                                              ; preds = %158
   store i32 131072, ptr %6, align 8
-  %162 = add nsw i32 %.0180218, 1
+  %162 = add nsw i32 %.0176219, 1
   br label %239
 
 163:                                              ; preds = %158
@@ -425,7 +425,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 
 166:                                              ; preds = %163
   store i32 512, ptr %6, align 8
-  %167 = add nsw i32 %.0180218, 1
+  %167 = add nsw i32 %.0176219, 1
   br label %239
 
 168:                                              ; preds = %163
@@ -435,7 +435,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 
 171:                                              ; preds = %168
   store i32 8192, ptr %6, align 8
-  %172 = add nsw i32 %.0180218, 1
+  %172 = add nsw i32 %.0176219, 1
   br label %239
 
 173:                                              ; preds = %168
@@ -445,7 +445,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 
 176:                                              ; preds = %173
   store i32 6, ptr %6, align 8
-  %177 = add nsw i32 %.0180218, 1
+  %177 = add nsw i32 %.0176219, 1
   br label %239
 
 178:                                              ; preds = %173
@@ -455,7 +455,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 
 181:                                              ; preds = %178
   store i32 256, ptr %6, align 8
-  %182 = add nsw i32 %.0180218, 1
+  %182 = add nsw i32 %.0176219, 1
   br label %239
 
 183:                                              ; preds = %178
@@ -467,7 +467,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 
 188:                                              ; preds = %183
   store i32 41943040, ptr %6, align 8
-  %189 = add nsw i32 %.0180218, 1
+  %189 = add nsw i32 %.0176219, 1
   br label %239
 
 190:                                              ; preds = %183
@@ -477,7 +477,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 
 193:                                              ; preds = %190
   store i32 8392704, ptr %6, align 8
-  %194 = add nsw i32 %.0180218, 1
+  %194 = add nsw i32 %.0176219, 1
   br label %239
 
 195:                                              ; preds = %190
@@ -489,7 +489,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 
 200:                                              ; preds = %195
   store i32 8388608, ptr %6, align 8
-  %201 = add nsw i32 %.0180218, 1
+  %201 = add nsw i32 %.0176219, 1
   br label %239
 
 202:                                              ; preds = %195
@@ -499,7 +499,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 
 205:                                              ; preds = %202
   store i32 16777216, ptr %6, align 8
-  %206 = add nsw i32 %.0180218, 1
+  %206 = add nsw i32 %.0176219, 1
   br label %239
 
 207:                                              ; preds = %202
@@ -509,7 +509,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 
 210:                                              ; preds = %207
   store i32 64, ptr %6, align 8
-  %211 = add nsw i32 %.0180218, 1
+  %211 = add nsw i32 %.0176219, 1
   br label %239
 
 .preheader:                                       ; preds = %207, %215
@@ -544,7 +544,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
 
 .thread:                                          ; preds = %.preheader
   store i32 %.0178211, ptr %6, align 8
-  %231 = add nsw i32 %.0180218, 1
+  %231 = add nsw i32 %.0176219, 1
   br label %239
 
 232:                                              ; preds = %148
@@ -558,7 +558,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
   br label %.critedge
 
 239:                                              ; preds = %40, %52, %70, %80, %91, %106, %132, %161, %171, %181, %193, %205, %.thread, %210, %200, %188, %176, %166, %156, %146, %112, %95, %85, %74, %57, %45
-  %.1 = phi i32 [ %41, %40 ], [ %46, %45 ], [ %.0180218, %52 ], [ %71, %70 ], [ %86, %85 ], [ %107, %106 ], [ %134, %132 ], [ %157, %156 ], [ %162, %161 ], [ %167, %166 ], [ %172, %171 ], [ %177, %176 ], [ %182, %181 ], [ %189, %188 ], [ %194, %193 ], [ %201, %200 ], [ %206, %205 ], [ %211, %210 ], [ %231, %.thread ], [ %147, %146 ], [ %113, %112 ], [ %96, %95 ], [ %92, %91 ], [ %81, %80 ], [ %75, %74 ], [ %58, %57 ]
+  %.1 = phi i32 [ %41, %40 ], [ %46, %45 ], [ %.0176219, %52 ], [ %71, %70 ], [ %86, %85 ], [ %107, %106 ], [ %134, %132 ], [ %157, %156 ], [ %162, %161 ], [ %167, %166 ], [ %172, %171 ], [ %177, %176 ], [ %182, %181 ], [ %189, %188 ], [ %194, %193 ], [ %201, %200 ], [ %206, %205 ], [ %211, %210 ], [ %231, %.thread ], [ %147, %146 ], [ %113, %112 ], [ %96, %95 ], [ %92, %91 ], [ %81, %80 ], [ %75, %74 ], [ %58, %57 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond230.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond230.not, label %._crit_edge.loopexit, label %20, !llvm.loop !10
@@ -568,7 +568,7 @@ define dso_local i32 @scontrol_update_node(i32 noundef %0, ptr nocapture noundef
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.0180.lcssa = phi i1 [ true, %2 ], [ %240, %._crit_edge.loopexit ]
+  %.0176.lcssa = phi i1 [ true, %2 ], [ %240, %._crit_edge.loopexit ]
   %241 = getelementptr inbounds i8, ptr %3, i64 88
   %242 = load i32, ptr %241, align 8
   switch i32 %242, label %252 [
@@ -614,7 +614,7 @@ switch.early.test:                                ; preds = %252
   br label %.critedge
 
 258:                                              ; preds = %switch.early.test, %switch.early.test, %252
-  br i1 %.0180.lcssa, label %259, label %262
+  br i1 %.0176.lcssa, label %259, label %262
 
 259:                                              ; preds = %258
   store i32 1, ptr @exit_code, align 4
@@ -638,8 +638,8 @@ switch.early.test:                                ; preds = %252
   br label %267
 
 267:                                              ; preds = %262, %.critedge, %265, %259, %142, %102, %66, %36
-  %.0176 = phi i32 [ -1, %66 ], [ -1, %102 ], [ %266, %265 ], [ -1, %142 ], [ -1, %36 ], [ 0, %259 ], [ 0, %.critedge ], [ 0, %262 ]
-  ret i32 %.0176
+  %.0180 = phi i32 [ -1, %66 ], [ -1, %102 ], [ %266, %265 ], [ -1, %142 ], [ -1, %36 ], [ 0, %259 ], [ 0, %.critedge ], [ 0, %262 ]
+  ret i32 %.0180
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -684,7 +684,7 @@ define dso_local i32 @scontrol_update_front_end(i32 noundef %0, ptr nocapture no
 
 8:                                                ; preds = %.lr.ph, %82
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %82 ]
-  %.05972 = phi i32 [ 0, %.lr.ph ], [ %.1, %82 ]
+  %.073 = phi i32 [ 0, %.lr.ph ], [ %.1, %82 ]
   %9 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 61) #7
@@ -749,7 +749,7 @@ define dso_local i32 @scontrol_update_front_end(i32 noundef %0, ptr nocapture no
 47:                                               ; preds = %46, %41, %32
   %48 = phi ptr [ %.pre, %46 ], [ %36, %41 ], [ %36, %32 ]
   store ptr %48, ptr %7, align 8
-  %49 = add nsw i32 %.05972, 1
+  %49 = add nsw i32 %.073, 1
   br label %82
 
 50:                                               ; preds = %29
@@ -766,7 +766,7 @@ define dso_local i32 @scontrol_update_front_end(i32 noundef %0, ptr nocapture no
 
 58:                                               ; preds = %53
   store i32 512, ptr %6, align 8
-  %59 = add nsw i32 %.05972, 1
+  %59 = add nsw i32 %.073, 1
   br label %82
 
 60:                                               ; preds = %53
@@ -776,7 +776,7 @@ define dso_local i32 @scontrol_update_front_end(i32 noundef %0, ptr nocapture no
 
 63:                                               ; preds = %60
   store i32 1, ptr %6, align 8
-  %64 = add nsw i32 %.05972, 1
+  %64 = add nsw i32 %.073, 1
   br label %82
 
 65:                                               ; preds = %60
@@ -786,7 +786,7 @@ define dso_local i32 @scontrol_update_front_end(i32 noundef %0, ptr nocapture no
 
 68:                                               ; preds = %65
   store i32 256, ptr %6, align 8
-  %69 = add nsw i32 %.05972, 1
+  %69 = add nsw i32 %.073, 1
   br label %82
 
 70:                                               ; preds = %65
@@ -808,7 +808,7 @@ define dso_local i32 @scontrol_update_front_end(i32 noundef %0, ptr nocapture no
   br label %.critedge
 
 82:                                               ; preds = %28, %63, %68, %58, %47
-  %.1 = phi i32 [ %.05972, %28 ], [ %49, %47 ], [ %59, %58 ], [ %64, %63 ], [ %69, %68 ]
+  %.1 = phi i32 [ %.073, %28 ], [ %49, %47 ], [ %59, %58 ], [ %64, %63 ], [ %69, %68 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %8, !llvm.loop !11
@@ -818,7 +818,7 @@ define dso_local i32 @scontrol_update_front_end(i32 noundef %0, ptr nocapture no
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.059.lcssa = phi i1 [ true, %2 ], [ %83, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i1 [ true, %2 ], [ %83, %._crit_edge.loopexit ]
   %84 = getelementptr inbounds i8, ptr %3, i64 8
   %85 = load i32, ptr %84, align 8
   switch i32 %85, label %95 [
@@ -845,7 +845,7 @@ define dso_local i32 @scontrol_update_front_end(i32 noundef %0, ptr nocapture no
   br label %.critedge
 
 95:                                               ; preds = %._crit_edge, %90
-  br i1 %.059.lcssa, label %96, label %99
+  br i1 %.0.lcssa, label %96, label %99
 
 96:                                               ; preds = %95
   store i32 1, ptr @exit_code, align 4
@@ -869,8 +869,8 @@ define dso_local i32 @scontrol_update_front_end(i32 noundef %0, ptr nocapture no
   br label %104
 
 104:                                              ; preds = %99, %.critedge, %102, %96, %24
-  %.0 = phi i32 [ %103, %102 ], [ -1, %24 ], [ 0, %96 ], [ 0, %.critedge ], [ 0, %99 ]
-  ret i32 %.0
+  %.059 = phi i32 [ %103, %102 ], [ -1, %24 ], [ 0, %96 ], [ 0, %.critedge ], [ 0, %99 ]
+  ret i32 %.059
 }
 
 declare void @slurm_init_update_front_end_msg(ptr noundef) local_unnamed_addr #1

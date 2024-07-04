@@ -337,42 +337,42 @@ ompi_comm_remote_size.exit67:                     ; preds = %24, %25
   br label %35
 
 35:                                               ; preds = %ompi_comm_remote_size.exit, %ompi_comm_remote_size.exit67, %31
-  %.055 = phi i32 [ %.val64, %31 ], [ %30, %ompi_comm_remote_size.exit67 ], [ %.val63, %ompi_comm_remote_size.exit ]
-  %.054 = phi i32 [ %.val61.val, %31 ], [ %19, %ompi_comm_remote_size.exit67 ], [ %19, %ompi_comm_remote_size.exit ]
-  %.051 = phi ptr [ %.val61, %31 ], [ %21, %ompi_comm_remote_size.exit67 ], [ %21, %ompi_comm_remote_size.exit ]
-  %.050 = phi ptr [ null, %31 ], [ %22, %ompi_comm_remote_size.exit67 ], [ %22, %ompi_comm_remote_size.exit ]
-  %36 = sdiv i32 %.054, 2
-  %.not5978 = icmp slt i32 %.054, 2
+  %.054 = phi i32 [ %.val64, %31 ], [ %30, %ompi_comm_remote_size.exit67 ], [ %.val63, %ompi_comm_remote_size.exit ]
+  %.053 = phi i32 [ %.val61.val, %31 ], [ %19, %ompi_comm_remote_size.exit67 ], [ %19, %ompi_comm_remote_size.exit ]
+  %.050 = phi ptr [ %.val61, %31 ], [ %21, %ompi_comm_remote_size.exit67 ], [ %21, %ompi_comm_remote_size.exit ]
+  %.049 = phi ptr [ null, %31 ], [ %22, %ompi_comm_remote_size.exit67 ], [ %22, %ompi_comm_remote_size.exit ]
+  %36 = sdiv i32 %.053, 2
+  %.not5978 = icmp slt i32 %.053, 2
   br i1 %.not5978, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %35
-  %37 = add nsw i32 %.054, %.055
-  %38 = getelementptr i8, ptr %.051, i64 16
-  %39 = getelementptr inbounds i8, ptr %.050, i64 32
-  %40 = getelementptr inbounds i8, ptr %.051, i64 32
+  %37 = add nsw i32 %.053, %.054
+  %38 = getelementptr i8, ptr %.050, i64 16
+  %39 = getelementptr inbounds i8, ptr %.049, i64 32
+  %40 = getelementptr inbounds i8, ptr %.050, i64 32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %114
-  %.05379 = phi i32 [ 1, %.preheader.lr.ph ], [ %115, %114 ]
-  %41 = icmp eq i32 %.05379, 1
+  %.05279 = phi i32 [ 1, %.preheader.lr.ph ], [ %115, %114 ]
+  %41 = icmp eq i32 %.05279, 1
   br label %42
 
 42:                                               ; preds = %.preheader, %._crit_edge
-  %.05277 = phi i32 [ 1, %.preheader ], [ %112, %._crit_edge ]
-  %43 = mul nsw i32 %.05277, %.05379
+  %.05177 = phi i32 [ 1, %.preheader ], [ %112, %._crit_edge ]
+  %43 = mul nsw i32 %.05177, %.05279
   %44 = add nsw i32 %37, %43
-  %.073 = srem i32 %44, %.054
-  %45 = icmp eq i32 %.073, %.055
+  %.073 = srem i32 %44, %.053
+  %45 = icmp eq i32 %.073, %.054
   br i1 %45, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %42
-  %46 = add i32 %.05277, %.054
+  %46 = add i32 %.05177, %.053
   br label %47
 
 47:                                               ; preds = %.lr.ph, %109
   %.074 = phi i32 [ %.073, %.lr.ph ], [ %.0, %109 ]
-  %.051.val = load i32, ptr %38, align 8
-  %48 = icmp slt i32 %.074, %.051.val
+  %.050.val = load i32, ptr %38, align 8
+  %48 = icmp slt i32 %.074, %.050.val
   br i1 %48, label %49, label %76
 
 49:                                               ; preds = %47
@@ -416,7 +416,7 @@ ompi_comm_remote_size.exit67:                     ; preds = %24, %25
   br label %ompi_group_peer_lookup.exit
 
 76:                                               ; preds = %47
-  %77 = sub nsw i32 %.074, %.051.val
+  %77 = sub nsw i32 %.074, %.050.val
   %78 = load ptr, ptr %39, align 8
   %79 = sext i32 %77 to i64
   %80 = getelementptr inbounds ptr, ptr %78, i64 %79
@@ -475,23 +475,23 @@ ompi_group_peer_lookup.exit:                      ; preds = %100, %98, %84, %76,
 
 109:                                              ; preds = %108
   %110 = add i32 %46, %.074
-  %.0 = srem i32 %110, %.054
-  %111 = icmp eq i32 %.0, %.055
+  %.0 = srem i32 %110, %.053
+  %111 = icmp eq i32 %.0, %.054
   br i1 %111, label %._crit_edge, label %47
 
 ._crit_edge:                                      ; preds = %109, %108, %106, %42
-  %112 = add nsw i32 %.05277, -2
-  %113 = icmp sgt i32 %.05277, 0
+  %112 = add nsw i32 %.05177, -2
+  %113 = icmp sgt i32 %.05177, 0
   br i1 %113, label %42, label %114, !llvm.loop !6
 
 114:                                              ; preds = %._crit_edge
-  %115 = shl nsw i32 %.05379, 1
+  %115 = shl nsw i32 %.05279, 1
   %.not59 = icmp sgt i32 %115, %36
   br i1 %.not59, label %.loopexit, label %.preheader, !llvm.loop !7
 
 .loopexit:                                        ; preds = %114, %106, %35
-  %.049 = phi i32 [ 0, %35 ], [ %107, %106 ], [ 0, %114 ]
-  ret i32 %.049
+  %.055 = phi i32 [ 0, %35 ], [ %107, %106 ], [ 0, %114 ]
+  ret i32 %.055
 }
 
 ; Function Attrs: nounwind uwtable
@@ -506,14 +506,14 @@ define internal range(i32 -2147483648, 1) i32 @ompi_comm_rbcast_n2(ptr nocapture
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %select.unfold
-  %.01729 = phi ptr [ %5, %.preheader.lr.ph ], [ %43, %select.unfold ]
-  %7 = getelementptr i8, ptr %.01729, i64 16
-  %.017.val26 = load i32, ptr %7, align 8
-  %8 = icmp sgt i32 %.017.val26, 0
+  %.029 = phi ptr [ %5, %.preheader.lr.ph ], [ %43, %select.unfold ]
+  %7 = getelementptr i8, ptr %.029, i64 16
+  %.0.val26 = load i32, ptr %7, align 8
+  %8 = icmp sgt i32 %.0.val26, 0
   br i1 %8, label %.lr.ph, label %select.unfold
 
 .lr.ph:                                           ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %.01729, i64 32
+  %9 = getelementptr inbounds i8, ptr %.029, i64 32
   br label %10
 
 10:                                               ; preds = %.lr.ph, %40
@@ -571,21 +571,21 @@ ompi_group_peer_lookup.exit:                      ; preds = %10, %16, %30, %32
 
 40:                                               ; preds = %38, %38, %ompi_group_peer_lookup.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.017.val = load i32, ptr %7, align 8
-  %41 = sext i32 %.017.val to i64
+  %.0.val = load i32, ptr %7, align 8
+  %41 = sext i32 %.0.val to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
   br i1 %42, label %10, label %select.unfold, !llvm.loop !8
 
 select.unfold:                                    ; preds = %40, %.preheader
   %43 = load ptr, ptr %6, align 8
-  %.not22 = icmp eq ptr %.01729, %43
+  %.not22 = icmp eq ptr %.029, %43
   %.not33 = icmp eq ptr %43, null
   %.not = or i1 %.not22, %.not33
   br i1 %.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %select.unfold, %38, %3
-  %.0 = phi i32 [ 0, %3 ], [ %39, %38 ], [ 0, %select.unfold ]
-  ret i32 %.0
+  %.018 = phi i32 [ 0, %3 ], [ %39, %38 ], [ 0, %select.unfold ]
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable

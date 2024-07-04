@@ -95,13 +95,13 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   br label %17
 
 17:                                               ; preds = %.lr.ph, %17
-  %.092 = phi i32 [ 0, %.lr.ph ], [ %40, %17 ]
-  %.06991 = phi i32 [ -1, %.lr.ph ], [ %.1, %17 ]
-  %.07090 = phi i32 [ 1000000000, %.lr.ph ], [ %.171, %17 ]
-  %.07289 = phi i32 [ -1, %.lr.ph ], [ %.173, %17 ]
+  %.092 = phi i32 [ -1, %.lr.ph ], [ %.1, %17 ]
+  %.06991 = phi i32 [ 1000000000, %.lr.ph ], [ %.170, %17 ]
+  %.07190 = phi i32 [ -1, %.lr.ph ], [ %.172, %17 ]
+  %.07389 = phi i32 [ 0, %.lr.ph ], [ %40, %17 ]
   %18 = load ptr, ptr %15, align 8
   %.val77 = load i32, ptr %16, align 4
-  %19 = add nsw i32 %.val77, %.092
+  %19 = add nsw i32 %.val77, %.07389
   %20 = getelementptr i8, ptr %18, i64 8
   %.val78 = load ptr, ptr %20, align 8
   %21 = sext i32 %19 to i64
@@ -129,33 +129,33 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %37 = icmp sgt i32 %30, 1
   %38 = icmp sgt i32 %32, 1
   %or.cond = select i1 %37, i1 %38, i1 false
-  %39 = icmp sgt i32 %.07090, %36
+  %39 = icmp sgt i32 %.06991, %36
   %or.cond76 = select i1 %or.cond, i1 %39, i1 false
-  %.173 = select i1 %or.cond76, i32 %30, i32 %.07289
-  %.171 = select i1 %or.cond76, i32 %36, i32 %.07090
-  %.1 = select i1 %or.cond76, i32 %.092, i32 %.06991
-  %40 = add nuw nsw i32 %.092, 1
+  %.172 = select i1 %or.cond76, i32 %.07389, i32 %.07190
+  %.170 = select i1 %or.cond76, i32 %36, i32 %.06991
+  %.1 = select i1 %or.cond76, i32 %30, i32 %.092
+  %40 = add nuw nsw i32 %.07389, 1
   %.val = load i32, ptr %13, align 8
   %41 = icmp slt i32 %40, %.val
   br i1 %41, label %17, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %17, %Abc_Clock.exit
-  %.072.lcssa = phi i32 [ -1, %Abc_Clock.exit ], [ %.173, %17 ]
-  %.070.lcssa = phi i32 [ 1000000000, %Abc_Clock.exit ], [ %.171, %17 ]
-  %.069.lcssa = phi i32 [ -1, %Abc_Clock.exit ], [ %.1, %17 ]
+  %.071.lcssa = phi i32 [ -1, %Abc_Clock.exit ], [ %.172, %17 ]
+  %.069.lcssa = phi i32 [ 1000000000, %Abc_Clock.exit ], [ %.170, %17 ]
+  %.0.lcssa = phi i32 [ -1, %Abc_Clock.exit ], [ %.1, %17 ]
   %42 = getelementptr i8, ptr %2, i64 16
   %.val81 = load ptr, ptr %42, align 8
   %43 = getelementptr i8, ptr %2, i64 108
   %.val82 = load i32, ptr %43, align 4
   %44 = getelementptr i8, ptr %.val81, i64 8
   %.val81.val = load ptr, ptr %44, align 8
-  %45 = add nsw i32 %.val82, %.069.lcssa
+  %45 = add nsw i32 %.val82, %.071.lcssa
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds ptr, ptr %.val81.val, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr i8, ptr %48, i64 36
   %.val80 = load i32, ptr %49, align 4
-  %50 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.069.lcssa, i32 noundef %.val80, i32 noundef %.070.lcssa, i32 noundef %12, i32 noundef %.072.lcssa)
+  %50 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.071.lcssa, i32 noundef %.val80, i32 noundef %.069.lcssa, i32 noundef %12, i32 noundef %.0.lcssa)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %51 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #18
   %52 = icmp slt i32 %51, 0
@@ -178,7 +178,7 @@ Abc_Clock.exit84:                                 ; preds = %.critedge, %53
   %61 = sitofp i64 %60 to double
   %62 = fdiv double %61, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.55, double noundef %62)
-  ret i32 %.069.lcssa
+  ret i32 %.071.lcssa
 }
 
 declare i32 @Cudd_DagSize(ptr noundef) local_unnamed_addr #1
@@ -503,11 +503,11 @@ define noundef ptr @Llb_NonlinComputeInitState(ptr nocapture noundef readonly %0
   br label %10
 
 10:                                               ; preds = %.lr.ph, %21
-  %.032 = phi ptr [ %5, %.lr.ph ], [ %27, %21 ]
-  %.02531 = phi i32 [ 0, %.lr.ph ], [ %28, %21 ]
+  %.032 = phi i32 [ 0, %.lr.ph ], [ %28, %21 ]
+  %.02531 = phi ptr [ %5, %.lr.ph ], [ %27, %21 ]
   %11 = load ptr, ptr %8, align 8
   %.val26 = load i32, ptr %9, align 4
-  %12 = add nsw i32 %.val26, %.02531
+  %12 = add nsw i32 %.val26, %.032
   %13 = getelementptr i8, ptr %11, i64 8
   %.val27 = load ptr, ptr %13, align 8
   %14 = sext i32 %12 to i64
@@ -524,24 +524,24 @@ define noundef ptr @Llb_NonlinComputeInitState(ptr nocapture noundef readonly %0
   br label %21
 
 21:                                               ; preds = %10, %19
-  %22 = phi i32 [ %.val28, %19 ], [ %.02531, %10 ]
+  %22 = phi i32 [ %.val28, %19 ], [ %.032, %10 ]
   %23 = tail call ptr @Cudd_bddIthVar(ptr noundef %1, i32 noundef %22) #18
   %24 = ptrtoint ptr %23 to i64
   %25 = xor i64 %24, 1
   %26 = inttoptr i64 %25 to ptr
-  %27 = tail call ptr @Cudd_bddAnd(ptr noundef %1, ptr noundef %.032, ptr noundef %26) #18
+  %27 = tail call ptr @Cudd_bddAnd(ptr noundef %1, ptr noundef %.02531, ptr noundef %26) #18
   tail call void @Cudd_Ref(ptr noundef %27) #18
-  tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.032) #18
-  %28 = add nuw nsw i32 %.02531, 1
+  tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.02531) #18
+  %28 = add nuw nsw i32 %.032, 1
   %.val = load i32, ptr %6, align 8
   %29 = icmp slt i32 %28, %.val
   br i1 %29, label %10, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %21, %2
-  %.0.lcssa = phi ptr [ %5, %2 ], [ %27, %21 ]
-  tail call void @Cudd_Deref(ptr noundef %.0.lcssa) #18
+  %.025.lcssa = phi ptr [ %5, %2 ], [ %27, %21 ]
+  tail call void @Cudd_Deref(ptr noundef %.025.lcssa) #18
   store i64 %4, ptr %3, align 8
-  ret ptr %.0.lcssa
+  ret ptr %.025.lcssa
 }
 
 declare ptr @Cudd_ReadOne(ptr noundef) local_unnamed_addr #1
@@ -2309,8 +2309,8 @@ Abc_Clock.exit282._crit_edge:                     ; preds = %672, %Abc_Clock.exi
   br label %727
 
 727:                                              ; preds = %721, %712, %669, %573, %529, %477, %444, %367, %323, %292, %220, %199, %113, %85
-  %.0 = phi i32 [ -1, %85 ], [ -1, %113 ], [ -1, %199 ], [ -1, %220 ], [ -1, %323 ], [ -1, %367 ], [ -1, %444 ], [ -1, %477 ], [ -1, %712 ], [ 1, %721 ], [ -1, %529 ], [ -1, %573 ], [ -1, %669 ], [ 0, %292 ]
-  ret i32 %.0
+  %.0228 = phi i32 [ -1, %85 ], [ -1, %113 ], [ -1, %199 ], [ -1, %220 ], [ -1, %323 ], [ -1, %367 ], [ -1, %444 ], [ -1, %477 ], [ -1, %712 ], [ 1, %721 ], [ -1, %529 ], [ -1, %573 ], [ -1, %669 ], [ 0, %292 ]
+  ret i32 %.0228
 }
 
 declare ptr @Llb_BddComputeBad(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1

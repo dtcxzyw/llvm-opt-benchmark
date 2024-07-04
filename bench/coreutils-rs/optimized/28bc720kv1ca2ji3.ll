@@ -240,8 +240,8 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17h04d1cdc788bb6a18E(p
   br i1 %13, label %14, label %17
 
 .loopexit:                                        ; preds = %.backedge, %20, %22, %26, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %3, %32
-  %.09 = phi ptr [ %33, %32 ], [ null, %3 ], [ null, %.backedge ], [ %12, %20 ], [ %12, %22 ], [ %12, %26 ], [ %12, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ]
-  ret ptr %.09
+  %.0 = phi ptr [ %33, %32 ], [ null, %3 ], [ null, %.backedge ], [ %12, %20 ], [ %12, %22 ], [ %12, %26 ], [ %12, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ]
+  ret ptr %.0
 
 14:                                               ; preds = %10
   %15 = load i64, ptr %6, align 8, !noundef !5
@@ -4941,9 +4941,9 @@ define hidden { ptr, ptr } @_ZN7uu_sort8ext_sort8ext_sort17h98131e77219dcf15E(pt
           to label %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h093f8c1e889fc562E.exit.i.i" unwind label %.body171.thread.i.i, !noalias !792
 
 .body171.i.i:                                     ; preds = %389, %380, %375
-  %.086.i.i = phi i8 [ %.6.i.i, %375 ], [ %.4.i.i, %389 ], [ %.4.i.i, %380 ]
+  %.087.i.i = phi i8 [ %.6.i.i, %375 ], [ %.4.i.i, %389 ], [ %.4.i.i, %380 ]
   %.pn114.i.i = phi { ptr, i32 } [ %.pn112.i.i, %375 ], [ %381, %389 ], [ %381, %380 ]
-  %185 = trunc nuw i8 %.086.i.i to i1
+  %185 = trunc nuw i8 %.087.i.i to i1
   br i1 %185, label %405, label %.critedge109.thread.i
 
 .body171.thread.i.i:                              ; preds = %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h093f8c1e889fc562E.exit.thread.i.i", %183
@@ -6420,9 +6420,9 @@ default.unreachable1.i160.i.i:                    ; preds = %364
           to label %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h093f8c1e889fc562E.exit.i.i39" unwind label %.body168.thread.i.i, !noalias !1022
 
 .body168.i.i:                                     ; preds = %795, %786, %781
-  %.084.i.i = phi i8 [ %.6.i.i50, %781 ], [ %.4.i.i54, %795 ], [ %.4.i.i54, %786 ]
+  %.085.i.i = phi i8 [ %.6.i.i50, %781 ], [ %.4.i.i54, %795 ], [ %.4.i.i54, %786 ]
   %.pn112.i.i53 = phi { ptr, i32 } [ %.pn110.i.i51, %781 ], [ %787, %795 ], [ %787, %786 ]
-  %594 = trunc nuw i8 %.084.i.i to i1
+  %594 = trunc nuw i8 %.085.i.i to i1
   br i1 %594, label %811, label %.critedge109.thread.i38
 
 .body168.thread.i.i:                              ; preds = %"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h093f8c1e889fc562E.exit.thread.i.i163", %592
@@ -9882,7 +9882,7 @@ define void @"_ZN95_$LT$uu_sort..merge..WriteableCompressedTmpFile$u20$as$u20$uu
           to label %23 unwind label %.thread
 
 "_ZN4core3ptr42drop_in_place$LT$std..process..Command$GT$17h6dbbc804e5bf4591E.exit": ; preds = %.body
-  br i1 %.226, label %98, label %96
+  br i1 %.229, label %98, label %96
 
 .thread:                                          ; preds = %20, %21, %85
   %.1.ph = phi i1 [ false, %85 ], [ true, %21 ], [ true, %20 ]
@@ -9900,7 +9900,7 @@ define void @"_ZN95_$LT$uu_sort..merge..WriteableCompressedTmpFile$u20$as$u20$uu
           to label %_ZN3std7process7Command5stdin17h0d1842dbaa7d5a95E.exit unwind label %24
 
 .body:                                            ; preds = %82, %55, %33, %24, %"_ZN4core3ptr45drop_in_place$LT$std..process..ChildStdin$GT$17h62795a23be5d534fE.exit"
-  %.226 = phi i1 [ %49, %"_ZN4core3ptr45drop_in_place$LT$std..process..ChildStdin$GT$17h62795a23be5d534fE.exit" ], [ true, %24 ], [ true, %33 ], [ true, %55 ], [ false, %82 ]
+  %.229 = phi i1 [ %49, %"_ZN4core3ptr45drop_in_place$LT$std..process..ChildStdin$GT$17h62795a23be5d534fE.exit" ], [ true, %24 ], [ true, %33 ], [ true, %55 ], [ false, %82 ]
   %.2 = phi i1 [ false, %"_ZN4core3ptr45drop_in_place$LT$std..process..ChildStdin$GT$17h62795a23be5d534fE.exit" ], [ %.3, %24 ], [ false, %33 ], [ false, %55 ], [ false, %82 ]
   %.pn34.pn = phi { ptr, i32 } [ %.pn3489, %"_ZN4core3ptr45drop_in_place$LT$std..process..ChildStdin$GT$17h62795a23be5d534fE.exit" ], [ %25, %24 ], [ %34, %33 ], [ %56, %55 ], [ %.pn, %82 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$std..sys..pal..unix..process..process_common..Command$GT$17ha0f615f11dffc2d6E.llvm.3531809010164697281"(ptr noalias noundef nonnull align 8 dereferenceable(208) %15)
@@ -10045,7 +10045,7 @@ _ZN3std7process7Command6stdout17h27f456e7e7c570f2E.exit: ; preds = %_ZN3std7proc
   br label %"_ZN4core3ptr45drop_in_place$LT$std..process..ChildStdin$GT$17h62795a23be5d534fE.exit"
 
 63:                                               ; preds = %81, %64
-  %.028 = phi i1 [ false, %81 ], [ true, %64 ]
+  %.024 = phi i1 [ false, %81 ], [ true, %64 ]
   %.pn = phi { ptr, i32 } [ %72, %81 ], [ %65, %64 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3854525e2e28c0bdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #25
           to label %82 unwind label %79
@@ -10135,7 +10135,7 @@ _ZN3std7process7Command6stdout17h27f456e7e7c570f2E.exit: ; preds = %_ZN3std7proc
           to label %63 unwind label %79
 
 82:                                               ; preds = %63
-  br i1 %.028, label %83, label %.body
+  br i1 %.024, label %83, label %.body
 
 83:                                               ; preds = %82
   %84 = invoke noundef i32 @close(i32 noundef %48)
@@ -10819,20 +10819,20 @@ define { ptr, ptr } @"_ZN86_$LT$uu_sort..merge..CompressedTmpMergeInput$u20$as$u
 
 .body.thread:                                     ; preds = %28, %.body.thread25, %81
   %eh.lpad-body24 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %81 ], [ %lpad.thr_comm, %.body.thread25 ], [ %29, %28 ]
-  %.0.lpad-body23 = phi i1 [ %.0.ph, %81 ], [ false, %.body.thread25 ], [ false, %28 ]
+  %.013.lpad-body23 = phi i1 [ %.013.ph, %81 ], [ false, %.body.thread25 ], [ false, %28 ]
   %80 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h718722ff715cbabcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %80) #25
           to label %82 unwind label %77
 
 81:                                               ; preds = %1, %"_ZN4core3ptr46drop_in_place$LT$std..process..ChildStdout$GT$17h4f60404565cfb20cE.exit"
-  %.0.ph = phi i1 [ true, %1 ], [ false, %"_ZN4core3ptr46drop_in_place$LT$std..process..ChildStdout$GT$17h4f60404565cfb20cE.exit" ]
+  %.013.ph = phi i1 [ true, %1 ], [ false, %"_ZN4core3ptr46drop_in_place$LT$std..process..ChildStdout$GT$17h4f60404565cfb20cE.exit" ]
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h3854525e2e28c0bdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #25
           to label %.body.thread unwind label %77
 
 82:                                               ; preds = %.body.thread
-  br i1 %.0.lpad-body23, label %83, label %79
+  br i1 %.013.lpad-body23, label %83, label %79
 
 83:                                               ; preds = %82
   %84 = getelementptr inbounds i8, ptr %0, i64 48

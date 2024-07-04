@@ -709,8 +709,8 @@ if.end10:                                         ; preds = %if.then8, %if.end7
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %if.end10
-  %prospective_record_offset.0 = phi i64 [ 0, %if.end10 ], [ %prospective_record_offset.0.be, %while.body.backedge ]
   %in_fragmented_record.0 = phi i8 [ 0, %if.end10 ], [ %in_fragmented_record.0.be, %while.body.backedge ]
+  %prospective_record_offset.0 = phi i64 [ 0, %if.end10 ], [ %prospective_record_offset.0.be, %while.body.backedge ]
   %4 = load i64, ptr %end_of_buffer_offset_, align 8
   %5 = load i64, ptr %size_.i68, align 8
   %sub = sub i64 %4, %5
@@ -1460,8 +1460,8 @@ if.then.i.i.i.i:                                  ; preds = %_ZN7rocksdb6StatusD
   br label %while.body.backedge
 
 while.body.backedge:                              ; preds = %if.then.i.i.i.i, %_ZN7rocksdb6StatusD2Ev.exit277, %if.end185, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit448, %sw.bb162, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit364, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit114, %if.end56, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit470, %_ZN7rocksdb6StatusD2Ev.exit214, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit138, %if.end42
-  %prospective_record_offset.0.be = phi i64 [ %prospective_record_offset.0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit470 ], [ %prospective_record_offset.0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit448 ], [ %prospective_record_offset.0, %if.end185 ], [ %prospective_record_offset.0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit364 ], [ %prospective_record_offset.0, %sw.bb162 ], [ %sub, %_ZN7rocksdb6StatusD2Ev.exit214 ], [ %prospective_record_offset.0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit138 ], [ %prospective_record_offset.0, %if.end56 ], [ %prospective_record_offset.0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit114 ], [ %sub, %if.end42 ], [ %sub, %_ZN7rocksdb6StatusD2Ev.exit277 ], [ %sub, %if.then.i.i.i.i ]
   %in_fragmented_record.0.be = phi i8 [ 0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit470 ], [ 0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit448 ], [ %in_fragmented_record.0, %if.end185 ], [ 0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit364 ], [ %in_fragmented_record.0, %sw.bb162 ], [ %in_fragmented_record.0, %_ZN7rocksdb6StatusD2Ev.exit214 ], [ %in_fragmented_record.0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit138 ], [ %in_fragmented_record.0, %if.end56 ], [ %in_fragmented_record.0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit114 ], [ 1, %if.end42 ], [ %in_fragmented_record.0, %_ZN7rocksdb6StatusD2Ev.exit277 ], [ %in_fragmented_record.0, %if.then.i.i.i.i ]
+  %prospective_record_offset.0.be = phi i64 [ %prospective_record_offset.0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit470 ], [ %prospective_record_offset.0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit448 ], [ %prospective_record_offset.0, %if.end185 ], [ %prospective_record_offset.0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit364 ], [ %prospective_record_offset.0, %sw.bb162 ], [ %sub, %_ZN7rocksdb6StatusD2Ev.exit214 ], [ %prospective_record_offset.0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit138 ], [ %prospective_record_offset.0, %if.end56 ], [ %prospective_record_offset.0, %_ZN7rocksdb3log6Reader16ReportCorruptionEmPKc.exit114 ], [ %sub, %if.end42 ], [ %sub, %_ZN7rocksdb6StatusD2Ev.exit277 ], [ %sub, %if.then.i.i.i.i ]
   br label %while.body, !llvm.loop !6
 
 ehcleanup:                                        ; preds = %_ZN7rocksdb6StatusD2Ev.exit264, %lpad109

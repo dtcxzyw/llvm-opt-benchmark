@@ -1246,7 +1246,7 @@ define noundef ptr @Wln_RetAlloc(ptr noundef %0) local_unnamed_addr #3 {
 9:                                                ; preds = %.lr.ph, %21
   %.val90134 = phi i32 [ %.val90117, %.lr.ph ], [ %.val90, %21 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %.077118 = phi i32 [ 1, %.lr.ph ], [ %.279, %21 ]
+  %.0119 = phi i32 [ 1, %.lr.ph ], [ %.2, %21 ]
   %.val93 = load ptr, ptr %7, align 8
   %10 = getelementptr inbounds i32, ptr %.val93, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
@@ -1262,7 +1262,7 @@ define noundef ptr @Wln_RetAlloc(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %narrow.i, label %17, label %21
 
 17:                                               ; preds = %13
-  %.not84 = icmp eq i32 %.077118, 0
+  %.not84 = icmp eq i32 %.0119, 0
   br i1 %.not84, label %19, label %18
 
 18:                                               ; preds = %17
@@ -1277,7 +1277,7 @@ define noundef ptr @Wln_RetAlloc(ptr noundef %0) local_unnamed_addr #3 {
 
 21:                                               ; preds = %9, %13, %19
   %.val90 = phi i32 [ %.val90134, %13 ], [ %.val90.pre, %19 ], [ %.val90134, %9 ]
-  %.279 = phi i32 [ %.077118, %13 ], [ 0, %19 ], [ %.077118, %9 ]
+  %.2 = phi i32 [ %.0119, %13 ], [ 0, %19 ], [ %.0119, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = sext i32 %.val90 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
@@ -2453,7 +2453,7 @@ define range(i32 0, -2147483648) i32 @Wln_RetPropDelay(ptr nocapture noundef %0)
 8:                                                ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %59 ]
   %9 = phi ptr [ %4, %.lr.ph ], [ %60, %59 ]
-  %.01723 = phi i32 [ 0, %.lr.ph ], [ %.1, %59 ]
+  %.024 = phi i32 [ 0, %.lr.ph ], [ %.1, %59 ]
   %10 = getelementptr i8, ptr %9, i64 80
   %.val19 = load ptr, ptr %10, align 8
   %11 = getelementptr inbounds i32, ptr %.val19, i64 %indvars.iv
@@ -2465,7 +2465,7 @@ define range(i32 0, -2147483648) i32 @Wln_RetPropDelay(ptr nocapture noundef %0)
 14:                                               ; preds = %8
   %15 = trunc nuw nsw i64 %indvars.iv to i32
   %16 = tail call i32 @Wln_RetPropDelay_rec(ptr noundef nonnull %0, i32 noundef %15)
-  %17 = icmp eq i32 %.01723, %16
+  %17 = icmp eq i32 %.024, %16
   br i1 %17, label %18, label %47
 
 18:                                               ; preds = %14
@@ -2534,7 +2534,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %59
 
 47:                                               ; preds = %14
-  %48 = icmp slt i32 %.01723, %16
+  %48 = icmp slt i32 %.024, %16
   br i1 %48, label %49, label %59
 
 49:                                               ; preds = %47
@@ -2568,7 +2568,7 @@ Vec_IntGrow.exit.i20:                             ; preds = %56, %49
   br label %59
 
 59:                                               ; preds = %8, %47, %Vec_IntGrow.exit.i20, %Vec_IntPush.exit
-  %.1 = phi i32 [ %.01723, %8 ], [ %.01723, %Vec_IntPush.exit ], [ %16, %Vec_IntGrow.exit.i20 ], [ %.01723, %47 ]
+  %.1 = phi i32 [ %.024, %8 ], [ %.024, %Vec_IntPush.exit ], [ %16, %Vec_IntGrow.exit.i20 ], [ %.024, %47 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = load ptr, ptr %0, align 8
   %61 = getelementptr i8, ptr %60, i64 76
@@ -2578,8 +2578,8 @@ Vec_IntGrow.exit.i20:                             ; preds = %56, %49
   br i1 %63, label %8, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %59, %1
-  %.017.lcssa = phi i32 [ 0, %1 ], [ %.1, %59 ]
-  ret i32 %.017.lcssa
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %59 ]
+  ret i32 %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2963,21 +2963,21 @@ Wln_ObjFanin.exit:                                ; preds = %22, %25
 .sink.split.sink.split:                           ; preds = %46, %44
   %.sink72 = phi ptr [ %39, %44 ], [ %5, %46 ]
   %.sink.ph = phi i32 [ 1, %44 ], [ %.val54, %46 ]
-  %.035.ph.ph = phi i32 [ 1, %44 ], [ 0, %46 ]
+  %.036.ph.ph = phi i32 [ 1, %44 ], [ 0, %46 ]
   %.val49.pre = load ptr, ptr %.sink72, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %43
   %.val49.sink = phi ptr [ %.val46, %43 ], [ %.val49.pre, %.sink.split.sink.split ]
   %.sink = phi i32 [ 1, %43 ], [ %.sink.ph, %.sink.split.sink.split ]
-  %.035.ph = phi i32 [ 1, %43 ], [ %.035.ph.ph, %.sink.split.sink.split ]
+  %.036.ph = phi i32 [ 1, %43 ], [ %.036.ph.ph, %.sink.split.sink.split ]
   %47 = getelementptr inbounds i32, ptr %.val49.sink, i64 %6
   store i32 %.sink, ptr %47, align 4
   br label %48
 
 48:                                               ; preds = %.sink.split, %11, %11, %11, %.critedge.thread, %10, %3
-  %.035 = phi i32 [ 1, %3 ], [ 0, %10 ], [ 0, %11 ], [ 1, %.critedge.thread ], [ 0, %11 ], [ 0, %11 ], [ %.035.ph, %.sink.split ]
-  ret i32 %.035
+  %.036 = phi i32 [ 1, %3 ], [ 0, %10 ], [ 0, %11 ], [ 1, %.critedge.thread ], [ 0, %11 ], [ 0, %11 ], [ %.036.ph, %.sink.split ]
+  ret i32 %.036
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3447,7 +3447,7 @@ define i32 @Wln_RetRemoveOneFanin(ptr nocapture noundef readonly %0, i32 noundef
   %16 = phi ptr [ %9, %.lr.ph ], [ %48, %47 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
   %.val3545 = phi ptr [ %.val3542, %.lr.ph ], [ %.val35, %47 ]
-  %.02943 = phi i32 [ -1, %.lr.ph ], [ %.1, %47 ]
+  %.044 = phi i32 [ -1, %.lr.ph ], [ %.1, %47 ]
   %.val37 = load ptr, ptr %3, align 8
   %17 = getelementptr inbounds i32, ptr %.val37, i64 %4
   %18 = load i32, ptr %17, align 4
@@ -3494,14 +3494,14 @@ define i32 @Wln_RetRemoveOneFanin(ptr nocapture noundef readonly %0, i32 noundef
   %44 = or disjoint i64 %21, 1
   %45 = getelementptr inbounds i32, ptr %8, i64 %44
   store i32 %43, ptr %45, align 4
-  %46 = icmp eq i32 %.02943, -1
-  %spec.select = select i1 %46, i32 %42, i32 %.02943
+  %46 = icmp eq i32 %.044, -1
+  %spec.select = select i1 %46, i32 %42, i32 %.044
   %.pre = load ptr, ptr %0, align 8
   br label %47
 
 47:                                               ; preds = %37, %30, %15, %._crit_edge
   %48 = phi ptr [ %16, %._crit_edge ], [ %16, %30 ], [ %16, %15 ], [ %.pre, %37 ]
-  %.1 = phi i32 [ %.02943, %._crit_edge ], [ %.02943, %30 ], [ %.02943, %15 ], [ %spec.select, %37 ]
+  %.1 = phi i32 [ %.044, %._crit_edge ], [ %.044, %30 ], [ %.044, %15 ], [ %spec.select, %37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = getelementptr i8, ptr %48, i64 88
   %.val35 = load ptr, ptr %49, align 8
@@ -3512,8 +3512,8 @@ define i32 @Wln_RetRemoveOneFanin(ptr nocapture noundef readonly %0, i32 noundef
   br i1 %53, label %15, label %.critedge, !llvm.loop !36
 
 .critedge:                                        ; preds = %47, %2
-  %.029.lcssa = phi i32 [ -1, %2 ], [ %.1, %47 ]
-  ret i32 %.029.lcssa
+  %.0.lcssa = phi i32 [ -1, %2 ], [ %.1, %47 ]
+  ret i32 %.0.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -3813,7 +3813,7 @@ define void @Wln_RetRetimeForward(ptr nocapture noundef %0, ptr nocapture nounde
   %27 = phi ptr [ %61, %58 ], [ %13, %11 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %58 ], [ 0, %11 ]
   %.val3545.i = phi ptr [ %.val35.i, %58 ], [ %.val3542.i, %11 ]
-  %.02943.i = phi i32 [ %.1.i, %58 ], [ -1, %11 ]
+  %.044.i = phi i32 [ %.1.i, %58 ], [ -1, %11 ]
   %.val37.i = load ptr, ptr %6, align 8
   %28 = getelementptr inbounds i32, ptr %.val37.i, i64 %16
   %29 = load i32, ptr %28, align 4
@@ -3860,8 +3860,8 @@ define void @Wln_RetRetimeForward(ptr nocapture noundef %0, ptr nocapture nounde
   %55 = or disjoint i64 %32, 1
   %56 = getelementptr inbounds i32, ptr %20, i64 %55
   store i32 %54, ptr %56, align 4
-  %57 = icmp eq i32 %.02943.i, -1
-  %spec.select.i = select i1 %57, i32 %53, i32 %.02943.i
+  %57 = icmp eq i32 %.044.i, -1
+  %spec.select.i = select i1 %57, i32 %53, i32 %.044.i
   %.pre.i = load ptr, ptr %0, align 8
   br label %58
 
@@ -3869,7 +3869,7 @@ define void @Wln_RetRetimeForward(ptr nocapture noundef %0, ptr nocapture nounde
   %59 = phi ptr [ %25, %._crit_edge.i ], [ %25, %41 ], [ %25, %.lr.ph.i ], [ %.pre.i, %48 ]
   %60 = phi ptr [ %26, %._crit_edge.i ], [ %26, %41 ], [ %26, %.lr.ph.i ], [ %.pre.i, %48 ]
   %61 = phi ptr [ %27, %._crit_edge.i ], [ %27, %41 ], [ %27, %.lr.ph.i ], [ %.pre.i, %48 ]
-  %.1.i = phi i32 [ %.02943.i, %._crit_edge.i ], [ %.02943.i, %41 ], [ %.02943.i, %.lr.ph.i ], [ %spec.select.i, %48 ]
+  %.1.i = phi i32 [ %.044.i, %._crit_edge.i ], [ %.044.i, %41 ], [ %.044.i, %.lr.ph.i ], [ %spec.select.i, %48 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %62 = getelementptr i8, ptr %61, i64 88
   %.val35.i = load ptr, ptr %62, align 8
@@ -5021,12 +5021,12 @@ Wln_RetMarkChanges.exit:                          ; preds = %35, %Vec_IntFill.ex
   br label %Vec_IntGrow.exit
 
 Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.backedge, %Wln_RetMarkChanges.exit
-  %.0120 = phi i32 [ 0, %Wln_RetMarkChanges.exit ], [ %.1121, %Vec_IntGrow.exit.backedge ]
+  %.0120 = phi i32 [ 0, %Wln_RetMarkChanges.exit ], [ %186, %Vec_IntGrow.exit.backedge ]
   %.0118 = phi i32 [ 0, %Wln_RetMarkChanges.exit ], [ %.1119, %Vec_IntGrow.exit.backedge ]
   %.0116 = phi i32 [ 0, %Wln_RetMarkChanges.exit ], [ %.1117, %Vec_IntGrow.exit.backedge ]
-  %.0114 = phi i32 [ %46, %Wln_RetMarkChanges.exit ], [ %207, %Vec_IntGrow.exit.backedge ]
-  %.0112 = phi i32 [ 0, %Wln_RetMarkChanges.exit ], [ %.2, %Vec_IntGrow.exit.backedge ]
-  %.0111 = phi i32 [ 0, %Wln_RetMarkChanges.exit ], [ %186, %Vec_IntGrow.exit.backedge ]
+  %.0114 = phi i32 [ 0, %Wln_RetMarkChanges.exit ], [ %.1115, %Vec_IntGrow.exit.backedge ]
+  %.0112 = phi i32 [ %46, %Wln_RetMarkChanges.exit ], [ %207, %Vec_IntGrow.exit.backedge ]
+  %.0111 = phi i32 [ 0, %Wln_RetMarkChanges.exit ], [ %.2, %Vec_IntGrow.exit.backedge ]
   %.val141 = load i32, ptr %51, align 4
   %.not = icmp eq i32 %.val141, 0
   br i1 %.not, label %63, label %65
@@ -5277,16 +5277,16 @@ Wln_RetCheckBackward.exit:                        ; preds = %Wln_RetCheckBackwar
 
 .lr.ph.i172:                                      ; preds = %161, %182
   %.07.i = phi i32 [ %.1.i, %182 ], [ 0, %161 ]
-  %.0196.i = phi ptr [ %.120.i, %182 ], [ %.val148, %161 ]
-  %.0215.i = phi ptr [ %.122.i, %182 ], [ %.val150, %161 ]
-  %169 = load i32, ptr %.0196.i, align 4
-  %170 = load i32, ptr %.0215.i, align 4
+  %.0196.i = phi ptr [ %.120.i, %182 ], [ %.val150, %161 ]
+  %.0215.i = phi ptr [ %.122.i, %182 ], [ %.val148, %161 ]
+  %169 = load i32, ptr %.0215.i, align 4
+  %170 = load i32, ptr %.0196.i, align 4
   %171 = icmp eq i32 %169, %170
   br i1 %171, label %172, label %176
 
 172:                                              ; preds = %.lr.ph.i172
-  %173 = getelementptr inbounds i8, ptr %.0196.i, i64 4
-  %174 = getelementptr inbounds i8, ptr %.0215.i, i64 4
+  %173 = getelementptr inbounds i8, ptr %.0215.i, i64 4
+  %174 = getelementptr inbounds i8, ptr %.0196.i, i64 4
   %175 = add nsw i32 %.07.i, 1
   br label %182
 
@@ -5295,19 +5295,19 @@ Wln_RetCheckBackward.exit:                        ; preds = %Wln_RetCheckBackwar
   br i1 %177, label %178, label %180
 
 178:                                              ; preds = %176
-  %179 = getelementptr inbounds i8, ptr %.0196.i, i64 4
+  %179 = getelementptr inbounds i8, ptr %.0215.i, i64 4
   br label %182
 
 180:                                              ; preds = %176
-  %181 = getelementptr inbounds i8, ptr %.0215.i, i64 4
+  %181 = getelementptr inbounds i8, ptr %.0196.i, i64 4
   br label %182
 
 182:                                              ; preds = %180, %178, %172
-  %.122.i = phi ptr [ %174, %172 ], [ %.0215.i, %178 ], [ %181, %180 ]
-  %.120.i = phi ptr [ %173, %172 ], [ %179, %178 ], [ %.0196.i, %180 ]
+  %.122.i = phi ptr [ %173, %172 ], [ %179, %178 ], [ %.0215.i, %180 ]
+  %.120.i = phi ptr [ %174, %172 ], [ %.0196.i, %178 ], [ %181, %180 ]
   %.1.i = phi i32 [ %175, %172 ], [ %.07.i, %178 ], [ %.07.i, %180 ]
-  %183 = icmp ult ptr %.120.i, %163
-  %184 = icmp ult ptr %.122.i, %165
+  %183 = icmp ult ptr %.122.i, %163
+  %184 = icmp ult ptr %.120.i, %165
   %185 = select i1 %183, i1 %184, i1 false
   br i1 %185, label %.lr.ph.i172, label %Vec_IntTwoCountCommon.exit, !llvm.loop !46
 
@@ -5316,14 +5316,14 @@ Vec_IntTwoCountCommon.exit:                       ; preds = %182
   br i1 %.not128, label %Vec_IntTwoCountCommon.exit.thread, label %.loopexit.sink.split
 
 Vec_IntTwoCountCommon.exit.thread:                ; preds = %161, %Vec_IntTwoCountCommon.exit
-  %186 = add nuw nsw i32 %.0111, 1
+  %186 = add nuw nsw i32 %.0120, 1
   store i32 0, ptr %59, align 4
-  %187 = icmp ne i32 %.0120, 0
+  %187 = icmp ne i32 %.0118, 0
   %or.cond3 = and i1 %187, %156
   br i1 %or.cond3, label %194, label %188
 
 188:                                              ; preds = %Vec_IntTwoCountCommon.exit.thread
-  %189 = icmp ne i32 %.0118, 0
+  %189 = icmp ne i32 %.0116, 0
   %or.cond5 = and i1 %189, %158
   br i1 %or.cond5, label %200, label %190
 
@@ -5380,12 +5380,12 @@ Wln_RetMarkChanges.exit194:                       ; preds = %.lr.ph.i173, %194
   br i1 %205, label %.lr.ph.i196, label %Wln_RetMarkChanges.exit218, !llvm.loop !23
 
 Wln_RetMarkChanges.exit218:                       ; preds = %.lr.ph.i196, %200, %Wln_RetMarkChanges.exit194
-  %.1121 = phi i32 [ 1, %Wln_RetMarkChanges.exit194 ], [ %.0120, %200 ], [ %.0120, %.lr.ph.i196 ]
-  %.1119 = phi i32 [ %.0118, %Wln_RetMarkChanges.exit194 ], [ 1, %200 ], [ 1, %.lr.ph.i196 ]
+  %.1119 = phi i32 [ 1, %Wln_RetMarkChanges.exit194 ], [ %.0118, %200 ], [ %.0118, %.lr.ph.i196 ]
+  %.1117 = phi i32 [ %.0116, %Wln_RetMarkChanges.exit194 ], [ 1, %200 ], [ 1, %.lr.ph.i196 ]
   %.0 = phi i32 [ 1, %Wln_RetMarkChanges.exit194 ], [ 0, %200 ], [ 0, %.lr.ph.i196 ]
   %206 = tail call i32 @Wln_RetPropDelay(ptr noundef nonnull %4)
   store i32 %206, ptr %47, align 4
-  %207 = tail call noundef i32 @llvm.smin.i32(i32 %.0114, i32 %206)
+  %207 = tail call noundef i32 @llvm.smin.i32(i32 %.0112, i32 %206)
   br i1 %.not129, label %.thread, label %208
 
 .thread:                                          ; preds = %Wln_RetMarkChanges.exit218
@@ -5443,13 +5443,13 @@ Vec_IntPrint.exit231:                             ; preds = %.lr.ph.i226, %Vec_I
 226:                                              ; preds = %.thread, %Vec_IntPrint.exit231
   %227 = load i32, ptr %47, align 4
   %.not130 = icmp slt i32 %227, %157
-  %228 = add nsw i32 %.0116, 1
-  %229 = icmp sgt i32 %.0116, 0
-  %.1117 = select i1 %.not130, i32 0, i32 %228
+  %228 = add nsw i32 %.0114, 1
+  %229 = icmp sgt i32 %.0114, 0
+  %.1115 = select i1 %.not130, i32 0, i32 %228
   %narrow = and i1 %229, %.not130
   %spec.select = zext i1 %narrow to i32
-  %.2 = add nuw nsw i32 %.0112, %spec.select
-  %230 = icmp sgt i32 %.1117, 3
+  %.2 = add nuw nsw i32 %.0111, %spec.select
+  %230 = icmp sgt i32 %.1115, 3
   %231 = icmp ugt i32 %.2, 5
   %or.cond11 = select i1 %230, i1 true, i1 %231
   br i1 %or.cond11, label %.loopexit, label %232
@@ -5497,8 +5497,8 @@ Vec_IntGrow.exit.backedge:                        ; preds = %245, %235, %232
   br label %.loopexit
 
 .loopexit:                                        ; preds = %226, %63, %.loopexit.sink.split
-  %.1115 = phi i32 [ %.0114, %.loopexit.sink.split ], [ %.0114, %63 ], [ %207, %226 ]
-  %.1 = phi i32 [ %.0111, %.loopexit.sink.split ], [ %.0111, %63 ], [ %186, %226 ]
+  %.1121 = phi i32 [ %.0120, %.loopexit.sink.split ], [ %.0120, %63 ], [ %186, %226 ]
+  %.1113 = phi i32 [ %.0112, %.loopexit.sink.split ], [ %.0112, %63 ], [ %207, %226 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %calloc, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
   tail call void @Wln_RetFree(ptr noundef %4)
@@ -5531,16 +5531,16 @@ Vec_IntPrint.exit240:                             ; preds = %.lr.ph.i235, %247
 
 254:                                              ; preds = %.loopexit
   %.val = load i32, ptr %8, align 4
-  %255 = shl i32 %.1, 1
+  %255 = shl i32 %.1121, 1
   %reass.sub = sub i32 %.val, %255
   %256 = add i32 %reass.sub, -2
-  %257 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %.1, i32 noundef %256)
-  %258 = sub nsw i32 %46, %.1115
+  %257 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %.1121, i32 noundef %256)
+  %258 = sub nsw i32 %46, %.1113
   %259 = sitofp i32 %258 to double
   %260 = fmul double %259, 1.000000e+02
   %261 = uitofp nneg i32 %46 to double
   %262 = fdiv double %260, %261
-  %263 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %46, i32 noundef %.1115, i32 noundef %258, double noundef %262)
+  %263 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %46, i32 noundef %.1113, i32 noundef %258, double noundef %262)
   br label %264
 
 264:                                              ; preds = %254, %Vec_IntPrint.exit240

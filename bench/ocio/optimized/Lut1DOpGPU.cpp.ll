@@ -326,17 +326,17 @@ for.cond3.preheader.i:                            ; preds = %if.then.i149, %_ZNS
   %values.sroa.44.1 = phi ptr [ %values.sroa.44.5, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit72.i ], [ %values.sroa.0.0, %if.then.i149 ]
   %values.sroa.120.1 = phi ptr [ %values.sroa.120.5, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit72.i ], [ %values.sroa.120.0, %if.then.i149 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit72.i ], [ %sub.i, %if.then.i149 ]
-  %leftover.0234.i = phi i64 [ %sub13.i, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit72.i ], [ %div.i177, %if.then.i149 ]
-  %i.0233.i = phi i64 [ %add.i, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit72.i ], [ 0, %if.then.i149 ]
-  %add.i = add i64 %i.0233.i, %sub.i
-  %cmp4230.i = icmp ult i64 %i.0233.i, %add.i
+  %i.0234.i = phi i64 [ %add.i, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit72.i ], [ 0, %if.then.i149 ]
+  %leftover.0233.i = phi i64 [ %sub13.i, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit72.i ], [ %div.i177, %if.then.i149 ]
+  %add.i = add i64 %i.0234.i, %sub.i
+  %cmp4230.i = icmp ult i64 %i.0234.i, %add.i
   br i1 %cmp4230.i, label %for.body5.i, label %for.end.i
 
 for.body5.i:                                      ; preds = %for.cond3.preheader.i, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit.i
   %values.sroa.0.2 = phi ptr [ %values.sroa.0.3, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit.i ], [ %values.sroa.0.1, %for.cond3.preheader.i ]
   %values.sroa.44.2 = phi ptr [ %values.sroa.44.3, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit.i ], [ %values.sroa.44.1, %for.cond3.preheader.i ]
   %values.sroa.120.2 = phi ptr [ %values.sroa.120.3, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit.i ], [ %values.sroa.120.1, %for.cond3.preheader.i ]
-  %idx.0231.i = phi i64 [ %inc.i, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit.i ], [ %i.0233.i, %for.cond3.preheader.i ]
+  %idx.0231.i = phi i64 [ %inc.i, %_ZNSt6vectorIfSaIfEE9push_backEOf.exit.i ], [ %i.0234.i, %for.cond3.preheader.i ]
   %11 = load ptr, ptr %m_data.i171, align 8
   %add.ptr.i.idx.i = mul i64 %idx.0231.i, 12
   %add.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 %add.ptr.i.idx.i
@@ -491,7 +491,7 @@ _ZNSt6vectorIfSaIfEE9push_backEOf.exit72.i:       ; preds = %_ZNSt6vectorIfSaIfE
   %add.ptr.i.i.i.i.i.i.i64.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i.i64.i, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i68.i ], [ %values.sroa.44.4, %if.then.i.i42.i ]
   %values.sroa.120.5 = phi ptr [ %add.ptr19.i.i.i69.i, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i68.i ], [ %values.sroa.120.4, %if.then.i.i42.i ]
   %values.sroa.44.5 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i64.i.pn, i64 4
-  %sub13.i = sub i64 %leftover.0234.i, %sub.i
+  %sub13.i = sub i64 %leftover.0233.i, %sub.i
   %cmp2.i = icmp ult i64 %add.i, %sub1.i
   %indvars.iv.next.i = add i64 %indvars.iv.i, %sub.i
   br i1 %cmp2.i, label %for.cond3.preheader.i, label %for.end16.i, !llvm.loop !6

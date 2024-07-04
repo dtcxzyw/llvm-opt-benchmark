@@ -9236,9 +9236,9 @@ _ZNK5Yosys7hashlib3mfpINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEixEi.exit.i.i.i1274:
   br label %4127
 
 4127:                                             ; preds = %4126, %4093
+  %.sroa.9.sroa.0.0.in.in = phi i32 [ %.sroa.2.0.copyload.i1254, %4093 ], [ %.sroa.2.0.copyload.i1277, %4126 ]
   %.sroa.03875.0 = phi ptr [ %.sroa.0.0.copyload.i1253, %4093 ], [ %.sroa.0.0.copyload.i1276, %4126 ]
-  %.sroa.4.0.in = phi i32 [ %.sroa.2.0.copyload.i1254, %4093 ], [ %.sroa.2.0.copyload.i1277, %4126 ]
-  %.sroa.4.0 = trunc i32 %.sroa.4.0.in to i8
+  %.sroa.4.0 = trunc i32 %.sroa.9.sroa.0.0.in.in to i8
   %4128 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %.sroa.3220.0.copyload, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1QE)
           to label %4129 unwind label %.loopexit4432
 
@@ -9460,7 +9460,7 @@ _ZNK5Yosys7hashlib3mfpINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEEixEi.exit.i.i.i1297:
 
 4234:                                             ; preds = %4233
   %4235 = load i32, ptr %289, align 8
-  %4236 = icmp eq i32 %.sroa.4.0.in, %4235
+  %4236 = icmp eq i32 %.sroa.9.sroa.0.0.in.in, %4235
   br i1 %4236, label %4239, label %.critedge541.thread
 
 _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit:             ; preds = %4233
@@ -11034,7 +11034,7 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i1470: 
   %.sroa.0128.0.copyload = load ptr, ptr %144, align 8
   %4956 = getelementptr inbounds ptr, ptr %4950, i64 %4948
   %4957 = load ptr, ptr %4956, align 8
-  %4958 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_113makexorbufferEPN5Yosys5RTLIL6ModuleENS1_6SigBitEPKc(ptr noundef nonnull %409, ptr %.sroa.0128.0.copyload, i32 %.sroa.2129.0.copyload, ptr noundef %4957)
+  %4958 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_113makexorbufferEPN5Yosys5RTLIL6ModuleENS1_6SigBitEPKc(ptr noundef %409, ptr %.sroa.0128.0.copyload, i32 %.sroa.2129.0.copyload, ptr noundef %4957)
           to label %4959 unwind label %.loopexit4417
 
 4959:                                             ; preds = %4955
@@ -11868,7 +11868,7 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i1600: 
 5325:                                             ; preds = %5322
   %.sroa.0113.0.copyload = load ptr, ptr %151, align 8
   %.sroa.2114.0.copyload = load i32, ptr %300, align 8
-  %5326 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_115makeptermbufferEPN5Yosys5RTLIL6ModuleENS1_6SigBitE(ptr noundef nonnull %409, ptr %.sroa.0113.0.copyload, i32 %.sroa.2114.0.copyload)
+  %5326 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_115makeptermbufferEPN5Yosys5RTLIL6ModuleENS1_6SigBitE(ptr noundef %409, ptr %.sroa.0113.0.copyload, i32 %.sroa.2114.0.copyload)
           to label %5327 unwind label %.loopexit4417
 
 5327:                                             ; preds = %5325
@@ -12469,7 +12469,7 @@ _ZNK5Yosys5RTLIL6SigBitneERKS1_.exit.thread:      ; preds = %_ZN5Yosys5RTLIL8IdS
 5585:                                             ; preds = %5582
   %.sroa.0104.0.copyload = load ptr, ptr %156, align 8
   %.sroa.2105.0.copyload = load i32, ptr %309, align 8
-  %5586 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_115makeptermbufferEPN5Yosys5RTLIL6ModuleENS1_6SigBitE(ptr noundef nonnull %409, ptr %.sroa.0104.0.copyload, i32 %.sroa.2105.0.copyload)
+  %5586 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_115makeptermbufferEPN5Yosys5RTLIL6ModuleENS1_6SigBitE(ptr noundef %409, ptr %.sroa.0104.0.copyload, i32 %.sroa.2105.0.copyload)
           to label %5587 unwind label %.loopexit4417
 
 5587:                                             ; preds = %5585
@@ -12882,7 +12882,7 @@ _ZNK5Yosys5RTLIL6SigBitneERKS1_.exit1729.thread:  ; preds = %.noexc1724.thread
 5763:                                             ; preds = %5760
   %.sroa.095.0.copyload = load ptr, ptr %160, align 8
   %.sroa.296.0.copyload = load i32, ptr %314, align 8
-  %5764 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_115makeptermbufferEPN5Yosys5RTLIL6ModuleENS1_6SigBitE(ptr noundef nonnull %409, ptr %.sroa.095.0.copyload, i32 %.sroa.296.0.copyload)
+  %5764 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_115makeptermbufferEPN5Yosys5RTLIL6ModuleENS1_6SigBitE(ptr noundef %409, ptr %.sroa.095.0.copyload, i32 %.sroa.296.0.copyload)
           to label %5765 unwind label %.loopexit4417
 
 5765:                                             ; preds = %5763
@@ -13361,7 +13361,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit1794:            ; preds = %5938, %5943, %5950
 5969:                                             ; preds = %5966
   %.sroa.086.0.copyload = load ptr, ptr %164, align 8
   %.sroa.287.0.copyload = load i32, ptr %319, align 8
-  %5970 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_115makeptermbufferEPN5Yosys5RTLIL6ModuleENS1_6SigBitE(ptr noundef nonnull %409, ptr %.sroa.086.0.copyload, i32 %.sroa.287.0.copyload)
+  %5970 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_115makeptermbufferEPN5Yosys5RTLIL6ModuleENS1_6SigBitE(ptr noundef %409, ptr %.sroa.086.0.copyload, i32 %.sroa.287.0.copyload)
           to label %5971 unwind label %.loopexit4417
 
 5971:                                             ; preds = %5969
@@ -27970,14 +27970,14 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %8
   br label %230
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.01673, i64 1
+  %30 = getelementptr inbounds i8, ptr %.073, i64 1
   %31 = load i8, ptr %30, align 1
   %.not19 = icmp eq i8 %31, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !357
 
 .lr.ph:                                           ; preds = %.preheader, %29
   %32 = phi i8 [ %31, %29 ], [ %7, %.preheader ]
-  %.01673 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
+  %.073 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
   %33 = icmp ult i8 %32, 33
   br i1 %33, label %34, label %29
 
@@ -28424,8 +28424,8 @@ _ZNSt6vectorIiSaIiEE2atEm.exit57:                 ; preds = %_ZNSt6vectorIPcSaIS
   br label %230
 
 230:                                              ; preds = %_ZNSt6vectorIiSaIiEE2atEm.exit57, %227, %1, %_ZNSt6vectorIiSaIiEE2atEm.exit
-  %.0 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
-  ret i32 %.0
+  %.016 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
+  ret i32 %.016
 }
 
 ; Function Attrs: mustprogress uwtable

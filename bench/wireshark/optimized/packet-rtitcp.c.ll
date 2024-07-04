@@ -326,12 +326,12 @@ define internal i32 @dissect_rtitcp_common(ptr noundef %0, ptr noundef %1, ptr n
   %45 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %44) #4
   %46 = icmp eq i32 %45, 1129464626
   %47 = add i32 %.09.i, 16
-  %.0126.i.i = zext i1 %46 to i32
-  %.0125.i.i = select i1 %46, i16 16, i16 8
+  %.0128.i.i = select i1 %46, i16 16, i16 8
+  %.0125.i.i = zext i1 %46 to i32
   %.0122.i.i = select i1 %46, i32 %47, i32 %44
   %48 = zext i16 %43 to i32
-  %49 = add i16 %.0125.i.i, %43
-  %50 = call fastcc ptr @print_header(ptr noundef %15, ptr noundef %0, i32 noundef %.09.i, i16 noundef zeroext %49, i32 noundef %.0126.i.i, i32 noundef 0)
+  %49 = add i16 %.0128.i.i, %43
+  %50 = call fastcc ptr @print_header(ptr noundef %15, ptr noundef %0, i32 noundef %.09.i, i16 noundef zeroext %49, i32 noundef %.0125.i.i, i32 noundef 0)
   %51 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.0122.i.i, i32 noundef 0) #4
   %52 = load ptr, ptr %9, align 8
   %53 = zext i16 %51 to i32
@@ -513,11 +513,11 @@ proto_item_set_generated.exit.i.i:                ; preds = %proto_item_set_gene
   br i1 %.not175.i.i, label %.thread179.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %proto_item_set_generated.exit.i.i, %dissect_attribute.exit.i.i
-  %.0127173.i.i = phi i32 [ %245, %dissect_attribute.exit.i.i ], [ 0, %proto_item_set_generated.exit.i.i ]
-  %.0128172.i.i = phi i32 [ %147, %dissect_attribute.exit.i.i ], [ 0, %proto_item_set_generated.exit.i.i ]
+  %.0126173.i.i = phi i32 [ %147, %dissect_attribute.exit.i.i ], [ 0, %proto_item_set_generated.exit.i.i ]
+  %.0127172.i.i = phi i32 [ %245, %dissect_attribute.exit.i.i ], [ 0, %proto_item_set_generated.exit.i.i ]
   %.0171.i.i = phi i32 [ %.1165.i.i, %dissect_attribute.exit.i.i ], [ 1, %proto_item_set_generated.exit.i.i ]
-  %147 = add i32 %.0128172.i.i, 1
-  %148 = add i32 %.0127173.i.i, %143
+  %147 = add i32 %.0126173.i.i, 1
+  %148 = add i32 %.0127172.i.i, %143
   %149 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %148, i32 noundef 0) #4
   %150 = add i32 %148, 2
   %151 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %150, i32 noundef 0) #4
@@ -693,7 +693,7 @@ dissect_attribute.exit.i.i:                       ; preds = %234, %230, %225, %2
   %.1165.i.i = phi i32 [ %.0171.i.i, %.lr.ph.i.i ], [ %.0171.i.i, %234 ], [ %.0171.i.i, %230 ], [ 0, %225 ], [ 0, %212 ], [ 0, %167 ], [ 0, %200 ], [ 0, %188 ]
   %242 = sub nsw i32 0, %152
   %243 = and i32 %242, 3
-  %244 = add nuw nsw i32 %243, %.0127173.i.i
+  %244 = add nuw nsw i32 %243, %.0127172.i.i
   %245 = add nuw nsw i32 %244, %153
   %246 = icmp ult i32 %245, %144
   br i1 %246, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !4
@@ -714,9 +714,9 @@ dissect_attribute.exit.i.i:                       ; preds = %234, %230, %225, %2
   br label %.thread179.i.i
 
 .thread179.i.i:                                   ; preds = %250, %proto_item_set_generated.exit.i.i
-  %.0128.lcssa178181.i.i = phi i32 [ 0, %proto_item_set_generated.exit.i.i ], [ %147, %250 ]
+  %.0126.lcssa178181.i.i = phi i32 [ 0, %proto_item_set_generated.exit.i.i ], [ %147, %250 ]
   %252 = phi ptr [ @.str.115, %proto_item_set_generated.exit.i.i ], [ %spec.select.i.i, %250 ]
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %146, ptr noundef nonnull @.str.113, i32 noundef %.0128.lcssa178181.i.i, ptr noundef nonnull %252) #4
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %146, ptr noundef nonnull @.str.113, i32 noundef %.0126.lcssa178181.i.i, ptr noundef nonnull %252) #4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.116, ptr noundef %71, i32 noundef %48) #4
   br label %dissect_control_message.exit.i
 

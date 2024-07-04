@@ -442,8 +442,8 @@ switch.early.test:                                ; preds = %88, %91, %112
   br label %122
 
 122:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %112, %5, %113, %116, %27
+  %.0211 = phi i32 [ -1, %27 ], [ %118, %116 ], [ -1, %113 ], [ -1, %switch.early.test ], [ -1, %5 ], [ -1, %112 ], [ -1, %switch.early.test ], [ -1, %switch.early.test ]
   %.0210 = phi i32 [ -1, %27 ], [ %34, %116 ], [ %34, %113 ], [ %34, %switch.early.test ], [ -1, %5 ], [ %34, %112 ], [ %34, %switch.early.test ], [ %34, %switch.early.test ]
-  %.0208 = phi i32 [ -1, %27 ], [ %118, %116 ], [ -1, %113 ], [ -1, %switch.early.test ], [ -1, %5 ], [ -1, %112 ], [ -1, %switch.early.test ], [ -1, %switch.early.test ]
   %.5 = phi i32 [ %30, %27 ], [ %121, %116 ], [ %.4238, %113 ], [ %.4238, %switch.early.test ], [ %26, %5 ], [ %.4, %112 ], [ %.4238, %switch.early.test ], [ %.4238, %switch.early.test ]
   %123 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.5) #2
   %124 = icmp eq i32 %123, 0
@@ -531,7 +531,7 @@ switch.early.test:                                ; preds = %88, %91, %112
 
 172:                                              ; preds = %.thread245
   %173 = load ptr, ptr %6, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %173, i32 noundef 25, ptr noundef nonnull @.str.99, i32 noundef %.0208) #2
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %173, i32 noundef 25, ptr noundef nonnull @.str.99, i32 noundef %.0211) #2
   %174 = getelementptr inbounds i8, ptr %1, i64 20
   %175 = load i32, ptr %174, align 4
   %176 = getelementptr inbounds i8, ptr %157, i64 40

@@ -743,8 +743,8 @@ define dso_local range(i32 0, 35) i32 @onas_rm_listnode(ptr noundef readonly %0,
   br label %7
 
 7:                                                ; preds = %15, %5
-  %.017 = phi ptr [ %0, %5 ], [ %9, %15 ]
-  %8 = getelementptr inbounds i8, ptr %.017, i64 8
+  %.0 = phi ptr [ %0, %5 ], [ %9, %15 ]
+  %8 = getelementptr inbounds i8, ptr %.0, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %.loopexit, label %10
@@ -794,8 +794,8 @@ onas_free_listnode.exit:                          ; preds = %22, %._crit_edge
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %2, %onas_free_listnode.exit, %13
-  %.0 = phi i32 [ 34, %13 ], [ 0, %onas_free_listnode.exit ], [ 2, %2 ], [ 34, %7 ]
-  ret i32 %.0
+  %.017 = phi i32 [ 34, %13 ], [ 0, %onas_free_listnode.exit ], [ 2, %2 ], [ 34, %7 ]
+  ret i32 %.017
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -1276,8 +1276,8 @@ onas_free_hashnode.exit22.i:                      ; preds = %onas_free_listnode.
   br i1 %.not65, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %77, %onas_add_hashnode_child.exit.thread
-  %.050 = phi ptr [ %105, %onas_add_hashnode_child.exit.thread ], [ %80, %77 ]
-  %81 = getelementptr inbounds i8, ptr %.050, i64 98
+  %.0 = phi ptr [ %105, %onas_add_hashnode_child.exit.thread ], [ %80, %77 ]
+  %81 = getelementptr inbounds i8, ptr %.0, i64 98
   %82 = load i16, ptr %81, align 2
   %83 = icmp eq i16 %82, 1
   br i1 %83, label %84, label %onas_add_hashnode_child.exit.thread
@@ -1288,7 +1288,7 @@ onas_free_hashnode.exit22.i:                      ; preds = %onas_free_listnode.
   br i1 %.not.i84, label %onas_add_hashnode_child.exit, label %85
 
 85:                                               ; preds = %84
-  %86 = getelementptr inbounds i8, ptr %.050, i64 112
+  %86 = getelementptr inbounds i8, ptr %.0, i64 112
   %87 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %86) #20
   %88 = call noalias ptr @strndup(ptr noundef nonnull readonly %86, i64 noundef %87) #19
   store ptr %88, ptr %calloc.i.i83, align 8
@@ -1337,7 +1337,7 @@ onas_free_hashnode.exit:                          ; preds = %onas_free_listnode.
   br label %onas_hashnode_init.exit.thread
 
 onas_add_hashnode_child.exit.thread:              ; preds = %90, %85, %.preheader
-  %104 = getelementptr inbounds i8, ptr %.050, i64 16
+  %104 = getelementptr inbounds i8, ptr %.0, i64 16
   %105 = load ptr, ptr %104, align 8
   %.not66 = icmp eq ptr %105, null
   br i1 %.not66, label %.loopexit, label %.preheader
@@ -1402,13 +1402,13 @@ onas_free_hashnode.exit94:                        ; preds = %onas_free_hashnode.
   br label %.thread117
 
 onas_hashnode_init.exit.thread:                   ; preds = %33, %onas_free_hashnode.exit, %onas_free_hashnode.exit94, %120, %onas_free_hashnode.exit22.i, %onas_free_hashnode.exit.i
-  %.049 = phi i32 [ 20, %onas_free_hashnode.exit ], [ -1, %120 ], [ 20, %onas_free_hashnode.exit94 ], [ 20, %onas_free_hashnode.exit22.i ], [ 20, %onas_free_hashnode.exit.i ], [ 20, %33 ]
+  %.050 = phi i32 [ 20, %onas_free_hashnode.exit ], [ -1, %120 ], [ 20, %onas_free_hashnode.exit94 ], [ 20, %onas_free_hashnode.exit22.i ], [ 20, %onas_free_hashnode.exit.i ], [ 20, %33 ]
   %122 = call i32 @fts_close(ptr noundef nonnull %26) #19
   br label %.thread117
 
 .thread117:                                       ; preds = %.thread114, %onas_hashnode_init.exit.thread, %.thread107, %2
-  %.0 = phi i32 [ 2, %2 ], [ 3, %.thread107 ], [ %.049, %onas_hashnode_init.exit.thread ], [ 0, %.thread114 ]
-  ret i32 %.0
+  %.049 = phi i32 [ 2, %2 ], [ 3, %.thread107 ], [ %.050, %onas_hashnode_init.exit.thread ], [ 0, %.thread114 ]
+  ret i32 %.049
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)

@@ -1214,7 +1214,7 @@ define hidden noundef ptr @pn_fgets(ptr noundef %0, i32 noundef %1, ptr nocaptur
   %15 = sub i64 %.neg, %12
   %16 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @__const.pn_fgets.XML_COMMENT_END) #6
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %.thread43
+  br i1 %17, label %18, label %.thread44
 
 18:                                               ; preds = %10
   %19 = tail call noalias ptr @wmem_alloc(ptr noundef %3, i64 noundef 1024) #5
@@ -1229,21 +1229,21 @@ define hidden noundef ptr @pn_fgets(ptr noundef %0, i32 noundef %1, ptr nocaptur
 22:                                               ; preds = %.lr.ph
   %23 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) @__const.pn_fgets.XML_COMMENT_END) #6
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %.lr.ph, label %.thread43, !llvm.loop !6
+  br i1 %24, label %.lr.ph, label %.thread44, !llvm.loop !6
 
-.thread43:                                        ; preds = %22, %10
-  %.145 = phi ptr [ %16, %10 ], [ %23, %22 ]
-  %25 = getelementptr i8, ptr %.145, i64 3
+.thread44:                                        ; preds = %22, %10
+  %.146 = phi ptr [ %16, %10 ], [ %23, %22 ]
+  %25 = getelementptr i8, ptr %.146, i64 3
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #6
   %27 = add i64 %26, 1
   %28 = icmp ult i64 %27, %15
   br i1 %28, label %29, label %31
 
-29:                                               ; preds = %.thread43
+29:                                               ; preds = %.thread44
   %30 = tail call i64 @g_strlcat(ptr noundef %0, ptr noundef %25, i64 noundef %14) #5
   br label %.thread
 
-31:                                               ; preds = %.thread43
+31:                                               ; preds = %.thread44
   %32 = xor i64 %26, -1
   %33 = tail call i32 @fseek(ptr noundef %2, i64 noundef %32, i32 noundef 1)
   br label %.thread

@@ -909,18 +909,18 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 61:                                               ; preds = %45, %46, %47
   %.sink = phi ptr [ %44, %45 ], [ %44, %46 ], [ %60, %47 ]
-  %.0476 = phi i32 [ %33, %45 ], [ 443, %46 ], [ %33, %47 ]
-  %.0465 = phi i32 [ 443, %45 ], [ %31, %46 ], [ %31, %47 ]
+  %.0482 = phi i32 [ 443, %45 ], [ %31, %46 ], [ %31, %47 ]
+  %.0480 = phi i32 [ %33, %45 ], [ 443, %46 ], [ %33, %47 ]
   store ptr null, ptr %.sink, align 8
   %62 = icmp eq i8 %21, 1
-  %63 = or i32 %.0476, %29
-  %.1477 = select i1 %62, i32 %63, i32 %.0476
+  %63 = or i32 %.0480, %29
   %64 = select i1 %62, i32 0, i32 %29
-  %.1466 = or i32 %.0465, %64
+  %.1483 = or i32 %.0482, %64
+  %.1481 = select i1 %62, i32 %63, i32 %.0480
   %65 = getelementptr inbounds i8, ptr %1, i64 280
   %66 = load i32, ptr %65, align 8
   %67 = tail call i32 @conversation_pt_to_conversation_type(i32 noundef %66) #6
-  call void @conversation_set_conv_addr_port_endpoints(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %67, i32 noundef %.1466, i32 noundef %.1477) #6
+  call void @conversation_set_conv_addr_port_endpoints(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %67, i32 noundef %.1483, i32 noundef %.1481) #6
   %68 = getelementptr inbounds i8, ptr %1, i64 80
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 50
@@ -944,13 +944,13 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %81 = load i32, ptr %80, align 4
   %82 = load i32, ptr %65, align 8
   %83 = call i32 @conversation_pt_to_conversation_type(i32 noundef %82) #6
-  %84 = call nonnull ptr @conversation_new(i32 noundef %81, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %83, i32 noundef %.0465, i32 noundef %63, i32 noundef 0) #6
+  %84 = call nonnull ptr @conversation_new(i32 noundef %81, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %83, i32 noundef %.0482, i32 noundef %63, i32 noundef 0) #6
   br label %85
 
 85:                                               ; preds = %77, %79
-  %.1 = phi ptr [ %84, %79 ], [ %78, %77 ]
+  %.1488 = phi ptr [ %84, %79 ], [ %78, %77 ]
   %86 = load i32, ptr @proto_eap, align 4
-  %87 = call ptr @conversation_get_proto_data(ptr noundef nonnull %.1, i32 noundef %86) #6
+  %87 = call ptr @conversation_get_proto_data(ptr noundef nonnull %.1488, i32 noundef %86) #6
   %88 = icmp eq ptr %87, null
   br i1 %88, label %89, label %95
 
@@ -963,16 +963,16 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %93 = getelementptr inbounds i8, ptr %91, i64 8
   store i64 -1, ptr %93, align 4
   %94 = load i32, ptr @proto_eap, align 4
-  call void @conversation_add_proto_data(ptr noundef nonnull %.1, i32 noundef %94, ptr noundef nonnull %91) #6
+  call void @conversation_add_proto_data(ptr noundef nonnull %.1488, i32 noundef %94, ptr noundef nonnull %91) #6
   br label %95
 
 95:                                               ; preds = %89, %85
-  %.0462 = phi ptr [ %91, %89 ], [ %87, %85 ]
+  %.0486 = phi ptr [ %91, %89 ], [ %87, %85 ]
   %96 = icmp eq i8 %21, 4
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds i8, ptr %.0462, i64 8
+  %98 = getelementptr inbounds i8, ptr %.0486, i64 8
   store i32 -1, ptr %98, align 4
   br label %99
 
@@ -1019,7 +1019,7 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 127:                                              ; preds = %122
   %or.cond14 = or i1 %62, %119
   %.v = select i1 %or.cond14, i64 12, i64 14
-  %128 = getelementptr inbounds i8, ptr %.0462, i64 %.v
+  %128 = getelementptr inbounds i8, ptr %.0486, i64 %.v
   %129 = load i16, ptr %128, align 2
   %130 = sext i16 %129 to i32
   %131 = zext i8 %22 to i32
@@ -1107,9 +1107,9 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not518, label %161, label %dissect_eap_aka.exit
 
 161:                                              ; preds = %156
-  %162 = getelementptr inbounds i8, ptr %.0462, i64 8
+  %162 = getelementptr inbounds i8, ptr %.0486, i64 8
   store i32 0, ptr %162, align 4
-  store i32 -1, ptr %.0462, align 4
+  store i32 -1, ptr %.0486, align 4
   br label %dissect_eap_aka.exit
 
 163:                                              ; preds = %153
@@ -1194,28 +1194,28 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %212
 
 212:                                              ; preds = %208, %205
-  %.0485 = phi i32 [ 10, %208 ], [ 6, %205 ]
-  %.0481 = phi i32 [ %211, %208 ], [ %206, %205 ]
+  %.0474 = phi i32 [ 10, %208 ], [ 6, %205 ]
+  %.0470 = phi i32 [ %211, %208 ], [ %206, %205 ]
   %213 = load i32, ptr %10, align 4
   %.not507 = icmp eq i32 %213, 0
   br i1 %.not507, label %219, label %214
 
 214:                                              ; preds = %212
   %215 = load i32, ptr @hf_eap_tls_outer_tlvs_len, align 4
-  %216 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %105, i32 noundef %215, ptr noundef %0, i32 noundef %.0485, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %11) #6
-  %217 = add nsw i32 %.0481, -4
-  %218 = add nuw nsw i32 %.0485, 4
+  %216 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %105, i32 noundef %215, ptr noundef %0, i32 noundef %.0474, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %11) #6
+  %217 = add nsw i32 %.0470, -4
+  %218 = add nuw nsw i32 %.0474, 4
   br label %219
 
 219:                                              ; preds = %214, %212
-  %.1486 = phi i32 [ %218, %214 ], [ %.0485, %212 ]
-  %.1482 = phi i32 [ %217, %214 ], [ %.0481, %212 ]
+  %.1475 = phi i32 [ %218, %214 ], [ %.0474, %212 ]
+  %.1471 = phi i32 [ %217, %214 ], [ %.0470, %212 ]
   %220 = load i32, ptr %9, align 4
   %.not508 = icmp eq i32 %220, 0
   br i1 %.not508, label %.thread, label %221
 
 221:                                              ; preds = %219
-  store i32 -1, ptr %.0462, align 4
+  store i32 -1, ptr %.0486, align 4
   %.pre = load i32, ptr %9, align 4
   %222 = icmp eq i8 %143, 43
   %223 = icmp ne i32 %.pre, 0
@@ -1224,12 +1224,12 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 224:                                              ; preds = %221
   %225 = load i32, ptr @hf_eap_fast_type, align 4
-  %226 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %105, i32 noundef %225, ptr noundef %0, i32 noundef %.1486, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %13) #6
-  %227 = add nuw nsw i32 %.1486, 2
+  %226 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %105, i32 noundef %225, ptr noundef %0, i32 noundef %.1475, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %13) #6
+  %227 = add nuw nsw i32 %.1475, 2
   %228 = load i32, ptr @hf_eap_fast_length, align 4
   %229 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %105, i32 noundef %228, ptr noundef %0, i32 noundef %227, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %12) #6
-  %230 = add nsw i32 %.1482, -4
-  %231 = add nuw nsw i32 %.1486, 4
+  %230 = add nsw i32 %.1471, -4
+  %231 = add nuw nsw i32 %.1475, 4
   %232 = load i32, ptr @hf_eap_data, align 4
   %233 = load i32, ptr %12, align 4
   %234 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %232, ptr noundef %0, i32 noundef %231, i32 noundef %233, i32 noundef 0) #6
@@ -1250,18 +1250,18 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %.thread
 
 .thread:                                          ; preds = %219, %240, %221
-  %.2487 = phi i32 [ %243, %240 ], [ %.1486, %221 ], [ %.1486, %219 ]
-  %.2483 = phi i32 [ %242, %240 ], [ %.1482, %221 ], [ %.1482, %219 ]
-  %244 = icmp sgt i32 %.2483, 0
+  %.2476 = phi i32 [ %243, %240 ], [ %.1475, %221 ], [ %.1475, %219 ]
+  %.2472 = phi i32 [ %242, %240 ], [ %.1471, %221 ], [ %.1471, %219 ]
+  %244 = icmp sgt i32 %.2472, 0
   br i1 %244, label %245, label %dissect_eap_aka.exit
 
 245:                                              ; preds = %.thread
-  %246 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.2487) #6
-  %spec.select = call i32 @llvm.smin.i32(i32 %.2483, i32 %246)
+  %246 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.2476) #6
+  %spec.select = call i32 @llvm.smin.i32(i32 %.2472, i32 %246)
   br i1 %.not509, label %250, label %247
 
 247:                                              ; preds = %245
-  %248 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.2487, i32 noundef %spec.select, i32 noundef %.2483) #6
+  %248 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.2476, i32 noundef %spec.select, i32 noundef %.2472) #6
   %249 = call i32 @call_data_dissector(ptr noundef %248, ptr noundef nonnull %1, ptr noundef %105) #6
   br label %dissect_eap_aka.exit
 
@@ -1282,14 +1282,14 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not510, label %261, label %314
 
 261:                                              ; preds = %256
-  %262 = load i32, ptr %.0462, align 4
+  %262 = load i32, ptr %.0486, align 4
   %.not511 = icmp eq i32 %262, -1
   br i1 %.not511, label %267, label %263
 
 263:                                              ; preds = %261
   %264 = add nuw i32 %262, 1
-  store i32 %264, ptr %.0462, align 4
-  %265 = getelementptr inbounds i8, ptr %.0462, i64 4
+  store i32 %264, ptr %.0486, align 4
+  %265 = getelementptr inbounds i8, ptr %.0486, i64 4
   %266 = load i32, ptr %265, align 4
   br label %276
 
@@ -1304,17 +1304,17 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 272:                                              ; preds = %267
   %273 = getelementptr inbounds i8, ptr %1, i64 20
   %274 = load i32, ptr %273, align 4
-  %275 = getelementptr inbounds i8, ptr %.0462, i64 4
+  %275 = getelementptr inbounds i8, ptr %.0486, i64 4
   store i32 %274, ptr %275, align 4
-  store i32 0, ptr %.0462, align 4
+  store i32 0, ptr %.0486, align 4
   br label %276
 
 276:                                              ; preds = %263, %272
-  %.0474.ph = phi i32 [ 0, %272 ], [ %264, %263 ]
-  %.0472.ph = phi i32 [ %274, %272 ], [ %266, %263 ]
+  %.0467.ph = phi i32 [ 0, %272 ], [ %264, %263 ]
+  %.0465.ph = phi i32 [ %274, %272 ], [ %266, %263 ]
   %277 = call ptr @wmem_file_scope() #6
   %278 = call noalias ptr @wmem_alloc(ptr noundef %277, i64 noundef 4) #6
-  store i32 %.0472.ph, ptr %278, align 4
+  store i32 %.0465.ph, ptr %278, align 4
   %279 = call ptr @wmem_file_scope() #6
   %280 = load i32, ptr @proto_eap, align 4
   call void @p_add_proto_data(ptr noundef %279, ptr noundef nonnull %1, i32 noundef %280, i32 noundef %253, ptr noundef nonnull %278) #6
@@ -1325,13 +1325,13 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %283
 
 283:                                              ; preds = %281, %276
-  %.1475 = phi i32 [ %.0474.ph, %276 ], [ 0, %281 ]
-  %.1473 = phi i32 [ %.0472.ph, %276 ], [ %282, %281 ]
+  %.1468 = phi i32 [ %.0467.ph, %276 ], [ 0, %281 ]
+  %.1466 = phi i32 [ %.0465.ph, %276 ], [ %282, %281 ]
   %284 = getelementptr inbounds i8, ptr %1, i64 272
   %285 = load i32, ptr %284, align 8
   store i32 1, ptr %284, align 8
   %286 = load i32, ptr %7, align 4
-  %287 = call ptr @fragment_add_seq(ptr noundef nonnull @eap_tls_reassembly_table, ptr noundef %0, i32 noundef %.2487, ptr noundef nonnull %1, i32 noundef %.1473, ptr noundef null, i32 noundef %.1475, i32 noundef %.2483, i32 noundef %286, i32 noundef 0) #6
+  %287 = call ptr @fragment_add_seq(ptr noundef nonnull @eap_tls_reassembly_table, ptr noundef %0, i32 noundef %.2476, ptr noundef nonnull %1, i32 noundef %.1466, ptr noundef null, i32 noundef %.1468, i32 noundef %.2472, i32 noundef %286, i32 noundef 0) #6
   %.not514 = icmp eq ptr %287, null
   br i1 %.not514, label %proto_item_set_generated.exit, label %288
 
@@ -1357,7 +1357,7 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not515, label %303, label %proto_item_set_generated.exit
 
 303:                                              ; preds = %294
-  store i32 -1, ptr %.0462, align 4
+  store i32 -1, ptr %.0486, align 4
   br label %proto_item_set_generated.exit
 
 304:                                              ; preds = %288
@@ -1380,17 +1380,17 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %310, %307, %304, %303, %294, %283
-  %.0468 = phi ptr [ %297, %294 ], [ %297, %303 ], [ null, %283 ], [ null, %304 ], [ null, %307 ], [ null, %310 ]
+  %.0462 = phi ptr [ %297, %294 ], [ %297, %303 ], [ null, %283 ], [ null, %304 ], [ null, %307 ], [ null, %310 ]
   store i32 %285, ptr %284, align 8
   br label %316
 
 314:                                              ; preds = %256, %267
-  %315 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.2487, i32 noundef %spec.select, i32 noundef %.2483) #6
+  %315 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.2476, i32 noundef %spec.select, i32 noundef %.2472) #6
   br label %316
 
 316:                                              ; preds = %314, %proto_item_set_generated.exit
-  %.1469 = phi ptr [ %.0468, %proto_item_set_generated.exit ], [ %315, %314 ]
-  %.not516 = icmp eq ptr %.1469, null
+  %.1 = phi ptr [ %.0462, %proto_item_set_generated.exit ], [ %315, %314 ]
+  %.not516 = icmp eq ptr %.1, null
   br i1 %.not516, label %dissect_eap_aka.exit, label %317
 
 317:                                              ; preds = %316
@@ -1414,31 +1414,31 @@ proto_item_set_generated.exit:                    ; preds = %310, %307, %304, %3
   br i1 %.not517, label %.sink.split, label %325
 
 325:                                              ; preds = %323
-  %326 = add i32 %.2483, %.2487
+  %326 = add i32 %.2472, %.2476
   %327 = load i32, ptr %11, align 4
   %328 = sub i32 %326, %327
   %329 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %328, i32 noundef %327) #6
   %330 = load ptr, ptr @teap_handle, align 8
   %331 = call i32 @call_dissector(ptr noundef %330, ptr noundef %329, ptr noundef nonnull %1, ptr noundef %105) #6
   %332 = load i32, ptr %11, align 4
-  %333 = icmp eq i32 %.2483, %332
+  %333 = icmp eq i32 %.2472, %332
   br i1 %333, label %dissect_eap_aka.exit, label %334
 
 334:                                              ; preds = %325
-  %335 = sub i32 %.2483, %332
-  %336 = call ptr @tvb_new_subset_length(ptr noundef nonnull %.1469, i32 noundef 0, i32 noundef %335) #6
+  %335 = sub i32 %.2472, %332
+  %336 = call ptr @tvb_new_subset_length(ptr noundef nonnull %.1, i32 noundef 0, i32 noundef %335) #6
   br label %.sink.split
 
 .sink.split:                                      ; preds = %323, %334, %317, %318
   %teap_handle.sink = phi ptr [ @peap_handle, %318 ], [ @diameter_avps_handle, %317 ], [ @teap_handle, %334 ], [ @teap_handle, %323 ]
-  %.3.ph = phi ptr [ %.1469, %318 ], [ %.1469, %317 ], [ %336, %334 ], [ %.1469, %323 ]
+  %.3.ph = phi ptr [ %.1, %318 ], [ %.1, %317 ], [ %336, %334 ], [ %.1, %323 ]
   %337 = load ptr, ptr @tls_handle, align 8
   %338 = load ptr, ptr %teap_handle.sink, align 8
   call void @tls_set_appdata_dissector(ptr noundef %337, ptr noundef nonnull %1, ptr noundef %338) #6
   br label %339
 
 339:                                              ; preds = %.sink.split, %317
-  %.3 = phi ptr [ %.1469, %317 ], [ %.3.ph, %.sink.split ]
+  %.3 = phi ptr [ %.1, %317 ], [ %.3.ph, %.sink.split ]
   %340 = load ptr, ptr @tls_handle, align 8
   %341 = call i32 @call_dissector(ptr noundef %340, ptr noundef %.3, ptr noundef nonnull %1, ptr noundef %105) #6
   br label %dissect_eap_aka.exit
@@ -1460,25 +1460,25 @@ proto_item_set_generated.exit:                    ; preds = %310, %307, %304, %3
   br i1 %355, label %356, label %365
 
 356:                                              ; preds = %342
-  %357 = getelementptr inbounds i8, ptr %.0462, i64 8
+  %357 = getelementptr inbounds i8, ptr %.0486, i64 8
   %358 = load i32, ptr %357, align 4
   %359 = icmp ult i32 %358, 4
   %360 = icmp eq i32 %358, 4
   %spec.store.select = select i1 %360, i32 -1, i32 %358
   %switch.offset = add nsw i32 %358, 1
-  %.0464 = select i1 %359, i32 %switch.offset, i32 %spec.store.select
+  %.0484 = select i1 %359, i32 %switch.offset, i32 %spec.store.select
   %361 = call ptr @wmem_file_scope() #6
   %362 = call noalias ptr @wmem_alloc(ptr noundef %361, i64 noundef 4) #6
-  store i32 %.0464, ptr %362, align 4
+  store i32 %.0484, ptr %362, align 4
   %363 = call ptr @wmem_file_scope() #6
   %364 = load i32, ptr @proto_eap, align 4
   call void @p_add_proto_data(ptr noundef %363, ptr noundef nonnull %1, i32 noundef %364, i32 noundef %353, ptr noundef nonnull %362) #6
-  store i32 %.0464, ptr %357, align 4
+  store i32 %.0484, ptr %357, align 4
   br label %365
 
 365:                                              ; preds = %356, %342
-  %.0463 = phi ptr [ %362, %356 ], [ %354, %342 ]
-  %366 = load i32, ptr %.0463, align 4
+  %.0485 = phi ptr [ %362, %356 ], [ %354, %342 ]
+  %366 = load i32, ptr %.0485, align 4
   %367 = zext i8 %348 to i32
   %switch.tableidx = add i32 %366, -1
   %368 = icmp ult i32 %switch.tableidx, 4
@@ -1643,13 +1643,13 @@ switch.lookup547:                                 ; preds = %365
   br label %461
 
 461:                                              ; preds = %457, %444
-  %.3488 = phi i32 [ 10, %457 ], [ 6, %444 ]
-  %.3484 = phi i32 [ %460, %457 ], [ %455, %444 ]
-  %462 = icmp sgt i32 %.3484, 0
+  %.3477 = phi i32 [ 10, %457 ], [ 6, %444 ]
+  %.3473 = phi i32 [ %460, %457 ], [ %455, %444 ]
+  %462 = icmp sgt i32 %.3473, 0
   br i1 %462, label %463, label %dissect_eap_aka.exit
 
 463:                                              ; preds = %461
-  %464 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.3488) #6
+  %464 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.3477) #6
   %465 = load i32, ptr %16, align 4
   %466 = icmp ne i32 %465, 0
   %467 = load i32, ptr %15, align 4
@@ -1658,11 +1658,11 @@ switch.lookup547:                                 ; preds = %365
   br i1 %or.cond23, label %dissect_eap_aka.exit, label %469
 
 469:                                              ; preds = %463
-  %spec.select519 = call i32 @llvm.smin.i32(i32 %.3484, i32 %464)
-  %470 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.3488, i32 noundef %spec.select519, i32 noundef %.3484) #6
+  %spec.select519 = call i32 @llvm.smin.i32(i32 %.3473, i32 %464)
+  %470 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.3477, i32 noundef %spec.select519, i32 noundef %.3473) #6
   %471 = load ptr, ptr @isakmp_handle, align 8
   %472 = call i32 @call_dissector(ptr noundef %471, ptr noundef %470, ptr noundef nonnull %1, ptr noundef %105) #6
-  %473 = sub i32 %.3484, %472
+  %473 = sub i32 %.3473, %472
   %474 = load i32, ptr %17, align 4
   %475 = icmp ne i32 %474, 0
   %476 = icmp sgt i32 %473, 0
@@ -1670,7 +1670,7 @@ switch.lookup547:                                 ; preds = %365
   br i1 %or.cond25, label %477, label %dissect_eap_aka.exit
 
 477:                                              ; preds = %469
-  %478 = add i32 %472, %.3488
+  %478 = add i32 %472, %.3477
   %479 = load i32, ptr @hf_eap_ikev2_int_chk_data, align 4
   %480 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %479, ptr noundef %0, i32 noundef %478, i32 noundef %473, i32 noundef 0) #6
   br label %dissect_eap_aka.exit

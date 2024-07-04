@@ -976,14 +976,14 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
-  %tgt_j.012 = phi ptr [ @tr2_tgt_normal, %if.end ], [ %5, %for.inc ]
-  %1 = load ptr, ptr %tgt_j.012, align 8
+  %tgt_j.011 = phi ptr [ @tr2_tgt_normal, %if.end ], [ %5, %for.inc ]
+  %1 = load ptr, ptr %tgt_j.011, align 8
   %call7 = tail call i32 @tr2_dst_trace_want(ptr noundef %1) #10
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %for.inc, label %if.then9
 
 if.then9:                                         ; preds = %for.body
-  %pfn_child_exit_fl = getelementptr inbounds i8, ptr %tgt_j.012, i64 120
+  %pfn_child_exit_fl = getelementptr inbounds i8, ptr %tgt_j.011, i64 120
   %2 = load ptr, ptr %pfn_child_exit_fl, align 8
   %tobool10.not = icmp eq ptr %2, null
   br i1 %tobool10.not, label %for.inc, label %if.then11
@@ -1026,14 +1026,14 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
-  %tgt_j.012 = phi ptr [ @tr2_tgt_normal, %if.end ], [ %5, %for.inc ]
-  %1 = load ptr, ptr %tgt_j.012, align 8
+  %tgt_j.011 = phi ptr [ @tr2_tgt_normal, %if.end ], [ %5, %for.inc ]
+  %1 = load ptr, ptr %tgt_j.011, align 8
   %call7 = tail call i32 @tr2_dst_trace_want(ptr noundef %1) #10
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %for.inc, label %if.then9
 
 if.then9:                                         ; preds = %for.body
-  %pfn_child_ready_fl = getelementptr inbounds i8, ptr %tgt_j.012, i64 128
+  %pfn_child_ready_fl = getelementptr inbounds i8, ptr %tgt_j.011, i64 128
   %2 = load ptr, ptr %pfn_child_ready_fl, align 8
   %tobool10.not = icmp eq ptr %2, null
   br i1 %tobool10.not, label %for.inc, label %if.then11
@@ -1071,14 +1071,14 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
-  %tgt_j.010 = phi ptr [ @tr2_tgt_normal, %if.end ], [ %2, %for.inc ]
-  %0 = load ptr, ptr %tgt_j.010, align 8
+  %tgt_j.09 = phi ptr [ @tr2_tgt_normal, %if.end ], [ %2, %for.inc ]
+  %0 = load ptr, ptr %tgt_j.09, align 8
   %call5 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %for.inc, label %if.then7
 
 if.then7:                                         ; preds = %for.body
-  %pfn_exec_fl = getelementptr inbounds i8, ptr %tgt_j.010, i64 152
+  %pfn_exec_fl = getelementptr inbounds i8, ptr %tgt_j.09, i64 152
   %1 = load ptr, ptr %pfn_exec_fl, align 8
   %tobool8.not = icmp eq ptr %1, null
   br i1 %tobool8.not, label %for.inc, label %if.then9
@@ -1241,14 +1241,14 @@ if.end.i:                                         ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end.i
   %indvars.iv.i = phi i64 [ 0, %if.end.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %tgt_j.08.i = phi ptr [ @tr2_tgt_normal, %if.end.i ], [ %2, %for.inc.i ]
-  %0 = load ptr, ptr %tgt_j.08.i, align 8
+  %tgt_j.07.i = phi ptr [ @tr2_tgt_normal, %if.end.i ], [ %2, %for.inc.i ]
+  %0 = load ptr, ptr %tgt_j.07.i, align 8
   %call3.i = call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %for.inc.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %for.body.i
-  %pfn_region_enter_printf_va_fl.i = getelementptr inbounds i8, ptr %tgt_j.08.i, i64 184
+  %pfn_region_enter_printf_va_fl.i = getelementptr inbounds i8, ptr %tgt_j.07.i, i64 184
   %1 = load ptr, ptr %pfn_region_enter_printf_va_fl.i, align 8
   %tobool6.not.i = icmp eq ptr %1, null
   br i1 %tobool6.not.i, label %for.inc.i, label %if.then7.i
@@ -1544,14 +1544,14 @@ redact_arg.exit:                                  ; preds = %do.cond.i14.i, %if.
 
 for.body:                                         ; preds = %redact_arg.exit, %for.inc
   %indvars.iv = phi i64 [ 0, %redact_arg.exit ], [ %indvars.iv.next, %for.inc ]
-  %tgt_j.011 = phi ptr [ @tr2_tgt_normal, %redact_arg.exit ], [ %7, %for.inc ]
-  %5 = load ptr, ptr %tgt_j.011, align 8
+  %tgt_j.010 = phi ptr [ @tr2_tgt_normal, %redact_arg.exit ], [ %7, %for.inc ]
+  %5 = load ptr, ptr %tgt_j.010, align 8
   %call2 = tail call i32 @tr2_dst_trace_want(ptr noundef %5) #10
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %for.inc, label %if.then4
 
 if.then4:                                         ; preds = %for.body
-  %pfn_param_fl = getelementptr inbounds i8, ptr %tgt_j.011, i64 168
+  %pfn_param_fl = getelementptr inbounds i8, ptr %tgt_j.010, i64 168
   %6 = load ptr, ptr %pfn_param_fl, align 8
   %tobool5.not = icmp eq ptr %6, null
   br i1 %tobool5.not, label %for.inc, label %if.then6
@@ -1642,14 +1642,14 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i64 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
-  %tgt_j.08 = phi ptr [ @tr2_tgt_normal, %if.end ], [ %2, %for.inc ]
-  %0 = load ptr, ptr %tgt_j.08, align 8
+  %tgt_j.07 = phi ptr [ @tr2_tgt_normal, %if.end ], [ %2, %for.inc ]
+  %0 = load ptr, ptr %tgt_j.07, align 8
   %call3 = tail call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %for.inc, label %if.then5
 
 if.then5:                                         ; preds = %for.body
-  %pfn_region_enter_printf_va_fl = getelementptr inbounds i8, ptr %tgt_j.08, i64 184
+  %pfn_region_enter_printf_va_fl = getelementptr inbounds i8, ptr %tgt_j.07, i64 184
   %1 = load ptr, ptr %pfn_region_enter_printf_va_fl, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %for.inc, label %if.then7
@@ -1691,14 +1691,14 @@ if.end.i:                                         ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end.i
   %indvars.iv.i = phi i64 [ 0, %if.end.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %tgt_j.08.i = phi ptr [ @tr2_tgt_normal, %if.end.i ], [ %2, %for.inc.i ]
-  %0 = load ptr, ptr %tgt_j.08.i, align 8
+  %tgt_j.07.i = phi ptr [ @tr2_tgt_normal, %if.end.i ], [ %2, %for.inc.i ]
+  %0 = load ptr, ptr %tgt_j.07.i, align 8
   %call3.i = call i32 @tr2_dst_trace_want(ptr noundef %0) #10
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %for.inc.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %for.body.i
-  %pfn_region_enter_printf_va_fl.i = getelementptr inbounds i8, ptr %tgt_j.08.i, i64 184
+  %pfn_region_enter_printf_va_fl.i = getelementptr inbounds i8, ptr %tgt_j.07.i, i64 184
   %1 = load ptr, ptr %pfn_region_enter_printf_va_fl.i, align 8
   %tobool6.not.i = icmp eq ptr %1, null
   br i1 %tobool6.not.i, label %for.inc.i, label %if.then7.i

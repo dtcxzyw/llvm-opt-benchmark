@@ -11364,7 +11364,7 @@ _ZN18wasmtime_cranelift5debug9transform10expression24is_old_expression_format17h
   br label %.thread
 
 _ZN18wasmtime_cranelift5debug9transform10expression24is_old_expression_format17ha2da0d946182ddf2E.exit.thread: ; preds = %.lr.ph.i.i, %92, %78, %.noexc, %109, %_ZN18wasmtime_cranelift5debug9transform10expression24is_old_expression_format17ha2da0d946182ddf2E.exit
-  %.0455 = phi i8 [ %111, %109 ], [ 0, %_ZN18wasmtime_cranelift5debug9transform10expression24is_old_expression_format17ha2da0d946182ddf2E.exit ], [ 0, %.noexc ], [ 0, %78 ], [ 0, %92 ], [ 0, %.lr.ph.i.i ]
+  %.0457 = phi i8 [ %111, %109 ], [ 0, %_ZN18wasmtime_cranelift5debug9transform10expression24is_old_expression_format17ha2da0d946182ddf2E.exit ], [ 0, %.noexc ], [ 0, %78 ], [ 0, %92 ], [ 0, %.lr.ph.i.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %44)
   store i64 0, ptr %44, align 8
   %113 = getelementptr inbounds i8, ptr %44, i64 8
@@ -11431,7 +11431,7 @@ _ZN18wasmtime_cranelift5debug9transform10expression24is_old_expression_format17h
   br label %150
 
 ._crit_edge:                                      ; preds = %.backedge, %.thread886
-  %.1456.lcssa = phi i8 [ %.0455, %.thread886 ], [ %.1456.be, %.backedge ]
+  %.1458.lcssa = phi i8 [ %.0457, %.thread886 ], [ %.1458.be, %.backedge ]
   %148 = load i64, ptr %114, align 8, !noundef !34
   %149 = icmp eq i64 %148, 0
   br i1 %149, label %732, label %725
@@ -12649,7 +12649,7 @@ _ZN18wasmtime_cranelift5debug9transform10expression16ExpressionWriter13write_ule
   br label %678
 
 593:                                              ; preds = %335, %403, %588, %267, %261, %261, %261, %261, %261, %261, %261, %261, %261, %261, %261, %261, %261, %261, %261, %261, %261, %261, %261, %261, %261, %261, %261, %261, %261, %261, %261, %261, %261, %261, %261
-  %.2457 = phi i8 [ 0, %267 ], [ 0, %588 ], [ 1, %403 ], [ 1, %335 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ]
+  %.2459 = phi i8 [ 0, %267 ], [ 0, %588 ], [ 1, %403 ], [ 1, %335 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ], [ 1, %261 ]
   %.sroa.0.0.i580 = load ptr, ptr %.sroa.414.0..sroa_idx, align 8, !alias.scope !2196, !nonnull !34, !noundef !34
   %.val548 = load ptr, ptr %47, align 8, !nonnull !34, !align !333, !noundef !34
   %594 = ptrtoint ptr %.val548 to i64
@@ -12875,12 +12875,12 @@ _ZN18wasmtime_cranelift5debug9transform10expression16ExpressionWriter13write_ule
   br label %678
 
 678:                                              ; preds = %515, %583, %591, %672
-  %.3458 = phi i8 [ 1, %672 ], [ 0, %591 ], [ 1, %583 ], [ 1, %515 ]
+  %.3460 = phi i8 [ 1, %672 ], [ 0, %591 ], [ 1, %583 ], [ 1, %515 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42)
   br label %.backedge
 
 .backedge:                                        ; preds = %678, %609
-  %.1456.be = phi i8 [ %.3458, %678 ], [ %.2457, %609 ]
+  %.1458.be = phi i8 [ %.3460, %678 ], [ %.2459, %609 ]
   %.val545 = load i64, ptr %74, align 8, !noundef !34
   %679 = icmp eq i64 %.val545, 0
   br i1 %679, label %._crit_edge, label %150
@@ -13233,7 +13233,7 @@ _ZN18wasmtime_cranelift5debug9transform10expression16ExpressionWriter13write_ule
   unreachable
 
 .thread944:                                       ; preds = %745, %732, %832
-  %814 = and i8 %.1456.lcssa, 1
+  %814 = and i8 %.1458.lcssa, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false)
   %.sroa.4185.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i8 %814, ptr %.sroa.4185.0..sroa_idx, align 8
@@ -14879,8 +14879,8 @@ _ZN18wasmtime_cranelift5debug9transform8simulate28autogenerate_dwarf_wasm_path17
           to label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h453817e50b3c62e0E.exit" unwind label %.loopexit298.loopexit.split
 
 493:                                              ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h23b00165d6158842E.exit221", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h23b00165d6158842E.exit"
-  %.0108 = phi ptr [ %.1, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h23b00165d6158842E.exit221" ], [ null, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h23b00165d6158842E.exit" ]
-  ret ptr %.0108
+  %.0 = phi ptr [ %.1, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h23b00165d6158842E.exit221" ], [ null, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h23b00165d6158842E.exit" ]
+  ret ptr %.0
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h453817e50b3c62e0E.exit": ; preds = %487
   %.not292 = icmp eq ptr %492, null
@@ -15047,10 +15047,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %.loopexit295
           to label %553 unwind label %.loopexit298.loopexit.split-lp
 
 553:                                              ; preds = %.loopexit296, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
-  %.0107 = phi i64 [ %552, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ %551, %.loopexit296 ]
+  %.0108 = phi i64 [ %552, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ %551, %.loopexit296 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %91)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %88)
-  store i64 %.0107, ptr %446, align 8
+  store i64 %.0108, ptr %446, align 8
   store i8 20, ptr %88, align 8
   invoke void @_ZN5gimli5write4unit25DebuggingInformationEntry3set17hd18c46863f6a8a91E(ptr noalias noundef nonnull align 8 dereferenceable(80) %506, i16 noundef 3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %88)
           to label %554 unwind label %.loopexit298.loopexit.split-lp

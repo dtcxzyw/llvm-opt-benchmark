@@ -221,23 +221,23 @@ define i32 @Gia_ManRebuildIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %19 = load ptr, ptr %8, align 8
   %20 = call i32 @Abc_CountZddCubes(ptr noundef %0, ptr noundef %19) #13
   %.not = icmp sle i32 %20, %16
-  %.54 = zext i1 %.not to i32
-  %.55 = call i32 @llvm.smin.i32(i32 %20, i32 %16)
+  %.55 = zext i1 %.not to i32
+  %.56 = call i32 @llvm.smin.i32(i32 %20, i32 %16)
   %.val57 = load ptr, ptr %8, align 8
   %.val58 = load ptr, ptr %7, align 8
-  %.045 = select i1 %.not, ptr %.val57, ptr %.val58
+  %.046 = select i1 %.not, ptr %.val57, ptr %.val58
   %.sink = select i1 %.not, ptr %.val58, ptr %.val57
   call void @Cudd_RecursiveDerefZdd(ptr noundef %0, ptr noundef %.sink) #13
-  %21 = icmp sgt i32 %.55, 1000
+  %21 = icmp sgt i32 %.56, 1000
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %6
-  call void @Cudd_RecursiveDerefZdd(ptr noundef %0, ptr noundef %.045) #13
+  call void @Cudd_RecursiveDerefZdd(ptr noundef %0, ptr noundef %.046) #13
   br label %90
 
 23:                                               ; preds = %6
   %24 = add nsw i32 %.val, 3
-  %25 = mul nsw i32 %.55, %24
+  %25 = mul nsw i32 %.56, %24
   %26 = add nsw i32 %25, 1
   %27 = load i32, ptr %4, align 8
   %.not.i.not = icmp sgt i32 %27, %25
@@ -385,14 +385,14 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %86 = sext i32 %84 to i64
   %87 = getelementptr inbounds i8, ptr %83, i64 %86
   store i8 0, ptr %87, align 1
-  %88 = call i32 @Abc_ConvertZddToSop(ptr noundef %0, ptr noundef %.045, ptr noundef %.val50, i32 noundef %.val, ptr noundef nonnull %5, i32 noundef %.54) #13
-  call void @Cudd_RecursiveDerefZdd(ptr noundef %0, ptr noundef %.045) #13
+  %88 = call i32 @Abc_ConvertZddToSop(ptr noundef %0, ptr noundef %.046, ptr noundef %.val50, i32 noundef %.val, ptr noundef nonnull %5, i32 noundef %.55) #13
+  call void @Cudd_RecursiveDerefZdd(ptr noundef %0, ptr noundef %.046) #13
   %89 = call i32 @Gia_ManFactorNode(ptr noundef %2, ptr noundef %.val50, ptr noundef %3) #13
   br label %90
 
 90:                                               ; preds = %Vec_StrPush.exit, %22
-  %.0 = phi i32 [ -1, %22 ], [ %89, %Vec_StrPush.exit ]
-  ret i32 %.0
+  %.047 = phi i32 [ -1, %22 ], [ %89, %Vec_StrPush.exit ]
+  ret i32 %.047
 }
 
 declare ptr @Cudd_zddIsop(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -661,8 +661,8 @@ Abc_UtilStrsav.exit57:                            ; preds = %Abc_UtilStrsav.exit
   br label %42
 
 42:                                               ; preds = %.lr.ph, %Gia_ManAppendCi.exit
-  %.04877 = phi i32 [ 0, %.lr.ph ], [ %97, %Gia_ManAppendCi.exit ]
-  %43 = tail call ptr @Dsd_ManagerReadInput(ptr noundef %1, i32 noundef %.04877) #13
+  %.04777 = phi i32 [ 0, %.lr.ph ], [ %97, %Gia_ManAppendCi.exit ]
+  %43 = tail call ptr @Dsd_ManagerReadInput(ptr noundef %1, i32 noundef %.04777) #13
   %44 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %19)
   %45 = load i64, ptr %44, align 4
   %46 = or i64 %45, 2684354559
@@ -757,7 +757,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %95 = shl i32 %94, 1
   %96 = sext i32 %95 to i64
   tail call void @Dsd_NodeSetMark(ptr noundef %43, i64 noundef %96) #13
-  %97 = add nuw nsw i32 %.04877, 1
+  %97 = add nuw nsw i32 %.04777, 1
   %.val53 = load ptr, ptr %37, align 8
   %98 = getelementptr i8, ptr %.val53, i64 4
   %.val53.val = load i32, ptr %98, align 4
@@ -984,8 +984,8 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
   br label %204
 
 204:                                              ; preds = %._crit_edge86, %124
-  %.0 = phi ptr [ %125, %124 ], [ %19, %._crit_edge86 ]
-  ret ptr %.0
+  %.049 = phi ptr [ %125, %124 ], [ %19, %._crit_edge86 ]
+  ret ptr %.049
 }
 
 declare ptr @Gia_ManStart(i32 noundef) local_unnamed_addr #1

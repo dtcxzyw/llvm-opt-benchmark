@@ -835,9 +835,9 @@ if.end9:                                          ; preds = %if.end
   %control_.i.i = getelementptr inbounds i8, ptr %add.ptr1.i.i.i, i64 14
   %11 = load i8, ptr %control_.i.i, align 2
   %cmp.not.i = icmp ult i8 %11, 16
-  %spec.select = select i1 %cmp.not.i, i64 0, i64 %or.i
-  %spec.select94 = select i1 %cmp.not.i, i64 0, i64 %add.i
-  tail call void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE9eraseImplENS1_11F14ItemIterIPNS1_8F14ChunkISt4pairIKS4_mEEEEES9_ImmE(ptr noundef nonnull align 8 dereferenceable(32) %allocationsFromPool_, ptr nonnull %arrayidx.i.i.i.i, i64 %conv.i.i, i64 %spec.select94, i64 %spec.select)
+  %spec.select = select i1 %cmp.not.i, i64 0, i64 %add.i
+  %spec.select94 = select i1 %cmp.not.i, i64 0, i64 %or.i
+  tail call void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE9eraseImplENS1_11F14ItemIterIPNS1_8F14ChunkISt4pairIKS4_mEEEEES9_ImmE(ptr noundef nonnull align 8 dereferenceable(32) %allocationsFromPool_, ptr nonnull %arrayidx.i.i.i.i, i64 %conv.i.i, i64 %spec.select, i64 %spec.select94)
   %sizeFromPool_ = getelementptr inbounds i8, ptr %this, i64 37408
   %12 = load i64, ptr %sizeFromPool_, align 8
   %sub = sub i64 %12, %size
@@ -4835,15 +4835,15 @@ while.cond.preheader:                             ; preds = %if.else
   br label %while.body
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end
-  %srcI.0118 = phi i64 [ 0, %while.cond.preheader ], [ %inc21, %if.end ]
-  %dstI.0117 = phi i64 [ 0, %while.cond.preheader ], [ %dstI.1, %if.end ]
-  %arrayidx.i.i.i = getelementptr inbounds [14 x i8], ptr %0, i64 0, i64 %srcI.0118
+  %srcI.0117 = phi i64 [ 0, %while.cond.preheader ], [ %inc21, %if.end ]
+  %dstI.0116 = phi i64 [ 0, %while.cond.preheader ], [ %dstI.1, %if.end ]
+  %arrayidx.i.i.i = getelementptr inbounds [14 x i8], ptr %0, i64 0, i64 %srcI.0117
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp.i33.not = icmp eq i8 %3, 0
   br i1 %cmp.i33.not, label %if.end, label %if.then14
 
 if.then14:                                        ; preds = %while.body
-  %arrayidx.i.i.i35 = getelementptr inbounds [14 x i8], ptr %call5.i.i2.i.i1.i, i64 0, i64 %dstI.0117
+  %arrayidx.i.i.i35 = getelementptr inbounds [14 x i8], ptr %call5.i.i2.i.i1.i, i64 0, i64 %dstI.0116
   %4 = load i8, ptr %arrayidx.i.i.i35, align 1
   %cmp.i36 = icmp eq i8 %4, 0
   br i1 %cmp.i36, label %invoke.cont20, label %if.then.i
@@ -4854,20 +4854,20 @@ if.then.i:                                        ; preds = %if.then14
 
 invoke.cont20:                                    ; preds = %if.then14
   store i8 %3, ptr %arrayidx.i.i.i35, align 1
-  %arrayidx.i.i.i37 = getelementptr inbounds [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i, i64 0, i64 %dstI.0117
-  %arrayidx.i.i.i.i = getelementptr inbounds [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %srcI.0118
+  %arrayidx.i.i.i37 = getelementptr inbounds [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i, i64 0, i64 %dstI.0116
+  %arrayidx.i.i.i.i = getelementptr inbounds [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i.i, i64 0, i64 %srcI.0117
   %second.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 8
   %5 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   store ptr %5, ptr %arrayidx.i.i.i37, align 8
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i37, i64 8
   %6 = load i64, ptr %second.i.i, align 8
   store i64 %6, ptr %second.i.i.i.i.i, align 8
-  %inc = add nuw i64 %dstI.0117, 1
+  %inc = add nuw i64 %dstI.0116, 1
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont20, %while.body
-  %dstI.1 = phi i64 [ %inc, %invoke.cont20 ], [ %dstI.0117, %while.body ]
-  %inc21 = add i64 %srcI.0118, 1
+  %dstI.1 = phi i64 [ %inc, %invoke.cont20 ], [ %dstI.0116, %while.body ]
+  %inc21 = add i64 %srcI.0117, 1
   %cmp12 = icmp ult i64 %dstI.1, %origSize
   br i1 %cmp12, label %while.body, label %invoke.cont25, !llvm.loop !50
 
@@ -4920,33 +4920,33 @@ while.cond44.loopexit:                            ; preds = %invoke.cont71, %inv
   br i1 %cmp45.not, label %while.end77, label %invoke.cont48, !llvm.loop !51
 
 invoke.cont48:                                    ; preds = %if.end39, %while.cond44.loopexit
-  %add.ptr.pn115 = phi ptr [ %add.ptr, %if.end39 ], [ %srcChunk42.0116, %while.cond44.loopexit ]
   %remaining.0114 = phi i64 [ %origSize, %if.end39 ], [ %remaining.1.lcssa, %while.cond44.loopexit ]
-  %srcChunk42.0116 = getelementptr inbounds i8, ptr %add.ptr.pn115, i64 -256
-  %9 = load <16 x i8>, ptr %srcChunk42.0116, align 16
+  %add.ptr.pn113 = phi ptr [ %add.ptr, %if.end39 ], [ %srcChunk42.0115, %while.cond44.loopexit ]
+  %srcChunk42.0115 = getelementptr inbounds i8, ptr %add.ptr.pn113, i64 -256
+  %9 = load <16 x i8>, ptr %srcChunk42.0115, align 16
   %10 = icmp slt <16 x i8> %9, zeroinitializer
   %11 = bitcast <16 x i1> %10 to i16
   %12 = and i16 %11, 16383
-  %cmp.i44.not109 = icmp eq i16 %12, 0
-  br i1 %cmp.i44.not109, label %while.cond44.loopexit, label %while.body53.lr.ph
+  %cmp.i44.not108 = icmp eq i16 %12, 0
+  br i1 %cmp.i44.not108, label %while.cond44.loopexit, label %while.body53.lr.ph
 
 while.body53.lr.ph:                               ; preds = %invoke.cont48
   %iter.sroa.0.0.extract.trunc = zext nneg i16 %12 to i32
-  %rawItems_.i.i49 = getelementptr inbounds i8, ptr %add.ptr.pn115, i64 -240
+  %rawItems_.i.i49 = getelementptr inbounds i8, ptr %add.ptr.pn113, i64 -240
   br label %while.body53
 
 while.body53:                                     ; preds = %while.body53.lr.ph, %invoke.cont71
-  %remaining.1112 = phi i64 [ %remaining.0114, %while.body53.lr.ph ], [ %dec, %invoke.cont71 ]
-  %iter.sroa.5.0111 = phi i32 [ 0, %while.body53.lr.ph ], [ %add8.i, %invoke.cont71 ]
+  %remaining.1111 = phi i64 [ %remaining.0114, %while.body53.lr.ph ], [ %dec, %invoke.cont71 ]
   %iter.sroa.0.0110 = phi i32 [ %iter.sroa.0.0.extract.trunc, %while.body53.lr.ph ], [ %iter.sroa.0.1, %invoke.cont71 ]
-  %dec = add i64 %remaining.1112, -1
+  %iter.sroa.5.0109 = phi i32 [ 0, %while.body53.lr.ph ], [ %add8.i, %invoke.cont71 ]
+  %dec = add i64 %remaining.1111, -1
   %and.i = and i32 %iter.sroa.0.0110, 1
   %cmp.not.i = icmp eq i32 %and.i, 0
   %13 = call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %iter.sroa.0.0110, i1 true)
   %add5.i = add nuw nsw i32 %13, 1
   %add5.i.pn = select i1 %cmp.not.i, i32 %add5.i, i32 1
   %add.i48 = select i1 %cmp.not.i, i32 %13, i32 0
-  %add.sink.i = add i32 %iter.sroa.5.0111, %add.i48
+  %add.sink.i = add i32 %iter.sroa.5.0109, %add.i48
   %iter.sroa.0.1 = lshr i32 %iter.sroa.0.0110, %add5.i.pn
   %add8.i = add i32 %add.sink.i, 1
   %conv = zext i32 %add.sink.i to i64
@@ -4956,7 +4956,7 @@ while.body53:                                     ; preds = %while.body53.lr.ph,
   %16 = call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 0, i64 %15)
   %shr.i51 = lshr i64 %16, 24
   %or.i = or i64 %shr.i51, 128
-  %arrayidx.i.i.i53 = getelementptr inbounds [14 x i8], ptr %srcChunk42.0116, i64 0, i64 %conv
+  %arrayidx.i.i.i53 = getelementptr inbounds [14 x i8], ptr %srcChunk42.0115, i64 0, i64 %conv
   %17 = load i8, ptr %arrayidx.i.i.i53, align 1
   %conv.i54 = zext i8 %17 to i64
   %cmp67 = icmp eq i64 %or.i, %conv.i54

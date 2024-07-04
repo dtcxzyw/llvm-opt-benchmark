@@ -52,9 +52,9 @@ define i32 @cli_scancpio_old(ptr noundef %0) local_unnamed_addr #0 {
   %9 = phi i64 [ %7, %.lr.ph ], [ %82, %.backedge ]
   %10 = phi ptr [ %5, %.lr.ph ], [ %80, %.backedge ]
   %.0109 = phi i64 [ 0, %.lr.ph ], [ %.0.be, %.backedge ]
-  %.051108 = phi i32 [ 0, %.lr.ph ], [ %.253, %.backedge ]
-  %.054107 = phi i32 [ 0, %.lr.ph ], [ %23, %.backedge ]
-  %.055106 = phi ptr [ null, %.lr.ph ], [ %.156, %.backedge ]
+  %.048108 = phi i32 [ 0, %.lr.ph ], [ %.250, %.backedge ]
+  %.051107 = phi i32 [ 0, %.lr.ph ], [ %23, %.backedge ]
+  %.052106 = phi ptr [ null, %.lr.ph ], [ %.153, %.backedge ]
   %11 = sub i64 %9, %.0109
   %spec.select.i = call i64 @llvm.umin.i64(i64 %11, i64 26)
   %12 = getelementptr inbounds i8, ptr %10, i64 104
@@ -72,7 +72,7 @@ fmap_readn.exit:                                  ; preds = %8
   %17 = add i64 %.0109, 26
   %.0..0..0. = load i16, ptr %2, align 2
   %18 = icmp eq i16 %.0..0..0., 0
-  %19 = icmp ne i32 %.051108, 0
+  %19 = icmp ne i32 %.048108, 0
   %or.cond = select i1 %18, i1 %19, i1 false
   br i1 %or.cond, label %fmap_readn.exit.thread, label %20
 
@@ -84,7 +84,7 @@ fmap_readn.exit:                                  ; preds = %8
   ]
 
 22:                                               ; preds = %20, %20
-  %23 = add i32 %.054107, 1
+  %23 = add i32 %.051107, 1
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, i32 noundef %23) #8
   %.20..20..20. = load i16, ptr %.20..20..20..sroa_idx, align 2
   %.not = icmp eq i16 %.20..20..20., 0
@@ -121,8 +121,8 @@ fmap_readn.exit:                                  ; preds = %8
   br label %fmap_readn.exit92
 
 fmap_readn.exit92:                                ; preds = %24, %39
-  %.0.i89 = phi i64 [ %spec.select.i90, %39 ], [ 0, %24 ]
-  %.not69 = icmp eq i64 %.0.i89, %29
+  %.020.i89 = phi i64 [ %spec.select.i90, %39 ], [ 0, %24 ]
+  %.not69 = icmp eq i64 %.020.i89, %29
   br i1 %.not69, label %40, label %fmap_readn.exit.thread.sink.split
 
 40:                                               ; preds = %fmap_readn.exit92
@@ -161,7 +161,7 @@ sanitname.exit:                                   ; preds = %51, %40
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %3, ptr noundef nonnull dereferenceable(11) @.str.4, i64 11)
   %.not70 = icmp eq i32 %bcmp, 0
-  %spec.select = select i1 %.not70, i32 1, i32 %.051108
+  %spec.select = select i1 %.not70, i32 1, i32 %.048108
   %54 = icmp ugt i16 %.in, 513
   %55 = and i32 %25, 1
   br i1 %54, label %56, label %60
@@ -179,8 +179,8 @@ sanitname.exit:                                   ; preds = %51, %40
   br label %62
 
 62:                                               ; preds = %60, %56, %22
-  %.156 = phi ptr [ %.055106, %22 ], [ %3, %60 ], [ %3, %56 ]
-  %.253 = phi i32 [ %.051108, %22 ], [ %spec.select, %60 ], [ %spec.select, %56 ]
+  %.153 = phi ptr [ %.052106, %22 ], [ %3, %60 ], [ %3, %56 ]
+  %.250 = phi i32 [ %.048108, %22 ], [ %spec.select, %60 ], [ %spec.select, %56 ]
   %.2 = phi i64 [ %17, %22 ], [ %spec.select86, %60 ], [ %59, %56 ]
   %.22..22..22.97 = load i16, ptr %.22..22..22..sroa_idx, align 2
   %rev74 = call i16 @llvm.bswap.i16(i16 %.22..22..22.97)
@@ -216,7 +216,7 @@ sanitname.exit:                                   ; preds = %51, %40
 
 73:                                               ; preds = %70
   %74 = load ptr, ptr %4, align 8
-  %75 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef %74, i64 noundef %.2, i64 noundef %68, ptr noundef %0, i32 noundef 0, ptr noundef %.156, i32 noundef 0) #8
+  %75 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef %74, i64 noundef %.2, i64 noundef %68, ptr noundef %0, i32 noundef 0, ptr noundef %.153, i32 noundef 0) #8
   %.not83 = icmp eq i32 %75, 0
   br i1 %.not83, label %76, label %fmap_readn.exit.thread
 
@@ -241,8 +241,8 @@ fmap_readn.exit.thread.sink.split:                ; preds = %fmap_readn.exit92, 
   br label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread:                           ; preds = %67, %73, %fmap_readn.exit, %16, %.backedge, %8, %fmap_readn.exit.thread.sink.split, %1
-  %.249 = phi i32 [ 0, %1 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ %69, %67 ], [ %75, %73 ], [ 0, %fmap_readn.exit ], [ 0, %16 ], [ 0, %.backedge ], [ 0, %8 ]
-  ret i32 %.249
+  %.256 = phi i32 [ 0, %1 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ %69, %67 ], [ %75, %73 ], [ 0, %fmap_readn.exit ], [ 0, %16 ], [ 0, %.backedge ], [ 0, %8 ]
+  ret i32 %.256
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -353,8 +353,8 @@ fmap_readn.exit:                                  ; preds = %15
   br label %fmap_readn.exit48
 
 fmap_readn.exit48:                                ; preds = %35, %48
-  %.0.i45 = phi i64 [ %spec.select.i46, %48 ], [ 0, %35 ]
-  %.not39 = icmp eq i64 %.0.i45, %38
+  %.020.i45 = phi i64 [ %spec.select.i46, %48 ], [ 0, %35 ]
+  %.not39 = icmp eq i64 %.020.i45, %38
   br i1 %.not39, label %49, label %fmap_readn.exit.thread.sink.split
 
 49:                                               ; preds = %fmap_readn.exit48
@@ -490,8 +490,8 @@ define i32 @cli_scancpio_newc(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %16 = phi i64 [ %11, %.lr.ph ], [ %106, %.backedge ]
   %17 = phi ptr [ %9, %.lr.ph ], [ %104, %.backedge ]
   %.075 = phi i64 [ 0, %.lr.ph ], [ %.0.be, %.backedge ]
-  %.03474 = phi i32 [ 0, %.lr.ph ], [ %.2, %.backedge ]
-  %.03673 = phi i32 [ 0, %.lr.ph ], [ %31, %.backedge ]
+  %.03274 = phi i32 [ 0, %.lr.ph ], [ %.2, %.backedge ]
+  %.03473 = phi i32 [ 0, %.lr.ph ], [ %31, %.backedge ]
   %18 = sub i64 %16, %.075
   %spec.select.i = call i64 @llvm.umin.i64(i64 %18, i64 110)
   %19 = getelementptr inbounds i8, ptr %17, i64 104
@@ -509,7 +509,7 @@ fmap_readn.exit:                                  ; preds = %15
   %24 = add i64 %.075, 110
   %25 = load i8, ptr %3, align 1
   %26 = icmp eq i8 %25, 0
-  %27 = icmp ne i32 %.03474, 0
+  %27 = icmp ne i32 %.03274, 0
   %or.cond = select i1 %26, i1 %27, i1 false
   br i1 %or.cond, label %fmap_readn.exit.thread, label %28
 
@@ -527,7 +527,7 @@ fmap_readn.exit:                                  ; preds = %15
   br i1 %.not50, label %30, label %fmap_readn.exit.thread.sink.split
 
 30:                                               ; preds = %29, %.critedge
-  %31 = add i32 %.03673, 1
+  %31 = add i32 %.03473, 1
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1, i32 noundef %31) #8
   %32 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %12, i64 noundef 8) #8
   store i8 0, ptr %13, align 1
@@ -567,8 +567,8 @@ fmap_readn.exit:                                  ; preds = %15
   br label %fmap_readn.exit65
 
 fmap_readn.exit65:                                ; preds = %36, %49
-  %.0.i62 = phi i64 [ %spec.select.i63, %49 ], [ 0, %36 ]
-  %.not53 = icmp eq i64 %.0.i62, %39
+  %.020.i62 = phi i64 [ %spec.select.i63, %49 ], [ 0, %36 ]
+  %.not53 = icmp eq i64 %.020.i62, %39
   br i1 %.not53, label %50, label %fmap_readn.exit.thread.sink.split
 
 50:                                               ; preds = %fmap_readn.exit65
@@ -607,7 +607,7 @@ sanitname.exit:                                   ; preds = %61, %50
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %4) #8
   %bcmp54 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %4, ptr noundef nonnull dereferenceable(11) @.str.4, i64 11)
   %.not55 = icmp eq i32 %bcmp54, 0
-  %spec.select = select i1 %.not55, i32 1, i32 %.03474
+  %spec.select = select i1 %.not55, i32 1, i32 %.03274
   %64 = load i32, ptr %7, align 4
   %65 = xor i32 %64, 1
   %.neg = add i32 %65, 1
@@ -640,7 +640,7 @@ sanitname.exit:                                   ; preds = %61, %50
   br label %80
 
 80:                                               ; preds = %71, %77, %76, %34
-  %.2 = phi i32 [ %spec.select, %71 ], [ %spec.select, %77 ], [ %spec.select, %76 ], [ %.03474, %34 ]
+  %.2 = phi i32 [ %spec.select, %71 ], [ %spec.select, %77 ], [ %spec.select, %76 ], [ %.03274, %34 ]
   %.1 = phi i64 [ %75, %71 ], [ %79, %77 ], [ %51, %76 ], [ %24, %34 ]
   %81 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %14, i64 noundef 8) #8
   store i8 0, ptr %13, align 1
@@ -701,8 +701,8 @@ fmap_readn.exit.thread.sink.split:                ; preds = %80, %fmap_readn.exi
   br label %fmap_readn.exit.thread
 
 fmap_readn.exit.thread:                           ; preds = %86, %90, %fmap_readn.exit, %23, %.backedge, %15, %fmap_readn.exit.thread.sink.split, %2
-  %.133 = phi i32 [ 0, %2 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ 1, %86 ], [ %94, %90 ], [ 0, %fmap_readn.exit ], [ 0, %23 ], [ 0, %.backedge ], [ 0, %15 ]
-  ret i32 %.133
+  %.136 = phi i32 [ 0, %2 ], [ 26, %fmap_readn.exit.thread.sink.split ], [ 1, %86 ], [ %94, %90 ], [ 0, %fmap_readn.exit ], [ 0, %23 ], [ 0, %.backedge ], [ 0, %15 ]
+  ret i32 %.136
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

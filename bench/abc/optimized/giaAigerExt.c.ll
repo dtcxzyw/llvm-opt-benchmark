@@ -452,7 +452,7 @@ Gia_AigerReadInt.exit:                            ; preds = %4
   br i1 %21, label %.lr.ph53, label %._crit_edge54
 
 .lr.ph53:                                         ; preds = %Gia_AigerReadInt.exit, %._crit_edge
-  %.052 = phi i32 [ %.027.lcssa, %._crit_edge ], [ %1, %Gia_AigerReadInt.exit ]
+  %.052 = phi i32 [ %.028.lcssa, %._crit_edge ], [ %1, %Gia_AigerReadInt.exit ]
   %.02651 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %Gia_AigerReadInt.exit ]
   %.promoted4550 = phi ptr [ %.promoted46, %._crit_edge ], [ %13, %Gia_AigerReadInt.exit ]
   %22 = getelementptr inbounds i8, ptr %.promoted4550, i64 1
@@ -493,19 +493,19 @@ Gia_AigerReadUnsigned.exit:                       ; preds = %.lr.ph53, %._crit_e
   %38 = sext i32 %.052 to i64
   %39 = getelementptr inbounds i32, ptr %20, i64 %38
   store i32 %37, ptr %39, align 4
-  %.02736 = add i32 %.052, 1
+  %.02836 = add i32 %.052, 1
   %.not37 = icmp slt i32 %37, 0
   br i1 %.not37, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %Gia_AigerReadUnsigned.exit
-  %40 = sext i32 %.02736 to i64
+  %40 = sext i32 %.02836 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %Gia_AigerReadDiffValue.exit
   %indvars.iv = phi i64 [ %40, %.lr.ph.preheader ], [ %indvars.iv.next, %Gia_AigerReadDiffValue.exit ]
   %41 = phi ptr [ %.promoted44, %.lr.ph.preheader ], [ %.promoted47, %Gia_AigerReadDiffValue.exit ]
   %.139 = phi i32 [ %.02651, %.lr.ph.preheader ], [ %.0.i, %Gia_AigerReadDiffValue.exit ]
-  %.02838 = phi i32 [ 0, %.lr.ph.preheader ], [ %62, %Gia_AigerReadDiffValue.exit ]
+  %.02738 = phi i32 [ 0, %.lr.ph.preheader ], [ %62, %Gia_AigerReadDiffValue.exit ]
   %42 = getelementptr inbounds i8, ptr %41, i64 1
   store ptr %42, ptr %0, align 8
   %43 = load i8, ptr %41, align 1
@@ -549,9 +549,9 @@ Gia_AigerReadDiffValue.exit:                      ; preds = %.lr.ph, %._crit_edg
   %.0.i = add i32 %.0.p.i, %.139
   %61 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   store i32 %.0.i, ptr %61, align 4
-  %62 = add nuw i32 %.02838, 1
+  %62 = add nuw i32 %.02738, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i32 %.02838, %37
+  %exitcond.not = icmp eq i32 %.02738, %37
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %Gia_AigerReadDiffValue.exit
@@ -561,7 +561,7 @@ Gia_AigerReadDiffValue.exit:                      ; preds = %.lr.ph, %._crit_edg
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Gia_AigerReadUnsigned.exit
   %.promoted46 = phi ptr [ %.promoted44, %Gia_AigerReadUnsigned.exit ], [ %.promoted47, %._crit_edge.loopexit ]
   %.1.lcssa = phi i32 [ %.02651, %Gia_AigerReadUnsigned.exit ], [ %.0.i, %._crit_edge.loopexit ]
-  %.027.lcssa = phi i32 [ %.02736, %Gia_AigerReadUnsigned.exit ], [ %63, %._crit_edge.loopexit ]
+  %.028.lcssa = phi i32 [ %.02836, %Gia_AigerReadUnsigned.exit ], [ %63, %._crit_edge.loopexit ]
   %64 = sext i32 %.1.lcssa to i64
   %65 = getelementptr inbounds i32, ptr %20, i64 %64
   store i32 %.052, ptr %65, align 4

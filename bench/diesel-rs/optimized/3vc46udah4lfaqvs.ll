@@ -515,10 +515,10 @@ common.resume.i:                                  ; preds = %103, %97, %91, %74,
   ]
 
 .loopexit25:                                      ; preds = %"_ZN20migrations_internals10file_names28_$u7b$$u7b$closure$u7d$$u7d$17ha63bde5f3952b400E.exit.i", %.thread.i
-  %.sroa.7.02026.i = phi ptr [ %35, %.thread.i ], [ %.sroa.410.0.copyload.i, %"_ZN20migrations_internals10file_names28_$u7b$$u7b$closure$u7d$$u7d$17ha63bde5f3952b400E.exit.i" ]
-  %.val27.in.i = getelementptr inbounds i8, ptr %2, i64 16
-  %.val27.i = load ptr, ptr %.val27.in.i, align 8, !alias.scope !69, !noalias !186, !nonnull !9, !noundef !9
-  %.val.i.i = load ptr, ptr %.val27.i, align 8, !noalias !187, !noundef !9
+  %.sroa.7.01925.i = phi ptr [ %35, %.thread.i ], [ %.sroa.410.0.copyload.i, %"_ZN20migrations_internals10file_names28_$u7b$$u7b$closure$u7d$$u7d$17ha63bde5f3952b400E.exit.i" ]
+  %.val26.in.i = getelementptr inbounds i8, ptr %2, i64 16
+  %.val26.i = load ptr, ptr %.val26.in.i, align 8, !alias.scope !69, !noalias !186, !nonnull !9, !noundef !9
+  %.val.i.i = load ptr, ptr %.val26.i, align 8, !noalias !187, !noundef !9
   %98 = icmp eq ptr %.val.i.i, null
   br i1 %98, label %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$$GT$17hf4da66ff6ef7d797E.exit.i.i", label %99
 
@@ -544,11 +544,11 @@ common.resume.i:                                  ; preds = %103, %97, %91, %74,
 103:                                              ; preds = %101, %99
   %104 = landingpad { ptr, i32 }
           cleanup
-  store ptr %.sroa.7.02026.i, ptr %.val27.i, align 8, !noalias !187
+  store ptr %.sroa.7.01925.i, ptr %.val26.i, align 8, !noalias !187
   br label %common.resume.i
 
 "_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$$GT$17hf4da66ff6ef7d797E.exit.i.i": ; preds = %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$std..io..error..Error$GT$$GT$17h28a38aa06afba9e8E.llvm.8280360579268313866.exit.i.i.i", %.loopexit25
-  store ptr %.sroa.7.02026.i, ptr %.val27.i, align 8, !noalias !187
+  store ptr %.sroa.7.01925.i, ptr %.val26.i, align 8, !noalias !187
   br label %.loopexit
 
 "_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..fs..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17h9704efb7d3d2b3bcE.exit": ; preds = %105, %3

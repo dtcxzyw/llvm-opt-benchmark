@@ -9108,18 +9108,18 @@ for.body.preheader:                               ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %if.end
-  %mask.016 = phi ptr [ %incdec.ptr, %if.end ], [ %3, %for.body.preheader ]
-  %i.015 = phi i32 [ %inc, %if.end ], [ 0, %for.body.preheader ]
-  %texel.014 = phi ptr [ %add.ptr, %if.end ], [ %2, %for.body.preheader ]
-  %4 = load i8, ptr %mask.016, align 1
+  %i.016 = phi i32 [ %inc, %if.end ], [ 0, %for.body.preheader ]
+  %texel.015 = phi ptr [ %add.ptr, %if.end ], [ %2, %for.body.preheader ]
+  %mask.014 = phi ptr [ %incdec.ptr, %if.end ], [ %3, %for.body.preheader ]
+  %4 = load i8, ptr %mask.014, align 1
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %6 = load float, ptr %texel.014, align 4
-  %arrayidx3 = getelementptr inbounds i8, ptr %texel.014, i64 4
-  %arrayidx4 = getelementptr inbounds i8, ptr %texel.014, i64 8
+  %6 = load float, ptr %texel.015, align 4
+  %arrayidx3 = getelementptr inbounds i8, ptr %texel.015, i64 4
+  %arrayidx4 = getelementptr inbounds i8, ptr %texel.015, i64 8
   %7 = load <2 x float>, ptr %arrayidx3, align 4
   %8 = extractelement <2 x float> %7, i64 0
   %cmp.i3.i = fcmp olt float %6, %8
@@ -9132,15 +9132,15 @@ if.then:                                          ; preds = %for.body
   %14 = extractelement <2 x float> %12, i64 1
   %cmp.i7.i = fcmp olt float %13, %14
   %cond.i8.i = select i1 %cmp.i7.i, float %14, float %13
-  store float %cond.i8.i, ptr %texel.014, align 4
+  store float %cond.i8.i, ptr %texel.015, align 4
   store float %cond.i8.i, ptr %arrayidx3, align 4
   store float %cond.i8.i, ptr %arrayidx4, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %mask.016, i64 1
-  %add.ptr = getelementptr inbounds i8, ptr %texel.014, i64 12
-  %inc = add nuw nsw i32 %i.015, 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %mask.014, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %texel.015, i64 12
+  %inc = add nuw nsw i32 %i.016, 1
   %exitcond.not = icmp eq i32 %inc, %mul
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !127
 
@@ -9165,18 +9165,18 @@ for.body.preheader:                               ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %if.end
-  %mask.016 = phi ptr [ %incdec.ptr, %if.end ], [ %3, %for.body.preheader ]
-  %i.015 = phi i32 [ %inc, %if.end ], [ 0, %for.body.preheader ]
-  %texel.014 = phi ptr [ %add.ptr, %if.end ], [ %2, %for.body.preheader ]
-  %4 = load i8, ptr %mask.016, align 1
+  %i.016 = phi i32 [ %inc, %if.end ], [ 0, %for.body.preheader ]
+  %texel.015 = phi ptr [ %add.ptr, %if.end ], [ %2, %for.body.preheader ]
+  %mask.014 = phi ptr [ %incdec.ptr, %if.end ], [ %3, %for.body.preheader ]
+  %4 = load i8, ptr %mask.014, align 1
   %5 = and i8 %4, 1
   %tobool.not = icmp eq i8 %5, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %6 = load float, ptr %texel.014, align 4
-  %arrayidx3 = getelementptr inbounds i8, ptr %texel.014, i64 4
-  %arrayidx4 = getelementptr inbounds i8, ptr %texel.014, i64 8
+  %6 = load float, ptr %texel.015, align 4
+  %arrayidx3 = getelementptr inbounds i8, ptr %texel.015, i64 4
+  %arrayidx4 = getelementptr inbounds i8, ptr %texel.015, i64 8
   %7 = load <2 x float>, ptr %arrayidx3, align 4
   %8 = extractelement <2 x float> %7, i64 0
   %cmp.i3.i = fcmp olt float %6, %8
@@ -9189,15 +9189,15 @@ if.then:                                          ; preds = %for.body
   %14 = extractelement <2 x float> %12, i64 1
   %cmp.i7.i = fcmp olt float %13, %14
   %cond.i8.i = select i1 %cmp.i7.i, float %14, float %13
-  store float %cond.i8.i, ptr %texel.014, align 4
+  store float %cond.i8.i, ptr %texel.015, align 4
   store float %cond.i8.i, ptr %arrayidx3, align 4
   store float %cond.i8.i, ptr %arrayidx4, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %mask.016, i64 1
-  %add.ptr = getelementptr inbounds i8, ptr %texel.014, i64 16
-  %inc = add nuw nsw i32 %i.015, 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %mask.014, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %texel.015, i64 16
+  %inc = add nuw nsw i32 %i.016, 1
   %exitcond.not = icmp eq i32 %inc, %mul
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !128
 

@@ -61,27 +61,27 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
   br label %9
 
 7:                                                ; preds = %160, %48
-  %.0173.idx = phi i64 [ %.1174.add, %160 ], [ %.1174.idx274, %48 ]
-  %.0170 = phi i32 [ %162, %160 ], [ %43, %48 ]
-  %.0164 = phi ptr [ %140, %160 ], [ %49, %48 ]
-  %.0154 = phi i32 [ %.5, %160 ], [ -2, %48 ]
-  %.0173.add = add nsw i64 %.0173.idx, 1
-  %.1174.ptr = getelementptr inbounds i8, ptr %3, i64 %.0173.add
-  %8 = trunc nsw i32 %.0170 to i8
-  store i8 %8, ptr %.1174.ptr, align 1
-  %.not = icmp slt i64 %.0173.idx, 9998
+  %.0176 = phi i32 [ %162, %160 ], [ %43, %48 ]
+  %.0166.idx = phi i64 [ %.1167.add, %160 ], [ %.1167.idx273, %48 ]
+  %.0160 = phi i32 [ %.5165, %160 ], [ -2, %48 ]
+  %.0158 = phi ptr [ %140, %160 ], [ %49, %48 ]
+  %.0166.add = add nsw i64 %.0166.idx, 1
+  %.1167.ptr = getelementptr inbounds i8, ptr %3, i64 %.0166.add
+  %8 = trunc nsw i32 %.0176 to i8
+  store i8 %8, ptr %.1167.ptr, align 1
+  %.not = icmp slt i64 %.0166.idx, 9998
   br i1 %.not, label %9, label %.loopexit
 
 9:                                                ; preds = %1, %7
-  %.1277 = phi i32 [ -2, %1 ], [ %.0154, %7 ]
-  %.1165276 = phi ptr [ %4, %1 ], [ %.0164, %7 ]
-  %.1171275 = phi i32 [ 0, %1 ], [ %.0170, %7 ]
-  %.1174.idx274 = phi i64 [ 0, %1 ], [ %.0173.add, %7 ]
-  %10 = icmp eq i32 %.1171275, 25
-  br i1 %10, label %.thread240.thread, label %11
+  %.1159275 = phi ptr [ %4, %1 ], [ %.0158, %7 ]
+  %.1161274 = phi i32 [ -2, %1 ], [ %.0160, %7 ]
+  %.1167.idx273 = phi i64 [ 0, %1 ], [ %.0166.add, %7 ]
+  %.1177272 = phi i32 [ 0, %1 ], [ %.0176, %7 ]
+  %10 = icmp eq i32 %.1177272, 25
+  br i1 %10, label %.thread238.thread, label %11
 
 11:                                               ; preds = %9
-  %12 = sext i32 %.1171275 to i64
+  %12 = sext i32 %.1177272 to i64
   %13 = getelementptr inbounds [33 x i8], ptr @_ZL6yypact, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = sext i8 %14 to i32
@@ -91,7 +91,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
   br i1 %.not198, label %18, label %51
 
 18:                                               ; preds = %11
-  %19 = icmp eq i32 %.1277, -2
+  %19 = icmp eq i32 %.1161274, -2
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
@@ -99,29 +99,29 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
   br label %22
 
 22:                                               ; preds = %20, %18
-  %.2 = phi i32 [ %21, %20 ], [ %.1277, %18 ]
-  %23 = icmp slt i32 %.2, 1
+  %.2162 = phi i32 [ %21, %20 ], [ %.1161274, %18 ]
+  %23 = icmp slt i32 %.2162, 1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %22
-  %25 = icmp eq i32 %.2, 256
-  br i1 %25, label %.thread240.thread, label %26
+  %25 = icmp eq i32 %.2162, 256
+  br i1 %25, label %.thread238.thread, label %26
 
 26:                                               ; preds = %24
-  %27 = icmp ult i32 %.2, 270
+  %27 = icmp ult i32 %.2162, 270
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %26
-  %29 = zext nneg i32 %.2 to i64
+  %29 = zext nneg i32 %.2162 to i64
   %30 = getelementptr inbounds [270 x i8], ptr @_ZL11yytranslate, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = sext i8 %31 to i32
   br label %33
 
 33:                                               ; preds = %28, %26, %22
-  %.0161 = phi i32 [ 0, %22 ], [ %32, %28 ], [ 2, %26 ]
-  %.3 = phi i32 [ 0, %22 ], [ %.2, %28 ], [ %.2, %26 ]
-  %34 = add nsw i32 %.0161, %15
+  %.3163 = phi i32 [ 0, %22 ], [ %.2162, %26 ], [ %.2162, %28 ]
+  %.0155 = phi i32 [ 0, %22 ], [ 2, %26 ], [ %32, %28 ]
+  %34 = add nsw i32 %.0155, %15
   %or.cond3 = icmp ugt i32 %34, 40
   br i1 %or.cond3, label %51, label %35
 
@@ -130,7 +130,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
   %37 = getelementptr inbounds [41 x i8], ptr @_ZL7yycheck, i64 0, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = sext i8 %38 to i32
-  %.not199 = icmp eq i32 %.0161, %39
+  %.not199 = icmp eq i32 %.0155, %39
   br i1 %.not199, label %40, label %51
 
 40:                                               ; preds = %35
@@ -147,13 +147,13 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
   br label %57
 
 48:                                               ; preds = %40
-  %49 = getelementptr inbounds i8, ptr %.1165276, i64 8
+  %49 = getelementptr inbounds i8, ptr %.1159275, i64 8
   %50 = load i64, ptr %2, align 8
   store i64 %50, ptr %49, align 8
   br label %7
 
 51:                                               ; preds = %33, %35, %11
-  %.4 = phi i32 [ %.1277, %11 ], [ %.3, %33 ], [ %.3, %35 ]
+  %.4164 = phi i32 [ %.1161274, %11 ], [ %.3163, %33 ], [ %.3163, %35 ]
   %52 = getelementptr inbounds [33 x i8], ptr @_ZL8yydefact, i64 0, i64 %12
   %53 = load i8, ptr %52, align 1
   %54 = sext i8 %53 to i32
@@ -163,16 +163,16 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
   br i1 %.not202, label %57, label %163
 
 57:                                               ; preds = %51, %46
-  %.0163 = phi i32 [ %54, %51 ], [ %47, %46 ]
-  %.5 = phi i32 [ %.4, %51 ], [ %.3, %46 ]
-  %58 = sext i32 %.0163 to i64
+  %.5165 = phi i32 [ %.4164, %51 ], [ %.3163, %46 ]
+  %.0157 = phi i32 [ %54, %51 ], [ %47, %46 ]
+  %58 = sext i32 %.0157 to i64
   %59 = getelementptr inbounds [25 x i8], ptr @_ZL4yyr2, i64 0, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = sext i8 %60 to i64
   %62 = sub nsw i64 1, %61
-  %63 = getelementptr inbounds %"struct.cmCommandArgumentParserHelper::ParserType", ptr %.1165276, i64 %62
+  %63 = getelementptr inbounds %"struct.cmCommandArgumentParserHelper::ParserType", ptr %.1159275, i64 %62
   %.sroa.0.0.copyload = load ptr, ptr %63, align 8
-  switch i32 %.0163, label %137 [
+  switch i32 %.0157, label %137 [
     i32 2, label %64
     i32 3, label %67
     i32 4, label %69
@@ -200,19 +200,19 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
 
 64:                                               ; preds = %57
   %65 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
-  %66 = load ptr, ptr %.1165276, align 8
+  %66 = load ptr, ptr %.1159275, align 8
   call void @_ZN29cmCommandArgumentParserHelper9SetResultEPKc(ptr noundef nonnull align 8 dereferenceable(168) %65, ptr noundef %66)
   br label %137
 
 67:                                               ; preds = %57
-  %68 = load ptr, ptr %.1165276, align 8
+  %68 = load ptr, ptr %.1159275, align 8
   br label %137
 
 69:                                               ; preds = %57
   %70 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
-  %71 = getelementptr inbounds i8, ptr %.1165276, i64 -8
+  %71 = getelementptr inbounds i8, ptr %.1159275, i64 -8
   %72 = load ptr, ptr %71, align 8
-  %73 = load ptr, ptr %.1165276, align 8
+  %73 = load ptr, ptr %.1159275, align 8
   %74 = call noundef ptr @_ZN29cmCommandArgumentParserHelper13CombineUnionsEPKcS1_(ptr noundef nonnull align 8 dereferenceable(168) %70, ptr noundef %72, ptr noundef %73)
   br label %137
 
@@ -221,81 +221,81 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
 
 76:                                               ; preds = %57
   %77 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
-  %78 = getelementptr inbounds i8, ptr %.1165276, i64 -8
+  %78 = getelementptr inbounds i8, ptr %.1159275, i64 -8
   %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr %.1165276, align 8
+  %80 = load ptr, ptr %.1159275, align 8
   %81 = call noundef ptr @_ZN29cmCommandArgumentParserHelper13CombineUnionsEPKcS1_(ptr noundef nonnull align 8 dereferenceable(168) %77, ptr noundef %79, ptr noundef %80)
   br label %137
 
 82:                                               ; preds = %57
-  %83 = load ptr, ptr %.1165276, align 8
+  %83 = load ptr, ptr %.1159275, align 8
   br label %137
 
 84:                                               ; preds = %57
-  %85 = load ptr, ptr %.1165276, align 8
+  %85 = load ptr, ptr %.1159275, align 8
   br label %137
 
 86:                                               ; preds = %57
-  %87 = load ptr, ptr %.1165276, align 8
+  %87 = load ptr, ptr %.1159275, align 8
   br label %137
 
 88:                                               ; preds = %57
-  %89 = load ptr, ptr %.1165276, align 8
+  %89 = load ptr, ptr %.1159275, align 8
   br label %137
 
 90:                                               ; preds = %57
-  %91 = load ptr, ptr %.1165276, align 8
+  %91 = load ptr, ptr %.1159275, align 8
   br label %137
 
 92:                                               ; preds = %57
-  %93 = load ptr, ptr %.1165276, align 8
+  %93 = load ptr, ptr %.1159275, align 8
   br label %137
 
 94:                                               ; preds = %57
-  %95 = load ptr, ptr %.1165276, align 8
+  %95 = load ptr, ptr %.1159275, align 8
   br label %137
 
 96:                                               ; preds = %57
-  %97 = load ptr, ptr %.1165276, align 8
+  %97 = load ptr, ptr %.1159275, align 8
   br label %137
 
 98:                                               ; preds = %57
   %99 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
-  %100 = getelementptr inbounds i8, ptr %.1165276, i64 -16
+  %100 = getelementptr inbounds i8, ptr %.1159275, i64 -16
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %.1165276, i64 -8
+  %102 = getelementptr inbounds i8, ptr %.1159275, i64 -8
   %103 = load ptr, ptr %102, align 8
   %104 = call noundef ptr @_ZN29cmCommandArgumentParserHelper21ExpandSpecialVariableEPKcS1_(ptr noundef nonnull align 8 dereferenceable(168) %99, ptr noundef %101, ptr noundef %103)
   br label %137
 
 105:                                              ; preds = %57
   %106 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
-  %107 = getelementptr inbounds i8, ptr %.1165276, i64 -16
+  %107 = getelementptr inbounds i8, ptr %.1159275, i64 -16
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %.1165276, i64 -8
+  %109 = getelementptr inbounds i8, ptr %.1159275, i64 -8
   %110 = load ptr, ptr %109, align 8
   %111 = call noundef ptr @_ZN29cmCommandArgumentParserHelper21ExpandSpecialVariableEPKcS1_(ptr noundef nonnull align 8 dereferenceable(168) %106, ptr noundef %108, ptr noundef %110)
   br label %137
 
 112:                                              ; preds = %57
   %113 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
-  %114 = getelementptr inbounds i8, ptr %.1165276, i64 -8
+  %114 = getelementptr inbounds i8, ptr %.1159275, i64 -8
   %115 = load ptr, ptr %114, align 8
   %116 = call noundef ptr @_ZN29cmCommandArgumentParserHelper14ExpandVariableEPKc(ptr noundef nonnull align 8 dereferenceable(168) %113, ptr noundef %115)
   br label %137
 
 117:                                              ; preds = %57
   %118 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
-  %119 = load ptr, ptr %.1165276, align 8
+  %119 = load ptr, ptr %.1159275, align 8
   %120 = call noundef ptr @_ZN29cmCommandArgumentParserHelper19ExpandVariableForAtEPKc(ptr noundef nonnull align 8 dereferenceable(168) %118, ptr noundef %119)
   br label %137
 
 121:                                              ; preds = %57
-  %122 = load ptr, ptr %.1165276, align 8
+  %122 = load ptr, ptr %.1159275, align 8
   br label %137
 
 123:                                              ; preds = %57
-  %124 = getelementptr inbounds i8, ptr %.1165276, i64 -8
+  %124 = getelementptr inbounds i8, ptr %.1159275, i64 -8
   %125 = load ptr, ptr %124, align 8
   br label %137
 
@@ -304,26 +304,26 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
 
 127:                                              ; preds = %57
   %128 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
-  %129 = getelementptr inbounds i8, ptr %.1165276, i64 -8
+  %129 = getelementptr inbounds i8, ptr %.1159275, i64 -8
   %130 = load ptr, ptr %129, align 8
-  %131 = load ptr, ptr %.1165276, align 8
+  %131 = load ptr, ptr %.1159275, align 8
   %132 = call noundef ptr @_ZN29cmCommandArgumentParserHelper13CombineUnionsEPKcS1_(ptr noundef nonnull align 8 dereferenceable(168) %128, ptr noundef %130, ptr noundef %131)
   br label %137
 
 133:                                              ; preds = %57
-  %134 = load ptr, ptr %.1165276, align 8
+  %134 = load ptr, ptr %.1159275, align 8
   br label %137
 
 135:                                              ; preds = %57
-  %136 = load ptr, ptr %.1165276, align 8
+  %136 = load ptr, ptr %.1159275, align 8
   br label %137
 
 137:                                              ; preds = %57, %135, %133, %127, %126, %123, %121, %117, %112, %105, %98, %96, %94, %92, %90, %88, %86, %84, %82, %76, %75, %69, %67, %64
   %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %57 ], [ %136, %135 ], [ %134, %133 ], [ %132, %127 ], [ null, %126 ], [ %125, %123 ], [ %122, %121 ], [ %120, %117 ], [ %116, %112 ], [ %111, %105 ], [ %104, %98 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ %83, %82 ], [ %81, %76 ], [ null, %75 ], [ %74, %69 ], [ %68, %67 ], [ null, %64 ]
   %138 = sub nsw i64 0, %61
-  %139 = getelementptr inbounds %"struct.cmCommandArgumentParserHelper::ParserType", ptr %.1165276, i64 %138
-  %.1174.add = sub i64 %.1174.idx274, %61
-  %.ptr196 = getelementptr inbounds i8, ptr %3, i64 %.1174.add
+  %139 = getelementptr inbounds %"struct.cmCommandArgumentParserHelper::ParserType", ptr %.1159275, i64 %138
+  %.1167.add = sub i64 %.1167.idx273, %61
+  %.ptr196 = getelementptr inbounds i8, ptr %3, i64 %.1167.add
   %140 = getelementptr inbounds i8, ptr %139, i64 8
   store ptr %.sroa.0.0, ptr %140, align 8
   %141 = getelementptr inbounds [25 x i8], ptr @_ZL4yyr1, i64 0, i64 %58
@@ -361,16 +361,16 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
   br label %7
 
 163:                                              ; preds = %51
-  %.1174.ptr.le = getelementptr inbounds i8, ptr %3, i64 %.1174.idx274
-  %164 = icmp eq i32 %.4, -2
+  %.1167.ptr.le = getelementptr inbounds i8, ptr %3, i64 %.1167.idx273
+  %164 = icmp eq i32 %.4164, -2
   br i1 %164, label %171, label %165
 
 165:                                              ; preds = %163
-  %or.cond7 = icmp ult i32 %.4, 270
+  %or.cond7 = icmp ult i32 %.4164, 270
   br i1 %or.cond7, label %166, label %171
 
 166:                                              ; preds = %165
-  %167 = zext nneg i32 %.4 to i64
+  %167 = zext nneg i32 %.4164 to i64
   %168 = getelementptr inbounds [270 x i8], ptr @_ZL11yytranslate, i64 0, i64 %167
   %169 = load i8, ptr %168, align 1
   %170 = sext i8 %169 to i32
@@ -378,7 +378,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
 
 171:                                              ; preds = %163, %165, %166
   %172 = phi i32 [ -2, %163 ], [ %170, %166 ], [ 2, %165 ]
-  %173 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %6, ptr nonnull %5, ptr nonnull %.1174.ptr.le, i32 %172)
+  %173 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %6, ptr nonnull %5, ptr nonnull %.1167.ptr.le, i32 %172)
   switch i32 %173, label %182 [
     i32 0, label %174
     i32 -1, label %175
@@ -394,7 +394,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
   br i1 %.not205, label %181, label %178
 
 178:                                              ; preds = %175
-  %179 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %6, ptr nonnull %177, ptr nonnull %.1174.ptr.le, i32 %172)
+  %179 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %6, ptr nonnull %177, ptr nonnull %.1167.ptr.le, i32 %172)
   %180 = icmp eq i32 %179, -2
   br label %182
 
@@ -408,27 +408,27 @@ define dso_local noundef range(i32 0, 3) i32 @_Z25cmCommandArgument_yyparsePv(pt
   %.0 = phi i1 [ true, %171 ], [ true, %181 ], [ %180, %178 ], [ false, %174 ]
   %183 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
   call void @_ZN29cmCommandArgumentParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(168) %183, ptr noundef nonnull %.0153)
-  br i1 %.0, label %.loopexit, label %.thread240
+  br i1 %.0, label %.loopexit, label %.thread238
 
 .loopexit:                                        ; preds = %7, %182
-  %.3223 = phi ptr [ %.0220, %182 ], [ %5, %7 ]
+  %.3 = phi ptr [ %.0220, %182 ], [ %5, %7 ]
   %184 = call noundef ptr @_Z29cmCommandArgument_yyget_extraPv(ptr noundef %0)
   call void @_ZN29cmCommandArgumentParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(168) %184, ptr noundef nonnull @.str.3)
-  br label %.thread240
+  br label %.thread238
 
-.thread240:                                       ; preds = %182, %.loopexit
-  %.0162238 = phi i32 [ 2, %.loopexit ], [ 1, %182 ]
-  %.4224232 = phi ptr [ %.3223, %.loopexit ], [ %.0220, %182 ]
-  %.not210 = icmp eq ptr %.4224232, %5
-  br i1 %.not210, label %.thread240.thread, label %185
+.thread238:                                       ; preds = %182, %.loopexit
+  %.0156237 = phi i32 [ 2, %.loopexit ], [ 1, %182 ]
+  %.4222230 = phi ptr [ %.3, %.loopexit ], [ %.0220, %182 ]
+  %.not210 = icmp eq ptr %.4222230, %5
+  br i1 %.not210, label %.thread238.thread, label %185
 
-185:                                              ; preds = %.thread240
-  call void @free(ptr noundef %.4224232) #9
-  br label %.thread240.thread
+185:                                              ; preds = %.thread238
+  call void @free(ptr noundef %.4222230) #9
+  br label %.thread238.thread
 
-.thread240.thread:                                ; preds = %9, %24, %185, %.thread240
-  %.0162238288 = phi i32 [ %.0162238, %185 ], [ %.0162238, %.thread240 ], [ 1, %24 ], [ 0, %9 ]
-  ret i32 %.0162238288
+.thread238.thread:                                ; preds = %9, %24, %185, %.thread238
+  %.0156237286 = phi i32 [ %.0156237, %185 ], [ %.0156237, %.thread238 ], [ 1, %24 ], [ 0, %9 ]
+  ret i32 %.0156237286
 }
 
 declare noundef i32 @_Z23cmCommandArgument_yylexPN29cmCommandArgumentParserHelper10ParserTypeEPv(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -538,8 +538,8 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit: ; preds 
 
 _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8: ; preds = %21, %.loopexit.i.i.thread, %1, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit, %33, %32, %31, %30
   %.0.i7 = phi i32 [ 4, %32 ], [ 3, %31 ], [ 2, %30 ], [ 5, %33 ], [ %29, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ 0, %1 ], [ 1, %.loopexit.i.i.thread ], [ 1, %21 ]
-  %.040 = phi ptr [ @.str.9, %32 ], [ @.str.8, %31 ], [ @.str.7, %30 ], [ @.str.10, %33 ], [ @.str, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ @.str, %1 ], [ @.str.6, %.loopexit.i.i.thread ], [ @.str.6, %21 ]
-  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.040) #10
+  %.041 = phi ptr [ @.str.9, %32 ], [ @.str.8, %31 ], [ @.str.7, %30 ], [ @.str.10, %33 ], [ @.str, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ @.str, %1 ], [ @.str.6, %.loopexit.i.i.thread ], [ @.str.6, %21 ]
+  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.041) #10
   %35 = shl nsw i32 %.0.i7, 1
   %36 = sext i32 %35 to i64
   %reass.sub = sub i64 %34, %36
@@ -553,7 +553,7 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8: 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL9yytnamerrPcPKc.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZL9yytnamerrPcPKc.exit.thread ]
-  %.04219 = phi i64 [ %37, %.lr.ph.preheader ], [ %54, %_ZL9yytnamerrPcPKc.exit.thread ]
+  %.04019 = phi i64 [ %37, %.lr.ph.preheader ], [ %54, %_ZL9yytnamerrPcPKc.exit.thread ]
   %39 = getelementptr inbounds [5 x i32], ptr %2, i64 0, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
@@ -593,29 +593,29 @@ _ZL9yytnamerrPcPKc.exit:                          ; preds = %.preheader.split.us
 
 _ZL9yytnamerrPcPKc.exit.thread:                   ; preds = %.preheader.split.us.i, %_ZL9yytnamerrPcPKc.exit
   %.019.i14 = phi i64 [ %53, %_ZL9yytnamerrPcPKc.exit ], [ %.018.us.i, %.preheader.split.us.i ]
-  %54 = add nsw i64 %.019.i14, %.04219
+  %54 = add nsw i64 %.019.i14, %.04019
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZL9yytnamerrPcPKc.exit.thread, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8
-  %.042.lcssa = phi i64 [ %37, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8 ], [ %54, %_ZL9yytnamerrPcPKc.exit.thread ]
+  %.040.lcssa = phi i64 [ %37, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8 ], [ %54, %_ZL9yytnamerrPcPKc.exit.thread ]
   %55 = load i64, ptr %0, align 8
-  %56 = icmp slt i64 %55, %.042.lcssa
+  %56 = icmp slt i64 %55, %.040.lcssa
   br i1 %56, label %57, label %.preheader
 
 57:                                               ; preds = %._crit_edge
-  %58 = shl nsw i64 %.042.lcssa, 1
-  %.not46 = icmp sgt i64 %.042.lcssa, %58
+  %58 = shl nsw i64 %.040.lcssa, 1
+  %.not46 = icmp sgt i64 %.040.lcssa, %58
   %spec.store.select = select i1 %.not46, i64 9223372036854775807, i64 %58
   store i64 %spec.store.select, ptr %0, align 8
   br label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread10
 
 .preheader:                                       ; preds = %._crit_edge, %_ZL9yytnamerrPcPKc.exit58
-  %.141 = phi ptr [ %89, %_ZL9yytnamerrPcPKc.exit58 ], [ %.040, %._crit_edge ]
+  %.142 = phi ptr [ %89, %_ZL9yytnamerrPcPKc.exit58 ], [ %.041, %._crit_edge ]
   %.036 = phi ptr [ %88, %_ZL9yytnamerrPcPKc.exit58 ], [ %.0.val, %._crit_edge ]
   %.0 = phi i32 [ %.1, %_ZL9yytnamerrPcPKc.exit58 ], [ 0, %._crit_edge ]
-  %59 = load i8, ptr %.141, align 1
+  %59 = load i8, ptr %.142, align 1
   store i8 %59, ptr %.036, align 1
   switch i8 %59, label %_ZL9yytnamerrPcPKc.exit58 [
     i8 0, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread10
@@ -623,7 +623,7 @@ _ZL9yytnamerrPcPKc.exit.thread:                   ; preds = %.preheader.split.us
   ]
 
 60:                                               ; preds = %.preheader
-  %61 = getelementptr inbounds i8, ptr %.141, i64 1
+  %61 = getelementptr inbounds i8, ptr %.142, i64 1
   %62 = load i8, ptr %61, align 1
   %63 = icmp eq i8 %62, 115
   %64 = icmp slt i32 %.0, %.0.i7
@@ -684,12 +684,12 @@ _ZL9yytnamerrPcPKc.exit58:                        ; preds = %60, %.preheader, %.
   %.sink = phi i64 [ 2, %.loopexit.thread.i ], [ 2, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %60 ]
   %.1 = phi i32 [ %66, %.loopexit.thread.i ], [ %66, %.split.us.thread.i ], [ %.0, %.preheader ], [ %.0, %60 ]
   %88 = getelementptr inbounds i8, ptr %.036, i64 %.sink28
-  %89 = getelementptr inbounds i8, ptr %.141, i64 %.sink
+  %89 = getelementptr inbounds i8, ptr %.142, i64 %.sink
   br label %.preheader, !llvm.loop !9
 
 _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread10: ; preds = %_ZL9yytnamerrPcPKc.exit, %.preheader, %.loopexit.i.i, %57, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit
-  %.038 = phi i32 [ -2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ -1, %57 ], [ %.2.i.fr.i, %.loopexit.i.i ], [ 0, %.preheader ], [ -2, %_ZL9yytnamerrPcPKc.exit ]
-  ret i32 %.038
+  %.039 = phi i32 [ -2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ -1, %57 ], [ %.2.i.fr.i, %.loopexit.i.i ], [ 0, %.preheader ], [ -2, %_ZL9yytnamerrPcPKc.exit ]
+  ret i32 %.039
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)

@@ -528,13 +528,13 @@ if.then.i.i51:                                    ; preds = %cleanup
   br label %glib_autoptr_cleanup_GSocketConnection.exit
 
 glib_autoptr_cleanup_GSocketConnection.exit:      ; preds = %cleanup.thread, %cleanup, %if.then.i.i51
-  %listener_conn.070 = phi ptr [ null, %cleanup.thread ], [ %call32, %cleanup ], [ %call32, %if.then.i.i51 ]
-  %socket.069 = phi ptr [ %socket.0.ph, %cleanup.thread ], [ %call18, %cleanup ], [ %call18, %if.then.i.i51 ]
-  %tobool.not.i.i52 = icmp eq ptr %socket.069, null
+  %socket.070 = phi ptr [ %socket.0.ph, %cleanup.thread ], [ %call18, %cleanup ], [ %call18, %if.then.i.i51 ]
+  %listener_conn.069 = phi ptr [ null, %cleanup.thread ], [ %call32, %cleanup ], [ %call32, %if.then.i.i51 ]
+  %tobool.not.i.i52 = icmp eq ptr %socket.070, null
   br i1 %tobool.not.i.i52, label %glib_autoptr_cleanup_GSocket.exit, label %if.then.i.i53
 
 if.then.i.i53:                                    ; preds = %glib_autoptr_cleanup_GSocketConnection.exit
-  call void @g_object_unref(ptr noundef nonnull %socket.069) #11
+  call void @g_object_unref(ptr noundef nonnull %socket.070) #11
   br label %glib_autoptr_cleanup_GSocket.exit
 
 glib_autoptr_cleanup_GSocket.exit:                ; preds = %glib_autoptr_cleanup_GSocketConnection.exit, %if.then.i.i53
@@ -547,11 +547,11 @@ if.then.i.i55:                                    ; preds = %glib_autoptr_cleanu
   br label %glib_autoptr_cleanup_GError.exit
 
 glib_autoptr_cleanup_GError.exit:                 ; preds = %glib_autoptr_cleanup_GSocket.exit, %if.then.i.i55
-  %tobool.not.i.i56 = icmp eq ptr %listener_conn.070, null
+  %tobool.not.i.i56 = icmp eq ptr %listener_conn.069, null
   br i1 %tobool.not.i.i56, label %glib_autoptr_cleanup_GDBusConnection.exit, label %if.then.i.i57
 
 if.then.i.i57:                                    ; preds = %glib_autoptr_cleanup_GError.exit
-  call void @g_object_unref(ptr noundef nonnull %listener_conn.070) #11
+  call void @g_object_unref(ptr noundef nonnull %listener_conn.069) #11
   br label %glib_autoptr_cleanup_GDBusConnection.exit
 
 glib_autoptr_cleanup_GDBusConnection.exit:        ; preds = %glib_autoptr_cleanup_GError.exit, %if.then.i.i57

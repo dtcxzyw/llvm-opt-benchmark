@@ -629,8 +629,8 @@ if.end67:                                         ; preds = %invoke.cont57
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end3.i.i.i.i, %lor.lhs.false.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %if.end67, %if.then64, %if.else
-  %max_evicted_seq_ub.0 = phi i64 [ %2, %if.else ], [ %2, %if.then64 ], [ %31, %if.end67 ], [ %2, %if.end15.i.i ], [ %2, %for.cond.i.i ], [ %2, %lor.lhs.false.i.i.i.i ], [ %2, %if.end3.i.i.i.i ]
   %retval.1 = phi i1 [ %cmp55, %if.else ], [ %cmp66, %if.then64 ], [ %retval.0, %if.end67 ], [ false, %if.end15.i.i ], [ false, %for.cond.i.i ], [ false, %lor.lhs.false.i.i.i.i ], [ false, %if.end3.i.i.i.i ]
+  %max_evicted_seq_ub.0 = phi i64 [ %2, %if.else ], [ %2, %if.then64 ], [ %31, %if.end67 ], [ %2, %if.end15.i.i ], [ %2, %for.cond.i.i ], [ %2, %lor.lhs.false.i.i.i.i ], [ %2, %if.end3.i.i.i.i ]
   %switch = phi i1 [ false, %if.else ], [ false, %if.then64 ], [ true, %if.end67 ], [ false, %if.end15.i.i ], [ false, %for.cond.i.i ], [ false, %lor.lhs.false.i.i.i.i ], [ false, %if.end3.i.i.i.i ]
   invoke void @_ZN7rocksdb4port7RWMutex10ReadUnlockEv(ptr noundef nonnull align 8 dereferenceable(56) %prepared_mutex_)
           to label %_ZN7rocksdb8ReadLockD2Ev.exit23 unwind label %terminate.lpad.i22
@@ -646,8 +646,8 @@ _ZN7rocksdb8ReadLockD2Ev.exit23:                  ; preds = %cleanup
   br i1 %switch, label %do.cond, label %return
 
 do.cond:                                          ; preds = %_ZN7rocksdb8ReadLockD2Ev.exit23, %if.end18
-  %max_evicted_seq_ub.1 = phi i64 [ %7, %if.end18 ], [ %max_evicted_seq_ub.0, %_ZN7rocksdb8ReadLockD2Ev.exit23 ]
   %retval.2 = phi i1 [ %retval.0, %if.end18 ], [ %retval.1, %_ZN7rocksdb8ReadLockD2Ev.exit23 ]
+  %max_evicted_seq_ub.1 = phi i64 [ %7, %if.end18 ], [ %max_evicted_seq_ub.0, %_ZN7rocksdb8ReadLockD2Ev.exit23 ]
   %cmp72.not = icmp eq i64 %2, %max_evicted_seq_ub.1
   br i1 %cmp72.not, label %do.end, label %do.body, !llvm.loop !8
 
@@ -2245,9 +2245,9 @@ for.body.lr.ph:                                   ; preds = %_ZN7rocksdb19Transa
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %add.i90 = phi i64 [ %add.i85, %for.body.lr.ph ], [ %add.i, %for.inc ]
-  %prev_boundary.089 = phi i64 [ 12, %for.body.lr.ph ], [ %cond, %for.inc ]
-  %i.088 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %cmp13 = icmp eq i64 %i.088, %add.i90
+  %i.089 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %prev_boundary.088 = phi i64 [ 12, %for.body.lr.ph ], [ %cond, %for.inc ]
+  %cmp13 = icmp eq i64 %i.089, %add.i90
   %10 = load ptr, ptr %wupt_db_, align 8
   %handle_map_.i = getelementptr inbounds i8, ptr %10, i64 1264
   %11 = load ptr, ptr %handle_map_.i, align 8, !noalias !18
@@ -2362,13 +2362,13 @@ invoke.cont20:                                    ; preds = %cond.true
 
 cond.false:                                       ; preds = %_ZNSt10shared_ptrISt3mapIjPN7rocksdb18ColumnFamilyHandleESt4lessIjESaISt4pairIKjS3_EEEED2Ev.exit
   %26 = load ptr, ptr %unflushed_save_points_, align 8
-  %cmp.i = icmp ult i64 %i.088, 8
+  %cmp.i = icmp ult i64 %i.089, 8
   %values_.i = getelementptr inbounds i8, ptr %26, i64 72
   %27 = load ptr, ptr %values_.i, align 8
-  %arrayidx.i = getelementptr inbounds i64, ptr %27, i64 %i.088
+  %arrayidx.i = getelementptr inbounds i64, ptr %27, i64 %i.089
   %vect_.i23 = getelementptr inbounds i8, ptr %26, i64 80
   %28 = load ptr, ptr %vect_.i23, align 8
-  %29 = getelementptr i64, ptr %28, i64 %i.088
+  %29 = getelementptr i64, ptr %28, i64 %i.089
   %add.ptr.i.i = getelementptr i8, ptr %29, i64 -64
   %retval.0.i = select i1 %cmp.i, ptr %arrayidx.i, ptr %add.ptr.i.i
   %30 = load i64, ptr %retval.0.i, align 8
@@ -2380,7 +2380,7 @@ cond.end:                                         ; preds = %cond.false, %invoke
           to label %invoke.cont28 unwind label %lpad19
 
 invoke.cont28:                                    ; preds = %cond.end
-  invoke void @_ZN7rocksdb18WriteBatchInternal7IterateEPKNS_10WriteBatchEPNS1_7HandlerEmm(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef %call29, ptr noundef nonnull %sp_handler, i64 noundef %prev_boundary.089, i64 noundef %cond)
+  invoke void @_ZN7rocksdb18WriteBatchInternal7IterateEPKNS_10WriteBatchEPNS1_7HandlerEmm(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef %call29, ptr noundef nonnull %sp_handler, i64 noundef %prev_boundary.088, i64 noundef %cond)
           to label %invoke.cont32 unwind label %lpad19
 
 invoke.cont32:                                    ; preds = %invoke.cont28
@@ -2557,7 +2557,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont32, %inv
 for.inc:                                          ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i42, %nrvo.unused
   store ptr null, ptr %state_16.i, align 8
   call void @_ZN7rocksdb10WriteBatch7HandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sp_handler) #21
-  %inc = add nuw i64 %i.088, 1
+  %inc = add nuw i64 %i.089, 1
   %52 = load ptr, ptr %unflushed_save_points_, align 8
   %53 = load i64, ptr %52, align 8
   %vect_.i = getelementptr inbounds i8, ptr %52, i64 80

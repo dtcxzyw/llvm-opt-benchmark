@@ -3249,7 +3249,7 @@ _get_part_gr_type.exit.thread:                    ; preds = %17, %14, %7, %_get_
   unreachable
 
 .preheader60.i:                                   ; preds = %46, %.preheader62.i
-  %.0.lcssa.i = phi i32 [ 0, %.preheader62.i ], [ %50, %46 ]
+  %.047.lcssa.i = phi i32 [ 0, %.preheader62.i ], [ %50, %46 ]
   %.not5571.i = icmp sgt i32 %36, %38
   br i1 %.not5571.i, label %_fill_sockets.exit.thread, label %.lr.ph74.preheader.i
 
@@ -3260,20 +3260,20 @@ _get_part_gr_type.exit.thread:                    ; preds = %17, %14, %7, %_get_
 
 46:                                               ; preds = %46, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %46 ]
-  %.065.i = phi i32 [ 0, %.lr.ph.i ], [ %50, %46 ]
+  %.04764.i = phi i32 [ 0, %.lr.ph.i ], [ %50, %46 ]
   %47 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv.i
   %48 = load ptr, ptr %47, align 8
   %.0.in.i.i = getelementptr inbounds i8, ptr %48, i64 %.0.in.v.i.i
   %.0.i.i = load i16, ptr %.0.in.i.i, align 8
   %49 = zext i16 %.0.i.i to i32
-  %50 = add i32 %.065.i, %49
+  %50 = add i32 %.04764.i, %49
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.preheader60.i, label %46, !llvm.loop !35
 
 .lr.ph74.i:                                       ; preds = %.loopexit.i, %.lr.ph74.preheader.i
   %indvars.iv81.i = phi i64 [ %45, %.lr.ph74.preheader.i ], [ %indvars.iv.next82.i, %.loopexit.i ]
-  %.173.i = phi i32 [ %.0.lcssa.i, %.lr.ph74.preheader.i ], [ %.3.i, %.loopexit.i ]
+  %.14872.i = phi i32 [ %.047.lcssa.i, %.lr.ph74.preheader.i ], [ %.3.i, %.loopexit.i ]
   %51 = load ptr, ptr @node_record_table_ptr, align 8
   %52 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv81.i
   %53 = load ptr, ptr %52, align 8
@@ -3288,7 +3288,7 @@ _get_part_gr_type.exit.thread:                    ; preds = %17, %14, %7, %_get_
 
 58:                                               ; preds = %.lr.ph74.i
   %59 = zext i16 %.0.i59.i to i32
-  %60 = add i32 %.173.i, %59
+  %60 = add i32 %.14872.i, %59
   br label %.loopexit.i
 
 61:                                               ; preds = %.lr.ph74.i
@@ -3305,14 +3305,14 @@ _get_part_gr_type.exit.thread:                    ; preds = %17, %14, %7, %_get_
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.critedge.i, %61
-  %.270.i = phi i32 [ %.173.i, %61 ], [ %71, %.critedge.i ]
-  %.04869.i = phi i16 [ 0, %61 ], [ %83, %.critedge.i ]
-  %71 = add i32 %.270.i, %70
-  %72 = icmp ult i32 %.270.i, %71
+  %.070.i = phi i16 [ 0, %61 ], [ %83, %.critedge.i ]
+  %.269.i = phi i32 [ %.14872.i, %61 ], [ %71, %.critedge.i ]
+  %71 = add i32 %.269.i, %70
+  %72 = icmp ult i32 %.269.i, %71
   br i1 %72, label %.lr.ph67.preheader.i, label %.critedge.i
 
 .lr.ph67.preheader.i:                             ; preds = %.preheader.i
-  %73 = zext i32 %.270.i to i64
+  %73 = zext i32 %.269.i to i64
   %74 = zext i32 %71 to i64
   br label %.lr.ph67.i
 
@@ -3336,7 +3336,7 @@ _get_part_gr_type.exit.thread:                    ; preds = %17, %14, %7, %_get_
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %75, %79, %.preheader.i
-  %83 = add nuw i16 %.04869.i, 1
+  %83 = add nuw i16 %.070.i, 1
   %exitcond80.not.i = icmp eq i16 %83, %umax.i
   br i1 %exitcond80.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !37
 
@@ -3469,7 +3469,7 @@ _fill_sockets.exit:                               ; preds = %94, %118, %109
 
 142:                                              ; preds = %.lr.ph88, %151
   %indvars.iv = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next, %151 ]
-  %.06286 = phi i32 [ 0, %.lr.ph88 ], [ %.163, %151 ]
+  %.087 = phi i32 [ 0, %.lr.ph88 ], [ %.1, %151 ]
   %143 = load ptr, ptr %140, align 8
   %144 = tail call i32 @bit_test(ptr noundef %143, i64 noundef %indvars.iv) #9
   %.not71 = icmp eq i32 %144, 0
@@ -3477,15 +3477,15 @@ _fill_sockets.exit:                               ; preds = %94, %118, %109
 
 145:                                              ; preds = %142
   %146 = load ptr, ptr %141, align 8
-  %147 = add i32 %.06286, 1
-  %148 = zext i32 %.06286 to i64
+  %147 = add i32 %.087, 1
+  %148 = zext i32 %.087 to i64
   %149 = getelementptr inbounds i16, ptr %146, i64 %148
   %150 = load i16, ptr %149, align 2
   br label %151
 
 151:                                              ; preds = %142, %145
   %.sink = phi i16 [ %150, %145 ], [ 0, %142 ]
-  %.163 = phi i32 [ %147, %145 ], [ %.06286, %142 ]
+  %.1 = phi i32 [ %147, %145 ], [ %.087, %142 ]
   %152 = load ptr, ptr %128, align 8
   %153 = getelementptr inbounds i16, ptr %152, i64 %indvars.iv
   store i16 %.sink, ptr %153, align 2
@@ -3494,17 +3494,17 @@ _fill_sockets.exit:                               ; preds = %94, %118, %109
   br i1 %exitcond94.not, label %_fill_sockets.exit.thread, label %142, !llvm.loop !39
 
 154:                                              ; preds = %.lr.ph, %179
-  %.185 = phi i32 [ 0, %.lr.ph ], [ %180, %179 ]
-  %.284 = phi i32 [ 0, %.lr.ph ], [ %.3, %179 ]
+  %.285 = phi i32 [ 0, %.lr.ph ], [ %.3, %179 ]
+  %.16384 = phi i32 [ 0, %.lr.ph ], [ %180, %179 ]
   %155 = load ptr, ptr %138, align 8
-  %156 = zext i32 %.185 to i64
+  %156 = zext i32 %.16384 to i64
   %157 = tail call i32 @bit_test(ptr noundef %155, i64 noundef %156) #9
   %.not70 = icmp eq i32 %157, 0
   br i1 %.not70, label %179, label %158
 
 158:                                              ; preds = %154
   %159 = load ptr, ptr @node_record_table_ptr, align 8
-  %160 = sext i32 %.185 to i64
+  %160 = sext i32 %.16384 to i64
   %161 = getelementptr inbounds ptr, ptr %159, i64 %160
   %162 = load ptr, ptr %161, align 8
   %163 = load i16, ptr @gr_type, align 2
@@ -3513,8 +3513,8 @@ _fill_sockets.exit:                               ; preds = %94, %118, %109
   %.0.in.i = getelementptr inbounds i8, ptr %162, i64 %.0.in.v.i
   %.0.i73 = load i16, ptr %.0.in.i, align 8
   %165 = load ptr, ptr %139, align 8
-  %166 = add i32 %.284, 1
-  %167 = zext i32 %.284 to i64
+  %166 = add i32 %.285, 1
+  %167 = zext i32 %.285 to i64
   %168 = getelementptr inbounds i16, ptr %165, i64 %167
   %169 = load i16, ptr %168, align 2
   %170 = load ptr, ptr %128, align 8
@@ -3533,8 +3533,8 @@ _fill_sockets.exit:                               ; preds = %94, %118, %109
   br label %179
 
 179:                                              ; preds = %154, %178, %158
-  %.3 = phi i32 [ %166, %178 ], [ %166, %158 ], [ %.284, %154 ]
-  %180 = add nuw i32 %.185, 1
+  %.3 = phi i32 [ %166, %178 ], [ %166, %158 ], [ %.285, %154 ]
+  %180 = add nuw i32 %.16384, 1
   %exitcond.not = icmp eq i32 %180, %127
   br i1 %exitcond.not, label %_fill_sockets.exit.thread, label %154, !llvm.loop !40
 

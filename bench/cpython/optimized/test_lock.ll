@@ -905,8 +905,8 @@ for.end40:                                        ; preds = %PyList_SET_ITEM.exi
   br label %exit
 
 exit:                                             ; preds = %for.body32, %if.end9, %for.end40, %if.then7
-  %res.0 = phi ptr [ null, %if.then7 ], [ null, %if.end9 ], [ %call42, %for.end40 ], [ null, %for.body32 ]
   %thread_iters.0 = phi ptr [ null, %if.then7 ], [ null, %if.end9 ], [ %call10, %for.end40 ], [ %call10, %for.body32 ]
+  %res.0 = phi ptr [ null, %if.then7 ], [ null, %if.end9 ], [ %call42, %for.end40 ], [ null, %for.body32 ]
   %9 = load ptr, ptr %lock, align 8
   call void @PyThread_free_lock(ptr noundef %9) #5
   call void @PyMem_Free(ptr noundef %call5) #5

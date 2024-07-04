@@ -1461,9 +1461,9 @@ if.then33:                                        ; preds = %_ZNK6hermes18Source
   %sm_34 = getelementptr inbounds i8, ptr %this, i64 8
   %28 = load ptr, ptr %sm_34, align 8
   %cmp.i123 = icmp ugt ptr %retval.sroa.0.0.copyload.i, %whatLoc.coerce
-  %retval.sroa.0.0.i = select i1 %cmp.i123, ptr %whatLoc.coerce, ptr %retval.sroa.0.0.copyload.i
   %retval.sroa.3.0.v.i = select i1 %cmp.i123, ptr %retval.sroa.0.0.copyload.i, ptr %whatLoc.coerce
   %retval.sroa.3.0.i = getelementptr inbounds i8, ptr %retval.sroa.3.0.v.i, i64 1
+  %retval.sroa.0.0.i = select i1 %cmp.i123, ptr %whatLoc.coerce, ptr %retval.sroa.0.0.copyload.i
   %29 = load ptr, ptr %OS.i, align 8
   %30 = load ptr, ptr %29, align 8
   %Size.i.i = getelementptr inbounds i8, ptr %29, i64 8
@@ -5094,8 +5094,8 @@ cond.false:                                       ; preds = %if.end90
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %call94.pn = phi { i64, i8 } [ %call94, %cond.true ], [ %call98, %cond.false ]
-  %optRightExpr.sroa.4.0 = extractvalue { i64, i8 } %call94.pn, 1
   %optRightExpr.sroa.0.0 = extractvalue { i64, i8 } %call94.pn, 0
+  %optRightExpr.sroa.4.0 = extractvalue { i64, i8 } %call94.pn, 1
   %49 = load ptr, ptr %tok_.i, align 8
   %50 = load i32, ptr %49, align 8
   %cmp.i.i76 = icmp eq i32 %50, 54
@@ -18423,8 +18423,8 @@ cond.false:                                       ; preds = %if.then
 
 cond.end:                                         ; preds = %cond.false, %cond.true
   %call9.pn = phi { i64, i8 } [ %call9, %cond.true ], [ %call11, %cond.false ]
-  %optTypeArgs.sroa.3.0 = extractvalue { i64, i8 } %call9.pn, 1
   %optTypeArgs.sroa.0.0 = extractvalue { i64, i8 } %call9.pn, 0
+  %optTypeArgs.sroa.3.0 = extractvalue { i64, i8 } %call9.pn, 1
   %tobool.i8 = trunc i8 %optTypeArgs.sroa.3.0 to i1
   br i1 %tobool.i8, label %land.lhs.true14, label %if.else
 
@@ -25146,9 +25146,9 @@ if.then27:                                        ; preds = %if.else
   %sourceRange_.i45 = getelementptr inbounds i8, ptr %21, i64 24
   %retval.sroa.0.0.copyload.i46 = load ptr, ptr %sourceRange_.i45, align 8
   %cmp.i47 = icmp ult ptr %retval.sroa.0.0.copyload.i44, %retval.sroa.0.0.copyload.i46
-  %retval.sroa.0.0.i = select i1 %cmp.i47, ptr %retval.sroa.0.0.copyload.i44, ptr %retval.sroa.0.0.copyload.i46
   %retval.sroa.3.0.v.i = select i1 %cmp.i47, ptr %retval.sroa.0.0.copyload.i46, ptr %retval.sroa.0.0.copyload.i44
   %retval.sroa.3.0.i = getelementptr inbounds i8, ptr %retval.sroa.3.0.v.i, i64 1
+  %retval.sroa.0.0.i = select i1 %cmp.i47, ptr %retval.sroa.0.0.copyload.i44, ptr %retval.sroa.0.0.copyload.i46
   store i8 1, ptr %RHSKind.i51, align 1
   store ptr @.str.242, ptr %ref.tmp38, align 8
   store i8 3, ptr %LHSKind.i50, align 8
@@ -25905,8 +25905,8 @@ if.end43:                                         ; preds = %if.then38
 
 if.end46:                                         ; preds = %if.end35, %if.end43, %if.end19
   %65 = phi i32 [ %.pre328, %if.end43 ], [ %44, %if.end19 ], [ %.pre326, %if.end35 ]
-  %predicate.0 = phi ptr [ %64, %if.end43 ], [ null, %if.end19 ], [ null, %if.end35 ]
   %returnType.1 = phi ptr [ %returnType.0331, %if.end43 ], [ null, %if.end19 ], [ %58, %if.end35 ]
+  %predicate.0 = phi ptr [ %64, %if.end43 ], [ null, %if.end19 ], [ null, %if.end35 ]
   %cmp.i247 = icmp eq i32 %65, 109
   br i1 %cmp.i247, label %cleanup.cont, label %if.then48
 
@@ -27828,8 +27828,8 @@ if.then4:                                         ; preds = %if.then.if.then4_cr
 if.end8:                                          ; preds = %if.then, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit.i, %if.then4, %entry
   %8 = phi ptr [ %call2.i, %if.then4 ], [ %0, %entry ], [ %0, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit.i ], [ %0, %if.then ]
   %9 = phi ptr [ %.pre110, %if.then4 ], [ %2, %entry ], [ %2, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit.i ], [ %2, %if.then ]
-  %kindRange.sroa.5.0 = phi ptr [ %retval.sroa.2.0.copyload.i.i, %if.then4 ], [ null, %entry ], [ null, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit.i ], [ null, %if.then ]
   %kindRange.sroa.0.0 = phi ptr [ %retval.sroa.0.0.copyload.i, %if.then4 ], [ null, %entry ], [ null, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit.i ], [ null, %if.then ]
+  %kindRange.sroa.5.0 = phi ptr [ %retval.sroa.2.0.copyload.i.i, %if.then4 ], [ null, %entry ], [ null, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit.i ], [ null, %if.then ]
   %kind.0 = phi ptr [ %7, %if.then4 ], [ %1, %entry ], [ %1, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit.i ], [ %1, %if.then ]
   %parseTS_.i = getelementptr inbounds i8, ptr %9, i64 192
   %10 = load i8, ptr %parseTS_.i, align 8
@@ -27861,8 +27861,8 @@ if.then14:                                        ; preds = %_ZNK6hermes6parser6
 
 if.end20:                                         ; preds = %_ZNK6hermes6parser6detail12JSParserImpl6checkNIPNS_12UniqueStringEEEbT_.exit, %if.then14, %if.end8
   %.ph = phi ptr [ %8, %if.end8 ], [ %8, %_ZNK6hermes6parser6detail12JSParserImpl6checkNIPNS_12UniqueStringEEEbT_.exit ], [ %call2.i22, %if.then14 ]
-  %kindRange.sroa.5.1.ph = phi ptr [ %kindRange.sroa.5.0, %if.end8 ], [ %kindRange.sroa.5.0, %_ZNK6hermes6parser6detail12JSParserImpl6checkNIPNS_12UniqueStringEEEbT_.exit ], [ %retval.sroa.2.0.copyload.i.i18, %if.then14 ]
   %kindRange.sroa.0.1.ph = phi ptr [ %kindRange.sroa.0.0, %if.end8 ], [ %kindRange.sroa.0.0, %_ZNK6hermes6parser6detail12JSParserImpl6checkNIPNS_12UniqueStringEEEbT_.exit ], [ %retval.sroa.0.0.copyload.i.i16, %if.then14 ]
+  %kindRange.sroa.5.1.ph = phi ptr [ %kindRange.sroa.5.0, %if.end8 ], [ %kindRange.sroa.5.0, %_ZNK6hermes6parser6detail12JSParserImpl6checkNIPNS_12UniqueStringEEEbT_.exit ], [ %retval.sroa.2.0.copyload.i.i18, %if.then14 ]
   %kind.1.ph = phi ptr [ %kind.0, %if.end8 ], [ %kind.0, %_ZNK6hermes6parser6detail12JSParserImpl6checkNIPNS_12UniqueStringEEEbT_.exit ], [ %12, %if.then14 ]
   %.pr = load i32, ptr %.ph, align 8
   %cmp.i24 = icmp eq i32 %.pr, 1

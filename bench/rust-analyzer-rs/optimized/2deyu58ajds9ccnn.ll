@@ -4003,9 +4003,9 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h3bfa906a3e001195E.exit: ; pred
   br label %61
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h3bfa906a3e001195E.exit.thread: ; preds = %10, %41, %61, %92, %130, %139
-  %.sroa.4.0 = phi i64 [ %11, %139 ], [ %62, %130 ], [ %.sroa.3.0.i46, %92 ], [ %.sroa.3.0.i46, %61 ], [ %.sroa.3.0.i46, %41 ], [ %.sroa.3.0.i46, %10 ]
-  %.sroa.08.0 = phi ptr [ %141, %139 ], [ %132, %130 ], [ @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.6.llvm.13962917913251662315, %92 ], [ @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.6.llvm.13962917913251662315, %61 ], [ @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.6.llvm.13962917913251662315, %41 ], [ @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.6.llvm.13962917913251662315, %10 ]
   %.sroa.49.0 = phi i64 [ %140, %139 ], [ %131, %130 ], [ 0, %92 ], [ 0, %61 ], [ 0, %41 ], [ 0, %10 ]
+  %.sroa.08.0 = phi ptr [ %141, %139 ], [ %132, %130 ], [ @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.6.llvm.13962917913251662315, %92 ], [ @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.6.llvm.13962917913251662315, %61 ], [ @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.6.llvm.13962917913251662315, %41 ], [ @anon.a3fd83f8021e7af5bb6bd7e15fe8a916.6.llvm.13962917913251662315, %10 ]
+  %.sroa.4.0 = phi i64 [ %11, %139 ], [ %62, %130 ], [ %.sroa.3.0.i46, %92 ], [ %.sroa.3.0.i46, %61 ], [ %.sroa.3.0.i46, %41 ], [ %.sroa.3.0.i46, %10 ]
   store ptr %.sroa.0.0.i78, ptr %0, align 8
   %58 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.4.0, ptr %58, align 8

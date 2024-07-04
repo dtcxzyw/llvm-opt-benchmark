@@ -755,8 +755,8 @@ for.body.preheader.i:                             ; preds = %if.end16
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %blk.addr.061.i = phi ptr [ %add.ptr, %for.body.preheader.i ], [ %blk.addr.1.i, %for.inc.i ]
   %secure.addr.060.i = phi ptr [ %s.0, %for.body.preheader.i ], [ %secure.addr.1.i, %for.inc.i ]
+  %blk.addr.059.i = phi ptr [ %add.ptr, %for.body.preheader.i ], [ %blk.addr.1.i, %for.inc.i ]
   %4 = load ptr, ptr %params1, align 8
   %5 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call.i57.i = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %5) #7
@@ -778,11 +778,11 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %tobool.not.i = icmp eq i32 %9, 0
   %alloc_blocks11.i = getelementptr inbounds i8, ptr %call.i57.i, i64 24
   %10 = load i64, ptr %alloc_blocks11.i, align 8
+  %blk.addr.1.idx.i = select i1 %tobool.not.i, i64 %10, i64 0
+  %blk.addr.1.i = getelementptr inbounds %union.OSSL_PARAM_ALIGNED_BLOCK, ptr %blk.addr.059.i, i64 %blk.addr.1.idx.i
   %secure.addr.1.idx.i = select i1 %tobool.not.i, i64 0, i64 %10
   %secure.addr.1.i = getelementptr inbounds %union.OSSL_PARAM_ALIGNED_BLOCK, ptr %secure.addr.060.i, i64 %secure.addr.1.idx.i
-  %blk.addr.1.idx.i = select i1 %tobool.not.i, i64 %10, i64 0
-  %blk.addr.1.i = getelementptr inbounds %union.OSSL_PARAM_ALIGNED_BLOCK, ptr %blk.addr.061.i, i64 %blk.addr.1.idx.i
-  %p.0.i = select i1 %tobool.not.i, ptr %blk.addr.061.i, ptr %secure.addr.060.i
+  %p.0.i = select i1 %tobool.not.i, ptr %blk.addr.059.i, ptr %secure.addr.060.i
   %data.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   store ptr %p.0.i, ptr %data.i, align 8
   %bn.i = getelementptr inbounds i8, ptr %call.i57.i, i64 32

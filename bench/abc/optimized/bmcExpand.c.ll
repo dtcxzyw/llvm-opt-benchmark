@@ -63,7 +63,7 @@ Vec_IntAlloc.exit49:                              ; preds = %Vec_IntAlloc.exit, 
   br label %31
 
 31:                                               ; preds = %.lr.ph60, %.critedge
-  %.059 = phi ptr [ %.val, %.lr.ph60 ], [ %67, %.critedge ]
+  %.03859 = phi ptr [ %.val, %.lr.ph60 ], [ %67, %.critedge ]
   %32 = load i32, ptr %7, align 8
   %.not.i.i = icmp slt i32 %32, %6
   br i1 %.not.i.i, label %33, label %Vec_IntGrow.exit.i
@@ -109,7 +109,7 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i
 
 .lr.ph:                                           ; preds = %Vec_IntFill.exit, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %Vec_IntFill.exit ]
-  %43 = getelementptr inbounds i8, ptr %.059, i64 %indvars.iv
+  %43 = getelementptr inbounds i8, ptr %.03859, i64 %indvars.iv
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %44, 45
   br i1 %45, label %54, label %46
@@ -155,7 +155,7 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i
   %61 = trunc i32 %59 to i8
   %62 = and i8 %61, 1
   %63 = sub nuw nsw i8 49, %62
-  %64 = getelementptr inbounds i8, ptr %.059, i64 %indvars.iv63
+  %64 = getelementptr inbounds i8, ptr %.03859, i64 %indvars.iv63
   store i8 %63, ptr %64, align 1
   br label %65
 
@@ -165,7 +165,7 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i
   br i1 %66, label %.lr.ph57, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %65, %._crit_edge
-  %67 = getelementptr inbounds i8, ptr %.059, i64 %30
+  %67 = getelementptr inbounds i8, ptr %.03859, i64 %30
   %68 = load i8, ptr %67, align 1
   %.not = icmp eq i8 %68, 0
   br i1 %.not, label %._crit_edge61.loopexit, label %31, !llvm.loop !8
@@ -236,8 +236,8 @@ Vec_IntAlloc.exit:                                ; preds = %3, %8
 
 19:                                               ; preds = %Vec_IntAlloc.exit, %55
   %20 = phi i1 [ true, %Vec_IntAlloc.exit ], [ false, %55 ]
-  %.04149 = phi i32 [ 2, %Vec_IntAlloc.exit ], [ 3, %55 ]
-  store i32 %.04149, ptr %4, align 4
+  %.04049 = phi i32 [ 2, %Vec_IntAlloc.exit ], [ 3, %55 ]
+  store i32 %.04049, ptr %4, align 4
   %21 = call i32 @sat_solver_solve(ptr noundef %15, ptr noundef nonnull %4, ptr noundef nonnull %18, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #6
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %23, label %55

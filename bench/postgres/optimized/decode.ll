@@ -233,7 +233,7 @@ define dso_local void @xact_decode(ptr noundef %0, ptr nocapture noundef readonl
   br label %37
 
 37:                                               ; preds = %22, %33
-  %.0 = phi i32 [ %36, %33 ], [ %32, %22 ]
+  %.054 = phi i32 [ %36, %33 ], [ %32, %22 ]
   %38 = icmp eq i8 %19, 48
   br i1 %38, label %39, label %FilterPrepare.exit
 
@@ -251,12 +251,12 @@ define dso_local void @xact_decode(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %47, label %FilterPrepare.exit, label %48
 
 48:                                               ; preds = %44
-  %49 = call zeroext i1 @filter_prepare_cb_wrapper(ptr noundef nonnull %0, i32 noundef %.0, ptr noundef nonnull %40) #7
+  %49 = call zeroext i1 @filter_prepare_cb_wrapper(ptr noundef nonnull %0, i32 noundef %.054, ptr noundef nonnull %40) #7
   %50 = xor i1 %49, true
   br label %FilterPrepare.exit
 
 FilterPrepare.exit:                               ; preds = %48, %44, %39, %37
-  %.052 = phi i1 [ false, %37 ], [ %50, %48 ], [ false, %39 ], [ true, %44 ]
+  %.053 = phi i1 [ false, %37 ], [ %50, %48 ], [ false, %39 ], [ true, %44 ]
   %51 = load ptr, ptr %10, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 104
   %53 = load ptr, ptr %52, align 8
@@ -268,17 +268,17 @@ FilterPrepare.exit:                               ; preds = %48, %44, %39, %37
   %.not.i = icmp eq i32 %58, 0
   %59 = getelementptr inbounds i8, ptr %3, i64 312
   %60 = load i64, ptr %59, align 8
-  %.052.in.i.idx.sroa.sel.idx.sroa.sel.idx = select i1 %.not.i, i64 0, i64 320
-  %.052.in.i.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %3, i64 %.052.in.i.idx.sroa.sel.idx.sroa.sel.idx
-  %.051.i = select i1 %.not.i, i64 0, i64 %60
-  %.052.i = load i64, ptr %.052.in.i.idx.sroa.sel.idx.sroa.sel, align 8
+  %.052.i = select i1 %.not.i, i64 0, i64 %60
+  %.051.in.i.idx.sroa.sel.idx.sroa.sel.idx = select i1 %.not.i, i64 0, i64 320
+  %.051.in.i.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %3, i64 %.051.in.i.idx.sroa.sel.idx.sroa.sel.idx
+  %.051.i = load i64, ptr %.051.in.i.idx.sroa.sel.idx.sroa.sel, align 8
   %61 = load ptr, ptr %6, align 8
   %62 = load i64, ptr %1, align 8
   %63 = getelementptr inbounds i8, ptr %3, i64 20
   %64 = load i32, ptr %63, align 4
   %65 = getelementptr inbounds i8, ptr %3, i64 24
   %66 = load ptr, ptr %65, align 8
-  call void @SnapBuildCommitTxn(ptr noundef %61, i64 noundef %62, i32 noundef %.0, i32 noundef %64, ptr noundef %66, i32 noundef %57) #7
+  call void @SnapBuildCommitTxn(ptr noundef %61, i64 noundef %62, i32 noundef %.054, i32 noundef %64, ptr noundef %66, i32 noundef %57) #7
   %67 = getelementptr inbounds i8, ptr %3, i64 12
   %68 = load i32, ptr %67, align 4
   %.val.i = load i64, ptr %1, align 8
@@ -350,7 +350,7 @@ DecodeTXNNeedSkip.exit.preheader.i:               ; preds = %FilterByOrigin.exit
 ._crit_edge.i:                                    ; preds = %.lr.ph55.i, %.preheader.i
   %100 = load ptr, ptr %8, align 8
   %101 = load i64, ptr %1, align 8
-  call void @ReorderBufferForget(ptr noundef %100, i32 noundef %.0, i64 noundef %101) #7
+  call void @ReorderBufferForget(ptr noundef %100, i32 noundef %.054, i64 noundef %101) #7
   br label %DecodeCommit.exit
 
 DecodeTXNNeedSkip.exit.i:                         ; preds = %DecodeTXNNeedSkip.exit.i, %.lr.ph.i
@@ -361,7 +361,7 @@ DecodeTXNNeedSkip.exit.i:                         ; preds = %DecodeTXNNeedSkip.e
   %105 = load i32, ptr %104, align 4
   %106 = load i64, ptr %1, align 8
   %107 = load i64, ptr %87, align 8
-  call void @ReorderBufferCommitChild(ptr noundef %102, i32 noundef %.0, i32 noundef %105, i64 noundef %106, i64 noundef %107) #7
+  call void @ReorderBufferCommitChild(ptr noundef %102, i32 noundef %.054, i32 noundef %105, i64 noundef %106, i64 noundef %107) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %108 = load i32, ptr %63, align 4
   %109 = sext i32 %108 to i64
@@ -373,17 +373,17 @@ DecodeTXNNeedSkip.exit._crit_edge.i:              ; preds = %DecodeTXNNeedSkip.e
   %112 = load i64, ptr %1, align 8
   %113 = getelementptr inbounds i8, ptr %1, i64 8
   %114 = load i64, ptr %113, align 8
-  br i1 %.052, label %115, label %119
+  br i1 %.053, label %115, label %119
 
 115:                                              ; preds = %DecodeTXNNeedSkip.exit._crit_edge.i
   %116 = load ptr, ptr %6, align 8
   %117 = call i64 @SnapBuildGetTwoPhaseAt(ptr noundef %116) #7
   %118 = getelementptr inbounds i8, ptr %3, i64 84
-  call void @ReorderBufferFinishPrepared(ptr noundef %111, i32 noundef %.0, i64 noundef %112, i64 noundef %114, i64 noundef %117, i64 noundef %.052.i, i16 noundef zeroext %55, i64 noundef %.051.i, ptr noundef nonnull %118, i1 noundef zeroext true) #7
+  call void @ReorderBufferFinishPrepared(ptr noundef %111, i32 noundef %.054, i64 noundef %112, i64 noundef %114, i64 noundef %117, i64 noundef %.051.i, i16 noundef zeroext %55, i64 noundef %.052.i, ptr noundef nonnull %118, i1 noundef zeroext true) #7
   br label %120
 
 119:                                              ; preds = %DecodeTXNNeedSkip.exit._crit_edge.i
-  call void @ReorderBufferCommit(ptr noundef %111, i32 noundef %.0, i64 noundef %112, i64 noundef %114, i64 noundef %.052.i, i16 noundef zeroext %55, i64 noundef %.051.i) #7
+  call void @ReorderBufferCommit(ptr noundef %111, i32 noundef %.054, i64 noundef %112, i64 noundef %114, i64 noundef %.051.i, i16 noundef zeroext %55, i64 noundef %.052.i) #7
   br label %120
 
 120:                                              ; preds = %119, %115
@@ -412,7 +412,7 @@ DecodeTXNNeedSkip.exit._crit_edge.i:              ; preds = %DecodeTXNNeedSkip.e
   br label %136
 
 136:                                              ; preds = %121, %132
-  %.053 = phi i32 [ %135, %132 ], [ %131, %121 ]
+  %.052 = phi i32 [ %135, %132 ], [ %131, %121 ]
   %137 = icmp eq i8 %19, 64
   br i1 %137, label %138, label %FilterPrepare.exit61
 
@@ -430,12 +430,12 @@ DecodeTXNNeedSkip.exit._crit_edge.i:              ; preds = %DecodeTXNNeedSkip.e
   br i1 %146, label %FilterPrepare.exit61, label %147
 
 147:                                              ; preds = %143
-  %148 = call zeroext i1 @filter_prepare_cb_wrapper(ptr noundef nonnull %0, i32 noundef %.053, ptr noundef nonnull %139) #7
+  %148 = call zeroext i1 @filter_prepare_cb_wrapper(ptr noundef nonnull %0, i32 noundef %.052, ptr noundef nonnull %139) #7
   %149 = xor i1 %148, true
   br label %FilterPrepare.exit61
 
 FilterPrepare.exit61:                             ; preds = %147, %143, %138, %136
-  %.054 = phi i1 [ false, %136 ], [ %149, %147 ], [ false, %138 ], [ true, %143 ]
+  %.0 = phi i1 [ false, %136 ], [ %149, %147 ], [ false, %138 ], [ true, %143 ]
   %150 = load ptr, ptr %10, align 8
   %151 = getelementptr inbounds i8, ptr %150, i64 104
   %152 = load ptr, ptr %151, align 8
@@ -447,97 +447,97 @@ FilterPrepare.exit61:                             ; preds = %147, %143, %138, %1
   %.not.i62 = icmp eq i32 %157, 0
   %158 = getelementptr inbounds i8, ptr %4, i64 272
   %159 = load i64, ptr %158, align 8
-  %.032.in.i.idx.sroa.sel.idx.sroa.sel.idx = select i1 %.not.i62, i64 0, i64 280
-  %.032.in.i.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %4, i64 %.032.in.i.idx.sroa.sel.idx.sroa.sel.idx
   %.031.i = select i1 %.not.i62, i64 0, i64 %159
-  %.032.i = load i64, ptr %.032.in.i.idx.sroa.sel.idx.sroa.sel, align 8
+  %.0.in.i.idx.sroa.sel.idx.sroa.sel.idx = select i1 %.not.i62, i64 0, i64 280
+  %.0.in.i.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %4, i64 %.0.in.i.idx.sroa.sel.idx.sroa.sel.idx
+  %.0.i63 = load i64, ptr %.0.in.i.idx.sroa.sel.idx.sroa.sel, align 8
   %160 = getelementptr inbounds i8, ptr %4, i64 12
   %161 = load i32, ptr %160, align 4
-  %.val.i63 = load i64, ptr %1, align 8
+  %.val.i64 = load i64, ptr %1, align 8
   %162 = load ptr, ptr %6, align 8
-  %163 = call zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef %162, i64 noundef %.val.i63) #7
-  br i1 %163, label %.preheader.i66, label %164
+  %163 = call zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef %162, i64 noundef %.val.i64) #7
+  br i1 %163, label %.preheader.i67, label %164
 
 164:                                              ; preds = %FilterPrepare.exit61
-  %.not.i.i64 = icmp eq i32 %161, 0
-  br i1 %.not.i.i64, label %170, label %165
+  %.not.i.i65 = icmp eq i32 %161, 0
+  br i1 %.not.i.i65, label %170, label %165
 
 165:                                              ; preds = %164
   %166 = getelementptr inbounds i8, ptr %0, i64 8
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr inbounds i8, ptr %167, i64 88
   %169 = load i32, ptr %168, align 8
-  %.not10.i.i65 = icmp eq i32 %169, %161
-  br i1 %.not10.i.i65, label %170, label %.preheader.i66
+  %.not10.i.i66 = icmp eq i32 %169, %161
+  br i1 %.not10.i.i66, label %170, label %.preheader.i67
 
 170:                                              ; preds = %165, %164
   %171 = getelementptr inbounds i8, ptr %0, i64 96
   %172 = load ptr, ptr %171, align 8
   %173 = icmp eq ptr %172, null
-  br i1 %173, label %FilterByOrigin.exit.thread.i.i72, label %FilterByOrigin.exit.i.i71
+  br i1 %173, label %FilterByOrigin.exit.thread.i.i73, label %FilterByOrigin.exit.i.i72
 
-FilterByOrigin.exit.i.i71:                        ; preds = %170
+FilterByOrigin.exit.i.i72:                        ; preds = %170
   %174 = call zeroext i1 @filter_by_origin_cb_wrapper(ptr noundef nonnull %0, i16 noundef zeroext %154) #7
-  br i1 %174, label %.preheader.i66, label %FilterByOrigin.exit.thread.i.i72
+  br i1 %174, label %.preheader.i67, label %FilterByOrigin.exit.thread.i.i73
 
-FilterByOrigin.exit.thread.i.i72:                 ; preds = %FilterByOrigin.exit.i.i71, %170
+FilterByOrigin.exit.thread.i.i73:                 ; preds = %FilterByOrigin.exit.i.i72, %170
   %175 = getelementptr inbounds i8, ptr %0, i64 40
   %176 = load i8, ptr %175, align 8
   %177 = trunc i8 %176 to i1
-  br i1 %177, label %178, label %DecodeTXNNeedSkip.exit.i73
+  br i1 %177, label %178, label %DecodeTXNNeedSkip.exit.i74
 
-178:                                              ; preds = %FilterByOrigin.exit.thread.i.i72
+178:                                              ; preds = %FilterByOrigin.exit.thread.i.i73
   %179 = getelementptr inbounds i8, ptr %0, i64 301
   store i8 1, ptr %179, align 1
-  br label %.preheader.i66
+  br label %.preheader.i67
 
-DecodeTXNNeedSkip.exit.i73:                       ; preds = %FilterByOrigin.exit.thread.i.i72
-  br i1 %.054, label %184, label %.preheader.i66
+DecodeTXNNeedSkip.exit.i74:                       ; preds = %FilterByOrigin.exit.thread.i.i73
+  br i1 %.0, label %184, label %.preheader.i67
 
-.preheader.i66:                                   ; preds = %DecodeTXNNeedSkip.exit.i73, %178, %FilterByOrigin.exit.i.i71, %165, %FilterPrepare.exit61
+.preheader.i67:                                   ; preds = %DecodeTXNNeedSkip.exit.i74, %178, %FilterByOrigin.exit.i.i72, %165, %FilterPrepare.exit61
   %180 = getelementptr inbounds i8, ptr %4, i64 20
   %181 = load i32, ptr %180, align 4
   %182 = icmp sgt i32 %181, 0
-  br i1 %182, label %.lr.ph.i68, label %._crit_edge.i67
+  br i1 %182, label %.lr.ph.i69, label %._crit_edge.i68
 
-.lr.ph.i68:                                       ; preds = %.preheader.i66
+.lr.ph.i69:                                       ; preds = %.preheader.i67
   %183 = getelementptr inbounds i8, ptr %4, i64 24
   br label %190
 
-184:                                              ; preds = %DecodeTXNNeedSkip.exit.i73
+184:                                              ; preds = %DecodeTXNNeedSkip.exit.i74
   %185 = load ptr, ptr %8, align 8
   %186 = load i64, ptr %1, align 8
   %187 = getelementptr inbounds i8, ptr %1, i64 8
   %188 = load i64, ptr %187, align 8
   %189 = getelementptr inbounds i8, ptr %4, i64 68
-  call void @ReorderBufferFinishPrepared(ptr noundef %185, i32 noundef %.053, i64 noundef %186, i64 noundef %188, i64 noundef 0, i64 noundef %.032.i, i16 noundef zeroext %154, i64 noundef %.031.i, ptr noundef nonnull %189, i1 noundef zeroext false) #7
+  call void @ReorderBufferFinishPrepared(ptr noundef %185, i32 noundef %.052, i64 noundef %186, i64 noundef %188, i64 noundef 0, i64 noundef %.0.i63, i16 noundef zeroext %154, i64 noundef %.031.i, ptr noundef nonnull %189, i1 noundef zeroext false) #7
   br label %DecodeAbort.exit
 
-190:                                              ; preds = %190, %.lr.ph.i68
-  %indvars.iv.i69 = phi i64 [ 0, %.lr.ph.i68 ], [ %indvars.iv.next.i70, %190 ]
+190:                                              ; preds = %190, %.lr.ph.i69
+  %indvars.iv.i70 = phi i64 [ 0, %.lr.ph.i69 ], [ %indvars.iv.next.i71, %190 ]
   %191 = load ptr, ptr %8, align 8
   %192 = load ptr, ptr %183, align 8
-  %193 = getelementptr i32, ptr %192, i64 %indvars.iv.i69
+  %193 = getelementptr i32, ptr %192, i64 %indvars.iv.i70
   %194 = load i32, ptr %193, align 4
   %195 = load ptr, ptr %10, align 8
   %196 = getelementptr inbounds i8, ptr %195, i64 48
   %197 = load i64, ptr %196, align 8
-  call void @ReorderBufferAbort(ptr noundef %191, i32 noundef %194, i64 noundef %197, i64 noundef %.032.i) #7
-  %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 1
+  call void @ReorderBufferAbort(ptr noundef %191, i32 noundef %194, i64 noundef %197, i64 noundef %.0.i63) #7
+  %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i70, 1
   %198 = load i32, ptr %180, align 4
   %199 = sext i32 %198 to i64
-  %200 = icmp slt i64 %indvars.iv.next.i70, %199
-  br i1 %200, label %190, label %._crit_edge.i67, !llvm.loop !11
+  %200 = icmp slt i64 %indvars.iv.next.i71, %199
+  br i1 %200, label %190, label %._crit_edge.i68, !llvm.loop !11
 
-._crit_edge.i67:                                  ; preds = %190, %.preheader.i66
+._crit_edge.i68:                                  ; preds = %190, %.preheader.i67
   %201 = load ptr, ptr %8, align 8
   %202 = load ptr, ptr %10, align 8
   %203 = getelementptr inbounds i8, ptr %202, i64 48
   %204 = load i64, ptr %203, align 8
-  call void @ReorderBufferAbort(ptr noundef %201, i32 noundef %.053, i64 noundef %204, i64 noundef %.032.i) #7
+  call void @ReorderBufferAbort(ptr noundef %201, i32 noundef %.052, i64 noundef %204, i64 noundef %.0.i63) #7
   br label %DecodeAbort.exit
 
-DecodeAbort.exit:                                 ; preds = %184, %._crit_edge.i67
+DecodeAbort.exit:                                 ; preds = %184, %._crit_edge.i68
   call void @UpdateDecodingStats(ptr noundef nonnull %0) #7
   br label %DecodeCommit.exit
 
@@ -596,27 +596,27 @@ DecodeAbort.exit:                                 ; preds = %184, %._crit_edge.i
   %240 = getelementptr inbounds i8, ptr %0, i64 281
   %241 = load i8, ptr %240, align 1
   %242 = trunc i8 %241 to i1
-  br i1 %242, label %243, label %FilterPrepare.exit75.thread
+  br i1 %242, label %243, label %FilterPrepare.exit76.thread
 
 243:                                              ; preds = %228
   %244 = getelementptr inbounds i8, ptr %0, i64 112
   %245 = load ptr, ptr %244, align 8
   %246 = icmp eq ptr %245, null
-  br i1 %246, label %FilterPrepare.exit75.thread89, label %FilterPrepare.exit75
+  br i1 %246, label %FilterPrepare.exit76.thread90, label %FilterPrepare.exit76
 
-FilterPrepare.exit75:                             ; preds = %243
+FilterPrepare.exit76:                             ; preds = %243
   %247 = call zeroext i1 @filter_prepare_cb_wrapper(ptr noundef nonnull %0, i32 noundef %238, ptr noundef nonnull %239) #7
-  %.pre94 = load i32, ptr %237, align 8
-  br i1 %247, label %FilterPrepare.exit75.thread, label %FilterPrepare.exit75.thread89
+  %.pre95 = load i32, ptr %237, align 8
+  br i1 %247, label %FilterPrepare.exit76.thread, label %FilterPrepare.exit76.thread90
 
-FilterPrepare.exit75.thread:                      ; preds = %FilterPrepare.exit75, %228
-  %248 = phi i32 [ %238, %228 ], [ %.pre94, %FilterPrepare.exit75 ]
+FilterPrepare.exit76.thread:                      ; preds = %FilterPrepare.exit76, %228
+  %248 = phi i32 [ %238, %228 ], [ %.pre95, %FilterPrepare.exit76 ]
   %249 = load i64, ptr %1, align 8
   call void @ReorderBufferProcessXid(ptr noundef %9, i32 noundef %248, i64 noundef %249) #7
   br label %DecodeCommit.exit
 
-FilterPrepare.exit75.thread89:                    ; preds = %243, %FilterPrepare.exit75
-  %250 = phi i32 [ %238, %243 ], [ %.pre94, %FilterPrepare.exit75 ]
+FilterPrepare.exit76.thread90:                    ; preds = %243, %FilterPrepare.exit76
+  %250 = phi i32 [ %238, %243 ], [ %.pre95, %FilterPrepare.exit76 ]
   %251 = load ptr, ptr %6, align 8
   %252 = getelementptr inbounds i8, ptr %5, i64 312
   %253 = load i64, ptr %252, align 8
@@ -628,8 +628,8 @@ FilterPrepare.exit75.thread89:                    ; preds = %243, %FilterPrepare
   %259 = load i16, ptr %258, align 8
   %260 = getelementptr inbounds i8, ptr %5, i64 320
   %261 = load i64, ptr %260, align 8
-  %.not.i76 = icmp eq i64 %261, 0
-  %spec.select.i = select i1 %.not.i76, i64 %254, i64 %261
+  %.not.i77 = icmp eq i64 %261, 0
+  %spec.select.i = select i1 %.not.i77, i64 %254, i64 %261
   %262 = load ptr, ptr %8, align 8
   %263 = load i64, ptr %1, align 8
   %264 = getelementptr inbounds i8, ptr %1, i64 8
@@ -637,7 +637,7 @@ FilterPrepare.exit75.thread89:                    ; preds = %243, %FilterPrepare
   %266 = call zeroext i1 @ReorderBufferRememberPrepareInfo(ptr noundef %262, i32 noundef %250, i64 noundef %263, i64 noundef %265, i64 noundef %spec.select.i, i16 noundef zeroext %259, i64 noundef %253) #7
   br i1 %266, label %267, label %DecodeCommit.exit
 
-267:                                              ; preds = %FilterPrepare.exit75.thread89
+267:                                              ; preds = %FilterPrepare.exit76.thread90
   %268 = call i32 @SnapBuildCurrentState(ptr noundef %251) #7
   %269 = icmp slt i32 %268, 2
   br i1 %269, label %270, label %272
@@ -650,55 +650,55 @@ FilterPrepare.exit75.thread89:                    ; preds = %243, %FilterPrepare
 272:                                              ; preds = %267
   %273 = getelementptr inbounds i8, ptr %5, i64 12
   %274 = load i32, ptr %273, align 4
-  %.val.i77 = load i64, ptr %1, align 8
+  %.val.i78 = load i64, ptr %1, align 8
   %275 = load ptr, ptr %6, align 8
-  %276 = call zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef %275, i64 noundef %.val.i77) #7
+  %276 = call zeroext i1 @SnapBuildXactNeedsSkip(ptr noundef %275, i64 noundef %.val.i78) #7
   br i1 %276, label %297, label %277
 
 277:                                              ; preds = %272
-  %.not.i.i78 = icmp eq i32 %274, 0
-  br i1 %.not.i.i78, label %283, label %278
+  %.not.i.i79 = icmp eq i32 %274, 0
+  br i1 %.not.i.i79, label %283, label %278
 
 278:                                              ; preds = %277
   %279 = getelementptr inbounds i8, ptr %0, i64 8
   %280 = load ptr, ptr %279, align 8
   %281 = getelementptr inbounds i8, ptr %280, i64 88
   %282 = load i32, ptr %281, align 8
-  %.not10.i.i79 = icmp eq i32 %282, %274
-  br i1 %.not10.i.i79, label %283, label %297
+  %.not10.i.i80 = icmp eq i32 %282, %274
+  br i1 %.not10.i.i80, label %283, label %297
 
 283:                                              ; preds = %278, %277
   %284 = getelementptr inbounds i8, ptr %0, i64 96
   %285 = load ptr, ptr %284, align 8
   %286 = icmp eq ptr %285, null
-  br i1 %286, label %FilterByOrigin.exit.thread.i.i81, label %FilterByOrigin.exit.i.i80
+  br i1 %286, label %FilterByOrigin.exit.thread.i.i82, label %FilterByOrigin.exit.i.i81
 
-FilterByOrigin.exit.i.i80:                        ; preds = %283
+FilterByOrigin.exit.i.i81:                        ; preds = %283
   %287 = call zeroext i1 @filter_by_origin_cb_wrapper(ptr noundef nonnull %0, i16 noundef zeroext %259) #7
-  br i1 %287, label %297, label %FilterByOrigin.exit.thread.i.i81
+  br i1 %287, label %297, label %FilterByOrigin.exit.thread.i.i82
 
-FilterByOrigin.exit.thread.i.i81:                 ; preds = %FilterByOrigin.exit.i.i80, %283
+FilterByOrigin.exit.thread.i.i82:                 ; preds = %FilterByOrigin.exit.i.i81, %283
   %288 = getelementptr inbounds i8, ptr %0, i64 40
   %289 = load i8, ptr %288, align 8
   %290 = trunc i8 %289 to i1
-  br i1 %290, label %295, label %DecodeTXNNeedSkip.exit.preheader.i82
+  br i1 %290, label %295, label %DecodeTXNNeedSkip.exit.preheader.i83
 
-DecodeTXNNeedSkip.exit.preheader.i82:             ; preds = %FilterByOrigin.exit.thread.i.i81
+DecodeTXNNeedSkip.exit.preheader.i83:             ; preds = %FilterByOrigin.exit.thread.i.i82
   %291 = getelementptr inbounds i8, ptr %5, i64 20
   %292 = load i32, ptr %291, align 4
   %293 = icmp sgt i32 %292, 0
-  br i1 %293, label %.lr.ph.i84, label %DecodeTXNNeedSkip.exit._crit_edge.i83
+  br i1 %293, label %.lr.ph.i85, label %DecodeTXNNeedSkip.exit._crit_edge.i84
 
-.lr.ph.i84:                                       ; preds = %DecodeTXNNeedSkip.exit.preheader.i82
+.lr.ph.i85:                                       ; preds = %DecodeTXNNeedSkip.exit.preheader.i83
   %294 = getelementptr inbounds i8, ptr %5, i64 24
-  br label %DecodeTXNNeedSkip.exit.i85
+  br label %DecodeTXNNeedSkip.exit.i86
 
-295:                                              ; preds = %FilterByOrigin.exit.thread.i.i81
+295:                                              ; preds = %FilterByOrigin.exit.thread.i.i82
   %296 = getelementptr inbounds i8, ptr %0, i64 301
   store i8 1, ptr %296, align 1
   br label %297
 
-297:                                              ; preds = %295, %FilterByOrigin.exit.i.i80, %278, %272
+297:                                              ; preds = %295, %FilterByOrigin.exit.i.i81, %278, %272
   %298 = load ptr, ptr %8, align 8
   call void @ReorderBufferSkipPrepare(ptr noundef %298, i32 noundef %250) #7
   %299 = load ptr, ptr %8, align 8
@@ -706,22 +706,22 @@ DecodeTXNNeedSkip.exit.preheader.i82:             ; preds = %FilterByOrigin.exit
   call void @ReorderBufferInvalidate(ptr noundef %299, i32 noundef %250, i64 noundef %300) #7
   br label %DecodeCommit.exit
 
-DecodeTXNNeedSkip.exit.i85:                       ; preds = %DecodeTXNNeedSkip.exit.i85, %.lr.ph.i84
-  %indvars.iv.i86 = phi i64 [ 0, %.lr.ph.i84 ], [ %indvars.iv.next.i87, %DecodeTXNNeedSkip.exit.i85 ]
+DecodeTXNNeedSkip.exit.i86:                       ; preds = %DecodeTXNNeedSkip.exit.i86, %.lr.ph.i85
+  %indvars.iv.i87 = phi i64 [ 0, %.lr.ph.i85 ], [ %indvars.iv.next.i88, %DecodeTXNNeedSkip.exit.i86 ]
   %301 = load ptr, ptr %8, align 8
   %302 = load ptr, ptr %294, align 8
-  %303 = getelementptr i32, ptr %302, i64 %indvars.iv.i86
+  %303 = getelementptr i32, ptr %302, i64 %indvars.iv.i87
   %304 = load i32, ptr %303, align 4
   %305 = load i64, ptr %1, align 8
   %306 = load i64, ptr %264, align 8
   call void @ReorderBufferCommitChild(ptr noundef %301, i32 noundef %250, i32 noundef %304, i64 noundef %305, i64 noundef %306) #7
-  %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 1
+  %indvars.iv.next.i88 = add nuw nsw i64 %indvars.iv.i87, 1
   %307 = load i32, ptr %291, align 4
   %308 = sext i32 %307 to i64
-  %309 = icmp slt i64 %indvars.iv.next.i87, %308
-  br i1 %309, label %DecodeTXNNeedSkip.exit.i85, label %DecodeTXNNeedSkip.exit._crit_edge.i83, !llvm.loop !12
+  %309 = icmp slt i64 %indvars.iv.next.i88, %308
+  br i1 %309, label %DecodeTXNNeedSkip.exit.i86, label %DecodeTXNNeedSkip.exit._crit_edge.i84, !llvm.loop !12
 
-DecodeTXNNeedSkip.exit._crit_edge.i83:            ; preds = %DecodeTXNNeedSkip.exit.i85, %DecodeTXNNeedSkip.exit.preheader.i82
+DecodeTXNNeedSkip.exit._crit_edge.i84:            ; preds = %DecodeTXNNeedSkip.exit.i86, %DecodeTXNNeedSkip.exit.preheader.i83
   %310 = load ptr, ptr %8, align 8
   call void @ReorderBufferPrepare(ptr noundef %310, i32 noundef %250, ptr noundef nonnull %239) #7
   call void @UpdateDecodingStats(ptr noundef nonnull %0) #7
@@ -737,7 +737,7 @@ default.unreachable:                              ; preds = %18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 353, ptr noundef nonnull @__func__.xact_decode) #7
   unreachable
 
-DecodeCommit.exit:                                ; preds = %DecodeTXNNeedSkip.exit._crit_edge.i83, %297, %270, %FilterPrepare.exit75.thread89, %120, %._crit_edge.i, %18, %220, %224, %223, %2, %FilterPrepare.exit75.thread, %DecodeAbort.exit
+DecodeCommit.exit:                                ; preds = %DecodeTXNNeedSkip.exit._crit_edge.i84, %297, %270, %FilterPrepare.exit76.thread90, %120, %._crit_edge.i, %18, %220, %224, %223, %2, %FilterPrepare.exit76.thread, %DecodeAbort.exit
   ret void
 }
 

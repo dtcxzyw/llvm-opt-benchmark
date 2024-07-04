@@ -2208,13 +2208,13 @@ define void @Acec_TreePhases_rec(ptr nocapture noundef readnone %0, ptr nocaptur
   br label %Acec_SignSetBit2.exit
 
 Acec_SignSetBit2.exit:                            ; preds = %39, %34, %21
-  %.049 = phi i32 [ %30, %21 ], [ %38, %34 ], [ %38, %39 ]
+  %.048 = phi i32 [ %30, %21 ], [ %38, %34 ], [ %38, %39 ]
   %.0 = phi i32 [ %4, %21 ], [ 0, %34 ], [ %37, %39 ]
   br label %41
 
 41:                                               ; preds = %Acec_SignSetBit2.exit, %Acec_SignSetBit2.exit61
   %indvars.iv = phi i64 [ 0, %Acec_SignSetBit2.exit ], [ %indvars.iv.next, %Acec_SignSetBit2.exit61 ]
-  %.168 = phi i32 [ %.049, %Acec_SignSetBit2.exit ], [ %.2, %Acec_SignSetBit2.exit61 ]
+  %.169 = phi i32 [ %.048, %Acec_SignSetBit2.exit ], [ %.2, %Acec_SignSetBit2.exit61 ]
   %.val = load ptr, ptr %24, align 8
   %42 = getelementptr i32, ptr %.val, i64 %indvars.iv
   %43 = getelementptr i32, ptr %42, i64 %25
@@ -2230,7 +2230,7 @@ Acec_SignSetBit2.exit:                            ; preds = %39, %34, %21
   %51 = lshr i32 %49, %50
   %52 = and i32 %51, 1
   %53 = xor i32 %52, %.0
-  %54 = xor i32 %53, %.168
+  %54 = xor i32 %53, %.169
   tail call void @Acec_TreePhases_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %44, i32 noundef %53, ptr noundef %5)
   %.not.i59 = icmp eq i32 %52, %.0
   br i1 %.not.i59, label %Acec_SignSetBit2.exit61, label %55
@@ -2246,7 +2246,7 @@ Acec_SignSetBit2.exit:                            ; preds = %39, %34, %21
   br label %Acec_SignSetBit2.exit61
 
 Acec_SignSetBit2.exit61:                          ; preds = %55, %46, %41
-  %.2 = phi i32 [ %.168, %41 ], [ %54, %46 ], [ %54, %55 ]
+  %.2 = phi i32 [ %.169, %41 ], [ %54, %46 ], [ %54, %55 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %61, label %41, !llvm.loop !36

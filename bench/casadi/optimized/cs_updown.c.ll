@@ -63,23 +63,23 @@ define range(i32 0, 2) i32 @cs_updown(ptr noundef readonly %0, i32 noundef %1, p
   br label %.lr.ph
 
 .preheader126:                                    ; preds = %.lr.ph, %35
-  %.0110.lcssa = phi i32 [ %38, %35 ], [ %.0110., %.lr.ph ]
-  %.not124129 = icmp eq i32 %.0110.lcssa, -1
+  %.0111.lcssa = phi i32 [ %38, %35 ], [ %.0111., %.lr.ph ]
+  %.not124129 = icmp eq i32 %.0111.lcssa, -1
   br i1 %.not124129, label %._crit_edge, label %.lr.ph131
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %36, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0110127 = phi i32 [ %38, %.lr.ph.preheader ], [ %.0110., %.lr.ph ]
+  %.0111128 = phi i32 [ %38, %.lr.ph.preheader ], [ %.0111., %.lr.ph ]
   %41 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4
-  %.0110. = tail call i32 @llvm.smin.i32(i32 %.0110127, i32 %42)
+  %.0111. = tail call i32 @llvm.smin.i32(i32 %.0111128, i32 %42)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader126, label %.lr.ph, !llvm.loop !4
 
 .lr.ph131:                                        ; preds = %.preheader126, %.lr.ph131
-  %.0111130 = phi i32 [ %46, %.lr.ph131 ], [ %.0110.lcssa, %.preheader126 ]
-  %43 = sext i32 %.0111130 to i64
+  %.0109130 = phi i32 [ %46, %.lr.ph131 ], [ %.0111.lcssa, %.preheader126 ]
+  %43 = sext i32 %.0109130 to i64
   %44 = getelementptr inbounds double, ptr %34, i64 %43
   store double 0.000000e+00, ptr %44, align 8
   %45 = getelementptr inbounds i32, ptr %3, i64 %43
@@ -126,8 +126,8 @@ define range(i32 0, 2) i32 @cs_updown(ptr noundef readonly %0, i32 noundef %1, p
 
 62:                                               ; preds = %.lr.ph143, %._crit_edge139
   %.0142 = phi double [ 1.000000e+00, %.lr.ph143 ], [ %77, %._crit_edge139 ]
-  %.1112141 = phi i32 [ %.0110.lcssa, %.lr.ph143 ], [ %124, %._crit_edge139 ]
-  %63 = sext i32 %.1112141 to i64
+  %.1110141 = phi i32 [ %.0111.lcssa, %.lr.ph143 ], [ %124, %._crit_edge139 ]
+  %63 = sext i32 %.1110141 to i64
   %64 = getelementptr inbounds i32, ptr %17, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = getelementptr inbounds double, ptr %34, i64 %63

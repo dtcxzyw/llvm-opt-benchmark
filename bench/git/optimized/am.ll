@@ -4859,8 +4859,8 @@ sub_0.lr.ph:                                      ; preds = %entry
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %for.inc
   %2 = phi ptr [ %1, %sub_0.lr.ph ], [ %20, %for.inc ]
-  %paths.addr.041 = phi ptr [ %spec.store.select, %sub_0.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %i.040 = phi i32 [ 0, %sub_0.lr.ph ], [ %add, %for.inc ]
+  %i.041 = phi i32 [ 0, %sub_0.lr.ph ], [ %add, %for.inc ]
+  %paths.addr.040 = phi ptr [ %spec.store.select, %sub_0.lr.ph ], [ %incdec.ptr, %for.inc ]
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
   %5 = add nsw i32 %4, -45
@@ -4902,14 +4902,14 @@ if.end3.i:                                        ; preds = %if.then7
 
 _.exit:                                           ; preds = %if.then7, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.161, %if.then7 ]
-  %12 = load ptr, ptr %paths.addr.041, align 8
+  %12 = load ptr, ptr %paths.addr.040, align 8
   %call9 = tail call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i, ptr noundef %12) #21
   br label %return
 
 if.end11:                                         ; preds = %if.end5
   %13 = load ptr, ptr %state, align 8
   %14 = load i32, ptr %prec, align 4
-  %add = add nuw nsw i32 %i.040, 1
+  %add = add nuw nsw i32 %i.041, 1
   %call12 = tail call ptr (ptr, ...) @mkpath(ptr noundef nonnull @.str.162, ptr noundef %13, i32 noundef %14, i32 noundef %add) #21
   %call13 = tail call ptr @git_fopen(ptr noundef %call12, ptr noundef nonnull @.str.163) #21
   %tobool14.not = icmp eq ptr %call13, null
@@ -4964,12 +4964,12 @@ if.end3.i26:                                      ; preds = %if.then30
 
 _.exit29:                                         ; preds = %if.then30, %if.end3.i26
   %retval.0.i28 = phi ptr [ %call.i27, %if.end3.i26 ], [ @.str.165, %if.then30 ]
-  %19 = load ptr, ptr %paths.addr.041, align 8
+  %19 = load ptr, ptr %paths.addr.040, align 8
   %call32 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i28, ptr noundef %19) #21
   br label %return
 
 for.inc:                                          ; preds = %if.end28
-  %incdec.ptr = getelementptr inbounds i8, ptr %paths.addr.041, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %paths.addr.040, i64 8
   %20 = load ptr, ptr %incdec.ptr, align 8
   %tobool1.not = icmp eq ptr %20, null
   br i1 %tobool1.not, label %for.end, label %sub_0, !llvm.loop !15

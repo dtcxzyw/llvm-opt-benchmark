@@ -1454,8 +1454,8 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj5datum5Datum15_isEquivalentToEP
   br label %.thread
 
 .thread:                                          ; preds = %4, %58, %.critedge.thread, %.critedge, %30, %26, %15, %8, %11, %60
-  %.023 = phi i1 [ true, %60 ], [ false, %11 ], [ false, %8 ], [ false, %15 ], [ false, %26 ], [ false, %30 ], [ false, %.critedge ], [ false, %.critedge.thread ], [ false, %58 ], [ false, %4 ]
-  ret i1 %.023
+  %.024 = phi i1 [ true, %60 ], [ false, %11 ], [ false, %8 ], [ false, %15 ], [ false, %26 ], [ false, %30 ], [ false, %.critedge ], [ false, %.critedge.thread ], [ false, %58 ], [ false, %4 ]
+  ret i1 %.024
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -11747,7 +11747,7 @@ define void @_ZN5osgeo4proj5datum13DatumEnsemble6createERKNS0_4util11PropertyMap
   br label %38
 
 29:                                               ; preds = %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit45
-  %30 = add nuw i64 %.02654, 1
+  %30 = add nuw i64 %.02554, 1
   %31 = load ptr, ptr %7, align 8
   %32 = load ptr, ptr %2, align 8
   %33 = ptrtoint ptr %31 to i64
@@ -11759,8 +11759,8 @@ define void @_ZN5osgeo4proj5datum13DatumEnsemble6createERKNS0_4util11PropertyMap
 
 38:                                               ; preds = %.lr.ph, %29
   %39 = phi ptr [ %9, %.lr.ph ], [ %32, %29 ]
-  %.02654 = phi i64 [ 1, %.lr.ph ], [ %30, %29 ]
-  %40 = getelementptr inbounds %"class.dropbox::oxygen::nn.224", ptr %39, i64 %.02654
+  %.02554 = phi i64 [ 1, %.lr.ph ], [ %30, %29 ]
+  %40 = getelementptr inbounds %"class.dropbox::oxygen::nn.224", ptr %39, i64 %.02554
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.thread47, label %43

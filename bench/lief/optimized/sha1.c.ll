@@ -1451,34 +1451,34 @@ define hidden noundef i32 @mbedtls_sha1_update(ptr noundef %0, ptr noundef %1, i
   br label %26
 
 26:                                               ; preds = %19, %17
-  %.036 = phi ptr [ %24, %19 ], [ %1, %17 ]
-  %.035 = phi i64 [ %25, %19 ], [ %2, %17 ]
-  %27 = icmp ugt i64 %.035, 63
+  %.035 = phi ptr [ %24, %19 ], [ %1, %17 ]
+  %.034 = phi i64 [ %25, %19 ], [ %2, %17 ]
+  %27 = icmp ugt i64 %.034, 63
   br i1 %27, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
-  %.147 = phi i64 [ %30, %.lr.ph ], [ %.035, %26 ]
-  %.13746 = phi ptr [ %29, %.lr.ph ], [ %.036, %26 ]
-  %28 = tail call i32 @mbedtls_internal_sha1_process(ptr noundef nonnull %0, ptr noundef %.13746)
-  %29 = getelementptr inbounds i8, ptr %.13746, i64 64
+  %.147 = phi i64 [ %30, %.lr.ph ], [ %.034, %26 ]
+  %.13646 = phi ptr [ %29, %.lr.ph ], [ %.035, %26 ]
+  %28 = tail call i32 @mbedtls_internal_sha1_process(ptr noundef nonnull %0, ptr noundef %.13646)
+  %29 = getelementptr inbounds i8, ptr %.13646, i64 64
   %30 = add i64 %.147, -64
   %31 = icmp ugt i64 %30, 63
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %26
-  %.137.lcssa = phi ptr [ %.036, %26 ], [ %29, %.lr.ph ]
-  %.1.lcssa = phi i64 [ %.035, %26 ], [ %30, %.lr.ph ]
+  %.136.lcssa = phi ptr [ %.035, %26 ], [ %29, %.lr.ph ]
+  %.1.lcssa = phi i64 [ %.034, %26 ], [ %30, %.lr.ph ]
   %.not45 = icmp eq i64 %.1.lcssa, 0
   br i1 %.not45, label %35, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %18, %._crit_edge
   %.1.lcssa60 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %2, %18 ]
-  %.137.lcssa59 = phi ptr [ %.137.lcssa, %._crit_edge ], [ %1, %18 ]
+  %.136.lcssa59 = phi ptr [ %.136.lcssa, %._crit_edge ], [ %1, %18 ]
   %.05358 = phi i32 [ 0, %._crit_edge ], [ %7, %18 ]
   %32 = getelementptr inbounds i8, ptr %0, i64 28
   %33 = zext nneg i32 %.05358 to i64
   %34 = getelementptr inbounds i8, ptr %32, i64 %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %.137.lcssa59, i64 %.1.lcssa60, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %.136.lcssa59, i64 %.1.lcssa60, i1 false)
   br label %35
 
 35:                                               ; preds = %._crit_edge, %._crit_edge.thread, %3
@@ -1671,9 +1671,9 @@ define hidden noundef i32 @mbedtls_sha1(ptr noundef %0, i64 noundef %1, ptr noca
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
   %.147.i = phi i64 [ %13, %.lr.ph.i ], [ %1, %8 ]
-  %.13746.i = phi ptr [ %12, %.lr.ph.i ], [ %0, %8 ]
-  %11 = call i32 @mbedtls_internal_sha1_process(ptr noundef nonnull %4, ptr noundef %.13746.i)
-  %12 = getelementptr inbounds i8, ptr %.13746.i, i64 64
+  %.13646.i = phi ptr [ %12, %.lr.ph.i ], [ %0, %8 ]
+  %11 = call i32 @mbedtls_internal_sha1_process(ptr noundef nonnull %4, ptr noundef %.13646.i)
+  %12 = getelementptr inbounds i8, ptr %.13646.i, i64 64
   %13 = add i64 %.147.i, -64
   %14 = icmp ugt i64 %13, 63
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4
@@ -1684,9 +1684,9 @@ define hidden noundef i32 @mbedtls_sha1(ptr noundef %0, i64 noundef %1, ptr noca
 
 ._crit_edge.thread.i:                             ; preds = %8, %._crit_edge.i
   %.1.lcssa.i9 = phi i64 [ %13, %._crit_edge.i ], [ %1, %8 ]
-  %.137.lcssa.i8 = phi ptr [ %12, %._crit_edge.i ], [ %0, %8 ]
+  %.136.lcssa.i8 = phi ptr [ %12, %._crit_edge.i ], [ %0, %8 ]
   %15 = getelementptr inbounds i8, ptr %4, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %15, ptr align 1 %.137.lcssa.i8, i64 %.1.lcssa.i9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %15, ptr align 1 %.136.lcssa.i8, i64 %.1.lcssa.i9, i1 false)
   br label %mbedtls_sha1_update.exit
 
 mbedtls_sha1_update.exit:                         ; preds = %3, %._crit_edge.i, %._crit_edge.thread.i
@@ -1763,14 +1763,14 @@ define hidden range(i32 0, 2) i32 @mbedtls_sha1_self_test(i32 noundef %0) local_
 
 .lr.ph.i.preheader:                               ; preds = %28, %27
   %.147.i.ph = phi i64 [ 1000, %27 ], [ %33, %28 ]
-  %.13746.i.ph = phi ptr [ %2, %27 ], [ %32, %28 ]
+  %.13646.i.ph = phi ptr [ %2, %27 ], [ %32, %28 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.147.i = phi i64 [ %36, %.lr.ph.i ], [ %.147.i.ph, %.lr.ph.i.preheader ]
-  %.13746.i = phi ptr [ %35, %.lr.ph.i ], [ %.13746.i.ph, %.lr.ph.i.preheader ]
-  %34 = call i32 @mbedtls_internal_sha1_process(ptr noundef nonnull %4, ptr noundef %.13746.i)
-  %35 = getelementptr inbounds i8, ptr %.13746.i, i64 64
+  %.13646.i = phi ptr [ %35, %.lr.ph.i ], [ %.13646.i.ph, %.lr.ph.i.preheader ]
+  %34 = call i32 @mbedtls_internal_sha1_process(ptr noundef nonnull %4, ptr noundef %.13646.i)
+  %35 = getelementptr inbounds i8, ptr %.13646.i, i64 64
   %36 = add nsw i64 %.147.i, -64
   %37 = icmp ugt i64 %36, 63
   br i1 %37, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !4

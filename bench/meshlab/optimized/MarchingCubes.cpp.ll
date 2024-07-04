@@ -932,14 +932,14 @@ define noundef i32 @_ZN15MarchingSquares8AddEdgesEPKddP4Edge(ptr nocapture nound
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %28, %27
-  %.0.i33 = phi i32 [ 1, %28 ], [ 0, %27 ]
+  %.020.i = phi i32 [ 1, %28 ], [ 0, %27 ]
   %.cmp6.sink.i.i = phi i1 [ %.cmp6.i.i, %28 ], [ %.cmp.i.i, %27 ]
   %29 = uitofp i1 %.cmp6.sink.i.i to double
   br label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.i
 
 _ZN6Square15FactorEdgeIndexEiRiS0_.exit.i:        ; preds = %.sink.split.i.i, %25
-  %.020.i = phi double [ 0.000000e+00, %25 ], [ %29, %.sink.split.i.i ]
-  %.1.i34 = phi i32 [ undef, %25 ], [ %.0.i33, %.sink.split.i.i ]
+  %.1.i33 = phi i32 [ undef, %25 ], [ %.020.i, %.sink.split.i.i ]
+  %.019.i = phi double [ 0.000000e+00, %25 ], [ %29, %.sink.split.i.i ]
   switch i32 %26, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i.i [
     i32 0, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i.i
     i32 2, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i.i
@@ -964,15 +964,15 @@ _ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i.i: ; preds = %_ZN6Square15Facto
   br label %_ZN6Square11EdgeCornersEiRiS0_.exit.i
 
 _ZN6Square11EdgeCornersEiRiS0_.exit.i:            ; preds = %32, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i.i
-  %.019.i = phi i32 [ %.011.i.i, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i.i ], [ %33, %32 ]
+  %.0.i34 = phi i32 [ %.011.i.i, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i.i ], [ %33, %32 ]
   %storemerge.i.i = phi i32 [ %31, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i.i ], [ %34, %32 ]
-  switch i32 %.1.i34, label %_ZN15MarchingSquares9SetVertexEiPKdd.exit [
+  switch i32 %.1.i33, label %_ZN15MarchingSquares9SetVertexEiPKdd.exit [
     i32 0, label %35
     i32 1, label %48
   ]
 
 35:                                               ; preds = %_ZN6Square11EdgeCornersEiRiS0_.exit.i
-  %36 = zext nneg i32 %.019.i to i64
+  %36 = zext nneg i32 %.0.i34 to i64
   %37 = getelementptr inbounds double, ptr %0, i64 %36
   %38 = load double, ptr %37, align 8
   %39 = fsub double %38, %1
@@ -985,11 +985,11 @@ _ZN6Square11EdgeCornersEiRiS0_.exit.i:            ; preds = %32, %_ZN6Square15Fa
   %46 = getelementptr inbounds [4 x [2 x double]], ptr @_ZN15MarchingSquares10vertexListE, i64 0, i64 %indvars.iv
   store double %45, ptr %46, align 16
   %47 = getelementptr inbounds i8, ptr %46, i64 8
-  store double %.020.i, ptr %47, align 8
+  store double %.019.i, ptr %47, align 8
   br label %_ZN15MarchingSquares9SetVertexEiPKdd.exit
 
 48:                                               ; preds = %_ZN6Square11EdgeCornersEiRiS0_.exit.i
-  %49 = zext nneg i32 %.019.i to i64
+  %49 = zext nneg i32 %.0.i34 to i64
   %50 = getelementptr inbounds double, ptr %0, i64 %49
   %51 = load double, ptr %50, align 8
   %52 = fsub double %51, %1
@@ -1002,7 +1002,7 @@ _ZN6Square11EdgeCornersEiRiS0_.exit.i:            ; preds = %32, %_ZN6Square15Fa
   %59 = getelementptr inbounds [4 x [2 x double]], ptr @_ZN15MarchingSquares10vertexListE, i64 0, i64 %indvars.iv
   %60 = getelementptr inbounds i8, ptr %59, i64 8
   store double %58, ptr %60, align 8
-  store double %.020.i, ptr %59, align 16
+  store double %.019.i, ptr %59, align 16
   br label %_ZN15MarchingSquares9SetVertexEiPKdd.exit
 
 _ZN15MarchingSquares9SetVertexEiPKdd.exit:        ; preds = %48, %35, %_ZN6Square11EdgeCornersEiRiS0_.exit.i, %23
@@ -1062,14 +1062,14 @@ define void @_ZN15MarchingSquares9SetVertexEiPKdd(i32 noundef %0, ptr nocapture 
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %5, %4
-  %.0 = phi i32 [ 1, %5 ], [ 0, %4 ]
+  %.020 = phi i32 [ 1, %5 ], [ 0, %4 ]
   %.cmp6.sink.i = phi i1 [ %.cmp6.i, %5 ], [ %.cmp.i, %4 ]
   %6 = uitofp i1 %.cmp6.sink.i to double
   br label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit
 
 _ZN6Square15FactorEdgeIndexEiRiS0_.exit:          ; preds = %3, %.sink.split.i
-  %.020 = phi double [ 0.000000e+00, %3 ], [ %6, %.sink.split.i ]
-  %.1 = phi i32 [ undef, %3 ], [ %.0, %.sink.split.i ]
+  %.1 = phi i32 [ undef, %3 ], [ %.020, %.sink.split.i ]
+  %.019 = phi double [ 0.000000e+00, %3 ], [ %6, %.sink.split.i ]
   switch i32 %0, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i [
     i32 0, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i
     i32 2, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12.i
@@ -1094,7 +1094,7 @@ _ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i: ; preds = %_ZN6Square15FactorE
   br label %_ZN6Square11EdgeCornersEiRiS0_.exit
 
 _ZN6Square11EdgeCornersEiRiS0_.exit:              ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i, %9
-  %.019 = phi i32 [ %.011.i, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i ], [ %10, %9 ]
+  %.0 = phi i32 [ %.011.i, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i ], [ %10, %9 ]
   %storemerge.i = phi i32 [ %8, %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread.i ], [ %11, %9 ]
   switch i32 %.1, label %40 [
     i32 0, label %12
@@ -1102,7 +1102,7 @@ _ZN6Square11EdgeCornersEiRiS0_.exit:              ; preds = %_ZN6Square15FactorE
   ]
 
 12:                                               ; preds = %_ZN6Square11EdgeCornersEiRiS0_.exit
-  %13 = zext nneg i32 %.019 to i64
+  %13 = zext nneg i32 %.0 to i64
   %14 = getelementptr inbounds double, ptr %1, i64 %13
   %15 = load double, ptr %14, align 8
   %16 = fsub double %15, %2
@@ -1116,11 +1116,11 @@ _ZN6Square11EdgeCornersEiRiS0_.exit:              ; preds = %_ZN6Square15FactorE
   %24 = getelementptr inbounds [4 x [2 x double]], ptr @_ZN15MarchingSquares10vertexListE, i64 0, i64 %23
   store double %22, ptr %24, align 16
   %25 = getelementptr inbounds i8, ptr %24, i64 8
-  store double %.020, ptr %25, align 8
+  store double %.019, ptr %25, align 8
   br label %40
 
 26:                                               ; preds = %_ZN6Square11EdgeCornersEiRiS0_.exit
-  %27 = zext nneg i32 %.019 to i64
+  %27 = zext nneg i32 %.0 to i64
   %28 = getelementptr inbounds double, ptr %1, i64 %27
   %29 = load double, ptr %28, align 8
   %30 = fsub double %29, %2
@@ -1134,7 +1134,7 @@ _ZN6Square11EdgeCornersEiRiS0_.exit:              ; preds = %_ZN6Square15FactorE
   %38 = getelementptr inbounds [4 x [2 x double]], ptr @_ZN15MarchingSquares10vertexListE, i64 0, i64 %37
   %39 = getelementptr inbounds i8, ptr %38, i64 8
   store double %36, ptr %39, align 8
-  store double %.020, ptr %38, align 16
+  store double %.019, ptr %38, align 16
   br label %40
 
 40:                                               ; preds = %26, %12, %_ZN6Square11EdgeCornersEiRiS0_.exit

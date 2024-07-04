@@ -37,14 +37,14 @@ define range(i32 0, 2) i32 @Ivy_MultiPlus(ptr noundef %0, ptr nocapture noundef 
 
 .critedge.preheader:                              ; preds = %.critedge.preheader.loopexit, %13
   %.val126150 = phi i32 [ %.val124, %13 ], [ %.val126150.pre, %.critedge.preheader.loopexit ]
-  %.0110.lcssa = phi i32 [ 0, %13 ], [ %16, %.critedge.preheader.loopexit ]
-  %.0106.lcssa = phi ptr [ null, %13 ], [ %22, %.critedge.preheader.loopexit ]
+  %.0110.lcssa = phi ptr [ null, %13 ], [ %22, %.critedge.preheader.loopexit ]
+  %.0106.lcssa = phi i32 [ 0, %13 ], [ %16, %.critedge.preheader.loopexit ]
   %17 = icmp sgt i32 %.val126150, 0
   br i1 %17, label %.lr.ph152, label %.critedge4
 
 .lr.ph152:                                        ; preds = %.critedge.preheader
   %18 = getelementptr i8, ptr %2, i64 8
-  %19 = zext i32 %.0110.lcssa to i64
+  %19 = zext i32 %.0106.lcssa to i64
   br label %36
 
 20:                                               ; preds = %.lr.ph, %20
@@ -128,7 +128,7 @@ define range(i32 0, 2) i32 @Ivy_MultiPlus(ptr noundef %0, ptr nocapture noundef 
 .lr.ph158:                                        ; preds = %.critedge2.preheader, %.critedge2
   %.val127196 = phi i32 [ %.val127, %.critedge2 ], [ %.val126, %.critedge2.preheader ]
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %.critedge2 ], [ 0, %.critedge2.preheader ]
-  %.1111155 = phi i32 [ %.2112, %.critedge2 ], [ %.0110.lcssa, %.critedge2.preheader ]
+  %.1107155 = phi i32 [ %.2108, %.critedge2 ], [ %.0106.lcssa, %.critedge2.preheader ]
   %.val131 = load ptr, ptr %34, align 8
   %67 = getelementptr inbounds ptr, ptr %.val131, i64 %indvars.iv180
   %68 = load ptr, ptr %67, align 8
@@ -151,7 +151,7 @@ define range(i32 0, 2) i32 @Ivy_MultiPlus(ptr noundef %0, ptr nocapture noundef 
   br i1 %77, label %.critedge2, label %78
 
 78:                                               ; preds = %75
-  %79 = sext i32 %.1111155 to i64
+  %79 = sext i32 %.1107155 to i64
   %80 = getelementptr inbounds %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %79
   store ptr %68, ptr %80, align 16
   %81 = getelementptr inbounds i8, ptr %68, i64 4
@@ -182,23 +182,23 @@ define range(i32 0, 2) i32 @Ivy_MultiPlus(ptr noundef %0, ptr nocapture noundef 
   %105 = add nuw nsw i32 %103, %104
   %106 = getelementptr inbounds i8, ptr %80, i64 12
   store i32 %105, ptr %106, align 4
-  store i32 %.1111155, ptr %81, align 4
-  %107 = add nsw i32 %.1111155, 1
+  store i32 %.1107155, ptr %81, align 4
+  %107 = add nsw i32 %.1107155, 1
   %.val127.pre = load i32, ptr %10, align 4
   br label %.critedge2
 
 .critedge2:                                       ; preds = %75, %72, %78
   %.val127 = phi i32 [ %.val127196, %72 ], [ %.val127196, %75 ], [ %.val127.pre, %78 ]
-  %.2112 = phi i32 [ %.1111155, %72 ], [ %.1111155, %75 ], [ %107, %78 ]
+  %.2108 = phi i32 [ %.1107155, %72 ], [ %.1107155, %75 ], [ %107, %78 ]
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %108 = sext i32 %.val127 to i64
   %109 = icmp slt i64 %indvars.iv.next181, %108
   br i1 %109, label %.lr.ph158, label %.critedge4, !llvm.loop !7
 
 .critedge4:                                       ; preds = %.lr.ph158, %.critedge2, %.critedge.preheader, %.critedge2.preheader
-  %.1111.lcssa = phi i32 [ %.0110.lcssa, %.critedge2.preheader ], [ %.0110.lcssa, %.critedge.preheader ], [ %.2112, %.critedge2 ], [ %.1111155, %.lr.ph158 ]
-  %.3109 = phi ptr [ %38, %.critedge2.preheader ], [ %.0106.lcssa, %.critedge.preheader ], [ %68, %.critedge2 ], [ %68, %.lr.ph158 ]
-  %110 = icmp sgt i32 %.1111.lcssa, 1
+  %.1107.lcssa = phi i32 [ %.0106.lcssa, %.critedge2.preheader ], [ %.0106.lcssa, %.critedge.preheader ], [ %.2108, %.critedge2 ], [ %.1107155, %.lr.ph158 ]
+  %.3113 = phi ptr [ %38, %.critedge2.preheader ], [ %.0110.lcssa, %.critedge.preheader ], [ %68, %.critedge2 ], [ %68, %.lr.ph158 ]
+  %110 = icmp sgt i32 %.1107.lcssa, 1
   br i1 %110, label %.preheader141.lr.ph, label %.loopexit142
 
 .preheader141.lr.ph:                              ; preds = %.critedge4
@@ -208,13 +208,13 @@ define range(i32 0, 2) i32 @Ivy_MultiPlus(ptr noundef %0, ptr nocapture noundef 
   %114 = getelementptr inbounds i8, ptr %0, i64 64
   %115 = getelementptr inbounds i8, ptr %0, i64 40
   %116 = getelementptr inbounds i8, ptr %1, i64 8
-  %117 = getelementptr inbounds i8, ptr %.3109, i64 4
+  %117 = getelementptr inbounds i8, ptr %.3113, i64 4
   %wide.trip.count = zext nneg i32 %.val to i64
   br label %.preheader141
 
 .preheader141:                                    ; preds = %.preheader141.lr.ph, %198
   %indvars.iv191 = phi i64 [ 1, %.preheader141.lr.ph ], [ %indvars.iv.next192, %198 ]
-  %.3113167 = phi i32 [ %.1111.lcssa, %.preheader141.lr.ph ], [ %.5, %198 ]
+  %.3109167 = phi i32 [ %.1107.lcssa, %.preheader141.lr.ph ], [ %.5, %198 ]
   %118 = getelementptr inbounds %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %indvars.iv191
   %119 = getelementptr inbounds i8, ptr %118, i64 8
   %120 = getelementptr inbounds i8, ptr %118, i64 12
@@ -222,7 +222,7 @@ define range(i32 0, 2) i32 @Ivy_MultiPlus(ptr noundef %0, ptr nocapture noundef 
 
 121:                                              ; preds = %.preheader141, %.loopexit
   %indvars.iv186 = phi i64 [ 0, %.preheader141 ], [ %indvars.iv.next187, %.loopexit ]
-  %.4165 = phi i32 [ %.3113167, %.preheader141 ], [ %.5, %.loopexit ]
+  %.4165 = phi i32 [ %.3109167, %.preheader141 ], [ %.5, %.loopexit ]
   %122 = getelementptr inbounds %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %indvars.iv186
   %123 = load ptr, ptr %118, align 16
   %124 = load ptr, ptr %122, align 16
@@ -367,7 +367,7 @@ Ivy_ObjCreateGhost.exit:                          ; preds = %121, %Ivy_ObjFaninI
   br i1 %200, label %.preheader141, label %.loopexit142, !llvm.loop !10
 
 .loopexit142:                                     ; preds = %198, %194, %189, %.critedge4
-  %.6 = phi i32 [ %.1111.lcssa, %.critedge4 ], [ %192, %194 ], [ 128, %189 ], [ %.5, %198 ]
+  %.6 = phi i32 [ %.1107.lcssa, %.critedge4 ], [ %192, %194 ], [ 128, %189 ], [ %.5, %198 ]
   %201 = icmp eq i32 %.val, 32
   %202 = xor i32 %notmask, -1
   %203 = select i1 %201, i32 -1, i32 %202
@@ -383,28 +383,28 @@ Ivy_ObjCreateGhost.exit:                          ; preds = %121, %Ivy_ObjFaninI
   br label %.preheader.i
 
 208:                                              ; preds = %Vec_PtrPush.exit.i
-  %209 = add nuw nsw i32 %.07618.i, 1
+  %209 = add nuw nsw i32 %.07219.i, 1
   %exitcond26.not.i = icmp eq i32 %209, %4
   br i1 %exitcond26.not.i, label %Ivy_MultiCover.exit, label %.preheader.i, !llvm.loop !11
 
 .preheader.i:                                     ; preds = %208, %.preheader.lr.ph.i
-  %.06421.i = phi i32 [ -1, %.preheader.lr.ph.i ], [ %.1.lcssa.i, %208 ]
-  %.06520.i = phi ptr [ null, %.preheader.lr.ph.i ], [ %.3.i, %208 ]
-  %.06819.i = phi i32 [ -1, %.preheader.lr.ph.i ], [ %.169.lcssa.i, %208 ]
-  %.07618.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %209, %208 ]
-  %.07717.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %329, %208 ]
+  %.021.i = phi i32 [ -1, %.preheader.lr.ph.i ], [ %.1.lcssa.i, %208 ]
+  %.06420.i = phi i32 [ -1, %.preheader.lr.ph.i ], [ %.165.lcssa.i, %208 ]
+  %.07219.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %209, %208 ]
+  %.07318.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %329, %208 ]
+  %.07517.i = phi ptr [ null, %.preheader.lr.ph.i ], [ %.3.i, %208 ]
   br i1 %206, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %210 = xor i32 %.07717.i, -1
+  %210 = xor i32 %.07318.i, -1
   br label %211
 
 211:                                              ; preds = %283, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %207, %.lr.ph.i ], [ %indvars.iv.next.i, %283 ]
-  %.15.i = phi i32 [ %.06421.i, %.lr.ph.i ], [ %.2.i, %283 ]
-  %.1664.i = phi ptr [ %.06520.i, %.lr.ph.i ], [ %.267.i, %283 ]
-  %.1693.i = phi i32 [ %.06819.i, %.lr.ph.i ], [ %.270.i, %283 ]
-  %.0712.i = phi i32 [ -1, %.lr.ph.i ], [ %.172.i, %283 ]
+  %.15.i = phi i32 [ %.021.i, %.lr.ph.i ], [ %.2.i, %283 ]
+  %.1654.i = phi i32 [ %.06420.i, %.lr.ph.i ], [ %.266.i, %283 ]
+  %.0673.i = phi i32 [ -1, %.lr.ph.i ], [ %.168.i, %283 ]
+  %.1762.i = phi ptr [ %.07517.i, %.lr.ph.i ], [ %.277.i, %283 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %212 = getelementptr inbounds %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %indvars.iv.next.i
   %213 = getelementptr inbounds i8, ptr %212, i64 8
@@ -414,11 +414,11 @@ Ivy_ObjCreateGhost.exit:                          ; preds = %121, %Ivy_ObjFaninI
   br i1 %216, label %283, label %217
 
 217:                                              ; preds = %211
-  %218 = icmp eq i32 %.0712.i, -1
+  %218 = icmp eq i32 %.0673.i, -1
   %219 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %220 = getelementptr inbounds i8, ptr %212, i64 12
   %221 = load i32, ptr %220, align 4
-  %222 = and i32 %214, %.07717.i
+  %222 = and i32 %214, %.07318.i
   %223 = icmp eq i32 %222, 0
   br i1 %218, label %224, label %251
 
@@ -492,11 +492,11 @@ Ivy_MultiWeight.exit88.i:                         ; preds = %252, %251
   %276 = getelementptr i8, ptr %275, i64 8
   %.val86.i = load i32, ptr %276, align 8
   %277 = lshr i32 %.val86.i, 11
-  %278 = icmp slt i32 %.1693.i, %.0.i87.i
+  %278 = icmp slt i32 %.1654.i, %.0.i87.i
   br i1 %278, label %282, label %279
 
 279:                                              ; preds = %Ivy_MultiWeight.exit88.i
-  %280 = icmp eq i32 %.1693.i, %.0.i87.i
+  %280 = icmp eq i32 %.1654.i, %.0.i87.i
   %281 = icmp sgt i32 %.15.i, %277
   %or.cond.i = select i1 %280, i1 %281, i1 false
   br i1 %or.cond.i, label %282, label %283
@@ -505,50 +505,50 @@ Ivy_MultiWeight.exit88.i:                         ; preds = %252, %251
   br label %283
 
 283:                                              ; preds = %282, %279, %Ivy_MultiWeight.exit.i, %211
-  %.172.i = phi i32 [ %.0712.i, %211 ], [ %219, %Ivy_MultiWeight.exit.i ], [ %219, %282 ], [ %.0712.i, %279 ]
-  %.270.i = phi i32 [ %.1693.i, %211 ], [ %.0.i.i, %Ivy_MultiWeight.exit.i ], [ %.0.i87.i, %282 ], [ %.1693.i, %279 ]
-  %.267.i = phi ptr [ %.1664.i, %211 ], [ %212, %Ivy_MultiWeight.exit.i ], [ %212, %282 ], [ %.1664.i, %279 ]
+  %.277.i = phi ptr [ %.1762.i, %211 ], [ %212, %Ivy_MultiWeight.exit.i ], [ %212, %282 ], [ %.1762.i, %279 ]
+  %.168.i = phi i32 [ %.0673.i, %211 ], [ %219, %Ivy_MultiWeight.exit.i ], [ %219, %282 ], [ %.0673.i, %279 ]
+  %.266.i = phi i32 [ %.1654.i, %211 ], [ %.0.i.i, %Ivy_MultiWeight.exit.i ], [ %.0.i87.i, %282 ], [ %.1654.i, %279 ]
   %.2.i = phi i32 [ %.15.i, %211 ], [ %250, %Ivy_MultiWeight.exit.i ], [ %277, %282 ], [ %.15.i, %279 ]
   %284 = icmp sgt i64 %indvars.iv.i, 1
   br i1 %284, label %211, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %283, %.preheader.i
-  %.071.lcssa.i = phi i32 [ -1, %.preheader.i ], [ %.172.i, %283 ]
-  %.169.lcssa.i = phi i32 [ %.06819.i, %.preheader.i ], [ %.270.i, %283 ]
-  %.166.lcssa.i = phi ptr [ %.06520.i, %.preheader.i ], [ %.267.i, %283 ]
-  %.1.lcssa.i = phi i32 [ %.06421.i, %.preheader.i ], [ %.2.i, %283 ]
-  %285 = icmp ne i32 %.169.lcssa.i, 1
-  %.not.i138 = icmp slt i32 %.071.lcssa.i, %.val
+  %.176.lcssa.i = phi ptr [ %.07517.i, %.preheader.i ], [ %.277.i, %283 ]
+  %.067.lcssa.i = phi i32 [ -1, %.preheader.i ], [ %.168.i, %283 ]
+  %.165.lcssa.i = phi i32 [ %.06420.i, %.preheader.i ], [ %.266.i, %283 ]
+  %.1.lcssa.i = phi i32 [ %.021.i, %.preheader.i ], [ %.2.i, %283 ]
+  %285 = icmp ne i32 %.165.lcssa.i, 1
+  %.not.i138 = icmp slt i32 %.067.lcssa.i, %.val
   %or.cond85.i = select i1 %285, i1 true, i1 %.not.i138
   br i1 %or.cond85.i, label %297, label %286
 
 286:                                              ; preds = %._crit_edge.i
-  %287 = getelementptr inbounds i8, ptr %.166.lcssa.i, i64 8
+  %287 = getelementptr inbounds i8, ptr %.176.lcssa.i, i64 8
   %288 = load i32, ptr %287, align 8
-  %289 = xor i32 %.07717.i, -1
+  %289 = xor i32 %.07318.i, -1
   %290 = and i32 %288, %289
   br i1 %14, label %.lr.ph12.i, label %._crit_edge13.i
 
 .lr.ph12.i:                                       ; preds = %286, %293
-  %.17510.i = phi i32 [ %294, %293 ], [ 0, %286 ]
-  %291 = shl nuw i32 1, %.17510.i
+  %.17110.i = phi i32 [ %294, %293 ], [ 0, %286 ]
+  %291 = shl nuw i32 1, %.17110.i
   %292 = and i32 %290, %291
   %.not84.i = icmp eq i32 %292, 0
   br i1 %.not84.i, label %293, label %._crit_edge13.i
 
 293:                                              ; preds = %.lr.ph12.i
-  %294 = add nuw nsw i32 %.17510.i, 1
+  %294 = add nuw nsw i32 %.17110.i, 1
   %exitcond.not.i = icmp eq i32 %294, %.val
   br i1 %exitcond.not.i, label %._crit_edge13.i, label %.lr.ph12.i, !llvm.loop !13
 
 ._crit_edge13.i:                                  ; preds = %293, %.lr.ph12.i, %286
-  %.175.lcssa.i = phi i32 [ 0, %286 ], [ %.val, %293 ], [ %.17510.i, %.lr.ph12.i ]
-  %295 = zext nneg i32 %.175.lcssa.i to i64
+  %.171.lcssa.i = phi i32 [ 0, %286 ], [ %.val, %293 ], [ %.17110.i, %.lr.ph12.i ]
+  %295 = zext nneg i32 %.171.lcssa.i to i64
   %296 = getelementptr inbounds %struct.Ivy_Eva_t_, ptr @Ivy_MultiPlus.pEvals, i64 %295
   br label %297
 
 297:                                              ; preds = %._crit_edge13.i, %._crit_edge.i
-  %.3.i = phi ptr [ %296, %._crit_edge13.i ], [ %.166.lcssa.i, %._crit_edge.i ]
+  %.3.i = phi ptr [ %296, %._crit_edge13.i ], [ %.176.lcssa.i, %._crit_edge.i ]
   %298 = load ptr, ptr %.3.i, align 8
   %299 = load i32, ptr %204, align 4
   %300 = load i32, ptr %5, align 8
@@ -614,19 +614,19 @@ Vec_PtrPush.exit.i:                               ; preds = %320, %Vec_PtrGrow.e
   store ptr %298, ptr %326, align 8
   %327 = getelementptr inbounds i8, ptr %.3.i, i64 8
   %328 = load i32, ptr %327, align 8
-  %329 = or i32 %328, %.07717.i
+  %329 = or i32 %328, %.07318.i
   %330 = icmp eq i32 %329, %203
   br i1 %330, label %Ivy_MultiCover.exit, label %208
 
 Ivy_MultiCover.exit:                              ; preds = %208, %Vec_PtrPush.exit.i, %.loopexit142
-  %.178.i = phi i32 [ 0, %.loopexit142 ], [ %203, %Vec_PtrPush.exit.i ], [ %329, %208 ]
-  %.not139 = icmp eq i32 %.178.i, %203
+  %.174.i = phi i32 [ 0, %.loopexit142 ], [ %203, %Vec_PtrPush.exit.i ], [ %329, %208 ]
+  %.not139 = icmp eq i32 %.174.i, %203
   %. = zext i1 %.not139 to i32
   br label %331
 
 331:                                              ; preds = %Ivy_MultiCover.exit, %6, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %6 ], [ %., %Ivy_MultiCover.exit ]
-  ret i32 %.0
+  %.0105 = phi i32 [ 0, %9 ], [ 0, %6 ], [ %., %Ivy_MultiCover.exit ]
+  ret i32 %.0105
 }
 
 declare ptr @Ivy_TableLookup(ptr noundef, ptr noundef) local_unnamed_addr #1

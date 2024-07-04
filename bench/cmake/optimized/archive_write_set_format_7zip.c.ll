@@ -637,7 +637,7 @@ define internal noundef i32 @_7z_write_header(ptr noundef %0, ptr noundef %1) #0
   br label %184
 
 161:                                              ; preds = %152, %149
-  %.044 = phi i32 [ 0, %152 ], [ %.0.i, %149 ]
+  %.0 = phi i32 [ 0, %152 ], [ %.0.i, %149 ]
   %162 = getelementptr inbounds i8, ptr %17, i64 24
   store ptr null, ptr %162, align 8
   %163 = getelementptr inbounds i8, ptr %6, i64 61720
@@ -677,8 +677,8 @@ define internal noundef i32 @_7z_write_header(ptr noundef %0, ptr noundef %1) #0
   br label %184
 
 184:                                              ; preds = %93, %161, %176, %141, %145, %12, %174, %159, %101
-  %.0 = phi i32 [ -30, %159 ], [ %175, %174 ], [ 0, %101 ], [ -30, %12 ], [ -30, %93 ], [ %.0.i, %145 ], [ %.0.i, %141 ], [ %.044, %176 ], [ %.044, %161 ]
-  ret i32 %.0
+  %.044 = phi i32 [ -30, %159 ], [ %175, %174 ], [ 0, %101 ], [ -30, %12 ], [ -30, %93 ], [ %.0.i, %145 ], [ %.0.i, %141 ], [ %.0, %176 ], [ %.0, %161 ]
+  ret i32 %.044
 }
 
 ; Function Attrs: nounwind uwtable
@@ -716,8 +716,8 @@ define internal noundef i64 @_7z_write_data(ptr noundef %0, ptr noundef %1, i64 
   br label %25
 
 25:                                               ; preds = %13, %3, %9, %16
-  %.0 = phi i64 [ %14, %16 ], [ 0, %9 ], [ 0, %3 ], [ %14, %13 ]
-  ret i64 %.0
+  %.018 = phi i64 [ %14, %16 ], [ 0, %9 ], [ 0, %3 ], [ %14, %13 ]
+  ret i64 %.018
 }
 
 ; Function Attrs: nounwind uwtable
@@ -812,8 +812,8 @@ _7z_write_data.exit:                              ; preds = %11, %19, %26
   br label %52
 
 52:                                               ; preds = %1, %._crit_edge, %36
-  %.0 = phi i32 [ %37, %36 ], [ 0, %._crit_edge ], [ 0, %1 ]
-  ret i32 %.0
+  %.019 = phi i32 [ %37, %36 ], [ 0, %._crit_edge ], [ 0, %1 ]
+  ret i32 %.019
 }
 
 ; Function Attrs: nounwind uwtable
@@ -895,13 +895,13 @@ define internal i32 @_7z_close(ptr noundef %0) #0 {
   br label %54
 
 54:                                               ; preds = %.lr.ph, %54
-  %.0115197 = phi ptr [ %52, %.lr.ph ], [ %57, %54 ]
-  %55 = getelementptr inbounds i8, ptr %.0115197, i64 24
+  %.0111197 = phi ptr [ %52, %.lr.ph ], [ %57, %54 ]
+  %55 = getelementptr inbounds i8, ptr %.0111197, i64 24
   store ptr null, ptr %55, align 8
   %56 = load ptr, ptr %53, align 8
-  store ptr %.0115197, ptr %56, align 8
+  store ptr %.0111197, ptr %56, align 8
   store ptr %55, ptr %53, align 8
-  %57 = tail call ptr @__archive_rb_tree_iterate(ptr noundef nonnull %51, ptr noundef nonnull %.0115197, i32 noundef 1) #18
+  %57 = tail call ptr @__archive_rb_tree_iterate(ptr noundef nonnull %51, ptr noundef nonnull %.0111197, i32 noundef 1) #18
   %.not130 = icmp eq ptr %57, null
   br i1 %.not130, label %._crit_edge, label %54, !llvm.loop !7
 
@@ -1520,16 +1520,16 @@ enc_uint64.exit:                                  ; preds = %303, %compression_e
   br label %340
 
 340:                                              ; preds = %336, %299
-  %.0116 = phi i32 [ %339, %336 ], [ %301, %299 ]
-  %.0113 = phi i64 [ %338, %336 ], [ %300, %299 ]
-  %.0111 = phi i64 [ %337, %336 ], [ %25, %299 ]
+  %.0116 = phi i64 [ %337, %336 ], [ %25, %299 ]
+  %.0114 = phi i64 [ %338, %336 ], [ %300, %299 ]
+  %.0112 = phi i32 [ %339, %336 ], [ %301, %299 ]
   store i32 0, ptr %66, align 4
   br label %341
 
 341:                                              ; preds = %1, %340
-  %.1117 = phi i32 [ %.0116, %340 ], [ 0, %1 ]
-  %.1114 = phi i64 [ %.0113, %340 ], [ 0, %1 ]
-  %.1112 = phi i64 [ %.0111, %340 ], [ 0, %1 ]
+  %.1117 = phi i64 [ %.0116, %340 ], [ 0, %1 ]
+  %.1115 = phi i64 [ %.0114, %340 ], [ 0, %1 ]
+  %.1113 = phi i32 [ %.0112, %340 ], [ 0, %1 ]
   %342 = getelementptr inbounds i8, ptr %16, i64 8
   %343 = load i64, ptr %342, align 8
   %344 = getelementptr inbounds i8, ptr %16, i64 264
@@ -1541,79 +1541,79 @@ enc_uint64.exit:                                  ; preds = %303, %compression_e
   %347 = getelementptr inbounds i8, ptr %16, i64 271
   store i8 3, ptr %347, align 1
   %348 = getelementptr inbounds i8, ptr %16, i64 276
-  %349 = trunc i64 %.1112 to i8
+  %349 = trunc i64 %.1117 to i8
   store i8 %349, ptr %348, align 1
-  %350 = lshr i64 %.1112, 8
+  %350 = lshr i64 %.1117, 8
   %351 = trunc i64 %350 to i8
   %352 = getelementptr inbounds i8, ptr %16, i64 277
   store i8 %351, ptr %352, align 1
-  %353 = lshr i64 %.1112, 16
+  %353 = lshr i64 %.1117, 16
   %354 = trunc i64 %353 to i8
   %355 = getelementptr inbounds i8, ptr %16, i64 278
   store i8 %354, ptr %355, align 1
-  %356 = lshr i64 %.1112, 24
+  %356 = lshr i64 %.1117, 24
   %357 = trunc i64 %356 to i8
   %358 = getelementptr inbounds i8, ptr %16, i64 279
   store i8 %357, ptr %358, align 1
   %359 = getelementptr inbounds i8, ptr %16, i64 280
-  %360 = lshr i64 %.1112, 32
+  %360 = lshr i64 %.1117, 32
   %361 = trunc i64 %360 to i8
   store i8 %361, ptr %359, align 1
-  %362 = lshr i64 %.1112, 40
+  %362 = lshr i64 %.1117, 40
   %363 = trunc i64 %362 to i8
   %364 = getelementptr inbounds i8, ptr %16, i64 281
   store i8 %363, ptr %364, align 1
-  %365 = lshr i64 %.1112, 48
+  %365 = lshr i64 %.1117, 48
   %366 = trunc i64 %365 to i8
   %367 = getelementptr inbounds i8, ptr %16, i64 282
   store i8 %366, ptr %367, align 1
-  %sum.shift.i = lshr i64 %.1112, 56
+  %sum.shift.i = lshr i64 %.1117, 56
   %368 = trunc nuw i64 %sum.shift.i to i8
   %369 = getelementptr inbounds i8, ptr %16, i64 283
   store i8 %368, ptr %369, align 1
   %370 = getelementptr inbounds i8, ptr %16, i64 284
-  %371 = trunc i64 %.1114 to i8
+  %371 = trunc i64 %.1115 to i8
   store i8 %371, ptr %370, align 1
-  %372 = lshr i64 %.1114, 8
+  %372 = lshr i64 %.1115, 8
   %373 = trunc i64 %372 to i8
   %374 = getelementptr inbounds i8, ptr %16, i64 285
   store i8 %373, ptr %374, align 1
-  %375 = lshr i64 %.1114, 16
+  %375 = lshr i64 %.1115, 16
   %376 = trunc i64 %375 to i8
   %377 = getelementptr inbounds i8, ptr %16, i64 286
   store i8 %376, ptr %377, align 1
-  %378 = lshr i64 %.1114, 24
+  %378 = lshr i64 %.1115, 24
   %379 = trunc i64 %378 to i8
   %380 = getelementptr inbounds i8, ptr %16, i64 287
   store i8 %379, ptr %380, align 1
   %381 = getelementptr inbounds i8, ptr %16, i64 288
-  %382 = lshr i64 %.1114, 32
+  %382 = lshr i64 %.1115, 32
   %383 = trunc i64 %382 to i8
   store i8 %383, ptr %381, align 1
-  %384 = lshr i64 %.1114, 40
+  %384 = lshr i64 %.1115, 40
   %385 = trunc i64 %384 to i8
   %386 = getelementptr inbounds i8, ptr %16, i64 289
   store i8 %385, ptr %386, align 1
-  %387 = lshr i64 %.1114, 48
+  %387 = lshr i64 %.1115, 48
   %388 = trunc i64 %387 to i8
   %389 = getelementptr inbounds i8, ptr %16, i64 290
   store i8 %388, ptr %389, align 1
-  %sum.shift.i133 = lshr i64 %.1114, 56
+  %sum.shift.i133 = lshr i64 %.1115, 56
   %390 = trunc nuw i64 %sum.shift.i133 to i8
   %391 = getelementptr inbounds i8, ptr %16, i64 291
   store i8 %390, ptr %391, align 1
   %392 = getelementptr inbounds i8, ptr %16, i64 292
-  %393 = trunc i32 %.1117 to i8
+  %393 = trunc i32 %.1113 to i8
   store i8 %393, ptr %392, align 1
-  %394 = lshr i32 %.1117, 8
+  %394 = lshr i32 %.1113, 8
   %395 = trunc i32 %394 to i8
   %396 = getelementptr inbounds i8, ptr %16, i64 293
   store i8 %395, ptr %396, align 1
-  %397 = lshr i32 %.1117, 16
+  %397 = lshr i32 %.1113, 16
   %398 = trunc i32 %397 to i8
   %399 = getelementptr inbounds i8, ptr %16, i64 294
   store i8 %398, ptr %399, align 1
-  %400 = lshr i32 %.1117, 24
+  %400 = lshr i32 %.1113, 24
   %401 = trunc nuw i32 %400 to i8
   %402 = getelementptr inbounds i8, ptr %16, i64 295
   store i8 %401, ptr %402, align 1

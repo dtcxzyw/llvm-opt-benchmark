@@ -453,12 +453,12 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
   %38 = tail call noundef float @sqrtf(float noundef %.sink) #12
   %39 = fpext float %38 to double
   %40 = fadd double %36, %39
-  %.038 = fptrunc double %40 to float
-  %41 = fcmp ult float %.038, 0.000000e+00
+  %.039 = fptrunc double %40 to float
+  %41 = fcmp ult float %.039, 0.000000e+00
   br i1 %41, label %65, label %42
 
 42:                                               ; preds = %25
-  %43 = tail call noundef float @sqrtf(float noundef %.038) #12
+  %43 = tail call noundef float @sqrtf(float noundef %.039) #12
   %44 = fadd float %33, %43
   %45 = tail call noundef float @powf(float noundef %44, float noundef 0x3FD5555560000000) #12
   %46 = fcmp ult float %33, %43
@@ -479,8 +479,8 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
   br label %57
 
 57:                                               ; preds = %50, %48
-  %.039 = phi float [ %49, %48 ], [ %56, %50 ]
-  %58 = fadd float %45, %.039
+  %.038 = phi float [ %49, %48 ], [ %56, %50 ]
+  %58 = fadd float %45, %.038
   %59 = fcmp olt float %58, 0.000000e+00
   br i1 %59, label %60, label %78
 
@@ -492,7 +492,7 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
   br label %78
 
 65:                                               ; preds = %25
-  %66 = fneg float %.038
+  %66 = fneg float %.039
   %67 = tail call noundef float @sqrtf(float noundef %66) #12
   %68 = tail call noundef float @hypotf(float noundef %33, float noundef %67) #12
   %69 = tail call noundef float @powf(float noundef %68, float noundef 0x3FD5555560000000) #12

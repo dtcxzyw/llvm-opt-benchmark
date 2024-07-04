@@ -163,19 +163,19 @@ define internal noundef ptr @mca_pml_ob1_component_init(ptr nocapture noundef wr
   br i1 %.not, label %.preheader, label %39
 
 .preheader:                                       ; preds = %22
-  %.01015 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 32), align 8
-  %.not1216 = icmp eq ptr %.01015, getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 16)
+  %.015 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 32), align 8
+  %.not1216 = icmp eq ptr %.015, getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 16)
   br i1 %.not1216, label %.loopexit, label %.lr.ph
 
 24:                                               ; preds = %32
-  %25 = getelementptr inbounds i8, ptr %.01017, i64 16
-  %.010 = load volatile ptr, ptr %25, align 8
-  %.not12 = icmp eq ptr %.010, getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 16)
+  %25 = getelementptr inbounds i8, ptr %.017, i64 16
+  %.0 = load volatile ptr, ptr %25, align 8
+  %.not12 = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 16)
   br i1 %.not12, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %.preheader, %24
-  %.01017 = phi ptr [ %.010, %24 ], [ %.01015, %.preheader ]
-  %26 = getelementptr inbounds i8, ptr %.01017, i64 48
+  %.017 = phi ptr [ %.0, %24 ], [ %.015, %.preheader ]
+  %26 = getelementptr inbounds i8, ptr %.017, i64 48
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 68
   %29 = load i32, ptr %28, align 4
@@ -205,8 +205,8 @@ define internal noundef ptr @mca_pml_ob1_component_init(ptr nocapture noundef wr
   br label %39
 
 39:                                               ; preds = %22, %.loopexit, %21, %14
-  %.0 = phi ptr [ null, %14 ], [ null, %21 ], [ @mca_pml_ob1, %.loopexit ], [ null, %22 ]
-  ret ptr %.0
+  %.010 = phi ptr [ null, %14 ], [ null, %21 ], [ @mca_pml_ob1, %.loopexit ], [ null, %22 ]
+  ret ptr %.010
 }
 
 ; Function Attrs: nounwind uwtable

@@ -2912,21 +2912,21 @@ pmix_obj_run_destructors.exit.i.i:                ; preds = %.lr.ph.i.i188.i, %1
   br label %_send_to_server.exit.thread.i
 
 _send_to_server.exit.thread.i:                    ; preds = %1148, %1146, %1129, %1091, %1056, %1019, %983, %950
-  %.0.i.ph.i = phi i32 [ -25, %1129 ], [ -25, %1148 ], [ -25, %1146 ], [ %1100, %1091 ], [ %1061, %1056 ], [ %1028, %1019 ], [ %989, %983 ], [ %955, %950 ]
+  %.0104.i.ph.i = phi i32 [ -25, %1129 ], [ -25, %1148 ], [ -25, %1146 ], [ %1100, %1091 ], [ %1061, %1056 ], [ %1028, %1019 ], [ %989, %983 ], [ %955, %950 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   br label %1150
 
 _send_to_server.exit.i:                           ; preds = %1091, %1089, %1056, %1054, %1019, %1017, %983, %981, %950, %948
-  %.0104133.i.sink.i = phi i32 [ %955, %950 ], [ -22, %948 ], [ %989, %983 ], [ -22, %981 ], [ %1028, %1019 ], [ -22, %1017 ], [ %1061, %1056 ], [ -22, %1054 ], [ %1100, %1091 ], [ -22, %1089 ]
+  %.0133.i.sink.i = phi i32 [ %955, %950 ], [ -22, %948 ], [ %989, %983 ], [ -22, %981 ], [ %1028, %1019 ], [ -22, %1017 ], [ %1061, %1056 ], [ -22, %1054 ], [ %1100, %1091 ], [ -22, %1089 ]
   %.sink235.i = phi i32 [ 198, %950 ], [ 198, %948 ], [ 204, %983 ], [ 204, %981 ], [ 211, %1019 ], [ 211, %1017 ], [ 219, %1056 ], [ 219, %1054 ], [ 226, %1091 ], [ 226, %1089 ]
-  %1149 = call ptr @PMIx_Error_string(i32 noundef %.0104133.i.sink.i) #13
+  %1149 = call ptr @PMIx_Error_string(i32 noundef %.0133.i.sink.i) #13
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.26, ptr noundef %1149, ptr noundef nonnull @.str.3, i32 noundef %.sink235.i) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %.not151.i = icmp eq i32 %.0104133.i.sink.i, 0
+  %.not151.i = icmp eq i32 %.0133.i.sink.i, 0
   br i1 %.not151.i, label %_add_hdlr.exit, label %1150
 
 1150:                                             ; preds = %_send_to_server.exit.i, %_send_to_server.exit.thread.i
-  %.0.i206.i = phi i32 [ %.0.i.ph.i, %_send_to_server.exit.thread.i ], [ %.0104133.i.sink.i, %_send_to_server.exit.i ]
+  %.0104.i206.i = phi i32 [ %.0104.i.ph.i, %_send_to_server.exit.thread.i ], [ %.0133.i.sink.i, %_send_to_server.exit.i ]
   %1151 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_client_globals, i64 760), align 8
   %or.cond167.i = icmp ult i32 %1151, 64
   br i1 %or.cond167.i, label %1152, label %1158
@@ -2939,7 +2939,7 @@ _send_to_server.exit.i:                           ; preds = %1091, %1089, %1056,
   br i1 %1156, label %1157, label %1158
 
 1157:                                             ; preds = %1152
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %1151, ptr noundef nonnull @.str.24, i32 noundef %.0.i206.i) #13
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %1151, ptr noundef nonnull @.str.24, i32 noundef %.0104.i206.i) #13
   br label %1158
 
 1158:                                             ; preds = %1157, %1152, %1150
@@ -3182,7 +3182,7 @@ pmix_obj_run_destructors.exit202.i:               ; preds = %.lr.ph.i199.i, %125
   br label %_add_hdlr.exit
 
 _add_hdlr.exit:                                   ; preds = %1268, %1266, %1249, %1238, %1236, %1219, %1202, %1202, %1187, %1185, %1168, %_send_to_server.exit.i, %_send_to_server.exit.thread207.i, %.thread736
-  %.0533 = phi i32 [ 0, %.thread736 ], [ %.0.i206.i, %1185 ], [ %.0.i206.i, %1187 ], [ %.0.i206.i, %1168 ], [ -15, %_send_to_server.exit.i ], [ %1209, %1236 ], [ %1209, %1238 ], [ %1209, %1219 ], [ 0, %1202 ], [ 0, %1202 ], [ 0, %1266 ], [ 0, %1268 ], [ 0, %1249 ], [ -15, %_send_to_server.exit.thread207.i ]
+  %.0533 = phi i32 [ 0, %.thread736 ], [ %.0104.i206.i, %1185 ], [ %.0104.i206.i, %1187 ], [ %.0104.i206.i, %1168 ], [ -15, %_send_to_server.exit.i ], [ %1209, %1236 ], [ %1209, %1238 ], [ %1209, %1219 ], [ 0, %1202 ], [ 0, %1202 ], [ 0, %1266 ], [ 0, %1268 ], [ 0, %1249 ], [ -15, %_send_to_server.exit.thread207.i ]
   %1269 = getelementptr inbounds i8, ptr %5, i64 264
   %1270 = load volatile i64, ptr %1269, align 8
   %1271 = icmp eq i64 %1270, 0

@@ -2936,8 +2936,8 @@ define void @_ZN15SCTPGraphDialog15drawNRSACKGraphEPK16_sctp_assoc_info(ptr noun
   br label %47
 
 47:                                               ; preds = %.lr.ph479, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit179
-  %.073476 = phi ptr [ %44, %.lr.ph479 ], [ %673, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit179 ]
-  %48 = load ptr, ptr %.073476, align 8
+  %.074476 = phi ptr [ %44, %.lr.ph479 ], [ %673, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit179 ]
+  %48 = load ptr, ptr %.074476, align 8
   %49 = load i8, ptr %48, align 2
   %50 = icmp eq i8 %49, 16
   br i1 %50, label %51, label %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit179
@@ -4187,7 +4187,7 @@ _ZN9QtPrivate12QPodArrayOpsIjE10createHoleEN10QArrayData14GrowthPositionExx.exit
   br label %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit179
 
 _ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit179: ; preds = %_ZN9QtPrivate12QPodArrayOpsIjE10createHoleEN10QArrayData14GrowthPositionExx.exit.i173, %629, %623, %51, %472, %47
-  %672 = getelementptr inbounds i8, ptr %.073476, i64 8
+  %672 = getelementptr inbounds i8, ptr %.074476, i64 8
   %673 = load ptr, ptr %672, align 8
   %.not78 = icmp eq ptr %673, null
   br i1 %.not78, label %._crit_edge480, label %47, !llvm.loop !14

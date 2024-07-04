@@ -4071,8 +4071,8 @@ _ZN5Yosys6SigMapD2Ev.exit:                        ; preds = %_ZNSt6vectorIN5Yosy
 
 1557:                                             ; preds = %.lr.ph6194, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1225
   %.12686192 = phi i1 [ %.02676205, %.lr.ph6194 ], [ %.3270, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1225 ]
-  %.sroa.02504.06191 = phi ptr [ %1541, %.lr.ph6194 ], [ %4430, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1225 ]
-  %1558 = load ptr, ptr %.sroa.02504.06191, align 8
+  %.sroa.02504.06188 = phi ptr [ %1541, %.lr.ph6194 ], [ %4430, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit1225 ]
+  %1558 = load ptr, ptr %.sroa.02504.06188, align 8
   %1559 = getelementptr inbounds i8, ptr %1558, i64 76
   call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %1560 = load atomic i8, ptr @_ZGVZZN12_GLOBAL__N_115Clk2fflogicPass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignEENKUlvE_clEvE2id acquire, align 8, !noalias !15
@@ -5673,7 +5673,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i: ; preds = %2122, %.lr.ph6185
   %2137 = getelementptr inbounds i8, ptr %2020, i64 %2134
   %2138 = load i8, ptr %2137, align 1
   %2139 = icmp eq i8 %2138, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass19sample_control_edgeEPN5Yosys5RTLIL6ModuleENS2_7SigSpecEbb(ptr dead_on_unwind noalias nonnull writable align 8 %174, ptr noundef nonnull %662, ptr noundef nonnull %175, i1 noundef zeroext %2139, i1 noundef zeroext false)
+  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass19sample_control_edgeEPN5Yosys5RTLIL6ModuleENS2_7SigSpecEbb(ptr dead_on_unwind noalias nonnull writable align 8 %174, ptr noundef %662, ptr noundef nonnull %175, i1 noundef zeroext %2139, i1 noundef zeroext false)
           to label %2140 unwind label %.loopexit2554
 
 2140:                                             ; preds = %2136
@@ -6072,7 +6072,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
           to label %2235 unwind label %2574
 
 2235:                                             ; preds = %.loopexit2552
-  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass11sample_dataEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstEbb(ptr dead_on_unwind noalias nonnull writable align 8 %177, ptr noundef nonnull %662, ptr noundef nonnull %178, ptr noundef nonnull %179, i1 noundef zeroext false, i1 noundef zeroext false)
+  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass11sample_dataEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstEbb(ptr dead_on_unwind noalias nonnull writable align 8 %177, ptr noundef %662, ptr noundef nonnull %178, ptr noundef nonnull %179, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %2236 unwind label %2576
 
 2236:                                             ; preds = %2235
@@ -6236,7 +6236,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit947:              ; preds = %_ZSt8_DestroyIPN5Yo
           to label %2274 unwind label %2580
 
 2274:                                             ; preds = %2273
-  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass11sample_dataEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstEbb(ptr dead_on_unwind noalias nonnull writable align 8 %181, ptr noundef nonnull %662, ptr noundef nonnull %182, ptr noundef nonnull %183, i1 noundef zeroext false, i1 noundef zeroext false)
+  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass11sample_dataEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstEbb(ptr dead_on_unwind noalias nonnull writable align 8 %181, ptr noundef %662, ptr noundef nonnull %182, ptr noundef nonnull %183, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %2275 unwind label %2582
 
 2275:                                             ; preds = %2274
@@ -8567,7 +8567,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i1
   store ptr %3021, ptr %372, align 8
   %3022 = load i8, ptr %374, align 8
   %3023 = trunc i8 %3022 to i1
-  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass11sample_dataEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstEbb(ptr dead_on_unwind noalias nonnull writable align 8 %217, ptr noundef nonnull %662, ptr noundef nonnull %218, ptr noundef nonnull %219, i1 noundef zeroext %3023, i1 noundef zeroext true)
+  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass11sample_dataEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstEbb(ptr dead_on_unwind noalias nonnull writable align 8 %217, ptr noundef %662, ptr noundef nonnull %218, ptr noundef nonnull %219, i1 noundef zeroext %3023, i1 noundef zeroext true)
           to label %3024 unwind label %3165
 
 3024:                                             ; preds = %3020
@@ -8739,7 +8739,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1316:             ; preds = %_ZSt8_DestroyIPN5Yo
 3066:                                             ; preds = %3064
   %3067 = load i8, ptr %374, align 8
   %3068 = trunc i8 %3067 to i1
-  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass11sample_dataEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstEbb(ptr dead_on_unwind noalias nonnull writable align 8 %220, ptr noundef nonnull %662, ptr noundef nonnull %221, ptr noundef nonnull %222, i1 noundef zeroext %3068, i1 noundef zeroext false)
+  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass11sample_dataEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstEbb(ptr dead_on_unwind noalias nonnull writable align 8 %220, ptr noundef %662, ptr noundef nonnull %221, ptr noundef nonnull %222, i1 noundef zeroext %3068, i1 noundef zeroext false)
           to label %3069 unwind label %3173
 
 3069:                                             ; preds = %3066
@@ -8804,7 +8804,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1331:             ; preds = %_ZSt8_DestroyIPN5Yo
   %3084 = trunc i8 %3083 to i1
   %3085 = load i8, ptr %374, align 8
   %3086 = trunc i8 %3085 to i1
-  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass19sample_control_edgeEPN5Yosys5RTLIL6ModuleENS2_7SigSpecEbb(ptr dead_on_unwind noalias nonnull writable align 8 %223, ptr noundef nonnull %662, ptr noundef nonnull %224, i1 noundef zeroext %3084, i1 noundef zeroext %3086)
+  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass19sample_control_edgeEPN5Yosys5RTLIL6ModuleENS2_7SigSpecEbb(ptr dead_on_unwind noalias nonnull writable align 8 %223, ptr noundef %662, ptr noundef nonnull %224, i1 noundef zeroext %3084, i1 noundef zeroext %3086)
           to label %3087 unwind label %3179
 
 3087:                                             ; preds = %3082
@@ -8866,7 +8866,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1344:             ; preds = %_ZSt8_DestroyIPN5Yo
 3100:                                             ; preds = %3099
   %3101 = load i8, ptr %374, align 8
   %3102 = trunc i8 %3101 to i1
-  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass3muxEPN5Yosys5RTLIL6ModuleENS2_7SigSpecES5_S5_b(ptr dead_on_unwind noalias nonnull writable align 8 %225, ptr noundef nonnull %662, ptr noundef nonnull %226, ptr noundef nonnull %227, ptr noundef nonnull %228, i1 noundef zeroext %3102)
+  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass3muxEPN5Yosys5RTLIL6ModuleENS2_7SigSpecES5_S5_b(ptr dead_on_unwind noalias nonnull writable align 8 %225, ptr noundef %662, ptr noundef nonnull %226, ptr noundef nonnull %227, ptr noundef nonnull %228, i1 noundef zeroext %3102)
           to label %3103 unwind label %3187
 
 3103:                                             ; preds = %3100
@@ -9331,7 +9331,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1438:             ; preds = %_ZSt8_DestroyIPN5Yo
   %3215 = trunc i8 %3214 to i1
   %3216 = load i8, ptr %374, align 8
   %3217 = trunc i8 %3216 to i1
-  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass14sample_controlEPN5Yosys5RTLIL6ModuleENS2_7SigSpecEbb(ptr dead_on_unwind noalias nonnull writable align 8 %235, ptr noundef nonnull %662, ptr noundef nonnull %236, i1 noundef zeroext %3215, i1 noundef zeroext %3217)
+  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass14sample_controlEPN5Yosys5RTLIL6ModuleENS2_7SigSpecEbb(ptr dead_on_unwind noalias nonnull writable align 8 %235, ptr noundef %662, ptr noundef nonnull %236, i1 noundef zeroext %3215, i1 noundef zeroext %3217)
           to label %3218 unwind label %3251
 
 3218:                                             ; preds = %3213
@@ -9392,7 +9392,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1451:             ; preds = %_ZSt8_DestroyIPN5Yo
 3232:                                             ; preds = %3230
   %3233 = load i8, ptr %374, align 8
   %3234 = trunc i8 %3233 to i1
-  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass11sample_dataEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstEbb(ptr dead_on_unwind noalias nonnull writable align 8 %237, ptr noundef nonnull %662, ptr noundef nonnull %238, ptr noundef nonnull %239, i1 noundef zeroext %3234, i1 noundef zeroext false)
+  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass11sample_dataEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstEbb(ptr dead_on_unwind noalias nonnull writable align 8 %237, ptr noundef %662, ptr noundef nonnull %238, ptr noundef nonnull %239, i1 noundef zeroext %3234, i1 noundef zeroext false)
           to label %3235 unwind label %3255
 
 3235:                                             ; preds = %3232
@@ -9513,7 +9513,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1466:             ; preds = %3193, %3248, %_ZSt8
   %3265 = trunc i8 %3264 to i1
   %3266 = load i8, ptr %374, align 8
   %3267 = trunc i8 %3266 to i1
-  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass14sample_controlEPN5Yosys5RTLIL6ModuleENS2_7SigSpecEbb(ptr dead_on_unwind noalias nonnull writable align 8 %240, ptr noundef nonnull %662, ptr noundef nonnull %241, i1 noundef zeroext %3265, i1 noundef zeroext %3267)
+  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass14sample_controlEPN5Yosys5RTLIL6ModuleENS2_7SigSpecEbb(ptr dead_on_unwind noalias nonnull writable align 8 %240, ptr noundef %662, ptr noundef nonnull %241, i1 noundef zeroext %3265, i1 noundef zeroext %3267)
           to label %3268 unwind label %3297
 
 3268:                                             ; preds = %3263
@@ -9571,7 +9571,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1481:             ; preds = %_ZSt8_DestroyIPN5Yo
   %3282 = trunc i8 %3281 to i1
   %3283 = load i8, ptr %374, align 8
   %3284 = trunc i8 %3283 to i1
-  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass14sample_controlEPN5Yosys5RTLIL6ModuleENS2_7SigSpecEbb(ptr dead_on_unwind noalias nonnull writable align 8 %242, ptr noundef nonnull %662, ptr noundef nonnull %243, i1 noundef zeroext %3282, i1 noundef zeroext %3284)
+  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass14sample_controlEPN5Yosys5RTLIL6ModuleENS2_7SigSpecEbb(ptr dead_on_unwind noalias nonnull writable align 8 %242, ptr noundef %662, ptr noundef nonnull %243, i1 noundef zeroext %3282, i1 noundef zeroext %3284)
           to label %3285 unwind label %3299
 
 3285:                                             ; preds = %3280
@@ -9649,7 +9649,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1507.preheader:   ; preds = %3320, %_ZSt8_Destro
   %3306 = trunc i8 %3305 to i1
   %3307 = load i8, ptr %374, align 8
   %3308 = trunc i8 %3307 to i1
-  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass14sample_controlEPN5Yosys5RTLIL6ModuleENS2_7SigSpecEbb(ptr dead_on_unwind noalias nonnull writable align 8 %244, ptr noundef nonnull %662, ptr noundef nonnull %245, i1 noundef zeroext %3306, i1 noundef zeroext %3308)
+  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass14sample_controlEPN5Yosys5RTLIL6ModuleENS2_7SigSpecEbb(ptr dead_on_unwind noalias nonnull writable align 8 %244, ptr noundef %662, ptr noundef nonnull %245, i1 noundef zeroext %3306, i1 noundef zeroext %3308)
           to label %3309 unwind label %3321
 
 3309:                                             ; preds = %3304
@@ -10420,7 +10420,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
   store ptr %.0.lcssa.i.i.i.i.i.i1569, ptr %467, align 8
   %3528 = load i8, ptr %374, align 8
   %3529 = trunc i8 %3528 to i1
-  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass3muxEPN5Yosys5RTLIL6ModuleENS2_7SigSpecES5_S5_b(ptr dead_on_unwind noalias nonnull writable align 8 %246, ptr noundef nonnull %662, ptr noundef nonnull %247, ptr noundef nonnull %248, ptr noundef nonnull %249, i1 noundef zeroext %3529)
+  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass3muxEPN5Yosys5RTLIL6ModuleENS2_7SigSpecES5_S5_b(ptr dead_on_unwind noalias nonnull writable align 8 %246, ptr noundef %662, ptr noundef nonnull %247, ptr noundef nonnull %248, ptr noundef nonnull %249, i1 noundef zeroext %3529)
           to label %3530 unwind label %3582
 
 3530:                                             ; preds = %.loopexit2547
@@ -13088,7 +13088,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
   store ptr %.0.lcssa.i.i.i.i.i.i1830, ptr %517, align 8
   %4259 = load i8, ptr %374, align 8
   %4260 = trunc i8 %4259 to i1
-  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass3muxEPN5Yosys5RTLIL6ModuleENS2_7SigSpecES5_S5_b(ptr dead_on_unwind noalias nonnull writable align 8 %254, ptr noundef nonnull %662, ptr noundef nonnull %255, ptr noundef nonnull %256, ptr noundef nonnull %257, i1 noundef zeroext %4260)
+  invoke fastcc void @_ZN12_GLOBAL__N_115Clk2fflogicPass3muxEPN5Yosys5RTLIL6ModuleENS2_7SigSpecES5_S5_b(ptr dead_on_unwind noalias nonnull writable align 8 %254, ptr noundef %662, ptr noundef nonnull %255, ptr noundef nonnull %256, ptr noundef nonnull %257, i1 noundef zeroext %4260)
           to label %4261 unwind label %4315
 
 4261:                                             ; preds = %.loopexit
@@ -13842,7 +13842,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit2044:             ; preds = %4429, %_ZSt8_Destro
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit1225:            ; preds = %2881, %2759, %._crit_edge.i.i, %2737, %2730, %2725, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit2044, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit739
   %.3270 = phi i1 [ %spec.select, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit739 ], [ %.12686192, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit2044 ], [ %spec.select, %2725 ], [ %spec.select, %2730 ], [ %spec.select, %2737 ], [ %.12686192, %._crit_edge.i.i ], [ %.12686192, %2759 ], [ %.12686192, %2881 ]
-  %4430 = getelementptr inbounds i8, ptr %.sroa.02504.06191, i64 8
+  %4430 = getelementptr inbounds i8, ptr %.sroa.02504.06188, i64 8
   %.not2536 = icmp eq ptr %4430, %1542
   br i1 %.not2536, label %._crit_edge6195.loopexit, label %1557
 
@@ -25633,14 +25633,14 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %8
   br label %230
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.01673, i64 1
+  %30 = getelementptr inbounds i8, ptr %.073, i64 1
   %31 = load i8, ptr %30, align 1
   %.not19 = icmp eq i8 %31, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !101
 
 .lr.ph:                                           ; preds = %.preheader, %29
   %32 = phi i8 [ %31, %29 ], [ %7, %.preheader ]
-  %.01673 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
+  %.073 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
   %33 = icmp ult i8 %32, 33
   br i1 %33, label %34, label %29
 
@@ -26087,8 +26087,8 @@ _ZNSt6vectorIiSaIiEE2atEm.exit57:                 ; preds = %_ZNSt6vectorIPcSaIS
   br label %230
 
 230:                                              ; preds = %_ZNSt6vectorIiSaIiEE2atEm.exit57, %227, %1, %_ZNSt6vectorIiSaIiEE2atEm.exit
-  %.0 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
-  ret i32 %.0
+  %.016 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
+  ret i32 %.016
 }
 
 ; Function Attrs: mustprogress uwtable

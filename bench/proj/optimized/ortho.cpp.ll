@@ -222,11 +222,11 @@ define internal { double, double } @_ZL15ortho_s_inverse5PJ_XYP8PJconsts(double 
   br label %45
 
 45:                                               ; preds = %34, %31
-  %.pn = phi double [ %44, %34 ], [ %.0, %31 ]
-  %.pn45 = phi double [ %43, %34 ], [ %16, %31 ]
+  %.pn = phi double [ %43, %34 ], [ %16, %31 ]
+  %.pn45 = phi double [ %44, %34 ], [ %.0, %31 ]
   %.sroa.4.0 = phi double [ %41, %34 ], [ %33, %31 ]
-  %.sroa.9.0 = fmul double %6, %.pn45
-  %.sroa.0.0 = fmul double %.pn, %0
+  %.sroa.0.0 = fmul double %.pn45, %0
+  %.sroa.9.0 = fmul double %6, %.pn
   %46 = tail call double @llvm.fabs.f64(double %.sroa.4.0)
   %47 = fcmp ult double %46, 1.000000e+00
   br i1 %47, label %51, label %48
@@ -241,8 +241,8 @@ define internal { double, double } @_ZL15ortho_s_inverse5PJ_XYP8PJconsts(double 
   br label %53
 
 53:                                               ; preds = %48, %51, %28, %25, %22
-  %.sroa.0.1 = phi double [ %0, %22 ], [ %.sroa.0.0, %48 ], [ %.sroa.0.0, %51 ], [ %0, %28 ], [ %0, %25 ]
   %.sroa.9.1 = phi double [ %1, %22 ], [ %.sroa.9.0, %48 ], [ %.sroa.9.0, %51 ], [ %1, %28 ], [ %26, %25 ]
+  %.sroa.0.1 = phi double [ %0, %22 ], [ %.sroa.0.0, %48 ], [ %.sroa.0.0, %51 ], [ %0, %28 ], [ %0, %25 ]
   %.sroa.4.1 = phi double [ 0x7FF0000000000000, %22 ], [ %50, %48 ], [ %52, %51 ], [ %30, %28 ], [ %27, %25 ]
   %54 = fcmp oeq double %.sroa.9.1, 0.000000e+00
   br i1 %54, label %55, label %63

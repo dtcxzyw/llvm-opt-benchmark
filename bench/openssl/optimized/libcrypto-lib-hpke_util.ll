@@ -653,11 +653,11 @@ if.end27:                                         ; preds = %for.end
 
 while.body:                                       ; preds = %if.end27, %if.end68
   %labels.0103 = phi i32 [ %inc74, %if.end68 ], [ 0, %if.end27 ]
-  %kem.0102 = phi i16 [ %kem.1, %if.end68 ], [ 0, %if.end27 ]
-  %st.1101 = phi ptr [ %st.2, %if.end68 ], [ %call28, %if.end27 ]
-  %aead.0100 = phi i16 [ %aead.1, %if.end68 ], [ 0, %if.end27 ]
-  %kdf.099 = phi i16 [ %kdf.1, %if.end68 ], [ 0, %if.end27 ]
-  %call37 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %st.1101, i32 noundef 44) #5
+  %st.1102 = phi ptr [ %st.2, %if.end68 ], [ %call28, %if.end27 ]
+  %aead.0101 = phi i16 [ %aead.1, %if.end68 ], [ 0, %if.end27 ]
+  %kdf.0100 = phi i16 [ %kdf.1, %if.end68 ], [ 0, %if.end27 ]
+  %kem.099 = phi i16 [ %kem.1, %if.end68 ], [ 0, %if.end27 ]
+  %call37 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %st.1102, i32 noundef 44) #5
   %cmp38.not = icmp ne ptr %call37, null
   br i1 %cmp38.not, label %if.then40, label %if.end41
 
@@ -684,7 +684,7 @@ for.body3.i:                                      ; preds = %for.cond1.i, %for.c
   %j.07.i = phi i64 [ 0, %for.cond1.preheader.i ], [ %inc.i, %for.cond1.i ]
   %arrayidx4.i = getelementptr inbounds [4 x ptr], ptr %synonyms.i, i64 0, i64 %j.07.i
   %4 = load ptr, ptr %arrayidx4.i, align 8
-  %call.i = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %st.1101, ptr noundef %4) #4
+  %call.i = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %st.1102, ptr noundef %4) #4
   %cmp5.i = icmp eq i32 %call.i, 0
   br i1 %cmp5.i, label %synonyms_name2id.exit, label %for.cond1.i
 
@@ -699,7 +699,7 @@ synonyms_name2id.exit:                            ; preds = %for.body3.i
   br i1 %cmp46, label %fail, label %if.else
 
 if.else:                                          ; preds = %synonyms_name2id.exit, %if.end41
-  %kem.1 = phi i16 [ %5, %synonyms_name2id.exit ], [ %kem.0102, %if.end41 ]
+  %kem.1 = phi i16 [ %5, %synonyms_name2id.exit ], [ %kem.099, %if.end41 ]
   %cmp49 = icmp eq i32 %labels.0103, 1
   br i1 %cmp49, label %for.cond1.preheader.i31, label %if.else57
 
@@ -718,7 +718,7 @@ for.body3.i35:                                    ; preds = %for.cond1.i40, %for
   %j.07.i36 = phi i64 [ 0, %for.cond1.preheader.i31 ], [ %inc.i41, %for.cond1.i40 ]
   %arrayidx4.i37 = getelementptr inbounds [4 x ptr], ptr %synonyms.i34, i64 0, i64 %j.07.i36
   %6 = load ptr, ptr %arrayidx4.i37, align 8
-  %call.i38 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %st.1101, ptr noundef %6) #4
+  %call.i38 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %st.1102, ptr noundef %6) #4
   %cmp5.i39 = icmp eq i32 %call.i38, 0
   br i1 %cmp5.i39, label %synonyms_name2id.exit48, label %for.cond1.i40
 
@@ -733,7 +733,7 @@ synonyms_name2id.exit48:                          ; preds = %for.body3.i35
   br i1 %cmp54, label %fail, label %if.else57
 
 if.else57:                                        ; preds = %synonyms_name2id.exit48, %if.else
-  %kdf.1 = phi i16 [ %7, %synonyms_name2id.exit48 ], [ %kdf.099, %if.else ]
+  %kdf.1 = phi i16 [ %7, %synonyms_name2id.exit48 ], [ %kdf.0100, %if.else ]
   %cmp58 = icmp eq i32 %labels.0103, 2
   br i1 %cmp58, label %for.cond1.preheader.i49, label %if.end68
 
@@ -752,7 +752,7 @@ for.body3.i53:                                    ; preds = %for.cond1.i58, %for
   %j.07.i54 = phi i64 [ 0, %for.cond1.preheader.i49 ], [ %inc.i59, %for.cond1.i58 ]
   %arrayidx4.i55 = getelementptr inbounds [4 x ptr], ptr %synonyms.i52, i64 0, i64 %j.07.i54
   %8 = load ptr, ptr %arrayidx4.i55, align 8
-  %call.i56 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %st.1101, ptr noundef %8) #4
+  %call.i56 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %st.1102, ptr noundef %8) #4
   %cmp5.i57 = icmp eq i32 %call.i56, 0
   br i1 %cmp5.i57, label %synonyms_name2id.exit66, label %for.cond1.i58
 
@@ -767,7 +767,7 @@ synonyms_name2id.exit66:                          ; preds = %for.body3.i53
   br i1 %cmp63, label %fail, label %if.end68
 
 if.end68:                                         ; preds = %synonyms_name2id.exit66, %if.else57
-  %aead.1 = phi i16 [ %9, %synonyms_name2id.exit66 ], [ %aead.0100, %if.else57 ]
+  %aead.1 = phi i16 [ %9, %synonyms_name2id.exit66 ], [ %aead.0101, %if.else57 ]
   %add.ptr = getelementptr inbounds i8, ptr %call37, i64 1
   %st.2 = select i1 %cmp38.not, ptr %add.ptr, ptr null
   %inc74 = add nuw nsw i32 %labels.0103, 1

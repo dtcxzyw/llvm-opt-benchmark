@@ -542,10 +542,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %99
 
 99:                                               ; preds = %.lr.ph284, %.thread263
-  %.0190283 = phi ptr [ %3, %.lr.ph284 ], [ %206, %.thread263 ]
-  %.0191282 = phi ptr [ %3, %.lr.ph284 ], [ %177, %.thread263 ]
-  %.0197281 = phi i32 [ 0, %.lr.ph284 ], [ %147, %.thread263 ]
-  %.0199280 = phi i32 [ 0, %.lr.ph284 ], [ %221, %.thread263 ]
+  %.0190283 = phi i32 [ 0, %.lr.ph284 ], [ %147, %.thread263 ]
+  %.0192282 = phi i32 [ 0, %.lr.ph284 ], [ %221, %.thread263 ]
+  %.0197281 = phi ptr [ %3, %.lr.ph284 ], [ %177, %.thread263 ]
+  %.0198280 = phi ptr [ %3, %.lr.ph284 ], [ %206, %.thread263 ]
   %100 = load i32, ptr %5, align 4
   %.not206 = icmp eq i32 %100, 0
   br i1 %.not206, label %123, label %101
@@ -599,7 +599,7 @@ Vec_PtrFree.exit:                                 ; preds = %113, %117
   br label %121
 
 121:                                              ; preds = %120, %119
-  %122 = add nsw i32 %.0199280, -1
+  %122 = add nsw i32 %.0192282, -1
   store i32 %122, ptr %98, align 4
   br label %269
 
@@ -609,16 +609,16 @@ Vec_PtrFree.exit:                                 ; preds = %113, %117
   br i1 %.not208, label %127, label %125
 
 125:                                              ; preds = %123
-  %126 = call ptr @Bbr_bddImageCompute(ptr noundef nonnull %48, ptr noundef %.0191282) #14
+  %126 = call ptr @Bbr_bddImageCompute(ptr noundef nonnull %48, ptr noundef %.0197281) #14
   br label %129
 
 127:                                              ; preds = %123
-  %128 = call ptr @Bbr_bddImageCompute2(ptr noundef null, ptr noundef %.0191282) #14
+  %128 = call ptr @Bbr_bddImageCompute2(ptr noundef null, ptr noundef %.0197281) #14
   br label %129
 
 129:                                              ; preds = %127, %125
-  %.1195 = phi ptr [ %126, %125 ], [ %128, %127 ]
-  %130 = icmp eq ptr %.1195, null
+  %.1196 = phi ptr [ %126, %125 ], [ %128, %127 ]
+  %130 = icmp eq ptr %.1196, null
   br i1 %130, label %131, label %143
 
 131:                                              ; preds = %129
@@ -654,17 +654,17 @@ Vec_PtrFree.exit:                                 ; preds = %113, %117
 
 Vec_PtrFree.exit248:                              ; preds = %139, %141
   call void @free(ptr noundef nonnull %59) #14
-  %142 = add nsw i32 %.0199280, -1
+  %142 = add nsw i32 %.0192282, -1
   store i32 %142, ptr %98, align 4
   br label %269
 
 143:                                              ; preds = %129
-  call void @Cudd_Ref(ptr noundef nonnull %.1195) #14
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0191282) #14
-  %144 = call ptr @Cudd_bddVarMap(ptr noundef %0, ptr noundef nonnull %.1195) #14
+  call void @Cudd_Ref(ptr noundef nonnull %.1196) #14
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0197281) #14
+  %144 = call ptr @Cudd_bddVarMap(ptr noundef %0, ptr noundef nonnull %.1196) #14
   call void @Cudd_Ref(ptr noundef %144) #14
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.1195) #14
-  %145 = call i32 @Cudd_bddLeq(ptr noundef %0, ptr noundef %144, ptr noundef %.0190283) #14
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.1196) #14
+  %145 = call i32 @Cudd_bddLeq(ptr noundef %0, ptr noundef %144, ptr noundef %.0198280) #14
   %.not209 = icmp eq i32 %145, 0
   br i1 %.not209, label %146, label %._crit_edge
 
@@ -715,8 +715,8 @@ Vec_PtrFree.exit248:                              ; preds = %139, %141
   br label %168
 
 168:                                              ; preds = %166, %157
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0190283) #14
-  store i32 %.0199280, ptr %98, align 4
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0198280) #14
+  store i32 %.0192282, ptr %98, align 4
   %.val241.pre = load i32, ptr %95, align 8
   br label %.loopexit
 
@@ -733,14 +733,14 @@ Vec_PtrFree.exit248:                              ; preds = %139, %141
 
 .loopexit:                                        ; preds = %.loopexit.loopexit312, %.preheader, %168
   %.val241 = phi i32 [ %.val241.pre, %168 ], [ %.val242278, %.preheader ], [ %.val242, %.loopexit.loopexit312 ]
-  %.0200269 = phi i32 [ %159, %168 ], [ 0, %.preheader ], [ %172, %.loopexit.loopexit312 ]
-  %.1 = phi ptr [ null, %168 ], [ %.0190283, %.preheader ], [ %.0190283, %.loopexit.loopexit312 ]
-  %173 = icmp slt i32 %.0200269, %.val241
+  %.0193269 = phi i32 [ %159, %168 ], [ 0, %.preheader ], [ %172, %.loopexit.loopexit312 ]
+  %.1199 = phi ptr [ null, %168 ], [ %.0198280, %.preheader ], [ %.0198280, %.loopexit.loopexit312 ]
+  %173 = icmp slt i32 %.0193269, %.val241
   br i1 %173, label %._crit_edge, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.1329 = phi ptr [ %.1, %.loopexit ], [ %.0190283, %.lr.ph ]
-  %174 = ptrtoint ptr %.1329 to i64
+  %.1199329 = phi ptr [ %.1199, %.loopexit ], [ %.0198280, %.lr.ph ]
+  %174 = ptrtoint ptr %.1199329 to i64
   %175 = xor i64 %174, 1
   %176 = inttoptr i64 %175 to ptr
   %177 = call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %144, ptr noundef %176) #14
@@ -808,9 +808,9 @@ Vec_PtrPush.exit255:                              ; preds = %.Vec_PtrGrow.exit11
   %205 = getelementptr inbounds ptr, ptr %201, i64 %204
   store ptr %177, ptr %205, align 8
   call void @Cudd_Ref(ptr noundef %177) #14
-  %206 = call ptr @Cudd_bddOr(ptr noundef %0, ptr noundef %.1329, ptr noundef %144) #14
+  %206 = call ptr @Cudd_bddOr(ptr noundef %0, ptr noundef %.1199329, ptr noundef %144) #14
   call void @Cudd_Ref(ptr noundef %206) #14
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1329) #14
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1199329) #14
   call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %144) #14
   %207 = load i32, ptr %46, align 4
   %.not213 = icmp eq i32 %207, 0
@@ -818,7 +818,7 @@ Vec_PtrPush.exit255:                              ; preds = %.Vec_PtrGrow.exit11
 
 208:                                              ; preds = %Vec_PtrPush.exit255
   %209 = load ptr, ptr @stdout, align 8
-  %210 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.7, i32 noundef %.0199280, i32 noundef %147) #14
+  %210 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %209, ptr noundef nonnull @.str.7, i32 noundef %.0192282, i32 noundef %147) #14
   %.pr = load i32, ptr %46, align 4
   %.not214 = icmp eq i32 %.pr, 0
   br i1 %.not214, label %.thread263, label %211
@@ -844,18 +844,18 @@ Vec_PtrPush.exit255:                              ; preds = %.Vec_PtrGrow.exit11
   br label %.thread263
 
 .thread263:                                       ; preds = %Vec_PtrPush.exit255, %208, %211, %213
-  %221 = add nuw nsw i32 %.0199280, 1
+  %221 = add nuw nsw i32 %.0192282, 1
   %222 = load i32, ptr %91, align 4
   %223 = icmp slt i32 %221, %222
   br i1 %223, label %99, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.thread263, %146, %.loopexit, %143, %Vec_PtrPush.exit
-  %.0199.lcssa = phi i32 [ 0, %Vec_PtrPush.exit ], [ %.0199280, %143 ], [ %.0199280, %.loopexit ], [ %.0199280, %146 ], [ %221, %.thread263 ]
-  %.1198 = phi i32 [ 0, %Vec_PtrPush.exit ], [ %.0197281, %143 ], [ %147, %.loopexit ], [ %147, %146 ], [ %147, %.thread263 ]
-  %.2196 = phi ptr [ null, %Vec_PtrPush.exit ], [ %144, %143 ], [ %144, %.loopexit ], [ %144, %146 ], [ %144, %.thread263 ]
-  %.2 = phi ptr [ %3, %Vec_PtrPush.exit ], [ %.0190283, %143 ], [ %.1, %.loopexit ], [ %.0190283, %146 ], [ %206, %.thread263 ]
+  %.0192.lcssa = phi i32 [ 0, %Vec_PtrPush.exit ], [ %.0192282, %143 ], [ %.0192282, %.loopexit ], [ %.0192282, %146 ], [ %221, %.thread263 ]
+  %.2200 = phi ptr [ %3, %Vec_PtrPush.exit ], [ %.0198280, %143 ], [ %.1199, %.loopexit ], [ %.0198280, %146 ], [ %206, %.thread263 ]
+  %.2 = phi ptr [ null, %Vec_PtrPush.exit ], [ %144, %143 ], [ %144, %.loopexit ], [ %144, %146 ], [ %144, %.thread263 ]
+  %.1191 = phi i32 [ 0, %Vec_PtrPush.exit ], [ %.0190283, %143 ], [ %147, %.loopexit ], [ %147, %146 ], [ %147, %.thread263 ]
   %.not219 = phi i1 [ true, %Vec_PtrPush.exit ], [ false, %143 ], [ %.not209, %.loopexit ], [ true, %146 ], [ %.not209, %.thread263 ]
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.2196) #14
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.2) #14
   %.val244308 = load i32, ptr %60, align 4
   %224 = icmp sgt i32 %.val244308, 0
   br i1 %224, label %.lr.ph311, label %.critedge
@@ -896,7 +896,7 @@ Vec_PtrFree.exit257:                              ; preds = %.critedge, %230
   br label %234
 
 234:                                              ; preds = %233, %232
-  %235 = icmp eq ptr %.2, null
+  %235 = icmp eq ptr %.2200, null
   br i1 %235, label %269, label %236
 
 236:                                              ; preds = %234
@@ -906,21 +906,21 @@ Vec_PtrFree.exit257:                              ; preds = %.critedge, %230
 
 238:                                              ; preds = %236
   %.val226 = load i32, ptr %21, align 8
-  %239 = call double @Cudd_CountMinterm(ptr noundef %0, ptr noundef nonnull %.2, i32 noundef %.val226) #14
+  %239 = call double @Cudd_CountMinterm(ptr noundef %0, ptr noundef nonnull %.2200, i32 noundef %.val226) #14
   %240 = load i32, ptr %91, align 4
-  %241 = icmp sgt i32 %.0199.lcssa, %240
+  %241 = icmp sgt i32 %.0192.lcssa, %240
   br i1 %241, label %245, label %242
 
 242:                                              ; preds = %238
   %243 = load i32, ptr %44, align 4
-  %244 = icmp sgt i32 %.1198, %243
+  %244 = icmp sgt i32 %.1191, %243
   %spec.select = select i1 %244, ptr @.str.12, ptr @.str.13
   br label %245
 
 245:                                              ; preds = %242, %238
   %.str.13.sink = phi ptr [ @.str.12, %238 ], [ %spec.select, %242 ]
   %246 = load ptr, ptr @stdout, align 8
-  %247 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %246, ptr noundef nonnull %.str.13.sink, i32 noundef %.0199.lcssa) #14
+  %247 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %246, ptr noundef nonnull %.str.13.sink, i32 noundef %.0192.lcssa) #14
   %248 = load ptr, ptr @stdout, align 8
   %249 = fmul double %239, 1.000000e+02
   %.val = load i32, ptr %21, align 8
@@ -932,7 +932,7 @@ Vec_PtrFree.exit257:                              ; preds = %.critedge, %230
   br label %254
 
 254:                                              ; preds = %245, %236
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.2) #14
+  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %.2200) #14
   %255 = getelementptr inbounds i8, ptr %5, i64 28
   %256 = load i32, ptr %255, align 4
   %.not220 = icmp eq i32 %256, 0
@@ -942,11 +942,11 @@ Vec_PtrFree.exit257:                              ; preds = %.critedge, %230
   br i1 %.not220, label %258, label %260
 
 258:                                              ; preds = %257
-  %259 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %.0199.lcssa)
+  %259 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %.0192.lcssa)
   br label %260
 
 260:                                              ; preds = %258, %257
-  %261 = add nsw i32 %.0199.lcssa, -1
+  %261 = add nsw i32 %.0192.lcssa, -1
   %262 = getelementptr inbounds i8, ptr %5, i64 36
   store i32 %261, ptr %262, align 4
   br label %269
@@ -955,11 +955,11 @@ Vec_PtrFree.exit257:                              ; preds = %.critedge, %230
   br i1 %.not220, label %264, label %266
 
 264:                                              ; preds = %263
-  %265 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %.0199.lcssa)
+  %265 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %.0192.lcssa)
   br label %266
 
 266:                                              ; preds = %264, %263
-  %267 = add nsw i32 %.0199.lcssa, -1
+  %267 = add nsw i32 %.0192.lcssa, -1
   %268 = getelementptr inbounds i8, ptr %5, i64 36
   store i32 %267, ptr %268, align 4
   br label %269
@@ -1406,8 +1406,8 @@ define range(i32 -1, 2) i32 @Aig_ManVerifyUsingBdds(ptr noundef %0, ptr nocaptur
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %2
-  %.072.lcssa = phi i32 [ 0, %2 ], [ %15, %.critedge.loopexit ]
-  %16 = icmp eq i32 %.072.lcssa, %.val87
+  %.071.lcssa = phi i32 [ 0, %2 ], [ %15, %.critedge.loopexit ]
+  %16 = icmp eq i32 %.071.lcssa, %.val87
   br i1 %16, label %.critedge.thread, label %18
 
 .critedge.thread:                                 ; preds = %14, %.critedge
@@ -1617,7 +1617,7 @@ Vec_IntPush.exit:                                 ; preds = %89, %Vec_IntGrow.ex
   br label %141
 
 .preheader102:                                    ; preds = %154, %.critedge2
-  %.070.lcssa = phi i32 [ 0, %.critedge2 ], [ %156, %154 ]
+  %.069.lcssa = phi i32 [ 0, %.critedge2 ], [ %156, %154 ]
   %.not77117 = icmp slt i32 %101, 0
   br i1 %.not77117, label %._crit_edge, label %.preheader.lr.ph
 
@@ -1635,8 +1635,8 @@ Vec_IntPush.exit:                                 ; preds = %89, %Vec_IntGrow.ex
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %..critedge4_crit_edge.us, %.preheader.lr.ph.split.us
-  %.069120.us = phi i32 [ %.070.lcssa, %.preheader.lr.ph.split.us ], [ %138, %..critedge4_crit_edge.us ]
-  %.1119.us = phi i32 [ %.070.lcssa, %.preheader.lr.ph.split.us ], [ %137, %..critedge4_crit_edge.us ]
+  %.0120.us = phi i32 [ %.069.lcssa, %.preheader.lr.ph.split.us ], [ %138, %..critedge4_crit_edge.us ]
+  %.1119.us = phi i32 [ %.069.lcssa, %.preheader.lr.ph.split.us ], [ %137, %..critedge4_crit_edge.us ]
   %.2118.us = phi i32 [ 0, %.preheader.lr.ph.split.us ], [ %139, %..critedge4_crit_edge.us ]
   br label %113
 
@@ -1661,7 +1661,7 @@ Vec_IntPush.exit:                                 ; preds = %89, %Vec_IntGrow.ex
 
 126:                                              ; preds = %117
   %127 = trunc i64 %indvars.iv127 to i32
-  %128 = add i32 %.069120.us, %127
+  %128 = add i32 %.0120.us, %127
   %129 = and i32 %128, 31
   %130 = shl nuw i32 1, %129
   %131 = ashr i32 %128, 5
@@ -1681,7 +1681,7 @@ Vec_IntPush.exit:                                 ; preds = %89, %Vec_IntGrow.ex
   %.val82.us = load i32, ptr %112, align 4
   %137 = add nsw i32 %.val82.us, %.1119.us
   %.val81.us = load i32, ptr %3, align 4
-  %138 = add nsw i32 %.val81.us, %.069120.us
+  %138 = add nsw i32 %.val81.us, %.0120.us
   %139 = add nuw nsw i32 %.2118.us, 1
   %140 = load i32, ptr %102, align 4
   %.not77.us.not = icmp slt i32 %.2118.us, %140
@@ -1689,12 +1689,12 @@ Vec_IntPush.exit:                                 ; preds = %89, %Vec_IntGrow.ex
 
 141:                                              ; preds = %.lr.ph113, %154
   %142 = phi i32 [ %105, %.lr.ph113 ], [ %155, %154 ]
-  %.070112 = phi i32 [ 0, %.lr.ph113 ], [ %156, %154 ]
-  %143 = lshr i32 %.070112, 5
+  %.069112 = phi i32 [ 0, %.lr.ph113 ], [ %156, %154 ]
+  %143 = lshr i32 %.069112, 5
   %144 = zext nneg i32 %143 to i64
   %145 = getelementptr inbounds i32, ptr %107, i64 %144
   %146 = load i32, ptr %145, align 4
-  %147 = and i32 %.070112, 31
+  %147 = and i32 %.069112, 31
   %148 = shl nuw i32 1, %147
   %149 = and i32 %146, %148
   %.not79 = icmp eq i32 %149, 0
@@ -1710,7 +1710,7 @@ Vec_IntPush.exit:                                 ; preds = %89, %Vec_IntGrow.ex
 
 154:                                              ; preds = %141, %150
   %155 = phi i32 [ %142, %141 ], [ %.pre, %150 ]
-  %156 = add nuw nsw i32 %.070112, 1
+  %156 = add nuw nsw i32 %.069112, 1
   %157 = icmp slt i32 %156, %155
   br i1 %157, label %141, label %.preheader102, !llvm.loop !20
 
@@ -1731,8 +1731,8 @@ Vec_IntFree.exit:                                 ; preds = %._crit_edge, %159
   br label %161
 
 161:                                              ; preds = %Vec_IntFree.exit, %21, %.critedge.thread
-  %.0 = phi i32 [ %17, %.critedge.thread ], [ %20, %21 ], [ 0, %Vec_IntFree.exit ]
-  ret i32 %.0
+  %.073 = phi i32 [ %17, %.critedge.thread ], [ %20, %21 ], [ 0, %Vec_IntFree.exit ]
+  ret i32 %.073
 }
 
 declare ptr @Aig_ManDupTrim(ptr noundef) local_unnamed_addr #3

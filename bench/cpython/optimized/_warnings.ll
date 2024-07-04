@@ -1688,9 +1688,9 @@ if.else26:                                        ; preds = %Py_INCREF.exit
   br i1 %cmp28, label %if.then.i110, label %if.end31
 
 if.end31:                                         ; preds = %if.else26, %if.end24
+  %category.addr.0 = phi ptr [ %message.val, %if.end24 ], [ %category, %if.else26 ]
   %message.addr.0 = phi ptr [ %message, %if.end24 ], [ %call27, %if.else26 ]
   %text.0 = phi ptr [ %call21, %if.end24 ], [ %message, %if.else26 ]
-  %category.addr.0 = phi ptr [ %message.val, %if.end24 ], [ %category, %if.else26 ]
   %conv = sext i32 %lineno to i64
   %call32 = tail call ptr @PyLong_FromLong(i64 noundef %conv) #7
   %cmp33 = icmp eq ptr %call32, null

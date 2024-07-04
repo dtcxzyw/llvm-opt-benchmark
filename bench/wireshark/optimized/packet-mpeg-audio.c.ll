@@ -319,8 +319,8 @@ define internal i32 @dissect_mpeg_audio(ptr noundef %0, ptr noundef %1, ptr noun
   br label %16
 
 16:                                               ; preds = %.lr.ph, %106
-  %.031 = phi i32 [ 0, %.lr.ph ], [ %.1, %106 ]
-  %17 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.031) #3
+  %.02531 = phi i32 [ 0, %.lr.ph ], [ %.1, %106 ]
+  %17 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.02531) #3
   %18 = call i32 @tvb_get_ntoh24(ptr noundef %17, i32 noundef 0) #3
   switch i32 %18, label %28 [
     i32 5521735, label %19
@@ -407,19 +407,19 @@ define internal i32 @dissect_mpeg_audio(ptr noundef %0, ptr noundef %1, ptr noun
   br label %66
 
 66:                                               ; preds = %51, %49, %39
-  %.038.i = phi i32 [ %58, %51 ], [ 0, %49 ], [ 0, %39 ]
+  %.037.i = phi i32 [ %58, %51 ], [ 0, %49 ], [ 0, %39 ]
   call void @asn1_ctx_init(ptr noundef nonnull %7, i32 noundef 1, i1 noundef zeroext true, ptr noundef nonnull %1) #3
   %67 = load i32, ptr @hf_mpeg_audio_header, align 4
   %68 = load i32, ptr @ett_mpeg_audio_Audio, align 4
   %69 = call i32 @dissect_per_sequence(ptr noundef %17, i32 noundef 0, ptr noundef nonnull %7, ptr noundef %12, i32 noundef %67, i32 noundef %68, ptr noundef nonnull @Audio_sequence) #3
-  %70 = icmp sgt i32 %.038.i, 0
+  %70 = icmp sgt i32 %.037.i, 0
   br i1 %70, label %71, label %dissect_mpeg_audio_frame.exit
 
 71:                                               ; preds = %66
   %72 = load i32, ptr @hf_mpeg_audio_data, align 4
   %73 = sdiv i32 %69, 8
-  %74 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %72, ptr noundef %17, i32 noundef %73, i32 noundef %.038.i, i32 noundef 0) #3
-  %75 = shl nuw i32 %.038.i, 3
+  %74 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %72, ptr noundef %17, i32 noundef %73, i32 noundef %.037.i, i32 noundef 0) #3
+  %75 = shl nuw i32 %.037.i, 3
   %76 = add i32 %69, %75
   %77 = call i32 @mpa_padding(ptr noundef nonnull %6) #3
   %.not42.i = icmp eq i32 %77, 0
@@ -439,12 +439,12 @@ dissect_mpeg_audio_frame.exit.thread:             ; preds = %28, %36, %33, %30
   br label %86
 
 dissect_mpeg_audio_frame.exit:                    ; preds = %66, %71, %78
-  %.037.i = phi i32 [ %83, %78 ], [ %76, %71 ], [ %69, %66 ]
-  %84 = sdiv i32 %.037.i, 8
+  %.0.i = phi i32 [ %83, %78 ], [ %76, %71 ], [ %69, %66 ]
+  %84 = sdiv i32 %.0.i, 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %7)
-  %.037.i.off = add i32 %.037.i, 7
-  %85 = icmp ult i32 %.037.i.off, 15
+  %.0.i.off = add i32 %.0.i, 7
+  %85 = icmp ult i32 %.0.i.off, 15
   br i1 %85, label %86, label %106
 
 86:                                               ; preds = %dissect_mpeg_audio_frame.exit.thread, %dissect_mpeg_audio_frame.exit
@@ -501,8 +501,8 @@ mpeg_resync.exit:                                 ; preds = %100, %.critedge.i
   br label %106
 
 106:                                              ; preds = %dissect_mpeg_audio_frame.exit, %mpeg_resync.exit, %25, %19
-  %.025.pn = phi i32 [ %27, %25 ], [ %24, %19 ], [ %.0.i28, %mpeg_resync.exit ], [ %84, %dissect_mpeg_audio_frame.exit ]
-  %.1 = add i32 %.025.pn, %.031
+  %.0.pn = phi i32 [ %27, %25 ], [ %24, %19 ], [ %.0.i28, %mpeg_resync.exit ], [ %84, %dissect_mpeg_audio_frame.exit ]
+  %.1 = add i32 %.0.pn, %.02531
   %107 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #3
   %108 = icmp sgt i32 %107, 3
   br i1 %108, label %16, label %._crit_edge, !llvm.loop !6

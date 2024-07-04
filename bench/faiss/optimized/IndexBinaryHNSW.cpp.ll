@@ -1764,8 +1764,8 @@ define internal void @_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE11add_resu
   %31 = phi i64 [ %104, %._crit_edge ], [ %21, %.lr.ph41 ]
   %32 = phi i64 [ %105, %._crit_edge ], [ %29, %.lr.ph41 ]
   %33 = phi i64 [ %106, %._crit_edge ], [ %29, %.lr.ph41 ]
-  %.039 = phi i64 [ %107, %._crit_edge ], [ %22, %.lr.ph41 ]
-  %34 = add i64 %.039, %12
+  %.03339 = phi i64 [ %107, %._crit_edge ], [ %22, %.lr.ph41 ]
+  %34 = add i64 %.03339, %12
   %35 = load ptr, ptr %25, align 8
   %36 = load i64, ptr %26, align 8
   %37 = mul nsw i64 %36, %34
@@ -1792,11 +1792,11 @@ define internal void @_ZN5faiss22HeapBlockResultHandlerINS_4CMaxIflEEE11add_resu
 
 54:                                               ; preds = %.lr.ph, %100
   %55 = phi i64 [ %32, %.lr.ph ], [ %101, %100 ]
-  %.03236 = phi i64 [ %42, %.lr.ph ], [ %102, %100 ]
-  %.03335 = phi float [ %51, %.lr.ph ], [ %.1, %100 ]
-  %56 = getelementptr inbounds float, ptr %49, i64 %.03236
+  %.036 = phi i64 [ %42, %.lr.ph ], [ %102, %100 ]
+  %.03235 = phi float [ %51, %.lr.ph ], [ %.1, %100 ]
+  %56 = getelementptr inbounds float, ptr %49, i64 %.036
   %57 = load float, ptr %56, align 4
-  %58 = fcmp ogt float %.03335, %57
+  %58 = fcmp ogt float %.03235, %57
   br i1 %58, label %59, label %100
 
 59:                                               ; preds = %54
@@ -1846,7 +1846,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i:            ; preds = %_ZN5faiss4CMaxIflE4
   %80 = getelementptr inbounds i64, ptr %53, i64 %63
   %81 = load i64, ptr %80, align 8
   %82 = fcmp oeq float %78, %57
-  %83 = icmp slt i64 %81, %.03236
+  %83 = icmp slt i64 %81, %.036
   %84 = and i1 %82, %83
   br i1 %84, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %90
 
@@ -1856,7 +1856,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit54.i:            ; preds = %_ZN5faiss4CMaxIflE4
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i:            ; preds = %85
   %87 = fcmp oeq float %69, %57
-  %88 = icmp slt i64 %71, %.03236
+  %88 = icmp slt i64 %71, %.036
   %89 = and i1 %87, %88
   br i1 %89, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %90
 
@@ -1879,15 +1879,15 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %97 = getelementptr inbounds float, ptr %52, i64 %.0.lcssa.i
   store float %57, ptr %97, align 4
   %98 = getelementptr inbounds i64, ptr %53, i64 %.0.lcssa.i
-  store i64 %.03236, ptr %98, align 8
+  store i64 %.036, ptr %98, align 8
   %99 = load float, ptr %38, align 4
   %.pre = load i64, ptr %4, align 8
   br label %100
 
 100:                                              ; preds = %54, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
   %101 = phi i64 [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %55, %54 ]
-  %.1 = phi float [ %99, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %.03335, %54 ]
-  %102 = add nuw i64 %.03236, 1
+  %.1 = phi float [ %99, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %.03235, %54 ]
+  %102 = add nuw i64 %.036, 1
   %103 = icmp ult i64 %102, %101
   br i1 %103, label %54, label %._crit_edge.loopexit, !llvm.loop !20
 
@@ -1899,7 +1899,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %104 = phi i64 [ %.pre44, %._crit_edge.loopexit ], [ %31, %.lr.ph41.split ]
   %105 = phi i64 [ %101, %._crit_edge.loopexit ], [ %32, %.lr.ph41.split ]
   %106 = phi i64 [ %101, %._crit_edge.loopexit ], [ %33, %.lr.ph41.split ]
-  %107 = add nuw i64 %.039, 1
+  %107 = add nuw i64 %.03339, 1
   %108 = add i64 %104, 1
   %109 = icmp ult i64 %107, %108
   br i1 %109, label %.lr.ph41.split, label %._crit_edge42, !llvm.loop !21
@@ -2542,14 +2542,14 @@ default.unreachable92:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2, %87
-  %.083 = phi i32 [ %5, %2 ], [ %.790, %87 ]
+  %.083 = phi i32 [ %6, %2 ], [ %96, %87 ]
   %.075 = phi i32 [ %6, %2 ], [ %97, %87 ]
-  %.0 = phi i32 [ %6, %2 ], [ %96, %87 ]
-  %8 = icmp sgt i32 %.083, 7
+  %.0 = phi i32 [ %5, %2 ], [ %.7, %87 ]
+  %8 = icmp sgt i32 %.0, 7
   br i1 %8, label %9, label %98
 
 9:                                                ; preds = %7
-  %10 = add nsw i32 %.083, -8
+  %10 = add nsw i32 %.0, -8
   %11 = sext i32 %.075 to i64
   %12 = getelementptr inbounds i64, ptr %3, i64 %11
   %13 = load i64, ptr %12, align 8
@@ -2558,14 +2558,14 @@ default.unreachable92:                            ; preds = %2
   %16 = xor i64 %15, %13
   %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
   %18 = trunc nuw nsw i64 %17 to i32
-  %19 = add nsw i32 %.0, %18
+  %19 = add nsw i32 %.083, %18
   %20 = add nsw i32 %.075, 1
   br label %21
 
 21:                                               ; preds = %2, %9
-  %.184 = phi i32 [ %10, %9 ], [ %5, %2 ]
+  %.184 = phi i32 [ %19, %9 ], [ 0, %2 ]
   %.176 = phi i32 [ %20, %9 ], [ 0, %2 ]
-  %.1 = phi i32 [ %19, %9 ], [ 0, %2 ]
+  %.1 = phi i32 [ %10, %9 ], [ %5, %2 ]
   %22 = sext i32 %.176 to i64
   %23 = getelementptr inbounds i64, ptr %3, i64 %22
   %24 = load i64, ptr %23, align 8
@@ -2574,14 +2574,14 @@ default.unreachable92:                            ; preds = %2
   %27 = xor i64 %26, %24
   %28 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %27)
   %29 = trunc nuw nsw i64 %28 to i32
-  %30 = add nsw i32 %.1, %29
+  %30 = add nsw i32 %.184, %29
   %31 = add nsw i32 %.176, 1
   br label %32
 
 32:                                               ; preds = %2, %21
-  %.285 = phi i32 [ %.184, %21 ], [ %5, %2 ]
+  %.285 = phi i32 [ %30, %21 ], [ 0, %2 ]
   %.277 = phi i32 [ %31, %21 ], [ 0, %2 ]
-  %.2 = phi i32 [ %30, %21 ], [ 0, %2 ]
+  %.2 = phi i32 [ %.1, %21 ], [ %5, %2 ]
   %33 = sext i32 %.277 to i64
   %34 = getelementptr inbounds i64, ptr %3, i64 %33
   %35 = load i64, ptr %34, align 8
@@ -2590,14 +2590,14 @@ default.unreachable92:                            ; preds = %2
   %38 = xor i64 %37, %35
   %39 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
   %40 = trunc nuw nsw i64 %39 to i32
-  %41 = add nsw i32 %.2, %40
+  %41 = add nsw i32 %.285, %40
   %42 = add nsw i32 %.277, 1
   br label %43
 
 43:                                               ; preds = %2, %32
-  %.386 = phi i32 [ %.285, %32 ], [ %5, %2 ]
+  %.386 = phi i32 [ %41, %32 ], [ 0, %2 ]
   %.378 = phi i32 [ %42, %32 ], [ 0, %2 ]
-  %.3 = phi i32 [ %41, %32 ], [ 0, %2 ]
+  %.3 = phi i32 [ %.2, %32 ], [ %5, %2 ]
   %44 = sext i32 %.378 to i64
   %45 = getelementptr inbounds i64, ptr %3, i64 %44
   %46 = load i64, ptr %45, align 8
@@ -2606,14 +2606,14 @@ default.unreachable92:                            ; preds = %2
   %49 = xor i64 %48, %46
   %50 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %49)
   %51 = trunc nuw nsw i64 %50 to i32
-  %52 = add nsw i32 %.3, %51
+  %52 = add nsw i32 %.386, %51
   %53 = add nsw i32 %.378, 1
   br label %54
 
 54:                                               ; preds = %2, %43
-  %.487 = phi i32 [ %.386, %43 ], [ %5, %2 ]
+  %.487 = phi i32 [ %52, %43 ], [ 0, %2 ]
   %.479 = phi i32 [ %53, %43 ], [ 0, %2 ]
-  %.4 = phi i32 [ %52, %43 ], [ 0, %2 ]
+  %.4 = phi i32 [ %.3, %43 ], [ %5, %2 ]
   %55 = sext i32 %.479 to i64
   %56 = getelementptr inbounds i64, ptr %3, i64 %55
   %57 = load i64, ptr %56, align 8
@@ -2622,14 +2622,14 @@ default.unreachable92:                            ; preds = %2
   %60 = xor i64 %59, %57
   %61 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %60)
   %62 = trunc nuw nsw i64 %61 to i32
-  %63 = add nsw i32 %.4, %62
+  %63 = add nsw i32 %.487, %62
   %64 = add nsw i32 %.479, 1
   br label %65
 
 65:                                               ; preds = %2, %54
-  %.588 = phi i32 [ %.487, %54 ], [ %5, %2 ]
+  %.588 = phi i32 [ %63, %54 ], [ 0, %2 ]
   %.580 = phi i32 [ %64, %54 ], [ 0, %2 ]
-  %.5 = phi i32 [ %63, %54 ], [ 0, %2 ]
+  %.5 = phi i32 [ %.4, %54 ], [ %5, %2 ]
   %66 = sext i32 %.580 to i64
   %67 = getelementptr inbounds i64, ptr %3, i64 %66
   %68 = load i64, ptr %67, align 8
@@ -2638,14 +2638,14 @@ default.unreachable92:                            ; preds = %2
   %71 = xor i64 %70, %68
   %72 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %71)
   %73 = trunc nuw nsw i64 %72 to i32
-  %74 = add nsw i32 %.5, %73
+  %74 = add nsw i32 %.588, %73
   %75 = add nsw i32 %.580, 1
   br label %76
 
 76:                                               ; preds = %2, %65
-  %.689 = phi i32 [ %.588, %65 ], [ %5, %2 ]
+  %.689 = phi i32 [ %74, %65 ], [ 0, %2 ]
   %.681 = phi i32 [ %75, %65 ], [ 0, %2 ]
-  %.6 = phi i32 [ %74, %65 ], [ 0, %2 ]
+  %.6 = phi i32 [ %.5, %65 ], [ %5, %2 ]
   %77 = sext i32 %.681 to i64
   %78 = getelementptr inbounds i64, ptr %3, i64 %77
   %79 = load i64, ptr %78, align 8
@@ -2654,14 +2654,14 @@ default.unreachable92:                            ; preds = %2
   %82 = xor i64 %81, %79
   %83 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %82)
   %84 = trunc nuw nsw i64 %83 to i32
-  %85 = add nsw i32 %.6, %84
+  %85 = add nsw i32 %.689, %84
   %86 = add nsw i32 %.681, 1
   br label %87
 
 87:                                               ; preds = %2, %76
-  %.790 = phi i32 [ %.689, %76 ], [ %5, %2 ]
+  %.790 = phi i32 [ %85, %76 ], [ 0, %2 ]
   %.782 = phi i32 [ %86, %76 ], [ 0, %2 ]
-  %.7 = phi i32 [ %85, %76 ], [ 0, %2 ]
+  %.7 = phi i32 [ %.6, %76 ], [ %5, %2 ]
   %88 = sext i32 %.782 to i64
   %89 = getelementptr inbounds i64, ptr %3, i64 %88
   %90 = load i64, ptr %89, align 8
@@ -2670,7 +2670,7 @@ default.unreachable92:                            ; preds = %2
   %93 = xor i64 %92, %90
   %94 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %93)
   %95 = trunc nuw nsw i64 %94 to i32
-  %96 = add nsw i32 %.7, %95
+  %96 = add nsw i32 %.790, %95
   %97 = add nsw i32 %.782, 1
   br label %7, !llvm.loop !28
 
@@ -2705,11 +2705,11 @@ default.unreachable92:                            ; preds = %2
   %113 = getelementptr inbounds [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
-  %116 = add nsw i32 %.0, %115
+  %116 = add nsw i32 %.083, %115
   br label %117
 
 117:                                              ; preds = %106, %101
-  %.8 = phi i32 [ %.0, %101 ], [ %116, %106 ]
+  %.8 = phi i32 [ %.083, %101 ], [ %116, %106 ]
   %118 = getelementptr inbounds i8, ptr %104, i64 5
   %119 = load i8, ptr %118, align 1
   %120 = getelementptr inbounds i8, ptr %105, i64 5
@@ -2723,7 +2723,7 @@ default.unreachable92:                            ; preds = %2
   br label %128
 
 128:                                              ; preds = %117, %101
-  %.9 = phi i32 [ %.0, %101 ], [ %127, %117 ]
+  %.9 = phi i32 [ %.083, %101 ], [ %127, %117 ]
   %129 = getelementptr inbounds i8, ptr %104, i64 4
   %130 = load i8, ptr %129, align 1
   %131 = getelementptr inbounds i8, ptr %105, i64 4
@@ -2737,7 +2737,7 @@ default.unreachable92:                            ; preds = %2
   br label %139
 
 139:                                              ; preds = %128, %101
-  %.10 = phi i32 [ %.0, %101 ], [ %138, %128 ]
+  %.10 = phi i32 [ %.083, %101 ], [ %138, %128 ]
   %140 = getelementptr inbounds i8, ptr %104, i64 3
   %141 = load i8, ptr %140, align 1
   %142 = getelementptr inbounds i8, ptr %105, i64 3
@@ -2751,7 +2751,7 @@ default.unreachable92:                            ; preds = %2
   br label %150
 
 150:                                              ; preds = %139, %101
-  %.11 = phi i32 [ %.0, %101 ], [ %149, %139 ]
+  %.11 = phi i32 [ %.083, %101 ], [ %149, %139 ]
   %151 = getelementptr inbounds i8, ptr %104, i64 2
   %152 = load i8, ptr %151, align 1
   %153 = getelementptr inbounds i8, ptr %105, i64 2
@@ -2765,7 +2765,7 @@ default.unreachable92:                            ; preds = %2
   br label %161
 
 161:                                              ; preds = %150, %101
-  %.12 = phi i32 [ %.0, %101 ], [ %160, %150 ]
+  %.12 = phi i32 [ %.083, %101 ], [ %160, %150 ]
   %162 = getelementptr inbounds i8, ptr %104, i64 1
   %163 = load i8, ptr %162, align 1
   %164 = getelementptr inbounds i8, ptr %105, i64 1
@@ -2779,7 +2779,7 @@ default.unreachable92:                            ; preds = %2
   br label %172
 
 172:                                              ; preds = %161, %101
-  %.13 = phi i32 [ %.0, %101 ], [ %171, %161 ]
+  %.13 = phi i32 [ %.083, %101 ], [ %171, %161 ]
   %173 = load i8, ptr %104, align 1
   %174 = load i8, ptr %105, align 1
   %175 = xor i8 %174, %173
@@ -2791,7 +2791,7 @@ default.unreachable92:                            ; preds = %2
   br label %181
 
 181:                                              ; preds = %172, %101, %98
-  %.14 = phi i32 [ %.0, %101 ], [ %180, %172 ], [ %.0, %98 ]
+  %.14 = phi i32 [ %.083, %101 ], [ %180, %172 ], [ %.083, %98 ]
   ret i32 %.14
 }
 

@@ -1939,7 +1939,7 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
 
 90:                                               ; preds = %.preheader, %361
   %91 = phi i32 [ %.pre.i, %361 ], [ %.ph, %.preheader ]
-  %.040.i = phi i1 [ %.2.i, %361 ], [ false, %.preheader ]
+  %.041.i = phi i1 [ %.2.i, %361 ], [ false, %.preheader ]
   %.b5254.i = load i1, ptr @lastSourceFailed, align 1
   br i1 %.b5254.i, label %92, label %134
 
@@ -2042,13 +2042,13 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
 
 .sink.split110.i:                                 ; preds = %136, %129, %106, %100
   %.sink112.i = phi i32 [ 1, %129 ], [ 3, %100 ], [ 1, %106 ], [ 1, %136 ]
-  %.041.ph.i = phi i8 [ 0, %129 ], [ 1, %100 ], [ 0, %106 ], [ 0, %136 ]
+  %.040.ph.i = phi i8 [ 0, %129 ], [ 1, %100 ], [ 0, %106 ], [ 0, %136 ]
   store i32 %.sink112.i, ptr @currentSource, align 4
   br label %139
 
 139:                                              ; preds = %.sink.split110.i, %136
   %140 = phi i32 [ 2, %136 ], [ %.sink112.i, %.sink.split110.i ]
-  %.041.i = phi i8 [ 0, %136 ], [ %.041.ph.i, %.sink.split110.i ]
+  %.040.i = phi i8 [ 0, %136 ], [ %.040.ph.i, %.sink.split110.i ]
   %.not.i = icmp eq i32 %140, %91
   br i1 %.not.i, label %.thread.i, label %141
 
@@ -2075,7 +2075,7 @@ thread-pre-split.i:                               ; preds = %143, %141
   br label %.thread.i
 
 .thread.i:                                        ; preds = %thread-pre-split.i, %139, %134
-  %.04195.i = phi i8 [ %.041.i, %thread-pre-split.i ], [ %.041.i, %139 ], [ 0, %134 ]
+  %.04095.i = phi i8 [ %.040.i, %thread-pre-split.i ], [ %.040.i, %139 ], [ 0, %134 ]
   %153 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ %91, %139 ], [ %91, %134 ]
   store i1 false, ptr @lastSourceFailed, align 1
   switch i32 %153, label %352 [
@@ -2118,9 +2118,9 @@ thread-pre-split.i:                               ; preds = %143, %141
   br i1 %.not50.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %167, %161
-  %.043124.i.i = phi ptr [ %169, %167 ], [ %166, %161 ]
-  %170 = getelementptr inbounds i8, ptr %.043124.i.i, i64 4
-  %171 = getelementptr inbounds i8, ptr %.043124.i.i, i64 16
+  %.042124.i.i = phi ptr [ %169, %167 ], [ %166, %161 ]
+  %170 = getelementptr inbounds i8, ptr %.042124.i.i, i64 4
+  %171 = getelementptr inbounds i8, ptr %.042124.i.i, i64 16
   %or.cond.i.i = icmp ult i32 %165, 2
   %172 = and i32 %165, -3
   %or.cond3.i.i = icmp eq i32 %172, 0
@@ -2332,7 +2332,7 @@ thread-pre-split.i:                               ; preds = %143, %141
 
 XLogFileReadAnyTLI.exit.thread.sink.split.i:      ; preds = %.split64.us.i.i, %248
   %.0.i.ph.ph.i = phi i32 [ %.us-phi76.i.i, %248 ], [ %.us-phi65.i.i, %.split64.us.i.i ]
-  store ptr %.043124.i.i, ptr @expectedTLEs, align 8
+  store ptr %.042124.i.i, ptr @expectedTLEs, align 8
   br label %367
 
 265:                                              ; preds = %262, %.thread.i.i
@@ -2346,7 +2346,7 @@ XLogFileReadAnyTLI.exit.thread.sink.split.i:      ; preds = %.split64.us.i.i, %2
   br i1 %.b56.i, label %267, label %274
 
 267:                                              ; preds = %266
-  %268 = trunc nuw i8 %.04195.i to i1
+  %268 = trunc nuw i8 %.04095.i to i1
   br i1 %268, label %274, label %269
 
 269:                                              ; preds = %267
@@ -2360,9 +2360,9 @@ XLogFileReadAnyTLI.exit.thread.sink.split.i:      ; preds = %.split64.us.i.i, %2
   br label %274
 
 274:                                              ; preds = %272, %269, %267, %266
-  %.142.i = phi i8 [ %.04195.i, %267 ], [ %.04195.i, %266 ], [ 1, %272 ], [ 1, %269 ]
+  %.1.i = phi i8 [ %.04095.i, %267 ], [ %.04095.i, %266 ], [ 1, %272 ], [ 1, %269 ]
   store i1 false, ptr @pendingWalRcvRestart, align 1
-  %275 = trunc nuw i8 %.142.i to i1
+  %275 = trunc nuw i8 %.1.i to i1
   %276 = load ptr, ptr @PrimaryConnInfo, align 8
   %277 = icmp ne ptr %276, null
   %or.cond3.i = select i1 %275, i1 %277, i1 false
@@ -2510,7 +2510,7 @@ SetCurrentChunkStartTime.exit.i:                  ; preds = %320, %315
   br label %356
 
 343:                                              ; preds = %340
-  br i1 %.040.i, label %345, label %344
+  br i1 %.041.i, label %345, label %344
 
 344:                                              ; preds = %343
   call void @WalRcvForceReply() #23
@@ -2537,7 +2537,7 @@ SetCurrentChunkStartTime.exit.i:                  ; preds = %320, %315
   unreachable
 
 356:                                              ; preds = %345, %342, %335, %302, %265
-  %.2.i = phi i1 [ %.040.i, %335 ], [ %.040.i, %342 ], [ true, %345 ], [ %.040.i, %302 ], [ %.040.i, %265 ]
+  %.2.i = phi i1 [ %.041.i, %335 ], [ %.041.i, %342 ], [ true, %345 ], [ %.041.i, %302 ], [ %.041.i, %265 ]
   %357 = load ptr, ptr @XLogRecoveryCtl, align 8
   %358 = getelementptr inbounds i8, ptr %357, i64 80
   %359 = load volatile i32, ptr %358, align 8
@@ -3598,8 +3598,8 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   br label %169
 
 169:                                              ; preds = %165, %162, %158, %155
-  %.025.i = phi i32 [ %157, %155 ], [ %161, %158 ], [ %164, %162 ], [ %168, %165 ]
-  %.024.i = phi i1 [ true, %155 ], [ true, %158 ], [ false, %162 ], [ false, %165 ]
+  %.025.i = phi i1 [ true, %155 ], [ true, %158 ], [ false, %162 ], [ false, %165 ]
+  %.024.i = phi i32 [ %157, %155 ], [ %161, %158 ], [ %164, %162 ], [ %168, %165 ]
   %170 = load i32, ptr @recoveryTarget, align 4
   %171 = icmp eq i32 %170, 1
   br i1 %171, label %172, label %178
@@ -3611,7 +3611,7 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
 
 175:                                              ; preds = %172
   %176 = load i32, ptr @recoveryTargetXid, align 4
-  %177 = icmp eq i32 %.025.i, %176
+  %177 = icmp eq i32 %.024.i, %176
   br label %178
 
 178:                                              ; preds = %175, %172, %169
@@ -3671,12 +3671,12 @@ getRecordTimestamp.exit.i:                        ; preds = %188, %188, %188, %1
 203:                                              ; preds = %202, %201, %199, %getRecordTimestamp.exit.thread.i
   %.0303435.i = phi i64 [ %193, %199 ], [ %193, %202 ], [ %193, %201 ], [ 0, %getRecordTimestamp.exit.thread.i ]
   store i1 false, ptr @recoveryStopAfter, align 1
-  store i32 %.025.i, ptr @recoveryStopXid, align 4
+  store i32 %.024.i, ptr @recoveryStopXid, align 4
   store i64 %.0303435.i, ptr @recoveryStopTime, align 8
   store i64 0, ptr @recoveryStopLSN, align 8
   store i8 0, ptr @recoveryStopName, align 16
   %204 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
-  br i1 %.024.i, label %205, label %211
+  br i1 %.025.i, label %205, label %211
 
 205:                                              ; preds = %203
   br i1 %204, label %206, label %recoveryStopsBefore.exit.thread

@@ -172,7 +172,7 @@ switch.lookup:                                    ; preds = %22
 40:                                               ; preds = %switch.lookup, %.critedge
   %indvars.iv = phi i64 [ 27, %switch.lookup ], [ %indvars.iv.next, %.critedge ]
   %.sroa.01.064 = phi i8 [ undef, %switch.lookup ], [ %.sroa.01.1, %.critedge ]
-  %.04062 = phi i64 [ %35, %switch.lookup ], [ %.1, %.critedge ]
+  %.03962 = phi i64 [ %35, %switch.lookup ], [ %.1, %.critedge ]
   br i1 %.not17.i, label %_ZN6insn_t12zcmp_regmaskEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.i
@@ -200,7 +200,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %40
   br i1 %.not, label %.critedge, label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_regmaskEv.exit
-  %52 = add i64 %.04062, -4
+  %52 = add i64 %.03962, -4
   %53 = load ptr, ptr %37, align 8
   %54 = getelementptr inbounds [32 x i64], ptr %33, i64 0, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8
@@ -212,7 +212,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_re
   %61 = getelementptr inbounds [256 x i64], ptr %60, i64 0, i64 %59
   %62 = load i64, ptr %61, align 8
   %63 = icmp eq i64 %62, %58
-  %64 = and i64 %.04062, 3
+  %64 = and i64 %.03962, 3
   %65 = icmp eq i64 %64, 0
   %66 = select i1 %65, i1 %63, i1 false
   br i1 %66, label %67, label %_ZNK13xlate_flags_t17is_special_accessEv.exit.thread
@@ -273,7 +273,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %_ZNK13xlate_fla
   br label %.critedge
 
 .critedge:                                        ; preds = %92, %85, %_ZN6insn_t12zcmp_regmaskEv.exit, %72, %75
-  %.1 = phi i64 [ %52, %75 ], [ %52, %72 ], [ %.04062, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %52, %85 ], [ %52, %92 ]
+  %.1 = phi i64 [ %52, %75 ], [ %52, %72 ], [ %.03962, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %52, %85 ], [ %52, %92 ]
   %.sroa.01.1 = phi i8 [ %57, %75 ], [ %57, %72 ], [ %.sroa.01.064, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %57, %85 ], [ %57, %92 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not66 = icmp eq i64 %indvars.iv, 0
@@ -385,7 +385,7 @@ switch.lookup:                                    ; preds = %22
 40:                                               ; preds = %switch.lookup, %.critedge
   %indvars.iv = phi i64 [ 27, %switch.lookup ], [ %indvars.iv.next, %.critedge ]
   %.sroa.01.064 = phi i8 [ undef, %switch.lookup ], [ %.sroa.01.1, %.critedge ]
-  %.04062 = phi i64 [ %35, %switch.lookup ], [ %.1, %.critedge ]
+  %.03962 = phi i64 [ %35, %switch.lookup ], [ %.1, %.critedge ]
   br i1 %.not17.i, label %_ZN6insn_t12zcmp_regmaskEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.i
@@ -413,7 +413,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %40
   br i1 %.not, label %.critedge, label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_regmaskEv.exit
-  %52 = add i64 %.04062, -8
+  %52 = add i64 %.03962, -8
   %53 = load ptr, ptr %37, align 8
   %54 = getelementptr inbounds [32 x i64], ptr %33, i64 0, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8
@@ -424,7 +424,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_re
   %60 = getelementptr inbounds [256 x i64], ptr %59, i64 0, i64 %58
   %61 = load i64, ptr %60, align 8
   %62 = icmp eq i64 %61, %57
-  %63 = and i64 %.04062, 7
+  %63 = and i64 %.03962, 7
   %64 = icmp eq i64 %63, 0
   %65 = select i1 %64, i1 %62, i1 false
   br i1 %65, label %66, label %_ZNK13xlate_flags_t17is_special_accessEv.exit.thread
@@ -484,7 +484,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %_ZNK13xlate_fla
   br label %.critedge
 
 .critedge:                                        ; preds = %90, %83, %_ZN6insn_t12zcmp_regmaskEv.exit, %71, %74
-  %.1 = phi i64 [ %52, %74 ], [ %52, %71 ], [ %.04062, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %52, %83 ], [ %52, %90 ]
+  %.1 = phi i64 [ %52, %74 ], [ %52, %71 ], [ %.03962, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %52, %83 ], [ %52, %90 ]
   %.sroa.01.1 = phi i8 [ %56, %74 ], [ %56, %71 ], [ %.sroa.01.064, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %56, %83 ], [ %56, %90 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not66 = icmp eq i64 %indvars.iv, 0
@@ -580,7 +580,7 @@ switch.lookup:                                    ; preds = %22
 40:                                               ; preds = %switch.lookup, %.critedge
   %indvars.iv = phi i64 [ 27, %switch.lookup ], [ %indvars.iv.next, %.critedge ]
   %.sroa.03.070 = phi i8 [ undef, %switch.lookup ], [ %.sroa.03.1, %.critedge ]
-  %.04468 = phi i64 [ %35, %switch.lookup ], [ %.1, %.critedge ]
+  %.04268 = phi i64 [ %35, %switch.lookup ], [ %.1, %.critedge ]
   br i1 %.not17.i, label %_ZN6insn_t12zcmp_regmaskEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.i
@@ -608,7 +608,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %40
   br i1 %.not, label %.critedge, label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_regmaskEv.exit
-  %52 = add i64 %.04468, -4
+  %52 = add i64 %.04268, -4
   %53 = load ptr, ptr %37, align 8
   %54 = getelementptr inbounds [32 x i64], ptr %33, i64 0, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8
@@ -620,7 +620,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_re
   %61 = getelementptr inbounds [256 x i64], ptr %60, i64 0, i64 %59
   %62 = load i64, ptr %61, align 8
   %63 = icmp eq i64 %62, %58
-  %64 = and i64 %.04468, 3
+  %64 = and i64 %.04268, 3
   %65 = icmp eq i64 %64, 0
   %66 = select i1 %65, i1 %63, i1 false
   br i1 %66, label %67, label %_ZNK13xlate_flags_t17is_special_accessEv.exit.thread
@@ -681,7 +681,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %_ZNK13xlate_fla
   br label %.critedge
 
 .critedge:                                        ; preds = %92, %85, %_ZN6insn_t12zcmp_regmaskEv.exit, %72, %75
-  %.1 = phi i64 [ %52, %75 ], [ %52, %72 ], [ %.04468, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %52, %85 ], [ %52, %92 ]
+  %.1 = phi i64 [ %52, %75 ], [ %52, %72 ], [ %.04268, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %52, %85 ], [ %52, %92 ]
   %.sroa.03.1 = phi i8 [ %57, %75 ], [ %57, %72 ], [ %.sroa.03.070, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %57, %85 ], [ %57, %92 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not73 = icmp eq i64 %indvars.iv, 0
@@ -835,7 +835,7 @@ switch.lookup:                                    ; preds = %22
 40:                                               ; preds = %switch.lookup, %.critedge
   %indvars.iv = phi i64 [ 27, %switch.lookup ], [ %indvars.iv.next, %.critedge ]
   %.sroa.03.070 = phi i8 [ undef, %switch.lookup ], [ %.sroa.03.1, %.critedge ]
-  %.04468 = phi i64 [ %35, %switch.lookup ], [ %.1, %.critedge ]
+  %.04268 = phi i64 [ %35, %switch.lookup ], [ %.1, %.critedge ]
   br i1 %.not17.i, label %_ZN6insn_t12zcmp_regmaskEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.i
@@ -863,7 +863,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %40
   br i1 %.not, label %.critedge, label %_ZNK13xlate_flags_t17is_special_accessEv.exit
 
 _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_regmaskEv.exit
-  %52 = add i64 %.04468, -8
+  %52 = add i64 %.04268, -8
   %53 = load ptr, ptr %37, align 8
   %54 = getelementptr inbounds [32 x i64], ptr %33, i64 0, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8
@@ -874,7 +874,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %_ZN6insn_t12zcmp_re
   %60 = getelementptr inbounds [256 x i64], ptr %59, i64 0, i64 %58
   %61 = load i64, ptr %60, align 8
   %62 = icmp eq i64 %61, %57
-  %63 = and i64 %.04468, 7
+  %63 = and i64 %.04268, 7
   %64 = icmp eq i64 %63, 0
   %65 = select i1 %64, i1 %62, i1 false
   br i1 %65, label %66, label %_ZNK13xlate_flags_t17is_special_accessEv.exit.thread
@@ -934,7 +934,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %_ZNK13xlate_fla
   br label %.critedge
 
 .critedge:                                        ; preds = %90, %83, %_ZN6insn_t12zcmp_regmaskEv.exit, %71, %74
-  %.1 = phi i64 [ %52, %74 ], [ %52, %71 ], [ %.04468, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %52, %83 ], [ %52, %90 ]
+  %.1 = phi i64 [ %52, %74 ], [ %52, %71 ], [ %.04268, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %52, %83 ], [ %52, %90 ]
   %.sroa.03.1 = phi i8 [ %56, %74 ], [ %56, %71 ], [ %.sroa.03.070, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %56, %83 ], [ %56, %90 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not73 = icmp eq i64 %indvars.iv, 0
@@ -1086,7 +1086,7 @@ switch.lookup:                                    ; preds = %22
 40:                                               ; preds = %switch.lookup, %.critedge
   %indvars.iv = phi i64 [ 27, %switch.lookup ], [ %indvars.iv.next, %.critedge ]
   %.sroa.01.068 = phi i8 [ undef, %switch.lookup ], [ %.sroa.01.1, %.critedge ]
-  %.04466 = phi i64 [ %35, %switch.lookup ], [ %.1, %.critedge ]
+  %.04266 = phi i64 [ %35, %switch.lookup ], [ %.1, %.critedge ]
   br i1 %.not17.i, label %_ZN6insn_t12zcmp_regmaskEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.i
@@ -1114,7 +1114,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %40
   br i1 %.not, label %.critedge, label %52
 
 52:                                               ; preds = %_ZN6insn_t12zcmp_regmaskEv.exit
-  %53 = add i64 %.04466, -4
+  %53 = add i64 %.04266, -4
   %54 = load ptr, ptr %37, align 8
   %55 = icmp ugt i64 %indvars.iv, 15
   br i1 %55, label %56, label %_ZNK13xlate_flags_t17is_special_accessEv.exit
@@ -1142,7 +1142,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %52
   %68 = getelementptr inbounds [256 x i64], ptr %67, i64 0, i64 %66
   %69 = load i64, ptr %68, align 8
   %70 = icmp eq i64 %69, %65
-  %71 = and i64 %.04466, 3
+  %71 = and i64 %.04266, 3
   %72 = icmp eq i64 %71, 0
   %73 = select i1 %72, i1 %70, i1 false
   br i1 %73, label %74, label %_ZNK13xlate_flags_t17is_special_accessEv.exit.thread
@@ -1203,7 +1203,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %_ZNK13xlate_fla
   br label %.critedge
 
 .critedge:                                        ; preds = %99, %92, %_ZN6insn_t12zcmp_regmaskEv.exit, %79, %82
-  %.1 = phi i64 [ %53, %82 ], [ %53, %79 ], [ %.04466, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %53, %92 ], [ %53, %99 ]
+  %.1 = phi i64 [ %53, %82 ], [ %53, %79 ], [ %.04266, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %53, %92 ], [ %53, %99 ]
   %.sroa.01.1 = phi i8 [ %64, %82 ], [ %64, %79 ], [ %.sroa.01.068, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %64, %92 ], [ %64, %99 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not70 = icmp eq i64 %indvars.iv, 0
@@ -1301,7 +1301,7 @@ switch.lookup:                                    ; preds = %22
 40:                                               ; preds = %switch.lookup, %.critedge
   %indvars.iv = phi i64 [ 27, %switch.lookup ], [ %indvars.iv.next, %.critedge ]
   %.sroa.01.068 = phi i8 [ undef, %switch.lookup ], [ %.sroa.01.1, %.critedge ]
-  %.04466 = phi i64 [ %35, %switch.lookup ], [ %.1, %.critedge ]
+  %.04266 = phi i64 [ %35, %switch.lookup ], [ %.1, %.critedge ]
   br i1 %.not17.i, label %_ZN6insn_t12zcmp_regmaskEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.i
@@ -1329,7 +1329,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %40
   br i1 %.not, label %.critedge, label %52
 
 52:                                               ; preds = %_ZN6insn_t12zcmp_regmaskEv.exit
-  %53 = add i64 %.04466, -8
+  %53 = add i64 %.04266, -8
   %54 = load ptr, ptr %37, align 8
   %55 = icmp ugt i64 %indvars.iv, 15
   br i1 %55, label %56, label %_ZNK13xlate_flags_t17is_special_accessEv.exit
@@ -1356,7 +1356,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %52
   %67 = getelementptr inbounds [256 x i64], ptr %66, i64 0, i64 %65
   %68 = load i64, ptr %67, align 8
   %69 = icmp eq i64 %68, %64
-  %70 = and i64 %.04466, 7
+  %70 = and i64 %.04266, 7
   %71 = icmp eq i64 %70, 0
   %72 = select i1 %71, i1 %69, i1 false
   br i1 %72, label %73, label %_ZNK13xlate_flags_t17is_special_accessEv.exit.thread
@@ -1416,7 +1416,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %_ZNK13xlate_fla
   br label %.critedge
 
 .critedge:                                        ; preds = %97, %90, %_ZN6insn_t12zcmp_regmaskEv.exit, %78, %81
-  %.1 = phi i64 [ %53, %81 ], [ %53, %78 ], [ %.04466, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %53, %90 ], [ %53, %97 ]
+  %.1 = phi i64 [ %53, %81 ], [ %53, %78 ], [ %.04266, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %53, %90 ], [ %53, %97 ]
   %.sroa.01.1 = phi i8 [ %63, %81 ], [ %63, %78 ], [ %.sroa.01.068, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %63, %90 ], [ %63, %97 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not70 = icmp eq i64 %indvars.iv, 0
@@ -1512,7 +1512,7 @@ switch.lookup:                                    ; preds = %22
 40:                                               ; preds = %switch.lookup, %.critedge
   %indvars.iv = phi i64 [ 27, %switch.lookup ], [ %indvars.iv.next, %.critedge ]
   %.sroa.03.074 = phi i8 [ undef, %switch.lookup ], [ %.sroa.03.1, %.critedge ]
-  %.04772 = phi i64 [ %35, %switch.lookup ], [ %.1, %.critedge ]
+  %.04572 = phi i64 [ %35, %switch.lookup ], [ %.1, %.critedge ]
   br i1 %.not17.i, label %_ZN6insn_t12zcmp_regmaskEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.i
@@ -1540,7 +1540,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %40
   br i1 %.not, label %.critedge, label %52
 
 52:                                               ; preds = %_ZN6insn_t12zcmp_regmaskEv.exit
-  %53 = add i64 %.04772, -4
+  %53 = add i64 %.04572, -4
   %54 = load ptr, ptr %37, align 8
   %55 = icmp ugt i64 %indvars.iv, 15
   br i1 %55, label %56, label %_ZNK13xlate_flags_t17is_special_accessEv.exit
@@ -1568,7 +1568,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %52
   %68 = getelementptr inbounds [256 x i64], ptr %67, i64 0, i64 %66
   %69 = load i64, ptr %68, align 8
   %70 = icmp eq i64 %69, %65
-  %71 = and i64 %.04772, 3
+  %71 = and i64 %.04572, 3
   %72 = icmp eq i64 %71, 0
   %73 = select i1 %72, i1 %70, i1 false
   br i1 %73, label %74, label %_ZNK13xlate_flags_t17is_special_accessEv.exit.thread
@@ -1629,7 +1629,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %_ZNK13xlate_fla
   br label %.critedge
 
 .critedge:                                        ; preds = %99, %92, %_ZN6insn_t12zcmp_regmaskEv.exit, %79, %82
-  %.1 = phi i64 [ %53, %82 ], [ %53, %79 ], [ %.04772, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %53, %92 ], [ %53, %99 ]
+  %.1 = phi i64 [ %53, %82 ], [ %53, %79 ], [ %.04572, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %53, %92 ], [ %53, %99 ]
   %.sroa.03.1 = phi i8 [ %64, %82 ], [ %64, %79 ], [ %.sroa.03.074, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %64, %92 ], [ %64, %99 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not77 = icmp eq i64 %indvars.iv, 0
@@ -1783,7 +1783,7 @@ switch.lookup:                                    ; preds = %22
 40:                                               ; preds = %switch.lookup, %.critedge
   %indvars.iv = phi i64 [ 27, %switch.lookup ], [ %indvars.iv.next, %.critedge ]
   %.sroa.03.074 = phi i8 [ undef, %switch.lookup ], [ %.sroa.03.1, %.critedge ]
-  %.04772 = phi i64 [ %35, %switch.lookup ], [ %.1, %.critedge ]
+  %.04572 = phi i64 [ %35, %switch.lookup ], [ %.1, %.critedge ]
   br i1 %.not17.i, label %_ZN6insn_t12zcmp_regmaskEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.i
@@ -1811,7 +1811,7 @@ _ZN6insn_t12zcmp_regmaskEv.exit:                  ; preds = %.lr.ph.i, %40
   br i1 %.not, label %.critedge, label %52
 
 52:                                               ; preds = %_ZN6insn_t12zcmp_regmaskEv.exit
-  %53 = add i64 %.04772, -8
+  %53 = add i64 %.04572, -8
   %54 = load ptr, ptr %37, align 8
   %55 = icmp ugt i64 %indvars.iv, 15
   br i1 %55, label %56, label %_ZNK13xlate_flags_t17is_special_accessEv.exit
@@ -1838,7 +1838,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit:    ; preds = %52
   %67 = getelementptr inbounds [256 x i64], ptr %66, i64 0, i64 %65
   %68 = load i64, ptr %67, align 8
   %69 = icmp eq i64 %68, %64
-  %70 = and i64 %.04772, 7
+  %70 = and i64 %.04572, 7
   %71 = icmp eq i64 %70, 0
   %72 = select i1 %71, i1 %69, i1 false
   br i1 %72, label %73, label %_ZNK13xlate_flags_t17is_special_accessEv.exit.thread
@@ -1898,7 +1898,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.thread: ; preds = %_ZNK13xlate_fla
   br label %.critedge
 
 .critedge:                                        ; preds = %97, %90, %_ZN6insn_t12zcmp_regmaskEv.exit, %78, %81
-  %.1 = phi i64 [ %53, %81 ], [ %53, %78 ], [ %.04772, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %53, %90 ], [ %53, %97 ]
+  %.1 = phi i64 [ %53, %81 ], [ %53, %78 ], [ %.04572, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %53, %90 ], [ %53, %97 ]
   %.sroa.03.1 = phi i8 [ %63, %81 ], [ %63, %78 ], [ %.sroa.03.074, %_ZN6insn_t12zcmp_regmaskEv.exit ], [ %63, %90 ], [ %63, %97 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not77 = icmp eq i64 %indvars.iv, 0

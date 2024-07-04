@@ -657,14 +657,14 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers9IcuReg
 
 37:                                               ; preds = %31, %52
   %38 = phi ptr [ %19, %31 ], [ %53, %52 ]
-  %.02335 = phi i64 [ 0, %31 ], [ %54, %52 ]
-  %39 = getelementptr inbounds [6 x ptr], ptr %12, i64 0, i64 %.02335
+  %.035 = phi i64 [ 0, %31 ], [ %54, %52 ]
+  %39 = getelementptr inbounds [6 x ptr], ptr %12, i64 0, i64 %.035
   %40 = load ptr, ptr %39, align 8
   %.not30 = icmp eq ptr %40, null
   br i1 %.not30, label %52, label %41
 
 41:                                               ; preds = %37
-  %42 = trunc nuw i64 %.02335 to i32
+  %42 = trunc nuw i64 %.035 to i32
   %43 = add nuw nsw i32 %42, 1
   %44 = invoke noundef i32 @_ZNK6icu_7012RegexMatcher10groupCountEv(ptr noundef nonnull align 8 dereferenceable(336) %38)
           to label %45 unwind label %.loopexit
@@ -698,7 +698,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7
 
 52:                                               ; preds = %37, %_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE.exit
   %53 = phi ptr [ %38, %37 ], [ %47, %_ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7013UnicodeStringE.exit ]
-  %54 = add nuw nsw i64 %.02335, 1
+  %54 = add nuw nsw i64 %.035, 1
   %exitcond.not = icmp eq i64 %54, 6
   br i1 %exitcond.not, label %55, label %37, !llvm.loop !14
 
@@ -714,7 +714,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7
   br label %.loopexit34
 
 .loopexit34:                                      ; preds = %45, %27, %57
-  %.0 = phi i1 [ %60, %57 ], [ false, %27 ], [ false, %45 ]
+  %.025 = phi i1 [ %60, %57 ], [ false, %27 ], [ false, %45 ]
   %61 = load ptr, ptr %11, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit, label %63
@@ -730,7 +730,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7
   resume { ptr, i32 } %.pn
 
 _ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit: ; preds = %63, %.loopexit34, %9
-  %.1 = phi i1 [ false, %9 ], [ %.0, %.loopexit34 ], [ %.0, %63 ]
+  %.1 = phi i1 [ false, %9 ], [ %.025, %.loopexit34 ], [ %.025, %63 ]
   ret i1 %.1
 }
 

@@ -5496,8 +5496,8 @@ if.else.i.i.i:                                    ; preds = %if.end.i.i.i
   br label %if.end21.i.i.i
 
 if.end21.i.i.i:                                   ; preds = %if.else.i.i.i, %if.then12.i.i.i
-  %r.0.i.i.i = phi float [ %19, %if.then12.i.i.i ], [ %20, %if.else.i.i.i ]
   %theta.0.i.i.i = phi float [ %mul.i.i.i6, %if.then12.i.i.i ], [ %sub.i.i.i, %if.else.i.i.i ]
+  %r.0.i.i.i = phi float [ %19, %if.then12.i.i.i ], [ %20, %if.else.i.i.i ]
   %call.i.i.i.i = tail call noundef float @cosf(float noundef %theta.0.i.i.i) #20, !noalias !82
   %call.i19.i.i.i = tail call noundef float @sinf(float noundef %theta.0.i.i.i) #20, !noalias !82
   %mul.i.i22.i.i.i = fmul float %r.0.i.i.i, %call.i.i.i.i

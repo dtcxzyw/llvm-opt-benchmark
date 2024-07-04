@@ -458,23 +458,23 @@ for.body.lr.ph:                                   ; preds = %if.end16
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %rp.093 = phi ptr [ %4, %for.body.lr.ph ], [ %incdec.ptr, %for.body ]
-  %carry.092 = phi i64 [ 0, %for.body.lr.ph ], [ %and39, %for.body ]
-  %i.091 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %i.092 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %carry.091 = phi i64 [ 0, %for.body.lr.ph ], [ %and39, %for.body ]
   %7 = load i64, ptr %rp.093, align 8
   %mul23 = mul i64 %7, %6
   %call24 = tail call i64 @bn_mul_add_words(ptr noundef nonnull %rp.093, ptr noundef %3, i32 noundef %0, i64 noundef %mul23) #5
-  %add = add i64 %call24, %carry.092
+  %add = add i64 %call24, %carry.091
   %arrayidx26 = getelementptr inbounds i64, ptr %rp.093, i64 %idxprom25
   %8 = load i64, ptr %arrayidx26, align 8
   %add27 = add i64 %add, %8
   %cmp31 = icmp ne i64 %add, 0
   %cmp36.not = icmp ule i64 %add27, %8
-  %carry.0.tr = trunc nuw i64 %carry.092 to i1
+  %carry.0.tr = trunc nuw i64 %carry.091 to i1
   %or.narrow = or i1 %cmp31, %carry.0.tr
   %narrow = select i1 %cmp36.not, i1 %or.narrow, i1 false
   %and39 = zext i1 %narrow to i64
   store i64 %add27, ptr %arrayidx26, align 8
-  %inc = add nuw nsw i32 %i.091, 1
+  %inc = add nuw nsw i32 %i.092, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %rp.093, i64 8
   %exitcond.not = icmp eq i32 %inc, %0
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7

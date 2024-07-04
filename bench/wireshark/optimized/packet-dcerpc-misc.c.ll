@@ -94,46 +94,46 @@ define hidden i32 @misc_dissect_struct_GUID(ptr noundef %0, i32 noundef %1, ptr 
   %or.cond = or i1 %.not50, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.048 = select i1 %or.cond, i32 %1, i32 %13
   %.not51 = icmp eq ptr %3, null
   br i1 %.not51, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #2
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.048, i32 noundef -1, i32 noundef 0) #2
   %16 = load i32, ptr @ett_misc_GUID, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #2
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.048 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.047 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.047 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_misc_GUID_time_low, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #2
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.048, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #2
   %21 = load i32, ptr @hf_misc_GUID_time_mid, align 4
-  %22 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #2
+  %22 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #2
   %23 = load i32, ptr @hf_misc_GUID_time_hi_and_version, align 4
-  %24 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #2
+  %24 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #2
   br label %25
 
 25:                                               ; preds = %25, %18
   %26 = phi i1 [ true, %18 ], [ false, %25 ]
   %.089.i = phi i32 [ %24, %18 ], [ %28, %25 ]
   %27 = load i32, ptr @hf_misc_GUID_clock_seq, align 4
-  %28 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.047, ptr noundef %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #2
+  %28 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #2
   br i1 %26, label %25, label %misc_dissect_element_GUID_clock_seq.exit, !llvm.loop !4
 
 misc_dissect_element_GUID_clock_seq.exit:         ; preds = %25, %misc_dissect_element_GUID_clock_seq.exit
   %.010.i = phi i32 [ %31, %misc_dissect_element_GUID_clock_seq.exit ], [ 0, %25 ]
   %.089.i56 = phi i32 [ %30, %misc_dissect_element_GUID_clock_seq.exit ], [ %28, %25 ]
   %29 = load i32, ptr @hf_misc_GUID_node, align 4
-  %30 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i56, ptr noundef %2, ptr noundef %.047, ptr noundef %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #2
+  %30 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i56, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #2
   %31 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %31, 6
   br i1 %exitcond.not.i, label %misc_dissect_element_GUID_node.exit, label %misc_dissect_element_GUID_clock_seq.exit, !llvm.loop !6
 
 misc_dissect_element_GUID_node.exit:              ; preds = %misc_dissect_element_GUID_clock_seq.exit
-  %32 = sub i32 %30, %.0
-  tail call void @proto_item_set_len(ptr noundef %.048, i32 noundef %32) #2
+  %32 = sub i32 %30, %.048
+  tail call void @proto_item_set_len(ptr noundef %.047, i32 noundef %32) #2
   %33 = getelementptr inbounds i8, ptr %4, i64 72
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 96
@@ -176,25 +176,25 @@ define hidden i32 @misc_dissect_struct_ndr_syntax_id(ptr noundef %0, i32 noundef
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #2
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #2
   %16 = load i32, ptr @ett_misc_ndr_syntax_id, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #2
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_misc_ndr_syntax_id_uuid, align 4
-  %20 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #2
+  %20 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #2
   %21 = load i32, ptr @hf_misc_ndr_syntax_id_if_version, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #2
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #2
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #2
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #2
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -231,25 +231,25 @@ define hidden i32 @misc_dissect_struct_policy_handle(ptr noundef %0, i32 noundef
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #2
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #2
   %16 = load i32, ptr @ett_misc_policy_handle, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #2
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_misc_policy_handle_handle_type, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #2
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #2
   %21 = load i32, ptr @hf_misc_policy_handle_uuid, align 4
-  %22 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #2
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #2
+  %22 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #2
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #2
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -312,27 +312,27 @@ define hidden i32 @misc_dissect_struct_KRB5_EDATA_NTSTATUS(ptr noundef %0, i32 n
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.036 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #2
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #2
   %16 = load i32, ptr @ett_misc_KRB5_EDATA_NTSTATUS, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #2
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_misc_KRB5_EDATA_NTSTATUS_ntstatus, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #2
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #2
   %21 = load i32, ptr @hf_misc_KRB5_EDATA_NTSTATUS_unknown1, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #2
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #2
   %23 = load i32, ptr @hf_misc_KRB5_EDATA_NTSTATUS_unknown2, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #2
-  %25 = sub i32 %24, %.0
-  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #2
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #2
+  %25 = sub i32 %24, %.036
+  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %25) #2
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 96

@@ -1984,7 +1984,7 @@ if.else:                                          ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end12
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end12 ]
-  %val.079 = phi i32 [ %val_in, %for.body.lr.ph ], [ %shr, %if.end12 ]
+  %val.080 = phi i32 [ %val_in, %for.body.lr.ph ], [ %shr, %if.end12 ]
   %4 = load ptr, ptr %wmask3, align 8
   %5 = trunc nuw nsw i64 %indvars.iv to i32
   %add4 = add i32 %5, %addr
@@ -2010,19 +2010,19 @@ if.end12:                                         ; preds = %for.body
   %conv16 = zext i8 %10 to i32
   %not = xor i32 %conv, -1
   %and18 = and i32 %conv16, %not
-  %and20 = and i32 %val.079, %conv
+  %and20 = and i32 %val.080, %conv
   %or = or i32 %and18, %and20
   %conv21 = trunc nuw i32 %or to i8
   store i8 %conv21, ptr %arrayidx15, align 1
   %11 = load ptr, ptr %0, align 8
   %arrayidx32 = getelementptr i8, ptr %11, i64 %idxprom
   %12 = load i8, ptr %arrayidx32, align 1
-  %13 = trunc i32 %val.079 to i8
+  %13 = trunc i32 %val.080 to i8
   %14 = and i8 %8, %13
   %15 = xor i8 %14, -1
   %conv35 = and i8 %12, %15
   store i8 %conv35, ptr %arrayidx32, align 1
-  %shr = lshr i32 %val.079, 8
+  %shr = lshr i32 %val.080, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
@@ -3636,16 +3636,16 @@ entry:
   br i1 %tobool.not23, label %while.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry, %if.end17
-  %bus.026 = phi ptr [ %bus.1, %if.end17 ], [ %call.i1.i, %entry ]
-  %devfn.025 = phi i8 [ %devfn.1, %if.end17 ], [ %conv, %entry ]
-  %iommu_bus.024 = phi ptr [ %call.i1.i19, %if.end17 ], [ %call.i1.i, %entry ]
-  %iommu_ops = getelementptr inbounds i8, ptr %iommu_bus.024, i64 128
+  %devfn.026 = phi i8 [ %devfn.1, %if.end17 ], [ %conv, %entry ]
+  %iommu_bus.025 = phi ptr [ %call.i1.i19, %if.end17 ], [ %call.i1.i, %entry ]
+  %bus.024 = phi ptr [ %bus.1, %if.end17 ], [ %call.i1.i, %entry ]
+  %iommu_ops = getelementptr inbounds i8, ptr %iommu_bus.025, i64 128
   %1 = load ptr, ptr %iommu_ops, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %land.rhs, label %while.end
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %parent_dev = getelementptr inbounds i8, ptr %iommu_bus.024, i64 2232
+  %parent_dev = getelementptr inbounds i8, ptr %iommu_bus.025, i64 2232
   %2 = load ptr, ptr %parent_dev, align 8
   %tobool3.not = icmp eq ptr %2, null
   br i1 %tobool3.not, label %while.end, label %while.body
@@ -3654,7 +3654,7 @@ while.body:                                       ; preds = %land.rhs
   %call.i.i17 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %2, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call1.i18 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i17) #23
   %call.i1.i19 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i18, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
-  %call.i = tail call ptr @object_dynamic_cast(ptr noundef nonnull %iommu_bus.024, ptr noundef nonnull @.str.6) #23
+  %call.i = tail call ptr @object_dynamic_cast(ptr noundef nonnull %iommu_bus.025, ptr noundef nonnull @.str.6) #23
   %tobool.i.not = icmp eq ptr %call.i, null
   br i1 %tobool.i.not, label %if.then, label %if.end17
 
@@ -3678,15 +3678,15 @@ if.else:                                          ; preds = %land.lhs.true10, %i
   br label %if.end17
 
 if.end17:                                         ; preds = %land.lhs.true10, %if.else, %while.body
-  %devfn.1 = phi i8 [ %devfn.025, %while.body ], [ %conv16, %if.else ], [ 0, %land.lhs.true10 ]
-  %bus.1 = phi ptr [ %bus.026, %while.body ], [ %call.i1.i19, %if.else ], [ %iommu_bus.024, %land.lhs.true10 ]
+  %bus.1 = phi ptr [ %bus.024, %while.body ], [ %call.i1.i19, %if.else ], [ %iommu_bus.025, %land.lhs.true10 ]
+  %devfn.1 = phi i8 [ %devfn.026, %while.body ], [ %conv16, %if.else ], [ 0, %land.lhs.true10 ]
   %tobool.not = icmp eq ptr %call.i1.i19, null
   br i1 %tobool.not, label %while.end, label %land.lhs.true, !llvm.loop !27
 
 while.end:                                        ; preds = %land.rhs, %if.end17, %land.lhs.true, %entry
-  %iommu_bus.0.lcssa = phi ptr [ null, %entry ], [ %iommu_bus.024, %land.lhs.true ], [ null, %if.end17 ], [ %iommu_bus.024, %land.rhs ]
-  %devfn.0.lcssa = phi i8 [ %conv, %entry ], [ %devfn.025, %land.lhs.true ], [ %devfn.1, %if.end17 ], [ %devfn.025, %land.rhs ]
-  %bus.0.lcssa = phi ptr [ null, %entry ], [ %bus.026, %land.lhs.true ], [ %bus.1, %if.end17 ], [ %bus.026, %land.rhs ]
+  %bus.0.lcssa = phi ptr [ null, %entry ], [ %bus.024, %land.lhs.true ], [ %bus.1, %if.end17 ], [ %bus.024, %land.rhs ]
+  %iommu_bus.0.lcssa = phi ptr [ null, %entry ], [ %iommu_bus.025, %land.lhs.true ], [ null, %if.end17 ], [ %iommu_bus.025, %land.rhs ]
+  %devfn.0.lcssa = phi i8 [ %conv, %entry ], [ %devfn.026, %land.lhs.true ], [ %devfn.1, %if.end17 ], [ %devfn.026, %land.rhs ]
   %6 = getelementptr i8, ptr %bus.0.lcssa, i64 120
   %bus.val.i = load i32, ptr %6, align 8
   %and.i.i = and i32 %bus.val.i, 1
@@ -4553,9 +4553,9 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %tobool.not23, label %for.end22, label %for.body10
 
 for.body10:                                       ; preds = %for.end, %if.end
-  %t.128 = phi ptr [ %3, %if.end ], [ %dev, %for.end ]
-  %p.027 = phi ptr [ %add.ptr12, %if.end ], [ %arrayidx, %for.end ]
-  %devfn = getelementptr inbounds i8, ptr %t.128, i64 208
+  %p.028 = phi ptr [ %add.ptr12, %if.end ], [ %arrayidx, %for.end ]
+  %t.127 = phi ptr [ %3, %if.end ], [ %dev, %for.end ]
+  %devfn = getelementptr inbounds i8, ptr %t.127, i64 208
   %2 = load i32, ptr %devfn, align 16
   %shr = lshr i32 %2, 3
   %and = and i32 %shr, 31
@@ -4569,9 +4569,9 @@ if.else:                                          ; preds = %for.body10
   unreachable
 
 if.end:                                           ; preds = %for.body10
-  %add.ptr12 = getelementptr i8, ptr %p.027, i64 -5
+  %add.ptr12 = getelementptr i8, ptr %p.028, i64 -5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr12, ptr noundef nonnull align 1 dereferenceable(5) %slot, i64 5, i1 false)
-  %call.i.i20 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %t.128, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
+  %call.i.i20 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %t.127, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call1.i21 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i20) #23
   %call.i1.i22 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i21, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
   %parent_dev21 = getelementptr inbounds i8, ptr %call.i1.i22, i64 2232
@@ -5152,9 +5152,9 @@ if.end55.i:                                       ; preds = %if.end55.loopexit.i
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i.backedge, %if.end55.i
+  %retval.sroa.4.0.i.i = phi i32 [ 1, %if.end55.i ], [ %retval.sroa.4.0.i.i.be, %while.cond.i.i.backedge ]
   %retval.sroa.0.0.i.i = phi ptr [ %qdev, %if.end55.i ], [ %retval.sroa.0.0.i.i.be, %while.cond.i.i.backedge ]
   %dev.addr.0.i.i = phi ptr [ %qdev, %if.end55.i ], [ %29, %while.cond.i.i.backedge ]
-  %retval.sroa.4.0.i.i = phi i32 [ 1, %if.end55.i ], [ %retval.sroa.4.0.i.i.be, %while.cond.i.i.backedge ]
   %call.i.i.i112.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %dev.addr.0.i.i, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.52, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #23
   %call1.i.i113.i = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i.i.i112.i) #23
   %call.i1.i.i114.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call1.i.i113.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS) #23
@@ -5179,13 +5179,13 @@ while.body.i.i:                                   ; preds = %while.cond.i.i
 if.then.i.i:                                      ; preds = %while.body.i.i
   %call5.i.i = tail call zeroext i8 @pcie_cap_get_type(ptr noundef nonnull %29) #23
   %cmp.i116.i = icmp eq i8 %call5.i.i, 7
-  %spec.select.i.i = select i1 %cmp.i116.i, ptr %dev.addr.0.i.i, ptr %retval.sroa.0.0.i.i
-  %spec.select7.i.i = select i1 %cmp.i116.i, i32 2, i32 %retval.sroa.4.0.i.i
+  %spec.select.i.i = select i1 %cmp.i116.i, i32 2, i32 %retval.sroa.4.0.i.i
+  %spec.select7.i.i = select i1 %cmp.i116.i, ptr %dev.addr.0.i.i, ptr %retval.sroa.0.0.i.i
   br label %while.cond.i.i.backedge
 
 while.cond.i.i.backedge:                          ; preds = %if.then.i.i, %while.body.i.i
-  %retval.sroa.0.0.i.i.be = phi ptr [ %spec.select.i.i, %if.then.i.i ], [ %29, %while.body.i.i ]
-  %retval.sroa.4.0.i.i.be = phi i32 [ %spec.select7.i.i, %if.then.i.i ], [ 1, %while.body.i.i ]
+  %retval.sroa.4.0.i.i.be = phi i32 [ %spec.select.i.i, %if.then.i.i ], [ 1, %while.body.i.i ]
+  %retval.sroa.0.0.i.i.be = phi ptr [ %spec.select7.i.i, %if.then.i.i ], [ %29, %while.body.i.i ]
   br label %while.cond.i.i, !llvm.loop !40
 
 pci_req_id_cache_get.exit.i:                      ; preds = %while.cond.i.i

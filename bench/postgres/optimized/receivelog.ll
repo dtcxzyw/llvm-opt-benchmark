@@ -674,8 +674,8 @@ CopyStreamReceive.exit.thread113:                 ; preds = %276
   br label %thread-pre-split.i
 
 279:                                              ; preds = %276, %ProcessKeepaliveMsg.exit.thread.i
-  %.018.i = phi i32 [ %277, %276 ], [ %229, %ProcessKeepaliveMsg.exit.thread.i ]
-  switch i32 %.018.i, label %281 [
+  %.0.i93 = phi i32 [ %277, %276 ], [ %229, %ProcessKeepaliveMsg.exit.thread.i ]
+  switch i32 %.0.i93, label %281 [
     i32 -1, label %CopyStreamReceive.exit.thread117
     i32 -2, label %CopyStreamReceive.exit.thread
   ]
@@ -699,9 +699,9 @@ CopyStreamReceive.exit.thread:                    ; preds = %279, %273
 
 CopyStreamReceive.exit:                           ; preds = %CopyStreamPoll.exit.thread.i, %281
   %.2106 = phi ptr [ null, %CopyStreamPoll.exit.thread.i ], [ %282, %281 ]
-  %.0.i93 = phi i32 [ %.0.i.ph.i, %CopyStreamPoll.exit.thread.i ], [ %.018.i, %281 ]
+  %.018.i = phi i32 [ %.0.i.ph.i, %CopyStreamPoll.exit.thread.i ], [ %.0.i93, %281 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  switch i32 %.0.i93, label %301 [
+  switch i32 %.018.i, label %301 [
     i32 0, label %thread-pre-split.i
     i32 -1, label %HandleCopyStream.exit.thread
   ]
@@ -758,11 +758,11 @@ HandleEndOfCopyStream.exit.i:                     ; preds = %299, %CopyStreamRec
   ]
 
 303:                                              ; preds = %301
-  %304 = icmp slt i32 %.0.i93, 18
+  %304 = icmp slt i32 %.018.i, 18
   br i1 %304, label %305, label %306
 
 305:                                              ; preds = %303
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.41, i32 noundef %.0.i93) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.41, i32 noundef %.018.i) #11
   br label %HandleCopyStream.exit.thread
 
 306:                                              ; preds = %303
@@ -823,11 +823,11 @@ ProcessKeepaliveMsg.exit.thread.i.backedge:       ; preds = %332, %309, %306
   br label %ProcessKeepaliveMsg.exit.thread.i, !llvm.loop !5
 
 333:                                              ; preds = %332
-  %334 = icmp slt i32 %.0.i93, 25
+  %334 = icmp slt i32 %.018.i, 25
   br i1 %334, label %335, label %336
 
 335:                                              ; preds = %333
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.41, i32 noundef %.0.i93) #11
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.41, i32 noundef %.018.i) #11
   br label %HandleCopyStream.exit.thread
 
 336:                                              ; preds = %333
@@ -862,7 +862,7 @@ ProcessKeepaliveMsg.exit.thread.i.backedge:       ; preds = %332, %309, %306
   br label %HandleCopyStream.exit.thread
 
 353:                                              ; preds = %347, %345
-  %354 = add nsw i32 %.0.i93, -25
+  %354 = add nsw i32 %.018.i, -25
   %.not6092.i.i = icmp eq i32 %354, 0
   br i1 %.not6092.i.i, label %ProcessXLogDataMsg.exit.i, label %.lr.ph.i.i
 

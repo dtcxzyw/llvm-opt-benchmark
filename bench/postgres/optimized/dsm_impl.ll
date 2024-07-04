@@ -431,15 +431,15 @@ errcode_for_dynamic_shared_memory.exit.i34:       ; preds = %164, %162
   br label %168
 
 168:                                              ; preds = %167, %149
-  %.099.i = phi i32 [ %150, %149 ], [ %155, %167 ]
-  %.097.i = phi ptr [ %148, %149 ], [ %153, %167 ]
+  %.097.i = phi i32 [ %150, %149 ], [ %155, %167 ]
+  %.096.i = phi ptr [ %148, %149 ], [ %153, %167 ]
   %169 = icmp eq i32 %0, 3
   %170 = and i32 %0, -2
   %or.cond5.i22 = icmp eq i32 %170, 2
   br i1 %or.cond5.i22, label %171, label %193
 
 171:                                              ; preds = %168
-  call void @pfree(ptr noundef nonnull %.097.i) #11
+  call void @pfree(ptr noundef nonnull %.096.i) #11
   store ptr null, ptr %3, align 8
   %172 = load ptr, ptr %4, align 8
   %.not110.i = icmp eq ptr %172, null
@@ -481,7 +481,7 @@ errcode_for_dynamic_shared_memory.exit116.i:      ; preds = %182, %180
   br i1 %169, label %186, label %dsm_impl_sysv.exit
 
 186:                                              ; preds = %185
-  %187 = call i32 @shmctl(i32 noundef %.099.i, i32 noundef 0, ptr noundef null) #11
+  %187 = call i32 @shmctl(i32 noundef %.097.i, i32 noundef 0, ptr noundef null) #11
   %188 = icmp slt i32 %187, 0
   br i1 %188, label %189, label %dsm_impl_sysv.exit
 
@@ -500,7 +500,7 @@ errcode_for_dynamic_shared_memory.exit116.i:      ; preds = %182, %180
   br i1 %194, label %195, label %210
 
 195:                                              ; preds = %193
-  %196 = call i32 @shmctl(i32 noundef %.099.i, i32 noundef 2, ptr noundef nonnull %11) #11
+  %196 = call i32 @shmctl(i32 noundef %.097.i, i32 noundef 2, ptr noundef nonnull %11) #11
   %.not109.i = icmp eq i32 %196, 0
   br i1 %.not109.i, label %207, label %197
 
@@ -535,8 +535,8 @@ errcode_for_dynamic_shared_memory.exit118.i:      ; preds = %204, %202
   br label %210
 
 210:                                              ; preds = %207, %193
-  %.094.i = phi i64 [ %209, %207 ], [ %2, %193 ]
-  %211 = call ptr @shmat(i32 noundef %.099.i, ptr noundef null, i32 noundef 0) #11
+  %.099.i = phi i64 [ %209, %207 ], [ %2, %193 ]
+  %211 = call ptr @shmat(i32 noundef %.097.i, ptr noundef null, i32 noundef 0) #11
   %212 = icmp eq ptr %211, inttoptr (i64 -1 to ptr)
   br i1 %212, label %213, label %228
 
@@ -547,7 +547,7 @@ errcode_for_dynamic_shared_memory.exit118.i:      ; preds = %204, %202
   br i1 %216, label %217, label %219
 
 217:                                              ; preds = %213
-  %218 = call i32 @shmctl(i32 noundef %.099.i, i32 noundef 0, ptr noundef null) #11
+  %218 = call i32 @shmctl(i32 noundef %.097.i, i32 noundef 0, ptr noundef null) #11
   br label %219
 
 219:                                              ; preds = %217, %213
@@ -577,7 +577,7 @@ errcode_for_dynamic_shared_memory.exit120.i:      ; preds = %225, %223
 
 228:                                              ; preds = %210
   store ptr %211, ptr %4, align 8
-  store i64 %.094.i, ptr %5, align 8
+  store i64 %.099.i, ptr %5, align 8
   br label %dsm_impl_sysv.exit
 
 dsm_impl_sysv.exit:                               ; preds = %219, %errcode_for_dynamic_shared_memory.exit120.i, %197, %errcode_for_dynamic_shared_memory.exit118.i, %189, %191, %175, %errcode_for_dynamic_shared_memory.exit116.i, %._crit_edge.i, %errcode_for_dynamic_shared_memory.exit.i34, %157, %145, %185, %186, %228
@@ -751,17 +751,17 @@ errcode_for_dynamic_shared_memory.exit135.i:      ; preds = %293, %291
   br i1 %.not3.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %299, %.lr.ph.i
-  %.01161.i = phi i64 [ %.1117.i, %.lr.ph.i ], [ %2, %299 ]
-  %spec.store.select.i = call i64 @llvm.umin.i64(i64 %.01161.i, i64 8192)
+  %.01151.i = phi i64 [ %.1116.i, %.lr.ph.i ], [ %2, %299 ]
+  %spec.store.select.i = call i64 @llvm.umin.i64(i64 %.01151.i, i64 8192)
   %301 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772182, ptr %301, align 4
   %302 = call i64 @write(i32 noundef %264, ptr noundef %300, i64 noundef %spec.store.select.i) #11
   %303 = icmp eq i64 %302, %spec.store.select.i
   %304 = select i1 %303, i64 %spec.store.select.i, i64 0
-  %.1117.i = sub i64 %.01161.i, %304
+  %.1116.i = sub i64 %.01151.i, %304
   %305 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %305, align 4
-  %306 = icmp ne i64 %.1117.i, 0
+  %306 = icmp ne i64 %.1116.i, 0
   %307 = select i1 %303, i1 %306, i1 false
   br i1 %307, label %.lr.ph.i, label %._crit_edge.i36, !llvm.loop !7
 
@@ -799,8 +799,8 @@ errcode_for_dynamic_shared_memory.exit137.i:      ; preds = %319, %317
   br label %.sink.split.i.sink.split
 
 .critedge.i:                                      ; preds = %._crit_edge.i36, %299, %296
-  %.0114.i = phi i64 [ %298, %296 ], [ %2, %._crit_edge.i36 ], [ 0, %299 ]
-  %322 = call ptr @mmap(ptr noundef null, i64 noundef %.0114.i, i32 noundef 3, i32 noundef 1, i32 noundef %264, i64 noundef 0) #11
+  %.0117.i = phi i64 [ %298, %296 ], [ %2, %._crit_edge.i36 ], [ 0, %299 ]
+  %322 = call ptr @mmap(ptr noundef null, i64 noundef %.0117.i, i32 noundef 3, i32 noundef 1, i32 noundef %264, i64 noundef 0) #11
   %323 = icmp eq ptr %322, inttoptr (i64 -1 to ptr)
   br i1 %323, label %324, label %339
 
@@ -840,7 +840,7 @@ errcode_for_dynamic_shared_memory.exit139.i:      ; preds = %336, %334
 
 339:                                              ; preds = %.critedge.i
   store ptr %322, ptr %4, align 8
-  store i64 %.0114.i, ptr %5, align 8
+  store i64 %.0117.i, ptr %5, align 8
   %340 = call i32 @CloseTransientFile(i32 noundef %264) #11
   %.not125.i = icmp eq i32 %340, 0
   br i1 %.not125.i, label %dsm_impl_mmap.exit, label %341

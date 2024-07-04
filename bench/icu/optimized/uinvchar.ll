@@ -875,8 +875,8 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %2, label %while.body, label %while.cond3.preheader
 
 while.cond3.preheader:                            ; preds = %while.body, %if.end
-  %n.addr.1.lcssa = phi i32 [ %n.addr.0, %if.end ], [ %dec, %while.body ]
   %dst.addr.0.lcssa = phi ptr [ %dst, %if.end ], [ %incdec.ptr2, %while.body ]
+  %n.addr.1.lcssa = phi i32 [ %n.addr.0, %if.end ], [ %dec, %while.body ]
   %cmp415 = icmp sgt i32 %n.addr.1.lcssa, 0
   br i1 %cmp415, label %while.body5.preheader, label %while.end8
 
@@ -887,19 +887,19 @@ while.body5.preheader:                            ; preds = %while.cond3.prehead
 
 while.body:                                       ; preds = %if.end, %while.body
   %4 = phi i8 [ %6, %while.body ], [ %1, %if.end ]
-  %dst.addr.013 = phi ptr [ %incdec.ptr2, %while.body ], [ %dst, %if.end ]
-  %n.addr.112 = phi i32 [ %dec, %while.body ], [ %n.addr.0, %if.end ]
-  %src.addr.011 = phi ptr [ %incdec.ptr, %while.body ], [ %src, %if.end ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.011, i64 1
+  %n.addr.113 = phi i32 [ %dec, %while.body ], [ %n.addr.0, %if.end ]
+  %src.addr.012 = phi ptr [ %incdec.ptr, %while.body ], [ %src, %if.end ]
+  %dst.addr.011 = phi ptr [ %incdec.ptr2, %while.body ], [ %dst, %if.end ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.012, i64 1
   %idxprom = zext i8 %4 to i64
   %arrayidx = getelementptr inbounds [256 x i8], ptr @_ZL15asciiFromEbcdic, i64 0, i64 %idxprom
   %5 = load i8, ptr %arrayidx, align 1
-  %incdec.ptr2 = getelementptr inbounds i8, ptr %dst.addr.013, i64 1
-  store i8 %5, ptr %dst.addr.013, align 1
-  %dec = add nsw i32 %n.addr.112, -1
+  %incdec.ptr2 = getelementptr inbounds i8, ptr %dst.addr.011, i64 1
+  store i8 %5, ptr %dst.addr.011, align 1
+  %dec = add nsw i32 %n.addr.113, -1
   %6 = load i8, ptr %incdec.ptr, align 1
   %tobool = icmp ne i8 %6, 0
-  %cmp1 = icmp ugt i32 %n.addr.112, 1
+  %cmp1 = icmp ugt i32 %n.addr.113, 1
   %7 = select i1 %tobool, i1 %cmp1, i1 false
   br i1 %7, label %while.body, label %while.cond3.preheader, !llvm.loop !16
 
@@ -928,8 +928,8 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %2, label %while.body, label %while.cond7.preheader
 
 while.cond7.preheader:                            ; preds = %while.body, %if.end
-  %n.addr.1.lcssa = phi i32 [ %n.addr.0, %if.end ], [ %dec, %while.body ]
   %dst.addr.0.lcssa = phi ptr [ %dst, %if.end ], [ %incdec.ptr6, %while.body ]
+  %n.addr.1.lcssa = phi i32 [ %n.addr.0, %if.end ], [ %dec, %while.body ]
   %cmp816 = icmp sgt i32 %n.addr.1.lcssa, 0
   br i1 %cmp816, label %while.body9.preheader, label %while.end12
 
@@ -940,21 +940,21 @@ while.body9.preheader:                            ; preds = %while.cond7.prehead
 
 while.body:                                       ; preds = %if.end, %while.body
   %4 = phi i8 [ %6, %while.body ], [ %1, %if.end ]
-  %dst.addr.014 = phi ptr [ %incdec.ptr6, %while.body ], [ %dst, %if.end ]
-  %n.addr.113 = phi i32 [ %dec, %while.body ], [ %n.addr.0, %if.end ]
-  %src.addr.012 = phi ptr [ %incdec.ptr, %while.body ], [ %src, %if.end ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.012, i64 1
+  %n.addr.114 = phi i32 [ %dec, %while.body ], [ %n.addr.0, %if.end ]
+  %src.addr.013 = phi ptr [ %incdec.ptr, %while.body ], [ %src, %if.end ]
+  %dst.addr.012 = phi ptr [ %incdec.ptr6, %while.body ], [ %dst, %if.end ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.013, i64 1
   %idxprom = zext i8 %4 to i64
   %arrayidx = getelementptr inbounds [256 x i8], ptr @_ZL15ebcdicFromAscii, i64 0, i64 %idxprom
   %5 = load i8, ptr %arrayidx, align 1
   %cmp3 = icmp eq i8 %5, 0
   %spec.select = select i1 %cmp3, i8 111, i8 %5
-  %incdec.ptr6 = getelementptr inbounds i8, ptr %dst.addr.014, i64 1
-  store i8 %spec.select, ptr %dst.addr.014, align 1
-  %dec = add nsw i32 %n.addr.113, -1
+  %incdec.ptr6 = getelementptr inbounds i8, ptr %dst.addr.012, i64 1
+  store i8 %spec.select, ptr %dst.addr.012, align 1
+  %dec = add nsw i32 %n.addr.114, -1
   %6 = load i8, ptr %incdec.ptr, align 1
   %tobool = icmp ne i8 %6, 0
-  %cmp1 = icmp ugt i32 %n.addr.113, 1
+  %cmp1 = icmp ugt i32 %n.addr.114, 1
   %7 = select i1 %tobool, i1 %cmp1, i1 false
   br i1 %7, label %while.body, label %while.cond7.preheader, !llvm.loop !17
 

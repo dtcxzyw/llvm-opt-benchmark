@@ -67,7 +67,7 @@ define hidden void @VP8InitDithering(ptr noundef readonly %0, ptr noundef %1) lo
 
 14:                                               ; preds = %.preheader, %27
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %27 ]
-  %.02635 = phi i32 [ 0, %.preheader ], [ %29, %27 ]
+  %.036 = phi i32 [ 0, %.preheader ], [ %29, %27 ]
   %15 = getelementptr inbounds [4 x %struct.VP8QuantMatrix], ptr %13, i64 0, i64 %indvars.iv
   %16 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load i32, ptr %16, align 4
@@ -93,7 +93,7 @@ define hidden void @VP8InitDithering(ptr noundef readonly %0, ptr noundef %1) lo
 
 27:                                               ; preds = %._crit_edge, %19
   %28 = phi i32 [ %.pre, %._crit_edge ], [ %25, %19 ]
-  %29 = or i32 %28, %.02635
+  %29 = or i32 %28, %.036
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %30, label %14, !llvm.loop !4
@@ -434,7 +434,7 @@ define internal fastcc void @ReconstructRow(ptr nocapture noundef readonly %0, p
 
 96:                                               ; preds = %.thread169, %DoTransform.exit
   %indvars.iv204 = phi i64 [ 0, %.thread169 ], [ %indvars.iv.next205, %DoTransform.exit ]
-  %.0148183 = phi i32 [ %69, %.thread169 ], [ %114, %DoTransform.exit ]
+  %.0150182 = phi i32 [ %69, %.thread169 ], [ %114, %DoTransform.exit ]
   %97 = getelementptr inbounds [16 x i16], ptr @kScan, i64 0, i64 %indvars.iv204
   %98 = load i16, ptr %97, align 2
   %99 = zext i16 %98 to i64
@@ -447,7 +447,7 @@ define internal fastcc void @ReconstructRow(ptr nocapture noundef readonly %0, p
   tail call void %105(ptr noundef nonnull %100) #7
   %.idx = shl nsw i64 %indvars.iv204, 5
   %106 = getelementptr inbounds i8, ptr %55, i64 %.idx
-  %107 = lshr i32 %.0148183, 30
+  %107 = lshr i32 %.0150182, 30
   switch i32 %107, label %.unreachabledefault [
     i32 3, label %108
     i32 2, label %110
@@ -478,7 +478,7 @@ default.unreachable:                              ; preds = %.preheader170
 
 DoTransform.exit:                                 ; preds = %96, %108, %110, %112
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
-  %114 = shl i32 %.0148183, 2
+  %114 = shl i32 %.0150182, 2
   %exitcond207.not = icmp eq i64 %indvars.iv.next205, 16
   br i1 %exitcond207.not, label %.loopexit.loopexit190, label %96, !llvm.loop !10
 
@@ -497,14 +497,14 @@ CheckMode.exit:                                   ; preds = %.thread, %70
 
 .preheader170:                                    ; preds = %CheckMode.exit, %DoTransform.exit159
   %indvars.iv208 = phi i64 [ %indvars.iv.next209, %DoTransform.exit159 ], [ 0, %CheckMode.exit ]
-  %.1149185 = phi i32 [ %133, %DoTransform.exit159 ], [ %69, %CheckMode.exit ]
+  %.1151184 = phi i32 [ %133, %DoTransform.exit159 ], [ %69, %CheckMode.exit ]
   %.idx224 = shl nsw i64 %indvars.iv208, 5
   %121 = getelementptr inbounds i8, ptr %55, i64 %.idx224
   %122 = getelementptr inbounds [16 x i16], ptr @kScan, i64 0, i64 %indvars.iv208
   %123 = load i16, ptr %122, align 2
   %124 = zext i16 %123 to i64
   %125 = getelementptr inbounds i8, ptr %17, i64 %124
-  %126 = lshr i32 %.1149185, 30
+  %126 = lshr i32 %.1151184, 30
   switch i32 %126, label %default.unreachable [
     i32 3, label %127
     i32 2, label %129
@@ -529,7 +529,7 @@ CheckMode.exit:                                   ; preds = %.thread, %70
 
 DoTransform.exit159:                              ; preds = %.preheader170, %127, %129, %131
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
-  %133 = shl i32 %.1149185, 2
+  %133 = shl i32 %.1151184, 2
   %exitcond211.not = icmp eq i64 %indvars.iv.next209, 16
   br i1 %exitcond211.not, label %.loopexit, label %.preheader170, !llvm.loop !11
 
@@ -1047,7 +1047,7 @@ DitherRow.exit:                                   ; preds = %228, %146, %FilterR
 
 250:                                              ; preds = %241, %237
   %.sink = phi ptr [ %249, %241 ], [ %41, %237 ]
-  %.0133 = phi i32 [ 0, %241 ], [ %238, %237 ]
+  %.0132 = phi i32 [ 0, %241 ], [ %238, %237 ]
   %251 = getelementptr inbounds i8, ptr %1, i64 40
   store ptr %.sink, ptr %251, align 8
   %252 = select i1 %48, i32 0, i32 %12
@@ -1060,13 +1060,13 @@ DitherRow.exit:                                   ; preds = %228, %146, %FilterR
   %256 = getelementptr inbounds i8, ptr %0, i64 2968
   %257 = load ptr, ptr %256, align 8
   %.not142 = icmp ne ptr %257, null
-  %258 = icmp slt i32 %.0133, %.1
+  %258 = icmp slt i32 %.0132, %.1
   %or.cond145 = select i1 %.not142, i1 %258, i1 false
   br i1 %or.cond145, label %259, label %265
 
 259:                                              ; preds = %250
-  %260 = sub nsw i32 %.1, %.0133
-  %261 = call ptr @VP8DecompressAlphaRows(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.0133, i32 noundef %260) #7
+  %260 = sub nsw i32 %.1, %.0132
+  %261 = call ptr @VP8DecompressAlphaRows(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.0132, i32 noundef %260) #7
   store ptr %261, ptr %255, align 8
   %262 = icmp eq ptr %261, null
   br i1 %262, label %263, label %265
@@ -1079,11 +1079,11 @@ DitherRow.exit:                                   ; preds = %228, %146, %FilterR
   %266 = phi ptr [ %261, %259 ], [ null, %250 ]
   %267 = getelementptr inbounds i8, ptr %1, i64 128
   %268 = load i32, ptr %267, align 8
-  %269 = icmp slt i32 %.0133, %268
+  %269 = icmp slt i32 %.0132, %268
   br i1 %269, label %270, label %295
 
 270:                                              ; preds = %265
-  %271 = sub nsw i32 %268, %.0133
+  %271 = sub nsw i32 %268, %.0132
   %272 = load i32, ptr %13, align 8
   %273 = mul nsw i32 %272, %271
   %274 = getelementptr inbounds i8, ptr %1, i64 24
@@ -1118,8 +1118,8 @@ DitherRow.exit:                                   ; preds = %228, %146, %FilterR
 
 295:                                              ; preds = %270, %290, %265
   %296 = phi ptr [ %294, %290 ], [ null, %270 ], [ %266, %265 ]
-  %.1134 = phi i32 [ %268, %290 ], [ %268, %270 ], [ %.0133, %265 ]
-  %297 = icmp slt i32 %.1134, %.1
+  %.1133 = phi i32 [ %268, %290 ], [ %268, %270 ], [ %.0132, %265 ]
+  %297 = icmp slt i32 %.1133, %.1
   br i1 %297, label %298, label %325
 
 298:                                              ; preds = %295
@@ -1148,7 +1148,7 @@ DitherRow.exit:                                   ; preds = %228, %146, %FilterR
   br label %314
 
 314:                                              ; preds = %312, %298
-  %315 = sub nsw i32 %.1134, %268
+  %315 = sub nsw i32 %.1133, %268
   %316 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %315, ptr %316, align 8
   %317 = getelementptr inbounds i8, ptr %1, i64 124
@@ -1156,7 +1156,7 @@ DitherRow.exit:                                   ; preds = %228, %146, %FilterR
   %319 = sub nsw i32 %318, %300
   %320 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 %319, ptr %320, align 4
-  %321 = sub nsw i32 %.1, %.1134
+  %321 = sub nsw i32 %.1, %.1133
   %322 = getelementptr inbounds i8, ptr %1, i64 16
   store i32 %321, ptr %322, align 8
   %323 = load ptr, ptr %232, align 8
@@ -1164,7 +1164,7 @@ DitherRow.exit:                                   ; preds = %228, %146, %FilterR
   br label %325
 
 325:                                              ; preds = %295, %314, %DitherRow.exit
-  %.0135 = phi i32 [ %324, %314 ], [ 1, %295 ], [ 1, %DitherRow.exit ]
+  %.0134 = phi i32 [ %324, %314 ], [ 1, %295 ], [ 1, %DitherRow.exit ]
   %326 = add nsw i32 %6, 1
   %327 = getelementptr inbounds i8, ptr %0, i64 208
   %328 = load i32, ptr %327, align 8
@@ -1197,8 +1197,8 @@ DitherRow.exit:                                   ; preds = %228, %146, %FilterR
   br label %349
 
 349:                                              ; preds = %325, %330, %263
-  %.0 = phi i32 [ %264, %263 ], [ %.0135, %330 ], [ %.0135, %325 ]
-  ret i32 %.0
+  %.0135 = phi i32 [ %264, %263 ], [ %.0134, %330 ], [ %.0134, %325 ]
+  ret i32 %.0135
 }
 
 declare ptr @WebPGetWorkerInterface() local_unnamed_addr #1
@@ -1351,13 +1351,13 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
   br label %.split.us.us.i
 
 .split.us.us.i:                                   ; preds = %79, %76, %71
-  %.048.us.i = phi i32 [ %74, %71 ], [ %78, %76 ], [ %80, %79 ]
-  %81 = tail call i32 @llvm.smin.i32(i32 %.048.us.i, i32 63)
+  %.047.us.i = phi i32 [ %74, %71 ], [ %78, %76 ], [ %80, %79 ]
+  %81 = tail call i32 @llvm.smin.i32(i32 %.047.us.i, i32 63)
   %82 = tail call i32 @llvm.smax.i32(i32 %81, i32 0)
-  %.not56.us.us.i = icmp slt i32 %.048.us.i, 1
+  %.not56.us.us.i = icmp slt i32 %.047.us.i, 1
   %83 = shl nuw nsw i32 %82, 1
-  %84 = icmp ugt i32 %.048.us.i, 39
-  %85 = icmp ugt i32 %.048.us.i, 14
+  %84 = icmp ugt i32 %.047.us.i, 39
+  %85 = icmp ugt i32 %.047.us.i, 14
   %86 = zext i1 %85 to i8
   %87 = select i1 %84, i8 2, i8 %86
   br i1 %.not56.us.us.i, label %.split.us.split.us.us.i, label %.split.us.split.us64.i
@@ -1526,8 +1526,8 @@ define hidden i32 @VP8EnterCritical(ptr noundef %0, ptr noundef %1) local_unname
   br label %.split.i
 
 .split.i:                                         ; preds = %154, %150
-  %.048.i = phi i32 [ %153, %150 ], [ %156, %154 ]
-  %157 = add nsw i32 %.048.i, %117
+  %.047.i = phi i32 [ %153, %150 ], [ %156, %154 ]
+  %157 = add nsw i32 %.047.i, %117
   br label %158
 
 158:                                              ; preds = %184, %.split.i

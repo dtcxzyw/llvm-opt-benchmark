@@ -59,8 +59,8 @@ define internal noundef i32 @dissect_ircomm_parameters(ptr noundef %0, i32 nound
   %8 = alloca [256 x i8], align 16
   %9 = tail call i32 @check_iap_octet_result(ptr noundef %0, ptr noundef %3, i32 noundef %1, ptr noundef nonnull @.str, i8 noundef zeroext %5) #3
   %.not = icmp eq i32 %9, 0
-  %.not50 = icmp eq ptr %3, null
-  %or.cond = or i1 %.not50, %.not
+  %.not51 = icmp eq ptr %3, null
+  %or.cond = or i1 %.not51, %.not
   br i1 %or.cond, label %.loopexit, label %10
 
 10:                                               ; preds = %7
@@ -78,21 +78,21 @@ define internal noundef i32 @dissect_ircomm_parameters(ptr noundef %0, i32 nound
   br label %19
 
 19:                                               ; preds = %.lr.ph, %79
-  %.04858 = phi i32 [ %13, %.lr.ph ], [ %80, %79 ]
-  %.04957 = phi i32 [ 0, %.lr.ph ], [ %81, %79 ]
-  %20 = add nuw i32 %.04858, 1
+  %.059 = phi i32 [ 0, %.lr.ph ], [ %81, %79 ]
+  %.04958 = phi i32 [ %13, %.lr.ph ], [ %80, %79 ]
+  %20 = add nuw i32 %.04958, 1
   %21 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %20) #3
   %22 = load i32, ptr @hf_ircomm_param, align 4
   %23 = zext i8 %21 to i32
   %24 = add nuw nsw i32 %23, 2
-  %25 = call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %22, ptr noundef %0, i32 noundef %.04858, i32 noundef %24, i32 noundef 0) #3
-  %26 = add i32 %.04957, %16
+  %25 = call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %22, ptr noundef %0, i32 noundef %.04958, i32 noundef %24, i32 noundef 0) #3
+  %26 = add i32 %.059, %16
   %27 = zext i32 %26 to i64
   %28 = getelementptr [1024 x i32], ptr @ett_param, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = call ptr @proto_item_add_subtree(ptr noundef %25, i32 noundef %29) #3
   store i8 0, ptr %8, align 16
-  %31 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.04858) #3
+  %31 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.04958) #3
   switch i8 %31, label %78 [
     i8 0, label %32
     i8 1, label %57
@@ -101,12 +101,12 @@ define internal noundef i32 @dissect_ircomm_parameters(ptr noundef %0, i32 nound
 
 32:                                               ; preds = %19
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef nonnull @.str.15) #3
-  %33 = add i32 %.04858, 2
+  %33 = add i32 %.04958, 2
   %34 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %33) #3
   %35 = zext i8 %34 to i32
   %36 = and i32 %35, 1
-  %.not53 = icmp eq i32 %36, 0
-  br i1 %.not53, label %39, label %37
+  %.not54 = icmp eq i32 %36, 0
+  br i1 %.not54, label %39, label %37
 
 37:                                               ; preds = %32
   %38 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.16, i64 noundef 256) #3
@@ -114,8 +114,8 @@ define internal noundef i32 @dissect_ircomm_parameters(ptr noundef %0, i32 nound
 
 39:                                               ; preds = %37, %32
   %40 = and i32 %35, 2
-  %.not54 = icmp eq i32 %40, 0
-  br i1 %.not54, label %43, label %41
+  %.not55 = icmp eq i32 %40, 0
+  br i1 %.not55, label %43, label %41
 
 41:                                               ; preds = %39
   %42 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.17, i64 noundef 256) #3
@@ -123,8 +123,8 @@ define internal noundef i32 @dissect_ircomm_parameters(ptr noundef %0, i32 nound
 
 43:                                               ; preds = %41, %39
   %44 = and i32 %35, 4
-  %.not55 = icmp eq i32 %44, 0
-  br i1 %.not55, label %47, label %45
+  %.not56 = icmp eq i32 %44, 0
+  br i1 %.not56, label %47, label %45
 
 45:                                               ; preds = %43
   %46 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.18, i64 noundef 256) #3
@@ -132,8 +132,8 @@ define internal noundef i32 @dissect_ircomm_parameters(ptr noundef %0, i32 nound
 
 47:                                               ; preds = %45, %43
   %48 = and i32 %35, 8
-  %.not56 = icmp eq i32 %48, 0
-  br i1 %.not56, label %51, label %49
+  %.not57 = icmp eq i32 %48, 0
+  br i1 %.not57, label %51, label %49
 
 49:                                               ; preds = %47
   %50 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.19, i64 noundef 256) #3
@@ -155,12 +155,12 @@ define internal noundef i32 @dissect_ircomm_parameters(ptr noundef %0, i32 nound
 
 57:                                               ; preds = %19
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef nonnull @.str.23) #3
-  %58 = add i32 %.04858, 2
+  %58 = add i32 %.04958, 2
   %59 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %58) #3
   %60 = zext i8 %59 to i32
   %61 = and i32 %60, 1
-  %.not51 = icmp eq i32 %61, 0
-  br i1 %.not51, label %64, label %62
+  %.not52 = icmp eq i32 %61, 0
+  br i1 %.not52, label %64, label %62
 
 62:                                               ; preds = %57
   %63 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.24, i64 noundef 256) #3
@@ -168,8 +168,8 @@ define internal noundef i32 @dissect_ircomm_parameters(ptr noundef %0, i32 nound
 
 64:                                               ; preds = %62, %57
   %65 = and i32 %60, 2
-  %.not52 = icmp eq i32 %65, 0
-  br i1 %.not52, label %68, label %66
+  %.not53 = icmp eq i32 %65, 0
+  br i1 %.not53, label %68, label %66
 
 66:                                               ; preds = %64
   %67 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.25, i64 noundef 256) #3
@@ -191,7 +191,7 @@ define internal noundef i32 @dissect_ircomm_parameters(ptr noundef %0, i32 nound
 
 74:                                               ; preds = %19
   %75 = load ptr, ptr %17, align 8
-  %76 = add i32 %.04858, 2
+  %76 = add i32 %.04958, 2
   %77 = call ptr @tvb_format_text(ptr noundef %75, ptr noundef %0, i32 noundef %76, i32 noundef %23) #3
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef nonnull @.str.26, ptr noundef %77) #3
   br label %79
@@ -201,8 +201,8 @@ define internal noundef i32 @dissect_ircomm_parameters(ptr noundef %0, i32 nound
   br label %79
 
 79:                                               ; preds = %72, %73, %55, %56, %78, %74
-  %80 = call i32 @dissect_param_tuple(ptr noundef %0, ptr noundef %30, i32 noundef %.04858) #3
-  %81 = add i32 %.04957, 1
+  %80 = call i32 @dissect_param_tuple(ptr noundef %0, ptr noundef %30, i32 noundef %.04958) #3
+  %81 = add i32 %.059, 1
   %82 = icmp ult i32 %80, %14
   br i1 %82, label %19, label %.loopexit, !llvm.loop !4
 

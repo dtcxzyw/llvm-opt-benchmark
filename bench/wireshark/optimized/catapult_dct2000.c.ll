@@ -2352,7 +2352,7 @@ define internal range(i32 0, 2) i32 @catapult_dct2000_dump(ptr noundef %0, ptr n
   br label %48
 
 48:                                               ; preds = %40, %20
-  %.0108 = phi ptr [ %41, %40 ], [ %22, %20 ]
+  %.0107 = phi ptr [ %41, %40 ], [ %22, %20 ]
   %49 = getelementptr inbounds i8, ptr %11, i64 224
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %1, i64 112
@@ -2375,13 +2375,13 @@ define internal range(i32 0, 2) i32 @catapult_dct2000_dump(ptr noundef %0, ptr n
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %61
-  %.0106144 = phi ptr [ %62, %61 ], [ %57, %.lr.ph.preheader ]
-  %60 = load i8, ptr %.0106144, align 1
+  %.0144 = phi ptr [ %62, %61 ], [ %57, %.lr.ph.preheader ]
+  %60 = load i8, ptr %.0144, align 1
   %.not124 = icmp eq i8 %60, 47
   br i1 %.not124, label %.lr.ph150.preheader, label %61
 
 61:                                               ; preds = %.lr.ph
-  %62 = getelementptr i8, ptr %.0106144, i64 1
+  %62 = getelementptr i8, ptr %.0144, i64 1
   %.not123 = icmp eq ptr %62, null
   br i1 %.not123, label %.critedge, label %.lr.ph, !llvm.loop !24
 
@@ -2390,37 +2390,37 @@ define internal range(i32 0, 2) i32 @catapult_dct2000_dump(ptr noundef %0, ptr n
   br i1 %.not125147, label %.critedge2, label %.lr.ph150.preheader
 
 .lr.ph150.preheader:                              ; preds = %.lr.ph, %.critedge
-  %.0106.lcssa173 = phi ptr [ %scevgep, %.critedge ], [ %.0106144, %.lr.ph ]
-  %.0106.lcssa156 = ptrtoint ptr %.0106.lcssa173 to i64
-  %63 = trunc i64 %.0106.lcssa156 to i32
+  %.0.lcssa173 = phi ptr [ %scevgep, %.critedge ], [ %.0144, %.lr.ph ]
+  %.0.lcssa156 = ptrtoint ptr %.0.lcssa173 to i64
+  %63 = trunc i64 %.0.lcssa156 to i32
   %64 = sub i32 0, %63
   br label %.lr.ph150
 
 .lr.ph150:                                        ; preds = %.lr.ph150.preheader, %67
-  %.1149 = phi ptr [ %69, %67 ], [ %.0106.lcssa173, %.lr.ph150.preheader ]
-  %.0107148 = phi i32 [ %68, %67 ], [ 0, %.lr.ph150.preheader ]
+  %.1149 = phi ptr [ %69, %67 ], [ %.0.lcssa173, %.lr.ph150.preheader ]
+  %.0106148 = phi i32 [ %68, %67 ], [ 0, %.lr.ph150.preheader ]
   %65 = load i8, ptr %.1149, align 1
   %66 = icmp eq i8 %65, 47
   br i1 %66, label %67, label %.critedge2.loopexit
 
 67:                                               ; preds = %.lr.ph150
-  %68 = add i32 %.0107148, 1
+  %68 = add i32 %.0106148, 1
   %69 = getelementptr i8, ptr %.1149, i64 1
   %.not125 = icmp eq ptr %69, null
   br i1 %.not125, label %.critedge2.loopexit, label %.lr.ph150, !llvm.loop !25
 
 .critedge2.loopexit:                              ; preds = %67, %.lr.ph150
-  %.0107.lcssa.ph = phi i32 [ %.0107148, %.lr.ph150 ], [ %64, %67 ]
-  %70 = icmp eq i32 %.0107.lcssa.ph, 5
+  %.0106.lcssa.ph = phi i32 [ %.0106148, %.lr.ph150 ], [ %64, %67 ]
+  %70 = icmp eq i32 %.0106.lcssa.ph, 5
   br label %.critedge2
 
 .critedge2:                                       ; preds = %56, %.critedge2.loopexit, %.critedge
-  %.0107.lcssa = phi i1 [ false, %.critedge ], [ %70, %.critedge2.loopexit ], [ false, %56 ]
+  %.0106.lcssa = phi i1 [ false, %.critedge ], [ %70, %.critedge2.loopexit ], [ false, %56 ]
   %71 = getelementptr inbounds i8, ptr %1, i64 16
   %72 = getelementptr inbounds i8, ptr %1, i64 24
   %73 = load i32, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %.0108, i64 8
-  %75 = getelementptr inbounds i8, ptr %.0108, i64 16
+  %74 = getelementptr inbounds i8, ptr %.0107, i64 8
+  %75 = getelementptr inbounds i8, ptr %.0107, i64 16
   %76 = load i32, ptr %75, align 8
   %.not126 = icmp slt i32 %73, %76
   %77 = load i64, ptr %71, align 8
@@ -2469,32 +2469,32 @@ define internal range(i32 0, 2) i32 @catapult_dct2000_dump(ptr noundef %0, ptr n
 
 100:                                              ; preds = %.preheader176, %100
   %indvars.iv = phi i32 [ %indvars.iv.next, %100 ], [ 8, %.preheader176 ]
-  %.0110 = phi i32 [ %104, %100 ], [ 0, %.preheader176 ]
-  %101 = zext i32 %.0110 to i64
+  %.0109 = phi i32 [ %104, %100 ], [ 0, %.preheader176 ]
+  %101 = zext i32 %.0109 to i64
   %102 = getelementptr i8, ptr %2, i64 %101
   %103 = load i8, ptr %102, align 1
   %.not130 = icmp eq i8 %103, 0
-  %104 = add i32 %.0110, 1
+  %104 = add i32 %.0109, 1
   %indvars.iv.next = add i32 %indvars.iv, 1
   br i1 %.not130, label %105, label %100, !llvm.loop !26
 
 105:                                              ; preds = %100
-  %106 = add i32 %.0110, 2
+  %106 = add i32 %.0109, 2
   br label %107
 
 107:                                              ; preds = %107, %105
   %indvars.iv157 = phi i32 [ %indvars.iv.next158, %107 ], [ %indvars.iv, %105 ]
-  %.1111 = phi i32 [ %111, %107 ], [ %106, %105 ]
-  %108 = zext i32 %.1111 to i64
+  %.1110 = phi i32 [ %111, %107 ], [ %106, %105 ]
+  %108 = zext i32 %.1110 to i64
   %109 = getelementptr i8, ptr %2, i64 %108
   %110 = load i8, ptr %109, align 1
   %.not131 = icmp eq i8 %110, 0
-  %111 = add i32 %.1111, 1
+  %111 = add i32 %.1110, 1
   %indvars.iv.next158 = add i32 %indvars.iv157, 1
   br i1 %.not131, label %112, label %107, !llvm.loop !27
 
 112:                                              ; preds = %107
-  br i1 %.0107.lcssa, label %113, label %118
+  br i1 %.0106.lcssa, label %113, label %118
 
 113:                                              ; preds = %112
   %114 = zext i32 %111 to i64
@@ -2505,7 +2505,7 @@ define internal range(i32 0, 2) i32 @catapult_dct2000_dump(ptr noundef %0, ptr n
   br label %118
 
 118:                                              ; preds = %113, %112
-  %.0109 = phi ptr [ %117, %113 ], [ @.str.46, %112 ]
+  %.0108 = phi ptr [ %117, %113 ], [ @.str.46, %112 ]
   br label %119
 
 119:                                              ; preds = %119, %118
@@ -2547,12 +2547,12 @@ define internal range(i32 0, 2) i32 @catapult_dct2000_dump(ptr noundef %0, ptr n
 
 134:                                              ; preds = %129
   %135 = add i32 %.4, 3
-  %136 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %.0109, i64 noundef 1, ptr noundef %3) #17
+  %136 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %.0108, i64 noundef 1, ptr noundef %3) #17
   %.not137 = icmp eq i32 %136, 0
   br i1 %.not137, label %.loopexit141, label %137
 
 137:                                              ; preds = %134
-  br i1 %.0107.lcssa, label %159, label %.preheader
+  br i1 %.0106.lcssa, label %159, label %.preheader
 
 .preheader:                                       ; preds = %137
   %138 = getelementptr inbounds i8, ptr %1, i64 68
@@ -2608,8 +2608,8 @@ define internal range(i32 0, 2) i32 @catapult_dct2000_dump(ptr noundef %0, ptr n
   br label %.loopexit141
 
 .loopexit141:                                     ; preds = %147, %.loopexit, %159, %134, %98, %92, %48, %38, %32, %30, %24, %19, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %19 ], [ 0, %24 ], [ 0, %30 ], [ 0, %32 ], [ 0, %38 ], [ 0, %48 ], [ 0, %92 ], [ 0, %98 ], [ 0, %134 ], [ 0, %159 ], [ %., %.loopexit ], [ 0, %147 ]
-  ret i32 %.0
+  %.0111 = phi i32 [ 0, %13 ], [ 0, %19 ], [ 0, %24 ], [ 0, %30 ], [ 0, %32 ], [ 0, %38 ], [ 0, %48 ], [ 0, %92 ], [ 0, %98 ], [ 0, %134 ], [ 0, %159 ], [ %., %.loopexit ], [ 0, %147 ]
+  ret i32 %.0111
 }
 
 declare i32 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3

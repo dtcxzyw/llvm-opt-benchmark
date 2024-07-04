@@ -793,7 +793,7 @@ invoke.cont92.lr.ph:                              ; preds = %for.body81
 invoke.cont92:                                    ; preds = %invoke.cont92.lr.ph, %for.inc120
   %69 = phi i32 [ %67, %invoke.cont92.lr.ph ], [ %96, %for.inc120 ]
   %indvars.iv232 = phi i64 [ 0, %invoke.cont92.lr.ph ], [ %indvars.iv.next233, %for.inc120 ]
-  %prev.0208 = phi ptr [ %68, %invoke.cont92.lr.ph ], [ %prev.1, %for.inc120 ]
+  %prev.0207 = phi ptr [ %68, %invoke.cont92.lr.ph ], [ %prev.1, %for.inc120 ]
   %70 = load ptr, ptr %m_data.i.i, align 8
   %m_collider = getelementptr inbounds %struct.btMultibodyLink, ptr %70, i64 %indvars.iv232, i32 22
   %71 = load ptr, ptr %m_collider, align 8
@@ -805,19 +805,19 @@ land.lhs.true95:                                  ; preds = %invoke.cont92
   %72 = load i32, ptr %m_collisionFlags.i97, align 8
   %and.i98 = and i32 %72, 3
   %cmp.i99 = icmp ne i32 %and.i98, 0
-  %tobool99 = icmp eq ptr %prev.0208, null
+  %tobool99 = icmp eq ptr %prev.0207, null
   %or.cond2.not = select i1 %cmp.i99, i1 true, i1 %tobool99
   br i1 %or.cond2.not, label %land.lhs.true115, label %land.lhs.true100
 
 land.lhs.true100:                                 ; preds = %land.lhs.true95
-  %m_collisionFlags.i100 = getelementptr inbounds i8, ptr %prev.0208, i64 224
+  %m_collisionFlags.i100 = getelementptr inbounds i8, ptr %prev.0207, i64 224
   %73 = load i32, ptr %m_collisionFlags.i100, align 8
   %and.i101 = and i32 %73, 3
   %cmp.i102.not = icmp eq i32 %and.i101, 0
   br i1 %cmp.i102.not, label %if.then103, label %land.lhs.true115
 
 if.then103:                                       ; preds = %land.lhs.true100
-  %m_islandTag1.i103 = getelementptr inbounds i8, ptr %prev.0208, i64 228
+  %m_islandTag1.i103 = getelementptr inbounds i8, ptr %prev.0207, i64 228
   %74 = load i32, ptr %m_islandTag1.i103, align 4
   %m_islandTag1.i104 = getelementptr inbounds i8, ptr %71, i64 228
   %75 = load i32, ptr %m_islandTag1.i104, align 4
@@ -893,13 +893,13 @@ land.lhs.true115:                                 ; preds = %land.lhs.true95, %l
   %95 = load i32, ptr %m_collisionFlags.i97, align 8
   %and.i142 = and i32 %95, 3
   %cmp.i143.not = icmp eq i32 %and.i142, 0
-  %spec.select = select i1 %cmp.i143.not, ptr %71, ptr %prev.0208
+  %spec.select = select i1 %cmp.i143.not, ptr %71, ptr %prev.0207
   %.pre = load i32, ptr %m_size.i.i, align 4
   br label %for.inc120
 
 for.inc120:                                       ; preds = %land.lhs.true115, %invoke.cont92
   %96 = phi i32 [ %.pre, %land.lhs.true115 ], [ %69, %invoke.cont92 ]
-  %prev.1 = phi ptr [ %spec.select, %land.lhs.true115 ], [ %prev.0208, %invoke.cont92 ]
+  %prev.1 = phi ptr [ %spec.select, %land.lhs.true115 ], [ %prev.0207, %invoke.cont92 ]
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %97 = sext i32 %96 to i64
   %cmp90 = icmp slt i64 %indvars.iv.next233, %97
@@ -2186,7 +2186,7 @@ invoke.cont19.lr.ph:                              ; preds = %if.end
 
 invoke.cont19:                                    ; preds = %invoke.cont19.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %invoke.cont19.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %isSleeping.1139 = phi i1 [ %isSleeping.0, %invoke.cont19.lr.ph ], [ %isSleeping.2, %for.inc ]
+  %isSleeping.1138 = phi i1 [ %isSleeping.0, %invoke.cont19.lr.ph ], [ %isSleeping.2, %for.inc ]
   %m_collider = getelementptr inbounds %struct.btMultibodyLink, ptr %12, i64 %indvars.iv, i32 22
   %13 = load ptr, ptr %m_collider, align 8
   %tobool21.not = icmp eq ptr %13, null
@@ -2196,11 +2196,11 @@ invoke.cont23:                                    ; preds = %invoke.cont19
   %m_activationState1.i25 = getelementptr inbounds i8, ptr %13, i64 240
   %14 = load i32, ptr %m_activationState1.i25, align 8
   %cmp28 = icmp eq i32 %14, 2
-  %spec.select20 = select i1 %cmp28, i1 true, i1 %isSleeping.1139
+  %spec.select20 = select i1 %cmp28, i1 true, i1 %isSleeping.1138
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont23, %invoke.cont19
-  %isSleeping.2 = phi i1 [ %isSleeping.1139, %invoke.cont19 ], [ %spec.select20, %invoke.cont23 ]
+  %isSleeping.2 = phi i1 [ %isSleeping.1138, %invoke.cont19 ], [ %spec.select20, %invoke.cont23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %invoke.cont19, !llvm.loop !22
@@ -2985,7 +2985,7 @@ invoke.cont110.lr.ph:                             ; preds = %if.end
 
 invoke.cont110:                                   ; preds = %invoke.cont110.lr.ph, %for.inc122
   %indvars.iv953 = phi i64 [ 0, %invoke.cont110.lr.ph ], [ %indvars.iv.next954, %for.inc122 ]
-  %isSleeping.1923 = phi i1 [ %isSleeping.0, %invoke.cont110.lr.ph ], [ %isSleeping.2, %for.inc122 ]
+  %isSleeping.1922 = phi i1 [ %isSleeping.0, %invoke.cont110.lr.ph ], [ %isSleeping.2, %for.inc122 ]
   %m_collider = getelementptr inbounds %struct.btMultibodyLink, ptr %59, i64 %indvars.iv953, i32 22
   %60 = load ptr, ptr %m_collider, align 8
   %tobool112.not = icmp eq ptr %60, null
@@ -2995,11 +2995,11 @@ invoke.cont114:                                   ; preds = %invoke.cont110
   %m_activationState1.i272 = getelementptr inbounds i8, ptr %60, i64 240
   %61 = load i32, ptr %m_activationState1.i272, align 8
   %cmp119 = icmp eq i32 %61, 2
-  %spec.select181 = select i1 %cmp119, i1 true, i1 %isSleeping.1923
+  %spec.select181 = select i1 %cmp119, i1 true, i1 %isSleeping.1922
   br label %for.inc122
 
 for.inc122:                                       ; preds = %invoke.cont114, %invoke.cont110
-  %isSleeping.2 = phi i1 [ %isSleeping.1923, %invoke.cont110 ], [ %spec.select181, %invoke.cont114 ]
+  %isSleeping.2 = phi i1 [ %isSleeping.1922, %invoke.cont110 ], [ %spec.select181, %invoke.cont114 ]
   %indvars.iv.next954 = add nuw nsw i64 %indvars.iv953, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next954, %wide.trip.count
   br i1 %exitcond.not, label %for.end124, label %invoke.cont110, !llvm.loop !36
@@ -4676,7 +4676,7 @@ invoke.cont18.lr.ph:                              ; preds = %if.end
 
 invoke.cont18:                                    ; preds = %invoke.cont18.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %invoke.cont18.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %isSleeping.1112 = phi i1 [ %isSleeping.0, %invoke.cont18.lr.ph ], [ %isSleeping.2, %for.inc ]
+  %isSleeping.1111 = phi i1 [ %isSleeping.0, %invoke.cont18.lr.ph ], [ %isSleeping.2, %for.inc ]
   %m_collider = getelementptr inbounds %struct.btMultibodyLink, ptr %7, i64 %indvars.iv, i32 22
   %8 = load ptr, ptr %m_collider, align 8
   %tobool20.not = icmp eq ptr %8, null
@@ -4686,11 +4686,11 @@ invoke.cont22:                                    ; preds = %invoke.cont18
   %m_activationState1.i30 = getelementptr inbounds i8, ptr %8, i64 240
   %9 = load i32, ptr %m_activationState1.i30, align 8
   %cmp27 = icmp eq i32 %9, 2
-  %spec.select25 = select i1 %cmp27, i1 true, i1 %isSleeping.1112
+  %spec.select25 = select i1 %cmp27, i1 true, i1 %isSleeping.1111
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont22, %invoke.cont18
-  %isSleeping.2 = phi i1 [ %isSleeping.1112, %invoke.cont18 ], [ %spec.select25, %invoke.cont22 ]
+  %isSleeping.2 = phi i1 [ %isSleeping.1111, %invoke.cont18 ], [ %spec.select25, %invoke.cont22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %invoke.cont18, !llvm.loop !48
@@ -9304,8 +9304,8 @@ tailrecurse:                                      ; preds = %if.end17, %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %tailrecurse
-  %j.0 = phi i32 [ %hi, %tailrecurse ], [ %j.2, %do.cond ]
   %i.0 = phi i32 [ %lo.tr, %tailrecurse ], [ %i.2, %do.cond ]
+  %j.0 = phi i32 [ %hi, %tailrecurse ], [ %j.2, %do.cond ]
   %2 = load ptr, ptr %m_data, align 8
   %3 = load ptr, ptr %m_rbA.i.i.i, align 8
   %m_islandTag1.i.i.i = getelementptr inbounds i8, ptr %3, i64 228
@@ -9455,8 +9455,8 @@ if.then:                                          ; preds = %while.end11
   br label %do.cond
 
 do.cond:                                          ; preds = %while.end11, %if.then
-  %j.2 = phi i32 [ %dec13, %if.then ], [ %.us-phi53, %while.end11 ]
   %i.2 = phi i32 [ %inc12, %if.then ], [ %.us-phi47, %while.end11 ]
+  %j.2 = phi i32 [ %dec13, %if.then ], [ %.us-phi53, %while.end11 ]
   %cmp14.not = icmp sgt i32 %i.2, %j.2
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !83
 
@@ -9493,8 +9493,8 @@ tailrecurse:                                      ; preds = %if.end17, %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %tailrecurse
-  %j.0 = phi i32 [ %hi, %tailrecurse ], [ %j.2, %do.cond ]
   %i.0 = phi i32 [ %lo.tr, %tailrecurse ], [ %i.2, %do.cond ]
+  %j.0 = phi i32 [ %hi, %tailrecurse ], [ %j.2, %do.cond ]
   %2 = sext i32 %i.0 to i64
   br label %while.cond
 
@@ -9581,8 +9581,8 @@ if.then:                                          ; preds = %while.end11
   br label %do.cond
 
 do.cond:                                          ; preds = %while.end11, %if.then
-  %j.2 = phi i32 [ %dec13, %if.then ], [ %17, %while.end11 ]
   %i.2 = phi i32 [ %inc12, %if.then ], [ %16, %while.end11 ]
+  %j.2 = phi i32 [ %dec13, %if.then ], [ %17, %while.end11 ]
   %cmp14.not = icmp sgt i32 %i.2, %j.2
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !86
 

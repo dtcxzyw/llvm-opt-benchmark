@@ -1050,9 +1050,9 @@ define noundef ptr @php_base64_encode_avx2(ptr nocapture noundef readonly %0, i6
   br label %16
 
 16:                                               ; preds = %35, %12
-  %.0103 = phi ptr [ %0, %12 ], [ %31, %35 ]
-  %.0101 = phi ptr [ %10, %12 ], [ %32, %35 ]
-  %.099 = phi i64 [ %1, %12 ], [ %33, %35 ]
+  %.0103 = phi i64 [ %1, %12 ], [ %33, %35 ]
+  %.0101 = phi ptr [ %0, %12 ], [ %31, %35 ]
+  %.099 = phi ptr [ %10, %12 ], [ %32, %35 ]
   %.098 = phi <4 x i64> [ %15, %12 ], [ %37, %35 ]
   %17 = bitcast <4 x i64> %.098 to <32 x i8>
   %18 = shufflevector <32 x i8> %17, <32 x i8> poison, <32 x i32> <i32 5, i32 4, i32 6, i32 5, i32 8, i32 7, i32 9, i32 8, i32 11, i32 10, i32 12, i32 11, i32 14, i32 13, i32 15, i32 14, i32 17, i32 16, i32 18, i32 17, i32 20, i32 19, i32 21, i32 20, i32 23, i32 22, i32 24, i32 23, i32 26, i32 25, i32 27, i32 26>
@@ -1069,15 +1069,15 @@ define noundef ptr @php_base64_encode_avx2(ptr nocapture noundef readonly %0, i6
   %28 = add nuw <32 x i8> %26, %.neg.i
   %29 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 0, i8 0, i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 0, i8 0>, <32 x i8> %28)
   %30 = add <32 x i8> %29, %25
-  store <32 x i8> %30, ptr %.0101, align 1
-  %31 = getelementptr inbounds i8, ptr %.0103, i64 24
-  %32 = getelementptr inbounds i8, ptr %.0101, i64 32
-  %33 = add i64 %.099, -24
+  store <32 x i8> %30, ptr %.099, align 1
+  %31 = getelementptr inbounds i8, ptr %.0101, i64 24
+  %32 = getelementptr inbounds i8, ptr %.099, i64 32
+  %33 = add i64 %.0103, -24
   %34 = icmp ult i64 %33, 28
   br i1 %34, label %.lr.ph.preheader, label %35
 
 35:                                               ; preds = %16
-  %36 = getelementptr inbounds i8, ptr %.0103, i64 20
+  %36 = getelementptr inbounds i8, ptr %.0101, i64 20
   %37 = load <4 x i64>, ptr %36, align 1
   br label %16
 
@@ -1220,10 +1220,10 @@ define noundef ptr @php_base64_encode_ssse3(ptr nocapture noundef readonly %0, i
   br i1 %12, label %.lr.ph81.preheader, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.06975 = phi ptr [ %28, %.lr.ph ], [ %10, %2 ]
-  %.07074 = phi ptr [ %27, %.lr.ph ], [ %0, %2 ]
-  %.07173 = phi i64 [ %29, %.lr.ph ], [ %1, %2 ]
-  %13 = load <16 x i8>, ptr %.07074, align 1
+  %.06875 = phi ptr [ %28, %.lr.ph ], [ %10, %2 ]
+  %.06974 = phi ptr [ %27, %.lr.ph ], [ %0, %2 ]
+  %.07073 = phi i64 [ %29, %.lr.ph ], [ %1, %2 ]
+  %13 = load <16 x i8>, ptr %.06974, align 1
   %14 = shufflevector <16 x i8> %13, <16 x i8> poison, <16 x i32> <i32 1, i32 0, i32 2, i32 1, i32 4, i32 3, i32 5, i32 4, i32 7, i32 6, i32 8, i32 7, i32 10, i32 9, i32 11, i32 10>
   %15 = bitcast <16 x i8> %14 to <8 x i16>
   %16 = and <8 x i16> %15, <i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032>
@@ -1238,22 +1238,22 @@ define noundef ptr @php_base64_encode_ssse3(ptr nocapture noundef readonly %0, i
   %24 = add nuw <16 x i8> %22, %.neg.i
   %25 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 0, i8 0>, <16 x i8> %24)
   %26 = add <16 x i8> %25, %21
-  store <16 x i8> %26, ptr %.06975, align 1
-  %27 = getelementptr inbounds i8, ptr %.07074, i64 12
-  %28 = getelementptr inbounds i8, ptr %.06975, i64 16
-  %29 = add i64 %.07173, -12
+  store <16 x i8> %26, ptr %.06875, align 1
+  %27 = getelementptr inbounds i8, ptr %.06974, i64 12
+  %28 = getelementptr inbounds i8, ptr %.06875, i64 16
+  %29 = add i64 %.07073, -12
   %30 = icmp ugt i64 %29, 15
   br i1 %30, label %.lr.ph, label %.lr.ph81.preheader
 
 .lr.ph81.preheader:                               ; preds = %.lr.ph, %.preheader
   %.080.ph = phi ptr [ %0, %.preheader ], [ %27, %.lr.ph ]
-  %.06879.ph = phi i64 [ %1, %.preheader ], [ %29, %.lr.ph ]
+  %.07179.ph = phi i64 [ %1, %.preheader ], [ %29, %.lr.ph ]
   %.07278.ph = phi ptr [ %10, %.preheader ], [ %28, %.lr.ph ]
   br label %.lr.ph81
 
 .lr.ph81:                                         ; preds = %.lr.ph81.preheader, %.lr.ph81
   %.080 = phi ptr [ %62, %.lr.ph81 ], [ %.080.ph, %.lr.ph81.preheader ]
-  %.06879 = phi i64 [ %63, %.lr.ph81 ], [ %.06879.ph, %.lr.ph81.preheader ]
+  %.07179 = phi i64 [ %63, %.lr.ph81 ], [ %.07179.ph, %.lr.ph81.preheader ]
   %.07278 = phi ptr [ %61, %.lr.ph81 ], [ %.07278.ph, %.lr.ph81.preheader ]
   %31 = load i8, ptr %.080, align 1
   %32 = lshr i8 %31, 2
@@ -1291,15 +1291,15 @@ define noundef ptr @php_base64_encode_ssse3(ptr nocapture noundef readonly %0, i
   %61 = getelementptr inbounds i8, ptr %.07278, i64 4
   store i8 %60, ptr %56, align 1
   %62 = getelementptr inbounds i8, ptr %.080, i64 3
-  %63 = add nsw i64 %.06879, -3
+  %63 = add nsw i64 %.07179, -3
   %64 = icmp ugt i64 %63, 2
   br i1 %64, label %.lr.ph81, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph81, %.preheader
   %.072.lcssa = phi ptr [ %10, %.preheader ], [ %61, %.lr.ph81 ]
-  %.068.lcssa = phi i64 [ %1, %.preheader ], [ %63, %.lr.ph81 ]
+  %.071.lcssa = phi i64 [ %1, %.preheader ], [ %63, %.lr.ph81 ]
   %.0.lcssa = phi ptr [ %0, %.preheader ], [ %62, %.lr.ph81 ]
-  %.not = icmp eq i64 %.068.lcssa, 0
+  %.not = icmp eq i64 %.071.lcssa, 0
   br i1 %.not, label %95, label %65
 
 65:                                               ; preds = %._crit_edge
@@ -1310,7 +1310,7 @@ define noundef ptr @php_base64_encode_ssse3(ptr nocapture noundef readonly %0, i
   %70 = load i8, ptr %69, align 1
   %71 = getelementptr inbounds i8, ptr %.072.lcssa, i64 1
   store i8 %70, ptr %.072.lcssa, align 1
-  %72 = icmp eq i64 %.068.lcssa, 2
+  %72 = icmp eq i64 %.071.lcssa, 2
   %73 = shl i8 %66, 4
   %74 = and i8 %73, 48
   br i1 %72, label %75, label %89
@@ -1690,11 +1690,11 @@ define noundef ptr @php_base64_decode_ex_ssse3(ptr nocapture noundef readonly %0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %24
-  %.0388432 = phi i64 [ %37, %24 ], [ %1, %3 ]
-  %.0389431 = phi ptr [ %34, %24 ], [ %0, %3 ]
-  %.0390430 = phi ptr [ %35, %24 ], [ %10, %3 ]
+  %.0385432 = phi ptr [ %35, %24 ], [ %10, %3 ]
+  %.0386431 = phi ptr [ %34, %24 ], [ %0, %3 ]
+  %.0388430 = phi i64 [ %37, %24 ], [ %1, %3 ]
   %.0393429 = phi i64 [ %36, %24 ], [ 0, %3 ]
-  %12 = load <2 x i64>, ptr %.0389431, align 1
+  %12 = load <2 x i64>, ptr %.0386431, align 1
   %13 = bitcast <2 x i64> %12 to <4 x i32>
   %14 = lshr <4 x i32> %13, <i32 4, i32 4, i32 4, i32 4>
   %15 = bitcast <4 x i32> %14 to <16 x i8>
@@ -1719,33 +1719,33 @@ define noundef ptr @php_base64_decode_ex_ssse3(ptr nocapture noundef readonly %0
   %31 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %30, <8 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
   %32 = bitcast <4 x i32> %31 to <16 x i8>
   %33 = shufflevector <16 x i8> %32, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 2, i32 1, i32 0, i32 6, i32 5, i32 4, i32 10, i32 9, i32 8, i32 14, i32 13, i32 12, i32 16, i32 16, i32 16, i32 16>
-  store <16 x i8> %33, ptr %.0390430, align 1
-  %34 = getelementptr inbounds i8, ptr %.0389431, i64 16
-  %35 = getelementptr inbounds i8, ptr %.0390430, i64 12
+  store <16 x i8> %33, ptr %.0385432, align 1
+  %34 = getelementptr inbounds i8, ptr %.0386431, i64 16
+  %35 = getelementptr inbounds i8, ptr %.0385432, i64 12
   %36 = add nuw i64 %.0393429, 12
-  %37 = add i64 %.0388432, -16
+  %37 = add i64 %.0388430, -16
   %38 = icmp ugt i64 %37, 23
   br i1 %38, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %24, %3
   %.0393.lcssa = phi i64 [ 0, %3 ], [ %36, %24 ]
-  %.0389.lcssa = phi ptr [ %0, %3 ], [ %34, %24 ]
   %.0388.lcssa = phi i64 [ %1, %3 ], [ %37, %24 ]
+  %.0386.lcssa = phi ptr [ %0, %3 ], [ %34, %24 ]
   %.not398440461481 = icmp eq i64 %.0388.lcssa, 0
   br i1 %.not398440461481, label %.thread, label %.lr.ph442.lr.ph.lr.ph
 
 .lr.ph442.lr.ph.lr.ph:                            ; preds = %.lr.ph, %._crit_edge
-  %.0388.lcssa548 = phi i64 [ %.0388.lcssa, %._crit_edge ], [ %.0388432, %.lr.ph ]
-  %.0389.lcssa547 = phi ptr [ %.0389.lcssa, %._crit_edge ], [ %.0389431, %.lr.ph ]
+  %.0386.lcssa548 = phi ptr [ %.0386.lcssa, %._crit_edge ], [ %.0386431, %.lr.ph ]
+  %.0388.lcssa547 = phi i64 [ %.0388.lcssa, %._crit_edge ], [ %.0388430, %.lr.ph ]
   %.0393.lcssa546 = phi i64 [ %.0393.lcssa, %._crit_edge ], [ %.0393429, %.lr.ph ]
-  %39 = add i64 %.0388.lcssa548, -1
+  %39 = add i64 %.0388.lcssa547, -1
   br i1 %2, label %.lr.ph442.lr.ph.us, label %.lr.ph442.lr.ph
 
 .lr.ph442.lr.ph.us:                               ; preds = %.lr.ph442.lr.ph.lr.ph, %.outer.us
   %40 = phi i64 [ %70, %.outer.us ], [ %39, %.lr.ph442.lr.ph.lr.ph ]
-  %.0382.ph485.us = phi ptr [ %74, %.outer.us ], [ %.0389.lcssa547, %.lr.ph442.lr.ph.lr.ph ]
+  %.0382.ph485.us = phi ptr [ %74, %.outer.us ], [ %.0386.lcssa548, %.lr.ph442.lr.ph.lr.ph ]
   %.0384.ph484.us = phi i64 [ %69, %.outer.us ], [ 0, %.lr.ph442.lr.ph.lr.ph ]
-  %.0386.ph482.us = phi i64 [ %.1.us, %.outer.us ], [ %.0393.lcssa546, %.lr.ph442.lr.ph.lr.ph ]
+  %.0389.ph482.us = phi i64 [ %.1.us, %.outer.us ], [ %.0393.lcssa546, %.lr.ph442.lr.ph.lr.ph ]
   br label %.lr.ph442.us.us
 
 41:                                               ; preds = %.split452.us.split.us.us
@@ -1758,8 +1758,8 @@ define noundef ptr @php_base64_decode_ex_ssse3(ptr nocapture noundef readonly %0
   ]
 
 43:                                               ; preds = %41
-  %44 = add i64 %.0386.ph482.us, 1
-  %45 = getelementptr inbounds i8, ptr %10, i64 %.0386.ph482.us
+  %44 = add i64 %.0389.ph482.us, 1
+  %45 = getelementptr inbounds i8, ptr %10, i64 %.0389.ph482.us
   %46 = load i8, ptr %45, align 1
   %47 = or i8 %46, %85
   store i8 %47, ptr %45, align 1
@@ -1767,8 +1767,8 @@ define noundef ptr @php_base64_decode_ex_ssse3(ptr nocapture noundef readonly %0
 
 48:                                               ; preds = %41
   %49 = lshr i16 %80, 2
-  %50 = add i64 %.0386.ph482.us, 1
-  %51 = getelementptr inbounds i8, ptr %10, i64 %.0386.ph482.us
+  %50 = add i64 %.0389.ph482.us, 1
+  %51 = getelementptr inbounds i8, ptr %10, i64 %.0389.ph482.us
   %52 = load i8, ptr %51, align 1
   %53 = trunc i16 %49 to i8
   %54 = or i8 %52, %53
@@ -1780,8 +1780,8 @@ define noundef ptr @php_base64_decode_ex_ssse3(ptr nocapture noundef readonly %0
 
 57:                                               ; preds = %41
   %58 = lshr i16 %80, 4
-  %59 = add i64 %.0386.ph482.us, 1
-  %60 = getelementptr inbounds i8, ptr %10, i64 %.0386.ph482.us
+  %59 = add i64 %.0389.ph482.us, 1
+  %60 = getelementptr inbounds i8, ptr %10, i64 %.0389.ph482.us
   %61 = load i8, ptr %60, align 1
   %62 = trunc i16 %58 to i8
   %63 = or i8 %61, %62
@@ -1793,12 +1793,12 @@ define noundef ptr @php_base64_decode_ex_ssse3(ptr nocapture noundef readonly %0
 
 66:                                               ; preds = %41
   %67 = shl i8 %85, 2
-  %68 = getelementptr inbounds i8, ptr %10, i64 %.0386.ph482.us
+  %68 = getelementptr inbounds i8, ptr %10, i64 %.0389.ph482.us
   store i8 %67, ptr %68, align 1
   br label %.outer.us
 
 .outer.us:                                        ; preds = %66, %57, %48, %43
-  %.1.us = phi i64 [ %44, %43 ], [ %50, %48 ], [ %59, %57 ], [ %.0386.ph482.us, %66 ]
+  %.1.us = phi i64 [ %44, %43 ], [ %50, %48 ], [ %59, %57 ], [ %.0389.ph482.us, %66 ]
   %69 = add i64 %.0384.ph484.us, 1
   %70 = add i64 %73, -1
   %.not398440461.us = icmp eq i64 %73, 0
@@ -1807,7 +1807,7 @@ define noundef ptr @php_base64_decode_ex_ssse3(ptr nocapture noundef readonly %0
 .lr.ph442.us.us:                                  ; preds = %.split.us.us.us, %.lr.ph442.lr.ph.us
   %71 = phi i64 [ %40, %.lr.ph442.lr.ph.us ], [ %84, %.split.us.us.us ]
   %.0382.ph411463.us.us = phi ptr [ %.0382.ph485.us, %.lr.ph442.lr.ph.us ], [ %74, %.split.us.us.us ]
-  %.0385.ph408462.us.us = phi i64 [ 0, %.lr.ph442.lr.ph.us ], [ %83, %.split.us.us.us ]
+  %.0387.ph408462.us.us = phi i64 [ 0, %.lr.ph442.lr.ph.us ], [ %83, %.split.us.us.us ]
   br label %72
 
 72:                                               ; preds = %.backedge.us.us.us, %.lr.ph442.us.us
@@ -1831,7 +1831,7 @@ define noundef ptr @php_base64_decode_ex_ssse3(ptr nocapture noundef readonly %0
   br i1 %.not398.us.us.us, label %.outer407._crit_edge, label %72
 
 .split.us.us.us:                                  ; preds = %72
-  %83 = add i64 %.0385.ph408462.us.us, 1
+  %83 = add i64 %.0387.ph408462.us.us, 1
   %84 = add i64 %73, -1
   %.not398440.us.us = icmp eq i64 %73, 0
   br i1 %.not398440.us.us, label %.outer407._crit_edge, label %.lr.ph442.us.us
@@ -1839,7 +1839,7 @@ define noundef ptr @php_base64_decode_ex_ssse3(ptr nocapture noundef readonly %0
 .split452.us.split.us.us:                         ; preds = %77
   %85 = trunc i16 %80 to i8
   %86 = icmp eq i16 %80, -2
-  %87 = icmp ne i64 %.0385.ph408462.us.us, 0
+  %87 = icmp ne i64 %.0387.ph408462.us.us, 0
   %or.cond.us = select i1 %86, i1 true, i1 %87
   br i1 %or.cond.us, label %.loopexit, label %41
 
@@ -1851,16 +1851,16 @@ default.unreachable:                              ; preds = %.loopexit406
 
 .lr.ph442.lr.ph:                                  ; preds = %.lr.ph442.lr.ph.lr.ph, %.outer
   %88 = phi i64 [ %132, %.outer ], [ %39, %.lr.ph442.lr.ph.lr.ph ]
-  %.0382.ph485 = phi ptr [ %92, %.outer ], [ %.0389.lcssa547, %.lr.ph442.lr.ph.lr.ph ]
+  %.0382.ph485 = phi ptr [ %92, %.outer ], [ %.0386.lcssa548, %.lr.ph442.lr.ph.lr.ph ]
   %.0384.ph484 = phi i64 [ %131, %.outer ], [ 0, %.lr.ph442.lr.ph.lr.ph ]
-  %.0385.ph483 = phi i64 [ %.0385.ph408462, %.outer ], [ 0, %.lr.ph442.lr.ph.lr.ph ]
-  %.0386.ph482 = phi i64 [ %.1, %.outer ], [ %.0393.lcssa546, %.lr.ph442.lr.ph.lr.ph ]
+  %.0387.ph483 = phi i64 [ %.0387.ph408462, %.outer ], [ 0, %.lr.ph442.lr.ph.lr.ph ]
+  %.0389.ph482 = phi i64 [ %.1, %.outer ], [ %.0393.lcssa546, %.lr.ph442.lr.ph.lr.ph ]
   br label %.lr.ph442
 
 .lr.ph442:                                        ; preds = %.lr.ph442.lr.ph, %.split
   %89 = phi i64 [ %88, %.lr.ph442.lr.ph ], [ %96, %.split ]
   %.0382.ph411463 = phi ptr [ %.0382.ph485, %.lr.ph442.lr.ph ], [ %92, %.split ]
-  %.0385.ph408462 = phi i64 [ %.0385.ph483, %.lr.ph442.lr.ph ], [ %95, %.split ]
+  %.0387.ph408462 = phi i64 [ %.0387.ph483, %.lr.ph442.lr.ph ], [ %95, %.split ]
   br label %90
 
 90:                                               ; preds = %.lr.ph442, %.backedge
@@ -1872,7 +1872,7 @@ default.unreachable:                              ; preds = %.loopexit406
   br i1 %94, label %.split, label %97
 
 .split:                                           ; preds = %90
-  %95 = add i64 %.0385.ph408462, 1
+  %95 = add i64 %.0387.ph408462, 1
   %96 = add i64 %91, -1
   %.not398440 = icmp eq i64 %91, 0
   br i1 %.not398440, label %.outer407._crit_edge, label %.lr.ph442
@@ -1901,14 +1901,14 @@ default.unreachable:                              ; preds = %.loopexit406
 
 105:                                              ; preds = %.loopexit406
   %106 = shl i8 %103, 2
-  %107 = getelementptr inbounds i8, ptr %10, i64 %.0386.ph482
+  %107 = getelementptr inbounds i8, ptr %10, i64 %.0389.ph482
   store i8 %106, ptr %107, align 1
   br label %.outer
 
 108:                                              ; preds = %.loopexit406
   %109 = lshr i16 %100, 4
-  %110 = add i64 %.0386.ph482, 1
-  %111 = getelementptr inbounds i8, ptr %10, i64 %.0386.ph482
+  %110 = add i64 %.0389.ph482, 1
+  %111 = getelementptr inbounds i8, ptr %10, i64 %.0389.ph482
   %112 = load i8, ptr %111, align 1
   %113 = trunc i16 %109 to i8
   %114 = or i8 %112, %113
@@ -1920,8 +1920,8 @@ default.unreachable:                              ; preds = %.loopexit406
 
 117:                                              ; preds = %.loopexit406
   %118 = lshr i16 %100, 2
-  %119 = add i64 %.0386.ph482, 1
-  %120 = getelementptr inbounds i8, ptr %10, i64 %.0386.ph482
+  %119 = add i64 %.0389.ph482, 1
+  %120 = getelementptr inbounds i8, ptr %10, i64 %.0389.ph482
   %121 = load i8, ptr %120, align 1
   %122 = trunc i16 %118 to i8
   %123 = or i8 %121, %122
@@ -1932,40 +1932,40 @@ default.unreachable:                              ; preds = %.loopexit406
   br label %.outer
 
 126:                                              ; preds = %.loopexit406
-  %127 = add i64 %.0386.ph482, 1
-  %128 = getelementptr inbounds i8, ptr %10, i64 %.0386.ph482
+  %127 = add i64 %.0389.ph482, 1
+  %128 = getelementptr inbounds i8, ptr %10, i64 %.0389.ph482
   %129 = load i8, ptr %128, align 1
   %130 = or i8 %129, %103
   store i8 %130, ptr %128, align 1
   br label %.outer
 
 .outer:                                           ; preds = %126, %117, %108, %105
-  %.1 = phi i64 [ %127, %126 ], [ %119, %117 ], [ %110, %108 ], [ %.0386.ph482, %105 ]
+  %.1 = phi i64 [ %127, %126 ], [ %119, %117 ], [ %110, %108 ], [ %.0389.ph482, %105 ]
   %131 = add i64 %.0384.ph484, 1
   %132 = add i64 %91, -1
   %.not398440461 = icmp eq i64 %91, 0
   br i1 %.not398440461, label %.outer407._crit_edge, label %.lr.ph442.lr.ph
 
 .outer407._crit_edge:                             ; preds = %.outer, %.split, %.backedge, %.outer.us, %.split.us.us.us, %.backedge.us.us.us
-  %.0386.ph.lcssa428 = phi i64 [ %.0386.ph482.us, %.backedge.us.us.us ], [ %.0386.ph482.us, %.split.us.us.us ], [ %.1.us, %.outer.us ], [ %.0386.ph482, %.backedge ], [ %.0386.ph482, %.split ], [ %.1, %.outer ]
+  %.0389.ph.lcssa428 = phi i64 [ %.0389.ph482.us, %.backedge.us.us.us ], [ %.0389.ph482.us, %.split.us.us.us ], [ %.1.us, %.outer.us ], [ %.0389.ph482, %.backedge ], [ %.0389.ph482, %.split ], [ %.1, %.outer ]
   %.0384.ph.lcssa426 = phi i64 [ %.0384.ph484.us, %.backedge.us.us.us ], [ %.0384.ph484.us, %.split.us.us.us ], [ %69, %.outer.us ], [ %.0384.ph484, %.backedge ], [ %.0384.ph484, %.split ], [ %131, %.outer ]
-  %.0385.ph408.lcssa423 = phi i64 [ %.0385.ph408462.us.us, %.backedge.us.us.us ], [ %83, %.split.us.us.us ], [ 0, %.outer.us ], [ %.0385.ph408462, %.backedge ], [ %95, %.split ], [ %.0385.ph408462, %.outer ]
+  %.0387.ph408.lcssa423 = phi i64 [ %.0387.ph408462.us.us, %.backedge.us.us.us ], [ %83, %.split.us.us.us ], [ 0, %.outer.us ], [ %.0387.ph408462, %.backedge ], [ %95, %.split ], [ %.0387.ph408462, %.outer ]
   %133 = and i64 %.0384.ph.lcssa426, 3
   %134 = icmp eq i64 %133, 1
   %or.cond403 = select i1 %2, i1 %134, i1 false
   br i1 %or.cond403, label %.loopexit, label %135
 
 135:                                              ; preds = %.outer407._crit_edge
-  %136 = icmp ne i64 %.0385.ph408.lcssa423, 0
+  %136 = icmp ne i64 %.0387.ph408.lcssa423, 0
   %or.cond3 = select i1 %2, i1 %136, i1 false
   br i1 %or.cond3, label %137, label %.thread
 
 137:                                              ; preds = %135
-  %138 = icmp ugt i64 %.0385.ph408.lcssa423, 2
+  %138 = icmp ugt i64 %.0387.ph408.lcssa423, 2
   br i1 %138, label %.loopexit, label %139
 
 139:                                              ; preds = %137
-  %140 = add i64 %.0384.ph.lcssa426, %.0385.ph408.lcssa423
+  %140 = add i64 %.0384.ph.lcssa426, %.0387.ph408.lcssa423
   %141 = and i64 %140, 3
   %.not399 = icmp eq i64 %141, 0
   br i1 %.not399, label %.thread, label %.loopexit
@@ -1975,15 +1975,15 @@ default.unreachable:                              ; preds = %.loopexit406
   br label %143
 
 .thread:                                          ; preds = %._crit_edge, %139, %135
-  %.0386.ph.lcssa428553560 = phi i64 [ %.0386.ph.lcssa428, %139 ], [ %.0386.ph.lcssa428, %135 ], [ %.0393.lcssa, %._crit_edge ]
-  %142 = getelementptr inbounds i8, ptr %10, i64 %.0386.ph.lcssa428553560
+  %.0389.ph.lcssa428553560 = phi i64 [ %.0389.ph.lcssa428, %139 ], [ %.0389.ph.lcssa428, %135 ], [ %.0393.lcssa, %._crit_edge ]
+  %142 = getelementptr inbounds i8, ptr %10, i64 %.0389.ph.lcssa428553560
   store i8 0, ptr %142, align 1
-  store i64 %.0386.ph.lcssa428553560, ptr %9, align 8
+  store i64 %.0389.ph.lcssa428553560, ptr %9, align 8
   br label %143
 
 143:                                              ; preds = %.thread, %.loopexit
-  %.0387 = phi ptr [ %6, %.thread ], [ null, %.loopexit ]
-  ret ptr %.0387
+  %.0390 = phi ptr [ %6, %.thread ], [ null, %.loopexit ]
+  ret ptr %.0390
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2123,254 +2123,280 @@ define hidden noundef ptr @php_base64_decode_ex_default(ptr nocapture noundef re
   %9 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 24
-  %.not143161181 = icmp eq i64 %1, 0
-  br i1 %.not143161181, label %.thread, label %.lr.ph.lr.ph.lr.ph
+  %.not144163190 = icmp eq i64 %1, 0
+  br i1 %.not144163190, label %.thread, label %.lr.ph.lr.ph.lr.ph
 
 .lr.ph.lr.ph.lr.ph:                               ; preds = %3
   %11 = add i64 %1, -1
   br i1 %2, label %.lr.ph.lr.ph.us, label %.lr.ph.lr.ph
 
-.lr.ph.lr.ph.us:                                  ; preds = %.lr.ph.lr.ph.lr.ph, %.outer.us
-  %12 = phi i64 [ %42, %.outer.us ], [ %11, %.lr.ph.lr.ph.lr.ph ]
-  %.0101.ph185.us = phi ptr [ %46, %.outer.us ], [ %0, %.lr.ph.lr.ph.lr.ph ]
-  %.0104.ph184.us = phi i64 [ %41, %.outer.us ], [ 0, %.lr.ph.lr.ph.lr.ph ]
-  %.0106.ph182.us = phi i64 [ %.1.us, %.outer.us ], [ 0, %.lr.ph.lr.ph.lr.ph ]
-  br label %.lr.ph.us.us
+.lr.ph.lr.ph.us:                                  ; preds = %.lr.ph.lr.ph.lr.ph, %.split.us.split.us.us
+  %12 = phi i64 [ %58, %.split.us.split.us.us ], [ %11, %.lr.ph.lr.ph.lr.ph ]
+  %.0101.ph195.us = phi ptr [ %.us-phi185.us, %.split.us.split.us.us ], [ %0, %.lr.ph.lr.ph.lr.ph ]
+  %.0104.ph194.us = phi i64 [ %.us-phi184.us, %.split.us.split.us.us ], [ 0, %.lr.ph.lr.ph.lr.ph ]
+  %.0105.ph193.us = phi i64 [ %.us-phi183.us, %.split.us.split.us.us ], [ 0, %.lr.ph.lr.ph.lr.ph ]
+  %.0106.ph191.us = phi i64 [ %57, %.split.us.split.us.us ], [ 0, %.lr.ph.lr.ph.lr.ph ]
+  %.not228 = icmp eq i64 %.0106.ph191.us, 0
+  br i1 %.not228, label %.lr.ph.us.us, label %.lr.ph.lr.ph.split.us.split.us.us
 
-13:                                               ; preds = %.split152.us.split.us.us
-  %14 = and i64 %.0104.ph184.us, 3
-  switch i64 %14, label %.unreachabledefault [
-    i64 0, label %38
-    i64 1, label %29
-    i64 2, label %20
-    i64 3, label %15
-  ]
-
-15:                                               ; preds = %13
-  %16 = add i64 %.0106.ph182.us, 1
-  %17 = getelementptr inbounds i8, ptr %10, i64 %.0106.ph182.us
-  %18 = load i8, ptr %17, align 1
-  %19 = or i8 %18, %57
-  store i8 %19, ptr %17, align 1
-  br label %.outer.us
-
-20:                                               ; preds = %13
-  %21 = lshr i16 %52, 2
-  %22 = add i64 %.0106.ph182.us, 1
-  %23 = getelementptr inbounds i8, ptr %10, i64 %.0106.ph182.us
-  %24 = load i8, ptr %23, align 1
-  %25 = trunc i16 %21 to i8
-  %26 = or i8 %24, %25
-  store i8 %26, ptr %23, align 1
-  %27 = shl i8 %57, 6
-  %28 = getelementptr inbounds i8, ptr %10, i64 %22
-  store i8 %27, ptr %28, align 1
-  br label %.outer.us
-
-29:                                               ; preds = %13
-  %30 = lshr i16 %52, 4
-  %31 = add i64 %.0106.ph182.us, 1
-  %32 = getelementptr inbounds i8, ptr %10, i64 %.0106.ph182.us
-  %33 = load i8, ptr %32, align 1
-  %34 = trunc i16 %30 to i8
-  %35 = or i8 %33, %34
-  store i8 %35, ptr %32, align 1
-  %36 = shl i8 %57, 4
-  %37 = getelementptr inbounds i8, ptr %10, i64 %31
-  store i8 %36, ptr %37, align 1
-  br label %.outer.us
-
-38:                                               ; preds = %13
-  %39 = shl i8 %57, 2
-  %40 = getelementptr inbounds i8, ptr %10, i64 %.0106.ph182.us
-  store i8 %39, ptr %40, align 1
-  br label %.outer.us
-
-.outer.us:                                        ; preds = %38, %29, %20, %15
-  %.1.us = phi i64 [ %16, %15 ], [ %22, %20 ], [ %31, %29 ], [ %.0106.ph182.us, %38 ]
-  %41 = add i64 %.0104.ph184.us, 1
-  %42 = add i64 %45, -1
-  %.not143161.us = icmp eq i64 %45, 0
-  br i1 %.not143161.us, label %.outer120._crit_edge, label %.lr.ph.lr.ph.us
-
-.lr.ph.us.us:                                     ; preds = %.split.us.us.us, %.lr.ph.lr.ph.us
-  %43 = phi i64 [ %12, %.lr.ph.lr.ph.us ], [ %56, %.split.us.us.us ]
-  %.0101.ph124163.us.us = phi ptr [ %.0101.ph185.us, %.lr.ph.lr.ph.us ], [ %46, %.split.us.us.us ]
-  %.0105.ph121162.us.us = phi i64 [ 0, %.lr.ph.lr.ph.us ], [ %55, %.split.us.us.us ]
+.lr.ph.us.us:                                     ; preds = %.lr.ph.lr.ph.us, %.outer119.us.us
+  %13 = phi i64 [ %43, %.outer119.us.us ], [ %12, %.lr.ph.lr.ph.us ]
+  %.0101.ph123166.us.us = phi ptr [ %46, %.outer119.us.us ], [ %.0101.ph195.us, %.lr.ph.lr.ph.us ]
+  %.0104.ph121165.us.us = phi i64 [ %42, %.outer119.us.us ], [ %.0104.ph194.us, %.lr.ph.lr.ph.us ]
+  %.0105.ph120164.us.us = phi i64 [ %.1.us.us, %.outer119.us.us ], [ %.0105.ph193.us, %.lr.ph.lr.ph.us ]
   br label %44
 
-44:                                               ; preds = %.backedge.us.us.us, %.lr.ph.us.us
-  %45 = phi i64 [ %43, %.lr.ph.us.us ], [ %54, %.backedge.us.us.us ]
-  %.0101144.us.us.us = phi ptr [ %.0101.ph124163.us.us, %.lr.ph.us.us ], [ %46, %.backedge.us.us.us ]
-  %46 = getelementptr inbounds i8, ptr %.0101144.us.us.us, i64 1
-  %47 = load i8, ptr %.0101144.us.us.us, align 1
+14:                                               ; preds = %.split155.us.us.us202
+  %15 = and i64 %.0104.ph121165.us.us, 3
+  switch i64 %15, label %.unreachabledefault [
+    i64 0, label %39
+    i64 1, label %30
+    i64 2, label %21
+    i64 3, label %16
+  ]
+
+16:                                               ; preds = %14
+  %17 = add i64 %.0105.ph120164.us.us, 1
+  %18 = getelementptr inbounds i8, ptr %10, i64 %.0105.ph120164.us.us
+  %19 = load i8, ptr %18, align 1
+  %20 = or i8 %19, %55
+  store i8 %20, ptr %18, align 1
+  br label %.outer119.us.us
+
+21:                                               ; preds = %14
+  %22 = lshr i16 %52, 2
+  %23 = add i64 %.0105.ph120164.us.us, 1
+  %24 = getelementptr inbounds i8, ptr %10, i64 %.0105.ph120164.us.us
+  %25 = load i8, ptr %24, align 1
+  %26 = trunc i16 %22 to i8
+  %27 = or i8 %25, %26
+  store i8 %27, ptr %24, align 1
+  %28 = shl i8 %55, 6
+  %29 = getelementptr inbounds i8, ptr %10, i64 %23
+  store i8 %28, ptr %29, align 1
+  br label %.outer119.us.us
+
+30:                                               ; preds = %14
+  %31 = lshr i16 %52, 4
+  %32 = add i64 %.0105.ph120164.us.us, 1
+  %33 = getelementptr inbounds i8, ptr %10, i64 %.0105.ph120164.us.us
+  %34 = load i8, ptr %33, align 1
+  %35 = trunc i16 %31 to i8
+  %36 = or i8 %34, %35
+  store i8 %36, ptr %33, align 1
+  %37 = shl i8 %55, 4
+  %38 = getelementptr inbounds i8, ptr %10, i64 %32
+  store i8 %37, ptr %38, align 1
+  br label %.outer119.us.us
+
+39:                                               ; preds = %14
+  %40 = shl i8 %55, 2
+  %41 = getelementptr inbounds i8, ptr %10, i64 %.0105.ph120164.us.us
+  store i8 %40, ptr %41, align 1
+  br label %.outer119.us.us
+
+.outer119.us.us:                                  ; preds = %39, %30, %21, %16
+  %.1.us.us = phi i64 [ %17, %16 ], [ %23, %21 ], [ %32, %30 ], [ %.0105.ph120164.us.us, %39 ]
+  %42 = add i64 %.0104.ph121165.us.us, 1
+  %43 = add i64 %45, -1
+  %.not144.us.us = icmp eq i64 %45, 0
+  br i1 %.not144.us.us, label %.outer119._crit_edge, label %.lr.ph.us.us
+
+44:                                               ; preds = %.backedge.us.us.us200, %.lr.ph.us.us
+  %45 = phi i64 [ %13, %.lr.ph.us.us ], [ %54, %.backedge.us.us.us200 ]
+  %.0101145.us.us.us199 = phi ptr [ %.0101.ph123166.us.us, %.lr.ph.us.us ], [ %46, %.backedge.us.us.us200 ]
+  %46 = getelementptr inbounds i8, ptr %.0101145.us.us.us199, i64 1
+  %47 = load i8, ptr %.0101145.us.us.us199, align 1
   %48 = icmp eq i8 %47, 61
-  br i1 %48, label %.split.us.us.us, label %49
+  br i1 %48, label %.split.us.split.us.us, label %49
 
 49:                                               ; preds = %44
   %50 = zext i8 %47 to i64
   %51 = getelementptr inbounds [256 x i16], ptr @base64_reverse_table, i64 0, i64 %50
   %52 = load i16, ptr %51, align 2
   %53 = icmp eq i16 %52, -1
-  br i1 %53, label %.backedge.us.us.us, label %.split152.us.split.us.us
+  br i1 %53, label %.backedge.us.us.us200, label %.split155.us.us.us202
 
-.backedge.us.us.us:                               ; preds = %49
+.backedge.us.us.us200:                            ; preds = %49
   %54 = add i64 %45, -1
-  %.not.us.us.us = icmp eq i64 %45, 0
-  br i1 %.not.us.us.us, label %.outer120._crit_edge, label %44
+  %.not.us.us.us201 = icmp eq i64 %45, 0
+  br i1 %.not.us.us.us201, label %.outer119._crit_edge, label %44
 
-.split.us.us.us:                                  ; preds = %44
-  %55 = add i64 %.0105.ph121162.us.us, 1
-  %56 = add i64 %45, -1
-  %.not143.us.us = icmp eq i64 %45, 0
-  br i1 %.not143.us.us, label %.outer120._crit_edge, label %.lr.ph.us.us
+.split155.us.us.us202:                            ; preds = %49
+  %55 = trunc i16 %52 to i8
+  %56 = icmp eq i16 %52, -2
+  br i1 %56, label %.loopexit, label %14
 
-.split152.us.split.us.us:                         ; preds = %49
-  %57 = trunc i16 %52 to i8
-  %58 = icmp eq i16 %52, -2
-  %59 = icmp ne i64 %.0105.ph121162.us.us, 0
-  %or.cond.us = select i1 %58, i1 true, i1 %59
-  br i1 %or.cond.us, label %.loopexit, label %13
+.split.us.split.us.us:                            ; preds = %.lr.ph.lr.ph.split.us.split.us.us, %44
+  %.us-phi183.us = phi i64 [ %.0105.ph120164.us.us, %44 ], [ %.0105.ph193.us, %.lr.ph.lr.ph.split.us.split.us.us ]
+  %.us-phi184.us = phi i64 [ %.0104.ph121165.us.us, %44 ], [ %.0104.ph194.us, %.lr.ph.lr.ph.split.us.split.us.us ]
+  %.us-phi185.us = phi ptr [ %46, %44 ], [ %60, %.lr.ph.lr.ph.split.us.split.us.us ]
+  %.us-phi186.us = phi i64 [ %45, %44 ], [ %59, %.lr.ph.lr.ph.split.us.split.us.us ]
+  %57 = add i64 %.0106.ph191.us, 1
+  %58 = add i64 %.us-phi186.us, -1
+  %.not144163.us = icmp eq i64 %.us-phi186.us, 0
+  br i1 %.not144163.us, label %.outer119._crit_edge, label %.lr.ph.lr.ph.us
 
-.unreachabledefault:                              ; preds = %13
+.lr.ph.lr.ph.split.us.split.us.us:                ; preds = %.lr.ph.lr.ph.us, %.backedge.us.us.us.us
+  %59 = phi i64 [ %68, %.backedge.us.us.us.us ], [ %12, %.lr.ph.lr.ph.us ]
+  %.0101145.us.us.us.us = phi ptr [ %60, %.backedge.us.us.us.us ], [ %.0101.ph195.us, %.lr.ph.lr.ph.us ]
+  %60 = getelementptr inbounds i8, ptr %.0101145.us.us.us.us, i64 1
+  %61 = load i8, ptr %.0101145.us.us.us.us, align 1
+  %62 = icmp eq i8 %61, 61
+  br i1 %62, label %.split.us.split.us.us, label %63
+
+63:                                               ; preds = %.lr.ph.lr.ph.split.us.split.us.us
+  %64 = zext i8 %61 to i64
+  %65 = getelementptr inbounds [256 x i16], ptr @base64_reverse_table, i64 0, i64 %64
+  %66 = load i16, ptr %65, align 2
+  %67 = icmp eq i16 %66, -1
+  br i1 %67, label %.backedge.us.us.us.us, label %.loopexit
+
+.backedge.us.us.us.us:                            ; preds = %63
+  %68 = add i64 %59, -1
+  %.not.us.us.us.us = icmp eq i64 %59, 0
+  br i1 %.not.us.us.us.us, label %.outer119._crit_edge, label %.lr.ph.lr.ph.split.us.split.us.us
+
+.unreachabledefault:                              ; preds = %14
   unreachable
 
-default.unreachable:                              ; preds = %.loopexit119
+default.unreachable:                              ; preds = %.loopexit124
   unreachable
 
-.lr.ph.lr.ph:                                     ; preds = %.lr.ph.lr.ph.lr.ph, %.outer
-  %60 = phi i64 [ %104, %.outer ], [ %11, %.lr.ph.lr.ph.lr.ph ]
-  %.0101.ph185 = phi ptr [ %64, %.outer ], [ %0, %.lr.ph.lr.ph.lr.ph ]
-  %.0104.ph184 = phi i64 [ %103, %.outer ], [ 0, %.lr.ph.lr.ph.lr.ph ]
-  %.0105.ph183 = phi i64 [ %.0105.ph121162, %.outer ], [ 0, %.lr.ph.lr.ph.lr.ph ]
-  %.0106.ph182 = phi i64 [ %.1, %.outer ], [ 0, %.lr.ph.lr.ph.lr.ph ]
+.lr.ph.lr.ph:                                     ; preds = %.lr.ph.lr.ph.lr.ph, %.split
+  %69 = phi i64 [ %77, %.split ], [ %11, %.lr.ph.lr.ph.lr.ph ]
+  %.0101.ph195 = phi ptr [ %73, %.split ], [ %0, %.lr.ph.lr.ph.lr.ph ]
+  %.0104.ph194 = phi i64 [ %.0104.ph121165, %.split ], [ 0, %.lr.ph.lr.ph.lr.ph ]
+  %.0105.ph193 = phi i64 [ %.0105.ph120164, %.split ], [ 0, %.lr.ph.lr.ph.lr.ph ]
+  %.0106.ph191 = phi i64 [ %76, %.split ], [ 0, %.lr.ph.lr.ph.lr.ph ]
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.split
-  %61 = phi i64 [ %60, %.lr.ph.lr.ph ], [ %68, %.split ]
-  %.0101.ph124163 = phi ptr [ %.0101.ph185, %.lr.ph.lr.ph ], [ %64, %.split ]
-  %.0105.ph121162 = phi i64 [ %.0105.ph183, %.lr.ph.lr.ph ], [ %67, %.split ]
-  br label %62
+.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer119
+  %70 = phi i64 [ %69, %.lr.ph.lr.ph ], [ %113, %.outer119 ]
+  %.0101.ph123166 = phi ptr [ %.0101.ph195, %.lr.ph.lr.ph ], [ %73, %.outer119 ]
+  %.0104.ph121165 = phi i64 [ %.0104.ph194, %.lr.ph.lr.ph ], [ %112, %.outer119 ]
+  %.0105.ph120164 = phi i64 [ %.0105.ph193, %.lr.ph.lr.ph ], [ %.1, %.outer119 ]
+  br label %71
 
-62:                                               ; preds = %.lr.ph, %.backedge
-  %63 = phi i64 [ %61, %.lr.ph ], [ %74, %.backedge ]
-  %.0101144 = phi ptr [ %.0101.ph124163, %.lr.ph ], [ %64, %.backedge ]
-  %64 = getelementptr inbounds i8, ptr %.0101144, i64 1
-  %65 = load i8, ptr %.0101144, align 1
-  %66 = icmp eq i8 %65, 61
-  br i1 %66, label %.split, label %69
+71:                                               ; preds = %.lr.ph, %.backedge
+  %72 = phi i64 [ %70, %.lr.ph ], [ %83, %.backedge ]
+  %.0101145 = phi ptr [ %.0101.ph123166, %.lr.ph ], [ %73, %.backedge ]
+  %73 = getelementptr inbounds i8, ptr %.0101145, i64 1
+  %74 = load i8, ptr %.0101145, align 1
+  %75 = icmp eq i8 %74, 61
+  br i1 %75, label %.split, label %78
 
-.split:                                           ; preds = %62
-  %67 = add i64 %.0105.ph121162, 1
-  %68 = add i64 %63, -1
-  %.not143 = icmp eq i64 %63, 0
-  br i1 %.not143, label %.outer120._crit_edge, label %.lr.ph
+.split:                                           ; preds = %71
+  %76 = add i64 %.0106.ph191, 1
+  %77 = add i64 %72, -1
+  %.not144163 = icmp eq i64 %72, 0
+  br i1 %.not144163, label %.outer119._crit_edge, label %.lr.ph.lr.ph
 
-69:                                               ; preds = %62
-  %70 = zext i8 %65 to i64
-  %71 = getelementptr inbounds [256 x i16], ptr @base64_reverse_table, i64 0, i64 %70
-  %72 = load i16, ptr %71, align 2
-  %73 = icmp slt i16 %72, 0
-  br i1 %73, label %.backedge, label %.loopexit119
+78:                                               ; preds = %71
+  %79 = zext i8 %74 to i64
+  %80 = getelementptr inbounds [256 x i16], ptr @base64_reverse_table, i64 0, i64 %79
+  %81 = load i16, ptr %80, align 2
+  %82 = icmp slt i16 %81, 0
+  br i1 %82, label %.backedge, label %.loopexit124
 
-.backedge:                                        ; preds = %69
-  %74 = add i64 %63, -1
-  %.not = icmp eq i64 %63, 0
-  br i1 %.not, label %.outer120._crit_edge, label %62
+.backedge:                                        ; preds = %78
+  %83 = add i64 %72, -1
+  %.not = icmp eq i64 %72, 0
+  br i1 %.not, label %.outer119._crit_edge, label %71
 
-.loopexit119:                                     ; preds = %69
-  %75 = trunc i16 %72 to i8
-  %76 = and i64 %.0104.ph184, 3
-  switch i64 %76, label %default.unreachable [
-    i64 0, label %77
-    i64 1, label %80
-    i64 2, label %89
-    i64 3, label %98
+.loopexit124:                                     ; preds = %78
+  %84 = trunc i16 %81 to i8
+  %85 = and i64 %.0104.ph121165, 3
+  switch i64 %85, label %default.unreachable [
+    i64 0, label %86
+    i64 1, label %89
+    i64 2, label %98
+    i64 3, label %107
   ]
 
-77:                                               ; preds = %.loopexit119
-  %78 = shl i8 %75, 2
-  %79 = getelementptr inbounds i8, ptr %10, i64 %.0106.ph182
-  store i8 %78, ptr %79, align 1
-  br label %.outer
-
-80:                                               ; preds = %.loopexit119
-  %81 = lshr i16 %72, 4
-  %82 = add i64 %.0106.ph182, 1
-  %83 = getelementptr inbounds i8, ptr %10, i64 %.0106.ph182
-  %84 = load i8, ptr %83, align 1
-  %85 = trunc i16 %81 to i8
-  %86 = or i8 %84, %85
-  store i8 %86, ptr %83, align 1
-  %87 = shl i8 %75, 4
-  %88 = getelementptr inbounds i8, ptr %10, i64 %82
+86:                                               ; preds = %.loopexit124
+  %87 = shl i8 %84, 2
+  %88 = getelementptr inbounds i8, ptr %10, i64 %.0105.ph120164
   store i8 %87, ptr %88, align 1
-  br label %.outer
+  br label %.outer119
 
-89:                                               ; preds = %.loopexit119
-  %90 = lshr i16 %72, 2
-  %91 = add i64 %.0106.ph182, 1
-  %92 = getelementptr inbounds i8, ptr %10, i64 %.0106.ph182
+89:                                               ; preds = %.loopexit124
+  %90 = lshr i16 %81, 4
+  %91 = add i64 %.0105.ph120164, 1
+  %92 = getelementptr inbounds i8, ptr %10, i64 %.0105.ph120164
   %93 = load i8, ptr %92, align 1
   %94 = trunc i16 %90 to i8
   %95 = or i8 %93, %94
   store i8 %95, ptr %92, align 1
-  %96 = shl i8 %75, 6
+  %96 = shl i8 %84, 4
   %97 = getelementptr inbounds i8, ptr %10, i64 %91
   store i8 %96, ptr %97, align 1
-  br label %.outer
+  br label %.outer119
 
-98:                                               ; preds = %.loopexit119
-  %99 = add i64 %.0106.ph182, 1
-  %100 = getelementptr inbounds i8, ptr %10, i64 %.0106.ph182
-  %101 = load i8, ptr %100, align 1
-  %102 = or i8 %101, %75
-  store i8 %102, ptr %100, align 1
-  br label %.outer
+98:                                               ; preds = %.loopexit124
+  %99 = lshr i16 %81, 2
+  %100 = add i64 %.0105.ph120164, 1
+  %101 = getelementptr inbounds i8, ptr %10, i64 %.0105.ph120164
+  %102 = load i8, ptr %101, align 1
+  %103 = trunc i16 %99 to i8
+  %104 = or i8 %102, %103
+  store i8 %104, ptr %101, align 1
+  %105 = shl i8 %84, 6
+  %106 = getelementptr inbounds i8, ptr %10, i64 %100
+  store i8 %105, ptr %106, align 1
+  br label %.outer119
 
-.outer:                                           ; preds = %98, %89, %80, %77
-  %.1 = phi i64 [ %99, %98 ], [ %91, %89 ], [ %82, %80 ], [ %.0106.ph182, %77 ]
-  %103 = add i64 %.0104.ph184, 1
-  %104 = add i64 %63, -1
-  %.not143161 = icmp eq i64 %63, 0
-  br i1 %.not143161, label %.outer120._crit_edge, label %.lr.ph.lr.ph
+107:                                              ; preds = %.loopexit124
+  %108 = add i64 %.0105.ph120164, 1
+  %109 = getelementptr inbounds i8, ptr %10, i64 %.0105.ph120164
+  %110 = load i8, ptr %109, align 1
+  %111 = or i8 %110, %84
+  store i8 %111, ptr %109, align 1
+  br label %.outer119
 
-.outer120._crit_edge:                             ; preds = %.outer, %.split, %.backedge, %.outer.us, %.split.us.us.us, %.backedge.us.us.us
-  %.0106.ph.lcssa141 = phi i64 [ %.0106.ph182.us, %.backedge.us.us.us ], [ %.0106.ph182.us, %.split.us.us.us ], [ %.1.us, %.outer.us ], [ %.0106.ph182, %.backedge ], [ %.0106.ph182, %.split ], [ %.1, %.outer ]
-  %.0104.ph.lcssa139 = phi i64 [ %.0104.ph184.us, %.backedge.us.us.us ], [ %.0104.ph184.us, %.split.us.us.us ], [ %41, %.outer.us ], [ %.0104.ph184, %.backedge ], [ %.0104.ph184, %.split ], [ %103, %.outer ]
-  %.0105.ph121.lcssa136 = phi i64 [ %.0105.ph121162.us.us, %.backedge.us.us.us ], [ %55, %.split.us.us.us ], [ 0, %.outer.us ], [ %.0105.ph121162, %.backedge ], [ %67, %.split ], [ %.0105.ph121162, %.outer ]
-  %105 = and i64 %.0104.ph.lcssa139, 3
-  %106 = icmp eq i64 %105, 1
-  %or.cond116 = select i1 %2, i1 %106, i1 false
-  br i1 %or.cond116, label %.loopexit, label %107
+.outer119:                                        ; preds = %107, %98, %89, %86
+  %.1 = phi i64 [ %108, %107 ], [ %100, %98 ], [ %91, %89 ], [ %.0105.ph120164, %86 ]
+  %112 = add i64 %.0104.ph121165, 1
+  %113 = add i64 %72, -1
+  %.not144 = icmp eq i64 %72, 0
+  br i1 %.not144, label %.outer119._crit_edge, label %.lr.ph
 
-107:                                              ; preds = %.outer120._crit_edge
-  %108 = icmp ne i64 %.0105.ph121.lcssa136, 0
-  %or.cond3 = select i1 %2, i1 %108, i1 false
-  br i1 %or.cond3, label %109, label %.thread
+.outer119._crit_edge:                             ; preds = %.split, %.outer119, %.backedge, %.split.us.split.us.us, %.backedge.us.us.us.us, %.outer119.us.us, %.backedge.us.us.us200
+  %.0106.ph.lcssa142 = phi i64 [ 0, %.backedge.us.us.us200 ], [ 0, %.outer119.us.us ], [ %.0106.ph191.us, %.backedge.us.us.us.us ], [ %57, %.split.us.split.us.us ], [ %.0106.ph191, %.backedge ], [ %.0106.ph191, %.outer119 ], [ %76, %.split ]
+  %.0105.ph120.lcssa140 = phi i64 [ %.0105.ph120164.us.us, %.backedge.us.us.us200 ], [ %.1.us.us, %.outer119.us.us ], [ %.0105.ph193.us, %.backedge.us.us.us.us ], [ %.us-phi183.us, %.split.us.split.us.us ], [ %.0105.ph120164, %.backedge ], [ %.1, %.outer119 ], [ %.0105.ph120164, %.split ]
+  %.0104.ph121.lcssa137 = phi i64 [ %.0104.ph121165.us.us, %.backedge.us.us.us200 ], [ %42, %.outer119.us.us ], [ %.0104.ph194.us, %.backedge.us.us.us.us ], [ %.us-phi184.us, %.split.us.split.us.us ], [ %.0104.ph121165, %.backedge ], [ %112, %.outer119 ], [ %.0104.ph121165, %.split ]
+  %114 = and i64 %.0104.ph121.lcssa137, 3
+  %115 = icmp eq i64 %114, 1
+  %or.cond116 = select i1 %2, i1 %115, i1 false
+  br i1 %or.cond116, label %.loopexit, label %116
 
-109:                                              ; preds = %107
-  %110 = icmp ugt i64 %.0105.ph121.lcssa136, 2
-  br i1 %110, label %.loopexit, label %111
+116:                                              ; preds = %.outer119._crit_edge
+  %117 = icmp ne i64 %.0106.ph.lcssa142, 0
+  %or.cond3 = select i1 %2, i1 %117, i1 false
+  br i1 %or.cond3, label %118, label %.thread
 
-111:                                              ; preds = %109
-  %112 = add i64 %.0104.ph.lcssa139, %.0105.ph121.lcssa136
-  %113 = and i64 %112, 3
-  %.not112 = icmp eq i64 %113, 0
+118:                                              ; preds = %116
+  %119 = icmp ugt i64 %.0106.ph.lcssa142, 2
+  br i1 %119, label %.loopexit, label %120
+
+120:                                              ; preds = %118
+  %121 = add i64 %.0104.ph121.lcssa137, %.0106.ph.lcssa142
+  %122 = and i64 %121, 3
+  %.not112 = icmp eq i64 %122, 0
   br i1 %.not112, label %.thread, label %.loopexit
 
-.loopexit:                                        ; preds = %.split152.us.split.us.us, %.outer120._crit_edge, %109, %111
+.loopexit:                                        ; preds = %63, %.split155.us.us.us202, %.outer119._crit_edge, %118, %120
   tail call void @_efree(ptr noundef nonnull %6) #10
-  br label %115
+  br label %124
 
-.thread:                                          ; preds = %3, %111, %107
-  %.0106.ph.lcssa141246253 = phi i64 [ %.0106.ph.lcssa141, %111 ], [ %.0106.ph.lcssa141, %107 ], [ 0, %3 ]
-  %114 = getelementptr inbounds i8, ptr %10, i64 %.0106.ph.lcssa141246253
-  store i8 0, ptr %114, align 1
-  store i64 %.0106.ph.lcssa141246253, ptr %9, align 8
-  br label %115
+.thread:                                          ; preds = %3, %120, %116
+  %.0105.ph120.lcssa140301307 = phi i64 [ %.0105.ph120.lcssa140, %120 ], [ %.0105.ph120.lcssa140, %116 ], [ 0, %3 ]
+  %123 = getelementptr inbounds i8, ptr %10, i64 %.0105.ph120.lcssa140301307
+  store i8 0, ptr %123, align 1
+  store i64 %.0105.ph120.lcssa140301307, ptr %9, align 8
+  br label %124
 
-115:                                              ; preds = %.thread, %.loopexit
+124:                                              ; preds = %.thread, %.loopexit
   %.0103 = phi ptr [ %6, %.thread ], [ null, %.loopexit ]
   ret ptr %.0103
 }
@@ -2408,11 +2434,11 @@ define hidden void @zif_base64_encode(ptr noundef %0, ptr nocapture noundef writ
   br label %15
 
 14:                                               ; preds = %12, %.thread84
-  %.06795 = phi i32 [ 1, %.thread84 ], [ 9, %12 ]
-  %.06894 = phi i32 [ 0, %.thread84 ], [ 1, %12 ]
-  %.06993 = phi ptr [ null, %.thread84 ], [ %7, %12 ]
-  %.07092 = phi i32 [ 0, %.thread84 ], [ 4, %12 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.06795, i32 noundef %.06894, ptr noundef null, i32 noundef %.07092, ptr noundef %.06993) #10
+  %.06695 = phi i32 [ 1, %.thread84 ], [ 9, %12 ]
+  %.06794 = phi i32 [ 0, %.thread84 ], [ 4, %12 ]
+  %.06893 = phi ptr [ null, %.thread84 ], [ %7, %12 ]
+  %.06992 = phi i32 [ 0, %.thread84 ], [ 1, %12 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.06695, i32 noundef %.06992, ptr noundef null, i32 noundef %.06794, ptr noundef %.06893) #10
   br label %26
 
 15:                                               ; preds = %._crit_edge, %.thread
@@ -2509,11 +2535,11 @@ define hidden void @zif_base64_decode(ptr noundef %0, ptr nocapture noundef writ
   br label %.thread151
 
 .thread162:                                       ; preds = %27, %15, %8
-  %.0109173 = phi i32 [ 9, %15 ], [ 1, %8 ], [ 9, %27 ]
-  %.0111172 = phi i32 [ 4, %15 ], [ 0, %8 ], [ 2, %27 ]
-  %.0112171 = phi ptr [ %10, %15 ], [ null, %8 ], [ %28, %27 ]
-  %.0113170 = phi i32 [ 1, %15 ], [ 0, %8 ], [ 2, %27 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0109173, i32 noundef %.0113170, ptr noundef null, i32 noundef %.0111172, ptr noundef %.0112171) #10
+  %.0108173 = phi i32 [ 9, %15 ], [ 1, %8 ], [ 9, %27 ]
+  %.0109172 = phi i32 [ 4, %15 ], [ 0, %8 ], [ 2, %27 ]
+  %.0110171 = phi ptr [ %10, %15 ], [ null, %8 ], [ %28, %27 ]
+  %.0111170 = phi i32 [ 1, %15 ], [ 0, %8 ], [ 2, %27 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0108173, i32 noundef %.0111170, ptr noundef null, i32 noundef %.0109172, ptr noundef %.0110171) #10
   br label %41
 
 .thread151:                                       ; preds = %..thread151_crit_edge, %.thread147, %17

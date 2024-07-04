@@ -271,10 +271,10 @@ define range(i32 -1, 1) i32 @H5P_init_phase1() local_unnamed_addr #0 {
   br i1 %5, label %.thread69.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %3, %.preheader.backedge
-  %.186 = phi i64 [ %.2, %.preheader.backedge ], [ 0, %3 ]
-  %.04885 = phi i64 [ %.04885.be, %.preheader.backedge ], [ 0, %3 ]
-  %.05484 = phi i64 [ %.05484.be, %.preheader.backedge ], [ 0, %3 ]
-  %6 = getelementptr inbounds [22 x ptr], ptr @init_class, i64 0, i64 %.05484
+  %.04886 = phi i64 [ %.04886.be, %.preheader.backedge ], [ 0, %3 ]
+  %.05085 = phi i64 [ %.05085.be, %.preheader.backedge ], [ 0, %3 ]
+  %.15384 = phi i64 [ %.254, %.preheader.backedge ], [ 0, %3 ]
+  %6 = getelementptr inbounds [22 x ptr], ptr @init_class, i64 0, i64 %.04886
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
@@ -384,28 +384,28 @@ define range(i32 -1, 1) i32 @H5P_init_phase1() local_unnamed_addr #0 {
   br label %86
 
 80:                                               ; preds = %70, %67, %64
-  %81 = add i64 %.04885, 1
-  %82 = add i64 %.186, 1
+  %81 = add i64 %.05085, 1
+  %82 = add i64 %.15384, 1
   br label %83
 
 83:                                               ; preds = %.preheader, %16, %80
-  %.149 = phi i64 [ %81, %80 ], [ %.04885, %16 ], [ %.04885, %.preheader ]
-  %.2 = phi i64 [ %82, %80 ], [ %.186, %16 ], [ %.186, %.preheader ]
-  %84 = add nuw nsw i64 %.05484, 1
+  %.254 = phi i64 [ %82, %80 ], [ %.15384, %16 ], [ %.15384, %.preheader ]
+  %.151 = phi i64 [ %81, %80 ], [ %.05085, %16 ], [ %.05085, %.preheader ]
+  %84 = add nuw nsw i64 %.04886, 1
   %exitcond.not = icmp eq i64 %84, 22
   br i1 %exitcond.not, label %85, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %83, %85
-  %.04885.be = phi i64 [ %.149, %83 ], [ 0, %85 ]
-  %.05484.be = phi i64 [ %84, %83 ], [ 0, %85 ]
+  %.04886.be = phi i64 [ %84, %83 ], [ 0, %85 ]
+  %.05085.be = phi i64 [ %.151, %83 ], [ 0, %85 ]
   br label %.preheader
 
 85:                                               ; preds = %83
-  %.not = icmp eq i64 %.149, 0
+  %.not = icmp eq i64 %.151, 0
   br i1 %.not, label %.thread69, label %.preheader.backedge
 
 86:                                               ; preds = %76, %60, %50, %38
-  %.not73 = icmp eq i64 %.186, 0
+  %.not73 = icmp eq i64 %.15384, 0
   br i1 %.not73, label %.thread69, label %87
 
 87:                                               ; preds = %86
@@ -413,8 +413,8 @@ define range(i32 -1, 1) i32 @H5P_init_phase1() local_unnamed_addr #0 {
   br label %89
 
 89:                                               ; preds = %87, %110
-  %.15587 = phi i64 [ 0, %87 ], [ %111, %110 ]
-  %90 = getelementptr inbounds [22 x ptr], ptr @init_class, i64 0, i64 %.15587
+  %.14987 = phi i64 [ 0, %87 ], [ %111, %110 ]
+  %90 = getelementptr inbounds [22 x ptr], ptr @init_class, i64 0, i64 %.14987
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 32
   %93 = load ptr, ptr %92, align 8
@@ -449,7 +449,7 @@ define range(i32 -1, 1) i32 @H5P_init_phase1() local_unnamed_addr #0 {
   br label %110
 
 110:                                              ; preds = %108, %99, %96, %106, %103
-  %111 = add nuw nsw i64 %.15587, 1
+  %111 = add nuw nsw i64 %.14987, 1
   %exitcond94.not = icmp eq i64 %111, 22
   br i1 %exitcond94.not, label %.thread69, label %89
 
@@ -461,8 +461,8 @@ define range(i32 -1, 1) i32 @H5P_init_phase1() local_unnamed_addr #0 {
   br label %.thread69
 
 .thread69:                                        ; preds = %85, %110, %.thread69.sink.split, %86
-  %.353 = phi i32 [ -1, %86 ], [ -1, %.thread69.sink.split ], [ -1, %110 ], [ 0, %85 ]
-  ret i32 %.353
+  %.3 = phi i32 [ -1, %86 ], [ -1, %.thread69.sink.split ], [ -1, %110 ], [ 0, %85 ]
+  ret i32 %.3
 }
 
 declare i32 @H5I_register_type(ptr noundef) local_unnamed_addr #1
@@ -1865,8 +1865,8 @@ define range(i32 -1, 1) i32 @H5P_close(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %5, label %.preheader, label %.loopexit96
 
 .preheader:                                       ; preds = %1
-  %.068100 = load ptr, ptr %0, align 8
-  %.not101 = icmp eq ptr %.068100, null
+  %.071100 = load ptr, ptr %0, align 8
+  %.not101 = icmp eq ptr %.071100, null
   br i1 %.not101, label %.loopexit96, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
@@ -1874,22 +1874,22 @@ define range(i32 -1, 1) i32 @H5P_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %7
 
 7:                                                ; preds = %.lr.ph, %15
-  %.068102 = phi ptr [ %.068100, %.lr.ph ], [ %.068, %15 ]
-  %8 = getelementptr inbounds i8, ptr %.068102, i64 96
+  %.071102 = phi ptr [ %.071100, %.lr.ph ], [ %.071, %15 ]
+  %8 = getelementptr inbounds i8, ptr %.071102, i64 96
   %9 = load ptr, ptr %8, align 8
   %.not90 = icmp eq ptr %9, null
   br i1 %.not90, label %15, label %10
 
 10:                                               ; preds = %7
   %11 = load i64, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %.068102, i64 104
+  %12 = getelementptr inbounds i8, ptr %.071102, i64 104
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %9(i64 noundef %11, ptr noundef %13) #13
   br label %15
 
 15:                                               ; preds = %10, %7
-  %.068 = load ptr, ptr %.068102, align 8
-  %.not = icmp eq ptr %.068, null
+  %.071 = load ptr, ptr %.071102, align 8
+  %.not = icmp eq ptr %.071, null
   br i1 %.not, label %.loopexit96, label %7
 
 .loopexit96:                                      ; preds = %15, %.preheader, %1
@@ -1918,7 +1918,7 @@ define range(i32 -1, 1) i32 @H5P_close(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph106:                                        ; preds = %26, %47
   %.067105 = phi ptr [ %49, %47 ], [ %28, %26 ]
-  %.071104 = phi i64 [ %48, %47 ], [ 0, %26 ]
+  %.068104 = phi i64 [ %48, %47 ], [ 0, %26 ]
   %29 = tail call ptr @H5SL_item(ptr noundef nonnull %.067105) #13
   %30 = getelementptr inbounds i8, ptr %29, i64 96
   %31 = load ptr, ptr %30, align 8
@@ -1947,13 +1947,13 @@ define range(i32 -1, 1) i32 @H5P_close(ptr noundef %0) local_unnamed_addr #0 {
   br label %192
 
 47:                                               ; preds = %39
-  %48 = add i64 %.071104, 1
+  %48 = add i64 %.068104, 1
   %49 = tail call ptr @H5SL_next(ptr noundef nonnull %.067105) #13
   %.not81 = icmp eq ptr %49, null
   br i1 %.not81, label %.loopexit95, label %.lr.ph106
 
 .loopexit95:                                      ; preds = %47, %26, %22
-  %.172 = phi i64 [ 0, %22 ], [ 0, %26 ], [ %48, %47 ]
+  %.169 = phi i64 [ 0, %22 ], [ 0, %26 ], [ %48, %47 ]
   %50 = getelementptr inbounds i8, ptr %0, i64 32
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i64 @H5SL_count(ptr noundef %51) #13
@@ -1983,29 +1983,29 @@ define range(i32 -1, 1) i32 @H5P_close(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %59, label %.lr.ph117.split.us.split.us, label %.lr.ph117.split.us.split
 
 .lr.ph117.split.us.split.us:                      ; preds = %.lr.ph117.split.us, %.loopexit.us.us
-  %.169116.us.us = phi ptr [ %66, %.loopexit.us.us ], [ %53, %.lr.ph117.split.us ]
-  %.2115.us.us = phi i64 [ %.5.us.us, %.loopexit.us.us ], [ %.172, %.lr.ph117.split.us ]
-  %60 = getelementptr inbounds i8, ptr %.169116.us.us, i64 24
+  %.2116.us.us = phi i64 [ %.5.us.us, %.loopexit.us.us ], [ %.169, %.lr.ph117.split.us ]
+  %.172115.us.us = phi ptr [ %66, %.loopexit.us.us ], [ %53, %.lr.ph117.split.us ]
+  %60 = getelementptr inbounds i8, ptr %.172115.us.us, i64 24
   %61 = load i64, ptr %60, align 8
   %.not85.us.us = icmp eq i64 %61, 0
   br i1 %.not85.us.us, label %.loopexit.us.us, label %62
 
 62:                                               ; preds = %.lr.ph117.split.us.split.us
-  %63 = getelementptr inbounds i8, ptr %.169116.us.us, i64 56
+  %63 = getelementptr inbounds i8, ptr %.172115.us.us, i64 56
   %64 = load ptr, ptr %63, align 8
   %65 = tail call ptr @H5SL_first(ptr noundef %64) #13
   %.not86107.us.us = icmp eq ptr %65, null
   br i1 %.not86107.us.us, label %.loopexit.us.us, label %.lr.ph110.us.us
 
 .loopexit.us.us:                                  ; preds = %95, %62, %.lr.ph117.split.us.split.us
-  %.5.us.us = phi i64 [ %.2115.us.us, %.lr.ph117.split.us.split.us ], [ %.2115.us.us, %62 ], [ %.4.us.us.us.us, %95 ]
-  %66 = load ptr, ptr %.169116.us.us, align 8
+  %.5.us.us = phi i64 [ %.2116.us.us, %.lr.ph117.split.us.split.us ], [ %.2116.us.us, %62 ], [ %.4.us.us.us.us, %95 ]
+  %66 = load ptr, ptr %.172115.us.us, align 8
   %.not84.us.us = icmp eq ptr %66, null
   br i1 %.not84.us.us, label %._crit_edge, label %.lr.ph117.split.us.split.us
 
 .lr.ph110.us.us:                                  ; preds = %62, %95
   %.1109.us.us.us.us = phi ptr [ %96, %95 ], [ %65, %62 ]
-  %.3108.us.us.us.us = phi i64 [ %.4.us.us.us.us, %95 ], [ %.2115.us.us, %62 ]
+  %.3108.us.us.us.us = phi i64 [ %.4.us.us.us.us, %95 ], [ %.2116.us.us, %62 ]
   %67 = tail call ptr @H5SL_item(ptr noundef nonnull %.1109.us.us.us.us) #13
   %68 = icmp eq i64 %.3108.us.us.us.us, 0
   br i1 %68, label %73, label %69
@@ -2057,29 +2057,29 @@ define range(i32 -1, 1) i32 @H5P_close(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not86.us.us.us.us, label %.loopexit.us.us, label %.lr.ph110.us.us
 
 .lr.ph117.split.us.split:                         ; preds = %.lr.ph117.split.us, %.loopexit.us
-  %.169116.us = phi ptr [ %103, %.loopexit.us ], [ %53, %.lr.ph117.split.us ]
-  %.2115.us = phi i64 [ %.5.us, %.loopexit.us ], [ %.172, %.lr.ph117.split.us ]
-  %97 = getelementptr inbounds i8, ptr %.169116.us, i64 24
+  %.2116.us = phi i64 [ %.5.us, %.loopexit.us ], [ %.169, %.lr.ph117.split.us ]
+  %.172115.us = phi ptr [ %103, %.loopexit.us ], [ %53, %.lr.ph117.split.us ]
+  %97 = getelementptr inbounds i8, ptr %.172115.us, i64 24
   %98 = load i64, ptr %97, align 8
   %.not85.us = icmp eq i64 %98, 0
   br i1 %.not85.us, label %.loopexit.us, label %99
 
 99:                                               ; preds = %.lr.ph117.split.us.split
-  %100 = getelementptr inbounds i8, ptr %.169116.us, i64 56
+  %100 = getelementptr inbounds i8, ptr %.172115.us, i64 56
   %101 = load ptr, ptr %100, align 8
   %102 = tail call ptr @H5SL_first(ptr noundef %101) #13
   %.not86107.us = icmp eq ptr %102, null
   br i1 %.not86107.us, label %.loopexit.us, label %.lr.ph110.us
 
 .loopexit.us:                                     ; preds = %137, %99, %.lr.ph117.split.us.split
-  %.5.us = phi i64 [ %.2115.us, %.lr.ph117.split.us.split ], [ %.2115.us, %99 ], [ %.4.us.us, %137 ]
-  %103 = load ptr, ptr %.169116.us, align 8
+  %.5.us = phi i64 [ %.2116.us, %.lr.ph117.split.us.split ], [ %.2116.us, %99 ], [ %.4.us.us, %137 ]
+  %103 = load ptr, ptr %.172115.us, align 8
   %.not84.us = icmp eq ptr %103, null
   br i1 %.not84.us, label %._crit_edge, label %.lr.ph117.split.us.split
 
 .lr.ph110.us:                                     ; preds = %99, %137
   %.1109.us.us = phi ptr [ %138, %137 ], [ %102, %99 ]
-  %.3108.us.us = phi i64 [ %.4.us.us, %137 ], [ %.2115.us, %99 ]
+  %.3108.us.us = phi i64 [ %.4.us.us, %137 ], [ %.2116.us, %99 ]
   %104 = tail call ptr @H5SL_item(ptr noundef nonnull %.1109.us.us) #13
   %105 = icmp eq i64 %.3108.us.us, 0
   br i1 %105, label %110, label %106
@@ -2139,18 +2139,18 @@ define range(i32 -1, 1) i32 @H5P_close(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph117.split:                                  ; preds = %.lr.ph117.thread, %.lr.ph117
   %139 = phi i1 [ %56, %.lr.ph117.thread ], [ %59, %.lr.ph117 ]
-  %140 = icmp eq i64 %.172, 0
+  %140 = icmp eq i64 %.169, 0
   br label %141
 
 141:                                              ; preds = %.lr.ph117.split, %.loopexit
-  %.169116 = phi ptr [ %53, %.lr.ph117.split ], [ %183, %.loopexit ]
-  %142 = getelementptr inbounds i8, ptr %.169116, i64 24
+  %.172115 = phi ptr [ %53, %.lr.ph117.split ], [ %183, %.loopexit ]
+  %142 = getelementptr inbounds i8, ptr %.172115, i64 24
   %143 = load i64, ptr %142, align 8
   %.not85 = icmp eq i64 %143, 0
   br i1 %.not85, label %.loopexit, label %144
 
 144:                                              ; preds = %141
-  %145 = getelementptr inbounds i8, ptr %.169116, i64 56
+  %145 = getelementptr inbounds i8, ptr %.172115, i64 56
   %146 = load ptr, ptr %145, align 8
   %147 = tail call ptr @H5SL_first(ptr noundef %146) #13
   %.not86107 = icmp eq ptr %147, null
@@ -2219,7 +2219,7 @@ define range(i32 -1, 1) i32 @H5P_close(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not86, label %.loopexit, label %.lr.ph110
 
 .loopexit:                                        ; preds = %181, %144, %141
-  %183 = load ptr, ptr %.169116, align 8
+  %183 = load ptr, ptr %.172115, align 8
   %.not84 = icmp eq ptr %183, null
   br i1 %.not84, label %._crit_edge, label %141
 

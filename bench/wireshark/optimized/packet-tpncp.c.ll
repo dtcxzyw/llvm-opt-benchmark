@@ -546,7 +546,7 @@ define internal i32 @dissect_tpncp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %40
 
 40:                                               ; preds = %38, %11
-  %.073 = phi i32 [ %39, %38 ], [ -1, %11 ]
+  %.0 = phi i32 [ %39, %38 ], [ -1, %11 ]
   %41 = getelementptr inbounds i8, ptr %1, i64 284
   %42 = load i32, ptr %41, align 4
   switch i32 %42, label %72 [
@@ -568,7 +568,7 @@ define internal i32 @dissect_tpncp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 50:                                               ; preds = %45
   %51 = load i32, ptr @hf_tpncp_cid, align 4
-  %52 = call ptr @proto_tree_add_int(ptr noundef %20, i32 noundef %51, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef %.073) #13
+  %52 = call ptr @proto_tree_add_int(ptr noundef %20, i32 noundef %51, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef %.0) #13
   br label %53
 
 53:                                               ; preds = %50, %45
@@ -599,7 +599,7 @@ define internal i32 @dissect_tpncp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %69 = call ptr @val_to_str_const(i32 noundef %35, ptr noundef nonnull @tpncp_events_id_vals, ptr noundef nonnull @.str.58) #13
   %70 = load i32, ptr %6, align 4
   %71 = load i32, ptr %8, align 4
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %68, i32 noundef 25, ptr noundef nonnull @.str.59, ptr noundef %69, i32 noundef %35, i32 noundef %70, i32 noundef %.073, i32 noundef %34, i32 noundef %71) #13
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %68, i32 noundef 25, ptr noundef nonnull @.str.59, ptr noundef %69, i32 noundef %35, i32 noundef %70, i32 noundef %.0, i32 noundef %34, i32 noundef %71) #13
   br label %95
 
 72:                                               ; preds = %40
@@ -637,7 +637,7 @@ define internal i32 @dissect_tpncp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %92 = call ptr @val_to_str_const(i32 noundef %35, ptr noundef nonnull @tpncp_commands_id_vals, ptr noundef nonnull @.str.58) #13
   %93 = load i32, ptr %6, align 4
   %94 = load i32, ptr %8, align 4
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %91, i32 noundef 25, ptr noundef nonnull @.str.61, ptr noundef %92, i32 noundef %35, i32 noundef %93, i32 noundef %.073, i32 noundef %34, i32 noundef %94) #13
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %91, i32 noundef 25, ptr noundef nonnull @.str.61, ptr noundef %92, i32 noundef %35, i32 noundef %93, i32 noundef %.0, i32 noundef %34, i32 noundef %94) #13
   br label %95
 
 95:                                               ; preds = %90, %67
@@ -645,8 +645,8 @@ define internal i32 @dissect_tpncp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %97
 
 97:                                               ; preds = %4, %95
-  %.0 = phi i32 [ %96, %95 ], [ 0, %4 ]
-  ret i32 %.0
+  %.073 = phi i32 [ %96, %95 ], [ 0, %4 ]
+  ret i32 %.073
 }
 
 ; Function Attrs: nounwind uwtable
@@ -709,7 +709,7 @@ define internal fastcc void @fill_tpncp_id_vals(ptr nocapture noundef writeonly 
   br i1 %.not.i24, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %28
-  %.01825 = phi i32 [ %.1, %28 ], [ 0, %2 ]
+  %.025 = phi i32 [ %.1, %28 ], [ 0, %2 ]
   %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #15
   %gep = getelementptr i8, ptr %invariant.gep, i64 %7
   %8 = load i8, ptr %gep, align 1
@@ -738,21 +738,21 @@ define internal fastcc void @fill_tpncp_id_vals(ptr nocapture noundef writeonly 
 18:                                               ; preds = %15
   %19 = call ptr @wmem_epan_scope() #13
   %20 = call noalias ptr @wmem_strdup(ptr noundef %19, ptr noundef nonnull %5) #13
-  %21 = sext i32 %.01825 to i64
+  %21 = sext i32 %.025 to i64
   %22 = getelementptr %struct._value_string, ptr %0, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %20, ptr %23, align 8
   %24 = load i32, ptr %3, align 4
   store i32 %24, ptr %22, align 8
-  %25 = icmp sgt i32 %.01825, 4998
+  %25 = icmp sgt i32 %.025, 4998
   br i1 %25, label %.critedge, label %26
 
 26:                                               ; preds = %18
-  %27 = add nsw i32 %.01825, 1
+  %27 = add nsw i32 %.025, 1
   br label %28
 
 28:                                               ; preds = %26, %15
-  %.1 = phi i32 [ %27, %26 ], [ %.01825, %15 ]
+  %.1 = phi i32 [ %27, %26 ], [ %.025, %15 ]
   %29 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 3000, ptr noundef %1)
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %.critedge, label %.lr.ph, !llvm.loop !7
@@ -830,10 +830,10 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr noc
   br label %35
 
 35:                                               ; preds = %.lr.ph, %.backedge
-  %.097170 = phi ptr [ null, %.lr.ph ], [ %.097.be, %.backedge ]
-  %.098169 = phi i32 [ 0, %.lr.ph ], [ %.098.be, %.backedge ]
-  %.0102168 = phi i32 [ 0, %.lr.ph ], [ %.0102.be, %.backedge ]
-  %.0104167 = phi i32 [ -1, %.lr.ph ], [ %.0104.be, %.backedge ]
+  %.0170 = phi ptr [ null, %.lr.ph ], [ %.0.be, %.backedge ]
+  %.095169 = phi i32 [ 0, %.lr.ph ], [ %.095.be, %.backedge ]
+  %.099168 = phi i32 [ 0, %.lr.ph ], [ %.099.be, %.backedge ]
+  %.0105167 = phi i32 [ -1, %.lr.ph ], [ %.0105.be, %.backedge ]
   %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #15
   %gep = getelementptr i8, ptr %invariant.gep, i64 %36
   %37 = load i8, ptr %gep, align 1
@@ -861,10 +861,10 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr noc
   br label %.backedge
 
 .backedge:                                        ; preds = %45, %52, %62, %96, %102, %108, %115, %136, %142, %202, %126
-  %.0104.be = phi i32 [ %.0104167, %45 ], [ %.0104167, %52 ], [ %.0104167, %96 ], [ %.0104167, %102 ], [ %.0104167, %108 ], [ %.0104167, %115 ], [ %.0104167, %136 ], [ %.0104167, %142 ], [ %.1105, %202 ], [ %.0104167, %62 ], [ %.0104167, %126 ]
-  %.0102.be = phi i32 [ %.0102168, %45 ], [ %.0102168, %52 ], [ %.0102168, %96 ], [ %.0102168, %102 ], [ %.0102168, %108 ], [ %.0102168, %115 ], [ 0, %136 ], [ 0, %142 ], [ %.1103, %202 ], [ %.0102168, %62 ], [ %.0102168, %126 ]
-  %.098.be = phi i32 [ %.098169, %45 ], [ %.098169, %52 ], [ %.098169, %96 ], [ %.098169, %102 ], [ %.098169, %108 ], [ %.098169, %115 ], [ %.199, %136 ], [ %.199, %142 ], [ %.2, %202 ], [ %.098169, %62 ], [ %121, %126 ]
-  %.097.be = phi ptr [ %.097170, %45 ], [ %.097170, %52 ], [ %.097170, %96 ], [ %.097170, %102 ], [ %.097170, %108 ], [ %.097170, %115 ], [ %.097170, %136 ], [ %.097170, %142 ], [ %.1, %202 ], [ %.097170, %62 ], [ %.097170, %126 ]
+  %.0105.be = phi i32 [ %.0105167, %45 ], [ %.0105167, %52 ], [ %.0105167, %96 ], [ %.0105167, %102 ], [ %.0105167, %108 ], [ %.0105167, %115 ], [ %.0105167, %136 ], [ %.0105167, %142 ], [ %.1106, %202 ], [ %.0105167, %62 ], [ %.0105167, %126 ]
+  %.099.be = phi i32 [ %.099168, %45 ], [ %.099168, %52 ], [ %.099168, %96 ], [ %.099168, %102 ], [ %.099168, %108 ], [ %.099168, %115 ], [ 0, %136 ], [ 0, %142 ], [ %.1100, %202 ], [ %.099168, %62 ], [ %.099168, %126 ]
+  %.095.be = phi i32 [ %.095169, %45 ], [ %.095169, %52 ], [ %.095169, %96 ], [ %.095169, %102 ], [ %.095169, %108 ], [ %.095169, %115 ], [ %.196, %136 ], [ %.196, %142 ], [ %.2, %202 ], [ %.095169, %62 ], [ %121, %126 ]
+  %.0.be = phi ptr [ %.0170, %45 ], [ %.0170, %52 ], [ %.0170, %96 ], [ %.0170, %102 ], [ %.0170, %108 ], [ %.0170, %115 ], [ %.0170, %136 ], [ %.0170, %142 ], [ %.1, %202 ], [ %.0170, %62 ], [ %.0170, %126 ]
   %46 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 3000, ptr noundef %1)
   %.not.i = icmp eq ptr %46, null
   br i1 %.not.i, label %fgetline.exit, label %35, !llvm.loop !9
@@ -899,14 +899,14 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr noc
   br label %.backedge
 
 63:                                               ; preds = %53, %59
-  %.096 = phi ptr [ %60, %59 ], [ %50, %53 ]
-  %.095 = phi ptr [ %50, %59 ], [ @.str.39, %53 ]
-  %64 = load i8, ptr %.095, align 1
+  %.0108 = phi ptr [ %50, %59 ], [ @.str.39, %53 ]
+  %.0107 = phi ptr [ %60, %59 ], [ %50, %53 ]
+  %64 = load i8, ptr %.0108, align 1
   %65 = icmp eq i8 %64, 99
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %63
-  %67 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.095, ptr noundef nonnull dereferenceable(12) @.str.40) #15
+  %67 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0108, ptr noundef nonnull dereferenceable(12) @.str.40) #15
   %.not127 = icmp eq i32 %67, 0
   br i1 %.not127, label %.thread159, label %.thread187
 
@@ -917,12 +917,12 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr noc
   ]
 
 69:                                               ; preds = %68
-  %70 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.095, ptr noundef nonnull dereferenceable(29) @.str.41) #15
+  %70 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0108, ptr noundef nonnull dereferenceable(29) @.str.41) #15
   %.not128 = icmp eq i32 %70, 0
   br i1 %.not128, label %.thread159, label %75
 
 71:                                               ; preds = %68
-  %72 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.095, ptr noundef nonnull dereferenceable(20) @.str.42) #15
+  %72 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0108, ptr noundef nonnull dereferenceable(20) @.str.42) #15
   %.not129 = icmp eq i32 %72, 0
   br i1 %.not129, label %.thread159, label %.thread154
 
@@ -931,7 +931,7 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr noc
   br i1 %.not130.not, label %79, label %73
 
 73:                                               ; preds = %.thread154
-  %74 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.095, ptr noundef nonnull dereferenceable(5) @.str.43) #15
+  %74 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0108, ptr noundef nonnull dereferenceable(5) @.str.43) #15
   %.not131 = icmp eq i32 %74, 0
   br i1 %.not131, label %.thread159, label %79
 
@@ -942,12 +942,12 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr noc
   ]
 
 75:                                               ; preds = %69
-  %76 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.095, ptr noundef nonnull dereferenceable(18) @.str.44) #15
+  %76 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0108, ptr noundef nonnull dereferenceable(18) @.str.44) #15
   %.not132 = icmp eq i32 %76, 0
   br i1 %.not132, label %.thread159, label %77
 
 77:                                               ; preds = %75
-  %78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.095, ptr noundef nonnull dereferenceable(17) @.str.45) #15
+  %78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0108, ptr noundef nonnull dereferenceable(17) @.str.45) #15
   %.not133 = icmp eq i32 %78, 0
   br i1 %.not133, label %.thread159, label %.thread191
 
@@ -958,7 +958,7 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr noc
   ]
 
 79:                                               ; preds = %73, %.thread154
-  %80 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.095, ptr noundef nonnull dereferenceable(24) @.str.46) #15
+  %80 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0108, ptr noundef nonnull dereferenceable(24) @.str.46) #15
   %.not134 = icmp eq i32 %80, 0
   br i1 %.not134, label %.thread159, label %81
 
@@ -969,7 +969,7 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr noc
   br i1 %65, label %83, label %.thread194
 
 83:                                               ; preds = %82
-  %84 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.095, ptr noundef nonnull dereferenceable(1) @.str.47) #15
+  %84 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0108, ptr noundef nonnull dereferenceable(1) @.str.47) #15
   %.not135 = icmp eq ptr %84, null
   br i1 %.not135, label %.thread194, label %.thread159
 
@@ -978,12 +978,12 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr noc
   br i1 %86, label %87, label %.thread159
 
 87:                                               ; preds = %.thread187, %.thread191, %85
-  %88 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.095, ptr noundef nonnull dereferenceable(1) @.str.48) #15
+  %88 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0108, ptr noundef nonnull dereferenceable(1) @.str.48) #15
   %.not136 = icmp eq ptr %88, null
   br i1 %.not136, label %.thread159, label %90
 
 .thread194:                                       ; preds = %81, %82, %83
-  %89 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.095, ptr noundef nonnull dereferenceable(1) @.str.49) #15
+  %89 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0108, ptr noundef nonnull dereferenceable(1) @.str.49) #15
   %.not137 = icmp eq ptr %89, null
   br i1 %.not137, label %.thread159, label %90
 
@@ -991,9 +991,9 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr noc
   br label %.thread159
 
 .thread159:                                       ; preds = %.thread187, %.thread191, %85, %87, %83, %79, %77, %75, %73, %71, %69, %66, %90, %.thread194
-  %.0106 = phi i32 [ 0, %90 ], [ 0, %.thread194 ], [ 3, %66 ], [ 4, %69 ], [ 5, %71 ], [ 6, %73 ], [ 6, %75 ], [ 7, %77 ], [ 8, %79 ], [ 9, %83 ], [ 0, %87 ], [ 0, %85 ], [ 0, %.thread191 ], [ 0, %.thread187 ]
-  %.0100 = phi i32 [ 7401, %90 ], [ 0, %.thread194 ], [ 0, %66 ], [ 0, %69 ], [ 0, %71 ], [ 0, %73 ], [ 0, %75 ], [ 0, %77 ], [ 0, %79 ], [ 0, %83 ], [ 0, %87 ], [ 0, %85 ], [ 0, %.thread191 ], [ 0, %.thread187 ]
-  %91 = call i64 @g_ascii_strtoll(ptr noundef nonnull %.096, ptr noundef null, i32 noundef 10) #13
+  %.0101 = phi i32 [ 0, %90 ], [ 0, %.thread194 ], [ 3, %66 ], [ 4, %69 ], [ 5, %71 ], [ 6, %73 ], [ 6, %75 ], [ 7, %77 ], [ 8, %79 ], [ 9, %83 ], [ 0, %87 ], [ 0, %85 ], [ 0, %.thread191 ], [ 0, %.thread187 ]
+  %.097 = phi i32 [ 7401, %90 ], [ 0, %.thread194 ], [ 0, %66 ], [ 0, %69 ], [ 0, %71 ], [ 0, %73 ], [ 0, %75 ], [ 0, %77 ], [ 0, %79 ], [ 0, %83 ], [ 0, %87 ], [ 0, %85 ], [ 0, %.thread191 ], [ 0, %.thread187 ]
+  %91 = call i64 @g_ascii_strtoll(ptr noundef nonnull %.0107, ptr noundef null, i32 noundef 10) #13
   %92 = and i64 %91, 4294967295
   %93 = icmp ne i64 %92, 0
   %94 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.37) #13
@@ -1032,11 +1032,11 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr noc
 110:                                              ; preds = %109
   %111 = call i64 @g_ascii_strtoll(ptr noundef nonnull %106, ptr noundef null, i32 noundef 10) #13
   %.not138 = icmp eq i64 %111, 0
-  %spec.select = select i1 %.not138, i32 %.0106, i32 2
+  %spec.select = select i1 %.not138, i32 %.0101, i32 2
   br label %112
 
 112:                                              ; preds = %110, %109
-  %.1107 = phi i32 [ %.0106, %109 ], [ %spec.select, %110 ]
+  %.1102 = phi i32 [ %.0101, %109 ], [ %spec.select, %110 ]
   %113 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.50) #13
   %114 = icmp eq ptr %113, null
   br i1 %114, label %115, label %116
@@ -1046,15 +1046,15 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr noc
   br label %.backedge
 
 116:                                              ; preds = %112
-  %.not139 = icmp eq i32 %.098169, 0
+  %.not139 = icmp eq i32 %.095169, 0
   br i1 %.not139, label %133, label %117
 
 117:                                              ; preds = %116
-  %118 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.095) #15
-  %119 = getelementptr i8, ptr %.095, i64 %118
+  %118 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0108) #15
+  %119 = getelementptr i8, ptr %.0108, i64 %118
   %120 = getelementptr i8, ptr %119, i64 -2
-  %121 = add nsw i32 %.098169, -1
-  %122 = icmp ugt ptr %120, %.095
+  %121 = add nsw i32 %.095169, -1
+  %122 = icmp ugt ptr %120, %.0108
   br i1 %122, label %123, label %133
 
 123:                                              ; preds = %117
@@ -1070,7 +1070,7 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr noc
   br i1 %or.cond, label %.backedge, label %130
 
 130:                                              ; preds = %126
-  %.not140 = icmp eq i32 %.0102168, 0
+  %.not140 = icmp eq i32 %.099168, 0
   br i1 %.not140, label %132, label %131
 
 131:                                              ; preds = %130
@@ -1078,14 +1078,14 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr noc
   br label %133
 
 132:                                              ; preds = %130
-  call void (ptr, ...) @report_warning(ptr noundef nonnull @.str.51, ptr noundef nonnull %.095) #13
+  call void (ptr, ...) @report_warning(ptr noundef nonnull @.str.51, ptr noundef nonnull %.0108) #13
   br label %133
 
 133:                                              ; preds = %117, %123, %132, %131, %116
-  %.0109 = phi i8 [ -128, %131 ], [ %99, %132 ], [ %99, %123 ], [ %99, %117 ], [ %99, %116 ]
-  %.2108 = phi i32 [ 2, %131 ], [ %.1107, %132 ], [ %.1107, %123 ], [ %.1107, %117 ], [ %.1107, %116 ]
-  %.199 = phi i32 [ %121, %131 ], [ 0, %132 ], [ %121, %123 ], [ %121, %117 ], [ 0, %116 ]
-  %.not141 = icmp eq i32 %.0104167, %49
+  %.0104 = phi i8 [ -128, %131 ], [ %99, %132 ], [ %99, %123 ], [ %99, %117 ], [ %99, %116 ]
+  %.2103 = phi i32 [ 2, %131 ], [ %.1102, %132 ], [ %.1102, %123 ], [ %.1102, %117 ], [ %.1102, %116 ]
+  %.196 = phi i32 [ %121, %131 ], [ 0, %132 ], [ %121, %123 ], [ %121, %117 ], [ 0, %116 ]
+  %.not141 = icmp eq i32 %.0105167, %49
   br i1 %.not141, label %145, label %134
 
 134:                                              ; preds = %133
@@ -1116,7 +1116,7 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr noc
 145:                                              ; preds = %133
   %146 = call ptr @wmem_epan_scope() #13
   %147 = call noalias ptr @wmem_alloc(ptr noundef %146, i64 noundef 40) #13
-  %148 = getelementptr inbounds i8, ptr %.097170, i64 32
+  %148 = getelementptr inbounds i8, ptr %.0170, i64 32
   store ptr %147, ptr %148, align 8
   %.not142 = icmp eq ptr %147, null
   br i1 %.not142, label %fgetline.exit, label %149
@@ -1127,7 +1127,7 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr noc
   br label %151
 
 151:                                              ; preds = %149, %143
-  %.1105 = phi i32 [ %49, %143 ], [ %.0104167, %149 ]
+  %.1106 = phi i32 [ %49, %143 ], [ %.0105167, %149 ]
   %.1 = phi ptr [ %144, %143 ], [ %147, %149 ]
   %152 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %113, ptr noundef nonnull dereferenceable(10) @.str.54) #15
   %.not143 = icmp eq i32 %152, 0
@@ -1178,19 +1178,19 @@ get_enum_name_val.exit.thread:                    ; preds = %157, %153, %get_enu
 
 169:                                              ; preds = %get_enum_name_val.exit.thread, %167, %163, %168
   %.not148 = phi i1 [ true, %get_enum_name_val.exit.thread ], [ true, %163 ], [ false, %167 ], [ true, %168 ]
-  %.1103 = phi i32 [ 0, %get_enum_name_val.exit.thread ], [ 0, %163 ], [ 1, %167 ], [ 0, %168 ]
-  %.2 = phi i32 [ %.199, %get_enum_name_val.exit.thread ], [ %.199, %163 ], [ 4, %167 ], [ %.199, %168 ]
+  %.1100 = phi i32 [ 0, %get_enum_name_val.exit.thread ], [ 0, %163 ], [ 1, %167 ], [ 0, %168 ]
+  %.2 = phi i32 [ %.196, %get_enum_name_val.exit.thread ], [ %.196, %163 ], [ 4, %167 ], [ %.196, %168 ]
   %170 = getelementptr inbounds i8, ptr %.1, i64 8
   store i32 -1, ptr %170, align 8
   %171 = getelementptr inbounds i8, ptr %.1, i64 12
   store i32 -1, ptr %171, align 4
   store ptr %170, ptr %5, align 8
   %172 = call ptr @wmem_epan_scope() #13
-  %173 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %172, ptr noundef nonnull @.str.56, ptr noundef nonnull %.095) #13
+  %173 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %172, ptr noundef nonnull @.str.56, ptr noundef nonnull %.0108) #13
   store ptr %173, ptr %.1, align 8
   store ptr %173, ptr %8, align 8
   store ptr %173, ptr %34, align 8
-  switch i8 %.0109, label %190 [
+  switch i8 %.0104, label %190 [
     i8 1, label %174
     i8 2, label %174
     i8 3, label %174
@@ -1224,7 +1224,7 @@ get_enum_name_val.exit.thread:                    ; preds = %157, %153, %get_enu
   br label %190
 
 180:                                              ; preds = %169
-  %181 = icmp eq i32 %.2108, 2
+  %181 = icmp eq i32 %.2103, 2
   br i1 %181, label %182, label %183
 
 182:                                              ; preds = %180
@@ -1238,7 +1238,7 @@ get_enum_name_val.exit.thread:                    ; preds = %157, %153, %get_enu
   br label %190
 
 185:                                              ; preds = %169
-  %186 = icmp eq i32 %.2108, 2
+  %186 = icmp eq i32 %.2103, 2
   br i1 %186, label %187, label %190
 
 187:                                              ; preds = %185
@@ -1292,14 +1292,14 @@ get_enum_name_val.exit.thread:                    ; preds = %157, %153, %get_enu
   %209 = getelementptr inbounds i8, ptr %.1, i64 25
   store i8 %208, ptr %209, align 1
   %210 = getelementptr inbounds i8, ptr %.1, i64 24
-  store i8 %.0109, ptr %210, align 8
+  store i8 %.0104, ptr %210, align 8
   %211 = getelementptr inbounds i8, ptr %.1, i64 16
   store i32 %105, ptr %211, align 8
-  %212 = select i1 %.not148, i32 %.2108, i32 1
+  %212 = select i1 %.not148, i32 %.2103, i32 1
   %213 = getelementptr inbounds i8, ptr %.1, i64 20
   store i32 %212, ptr %213, align 4
   %214 = getelementptr inbounds i8, ptr %.1, i64 28
-  store i32 %.0100, ptr %214, align 4
+  store i32 %.097, ptr %214, align 4
   br label %.backedge
 
 fgetline.exit:                                    ; preds = %145, %187, %40, %.backedge, %193, %30, %13
@@ -1443,22 +1443,22 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   br label %15
 
 15:                                               ; preds = %.lr.ph230, %159
-  %.0158228 = phi i32 [ 0, %.lr.ph230 ], [ %.2, %159 ]
-  %.0159227 = phi i32 [ 0, %.lr.ph230 ], [ %.2161, %159 ]
-  %.0162226 = phi i32 [ 0, %.lr.ph230 ], [ %.2164, %159 ]
-  %.0165225 = phi i32 [ 0, %.lr.ph230 ], [ %.2167, %159 ]
-  %.0168224 = phi i32 [ 0, %.lr.ph230 ], [ %.2170, %159 ]
-  %.0171223 = phi i32 [ -1, %.lr.ph230 ], [ %.2173, %159 ]
-  %.0174222 = phi i32 [ 2, %.lr.ph230 ], [ %.5, %159 ]
-  %.0177221 = phi i32 [ %10, %.lr.ph230 ], [ %.4181, %159 ]
-  %.0182217 = phi ptr [ %12, %.lr.ph230 ], [ %161, %159 ]
-  %16 = getelementptr inbounds i8, ptr %.0182217, i64 28
+  %.0157228 = phi i32 [ 0, %.lr.ph230 ], [ %.2, %159 ]
+  %.0158227 = phi i32 [ 0, %.lr.ph230 ], [ %.2160, %159 ]
+  %.0161226 = phi i32 [ 0, %.lr.ph230 ], [ %.2163, %159 ]
+  %.0164225 = phi i32 [ 0, %.lr.ph230 ], [ %.2166, %159 ]
+  %.0167224 = phi i32 [ 0, %.lr.ph230 ], [ %.2169, %159 ]
+  %.0170223 = phi i32 [ -1, %.lr.ph230 ], [ %.2172, %159 ]
+  %.0173222 = phi i32 [ 2, %.lr.ph230 ], [ %.5, %159 ]
+  %.0176221 = phi i32 [ %10, %.lr.ph230 ], [ %.4180, %159 ]
+  %.0181217 = phi ptr [ %12, %.lr.ph230 ], [ %161, %159 ]
+  %16 = getelementptr inbounds i8, ptr %.0181217, i64 28
   %17 = load i32, ptr %16, align 4
   %or.cond198 = icmp sgt i32 %17, %invariant.smax
   br i1 %or.cond198, label %159, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %.0182217, i64 20
+  %19 = getelementptr inbounds i8, ptr %.0181217, i64 20
   %20 = load i32, ptr %19, align 4
   switch i32 %20, label %57 [
     i32 3, label %21
@@ -1479,14 +1479,14 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   %24 = load i32, ptr %4, align 4
   %25 = tail call i32 @tvb_get_guint32(ptr noundef %2, i32 noundef %24, i32 noundef %7) #13
   %26 = icmp ne i32 %25, 0
-  %27 = icmp sgt i32 %.0171223, -1
+  %27 = icmp sgt i32 %.0170223, -1
   %or.cond = select i1 %26, i1 %27, i1 false
-  %28 = add i32 %25, %.0171223
-  %spec.select = select i1 %or.cond, i32 %28, i32 %.0168224
+  %28 = add i32 %25, %.0170223
+  %spec.select = select i1 %or.cond, i32 %28, i32 %.0167224
   br label %74
 
 29:                                               ; preds = %18
-  store i32 %.0168224, ptr %4, align 4
+  store i32 %.0167224, ptr %4, align 4
   br label %74
 
 30:                                               ; preds = %18
@@ -1498,12 +1498,12 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   br label %74
 
 35:                                               ; preds = %18
-  store i32 %.0165225, ptr %4, align 4
-  %36 = icmp eq i32 %.0159227, 0
+  store i32 %.0164225, ptr %4, align 4
+  %36 = icmp eq i32 %.0158227, 0
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %35
-  %38 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %.0165225) #13
+  %38 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %.0164225) #13
   %39 = add i32 %38, -4
   %40 = sdiv i32 %39, 2
   %41 = load i32, ptr %4, align 4
@@ -1511,12 +1511,12 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   br label %74
 
 43:                                               ; preds = %35
-  store i32 %.0159227, ptr %4, align 4
-  %44 = add i32 %.0158228, %.0159227
+  store i32 %.0158227, ptr %4, align 4
+  %44 = add i32 %.0157228, %.0158227
   br label %74
 
 45:                                               ; preds = %18
-  %46 = icmp eq i32 %.0162226, 0
+  %46 = icmp eq i32 %.0161226, 0
   br i1 %46, label %47, label %53
 
 47:                                               ; preds = %45
@@ -1528,7 +1528,7 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   br label %74
 
 53:                                               ; preds = %45
-  store i32 %.0162226, ptr %4, align 4
+  store i32 %.0161226, ptr %4, align 4
   br label %74
 
 54:                                               ; preds = %18
@@ -1537,53 +1537,53 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   br label %57
 
 57:                                               ; preds = %54, %18
-  %.1175 = phi i32 [ %.0174222, %18 ], [ %56, %54 ]
-  %58 = icmp ne i32 %.0171223, -1
-  %59 = icmp sgt i32 %.0168224, 0
+  %.1174 = phi i32 [ %.0173222, %18 ], [ %56, %54 ]
+  %58 = icmp ne i32 %.0170223, -1
+  %59 = icmp sgt i32 %.0167224, 0
   %or.cond3 = select i1 %58, i1 %59, i1 false
   br i1 %or.cond3, label %60, label %62
 
 60:                                               ; preds = %57
   %61 = load i32, ptr %4, align 4
-  %.not190 = icmp slt i32 %61, %.0168224
+  %.not190 = icmp slt i32 %61, %.0167224
   br i1 %.not190, label %62, label %159
 
 62:                                               ; preds = %60, %57
-  %63 = icmp sgt i32 %.0165225, 0
+  %63 = icmp sgt i32 %.0164225, 0
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %62
   %65 = load i32, ptr %4, align 4
-  %.not191 = icmp slt i32 %65, %.0165225
+  %.not191 = icmp slt i32 %65, %.0164225
   br i1 %.not191, label %66, label %159
 
 66:                                               ; preds = %64, %62
-  %67 = icmp sgt i32 %.0159227, 0
+  %67 = icmp sgt i32 %.0158227, 0
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %66
   %69 = load i32, ptr %4, align 4
-  %.not192 = icmp slt i32 %69, %.0159227
+  %.not192 = icmp slt i32 %69, %.0158227
   br i1 %.not192, label %70, label %159
 
 70:                                               ; preds = %68, %66
-  %71 = icmp sgt i32 %.0162226, 0
+  %71 = icmp sgt i32 %.0161226, 0
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %70
   %73 = load i32, ptr %4, align 4
-  %.not193 = icmp slt i32 %73, %.0162226
+  %.not193 = icmp slt i32 %73, %.0161226
   br i1 %.not193, label %74, label %159
 
 74:                                               ; preds = %30, %23, %18, %70, %72, %47, %53, %37, %43, %29, %21
-  %.2176 = phi i32 [ %.1175, %72 ], [ %.1175, %70 ], [ %.0174222, %47 ], [ %.0174222, %53 ], [ %.0174222, %37 ], [ %.0174222, %43 ], [ %.0174222, %29 ], [ %.0174222, %21 ], [ %.0174222, %23 ], [ %.0174222, %18 ], [ %.0174222, %30 ]
-  %.1172 = phi i32 [ %.0171223, %72 ], [ %.0171223, %70 ], [ %.0171223, %47 ], [ %.0171223, %53 ], [ %.0171223, %37 ], [ %.0171223, %43 ], [ -1, %29 ], [ %22, %21 ], [ %.0171223, %23 ], [ %.0171223, %18 ], [ %.0171223, %30 ]
-  %.1169 = phi i32 [ %.0168224, %72 ], [ %.0168224, %70 ], [ %.0168224, %47 ], [ %.0168224, %53 ], [ %.0168224, %37 ], [ %.0168224, %43 ], [ 0, %29 ], [ %.0168224, %21 ], [ %spec.select, %23 ], [ %.0168224, %18 ], [ %.0168224, %30 ]
-  %.1166 = phi i32 [ %.0165225, %72 ], [ %.0165225, %70 ], [ %.0165225, %47 ], [ %.0165225, %53 ], [ 0, %37 ], [ 0, %43 ], [ %.0165225, %29 ], [ %.0165225, %21 ], [ %.0165225, %23 ], [ %.0165225, %18 ], [ %spec.select233, %30 ]
-  %.1163 = phi i32 [ %.0162226, %72 ], [ %.0162226, %70 ], [ %52, %47 ], [ 0, %53 ], [ %.0162226, %37 ], [ %.0162226, %43 ], [ %.0162226, %29 ], [ %.0162226, %21 ], [ %.0162226, %23 ], [ %.0162226, %18 ], [ %.0162226, %30 ]
-  %.1160 = phi i32 [ %.0159227, %72 ], [ %.0159227, %70 ], [ %.0159227, %47 ], [ %.0159227, %53 ], [ %42, %37 ], [ %44, %43 ], [ %.0159227, %29 ], [ %.0159227, %21 ], [ %.0159227, %23 ], [ 0, %18 ], [ %.0159227, %30 ]
-  %.1 = phi i32 [ %.0158228, %72 ], [ %.0158228, %70 ], [ %.0158228, %47 ], [ %.0158228, %53 ], [ %40, %37 ], [ %.0158228, %43 ], [ %.0158228, %29 ], [ %.0158228, %21 ], [ %.0158228, %23 ], [ %.0158228, %18 ], [ %.0158228, %30 ]
-  %75 = getelementptr inbounds i8, ptr %.0182217, i64 24
+  %.2175 = phi i32 [ %.1174, %72 ], [ %.1174, %70 ], [ %.0173222, %47 ], [ %.0173222, %53 ], [ %.0173222, %37 ], [ %.0173222, %43 ], [ %.0173222, %29 ], [ %.0173222, %21 ], [ %.0173222, %23 ], [ %.0173222, %18 ], [ %.0173222, %30 ]
+  %.1171 = phi i32 [ %.0170223, %72 ], [ %.0170223, %70 ], [ %.0170223, %47 ], [ %.0170223, %53 ], [ %.0170223, %37 ], [ %.0170223, %43 ], [ -1, %29 ], [ %22, %21 ], [ %.0170223, %23 ], [ %.0170223, %18 ], [ %.0170223, %30 ]
+  %.1168 = phi i32 [ %.0167224, %72 ], [ %.0167224, %70 ], [ %.0167224, %47 ], [ %.0167224, %53 ], [ %.0167224, %37 ], [ %.0167224, %43 ], [ 0, %29 ], [ %.0167224, %21 ], [ %spec.select, %23 ], [ %.0167224, %18 ], [ %.0167224, %30 ]
+  %.1165 = phi i32 [ %.0164225, %72 ], [ %.0164225, %70 ], [ %.0164225, %47 ], [ %.0164225, %53 ], [ 0, %37 ], [ 0, %43 ], [ %.0164225, %29 ], [ %.0164225, %21 ], [ %.0164225, %23 ], [ %.0164225, %18 ], [ %spec.select233, %30 ]
+  %.1162 = phi i32 [ %.0161226, %72 ], [ %.0161226, %70 ], [ %52, %47 ], [ 0, %53 ], [ %.0161226, %37 ], [ %.0161226, %43 ], [ %.0161226, %29 ], [ %.0161226, %21 ], [ %.0161226, %23 ], [ %.0161226, %18 ], [ %.0161226, %30 ]
+  %.1159 = phi i32 [ %.0158227, %72 ], [ %.0158227, %70 ], [ %.0158227, %47 ], [ %.0158227, %53 ], [ %42, %37 ], [ %44, %43 ], [ %.0158227, %29 ], [ %.0158227, %21 ], [ %.0158227, %23 ], [ 0, %18 ], [ %.0158227, %30 ]
+  %.1 = phi i32 [ %.0157228, %72 ], [ %.0157228, %70 ], [ %.0157228, %47 ], [ %.0157228, %53 ], [ %40, %37 ], [ %.0157228, %43 ], [ %.0157228, %29 ], [ %.0157228, %21 ], [ %.0157228, %23 ], [ %.0157228, %18 ], [ %.0157228, %30 ]
+  %75 = getelementptr inbounds i8, ptr %.0181217, i64 24
   %76 = load i8, ptr %75, align 8
   switch i8 %76, label %155 [
     i8 1, label %77
@@ -1600,7 +1600,7 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   ]
 
 77:                                               ; preds = %74, %74, %74, %74, %74, %74, %74, %74
-  %78 = getelementptr inbounds i8, ptr %.0182217, i64 16
+  %78 = getelementptr inbounds i8, ptr %.0181217, i64 16
   %79 = load i32, ptr %78, align 8
   %.not194 = icmp eq i32 %79, 0
   %80 = load i32, ptr %4, align 4
@@ -1618,7 +1618,7 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
 
 87:                                               ; preds = %81, %84
   %88 = phi i32 [ %86, %84 ], [ %79, %81 ]
-  %89 = getelementptr inbounds i8, ptr %.0182217, i64 8
+  %89 = getelementptr inbounds i8, ptr %.0181217, i64 8
   %90 = load i32, ptr %89, align 8
   %91 = load i32, ptr %4, align 4
   %92 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %90, ptr noundef %2, i32 noundef %91, i32 noundef %88, i32 noundef 0) #13
@@ -1640,42 +1640,42 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0157214 = phi i32 [ %103, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.1178213 = phi i32 [ %102, %.lr.ph ], [ %.0177221, %.lr.ph.preheader ]
-  %.0183212 = phi i32 [ %101, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %98 = sext i32 %.1178213 to i64
+  %.1177214 = phi i32 [ %102, %.lr.ph ], [ %.0176221, %.lr.ph.preheader ]
+  %.0182213 = phi i32 [ %101, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.0183212 = phi i32 [ %103, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %98 = sext i32 %.1177214 to i64
   %99 = getelementptr [8 x i32], ptr @bits, i64 0, i64 %98
   %100 = load i32, ptr %99, align 4
-  %101 = or i32 %100, %.0183212
-  %102 = add i32 %.1178213, %14
-  %103 = add nuw nsw i32 %.0157214, 1
+  %101 = or i32 %100, %.0182213
+  %102 = add i32 %.1177214, %14
+  %103 = add nuw nsw i32 %.0183212, 1
   %exitcond.not = icmp eq i32 %103, %96
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %104 = add i32 %.0177221, %97
+  %104 = add i32 %.0176221, %97
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.0183.lcssa = phi i32 [ 0, %.preheader ], [ %101, %._crit_edge.loopexit ]
-  %.1178.lcssa = phi i32 [ %.0177221, %.preheader ], [ %104, %._crit_edge.loopexit ]
-  %105 = trunc i32 %.0183.lcssa to i8
+  %.0182.lcssa = phi i32 [ 0, %.preheader ], [ %101, %._crit_edge.loopexit ]
+  %.1177.lcssa = phi i32 [ %.0176221, %.preheader ], [ %104, %._crit_edge.loopexit ]
+  %105 = trunc i32 %.0182.lcssa to i8
   %106 = and i8 %94, %105
   %107 = zext i8 %106 to i32
-  %108 = lshr i32 %107, %.0177221
+  %108 = lshr i32 %107, %.0176221
   %109 = trunc nuw i32 %108 to i8
   br label %112
 
 .thread:                                          ; preds = %93
-  %110 = getelementptr inbounds i8, ptr %.0182217, i64 25
+  %110 = getelementptr inbounds i8, ptr %.0181217, i64 25
   %111 = load i8, ptr %110, align 1
   %.not196201 = icmp eq i8 %111, 0
   br i1 %.not196201, label %.thread207, label %112
 
 112:                                              ; preds = %._crit_edge, %.thread
   %.0205 = phi i8 [ %94, %.thread ], [ %109, %._crit_edge ]
-  %.2179203 = phi i32 [ %.0177221, %.thread ], [ %.1178.lcssa, %._crit_edge ]
-  %113 = getelementptr inbounds i8, ptr %.0182217, i64 8
+  %.2178203 = phi i32 [ %.0176221, %.thread ], [ %.1177.lcssa, %._crit_edge ]
+  %113 = getelementptr inbounds i8, ptr %.0181217, i64 8
   %114 = load i32, ptr %113, align 8
   %115 = load i32, ptr %4, align 4
   %116 = zext i8 %.0205 to i32
@@ -1683,7 +1683,7 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   br label %123
 
 .thread207:                                       ; preds = %.thread
-  %118 = getelementptr inbounds i8, ptr %.0182217, i64 8
+  %118 = getelementptr inbounds i8, ptr %.0181217, i64 8
   %119 = load i32, ptr %118, align 8
   %120 = load i32, ptr %4, align 4
   %121 = sext i8 %94 to i32
@@ -1691,28 +1691,28 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   br label %123
 
 123:                                              ; preds = %.thread207, %112
-  %.2179202 = phi i32 [ %.0177221, %.thread207 ], [ %.2179203, %112 ]
-  %124 = and i32 %.2179202, -9
+  %.2178202 = phi i32 [ %.0176221, %.thread207 ], [ %.2178203, %112 ]
+  %124 = and i32 %.2178202, -9
   %125 = or i32 %124, %7
   %or.cond7 = icmp eq i32 %125, 0
   br i1 %or.cond7, label %.sink.split, label %126
 
 126:                                              ; preds = %123
-  %127 = icmp eq i32 %.2179202, -1
-  %128 = icmp eq i32 %.2179202, 7
+  %127 = icmp eq i32 %.2178202, -1
+  %128 = icmp eq i32 %.2178202, 7
   %or.cond9 = or i1 %127, %128
   %or.cond11 = and i1 %9, %or.cond9
   br i1 %or.cond11, label %.sink.split, label %155
 
 129:                                              ; preds = %74
-  %130 = getelementptr inbounds i8, ptr %.0182217, i64 8
+  %130 = getelementptr inbounds i8, ptr %.0181217, i64 8
   %131 = load i32, ptr %130, align 8
   %132 = load i32, ptr %4, align 4
   %133 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %131, ptr noundef %2, i32 noundef %132, i32 noundef 2, i32 noundef %7) #13
   br label %.sink.split
 
 134:                                              ; preds = %74
-  %135 = getelementptr inbounds i8, ptr %.0182217, i64 8
+  %135 = getelementptr inbounds i8, ptr %.0181217, i64 8
   %136 = load i32, ptr %135, align 8
   %137 = load i32, ptr %4, align 4
   %138 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %136, ptr noundef %2, i32 noundef %137, i32 noundef 4, i32 noundef %7) #13
@@ -1724,20 +1724,20 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
   br i1 %141, label %142, label %.sink.split
 
 142:                                              ; preds = %139
-  switch i32 %.2176, label %148 [
+  switch i32 %.2175, label %148 [
     i32 28, label %143
     i32 10, label %143
   ]
 
 143:                                              ; preds = %142, %142
-  %144 = getelementptr inbounds i8, ptr %.0182217, i64 12
+  %144 = getelementptr inbounds i8, ptr %.0181217, i64 12
   %145 = load i32, ptr %144, align 4
   %146 = load i32, ptr %4, align 4
   %147 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %145, ptr noundef %2, i32 noundef %146, i32 noundef 16, i32 noundef %7) #13
   br label %.sink.split
 
 148:                                              ; preds = %142
-  %149 = getelementptr inbounds i8, ptr %.0182217, i64 8
+  %149 = getelementptr inbounds i8, ptr %.0181217, i64 8
   %150 = load i32, ptr %149, align 8
   %151 = load i32, ptr %4, align 4
   %152 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %150, ptr noundef %2, i32 noundef %151, i32 noundef 4, i32 noundef %7) #13
@@ -1745,31 +1745,31 @@ define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, 
 
 .sink.split:                                      ; preds = %139, %148, %143, %123, %126, %129, %134, %87
   %.sink238 = phi i32 [ %88, %87 ], [ 4, %134 ], [ 2, %129 ], [ 1, %126 ], [ 1, %123 ], [ 16, %143 ], [ 16, %148 ], [ 16, %139 ]
-  %.3180.ph = phi i32 [ %.0177221, %87 ], [ %.0177221, %134 ], [ %.0177221, %129 ], [ %10, %126 ], [ %10, %123 ], [ %.0177221, %143 ], [ %.0177221, %148 ], [ %.0177221, %139 ]
-  %.4.ph = phi i32 [ %.2176, %87 ], [ %.2176, %134 ], [ %.2176, %129 ], [ %.2176, %126 ], [ %.2176, %123 ], [ 2, %143 ], [ 2, %148 ], [ %.2176, %139 ]
+  %.3179.ph = phi i32 [ %.0176221, %87 ], [ %.0176221, %134 ], [ %.0176221, %129 ], [ %10, %126 ], [ %10, %123 ], [ %.0176221, %143 ], [ %.0176221, %148 ], [ %.0176221, %139 ]
+  %.4.ph = phi i32 [ %.2175, %87 ], [ %.2175, %134 ], [ %.2175, %129 ], [ %.2175, %126 ], [ %.2175, %123 ], [ 2, %143 ], [ 2, %148 ], [ %.2175, %139 ]
   %153 = load i32, ptr %4, align 4
   %154 = add i32 %153, %.sink238
   store i32 %154, ptr %4, align 4
   br label %155
 
 155:                                              ; preds = %.sink.split, %74, %126
-  %.3180 = phi i32 [ %.0177221, %74 ], [ %.2179202, %126 ], [ %.3180.ph, %.sink.split ]
-  %.4 = phi i32 [ %.2176, %74 ], [ %.2176, %126 ], [ %.4.ph, %.sink.split ]
+  %.3179 = phi i32 [ %.0176221, %74 ], [ %.2178202, %126 ], [ %.3179.ph, %.sink.split ]
+  %.4 = phi i32 [ %.2175, %74 ], [ %.2175, %126 ], [ %.4.ph, %.sink.split ]
   %156 = load i32, ptr %4, align 4
   %157 = tail call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %156) #13
   %158 = icmp slt i32 %157, 1
   br i1 %158, label %._crit_edge231.loopexit, label %159
 
 159:                                              ; preds = %15, %155, %72, %68, %64, %60
-  %.4181 = phi i32 [ %.0177221, %60 ], [ %.0177221, %64 ], [ %.0177221, %68 ], [ %.0177221, %72 ], [ %.3180, %155 ], [ %.0177221, %15 ]
-  %.5 = phi i32 [ %.1175, %60 ], [ %.1175, %64 ], [ %.1175, %68 ], [ %.1175, %72 ], [ %.4, %155 ], [ %.0174222, %15 ]
-  %.2173 = phi i32 [ %.0171223, %60 ], [ %.0171223, %64 ], [ %.0171223, %68 ], [ %.0171223, %72 ], [ %.1172, %155 ], [ %.0171223, %15 ]
-  %.2170 = phi i32 [ %.0168224, %60 ], [ %.0168224, %64 ], [ %.0168224, %68 ], [ %.0168224, %72 ], [ %.1169, %155 ], [ %.0168224, %15 ]
-  %.2167 = phi i32 [ %.0165225, %60 ], [ %.0165225, %64 ], [ %.0165225, %68 ], [ %.0165225, %72 ], [ %.1166, %155 ], [ %.0165225, %15 ]
-  %.2164 = phi i32 [ %.0162226, %60 ], [ %.0162226, %64 ], [ %.0162226, %68 ], [ %.0162226, %72 ], [ %.1163, %155 ], [ %.0162226, %15 ]
-  %.2161 = phi i32 [ %.0159227, %60 ], [ %.0159227, %64 ], [ %.0159227, %68 ], [ %.0159227, %72 ], [ %.1160, %155 ], [ %.0159227, %15 ]
-  %.2 = phi i32 [ %.0158228, %60 ], [ %.0158228, %64 ], [ %.0158228, %68 ], [ %.0158228, %72 ], [ %.1, %155 ], [ %.0158228, %15 ]
-  %160 = getelementptr inbounds i8, ptr %.0182217, i64 32
+  %.4180 = phi i32 [ %.0176221, %60 ], [ %.0176221, %64 ], [ %.0176221, %68 ], [ %.0176221, %72 ], [ %.3179, %155 ], [ %.0176221, %15 ]
+  %.5 = phi i32 [ %.1174, %60 ], [ %.1174, %64 ], [ %.1174, %68 ], [ %.1174, %72 ], [ %.4, %155 ], [ %.0173222, %15 ]
+  %.2172 = phi i32 [ %.0170223, %60 ], [ %.0170223, %64 ], [ %.0170223, %68 ], [ %.0170223, %72 ], [ %.1171, %155 ], [ %.0170223, %15 ]
+  %.2169 = phi i32 [ %.0167224, %60 ], [ %.0167224, %64 ], [ %.0167224, %68 ], [ %.0167224, %72 ], [ %.1168, %155 ], [ %.0167224, %15 ]
+  %.2166 = phi i32 [ %.0164225, %60 ], [ %.0164225, %64 ], [ %.0164225, %68 ], [ %.0164225, %72 ], [ %.1165, %155 ], [ %.0164225, %15 ]
+  %.2163 = phi i32 [ %.0161226, %60 ], [ %.0161226, %64 ], [ %.0161226, %68 ], [ %.0161226, %72 ], [ %.1162, %155 ], [ %.0161226, %15 ]
+  %.2160 = phi i32 [ %.0158227, %60 ], [ %.0158227, %64 ], [ %.0158227, %68 ], [ %.0158227, %72 ], [ %.1159, %155 ], [ %.0158227, %15 ]
+  %.2 = phi i32 [ %.0157228, %60 ], [ %.0157228, %64 ], [ %.0157228, %68 ], [ %.0157228, %72 ], [ %.1, %155 ], [ %.0157228, %15 ]
+  %160 = getelementptr inbounds i8, ptr %.0181217, i64 32
   %161 = load ptr, ptr %160, align 8
   %.not = icmp eq ptr %161, null
   br i1 %.not, label %._crit_edge231.loopexit, label %15, !llvm.loop !12

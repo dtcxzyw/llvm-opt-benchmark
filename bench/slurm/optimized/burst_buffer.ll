@@ -262,7 +262,7 @@ define i32 @bb_g_fini() local_unnamed_addr #0 {
   %7 = phi i32 [ %5, %.lr.ph.preheader ], [ %14, %13 ]
   %8 = phi ptr [ %.pre22, %.lr.ph.preheader ], [ %15, %13 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %.01119 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %13 ]
+  %.020 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %13 ]
   %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not16 = icmp eq ptr %10, null
@@ -271,7 +271,7 @@ define i32 @bb_g_fini() local_unnamed_addr #0 {
 11:                                               ; preds = %.lr.ph
   %12 = tail call i32 @plugin_context_destroy(ptr noundef nonnull %10) #10
   %.not17 = icmp eq i32 %12, 0
-  %spec.select = select i1 %.not17, i32 %.01119, i32 %12
+  %spec.select = select i1 %.not17, i32 %.020, i32 %12
   %.pre = load ptr, ptr @g_context, align 8
   %.pre23 = load i32, ptr @g_context_cnt, align 4
   br label %13
@@ -279,14 +279,14 @@ define i32 @bb_g_fini() local_unnamed_addr #0 {
 13:                                               ; preds = %11, %.lr.ph
   %14 = phi i32 [ %7, %.lr.ph ], [ %.pre23, %11 ]
   %15 = phi ptr [ %8, %.lr.ph ], [ %.pre, %11 ]
-  %.1 = phi i32 [ %.01119, %.lr.ph ], [ %spec.select, %11 ]
+  %.1 = phi i32 [ %.020, %.lr.ph ], [ %spec.select, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = sext i32 %14 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %13, %.preheader
-  %.011.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %13 ]
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %13 ]
   tail call void @slurm_xfree(ptr noundef nonnull @ops) #10
   tail call void @slurm_xfree(ptr noundef nonnull @g_context) #10
   tail call void @slurm_xfree(ptr noundef nonnull @bb_plugin_list) #10
@@ -294,7 +294,7 @@ define i32 @bb_g_fini() local_unnamed_addr #0 {
   br label %18
 
 18:                                               ; preds = %._crit_edge, %4
-  %.2 = phi i32 [ 0, %4 ], [ %.011.lcssa, %._crit_edge ]
+  %.2 = phi i32 [ 0, %4 ], [ %.0.lcssa, %._crit_edge ]
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #10
   %.not18 = icmp eq i32 %19, 0
   br i1 %.not18, label %22, label %20
@@ -659,7 +659,7 @@ define i64 @bb_g_get_system_size(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %22, %.preheader, %17
-  %.0 = phi i64 [ %21, %17 ], [ 0, %.preheader ], [ 0, %22 ]
+  %.013 = phi i64 [ %21, %17 ], [ 0, %.preheader ], [ 0, %22 ]
   %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #10
   %.not20 = icmp eq i32 %27, 0
   br i1 %.not20, label %30, label %28
@@ -671,7 +671,7 @@ define i64 @bb_g_get_system_size(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 30:                                               ; preds = %.loopexit
-  ret i64 %.0
+  ret i64 %.013
 }
 
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -1179,13 +1179,13 @@ define i32 @bb_g_job_begin(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %.01016 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %.preheader ]
+  %.017 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %.preheader ]
   %12 = load ptr, ptr @ops, align 8
   %13 = getelementptr inbounds %struct.slurm_bb_ops, ptr %12, i64 %indvars.iv, i32 12
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef %0) #10
   %.not15 = icmp eq i32 %15, 0
-  %spec.select = select i1 %.not15, i32 %.01016, i32 %15
+  %spec.select = select i1 %.not15, i32 %.017, i32 %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr @g_context_cnt, align 4
   %17 = sext i32 %16 to i64
@@ -1193,7 +1193,7 @@ define i32 @bb_g_job_begin(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.010.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %.lr.ph ]
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #10
   %.not14 = icmp eq i32 %19, 0
   br i1 %.not14, label %22, label %20
@@ -1207,7 +1207,7 @@ define i32 @bb_g_job_begin(ptr noundef %0) local_unnamed_addr #0 {
 22:                                               ; preds = %._crit_edge
   %23 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #10
   call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.bb_g_job_begin, i64 noundef 0, ptr noundef nonnull %5) #10
-  ret i32 %.010.lcssa
+  ret i32 %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1235,13 +1235,13 @@ define i32 @bb_g_job_revoke_alloc(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %.01016 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %.preheader ]
+  %.017 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %.preheader ]
   %12 = load ptr, ptr @ops, align 8
   %13 = getelementptr inbounds %struct.slurm_bb_ops, ptr %12, i64 %indvars.iv, i32 13
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef %0) #10
   %.not15 = icmp eq i32 %15, 0
-  %spec.select = select i1 %.not15, i32 %.01016, i32 %15
+  %spec.select = select i1 %.not15, i32 %.017, i32 %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr @g_context_cnt, align 4
   %17 = sext i32 %16 to i64
@@ -1249,7 +1249,7 @@ define i32 @bb_g_job_revoke_alloc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.010.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %.lr.ph ]
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #10
   %.not14 = icmp eq i32 %19, 0
   br i1 %.not14, label %22, label %20
@@ -1263,7 +1263,7 @@ define i32 @bb_g_job_revoke_alloc(ptr noundef %0) local_unnamed_addr #0 {
 22:                                               ; preds = %._crit_edge
   %23 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #10
   call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.bb_g_job_revoke_alloc, i64 noundef 0, ptr noundef nonnull %5) #10
-  ret i32 %.010.lcssa
+  ret i32 %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1357,12 +1357,12 @@ define i32 @bb_g_job_test_post_run(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %.01722 = phi i32 [ %23, %.lr.ph ], [ 1, %.preheader ]
+  %.01623 = phi i32 [ %23, %.lr.ph ], [ 1, %.preheader ]
   %19 = load ptr, ptr @ops, align 8
   %20 = getelementptr inbounds %struct.slurm_bb_ops, ptr %19, i64 %indvars.iv, i32 15
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 %21(ptr noundef %0) #10
-  %23 = tail call i32 @llvm.smin.i32(i32 %.01722, i32 %22)
+  %23 = tail call i32 @llvm.smin.i32(i32 %.01623, i32 %22)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr @g_context_cnt, align 4
   %25 = sext i32 %24 to i64
@@ -1370,7 +1370,7 @@ define i32 @bb_g_job_test_post_run(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.017.lcssa = phi i32 [ 1, %.preheader ], [ %23, %.lr.ph ]
+  %.016.lcssa = phi i32 [ 1, %.preheader ], [ %23, %.lr.ph ]
   %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #10
   %.not21 = icmp eq i32 %27, 0
   br i1 %.not21, label %30, label %28
@@ -1387,7 +1387,7 @@ define i32 @bb_g_job_test_post_run(ptr noundef %0) local_unnamed_addr #0 {
   br label %32
 
 32:                                               ; preds = %1, %10, %30
-  %.0 = phi i32 [ %.017.lcssa, %30 ], [ 1, %10 ], [ 1, %1 ]
+  %.0 = phi i32 [ %.016.lcssa, %30 ], [ 1, %10 ], [ 1, %1 ]
   ret i32 %.0
 }
 
@@ -1427,12 +1427,12 @@ define i32 @bb_g_job_test_stage_out(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %.02128 = phi i32 [ %23, %.lr.ph ], [ 1, %.preheader ]
+  %.02029 = phi i32 [ %23, %.lr.ph ], [ 1, %.preheader ]
   %19 = load ptr, ptr @ops, align 8
   %20 = getelementptr inbounds %struct.slurm_bb_ops, ptr %19, i64 %indvars.iv, i32 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 %21(ptr noundef %0) #10
-  %23 = tail call i32 @llvm.smin.i32(i32 %.02128, i32 %22)
+  %23 = tail call i32 @llvm.smin.i32(i32 %.02029, i32 %22)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr @g_context_cnt, align 4
   %25 = sext i32 %24 to i64
@@ -1440,7 +1440,7 @@ define i32 @bb_g_job_test_stage_out(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.021.lcssa = phi i32 [ 1, %.preheader ], [ %23, %.lr.ph ]
+  %.020.lcssa = phi i32 [ 1, %.preheader ], [ %23, %.lr.ph ]
   %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #10
   %.not25 = icmp eq i32 %27, 0
   br i1 %.not25, label %30, label %28
@@ -1454,7 +1454,7 @@ define i32 @bb_g_job_test_stage_out(ptr noundef %0) local_unnamed_addr #0 {
 30:                                               ; preds = %._crit_edge
   %31 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #10
   call void @slurm_diff_tv_str(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 20, ptr noundef nonnull @__func__.bb_g_job_test_stage_out, i64 noundef 0, ptr noundef nonnull %5) #10
-  %.not26 = icmp eq i32 %.021.lcssa, 0
+  %.not26 = icmp eq i32 %.020.lcssa, 0
   br i1 %.not26, label %39, label %32
 
 32:                                               ; preds = %30
@@ -1472,7 +1472,7 @@ define i32 @bb_g_job_test_stage_out(ptr noundef %0) local_unnamed_addr #0 {
   br label %39
 
 39:                                               ; preds = %30, %32, %36, %1, %10
-  %.0 = phi i32 [ 1, %10 ], [ 1, %1 ], [ %.021.lcssa, %36 ], [ %.021.lcssa, %32 ], [ 0, %30 ]
+  %.0 = phi i32 [ 1, %10 ], [ 1, %1 ], [ %.020.lcssa, %36 ], [ %.020.lcssa, %32 ], [ 0, %30 ]
   ret i32 %.0
 }
 
@@ -1567,7 +1567,7 @@ define i32 @bb_g_run_script(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   br i1 %.not19, label %12, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12, %.lr.ph, %.preheader
-  %.015 = phi i32 [ 0, %.preheader ], [ %19, %.lr.ph ], [ 0, %12 ]
+  %.0 = phi i32 [ 0, %.preheader ], [ %19, %.lr.ph ], [ 0, %12 ]
   %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #10
   %.not20 = icmp eq i32 %20, 0
   br i1 %.not20, label %23, label %21
@@ -1579,7 +1579,7 @@ define i32 @bb_g_run_script(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr 
   unreachable
 
 23:                                               ; preds = %._crit_edge
-  ret i32 %.015
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

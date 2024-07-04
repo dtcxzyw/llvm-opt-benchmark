@@ -456,20 +456,20 @@ for.body52.us.preheader.i:                        ; preds = %for.end45.i
   br label %for.body52.us.i
 
 for.body52.us.i:                                  ; preds = %for.cond63.for.inc114_crit_edge.us.i, %for.body52.us.preheader.i
-  %match.2105.us.i = phi ptr [ %.us-phi102.us.i, %for.cond63.for.inc114_crit_edge.us.i ], [ %13, %for.body52.us.preheader.i ]
-  %y49.0104.us.i = phi i32 [ %inc115.us.i, %for.cond63.for.inc114_crit_edge.us.i ], [ 0, %for.body52.us.preheader.i ]
+  %y49.0105.us.i = phi i32 [ %inc115.us.i, %for.cond63.for.inc114_crit_edge.us.i ], [ 0, %for.body52.us.preheader.i ]
+  %match.2104.us.i = phi ptr [ %.us-phi102.us.i, %for.cond63.for.inc114_crit_edge.us.i ], [ %13, %for.body52.us.preheader.i ]
   %14 = load i8, ptr %inverseYAxis.i, align 8
   %tobool55.us.i = trunc i8 %14 to i1
-  %15 = xor i32 %y49.0104.us.i, -1
+  %15 = xor i32 %y49.0105.us.i, -1
   %sub58.us.i = add nsw i32 %1, %15
-  %cond61.us.i = select i1 %tobool55.us.i, i32 %sub58.us.i, i32 %y49.0104.us.i
-  %cmp80.not.us.i = icmp eq i32 %y49.0104.us.i, 0
-  %cmp87.us.i = icmp slt i32 %y49.0104.us.i, %sub86.i
+  %cond61.us.i = select i1 %tobool55.us.i, i32 %sub58.us.i, i32 %y49.0105.us.i
+  %cmp80.not.us.i = icmp eq i32 %y49.0105.us.i, 0
+  %cmp87.us.i = icmp slt i32 %y49.0105.us.i, %sub86.i
   br i1 %cmp80.not.us.i, label %for.body65.us.us.i, label %for.body65.us106.i
 
 for.body65.us106.i:                               ; preds = %for.body52.us.i, %if.end109.us142.i
   %x62.0100.us107.i = phi i32 [ %inc112.us144.i, %if.end109.us142.i ], [ 0, %for.body52.us.i ]
-  %match.398.us108.i = phi ptr [ %incdec.ptr110.us143.i, %if.end109.us142.i ], [ %match.2105.us.i, %for.body52.us.i ]
+  %match.398.us108.i = phi ptr [ %incdec.ptr110.us143.i, %if.end109.us142.i ], [ %match.2104.us.i, %for.body52.us.i ]
   %16 = load i8, ptr %match.398.us108.i, align 1
   %tobool66.not.us109.i = icmp eq i8 %16, 0
   br i1 %tobool66.not.us109.i, label %if.then67.us110.i, label %if.end109.us142.i
@@ -540,14 +540,14 @@ if.end109.us142.i:                                ; preds = %if.then95.us131.i, 
   br i1 %exitcond154.not.i, label %for.cond63.for.inc114_crit_edge.us.i, label %for.body65.us106.i, !llvm.loop !12
 
 for.cond63.for.inc114_crit_edge.us.i:             ; preds = %if.end109.us142.i, %if.end109.us.us.i
-  %.us-phi102.us.i = getelementptr i8, ptr %match.2105.us.i, i64 %idx.ext.i
-  %inc115.us.i = add nuw nsw i32 %y49.0104.us.i, 1
+  %.us-phi102.us.i = getelementptr i8, ptr %match.2104.us.i, i64 %idx.ext.i
+  %inc115.us.i = add nuw nsw i32 %y49.0105.us.i, 1
   %exitcond157.not.i = icmp eq i32 %inc115.us.i, %1
   br i1 %exitcond157.not.i, label %if.end117.i, label %for.body52.us.i, !llvm.loop !13
 
 for.body65.us.us.i:                               ; preds = %for.body52.us.i, %if.end109.us.us.i
   %x62.0100.us.us.i = phi i32 [ %inc112.us.us.i, %if.end109.us.us.i ], [ 0, %for.body52.us.i ]
-  %match.398.us.us.i = phi ptr [ %incdec.ptr110.us.us.i, %if.end109.us.us.i ], [ %match.2105.us.i, %for.body52.us.i ]
+  %match.398.us.us.i = phi ptr [ %incdec.ptr110.us.us.i, %if.end109.us.us.i ], [ %match.2104.us.i, %for.body52.us.i ]
   %26 = load i8, ptr %match.398.us.us.i, align 1
   %tobool66.not.us.us.i = icmp eq i8 %26, 0
   br i1 %tobool66.not.us.us.i, label %if.then67.us.us.i, label %if.end109.us.us.i
@@ -858,20 +858,20 @@ for.body63.us.preheader.i:                        ; preds = %for.end56.i
   br label %for.body63.us.i
 
 for.body63.us.i:                                  ; preds = %for.cond74.for.inc125_crit_edge.us.i, %for.body63.us.preheader.i
-  %match.2109.us.i = phi ptr [ %.us-phi106.us.i, %for.cond74.for.inc125_crit_edge.us.i ], [ %15, %for.body63.us.preheader.i ]
-  %y60.0108.us.i = phi i32 [ %inc126.us.i, %for.cond74.for.inc125_crit_edge.us.i ], [ 0, %for.body63.us.preheader.i ]
+  %y60.0109.us.i = phi i32 [ %inc126.us.i, %for.cond74.for.inc125_crit_edge.us.i ], [ 0, %for.body63.us.preheader.i ]
+  %match.2108.us.i = phi ptr [ %.us-phi106.us.i, %for.cond74.for.inc125_crit_edge.us.i ], [ %15, %for.body63.us.preheader.i ]
   %16 = load i8, ptr %inverseYAxis.i, align 8
   %tobool66.us.i = trunc i8 %16 to i1
-  %17 = xor i32 %y60.0108.us.i, -1
+  %17 = xor i32 %y60.0109.us.i, -1
   %sub69.us.i = add nsw i32 %1, %17
-  %cond72.us.i = select i1 %tobool66.us.i, i32 %sub69.us.i, i32 %y60.0108.us.i
-  %cmp91.not.us.i = icmp eq i32 %y60.0108.us.i, 0
-  %cmp98.us.i = icmp slt i32 %y60.0108.us.i, %sub97.i
+  %cond72.us.i = select i1 %tobool66.us.i, i32 %sub69.us.i, i32 %y60.0109.us.i
+  %cmp91.not.us.i = icmp eq i32 %y60.0109.us.i, 0
+  %cmp98.us.i = icmp slt i32 %y60.0109.us.i, %sub97.i
   br i1 %cmp91.not.us.i, label %for.body76.us.us.i, label %for.body76.us110.i
 
 for.body76.us110.i:                               ; preds = %for.body63.us.i, %if.end120.us146.i
   %x73.0104.us111.i = phi i32 [ %inc123.us148.i, %if.end120.us146.i ], [ 0, %for.body63.us.i ]
-  %match.3102.us112.i = phi ptr [ %incdec.ptr121.us147.i, %if.end120.us146.i ], [ %match.2109.us.i, %for.body63.us.i ]
+  %match.3102.us112.i = phi ptr [ %incdec.ptr121.us147.i, %if.end120.us146.i ], [ %match.2108.us.i, %for.body63.us.i ]
   %18 = load i8, ptr %match.3102.us112.i, align 1
   %tobool77.not.us113.i = icmp eq i8 %18, 0
   br i1 %tobool77.not.us113.i, label %if.then78.us114.i, label %if.end120.us146.i
@@ -942,14 +942,14 @@ if.end120.us146.i:                                ; preds = %if.then106.us135.i,
   br i1 %exitcond158.not.i, label %for.cond74.for.inc125_crit_edge.us.i, label %for.body76.us110.i, !llvm.loop !16
 
 for.cond74.for.inc125_crit_edge.us.i:             ; preds = %if.end120.us146.i, %if.end120.us.us.i
-  %.us-phi106.us.i = getelementptr i8, ptr %match.2109.us.i, i64 %idx.ext.i
-  %inc126.us.i = add nuw nsw i32 %y60.0108.us.i, 1
+  %.us-phi106.us.i = getelementptr i8, ptr %match.2108.us.i, i64 %idx.ext.i
+  %inc126.us.i = add nuw nsw i32 %y60.0109.us.i, 1
   %exitcond161.not.i = icmp eq i32 %inc126.us.i, %1
   br i1 %exitcond161.not.i, label %if.end128.i, label %for.body63.us.i, !llvm.loop !17
 
 for.body76.us.us.i:                               ; preds = %for.body63.us.i, %if.end120.us.us.i
   %x73.0104.us.us.i = phi i32 [ %inc123.us.us.i, %if.end120.us.us.i ], [ 0, %for.body63.us.i ]
-  %match.3102.us.us.i = phi ptr [ %incdec.ptr121.us.us.i, %if.end120.us.us.i ], [ %match.2109.us.i, %for.body63.us.i ]
+  %match.3102.us.us.i = phi ptr [ %incdec.ptr121.us.us.i, %if.end120.us.us.i ], [ %match.2108.us.i, %for.body63.us.i ]
   %28 = load i8, ptr %match.3102.us.us.i, align 1
   %tobool77.not.us.us.i = icmp eq i8 %28, 0
   br i1 %tobool77.not.us.us.i, label %if.then78.us.us.i, label %if.end120.us.us.i

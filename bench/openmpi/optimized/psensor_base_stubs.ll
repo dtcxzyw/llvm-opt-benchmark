@@ -53,14 +53,14 @@ define i32 @pmix_psensor_base_start(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %14
 
 14:                                               ; preds = %12, %7, %5
-  %.01522 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 240), align 8
-  %.not23 = icmp eq ptr %.01522, getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 120)
+  %.01422 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 240), align 8
+  %.not23 = icmp eq ptr %.01422, getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 120)
   br i1 %.not23, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14, %20
-  %.01525 = phi ptr [ %.015, %20 ], [ %.01522, %14 ]
+  %.01425 = phi ptr [ %.014, %20 ], [ %.01422, %14 ]
   %.024 = phi i1 [ %.1, %20 ], [ false, %14 ]
-  %15 = getelementptr inbounds i8, ptr %.01525, i64 152
+  %15 = getelementptr inbounds i8, ptr %.01425, i64 152
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
   %.not19 = icmp eq ptr %17, null
@@ -75,9 +75,9 @@ define i32 @pmix_psensor_base_start(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 20:                                               ; preds = %18, %18, %.lr.ph
   %.1 = phi i1 [ %.024, %.lr.ph ], [ true, %18 ], [ true, %18 ]
-  %21 = getelementptr inbounds i8, ptr %.01525, i64 120
-  %.015 = load ptr, ptr %21, align 8
-  %.not = icmp eq ptr %.015, getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 120)
+  %21 = getelementptr inbounds i8, ptr %.01425, i64 120
+  %.014 = load ptr, ptr %21, align 8
+  %.not = icmp eq ptr %.014, getelementptr inbounds (i8, ptr @pmix_psensor_base, i64 120)
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %20
@@ -85,8 +85,8 @@ define i32 @pmix_psensor_base_start(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %14, %._crit_edge.loopexit
-  %.014 = phi i32 [ -47, %14 ], [ %22, %._crit_edge.loopexit ], [ %19, %18 ]
-  ret i32 %.014
+  %.015 = phi i32 [ -47, %14 ], [ %22, %._crit_edge.loopexit ], [ %19, %18 ]
+  ret i32 %.015
 }
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1

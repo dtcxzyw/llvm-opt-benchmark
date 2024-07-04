@@ -3070,13 +3070,13 @@ declare i32 @prefs_modules_foreach_submodules(ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZL24module_prefs_clean_stashP11pref_modulePv(ptr noundef %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %.01216 = load ptr, ptr %3, align 8
-  %.not17 = icmp eq ptr %.01216, null
+  %.016 = load ptr, ptr %3, align 8
+  %.not17 = icmp eq ptr %.016, null
   br i1 %.not17, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %13
-  %.01218 = phi ptr [ %.012, %13 ], [ %.01216, %2 ]
-  %4 = load ptr, ptr %.01218, align 8
+  %.018 = phi ptr [ %.0, %13 ], [ %.016, %2 ]
+  %4 = load ptr, ptr %.018, align 8
   %.not14 = icmp eq ptr %4, null
   br i1 %.not14, label %.critedge, label %5
 
@@ -3095,9 +3095,9 @@ define internal noundef i32 @_ZL24module_prefs_clean_stashP11pref_modulePv(ptr n
   br label %13
 
 13:                                               ; preds = %5, %8, %11
-  %14 = getelementptr inbounds i8, ptr %.01218, i64 8
-  %.012 = load ptr, ptr %14, align 8
-  %.not = icmp eq ptr %.012, null
+  %14 = getelementptr inbounds i8, ptr %.018, i64 8
+  %.0 = load ptr, ptr %14, align 8
+  %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !18
 
 .critedge:                                        ; preds = %.lr.ph, %13, %2
@@ -3110,8 +3110,8 @@ define internal noundef i32 @_ZL24module_prefs_clean_stashP11pref_modulePv(ptr n
   br label %18
 
 18:                                               ; preds = %.critedge, %16
-  %.0 = phi i32 [ %17, %16 ], [ 0, %.critedge ]
-  ret i32 %.0
+  %.012 = phi i32 [ %17, %16 ], [ 0, %.critedge ]
+  ret i32 %.012
 }
 
 ; Function Attrs: noreturn nounwind uwtable
@@ -3899,13 +3899,13 @@ define internal noundef i32 @_ZL20module_prefs_unstashP11pref_modulePv(ptr nound
   %5 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %.02024 = load ptr, ptr %6, align 8
-  %.not25 = icmp eq ptr %.02024, null
+  %.024 = load ptr, ptr %6, align 8
+  %.not25 = icmp eq ptr %.024, null
   br i1 %.not25, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %18
-  %.02026 = phi ptr [ %.020, %18 ], [ %.02024, %2 ]
-  %7 = load ptr, ptr %.02026, align 8
+  %.026 = phi ptr [ %.0, %18 ], [ %.024, %2 ]
+  %7 = load ptr, ptr %.026, align 8
   %.not22 = icmp eq ptr %7, null
   br i1 %.not22, label %.critedge.loopexit, label %8
 
@@ -3928,9 +3928,9 @@ define internal noundef i32 @_ZL20module_prefs_unstashP11pref_modulePv(ptr nound
   br label %18
 
 18:                                               ; preds = %8, %11, %14
-  %19 = getelementptr inbounds i8, ptr %.02026, i64 8
-  %.020 = load ptr, ptr %19, align 8
-  %.not = icmp eq ptr %.020, null
+  %19 = getelementptr inbounds i8, ptr %.026, i64 8
+  %.0 = load ptr, ptr %19, align 8
+  %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !25
 
 .critedge.loopexit:                               ; preds = %18, %.lr.ph
@@ -3951,8 +3951,8 @@ define internal noundef i32 @_ZL20module_prefs_unstashP11pref_modulePv(ptr nound
   br label %26
 
 26:                                               ; preds = %.critedge, %24
-  %.0 = phi i32 [ %25, %24 ], [ 0, %.critedge ]
-  ret i32 %.0
+  %.020 = phi i32 [ %25, %24 ], [ 0, %.critedge ]
+  ret i32 %.020
 }
 
 declare void @extcap_register_preferences() local_unnamed_addr #2
@@ -6330,16 +6330,16 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   br label %49
 
 49:                                               ; preds = %.lr.ph, %149
-  %.033 = phi i64 [ 0, %.lr.ph ], [ %150, %149 ]
+  %.02333 = phi i64 [ 0, %.lr.ph ], [ %150, %149 ]
   %50 = load ptr, ptr %48, align 8
-  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.033
+  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.02333
   %52 = getelementptr inbounds i8, ptr %51, i64 128
-  %53 = shl nuw i64 %.033, 7
+  %53 = shl nuw i64 %.02333, 7
   br label %54
 
 54:                                               ; preds = %49, %147
-  %.02331 = phi i64 [ 0, %49 ], [ %148, %147 ]
-  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.02331
+  %.031 = phi i64 [ 0, %49 ], [ %148, %147 ]
+  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.031
   %56 = load i8, ptr %55, align 1
   %.not30 = icmp eq i8 %56, -1
   br i1 %.not30, label %147, label %57
@@ -6402,7 +6402,7 @@ _Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i:  ; preds = %_Z11qHashEqualsI7QS
   br i1 %98, label %_ZNK12QHashPrivate4DataINS_4NodeI7QStringP7QWidgetEEE4findERKS2_.exit, label %.lr.ph.i, !llvm.loop !29
 
 99:                                               ; preds = %57
-  %100 = add nuw nsw i64 %.02331, %53
+  %100 = add nuw nsw i64 %.031, %53
   %.pre = load ptr, ptr %13, align 8
   br label %_ZNK12QHashPrivate4DataINS_4NodeI7QStringP7QWidgetEEE4findERKS2_.exit
 
@@ -6503,12 +6503,12 @@ _ZN12QHashPrivate4NodeI7QStringP7QWidgetEC2ERKS4_.exit: ; preds = %_ZN12QHashPri
   br label %147
 
 147:                                              ; preds = %54, %_ZN12QHashPrivate4NodeI7QStringP7QWidgetEC2ERKS4_.exit
-  %148 = add nuw nsw i64 %.02331, 1
+  %148 = add nuw nsw i64 %.031, 1
   %exitcond.not = icmp eq i64 %148, 128
   br i1 %exitcond.not, label %149, label %54, !llvm.loop !31
 
 149:                                              ; preds = %147
-  %150 = add nuw nsw i64 %.033, 1
+  %150 = add nuw nsw i64 %.02333, 1
   %exitcond35.not = icmp eq i64 %150, %47
   br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !32
 
@@ -6604,14 +6604,14 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   br label %40
 
 40:                                               ; preds = %.lr.ph, %_ZN12QHashPrivate4SpanINS_4NodeI7QStringP7QWidgetEEE8freeDataEv.exit
-  %.02234 = phi i64 [ 0, %.lr.ph ], [ %147, %_ZN12QHashPrivate4SpanINS_4NodeI7QStringP7QWidgetEEE8freeDataEv.exit ]
-  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %15, i64 %.02234
+  %.02334 = phi i64 [ 0, %.lr.ph ], [ %147, %_ZN12QHashPrivate4SpanINS_4NodeI7QStringP7QWidgetEEE8freeDataEv.exit ]
+  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %15, i64 %.02334
   %42 = getelementptr inbounds i8, ptr %41, i64 128
   br label %43
 
 43:                                               ; preds = %40, %128
-  %.02333 = phi i64 [ 0, %40 ], [ %129, %128 ]
-  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02333
+  %.02233 = phi i64 [ 0, %40 ], [ %129, %128 ]
+  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02233
   %45 = load i8, ptr %44, align 1
   %.not = icmp eq i8 %45, -1
   br i1 %.not, label %128, label %46
@@ -6766,7 +6766,7 @@ _ZN12QHashPrivate4SpanINS_4NodeI7QStringP7QWidgetEEE6insertEm.exit: ; preds = %.
   br label %128
 
 128:                                              ; preds = %43, %_ZN12QHashPrivate4SpanINS_4NodeI7QStringP7QWidgetEEE6insertEm.exit
-  %129 = add nuw nsw i64 %.02333, 1
+  %129 = add nuw nsw i64 %.02233, 1
   %exitcond.not = icmp eq i64 %129, 128
   br i1 %exitcond.not, label %130, label %43, !llvm.loop !33
 
@@ -6818,7 +6818,7 @@ _ZN12QHashPrivate4NodeI7QStringP7QWidgetED2Ev.exit.i: ; preds = %139, %_ZN17QArr
   br label %_ZN12QHashPrivate4SpanINS_4NodeI7QStringP7QWidgetEEE8freeDataEv.exit
 
 _ZN12QHashPrivate4SpanINS_4NodeI7QStringP7QWidgetEEE8freeDataEv.exit: ; preds = %130, %146
-  %147 = add nuw nsw i64 %.02234, 1
+  %147 = add nuw nsw i64 %.02334, 1
   %exitcond36.not = icmp eq i64 %147, %38
   br i1 %exitcond36.not, label %._crit_edge.thread, label %40, !llvm.loop !34
 

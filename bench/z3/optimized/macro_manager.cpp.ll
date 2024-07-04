@@ -2121,23 +2121,23 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp4.not5.i.i, label %if.end18.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.inc.i.i
-  %overhead.07.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i ]
-  %curr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %2, %if.end.i.i ]
-  %4 = load ptr, ptr %curr.06.i.i, align 8
+  %curr.07.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %2, %if.end.i.i ]
+  %overhead.06.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i ]
+  %4 = load ptr, ptr %curr.07.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.i.i.i, label %if.else.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %for.body.i.i
-  store ptr null, ptr %curr.06.i.i, align 8
+  store ptr null, ptr %curr.07.i.i, align 8
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %inc.i.i = add i32 %overhead.07.i.i, 1
+  %inc.i.i = add i32 %overhead.06.i.i, 1
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then5.i.i
-  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.07.i.i, %if.then5.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.06.i.i, i64 16
+  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.06.i.i, %if.then5.i.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.07.i.i, i64 16
   %cmp4.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
   br i1 %cmp4.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !11
 
@@ -2205,23 +2205,23 @@ if.end.i.i6:                                      ; preds = %_ZN7obj_mapI9func_d
   br i1 %cmp4.not5.i.i10, label %if.end18.i.i26, label %for.body.i.i11
 
 for.body.i.i11:                                   ; preds = %if.end.i.i6, %for.inc.i.i16
-  %overhead.07.i.i12 = phi i32 [ %overhead.1.i.i17, %for.inc.i.i16 ], [ 0, %if.end.i.i6 ]
-  %curr.06.i.i13 = phi ptr [ %incdec.ptr.i.i18, %for.inc.i.i16 ], [ %10, %if.end.i.i6 ]
-  %12 = load ptr, ptr %curr.06.i.i13, align 8
+  %curr.07.i.i12 = phi ptr [ %incdec.ptr.i.i18, %for.inc.i.i16 ], [ %10, %if.end.i.i6 ]
+  %overhead.06.i.i13 = phi i32 [ %overhead.1.i.i17, %for.inc.i.i16 ], [ 0, %if.end.i.i6 ]
+  %12 = load ptr, ptr %curr.07.i.i12, align 8
   %cmp.i.i.i14 = icmp eq ptr %12, null
   br i1 %cmp.i.i.i14, label %if.else.i.i37, label %if.then5.i.i15
 
 if.then5.i.i15:                                   ; preds = %for.body.i.i11
-  store ptr null, ptr %curr.06.i.i13, align 8
+  store ptr null, ptr %curr.07.i.i12, align 8
   br label %for.inc.i.i16
 
 if.else.i.i37:                                    ; preds = %for.body.i.i11
-  %inc.i.i38 = add i32 %overhead.07.i.i12, 1
+  %inc.i.i38 = add i32 %overhead.06.i.i13, 1
   br label %for.inc.i.i16
 
 for.inc.i.i16:                                    ; preds = %if.else.i.i37, %if.then5.i.i15
-  %overhead.1.i.i17 = phi i32 [ %inc.i.i38, %if.else.i.i37 ], [ %overhead.07.i.i12, %if.then5.i.i15 ]
-  %incdec.ptr.i.i18 = getelementptr inbounds i8, ptr %curr.06.i.i13, i64 16
+  %overhead.1.i.i17 = phi i32 [ %inc.i.i38, %if.else.i.i37 ], [ %overhead.06.i.i13, %if.then5.i.i15 ]
+  %incdec.ptr.i.i18 = getelementptr inbounds i8, ptr %curr.07.i.i12, i64 16
   %cmp4.not.i.i19 = icmp eq ptr %incdec.ptr.i.i18, %add.ptr.i.i9
   br i1 %cmp4.not.i.i19, label %for.end.i.i20, label %for.body.i.i11, !llvm.loop !12
 
@@ -2289,23 +2289,23 @@ if.end.i.i44:                                     ; preds = %_ZN7obj_mapI9func_d
   br i1 %cmp4.not5.i.i48, label %if.end18.i.i64, label %for.body.i.i49
 
 for.body.i.i49:                                   ; preds = %if.end.i.i44, %for.inc.i.i54
-  %overhead.07.i.i50 = phi i32 [ %overhead.1.i.i55, %for.inc.i.i54 ], [ 0, %if.end.i.i44 ]
-  %curr.06.i.i51 = phi ptr [ %incdec.ptr.i.i56, %for.inc.i.i54 ], [ %18, %if.end.i.i44 ]
-  %20 = load ptr, ptr %curr.06.i.i51, align 8
+  %curr.07.i.i50 = phi ptr [ %incdec.ptr.i.i56, %for.inc.i.i54 ], [ %18, %if.end.i.i44 ]
+  %overhead.06.i.i51 = phi i32 [ %overhead.1.i.i55, %for.inc.i.i54 ], [ 0, %if.end.i.i44 ]
+  %20 = load ptr, ptr %curr.07.i.i50, align 8
   %cmp.i.i.i52 = icmp eq ptr %20, null
   br i1 %cmp.i.i.i52, label %if.else.i.i75, label %if.then5.i.i53
 
 if.then5.i.i53:                                   ; preds = %for.body.i.i49
-  store ptr null, ptr %curr.06.i.i51, align 8
+  store ptr null, ptr %curr.07.i.i50, align 8
   br label %for.inc.i.i54
 
 if.else.i.i75:                                    ; preds = %for.body.i.i49
-  %inc.i.i76 = add i32 %overhead.07.i.i50, 1
+  %inc.i.i76 = add i32 %overhead.06.i.i51, 1
   br label %for.inc.i.i54
 
 for.inc.i.i54:                                    ; preds = %if.else.i.i75, %if.then5.i.i53
-  %overhead.1.i.i55 = phi i32 [ %inc.i.i76, %if.else.i.i75 ], [ %overhead.07.i.i50, %if.then5.i.i53 ]
-  %incdec.ptr.i.i56 = getelementptr inbounds i8, ptr %curr.06.i.i51, i64 16
+  %overhead.1.i.i55 = phi i32 [ %inc.i.i76, %if.else.i.i75 ], [ %overhead.06.i.i51, %if.then5.i.i53 ]
+  %incdec.ptr.i.i56 = getelementptr inbounds i8, ptr %curr.07.i.i50, i64 16
   %cmp4.not.i.i57 = icmp eq ptr %incdec.ptr.i.i56, %add.ptr.i.i47
   br i1 %cmp4.not.i.i57, label %for.end.i.i58, label %for.body.i.i49, !llvm.loop !13
 
@@ -2587,23 +2587,23 @@ if.end.i:                                         ; preds = %_ZN6vectorIN13macro
   br i1 %cmp4.not5.i, label %if.end18.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.inc.i
-  %overhead.07.i = phi i32 [ %overhead.1.i, %for.inc.i ], [ 0, %if.end.i ]
-  %curr.06.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %54, %if.end.i ]
-  %56 = load ptr, ptr %curr.06.i, align 8
+  %curr.07.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %54, %if.end.i ]
+  %overhead.06.i = phi i32 [ %overhead.1.i, %for.inc.i ], [ 0, %if.end.i ]
+  %56 = load ptr, ptr %curr.07.i, align 8
   %cmp.i.i134 = icmp eq ptr %56, null
   br i1 %cmp.i.i134, label %if.else.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %for.body.i
-  store ptr null, ptr %curr.06.i, align 8
+  store ptr null, ptr %curr.07.i, align 8
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %inc.i = add i32 %overhead.07.i, 1
+  %inc.i = add i32 %overhead.06.i, 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i, %if.then5.i
-  %overhead.1.i = phi i32 [ %inc.i, %if.else.i ], [ %overhead.07.i, %if.then5.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %curr.06.i, i64 8
+  %overhead.1.i = phi i32 [ %inc.i, %if.else.i ], [ %overhead.06.i, %if.then5.i ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %curr.07.i, i64 8
   %cmp4.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i133
   br i1 %cmp4.not.i, label %for.end.i, label %for.body.i, !llvm.loop !14
 

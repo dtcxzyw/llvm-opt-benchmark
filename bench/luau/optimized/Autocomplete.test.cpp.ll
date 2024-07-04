@@ -135761,15 +135761,15 @@ _ZNSt3mapIcN4Luau8PositionESt4lessIcESaISt4pairIKcS1_EEE5clearEv.exit: ; preds =
 
 .lr.ph:                                           ; preds = %16, %_ZNSt3mapIcN4Luau8PositionESt4lessIcESaISt4pairIKcS1_EEE6insertIS4_IcS1_EEENSt9enable_ifIXsr16is_constructibleIS6_T_EE5valueES4_ISt17_Rb_tree_iteratorIS6_EbEE4typeEOSC_.exit
   %.021 = phi i8 [ %19, %_ZNSt3mapIcN4Luau8PositionESt4lessIcESaISt4pairIKcS1_EEE6insertIS4_IcS1_EEENSt9enable_ifIXsr16is_constructibleIS6_T_EE5valueES4_ISt17_Rb_tree_iteratorIS6_EbEE4typeEOSC_.exit ], [ 0, %16 ]
-  %.sroa.4.020 = phi i32 [ %.sroa.4.1, %_ZNSt3mapIcN4Luau8PositionESt4lessIcESaISt4pairIKcS1_EEE6insertIS4_IcS1_EEENSt9enable_ifIXsr16is_constructibleIS6_T_EE5valueES4_ISt17_Rb_tree_iteratorIS6_EbEE4typeEOSC_.exit ], [ 0, %16 ]
+  %.sroa.012.020 = phi ptr [ %59, %_ZNSt3mapIcN4Luau8PositionESt4lessIcESaISt4pairIKcS1_EEE6insertIS4_IcS1_EEENSt9enable_ifIXsr16is_constructibleIS6_T_EE5valueES4_ISt17_Rb_tree_iteratorIS6_EbEE4typeEOSC_.exit ], [ %17, %16 ]
   %.sroa.015.019 = phi i32 [ %.sroa.015.1, %_ZNSt3mapIcN4Luau8PositionESt4lessIcESaISt4pairIKcS1_EEE6insertIS4_IcS1_EEENSt9enable_ifIXsr16is_constructibleIS6_T_EE5valueES4_ISt17_Rb_tree_iteratorIS6_EbEE4typeEOSC_.exit ], [ 0, %16 ]
-  %.sroa.012.018 = phi ptr [ %59, %_ZNSt3mapIcN4Luau8PositionESt4lessIcESaISt4pairIKcS1_EEE6insertIS4_IcS1_EEENSt9enable_ifIXsr16is_constructibleIS6_T_EE5valueES4_ISt17_Rb_tree_iteratorIS6_EbEE4typeEOSC_.exit ], [ %17, %16 ]
-  %19 = load i8, ptr %.sroa.012.018, align 1
+  %.sroa.4.018 = phi i32 [ %.sroa.4.1, %_ZNSt3mapIcN4Luau8PositionESt4lessIcESaISt4pairIKcS1_EEE6insertIS4_IcS1_EEENSt9enable_ifIXsr16is_constructibleIS6_T_EE5valueES4_ISt17_Rb_tree_iteratorIS6_EbEE4typeEOSC_.exit ], [ 0, %16 ]
+  %19 = load i8, ptr %.sroa.012.020, align 1
   %20 = icmp eq i8 %.021, 64
   br i1 %20, label %21, label %50
 
 21:                                               ; preds = %.lr.ph
-  %.sroa.4.0.insert.ext = zext i32 %.sroa.4.020 to i64
+  %.sroa.4.0.insert.ext = zext i32 %.sroa.4.018 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
   %.sroa.015.0.insert.ext = zext i32 %.sroa.015.019 to i64
   %.sroa.015.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.015.0.insert.ext
@@ -135882,13 +135882,13 @@ _ZNSt8_Rb_treeIcSt4pairIKcN4Luau8PositionEESt10_Select1stIS4_ESt4lessIcESaIS4_EE
   br label %_ZNSt3mapIcN4Luau8PositionESt4lessIcESaISt4pairIKcS1_EEE6insertIS4_IcS1_EEENSt9enable_ifIXsr16is_constructibleIS6_T_EE5valueES4_ISt17_Rb_tree_iteratorIS6_EbEE4typeEOSC_.exit
 
 57:                                               ; preds = %53
-  %58 = add i32 %.sroa.4.020, 1
+  %58 = add i32 %.sroa.4.018, 1
   br label %_ZNSt3mapIcN4Luau8PositionESt4lessIcESaISt4pairIKcS1_EEE6insertIS4_IcS1_EEENSt9enable_ifIXsr16is_constructibleIS6_T_EE5valueES4_ISt17_Rb_tree_iteratorIS6_EbEE4typeEOSC_.exit
 
 _ZNSt3mapIcN4Luau8PositionESt4lessIcESaISt4pairIKcS1_EEE6insertIS4_IcS1_EEENSt9enable_ifIXsr16is_constructibleIS6_T_EE5valueES4_ISt17_Rb_tree_iteratorIS6_EbEE4typeEOSC_.exit: ; preds = %27, %49, %.thread.i, %50, %57, %55
+  %.sroa.4.1 = phi i32 [ %.sroa.4.018, %50 ], [ 0, %55 ], [ %58, %57 ], [ %.sroa.4.018, %.thread.i ], [ %.sroa.4.018, %49 ], [ %.sroa.4.018, %27 ]
   %.sroa.015.1 = phi i32 [ %.sroa.015.019, %50 ], [ %56, %55 ], [ %.sroa.015.019, %57 ], [ %.sroa.015.019, %.thread.i ], [ %.sroa.015.019, %49 ], [ %.sroa.015.019, %27 ]
-  %.sroa.4.1 = phi i32 [ %.sroa.4.020, %50 ], [ 0, %55 ], [ %58, %57 ], [ %.sroa.4.020, %.thread.i ], [ %.sroa.4.020, %49 ], [ %.sroa.4.020, %27 ]
-  %59 = getelementptr inbounds i8, ptr %.sroa.012.018, i64 1
+  %59 = getelementptr inbounds i8, ptr %.sroa.012.020, i64 1
   %.not = icmp eq ptr %59, %18
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -139415,15 +139415,15 @@ _ZNSt3mapIcN4Luau8PositionESt4lessIcESaISt4pairIKcS1_EEE5clearEv.exit: ; preds =
 
 .lr.ph:                                           ; preds = %16, %_ZNSt3mapIcN4Luau8PositionESt4lessIcESaISt4pairIKcS1_EEE6insertIS4_IcS1_EEENSt9enable_ifIXsr16is_constructibleIS6_T_EE5valueES4_ISt17_Rb_tree_iteratorIS6_EbEE4typeEOSC_.exit
   %.021 = phi i8 [ %19, %_ZNSt3mapIcN4Luau8PositionESt4lessIcESaISt4pairIKcS1_EEE6insertIS4_IcS1_EEENSt9enable_ifIXsr16is_constructibleIS6_T_EE5valueES4_ISt17_Rb_tree_iteratorIS6_EbEE4typeEOSC_.exit ], [ 0, %16 ]
-  %.sroa.4.020 = phi i32 [ %.sroa.4.1, %_ZNSt3mapIcN4Luau8PositionESt4lessIcESaISt4pairIKcS1_EEE6insertIS4_IcS1_EEENSt9enable_ifIXsr16is_constructibleIS6_T_EE5valueES4_ISt17_Rb_tree_iteratorIS6_EbEE4typeEOSC_.exit ], [ 0, %16 ]
+  %.sroa.012.020 = phi ptr [ %59, %_ZNSt3mapIcN4Luau8PositionESt4lessIcESaISt4pairIKcS1_EEE6insertIS4_IcS1_EEENSt9enable_ifIXsr16is_constructibleIS6_T_EE5valueES4_ISt17_Rb_tree_iteratorIS6_EbEE4typeEOSC_.exit ], [ %17, %16 ]
   %.sroa.015.019 = phi i32 [ %.sroa.015.1, %_ZNSt3mapIcN4Luau8PositionESt4lessIcESaISt4pairIKcS1_EEE6insertIS4_IcS1_EEENSt9enable_ifIXsr16is_constructibleIS6_T_EE5valueES4_ISt17_Rb_tree_iteratorIS6_EbEE4typeEOSC_.exit ], [ 0, %16 ]
-  %.sroa.012.018 = phi ptr [ %59, %_ZNSt3mapIcN4Luau8PositionESt4lessIcESaISt4pairIKcS1_EEE6insertIS4_IcS1_EEENSt9enable_ifIXsr16is_constructibleIS6_T_EE5valueES4_ISt17_Rb_tree_iteratorIS6_EbEE4typeEOSC_.exit ], [ %17, %16 ]
-  %19 = load i8, ptr %.sroa.012.018, align 1
+  %.sroa.4.018 = phi i32 [ %.sroa.4.1, %_ZNSt3mapIcN4Luau8PositionESt4lessIcESaISt4pairIKcS1_EEE6insertIS4_IcS1_EEENSt9enable_ifIXsr16is_constructibleIS6_T_EE5valueES4_ISt17_Rb_tree_iteratorIS6_EbEE4typeEOSC_.exit ], [ 0, %16 ]
+  %19 = load i8, ptr %.sroa.012.020, align 1
   %20 = icmp eq i8 %.021, 64
   br i1 %20, label %21, label %50
 
 21:                                               ; preds = %.lr.ph
-  %.sroa.4.0.insert.ext = zext i32 %.sroa.4.020 to i64
+  %.sroa.4.0.insert.ext = zext i32 %.sroa.4.018 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
   %.sroa.015.0.insert.ext = zext i32 %.sroa.015.019 to i64
   %.sroa.015.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.015.0.insert.ext
@@ -139536,13 +139536,13 @@ _ZNSt8_Rb_treeIcSt4pairIKcN4Luau8PositionEESt10_Select1stIS4_ESt4lessIcESaIS4_EE
   br label %_ZNSt3mapIcN4Luau8PositionESt4lessIcESaISt4pairIKcS1_EEE6insertIS4_IcS1_EEENSt9enable_ifIXsr16is_constructibleIS6_T_EE5valueES4_ISt17_Rb_tree_iteratorIS6_EbEE4typeEOSC_.exit
 
 57:                                               ; preds = %53
-  %58 = add i32 %.sroa.4.020, 1
+  %58 = add i32 %.sroa.4.018, 1
   br label %_ZNSt3mapIcN4Luau8PositionESt4lessIcESaISt4pairIKcS1_EEE6insertIS4_IcS1_EEENSt9enable_ifIXsr16is_constructibleIS6_T_EE5valueES4_ISt17_Rb_tree_iteratorIS6_EbEE4typeEOSC_.exit
 
 _ZNSt3mapIcN4Luau8PositionESt4lessIcESaISt4pairIKcS1_EEE6insertIS4_IcS1_EEENSt9enable_ifIXsr16is_constructibleIS6_T_EE5valueES4_ISt17_Rb_tree_iteratorIS6_EbEE4typeEOSC_.exit: ; preds = %27, %49, %.thread.i, %50, %57, %55
+  %.sroa.4.1 = phi i32 [ %.sroa.4.018, %50 ], [ 0, %55 ], [ %58, %57 ], [ %.sroa.4.018, %.thread.i ], [ %.sroa.4.018, %49 ], [ %.sroa.4.018, %27 ]
   %.sroa.015.1 = phi i32 [ %.sroa.015.019, %50 ], [ %56, %55 ], [ %.sroa.015.019, %57 ], [ %.sroa.015.019, %.thread.i ], [ %.sroa.015.019, %49 ], [ %.sroa.015.019, %27 ]
-  %.sroa.4.1 = phi i32 [ %.sroa.4.020, %50 ], [ 0, %55 ], [ %58, %57 ], [ %.sroa.4.020, %.thread.i ], [ %.sroa.4.020, %49 ], [ %.sroa.4.020, %27 ]
-  %59 = getelementptr inbounds i8, ptr %.sroa.012.018, i64 1
+  %59 = getelementptr inbounds i8, ptr %.sroa.012.020, i64 1
   %.not = icmp eq ptr %59, %18
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -198116,8 +198116,8 @@ _ZN4Luau11ParseResultD2Ev.exit:                   ; preds = %204, %_ZSt8_Destroy
 
 240:                                              ; preds = %237, %235
   %.pn26 = phi { ptr, i32 } [ %238, %237 ], [ %236, %235 ]
-  %.2 = extractvalue { ptr, i32 } %.pn26, 0
-  %241 = call ptr @__cxa_begin_catch(ptr %.2) #22
+  %.219 = extractvalue { ptr, i32 } %.pn26, 0
+  %241 = call ptr @__cxa_begin_catch(ptr %.219) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %12)
           to label %242 unwind label %247
 

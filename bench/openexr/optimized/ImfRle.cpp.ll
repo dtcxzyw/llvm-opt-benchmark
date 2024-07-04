@@ -154,19 +154,19 @@ entry:
   br i1 %cmp25, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %if.end32
-  %inLength.addr.029 = phi i32 [ %inLength.addr.1, %if.end32 ], [ %inLength, %entry ]
-  %maxLength.addr.028 = phi i32 [ %maxLength.addr.1, %if.end32 ], [ %maxLength, %entry ]
-  %out.addr.027 = phi ptr [ %out.addr.1, %if.end32 ], [ %out, %entry ]
-  %in.addr.026 = phi ptr [ %in.addr.1, %if.end32 ], [ %in, %entry ]
-  %0 = load i8, ptr %in.addr.026, align 1
+  %out.addr.029 = phi ptr [ %out.addr.1, %if.end32 ], [ %out, %entry ]
+  %in.addr.028 = phi ptr [ %in.addr.1, %if.end32 ], [ %in, %entry ]
+  %maxLength.addr.027 = phi i32 [ %maxLength.addr.1, %if.end32 ], [ %maxLength, %entry ]
+  %inLength.addr.026 = phi i32 [ %inLength.addr.1, %if.end32 ], [ %inLength, %entry ]
+  %0 = load i8, ptr %in.addr.028, align 1
   %conv = sext i8 %0 to i32
   %cmp1 = icmp slt i8 %0, 0
   br i1 %cmp1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
-  %add.neg = add nsw i32 %inLength.addr.029, -1
+  %add.neg = add nsw i32 %inLength.addr.026, -1
   %sub3 = add i32 %add.neg, %conv
-  %sub4 = add nsw i32 %maxLength.addr.028, %conv
+  %sub4 = add nsw i32 %maxLength.addr.027, %conv
   %cmp5 = icmp slt i32 %sub4, 0
   %cmp7 = icmp slt i32 %sub3, 0
   %or.cond = select i1 %cmp5, i1 true, i1 %cmp7
@@ -174,35 +174,35 @@ if.then:                                          ; preds = %while.body
 
 if.end9:                                          ; preds = %if.then
   %sub = sub nsw i32 0, %conv
-  %incdec.ptr = getelementptr inbounds i8, ptr %in.addr.026, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %in.addr.028, i64 1
   %conv10 = zext nneg i32 %sub to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.addr.027, ptr nonnull align 1 %incdec.ptr, i64 %conv10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %out.addr.029, ptr nonnull align 1 %incdec.ptr, i64 %conv10, i1 false)
   %add.ptr12 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %conv10
   br label %if.end32
 
 if.else:                                          ; preds = %while.body
   %add17 = add nuw nsw i32 %conv, 1
-  %sub18 = sub nsw i32 %maxLength.addr.028, %add17
+  %sub18 = sub nsw i32 %maxLength.addr.027, %add17
   %cmp19 = icmp slt i32 %sub18, 0
-  %cmp22 = icmp eq i32 %inLength.addr.029, 1
+  %cmp22 = icmp eq i32 %inLength.addr.026, 1
   %or.cond23 = or i1 %cmp22, %cmp19
   br i1 %or.cond23, label %return, label %if.end24
 
 if.end24:                                         ; preds = %if.else
-  %sub16 = add nsw i32 %inLength.addr.029, -2
-  %incdec.ptr14 = getelementptr inbounds i8, ptr %in.addr.026, i64 1
+  %sub16 = add nsw i32 %inLength.addr.026, -2
+  %incdec.ptr14 = getelementptr inbounds i8, ptr %in.addr.028, i64 1
   %1 = load i8, ptr %incdec.ptr14, align 1
   %conv27 = zext nneg i32 %add17 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %out.addr.027, i8 %1, i64 %conv27, i1 false)
-  %incdec.ptr31 = getelementptr inbounds i8, ptr %in.addr.026, i64 2
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %out.addr.029, i8 %1, i64 %conv27, i1 false)
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %in.addr.028, i64 2
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end24, %if.end9
+  %inLength.addr.1 = phi i32 [ %sub3, %if.end9 ], [ %sub16, %if.end24 ]
+  %maxLength.addr.1 = phi i32 [ %sub4, %if.end9 ], [ %sub18, %if.end24 ]
   %in.addr.1 = phi ptr [ %add.ptr12, %if.end9 ], [ %incdec.ptr31, %if.end24 ]
   %conv10.pn = phi i64 [ %conv10, %if.end9 ], [ %conv27, %if.end24 ]
-  %maxLength.addr.1 = phi i32 [ %sub4, %if.end9 ], [ %sub18, %if.end24 ]
-  %inLength.addr.1 = phi i32 [ %sub3, %if.end9 ], [ %sub16, %if.end24 ]
-  %out.addr.1 = getelementptr inbounds i8, ptr %out.addr.027, i64 %conv10.pn
+  %out.addr.1 = getelementptr inbounds i8, ptr %out.addr.029, i64 %conv10.pn
   %cmp = icmp sgt i32 %inLength.addr.1, 0
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !8
 

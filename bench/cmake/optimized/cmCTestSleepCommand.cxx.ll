@@ -190,8 +190,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit32: ; 
   br label %.body
 
 56:                                               ; preds = %33, %43, %51, %30, %16
-  %.0 = phi i1 [ false, %16 ], [ true, %30 ], [ false, %51 ], [ true, %43 ], [ true, %33 ]
-  ret i1 %.0
+  %.020 = phi i1 [ false, %16 ], [ true, %30 ], [ false, %51 ], [ true, %43 ], [ true, %33 ]
+  ret i1 %.020
 
 .body:                                            ; preds = %54, %49, %52, %19, %14, %17
   %.sink = phi ptr [ %5, %17 ], [ %5, %14 ], [ %5, %19 ], [ %7, %52 ], [ %7, %49 ], [ %7, %54 ]

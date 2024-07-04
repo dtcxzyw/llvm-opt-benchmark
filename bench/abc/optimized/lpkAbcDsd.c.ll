@@ -302,14 +302,14 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %4, %Kit_DsdNtkObj.e
 
 26:                                               ; preds = %.lr.ph77, %26
   %indvars.iv93 = phi i64 [ 0, %.lr.ph77 ], [ %indvars.iv.next94, %26 ]
-  %.05675 = phi i32 [ 0, %.lr.ph77 ], [ %32, %26 ]
+  %.05376 = phi i32 [ 0, %.lr.ph77 ], [ %32, %26 ]
   %27 = getelementptr inbounds [0 x i16], ptr %25, i64 0, i64 %indvars.iv93
   %28 = load i16, ptr %27, align 2
   %29 = zext i16 %28 to i32
   %30 = tail call i32 @Lpk_ComputeBoundSets_rec(ptr noundef nonnull %0, i32 noundef %29, ptr noundef %2, i32 noundef %3)
   %31 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %indvars.iv93
   store i32 %30, ptr %31, align 4
-  %32 = or i32 %30, %.05675
+  %32 = or i32 %30, %.05376
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %33 = load i32, ptr %15, align 4
   %34 = lshr i32 %33, 26
@@ -318,7 +318,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %4, %Kit_DsdNtkObj.e
   br i1 %36, label %26, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %26, %.preheader70
-  %.056.lcssa = phi i32 [ 0, %.preheader70 ], [ %32, %26 ]
+  %.053.lcssa = phi i32 [ 0, %.preheader70 ], [ %32, %26 ]
   %.lcssa = phi i32 [ %24, %.preheader70 ], [ %34, %26 ]
   %notmask = shl nsw i32 -1, %.lcssa
   %37 = icmp ult i32 %notmask, -2
@@ -342,7 +342,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %4, %Kit_DsdNtkObj.e
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %48
   %indvars.iv96 = phi i64 [ 0, %.lr.ph82.preheader ], [ %indvars.iv.next97, %48 ]
-  %.05480 = phi i32 [ 0, %.lr.ph82.preheader ], [ %.155, %48 ]
+  %.05281 = phi i32 [ 0, %.lr.ph82.preheader ], [ %.1, %48 ]
   %41 = trunc nuw nsw i64 %indvars.iv96 to i32
   %42 = shl nuw i32 1, %41
   %43 = and i32 %42, %.084
@@ -352,19 +352,19 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %4, %Kit_DsdNtkObj.e
 44:                                               ; preds = %.lr.ph82
   %45 = getelementptr inbounds [16 x i32], ptr %5, i64 0, i64 %indvars.iv96
   %46 = load i32, ptr %45, align 4
-  %47 = or i32 %46, %.05480
+  %47 = or i32 %46, %.05281
   br label %48
 
 48:                                               ; preds = %.lr.ph82, %44
-  %.155 = phi i32 [ %47, %44 ], [ %.05480, %.lr.ph82 ]
+  %.1 = phi i32 [ %47, %44 ], [ %.05281, %.lr.ph82 ]
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph82, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %48, %.preheader
-  %.054.lcssa = phi i32 [ 0, %.preheader ], [ %.155, %48 ]
-  %49 = and i32 %.054.lcssa, 1431655765
-  %50 = lshr i32 %.054.lcssa, 1
+  %.052.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %48 ]
+  %49 = and i32 %.052.lcssa, 1431655765
+  %50 = lshr i32 %.052.lcssa, 1
   %51 = and i32 %50, 1431655765
   %52 = add nuw i32 %51, %49
   %53 = and i32 %52, 858993459
@@ -447,7 +447,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %94, ptr %38, align 4
   %95 = sext i32 %93 to i64
   %96 = getelementptr inbounds i32, ptr %92, i64 %95
-  store i32 %.054.lcssa, ptr %96, align 4
+  store i32 %.052.lcssa, ptr %96, align 4
   br label %97
 
 97:                                               ; preds = %._crit_edge, %Vec_IntPush.exit
@@ -458,12 +458,12 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 100:                                              ; preds = %.lr.ph, %154
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %154 ]
-  %.15773 = phi i32 [ 0, %.lr.ph ], [ %105, %154 ]
+  %.15474 = phi i32 [ 0, %.lr.ph ], [ %105, %154 ]
   %101 = getelementptr inbounds [0 x i16], ptr %22, i64 0, i64 %indvars.iv
   %102 = load i16, ptr %101, align 2
   %103 = zext i16 %102 to i32
   %104 = tail call i32 @Lpk_ComputeBoundSets_rec(ptr noundef nonnull %0, i32 noundef %103, ptr noundef %2, i32 noundef %3)
-  %105 = or i32 %104, %.15773
+  %105 = or i32 %104, %.15474
   %106 = and i32 %104, 1431655765
   %107 = lshr i32 %104, 1
   %108 = and i32 %107, 1431655765
@@ -560,8 +560,8 @@ Vec_IntPush.exit69:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %158, label %100, label %.critedge2, !llvm.loop !11
 
 .critedge2:                                       ; preds = %154, %97, %.preheader71, %.critedge, %Kit_DsdNtkObj.exit.thread
-  %.052 = phi i32 [ %17, %Kit_DsdNtkObj.exit.thread ], [ %.056.lcssa, %.critedge ], [ 0, %.preheader71 ], [ %.056.lcssa, %97 ], [ %105, %154 ]
-  ret i32 %.052
+  %.057 = phi i32 [ %17, %Kit_DsdNtkObj.exit.thread ], [ %.053.lcssa, %.critedge ], [ 0, %.preheader71 ], [ %.053.lcssa, %97 ], [ %105, %154 ]
+  ret i32 %.057
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1082,7 +1082,7 @@ define range(i32 0, 2) i32 @Lpk_DsdAnalizeOne(ptr noundef %0, ptr nocapture noun
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
   %.0111 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %25 ]
-  %.094109 = phi i32 [ %9, %.lr.ph.preheader ], [ %.195, %25 ]
+  %.093109 = phi i32 [ %9, %.lr.ph.preheader ], [ %.194, %25 ]
   %12 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @Kit_DsdNonDsdSizeMax(ptr noundef %13) #9
@@ -1101,11 +1101,11 @@ define range(i32 0, 2) i32 @Lpk_DsdAnalizeOne(ptr noundef %0, ptr nocapture noun
 21:                                               ; preds = %19
   %22 = load ptr, ptr %12, align 8
   %23 = tail call i32 @Kit_DsdNonDsdSupports(ptr noundef %22) #9
-  %24 = or i32 %23, %.094109
+  %24 = or i32 %23, %.093109
   br label %25
 
 25:                                               ; preds = %16, %21, %19
-  %.195 = phi i32 [ %18, %16 ], [ %24, %21 ], [ %.094109, %19 ]
+  %.194 = phi i32 [ %18, %16 ], [ %24, %21 ], [ %.093109, %19 ]
   %.1 = phi i32 [ %14, %16 ], [ %.0111, %21 ], [ %.0111, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1117,7 +1117,7 @@ define range(i32 0, 2) i32 @Lpk_DsdAnalizeOne(ptr noundef %0, ptr nocapture noun
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
   %26 = phi i32 [ %9, %6 ], [ %.pre, %._crit_edge.loopexit ]
-  %.094.lcssa = phi i32 [ %9, %6 ], [ %.195, %._crit_edge.loopexit ]
+  %.093.lcssa = phi i32 [ %9, %6 ], [ %.194, %._crit_edge.loopexit ]
   %27 = getelementptr inbounds i8, ptr %0, i64 148
   %28 = getelementptr inbounds i8, ptr %0, i64 144
   br label %29
@@ -1149,7 +1149,7 @@ define range(i32 0, 2) i32 @Lpk_DsdAnalizeOne(ptr noundef %0, ptr nocapture noun
 
 Lpk_DsdLateArriving.exit:                         ; preds = %40
   %41 = xor i32 %.1.i, -1
-  %42 = and i32 %.094.lcssa, %41
+  %42 = and i32 %.093.lcssa, %41
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %45
 
@@ -1401,7 +1401,7 @@ Lpk_MergeBoundSets.exit:                          ; preds = %.critedge2.i, %78, 
 ._crit_edge121:                                   ; preds = %._crit_edge119, %.preheader107
   %159 = phi i1 [ false, %.preheader107 ], [ true, %._crit_edge119 ]
   %160 = load ptr, ptr %7, align 16
-  tail call void @Lpk_FunCompareBoundSets(ptr noundef %0, ptr noundef %160, i32 noundef %4, i32 noundef %.094.lcssa, i32 noundef %.1.i, ptr noundef %5)
+  tail call void @Lpk_FunCompareBoundSets(ptr noundef %0, ptr noundef %160, i32 noundef %4, i32 noundef %.093.lcssa, i32 noundef %.1.i, ptr noundef %5)
   %161 = icmp sgt i32 %4, -1
   br i1 %161, label %.preheader.preheader, label %._crit_edge126
 
@@ -1472,8 +1472,8 @@ Vec_IntFree.exit:                                 ; preds = %165, %170
   br i1 %exitcond163.not, label %.loopexit, label %177, !llvm.loop !24
 
 .loopexit:                                        ; preds = %177, %174, %._crit_edge126, %44
-  %.089 = phi i32 [ 0, %44 ], [ 1, %._crit_edge126 ], [ 1, %174 ], [ 1, %177 ]
-  ret i32 %.089
+  %.095 = phi i32 [ 0, %44 ], [ 1, %._crit_edge126 ], [ 1, %174 ], [ 1, %177 ]
+  ret i32 %.095
 }
 
 declare i32 @Kit_DsdNonDsdSizeMax(ptr noundef) local_unnamed_addr #1

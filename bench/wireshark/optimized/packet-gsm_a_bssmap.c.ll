@@ -3522,9 +3522,9 @@ define internal zeroext i16 @be_aoip_trans_lay_add(ptr noundef %0, ptr noundef %
   br label %42
 
 42:                                               ; preds = %40, %18
-  %.0.in = phi i32 [ %4, %18 ], [ %41, %40 ]
-  %.0 = trunc i32 %.0.in to i16
-  ret i16 %.0
+  %.041.in = phi i32 [ %4, %18 ], [ %41, %40 ]
+  %.041 = trunc i32 %.041.in to i16
+  ret i16 %.041
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4195,7 +4195,7 @@ define internal i32 @dissect_bssmap(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %48
 
 48:                                               ; preds = %38, %34
-  %.061 = phi ptr [ %37, %34 ], [ %44, %38 ]
+  %.060 = phi ptr [ %37, %34 ], [ %44, %38 ]
   %49 = load ptr, ptr @dissect_bssmap.tap_p, align 8
   store i8 0, ptr %49, align 4
   %50 = getelementptr inbounds i8, ptr %49, i64 1
@@ -4223,7 +4223,7 @@ define internal i32 @dissect_bssmap(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 62:                                               ; preds = %57, %55
   %63 = load i32, ptr @hf_gsm_a_bssmap_message_elements, align 4
-  %64 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %.061, i32 noundef %63, ptr noundef %0, i32 noundef 1, i32 noundef %53, ptr noundef null, ptr noundef nonnull @.str.476) #3
+  %64 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %.060, i32 noundef %63, ptr noundef %0, i32 noundef 1, i32 noundef %53, ptr noundef null, ptr noundef nonnull @.str.476) #3
   br label %79
 
 65:                                               ; preds = %57
@@ -4239,7 +4239,7 @@ define internal i32 @dissect_bssmap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %73 = trunc i32 %70 to i8
   %storemerge = select i1 %72, i8 %73, i8 -1
   store i8 %storemerge, ptr @cell_discriminator, align 1
-  call void %60(ptr noundef %0, ptr noundef %.061, ptr noundef nonnull %1, i32 noundef 1, i32 noundef %53) #3
+  call void %60(ptr noundef %0, ptr noundef %.060, ptr noundef nonnull %1, i32 noundef 1, i32 noundef %53) #3
   %74 = load i8, ptr @cell_discriminator, align 1
   %75 = zext i8 %74 to i32
   %76 = or i32 %75, 52720
@@ -4250,7 +4250,7 @@ define internal i32 @dissect_bssmap(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 .critedge:                                        ; preds = %65
   store i8 -1, ptr @cell_discriminator, align 1
-  call void %60(ptr noundef %0, ptr noundef %.061, ptr noundef nonnull %1, i32 noundef 1, i32 noundef %53) #3
+  call void %60(ptr noundef %0, ptr noundef %.060, ptr noundef nonnull %1, i32 noundef 1, i32 noundef %53) #3
   br label %79
 
 79:                                               ; preds = %.critedge, %66, %62

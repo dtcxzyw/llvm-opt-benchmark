@@ -156,8 +156,8 @@ buf_push.exit:                                    ; preds = %52, %from_utf8_mac_
   %67 = sub i32 %66, %65
   %68 = srem i32 %67, 16
   %69 = icmp slt i32 %68, 3
-  %.019.sroa.gep.i = getelementptr inbounds i8, ptr %6, i64 3
-  %.019.sroa.gep23.i = getelementptr inbounds i8, ptr %6, i64 2
+  %.0.sroa.gep.i = getelementptr inbounds i8, ptr %6, i64 3
+  %.0.sroa.gep23.i = getelementptr inbounds i8, ptr %6, i64 2
   br i1 %69, label %buf_apply.exit, label %70
 
 70:                                               ; preds = %buf_push.exit
@@ -176,20 +176,20 @@ buf_push.exit:                                    ; preds = %52, %from_utf8_mac_
   br label %78
 
 78:                                               ; preds = %.preheader, %99
-  %.014.i.i = phi i32 [ %80, %99 ], [ 0, %.preheader ]
-  %.0.i.i = phi i64 [ %112, %99 ], [ 142312, %.preheader ]
-  %exitcond.not.i.i = icmp eq i32 %.014.i.i, %68
+  %.014.i.i = phi i64 [ %112, %99 ], [ 142312, %.preheader ]
+  %.0.i.i = phi i32 [ %80, %99 ], [ 0, %.preheader ]
+  %exitcond.not.i.i = icmp eq i32 %.0.i.i, %68
   br i1 %exitcond.not.i.i, label %get_info.exit.i, label %79
 
 79:                                               ; preds = %78
-  %80 = add nuw nsw i32 %.014.i.i, 1
-  %81 = add nsw i32 %.014.i.i, %65
+  %80 = add nuw nsw i32 %.0.i.i, 1
+  %81 = add nsw i32 %.0.i.i, %65
   %82 = srem i32 %81, 16
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %83
   %85 = load i8, ptr %84, align 1
   %86 = zext i8 %85 to i64
-  %87 = lshr i64 %.0.i.i, 2
+  %87 = lshr i64 %.014.i.i, 2
   %88 = getelementptr inbounds i32, ptr @utf8_mac_word_array, i64 %87
   %89 = load i32, ptr %88, align 4
   %90 = zext i32 %89 to i64
@@ -224,7 +224,7 @@ buf_push.exit:                                    ; preds = %52, %from_utf8_mac_
   br i1 %114, label %78, label %get_info.exit.i, !llvm.loop !9
 
 get_info.exit.i:                                  ; preds = %99, %78
-  %.2.i.i = phi i64 [ %112, %99 ], [ %.0.i.i, %78 ]
+  %.2.i.i = phi i64 [ %112, %99 ], [ %.014.i.i, %78 ]
   %115 = and i64 %.2.i.i, 31
   switch i64 %115, label %get_info.exit.thread.i.preheader [
     i64 5, label %116
@@ -248,11 +248,11 @@ get_info.exit.thread.i.preheader:                 ; preds = %95, %79, %get_info.
 123:                                              ; preds = %116
   %124 = lshr i64 %.2.i.i, 24
   %125 = trunc nuw i64 %124 to i8
-  store i8 %125, ptr %.019.sroa.gep23.i, align 1
+  store i8 %125, ptr %.0.sroa.gep23.i, align 1
   br label %126
 
 126:                                              ; preds = %123, %116
-  %.019.sroa.phi.i = phi ptr [ %.019.sroa.gep.i, %123 ], [ %.019.sroa.gep23.i, %116 ]
+  %.0.sroa.phi.i = phi ptr [ %.0.sroa.gep.i, %123 ], [ %.0.sroa.gep23.i, %116 ]
   store i32 0, ptr %64, align 4
   br label %127
 
@@ -269,7 +269,7 @@ get_info.exit.thread.i.preheader:                 ; preds = %95, %79, %get_info.
   %134 = load i32, ptr %63, align 4
   %135 = srem i32 %134, 16
   store i32 %135, ptr %63, align 4
-  %136 = icmp ult ptr %129, %.019.sroa.phi.i
+  %136 = icmp ult ptr %129, %.0.sroa.phi.i
   br i1 %136, label %127, label %buf_apply.exit, !llvm.loop !8
 
 get_info.exit.thread.i:                           ; preds = %get_info.exit.thread.i.preheader, %139
@@ -299,9 +299,9 @@ get_info.exit.thread.i:                           ; preds = %get_info.exit.threa
   br i1 %152, label %get_info.exit.thread.i, label %buf_apply.exit, !llvm.loop !10
 
 buf_apply.exit:                                   ; preds = %127, %get_info.exit.thread.i, %139, %buf_push.exit, %72
-  %.0.i = phi i64 [ 0, %72 ], [ 0, %buf_push.exit ], [ %145, %139 ], [ %.0.i22.i, %get_info.exit.thread.i ], [ 0, %127 ]
+  %.019.i = phi i64 [ 0, %72 ], [ 0, %buf_push.exit ], [ %145, %139 ], [ %.0.i22.i, %get_info.exit.thread.i ], [ 0, %127 ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6)
-  %153 = add i64 %.0.i, %.037
+  %153 = add i64 %.019.i, %.037
   br label %154
 
 154:                                              ; preds = %buf_apply.exit, %from_utf8_mac_finish.exit34

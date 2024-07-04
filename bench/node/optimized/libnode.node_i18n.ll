@@ -1109,11 +1109,11 @@ cond.end:                                         ; preds = %_ZNK4node4i18n9Conv
   %mul112 = mul i64 %cond, %mul
   store i32 0, ptr %status, align 4
   %cmp113.not = icmp eq i64 %mul112, 0
-  %.pre132 = load ptr, ptr %buf_.i, align 8
+  %.pre137 = load ptr, ptr %buf_.i, align 8
   br i1 %cmp113.not, label %if.end115, label %if.then114
 
 if.then114:                                       ; preds = %cond.end
-  %cmp.i.i59 = icmp eq ptr %.pre132, null
+  %cmp.i.i59 = icmp eq ptr %.pre137, null
   br i1 %cmp.i.i59, label %do.body5.i, label %do.end6.i
 
 do.body5.i:                                       ; preds = %if.then114
@@ -1127,8 +1127,8 @@ do.end6.i:                                        ; preds = %if.then114
   br i1 %cmp.i60, label %if.then8.i, label %_ZN4node16MaybeStackBufferIDsLm1024EE25AllocateSufficientStorageEm.exit
 
 if.then8.i:                                       ; preds = %do.end6.i
-  %cmp.i5.not.i = icmp eq ptr %.pre132, %buf_st_.i
-  %cond.i = select i1 %cmp.i5.not.i, ptr null, ptr %.pre132
+  %cmp.i5.not.i = icmp eq ptr %.pre137, %buf_st_.i
+  %cond.i = select i1 %cmp.i5.not.i, ptr null, ptr %.pre137
   %call10.i = call noundef ptr @_ZN4node7ReallocIDsEEPT_S2_m(ptr noundef %cond.i, i64 noundef %mul112)
   store ptr %call10.i, ptr %buf_.i, align 8
   store i64 %mul112, ptr %capacity_.i, align 8
@@ -1146,12 +1146,12 @@ if.then14.i:                                      ; preds = %land.lhs.true.i
   br label %_ZN4node16MaybeStackBufferIDsLm1024EE25AllocateSufficientStorageEm.exit
 
 _ZN4node16MaybeStackBufferIDsLm1024EE25AllocateSufficientStorageEm.exit: ; preds = %do.end6.i, %if.then8.i, %land.lhs.true.i, %if.then14.i
-  %.pre = phi ptr [ %.pre132, %do.end6.i ], [ %call10.i, %if.then8.i ], [ %call10.i, %land.lhs.true.i ], [ %.pre.pre, %if.then14.i ]
+  %.pre = phi ptr [ %.pre137, %do.end6.i ], [ %call10.i, %if.then8.i ], [ %call10.i, %land.lhs.true.i ], [ %.pre.pre, %if.then14.i ]
   store i64 %mul112, ptr %result, align 8
   br label %if.end115
 
 if.end115:                                        ; preds = %_ZN4node16MaybeStackBufferIDsLm1024EE25AllocateSufficientStorageEm.exit, %cond.end
-  %79 = phi ptr [ %.pre, %_ZN4node16MaybeStackBufferIDsLm1024EE25AllocateSufficientStorageEm.exit ], [ %.pre132, %cond.end ]
+  %79 = phi ptr [ %.pre, %_ZN4node16MaybeStackBufferIDsLm1024EE25AllocateSufficientStorageEm.exit ], [ %.pre137, %cond.end ]
   %80 = load ptr, ptr %data_.i, align 8
   store ptr %80, ptr %source, align 8
   %length_.i62 = getelementptr inbounds i8, ptr %input, i64 72
@@ -1169,9 +1169,9 @@ if.then126:                                       ; preds = %if.end115
   br i1 %cmp113.not, label %if.then126..thread_crit_edge, label %if.then128
 
 if.then126..thread_crit_edge:                     ; preds = %if.then126
-  %.pre133 = load ptr, ptr %buf_.i, align 8
-  %.pre134 = load i64, ptr %result, align 8
-  %84 = shl i64 %.pre134, 1
+  %.pre138 = load ptr, ptr %buf_.i, align 8
+  %.pre139 = load i64, ptr %result, align 8
+  %84 = shl i64 %.pre139, 1
   br label %.thread
 
 if.then128:                                       ; preds = %if.then126
@@ -1209,12 +1209,12 @@ land.lhs.true:                                    ; preds = %_ZN4node16MaybeStac
   %flags_.i = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 40
   %89 = load i32, ptr %flags_.i, align 8
   %90 = and i32 %89, 28
-  %or.cond130.not = icmp eq i32 %90, 8
-  br i1 %or.cond130.not, label %if.end144, label %.thread
+  %or.cond135.not = icmp eq i32 %90, 8
+  br i1 %or.cond135.not, label %if.end144, label %.thread
 
 .thread:                                          ; preds = %if.then126..thread_crit_edge, %_ZN4node16MaybeStackBufferIDsLm1024EE9SetLengthEm.exit, %land.lhs.true
   %mul147123 = phi i64 [ %84, %if.then126..thread_crit_edge ], [ %sub.ptr.sub, %_ZN4node16MaybeStackBufferIDsLm1024EE9SetLengthEm.exit ], [ %sub.ptr.sub, %land.lhs.true ]
-  %91 = phi ptr [ %.pre133, %if.then126..thread_crit_edge ], [ %87, %_ZN4node16MaybeStackBufferIDsLm1024EE9SetLengthEm.exit ], [ %87, %land.lhs.true ]
+  %91 = phi ptr [ %.pre138, %if.then126..thread_crit_edge ], [ %87, %_ZN4node16MaybeStackBufferIDsLm1024EE9SetLengthEm.exit ], [ %87, %land.lhs.true ]
   store ptr null, ptr %error, align 8
   br label %if.end154
 
@@ -1226,18 +1226,18 @@ if.end144:                                        ; preds = %land.lhs.true
   store i32 %and.sink.i, ptr %flags_.i, align 8
   store ptr null, ptr %error, align 8
   %sub = add i64 %sub.ptr.sub, -2
-  %spec.select = select i1 %cmp140, i64 %sub, i64 %sub.ptr.sub
-  %spec.select131 = select i1 %cmp140, i64 2, i64 0
+  %spec.select = select i1 %cmp140, i64 2, i64 0
+  %spec.select136 = select i1 %cmp140, i64 %sub, i64 %sub.ptr.sub
   br label %if.end154
 
 if.end154:                                        ; preds = %if.end144, %.thread
-  %93 = phi i64 [ %mul147123, %.thread ], [ %spec.select, %if.end144 ]
+  %93 = phi i64 [ 0, %.thread ], [ %spec.select, %if.end144 ]
   %94 = phi ptr [ %91, %.thread ], [ %87, %if.end144 ]
-  %95 = phi i64 [ 0, %.thread ], [ %spec.select131, %if.end144 ]
-  %add.ptr151 = getelementptr inbounds i8, ptr %94, i64 %95
+  %95 = phi i64 [ %mul147123, %.thread ], [ %spec.select136, %if.end144 ]
+  %add.ptr151 = getelementptr inbounds i8, ptr %94, i64 %93
   %isolate_.i90 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
   %96 = load ptr, ptr %isolate_.i90, align 8
-  %call156 = call ptr @_ZN4node11StringBytes6EncodeEPN2v87IsolateEPKcmNS_8encodingEPNS1_5LocalINS1_5ValueEEE(ptr noundef %96, ptr noundef %add.ptr151, i64 noundef %93, i32 noundef 3, ptr noundef nonnull %error) #21
+  %call156 = call ptr @_ZN4node11StringBytes6EncodeEPN2v87IsolateEPKcmNS_8encodingEPNS1_5LocalINS1_5ValueEEE(ptr noundef %96, ptr noundef %add.ptr151, i64 noundef %95, i32 noundef 3, ptr noundef nonnull %error) #21
   %cmp.i.i.not = icmp eq ptr %call156, null
   br i1 %cmp.i.i.not, label %if.end171, label %if.else.i
 

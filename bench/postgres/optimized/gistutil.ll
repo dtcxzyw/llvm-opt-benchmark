@@ -1575,9 +1575,9 @@ gistDeCompressAtt.exit:                           ; preds = %gistdentryinit.exit
 
 74:                                               ; preds = %.lr.ph91, %218
   %.090 = phi i16 [ 1, %.lr.ph91 ], [ %.3, %218 ]
-  %.04889 = phi i16 [ 1, %.lr.ph91 ], [ %219, %218 ]
-  %.05388 = phi i32 [ -1, %.lr.ph91 ], [ %.6, %218 ]
-  %75 = zext i16 %.04889 to i64
+  %.05289 = phi i32 [ -1, %.lr.ph91 ], [ %.6, %218 ]
+  %.05788 = phi i16 [ 1, %.lr.ph91 ], [ %219, %218 ]
+  %75 = zext i16 %.05788 to i64
   %76 = add nsw i64 %75, -1
   %77 = getelementptr [0 x %struct.ItemIdData], ptr %63, i64 0, i64 %76
   %.val64 = load i32, ptr %77, align 4
@@ -1598,11 +1598,11 @@ gistDeCompressAtt.exit:                           ; preds = %gistdentryinit.exit
 87:                                               ; preds = %.lr.ph, %196
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %196 ]
   %.178 = phi i16 [ %.090, %.lr.ph ], [ %.2, %196 ]
-  %.04977 = phi i32 [ 0, %.lr.ph ], [ %88, %196 ]
-  %.05076 = phi i1 [ true, %.lr.ph ], [ %.151, %196 ]
-  %.15475 = phi i32 [ %.05388, %.lr.ph ], [ %.255, %196 ]
+  %.04877 = phi i32 [ 0, %.lr.ph ], [ %88, %196 ]
+  %.04976 = phi i1 [ true, %.lr.ph ], [ %.150, %196 ]
+  %.15375 = phi i32 [ %.05289, %.lr.ph ], [ %.254, %196 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %88 = add nuw nsw i32 %.04977, 1
+  %88 = add nuw nsw i32 %.04877, 1
   %89 = load ptr, ptr %64, align 8
   %90 = load i16, ptr %85, align 2
   %.not.i = icmp sgt i16 %90, -1
@@ -1693,7 +1693,7 @@ gistDeCompressAtt.exit:                           ; preds = %gistdentryinit.exit
   store i64 %.0.i65.ph, ptr %7, align 8
   store ptr %0, ptr %65, align 8
   store ptr %1, ptr %66, align 8
-  store i16 %.04889, ptr %67, align 8
+  store i16 %.05788, ptr %67, align 8
   store i8 0, ptr %68, align 2
   %140 = getelementptr [32 x %struct.FmgrInfo], ptr %69, i64 0, i64 %indvars.iv
   %141 = getelementptr inbounds i8, ptr %140, i64 8
@@ -1727,7 +1727,7 @@ gistDeCompressAtt.exit:                           ; preds = %gistdentryinit.exit
   store i64 0, ptr %7, align 8
   store ptr %0, ptr %65, align 8
   store ptr %1, ptr %66, align 8
-  store i16 %.04889, ptr %67, align 8
+  store i16 %.05788, ptr %67, align 8
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %157, %148
@@ -1774,7 +1774,7 @@ gistpenalty.exit:                                 ; preds = %168, %175, %176
   %177 = phi float [ %174, %168 ], [ 0.000000e+00, %175 ], [ %..i, %176 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %178 = fcmp ule float %177, 0.000000e+00
-  %.151 = select i1 %178, i1 %.05076, i1 false
+  %.150 = select i1 %178, i1 %.04976, i1 false
   %179 = getelementptr [32 x float], ptr %6, i64 0, i64 %indvars.iv
   %180 = load float, ptr %179, align 4
   %181 = fcmp olt float %180, 0.000000e+00
@@ -1818,26 +1818,26 @@ gistpenalty.exit:                                 ; preds = %168, %175, %176
 196:                                              ; preds = %._crit_edge97, %183, %191
   %.pre-phi = phi i32 [ %.pre, %._crit_edge97 ], [ %187, %183 ], [ %187, %191 ]
   %197 = phi i16 [ %.pre98, %._crit_edge97 ], [ %186, %183 ], [ %186, %191 ]
-  %.255 = phi i32 [ %.15475, %._crit_edge97 ], [ -1, %183 ], [ -1, %191 ]
-  %.2 = phi i16 [ %.178, %._crit_edge97 ], [ %.04889, %183 ], [ %.04889, %191 ]
+  %.254 = phi i32 [ %.15375, %._crit_edge97 ], [ -1, %183 ], [ -1, %191 ]
+  %.2 = phi i16 [ %.178, %._crit_edge97 ], [ %.05788, %183 ], [ %.05788, %191 ]
   %198 = sext i32 %.pre-phi to i64
   %199 = icmp slt i64 %indvars.iv.next, %198
   br i1 %199, label %87, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %196, %.._crit_edge.loopexit_crit_edge, %74
   %200 = phi i16 [ %83, %74 ], [ %.pre101.pre, %.._crit_edge.loopexit_crit_edge ], [ %197, %196 ]
-  %.154.lcssa = phi i32 [ %.05388, %74 ], [ %.15475, %.._crit_edge.loopexit_crit_edge ], [ %.255, %196 ]
-  %.049.lcssa = phi i32 [ 0, %74 ], [ %195, %.._crit_edge.loopexit_crit_edge ], [ %88, %196 ]
+  %.153.lcssa = phi i32 [ %.05289, %74 ], [ %.15375, %.._crit_edge.loopexit_crit_edge ], [ %.254, %196 ]
+  %.048.lcssa = phi i32 [ 0, %74 ], [ %195, %.._crit_edge.loopexit_crit_edge ], [ %88, %196 ]
   %.1.lcssa = phi i16 [ %.090, %74 ], [ %.178, %.._crit_edge.loopexit_crit_edge ], [ %.2, %196 ]
-  %.252 = phi i1 [ true, %74 ], [ false, %.._crit_edge.loopexit_crit_edge ], [ %.151, %196 ]
+  %.251 = phi i1 [ true, %74 ], [ false, %.._crit_edge.loopexit_crit_edge ], [ %.150, %196 ]
   %201 = sext i16 %200 to i32
-  %202 = icmp ne i32 %.049.lcssa, %201
-  %.not61 = icmp eq i16 %.1.lcssa, %.04889
+  %202 = icmp ne i32 %.048.lcssa, %201
+  %.not61 = icmp eq i16 %.1.lcssa, %.05788
   %or.cond62 = select i1 %202, i1 true, i1 %.not61
   br i1 %or.cond62, label %210, label %203
 
 203:                                              ; preds = %._crit_edge
-  %204 = icmp eq i32 %.154.lcssa, -1
+  %204 = icmp eq i32 %.153.lcssa, -1
   br i1 %204, label %205, label %208
 
 205:                                              ; preds = %203
@@ -1846,19 +1846,19 @@ gistpenalty.exit:                                 ; preds = %168, %175, %176
   br label %208
 
 208:                                              ; preds = %205, %203
-  %.356 = phi i32 [ %207, %205 ], [ %.154.lcssa, %203 ]
-  %209 = icmp eq i32 %.356, 0
+  %.355 = phi i32 [ %207, %205 ], [ %.153.lcssa, %203 ]
+  %209 = icmp eq i32 %.355, 0
   %spec.select = select i1 %209, i32 -1, i32 1
-  %spec.select63 = select i1 %209, i16 %.04889, i16 %.1.lcssa
+  %spec.select63 = select i1 %209, i16 %.05788, i16 %.1.lcssa
   br label %210
 
 210:                                              ; preds = %208, %._crit_edge
-  %.457 = phi i32 [ %.154.lcssa, %._crit_edge ], [ %spec.select, %208 ]
+  %.456 = phi i32 [ %.153.lcssa, %._crit_edge ], [ %spec.select, %208 ]
   %.3 = phi i16 [ %.1.lcssa, %._crit_edge ], [ %spec.select63, %208 ]
-  br i1 %.252, label %211, label %218
+  br i1 %.251, label %211, label %218
 
 211:                                              ; preds = %210
-  %212 = icmp eq i32 %.457, -1
+  %212 = icmp eq i32 %.456, -1
   br i1 %212, label %213, label %216
 
 213:                                              ; preds = %211
@@ -1867,13 +1867,13 @@ gistpenalty.exit:                                 ; preds = %168, %175, %176
   br label %216
 
 216:                                              ; preds = %213, %211
-  %.5 = phi i32 [ %215, %213 ], [ %.457, %211 ]
+  %.5 = phi i32 [ %215, %213 ], [ %.456, %211 ]
   %217 = icmp eq i32 %.5, 1
   br i1 %217, label %._crit_edge92, label %218
 
 218:                                              ; preds = %210, %216
-  %.6 = phi i32 [ 0, %216 ], [ %.457, %210 ]
-  %219 = add i16 %.04889, 1
+  %.6 = phi i32 [ 0, %216 ], [ %.456, %210 ]
+  %219 = add i16 %.05788, 1
   %.not = icmp ugt i16 %219, %62
   br i1 %.not, label %._crit_edge92, label %74, !llvm.loop !19
 

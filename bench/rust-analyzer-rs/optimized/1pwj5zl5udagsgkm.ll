@@ -868,8 +868,8 @@ define { i128, i128 } @_ZN5salsa3lru13rng_with_seed17h5db086e9934eeac3E(ptr noal
 
 5:                                                ; preds = %2, %10
   %.sroa.0.013 = phi ptr [ %0, %2 ], [ %13, %10 ]
-  %.sroa.10.012 = phi i64 [ 0, %2 ], [ %12, %10 ]
-  %.sroa.7.011 = phi i64 [ 16, %2 ], [ %11, %10 ]
+  %.sroa.7.012 = phi i64 [ 16, %2 ], [ %11, %10 ]
+  %.sroa.10.011 = phi i64 [ 0, %2 ], [ %12, %10 ]
   %6 = icmp eq ptr %.sroa.0.013, %4
   br i1 %6, label %7, label %10
 
@@ -879,11 +879,11 @@ define { i128, i128 } @_ZN5salsa3lru13rng_with_seed17h5db086e9934eeac3E(ptr noal
   ret { i128, i128 } %9
 
 10:                                               ; preds = %5
-  %11 = add nsw i64 %.sroa.7.011, -1
-  %12 = add nuw nsw i64 %.sroa.10.012, 1
+  %11 = add nsw i64 %.sroa.7.012, -1
+  %12 = add nuw nsw i64 %.sroa.10.011, 1
   %13 = getelementptr inbounds i8, ptr %.sroa.0.013, i64 1
   %14 = load i8, ptr %.sroa.0.013, align 1, !noundef !21
-  %15 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 %.sroa.10.012
+  %15 = getelementptr inbounds [16 x i8], ptr %3, i64 0, i64 %.sroa.10.011
   store i8 %14, ptr %15, align 1
   %16 = icmp eq i64 %11, 0
   br i1 %16, label %7, label %5

@@ -8885,9 +8885,9 @@ if.end.i:                                         ; preds = %_ZN2tf23SmallVector
   br i1 %cmp.not12.i.i, label %_ZN2tf4Node20_set_up_join_counterEv.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i, %for.inc.i.i
-  %c.014.i.i = phi i64 [ %c.1.i.i, %for.inc.i.i ], [ 0, %if.end.i ]
-  %__begin1.013.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %15, %if.end.i ]
-  %16 = load ptr, ptr %__begin1.013.i.i, align 8
+  %__begin1.014.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %15, %if.end.i ]
+  %c.013.i.i = phi i64 [ %c.1.i.i, %for.inc.i.i ], [ 0, %if.end.i ]
+  %16 = load ptr, ptr %__begin1.014.i.i, align 8
   %_M_index.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 232
   %17 = load i8, ptr %_M_index.i.i.i.i, align 8
   %18 = add i8 %17, -3
@@ -8899,12 +8899,12 @@ monotonic.i12.i.i:                                ; preds = %for.body.i.i
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %inc.i.i = add i64 %c.014.i.i, 1
+  %inc.i.i = add i64 %c.013.i.i, 1
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %monotonic.i12.i.i
-  %c.1.i.i = phi i64 [ %c.014.i.i, %monotonic.i12.i.i ], [ %inc.i.i, %if.else.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.013.i.i, i64 8
+  %c.1.i.i = phi i64 [ %c.013.i.i, %monotonic.i12.i.i ], [ %inc.i.i, %if.else.i.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.014.i.i, i64 8
   %cmp.not.i6.i = icmp eq ptr %incdec.ptr.i.i, %14
   br i1 %cmp.not.i6.i, label %_ZN2tf4Node20_set_up_join_counterEv.exit.i, label %for.body.i.i
 
@@ -12493,9 +12493,9 @@ if.end.i:                                         ; preds = %_ZN2tf23SmallVector
   br i1 %cmp.not12.i.i, label %_ZN2tf4Node20_set_up_join_counterEv.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i, %for.inc.i.i
-  %c.014.i.i = phi i64 [ %c.1.i.i, %for.inc.i.i ], [ 0, %if.end.i ]
-  %__begin1.013.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %17, %if.end.i ]
-  %18 = load ptr, ptr %__begin1.013.i.i, align 8
+  %__begin1.014.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %17, %if.end.i ]
+  %c.013.i.i = phi i64 [ %c.1.i.i, %for.inc.i.i ], [ 0, %if.end.i ]
+  %18 = load ptr, ptr %__begin1.014.i.i, align 8
   %_M_index.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 232
   %19 = load i8, ptr %_M_index.i.i.i.i, align 8
   %20 = add i8 %19, -3
@@ -12507,12 +12507,12 @@ monotonic.i12.i.i:                                ; preds = %for.body.i.i
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %inc.i.i = add i64 %c.014.i.i, 1
+  %inc.i.i = add i64 %c.013.i.i, 1
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %monotonic.i12.i.i
-  %c.1.i.i = phi i64 [ %c.014.i.i, %monotonic.i12.i.i ], [ %inc.i.i, %if.else.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.013.i.i, i64 8
+  %c.1.i.i = phi i64 [ %c.013.i.i, %monotonic.i12.i.i ], [ %inc.i.i, %if.else.i.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.014.i.i, i64 8
   %cmp.not.i6.i = icmp eq ptr %incdec.ptr.i.i, %16
   br i1 %cmp.not.i6.i, label %_ZN2tf4Node20_set_up_join_counterEv.exit.i, label %for.body.i.i
 
@@ -13023,9 +13023,9 @@ if.end.i:                                         ; preds = %_ZN2tf23SmallVector
   br i1 %cmp.not12.i.i, label %_ZN2tf4Node20_set_up_join_counterEv.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i, %for.inc.i.i
-  %c.014.i.i = phi i64 [ %c.1.i.i, %for.inc.i.i ], [ 0, %if.end.i ]
-  %__begin1.013.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %15, %if.end.i ]
-  %16 = load ptr, ptr %__begin1.013.i.i, align 8
+  %__begin1.014.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %15, %if.end.i ]
+  %c.013.i.i = phi i64 [ %c.1.i.i, %for.inc.i.i ], [ 0, %if.end.i ]
+  %16 = load ptr, ptr %__begin1.014.i.i, align 8
   %_M_index.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 232
   %17 = load i8, ptr %_M_index.i.i.i.i, align 8
   %18 = add i8 %17, -3
@@ -13037,12 +13037,12 @@ monotonic.i12.i.i:                                ; preds = %for.body.i.i
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %inc.i.i = add i64 %c.014.i.i, 1
+  %inc.i.i = add i64 %c.013.i.i, 1
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %monotonic.i12.i.i
-  %c.1.i.i = phi i64 [ %c.014.i.i, %monotonic.i12.i.i ], [ %inc.i.i, %if.else.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.013.i.i, i64 8
+  %c.1.i.i = phi i64 [ %c.013.i.i, %monotonic.i12.i.i ], [ %inc.i.i, %if.else.i.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.014.i.i, i64 8
   %cmp.not.i6.i = icmp eq ptr %incdec.ptr.i.i, %14
   br i1 %cmp.not.i6.i, label %_ZN2tf4Node20_set_up_join_counterEv.exit.i, label %for.body.i.i
 
@@ -15779,35 +15779,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end16.i
-  %__value.addr.021.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
-  %__n.020.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
-  %cmp5.i = icmp ult i64 %__value.addr.021.i, 100
+  %__n.021.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
+  %__value.addr.020.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
+  %cmp5.i = icmp ult i64 %__value.addr.020.i, 100
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.020.i, 1
+  %add.i = add i32 %__n.021.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end7.i:                                        ; preds = %if.end.i
-  %cmp9.i = icmp ult i64 %__value.addr.021.i, 1000
+  %cmp9.i = icmp ult i64 %__value.addr.020.i, 1000
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.end7.i
-  %add11.i = add i32 %__n.020.i, 2
+  %add11.i = add i32 %__n.021.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end12.i:                                       ; preds = %if.end7.i
-  %cmp13.i = icmp ult i64 %__value.addr.021.i, 10000
+  %cmp13.i = icmp ult i64 %__value.addr.020.i, 10000
   br i1 %cmp13.i, label %if.then14.i, label %if.end16.i
 
 if.then14.i:                                      ; preds = %if.end12.i
-  %add15.i = add i32 %__n.020.i, 3
+  %add15.i = add i32 %__n.021.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %div.i = udiv i64 %__value.addr.021.i, 10000
-  %add17.i = add i32 %__n.020.i, 4
-  %cmp.i = icmp ult i64 %__value.addr.021.i, 100000
+  %div.i = udiv i64 %__value.addr.020.i, 10000
+  %add17.i = add i32 %__n.021.i, 4
+  %cmp.i = icmp ult i64 %__value.addr.020.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !182
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i

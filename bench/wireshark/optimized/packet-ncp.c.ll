@@ -1344,16 +1344,16 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   br label %20
 
 20:                                               ; preds = %18, %16
-  %.0415 = phi i32 [ 0, %16 ], [ %spec.select, %18 ]
-  %21 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0415) #6
+  %.0412 = phi i32 [ 0, %16 ], [ %spec.select, %18 ]
+  %21 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0412) #6
   %22 = load i32, ptr @hf_ncp_ip_sig, align 4
-  %23 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %22, ptr noundef %0, i32 noundef %.0415, i32 noundef 4, i32 noundef %21) #6
-  %24 = or disjoint i32 %.0415, 4
+  %23 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %22, ptr noundef %0, i32 noundef %.0412, i32 noundef 4, i32 noundef %21) #6
+  %24 = or disjoint i32 %.0412, 4
   %25 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %24) #6
   %26 = and i32 %25, 2147483647
   %27 = load i32, ptr @hf_ncp_ip_length, align 4
   %28 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %27, ptr noundef %0, i32 noundef %24, i32 noundef 4, i32 noundef %26) #6
-  %29 = or disjoint i32 %.0415, 8
+  %29 = or disjoint i32 %.0412, 8
   %30 = icmp eq i32 %21, 1148019796
   br i1 %30, label %31, label %40
 
@@ -1361,23 +1361,23 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   %32 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %29) #6
   %33 = load i32, ptr @hf_ncp_ip_ver, align 4
   %34 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %33, ptr noundef %0, i32 noundef %29, i32 noundef 4, i32 noundef %32) #6
-  %35 = or disjoint i32 %.0415, 12
+  %35 = or disjoint i32 %.0412, 12
   %36 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %35) #6
   %37 = load i32, ptr @hf_ncp_ip_rplybufsize, align 4
   %38 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %37, ptr noundef %0, i32 noundef %35, i32 noundef 4, i32 noundef %36) #6
-  %39 = or disjoint i32 %.0415, 16
+  %39 = or disjoint i32 %.0412, 16
   br label %40
 
 40:                                               ; preds = %31, %20
-  %.1416 = phi i32 [ %39, %31 ], [ %29, %20 ]
-  %41 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1416) #6
+  %.1413 = phi i32 [ %39, %31 ], [ %29, %20 ]
+  %41 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1413) #6
   %42 = zext i16 %41 to i32
   %43 = tail call ptr @try_val_to_str(i32 noundef %42, ptr noundef nonnull @ncp_type_vals) #6
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %53
 
 45:                                               ; preds = %40
-  %46 = add nuw nsw i32 %.1416, 8
+  %46 = add nuw nsw i32 %.1413, 8
   %47 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %46) #6
   %48 = zext i16 %47 to i32
   %49 = tail call ptr @try_val_to_str(i32 noundef %48, ptr noundef nonnull @ncp_type_vals) #6
@@ -1386,12 +1386,12 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
 
 50:                                               ; preds = %45
   %51 = load i32, ptr @hf_ncp_ip_packetsig, align 4
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %51, ptr noundef %0, i32 noundef %.1416, i32 noundef 8, i32 noundef 0) #6
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %51, ptr noundef %0, i32 noundef %.1413, i32 noundef 8, i32 noundef 0) #6
   br label %53
 
 53:                                               ; preds = %4, %40, %50, %45
-  %.2 = phi i32 [ %46, %50 ], [ %.1416, %45 ], [ %.1416, %40 ], [ 0, %4 ]
   %.sroa.0207.0 = phi i32 [ %21, %50 ], [ %21, %45 ], [ %21, %40 ], [ 0, %4 ]
+  %.2 = phi i32 [ %46, %50 ], [ %.1413, %45 ], [ %.1413, %40 ], [ 0, %4 ]
   %54 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2) #6
   store i16 %54, ptr @header, align 2
   %55 = add nuw nsw i32 %.2, 2
@@ -1804,8 +1804,8 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   br label %317
 
 317:                                              ; preds = %303, %.critedge, %295, %292, %161, %180, %283, %183
-  %.0413 = phi i32 [ 0, %303 ], [ 0, %.critedge ], [ %254, %295 ], [ %254, %292 ], [ %288, %283 ], [ 0, %183 ], [ 0, %180 ], [ 0, %161 ]
   %318 = phi i1 [ true, %303 ], [ false, %.critedge ], [ false, %295 ], [ false, %292 ], [ false, %283 ], [ false, %183 ], [ false, %180 ], [ false, %161 ]
+  %.0410 = phi i32 [ 0, %303 ], [ 0, %.critedge ], [ %254, %295 ], [ %254, %292 ], [ %288, %283 ], [ 0, %183 ], [ 0, %180 ], [ 0, %161 ]
   %.0408 = phi i16 [ 0, %303 ], [ 0, %.critedge ], [ %246, %295 ], [ %246, %292 ], [ %289, %283 ], [ 0, %183 ], [ 0, %180 ], [ 0, %161 ]
   %319 = load i16, ptr @header, align 2
   switch i16 %319, label %391 [
@@ -1924,14 +1924,14 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   br label %396
 
 381:                                              ; preds = %317
-  %382 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0413) #6
+  %382 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0410) #6
   %.not446 = icmp eq i16 %.0408, 0
   br i1 %.not446, label %396, label %383
 
 383:                                              ; preds = %381
   %384 = zext i16 %.0408 to i32
   %spec.select448 = call i32 @llvm.smin.i32(i32 %382, i32 %384)
-  %385 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0413, i32 noundef %spec.select448, i32 noundef %384) #6
+  %385 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0410, i32 noundef %spec.select448, i32 noundef %384) #6
   %386 = call i32 @call_data_dissector(ptr noundef %385, ptr noundef nonnull %1, ptr noundef %15) #6
   br label %396
 

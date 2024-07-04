@@ -108,8 +108,8 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture readnone %0, 
   br i1 %or.cond, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %14, %33
-  %.02436 = phi i64 [ %34, %33 ], [ 0, %14 ]
-  %17 = getelementptr inbounds %struct.pmix_info, ptr %1, i64 %.02436
+  %.02336 = phi i64 [ %34, %33 ], [ 0, %14 ]
+  %17 = getelementptr inbounds %struct.pmix_info, ptr %1, i64 %.02336
   %18 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(15) @.str.4, i64 noundef 511) #4
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %33
@@ -123,7 +123,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture readnone %0, 
   br i1 %.not30.not32, label %.critedge, label %.lr.ph
 
 25:                                               ; preds = %.lr.ph
-  %26 = add i64 %.02333, 1
+  %26 = add i64 %.02233, 1
   %27 = getelementptr inbounds ptr, ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
   %.not30.not = icmp eq ptr %28, null
@@ -131,7 +131,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture readnone %0, 
 
 .lr.ph:                                           ; preds = %20, %25
   %29 = phi ptr [ %28, %25 ], [ %24, %20 ]
-  %.02333 = phi i64 [ %26, %25 ], [ 0, %20 ]
+  %.02233 = phi i64 [ %26, %25 ], [ 0, %20 ]
   %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(5) @.str) #4
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %25
@@ -145,7 +145,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture readnone %0, 
   br label %41
 
 33:                                               ; preds = %32, %.preheader
-  %34 = add nuw i64 %.02436, 1
+  %34 = add nuw i64 %.02336, 1
   %exitcond.not = icmp eq i64 %34, %2
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !6
 
@@ -166,8 +166,8 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr nocapture readnone %0, 
   br label %41
 
 41:                                               ; preds = %.loopexit, %38, %35, %.critedge
-  %.022 = phi i32 [ -47, %.critedge ], [ -32, %35 ], [ 0, %38 ], [ 0, %.loopexit ]
-  ret i32 %.022
+  %.024 = phi i32 [ -47, %.critedge ], [ -32, %35 ], [ 0, %38 ], [ 0, %.loopexit ]
+  ret i32 %.024
 }
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1

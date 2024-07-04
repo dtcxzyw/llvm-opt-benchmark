@@ -375,28 +375,28 @@ define dso_local void @span_to_scratch(i64 %0) local_unnamed_addr #0 {
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %18
-  %.030 = phi ptr [ %14, %18 ], [ %12, %.preheader ]
-  %.02229 = phi i32 [ %.123, %18 ], [ 1, %.preheader ]
-  %14 = getelementptr inbounds i8, ptr %.030, i64 1
-  %15 = load i8, ptr %.030, align 1
+  %.02130 = phi i32 [ %.122, %18 ], [ 1, %.preheader ]
+  %.02329 = phi ptr [ %14, %18 ], [ %12, %.preheader ]
+  %14 = getelementptr inbounds i8, ptr %.02329, i64 1
+  %15 = load i8, ptr %.02329, align 1
   switch i8 %15, label %18 [
     i8 0, label %.loopexit
     i8 10, label %16
   ]
 
 16:                                               ; preds = %.lr.ph
-  %17 = add nuw i32 %.02229, 1
+  %17 = add nuw i32 %.02130, 1
   br label %18
 
 18:                                               ; preds = %.lr.ph, %16
-  %.123 = phi i32 [ %.02229, %.lr.ph ], [ %17, %16 ]
-  %19 = icmp ult i32 %.123, %.sroa.4.0.extract.trunc
+  %.122 = phi i32 [ %.02130, %.lr.ph ], [ %17, %16 ]
+  %19 = icmp ult i32 %.122, %.sroa.4.0.extract.trunc
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %18, %.preheader
-  %.0.lcssa = phi ptr [ %12, %.preheader ], [ %14, %18 ]
+  %.023.lcssa = phi ptr [ %12, %.preheader ], [ %14, %18 ]
   %20 = and i64 %4, 255
-  %21 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %20
+  %21 = getelementptr inbounds i8, ptr %.023.lcssa, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 -1
   %umax = tail call i32 @llvm.umax.i32(i32 %6, i32 1)
   %wide.trip.count = zext nneg i32 %umax to i64
@@ -404,7 +404,7 @@ define dso_local void @span_to_scratch(i64 %0) local_unnamed_addr #0 {
 
 23:                                               ; preds = %._crit_edge, %28
   %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %28 ]
-  %.02131 = phi i1 [ false, %._crit_edge ], [ %.0.i25, %28 ]
+  %.02031 = phi i1 [ false, %._crit_edge ], [ %.0.i25, %28 ]
   %24 = getelementptr inbounds i8, ptr %22, i64 %indvars.iv
   %25 = load i8, ptr %24, align 1
   switch i8 %25, label %.sink.split [
@@ -419,7 +419,7 @@ define dso_local void @span_to_scratch(i64 %0) local_unnamed_addr #0 {
   unreachable
 
 27:                                               ; preds = %23, %23, %23
-  br i1 %.02131, label %28, label %.sink.split
+  br i1 %.02031, label %28, label %.sink.split
 
 .sink.split:                                      ; preds = %23, %27
   %.sink = phi i8 [ 32, %27 ], [ %25, %23 ]
@@ -466,28 +466,28 @@ define dso_local ptr @span_to_string(i64 %0) local_unnamed_addr #0 {
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %18
-  %.01519 = phi ptr [ %14, %18 ], [ %12, %.preheader ]
-  %.01618 = phi i32 [ %.1, %18 ], [ 1, %.preheader ]
-  %14 = getelementptr inbounds i8, ptr %.01519, i64 1
-  %15 = load i8, ptr %.01519, align 1
+  %.01519 = phi i32 [ %.1, %18 ], [ 1, %.preheader ]
+  %.01618 = phi ptr [ %14, %18 ], [ %12, %.preheader ]
+  %14 = getelementptr inbounds i8, ptr %.01618, i64 1
+  %15 = load i8, ptr %.01618, align 1
   switch i8 %15, label %18 [
     i8 0, label %.loopexit
     i8 10, label %16
   ]
 
 16:                                               ; preds = %.lr.ph
-  %17 = add nuw i32 %.01618, 1
+  %17 = add nuw i32 %.01519, 1
   br label %18
 
 18:                                               ; preds = %.lr.ph, %16
-  %.1 = phi i32 [ %.01618, %.lr.ph ], [ %17, %16 ]
+  %.1 = phi i32 [ %.01519, %.lr.ph ], [ %17, %16 ]
   %19 = icmp ult i32 %.1, %.sroa.4.0.extract.trunc
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %18, %.preheader
-  %.015.lcssa = phi ptr [ %12, %.preheader ], [ %14, %18 ]
+  %.016.lcssa = phi ptr [ %12, %.preheader ], [ %14, %18 ]
   %20 = and i64 %4, 255
-  %21 = getelementptr inbounds i8, ptr %.015.lcssa, i64 %20
+  %21 = getelementptr inbounds i8, ptr %.016.lcssa, i64 %20
   %22 = getelementptr inbounds i8, ptr %21, i64 -1
   %23 = zext nneg i32 %6 to i64
   %24 = tail call ptr @str_copy(ptr noundef nonnull %22, i64 noundef %23) #8

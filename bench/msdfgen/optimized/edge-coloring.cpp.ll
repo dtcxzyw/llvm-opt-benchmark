@@ -90,8 +90,8 @@ invoke.cont28:                                    ; preds = %invoke.cont12, %inv
   %corners.sroa.12.2238 = phi ptr [ %corners.sroa.12.4, %invoke.cont51 ], [ %corners.sroa.0.0258, %invoke.cont12 ]
   %corners.sroa.21.1237 = phi ptr [ %corners.sroa.21.3, %invoke.cont51 ], [ %corners.sroa.21.0257, %invoke.cont12 ]
   %call13.pn236 = phi { double, double } [ %call52, %invoke.cont51 ], [ %call13, %invoke.cont12 ]
-  %index.0235 = phi i32 [ %inc, %invoke.cont51 ], [ 0, %invoke.cont12 ]
-  %edge.sroa.0.0234 = phi ptr [ %incdec.ptr.i44, %invoke.cont51 ], [ %5, %invoke.cont12 ]
+  %edge.sroa.0.0235 = phi ptr [ %incdec.ptr.i44, %invoke.cont51 ], [ %5, %invoke.cont12 ]
+  %index.0234 = phi i32 [ %inc, %invoke.cont51 ], [ 0, %invoke.cont12 ]
   %prevDirection.sroa.3.0 = extractvalue { double, double } %call13.pn236, 1
   %prevDirection.sroa.0.0 = extractvalue { double, double } %call13.pn236, 0
   %mul4.i.i = fmul double %prevDirection.sroa.3.0, %prevDirection.sroa.3.0
@@ -102,7 +102,7 @@ invoke.cont28:                                    ; preds = %invoke.cont12, %inv
   %div2.i = fdiv double %prevDirection.sroa.3.0, %sqrt.i.i
   %retval.sroa.3.0.i = select i1 %tobool.i, double %div2.i, double 1.000000e+00
   %retval.sroa.0.0.i = select i1 %tobool.i, double %div.i, double 0.000000e+00
-  %call34 = invoke noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.0234)
+  %call34 = invoke noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.0235)
           to label %invoke.cont33 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont33:                                    ; preds = %invoke.cont28
@@ -141,7 +141,7 @@ if.then43:                                        ; preds = %invoke.cont39, %inv
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then43
-  store i32 %index.0235, ptr %corners.sroa.12.2238, align 4
+  store i32 %index.0234, ptr %corners.sroa.12.2238, align 4
   %incdec.ptr.i = getelementptr inbounds i8, ptr %corners.sroa.12.2238, i64 4
   br label %if.end
 
@@ -177,7 +177,7 @@ cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIiSaIi
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
   %cond.i10.i.i = phi ptr [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i43, %cond.true.i.i.i ]
   %add.ptr.i.i42 = getelementptr inbounds i32, ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
-  store i32 %index.0235, ptr %add.ptr.i.i42, align 4
+  store i32 %index.0234, ptr %add.ptr.i.i42, align 4
   %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
 
@@ -235,7 +235,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIiSaIiE
   %corners.sroa.21.3 = phi ptr [ %corners.sroa.21.1237, %invoke.cont41 ], [ %add.ptr19.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %corners.sroa.21.1237, %if.then.i ]
   %corners.sroa.12.4 = phi ptr [ %corners.sroa.12.2238, %invoke.cont41 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ]
   %corners.sroa.0.4 = phi ptr [ %corners.sroa.0.1239, %invoke.cont41 ], [ %cond.i10.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %corners.sroa.0.1239, %if.then.i ]
-  %call48 = invoke noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.0234)
+  %call48 = invoke noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.0235)
           to label %invoke.cont47 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont47:                                    ; preds = %if.end
@@ -246,8 +246,8 @@ invoke.cont47:                                    ; preds = %if.end
           to label %invoke.cont51 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont51:                                    ; preds = %invoke.cont47
-  %incdec.ptr.i44 = getelementptr inbounds i8, ptr %edge.sroa.0.0234, i64 8
-  %inc = add nuw nsw i32 %index.0235, 1
+  %incdec.ptr.i44 = getelementptr inbounds i8, ptr %edge.sroa.0.0235, i64 8
+  %inc = add nuw nsw i32 %index.0234, 1
   %18 = load ptr, ptr %_M_finish.i.i26, align 8
   %cmp.i29.not = icmp eq ptr %incdec.ptr.i44, %18
   br i1 %cmp.i29.not, label %if.end54, label %invoke.cont28, !llvm.loop !5
@@ -1526,11 +1526,11 @@ invoke.cont28:                                    ; preds = %invoke.cont12, %inv
   %corners.sroa.0.11434 = phi ptr [ %corners.sroa.0.4, %invoke.cont51 ], [ %corners.sroa.0.01480, %invoke.cont12 ]
   %corners.sroa.12.21433 = phi ptr [ %corners.sroa.12.4, %invoke.cont51 ], [ %corners.sroa.0.01480, %invoke.cont12 ]
   %corners.sroa.21.11432 = phi ptr [ %corners.sroa.21.3, %invoke.cont51 ], [ %corners.sroa.21.01479, %invoke.cont12 ]
-  %call13.pn1431 = phi { double, double } [ %call52, %invoke.cont51 ], [ %call13, %invoke.cont12 ]
+  %edge.sroa.0.01431 = phi ptr [ %incdec.ptr.i121, %invoke.cont51 ], [ %5, %invoke.cont12 ]
   %index.01430 = phi i32 [ %inc, %invoke.cont51 ], [ 0, %invoke.cont12 ]
-  %edge.sroa.0.01429 = phi ptr [ %incdec.ptr.i121, %invoke.cont51 ], [ %5, %invoke.cont12 ]
-  %prevDirection.sroa.3.0 = extractvalue { double, double } %call13.pn1431, 1
-  %prevDirection.sroa.0.0 = extractvalue { double, double } %call13.pn1431, 0
+  %call13.pn1429 = phi { double, double } [ %call52, %invoke.cont51 ], [ %call13, %invoke.cont12 ]
+  %prevDirection.sroa.0.0 = extractvalue { double, double } %call13.pn1429, 0
+  %prevDirection.sroa.3.0 = extractvalue { double, double } %call13.pn1429, 1
   %mul4.i.i = fmul double %prevDirection.sroa.3.0, %prevDirection.sroa.3.0
   %7 = call double @llvm.fmuladd.f64(double %prevDirection.sroa.0.0, double %prevDirection.sroa.0.0, double %mul4.i.i)
   %sqrt.i.i = call noundef double @llvm.sqrt.f64(double %7)
@@ -1539,7 +1539,7 @@ invoke.cont28:                                    ; preds = %invoke.cont12, %inv
   %div2.i = fdiv double %prevDirection.sroa.3.0, %sqrt.i.i
   %retval.sroa.3.0.i = select i1 %tobool.i, double %div2.i, double 1.000000e+00
   %retval.sroa.0.0.i = select i1 %tobool.i, double %div.i, double 0.000000e+00
-  %call34 = invoke noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.01429)
+  %call34 = invoke noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.01431)
           to label %invoke.cont33 unwind label %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont33:                                    ; preds = %invoke.cont28
@@ -1679,7 +1679,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIiSaIiE
   %corners.sroa.21.3 = phi ptr [ %corners.sroa.21.11432, %invoke.cont41 ], [ %add.ptr19.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %corners.sroa.21.11432, %if.then.i ]
   %corners.sroa.12.4 = phi ptr [ %corners.sroa.12.21433, %invoke.cont41 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ]
   %corners.sroa.0.4 = phi ptr [ %corners.sroa.0.11434, %invoke.cont41 ], [ %cond.i10.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %corners.sroa.0.11434, %if.then.i ]
-  %call48 = invoke noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.01429)
+  %call48 = invoke noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %edge.sroa.0.01431)
           to label %invoke.cont47 unwind label %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont47:                                    ; preds = %if.end
@@ -1690,7 +1690,7 @@ invoke.cont47:                                    ; preds = %if.end
           to label %invoke.cont51 unwind label %lpad.loopexit.split-lp1158.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont51:                                    ; preds = %invoke.cont47
-  %incdec.ptr.i121 = getelementptr inbounds i8, ptr %edge.sroa.0.01429, i64 8
+  %incdec.ptr.i121 = getelementptr inbounds i8, ptr %edge.sroa.0.01431, i64 8
   %inc = add nuw nsw i32 %index.01430, 1
   %18 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i106.not = icmp eq ptr %incdec.ptr.i121, %18

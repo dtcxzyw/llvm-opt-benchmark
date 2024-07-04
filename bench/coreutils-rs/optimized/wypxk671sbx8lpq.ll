@@ -911,14 +911,14 @@ define { ptr, ptr } @_ZN8uu_sleep5sleep17he4476011207b7f9cE(ptr noalias noundef 
 
 .outer:                                           ; preds = %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1c8436210a3cb0beE.exit.i.thread", %38
   %.0.ph = phi i1 [ true, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1c8436210a3cb0beE.exit.i.thread" ], [ false, %38 ]
-  %.sroa.05.0.i.ph = phi i64 [ %.sroa.05.0.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1c8436210a3cb0beE.exit.i.thread" ], [ 0, %38 ]
   %.sroa.6.0.i.ph = phi i32 [ %.sroa.6.0.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1c8436210a3cb0beE.exit.i.thread" ], [ 0, %38 ]
+  %.sroa.05.0.i.ph = phi i64 [ %.sroa.05.0.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1c8436210a3cb0beE.exit.i.thread" ], [ 0, %38 ]
   %.0.i.ph = phi i64 [ %249, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1c8436210a3cb0beE.exit.i.thread" ], [ 0, %38 ]
   br label %78
 
 78:                                               ; preds = %.outer, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1c8436210a3cb0beE.exit.i"
-  %.sroa.05.0.i = phi i64 [ %.sroa.0.0.i.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1c8436210a3cb0beE.exit.i" ], [ %.sroa.05.0.i.ph, %.outer ]
   %.sroa.6.0.i = phi i32 [ %.sroa.3.0.i.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1c8436210a3cb0beE.exit.i" ], [ %.sroa.6.0.i.ph, %.outer ]
+  %.sroa.05.0.i = phi i64 [ %.sroa.0.0.i.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1c8436210a3cb0beE.exit.i" ], [ %.sroa.05.0.i.ph, %.outer ]
   %.0.i = phi i64 [ %247, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1c8436210a3cb0beE.exit.i" ], [ %.0.i.ph, %.outer ]
   %79 = getelementptr inbounds { ptr, i64 }, ptr %0, i64 %.0.i
   call void @llvm.experimental.noalias.scope.decl(metadata !205)

@@ -835,8 +835,8 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
   br label %112
 
 112:                                              ; preds = %106, %55, %110, %97, %80, %64, %._crit_edge
-  %.0 = phi ptr [ %52, %._crit_edge ], [ %111, %110 ], [ %101, %97 ], [ %82, %80 ], [ %69, %64 ], [ %.str.7..str.8, %55 ], [ %108, %106 ]
-  ret ptr %.0
+  %.037 = phi ptr [ %52, %._crit_edge ], [ %111, %110 ], [ %101, %97 ], [ %82, %80 ], [ %69, %64 ], [ %.str.7..str.8, %55 ], [ %108, %106 ]
+  ret ptr %.037
 }
 
 declare i32 @get_base_element_type(i32 noundef) local_unnamed_addr #2
@@ -1659,7 +1659,7 @@ xsd_schema_element_start.exit:                    ; preds = %2, %7
 
 .lr.ph34:                                         ; preds = %.lr.ph, %.lr.ph34
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph34 ], [ 0, %.lr.ph ]
-  %.02832 = phi ptr [ %22, %.lr.ph34 ], [ null, %.lr.ph ]
+  %.0222733 = phi ptr [ %22, %.lr.ph34 ], [ null, %.lr.ph ]
   %15 = load ptr, ptr %12, align 8
   %16 = getelementptr %union.ListCell, ptr %15, i64 %indvars.iv
   %17 = load i32, ptr %16, align 8
@@ -1667,7 +1667,7 @@ xsd_schema_element_start.exit:                    ; preds = %2, %7
   %19 = getelementptr inbounds i8, ptr %18, i64 64
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @CreateTupleDescCopy(ptr noundef %20) #11
-  %22 = call ptr @lappend(ptr noundef %.02832, ptr noundef %21) #11
+  %22 = call ptr @lappend(ptr noundef %.0222733, ptr noundef %21) #11
   call void @table_close(ptr noundef %18, i32 noundef 0) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i32, ptr %11, align 4
@@ -1676,8 +1676,8 @@ xsd_schema_element_start.exit:                    ; preds = %2, %7
   br i1 %25, label %.lr.ph34, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph34, %.lr.ph, %xsd_schema_element_start.exit
-  %.0.lcssa = phi ptr [ null, %xsd_schema_element_start.exit ], [ null, %.lr.ph ], [ %22, %.lr.ph34 ]
-  %26 = call fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef %.0.lcssa)
+  %.022.lcssa = phi ptr [ null, %xsd_schema_element_start.exit ], [ null, %.lr.ph ], [ %22, %.lr.ph34 ]
+  %26 = call fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef %.022.lcssa)
   call void @appendStringInfoString(ptr noundef %5, ptr noundef %26) #11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %27 = load i32, ptr @MyDatabaseId, align 4
@@ -1767,7 +1767,7 @@ xsd_schema_element_start.exit:                    ; preds = %1, %4
 
 .lr.ph31:                                         ; preds = %.lr.ph, %.lr.ph31
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph31 ], [ 0, %.lr.ph ]
-  %.02529 = phi ptr [ %19, %.lr.ph31 ], [ null, %.lr.ph ]
+  %.0192430 = phi ptr [ %19, %.lr.ph31 ], [ null, %.lr.ph ]
   %12 = load ptr, ptr %9, align 8
   %13 = getelementptr %union.ListCell, ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 8
@@ -1775,7 +1775,7 @@ xsd_schema_element_start.exit:                    ; preds = %1, %4
   %16 = getelementptr inbounds i8, ptr %15, i64 64
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @CreateTupleDescCopy(ptr noundef %17) #11
-  %19 = tail call ptr @lappend(ptr noundef %.02529, ptr noundef %18) #11
+  %19 = tail call ptr @lappend(ptr noundef %.0192430, ptr noundef %18) #11
   tail call void @table_close(ptr noundef %15, i32 noundef 0) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %8, align 4
@@ -1784,8 +1784,8 @@ xsd_schema_element_start.exit:                    ; preds = %1, %4
   br i1 %22, label %.lr.ph31, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph31, %.lr.ph, %xsd_schema_element_start.exit
-  %.0.lcssa = phi ptr [ null, %xsd_schema_element_start.exit ], [ null, %.lr.ph ], [ %19, %.lr.ph31 ]
-  %23 = tail call fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef %.0.lcssa)
+  %.019.lcssa = phi ptr [ null, %xsd_schema_element_start.exit ], [ null, %.lr.ph ], [ %19, %.lr.ph31 ]
+  %23 = tail call fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef %.019.lcssa)
   tail call void @appendStringInfoString(ptr noundef %3, ptr noundef %23) #11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %24 = load i32, ptr @MyDatabaseId, align 4
@@ -1921,12 +1921,12 @@ define internal fastcc ptr @query_to_oid_list(ptr noundef %0) unnamed_addr #3 {
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %21
-  %.012 = phi i64 [ %22, %21 ], [ 0, %.preheader ]
-  %.0911 = phi ptr [ %.1, %21 ], [ null, %.preheader ]
+  %.012 = phi ptr [ %.1, %21 ], [ null, %.preheader ]
+  %.0911 = phi i64 [ %22, %21 ], [ 0, %.preheader ]
   %9 = load ptr, ptr @SPI_tuptable, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr ptr, ptr %11, i64 %.012
+  %12 = getelementptr ptr, ptr %11, i64 %.0911
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = call i64 @SPI_getbinval(ptr noundef %13, ptr noundef %14, i32 noundef 1, ptr noundef nonnull %2) #11
@@ -1936,19 +1936,19 @@ define internal fastcc ptr @query_to_oid_list(ptr noundef %0) unnamed_addr #3 {
 
 18:                                               ; preds = %.lr.ph
   %19 = trunc i64 %15 to i32
-  %20 = call ptr @lappend_oid(ptr noundef %.0911, i32 noundef %19) #11
+  %20 = call ptr @lappend_oid(ptr noundef %.012, i32 noundef %19) #11
   br label %21
 
 21:                                               ; preds = %.lr.ph, %18
-  %.1 = phi ptr [ %.0911, %.lr.ph ], [ %20, %18 ]
-  %22 = add nuw i64 %.012, 1
+  %.1 = phi ptr [ %.012, %.lr.ph ], [ %20, %18 ]
+  %22 = add nuw i64 %.0911, 1
   %23 = load i64, ptr @SPI_processed, align 8
   %24 = icmp ult i64 %22, %23
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %21, %.preheader
-  %.09.lcssa = phi ptr [ null, %.preheader ], [ %.1, %21 ]
-  ret ptr %.09.lcssa
+  %.0.lcssa = phi ptr [ null, %.preheader ], [ %.1, %21 ]
+  ret ptr %.0.lcssa
 }
 
 declare ptr @SPI_result_code_string(i32 noundef) local_unnamed_addr #2

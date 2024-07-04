@@ -514,7 +514,7 @@ Abc_Clock.exit:                                   ; preds = %6, %11
   br label %37
 
 37:                                               ; preds = %Abc_Clock.exit, %Vec_PtrPush.exit
-  %.05683 = phi ptr [ %20, %Abc_Clock.exit ], [ %71, %Vec_PtrPush.exit ]
+  %.05783 = phi ptr [ %20, %Abc_Clock.exit ], [ %71, %Vec_PtrPush.exit ]
   %38 = load ptr, ptr %34, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
@@ -581,8 +581,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store i32 %67, ptr %39, align 4
   %68 = sext i32 %66 to i64
   %69 = getelementptr inbounds ptr, ptr %65, i64 %68
-  store ptr %.05683, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %.05683, i64 16
+  store ptr %.05783, ptr %69, align 8
+  %70 = getelementptr inbounds i8, ptr %.05783, i64 16
   %71 = load ptr, ptr %70, align 8
   %.not = icmp eq ptr %71, null
   br i1 %.not, label %72, label %37, !llvm.loop !7

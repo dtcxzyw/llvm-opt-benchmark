@@ -2164,9 +2164,9 @@ if.then5:                                         ; preds = %if.then3
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then3, %if.then5, %if.end
+  %func.0 = phi ptr [ %8, %if.then5 ], [ %2, %if.then3 ], [ %2, %if.end ]
   %pargs.0 = phi ptr [ %6, %if.then5 ], [ null, %if.then3 ], [ null, %if.end ]
   %pkw.0 = phi ptr [ %7, %if.then5 ], [ null, %if.then3 ], [ null, %if.end ]
-  %func.0 = phi ptr [ %8, %if.then5 ], [ %2, %if.then3 ], [ %2, %if.end ]
   %call10 = tail call i32 @PyCallable_Check(ptr noundef %func.0) #6
   %tobool.not = icmp eq i32 %call10, 0
   br i1 %tobool.not, label %if.then11, label %if.end12

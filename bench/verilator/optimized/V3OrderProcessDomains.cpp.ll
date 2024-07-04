@@ -2630,10 +2630,10 @@ _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_ba
   br label %.lr.ph169
 
 .lr.ph169:                                        ; preds = %.lr.ph169.preheader, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit
-  %.sroa.11.0167 = phi ptr [ %.sroa.11.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit ], [ %209, %.lr.ph169.preheader ]
+  %.sroa.096.0167 = phi ptr [ %.sroa.096.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit ], [ %207, %.lr.ph169.preheader ]
   %.sroa.8.0166 = phi ptr [ %.sroa.8.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit ], [ %210, %.lr.ph169.preheader ]
-  %.sroa.096.0165 = phi ptr [ %.sroa.096.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit ], [ %207, %.lr.ph169.preheader ]
-  %211 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.0165)
+  %.sroa.11.0165 = phi ptr [ %.sroa.11.1, %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit ], [ %209, %.lr.ph169.preheader ]
+  %211 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.096.0167)
           to label %212 unwind label %.loopexit
 
 212:                                              ; preds = %.lr.ph169
@@ -2641,20 +2641,20 @@ _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_ba
           to label %214 unwind label %.loopexit
 
 214:                                              ; preds = %212
-  %215 = getelementptr inbounds i8, ptr %.sroa.096.0165, i64 32
+  %215 = getelementptr inbounds i8, ptr %.sroa.096.0167, i64 32
   %216 = icmp eq ptr %215, %.sroa.8.0166
   br i1 %216, label %217, label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit
 
 217:                                              ; preds = %214
-  %218 = getelementptr inbounds i8, ptr %.sroa.11.0167, i64 8
+  %218 = getelementptr inbounds i8, ptr %.sroa.11.0165, i64 8
   %219 = load ptr, ptr %218, align 8
   %220 = getelementptr inbounds i8, ptr %219, i64 512
   br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit
 
 _ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EppEv.exit: ; preds = %214, %217
-  %.sroa.096.1 = phi ptr [ %219, %217 ], [ %215, %214 ]
+  %.sroa.11.1 = phi ptr [ %218, %217 ], [ %.sroa.11.0165, %214 ]
   %.sroa.8.1 = phi ptr [ %220, %217 ], [ %.sroa.8.0166, %214 ]
-  %.sroa.11.1 = phi ptr [ %218, %217 ], [ %.sroa.11.0167, %214 ]
+  %.sroa.096.1 = phi ptr [ %219, %217 ], [ %215, %214 ]
   %.not128 = icmp eq ptr %.sroa.096.1, %208
   br i1 %.not128, label %._crit_edge170, label %.lr.ph169
 
@@ -5105,9 +5105,9 @@ define linkonce_odr dso_local void @_ZSt22__stable_sort_adaptiveISt15_Deque_iter
   br label %_ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit
 
 _ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit: ; preds = %54, %60
+  %.sroa.24.0 = phi ptr [ %19, %54 ], [ %62, %60 ]
   %.sroa.16.0 = phi ptr [ %35, %54 ], [ %64, %60 ]
   %.sroa.8.0 = phi ptr [ %46, %54 ], [ %63, %60 ]
-  %.sroa.24.0 = phi ptr [ %19, %54 ], [ %62, %60 ]
   %storemerge.i.i = phi ptr [ %55, %54 ], [ %67, %60 ]
   %68 = icmp sgt i64 %44, %3
   br i1 %68, label %69, label %83
@@ -5409,9 +5409,9 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorINSt7__cxx1112basic_s
   br label %_ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit2
 
 _ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit2: ; preds = %66, %72
+  %.sroa.89.0 = phi ptr [ %.sroa.25.149, %66 ], [ %74, %72 ]
   %.sroa.58.0 = phi ptr [ %.sroa.17.148, %66 ], [ %76, %72 ]
   %.sroa.27.0 = phi ptr [ %.sroa.10.147, %66 ], [ %75, %72 ]
-  %.sroa.89.0 = phi ptr [ %.sroa.25.149, %66 ], [ %74, %72 ]
   %storemerge.i.i1 = phi ptr [ %67, %66 ], [ %79, %72 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !61
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !64

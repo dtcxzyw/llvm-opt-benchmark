@@ -1929,11 +1929,11 @@ define internal fastcc void @dissect_payload(ptr noundef %0, ptr noundef %1, ptr
   store ptr %26, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %15, i64 52
   store i32 %20, ptr %29, align 4
-  %.pre91 = load ptr, ptr @uinfo, align 8
+  %.pre86 = load ptr, ptr @uinfo, align 8
   br label %copy_address.exit
 
 copy_address.exit:                                ; preds = %14, %24
-  %30 = phi ptr [ %15, %14 ], [ %.pre91, %24 ]
+  %30 = phi ptr [ %15, %14 ], [ %.pre86, %24 ]
   %31 = getelementptr inbounds i8, ptr %30, i64 16
   %32 = getelementptr inbounds i8, ptr %2, i64 232
   %33 = load i32, ptr %32, align 8
@@ -1955,11 +1955,11 @@ copy_address.exit:                                ; preds = %14, %24
   store ptr %41, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %30, i64 20
   store i32 %35, ptr %44, align 4
-  %.pre92 = load ptr, ptr @uinfo, align 8
+  %.pre87 = load ptr, ptr @uinfo, align 8
   br label %copy_address.exit30
 
 copy_address.exit30:                              ; preds = %copy_address.exit, %39
-  %45 = phi ptr [ %30, %copy_address.exit ], [ %.pre92, %39 ]
+  %45 = phi ptr [ %30, %copy_address.exit ], [ %.pre87, %39 ]
   %46 = getelementptr inbounds i8, ptr %2, i64 288
   %47 = load i32, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %45, i64 40
@@ -2015,11 +2015,11 @@ copy_address.exit31:                              ; preds = %49, %59
   store ptr %76, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %65, i64 20
   store i32 %70, ptr %79, align 4
-  %.pre90 = load ptr, ptr @uinfo, align 8
+  %.pre85 = load ptr, ptr @uinfo, align 8
   br label %copy_address.exit32
 
 copy_address.exit32:                              ; preds = %copy_address.exit31, %74
-  %80 = phi ptr [ %65, %copy_address.exit31 ], [ %.pre90, %74 ]
+  %80 = phi ptr [ %65, %copy_address.exit31 ], [ %.pre85, %74 ]
   %81 = getelementptr inbounds i8, ptr %2, i64 284
   %82 = load i32, ptr %81, align 4
   %83 = getelementptr inbounds i8, ptr %80, i64 40
@@ -2074,14 +2074,14 @@ dissect_uftp_message.exit:                        ; preds = %.sink.split.i, %89,
   br label %111
 
 111:                                              ; preds = %.lr.ph, %dissect_unistim_message.exit
-  %.174 = phi i32 [ %.0, %.lr.ph ], [ %.0.i33, %dissect_unistim_message.exit ]
+  %.169 = phi i32 [ %.0, %.lr.ph ], [ %.089.i, %dissect_unistim_message.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %112 = load i32, ptr @ett_unistim, align 4
-  %113 = call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %1, i32 noundef %.174, i32 noundef -1, i32 noundef %112, ptr noundef nonnull %6, ptr noundef nonnull @.str.1285) #4
-  %114 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.174) #4
+  %113 = call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %1, i32 noundef %.169, i32 noundef -1, i32 noundef %112, ptr noundef nonnull %6, ptr noundef nonnull @.str.1285) #4
+  %114 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.169) #4
   %115 = load i32, ptr @hf_unistim_cmd_add, align 4
-  %116 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %115, ptr noundef %1, i32 noundef %.174, i32 noundef 1, i32 noundef 0) #4
-  %117 = add i32 %.174, 1
+  %116 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %115, ptr noundef %1, i32 noundef %.169, i32 noundef 1, i32 noundef 0) #4
+  %117 = add i32 %.169, 1
   %118 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %117) #4
   %119 = zext i8 %118 to i32
   %120 = icmp ult i8 %118, 3
@@ -2100,7 +2100,7 @@ dissect_uftp_message.exit:                        ; preds = %.sink.split.i, %89,
   call void @proto_item_set_len(ptr noundef %127, i32 noundef %119) #4
   %128 = load i32, ptr @hf_unistim_len, align 4
   %129 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %128, ptr noundef %1, i32 noundef %117, i32 noundef 1, i32 noundef 0) #4
-  %130 = add i32 %.174, 2
+  %130 = add i32 %.169, 2
   switch i8 %114, label %1867 [
     i8 0, label %dissect_unistim_message.exit
     i8 9, label %131
@@ -2133,7 +2133,7 @@ dissect_uftp_message.exit:                        ; preds = %.sink.split.i, %89,
   %132 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %130) #4
   %133 = load i32, ptr @hf_expansion_switch_cmd, align 4
   %134 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %133, ptr noundef %1, i32 noundef %130, i32 noundef 1, i32 noundef 0) #4
-  %135 = add i32 %.174, 3
+  %135 = add i32 %.169, 3
   %136 = add nsw i32 %119, -3
   switch i8 %132, label %dissect_expansion_switch.exit.i [
     i8 89, label %145
@@ -2141,27 +2141,27 @@ dissect_uftp_message.exit:                        ; preds = %.sink.split.i, %89,
   ]
 
 137:                                              ; preds = %131
-  %138 = add i32 %.174, 4
+  %138 = add i32 %.169, 4
   %139 = load i32, ptr @hf_expansion_softlabel_number, align 4
   %140 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %139, ptr noundef %1, i32 noundef %138, i32 noundef 1, i32 noundef 0) #4
-  %141 = add i32 %.174, 5
+  %141 = add i32 %.169, 5
   %142 = add nsw i32 %119, -5
   %143 = load i32, ptr @hf_generic_string, align 4
   %144 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %143, ptr noundef %1, i32 noundef %141, i32 noundef %142, i32 noundef 0) #4
   br label %dissect_expansion_switch.exit.i
 
 145:                                              ; preds = %131
-  %146 = add i32 %.174, 4
+  %146 = add i32 %.169, 4
   %147 = load i32, ptr @hf_expansion_softlabel_number, align 4
   %148 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %147, ptr noundef %1, i32 noundef %146, i32 noundef 1, i32 noundef 0) #4
-  %149 = add i32 %.174, 5
+  %149 = add i32 %.169, 5
   %150 = load i32, ptr @hf_basic_bit_field, align 4
   %151 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %150, ptr noundef %1, i32 noundef %149, i32 noundef 1, i32 noundef 0) #4
   %152 = load i32, ptr @hf_broadcast_icon_state, align 4
   %153 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %152, ptr noundef %1, i32 noundef %149, i32 noundef 1, i32 noundef 0) #4
   %154 = load i32, ptr @hf_broadcast_icon_cadence, align 4
   %155 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %154, ptr noundef %1, i32 noundef %149, i32 noundef 1, i32 noundef 0) #4
-  %156 = add i32 %.174, 6
+  %156 = add i32 %.169, 6
   %157 = add nsw i32 %119, -6
   br label %dissect_expansion_switch.exit.i
 
@@ -2175,7 +2175,7 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %160 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %130) #4
   %161 = load i32, ptr @hf_broadcast_switch_cmd, align 4
   %162 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %161, ptr noundef %1, i32 noundef %130, i32 noundef 1, i32 noundef 0) #4
-  %163 = add i32 %.174, 3
+  %163 = add i32 %.169, 3
   %164 = add nsw i32 %119, -3
   switch i8 %160, label %213 [
     i8 0, label %dissect_unistim_message.exit
@@ -2192,24 +2192,24 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %169 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %168, ptr noundef %1, i32 noundef %163, i32 noundef 1, i32 noundef 0) #4
   %170 = load i32, ptr @hf_broadcast_icon_cadence, align 4
   %171 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %170, ptr noundef %1, i32 noundef %163, i32 noundef 1, i32 noundef 0) #4
-  %172 = add i32 %.174, 4
+  %172 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 173:                                              ; preds = %159
   %174 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %163) #4
-  %175 = add i32 %.174, 4
+  %175 = add i32 %.169, 4
   %176 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %175) #4
   %177 = zext i8 %176 to i32
-  %178 = add i32 %.174, 5
+  %178 = add i32 %.169, 5
   %179 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %178) #4
   %180 = zext i8 %179 to i32
-  %181 = add i32 %.174, 6
+  %181 = add i32 %.169, 6
   %182 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %181) #4
   %183 = zext i8 %182 to i32
-  %184 = add i32 %.174, 7
+  %184 = add i32 %.169, 7
   %185 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %184) #4
   %186 = zext i8 %185 to i32
-  %187 = add i32 %.174, 8
+  %187 = add i32 %.169, 8
   %188 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %187) #4
   %189 = zext i8 %188 to i32
   %190 = load i32, ptr @ett_unistim, align 4
@@ -2230,19 +2230,19 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %205 = call ptr @proto_tree_add_item(ptr noundef %201, i32 noundef %204, ptr noundef %1, i32 noundef %184, i32 noundef 1, i32 noundef 0) #4
   %206 = load i32, ptr @hf_broadcast_second, align 4
   %207 = call ptr @proto_tree_add_item(ptr noundef %201, i32 noundef %206, ptr noundef %1, i32 noundef %187, i32 noundef 1, i32 noundef 0) #4
-  %208 = add i32 %.174, 9
+  %208 = add i32 %.169, 9
   br label %dissect_unistim_message.exit
 
 209:                                              ; preds = %159
   %210 = load i32, ptr @hf_generic_data, align 4
   %211 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %210, ptr noundef %1, i32 noundef %163, i32 noundef %164, i32 noundef 0) #4
-  %212 = add i32 %.174, %119
+  %212 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 213:                                              ; preds = %159
   %214 = load i32, ptr @hf_generic_data, align 4
   %215 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %214, ptr noundef %1, i32 noundef %163, i32 noundef %164, i32 noundef 0) #4
-  %216 = add i32 %.174, %119
+  %216 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 217:                                              ; preds = %126
@@ -2251,13 +2251,13 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %218 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %130) #4
   %219 = load i32, ptr @hf_audio_switch_cmd, align 4
   %220 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %219, ptr noundef %1, i32 noundef %130, i32 noundef 1, i32 noundef 0) #4
-  %221 = add i32 %.174, 3
+  %221 = add i32 %.169, 3
   %222 = add nsw i32 %119, -3
   switch i8 %218, label %602 [
     i8 0, label %223
     i8 1, label %dissect_audio_switch.exit
     i8 2, label %244
-    i8 4, label %.preheader.i56
+    i8 4, label %.preheader.i51
     i8 16, label %271
     i8 17, label %277
     i8 18, label %281
@@ -2291,7 +2291,7 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
     i8 61, label %595
   ]
 
-.preheader.i56:                                   ; preds = %217
+.preheader.i51:                                   ; preds = %217
   %.not551568.i = icmp eq i32 %222, 0
   br i1 %.not551568.i, label %dissect_audio_switch.exit, label %.lr.ph571.i
 
@@ -2312,10 +2312,10 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %237 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %236, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
   %238 = load i32, ptr @hf_audio_mgr_headset, align 4
   %239 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %238, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
-  %240 = add i32 %.174, 4
+  %240 = add i32 %.169, 4
   %241 = load i32, ptr @hf_audio_default_rx_vol_id, align 4
   %242 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %241, ptr noundef %1, i32 noundef %240, i32 noundef 1, i32 noundef 0) #4
-  %243 = add i32 %.174, 5
+  %243 = add i32 %.169, 5
   br label %dissect_audio_switch.exit
 
 244:                                              ; preds = %217
@@ -2333,12 +2333,12 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %256 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %255, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
   %257 = load i32, ptr @hf_audio_mgr_opt_noise_squelch, align 4
   %258 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %257, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
-  %259 = add i32 %.174, 4
+  %259 = add i32 %.169, 4
   br label %dissect_audio_switch.exit
 
-.lr.ph571.i:                                      ; preds = %.preheader.i56, %.lr.ph571.i
-  %.0570.i = phi i32 [ %269, %.lr.ph571.i ], [ %221, %.preheader.i56 ]
-  %.0538569.i = phi i32 [ %270, %.lr.ph571.i ], [ %222, %.preheader.i56 ]
+.lr.ph571.i:                                      ; preds = %.preheader.i51, %.lr.ph571.i
+  %.0570.i = phi i32 [ %269, %.lr.ph571.i ], [ %221, %.preheader.i51 ]
+  %.0538569.i = phi i32 [ %270, %.lr.ph571.i ], [ %222, %.preheader.i51 ]
   %260 = load i32, ptr @hf_basic_bit_field, align 4
   %261 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %260, ptr noundef %1, i32 noundef %.0570.i, i32 noundef 1, i32 noundef 0) #4
   %262 = load i32, ptr @hf_audio_mgr_mute, align 4
@@ -2358,13 +2358,13 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %273 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %272, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
   %274 = load i32, ptr @hf_audio_mgr_attenuated, align 4
   %275 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %274, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
-  %276 = add i32 %.174, 4
+  %276 = add i32 %.169, 4
   br label %dissect_audio_switch.exit
 
 277:                                              ; preds = %217
   %278 = load i32, ptr @hf_audio_mgr_transducer_based_tone_id, align 4
   %279 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %278, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
-  %280 = add i32 %.174, 4
+  %280 = add i32 %.169, 4
   br label %dissect_audio_switch.exit
 
 281:                                              ; preds = %217
@@ -2374,49 +2374,49 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %285 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %284, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
   %286 = load i32, ptr @hf_audio_mgr_transducer_routing, align 4
   %287 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %286, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
-  %288 = add i32 %.174, 4
+  %288 = add i32 %.169, 4
   %289 = load i32, ptr @hf_basic_bit_field, align 4
   %290 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %289, ptr noundef %1, i32 noundef %288, i32 noundef 1, i32 noundef 0) #4
   %291 = load i32, ptr @hf_audio_mgr_tone_vol_range, align 4
   %292 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %291, ptr noundef %1, i32 noundef %288, i32 noundef 1, i32 noundef 0) #4
   %293 = load i32, ptr @hf_audio_mgr_cadence_select, align 4
   %294 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %293, ptr noundef %1, i32 noundef %288, i32 noundef 1, i32 noundef 0) #4
-  %295 = add i32 %.174, 5
+  %295 = add i32 %.169, 5
   br label %dissect_audio_switch.exit
 
 296:                                              ; preds = %217
   %297 = load i32, ptr @hf_audio_mgr_transducer_routing, align 4
   %298 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %297, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
-  %299 = add i32 %.174, 4
+  %299 = add i32 %.169, 4
   %300 = load i32, ptr @hf_audio_mgr_tone_vol_range, align 4
   %301 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %300, ptr noundef %1, i32 noundef %299, i32 noundef 1, i32 noundef 0) #4
-  %302 = add i32 %.174, 5
+  %302 = add i32 %.169, 5
   %303 = load i32, ptr @hf_audio_special_tone, align 4
   %304 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %303, ptr noundef %1, i32 noundef %302, i32 noundef 1, i32 noundef 0) #4
-  %305 = add i32 %.174, 6
+  %305 = add i32 %.169, 6
   br label %dissect_audio_switch.exit
 
 306:                                              ; preds = %217
   %307 = load i32, ptr @hf_audio_mgr_transducer_routing, align 4
   %308 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %307, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
-  %309 = add i32 %.174, 4
+  %309 = add i32 %.169, 4
   %310 = load i32, ptr @hf_audio_mgr_tone_vol_range, align 4
   %311 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %310, ptr noundef %1, i32 noundef %309, i32 noundef 1, i32 noundef 0) #4
   %312 = load i32, ptr @hf_audio_mgr_cadence_select, align 4
   %313 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %312, ptr noundef %1, i32 noundef %309, i32 noundef 1, i32 noundef 0) #4
-  %314 = add i32 %.174, 5
+  %314 = add i32 %.169, 5
   br label %dissect_audio_switch.exit
 
 315:                                              ; preds = %217
   %316 = load i32, ptr @hf_generic_data, align 4
   %317 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %316, ptr noundef %1, i32 noundef %221, i32 noundef %222, i32 noundef 0) #4
-  %318 = add i32 %.174, %119
+  %318 = add i32 %.169, %119
   br label %dissect_audio_switch.exit
 
 319:                                              ; preds = %217
   %320 = load i32, ptr @hf_generic_data, align 4
   %321 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %320, ptr noundef %1, i32 noundef %221, i32 noundef %222, i32 noundef 0) #4
-  %322 = add i32 %.174, %119
+  %322 = add i32 %.169, %119
   br label %dissect_audio_switch.exit
 
 323:                                              ; preds = %217
@@ -2426,13 +2426,13 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %327 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %326, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
   %328 = load i32, ptr @hf_audio_tone_level, align 4
   %329 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %328, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
-  %330 = add i32 %.174, 4
+  %330 = add i32 %.169, 4
   br label %dissect_audio_switch.exit
 
 331:                                              ; preds = %217
   %332 = load i32, ptr @hf_audio_visual_tones, align 4
   %333 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %332, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
-  %334 = add i32 %.174, 4
+  %334 = add i32 %.169, 4
   br label %dissect_audio_switch.exit
 
 335:                                              ; preds = %217
@@ -2444,13 +2444,13 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %341 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %340, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
   %342 = load i32, ptr @hf_audio_stream_based_tone_mute, align 4
   %343 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %342, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
-  %344 = add i32 %.174, 4
+  %344 = add i32 %.169, 4
   %345 = load i32, ptr @hf_audio_stream_id, align 4
   %346 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %345, ptr noundef %1, i32 noundef %344, i32 noundef 1, i32 noundef 0) #4
-  %347 = add i32 %.174, 5
+  %347 = add i32 %.169, 5
   %348 = load i32, ptr @hf_audio_stream_based_volume, align 4
   %349 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %348, ptr noundef %1, i32 noundef %347, i32 noundef 1, i32 noundef 0) #4
-  %350 = add i32 %.174, 6
+  %350 = add i32 %.169, 6
   br label %dissect_audio_switch.exit
 
 351:                                              ; preds = %217
@@ -2460,70 +2460,70 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %355 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %354, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
   %356 = load i32, ptr @hf_audio_stream_based_tone_rx_tx, align 4
   %357 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %356, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
-  %358 = add i32 %.174, 4
+  %358 = add i32 %.169, 4
   %359 = load i32, ptr @hf_audio_stream_id, align 4
   %360 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %359, ptr noundef %1, i32 noundef %358, i32 noundef 1, i32 noundef 0) #4
-  %361 = add i32 %.174, 5
+  %361 = add i32 %.169, 5
   br label %dissect_audio_switch.exit
 
 362:                                              ; preds = %217
   %363 = load i32, ptr @hf_generic_data, align 4
   %364 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %363, ptr noundef %1, i32 noundef %221, i32 noundef %222, i32 noundef 0) #4
-  %365 = add i32 %.174, %119
+  %365 = add i32 %.169, %119
   br label %dissect_audio_switch.exit
 
 366:                                              ; preds = %217
   %367 = load i32, ptr @hf_generic_data, align 4
   %368 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %367, ptr noundef %1, i32 noundef %221, i32 noundef %222, i32 noundef 0) #4
-  %369 = add i32 %.174, %119
+  %369 = add i32 %.169, %119
   br label %dissect_audio_switch.exit
 
 370:                                              ; preds = %217
   %371 = load i32, ptr @hf_audio_default_rx_vol_id, align 4
   %372 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %371, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
-  %373 = add i32 %.174, 4
+  %373 = add i32 %.169, 4
   br label %dissect_audio_switch.exit
 
 374:                                              ; preds = %217
   %375 = load i32, ptr @hf_generic_data, align 4
   %376 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %375, ptr noundef %1, i32 noundef %221, i32 noundef %222, i32 noundef 0) #4
-  %377 = add i32 %.174, %119
+  %377 = add i32 %.169, %119
   br label %dissect_audio_switch.exit
 
 378:                                              ; preds = %217
   %379 = load i32, ptr @hf_generic_data, align 4
   %380 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %379, ptr noundef %1, i32 noundef %221, i32 noundef %222, i32 noundef 0) #4
-  %381 = add i32 %.174, %119
+  %381 = add i32 %.169, %119
   br label %dissect_audio_switch.exit
 
 382:                                              ; preds = %217
   %383 = load i32, ptr @hf_generic_data, align 4
   %384 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %383, ptr noundef %1, i32 noundef %221, i32 noundef %222, i32 noundef 0) #4
-  %385 = add i32 %.174, %119
+  %385 = add i32 %.169, %119
   br label %dissect_audio_switch.exit
 
 386:                                              ; preds = %217
   %387 = load i32, ptr @hf_audio_default_rx_vol_id, align 4
   %388 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %387, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
-  %389 = add i32 %.174, 4
+  %389 = add i32 %.169, 4
   br label %dissect_audio_switch.exit
 
 390:                                              ; preds = %217
   %391 = load i32, ptr @hf_audio_default_rx_vol_id, align 4
   %392 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %391, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
-  %393 = add i32 %.174, 4
+  %393 = add i32 %.169, 4
   br label %dissect_audio_switch.exit
 
 394:                                              ; preds = %217
   %395 = load i32, ptr @hf_audio_apb_number, align 4
   %396 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %395, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
-  %397 = add i32 %.174, 4
+  %397 = add i32 %.169, 4
   %398 = add nsw i32 %119, -4
   %.not550563.i = icmp eq i32 %398, 0
   br i1 %.not550563.i, label %dissect_audio_switch.exit, label %.lr.ph566.i
 
 .lr.ph566.i:                                      ; preds = %394, %416
-  %.1565.i = phi i32 [ %.2.i55, %416 ], [ %397, %394 ]
+  %.1565.i = phi i32 [ %.2.i, %416 ], [ %397, %394 ]
   %.1539564.i = phi i32 [ %.2540.i, %416 ], [ %398, %394 ]
   %399 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.1565.i) #4
   %400 = load i32, ptr @hf_audio_apb_op_code, align 4
@@ -2548,7 +2548,7 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
 
 416:                                              ; preds = %405, %.lr.ph566.i
   %.2540.i = phi i32 [ %415, %405 ], [ %403, %.lr.ph566.i ]
-  %.2.i55 = phi i32 [ %414, %405 ], [ %402, %.lr.ph566.i ]
+  %.2.i = phi i32 [ %414, %405 ], [ %402, %.lr.ph566.i ]
   %.not550.i = icmp eq i32 %.2540.i, 0
   br i1 %.not550.i, label %dissect_audio_switch.exit, label %.lr.ph566.i, !llvm.loop !6
 
@@ -2558,51 +2558,51 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   store i32 1, ptr %419, align 4
   %420 = load i32, ptr @hf_audio_rx_stream_id, align 4
   %421 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %420, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
-  %422 = add i32 %.174, 4
+  %422 = add i32 %.169, 4
   %423 = load i32, ptr @hf_audio_tx_stream_id, align 4
   %424 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %423, ptr noundef %1, i32 noundef %422, i32 noundef 1, i32 noundef 0) #4
-  %425 = add i32 %.174, 5
+  %425 = add i32 %.169, 5
   %426 = load i32, ptr @hf_rx_vocoder_type, align 4
   %427 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %426, ptr noundef %1, i32 noundef %425, i32 noundef 1, i32 noundef 0) #4
-  %428 = add i32 %.174, 6
+  %428 = add i32 %.169, 6
   %429 = load i32, ptr @hf_tx_vocoder_type, align 4
   %430 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %429, ptr noundef %1, i32 noundef %428, i32 noundef 1, i32 noundef 0) #4
-  %431 = add i32 %.174, 7
+  %431 = add i32 %.169, 7
   %432 = load i32, ptr @hf_frames_per_packet, align 4
   %433 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %432, ptr noundef %1, i32 noundef %431, i32 noundef 1, i32 noundef 0) #4
-  %434 = add i32 %.174, 8
+  %434 = add i32 %.169, 8
   %435 = load i32, ptr @hf_audio_tos, align 4
   %436 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %435, ptr noundef %1, i32 noundef %434, i32 noundef 1, i32 noundef 0) #4
   %437 = load i32, ptr @hf_audio_precedence, align 4
   %438 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %437, ptr noundef %1, i32 noundef %434, i32 noundef 1, i32 noundef 0) #4
   %439 = load i32, ptr @hf_audio_frf_11, align 4
   %440 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %439, ptr noundef %1, i32 noundef %434, i32 noundef 1, i32 noundef 0) #4
-  %441 = add i32 %.174, 9
+  %441 = add i32 %.169, 9
   %442 = load i32, ptr @hf_rtcp_bucket_id, align 4
   %443 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %442, ptr noundef %1, i32 noundef %441, i32 noundef 1, i32 noundef 0) #4
-  %444 = add i32 %.174, 10
+  %444 = add i32 %.169, 10
   %445 = load i32, ptr @hf_generic_data, align 4
   %446 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %445, ptr noundef %1, i32 noundef %444, i32 noundef 4, i32 noundef 0) #4
-  %447 = add i32 %.174, 14
+  %447 = add i32 %.169, 14
   %448 = load i32, ptr @hf_audio_lcl_rtp_port, align 4
   %449 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %448, ptr noundef %1, i32 noundef %447, i32 noundef 2, i32 noundef 0) #4
-  %450 = add i32 %.174, 16
+  %450 = add i32 %.169, 16
   %451 = load i32, ptr @hf_audio_lcl_rtcp_port, align 4
   %452 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %451, ptr noundef %1, i32 noundef %450, i32 noundef 2, i32 noundef 0) #4
-  %453 = add i32 %.174, 18
+  %453 = add i32 %.169, 18
   %454 = load i32, ptr @hf_audio_far_rtp_port, align 4
   %455 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %454, ptr noundef %1, i32 noundef %453, i32 noundef 2, i32 noundef 0) #4
-  %456 = add i32 %.174, 20
+  %456 = add i32 %.169, 20
   %457 = load i32, ptr @hf_audio_far_rtcp_port, align 4
   %458 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %457, ptr noundef %1, i32 noundef %456, i32 noundef 2, i32 noundef 0) #4
-  %459 = add i32 %.174, 22
+  %459 = add i32 %.169, 22
   %.not549.i = icmp eq i8 %118, 22
   br i1 %.not549.i, label %dissect_audio_switch.exit, label %460
 
 460:                                              ; preds = %417
   %461 = load i32, ptr @hf_audio_far_ip_add, align 4
   %462 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %461, ptr noundef %1, i32 noundef %459, i32 noundef 4, i32 noundef 0) #4
-  %463 = add i32 %.174, 26
+  %463 = add i32 %.169, 26
   %464 = call i32 @tvb_get_ipv4(ptr noundef %1, i32 noundef %459) #4
   store i32 %464, ptr %4, align 4
   store i32 2, ptr %5, align 8
@@ -2625,10 +2625,10 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   store i32 0, ptr %473, align 4
   %474 = load i32, ptr @hf_audio_rx_stream_id, align 4
   %475 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %474, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
-  %476 = add i32 %.174, 4
+  %476 = add i32 %.169, 4
   %477 = load i32, ptr @hf_audio_tx_stream_id, align 4
   %478 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %477, ptr noundef %1, i32 noundef %476, i32 noundef 1, i32 noundef 0) #4
-  %479 = add i32 %.174, 5
+  %479 = add i32 %.169, 5
   br label %dissect_audio_switch.exit
 
 480:                                              ; preds = %217
@@ -2643,7 +2643,7 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %488 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %487, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
   %489 = load i32, ptr @hf_audio_tx_enable, align 4
   %490 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %489, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
-  %491 = add i32 %.174, 4
+  %491 = add i32 %.169, 4
   %492 = load i32, ptr @hf_basic_bit_field, align 4
   %493 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %492, ptr noundef %1, i32 noundef %491, i32 noundef 1, i32 noundef 0) #4
   %494 = load i32, ptr @hf_audio_apb_number, align 4
@@ -2654,7 +2654,7 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %499 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %498, ptr noundef %1, i32 noundef %491, i32 noundef 1, i32 noundef 0) #4
   %500 = load i32, ptr @hf_audio_dont_force_active, align 4
   %501 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %500, ptr noundef %1, i32 noundef %491, i32 noundef 1, i32 noundef 0) #4
-  %502 = add i32 %.174, 5
+  %502 = add i32 %.169, 5
   %503 = add nsw i32 %119, -5
   %.not548558.i = icmp eq i32 %503, 0
   br i1 %.not548558.i, label %dissect_audio_switch.exit, label %.lr.ph561.i
@@ -2672,7 +2672,7 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
 508:                                              ; preds = %217
   %509 = load i32, ptr @hf_generic_data, align 4
   %510 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %509, ptr noundef %1, i32 noundef %221, i32 noundef %222, i32 noundef 0) #4
-  %511 = add i32 %.174, %119
+  %511 = add i32 %.169, %119
   br label %dissect_audio_switch.exit
 
 512:                                              ; preds = %217
@@ -2680,22 +2680,22 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %514 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %513, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
   %515 = load i32, ptr @hf_audio_clear_bucket, align 4
   %516 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %515, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
-  %517 = add i32 %.174, 4
+  %517 = add i32 %.169, 4
   br label %dissect_audio_switch.exit
 
 518:                                              ; preds = %217
   %519 = load i32, ptr @hf_audio_mgr_stream_id, align 4
   %520 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %519, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef -2147483648) #4
-  %521 = add i32 %.174, 4
+  %521 = add i32 %.169, 4
   %522 = load i32, ptr @hf_audio_vocoder_id, align 4
   %523 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %522, ptr noundef %1, i32 noundef %521, i32 noundef 1, i32 noundef 0) #4
-  %524 = add i32 %.174, 5
+  %524 = add i32 %.169, 5
   %525 = add nsw i32 %119, -5
   %.not555.i = icmp eq i32 %525, 0
-  br i1 %.not555.i, label %dissect_audio_switch.exit, label %.lr.ph.i51
+  br i1 %.not555.i, label %dissect_audio_switch.exit, label %.lr.ph.i47
 
-.lr.ph.i51:                                       ; preds = %518, %555
-  %.4557.i = phi i32 [ %.5.i53, %555 ], [ %524, %518 ]
+.lr.ph.i47:                                       ; preds = %518, %555
+  %.4557.i = phi i32 [ %.5.i49, %555 ], [ %524, %518 ]
   %.4542556.i = phi i32 [ %.5543.i, %555 ], [ %525, %518 ]
   %526 = load i32, ptr @ett_unistim, align 4
   %527 = call ptr @proto_tree_add_subtree(ptr noundef %113, ptr noundef %1, i32 noundef %.4557.i, i32 noundef 0, i32 noundef %526, ptr noundef null, ptr noundef nonnull @.str.1288) #4
@@ -2713,27 +2713,27 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %539 = icmp eq i32 %538, 10
   br i1 %539, label %540, label %543
 
-540:                                              ; preds = %.lr.ph.i51
+540:                                              ; preds = %.lr.ph.i47
   %541 = load i32, ptr @hf_audio_vocoder_annexa, align 4
   %542 = call ptr @proto_tree_add_item(ptr noundef %527, i32 noundef %541, ptr noundef %1, i32 noundef %536, i32 noundef 1, i32 noundef 0) #4
-  br label %.sink.split.i52
+  br label %.sink.split.i48
 
-543:                                              ; preds = %.lr.ph.i51
+543:                                              ; preds = %.lr.ph.i47
   %544 = and i32 %529, 11
   %545 = icmp eq i32 %544, 11
-  br i1 %545, label %.sink.split.i52, label %546
+  br i1 %545, label %.sink.split.i48, label %546
 
 546:                                              ; preds = %543
   %547 = and i32 %529, 12
   %548 = icmp eq i32 %547, 12
-  br i1 %548, label %.sink.split.i52, label %549
+  br i1 %548, label %.sink.split.i48, label %549
 
 549:                                              ; preds = %546
   %550 = and i32 %529, 32
   %.not547.i = icmp eq i32 %550, 0
-  br i1 %.not547.i, label %555, label %.sink.split.i52
+  br i1 %.not547.i, label %555, label %.sink.split.i48
 
-.sink.split.i52:                                  ; preds = %549, %546, %543, %540
+.sink.split.i48:                                  ; preds = %549, %546, %543, %540
   %hf_audio_sample_rate.sink.i = phi ptr [ @hf_audio_vocoder_annexb, %540 ], [ @hf_audio_sample_rate, %543 ], [ @hf_audio_rtp_type, %546 ], [ @hf_audio_bytes_per_frame, %549 ]
   %.sink583.i = phi i32 [ 1, %540 ], [ 1, %543 ], [ 1, %546 ], [ 2, %549 ]
   %.sink581.i = phi i32 [ 2, %540 ], [ 2, %543 ], [ 2, %546 ], [ 3, %549 ]
@@ -2744,76 +2744,76 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %554 = add i32 %.sink.i, %.4542556.i
   br label %555
 
-555:                                              ; preds = %.sink.split.i52, %549
-  %.5543.i = phi i32 [ %537, %549 ], [ %554, %.sink.split.i52 ]
-  %.5.i53 = phi i32 [ %536, %549 ], [ %553, %.sink.split.i52 ]
-  %.not.i54 = icmp eq i32 %.5543.i, 0
-  br i1 %.not.i54, label %dissect_audio_switch.exit, label %.lr.ph.i51, !llvm.loop !8
+555:                                              ; preds = %.sink.split.i48, %549
+  %.5543.i = phi i32 [ %537, %549 ], [ %554, %.sink.split.i48 ]
+  %.5.i49 = phi i32 [ %536, %549 ], [ %553, %.sink.split.i48 ]
+  %.not.i50 = icmp eq i32 %.5543.i, 0
+  br i1 %.not.i50, label %dissect_audio_switch.exit, label %.lr.ph.i47, !llvm.loop !8
 
 556:                                              ; preds = %217
   %557 = load i32, ptr @hf_audio_source_descr, align 4
   %558 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %557, ptr noundef %1, i32 noundef %221, i32 noundef %222, i32 noundef 0) #4
   %559 = load i32, ptr @hf_audio_sdes_rtcp_bucket, align 4
   %560 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %559, ptr noundef %1, i32 noundef %221, i32 noundef %222, i32 noundef 0) #4
-  %561 = add i32 %.174, 4
+  %561 = add i32 %.169, 4
   br label %dissect_audio_switch.exit
 
 562:                                              ; preds = %217
   %563 = load i32, ptr @hf_audio_rx_stream_id, align 4
   %564 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %563, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
-  %565 = add i32 %.174, 4
+  %565 = add i32 %.169, 4
   %566 = load i32, ptr @hf_audio_desired_jitter, align 4
   %567 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %566, ptr noundef %1, i32 noundef %565, i32 noundef 1, i32 noundef 0) #4
-  %568 = add i32 %.174, 5
+  %568 = add i32 %.169, 5
   %569 = load i32, ptr @hf_audio_high_water_mark, align 4
   %570 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %569, ptr noundef %1, i32 noundef %568, i32 noundef 1, i32 noundef 0) #4
-  %571 = add i32 %.174, 6
+  %571 = add i32 %.169, 6
   %572 = load i32, ptr @hf_audio_early_packet_resync_thresh, align 4
   %573 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %572, ptr noundef %1, i32 noundef %571, i32 noundef 4, i32 noundef 0) #4
-  %574 = add i32 %.174, 10
+  %574 = add i32 %.169, 10
   %575 = load i32, ptr @hf_audio_late_packet_resync_thresh, align 4
   %576 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %575, ptr noundef %1, i32 noundef %574, i32 noundef 4, i32 noundef 0) #4
-  %577 = add i32 %.174, 14
+  %577 = add i32 %.169, 14
   br label %dissect_audio_switch.exit
 
 578:                                              ; preds = %217
   %579 = load i32, ptr @hf_audio_resolve_phone_port, align 4
   %580 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %579, ptr noundef %1, i32 noundef %221, i32 noundef 2, i32 noundef 0) #4
-  %581 = add i32 %.174, 5
+  %581 = add i32 %.169, 5
   %582 = load i32, ptr @hf_audio_far_end_echo_port, align 4
   %583 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %582, ptr noundef %1, i32 noundef %581, i32 noundef 2, i32 noundef 0) #4
-  %584 = add i32 %.174, 7
+  %584 = add i32 %.169, 7
   %585 = load i32, ptr @hf_audio_far_end_ip_address, align 4
   %586 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %585, ptr noundef %1, i32 noundef %584, i32 noundef 4, i32 noundef 0) #4
-  %587 = add i32 %.174, 11
+  %587 = add i32 %.169, 11
   br label %dissect_audio_switch.exit
 
 588:                                              ; preds = %217
   %589 = load i32, ptr @hf_audio_nat_port, align 4
   %590 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %589, ptr noundef %1, i32 noundef %221, i32 noundef 2, i32 noundef 0) #4
-  %591 = add i32 %.174, 5
+  %591 = add i32 %.169, 5
   %592 = load i32, ptr @hf_audio_nat_ip_address, align 4
   %593 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %592, ptr noundef %1, i32 noundef %591, i32 noundef 4, i32 noundef 0) #4
-  %594 = add i32 %.174, 9
+  %594 = add i32 %.169, 9
   br label %dissect_audio_switch.exit
 
 595:                                              ; preds = %217
   %596 = load i32, ptr @hf_audio_direction_code, align 4
   %597 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %596, ptr noundef %1, i32 noundef %221, i32 noundef 1, i32 noundef 0) #4
-  %598 = add i32 %.174, 4
+  %598 = add i32 %.169, 4
   %599 = load i32, ptr @hf_audio_mgr_stream_id, align 4
   %600 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %599, ptr noundef %1, i32 noundef %598, i32 noundef 1, i32 noundef 0) #4
-  %601 = add i32 %.174, 5
+  %601 = add i32 %.169, 5
   br label %dissect_audio_switch.exit
 
 602:                                              ; preds = %217
   %603 = load i32, ptr @hf_generic_data, align 4
   %604 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %603, ptr noundef %1, i32 noundef %221, i32 noundef %222, i32 noundef 0) #4
-  %605 = add i32 %.174, %119
+  %605 = add i32 %.169, %119
   br label %dissect_audio_switch.exit
 
-dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, %416, %.lr.ph571.i, %217, %.preheader.i56, %223, %244, %271, %277, %281, %296, %306, %315, %319, %323, %331, %335, %351, %362, %366, %370, %374, %378, %382, %386, %390, %394, %417, %460, %471, %480, %508, %512, %518, %556, %562, %578, %588, %595, %602
-  %.6.i50 = phi i32 [ %605, %602 ], [ %601, %595 ], [ %594, %588 ], [ %587, %578 ], [ %577, %562 ], [ %561, %556 ], [ %517, %512 ], [ %511, %508 ], [ %479, %471 ], [ %463, %460 ], [ %459, %417 ], [ %393, %390 ], [ %389, %386 ], [ %385, %382 ], [ %381, %378 ], [ %377, %374 ], [ %373, %370 ], [ %369, %366 ], [ %365, %362 ], [ %361, %351 ], [ %350, %335 ], [ %334, %331 ], [ %330, %323 ], [ %322, %319 ], [ %318, %315 ], [ %314, %306 ], [ %305, %296 ], [ %295, %281 ], [ %280, %277 ], [ %276, %271 ], [ %259, %244 ], [ %221, %217 ], [ %243, %223 ], [ %221, %.preheader.i56 ], [ %397, %394 ], [ %502, %480 ], [ %524, %518 ], [ %269, %.lr.ph571.i ], [ %.2.i55, %416 ], [ %506, %.lr.ph561.i ], [ %.5.i53, %555 ]
+dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, %416, %.lr.ph571.i, %217, %.preheader.i51, %223, %244, %271, %277, %281, %296, %306, %315, %319, %323, %331, %335, %351, %362, %366, %370, %374, %378, %382, %386, %390, %394, %417, %460, %471, %480, %508, %512, %518, %556, %562, %578, %588, %595, %602
+  %.6.i46 = phi i32 [ %605, %602 ], [ %601, %595 ], [ %594, %588 ], [ %587, %578 ], [ %577, %562 ], [ %561, %556 ], [ %517, %512 ], [ %511, %508 ], [ %479, %471 ], [ %463, %460 ], [ %459, %417 ], [ %393, %390 ], [ %389, %386 ], [ %385, %382 ], [ %381, %378 ], [ %377, %374 ], [ %373, %370 ], [ %369, %366 ], [ %365, %362 ], [ %361, %351 ], [ %350, %335 ], [ %334, %331 ], [ %330, %323 ], [ %322, %319 ], [ %318, %315 ], [ %314, %306 ], [ %305, %296 ], [ %295, %281 ], [ %280, %277 ], [ %276, %271 ], [ %259, %244 ], [ %221, %217 ], [ %243, %223 ], [ %221, %.preheader.i51 ], [ %397, %394 ], [ %502, %480 ], [ %524, %518 ], [ %269, %.lr.ph571.i ], [ %.2.i, %416 ], [ %506, %.lr.ph561.i ], [ %.5.i49, %555 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %dissect_unistim_message.exit
@@ -2824,7 +2824,7 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %609 = zext i8 %608 to i32
   %610 = load i32, ptr @hf_display_switch_cmd, align 4
   %611 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %610, ptr noundef %1, i32 noundef %130, i32 noundef 1, i32 noundef 0) #4
-  %612 = add i32 %.174, 3
+  %612 = add i32 %.169, 3
   %613 = add nsw i32 %119, -3
   switch i8 %608, label %1023 [
     i8 1, label %dissect_unistim_message.exit
@@ -2854,7 +2854,7 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
     i8 29, label %831
     i8 30, label %831
     i8 31, label %831
-    i8 32, label %.preheader.i46
+    i8 32, label %.preheader.i45
     i8 33, label %914
     i8 34, label %918
     i8 35, label %926
@@ -2869,20 +2869,20 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
     i8 -1, label %dissect_unistim_message.exit
   ]
 
-.preheader.i46:                                   ; preds = %606
+.preheader.i45:                                   ; preds = %606
   %.not581605.i = icmp eq i32 %613, 0
   br i1 %.not581605.i, label %dissect_unistim_message.exit, label %.lr.ph608.i
 
 614:                                              ; preds = %606
   %615 = load i32, ptr @hf_display_arrow, align 4
   %616 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %615, ptr noundef %1, i32 noundef %612, i32 noundef 1, i32 noundef 0) #4
-  %617 = add i32 %.174, 4
+  %617 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 618:                                              ; preds = %606
   %619 = load i32, ptr @hf_generic_data, align 4
   %620 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %619, ptr noundef %1, i32 noundef %612, i32 noundef %613, i32 noundef 0) #4
-  %621 = add i32 %.174, %119
+  %621 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 622:                                              ; preds = %606
@@ -2896,28 +2896,28 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %630 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %629, ptr noundef %1, i32 noundef %612, i32 noundef 1, i32 noundef 0) #4
   %631 = load i32, ptr @hf_display_call_timer_delay, align 4
   %632 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %631, ptr noundef %1, i32 noundef %612, i32 noundef 1, i32 noundef 0) #4
-  %633 = add i32 %.174, 4
+  %633 = add i32 %.169, 4
   %634 = load i32, ptr @hf_display_call_timer_id, align 4
   %635 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %634, ptr noundef %1, i32 noundef %633, i32 noundef 1, i32 noundef 0) #4
-  %636 = add i32 %.174, 5
+  %636 = add i32 %.169, 5
   br label %dissect_unistim_message.exit
 
 637:                                              ; preds = %606
   %638 = load i32, ptr @hf_generic_data, align 4
   %639 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %638, ptr noundef %1, i32 noundef %612, i32 noundef %613, i32 noundef 0) #4
-  %640 = add i32 %.174, %119
+  %640 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 641:                                              ; preds = %606
   %642 = load i32, ptr @hf_generic_data, align 4
   %643 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %642, ptr noundef %1, i32 noundef %612, i32 noundef %613, i32 noundef 0) #4
-  %644 = add i32 %.174, %119
+  %644 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 645:                                              ; preds = %606
   %646 = load i32, ptr @hf_generic_data, align 4
   %647 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %646, ptr noundef %1, i32 noundef %612, i32 noundef %613, i32 noundef 0) #4
-  %648 = add i32 %.174, %119
+  %648 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 649:                                              ; preds = %606
@@ -2941,7 +2941,7 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %667 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %666, ptr noundef %1, i32 noundef %612, i32 noundef 1, i32 noundef 0) #4
   %668 = load i32, ptr @hf_display_clear_softkey_label, align 4
   %669 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %668, ptr noundef %1, i32 noundef %612, i32 noundef 1, i32 noundef 0) #4
-  %670 = add i32 %.174, 4
+  %670 = add i32 %.169, 4
   %671 = and i32 %651, 16
   %.not594.i = icmp eq i32 %671, 0
   br i1 %.not594.i, label %692, label %672
@@ -2965,78 +2965,78 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %688 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %687, ptr noundef %1, i32 noundef %670, i32 noundef 1, i32 noundef 0) #4
   %689 = load i32, ptr @hf_display_clear_line_8, align 4
   %690 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %689, ptr noundef %1, i32 noundef %670, i32 noundef 1, i32 noundef 0) #4
-  %691 = add i32 %.174, 5
+  %691 = add i32 %.169, 5
   br label %692
 
 692:                                              ; preds = %672, %649
-  %.0.i48 = phi i32 [ %691, %672 ], [ %670, %649 ]
+  %.0562.i = phi i32 [ %691, %672 ], [ %670, %649 ]
   %693 = and i32 %651, 32
   %.not595.i = icmp eq i32 %693, 0
   br i1 %.not595.i, label %714, label %694
 
 694:                                              ; preds = %692
   %695 = load i32, ptr @hf_basic_bit_field, align 4
-  %696 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %695, ptr noundef %1, i32 noundef %.0.i48, i32 noundef 1, i32 noundef 0) #4
+  %696 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %695, ptr noundef %1, i32 noundef %.0562.i, i32 noundef 1, i32 noundef 0) #4
   %697 = load i32, ptr @hf_display_clear_status_bar_icon_1, align 4
-  %698 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %697, ptr noundef %1, i32 noundef %.0.i48, i32 noundef 1, i32 noundef 0) #4
+  %698 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %697, ptr noundef %1, i32 noundef %.0562.i, i32 noundef 1, i32 noundef 0) #4
   %699 = load i32, ptr @hf_display_clear_status_bar_icon_2, align 4
-  %700 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %699, ptr noundef %1, i32 noundef %.0.i48, i32 noundef 1, i32 noundef 0) #4
+  %700 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %699, ptr noundef %1, i32 noundef %.0562.i, i32 noundef 1, i32 noundef 0) #4
   %701 = load i32, ptr @hf_display_clear_status_bar_icon_3, align 4
-  %702 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %701, ptr noundef %1, i32 noundef %.0.i48, i32 noundef 1, i32 noundef 0) #4
+  %702 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %701, ptr noundef %1, i32 noundef %.0562.i, i32 noundef 1, i32 noundef 0) #4
   %703 = load i32, ptr @hf_display_clear_status_bar_icon_4, align 4
-  %704 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %703, ptr noundef %1, i32 noundef %.0.i48, i32 noundef 1, i32 noundef 0) #4
+  %704 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %703, ptr noundef %1, i32 noundef %.0562.i, i32 noundef 1, i32 noundef 0) #4
   %705 = load i32, ptr @hf_display_clear_status_bar_icon_5, align 4
-  %706 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %705, ptr noundef %1, i32 noundef %.0.i48, i32 noundef 1, i32 noundef 0) #4
+  %706 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %705, ptr noundef %1, i32 noundef %.0562.i, i32 noundef 1, i32 noundef 0) #4
   %707 = load i32, ptr @hf_display_clear_status_bar_icon_6, align 4
-  %708 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %707, ptr noundef %1, i32 noundef %.0.i48, i32 noundef 1, i32 noundef 0) #4
+  %708 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %707, ptr noundef %1, i32 noundef %.0562.i, i32 noundef 1, i32 noundef 0) #4
   %709 = load i32, ptr @hf_display_clear_status_bar_icon_7, align 4
-  %710 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %709, ptr noundef %1, i32 noundef %.0.i48, i32 noundef 1, i32 noundef 0) #4
+  %710 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %709, ptr noundef %1, i32 noundef %.0562.i, i32 noundef 1, i32 noundef 0) #4
   %711 = load i32, ptr @hf_display_clear_status_bar_icon_8, align 4
-  %712 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %711, ptr noundef %1, i32 noundef %.0.i48, i32 noundef 1, i32 noundef 0) #4
-  %713 = add i32 %.0.i48, 1
+  %712 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %711, ptr noundef %1, i32 noundef %.0562.i, i32 noundef 1, i32 noundef 0) #4
+  %713 = add i32 %.0562.i, 1
   br label %714
 
 714:                                              ; preds = %694, %692
-  %.1.i49 = phi i32 [ %713, %694 ], [ %.0.i48, %692 ]
+  %.1563.i = phi i32 [ %713, %694 ], [ %.0562.i, %692 ]
   %715 = and i32 %651, 64
   %.not596.i = icmp eq i32 %715, 0
   br i1 %.not596.i, label %736, label %716
 
 716:                                              ; preds = %714
   %717 = load i32, ptr @hf_basic_bit_field, align 4
-  %718 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %717, ptr noundef %1, i32 noundef %.1.i49, i32 noundef 1, i32 noundef 0) #4
+  %718 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %717, ptr noundef %1, i32 noundef %.1563.i, i32 noundef 1, i32 noundef 0) #4
   %719 = load i32, ptr @hf_display_clear_soft_key_1, align 4
-  %720 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %719, ptr noundef %1, i32 noundef %.1.i49, i32 noundef 1, i32 noundef 0) #4
+  %720 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %719, ptr noundef %1, i32 noundef %.1563.i, i32 noundef 1, i32 noundef 0) #4
   %721 = load i32, ptr @hf_display_clear_soft_key_2, align 4
-  %722 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %721, ptr noundef %1, i32 noundef %.1.i49, i32 noundef 1, i32 noundef 0) #4
+  %722 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %721, ptr noundef %1, i32 noundef %.1563.i, i32 noundef 1, i32 noundef 0) #4
   %723 = load i32, ptr @hf_display_clear_soft_key_3, align 4
-  %724 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %723, ptr noundef %1, i32 noundef %.1.i49, i32 noundef 1, i32 noundef 0) #4
+  %724 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %723, ptr noundef %1, i32 noundef %.1563.i, i32 noundef 1, i32 noundef 0) #4
   %725 = load i32, ptr @hf_display_clear_soft_key_4, align 4
-  %726 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %725, ptr noundef %1, i32 noundef %.1.i49, i32 noundef 1, i32 noundef 0) #4
+  %726 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %725, ptr noundef %1, i32 noundef %.1563.i, i32 noundef 1, i32 noundef 0) #4
   %727 = load i32, ptr @hf_display_clear_soft_key_5, align 4
-  %728 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %727, ptr noundef %1, i32 noundef %.1.i49, i32 noundef 1, i32 noundef 0) #4
+  %728 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %727, ptr noundef %1, i32 noundef %.1563.i, i32 noundef 1, i32 noundef 0) #4
   %729 = load i32, ptr @hf_display_clear_soft_key_6, align 4
-  %730 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %729, ptr noundef %1, i32 noundef %.1.i49, i32 noundef 1, i32 noundef 0) #4
+  %730 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %729, ptr noundef %1, i32 noundef %.1563.i, i32 noundef 1, i32 noundef 0) #4
   %731 = load i32, ptr @hf_display_clear_soft_key_7, align 4
-  %732 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %731, ptr noundef %1, i32 noundef %.1.i49, i32 noundef 1, i32 noundef 0) #4
+  %732 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %731, ptr noundef %1, i32 noundef %.1563.i, i32 noundef 1, i32 noundef 0) #4
   %733 = load i32, ptr @hf_display_clear_soft_key_8, align 4
-  %734 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %733, ptr noundef %1, i32 noundef %.1.i49, i32 noundef 1, i32 noundef 0) #4
-  %735 = add i32 %.1.i49, 1
+  %734 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %733, ptr noundef %1, i32 noundef %.1563.i, i32 noundef 1, i32 noundef 0) #4
+  %735 = add i32 %.1563.i, 1
   br label %736
 
 736:                                              ; preds = %716, %714
-  %.2.i = phi i32 [ %735, %716 ], [ %.1.i49, %714 ]
+  %.2564.i = phi i32 [ %735, %716 ], [ %.1563.i, %714 ]
   %.not597.i = icmp sgt i8 %650, -1
   br i1 %.not597.i, label %dissect_unistim_message.exit, label %737
 
 737:                                              ; preds = %736
   %738 = load i32, ptr @hf_basic_bit_field, align 4
-  %739 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %738, ptr noundef %1, i32 noundef %.2.i, i32 noundef 1, i32 noundef 0) #4
+  %739 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %738, ptr noundef %1, i32 noundef %.2564.i, i32 noundef 1, i32 noundef 0) #4
   %740 = load i32, ptr @hf_display_clear_sk_label_key_id, align 4
-  %741 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %740, ptr noundef %1, i32 noundef %.2.i, i32 noundef 1, i32 noundef 0) #4
+  %741 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %740, ptr noundef %1, i32 noundef %.2564.i, i32 noundef 1, i32 noundef 0) #4
   %742 = load i32, ptr @hf_display_clear_all_slks, align 4
-  %743 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %742, ptr noundef %1, i32 noundef %.2.i, i32 noundef 1, i32 noundef 0) #4
-  %744 = add i32 %.2.i, 1
+  %743 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %742, ptr noundef %1, i32 noundef %.2564.i, i32 noundef 1, i32 noundef 0) #4
+  %744 = add i32 %.2564.i, 1
   br label %dissect_unistim_message.exit
 
 745:                                              ; preds = %606
@@ -3047,7 +3047,7 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %750 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %749, ptr noundef %1, i32 noundef %612, i32 noundef 1, i32 noundef 0) #4
   %751 = load i32, ptr @hf_display_cursor_blink, align 4
   %752 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %751, ptr noundef %1, i32 noundef %612, i32 noundef 1, i32 noundef 0) #4
-  %753 = add i32 %.174, 4
+  %753 = add i32 %.169, 4
   %754 = icmp eq i32 %607, 2
   br i1 %754, label %dissect_unistim_message.exit, label %755
 
@@ -3078,31 +3078,31 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   br label %773
 
 773:                                              ; preds = %770, %757
-  %774 = add i32 %.174, 5
+  %774 = add i32 %.169, 5
   %775 = icmp eq i32 %607, 3
   br i1 %775, label %dissect_unistim_message.exit, label %776
 
 776:                                              ; preds = %773, %755
-  %.3.i47 = phi i32 [ %774, %773 ], [ %753, %755 ]
+  %.3565.i = phi i32 [ %774, %773 ], [ %753, %755 ]
   %777 = load i32, ptr @hf_basic_bit_field, align 4
-  %778 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %777, ptr noundef %1, i32 noundef %.3.i47, i32 noundef 1, i32 noundef 0) #4
+  %778 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %777, ptr noundef %1, i32 noundef %.3565.i, i32 noundef 1, i32 noundef 0) #4
   %779 = load i32, ptr @hf_display_write_address_char_pos, align 4
-  %780 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %779, ptr noundef %1, i32 noundef %.3.i47, i32 noundef 1, i32 noundef 0) #4
+  %780 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %779, ptr noundef %1, i32 noundef %.3565.i, i32 noundef 1, i32 noundef 0) #4
   %781 = load i32, ptr @hf_display_write_address_line_number, align 4
-  %782 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %781, ptr noundef %1, i32 noundef %.3.i47, i32 noundef 1, i32 noundef 0) #4
-  %783 = add i32 %.3.i47, 1
+  %782 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %781, ptr noundef %1, i32 noundef %.3565.i, i32 noundef 1, i32 noundef 0) #4
+  %783 = add i32 %.3565.i, 1
   br label %dissect_unistim_message.exit
 
 784:                                              ; preds = %606
   %785 = load i32, ptr @hf_generic_string, align 4
   %786 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %785, ptr noundef %1, i32 noundef %612, i32 noundef %613, i32 noundef 0) #4
-  %787 = add i32 %.174, %119
+  %787 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 788:                                              ; preds = %606
   %789 = load i32, ptr @hf_generic_string, align 4
   %790 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %789, ptr noundef %1, i32 noundef %612, i32 noundef %613, i32 noundef 0) #4
-  %791 = add i32 %.174, %119
+  %791 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 792:                                              ; preds = %606
@@ -3110,26 +3110,26 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %794 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %793, ptr noundef %1, i32 noundef %612, i32 noundef 1, i32 noundef 0) #4
   %795 = load i32, ptr @hf_icon_id, align 4
   %796 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %795, ptr noundef %1, i32 noundef %612, i32 noundef 1, i32 noundef 0) #4
-  %797 = add i32 %.174, 4
+  %797 = add i32 %.169, 4
   %798 = load i32, ptr @hf_basic_bit_field, align 4
   %799 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %798, ptr noundef %1, i32 noundef %797, i32 noundef 1, i32 noundef 0) #4
   %800 = load i32, ptr @hf_broadcast_icon_state, align 4
   %801 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %800, ptr noundef %1, i32 noundef %797, i32 noundef 1, i32 noundef 0) #4
   %802 = load i32, ptr @hf_broadcast_icon_cadence, align 4
   %803 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %802, ptr noundef %1, i32 noundef %797, i32 noundef 1, i32 noundef 0) #4
-  %804 = add i32 %.174, 5
+  %804 = add i32 %.169, 5
   br label %dissect_unistim_message.exit
 
 805:                                              ; preds = %606
   %806 = load i32, ptr @hf_generic_string, align 4
   %807 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %806, ptr noundef %1, i32 noundef %612, i32 noundef %613, i32 noundef 0) #4
-  %808 = add i32 %.174, %119
+  %808 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 809:                                              ; preds = %606
   %810 = load i32, ptr @hf_generic_string, align 4
   %811 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %810, ptr noundef %1, i32 noundef %612, i32 noundef %613, i32 noundef 0) #4
-  %812 = add i32 %.174, 4
+  %812 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 813:                                              ; preds = %606
@@ -3159,7 +3159,7 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %827 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %826, ptr noundef %1, i32 noundef %612, i32 noundef 1, i32 noundef 0) #4
   %828 = load i32, ptr @hf_display_use_date_format, align 4
   %829 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %828, ptr noundef %1, i32 noundef %612, i32 noundef 1, i32 noundef 0) #4
-  %830 = add i32 %.174, 4
+  %830 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 831:                                              ; preds = %606, %606, %606, %606, %606, %606, %606, %606
@@ -3194,7 +3194,7 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   br label %854
 
 854:                                              ; preds = %851, %833
-  %855 = add i32 %.174, 4
+  %855 = add i32 %.169, 4
   %856 = and i32 %837, 16
   %.not584.i = icmp eq i32 %856, 0
   br i1 %.not584.i, label %865, label %857
@@ -3209,7 +3209,7 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   br i1 %.not585.not.i, label %.thread.i, label %.thread614.i
 
 .thread.i:                                        ; preds = %857
-  %863 = add i32 %.174, 5
+  %863 = add i32 %.169, 5
   %864 = add nsw i32 %119, -5
   br label %874
 
@@ -3224,54 +3224,54 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %869 = call ptr @proto_tree_add_item(ptr noundef %835, i32 noundef %868, ptr noundef %1, i32 noundef %855, i32 noundef 1, i32 noundef 0) #4
   %870 = load i32, ptr @hf_display_write_address_line_number, align 4
   %871 = call ptr @proto_tree_add_item(ptr noundef %835, i32 noundef %870, ptr noundef %1, i32 noundef %855, i32 noundef 1, i32 noundef 0) #4
-  %872 = add i32 %.174, 5
+  %872 = add i32 %.169, 5
   %873 = add nsw i32 %119, -5
   br label %874
 
 874:                                              ; preds = %.thread614.i, %865, %.thread.i, %831
-  %.5567.i = phi i32 [ %873, %.thread614.i ], [ %866, %865 ], [ %613, %831 ], [ %864, %.thread.i ]
-  %.5.i = phi i32 [ %872, %.thread614.i ], [ %855, %865 ], [ %612, %831 ], [ %863, %.thread.i ]
+  %.5567.i = phi i32 [ %872, %.thread614.i ], [ %855, %865 ], [ %612, %831 ], [ %863, %.thread.i ]
+  %.5.i = phi i32 [ %873, %.thread614.i ], [ %866, %865 ], [ %613, %831 ], [ %864, %.thread.i ]
   %875 = and i32 %609, 2
   %.not587.i = icmp eq i32 %875, 0
   br i1 %.not587.i, label %893, label %876
 
 876:                                              ; preds = %874
   %877 = load i32, ptr @hf_basic_bit_field, align 4
-  %878 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %877, ptr noundef %1, i32 noundef %.5.i, i32 noundef 1, i32 noundef 0) #4
+  %878 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %877, ptr noundef %1, i32 noundef %.5567.i, i32 noundef 1, i32 noundef 0) #4
   %879 = load i32, ptr @hf_display_write_cursor_move, align 4
-  %880 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %879, ptr noundef %1, i32 noundef %.5.i, i32 noundef 1, i32 noundef 0) #4
+  %880 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %879, ptr noundef %1, i32 noundef %.5567.i, i32 noundef 1, i32 noundef 0) #4
   %881 = load i32, ptr @hf_display_write_clear_left, align 4
-  %882 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %881, ptr noundef %1, i32 noundef %.5.i, i32 noundef 1, i32 noundef 0) #4
+  %882 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %881, ptr noundef %1, i32 noundef %.5567.i, i32 noundef 1, i32 noundef 0) #4
   %883 = load i32, ptr @hf_display_write_clear_right, align 4
-  %884 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %883, ptr noundef %1, i32 noundef %.5.i, i32 noundef 1, i32 noundef 0) #4
+  %884 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %883, ptr noundef %1, i32 noundef %.5567.i, i32 noundef 1, i32 noundef 0) #4
   %885 = load i32, ptr @hf_display_write_shift_left, align 4
-  %886 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %885, ptr noundef %1, i32 noundef %.5.i, i32 noundef 1, i32 noundef 0) #4
+  %886 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %885, ptr noundef %1, i32 noundef %.5567.i, i32 noundef 1, i32 noundef 0) #4
   %887 = load i32, ptr @hf_display_write_shift_right, align 4
-  %888 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %887, ptr noundef %1, i32 noundef %.5.i, i32 noundef 1, i32 noundef 0) #4
+  %888 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %887, ptr noundef %1, i32 noundef %.5567.i, i32 noundef 1, i32 noundef 0) #4
   %889 = load i32, ptr @hf_display_write_highlight, align 4
-  %890 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %889, ptr noundef %1, i32 noundef %.5.i, i32 noundef 1, i32 noundef 0) #4
-  %891 = add i32 %.5.i, 1
-  %892 = add nsw i32 %.5567.i, -1
+  %890 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %889, ptr noundef %1, i32 noundef %.5567.i, i32 noundef 1, i32 noundef 0) #4
+  %891 = add i32 %.5567.i, 1
+  %892 = add nsw i32 %.5.i, -1
   br label %893
 
 893:                                              ; preds = %876, %874
-  %.6568.i = phi i32 [ %892, %876 ], [ %.5567.i, %874 ]
-  %.6.i = phi i32 [ %891, %876 ], [ %.5.i, %874 ]
+  %.6568.i = phi i32 [ %891, %876 ], [ %.5567.i, %874 ]
+  %.6.i = phi i32 [ %892, %876 ], [ %.5.i, %874 ]
   %894 = and i32 %609, 4
   %.not588.i = icmp eq i32 %894, 0
   br i1 %.not588.i, label %900, label %895
 
 895:                                              ; preds = %893
   %896 = load i32, ptr @hf_display_write_tag, align 4
-  %897 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %896, ptr noundef %1, i32 noundef %.6.i, i32 noundef 1, i32 noundef 0) #4
-  %898 = add i32 %.6.i, 1
-  %899 = add nsw i32 %.6568.i, -1
+  %897 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %896, ptr noundef %1, i32 noundef %.6568.i, i32 noundef 1, i32 noundef 0) #4
+  %898 = add i32 %.6568.i, 1
+  %899 = add nsw i32 %.6.i, -1
   br label %900
 
 900:                                              ; preds = %895, %893
-  %.7569.i = phi i32 [ %899, %895 ], [ %.6568.i, %893 ]
-  %.7.i = phi i32 [ %898, %895 ], [ %.6.i, %893 ]
-  %.not589.i = icmp eq i32 %.7569.i, 0
+  %.7569.i = phi i32 [ %898, %895 ], [ %.6568.i, %893 ]
+  %.7.i = phi i32 [ %899, %895 ], [ %.6.i, %893 ]
+  %.not589.i = icmp eq i32 %.7.i, 0
   br i1 %.not589.i, label %dissect_unistim_message.exit, label %901
 
 901:                                              ; preds = %900
@@ -3279,36 +3279,36 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %903 = load ptr, ptr %106, align 8
   %904 = load ptr, ptr @uinfo, align 8
   %905 = getelementptr inbounds i8, ptr %904, i64 96
-  %906 = call ptr @proto_tree_add_item_ret_string(ptr noundef %113, i32 noundef %902, ptr noundef %1, i32 noundef %.7.i, i32 noundef %.7569.i, i32 noundef 0, ptr noundef %903, ptr noundef nonnull %905) #4
+  %906 = call ptr @proto_tree_add_item_ret_string(ptr noundef %113, i32 noundef %902, ptr noundef %1, i32 noundef %.7569.i, i32 noundef %.7.i, i32 noundef 0, ptr noundef %903, ptr noundef nonnull %905) #4
   %907 = add i32 %.7.i, %.7569.i
   br label %dissect_unistim_message.exit
 
-.lr.ph608.i:                                      ; preds = %.preheader.i46, %.lr.ph608.i
-  %.8607.i = phi i32 [ %912, %.lr.ph608.i ], [ %612, %.preheader.i46 ]
-  %.8570606.i = phi i32 [ %913, %.lr.ph608.i ], [ %613, %.preheader.i46 ]
+.lr.ph608.i:                                      ; preds = %.preheader.i45, %.lr.ph608.i
+  %.8607.i = phi i32 [ %913, %.lr.ph608.i ], [ %613, %.preheader.i45 ]
+  %.8570606.i = phi i32 [ %912, %.lr.ph608.i ], [ %612, %.preheader.i45 ]
   %908 = load i32, ptr @hf_display_context_format, align 4
-  %909 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %908, ptr noundef %1, i32 noundef %.8607.i, i32 noundef 1, i32 noundef 0) #4
+  %909 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %908, ptr noundef %1, i32 noundef %.8570606.i, i32 noundef 1, i32 noundef 0) #4
   %910 = load i32, ptr @hf_display_context_field, align 4
-  %911 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %910, ptr noundef %1, i32 noundef %.8607.i, i32 noundef 1, i32 noundef 0) #4
-  %912 = add i32 %.8607.i, 1
-  %913 = add nsw i32 %.8570606.i, -1
+  %911 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %910, ptr noundef %1, i32 noundef %.8570606.i, i32 noundef 1, i32 noundef 0) #4
+  %912 = add i32 %.8570606.i, 1
+  %913 = add nsw i32 %.8607.i, -1
   %.not581.i = icmp eq i32 %913, 0
   br i1 %.not581.i, label %dissect_unistim_message.exit, label %.lr.ph608.i, !llvm.loop !9
 
 914:                                              ; preds = %606
   %915 = load i32, ptr @hf_generic_data, align 4
   %916 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %915, ptr noundef %1, i32 noundef %612, i32 noundef %613, i32 noundef 0) #4
-  %917 = add i32 %.174, %119
+  %917 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 918:                                              ; preds = %606
   %919 = load i32, ptr @hf_display_char_address, align 4
   %920 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %919, ptr noundef %1, i32 noundef %612, i32 noundef 1, i32 noundef 0) #4
-  %921 = add i32 %.174, 4
+  %921 = add i32 %.169, 4
   %922 = add nsw i32 %119, -4
   %923 = load i32, ptr @hf_generic_data, align 4
   %924 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %923, ptr noundef %1, i32 noundef %921, i32 noundef %922, i32 noundef 0) #4
-  %925 = add i32 %.174, %119
+  %925 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 926:                                              ; preds = %606
@@ -3323,13 +3323,13 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %935 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %934, ptr noundef %1, i32 noundef %612, i32 noundef 1, i32 noundef 0) #4
   %936 = load i32, ptr @hf_display_cursor_softkey_id, align 4
   %937 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %936, ptr noundef %1, i32 noundef %612, i32 noundef 1, i32 noundef 0) #4
-  %938 = add i32 %.174, 4
+  %938 = add i32 %.169, 4
   %939 = load i32, ptr @hf_display_hlight_start, align 4
   %940 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %939, ptr noundef %1, i32 noundef %938, i32 noundef 1, i32 noundef 0) #4
-  %941 = add i32 %.174, 5
+  %941 = add i32 %.169, 5
   %942 = load i32, ptr @hf_display_hlight_end, align 4
   %943 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %942, ptr noundef %1, i32 noundef %941, i32 noundef 1, i32 noundef 0) #4
-  %944 = add i32 %.174, 6
+  %944 = add i32 %.169, 6
   %945 = add nsw i32 %119, -6
   %946 = icmp eq i32 %945, 0
   br i1 %946, label %dissect_unistim_message.exit, label %947
@@ -3344,49 +3344,49 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %951 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %950, ptr noundef %1, i32 noundef %944, i32 noundef 1, i32 noundef 0) #4
   %952 = load i32, ptr @hf_display_cursor_line_number, align 4
   %953 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %952, ptr noundef %1, i32 noundef %944, i32 noundef 1, i32 noundef 0) #4
-  %954 = add i32 %.174, 7
+  %954 = add i32 %.169, 7
   %955 = add nsw i32 %119, -7
   br label %956
 
 956:                                              ; preds = %949, %947
-  %.9571.i = phi i32 [ %955, %949 ], [ %945, %947 ]
-  %.9.i = phi i32 [ %954, %949 ], [ %944, %947 ]
+  %.9571.i = phi i32 [ %954, %949 ], [ %944, %947 ]
+  %.9.i = phi i32 [ %955, %949 ], [ %945, %947 ]
   %957 = load i32, ptr @hf_generic_data, align 4
-  %958 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %957, ptr noundef %1, i32 noundef %.9.i, i32 noundef %.9571.i, i32 noundef 0) #4
+  %958 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %957, ptr noundef %1, i32 noundef %.9571.i, i32 noundef %.9.i, i32 noundef 0) #4
   %959 = add i32 %.9.i, %.9571.i
   br label %dissect_unistim_message.exit
 
 960:                                              ; preds = %606
   %961 = load i32, ptr @hf_display_contrast, align 4
   %962 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %961, ptr noundef %1, i32 noundef %612, i32 noundef 1, i32 noundef 0) #4
-  %963 = add i32 %.174, 4
+  %963 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 964:                                              ; preds = %606
   %965 = load i32, ptr @hf_broadcast_hour, align 4
   %966 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %965, ptr noundef %1, i32 noundef %612, i32 noundef %613, i32 noundef 0) #4
-  %967 = add i32 %.174, 4
+  %967 = add i32 %.169, 4
   %968 = add nsw i32 %119, -4
   %969 = load i32, ptr @hf_broadcast_minute, align 4
   %970 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %969, ptr noundef %1, i32 noundef %967, i32 noundef %968, i32 noundef 0) #4
-  %971 = add i32 %.174, 5
+  %971 = add i32 %.169, 5
   %972 = add nsw i32 %119, -5
   %973 = load i32, ptr @hf_generic_data, align 4
   %974 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %973, ptr noundef %1, i32 noundef %971, i32 noundef %972, i32 noundef 0) #4
-  %975 = add i32 %.174, %119
+  %975 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 976:                                              ; preds = %606
   %977 = load i32, ptr @hf_display_layer_skey_id, align 4
   %978 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %977, ptr noundef %1, i32 noundef %612, i32 noundef 1, i32 noundef 0) #4
-  %979 = add i32 %.174, 4
+  %979 = add i32 %.169, 4
   %980 = load i32, ptr @hf_display_layer_number, align 4
   %981 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %980, ptr noundef %1, i32 noundef %979, i32 noundef 1, i32 noundef 0) #4
-  %982 = add i32 %.174, 5
+  %982 = add i32 %.169, 5
   %983 = add nsw i32 %119, -5
   %984 = load i32, ptr @hf_generic_string, align 4
   %985 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %984, ptr noundef %1, i32 noundef %982, i32 noundef %983, i32 noundef 0) #4
-  %986 = add i32 %.174, %119
+  %986 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 987:                                              ; preds = %606
@@ -3394,10 +3394,10 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %989 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %988, ptr noundef %1, i32 noundef %612, i32 noundef 1, i32 noundef 0) #4
   %990 = load i32, ptr @hf_display_layer_all_skeys, align 4
   %991 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %990, ptr noundef %1, i32 noundef %612, i32 noundef %613, i32 noundef 0) #4
-  %992 = add i32 %.174, 4
+  %992 = add i32 %.169, 4
   %993 = load i32, ptr @hf_display_layer_number, align 4
   %994 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %993, ptr noundef %1, i32 noundef %992, i32 noundef 1, i32 noundef 0) #4
-  %995 = add i32 %.174, 5
+  %995 = add i32 %.169, 5
   br label %dissect_unistim_message.exit
 
 996:                                              ; preds = %606
@@ -3405,10 +3405,10 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %998 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %997, ptr noundef %1, i32 noundef %612, i32 noundef 1, i32 noundef 0) #4
   %999 = load i32, ptr @hf_display_layer_all_skeys, align 4
   %1000 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %999, ptr noundef %1, i32 noundef %612, i32 noundef %613, i32 noundef 0) #4
-  %1001 = add i32 %.174, 4
+  %1001 = add i32 %.169, 4
   %1002 = load i32, ptr @hf_display_layer_number, align 4
   %1003 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1002, ptr noundef %1, i32 noundef %1001, i32 noundef 1, i32 noundef 0) #4
-  %1004 = add i32 %.174, 5
+  %1004 = add i32 %.169, 5
   br label %dissect_unistim_message.exit
 
 1005:                                             ; preds = %606
@@ -3416,48 +3416,48 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %1007 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1006, ptr noundef %1, i32 noundef %612, i32 noundef 1, i32 noundef 0) #4
   %1008 = load i32, ptr @hf_display_once_or_cyclic, align 4
   %1009 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1008, ptr noundef %1, i32 noundef %612, i32 noundef %613, i32 noundef 0) #4
-  %.10572599.i = add nsw i32 %119, -4
-  %.10600.i = add i32 %.174, 4
-  %.not601.i = icmp eq i32 %.10572599.i, 0
-  br i1 %.not601.i, label %dissect_unistim_message.exit, label %.lr.ph.i44
+  %.10599.i = add nsw i32 %119, -4
+  %.10572600.i = add i32 %.169, 4
+  %.not601.i = icmp eq i32 %.10599.i, 0
+  br i1 %.not601.i, label %dissect_unistim_message.exit, label %.lr.ph.i43
 
-.lr.ph.i44:                                       ; preds = %1005, %.lr.ph.i44
-  %.10604.i = phi i32 [ %.10.i, %.lr.ph.i44 ], [ %.10600.i, %1005 ]
-  %.10572603.i = phi i32 [ %.10572.i, %.lr.ph.i44 ], [ %.10572599.i, %1005 ]
-  %.10.in602.i = phi i32 [ %.10604.i, %.lr.ph.i44 ], [ %130, %1005 ]
+.lr.ph.i43:                                       ; preds = %1005, %.lr.ph.i43
+  %.10572604.i = phi i32 [ %.10572.i, %.lr.ph.i43 ], [ %.10572600.i, %1005 ]
+  %.10603.i = phi i32 [ %.10.i, %.lr.ph.i43 ], [ %.10599.i, %1005 ]
+  %.10572.in602.i = phi i32 [ %.10572604.i, %.lr.ph.i43 ], [ %130, %1005 ]
   %1010 = load i32, ptr @hf_display_layer_number, align 4
-  %1011 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1010, ptr noundef %1, i32 noundef %.10604.i, i32 noundef 1, i32 noundef 0) #4
-  %1012 = add i32 %.10.in602.i, 3
+  %1011 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1010, ptr noundef %1, i32 noundef %.10572604.i, i32 noundef 1, i32 noundef 0) #4
+  %1012 = add i32 %.10572.in602.i, 3
   %1013 = load i32, ptr @hf_display_layer_duration, align 4
   %1014 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1013, ptr noundef %1, i32 noundef %1012, i32 noundef 1, i32 noundef 0) #4
-  %.10572.i = add i32 %.10572603.i, -2
-  %.10.i = add i32 %.10604.i, 2
-  %.not.i45 = icmp eq i32 %.10572.i, 0
-  br i1 %.not.i45, label %dissect_unistim_message.exit, label %.lr.ph.i44, !llvm.loop !10
+  %.10.i = add i32 %.10603.i, -2
+  %.10572.i = add i32 %.10572604.i, 2
+  %.not.i44 = icmp eq i32 %.10.i, 0
+  br i1 %.not.i44, label %dissect_unistim_message.exit, label %.lr.ph.i43, !llvm.loop !10
 
 1015:                                             ; preds = %606
   %1016 = load i32, ptr @hf_display_layer_skey_id, align 4
   %1017 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1016, ptr noundef %1, i32 noundef %612, i32 noundef 1, i32 noundef 0) #4
-  %1018 = add i32 %.174, 4
+  %1018 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1019:                                             ; preds = %606
   %1020 = load i32, ptr @hf_display_layer_skey_id, align 4
   %1021 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1020, ptr noundef %1, i32 noundef %612, i32 noundef 1, i32 noundef 0) #4
-  %1022 = add i32 %.174, 4
+  %1022 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1023:                                             ; preds = %606
   %1024 = load i32, ptr @hf_generic_data, align 4
   %1025 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1024, ptr noundef %1, i32 noundef %612, i32 noundef %613, i32 noundef 0) #4
-  %1026 = add i32 %.174, %119
+  %1026 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1027:                                             ; preds = %126
   %1028 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %130) #4
   %1029 = load i32, ptr @hf_key_switch_cmd, align 4
   %1030 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1029, ptr noundef %1, i32 noundef %130, i32 noundef 1, i32 noundef 0) #4
-  %1031 = add i32 %.174, 3
+  %1031 = add i32 %.169, 3
   %1032 = add nsw i32 %119, -3
   switch i8 %1028, label %1115 [
     i8 0, label %1033
@@ -3481,7 +3481,7 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
 
 .preheader.i:                                     ; preds = %1027
   %.not133.i = icmp eq i32 %1032, 0
-  br i1 %.not133.i, label %dissect_unistim_message.exit, label %.lr.ph.i42
+  br i1 %.not133.i, label %dissect_unistim_message.exit, label %.lr.ph.i41
 
 1033:                                             ; preds = %1027
   %1034 = load i32, ptr @hf_basic_bit_field, align 4
@@ -3490,13 +3490,13 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %1037 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1036, ptr noundef %1, i32 noundef %1031, i32 noundef 1, i32 noundef 0) #4
   %1038 = load i32, ptr @hf_key_led_id, align 4
   %1039 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1038, ptr noundef %1, i32 noundef %1031, i32 noundef 1, i32 noundef 0) #4
-  %1040 = add i32 %.174, 4
+  %1040 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1041:                                             ; preds = %1027
   %1042 = load i32, ptr @hf_generic_data, align 4
   %1043 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1042, ptr noundef %1, i32 noundef %1031, i32 noundef %1032, i32 noundef 0) #4
-  %1044 = add i32 %.174, %119
+  %1044 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1045:                                             ; preds = %1027
@@ -3510,7 +3510,7 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %1053 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1052, ptr noundef %1, i32 noundef %1031, i32 noundef 1, i32 noundef 0) #4
   %1054 = load i32, ptr @hf_keys_local_dial_feedback, align 4
   %1055 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1054, ptr noundef %1, i32 noundef %1031, i32 noundef 1, i32 noundef 0) #4
-  %1056 = add i32 %.174, 4
+  %1056 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1057:                                             ; preds = %1027
@@ -3518,36 +3518,36 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %1059 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1058, ptr noundef %1, i32 noundef %1031, i32 noundef 1, i32 noundef 0) #4
   %1060 = load i32, ptr @hf_keys_admin_command, align 4
   %1061 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1060, ptr noundef %1, i32 noundef %1031, i32 noundef 1, i32 noundef 0) #4
-  %1062 = add i32 %.174, 4
+  %1062 = add i32 %.169, 4
   %1063 = load i32, ptr @hf_keys_logical_icon_id, align 4
   %1064 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1063, ptr noundef %1, i32 noundef %1062, i32 noundef 2, i32 noundef 0) #4
-  %1065 = add i32 %.174, 6
+  %1065 = add i32 %.169, 6
   br label %dissect_unistim_message.exit
 
 1066:                                             ; preds = %1027
   %1067 = load i32, ptr @hf_keys_repeat_timer_one, align 4
   %1068 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1067, ptr noundef %1, i32 noundef %1031, i32 noundef 1, i32 noundef 0) #4
-  %1069 = add i32 %.174, 4
+  %1069 = add i32 %.169, 4
   %1070 = load i32, ptr @hf_keys_repeat_timer_two, align 4
   %1071 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1070, ptr noundef %1, i32 noundef %1069, i32 noundef 1, i32 noundef 0) #4
-  %1072 = add i32 %.174, 5
+  %1072 = add i32 %.169, 5
   br label %dissect_unistim_message.exit
 
 1073:                                             ; preds = %1027
   %1074 = load i32, ptr @hf_keys_led_id, align 4
   %1075 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1074, ptr noundef %1, i32 noundef %1031, i32 noundef 1, i32 noundef 0) #4
-  %1076 = add i32 %.174, 4
+  %1076 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1077:                                             ; preds = %1027
   %1078 = load i32, ptr @hf_keys_phone_icon_id, align 4
   %1079 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1078, ptr noundef %1, i32 noundef %1031, i32 noundef 1, i32 noundef 0) #4
-  %1080 = add i32 %.174, 4
+  %1080 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
-.lr.ph.i42:                                       ; preds = %.preheader.i, %.lr.ph.i42
-  %.0135.i = phi i32 [ %1086, %.lr.ph.i42 ], [ %1031, %.preheader.i ]
-  %.0131134.i = phi i32 [ %1087, %.lr.ph.i42 ], [ %1032, %.preheader.i ]
+.lr.ph.i41:                                       ; preds = %.preheader.i, %.lr.ph.i41
+  %.0135.i = phi i32 [ %1086, %.lr.ph.i41 ], [ %1031, %.preheader.i ]
+  %.0131134.i = phi i32 [ %1087, %.lr.ph.i41 ], [ %1032, %.preheader.i ]
   %1081 = load i32, ptr @hf_keys_cadence_on_time, align 4
   %1082 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1081, ptr noundef %1, i32 noundef %.0135.i, i32 noundef 1, i32 noundef 0) #4
   %1083 = add i32 %.0135.i, 1
@@ -3555,55 +3555,55 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %1085 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1084, ptr noundef %1, i32 noundef %1083, i32 noundef 1, i32 noundef 0) #4
   %1086 = add i32 %.0135.i, 2
   %1087 = add i32 %.0131134.i, -2
-  %.not.i43 = icmp eq i32 %1087, 0
-  br i1 %.not.i43, label %dissect_unistim_message.exit, label %.lr.ph.i42, !llvm.loop !11
+  %.not.i42 = icmp eq i32 %1087, 0
+  br i1 %.not.i42, label %dissect_unistim_message.exit, label %.lr.ph.i41, !llvm.loop !11
 
 1088:                                             ; preds = %1027
   %1089 = load i32, ptr @hf_keys_user_activity_timeout, align 4
   %1090 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1089, ptr noundef %1, i32 noundef %1031, i32 noundef 1, i32 noundef 0) #4
-  %1091 = add i32 %.174, 4
+  %1091 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1092:                                             ; preds = %1027
   %1093 = load i32, ptr @hf_key_icon_id, align 4
   %1094 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1093, ptr noundef %1, i32 noundef %1031, i32 noundef 1, i32 noundef 0) #4
-  %1095 = add i32 %.174, 4
+  %1095 = add i32 %.169, 4
   %1096 = add nsw i32 %119, -4
   %1097 = load i32, ptr @hf_generic_data, align 4
   %1098 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1097, ptr noundef %1, i32 noundef %1095, i32 noundef %1096, i32 noundef 0) #4
-  %1099 = add i32 %.174, %119
+  %1099 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1100:                                             ; preds = %1027
   %1101 = load i32, ptr @hf_key_icon_id, align 4
   %1102 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1101, ptr noundef %1, i32 noundef %1031, i32 noundef 1, i32 noundef 0) #4
-  %1103 = add i32 %.174, 4
+  %1103 = add i32 %.169, 4
   %1104 = load i32, ptr @hf_basic_bit_field, align 4
   %1105 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1104, ptr noundef %1, i32 noundef %1103, i32 noundef 1, i32 noundef 0) #4
   %1106 = load i32, ptr @hf_broadcast_icon_state, align 4
   %1107 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1106, ptr noundef %1, i32 noundef %1103, i32 noundef 1, i32 noundef 0) #4
   %1108 = load i32, ptr @hf_broadcast_icon_cadence, align 4
   %1109 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1108, ptr noundef %1, i32 noundef %1103, i32 noundef 1, i32 noundef 0) #4
-  %1110 = add i32 %.174, 5
+  %1110 = add i32 %.169, 5
   br label %dissect_unistim_message.exit
 
 1111:                                             ; preds = %1027
   %1112 = load i32, ptr @hf_generic_data, align 4
   %1113 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1112, ptr noundef %1, i32 noundef %1031, i32 noundef %1032, i32 noundef 0) #4
-  %1114 = add i32 %.174, %119
+  %1114 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1115:                                             ; preds = %1027
   %1116 = load i32, ptr @hf_generic_data, align 4
   %1117 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1116, ptr noundef %1, i32 noundef %1031, i32 noundef %1032, i32 noundef 0) #4
-  %1118 = add i32 %.174, %119
+  %1118 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1119:                                             ; preds = %126
   %1120 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %130) #4
   %1121 = load i32, ptr @hf_basic_switch_cmd, align 4
   %1122 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1121, ptr noundef %1, i32 noundef %130, i32 noundef 1, i32 noundef 0) #4
-  %1123 = add i32 %.174, 3
+  %1123 = add i32 %.169, 3
   %1124 = add nsw i32 %119, -3
   switch i8 %1120, label %1168 [
     i8 1, label %1125
@@ -3632,22 +3632,22 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %1139 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1138, ptr noundef %1, i32 noundef %1123, i32 noundef 1, i32 noundef 0) #4
   %1140 = load i32, ptr @hf_basic_switch_query_gray_mkt_info, align 4
   %1141 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1140, ptr noundef %1, i32 noundef %1123, i32 noundef 1, i32 noundef 0) #4
-  %1142 = add i32 %.174, 4
+  %1142 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1143:                                             ; preds = %1119
   %1144 = load i32, ptr @hf_basic_switch_options_secure, align 4
   %1145 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1144, ptr noundef %1, i32 noundef %1123, i32 noundef 1, i32 noundef 0) #4
-  %1146 = add i32 %.174, 4
+  %1146 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1147:                                             ; preds = %1119
   %1148 = load i32, ptr @hf_basic_switch_element_id, align 4
   %1149 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1148, ptr noundef %1, i32 noundef %1123, i32 noundef 1, i32 noundef 0) #4
-  %1150 = add i32 %.174, 4
+  %1150 = add i32 %.169, 4
   %1151 = load i32, ptr @hf_basic_switch_eeprom_data, align 4
   %1152 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1151, ptr noundef %1, i32 noundef %1150, i32 noundef %1124, i32 noundef 0) #4
-  %1153 = add i32 %.174, 5
+  %1153 = add i32 %.169, 5
   br label %dissect_unistim_message.exit
 
 1154:                                             ; preds = %1119
@@ -3656,32 +3656,32 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   store i32 1, ptr %1156, align 4
   %1157 = load i32, ptr @hf_basic_switch_terminal_id, align 4
   %1158 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1157, ptr noundef %1, i32 noundef %1123, i32 noundef %1124, i32 noundef 0) #4
-  %1159 = add i32 %.174, %119
+  %1159 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1160:                                             ; preds = %1119
   %1161 = load i32, ptr @hf_generic_data, align 4
   %1162 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1161, ptr noundef %1, i32 noundef %1123, i32 noundef %1124, i32 noundef 0) #4
-  %1163 = add i32 %.174, %119
+  %1163 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1164:                                             ; preds = %1119
   %1165 = load i32, ptr @hf_generic_data, align 4
   %1166 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1165, ptr noundef %1, i32 noundef %1123, i32 noundef %1124, i32 noundef 0) #4
-  %1167 = add i32 %.174, %119
+  %1167 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1168:                                             ; preds = %1119
   %1169 = load i32, ptr @hf_generic_data, align 4
   %1170 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1169, ptr noundef %1, i32 noundef %1123, i32 noundef %1124, i32 noundef 0) #4
-  %1171 = add i32 %.174, %119
+  %1171 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1172:                                             ; preds = %126
   %1173 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %130) #4
   %1174 = load i32, ptr @hf_network_switch_cmd, align 4
   %1175 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1174, ptr noundef %1, i32 noundef %130, i32 noundef 1, i32 noundef 0) #4
-  %1176 = add i32 %.174, 3
+  %1176 = add i32 %.169, 3
   %1177 = add nsw i32 %119, -3
   switch i8 %1173, label %1294 [
     i8 2, label %dissect_unistim_message.exit
@@ -3717,7 +3717,7 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %1190 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1189, ptr noundef %1, i32 noundef %1176, i32 noundef 1, i32 noundef 0) #4
   %1191 = load i32, ptr @hf_net_sanity_flag, align 4
   %1192 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1191, ptr noundef %1, i32 noundef %1176, i32 noundef 1, i32 noundef 0) #4
-  %1193 = add i32 %.174, 4
+  %1193 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1194:                                             ; preds = %1172
@@ -3727,52 +3727,52 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %1198 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1197, ptr noundef %1, i32 noundef %1176, i32 noundef 1, i32 noundef 0) #4
   %1199 = load i32, ptr @hf_net_enable_rudp, align 4
   %1200 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1199, ptr noundef %1, i32 noundef %1176, i32 noundef 1, i32 noundef 0) #4
-  %1201 = add i32 %.174, 4
+  %1201 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1202:                                             ; preds = %1172
   %1203 = load i32, ptr @hf_generic_data, align 4
   %1204 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1203, ptr noundef %1, i32 noundef %1176, i32 noundef %1177, i32 noundef 0) #4
-  %1205 = add i32 %.174, %119
+  %1205 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1206:                                             ; preds = %1172
   %1207 = load i32, ptr @hf_generic_data, align 4
   %1208 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1207, ptr noundef %1, i32 noundef %1176, i32 noundef %1177, i32 noundef 0) #4
-  %1209 = add i32 %.174, %119
+  %1209 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1210:                                             ; preds = %1172
   %1211 = load i32, ptr @hf_net_server_id, align 4
   %1212 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1211, ptr noundef %1, i32 noundef %1176, i32 noundef 1, i32 noundef 0) #4
-  %1213 = add i32 %.174, 4
+  %1213 = add i32 %.169, 4
   %1214 = load i32, ptr @hf_net_server_port, align 4
   %1215 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1214, ptr noundef %1, i32 noundef %1213, i32 noundef 2, i32 noundef 0) #4
-  %1216 = add i32 %.174, 6
+  %1216 = add i32 %.169, 6
   %1217 = load i32, ptr @hf_net_server_action, align 4
   %1218 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1217, ptr noundef %1, i32 noundef %1216, i32 noundef 1, i32 noundef 0) #4
-  %1219 = add i32 %.174, 7
+  %1219 = add i32 %.169, 7
   %1220 = load i32, ptr @hf_net_server_retry_count, align 4
   %1221 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1220, ptr noundef %1, i32 noundef %1219, i32 noundef 1, i32 noundef 0) #4
-  %1222 = add i32 %.174, 8
+  %1222 = add i32 %.169, 8
   %1223 = load i32, ptr @hf_net_server_failover_id, align 4
   %1224 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1223, ptr noundef %1, i32 noundef %1222, i32 noundef 1, i32 noundef 0) #4
-  %1225 = add i32 %.174, 9
+  %1225 = add i32 %.169, 9
   %1226 = load i32, ptr @hf_net_server_ip_address, align 4
   %1227 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1226, ptr noundef %1, i32 noundef %1225, i32 noundef 4, i32 noundef 0) #4
-  %1228 = add i32 %.174, 13
+  %1228 = add i32 %.169, 13
   br label %dissect_unistim_message.exit
 
 1229:                                             ; preds = %1172
   %1230 = load i32, ptr @hf_net_server_id, align 4
   %1231 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1230, ptr noundef %1, i32 noundef %1176, i32 noundef 1, i32 noundef 0) #4
-  %1232 = add i32 %.174, 4
+  %1232 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1233:                                             ; preds = %1172
   %1234 = load i32, ptr @hf_net_server_config_element, align 4
   %1235 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1234, ptr noundef %1, i32 noundef %130, i32 noundef 1, i32 noundef 0) #4
-  %1236 = add i32 %.174, 4
+  %1236 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1237:                                             ; preds = %1172
@@ -3784,10 +3784,10 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %1243 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1242, ptr noundef %1, i32 noundef %1176, i32 noundef 1, i32 noundef 0) #4
   %1244 = load i32, ptr @hf_net_use_local_port, align 4
   %1245 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1244, ptr noundef %1, i32 noundef %1176, i32 noundef 1, i32 noundef 0) #4
-  %1246 = add i32 %.174, 4
+  %1246 = add i32 %.169, 4
   %1247 = load i32, ptr @hf_generic_data, align 4
   %1248 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1247, ptr noundef %1, i32 noundef %1246, i32 noundef 1, i32 noundef 0) #4
-  %1249 = add i32 %.174, 5
+  %1249 = add i32 %.169, 5
   %1250 = call i32 @tvb_strsize(ptr noundef %1, i32 noundef %1249) #4
   %1251 = load i32, ptr @hf_net_full_pathname, align 4
   %1252 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1251, ptr noundef %1, i32 noundef %1249, i32 noundef %1250, i32 noundef 0) #4
@@ -3810,53 +3810,53 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
 1267:                                             ; preds = %1172
   %1268 = load i32, ptr @hf_generic_data, align 4
   %1269 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1268, ptr noundef %1, i32 noundef %1176, i32 noundef %1177, i32 noundef 0) #4
-  %1270 = add i32 %.174, %119
+  %1270 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1271:                                             ; preds = %1172
   %1272 = load i32, ptr @hf_net_server_id, align 4
   %1273 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1272, ptr noundef %1, i32 noundef %1176, i32 noundef 1, i32 noundef 0) #4
-  %1274 = add i32 %.174, 4
+  %1274 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1275:                                             ; preds = %1172
   %1276 = load i32, ptr @hf_net_server_time_out, align 4
   %1277 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1276, ptr noundef %1, i32 noundef %1176, i32 noundef 2, i32 noundef 0) #4
-  %1278 = add i32 %.174, 5
+  %1278 = add i32 %.169, 5
   br label %dissect_unistim_message.exit
 
 1279:                                             ; preds = %1172
   %1280 = load i32, ptr @hf_net_server_recovery_time_low, align 4
   %1281 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1280, ptr noundef %1, i32 noundef %1176, i32 noundef 2, i32 noundef 0) #4
-  %1282 = add i32 %.174, 5
+  %1282 = add i32 %.169, 5
   %1283 = load i32, ptr @hf_net_server_recovery_time_high, align 4
   %1284 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1283, ptr noundef %1, i32 noundef %1282, i32 noundef 2, i32 noundef 0) #4
-  %1285 = add i32 %.174, 7
+  %1285 = add i32 %.169, 7
   br label %dissect_unistim_message.exit
 
 1286:                                             ; preds = %1172
   %1287 = load i32, ptr @hf_generic_data, align 4
   %1288 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1287, ptr noundef %1, i32 noundef %1176, i32 noundef %1177, i32 noundef 0) #4
-  %1289 = add i32 %.174, %119
+  %1289 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1290:                                             ; preds = %1172
   %1291 = load i32, ptr @hf_generic_data, align 4
   %1292 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1291, ptr noundef %1, i32 noundef %1176, i32 noundef %1177, i32 noundef 0) #4
-  %1293 = add i32 %.174, %119
+  %1293 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1294:                                             ; preds = %1172
   %1295 = load i32, ptr @hf_generic_data, align 4
   %1296 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1295, ptr noundef %1, i32 noundef %1176, i32 noundef %1177, i32 noundef 0) #4
-  %1297 = add i32 %.174, %119
+  %1297 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1298:                                             ; preds = %126, %126, %126, %126, %126, %126
   %1299 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %130) #4
   %1300 = load i32, ptr @hf_expansion_phone_cmd, align 4
   %1301 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1300, ptr noundef %1, i32 noundef %130, i32 noundef 1, i32 noundef 0) #4
-  %1302 = add i32 %.174, 3
+  %1302 = add i32 %.169, 3
   %1303 = add nsw i32 %119, -3
   %1304 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %1302) #4
   %cond.i.i = icmp eq i8 %1299, 89
@@ -3867,7 +3867,7 @@ dissect_audio_switch.exit:                        ; preds = %555, %.lr.ph561.i, 
   %1307 = add nsw i32 %1306, -64
   %1308 = load i32, ptr @hf_module_key_number, align 4
   %1309 = call ptr @proto_tree_add_int(ptr noundef %113, i32 noundef %1308, ptr noundef %1, i32 noundef %1302, i32 noundef 1, i32 noundef %1307) #4
-  %1310 = add i32 %.174, 4
+  %1310 = add i32 %.169, 4
   %1311 = add nsw i32 %119, -4
   br label %dissect_expansion_phone.exit.i
 
@@ -3881,14 +3881,14 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1314 = add nsw i32 %119, -2
   %1315 = load i32, ptr @hf_generic_data, align 4
   %1316 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1315, ptr noundef %1, i32 noundef %130, i32 noundef %1314, i32 noundef 0) #4
-  %1317 = add i32 %.174, %119
+  %1317 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1318:                                             ; preds = %126
   %1319 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %130) #4
   %1320 = load i32, ptr @hf_audio_phone_cmd, align 4
   %1321 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1320, ptr noundef %1, i32 noundef %130, i32 noundef 1, i32 noundef 0) #4
-  %1322 = add i32 %.174, 3
+  %1322 = add i32 %.169, 3
   %1323 = add nsw i32 %119, -3
   switch i8 %1319, label %1544 [
     i8 0, label %1324
@@ -3952,7 +3952,7 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
 1342:                                             ; preds = %1318
   %1343 = load i32, ptr @hf_audio_hf_support, align 4
   %1344 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1343, ptr noundef %1, i32 noundef %1322, i32 noundef 1, i32 noundef 0) #4
-  %1345 = add i32 %.174, 4
+  %1345 = add i32 %.169, 4
   %1346 = add nsw i32 %119, -4
   %.not321332.i = icmp eq i32 %1346, 0
   br i1 %.not321332.i, label %dissect_unistim_message.exit, label %.lr.ph335.i
@@ -3982,7 +3982,7 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1363 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1362, ptr noundef %1, i32 noundef %1322, i32 noundef 1, i32 noundef 0) #4
   %1364 = load i32, ptr @hf_audio_opt_rpt_noise_squelch, align 4
   %1365 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1364, ptr noundef %1, i32 noundef %1322, i32 noundef 1, i32 noundef 0) #4
-  %1366 = add i32 %.174, 4
+  %1366 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1367:                                             ; preds = %1318
@@ -3996,7 +3996,7 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1375 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1374, ptr noundef %1, i32 noundef %1322, i32 noundef 1, i32 noundef 0) #4
   %1376 = load i32, ptr @hf_audio_rx_vol_vol_ceiling, align 4
   %1377 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1376, ptr noundef %1, i32 noundef %1322, i32 noundef 1, i32 noundef 0) #4
-  %1378 = add i32 %.174, 4
+  %1378 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1379:                                             ; preds = %1318
@@ -4010,13 +4010,13 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1387 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1386, ptr noundef %1, i32 noundef %1322, i32 noundef 1, i32 noundef 0) #4
   %1388 = load i32, ptr @hf_audio_rx_vol_vol_ceiling, align 4
   %1389 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1388, ptr noundef %1, i32 noundef %1322, i32 noundef 1, i32 noundef 0) #4
-  %1390 = add i32 %.174, 4
+  %1390 = add i32 %.169, 4
   %1391 = load i32, ptr @hf_audio_current_rx_level, align 4
   %1392 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1391, ptr noundef %1, i32 noundef %1390, i32 noundef 1, i32 noundef 0) #4
-  %1393 = add i32 %.174, 5
+  %1393 = add i32 %.169, 5
   %1394 = load i32, ptr @hf_audio_current_rx_range, align 4
   %1395 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1394, ptr noundef %1, i32 noundef %1393, i32 noundef 1, i32 noundef 0) #4
-  %1396 = add i32 %.174, 6
+  %1396 = add i32 %.169, 6
   br label %dissect_unistim_message.exit
 
 1397:                                             ; preds = %1318
@@ -4030,13 +4030,13 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1405 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1404, ptr noundef %1, i32 noundef %1322, i32 noundef 1, i32 noundef 0) #4
   %1406 = load i32, ptr @hf_audio_rx_vol_vol_ceiling, align 4
   %1407 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1406, ptr noundef %1, i32 noundef %1322, i32 noundef 1, i32 noundef 0) #4
-  %1408 = add i32 %.174, 4
+  %1408 = add i32 %.169, 4
   %1409 = load i32, ptr @hf_audio_current_rx_level, align 4
   %1410 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1409, ptr noundef %1, i32 noundef %1408, i32 noundef 1, i32 noundef 0) #4
-  %1411 = add i32 %.174, 5
+  %1411 = add i32 %.169, 5
   %1412 = load i32, ptr @hf_audio_current_rx_range, align 4
   %1413 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1412, ptr noundef %1, i32 noundef %1411, i32 noundef 1, i32 noundef 0) #4
-  %1414 = add i32 %.174, 6
+  %1414 = add i32 %.169, 6
   br label %dissect_unistim_message.exit
 
 1415:                                             ; preds = %1318
@@ -4044,19 +4044,19 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1417 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1416, ptr noundef %1, i32 noundef %1322, i32 noundef 1, i32 noundef 0) #4
   %1418 = load i32, ptr @hf_audio_warbler_select, align 4
   %1419 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1418, ptr noundef %1, i32 noundef %1322, i32 noundef 1, i32 noundef 0) #4
-  %1420 = add i32 %.174, 4
+  %1420 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1421:                                             ; preds = %1318
   %1422 = load i32, ptr @hf_generic_data, align 4
   %1423 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1422, ptr noundef %1, i32 noundef %1322, i32 noundef %1323, i32 noundef 0) #4
-  %1424 = add i32 %.174, %119
+  %1424 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1425:                                             ; preds = %1318
   %1426 = load i32, ptr @hf_audio_open_stream_rpt, align 4
   %1427 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1426, ptr noundef %1, i32 noundef %1322, i32 noundef 1, i32 noundef 0) #4
-  %1428 = add i32 %.174, 4
+  %1428 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1429:                                             ; preds = %1318
@@ -4064,55 +4064,55 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1431 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1430, ptr noundef %1, i32 noundef %1322, i32 noundef 1, i32 noundef 0) #4
   %1432 = load i32, ptr @hf_audio_sdes_rpt_buk_id, align 4
   %1433 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1432, ptr noundef %1, i32 noundef %1322, i32 noundef 1, i32 noundef 0) #4
-  %1434 = add i32 %.174, 4
+  %1434 = add i32 %.169, 4
   %1435 = add nsw i32 %119, -4
   %1436 = load i32, ptr @hf_generic_string, align 4
   %1437 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1436, ptr noundef %1, i32 noundef %1434, i32 noundef %1435, i32 noundef 0) #4
-  %1438 = add i32 %.174, %119
+  %1438 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1439:                                             ; preds = %1318
   %1440 = load i32, ptr @hf_audio_phone_port, align 4
   %1441 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1440, ptr noundef %1, i32 noundef %1322, i32 noundef 2, i32 noundef 0) #4
-  %1442 = add i32 %.174, 5
+  %1442 = add i32 %.169, 5
   %1443 = load i32, ptr @hf_audio_phone_ip, align 4
   %1444 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1443, ptr noundef %1, i32 noundef %1442, i32 noundef 4, i32 noundef 0) #4
-  %1445 = add i32 %.174, 9
+  %1445 = add i32 %.169, 9
   br label %dissect_unistim_message.exit
 
 1446:                                             ; preds = %1318
   %1447 = load i32, ptr @hf_audio_nat_listen_port, align 4
   %1448 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1447, ptr noundef %1, i32 noundef %1322, i32 noundef 2, i32 noundef 0) #4
-  %1449 = add i32 %.174, 5
+  %1449 = add i32 %.169, 5
   %1450 = load i32, ptr @hf_audio_nat_ip, align 4
   %1451 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1450, ptr noundef %1, i32 noundef %1449, i32 noundef 4, i32 noundef 0) #4
-  %1452 = add i32 %.174, 9
+  %1452 = add i32 %.169, 9
   %1453 = load i32, ptr @hf_audio_nat_add_len, align 4
   %1454 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1453, ptr noundef %1, i32 noundef %1452, i32 noundef 1, i32 noundef 0) #4
-  %1455 = add i32 %.174, 10
+  %1455 = add i32 %.169, 10
   %1456 = load i32, ptr @hf_audio_phone_port, align 4
   %1457 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1456, ptr noundef %1, i32 noundef %1455, i32 noundef 2, i32 noundef 0) #4
-  %1458 = add i32 %.174, 12
+  %1458 = add i32 %.169, 12
   %1459 = load i32, ptr @hf_audio_phone_ip, align 4
   %1460 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1459, ptr noundef %1, i32 noundef %1458, i32 noundef 4, i32 noundef 0) #4
-  %1461 = add i32 %.174, 16
+  %1461 = add i32 %.169, 16
   %1462 = load i32, ptr @hf_audio_phone_add_len, align 4
   %1463 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1462, ptr noundef %1, i32 noundef %1461, i32 noundef 1, i32 noundef 0) #4
-  %1464 = add i32 %.174, 17
+  %1464 = add i32 %.169, 17
   br label %dissect_unistim_message.exit
 
 1465:                                             ; preds = %1318
   %1466 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %1322) #4
   %1467 = load i32, ptr @hf_audio_stream_direction_code, align 4
   %1468 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1467, ptr noundef %1, i32 noundef %1322, i32 noundef 1, i32 noundef 0) #4
-  %1469 = add i32 %.174, 4
+  %1469 = add i32 %.169, 4
   %1470 = load i32, ptr @hf_audio_mgr_stream_id, align 4
   %1471 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1470, ptr noundef %1, i32 noundef %1469, i32 noundef 1, i32 noundef 0) #4
-  %1472 = add i32 %.174, 5
+  %1472 = add i32 %.169, 5
   %1473 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %1472) #4
   %1474 = load i32, ptr @hf_audio_stream_state, align 4
   %1475 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1474, ptr noundef %1, i32 noundef %1472, i32 noundef 1, i32 noundef 0) #4
-  %1476 = add i32 %.174, 6
+  %1476 = add i32 %.169, 6
   %1477 = and i8 %1473, 1
   %.not317.not.i = icmp eq i8 %1477, 0
   br i1 %.not317.not.i, label %dissect_unistim_message.exit, label %1478
@@ -4129,38 +4129,38 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %hf_rx_vocoder_type.val.i = load i32, ptr @hf_rx_vocoder_type, align 4
   %1482 = select i1 %.not318.i, i32 %hf_generic_data.hf_tx_vocoder_type.val.i, i32 %hf_rx_vocoder_type.val.i
   %1483 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1482, ptr noundef %1, i32 noundef %1476, i32 noundef 1, i32 noundef 0) #4
-  %1484 = add i32 %.174, 7
+  %1484 = add i32 %.169, 7
   %1485 = load i32, ptr @hf_frames_per_packet, align 4
   %1486 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1485, ptr noundef %1, i32 noundef %1484, i32 noundef 1, i32 noundef 0) #4
-  %1487 = add i32 %.174, 8
+  %1487 = add i32 %.169, 8
   %1488 = load i32, ptr @hf_audio_tos, align 4
   %1489 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1488, ptr noundef %1, i32 noundef %1487, i32 noundef 1, i32 noundef 0) #4
   %1490 = load i32, ptr @hf_audio_precedence, align 4
   %1491 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1490, ptr noundef %1, i32 noundef %1487, i32 noundef 1, i32 noundef 0) #4
   %1492 = load i32, ptr @hf_audio_frf_11, align 4
   %1493 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1492, ptr noundef %1, i32 noundef %1487, i32 noundef 1, i32 noundef 0) #4
-  %1494 = add i32 %.174, 9
+  %1494 = add i32 %.169, 9
   %1495 = load i32, ptr @hf_rtcp_bucket_id, align 4
   %1496 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1495, ptr noundef %1, i32 noundef %1494, i32 noundef 1, i32 noundef 0) #4
-  %1497 = add i32 %.174, 10
+  %1497 = add i32 %.169, 10
   %1498 = load i32, ptr @hf_audio_lcl_rtp_port, align 4
   %1499 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1498, ptr noundef %1, i32 noundef %1497, i32 noundef 2, i32 noundef 0) #4
-  %1500 = add i32 %.174, 12
+  %1500 = add i32 %.169, 12
   %1501 = load i32, ptr @hf_audio_lcl_rtcp_port, align 4
   %1502 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1501, ptr noundef %1, i32 noundef %1500, i32 noundef 2, i32 noundef 0) #4
-  %1503 = add i32 %.174, 14
+  %1503 = add i32 %.169, 14
   %1504 = load i32, ptr @hf_audio_far_rtp_port, align 4
   %1505 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1504, ptr noundef %1, i32 noundef %1503, i32 noundef 2, i32 noundef 0) #4
-  %1506 = add i32 %.174, 16
+  %1506 = add i32 %.169, 16
   %1507 = load i32, ptr @hf_audio_far_rtcp_port, align 4
   %1508 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1507, ptr noundef %1, i32 noundef %1506, i32 noundef 2, i32 noundef 0) #4
-  %1509 = add i32 %.174, 18
+  %1509 = add i32 %.169, 18
   %1510 = load i32, ptr @hf_audio_far_ip_add, align 4
   %1511 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1510, ptr noundef %1, i32 noundef %1509, i32 noundef 4, i32 noundef 0) #4
-  %1512 = add i32 %.174, 22
+  %1512 = add i32 %.169, 22
   %1513 = load i32, ptr @hf_audio_transducer_list_length, align 4
   %1514 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1513, ptr noundef %1, i32 noundef %1512, i32 noundef 1, i32 noundef 0) #4
-  %1515 = add i32 %.174, 23
+  %1515 = add i32 %.169, 23
   %1516 = add nsw i32 %119, -23
   %.not320327.i = icmp eq i32 %1516, 0
   br i1 %.not320327.i, label %dissect_unistim_message.exit, label %.lr.ph330.i
@@ -4178,12 +4178,12 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
 1521:                                             ; preds = %1318
   %1522 = load i32, ptr @hf_audio_apb_number, align 4
   %1523 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1522, ptr noundef %1, i32 noundef %1322, i32 noundef 1, i32 noundef 0) #4
-  %1524 = add i32 %.174, 4
+  %1524 = add i32 %.169, 4
   %1525 = add nsw i32 %119, -4
   %.not324.i = icmp eq i32 %1525, 0
-  br i1 %.not324.i, label %dissect_unistim_message.exit, label %.lr.ph.i37
+  br i1 %.not324.i, label %dissect_unistim_message.exit, label %.lr.ph.i36
 
-.lr.ph.i37:                                       ; preds = %1521, %1543
+.lr.ph.i36:                                       ; preds = %1521, %1543
   %.2326.i = phi i32 [ %.3.i, %1543 ], [ %1524, %1521 ]
   %.2314325.i = phi i32 [ %.3315.i, %1543 ], [ %1525, %1521 ]
   %1526 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.2326.i) #4
@@ -4194,7 +4194,7 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1531 = icmp ugt i8 %1526, 57
   br i1 %1531, label %1532, label %1543
 
-1532:                                             ; preds = %.lr.ph.i37
+1532:                                             ; preds = %.lr.ph.i36
   %1533 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %1529) #4
   %1534 = zext i8 %1533 to i32
   %1535 = load i32, ptr @hf_audio_apb_param_len, align 4
@@ -4207,23 +4207,23 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1542 = sub i32 %1538, %1534
   br label %1543
 
-1543:                                             ; preds = %1532, %.lr.ph.i37
-  %.3315.i = phi i32 [ %1542, %1532 ], [ %1530, %.lr.ph.i37 ]
-  %.3.i = phi i32 [ %1541, %1532 ], [ %1529, %.lr.ph.i37 ]
-  %.not.i38 = icmp eq i32 %.3315.i, 0
-  br i1 %.not.i38, label %dissect_unistim_message.exit, label %.lr.ph.i37, !llvm.loop !14
+1543:                                             ; preds = %1532, %.lr.ph.i36
+  %.3315.i = phi i32 [ %1542, %1532 ], [ %1530, %.lr.ph.i36 ]
+  %.3.i = phi i32 [ %1541, %1532 ], [ %1529, %.lr.ph.i36 ]
+  %.not.i37 = icmp eq i32 %.3315.i, 0
+  br i1 %.not.i37, label %dissect_unistim_message.exit, label %.lr.ph.i36, !llvm.loop !14
 
 1544:                                             ; preds = %1318
   %1545 = load i32, ptr @hf_generic_data, align 4
   %1546 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1545, ptr noundef %1, i32 noundef %1322, i32 noundef %1323, i32 noundef 0) #4
-  %1547 = add i32 %.174, %119
+  %1547 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1548:                                             ; preds = %126
   %1549 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %130) #4
   %1550 = load i32, ptr @hf_display_phone_cmd, align 4
   %1551 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1550, ptr noundef %1, i32 noundef %130, i32 noundef 1, i32 noundef 0) #4
-  %1552 = add i32 %.174, 3
+  %1552 = add i32 %.169, 3
   %1553 = add nsw i32 %119, -3
   switch i8 %1549, label %1660 [
     i8 0, label %1554
@@ -4243,42 +4243,42 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1556 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1555, ptr noundef %1, i32 noundef %1552, i32 noundef 1, i32 noundef 0) #4
   %1557 = load i32, ptr @hf_display_lines, align 4
   %1558 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1557, ptr noundef %1, i32 noundef %1552, i32 noundef 1, i32 noundef 0) #4
-  %1559 = add i32 %.174, 4
+  %1559 = add i32 %.169, 4
   %1560 = load i32, ptr @hf_display_softkey_width, align 4
   %1561 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1560, ptr noundef %1, i32 noundef %1559, i32 noundef 1, i32 noundef 0) #4
   %1562 = load i32, ptr @hf_display_softkeys, align 4
   %1563 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1562, ptr noundef %1, i32 noundef %1559, i32 noundef 1, i32 noundef 0) #4
   %1564 = load i32, ptr @hf_display_icon, align 4
   %1565 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1564, ptr noundef %1, i32 noundef %1559, i32 noundef 1, i32 noundef 0) #4
-  %1566 = add i32 %.174, 5
+  %1566 = add i32 %.169, 5
   %1567 = load i32, ptr @hf_display_softlabel_key_width, align 4
   %1568 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1567, ptr noundef %1, i32 noundef %1566, i32 noundef 1, i32 noundef 0) #4
   %1569 = load i32, ptr @hf_display_context_width, align 4
   %1570 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1569, ptr noundef %1, i32 noundef %1566, i32 noundef 1, i32 noundef 0) #4
-  %1571 = add i32 %.174, 6
+  %1571 = add i32 %.169, 6
   %1572 = load i32, ptr @hf_display_numeric_width, align 4
   %1573 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1572, ptr noundef %1, i32 noundef %1571, i32 noundef 1, i32 noundef 0) #4
   %1574 = load i32, ptr @hf_display_time_width, align 4
   %1575 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1574, ptr noundef %1, i32 noundef %1571, i32 noundef 1, i32 noundef 0) #4
   %1576 = load i32, ptr @hf_display_date_width, align 4
   %1577 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1576, ptr noundef %1, i32 noundef %1571, i32 noundef 1, i32 noundef 0) #4
-  %1578 = add i32 %.174, 7
+  %1578 = add i32 %.169, 7
   %1579 = load i32, ptr @hf_display_char_dload, align 4
   %1580 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1579, ptr noundef %1, i32 noundef %1578, i32 noundef 1, i32 noundef 0) #4
   %1581 = load i32, ptr @hf_display_freeform_icon_dload, align 4
   %1582 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1581, ptr noundef %1, i32 noundef %1578, i32 noundef 1, i32 noundef 0) #4
   %1583 = load i32, ptr @hf_display_icon_type, align 4
   %1584 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1583, ptr noundef %1, i32 noundef %1578, i32 noundef 1, i32 noundef 0) #4
-  %1585 = add i32 %.174, 8
+  %1585 = add i32 %.169, 8
   %1586 = load i32, ptr @hf_display_charsets, align 4
   %1587 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1586, ptr noundef %1, i32 noundef %1585, i32 noundef 1, i32 noundef 0) #4
-  %1588 = add i32 %.174, 9
+  %1588 = add i32 %.169, 9
   br label %dissect_unistim_message.exit
 
 1589:                                             ; preds = %1548
   %1590 = load i32, ptr @hf_display_contrast, align 4
   %1591 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1590, ptr noundef %1, i32 noundef %1552, i32 noundef 1, i32 noundef 0) #4
-  %1592 = add i32 %.174, 4
+  %1592 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1593:                                             ; preds = %1548
@@ -4292,12 +4292,12 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1601 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1600, ptr noundef %1, i32 noundef %1552, i32 noundef 1, i32 noundef 0) #4
   %1602 = load i32, ptr @hf_display_cursor_softkey_id, align 4
   %1603 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1602, ptr noundef %1, i32 noundef %1552, i32 noundef 1, i32 noundef 0) #4
-  %1604 = add i32 %.174, 4
+  %1604 = add i32 %.169, 4
   %1605 = load i32, ptr @hf_display_cursor_char_pos, align 4
   %1606 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1605, ptr noundef %1, i32 noundef %1604, i32 noundef 1, i32 noundef 0) #4
   %1607 = load i32, ptr @hf_display_cursor_line_number, align 4
   %1608 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1607, ptr noundef %1, i32 noundef %1604, i32 noundef 1, i32 noundef 0) #4
-  %1609 = add i32 %.174, 5
+  %1609 = add i32 %.169, 5
   br label %dissect_unistim_message.exit
 
 1610:                                             ; preds = %1548
@@ -4312,13 +4312,13 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1619 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1618, ptr noundef %1, i32 noundef %1552, i32 noundef 1, i32 noundef 0) #4
   %1620 = load i32, ptr @hf_display_cursor_softkey_id, align 4
   %1621 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1620, ptr noundef %1, i32 noundef %1552, i32 noundef 1, i32 noundef 0) #4
-  %1622 = add i32 %.174, 4
+  %1622 = add i32 %.169, 4
   %1623 = load i32, ptr @hf_display_hlight_start, align 4
   %1624 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1623, ptr noundef %1, i32 noundef %1622, i32 noundef 1, i32 noundef 0) #4
-  %1625 = add i32 %.174, 5
+  %1625 = add i32 %.169, 5
   %1626 = load i32, ptr @hf_display_hlight_end, align 4
   %1627 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1626, ptr noundef %1, i32 noundef %1625, i32 noundef 1, i32 noundef 0) #4
-  %1628 = add i32 %.174, 6
+  %1628 = add i32 %.169, 6
   %1629 = and i8 %1611, 4
   %.not.i = icmp eq i8 %1629, 0
   br i1 %.not.i, label %dissect_unistim_message.exit, label %1630
@@ -4328,19 +4328,19 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1632 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1631, ptr noundef %1, i32 noundef %1628, i32 noundef 1, i32 noundef 0) #4
   %1633 = load i32, ptr @hf_display_cursor_line_number, align 4
   %1634 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1633, ptr noundef %1, i32 noundef %1628, i32 noundef 1, i32 noundef 0) #4
-  %1635 = add i32 %.174, 7
+  %1635 = add i32 %.169, 7
   br label %dissect_unistim_message.exit
 
 1636:                                             ; preds = %1548
   %1637 = load i32, ptr @hf_generic_data, align 4
   %1638 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1637, ptr noundef %1, i32 noundef %1552, i32 noundef %1553, i32 noundef 0) #4
-  %1639 = add i32 %.174, %119
+  %1639 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1640:                                             ; preds = %1548
   %1641 = load i32, ptr @hf_generic_data, align 4
   %1642 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1641, ptr noundef %1, i32 noundef %1552, i32 noundef %1553, i32 noundef 0) #4
-  %1643 = add i32 %.174, %119
+  %1643 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1644:                                             ; preds = %1548
@@ -4348,32 +4348,32 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1646 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1645, ptr noundef %1, i32 noundef %1552, i32 noundef 1, i32 noundef 0) #4
   %1647 = load i32, ptr @hf_display_date_format, align 4
   %1648 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1647, ptr noundef %1, i32 noundef %1552, i32 noundef 1, i32 noundef 0) #4
-  %1649 = add i32 %.174, 4
+  %1649 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1650:                                             ; preds = %1548
   %1651 = load i32, ptr @hf_icon_id, align 4
   %1652 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1651, ptr noundef %1, i32 noundef %1552, i32 noundef %1553, i32 noundef 0) #4
-  %1653 = add i32 %.174, 4
+  %1653 = add i32 %.169, 4
   %1654 = add nsw i32 %119, -4
   %1655 = load i32, ptr @hf_broadcast_icon_state, align 4
   %1656 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1655, ptr noundef %1, i32 noundef %1653, i32 noundef %1654, i32 noundef 0) #4
   %1657 = load i32, ptr @hf_broadcast_icon_cadence, align 4
   %1658 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1657, ptr noundef %1, i32 noundef %1653, i32 noundef %1654, i32 noundef 0) #4
-  %1659 = add i32 %.174, 5
+  %1659 = add i32 %.169, 5
   br label %dissect_unistim_message.exit
 
 1660:                                             ; preds = %1548
   %1661 = load i32, ptr @hf_generic_data, align 4
   %1662 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1661, ptr noundef %1, i32 noundef %1552, i32 noundef %1553, i32 noundef 0) #4
-  %1663 = add i32 %.174, %119
+  %1663 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1664:                                             ; preds = %126
   %1665 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %130) #4
   %1666 = load i32, ptr @hf_key_phone_cmd, align 4
   %1667 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1666, ptr noundef %1, i32 noundef %130, i32 noundef 1, i32 noundef 0) #4
-  %1668 = add i32 %.174, 3
+  %1668 = add i32 %.169, 3
   %1669 = add nsw i32 %119, -3
   switch i8 %1665, label %1736 [
     i8 0, label %1670
@@ -4408,13 +4408,13 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1684 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1683, ptr noundef %1, i32 noundef %1668, i32 noundef 1, i32 noundef 0) #4
   %1685 = load i32, ptr @hf_key_command, align 4
   %1686 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1685, ptr noundef %1, i32 noundef %1668, i32 noundef 1, i32 noundef 0) #4
-  %1687 = add i32 %.174, 4
+  %1687 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1688:                                             ; preds = %1664
   %1689 = load i32, ptr @hf_generic_data, align 4
   %1690 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1689, ptr noundef %1, i32 noundef %1668, i32 noundef %1669, i32 noundef 0) #4
-  %1691 = add i32 %.174, %119
+  %1691 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1692:                                             ; preds = %1664
@@ -4434,7 +4434,7 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1700 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1699, ptr noundef %1, i32 noundef %1668, i32 noundef 1, i32 noundef 0) #4
   %1701 = load i32, ptr @hf_keys_soft_keys, align 4
   %1702 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1701, ptr noundef %1, i32 noundef %1668, i32 noundef 1, i32 noundef 0) #4
-  %1703 = add i32 %.174, 4
+  %1703 = add i32 %.169, 4
   %1704 = load i32, ptr @hf_keys_hd_key, align 4
   %1705 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1704, ptr noundef %1, i32 noundef %1703, i32 noundef 1, i32 noundef 0) #4
   %1706 = load i32, ptr @hf_keys_mute_key, align 4
@@ -4445,12 +4445,12 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1711 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1710, ptr noundef %1, i32 noundef %1703, i32 noundef 1, i32 noundef 0) #4
   %1712 = load i32, ptr @hf_keys_mwi_key, align 4
   %1713 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1712, ptr noundef %1, i32 noundef %1703, i32 noundef 1, i32 noundef 0) #4
-  %1714 = add i32 %.174, 5
+  %1714 = add i32 %.169, 5
   %1715 = load i32, ptr @hf_keys_num_nav_keys, align 4
   %1716 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1715, ptr noundef %1, i32 noundef %1714, i32 noundef 1, i32 noundef 0) #4
   %1717 = load i32, ptr @hf_keys_num_conspic_keys, align 4
   %1718 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1717, ptr noundef %1, i32 noundef %1714, i32 noundef 1, i32 noundef 0) #4
-  %1719 = add i32 %.174, 6
+  %1719 = add i32 %.169, 6
   br label %dissect_unistim_message.exit
 
 1720:                                             ; preds = %1664
@@ -4464,26 +4464,26 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1728 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1727, ptr noundef %1, i32 noundef %1668, i32 noundef 1, i32 noundef 0) #4
   %1729 = load i32, ptr @hf_keys_local_dial_feedback, align 4
   %1730 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1729, ptr noundef %1, i32 noundef %1668, i32 noundef 1, i32 noundef 0) #4
-  %1731 = add i32 %.174, 4
+  %1731 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1732:                                             ; preds = %1664
   %1733 = load i32, ptr @hf_generic_data, align 4
   %1734 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1733, ptr noundef %1, i32 noundef %1668, i32 noundef %1669, i32 noundef 0) #4
-  %1735 = add i32 %.174, %119
+  %1735 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1736:                                             ; preds = %1664
   %1737 = load i32, ptr @hf_generic_data, align 4
   %1738 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1737, ptr noundef %1, i32 noundef %1668, i32 noundef %1669, i32 noundef 0) #4
-  %1739 = add i32 %.174, %119
+  %1739 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1740:                                             ; preds = %126
   %1741 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %130) #4
   %1742 = load i32, ptr @hf_basic_phone_cmd, align 4
   %1743 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1742, ptr noundef %1, i32 noundef %130, i32 noundef 1, i32 noundef 0) #4
-  %1744 = add i32 %.174, 3
+  %1744 = add i32 %.169, 3
   %1745 = add nsw i32 %119, -3
   switch i8 %1741, label %1792 [
     i8 0, label %1746
@@ -4502,80 +4502,80 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
 1746:                                             ; preds = %1740
   %1747 = load i32, ptr @hf_basic_phone_eeprom_stat_cksum, align 4
   %1748 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1747, ptr noundef %1, i32 noundef %1744, i32 noundef 1, i32 noundef 0) #4
-  %1749 = add i32 %.174, 4
+  %1749 = add i32 %.169, 4
   %1750 = load i32, ptr @hf_basic_phone_eeprom_dynam, align 4
   %1751 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1750, ptr noundef %1, i32 noundef %1749, i32 noundef 1, i32 noundef 0) #4
-  %1752 = add i32 %.174, 5
+  %1752 = add i32 %.169, 5
   %1753 = load i32, ptr @hf_basic_phone_eeprom_net_config_cksum, align 4
   %1754 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1753, ptr noundef %1, i32 noundef %1752, i32 noundef 1, i32 noundef 0) #4
-  %1755 = add i32 %.174, 6
+  %1755 = add i32 %.169, 6
   br label %dissect_unistim_message.exit
 
 1756:                                             ; preds = %1740
   %1757 = load i32, ptr @hf_basic_switch_options_secure, align 4
   %1758 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1757, ptr noundef %1, i32 noundef %1744, i32 noundef 1, i32 noundef 0) #4
-  %1759 = add i32 %.174, 4
+  %1759 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1760:                                             ; preds = %1740
   %1761 = load i32, ptr @hf_basic_phone_fw_ver, align 4
   %1762 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1761, ptr noundef %1, i32 noundef %1744, i32 noundef %1745, i32 noundef 0) #4
-  %1763 = add i32 %.174, %119
+  %1763 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1764:                                             ; preds = %1740
   %1765 = load i32, ptr @hf_basic_it_type, align 4
   %1766 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1765, ptr noundef %1, i32 noundef %1744, i32 noundef 1, i32 noundef 0) #4
-  %1767 = add i32 %.174, 4
+  %1767 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1768:                                             ; preds = %1740
   %1769 = load i32, ptr @hf_basic_phone_hw_id, align 4
   %1770 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1769, ptr noundef %1, i32 noundef %1744, i32 noundef %1745, i32 noundef 0) #4
-  %1771 = add i32 %.174, %119
+  %1771 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1772:                                             ; preds = %1740
   %1773 = load i32, ptr @hf_basic_prod_eng_code, align 4
   %1774 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1773, ptr noundef %1, i32 noundef %1744, i32 noundef %1745, i32 noundef 0) #4
-  %1775 = add i32 %.174, %119
+  %1775 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1776:                                             ; preds = %1740
   %1777 = load i32, ptr @hf_generic_data, align 4
   %1778 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1777, ptr noundef %1, i32 noundef %1744, i32 noundef %1745, i32 noundef 0) #4
-  %1779 = add i32 %.174, %119
+  %1779 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1780:                                             ; preds = %1740
   %1781 = load i32, ptr @hf_generic_data, align 4
   %1782 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1781, ptr noundef %1, i32 noundef %1744, i32 noundef %1745, i32 noundef 0) #4
-  %1783 = add i32 %.174, %119
+  %1783 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1784:                                             ; preds = %1740
   %1785 = load i32, ptr @hf_basic_ether_address, align 4
   %1786 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1785, ptr noundef %1, i32 noundef %1744, i32 noundef %1745, i32 noundef 0) #4
-  %1787 = add i32 %.174, %119
+  %1787 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1788:                                             ; preds = %1740
   %1789 = load i32, ptr @hf_generic_string, align 4
   %1790 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1789, ptr noundef %1, i32 noundef %1744, i32 noundef %1745, i32 noundef 0) #4
-  %1791 = add i32 %.174, %119
+  %1791 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1792:                                             ; preds = %1740
   %1793 = load i32, ptr @hf_generic_data, align 4
   %1794 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1793, ptr noundef %1, i32 noundef %1744, i32 noundef %1745, i32 noundef 0) #4
-  %1795 = add i32 %.174, %119
+  %1795 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1796:                                             ; preds = %126
   %1797 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %130) #4
   %1798 = load i32, ptr @hf_network_phone_cmd, align 4
   %1799 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1798, ptr noundef %1, i32 noundef %130, i32 noundef 1, i32 noundef 0) #4
-  %1800 = add i32 %.174, 3
+  %1800 = add i32 %.169, 3
   %1801 = add nsw i32 %119, -3
   switch i8 %1797, label %1863 [
     i8 0, label %dissect_unistim_message.exit
@@ -4594,7 +4594,7 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
 1802:                                             ; preds = %1796
   %1803 = load i32, ptr @hf_generic_data, align 4
   %1804 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1803, ptr noundef %1, i32 noundef %1800, i32 noundef %1801, i32 noundef 0) #4
-  %1805 = add i32 %.174, %119
+  %1805 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1806:                                             ; preds = %1796
@@ -4612,13 +4612,13 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1818 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1817, ptr noundef %1, i32 noundef %1800, i32 noundef 1, i32 noundef 0) #4
   %1819 = load i32, ptr @hf_net_phone_eeprom_unsafe_flag, align 4
   %1820 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1819, ptr noundef %1, i32 noundef %1800, i32 noundef 1, i32 noundef 0) #4
-  %1821 = add i32 %.174, 4
+  %1821 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1822:                                             ; preds = %1796
   %1823 = load i32, ptr @hf_generic_data, align 4
   %1824 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1823, ptr noundef %1, i32 noundef %1800, i32 noundef %1801, i32 noundef 0) #4
-  %1825 = add i32 %.174, %119
+  %1825 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1826:                                             ; preds = %1796
@@ -4626,19 +4626,19 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1828 = call ptr @proto_tree_add_boolean(ptr noundef %113, i32 noundef %1827, ptr noundef %1, i32 noundef %1800, i32 noundef 1, i64 noundef 0) #4
   %1829 = load i32, ptr @hf_net_phone_rudp, align 4
   %1830 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1829, ptr noundef %1, i32 noundef %1800, i32 noundef 1, i32 noundef 0) #4
-  %1831 = add i32 %.174, 4
+  %1831 = add i32 %.169, 4
   br label %dissect_unistim_message.exit
 
 1832:                                             ; preds = %1796
   %1833 = load i32, ptr @hf_generic_data, align 4
   %1834 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1833, ptr noundef %1, i32 noundef %1800, i32 noundef %1801, i32 noundef 0) #4
-  %1835 = add i32 %.174, %119
+  %1835 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1836:                                             ; preds = %1796
   %1837 = load i32, ptr @hf_net_phone_primary_server_id, align 4
   %1838 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1837, ptr noundef %1, i32 noundef %1800, i32 noundef 1, i32 noundef 0) #4
-  %1839 = add i32 %.174, 4
+  %1839 = add i32 %.169, 4
   %1840 = add nsw i32 %119, -13
   %1841 = icmp ult i32 %1840, -9
   br i1 %1841, label %.lr.ph.preheader.i, label %dissect_unistim_message.exit
@@ -4676,20 +4676,20 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
 1863:                                             ; preds = %1796
   %1864 = load i32, ptr @hf_generic_data, align 4
   %1865 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1864, ptr noundef %1, i32 noundef %1800, i32 noundef %1801, i32 noundef 0) #4
-  %1866 = add i32 %.174, %119
+  %1866 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
 1867:                                             ; preds = %126
   %1868 = load i32, ptr @hf_generic_data, align 4
   %1869 = add nsw i32 %119, -2
   %1870 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %1868, ptr noundef %1, i32 noundef %130, i32 noundef %1869, i32 noundef 0) #4
-  %1871 = add i32 %.174, %119
+  %1871 = add i32 %.169, %119
   br label %dissect_unistim_message.exit
 
-dissect_unistim_message.exit:                     ; preds = %.lr.ph.i, %1543, %.lr.ph330.i, %.lr.ph335.i, %.lr.ph.i42, %.lr.ph.i44, %.lr.ph608.i, %1863, %1836, %1832, %1826, %1822, %1806, %1802, %1796, %1796, %1796, %1796, %1796, %1792, %1788, %1784, %1780, %1776, %1772, %1768, %1764, %1760, %1756, %1746, %1740, %1736, %1732, %1720, %1698, %1695, %1692, %1688, %1670, %1664, %1664, %1664, %1664, %1660, %1650, %1644, %1640, %1636, %1630, %1610, %1593, %1589, %1554, %1548, %1548, %1544, %1521, %1478, %1465, %1446, %1439, %1429, %1425, %1421, %1415, %1397, %1379, %1367, %1351, %1342, %1339, %1336, %1333, %1330, %1327, %1324, %1318, %1294, %1290, %1286, %1279, %1275, %1271, %1267, %1237, %1233, %1229, %1210, %1206, %1202, %1194, %1178, %1172, %1172, %1168, %1164, %1160, %1154, %1147, %1143, %1125, %1119, %1115, %1111, %1100, %1092, %1088, %1077, %1073, %1066, %1057, %1045, %1041, %1033, %.preheader.i, %1027, %1027, %1027, %1027, %1027, %1023, %1019, %1015, %1005, %996, %987, %976, %964, %960, %956, %926, %918, %914, %901, %900, %825, %809, %805, %792, %788, %784, %776, %773, %745, %737, %736, %645, %641, %637, %622, %618, %614, %.preheader.i46, %606, %606, %606, %606, %606, %606, %213, %209, %173, %165, %159, %159, %121, %126, %dissect_expansion_switch.exit.i, %dissect_audio_switch.exit, %dissect_expansion_phone.exit.i, %1313, %1867
-  %.0.i33 = phi i32 [ %125, %121 ], [ %1871, %1867 ], [ %1317, %1313 ], [ %1312, %dissect_expansion_phone.exit.i ], [ %.6.i50, %dissect_audio_switch.exit ], [ %158, %dissect_expansion_switch.exit.i ], [ %130, %126 ], [ %216, %213 ], [ %212, %209 ], [ %208, %173 ], [ %172, %165 ], [ %163, %159 ], [ %163, %159 ], [ %1026, %1023 ], [ %1022, %1019 ], [ %1018, %1015 ], [ %1004, %996 ], [ %995, %987 ], [ %986, %976 ], [ %975, %964 ], [ %963, %960 ], [ %944, %926 ], [ %959, %956 ], [ %925, %918 ], [ %917, %914 ], [ %907, %901 ], [ %.7.i, %900 ], [ %830, %825 ], [ %812, %809 ], [ %808, %805 ], [ %804, %792 ], [ %791, %788 ], [ %787, %784 ], [ %753, %745 ], [ %774, %773 ], [ %783, %776 ], [ %744, %737 ], [ %.2.i, %736 ], [ %648, %645 ], [ %644, %641 ], [ %640, %637 ], [ %636, %622 ], [ %621, %618 ], [ %617, %614 ], [ %612, %606 ], [ %612, %606 ], [ %612, %606 ], [ %612, %606 ], [ %612, %606 ], [ %612, %606 ], [ %612, %.preheader.i46 ], [ %.10600.i, %1005 ], [ %1118, %1115 ], [ %1114, %1111 ], [ %1110, %1100 ], [ %1099, %1092 ], [ %1091, %1088 ], [ %1080, %1077 ], [ %1076, %1073 ], [ %1072, %1066 ], [ %1065, %1057 ], [ %1056, %1045 ], [ %1044, %1041 ], [ %1031, %1027 ], [ %1031, %1027 ], [ %1031, %1027 ], [ %1031, %1027 ], [ %1031, %1027 ], [ %1040, %1033 ], [ %1031, %.preheader.i ], [ %1171, %1168 ], [ %1123, %1119 ], [ %1167, %1164 ], [ %1163, %1160 ], [ %1159, %1154 ], [ %1153, %1147 ], [ %1146, %1143 ], [ %1142, %1125 ], [ %1297, %1294 ], [ %1293, %1290 ], [ %1289, %1286 ], [ %1285, %1279 ], [ %1278, %1275 ], [ %1274, %1271 ], [ %1270, %1267 ], [ %1266, %1237 ], [ %1236, %1233 ], [ %1232, %1229 ], [ %1228, %1210 ], [ %1209, %1206 ], [ %1205, %1202 ], [ %1201, %1194 ], [ %1193, %1178 ], [ %1176, %1172 ], [ %1176, %1172 ], [ %1547, %1544 ], [ %1322, %1318 ], [ %1476, %1465 ], [ %1464, %1446 ], [ %1445, %1439 ], [ %1438, %1429 ], [ %1428, %1425 ], [ %1424, %1421 ], [ %1420, %1415 ], [ %1414, %1397 ], [ %1396, %1379 ], [ %1378, %1367 ], [ %1366, %1351 ], [ %1322, %1339 ], [ %1322, %1336 ], [ %1322, %1333 ], [ %1322, %1330 ], [ %1322, %1327 ], [ %1322, %1324 ], [ %1345, %1342 ], [ %1515, %1478 ], [ %1524, %1521 ], [ %1663, %1660 ], [ %1552, %1548 ], [ %1552, %1548 ], [ %1659, %1650 ], [ %1649, %1644 ], [ %1643, %1640 ], [ %1639, %1636 ], [ %1635, %1630 ], [ %1628, %1610 ], [ %1609, %1593 ], [ %1592, %1589 ], [ %1588, %1554 ], [ %1739, %1736 ], [ %1735, %1732 ], [ %1731, %1720 ], [ %1719, %1698 ], [ %1668, %1664 ], [ %1668, %1664 ], [ %1668, %1664 ], [ %1668, %1664 ], [ %1668, %1695 ], [ %1668, %1692 ], [ %1691, %1688 ], [ %1687, %1670 ], [ %1795, %1792 ], [ %1744, %1740 ], [ %1791, %1788 ], [ %1787, %1784 ], [ %1783, %1780 ], [ %1779, %1776 ], [ %1775, %1772 ], [ %1771, %1768 ], [ %1767, %1764 ], [ %1763, %1760 ], [ %1759, %1756 ], [ %1755, %1746 ], [ %1866, %1863 ], [ %1835, %1832 ], [ %1831, %1826 ], [ %1825, %1822 ], [ %1821, %1806 ], [ %1805, %1802 ], [ %1800, %1796 ], [ %1800, %1796 ], [ %1800, %1796 ], [ %1800, %1796 ], [ %1800, %1796 ], [ %1839, %1836 ], [ %912, %.lr.ph608.i ], [ %.10.i, %.lr.ph.i44 ], [ %1086, %.lr.ph.i42 ], [ %1349, %.lr.ph335.i ], [ %1519, %.lr.ph330.i ], [ %.3.i, %1543 ], [ %1861, %.lr.ph.i ]
+dissect_unistim_message.exit:                     ; preds = %.lr.ph.i, %1543, %.lr.ph330.i, %.lr.ph335.i, %.lr.ph.i41, %.lr.ph.i43, %.lr.ph608.i, %1863, %1836, %1832, %1826, %1822, %1806, %1802, %1796, %1796, %1796, %1796, %1796, %1792, %1788, %1784, %1780, %1776, %1772, %1768, %1764, %1760, %1756, %1746, %1740, %1736, %1732, %1720, %1698, %1695, %1692, %1688, %1670, %1664, %1664, %1664, %1664, %1660, %1650, %1644, %1640, %1636, %1630, %1610, %1593, %1589, %1554, %1548, %1548, %1544, %1521, %1478, %1465, %1446, %1439, %1429, %1425, %1421, %1415, %1397, %1379, %1367, %1351, %1342, %1339, %1336, %1333, %1330, %1327, %1324, %1318, %1294, %1290, %1286, %1279, %1275, %1271, %1267, %1237, %1233, %1229, %1210, %1206, %1202, %1194, %1178, %1172, %1172, %1168, %1164, %1160, %1154, %1147, %1143, %1125, %1119, %1115, %1111, %1100, %1092, %1088, %1077, %1073, %1066, %1057, %1045, %1041, %1033, %.preheader.i, %1027, %1027, %1027, %1027, %1027, %1023, %1019, %1015, %1005, %996, %987, %976, %964, %960, %956, %926, %918, %914, %901, %900, %825, %809, %805, %792, %788, %784, %776, %773, %745, %737, %736, %645, %641, %637, %622, %618, %614, %.preheader.i45, %606, %606, %606, %606, %606, %606, %213, %209, %173, %165, %159, %159, %121, %126, %dissect_expansion_switch.exit.i, %dissect_audio_switch.exit, %dissect_expansion_phone.exit.i, %1313, %1867
+  %.089.i = phi i32 [ %125, %121 ], [ %1871, %1867 ], [ %1317, %1313 ], [ %1312, %dissect_expansion_phone.exit.i ], [ %.6.i46, %dissect_audio_switch.exit ], [ %158, %dissect_expansion_switch.exit.i ], [ %130, %126 ], [ %216, %213 ], [ %212, %209 ], [ %208, %173 ], [ %172, %165 ], [ %163, %159 ], [ %163, %159 ], [ %1026, %1023 ], [ %1022, %1019 ], [ %1018, %1015 ], [ %1004, %996 ], [ %995, %987 ], [ %986, %976 ], [ %975, %964 ], [ %963, %960 ], [ %944, %926 ], [ %959, %956 ], [ %925, %918 ], [ %917, %914 ], [ %907, %901 ], [ %.7569.i, %900 ], [ %830, %825 ], [ %812, %809 ], [ %808, %805 ], [ %804, %792 ], [ %791, %788 ], [ %787, %784 ], [ %753, %745 ], [ %774, %773 ], [ %783, %776 ], [ %744, %737 ], [ %.2564.i, %736 ], [ %648, %645 ], [ %644, %641 ], [ %640, %637 ], [ %636, %622 ], [ %621, %618 ], [ %617, %614 ], [ %612, %606 ], [ %612, %606 ], [ %612, %606 ], [ %612, %606 ], [ %612, %606 ], [ %612, %606 ], [ %612, %.preheader.i45 ], [ %.10572600.i, %1005 ], [ %1118, %1115 ], [ %1114, %1111 ], [ %1110, %1100 ], [ %1099, %1092 ], [ %1091, %1088 ], [ %1080, %1077 ], [ %1076, %1073 ], [ %1072, %1066 ], [ %1065, %1057 ], [ %1056, %1045 ], [ %1044, %1041 ], [ %1031, %1027 ], [ %1031, %1027 ], [ %1031, %1027 ], [ %1031, %1027 ], [ %1031, %1027 ], [ %1040, %1033 ], [ %1031, %.preheader.i ], [ %1171, %1168 ], [ %1123, %1119 ], [ %1167, %1164 ], [ %1163, %1160 ], [ %1159, %1154 ], [ %1153, %1147 ], [ %1146, %1143 ], [ %1142, %1125 ], [ %1297, %1294 ], [ %1293, %1290 ], [ %1289, %1286 ], [ %1285, %1279 ], [ %1278, %1275 ], [ %1274, %1271 ], [ %1270, %1267 ], [ %1266, %1237 ], [ %1236, %1233 ], [ %1232, %1229 ], [ %1228, %1210 ], [ %1209, %1206 ], [ %1205, %1202 ], [ %1201, %1194 ], [ %1193, %1178 ], [ %1176, %1172 ], [ %1176, %1172 ], [ %1547, %1544 ], [ %1322, %1318 ], [ %1476, %1465 ], [ %1464, %1446 ], [ %1445, %1439 ], [ %1438, %1429 ], [ %1428, %1425 ], [ %1424, %1421 ], [ %1420, %1415 ], [ %1414, %1397 ], [ %1396, %1379 ], [ %1378, %1367 ], [ %1366, %1351 ], [ %1322, %1339 ], [ %1322, %1336 ], [ %1322, %1333 ], [ %1322, %1330 ], [ %1322, %1327 ], [ %1322, %1324 ], [ %1345, %1342 ], [ %1515, %1478 ], [ %1524, %1521 ], [ %1663, %1660 ], [ %1552, %1548 ], [ %1552, %1548 ], [ %1659, %1650 ], [ %1649, %1644 ], [ %1643, %1640 ], [ %1639, %1636 ], [ %1635, %1630 ], [ %1628, %1610 ], [ %1609, %1593 ], [ %1592, %1589 ], [ %1588, %1554 ], [ %1739, %1736 ], [ %1735, %1732 ], [ %1731, %1720 ], [ %1719, %1698 ], [ %1668, %1664 ], [ %1668, %1664 ], [ %1668, %1664 ], [ %1668, %1664 ], [ %1668, %1695 ], [ %1668, %1692 ], [ %1691, %1688 ], [ %1687, %1670 ], [ %1795, %1792 ], [ %1744, %1740 ], [ %1791, %1788 ], [ %1787, %1784 ], [ %1783, %1780 ], [ %1779, %1776 ], [ %1775, %1772 ], [ %1771, %1768 ], [ %1767, %1764 ], [ %1763, %1760 ], [ %1759, %1756 ], [ %1755, %1746 ], [ %1866, %1863 ], [ %1835, %1832 ], [ %1831, %1826 ], [ %1825, %1822 ], [ %1821, %1806 ], [ %1805, %1802 ], [ %1800, %1796 ], [ %1800, %1796 ], [ %1800, %1796 ], [ %1800, %1796 ], [ %1800, %1796 ], [ %1839, %1836 ], [ %912, %.lr.ph608.i ], [ %.10572.i, %.lr.ph.i43 ], [ %1086, %.lr.ph.i41 ], [ %1349, %.lr.ph335.i ], [ %1519, %.lr.ph330.i ], [ %.3.i, %1543 ], [ %1861, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %1872 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.0.i33) #4
+  %1872 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.089.i) #4
   %1873 = icmp sgt i32 %1872, 0
   br i1 %1873, label %111, label %.loopexit, !llvm.loop !16
 

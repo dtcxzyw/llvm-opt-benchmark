@@ -1476,8 +1476,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4laz
   br label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h0b5d3dee7dde3dbaE.llvm.3890463254259644073.exit"
 
 "_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h0b5d3dee7dde3dbaE.llvm.3890463254259644073.exit": ; preds = %3, %5
-  %.sroa.0.0.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i, %3 ]
   %.sroa.3.0.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i, %3 ]
+  %.sroa.0.0.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i, %3 ]
   store i64 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.0.i, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1508,8 +1508,8 @@ define hidden { i64, i64 } @"_ZN3std4hash6random11RandomState3new4KEYS7__getit28
   br label %8
 
 8:                                                ; preds = %2, %4
-  %.sroa.0.0 = phi i64 [ %6, %4 ], [ %.sroa.5.0.copyload, %2 ]
   %.sroa.3.0 = phi i64 [ %7, %4 ], [ %.sroa.6.0.copyload, %2 ]
+  %.sroa.0.0 = phi i64 [ %6, %4 ], [ %.sroa.5.0.copyload, %2 ]
   %9 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
   ret { i64, i64 } %10
@@ -16792,8 +16792,8 @@ define internal fastcc noundef ptr @"_ZN5image6codecs3bmp7encoder19BmpEncoder$LT
   br label %"_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.thread"
 
 "_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.thread": ; preds = %"_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.loopexit", %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit, %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f2fd16ffa1bc2fdE.llvm.3890463254259644073.exit.thread", %99, %49
-  %.047 = phi ptr [ %42, %49 ], [ %60, %99 ], [ null, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f2fd16ffa1bc2fdE.llvm.3890463254259644073.exit.thread" ], [ %.0.i.i.i, %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit.i ], [ %.0.i.i, %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit ], [ null, %"_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.loopexit" ]
-  ret ptr %.047
+  %.046 = phi ptr [ %42, %49 ], [ %60, %99 ], [ null, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6f2fd16ffa1bc2fdE.llvm.3890463254259644073.exit.thread" ], [ %.0.i.i.i, %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit.i ], [ %.0.i.i, %_ZN9byteorder2io13WriteBytesExt8write_u817hf18017800f91b34aE.exit ], [ null, %"_ZN5image6codecs3bmp7encoder19BmpEncoder$LT$W$GT$13write_row_pad17ha28e3b1f9f8088deE.exit.loopexit" ]
+  ret ptr %.046
 
 50:                                               ; preds = %.preheader, %98
   %.sroa.62.034 = phi i8 [ 0, %.preheader ], [ %51, %98 ]
@@ -29780,8 +29780,8 @@ switch.lookup226:                                 ; preds = %60
   %89 = extractvalue { i64, i1 } %88, 1
   %90 = extractvalue { i64, i1 } %88, 0
   %91 = icmp ugt i64 %90, %3
-  %.04.i.not.i = or i1 %89, %91
-  br i1 %.04.i.not.i, label %.thread.i, label %92
+  %.0.i.not.i = or i1 %89, %91
+  br i1 %.0.i.not.i, label %.thread.i, label %92
 
 92:                                               ; preds = %87
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %30), !noalias !4765
@@ -32826,16 +32826,16 @@ switch.lookup226:                                 ; preds = %60
   br i1 %exitcond1646.not.i, label %.loopexit1451.i, label %.lr.ph1521.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.sroa.7948.01518.i = phi i64 [ %1490, %.lr.ph.i ], [ %394, %.lr.ph.preheader.i ]
-  %.sroa.4947.01517.i = phi ptr [ %1489, %.lr.ph.i ], [ %396, %.lr.ph.preheader.i ]
-  %1489 = getelementptr inbounds i8, ptr %.sroa.4947.01517.i, i64 4
-  %1490 = add i64 %.sroa.7948.01518.i, -4
-  %1491 = load i8, ptr %.sroa.4947.01517.i, align 1, !noalias !4760, !noundef !4
-  %1492 = getelementptr inbounds i8, ptr %.sroa.4947.01517.i, i64 1
+  %.sroa.4947.01518.i = phi ptr [ %1489, %.lr.ph.i ], [ %396, %.lr.ph.preheader.i ]
+  %.sroa.7948.01517.i = phi i64 [ %1490, %.lr.ph.i ], [ %394, %.lr.ph.preheader.i ]
+  %1489 = getelementptr inbounds i8, ptr %.sroa.4947.01518.i, i64 4
+  %1490 = add i64 %.sroa.7948.01517.i, -4
+  %1491 = load i8, ptr %.sroa.4947.01518.i, align 1, !noalias !4760, !noundef !4
+  %1492 = getelementptr inbounds i8, ptr %.sroa.4947.01518.i, i64 1
   %1493 = load i8, ptr %1492, align 1, !noalias !4760, !noundef !4
   %1494 = sub i8 %1491, %1493
-  store i8 %1494, ptr %.sroa.4947.01517.i, align 1, !noalias !4760
-  %1495 = getelementptr inbounds i8, ptr %.sroa.4947.01517.i, i64 2
+  store i8 %1494, ptr %.sroa.4947.01518.i, align 1, !noalias !4760
+  %1495 = getelementptr inbounds i8, ptr %.sroa.4947.01518.i, i64 2
   %1496 = load i8, ptr %1495, align 1, !noalias !4760, !noundef !4
   %1497 = sub i8 %1496, %1493
   store i8 %1497, ptr %1495, align 1, !noalias !4760
@@ -33745,10 +33745,10 @@ define hidden void @_ZN5image5utils11expand_bits17h1ac1b81ed26fb6c4E(ptr noalias
 42:                                               ; preds = %.lr.ph, %66
   %43 = phi i64 [ %39, %.lr.ph ], [ %67, %66 ]
   %.133 = phi i64 [ %.0935, %.lr.ph ], [ %68, %66 ]
-  %.sroa.518.032 = phi i8 [ 1, %.lr.ph ], [ %spec.select26, %66 ]
-  %44 = icmp ult i8 %.sroa.518.032, %26
+  %.sroa.518.031 = phi i8 [ 1, %.lr.ph ], [ %spec.select, %66 ]
+  %44 = icmp ult i8 %.sroa.518.031, %26
   %45 = zext i1 %44 to i8
-  %spec.select26 = add nuw i8 %.sroa.518.032, %45
+  %spec.select = add nuw i8 %.sroa.518.031, %45
   %46 = urem i64 %.133, %24
   %47 = icmp ult i64 %46, %25
   br i1 %47, label %49, label %66
@@ -33758,7 +33758,7 @@ define hidden void @_ZN5image5utils11expand_bits17h1ac1b81ed26fb6c4E(ptr noalias
           to label %41 unwind label %.loopexit.split-lp
 
 49:                                               ; preds = %42
-  %50 = mul i8 %.sroa.518.032, %1
+  %50 = mul i8 %.sroa.518.031, %1
   %51 = sub i8 0, %50
   %52 = and i8 %51, 7
   %53 = shl i8 %9, %52
@@ -33791,7 +33791,7 @@ define hidden void @_ZN5image5utils11expand_bits17h1ac1b81ed26fb6c4E(ptr noalias
 66:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.exit", %42
   %67 = phi i64 [ %65, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.exit" ], [ %43, %42 ]
   %68 = add i64 %.133, 1
-  %.not.i = icmp ule i8 %spec.select26, %26
+  %.not.i = icmp ule i8 %spec.select, %26
   %or.cond.not = select i1 %44, i1 %.not.i, i1 false
   br i1 %or.cond.not, label %42, label %..loopexit_crit_edge
 

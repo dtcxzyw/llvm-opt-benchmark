@@ -744,7 +744,7 @@ _ZN7QStringD2Ev.exit92:                           ; preds = %_ZN7QStringD2Ev.exi
 118:                                              ; preds = %117, %61
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %117 ], [ %62, %61 ]
   %.3 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 0
-  %.340 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
+  %.341 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
   br label %374
 
@@ -923,9 +923,9 @@ _ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit: ; preds = %141
 176:                                              ; preds = %174, %172
   %.pn60 = phi { ptr, i32 } [ %175, %174 ], [ %173, %172 ]
   %.4 = extractvalue { ptr, i32 } %.pn60, 0
-  %.441 = extractvalue { ptr, i32 } %.pn60, 1
+  %.442 = extractvalue { ptr, i32 } %.pn60, 1
   %177 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI11MLException) #20
-  %178 = icmp eq i32 %.441, %177
+  %178 = icmp eq i32 %.442, %177
   br i1 %178, label %179, label %_ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit181
 
 179:                                              ; preds = %176
@@ -1575,7 +1575,7 @@ _ZN7QStringD2Ev.exit178:                          ; preds = %_ZNSt10unique_ptrI1
 
 _ZNKSt14default_deleteI10MainWindowEclEPS0_.exit.i180: ; preds = %270, %356, %.thread239
   %lpad.thr_comm.pn = phi { ptr, i32 } [ %lpad.thr_comm, %.thread239 ], [ %271, %270 ], [ %.pn67.pn, %356 ]
-  %.1148236 = extractvalue { ptr, i32 } %lpad.thr_comm.pn, 1
+  %.1149236 = extractvalue { ptr, i32 } %lpad.thr_comm.pn, 1
   %.11237 = extractvalue { ptr, i32 } %lpad.thr_comm.pn, 0
   %368 = load ptr, ptr %140, align 8
   %369 = getelementptr inbounds i8, ptr %368, i64 32
@@ -1584,19 +1584,19 @@ _ZNKSt14default_deleteI10MainWindowEclEPS0_.exit.i180: ; preds = %270, %356, %.t
   br label %_ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit181
 
 _ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit181: ; preds = %176, %182, %_ZNKSt14default_deleteI10MainWindowEclEPS0_.exit.i180, %365, %168
-  %.1249 = phi i32 [ %171, %168 ], [ %367, %365 ], [ %.1148236, %_ZNKSt14default_deleteI10MainWindowEclEPS0_.exit.i180 ], [ %.441, %176 ], [ %185, %182 ]
+  %.1250 = phi i32 [ %171, %168 ], [ %367, %365 ], [ %.1149236, %_ZNKSt14default_deleteI10MainWindowEclEPS0_.exit.i180 ], [ %.442, %176 ], [ %185, %182 ]
   %.12 = phi ptr [ %170, %168 ], [ %366, %365 ], [ %.11237, %_ZNKSt14default_deleteI10MainWindowEclEPS0_.exit.i180 ], [ %.4, %176 ], [ %184, %182 ]
   call void @_ZN9QGLFormatD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #20
   br label %371
 
 371:                                              ; preds = %_ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit181, %164, %160
-  %.1350 = phi i32 [ %.1249, %_ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit181 ], [ %163, %160 ], [ %167, %164 ]
+  %.1351 = phi i32 [ %.1250, %_ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit181 ], [ %163, %160 ], [ %167, %164 ]
   %.13 = phi ptr [ %.12, %_ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit181 ], [ %162, %160 ], [ %166, %164 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #20
   br label %372
 
 372:                                              ; preds = %371, %156, %152, %148
-  %.1451 = phi i32 [ %.1350, %371 ], [ %151, %148 ], [ %159, %156 ], [ %155, %152 ]
+  %.1452 = phi i32 [ %.1351, %371 ], [ %151, %148 ], [ %159, %156 ], [ %155, %152 ]
   %.14 = phi ptr [ %.13, %371 ], [ %150, %148 ], [ %158, %156 ], [ %154, %152 ]
   call void @_ZN12QApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #20
   br label %374
@@ -1606,10 +1606,10 @@ _ZNSt10unique_ptrI10MainWindowSt14default_deleteIS0_EED2Ev.exit181: ; preds = %1
   ret i32 %.2
 
 374:                                              ; preds = %372, %118
-  %.1552 = phi i32 [ %.1451, %372 ], [ %.340, %118 ]
+  %.1553 = phi i32 [ %.1452, %372 ], [ %.341, %118 ]
   %.15 = phi ptr [ %.14, %372 ], [ %.3, %118 ]
   %375 = insertvalue { ptr, i32 } poison, ptr %.15, 0
-  %376 = insertvalue { ptr, i32 } %375, i32 %.1552, 1
+  %376 = insertvalue { ptr, i32 } %375, i32 %.1553, 1
   resume { ptr, i32 } %376
 
 377:                                              ; preds = %182

@@ -64,14 +64,14 @@ define void @_ZNK5ZXing12BinaryBitmap8binarizeEh(ptr dead_on_unwind noalias nonn
   br label %.lr.ph49
 
 .lr.ph49:                                         ; preds = %.lr.ph49.preheader, %.lr.ph49
-  %.02048 = phi ptr [ %28, %.lr.ph49 ], [ %24, %.lr.ph49.preheader ]
-  %.02147 = phi ptr [ %27, %.lr.ph49 ], [ %18, %.lr.ph49.preheader ]
-  %25 = load i8, ptr %.02147, align 1
+  %.02048 = phi ptr [ %27, %.lr.ph49 ], [ %18, %.lr.ph49.preheader ]
+  %.02147 = phi ptr [ %28, %.lr.ph49 ], [ %24, %.lr.ph49.preheader ]
+  %25 = load i8, ptr %.02048, align 1
   %.not22 = icmp ule i8 %25, %2
   %26 = sext i1 %.not22 to i8
-  store i8 %26, ptr %.02048, align 1
-  %27 = getelementptr inbounds i8, ptr %.02147, i64 1
-  %28 = getelementptr inbounds i8, ptr %.02048, i64 1
+  store i8 %26, ptr %.02147, align 1
+  %27 = getelementptr inbounds i8, ptr %.02048, i64 1
+  %28 = getelementptr inbounds i8, ptr %.02147, i64 1
   %.not = icmp eq ptr %27, %22
   br i1 %.not, label %.loopexit, label %.lr.ph49, !llvm.loop !4
 
@@ -506,8 +506,8 @@ define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr nocapture noundef nonnull align
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %13, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -1
-  %.02412.i = getelementptr inbounds i8, ptr %16, i64 1
-  %.not13.i = icmp eq ptr %.02412.i, %23
+  %.02312.i = getelementptr inbounds i8, ptr %16, i64 1
+  %.not13.i = icmp eq ptr %.02312.i, %23
   br i1 %.not13.i, label %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit", label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %7
@@ -521,22 +521,22 @@ define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr nocapture noundef nonnull align
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %42, %.preheader.preheader.i
-  %.02417.i = phi ptr [ %.024.i, %42 ], [ %.02412.i, %.preheader.preheader.i ]
-  %.02316.i = phi ptr [ %44, %42 ], [ %.val6, %.preheader.preheader.i ]
-  %.02515.i = phi ptr [ %46, %42 ], [ %26, %.preheader.preheader.i ]
-  %.02614.i = phi ptr [ %45, %42 ], [ %28, %.preheader.preheader.i ]
+  %.02317.i = phi ptr [ %.023.i, %42 ], [ %.02312.i, %.preheader.preheader.i ]
+  %.02416.i = phi ptr [ %46, %42 ], [ %26, %.preheader.preheader.i ]
+  %.02515.i = phi ptr [ %45, %42 ], [ %28, %.preheader.preheader.i ]
+  %.02614.i = phi ptr [ %44, %42 ], [ %.val6, %.preheader.preheader.i ]
   br label %29
 
 29:                                               ; preds = %29, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %29 ]
   %.02210.i = phi i32 [ 0, %.preheader.i ], [ %41, %29 ]
-  %30 = getelementptr inbounds i8, ptr %.02316.i, i64 %indvars.iv.i
+  %30 = getelementptr inbounds i8, ptr %.02614.i, i64 %indvars.iv.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds i8, ptr %.02614.i, i64 %indvars.iv.i
+  %33 = getelementptr inbounds i8, ptr %.02515.i, i64 %indvars.iv.i
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %.02515.i, i64 %indvars.iv.i
+  %36 = getelementptr inbounds i8, ptr %.02416.i, i64 %indvars.iv.i
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   %39 = add nuw nsw i32 %.02210.i, %32
@@ -549,12 +549,12 @@ define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr nocapture noundef nonnull align
 42:                                               ; preds = %29
   %.not9.i = icmp ne i32 %41, 0
   %43 = sext i1 %.not9.i to i8
-  store i8 %43, ptr %.02417.i, align 1
-  %44 = getelementptr inbounds i8, ptr %.02316.i, i64 1
-  %45 = getelementptr inbounds i8, ptr %.02614.i, i64 1
-  %46 = getelementptr inbounds i8, ptr %.02515.i, i64 1
-  %.024.i = getelementptr inbounds i8, ptr %.02417.i, i64 1
-  %.not.i = icmp eq ptr %.024.i, %23
+  store i8 %43, ptr %.02317.i, align 1
+  %44 = getelementptr inbounds i8, ptr %.02614.i, i64 1
+  %45 = getelementptr inbounds i8, ptr %.02515.i, i64 1
+  %46 = getelementptr inbounds i8, ptr %.02416.i, i64 1
+  %.023.i = getelementptr inbounds i8, ptr %.02317.i, i64 1
+  %.not.i = icmp eq ptr %.023.i, %23
   br i1 %.not.i, label %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit.loopexit", label %.preheader.i, !llvm.loop !8
 
 "_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit.loopexit": ; preds = %42
@@ -573,8 +573,8 @@ define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr nocapture noundef nonnull align
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds i8, ptr %47, i64 %54
   %56 = getelementptr inbounds i8, ptr %55, i64 -1
-  %.02411.i = getelementptr inbounds i8, ptr %50, i64 1
-  %.not12.i = icmp eq ptr %.02411.i, %56
+  %.02311.i = getelementptr inbounds i8, ptr %50, i64 1
+  %.not12.i = icmp eq ptr %.02311.i, %56
   br i1 %.not12.i, label %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_1EEvRKNS_9BitMatrixERS3_T_.exit", label %.preheader.preheader.i9
 
 .preheader.preheader.i9:                          ; preds = %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit"
@@ -587,22 +587,22 @@ define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr nocapture noundef nonnull align
   br label %.preheader.i10
 
 .preheader.i10:                                   ; preds = %75, %.preheader.preheader.i9
-  %.02416.i = phi ptr [ %.024.i14, %75 ], [ %.02411.i, %.preheader.preheader.i9 ]
-  %.02315.i = phi ptr [ %78, %75 ], [ %.pre20, %.preheader.preheader.i9 ]
-  %.02514.i = phi ptr [ %80, %75 ], [ %59, %.preheader.preheader.i9 ]
-  %.02613.i = phi ptr [ %79, %75 ], [ %61, %.preheader.preheader.i9 ]
+  %.02316.i = phi ptr [ %.023.i14, %75 ], [ %.02311.i, %.preheader.preheader.i9 ]
+  %.02415.i = phi ptr [ %80, %75 ], [ %59, %.preheader.preheader.i9 ]
+  %.02514.i = phi ptr [ %79, %75 ], [ %61, %.preheader.preheader.i9 ]
+  %.02613.i = phi ptr [ %78, %75 ], [ %.pre20, %.preheader.preheader.i9 ]
   br label %62
 
 62:                                               ; preds = %62, %.preheader.i10
   %indvars.iv.i11 = phi i64 [ 0, %.preheader.i10 ], [ %indvars.iv.next.i12, %62 ]
   %.0229.i = phi i32 [ 0, %.preheader.i10 ], [ %74, %62 ]
-  %63 = getelementptr inbounds i8, ptr %.02315.i, i64 %indvars.iv.i11
+  %63 = getelementptr inbounds i8, ptr %.02613.i, i64 %indvars.iv.i11
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
-  %66 = getelementptr inbounds i8, ptr %.02613.i, i64 %indvars.iv.i11
+  %66 = getelementptr inbounds i8, ptr %.02514.i, i64 %indvars.iv.i11
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i32
-  %69 = getelementptr inbounds i8, ptr %.02514.i, i64 %indvars.iv.i11
+  %69 = getelementptr inbounds i8, ptr %.02415.i, i64 %indvars.iv.i11
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i32
   %72 = add nuw nsw i32 %.0229.i, %65
@@ -615,12 +615,12 @@ define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr nocapture noundef nonnull align
 75:                                               ; preds = %62
   %76 = icmp eq i32 %74, 2295
   %77 = sext i1 %76 to i8
-  store i8 %77, ptr %.02416.i, align 1
-  %78 = getelementptr inbounds i8, ptr %.02315.i, i64 1
-  %79 = getelementptr inbounds i8, ptr %.02613.i, i64 1
-  %80 = getelementptr inbounds i8, ptr %.02514.i, i64 1
-  %.024.i14 = getelementptr inbounds i8, ptr %.02416.i, i64 1
-  %.not.i15 = icmp eq ptr %.024.i14, %56
+  store i8 %77, ptr %.02316.i, align 1
+  %78 = getelementptr inbounds i8, ptr %.02613.i, i64 1
+  %79 = getelementptr inbounds i8, ptr %.02514.i, i64 1
+  %80 = getelementptr inbounds i8, ptr %.02415.i, i64 1
+  %.023.i14 = getelementptr inbounds i8, ptr %.02316.i, i64 1
+  %.not.i15 = icmp eq ptr %.023.i14, %56
   br i1 %.not.i15, label %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_1EEvRKNS_9BitMatrixERS3_T_.exit.loopexit", label %.preheader.i10, !llvm.loop !10
 
 "_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_1EEvRKNS_9BitMatrixERS3_T_.exit.loopexit": ; preds = %75

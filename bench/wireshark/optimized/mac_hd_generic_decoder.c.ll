@@ -796,7 +796,7 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
 
 185:                                              ; preds = %extended_subheader_decoder.exit, %78
   %.1436 = phi i32 [ %183, %extended_subheader_decoder.exit ], [ %68, %78 ]
-  %.0420 = phi i32 [ %184, %extended_subheader_decoder.exit ], [ 6, %78 ]
+  %.0424 = phi i32 [ %184, %extended_subheader_decoder.exit ], [ 6, %78 ]
   br i1 %.not466, label %197, label %186
 
 186:                                              ; preds = %185
@@ -805,19 +805,19 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
   tail call void @col_append_sep_str(ptr noundef %188, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.252) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.253) #4
   %189 = load i32, ptr @proto_mac_header_generic_decoder, align 4
-  %190 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %189, ptr noundef %0, i32 noundef %.0420, i32 noundef %.1436, ptr noundef nonnull @.str.254) #4
+  %190 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %189, ptr noundef %0, i32 noundef %.0424, i32 noundef %.1436, ptr noundef nonnull @.str.254) #4
   %191 = load i32, ptr @ett_mac_mesh_subheader_decoder, align 4
   %192 = tail call ptr @proto_item_add_subtree(ptr noundef %190, i32 noundef %191) #4
   %193 = load i32, ptr @hf_mac_header_generic_mesh_subheader, align 4
-  %194 = tail call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %193, ptr noundef %0, i32 noundef %.0420, i32 noundef 2, i32 noundef 0) #4
+  %194 = tail call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %193, ptr noundef %0, i32 noundef %.0424, i32 noundef 2, i32 noundef 0) #4
   %195 = add nsw i32 %.1436, -2
-  %196 = add nuw nsw i32 %.0420, 2
+  %196 = add nuw nsw i32 %.0424, 2
   br label %197
 
 197:                                              ; preds = %186, %185
   %.2437 = phi i32 [ %195, %186 ], [ %.1436, %185 ]
-  %.0424 = phi ptr [ %192, %186 ], [ %20, %185 ]
-  %.1421 = phi i32 [ %196, %186 ], [ %.0420, %185 ]
+  %.1425 = phi i32 [ %196, %186 ], [ %.0424, %185 ]
+  %.0421 = phi ptr [ %192, %186 ], [ %20, %185 ]
   br i1 %.not460, label %255, label %198
 
 198:                                              ; preds = %197
@@ -831,22 +831,22 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
   tail call void @col_append_sep_str(ptr noundef %201, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.255) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.256) #4
   %203 = load i32, ptr @proto_mac_header_generic_decoder, align 4
-  %204 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %203, ptr noundef %0, i32 noundef %.1421, i32 noundef %.2437, ptr noundef nonnull @.str.257, i32 noundef %.2437) #4
+  %204 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %203, ptr noundef %0, i32 noundef %.1425, i32 noundef %.2437, ptr noundef nonnull @.str.257, i32 noundef %.2437) #4
   %205 = load i32, ptr @ett_mac_fast_fb_subheader_decoder, align 4
   %206 = tail call ptr @proto_item_add_subtree(ptr noundef %204, i32 noundef %205) #4
   %207 = load i32, ptr @hf_mac_header_generic_fast_fb_subhd_alloc_offset, align 4
-  %208 = tail call ptr @proto_tree_add_item(ptr noundef %206, i32 noundef %207, ptr noundef %0, i32 noundef %.1421, i32 noundef 1, i32 noundef 0) #4
+  %208 = tail call ptr @proto_tree_add_item(ptr noundef %206, i32 noundef %207, ptr noundef %0, i32 noundef %.1425, i32 noundef 1, i32 noundef 0) #4
   %209 = load i32, ptr @hf_mac_header_generic_fast_fb_subhd_fb_type, align 4
-  %210 = tail call ptr @proto_tree_add_item(ptr noundef %206, i32 noundef %209, ptr noundef %0, i32 noundef %.1421, i32 noundef 1, i32 noundef 0) #4
+  %210 = tail call ptr @proto_tree_add_item(ptr noundef %206, i32 noundef %209, ptr noundef %0, i32 noundef %.1425, i32 noundef 1, i32 noundef 0) #4
   %211 = add nsw i32 %.2437, -1
-  %212 = add nuw nsw i32 %.1421, 1
+  %212 = add nuw nsw i32 %.1425, 1
   br label %255
 
 213:                                              ; preds = %198
   tail call void @col_append_sep_str(ptr noundef %201, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.258) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.259) #4
   %214 = load i32, ptr @proto_mac_header_generic_decoder, align 4
-  %215 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %214, ptr noundef %0, i32 noundef %.1421, i32 noundef 2, ptr noundef nonnull @.str.260) #4
+  %215 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %214, ptr noundef %0, i32 noundef %.1425, i32 noundef 2, ptr noundef nonnull @.str.260) #4
   %216 = load i32, ptr @ett_mac_grant_mgmt_subheader_decoder, align 4
   %217 = tail call ptr @proto_item_add_subtree(ptr noundef %215, i32 noundef %216) #4
   %218 = tail call i32 @get_service_type() #4
@@ -870,43 +870,43 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
   %.str.264.sink = phi ptr [ @.str.264, %221 ], [ @.str.263, %220 ], [ @.str.262, %219 ], [ @.str.261, %213 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %215, ptr noundef nonnull %.str.264.sink) #4
   %223 = load i32, ptr @hf_mac_header_generic_grant_mgmt_ugs_tree, align 4
-  %224 = tail call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %223, ptr noundef %0, i32 noundef %.1421, i32 noundef 2, i32 noundef 0) #4
+  %224 = tail call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %223, ptr noundef %0, i32 noundef %.1425, i32 noundef 2, i32 noundef 0) #4
   %225 = load i32, ptr @ett_mac_grant_mgmt_subheader_decoder, align 4
   %226 = tail call ptr @proto_item_add_subtree(ptr noundef %224, i32 noundef %225) #4
   %227 = load i32, ptr @hf_mac_header_generic_grant_mgmt_subhd_ugs_si, align 4
-  %228 = tail call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %227, ptr noundef %0, i32 noundef %.1421, i32 noundef 2, i32 noundef 0) #4
+  %228 = tail call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %227, ptr noundef %0, i32 noundef %.1425, i32 noundef 2, i32 noundef 0) #4
   %229 = load i32, ptr @hf_mac_header_generic_grant_mgmt_subhd_ugs_pm, align 4
-  %230 = tail call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %229, ptr noundef %0, i32 noundef %.1421, i32 noundef 2, i32 noundef 0) #4
+  %230 = tail call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %229, ptr noundef %0, i32 noundef %.1425, i32 noundef 2, i32 noundef 0) #4
   %231 = load i32, ptr @hf_mac_header_generic_grant_mgmt_subhd_ugs_fli, align 4
-  %232 = tail call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %231, ptr noundef %0, i32 noundef %.1421, i32 noundef 2, i32 noundef 0) #4
+  %232 = tail call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %231, ptr noundef %0, i32 noundef %.1425, i32 noundef 2, i32 noundef 0) #4
   %233 = load i32, ptr @hf_mac_header_generic_grant_mgmt_subhd_ugs_fl, align 4
-  %234 = tail call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %233, ptr noundef %0, i32 noundef %.1421, i32 noundef 2, i32 noundef 0) #4
+  %234 = tail call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %233, ptr noundef %0, i32 noundef %.1425, i32 noundef 2, i32 noundef 0) #4
   %235 = load i32, ptr @hf_mac_header_generic_grant_mgmt_subhd_ugs_rsv, align 4
-  %236 = tail call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %235, ptr noundef %0, i32 noundef %.1421, i32 noundef 2, i32 noundef 0) #4
+  %236 = tail call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %235, ptr noundef %0, i32 noundef %.1425, i32 noundef 2, i32 noundef 0) #4
   %237 = load i32, ptr @hf_mac_header_generic_grant_mgmt_ext_rtps_tree, align 4
-  %238 = tail call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %237, ptr noundef %0, i32 noundef %.1421, i32 noundef 2, i32 noundef 0) #4
+  %238 = tail call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %237, ptr noundef %0, i32 noundef %.1425, i32 noundef 2, i32 noundef 0) #4
   %239 = load i32, ptr @ett_mac_grant_mgmt_subheader_decoder, align 4
   %240 = tail call ptr @proto_item_add_subtree(ptr noundef %238, i32 noundef %239) #4
   %241 = load i32, ptr @hf_mac_header_generic_grant_mgmt_subhd_ext_pbr, align 4
-  %242 = tail call ptr @proto_tree_add_item(ptr noundef %240, i32 noundef %241, ptr noundef %0, i32 noundef %.1421, i32 noundef 2, i32 noundef 0) #4
+  %242 = tail call ptr @proto_tree_add_item(ptr noundef %240, i32 noundef %241, ptr noundef %0, i32 noundef %.1425, i32 noundef 2, i32 noundef 0) #4
   %243 = load i32, ptr @hf_mac_header_generic_grant_mgmt_subhd_ext_fli, align 4
-  %244 = tail call ptr @proto_tree_add_item(ptr noundef %240, i32 noundef %243, ptr noundef %0, i32 noundef %.1421, i32 noundef 2, i32 noundef 0) #4
+  %244 = tail call ptr @proto_tree_add_item(ptr noundef %240, i32 noundef %243, ptr noundef %0, i32 noundef %.1425, i32 noundef 2, i32 noundef 0) #4
   %245 = load i32, ptr @hf_mac_header_generic_grant_mgmt_subhd_ext_fl, align 4
-  %246 = tail call ptr @proto_tree_add_item(ptr noundef %240, i32 noundef %245, ptr noundef %0, i32 noundef %.1421, i32 noundef 2, i32 noundef 0) #4
+  %246 = tail call ptr @proto_tree_add_item(ptr noundef %240, i32 noundef %245, ptr noundef %0, i32 noundef %.1425, i32 noundef 2, i32 noundef 0) #4
   %247 = load i32, ptr @hf_mac_header_generic_grant_mgmt_ext_pbr_tree, align 4
-  %248 = tail call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %247, ptr noundef %0, i32 noundef %.1421, i32 noundef 2, i32 noundef 0) #4
+  %248 = tail call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %247, ptr noundef %0, i32 noundef %.1425, i32 noundef 2, i32 noundef 0) #4
   %249 = load i32, ptr @ett_mac_grant_mgmt_subheader_decoder, align 4
   %250 = tail call ptr @proto_item_add_subtree(ptr noundef %248, i32 noundef %249) #4
   %251 = load i32, ptr @hf_mac_header_generic_grant_mgmt_subhd_pbr, align 4
-  %252 = tail call ptr @proto_tree_add_item(ptr noundef %250, i32 noundef %251, ptr noundef %0, i32 noundef %.1421, i32 noundef 2, i32 noundef 0) #4
+  %252 = tail call ptr @proto_tree_add_item(ptr noundef %250, i32 noundef %251, ptr noundef %0, i32 noundef %.1425, i32 noundef 2, i32 noundef 0) #4
   %253 = add nsw i32 %.2437, -2
-  %254 = add nuw nsw i32 %.1421, 2
+  %254 = add nuw nsw i32 %.1425, 2
   br label %255
 
 255:                                              ; preds = %202, %222, %197
   %.3438 = phi i32 [ %211, %202 ], [ %253, %222 ], [ %.2437, %197 ]
-  %.1425 = phi ptr [ %206, %202 ], [ %217, %222 ], [ %.0424, %197 ]
-  %.2422 = phi i32 [ %212, %202 ], [ %254, %222 ], [ %.1421, %197 ]
+  %.2426 = phi i32 [ %212, %202 ], [ %254, %222 ], [ %.1425, %197 ]
+  %.1422 = phi ptr [ %206, %202 ], [ %217, %222 ], [ %.0421, %197 ]
   br i1 %.not462, label %289, label %256
 
 256:                                              ; preds = %255
@@ -921,10 +921,10 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
   %263 = or i32 %262, %261
   %.not469 = icmp eq i32 %263, 0
   %264 = select i1 %.not469, i32 1, i32 2
-  %265 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %259, ptr noundef %0, i32 noundef %.2422, i32 noundef %264, ptr noundef nonnull @.str.267, i32 noundef %264) #4
+  %265 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %259, ptr noundef %0, i32 noundef %.2426, i32 noundef %264, ptr noundef nonnull @.str.267, i32 noundef %264) #4
   %266 = load i32, ptr @ett_mac_frag_subheader_decoder, align 4
   %267 = tail call ptr @proto_item_add_subtree(ptr noundef %265, i32 noundef %266) #4
-  %268 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2422) #4
+  %268 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2426) #4
   %269 = lshr i8 %268, 6
   %270 = zext nneg i8 %269 to i32
   store i32 %270, ptr @frag_type, align 4
@@ -933,7 +933,7 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
   br i1 %.not470, label %274, label %272
 
 272:                                              ; preds = %256
-  %273 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2422) #4
+  %273 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2426) #4
   br label %280
 
 274:                                              ; preds = %256
@@ -942,11 +942,11 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
   br i1 %.not471, label %278, label %276
 
 276:                                              ; preds = %274
-  %277 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2422) #4
+  %277 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2426) #4
   br label %280
 
 278:                                              ; preds = %274
-  %279 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2422) #4
+  %279 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2426) #4
   br label %280
 
 280:                                              ; preds = %276, %278, %272
@@ -956,13 +956,13 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
   %hf_mac_header_generic_frag_subhd_rsv_ext.sink = phi ptr [ @hf_mac_header_generic_frag_subhd_rsv_ext, %276 ], [ @hf_mac_header_generic_frag_subhd_rsv, %278 ], [ @hf_mac_header_generic_frag_subhd_rsv_ext, %272 ]
   %.sink535 = phi i32 [ -2, %276 ], [ -1, %278 ], [ -2, %272 ]
   %281 = load i32, ptr %hf_mac_header_generic_frag_subhd_fc_ext.sink, align 4
-  %282 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %281, ptr noundef %0, i32 noundef %.2422, i32 noundef %.sink541, i32 noundef 0) #4
+  %282 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %281, ptr noundef %0, i32 noundef %.2426, i32 noundef %.sink541, i32 noundef 0) #4
   %283 = load i32, ptr %hf_mac_header_generic_frag_subhd_fsn_ext.sink, align 4
-  %284 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %283, ptr noundef %0, i32 noundef %.2422, i32 noundef %.sink541, i32 noundef 0) #4
+  %284 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %283, ptr noundef %0, i32 noundef %.2426, i32 noundef %.sink541, i32 noundef 0) #4
   %285 = load i32, ptr %hf_mac_header_generic_frag_subhd_rsv_ext.sink, align 4
-  %286 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %285, ptr noundef %0, i32 noundef %.2422, i32 noundef %.sink541, i32 noundef 0) #4
+  %286 = tail call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %285, ptr noundef %0, i32 noundef %.2426, i32 noundef %.sink541, i32 noundef 0) #4
   %287 = add nsw i32 %.3438, %.sink535
-  %288 = add nuw nsw i32 %.2422, %.sink541
+  %288 = add nuw nsw i32 %.2426, %.sink541
   store i32 %287, ptr @frag_len, align 4
   br label %290
 
@@ -972,8 +972,8 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
 
 290:                                              ; preds = %289, %280
   %.5440 = phi i32 [ %287, %280 ], [ %.3438, %289 ]
-  %.2426 = phi ptr [ %267, %280 ], [ %.1425, %289 ]
-  %.4 = phi i32 [ %288, %280 ], [ %.2422, %289 ]
+  %.4428 = phi i32 [ %288, %280 ], [ %.2426, %289 ]
+  %.2423 = phi ptr [ %267, %280 ], [ %.1422, %289 ]
   br i1 %32, label %291, label %298
 
 291:                                              ; preds = %290
@@ -982,7 +982,7 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
 
 293:                                              ; preds = %291
   %294 = load i32, ptr @proto_mac_header_generic_decoder, align 4
-  %295 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %294, ptr noundef %0, i32 noundef %.4, i32 noundef %.5440, ptr noundef nonnull @.str.268, i32 noundef %.5440) #4
+  %295 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %294, ptr noundef %0, i32 noundef %.4428, i32 noundef %.5440, ptr noundef nonnull @.str.268, i32 noundef %.5440) #4
   br label %601
 
 296:                                              ; preds = %291
@@ -1013,8 +1013,8 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
 
 314:                                              ; preds = %.lr.ph512, %.thread
   %.0510 = phi i32 [ 1, %.lr.ph512 ], [ %.2, %.thread ]
-  %.5509 = phi i32 [ %.4, %.lr.ph512 ], [ %581, %.thread ]
-  %.3427508 = phi ptr [ %.2426, %.lr.ph512 ], [ %.6430, %.thread ]
+  %.3509 = phi ptr [ %.2423, %.lr.ph512 ], [ %.6, %.thread ]
+  %.5429508 = phi i32 [ %.4428, %.lr.ph512 ], [ %581, %.thread ]
   %.7507 = phi i32 [ %.6441, %.lr.ph512 ], [ %580, %.thread ]
   store i32 %.7507, ptr @frag_len, align 4
   br i1 %.not461, label %363, label %315
@@ -1030,10 +1030,10 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
   %320 = or i32 %319, %318
   %.not.i487 = icmp eq i32 %320, 0
   %321 = select i1 %.not.i487, i32 2, i32 3
-  %322 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %316, ptr noundef %0, i32 noundef %.5509, i32 noundef %321, ptr noundef nonnull @.str.285, i32 noundef %321) #4
+  %322 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %316, ptr noundef %0, i32 noundef %.5429508, i32 noundef %321, ptr noundef nonnull @.str.285, i32 noundef %321) #4
   %323 = load i32, ptr @ett_mac_pkt_subheader_decoder, align 4
   %324 = tail call ptr @proto_item_add_subtree(ptr noundef %322, i32 noundef %323) #4
-  %325 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5509) #4
+  %325 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5429508) #4
   %326 = lshr i8 %325, 6
   %327 = zext nneg i8 %326 to i32
   store i32 %327, ptr @frag_type, align 4
@@ -1042,11 +1042,11 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
   br i1 %.not52.i, label %334, label %329
 
 329:                                              ; preds = %315
-  %330 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.5509) #4
+  %330 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.5429508) #4
   %331 = lshr i32 %330, 8
   %332 = and i32 %331, 2047
   store i32 %332, ptr @frag_len, align 4
-  %333 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.5509) #4
+  %333 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.5429508) #4
   br label %decode_packing_subheader.exit
 
 334:                                              ; preds = %315
@@ -1055,19 +1055,19 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
   br i1 %.not53.i, label %341, label %336
 
 336:                                              ; preds = %334
-  %337 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.5509) #4
+  %337 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.5429508) #4
   %338 = lshr i32 %337, 8
   %339 = and i32 %338, 2047
   store i32 %339, ptr @frag_len, align 4
-  %340 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.5509) #4
+  %340 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.5429508) #4
   br label %decode_packing_subheader.exit
 
 341:                                              ; preds = %334
-  %342 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.5509) #4
+  %342 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.5429508) #4
   %343 = and i16 %342, 2047
   %344 = zext nneg i16 %343 to i32
   store i32 %344, ptr @frag_len, align 4
-  %345 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5509) #4
+  %345 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5429508) #4
   br label %decode_packing_subheader.exit
 
 decode_packing_subheader.exit:                    ; preds = %329, %336, %341
@@ -1077,17 +1077,17 @@ decode_packing_subheader.exit:                    ; preds = %329, %336, %341
   %hf_mac_header_generic_packing_subhd_len_ext.sink.i = phi ptr [ @hf_mac_header_generic_packing_subhd_len_ext, %336 ], [ @hf_mac_header_generic_packing_subhd_len, %341 ], [ @hf_mac_header_generic_packing_subhd_len_ext, %329 ]
   %.sink2.i = phi i32 [ -3, %336 ], [ -2, %341 ], [ -3, %329 ]
   %346 = load i32, ptr %hf_mac_header_generic_packing_subhd_fc_ext.sink.i, align 4
-  %347 = tail call ptr @proto_tree_add_item(ptr noundef %324, i32 noundef %346, ptr noundef %0, i32 noundef %.5509, i32 noundef %.sink8.i, i32 noundef 0) #4
+  %347 = tail call ptr @proto_tree_add_item(ptr noundef %324, i32 noundef %346, ptr noundef %0, i32 noundef %.5429508, i32 noundef %.sink8.i, i32 noundef 0) #4
   %348 = load i32, ptr %hf_mac_header_generic_packing_subhd_fsn_ext.sink.i, align 4
-  %349 = tail call ptr @proto_tree_add_item(ptr noundef %324, i32 noundef %348, ptr noundef %0, i32 noundef %.5509, i32 noundef %.sink8.i, i32 noundef 0) #4
+  %349 = tail call ptr @proto_tree_add_item(ptr noundef %324, i32 noundef %348, ptr noundef %0, i32 noundef %.5429508, i32 noundef %.sink8.i, i32 noundef 0) #4
   %350 = load i32, ptr %hf_mac_header_generic_packing_subhd_len_ext.sink.i, align 4
-  %351 = tail call ptr @proto_tree_add_item(ptr noundef %324, i32 noundef %350, ptr noundef %0, i32 noundef %.5509, i32 noundef %.sink8.i, i32 noundef 0) #4
+  %351 = tail call ptr @proto_tree_add_item(ptr noundef %324, i32 noundef %350, ptr noundef %0, i32 noundef %.5429508, i32 noundef %.sink8.i, i32 noundef 0) #4
   %352 = load i32, ptr @frag_len, align 4
   %353 = add i32 %352, %.sink2.i
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %353, i32 0)
   store i32 %spec.store.select.i, ptr @frag_len, align 4
   %354 = sub nsw i32 %.7507, %.sink8.i
-  %355 = add i32 %.sink8.i, %.5509
+  %355 = add i32 %.sink8.i, %.5429508
   %356 = load i32, ptr @proto_mac_header_generic_decoder, align 4
   %357 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %356, ptr noundef %0, i32 noundef %355, i32 noundef %spec.store.select.i, ptr noundef nonnull @.str.269, i32 noundef %spec.store.select.i) #4
   %358 = load i32, ptr @ett_mac_data_pdu_decoder, align 4
@@ -1099,15 +1099,15 @@ decode_packing_subheader.exit:                    ; preds = %329, %336, %341
 
 363:                                              ; preds = %decode_packing_subheader.exit, %314
   %.8 = phi i32 [ %354, %decode_packing_subheader.exit ], [ %.7507, %314 ]
-  %.4428 = phi ptr [ %359, %decode_packing_subheader.exit ], [ %.3427508, %314 ]
-  %.6 = phi i32 [ %355, %decode_packing_subheader.exit ], [ %.5509, %314 ]
+  %.6430 = phi i32 [ %355, %decode_packing_subheader.exit ], [ %.5429508, %314 ]
+  %.4 = phi ptr [ %359, %decode_packing_subheader.exit ], [ %.3509, %314 ]
   %364 = load i32, ptr @frag_type, align 4
   %365 = icmp eq i32 %364, 0
   br i1 %365, label %366, label %.preheader
 
 366:                                              ; preds = %363
   %367 = load i32, ptr @frag_len, align 4
-  %368 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.6, i32 noundef %367) #4
+  %368 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.6430, i32 noundef %367) #4
   %369 = load i32, ptr @frag_len, align 4
   br label %476
 
@@ -1139,7 +1139,7 @@ decode_packing_subheader.exit:                    ; preds = %329, %336, %341
   br label %.loopexit
 
 .loopexit:                                        ; preds = %377, %.loopexit.sink.split
-  %.0442500 = phi i64 [ %indvars.iv, %.loopexit.sink.split ], [ 64, %377 ]
+  %.0448500 = phi i64 [ %indvars.iv, %.loopexit.sink.split ], [ 64, %377 ]
   %379 = load i32, ptr %301, align 4
   %380 = load i32, ptr @cid_adj_array_size, align 4
   %381 = icmp ugt i32 %379, %380
@@ -1177,7 +1177,7 @@ decode_packing_subheader.exit:                    ; preds = %329, %336, %341
   %.lcssa = phi i32 [ %379, %.loopexit ], [ %397, %.lr.ph ]
   %399 = load i32, ptr @first_gmh, align 4
   %.not472 = icmp eq i32 %399, 0
-  %.pre524 = and i64 %.0442500, 4294967295
+  %.pre524 = and i64 %.0448500, 4294967295
   br i1 %.not472, label %._crit_edge._crit_edge, label %400
 
 400:                                              ; preds = %._crit_edge
@@ -1267,7 +1267,7 @@ decode_packing_subheader.exit:                    ; preds = %329, %336, %341
   %448 = load i32, ptr @frag_len, align 4
   %449 = icmp ne i32 %409, 1
   %450 = zext i1 %449 to i32
-  %451 = tail call ptr @fragment_add_seq(ptr noundef nonnull @payload_reassembly_table, ptr noundef %0, i32 noundef %.6, ptr noundef nonnull %1, i32 noundef %436, ptr noundef null, i32 noundef %447, i32 noundef %448, i32 noundef %450, i32 noundef 0) #4
+  %451 = tail call ptr @fragment_add_seq(ptr noundef nonnull @payload_reassembly_table, ptr noundef %0, i32 noundef %.6430, ptr noundef nonnull %1, i32 noundef %436, ptr noundef null, i32 noundef %447, i32 noundef %448, i32 noundef %450, i32 noundef 0) #4
   %452 = load i32, ptr @save_src.0, align 8
   %453 = load i32, ptr @save_src.1, align 8
   %454 = load ptr, ptr @save_src.2, align 8
@@ -1295,7 +1295,7 @@ decode_packing_subheader.exit:                    ; preds = %329, %336, %341
 463:                                              ; preds = %460, %429
   %464 = load i32, ptr @hf_mac_header_payload_fragment, align 4
   %465 = load i32, ptr @frag_len, align 4
-  %466 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %2, i32 noundef %464, ptr noundef %0, i32 noundef %.6, i32 noundef %465, ptr noundef null, ptr noundef nonnull @.str.270, i32 noundef %465) #4
+  %466 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %2, i32 noundef %464, ptr noundef %0, i32 noundef %.6430, i32 noundef %465, ptr noundef null, ptr noundef nonnull @.str.270, i32 noundef %465) #4
   %467 = icmp ne ptr %451, null
   %468 = load i32, ptr @frag_type, align 4
   %469 = icmp eq i32 %468, 1
@@ -1312,10 +1312,10 @@ decode_packing_subheader.exit:                    ; preds = %329, %336, %341
   br label %476
 
 476:                                              ; preds = %470, %366
-  %.1445 = phi i32 [ %369, %366 ], [ %472, %470 ]
-  %.0423 = phi ptr [ %368, %366 ], [ %475, %470 ]
-  %.not476 = icmp eq ptr %.0423, null
-  %.not477 = icmp eq i32 %.1445, 0
+  %.1443 = phi i32 [ %369, %366 ], [ %472, %470 ]
+  %.0420 = phi ptr [ %368, %366 ], [ %475, %470 ]
+  %.not476 = icmp eq ptr %.0420, null
+  %.not477 = icmp eq i32 %.1443, 0
   %or.cond495 = select i1 %.not476, i1 true, i1 %.not477
   br i1 %or.cond495, label %.thread, label %477
 
@@ -1327,7 +1327,7 @@ decode_packing_subheader.exit:                    ; preds = %329, %336, %341
   br i1 %or.cond3, label %481, label %533
 
 481:                                              ; preds = %477
-  %482 = tail call ptr @tvb_new_subset_length(ptr noundef nonnull %.0423, i32 noundef 0, i32 noundef %.1445) #4
+  %482 = tail call ptr @tvb_new_subset_length(ptr noundef nonnull %.0420, i32 noundef 0, i32 noundef %.1443) #4
   %.val486 = load ptr, ptr %300, align 8
   tail call void @col_append_sep_str(ptr noundef %.val486, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.286) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.287) #4
@@ -1337,20 +1337,20 @@ decode_packing_subheader.exit:                    ; preds = %329, %336, %341
   br i1 %.not.i488, label %485, label %487
 
 485:                                              ; preds = %481
-  %486 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %.4428, i32 noundef %484, ptr noundef %482, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.288, i32 noundef 0) #4
+  %486 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %.4, i32 noundef %484, ptr noundef %482, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.288, i32 noundef 0) #4
   br label %.thread
 
 487:                                              ; preds = %481
-  %488 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %.4428, i32 noundef %484, ptr noundef %482, i32 noundef 0, i32 noundef %483, ptr noundef nonnull @.str.289) #4
+  %488 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %.4, i32 noundef %484, ptr noundef %482, i32 noundef 0, i32 noundef %483, ptr noundef nonnull @.str.289) #4
   %489 = load i32, ptr @ett_mac_arq_fb_payload_decoder, align 4
   %490 = tail call ptr @proto_item_add_subtree(ptr noundef %488, i32 noundef %489) #4
   br label %491
 
 491:                                              ; preds = %.loopexit.i, %487
-  %.0883.i = phi i32 [ 0, %487 ], [ %.2.i, %.loopexit.i ]
+  %.0893.i = phi i32 [ 0, %487 ], [ %.2.i, %.loopexit.i ]
   %492 = load i32, ptr @hf_mac_header_generic_arq_fb_ie_cid, align 4
-  %493 = tail call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %492, ptr noundef %482, i32 noundef %.0883.i, i32 noundef 2, i32 noundef 0) #4
-  %494 = add i32 %.0883.i, 2
+  %493 = tail call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %492, ptr noundef %482, i32 noundef %.0893.i, i32 noundef 2, i32 noundef 0) #4
+  %494 = add i32 %.0893.i, 2
   %495 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %482, i32 noundef %494) #4
   %496 = zext i16 %495 to i32
   %497 = lshr i32 %496, 13
@@ -1369,7 +1369,7 @@ decode_packing_subheader.exit:                    ; preds = %329, %336, %341
   %507 = add nuw nsw i32 %506, 1
   %508 = load i32, ptr @hf_mac_header_generic_arq_fb_ie_num_maps, align 4
   %509 = tail call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %508, ptr noundef %482, i32 noundef %494, i32 noundef 2, i32 noundef 0) #4
-  %510 = add i32 %.0883.i, 4
+  %510 = add i32 %.0893.i, 4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %509, ptr noundef nonnull @.str.290, i32 noundef %507) #4
   %.not96.i = icmp eq i32 %498, 3
   br i1 %.not96.i, label %.split.us.i, label %.split.i
@@ -1415,7 +1415,7 @@ decode_packing_subheader.exit:                    ; preds = %329, %336, %341
 528:                                              ; preds = %491
   %529 = load i32, ptr @hf_ack_type_reserved, align 4
   %530 = tail call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %529, ptr noundef %482, i32 noundef %494, i32 noundef 2, i32 noundef 0) #4
-  %531 = add i32 %.0883.i, 4
+  %531 = add i32 %.0893.i, 4
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.split.i, %.split.us.i, %528
@@ -1438,11 +1438,11 @@ decode_packing_subheader.exit:                    ; preds = %329, %336, %341
   %538 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %538, ptr noundef nonnull @.str.273) #4
   %539 = load i32, ptr @proto_mac_header_generic_decoder, align 4
-  %540 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %539, ptr noundef nonnull %.0423, i32 noundef 0, i32 noundef %.1445, ptr noundef nonnull @.str.274, i32 noundef %.1445) #4
+  %540 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %539, ptr noundef nonnull %.0420, i32 noundef 0, i32 noundef %.1443, ptr noundef nonnull @.str.274, i32 noundef %.1443) #4
   %541 = load i32, ptr @ett_mac_header_generic_decoder, align 4
   %542 = tail call ptr @proto_item_add_subtree(ptr noundef %540, i32 noundef %541) #4
   %543 = load i32, ptr @hf_mac_header_generic_value_bytes, align 4
-  %544 = tail call ptr @proto_tree_add_item(ptr noundef %542, i32 noundef %543, ptr noundef nonnull %.0423, i32 noundef 0, i32 noundef %.1445, i32 noundef 0) #4
+  %544 = tail call ptr @proto_tree_add_item(ptr noundef %542, i32 noundef %543, ptr noundef nonnull %.0420, i32 noundef 0, i32 noundef %.1443, i32 noundef 0) #4
   br label %.thread
 
 545:                                              ; preds = %533
@@ -1459,7 +1459,7 @@ decode_packing_subheader.exit:                    ; preds = %329, %336, %341
 
 551:                                              ; preds = %545
   %552 = load ptr, ptr @mac_mgmt_msg_decoder_handle, align 8
-  %553 = tail call ptr @tvb_new_subset_length(ptr noundef nonnull %.0423, i32 noundef 0, i32 noundef %.1445) #4
+  %553 = tail call ptr @tvb_new_subset_length(ptr noundef nonnull %.0420, i32 noundef 0, i32 noundef %.1443) #4
   %554 = tail call i32 @call_dissector(ptr noundef %552, ptr noundef %553, ptr noundef %1, ptr noundef %2) #4
   br label %.thread
 
@@ -1474,14 +1474,14 @@ decode_packing_subheader.exit:                    ; preds = %329, %336, %341
 558:                                              ; preds = %555
   %559 = icmp eq i32 %557, 0
   %560 = load i32, ptr @frag_len, align 4
-  %.2446 = select i1 %559, i32 %560, i32 %.1445
+  %.2444 = select i1 %559, i32 %560, i32 %.1443
   %.0434 = select i1 %559, ptr @.str.269, ptr @dissect_mac_header_generic_decoder.reassem_str
-  %561 = tail call ptr @tvb_new_subset_length(ptr noundef nonnull %.0423, i32 noundef 0, i32 noundef %.1445) #4
+  %561 = tail call ptr @tvb_new_subset_length(ptr noundef nonnull %.0420, i32 noundef 0, i32 noundef %.1443) #4
   %562 = load i32, ptr @proto_mac_header_generic_decoder, align 4
-  %563 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %562, ptr noundef %561, i32 noundef 0, i32 noundef %.2446, ptr noundef nonnull %.0434, i32 noundef %.2446) #4
+  %563 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %562, ptr noundef %561, i32 noundef 0, i32 noundef %.2444, ptr noundef nonnull %.0434, i32 noundef %.2444) #4
   %564 = load i32, ptr @ett_mac_data_pdu_decoder, align 4
   %565 = tail call ptr @proto_item_add_subtree(ptr noundef %563, i32 noundef %564) #4
-  %566 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.0423, i32 noundef 0) #4
+  %566 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.0420, i32 noundef 0) #4
   %567 = icmp eq i8 %566, 69
   br i1 %567, label %568, label %576
 
@@ -1491,26 +1491,26 @@ decode_packing_subheader.exit:                    ; preds = %329, %336, %341
   br i1 %.not481, label %573, label %570
 
 570:                                              ; preds = %568
-  %571 = tail call ptr @tvb_new_subset_length(ptr noundef nonnull %.0423, i32 noundef 0, i32 noundef %.1445) #4
+  %571 = tail call ptr @tvb_new_subset_length(ptr noundef nonnull %.0420, i32 noundef 0, i32 noundef %.1443) #4
   %572 = tail call i32 @call_dissector(ptr noundef nonnull %569, ptr noundef %571, ptr noundef nonnull %1, ptr noundef %565) #4
   br label %.thread
 
 573:                                              ; preds = %568
   %574 = load i32, ptr @hf_mac_header_generic_value_bytes, align 4
-  %575 = tail call ptr @proto_tree_add_item(ptr noundef %565, i32 noundef %574, ptr noundef nonnull %.0423, i32 noundef 0, i32 noundef %.1445, i32 noundef 0) #4
+  %575 = tail call ptr @proto_tree_add_item(ptr noundef %565, i32 noundef %574, ptr noundef nonnull %.0420, i32 noundef 0, i32 noundef %.1443, i32 noundef 0) #4
   br label %.thread
 
 576:                                              ; preds = %558
   %577 = load i32, ptr @hf_mac_header_generic_value_bytes, align 4
-  %578 = tail call ptr @proto_tree_add_item(ptr noundef %565, i32 noundef %577, ptr noundef nonnull %.0423, i32 noundef 0, i32 noundef %.1445, i32 noundef 0) #4
+  %578 = tail call ptr @proto_tree_add_item(ptr noundef %565, i32 noundef %577, ptr noundef nonnull %.0420, i32 noundef 0, i32 noundef %.1443, i32 noundef 0) #4
   br label %.thread
 
 .thread:                                          ; preds = %551, %576, %573, %570, %555, %536, %485, %532, %463, %476
-  %.6430 = phi ptr [ %.4428, %476 ], [ %.4428, %463 ], [ %542, %536 ], [ %.4428, %551 ], [ %565, %570 ], [ %565, %573 ], [ %565, %576 ], [ %.4428, %555 ], [ %.4428, %485 ], [ %.4428, %532 ]
+  %.6 = phi ptr [ %.4, %476 ], [ %.4, %463 ], [ %542, %536 ], [ %.4, %551 ], [ %565, %570 ], [ %565, %573 ], [ %565, %576 ], [ %.4, %555 ], [ %.4, %485 ], [ %.4, %532 ]
   %.2 = phi i32 [ %.0510, %476 ], [ %.0510, %463 ], [ %.0510, %536 ], [ %.0510, %551 ], [ %.0510, %570 ], [ %.0510, %573 ], [ %.0510, %576 ], [ %.0510, %555 ], [ 0, %485 ], [ 0, %532 ]
   %579 = load i32, ptr @frag_len, align 4
   %580 = sub i32 %.8, %579
-  %581 = add i32 %579, %.6
+  %581 = add i32 %579, %.6430
   %582 = icmp sgt i32 %580, 0
   br i1 %582, label %314, label %.loopexit497, !llvm.loop !10
 

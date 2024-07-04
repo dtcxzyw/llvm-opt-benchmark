@@ -9864,8 +9864,8 @@ lpad1495:                                         ; preds = %if.then13.i4.i.i618
   br label %ehcleanup2009
 
 if.end1500:                                       ; preds = %if.then13.i.i.i6205, %if.then.i.i.i6198, %invoke.cont1496, %if.then13.i.i.i6109, %if.then.i.i.i6102, %invoke.cont1476
-  %iiend.sroa.0.11 = phi ptr [ %iiend.sroa.0.0, %invoke.cont1476 ], [ %iiend.sroa.0.0, %if.then.i.i.i6102 ], [ %iiend.sroa.0.0, %if.then13.i.i.i6109 ], [ %iiend.sroa.0.8, %invoke.cont1496 ], [ %iiend.sroa.0.8, %if.then.i.i.i6198 ], [ %iiend.sroa.0.8, %if.then13.i.i.i6205 ]
   %iiend.sroa.8.0.in = phi i64 [ %669, %invoke.cont1476 ], [ %669, %if.then.i.i.i6102 ], [ %669, %if.then13.i.i.i6109 ], [ %694, %invoke.cont1496 ], [ %694, %if.then.i.i.i6198 ], [ %694, %if.then13.i.i.i6205 ]
+  %iiend.sroa.0.11 = phi ptr [ %iiend.sroa.0.0, %invoke.cont1476 ], [ %iiend.sroa.0.0, %if.then.i.i.i6102 ], [ %iiend.sroa.0.0, %if.then13.i.i.i6109 ], [ %iiend.sroa.0.8, %invoke.cont1496 ], [ %iiend.sroa.0.8, %if.then.i.i.i6198 ], [ %iiend.sroa.0.8, %if.then13.i.i.i6205 ]
   br label %for.cond1501
 
 for.cond1501:                                     ; preds = %for.inc1652, %if.end1500

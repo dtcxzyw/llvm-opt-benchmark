@@ -151,18 +151,18 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
   br label %86
 
 86:                                               ; preds = %158, %76
-  %.0148.i.us = phi ptr [ %5, %76 ], [ %.1.lcssa.i.us, %158 ]
-  %.0112147.i.us = phi ptr [ %gep76, %76 ], [ %.1113.lcssa.i.us, %158 ]
-  %.0115146.i.us = phi float [ 0x46293E5940000000, %76 ], [ %.1116.i.us, %158 ]
-  %.0118145.i.us = phi i32 [ 0, %76 ], [ %.1119.i.us, %158 ]
-  %.0120144.i.us = phi ptr [ %15, %76 ], [ %.1121.i.us, %158 ]
-  %.0122143.i.us = phi ptr [ %14, %76 ], [ %.1123.i.us, %158 ]
-  %.0124142.i.us = phi i32 [ 0, %76 ], [ %159, %158 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4096) %.0122143.i.us, i8 0, i64 4096, i1 false)
+  %.0113148.i.us = phi ptr [ %15, %76 ], [ %.1.i.us, %158 ]
+  %.0114147.i.us = phi ptr [ %14, %76 ], [ %.1115.i.us, %158 ]
+  %.0116146.i.us = phi i32 [ 0, %76 ], [ %159, %158 ]
+  %.0117145.i.us = phi i32 [ 0, %76 ], [ %.1118.i.us, %158 ]
+  %.0119144.i.us = phi float [ 0x46293E5940000000, %76 ], [ %.1120.i.us, %158 ]
+  %.0121143.i.us = phi ptr [ %gep76, %76 ], [ %.1122.lcssa.i.us, %158 ]
+  %.0123142.i.us = phi ptr [ %5, %76 ], [ %.1124.lcssa.i.us, %158 ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4096) %.0114147.i.us, i8 0, i64 4096, i1 false)
   br i1 %47, label %87, label %89
 
 87:                                               ; preds = %86
-  %88 = getelementptr inbounds i32, ptr %.0112147.i.us, i64 %78
+  %88 = getelementptr inbounds i32, ptr %.0121143.i.us, i64 %78
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %88, ptr readonly align 4 %79, i64 %82, i1 false)
   br label %89
 
@@ -171,10 +171,10 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
 
 .lr.ph140.i.us:                                   ; preds = %89, %._crit_edge.i.us
   %indvars.iv151.i.us = phi i64 [ %indvars.iv.next152.i.us, %._crit_edge.i.us ], [ 0, %89 ]
-  %.1138.i.us = phi ptr [ %.1113137.i.us, %._crit_edge.i.us ], [ %.0148.i.us, %89 ]
-  %.1113137.i.us = phi ptr [ %.1138.i.us, %._crit_edge.i.us ], [ %.0112147.i.us, %89 ]
+  %.1122137.i.us = phi ptr [ %.1124136.i.us, %._crit_edge.i.us ], [ %.0121143.i.us, %89 ]
+  %.1124136.i.us = phi ptr [ %.1122137.i.us, %._crit_edge.i.us ], [ %.0123142.i.us, %89 ]
   %90 = add nsw i64 %indvars.iv151.i.us, %53
-  %91 = getelementptr inbounds i32, ptr %.1138.i.us, i64 %78
+  %91 = getelementptr inbounds i32, ptr %.1124136.i.us, i64 %78
   %92 = mul nsw i64 %90, %34
   %gep.i.us = getelementptr i32, ptr %invariant.gep.i.us, i64 %92
   %93 = icmp slt i64 %90, %invariant.op.i
@@ -194,7 +194,7 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
 
 100:                                              ; preds = %99, %.lr.ph140.i.us
   %101 = trunc nsw i64 %90 to i32
-  call fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr noundef %.1113137.i.us, ptr noundef %.1138.i.us, ptr noundef nonnull %36, i32 noundef %.0124142.i.us, i32 noundef %56, i32 noundef %84, i32 noundef %101, i32 noundef %27, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %16)
+  call fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr noundef %.1122137.i.us, ptr noundef %.1124136.i.us, ptr noundef nonnull %36, i32 noundef %.0116146.i.us, i32 noundef %56, i32 noundef %84, i32 noundef %101, i32 noundef %27, i32 noundef %8, i32 noundef %9, ptr noundef nonnull %16)
   br i1 %85, label %.lr.ph.i.us, label %._crit_edge.i.us
 
 .lr.ph.i.us:                                      ; preds = %100, %.lr.ph.i.us
@@ -203,7 +203,7 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
   %103 = load i32, ptr %102, align 4
   %104 = lshr i32 %103, 24
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds i32, ptr %.0122143.i.us, i64 %105
+  %106 = getelementptr inbounds i32, ptr %.0114147.i.us, i64 %105
   %107 = load i32, ptr %106, align 4
   %108 = add i32 %107, 1
   store i32 %108, ptr %106, align 4
@@ -211,7 +211,7 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
   %110 = and i32 %109, 255
   %111 = or disjoint i32 %110, 256
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds i32, ptr %.0122143.i.us, i64 %112
+  %113 = getelementptr inbounds i32, ptr %.0114147.i.us, i64 %112
   %114 = load i32, ptr %113, align 4
   %115 = add i32 %114, 1
   store i32 %115, ptr %113, align 4
@@ -219,14 +219,14 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
   %117 = and i32 %116, 255
   %118 = or disjoint i32 %117, 512
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds i32, ptr %.0122143.i.us, i64 %119
+  %120 = getelementptr inbounds i32, ptr %.0114147.i.us, i64 %119
   %121 = load i32, ptr %120, align 4
   %122 = add i32 %121, 1
   store i32 %122, ptr %120, align 4
   %123 = and i32 %103, 255
   %124 = or disjoint i32 %123, 768
   %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds i32, ptr %.0122143.i.us, i64 %125
+  %126 = getelementptr inbounds i32, ptr %.0114147.i.us, i64 %125
   %127 = load i32, ptr %126, align 4
   %128 = add i32 %127, 1
   store i32 %128, ptr %126, align 4
@@ -240,15 +240,15 @@ define hidden i32 @VP8LResidualImage(i32 noundef %0, i32 noundef %1, i32 noundef
   br i1 %exitcond155.not.i.us, label %.preheader.i.us, label %.lr.ph140.i.us, !llvm.loop !7
 
 .preheader.i.us:                                  ; preds = %._crit_edge.i.us, %89
-  %.1113.lcssa.i.us = phi ptr [ %.0112147.i.us, %89 ], [ %.1138.i.us, %._crit_edge.i.us ]
-  %.1.lcssa.i.us = phi ptr [ %.0148.i.us, %89 ], [ %.1113137.i.us, %._crit_edge.i.us ]
+  %.1124.lcssa.i.us = phi ptr [ %.0123142.i.us, %89 ], [ %.1122137.i.us, %._crit_edge.i.us ]
+  %.1122.lcssa.i.us = phi ptr [ %.0121143.i.us, %89 ], [ %.1124136.i.us, %._crit_edge.i.us ]
   br label %129
 
 129:                                              ; preds = %PredictionCostBias.exit.i.i.us, %.preheader.i.us
   %indvars.iv.i.i.us = phi i64 [ %indvars.iv.next.i.i.us, %PredictionCostBias.exit.i.i.us ], [ 0, %.preheader.i.us ]
   %.01617.i.i.us = phi float [ %151, %PredictionCostBias.exit.i.i.us ], [ 0.000000e+00, %.preheader.i.us ]
   %130 = shl nuw nsw i64 %indvars.iv.i.i.us, 8
-  %131 = getelementptr inbounds i32, ptr %.0122143.i.us, i64 %130
+  %131 = getelementptr inbounds i32, ptr %.0114147.i.us, i64 %130
   %132 = load i32, ptr %131, align 4
   %133 = uitofp i32 %132 to float
   br label %134
@@ -284,34 +284,34 @@ PredictionCostBias.exit.i.i.us:                   ; preds = %134
   br i1 %exitcond.not.i.i.us, label %PredictionCostSpatialHistogram.exit.i.us, label %129, !llvm.loop !9
 
 PredictionCostSpatialHistogram.exit.i.us:         ; preds = %PredictionCostBias.exit.i.i.us
-  %152 = icmp eq i32 %.0124142.i.us, %71
+  %152 = icmp eq i32 %.0116146.i.us, %71
   %153 = fadd float %151, -1.500000e+01
   %.1.i.i.us = select i1 %152, float %153, float %151
-  %154 = icmp eq i32 %.0124142.i.us, %77
+  %154 = icmp eq i32 %.0116146.i.us, %77
   %155 = fadd float %.1.i.i.us, -1.500000e+01
   %.2.i.i.us = select i1 %154, float %155, float %.1.i.i.us
-  %156 = fcmp olt float %.2.i.i.us, %.0115146.i.us
+  %156 = fcmp olt float %.2.i.i.us, %.0119144.i.us
   br i1 %156, label %157, label %158
 
 157:                                              ; preds = %PredictionCostSpatialHistogram.exit.i.us
   br label %158
 
 158:                                              ; preds = %157, %PredictionCostSpatialHistogram.exit.i.us
-  %.1123.i.us = phi ptr [ %.0120144.i.us, %157 ], [ %.0122143.i.us, %PredictionCostSpatialHistogram.exit.i.us ]
-  %.1121.i.us = phi ptr [ %.0122143.i.us, %157 ], [ %.0120144.i.us, %PredictionCostSpatialHistogram.exit.i.us ]
-  %.1119.i.us = phi i32 [ %.0124142.i.us, %157 ], [ %.0118145.i.us, %PredictionCostSpatialHistogram.exit.i.us ]
-  %.1116.i.us = phi float [ %.2.i.i.us, %157 ], [ %.0115146.i.us, %PredictionCostSpatialHistogram.exit.i.us ]
-  %159 = add nuw nsw i32 %.0124142.i.us, 1
+  %.1120.i.us = phi float [ %.2.i.i.us, %157 ], [ %.0119144.i.us, %PredictionCostSpatialHistogram.exit.i.us ]
+  %.1118.i.us = phi i32 [ %.0116146.i.us, %157 ], [ %.0117145.i.us, %PredictionCostSpatialHistogram.exit.i.us ]
+  %.1115.i.us = phi ptr [ %.0113148.i.us, %157 ], [ %.0114147.i.us, %PredictionCostSpatialHistogram.exit.i.us ]
+  %.1.i.us = phi ptr [ %.0114147.i.us, %157 ], [ %.0113148.i.us, %PredictionCostSpatialHistogram.exit.i.us ]
+  %159 = add nuw nsw i32 %.0116146.i.us, 1
   %exitcond156.not.i.us = icmp eq i32 %159, 14
   br i1 %exitcond156.not.i.us, label %GetBestPredictorForTile.exit.us, label %86, !llvm.loop !10
 
 GetBestPredictorForTile.exit.us:                  ; preds = %158
   %160 = load ptr, ptr @VP8LAddVectorEq, align 8
-  call void %160(ptr noundef %.1121.i.us, ptr noundef nonnull %17, i32 noundef 1024) #8
+  call void %160(ptr noundef %.1.i.us, ptr noundef nonnull %17, i32 noundef 1024) #8
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %16)
-  %161 = shl i32 %.1119.i.us, 8
+  %161 = shl i32 %.1118.i.us, 8
   %162 = or i32 %161, -16777216
   %gep112 = getelementptr inbounds i32, ptr %invariant.gep111, i64 %indvars.iv89
   store i32 %162, ptr %gep112, align 4
@@ -408,10 +408,10 @@ GetBestPredictorForTile.exit.us:                  ; preds = %158
 
 .lr.ph89.split.us.split.us.i:                     ; preds = %.PredictBatch.exit.loopexit_crit_edge.us.us.i, %.lr.ph89.split.us.split.us.preheader.i
   %indvars.iv112.i = phi i64 [ 0, %.lr.ph89.split.us.split.us.preheader.i ], [ %indvars.iv.next113.i, %.PredictBatch.exit.loopexit_crit_edge.us.us.i ]
-  %.07288.us.us.i = phi ptr [ %5, %.lr.ph89.split.us.split.us.preheader.i ], [ %.07387.us.us.i, %.PredictBatch.exit.loopexit_crit_edge.us.us.i ]
-  %.07387.us.us.i = phi ptr [ %201, %.lr.ph89.split.us.split.us.preheader.i ], [ %.07288.us.us.i, %.PredictBatch.exit.loopexit_crit_edge.us.us.i ]
-  %.07486.us.us.i = phi ptr [ %202, %.lr.ph89.split.us.split.us.preheader.i ], [ %.1.us.us.i, %.PredictBatch.exit.loopexit_crit_edge.us.us.i ]
-  %.07784.us.us.i = phi ptr [ %203, %.lr.ph89.split.us.split.us.preheader.i ], [ %.178.us.us.i, %.PredictBatch.exit.loopexit_crit_edge.us.us.i ]
+  %.07288.us.us.i = phi ptr [ %5, %.lr.ph89.split.us.split.us.preheader.i ], [ %.07984.us.us.i, %.PredictBatch.exit.loopexit_crit_edge.us.us.i ]
+  %.07586.us.us.i = phi ptr [ %203, %.lr.ph89.split.us.split.us.preheader.i ], [ %.1.us.us.i, %.PredictBatch.exit.loopexit_crit_edge.us.us.i ]
+  %.07685.us.us.i = phi ptr [ %202, %.lr.ph89.split.us.split.us.preheader.i ], [ %.177.us.us.i, %.PredictBatch.exit.loopexit_crit_edge.us.us.i ]
+  %.07984.us.us.i = phi ptr [ %201, %.lr.ph89.split.us.split.us.preheader.i ], [ %.07288.us.us.i, %.PredictBatch.exit.loopexit_crit_edge.us.us.i ]
   %207 = mul nuw nsw i64 %indvars.iv112.i, %206
   %208 = getelementptr inbounds i32, ptr %4, i64 %207
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
@@ -432,30 +432,30 @@ GetBestPredictorForTile.exit.us:                  ; preds = %158
 218:                                              ; preds = %215
   %219 = mul nuw nsw i64 %indvars.iv.next113.i, %206
   %220 = getelementptr inbounds i32, ptr %4, i64 %219
-  call fastcc void @MaxDiffsForRow(i32 noundef %0, i32 noundef %0, ptr noundef nonnull %220, ptr noundef %.07486.us.us.i, i32 noundef %9)
+  call fastcc void @MaxDiffsForRow(i32 noundef %0, i32 noundef %0, ptr noundef nonnull %220, ptr noundef %.07685.us.us.i, i32 noundef %9)
   br label %.lr.ph.us.us.i
 
 .lr.ph.us.us.i:                                   ; preds = %.lr.ph89.split.us.split.us.i, %218, %215
-  %.178.us.us.i = phi ptr [ %.07486.us.us.i, %218 ], [ %.07486.us.us.i, %215 ], [ %.07784.us.us.i, %.lr.ph89.split.us.split.us.i ]
-  %.1.us.us.i = phi ptr [ %.07784.us.us.i, %218 ], [ %.07784.us.us.i, %215 ], [ %.07486.us.us.i, %.lr.ph89.split.us.split.us.i ]
+  %.177.us.us.i = phi ptr [ %.07586.us.us.i, %218 ], [ %.07586.us.us.i, %215 ], [ %.07685.us.us.i, %.lr.ph89.split.us.split.us.i ]
+  %.1.us.us.i = phi ptr [ %.07685.us.us.i, %218 ], [ %.07685.us.us.i, %215 ], [ %.07586.us.us.i, %.lr.ph89.split.us.split.us.i ]
   %221 = lshr i32 %214, %2
   %222 = mul nsw i32 %221, %21
   br label %223
 
 223:                                              ; preds = %223, %.lr.ph.us.us.i
-  %.07583.us.us.i = phi i32 [ 0, %.lr.ph.us.us.i ], [ %spec.select.us.us.i, %223 ]
-  %224 = ashr i32 %.07583.us.us.i, %2
+  %.07383.us.us.i = phi i32 [ 0, %.lr.ph.us.us.i ], [ %spec.select.us.us.i, %223 ]
+  %224 = ashr i32 %.07383.us.us.i, %2
   %225 = add nsw i32 %224, %222
   %226 = sext i32 %225 to i64
   %227 = getelementptr inbounds i32, ptr %6, i64 %226
   %228 = load i32, ptr %227, align 4
   %229 = lshr i32 %228, 8
   %230 = and i32 %229, 255
-  %231 = add nsw i32 %.07583.us.us.i, %18
+  %231 = add nsw i32 %.07383.us.us.i, %18
   %spec.select.us.us.i = call i32 @llvm.smin.i32(i32 %231, i32 %0)
-  %232 = sext i32 %.07583.us.us.i to i64
+  %232 = sext i32 %.07383.us.us.i to i64
   %233 = getelementptr inbounds i32, ptr %208, i64 %232
-  call fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr noundef %.07387.us.us.i, ptr noundef %.07288.us.us.i, ptr noundef %.1.us.us.i, i32 noundef %230, i32 noundef %.07583.us.us.i, i32 noundef %spec.select.us.us.i, i32 noundef %214, i32 noundef %27, i32 noundef %8, i32 noundef %9, ptr noundef %233)
+  call fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr noundef %.07984.us.us.i, ptr noundef %.07288.us.us.i, ptr noundef %.177.us.us.i, i32 noundef %230, i32 noundef %.07383.us.us.i, i32 noundef %spec.select.us.us.i, i32 noundef %214, i32 noundef %27, i32 noundef %8, i32 noundef %9, ptr noundef %233)
   %234 = icmp slt i32 %231, %0
   br i1 %234, label %223, label %.PredictBatch.exit.loopexit_crit_edge.us.us.i, !llvm.loop !13
 
@@ -468,10 +468,10 @@ GetBestPredictorForTile.exit.us:                  ; preds = %158
 
 .lr.ph89.split.us.split.split.us.i:               ; preds = %.lr.ph89.split.us.split.i, %PredictBatch.exit.loopexit.us.us95.i
   %indvars.iv107.i = phi i64 [ %indvars.iv.next108.i, %PredictBatch.exit.loopexit.us.us95.i ], [ 0, %.lr.ph89.split.us.split.i ]
-  %.07288.us.us90.i = phi ptr [ %.07387.us.us91.i, %PredictBatch.exit.loopexit.us.us95.i ], [ %5, %.lr.ph89.split.us.split.i ]
-  %.07387.us.us91.i = phi ptr [ %.07288.us.us90.i, %PredictBatch.exit.loopexit.us.us95.i ], [ %201, %.lr.ph89.split.us.split.i ]
-  %.07486.us.us92.i = phi ptr [ %.07784.us.us94.i, %PredictBatch.exit.loopexit.us.us95.i ], [ %202, %.lr.ph89.split.us.split.i ]
-  %.07784.us.us94.i = phi ptr [ %.07486.us.us92.i, %PredictBatch.exit.loopexit.us.us95.i ], [ %203, %.lr.ph89.split.us.split.i ]
+  %.07288.us.us90.i = phi ptr [ %.07984.us.us94.i, %PredictBatch.exit.loopexit.us.us95.i ], [ %5, %.lr.ph89.split.us.split.i ]
+  %.07586.us.us92.i = phi ptr [ %.07685.us.us93.i, %PredictBatch.exit.loopexit.us.us95.i ], [ %203, %.lr.ph89.split.us.split.i ]
+  %.07685.us.us93.i = phi ptr [ %.07586.us.us92.i, %PredictBatch.exit.loopexit.us.us95.i ], [ %202, %.lr.ph89.split.us.split.i ]
+  %.07984.us.us94.i = phi ptr [ %.07288.us.us90.i, %PredictBatch.exit.loopexit.us.us95.i ], [ %201, %.lr.ph89.split.us.split.i ]
   %235 = mul nsw i64 %indvars.iv107.i, %200
   %236 = getelementptr inbounds i32, ptr %4, i64 %235
   %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv107.i, 1
@@ -488,7 +488,7 @@ GetBestPredictorForTile.exit.us:                  ; preds = %158
 244:                                              ; preds = %.lr.ph89.split.us.split.split.us.i
   %245 = mul nsw i64 %indvars.iv.next108.i, %200
   %246 = getelementptr inbounds i32, ptr %4, i64 %245
-  call fastcc void @MaxDiffsForRow(i32 noundef %0, i32 noundef %0, ptr noundef %246, ptr noundef %.07486.us.us92.i, i32 noundef %9)
+  call fastcc void @MaxDiffsForRow(i32 noundef %0, i32 noundef %0, ptr noundef %246, ptr noundef %.07685.us.us93.i, i32 noundef %9)
   br label %PredictBatch.exit.loopexit.us.us95.i
 
 PredictBatch.exit.loopexit.us.us95.i:             ; preds = %244, %.lr.ph89.split.us.split.split.us.i
@@ -497,8 +497,8 @@ PredictBatch.exit.loopexit.us.us95.i:             ; preds = %244, %.lr.ph89.spli
 
 PredictBatch.exit.loopexit.us.i:                  ; preds = %.lr.ph89.split.us.split.i, %PredictBatch.exit.loopexit.us.i
   %indvars.iv102.i = phi i64 [ %indvars.iv.next103.i, %PredictBatch.exit.loopexit.us.i ], [ 0, %.lr.ph89.split.us.split.i ]
-  %.07288.us.i = phi ptr [ %.07387.us.i, %PredictBatch.exit.loopexit.us.i ], [ %5, %.lr.ph89.split.us.split.i ]
-  %.07387.us.i = phi ptr [ %.07288.us.i, %PredictBatch.exit.loopexit.us.i ], [ %201, %.lr.ph89.split.us.split.i ]
+  %.07288.us.i = phi ptr [ %.07984.us.i, %PredictBatch.exit.loopexit.us.i ], [ %5, %.lr.ph89.split.us.split.i ]
+  %.07984.us.i = phi ptr [ %.07288.us.i, %PredictBatch.exit.loopexit.us.i ], [ %201, %.lr.ph89.split.us.split.i ]
   %247 = mul nsw i64 %indvars.iv102.i, %200
   %248 = getelementptr inbounds i32, ptr %4, i64 %247
   %indvars.iv.next103.i = add nuw nsw i64 %indvars.iv102.i, 1
@@ -513,8 +513,8 @@ PredictBatch.exit.loopexit.us.i:                  ; preds = %.lr.ph89.split.us.s
 
 .lr.ph89.split.i:                                 ; preds = %.lr.ph89.split.i.preheader, %PredictBatch.exit.i
   %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i63, %PredictBatch.exit.i ], [ 0, %.lr.ph89.split.i.preheader ]
-  %.07288.i = phi ptr [ %.07387.i, %PredictBatch.exit.i ], [ %5, %.lr.ph89.split.i.preheader ]
-  %.07387.i = phi ptr [ %.07288.i, %PredictBatch.exit.i ], [ %198, %.lr.ph89.split.i.preheader ]
+  %.07288.i = phi ptr [ %.07984.i, %PredictBatch.exit.i ], [ %5, %.lr.ph89.split.i.preheader ]
+  %.07984.i = phi ptr [ %.07288.i, %PredictBatch.exit.i ], [ %198, %.lr.ph89.split.i.preheader ]
   %254 = mul nsw i64 %indvars.iv.i62, %197
   %255 = getelementptr inbounds i32, ptr %4, i64 %254
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
@@ -525,7 +525,7 @@ PredictBatch.exit.loopexit.us.i:                  ; preds = %.lr.ph89.split.us.s
   %260 = shl nsw i64 %259, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.07288.i, ptr align 4 %255, i64 %260, i1 false)
   %261 = icmp eq i64 %indvars.iv.i62, 0
-  %..i.i = select i1 %261, ptr null, ptr %.07387.i
+  %..i.i = select i1 %261, ptr null, ptr %.07984.i
   %VP8LPredictorsSub.val.i.i = load ptr, ptr @VP8LPredictorsSub, align 16
   %.val.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 16), align 16
   %262 = select i1 %261, ptr %VP8LPredictorsSub.val.i.i, ptr %.val.i.i
@@ -541,7 +541,7 @@ PredictBatch.exit.loopexit.us.i:                  ; preds = %.lr.ph89.split.us.s
 
 267:                                              ; preds = %.lr.ph89.split.i
   %268 = load ptr, ptr getelementptr inbounds (i8, ptr @VP8LPredictorsSub, i64 88), align 8
-  %269 = getelementptr inbounds i8, ptr %.07387.i, i64 4
+  %269 = getelementptr inbounds i8, ptr %.07984.i, i64 4
   call void %268(ptr noundef nonnull %264, ptr noundef nonnull %269, i32 noundef %19, ptr noundef nonnull %263) #8
   br label %PredictBatch.exit.i
 
@@ -738,8 +738,8 @@ CopyTileWithColorTransform.exit.us:               ; preds = %67, %55
 72:                                               ; preds = %.lr.ph166.us, %._crit_edge.us
   %indvars.iv199 = phi i32 [ %123, %.lr.ph166.us ], [ %indvars.iv.next200, %._crit_edge.us ]
   %indvars.iv = phi i32 [ %122, %.lr.ph166.us ], [ %indvars.iv.next, %._crit_edge.us ]
-  %.099165.us = phi i32 [ %27, %.lr.ph166.us ], [ %78, %._crit_edge.us ]
-  %73 = mul nsw i32 %.099165.us, %0
+  %.097165.us = phi i32 [ %27, %.lr.ph166.us ], [ %78, %._crit_edge.us ]
+  %73 = mul nsw i32 %.097165.us, %0
   %74 = add nsw i32 %73, %38
   %75 = add i32 %73, %40
   %76 = icmp slt i32 %74, %75
@@ -750,7 +750,7 @@ CopyTileWithColorTransform.exit.us:               ; preds = %67, %55
   br label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %120, %72
-  %78 = add nsw i32 %.099165.us, 1
+  %78 = add nsw i32 %.097165.us, 1
   %indvars.iv.next = add i32 %indvars.iv, %0
   %indvars.iv.next200 = add i32 %indvars.iv199, %0
   %exitcond202.not = icmp eq i32 %78, %29
@@ -858,8 +858,8 @@ CopyTileWithColorTransform.exit.us:               ; preds = %67, %55
   br i1 %.not, label %._crit_edge189, label %129
 
 ._crit_edge189:                                   ; preds = %.preheader, %129, %._crit_edge176.us, %121, %9
-  %.0 = phi i32 [ 1, %9 ], [ 1, %121 ], [ 0, %._crit_edge176.us ], [ 1, %129 ], [ 0, %.preheader ]
-  ret i32 %.0
+  %.096 = phi i32 [ 1, %9 ], [ 1, %121 ], [ 0, %._crit_edge176.us ], [ 1, %129 ], [ 0, %.preheader ]
+  ret i32 %.096
 }
 
 ; Function Attrs: nounwind uwtable
@@ -938,18 +938,18 @@ GetPredictionCostCrossColorRed.exit.i:            ; preds = %36
 
 .lr.ph.i:                                         ; preds = %._crit_edge.i, %.lr.ph64.preheader.i
   %.063.i = phi i32 [ %.2.i, %._crit_edge.i ], [ 0, %.lr.ph64.preheader.i ]
-  %.04062.i = phi i32 [ %97, %._crit_edge.i ], [ 0, %.lr.ph64.preheader.i ]
-  %.04261.i = phi float [ %.244.i, %._crit_edge.i ], [ %61, %.lr.ph64.preheader.i ]
-  %63 = lshr i32 32, %.04062.i
+  %.04062.i = phi float [ %.242.i, %._crit_edge.i ], [ %61, %.lr.ph64.preheader.i ]
+  %.04461.i = phi i32 [ %97, %._crit_edge.i ], [ 0, %.lr.ph64.preheader.i ]
+  %63 = lshr i32 32, %.04461.i
   %64 = sub nsw i32 0, %63
   %65 = shl nuw nsw i32 %63, 1
   br label %66
 
 66:                                               ; preds = %GetPredictionCostCrossColorRed.exit54.i, %.lr.ph.i
   %.159.i = phi i32 [ %.063.i, %.lr.ph.i ], [ %.2.i, %GetPredictionCostCrossColorRed.exit54.i ]
-  %.04158.i = phi i32 [ %64, %.lr.ph.i ], [ %96, %GetPredictionCostCrossColorRed.exit54.i ]
-  %.14357.i = phi float [ %.04261.i, %.lr.ph.i ], [ %.244.i, %GetPredictionCostCrossColorRed.exit54.i ]
-  %67 = add nsw i32 %.04158.i, %.159.i
+  %.14158.i = phi float [ %.04062.i, %.lr.ph.i ], [ %.242.i, %GetPredictionCostCrossColorRed.exit54.i ]
+  %.04357.i = phi i32 [ %64, %.lr.ph.i ], [ %96, %GetPredictionCostCrossColorRed.exit54.i ]
+  %67 = add nsw i32 %.04357.i, %.159.i
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %14, i8 0, i64 1024, i1 false)
   %68 = load ptr, ptr @VP8LCollectColorRedTransforms, align 8
@@ -994,16 +994,16 @@ GetPredictionCostCrossColorRed.exit54.i:          ; preds = %74
   %94 = fadd float %.1.i53.i, -3.000000e+00
   %.2.i.i = select i1 %93, float %94, float %.1.i53.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %14)
-  %95 = fcmp olt float %.2.i.i, %.14357.i
-  %.244.i = select i1 %95, float %.2.i.i, float %.14357.i
+  %95 = fcmp olt float %.2.i.i, %.14158.i
+  %.242.i = select i1 %95, float %.2.i.i, float %.14158.i
   %.2.i = select i1 %95, i32 %67, i32 %.159.i
-  %96 = add nsw i32 %.04158.i, %65
+  %96 = add nsw i32 %.04357.i, %65
   %.not.i = icmp sgt i32 %96, %63
   br i1 %.not.i, label %._crit_edge.i, label %66, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %GetPredictionCostCrossColorRed.exit54.i
-  %97 = add nuw nsw i32 %.04062.i, 1
-  %exitcond.not.i = icmp eq i32 %.04062.i, %62
+  %97 = add nuw nsw i32 %.04461.i, 1
+  %exitcond.not.i = icmp eq i32 %.04461.i, %62
   br i1 %exitcond.not.i, label %._crit_edge65.loopexit.i, label %.lr.ph.i, !llvm.loop !21
 
 ._crit_edge65.loopexit.i:                         ; preds = %._crit_edge.i
@@ -1083,9 +1083,9 @@ GetPredictionCostCrossColorBlue.exit.i:           ; preds = %105
 
 139:                                              ; preds = %136, %GetPredictionCostCrossColorBlue.exit.i
   %indvars.iv99.i = phi i64 [ 0, %GetPredictionCostCrossColorBlue.exit.i ], [ %indvars.iv.next100.i, %136 ]
-  %.093.i = phi i32 [ 0, %GetPredictionCostCrossColorBlue.exit.i ], [ %.2.i52, %136 ]
-  %.05792.i = phi i32 [ 0, %GetPredictionCostCrossColorBlue.exit.i ], [ %.259.i, %136 ]
-  %.06390.i = phi float [ %135, %GetPredictionCostCrossColorBlue.exit.i ], [ %.265.i, %136 ]
+  %.05793.i = phi i32 [ 0, %GetPredictionCostCrossColorBlue.exit.i ], [ %.2.i52, %136 ]
+  %.05892.i = phi i32 [ 0, %GetPredictionCostCrossColorBlue.exit.i ], [ %.260.i, %136 ]
+  %.06391.i = phi float [ %135, %GetPredictionCostCrossColorBlue.exit.i ], [ %.265.i, %136 ]
   %140 = getelementptr inbounds [7 x i8], ptr @__const.GetBestGreenRedToBlue.delta_lut, i64 0, i64 %indvars.iv99.i
   %141 = load i8, ptr %140, align 1
   %142 = sext i8 %141 to i32
@@ -1095,19 +1095,19 @@ GetPredictionCostCrossColorBlue.exit.i:           ; preds = %105
 
 144:                                              ; preds = %GetPredictionCostCrossColorBlue.exit84.i, %139
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %GetPredictionCostCrossColorBlue.exit84.i ], [ 0, %139 ]
-  %.189.i = phi i32 [ %.2.i52, %GetPredictionCostCrossColorBlue.exit84.i ], [ %.093.i, %139 ]
-  %.15888.i = phi i32 [ %.259.i, %GetPredictionCostCrossColorBlue.exit84.i ], [ %.05792.i, %139 ]
-  %.16487.i = phi float [ %.265.i, %GetPredictionCostCrossColorBlue.exit84.i ], [ %.06390.i, %139 ]
+  %.188.i = phi i32 [ %.2.i52, %GetPredictionCostCrossColorBlue.exit84.i ], [ %.05793.i, %139 ]
+  %.15987.i = phi i32 [ %.260.i, %GetPredictionCostCrossColorBlue.exit84.i ], [ %.05892.i, %139 ]
+  %.16486.i = phi float [ %.265.i, %GetPredictionCostCrossColorBlue.exit84.i ], [ %.06391.i, %139 ]
   %145 = getelementptr inbounds [8 x [2 x i8]], ptr @__const.GetBestGreenRedToBlue.offset, i64 0, i64 %indvars.iv.i
   %146 = load i8, ptr %145, align 2
   %147 = sext i8 %146 to i32
   %148 = mul nsw i32 %147, %142
-  %149 = add nsw i32 %148, %.189.i
+  %149 = add nsw i32 %148, %.188.i
   %150 = getelementptr inbounds i8, ptr %145, i64 1
   %151 = load i8, ptr %150, align 1
   %152 = sext i8 %151 to i32
   %153 = mul nsw i32 %152, %142
-  %154 = add nsw i32 %153, %.15888.i
+  %154 = add nsw i32 %153, %.15987.i
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %12, i8 0, i64 1024, i1 false)
   %155 = load ptr, ptr @VP8LCollectColorBlueTransforms, align 8
@@ -1162,10 +1162,10 @@ GetPredictionCostCrossColorBlue.exit84.i:         ; preds = %161
   %188 = fadd float %.4.i.i, -3.000000e+00
   %.5.i.i = select i1 %187, float %188, float %.4.i.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %12)
-  %189 = fcmp olt float %.5.i.i, %.16487.i
-  %.265.i = select i1 %189, float %.5.i.i, float %.16487.i
-  %.259.i = select i1 %189, i32 %154, i32 %.15888.i
-  %.2.i52 = select i1 %189, i32 %149, i32 %.189.i
+  %189 = fcmp olt float %.5.i.i, %.16486.i
+  %.265.i = select i1 %189, float %.5.i.i, float %.16486.i
+  %.260.i = select i1 %189, i32 %154, i32 %.15987.i
+  %.2.i52 = select i1 %189, i32 %149, i32 %.188.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %190 = icmp ult i64 %indvars.iv.i, 7
   %or.cond94.i = and i1 %or.cond.not96.i, %190
@@ -1174,15 +1174,15 @@ GetPredictionCostCrossColorBlue.exit84.i:         ; preds = %161
 191:                                              ; preds = %GetPredictionCostCrossColorBlue.exit84.i
   %192 = add nsw i64 %indvars.iv99.i, -4
   %193 = icmp ult i64 %192, 3
-  %194 = or i32 %.2.i52, %.259.i
+  %194 = or i32 %.2.i52, %.260.i
   %195 = icmp eq i32 %194, 0
   %or.cond5.i = select i1 %193, i1 %195, i1 false
   br i1 %or.cond5.i, label %GetBestGreenRedToBlue.exit, label %136
 
 GetBestGreenRedToBlue.exit:                       ; preds = %136, %191
-  %.461.i = phi i32 [ 0, %191 ], [ %.259.i, %136 ]
+  %.462.i = phi i32 [ 0, %191 ], [ %.260.i, %136 ]
   %.4.i = phi i32 [ 0, %191 ], [ %.2.i52, %136 ]
-  %196 = trunc i32 %.461.i to i24
+  %196 = trunc i32 %.462.i to i24
   %.sroa.5.0.insert.ext = shl i24 %196, 16
   %197 = trunc i32 %.4.i to i24
   %.sroa.3.0.insert.ext = shl i24 %197, 8
@@ -1272,46 +1272,46 @@ define internal fastcc void @MaxDiffsForRow(i32 noundef %0, i32 noundef %1, ptr 
   br label %58
 
 58:                                               ; preds = %30, %.lr.ph
-  %.033 = phi i32 [ %39, %30 ], [ %26, %.lr.ph ]
-  %.032 = phi i32 [ %48, %30 ], [ %27, %.lr.ph ]
+  %.031 = phi i32 [ %39, %30 ], [ %26, %.lr.ph ]
+  %.030 = phi i32 [ %48, %30 ], [ %27, %.lr.ph ]
   %.2 = phi i32 [ %57, %30 ], [ %29, %.lr.ph ]
   %59 = lshr <2 x i32> %21, <i32 24, i32 24>
-  %60 = lshr i32 %.033, 24
+  %60 = lshr i32 %.031, 24
   %61 = extractelement <2 x i32> %59, i64 1
   %62 = sub nsw i32 %61, %60
   %63 = tail call i32 @llvm.abs.i32(i32 %62, i1 true)
   %64 = extractelement <2 x i32> %21, i64 1
   %65 = lshr i32 %64, 16
   %66 = and i32 %65, 255
-  %67 = lshr i32 %.033, 16
+  %67 = lshr i32 %.031, 16
   %68 = and i32 %67, 255
   %69 = sub nsw i32 %66, %68
   %70 = tail call i32 @llvm.abs.i32(i32 %69, i1 true)
   %71 = lshr i32 %64, 8
   %72 = and i32 %71, 255
-  %73 = lshr i32 %.033, 8
+  %73 = lshr i32 %.031, 8
   %74 = and i32 %73, 255
   %75 = sub nsw i32 %72, %74
   %76 = tail call i32 @llvm.abs.i32(i32 %75, i1 true)
   %77 = and i32 %64, 255
-  %78 = and i32 %.033, 255
+  %78 = and i32 %.031, 255
   %79 = sub nsw i32 %77, %78
   %80 = tail call i32 @llvm.abs.i32(i32 %79, i1 true)
   %81 = tail call i32 @llvm.umax.i32(i32 %63, i32 %70)
   %82 = tail call i32 @llvm.umax.i32(i32 %76, i32 %80)
   %83 = tail call range(i32 0, 256) i32 @llvm.umax.i32(i32 %81, i32 %82)
-  %84 = lshr i32 %.032, 24
+  %84 = lshr i32 %.030, 24
   %85 = sub nsw i32 %61, %84
   %86 = tail call i32 @llvm.abs.i32(i32 %85, i1 true)
-  %87 = lshr i32 %.032, 16
+  %87 = lshr i32 %.030, 16
   %88 = and i32 %87, 255
   %89 = sub nsw i32 %66, %88
   %90 = tail call i32 @llvm.abs.i32(i32 %89, i1 true)
-  %91 = lshr i32 %.032, 8
+  %91 = lshr i32 %.030, 8
   %92 = and i32 %91, 255
   %93 = sub nsw i32 %72, %92
   %94 = tail call i32 @llvm.abs.i32(i32 %93, i1 true)
-  %95 = and i32 %.032, 255
+  %95 = and i32 %.030, 255
   %96 = sub nsw i32 %77, %95
   %97 = tail call i32 @llvm.abs.i32(i32 %96, i1 true)
   %98 = tail call i32 @llvm.umax.i32(i32 %86, i32 %90)
@@ -1696,7 +1696,7 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
 
 NearLosslessComponent.exit.i:                     ; preds = %180, %179, %163
   %.pre-phi.i = phi i32 [ %.pre.i, %163 ], [ %167, %179 ], [ %167, %180 ]
-  %.039.i = phi i32 [ %.narrow.i.i, %163 ], [ %spec.select.i, %179 ], [ %spec.select68.i, %180 ]
+  %.038.i = phi i32 [ %.narrow.i.i, %163 ], [ %spec.select.i, %179 ], [ %spec.select68.i, %180 ]
   %182 = lshr i32 %142, 8
   %183 = trunc i32 %182 to i8
   %184 = lshr i32 %127, 8
@@ -1737,11 +1737,11 @@ NearLosslessComponent.exit49.i:                   ; preds = %203, %202
   %.narrow.i = add i8 %.0.i46.i, %185
   %.narrow.i50.i = sub i8 %.narrow.i, %183
   %205 = xor i8 %.narrow.i, -1
-  %.040.i = select i1 %.not43.i, i8 0, i8 %.narrow.i50.i
   %206 = zext i8 %205 to i32
+  %.039.i = select i1 %.not43.i, i8 0, i8 %.narrow.i50.i
   %207 = lshr i32 %142, 16
   %208 = trunc i32 %207 to i8
-  %.narrow.i51.i = sub i8 %208, %.040.i
+  %.narrow.i51.i = sub i8 %208, %.039.i
   %209 = lshr i32 %127, 16
   %210 = zext i8 %.narrow.i51.i to i32
   %211 = sub nsw i32 %210, %209
@@ -1778,7 +1778,7 @@ NearLosslessComponent.exit49.i:                   ; preds = %203, %202
 NearLosslessComponent.exit57.i:                   ; preds = %229, %228
   %.0.in.i53.i = phi i32 [ %spec.select71.i, %228 ], [ %spec.select72.i, %229 ]
   %231 = trunc i32 %142 to i8
-  %.narrow.i58.i = sub i8 %231, %.040.i
+  %.narrow.i58.i = sub i8 %231, %.039.i
   %232 = zext i8 %.narrow.i58.i to i32
   %233 = sub i32 %232, %127
   %234 = and i32 %233, 255
@@ -1812,7 +1812,7 @@ NearLosslessComponent.exit57.i:                   ; preds = %229, %228
 
 NearLosslessComponent.exit64.i:                   ; preds = %250, %249
   %.0.in.i60.i = phi i32 [ %spec.select73.i, %249 ], [ %spec.select74.i, %250 ]
-  %252 = shl i32 %.039.i, 24
+  %252 = shl i32 %.038.i, 24
   %253 = shl i32 %.0.in.i53.i, 16
   %254 = and i32 %253, 16711680
   %255 = or disjoint i32 %254, %252

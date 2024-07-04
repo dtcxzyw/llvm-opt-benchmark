@@ -28,23 +28,23 @@ define void @H5T__bit_copy(ptr nocapture noundef %0, i64 noundef %1, ptr nocaptu
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.0110145 = phi i64 [ %.0110, %.lr.ph ], [ %.0110140, %5 ]
   %.0144 = phi i64 [ %.0, %.lr.ph ], [ %.0139, %5 ]
-  %.0114143 = phi i64 [ %36, %.lr.ph ], [ %4, %5 ]
-  %.0117142 = phi i64 [ %.1118, %.lr.ph ], [ %6, %5 ]
-  %.0121141 = phi i64 [ %.1122, %.lr.ph ], [ %7, %5 ]
+  %.0114143 = phi i64 [ %.1115, %.lr.ph ], [ %7, %5 ]
+  %.0118142 = phi i64 [ %.1119, %.lr.ph ], [ %6, %5 ]
+  %.0123141 = phi i64 [ %36, %.lr.ph ], [ %4, %5 ]
   %11 = sub nuw nsw i64 8, %.0144
   %12 = sub nuw nsw i64 8, %.0110145
   %13 = tail call i64 @llvm.umin.i64(i64 %11, i64 %12)
-  %.0114. = tail call i64 @llvm.umin.i64(i64 %.0114143, i64 %13)
-  %notmask138 = shl nsw i64 -1, %.0114.
+  %.0123. = tail call i64 @llvm.umin.i64(i64 %.0123141, i64 %13)
+  %notmask138 = shl nsw i64 -1, %.0123.
   %14 = xor i64 %notmask138, -1
   %15 = shl nuw nsw i64 %14, %.0144
   %16 = trunc i64 %15 to i8
   %17 = xor i8 %16, -1
-  %18 = getelementptr inbounds i8, ptr %0, i64 %.0121141
+  %18 = getelementptr inbounds i8, ptr %0, i64 %.0114143
   %19 = load i8, ptr %18, align 1
   %20 = and i8 %19, %17
   store i8 %20, ptr %18, align 1
-  %21 = getelementptr inbounds i8, ptr %2, i64 %.0117142
+  %21 = getelementptr inbounds i8, ptr %2, i64 %.0118142
   %22 = load i8, ptr %21, align 1
   %23 = trunc nuw nsw i64 %.0110145 to i8
   %24 = lshr i8 %22, %23
@@ -54,15 +54,15 @@ define void @H5T__bit_copy(ptr nocapture noundef %0, i64 noundef %1, ptr nocaptu
   %28 = shl i8 %26, %27
   %29 = or i8 %28, %20
   store i8 %29, ptr %18, align 1
-  %30 = add nuw nsw i64 %.0114., %.0110145
+  %30 = add nuw nsw i64 %.0123., %.0110145
   %31 = icmp ugt i64 %30, 7
   %32 = zext i1 %31 to i64
-  %.1118 = add i64 %.0117142, %32
-  %33 = add nuw nsw i64 %.0114., %.0144
+  %.1119 = add i64 %.0118142, %32
+  %33 = add nuw nsw i64 %.0123., %.0144
   %34 = icmp ugt i64 %33, 7
   %35 = zext i1 %34 to i64
-  %.1122 = add i64 %.0121141, %35
-  %36 = sub i64 %.0114143, %.0114.
+  %.1115 = add i64 %.0114143, %35
+  %36 = sub i64 %.0123141, %.0123.
   %.0 = and i64 %33, 7
   %.0110 = and i64 %30, 7
   %37 = icmp ne i64 %.0110, 0
@@ -71,14 +71,14 @@ define void @H5T__bit_copy(ptr nocapture noundef %0, i64 noundef %1, ptr nocaptu
   br i1 %39, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
-  %.0121.lcssa = phi i64 [ %7, %5 ], [ %.1122, %.lr.ph ]
-  %.0117.lcssa = phi i64 [ %6, %5 ], [ %.1118, %.lr.ph ]
-  %.0114.lcssa = phi i64 [ %4, %5 ], [ %36, %.lr.ph ]
+  %.0123.lcssa = phi i64 [ %4, %5 ], [ %36, %.lr.ph ]
+  %.0118.lcssa = phi i64 [ %6, %5 ], [ %.1119, %.lr.ph ]
+  %.0114.lcssa = phi i64 [ %7, %5 ], [ %.1115, %.lr.ph ]
   %.0.lcssa = phi i64 [ %.0139, %5 ], [ %.0, %.lr.ph ]
   %.0110.lcssa = phi i64 [ %.0110140, %5 ], [ %.0110, %.lr.ph ]
   %40 = sub nuw nsw i64 8, %.0.lcssa
   %notmask = shl nsw i64 -1, %40
-  %41 = icmp ugt i64 %.0114.lcssa, 8
+  %41 = icmp ugt i64 %.0123.lcssa, 8
   br i1 %41, label %.lr.ph154, label %.preheader
 
 .lr.ph154:                                        ; preds = %._crit_edge
@@ -94,37 +94,37 @@ define void @H5T__bit_copy(ptr nocapture noundef %0, i64 noundef %1, ptr nocaptu
   br i1 %.not137, label %.lr.ph154.split.us, label %.lr.ph154.split.preheader
 
 .lr.ph154.split.preheader:                        ; preds = %.lr.ph154
-  %scevgep = getelementptr i8, ptr %0, i64 %.0121.lcssa
+  %scevgep = getelementptr i8, ptr %0, i64 %.0114.lcssa
   %load_initial = load i8, ptr %scevgep, align 1
   br label %.lr.ph154.split
 
 .lr.ph154.split.us:                               ; preds = %.lr.ph154, %.lr.ph154.split.us
-  %.1115152.us = phi i64 [ %53, %.lr.ph154.split.us ], [ %.0114.lcssa, %.lr.ph154 ]
-  %.2119151.us = phi i64 [ %55, %.lr.ph154.split.us ], [ %.0117.lcssa, %.lr.ph154 ]
-  %.2123150.us = phi i64 [ %54, %.lr.ph154.split.us ], [ %.0121.lcssa, %.lr.ph154 ]
-  %50 = getelementptr inbounds i8, ptr %2, i64 %.2119151.us
+  %.2116152.us = phi i64 [ %54, %.lr.ph154.split.us ], [ %.0114.lcssa, %.lr.ph154 ]
+  %.2120151.us = phi i64 [ %55, %.lr.ph154.split.us ], [ %.0118.lcssa, %.lr.ph154 ]
+  %.1124150.us = phi i64 [ %53, %.lr.ph154.split.us ], [ %.0123.lcssa, %.lr.ph154 ]
+  %50 = getelementptr inbounds i8, ptr %2, i64 %.2120151.us
   %51 = load i8, ptr %50, align 1
-  %52 = getelementptr inbounds i8, ptr %0, i64 %.2123150.us
+  %52 = getelementptr inbounds i8, ptr %0, i64 %.2116152.us
   store i8 %51, ptr %52, align 1
-  %53 = add i64 %.1115152.us, -8
-  %54 = add i64 %.2123150.us, 1
-  %55 = add i64 %.2119151.us, 1
+  %53 = add i64 %.1124150.us, -8
+  %54 = add i64 %.2116152.us, 1
+  %55 = add i64 %.2120151.us, 1
   %56 = icmp ugt i64 %53, 8
   br i1 %56, label %.lr.ph154.split.us, label %.lr.ph166.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %.not160 = icmp eq i64 %.0114.lcssa, 0
+  %.not160 = icmp eq i64 %.0123.lcssa, 0
   br i1 %.not160, label %._crit_edge167, label %.lr.ph166.preheader
 
 .lr.ph154.split:                                  ; preds = %.lr.ph154.split.preheader, %.lr.ph154.split
   %store_forwarded = phi i8 [ %load_initial, %.lr.ph154.split.preheader ], [ %73, %.lr.ph154.split ]
-  %.1115152 = phi i64 [ %.0114.lcssa, %.lr.ph154.split.preheader ], [ %74, %.lr.ph154.split ]
-  %.2119151 = phi i64 [ %.0117.lcssa, %.lr.ph154.split.preheader ], [ %76, %.lr.ph154.split ]
-  %.2123150 = phi i64 [ %.0121.lcssa, %.lr.ph154.split.preheader ], [ %75, %.lr.ph154.split ]
-  %57 = getelementptr inbounds i8, ptr %0, i64 %.2123150
+  %.2116152 = phi i64 [ %.0114.lcssa, %.lr.ph154.split.preheader ], [ %75, %.lr.ph154.split ]
+  %.2120151 = phi i64 [ %.0118.lcssa, %.lr.ph154.split.preheader ], [ %76, %.lr.ph154.split ]
+  %.1124150 = phi i64 [ %.0123.lcssa, %.lr.ph154.split.preheader ], [ %74, %.lr.ph154.split ]
+  %57 = getelementptr inbounds i8, ptr %0, i64 %.2116152
   %58 = and i8 %store_forwarded, %46
   store i8 %58, ptr %57, align 1
-  %59 = getelementptr inbounds i8, ptr %2, i64 %.2119151
+  %59 = getelementptr inbounds i8, ptr %2, i64 %.2120151
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i64
   %62 = shl nuw nsw i64 %61, %.0.lcssa
@@ -142,38 +142,38 @@ define void @H5T__bit_copy(ptr nocapture noundef %0, i64 noundef %1, ptr nocaptu
   %72 = trunc nuw nsw i64 %71 to i8
   %73 = or i8 %67, %72
   store i8 %73, ptr %65, align 1
-  %74 = add i64 %.1115152, -8
-  %75 = add i64 %.2123150, 1
-  %76 = add i64 %.2119151, 1
+  %74 = add i64 %.1124150, -8
+  %75 = add i64 %.2116152, 1
+  %76 = add i64 %.2120151, 1
   %77 = icmp ugt i64 %74, 8
   br i1 %77, label %.lr.ph154.split, label %.lr.ph166.preheader
 
 .lr.ph166.preheader:                              ; preds = %.lr.ph154.split, %.lr.ph154.split.us, %.preheader
-  %.2116163.ph = phi i64 [ %.0114.lcssa, %.preheader ], [ %53, %.lr.ph154.split.us ], [ %74, %.lr.ph154.split ]
-  %.3120162.ph = phi i64 [ %.0117.lcssa, %.preheader ], [ %55, %.lr.ph154.split.us ], [ %76, %.lr.ph154.split ]
-  %.3124161.ph = phi i64 [ %.0121.lcssa, %.preheader ], [ %54, %.lr.ph154.split.us ], [ %75, %.lr.ph154.split ]
+  %.3117163.ph = phi i64 [ %.0114.lcssa, %.preheader ], [ %54, %.lr.ph154.split.us ], [ %75, %.lr.ph154.split ]
+  %.3121162.ph = phi i64 [ %.0118.lcssa, %.preheader ], [ %55, %.lr.ph154.split.us ], [ %76, %.lr.ph154.split ]
+  %.2125161.ph = phi i64 [ %.0123.lcssa, %.preheader ], [ %53, %.lr.ph154.split.us ], [ %74, %.lr.ph154.split ]
   br label %.lr.ph166
 
 .lr.ph166:                                        ; preds = %.lr.ph166.preheader, %.lr.ph166
   %.2165 = phi i64 [ %103, %.lr.ph166 ], [ %.0.lcssa, %.lr.ph166.preheader ]
   %.2112164 = phi i64 [ %99, %.lr.ph166 ], [ %.0110.lcssa, %.lr.ph166.preheader ]
-  %.2116163 = phi i64 [ %105, %.lr.ph166 ], [ %.2116163.ph, %.lr.ph166.preheader ]
-  %.3120162 = phi i64 [ %.4, %.lr.ph166 ], [ %.3120162.ph, %.lr.ph166.preheader ]
-  %.3124161 = phi i64 [ %.4125, %.lr.ph166 ], [ %.3124161.ph, %.lr.ph166.preheader ]
+  %.3117163 = phi i64 [ %.4, %.lr.ph166 ], [ %.3117163.ph, %.lr.ph166.preheader ]
+  %.3121162 = phi i64 [ %.4122, %.lr.ph166 ], [ %.3121162.ph, %.lr.ph166.preheader ]
+  %.2125161 = phi i64 [ %105, %.lr.ph166 ], [ %.2125161.ph, %.lr.ph166.preheader ]
   %78 = sub nuw nsw i64 8, %.2165
   %79 = sub nuw nsw i64 8, %.2112164
   %80 = tail call i64 @llvm.umin.i64(i64 %78, i64 %79)
-  %.2116. = tail call i64 @llvm.umin.i64(i64 %.2116163, i64 %80)
-  %notmask136 = shl nsw i64 -1, %.2116.
+  %.2125. = tail call i64 @llvm.umin.i64(i64 %.2125161, i64 %80)
+  %notmask136 = shl nsw i64 -1, %.2125.
   %81 = xor i64 %notmask136, -1
   %82 = shl nuw nsw i64 %81, %.2165
   %83 = trunc i64 %82 to i8
   %84 = xor i8 %83, -1
-  %85 = getelementptr inbounds i8, ptr %0, i64 %.3124161
+  %85 = getelementptr inbounds i8, ptr %0, i64 %.3117163
   %86 = load i8, ptr %85, align 1
   %87 = and i8 %86, %84
   store i8 %87, ptr %85, align 1
-  %88 = getelementptr inbounds i8, ptr %2, i64 %.3120162
+  %88 = getelementptr inbounds i8, ptr %2, i64 %.3121162
   %89 = load i8, ptr %88, align 1
   %90 = trunc nuw nsw i64 %.2112164 to i8
   %91 = lshr i8 %89, %90
@@ -183,17 +183,17 @@ define void @H5T__bit_copy(ptr nocapture noundef %0, i64 noundef %1, ptr nocaptu
   %95 = shl i8 %93, %94
   %96 = or i8 %95, %87
   store i8 %96, ptr %85, align 1
-  %97 = add nuw nsw i64 %.2116., %.2112164
+  %97 = add nuw nsw i64 %.2125., %.2112164
   %98 = icmp ugt i64 %97, 7
   %99 = and i64 %97, 7
   %100 = zext i1 %98 to i64
-  %.4 = add i64 %.3120162, %100
-  %101 = add nuw nsw i64 %.2116., %.2165
+  %.4122 = add i64 %.3121162, %100
+  %101 = add nuw nsw i64 %.2125., %.2165
   %102 = icmp ugt i64 %101, 7
   %103 = and i64 %101, 7
   %104 = zext i1 %102 to i64
-  %.4125 = add i64 %.3124161, %104
-  %105 = sub i64 %.2116163, %.2116.
+  %.4 = add i64 %.3117163, %104
+  %105 = sub i64 %.2125161, %.2125.
   %.not = icmp eq i64 %105, 0
   br i1 %.not, label %._crit_edge167, label %.lr.ph166
 
@@ -243,34 +243,34 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr nocapture noundef %0, i64 nounde
   br label %28
 
 28:                                               ; preds = %13, %12
-  %.035.i = phi i32 [ %26, %13 ], [ %10, %12 ]
-  %.0.i = phi i64 [ %27, %13 ], [ %3, %12 ]
-  %29 = icmp ugt i64 %.0.i, 7
+  %.035.i = phi i64 [ %27, %13 ], [ %3, %12 ]
+  %.0.i = phi i32 [ %26, %13 ], [ %10, %12 ]
+  %29 = icmp ugt i64 %.035.i, 7
   br i1 %29, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %28
-  %30 = sext i32 %.035.i to i64
+  %30 = sext i32 %.0.i to i64
   %scevgep.i = getelementptr i8, ptr %0, i64 %30
-  %31 = add nsw i64 %.0.i, -8
+  %31 = add nsw i64 %.035.i, -8
   %32 = lshr i64 %31, 3
   %33 = add nuw nsw i64 %32, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %33, i1 false)
-  %34 = and i64 %.0.i, 7
+  %34 = and i64 %.035.i, 7
   %35 = trunc i64 %32 to i32
-  %36 = add nsw i32 %.035.i, 1
+  %36 = add nsw i32 %.0.i, 1
   %37 = add i32 %36, %35
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %28
-  %.136.lcssa.i = phi i32 [ %.035.i, %28 ], [ %37, %.lr.ph.i ]
-  %.1.lcssa.i = phi i64 [ %.0.i, %28 ], [ %34, %.lr.ph.i ]
-  %.not41.i = icmp eq i64 %.1.lcssa.i, 0
+  %.136.lcssa.i = phi i64 [ %.035.i, %28 ], [ %34, %.lr.ph.i ]
+  %.1.lcssa.i = phi i32 [ %.0.i, %28 ], [ %37, %.lr.ph.i ]
+  %.not41.i = icmp eq i64 %.136.lcssa.i, 0
   br i1 %.not41.i, label %H5T__bit_set.exit.thread, label %._crit_edge.thread.sink.split.i
 
 ._crit_edge.thread.sink.split.i:                  ; preds = %._crit_edge.i
-  %38 = trunc nuw i64 %.1.lcssa.i to i8
+  %38 = trunc nuw i64 %.136.lcssa.i to i8
   %notmask43.i = shl nsw i8 -1, %38
-  %39 = sext i32 %.136.lcssa.i to i64
+  %39 = sext i32 %.1.lcssa.i to i64
   %40 = getelementptr inbounds i8, ptr %0, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = and i8 %41, %notmask43.i
@@ -336,34 +336,34 @@ H5T__bit_set.exit.thread93:                       ; preds = %50
   br label %81
 
 81:                                               ; preds = %66, %60
-  %.035.i61 = phi i32 [ %79, %66 ], [ %64, %60 ]
-  %.0.i62 = phi i64 [ %80, %66 ], [ %7, %60 ]
-  %82 = icmp ugt i64 %.0.i62, 7
+  %.035.i61 = phi i64 [ %80, %66 ], [ %7, %60 ]
+  %.0.i62 = phi i32 [ %79, %66 ], [ %64, %60 ]
+  %82 = icmp ugt i64 %.035.i61, 7
   br i1 %82, label %.lr.ph.i69, label %._crit_edge.i63
 
 .lr.ph.i69:                                       ; preds = %81
-  %83 = sext i32 %.035.i61 to i64
+  %83 = sext i32 %.0.i62 to i64
   %scevgep.i70 = getelementptr i8, ptr %0, i64 %83
-  %84 = add nsw i64 %.0.i62, -8
+  %84 = add nsw i64 %.035.i61, -8
   %85 = lshr i64 %84, 3
   %86 = add nuw nsw i64 %85, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i70, i8 0, i64 %86, i1 false)
-  %87 = and i64 %.0.i62, 7
+  %87 = and i64 %.035.i61, 7
   %88 = trunc i64 %85 to i32
-  %89 = add nsw i32 %.035.i61, 1
+  %89 = add nsw i32 %.0.i62, 1
   %90 = add i32 %89, %88
   br label %._crit_edge.i63
 
 ._crit_edge.i63:                                  ; preds = %.lr.ph.i69, %81
-  %.136.lcssa.i64 = phi i32 [ %.035.i61, %81 ], [ %90, %.lr.ph.i69 ]
-  %.1.lcssa.i65 = phi i64 [ %.0.i62, %81 ], [ %87, %.lr.ph.i69 ]
-  %.not41.i66 = icmp eq i64 %.1.lcssa.i65, 0
+  %.136.lcssa.i64 = phi i64 [ %.035.i61, %81 ], [ %87, %.lr.ph.i69 ]
+  %.1.lcssa.i65 = phi i32 [ %.0.i62, %81 ], [ %90, %.lr.ph.i69 ]
+  %.not41.i66 = icmp eq i64 %.136.lcssa.i64, 0
   br i1 %.not41.i66, label %H5T__bit_set.exit, label %._crit_edge.thread.sink.split.i67
 
 ._crit_edge.thread.sink.split.i67:                ; preds = %._crit_edge.i63
-  %91 = trunc nuw i64 %.1.lcssa.i65 to i8
+  %91 = trunc nuw i64 %.136.lcssa.i64 to i8
   %notmask43.i68 = shl nsw i8 -1, %91
-  %92 = sext i32 %.136.lcssa.i64 to i64
+  %92 = sext i32 %.1.lcssa.i65 to i64
   %93 = getelementptr inbounds i8, ptr %0, i64 %92
   %94 = load i8, ptr %93, align 1
   %95 = and i8 %94, %notmask43.i68
@@ -403,34 +403,34 @@ H5T__bit_set.exit.thread93:                       ; preds = %50
   br label %119
 
 119:                                              ; preds = %104, %96
-  %.035.i77 = phi i32 [ %117, %104 ], [ %102, %96 ]
-  %.0.i78 = phi i64 [ %118, %104 ], [ %7, %96 ]
-  %120 = icmp ugt i64 %.0.i78, 7
+  %.035.i77 = phi i64 [ %118, %104 ], [ %7, %96 ]
+  %.0.i78 = phi i32 [ %117, %104 ], [ %102, %96 ]
+  %120 = icmp ugt i64 %.035.i77, 7
   br i1 %120, label %.lr.ph.i85, label %._crit_edge.i79
 
 .lr.ph.i85:                                       ; preds = %119
-  %121 = sext i32 %.035.i77 to i64
+  %121 = sext i32 %.0.i78 to i64
   %scevgep.i86 = getelementptr i8, ptr %0, i64 %121
-  %122 = add nsw i64 %.0.i78, -8
+  %122 = add nsw i64 %.035.i77, -8
   %123 = lshr i64 %122, 3
   %124 = add nuw nsw i64 %123, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i86, i8 0, i64 %124, i1 false)
-  %125 = and i64 %.0.i78, 7
+  %125 = and i64 %.035.i77, 7
   %126 = trunc i64 %123 to i32
-  %127 = add nsw i32 %.035.i77, 1
+  %127 = add nsw i32 %.0.i78, 1
   %128 = add i32 %127, %126
   br label %._crit_edge.i79
 
 ._crit_edge.i79:                                  ; preds = %.lr.ph.i85, %119
-  %.136.lcssa.i80 = phi i32 [ %.035.i77, %119 ], [ %128, %.lr.ph.i85 ]
-  %.1.lcssa.i81 = phi i64 [ %.0.i78, %119 ], [ %125, %.lr.ph.i85 ]
-  %.not41.i82 = icmp eq i64 %.1.lcssa.i81, 0
+  %.136.lcssa.i80 = phi i64 [ %.035.i77, %119 ], [ %125, %.lr.ph.i85 ]
+  %.1.lcssa.i81 = phi i32 [ %.0.i78, %119 ], [ %128, %.lr.ph.i85 ]
+  %.not41.i82 = icmp eq i64 %.136.lcssa.i80, 0
   br i1 %.not41.i82, label %H5T__bit_set.exit, label %._crit_edge.thread.sink.split.i83
 
 ._crit_edge.thread.sink.split.i83:                ; preds = %._crit_edge.i79
-  %129 = trunc nuw i64 %.1.lcssa.i81 to i8
+  %129 = trunc nuw i64 %.136.lcssa.i80 to i8
   %notmask43.i84 = shl nsw i8 -1, %129
-  %130 = sext i32 %.136.lcssa.i80 to i64
+  %130 = sext i32 %.1.lcssa.i81 to i64
   %131 = getelementptr inbounds i8, ptr %0, i64 %130
   %132 = load i8, ptr %131, align 1
   %133 = and i8 %132, %notmask43.i84
@@ -503,43 +503,43 @@ define void @H5T__bit_set(ptr nocapture noundef %0, i64 noundef %1, i64 noundef 
   br label %34
 
 34:                                               ; preds = %31, %8
-  %.035 = phi i32 [ %32, %31 ], [ %6, %8 ]
-  %.0 = phi i64 [ %33, %31 ], [ %2, %8 ]
-  %35 = icmp ugt i64 %.0, 7
+  %.035 = phi i64 [ %33, %31 ], [ %2, %8 ]
+  %.0 = phi i32 [ %32, %31 ], [ %6, %8 ]
+  %35 = icmp ugt i64 %.035, 7
   br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %34
   %36 = sext i1 %3 to i8
-  %37 = sext i32 %.035 to i64
+  %37 = sext i32 %.0 to i64
   %scevgep = getelementptr i8, ptr %0, i64 %37
-  %38 = add i64 %.0, -8
+  %38 = add i64 %.035, -8
   %39 = lshr i64 %38, 3
   %40 = add nuw nsw i64 %39, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 %36, i64 %40, i1 false)
   br label %41
 
 41:                                               ; preds = %.lr.ph, %41
-  %.145 = phi i64 [ %.0, %.lr.ph ], [ %42, %41 ]
-  %42 = add i64 %.145, -8
+  %.13644 = phi i64 [ %.035, %.lr.ph ], [ %42, %41 ]
+  %42 = add i64 %.13644, -8
   %43 = icmp ugt i64 %42, 7
   br i1 %43, label %41, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %41
   %44 = trunc i64 %39 to i32
-  %45 = add i32 %.035, %44
+  %45 = add i32 %.0, %44
   %46 = add i32 %45, 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %34
-  %.136.lcssa = phi i32 [ %.035, %34 ], [ %46, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i64 [ %.0, %34 ], [ %42, %._crit_edge.loopexit ]
-  %.not41 = icmp eq i64 %.1.lcssa, 0
+  %.136.lcssa = phi i64 [ %.035, %34 ], [ %42, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i32 [ %.0, %34 ], [ %46, %._crit_edge.loopexit ]
+  %.not41 = icmp eq i64 %.136.lcssa, 0
   br i1 %.not41, label %._crit_edge.thread, label %._crit_edge.thread.sink.split
 
 ._crit_edge.thread.sink.split:                    ; preds = %._crit_edge
-  %47 = trunc nuw i64 %.1.lcssa to i8
+  %47 = trunc nuw i64 %.136.lcssa to i8
   %notmask43 = shl nsw i8 -1, %47
-  %48 = sext i32 %.136.lcssa to i64
+  %48 = sext i32 %.1.lcssa to i64
   %49 = getelementptr inbounds i8, ptr %0, i64 %48
   %50 = load i8, ptr %49, align 1
   %51 = xor i8 %notmask43, -1
@@ -988,40 +988,40 @@ define zeroext i1 @H5T__bit_dec(ptr nocapture noundef %0, i64 noundef %1, i64 no
   store i8 %17, ptr %10, align 1
   %.neg67 = or i64 %1, -8
   %18 = add i64 %.neg67, %2
-  %.06271 = add nuw nsw i64 %4, 1
+  %.06171 = add nuw nsw i64 %4, 1
   %19 = icmp ugt i64 %18, 7
   %20 = and i1 %.not65, %19
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
-  %.06273 = phi i64 [ %.062, %.lr.ph ], [ %.06271, %13 ]
-  %.06172 = phi i64 [ %24, %.lr.ph ], [ %18, %13 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 %.06273
+  %.06173 = phi i64 [ %.061, %.lr.ph ], [ %.06171, %13 ]
+  %.06272 = phi i64 [ %24, %.lr.ph ], [ %18, %13 ]
+  %21 = getelementptr inbounds i8, ptr %0, i64 %.06173
   %22 = load i8, ptr %21, align 1
   %.not69 = icmp eq i8 %22, 0
   %23 = add i8 %22, -1
   store i8 %23, ptr %21, align 1
-  %24 = add i64 %.06172, -8
-  %.062 = add nuw nsw i64 %.06273, 1
+  %24 = add i64 %.06272, -8
+  %.061 = add nuw nsw i64 %.06173, 1
   %25 = icmp ugt i64 %24, 7
   %26 = select i1 %.not69, i1 %25, i1 false
   br i1 %26, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
-  %.061.lcssa = phi i64 [ %18, %13 ], [ %24, %.lr.ph ]
+  %.062.lcssa = phi i64 [ %18, %13 ], [ %24, %.lr.ph ]
   %.1.in.lcssa = phi i1 [ %.not65, %13 ], [ %.not69, %.lr.ph ]
-  %.062.lcssa = phi i64 [ %.06271, %13 ], [ %.062, %.lr.ph ]
-  %27 = icmp ne i64 %.061.lcssa, 0
+  %.061.lcssa = phi i64 [ %.06171, %13 ], [ %.061, %.lr.ph ]
+  %27 = icmp ne i64 %.062.lcssa, 0
   %or.cond = select i1 %.1.in.lcssa, i1 %27, i1 false
   br i1 %or.cond, label %28, label %48
 
 28:                                               ; preds = %._crit_edge
-  %29 = getelementptr inbounds i8, ptr %0, i64 %.062.lcssa
+  %29 = getelementptr inbounds i8, ptr %0, i64 %.061.lcssa
   %30 = load i8, ptr %29, align 1
   %31 = add i8 %30, -1
   store i8 %31, ptr %29, align 1
   %32 = zext i8 %31 to i32
-  %33 = trunc i64 %.061.lcssa to i32
+  %33 = trunc i64 %.062.lcssa to i32
   %34 = lshr i32 %32, %33
   %35 = zext i8 %30 to i32
   %36 = lshr i32 %35, %33
@@ -1075,34 +1075,34 @@ define void @H5T__bit_neg(ptr nocapture noundef %0, i64 noundef %1, i64 noundef 
   %15 = sub nuw nsw i64 8, %6
   call void @H5T__bit_copy(ptr noundef nonnull %7, i64 noundef %6, ptr noundef nonnull %4, i64 noundef %6, i64 noundef %15)
   %16 = sub i64 %2, %15
-  %.03234 = add nuw nsw i64 %5, 1
+  %.034 = add nuw nsw i64 %5, 1
   %17 = icmp ugt i64 %16, 7
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %14, %.lr.ph
-  %.03236 = phi i64 [ %.032, %.lr.ph ], [ %.03234, %14 ]
-  %.035 = phi i64 [ %21, %.lr.ph ], [ %16, %14 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 %.03236
+  %.036 = phi i64 [ %.0, %.lr.ph ], [ %.034, %14 ]
+  %.03235 = phi i64 [ %21, %.lr.ph ], [ %16, %14 ]
+  %18 = getelementptr inbounds i8, ptr %0, i64 %.036
   %19 = load i8, ptr %18, align 1
   %20 = xor i8 %19, -1
   store i8 %20, ptr %18, align 1
-  %21 = add i64 %.035, -8
-  %.032 = add nuw nsw i64 %.03236, 1
+  %21 = add i64 %.03235, -8
+  %.0 = add nuw nsw i64 %.036, 1
   %22 = icmp ugt i64 %21, 7
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
-  %.0.lcssa = phi i64 [ %16, %14 ], [ %21, %.lr.ph ]
-  %.032.lcssa = phi i64 [ %.03234, %14 ], [ %.032, %.lr.ph ]
-  %.not = icmp eq i64 %.0.lcssa, 0
+  %.032.lcssa = phi i64 [ %16, %14 ], [ %21, %.lr.ph ]
+  %.0.lcssa = phi i64 [ %.034, %14 ], [ %.0, %.lr.ph ]
+  %.not = icmp eq i64 %.032.lcssa, 0
   br i1 %.not, label %28, label %23
 
 23:                                               ; preds = %._crit_edge
-  %24 = getelementptr inbounds i8, ptr %0, i64 %.032.lcssa
+  %24 = getelementptr inbounds i8, ptr %0, i64 %.0.lcssa
   %25 = load i8, ptr %24, align 1
   %26 = xor i8 %25, -1
   store i8 %26, ptr %4, align 1
-  call void @H5T__bit_copy(ptr noundef nonnull %24, i64 noundef 0, ptr noundef nonnull %4, i64 noundef 0, i64 noundef %.0.lcssa)
+  call void @H5T__bit_copy(ptr noundef nonnull %24, i64 noundef 0, ptr noundef nonnull %4, i64 noundef 0, i64 noundef %.032.lcssa)
   br label %28
 
 27:                                               ; preds = %3

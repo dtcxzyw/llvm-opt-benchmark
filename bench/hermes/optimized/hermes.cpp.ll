@@ -12784,17 +12784,17 @@ if.else:                                          ; preds = %if.then
 
 for.body.i4:                                      ; preds = %if.else, %if.end16.i
   %occupiedElementCount.024.i = phi i64 [ %occupiedElementCount.1.i, %if.end16.i ], [ 0, %if.else ]
-  %chunkListEndLoc.023.i = phi ptr [ %chunkListEndLoc.1.i, %if.end16.i ], [ %this, %if.else ]
-  %chunk.022.i = phi ptr [ %10, %if.end16.i ], [ %6, %if.else ]
+  %chunk.023.i = phi ptr [ %10, %if.end16.i ], [ %6, %if.else ]
+  %chunkListEndLoc.022.i = phi ptr [ %chunkListEndLoc.1.i, %if.end16.i ], [ %this, %if.else ]
   %7 = load ptr, ptr %freeList_, align 8
-  %__begin0.0.ptr16.i = getelementptr inbounds i8, ptr %chunk.022.i, i64 8
+  %__begin0.0.ptr16.i = getelementptr inbounds i8, ptr %chunk.023.i, i64 8
   br label %for.body6.i
 
 for.body6.i:                                      ; preds = %for.inc.i, %for.body.i4
   %__begin0.0.ptr20.i = phi ptr [ %__begin0.0.ptr16.i, %for.body.i4 ], [ %__begin0.0.ptr.i7, %for.inc.i ]
   %__begin0.0.idx19.i = phi i64 [ 8, %for.body.i4 ], [ %__begin0.0.add.i6, %for.inc.i ]
-  %chunkOccupiedElementCount.018.i = phi i64 [ 0, %for.body.i4 ], [ %chunkOccupiedElementCount.1.i, %for.inc.i ]
-  %newFreeList.017.i = phi ptr [ %7, %for.body.i4 ], [ %newFreeList.1.i, %for.inc.i ]
+  %newFreeList.018.i = phi ptr [ %7, %for.body.i4 ], [ %newFreeList.1.i, %for.inc.i ]
+  %chunkOccupiedElementCount.017.i = phi i64 [ 0, %for.body.i4 ], [ %chunkOccupiedElementCount.1.i, %for.inc.i ]
   %refCount_.i.i = getelementptr inbounds i8, ptr %__begin0.0.ptr20.i, i64 8
   %8 = load atomic i32, ptr %refCount_.i.i monotonic, align 4
   %cmp.i.i = icmp eq i32 %8, 0
@@ -12802,23 +12802,23 @@ for.body6.i:                                      ; preds = %for.inc.i, %for.bod
 
 if.then.i:                                        ; preds = %for.body6.i
   %9 = getelementptr inbounds i8, ptr %__begin0.0.ptr20.i, i64 16
-  store ptr %newFreeList.017.i, ptr %9, align 8
+  store ptr %newFreeList.018.i, ptr %9, align 8
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body6.i
-  %inc.i5 = add i64 %chunkOccupiedElementCount.018.i, 1
+  %inc.i5 = add i64 %chunkOccupiedElementCount.017.i, 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i, %if.then.i
-  %newFreeList.1.i = phi ptr [ %__begin0.0.ptr20.i, %if.then.i ], [ %newFreeList.017.i, %if.else.i ]
-  %chunkOccupiedElementCount.1.i = phi i64 [ %chunkOccupiedElementCount.018.i, %if.then.i ], [ %inc.i5, %if.else.i ]
+  %chunkOccupiedElementCount.1.i = phi i64 [ %chunkOccupiedElementCount.017.i, %if.then.i ], [ %inc.i5, %if.else.i ]
+  %newFreeList.1.i = phi ptr [ %__begin0.0.ptr20.i, %if.then.i ], [ %newFreeList.018.i, %if.else.i ]
   %__begin0.0.add.i6 = add nuw nsw i64 %__begin0.0.idx19.i, 24
-  %__begin0.0.ptr.i7 = getelementptr inbounds i8, ptr %chunk.022.i, i64 %__begin0.0.add.i6
+  %__begin0.0.ptr.i7 = getelementptr inbounds i8, ptr %chunk.023.i, i64 %__begin0.0.add.i6
   %cmp.not.i8 = icmp eq i64 %__begin0.0.add.i6, 392
   br i1 %cmp.not.i8, label %for.end.i, label %for.body6.i
 
 for.end.i:                                        ; preds = %for.inc.i
-  %10 = load ptr, ptr %chunk.022.i, align 8
+  %10 = load ptr, ptr %chunk.023.i, align 8
   %cmp9.i = icmp eq i64 %chunkOccupiedElementCount.1.i, 0
   %11 = load i64, ptr %chunkCount_, align 8
   %cmp10.i = icmp ugt i64 %11, %conv.i
@@ -12826,7 +12826,7 @@ for.end.i:                                        ; preds = %for.inc.i
   br i1 %or.cond.i, label %if.then11.i, label %if.else13.i
 
 if.then11.i:                                      ; preds = %for.end.i
-  store ptr %10, ptr %chunkListEndLoc.023.i, align 8
+  store ptr %10, ptr %chunkListEndLoc.022.i, align 8
   %12 = load i64, ptr %chunkCount_, align 8
   %dec.i = add i64 %12, -1
   store i64 %dec.i, ptr %chunkCount_, align 8
@@ -12835,13 +12835,13 @@ if.then11.i:                                      ; preds = %for.end.i
 arraydestroy.body.i.i:                            ; preds = %arraydestroy.body.i.i, %if.then11.i
   %arraydestroy.elementPast.idx.i.i = phi i64 [ 392, %if.then11.i ], [ %arraydestroy.elementPast.add.i.i, %arraydestroy.body.i.i ]
   %arraydestroy.elementPast.add.i.i = add nsw i64 %arraydestroy.elementPast.idx.i.i, -24
-  %arraydestroy.element.ptr.i.i = getelementptr inbounds i8, ptr %chunk.022.i, i64 %arraydestroy.elementPast.add.i.i
+  %arraydestroy.element.ptr.i.i = getelementptr inbounds i8, ptr %chunk.023.i, i64 %arraydestroy.elementPast.add.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm17PinnedHermesValueEEE, i64 16), ptr %arraydestroy.element.ptr.i.i, align 8
   %arraydestroy.done.i.i = icmp eq i64 %arraydestroy.elementPast.add.i.i, 8
   br i1 %arraydestroy.done.i.i, label %_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE5ChunkD2Ev.exit.i, label %arraydestroy.body.i.i
 
 _ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE5ChunkD2Ev.exit.i: ; preds = %arraydestroy.body.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %chunk.022.i) #41
+  tail call void @_ZdlPv(ptr noundef nonnull %chunk.023.i) #41
   br label %if.end16.i
 
 if.else13.i:                                      ; preds = %for.end.i
@@ -12850,7 +12850,7 @@ if.else13.i:                                      ; preds = %for.end.i
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.else13.i, %_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE5ChunkD2Ev.exit.i
-  %chunkListEndLoc.1.i = phi ptr [ %chunkListEndLoc.023.i, %_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE5ChunkD2Ev.exit.i ], [ %chunk.022.i, %if.else13.i ]
+  %chunkListEndLoc.1.i = phi ptr [ %chunkListEndLoc.022.i, %_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE5ChunkD2Ev.exit.i ], [ %chunk.023.i, %if.else13.i ]
   %occupiedElementCount.1.i = phi i64 [ %occupiedElementCount.024.i, %_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE5ChunkD2Ev.exit.i ], [ %add.i, %if.else13.i ]
   %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %for.end17.loopexit.i, label %for.body.i4, !llvm.loop !184
@@ -13299,17 +13299,17 @@ if.else:                                          ; preds = %if.then
 
 for.body.i4:                                      ; preds = %if.else, %if.end16.i
   %occupiedElementCount.024.i = phi i64 [ %occupiedElementCount.1.i, %if.end16.i ], [ 0, %if.else ]
-  %chunkListEndLoc.023.i = phi ptr [ %chunkListEndLoc.1.i, %if.end16.i ], [ %this, %if.else ]
-  %chunk.022.i = phi ptr [ %10, %if.end16.i ], [ %6, %if.else ]
+  %chunk.023.i = phi ptr [ %10, %if.end16.i ], [ %6, %if.else ]
+  %chunkListEndLoc.022.i = phi ptr [ %chunkListEndLoc.1.i, %if.end16.i ], [ %this, %if.else ]
   %7 = load ptr, ptr %freeList_, align 8
-  %__begin0.0.ptr16.i = getelementptr inbounds i8, ptr %chunk.022.i, i64 8
+  %__begin0.0.ptr16.i = getelementptr inbounds i8, ptr %chunk.023.i, i64 8
   br label %for.body6.i
 
 for.body6.i:                                      ; preds = %for.inc.i, %for.body.i4
   %__begin0.0.ptr20.i = phi ptr [ %__begin0.0.ptr16.i, %for.body.i4 ], [ %__begin0.0.ptr.i7, %for.inc.i ]
   %__begin0.0.idx19.i = phi i64 [ 8, %for.body.i4 ], [ %__begin0.0.add.i6, %for.inc.i ]
-  %chunkOccupiedElementCount.018.i = phi i64 [ 0, %for.body.i4 ], [ %chunkOccupiedElementCount.1.i, %for.inc.i ]
-  %newFreeList.017.i = phi ptr [ %7, %for.body.i4 ], [ %newFreeList.1.i, %for.inc.i ]
+  %newFreeList.018.i = phi ptr [ %7, %for.body.i4 ], [ %newFreeList.1.i, %for.inc.i ]
+  %chunkOccupiedElementCount.017.i = phi i64 [ 0, %for.body.i4 ], [ %chunkOccupiedElementCount.1.i, %for.inc.i ]
   %refCount_.i.i = getelementptr inbounds i8, ptr %__begin0.0.ptr20.i, i64 8
   %8 = load atomic i32, ptr %refCount_.i.i monotonic, align 4
   %cmp.i.i = icmp eq i32 %8, 0
@@ -13317,23 +13317,23 @@ for.body6.i:                                      ; preds = %for.inc.i, %for.bod
 
 if.then.i:                                        ; preds = %for.body6.i
   %9 = getelementptr inbounds i8, ptr %__begin0.0.ptr20.i, i64 16
-  store ptr %newFreeList.017.i, ptr %9, align 8
+  store ptr %newFreeList.018.i, ptr %9, align 8
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body6.i
-  %inc.i5 = add i64 %chunkOccupiedElementCount.018.i, 1
+  %inc.i5 = add i64 %chunkOccupiedElementCount.017.i, 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i, %if.then.i
-  %newFreeList.1.i = phi ptr [ %__begin0.0.ptr20.i, %if.then.i ], [ %newFreeList.017.i, %if.else.i ]
-  %chunkOccupiedElementCount.1.i = phi i64 [ %chunkOccupiedElementCount.018.i, %if.then.i ], [ %inc.i5, %if.else.i ]
+  %chunkOccupiedElementCount.1.i = phi i64 [ %chunkOccupiedElementCount.017.i, %if.then.i ], [ %inc.i5, %if.else.i ]
+  %newFreeList.1.i = phi ptr [ %__begin0.0.ptr20.i, %if.then.i ], [ %newFreeList.018.i, %if.else.i ]
   %__begin0.0.add.i6 = add nuw nsw i64 %__begin0.0.idx19.i, 24
-  %__begin0.0.ptr.i7 = getelementptr inbounds i8, ptr %chunk.022.i, i64 %__begin0.0.add.i6
+  %__begin0.0.ptr.i7 = getelementptr inbounds i8, ptr %chunk.023.i, i64 %__begin0.0.add.i6
   %cmp.not.i8 = icmp eq i64 %__begin0.0.add.i6, 392
   br i1 %cmp.not.i8, label %for.end.i, label %for.body6.i
 
 for.end.i:                                        ; preds = %for.inc.i
-  %10 = load ptr, ptr %chunk.022.i, align 8
+  %10 = load ptr, ptr %chunk.023.i, align 8
   %cmp9.i = icmp eq i64 %chunkOccupiedElementCount.1.i, 0
   %11 = load i64, ptr %chunkCount_, align 8
   %cmp10.i = icmp ugt i64 %11, %conv.i
@@ -13341,7 +13341,7 @@ for.end.i:                                        ; preds = %for.inc.i
   br i1 %or.cond.i, label %if.then11.i, label %if.else13.i
 
 if.then11.i:                                      ; preds = %for.end.i
-  store ptr %10, ptr %chunkListEndLoc.023.i, align 8
+  store ptr %10, ptr %chunkListEndLoc.022.i, align 8
   %12 = load i64, ptr %chunkCount_, align 8
   %dec.i = add i64 %12, -1
   store i64 %dec.i, ptr %chunkCount_, align 8
@@ -13350,13 +13350,13 @@ if.then11.i:                                      ; preds = %for.end.i
 arraydestroy.body.i.i:                            ; preds = %arraydestroy.body.i.i, %if.then11.i
   %arraydestroy.elementPast.idx.i.i = phi i64 [ 392, %if.then11.i ], [ %arraydestroy.elementPast.add.i.i, %arraydestroy.body.i.i ]
   %arraydestroy.elementPast.add.i.i = add nsw i64 %arraydestroy.elementPast.idx.i.i, -24
-  %arraydestroy.element.ptr.i.i = getelementptr inbounds i8, ptr %chunk.022.i, i64 %arraydestroy.elementPast.add.i.i
+  %arraydestroy.element.ptr.i.i = getelementptr inbounds i8, ptr %chunk.023.i, i64 %arraydestroy.elementPast.add.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm8WeakRootINS4_8JSObjectEEEEE, i64 16), ptr %arraydestroy.element.ptr.i.i, align 8
   %arraydestroy.done.i.i = icmp eq i64 %arraydestroy.elementPast.add.i.i, 8
   br i1 %arraydestroy.done.i.i, label %_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm8WeakRootINS5_8JSObjectEEEEELm16EE5ChunkD2Ev.exit.i, label %arraydestroy.body.i.i
 
 _ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm8WeakRootINS5_8JSObjectEEEEELm16EE5ChunkD2Ev.exit.i: ; preds = %arraydestroy.body.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %chunk.022.i) #41
+  tail call void @_ZdlPv(ptr noundef nonnull %chunk.023.i) #41
   br label %if.end16.i
 
 if.else13.i:                                      ; preds = %for.end.i
@@ -13365,7 +13365,7 @@ if.else13.i:                                      ; preds = %for.end.i
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.else13.i, %_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm8WeakRootINS5_8JSObjectEEEEELm16EE5ChunkD2Ev.exit.i
-  %chunkListEndLoc.1.i = phi ptr [ %chunkListEndLoc.023.i, %_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm8WeakRootINS5_8JSObjectEEEEELm16EE5ChunkD2Ev.exit.i ], [ %chunk.022.i, %if.else13.i ]
+  %chunkListEndLoc.1.i = phi ptr [ %chunkListEndLoc.022.i, %_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm8WeakRootINS5_8JSObjectEEEEELm16EE5ChunkD2Ev.exit.i ], [ %chunk.023.i, %if.else13.i ]
   %occupiedElementCount.1.i = phi i64 [ %occupiedElementCount.024.i, %_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm8WeakRootINS5_8JSObjectEEEEELm16EE5ChunkD2Ev.exit.i ], [ %add.i, %if.else13.i ]
   %tobool.not.i = icmp eq ptr %10, null
   br i1 %tobool.not.i, label %for.end17.loopexit.i, label %for.body.i4, !llvm.loop !188
@@ -18713,8 +18713,8 @@ lpad65:                                           ; preds = %catch61
           to label %ehcleanup82 unwind label %terminate.lpad
 
 cleanup:                                          ; preds = %invoke.cont28, %if.then8.i, %if.then14.i, %if.then25.i, %return.fold.split.i, %invoke.cont70, %_ZN4llvh11SmallVectorItLj16EED2Ev.exit, %invoke.cont34
-  %retval.sroa.0.0 = phi i32 [ 0, %invoke.cont70 ], [ %call55, %_ZN4llvh11SmallVectorItLj16EED2Ev.exit ], [ %call35, %invoke.cont34 ], [ 1, %return.fold.split.i ], [ 1, %if.then25.i ], [ 1, %if.then14.i ], [ 1, %if.then8.i ], [ 1, %invoke.cont28 ]
-  %retval.sroa.5.0 = phi i64 [ undef, %invoke.cont70 ], [ undef, %_ZN4llvh11SmallVectorItLj16EED2Ev.exit ], [ undef, %invoke.cont34 ], [ -1548112371908608, %return.fold.split.i ], [ %retval.sroa.0.0.copyload.i, %if.then25.i ], [ %retval.sroa.0.0.i.i, %if.then14.i ], [ %or.i.i.i, %if.then8.i ], [ -1688849860263936, %invoke.cont28 ]
+  %retval.sroa.5.0 = phi i64 [ undef, %invoke.cont70 ], [ undef, %_ZN4llvh11SmallVectorItLj16EED2Ev.exit ], [ undef, %invoke.cont34 ], [ %or.i.i.i, %if.then8.i ], [ %retval.sroa.0.0.i.i, %if.then14.i ], [ %retval.sroa.0.0.copyload.i, %if.then25.i ], [ -1688849860263936, %invoke.cont28 ], [ -1548112371908608, %return.fold.split.i ]
+  %retval.sroa.0.0 = phi i32 [ 0, %invoke.cont70 ], [ %call55, %_ZN4llvh11SmallVectorItLj16EED2Ev.exit ], [ %call35, %invoke.cont34 ], [ 1, %if.then8.i ], [ 1, %if.then14.i ], [ 1, %if.then25.i ], [ 1, %invoke.cont28 ], [ 1, %return.fold.split.i ]
   call void @_ZN8facebook3jsi5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ret) #37
   %42 = load ptr, ptr %apiArgs, align 8
   %43 = load i32, ptr %Size.i.i.i.i.i, align 8

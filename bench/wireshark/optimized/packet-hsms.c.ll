@@ -466,7 +466,7 @@ default.unreachable:                              ; preds = %3
   unreachable
 
 28:                                               ; preds = %23, %18, %14
-  %.0132 = phi i32 [ %27, %23 ], [ %22, %18 ], [ %17, %14 ]
+  %.0131 = phi i32 [ %27, %23 ], [ %22, %18 ], [ %17, %14 ]
   %.not = icmp ult i8 %7, 4
   br i1 %.not, label %38, label %29
 
@@ -477,17 +477,17 @@ default.unreachable:                              ; preds = %3
   %33 = tail call ptr @wmem_map_lookup(ptr noundef %30, ptr noundef %32) #3
   %34 = ptrtoint ptr %33 to i64
   %35 = trunc i64 %34 to i32
-  %36 = urem i32 %.0132, %35
-  %37 = udiv i32 %.0132, %35
+  %36 = urem i32 %.0131, %35
+  %37 = udiv i32 %.0131, %35
   %.not138 = icmp eq i32 %36, 0
   br i1 %.not138, label %38, label %.loopexit139
 
 38:                                               ; preds = %29, %28
-  %.1133 = phi i32 [ %.0132, %28 ], [ %37, %29 ]
+  %.1132 = phi i32 [ %.0131, %28 ], [ %37, %29 ]
   %39 = load i32, ptr %2, align 4
   %40 = load i32, ptr @ett_hsms_data_item, align 4
   %41 = tail call ptr @val_to_str(i32 noundef %9, ptr noundef nonnull @item_format_names, ptr noundef nonnull @.str.81) #3
-  %42 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %39, i32 noundef -1, i32 noundef %40, ptr noundef nonnull %5, ptr noundef nonnull @.str.80, ptr noundef %41, i32 noundef %.1133) #3
+  %42 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %39, i32 noundef -1, i32 noundef %40, ptr noundef nonnull %5, ptr noundef nonnull @.str.80, ptr noundef %41, i32 noundef %.1132) #3
   %43 = load i32, ptr %2, align 4
   %44 = load i32, ptr @ett_hsms_header, align 4
   %45 = call ptr @val_to_str(i32 noundef %9, ptr noundef nonnull @item_format_names, ptr noundef nonnull @.str.81) #3
@@ -512,7 +512,7 @@ default.unreachable:                              ; preds = %3
   ]
 
 .preheader:                                       ; preds = %38
-  %.not143 = icmp eq i32 %.1133, 0
+  %.not143 = icmp eq i32 %.1132, 0
   br i1 %.not143, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
@@ -521,24 +521,24 @@ default.unreachable:                              ; preds = %3
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %63
-  %.0130142.us = phi i32 [ %64, %63 ], [ 0, %.lr.ph ]
-  %.0131141.us = phi i32 [ %.1.us, %63 ], [ 0, %.lr.ph ]
+  %.0142.us = phi i32 [ %64, %63 ], [ 0, %.lr.ph ]
+  %.0130141.us = phi i32 [ %.1.us, %63 ], [ 0, %.lr.ph ]
   %61 = call fastcc i32 @dissect_secs_variable(ptr noundef %0, ptr noundef %42, ptr noundef nonnull %2)
   %62 = icmp eq i32 %61, -1
   br i1 %62, label %.loopexit139, label %63
 
 63:                                               ; preds = %.lr.ph.split.us
-  %.1.us = add i32 %61, %.0131141.us
-  %64 = add nuw i32 %.0130142.us, 1
-  %exitcond146.not = icmp eq i32 %64, %.1133
+  %.1.us = add i32 %61, %.0130141.us
+  %64 = add nuw i32 %.0142.us, 1
+  %exitcond146.not = icmp eq i32 %64, %.1132
   br i1 %exitcond146.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !4
 
 65:                                               ; preds = %38
   br label %.loopexit.sink.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %80
-  %.0130142 = phi i32 [ %86, %80 ], [ 0, %.lr.ph ]
-  %.0131141 = phi i32 [ %.1, %80 ], [ 0, %.lr.ph ]
+  %.0142 = phi i32 [ %86, %80 ], [ 0, %.lr.ph ]
+  %.0130141 = phi i32 [ %.1, %80 ], [ 0, %.lr.ph ]
   %66 = load ptr, ptr @value_lengths, align 8
   %67 = call ptr @wmem_map_lookup(ptr noundef %66, ptr noundef %60) #3
   %68 = ptrtoint ptr %67 to i64
@@ -595,9 +595,9 @@ default.unreachable:                              ; preds = %3
   %84 = load i32, ptr %2, align 4
   %85 = add i32 %84, %69
   store i32 %85, ptr %2, align 4
-  %.1 = add i32 %.0131141, %69
-  %86 = add nuw i32 %.0130142, 1
-  %exitcond.not = icmp eq i32 %86, %.1133
+  %.1 = add i32 %.0130141, %69
+  %86 = add nuw i32 %.0142, 1
+  %exitcond.not = icmp eq i32 %86, %.1132
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !4
 
 .loopexit.sink.split:                             ; preds = %38, %65
@@ -607,7 +607,7 @@ default.unreachable:                              ; preds = %3
   %88 = call ptr @wmem_map_lookup(ptr noundef %87, ptr noundef nonnull %.sink156) #3
   %89 = ptrtoint ptr %88 to i64
   %90 = trunc i64 %89 to i32
-  %91 = mul i32 %.1133, %90
+  %91 = mul i32 %.1132, %90
   %92 = load i32, ptr %hf_hsms_data_item_value_string.sink, align 4
   %93 = load i32, ptr %2, align 4
   %94 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %92, ptr noundef %0, i32 noundef %93, i32 noundef %91, i32 noundef 0) #3
@@ -624,8 +624,8 @@ default.unreachable:                              ; preds = %3
   br label %.loopexit139
 
 .loopexit139:                                     ; preds = %.lr.ph.split, %.lr.ph.split.us, %29, %3, %.loopexit
-  %.0 = phi i32 [ %98, %.loopexit ], [ -1, %3 ], [ -1, %29 ], [ -1, %.lr.ph.split.us ], [ -1, %.lr.ph.split ]
-  ret i32 %.0
+  %.0133 = phi i32 [ %98, %.loopexit ], [ -1, %3 ], [ -1, %29 ], [ -1, %.lr.ph.split.us ], [ -1, %.lr.ph.split ]
+  ret i32 %.0133
 }
 
 declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #1

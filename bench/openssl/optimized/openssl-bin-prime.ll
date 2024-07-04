@@ -56,26 +56,26 @@ entry:
   %call = tail call ptr @opt_init(i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull @prime_options) #3
   br label %while.cond.outer
 
-while.cond.outer:                                 ; preds = %sw.bb5, %entry
-  %tobool15.not = phi i1 [ false, %sw.bb5 ], [ true, %entry ]
-  %bits.0.ph = phi i32 [ %bits.0.ph94, %sw.bb5 ], [ 0, %entry ]
-  %safe.0.ph = phi i32 [ %safe.0.ph98, %sw.bb5 ], [ 0, %entry ]
-  %hex.0.ph = phi i32 [ %hex.0.ph101, %sw.bb5 ], [ 0, %entry ]
+while.cond.outer:                                 ; preds = %while.cond, %entry
+  %tobool44.not = phi i1 [ true, %entry ], [ false, %while.cond ]
+  %generate.0.ph = phi i32 [ 0, %entry ], [ %generate.0.ph94, %while.cond ]
+  %bits.0.ph = phi i32 [ 0, %entry ], [ %bits.0.ph98, %while.cond ]
+  %safe.0.ph = phi i32 [ 0, %entry ], [ %safe.0.ph101, %while.cond ]
   br label %while.cond.outer93
 
-while.cond.outer93:                               ; preds = %while.cond.outer, %sw.bb6
-  %bits.0.ph94 = phi i32 [ %bits.0.ph, %while.cond.outer ], [ %call8, %sw.bb6 ]
-  %safe.0.ph95 = phi i32 [ %safe.0.ph, %while.cond.outer ], [ %safe.0.ph98, %sw.bb6 ]
-  %hex.0.ph96 = phi i32 [ %hex.0.ph, %while.cond.outer ], [ %hex.0.ph101, %sw.bb6 ]
+while.cond.outer93:                               ; preds = %while.cond.outer, %sw.bb5
+  %generate.0.ph94 = phi i32 [ %generate.0.ph, %while.cond.outer ], [ 1, %sw.bb5 ]
+  %bits.0.ph95 = phi i32 [ %bits.0.ph, %while.cond.outer ], [ %bits.0.ph98, %sw.bb5 ]
+  %safe.0.ph96 = phi i32 [ %safe.0.ph, %while.cond.outer ], [ %safe.0.ph101, %sw.bb5 ]
   br label %while.cond.outer97
 
-while.cond.outer97:                               ; preds = %while.cond.outer93, %sw.bb9
-  %safe.0.ph98 = phi i32 [ %safe.0.ph95, %while.cond.outer93 ], [ 1, %sw.bb9 ]
-  %hex.0.ph99 = phi i32 [ %hex.0.ph96, %while.cond.outer93 ], [ %hex.0.ph101, %sw.bb9 ]
+while.cond.outer97:                               ; preds = %while.cond.outer93, %sw.bb6
+  %bits.0.ph98 = phi i32 [ %bits.0.ph95, %while.cond.outer93 ], [ %call8, %sw.bb6 ]
+  %safe.0.ph99 = phi i32 [ %safe.0.ph96, %while.cond.outer93 ], [ %safe.0.ph101, %sw.bb6 ]
   br label %while.cond.outer100
 
-while.cond.outer100:                              ; preds = %while.cond, %while.cond.outer97
-  %hex.0.ph101 = phi i32 [ %hex.0.ph99, %while.cond.outer97 ], [ 1, %while.cond ]
+while.cond.outer100:                              ; preds = %while.cond.outer97, %sw.bb9
+  %safe.0.ph101 = phi i32 [ %safe.0.ph99, %while.cond.outer97 ], [ 1, %sw.bb9 ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %while.cond.outer100
@@ -85,7 +85,7 @@ while.cond:                                       ; preds = %while.cond.backedge
     i32 1601, label %sw.bb13
     i32 -1, label %opthelp
     i32 1, label %sw.bb3
-    i32 2, label %while.cond.outer100
+    i32 2, label %while.cond.outer
     i32 3, label %sw.bb5
     i32 4, label %sw.bb6
     i32 5, label %sw.bb9
@@ -107,15 +107,15 @@ sw.bb3:                                           ; preds = %while.cond
   br label %end
 
 sw.bb5:                                           ; preds = %while.cond
-  br label %while.cond.outer, !llvm.loop !5
+  br label %while.cond.outer93, !llvm.loop !5
 
 sw.bb6:                                           ; preds = %while.cond
   %call7 = tail call ptr @opt_arg() #3
   %call8 = tail call i32 @atoi(ptr nocapture noundef %call7) #4
-  br label %while.cond.outer93, !llvm.loop !5
+  br label %while.cond.outer97, !llvm.loop !5
 
 sw.bb9:                                           ; preds = %while.cond
-  br label %while.cond.outer97, !llvm.loop !5
+  br label %while.cond.outer100, !llvm.loop !5
 
 sw.bb10:                                          ; preds = %while.cond
   %call11 = tail call ptr @opt_arg() #3
@@ -127,6 +127,7 @@ sw.bb13:                                          ; preds = %while.cond, %while.
   br i1 %tobool.not, label %end, label %while.cond.backedge
 
 while.end:                                        ; preds = %while.cond
+  %tobool15.not = icmp eq i32 %generate.0.ph94, 0
   br i1 %tobool15.not, label %if.end19, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.end
@@ -155,8 +156,7 @@ for.cond.preheader:                               ; preds = %if.end27
   br i1 %tobool52.not35, label %end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %tobool.not.i = icmp eq i32 %hex.0.ph101, 0
-  br i1 %tobool.not.i, label %for.body.us, label %for.body
+  br i1 %tobool44.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %if.end70.us
   %3 = phi ptr [ %11, %if.end70.us ], [ %2, %for.body.lr.ph ]
@@ -201,7 +201,7 @@ check_num.exit.loopexit.us:                       ; preds = %for.cond28.i.us
   br i1 %cmp48.i.not.us, label %if.then55.us, label %if.then67
 
 if.then29:                                        ; preds = %if.end27
-  %tobool30.not = icmp eq i32 %bits.0.ph94, 0
+  %tobool30.not = icmp eq i32 %bits.0.ph98, 0
   br i1 %tobool30.not, label %if.then31, label %if.end33
 
 if.then31:                                        ; preds = %if.then29
@@ -221,7 +221,7 @@ if.then36:                                        ; preds = %if.end33
   br label %end
 
 if.end38:                                         ; preds = %if.end33
-  %call39 = tail call i32 @BN_generate_prime_ex(ptr noundef nonnull %call34, i32 noundef %bits.0.ph94, i32 noundef %safe.0.ph98, ptr noundef null, ptr noundef null, ptr noundef null) #3
+  %call39 = tail call i32 @BN_generate_prime_ex(ptr noundef nonnull %call34, i32 noundef %bits.0.ph98, i32 noundef %safe.0.ph101, ptr noundef null, ptr noundef null, ptr noundef null) #3
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.then41, label %if.end43
 
@@ -231,7 +231,6 @@ if.then41:                                        ; preds = %if.end38
   br label %end
 
 if.end43:                                         ; preds = %if.end38
-  %tobool44.not = icmp eq i32 %hex.0.ph101, 0
   br i1 %tobool44.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %if.end43

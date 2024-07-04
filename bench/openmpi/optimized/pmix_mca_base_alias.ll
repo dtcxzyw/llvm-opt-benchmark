@@ -523,8 +523,8 @@ pmix_obj_new_tma.exit.thread54:                   ; preds = %.lr.ph.i.i37, %71
   br label %85
 
 85:                                               ; preds = %pmix_obj_new_tma.exit.thread54, %pmix_mca_base_alias_lookup_internal.exit
-  %.026 = phi ptr [ null, %pmix_obj_new_tma.exit.thread54 ], [ %57, %pmix_mca_base_alias_lookup_internal.exit ]
-  %.025 = phi ptr [ %66, %pmix_obj_new_tma.exit.thread54 ], [ %62, %pmix_mca_base_alias_lookup_internal.exit ]
+  %.025 = phi ptr [ null, %pmix_obj_new_tma.exit.thread54 ], [ %57, %pmix_mca_base_alias_lookup_internal.exit ]
+  %.0 = phi ptr [ %66, %pmix_obj_new_tma.exit.thread54 ], [ %62, %pmix_mca_base_alias_lookup_internal.exit ]
   %86 = load i64, ptr getelementptr inbounds (i8, ptr @pmix_mca_base_alias_item_t_class, i64 56), align 8
   %87 = call noalias noundef ptr @malloc(i64 noundef %86) #21
   %88 = load i32, ptr @pmix_class_init_epoch, align 4
@@ -565,11 +565,11 @@ pmix_obj_new_tma.exit.thread54:                   ; preds = %.lr.ph.i.i37, %71
   br i1 %.not.i.i45, label %pmix_obj_new_tma.exit46.thread55, label %.lr.ph.i.i43, !llvm.loop !4
 
 pmix_obj_new_tma.exit46.thread:                   ; preds = %91
-  %.not33 = icmp eq ptr %.026, null
+  %.not33 = icmp eq ptr %.025, null
   br i1 %.not33, label %117, label %103
 
 103:                                              ; preds = %pmix_obj_new_tma.exit46.thread
-  call void @free(ptr noundef nonnull %.026) #17
+  call void @free(ptr noundef nonnull %.025) #17
   br label %117
 
 pmix_obj_new_tma.exit46.thread55:                 ; preds = %.lr.ph.i.i43, %92
@@ -578,8 +578,8 @@ pmix_obj_new_tma.exit46.thread55:                 ; preds = %.lr.ph.i.i43, %92
   store ptr %104, ptr %105, align 8
   %106 = getelementptr inbounds i8, ptr %87, i64 152
   store i32 %4, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %.025, i64 240
-  %108 = getelementptr inbounds i8, ptr %.025, i64 368
+  %107 = getelementptr inbounds i8, ptr %.0, i64 240
+  %108 = getelementptr inbounds i8, ptr %.0, i64 368
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds i8, ptr %87, i64 128
   store ptr %109, ptr %110, align 8
@@ -588,20 +588,20 @@ pmix_obj_new_tma.exit46.thread55:                 ; preds = %.lr.ph.i.i43, %92
   %112 = getelementptr inbounds i8, ptr %87, i64 120
   store ptr %107, ptr %112, align 8
   store ptr %87, ptr %108, align 8
-  %113 = getelementptr inbounds i8, ptr %.025, i64 384
+  %113 = getelementptr inbounds i8, ptr %.0, i64 384
   %114 = load volatile i64, ptr %113, align 8
   %115 = add i64 %114, 1
   store volatile i64 %115, ptr %113, align 8
-  %.not32 = icmp eq ptr %.026, null
+  %.not32 = icmp eq ptr %.025, null
   br i1 %.not32, label %117, label %116
 
 116:                                              ; preds = %pmix_obj_new_tma.exit46.thread55
-  call void @free(ptr noundef nonnull %.026) #17
+  call void @free(ptr noundef nonnull %.025) #17
   br label %117
 
 117:                                              ; preds = %pmix_mca_base_alias_setup.exit, %pmix_mca_base_alias_setup.exit.thread50, %pmix_obj_new_tma.exit46.thread55, %116, %pmix_obj_new_tma.exit46.thread, %103, %5, %pmix_obj_new_tma.exit.thread
-  %.0 = phi i32 [ -29, %pmix_obj_new_tma.exit.thread ], [ -27, %5 ], [ %28, %pmix_mca_base_alias_setup.exit ], [ -29, %103 ], [ -29, %pmix_obj_new_tma.exit46.thread ], [ 0, %116 ], [ 0, %pmix_obj_new_tma.exit46.thread55 ], [ %.0.ph.i.ph, %pmix_mca_base_alias_setup.exit.thread50 ]
-  ret i32 %.0
+  %.026 = phi i32 [ -29, %pmix_obj_new_tma.exit.thread ], [ -27, %5 ], [ %28, %pmix_mca_base_alias_setup.exit ], [ -29, %103 ], [ -29, %pmix_obj_new_tma.exit46.thread ], [ 0, %116 ], [ 0, %pmix_obj_new_tma.exit46.thread55 ], [ %.0.ph.i.ph, %pmix_mca_base_alias_setup.exit.thread50 ]
+  ret i32 %.026
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable

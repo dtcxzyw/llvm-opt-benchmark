@@ -5474,8 +5474,8 @@ define range(i32 -6, 1) i32 @wtap_block_remove_option(ptr noundef readonly %0, i
   br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !21
 
 .loopexit:                                        ; preds = %30, %.preheader, %12, %4, %2, %25
-  %.0 = phi i32 [ 0, %25 ], [ -6, %2 ], [ -1, %4 ], [ -4, %12 ], [ -2, %.preheader ], [ -2, %30 ]
-  ret i32 %.0
+  %.016 = phi i32 [ 0, %25 ], [ -6, %2 ], [ -1, %4 ], [ -4, %12 ], [ -2, %.preheader ], [ -2, %30 ]
+  ret i32 %.016
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5635,8 +5635,8 @@ define range(i32 -6, 1) i32 @wtap_block_remove_nth_option_instance(ptr noundef r
   br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !22
 
 .loopexit:                                        ; preds = %35, %.preheader, %13, %5, %3, %28
-  %.019 = phi i32 [ 0, %28 ], [ -6, %3 ], [ -1, %5 ], [ -4, %13 ], [ -2, %.preheader ], [ -2, %35 ]
-  ret i32 %.019
+  %.020 = phi i32 [ 0, %28 ], [ -6, %3 ], [ -1, %5 ], [ -4, %13 ], [ -2, %.preheader ], [ -2, %35 ]
+  ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable

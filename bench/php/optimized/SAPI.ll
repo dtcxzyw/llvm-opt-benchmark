@@ -212,7 +212,7 @@ define void @sapi_read_post_data() local_unnamed_addr #0 {
 7:                                                ; preds = %.lr.ph, %17
   %.03147 = phi i8 [ 0, %.lr.ph ], [ %.1, %17 ]
   %.03246 = phi ptr [ %4, %.lr.ph ], [ %18, %17 ]
-  %.03445 = phi i32 [ %5, %.lr.ph ], [ %.135, %17 ]
+  %.03345 = phi i32 [ %5, %.lr.ph ], [ %.134, %17 ]
   %8 = load i8, ptr %.03246, align 1
   switch i8 %8, label %13 [
     i8 59, label %9
@@ -234,11 +234,11 @@ define void @sapi_read_post_data() local_unnamed_addr #0 {
 
 17:                                               ; preds = %9, %13
   %storemerge = phi i8 [ 0, %9 ], [ %16, %13 ]
-  %.135 = phi i32 [ %12, %9 ], [ %.03445, %13 ]
+  %.134 = phi i32 [ %12, %9 ], [ %.03345, %13 ]
   %.1 = phi i8 [ %8, %9 ], [ %.03147, %13 ]
   store i8 %storemerge, ptr %.03246, align 1
   %18 = getelementptr inbounds i8, ptr %.03246, i64 1
-  %19 = zext i32 %.135 to i64
+  %19 = zext i32 %.134 to i64
   %20 = getelementptr inbounds i8, ptr %4, i64 %19
   %21 = icmp ult ptr %18, %20
   br i1 %21, label %7, label %._crit_edge
@@ -1124,13 +1124,13 @@ define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) loca
   br label %51
 
 51:                                               ; preds = %.preheader252, %53
-  %.0185 = phi i64 [ %52, %53 ], [ %32, %.preheader252 ]
-  %52 = add i64 %.0185, -1
+  %.0186 = phi i64 [ %52, %53 ], [ %32, %.preheader252 ]
+  %52 = add i64 %.0186, -1
   %.not213 = icmp eq i64 %52, 0
   br i1 %.not213, label %.critedge, label %53
 
 53:                                               ; preds = %51
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.0185
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.0186
   %54 = load i8, ptr %gep, align 1
   %55 = sext i8 %54 to i64
   %56 = getelementptr inbounds i16, ptr %43, i64 %55
@@ -1236,7 +1236,7 @@ sapi_remove_header.exit:                          ; preds = %94, %72
 
 .lr.ph:                                           ; preds = %.preheader, %102
   %95 = phi i64 [ %104, %102 ], [ 0, %.preheader ]
-  %.0187253 = phi i32 [ %103, %102 ], [ 0, %.preheader ]
+  %.0185253 = phi i32 [ %103, %102 ], [ 0, %.preheader ]
   %96 = getelementptr inbounds i8, ptr %31, i64 %95
   %97 = load i8, ptr %96, align 1
   switch i8 %97, label %102 [
@@ -1258,7 +1258,7 @@ sapi_remove_header.exit:                          ; preds = %94, %72
   br label %sapi_update_response_code.exit
 
 102:                                              ; preds = %.lr.ph
-  %103 = add i32 %.0187253, 1
+  %103 = add i32 %.0185253, 1
   %104 = zext i32 %103 to i64
   %105 = icmp ugt i64 %.1, %104
   br i1 %105, label %.lr.ph, label %._crit_edge
@@ -1335,20 +1335,20 @@ sapi_update_response_code.exit236:                ; preds = %111
   br i1 %130, label %.lr.ph257, label %._crit_edge258
 
 .lr.ph257:                                        ; preds = %124, %.lr.ph257
-  %.0184255 = phi i64 [ %132, %.lr.ph257 ], [ %128, %124 ]
-  %.0186254 = phi ptr [ %131, %.lr.ph257 ], [ %125, %124 ]
-  %131 = getelementptr inbounds i8, ptr %.0186254, i64 1
-  %132 = add i64 %.0184255, -1
+  %.0183255 = phi i64 [ %132, %.lr.ph257 ], [ %128, %124 ]
+  %.0184254 = phi ptr [ %131, %.lr.ph257 ], [ %125, %124 ]
+  %131 = getelementptr inbounds i8, ptr %.0184254, i64 1
+  %132 = add i64 %.0183255, -1
   %133 = load i8, ptr %131, align 1
   %134 = icmp eq i8 %133, 32
   br i1 %134, label %.lr.ph257, label %._crit_edge258
 
 ._crit_edge258:                                   ; preds = %.lr.ph257, %124
-  %.0186.lcssa = phi ptr [ %125, %124 ], [ %131, %.lr.ph257 ]
-  %.0184.lcssa = phi i64 [ %128, %124 ], [ %132, %.lr.ph257 ]
-  %135 = tail call noalias ptr @_estrdup(ptr noundef nonnull %.0186.lcssa) #18
+  %.0184.lcssa = phi ptr [ %125, %124 ], [ %131, %.lr.ph257 ]
+  %.0183.lcssa = phi i64 [ %128, %124 ], [ %132, %.lr.ph257 ]
+  %135 = tail call noalias ptr @_estrdup(ptr noundef nonnull %.0184.lcssa) #18
   store ptr %135, ptr %4, align 8
-  %136 = call i64 @sapi_apply_default_charset(ptr noundef nonnull %4, i64 noundef %.0184.lcssa)
+  %136 = call i64 @sapi_apply_default_charset(ptr noundef nonnull %4, i64 noundef %.0183.lcssa)
   %137 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 224), align 8
   %.not219 = icmp eq ptr %137, null
   br i1 %.not219, label %138, label %141
@@ -1372,9 +1372,9 @@ sapi_update_response_code.exit236:                ; preds = %111
   %144 = tail call noalias ptr @_emalloc(i64 noundef %143) #20
   %145 = icmp ugt i64 %136, -16
   %146 = add i64 %136, 14
-  %.0183 = select i1 %145, i64 %146, i64 14
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %144, ptr nonnull align 1 @.str.5, i64 %.0183, i1 false)
-  %147 = getelementptr inbounds i8, ptr %144, i64 %.0183
+  %.0 = select i1 %145, i64 %146, i64 14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %144, ptr nonnull align 1 @.str.5, i64 %.0, i1 false)
+  %147 = getelementptr inbounds i8, ptr %144, i64 %.0
   store i8 0, ptr %147, align 1
   %148 = load ptr, ptr %4, align 8
   %149 = tail call i64 @php_strlcat(ptr noundef %144, ptr noundef %148, i64 noundef %143) #18
@@ -1567,8 +1567,8 @@ sapi_update_response_code.exit246:                ; preds = %215, %209
   br label %sapi_update_response_code.exit
 
 sapi_update_response_code.exit:                   ; preds = %24, %16, %15, %25, %27, %13, %14, %sapi_update_response_code.exit246, %118, %100, %98, %sapi_remove_header.exit, %65, %40
-  %.0 = phi i32 [ 0, %40 ], [ -1, %65 ], [ 0, %sapi_remove_header.exit ], [ -1, %98 ], [ -1, %100 ], [ 0, %sapi_update_response_code.exit246 ], [ 0, %118 ], [ -1, %14 ], [ -1, %13 ], [ -1, %27 ], [ -1, %25 ], [ -1, %15 ], [ 0, %16 ], [ 0, %24 ]
-  ret i32 %.0
+  %.0187 = phi i32 [ 0, %40 ], [ -1, %65 ], [ 0, %sapi_remove_header.exit ], [ -1, %98 ], [ -1, %100 ], [ 0, %sapi_update_response_code.exit246 ], [ 0, %118 ], [ -1, %14 ], [ -1, %13 ], [ -1, %27 ], [ -1, %25 ], [ -1, %15 ], [ 0, %16 ], [ 0, %24 ]
+  ret i32 %.0187
 }
 
 declare ptr @php_output_get_start_filename() local_unnamed_addr #2
@@ -2026,7 +2026,7 @@ define range(i32 -1, 1) i32 @sapi_register_post_entry(ptr nocapture noundef read
   br label %32
 
 32:                                               ; preds = %6, %28
-  %.0 = phi i32 [ %31, %28 ], [ -1, %6 ]
+  %.0114 = phi i32 [ %31, %28 ], [ -1, %6 ]
   %33 = load i32, ptr %14, align 4
   %34 = and i32 %33, 64
   %.not120 = icmp eq i32 %34, 0
@@ -2046,8 +2046,8 @@ define range(i32 -1, 1) i32 @sapi_register_post_entry(ptr nocapture noundef read
   br label %41
 
 41:                                               ; preds = %32, %40, %35, %1
-  %.0114 = phi i32 [ -1, %1 ], [ %.0, %35 ], [ %.0, %40 ], [ %.0, %32 ]
-  ret i32 %.0114
+  %.0 = phi i32 [ -1, %1 ], [ %.0114, %35 ], [ %.0114, %40 ], [ %.0114, %32 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

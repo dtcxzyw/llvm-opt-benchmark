@@ -1113,7 +1113,7 @@ opal_obj_run_destructors.exit280:                 ; preds = %opal_obj_run_destru
   br label %531
 
 531:                                              ; preds = %524, %527, %359, %523, %376, %372, %370, %352
-  %.0179 = phi i32 [ %375, %376 ], [ %522, %523 ], [ %530, %527 ], [ 0, %524 ], [ %351, %352 ], [ %364, %359 ], [ %369, %370 ], [ %371, %372 ]
+  %.0183 = phi i32 [ %375, %376 ], [ %522, %523 ], [ %530, %527 ], [ 0, %524 ], [ %351, %352 ], [ %364, %359 ], [ %369, %370 ], [ %371, %372 ]
   %532 = load i32, ptr %237, align 8
   %533 = icmp sgt i32 %532, 0
   br i1 %533, label %.lr.ph291, label %._crit_edge292
@@ -1134,8 +1134,8 @@ opal_obj_run_destructors.exit280:                 ; preds = %opal_obj_run_destru
   br label %539
 
 539:                                              ; preds = %178, %datatype_duplicate.exit249, %83, %._crit_edge292, %._crit_edge296, %245, %30
-  %.0178 = phi i32 [ -1, %30 ], [ -2, %245 ], [ -2, %._crit_edge296 ], [ %.0179, %._crit_edge292 ], [ -2, %83 ], [ 13, %datatype_duplicate.exit249 ], [ 35, %178 ]
-  ret i32 %.0178
+  %.0184 = phi i32 [ -1, %30 ], [ -2, %245 ], [ -2, %._crit_edge296 ], [ %.0183, %._crit_edge292 ], [ -2, %83 ], [ 13, %datatype_duplicate.exit249 ], [ 35, %178 ]
+  ret i32 %.0184
 }
 
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1

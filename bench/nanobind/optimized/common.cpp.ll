@@ -794,8 +794,8 @@ define noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %10, %._crit_edge
-  %.025 = phi i1 [ false, %._crit_edge ], [ false, %10 ], [ true, %.lr.ph ]
-  %.024 = phi ptr [ %18, %._crit_edge ], [ null, %10 ], [ null, %.lr.ph ]
+  %.026 = phi ptr [ %18, %._crit_edge ], [ null, %10 ], [ null, %.lr.ph ]
+  %.024 = phi i1 [ false, %._crit_edge ], [ false, %10 ], [ true, %.lr.ph ]
   %.not41 = icmp eq i64 %12, 0
   br i1 %.not41, label %._crit_edge39, label %.lr.ph38
 
@@ -848,11 +848,11 @@ _ZL11_Py_XDECREFP7_object.exit33:                 ; preds = %._crit_edge39, %26,
   br label %_ZL10_Py_DECREFP7_object.exit
 
 _ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL11_Py_XDECREFP7_object.exit33, %32
-  %.not30 = icmp eq ptr %.024, null
+  %.not30 = icmp eq ptr %.026, null
   br i1 %.not30, label %33, label %38
 
 33:                                               ; preds = %_ZL10_Py_DECREFP7_object.exit
-  br i1 %.025, label %34, label %35
+  br i1 %.024, label %34, label %35
 
 34:                                               ; preds = %33
   tail call void @_ZN8nanobind6detail16raise_cast_errorEv() #20
@@ -870,7 +870,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %_ZL11_Py_XDECREFP7_
   unreachable
 
 38:                                               ; preds = %_ZL10_Py_DECREFP7_object.exit
-  ret ptr %.024
+  ret ptr %.026
 }
 
 declare i32 @PyGILState_Check() local_unnamed_addr #7
@@ -5104,12 +5104,12 @@ _ZNKR8nanobind6handle7inc_refEv.exit.thread:      ; preds = %_ZN8nanobind6object
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.preheader29, %_ZNKR8nanobind6handle7inc_refEv.exit
   %12 = phi ptr [ %.pre, %.lr.ph.i.preheader29 ], [ %6, %_ZNKR8nanobind6handle7inc_refEv.exit ]
-  %.024.i = phi ptr [ %11, %.lr.ph.i.preheader29 ], [ null, %_ZNKR8nanobind6handle7inc_refEv.exit ]
+  %.026.i = phi ptr [ %11, %.lr.ph.i.preheader29 ], [ null, %_ZNKR8nanobind6handle7inc_refEv.exit ]
   %13 = icmp eq ptr %12, null
   br i1 %13, label %._crit_edge39.i, label %.lr.ph38.i.preheader
 
 .lr.ph38.i.preheader:                             ; preds = %_ZNKR8nanobind6handle7inc_refEv.exit.thread, %.loopexit.i
-  %.024.i50 = phi ptr [ %.024.i, %.loopexit.i ], [ null, %_ZNKR8nanobind6handle7inc_refEv.exit.thread ]
+  %.026.i49 = phi ptr [ %.026.i, %.loopexit.i ], [ null, %_ZNKR8nanobind6handle7inc_refEv.exit.thread ]
   %14 = phi ptr [ %12, %.loopexit.i ], [ %6, %_ZNKR8nanobind6handle7inc_refEv.exit.thread ]
   %.not28.i3248 = phi i1 [ %.not.i.i, %.loopexit.i ], [ true, %_ZNKR8nanobind6handle7inc_refEv.exit.thread ]
   %15 = load i64, ptr %14, align 8
@@ -5123,8 +5123,8 @@ _ZNKR8nanobind6handle7inc_refEv.exit.thread:      ; preds = %_ZN8nanobind6object
   br label %._crit_edge39.i
 
 ._crit_edge39.i:                                  ; preds = %_ZNKR8nanobind6handle7inc_refEv.exit, %.lr.ph38.i.preheader, %17, %.loopexit.i
-  %.024.i42 = phi ptr [ %.024.i, %.loopexit.i ], [ %.024.i50, %17 ], [ %.024.i50, %.lr.ph38.i.preheader ], [ null, %_ZNKR8nanobind6handle7inc_refEv.exit ]
-  %.025.i40 = phi i1 [ false, %.loopexit.i ], [ false, %17 ], [ false, %.lr.ph38.i.preheader ], [ true, %_ZNKR8nanobind6handle7inc_refEv.exit ]
+  %.024.i42 = phi i1 [ false, %.loopexit.i ], [ false, %17 ], [ false, %.lr.ph38.i.preheader ], [ true, %_ZNKR8nanobind6handle7inc_refEv.exit ]
+  %.026.i40 = phi ptr [ %.026.i, %.loopexit.i ], [ %.026.i49, %17 ], [ %.026.i49, %.lr.ph38.i.preheader ], [ null, %_ZNKR8nanobind6handle7inc_refEv.exit ]
   %.not28.i3238 = phi i1 [ %.not.i.i, %.loopexit.i ], [ %.not28.i3248, %17 ], [ %.not28.i3248, %.lr.ph38.i.preheader ], [ false, %_ZNKR8nanobind6handle7inc_refEv.exit ]
   %18 = load i64, ptr %5, align 8
   %19 = add nsw i64 %18, -1
@@ -5137,11 +5137,11 @@ _ZNKR8nanobind6handle7inc_refEv.exit.thread:      ; preds = %_ZN8nanobind6object
   br label %_ZL10_Py_DECREFP7_object.exit.i
 
 _ZL10_Py_DECREFP7_object.exit.i:                  ; preds = %20, %._crit_edge39.i
-  %.not30.i = icmp eq ptr %.024.i42, null
+  %.not30.i = icmp eq ptr %.026.i40, null
   br i1 %.not30.i, label %21, label %_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b.exit
 
 21:                                               ; preds = %_ZL10_Py_DECREFP7_object.exit.i
-  br i1 %.025.i40, label %22, label %23
+  br i1 %.024.i42, label %22, label %23
 
 22:                                               ; preds = %21
   call void @_ZN8nanobind6detail16raise_cast_errorEv() #20
@@ -5159,7 +5159,7 @@ _ZL10_Py_DECREFP7_object.exit.i:                  ; preds = %20, %._crit_edge39.
   unreachable
 
 _ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b.exit: ; preds = %_ZL10_Py_DECREFP7_object.exit.i
-  store ptr %.024.i42, ptr %0, align 8
+  store ptr %.026.i40, ptr %0, align 8
   ret void
 }
 

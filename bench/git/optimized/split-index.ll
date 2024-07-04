@@ -890,9 +890,9 @@ for.inc:                                          ; preds = %if.then21, %land.lh
 for.body79:                                       ; preds = %for.body79.lr.ph, %for.inc129
   %indvars.iv149 = phi i64 [ 0, %for.body79.lr.ph ], [ %indvars.iv.next150, %for.inc129 ]
   %33 = phi ptr [ %5, %for.body79.lr.ph ], [ %46, %for.inc129 ]
-  %entries.0136 = phi ptr [ null, %for.body79.lr.ph ], [ %entries.2, %for.inc129 ]
-  %nr_alloc.0135 = phi i32 [ 0, %for.body79.lr.ph ], [ %nr_alloc.3, %for.inc129 ]
-  %nr_entries.0134 = phi i32 [ 0, %for.body79.lr.ph ], [ %nr_entries.1, %for.inc129 ]
+  %nr_alloc.0136 = phi i32 [ 0, %for.body79.lr.ph ], [ %nr_alloc.3, %for.inc129 ]
+  %nr_entries.0135 = phi i32 [ 0, %for.body79.lr.ph ], [ %nr_entries.1, %for.inc129 ]
+  %entries.0133 = phi ptr [ null, %for.body79.lr.ph ], [ %entries.2, %for.inc129 ]
   %34 = load ptr, ptr %33, align 8
   %arrayidx83 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv149
   %35 = load ptr, ptr %arrayidx83, align 8
@@ -918,15 +918,15 @@ if.then97:                                        ; preds = %if.else93
   %40 = load i32, ptr %ce_flags84, align 8
   %or101 = or i32 %40, 268435456
   store i32 %or101, ptr %ce_flags84, align 8
-  %add = add nsw i32 %nr_entries.0134, 1
-  %cmp102.not = icmp slt i32 %nr_entries.0134, %nr_alloc.0135
+  %add = add nsw i32 %nr_entries.0135, 1
+  %cmp102.not = icmp slt i32 %nr_entries.0135, %nr_alloc.0136
   br i1 %cmp102.not, label %do.end, label %if.then104
 
 if.then104:                                       ; preds = %if.then97
-  %41 = mul i32 %nr_alloc.0135, 3
+  %41 = mul i32 %nr_alloc.0136, 3
   %mul = add i32 %41, 48
   %div = sdiv i32 %mul, 2
-  %cmp107.not = icmp sgt i32 %div, %nr_entries.0134
+  %cmp107.not = icmp sgt i32 %div, %nr_entries.0135
   %div.add = select i1 %cmp107.not, i32 %div, i32 %add
   %conv116 = sext i32 %div.add to i64
   %mul.ov.i = icmp slt i32 %div.add, 0
@@ -938,21 +938,21 @@ if.then.i94:                                      ; preds = %if.then104
 
 st_mult.exit:                                     ; preds = %if.then104
   %mul.i = shl nuw nsw i64 %conv116, 3
-  %call118 = tail call ptr @xrealloc(ptr noundef %entries.0136, i64 noundef %mul.i) #11
+  %call118 = tail call ptr @xrealloc(ptr noundef %entries.0133, i64 noundef %mul.i) #11
   br label %do.end
 
 do.end:                                           ; preds = %if.then97, %st_mult.exit
-  %nr_alloc.2 = phi i32 [ %div.add, %st_mult.exit ], [ %nr_alloc.0135, %if.then97 ]
-  %entries.1 = phi ptr [ %call118, %st_mult.exit ], [ %entries.0136, %if.then97 ]
-  %idxprom121 = sext i32 %nr_entries.0134 to i64
+  %entries.1 = phi ptr [ %call118, %st_mult.exit ], [ %entries.0133, %if.then97 ]
+  %nr_alloc.2 = phi i32 [ %div.add, %st_mult.exit ], [ %nr_alloc.0136, %if.then97 ]
+  %idxprom121 = sext i32 %nr_entries.0135 to i64
   %arrayidx122 = getelementptr inbounds ptr, ptr %entries.1, i64 %idxprom121
   store ptr %35, ptr %arrayidx122, align 8
   br label %if.end124
 
 if.end124:                                        ; preds = %if.else93, %do.end, %if.then91
-  %nr_entries.1 = phi i32 [ %nr_entries.0134, %if.then91 ], [ %add, %do.end ], [ %nr_entries.0134, %if.else93 ]
-  %nr_alloc.3 = phi i32 [ %nr_alloc.0135, %if.then91 ], [ %nr_alloc.2, %do.end ], [ %nr_alloc.0135, %if.else93 ]
-  %entries.2 = phi ptr [ %entries.0136, %if.then91 ], [ %entries.1, %do.end ], [ %entries.0136, %if.else93 ]
+  %entries.2 = phi ptr [ %entries.0133, %if.then91 ], [ %entries.1, %do.end ], [ %entries.0133, %if.else93 ]
+  %nr_entries.1 = phi i32 [ %nr_entries.0135, %if.then91 ], [ %add, %do.end ], [ %nr_entries.0135, %if.else93 ]
+  %nr_alloc.3 = phi i32 [ %nr_alloc.0136, %if.then91 ], [ %nr_alloc.2, %do.end ], [ %nr_alloc.0136, %if.else93 ]
   %oid = getelementptr inbounds i8, ptr %35, i64 72
   %call.i95 = tail call ptr @null_oid() #11
   %algo.i.i96 = getelementptr inbounds i8, ptr %35, i64 104
@@ -1007,9 +1007,9 @@ for.inc129:                                       ; preds = %is_null_oid.exit, %
   br i1 %cmp78, label %for.body79, label %if.end132, !llvm.loop !10
 
 if.end132:                                        ; preds = %for.inc129, %for.cond75.preheader, %init_split_index.exit
+  %entries.3 = phi ptr [ null, %init_split_index.exit ], [ null, %for.cond75.preheader ], [ %entries.2, %for.inc129 ]
   %nr_entries.2 = phi i32 [ 0, %init_split_index.exit ], [ 0, %for.cond75.preheader ], [ %nr_entries.1, %for.inc129 ]
   %nr_alloc.4 = phi i32 [ 0, %init_split_index.exit ], [ 0, %for.cond75.preheader ], [ %nr_alloc.3, %for.inc129 ]
-  %entries.3 = phi ptr [ null, %init_split_index.exit ], [ null, %for.cond75.preheader ], [ %entries.2, %for.inc129 ]
   %cache_nr134 = getelementptr inbounds i8, ptr %istate, i64 12
   %49 = load i32, ptr %cache_nr134, align 4
   %cmp135139.not = icmp eq i32 %49, 0
@@ -1017,9 +1017,9 @@ if.end132:                                        ; preds = %for.inc129, %for.co
 
 for.body137:                                      ; preds = %if.end132, %if.end177
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %if.end177 ], [ 0, %if.end132 ]
-  %entries.4143 = phi ptr [ %entries.6, %if.end177 ], [ %entries.3, %if.end132 ]
-  %nr_alloc.5142 = phi i32 [ %nr_alloc.8, %if.end177 ], [ %nr_alloc.4, %if.end132 ]
-  %nr_entries.3141 = phi i32 [ %nr_entries.4, %if.end177 ], [ %nr_entries.2, %if.end132 ]
+  %nr_alloc.5143 = phi i32 [ %nr_alloc.8, %if.end177 ], [ %nr_alloc.4, %if.end132 ]
+  %nr_entries.3142 = phi i32 [ %nr_entries.4, %if.end177 ], [ %nr_entries.2, %if.end132 ]
+  %entries.4140 = phi ptr [ %entries.6, %if.end177 ], [ %entries.3, %if.end132 ]
   %50 = load ptr, ptr %istate, align 8
   %arrayidx140 = getelementptr inbounds ptr, ptr %50, i64 %indvars.iv152
   %51 = load ptr, ptr %arrayidx140, align 8
@@ -1041,15 +1041,15 @@ land.lhs.true146:                                 ; preds = %lor.lhs.false143, %
   br i1 %tobool149.not, label %do.body151, label %if.end177
 
 do.body151:                                       ; preds = %land.lhs.true146
-  %add152 = add nsw i32 %nr_entries.3141, 1
-  %cmp153.not = icmp slt i32 %nr_entries.3141, %nr_alloc.5142
+  %add152 = add nsw i32 %nr_entries.3142, 1
+  %cmp153.not = icmp slt i32 %nr_entries.3142, %nr_alloc.5143
   br i1 %cmp153.not, label %do.end173, label %if.then155
 
 if.then155:                                       ; preds = %do.body151
-  %55 = mul i32 %nr_alloc.5142, 3
+  %55 = mul i32 %nr_alloc.5143, 3
   %mul157 = add i32 %55, 48
   %div158 = sdiv i32 %mul157, 2
-  %cmp160.not = icmp sgt i32 %div158, %nr_entries.3141
+  %cmp160.not = icmp sgt i32 %div158, %nr_entries.3142
   %div158.add152 = select i1 %cmp160.not, i32 %div158, i32 %add152
   %conv169 = sext i32 %div158.add152 to i64
   %mul.ov.i115 = icmp slt i32 %div158.add152, 0
@@ -1061,21 +1061,21 @@ if.then.i118:                                     ; preds = %if.then155
 
 st_mult.exit119:                                  ; preds = %if.then155
   %mul.i117 = shl nuw nsw i64 %conv169, 3
-  %call171 = tail call ptr @xrealloc(ptr noundef %entries.4143, i64 noundef %mul.i117) #11
+  %call171 = tail call ptr @xrealloc(ptr noundef %entries.4140, i64 noundef %mul.i117) #11
   br label %do.end173
 
 do.end173:                                        ; preds = %do.body151, %st_mult.exit119
-  %nr_alloc.7 = phi i32 [ %div158.add152, %st_mult.exit119 ], [ %nr_alloc.5142, %do.body151 ]
-  %entries.5 = phi ptr [ %call171, %st_mult.exit119 ], [ %entries.4143, %do.body151 ]
-  %idxprom175 = sext i32 %nr_entries.3141 to i64
+  %entries.5 = phi ptr [ %call171, %st_mult.exit119 ], [ %entries.4140, %do.body151 ]
+  %nr_alloc.7 = phi i32 [ %div158.add152, %st_mult.exit119 ], [ %nr_alloc.5143, %do.body151 ]
+  %idxprom175 = sext i32 %nr_entries.3142 to i64
   %arrayidx176 = getelementptr inbounds ptr, ptr %entries.5, i64 %idxprom175
   store ptr %51, ptr %arrayidx176, align 8
   br label %if.end177
 
 if.end177:                                        ; preds = %do.end173, %land.lhs.true146, %lor.lhs.false143
-  %nr_entries.4 = phi i32 [ %nr_entries.3141, %lor.lhs.false143 ], [ %nr_entries.3141, %land.lhs.true146 ], [ %add152, %do.end173 ]
-  %nr_alloc.8 = phi i32 [ %nr_alloc.5142, %lor.lhs.false143 ], [ %nr_alloc.5142, %land.lhs.true146 ], [ %nr_alloc.7, %do.end173 ]
-  %entries.6 = phi ptr [ %entries.4143, %lor.lhs.false143 ], [ %entries.4143, %land.lhs.true146 ], [ %entries.5, %do.end173 ]
+  %entries.6 = phi ptr [ %entries.4140, %lor.lhs.false143 ], [ %entries.4140, %land.lhs.true146 ], [ %entries.5, %do.end173 ]
+  %nr_entries.4 = phi i32 [ %nr_entries.3142, %lor.lhs.false143 ], [ %nr_entries.3142, %land.lhs.true146 ], [ %add152, %do.end173 ]
+  %nr_alloc.8 = phi i32 [ %nr_alloc.5143, %lor.lhs.false143 ], [ %nr_alloc.5143, %land.lhs.true146 ], [ %nr_alloc.7, %do.end173 ]
   %ce_flags178 = getelementptr inbounds i8, ptr %51, i64 56
   %56 = load i32, ptr %ce_flags178, align 8
   %and179 = and i32 %56, -67108865
@@ -1087,8 +1087,8 @@ if.end177:                                        ; preds = %do.end173, %land.lh
   br i1 %cmp135, label %for.body137, label %for.end182, !llvm.loop !11
 
 for.end182:                                       ; preds = %if.end177, %if.end132
-  %nr_entries.3.lcssa = phi i32 [ %nr_entries.2, %if.end132 ], [ %nr_entries.4, %if.end177 ]
   %entries.4.lcssa = phi ptr [ %entries.3, %if.end132 ], [ %entries.6, %if.end177 ]
+  %nr_entries.3.lcssa = phi i32 [ %nr_entries.2, %if.end132 ], [ %nr_entries.4, %if.end177 ]
   %59 = load ptr, ptr %istate, align 8
   %saved_cache = getelementptr inbounds i8, ptr %2, i64 64
   store ptr %59, ptr %saved_cache, align 8

@@ -83,13 +83,13 @@ define dso_local i64 @quote_literal(ptr nocapture noundef readonly %0) #0 {
   br i1 %39, label %.lr.ph.i, label %.loopexit.i
 
 40:                                               ; preds = %.lr.ph.i
-  %41 = getelementptr i8, ptr %.01822.i, i64 1
+  %41 = getelementptr i8, ptr %.022.i, i64 1
   %exitcond.not.i = icmp eq ptr %41, %38
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !5
 
 .lr.ph.i:                                         ; preds = %27, %40
-  %.01822.i = phi ptr [ %41, %40 ], [ %35, %27 ]
-  %42 = load i8, ptr %.01822.i, align 1
+  %.022.i = phi ptr [ %41, %40 ], [ %35, %27 ]
+  %42 = load i8, ptr %.022.i, align 1
   %43 = icmp eq i8 %42, 92
   br i1 %43, label %44, label %40
 
@@ -99,43 +99,43 @@ define dso_local i64 @quote_literal(ptr nocapture noundef readonly %0) #0 {
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %40, %44, %27
-  %.0.i = phi ptr [ %45, %44 ], [ %36, %27 ], [ %36, %40 ]
-  store i8 39, ptr %.0.i, align 1
-  %.123.i = getelementptr i8, ptr %.0.i, i64 1
+  %.020.i = phi ptr [ %45, %44 ], [ %36, %27 ], [ %36, %40 ]
+  store i8 39, ptr %.020.i, align 1
+  %.123.i = getelementptr i8, ptr %.020.i, i64 1
   %.not24.i = icmp eq i32 %28, 0
   br i1 %.not24.i, label %quote_literal_internal.exit, label %.lr.ph28.i
 
 .lr.ph28.i:                                       ; preds = %.loopexit.i, %50
   %.in.i = phi i64 [ %46, %50 ], [ %37, %.loopexit.i ]
   %.127.i = phi ptr [ %.1.i, %50 ], [ %.123.i, %.loopexit.i ]
-  %.0.pn26.i = phi ptr [ %.2.i, %50 ], [ %.0.i, %.loopexit.i ]
-  %.02025.i = phi ptr [ %52, %50 ], [ %35, %.loopexit.i ]
+  %.01926.i = phi ptr [ %52, %50 ], [ %35, %.loopexit.i ]
+  %.020.pn25.i = phi ptr [ %.2.i, %50 ], [ %.020.i, %.loopexit.i ]
   %46 = add i64 %.in.i, -1
-  %47 = load i8, ptr %.02025.i, align 1
+  %47 = load i8, ptr %.01926.i, align 1
   switch i8 %47, label %50 [
     i8 39, label %48
     i8 92, label %48
   ]
 
 48:                                               ; preds = %.lr.ph28.i, %.lr.ph28.i
-  %49 = getelementptr i8, ptr %.0.pn26.i, i64 2
+  %49 = getelementptr i8, ptr %.020.pn25.i, i64 2
   store i8 %47, ptr %.127.i, align 1
-  %.pre.i = load i8, ptr %.02025.i, align 1
+  %.pre.i = load i8, ptr %.01926.i, align 1
   br label %50
 
 50:                                               ; preds = %48, %.lr.ph28.i
   %51 = phi i8 [ %.pre.i, %48 ], [ %47, %.lr.ph28.i ]
   %.2.i = phi ptr [ %49, %48 ], [ %.127.i, %.lr.ph28.i ]
-  %52 = getelementptr i8, ptr %.02025.i, i64 1
+  %52 = getelementptr i8, ptr %.01926.i, i64 1
   store i8 %51, ptr %.2.i, align 1
   %.1.i = getelementptr i8, ptr %.2.i, i64 1
   %.not.i = icmp eq i64 %46, 0
   br i1 %.not.i, label %quote_literal_internal.exit, label %.lr.ph28.i, !llvm.loop !7
 
 quote_literal_internal.exit:                      ; preds = %50, %.loopexit.i
-  %.0.pn.lcssa.i = phi ptr [ %.0.i, %.loopexit.i ], [ %.2.i, %50 ]
+  %.020.pn.lcssa.i = phi ptr [ %.020.i, %.loopexit.i ], [ %.2.i, %50 ]
   %.1.lcssa.i = phi ptr [ %.123.i, %.loopexit.i ], [ %.1.i, %50 ]
-  %53 = getelementptr i8, ptr %.0.pn.lcssa.i, i64 2
+  %53 = getelementptr i8, ptr %.020.pn.lcssa.i, i64 2
   store i8 39, ptr %.1.lcssa.i, align 1
   %54 = ptrtoint ptr %53 to i64
   %55 = ptrtoint ptr %36 to i64
@@ -165,13 +165,13 @@ define dso_local ptr @quote_literal_cstr(ptr noundef readonly %0) local_unnamed_
   br i1 %10, label %.lr.ph.i, label %.loopexit.i
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = getelementptr i8, ptr %.01822.i, i64 1
+  %12 = getelementptr i8, ptr %.022.i, i64 1
   %exitcond.not.i = icmp eq ptr %12, %9
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !5
 
 .lr.ph.i:                                         ; preds = %1, %11
-  %.01822.i = phi ptr [ %12, %11 ], [ %0, %1 ]
-  %13 = load i8, ptr %.01822.i, align 1
+  %.022.i = phi ptr [ %12, %11 ], [ %0, %1 ]
+  %13 = load i8, ptr %.022.i, align 1
   %14 = icmp eq i8 %13, 92
   br i1 %14, label %15, label %11
 
@@ -181,43 +181,43 @@ define dso_local ptr @quote_literal_cstr(ptr noundef readonly %0) local_unnamed_
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %11, %15, %1
-  %.0.i = phi ptr [ %16, %15 ], [ %7, %1 ], [ %7, %11 ]
-  store i8 39, ptr %.0.i, align 1
-  %.123.i = getelementptr i8, ptr %.0.i, i64 1
+  %.020.i = phi ptr [ %16, %15 ], [ %7, %1 ], [ %7, %11 ]
+  store i8 39, ptr %.020.i, align 1
+  %.123.i = getelementptr i8, ptr %.020.i, i64 1
   %.not24.i = icmp eq i64 %sext, 0
   br i1 %.not24.i, label %quote_literal_internal.exit, label %.lr.ph28.i
 
 .lr.ph28.i:                                       ; preds = %.loopexit.i, %21
   %.in.i = phi i64 [ %17, %21 ], [ %8, %.loopexit.i ]
   %.127.i = phi ptr [ %.1.i, %21 ], [ %.123.i, %.loopexit.i ]
-  %.0.pn26.i = phi ptr [ %.2.i, %21 ], [ %.0.i, %.loopexit.i ]
-  %.02025.i = phi ptr [ %23, %21 ], [ %0, %.loopexit.i ]
+  %.01926.i = phi ptr [ %23, %21 ], [ %0, %.loopexit.i ]
+  %.020.pn25.i = phi ptr [ %.2.i, %21 ], [ %.020.i, %.loopexit.i ]
   %17 = add i64 %.in.i, -1
-  %18 = load i8, ptr %.02025.i, align 1
+  %18 = load i8, ptr %.01926.i, align 1
   switch i8 %18, label %21 [
     i8 39, label %19
     i8 92, label %19
   ]
 
 19:                                               ; preds = %.lr.ph28.i, %.lr.ph28.i
-  %20 = getelementptr i8, ptr %.0.pn26.i, i64 2
+  %20 = getelementptr i8, ptr %.020.pn25.i, i64 2
   store i8 %18, ptr %.127.i, align 1
-  %.pre.i = load i8, ptr %.02025.i, align 1
+  %.pre.i = load i8, ptr %.01926.i, align 1
   br label %21
 
 21:                                               ; preds = %19, %.lr.ph28.i
   %22 = phi i8 [ %.pre.i, %19 ], [ %18, %.lr.ph28.i ]
   %.2.i = phi ptr [ %20, %19 ], [ %.127.i, %.lr.ph28.i ]
-  %23 = getelementptr i8, ptr %.02025.i, i64 1
+  %23 = getelementptr i8, ptr %.01926.i, i64 1
   store i8 %22, ptr %.2.i, align 1
   %.1.i = getelementptr i8, ptr %.2.i, i64 1
   %.not.i = icmp eq i64 %17, 0
   br i1 %.not.i, label %quote_literal_internal.exit, label %.lr.ph28.i, !llvm.loop !7
 
 quote_literal_internal.exit:                      ; preds = %21, %.loopexit.i
-  %.0.pn.lcssa.i = phi ptr [ %.0.i, %.loopexit.i ], [ %.2.i, %21 ]
+  %.020.pn.lcssa.i = phi ptr [ %.020.i, %.loopexit.i ], [ %.2.i, %21 ]
   %.1.lcssa.i = phi ptr [ %.123.i, %.loopexit.i ], [ %.1.i, %21 ]
-  %24 = getelementptr i8, ptr %.0.pn.lcssa.i, i64 2
+  %24 = getelementptr i8, ptr %.020.pn.lcssa.i, i64 2
   store i8 39, ptr %.1.lcssa.i, align 1
   %25 = ptrtoint ptr %24 to i64
   %26 = ptrtoint ptr %7 to i64

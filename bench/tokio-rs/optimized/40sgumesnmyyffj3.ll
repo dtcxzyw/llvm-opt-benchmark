@@ -26,8 +26,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4laz
   br label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h9a5dfbaf1815ed3dE.llvm.4037922962136383949.exit"
 
 "_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h9a5dfbaf1815ed3dE.llvm.4037922962136383949.exit": ; preds = %3, %5
-  %.sroa.0.0.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i, %3 ]
   %.sroa.3.0.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i, %3 ]
+  %.sroa.0.0.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i, %3 ]
   store i64 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.0.i, ptr %.sroa.4.0..sroa_idx, align 8
@@ -61,8 +61,8 @@ define hidden noundef nonnull align 4 ptr @"_ZN3std3sys6common12thread_local4laz
   br label %"_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h3f708b302d7e0bf2E.llvm.4037922962136383949.exit"
 
 "_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h3f708b302d7e0bf2E.llvm.4037922962136383949.exit": ; preds = %3, %5
-  %.sroa.0.0.i = phi i32 [ %8, %5 ], [ %.sroa.5.0.copyload.i, %3 ]
   %.sroa.3.0.i = phi i32 [ %spec.store.select.i.i, %5 ], [ %.sroa.6.0.copyload.i, %3 ]
+  %.sroa.0.0.i = phi i32 [ %8, %5 ], [ %.sroa.5.0.copyload.i, %3 ]
   store i32 1, ptr %0, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %.sroa.0.0.i, ptr %.sroa.4.0..sroa_idx, align 4
@@ -93,8 +93,8 @@ define hidden { i64, i64 } @"_ZN3std4hash6random11RandomState3new4KEYS7__getit28
   br label %8
 
 8:                                                ; preds = %2, %4
-  %.sroa.0.0 = phi i64 [ %6, %4 ], [ %.sroa.5.0.copyload, %2 ]
   %.sroa.3.0 = phi i64 [ %7, %4 ], [ %.sroa.6.0.copyload, %2 ]
+  %.sroa.0.0 = phi i64 [ %6, %4 ], [ %.sroa.5.0.copyload, %2 ]
   %9 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
   ret { i64, i64 } %10
@@ -124,8 +124,8 @@ define hidden { i32, i32 } @"_ZN12tokio_stream10stream_map4rand12thread_rng_n10T
   br label %9
 
 9:                                                ; preds = %2, %4
-  %.sroa.0.0 = phi i32 [ %7, %4 ], [ %.sroa.5.0.copyload, %2 ]
   %.sroa.3.0 = phi i32 [ %spec.store.select.i, %4 ], [ %.sroa.6.0.copyload, %2 ]
+  %.sroa.0.0 = phi i32 [ %7, %4 ], [ %.sroa.5.0.copyload, %2 ]
   %10 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %11 = insertvalue { i32, i32 } %10, i32 %.sroa.3.0, 1
   ret { i32, i32 } %11

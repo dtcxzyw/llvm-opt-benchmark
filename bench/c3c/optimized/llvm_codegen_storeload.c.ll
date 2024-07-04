@@ -488,8 +488,8 @@ define dso_local ptr @llvm_store_zero(ptr noundef %0, ptr noundef %1) local_unna
   br label %.loopexit
 
 .loopexit:                                        ; preds = %57, %49, %33, %50, %38, %67, %24, %10
-  %.061 = phi ptr [ %75, %67 ], [ %27, %24 ], [ %19, %10 ], [ null, %38 ], [ null, %50 ], [ null, %33 ], [ null, %49 ], [ null, %57 ]
-  ret ptr %.061
+  %.062 = phi ptr [ %75, %67 ], [ %27, %24 ], [ %19, %10 ], [ null, %38 ], [ null, %50 ], [ null, %33 ], [ null, %49 ], [ null, %57 ]
+  ret ptr %.062
 }
 
 declare void @llvm_value_addr(ptr noundef, ptr noundef) local_unnamed_addr #1

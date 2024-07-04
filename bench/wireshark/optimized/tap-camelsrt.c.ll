@@ -260,9 +260,9 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
   br label %67
 
 67:                                               ; preds = %65, %67
-  %.1124142 = phi i32 [ 0, %65 ], [ %69, %67 ]
+  %.1128142 = phi i32 [ 0, %65 ], [ %69, %67 ]
   %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15)
-  %69 = add nuw nsw i32 %.1124142, 1
+  %69 = add nuw nsw i32 %.1128142, 1
   %exitcond160.not = icmp eq i32 %69, 7
   br i1 %exitcond160.not, label %70, label %67, !llvm.loop !9
 
@@ -318,13 +318,13 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
 
 101:                                              ; preds = %.lr.ph.us, %116
   %.0119146.us = phi double [ %93, %.lr.ph.us ], [ %.1120.us, %116 ]
-  %.0125145.us = phi i32 [ 0, %.lr.ph.us ], [ %104, %116 ]
+  %.0123145.us = phi i32 [ 0, %.lr.ph.us ], [ %104, %116 ]
   %102 = phi <2 x double> [ %92, %.lr.ph.us ], [ %117, %116 ]
   br label %121
 
 103:                                              ; preds = %121
-  %104 = add nuw nsw i32 %.0125145.us, 1
-  %105 = mul i32 %.1127.us, 100
+  %104 = add nuw nsw i32 %.0123145.us, 1
+  %105 = mul i32 %.1125.us, 100
   %106 = sitofp i32 %105 to double
   %107 = fcmp olt double %100, %106
   br i1 %107, label %112, label %108
@@ -348,13 +348,13 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
   %.1120.in.us = fadd double %.0119146.us, %.0115148.us.pn
   %.1120.us = fmul double %.1120.in.us, 5.000000e-01
   %118 = fcmp ogt double %.1.us, 1.000000e-03
-  %119 = icmp ult i32 %.0125145.us, 9999
+  %119 = icmp ult i32 %.0123145.us, 9999
   %120 = select i1 %118, i1 %119, i1 false
   br i1 %120, label %101, label %._crit_edge.us, !llvm.loop !10
 
 121:                                              ; preds = %121, %101
   %indvars.iv165 = phi i64 [ %indvars.iv.next166, %121 ], [ 0, %101 ]
-  %.0126144.us = phi i32 [ %.1127.us, %121 ], [ 0, %101 ]
+  %.0124144.us = phi i32 [ %.1125.us, %121 ], [ 0, %101 ]
   %122 = getelementptr [10 x [500000 x %struct.nstime_t]], ptr %72, i64 0, i64 %indvars.iv178, i64 %indvars.iv165
   %123 = load i64, ptr %122, align 8
   %124 = mul i64 %123, 1000
@@ -366,7 +366,7 @@ define internal void @camelsrt_draw(ptr noundef %0) #0 {
   %130 = fadd double %129, %125
   %131 = fcmp ole double %130, %.0119146.us
   %132 = zext i1 %131 to i32
-  %.1127.us = add i32 %.0126144.us, %132
+  %.1125.us = add i32 %.0124144.us, %132
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count
   br i1 %exitcond168.not, label %103, label %121, !llvm.loop !11

@@ -149,7 +149,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %59, %71
   br label %79
 
 79:                                               ; preds = %.split173.us, %opal_convertor_get_packed_size.exit
-  %.0114 = phi i64 [ 0, %opal_convertor_get_packed_size.exit ], [ %.us-phi174, %.split173.us ]
+  %.0111 = phi i64 [ 0, %opal_convertor_get_packed_size.exit ], [ %.us-phi174, %.split173.us ]
   %80 = load i32, ptr %74, align 8
   %81 = add i32 %80, 1
   store i32 %81, ptr %74, align 8
@@ -165,16 +165,16 @@ opal_convertor_get_packed_size.exit:              ; preds = %59, %71
   br i1 %90, label %.loopexit, label %.preheader
 
 91:                                               ; preds = %.preheader
-  %92 = add nuw nsw i32 %.0110170, 1
+  %92 = add nuw nsw i32 %.0109170, 1
   %exitcond195.not = icmp eq i32 %92, 100000
   br i1 %exitcond195.not, label %95, label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %91, %95
-  %.0110170.be = phi i32 [ %92, %91 ], [ 0, %95 ]
+  %.0109170.be = phi i32 [ %92, %91 ], [ 0, %95 ]
   br label %.preheader, !llvm.loop !6
 
 .preheader:                                       ; preds = %79, %.preheader.backedge
-  %.0110170 = phi i32 [ %.0110170.be, %.preheader.backedge ], [ 0, %79 ]
+  %.0109170 = phi i32 [ %.0109170.be, %.preheader.backedge ], [ 0, %79 ]
   %93 = load volatile i32, ptr %88, align 4
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %.loopexit, label %91
@@ -201,7 +201,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %59, %71
 
 .lr.ph.us:                                        ; preds = %.loopexit, %._crit_edge.us
   %indvars.iv204 = phi i64 [ %indvars.iv.next205, %._crit_edge.us ], [ %106, %.loopexit ]
-  %.1115.us = phi i64 [ %130, %._crit_edge.us ], [ %.0114, %.loopexit ]
+  %.1112.us = phi i64 [ %130, %._crit_edge.us ], [ %.0111, %.loopexit ]
   %108 = load ptr, ptr %77, align 8
   %109 = getelementptr inbounds %struct.mca_coll_sm_data_index_t, ptr %108, i64 %indvars.iv204
   %110 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
@@ -237,7 +237,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %59, %71
   br i1 %exitcond203.not, label %._crit_edge.us, label %119, !llvm.loop !7
 
 ._crit_edge.us:                                   ; preds = %119
-  %130 = add i64 %118, %.1115.us
+  %130 = add i64 %118, %.1112.us
   %indvars.iv.next205 = add nsw i64 %indvars.iv204, 1
   %131 = icmp ult i64 %130, %.0149
   %132 = icmp slt i64 %indvars.iv.next205, %107
@@ -246,7 +246,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %59, %71
 
 .split:                                           ; preds = %.loopexit, %.split
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %.split ], [ %106, %.loopexit ]
-  %.1115 = phi i64 [ %144, %.split ], [ %.0114, %.loopexit ]
+  %.1112 = phi i64 [ %144, %.split ], [ %.0111, %.loopexit ]
   %134 = load ptr, ptr %77, align 8
   %135 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
   %136 = sext i32 %135 to i64
@@ -260,7 +260,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %59, %71
   store i64 %136, ptr %33, align 8
   %142 = call i32 @opal_convertor_pack(ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull @mca_coll_sm_one, ptr noundef nonnull %8) #3
   %143 = load i64, ptr %8, align 8
-  %144 = add i64 %143, %.1115
+  %144 = add i64 %143, %.1112
   fence release
   %indvars.iv.next197 = add nsw i64 %indvars.iv196, 1
   %145 = icmp ult i64 %144, %.0149
@@ -335,12 +335,12 @@ opal_convertor_get_packed_size.exit142:           ; preds = %150, %162
   br label %184
 
 182:                                              ; preds = %184
-  %183 = add nuw nsw i32 %.0109166, 1
+  %183 = add nuw nsw i32 %.0108166, 1
   %exitcond.not = icmp eq i32 %183, 100000
   br i1 %exitcond.not, label %187, label %184, !llvm.loop !10
 
 184:                                              ; preds = %.preheader157, %182
-  %.0109166 = phi i32 [ 0, %.preheader157 ], [ %183, %182 ]
+  %.0108166 = phi i32 [ 0, %.preheader157 ], [ %183, %182 ]
   %185 = load volatile i32, ptr %178, align 4
   %186 = icmp eq i32 %181, %185
   br i1 %186, label %.loopexit158, label %182
@@ -382,16 +382,16 @@ opal_convertor_get_packed_size.exit142:           ; preds = %150, %162
   br i1 %.not132168, label %.preheader153, label %.loopexit154
 
 212:                                              ; preds = %.preheader153
-  %213 = add nuw nsw i32 %.0108167, 1
+  %213 = add nuw nsw i32 %.0107167, 1
   %exitcond189.not = icmp eq i32 %213, 100000
   br i1 %exitcond189.not, label %215, label %.preheader153.backedge
 
 .preheader153.backedge:                           ; preds = %212, %215
-  %.0108167.be = phi i32 [ %213, %212 ], [ 0, %215 ]
+  %.0107167.be = phi i32 [ %213, %212 ], [ 0, %215 ]
   br label %.preheader153, !llvm.loop !11
 
 .preheader153:                                    ; preds = %200, %.preheader153.backedge
-  %.0108167 = phi i32 [ %.0108167.be, %.preheader153.backedge ], [ 0, %200 ]
+  %.0107167 = phi i32 [ %.0107167.be, %.preheader153.backedge ], [ 0, %200 ]
   %214 = load volatile i32, ptr %210, align 4
   %.not133 = icmp eq i32 %214, 0
   br i1 %.not133, label %212, label %.loopexit154
@@ -443,11 +443,11 @@ opal_convertor_get_packed_size.exit142:           ; preds = %150, %162
   br i1 %exitcond191.not, label %.loopexit155, label %231, !llvm.loop !12
 
 .loopexit155:                                     ; preds = %231, %.loopexit154
-  %.0111 = phi i32 [ %203, %.loopexit154 ], [ %.val, %231 ]
+  %.0115 = phi i32 [ %203, %.loopexit154 ], [ %.val, %231 ]
   %242 = getelementptr inbounds i8, ptr %205, i64 8
   %243 = load ptr, ptr %242, align 8
   %244 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sm_component, i64 296), align 8
-  %245 = mul nsw i32 %244, %.0111
+  %245 = mul nsw i32 %244, %.0115
   %246 = sext i32 %245 to i64
   %247 = getelementptr inbounds i8, ptr %243, i64 %246
   store ptr %247, ptr %7, align 8

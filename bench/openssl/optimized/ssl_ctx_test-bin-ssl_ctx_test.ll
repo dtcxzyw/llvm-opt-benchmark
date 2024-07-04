@@ -146,8 +146,8 @@ if.end62:                                         ; preds = %if.end55
   br label %end
 
 end:                                              ; preds = %if.end62, %if.end55, %if.end46, %if.end37, %if.end31, %if.end25, %if.end18, %if.end13, %if.end9, %if.end
-  %testresult.0 = phi i32 [ 0, %if.end ], [ 0, %if.end9 ], [ 0, %if.end55 ], [ 0, %if.end46 ], [ 0, %if.end37 ], [ 0, %if.end31 ], [ 0, %if.end25 ], [ 0, %if.end18 ], [ 0, %if.end13 ], [ %spec.select, %if.end62 ]
   %ssl.0 = phi ptr [ null, %if.end ], [ null, %if.end9 ], [ %call10, %if.end55 ], [ %call10, %if.end46 ], [ %call10, %if.end37 ], [ %call10, %if.end31 ], [ %call10, %if.end25 ], [ %call10, %if.end18 ], [ %call10, %if.end13 ], [ %call10, %if.end62 ]
+  %testresult.0 = phi i32 [ 0, %if.end ], [ 0, %if.end9 ], [ 0, %if.end55 ], [ 0, %if.end46 ], [ 0, %if.end37 ], [ 0, %if.end31 ], [ 0, %if.end25 ], [ 0, %if.end18 ], [ 0, %if.end13 ], [ %spec.select, %if.end62 ]
   tail call void @SSL_free(ptr noundef %ssl.0) #2
   tail call void @SSL_CTX_free(ptr noundef %call6) #2
   br label %return

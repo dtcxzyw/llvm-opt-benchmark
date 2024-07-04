@@ -13000,12 +13000,12 @@ _ZN13AstBasicDType14setSignedStateERK8VSigning.exit9390: ; preds = %3672, %.sink
   br label %3712
 
 3710:                                             ; preds = %3698, %3703
-  %.07330 = phi i1 [ false, %3703 ], [ true, %3698 ]
+  %.07332 = phi i1 [ false, %3703 ], [ true, %3698 ]
   %3711 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %118) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %119) #26
-  br i1 %.07330, label %3712, label %27868
+  br i1 %.07332, label %3712, label %27868
 
 3712:                                             ; preds = %.thread11991, %.thread11987, %3710
   %.pn8976.pn11990 = phi { ptr, i32 } [ %3708, %.thread11987 ], [ %3711, %3710 ], [ %3709, %.thread11991 ]
@@ -16278,16 +16278,16 @@ _ZN14V3ParseGrammar8setDTypeEP12AstNodeDType.exit9472: ; preds = %_ZN14V3ParseGr
   br i1 %or.cond19141, label %_ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit9491.thread, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit
 
 _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit: ; preds = %5355, %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit
-  %.0733819131 = phi ptr [ %5370, %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit ], [ %5352, %5355 ]
-  %5358 = getelementptr inbounds i8, ptr %.0733819131, i64 64
+  %.0733919131 = phi ptr [ %5370, %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit ], [ %5352, %5355 ]
+  %5358 = getelementptr inbounds i8, ptr %.0733919131, i64 64
   %.sroa.0.0.copyload.i.i.i9493 = load i16, ptr %5358, align 8
   %5359 = icmp eq i16 %.sroa.0.0.copyload.i.i.i9493, 21
   br i1 %5359, label %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit, label %5360
 
 5360:                                             ; preds = %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit
-  %5361 = call noundef ptr @_ZN7AstNode9privateAsI10AstAssignWPS_EEPT_S2_(ptr noundef nonnull %.0733819131)
+  %5361 = call noundef ptr @_ZN7AstNode9privateAsI10AstAssignWPS_EEPT_S2_(ptr noundef nonnull %.0733919131)
   %5362 = load ptr, ptr %5351, align 8
-  %5363 = icmp eq ptr %.0733819131, %5362
+  %5363 = icmp eq ptr %.0733919131, %5362
   br i1 %5363, label %5366, label %5364
 
 5364:                                             ; preds = %5360
@@ -16304,7 +16304,7 @@ _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit: ; preds = %5355, %_ZN10AstAs
   br label %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit
 
 _ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit: ; preds = %5368, %5366, %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit
-  %5369 = getelementptr inbounds i8, ptr %.0733819131, i64 8
+  %5369 = getelementptr inbounds i8, ptr %.0733919131, i64 8
   %5370 = load ptr, ptr %5369, align 8
   %.not8922 = icmp eq ptr %5370, null
   br i1 %.not8922, label %_ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit9491.thread, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit, !llvm.loop !39
@@ -16316,21 +16316,21 @@ _ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit9491.thread: ; preds 
   br i1 %.not8923, label %.critedge9098, label %.preheader
 
 .preheader:                                       ; preds = %_ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit9491.thread
-  %.0734019132 = load ptr, ptr %5351, align 8
-  %.not892419133 = icmp eq ptr %.0734019132, null
+  %.0734119132 = load ptr, ptr %5351, align 8
+  %.not892419133 = icmp eq ptr %.0734119132, null
   br i1 %.not892419133, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit9497
 
 _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit9497: ; preds = %.preheader, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit
-  %.0734019134 = phi ptr [ %.07340, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit ], [ %.0734019132, %.preheader ]
-  %5373 = getelementptr inbounds i8, ptr %.0734019134, i64 64
+  %.0734119134 = phi ptr [ %.07341, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit ], [ %.0734119132, %.preheader ]
+  %5373 = getelementptr inbounds i8, ptr %.0734119134, i64 64
   %.sroa.0.0.copyload.i.i.i9496 = load i16, ptr %5373, align 8
   %5374 = icmp eq i16 %.sroa.0.0.copyload.i.i.i9496, 21
   br i1 %5374, label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit, label %5375
 
 5375:                                             ; preds = %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit9497
-  %5376 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0734019134)
+  %5376 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0734119134)
   %5377 = load ptr, ptr %5351, align 8
-  %5378 = icmp eq ptr %.0734019134, %5377
+  %5378 = icmp eq ptr %.0734119134, %5377
   %5379 = load ptr, ptr %5371, align 8
   br i1 %5378, label %5382, label %5380
 
@@ -16348,9 +16348,9 @@ _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit9497: ; preds = %.preheader, %
   br label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit
 
 _ZN13AstNodeAssign14timingControlpEP7AstNode.exit: ; preds = %5384, %5382, %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit9497
-  %5385 = getelementptr inbounds i8, ptr %.0734019134, i64 8
-  %.07340 = load ptr, ptr %5385, align 8
-  %.not8924 = icmp eq ptr %.07340, null
+  %5385 = getelementptr inbounds i8, ptr %.0734119134, i64 8
+  %.07341 = load ptr, ptr %5385, align 8
+  %.not8924 = icmp eq ptr %.07341, null
   br i1 %.not8924, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit9497, !llvm.loop !40
 
 5386:                                             ; preds = %_ZL15yy_reduce_printPsP19V3ParseBisonYYSTypei.exit
@@ -17316,8 +17316,8 @@ _ZN7AstNode11privateCastI8AstBeginRPS_EEPT_S2_.exit: ; preds = %5856
   br label %27868
 
 5874:                                             ; preds = %_ZN7AstNode11privateCastI8AstBeginRPS_EEPT_S2_.exit, %5868
-  %.07351 = phi ptr [ %5864, %5868 ], [ %5858, %_ZN7AstNode11privateCastI8AstBeginRPS_EEPT_S2_.exit ]
-  %5875 = getelementptr inbounds i8, ptr %.07351, i64 32
+  %.07353 = phi ptr [ %5864, %5868 ], [ %5858, %_ZN7AstNode11privateCastI8AstBeginRPS_EEPT_S2_.exit ]
+  %5875 = getelementptr inbounds i8, ptr %.07353, i64 32
   %5876 = load ptr, ptr %5875, align 8
   %.not8898 = icmp eq ptr %5876, null
   br i1 %.not8898, label %5879, label %5877
@@ -17330,7 +17330,7 @@ _ZN7AstNode11privateCastI8AstBeginRPS_EEPT_S2_.exit: ; preds = %5856
   %5880 = call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #30
   %5881 = getelementptr inbounds i8, ptr %.16592, i64 -256
   %5882 = load ptr, ptr %5881, align 8
-  %5883 = getelementptr inbounds i8, ptr %.07351, i64 152
+  %5883 = getelementptr inbounds i8, ptr %.07353, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %192, ptr noundef nonnull align 8 dereferenceable(32) %5883)
           to label %_ZNK12AstNodeBlock4nameB5cxx11Ev.exit unwind label %5892
 
@@ -17375,19 +17375,19 @@ _ZN8AstBegin9addStmtspEP7AstNode.exit:            ; preds = %_ZN7AstNode9private
   br label %27868
 
 _ZN7AstNode9privateIsI6AstVarKPS_EEbPKS_.exit.thread: ; preds = %5884, %_ZN8AstBegin9addStmtspEP7AstNode.exit, %_ZN7AstNode9privateIsI6AstVarKPS_EEbPKS_.exit
-  %.07354 = phi ptr [ %5890, %_ZN8AstBegin9addStmtspEP7AstNode.exit ], [ %5886, %_ZN7AstNode9privateIsI6AstVarKPS_EEbPKS_.exit ], [ null, %5884 ]
+  %.07356 = phi ptr [ %5890, %_ZN8AstBegin9addStmtspEP7AstNode.exit ], [ %5886, %_ZN7AstNode9privateIsI6AstVarKPS_EEbPKS_.exit ], [ null, %5884 ]
   %5897 = call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #30
   %5898 = load ptr, ptr %5881, align 8
   %5899 = getelementptr inbounds i8, ptr %.16592, i64 -104
   %5900 = load ptr, ptr %5899, align 8
   %5901 = getelementptr inbounds i8, ptr %.16592, i64 -40
   %5902 = load ptr, ptr %5901, align 8
-  invoke void @_ZN9AstGenForC2EP8FileLineP7AstNodeP11AstNodeExprS3_S3_(ptr noundef nonnull align 8 dereferenceable(152) %5897, ptr noundef %5898, ptr noundef %.07354, ptr noundef %5900, ptr noundef %5902, ptr noundef %5876)
+  invoke void @_ZN9AstGenForC2EP8FileLineP7AstNodeP11AstNodeExprS3_S3_(ptr noundef nonnull align 8 dereferenceable(152) %5897, ptr noundef %5898, ptr noundef %.07356, ptr noundef %5900, ptr noundef %5902, ptr noundef %5876)
           to label %5903 unwind label %5904
 
 5903:                                             ; preds = %_ZN7AstNode9privateIsI6AstVarKPS_EEbPKS_.exit.thread
   call void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %5880, ptr noundef nonnull %5897)
-  call void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %.07351)
+  call void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %.07353)
   br label %.critedge9098
 
 5904:                                             ; preds = %_ZN7AstNode9privateIsI6AstVarKPS_EEbPKS_.exit.thread
@@ -17450,8 +17450,8 @@ _ZN7AstNode11privateCastI8AstBeginRPS_EEPT_S2_.exit9519: ; preds = %5906
   br label %27868
 
 5924:                                             ; preds = %_ZN7AstNode11privateCastI8AstBeginRPS_EEPT_S2_.exit9519, %5918
-  %.07356 = phi ptr [ %5914, %5918 ], [ %5908, %_ZN7AstNode11privateCastI8AstBeginRPS_EEPT_S2_.exit9519 ]
-  %5925 = getelementptr inbounds i8, ptr %.07356, i64 32
+  %.07359 = phi ptr [ %5914, %5918 ], [ %5908, %_ZN7AstNode11privateCastI8AstBeginRPS_EEPT_S2_.exit9519 ]
+  %5925 = getelementptr inbounds i8, ptr %.07359, i64 32
   %5926 = load ptr, ptr %5925, align 8
   %.not8892 = icmp eq ptr %5926, null
   br i1 %.not8892, label %5929, label %5927
@@ -17464,7 +17464,7 @@ _ZN7AstNode11privateCastI8AstBeginRPS_EEPT_S2_.exit9519: ; preds = %5906
   %5930 = call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #30
   %5931 = getelementptr inbounds i8, ptr %.16592, i64 -256
   %5932 = load ptr, ptr %5931, align 8
-  %5933 = getelementptr inbounds i8, ptr %.07356, i64 152
+  %5933 = getelementptr inbounds i8, ptr %.07359, i64 152
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %195, ptr noundef nonnull align 8 dereferenceable(32) %5933)
           to label %_ZNK12AstNodeBlock4nameB5cxx11Ev.exit9521 unwind label %5942
 
@@ -17509,19 +17509,19 @@ _ZN8AstBegin9addStmtspEP7AstNode.exit9526:        ; preds = %_ZN7AstNode9private
   br label %27868
 
 _ZN7AstNode9privateIsI6AstVarKPS_EEbPKS_.exit9524.thread: ; preds = %5934, %_ZN8AstBegin9addStmtspEP7AstNode.exit9526, %_ZN7AstNode9privateIsI6AstVarKPS_EEbPKS_.exit9524
-  %.07360 = phi ptr [ %5940, %_ZN8AstBegin9addStmtspEP7AstNode.exit9526 ], [ %5936, %_ZN7AstNode9privateIsI6AstVarKPS_EEbPKS_.exit9524 ], [ null, %5934 ]
+  %.07362 = phi ptr [ %5940, %_ZN8AstBegin9addStmtspEP7AstNode.exit9526 ], [ %5936, %_ZN7AstNode9privateIsI6AstVarKPS_EEbPKS_.exit9524 ], [ null, %5934 ]
   %5947 = call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #30
   %5948 = load ptr, ptr %5931, align 8
   %5949 = getelementptr inbounds i8, ptr %.16592, i64 -104
   %5950 = load ptr, ptr %5949, align 8
   %5951 = getelementptr inbounds i8, ptr %.16592, i64 -40
   %5952 = load ptr, ptr %5951, align 8
-  invoke void @_ZN9AstGenForC2EP8FileLineP7AstNodeP11AstNodeExprS3_S3_(ptr noundef nonnull align 8 dereferenceable(152) %5947, ptr noundef %5948, ptr noundef %.07360, ptr noundef %5950, ptr noundef %5952, ptr noundef %5926)
+  invoke void @_ZN9AstGenForC2EP8FileLineP7AstNodeP11AstNodeExprS3_S3_(ptr noundef nonnull align 8 dereferenceable(152) %5947, ptr noundef %5948, ptr noundef %.07362, ptr noundef %5950, ptr noundef %5952, ptr noundef %5926)
           to label %5953 unwind label %5954
 
 5953:                                             ; preds = %_ZN7AstNode9privateIsI6AstVarKPS_EEbPKS_.exit9524.thread
   call void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %5930, ptr noundef nonnull %5947)
-  call void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %.07356)
+  call void @_ZN7AstNode10deleteTreeEv(ptr noundef nonnull align 8 dereferenceable(152) %.07359)
   br label %.critedge9098
 
 5954:                                             ; preds = %_ZN7AstNode9privateIsI6AstVarKPS_EEbPKS_.exit9524.thread
@@ -21845,22 +21845,22 @@ _ZN7AstCase9addItemspEP11AstCaseItem.exit9650:    ; preds = %8011
   br i1 %.not.i965119122, label %._crit_edge19126, label %.lr.ph19125
 
 .lr.ph19125:                                      ; preds = %8109, %_ZN7AstNode11privateCastI6AstDotPS_EEPT_S2_.exit
-  %.0736419123 = phi ptr [ %8115, %_ZN7AstNode11privateCastI6AstDotPS_EEPT_S2_.exit ], [ %8111, %8109 ]
-  %8112 = getelementptr inbounds i8, ptr %.0736419123, i64 64
+  %.0736819123 = phi ptr [ %8115, %_ZN7AstNode11privateCastI6AstDotPS_EEPT_S2_.exit ], [ %8111, %8109 ]
+  %8112 = getelementptr inbounds i8, ptr %.0736819123, i64 64
   %.sroa.0.0.copyload.i.i.i9652 = load i16, ptr %8112, align 8
   %8113 = icmp eq i16 %.sroa.0.0.copyload.i.i.i9652, 101
   br i1 %8113, label %_ZN7AstNode11privateCastI6AstDotPS_EEPT_S2_.exit, label %._crit_edge19126
 
 _ZN7AstNode11privateCastI6AstDotPS_EEPT_S2_.exit: ; preds = %.lr.ph19125
-  %8114 = getelementptr inbounds i8, ptr %.0736419123, i64 32
+  %8114 = getelementptr inbounds i8, ptr %.0736819123, i64 32
   %8115 = load ptr, ptr %8114, align 8
   %.not.i9651 = icmp eq ptr %8115, null
   br i1 %.not.i9651, label %._crit_edge19126, label %.lr.ph19125, !llvm.loop !41
 
 ._crit_edge19126:                                 ; preds = %.lr.ph19125, %_ZN7AstNode11privateCastI6AstDotPS_EEPT_S2_.exit, %8109
-  %.07364.lcssa = phi ptr [ null, %8109 ], [ null, %_ZN7AstNode11privateCastI6AstDotPS_EEPT_S2_.exit ], [ %.0736419123, %.lr.ph19125 ]
+  %.07368.lcssa = phi ptr [ null, %8109 ], [ null, %_ZN7AstNode11privateCastI6AstDotPS_EEPT_S2_.exit ], [ %.0736819123, %.lr.ph19125 ]
   %8116 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
-  %8117 = getelementptr inbounds i8, ptr %.07364.lcssa, i64 88
+  %8117 = getelementptr inbounds i8, ptr %.07368.lcssa, i64 88
   %8118 = load ptr, ptr %8117, align 8
   invoke void @_ZN8FileLineC2EPS_(ptr noundef nonnull align 8 dereferenceable(40) %8116, ptr noundef %8118)
           to label %8119 unwind label %8122
@@ -31840,12 +31840,12 @@ _ZN15AstNodeFTaskRef8addPinspEP11AstNodeExpr.exit: ; preds = %13055
   br label %13061
 
 13059:                                            ; preds = %13052, %13055
-  %.07367 = phi i1 [ true, %13052 ], [ false, %13055 ]
+  %.07366 = phi i1 [ true, %13052 ], [ false, %13055 ]
   %13060 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %304) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %305) #26
-  br i1 %.07367, label %13061, label %27868
+  br i1 %.07366, label %13061, label %27868
 
 13061:                                            ; preds = %.thread12015, %13059
   %.pn860012018 = phi { ptr, i32 } [ %13058, %.thread12015 ], [ %13060, %13059 ]
@@ -41823,12 +41823,12 @@ _ZN11AstNodeExpr7addNextEPS_.exit:                ; preds = %18029
   br label %18034
 
 18032:                                            ; preds = %18028, %18029
-  %.07365 = phi i1 [ true, %18028 ], [ false, %18029 ]
+  %.07364 = phi i1 [ true, %18028 ], [ false, %18029 ]
   %18033 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %360) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %361) #26
-  br i1 %.07365, label %18034, label %27868
+  br i1 %.07364, label %18034, label %27868
 
 18034:                                            ; preds = %.thread12019, %18032
   %.pn825312022 = phi { ptr, i32 } [ %18031, %.thread12019 ], [ %18033, %18032 ]
@@ -43072,21 +43072,21 @@ _ZN13AstNodeAssign14timingControlpEP7AstNode.exit10172: ; preds = %18564, %18562
   br i1 %.not8207, label %.critedge9098, label %.preheader12174
 
 .preheader12174:                                  ; preds = %18585
-  %.0736219116 = load ptr, ptr %18567, align 8
-  %.not820819117 = icmp eq ptr %.0736219116, null
+  %.0736119116 = load ptr, ptr %18567, align 8
+  %.not820819117 = icmp eq ptr %.0736119116, null
   br i1 %.not820819117, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10175
 
 _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10175: ; preds = %.preheader12174, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10177
-  %.0736219118 = phi ptr [ %.07362, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10177 ], [ %.0736219116, %.preheader12174 ]
-  %18588 = getelementptr inbounds i8, ptr %.0736219118, i64 64
+  %.0736119118 = phi ptr [ %.07361, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10177 ], [ %.0736119116, %.preheader12174 ]
+  %18588 = getelementptr inbounds i8, ptr %.0736119118, i64 64
   %.sroa.0.0.copyload.i.i.i10174 = load i16, ptr %18588, align 8
   %18589 = icmp eq i16 %.sroa.0.0.copyload.i.i.i10174, 21
   br i1 %18589, label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10177, label %18590
 
 18590:                                            ; preds = %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10175
-  %18591 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0736219118)
+  %18591 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0736119118)
   %18592 = load ptr, ptr %18567, align 8
-  %18593 = icmp eq ptr %.0736219118, %18592
+  %18593 = icmp eq ptr %.0736119118, %18592
   %18594 = load ptr, ptr %18586, align 8
   br i1 %18593, label %18597, label %18595
 
@@ -43104,9 +43104,9 @@ _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10175: ; preds = %.preheader12
   br label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10177
 
 _ZN13AstNodeAssign14timingControlpEP7AstNode.exit10177: ; preds = %18599, %18597, %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10175
-  %18600 = getelementptr inbounds i8, ptr %.0736219118, i64 8
-  %.07362 = load ptr, ptr %18600, align 8
-  %.not8208 = icmp eq ptr %.07362, null
+  %18600 = getelementptr inbounds i8, ptr %.0736119118, i64 8
+  %.07361 = load ptr, ptr %18600, align 8
+  %.not8208 = icmp eq ptr %.07361, null
   br i1 %.not8208, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10175, !llvm.loop !43
 
 18601:                                            ; preds = %_ZL15yy_reduce_printPsP19V3ParseBisonYYSTypei.exit
@@ -43161,21 +43161,21 @@ _ZN13AstNodeAssign14timingControlpEP7AstNode.exit10177: ; preds = %18599, %18597
   br i1 %.not8202, label %.critedge9098, label %.preheader12176
 
 .preheader12176:                                  ; preds = %18620
-  %.0736119113 = load ptr, ptr %18602, align 8
-  %.not820319114 = icmp eq ptr %.0736119113, null
+  %.0736019113 = load ptr, ptr %18602, align 8
+  %.not820319114 = icmp eq ptr %.0736019113, null
   br i1 %.not820319114, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10180
 
 _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10180: ; preds = %.preheader12176, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10182
-  %.0736119115 = phi ptr [ %.07361, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10182 ], [ %.0736119113, %.preheader12176 ]
-  %18623 = getelementptr inbounds i8, ptr %.0736119115, i64 64
+  %.0736019115 = phi ptr [ %.07360, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10182 ], [ %.0736019113, %.preheader12176 ]
+  %18623 = getelementptr inbounds i8, ptr %.0736019115, i64 64
   %.sroa.0.0.copyload.i.i.i10179 = load i16, ptr %18623, align 8
   %18624 = icmp eq i16 %.sroa.0.0.copyload.i.i.i10179, 21
   br i1 %18624, label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10182, label %18625
 
 18625:                                            ; preds = %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10180
-  %18626 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0736119115)
+  %18626 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0736019115)
   %18627 = load ptr, ptr %18602, align 8
-  %18628 = icmp eq ptr %.0736119115, %18627
+  %18628 = icmp eq ptr %.0736019115, %18627
   %18629 = load ptr, ptr %18621, align 8
   br i1 %18628, label %18632, label %18630
 
@@ -43193,9 +43193,9 @@ _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10180: ; preds = %.preheader12
   br label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10182
 
 _ZN13AstNodeAssign14timingControlpEP7AstNode.exit10182: ; preds = %18634, %18632, %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10180
-  %18635 = getelementptr inbounds i8, ptr %.0736119115, i64 8
-  %.07361 = load ptr, ptr %18635, align 8
-  %.not8203 = icmp eq ptr %.07361, null
+  %18635 = getelementptr inbounds i8, ptr %.0736019115, i64 8
+  %.07360 = load ptr, ptr %18635, align 8
+  %.not8203 = icmp eq ptr %.07360, null
   br i1 %.not8203, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10180, !llvm.loop !44
 
 18636:                                            ; preds = %_ZL15yy_reduce_printPsP19V3ParseBisonYYSTypei.exit
@@ -43215,16 +43215,16 @@ _ZN13AstNodeAssign14timingControlpEP7AstNode.exit10182: ; preds = %18634, %18632
   br i1 %or.cond19142, label %_ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit10186.thread, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10189
 
 _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10189: ; preds = %18641, %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10191
-  %.0735919109 = phi ptr [ %18656, %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10191 ], [ %18638, %18641 ]
-  %18644 = getelementptr inbounds i8, ptr %.0735919109, i64 64
+  %.0735819109 = phi ptr [ %18656, %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10191 ], [ %18638, %18641 ]
+  %18644 = getelementptr inbounds i8, ptr %.0735819109, i64 64
   %.sroa.0.0.copyload.i.i.i10188 = load i16, ptr %18644, align 8
   %18645 = icmp eq i16 %.sroa.0.0.copyload.i.i.i10188, 21
   br i1 %18645, label %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10191, label %18646
 
 18646:                                            ; preds = %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10189
-  %18647 = call noundef ptr @_ZN7AstNode9privateAsI10AstAssignWPS_EEPT_S2_(ptr noundef nonnull %.0735919109)
+  %18647 = call noundef ptr @_ZN7AstNode9privateAsI10AstAssignWPS_EEPT_S2_(ptr noundef nonnull %.0735819109)
   %18648 = load ptr, ptr %18637, align 8
-  %18649 = icmp eq ptr %.0735919109, %18648
+  %18649 = icmp eq ptr %.0735819109, %18648
   br i1 %18649, label %18652, label %18650
 
 18650:                                            ; preds = %18646
@@ -43241,7 +43241,7 @@ _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10189: ; preds = %18641, %_ZN1
   br label %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10191
 
 _ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10191: ; preds = %18654, %18652, %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10189
-  %18655 = getelementptr inbounds i8, ptr %.0735919109, i64 8
+  %18655 = getelementptr inbounds i8, ptr %.0735819109, i64 8
   %18656 = load ptr, ptr %18655, align 8
   %.not8196 = icmp eq ptr %18656, null
   br i1 %.not8196, label %_ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit10186.thread, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10189, !llvm.loop !45
@@ -43253,21 +43253,21 @@ _ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit10186.thread: ; preds
   br i1 %.not8197, label %.critedge9098, label %.preheader12178
 
 .preheader12178:                                  ; preds = %_ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit10186.thread
-  %.0735819110 = load ptr, ptr %18637, align 8
-  %.not819819111 = icmp eq ptr %.0735819110, null
+  %.0735719110 = load ptr, ptr %18637, align 8
+  %.not819819111 = icmp eq ptr %.0735719110, null
   br i1 %.not819819111, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10194
 
 _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10194: ; preds = %.preheader12178, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10196
-  %.0735819112 = phi ptr [ %.07358, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10196 ], [ %.0735819110, %.preheader12178 ]
-  %18659 = getelementptr inbounds i8, ptr %.0735819112, i64 64
+  %.0735719112 = phi ptr [ %.07357, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10196 ], [ %.0735719110, %.preheader12178 ]
+  %18659 = getelementptr inbounds i8, ptr %.0735719112, i64 64
   %.sroa.0.0.copyload.i.i.i10193 = load i16, ptr %18659, align 8
   %18660 = icmp eq i16 %.sroa.0.0.copyload.i.i.i10193, 21
   br i1 %18660, label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10196, label %18661
 
 18661:                                            ; preds = %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10194
-  %18662 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0735819112)
+  %18662 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0735719112)
   %18663 = load ptr, ptr %18637, align 8
-  %18664 = icmp eq ptr %.0735819112, %18663
+  %18664 = icmp eq ptr %.0735719112, %18663
   %18665 = load ptr, ptr %18657, align 8
   br i1 %18664, label %18668, label %18666
 
@@ -43285,9 +43285,9 @@ _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10194: ; preds = %.preheader12
   br label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10196
 
 _ZN13AstNodeAssign14timingControlpEP7AstNode.exit10196: ; preds = %18670, %18668, %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10194
-  %18671 = getelementptr inbounds i8, ptr %.0735819112, i64 8
-  %.07358 = load ptr, ptr %18671, align 8
-  %.not8198 = icmp eq ptr %.07358, null
+  %18671 = getelementptr inbounds i8, ptr %.0735719112, i64 8
+  %.07357 = load ptr, ptr %18671, align 8
+  %.not8198 = icmp eq ptr %.07357, null
   br i1 %.not8198, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10194, !llvm.loop !46
 
 18672:                                            ; preds = %_ZL15yy_reduce_printPsP19V3ParseBisonYYSTypei.exit
@@ -43342,21 +43342,21 @@ _ZN13AstNodeAssign14timingControlpEP7AstNode.exit10196: ; preds = %18670, %18668
   br i1 %.not8193, label %.critedge9098, label %.preheader12180
 
 .preheader12180:                                  ; preds = %18691
-  %.0735719105 = load ptr, ptr %18673, align 8
-  %.not819419106 = icmp eq ptr %.0735719105, null
+  %.0735519105 = load ptr, ptr %18673, align 8
+  %.not819419106 = icmp eq ptr %.0735519105, null
   br i1 %.not819419106, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10199
 
 _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10199: ; preds = %.preheader12180, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10201
-  %.0735719107 = phi ptr [ %.07357, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10201 ], [ %.0735719105, %.preheader12180 ]
-  %18694 = getelementptr inbounds i8, ptr %.0735719107, i64 64
+  %.0735519107 = phi ptr [ %.07355, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10201 ], [ %.0735519105, %.preheader12180 ]
+  %18694 = getelementptr inbounds i8, ptr %.0735519107, i64 64
   %.sroa.0.0.copyload.i.i.i10198 = load i16, ptr %18694, align 8
   %18695 = icmp eq i16 %.sroa.0.0.copyload.i.i.i10198, 21
   br i1 %18695, label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10201, label %18696
 
 18696:                                            ; preds = %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10199
-  %18697 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0735719107)
+  %18697 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0735519107)
   %18698 = load ptr, ptr %18673, align 8
-  %18699 = icmp eq ptr %.0735719107, %18698
+  %18699 = icmp eq ptr %.0735519107, %18698
   %18700 = load ptr, ptr %18692, align 8
   br i1 %18699, label %18703, label %18701
 
@@ -43374,9 +43374,9 @@ _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10199: ; preds = %.preheader12
   br label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10201
 
 _ZN13AstNodeAssign14timingControlpEP7AstNode.exit10201: ; preds = %18705, %18703, %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10199
-  %18706 = getelementptr inbounds i8, ptr %.0735719107, i64 8
-  %.07357 = load ptr, ptr %18706, align 8
-  %.not8194 = icmp eq ptr %.07357, null
+  %18706 = getelementptr inbounds i8, ptr %.0735519107, i64 8
+  %.07355 = load ptr, ptr %18706, align 8
+  %.not8194 = icmp eq ptr %.07355, null
   br i1 %.not8194, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10199, !llvm.loop !47
 
 18707:                                            ; preds = %_ZL15yy_reduce_printPsP19V3ParseBisonYYSTypei.exit
@@ -43431,21 +43431,21 @@ _ZN13AstNodeAssign14timingControlpEP7AstNode.exit10201: ; preds = %18705, %18703
   br i1 %.not8188, label %.critedge9098, label %.preheader12182
 
 .preheader12182:                                  ; preds = %18726
-  %.0735519102 = load ptr, ptr %18708, align 8
-  %.not818919103 = icmp eq ptr %.0735519102, null
+  %.0735419102 = load ptr, ptr %18708, align 8
+  %.not818919103 = icmp eq ptr %.0735419102, null
   br i1 %.not818919103, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10204
 
 _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10204: ; preds = %.preheader12182, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10206
-  %.0735519104 = phi ptr [ %.07355, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10206 ], [ %.0735519102, %.preheader12182 ]
-  %18729 = getelementptr inbounds i8, ptr %.0735519104, i64 64
+  %.0735419104 = phi ptr [ %.07354, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10206 ], [ %.0735419102, %.preheader12182 ]
+  %18729 = getelementptr inbounds i8, ptr %.0735419104, i64 64
   %.sroa.0.0.copyload.i.i.i10203 = load i16, ptr %18729, align 8
   %18730 = icmp eq i16 %.sroa.0.0.copyload.i.i.i10203, 21
   br i1 %18730, label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10206, label %18731
 
 18731:                                            ; preds = %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10204
-  %18732 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0735519104)
+  %18732 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0735419104)
   %18733 = load ptr, ptr %18708, align 8
-  %18734 = icmp eq ptr %.0735519104, %18733
+  %18734 = icmp eq ptr %.0735419104, %18733
   %18735 = load ptr, ptr %18727, align 8
   br i1 %18734, label %18738, label %18736
 
@@ -43463,9 +43463,9 @@ _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10204: ; preds = %.preheader12
   br label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10206
 
 _ZN13AstNodeAssign14timingControlpEP7AstNode.exit10206: ; preds = %18740, %18738, %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10204
-  %18741 = getelementptr inbounds i8, ptr %.0735519104, i64 8
-  %.07355 = load ptr, ptr %18741, align 8
-  %.not8189 = icmp eq ptr %.07355, null
+  %18741 = getelementptr inbounds i8, ptr %.0735419104, i64 8
+  %.07354 = load ptr, ptr %18741, align 8
+  %.not8189 = icmp eq ptr %.07354, null
   br i1 %.not8189, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10204, !llvm.loop !48
 
 18742:                                            ; preds = %_ZL15yy_reduce_printPsP19V3ParseBisonYYSTypei.exit
@@ -43485,16 +43485,16 @@ _ZN13AstNodeAssign14timingControlpEP7AstNode.exit10206: ; preds = %18740, %18738
   br i1 %or.cond19143, label %_ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit10210.thread, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10213
 
 _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10213: ; preds = %18747, %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10215
-  %.0735319098 = phi ptr [ %18762, %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10215 ], [ %18744, %18747 ]
-  %18750 = getelementptr inbounds i8, ptr %.0735319098, i64 64
+  %.0735219098 = phi ptr [ %18762, %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10215 ], [ %18744, %18747 ]
+  %18750 = getelementptr inbounds i8, ptr %.0735219098, i64 64
   %.sroa.0.0.copyload.i.i.i10212 = load i16, ptr %18750, align 8
   %18751 = icmp eq i16 %.sroa.0.0.copyload.i.i.i10212, 21
   br i1 %18751, label %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10215, label %18752
 
 18752:                                            ; preds = %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10213
-  %18753 = call noundef ptr @_ZN7AstNode9privateAsI10AstAssignWPS_EEPT_S2_(ptr noundef nonnull %.0735319098)
+  %18753 = call noundef ptr @_ZN7AstNode9privateAsI10AstAssignWPS_EEPT_S2_(ptr noundef nonnull %.0735219098)
   %18754 = load ptr, ptr %18743, align 8
-  %18755 = icmp eq ptr %.0735319098, %18754
+  %18755 = icmp eq ptr %.0735219098, %18754
   br i1 %18755, label %18758, label %18756
 
 18756:                                            ; preds = %18752
@@ -43511,7 +43511,7 @@ _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10213: ; preds = %18747, %_ZN1
   br label %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10215
 
 _ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10215: ; preds = %18760, %18758, %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10213
-  %18761 = getelementptr inbounds i8, ptr %.0735319098, i64 8
+  %18761 = getelementptr inbounds i8, ptr %.0735219098, i64 8
   %18762 = load ptr, ptr %18761, align 8
   %.not8182 = icmp eq ptr %18762, null
   br i1 %.not8182, label %_ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit10210.thread, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10213, !llvm.loop !49
@@ -43523,21 +43523,21 @@ _ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit10210.thread: ; preds
   br i1 %.not8183, label %.critedge9098, label %.preheader12184
 
 .preheader12184:                                  ; preds = %_ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit10210.thread
-  %.0735219099 = load ptr, ptr %18743, align 8
-  %.not818419100 = icmp eq ptr %.0735219099, null
+  %.0735119099 = load ptr, ptr %18743, align 8
+  %.not818419100 = icmp eq ptr %.0735119099, null
   br i1 %.not818419100, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10218
 
 _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10218: ; preds = %.preheader12184, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10220
-  %.0735219101 = phi ptr [ %.07352, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10220 ], [ %.0735219099, %.preheader12184 ]
-  %18765 = getelementptr inbounds i8, ptr %.0735219101, i64 64
+  %.0735119101 = phi ptr [ %.07351, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10220 ], [ %.0735119099, %.preheader12184 ]
+  %18765 = getelementptr inbounds i8, ptr %.0735119101, i64 64
   %.sroa.0.0.copyload.i.i.i10217 = load i16, ptr %18765, align 8
   %18766 = icmp eq i16 %.sroa.0.0.copyload.i.i.i10217, 21
   br i1 %18766, label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10220, label %18767
 
 18767:                                            ; preds = %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10218
-  %18768 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0735219101)
+  %18768 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0735119101)
   %18769 = load ptr, ptr %18743, align 8
-  %18770 = icmp eq ptr %.0735219101, %18769
+  %18770 = icmp eq ptr %.0735119101, %18769
   %18771 = load ptr, ptr %18763, align 8
   br i1 %18770, label %18774, label %18772
 
@@ -43555,9 +43555,9 @@ _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10218: ; preds = %.preheader12
   br label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10220
 
 _ZN13AstNodeAssign14timingControlpEP7AstNode.exit10220: ; preds = %18776, %18774, %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10218
-  %18777 = getelementptr inbounds i8, ptr %.0735219101, i64 8
-  %.07352 = load ptr, ptr %18777, align 8
-  %.not8184 = icmp eq ptr %.07352, null
+  %18777 = getelementptr inbounds i8, ptr %.0735119101, i64 8
+  %.07351 = load ptr, ptr %18777, align 8
+  %.not8184 = icmp eq ptr %.07351, null
   br i1 %.not8184, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10218, !llvm.loop !50
 
 18778:                                            ; preds = %_ZL15yy_reduce_printPsP19V3ParseBisonYYSTypei.exit
@@ -43615,21 +43615,21 @@ _ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit10224.thread: ; preds
   br i1 %.not8179, label %.critedge9098, label %.preheader12186
 
 .preheader12186:                                  ; preds = %_ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit10224.thread
-  %.0734919094 = load ptr, ptr %18779, align 8
-  %.not818019095 = icmp eq ptr %.0734919094, null
+  %.0734819094 = load ptr, ptr %18779, align 8
+  %.not818019095 = icmp eq ptr %.0734819094, null
   br i1 %.not818019095, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10232
 
 _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10232: ; preds = %.preheader12186, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10234
-  %.0734919096 = phi ptr [ %.07349, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10234 ], [ %.0734919094, %.preheader12186 ]
-  %18801 = getelementptr inbounds i8, ptr %.0734919096, i64 64
+  %.0734819096 = phi ptr [ %.07348, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10234 ], [ %.0734819094, %.preheader12186 ]
+  %18801 = getelementptr inbounds i8, ptr %.0734819096, i64 64
   %.sroa.0.0.copyload.i.i.i10231 = load i16, ptr %18801, align 8
   %18802 = icmp eq i16 %.sroa.0.0.copyload.i.i.i10231, 21
   br i1 %18802, label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10234, label %18803
 
 18803:                                            ; preds = %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10232
-  %18804 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0734919096)
+  %18804 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0734819096)
   %18805 = load ptr, ptr %18779, align 8
-  %18806 = icmp eq ptr %.0734919096, %18805
+  %18806 = icmp eq ptr %.0734819096, %18805
   %18807 = load ptr, ptr %18799, align 8
   br i1 %18806, label %18810, label %18808
 
@@ -43647,9 +43647,9 @@ _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10232: ; preds = %.preheader12
   br label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10234
 
 _ZN13AstNodeAssign14timingControlpEP7AstNode.exit10234: ; preds = %18812, %18810, %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10232
-  %18813 = getelementptr inbounds i8, ptr %.0734919096, i64 8
-  %.07349 = load ptr, ptr %18813, align 8
-  %.not8180 = icmp eq ptr %.07349, null
+  %18813 = getelementptr inbounds i8, ptr %.0734819096, i64 8
+  %.07348 = load ptr, ptr %18813, align 8
+  %.not8180 = icmp eq ptr %.07348, null
   br i1 %.not8180, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10232, !llvm.loop !52
 
 18814:                                            ; preds = %_ZL15yy_reduce_printPsP19V3ParseBisonYYSTypei.exit
@@ -43669,16 +43669,16 @@ _ZN13AstNodeAssign14timingControlpEP7AstNode.exit10234: ; preds = %18812, %18810
   br i1 %or.cond19145, label %_ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit10238.thread, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10241
 
 _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10241: ; preds = %18819, %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10243
-  %.0734719088 = phi ptr [ %18834, %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10243 ], [ %18816, %18819 ]
-  %18822 = getelementptr inbounds i8, ptr %.0734719088, i64 64
+  %.0734619088 = phi ptr [ %18834, %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10243 ], [ %18816, %18819 ]
+  %18822 = getelementptr inbounds i8, ptr %.0734619088, i64 64
   %.sroa.0.0.copyload.i.i.i10240 = load i16, ptr %18822, align 8
   %18823 = icmp eq i16 %.sroa.0.0.copyload.i.i.i10240, 21
   br i1 %18823, label %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10243, label %18824
 
 18824:                                            ; preds = %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10241
-  %18825 = call noundef ptr @_ZN7AstNode9privateAsI10AstAssignWPS_EEPT_S2_(ptr noundef nonnull %.0734719088)
+  %18825 = call noundef ptr @_ZN7AstNode9privateAsI10AstAssignWPS_EEPT_S2_(ptr noundef nonnull %.0734619088)
   %18826 = load ptr, ptr %18815, align 8
-  %18827 = icmp eq ptr %.0734719088, %18826
+  %18827 = icmp eq ptr %.0734619088, %18826
   br i1 %18827, label %18830, label %18828
 
 18828:                                            ; preds = %18824
@@ -43695,7 +43695,7 @@ _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10241: ; preds = %18819, %_ZN1
   br label %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10243
 
 _ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10243: ; preds = %18832, %18830, %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10241
-  %18833 = getelementptr inbounds i8, ptr %.0734719088, i64 8
+  %18833 = getelementptr inbounds i8, ptr %.0734619088, i64 8
   %18834 = load ptr, ptr %18833, align 8
   %.not8174 = icmp eq ptr %18834, null
   br i1 %.not8174, label %_ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit10238.thread, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10241, !llvm.loop !53
@@ -43707,21 +43707,21 @@ _ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit10238.thread: ; preds
   br i1 %.not8175, label %.critedge9098, label %.preheader12188
 
 .preheader12188:                                  ; preds = %_ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit10238.thread
-  %.0734519089 = load ptr, ptr %18815, align 8
-  %.not817619090 = icmp eq ptr %.0734519089, null
+  %.0734419089 = load ptr, ptr %18815, align 8
+  %.not817619090 = icmp eq ptr %.0734419089, null
   br i1 %.not817619090, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10246
 
 _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10246: ; preds = %.preheader12188, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10248
-  %.0734519091 = phi ptr [ %.07345, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10248 ], [ %.0734519089, %.preheader12188 ]
-  %18837 = getelementptr inbounds i8, ptr %.0734519091, i64 64
+  %.0734419091 = phi ptr [ %.07344, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10248 ], [ %.0734419089, %.preheader12188 ]
+  %18837 = getelementptr inbounds i8, ptr %.0734419091, i64 64
   %.sroa.0.0.copyload.i.i.i10245 = load i16, ptr %18837, align 8
   %18838 = icmp eq i16 %.sroa.0.0.copyload.i.i.i10245, 21
   br i1 %18838, label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10248, label %18839
 
 18839:                                            ; preds = %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10246
-  %18840 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0734519091)
+  %18840 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0734419091)
   %18841 = load ptr, ptr %18815, align 8
-  %18842 = icmp eq ptr %.0734519091, %18841
+  %18842 = icmp eq ptr %.0734419091, %18841
   %18843 = load ptr, ptr %18835, align 8
   br i1 %18842, label %18846, label %18844
 
@@ -43739,9 +43739,9 @@ _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10246: ; preds = %.preheader12
   br label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10248
 
 _ZN13AstNodeAssign14timingControlpEP7AstNode.exit10248: ; preds = %18848, %18846, %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10246
-  %18849 = getelementptr inbounds i8, ptr %.0734519091, i64 8
-  %.07345 = load ptr, ptr %18849, align 8
-  %.not8176 = icmp eq ptr %.07345, null
+  %18849 = getelementptr inbounds i8, ptr %.0734419091, i64 8
+  %.07344 = load ptr, ptr %18849, align 8
+  %.not8176 = icmp eq ptr %.07344, null
   br i1 %.not8176, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10246, !llvm.loop !54
 
 18850:                                            ; preds = %_ZL15yy_reduce_printPsP19V3ParseBisonYYSTypei.exit
@@ -43761,16 +43761,16 @@ _ZN13AstNodeAssign14timingControlpEP7AstNode.exit10248: ; preds = %18848, %18846
   br i1 %or.cond19146, label %_ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit10252.thread, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10255
 
 _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10255: ; preds = %18855, %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10257
-  %.0734319083 = phi ptr [ %18870, %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10257 ], [ %18852, %18855 ]
-  %18858 = getelementptr inbounds i8, ptr %.0734319083, i64 64
+  %.0734219083 = phi ptr [ %18870, %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10257 ], [ %18852, %18855 ]
+  %18858 = getelementptr inbounds i8, ptr %.0734219083, i64 64
   %.sroa.0.0.copyload.i.i.i10254 = load i16, ptr %18858, align 8
   %18859 = icmp eq i16 %.sroa.0.0.copyload.i.i.i10254, 21
   br i1 %18859, label %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10257, label %18860
 
 18860:                                            ; preds = %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10255
-  %18861 = call noundef ptr @_ZN7AstNode9privateAsI10AstAssignWPS_EEPT_S2_(ptr noundef nonnull %.0734319083)
+  %18861 = call noundef ptr @_ZN7AstNode9privateAsI10AstAssignWPS_EEPT_S2_(ptr noundef nonnull %.0734219083)
   %18862 = load ptr, ptr %18851, align 8
-  %18863 = icmp eq ptr %.0734319083, %18862
+  %18863 = icmp eq ptr %.0734219083, %18862
   br i1 %18863, label %18866, label %18864
 
 18864:                                            ; preds = %18860
@@ -43787,7 +43787,7 @@ _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10255: ; preds = %18855, %_ZN1
   br label %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10257
 
 _ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10257: ; preds = %18868, %18866, %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10255
-  %18869 = getelementptr inbounds i8, ptr %.0734319083, i64 8
+  %18869 = getelementptr inbounds i8, ptr %.0734219083, i64 8
   %18870 = load ptr, ptr %18869, align 8
   %.not8170 = icmp eq ptr %18870, null
   br i1 %.not8170, label %_ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit10252.thread, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10255, !llvm.loop !55
@@ -43799,21 +43799,21 @@ _ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit10252.thread: ; preds
   br i1 %.not8171, label %.critedge9098, label %.preheader12190
 
 .preheader12190:                                  ; preds = %_ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit10252.thread
-  %.0734119084 = load ptr, ptr %18851, align 8
-  %.not817219085 = icmp eq ptr %.0734119084, null
+  %.0734019084 = load ptr, ptr %18851, align 8
+  %.not817219085 = icmp eq ptr %.0734019084, null
   br i1 %.not817219085, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10260
 
 _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10260: ; preds = %.preheader12190, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10262
-  %.0734119086 = phi ptr [ %.07341, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10262 ], [ %.0734119084, %.preheader12190 ]
-  %18873 = getelementptr inbounds i8, ptr %.0734119086, i64 64
+  %.0734019086 = phi ptr [ %.07340, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10262 ], [ %.0734019084, %.preheader12190 ]
+  %18873 = getelementptr inbounds i8, ptr %.0734019086, i64 64
   %.sroa.0.0.copyload.i.i.i10259 = load i16, ptr %18873, align 8
   %18874 = icmp eq i16 %.sroa.0.0.copyload.i.i.i10259, 21
   br i1 %18874, label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10262, label %18875
 
 18875:                                            ; preds = %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10260
-  %18876 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0734119086)
+  %18876 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0734019086)
   %18877 = load ptr, ptr %18851, align 8
-  %18878 = icmp eq ptr %.0734119086, %18877
+  %18878 = icmp eq ptr %.0734019086, %18877
   %18879 = load ptr, ptr %18871, align 8
   br i1 %18878, label %18882, label %18880
 
@@ -43831,9 +43831,9 @@ _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10260: ; preds = %.preheader12
   br label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10262
 
 _ZN13AstNodeAssign14timingControlpEP7AstNode.exit10262: ; preds = %18884, %18882, %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10260
-  %18885 = getelementptr inbounds i8, ptr %.0734119086, i64 8
-  %.07341 = load ptr, ptr %18885, align 8
-  %.not8172 = icmp eq ptr %.07341, null
+  %18885 = getelementptr inbounds i8, ptr %.0734019086, i64 8
+  %.07340 = load ptr, ptr %18885, align 8
+  %.not8172 = icmp eq ptr %.07340, null
   br i1 %.not8172, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10260, !llvm.loop !56
 
 18886:                                            ; preds = %_ZL15yy_reduce_printPsP19V3ParseBisonYYSTypei.exit
@@ -43853,16 +43853,16 @@ _ZN13AstNodeAssign14timingControlpEP7AstNode.exit10262: ; preds = %18884, %18882
   br i1 %or.cond19147, label %_ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit10266.thread, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10269
 
 _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10269: ; preds = %18891, %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10271
-  %.0733919078 = phi ptr [ %18906, %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10271 ], [ %18888, %18891 ]
-  %18894 = getelementptr inbounds i8, ptr %.0733919078, i64 64
+  %.0733819078 = phi ptr [ %18906, %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10271 ], [ %18888, %18891 ]
+  %18894 = getelementptr inbounds i8, ptr %.0733819078, i64 64
   %.sroa.0.0.copyload.i.i.i10268 = load i16, ptr %18894, align 8
   %18895 = icmp eq i16 %.sroa.0.0.copyload.i.i.i10268, 21
   br i1 %18895, label %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10271, label %18896
 
 18896:                                            ; preds = %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10269
-  %18897 = call noundef ptr @_ZN7AstNode9privateAsI10AstAssignWPS_EEPT_S2_(ptr noundef nonnull %.0733919078)
+  %18897 = call noundef ptr @_ZN7AstNode9privateAsI10AstAssignWPS_EEPT_S2_(ptr noundef nonnull %.0733819078)
   %18898 = load ptr, ptr %18887, align 8
-  %18899 = icmp eq ptr %.0733919078, %18898
+  %18899 = icmp eq ptr %.0733819078, %18898
   br i1 %18899, label %18902, label %18900
 
 18900:                                            ; preds = %18896
@@ -43879,7 +43879,7 @@ _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10269: ; preds = %18891, %_ZN1
   br label %_ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10271
 
 _ZN10AstAssignW13strengthSpecpEP15AstStrengthSpec.exit10271: ; preds = %18904, %18902, %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10269
-  %18905 = getelementptr inbounds i8, ptr %.0733919078, i64 8
+  %18905 = getelementptr inbounds i8, ptr %.0733819078, i64 8
   %18906 = load ptr, ptr %18905, align 8
   %.not8166 = icmp eq ptr %18906, null
   br i1 %.not8166, label %_ZN7AstNode11privateCastI15AstStrengthSpecRPS_EEPT_S2_.exit10266.thread, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10269, !llvm.loop !57
@@ -44031,16 +44031,16 @@ _ZN13AstNodeAssign14timingControlpEP7AstNode.exit10290: ; preds = %18956, %18954
   br i1 %or.cond19149, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10293
 
 _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10293: ; preds = %18958, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10295
-  %.0733419071 = phi ptr [ %18976, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10295 ], [ %18960, %18958 ]
-  %18963 = getelementptr inbounds i8, ptr %.0733419071, i64 64
+  %.0733119071 = phi ptr [ %18976, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10295 ], [ %18960, %18958 ]
+  %18963 = getelementptr inbounds i8, ptr %.0733119071, i64 64
   %.sroa.0.0.copyload.i.i.i10292 = load i16, ptr %18963, align 8
   %18964 = icmp eq i16 %.sroa.0.0.copyload.i.i.i10292, 21
   br i1 %18964, label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10295, label %18965
 
 18965:                                            ; preds = %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10293
-  %18966 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0733419071)
+  %18966 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0733119071)
   %18967 = load ptr, ptr %18959, align 8
-  %18968 = icmp eq ptr %.0733419071, %18967
+  %18968 = icmp eq ptr %.0733119071, %18967
   %18969 = load ptr, ptr %18961, align 8
   br i1 %18968, label %18972, label %18970
 
@@ -44058,7 +44058,7 @@ _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10293: ; preds = %18958, %_ZN1
   br label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10295
 
 _ZN13AstNodeAssign14timingControlpEP7AstNode.exit10295: ; preds = %18974, %18972, %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10293
-  %18975 = getelementptr inbounds i8, ptr %.0733419071, i64 8
+  %18975 = getelementptr inbounds i8, ptr %.0733119071, i64 8
   %18976 = load ptr, ptr %18975, align 8
   %.not8160 = icmp eq ptr %18976, null
   br i1 %.not8160, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10293, !llvm.loop !61
@@ -44074,16 +44074,16 @@ _ZN13AstNodeAssign14timingControlpEP7AstNode.exit10295: ; preds = %18974, %18972
   br i1 %or.cond19150, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10298
 
 _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10298: ; preds = %18977, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10300
-  %.0733319069 = phi ptr [ %18995, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10300 ], [ %18979, %18977 ]
-  %18982 = getelementptr inbounds i8, ptr %.0733319069, i64 64
+  %.0733019069 = phi ptr [ %18995, %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10300 ], [ %18979, %18977 ]
+  %18982 = getelementptr inbounds i8, ptr %.0733019069, i64 64
   %.sroa.0.0.copyload.i.i.i10297 = load i16, ptr %18982, align 8
   %18983 = icmp eq i16 %.sroa.0.0.copyload.i.i.i10297, 21
   br i1 %18983, label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10300, label %18984
 
 18984:                                            ; preds = %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10298
-  %18985 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0733319069)
+  %18985 = call noundef ptr @_ZN7AstNode9privateAsI13AstNodeAssignPS_EEPT_S2_(ptr noundef nonnull %.0733019069)
   %18986 = load ptr, ptr %18978, align 8
-  %18987 = icmp eq ptr %.0733319069, %18986
+  %18987 = icmp eq ptr %.0733019069, %18986
   %18988 = load ptr, ptr %18980, align 8
   br i1 %18987, label %18991, label %18989
 
@@ -44101,7 +44101,7 @@ _ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10298: ; preds = %18977, %_ZN1
   br label %_ZN13AstNodeAssign14timingControlpEP7AstNode.exit10300
 
 _ZN13AstNodeAssign14timingControlpEP7AstNode.exit10300: ; preds = %18993, %18991, %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10298
-  %18994 = getelementptr inbounds i8, ptr %.0733319069, i64 8
+  %18994 = getelementptr inbounds i8, ptr %.0733019069, i64 8
   %18995 = load ptr, ptr %18994, align 8
   %.not8158 = icmp eq ptr %18995, null
   br i1 %.not8158, label %.critedge9098, label %_ZN7AstNode9privateIsI11AstImplicitPS_EEbPKS_.exit10298, !llvm.loop !62
@@ -76252,8 +76252,8 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit: ; preds 
 
 _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8: ; preds = %26, %.loopexit.i.i.thread, %1, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit, %37, %36, %35, %34
   %.0.i7 = phi i32 [ 4, %36 ], [ 3, %35 ], [ 2, %34 ], [ 5, %37 ], [ %33, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ 0, %1 ], [ 1, %.loopexit.i.i.thread ], [ 1, %26 ]
-  %.040 = phi ptr [ @.str.749, %36 ], [ @.str.748, %35 ], [ @.str.747, %34 ], [ @.str.750, %37 ], [ @.str.224, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ @.str.224, %1 ], [ @.str.746, %.loopexit.i.i.thread ], [ @.str.746, %26 ]
-  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.040) #32
+  %.041 = phi ptr [ @.str.749, %36 ], [ @.str.748, %35 ], [ @.str.747, %34 ], [ @.str.750, %37 ], [ @.str.224, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ @.str.224, %1 ], [ @.str.746, %.loopexit.i.i.thread ], [ @.str.746, %26 ]
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.041) #32
   %39 = shl nsw i32 %.0.i7, 1
   %40 = sext i32 %39 to i64
   %reass.sub = sub i64 %38, %40
@@ -76267,7 +76267,7 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8: 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL9yytnamerrPcPKc.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZL9yytnamerrPcPKc.exit.thread ]
-  %.04219 = phi i64 [ %41, %.lr.ph.preheader ], [ %58, %_ZL9yytnamerrPcPKc.exit.thread ]
+  %.04019 = phi i64 [ %41, %.lr.ph.preheader ], [ %58, %_ZL9yytnamerrPcPKc.exit.thread ]
   %43 = getelementptr inbounds [5 x i32], ptr %2, i64 0, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
@@ -76307,29 +76307,29 @@ _ZL9yytnamerrPcPKc.exit:                          ; preds = %.preheader.split.us
 
 _ZL9yytnamerrPcPKc.exit.thread:                   ; preds = %.preheader.split.us.i, %_ZL9yytnamerrPcPKc.exit
   %.019.i14 = phi i64 [ %57, %_ZL9yytnamerrPcPKc.exit ], [ %.018.us.i, %.preheader.split.us.i ]
-  %58 = add nsw i64 %.019.i14, %.04219
+  %58 = add nsw i64 %.019.i14, %.04019
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !120
 
 ._crit_edge:                                      ; preds = %_ZL9yytnamerrPcPKc.exit.thread, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8
-  %.042.lcssa = phi i64 [ %41, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8 ], [ %58, %_ZL9yytnamerrPcPKc.exit.thread ]
+  %.040.lcssa = phi i64 [ %41, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread8 ], [ %58, %_ZL9yytnamerrPcPKc.exit.thread ]
   %59 = load i64, ptr %0, align 8
-  %60 = icmp slt i64 %59, %.042.lcssa
+  %60 = icmp slt i64 %59, %.040.lcssa
   br i1 %60, label %61, label %.preheader
 
 61:                                               ; preds = %._crit_edge
-  %62 = shl nsw i64 %.042.lcssa, 1
-  %.not46 = icmp sgt i64 %.042.lcssa, %62
+  %62 = shl nsw i64 %.040.lcssa, 1
+  %.not46 = icmp sgt i64 %.040.lcssa, %62
   %spec.store.select = select i1 %.not46, i64 9223372036854775807, i64 %62
   store i64 %spec.store.select, ptr %0, align 8
   br label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread10
 
 .preheader:                                       ; preds = %._crit_edge, %_ZL9yytnamerrPcPKc.exit58
-  %.141 = phi ptr [ %93, %_ZL9yytnamerrPcPKc.exit58 ], [ %.040, %._crit_edge ]
+  %.142 = phi ptr [ %93, %_ZL9yytnamerrPcPKc.exit58 ], [ %.041, %._crit_edge ]
   %.036 = phi ptr [ %92, %_ZL9yytnamerrPcPKc.exit58 ], [ %.0.val, %._crit_edge ]
   %.0 = phi i32 [ %.1, %_ZL9yytnamerrPcPKc.exit58 ], [ 0, %._crit_edge ]
-  %63 = load i8, ptr %.141, align 1
+  %63 = load i8, ptr %.142, align 1
   store i8 %63, ptr %.036, align 1
   switch i8 %63, label %_ZL9yytnamerrPcPKc.exit58 [
     i8 0, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread10
@@ -76337,7 +76337,7 @@ _ZL9yytnamerrPcPKc.exit.thread:                   ; preds = %.preheader.split.us
   ]
 
 64:                                               ; preds = %.preheader
-  %65 = getelementptr inbounds i8, ptr %.141, i64 1
+  %65 = getelementptr inbounds i8, ptr %.142, i64 1
   %66 = load i8, ptr %65, align 1
   %67 = icmp eq i8 %66, 115
   %68 = icmp slt i32 %.0, %.0.i7
@@ -76398,12 +76398,12 @@ _ZL9yytnamerrPcPKc.exit58:                        ; preds = %64, %.preheader, %.
   %.sink = phi i64 [ 2, %.loopexit.thread.i ], [ 2, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %64 ]
   %.1 = phi i32 [ %70, %.loopexit.thread.i ], [ %70, %.split.us.thread.i ], [ %.0, %.preheader ], [ %.0, %64 ]
   %92 = getelementptr inbounds i8, ptr %.036, i64 %.sink28
-  %93 = getelementptr inbounds i8, ptr %.141, i64 %.sink
+  %93 = getelementptr inbounds i8, ptr %.142, i64 %.sink
   br label %.preheader, !llvm.loop !121
 
 _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread10: ; preds = %_ZL9yytnamerrPcPKc.exit, %.preheader, %.loopexit.i.i, %61, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit
-  %.038 = phi i32 [ -2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ -1, %61 ], [ %.2.i.fr.i, %.loopexit.i.i ], [ 0, %.preheader ], [ -2, %_ZL9yytnamerrPcPKc.exit ]
-  ret i32 %.038
+  %.039 = phi i32 [ -2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ -1, %61 ], [ %.2.i.fr.i, %.loopexit.i.i ], [ 0, %.preheader ], [ -2, %_ZL9yytnamerrPcPKc.exit ]
+  ret i32 %.039
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)

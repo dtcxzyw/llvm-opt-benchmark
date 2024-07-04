@@ -108,12 +108,12 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread
   br label %40
 
 40:                                               ; preds = %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread, %37
-  %.061 = phi i64 [ %38, %37 ], [ %.sroa.4.0.i.ph, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread ]
+  %.065 = phi i64 [ %38, %37 ], [ %.sroa.4.0.i.ph, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread ]
   %.0 = phi i64 [ %39, %37 ], [ %36, %_ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread ]
   %41 = getelementptr inbounds i8, ptr %1, i64 8
   %42 = getelementptr inbounds i8, ptr %1, i64 16
   %43 = load i64, ptr %42, align 8, !noundef !5
-  %44 = icmp ult i64 %.061, %43
+  %44 = icmp ult i64 %.065, %43
   %45 = load ptr, ptr %41, align 8, !nonnull !5
   br i1 %44, label %47, label %46
 
@@ -123,7 +123,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17hfead339afc3dabe8E.exit.thread
   ret void
 
 47:                                               ; preds = %40
-  %48 = getelementptr inbounds i64, ptr %45, i64 %.061
+  %48 = getelementptr inbounds i64, ptr %45, i64 %.065
   %49 = load i64, ptr %48, align 8, !noundef !5
   %50 = icmp ne i64 %49, 0
   %51 = icmp ult i64 %.0, %43

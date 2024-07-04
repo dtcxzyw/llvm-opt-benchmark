@@ -94,11 +94,11 @@ if.then64:                                        ; preds = %if.else61
   br label %return
 
 if.end104:                                        ; preds = %if.then6, %if.then14, %if.then24, %if.then34, %if.then44, %if.then54
-  %sslv3_pad_length.0 = phi i64 [ 48, %if.then6 ], [ 40, %if.then14 ], [ 40, %if.then24 ], [ 40, %if.then34 ], [ 40, %if.then44 ], [ 40, %if.then54 ]
-  %md_length_size.0 = phi i64 [ 8, %if.then6 ], [ 8, %if.then14 ], [ 8, %if.then24 ], [ 8, %if.then34 ], [ 16, %if.then44 ], [ 16, %if.then54 ]
   %md_block_size.0 = phi i64 [ 64, %if.then6 ], [ 64, %if.then14 ], [ 64, %if.then24 ], [ 64, %if.then34 ], [ 128, %if.then44 ], [ 128, %if.then54 ]
+  %sslv3_pad_length.0 = phi i64 [ 48, %if.then6 ], [ 40, %if.then14 ], [ 40, %if.then24 ], [ 40, %if.then34 ], [ 40, %if.then44 ], [ 40, %if.then54 ]
   %md_size.0 = phi i64 [ 16, %if.then6 ], [ 20, %if.then14 ], [ 28, %if.then24 ], [ 32, %if.then34 ], [ 48, %if.then44 ], [ 64, %if.then54 ]
   %md_transform.0 = phi ptr [ @MD5_Transform, %if.then6 ], [ @SHA1_Transform, %if.then14 ], [ @SHA256_Transform, %if.then24 ], [ @SHA256_Transform, %if.then34 ], [ @SHA512_Transform, %if.then44 ], [ @SHA512_Transform, %if.then54 ]
+  %md_length_size.0 = phi i64 [ 8, %if.then6 ], [ 8, %if.then14 ], [ 8, %if.then24 ], [ 8, %if.then34 ], [ 16, %if.then44 ], [ 16, %if.then54 ]
   %md_final_raw.0 = phi ptr [ @tls1_md5_final_raw, %if.then6 ], [ @tls1_sha1_final_raw, %if.then14 ], [ @tls1_sha256_final_raw, %if.then24 ], [ @tls1_sha256_final_raw, %if.then34 ], [ @tls1_sha512_final_raw, %if.then44 ], [ @tls1_sha512_final_raw, %if.then54 ]
   %tobool105.not = icmp eq i8 %is_sslv3, 0
   %add = add i64 %mac_secret_length, 11
@@ -121,14 +121,14 @@ cond.false:                                       ; preds = %if.end104
 cond.end:                                         ; preds = %if.end104, %cond.false
   %cond = phi i64 [ %add115, %cond.false ], [ 2, %if.end104 ]
   %add116 = add i64 %header_length.0, %data_plus_mac_plus_padding_size
-  %sub117 = add nsw i64 %md_length_size.0, -1
-  %add120 = add nuw nsw i64 %sub117, %md_block_size.0
-  %add121 = sub nuw nsw i64 %add120, %md_size.0
-  %sub122 = add i64 %add121, %add116
+  %1 = xor i64 %md_size.0, -1
+  %add120 = add nsw i64 %md_block_size.0, %1
+  %add121 = add i64 %add120, %add116
+  %sub122 = add i64 %add121, %md_length_size.0
   %div123 = udiv i64 %sub122, %md_block_size.0
   %add124 = add i64 %header_length.0, %data_size
-  %1 = add nsw i64 %md_block_size.0, -1
-  %rem = and i64 %add124, %1
+  %2 = add nsw i64 %md_block_size.0, -1
+  %rem = and i64 %add124, %2
   %div125 = udiv i64 %add124, %md_block_size.0
   %add126 = add i64 %add124, %md_length_size.0
   %div127 = udiv i64 %add126, %md_block_size.0
@@ -137,8 +137,8 @@ cond.end:                                         ; preds = %if.end104, %cond.fa
   %cmp133 = icmp ugt i64 %div123, %add132
   %sub136 = sub nsw i64 %div123, %cond
   %mul = mul i64 %sub136, %md_block_size.0
-  %k.0 = select i1 %cmp133, i64 %mul, i64 0
   %num_starting_blocks.0 = select i1 %cmp133, i64 %sub136, i64 0
+  %k.0 = select i1 %cmp133, i64 %mul, i64 0
   br i1 %tobool105.not, label %if.then140, label %if.end163
 
 if.then140:                                       ; preds = %cond.end
@@ -154,9 +154,9 @@ if.end155:                                        ; preds = %if.then140
 for.body:                                         ; preds = %if.end155, %for.body
   %i.0185 = phi i64 [ 0, %if.end155 ], [ %inc, %for.body ]
   %arrayidx = getelementptr inbounds [128 x i8], ptr %hmac_pad, i64 0, i64 %i.0185
-  %2 = load i8, ptr %arrayidx, align 1
-  %3 = xor i8 %2, 54
-  store i8 %3, ptr %arrayidx, align 1
+  %3 = load i8, ptr %arrayidx, align 1
+  %4 = xor i8 %3, 54
+  store i8 %4, ptr %arrayidx, align 1
   %inc = add nuw nsw i64 %i.0185, 1
   %exitcond.not = icmp eq i64 %inc, %md_block_size.0
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
@@ -178,37 +178,30 @@ if.end163:                                        ; preds = %for.end, %cond.end
 if.then165:                                       ; preds = %if.end163
   %sub167 = add nsw i64 %md_length_size.0, -4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %length_bytes, i8 0, i64 %sub167, i1 false)
-  %shr = lshr i64 %bits.0, 24
-  %conv168 = trunc i64 %shr to i8
-  %arrayidx170 = getelementptr inbounds [16 x i8], ptr %length_bytes, i64 0, i64 %sub167
-  store i8 %conv168, ptr %arrayidx170, align 4
-  %sub173 = add nsw i64 %md_length_size.0, -3
-  %arrayidx174 = getelementptr inbounds [16 x i8], ptr %length_bytes, i64 0, i64 %sub173
-  store i8 %conv172, ptr %arrayidx174, align 1
-  %sub177 = add nsw i64 %md_length_size.0, -2
-  %arrayidx178 = getelementptr inbounds [16 x i8], ptr %length_bytes, i64 0, i64 %sub177
-  store i8 %conv176, ptr %arrayidx178, align 2
   br label %if.end199
 
 if.else182:                                       ; preds = %if.end163
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %length_bytes, i8 0, i64 %md_length_size.0, i1 false)
-  %shr184 = lshr i64 %bits.0, 24
-  %conv185 = trunc i64 %shr184 to i8
   %sub186 = add nsw i64 %md_length_size.0, -5
-  %arrayidx187 = getelementptr inbounds [16 x i8], ptr %length_bytes, i64 0, i64 %sub186
-  store i8 %conv185, ptr %arrayidx187, align 1
-  %sub190 = add nsw i64 %md_length_size.0, -6
-  %arrayidx191 = getelementptr inbounds [16 x i8], ptr %length_bytes, i64 0, i64 %sub190
-  store i8 %conv172, ptr %arrayidx191, align 2
-  %sub194 = add nsw i64 %md_length_size.0, -7
-  %arrayidx195 = getelementptr inbounds [16 x i8], ptr %length_bytes, i64 0, i64 %sub194
-  store i8 %conv176, ptr %arrayidx195, align 1
-  %sub197 = add nsw i64 %md_length_size.0, -8
   br label %if.end199
 
 if.end199:                                        ; preds = %if.else182, %if.then165
-  %sub197.sink = phi i64 [ %sub197, %if.else182 ], [ %sub117, %if.then165 ]
-  %arrayidx198 = getelementptr inbounds [16 x i8], ptr %length_bytes, i64 0, i64 %sub197.sink
+  %sub186.sink = phi i64 [ %sub186, %if.else182 ], [ %sub167, %if.then165 ]
+  %.sink207 = phi i64 [ -6, %if.else182 ], [ -3, %if.then165 ]
+  %.sink206 = phi i64 [ -7, %if.else182 ], [ -2, %if.then165 ]
+  %.sink = phi i64 [ -8, %if.else182 ], [ -1, %if.then165 ]
+  %conv185.sink.in = lshr i64 %bits.0, 24
+  %conv185.sink = trunc i64 %conv185.sink.in to i8
+  %arrayidx187 = getelementptr inbounds [16 x i8], ptr %length_bytes, i64 0, i64 %sub186.sink
+  store i8 %conv185.sink, ptr %arrayidx187, align 1
+  %sub190 = add nsw i64 %md_length_size.0, %.sink207
+  %arrayidx191 = getelementptr inbounds [16 x i8], ptr %length_bytes, i64 0, i64 %sub190
+  store i8 %conv172, ptr %arrayidx191, align 1
+  %sub194 = add nsw i64 %md_length_size.0, %.sink206
+  %arrayidx195 = getelementptr inbounds [16 x i8], ptr %length_bytes, i64 0, i64 %sub194
+  store i8 %conv176, ptr %arrayidx195, align 1
+  %sub197 = add nsw i64 %md_length_size.0, %.sink
+  %arrayidx198 = getelementptr inbounds [16 x i8], ptr %length_bytes, i64 0, i64 %sub197
   store i8 %conv179, ptr %arrayidx198, align 1
   %cmp200.not = icmp eq i64 %k.0, 0
   br i1 %cmp200.not, label %if.end250, label %if.then202
@@ -294,13 +287,13 @@ for.body256:                                      ; preds = %for.body256.lr.ph, 
   %and.i.i.i163 = and i64 %sub.i.i.i162, %not.i.i.i161
   %shr.neg.i.i.i.i164 = ashr i64 %and.i.i.i163, 63
   %conv.i165 = trunc nsw i64 %shr.neg.i.i.i.i164 to i8
-  %4 = trunc nsw i64 %shr.neg.i.i.i.i to i32
-  %5 = and i32 %4, 255
-  %6 = xor i8 %conv.i, -1
+  %5 = trunc nsw i64 %shr.neg.i.i.i.i to i32
+  %6 = and i32 %5, 255
+  %7 = xor i8 %conv.i, -1
   %not293 = xor i8 %conv.i165, -1
   %or = or i8 %conv.i, %not293
-  %7 = trunc nsw i64 %shr.neg.i.i.i.i164 to i32
-  %conv.i176 = and i32 %7, 255
+  %8 = trunc nsw i64 %shr.neg.i.i.i.i164 to i32
+  %conv.i176 = and i32 %8, 255
   %not.i.i179 = xor i32 %conv.i176, -1
   br label %for.body262
 
@@ -325,11 +318,11 @@ if.then271:                                       ; preds = %if.else267
 
 if.end275.sink.split:                             ; preds = %if.then265, %if.then271
   %arrayidx273.sink = phi ptr [ %arrayidx273, %if.then271 ], [ %arrayidx266, %if.then265 ]
-  %8 = load i8, ptr %arrayidx273.sink, align 1
+  %9 = load i8, ptr %arrayidx273.sink, align 1
   br label %if.end275
 
 if.end275:                                        ; preds = %if.end275.sink.split, %if.else267
-  %b.0 = phi i8 [ 0, %if.else267 ], [ %8, %if.end275.sink.split ]
+  %b.0 = phi i8 [ 0, %if.else267 ], [ %9, %if.end275.sink.split ]
   %inc276 = add i64 %k.2192, 1
   %sub.i.i.i166 = sub nsw i64 %j.0193, %rem
   %or.i.i.i = or i64 %sub.i.i.i166, %rem
@@ -337,16 +330,16 @@ if.end275:                                        ; preds = %if.end275.sink.spli
   %sub.i.i.i169 = sub nsw i64 %j.0193, %add282
   %or.i.i.i171 = or i64 %sub.i.i.i169, %add282
   %isnotneg.i.i173 = icmp sgt i64 %or.i.i.i171, -1
-  %conv.i175 = select i1 %isnotneg.i.i, i32 %5, i32 0
+  %conv.i175 = select i1 %isnotneg.i.i, i32 %6, i32 0
   %conv2.i = zext i8 %b.0 to i32
-  %9 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i175) #7, !srcloc !9
-  %and.i.i = and i32 %9, 128
+  %10 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i175) #7, !srcloc !9
+  %and.i.i = and i32 %10, 128
   %not.i.i = xor i32 %conv.i175, -1
-  %10 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #7, !srcloc !9
-  %and2.i.i = and i32 %10, %conv2.i
+  %11 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i) #7, !srcloc !9
+  %and2.i.i = and i32 %11, %conv2.i
   %or.i.i = or i32 %and2.i.i, %and.i.i
   %conv3.i = trunc nuw i32 %or.i.i to i8
-  %not = select i1 %isnotneg.i.i173, i8 %6, i8 -1
+  %not = select i1 %isnotneg.i.i173, i8 %7, i8 -1
   %and290 = and i8 %not, %or
   %and296 = and i8 %and290, %conv3.i
   %cmp299.not = icmp ult i64 %j.0193, %sub298
@@ -355,13 +348,13 @@ if.end275:                                        ; preds = %if.end275.sink.spli
 if.then301:                                       ; preds = %if.end275
   %sub303 = sub nsw i64 %j.0193, %sub298
   %arrayidx304 = getelementptr inbounds [16 x i8], ptr %length_bytes, i64 0, i64 %sub303
-  %11 = load i8, ptr %arrayidx304, align 1
-  %conv1.i = zext i8 %11 to i32
+  %12 = load i8, ptr %arrayidx304, align 1
+  %conv1.i = zext i8 %12 to i32
   %conv2.i177 = zext i8 %and296 to i32
-  %12 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i176) #7, !srcloc !9
-  %and.i.i178 = and i32 %12, %conv1.i
-  %13 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i179) #7, !srcloc !9
-  %and2.i.i180 = and i32 %13, %conv2.i177
+  %13 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %conv.i176) #7, !srcloc !9
+  %and.i.i178 = and i32 %13, %conv1.i
+  %14 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %not.i.i179) #7, !srcloc !9
+  %and2.i.i180 = and i32 %14, %conv2.i177
   %or.i.i181 = or i32 %and2.i.i180, %and.i.i178
   %conv3.i182 = trunc nuw i32 %or.i.i181 to i8
   br label %if.end306
@@ -382,11 +375,11 @@ for.end310:                                       ; preds = %if.end306
 for.body318:                                      ; preds = %for.end310, %for.body318
   %j.1194 = phi i64 [ 0, %for.end310 ], [ %inc328, %for.body318 ]
   %arrayidx319 = getelementptr inbounds [128 x i8], ptr %block, i64 0, i64 %j.1194
-  %14 = load i8, ptr %arrayidx319, align 1
-  %and322156 = and i8 %14, %conv.i165
+  %15 = load i8, ptr %arrayidx319, align 1
+  %and322156 = and i8 %15, %conv.i165
   %arrayidx323 = getelementptr inbounds [64 x i8], ptr %mac_out, i64 0, i64 %j.1194
-  %15 = load i8, ptr %arrayidx323, align 1
-  %or325157 = or i8 %15, %and322156
+  %16 = load i8, ptr %arrayidx323, align 1
+  %or325157 = or i8 %16, %and322156
   store i8 %or325157, ptr %arrayidx323, align 1
   %inc328 = add nuw nsw i64 %j.1194, 1
   %exitcond203.not = icmp eq i64 %inc328, %md_size.0
@@ -429,9 +422,9 @@ lor.lhs.false354:                                 ; preds = %lor.lhs.false349
 for.body365:                                      ; preds = %if.end342, %for.body365
   %i.4198 = phi i64 [ %inc371, %for.body365 ], [ 0, %if.end342 ]
   %arrayidx366 = getelementptr inbounds [128 x i8], ptr %hmac_pad, i64 0, i64 %i.4198
-  %16 = load i8, ptr %arrayidx366, align 1
-  %17 = xor i8 %16, 106
-  store i8 %17, ptr %arrayidx366, align 1
+  %17 = load i8, ptr %arrayidx366, align 1
+  %18 = xor i8 %17, 106
+  store i8 %18, ptr %arrayidx366, align 1
   %inc371 = add nuw nsw i64 %i.4198, 1
   %exitcond204.not = icmp eq i64 %inc371, %md_block_size.0
   br i1 %exitcond204.not, label %for.end372, label %for.body365, !llvm.loop !14
@@ -454,8 +447,8 @@ if.end384:                                        ; preds = %lor.lhs.false377, %
   br i1 %or.cond, label %if.then388, label %err
 
 if.then388:                                       ; preds = %if.end384
-  %18 = load i32, ptr %md_out_size_u, align 4
-  %conv389 = zext i32 %18 to i64
+  %19 = load i32, ptr %md_out_size_u, align 4
+  %conv389 = zext i32 %19 to i64
   store i64 %conv389, ptr %md_out_size, align 8
   br label %err
 

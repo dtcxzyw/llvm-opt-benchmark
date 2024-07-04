@@ -1823,7 +1823,7 @@ yyStackOverflow.exit:                             ; preds = %yy_pop_parser_stack
 .lr.ph.i47:                                       ; preds = %892, %927
   %898 = phi ptr [ %931, %927 ], [ %897, %892 ]
   %899 = phi ptr [ %930, %927 ], [ %896, %892 ]
-  %.051.i = phi i32 [ %928, %927 ], [ 0, %892 ]
+  %.04551.i = phi i32 [ %928, %927 ], [ 0, %892 ]
   %900 = tail call ptr @ascii_strdown_inplace(ptr noundef nonnull %898) #14
   %901 = load ptr, ptr %899, align 8
   %902 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %901) #18
@@ -1865,17 +1865,17 @@ yyStackOverflow.exit:                             ; preds = %yy_pop_parser_stack
   br i1 %or.cond49.i, label %918, label %921
 
 918:                                              ; preds = %917, %.thread.i
-  %.04557.i = phi i32 [ %915, %.thread.i ], [ 0, %917 ]
+  %.057.i = phi i32 [ %915, %.thread.i ], [ 0, %917 ]
   %.pre-phi56.i = phi i8 [ %910, %.thread.i ], [ %.pre52.i, %917 ]
   %919 = zext nneg i8 %.pre-phi56.i to i32
-  %920 = add nsw i32 %.04557.i, %919
+  %920 = add nsw i32 %.057.i, %919
   br label %927
 
 921:                                              ; preds = %917, %.thread58.i
-  %.04562.i = phi i32 [ %916, %.thread58.i ], [ 0, %917 ]
+  %.062.i = phi i32 [ %916, %.thread58.i ], [ 0, %917 ]
   %922 = phi i8 [ %909, %.thread58.i ], [ %.pre.i50, %917 ]
   %923 = sext i8 %922 to i32
-  %924 = add nsw i32 %.04562.i, -87
+  %924 = add nsw i32 %.062.i, -87
   %925 = add nsw i32 %924, %923
   br label %927
 
@@ -1886,7 +1886,7 @@ yyStackOverflow.exit:                             ; preds = %yy_pop_parser_stack
 927:                                              ; preds = %921, %918, %.lr.ph.i47
   %.1.i = phi i32 [ 0, %.lr.ph.i47 ], [ %920, %918 ], [ %925, %921 ]
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %895, ptr noundef nonnull @.str.18, i32 noundef %.1.i) #14
-  %928 = add i32 %.051.i, 1
+  %928 = add i32 %.04551.i, 1
   %929 = zext i32 %928 to i64
   %930 = getelementptr ptr, ptr %896, i64 %929
   %931 = load ptr, ptr %930, align 8

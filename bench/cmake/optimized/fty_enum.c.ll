@@ -489,10 +489,10 @@ define internal noundef zeroext i1 @Next_Enum(ptr noundef %0, ptr nocapture noun
   br label %53
 
 .lr.ph:                                           ; preds = %.preheader, %Compare.exit
-  %.01787 = phi i32 [ %11, %Compare.exit ], [ %8, %.preheader ]
-  %.01886 = phi ptr [ %18, %Compare.exit ], [ %3, %.preheader ]
-  %11 = add nsw i32 %.01787, -1
-  %12 = load ptr, ptr %.01886, align 8
+  %.087 = phi i32 [ %11, %Compare.exit ], [ %8, %.preheader ]
+  %.01786 = phi ptr [ %18, %Compare.exit ], [ %3, %.preheader ]
+  %11 = add nsw i32 %.087, -1
+  %12 = load ptr, ptr %.01786, align 8
   br label %13
 
 13:                                               ; preds = %13, %.lr.ph
@@ -510,7 +510,7 @@ define internal noundef zeroext i1 @Next_Enum(ptr noundef %0, ptr nocapture noun
   br i1 %cond36.i, label %.critedge.i, label %.critedge2.i, !llvm.loop !7
 
 .critedge2.i:                                     ; preds = %.critedge.i
-  %18 = getelementptr inbounds i8, ptr %.01886, i64 8
+  %18 = getelementptr inbounds i8, ptr %.01786, i64 8
   %19 = icmp eq i8 %14, 0
   br i1 %19, label %20, label %22
 
@@ -581,12 +581,12 @@ Compare.exit:                                     ; preds = %43, %47, %20
   br i1 %.not20, label %.thread46, label %.lr.ph, !llvm.loop !12
 
 select.unfold:                                    ; preds = %47, %20, %37, %26
-  %49 = icmp slt i32 %.01787, 2
+  %49 = icmp slt i32 %.087, 2
   br i1 %49, label %50, label %.thread43
 
 50:                                               ; preds = %select.unfold
   %51 = load ptr, ptr %1, align 8
-  %52 = icmp eq i32 %.01787, 1
+  %52 = icmp eq i32 %.087, 1
   br i1 %52, label %.thread43, label %53
 
 53:                                               ; preds = %.thread46, %50
@@ -667,8 +667,8 @@ select.unfold:                                    ; preds = %47, %20, %37, %26
   br label %Compare.exit39
 
 Compare.exit39:                                   ; preds = %79, %83, %2, %.thread43
-  %.0 = phi i1 [ true, %.thread43 ], [ false, %2 ], [ false, %83 ], [ false, %79 ]
-  ret i1 %.0
+  %.018 = phi i1 [ true, %.thread43 ], [ false, %2 ], [ false, %83 ], [ false, %79 ]
+  ret i1 %.018
 }
 
 ; Function Attrs: nounwind uwtable
@@ -699,10 +699,10 @@ define internal noundef zeroext i1 @Previous_Enum(ptr noundef %0, ptr nocapture 
   br label %64
 
 .lr.ph:                                           ; preds = %.preheader, %Compare.exit
-  %.01989 = phi i32 [ %18, %Compare.exit ], [ %4, %.preheader ]
-  %.02088 = phi ptr [ %25, %Compare.exit ], [ %8, %.preheader ]
-  %18 = add nsw i32 %.01989, -1
-  %19 = load ptr, ptr %.02088, align 8
+  %.089 = phi ptr [ %25, %Compare.exit ], [ %8, %.preheader ]
+  %.01988 = phi i32 [ %18, %Compare.exit ], [ %4, %.preheader ]
+  %18 = add nsw i32 %.01988, -1
+  %19 = load ptr, ptr %.089, align 8
   br label %20
 
 20:                                               ; preds = %20, %.lr.ph
@@ -720,7 +720,7 @@ define internal noundef zeroext i1 @Previous_Enum(ptr noundef %0, ptr nocapture 
   br i1 %cond36.i, label %.critedge.i, label %.critedge2.i, !llvm.loop !7
 
 .critedge2.i:                                     ; preds = %.critedge.i
-  %25 = getelementptr inbounds i8, ptr %.02088, i64 -8
+  %25 = getelementptr inbounds i8, ptr %.089, i64 -8
   %26 = icmp eq i8 %21, 0
   br i1 %26, label %27, label %29
 
@@ -791,7 +791,7 @@ Compare.exit:                                     ; preds = %50, %54, %27
   br i1 %.not22, label %.thread48, label %.lr.ph, !llvm.loop !13
 
 select.unfold:                                    ; preds = %54, %27, %44, %33
-  %56 = icmp slt i32 %.01989, 2
+  %56 = icmp slt i32 %.01988, 2
   br i1 %56, label %57, label %.thread45
 
 57:                                               ; preds = %select.unfold
@@ -800,7 +800,7 @@ select.unfold:                                    ; preds = %54, %27, %44, %33
   %60 = sext i32 %59 to i64
   %61 = getelementptr ptr, ptr %58, i64 %60
   %62 = getelementptr i8, ptr %61, i64 -8
-  %63 = icmp eq i32 %.01989, 1
+  %63 = icmp eq i32 %.01988, 1
   br i1 %63, label %.thread45, label %64
 
 64:                                               ; preds = %.thread48, %57
@@ -881,8 +881,8 @@ select.unfold:                                    ; preds = %54, %27, %44, %33
   br label %Compare.exit41
 
 Compare.exit41:                                   ; preds = %90, %94, %2, %.thread45
-  %.0 = phi i1 [ true, %.thread45 ], [ false, %2 ], [ false, %94 ], [ false, %90 ]
-  ret i1 %.0
+  %.020 = phi i1 [ true, %.thread45 ], [ false, %2 ], [ false, %94 ], [ false, %90 ]
+  ret i1 %.020
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

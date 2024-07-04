@@ -1864,10 +1864,10 @@ for.cond41.preheader:                             ; preds = %for.end, %if.end11
 
 while.body:                                       ; preds = %while.body.lr.ph, %for.end
   %8 = phi ptr [ %5, %while.body.lr.ph ], [ %22, %for.end ]
-  %usagestr.addr.0214 = phi ptr [ %usagestr, %while.body.lr.ph ], [ %incdec.ptr, %for.end ]
-  %saw_empty_line.0213 = phi i32 [ 0, %while.body.lr.ph ], [ %saw_empty_line.1226, %for.end ]
-  %prefix.0212 = phi ptr [ %retval.0.i187195, %while.body.lr.ph ], [ %retval.0.i98196, %for.end ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %usagestr.addr.0214, i64 8
+  %saw_empty_line.0214 = phi i32 [ 0, %while.body.lr.ph ], [ %saw_empty_line.1226, %for.end ]
+  %prefix.0213 = phi ptr [ %retval.0.i187195, %while.body.lr.ph ], [ %retval.0.i98196, %for.end ]
+  %usagestr.addr.0212 = phi ptr [ %usagestr, %while.body.lr.ph ], [ %incdec.ptr, %for.end ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %usagestr.addr.0212, i64 8
   %9 = load i8, ptr %8, align 1
   %tobool.not.i = icmp eq i8 %9, 0
   br i1 %tobool.not.i, label %_.exit109, label %if.end.i
@@ -1885,7 +1885,7 @@ _.exit109:                                        ; preds = %while.body, %if.end
   %retval.0.i108 = phi ptr [ %call.i107, %if.end3.i106 ], [ @.str.59, %while.body ], [ %8, %if.end.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %list, i8 0, i64 40, i1 false)
   store i8 1, ptr %6, align 8
-  %tobool14.not = icmp eq i32 %saw_empty_line.0213, 0
+  %tobool14.not = icmp eq i32 %saw_empty_line.0214, 0
   br i1 %tobool14.not, label %if.end18, label %if.end18.thread
 
 if.end18:                                         ; preds = %_.exit109
@@ -1924,7 +1924,7 @@ if.else35.us:                                     ; preds = %for.body.us
   br label %for.inc.us
 
 if.then33.us:                                     ; preds = %for.body.us
-  %call34.us = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %cond, ptr noundef %prefix.0212, ptr noundef %15) #17
+  %call34.us = call i32 (ptr, ptr, ...) @fprintf_ln(ptr noundef %cond, ptr noundef %prefix.0213, ptr noundef %15) #17
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then33.us, %if.else35.us
@@ -1977,8 +1977,8 @@ for.end:                                          ; preds = %for.inc.us, %for.in
   br i1 %tobool12.not, label %for.cond41.preheader, label %while.body, !llvm.loop !23
 
 for.cond41:                                       ; preds = %for.cond41.preheader, %for.inc182
-  %need_newline.0 = phi i32 [ %need_newline.2, %for.inc182 ], [ 1, %for.cond41.preheader ]
   %opts.addr.0 = phi ptr [ %incdec.ptr183, %for.inc182 ], [ %opts, %for.cond41.preheader ]
+  %need_newline.0 = phi i32 [ %need_newline.2, %for.inc182 ], [ 1, %for.cond41.preheader ]
   %23 = load i32, ptr %opts.addr.0, align 8
   switch i32 %23, label %if.end61 [
     i32 0, label %for.end184
@@ -2510,7 +2510,7 @@ for.body15.preheader.i:                           ; preds = %st_mult.exit.i
 
 for.body15.i:                                     ; preds = %for.inc100.i, %for.body15.preheader.i
   %indvars.iv83.i = phi i64 [ 0, %for.body15.preheader.i ], [ %indvars.iv.next84.i, %for.inc100.i ]
-  %alias.067.i = phi i32 [ 0, %for.body15.preheader.i ], [ %alias.1.i, %for.inc100.i ]
+  %alias.068.i = phi i32 [ 0, %for.body15.preheader.i ], [ %alias.1.i, %for.inc100.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %help.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.preprocess_options.help, i64 24, i1 false)
   %arrayidx17.i = getelementptr inbounds %struct.option, ptr %call8.i, i64 %indvars.iv83.i
   %3 = load i32, ptr %arrayidx17.i, align 8
@@ -2598,7 +2598,7 @@ if.then73.i:                                      ; preds = %for.end70.i
 
 if.end77.i:                                       ; preds = %for.end70.i
   %13 = load ptr, ptr %alias_groups.i, align 8
-  %mul82.i = mul nsw i32 %alias.067.i, 3
+  %mul82.i = mul nsw i32 %alias.068.i, 3
   %idxprom84.i = sext i32 %mul82.i to i64
   %arrayidx85.i = getelementptr inbounds ptr, ptr %13, i64 %idxprom84.i
   store ptr %12, ptr %arrayidx85.i, align 8
@@ -2613,11 +2613,11 @@ if.end77.i:                                       ; preds = %for.end70.i
   %18 = getelementptr ptr, ptr %17, i64 %idxprom84.i
   %arrayidx98.i = getelementptr i8, ptr %18, i64 16
   store ptr null, ptr %arrayidx98.i, align 8
-  %inc99.i = add nsw i32 %alias.067.i, 1
+  %inc99.i = add nsw i32 %alias.068.i, 1
   br label %for.inc100.i
 
 for.inc100.i:                                     ; preds = %if.end77.i, %for.body15.i
-  %alias.1.i = phi i32 [ %alias.067.i, %for.body15.i ], [ %inc99.i, %if.end77.i ]
+  %alias.1.i = phi i32 [ %alias.068.i, %for.body15.i ], [ %inc99.i, %if.end77.i ]
   %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv83.i, 1
   %exitcond88.not.i = icmp eq i64 %indvars.iv.next84.i, %wide.trip.count87.i
   br i1 %exitcond88.not.i, label %preprocess_options.exit, label %for.body15.i, !llvm.loop !29

@@ -1885,7 +1885,7 @@ lpad.loopexit.split-lp:                           ; preds = %for.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %num_inserted_new.0135 = phi i32 [ 0, %for.body.lr.ph ], [ %num_inserted_new.1, %for.inc ]
+  %num_inserted_new.0134 = phi i32 [ 0, %for.body.lr.ph ], [ %num_inserted_new.1, %for.inc ]
   %arrayidx = getelementptr inbounds i16, ptr %inout_selection, i64 %indvars.iv
   %4 = load i16, ptr %arrayidx, align 2
   %idxprom27 = zext i16 %4 to i64
@@ -1902,7 +1902,7 @@ invoke.cont35:                                    ; preds = %for.body
 
 if.then:                                          ; preds = %invoke.cont35
   %7 = load i32, ptr %num_inserted_37, align 8
-  %add38 = add i32 %7, %num_inserted_new.0135
+  %add38 = add i32 %7, %num_inserted_new.0134
   store i32 %add38, ptr %arrayidx34, align 4
   %8 = load i32, ptr %arrayidx30, align 4
   %9 = load i32, ptr %arrayidx28, align 4
@@ -1976,7 +1976,7 @@ if.then:                                          ; preds = %invoke.cont35
   %31 = load i8, ptr %arrayidx1.i, align 1
   %and3.i = and i8 %31, %30
   store i8 %and3.i, ptr %arrayidx1.i, align 1
-  %inc = add i32 %num_inserted_new.0135, 1
+  %inc = add i32 %num_inserted_new.0134, 1
   %32 = load i32, ptr %num_inserted_37, align 8
   %add59 = add i32 %32, %inc
   %conv60 = zext i32 %add59 to i64
@@ -1990,7 +1990,7 @@ if.then62:                                        ; preds = %if.then
   br label %for.end
 
 for.inc:                                          ; preds = %invoke.cont35, %if.then
-  %num_inserted_new.1 = phi i32 [ %num_inserted_new.0135, %invoke.cont35 ], [ %inc, %if.then ]
+  %num_inserted_new.1 = phi i32 [ %num_inserted_new.0134, %invoke.cont35 ], [ %inc, %if.then ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %inout_num_selected, align 4
   %35 = zext i32 %34 to i64
@@ -2003,8 +2003,8 @@ for.end.loopexit:                                 ; preds = %for.inc
 
 for.end:                                          ; preds = %for.end.loopexit, %entry, %if.then62
   %37 = phi i32 [ %.pre, %if.then62 ], [ 0, %entry ], [ %34, %for.end.loopexit ]
-  %num_processed.1 = phi i32 [ %inc63, %if.then62 ], [ 0, %entry ], [ %36, %for.end.loopexit ]
   %num_inserted_new.2 = phi i32 [ %inc, %if.then62 ], [ 0, %entry ], [ %num_inserted_new.1, %for.end.loopexit ]
+  %num_processed.1 = phi i32 [ %inc63, %if.then62 ], [ 0, %entry ], [ %36, %for.end.loopexit ]
   store ptr %temp_stack, ptr %temp_ids_buffer, align 8
   %num_elements_.i68 = getelementptr inbounds i8, ptr %temp_ids_buffer, i64 20
   store i32 %37, ptr %num_elements_.i68, align 4

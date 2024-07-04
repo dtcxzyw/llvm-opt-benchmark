@@ -2908,9 +2908,9 @@ _ZN12typst_syntax6parser15maybe_delimited17h131d600f73a6d94bE.exit: ; preds = %_
   br label %.preheader.i.i68
 
 _ZN12typst_syntax6parser6Parser8expected17hfecc2e4804b084e3E.exit: ; preds = %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit128, %.preheader.i.i62, %.preheader.i.i68, %_ZN12typst_syntax6parser6Parser12current_text17h322687ed24a5758aE.llvm.17794941744620341598.exit106, %_ZN12typst_syntax6parser15maybe_delimited17h131d600f73a6d94bE.exit, %101, %_ZN12typst_syntax6parser15maybe_delimited17h131d600f73a6d94bE.exit.thread, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit110", %333
-  %.146.shrunk = phi i1 [ true, %333 ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit110" ], [ %narrow, %_ZN12typst_syntax6parser15maybe_delimited17h131d600f73a6d94bE.exit.thread ], [ true, %101 ], [ %narrow, %_ZN12typst_syntax6parser15maybe_delimited17h131d600f73a6d94bE.exit ], [ true, %_ZN12typst_syntax6parser6Parser12current_text17h322687ed24a5758aE.llvm.17794941744620341598.exit106 ], [ %narrow, %.preheader.i.i68 ], [ true, %.preheader.i.i62 ], [ true, %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit128 ]
+  %.148.shrunk = phi i1 [ true, %333 ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit110" ], [ %narrow, %_ZN12typst_syntax6parser15maybe_delimited17h131d600f73a6d94bE.exit.thread ], [ true, %101 ], [ %narrow, %_ZN12typst_syntax6parser15maybe_delimited17h131d600f73a6d94bE.exit ], [ true, %_ZN12typst_syntax6parser6Parser12current_text17h322687ed24a5758aE.llvm.17794941744620341598.exit106 ], [ %narrow, %.preheader.i.i68 ], [ true, %.preheader.i.i62 ], [ true, %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit128 ]
   %140 = icmp ult i64 %1, 3
-  %or.cond = and i1 %140, %.146.shrunk
+  %or.cond = and i1 %140, %.148.shrunk
   br i1 %or.cond, label %451, label %_ZN12typst_syntax6parser15maybe_delimited17h131d600f73a6d94bE.exit145
 
 141:                                              ; preds = %.lr.ph, %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit
@@ -3739,7 +3739,7 @@ _ZN12typst_syntax6parser15maybe_delimited17h131d600f73a6d94bE.exit145: ; preds =
 
 .lr.ph485:                                        ; preds = %.lr.ph485.lr.ph, %.outer
   %450 = phi i8 [ %438, %.lr.ph485.lr.ph ], [ %739, %.outer ]
-  %.044.ph488 = phi i1 [ false, %.lr.ph485.lr.ph ], [ %.1, %.outer ]
+  %.046.ph488 = phi i1 [ false, %.lr.ph485.lr.ph ], [ %.1, %.outer ]
   br label %508
 
 451:                                              ; preds = %_ZN12typst_syntax6parser6Parser8expected17hfecc2e4804b084e3E.exit
@@ -4070,7 +4070,7 @@ _ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit188: ; preds = %561
 
 _ZN12typst_syntax6parser6Parser13eat_if_direct17h0ef224df2afa16f3E.exit173.thread: ; preds = %_ZN12typst_syntax6parser6Parser12current_text17h322687ed24a5758aE.llvm.17794941744620341598.exit165, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcd68e3f89286958fE.exit169", %537
   %574 = icmp eq i8 %509, 51
-  %or.cond677 = and i1 %.044.ph488, %574
+  %or.cond677 = and i1 %.046.ph488, %574
   br i1 %or.cond677, label %585, label %thread-pre-split
 
 .lr.ph773:                                        ; preds = %.critedge351.preheader, %_ZN12typst_syntax6parser6Parser13eat_if_direct17h0ef224df2afa16f3E.exit192
@@ -4180,10 +4180,10 @@ _ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit206: ; preds = %594
   br label %thread-pre-split
 
 607:                                              ; preds = %thread-pre-split
-  br i1 %.044.ph488, label %609, label %608
+  br i1 %.046.ph488, label %609, label %608
 
 _ZN12typst_syntax6parser7math_op17hee4cdf1008801f52E.exit: ; preds = %thread-pre-split
-  br i1 %.044.ph488, label %672, label %.loopexit
+  br i1 %.046.ph488, label %672, label %.loopexit
 
 608:                                              ; preds = %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit218, %607
   br i1 %448, label %.loopexit, label %631
@@ -4318,7 +4318,7 @@ _ZN12typst_syntax6parser6Parser3eat17h0be1f7ac94eab54eE.exit221: ; preds = %.pre
 
 _ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit.thread349: ; preds = %_ZN12typst_syntax6parser6Parser3eat17h0be1f7ac94eab54eE.exit221
   %642 = icmp ne i8 %636, 51
-  %or.cond490.not = or i1 %.044.ph488, %642
+  %or.cond490.not = or i1 %.046.ph488, %642
   br i1 %or.cond490.not, label %_ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit226.thread350, label %644
 
 _ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit.thread: ; preds = %.preheader.i.i.i225, %.preheader.i.i.i223, %644, %638
@@ -4616,7 +4616,7 @@ _ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit274: ; preds = %726
   br label %.outer
 
 .outer:                                           ; preds = %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit274, %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit262, %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit188
-  %.1 = phi i1 [ %.044.ph488, %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit188 ], [ true, %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit262 ], [ true, %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit274 ]
+  %.1 = phi i1 [ %.046.ph488, %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit188 ], [ true, %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit262 ], [ true, %_ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit274 ]
   %739 = load i8, ptr %8, align 1, !range !72, !noundef !4
   %740 = icmp eq i8 %739, -127
   %741 = icmp eq i8 %739, %2
@@ -8806,8 +8806,8 @@ _ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit32: ; preds = %720,
           to label %761 unwind label %759, !range !72
 
 758:                                              ; preds = %709, %761
-  %.011 = phi i1 [ %762, %761 ], [ false, %709 ]
-  %brmerge = or i1 %.011, %.not16
+  %.0 = phi i1 [ %762, %761 ], [ false, %709 ]
+  %brmerge = or i1 %.0, %.not16
   br i1 %brmerge, label %763, label %_ZN12typst_syntax6parser6Parser8expected17hfecc2e4804b084e3E.exit
 
 759:                                              ; preds = %"_ZN65_$LT$typst_syntax..lexer..Lexer$u20$as$u20$core..clone..Clone$GT$5clone17ha00c0f4f9a43ed24E.exit"

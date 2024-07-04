@@ -185,8 +185,8 @@ define internal i32 @dissect_corosynec_totemnet(ptr noundef %0, ptr noundef %1, 
   br label %44
 
 44:                                               ; preds = %8, %.loopexit, %31
-  %.0 = phi i32 [ %29, %31 ], [ %43, %.loopexit ], [ %16, %8 ]
-  ret i32 %.0
+  %.023 = phi i32 [ %29, %31 ], [ %43, %.loopexit ], [ %16, %8 ]
+  ret i32 %.023
 }
 
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1

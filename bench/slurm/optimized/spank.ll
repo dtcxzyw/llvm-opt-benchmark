@@ -986,7 +986,7 @@ define internal fastcc range(i32 0, 3006) i32 @_spank_option_register(ptr nounde
   br label %27
 
 27:                                               ; preds = %14, %19, %9
-  %.019 = phi i32 [ 0, %9 ], [ 1, %19 ], [ 1, %14 ]
+  %.0 = phi i32 [ 0, %9 ], [ 1, %19 ], [ 1, %14 ]
   %28 = load ptr, ptr %1, align 8
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #20
   %30 = icmp ugt i64 %29, 75
@@ -1008,13 +1008,13 @@ define internal fastcc range(i32 0, 3006) i32 @_spank_option_register(ptr nounde
   br label %39
 
 39:                                               ; preds = %37, %34
-  %40 = tail call fastcc ptr @_spank_plugin_opt_create(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.019)
+  %40 = tail call fastcc ptr @_spank_plugin_opt_create(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.0)
   tail call void @list_append(ptr noundef %11, ptr noundef %40) #19
   br label %41
 
 41:                                               ; preds = %39, %31, %6
-  %.0 = phi i32 [ 3001, %6 ], [ 3005, %31 ], [ 0, %39 ]
-  ret i32 %.0
+  %.019 = phi i32 [ 3001, %6 ], [ 3005, %31 ], [ 0, %39 ]
+  ret i32 %.019
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1844,8 +1844,8 @@ define range(i32 0, 3010) i32 @spank_option_getopt(ptr nocapture noundef readonl
   br i1 %.not51, label %54, label %47
 
 47:                                               ; preds = %45, %38
-  %.039 = phi ptr [ %44, %38 ], [ %46, %45 ]
-  %48 = call ptr @xstrdup(ptr noundef nonnull %.039) #19
+  %.0 = phi ptr [ %44, %38 ], [ %46, %45 ]
+  %48 = call ptr @xstrdup(ptr noundef nonnull %.0) #19
   %49 = getelementptr inbounds i8, ptr %40, i64 24
   store ptr %48, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %40, i64 20
@@ -1868,8 +1868,8 @@ define range(i32 0, 3010) i32 @spank_option_getopt(ptr nocapture noundef readonl
   br label %58
 
 58:                                               ; preds = %54, %32, %35, %28, %18, %15, %16, %12, %12, %12, %12, %12, %10
-  %.0 = phi i32 [ 3009, %10 ], [ 3009, %12 ], [ 3009, %12 ], [ 3009, %12 ], [ 3009, %12 ], [ 3009, %12 ], [ 3001, %16 ], [ 3001, %15 ], [ 3001, %18 ], [ 3000, %28 ], [ 0, %35 ], [ 0, %32 ], [ %., %54 ]
-  ret i32 %.0
+  %.039 = phi i32 [ 3009, %10 ], [ 3009, %12 ], [ 3009, %12 ], [ 3009, %12 ], [ 3009, %12 ], [ 3009, %12 ], [ 3001, %16 ], [ 3001, %15 ], [ 3001, %18 ], [ 3000, %28 ], [ 0, %35 ], [ 0, %32 ], [ %., %54 ]
+  ret i32 %.039
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1966,30 +1966,30 @@ define void @spank_clear_remote_options_env(ptr noundef %0) local_unnamed_addr #
 
 .lr.ph:                                           ; preds = %1, %26
   %4 = phi ptr [ %28, %26 ], [ %3, %1 ]
-  %.021 = phi ptr [ %27, %26 ], [ %0, %1 ]
+  %.01621 = phi ptr [ %27, %26 ], [ %0, %1 ]
   %5 = call i32 @xstrncmp(ptr noundef nonnull %4, ptr noundef nonnull @.str.22, i64 noundef 6) #19
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %.lr.ph
-  %8 = load ptr, ptr %.021, align 8
+  %8 = load ptr, ptr %.01621, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 6
   br label %10
 
 10:                                               ; preds = %7, %.lr.ph
-  %.016 = phi ptr [ %9, %7 ], [ %4, %.lr.ph ]
-  %11 = call i32 @xstrncmp(ptr noundef nonnull %.016, ptr noundef nonnull @.str.23, i64 noundef 20) #19
+  %.0 = phi ptr [ %9, %7 ], [ %4, %.lr.ph ]
+  %11 = call i32 @xstrncmp(ptr noundef nonnull %.0, ptr noundef nonnull @.str.23, i64 noundef 20) #19
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %26
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %.016, i64 20
+  %14 = getelementptr inbounds i8, ptr %.0, i64 20
   %15 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef 61) #20
   %.not19 = icmp eq ptr %15, null
   br i1 %.not19, label %26, label %16
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr %.021, align 8
+  %17 = load ptr, ptr %.01621, align 8
   %18 = ptrtoint ptr %15 to i64
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %18, %19
@@ -2009,7 +2009,7 @@ define void @spank_clear_remote_options_env(ptr noundef %0) local_unnamed_addr #
   br label %26
 
 26:                                               ; preds = %10, %25, %13
-  %27 = getelementptr inbounds i8, ptr %.021, i64 8
+  %27 = getelementptr inbounds i8, ptr %.01621, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
@@ -4226,7 +4226,7 @@ define range(i32 0, 3003) i32 @spank_prepend_task_argv(ptr noundef readonly %0, 
   br label %.critedge
 
 .critedge:                                        ; preds = %28, %.critedge.loopexit.split.loop.exit73, %18
-  %.039.lcssa = phi i32 [ 0, %18 ], [ %31, %.critedge.loopexit.split.loop.exit73 ], [ %1, %28 ]
+  %.038.lcssa = phi i32 [ 0, %18 ], [ %31, %.critedge.loopexit.split.loop.exit73 ], [ %1, %28 ]
   %32 = load ptr, ptr %9, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 152
   %34 = load i32, ptr %33, align 8
@@ -4234,7 +4234,7 @@ define range(i32 0, 3003) i32 @spank_prepend_task_argv(ptr noundef readonly %0, 
   br i1 %.not62, label %.critedge3, label %.lr.ph58.preheader
 
 .lr.ph58.preheader:                               ; preds = %.critedge
-  %35 = zext i32 %.039.lcssa to i64
+  %35 = zext i32 %.038.lcssa to i64
   br label %.lr.ph58
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %41
@@ -4266,7 +4266,7 @@ define range(i32 0, 3003) i32 @spank_prepend_task_argv(ptr noundef readonly %0, 
   br label %.critedge3
 
 .critedge3:                                       ; preds = %.critedge3.loopexit, %.critedge
-  %.1.lcssa = phi i32 [ %.039.lcssa, %.critedge ], [ %.1.lcssa.ph, %.critedge3.loopexit ]
+  %.1.lcssa = phi i32 [ %.038.lcssa, %.critedge ], [ %.1.lcssa.ph, %.critedge3.loopexit ]
   %48 = zext nneg i32 %.1.lcssa to i64
   %49 = getelementptr inbounds ptr, ptr %24, i64 %48
   store ptr null, ptr %49, align 8
@@ -4279,8 +4279,8 @@ define range(i32 0, 3003) i32 @spank_prepend_task_argv(ptr noundef readonly %0, 
   br label %54
 
 54:                                               ; preds = %14, %8, %11, %3, %4, %.critedge3
-  %.038 = phi i32 [ 0, %.critedge3 ], [ 3001, %4 ], [ 3001, %3 ], [ 3002, %14 ], [ 3002, %11 ], [ 3002, %8 ]
-  ret i32 %.038
+  %.039 = phi i32 [ 0, %.critedge3 ], [ 3001, %4 ], [ 3001, %3 ], [ 3002, %14 ], [ 3002, %11 ], [ 3002, %8 ]
+  ret i32 %.039
 }
 
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -4721,14 +4721,14 @@ define internal fastcc i32 @_spank_stack_load(ptr noundef %0, ptr noundef %1) un
 22:                                               ; preds = %19
   %23 = tail call noalias ptr @fdopen(i32 noundef %20, ptr noundef nonnull @.str.36) #19
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %29, label %.preheader74
+  br i1 %24, label %29, label %.preheader73
 
-.preheader74:                                     ; preds = %22
+.preheader73:                                     ; preds = %22
   %25 = call ptr @fgets(ptr noundef nonnull %15, i32 noundef 4096, ptr noundef nonnull %23)
-  %.not82 = icmp eq ptr %25, null
-  br i1 %.not82, label %_spank_stack_process_line.exit._crit_edge, label %.lr.ph88
+  %.not81 = icmp eq ptr %25, null
+  br i1 %.not81, label %_spank_stack_process_line.exit._crit_edge, label %.lr.ph87
 
-.lr.ph88:                                         ; preds = %.preheader74
+.lr.ph87:                                         ; preds = %.preheader73
   %26 = getelementptr inbounds i8, ptr %5, i64 8
   %27 = getelementptr inbounds i8, ptr %0, i64 32
   %28 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4744,15 +4744,15 @@ define internal fastcc i32 @_spank_stack_load(ptr noundef %0, ptr noundef %1) un
   %34 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.37, ptr noundef %1) #19
   br label %256
 
-35:                                               ; preds = %.lr.ph88, %252
-  %.01383 = phi i32 [ 1, %.lr.ph88 ], [ %253, %252 ]
+35:                                               ; preds = %.lr.ph87, %252
+  %.01382 = phi i32 [ 1, %.lr.ph87 ], [ %253, %252 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %14, align 8
   %36 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 35) #20
-  %.not.i39 = icmp eq ptr %36, null
-  br i1 %.not.i39, label %38, label %37
+  %.not.i38 = icmp eq ptr %36, null
+  br i1 %.not.i38, label %38, label %37
 
 37:                                               ; preds = %35
   store i8 0, ptr %36, align 1
@@ -4799,35 +4799,35 @@ _plugin_stack_line_type.exit.i:                   ; preds = %46
   store ptr null, ptr %3, align 8
   %54 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.44, ptr noundef nonnull %4) #19
   %.not2527.i = icmp eq ptr %54, null
-  br i1 %.not2527.i, label %68, label %.lr.ph.i41
+  br i1 %.not2527.i, label %68, label %.lr.ph.i40
 
-.lr.ph.i41:                                       ; preds = %53, %.lr.ph.i41
-  %indvars.iv.i42 = phi i64 [ %indvars.iv.next.i43, %.lr.ph.i41 ], [ 0, %53 ]
-  %55 = phi ptr [ %64, %.lr.ph.i41 ], [ %54, %53 ]
-  %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
-  %56 = shl i64 %indvars.iv.i42, 3
+.lr.ph.i40:                                       ; preds = %53, %.lr.ph.i40
+  %indvars.iv.i41 = phi i64 [ %indvars.iv.next.i42, %.lr.ph.i40 ], [ 0, %53 ]
+  %55 = phi ptr [ %64, %.lr.ph.i40 ], [ %54, %53 ]
+  %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
+  %56 = shl i64 %indvars.iv.i41, 3
   %57 = add nuw i64 %56, 16
   %58 = call ptr @slurm_xrecalloc(ptr noundef nonnull %3, i64 noundef 1, i64 noundef %57, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.32, i32 noundef 270, ptr noundef nonnull @__func__._argv_append) #19
   store ptr %58, ptr %3, align 8
-  %59 = getelementptr ptr, ptr %58, i64 %indvars.iv.i42
+  %59 = getelementptr ptr, ptr %58, i64 %indvars.iv.i41
   %60 = getelementptr i8, ptr %59, i64 8
   store ptr null, ptr %60, align 8
   %61 = call ptr @xstrdup(ptr noundef nonnull %55) #19
   %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds ptr, ptr %62, i64 %indvars.iv.i42
+  %63 = getelementptr inbounds ptr, ptr %62, i64 %indvars.iv.i41
   store ptr %61, ptr %63, align 8
   %64 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.44, ptr noundef nonnull %4) #19
   %.not25.i = icmp eq ptr %64, null
-  br i1 %.not25.i, label %._crit_edge.loopexit.i, label %.lr.ph.i41, !llvm.loop !30
+  br i1 %.not25.i, label %._crit_edge.loopexit.i, label %.lr.ph.i40, !llvm.loop !30
 
-._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i41
-  %65 = trunc nuw nsw i64 %indvars.iv.next.i43 to i32
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i40
+  %65 = trunc nuw nsw i64 %indvars.iv.next.i42 to i32
   br label %68
 
 66:                                               ; preds = %_plugin_stack_line_type.exit.i, %50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %67 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.38, ptr noundef %1, i32 noundef %.01383) #19
+  %67 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.38, ptr noundef %1, i32 noundef %.01382) #19
   br label %_spank_stack_process_line.exit.thread
 
 68:                                               ; preds = %53, %._crit_edge.loopexit.i
@@ -4848,13 +4848,13 @@ _plugin_stack_line_type.exit.i:                   ; preds = %46
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %71
-  %74 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.49, ptr noundef %1, i32 noundef %.01383) #19
+  %74 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.49, ptr noundef %1, i32 noundef %.01382) #19
   br label %_spank_conf_include.exit
 
 75:                                               ; preds = %71
   %76 = load i8, ptr %69, align 1
-  %.not.i37 = icmp eq i8 %76, 47
-  br i1 %.not.i37, label %83, label %77
+  %.not.i36 = icmp eq i8 %76, 47
+  br i1 %.not.i36, label %83, label %77
 
 77:                                               ; preds = %75
   %78 = call ptr @xstrdup(ptr noundef %1) #19
@@ -4869,22 +4869,22 @@ _plugin_stack_line_type.exit.i:                   ; preds = %46
   br label %82
 
 82:                                               ; preds = %80, %77
-  %.025.i = phi ptr [ %81, %80 ], [ %69, %77 ]
+  %.024.i = phi ptr [ %81, %80 ], [ %69, %77 ]
   call void @slurm_xfree(ptr noundef nonnull %7) #19
   br label %83
 
 83:                                               ; preds = %82, %75
-  %.126.i = phi ptr [ %.025.i, %82 ], [ %69, %75 ]
+  %.125.i = phi ptr [ %.024.i, %82 ], [ %69, %75 ]
   %84 = call i32 @get_log_level() #19
   %85 = icmp sgt i32 %84, 4
   br i1 %85, label %86, label %87
 
 86:                                               ; preds = %83
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.51, ptr noundef %1, i32 noundef %.01383, ptr noundef %.126.i) #19
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.51, ptr noundef %1, i32 noundef %.01382, ptr noundef %.125.i) #19
   br label %87
 
 87:                                               ; preds = %86, %83
-  %88 = call i32 @glob(ptr noundef %.126.i, i32 noundef 0, ptr noundef null, ptr noundef nonnull %5) #19
+  %88 = call i32 @glob(ptr noundef %.125.i, i32 noundef 0, ptr noundef null, ptr noundef nonnull %5) #19
   switch i32 %88, label %104 [
     i32 0, label %.preheader
     i32 3, label %.loopexit
@@ -4894,17 +4894,17 @@ _plugin_stack_line_type.exit.i:                   ; preds = %46
 
 .preheader:                                       ; preds = %87
   %89 = load i64, ptr %5, align 8
-  %.not92 = icmp eq i64 %89, 0
-  br i1 %.not92, label %.loopexit, label %.lr.ph
+  %.not91 = icmp eq i64 %89, 0
+  br i1 %.not91, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.023.i75 = phi i64 [ %95, %.lr.ph ], [ 0, %.preheader ]
+  %.0.i3774 = phi i64 [ %95, %.lr.ph ], [ 0, %.preheader ]
   %90 = load ptr, ptr %26, align 8
-  %91 = getelementptr inbounds ptr, ptr %90, i64 %.023.i75
+  %91 = getelementptr inbounds ptr, ptr %90, i64 %.0.i3774
   %92 = load ptr, ptr %91, align 8
   %93 = call fastcc i32 @_spank_stack_load(ptr noundef %0, ptr noundef %92)
   %94 = icmp sgt i32 %93, -1
-  %95 = add nuw i64 %.023.i75, 1
+  %95 = add nuw i64 %.0.i3774, 1
   %96 = load i64, ptr %5, align 8
   %97 = icmp ult i64 %95, %96
   %or.cond = select i1 %94, i1 %97, i1 false
@@ -4921,7 +4921,7 @@ _plugin_stack_line_type.exit.i:                   ; preds = %46
   br i1 %102, label %103, label %.loopexit
 
 103:                                              ; preds = %100
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.52, ptr noundef %1, i32 noundef %.01383, ptr noundef %.126.i) #19
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.52, ptr noundef %1, i32 noundef %.01382, ptr noundef %.125.i) #19
   br label %.loopexit
 
 104:                                              ; preds = %87
@@ -4935,7 +4935,7 @@ _plugin_stack_line_type.exit.i:                   ; preds = %46
   br label %_spank_conf_include.exit
 
 _spank_conf_include.exit:                         ; preds = %73, %.loopexit
-  %.0.i38 = phi i32 [ -1, %73 ], [ %.1.i, %.loopexit ]
+  %.026.i = phi i32 [ -1, %73 ], [ %.1.i, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -4944,9 +4944,9 @@ _spank_conf_include.exit:                         ; preds = %73, %.loopexit
 
 106:                                              ; preds = %.thread, %68
   %107 = phi ptr [ %.pr, %.thread ], [ %69, %68 ]
-  %.04760 = phi i32 [ 2, %.thread ], [ %.0.i.ph.i, %68 ]
-  %.04859 = phi i32 [ 0, %.thread ], [ %.018.lcssa.i, %68 ]
-  %.04958 = phi ptr [ null, %.thread ], [ %70, %68 ]
+  %.04659 = phi i32 [ 2, %.thread ], [ %.0.i.ph.i, %68 ]
+  %.04758 = phi i32 [ 0, %.thread ], [ %.018.lcssa.i, %68 ]
+  %.04857 = phi ptr [ null, %.thread ], [ %70, %68 ]
   %108 = icmp eq ptr %107, null
   br i1 %108, label %_spank_stack_process_line.exit.thread, label %109
 
@@ -4990,14 +4990,14 @@ _spank_conf_include.exit:                         ; preds = %73, %.loopexit
 
 .lr.ph.i35:                                       ; preds = %126, %140
   %128 = phi ptr [ %141, %140 ], [ %127, %126 ]
-  %.01219.i = phi ptr [ %129, %140 ], [ %8, %126 ]
+  %.019.i = phi ptr [ %129, %140 ], [ %8, %126 ]
   %129 = getelementptr inbounds i8, ptr %128, i64 1
   store i8 0, ptr %128, align 1
-  %130 = call ptr @xstrdup(ptr noundef nonnull %.01219.i) #19
+  %130 = call ptr @xstrdup(ptr noundef nonnull %.019.i) #19
   store ptr %130, ptr %9, align 8
-  %131 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01219.i) #20
+  %131 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.019.i) #20
   %132 = add i64 %131, -1
-  %133 = getelementptr inbounds i8, ptr %.01219.i, i64 %132
+  %133 = getelementptr inbounds i8, ptr %.019.i, i64 %132
   %134 = load i8, ptr %133, align 1
   %.not17.i = icmp eq i8 %134, 47
   br i1 %.not17.i, label %136, label %135
@@ -5037,7 +5037,7 @@ _spank_plugin_find.exit:                          ; preds = %136
   br label %144
 
 144:                                              ; preds = %_spank_plugin_find.exit.thread, %143, %_spank_plugin_find.exit, %109
-  %145 = icmp eq i32 %.04760, 2
+  %145 = icmp eq i32 %.04659, 2
   %146 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %11)
@@ -5073,9 +5073,9 @@ _spank_plugin_find.exit:                          ; preds = %136
   %164 = getelementptr inbounds i8, ptr %159, i64 24
   store i8 %147, ptr %164, align 8
   %165 = getelementptr inbounds i8, ptr %159, i64 28
-  store i32 %.04859, ptr %165, align 4
+  store i32 %.04758, ptr %165, align 4
   %166 = getelementptr inbounds i8, ptr %159, i64 32
-  store ptr %.04958, ptr %166, align 8
+  store ptr %.04857, ptr %166, align 8
   %167 = getelementptr inbounds i8, ptr %159, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %167, ptr noundef nonnull align 8 dereferenceable(96) %11, i64 96, i1 false)
   %168 = getelementptr inbounds i8, ptr %159, i64 144
@@ -5098,7 +5098,7 @@ _spank_plugin_find.exit:                          ; preds = %136
 
 175:                                              ; preds = %174
   %176 = load ptr, ptr %14, align 8
-  %177 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.39, ptr noundef %1, i32 noundef %.01383, ptr noundef %176) #19
+  %177 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.39, ptr noundef %1, i32 noundef %.01382, ptr noundef %176) #19
   br label %183
 
 178:                                              ; preds = %174
@@ -5108,7 +5108,7 @@ _spank_plugin_find.exit:                          ; preds = %136
 
 181:                                              ; preds = %178
   %182 = load ptr, ptr %14, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.40, ptr noundef %1, i32 noundef %.01383, ptr noundef %182) #19
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.40, ptr noundef %1, i32 noundef %.01382, ptr noundef %182) #19
   br label %183
 
 183:                                              ; preds = %181, %178, %175
@@ -5283,7 +5283,7 @@ _spank_plugin_destroy.exit:                       ; preds = %229, %._crit_edge.i
 240:                                              ; preds = %237
   %241 = load ptr, ptr %160, align 8
   %242 = call ptr @xbasename(ptr noundef %241) #19
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.43, ptr noundef %1, i32 noundef %.01383, ptr noundef %242) #19
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.43, ptr noundef %1, i32 noundef %.01382, ptr noundef %242) #19
   br label %243
 
 243:                                              ; preds = %240, %237
@@ -5291,41 +5291,41 @@ _spank_plugin_destroy.exit:                       ; preds = %229, %._crit_edge.i
   call void @list_append(ptr noundef %244, ptr noundef nonnull %159) #19
   %245 = getelementptr inbounds i8, ptr %159, i64 136
   %246 = load ptr, ptr %245, align 8
-  %.not44.i78 = icmp eq ptr %246, null
-  br i1 %.not44.i78, label %_spank_stack_process_line.exit.thread, label %.lr.ph80.preheader
+  %.not44.i77 = icmp eq ptr %246, null
+  br i1 %.not44.i77, label %_spank_stack_process_line.exit.thread, label %.lr.ph79.preheader
 
-.lr.ph80.preheader:                               ; preds = %243
+.lr.ph79.preheader:                               ; preds = %243
   %247 = load ptr, ptr %246, align 8
-  %.not45.i93 = icmp eq ptr %247, null
-  br i1 %.not45.i93, label %_spank_stack_process_line.exit.thread, label %.lr.ph80
+  %.not45.i92 = icmp eq ptr %247, null
+  br i1 %.not45.i92, label %_spank_stack_process_line.exit.thread, label %.lr.ph79
 
-.lr.ph80:                                         ; preds = %.lr.ph80.preheader, %.lr.ph80
-  %.0.i7994 = phi ptr [ %249, %.lr.ph80 ], [ %246, %.lr.ph80.preheader ]
-  %248 = call fastcc i32 @_spank_option_register(ptr noundef nonnull %159, ptr noundef nonnull %.0.i7994)
-  %249 = getelementptr inbounds i8, ptr %.0.i7994, i64 40
+.lr.ph79:                                         ; preds = %.lr.ph79.preheader, %.lr.ph79
+  %.0.i7893 = phi ptr [ %249, %.lr.ph79 ], [ %246, %.lr.ph79.preheader ]
+  %248 = call fastcc i32 @_spank_option_register(ptr noundef nonnull %159, ptr noundef nonnull %.0.i7893)
+  %249 = getelementptr inbounds i8, ptr %.0.i7893, i64 40
   %250 = load ptr, ptr %249, align 8
   %.not45.i = icmp eq ptr %250, null
-  br i1 %.not45.i, label %_spank_stack_process_line.exit.thread, label %.lr.ph80, !llvm.loop !34
+  br i1 %.not45.i, label %_spank_stack_process_line.exit.thread, label %.lr.ph79, !llvm.loop !34
 
-_spank_stack_process_line.exit.thread:            ; preds = %.lr.ph80, %.lr.ph80.preheader, %243, %66, %_spank_plugin_destroy.exit29, %_spank_plugin_destroy.exit, %106
+_spank_stack_process_line.exit.thread:            ; preds = %.lr.ph79, %.lr.ph79.preheader, %243, %66, %_spank_plugin_destroy.exit29, %_spank_plugin_destroy.exit, %106
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   br label %252
 
 _spank_stack_process_line.exit:                   ; preds = %_spank_conf_include.exit, %183
-  %.036.i = phi i32 [ %.0.i38, %_spank_conf_include.exit ], [ %184, %183 ]
+  %.036.i = phi i32 [ %.026.i, %_spank_conf_include.exit ], [ %184, %183 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   %251 = icmp slt i32 %.036.i, 0
   br i1 %251, label %_spank_stack_process_line.exit._crit_edge, label %252
 
 252:                                              ; preds = %_spank_stack_process_line.exit.thread, %_spank_stack_process_line.exit
-  %.036.i73 = phi i32 [ 0, %_spank_stack_process_line.exit.thread ], [ %.036.i, %_spank_stack_process_line.exit ]
-  %253 = add nuw nsw i32 %.01383, 1
+  %.036.i72 = phi i32 [ 0, %_spank_stack_process_line.exit.thread ], [ %.036.i, %_spank_stack_process_line.exit ]
+  %253 = add nuw nsw i32 %.01382, 1
   %254 = call ptr @fgets(ptr noundef nonnull %15, i32 noundef 4096, ptr noundef nonnull %23)
   %.not = icmp eq ptr %254, null
   br i1 %.not, label %_spank_stack_process_line.exit._crit_edge, label %35, !llvm.loop !35
 
-_spank_stack_process_line.exit._crit_edge:        ; preds = %252, %_spank_stack_process_line.exit, %.preheader74
-  %.1 = phi i32 [ 0, %.preheader74 ], [ %.036.i, %_spank_stack_process_line.exit ], [ %.036.i73, %252 ]
+_spank_stack_process_line.exit._crit_edge:        ; preds = %252, %_spank_stack_process_line.exit, %.preheader73
+  %.1 = phi i32 [ 0, %.preheader73 ], [ %.036.i, %_spank_stack_process_line.exit ], [ %.036.i72, %252 ]
   %255 = call i32 @fclose(ptr noundef nonnull %23)
   br label %256
 

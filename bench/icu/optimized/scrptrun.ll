@@ -240,8 +240,8 @@ if.then72:                                        ; preds = %land.rhs
   br label %if.end81
 
 if.end81:                                         ; preds = %while.end, %if.then40, %if.then72, %if.else, %_ZN6icu_759ScriptRun12getPairIndexEi.exit
-  %21 = phi i32 [ %call, %if.then40 ], [ %20, %if.then72 ], [ %call, %while.end ], [ %call, %if.else ], [ %call, %_ZN6icu_759ScriptRun12getPairIndexEi.exit ]
   %startSP.2 = phi i32 [ %startSP.035, %if.then40 ], [ %spec.select29, %if.then72 ], [ %spec.select, %while.end ], [ %startSP.035, %if.else ], [ %startSP.035, %_ZN6icu_759ScriptRun12getPairIndexEi.exit ]
+  %21 = phi i32 [ %call, %if.then40 ], [ %20, %if.then72 ], [ %call, %while.end ], [ %call, %if.else ], [ %call, %_ZN6icu_759ScriptRun12getPairIndexEi.exit ]
   %22 = load i32, ptr %scriptCode, align 8
   %cmp.i = icmp slt i32 %22, 2
   %cmp1.i27 = icmp slt i32 %21, 2

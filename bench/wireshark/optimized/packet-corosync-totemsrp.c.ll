@@ -397,21 +397,21 @@ corosync_totemsrp_get_guint32.exit84.thread.i:    ; preds = %corosync_totemsrp_g
   br i1 %.not10.i, label %dissect_corosync_totemsrp_orf_token.exit, label %dissect_corosync_totemsrp_rtr_list.exit.i
 
 dissect_corosync_totemsrp_rtr_list.exit.us.i:     ; preds = %corosync_totemsrp_get_guint32.exit84.i, %dissect_corosync_totemsrp_rtr_list.exit.us.i
-  %.05.us.i = phi i32 [ %124, %dissect_corosync_totemsrp_rtr_list.exit.us.i ], [ %101, %corosync_totemsrp_get_guint32.exit84.i ]
-  %.0794.us.i = phi i32 [ %125, %dissect_corosync_totemsrp_rtr_list.exit.us.i ], [ 0, %corosync_totemsrp_get_guint32.exit84.i ]
+  %.05.us.i = phi i32 [ %125, %dissect_corosync_totemsrp_rtr_list.exit.us.i ], [ 0, %corosync_totemsrp_get_guint32.exit84.i ]
+  %.0794.us.i = phi i32 [ %124, %dissect_corosync_totemsrp_rtr_list.exit.us.i ], [ %101, %corosync_totemsrp_get_guint32.exit84.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   %104 = load i32, ptr @hf_corosync_totemsrp_rtr_item, align 4
-  %105 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %104, ptr noundef %0, i32 noundef %.05.us.i, i32 noundef -1, i32 noundef 0) #4
+  %105 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %104, ptr noundef %0, i32 noundef %.0794.us.i, i32 noundef -1, i32 noundef 0) #4
   %106 = load i32, ptr @ett_corosync_totemsrp_rtr_item, align 4
   %107 = call ptr @proto_item_add_subtree(ptr noundef %105, i32 noundef %106) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %108 = load i32, ptr @hf_corosync_totemsrp_memb_ring_id, align 4
-  %109 = call ptr @proto_tree_add_item(ptr noundef %107, i32 noundef %108, ptr noundef %0, i32 noundef %.05.us.i, i32 noundef -1, i32 noundef -2147483648) #4
+  %109 = call ptr @proto_tree_add_item(ptr noundef %107, i32 noundef %108, ptr noundef %0, i32 noundef %.0794.us.i, i32 noundef -1, i32 noundef -2147483648) #4
   %110 = load i32, ptr @ett_corosync_totemsrp_memb_ring_id, align 4
   %111 = call ptr @proto_item_add_subtree(ptr noundef %109, i32 noundef %110) #4
-  %112 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %111, i32 noundef %.05.us.i, i32 noundef -2147483648, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %6)
-  %113 = add i32 %112, %.05.us.i
+  %112 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %111, i32 noundef %.0794.us.i, i32 noundef -2147483648, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %6)
+  %113 = add i32 %112, %.0794.us.i
   %114 = load i32, ptr @hf_corosync_totemsrp_memb_ring_id_seq, align 4
   %115 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %114, ptr noundef %0, i32 noundef %113, i32 noundef 8, i32 noundef -2147483648) #4
   %116 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %113) #4
@@ -420,7 +420,7 @@ dissect_corosync_totemsrp_rtr_list.exit.us.i:     ; preds = %corosync_totemsrp_g
   %118 = add i32 %112, 8
   call void @proto_item_set_len(ptr noundef %109, i32 noundef %118) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %119 = add i32 %118, %.05.us.i
+  %119 = add i32 %118, %.0794.us.i
   %120 = load i32, ptr @hf_corosync_totemsrp_rtr_item_seq, align 4
   %121 = call ptr @proto_tree_add_item(ptr noundef %107, i32 noundef %120, ptr noundef %0, i32 noundef %119, i32 noundef 4, i32 noundef -2147483648) #4
   %122 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %119) #4
@@ -429,22 +429,22 @@ dissect_corosync_totemsrp_rtr_list.exit.us.i:     ; preds = %corosync_totemsrp_g
   call void @proto_item_set_len(ptr noundef %105, i32 noundef %123) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
-  %124 = add i32 %123, %.05.us.i
-  %125 = add nuw i32 %.0794.us.i, 1
+  %124 = add i32 %123, %.0794.us.i
+  %125 = add nuw i32 %.05.us.i, 1
   %exitcond8.not.i = icmp eq i32 %125, %102
   br i1 %exitcond8.not.i, label %dissect_corosync_totemsrp_orf_token.exit, label %dissect_corosync_totemsrp_rtr_list.exit.us.i, !llvm.loop !4
 
 dissect_corosync_totemsrp_rtr_list.exit.i:        ; preds = %corosync_totemsrp_get_guint32.exit84.thread.i, %dissect_corosync_totemsrp_rtr_list.exit.i
-  %.05.i = phi i32 [ %138, %dissect_corosync_totemsrp_rtr_list.exit.i ], [ %101, %corosync_totemsrp_get_guint32.exit84.thread.i ]
-  %.0794.i = phi i32 [ %139, %dissect_corosync_totemsrp_rtr_list.exit.i ], [ 0, %corosync_totemsrp_get_guint32.exit84.thread.i ]
+  %.05.i = phi i32 [ %139, %dissect_corosync_totemsrp_rtr_list.exit.i ], [ 0, %corosync_totemsrp_get_guint32.exit84.thread.i ]
+  %.0794.i = phi i32 [ %138, %dissect_corosync_totemsrp_rtr_list.exit.i ], [ %101, %corosync_totemsrp_get_guint32.exit84.thread.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   %126 = load i32, ptr @hf_corosync_totemsrp_rtr_item, align 4
-  %127 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %126, ptr noundef %0, i32 noundef %.05.i, i32 noundef -1, i32 noundef 0) #4
+  %127 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %126, ptr noundef %0, i32 noundef %.0794.i, i32 noundef -1, i32 noundef 0) #4
   %128 = load i32, ptr @ett_corosync_totemsrp_rtr_item, align 4
   %129 = call ptr @proto_item_add_subtree(ptr noundef %127, i32 noundef %128) #4
-  %130 = call fastcc i32 @dissect_corosync_totemsrp_memb_ring_id(ptr noundef %0, ptr noundef %129, i32 noundef %.05.i, i32 noundef %.0, ptr noundef nonnull %21, ptr noundef nonnull %22)
-  %131 = add i32 %130, %.05.i
+  %130 = call fastcc i32 @dissect_corosync_totemsrp_memb_ring_id(ptr noundef %0, ptr noundef %129, i32 noundef %.0794.i, i32 noundef %.0, ptr noundef nonnull %21, ptr noundef nonnull %22)
+  %131 = add i32 %130, %.0794.i
   %132 = load i32, ptr @hf_corosync_totemsrp_rtr_item_seq, align 4
   %133 = call ptr @proto_tree_add_item(ptr noundef %129, i32 noundef %132, ptr noundef %0, i32 noundef %131, i32 noundef 4, i32 noundef %.0) #4
   %134 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %131) #4
@@ -455,18 +455,18 @@ dissect_corosync_totemsrp_rtr_list.exit.i:        ; preds = %corosync_totemsrp_g
   call void @proto_item_set_len(ptr noundef %127, i32 noundef %137) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
-  %138 = add i32 %137, %.05.i
-  %139 = add nuw i32 %.0794.i, 1
+  %138 = add i32 %137, %.0794.i
+  %139 = add nuw i32 %.05.i, 1
   %exitcond.not.i = icmp eq i32 %139, %103
   br i1 %exitcond.not.i, label %dissect_corosync_totemsrp_orf_token.exit, label %dissect_corosync_totemsrp_rtr_list.exit.i, !llvm.loop !4
 
 dissect_corosync_totemsrp_orf_token.exit:         ; preds = %dissect_corosync_totemsrp_rtr_list.exit.i, %dissect_corosync_totemsrp_rtr_list.exit.us.i, %corosync_totemsrp_get_guint32.exit84.i, %corosync_totemsrp_get_guint32.exit84.thread.i
   %.0.i8312.i = phi i32 [ 0, %corosync_totemsrp_get_guint32.exit84.i ], [ 0, %corosync_totemsrp_get_guint32.exit84.thread.i ], [ %102, %dissect_corosync_totemsrp_rtr_list.exit.us.i ], [ %103, %dissect_corosync_totemsrp_rtr_list.exit.i ]
-  %.0.lcssa.i = phi i32 [ %101, %corosync_totemsrp_get_guint32.exit84.i ], [ %101, %corosync_totemsrp_get_guint32.exit84.thread.i ], [ %124, %dissect_corosync_totemsrp_rtr_list.exit.us.i ], [ %138, %dissect_corosync_totemsrp_rtr_list.exit.i ]
+  %.079.lcssa.i = phi i32 [ %101, %corosync_totemsrp_get_guint32.exit84.i ], [ %101, %corosync_totemsrp_get_guint32.exit84.thread.i ], [ %124, %dissect_corosync_totemsrp_rtr_list.exit.us.i ], [ %138, %dissect_corosync_totemsrp_rtr_list.exit.i ]
   %140 = load i64, ptr %24, align 8
   %141 = load i32, ptr %23, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %69, ptr noundef nonnull @.str.111, i64 noundef %140, i32 noundef %141, i32 noundef %.0.i8312.i, i32 noundef %.0.i2.i, i32 noundef %.0.i81.i) #4
-  %142 = add i32 %.0.lcssa.i, -8
+  %142 = add i32 %.079.lcssa.i, -8
   call void @proto_item_set_len(ptr noundef %69, i32 noundef %142) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
@@ -483,9 +483,9 @@ dissect_corosync_totemsrp_orf_token.exit:         ; preds = %dissect_corosync_to
   %147 = tail call ptr @proto_item_add_subtree(ptr noundef %145, i32 noundef %146) #4
   %148 = load i32, ptr @hf_corosync_totemsrp_mcast_system_from, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %.not.i100 = icmp eq i32 %148, 0
+  %.not.i98 = icmp eq i32 %148, 0
   %149 = load i32, ptr @hf_corosync_totemsrp_srp_addr, align 4
-  %150 = select i1 %.not.i100, i32 %149, i32 %148
+  %150 = select i1 %.not.i98, i32 %149, i32 %148
   %151 = tail call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %150, ptr noundef %0, i32 noundef 8, i32 noundef -1, i32 noundef %.0) #4
   %152 = load i32, ptr @ett_corosync_totemsrp_srp_addr, align 4
   %153 = tail call ptr @proto_item_add_subtree(ptr noundef %151, i32 noundef %152) #4
@@ -645,14 +645,14 @@ corosync_totemsrp_get_guint32.exit66.i:           ; preds = %227, %222
   br i1 %exitcond.not.i91, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %corosync_totemsrp_get_guint32.exit66.i
-  %.0.lcssa.i92 = phi i32 [ %236, %corosync_totemsrp_get_guint32.exit66.i ], [ %248, %.lr.ph.i ]
+  %.0.lcssa.i = phi i32 [ %236, %corosync_totemsrp_get_guint32.exit66.i ], [ %248, %.lr.ph.i ]
   %250 = load i32, ptr @ett_corosync_totemsrp_memb_join_failed_list, align 4
   %251 = call ptr @proto_item_add_subtree(ptr noundef %232, i32 noundef %250) #4
   %.not12.i = icmp eq i32 %.0.i65.i, 0
   br i1 %.not12.i, label %dissect_corosync_totemsrp_memb_join.exit, label %.lr.ph9.i
 
 .lr.ph9.i:                                        ; preds = %._crit_edge.i, %.lr.ph9.i
-  %.17.i = phi i32 [ %261, %.lr.ph9.i ], [ %.0.lcssa.i92, %._crit_edge.i ]
+  %.17.i = phi i32 [ %261, %.lr.ph9.i ], [ %.0.lcssa.i, %._crit_edge.i ]
   %.1646.i = phi i32 [ %262, %.lr.ph9.i ], [ 0, %._crit_edge.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   %252 = load i32, ptr @hf_corosync_totemsrp_srp_addr, align 4
@@ -673,7 +673,7 @@ corosync_totemsrp_get_guint32.exit66.i:           ; preds = %227, %222
   br i1 %exitcond14.not.i, label %dissect_corosync_totemsrp_memb_join.exit, label %.lr.ph9.i, !llvm.loop !7
 
 dissect_corosync_totemsrp_memb_join.exit:         ; preds = %.lr.ph9.i, %._crit_edge.i
-  %.1.lcssa.i = phi i32 [ %.0.lcssa.i92, %._crit_edge.i ], [ %261, %.lr.ph9.i ]
+  %.1.lcssa.i = phi i32 [ %.0.lcssa.i, %._crit_edge.i ], [ %261, %.lr.ph9.i ]
   %263 = add i32 %.1.lcssa.i, -8
   call void @proto_item_set_len(ptr noundef %206, i32 noundef %263) #4
   br label %329
@@ -722,39 +722,39 @@ corosync_totemsrp_get_guint32.exit.i:             ; preds = %273, %271
 corosync_totemsrp_get_guint32.exit69.i:           ; preds = %287, %285
   %.0.i68.i = phi i32 [ %286, %285 ], [ %288, %287 ]
   %289 = add i32 %275, 24
-  %.not.i93 = icmp eq i32 %.0.i68.i, 0
-  br i1 %.not.i93, label %dissect_corosync_totemsrp_memb_commit_token.exit, label %.lr.ph.i94
+  %.not.i92 = icmp eq i32 %.0.i68.i, 0
+  br i1 %.not.i92, label %dissect_corosync_totemsrp_memb_commit_token.exit, label %.lr.ph.i93
 
-.lr.ph.i94:                                       ; preds = %corosync_totemsrp_get_guint32.exit69.i, %.lr.ph.i94
-  %.02.i = phi i32 [ %299, %.lr.ph.i94 ], [ %289, %corosync_totemsrp_get_guint32.exit69.i ]
-  %.0651.i = phi i32 [ %300, %.lr.ph.i94 ], [ 0, %corosync_totemsrp_get_guint32.exit69.i ]
+.lr.ph.i93:                                       ; preds = %corosync_totemsrp_get_guint32.exit69.i, %.lr.ph.i93
+  %.02.i = phi i32 [ %300, %.lr.ph.i93 ], [ 0, %corosync_totemsrp_get_guint32.exit69.i ]
+  %.0651.i = phi i32 [ %299, %.lr.ph.i93 ], [ %289, %corosync_totemsrp_get_guint32.exit69.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %290 = load i32, ptr @hf_corosync_totemsrp_srp_addr, align 4
-  %291 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %290, ptr noundef %0, i32 noundef %.02.i, i32 noundef -1, i32 noundef %.0) #4
+  %291 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %290, ptr noundef %0, i32 noundef %.0651.i, i32 noundef -1, i32 noundef %.0) #4
   %292 = load i32, ptr @ett_corosync_totemsrp_srp_addr, align 4
   %293 = call ptr @proto_item_add_subtree(ptr noundef %291, i32 noundef %292) #4
-  %294 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %293, i32 noundef %.02.i, i32 noundef %.0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
-  %295 = add i32 %294, %.02.i
+  %294 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %293, i32 noundef %.0651.i, i32 noundef %.0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9)
+  %295 = add i32 %294, %.0651.i
   %296 = load i32, ptr %9, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %291, ptr noundef nonnull @.str.118, i32 noundef %296) #4
   %297 = call fastcc i32 @dissect_corosync_totemsrp_ip_address(ptr noundef %0, ptr noundef %293, i32 noundef %295, i32 noundef %.0, i32 noundef 1, i32 noundef 1, ptr noundef null)
   %298 = add i32 %297, %294
   call void @proto_item_set_len(ptr noundef %291, i32 noundef %298) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %299 = add i32 %298, %.02.i
-  %300 = add nuw i32 %.0651.i, 1
-  %exitcond.not.i95 = icmp eq i32 %300, %.0.i68.i
-  br i1 %exitcond.not.i95, label %.lr.ph5.i, label %.lr.ph.i94, !llvm.loop !8
+  %299 = add i32 %298, %.0651.i
+  %300 = add nuw i32 %.02.i, 1
+  %exitcond.not.i94 = icmp eq i32 %300, %.0.i68.i
+  br i1 %exitcond.not.i94, label %.lr.ph5.i, label %.lr.ph.i93, !llvm.loop !8
 
-.lr.ph5.i:                                        ; preds = %.lr.ph.i94, %.lr.ph5.i
-  %.14.i = phi i32 [ %316, %.lr.ph5.i ], [ %299, %.lr.ph.i94 ]
-  %.1663.i = phi i32 [ %317, %.lr.ph5.i ], [ 0, %.lr.ph.i94 ]
+.lr.ph5.i:                                        ; preds = %.lr.ph.i93, %.lr.ph5.i
+  %.14.i = phi i32 [ %317, %.lr.ph5.i ], [ 0, %.lr.ph.i93 ]
+  %.1663.i = phi i32 [ %316, %.lr.ph5.i ], [ %299, %.lr.ph.i93 ]
   %301 = load i32, ptr @hf_corosync_totemsrp_memb_commit_token_memb_entry, align 4
-  %302 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %301, ptr noundef %0, i32 noundef %.14.i, i32 noundef -1, i32 noundef %.0) #4
+  %302 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %301, ptr noundef %0, i32 noundef %.1663.i, i32 noundef -1, i32 noundef %.0) #4
   %303 = load i32, ptr @ett_corosync_totemsrp_memb_commit_token_memb_entry, align 4
   %304 = call ptr @proto_item_add_subtree(ptr noundef %302, i32 noundef %303) #4
-  %305 = call fastcc i32 @dissect_corosync_totemsrp_memb_ring_id(ptr noundef %0, ptr noundef %304, i32 noundef %.14.i, i32 noundef %.0, ptr noundef null, ptr noundef null)
-  %306 = add i32 %305, %.14.i
+  %305 = call fastcc i32 @dissect_corosync_totemsrp_memb_ring_id(ptr noundef %0, ptr noundef %304, i32 noundef %.1663.i, i32 noundef %.0, ptr noundef null, ptr noundef null)
+  %306 = add i32 %305, %.1663.i
   %307 = load i32, ptr @hf_corosync_totemsrp_memb_commit_token_memb_entry_aru, align 4
   %308 = call ptr @proto_tree_add_item(ptr noundef %304, i32 noundef %307, ptr noundef %0, i32 noundef %306, i32 noundef 4, i32 noundef %.0) #4
   %309 = add i32 %306, 4
@@ -765,17 +765,17 @@ corosync_totemsrp_get_guint32.exit69.i:           ; preds = %287, %285
   %314 = call ptr @proto_tree_add_item(ptr noundef %304, i32 noundef %313, ptr noundef %0, i32 noundef %312, i32 noundef 4, i32 noundef %.0) #4
   %315 = add i32 %305, 12
   call void @proto_item_set_len(ptr noundef %302, i32 noundef %315) #4
-  %316 = add i32 %315, %.14.i
-  %317 = add nuw i32 %.1663.i, 1
+  %316 = add i32 %315, %.1663.i
+  %317 = add nuw i32 %.14.i, 1
   %exitcond9.not.i = icmp eq i32 %317, %.0.i68.i
   br i1 %exitcond9.not.i, label %dissect_corosync_totemsrp_memb_commit_token.exit, label %.lr.ph5.i, !llvm.loop !9
 
 dissect_corosync_totemsrp_memb_commit_token.exit: ; preds = %.lr.ph5.i, %corosync_totemsrp_get_guint32.exit69.i
-  %.1.lcssa.i97 = phi i32 [ %289, %corosync_totemsrp_get_guint32.exit69.i ], [ %316, %.lr.ph5.i ]
+  %.166.lcssa.i = phi i32 [ %289, %corosync_totemsrp_get_guint32.exit69.i ], [ %316, %.lr.ph5.i ]
   %318 = load i64, ptr %11, align 8
   %319 = load i32, ptr %10, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %266, ptr noundef nonnull @.str.120, i64 noundef %318, i32 noundef %319, i32 noundef %.0.i.i, i32 noundef %.0.i68.i) #4
-  %320 = add i32 %.1.lcssa.i97, -8
+  %320 = add i32 %.166.lcssa.i, -8
   call void @proto_item_set_len(ptr noundef %266, i32 noundef %320) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)

@@ -1844,8 +1844,8 @@ define internal fastcc { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$
   br label %20
 
 .loopexit.i.i:                                    ; preds = %80, %78, %76
-  %.016.i.i.i = phi i64 [ 1, %76 ], [ %..i.i.i, %80 ], [ 2, %78 ]
-  %19 = add i64 %.016.i.i.i, %22
+  %.015.i.i.i = phi i64 [ 1, %76 ], [ %..i.i.i, %80 ], [ 2, %78 ]
+  %19 = add i64 %.015.i.i.i, %22
   store i64 %19, ptr %14, align 8, !alias.scope !174, !noalias !175
   br label %20
 

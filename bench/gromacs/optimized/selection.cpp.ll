@@ -1456,8 +1456,8 @@ _ZNSt6vectorIfSaIfEE5clearEv.exit20:              ; preds = %_ZNSt6vectorIfSaIfE
 
 46:                                               ; preds = %55, %42
   %.2 = phi i32 [ %.141, %42 ], [ %58, %55 ]
-  %.026.i.i = phi i32 [ %38, %42 ], [ %.127.i.i, %55 ]
-  %.0.i.i = phi i32 [ -1, %42 ], [ %.1.i.i, %55 ]
+  %.026.i.i = phi i32 [ -1, %42 ], [ %.127.i.i, %55 ]
+  %.0.i.i = phi i32 [ %38, %42 ], [ %.1.i.i, %55 ]
   %47 = sext i32 %.2 to i64
   %48 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %39, i64 %47
   %49 = getelementptr inbounds i8, ptr %48, i64 4
@@ -1473,9 +1473,9 @@ _ZNSt6vectorIfSaIfEE5clearEv.exit20:              ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %.not.i.i21, label %_ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit, label %55
 
 55:                                               ; preds = %52, %46
-  %.127.i.i = phi i32 [ %.2, %46 ], [ %.026.i.i, %52 ]
-  %.1.i.i = phi i32 [ %.0.i.i, %46 ], [ %.2, %52 ]
-  %56 = add i32 %.127.i.i, 1
+  %.127.i.i = phi i32 [ %.026.i.i, %46 ], [ %.2, %52 ]
+  %.1.i.i = phi i32 [ %.2, %46 ], [ %.0.i.i, %52 ]
+  %56 = add nsw i32 %.127.i.i, 1
   %57 = add i32 %56, %.1.i.i
   %58 = ashr i32 %57, 1
   br label %46, !llvm.loop !7

@@ -282,8 +282,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit86: ; 
   br label %60
 
 60:                                               ; preds = %54, %_ZNSt6vectorIN6casadi6MatrixIdEESaIS2_EED2Ev.exit120
-  %.024153 = phi i32 [ 0, %54 ], [ %255, %_ZNSt6vectorIN6casadi6MatrixIdEESaIS2_EED2Ev.exit120 ]
-  %61 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %50, i32 noundef %.024153)
+  %.015153 = phi i32 [ 0, %54 ], [ %255, %_ZNSt6vectorIN6casadi6MatrixIdEESaIS2_EED2Ev.exit120 ]
+  %61 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %50, i32 noundef %.015153)
           to label %62 unwind label %.loopexit135
 
 62:                                               ; preds = %60
@@ -450,7 +450,7 @@ _ZNSt6vectorIN6casadi6MatrixIdEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN6c
 
 .body:                                            ; preds = %105, %40, %111
   %.pn.pn = phi { ptr, i32 } [ %.pn, %111 ], [ %106, %105 ], [ %41, %40 ]
-  %.116 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %.117 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.126 = extractvalue { ptr, i32 } %.pn.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #16
   br label %280
@@ -478,7 +478,7 @@ _ZNSt6vectorIN6casadi6MatrixIdEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN6c
 
 .body84:                                          ; preds = %112, %45, %118
   %.pn54.pn = phi { ptr, i32 } [ %.pn54, %118 ], [ %113, %112 ], [ %46, %45 ]
-  %.318 = extractvalue { ptr, i32 } %.pn54.pn, 0
+  %.319 = extractvalue { ptr, i32 } %.pn54.pn, 0
   %.328 = extractvalue { ptr, i32 } %.pn54.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #16
   br label %280
@@ -561,15 +561,15 @@ _ZNSt6vectorIN6casadi6MatrixIdEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN6c
 
 .body88:                                          ; preds = %130, %64, %142
   %.pn57.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn, %142 ], [ %131, %130 ], [ %65, %64 ]
-  %.722 = extractvalue { ptr, i32 } %.pn57.pn.pn.pn, 0
+  %.723 = extractvalue { ptr, i32 } %.pn57.pn.pn.pn, 0
   %.732 = extractvalue { ptr, i32 } %.pn57.pn.pn.pn, 1
   %143 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6casadi15CasadiExceptionE) #16
   %144 = icmp eq i32 %.732, %143
   br i1 %144, label %145, label %278
 
 145:                                              ; preds = %.body88
-  %146 = call ptr @__cxa_begin_catch(ptr %.722) #16
-  %147 = icmp eq i32 %.024153, 0
+  %146 = call ptr @__cxa_begin_catch(ptr %.723) #16
+  %147 = icmp eq i32 %.015153, 0
   br i1 %147, label %148, label %219
 
 148:                                              ; preds = %145
@@ -905,7 +905,7 @@ _ZSt8_DestroyIPN6casadi6MatrixIdEES2_EvT_S4_RSaIT0_E.exit.i118: ; preds = %_ZSt8
   br label %_ZNSt6vectorIN6casadi6MatrixIdEESaIS2_EED2Ev.exit120
 
 _ZNSt6vectorIN6casadi6MatrixIdEESaIS2_EED2Ev.exit120: ; preds = %_ZSt8_DestroyIPN6casadi6MatrixIdEES2_EvT_S4_RSaIT0_E.exit.i118, %254
-  %255 = add nuw nsw i32 %.024153, 1
+  %255 = add nuw nsw i32 %.015153, 1
   %exitcond.not = icmp eq i32 %255, 1000000
   br i1 %exitcond.not, label %.loopexit, label %60, !llvm.loop !15
 
@@ -1001,7 +1001,7 @@ _ZNSt6vectorIN6casadi6MatrixIdEESaIS2_EED2Ev.exit131: ; preds = %_ZSt8_DestroyIP
 
 278:                                              ; preds = %220, %.body100, %.body88, %127
   %.2348 = phi i32 [ %.2247, %.body100 ], [ %129, %127 ], [ %.1843, %220 ], [ %.732, %.body88 ]
-  %.23 = phi ptr [ %.22, %.body100 ], [ %128, %127 ], [ %.18, %220 ], [ %.722, %.body88 ]
+  %.23 = phi ptr [ %.22, %.body100 ], [ %128, %127 ], [ %.18, %220 ], [ %.723, %.body88 ]
   call void @_ZNSt6vectorIN6casadi6MatrixIdEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #16
   br label %279
 
@@ -1013,7 +1013,7 @@ _ZNSt6vectorIN6casadi6MatrixIdEESaIS2_EED2Ev.exit131: ; preds = %_ZSt8_DestroyIP
 
 280:                                              ; preds = %279, %119, %.body84, %.body
   %.2550 = phi i32 [ %.2449, %279 ], [ %122, %119 ], [ %.328, %.body84 ], [ %.126, %.body ]
-  %.25 = phi ptr [ %.24, %279 ], [ %121, %119 ], [ %.318, %.body84 ], [ %.116, %.body ]
+  %.25 = phi ptr [ %.24, %279 ], [ %121, %119 ], [ %.319, %.body84 ], [ %.117, %.body ]
   call void @_ZN6casadi8FunctionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #16
   br label %281
 

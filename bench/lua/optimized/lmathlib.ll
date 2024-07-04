@@ -680,8 +680,8 @@ sw.default:                                       ; preds = %entry
   br label %return
 
 sw.epilog:                                        ; preds = %sw.bb4, %sw.bb6
-  %up.0 = phi i64 [ %call8, %sw.bb6 ], [ %call5, %sw.bb4 ]
   %low.0 = phi i64 [ %call7, %sw.bb6 ], [ 1, %sw.bb4 ]
+  %up.0 = phi i64 [ %call8, %sw.bb6 ], [ %call5, %sw.bb4 ]
   %cmp10.not = icmp sgt i64 %low.0, %up.0
   br i1 %cmp10.not, label %lor.rhs, label %lor.end
 

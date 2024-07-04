@@ -18,10 +18,10 @@ define ptr @tvb_get_hpack_huffman_strbuf(ptr noundef %0, ptr noundef %1, i32 nou
 
 .lr.ph.i:                                         ; preds = %4, %32
   %9 = phi i16 [ %28, %32 ], [ 0, %4 ]
-  %.01926.i = phi ptr [ %10, %32 ], [ %5, %4 ]
-  %.02025.i = phi i64 [ %33, %32 ], [ %6, %4 ]
-  %10 = getelementptr i8, ptr %.01926.i, i64 1
-  %11 = load i8, ptr %.01926.i, align 1
+  %.01826.i = phi i64 [ %33, %32 ], [ %6, %4 ]
+  %.01925.i = phi ptr [ %10, %32 ], [ %5, %4 ]
+  %10 = getelementptr i8, ptr %.01925.i, i64 1
+  %11 = load i8, ptr %.01925.i, align 1
   %12 = and i16 %9, 511
   %13 = zext nneg i16 %12 to i64
   %14 = zext i8 %11 to i32
@@ -55,7 +55,7 @@ define ptr @tvb_get_hpack_huffman_strbuf(ptr noundef %0, ptr noundef %1, i32 nou
   br label %32
 
 32:                                               ; preds = %29, %22
-  %33 = add i64 %.02025.i, -1
+  %33 = add i64 %.01826.i, -1
   %.not.i = icmp eq i64 %33, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
@@ -69,8 +69,8 @@ define ptr @tvb_get_hpack_huffman_strbuf(ptr noundef %0, ptr noundef %1, i32 nou
   br label %get_hpack_huffman_strbuf.exit
 
 get_hpack_huffman_strbuf.exit:                    ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %.0.i = phi ptr [ null, %._crit_edge.thread.i ], [ %8, %._crit_edge.i ]
-  ret ptr %.0.i
+  %.020.i = phi ptr [ null, %._crit_edge.thread.i ], [ %8, %._crit_edge.i ]
+  ret ptr %.020.i
 }
 
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

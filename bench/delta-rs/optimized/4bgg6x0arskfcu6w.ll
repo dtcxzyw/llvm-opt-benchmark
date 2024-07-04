@@ -4455,19 +4455,19 @@ define hidden void @_ZN12object_store4path4Path5parse17hd52a62bc34171086E(ptr no
 .critedge.i.i:                                    ; preds = %.critedge.i.i.preheader, %"_ZN4core3ptr56drop_in_place$LT$object_store..path..parts..PathPart$GT$17hf6004428fd8031adE.exit"
   %.sroa.5.0259 = phi i64 [ %.sroa.5.4, %"_ZN4core3ptr56drop_in_place$LT$object_store..path..parts..PathPart$GT$17hf6004428fd8031adE.exit" ], [ %.sroa.031.sroa.4.0.copyload, %.critedge.i.i.preheader ]
   %.sroa.42.0255 = phi i64 [ %.sroa.42.2, %"_ZN4core3ptr56drop_in_place$LT$object_store..path..parts..PathPart$GT$17hf6004428fd8031adE.exit" ], [ 0, %.critedge.i.i.preheader ]
-  %.sroa.9101.sroa.11118.0254 = phi i8 [ %.sroa.9101.sroa.11118.3, %"_ZN4core3ptr56drop_in_place$LT$object_store..path..parts..PathPart$GT$17hf6004428fd8031adE.exit" ], [ %.sroa.9101.sroa.11118.0.extract.trunc, %.critedge.i.i.preheader ]
-  %.sroa.9101.sroa.0.0252 = phi i8 [ %.sroa.9101.sroa.0.5, %"_ZN4core3ptr56drop_in_place$LT$object_store..path..parts..PathPart$GT$17hf6004428fd8031adE.exit" ], [ %.sroa.9101.sroa.0.0.extract.trunc, %.critedge.i.i.preheader ]
-  %147 = trunc nuw i8 %.sroa.9101.sroa.11118.0254 to i1
+  %.sroa.9101.sroa.0.0253 = phi i8 [ %.sroa.9101.sroa.0.5, %"_ZN4core3ptr56drop_in_place$LT$object_store..path..parts..PathPart$GT$17hf6004428fd8031adE.exit" ], [ %.sroa.9101.sroa.0.0.extract.trunc, %.critedge.i.i.preheader ]
+  %.sroa.9101.sroa.11118.0252 = phi i8 [ %.sroa.9101.sroa.11118.3, %"_ZN4core3ptr56drop_in_place$LT$object_store..path..parts..PathPart$GT$17hf6004428fd8031adE.exit" ], [ %.sroa.9101.sroa.11118.0.extract.trunc, %.critedge.i.i.preheader ]
+  %147 = trunc nuw i8 %.sroa.9101.sroa.11118.0252 to i1
   br i1 %147, label %.loopexit206, label %.lr.ph106.i.i
 
 .loopexit.i.i:                                    ; preds = %207, %205, %203
-  %.013.i.i.i = phi i64 [ 1, %203 ], [ %..i.i.i, %207 ], [ 2, %205 ]
-  %148 = add i64 %.013.i.i.i, %.sroa.5.1
+  %.012.i.i.i = phi i64 [ 1, %203 ], [ %..i.i.i, %207 ], [ 2, %205 ]
+  %148 = add i64 %.012.i.i.i, %.sroa.5.1
   br label %.lr.ph106.i.i
 
 .lr.ph106.i.i:                                    ; preds = %.critedge.i.i, %.loopexit.i.i
   %.sroa.5.1 = phi i64 [ %148, %.loopexit.i.i ], [ %.sroa.5.0259, %.critedge.i.i ]
-  %149 = phi i8 [ %151, %.loopexit.i.i ], [ %.sroa.9101.sroa.0.0252, %.critedge.i.i ]
+  %149 = phi i8 [ %151, %.loopexit.i.i ], [ %.sroa.9101.sroa.0.0253, %.critedge.i.i ]
   %150 = trunc nuw i8 %149 to i1
   %151 = xor i8 %149, 1
   %152 = icmp eq i64 %.sroa.5.1, 0
@@ -4601,16 +4601,16 @@ _ZN4core3str11validations15next_code_point17ha72a6b36edb5bb08E.exit.thread.i.i.i
   br label %.loopexit206
 
 .loopexit206.loopexit:                            ; preds = %201, %_ZN4core3str11validations15next_code_point17ha72a6b36edb5bb08E.exit.thread.i.i.i
-  %.sroa.9101.sroa.11118.3.ph = phi i8 [ %.sroa.9101.sroa.11118.0254, %_ZN4core3str11validations15next_code_point17ha72a6b36edb5bb08E.exit.thread.i.i.i ], [ 1, %201 ]
-  %.sroa.42.2.ph = phi i64 [ %.sroa.5.1, %_ZN4core3str11validations15next_code_point17ha72a6b36edb5bb08E.exit.thread.i.i.i ], [ %.sroa.42.0255, %201 ]
-  %.sroa.6.4.pn.ph = phi i64 [ %.sroa.5.1, %_ZN4core3str11validations15next_code_point17ha72a6b36edb5bb08E.exit.thread.i.i.i ], [ %spec.select66, %201 ]
+  %.sroa.9101.sroa.11118.3.ph = phi i8 [ 1, %201 ], [ %.sroa.9101.sroa.11118.0252, %_ZN4core3str11validations15next_code_point17ha72a6b36edb5bb08E.exit.thread.i.i.i ]
+  %.sroa.42.2.ph = phi i64 [ %.sroa.42.0255, %201 ], [ %.sroa.5.1, %_ZN4core3str11validations15next_code_point17ha72a6b36edb5bb08E.exit.thread.i.i.i ]
+  %.sroa.6.4.pn.ph = phi i64 [ %spec.select66, %201 ], [ %.sroa.5.1, %_ZN4core3str11validations15next_code_point17ha72a6b36edb5bb08E.exit.thread.i.i.i ]
   %.sroa.52.2.ph = xor i1 %150, true
   br label %.loopexit206
 
 .loopexit206:                                     ; preds = %.loopexit206.loopexit, %.critedge.i.i, %.thread.i.i.i, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i"
-  %.sroa.9101.sroa.0.5 = phi i8 [ %151, %.thread.i.i.i ], [ %.sroa.9101.sroa.0.0252, %.critedge.i.i ], [ %151, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i" ], [ %151, %.loopexit206.loopexit ]
+  %.sroa.9101.sroa.11118.3 = phi i8 [ 1, %.thread.i.i.i ], [ %.sroa.9101.sroa.11118.0252, %.critedge.i.i ], [ %.sroa.9101.sroa.11118.0252, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i" ], [ %.sroa.9101.sroa.11118.3.ph, %.loopexit206.loopexit ]
+  %.sroa.9101.sroa.0.5 = phi i8 [ %151, %.thread.i.i.i ], [ %.sroa.9101.sroa.0.0253, %.critedge.i.i ], [ %151, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i" ], [ %151, %.loopexit206.loopexit ]
   %.sroa.52.2 = phi i1 [ true, %.thread.i.i.i ], [ true, %.critedge.i.i ], [ false, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i" ], [ %.sroa.52.2.ph, %.loopexit206.loopexit ]
-  %.sroa.9101.sroa.11118.3 = phi i8 [ 1, %.thread.i.i.i ], [ %.sroa.9101.sroa.11118.0254, %.critedge.i.i ], [ %.sroa.9101.sroa.11118.0254, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i" ], [ %.sroa.9101.sroa.11118.3.ph, %.loopexit206.loopexit ]
   %.sroa.42.2 = phi i64 [ %.sroa.42.0255, %.thread.i.i.i ], [ %.sroa.42.0255, %.critedge.i.i ], [ %.sroa.5.1, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i" ], [ %.sroa.42.2.ph, %.loopexit206.loopexit ]
   %.sroa.5.4 = phi i64 [ %.sroa.5.1, %.thread.i.i.i ], [ %.sroa.5.0259, %.critedge.i.i ], [ %.sroa.5.1, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i" ], [ %.sroa.5.1, %.loopexit206.loopexit ]
   %.sroa.6.4.pn = phi i64 [ %spec.select66, %.thread.i.i.i ], [ %spec.select66, %.critedge.i.i ], [ %.sroa.5.1, %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i" ], [ %.sroa.6.4.pn.ph, %.loopexit206.loopexit ]

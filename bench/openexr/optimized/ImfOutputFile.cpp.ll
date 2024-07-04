@@ -482,8 +482,8 @@ lpad12:                                           ; preds = %invoke.cont10
 
 catch.dispatch:                                   ; preds = %lpad12, %lpad8
   %.pn = phi { ptr, i32 } [ %22, %lpad8 ], [ %23, %lpad12 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %24 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7Iex_3_27BaseExcE) #21
   %matches = icmp eq i32 %ehselector.slot.0, %24
   %25 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0) #21
@@ -1407,8 +1407,8 @@ lpad7:                                            ; preds = %invoke.cont5
 
 catch.dispatch:                                   ; preds = %lpad7, %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %0, %lpad ], [ %1, %lpad3 ], [ %11, %lpad7 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %12 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7Iex_3_27BaseExcE) #21
   %matches = icmp eq i32 %ehselector.slot.0, %12
   %13 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0) #21
@@ -2575,11 +2575,11 @@ for.end93:                                        ; preds = %for.inc91
   br label %if.end96
 
 if.end96:                                         ; preds = %for.end93, %for.end
-  %scanLineMax.0 = phi i32 [ %add, %for.end ], [ %12, %for.end93 ]
-  %scanLineMin.0 = phi i32 [ %12, %for.end ], [ %add65, %for.end93 ]
-  %step.0 = phi i32 [ 1, %for.end ], [ -1, %for.end93 ]
-  %stop.0 = phi i32 [ %add48, %for.end ], [ %sub95, %for.end93 ]
   %nextCompressBuffer.0 = phi i32 [ %add47, %for.end ], [ %sub94, %for.end93 ]
+  %stop.0 = phi i32 [ %add48, %for.end ], [ %sub95, %for.end93 ]
+  %step.0 = phi i32 [ 1, %for.end ], [ -1, %for.end93 ]
+  %scanLineMin.0 = phi i32 [ %12, %for.end ], [ %add65, %for.end93 ]
+  %scanLineMax.0 = phi i32 [ %add, %for.end ], [ %12, %for.end93 ]
   %cmp138126 = icmp eq i32 %nextCompressBuffer.0, %stop.0
   %cmp138.fr127 = freeze i1 %cmp138126
   br i1 %cmp138.fr127, label %if.end96.while.cond.outer.split.us_crit_edge, label %while.cond.outer.split.preheader, !llvm.loop !23
@@ -2677,7 +2677,7 @@ lpad33.loopexit.loopexit.split.us:                ; preds = %invoke.cont126.us, 
 
 while.cond.outer.split:                           ; preds = %while.cond.outer.split.preheader, %invoke.cont146
   %indvars.iv = phi i64 [ %24, %while.cond.outer.split.preheader ], [ %indvars.iv.next, %invoke.cont146 ]
-  %nextCompressBuffer.1.ph128 = phi i32 [ %nextCompressBuffer.0, %while.cond.outer.split.preheader ], [ %add147, %invoke.cont146 ]
+  %nextCompressBuffer.1.ph129 = phi i32 [ %nextCompressBuffer.0, %while.cond.outer.split.preheader ], [ %add147, %invoke.cont146 ]
   %45 = load ptr, ptr %_data, align 8
   %missingScanLines = getelementptr inbounds i8, ptr %45, i64 124
   %46 = load i32, ptr %missingScanLines, align 4
@@ -2784,7 +2784,7 @@ if.end137:                                        ; preds = %invoke.cont134
 
 invoke.cont141:                                   ; preds = %if.end137
   %66 = load ptr, ptr %_data, align 8
-  invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_114LineBufferTaskC2EPN13IlmThread_3_29TaskGroupEPNS_10OutputFile4DataEiii(ptr noundef nonnull align 8 dereferenceable(32) %call142, ptr noundef nonnull %taskGroup, ptr noundef %66, i32 noundef %nextCompressBuffer.1.ph128, i32 noundef %scanLineMin.0, i32 noundef %scanLineMax.0)
+  invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_114LineBufferTaskC2EPN13IlmThread_3_29TaskGroupEPNS_10OutputFile4DataEiii(ptr noundef nonnull align 8 dereferenceable(32) %call142, ptr noundef nonnull %taskGroup, ptr noundef %66, i32 noundef %nextCompressBuffer.1.ph129, i32 noundef %scanLineMin.0, i32 noundef %scanLineMax.0)
           to label %invoke.cont145 unwind label %lpad144
 
 invoke.cont145:                                   ; preds = %invoke.cont141
@@ -2792,7 +2792,7 @@ invoke.cont145:                                   ; preds = %invoke.cont141
           to label %invoke.cont146 unwind label %lpad33.loopexit.loopexit.split-lp
 
 invoke.cont146:                                   ; preds = %invoke.cont145
-  %add147 = add nsw i32 %nextCompressBuffer.1.ph128, %step.0
+  %add147 = add nsw i32 %nextCompressBuffer.1.ph129, %step.0
   %cmp138 = icmp eq i32 %add147, %stop.0
   %cmp138.fr = freeze i1 %cmp138
   br i1 %cmp138.fr, label %while.cond.outer.split.us, label %while.cond.outer.split, !llvm.loop !23

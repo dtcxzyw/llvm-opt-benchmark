@@ -348,7 +348,7 @@ default.unreachable160:                           ; preds = %4
 
 114:                                              ; preds = %85, %90, %52, %43, %64, %67, %68
   %.1 = phi i32 [ 6, %90 ], [ 6, %85 ], [ 9, %43 ], [ 9, %52 ], [ 9, %68 ], [ 9, %64 ], [ 9, %67 ]
-  %.0143 = phi i32 [ %79, %90 ], [ %79, %85 ], [ 0, %43 ], [ 0, %52 ], [ 0, %68 ], [ 0, %64 ], [ 0, %67 ]
+  %.0 = phi i32 [ %79, %90 ], [ %79, %85 ], [ 0, %43 ], [ 0, %52 ], [ 0, %68 ], [ 0, %64 ], [ 0, %67 ]
   %115 = getelementptr inbounds i8, ptr %1, i64 80
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 50
@@ -386,7 +386,7 @@ default.unreachable160:                           ; preds = %4
   %132 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 1, ptr %132, align 4
   %133 = getelementptr inbounds i8, ptr %6, i64 8
-  store i32 %.0143, ptr %133, align 4
+  store i32 %.0, ptr %133, align 4
   %134 = call ptr @proto_tree_get_root(ptr noundef %22) #4
   %135 = call i32 @call_dissector_with_data(ptr noundef nonnull %130, ptr noundef nonnull %127, ptr noundef nonnull %1, ptr noundef %134, ptr noundef nonnull %6) #4
   br label %.thread
@@ -397,7 +397,7 @@ default.unreachable160:                           ; preds = %4
   br label %.thread
 
 139:                                              ; preds = %126
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.76, i32 noundef %.0143) #4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.76, i32 noundef %.0) #4
   br label %.thread
 
 .thread:                                          ; preds = %71, %110, %112, %120, %122, %131, %136, %139, %114

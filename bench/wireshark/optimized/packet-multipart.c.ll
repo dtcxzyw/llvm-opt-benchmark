@@ -225,7 +225,7 @@ define internal i32 @dissect_multipart(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not37.i, label %44, label %34
 
 34:                                               ; preds = %31, %28
-  %.031.i = phi ptr [ %33, %31 ], [ null, %28 ]
+  %.0.i = phi ptr [ %33, %31 ], [ null, %28 ]
   %35 = load ptr, ptr %23, align 8
   %36 = tail call noalias ptr @wmem_alloc(ptr noundef %35, i64 noundef 56) #7
   store ptr %15, ptr %36, align 8
@@ -235,11 +235,11 @@ define internal i32 @dissect_multipart(ptr noundef %0, ptr noundef %1, ptr nound
   %39 = trunc i64 %38 to i32
   %40 = getelementptr i8, ptr %36, i64 16
   store i32 %39, ptr %40, align 8
-  %.not38.i = icmp eq ptr %.031.i, null
+  %.not38.i = icmp eq ptr %.0.i, null
   br i1 %.not38.i, label %48, label %41
 
 41:                                               ; preds = %34
-  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.031.i) #8
+  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #8
   %43 = trunc i64 %42 to i32
   br label %48
 
@@ -253,7 +253,7 @@ define internal i32 @dissect_multipart(ptr noundef %0, ptr noundef %1, ptr nound
 48:                                               ; preds = %41, %34
   %.sink.i = phi i32 [ %43, %41 ], [ -1, %34 ]
   %49 = getelementptr inbounds i8, ptr %36, i64 24
-  store ptr %.031.i, ptr %49, align 8
+  store ptr %.0.i, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %36, i64 32
   store i32 %.sink.i, ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %36, i64 40
@@ -532,16 +532,16 @@ find_next_boundary.exit.i:                        ; preds = %177, %159
   br label %187
 
 187:                                              ; preds = %289, %.lr.ph.i
-  %.018828.i = phi i32 [ %.045, %.lr.ph.i ], [ %.1192.i, %289 ]
-  %.019427.i = phi ptr [ null, %.lr.ph.i ], [ %.1195.i, %289 ]
-  %.019726.i = phi ptr [ null, %.lr.ph.i ], [ %.1198.i, %289 ]
-  %.019925.i = phi ptr [ null, %.lr.ph.i ], [ %.1200.i, %289 ]
-  %.020124.i = phi ptr [ null, %.lr.ph.i ], [ %.1202.i, %289 ]
-  %.020323.i = phi ptr [ null, %.lr.ph.i ], [ %.1204.i, %289 ]
-  %.020622.i = phi i32 [ 0, %.lr.ph.i ], [ %.2208.i, %289 ]
-  %188 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.018828.i) #7
-  %189 = add i32 %188, %.018828.i
-  %190 = call i32 @imf_find_field_end(ptr noundef %0, i32 noundef %.018828.i, i32 noundef %189, ptr noundef nonnull %8) #7
+  %.019128.i = phi i32 [ %.045, %.lr.ph.i ], [ %.1207.i, %289 ]
+  %.019227.i = phi i32 [ 0, %.lr.ph.i ], [ %.2194.i, %289 ]
+  %.019526.i = phi ptr [ null, %.lr.ph.i ], [ %.1196.i, %289 ]
+  %.019725.i = phi ptr [ null, %.lr.ph.i ], [ %.1198.i, %289 ]
+  %.019924.i = phi ptr [ null, %.lr.ph.i ], [ %.1200.i, %289 ]
+  %.020123.i = phi ptr [ null, %.lr.ph.i ], [ %.1202.i, %289 ]
+  %.020322.i = phi ptr [ null, %.lr.ph.i ], [ %.1204.i, %289 ]
+  %188 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.019128.i) #7
+  %189 = add i32 %188, %.019128.i
+  %190 = call i32 @imf_find_field_end(ptr noundef %0, i32 noundef %.019128.i, i32 noundef %189, ptr noundef nonnull %8) #7
   %191 = load i32, ptr %8, align 4
   %.not225.i = icmp eq i32 %191, 0
   %192 = add i32 %190, 2
@@ -563,10 +563,10 @@ find_next_boundary.exit.i:                        ; preds = %177, %159
   br label %198
 
 198:                                              ; preds = %197, %196, %187
-  %.1192.i = phi i32 [ %.0.i.i, %196 ], [ %spec.select.i, %197 ], [ %192, %187 ]
+  %.1207.i = phi i32 [ %.0.i.i, %196 ], [ %spec.select.i, %197 ], [ %192, %187 ]
   %199 = load ptr, ptr %23, align 8
-  %200 = sub i32 %.1192.i, %.018828.i
-  %201 = call ptr @tvb_get_string_enc(ptr noundef %199, ptr noundef %0, i32 noundef %.018828.i, i32 noundef %200, i32 noundef 0) #7
+  %200 = sub i32 %.1207.i, %.019128.i
+  %201 = call ptr @tvb_get_string_enc(ptr noundef %199, ptr noundef %0, i32 noundef %.019128.i, i32 noundef %200, i32 noundef 0) #7
   store i32 0, ptr %9, align 4
   %202 = load ptr, ptr %23, align 8
   %203 = call fastcc ptr @unfold_and_compact_mime_header(ptr noundef %202, ptr noundef %201, ptr noundef nonnull %9)
@@ -622,7 +622,7 @@ is_known_multipart_header.exit.thread.i:          ; preds = %225, %is_known_mult
   br i1 %227, label %228, label %is_known_multipart_header.exit.thread._crit_edge.i
 
 228:                                              ; preds = %is_known_multipart_header.exit.thread.i
-  %229 = call ptr @proto_tree_add_format_text(ptr noundef %128, ptr noundef %0, i32 noundef %.018828.i, i32 noundef %200) #7
+  %229 = call ptr @proto_tree_add_format_text(ptr noundef %128, ptr noundef %0, i32 noundef %.019128.i, i32 noundef %200) #7
   br label %289
 
 230:                                              ; preds = %is_known_multipart_header.exit.i
@@ -635,8 +635,8 @@ is_known_multipart_header.exit.thread.i:          ; preds = %225, %is_known_mult
   %236 = getelementptr [10 x i32], ptr @hf_header_array, i64 0, i64 %235
   %237 = load i32, ptr %236, align 4
   %238 = load ptr, ptr %23, align 8
-  %239 = call ptr @tvb_format_text(ptr noundef %238, ptr noundef %0, i32 noundef %.018828.i, i32 noundef %200) #7
-  %240 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %128, i32 noundef %237, ptr noundef %0, i32 noundef %.018828.i, i32 noundef %200, ptr noundef %234, ptr noundef nonnull @.str.78, ptr noundef %239) #7
+  %239 = call ptr @tvb_format_text(ptr noundef %238, ptr noundef %0, i32 noundef %.019128.i, i32 noundef %200) #7
+  %240 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %128, i32 noundef %237, ptr noundef %0, i32 noundef %.019128.i, i32 noundef %200, ptr noundef %234, ptr noundef nonnull @.str.78, ptr noundef %239) #7
   switch i32 %.015.i.i, label %289 [
     i32 9, label %241
     i32 8, label %252
@@ -691,7 +691,7 @@ is_known_multipart_header.exit.thread.i:          ; preds = %225, %is_known_mult
   %262 = call ptr @ws_find_media_type_parameter(ptr noundef %261, ptr noundef %storemerge.i, ptr noundef nonnull @.str.81) #7
   %263 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %260, ptr noundef nonnull dereferenceable(25) @.str.82, i64 noundef 24) #8
   %264 = icmp eq i32 %263, 0
-  %spec.select243.i = select i1 %264, i32 1, i32 %.020622.i
+  %spec.select243.i = select i1 %264, i32 1, i32 %.019227.i
   %265 = load ptr, ptr %49, align 8
   %266 = icmp ne ptr %265, null
   %or.cond.i60 = and i1 %186, %266
@@ -747,31 +747,31 @@ is_known_multipart_header.exit.thread.i:          ; preds = %225, %is_known_mult
   br label %289
 
 289:                                              ; preds = %286, %283, %280, %274, %268, %258, %249, %230, %228
-  %.2208.i = phi i32 [ %.020622.i, %228 ], [ %.020622.i, %230 ], [ %.020622.i, %286 ], [ %.020622.i, %283 ], [ %.020622.i, %280 ], [ %.020622.i, %274 ], [ 0, %268 ], [ %spec.select243.i, %258 ], [ %.020622.i, %249 ]
-  %.1204.i = phi ptr [ %.020323.i, %228 ], [ %.020323.i, %230 ], [ %.020323.i, %286 ], [ %.020323.i, %283 ], [ %.020323.i, %280 ], [ %.020323.i, %274 ], [ %262, %268 ], [ %262, %258 ], [ %.020323.i, %249 ]
-  %.1202.i = phi ptr [ %.020124.i, %228 ], [ %.020124.i, %230 ], [ %.020124.i, %286 ], [ %285, %283 ], [ %.020124.i, %280 ], [ %.020124.i, %274 ], [ %.020124.i, %268 ], [ %.020124.i, %258 ], [ %.020124.i, %249 ]
-  %.1200.i = phi ptr [ %.019925.i, %228 ], [ %.019925.i, %230 ], [ %.019925.i, %286 ], [ %.019925.i, %283 ], [ %.019925.i, %280 ], [ %276, %274 ], [ %.019925.i, %268 ], [ %.019925.i, %258 ], [ %.019925.i, %249 ]
-  %.1198.i = phi ptr [ %.019726.i, %228 ], [ %.019726.i, %230 ], [ %.019726.i, %286 ], [ %.019726.i, %283 ], [ %282, %280 ], [ %.019726.i, %274 ], [ %.019726.i, %268 ], [ %.019726.i, %258 ], [ %.019726.i, %249 ]
-  %.1195.i = phi ptr [ %.019427.i, %228 ], [ %.019427.i, %230 ], [ %.019427.i, %286 ], [ %.019427.i, %283 ], [ %.019427.i, %280 ], [ %.019427.i, %274 ], [ %260, %268 ], [ %260, %258 ], [ %.019427.i, %249 ]
+  %.1204.i = phi ptr [ %.020322.i, %228 ], [ %.020322.i, %230 ], [ %.020322.i, %286 ], [ %.020322.i, %283 ], [ %.020322.i, %280 ], [ %.020322.i, %274 ], [ %260, %268 ], [ %260, %258 ], [ %.020322.i, %249 ]
+  %.1202.i = phi ptr [ %.020123.i, %228 ], [ %.020123.i, %230 ], [ %.020123.i, %286 ], [ %.020123.i, %283 ], [ %282, %280 ], [ %.020123.i, %274 ], [ %.020123.i, %268 ], [ %.020123.i, %258 ], [ %.020123.i, %249 ]
+  %.1200.i = phi ptr [ %.019924.i, %228 ], [ %.019924.i, %230 ], [ %.019924.i, %286 ], [ %.019924.i, %283 ], [ %.019924.i, %280 ], [ %276, %274 ], [ %.019924.i, %268 ], [ %.019924.i, %258 ], [ %.019924.i, %249 ]
+  %.1198.i = phi ptr [ %.019725.i, %228 ], [ %.019725.i, %230 ], [ %.019725.i, %286 ], [ %285, %283 ], [ %.019725.i, %280 ], [ %.019725.i, %274 ], [ %.019725.i, %268 ], [ %.019725.i, %258 ], [ %.019725.i, %249 ]
+  %.1196.i = phi ptr [ %.019526.i, %228 ], [ %.019526.i, %230 ], [ %.019526.i, %286 ], [ %.019526.i, %283 ], [ %.019526.i, %280 ], [ %.019526.i, %274 ], [ %262, %268 ], [ %262, %258 ], [ %.019526.i, %249 ]
+  %.2194.i = phi i32 [ %.019227.i, %228 ], [ %.019227.i, %230 ], [ %.019227.i, %286 ], [ %.019227.i, %283 ], [ %.019227.i, %280 ], [ %.019227.i, %274 ], [ 0, %268 ], [ %spec.select243.i, %258 ], [ %.019227.i, %249 ]
   %290 = load i32, ptr %8, align 4
   %.not.i59 = icmp eq i32 %290, 0
   br i1 %.not.i59, label %187, label %is_known_multipart_header.exit.thread._crit_edge.i, !llvm.loop !8
 
 is_known_multipart_header.exit.thread._crit_edge.i: ; preds = %289, %is_known_multipart_header.exit.thread.i, %198, %.preheader.i
-  %.0206.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.2208.i, %289 ], [ %.020622.i, %198 ], [ %.020622.i, %is_known_multipart_header.exit.thread.i ]
-  %.0203.lcssa.i = phi ptr [ null, %.preheader.i ], [ %.1204.i, %289 ], [ %.020323.i, %198 ], [ %.020323.i, %is_known_multipart_header.exit.thread.i ]
-  %.0201.lcssa.i = phi ptr [ null, %.preheader.i ], [ %.1202.i, %289 ], [ %.020124.i, %198 ], [ %.020124.i, %is_known_multipart_header.exit.thread.i ]
-  %.0199.lcssa.i = phi ptr [ null, %.preheader.i ], [ %.1200.i, %289 ], [ %.019925.i, %198 ], [ %.019925.i, %is_known_multipart_header.exit.thread.i ]
-  %.0197.lcssa.i = phi ptr [ null, %.preheader.i ], [ %.1198.i, %289 ], [ %.019726.i, %198 ], [ %.019726.i, %is_known_multipart_header.exit.thread.i ]
-  %.0194.lcssa.i = phi ptr [ null, %.preheader.i ], [ %.1195.i, %289 ], [ %.019427.i, %198 ], [ %.019427.i, %is_known_multipart_header.exit.thread.i ]
-  %.2193.i = phi i32 [ 0, %.preheader.i ], [ %.1192.i, %289 ], [ %.018828.i, %198 ], [ %.018828.i, %is_known_multipart_header.exit.thread.i ]
-  %291 = sub i32 %.0.i.i, %.2193.i
-  %292 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.2193.i, i32 noundef %291) #7
+  %.0203.lcssa.i = phi ptr [ null, %.preheader.i ], [ %.1204.i, %289 ], [ %.020322.i, %198 ], [ %.020322.i, %is_known_multipart_header.exit.thread.i ]
+  %.0201.lcssa.i = phi ptr [ null, %.preheader.i ], [ %.1202.i, %289 ], [ %.020123.i, %198 ], [ %.020123.i, %is_known_multipart_header.exit.thread.i ]
+  %.0199.lcssa.i = phi ptr [ null, %.preheader.i ], [ %.1200.i, %289 ], [ %.019924.i, %198 ], [ %.019924.i, %is_known_multipart_header.exit.thread.i ]
+  %.0197.lcssa.i = phi ptr [ null, %.preheader.i ], [ %.1198.i, %289 ], [ %.019725.i, %198 ], [ %.019725.i, %is_known_multipart_header.exit.thread.i ]
+  %.0195.lcssa.i = phi ptr [ null, %.preheader.i ], [ %.1196.i, %289 ], [ %.019526.i, %198 ], [ %.019526.i, %is_known_multipart_header.exit.thread.i ]
+  %.0192.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.2194.i, %289 ], [ %.019227.i, %198 ], [ %.019227.i, %is_known_multipart_header.exit.thread.i ]
+  %.2208.i = phi i32 [ 0, %.preheader.i ], [ %.1207.i, %289 ], [ %.019128.i, %198 ], [ %.019128.i, %is_known_multipart_header.exit.thread.i ]
+  %291 = sub i32 %.0.i.i, %.2208.i
+  %292 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.2208.i, i32 noundef %291) #7
   %293 = load ptr, ptr %49, align 8
   %294 = icmp ne ptr %293, null
   %295 = icmp eq i32 %.0, 1
   %or.cond3.i = and i1 %295, %294
-  %296 = icmp ne i32 %.0206.lcssa.i, 0
+  %296 = icmp ne i32 %.0192.lcssa.i, 0
   %or.cond5.i = select i1 %or.cond3.i, i1 %296, i1 false
   br i1 %or.cond5.i, label %297, label %317
 
@@ -817,40 +817,40 @@ dissect_kerberos_encrypted_message.exit.i:        ; preds = %297
   br label %.thread.i58
 
 317:                                              ; preds = %310, %is_known_multipart_header.exit.thread._crit_edge.i
-  %.3.i = phi i32 [ 0, %310 ], [ %.0206.lcssa.i, %is_known_multipart_header.exit.thread._crit_edge.i ]
-  %.2196.i = phi ptr [ %311, %310 ], [ %.0194.lcssa.i, %is_known_multipart_header.exit.thread._crit_edge.i ]
-  %.0190.i = phi ptr [ %309, %310 ], [ %292, %is_known_multipart_header.exit.thread._crit_edge.i ]
+  %.2205.i = phi ptr [ %311, %310 ], [ %.0203.lcssa.i, %is_known_multipart_header.exit.thread._crit_edge.i ]
+  %.3.i = phi i32 [ 0, %310 ], [ %.0192.lcssa.i, %is_known_multipart_header.exit.thread._crit_edge.i ]
+  %.0189.i = phi ptr [ %309, %310 ], [ %292, %is_known_multipart_header.exit.thread._crit_edge.i ]
   %318 = icmp eq i32 %.3.i, 0
-  %319 = icmp ne ptr %.2196.i, null
+  %319 = icmp ne ptr %.2205.i, null
   %or.cond7.i = select i1 %318, i1 %319, i1 false
   br i1 %or.cond7.i, label %320, label %.thread.i58
 
 320:                                              ; preds = %317
-  %321 = icmp ne ptr %.0197.lcssa.i, null
+  %321 = icmp ne ptr %.0201.lcssa.i, null
   %322 = load i32, ptr @remove_base64_encoding, align 4
   %323 = icmp ne i32 %322, 0
   %or.cond9.i = select i1 %321, i1 %323, i1 false
   br i1 %or.cond9.i, label %324, label %333
 
 324:                                              ; preds = %320
-  %325 = call i32 @g_ascii_strncasecmp(ptr noundef nonnull %.0197.lcssa.i, ptr noundef nonnull @.str.84, i64 noundef 6) #7
+  %325 = call i32 @g_ascii_strncasecmp(ptr noundef nonnull %.0201.lcssa.i, ptr noundef nonnull @.str.84, i64 noundef 6) #7
   %.not236.i = icmp eq i32 %325, 0
   br i1 %.not236.i, label %326, label %333
 
 326:                                              ; preds = %324
-  %.not237.i = icmp eq ptr %.0201.lcssa.i, null
-  %.not238.i = icmp eq ptr %.0203.lcssa.i, null
-  %327 = select i1 %.not238.i, ptr %.2196.i, ptr %.0203.lcssa.i
-  %328 = select i1 %.not237.i, ptr %327, ptr %.0201.lcssa.i
+  %.not237.i = icmp eq ptr %.0197.lcssa.i, null
+  %.not238.i = icmp eq ptr %.0195.lcssa.i, null
+  %327 = select i1 %.not238.i, ptr %.2205.i, ptr %.0195.lcssa.i
+  %328 = select i1 %.not237.i, ptr %327, ptr %.0197.lcssa.i
   %329 = load ptr, ptr %23, align 8
-  %330 = call i32 @tvb_reported_length(ptr noundef %.0190.i) #7
-  %331 = call ptr @tvb_get_string_enc(ptr noundef %329, ptr noundef %.0190.i, i32 noundef 0, i32 noundef %330, i32 noundef 0) #7
-  %332 = call ptr @base64_to_tvb(ptr noundef %.0190.i, ptr noundef %331) #7
+  %330 = call i32 @tvb_reported_length(ptr noundef %.0189.i) #7
+  %331 = call ptr @tvb_get_string_enc(ptr noundef %329, ptr noundef %.0189.i, i32 noundef 0, i32 noundef %330, i32 noundef 0) #7
+  %332 = call ptr @base64_to_tvb(ptr noundef %.0189.i, ptr noundef %331) #7
   call void @add_new_data_source(ptr noundef %1, ptr noundef %332, ptr noundef nonnull %328) #7
   br label %333
 
 333:                                              ; preds = %326, %324, %320
-  %.1.i = phi ptr [ %.0190.i, %324 ], [ %332, %326 ], [ %.0190.i, %320 ]
+  %.1.i = phi ptr [ %.0189.i, %324 ], [ %332, %326 ], [ %.0189.i, %320 ]
   %334 = icmp ne ptr %.0199.lcssa.i, null
   %335 = load i32, ptr @uncompress_data, align 4
   %336 = icmp ne i32 %335, 0
@@ -889,19 +889,19 @@ dissect_kerberos_encrypted_message.exit.i:        ; preds = %297
 352:                                              ; preds = %351, %349, %346, %333
   %.2.i = phi ptr [ %350, %351 ], [ %.1.i, %349 ], [ %.1.i, %346 ], [ %.1.i, %333 ]
   %353 = load ptr, ptr @multipart_media_subdissector_table, align 8
-  %354 = call i32 @dissector_try_string(ptr noundef %353, ptr noundef nonnull %.2196.i, ptr noundef %.2.i, ptr noundef %1, ptr noundef %128, ptr noundef nonnull %7) #7
+  %354 = call i32 @dissector_try_string(ptr noundef %353, ptr noundef nonnull %.2205.i, ptr noundef %.2.i, ptr noundef %1, ptr noundef %128, ptr noundef nonnull %7) #7
   %.not240.i = icmp eq i32 %354, 0
   br i1 %.not240.i, label %355, label %.critedge.i
 
 355:                                              ; preds = %352
   %356 = load ptr, ptr @media_type_dissector_table, align 8
-  %357 = call i32 @dissector_try_string(ptr noundef %356, ptr noundef nonnull %.2196.i, ptr noundef %.2.i, ptr noundef %1, ptr noundef %128, ptr noundef nonnull %7) #7
+  %357 = call i32 @dissector_try_string(ptr noundef %356, ptr noundef nonnull %.2205.i, ptr noundef %.2.i, ptr noundef %1, ptr noundef %128, ptr noundef nonnull %7) #7
   %358 = icmp eq i32 %357, 0
   br i1 %358, label %359, label %.critedge.i
 
 359:                                              ; preds = %355
   %360 = load ptr, ptr %14, align 8
-  store ptr %.2196.i, ptr %14, align 8
+  store ptr %.2205.i, ptr %14, align 8
   %361 = load ptr, ptr @media_handle, align 8
   %362 = call i32 @call_dissector_with_data(ptr noundef %361, ptr noundef %.2.i, ptr noundef %1, ptr noundef %128, ptr noundef nonnull %7) #7
   store ptr %360, ptr %14, align 8
@@ -912,8 +912,8 @@ dissect_kerberos_encrypted_message.exit.i:        ; preds = %297
   br label %process_body_part.exit
 
 .thread.i58:                                      ; preds = %317, %315, %313
-  %.019011.i = phi ptr [ %.0190.i, %317 ], [ %292, %313 ], [ %314, %315 ]
-  %363 = call i32 @call_data_dissector(ptr noundef %.019011.i, ptr noundef %1, ptr noundef %128) #7
+  %.018911.i = phi ptr [ %.0189.i, %317 ], [ %292, %313 ], [ %314, %315 ]
+  %363 = call i32 @call_data_dissector(ptr noundef %.018911.i, ptr noundef %1, ptr noundef %128) #7
   br label %process_body_part.exit
 
 process_body_part.exit.thread:                    ; preds = %find_next_boundary.exit.i, %268, %267, %find_next_boundary.exit.thread.i
@@ -1029,13 +1029,13 @@ define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr n
   br label %.thread139
 
 .thread139:                                       ; preds = %.thread139.backedge, %4
-  %.098 = phi ptr [ %1, %4 ], [ %.098.be, %.thread139.backedge ]
-  %.092 = phi i8 [ %5, %4 ], [ %.092.be, %.thread139.backedge ]
+  %.097 = phi ptr [ %1, %4 ], [ %.097.be, %.thread139.backedge ]
+  %.091 = phi i8 [ %5, %4 ], [ %.091.be, %.thread139.backedge ]
   %.088 = phi ptr [ %8, %4 ], [ %.088.be, %.thread139.backedge ]
   %.085 = phi i8 [ 0, %4 ], [ %.085.be, %.thread139.backedge ]
   %.083 = phi i8 [ 0, %4 ], [ %.083.be, %.thread139.backedge ]
   %.0 = phi i32 [ -1, %4 ], [ %.0.be, %.thread139.backedge ]
-  switch i8 %.092, label %52 [
+  switch i8 %.091, label %52 [
     i8 0, label %61
     i8 58, label %10
     i8 61, label %17
@@ -1056,21 +1056,21 @@ define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr n
   %.1 = select i1 %11, i32 %14, i32 %.0
   %15 = getelementptr i8, ptr %.088, i64 1
   store i8 58, ptr %.088, align 1
-  %16 = getelementptr i8, ptr %.098, i64 1
+  %16 = getelementptr i8, ptr %.097, i64 1
   br label %.thread
 
 17:                                               ; preds = %.thread139, %.thread139, %.thread139
   %18 = getelementptr i8, ptr %.088, i64 1
-  store i8 %.092, ptr %.088, align 1
-  %19 = getelementptr i8, ptr %.098, i64 1
+  store i8 %.091, ptr %.088, align 1
+  %19 = getelementptr i8, ptr %.097, i64 1
   br label %.thread
 
 20:                                               ; preds = %.thread139, %.thread139
-  %21 = getelementptr i8, ptr %.098, i64 1
+  %21 = getelementptr i8, ptr %.097, i64 1
   br label %.thread
 
 22:                                               ; preds = %.thread139
-  %23 = getelementptr i8, ptr %.098, i64 1
+  %23 = getelementptr i8, ptr %.097, i64 1
   %24 = load i8, ptr %23, align 1
   switch i8 %24, label %27 [
     i8 0, label %.thread139.backedge
@@ -1079,7 +1079,7 @@ define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr n
   ]
 
 25:                                               ; preds = %22, %22
-  %26 = getelementptr i8, ptr %.098, i64 2
+  %26 = getelementptr i8, ptr %.097, i64 2
   br label %.thread
 
 27:                                               ; preds = %22
@@ -1087,7 +1087,7 @@ define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr n
   br label %.thread139.backedge
 
 28:                                               ; preds = %.thread139
-  %29 = getelementptr i8, ptr %.098, i64 1
+  %29 = getelementptr i8, ptr %.097, i64 1
   %30 = load i8, ptr %29, align 1
   switch i8 %30, label %39 [
     i8 0, label %.thread139.backedge
@@ -1097,8 +1097,8 @@ define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr n
   ]
 
 .thread139.backedge:                              ; preds = %28, %39, %31, %36, %22, %27, %.thread146, %.thread
-  %.098.be = phi ptr [ %.4102128, %.thread ], [ %.2100, %.thread146 ], [ %.098, %27 ], [ %.098, %22 ], [ %.098, %36 ], [ %.098, %31 ], [ %.098, %39 ], [ %.098, %28 ]
-  %.092.be = phi i8 [ %60, %.thread ], [ 0, %.thread146 ], [ 0, %27 ], [ %24, %22 ], [ 0, %36 ], [ %33, %31 ], [ 0, %39 ], [ %30, %28 ]
+  %.097.be = phi ptr [ %.4101128, %.thread ], [ %.299, %.thread146 ], [ %.097, %27 ], [ %.097, %22 ], [ %.097, %36 ], [ %.097, %31 ], [ %.097, %39 ], [ %.097, %28 ]
+  %.091.be = phi i8 [ %60, %.thread ], [ 0, %.thread146 ], [ 0, %27 ], [ %24, %22 ], [ 0, %36 ], [ %33, %31 ], [ 0, %39 ], [ %30, %28 ]
   %.088.be = phi ptr [ %.5130, %.thread ], [ %42, %.thread146 ], [ %.088, %27 ], [ %.088, %22 ], [ %.088, %36 ], [ %.088, %31 ], [ %.088, %39 ], [ %.088, %28 ]
   %.085.be = phi i8 [ %.287132, %.thread ], [ %.085, %.thread146 ], [ %.085, %27 ], [ %.085, %22 ], [ %.085, %36 ], [ %.085, %31 ], [ %.085, %39 ], [ %.085, %28 ]
   %.083.be = phi i8 [ %.184134, %.thread ], [ 0, %.thread146 ], [ 0, %27 ], [ %24, %22 ], [ 0, %36 ], [ %33, %31 ], [ 0, %39 ], [ %30, %28 ]
@@ -1106,7 +1106,7 @@ define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr n
   br label %.thread139, !llvm.loop !10
 
 31:                                               ; preds = %28
-  %32 = getelementptr i8, ptr %.098, i64 2
+  %32 = getelementptr i8, ptr %.097, i64 2
   %33 = load i8, ptr %32, align 1
   switch i8 %33, label %36 [
     i8 0, label %.thread139.backedge
@@ -1115,7 +1115,7 @@ define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr n
   ]
 
 34:                                               ; preds = %31, %31
-  %35 = getelementptr i8, ptr %.098, i64 3
+  %35 = getelementptr i8, ptr %.097, i64 3
   br label %.thread
 
 36:                                               ; preds = %31
@@ -1123,7 +1123,7 @@ define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr n
   br label %.thread139.backedge
 
 37:                                               ; preds = %28, %28
-  %38 = getelementptr i8, ptr %.098, i64 2
+  %38 = getelementptr i8, ptr %.097, i64 2
   br label %.thread
 
 39:                                               ; preds = %28
@@ -1141,8 +1141,8 @@ define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr n
 
 43:                                               ; preds = %40, %51
   %.189153 = phi ptr [ %41, %40 ], [ %.290, %51 ]
-  %.199152 = phi ptr [ %.098, %40 ], [ %.2100, %51 ]
-  %44 = getelementptr i8, ptr %.199152, i64 1
+  %.198152 = phi ptr [ %.097, %40 ], [ %.299, %51 ]
+  %44 = getelementptr i8, ptr %.198152, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = getelementptr i8, ptr %.189153, i64 1
   store i8 %45, ptr %.189153, align 1
@@ -1152,17 +1152,17 @@ define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr n
   ]
 
 47:                                               ; preds = %43
-  %48 = getelementptr i8, ptr %.199152, i64 2
+  %48 = getelementptr i8, ptr %.198152, i64 2
   %49 = load i8, ptr %48, align 1
   %50 = getelementptr i8, ptr %.189153, i64 2
   store i8 %49, ptr %46, align 1
   br label %51
 
 51:                                               ; preds = %43, %47
-  %.2100 = phi ptr [ %48, %47 ], [ %44, %43 ]
-  %.294 = phi i8 [ %49, %47 ], [ %45, %43 ]
+  %.299 = phi ptr [ %48, %47 ], [ %44, %43 ]
+  %.293 = phi i8 [ %49, %47 ], [ %45, %43 ]
   %.290 = phi ptr [ %50, %47 ], [ %46, %43 ]
-  %.not116 = icmp eq i8 %.294, 0
+  %.not116 = icmp eq i8 %.293, 0
   br i1 %.not116, label %.thread146, label %43, !llvm.loop !11
 
 52:                                               ; preds = %.thread139
@@ -1179,21 +1179,21 @@ define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr n
 55:                                               ; preds = %52, %53
   %.4 = phi ptr [ %54, %53 ], [ %.088, %52 ]
   %56 = getelementptr i8, ptr %.4, i64 1
-  store i8 %.092, ptr %.4, align 1
-  %57 = getelementptr i8, ptr %.098, i64 1
+  store i8 %.091, ptr %.4, align 1
+  %57 = getelementptr i8, ptr %.097, i64 1
   br label %.thread
 
 58:                                               ; preds = %43
-  %59 = getelementptr i8, ptr %.199152, i64 2
+  %59 = getelementptr i8, ptr %.198152, i64 2
   br label %.thread
 
 .thread:                                          ; preds = %55, %37, %34, %25, %20, %17, %10, %58
   %.2136 = phi i32 [ %.0, %58 ], [ %.0, %55 ], [ %.0, %37 ], [ %.0, %34 ], [ %.0, %25 ], [ %.0, %20 ], [ %.0, %17 ], [ %.1, %10 ]
   %.184134 = phi i8 [ 0, %58 ], [ 0, %55 ], [ 1, %37 ], [ 1, %34 ], [ 1, %25 ], [ 1, %20 ], [ 0, %17 ], [ 0, %10 ]
-  %.287132 = phi i8 [ %.085, %58 ], [ 0, %55 ], [ %.085, %37 ], [ %.085, %34 ], [ %.085, %25 ], [ %.085, %20 ], [ %.092, %17 ], [ 58, %10 ]
+  %.287132 = phi i8 [ %.085, %58 ], [ 0, %55 ], [ %.085, %37 ], [ %.085, %34 ], [ %.085, %25 ], [ %.085, %20 ], [ %.091, %17 ], [ 58, %10 ]
   %.5130 = phi ptr [ %46, %58 ], [ %56, %55 ], [ %.088, %37 ], [ %.088, %34 ], [ %.088, %25 ], [ %.088, %20 ], [ %18, %17 ], [ %15, %10 ]
-  %.4102128 = phi ptr [ %59, %58 ], [ %57, %55 ], [ %38, %37 ], [ %35, %34 ], [ %26, %25 ], [ %21, %20 ], [ %19, %17 ], [ %16, %10 ]
-  %60 = load i8, ptr %.4102128, align 1
+  %.4101128 = phi ptr [ %59, %58 ], [ %57, %55 ], [ %38, %37 ], [ %35, %34 ], [ %26, %25 ], [ %21, %20 ], [ %19, %17 ], [ %16, %10 ]
+  %60 = load i8, ptr %.4101128, align 1
   br label %.thread139.backedge
 
 61:                                               ; preds = %.thread139
@@ -1202,8 +1202,8 @@ define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr n
   br label %62
 
 62:                                               ; preds = %3, %61
-  %.091 = phi ptr [ %8, %61 ], [ null, %3 ]
-  ret ptr %.091
+  %.0102 = phi ptr [ %8, %61 ], [ null, %3 ]
+  ret ptr %.0102
 }
 
 declare ptr @ws_find_media_type_parameter(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

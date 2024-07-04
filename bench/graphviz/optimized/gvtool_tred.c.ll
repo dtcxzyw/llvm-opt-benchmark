@@ -62,17 +62,17 @@ define internal fastcc range(i32 0, 2) i32 @dfs(ptr noundef %0, ptr noundef read
   br i1 %.not45, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %25
-  %.03846 = phi ptr [ %10, %25 ], [ %9, %3 ]
-  %10 = tail call ptr @agnxtin(ptr noundef %5, ptr noundef nonnull %.03846) #3
-  %11 = icmp eq ptr %.03846, %1
+  %.046 = phi ptr [ %10, %25 ], [ %9, %3 ]
+  %10 = tail call ptr @agnxtin(ptr noundef %5, ptr noundef nonnull %.046) #3
+  %11 = icmp eq ptr %.046, %1
   br i1 %11, label %25, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = load i32, ptr %.03846, align 8
+  %13 = load i32, ptr %.046, align 8
   %14 = and i32 %13, 3
   %15 = icmp eq i32 %14, 3
   %.idx43 = select i1 %15, i64 0, i64 64
-  %16 = getelementptr inbounds i8, ptr %.03846, i64 %.idx43
+  %16 = getelementptr inbounds i8, ptr %.046, i64 %.idx43
   %17 = getelementptr inbounds i8, ptr %16, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
@@ -83,7 +83,7 @@ define internal fastcc range(i32 0, 2) i32 @dfs(ptr noundef %0, ptr noundef read
   br i1 %.not44, label %25, label %23
 
 23:                                               ; preds = %12
-  %24 = tail call i32 @agdelete(ptr noundef %5, ptr noundef nonnull %.03846) #3
+  %24 = tail call i32 @agdelete(ptr noundef %5, ptr noundef nonnull %.046) #3
   br label %25
 
 25:                                               ; preds = %12, %23, %.lr.ph
@@ -96,13 +96,13 @@ define internal fastcc range(i32 0, 2) i32 @dfs(ptr noundef %0, ptr noundef read
   br i1 %.not4047, label %._crit_edge52, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %._crit_edge, %62
-  %.049 = phi i32 [ %.1, %62 ], [ %2, %._crit_edge ]
-  %.13948 = phi ptr [ %63, %62 ], [ %26, %._crit_edge ]
-  %27 = load i32, ptr %.13948, align 8
+  %.149 = phi ptr [ %63, %62 ], [ %26, %._crit_edge ]
+  %.03848 = phi i32 [ %.139, %62 ], [ %2, %._crit_edge ]
+  %27 = load i32, ptr %.149, align 8
   %28 = and i32 %27, 3
   %29 = icmp eq i32 %28, 2
-  %30 = getelementptr inbounds i8, ptr %.13948, i64 -64
-  %31 = select i1 %29, ptr %.13948, ptr %30
+  %30 = getelementptr inbounds i8, ptr %.149, i64 -64
+  %31 = select i1 %29, ptr %.149, ptr %30
   %32 = getelementptr inbounds i8, ptr %31, i64 56
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 16
@@ -113,7 +113,7 @@ define internal fastcc range(i32 0, 2) i32 @dfs(ptr noundef %0, ptr noundef read
   br i1 %.not41, label %59, label %38
 
 38:                                               ; preds = %.lr.ph51
-  %.not42 = icmp eq i32 %.049, 0
+  %.not42 = icmp eq i32 %.03848, 0
   br i1 %.not42, label %39, label %62
 
 39:                                               ; preds = %38
@@ -121,18 +121,18 @@ define internal fastcc range(i32 0, 2) i32 @dfs(ptr noundef %0, ptr noundef read
   %41 = tail call ptr @agnameof(ptr noundef %5) #3
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.2, ptr noundef %41) #4
   %43 = load ptr, ptr @stderr, align 8
-  %44 = load i32, ptr %.13948, align 8
+  %44 = load i32, ptr %.149, align 8
   %45 = and i32 %44, 3
   %46 = icmp eq i32 %45, 3
   %.idx = select i1 %46, i64 0, i64 64
-  %47 = getelementptr inbounds i8, ptr %.13948, i64 %.idx
+  %47 = getelementptr inbounds i8, ptr %.149, i64 %.idx
   %48 = getelementptr inbounds i8, ptr %47, i64 56
   %49 = load ptr, ptr %48, align 8
   %50 = tail call ptr @agnameof(ptr noundef %49) #3
-  %51 = load i32, ptr %.13948, align 8
+  %51 = load i32, ptr %.149, align 8
   %52 = and i32 %51, 3
   %53 = icmp eq i32 %52, 2
-  %54 = select i1 %53, ptr %.13948, ptr %30
+  %54 = select i1 %53, ptr %.149, ptr %30
   %55 = getelementptr inbounds i8, ptr %54, i64 56
   %56 = load ptr, ptr %55, align 8
   %57 = tail call ptr @agnameof(ptr noundef %56) #3
@@ -140,22 +140,22 @@ define internal fastcc range(i32 0, 2) i32 @dfs(ptr noundef %0, ptr noundef read
   br label %62
 
 59:                                               ; preds = %.lr.ph51
-  %60 = getelementptr inbounds i8, ptr %.13948, i64 64
-  %61 = tail call fastcc i32 @dfs(ptr noundef nonnull %33, ptr noundef nonnull %60, i32 noundef %.049)
+  %60 = getelementptr inbounds i8, ptr %.149, i64 64
+  %61 = tail call fastcc i32 @dfs(ptr noundef nonnull %33, ptr noundef nonnull %60, i32 noundef %.03848)
   br label %62
 
 62:                                               ; preds = %59, %39, %38
-  %.1 = phi i32 [ 1, %38 ], [ 1, %39 ], [ %61, %59 ]
-  %63 = tail call ptr @agnxtout(ptr noundef %5, ptr noundef nonnull %.13948) #3
+  %.139 = phi i32 [ 1, %38 ], [ 1, %39 ], [ %61, %59 ]
+  %63 = tail call ptr @agnxtout(ptr noundef %5, ptr noundef nonnull %.149) #3
   %.not40 = icmp eq ptr %63, null
   br i1 %.not40, label %._crit_edge52, label %.lr.ph51
 
 ._crit_edge52:                                    ; preds = %62, %._crit_edge
-  %.0.lcssa = phi i32 [ %2, %._crit_edge ], [ %.1, %62 ]
+  %.038.lcssa = phi i32 [ %2, %._crit_edge ], [ %.139, %62 ]
   %64 = load ptr, ptr %6, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 16
   store i32 0, ptr %65, align 8
-  ret i32 %.0.lcssa
+  ret i32 %.038.lcssa
 }
 
 declare ptr @agnxtnode(ptr noundef, ptr noundef) local_unnamed_addr #1

@@ -5060,18 +5060,18 @@ define hidden noundef range(i32 -268435456, 268435456) i32 @wimax_decode_dlmap_r
   br i1 %.not293, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %37
-  %.0298 = phi i32 [ 16, %37 ], [ 8, %3 ]
-  %.0274297 = phi i32 [ %40, %37 ], [ 1, %3 ]
+  %.0274298 = phi i32 [ %40, %37 ], [ 1, %3 ]
+  %.0275297 = phi i32 [ 16, %37 ], [ 8, %3 ]
   %.not289 = icmp eq i8 %16, 0
   %43 = shl i32 %4, 3
   br label %44
 
 44:                                               ; preds = %.lr.ph, %212
-  %.1292 = phi i32 [ %.0298, %.lr.ph ], [ %215, %212 ]
-  %.0275291 = phi i32 [ 0, %.lr.ph ], [ %216, %212 ]
+  %.0292 = phi i32 [ 0, %.lr.ph ], [ %216, %212 ]
+  %.1291 = phi i32 [ %.0275297, %.lr.ph ], [ %215, %212 ]
   %45 = load i32, ptr @hf_dlmap_reduced_aas_periodicity, align 4
-  %46 = tail call ptr @proto_tree_add_bits_item(ptr noundef %8, i32 noundef %45, ptr noundef %0, i32 noundef %.1292, i32 noundef 2, i32 noundef 0) #2
-  %47 = add i32 %.1292, 2
+  %46 = tail call ptr @proto_tree_add_bits_item(ptr noundef %8, i32 noundef %45, ptr noundef %0, i32 noundef %.1291, i32 noundef 2, i32 noundef 0) #2
+  %47 = add i32 %.1291, 2
   %48 = sdiv i32 %47, 8
   %49 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %48) #2
   %50 = zext i8 %49 to i32
@@ -5079,7 +5079,7 @@ define hidden noundef range(i32 -268435456, 268435456) i32 @wimax_decode_dlmap_r
   %52 = sub nsw i32 7, %51
   %53 = load i32, ptr @hf_dlmap_reduced_aas_cid_included, align 4
   %54 = tail call ptr @proto_tree_add_bits_item(ptr noundef %8, i32 noundef %53, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0) #2
-  %55 = add i32 %.1292, 3
+  %55 = add i32 %.1291, 3
   %56 = sdiv i32 %55, 8
   %57 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %56) #2
   %58 = zext i8 %57 to i32
@@ -5087,7 +5087,7 @@ define hidden noundef range(i32 -268435456, 268435456) i32 @wimax_decode_dlmap_r
   %60 = sub nsw i32 7, %59
   %61 = load i32, ptr @hf_dlmap_reduced_aas_dcd_count_included, align 4
   %62 = tail call ptr @proto_tree_add_bits_item(ptr noundef %8, i32 noundef %61, ptr noundef %0, i32 noundef %55, i32 noundef 1, i32 noundef 0) #2
-  %63 = add i32 %.1292, 4
+  %63 = add i32 %.1291, 4
   %64 = sdiv i32 %63, 8
   %65 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %64) #2
   %66 = zext i8 %65 to i32
@@ -5095,7 +5095,7 @@ define hidden noundef range(i32 -268435456, 268435456) i32 @wimax_decode_dlmap_r
   %68 = sub nsw i32 7, %67
   %69 = load i32, ptr @hf_dlmap_reduced_aas_phy_modification_included, align 4
   %70 = tail call ptr @proto_tree_add_bits_item(ptr noundef %8, i32 noundef %69, ptr noundef %0, i32 noundef %63, i32 noundef 1, i32 noundef 0) #2
-  %71 = add i32 %.1292, 5
+  %71 = add i32 %.1291, 5
   %72 = sdiv i32 %71, 8
   %73 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %72) #2
   %74 = zext i8 %73 to i32
@@ -5103,10 +5103,10 @@ define hidden noundef range(i32 -268435456, 268435456) i32 @wimax_decode_dlmap_r
   %76 = sub nsw i32 7, %75
   %77 = load i32, ptr @hf_dlmap_reduced_aas_cqich_control_indicator, align 4
   %78 = tail call ptr @proto_tree_add_bits_item(ptr noundef %8, i32 noundef %77, ptr noundef %0, i32 noundef %71, i32 noundef 1, i32 noundef 0) #2
-  %79 = add i32 %.1292, 6
+  %79 = add i32 %.1291, 6
   %80 = load i32, ptr @hf_dlmap_reduced_aas_encoding_mode, align 4
   %81 = tail call ptr @proto_tree_add_bits_item(ptr noundef %8, i32 noundef %80, ptr noundef %0, i32 noundef %79, i32 noundef 2, i32 noundef 0) #2
-  %82 = add i32 %.1292, 8
+  %82 = add i32 %.1291, 8
   %83 = sdiv i32 %82, 8
   %84 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %83) #2
   %85 = zext i8 %84 to i32
@@ -5114,7 +5114,7 @@ define hidden noundef range(i32 -268435456, 268435456) i32 @wimax_decode_dlmap_r
   %87 = sub nsw i32 7, %86
   %88 = load i32, ptr @hf_dlmap_reduced_aas_separate_mcs_enabled, align 4
   %89 = tail call ptr @proto_tree_add_bits_item(ptr noundef %8, i32 noundef %88, ptr noundef %0, i32 noundef %82, i32 noundef 1, i32 noundef 0) #2
-  %90 = add i32 %.1292, 9
+  %90 = add i32 %.1291, 9
   %91 = shl nuw nsw i32 1, %87
   %92 = and i32 %91, %85
   %.not280 = icmp eq i32 %92, 0
@@ -5123,13 +5123,13 @@ define hidden noundef range(i32 -268435456, 268435456) i32 @wimax_decode_dlmap_r
 93:                                               ; preds = %44
   %94 = load i32, ptr @hf_dlmap_reduced_aas_duration, align 4
   %95 = tail call ptr @proto_tree_add_bits_item(ptr noundef %8, i32 noundef %94, ptr noundef %0, i32 noundef %90, i32 noundef 10, i32 noundef 0) #2
-  %96 = add i32 %.1292, 19
+  %96 = add i32 %.1291, 19
   %97 = load i32, ptr @hf_dlmap_reduced_aas_diuc, align 4
   %98 = tail call ptr @proto_tree_add_bits_item(ptr noundef %8, i32 noundef %97, ptr noundef %0, i32 noundef %96, i32 noundef 4, i32 noundef 0) #2
-  %99 = add i32 %.1292, 23
+  %99 = add i32 %.1291, 23
   %100 = load i32, ptr @hf_dlmap_reduced_aas_repetition_coding_indication, align 4
   %101 = tail call ptr @proto_tree_add_bits_item(ptr noundef %8, i32 noundef %100, ptr noundef %0, i32 noundef %99, i32 noundef 2, i32 noundef 0) #2
-  %102 = add i32 %.1292, 25
+  %102 = add i32 %.1291, 25
   br label %103
 
 103:                                              ; preds = %93, %44
@@ -5297,8 +5297,8 @@ define hidden noundef range(i32 -268435456, 268435456) i32 @wimax_decode_dlmap_r
   %213 = load i32, ptr @hf_dlmap_reserved_uint, align 4
   %214 = tail call ptr @proto_tree_add_bits_item(ptr noundef %8, i32 noundef %213, ptr noundef %0, i32 noundef %.10, i32 noundef 3, i32 noundef 0) #2
   %215 = add i32 %.10, 3
-  %216 = add nuw nsw i32 %.0275291, 1
-  %exitcond.not = icmp eq i32 %216, %.0274297
+  %216 = add nuw nsw i32 %.0292, 1
+  %exitcond.not = icmp eq i32 %216, %.0274298
   br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %212
@@ -5628,8 +5628,8 @@ define internal fastcc i32 @Dedicated_MIMO_DL_Control_IE(ptr noundef %0, i32 nou
   br label %64
 
 64:                                               ; preds = %47, %60, %3
-  %.0132 = phi i32 [ %54, %60 ], [ %54, %47 ], [ 0, %3 ]
-  %.0130 = phi i32 [ %63, %60 ], [ %57, %47 ], [ %44, %3 ]
+  %.0131 = phi i32 [ %63, %60 ], [ %57, %47 ], [ %44, %3 ]
+  %.0130 = phi i32 [ %54, %60 ], [ %54, %47 ], [ 0, %3 ]
   %65 = shl nuw nsw i32 1, %23
   %66 = and i32 %65, %21
   %.not135 = icmp eq i32 %66, 0
@@ -5637,41 +5637,41 @@ define internal fastcc i32 @Dedicated_MIMO_DL_Control_IE(ptr noundef %0, i32 nou
 
 67:                                               ; preds = %64
   %68 = load i32, ptr @hf_dlmap_dedicated_mimo_dl_control_period, align 4
-  %69 = tail call ptr @proto_tree_add_bits_item(ptr noundef %6, i32 noundef %68, ptr noundef %2, i32 noundef %.0130, i32 noundef 3, i32 noundef 0) #2
-  %70 = add i32 %.0130, 3
+  %69 = tail call ptr @proto_tree_add_bits_item(ptr noundef %6, i32 noundef %68, ptr noundef %2, i32 noundef %.0131, i32 noundef 3, i32 noundef 0) #2
+  %70 = add i32 %.0131, 3
   %71 = load i32, ptr @hf_dlmap_dedicated_mimo_dl_control_frame_offset, align 4
   %72 = tail call ptr @proto_tree_add_bits_item(ptr noundef %6, i32 noundef %71, ptr noundef %2, i32 noundef %70, i32 noundef 3, i32 noundef 0) #2
-  %73 = add i32 %.0130, 6
+  %73 = add i32 %.0131, 6
   %74 = load i32, ptr @hf_dlmap_dedicated_mimo_dl_control_duration, align 4
   %75 = tail call ptr @proto_tree_add_bits_item(ptr noundef %6, i32 noundef %74, ptr noundef %2, i32 noundef %73, i32 noundef 4, i32 noundef 0) #2
-  %76 = add i32 %.0130, 10
+  %76 = add i32 %.0131, 10
   %77 = load i32, ptr @N_layer, align 4
   %78 = icmp sgt i32 %77, 0
   br i1 %78, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %67, %.lr.ph
   %.0141 = phi i32 [ %82, %.lr.ph ], [ 0, %67 ]
-  %.1131140 = phi i32 [ %81, %.lr.ph ], [ %76, %67 ]
+  %.1132140 = phi i32 [ %81, %.lr.ph ], [ %76, %67 ]
   %79 = load i32, ptr @hf_dlmap_dedicated_mimo_dl_control_allocation_index, align 4
-  %80 = tail call ptr @proto_tree_add_bits_item(ptr noundef %6, i32 noundef %79, ptr noundef %2, i32 noundef %.1131140, i32 noundef 6, i32 noundef 0) #2
-  %81 = add i32 %.1131140, 6
+  %80 = tail call ptr @proto_tree_add_bits_item(ptr noundef %6, i32 noundef %79, ptr noundef %2, i32 noundef %.1132140, i32 noundef 6, i32 noundef 0) #2
+  %81 = add i32 %.1132140, 6
   %82 = add nuw nsw i32 %.0141, 1
   %83 = load i32, ptr @N_layer, align 4
   %84 = icmp slt i32 %82, %83
   br i1 %84, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %67
-  %.1131.lcssa = phi i32 [ %76, %67 ], [ %81, %.lr.ph ]
-  %85 = sdiv i32 %.1131.lcssa, 8
+  %.1132.lcssa = phi i32 [ %76, %67 ], [ %81, %.lr.ph ]
+  %85 = sdiv i32 %.1132.lcssa, 8
   %86 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %85) #2
   %87 = zext i16 %86 to i32
-  %88 = srem i32 %.1131.lcssa, 8
+  %88 = srem i32 %.1132.lcssa, 8
   %89 = sub nsw i32 14, %88
   %90 = lshr i32 %87, %89
   %91 = and i32 %90, 3
   %92 = load i32, ptr @hf_dlmap_dedicated_mimo_dl_control_cqich_num, align 4
-  %93 = tail call ptr @proto_tree_add_bits_item(ptr noundef %6, i32 noundef %92, ptr noundef %2, i32 noundef %.1131.lcssa, i32 noundef 2, i32 noundef 0) #2
-  %94 = add i32 %.1131.lcssa, 2
+  %93 = tail call ptr @proto_tree_add_bits_item(ptr noundef %6, i32 noundef %92, ptr noundef %2, i32 noundef %.1132.lcssa, i32 noundef 2, i32 noundef 0) #2
+  %94 = add i32 %.1132.lcssa, 2
   %.not147 = icmp eq i32 %91, 0
   br i1 %.not147, label %.loopexit, label %.lr.ph145
 
@@ -5689,7 +5689,7 @@ define internal fastcc i32 @Dedicated_MIMO_DL_Control_IE(ptr noundef %0, i32 nou
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph145, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.lr.ph145, %._crit_edge, %64
-  %.3 = phi i32 [ %.0130, %64 ], [ %94, %._crit_edge ], [ %100, %.lr.ph145 ]
+  %.3 = phi i32 [ %.0131, %64 ], [ %94, %._crit_edge ], [ %100, %.lr.ph145 ]
   %102 = shl nuw nsw i32 1, %31
   %103 = and i32 %102, %29
   %.not136 = icmp eq i32 %103, 0
@@ -5697,7 +5697,7 @@ define internal fastcc i32 @Dedicated_MIMO_DL_Control_IE(ptr noundef %0, i32 nou
 
 104:                                              ; preds = %.loopexit
   %105 = load i32, ptr @STC_Zone_Matrix, align 4
-  %.0129 = select i1 %.not, i32 %105, i32 %.0132
+  %.0129 = select i1 %.not, i32 %105, i32 %.0130
   %or.cond = icmp ult i32 %.0129, 2
   br i1 %or.cond, label %106, label %110
 

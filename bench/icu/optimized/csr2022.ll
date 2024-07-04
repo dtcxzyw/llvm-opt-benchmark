@@ -45,22 +45,22 @@ while.body.us.preheader:                          ; preds = %entry
   br label %while.body.us
 
 while.body.us:                                    ; preds = %while.body.us.preheader, %scanInput.us
-  %i.040.us = phi i32 [ %add42.us, %scanInput.us ], [ 0, %while.body.us.preheader ]
-  %shifts.039.us = phi i32 [ %shifts.1.us, %scanInput.us ], [ 0, %while.body.us.preheader ]
-  %misses.038.us = phi i32 [ %misses.2.us, %scanInput.us ], [ 0, %while.body.us.preheader ]
-  %hits.037.us = phi i32 [ %hits.1.us, %scanInput.us ], [ 0, %while.body.us.preheader ]
-  %idxprom.us = sext i32 %i.040.us to i64
+  %shifts.041.us = phi i32 [ %shifts.1.us, %scanInput.us ], [ 0, %while.body.us.preheader ]
+  %misses.040.us = phi i32 [ %misses.2.us, %scanInput.us ], [ 0, %while.body.us.preheader ]
+  %hits.039.us = phi i32 [ %hits.1.us, %scanInput.us ], [ 0, %while.body.us.preheader ]
+  %i.037.us = phi i32 [ %add42.us, %scanInput.us ], [ 0, %while.body.us.preheader ]
+  %idxprom.us = sext i32 %i.037.us to i64
   %arrayidx.us = getelementptr inbounds i8, ptr %text, i64 %idxprom.us
   %0 = load i8, ptr %arrayidx.us, align 1
   %cmp2.us = icmp eq i8 %0, 27
   br i1 %cmp2.us, label %while.cond3.preheader.us, label %if.end30.us
 
 if.end30.us:                                      ; preds = %while.cond3.while.end28_crit_edge.us, %while.body.us
-  %misses.1.us = phi i32 [ %add29.us, %while.cond3.while.end28_crit_edge.us ], [ %misses.038.us, %while.body.us ]
+  %misses.1.us = phi i32 [ %add29.us, %while.cond3.while.end28_crit_edge.us ], [ %misses.040.us, %while.body.us ]
   %1 = and i8 %0, -2
   %switch.us = icmp eq i8 %1, 14
   %add40.us = zext i1 %switch.us to i32
-  %spec.select.us = add nsw i32 %shifts.039.us, %add40.us
+  %spec.select.us = add nsw i32 %shifts.041.us, %add40.us
   br label %scanInput.us
 
 while.body5.us:                                   ; preds = %while.cond3.preheader.us, %checkEscapes.us
@@ -77,16 +77,16 @@ while.cond11.us:                                  ; preds = %while.body13.us
   br i1 %exitcond59.not, label %while.end.us, label %while.body13.us, !llvm.loop !4
 
 while.end.us:                                     ; preds = %while.cond11.preheader.us, %while.cond11.us
-  %add23.us = add nsw i32 %hits.037.us, 1
-  %sub24.us = add nsw i32 %i.040.us, -1
+  %add23.us = add nsw i32 %hits.039.us, 1
+  %sub24.us = add nsw i32 %i.037.us, -1
   %add25.us = add i32 %sub24.us, %conv8.us
   br label %scanInput.us
 
 scanInput.us:                                     ; preds = %while.end.us, %if.end30.us
-  %hits.1.us = phi i32 [ %add23.us, %while.end.us ], [ %hits.037.us, %if.end30.us ]
-  %misses.2.us = phi i32 [ %misses.038.us, %while.end.us ], [ %misses.1.us, %if.end30.us ]
-  %shifts.1.us = phi i32 [ %shifts.039.us, %while.end.us ], [ %spec.select.us, %if.end30.us ]
-  %i.1.us = phi i32 [ %add25.us, %while.end.us ], [ %i.040.us, %if.end30.us ]
+  %i.1.us = phi i32 [ %add25.us, %while.end.us ], [ %i.037.us, %if.end30.us ]
+  %hits.1.us = phi i32 [ %add23.us, %while.end.us ], [ %hits.039.us, %if.end30.us ]
+  %misses.2.us = phi i32 [ %misses.040.us, %while.end.us ], [ %misses.1.us, %if.end30.us ]
+  %shifts.1.us = phi i32 [ %shifts.041.us, %while.end.us ], [ %spec.select.us, %if.end30.us ]
   %add42.us = add nsw i32 %i.1.us, 1
   %cmp.us = icmp slt i32 %add42.us, %textLen
   br i1 %cmp.us, label %while.body.us, label %while.end43, !llvm.loop !6
@@ -114,12 +114,12 @@ while.body13.us.preheader:                        ; preds = %while.cond11.prehea
   br label %while.body13.us
 
 while.cond3.preheader.us:                         ; preds = %while.body.us
-  %sub.us = sub nsw i32 %textLen, %i.040.us
+  %sub.us = sub nsw i32 %textLen, %i.037.us
   %invariant.gep = getelementptr i8, ptr %text, i64 %idxprom.us
   br label %while.body5.us
 
 while.cond3.while.end28_crit_edge.us:             ; preds = %checkEscapes.us
-  %add29.us = add nsw i32 %misses.038.us, 1
+  %add29.us = add nsw i32 %misses.040.us, 1
   br label %if.end30.us
 
 while.end43:                                      ; preds = %scanInput.us
@@ -189,22 +189,22 @@ entry:
   br i1 %cmp36.i, label %while.body.us.i, label %_ZNK6icu_7517CharsetRecog_202210match_2022EPKhiPA5_S1_i.exit
 
 while.body.us.i:                                  ; preds = %entry, %scanInput.us.i
-  %i.040.us.i = phi i32 [ %add42.us.i, %scanInput.us.i ], [ 0, %entry ]
-  %shifts.039.us.i = phi i32 [ %shifts.1.us.i, %scanInput.us.i ], [ 0, %entry ]
-  %misses.038.us.i = phi i32 [ %misses.2.us.i, %scanInput.us.i ], [ 0, %entry ]
-  %hits.037.us.i = phi i32 [ %hits.1.us.i, %scanInput.us.i ], [ 0, %entry ]
-  %idxprom.us.i = sext i32 %i.040.us.i to i64
+  %shifts.041.us.i = phi i32 [ %shifts.1.us.i, %scanInput.us.i ], [ 0, %entry ]
+  %misses.040.us.i = phi i32 [ %misses.2.us.i, %scanInput.us.i ], [ 0, %entry ]
+  %hits.039.us.i = phi i32 [ %hits.1.us.i, %scanInput.us.i ], [ 0, %entry ]
+  %i.037.us.i = phi i32 [ %add42.us.i, %scanInput.us.i ], [ 0, %entry ]
+  %idxprom.us.i = sext i32 %i.037.us.i to i64
   %arrayidx.us.i = getelementptr inbounds i8, ptr %0, i64 %idxprom.us.i
   %2 = load i8, ptr %arrayidx.us.i, align 1
   %cmp2.us.i = icmp eq i8 %2, 27
   br i1 %cmp2.us.i, label %while.cond3.preheader.us.i, label %if.end30.us.i
 
 if.end30.us.i:                                    ; preds = %while.cond3.while.end28_crit_edge.us.i, %while.body.us.i
-  %misses.1.us.i = phi i32 [ %add29.us.i, %while.cond3.while.end28_crit_edge.us.i ], [ %misses.038.us.i, %while.body.us.i ]
+  %misses.1.us.i = phi i32 [ %add29.us.i, %while.cond3.while.end28_crit_edge.us.i ], [ %misses.040.us.i, %while.body.us.i ]
   %3 = and i8 %2, -2
   %switch.us.i = icmp eq i8 %3, 14
   %add40.us.i = zext i1 %switch.us.i to i32
-  %spec.select.us.i = add nsw i32 %shifts.039.us.i, %add40.us.i
+  %spec.select.us.i = add nsw i32 %shifts.041.us.i, %add40.us.i
   br label %scanInput.us.i
 
 while.body5.us.i:                                 ; preds = %while.cond3.preheader.us.i, %checkEscapes.us.i
@@ -221,16 +221,16 @@ while.cond11.us.i:                                ; preds = %while.body13.us.i
   br i1 %exitcond59.not.i, label %while.end.us.i, label %while.body13.us.i, !llvm.loop !4
 
 while.end.us.i:                                   ; preds = %while.cond11.preheader.us.i, %while.cond11.us.i
-  %add23.us.i = add nsw i32 %hits.037.us.i, 1
-  %sub24.us.i = add nsw i32 %i.040.us.i, -1
+  %add23.us.i = add nsw i32 %hits.039.us.i, 1
+  %sub24.us.i = add nsw i32 %i.037.us.i, -1
   %add25.us.i = add i32 %sub24.us.i, %conv8.us.i
   br label %scanInput.us.i
 
 scanInput.us.i:                                   ; preds = %while.end.us.i, %if.end30.us.i
-  %hits.1.us.i = phi i32 [ %add23.us.i, %while.end.us.i ], [ %hits.037.us.i, %if.end30.us.i ]
-  %misses.2.us.i = phi i32 [ %misses.038.us.i, %while.end.us.i ], [ %misses.1.us.i, %if.end30.us.i ]
-  %shifts.1.us.i = phi i32 [ %shifts.039.us.i, %while.end.us.i ], [ %spec.select.us.i, %if.end30.us.i ]
-  %i.1.us.i = phi i32 [ %add25.us.i, %while.end.us.i ], [ %i.040.us.i, %if.end30.us.i ]
+  %i.1.us.i = phi i32 [ %add25.us.i, %while.end.us.i ], [ %i.037.us.i, %if.end30.us.i ]
+  %hits.1.us.i = phi i32 [ %add23.us.i, %while.end.us.i ], [ %hits.039.us.i, %if.end30.us.i ]
+  %misses.2.us.i = phi i32 [ %misses.040.us.i, %while.end.us.i ], [ %misses.1.us.i, %if.end30.us.i ]
+  %shifts.1.us.i = phi i32 [ %shifts.041.us.i, %while.end.us.i ], [ %spec.select.us.i, %if.end30.us.i ]
   %add42.us.i = add nsw i32 %i.1.us.i, 1
   %cmp.us.i = icmp slt i32 %add42.us.i, %1
   br i1 %cmp.us.i, label %while.body.us.i, label %while.end43.i, !llvm.loop !6
@@ -258,11 +258,11 @@ while.body13.us.preheader.i:                      ; preds = %while.cond11.prehea
   br label %while.body13.us.i
 
 while.cond3.preheader.us.i:                       ; preds = %while.body.us.i
-  %sub.us.i = sub nsw i32 %1, %i.040.us.i
+  %sub.us.i = sub nsw i32 %1, %i.037.us.i
   br label %while.body5.us.i
 
 while.cond3.while.end28_crit_edge.us.i:           ; preds = %checkEscapes.us.i
-  %add29.us.i = add nsw i32 %misses.038.us.i, 1
+  %add29.us.i = add nsw i32 %misses.040.us.i, 1
   br label %if.end30.us.i
 
 while.end43.i:                                    ; preds = %scanInput.us.i
@@ -324,22 +324,22 @@ entry:
   br i1 %cmp36.i, label %while.body.us.i, label %_ZNK6icu_7517CharsetRecog_202210match_2022EPKhiPA5_S1_i.exit
 
 while.body.us.i:                                  ; preds = %entry, %scanInput.us.i
-  %i.040.us.i = phi i32 [ %add42.us.i, %scanInput.us.i ], [ 0, %entry ]
-  %shifts.039.us.i = phi i32 [ %shifts.1.us.i, %scanInput.us.i ], [ 0, %entry ]
-  %misses.038.us.i = phi i32 [ %misses.2.us.i, %scanInput.us.i ], [ 0, %entry ]
-  %hits.037.us.i = phi i32 [ %hits.1.us.i, %scanInput.us.i ], [ 0, %entry ]
-  %idxprom.us.i = sext i32 %i.040.us.i to i64
+  %shifts.041.us.i = phi i32 [ %shifts.1.us.i, %scanInput.us.i ], [ 0, %entry ]
+  %misses.040.us.i = phi i32 [ %misses.2.us.i, %scanInput.us.i ], [ 0, %entry ]
+  %hits.039.us.i = phi i32 [ %hits.1.us.i, %scanInput.us.i ], [ 0, %entry ]
+  %i.037.us.i = phi i32 [ %add42.us.i, %scanInput.us.i ], [ 0, %entry ]
+  %idxprom.us.i = sext i32 %i.037.us.i to i64
   %arrayidx.us.i = getelementptr inbounds i8, ptr %0, i64 %idxprom.us.i
   %2 = load i8, ptr %arrayidx.us.i, align 1
   %cmp2.us.i = icmp eq i8 %2, 27
   br i1 %cmp2.us.i, label %while.cond3.preheader.us.i, label %if.end30.us.i
 
 if.end30.us.i:                                    ; preds = %checkEscapes.us.i, %while.body.us.i
-  %misses.1.us.i = phi i32 [ %add29.us.i, %checkEscapes.us.i ], [ %misses.038.us.i, %while.body.us.i ]
+  %misses.1.us.i = phi i32 [ %add29.us.i, %checkEscapes.us.i ], [ %misses.040.us.i, %while.body.us.i ]
   %3 = and i8 %2, -2
   %switch.us.i = icmp eq i8 %3, 14
   %add40.us.i = zext i1 %switch.us.i to i32
-  %spec.select.us.i = add nsw i32 %shifts.039.us.i, %add40.us.i
+  %spec.select.us.i = add nsw i32 %shifts.041.us.i, %add40.us.i
   br label %scanInput.us.i
 
 while.cond11.us.i:                                ; preds = %while.body13.us.i
@@ -348,15 +348,15 @@ while.cond11.us.i:                                ; preds = %while.body13.us.i
   br i1 %exitcond59.not.i, label %while.end.us.i, label %while.body13.us.i, !llvm.loop !4
 
 while.end.us.i:                                   ; preds = %while.cond11.us.i
-  %add23.us.i = add nsw i32 %hits.037.us.i, 1
-  %add25.us.i = add i32 %i.040.us.i, 3
+  %add23.us.i = add nsw i32 %hits.039.us.i, 1
+  %add25.us.i = add i32 %i.037.us.i, 3
   br label %scanInput.us.i
 
 scanInput.us.i:                                   ; preds = %while.end.us.i, %if.end30.us.i
-  %hits.1.us.i = phi i32 [ %add23.us.i, %while.end.us.i ], [ %hits.037.us.i, %if.end30.us.i ]
-  %misses.2.us.i = phi i32 [ %misses.038.us.i, %while.end.us.i ], [ %misses.1.us.i, %if.end30.us.i ]
-  %shifts.1.us.i = phi i32 [ %shifts.039.us.i, %while.end.us.i ], [ %spec.select.us.i, %if.end30.us.i ]
-  %i.1.us.i = phi i32 [ %add25.us.i, %while.end.us.i ], [ %i.040.us.i, %if.end30.us.i ]
+  %i.1.us.i = phi i32 [ %add25.us.i, %while.end.us.i ], [ %i.037.us.i, %if.end30.us.i ]
+  %hits.1.us.i = phi i32 [ %add23.us.i, %while.end.us.i ], [ %hits.039.us.i, %if.end30.us.i ]
+  %misses.2.us.i = phi i32 [ %misses.040.us.i, %while.end.us.i ], [ %misses.1.us.i, %if.end30.us.i ]
+  %shifts.1.us.i = phi i32 [ %shifts.041.us.i, %while.end.us.i ], [ %spec.select.us.i, %if.end30.us.i ]
   %add42.us.i = add nsw i32 %i.1.us.i, 1
   %cmp.us.i = icmp slt i32 %add42.us.i, %1
   br i1 %cmp.us.i, label %while.body.us.i, label %while.end43.i, !llvm.loop !6
@@ -371,11 +371,11 @@ while.body13.us.i:                                ; preds = %while.cond3.prehead
   br i1 %cmp20.not.us.i, label %while.cond11.us.i, label %checkEscapes.us.i
 
 checkEscapes.us.i:                                ; preds = %while.body13.us.i, %while.cond3.preheader.us.i
-  %add29.us.i = add nsw i32 %misses.038.us.i, 1
+  %add29.us.i = add nsw i32 %misses.040.us.i, 1
   br label %if.end30.us.i
 
 while.cond3.preheader.us.i:                       ; preds = %while.body.us.i
-  %sub.us.i = sub nsw i32 %1, %i.040.us.i
+  %sub.us.i = sub nsw i32 %1, %i.037.us.i
   %cmp9.not.us.i = icmp slt i32 %sub.us.i, 4
   br i1 %cmp9.not.us.i, label %checkEscapes.us.i, label %while.body13.us.i
 
@@ -436,22 +436,22 @@ entry:
   br i1 %cmp36.i, label %while.body.us.i, label %_ZNK6icu_7517CharsetRecog_202210match_2022EPKhiPA5_S1_i.exit
 
 while.body.us.i:                                  ; preds = %entry, %scanInput.us.i
-  %i.040.us.i = phi i32 [ %add42.us.i, %scanInput.us.i ], [ 0, %entry ]
-  %shifts.039.us.i = phi i32 [ %shifts.1.us.i, %scanInput.us.i ], [ 0, %entry ]
-  %misses.038.us.i = phi i32 [ %misses.2.us.i, %scanInput.us.i ], [ 0, %entry ]
-  %hits.037.us.i = phi i32 [ %hits.1.us.i, %scanInput.us.i ], [ 0, %entry ]
-  %idxprom.us.i = sext i32 %i.040.us.i to i64
+  %shifts.041.us.i = phi i32 [ %shifts.1.us.i, %scanInput.us.i ], [ 0, %entry ]
+  %misses.040.us.i = phi i32 [ %misses.2.us.i, %scanInput.us.i ], [ 0, %entry ]
+  %hits.039.us.i = phi i32 [ %hits.1.us.i, %scanInput.us.i ], [ 0, %entry ]
+  %i.037.us.i = phi i32 [ %add42.us.i, %scanInput.us.i ], [ 0, %entry ]
+  %idxprom.us.i = sext i32 %i.037.us.i to i64
   %arrayidx.us.i = getelementptr inbounds i8, ptr %0, i64 %idxprom.us.i
   %2 = load i8, ptr %arrayidx.us.i, align 1
   %cmp2.us.i = icmp eq i8 %2, 27
   br i1 %cmp2.us.i, label %while.cond3.preheader.us.i, label %if.end30.us.i
 
 if.end30.us.i:                                    ; preds = %while.cond3.while.end28_crit_edge.us.i, %while.body.us.i
-  %misses.1.us.i = phi i32 [ %add29.us.i, %while.cond3.while.end28_crit_edge.us.i ], [ %misses.038.us.i, %while.body.us.i ]
+  %misses.1.us.i = phi i32 [ %add29.us.i, %while.cond3.while.end28_crit_edge.us.i ], [ %misses.040.us.i, %while.body.us.i ]
   %3 = and i8 %2, -2
   %switch.us.i = icmp eq i8 %3, 14
   %add40.us.i = zext i1 %switch.us.i to i32
-  %spec.select.us.i = add nsw i32 %shifts.039.us.i, %add40.us.i
+  %spec.select.us.i = add nsw i32 %shifts.041.us.i, %add40.us.i
   br label %scanInput.us.i
 
 while.body5.us.i:                                 ; preds = %while.cond3.preheader.us.i, %checkEscapes.us.i
@@ -468,16 +468,16 @@ while.cond11.us.i:                                ; preds = %while.body13.us.i
   br i1 %exitcond59.not.i, label %while.end.us.i, label %while.body13.us.i, !llvm.loop !4
 
 while.end.us.i:                                   ; preds = %while.cond11.preheader.us.i, %while.cond11.us.i
-  %add23.us.i = add nsw i32 %hits.037.us.i, 1
-  %sub24.us.i = add nsw i32 %i.040.us.i, -1
+  %add23.us.i = add nsw i32 %hits.039.us.i, 1
+  %sub24.us.i = add nsw i32 %i.037.us.i, -1
   %add25.us.i = add i32 %sub24.us.i, %conv8.us.i
   br label %scanInput.us.i
 
 scanInput.us.i:                                   ; preds = %while.end.us.i, %if.end30.us.i
-  %hits.1.us.i = phi i32 [ %add23.us.i, %while.end.us.i ], [ %hits.037.us.i, %if.end30.us.i ]
-  %misses.2.us.i = phi i32 [ %misses.038.us.i, %while.end.us.i ], [ %misses.1.us.i, %if.end30.us.i ]
-  %shifts.1.us.i = phi i32 [ %shifts.039.us.i, %while.end.us.i ], [ %spec.select.us.i, %if.end30.us.i ]
-  %i.1.us.i = phi i32 [ %add25.us.i, %while.end.us.i ], [ %i.040.us.i, %if.end30.us.i ]
+  %i.1.us.i = phi i32 [ %add25.us.i, %while.end.us.i ], [ %i.037.us.i, %if.end30.us.i ]
+  %hits.1.us.i = phi i32 [ %add23.us.i, %while.end.us.i ], [ %hits.039.us.i, %if.end30.us.i ]
+  %misses.2.us.i = phi i32 [ %misses.040.us.i, %while.end.us.i ], [ %misses.1.us.i, %if.end30.us.i ]
+  %shifts.1.us.i = phi i32 [ %shifts.041.us.i, %while.end.us.i ], [ %spec.select.us.i, %if.end30.us.i ]
   %add42.us.i = add nsw i32 %i.1.us.i, 1
   %cmp.us.i = icmp slt i32 %add42.us.i, %1
   br i1 %cmp.us.i, label %while.body.us.i, label %while.end43.i, !llvm.loop !6
@@ -505,11 +505,11 @@ while.body13.us.preheader.i:                      ; preds = %while.cond11.prehea
   br label %while.body13.us.i
 
 while.cond3.preheader.us.i:                       ; preds = %while.body.us.i
-  %sub.us.i = sub nsw i32 %1, %i.040.us.i
+  %sub.us.i = sub nsw i32 %1, %i.037.us.i
   br label %while.body5.us.i
 
 while.cond3.while.end28_crit_edge.us.i:           ; preds = %checkEscapes.us.i
-  %add29.us.i = add nsw i32 %misses.038.us.i, 1
+  %add29.us.i = add nsw i32 %misses.040.us.i, 1
   br label %if.end30.us.i
 
 while.end43.i:                                    ; preds = %scanInput.us.i

@@ -8987,7 +8987,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
           to label %_ZNK7testing8internal14ParamGeneratorIN3nix24LevenshteinDistanceParamEE5beginEv.exit unwind label %290
 
 _ZNK7testing8internal14ParamGeneratorIN3nix24LevenshteinDistanceParamEE5beginEv.exit: ; preds = %216, %_ZN7testing8internal13ParamIteratorIN3nix24LevenshteinDistanceParamEEppEv.exit
-  %.019 = phi i64 [ %623, %_ZN7testing8internal13ParamIteratorIN3nix24LevenshteinDistanceParamEEppEv.exit ], [ 0, %216 ]
+  %.016 = phi i64 [ %623, %_ZN7testing8internal13ParamIteratorIN3nix24LevenshteinDistanceParamEEppEv.exit ], [ 0, %216 ]
   %.2 = phi i1 [ true, %_ZN7testing8internal13ParamIteratorIN3nix24LevenshteinDistanceParamEEppEv.exit ], [ %.1744, %216 ]
   %224 = load ptr, ptr %10, align 8, !noalias !46
   %225 = load ptr, ptr %224, align 8, !noalias !46
@@ -9277,7 +9277,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i185:
   %329 = getelementptr inbounds i8, ptr %304, i64 64
   %330 = load i32, ptr %329, align 8
   store i32 %330, ptr %43, align 8
-  store i64 %.019, ptr %44, align 8
+  store i64 %.016, ptr %44, align 8
   invoke void %91(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull align 8 dereferenceable(80) %16)
           to label %331 unwind label %354
 
@@ -10164,7 +10164,7 @@ _ZN7testing7MessageD2Ev.exit:                     ; preds = %_ZNSt7__cxx1112basi
           to label %_ZN7testing8internal13ParamIteratorIN3nix24LevenshteinDistanceParamEEppEv.exit unwind label %292
 
 _ZN7testing8internal13ParamIteratorIN3nix24LevenshteinDistanceParamEEppEv.exit: ; preds = %_ZN7testing7MessageD2Ev.exit
-  %623 = add i64 %.019, 1
+  %623 = add i64 %.016, 1
   br label %_ZNK7testing8internal14ParamGeneratorIN3nix24LevenshteinDistanceParamEE5beginEv.exit, !llvm.loop !56
 
 624:                                              ; preds = %_ZNK7testing8internal13ParamIteratorIN3nix24LevenshteinDistanceParamEEdeEv.exit74, %489

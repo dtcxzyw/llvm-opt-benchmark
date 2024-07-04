@@ -60,10 +60,10 @@ for.body.lr.ph:                                   ; preds = %InitBlockSplitItera
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc50
-  %prev_byte.addr.0118 = phi i8 [ %prev_byte, %for.body.lr.ph ], [ %prev_byte.addr.2, %for.inc50 ]
-  %prev_byte2.addr.0117 = phi i8 [ %prev_byte2, %for.body.lr.ph ], [ %prev_byte2.addr.2, %for.inc50 ]
-  %i.0116 = phi i64 [ 0, %for.body.lr.ph ], [ %inc51, %for.inc50 ]
-  %pos.0115 = phi i64 [ %start_pos, %for.body.lr.ph ], [ %add24, %for.inc50 ]
+  %i.0118 = phi i64 [ 0, %for.body.lr.ph ], [ %inc51, %for.inc50 ]
+  %pos.0117 = phi i64 [ %start_pos, %for.body.lr.ph ], [ %add24, %for.inc50 ]
+  %prev_byte.addr.0116 = phi i8 [ %prev_byte, %for.body.lr.ph ], [ %prev_byte.addr.2, %for.inc50 ]
+  %prev_byte2.addr.0115 = phi i8 [ %prev_byte2, %for.body.lr.ph ], [ %prev_byte2.addr.2, %for.inc50 ]
   %literal_it.sroa.2.0114 = phi i64 [ 0, %for.body.lr.ph ], [ %literal_it.sroa.2.1.lcssa, %for.inc50 ]
   %dist_it.sroa.5.0113 = phi i64 [ 0, %for.body.lr.ph ], [ %dist_it.sroa.5.2, %for.inc50 ]
   %dist_it.sroa.7.0112 = phi i64 [ %cond.i49, %for.body.lr.ph ], [ %dist_it.sroa.7.1, %for.inc50 ]
@@ -73,7 +73,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %insert_and_copy_it.sroa.7.0108 = phi i64 [ %cond.i42, %for.body.lr.ph ], [ %dec.i, %for.inc50 ]
   %insert_and_copy_it.sroa.2.0107 = phi i64 [ 0, %for.body.lr.ph ], [ %insert_and_copy_it.sroa.2.1, %for.inc50 ]
   %literal_it.sroa.5.0106 = phi i64 [ 0, %for.body.lr.ph ], [ %literal_it.sroa.5.1.lcssa, %for.inc50 ]
-  %arrayidx = getelementptr inbounds %struct.Command, ptr %cmds, i64 %i.0116
+  %arrayidx = getelementptr inbounds %struct.Command, ptr %cmds, i64 %i.0118
   %cmp.i53 = icmp eq i64 %insert_and_copy_it.sroa.7.0108, 0
   br i1 %cmp.i53, label %if.then.i, label %BlockSplitIteratorNext.exit
 
@@ -115,9 +115,9 @@ for.body6.lr.ph:                                  ; preds = %BlockSplitIteratorN
   br i1 %tobool.not, label %for.body6.us, label %for.body6
 
 for.body6.us:                                     ; preds = %for.body6.lr.ph, %BlockSplitIteratorNext.exit72.us
-  %prev_byte.addr.194.us = phi i8 [ %26, %BlockSplitIteratorNext.exit72.us ], [ %prev_byte.addr.0118, %for.body6.lr.ph ]
-  %j.093.us = phi i64 [ %dec.us, %BlockSplitIteratorNext.exit72.us ], [ %conv2, %for.body6.lr.ph ]
-  %pos.191.us = phi i64 [ %inc.us, %BlockSplitIteratorNext.exit72.us ], [ %pos.0115, %for.body6.lr.ph ]
+  %j.094.us = phi i64 [ %dec.us, %BlockSplitIteratorNext.exit72.us ], [ %conv2, %for.body6.lr.ph ]
+  %pos.193.us = phi i64 [ %inc.us, %BlockSplitIteratorNext.exit72.us ], [ %pos.0117, %for.body6.lr.ph ]
+  %prev_byte.addr.192.us = phi i8 [ %26, %BlockSplitIteratorNext.exit72.us ], [ %prev_byte.addr.0116, %for.body6.lr.ph ]
   %literal_it.sroa.2.190.us = phi i64 [ %literal_it.sroa.2.2.us, %BlockSplitIteratorNext.exit72.us ], [ %literal_it.sroa.2.0114, %for.body6.lr.ph ]
   %literal_it.sroa.7.189.us = phi i64 [ %dec.i61.us, %BlockSplitIteratorNext.exit72.us ], [ %literal_it.sroa.7.0110, %for.body6.lr.ph ]
   %literal_it.sroa.5.188.us = phi i64 [ %literal_it.sroa.5.2.us, %BlockSplitIteratorNext.exit72.us ], [ %literal_it.sroa.5.0106, %for.body6.lr.ph ]
@@ -142,7 +142,7 @@ BlockSplitIteratorNext.exit72.us:                 ; preds = %if.then.i62.us, %fo
   %22 = phi i64 [ %conv5.i71.us, %if.then.i62.us ], [ %literal_it.sroa.7.189.us, %for.body6.us ]
   %dec.i61.us = add i64 %22, -1
   %arrayidx18.us = getelementptr inbounds %struct.HistogramLiteral, ptr %literal_histograms, i64 %literal_it.sroa.5.2.us
-  %and.us = and i64 %pos.191.us, %mask
+  %and.us = and i64 %pos.193.us, %mask
   %arrayidx19.us = getelementptr inbounds i8, ptr %ringbuffer, i64 %and.us
   %23 = load i8, ptr %arrayidx19.us, align 1
   %conv20.us = zext i8 %23 to i64
@@ -155,16 +155,16 @@ BlockSplitIteratorNext.exit72.us:                 ; preds = %if.then.i62.us, %fo
   %inc1.i58.us = add i64 %25, 1
   store i64 %inc1.i58.us, ptr %total_count_.i57.us, align 8
   %26 = load i8, ptr %arrayidx19.us, align 1
-  %inc.us = add i64 %pos.191.us, 1
-  %dec.us = add nsw i64 %j.093.us, -1
+  %inc.us = add i64 %pos.193.us, 1
+  %dec.us = add nsw i64 %j.094.us, -1
   %cmp4.not.us = icmp eq i64 %dec.us, 0
   br i1 %cmp4.not.us, label %for.end, label %for.body6.us, !llvm.loop !4
 
 for.body6:                                        ; preds = %for.body6.lr.ph, %BlockSplitIteratorNext.exit72
-  %prev_byte.addr.194 = phi i8 [ %39, %BlockSplitIteratorNext.exit72 ], [ %prev_byte.addr.0118, %for.body6.lr.ph ]
-  %j.093 = phi i64 [ %dec, %BlockSplitIteratorNext.exit72 ], [ %conv2, %for.body6.lr.ph ]
-  %prev_byte2.addr.192 = phi i8 [ %prev_byte.addr.194, %BlockSplitIteratorNext.exit72 ], [ %prev_byte2.addr.0117, %for.body6.lr.ph ]
-  %pos.191 = phi i64 [ %inc, %BlockSplitIteratorNext.exit72 ], [ %pos.0115, %for.body6.lr.ph ]
+  %j.094 = phi i64 [ %dec, %BlockSplitIteratorNext.exit72 ], [ %conv2, %for.body6.lr.ph ]
+  %pos.193 = phi i64 [ %inc, %BlockSplitIteratorNext.exit72 ], [ %pos.0117, %for.body6.lr.ph ]
+  %prev_byte.addr.192 = phi i8 [ %39, %BlockSplitIteratorNext.exit72 ], [ %prev_byte.addr.0116, %for.body6.lr.ph ]
+  %prev_byte2.addr.191 = phi i8 [ %prev_byte.addr.192, %BlockSplitIteratorNext.exit72 ], [ %prev_byte2.addr.0115, %for.body6.lr.ph ]
   %literal_it.sroa.2.190 = phi i64 [ %literal_it.sroa.2.2, %BlockSplitIteratorNext.exit72 ], [ %literal_it.sroa.2.0114, %for.body6.lr.ph ]
   %literal_it.sroa.7.189 = phi i64 [ %dec.i61, %BlockSplitIteratorNext.exit72 ], [ %literal_it.sroa.7.0110, %for.body6.lr.ph ]
   %literal_it.sroa.5.188 = phi i64 [ %literal_it.sroa.5.2, %BlockSplitIteratorNext.exit72 ], [ %literal_it.sroa.5.0106, %for.body6.lr.ph ]
@@ -193,11 +193,11 @@ BlockSplitIteratorNext.exit72:                    ; preds = %for.body6, %if.then
   %shl = shl i32 %32, 9
   %idxprom = zext i32 %shl to i64
   %arrayidx9 = getelementptr inbounds [2048 x i8], ptr @_kBrotliContextLookupTable, i64 0, i64 %idxprom
-  %idxprom11 = zext i8 %prev_byte.addr.194 to i64
+  %idxprom11 = zext i8 %prev_byte.addr.192 to i64
   %arrayidx12 = getelementptr inbounds i8, ptr %arrayidx9, i64 %idxprom11
   %33 = load i8, ptr %arrayidx12, align 1
   %add.ptr = getelementptr inbounds i8, ptr %arrayidx9, i64 256
-  %idxprom14 = zext i8 %prev_byte2.addr.192 to i64
+  %idxprom14 = zext i8 %prev_byte2.addr.191 to i64
   %arrayidx15 = getelementptr inbounds i8, ptr %add.ptr, i64 %idxprom14
   %34 = load i8, ptr %arrayidx15, align 1
   %or37 = or i8 %34, %33
@@ -205,7 +205,7 @@ BlockSplitIteratorNext.exit72:                    ; preds = %for.body6, %if.then
   %.idx = mul nuw nsw i64 %literal_it.sroa.5.2, 66560
   %35 = getelementptr i8, ptr %literal_histograms, i64 %.idx
   %arrayidx18 = getelementptr %struct.HistogramLiteral, ptr %35, i64 %conv17
-  %and = and i64 %pos.191, %mask
+  %and = and i64 %pos.193, %mask
   %arrayidx19 = getelementptr inbounds i8, ptr %ringbuffer, i64 %and
   %36 = load i8, ptr %arrayidx19, align 1
   %conv20 = zext i8 %36 to i64
@@ -218,8 +218,8 @@ BlockSplitIteratorNext.exit72:                    ; preds = %for.body6, %if.then
   %inc1.i58 = add i64 %38, 1
   store i64 %inc1.i58, ptr %total_count_.i57, align 8
   %39 = load i8, ptr %arrayidx19, align 1
-  %inc = add i64 %pos.191, 1
-  %dec = add nsw i64 %j.093, -1
+  %inc = add i64 %pos.193, 1
+  %dec = add nsw i64 %j.094, -1
   %cmp4.not = icmp eq i64 %dec, 0
   br i1 %cmp4.not, label %for.end, label %for.body6, !llvm.loop !4
 
@@ -227,9 +227,9 @@ for.end:                                          ; preds = %BlockSplitIteratorN
   %literal_it.sroa.5.1.lcssa = phi i64 [ %literal_it.sroa.5.0106, %BlockSplitIteratorNext.exit ], [ %literal_it.sroa.5.2.us, %BlockSplitIteratorNext.exit72.us ], [ %literal_it.sroa.5.2, %BlockSplitIteratorNext.exit72 ]
   %literal_it.sroa.7.1.lcssa = phi i64 [ %literal_it.sroa.7.0110, %BlockSplitIteratorNext.exit ], [ %dec.i61.us, %BlockSplitIteratorNext.exit72.us ], [ %dec.i61, %BlockSplitIteratorNext.exit72 ]
   %literal_it.sroa.2.1.lcssa = phi i64 [ %literal_it.sroa.2.0114, %BlockSplitIteratorNext.exit ], [ %literal_it.sroa.2.2.us, %BlockSplitIteratorNext.exit72.us ], [ %literal_it.sroa.2.2, %BlockSplitIteratorNext.exit72 ]
-  %pos.1.lcssa = phi i64 [ %pos.0115, %BlockSplitIteratorNext.exit ], [ %inc.us, %BlockSplitIteratorNext.exit72.us ], [ %inc, %BlockSplitIteratorNext.exit72 ]
-  %prev_byte2.addr.1.lcssa = phi i8 [ %prev_byte2.addr.0117, %BlockSplitIteratorNext.exit ], [ %prev_byte.addr.194.us, %BlockSplitIteratorNext.exit72.us ], [ %prev_byte.addr.194, %BlockSplitIteratorNext.exit72 ]
-  %prev_byte.addr.1.lcssa = phi i8 [ %prev_byte.addr.0118, %BlockSplitIteratorNext.exit ], [ %26, %BlockSplitIteratorNext.exit72.us ], [ %39, %BlockSplitIteratorNext.exit72 ]
+  %prev_byte2.addr.1.lcssa = phi i8 [ %prev_byte2.addr.0115, %BlockSplitIteratorNext.exit ], [ %prev_byte.addr.192.us, %BlockSplitIteratorNext.exit72.us ], [ %prev_byte.addr.192, %BlockSplitIteratorNext.exit72 ]
+  %prev_byte.addr.1.lcssa = phi i8 [ %prev_byte.addr.0116, %BlockSplitIteratorNext.exit ], [ %26, %BlockSplitIteratorNext.exit72.us ], [ %39, %BlockSplitIteratorNext.exit72 ]
+  %pos.1.lcssa = phi i64 [ %pos.0117, %BlockSplitIteratorNext.exit ], [ %inc.us, %BlockSplitIteratorNext.exit72.us ], [ %inc, %BlockSplitIteratorNext.exit72 ]
   %copy_len_.i61 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %40 = load i32, ptr %copy_len_.i61, align 4
   %and.i62 = and i32 %40, 33554431
@@ -306,7 +306,7 @@ for.inc50:                                        ; preds = %for.end, %BlockSpli
   %dist_it.sroa.5.2 = phi i64 [ %dist_it.sroa.5.0113, %for.end ], [ %dist_it.sroa.5.1, %BlockSplitIteratorNext.exit86 ], [ %dist_it.sroa.5.0113, %if.then27 ]
   %prev_byte2.addr.2 = phi i8 [ %prev_byte2.addr.1.lcssa, %for.end ], [ %41, %BlockSplitIteratorNext.exit86 ], [ %41, %if.then27 ]
   %prev_byte.addr.2 = phi i8 [ %prev_byte.addr.1.lcssa, %for.end ], [ %42, %BlockSplitIteratorNext.exit86 ], [ %42, %if.then27 ]
-  %inc51 = add nuw i64 %i.0116, 1
+  %inc51 = add nuw i64 %i.0118, 1
   %exitcond.not = icmp eq i64 %inc51, %num_commands
   br i1 %exitcond.not, label %for.end52, label %for.body, !llvm.loop !6
 

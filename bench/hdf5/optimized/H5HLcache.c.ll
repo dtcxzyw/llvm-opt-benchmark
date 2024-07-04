@@ -338,14 +338,14 @@ define internal noundef i32 @H5HL__cache_prefix_serialize(ptr nocapture readnone
   br label %39
 
 39:                                               ; preds = %36, %39
-  %.065 = phi i64 [ %38, %36 ], [ %43, %39 ]
-  %.05564 = phi ptr [ %16, %36 ], [ %41, %39 ]
-  %.05763 = phi i64 [ 0, %36 ], [ %42, %39 ]
-  %40 = trunc i64 %.065 to i8
-  %41 = getelementptr inbounds i8, ptr %.05564, i64 1
-  store i8 %40, ptr %.05564, align 1
-  %42 = add nuw nsw i64 %.05763, 1
-  %43 = lshr i64 %.065, 8
+  %.05465 = phi ptr [ %16, %36 ], [ %41, %39 ]
+  %.05664 = phi i64 [ 0, %36 ], [ %42, %39 ]
+  %.05863 = phi i64 [ %38, %36 ], [ %43, %39 ]
+  %40 = trunc i64 %.05863 to i8
+  %41 = getelementptr inbounds i8, ptr %.05465, i64 1
+  store i8 %40, ptr %.05465, align 1
+  %42 = add nuw nsw i64 %.05664, 1
+  %43 = lshr i64 %.05863, 8
   %exitcond.not = icmp eq i64 %42, 8
   br i1 %exitcond.not, label %44, label %39
 
@@ -411,14 +411,14 @@ thread-pre-split:                                 ; preds = %19, %44, %46
   br label %78
 
 78:                                               ; preds = %76, %78
-  %.05168 = phi ptr [ %57, %76 ], [ %80, %78 ]
-  %.05267 = phi i64 [ 0, %76 ], [ %81, %78 ]
-  %.05466 = phi i64 [ %77, %76 ], [ %82, %78 ]
-  %79 = trunc i64 %.05466 to i8
-  %80 = getelementptr inbounds i8, ptr %.05168, i64 1
-  store i8 %79, ptr %.05168, align 1
-  %81 = add nuw nsw i64 %.05267, 1
-  %82 = lshr i64 %.05466, 8
+  %.068 = phi ptr [ %57, %76 ], [ %80, %78 ]
+  %.05167 = phi i64 [ 0, %76 ], [ %81, %78 ]
+  %.05366 = phi i64 [ %77, %76 ], [ %82, %78 ]
+  %79 = trunc i64 %.05366 to i8
+  %80 = getelementptr inbounds i8, ptr %.068, i64 1
+  store i8 %79, ptr %.068, align 1
+  %81 = add nuw nsw i64 %.05167, 1
+  %82 = lshr i64 %.05366, 8
   %exitcond69.not = icmp eq i64 %81, 8
   br i1 %exitcond69.not, label %83, label %78
 

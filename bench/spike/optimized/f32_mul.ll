@@ -75,12 +75,12 @@ define i32 @f32_mul(i32 %0, i32 %1) local_unnamed_addr #0 {
   br label %36
 
 36:                                               ; preds = %32, %30
-  %.056 = phi i64 [ %10, %30 ], [ %35, %32 ]
-  %.055 = phi i64 [ %9, %30 ], [ %34, %32 ]
-  %37 = add nsw i64 %.055, %.0
+  %.060 = phi i64 [ %9, %30 ], [ %34, %32 ]
+  %.059 = phi i64 [ %10, %30 ], [ %35, %32 ]
+  %37 = add nsw i64 %.060, %.0
   %38 = shl i64 %.054, 7
   %39 = or i64 %38, 1073741824
-  %40 = shl i64 %.056, 8
+  %40 = shl i64 %.059, 8
   %41 = or i64 %40, 2147483648
   %42 = mul i64 %41, %39
   %43 = lshr i64 %42, 32
@@ -89,11 +89,11 @@ define i32 @f32_mul(i32 %0, i32 %1) local_unnamed_addr #0 {
   %46 = zext i1 %45 to i64
   %47 = or i64 %43, %46
   %48 = icmp ult i64 %42, 4611686018427387904
-  %.059.v = select i1 %48, i64 -128, i64 -127
-  %.059 = add nsw i64 %37, %.059.v
+  %.057.v = select i1 %48, i64 -128, i64 -127
+  %.057 = add nsw i64 %37, %.057.v
   %49 = zext i1 %48 to i64
-  %.058 = shl nuw nsw i64 %47, %49
-  %50 = tail call i32 @softfloat_roundPackToF32(i1 noundef zeroext %11, i64 noundef %.059, i64 noundef %.058) #2
+  %.056 = shl nuw nsw i64 %47, %49
+  %50 = tail call i32 @softfloat_roundPackToF32(i1 noundef zeroext %11, i64 noundef %.057, i64 noundef %.056) #2
   br label %59
 
 51:                                               ; preds = %21, %13, %14
@@ -102,8 +102,8 @@ define i32 @f32_mul(i32 %0, i32 %1) local_unnamed_addr #0 {
   br label %59
 
 54:                                               ; preds = %22, %17
-  %.060 = phi i64 [ %18, %17 ], [ %23, %22 ]
-  %.not73 = icmp eq i64 %.060, 0
+  %.058 = phi i64 [ %18, %17 ], [ %23, %22 ]
+  %.not73 = icmp eq i64 %.058, 0
   br i1 %.not73, label %55, label %56
 
 55:                                               ; preds = %54

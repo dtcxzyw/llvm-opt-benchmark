@@ -166,9 +166,9 @@ define ptr @RTreeSearch(ptr nocapture noundef readnone %0, ptr noundef %1, ptr n
   br i1 %6, label %.preheader36, label %.preheader37
 
 .preheader36:                                     ; preds = %3, %18
-  %.03042 = phi ptr [ %.1, %18 ], [ null, %3 ]
-  %.03141 = phi i64 [ %19, %18 ], [ 0, %3 ]
-  %8 = getelementptr inbounds [64 x %struct.Branch], ptr %7, i64 0, i64 %.03141
+  %.03042 = phi i64 [ %19, %18 ], [ 0, %3 ]
+  %.03141 = phi ptr [ %.1, %18 ], [ null, %3 ]
+  %8 = getelementptr inbounds [64 x %struct.Branch], ptr %7, i64 0, i64 %.03042
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not33 = icmp eq ptr %10, null
@@ -181,11 +181,11 @@ define ptr @RTreeSearch(ptr nocapture noundef readnone %0, ptr noundef %1, ptr n
 13:                                               ; preds = %11
   %14 = load ptr, ptr %9, align 8
   %15 = tail call ptr @RTreeSearch(ptr noundef %0, ptr noundef %14, ptr noundef %2)
-  %.not34 = icmp eq ptr %.03042, null
+  %.not34 = icmp eq ptr %.03141, null
   br i1 %.not34, label %18, label %.preheader
 
 .preheader:                                       ; preds = %13, %.preheader
-  %.029 = phi ptr [ %16, %.preheader ], [ %.03042, %13 ]
+  %.029 = phi ptr [ %16, %.preheader ], [ %.03141, %13 ]
   %16 = load ptr, ptr %.029, align 8
   %.not35 = icmp eq ptr %16, null
   br i1 %.not35, label %17, label %.preheader
@@ -195,8 +195,8 @@ define ptr @RTreeSearch(ptr nocapture noundef readnone %0, ptr noundef %1, ptr n
   br label %18
 
 18:                                               ; preds = %13, %.preheader36, %11, %17
-  %.1 = phi ptr [ %.03042, %17 ], [ %.03042, %11 ], [ %.03042, %.preheader36 ], [ %15, %13 ]
-  %19 = add nuw nsw i64 %.03141, 1
+  %.1 = phi ptr [ %.03141, %17 ], [ %.03141, %11 ], [ %.03141, %.preheader36 ], [ %15, %13 ]
+  %19 = add nuw nsw i64 %.03042, 1
   %exitcond44.not = icmp eq i64 %19, 64
   br i1 %exitcond44.not, label %.loopexit, label %.preheader36
 

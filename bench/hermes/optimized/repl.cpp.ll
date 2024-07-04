@@ -912,8 +912,8 @@ if.end.i114:                                      ; preds = %_ZN6hermes6parser7J
   br i1 %cmp.i115, label %cleanup.i, label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.end.i114, %sw.epilog.i
-  %previousTokenKind.sroa.0.0.i = phi i32 [ %90, %sw.epilog.i ], [ 0, %if.end.i114 ]
   %tobool.i.not.i.i = phi i1 [ false, %sw.epilog.i ], [ true, %if.end.i114 ]
+  %previousTokenKind.sroa.0.0.i = phi i32 [ %90, %sw.epilog.i ], [ 0, %if.end.i114 ]
   br i1 %tobool.i.not.i.i, label %"_ZZL16needsAnotherLineN4llvh9StringRefEENK3$_0clEN6hermes8OptValueINS2_6parser9TokenKindEEE.exit.i", label %if.end.i.i116
 
 if.end.i.i116:                                    ; preds = %while.cond.i

@@ -2400,7 +2400,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_124reduceThreadForceBuffersINS_11Basic
 
 44:                                               ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
-  %.04761 = phi i32 [ 0, %.lr.ph ], [ %.1, %59 ]
+  %.04860 = phi i32 [ 0, %.lr.ph ], [ %.1, %59 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   store <2 x i64> %41, ptr %9, align 16
   %45 = lshr i64 %indvars.iv, 6
@@ -2418,14 +2418,14 @@ define internal void @_ZN3gmx12_GLOBAL__N_124reduceThreadForceBuffersINS_11Basic
   %53 = getelementptr inbounds %"class.std::unique_ptr", ptr %43, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %54, align 8, !noalias !45
-  %56 = add nsw i32 %.04761, 1
-  %57 = sext i32 %.04761 to i64
+  %56 = add nsw i32 %.04860, 1
+  %57 = sext i32 %.04860 to i64
   %58 = getelementptr inbounds [256 x ptr], ptr %14, i64 0, i64 %57
   store ptr %55, ptr %58, align 8
   br label %59
 
 59:                                               ; preds = %44, %52
-  %.1 = phi i32 [ %56, %52 ], [ %.04761, %44 ]
+  %.1 = phi i32 [ %56, %52 ], [ %.04860, %44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !48

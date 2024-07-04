@@ -3917,8 +3917,8 @@ sw.bb61:                                          ; preds = %if.end45
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then53, %if.then56, %sw.bb61
-  %error_code.0 = phi i32 [ 2, %sw.bb61 ], [ %111, %if.then56 ], [ 7, %if.then53 ]
   %opened_stream_id.0 = phi i32 [ %112, %sw.bb61 ], [ %109, %if.then56 ], [ %109, %if.then53 ]
+  %error_code.0 = phi i32 [ 2, %sw.bb61 ], [ %111, %if.then56 ], [ 7, %if.then53 ]
   %tobool63.not = icmp eq i32 %opened_stream_id.0, 0
   br i1 %tobool63.not, label %if.end66, label %if.then64
 

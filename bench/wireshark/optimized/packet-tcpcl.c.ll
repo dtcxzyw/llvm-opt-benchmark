@@ -1535,7 +1535,7 @@ get_clamped_length.exit.tcpcl_peer_associate_transfer.exit_crit_edge.i: ; preds 
 
 tcpcl_peer_associate_transfer.exit.i:             ; preds = %232, %228, %get_clamped_length.exit.tcpcl_peer_associate_transfer.exit_crit_edge.i
   %239 = phi i64 [ %.pre181.i, %get_clamped_length.exit.tcpcl_peer_associate_transfer.exit_crit_edge.i ], [ %229, %228 ], [ %229, %232 ]
-  %.0149.i = phi ptr [ %215, %get_clamped_length.exit.tcpcl_peer_associate_transfer.exit_crit_edge.i ], [ %218, %228 ], [ %218, %232 ]
+  %.0148.i = phi ptr [ %215, %get_clamped_length.exit.tcpcl_peer_associate_transfer.exit_crit_edge.i ], [ %218, %228 ], [ %218, %232 ]
   %240 = load i32, ptr @hf_tcpclv3_xfer_id, align 4
   %241 = call ptr @proto_tree_add_uint64(ptr noundef %177, i32 noundef %240, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %239) #10
   %.not.i168.i = icmp eq ptr %241, null
@@ -1562,7 +1562,7 @@ proto_item_set_generated.exit.i:                  ; preds = %245, %242, %tcpcl_p
   br i1 %.not165.i, label %256, label %252
 
 252:                                              ; preds = %proto_item_set_generated.exit.i
-  %253 = load i64, ptr %.0149.i, align 8
+  %253 = load i64, ptr %.0148.i, align 8
   %254 = and i8 %178, 3
   %255 = load i64, ptr %7, align 8
   call fastcc void @transfer_add_segment(ptr noundef nonnull %10, i64 noundef %253, i8 noundef zeroext %254, i64 noundef %255, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %177, ptr noundef %175, ptr noundef %191)
@@ -1576,7 +1576,7 @@ proto_item_set_generated.exit.i:                  ; preds = %245, %242, %tcpcl_p
 258:                                              ; preds = %256
   %259 = and i32 %181, 1
   %260 = xor i32 %259, 1
-  %261 = call ptr @fragment_add_seq_next(ptr noundef nonnull @xfer_reassembly_table, ptr noundef %0, i32 noundef %203, ptr noundef nonnull %1, i32 noundef 0, ptr noundef nonnull %.0149.i, i32 noundef %.0.i.i, i32 noundef %260) #10
+  %261 = call ptr @fragment_add_seq_next(ptr noundef nonnull @xfer_reassembly_table, ptr noundef %0, i32 noundef %203, ptr noundef nonnull %1, i32 noundef 0, ptr noundef nonnull %.0148.i, i32 noundef %.0.i.i, i32 noundef %260) #10
   %262 = call ptr @proto_tree_get_parent_tree(ptr noundef %.0141) #10
   %263 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %203, ptr noundef nonnull %1, ptr noundef nonnull @.str.292, ptr noundef %261, ptr noundef nonnull @xfer_frag_items, ptr noundef null, ptr noundef %262) #10
   %264 = getelementptr inbounds i8, ptr %10, i64 40
@@ -1603,7 +1603,7 @@ proto_item_set_generated.exit.i:                  ; preds = %245, %242, %tcpcl_p
   br label %276
 
 276:                                              ; preds = %274, %272
-  %.0148.i = phi i32 [ 1, %272 ], [ %275, %274 ]
+  %.0149.i = phi i32 [ 1, %272 ], [ %275, %274 ]
   %277 = getelementptr inbounds i8, ptr %10, i64 32
   %278 = load ptr, ptr %277, align 8
   %279 = getelementptr inbounds i8, ptr %278, i64 96
@@ -1644,7 +1644,7 @@ proto_item_set_generated.exit.i:                  ; preds = %245, %242, %tcpcl_p
 
 tcpcl_peer_associate_transfer.exit170.i:          ; preds = %293, %284, %.tcpcl_peer_associate_transfer.exit170_crit_edge.i
   %300 = phi i64 [ %.pre180.i, %.tcpcl_peer_associate_transfer.exit170_crit_edge.i ], [ %290, %284 ], [ %290, %293 ]
-  %.1150.i = phi ptr [ %283, %.tcpcl_peer_associate_transfer.exit170_crit_edge.i ], [ %286, %284 ], [ %286, %293 ]
+  %.1.i = phi ptr [ %283, %.tcpcl_peer_associate_transfer.exit170_crit_edge.i ], [ %286, %284 ], [ %286, %293 ]
   %301 = load i32, ptr @hf_tcpclv3_xfer_id, align 4
   %302 = call ptr @proto_tree_add_uint64(ptr noundef %177, i32 noundef %301, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %300) #10
   %.not.i171.i = icmp eq ptr %302, null
@@ -1669,7 +1669,7 @@ proto_item_set_generated.exit173.i:               ; preds = %306, %303, %tcpcl_p
   br i1 %.not161.i, label %dissect_v3_msg.exit, label %311
 
 311:                                              ; preds = %proto_item_set_generated.exit173.i
-  %312 = load i64, ptr %.1150.i, align 8
+  %312 = load i64, ptr %.1.i, align 8
   %313 = load i64, ptr %7, align 8
   call fastcc void @transfer_add_ack(ptr noundef nonnull %10, i64 noundef %312, i8 noundef zeroext 0, i64 noundef %313, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %177, ptr noundef %175, ptr noundef null)
   br label %dissect_v3_msg.exit
@@ -1693,15 +1693,15 @@ proto_item_set_generated.exit173.i:               ; preds = %306, %303, %tcpcl_p
   br label %327
 
 327:                                              ; preds = %324, %314
-  %.1.i = phi i32 [ 2, %324 ], [ 1, %314 ]
+  %.1150.i = phi i32 [ 2, %324 ], [ 1, %314 ]
   %328 = and i32 %181, 1
   %.not159.i = icmp eq i32 %328, 0
   br i1 %.not159.i, label %dissect_v3_msg.exit, label %329
 
 329:                                              ; preds = %327
   %330 = load i32, ptr @hf_tcpclv3_shutdown_delay, align 4
-  %331 = tail call ptr @proto_tree_add_item(ptr noundef %177, i32 noundef %330, ptr noundef %0, i32 noundef %.1.i, i32 noundef 2, i32 noundef 0) #10
-  %332 = add nuw nsw i32 %.1.i, 1
+  %331 = tail call ptr @proto_tree_add_item(ptr noundef %177, i32 noundef %330, ptr noundef %0, i32 noundef %.1150.i, i32 noundef 2, i32 noundef 0) #10
+  %332 = add nuw nsw i32 %.1150.i, 1
   br label %dissect_v3_msg.exit
 
 333:                                              ; preds = %173
@@ -1753,7 +1753,7 @@ proto_item_set_generated.exit173.i:               ; preds = %306, %303, %tcpcl_p
 
 tcpcl_peer_associate_transfer.exit175.i:          ; preds = %357, %348, %.tcpcl_peer_associate_transfer.exit175_crit_edge.i
   %364 = phi i64 [ %.pre.i, %.tcpcl_peer_associate_transfer.exit175_crit_edge.i ], [ %354, %348 ], [ %354, %357 ]
-  %.2151.i = phi ptr [ %347, %.tcpcl_peer_associate_transfer.exit175_crit_edge.i ], [ %350, %348 ], [ %350, %357 ]
+  %.2.i = phi ptr [ %347, %.tcpcl_peer_associate_transfer.exit175_crit_edge.i ], [ %350, %348 ], [ %350, %357 ]
   %365 = load i32, ptr @hf_tcpclv3_xfer_id, align 4
   %366 = tail call ptr @proto_tree_add_uint64(ptr noundef %177, i32 noundef %365, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %364) #10
   %.not.i176.i = icmp eq ptr %366, null
@@ -1778,7 +1778,7 @@ proto_item_set_generated.exit178.i:               ; preds = %370, %367, %tcpcl_p
   br i1 %.not157.i, label %dissect_v3_msg.exit, label %375
 
 375:                                              ; preds = %proto_item_set_generated.exit178.i
-  %376 = load i64, ptr %.2151.i, align 8
+  %376 = load i64, ptr %.2.i, align 8
   %377 = getelementptr i8, ptr %342, i64 104
   %.val.val.i = load ptr, ptr %377, align 8
   tail call fastcc void @transfer_add_refuse(ptr %.val.val.i, i64 noundef %376, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %177, ptr noundef %175)
@@ -1790,7 +1790,7 @@ proto_item_set_generated.exit178.i:               ; preds = %370, %367, %tcpcl_p
   br label %dissect_v3_msg.exit
 
 dissect_v3_msg.exit:                              ; preds = %173, %200, %265, %proto_item_set_generated.exit173.i, %311, %327, %329, %proto_item_set_generated.exit178.i, %375, %378
-  %.0.i172 = phi i32 [ 0, %200 ], [ 0, %378 ], [ 2, %375 ], [ 2, %proto_item_set_generated.exit178.i ], [ %332, %329 ], [ %.1.i, %327 ], [ %.0148.i, %311 ], [ %.0148.i, %proto_item_set_generated.exit173.i ], [ %266, %265 ], [ 1, %173 ]
+  %.0.i172 = phi i32 [ 0, %200 ], [ 0, %378 ], [ 2, %375 ], [ 2, %proto_item_set_generated.exit178.i ], [ %332, %329 ], [ %.1150.i, %327 ], [ %.0149.i, %311 ], [ %.0149.i, %proto_item_set_generated.exit173.i ], [ %266, %265 ], [ 1, %173 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %proto_item_set_generated.exit170
@@ -1848,9 +1848,9 @@ dissect_v3_msg.exit:                              ; preds = %173, %200, %265, %p
   br i1 %418, label %.lr.ph547.i, label %._crit_edge548.i
 
 .lr.ph547.i:                                      ; preds = %393, %465
-  %.0456545.i = phi i32 [ %460, %465 ], [ 0, %393 ]
+  %.0461545.i = phi i32 [ %460, %465 ], [ 0, %393 ]
   %419 = load i32, ptr @hf_tcpclv4_sessext_tree, align 4
-  %420 = add i32 %.0456545.i, %417
+  %420 = add i32 %.0461545.i, %417
   %421 = tail call ptr @proto_tree_add_item(ptr noundef %385, i32 noundef %419, ptr noundef %0, i32 noundef %420, i32 noundef 0, i32 noundef 0) #10
   %422 = load i32, ptr @ett_tcpclv4_sessext, align 4
   %423 = tail call ptr @proto_item_add_subtree(ptr noundef %421, i32 noundef %422) #10
@@ -1909,7 +1909,7 @@ dissect_v3_msg.exit:                              ; preds = %173, %200, %265, %p
 458:                                              ; preds = %.thread.i, %454
   %459 = add nuw nsw i32 %445, 5
   tail call void @proto_item_set_len(ptr noundef %421, i32 noundef %459) #10
-  %460 = add i32 %459, %.0456545.i
+  %460 = add i32 %459, %.0461545.i
   %.not501.i = icmp eq ptr %439, null
   br i1 %.not501.i, label %462, label %461
 

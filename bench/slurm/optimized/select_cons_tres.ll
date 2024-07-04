@@ -786,9 +786,9 @@ define range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr noundef %1)
 
 128:                                              ; preds = %.lr.ph, %235
   %indvars.iv = phi i64 [ %126, %.lr.ph ], [ %indvars.iv.next, %235 ]
-  %.0177197 = phi i32 [ -1, %.lr.ph ], [ %.1, %235 ]
-  %.0178196 = phi i32 [ -1, %.lr.ph ], [ %.1179, %235 ]
-  %.0180195 = phi i32 [ -1, %.lr.ph ], [ %.1181, %235 ]
+  %.0198 = phi i32 [ -1, %.lr.ph ], [ %.1, %235 ]
+  %.0174197 = phi i32 [ -1, %.lr.ph ], [ %.1175, %235 ]
+  %.0176196 = phi i32 [ -1, %.lr.ph ], [ %.1177, %235 ]
   %129 = load ptr, ptr %23, align 8
   %130 = call i32 @slurm_bit_test(ptr noundef %129, i64 noundef %indvars.iv) #9
   %.not191 = icmp eq i32 %130, 0
@@ -798,12 +798,12 @@ define range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr noundef %1)
   %132 = load ptr, ptr %72, align 8
   %133 = call i32 @slurm_bit_test(ptr noundef %132, i64 noundef %indvars.iv) #9
   %134 = icmp ne i32 %133, 0
-  %135 = add nsw i32 %.0180195, 1
+  %135 = add nsw i32 %.0176196, 1
   br label %136
 
 136:                                              ; preds = %131, %128
-  %.1181 = phi i32 [ %135, %131 ], [ %.0180195, %128 ]
-  %.0175 = phi i1 [ %134, %131 ], [ false, %128 ]
+  %.0179 = phi i1 [ %134, %131 ], [ false, %128 ]
+  %.1177 = phi i32 [ %135, %131 ], [ %.0176196, %128 ]
   %137 = load ptr, ptr %40, align 8
   %138 = call i32 @slurm_bit_test(ptr noundef %137, i64 noundef %indvars.iv) #9
   %.not192 = icmp eq i32 %138, 0
@@ -813,22 +813,22 @@ define range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr noundef %1)
   %140 = load ptr, ptr %69, align 8
   %141 = call i32 @slurm_bit_test(ptr noundef %140, i64 noundef %indvars.iv) #9
   %142 = icmp ne i32 %141, 0
-  %143 = add nsw i32 %.0178196, 1
+  %143 = add nsw i32 %.0174197, 1
   br label %144
 
 144:                                              ; preds = %139, %136
-  %.1179 = phi i32 [ %143, %139 ], [ %.0178196, %136 ]
-  %.0176 = phi i1 [ %142, %139 ], [ false, %136 ]
-  %brmerge = select i1 %.0175, i1 true, i1 %.0176
+  %.0178 = phi i1 [ %142, %139 ], [ false, %136 ]
+  %.1175 = phi i32 [ %143, %139 ], [ %.0174197, %136 ]
+  %brmerge = select i1 %.0179, i1 true, i1 %.0178
   br i1 %brmerge, label %145, label %235
 
 145:                                              ; preds = %144
-  %146 = add nsw i32 %.0177197, 1
-  br i1 %.0175, label %147, label %165
+  %146 = add nsw i32 %.0198, 1
+  br i1 %.0179, label %147, label %165
 
 147:                                              ; preds = %145
   %148 = load ptr, ptr %16, align 8
-  %149 = sext i32 %.1181 to i64
+  %149 = sext i32 %.1177 to i64
   %150 = getelementptr inbounds i16, ptr %148, i64 %149
   %151 = load i16, ptr %150, align 2
   %152 = load ptr, ptr %117, align 8
@@ -845,16 +845,16 @@ define range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr noundef %1)
   %161 = getelementptr inbounds i64, ptr %160, i64 %153
   store i64 %159, ptr %161, align 8
   %162 = trunc i32 %146 to i16
-  %163 = trunc i32 %.1181 to i16
+  %163 = trunc i32 %.1177 to i16
   %164 = call i32 @job_resources_bits_copy(ptr noundef %77, i16 noundef zeroext %162, ptr noundef nonnull %13, i16 noundef zeroext %163) #9
   br label %165
 
 165:                                              ; preds = %147, %145
-  br i1 %.0176, label %166, label %217
+  br i1 %.0178, label %166, label %217
 
 166:                                              ; preds = %165
   %167 = load ptr, ptr %33, align 8
-  %168 = sext i32 %.1179 to i64
+  %168 = sext i32 %.1175 to i64
   %169 = getelementptr inbounds i16, ptr %167, i64 %168
   %170 = load i16, ptr %169, align 2
   %171 = load ptr, ptr %117, align 8
@@ -888,13 +888,13 @@ define range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr noundef %1)
   %196 = add i64 %195, %192
   store i64 %196, ptr %194, align 8
   %197 = trunc i32 %146 to i16
-  %198 = trunc i32 %.1179 to i16
+  %198 = trunc i32 %.1175 to i16
   %199 = call i32 @job_resources_bits_copy(ptr noundef %77, i16 noundef zeroext %197, ptr noundef nonnull %30, i16 noundef zeroext %198) #9
-  br i1 %.0175, label %200, label %217
+  br i1 %.0179, label %200, label %217
 
 200:                                              ; preds = %166
-  %201 = call i32 @count_job_resources_node(ptr noundef nonnull %13, i32 noundef %.1181) #9
-  %202 = call i32 @count_job_resources_node(ptr noundef nonnull %30, i32 noundef %.1179) #9
+  %201 = call i32 @count_job_resources_node(ptr noundef nonnull %13, i32 noundef %.1177) #9
+  %202 = call i32 @count_job_resources_node(ptr noundef nonnull %30, i32 noundef %.1175) #9
   %203 = call i32 @count_job_resources_node(ptr noundef nonnull %77, i32 noundef %146) #9
   %204 = add nsw i32 %202, %201
   %.not193 = icmp eq i32 %204, %203
@@ -946,7 +946,7 @@ define range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr noundef %1)
   br label %235
 
 235:                                              ; preds = %.sink.split, %144
-  %.1 = phi i32 [ %.0177197, %144 ], [ %146, %.sink.split ]
+  %.1 = phi i32 [ %.0198, %144 ], [ %146, %.sink.split ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %127, %lftr.wideiv
@@ -1027,8 +1027,8 @@ define range(i32 -1, 1) i32 @select_p_job_expand(ptr noundef %0, ptr noundef %1)
   br label %281
 
 281:                                              ; preds = %._crit_edge, %53, %48, %43, %26, %9
-  %.0 = phi i32 [ -1, %9 ], [ -1, %26 ], [ -1, %43 ], [ -1, %48 ], [ -1, %53 ], [ 0, %._crit_edge ]
-  ret i32 %.0
+  %.0180 = phi i32 [ -1, %9 ], [ -1, %26 ], [ -1, %43 ], [ -1, %48 ], [ -1, %53 ], [ 0, %._crit_edge ]
+  ret i32 %.0180
 }
 
 declare i32 @job_res_rm_job(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -1744,8 +1744,8 @@ define range(i32 0, 1901) i32 @select_p_select_nodeinfo_set_all() local_unnamed_
 
 12:                                               ; preds = %0
   store i64 %5, ptr @select_p_select_nodeinfo_set_all.last_set_all, align 8
-  %.03061 = load ptr, ptr @select_part_record, align 8
-  %.not4262 = icmp eq ptr %.03061, null
+  %.03261 = load ptr, ptr @select_part_record, align 8
+  %.not4262 = icmp eq ptr %.03261, null
   br i1 %.not4262, label %.preheader, label %.lr.ph65
 
 .preheader:                                       ; preds = %.loopexit, %12
@@ -1760,15 +1760,15 @@ define range(i32 0, 1901) i32 @select_p_select_nodeinfo_set_all() local_unnamed_
   br label %.lr.ph67
 
 .lr.ph65:                                         ; preds = %12, %.loopexit
-  %.03064 = phi ptr [ %.030, %.loopexit ], [ %.03061, %12 ]
+  %.03264 = phi ptr [ %.032, %.loopexit ], [ %.03261, %12 ]
   %.promoted6063 = phi ptr [ %.promoted59, %.loopexit ], [ null, %12 ]
-  %15 = getelementptr inbounds i8, ptr %.03064, i64 24
+  %15 = getelementptr inbounds i8, ptr %.03264, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not49 = icmp eq ptr %16, null
   br i1 %.not49, label %.loopexit, label %.preheader53
 
 .preheader53:                                     ; preds = %.lr.ph65
-  %17 = getelementptr inbounds i8, ptr %.03064, i64 8
+  %17 = getelementptr inbounds i8, ptr %.03264, i64 8
   %18 = load i16, ptr %17, align 8
   %.not68 = icmp eq i16 %18, 0
   br i1 %.not68, label %.loopexit, label %.lr.ph
@@ -1807,8 +1807,8 @@ define range(i32 0, 1901) i32 @select_p_select_nodeinfo_set_all() local_unnamed_
 
 .loopexit:                                        ; preds = %27, %.preheader53, %.lr.ph65
   %.promoted59 = phi ptr [ %.promoted6063, %.lr.ph65 ], [ %.promoted6063, %.preheader53 ], [ %.promoted57, %27 ]
-  %.030 = load ptr, ptr %.03064, align 8
-  %.not42 = icmp eq ptr %.030, null
+  %.032 = load ptr, ptr %.03264, align 8
+  %.not42 = icmp eq ptr %.032, null
   br i1 %.not42, label %.preheader, label %.lr.ph65, !llvm.loop !16
 
 .lr.ph67:                                         ; preds = %.lr.ph67.preheader, %117
@@ -1841,7 +1841,7 @@ define range(i32 0, 1901) i32 @select_p_select_nodeinfo_set_all() local_unnamed_
   br label %47
 
 47:                                               ; preds = %39, %40, %45
-  %.031 = phi i32 [ %46, %45 ], [ 0, %40 ], [ 0, %39 ]
+  %.029 = phi i32 [ %46, %45 ], [ 0, %40 ], [ 0, %39 ]
   %48 = getelementptr inbounds i8, ptr %32, i64 496
   %49 = load i16, ptr %48, align 8
   %50 = zext i16 %49 to i32
@@ -1849,7 +1849,7 @@ define range(i32 0, 1901) i32 @select_p_select_nodeinfo_set_all() local_unnamed_
   %52 = load i16, ptr %51, align 8
   %53 = zext i16 %52 to i32
   %54 = sub nsw i32 %50, %53
-  %..031 = call i32 @llvm.umin.i32(i32 %.031, i32 %54)
+  %..029 = call i32 @llvm.umin.i32(i32 %.029, i32 %54)
   %55 = getelementptr inbounds i8, ptr %32, i64 104
   %56 = load i16, ptr %55, align 8
   %57 = icmp ult i16 %49, %56
@@ -1859,11 +1859,11 @@ define range(i32 0, 1901) i32 @select_p_select_nodeinfo_set_all() local_unnamed_
   %59 = getelementptr inbounds i8, ptr %32, i64 488
   %60 = load i16, ptr %59, align 8
   %61 = zext i16 %60 to i32
-  %62 = mul i32 %..031, %61
+  %62 = mul i32 %..029, %61
   br label %63
 
 63:                                               ; preds = %58, %47
-  %.1 = phi i32 [ %62, %58 ], [ %..031, %47 ]
+  %.1 = phi i32 [ %62, %58 ], [ %..029, %47 ]
   %64 = trunc i32 %.1 to i16
   %65 = load ptr, ptr %3, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 2
@@ -1955,8 +1955,8 @@ define range(i32 0, 1901) i32 @select_p_select_nodeinfo_set_all() local_unnamed_
   br label %121
 
 121:                                              ; preds = %7, %10, %._crit_edge
-  %.029 = phi i32 [ 0, %._crit_edge ], [ 1900, %10 ], [ 1900, %7 ]
-  ret i32 %.029
+  %.033 = phi i32 [ 0, %._crit_edge ], [ 1900, %10 ], [ 1900, %7 ]
+  ret i32 %.033
 }
 
 declare ptr @copy_core_array(ptr noundef) local_unnamed_addr #1
@@ -2101,8 +2101,8 @@ define range(i32 -1, 1) i32 @select_p_select_nodeinfo_get(ptr noundef %0, i32 no
   br label %32
 
 32:                                               ; preds = %19, %20, %23, %27, %30, %18, %15, %10, %6
-  %.0 = phi i32 [ -1, %6 ], [ -1, %10 ], [ -1, %30 ], [ 0, %27 ], [ 0, %23 ], [ 0, %20 ], [ 0, %19 ], [ 0, %15 ], [ 0, %18 ]
-  ret i32 %.0
+  %.022 = phi i32 [ -1, %6 ], [ -1, %10 ], [ -1, %30 ], [ 0, %27 ], [ 0, %23 ], [ 0, %20 ], [ 0, %19 ], [ 0, %15 ], [ 0, %18 ]
+  ret i32 %.022
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

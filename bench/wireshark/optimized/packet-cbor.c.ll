@@ -433,7 +433,7 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %39, %46
   br label %69
 
 69:                                               ; preds = %65, %60
-  %.058.i = phi i64 [ %62, %60 ], [ 0, %65 ]
+  %.0.i45 = phi i64 [ %62, %60 ], [ 0, %65 ]
   %70 = load i32, ptr %3, align 4
   %71 = add i32 %70, 1
   store i32 %71, ptr %3, align 4
@@ -451,7 +451,7 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %39, %46
   %76 = load i32, ptr @hf_cbor_type_nint, align 4
   %77 = load i32, ptr %3, align 4
   %78 = tail call ptr @proto_tree_add_int64(ptr noundef %54, i32 noundef %76, ptr noundef %0, i32 noundef %77, i32 noundef 1, i64 noundef %75) #6
-  br label %.sink.split.i45
+  br label %.sink.split.i46
 
 79:                                               ; preds = %69
   %80 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %71) #6
@@ -460,7 +460,7 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %39, %46
   %83 = load i32, ptr @hf_cbor_type_nint, align 4
   %84 = load i32, ptr %3, align 4
   %85 = tail call ptr @proto_tree_add_int64(ptr noundef %54, i32 noundef %83, ptr noundef %0, i32 noundef %84, i32 noundef 2, i64 noundef %82) #6
-  br label %.sink.split.i45
+  br label %.sink.split.i46
 
 86:                                               ; preds = %69
   %87 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %71) #6
@@ -469,7 +469,7 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %39, %46
   %90 = load i32, ptr @hf_cbor_type_nint, align 4
   %91 = load i32, ptr %3, align 4
   %92 = tail call ptr @proto_tree_add_int64(ptr noundef %54, i32 noundef %90, ptr noundef %0, i32 noundef %91, i32 noundef 4, i64 noundef %89) #6
-  br label %.sink.split.i45
+  br label %.sink.split.i46
 
 93:                                               ; preds = %69
   %94 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %71) #6
@@ -485,7 +485,7 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %39, %46
   %100 = load i32, ptr @hf_cbor_type_nint, align 4
   %101 = load i32, ptr %3, align 4
   %102 = tail call ptr @proto_tree_add_int64(ptr noundef %54, i32 noundef %100, ptr noundef %0, i32 noundef %101, i32 noundef 8, i64 noundef %95) #6
-  br label %.sink.split.i45
+  br label %.sink.split.i46
 
 103:                                              ; preds = %69
   %104 = icmp ugt i8 %12, 23
@@ -495,7 +495,7 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %39, %46
   %106 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %54, ptr noundef nonnull @ei_cbor_invalid_minor_type, ptr noundef nonnull @.str.118, i32 noundef %58) #6
   br label %dissect_cbor_negative_integer.exit
 
-.sink.split.i45:                                  ; preds = %99, %86, %79, %72
+.sink.split.i46:                                  ; preds = %99, %86, %79, %72
   %.sink61.i = phi i32 [ 8, %99 ], [ 4, %86 ], [ 2, %79 ], [ 1, %72 ]
   %.1.ph.i = phi i64 [ %95, %99 ], [ %89, %86 ], [ %82, %79 ], [ %75, %72 ]
   %107 = load i32, ptr %3, align 4
@@ -503,8 +503,8 @@ dissect_cbor_unsigned_integer.exit:               ; preds = %39, %46
   store i32 %108, ptr %3, align 4
   br label %109
 
-109:                                              ; preds = %.sink.split.i45, %103
-  %.1.i = phi i64 [ %.058.i, %103 ], [ %.1.ph.i, %.sink.split.i45 ]
+109:                                              ; preds = %.sink.split.i46, %103
+  %.1.i = phi i64 [ %.0.i45, %103 ], [ %.1.ph.i, %.sink.split.i46 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %52, ptr noundef nonnull @.str.119, i64 noundef %.1.i) #6
   %110 = load i32, ptr %3, align 4
   tail call void @proto_item_set_end(ptr noundef %52, ptr noundef %0, i32 noundef %110) #6

@@ -58,107 +58,107 @@ define internal fastcc void @_php_gettimeofday(ptr noundef %0, ptr noundef %1, i
   %6 = getelementptr inbounds i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = icmp ugt i32 %7, 1
-  br i1 %8, label %.thread122, label %9
-
-.thread122:                                       ; preds = %3
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 1) #6
-  br label %.thread135
+  br i1 %8, label %9, label %10
 
 9:                                                ; preds = %3
-  %10 = icmp eq i32 %7, 0
-  br i1 %10, label %.thread116, label %11
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 1) #6
+  br label %.thread123
 
-11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
-  %13 = load i8, ptr %12, align 8
-  switch i8 %13, label %15 [
+10:                                               ; preds = %3
+  %11 = icmp eq i32 %7, 0
+  br i1 %11, label %.thread116, label %12
+
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = load i8, ptr %13, align 8
+  switch i8 %14, label %16 [
     i8 3, label %.thread112
-    i8 2, label %14
+    i8 2, label %15
   ]
 
-14:                                               ; preds = %11
+15:                                               ; preds = %12
   br label %.thread112
 
-.thread112:                                       ; preds = %14, %11
-  %storemerge = phi i8 [ 0, %14 ], [ 1, %11 ]
+.thread112:                                       ; preds = %15, %12
+  %storemerge = phi i8 [ 0, %15 ], [ 1, %12 ]
   store i8 %storemerge, ptr %4, align 1
   br label %.thread116
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
-  %17 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %16, ptr noundef nonnull %4, i32 noundef 1) #6
-  %.fr = freeze i1 %17
-  br i1 %.fr, label %.thread116, label %.thread135
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %18 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %17, ptr noundef nonnull %4, i32 noundef 1) #6
+  %.fr = freeze i1 %18
+  br i1 %.fr, label %.thread116, label %.thread123
 
-.thread135:                                       ; preds = %15, %.thread122
-  %.091131 = phi i32 [ 0, %.thread122 ], [ 1, %15 ]
-  %.092130 = phi ptr [ null, %.thread122 ], [ %16, %15 ]
-  %.093129 = phi i32 [ 0, %.thread122 ], [ 2, %15 ]
-  %.094128 = phi i32 [ 1, %.thread122 ], [ 9, %15 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.094128, i32 noundef %.091131, ptr noundef null, i32 noundef %.093129, ptr noundef %.092130) #6
-  br label %53
+.thread123:                                       ; preds = %16, %9
+  %.091132 = phi i32 [ 1, %9 ], [ 9, %16 ]
+  %.092131 = phi i32 [ 0, %9 ], [ 2, %16 ]
+  %.093130 = phi ptr [ null, %9 ], [ %17, %16 ]
+  %.094129 = phi i32 [ 0, %9 ], [ 1, %16 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.091132, i32 noundef %.094129, ptr noundef null, i32 noundef %.092131, ptr noundef %.093130) #6
+  br label %54
 
-.thread116:                                       ; preds = %15, %.thread112, %9
-  %18 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #6
-  %.not97 = icmp eq i32 %18, 0
+.thread116:                                       ; preds = %16, %.thread112, %10
+  %19 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #6
+  %.not97 = icmp eq i32 %19, 0
   call void @llvm.assume(i1 %.not97)
-  %19 = load i8, ptr %4, align 1
-  %20 = trunc i8 %19 to i1
-  br i1 %20, label %21, label %30
+  %20 = load i8, ptr %4, align 1
+  %21 = trunc i8 %20 to i1
+  br i1 %21, label %22, label %31
 
-21:                                               ; preds = %.thread116
-  %22 = load i64, ptr %5, align 8
-  %23 = sitofp i64 %22 to double
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
-  %25 = load i64, ptr %24, align 8
-  %26 = sitofp i64 %25 to double
-  %27 = fdiv double %26, 1.000000e+06
-  %28 = fadd double %27, %23
-  store double %28, ptr %1, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %29, align 8
-  br label %53
+22:                                               ; preds = %.thread116
+  %23 = load i64, ptr %5, align 8
+  %24 = sitofp i64 %23 to double
+  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = load i64, ptr %25, align 8
+  %27 = sitofp i64 %26 to double
+  %28 = fdiv double %27, 1.000000e+06
+  %29 = fadd double %28, %24
+  store double %29, ptr %1, align 8
+  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %30, align 8
+  br label %54
 
-30:                                               ; preds = %.thread116
+31:                                               ; preds = %.thread116
   %.not98 = icmp eq i32 %2, 0
-  br i1 %.not98, label %45, label %31
+  br i1 %.not98, label %46, label %32
 
-31:                                               ; preds = %30
-  %32 = load i64, ptr %5, align 8
-  %33 = call ptr @get_timezone_info() #6
-  %34 = call ptr @timelib_get_time_zone_info(i64 noundef %32, ptr noundef %33) #6
-  %35 = call ptr @_zend_new_array_0() #6
-  store ptr %35, ptr %1, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 775, ptr %36, align 8
-  call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.17, i64 noundef 3, i64 noundef %32) #6
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
-  %38 = load i64, ptr %37, align 8
-  call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.18, i64 noundef 4, i64 noundef %38) #6
-  %39 = load i32, ptr %34, align 8
-  %40 = sdiv i32 %39, -60
-  %41 = sext i32 %40 to i64
-  call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.19, i64 noundef 11, i64 noundef %41) #6
-  %42 = getelementptr inbounds i8, ptr %34, i64 8
-  %43 = load i32, ptr %42, align 8
-  %44 = zext i32 %43 to i64
-  call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.20, i64 noundef 7, i64 noundef %44) #6
-  call void @timelib_time_offset_dtor(ptr noundef nonnull %34) #6
-  br label %53
+32:                                               ; preds = %31
+  %33 = load i64, ptr %5, align 8
+  %34 = call ptr @get_timezone_info() #6
+  %35 = call ptr @timelib_get_time_zone_info(i64 noundef %33, ptr noundef %34) #6
+  %36 = call ptr @_zend_new_array_0() #6
+  store ptr %36, ptr %1, align 8
+  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 775, ptr %37, align 8
+  call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.17, i64 noundef 3, i64 noundef %33) #6
+  %38 = getelementptr inbounds i8, ptr %5, i64 8
+  %39 = load i64, ptr %38, align 8
+  call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.18, i64 noundef 4, i64 noundef %39) #6
+  %40 = load i32, ptr %35, align 8
+  %41 = sdiv i32 %40, -60
+  %42 = sext i32 %41 to i64
+  call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.19, i64 noundef 11, i64 noundef %42) #6
+  %43 = getelementptr inbounds i8, ptr %35, i64 8
+  %44 = load i32, ptr %43, align 8
+  %45 = zext i32 %44 to i64
+  call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.20, i64 noundef 7, i64 noundef %45) #6
+  call void @timelib_time_offset_dtor(ptr noundef nonnull %35) #6
+  br label %54
 
-45:                                               ; preds = %30
-  %46 = getelementptr inbounds i8, ptr %5, i64 8
-  %47 = load i64, ptr %46, align 8
-  %48 = sitofp i64 %47 to double
-  %49 = fdiv double %48, 1.000000e+06
-  %50 = load i64, ptr %5, align 8
-  %51 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.21, double noundef %49, i64 noundef %50) #6
-  store ptr %51, ptr %1, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 262, ptr %52, align 8
-  br label %53
+46:                                               ; preds = %31
+  %47 = getelementptr inbounds i8, ptr %5, i64 8
+  %48 = load i64, ptr %47, align 8
+  %49 = sitofp i64 %48 to double
+  %50 = fdiv double %49, 1.000000e+06
+  %51 = load i64, ptr %5, align 8
+  %52 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.21, double noundef %50, i64 noundef %51) #6
+  store ptr %52, ptr %1, align 8
+  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 262, ptr %53, align 8
+  br label %54
 
-53:                                               ; preds = %45, %31, %21, %.thread135
+54:                                               ; preds = %46, %32, %22, %.thread123
   ret void
 }
 
@@ -208,10 +208,10 @@ define hidden void @zif_getrusage(ptr noundef %0, ptr noundef %1) local_unnamed_
   br label %18
 
 18:                                               ; preds = %16, %.thread167
-  %.0146174 = phi i32 [ 1, %.thread167 ], [ 9, %16 ]
-  %.0147173 = phi i32 [ 0, %.thread167 ], [ 1, %16 ]
-  %.0149172 = phi ptr [ null, %.thread167 ], [ %11, %16 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0146174, i32 noundef %.0147173, ptr noundef null, i32 noundef 0, ptr noundef %.0149172) #6
+  %.0145174 = phi i32 [ 1, %.thread167 ], [ 9, %16 ]
+  %.0147173 = phi ptr [ null, %.thread167 ], [ %11, %16 ]
+  %.0148172 = phi i32 [ 0, %.thread167 ], [ 1, %16 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0145174, i32 noundef %.0148172, ptr noundef null, i32 noundef 0, ptr noundef %.0147173) #6
   br label %61
 
 .thread175:                                       ; preds = %..thread175_crit_edge, %.thread157, %8

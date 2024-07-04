@@ -106,21 +106,21 @@ define noundef i32 @_Z16tMPI_Reduce_fastPvS_iP14tmpi_datatype_7tMPI_OpiP10tmpi_c
   br label %45
 
 45:                                               ; preds = %.lr.ph, %102
-  %.088110 = phi i32 [ 0, %.lr.ph ], [ %108, %102 ]
-  %.089109 = phi i32 [ 2, %.lr.ph ], [ %107, %102 ]
-  %.090108 = phi i32 [ 1, %.lr.ph ], [ %106, %102 ]
-  %.091107 = phi i32 [ %12, %.lr.ph ], [ %105, %102 ]
-  %46 = add nsw i32 %.089109, -1
+  %.087110 = phi i32 [ 0, %.lr.ph ], [ %108, %102 ]
+  %.088109 = phi i32 [ 2, %.lr.ph ], [ %107, %102 ]
+  %.089108 = phi i32 [ 1, %.lr.ph ], [ %106, %102 ]
+  %.090107 = phi i32 [ %12, %.lr.ph ], [ %105, %102 ]
+  %46 = add nsw i32 %.088109, -1
   %47 = and i32 %46, %15
   %48 = icmp eq i32 %47, 0
-  %49 = sub i32 0, %.090108
-  %.pn.p = select i1 %48, i32 %.090108, i32 %49
+  %49 = sub i32 0, %.089108
+  %.pn.p = select i1 %48, i32 %.089108, i32 %49
   %.pn = add i32 %.pn.p, %13
   %50 = srem i32 %.pn, %12
   br i1 %48, label %51, label %84
 
 51:                                               ; preds = %45
-  %52 = add nsw i32 %.090108, %15
+  %52 = add nsw i32 %.089108, %15
   %53 = icmp slt i32 %52, %12
   br i1 %53, label %54, label %79
 
@@ -138,7 +138,7 @@ define noundef i32 @_Z16tMPI_Reduce_fastPvS_iP14tmpi_datatype_7tMPI_OpiP10tmpi_c
   %65 = load i32, ptr %64, align 4
   %66 = add nsw i32 %65, 1
   store i32 %66, ptr %64, align 4
-  %67 = icmp eq i32 %.088110, 0
+  %67 = icmp eq i32 %.087110, 0
   %spec.select. = select i1 %67, ptr %spec.select, ptr %1
   %. = select i1 %67, ptr %35, ptr %39
   %.pn102 = load ptr, ptr %., align 8
@@ -173,7 +173,7 @@ _Z18tMPI_Reduce_run_opPvS_S_P14tmpi_datatype_i7tMPI_OpP10tmpi_comm_.exit: ; pred
   br label %102
 
 79:                                               ; preds = %51
-  %80 = icmp ne i32 %.088110, 0
+  %80 = icmp ne i32 %.087110, 0
   %or.cond = or i1 %.not101, %80
   br i1 %or.cond, label %102, label %81
 
@@ -210,12 +210,12 @@ _Z18tMPI_Reduce_run_opPvS_S_P14tmpi_datatype_i7tMPI_OpP10tmpi_comm_.exit: ; pred
   br label %.loopexit
 
 102:                                              ; preds = %73, %81, %79
-  %103 = lshr i32 %.091107, 1
-  %104 = and i32 %.091107, 1
+  %103 = lshr i32 %.090107, 1
+  %104 = and i32 %.090107, 1
   %105 = add nuw nsw i32 %103, %104
-  %106 = shl nsw i32 %.090108, 1
-  %107 = shl nsw i32 %.089109, 1
-  %108 = add nuw nsw i32 %.088110, 1
+  %106 = shl nsw i32 %.089108, 1
+  %107 = shl nsw i32 %.088109, 1
+  %108 = add nuw nsw i32 %.087110, 1
   %109 = icmp ugt i32 %105, 1
   br i1 %109, label %45, label %.loopexit, !llvm.loop !4
 

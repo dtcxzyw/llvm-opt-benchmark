@@ -91,8 +91,8 @@ do.body.i.preheader.i:                            ; preds = %decode_sleb128.exit
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i, %do.body.i.preheader.i
-  %val.0.i.i = phi i64 [ %or.i.i, %do.body.i.i ], [ 0, %do.body.i.preheader.i ]
   %p.0.i.i = phi ptr [ %incdec.ptr.i.i, %do.body.i.i ], [ %p.139.i, %do.body.i.preheader.i ]
+  %val.0.i.i = phi i64 [ %or.i.i, %do.body.i.i ], [ 0, %do.body.i.preheader.i ]
   %shift.0.i.i = phi i32 [ %add.i.i, %do.body.i.i ], [ 0, %do.body.i.preheader.i ]
   %incdec.ptr.i.i = getelementptr i8, ptr %p.0.i.i, i64 1
   %6 = load i8, ptr %p.0.i.i, align 1
@@ -119,16 +119,16 @@ decode_sleb128.exit.i:                            ; preds = %do.body.i.i
   br i1 %cmp10.i, label %do.body.i.preheader.i, label %do.body.i17.i, !llvm.loop !7
 
 do.body.i17.i:                                    ; preds = %decode_sleb128.exit.i, %do.body.i17.i
-  %val.0.i18.i = phi i64 [ %or.i25.i, %do.body.i17.i ], [ 0, %decode_sleb128.exit.i ]
-  %p.0.i19.i = phi ptr [ %incdec.ptr.i21.i, %do.body.i17.i ], [ %incdec.ptr.i.i, %decode_sleb128.exit.i ]
+  %p.0.i18.i = phi ptr [ %incdec.ptr.i21.i, %do.body.i17.i ], [ %incdec.ptr.i.i, %decode_sleb128.exit.i ]
+  %val.0.i19.i = phi i64 [ %or.i25.i, %do.body.i17.i ], [ 0, %decode_sleb128.exit.i ]
   %shift.0.i20.i = phi i32 [ %add.i26.i, %do.body.i17.i ], [ 0, %decode_sleb128.exit.i ]
-  %incdec.ptr.i21.i = getelementptr i8, ptr %p.0.i19.i, i64 1
-  %9 = load i8, ptr %p.0.i19.i, align 1
+  %incdec.ptr.i21.i = getelementptr i8, ptr %p.0.i18.i, i64 1
+  %9 = load i8, ptr %p.0.i18.i, align 1
   %10 = and i8 %9, 127
   %conv1.i22.i = zext nneg i8 %10 to i64
   %sh_prom.i23.i = zext nneg i32 %shift.0.i20.i to i64
   %shl.i24.i = shl i64 %conv1.i22.i, %sh_prom.i23.i
-  %or.i25.i = or i64 %shl.i24.i, %val.0.i18.i
+  %or.i25.i = or i64 %shl.i24.i, %val.0.i19.i
   %add.i26.i = add i32 %shift.0.i20.i, 7
   %tobool.not.i27.i = icmp sgt i8 %9, -1
   br i1 %tobool.not.i27.i, label %decode_sleb128.exit35.i, label %do.body.i17.i, !llvm.loop !5
@@ -280,8 +280,8 @@ do.body.i.preheader.i:                            ; preds = %decode_sleb128.exit
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.body.i.i, %do.body.i.preheader.i
-  %val.0.i.i = phi i64 [ %or.i.i, %do.body.i.i ], [ 0, %do.body.i.preheader.i ]
   %p.0.i.i = phi ptr [ %incdec.ptr.i.i, %do.body.i.i ], [ %p.139.i, %do.body.i.preheader.i ]
+  %val.0.i.i = phi i64 [ %or.i.i, %do.body.i.i ], [ 0, %do.body.i.preheader.i ]
   %shift.0.i.i = phi i32 [ %add.i.i, %do.body.i.i ], [ 0, %do.body.i.preheader.i ]
   %incdec.ptr.i.i = getelementptr i8, ptr %p.0.i.i, i64 1
   %8 = load i8, ptr %p.0.i.i, align 1
@@ -309,16 +309,16 @@ decode_sleb128.exit.i:                            ; preds = %do.body.i.i
   br i1 %cmp10.i, label %do.body.i.preheader.i, label %do.body.i17.i, !llvm.loop !7
 
 do.body.i17.i:                                    ; preds = %decode_sleb128.exit.i, %do.body.i17.i
-  %val.0.i18.i = phi i64 [ %or.i25.i, %do.body.i17.i ], [ 0, %decode_sleb128.exit.i ]
-  %p.0.i19.i = phi ptr [ %incdec.ptr.i21.i, %do.body.i17.i ], [ %incdec.ptr.i.i, %decode_sleb128.exit.i ]
+  %p.0.i18.i = phi ptr [ %incdec.ptr.i21.i, %do.body.i17.i ], [ %incdec.ptr.i.i, %decode_sleb128.exit.i ]
+  %val.0.i19.i = phi i64 [ %or.i25.i, %do.body.i17.i ], [ 0, %decode_sleb128.exit.i ]
   %shift.0.i20.i = phi i32 [ %add.i26.i, %do.body.i17.i ], [ 0, %decode_sleb128.exit.i ]
-  %incdec.ptr.i21.i = getelementptr i8, ptr %p.0.i19.i, i64 1
-  %11 = load i8, ptr %p.0.i19.i, align 1
+  %incdec.ptr.i21.i = getelementptr i8, ptr %p.0.i18.i, i64 1
+  %11 = load i8, ptr %p.0.i18.i, align 1
   %12 = and i8 %11, 127
   %conv1.i22.i = zext nneg i8 %12 to i64
   %sh_prom.i23.i = zext nneg i32 %shift.0.i20.i to i64
   %shl.i24.i = shl i64 %conv1.i22.i, %sh_prom.i23.i
-  %or.i25.i = or i64 %shl.i24.i, %val.0.i18.i
+  %or.i25.i = or i64 %shl.i24.i, %val.0.i19.i
   %add.i26.i = add i32 %shift.0.i20.i, 7
   %tobool.not.i27.i = icmp sgt i8 %11, -1
   br i1 %tobool.not.i27.i, label %decode_sleb128.exit35.i, label %do.body.i17.i, !llvm.loop !5
@@ -623,26 +623,26 @@ if.end.us.i:                                      ; preds = %cond.true.us.i, %fo
   br i1 %or.cond14.i.us.i, label %encode_sleb128.exit.us.i, label %lor.end.i.us.i
 
 lor.end.i.us.i:                                   ; preds = %if.end.us.i, %do.body.i.us.i
-  %p.addr.016.i.us.i = phi ptr [ %incdec.ptr.i.us.i, %do.body.i.us.i ], [ %p.140.us.i, %if.end.us.i ]
-  %val.addr.015.i.us.i = phi i64 [ %shr17.i.us.i, %do.body.i.us.i ], [ %sub14.us.i, %if.end.us.i ]
-  %shr17.i.us.i = ashr i64 %val.addr.015.i.us.i, 7
+  %val.addr.016.i.us.i = phi i64 [ %shr17.i.us.i, %do.body.i.us.i ], [ %sub14.us.i, %if.end.us.i ]
+  %p.addr.015.i.us.i = phi ptr [ %incdec.ptr.i.us.i, %do.body.i.us.i ], [ %p.140.us.i, %if.end.us.i ]
+  %shr17.i.us.i = ashr i64 %val.addr.016.i.us.i, 7
   %cmp5.i.us.i = icmp eq i64 %shr17.i.us.i, -1
-  %and721.i.us.i = and i64 %val.addr.015.i.us.i, 64
+  %and721.i.us.i = and i64 %val.addr.016.i.us.i, 64
   %cmp8.i.us.i = icmp ne i64 %and721.i.us.i, 0
   %31 = and i1 %cmp5.i.us.i, %cmp8.i.us.i
   br i1 %31, label %encode_sleb128.exit.us.i, label %do.body.i.us.i
 
 do.body.i.us.i:                                   ; preds = %lor.end.i.us.i
-  %32 = trunc i64 %val.addr.015.i.us.i to i8
+  %32 = trunc i64 %val.addr.016.i.us.i to i8
   %conv10.i.us.i = or i8 %32, -128
-  %incdec.ptr.i.us.i = getelementptr i8, ptr %p.addr.016.i.us.i, i64 1
-  store i8 %conv10.i.us.i, ptr %p.addr.016.i.us.i, align 1
+  %incdec.ptr.i.us.i = getelementptr i8, ptr %p.addr.015.i.us.i, i64 1
+  store i8 %conv10.i.us.i, ptr %p.addr.015.i.us.i, align 1
   %or.cond.i.us.i = icmp ult i64 %shr17.i.us.i, 64
   br i1 %or.cond.i.us.i, label %encode_sleb128.exit.us.i, label %lor.end.i.us.i
 
 encode_sleb128.exit.us.i:                         ; preds = %do.body.i.us.i, %lor.end.i.us.i, %if.end.us.i
-  %val.addr.0.lcssa.i.us.i = phi i64 [ %sub14.us.i, %if.end.us.i ], [ %val.addr.015.i.us.i, %lor.end.i.us.i ], [ %shr17.i.us.i, %do.body.i.us.i ]
-  %p.addr.0.lcssa.i.us.i = phi ptr [ %p.140.us.i, %if.end.us.i ], [ %p.addr.016.i.us.i, %lor.end.i.us.i ], [ %incdec.ptr.i.us.i, %do.body.i.us.i ]
+  %p.addr.0.lcssa.i.us.i = phi ptr [ %p.140.us.i, %if.end.us.i ], [ %p.addr.015.i.us.i, %lor.end.i.us.i ], [ %incdec.ptr.i.us.i, %do.body.i.us.i ]
+  %val.addr.0.lcssa.i.us.i = phi i64 [ %sub14.us.i, %if.end.us.i ], [ %val.addr.016.i.us.i, %lor.end.i.us.i ], [ %shr17.i.us.i, %do.body.i.us.i ]
   %33 = trunc i64 %val.addr.0.lcssa.i.us.i to i8
   %conv1010.i.us.i = and i8 %33, 127
   %incdec.ptr11.i.us.i = getelementptr i8, ptr %p.addr.0.lcssa.i.us.i, i64 1
@@ -662,26 +662,26 @@ for.body5.i:                                      ; preds = %encode_sleb128.exit
   br i1 %or.cond14.i.i, label %encode_sleb128.exit.i, label %lor.end.i.i
 
 lor.end.i.i:                                      ; preds = %for.body5.i, %do.body.i.i
-  %p.addr.016.i.i = phi ptr [ %incdec.ptr.i.i, %do.body.i.i ], [ %p.140.i, %for.body5.i ]
-  %val.addr.015.i.i = phi i64 [ %shr17.i.i, %do.body.i.i ], [ %sub14.i, %for.body5.i ]
-  %shr17.i.i = ashr i64 %val.addr.015.i.i, 7
+  %val.addr.016.i.i = phi i64 [ %shr17.i.i, %do.body.i.i ], [ %sub14.i, %for.body5.i ]
+  %p.addr.015.i.i = phi ptr [ %incdec.ptr.i.i, %do.body.i.i ], [ %p.140.i, %for.body5.i ]
+  %shr17.i.i = ashr i64 %val.addr.016.i.i, 7
   %cmp5.i.i = icmp eq i64 %shr17.i.i, -1
-  %and721.i.i = and i64 %val.addr.015.i.i, 64
+  %and721.i.i = and i64 %val.addr.016.i.i, 64
   %cmp8.i.i = icmp ne i64 %and721.i.i, 0
   %36 = and i1 %cmp5.i.i, %cmp8.i.i
   br i1 %36, label %encode_sleb128.exit.i, label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %lor.end.i.i
-  %37 = trunc i64 %val.addr.015.i.i to i8
+  %37 = trunc i64 %val.addr.016.i.i to i8
   %conv10.i.i = or i8 %37, -128
-  %incdec.ptr.i.i = getelementptr i8, ptr %p.addr.016.i.i, i64 1
-  store i8 %conv10.i.i, ptr %p.addr.016.i.i, align 1
+  %incdec.ptr.i.i = getelementptr i8, ptr %p.addr.015.i.i, i64 1
+  store i8 %conv10.i.i, ptr %p.addr.015.i.i, align 1
   %or.cond.i.i120 = icmp ult i64 %shr17.i.i, 64
   br i1 %or.cond.i.i120, label %encode_sleb128.exit.i, label %lor.end.i.i
 
 encode_sleb128.exit.i:                            ; preds = %do.body.i.i, %lor.end.i.i, %for.body5.i
-  %val.addr.0.lcssa.i.i = phi i64 [ %sub14.i, %for.body5.i ], [ %val.addr.015.i.i, %lor.end.i.i ], [ %shr17.i.i, %do.body.i.i ]
-  %p.addr.0.lcssa.i.i = phi ptr [ %p.140.i, %for.body5.i ], [ %p.addr.016.i.i, %lor.end.i.i ], [ %incdec.ptr.i.i, %do.body.i.i ]
+  %p.addr.0.lcssa.i.i = phi ptr [ %p.140.i, %for.body5.i ], [ %p.addr.015.i.i, %lor.end.i.i ], [ %incdec.ptr.i.i, %do.body.i.i ]
+  %val.addr.0.lcssa.i.i = phi i64 [ %sub14.i, %for.body5.i ], [ %val.addr.016.i.i, %lor.end.i.i ], [ %shr17.i.i, %do.body.i.i ]
   %38 = trunc i64 %val.addr.0.lcssa.i.i to i8
   %conv1010.i.i = and i8 %38, 127
   %incdec.ptr11.i.i = getelementptr i8, ptr %p.addr.0.lcssa.i.i, i64 1
@@ -708,30 +708,30 @@ cond.end24.i:                                     ; preds = %cond.false19.i, %fo
   br i1 %or.cond14.i22.i, label %encode_sleb128.exit38.i, label %lor.end.i23.i
 
 lor.end.i23.i:                                    ; preds = %cond.end24.i, %do.body.i30.i
-  %p.addr.016.i24.i = phi ptr [ %incdec.ptr.i32.i, %do.body.i30.i ], [ %.us-phi.i, %cond.end24.i ]
-  %val.addr.015.i25.i = phi i64 [ %shr17.i26.i, %do.body.i30.i ], [ %sub30.i, %cond.end24.i ]
-  %shr17.i26.i = ashr i64 %val.addr.015.i25.i, 7
+  %val.addr.016.i24.i = phi i64 [ %shr17.i26.i, %do.body.i30.i ], [ %sub30.i, %cond.end24.i ]
+  %p.addr.015.i25.i = phi ptr [ %incdec.ptr.i32.i, %do.body.i30.i ], [ %.us-phi.i, %cond.end24.i ]
+  %shr17.i26.i = ashr i64 %val.addr.016.i24.i, 7
   %cmp5.i27.i = icmp eq i64 %shr17.i26.i, -1
-  %and721.i28.i = and i64 %val.addr.015.i25.i, 64
+  %and721.i28.i = and i64 %val.addr.016.i24.i, 64
   %cmp8.i29.i = icmp ne i64 %and721.i28.i, 0
   %41 = and i1 %cmp5.i27.i, %cmp8.i29.i
   br i1 %41, label %encode_sleb128.exit38.i, label %do.body.i30.i
 
 do.body.i30.i:                                    ; preds = %lor.end.i23.i
-  %42 = trunc i64 %val.addr.015.i25.i to i8
+  %42 = trunc i64 %val.addr.016.i24.i to i8
   %conv10.i31.i = or i8 %42, -128
-  %incdec.ptr.i32.i = getelementptr i8, ptr %p.addr.016.i24.i, i64 1
-  store i8 %conv10.i31.i, ptr %p.addr.016.i24.i, align 1
+  %incdec.ptr.i32.i = getelementptr i8, ptr %p.addr.015.i25.i, i64 1
+  store i8 %conv10.i31.i, ptr %p.addr.015.i25.i, align 1
   %or.cond.i33.i = icmp ult i64 %shr17.i26.i, 64
   br i1 %or.cond.i33.i, label %encode_sleb128.exit38.i, label %lor.end.i23.i
 
 encode_sleb128.exit38.i:                          ; preds = %do.body.i30.i, %lor.end.i23.i, %cond.end24.i
-  %val.addr.0.lcssa.i34.i = phi i64 [ %sub30.i, %cond.end24.i ], [ %val.addr.015.i25.i, %lor.end.i23.i ], [ %shr17.i26.i, %do.body.i30.i ]
-  %p.addr.0.lcssa.i35.i = phi ptr [ %.us-phi.i, %cond.end24.i ], [ %p.addr.016.i24.i, %lor.end.i23.i ], [ %incdec.ptr.i32.i, %do.body.i30.i ]
-  %43 = trunc i64 %val.addr.0.lcssa.i34.i to i8
+  %p.addr.0.lcssa.i34.i = phi ptr [ %.us-phi.i, %cond.end24.i ], [ %p.addr.015.i25.i, %lor.end.i23.i ], [ %incdec.ptr.i32.i, %do.body.i30.i ]
+  %val.addr.0.lcssa.i35.i = phi i64 [ %sub30.i, %cond.end24.i ], [ %val.addr.016.i24.i, %lor.end.i23.i ], [ %shr17.i26.i, %do.body.i30.i ]
+  %43 = trunc i64 %val.addr.0.lcssa.i35.i to i8
   %conv1010.i36.i = and i8 %43, 127
-  %incdec.ptr11.i37.i = getelementptr i8, ptr %p.addr.0.lcssa.i35.i, i64 1
-  store i8 %conv1010.i36.i, ptr %p.addr.0.lcssa.i35.i, align 1
+  %incdec.ptr11.i37.i = getelementptr i8, ptr %p.addr.0.lcssa.i34.i, i64 1
+  store i8 %conv1010.i36.i, ptr %p.addr.0.lcssa.i34.i, align 1
   %cmp32.i = icmp ugt ptr %incdec.ptr11.i37.i, %22
   br i1 %cmp32.i, label %buffer_overflow.backedge, label %for.cond.i
 
@@ -785,9 +785,9 @@ if.then118:                                       ; preds = %if.then116
   br label %if.end125
 
 if.end125:                                        ; preds = %if.then116, %if.then118
-  %rx_data_gen_ptr.0 = phi ptr [ %add.ptr.i127, %if.then118 ], [ null, %if.then116 ]
-  %data_size.0 = phi i32 [ %sub, %if.then118 ], [ 0, %if.then116 ]
   %code_size.0 = phi i32 [ %conv123, %if.then118 ], [ %call30, %if.then116 ]
+  %data_size.0 = phi i32 [ %sub, %if.then118 ], [ 0, %if.then116 ]
+  %rx_data_gen_ptr.0 = phi ptr [ %add.ptr.i127, %if.then118 ], [ null, %if.then116 ]
   %call126 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call114, ptr noundef nonnull @.str.6, i32 noundef %call30)
   %51 = load ptr, ptr %0, align 8
   %gen_insn_data = getelementptr inbounds i8, ptr %51, i64 30664

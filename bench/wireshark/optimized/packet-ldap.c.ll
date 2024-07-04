@@ -2663,13 +2663,13 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   br label %20
 
 20:                                               ; preds = %10, %4
-  %.0124 = phi ptr [ %12, %10 ], [ %8, %4 ]
-  %21 = load i32, ptr %.0124, align 8
+  %.0130 = phi ptr [ %12, %10 ], [ %8, %4 ]
+  %21 = load i32, ptr %.0130, align 8
   %cond = icmp eq i32 %21, 3
   br i1 %cond, label %22, label %.thread
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %.0124, i64 16
+  %23 = getelementptr inbounds i8, ptr %.0130, i64 16
   %24 = load i32, ptr %23, align 8
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %.thread, label %26
@@ -2709,14 +2709,14 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   br i1 %or.cond162.not, label %.critedge159, label %.critedge
 
 .critedge159:                                     ; preds = %39
-  store i32 3, ptr %.0124, align 8
+  store i32 3, ptr %.0130, align 8
   %43 = getelementptr inbounds i8, ptr %1, i64 20
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %.0124, i64 16
+  %45 = getelementptr inbounds i8, ptr %.0130, i64 16
   store i32 %44, ptr %45, align 8
   %46 = tail call ptr @wmem_file_scope() #12
   %47 = tail call noalias ptr @wmem_strdup(ptr noundef %46, ptr noundef nonnull @.str.831) #12
-  %48 = getelementptr inbounds i8, ptr %.0124, i64 8
+  %48 = getelementptr inbounds i8, ptr %.0130, i64 8
   store ptr %47, ptr %48, align 8
   br label %.critedge
 
@@ -2775,7 +2775,7 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   %75 = tail call ptr @proto_tree_add_uint(ptr noundef %63, i32 noundef %74, ptr noundef %73, i32 noundef 0, i32 noundef 4, i32 noundef %68) #12
   %76 = load i32, ptr @ett_ldap_sasl_blob, align 4
   %77 = tail call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %73, i32 noundef 4, i32 noundef %68, i32 noundef %76, ptr noundef null, ptr noundef nonnull @.str.833) #12
-  %78 = getelementptr inbounds i8, ptr %.0124, i64 8
+  %78 = getelementptr inbounds i8, ptr %.0130, i64 8
   %79 = load ptr, ptr %78, align 8
   %.not150 = icmp eq ptr %79, null
   br i1 %.not150, label %126, label %80
@@ -2828,8 +2828,8 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   br label %106
 
 106:                                              ; preds = %100, %99
-  %.0125 = phi ptr [ %105, %100 ], [ null, %99 ]
-  call fastcc void @dissect_ldap_payload(ptr noundef nonnull %96, ptr noundef nonnull %1, ptr noundef %.0125, ptr noundef nonnull %.0124, i32 noundef %3)
+  %.0124 = phi ptr [ %105, %100 ], [ null, %99 ]
+  call fastcc void @dissect_ldap_payload(ptr noundef nonnull %96, ptr noundef nonnull %1, ptr noundef %.0124, ptr noundef nonnull %.0130, i32 noundef %3)
   br label %126
 
 107:                                              ; preds = %97
@@ -2849,27 +2849,27 @@ define internal fastcc void @dissect_ldap_pdu(ptr noundef %0, ptr noundef %1, pt
   br label %116
 
 116:                                              ; preds = %113, %114
-  %.0123 = phi ptr [ %115, %114 ], [ %96, %113 ]
+  %.0122 = phi ptr [ %115, %114 ], [ %96, %113 ]
   %117 = load ptr, ptr %50, align 8
   call void @col_set_str(ptr noundef %117, i32 noundef 25, ptr noundef nonnull @.str.839) #12
   %.not153 = icmp eq ptr %77, null
   br i1 %.not153, label %124, label %118
 
 118:                                              ; preds = %116
-  %119 = call i32 @tvb_reported_length(ptr noundef %.0123) #12
+  %119 = call i32 @tvb_reported_length(ptr noundef %.0122) #12
   %120 = load i32, ptr @ett_ldap_payload, align 4
   %121 = icmp eq i32 %119, 1
   %122 = select i1 %121, ptr @.str.830, ptr @.str.837
-  %123 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %77, ptr noundef %.0123, i32 noundef 0, i32 noundef -1, i32 noundef %120, ptr noundef null, ptr noundef nonnull @.str.840, i32 noundef %119, ptr noundef nonnull %122) #12
+  %123 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %77, ptr noundef %.0122, i32 noundef 0, i32 noundef -1, i32 noundef %120, ptr noundef null, ptr noundef nonnull @.str.840, i32 noundef %119, ptr noundef nonnull %122) #12
   br label %124
 
 124:                                              ; preds = %118, %116
-  %.0122 = phi ptr [ %123, %118 ], [ null, %116 ]
-  call fastcc void @dissect_ldap_payload(ptr noundef %.0123, ptr noundef nonnull %1, ptr noundef %.0122, ptr noundef nonnull %.0124, i32 noundef %3)
+  %.0 = phi ptr [ %123, %118 ], [ null, %116 ]
+  call fastcc void @dissect_ldap_payload(ptr noundef %.0122, ptr noundef nonnull %1, ptr noundef %.0, ptr noundef nonnull %.0130, i32 noundef %3)
   br label %126
 
 125:                                              ; preds = %64, %57
-  tail call fastcc void @dissect_ldap_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %63, ptr noundef nonnull %.0124, i32 noundef %3)
+  tail call fastcc void @dissect_ldap_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %63, ptr noundef nonnull %.0130, i32 noundef %3)
   br label %126
 
 126:                                              ; preds = %71, %83, %106, %107, %124, %86, %125, %70
@@ -3025,9 +3025,9 @@ define internal fastcc void @dissect_ldap_payload(ptr noundef %0, ptr noundef %1
 
 16:                                               ; preds = %.lr.ph, %41
   %17 = phi i32 [ %12, %.lr.ph ], [ %43, %41 ]
-  %.03339 = phi ptr [ %0, %.lr.ph ], [ %42, %41 ]
-  %18 = call i32 @get_ber_identifier(ptr noundef %.03339, i32 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %11) #12
-  %19 = call i32 @get_ber_length(ptr noundef %.03339, i32 noundef %18, ptr noundef nonnull %7, ptr noundef nonnull %10) #12
+  %.03439 = phi ptr [ %0, %.lr.ph ], [ %42, %41 ]
+  %18 = call i32 @get_ber_identifier(ptr noundef %.03439, i32 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %11) #12
+  %19 = call i32 @get_ber_length(ptr noundef %.03439, i32 noundef %18, ptr noundef nonnull %7, ptr noundef nonnull %10) #12
   %20 = load i32, ptr %7, align 4
   %21 = add i32 %20, -10000001
   %or.cond = icmp ult i32 %21, -9999997
@@ -3048,7 +3048,7 @@ define internal fastcc void @dissect_ldap_payload(ptr noundef %0, ptr noundef %1
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27
-  call void @show_reported_bounds_error(ptr noundef %.03339, ptr noundef %1, ptr noundef %2) #12
+  call void @show_reported_bounds_error(ptr noundef %.03439, ptr noundef %1, ptr noundef %2) #12
   br label %.loopexit
 
 31:                                               ; preds = %22
@@ -3058,7 +3058,7 @@ define internal fastcc void @dissect_ldap_payload(ptr noundef %0, ptr noundef %1
 32:                                               ; preds = %27, %31
   %33 = phi i32 [ %28, %27 ], [ %17, %31 ]
   %spec.select = call i32 @llvm.umin.i32(i32 %17, i32 %33)
-  %34 = call ptr @tvb_new_subset_length_caplen(ptr noundef %.03339, i32 noundef 0, i32 noundef %spec.select, i32 noundef %33) #12
+  %34 = call ptr @tvb_new_subset_length_caplen(ptr noundef %.03439, i32 noundef 0, i32 noundef %spec.select, i32 noundef %33) #12
   store i32 %4, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6)
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #12
@@ -3068,12 +3068,12 @@ define internal fastcc void @dissect_ldap_payload(ptr noundef %0, ptr noundef %1
   %37 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %34, i32 noundef 0, ptr noundef nonnull @LDAPMessage_sequence, i32 noundef %35, i32 noundef %36) #12
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6)
   %38 = load i32, ptr %7, align 4
-  %39 = call i32 @tvb_reported_length_remaining(ptr noundef %.03339, i32 noundef %38) #12
+  %39 = call i32 @tvb_reported_length_remaining(ptr noundef %.03439, i32 noundef %38) #12
   %40 = icmp sgt i32 %39, 5
   br i1 %40, label %41, label %.loopexit
 
 41:                                               ; preds = %32
-  %42 = call ptr @tvb_new_subset_remaining(ptr noundef %.03339, i32 noundef %38) #12
+  %42 = call ptr @tvb_new_subset_remaining(ptr noundef %.03439, i32 noundef %38) #12
   %43 = call i32 @tvb_ensure_captured_length_remaining(ptr noundef %42, i32 noundef 0) #12
   %44 = icmp ult i32 %43, 6
   br i1 %44, label %.loopexit, label %16

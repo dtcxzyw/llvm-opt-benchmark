@@ -8480,8 +8480,8 @@ if.end.us:                                        ; preds = %while.body.lr.ph.sp
   br label %while.body.us.i.i.us
 
 while.body.us.i.i.us:                             ; preds = %if.end.us, %if.end.us.i.i.us
-  %__last.sroa.0.0.us.i.i.us = phi ptr [ %__last.sroa.0.1.us.us.i.i.us, %if.end.us.i.i.us ], [ %storemerge25.us42, %if.end.us ]
   %__first.sroa.0.0.us.i.i.us = phi ptr [ %incdec.ptr.i.us.us.i.i.us, %if.end.us.i.i.us ], [ %add.ptr.i3.i, %if.end.us ]
+  %__last.sroa.0.0.us.i.i.us = phi ptr [ %__last.sroa.0.1.us.us.i.i.us, %if.end.us.i.i.us ], [ %storemerge25.us42, %if.end.us ]
   br label %while.cond3.us.us.i.i.us
 
 while.cond3.us.us.i.i.us:                         ; preds = %while.cond3.us.us.i.i.us, %while.body.us.i.i.us
@@ -8574,8 +8574,8 @@ if.end:                                           ; preds = %while.body.lr.ph.sp
   br label %while.body.i.i7
 
 while.body.i.i7:                                  ; preds = %if.end, %if.end.i.i
-  %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge2535, %if.end ]
   %__first.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i8, %if.end.i.i ], [ %add.ptr.i3.i, %if.end ]
+  %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge2535, %if.end ]
   br label %while.cond3.i.i
 
 while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %while.body.i.i7

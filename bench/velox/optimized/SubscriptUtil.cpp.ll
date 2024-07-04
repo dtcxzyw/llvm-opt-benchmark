@@ -27627,14 +27627,14 @@ invoke.cont43.preheader:                          ; preds = %if.end34
   br label %invoke.cont43
 
 while.cond39.loopexit:                            ; preds = %invoke.cont73, %invoke.cont43
-  %remaining.1.lcssa = phi i64 [ %remaining.0119, %invoke.cont43 ], [ %dec, %invoke.cont73 ]
+  %remaining.1.lcssa = phi i64 [ %remaining.0120, %invoke.cont43 ], [ %dec, %invoke.cont73 ]
   %cmp40.not = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp40.not, label %if.then.i89, label %invoke.cont43, !llvm.loop !451
 
 invoke.cont43:                                    ; preds = %invoke.cont43.preheader, %while.cond39.loopexit
-  %add.ptr.pn120 = phi ptr [ %srcChunk37.0121, %while.cond39.loopexit ], [ %add.ptr, %invoke.cont43.preheader ]
-  %remaining.0119 = phi i64 [ %remaining.1.lcssa, %while.cond39.loopexit ], [ %13, %invoke.cont43.preheader ]
-  %srcChunk37.0121 = getelementptr inbounds i8, ptr %add.ptr.pn120, i64 -64
+  %remaining.0120 = phi i64 [ %remaining.1.lcssa, %while.cond39.loopexit ], [ %13, %invoke.cont43.preheader ]
+  %add.ptr.pn119 = phi ptr [ %srcChunk37.0121, %while.cond39.loopexit ], [ %add.ptr, %invoke.cont43.preheader ]
+  %srcChunk37.0121 = getelementptr inbounds i8, ptr %add.ptr.pn119, i64 -64
   %16 = load <16 x i8>, ptr %srcChunk37.0121, align 16
   %17 = icmp slt <16 x i8> %16, zeroinitializer
   %18 = bitcast <16 x i1> %17 to i16
@@ -27644,7 +27644,7 @@ invoke.cont43:                                    ; preds = %invoke.cont43.prehe
   br i1 %cond, label %while.cond39.loopexit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont43
-  %rawItems_.i.i47 = getelementptr inbounds i8, ptr %add.ptr.pn120, i64 -48
+  %rawItems_.i.i47 = getelementptr inbounds i8, ptr %add.ptr.pn119, i64 -48
   %20 = load ptr, ptr %values_.i, align 8
   br label %for.body
 
@@ -27670,7 +27670,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i41.not, label %while.body55, label %for.body
 
 while.body55:                                     ; preds = %for.body, %invoke.cont73
-  %remaining.1116 = phi i64 [ %dec, %invoke.cont73 ], [ %remaining.0119, %for.body ]
+  %remaining.1116 = phi i64 [ %dec, %invoke.cont73 ], [ %remaining.0120, %for.body ]
   %iter.sroa.5.0115 = phi i32 [ %add8.i59, %invoke.cont73 ], [ 0, %for.body ]
   %iter.sroa.0.0114 = phi i32 [ %iter.sroa.0.1, %invoke.cont73 ], [ %iter.sroa.0.0.extract.trunc, %for.body ]
   %dec = add i64 %remaining.1116, -1
@@ -28372,14 +28372,14 @@ invoke.cont48.preheader:                          ; preds = %if.end39
   br label %invoke.cont48
 
 while.cond44.loopexit:                            ; preds = %invoke.cont69, %invoke.cont48
-  %remaining.1.lcssa = phi i64 [ %remaining.098, %invoke.cont48 ], [ %dec, %invoke.cont69 ]
+  %remaining.1.lcssa = phi i64 [ %remaining.099, %invoke.cont48 ], [ %dec, %invoke.cont69 ]
   %cmp45.not = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp45.not, label %while.end75, label %invoke.cont48, !llvm.loop !460
 
 invoke.cont48:                                    ; preds = %invoke.cont48.preheader, %while.cond44.loopexit
-  %add.ptr.pn99 = phi ptr [ %srcChunk42.0100, %while.cond44.loopexit ], [ %add.ptr, %invoke.cont48.preheader ]
-  %remaining.098 = phi i64 [ %remaining.1.lcssa, %while.cond44.loopexit ], [ %13, %invoke.cont48.preheader ]
-  %srcChunk42.0100 = getelementptr inbounds i8, ptr %add.ptr.pn99, i64 -128
+  %remaining.099 = phi i64 [ %remaining.1.lcssa, %while.cond44.loopexit ], [ %13, %invoke.cont48.preheader ]
+  %add.ptr.pn98 = phi ptr [ %srcChunk42.0100, %while.cond44.loopexit ], [ %add.ptr, %invoke.cont48.preheader ]
+  %srcChunk42.0100 = getelementptr inbounds i8, ptr %add.ptr.pn98, i64 -128
   %16 = load <16 x i8>, ptr %srcChunk42.0100, align 16
   %17 = icmp slt <16 x i8> %16, zeroinitializer
   %18 = bitcast <16 x i1> %17 to i16
@@ -28389,11 +28389,11 @@ invoke.cont48:                                    ; preds = %invoke.cont48.prehe
 
 while.body52.lr.ph:                               ; preds = %invoke.cont48
   %iter.sroa.0.0.extract.trunc = zext nneg i16 %19 to i32
-  %rawItems_.i.i48 = getelementptr inbounds i8, ptr %add.ptr.pn99, i64 -112
+  %rawItems_.i.i48 = getelementptr inbounds i8, ptr %add.ptr.pn98, i64 -112
   br label %while.body52
 
 while.body52:                                     ; preds = %while.body52.lr.ph, %invoke.cont69
-  %remaining.195 = phi i64 [ %remaining.098, %while.body52.lr.ph ], [ %dec, %invoke.cont69 ]
+  %remaining.195 = phi i64 [ %remaining.099, %while.body52.lr.ph ], [ %dec, %invoke.cont69 ]
   %iter.sroa.5.094 = phi i32 [ 0, %while.body52.lr.ph ], [ %add8.i, %invoke.cont69 ]
   %iter.sroa.0.093 = phi i32 [ %iter.sroa.0.0.extract.trunc, %while.body52.lr.ph ], [ %iter.sroa.0.1, %invoke.cont69 ]
   %dec = add i64 %remaining.195, -1
@@ -30105,14 +30105,14 @@ invoke.cont40.preheader:                          ; preds = %if.end31
   br label %invoke.cont40
 
 while.cond36.loopexit:                            ; preds = %invoke.cont67, %invoke.cont40
-  %remaining.1.lcssa = phi i64 [ %remaining.0119, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
+  %remaining.1.lcssa = phi i64 [ %remaining.0120, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
   %cmp37.not = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp37.not, label %if.then.i89, label %invoke.cont40, !llvm.loop !504
 
 invoke.cont40:                                    ; preds = %invoke.cont40.preheader, %while.cond36.loopexit
-  %add.ptr.pn120 = phi ptr [ %srcChunk34.0121, %while.cond36.loopexit ], [ %add.ptr, %invoke.cont40.preheader ]
-  %remaining.0119 = phi i64 [ %remaining.1.lcssa, %while.cond36.loopexit ], [ %13, %invoke.cont40.preheader ]
-  %srcChunk34.0121 = getelementptr inbounds i8, ptr %add.ptr.pn120, i64 -64
+  %remaining.0120 = phi i64 [ %remaining.1.lcssa, %while.cond36.loopexit ], [ %13, %invoke.cont40.preheader ]
+  %add.ptr.pn119 = phi ptr [ %srcChunk34.0121, %while.cond36.loopexit ], [ %add.ptr, %invoke.cont40.preheader ]
+  %srcChunk34.0121 = getelementptr inbounds i8, ptr %add.ptr.pn119, i64 -64
   %16 = load <16 x i8>, ptr %srcChunk34.0121, align 16
   %17 = icmp slt <16 x i8> %16, zeroinitializer
   %18 = bitcast <16 x i1> %17 to i16
@@ -30122,7 +30122,7 @@ invoke.cont40:                                    ; preds = %invoke.cont40.prehe
   br i1 %cond, label %while.cond36.loopexit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont40
-  %rawItems_.i.i47 = getelementptr inbounds i8, ptr %add.ptr.pn120, i64 -48
+  %rawItems_.i.i47 = getelementptr inbounds i8, ptr %add.ptr.pn119, i64 -48
   %20 = load ptr, ptr %values_.i, align 8
   br label %for.body
 
@@ -30148,7 +30148,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i41.not, label %while.body50, label %for.body
 
 while.body50:                                     ; preds = %for.body, %invoke.cont67
-  %remaining.1116 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0119, %for.body ]
+  %remaining.1116 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0120, %for.body ]
   %iter.sroa.5.0115 = phi i32 [ %add8.i59, %invoke.cont67 ], [ 0, %for.body ]
   %iter.sroa.0.0114 = phi i32 [ %iter.sroa.0.1, %invoke.cont67 ], [ %iter.sroa.0.0.extract.trunc, %for.body ]
   %dec = add i64 %remaining.1116, -1
@@ -30840,14 +30840,14 @@ invoke.cont48.preheader:                          ; preds = %if.end39
   br label %invoke.cont48
 
 while.cond44.loopexit:                            ; preds = %invoke.cont69, %invoke.cont48
-  %remaining.1.lcssa = phi i64 [ %remaining.097, %invoke.cont48 ], [ %dec, %invoke.cont69 ]
+  %remaining.1.lcssa = phi i64 [ %remaining.098, %invoke.cont48 ], [ %dec, %invoke.cont69 ]
   %cmp45.not = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp45.not, label %while.end75, label %invoke.cont48, !llvm.loop !513
 
 invoke.cont48:                                    ; preds = %invoke.cont48.preheader, %while.cond44.loopexit
-  %add.ptr.pn98 = phi ptr [ %srcChunk42.099, %while.cond44.loopexit ], [ %add.ptr, %invoke.cont48.preheader ]
-  %remaining.097 = phi i64 [ %remaining.1.lcssa, %while.cond44.loopexit ], [ %13, %invoke.cont48.preheader ]
-  %srcChunk42.099 = getelementptr inbounds i8, ptr %add.ptr.pn98, i64 -128
+  %remaining.098 = phi i64 [ %remaining.1.lcssa, %while.cond44.loopexit ], [ %13, %invoke.cont48.preheader ]
+  %add.ptr.pn97 = phi ptr [ %srcChunk42.099, %while.cond44.loopexit ], [ %add.ptr, %invoke.cont48.preheader ]
+  %srcChunk42.099 = getelementptr inbounds i8, ptr %add.ptr.pn97, i64 -128
   %16 = load <16 x i8>, ptr %srcChunk42.099, align 16
   %17 = icmp slt <16 x i8> %16, zeroinitializer
   %18 = bitcast <16 x i1> %17 to i16
@@ -30857,11 +30857,11 @@ invoke.cont48:                                    ; preds = %invoke.cont48.prehe
 
 while.body52.lr.ph:                               ; preds = %invoke.cont48
   %iter.sroa.0.0.extract.trunc = zext nneg i16 %19 to i32
-  %rawItems_.i.i48 = getelementptr inbounds i8, ptr %add.ptr.pn98, i64 -112
+  %rawItems_.i.i48 = getelementptr inbounds i8, ptr %add.ptr.pn97, i64 -112
   br label %while.body52
 
 while.body52:                                     ; preds = %while.body52.lr.ph, %invoke.cont69
-  %remaining.194 = phi i64 [ %remaining.097, %while.body52.lr.ph ], [ %dec, %invoke.cont69 ]
+  %remaining.194 = phi i64 [ %remaining.098, %while.body52.lr.ph ], [ %dec, %invoke.cont69 ]
   %iter.sroa.5.093 = phi i32 [ 0, %while.body52.lr.ph ], [ %add8.i, %invoke.cont69 ]
   %iter.sroa.0.092 = phi i32 [ %iter.sroa.0.0.extract.trunc, %while.body52.lr.ph ], [ %iter.sroa.0.1, %invoke.cont69 ]
   %dec = add i64 %remaining.194, -1
@@ -32385,14 +32385,14 @@ invoke.cont40.preheader:                          ; preds = %if.end31
   br label %invoke.cont40
 
 while.cond36.loopexit:                            ; preds = %invoke.cont67, %invoke.cont40
-  %remaining.1.lcssa = phi i64 [ %remaining.0119, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
+  %remaining.1.lcssa = phi i64 [ %remaining.0120, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
   %cmp37.not = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp37.not, label %if.then.i89, label %invoke.cont40, !llvm.loop !536
 
 invoke.cont40:                                    ; preds = %invoke.cont40.preheader, %while.cond36.loopexit
-  %add.ptr.pn120 = phi ptr [ %srcChunk34.0121, %while.cond36.loopexit ], [ %add.ptr, %invoke.cont40.preheader ]
-  %remaining.0119 = phi i64 [ %remaining.1.lcssa, %while.cond36.loopexit ], [ %13, %invoke.cont40.preheader ]
-  %srcChunk34.0121 = getelementptr inbounds i8, ptr %add.ptr.pn120, i64 -64
+  %remaining.0120 = phi i64 [ %remaining.1.lcssa, %while.cond36.loopexit ], [ %13, %invoke.cont40.preheader ]
+  %add.ptr.pn119 = phi ptr [ %srcChunk34.0121, %while.cond36.loopexit ], [ %add.ptr, %invoke.cont40.preheader ]
+  %srcChunk34.0121 = getelementptr inbounds i8, ptr %add.ptr.pn119, i64 -64
   %16 = load <16 x i8>, ptr %srcChunk34.0121, align 16
   %17 = icmp slt <16 x i8> %16, zeroinitializer
   %18 = bitcast <16 x i1> %17 to i16
@@ -32402,7 +32402,7 @@ invoke.cont40:                                    ; preds = %invoke.cont40.prehe
   br i1 %cond, label %while.cond36.loopexit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont40
-  %rawItems_.i.i47 = getelementptr inbounds i8, ptr %add.ptr.pn120, i64 -48
+  %rawItems_.i.i47 = getelementptr inbounds i8, ptr %add.ptr.pn119, i64 -48
   %20 = load ptr, ptr %values_.i, align 8
   br label %for.body
 
@@ -32428,7 +32428,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i41.not, label %while.body50, label %for.body
 
 while.body50:                                     ; preds = %for.body, %invoke.cont67
-  %remaining.1116 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0119, %for.body ]
+  %remaining.1116 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0120, %for.body ]
   %iter.sroa.5.0115 = phi i32 [ %add8.i59, %invoke.cont67 ], [ 0, %for.body ]
   %iter.sroa.0.0114 = phi i32 [ %iter.sroa.0.1, %invoke.cont67 ], [ %iter.sroa.0.0.extract.trunc, %for.body ]
   %dec = add i64 %remaining.1116, -1
@@ -33120,14 +33120,14 @@ invoke.cont48.preheader:                          ; preds = %if.end39
   br label %invoke.cont48
 
 while.cond44.loopexit:                            ; preds = %invoke.cont69, %invoke.cont48
-  %remaining.1.lcssa = phi i64 [ %remaining.097, %invoke.cont48 ], [ %dec, %invoke.cont69 ]
+  %remaining.1.lcssa = phi i64 [ %remaining.098, %invoke.cont48 ], [ %dec, %invoke.cont69 ]
   %cmp45.not = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp45.not, label %while.end75, label %invoke.cont48, !llvm.loop !545
 
 invoke.cont48:                                    ; preds = %invoke.cont48.preheader, %while.cond44.loopexit
-  %add.ptr.pn98 = phi ptr [ %srcChunk42.099, %while.cond44.loopexit ], [ %add.ptr, %invoke.cont48.preheader ]
-  %remaining.097 = phi i64 [ %remaining.1.lcssa, %while.cond44.loopexit ], [ %13, %invoke.cont48.preheader ]
-  %srcChunk42.099 = getelementptr inbounds i8, ptr %add.ptr.pn98, i64 -128
+  %remaining.098 = phi i64 [ %remaining.1.lcssa, %while.cond44.loopexit ], [ %13, %invoke.cont48.preheader ]
+  %add.ptr.pn97 = phi ptr [ %srcChunk42.099, %while.cond44.loopexit ], [ %add.ptr, %invoke.cont48.preheader ]
+  %srcChunk42.099 = getelementptr inbounds i8, ptr %add.ptr.pn97, i64 -128
   %16 = load <16 x i8>, ptr %srcChunk42.099, align 16
   %17 = icmp slt <16 x i8> %16, zeroinitializer
   %18 = bitcast <16 x i1> %17 to i16
@@ -33137,11 +33137,11 @@ invoke.cont48:                                    ; preds = %invoke.cont48.prehe
 
 while.body52.lr.ph:                               ; preds = %invoke.cont48
   %iter.sroa.0.0.extract.trunc = zext nneg i16 %19 to i32
-  %rawItems_.i.i48 = getelementptr inbounds i8, ptr %add.ptr.pn98, i64 -112
+  %rawItems_.i.i48 = getelementptr inbounds i8, ptr %add.ptr.pn97, i64 -112
   br label %while.body52
 
 while.body52:                                     ; preds = %while.body52.lr.ph, %invoke.cont69
-  %remaining.194 = phi i64 [ %remaining.097, %while.body52.lr.ph ], [ %dec, %invoke.cont69 ]
+  %remaining.194 = phi i64 [ %remaining.098, %while.body52.lr.ph ], [ %dec, %invoke.cont69 ]
   %iter.sroa.5.093 = phi i32 [ 0, %while.body52.lr.ph ], [ %add8.i, %invoke.cont69 ]
   %iter.sroa.0.092 = phi i32 [ %iter.sroa.0.0.extract.trunc, %while.body52.lr.ph ], [ %iter.sroa.0.1, %invoke.cont69 ]
   %dec = add i64 %remaining.194, -1
@@ -34665,14 +34665,14 @@ invoke.cont40.preheader:                          ; preds = %if.end31
   br label %invoke.cont40
 
 while.cond36.loopexit:                            ; preds = %invoke.cont67, %invoke.cont40
-  %remaining.1.lcssa = phi i64 [ %remaining.0119, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
+  %remaining.1.lcssa = phi i64 [ %remaining.0120, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
   %cmp37.not = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp37.not, label %if.then.i89, label %invoke.cont40, !llvm.loop !568
 
 invoke.cont40:                                    ; preds = %invoke.cont40.preheader, %while.cond36.loopexit
-  %add.ptr.pn120 = phi ptr [ %srcChunk34.0121, %while.cond36.loopexit ], [ %add.ptr, %invoke.cont40.preheader ]
-  %remaining.0119 = phi i64 [ %remaining.1.lcssa, %while.cond36.loopexit ], [ %13, %invoke.cont40.preheader ]
-  %srcChunk34.0121 = getelementptr inbounds i8, ptr %add.ptr.pn120, i64 -64
+  %remaining.0120 = phi i64 [ %remaining.1.lcssa, %while.cond36.loopexit ], [ %13, %invoke.cont40.preheader ]
+  %add.ptr.pn119 = phi ptr [ %srcChunk34.0121, %while.cond36.loopexit ], [ %add.ptr, %invoke.cont40.preheader ]
+  %srcChunk34.0121 = getelementptr inbounds i8, ptr %add.ptr.pn119, i64 -64
   %16 = load <16 x i8>, ptr %srcChunk34.0121, align 16
   %17 = icmp slt <16 x i8> %16, zeroinitializer
   %18 = bitcast <16 x i1> %17 to i16
@@ -34682,7 +34682,7 @@ invoke.cont40:                                    ; preds = %invoke.cont40.prehe
   br i1 %cond, label %while.cond36.loopexit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont40
-  %rawItems_.i.i47 = getelementptr inbounds i8, ptr %add.ptr.pn120, i64 -48
+  %rawItems_.i.i47 = getelementptr inbounds i8, ptr %add.ptr.pn119, i64 -48
   %20 = load ptr, ptr %values_.i, align 8
   br label %for.body
 
@@ -34708,7 +34708,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i41.not, label %while.body50, label %for.body
 
 while.body50:                                     ; preds = %for.body, %invoke.cont67
-  %remaining.1116 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0119, %for.body ]
+  %remaining.1116 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0120, %for.body ]
   %iter.sroa.5.0115 = phi i32 [ %add8.i59, %invoke.cont67 ], [ 0, %for.body ]
   %iter.sroa.0.0114 = phi i32 [ %iter.sroa.0.1, %invoke.cont67 ], [ %iter.sroa.0.0.extract.trunc, %for.body ]
   %dec = add i64 %remaining.1116, -1
@@ -35400,14 +35400,14 @@ invoke.cont48.preheader:                          ; preds = %if.end39
   br label %invoke.cont48
 
 while.cond44.loopexit:                            ; preds = %invoke.cont69, %invoke.cont48
-  %remaining.1.lcssa = phi i64 [ %remaining.097, %invoke.cont48 ], [ %dec, %invoke.cont69 ]
+  %remaining.1.lcssa = phi i64 [ %remaining.098, %invoke.cont48 ], [ %dec, %invoke.cont69 ]
   %cmp45.not = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp45.not, label %while.end75, label %invoke.cont48, !llvm.loop !577
 
 invoke.cont48:                                    ; preds = %invoke.cont48.preheader, %while.cond44.loopexit
-  %add.ptr.pn98 = phi ptr [ %srcChunk42.099, %while.cond44.loopexit ], [ %add.ptr, %invoke.cont48.preheader ]
-  %remaining.097 = phi i64 [ %remaining.1.lcssa, %while.cond44.loopexit ], [ %13, %invoke.cont48.preheader ]
-  %srcChunk42.099 = getelementptr inbounds i8, ptr %add.ptr.pn98, i64 -128
+  %remaining.098 = phi i64 [ %remaining.1.lcssa, %while.cond44.loopexit ], [ %13, %invoke.cont48.preheader ]
+  %add.ptr.pn97 = phi ptr [ %srcChunk42.099, %while.cond44.loopexit ], [ %add.ptr, %invoke.cont48.preheader ]
+  %srcChunk42.099 = getelementptr inbounds i8, ptr %add.ptr.pn97, i64 -128
   %16 = load <16 x i8>, ptr %srcChunk42.099, align 16
   %17 = icmp slt <16 x i8> %16, zeroinitializer
   %18 = bitcast <16 x i1> %17 to i16
@@ -35417,11 +35417,11 @@ invoke.cont48:                                    ; preds = %invoke.cont48.prehe
 
 while.body52.lr.ph:                               ; preds = %invoke.cont48
   %iter.sroa.0.0.extract.trunc = zext nneg i16 %19 to i32
-  %rawItems_.i.i48 = getelementptr inbounds i8, ptr %add.ptr.pn98, i64 -112
+  %rawItems_.i.i48 = getelementptr inbounds i8, ptr %add.ptr.pn97, i64 -112
   br label %while.body52
 
 while.body52:                                     ; preds = %while.body52.lr.ph, %invoke.cont69
-  %remaining.194 = phi i64 [ %remaining.097, %while.body52.lr.ph ], [ %dec, %invoke.cont69 ]
+  %remaining.194 = phi i64 [ %remaining.098, %while.body52.lr.ph ], [ %dec, %invoke.cont69 ]
   %iter.sroa.5.093 = phi i32 [ 0, %while.body52.lr.ph ], [ %add8.i, %invoke.cont69 ]
   %iter.sroa.0.092 = phi i32 [ %iter.sroa.0.0.extract.trunc, %while.body52.lr.ph ], [ %iter.sroa.0.1, %invoke.cont69 ]
   %dec = add i64 %remaining.194, -1
@@ -37034,14 +37034,14 @@ invoke.cont40.lr.ph:                              ; preds = %if.end31
   br label %invoke.cont40
 
 while.cond36.loopexit:                            ; preds = %invoke.cont67, %invoke.cont40
-  %remaining.1.lcssa = phi i64 [ %remaining.0111, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
+  %remaining.1.lcssa = phi i64 [ %remaining.0112, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
   %cmp37.not = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp37.not, label %if.then.i83, label %invoke.cont40, !llvm.loop !600
 
 invoke.cont40:                                    ; preds = %invoke.cont40.lr.ph, %while.cond36.loopexit
-  %add.ptr.pn112 = phi ptr [ %add.ptr, %invoke.cont40.lr.ph ], [ %srcChunk34.0113, %while.cond36.loopexit ]
-  %remaining.0111 = phi i64 [ %11, %invoke.cont40.lr.ph ], [ %remaining.1.lcssa, %while.cond36.loopexit ]
-  %srcChunk34.0113 = getelementptr inbounds i8, ptr %add.ptr.pn112, i64 -64
+  %remaining.0112 = phi i64 [ %11, %invoke.cont40.lr.ph ], [ %remaining.1.lcssa, %while.cond36.loopexit ]
+  %add.ptr.pn111 = phi ptr [ %add.ptr, %invoke.cont40.lr.ph ], [ %srcChunk34.0113, %while.cond36.loopexit ]
+  %srcChunk34.0113 = getelementptr inbounds i8, ptr %add.ptr.pn111, i64 -64
   %14 = load <16 x i8>, ptr %srcChunk34.0113, align 16
   %15 = icmp slt <16 x i8> %14, zeroinitializer
   %16 = bitcast <16 x i1> %15 to i16
@@ -37051,7 +37051,7 @@ invoke.cont40:                                    ; preds = %invoke.cont40.lr.ph
   br i1 %cond, label %while.cond36.loopexit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont40
-  %rawItems_.i.i45 = getelementptr inbounds i8, ptr %add.ptr.pn112, i64 -48
+  %rawItems_.i.i45 = getelementptr inbounds i8, ptr %add.ptr.pn111, i64 -48
   %18 = load ptr, ptr %values_.i, align 8
   br label %for.body
 
@@ -37077,7 +37077,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i40.not, label %while.body50, label %for.body
 
 while.body50:                                     ; preds = %for.body, %invoke.cont67
-  %remaining.1108 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0111, %for.body ]
+  %remaining.1108 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0112, %for.body ]
   %iter.sroa.5.0107 = phi i32 [ %add8.i56, %invoke.cont67 ], [ 0, %for.body ]
   %iter.sroa.0.0106 = phi i32 [ %iter.sroa.0.1, %invoke.cont67 ], [ %iter.sroa.0.0.extract.trunc, %for.body ]
   %dec = add i64 %remaining.1108, -1
@@ -37750,14 +37750,14 @@ invoke.cont48.preheader:                          ; preds = %if.end39
   br label %invoke.cont48
 
 while.cond44.loopexit:                            ; preds = %invoke.cont69, %invoke.cont48
-  %remaining.1.lcssa = phi i64 [ %remaining.096, %invoke.cont48 ], [ %dec, %invoke.cont69 ]
+  %remaining.1.lcssa = phi i64 [ %remaining.097, %invoke.cont48 ], [ %dec, %invoke.cont69 ]
   %cmp45.not = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp45.not, label %while.end75, label %invoke.cont48, !llvm.loop !609
 
 invoke.cont48:                                    ; preds = %invoke.cont48.preheader, %while.cond44.loopexit
-  %add.ptr.pn97 = phi ptr [ %srcChunk42.098, %while.cond44.loopexit ], [ %add.ptr, %invoke.cont48.preheader ]
-  %remaining.096 = phi i64 [ %remaining.1.lcssa, %while.cond44.loopexit ], [ %13, %invoke.cont48.preheader ]
-  %srcChunk42.098 = getelementptr inbounds i8, ptr %add.ptr.pn97, i64 -256
+  %remaining.097 = phi i64 [ %remaining.1.lcssa, %while.cond44.loopexit ], [ %13, %invoke.cont48.preheader ]
+  %add.ptr.pn96 = phi ptr [ %srcChunk42.098, %while.cond44.loopexit ], [ %add.ptr, %invoke.cont48.preheader ]
+  %srcChunk42.098 = getelementptr inbounds i8, ptr %add.ptr.pn96, i64 -256
   %16 = load <16 x i8>, ptr %srcChunk42.098, align 16
   %17 = icmp slt <16 x i8> %16, zeroinitializer
   %18 = bitcast <16 x i1> %17 to i16
@@ -37767,11 +37767,11 @@ invoke.cont48:                                    ; preds = %invoke.cont48.prehe
 
 while.body52.lr.ph:                               ; preds = %invoke.cont48
   %iter.sroa.0.0.extract.trunc = zext nneg i16 %19 to i32
-  %rawItems_.i.i48 = getelementptr inbounds i8, ptr %add.ptr.pn97, i64 -240
+  %rawItems_.i.i48 = getelementptr inbounds i8, ptr %add.ptr.pn96, i64 -240
   br label %while.body52
 
 while.body52:                                     ; preds = %while.body52.lr.ph, %invoke.cont69
-  %remaining.193 = phi i64 [ %remaining.096, %while.body52.lr.ph ], [ %dec, %invoke.cont69 ]
+  %remaining.193 = phi i64 [ %remaining.097, %while.body52.lr.ph ], [ %dec, %invoke.cont69 ]
   %iter.sroa.5.092 = phi i32 [ 0, %while.body52.lr.ph ], [ %add8.i, %invoke.cont69 ]
   %iter.sroa.0.091 = phi i32 [ %iter.sroa.0.0.extract.trunc, %while.body52.lr.ph ], [ %iter.sroa.0.1, %invoke.cont69 ]
   %dec = add i64 %remaining.193, -1
@@ -39331,14 +39331,14 @@ invoke.cont40.preheader:                          ; preds = %if.end31
   br label %invoke.cont40
 
 while.cond36.loopexit:                            ; preds = %invoke.cont67, %invoke.cont40
-  %remaining.1.lcssa = phi i64 [ %remaining.0119, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
+  %remaining.1.lcssa = phi i64 [ %remaining.0120, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
   %cmp37.not = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp37.not, label %if.then.i89, label %invoke.cont40, !llvm.loop !632
 
 invoke.cont40:                                    ; preds = %invoke.cont40.preheader, %while.cond36.loopexit
-  %add.ptr.pn120 = phi ptr [ %srcChunk34.0121, %while.cond36.loopexit ], [ %add.ptr, %invoke.cont40.preheader ]
-  %remaining.0119 = phi i64 [ %remaining.1.lcssa, %while.cond36.loopexit ], [ %13, %invoke.cont40.preheader ]
-  %srcChunk34.0121 = getelementptr inbounds i8, ptr %add.ptr.pn120, i64 -64
+  %remaining.0120 = phi i64 [ %remaining.1.lcssa, %while.cond36.loopexit ], [ %13, %invoke.cont40.preheader ]
+  %add.ptr.pn119 = phi ptr [ %srcChunk34.0121, %while.cond36.loopexit ], [ %add.ptr, %invoke.cont40.preheader ]
+  %srcChunk34.0121 = getelementptr inbounds i8, ptr %add.ptr.pn119, i64 -64
   %16 = load <16 x i8>, ptr %srcChunk34.0121, align 16
   %17 = icmp slt <16 x i8> %16, zeroinitializer
   %18 = bitcast <16 x i1> %17 to i16
@@ -39348,7 +39348,7 @@ invoke.cont40:                                    ; preds = %invoke.cont40.prehe
   br i1 %cond, label %while.cond36.loopexit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont40
-  %rawItems_.i.i47 = getelementptr inbounds i8, ptr %add.ptr.pn120, i64 -48
+  %rawItems_.i.i47 = getelementptr inbounds i8, ptr %add.ptr.pn119, i64 -48
   %20 = load ptr, ptr %values_.i, align 8
   br label %for.body
 
@@ -39374,7 +39374,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i41.not, label %while.body50, label %for.body
 
 while.body50:                                     ; preds = %for.body, %invoke.cont67
-  %remaining.1116 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0119, %for.body ]
+  %remaining.1116 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0120, %for.body ]
   %iter.sroa.5.0115 = phi i32 [ %add8.i59, %invoke.cont67 ], [ 0, %for.body ]
   %iter.sroa.0.0114 = phi i32 [ %iter.sroa.0.1, %invoke.cont67 ], [ %iter.sroa.0.0.extract.trunc, %for.body ]
   %dec = add i64 %remaining.1116, -1
@@ -40077,14 +40077,14 @@ invoke.cont40.preheader:                          ; preds = %if.end31
   br label %invoke.cont40
 
 while.cond36.loopexit:                            ; preds = %invoke.cont67, %invoke.cont40
-  %remaining.1.lcssa = phi i64 [ %remaining.0128, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
+  %remaining.1.lcssa = phi i64 [ %remaining.0129, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
   %cmp37.not = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp37.not, label %if.then.i88, label %invoke.cont40, !llvm.loop !641
 
 invoke.cont40:                                    ; preds = %invoke.cont40.preheader, %while.cond36.loopexit
-  %add.ptr.pn129 = phi ptr [ %srcChunk34.0130, %while.cond36.loopexit ], [ %add.ptr, %invoke.cont40.preheader ]
-  %remaining.0128 = phi i64 [ %remaining.1.lcssa, %while.cond36.loopexit ], [ %11, %invoke.cont40.preheader ]
-  %srcChunk34.0130 = getelementptr inbounds i8, ptr %add.ptr.pn129, i64 -64
+  %remaining.0129 = phi i64 [ %remaining.1.lcssa, %while.cond36.loopexit ], [ %11, %invoke.cont40.preheader ]
+  %add.ptr.pn128 = phi ptr [ %srcChunk34.0130, %while.cond36.loopexit ], [ %add.ptr, %invoke.cont40.preheader ]
+  %srcChunk34.0130 = getelementptr inbounds i8, ptr %add.ptr.pn128, i64 -64
   %14 = load <16 x i8>, ptr %srcChunk34.0130, align 16
   %15 = icmp slt <16 x i8> %14, zeroinitializer
   %16 = bitcast <16 x i1> %15 to i16
@@ -40094,7 +40094,7 @@ invoke.cont40:                                    ; preds = %invoke.cont40.prehe
   br i1 %cond, label %while.cond36.loopexit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont40
-  %rawItems_.i.i47 = getelementptr inbounds i8, ptr %add.ptr.pn129, i64 -48
+  %rawItems_.i.i47 = getelementptr inbounds i8, ptr %add.ptr.pn128, i64 -48
   %18 = load ptr, ptr %values_.i, align 8
   br label %for.body
 
@@ -40120,7 +40120,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i41.not, label %while.body50, label %for.body
 
 while.body50:                                     ; preds = %for.body, %invoke.cont67
-  %remaining.1125 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0128, %for.body ]
+  %remaining.1125 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0129, %for.body ]
   %iter.sroa.5.0124 = phi i32 [ %add8.i59, %invoke.cont67 ], [ 0, %for.body ]
   %iter.sroa.0.0123 = phi i32 [ %iter.sroa.0.1, %invoke.cont67 ], [ %iter.sroa.0.0.extract.trunc, %for.body ]
   %dec = add i64 %remaining.1125, -1
@@ -41735,14 +41735,14 @@ invoke.cont40.preheader:                          ; preds = %if.end31
   br label %invoke.cont40
 
 while.cond36.loopexit:                            ; preds = %invoke.cont67, %invoke.cont40
-  %remaining.1.lcssa = phi i64 [ %remaining.0119, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
+  %remaining.1.lcssa = phi i64 [ %remaining.0120, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
   %cmp37.not = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp37.not, label %if.then.i89, label %invoke.cont40, !llvm.loop !675
 
 invoke.cont40:                                    ; preds = %invoke.cont40.preheader, %while.cond36.loopexit
-  %add.ptr.pn120 = phi ptr [ %srcChunk34.0121, %while.cond36.loopexit ], [ %add.ptr, %invoke.cont40.preheader ]
-  %remaining.0119 = phi i64 [ %remaining.1.lcssa, %while.cond36.loopexit ], [ %13, %invoke.cont40.preheader ]
-  %srcChunk34.0121 = getelementptr inbounds i8, ptr %add.ptr.pn120, i64 -64
+  %remaining.0120 = phi i64 [ %remaining.1.lcssa, %while.cond36.loopexit ], [ %13, %invoke.cont40.preheader ]
+  %add.ptr.pn119 = phi ptr [ %srcChunk34.0121, %while.cond36.loopexit ], [ %add.ptr, %invoke.cont40.preheader ]
+  %srcChunk34.0121 = getelementptr inbounds i8, ptr %add.ptr.pn119, i64 -64
   %16 = load <16 x i8>, ptr %srcChunk34.0121, align 16
   %17 = icmp slt <16 x i8> %16, zeroinitializer
   %18 = bitcast <16 x i1> %17 to i16
@@ -41752,7 +41752,7 @@ invoke.cont40:                                    ; preds = %invoke.cont40.prehe
   br i1 %cond, label %while.cond36.loopexit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont40
-  %rawItems_.i.i47 = getelementptr inbounds i8, ptr %add.ptr.pn120, i64 -48
+  %rawItems_.i.i47 = getelementptr inbounds i8, ptr %add.ptr.pn119, i64 -48
   %20 = load ptr, ptr %values_.i, align 8
   br label %for.body
 
@@ -41778,7 +41778,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i41.not, label %while.body50, label %for.body
 
 while.body50:                                     ; preds = %for.body, %invoke.cont67
-  %remaining.1116 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0119, %for.body ]
+  %remaining.1116 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0120, %for.body ]
   %iter.sroa.5.0115 = phi i32 [ %add8.i59, %invoke.cont67 ], [ 0, %for.body ]
   %iter.sroa.0.0114 = phi i32 [ %iter.sroa.0.1, %invoke.cont67 ], [ %iter.sroa.0.0.extract.trunc, %for.body ]
   %dec = add i64 %remaining.1116, -1
@@ -42473,14 +42473,14 @@ invoke.cont48.preheader:                          ; preds = %if.end39
   br label %invoke.cont48
 
 while.cond44.loopexit:                            ; preds = %invoke.cont69, %invoke.cont48
-  %remaining.1.lcssa = phi i64 [ %remaining.0100, %invoke.cont48 ], [ %dec, %invoke.cont69 ]
+  %remaining.1.lcssa = phi i64 [ %remaining.0101, %invoke.cont48 ], [ %dec, %invoke.cont69 ]
   %cmp45.not = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp45.not, label %while.end75, label %invoke.cont48, !llvm.loop !684
 
 invoke.cont48:                                    ; preds = %invoke.cont48.preheader, %while.cond44.loopexit
-  %add.ptr.pn101 = phi ptr [ %srcChunk42.0102, %while.cond44.loopexit ], [ %add.ptr, %invoke.cont48.preheader ]
-  %remaining.0100 = phi i64 [ %remaining.1.lcssa, %while.cond44.loopexit ], [ %13, %invoke.cont48.preheader ]
-  %srcChunk42.0102 = getelementptr inbounds i8, ptr %add.ptr.pn101, i64 -128
+  %remaining.0101 = phi i64 [ %remaining.1.lcssa, %while.cond44.loopexit ], [ %13, %invoke.cont48.preheader ]
+  %add.ptr.pn100 = phi ptr [ %srcChunk42.0102, %while.cond44.loopexit ], [ %add.ptr, %invoke.cont48.preheader ]
+  %srcChunk42.0102 = getelementptr inbounds i8, ptr %add.ptr.pn100, i64 -128
   %16 = load <16 x i8>, ptr %srcChunk42.0102, align 16
   %17 = icmp slt <16 x i8> %16, zeroinitializer
   %18 = bitcast <16 x i1> %17 to i16
@@ -42490,11 +42490,11 @@ invoke.cont48:                                    ; preds = %invoke.cont48.prehe
 
 while.body52.lr.ph:                               ; preds = %invoke.cont48
   %iter.sroa.0.0.extract.trunc = zext nneg i16 %19 to i32
-  %rawItems_.i.i48 = getelementptr inbounds i8, ptr %add.ptr.pn101, i64 -112
+  %rawItems_.i.i48 = getelementptr inbounds i8, ptr %add.ptr.pn100, i64 -112
   br label %while.body52
 
 while.body52:                                     ; preds = %while.body52.lr.ph, %invoke.cont69
-  %remaining.197 = phi i64 [ %remaining.0100, %while.body52.lr.ph ], [ %dec, %invoke.cont69 ]
+  %remaining.197 = phi i64 [ %remaining.0101, %while.body52.lr.ph ], [ %dec, %invoke.cont69 ]
   %iter.sroa.5.096 = phi i32 [ 0, %while.body52.lr.ph ], [ %add8.i, %invoke.cont69 ]
   %iter.sroa.0.095 = phi i32 [ %iter.sroa.0.0.extract.trunc, %while.body52.lr.ph ], [ %iter.sroa.0.1, %invoke.cont69 ]
   %dec = add i64 %remaining.197, -1
@@ -44165,14 +44165,14 @@ invoke.cont40.lr.ph:                              ; preds = %if.end31
   br label %invoke.cont40
 
 while.cond36.loopexit:                            ; preds = %invoke.cont67, %invoke.cont40
-  %remaining.1.lcssa = phi i64 [ %remaining.0111, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
+  %remaining.1.lcssa = phi i64 [ %remaining.0112, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
   %cmp37.not = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp37.not, label %if.then.i83, label %invoke.cont40, !llvm.loop !718
 
 invoke.cont40:                                    ; preds = %invoke.cont40.lr.ph, %while.cond36.loopexit
-  %add.ptr.pn112 = phi ptr [ %add.ptr, %invoke.cont40.lr.ph ], [ %srcChunk34.0113, %while.cond36.loopexit ]
-  %remaining.0111 = phi i64 [ %11, %invoke.cont40.lr.ph ], [ %remaining.1.lcssa, %while.cond36.loopexit ]
-  %srcChunk34.0113 = getelementptr inbounds i8, ptr %add.ptr.pn112, i64 -64
+  %remaining.0112 = phi i64 [ %11, %invoke.cont40.lr.ph ], [ %remaining.1.lcssa, %while.cond36.loopexit ]
+  %add.ptr.pn111 = phi ptr [ %add.ptr, %invoke.cont40.lr.ph ], [ %srcChunk34.0113, %while.cond36.loopexit ]
+  %srcChunk34.0113 = getelementptr inbounds i8, ptr %add.ptr.pn111, i64 -64
   %14 = load <16 x i8>, ptr %srcChunk34.0113, align 16
   %15 = icmp slt <16 x i8> %14, zeroinitializer
   %16 = bitcast <16 x i1> %15 to i16
@@ -44182,7 +44182,7 @@ invoke.cont40:                                    ; preds = %invoke.cont40.lr.ph
   br i1 %cond, label %while.cond36.loopexit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont40
-  %rawItems_.i.i45 = getelementptr inbounds i8, ptr %add.ptr.pn112, i64 -48
+  %rawItems_.i.i45 = getelementptr inbounds i8, ptr %add.ptr.pn111, i64 -48
   %18 = load ptr, ptr %values_.i, align 8
   br label %for.body
 
@@ -44208,7 +44208,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i40.not, label %while.body50, label %for.body
 
 while.body50:                                     ; preds = %for.body, %invoke.cont67
-  %remaining.1108 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0111, %for.body ]
+  %remaining.1108 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0112, %for.body ]
   %iter.sroa.5.0107 = phi i32 [ %add8.i56, %invoke.cont67 ], [ 0, %for.body ]
   %iter.sroa.0.0106 = phi i32 [ %iter.sroa.0.1, %invoke.cont67 ], [ %iter.sroa.0.0.extract.trunc, %for.body ]
   %dec = add i64 %remaining.1108, -1
@@ -44882,14 +44882,14 @@ invoke.cont48.preheader:                          ; preds = %if.end39
   br label %invoke.cont48
 
 while.cond44.loopexit:                            ; preds = %invoke.cont69, %invoke.cont48
-  %remaining.1.lcssa = phi i64 [ %remaining.099, %invoke.cont48 ], [ %dec, %invoke.cont69 ]
+  %remaining.1.lcssa = phi i64 [ %remaining.0100, %invoke.cont48 ], [ %dec, %invoke.cont69 ]
   %cmp45.not = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp45.not, label %while.end75, label %invoke.cont48, !llvm.loop !727
 
 invoke.cont48:                                    ; preds = %invoke.cont48.preheader, %while.cond44.loopexit
-  %add.ptr.pn100 = phi ptr [ %srcChunk42.0101, %while.cond44.loopexit ], [ %add.ptr, %invoke.cont48.preheader ]
-  %remaining.099 = phi i64 [ %remaining.1.lcssa, %while.cond44.loopexit ], [ %13, %invoke.cont48.preheader ]
-  %srcChunk42.0101 = getelementptr inbounds i8, ptr %add.ptr.pn100, i64 -256
+  %remaining.0100 = phi i64 [ %remaining.1.lcssa, %while.cond44.loopexit ], [ %13, %invoke.cont48.preheader ]
+  %add.ptr.pn99 = phi ptr [ %srcChunk42.0101, %while.cond44.loopexit ], [ %add.ptr, %invoke.cont48.preheader ]
+  %srcChunk42.0101 = getelementptr inbounds i8, ptr %add.ptr.pn99, i64 -256
   %16 = load <16 x i8>, ptr %srcChunk42.0101, align 16
   %17 = icmp slt <16 x i8> %16, zeroinitializer
   %18 = bitcast <16 x i1> %17 to i16
@@ -44899,11 +44899,11 @@ invoke.cont48:                                    ; preds = %invoke.cont48.prehe
 
 while.body52.lr.ph:                               ; preds = %invoke.cont48
   %iter.sroa.0.0.extract.trunc = zext nneg i16 %19 to i32
-  %rawItems_.i.i48 = getelementptr inbounds i8, ptr %add.ptr.pn100, i64 -240
+  %rawItems_.i.i48 = getelementptr inbounds i8, ptr %add.ptr.pn99, i64 -240
   br label %while.body52
 
 while.body52:                                     ; preds = %while.body52.lr.ph, %invoke.cont69
-  %remaining.196 = phi i64 [ %remaining.099, %while.body52.lr.ph ], [ %dec, %invoke.cont69 ]
+  %remaining.196 = phi i64 [ %remaining.0100, %while.body52.lr.ph ], [ %dec, %invoke.cont69 ]
   %iter.sroa.5.095 = phi i32 [ 0, %while.body52.lr.ph ], [ %add8.i, %invoke.cont69 ]
   %iter.sroa.0.094 = phi i32 [ %iter.sroa.0.0.extract.trunc, %while.body52.lr.ph ], [ %iter.sroa.0.1, %invoke.cont69 ]
   %dec = add i64 %remaining.196, -1
@@ -46576,14 +46576,14 @@ invoke.cont40.preheader:                          ; preds = %if.end31
   br label %invoke.cont40
 
 while.cond36.loopexit:                            ; preds = %invoke.cont67, %invoke.cont40
-  %remaining.1.lcssa = phi i64 [ %remaining.0119, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
+  %remaining.1.lcssa = phi i64 [ %remaining.0120, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
   %cmp37.not = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp37.not, label %if.then.i89, label %invoke.cont40, !llvm.loop !761
 
 invoke.cont40:                                    ; preds = %invoke.cont40.preheader, %while.cond36.loopexit
-  %add.ptr.pn120 = phi ptr [ %srcChunk34.0121, %while.cond36.loopexit ], [ %add.ptr, %invoke.cont40.preheader ]
-  %remaining.0119 = phi i64 [ %remaining.1.lcssa, %while.cond36.loopexit ], [ %13, %invoke.cont40.preheader ]
-  %srcChunk34.0121 = getelementptr inbounds i8, ptr %add.ptr.pn120, i64 -64
+  %remaining.0120 = phi i64 [ %remaining.1.lcssa, %while.cond36.loopexit ], [ %13, %invoke.cont40.preheader ]
+  %add.ptr.pn119 = phi ptr [ %srcChunk34.0121, %while.cond36.loopexit ], [ %add.ptr, %invoke.cont40.preheader ]
+  %srcChunk34.0121 = getelementptr inbounds i8, ptr %add.ptr.pn119, i64 -64
   %16 = load <16 x i8>, ptr %srcChunk34.0121, align 16
   %17 = icmp slt <16 x i8> %16, zeroinitializer
   %18 = bitcast <16 x i1> %17 to i16
@@ -46593,7 +46593,7 @@ invoke.cont40:                                    ; preds = %invoke.cont40.prehe
   br i1 %cond, label %while.cond36.loopexit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont40
-  %rawItems_.i.i47 = getelementptr inbounds i8, ptr %add.ptr.pn120, i64 -48
+  %rawItems_.i.i47 = getelementptr inbounds i8, ptr %add.ptr.pn119, i64 -48
   %20 = load ptr, ptr %values_.i, align 8
   br label %for.body
 
@@ -46619,7 +46619,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i41.not, label %while.body50, label %for.body
 
 while.body50:                                     ; preds = %for.body, %invoke.cont67
-  %remaining.1116 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0119, %for.body ]
+  %remaining.1116 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0120, %for.body ]
   %iter.sroa.5.0115 = phi i32 [ %add8.i59, %invoke.cont67 ], [ 0, %for.body ]
   %iter.sroa.0.0114 = phi i32 [ %iter.sroa.0.1, %invoke.cont67 ], [ %iter.sroa.0.0.extract.trunc, %for.body ]
   %dec = add i64 %remaining.1116, -1
@@ -47477,14 +47477,14 @@ invoke.cont40.lr.ph:                              ; preds = %if.end31
   br label %invoke.cont40
 
 while.cond36.loopexit:                            ; preds = %invoke.cont67, %invoke.cont40
-  %remaining.1.lcssa = phi i64 [ %remaining.0130, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
+  %remaining.1.lcssa = phi i64 [ %remaining.0131, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
   %cmp37.not = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp37.not, label %while.end72, label %invoke.cont40, !llvm.loop !773
 
 invoke.cont40:                                    ; preds = %invoke.cont40.lr.ph, %while.cond36.loopexit
-  %add.ptr.pn131 = phi ptr [ %add.ptr, %invoke.cont40.lr.ph ], [ %srcChunk34.0132, %while.cond36.loopexit ]
-  %remaining.0130 = phi i64 [ %13, %invoke.cont40.lr.ph ], [ %remaining.1.lcssa, %while.cond36.loopexit ]
-  %srcChunk34.0132 = getelementptr inbounds i8, ptr %add.ptr.pn131, i64 -64
+  %remaining.0131 = phi i64 [ %13, %invoke.cont40.lr.ph ], [ %remaining.1.lcssa, %while.cond36.loopexit ]
+  %add.ptr.pn130 = phi ptr [ %add.ptr, %invoke.cont40.lr.ph ], [ %srcChunk34.0132, %while.cond36.loopexit ]
+  %srcChunk34.0132 = getelementptr inbounds i8, ptr %add.ptr.pn130, i64 -64
   %17 = load <16 x i8>, ptr %srcChunk34.0132, align 16
   %18 = icmp slt <16 x i8> %17, zeroinitializer
   %19 = bitcast <16 x i1> %18 to i16
@@ -47494,7 +47494,7 @@ invoke.cont40:                                    ; preds = %invoke.cont40.lr.ph
   br i1 %cond, label %while.cond36.loopexit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont40
-  %rawItems_.i.i47 = getelementptr inbounds i8, ptr %add.ptr.pn131, i64 -48
+  %rawItems_.i.i47 = getelementptr inbounds i8, ptr %add.ptr.pn130, i64 -48
   %21 = load ptr, ptr %values_.i, align 8
   br label %for.body
 
@@ -47520,7 +47520,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i41.not, label %while.body50, label %for.body
 
 while.body50:                                     ; preds = %for.body, %invoke.cont67
-  %remaining.1127 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0130, %for.body ]
+  %remaining.1127 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0131, %for.body ]
   %iter.sroa.5.0126 = phi i32 [ %add8.i59, %invoke.cont67 ], [ 0, %for.body ]
   %iter.sroa.0.0125 = phi i32 [ %iter.sroa.0.1, %invoke.cont67 ], [ %iter.sroa.0.0.extract.trunc, %for.body ]
   %dec = add i64 %remaining.1127, -1
@@ -49886,14 +49886,14 @@ invoke.cont40.preheader:                          ; preds = %if.end31
   br label %invoke.cont40
 
 while.cond36.loopexit:                            ; preds = %invoke.cont67, %invoke.cont40
-  %remaining.1.lcssa = phi i64 [ %remaining.0119, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
+  %remaining.1.lcssa = phi i64 [ %remaining.0120, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
   %cmp37.not = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp37.not, label %if.then.i89, label %invoke.cont40, !llvm.loop !815
 
 invoke.cont40:                                    ; preds = %invoke.cont40.preheader, %while.cond36.loopexit
-  %add.ptr.pn120 = phi ptr [ %srcChunk34.0121, %while.cond36.loopexit ], [ %add.ptr, %invoke.cont40.preheader ]
-  %remaining.0119 = phi i64 [ %remaining.1.lcssa, %while.cond36.loopexit ], [ %13, %invoke.cont40.preheader ]
-  %srcChunk34.0121 = getelementptr inbounds i8, ptr %add.ptr.pn120, i64 -64
+  %remaining.0120 = phi i64 [ %remaining.1.lcssa, %while.cond36.loopexit ], [ %13, %invoke.cont40.preheader ]
+  %add.ptr.pn119 = phi ptr [ %srcChunk34.0121, %while.cond36.loopexit ], [ %add.ptr, %invoke.cont40.preheader ]
+  %srcChunk34.0121 = getelementptr inbounds i8, ptr %add.ptr.pn119, i64 -64
   %16 = load <16 x i8>, ptr %srcChunk34.0121, align 16
   %17 = icmp slt <16 x i8> %16, zeroinitializer
   %18 = bitcast <16 x i1> %17 to i16
@@ -49903,7 +49903,7 @@ invoke.cont40:                                    ; preds = %invoke.cont40.prehe
   br i1 %cond, label %while.cond36.loopexit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont40
-  %rawItems_.i.i47 = getelementptr inbounds i8, ptr %add.ptr.pn120, i64 -48
+  %rawItems_.i.i47 = getelementptr inbounds i8, ptr %add.ptr.pn119, i64 -48
   %20 = load ptr, ptr %values_.i, align 8
   br label %for.body
 
@@ -49929,7 +49929,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i41.not, label %while.body50, label %for.body
 
 while.body50:                                     ; preds = %for.body, %invoke.cont67
-  %remaining.1116 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0119, %for.body ]
+  %remaining.1116 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0120, %for.body ]
   %iter.sroa.5.0115 = phi i32 [ %add8.i59, %invoke.cont67 ], [ 0, %for.body ]
   %iter.sroa.0.0114 = phi i32 [ %iter.sroa.0.1, %invoke.cont67 ], [ %iter.sroa.0.0.extract.trunc, %for.body ]
   %dec = add i64 %remaining.1116, -1
@@ -50636,14 +50636,14 @@ invoke.cont40.preheader:                          ; preds = %if.end31
   br label %invoke.cont40
 
 while.cond36.loopexit:                            ; preds = %invoke.cont67, %invoke.cont40
-  %remaining.1.lcssa = phi i64 [ %remaining.0129, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
+  %remaining.1.lcssa = phi i64 [ %remaining.0130, %invoke.cont40 ], [ %dec, %invoke.cont67 ]
   %cmp37.not = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp37.not, label %if.then.i88, label %invoke.cont40, !llvm.loop !824
 
 invoke.cont40:                                    ; preds = %invoke.cont40.preheader, %while.cond36.loopexit
-  %add.ptr.pn130 = phi ptr [ %srcChunk34.0131, %while.cond36.loopexit ], [ %add.ptr, %invoke.cont40.preheader ]
-  %remaining.0129 = phi i64 [ %remaining.1.lcssa, %while.cond36.loopexit ], [ %11, %invoke.cont40.preheader ]
-  %srcChunk34.0131 = getelementptr inbounds i8, ptr %add.ptr.pn130, i64 -64
+  %remaining.0130 = phi i64 [ %remaining.1.lcssa, %while.cond36.loopexit ], [ %11, %invoke.cont40.preheader ]
+  %add.ptr.pn129 = phi ptr [ %srcChunk34.0131, %while.cond36.loopexit ], [ %add.ptr, %invoke.cont40.preheader ]
+  %srcChunk34.0131 = getelementptr inbounds i8, ptr %add.ptr.pn129, i64 -64
   %14 = load <16 x i8>, ptr %srcChunk34.0131, align 16
   %15 = icmp slt <16 x i8> %14, zeroinitializer
   %16 = bitcast <16 x i1> %15 to i16
@@ -50653,7 +50653,7 @@ invoke.cont40:                                    ; preds = %invoke.cont40.prehe
   br i1 %cond, label %while.cond36.loopexit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont40
-  %rawItems_.i.i47 = getelementptr inbounds i8, ptr %add.ptr.pn130, i64 -48
+  %rawItems_.i.i47 = getelementptr inbounds i8, ptr %add.ptr.pn129, i64 -48
   %18 = load ptr, ptr %values_.i, align 8
   br label %for.body
 
@@ -50679,7 +50679,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i41.not, label %while.body50, label %for.body
 
 while.body50:                                     ; preds = %for.body, %invoke.cont67
-  %remaining.1126 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0129, %for.body ]
+  %remaining.1126 = phi i64 [ %dec, %invoke.cont67 ], [ %remaining.0130, %for.body ]
   %iter.sroa.5.0125 = phi i32 [ %add8.i59, %invoke.cont67 ], [ 0, %for.body ]
   %iter.sroa.0.0124 = phi i32 [ %iter.sroa.0.1, %invoke.cont67 ], [ %iter.sroa.0.0.extract.trunc, %for.body ]
   %dec = add i64 %remaining.1126, -1

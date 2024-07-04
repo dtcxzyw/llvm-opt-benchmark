@@ -828,7 +828,7 @@ define i32 @ompi_request_default_wait_all(i64 noundef %0, ptr noundef %1, ptr no
   br label %13
 
 13:                                               ; preds = %.backedge, %.preheader166
-  %.098 = phi i32 [ 0, %.preheader166 ], [ %83, %.backedge ]
+  %.096 = phi i32 [ 0, %.preheader166 ], [ %83, %.backedge ]
   store volatile i32 %6, ptr %4, align 8
   store i32 0, ptr %8, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
@@ -846,19 +846,19 @@ define i32 @ompi_request_default_wait_all(i64 noundef %0, ptr noundef %1, ptr no
   br label %19
 
 19:                                               ; preds = %.preheader220, %54
-  %.097175 = phi i64 [ %55, %54 ], [ 0, %.preheader220 ]
-  %.0102174 = phi ptr [ %20, %54 ], [ %1, %.preheader220 ]
-  %.1107173 = phi i64 [ %.4110, %54 ], [ 0, %.preheader220 ]
-  %.1112172 = phi i64 [ %.3114, %54 ], [ 0, %.preheader220 ]
-  %20 = getelementptr inbounds i8, ptr %.0102174, i64 8
-  %21 = load ptr, ptr %.0102174, align 8
+  %.097175 = phi ptr [ %20, %54 ], [ %1, %.preheader220 ]
+  %.1102174 = phi i64 [ %.4105, %54 ], [ 0, %.preheader220 ]
+  %.1107173 = phi i64 [ %.3109, %54 ], [ 0, %.preheader220 ]
+  %.0110172 = phi i64 [ %55, %54 ], [ 0, %.preheader220 ]
+  %20 = getelementptr inbounds i8, ptr %.097175, i64 8
+  %21 = load ptr, ptr %.097175, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 96
   %23 = load volatile i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 1
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %19
-  %26 = add i64 %.1112172, 1
+  %26 = add i64 %.1107173, 1
   br label %54
 
 27:                                               ; preds = %19
@@ -901,13 +901,13 @@ opal_thread_compare_exchange_strong_ptr.exit.thread149: ; preds = %27, %opal_thr
   %46 = load i32, ptr %45, align 8
   %.not127 = icmp ne i32 %46, 0
   %47 = zext i1 %.not127 to i64
-  %spec.select = add i64 %.1107173, %47
-  %48 = add i64 %.1112172, 1
+  %spec.select = add i64 %.1102174, %47
+  %48 = add i64 %.1107173, 1
   br label %opal_thread_compare_exchange_strong_ptr.exit.thread
 
 opal_thread_compare_exchange_strong_ptr.exit.thread: ; preds = %34, %42, %opal_thread_compare_exchange_strong_ptr.exit, %opal_thread_compare_exchange_strong_ptr.exit.thread149
-  %.2113 = phi i64 [ %48, %opal_thread_compare_exchange_strong_ptr.exit.thread149 ], [ %.1112172, %opal_thread_compare_exchange_strong_ptr.exit ], [ %.1112172, %42 ], [ %.1112172, %34 ]
-  %.3109 = phi i64 [ %spec.select, %opal_thread_compare_exchange_strong_ptr.exit.thread149 ], [ %.1107173, %opal_thread_compare_exchange_strong_ptr.exit ], [ %.1107173, %42 ], [ %.1107173, %34 ]
+  %.2108 = phi i64 [ %48, %opal_thread_compare_exchange_strong_ptr.exit.thread149 ], [ %.1107173, %opal_thread_compare_exchange_strong_ptr.exit ], [ %.1107173, %42 ], [ %.1107173, %34 ]
+  %.3104 = phi i64 [ %spec.select, %opal_thread_compare_exchange_strong_ptr.exit.thread149 ], [ %.1102174, %opal_thread_compare_exchange_strong_ptr.exit ], [ %.1102174, %42 ], [ %.1102174, %34 ]
   %49 = load i8, ptr @ompi_ftmpi_enabled, align 1
   %50 = trunc i8 %49 to i1
   br i1 %50, label %51, label %.thread
@@ -915,21 +915,21 @@ opal_thread_compare_exchange_strong_ptr.exit.thread: ; preds = %34, %42, %opal_t
 51:                                               ; preds = %opal_thread_compare_exchange_strong_ptr.exit.thread
   %52 = call zeroext i1 @ompi_request_is_failed_fn(ptr noundef nonnull %21) #7
   %.fr = freeze i1 %52
-  %53 = add i64 %.3109, 1
+  %53 = add i64 %.3104, 1
   br i1 %.fr, label %54, label %.thread
 
 .thread:                                          ; preds = %opal_thread_compare_exchange_strong_ptr.exit.thread, %51
   br label %54
 
 54:                                               ; preds = %.thread, %51, %25
-  %.3114 = phi i64 [ %26, %25 ], [ %.2113, %51 ], [ %.2113, %.thread ]
-  %.4110 = phi i64 [ %.1107173, %25 ], [ %53, %51 ], [ %.3109, %.thread ]
-  %55 = add nuw i64 %.097175, 1
+  %.3109 = phi i64 [ %26, %25 ], [ %.2108, %51 ], [ %.2108, %.thread ]
+  %.4105 = phi i64 [ %.1102174, %25 ], [ %53, %51 ], [ %.3104, %.thread ]
+  %55 = add nuw i64 %.0110172, 1
   %exitcond.not = icmp eq i64 %55, %0
   br i1 %exitcond.not, label %56, label %19, !llvm.loop !20
 
 56:                                               ; preds = %54
-  %.not = icmp eq i64 %.4110, 0
+  %.not = icmp eq i64 %.4105, 0
   br i1 %.not, label %58, label %57
 
 57:                                               ; preds = %56
@@ -937,12 +937,12 @@ opal_thread_compare_exchange_strong_ptr.exit.thread: ; preds = %34, %42, %opal_t
   br label %.loopexit167
 
 58:                                               ; preds = %56
-  %.not123 = icmp eq i64 %.3114, 0
+  %.not123 = icmp eq i64 %.3109, 0
   %.pre200 = load i8, ptr @opal_uses_threads, align 1
   br i1 %.not123, label %wait_sync_update.exit, label %59
 
 59:                                               ; preds = %58
-  %60 = trunc i64 %.3114 to i32
+  %60 = trunc i64 %.3109 to i32
   %61 = trunc i8 %.pre200 to i1
   br i1 %61, label %opal_thread_add_fetch_32.exit.i, label %opal_thread_add_fetch_32.exit.i.thread
 
@@ -999,10 +999,10 @@ sync_wait_st.exit:                                ; preds = %.lr.ph.i, %75
   br i1 %.not124, label %.loopexit167, label %.preheader165
 
 .preheader165:                                    ; preds = %82, %opal_thread_compare_exchange_strong_ptr.exit136
-  %.1177 = phi i64 [ %99, %opal_thread_compare_exchange_strong_ptr.exit136 ], [ 0, %82 ]
-  %.1103176 = phi ptr [ %84, %opal_thread_compare_exchange_strong_ptr.exit136 ], [ %1, %82 ]
-  %84 = getelementptr inbounds i8, ptr %.1103176, i64 8
-  %85 = load ptr, ptr %.1103176, align 8
+  %.198177 = phi ptr [ %84, %opal_thread_compare_exchange_strong_ptr.exit136 ], [ %1, %82 ]
+  %.1111176 = phi i64 [ %99, %opal_thread_compare_exchange_strong_ptr.exit136 ], [ 0, %82 ]
+  %84 = getelementptr inbounds i8, ptr %.198177, i64 8
+  %85 = load ptr, ptr %.198177, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 96
   %87 = load volatile i32, ptr %86, align 8
   %88 = icmp eq i32 %87, 1
@@ -1028,7 +1028,7 @@ sync_wait_st.exit:                                ; preds = %.lr.ph.i, %75
   br label %opal_thread_compare_exchange_strong_ptr.exit136
 
 opal_thread_compare_exchange_strong_ptr.exit136:  ; preds = %93, %98, %95, %.preheader165
-  %99 = add nuw i64 %.1177, 1
+  %99 = add nuw i64 %.1111176, 1
   %exitcond196.not = icmp eq i64 %99, %0
   br i1 %exitcond196.not, label %100, label %.preheader165, !llvm.loop !21
 
@@ -1078,7 +1078,7 @@ opal_thread_compare_exchange_strong_ptr.exit136:  ; preds = %93, %98, %95, %.pre
   br label %13
 
 .loopexit167:                                     ; preds = %82, %57
-  %.199 = phi i32 [ %.098, %57 ], [ 0, %82 ]
+  %.1 = phi i32 [ %.096, %57 ], [ 0, %82 ]
   %.not125 = icmp eq ptr %2, null
   br i1 %.not125, label %.preheader162, label %119
 
@@ -1092,17 +1092,17 @@ opal_thread_compare_exchange_strong_ptr.exit136:  ; preds = %93, %98, %95, %.pre
   br label %120
 
 120:                                              ; preds = %119, %173
-  %.2181 = phi i64 [ 0, %119 ], [ %174, %173 ]
-  %.2100180 = phi i32 [ %.199, %119 ], [ %.4, %173 ]
-  %.2104178 = phi ptr [ %1, %119 ], [ %175, %173 ]
-  %121 = load ptr, ptr %.2104178, align 8
+  %.2182 = phi i32 [ %.1, %119 ], [ %.4, %173 ]
+  %.299180 = phi ptr [ %1, %119 ], [ %175, %173 ]
+  %.2112178 = phi i64 [ 0, %119 ], [ %174, %173 ]
+  %121 = load ptr, ptr %.299180, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 96
   %123 = load volatile i32, ptr %122, align 8
   %124 = icmp eq i32 %123, 1
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %120
-  %126 = getelementptr inbounds %struct.ompi_status_public_t, ptr %2, i64 %.2181
+  %126 = getelementptr inbounds %struct.ompi_status_public_t, ptr %2, i64 %.2112178
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %126, ptr noundef nonnull align 8 dereferenceable(24) @ompi_status_empty, i64 24, i1 false)
   br label %173
 
@@ -1130,9 +1130,9 @@ opal_thread_compare_exchange_strong_ptr.exit136:  ; preds = %93, %98, %95, %.pre
   br label %139
 
 139:                                              ; preds = %138, %132
-  %140 = getelementptr inbounds %struct.ompi_status_public_t, ptr %2, i64 %.2181, i32 2
+  %140 = getelementptr inbounds %struct.ompi_status_public_t, ptr %2, i64 %.2112178, i32 2
   store i32 19, ptr %140, align 8
-  %141 = getelementptr inbounds ptr, ptr %1, i64 %.2181
+  %141 = getelementptr inbounds ptr, ptr %1, i64 %.2112178
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 72
   %144 = load i32, ptr %143, align 8
@@ -1153,7 +1153,7 @@ opal_thread_compare_exchange_strong_ptr.exit138:  ; preds = %132, %135, %127
   br label %152
 
 152:                                              ; preds = %opal_thread_compare_exchange_strong_ptr.exit138, %149
-  %153 = getelementptr inbounds %struct.ompi_status_public_t, ptr %2, i64 %.2181
+  %153 = getelementptr inbounds %struct.ompi_status_public_t, ptr %2, i64 %.2112178
   %154 = getelementptr inbounds i8, ptr %121, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %153, ptr noundef nonnull align 8 dereferenceable(24) %154, i64 24, i1 false)
   %155 = getelementptr inbounds i8, ptr %121, i64 100
@@ -1172,36 +1172,36 @@ opal_thread_compare_exchange_strong_ptr.exit138:  ; preds = %132, %135, %127
   br i1 %162, label %163, label %170
 
 163:                                              ; preds = %159
-  %164 = load ptr, ptr %.2104178, align 8
+  %164 = load ptr, ptr %.299180, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 120
   %166 = load ptr, ptr %165, align 8
-  %167 = call i32 %166(ptr noundef nonnull %.2104178) #7
-  %168 = icmp eq i32 %.2100180, 0
+  %167 = call i32 %166(ptr noundef nonnull %.299180) #7
+  %168 = icmp eq i32 %.2182, 0
   %169 = icmp ne i32 %167, 0
   %or.cond = select i1 %168, i1 %169, i1 false
-  %spec.select131 = select i1 %or.cond, i32 %167, i32 %.2100180
+  %spec.select131 = select i1 %or.cond, i32 %167, i32 %.2182
   br label %170
 
 170:                                              ; preds = %163, %159
-  %.3101 = phi i32 [ %.2100180, %159 ], [ %spec.select131, %163 ]
+  %.3 = phi i32 [ %.2182, %159 ], [ %spec.select131, %163 ]
   %171 = getelementptr inbounds i8, ptr %153, i64 8
   %172 = load i32, ptr %171, align 8
   %.not126 = icmp eq i32 %172, 0
-  %spec.select132 = select i1 %.not126, i32 %.3101, i32 18
+  %spec.select132 = select i1 %.not126, i32 %.3, i32 18
   br label %173
 
 173:                                              ; preds = %170, %158, %139, %125
-  %.4 = phi i32 [ %.2100180, %125 ], [ 18, %139 ], [ %.2100180, %158 ], [ %spec.select132, %170 ]
-  %174 = add nuw i64 %.2181, 1
-  %175 = getelementptr inbounds i8, ptr %.2104178, i64 8
+  %.4 = phi i32 [ %.2182, %125 ], [ 18, %139 ], [ %.2182, %158 ], [ %spec.select132, %170 ]
+  %174 = add nuw i64 %.2112178, 1
+  %175 = getelementptr inbounds i8, ptr %.299180, i64 8
   %exitcond197.not = icmp eq i64 %174, %umax
   br i1 %exitcond197.not, label %.loopexit, label %120, !llvm.loop !24
 
 176:                                              ; preds = %.preheader162, %.thread157
-  %.3187 = phi i64 [ 0, %.preheader162 ], [ %221, %.thread157 ]
-  %.5185 = phi i32 [ %.199, %.preheader162 ], [ %spec.store.select, %.thread157 ]
-  %.3105183 = phi ptr [ %1, %.preheader162 ], [ %222, %.thread157 ]
-  %177 = load ptr, ptr %.3105183, align 8
+  %.5186 = phi i32 [ %.1, %.preheader162 ], [ %spec.store.select, %.thread157 ]
+  %.3100184 = phi ptr [ %1, %.preheader162 ], [ %222, %.thread157 ]
+  %.3113183 = phi i64 [ 0, %.preheader162 ], [ %221, %.thread157 ]
+  %177 = load ptr, ptr %.3100184, align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 96
   %179 = load volatile i32, ptr %178, align 8
   %180 = icmp eq i32 %179, 1
@@ -1262,19 +1262,19 @@ opal_thread_compare_exchange_strong_ptr.exit140:  ; preds = %188, %191, %183
   br i1 %209, label %210, label %217
 
 210:                                              ; preds = %208
-  %211 = load ptr, ptr %.3105183, align 8
+  %211 = load ptr, ptr %.3100184, align 8
   %212 = getelementptr inbounds i8, ptr %211, i64 120
   %213 = load ptr, ptr %212, align 8
-  %214 = call i32 %213(ptr noundef nonnull %.3105183) #7
-  %215 = icmp eq i32 %.5185, 0
+  %214 = call i32 %213(ptr noundef nonnull %.3100184) #7
+  %215 = icmp eq i32 %.5186, 0
   %216 = icmp ne i32 %214, 0
   %or.cond3 = select i1 %215, i1 %216, i1 false
-  %spec.select134 = select i1 %or.cond3, i32 %214, i32 %.5185
+  %spec.select134 = select i1 %or.cond3, i32 %214, i32 %.5186
   br label %.thread157
 
 217:                                              ; preds = %207, %208, %181
-  %.096 = phi i32 [ %182, %181 ], [ %203, %207 ], [ %203, %208 ]
-  switch i32 %.096, label %.thread157 [
+  %.0 = phi i32 [ %182, %181 ], [ %203, %207 ], [ %203, %208 ]
+  switch i32 %.0, label %.thread157 [
     i32 77, label %218
     i32 75, label %218
   ]
@@ -1283,14 +1283,14 @@ opal_thread_compare_exchange_strong_ptr.exit140:  ; preds = %188, %191, %183
   br label %.thread157
 
 .thread157:                                       ; preds = %188, %194, %210, %217, %218
-  %.096160 = phi i32 [ %.096, %218 ], [ %.096, %217 ], [ 0, %210 ], [ 1, %194 ], [ 1, %188 ]
-  %.7 = phi i32 [ %.096, %218 ], [ %.5185, %217 ], [ %spec.select134, %210 ], [ %.5185, %194 ], [ %.5185, %188 ]
+  %.0160 = phi i32 [ %.0, %218 ], [ %.0, %217 ], [ 0, %210 ], [ 1, %194 ], [ 1, %188 ]
+  %.7 = phi i32 [ %.0, %218 ], [ %.5186, %217 ], [ %spec.select134, %210 ], [ %.5186, %194 ], [ %.5186, %188 ]
   %219 = icmp eq i32 %.7, 0
-  %220 = icmp ne i32 %.096160, 0
+  %220 = icmp ne i32 %.0160, 0
   %or.cond7 = and i1 %220, %219
   %spec.store.select = select i1 %or.cond7, i32 18, i32 %.7
-  %221 = add nuw i64 %.3187, 1
-  %222 = getelementptr inbounds i8, ptr %.3105183, i64 8
+  %221 = add nuw i64 %.3113183, 1
+  %222 = getelementptr inbounds i8, ptr %.3100184, i64 8
   %exitcond199.not = icmp eq i64 %221, %umax198
   br i1 %exitcond199.not, label %.loopexit, label %176, !llvm.loop !25
 
@@ -1338,8 +1338,8 @@ opal_thread_compare_exchange_strong_ptr.exit140:  ; preds = %188, %191, %183
   br label %241
 
 241:                                              ; preds = %.loopexit, %._crit_edge189, %3
-  %.0 = phi i32 [ 0, %3 ], [ %.8, %._crit_edge189 ], [ %.8, %.loopexit ]
-  ret i32 %.0
+  %.0114 = phi i32 [ 0, %3 ], [ %.8, %._crit_edge189 ], [ %.8, %.loopexit ]
+  ret i32 %.0114
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1383,19 +1383,19 @@ define i32 @ompi_request_default_wait_some(i64 noundef %0, ptr noundef %1, ptr n
   br label %22
 
 22:                                               ; preds = %21, %54
-  %.092133 = phi i64 [ 0, %21 ], [ %55, %54 ]
-  %.093132 = phi ptr [ %1, %21 ], [ %56, %54 ]
-  %.096130 = phi i64 [ 0, %21 ], [ %.197, %54 ]
-  %.099129 = phi i64 [ 0, %21 ], [ %.2101, %54 ]
-  %.0103128 = phi i64 [ 0, %21 ], [ %.1104, %54 ]
-  %23 = load ptr, ptr %.093132, align 8
+  %.091133 = phi i64 [ 0, %21 ], [ %55, %54 ]
+  %.092132 = phi ptr [ %1, %21 ], [ %56, %54 ]
+  %.095130 = phi i64 [ 0, %21 ], [ %.196, %54 ]
+  %.098129 = phi i64 [ 0, %21 ], [ %.2100, %54 ]
+  %.0102128 = phi i64 [ 0, %21 ], [ %.1103, %54 ]
+  %23 = load ptr, ptr %.092132, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
   %25 = load volatile i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 1
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %22
-  %28 = add i64 %.0103128, 1
+  %28 = add i64 %.0102128, 1
   br label %54
 
 29:                                               ; preds = %22
@@ -1419,21 +1419,21 @@ define i32 @ompi_request_default_wait_some(i64 noundef %0, ptr noundef %1, ptr n
   br label %opal_thread_compare_exchange_strong_ptr.exit.thread
 
 opal_thread_compare_exchange_strong_ptr.exit.thread: ; preds = %39, %33
-  %40 = getelementptr inbounds i32, ptr %3, i64 %.096130
+  %40 = getelementptr inbounds i32, ptr %3, i64 %.095130
   store i32 1, ptr %40, align 4
   br label %46
 
 41:                                               ; preds = %33, %36
-  %42 = getelementptr inbounds i32, ptr %3, i64 %.096130
+  %42 = getelementptr inbounds i32, ptr %3, i64 %.095130
   store i32 0, ptr %42, align 4
   %43 = load ptr, ptr %30, align 8
   %44 = icmp eq ptr %43, inttoptr (i64 1 to ptr)
   %45 = zext i1 %44 to i64
-  %spec.select = add i64 %.099129, %45
+  %spec.select = add i64 %.098129, %45
   br label %46
 
 46:                                               ; preds = %opal_thread_compare_exchange_strong_ptr.exit.thread, %41
-  %.1100 = phi i64 [ %spec.select, %41 ], [ %.099129, %opal_thread_compare_exchange_strong_ptr.exit.thread ]
+  %.199 = phi i64 [ %spec.select, %41 ], [ %.098129, %opal_thread_compare_exchange_strong_ptr.exit.thread ]
   %47 = load i8, ptr @ompi_ftmpi_enabled, align 1
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %.thread
@@ -1443,24 +1443,24 @@ opal_thread_compare_exchange_strong_ptr.exit.thread: ; preds = %39, %33
   br i1 %50, label %51, label %.thread
 
 51:                                               ; preds = %49
-  %52 = add i64 %.1100, 1
+  %52 = add i64 %.199, 1
   br label %54
 
 .thread:                                          ; preds = %46, %49
-  %53 = add i64 %.096130, 1
+  %53 = add i64 %.095130, 1
   br label %54
 
 54:                                               ; preds = %.thread, %51, %27
-  %.1104 = phi i64 [ %28, %27 ], [ %.0103128, %51 ], [ %.0103128, %.thread ]
-  %.2101 = phi i64 [ %.099129, %27 ], [ %52, %51 ], [ %.1100, %.thread ]
-  %.197 = phi i64 [ %.096130, %27 ], [ %.096130, %51 ], [ %53, %.thread ]
-  %55 = add nuw i64 %.092133, 1
-  %56 = getelementptr inbounds i8, ptr %.093132, i64 8
+  %.1103 = phi i64 [ %28, %27 ], [ %.0102128, %51 ], [ %.0102128, %.thread ]
+  %.2100 = phi i64 [ %.098129, %27 ], [ %52, %51 ], [ %.199, %.thread ]
+  %.196 = phi i64 [ %.095130, %27 ], [ %.095130, %51 ], [ %53, %.thread ]
+  %55 = add nuw i64 %.091133, 1
+  %56 = getelementptr inbounds i8, ptr %.092132, i64 8
   %exitcond.not = icmp eq i64 %55, %0
   br i1 %exitcond.not, label %57, label %22, !llvm.loop !28
 
 57:                                               ; preds = %54
-  %58 = icmp eq i64 %.1104, %0
+  %58 = icmp eq i64 %.1103, %0
   br i1 %58, label %59, label %65
 
 59:                                               ; preds = %57
@@ -1475,8 +1475,8 @@ opal_thread_compare_exchange_strong_ptr.exit.thread: ; preds = %39, %33
   br label %.loopexit
 
 65:                                               ; preds = %57
-  %66 = sub i64 %.197, %.2101
-  %67 = icmp eq i64 %.2101, 0
+  %66 = sub i64 %.196, %.2100
+  %67 = icmp eq i64 %.2100, 0
   br i1 %67, label %68, label %.preheader165
 
 68:                                               ; preds = %65
@@ -1508,10 +1508,10 @@ sync_wait_st.exit:                                ; preds = %.lr.ph.i, %73
   br label %79
 
 79:                                               ; preds = %.preheader165, %111
-  %.091137 = phi i64 [ %112, %111 ], [ 0, %.preheader165 ]
+  %.090137 = phi i64 [ %112, %111 ], [ 0, %.preheader165 ]
   %.1136 = phi ptr [ %113, %111 ], [ %1, %.preheader165 ]
-  %.298135 = phi i64 [ %.3, %111 ], [ 0, %.preheader165 ]
-  %.3102134 = phi i64 [ %.5, %111 ], [ 0, %.preheader165 ]
+  %.297135 = phi i64 [ %.3, %111 ], [ 0, %.preheader165 ]
+  %.3101134 = phi i64 [ %.5, %111 ], [ 0, %.preheader165 ]
   %80 = load ptr, ptr %.1136, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 96
   %82 = load volatile i32, ptr %81, align 8
@@ -1519,7 +1519,7 @@ sync_wait_st.exit:                                ; preds = %.lr.ph.i, %73
   br i1 %83, label %111, label %84
 
 84:                                               ; preds = %79
-  %85 = getelementptr inbounds i32, ptr %3, i64 %.298135
+  %85 = getelementptr inbounds i32, ptr %3, i64 %.297135
   %86 = load i32, ptr %85, align 4
   %.not113 = icmp eq i32 %86, 0
   br i1 %.not113, label %.critedge.sink.split, label %87
@@ -1560,21 +1560,21 @@ sync_wait_st.exit:                                ; preds = %.lr.ph.i, %73
   br i1 %106, label %.critedge.sink.split, label %.critedge
 
 .critedge.sink.split:                             ; preds = %103, %94, %91, %84
-  %107 = trunc i64 %.091137 to i32
-  %108 = add i64 %.3102134, 1
-  %109 = getelementptr inbounds i32, ptr %3, i64 %.3102134
+  %107 = trunc i64 %.090137 to i32
+  %108 = add i64 %.3101134, 1
+  %109 = getelementptr inbounds i32, ptr %3, i64 %.3101134
   store i32 %107, ptr %109, align 4
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %98, %101, %103
-  %.4 = phi i64 [ %.3102134, %103 ], [ %.3102134, %101 ], [ %.3102134, %98 ], [ %108, %.critedge.sink.split ]
-  %110 = add i64 %.298135, 1
+  %.4 = phi i64 [ %.3101134, %103 ], [ %.3101134, %101 ], [ %.3101134, %98 ], [ %108, %.critedge.sink.split ]
+  %110 = add i64 %.297135, 1
   br label %111
 
 111:                                              ; preds = %79, %.critedge
-  %.5 = phi i64 [ %.3102134, %79 ], [ %.4, %.critedge ]
-  %.3 = phi i64 [ %.298135, %79 ], [ %110, %.critedge ]
-  %112 = add nuw i64 %.091137, 1
+  %.5 = phi i64 [ %.3101134, %79 ], [ %.4, %.critedge ]
+  %.3 = phi i64 [ %.297135, %79 ], [ %110, %.critedge ]
+  %112 = add nuw i64 %.090137, 1
   %113 = getelementptr inbounds i8, ptr %.1136, i64 8
   %exitcond151.not = icmp eq i64 %112, %0
   br i1 %exitcond151.not, label %114, label %79, !llvm.loop !29
@@ -1642,9 +1642,9 @@ sync_wait_st.exit:                                ; preds = %.lr.ph.i, %73
   br i1 %.not, label %.split.us, label %.split.split
 
 .split.us:                                        ; preds = %139, %172
-  %.090139.us = phi i64 [ %173, %172 ], [ 0, %139 ]
-  %.094138.us = phi i32 [ %.2.us, %172 ], [ 0, %139 ]
-  %141 = getelementptr inbounds i32, ptr %3, i64 %.090139.us
+  %.0139.us = phi i64 [ %173, %172 ], [ 0, %139 ]
+  %.093138.us = phi i32 [ %.2.us, %172 ], [ 0, %139 ]
+  %141 = getelementptr inbounds i32, ptr %3, i64 %.0139.us
   %142 = load i32, ptr %141, align 4
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds ptr, ptr %1, i64 %143
@@ -1688,21 +1688,21 @@ sync_wait_st.exit:                                ; preds = %.lr.ph.i, %73
   br i1 %.not111.us, label %172, label %.loopexit
 
 170:                                              ; preds = %156
-  %spec.select116.us = select i1 %.not110.us, i32 %.094138.us, i32 18
+  %spec.select116.us = select i1 %.not110.us, i32 %.093138.us, i32 18
   %171 = getelementptr inbounds i8, ptr %145, i64 96
   store volatile i32 1, ptr %171, align 8
   br label %172
 
 172:                                              ; preds = %.split.us, %170, %162, %161
-  %.2.us = phi i32 [ %spec.select116.us, %170 ], [ %.094138.us, %162 ], [ 18, %161 ], [ 18, %.split.us ]
-  %173 = add nuw i64 %.090139.us, 1
+  %.2.us = phi i32 [ %spec.select116.us, %170 ], [ %.093138.us, %162 ], [ 18, %161 ], [ 18, %.split.us ]
+  %173 = add nuw i64 %.0139.us, 1
   %exitcond153.not = icmp eq i64 %173, %.5
   br i1 %exitcond153.not, label %.loopexit, label %.split.us, !llvm.loop !32
 
 .split.split:                                     ; preds = %139, %209
-  %.090139 = phi i64 [ %210, %209 ], [ 0, %139 ]
-  %.094138 = phi i32 [ %.2, %209 ], [ 0, %139 ]
-  %174 = getelementptr inbounds i32, ptr %3, i64 %.090139
+  %.0139 = phi i64 [ %210, %209 ], [ 0, %139 ]
+  %.093138 = phi i32 [ %.2, %209 ], [ 0, %139 ]
+  %174 = getelementptr inbounds i32, ptr %3, i64 %.0139
   %175 = load i32, ptr %174, align 4
   %176 = sext i32 %175 to i64
   %177 = getelementptr inbounds ptr, ptr %1, i64 %176
@@ -1714,7 +1714,7 @@ sync_wait_st.exit:                                ; preds = %.lr.ph.i, %73
   br i1 %182, label %183, label %186
 
 183:                                              ; preds = %.split.split
-  %184 = getelementptr inbounds %struct.ompi_status_public_t, ptr %4, i64 %.090139
+  %184 = getelementptr inbounds %struct.ompi_status_public_t, ptr %4, i64 %.0139
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %184, ptr noundef nonnull align 8 dereferenceable(24) %179, i64 24, i1 false)
   %185 = getelementptr inbounds i8, ptr %184, i64 8
   store i32 76, ptr %185, align 8
@@ -1731,7 +1731,7 @@ sync_wait_st.exit:                                ; preds = %.lr.ph.i, %73
   br label %192
 
 192:                                              ; preds = %190, %186
-  %193 = getelementptr inbounds %struct.ompi_status_public_t, ptr %4, i64 %.090139
+  %193 = getelementptr inbounds %struct.ompi_status_public_t, ptr %4, i64 %.0139
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %193, ptr noundef nonnull align 8 dereferenceable(24) %179, i64 24, i1 false)
   %194 = load i32, ptr %180, align 8
   %.not110 = icmp eq i32 %194, 0
@@ -1741,7 +1741,7 @@ sync_wait_st.exit:                                ; preds = %.lr.ph.i, %73
   br i1 %197, label %198, label %200
 
 198:                                              ; preds = %192
-  %spec.select116 = select i1 %.not110, i32 %.094138, i32 18
+  %spec.select116 = select i1 %.not110, i32 %.093138, i32 18
   %199 = getelementptr inbounds i8, ptr %178, i64 96
   store volatile i32 1, ptr %199, align 8
   br label %209
@@ -1761,14 +1761,14 @@ sync_wait_st.exit:                                ; preds = %.lr.ph.i, %73
   br i1 %.not111, label %209, label %.loopexit
 
 209:                                              ; preds = %198, %201, %200, %183
-  %.2 = phi i32 [ 18, %183 ], [ %spec.select116, %198 ], [ %.094138, %201 ], [ 18, %200 ]
-  %210 = add nuw i64 %.090139, 1
+  %.2 = phi i32 [ 18, %183 ], [ %spec.select116, %198 ], [ %.093138, %201 ], [ 18, %200 ]
+  %210 = add nuw i64 %.0139, 1
   %exitcond152.not = icmp eq i64 %210, %.5
   br i1 %exitcond152.not, label %.loopexit, label %.split.split, !llvm.loop !32
 
 .loopexit:                                        ; preds = %209, %201, %172, %162, %59, %62, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %62 ], [ 0, %59 ], [ %.2.us, %172 ], [ %169, %162 ], [ %.2, %209 ], [ %208, %201 ]
-  ret i32 %.0
+  %.0104 = phi i32 [ 0, %14 ], [ 0, %62 ], [ 0, %59 ], [ %.2.us, %172 ], [ %169, %162 ], [ %.2, %209 ], [ %208, %201 ]
+  ret i32 %.0104
 }
 
 declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_unnamed_addr #1

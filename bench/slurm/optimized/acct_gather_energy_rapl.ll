@@ -473,7 +473,7 @@ _read_msr.exit51:                                 ; preds = %51, %53, %56
 
 .lr.ph:                                           ; preds = %66, %_get_dram_energy.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_get_dram_energy.exit ], [ 0, %66 ]
-  %.04054 = phi i64 [ %121, %_get_dram_energy.exit ], [ 0, %66 ]
+  %.055 = phi i64 [ %121, %_get_dram_energy.exit ], [ 0, %66 ]
   %69 = getelementptr inbounds [256 x i32], ptr @pkg_fd, i64 0, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -578,7 +578,7 @@ _get_dram_energy.exit:                            ; preds = %_read_msr.exit.i53,
   %118 = trunc i64 %108 to i32
   store i32 %118, ptr %110, align 8
   %119 = load i64, ptr %110, align 8
-  %120 = add i64 %92, %.04054
+  %120 = add i64 %92, %.055
   %121 = add i64 %120, %119
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %122 = load i32, ptr @nb_pkg, align 4
@@ -587,8 +587,8 @@ _get_dram_energy.exit:                            ; preds = %_read_msr.exit.i53,
   br i1 %124, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_get_dram_energy.exit, %66
-  %.040.lcssa = phi i64 [ 0, %66 ], [ %121, %_get_dram_energy.exit ]
-  %125 = uitofp i64 %.040.lcssa to double
+  %.0.lcssa = phi i64 [ 0, %66 ], [ %121, %_get_dram_energy.exit ]
+  %125 = uitofp i64 %.0.lcssa to double
   %126 = fmul double %exp2, %125
   %127 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %128 = and i64 %127, 262144
@@ -601,7 +601,7 @@ _get_dram_energy.exit:                            ; preds = %_read_msr.exit.i53,
   br i1 %131, label %132, label %133
 
 132:                                              ; preds = %129
-  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.8, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_joules_task, i64 noundef %.040.lcssa, double noundef %126) #10
+  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.8, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._get_joules_task, i64 noundef %.0.lcssa, double noundef %126) #10
   br label %133
 
 133:                                              ; preds = %._crit_edge, %129, %132

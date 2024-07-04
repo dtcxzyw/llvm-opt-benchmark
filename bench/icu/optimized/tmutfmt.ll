@@ -1236,9 +1236,9 @@ for.body:                                         ; preds = %entry, %for.inc76
   %indvars.iv201 = phi i64 [ 0, %entry ], [ %indvars.iv.next202, %for.inc76 ]
   %withNumberFormat.0175 = phi i8 [ 0, %entry ], [ %withNumberFormat.1, %for.inc76 ]
   %resultTimeUnit.0174 = phi i32 [ 7, %entry ], [ %resultTimeUnit.1, %for.inc76 ]
-  %newPos.0173 = phi i32 [ -1, %entry ], [ %newPos.1, %for.inc76 ]
-  %longestParseDistance.0172 = phi i32 [ 0, %entry ], [ %longestParseDistance.1, %for.inc76 ]
-  %countOfLongestMatch.0171 = phi ptr [ null, %entry ], [ %countOfLongestMatch.1, %for.inc76 ]
+  %countOfLongestMatch.0172 = phi ptr [ null, %entry ], [ %countOfLongestMatch.1, %for.inc76 ]
+  %longestParseDistance.0171 = phi i32 [ 0, %entry ], [ %longestParseDistance.1, %for.inc76 ]
+  %newPos.0170 = phi i32 [ -1, %entry ], [ %newPos.1, %for.inc76 ]
   %arrayidx = getelementptr inbounds [7 x ptr], ptr %fTimeUnitToCountToPatterns, i64 0, i64 %indvars.iv201
   %1 = load ptr, ptr %arrayidx, align 8
   store i32 -1, ptr %elemPos, align 4
@@ -1249,9 +1249,9 @@ while.cond.loopexit:                              ; preds = %cleanup72
   br label %while.cond, !llvm.loop !11
 
 while.cond:                                       ; preds = %while.cond.loopexit, %for.body
-  %countOfLongestMatch.1 = phi ptr [ %countOfLongestMatch.0171, %for.body ], [ %countOfLongestMatch.5, %while.cond.loopexit ]
-  %longestParseDistance.1 = phi i32 [ %longestParseDistance.0172, %for.body ], [ %longestParseDistance.5, %while.cond.loopexit ]
-  %newPos.1 = phi i32 [ %newPos.0173, %for.body ], [ %newPos.5, %while.cond.loopexit ]
+  %newPos.1 = phi i32 [ %newPos.0170, %for.body ], [ %newPos.5, %while.cond.loopexit ]
+  %longestParseDistance.1 = phi i32 [ %longestParseDistance.0171, %for.body ], [ %longestParseDistance.5, %while.cond.loopexit ]
+  %countOfLongestMatch.1 = phi ptr [ %countOfLongestMatch.0172, %for.body ], [ %countOfLongestMatch.5, %while.cond.loopexit ]
   %resultTimeUnit.1 = phi i32 [ %resultTimeUnit.0174, %for.body ], [ %resultTimeUnit.5, %while.cond.loopexit ]
   %withNumberFormat.1 = phi i8 [ %withNumberFormat.0175, %for.body ], [ %withNumberFormat.6, %while.cond.loopexit ]
   %3 = load ptr, ptr %1, align 8
@@ -1274,9 +1274,9 @@ for.body7:                                        ; preds = %while.body, %cleanu
   %indvars.iv = phi i64 [ 0, %while.body ], [ 1, %cleanup72 ]
   %withNumberFormat.2169 = phi i8 [ %withNumberFormat.1, %while.body ], [ %withNumberFormat.6, %cleanup72 ]
   %resultTimeUnit.2168 = phi i32 [ %resultTimeUnit.1, %while.body ], [ %resultTimeUnit.5, %cleanup72 ]
-  %newPos.2166 = phi i32 [ %newPos.1, %while.body ], [ %newPos.5, %cleanup72 ]
+  %countOfLongestMatch.2166 = phi ptr [ %countOfLongestMatch.1, %while.body ], [ %countOfLongestMatch.5, %cleanup72 ]
   %longestParseDistance.2165 = phi i32 [ %longestParseDistance.1, %while.body ], [ %longestParseDistance.5, %cleanup72 ]
-  %countOfLongestMatch.2164 = phi ptr [ %countOfLongestMatch.1, %while.body ], [ %countOfLongestMatch.5, %cleanup72 ]
+  %newPos.2164 = phi i32 [ %newPos.1, %while.body ], [ %newPos.5, %cleanup72 ]
   %arrayidx9 = getelementptr inbounds ptr, ptr %valueTok.sroa.0.0.copyload, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx9, align 8
   store i32 -1, ptr %errorIndex.i, align 4
@@ -1413,18 +1413,18 @@ if.end67:                                         ; preds = %invoke.cont60, %if.
   br label %cleanup71
 
 cleanup71:                                        ; preds = %if.end55, %if.end67, %invoke.cont46, %invoke.cont41
-  %countOfLongestMatch.4 = phi ptr [ %countOfLongestMatch.2164, %invoke.cont41 ], [ %countOfLongestMatch.2164, %invoke.cont46 ], [ %keyTok.sroa.0.0.copyload, %if.end67 ], [ %countOfLongestMatch.2164, %if.end55 ]
+  %newPos.4 = phi i32 [ %newPos.2164, %invoke.cont41 ], [ %newPos.2164, %invoke.cont46 ], [ %16, %if.end67 ], [ %newPos.2164, %if.end55 ]
   %longestParseDistance.4 = phi i32 [ %longestParseDistance.2165, %invoke.cont41 ], [ %longestParseDistance.2165, %invoke.cont46 ], [ %sub, %if.end67 ], [ %longestParseDistance.2165, %if.end55 ]
-  %newPos.4 = phi i32 [ %newPos.2166, %invoke.cont41 ], [ %newPos.2166, %invoke.cont46 ], [ %16, %if.end67 ], [ %newPos.2166, %if.end55 ]
+  %countOfLongestMatch.4 = phi ptr [ %countOfLongestMatch.2166, %invoke.cont41 ], [ %countOfLongestMatch.2166, %invoke.cont46 ], [ %keyTok.sroa.0.0.copyload, %if.end67 ], [ %countOfLongestMatch.2166, %if.end55 ]
   %resultTimeUnit.4 = phi i32 [ %resultTimeUnit.2168, %invoke.cont41 ], [ %resultTimeUnit.2168, %invoke.cont46 ], [ %2, %if.end67 ], [ %resultTimeUnit.2168, %if.end55 ]
   %withNumberFormat.5 = phi i8 [ %withNumberFormat.2169, %invoke.cont41 ], [ %withNumberFormat.2169, %invoke.cont46 ], [ %withNumberFormat.3, %if.end67 ], [ %withNumberFormat.2169, %if.end55 ]
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %tmpNumber) #13
   br label %cleanup72
 
 cleanup72:                                        ; preds = %invoke.cont14, %cleanup71
-  %countOfLongestMatch.5 = phi ptr [ %countOfLongestMatch.4, %cleanup71 ], [ %countOfLongestMatch.2164, %invoke.cont14 ]
+  %newPos.5 = phi i32 [ %newPos.4, %cleanup71 ], [ %newPos.2164, %invoke.cont14 ]
   %longestParseDistance.5 = phi i32 [ %longestParseDistance.4, %cleanup71 ], [ %longestParseDistance.2165, %invoke.cont14 ]
-  %newPos.5 = phi i32 [ %newPos.4, %cleanup71 ], [ %newPos.2166, %invoke.cont14 ]
+  %countOfLongestMatch.5 = phi ptr [ %countOfLongestMatch.4, %cleanup71 ], [ %countOfLongestMatch.2166, %invoke.cont14 ]
   %resultTimeUnit.5 = phi i32 [ %resultTimeUnit.4, %cleanup71 ], [ %resultTimeUnit.2168, %invoke.cont14 ]
   %withNumberFormat.6 = phi i8 [ %withNumberFormat.5, %cleanup71 ], [ %withNumberFormat.2169, %invoke.cont14 ]
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %parsed) #13

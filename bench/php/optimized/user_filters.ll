@@ -670,11 +670,11 @@ define hidden void @zif_stream_bucket_make_writeable(ptr noundef %0, ptr noundef
   br i1 %.not74, label %12, label %11
 
 11:                                               ; preds = %6, %7
-  %.067.ph = phi i32 [ 14, %7 ], [ 0, %6 ]
-  %.066.ph = phi ptr [ %8, %7 ], [ null, %6 ]
+  %.067.ph = phi ptr [ %8, %7 ], [ null, %6 ]
+  %.066.ph = phi i32 [ 14, %7 ], [ 0, %6 ]
   %.065.ph = phi i32 [ 1, %7 ], [ 0, %6 ]
   %.064.ph = phi i32 [ 9, %7 ], [ 1, %6 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.064.ph, i32 noundef %.065.ph, ptr noundef null, i32 noundef %.067.ph, ptr noundef %.066.ph) #11
+  tail call void @zend_wrong_parameter_error(i32 noundef %.064.ph, i32 noundef %.065.ph, ptr noundef null, i32 noundef %.066.ph, ptr noundef %.067.ph) #11
   br label %34
 
 12:                                               ; preds = %7
@@ -766,11 +766,11 @@ define internal fastcc void @php_stream_bucket_attach(i32 noundef %0, ptr nounde
   br i1 %.not137, label %14, label %13
 
 13:                                               ; preds = %5, %6, %.critedge
-  %.0113.ph = phi i32 [ 2, %.critedge ], [ 1, %6 ], [ 0, %5 ]
-  %.0112.ph = phi ptr [ %10, %.critedge ], [ %7, %6 ], [ null, %5 ]
-  %.0111.ph = phi i32 [ 18, %.critedge ], [ 14, %6 ], [ 0, %5 ]
+  %.0111.ph = phi i32 [ 2, %.critedge ], [ 1, %6 ], [ 0, %5 ]
+  %.0110.ph = phi ptr [ %10, %.critedge ], [ %7, %6 ], [ null, %5 ]
+  %.0109.ph = phi i32 [ 18, %.critedge ], [ 14, %6 ], [ 0, %5 ]
   %.0.ph = phi i32 [ 9, %.critedge ], [ 9, %6 ], [ 1, %5 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.0113.ph, ptr noundef null, i32 noundef %.0111.ph, ptr noundef %.0112.ph) #11
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.0111.ph, ptr noundef null, i32 noundef %.0109.ph, ptr noundef %.0110.ph) #11
   br label %104
 
 14:                                               ; preds = %.critedge
@@ -854,7 +854,7 @@ define internal fastcc void @php_stream_bucket_attach(i32 noundef %0, ptr nounde
 
 62:                                               ; preds = %59, %55
   %63 = phi i8 [ %57, %55 ], [ %.pre, %59 ]
-  %.0109.ph = phi ptr [ %54, %55 ], [ %61, %59 ]
+  %.0112.ph = phi ptr [ %54, %55 ], [ %61, %59 ]
   %64 = icmp eq i8 %63, 6
   br i1 %64, label %65, label %96
 
@@ -869,25 +869,25 @@ define internal fastcc void @php_stream_bucket_attach(i32 noundef %0, ptr nounde
   br label %70
 
 70:                                               ; preds = %68, %65
-  %.0115 = phi ptr [ %42, %65 ], [ %69, %68 ]
-  %71 = getelementptr inbounds i8, ptr %.0115, i64 32
+  %.0114 = phi ptr [ %42, %65 ], [ %69, %68 ]
+  %71 = getelementptr inbounds i8, ptr %.0114, i64 32
   %72 = load i64, ptr %71, align 8
-  %73 = load ptr, ptr %.0109.ph, align 8
+  %73 = load ptr, ptr %.0112.ph, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 16
   %75 = load i64, ptr %74, align 8
   %.not143 = icmp eq i64 %72, %75
   br i1 %.not143, label %._crit_edge, label %76
 
 ._crit_edge:                                      ; preds = %70
-  %.phi.trans.insert21 = getelementptr inbounds i8, ptr %.0115, i64 24
+  %.phi.trans.insert21 = getelementptr inbounds i8, ptr %.0114, i64 24
   %.pre22 = load ptr, ptr %.phi.trans.insert21, align 8
   br label %91
 
 76:                                               ; preds = %70
-  %77 = getelementptr inbounds i8, ptr %.0115, i64 41
+  %77 = getelementptr inbounds i8, ptr %.0114, i64 41
   %78 = load i8, ptr %77, align 1
   %.not144 = icmp eq i8 %78, 0
-  %79 = getelementptr inbounds i8, ptr %.0115, i64 24
+  %79 = getelementptr inbounds i8, ptr %.0114, i64 24
   %80 = load ptr, ptr %79, align 8
   br i1 %.not144, label %83, label %81
 
@@ -901,13 +901,13 @@ define internal fastcc void @php_stream_bucket_attach(i32 noundef %0, ptr nounde
 
 85:                                               ; preds = %83, %81
   %86 = phi ptr [ %82, %81 ], [ %84, %83 ]
-  %87 = getelementptr inbounds i8, ptr %.0115, i64 24
+  %87 = getelementptr inbounds i8, ptr %.0114, i64 24
   store ptr %86, ptr %87, align 8
-  %88 = load ptr, ptr %.0109.ph, align 8
+  %88 = load ptr, ptr %.0112.ph, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 16
   %90 = load i64, ptr %89, align 8
   store i64 %90, ptr %71, align 8
-  %.pre23 = load ptr, ptr %.0109.ph, align 8
+  %.pre23 = load ptr, ptr %.0112.ph, align 8
   br label %91
 
 91:                                               ; preds = %._crit_edge, %85
@@ -919,7 +919,7 @@ define internal fastcc void @php_stream_bucket_attach(i32 noundef %0, ptr nounde
   br label %96
 
 96:                                               ; preds = %47, %91, %62
-  %.1 = phi ptr [ %.0115, %91 ], [ %42, %62 ], [ %42, %47 ]
+  %.1 = phi ptr [ %.0114, %91 ], [ %42, %62 ], [ %42, %47 ]
   %.not145 = icmp eq i32 %0, 0
   br i1 %.not145, label %98, label %97
 
@@ -987,10 +987,10 @@ define hidden void @zif_stream_bucket_new(ptr noundef %0, ptr noundef %1) local_
 
 16:                                               ; preds = %14, %.thread163
   %.0105175 = phi i32 [ 1, %.thread163 ], [ 9, %14 ]
-  %.0107174 = phi i32 [ 0, %.thread163 ], [ 2, %14 ]
-  %.0108173 = phi i32 [ 0, %.thread163 ], [ 4, %14 ]
-  %.0109172 = phi ptr [ null, %.thread163 ], [ %9, %14 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0105175, i32 noundef %.0107174, ptr noundef null, i32 noundef %.0108173, ptr noundef %.0109172) #11
+  %.0106174 = phi i32 [ 0, %.thread163 ], [ 4, %14 ]
+  %.0107173 = phi ptr [ null, %.thread163 ], [ %9, %14 ]
+  %.0108172 = phi i32 [ 0, %.thread163 ], [ 2, %14 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0105175, i32 noundef %.0108172, ptr noundef null, i32 noundef %.0106174, ptr noundef %.0107173) #11
   br label %48
 
 17:                                               ; preds = %._crit_edge, %.thread
@@ -1199,10 +1199,10 @@ define hidden void @zif_stream_filter_register(ptr noundef %0, ptr nocapture nou
 
 .thread144:                                       ; preds = %23, %15, %8
   %.0153 = phi i32 [ 9, %15 ], [ 1, %8 ], [ 9, %23 ]
-  %.0112152 = phi i32 [ 4, %15 ], [ 0, %8 ], [ 4, %23 ]
-  %.0113151 = phi ptr [ %10, %15 ], [ null, %8 ], [ %18, %23 ]
-  %.0114150 = phi i32 [ 1, %15 ], [ 0, %8 ], [ 2, %23 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0153, i32 noundef %.0114150, ptr noundef null, i32 noundef %.0112152, ptr noundef %.0113151) #11
+  %.0110152 = phi i32 [ 4, %15 ], [ 0, %8 ], [ 4, %23 ]
+  %.0111151 = phi ptr [ %10, %15 ], [ null, %8 ], [ %18, %23 ]
+  %.0112150 = phi i32 [ 1, %15 ], [ 0, %8 ], [ 2, %23 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0153, i32 noundef %.0112150, ptr noundef null, i32 noundef %.0110152, ptr noundef %.0111151) #11
   br label %76
 
 .thread156:                                       ; preds = %23, %.thread140
@@ -1434,13 +1434,13 @@ define internal ptr @user_filter_factory_create(ptr noundef %0, ptr noundef %1, 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
-  %.0132157 = phi ptr [ %31, %30 ], [ %21, %.lr.ph.preheader ]
-  %22 = load i8, ptr %.0132157, align 1
+  %.0130157 = phi ptr [ %31, %30 ], [ %21, %.lr.ph.preheader ]
+  %22 = load i8, ptr %.0130157, align 1
   %23 = icmp eq i8 %22, 46
   tail call void @llvm.assume(i1 %23)
-  %24 = getelementptr inbounds i8, ptr %.0132157, i64 1
+  %24 = getelementptr inbounds i8, ptr %.0130157, i64 1
   store i8 42, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %.0132157, i64 2
+  %25 = getelementptr inbounds i8, ptr %.0130157, i64 2
   store i8 0, ptr %25, align 1
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1336), align 8
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #15
@@ -1453,24 +1453,24 @@ define internal ptr @user_filter_factory_create(ptr noundef %0, ptr noundef %1, 
   br label %._crit_edge
 
 30:                                               ; preds = %.lr.ph
-  store i8 0, ptr %.0132157, align 1
+  store i8 0, ptr %.0130157, align 1
   %31 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 46) #15
   %.not143 = icmp eq ptr %31, null
   br i1 %.not143, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %30, %.thread, %15
-  %.0133.lcssa = phi ptr [ null, %15 ], [ %29, %.thread ], [ null, %30 ]
+  %.0131.lcssa = phi ptr [ null, %15 ], [ %29, %.thread ], [ null, %30 ]
   tail call void @_efree(ptr noundef %16) #11
   br label %32
 
 32:                                               ; preds = %._crit_edge, %13
-  %.1134 = phi ptr [ %.0133.lcssa, %._crit_edge ], [ null, %13 ]
-  %33 = icmp ne ptr %.1134, null
+  %.1132 = phi ptr [ %.0131.lcssa, %._crit_edge ], [ null, %13 ]
+  %33 = icmp ne ptr %.1132, null
   tail call void @llvm.assume(i1 %33)
   br label %34
 
 34:                                               ; preds = %11, %32
-  %.2 = phi ptr [ %.1134, %32 ], [ %12, %11 ]
+  %.2 = phi ptr [ %.1132, %32 ], [ %12, %11 ]
   %35 = load ptr, ptr %.2, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %45
@@ -1588,8 +1588,8 @@ define internal ptr @user_filter_factory_create(ptr noundef %0, ptr noundef %1, 
   br label %86
 
 86:                                               ; preds = %45, %82, %79, %52, %42, %6
-  %.0131 = phi ptr [ null, %6 ], [ null, %42 ], [ null, %52 ], [ null, %79 ], [ %50, %82 ], [ null, %45 ]
-  ret ptr %.0131
+  %.0134 = phi ptr [ null, %6 ], [ null, %42 ], [ null, %52 ], [ null, %79 ], [ %50, %82 ], [ null, %45 ]
+  ret ptr %.0134
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

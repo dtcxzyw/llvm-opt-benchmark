@@ -813,8 +813,8 @@ define dso_local noundef zeroext i1 @_ZN16cmUVProcessChain12InternalData7Prepare
   br label %101
 
 101:                                              ; preds = %.lr.ph, %172
-  %.04265 = phi i1 [ true, %.lr.ph ], [ false, %172 ]
-  %.04364 = phi i64 [ 0, %.lr.ph ], [ %173, %172 ]
+  %.04265 = phi i64 [ 0, %.lr.ph ], [ %173, %172 ]
+  %.04364 = phi i1 [ true, %.lr.ph ], [ false, %172 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %102 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #24, !noalias !15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %102, i8 0, i64 80, i1 false), !noalias !15
@@ -951,11 +951,11 @@ _ZNSt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_del
   store ptr %0, ptr %142, align 8
   %143 = getelementptr inbounds i8, ptr %142, i64 60
   store i8 0, ptr %143, align 4
-  br i1 %.04265, label %172, label %144
+  br i1 %.04364, label %172, label %144
 
 144:                                              ; preds = %_ZNSt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS2_EED2Ev.exit
   %145 = load ptr, ptr %97, align 8
-  %146 = getelementptr %"class.std::unique_ptr.23", ptr %145, i64 %.04364
+  %146 = getelementptr %"class.std::unique_ptr.23", ptr %145, i64 %.04265
   %147 = getelementptr i8, ptr %146, i64 -8
   %148 = load ptr, ptr %147, align 8
   %149 = call noundef i32 @_Z10cmGetPipesPi(ptr noundef nonnull %6)
@@ -1006,7 +1006,7 @@ _ZNSt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_del
   br i1 %171, label %.loopexit, label %172
 
 172:                                              ; preds = %167, %_ZNSt10unique_ptrIN16cmUVProcessChain12InternalData11ProcessDataESt14default_deleteIS2_EED2Ev.exit
-  %173 = add nuw i64 %.04364, 1
+  %173 = add nuw i64 %.04265, 1
   %174 = load ptr, ptr %0, align 8
   %175 = getelementptr inbounds i8, ptr %174, i64 24
   %176 = getelementptr inbounds i8, ptr %174, i64 32
@@ -1066,10 +1066,10 @@ define dso_local void @_ZN16cmUVProcessChain12InternalData12SpawnProcessEmRKN23c
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit
   %.sroa.041.168 = phi ptr [ %.sroa.041.2, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit ], [ %25, %.lr.ph.preheader ]
   %.sroa.10.167 = phi ptr [ %.sroa.10.2, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit ], [ %25, %.lr.ph.preheader ]
-  %.sroa.20.166 = phi ptr [ %.sroa.20.2, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit ], [ %26, %.lr.ph.preheader ]
-  %.sroa.038.065 = phi ptr [ %50, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit ], [ %17, %.lr.ph.preheader ]
-  %27 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.038.065) #20
-  %.not.i.i = icmp eq ptr %.sroa.10.167, %.sroa.20.166
+  %.sroa.038.066 = phi ptr [ %50, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit ], [ %17, %.lr.ph.preheader ]
+  %.sroa.20.165 = phi ptr [ %.sroa.20.2, %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit ], [ %26, %.lr.ph.preheader ]
+  %27 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.038.066) #20
+  %.not.i.i = icmp eq ptr %.sroa.10.167, %.sroa.20.165
   br i1 %.not.i.i, label %29, label %28
 
 28:                                               ; preds = %.lr.ph
@@ -1130,11 +1130,11 @@ _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iterat
   br label %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit:     ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %28
-  %.sroa.20.2 = phi ptr [ %49, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.sroa.20.166, %28 ]
+  %.sroa.20.2 = phi ptr [ %49, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.sroa.20.165, %28 ]
   %.pn = phi ptr [ %47, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.sroa.10.167, %28 ]
   %.sroa.041.2 = phi ptr [ %43, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %.sroa.041.168, %28 ]
   %.sroa.10.2 = getelementptr inbounds i8, ptr %.pn, i64 8
-  %50 = getelementptr inbounds i8, ptr %.sroa.038.065, i64 32
+  %50 = getelementptr inbounds i8, ptr %.sroa.038.066, i64 32
   %.not57 = icmp eq ptr %50, %16
   br i1 %.not57, label %._crit_edge, label %.lr.ph
 

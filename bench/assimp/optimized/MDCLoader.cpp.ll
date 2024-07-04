@@ -415,16 +415,16 @@ invoke.cont:                                      ; preds = %cond.true
   br i1 %cmp.i.not5.i.i, label %cleanup.action, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %.noexc, %for.body.i.i
-  %__first.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %call.i, %.noexc ]
-  %__result.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %call5.i, %.noexc ]
-  %0 = load i8, ptr %__first.sroa.0.07.i.i, align 1
+  %__result.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %call5.i, %.noexc ]
+  %__first.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %call.i, %.noexc ]
+  %0 = load i8, ptr %__first.sroa.0.06.i.i, align 1
   %conv.i.i.i = zext i8 %0 to i32
   %call.i.i.i = call i32 @isprint(i32 noundef %conv.i.i.i) #21
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   %cond.i.i.i = select i1 %tobool.not.i.i.i, i8 %placeholder, i8 %0
-  store i8 %cond.i.i.i, ptr %__result.sroa.0.06.i.i, align 1
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.07.i.i, i64 1
-  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.06.i.i, i64 1
+  store i8 %cond.i.i.i, ptr %__result.sroa.0.07.i.i, align 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i, i64 1
+  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.07.i.i, i64 1
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %call2.i
   br i1 %cmp.i.not.i.i, label %cleanup.action, label %for.body.i.i, !llvm.loop !6
 
@@ -1001,9 +1001,9 @@ for.body67:                                       ; preds = %invoke.cont61, %for
 for.body77:                                       ; preds = %for.body77.lr.ph, %for.inc302
   %37 = phi ptr [ %32, %for.body77.lr.ph ], [ %123, %for.inc302 ]
   %pcSurface.0324 = phi ptr [ %add.ptr46, %for.body77.lr.ph ], [ %pcSurface.1, %for.inc302 ]
-  %iDefaultMatIndex.0323 = phi i32 [ -1, %for.body77.lr.ph ], [ %iDefaultMatIndex.2, %for.inc302 ]
-  %iNum.0322 = phi i32 [ 0, %for.body77.lr.ph ], [ %iNum.1, %for.inc302 ]
-  %i72.0321 = phi i32 [ 0, %for.body77.lr.ph ], [ %inc303, %for.inc302 ]
+  %iNum.0323 = phi i32 [ 0, %for.body77.lr.ph ], [ %iNum.1, %for.inc302 ]
+  %i72.0322 = phi i32 [ 0, %for.body77.lr.ph ], [ %inc303, %for.inc302 ]
+  %iDefaultMatIndex.0321 = phi i32 [ -1, %for.body77.lr.ph ], [ %iDefaultMatIndex.2, %for.inc302 ]
   %ulNumVertices78 = getelementptr inbounds i8, ptr %pcSurface.0324, i64 84
   %38 = load i32, ptr %ulNumVertices78, align 1
   %tobool79.not = icmp eq i32 %38, 0
@@ -1036,8 +1036,8 @@ invoke.cont84:                                    ; preds = %if.end83
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %mBones.i, i8 0, i64 17, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %mAnimMeshes.i, i8 0, i64 36, i1 false)
   %40 = load ptr, ptr %mMeshes, align 8
-  %inc87 = add i32 %iNum.0322, 1
-  %idxprom88 = zext i32 %iNum.0322 to i64
+  %inc87 = add i32 %iNum.0323, 1
+  %idxprom88 = zext i32 %iNum.0323 to i64
   %arrayidx89 = getelementptr inbounds ptr, ptr %40, i64 %idxprom88
   store ptr %call85, ptr %arrayidx89, align 8
   %41 = load i32, ptr %ulNumTriangles80, align 1
@@ -1128,7 +1128,7 @@ lpad97:                                           ; preds = %invoke.cont84
   br label %ehcleanup445
 
 if.else:                                          ; preds = %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %cmp117 = icmp eq i32 %iDefaultMatIndex.0323, -1
+  %cmp117 = icmp eq i32 %iDefaultMatIndex.0321, -1
   br i1 %cmp117, label %if.then118, label %if.else124
 
 if.then118:                                       ; preds = %if.else
@@ -1158,11 +1158,11 @@ if.else.i184:                                     ; preds = %if.then118
 
 if.else124:                                       ; preds = %if.else
   %mMaterialIndex125 = getelementptr inbounds i8, ptr %call85, i64 232
-  store i32 %iDefaultMatIndex.0323, ptr %mMaterialIndex125, align 8
+  store i32 %iDefaultMatIndex.0321, ptr %mMaterialIndex125, align 8
   br label %if.end127
 
 if.end127:                                        ; preds = %if.else.i184, %if.else.i, %if.then.i180, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRA64_KcmEEEvRS6_PT_DpOT0_.exit.i, %if.else124
-  %iDefaultMatIndex.1 = phi i32 [ %iDefaultMatIndex.0323, %if.else124 ], [ %iDefaultMatIndex.0323, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRA64_KcmEEEvRS6_PT_DpOT0_.exit.i ], [ %conv120, %if.then.i180 ], [ %iDefaultMatIndex.0323, %if.else.i ], [ %conv120, %if.else.i184 ]
+  %iDefaultMatIndex.1 = phi i32 [ %iDefaultMatIndex.0321, %if.else124 ], [ %iDefaultMatIndex.0321, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRA64_KcmEEEvRS6_PT_DpOT0_.exit.i ], [ %conv120, %if.then.i180 ], [ %iDefaultMatIndex.0321, %if.else.i ], [ %conv120, %if.else.i184 ]
   %55 = load i32, ptr %mNumVertices.i, align 4
   %conv129 = zext i32 %55 to i64
   %56 = mul nuw nsw i64 %conv129, 12
@@ -1555,10 +1555,10 @@ for.end298:                                       ; preds = %for.end284, %if.end
 
 for.inc302:                                       ; preds = %for.body77, %lor.lhs.false, %for.end298
   %123 = phi ptr [ %.pre347, %for.end298 ], [ %37, %lor.lhs.false ], [ %37, %for.body77 ]
-  %iNum.1 = phi i32 [ %inc87, %for.end298 ], [ %iNum.0322, %lor.lhs.false ], [ %iNum.0322, %for.body77 ]
-  %iDefaultMatIndex.2 = phi i32 [ %iDefaultMatIndex.1, %for.end298 ], [ %iDefaultMatIndex.0323, %lor.lhs.false ], [ %iDefaultMatIndex.0323, %for.body77 ]
+  %iDefaultMatIndex.2 = phi i32 [ %iDefaultMatIndex.1, %for.end298 ], [ %iDefaultMatIndex.0321, %lor.lhs.false ], [ %iDefaultMatIndex.0321, %for.body77 ]
+  %iNum.1 = phi i32 [ %inc87, %for.end298 ], [ %iNum.0323, %lor.lhs.false ], [ %iNum.0323, %for.body77 ]
   %pcSurface.1 = phi ptr [ %add.ptr301, %for.end298 ], [ %pcSurface.0324, %lor.lhs.false ], [ %pcSurface.0324, %for.body77 ]
-  %inc303 = add nuw i32 %i72.0321, 1
+  %inc303 = add nuw i32 %i72.0322, 1
   %ulNumSurfaces75 = getelementptr inbounds i8, ptr %123, i64 84
   %124 = load i32, ptr %ulNumSurfaces75, align 1
   %cmp76 = icmp ult i32 %inc303, %124

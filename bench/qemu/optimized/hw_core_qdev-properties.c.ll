@@ -681,15 +681,15 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.033 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %elemptr.032 = phi ptr [ %2, %for.body.lr.ph ], [ %add.ptr6, %for.body ]
-  %tail.031 = phi ptr [ %list, %for.body.lr.ph ], [ %call4, %for.body ]
+  %tail.032 = phi ptr [ %list, %for.body.lr.ph ], [ %call4, %for.body ]
+  %elemptr.031 = phi ptr [ %2, %for.body.lr.ph ], [ %add.ptr6, %for.body ]
   %call4 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #11
   %value = getelementptr inbounds i8, ptr %call4, i64 8
-  store ptr %elemptr.032, ptr %value, align 8
+  store ptr %elemptr.031, ptr %value, align 8
   %4 = load i32, ptr %arrayfieldsize, align 8
   %idx.ext5 = sext i32 %4 to i64
-  %add.ptr6 = getelementptr i8, ptr %elemptr.032, i64 %idx.ext5
-  store ptr %call4, ptr %tail.031, align 8
+  %add.ptr6 = getelementptr i8, ptr %elemptr.031, i64 %idx.ext5
+  store ptr %call4, ptr %tail.032, align 8
   %inc = add nuw i32 %i.033, 1
   %5 = load i32, ptr %add.ptr.i, align 4
   %cmp3 = icmp ult i32 %inc, %5

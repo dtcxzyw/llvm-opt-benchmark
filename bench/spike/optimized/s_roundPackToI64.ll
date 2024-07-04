@@ -39,10 +39,10 @@ define i64 @softfloat_roundPackToI64(i1 noundef zeroext %0, i64 noundef %1, i64 
   br label %24
 
 24:                                               ; preds = %8, %18, %14
-  %.028 = phi i64 [ %23, %18 ], [ %1, %14 ], [ %1, %8 ]
-  %25 = sub i64 0, %.028
-  %26 = select i1 %0, i64 %25, i64 %.028
-  %.not34 = icmp eq i64 %.028, 0
+  %.029 = phi i64 [ %23, %18 ], [ %1, %14 ], [ %1, %8 ]
+  %25 = sub i64 0, %.029
+  %26 = select i1 %0, i64 %25, i64 %.029
+  %.not34 = icmp eq i64 %.029, 0
   %27 = icmp sgt i64 %26, -1
   %.not3536 = xor i1 %27, %0
   %or.cond37 = or i1 %.not34, %.not3536

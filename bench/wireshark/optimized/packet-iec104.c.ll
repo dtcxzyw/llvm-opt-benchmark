@@ -2426,28 +2426,28 @@ define internal i32 @dissect_iec60870_104(ptr noundef %0, ptr noundef %1, ptr no
   br label %20
 
 20:                                               ; preds = %4, %89
-  %.08897 = phi i32 [ 0, %4 ], [ %90, %89 ]
-  %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08897) #7
+  %.097 = phi i32 [ 0, %4 ], [ %90, %89 ]
+  %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.097) #7
   %22 = icmp eq i8 %21, 104
   br i1 %22, label %23, label %89
 
 23:                                               ; preds = %20
-  %.not92 = icmp eq i32 %.08897, 0
+  %.not92 = icmp eq i32 %.097, 0
   br i1 %.not92, label %27, label %24
 
 24:                                               ; preds = %23
   %25 = load i32, ptr @hf_apcidata, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef %.08897, i32 noundef 0) #7
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %18, ptr noundef nonnull @.str.370, i32 noundef %.08897) #7
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef %.097, i32 noundef 0) #7
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %18, ptr noundef nonnull @.str.370, i32 noundef %.097) #7
   br label %27
 
 27:                                               ; preds = %24, %23
-  %28 = add i32 %.08897, 6
+  %28 = add i32 %.097, 6
   tail call void @proto_item_set_len(ptr noundef %13, i32 noundef %28) #7
   %29 = load i32, ptr @hf_start, align 4
-  %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %15, i32 noundef %29, ptr noundef %0, i32 noundef %.08897, i32 noundef 1, i32 noundef 104, ptr noundef nonnull @.str.211) #7
+  %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %15, i32 noundef %29, ptr noundef %0, i32 noundef %.097, i32 noundef 1, i32 noundef 104, ptr noundef nonnull @.str.211) #7
   %31 = load i32, ptr @hf_apdulen, align 4
-  %32 = add i32 %.08897, 1
+  %32 = add i32 %.097, 1
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %31, ptr noundef %0, i32 noundef %32, i32 noundef 1, i32 noundef -2147483648) #7
   %34 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %32) #7
   %35 = zext i8 %34 to i32
@@ -2461,7 +2461,7 @@ define internal i32 @dissect_iec60870_104(ptr noundef %0, ptr noundef %1, ptr no
   br label %95
 
 40:                                               ; preds = %27
-  %41 = add i32 %.08897, 2
+  %41 = add i32 %.097, 2
   %42 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %41) #7
   %43 = and i8 %42, 1
   %44 = icmp eq i8 %43, 0
@@ -2476,14 +2476,14 @@ define internal i32 @dissect_iec60870_104(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %49, label %50, label %58
 
 50:                                               ; preds = %40
-  %.087 = zext nneg i8 %narrow to i32
+  %.086 = zext nneg i8 %narrow to i32
   %51 = getelementptr inbounds i8, ptr %1, i64 284
   %52 = load i32, ptr %51, align 4
   %53 = getelementptr inbounds i8, ptr %1, i64 292
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %52, %54
   %56 = select i1 %55, ptr @.str.374, ptr @.str.375
-  %57 = tail call ptr @val_to_str_const(i32 noundef %.087, ptr noundef nonnull @apci_types, ptr noundef nonnull @.str.376) #7
+  %57 = tail call ptr @val_to_str_const(i32 noundef %.086, ptr noundef nonnull @apci_types, ptr noundef nonnull @.str.376) #7
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %18, ptr noundef nonnull @.str.373, ptr noundef nonnull %56, ptr noundef %57) #7
   br label %59
 
@@ -2552,7 +2552,7 @@ default.unreachable:                              ; preds = %59
   br label %.thread
 
 89:                                               ; preds = %20
-  %90 = add i32 %.08897, 1
+  %90 = add i32 %.097, 1
   %.not = icmp ugt i32 %90, %19
   br i1 %.not, label %91, label %20, !llvm.loop !9
 
@@ -2566,8 +2566,8 @@ default.unreachable:                              ; preds = %59
   br label %95
 
 95:                                               ; preds = %.thread, %37
-  %.0 = phi i32 [ %39, %37 ], [ %94, %.thread ]
-  ret i32 %.0
+  %.088 = phi i32 [ %39, %37 ], [ %94, %.thread ]
+  ret i32 %.088
 }
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
@@ -3487,8 +3487,8 @@ define internal range(i32 0, 256) i32 @dissect_iec60870_5_103(ptr noundef %0, pt
   br label %211
 
 211:                                              ; preds = %4, %.loopexit
-  %.0110.in = phi i32 [ %210, %.loopexit ], [ 1, %4 ]
-  ret i32 %.0110.in
+  %.0111.in = phi i32 [ %210, %.loopexit ], [ 1, %4 ]
+  ret i32 %.0111.in
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

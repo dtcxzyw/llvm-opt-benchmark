@@ -570,7 +570,7 @@ Nwk_ObjFindFanin.exit:                            ; preds = %12
 
 32:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ %30, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %.02733 = phi i32 [ %27, %.lr.ph ], [ %.1, %40 ]
+  %.034 = phi i32 [ %27, %.lr.ph ], [ %.1, %40 ]
   %33 = load ptr, ptr %29, align 8
   %34 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
@@ -578,14 +578,14 @@ Nwk_ObjFindFanin.exit:                            ; preds = %12
   br i1 %.not30, label %40, label %36
 
 36:                                               ; preds = %32
-  %37 = add nsw i32 %.02733, 1
-  %38 = sext i32 %.02733 to i64
+  %37 = add nsw i32 %.034, 1
+  %38 = sext i32 %.034 to i64
   %39 = getelementptr inbounds ptr, ptr %33, i64 %38
   store ptr %35, ptr %39, align 8
   br label %40
 
 40:                                               ; preds = %32, %36
-  %.1 = phi i32 [ %37, %36 ], [ %.02733, %32 ]
+  %.1 = phi i32 [ %37, %36 ], [ %.034, %32 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %41 = icmp slt i64 %indvars.iv.next, %31
   br i1 %41, label %32, label %._crit_edge.loopexit, !llvm.loop !12

@@ -4653,8 +4653,8 @@ if.then.i.i857:                                   ; preds = %_ZN15ref_vector_cor
   br label %if.end87.i.i
 
 if.end87.i.i:                                     ; preds = %if.then.i.i857, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i869, %for.end85.i.i, %invoke.cont37.i66.i
-  %num_no_pats.0.i.i = phi i32 [ %479, %invoke.cont37.i66.i ], [ %j.2.i.i.lcssa, %for.end85.i.i ], [ %j.2.i.i.lcssa, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i869 ], [ %j.2.i.i.lcssa, %if.then.i.i857 ]
   %num_pats.0.i.i = phi i32 [ %478, %invoke.cont37.i66.i ], [ %j.0.i.i.lcssa, %for.end85.i.i ], [ %j.0.i.i.lcssa, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i869 ], [ %j.0.i.i.lcssa, %if.then.i.i857 ]
+  %num_no_pats.0.i.i = phi i32 [ %479, %invoke.cont37.i66.i ], [ %j.2.i.i.lcssa, %for.end85.i.i ], [ %j.2.i.i.lcssa, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i869 ], [ %j.2.i.i.lcssa, %if.then.i.i857 ]
   %this.val58.i67.i = load ptr, ptr %27, align 8
   %534 = load ptr, ptr %m_nodes.i.i947, align 8
   %535 = load ptr, ptr %m_nodes.i.i932, align 8

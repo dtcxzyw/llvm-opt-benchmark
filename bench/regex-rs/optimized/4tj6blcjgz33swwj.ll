@@ -966,11 +966,11 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
   br i1 %317, label %318, label %321
 
 318:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hee25260fc4caac00E.exit.thread", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hee25260fc4caac00E.exit"
-  %319 = phi ptr [ %.sroa.8.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hee25260fc4caac00E.exit" ], [ %315, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hee25260fc4caac00E.exit.thread" ]
-  %320 = phi i64 [ %.sroa.5.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hee25260fc4caac00E.exit" ], [ %314, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hee25260fc4caac00E.exit.thread" ]
+  %319 = phi i64 [ %.sroa.5.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hee25260fc4caac00E.exit" ], [ %314, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hee25260fc4caac00E.exit.thread" ]
+  %320 = phi ptr [ %.sroa.8.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hee25260fc4caac00E.exit" ], [ %315, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hee25260fc4caac00E.exit.thread" ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %.sroa.11114)
-  store i64 %320, ptr %31, align 8
-  store ptr %319, ptr %44, align 8
+  store i64 %319, ptr %31, align 8
+  store ptr %320, ptr %44, align 8
   invoke void @"_ZN4core3ptr53drop_in_place$LT$regex_syntax..ast..parse..Parser$GT$17hcd4962ec9d25419dE"(ptr noalias noundef nonnull align 8 dereferenceable(200) %29)
           to label %322 unwind label %341
 
@@ -991,8 +991,8 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %29)
   call void @llvm.experimental.noalias.scope.decl(metadata !165)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  store i64 %320, ptr %5, align 8, !noalias !165
-  store ptr %319, ptr %45, align 8, !noalias !165
+  store i64 %319, ptr %5, align 8, !noalias !165
+  store ptr %320, ptr %45, align 8, !noalias !165
   %323 = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !165, !noundef !9
   %324 = load i64, ptr %34, align 8, !alias.scope !165, !noundef !9
   %325 = icmp eq i64 %323, %324
@@ -1022,9 +1022,9 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
   %332 = phi i64 [ %.pre.i108, %._crit_edge.i107 ], [ %323, %322 ]
   %333 = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !165, !nonnull !9, !noundef !9
   %334 = getelementptr inbounds { i64, ptr }, ptr %333, i64 %332
-  store i64 %320, ptr %334, align 8
+  store i64 %319, ptr %334, align 8
   %335 = getelementptr inbounds i8, ptr %334, i64 8
-  store ptr %319, ptr %335, align 8
+  store ptr %320, ptr %335, align 8
   %336 = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !165, !noundef !9
   %337 = add i64 %336, 1
   store i64 %337, ptr %.sroa.3.0..sroa_idx, align 8, !alias.scope !165

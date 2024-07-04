@@ -239,8 +239,8 @@ define noundef i64 @_Z19fast_rv64i_fcvt_l_sP11processor_t6insn_tm(ptr nocapture 
   br label %60
 
 60:                                               ; preds = %54, %53
-  %.030 = phi i32 [ %59, %54 ], [ %20, %53 ]
-  %61 = icmp sgt i32 %.030, 4
+  %.029 = phi i32 [ %59, %54 ], [ %20, %53 ]
+  %61 = icmp sgt i32 %.029, 4
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %60
@@ -256,7 +256,7 @@ define noundef i64 @_Z19fast_rv64i_fcvt_l_sP11processor_t6insn_tm(ptr nocapture 
   unreachable
 
 67:                                               ; preds = %60
-  %68 = trunc i32 %.030 to i8
+  %68 = trunc i32 %.029 to i8
   %69 = tail call i64 @f32_to_i64(i32 %.sroa.05.0, i8 noundef zeroext %68, i1 noundef zeroext true)
   %70 = lshr i64 %1, 7
   %71 = and i64 %70, 31
@@ -646,8 +646,8 @@ define noundef i64 @_Z19fast_rv64e_fcvt_l_sP11processor_t6insn_tm(ptr nocapture 
   br label %28
 
 28:                                               ; preds = %22, %.critedge
-  %.032 = phi i32 [ %27, %22 ], [ %20, %.critedge ]
-  %29 = icmp sgt i32 %.032, 4
+  %.033 = phi i32 [ %27, %22 ], [ %20, %.critedge ]
+  %29 = icmp sgt i32 %.033, 4
   br i1 %29, label %30, label %35
 
 30:                                               ; preds = %28
@@ -663,7 +663,7 @@ define noundef i64 @_Z19fast_rv64e_fcvt_l_sP11processor_t6insn_tm(ptr nocapture 
   unreachable
 
 35:                                               ; preds = %28
-  %36 = trunc i32 %.032 to i8
+  %36 = trunc i32 %.033 to i8
   store i8 %36, ptr @softfloat_roundingMode, align 1
   %37 = getelementptr inbounds i8, ptr %0, i64 4152
   %.sink.i37 = load i64, ptr %37, align 8
@@ -706,8 +706,8 @@ define noundef i64 @_Z19fast_rv64e_fcvt_l_sP11processor_t6insn_tm(ptr nocapture 
   br label %60
 
 60:                                               ; preds = %54, %53
-  %.033 = phi i32 [ %59, %54 ], [ %20, %53 ]
-  %61 = icmp sgt i32 %.033, 4
+  %.031 = phi i32 [ %59, %54 ], [ %20, %53 ]
+  %61 = icmp sgt i32 %.031, 4
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %60
@@ -723,7 +723,7 @@ define noundef i64 @_Z19fast_rv64e_fcvt_l_sP11processor_t6insn_tm(ptr nocapture 
   unreachable
 
 67:                                               ; preds = %60
-  %68 = trunc i32 %.033 to i8
+  %68 = trunc i32 %.031 to i8
   %69 = tail call i64 @f32_to_i64(i32 %.sroa.06.0, i8 noundef zeroext %68, i1 noundef zeroext true)
   %70 = lshr i64 %1, 7
   %71 = and i64 %70, 31

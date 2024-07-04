@@ -3262,7 +3262,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 
 15:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %.01221 = phi i32 [ 0, %.lr.ph ], [ %.1, %27 ]
+  %.022 = phi i32 [ 0, %.lr.ph ], [ %.1, %27 ]
   %16 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %.val15 = load i32, ptr %17, align 8
@@ -3280,18 +3280,18 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %23 = getelementptr inbounds i8, ptr %17, i64 80
   %24 = call i32 @If_CutGetCone_rec(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %23)
   %25 = xor i32 %24, 1
-  %26 = add nsw i32 %25, %.01221
+  %26 = add nsw i32 %25, %.022
   br label %27
 
 27:                                               ; preds = %15, %19, %22
-  %.1 = phi i32 [ %26, %22 ], [ %.01221, %19 ], [ %.01221, %15 ]
+  %.1 = phi i32 [ %26, %22 ], [ %.022, %19 ], [ %.022, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %15, !llvm.loop !42
 
 .critedge:                                        ; preds = %27, %Abc_Clock.exit
-  %.012.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.1, %27 ]
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.7, i32 noundef %.012.lcssa)
+  %.0.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.1, %27 ]
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.7, i32 noundef %.0.lcssa)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %28 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #17
   %29 = icmp slt i32 %28, 0
@@ -3478,8 +3478,8 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 .lr.ph:                                           ; preds = %Abc_Clock.exit, %35
   %18 = phi ptr [ %36, %35 ], [ %15, %Abc_Clock.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %Abc_Clock.exit ]
-  %.01934 = phi i32 [ %.1, %35 ], [ 0, %Abc_Clock.exit ]
-  %.02033 = phi i32 [ %.121, %35 ], [ 0, %Abc_Clock.exit ]
+  %.035 = phi i32 [ %.1, %35 ], [ 0, %Abc_Clock.exit ]
+  %.01934 = phi i32 [ %.120, %35 ], [ 0, %Abc_Clock.exit ]
   %19 = getelementptr i8, ptr %18, i64 8
   %.val = load ptr, ptr %19, align 8
   %20 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
@@ -3500,7 +3500,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %28 = load i64, ptr %27, align 4
   %29 = trunc i64 %28 to i32
   %30 = lshr i32 %29, 24
-  %31 = add nsw i32 %30, %.02033
+  %31 = add nsw i32 %30, %.01934
   store i32 0, ptr %11, align 4
   %32 = getelementptr i8, ptr %21, i64 24
   %.val24 = load ptr, ptr %32, align 8
@@ -3509,14 +3509,14 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %.val25 = load ptr, ptr %33, align 8
   call void @If_CutFoundFanins_rec(ptr noundef %.val25, ptr noundef nonnull %10)
   %.val27 = load i32, ptr %11, align 4
-  %34 = add nsw i32 %.val27, %.01934
+  %34 = add nsw i32 %.val27, %.035
   %.pre = load ptr, ptr %14, align 8
   br label %35
 
 35:                                               ; preds = %.lr.ph, %23, %26
   %36 = phi ptr [ %.pre, %26 ], [ %18, %23 ], [ %18, %.lr.ph ]
-  %.121 = phi i32 [ %31, %26 ], [ %.02033, %23 ], [ %.02033, %.lr.ph ]
-  %.1 = phi i32 [ %34, %26 ], [ %.01934, %23 ], [ %.01934, %.lr.ph ]
+  %.120 = phi i32 [ %31, %26 ], [ %.01934, %23 ], [ %.01934, %.lr.ph ]
+  %.1 = phi i32 [ %34, %26 ], [ %.035, %23 ], [ %.035, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = getelementptr i8, ptr %36, i64 4
   %.val26 = load i32, ptr %37, align 4
@@ -3525,9 +3525,9 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   br i1 %39, label %.lr.ph, label %.critedge, !llvm.loop !44
 
 .critedge:                                        ; preds = %35, %Abc_Clock.exit
-  %.020.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.121, %35 ]
-  %.019.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.1, %35 ]
-  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.9, i32 noundef %.020.lcssa, i32 noundef %.019.lcssa)
+  %.019.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.120, %35 ]
+  %.0.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.1, %35 ]
+  call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.9, i32 noundef %.019.lcssa, i32 noundef %.0.lcssa)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %40 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #17
   %41 = icmp slt i32 %40, 0

@@ -642,14 +642,14 @@ list_head.exit.i:                                 ; preds = %9, %3
 
 17:                                               ; preds = %51, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %51 ]
-  %.0243.i = phi ptr [ %12, %.lr.ph.i ], [ %..i.i, %51 ]
+  %.04.i = phi ptr [ %12, %.lr.ph.i ], [ %..i.i, %51 ]
   %18 = add nsw i64 %indvars.iv.i, -1
   %19 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %13, i64 0, i64 %18
-  %20 = icmp eq ptr %.0243.i, null
+  %20 = icmp eq ptr %.04.i, null
   br i1 %20, label %tlist_matches_tupdesc.exit.thread, label %21
 
 21:                                               ; preds = %17
-  %22 = load ptr, ptr %.0243.i, align 8
+  %22 = load ptr, ptr %.04.i, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not28.i = icmp eq ptr %24, null
@@ -701,7 +701,7 @@ list_head.exit.i:                                 ; preds = %9, %3
 51:                                               ; preds = %46
   %.val.i = load i32, ptr %14, align 4
   %.val33.i = load ptr, ptr %15, align 8
-  %52 = getelementptr i8, ptr %.0243.i, i64 8
+  %52 = getelementptr i8, ptr %.04.i, i64 8
   %53 = sext i32 %.val.i to i64
   %54 = getelementptr %union.ListCell, ptr %.val33.i, i64 %53
   %55 = icmp ult ptr %52, %54
@@ -711,8 +711,8 @@ list_head.exit.i:                                 ; preds = %9, %3
   br i1 %exitcond.not.i, label %tlist_matches_tupdesc.exit, label %17, !llvm.loop !9
 
 tlist_matches_tupdesc.exit:                       ; preds = %51, %list_head.exit.i
-  %.024.lcssa.i = phi ptr [ %12, %list_head.exit.i ], [ %..i.i, %51 ]
-  %.not27.i = icmp eq ptr %.024.lcssa.i, null
+  %.0.lcssa.i = phi ptr [ %12, %list_head.exit.i ], [ %..i.i, %51 ]
+  %.not27.i = icmp eq ptr %.0.lcssa.i, null
   br i1 %.not27.i, label %56, label %tlist_matches_tupdesc.exit.thread
 
 56:                                               ; preds = %tlist_matches_tupdesc.exit
@@ -1232,8 +1232,8 @@ define dso_local i64 @GetAttributeByName(ptr noundef %0, ptr noundef %1, ptr nou
   br label %55
 
 55:                                               ; preds = %54, %41, %16
-  %.0 = phi i64 [ 0, %16 ], [ %50, %41 ], [ %50, %54 ]
-  ret i64 %.0
+  %.026 = phi i64 [ 0, %16 ], [ %50, %41 ], [ %50, %54 ]
+  ret i64 %.026
 }
 
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1

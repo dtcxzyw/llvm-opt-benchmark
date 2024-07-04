@@ -113,10 +113,10 @@ define void @uart_recvchars(ptr noundef %0) local_unnamed_addr #0 {
   br label %17
 
 17:                                               ; preds = %.lr.ph, %35
-  %.031 = phi i32 [ %spec.store.select, %.lr.ph ], [ %.1, %35 ]
+  %.02731 = phi i32 [ %spec.store.select, %.lr.ph ], [ %.1, %35 ]
   %18 = load volatile i16, ptr %15, align 2
   %19 = sext i16 %18 to i32
-  %20 = icmp eq i32 %.031, %19
+  %20 = icmp eq i32 %.02731, %19
   %21 = load ptr, ptr %7, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8
@@ -130,9 +130,9 @@ define void @uart_recvchars(ptr noundef %0) local_unnamed_addr #0 {
   %29 = sext i16 %28 to i64
   %30 = getelementptr inbounds i8, ptr %27, i64 %29
   store i8 %26, ptr %30, align 1
-  %31 = trunc i32 %.031 to i16
+  %31 = trunc i32 %.02731 to i16
   store volatile i16 %31, ptr %3, align 8
-  %32 = add nsw i32 %.031, 1
+  %32 = add nsw i32 %.02731, 1
   %33 = load i16, ptr %5, align 4
   %34 = sext i16 %33 to i32
   %.not30 = icmp slt i32 %32, %34
@@ -140,7 +140,7 @@ define void @uart_recvchars(ptr noundef %0) local_unnamed_addr #0 {
   br label %35
 
 35:                                               ; preds = %25, %17
-  %.1 = phi i32 [ %.031, %17 ], [ %spec.store.select1, %25 ]
+  %.1 = phi i32 [ %.02731, %17 ], [ %spec.store.select1, %25 ]
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 56
   %38 = load ptr, ptr %37, align 8
@@ -169,8 +169,8 @@ define void @uart_recvchars(ptr noundef %0) local_unnamed_addr #0 {
   br label %53
 
 53:                                               ; preds = %47, %43
-  %.027 = phi i16 [ %46, %43 ], [ %52, %47 ]
-  %.not29 = icmp eq i16 %.027, 0
+  %.0 = phi i16 [ %46, %43 ], [ %52, %47 ]
+  %.not29 = icmp eq i16 %.0, 0
   br i1 %.not29, label %55, label %54
 
 54:                                               ; preds = %53

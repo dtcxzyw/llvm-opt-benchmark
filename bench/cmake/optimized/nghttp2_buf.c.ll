@@ -608,7 +608,7 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_bufs_add(ptr nocapture noundef 
 
 .outer.split.preheader:                           ; preds = %3, %.outer
   %.0.ph54 = phi ptr [ %18, %.outer ], [ %1, %3 ]
-  %.022.ph53 = phi i64 [ %19, %.outer ], [ %2, %3 ]
+  %.021.ph53 = phi i64 [ %19, %.outer ], [ %2, %3 ]
   br label %.outer.split
 
 .outer.split:                                     ; preds = %.outer.split.preheader, %11
@@ -630,17 +630,17 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_bufs_add(ptr nocapture noundef 
   %14 = ptrtoint ptr %9 to i64
   %15 = ptrtoint ptr %7 to i64
   %16 = sub i64 %15, %14
-  %..022 = tail call i64 @llvm.umin.i64(i64 %16, i64 %.022.ph53)
-  %17 = tail call ptr @nghttp2_cpymem(ptr noundef %9, ptr noundef %.0.ph54, i64 noundef %..022) #9
+  %..021 = tail call i64 @llvm.umin.i64(i64 %16, i64 %.021.ph53)
+  %17 = tail call ptr @nghttp2_cpymem(ptr noundef %9, ptr noundef %.0.ph54, i64 noundef %..021) #9
   store ptr %17, ptr %13, align 8
-  %18 = getelementptr inbounds i8, ptr %.0.ph54, i64 %..022
-  %19 = sub i64 %.022.ph53, %..022
+  %18 = getelementptr inbounds i8, ptr %.0.ph54, i64 %..021
+  %19 = sub i64 %.021.ph53, %..021
   %.not = icmp eq i64 %19, 0
   br i1 %.not, label %.split, label %.outer.split.preheader, !llvm.loop !10
 
 .split:                                           ; preds = %.outer, %11, %3
-  %.021.split = phi i32 [ 0, %3 ], [ %12, %11 ], [ 0, %.outer ]
-  ret i32 %.021.split
+  %.022.split = phi i32 [ 0, %3 ], [ %12, %11 ], [ 0, %.outer ]
+  ret i32 %.022.split
 }
 
 ; Function Attrs: nounwind uwtable

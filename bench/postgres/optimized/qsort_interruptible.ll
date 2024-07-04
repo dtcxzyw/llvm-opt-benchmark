@@ -12,10 +12,10 @@ define dso_local void @qsort_interruptible(ptr noundef %0, i64 noundef %1, i64 n
   br label %.outer
 
 .outer:                                           ; preds = %205, %5
-  %.0186.ph = phi ptr [ %207, %205 ], [ %0, %5 ]
+  %.0200.ph = phi ptr [ %207, %205 ], [ %0, %5 ]
   %.0.ph = phi i64 [ %208, %205 ], [ %1, %5 ]
-  %7 = getelementptr i8, ptr %.0186.ph, i64 %2
-  %8 = ptrtoint ptr %.0186.ph to i64
+  %7 = getelementptr i8, ptr %.0200.ph, i64 %2
+  %8 = ptrtoint ptr %.0200.ph to i64
   br label %9
 
 9:                                                ; preds = %.outer, %217
@@ -31,7 +31,7 @@ define dso_local void @qsort_interruptible(ptr noundef %0, i64 noundef %1, i64 n
 12:                                               ; preds = %9, %11
   %13 = icmp ult i64 %.0, 7
   %14 = mul i64 %.0, %2
-  %15 = getelementptr i8, ptr %.0186.ph, i64 %14
+  %15 = getelementptr i8, ptr %.0200.ph, i64 %14
   %16 = icmp ult ptr %7, %15
   br i1 %13, label %.preheader258, label %33
 
@@ -42,38 +42,38 @@ define dso_local void @qsort_interruptible(ptr noundef %0, i64 noundef %1, i64 n
   br i1 %.not.i227, label %.preheader.us.preheader, label %.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %17 = icmp ugt ptr %7, %.0186.ph
+  %17 = icmp ugt ptr %7, %.0200.ph
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us, %.preheader.us.preheader
   br i1 %17, label %.lr.ph301.us, label %.preheader.us
 
 .lr.ph301.us:                                     ; preds = %.preheader.us, %.lr.ph301.us
-  %.0189300.us.us = phi ptr [ %.mux, %.lr.ph301.us ], [ %7, %.preheader.us ]
-  %18 = getelementptr i8, ptr %.0189300.us.us, i64 %6
-  %19 = tail call i32 %3(ptr noundef %18, ptr noundef nonnull %.0189300.us.us, ptr noundef %4) #3
+  %.0188300.us.us = phi ptr [ %.mux, %.lr.ph301.us ], [ %7, %.preheader.us ]
+  %18 = getelementptr i8, ptr %.0188300.us.us, i64 %6
+  %19 = tail call i32 %3(ptr noundef %18, ptr noundef nonnull %.0188300.us.us, ptr noundef %4) #3
   %20 = icmp sgt i32 %19, 0
-  %21 = icmp ugt ptr %18, %.0186.ph
+  %21 = icmp ugt ptr %18, %.0200.ph
   %or.cond = and i1 %20, %21
   %brmerge = or i1 %or.cond, %17
   %.mux = select i1 %or.cond, ptr %18, ptr %7
   br i1 %brmerge, label %.lr.ph301.us, label %infloop, !llvm.loop !5
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge
-  %.0188304 = phi ptr [ %.0188, %.critedge ], [ %7, %.preheader.lr.ph ]
-  %22 = icmp ugt ptr %.0188304, %.0186.ph
+  %.0187304 = phi ptr [ %.0187, %.critedge ], [ %7, %.preheader.lr.ph ]
+  %22 = icmp ugt ptr %.0187304, %.0200.ph
   br i1 %22, label %.lr.ph301, label %.critedge
 
 .lr.ph301:                                        ; preds = %.preheader, %qsort_interruptible_swapn.exit.loopexit
-  %.0189300 = phi ptr [ %23, %qsort_interruptible_swapn.exit.loopexit ], [ %.0188304, %.preheader ]
-  %23 = getelementptr i8, ptr %.0189300, i64 %6
-  %24 = tail call i32 %3(ptr noundef %23, ptr noundef nonnull %.0189300, ptr noundef %4) #3
+  %.0188300 = phi ptr [ %23, %qsort_interruptible_swapn.exit.loopexit ], [ %.0187304, %.preheader ]
+  %23 = getelementptr i8, ptr %.0188300, i64 %6
+  %24 = tail call i32 %3(ptr noundef %23, ptr noundef nonnull %.0188300, ptr noundef %4) #3
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph.i, label %.critedge
 
 .lr.ph.i:                                         ; preds = %.lr.ph301, %.lr.ph.i
   %.06.i = phi i64 [ %30, %.lr.ph.i ], [ 0, %.lr.ph301 ]
-  %26 = getelementptr i8, ptr %.0189300, i64 %.06.i
+  %26 = getelementptr i8, ptr %.0188300, i64 %.06.i
   %27 = getelementptr i8, ptr %23, i64 %.06.i
   %28 = load i8, ptr %26, align 1
   %29 = load i8, ptr %27, align 1
@@ -84,12 +84,12 @@ define dso_local void @qsort_interruptible(ptr noundef %0, i64 noundef %1, i64 n
   br i1 %exitcond.not.i, label %qsort_interruptible_swapn.exit.loopexit, label %.lr.ph.i, !llvm.loop !7
 
 qsort_interruptible_swapn.exit.loopexit:          ; preds = %.lr.ph.i
-  %31 = icmp ugt ptr %23, %.0186.ph
+  %31 = icmp ugt ptr %23, %.0200.ph
   br i1 %31, label %.lr.ph301, label %.critedge, !llvm.loop !5
 
 .critedge:                                        ; preds = %qsort_interruptible_swapn.exit.loopexit, %.lr.ph301, %.preheader
-  %.0188 = getelementptr i8, ptr %.0188304, i64 %2
-  %32 = icmp ult ptr %.0188, %15
+  %.0187 = getelementptr i8, ptr %.0187304, i64 %2
+  %32 = icmp ult ptr %.0187, %15
   br i1 %32, label %.preheader, label %.critedge223, !llvm.loop !8
 
 33:                                               ; preds = %12
@@ -119,24 +119,24 @@ qsort_interruptible_swapn.exit.loopexit:          ; preds = %.lr.ph.i
 43:                                               ; preds = %36
   %44 = lshr i64 %.0, 1
   %45 = mul i64 %44, %2
-  %46 = getelementptr i8, ptr %.0186.ph, i64 %45
+  %46 = getelementptr i8, ptr %.0200.ph, i64 %45
   %.not216 = icmp eq i64 %.0, 7
   br i1 %.not216, label %qsort_interruptible_med3.exit226, label %47
 
 47:                                               ; preds = %43
   %48 = add i64 %.0, -1
   %49 = mul i64 %48, %2
-  %50 = getelementptr i8, ptr %.0186.ph, i64 %49
+  %50 = getelementptr i8, ptr %.0200.ph, i64 %49
   %51 = icmp ugt i64 %.0, 40
   br i1 %51, label %52, label %qsort_interruptible_med3.exit225
 
 52:                                               ; preds = %47
   %53 = lshr i64 %.0, 3
   %54 = mul i64 %53, %2
-  %55 = getelementptr i8, ptr %.0186.ph, i64 %54
+  %55 = getelementptr i8, ptr %.0200.ph, i64 %54
   %56 = shl i64 %54, 1
-  %57 = getelementptr i8, ptr %.0186.ph, i64 %56
-  %58 = tail call i32 %3(ptr noundef %.0186.ph, ptr noundef %55, ptr noundef %4) #3
+  %57 = getelementptr i8, ptr %.0200.ph, i64 %56
+  %58 = tail call i32 %3(ptr noundef %.0200.ph, ptr noundef %55, ptr noundef %4) #3
   %59 = icmp slt i32 %58, 0
   %60 = tail call i32 %3(ptr noundef %55, ptr noundef %57, ptr noundef %4) #3
   br i1 %59, label %61, label %67
@@ -146,9 +146,9 @@ qsort_interruptible_swapn.exit.loopexit:          ; preds = %.lr.ph.i
   br i1 %62, label %qsort_interruptible_med3.exit, label %63
 
 63:                                               ; preds = %61
-  %64 = tail call i32 %3(ptr noundef %.0186.ph, ptr noundef %57, ptr noundef %4) #3
+  %64 = tail call i32 %3(ptr noundef %.0200.ph, ptr noundef %57, ptr noundef %4) #3
   %65 = icmp slt i32 %64, 0
-  %66 = select i1 %65, ptr %57, ptr %.0186.ph
+  %66 = select i1 %65, ptr %57, ptr %.0200.ph
   br label %qsort_interruptible_med3.exit
 
 67:                                               ; preds = %52
@@ -156,9 +156,9 @@ qsort_interruptible_swapn.exit.loopexit:          ; preds = %.lr.ph.i
   br i1 %68, label %qsort_interruptible_med3.exit, label %69
 
 69:                                               ; preds = %67
-  %70 = tail call i32 %3(ptr noundef %.0186.ph, ptr noundef %57, ptr noundef %4) #3
+  %70 = tail call i32 %3(ptr noundef %.0200.ph, ptr noundef %57, ptr noundef %4) #3
   %71 = icmp slt i32 %70, 0
-  %72 = select i1 %71, ptr %.0186.ph, ptr %57
+  %72 = select i1 %71, ptr %.0200.ph, ptr %57
   br label %qsort_interruptible_med3.exit
 
 qsort_interruptible_med3.exit:                    ; preds = %61, %63, %67, %69
@@ -222,12 +222,12 @@ qsort_interruptible_med3.exit224:                 ; preds = %80, %82, %86, %88
   br label %qsort_interruptible_med3.exit225
 
 qsort_interruptible_med3.exit225:                 ; preds = %107, %105, %101, %99, %47
-  %.1190 = phi ptr [ %.0186.ph, %47 ], [ %73, %99 ], [ %73, %101 ], [ %73, %105 ], [ %73, %107 ]
+  %.1189 = phi ptr [ %.0200.ph, %47 ], [ %73, %99 ], [ %73, %101 ], [ %73, %105 ], [ %73, %107 ]
   %.2 = phi ptr [ %46, %47 ], [ %92, %99 ], [ %92, %101 ], [ %92, %105 ], [ %92, %107 ]
-  %.0187 = phi ptr [ %50, %47 ], [ %95, %99 ], [ %104, %101 ], [ %95, %105 ], [ %110, %107 ]
-  %111 = tail call i32 %3(ptr noundef %.1190, ptr noundef %.2, ptr noundef %4) #3
+  %.0186 = phi ptr [ %50, %47 ], [ %95, %99 ], [ %104, %101 ], [ %95, %105 ], [ %110, %107 ]
+  %111 = tail call i32 %3(ptr noundef %.1189, ptr noundef %.2, ptr noundef %4) #3
   %112 = icmp slt i32 %111, 0
-  %113 = tail call i32 %3(ptr noundef %.2, ptr noundef %.0187, ptr noundef %4) #3
+  %113 = tail call i32 %3(ptr noundef %.2, ptr noundef %.0186, ptr noundef %4) #3
   br i1 %112, label %114, label %120
 
 114:                                              ; preds = %qsort_interruptible_med3.exit225
@@ -235,9 +235,9 @@ qsort_interruptible_med3.exit225:                 ; preds = %107, %105, %101, %9
   br i1 %115, label %qsort_interruptible_med3.exit226, label %116
 
 116:                                              ; preds = %114
-  %117 = tail call i32 %3(ptr noundef %.1190, ptr noundef %.0187, ptr noundef %4) #3
+  %117 = tail call i32 %3(ptr noundef %.1189, ptr noundef %.0186, ptr noundef %4) #3
   %118 = icmp slt i32 %117, 0
-  %119 = select i1 %118, ptr %.0187, ptr %.1190
+  %119 = select i1 %118, ptr %.0186, ptr %.1189
   br label %qsort_interruptible_med3.exit226
 
 120:                                              ; preds = %qsort_interruptible_med3.exit225
@@ -245,9 +245,9 @@ qsort_interruptible_med3.exit225:                 ; preds = %107, %105, %101, %9
   br i1 %121, label %qsort_interruptible_med3.exit226, label %122
 
 122:                                              ; preds = %120
-  %123 = tail call i32 %3(ptr noundef %.1190, ptr noundef %.0187, ptr noundef %4) #3
+  %123 = tail call i32 %3(ptr noundef %.1189, ptr noundef %.0186, ptr noundef %4) #3
   %124 = icmp slt i32 %123, 0
-  %125 = select i1 %124, ptr %.1190, ptr %.0187
+  %125 = select i1 %124, ptr %.1189, ptr %.0186
   br label %qsort_interruptible_med3.exit226
 
 qsort_interruptible_med3.exit226:                 ; preds = %122, %120, %116, %114, %43
@@ -256,7 +256,7 @@ qsort_interruptible_med3.exit226:                 ; preds = %122, %120, %116, %1
 
 .lr.ph.i228:                                      ; preds = %qsort_interruptible_med3.exit226, %.lr.ph.i228
   %.06.i229 = phi i64 [ %130, %.lr.ph.i228 ], [ 0, %qsort_interruptible_med3.exit226 ]
-  %126 = getelementptr i8, ptr %.0186.ph, i64 %.06.i229
+  %126 = getelementptr i8, ptr %.0200.ph, i64 %.06.i229
   %127 = getelementptr i8, ptr %.3, i64 %.06.i229
   %128 = load i8, ptr %126, align 1
   %129 = load i8, ptr %127, align 1
@@ -269,21 +269,21 @@ qsort_interruptible_med3.exit226:                 ; preds = %122, %120, %116, %1
 qsort_interruptible_swapn.exit231:                ; preds = %.lr.ph.i228, %qsort_interruptible_med3.exit226
   %131 = add i64 %.0, -1
   %132 = mul i64 %131, %2
-  %133 = getelementptr i8, ptr %.0186.ph, i64 %132
+  %133 = getelementptr i8, ptr %.0200.ph, i64 %132
   br label %134
 
 134:                                              ; preds = %qsort_interruptible_swapn.exit246, %qsort_interruptible_swapn.exit231
-  %.0198 = phi ptr [ %7, %qsort_interruptible_swapn.exit231 ], [ %.1199.lcssa, %qsort_interruptible_swapn.exit246 ]
-  %.0196 = phi ptr [ %7, %qsort_interruptible_swapn.exit231 ], [ %172, %qsort_interruptible_swapn.exit246 ]
-  %.0194 = phi ptr [ %133, %qsort_interruptible_swapn.exit231 ], [ %173, %qsort_interruptible_swapn.exit246 ]
-  %.0191 = phi ptr [ %133, %qsort_interruptible_swapn.exit231 ], [ %.1192290, %qsort_interruptible_swapn.exit246 ]
-  %.not217278 = icmp ugt ptr %.0196, %.0194
+  %.0197 = phi ptr [ %7, %qsort_interruptible_swapn.exit231 ], [ %.1198.lcssa, %qsort_interruptible_swapn.exit246 ]
+  %.0195 = phi ptr [ %7, %qsort_interruptible_swapn.exit231 ], [ %172, %qsort_interruptible_swapn.exit246 ]
+  %.0193 = phi ptr [ %133, %qsort_interruptible_swapn.exit231 ], [ %173, %qsort_interruptible_swapn.exit246 ]
+  %.0190 = phi ptr [ %133, %qsort_interruptible_swapn.exit231 ], [ %.1191290, %qsort_interruptible_swapn.exit246 ]
+  %.not217278 = icmp ugt ptr %.0195, %.0193
   br i1 %.not217278, label %.critedge2, label %.lr.ph282
 
 .lr.ph282:                                        ; preds = %134, %150
-  %.1197280 = phi ptr [ %147, %150 ], [ %.0196, %134 ]
-  %.1199279 = phi ptr [ %.2200, %150 ], [ %.0198, %134 ]
-  %135 = tail call i32 %3(ptr noundef %.1197280, ptr noundef %.0186.ph, ptr noundef %4) #3
+  %.1196280 = phi ptr [ %147, %150 ], [ %.0195, %134 ]
+  %.1198279 = phi ptr [ %.2199, %150 ], [ %.0197, %134 ]
+  %135 = tail call i32 %3(ptr noundef %.1196280, ptr noundef %.0200.ph, ptr noundef %4) #3
   %136 = icmp slt i32 %135, 1
   br i1 %136, label %137, label %.critedge2
 
@@ -296,8 +296,8 @@ qsort_interruptible_swapn.exit231:                ; preds = %.lr.ph.i228, %qsort
 
 .lr.ph.i233:                                      ; preds = %139, %.lr.ph.i233
   %.06.i234 = phi i64 [ %144, %.lr.ph.i233 ], [ 0, %139 ]
-  %140 = getelementptr i8, ptr %.1199279, i64 %.06.i234
-  %141 = getelementptr i8, ptr %.1197280, i64 %.06.i234
+  %140 = getelementptr i8, ptr %.1198279, i64 %.06.i234
+  %141 = getelementptr i8, ptr %.1196280, i64 %.06.i234
   %142 = load i8, ptr %140, align 1
   %143 = load i8, ptr %141, align 1
   store i8 %143, ptr %140, align 1
@@ -307,12 +307,12 @@ qsort_interruptible_swapn.exit231:                ; preds = %.lr.ph.i228, %qsort
   br i1 %exitcond.not.i235, label %qsort_interruptible_swapn.exit236, label %.lr.ph.i233, !llvm.loop !7
 
 qsort_interruptible_swapn.exit236:                ; preds = %.lr.ph.i233, %139
-  %145 = getelementptr i8, ptr %.1199279, i64 %2
+  %145 = getelementptr i8, ptr %.1198279, i64 %2
   br label %146
 
 146:                                              ; preds = %qsort_interruptible_swapn.exit236, %137
-  %.2200 = phi ptr [ %145, %qsort_interruptible_swapn.exit236 ], [ %.1199279, %137 ]
-  %147 = getelementptr i8, ptr %.1197280, i64 %2
+  %.2199 = phi ptr [ %145, %qsort_interruptible_swapn.exit236 ], [ %.1198279, %137 ]
+  %147 = getelementptr i8, ptr %.1196280, i64 %2
   %148 = load volatile i32, ptr @InterruptPending, align 4
   %.not221 = icmp eq i32 %148, 0
   br i1 %.not221, label %150, label %149
@@ -322,19 +322,19 @@ qsort_interruptible_swapn.exit236:                ; preds = %.lr.ph.i233, %139
   br label %150
 
 150:                                              ; preds = %146, %149
-  %.not217 = icmp ugt ptr %147, %.0194
+  %.not217 = icmp ugt ptr %147, %.0193
   br i1 %.not217, label %.critedge2, label %.lr.ph282, !llvm.loop !10
 
 .critedge2:                                       ; preds = %.lr.ph282, %150, %134
-  %.1199.lcssa = phi ptr [ %.0198, %134 ], [ %.2200, %150 ], [ %.1199279, %.lr.ph282 ]
-  %.1197.lcssa = phi ptr [ %.0196, %134 ], [ %147, %150 ], [ %.1197280, %.lr.ph282 ]
-  %.not218287 = icmp ugt ptr %.1197.lcssa, %.0194
+  %.1198.lcssa = phi ptr [ %.0197, %134 ], [ %.2199, %150 ], [ %.1198279, %.lr.ph282 ]
+  %.1196.lcssa = phi ptr [ %.0195, %134 ], [ %147, %150 ], [ %.1196280, %.lr.ph282 ]
+  %.not218287 = icmp ugt ptr %.1196.lcssa, %.0193
   br i1 %.not218287, label %.critedge2._crit_edge, label %.lr.ph291
 
 .lr.ph291:                                        ; preds = %.critedge2, %166
-  %.1192290 = phi ptr [ %.2193, %166 ], [ %.0191, %.critedge2 ]
-  %.1195288 = phi ptr [ %163, %166 ], [ %.0194, %.critedge2 ]
-  %151 = tail call i32 %3(ptr noundef %.1195288, ptr noundef %.0186.ph, ptr noundef %4) #3
+  %.1191290 = phi ptr [ %.2192, %166 ], [ %.0190, %.critedge2 ]
+  %.1194288 = phi ptr [ %163, %166 ], [ %.0193, %.critedge2 ]
+  %151 = tail call i32 %3(ptr noundef %.1194288, ptr noundef %.0200.ph, ptr noundef %4) #3
   %152 = icmp sgt i32 %151, -1
   br i1 %152, label %153, label %.critedge4
 
@@ -347,8 +347,8 @@ qsort_interruptible_swapn.exit236:                ; preds = %.lr.ph.i233, %139
 
 .lr.ph.i238:                                      ; preds = %155, %.lr.ph.i238
   %.06.i239 = phi i64 [ %160, %.lr.ph.i238 ], [ 0, %155 ]
-  %156 = getelementptr i8, ptr %.1195288, i64 %.06.i239
-  %157 = getelementptr i8, ptr %.1192290, i64 %.06.i239
+  %156 = getelementptr i8, ptr %.1194288, i64 %.06.i239
+  %157 = getelementptr i8, ptr %.1191290, i64 %.06.i239
   %158 = load i8, ptr %156, align 1
   %159 = load i8, ptr %157, align 1
   store i8 %159, ptr %156, align 1
@@ -358,12 +358,12 @@ qsort_interruptible_swapn.exit236:                ; preds = %.lr.ph.i233, %139
   br i1 %exitcond.not.i240, label %qsort_interruptible_swapn.exit241, label %.lr.ph.i238, !llvm.loop !7
 
 qsort_interruptible_swapn.exit241:                ; preds = %.lr.ph.i238, %155
-  %161 = getelementptr i8, ptr %.1192290, i64 %6
+  %161 = getelementptr i8, ptr %.1191290, i64 %6
   br label %162
 
 162:                                              ; preds = %qsort_interruptible_swapn.exit241, %153
-  %.2193 = phi ptr [ %161, %qsort_interruptible_swapn.exit241 ], [ %.1192290, %153 ]
-  %163 = getelementptr i8, ptr %.1195288, i64 %6
+  %.2192 = phi ptr [ %161, %qsort_interruptible_swapn.exit241 ], [ %.1191290, %153 ]
+  %163 = getelementptr i8, ptr %.1194288, i64 %6
   %164 = load volatile i32, ptr @InterruptPending, align 4
   %.not220 = icmp eq i32 %164, 0
   br i1 %.not220, label %166, label %165
@@ -373,7 +373,7 @@ qsort_interruptible_swapn.exit241:                ; preds = %.lr.ph.i238, %155
   br label %166
 
 166:                                              ; preds = %162, %165
-  %.not218 = icmp ugt ptr %.1197.lcssa, %163
+  %.not218 = icmp ugt ptr %.1196.lcssa, %163
   br i1 %.not218, label %.critedge2._crit_edge, label %.lr.ph291, !llvm.loop !11
 
 .critedge4:                                       ; preds = %.lr.ph291
@@ -381,8 +381,8 @@ qsort_interruptible_swapn.exit241:                ; preds = %.lr.ph.i238, %155
 
 .lr.ph.i243:                                      ; preds = %.critedge4, %.lr.ph.i243
   %.06.i244 = phi i64 [ %171, %.lr.ph.i243 ], [ 0, %.critedge4 ]
-  %167 = getelementptr i8, ptr %.1197.lcssa, i64 %.06.i244
-  %168 = getelementptr i8, ptr %.1195288, i64 %.06.i244
+  %167 = getelementptr i8, ptr %.1196.lcssa, i64 %.06.i244
+  %168 = getelementptr i8, ptr %.1194288, i64 %.06.i244
   %169 = load i8, ptr %167, align 1
   %170 = load i8, ptr %168, align 1
   store i8 %170, ptr %167, align 1
@@ -392,26 +392,26 @@ qsort_interruptible_swapn.exit241:                ; preds = %.lr.ph.i238, %155
   br i1 %exitcond.not.i245, label %qsort_interruptible_swapn.exit246, label %.lr.ph.i243, !llvm.loop !7
 
 qsort_interruptible_swapn.exit246:                ; preds = %.lr.ph.i243, %.critedge4
-  %172 = getelementptr i8, ptr %.1197.lcssa, i64 %2
-  %173 = getelementptr i8, ptr %.1195288, i64 %6
+  %172 = getelementptr i8, ptr %.1196.lcssa, i64 %2
+  %173 = getelementptr i8, ptr %.1194288, i64 %6
   br label %134
 
 .critedge2._crit_edge:                            ; preds = %.critedge2, %166
-  %.1195.lcssa = phi ptr [ %163, %166 ], [ %.0194, %.critedge2 ]
-  %.1192.lcssa = phi ptr [ %.2193, %166 ], [ %.0191, %.critedge2 ]
-  %174 = ptrtoint ptr %.1199.lcssa to i64
+  %.1194.lcssa = phi ptr [ %163, %166 ], [ %.0193, %.critedge2 ]
+  %.1191.lcssa = phi ptr [ %.2192, %166 ], [ %.0190, %.critedge2 ]
+  %174 = ptrtoint ptr %.1198.lcssa to i64
   %175 = sub i64 %174, %8
-  %176 = ptrtoint ptr %.1197.lcssa to i64
+  %176 = ptrtoint ptr %.1196.lcssa to i64
   %177 = sub i64 %176, %174
   %. = tail call i64 @llvm.smin.i64(i64 %175, i64 %177)
   %178 = sub i64 0, %.
-  %179 = getelementptr i8, ptr %.1197.lcssa, i64 %178
+  %179 = getelementptr i8, ptr %.1196.lcssa, i64 %178
   %.not.i247 = icmp eq i64 %., 0
   br i1 %.not.i247, label %qsort_interruptible_swapn.exit251, label %.lr.ph.i248
 
 .lr.ph.i248:                                      ; preds = %.critedge2._crit_edge, %.lr.ph.i248
   %.06.i249 = phi i64 [ %184, %.lr.ph.i248 ], [ 0, %.critedge2._crit_edge ]
-  %180 = getelementptr i8, ptr %.0186.ph, i64 %.06.i249
+  %180 = getelementptr i8, ptr %.0200.ph, i64 %.06.i249
   %181 = getelementptr i8, ptr %179, i64 %.06.i249
   %182 = load i8, ptr %180, align 1
   %183 = load i8, ptr %181, align 1
@@ -422,8 +422,8 @@ qsort_interruptible_swapn.exit246:                ; preds = %.lr.ph.i243, %.crit
   br i1 %exitcond.not.i250, label %qsort_interruptible_swapn.exit251, label %.lr.ph.i248, !llvm.loop !7
 
 qsort_interruptible_swapn.exit251:                ; preds = %.lr.ph.i248, %.critedge2._crit_edge
-  %185 = ptrtoint ptr %.1192.lcssa to i64
-  %186 = ptrtoint ptr %.1195.lcssa to i64
+  %185 = ptrtoint ptr %.1191.lcssa to i64
+  %186 = ptrtoint ptr %.1194.lcssa to i64
   %187 = sub i64 %185, %186
   %188 = ptrtoint ptr %15 to i64
   %189 = add i64 %185, %2
@@ -436,7 +436,7 @@ qsort_interruptible_swapn.exit251:                ; preds = %.lr.ph.i248, %.crit
 
 .lr.ph.i253:                                      ; preds = %qsort_interruptible_swapn.exit251, %.lr.ph.i253
   %.06.i254 = phi i64 [ %198, %.lr.ph.i253 ], [ 0, %qsort_interruptible_swapn.exit251 ]
-  %194 = getelementptr i8, ptr %.1197.lcssa, i64 %.06.i254
+  %194 = getelementptr i8, ptr %.1196.lcssa, i64 %.06.i254
   %195 = getelementptr i8, ptr %193, i64 %.06.i254
   %196 = load i8, ptr %194, align 1
   %197 = load i8, ptr %195, align 1
@@ -456,7 +456,7 @@ qsort_interruptible_swapn.exit256:                ; preds = %.lr.ph.i253, %qsort
 
 201:                                              ; preds = %199
   %202 = udiv i64 %177, %2
-  tail call void @qsort_interruptible(ptr noundef %.0186.ph, i64 noundef %202, i64 noundef %2, ptr noundef %3, ptr noundef %4)
+  tail call void @qsort_interruptible(ptr noundef %.0200.ph, i64 noundef %202, i64 noundef %2, ptr noundef %3, ptr noundef %4)
   br label %203
 
 203:                                              ; preds = %201, %199

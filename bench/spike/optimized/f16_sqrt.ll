@@ -53,12 +53,12 @@ define i16 @f16_sqrt(i16 %0) local_unnamed_addr #0 {
   br label %23
 
 23:                                               ; preds = %19, %17
-  %.057 = phi i64 [ %6, %17 ], [ %22, %19 ]
-  %.0 = phi i8 [ %5, %17 ], [ %21, %19 ]
-  %24 = sext i8 %.0 to i64
-  %25 = and i8 %.0, 1
-  %26 = or i64 %.057, 1024
-  %27 = lshr i64 %.057, 6
+  %.058 = phi i64 [ %6, %17 ], [ %22, %19 ]
+  %.057 = phi i8 [ %5, %17 ], [ %21, %19 ]
+  %24 = sext i8 %.057 to i64
+  %25 = and i8 %.057, 1
+  %26 = or i64 %.058, 1024
+  %27 = lshr i64 %.058, 6
   %28 = and i64 %27, 14
   %29 = zext nneg i8 %25 to i64
   %30 = or disjoint i64 %28, %29
@@ -68,7 +68,7 @@ define i16 @f16_sqrt(i16 %0) local_unnamed_addr #0 {
   %34 = getelementptr inbounds [16 x i16], ptr @softfloat_approxRecipSqrt_1k1s, i64 0, i64 %30
   %35 = load i16, ptr %34, align 2
   %36 = zext i16 %35 to i64
-  %37 = and i64 %.057, 127
+  %37 = and i64 %.058, 127
   %38 = mul nuw nsw i64 %37, %36
   %39 = lshr i64 %38, 11
   %40 = sub nsw i64 %33, %39
@@ -88,9 +88,9 @@ define i16 @f16_sqrt(i16 %0) local_unnamed_addr #0 {
   %spec.store.select = select i1 %.not66, i64 32768, i64 %48
   %50 = shl i64 %26, 5
   %51 = mul i64 %50, %spec.store.select
-  %.060.v = select i1 %.not65, i64 16, i64 17
-  %.060 = lshr i64 %51, %.060.v
-  %52 = add nuw nsw i64 %.060, 1
+  %.0.v = select i1 %.not65, i64 16, i64 17
+  %.0 = lshr i64 %51, %.0.v
+  %52 = add nuw nsw i64 %.0, 1
   %53 = and i64 %52, 7
   %.not67 = icmp eq i64 %53, 0
   br i1 %.not67, label %54, label %62
@@ -109,7 +109,7 @@ define i16 @f16_sqrt(i16 %0) local_unnamed_addr #0 {
 60:                                               ; preds = %54
   %61 = and i64 %56, 32752
   %.not69 = icmp eq i64 %61, 0
-  %spec.select72 = select i1 %.not69, i64 %52, i64 %.060
+  %spec.select72 = select i1 %.not69, i64 %52, i64 %.0
   br label %62
 
 62:                                               ; preds = %60, %58, %23

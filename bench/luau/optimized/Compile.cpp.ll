@@ -1861,8 +1861,8 @@ sub_0:                                            ; preds = %sub_0.preheader, %.
   %indvars.iv = phi i64 [ 1, %sub_0.preheader ], [ %indvars.iv.next, %.critedge ]
   %.0138326 = phi i32 [ 0, %sub_0.preheader ], [ %.1139, %.critedge ]
   %.0140325 = phi i32 [ 0, %sub_0.preheader ], [ %.1141, %.critedge ]
-  %.0142324 = phi i32 [ 0, %sub_0.preheader ], [ %.1143, %.critedge ]
-  %.0150323 = phi i1 [ false, %sub_0.preheader ], [ %.1151, %.critedge ]
+  %.0143324 = phi i32 [ 0, %sub_0.preheader ], [ %.1144, %.critedge ]
+  %.0146322 = phi i1 [ false, %sub_0.preheader ], [ %.1147, %.critedge ]
   %29 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = load i8, ptr %30, align 1
@@ -2152,8 +2152,8 @@ sub_1231:                                         ; preds = %.tail225.thread
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 .critedge:                                        ; preds = %157, %122, %116, %113, %109, %96, %93, %90, %86, %69, %131, %145, %155, %167, %150, %140, %105, %82, %59
-  %.1151 = phi i1 [ %.0150323, %59 ], [ %.0150323, %69 ], [ %.0150323, %82 ], [ %.0150323, %105 ], [ %.0150323, %131 ], [ %.0150323, %140 ], [ %.0150323, %145 ], [ %.0150323, %150 ], [ %.0150323, %155 ], [ %.0150323, %167 ], [ %.0150323, %86 ], [ %.0150323, %90 ], [ %.0150323, %93 ], [ %.0150323, %96 ], [ %.0150323, %109 ], [ %.0150323, %113 ], [ %.0150323, %116 ], [ true, %122 ], [ %.0150323, %157 ]
-  %.1143 = phi i32 [ %.0142324, %59 ], [ %.0142324, %69 ], [ %.0142324, %82 ], [ %.0142324, %105 ], [ %.0142324, %131 ], [ %.0142324, %140 ], [ %.0142324, %145 ], [ %.0142324, %150 ], [ %.0142324, %155 ], [ %.0142324, %167 ], [ %.0142324, %86 ], [ %.0142324, %90 ], [ %.0142324, %93 ], [ %.0142324, %96 ], [ 1, %109 ], [ 2, %113 ], [ 3, %116 ], [ %.0142324, %122 ], [ %.0142324, %157 ]
+  %.1147 = phi i1 [ %.0146322, %59 ], [ %.0146322, %69 ], [ %.0146322, %82 ], [ %.0146322, %105 ], [ %.0146322, %131 ], [ %.0146322, %140 ], [ %.0146322, %145 ], [ %.0146322, %150 ], [ %.0146322, %155 ], [ %.0146322, %167 ], [ %.0146322, %86 ], [ %.0146322, %90 ], [ %.0146322, %93 ], [ %.0146322, %96 ], [ %.0146322, %109 ], [ %.0146322, %113 ], [ %.0146322, %116 ], [ true, %122 ], [ %.0146322, %157 ]
+  %.1144 = phi i32 [ %.0143324, %59 ], [ %.0143324, %69 ], [ %.0143324, %82 ], [ %.0143324, %105 ], [ %.0143324, %131 ], [ %.0143324, %140 ], [ %.0143324, %145 ], [ %.0143324, %150 ], [ %.0143324, %155 ], [ %.0143324, %167 ], [ %.0143324, %86 ], [ %.0143324, %90 ], [ %.0143324, %93 ], [ %.0143324, %96 ], [ 1, %109 ], [ 2, %113 ], [ 3, %116 ], [ %.0143324, %122 ], [ %.0143324, %157 ]
   %.1141 = phi i32 [ %.0140325, %59 ], [ %.0140325, %69 ], [ %.0140325, %82 ], [ %.0140325, %105 ], [ %.0140325, %131 ], [ %.0140325, %140 ], [ %.0140325, %145 ], [ %.0140325, %150 ], [ %.0140325, %155 ], [ %.0140325, %167 ], [ 1, %86 ], [ 2, %90 ], [ 4, %93 ], [ 3, %96 ], [ %.0140325, %109 ], [ %.0140325, %113 ], [ %.0140325, %116 ], [ %.0140325, %122 ], [ %.0140325, %157 ]
   %.1139 = phi i32 [ %.0138326, %59 ], [ %.0138326, %69 ], [ %.0138326, %82 ], [ %.0138326, %105 ], [ %.0138326, %131 ], [ %.0138326, %140 ], [ %.0138326, %145 ], [ %.0138326, %150 ], [ %.0138326, %155 ], [ %.sroa.0216.0.extract.trunc, %167 ], [ %.0138326, %86 ], [ %.0138326, %90 ], [ %.0138326, %93 ], [ %.0138326, %96 ], [ %.0138326, %109 ], [ %.0138326, %113 ], [ %.0138326, %116 ], [ %.0138326, %122 ], [ %.0138326, %157 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2161,8 +2161,8 @@ sub_1231:                                         ; preds = %.tail225.thread
   br i1 %exitcond.not, label %._crit_edge, label %sub_0, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.critedge
-  %172 = icmp ne i32 %.1143, 3
-  %or.cond7 = select i1 %.1151, i1 %172, i1 false
+  %172 = icmp ne i32 %.1144, 3
+  %or.cond7 = select i1 %.1147, i1 %172, i1 false
   br i1 %or.cond7, label %173, label %._crit_edge.thread
 
 173:                                              ; preds = %._crit_edge
@@ -2173,8 +2173,8 @@ sub_1231:                                         ; preds = %.tail225.thread
 ._crit_edge.thread:                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit, %._crit_edge
   %.0138.lcssa371 = phi i32 [ %.1139, %._crit_edge ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
   %.0140.lcssa370 = phi i32 [ %.1141, %._crit_edge ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
-  %.0142.lcssa369 = phi i32 [ %.1143, %._crit_edge ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
-  %.0150.lcssa368 = phi i1 [ %.1151, %._crit_edge ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
+  %.0143.lcssa369 = phi i32 [ %.1144, %._crit_edge ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
+  %.0146.lcssa368 = phi i1 [ %.1147, %._crit_edge ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
   %176 = load i8, ptr @_ZN5FFlag20DebugLuauTimeTracingE, align 8
   %177 = trunc i8 %176 to i1
   br i1 %177, label %178, label %181
@@ -2220,8 +2220,8 @@ sub_1231:                                         ; preds = %.tail225.thread
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(116) %21, i8 0, i64 116, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %208, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
-  %209 = icmp eq i32 %.0142.lcssa369, 3
-  %210 = and i32 %.0142.lcssa369, -2
+  %209 = icmp eq i32 %.0143.lcssa369, 3
+  %210 = and i32 %.0143.lcssa369, -2
   %or.cond9 = icmp eq i32 %210, 2
   br i1 %or.cond9, label %211, label %_ZNSt6vectorI12CompileStatsSaIS0_EE7reserveEm.exit
 
@@ -2266,7 +2266,7 @@ _ZNSt12_Vector_baseI12CompileStatsSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds 
 
 _ZNSt6vectorI12CompileStatsSaIS0_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseI12CompileStatsSaIS0_EE13_M_deallocateEPS0_m.exit.i, %214, %182
   %220 = zext i1 %209 to i32
-  %221 = select i1 %.0150.lcssa368, i32 2, i32 0
+  %221 = select i1 %.0146.lcssa368, i32 2, i32 0
   %222 = or disjoint i32 %221, %220
   %.not219330 = icmp eq ptr %185, %184
   br i1 %.not219330, label %._crit_edge333, label %.lr.ph
@@ -2342,7 +2342,7 @@ _ZNSt6vectorI12CompileStatsSaIS0_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_ba
   br label %267
 
 267:                                              ; preds = %.lr.ph, %_ZNSt6vectorIN4Luau7CodeGen13FunctionStatsESaIS2_EED2Ev.exit
-  %.0144332 = phi i32 [ 0, %.lr.ph ], [ %460, %_ZNSt6vectorIN4Luau7CodeGen13FunctionStatsESaIS2_EED2Ev.exit ]
+  %.0142332 = phi i32 [ 0, %.lr.ph ], [ %460, %_ZNSt6vectorIN4Luau7CodeGen13FunctionStatsESaIS2_EED2Ev.exit ]
   %.sroa.0213.0331 = phi ptr [ %185, %.lr.ph ], [ %547, %_ZNSt6vectorIN4Luau7CodeGen13FunctionStatsESaIS2_EED2Ev.exit ]
   store double 0.000000e+00, ptr %237, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(116) %23, i8 0, i64 116, i1 false)
@@ -2980,7 +2980,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit83.
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %17)
-  %460 = add nuw nsw i32 %446, %.0144332
+  %460 = add nuw nsw i32 %446, %.0142332
   %461 = load <2 x i64>, ptr %23, align 16
   %462 = load <2 x i64>, ptr %21, align 16
   %463 = add <2 x i64> %462, %461
@@ -3165,7 +3165,7 @@ _ZNSt6vectorIN4Luau7CodeGen13FunctionStatsESaIS2_EED2Ev.exit: ; preds = %_ZSt8_D
   br i1 %.not219, label %._crit_edge333, label %267
 
 ._crit_edge333:                                   ; preds = %_ZNSt6vectorIN4Luau7CodeGen13FunctionStatsESaIS2_EED2Ev.exit, %_ZNSt6vectorI12CompileStatsSaIS0_EE7reserveEm.exit
-  %.0144.lcssa = phi i32 [ 0, %_ZNSt6vectorI12CompileStatsSaIS0_EE7reserveEm.exit ], [ %460, %_ZNSt6vectorIN4Luau7CodeGen13FunctionStatsESaIS2_EED2Ev.exit ]
+  %.0142.lcssa = phi i32 [ 0, %_ZNSt6vectorI12CompileStatsSaIS0_EE7reserveEm.exit ], [ %460, %_ZNSt6vectorIN4Luau7CodeGen13FunctionStatsESaIS2_EED2Ev.exit ]
   switch i32 %.0138.lcssa371, label %585 [
     i32 8, label %548
     i32 7, label %559
@@ -3213,7 +3213,7 @@ _ZNSt6vectorIN4Luau7CodeGen13FunctionStatsESaIS2_EED2Ev.exit: ; preds = %_ZSt8_D
   br label %585
 
 585:                                              ; preds = %._crit_edge333, %559, %548
-  %.not = icmp eq i32 %.0142.lcssa369, 0
+  %.not = icmp eq i32 %.0143.lcssa369, 0
   br i1 %.not, label %613, label %586
 
 586:                                              ; preds = %585
@@ -3228,7 +3228,7 @@ _ZNSt6vectorIN4Luau7CodeGen13FunctionStatsESaIS2_EED2Ev.exit: ; preds = %_ZSt8_D
   br label %615
 
 592:                                              ; preds = %586
-  %593 = icmp eq i32 %.0142.lcssa369, 1
+  %593 = icmp eq i32 %.0143.lcssa369, 1
   br i1 %593, label %594, label %595
 
 594:                                              ; preds = %592
@@ -3277,7 +3277,7 @@ _ZNSt6vectorIN4Luau7CodeGen13FunctionStatsESaIS2_EED2Ev.exit: ; preds = %_ZSt8_D
   br label %613
 
 613:                                              ; preds = %611, %585
-  %.not161 = icmp ne i32 %.0144.lcssa, 0
+  %.not161 = icmp ne i32 %.0142.lcssa, 0
   %614 = zext i1 %.not161 to i32
   br label %615
 

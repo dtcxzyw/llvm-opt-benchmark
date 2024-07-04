@@ -192,11 +192,11 @@ define hidden void @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3pop17h07238
 18:                                               ; preds = %.lr.ph, %44
   %19 = phi i64 [ %15, %.lr.ph ], [ %50, %44 ]
   %20 = phi i64 [ %10, %.lr.ph ], [ %47, %44 ]
-  %.030 = phi i64 [ %4, %.lr.ph ], [ %.1, %44 ]
+  %.01030 = phi i64 [ %4, %.lr.ph ], [ %.1, %44 ]
   %21 = load ptr, ptr %16, align 16, !nonnull !4, !align !6, !noundef !4
   %22 = getelementptr inbounds [0 x { { i64 }, ptr }], ptr %21, i64 0, i64 %20
   %23 = load atomic i64, ptr %22 acquire, align 8
-  %24 = add i64 %.030, 1
+  %24 = add i64 %.01030, 1
   %25 = icmp eq i64 %24, %23
   br i1 %25, label %28, label %26
 
@@ -207,7 +207,7 @@ define hidden void @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3pop17h07238
   unreachable
 
 26:                                               ; preds = %18
-  %27 = icmp eq i64 %23, %.030
+  %27 = icmp eq i64 %23, %.01030
   br i1 %27, label %33, label %32
 
 28:                                               ; preds = %18
@@ -229,7 +229,7 @@ define hidden void @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3pop17h07238
   %35 = load i64, ptr %5, align 8, !noundef !4
   %36 = xor i64 %35, -1
   %37 = and i64 %34, %36
-  %38 = icmp eq i64 %37, %.030
+  %38 = icmp eq i64 %37, %.01030
   br i1 %38, label %39, label %.sink.split
 
 39:                                               ; preds = %33
@@ -273,8 +273,8 @@ define hidden void @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3pop17h07238
   br label %59
 
 59:                                               ; preds = %28, %56
-  %.010 = phi i64 [ %58, %56 ], [ %23, %28 ]
-  %60 = cmpxchg weak ptr %1, i64 %.030, i64 %.010 seq_cst monotonic, align 8
+  %.0 = phi i64 [ %58, %56 ], [ %23, %28 ]
+  %60 = cmpxchg weak ptr %1, i64 %.01030, i64 %.0 seq_cst monotonic, align 8
   %61 = extractvalue { i64, i1 } %60, 1
   %62 = extractvalue { i64, i1 } %60, 0
   br i1 %61, label %63, label %44
@@ -283,7 +283,7 @@ define hidden void @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$3pop17h07238
   %64 = getelementptr inbounds i8, ptr %22, i64 8
   %65 = load ptr, ptr %64, align 8, !nonnull !4, !noundef !4
   %66 = load i64, ptr %6, align 128, !noundef !4
-  %67 = add i64 %66, %.030
+  %67 = add i64 %66, %.01030
   store atomic i64 %67, ptr %22 release, align 8
   %68 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %65, ptr %68, align 8
@@ -311,12 +311,12 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$4pus
 
 14:                                               ; preds = %.lr.ph, %48
   %15 = phi i64 [ %8, %.lr.ph ], [ %49, %48 ]
-  %.01939 = phi i64 [ %6, %.lr.ph ], [ %.1, %48 ]
+  %.02039 = phi i64 [ %6, %.lr.ph ], [ %.1, %48 ]
   %16 = add i64 %15, -1
-  %17 = and i64 %16, %.01939
+  %17 = and i64 %16, %.02039
   %18 = load i64, ptr %11, align 128, !noundef !4
   %19 = sub i64 0, %18
-  %20 = and i64 %.01939, %19
+  %20 = and i64 %.02039, %19
   %21 = load i64, ptr %12, align 8, !noundef !4
   %22 = icmp ult i64 %17, %21
   br i1 %22, label %25, label %23, !prof !9
@@ -336,13 +336,13 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$4pus
   %26 = load ptr, ptr %13, align 16, !nonnull !4, !align !6, !noundef !4
   %27 = getelementptr inbounds [0 x { { i64 }, ptr }], ptr %26, i64 0, i64 %17
   %28 = load atomic i64, ptr %27 acquire, align 8
-  %29 = icmp eq i64 %.01939, %28
+  %29 = icmp eq i64 %.02039, %28
   br i1 %29, label %35, label %30
 
 30:                                               ; preds = %25
   %31 = load i64, ptr %11, align 128, !noundef !4
   %32 = add i64 %31, %28
-  %33 = add i64 %.01939, 1
+  %33 = add i64 %.02039, 1
   %34 = icmp eq i64 %32, %33
   br i1 %34, label %40, label %39
 
@@ -364,7 +364,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$4pus
   %41 = load atomic i64, ptr %0 monotonic, align 128
   %42 = load i64, ptr %11, align 128, !noundef !4
   %43 = add i64 %42, %41
-  %44 = icmp eq i64 %43, %.01939
+  %44 = icmp eq i64 %43, %.02039
   br i1 %44, label %45, label %.sink.split
 
 45:                                               ; preds = %40
@@ -388,12 +388,12 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$4pus
   br label %57
 
 55:                                               ; preds = %35
-  %56 = add i64 %.01939, 1
+  %56 = add i64 %.02039, 1
   br label %57
 
 57:                                               ; preds = %52, %55
-  %.020 = phi i64 [ %56, %55 ], [ %54, %52 ]
-  %58 = cmpxchg weak ptr %5, i64 %.01939, i64 %.020 seq_cst monotonic, align 8
+  %.019 = phi i64 [ %56, %55 ], [ %54, %52 ]
+  %58 = cmpxchg weak ptr %5, i64 %.02039, i64 %.019 seq_cst monotonic, align 8
   %59 = extractvalue { i64, i1 } %58, 1
   %60 = extractvalue { i64, i1 } %58, 0
   br i1 %59, label %61, label %48
@@ -402,7 +402,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue7bounded16Bounded$LT$T$GT$4pus
   %62 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %63 = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %62, ptr %63, align 8
-  %64 = add i64 %.01939, 1
+  %64 = add i64 %.02039, 1
   store atomic i64 %64, ptr %27 release, align 8
   br label %._crit_edge
 

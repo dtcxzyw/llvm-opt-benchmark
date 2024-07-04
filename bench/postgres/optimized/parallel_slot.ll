@@ -170,8 +170,8 @@ find_any_idle_slot.exit.thread:                   ; preds = %56
 
 62:                                               ; preds = %80, %find_any_idle_slot.exit.thread
   %indvars.iv.i42 = phi i64 [ 0, %find_any_idle_slot.exit.thread ], [ %indvars.iv.next.i43, %80 ]
-  %.04560.i = phi i32 [ 0, %find_any_idle_slot.exit.thread ], [ %.146.i, %80 ]
-  %.04759.i = phi ptr [ null, %find_any_idle_slot.exit.thread ], [ %.2.i, %80 ]
+  %.04561.i = phi ptr [ null, %find_any_idle_slot.exit.thread ], [ %.2.i, %80 ]
+  %.04660.i = phi i32 [ 0, %find_any_idle_slot.exit.thread ], [ %.147.i, %80 ]
   %63 = getelementptr [0 x %struct.ParallelSlot], ptr %6, i64 0, i64 %indvars.iv.i42
   %64 = load ptr, ptr %63, align 8
   %65 = call i32 @PQsocket(ptr noundef %64) #9
@@ -179,7 +179,7 @@ find_any_idle_slot.exit.thread:                   ; preds = %56
   br i1 %66, label %80, label %67
 
 67:                                               ; preds = %62
-  %68 = icmp eq ptr %.04759.i, null
+  %68 = icmp eq ptr %.04561.i, null
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %67
@@ -187,7 +187,7 @@ find_any_idle_slot.exit.thread:                   ; preds = %56
   br label %71
 
 71:                                               ; preds = %69, %67
-  %.148.i = phi ptr [ %70, %69 ], [ %.04759.i, %67 ]
+  %.1.i = phi ptr [ %70, %69 ], [ %.04561.i, %67 ]
   %72 = and i32 %65, 63
   %73 = zext nneg i32 %72 to i64
   %74 = shl nuw i64 1, %73
@@ -197,12 +197,12 @@ find_any_idle_slot.exit.thread:                   ; preds = %56
   %78 = load i64, ptr %77, align 8
   %79 = or i64 %78, %74
   store i64 %79, ptr %77, align 8
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %65, i32 %.04560.i)
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %65, i32 %.04660.i)
   br label %80
 
 80:                                               ; preds = %71, %62
-  %.2.i = phi ptr [ %.04759.i, %62 ], [ %.148.i, %71 ]
-  %.146.i = phi i32 [ %.04560.i, %62 ], [ %spec.select.i, %71 ]
+  %.147.i = phi i32 [ %.04660.i, %62 ], [ %spec.select.i, %71 ]
+  %.2.i = phi ptr [ %.04561.i, %62 ], [ %.1.i, %71 ]
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %81 = load i32, ptr %0, align 8
   %82 = sext i32 %81 to i64
@@ -210,7 +210,7 @@ find_any_idle_slot.exit.thread:                   ; preds = %56
   br i1 %83, label %62, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %80
-  %84 = add nuw i32 %.146.i, 1
+  %84 = add nuw i32 %.147.i, 1
   %85 = icmp eq ptr %.2.i, null
   br i1 %85, label %wait_on_slots.exit.thread, label %86
 

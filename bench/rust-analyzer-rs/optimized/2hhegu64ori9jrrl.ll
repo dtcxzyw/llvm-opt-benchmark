@@ -561,8 +561,8 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   br label %14
 
 .loopexit:                                        ; preds = %70, %72, %74
-  %.013.i = phi i64 [ 1, %70 ], [ %..i, %74 ], [ 2, %72 ]
-  %13 = add i64 %.013.i, %16
+  %.012.i = phi i64 [ 1, %70 ], [ %..i, %74 ], [ 2, %72 ]
+  %13 = add i64 %.012.i, %16
   store i64 %13, ptr %4, align 8, !alias.scope !94, !noalias !98
   br label %14
 
@@ -2551,7 +2551,7 @@ define void @_ZN10test_utils19extract_annotations17h088257abe04bfcbdE(ptr noalia
 
 92:                                               ; preds = %.lr.ph, %794
   %.0531 = phi i32 [ 0, %.lr.ph ], [ %795, %794 ]
-  %.sroa.6207.0526 = phi i64 [ undef, %.lr.ph ], [ %.sroa.6207.1, %794 ]
+  %.sroa.6207.0520 = phi i64 [ undef, %.lr.ph ], [ %.sroa.6207.1, %794 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !383)
   %.val.i = load ptr, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8, !alias.scope !383, !nonnull !8, !align !100, !noundef !8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32), !noalias !383
@@ -3523,9 +3523,9 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.
   br label %472
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb785b0e9382da4c8E.exit149.thread.i": ; preds = %518, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb785b0e9382da4c8E.exit149.i", %472, %"_ZN10test_utils24extract_line_annotations28_$u7b$$u7b$closure$u7d$$u7d$17hff744304455709bbE.exit.thread202.i"
-  %.sroa.039.1.i = phi ptr [ %285, %472 ], [ %520, %518 ], [ %285, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb785b0e9382da4c8E.exit149.i" ], [ %285, %"_ZN10test_utils24extract_line_annotations28_$u7b$$u7b$closure$u7d$$u7d$17hff744304455709bbE.exit.thread202.i" ]
+  %.091.i = phi i8 [ 0, %472 ], [ 1, %518 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb785b0e9382da4c8E.exit149.i" ], [ 0, %"_ZN10test_utils24extract_line_annotations28_$u7b$$u7b$closure$u7d$$u7d$17hff744304455709bbE.exit.thread202.i" ]
   %.sroa.7.1.i = phi i64 [ %.pn218.i, %472 ], [ %519, %518 ], [ %.pn218.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb785b0e9382da4c8E.exit149.i" ], [ 0, %"_ZN10test_utils24extract_line_annotations28_$u7b$$u7b$closure$u7d$$u7d$17hff744304455709bbE.exit.thread202.i" ]
-  %.090.i = phi i8 [ 0, %472 ], [ 1, %518 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb785b0e9382da4c8E.exit149.i" ], [ 0, %"_ZN10test_utils24extract_line_annotations28_$u7b$$u7b$closure$u7d$$u7d$17hff744304455709bbE.exit.thread202.i" ]
+  %.sroa.039.1.i = phi ptr [ %285, %472 ], [ %520, %518 ], [ %285, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hb785b0e9382da4c8E.exit149.i" ], [ %285, %"_ZN10test_utils24extract_line_annotations28_$u7b$$u7b$closure$u7d$$u7d$17hff744304455709bbE.exit.thread202.i" ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18), !noalias !547
   %501 = getelementptr inbounds i8, ptr %.sroa.039.1.i, i64 %.sroa.7.1.i
   store ptr %.sroa.039.1.i, ptr %18, align 8, !alias.scope !550, !noalias !553
@@ -3617,7 +3617,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.
 529:                                              ; preds = %524
   store i32 %206, ptr %64, align 8, !noalias !430
   store i32 %276, ptr %65, align 4, !noalias !430
-  store i8 %.090.i, ptr %66, align 8, !noalias !430
+  store i8 %.091.i, ptr %66, align 8, !noalias !430
   br label %533
 
 530:                                              ; preds = %524
@@ -4314,7 +4314,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.exit.i.i.
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$9split_off17h4099b4c87088f680E.exit": ; preds = %.noexc129, %591
   %.sroa.0205.0 = phi ptr [ %600, %.noexc129 ], [ null, %591 ]
-  %.sroa.6207.1 = phi i64 [ %601, %.noexc129 ], [ %.sroa.6207.0526, %591 ]
+  %.sroa.6207.1 = phi i64 [ %601, %.noexc129 ], [ %.sroa.6207.0520, %591 ]
   %.sroa.7210.0 = phi i64 [ %604, %.noexc129 ], [ 0, %591 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9), !noalias !673
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !673

@@ -67,12 +67,12 @@ for.body9:                                        ; preds = %for.body9.lr.ph, %f
   %symbol.0129 = phi i64 [ %conv, %for.body9.lr.ph ], [ %inc84, %for.inc83 ]
   %symbols.sroa.0.0128 = phi ptr [ null, %for.body9.lr.ph ], [ %symbols.sroa.0.2, %for.inc83 ]
   %symbols.sroa.6.0127 = phi ptr [ null, %for.body9.lr.ph ], [ %symbols.sroa.6.2, %for.inc83 ]
-  %symbols.sroa.11.0126 = phi ptr [ null, %for.body9.lr.ph ], [ %symbols.sroa.11.2, %for.inc83 ]
-  %currBitCount.0125 = phi i32 [ 0, %for.body9.lr.ph ], [ %currBitCount.3, %for.inc83 ]
-  %currBits.0124 = phi i64 [ 0, %for.body9.lr.ph ], [ %currBits.5, %for.inc83 ]
-  %currByte.0123 = phi ptr [ %0, %for.body9.lr.ph ], [ %currByte.5, %for.inc83 ]
+  %currBitCount.0126 = phi i32 [ 0, %for.body9.lr.ph ], [ %currBitCount.3, %for.inc83 ]
+  %currBits.0125 = phi i64 [ 0, %for.body9.lr.ph ], [ %currBits.5, %for.inc83 ]
+  %currByte.0124 = phi ptr [ %0, %for.body9.lr.ph ], [ %currByte.5, %for.inc83 ]
+  %symbols.sroa.11.0123 = phi ptr [ null, %for.body9.lr.ph ], [ %symbols.sroa.11.2, %for.inc83 ]
   %1 = load ptr, ptr %table, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %currByte.0123 to i64
+  %sub.ptr.lhs.cast = ptrtoint ptr %currByte.0124 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp11.not = icmp slt i64 %sub.ptr.sub, %conv10
@@ -109,13 +109,13 @@ lpad12.loopexit.split-lp:                         ; preds = %invoke.cont.invoke,
   br label %ehcleanup
 
 if.end:                                           ; preds = %for.body9
-  %cmp8.i = icmp slt i32 %currBitCount.0125, 6
+  %cmp8.i = icmp slt i32 %currBitCount.0126, 6
   br i1 %cmp8.i, label %while.body.i, label %_ZN7Imf_3_214FastHufDecoder8readBitsEiRmRiRPKc.exit
 
 while.body.i:                                     ; preds = %if.end, %while.body.i
-  %currByte.1 = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %currByte.0123, %if.end ]
-  %currBits.1 = phi i64 [ %or.i, %while.body.i ], [ %currBits.0124, %if.end ]
-  %currBitCount.1 = phi i32 [ %add.i, %while.body.i ], [ %currBitCount.0125, %if.end ]
+  %currByte.1 = phi ptr [ %incdec.ptr.i, %while.body.i ], [ %currByte.0124, %if.end ]
+  %currBits.1 = phi i64 [ %or.i, %while.body.i ], [ %currBits.0125, %if.end ]
+  %currBitCount.1 = phi i32 [ %add.i, %while.body.i ], [ %currBitCount.0126, %if.end ]
   %shl.i = shl i64 %currBits.1, 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %currByte.1, i64 1
   %4 = load i8, ptr %currByte.1, align 1
@@ -126,9 +126,9 @@ while.body.i:                                     ; preds = %if.end, %while.body
   br i1 %cmp.i, label %while.body.i, label %_ZN7Imf_3_214FastHufDecoder8readBitsEiRmRiRPKc.exit, !llvm.loop !4
 
 _ZN7Imf_3_214FastHufDecoder8readBitsEiRmRiRPKc.exit: ; preds = %while.body.i, %if.end
-  %currByte.2 = phi ptr [ %currByte.0123, %if.end ], [ %incdec.ptr.i, %while.body.i ]
-  %currBits.2 = phi i64 [ %currBits.0124, %if.end ], [ %or.i, %while.body.i ]
-  %.lcssa.i = phi i32 [ %currBitCount.0125, %if.end ], [ %add.i, %while.body.i ]
+  %currByte.2 = phi ptr [ %currByte.0124, %if.end ], [ %incdec.ptr.i, %while.body.i ]
+  %currBits.2 = phi i64 [ %currBits.0125, %if.end ], [ %or.i, %while.body.i ]
+  %.lcssa.i = phi i32 [ %currBitCount.0126, %if.end ], [ %add.i, %while.body.i ]
   %sub.i = add nsw i32 %.lcssa.i, -6
   %sh_prom.i = zext nneg i32 %sub.i to i64
   %shr.i = lshr i64 %currBits.2, %sh_prom.i
@@ -234,7 +234,7 @@ if.else60:                                        ; preds = %if.else
 if.then62:                                        ; preds = %if.else60
   %shl = shl i64 %symbol.0129, 6
   %or = or disjoint i64 %and.i, %shl
-  %cmp.not.i.i = icmp eq ptr %symbols.sroa.6.0127, %symbols.sroa.11.0126
+  %cmp.not.i.i = icmp eq ptr %symbols.sroa.6.0127, %symbols.sroa.11.0123
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then62
@@ -295,7 +295,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
   br label %invoke.cont63
 
 invoke.cont63:                                    ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i, %if.then.i.i
-  %symbols.sroa.11.1 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %symbols.sroa.11.0126, %if.then.i.i ]
+  %symbols.sroa.11.1 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %symbols.sroa.11.0123, %if.then.i.i ]
   %add.ptr.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %symbols.sroa.6.0127, %if.then.i.i ]
   %symbols.sroa.0.1 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %symbols.sroa.0.0128, %if.then.i.i ]
   %symbols.sroa.6.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 8
@@ -328,10 +328,10 @@ if.end77:                                         ; preds = %if.then74, %if.end7
   br label %for.inc83
 
 for.inc83:                                        ; preds = %if.end38, %if.else60, %if.end77, %if.end56
+  %symbols.sroa.11.2 = phi ptr [ %symbols.sroa.11.0123, %if.end38 ], [ %symbols.sroa.11.0123, %if.end56 ], [ %symbols.sroa.11.0123, %if.else60 ], [ %symbols.sroa.11.1, %if.end77 ]
   %currByte.5 = phi ptr [ %currByte.4, %if.end38 ], [ %currByte.2, %if.end56 ], [ %currByte.2, %if.else60 ], [ %currByte.2, %if.end77 ]
   %currBits.5 = phi i64 [ %currBits.4, %if.end38 ], [ %currBits.2, %if.end56 ], [ %currBits.2, %if.else60 ], [ %currBits.2, %if.end77 ]
   %currBitCount.3 = phi i32 [ %sub.i63, %if.end38 ], [ %sub.i, %if.end56 ], [ %sub.i, %if.else60 ], [ %sub.i, %if.end77 ]
-  %symbols.sroa.11.2 = phi ptr [ %symbols.sroa.11.0126, %if.end38 ], [ %symbols.sroa.11.0126, %if.end56 ], [ %symbols.sroa.11.0126, %if.else60 ], [ %symbols.sroa.11.1, %if.end77 ]
   %symbols.sroa.6.2 = phi ptr [ %symbols.sroa.6.0127, %if.end38 ], [ %symbols.sroa.6.0127, %if.end56 ], [ %symbols.sroa.6.0127, %if.else60 ], [ %symbols.sroa.6.1, %if.end77 ]
   %symbols.sroa.0.2 = phi ptr [ %symbols.sroa.0.0128, %if.end38 ], [ %symbols.sroa.0.0128, %if.end56 ], [ %symbols.sroa.0.0128, %if.else60 ], [ %symbols.sroa.0.1, %if.end77 ]
   %symbol.1 = phi i64 [ %add40, %if.end38 ], [ %add59, %if.end56 ], [ %symbol.0129, %if.else60 ], [ %symbol.0129, %if.end77 ]
@@ -857,8 +857,8 @@ while.body.lr.ph:                                 ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end93
-  %bufferNumBits.0186 = phi i32 [ 64, %while.body.lr.ph ], [ %bufferNumBits.5, %if.end93 ]
-  %dstIdx.0185 = phi i32 [ 0, %while.body.lr.ph ], [ %dstIdx.1, %if.end93 ]
+  %dstIdx.0186 = phi i32 [ 0, %while.body.lr.ph ], [ %dstIdx.1, %if.end93 ]
+  %bufferNumBits.0185 = phi i32 [ 64, %while.body.lr.ph ], [ %bufferNumBits.5, %if.end93 ]
   %bufferBackNumBits.0184 = phi i32 [ 64, %while.body.lr.ph ], [ %bufferBackNumBits.14, %if.end93 ]
   %bufferBack.0183 = phi i64 [ %2, %while.body.lr.ph ], [ %bufferBack.20, %if.end93 ]
   %buffer.0182 = phi i64 [ %4, %while.body.lr.ph ], [ %buffer.8, %if.end93 ]
@@ -877,12 +877,12 @@ if.then6:                                         ; preds = %while.body
   br label %if.end43
 
 if.else:                                          ; preds = %while.body
-  %cmp11 = icmp ult i32 %bufferNumBits.0186, 64
+  %cmp11 = icmp ult i32 %bufferNumBits.0185, 64
   br i1 %cmp11, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %if.else
-  %sub13 = sub nuw nsw i32 64, %bufferNumBits.0186
-  %sh_prom.i = zext nneg i32 %bufferNumBits.0186 to i64
+  %sub13 = sub nuw nsw i32 64, %bufferNumBits.0185
+  %sh_prom.i = zext nneg i32 %bufferNumBits.0185 to i64
   %shr.i = lshr i64 %bufferBack.0183, %sh_prom.i
   %or.i = or i64 %shr.i, %buffer.0182
   %cmp.i = icmp slt i32 %bufferBackNumBits.0184, %sub13
@@ -964,7 +964,7 @@ if.end14:                                         ; preds = %_ZN7Imf_3_214FastHu
   %buffer.2 = phi i64 [ %buffer.1, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit ], [ %buffer.0182, %if.else ]
   %bufferBack.6 = phi i64 [ %storemerge.i, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit ], [ %bufferBack.0183, %if.else ]
   %bufferBackNumBits.4 = phi i32 [ %sub26.i.pre-phi, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit ], [ %bufferBackNumBits.0184, %if.else ]
-  %bufferNumBits.1 = phi i32 [ 64, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit ], [ %bufferNumBits.0186, %if.else ]
+  %bufferNumBits.1 = phi i32 [ 64, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit ], [ %bufferNumBits.0185, %if.else ]
   %13 = load i8, ptr %_maxCodeLength, align 1
   %14 = zext i8 %13 to i64
   br label %while.cond15
@@ -1034,9 +1034,9 @@ if.end43:                                         ; preds = %if.then36, %if.then
   %buffer.3 = phi i64 [ %buffer.2, %if.then36 ], [ %buffer.0182, %if.then6 ]
   %bufferBack.7 = phi i64 [ %bufferBack.6, %if.then36 ], [ %bufferBack.0183, %if.then6 ]
   %bufferBackNumBits.5 = phi i32 [ %bufferBackNumBits.4, %if.then36 ], [ %bufferBackNumBits.0184, %if.then6 ]
+  %bufferNumBits.2 = phi i32 [ %bufferNumBits.1, %if.then36 ], [ %bufferNumBits.0185, %if.then6 ]
   %codeLen.1 = phi i32 [ %16, %if.then36 ], [ %conv8, %if.then6 ]
   %symbol.0.in = phi ptr [ %arrayidx37, %if.then36 ], [ %arrayidx10, %if.then6 ]
-  %bufferNumBits.2 = phi i32 [ %bufferNumBits.1, %if.then36 ], [ %bufferNumBits.0186, %if.then6 ]
   %symbol.0 = load i32, ptr %symbol.0.in, align 4
   %sh_prom44 = zext nneg i32 %codeLen.1 to i64
   %shl = shl i64 %buffer.3, %sh_prom44
@@ -1135,7 +1135,7 @@ if.end51:                                         ; preds = %_ZN7Imf_3_214FastHu
   %bufferBackNumBits.9 = phi i32 [ %sub26.i45.pre-phi, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75 ], [ %bufferBackNumBits.5, %if.then47 ]
   %bufferNumBits.3 = phi i32 [ 64, %_ZN7Imf_3_214FastHufDecoder6refillERmiS1_RiRPKhS2_.exit75 ], [ %sub45, %if.then47 ]
   %shr52 = lshr i64 %buffer.5, 56
-  %cmp54 = icmp slt i32 %dstIdx.0185, 1
+  %cmp54 = icmp slt i32 %dstIdx.0186, 1
   br i1 %cmp54, label %if.then55, label %if.end59
 
 if.then55:                                        ; preds = %if.end51
@@ -1154,7 +1154,7 @@ lpad57:                                           ; preds = %if.then55
 
 if.end59:                                         ; preds = %if.end51
   %conv53 = trunc nuw nsw i64 %shr52 to i32
-  %add60 = add nuw nsw i32 %dstIdx.0185, %conv53
+  %add60 = add nuw nsw i32 %dstIdx.0186, %conv53
   %cmp61 = icmp sgt i32 %add60, %numDstElems
   br i1 %cmp61, label %if.then62, label %if.end66
 
@@ -1177,7 +1177,7 @@ if.end66:                                         ; preds = %if.end59
   br i1 %cmp67, label %if.then68, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end66
-  %31 = zext nneg i32 %dstIdx.0185 to i64
+  %31 = zext nneg i32 %dstIdx.0186 to i64
   %gep = getelementptr i16, ptr %invariant.gep, i64 %31
   %.pre = load i16, ptr %gep, align 2
   %invariant.gep200 = getelementptr inbounds i16, ptr %dst, i64 %31
@@ -1212,10 +1212,10 @@ for.end:                                          ; preds = %for.body
 
 if.else84:                                        ; preds = %if.end43
   %conv85 = trunc i32 %symbol.0 to i16
-  %idxprom86 = sext i32 %dstIdx.0185 to i64
+  %idxprom86 = sext i32 %dstIdx.0186 to i64
   %arrayidx87 = getelementptr inbounds i16, ptr %dst, i64 %idxprom86
   store i16 %conv85, ptr %arrayidx87, align 2
-  %inc88 = add nsw i32 %dstIdx.0185, 1
+  %inc88 = add nsw i32 %dstIdx.0186, 1
   br label %if.end89
 
 if.end89:                                         ; preds = %if.else84, %for.end
@@ -1224,8 +1224,8 @@ if.end89:                                         ; preds = %if.else84, %for.end
   %buffer.6 = phi i64 [ %shl82, %for.end ], [ %shl, %if.else84 ]
   %bufferBack.14 = phi i64 [ %bufferBack.13, %for.end ], [ %bufferBack.7, %if.else84 ]
   %bufferBackNumBits.10 = phi i32 [ %bufferBackNumBits.9, %for.end ], [ %bufferBackNumBits.5, %if.else84 ]
-  %dstIdx.1 = phi i32 [ %add60, %for.end ], [ %inc88, %if.else84 ]
   %bufferNumBits.4 = phi i32 [ %sub83, %for.end ], [ %sub45, %if.else84 ]
+  %dstIdx.1 = phi i32 [ %add60, %for.end ], [ %inc88, %if.else84 ]
   %cmp90 = icmp slt i32 %bufferNumBits.4, 12
   br i1 %cmp90, label %if.then91, label %if.end93
 

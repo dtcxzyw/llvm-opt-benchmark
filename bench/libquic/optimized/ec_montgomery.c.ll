@@ -262,8 +262,8 @@ if.then1:                                         ; preds = %if.end
   br i1 %cmp3, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.then1, %if.end
-  %new_ctx.0 = phi ptr [ %call2, %if.then1 ], [ null, %if.end ]
   %ctx.addr.0 = phi ptr [ %call2, %if.then1 ], [ %ctx, %if.end ]
+  %new_ctx.0 = phi ptr [ %call2, %if.then1 ], [ null, %if.end ]
   tail call void @BN_CTX_start(ptr noundef nonnull %ctx.addr.0) #3
   %Z = getelementptr inbounds i8, ptr %point, i64 56
   %one = getelementptr inbounds i8, ptr %group, i64 168

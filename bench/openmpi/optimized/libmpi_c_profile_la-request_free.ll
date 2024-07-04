@@ -122,12 +122,12 @@ opal_pointer_array_get_item.exit.i:               ; preds = %40, %34, %.lr.ph.i
   br label %.sink.split
 
 .sink.split:                                      ; preds = %23, %45, %.preheader.i, %19, %9, %11
-  %.0.i.sink = phi i32 [ 7, %11 ], [ 7, %9 ], [ %18, %19 ], [ %47, %45 ], [ 14, %.preheader.i ], [ 14, %23 ]
-  %48 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.0.i.sink, ptr noundef nonnull @FUNC_NAME) #3
+  %.010.i.sink = phi i32 [ 7, %11 ], [ 7, %9 ], [ %18, %19 ], [ %47, %45 ], [ 14, %.preheader.i ], [ 14, %23 ]
+  %48 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.010.i.sink, ptr noundef nonnull @FUNC_NAME) #3
   br label %49
 
 49:                                               ; preds = %.sink.split, %.thread
-  %.0 = phi i32 [ 0, %.thread ], [ %.0.i.sink, %.sink.split ]
+  %.0 = phi i32 [ 0, %.thread ], [ %.010.i.sink, %.sink.split ]
   ret i32 %.0
 }
 

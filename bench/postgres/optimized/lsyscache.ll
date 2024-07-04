@@ -3753,8 +3753,8 @@ define dso_local i32 @get_base_element_type(i32 noundef %0) local_unnamed_addr #
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %22, %1, %21
-  %.012 = phi i32 [ %.0, %21 ], [ 0, %1 ], [ 0, %22 ]
-  ret i32 %.012
+  %.013 = phi i32 [ %.0, %21 ], [ 0, %1 ], [ 0, %22 ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable

@@ -31636,8 +31636,8 @@ call38.i.i.i.i.i.i.noexc209:                      ; preds = %if.then.i.i.i.i.i19
 invoke.cont138:                                   ; preds = %for.body.i.i.i.i.i.i177, %call38.i.i.i.i.i.i.noexc209
   %.val1.i.i.i.i.i198 = phi ptr [ %.val1.pre.i.i.i.i.i197, %call38.i.i.i.i.i.i.noexc209 ], [ %this.val7.i.i.i.i.i.i169, %for.body.i.i.i.i.i.i177 ]
   %retval.sroa.3.0.i9.i.i.i.i.i200 = phi i8 [ 1, %call38.i.i.i.i.i.i.noexc209 ], [ 0, %for.body.i.i.i.i.i.i177 ]
-  %retval.sroa.0.0.i8.i.i.i.i.i201 = phi i64 [ %call38.i.i.i.i.i.i210, %call38.i.i.i.i.i.i.noexc209 ], [ %and.i.i.i.i.i.i.i181, %for.body.i.i.i.i.i.i177 ]
-  %add.ptr3.i.i.i.i.i.i203 = getelementptr inbounds i64, ptr %.val1.i.i.i.i.i198, i64 %retval.sroa.0.0.i8.i.i.i.i.i201
+  %retval.sroa.0.0.i7.i.i.i.i.i201 = phi i64 [ %call38.i.i.i.i.i.i210, %call38.i.i.i.i.i.i.noexc209 ], [ %and.i.i.i.i.i.i.i181, %for.body.i.i.i.i.i.i177 ]
+  %add.ptr3.i.i.i.i.i.i203 = getelementptr inbounds i64, ptr %.val1.i.i.i.i.i198, i64 %retval.sroa.0.0.i7.i.i.i.i.i201
   store i32 2, ptr %ref.tmp133, align 4
   invoke void @_ZNK7testing8internal29PredicateFormatterFromMatcherIiEclIlEENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar132, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp133, ptr noundef nonnull @.str.337, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr3.i.i.i.i.i.i203)
           to label %invoke.cont140 unwind label %lpad
@@ -64151,9 +64151,9 @@ _ZN4absl18container_internal18hash_policy_traitsINS0_12_GLOBAL__N_111ValuePolicy
   %.val2.i.i.i.i = phi ptr [ %.val2.pre.i.i.i.i, %if.then.i.i.i.i ], [ %this.val7.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %.val1.i.i.i.i = phi ptr [ %.val1.pre.i.i.i.i, %if.then.i.i.i.i ], [ %this.val6.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %retval.sroa.3.0.i9.i.i.i.i = phi i8 [ 1, %if.then.i.i.i.i ], [ 0, %for.body.i.i.i.i.i ]
-  %retval.sroa.0.0.i8.i.i.i.i = phi i64 [ %target.sroa.0.0.i.i.i.i.i.i, %if.then.i.i.i.i ], [ %and.i.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %add.ptr.i4.i.i.i.i = getelementptr inbounds i8, ptr %.val1.i.i.i.i, i64 %retval.sroa.0.0.i8.i.i.i.i
-  %add.ptr3.i.i.i.i.i = getelementptr inbounds i64, ptr %.val2.i.i.i.i, i64 %retval.sroa.0.0.i8.i.i.i.i
+  %retval.sroa.0.0.i7.i.i.i.i = phi i64 [ %target.sroa.0.0.i.i.i.i.i.i, %if.then.i.i.i.i ], [ %and.i.i.i.i.i.i, %for.body.i.i.i.i.i ]
+  %add.ptr.i4.i.i.i.i = getelementptr inbounds i8, ptr %.val1.i.i.i.i, i64 %retval.sroa.0.0.i7.i.i.i.i
+  %add.ptr3.i.i.i.i.i = getelementptr inbounds i64, ptr %.val2.i.i.i.i, i64 %retval.sroa.0.0.i7.i.i.i.i
   store ptr %add.ptr.i4.i.i.i.i, ptr %agg.result, align 8, !alias.scope !2640
   %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr3.i.i.i.i.i, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i.i.i, align 8, !alias.scope !2640
@@ -74569,22 +74569,22 @@ for.body89:                                       ; preds = %for.body89.lr.ph, %
   br i1 %cmp.i.not3.i, label %cleanup.i, label %for.body.i
 
 for.body.i:                                       ; preds = %for.body89, %if.then.i119
-  %Percentile.addr.06.i = phi double [ %sub.i, %if.then.i119 ], [ %58, %for.body89 ]
-  %idx.05.i = phi i64 [ %inc.i, %if.then.i119 ], [ 0, %for.body89 ]
+  %idx.06.i = phi i64 [ %inc.i, %if.then.i119 ], [ 0, %for.body89 ]
+  %Percentile.addr.05.i = phi double [ %sub.i, %if.then.i119 ], [ %58, %for.body89 ]
   %__begin3.sroa.0.04.i = phi ptr [ %incdec.ptr.i.i, %if.then.i119 ], [ %59, %for.body89 ]
   %61 = load double, ptr %__begin3.sroa.0.04.i, align 8
-  %cmp.i118 = fcmp ogt double %Percentile.addr.06.i, %61
+  %cmp.i118 = fcmp ogt double %Percentile.addr.05.i, %61
   br i1 %cmp.i118, label %if.then.i119, label %cleanup.i
 
 if.then.i119:                                     ; preds = %for.body.i
-  %sub.i = fsub double %Percentile.addr.06.i, %61
-  %inc.i = add i64 %idx.05.i, 1
+  %sub.i = fsub double %Percentile.addr.05.i, %61
+  %inc.i = add i64 %idx.06.i, 1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.04.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %60
   br i1 %cmp.i.not.i, label %cleanup.i, label %for.body.i
 
 cleanup.i:                                        ; preds = %if.then.i119, %for.body.i, %for.body89
-  %idx.0.lcssa.i = phi i64 [ 0, %for.body89 ], [ %inc.i, %if.then.i119 ], [ %idx.05.i, %for.body.i ]
+  %idx.0.lcssa.i = phi i64 [ 0, %for.body89 ], [ %inc.i, %if.then.i119 ], [ %idx.06.i, %for.body.i ]
   %tobool.not.i.i.i.i = icmp eq ptr %59, null
   br i1 %tobool.not.i.i.i.i, label %_ZNK4absl18container_internal12_GLOBAL__N_110ProbeStats15PercentileProbeEd.exit, label %if.then.i.i.i.i
 
@@ -145887,9 +145887,9 @@ invoke.cont106.lr.ph:                             ; preds = %invoke.cont99
   br label %invoke.cont106
 
 invoke.cont106:                                   ; preds = %invoke.cont106.lr.ph, %while.end.i.i
-  %__begin0.sroa.6.0223 = phi ptr [ %retval.sroa.5.0.i, %invoke.cont106.lr.ph ], [ %__begin0.sroa.6.1, %while.end.i.i ]
-  %__begin0.sroa.0.0222 = phi ptr [ %retval.sroa.0.0.i, %invoke.cont106.lr.ph ], [ %__begin0.sroa.0.1, %while.end.i.i ]
-  %119 = load i8, ptr %__begin0.sroa.6.0223, align 1
+  %__begin0.sroa.0.0223 = phi ptr [ %retval.sroa.0.0.i, %invoke.cont106.lr.ph ], [ %__begin0.sroa.0.1, %while.end.i.i ]
+  %__begin0.sroa.6.0222 = phi ptr [ %retval.sroa.5.0.i, %invoke.cont106.lr.ph ], [ %__begin0.sroa.6.1, %while.end.i.i ]
+  %119 = load i8, ptr %__begin0.sroa.6.0222, align 1
   %120 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %120, 0
   br i1 %cmp.not.not.i.i.i, label %for.cond.i.i.i, label %if.end15.i.i.i
@@ -146047,8 +146047,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit156:         ; preds = %if.end129, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i155
   store ptr null, ptr %message_.i.i137, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.0222, i64 1
-  %incdec.ptr4.i = getelementptr inbounds i8, ptr %__begin0.sroa.6.0223, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.0223, i64 1
+  %incdec.ptr4.i = getelementptr inbounds i8, ptr %__begin0.sroa.6.0222, i64 1
   %139 = load i8, ptr %incdec.ptr.i, align 1
   %cmp.i3.i.i157 = icmp slt i8 %139, -1
   br i1 %cmp.i3.i.i157, label %while.body.i.i161, label %while.end.i.i
@@ -146070,8 +146070,8 @@ while.body.i.i161:                                ; preds = %_ZN7testing15Assert
   br i1 %cmp.i.i.i168, label %while.body.i.i161, label %while.end.i.i, !llvm.loop !5628
 
 while.end.i.i:                                    ; preds = %while.body.i.i161, %_ZN7testing15AssertionResultD2Ev.exit156
-  %__begin0.sroa.0.1 = phi ptr [ %incdec.ptr.i, %_ZN7testing15AssertionResultD2Ev.exit156 ], [ %add.ptr.i.i166, %while.body.i.i161 ]
   %__begin0.sroa.6.1 = phi ptr [ %incdec.ptr4.i, %_ZN7testing15AssertionResultD2Ev.exit156 ], [ %add.ptr6.i.i167, %while.body.i.i161 ]
+  %__begin0.sroa.0.1 = phi ptr [ %incdec.ptr.i, %_ZN7testing15AssertionResultD2Ev.exit156 ], [ %add.ptr.i.i166, %while.body.i.i161 ]
   %.lcssa.i.i158 = phi i8 [ %139, %_ZN7testing15AssertionResultD2Ev.exit156 ], [ %145, %while.body.i.i161 ]
   %cmp.i.i159 = icmp eq i8 %.lcssa.i.i158, -1
   br i1 %cmp.i.i159, label %cleanup135, label %invoke.cont106
@@ -148300,9 +148300,9 @@ invoke.cont106.lr.ph:                             ; preds = %invoke.cont99
   br label %invoke.cont106
 
 invoke.cont106:                                   ; preds = %invoke.cont106.lr.ph, %while.end.i.i
-  %__begin0.sroa.6.0229 = phi ptr [ %retval.sroa.5.0.i, %invoke.cont106.lr.ph ], [ %__begin0.sroa.6.1, %while.end.i.i ]
-  %__begin0.sroa.0.0228 = phi ptr [ %retval.sroa.0.0.i, %invoke.cont106.lr.ph ], [ %__begin0.sroa.0.1, %while.end.i.i ]
-  %121 = load i8, ptr %__begin0.sroa.6.0229, align 1
+  %__begin0.sroa.0.0229 = phi ptr [ %retval.sroa.0.0.i, %invoke.cont106.lr.ph ], [ %__begin0.sroa.0.1, %while.end.i.i ]
+  %__begin0.sroa.6.0228 = phi ptr [ %retval.sroa.5.0.i, %invoke.cont106.lr.ph ], [ %__begin0.sroa.6.1, %while.end.i.i ]
+  %121 = load i8, ptr %__begin0.sroa.6.0228, align 1
   %122 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.not.not.i.i.i = icmp eq i64 %122, 0
   br i1 %cmp.not.not.i.i.i, label %for.cond.i.i.i, label %if.end15.i.i.i
@@ -148460,8 +148460,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit156:         ; preds = %if.end129, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i155
   store ptr null, ptr %message_.i.i137, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.0228, i64 1
-  %incdec.ptr4.i = getelementptr inbounds i8, ptr %__begin0.sroa.6.0229, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.0229, i64 1
+  %incdec.ptr4.i = getelementptr inbounds i8, ptr %__begin0.sroa.6.0228, i64 1
   %141 = load i8, ptr %incdec.ptr.i, align 1
   %cmp.i3.i.i157 = icmp slt i8 %141, -1
   br i1 %cmp.i3.i.i157, label %while.body.i.i161, label %while.end.i.i
@@ -148483,8 +148483,8 @@ while.body.i.i161:                                ; preds = %_ZN7testing15Assert
   br i1 %cmp.i.i.i168, label %while.body.i.i161, label %while.end.i.i, !llvm.loop !5691
 
 while.end.i.i:                                    ; preds = %while.body.i.i161, %_ZN7testing15AssertionResultD2Ev.exit156
-  %__begin0.sroa.0.1 = phi ptr [ %incdec.ptr.i, %_ZN7testing15AssertionResultD2Ev.exit156 ], [ %add.ptr.i.i166, %while.body.i.i161 ]
   %__begin0.sroa.6.1 = phi ptr [ %incdec.ptr4.i, %_ZN7testing15AssertionResultD2Ev.exit156 ], [ %add.ptr6.i.i167, %while.body.i.i161 ]
+  %__begin0.sroa.0.1 = phi ptr [ %incdec.ptr.i, %_ZN7testing15AssertionResultD2Ev.exit156 ], [ %add.ptr.i.i166, %while.body.i.i161 ]
   %.lcssa.i.i158 = phi i8 [ %141, %_ZN7testing15AssertionResultD2Ev.exit156 ], [ %147, %while.body.i.i161 ]
   %cmp.i.i159 = icmp eq i8 %.lcssa.i.i158, -1
   br i1 %cmp.i.i159, label %cleanup135, label %invoke.cont106

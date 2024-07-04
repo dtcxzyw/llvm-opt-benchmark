@@ -86,7 +86,7 @@ hashTypeConvert.exit:                             ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %3, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %sum.034 = phi i64 [ 0, %for.body.lr.ph ], [ %sum.1, %for.inc ]
+  %sum.035 = phi i64 [ 0, %for.body.lr.ph ], [ %sum.1, %for.inc ]
   %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx, align 8
   %bf.load7 = load i32, ptr %6, align 8
@@ -151,11 +151,11 @@ hashTypeConvert.exit22:                           ; preds = %sdslen.exit
 
 if.end28:                                         ; preds = %if.end20, %sdslen.exit
   %retval.0.i31 = phi i64 [ %retval.0.i, %sdslen.exit ], [ 0, %if.end20 ]
-  %add29 = add i64 %retval.0.i31, %sum.034
+  %add29 = add i64 %retval.0.i31, %sum.035
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end28
-  %sum.1 = phi i64 [ %add29, %if.end28 ], [ %sum.034, %for.body ]
+  %sum.1 = phi i64 [ %add29, %if.end28 ], [ %sum.035, %for.body ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %4, %lftr.wideiv
@@ -978,8 +978,8 @@ if.else68:                                        ; preds = %if.end5
   unreachable
 
 if.end70:                                         ; preds = %if.else62, %if.else65, %hashTypeLength.exit, %hashTypeConvert.exit150
-  %update.1 = phi i32 [ %update.0158, %hashTypeConvert.exit150 ], [ %update.0158, %hashTypeLength.exit ], [ 0, %if.else62 ], [ 1, %if.else65 ]
   %value.addr.1 = phi ptr [ %value, %hashTypeConvert.exit150 ], [ %value, %hashTypeLength.exit ], [ %value.addr.0, %if.else62 ], [ %value.addr.0, %if.else65 ]
+  %update.1 = phi i32 [ %update.0158, %hashTypeConvert.exit150 ], [ %update.0158, %hashTypeLength.exit ], [ 0, %if.else62 ], [ 1, %if.else65 ]
   %and71 = and i32 %flags, 1
   %tobool72 = icmp ne i32 %and71, 0
   %tobool73 = icmp ne ptr %field, null
@@ -991,20 +991,20 @@ if.then74:                                        ; preds = %if.end70
   br label %if.end75
 
 if.end75:                                         ; preds = %if.then58, %if.then74, %if.end70
-  %value.addr.1169 = phi ptr [ %value.addr.1, %if.then74 ], [ %value.addr.1, %if.end70 ], [ %value.addr.0, %if.then58 ]
-  %update.1168 = phi i32 [ %update.1, %if.then74 ], [ %update.1, %if.end70 ], [ 0, %if.then58 ]
+  %update.1169 = phi i32 [ %update.1, %if.then74 ], [ %update.1, %if.end70 ], [ 0, %if.then58 ]
+  %value.addr.1168 = phi ptr [ %value.addr.1, %if.then74 ], [ %value.addr.1, %if.end70 ], [ %value.addr.0, %if.then58 ]
   %and76 = and i32 %flags, 2
   %tobool77 = icmp ne i32 %and76, 0
-  %tobool79 = icmp ne ptr %value.addr.1169, null
+  %tobool79 = icmp ne ptr %value.addr.1168, null
   %or.cond1 = and i1 %tobool77, %tobool79
   br i1 %or.cond1, label %if.then80, label %if.end81
 
 if.then80:                                        ; preds = %if.end75
-  call void @sdsfree(ptr noundef nonnull %value.addr.1169) #10
+  call void @sdsfree(ptr noundef nonnull %value.addr.1168) #10
   br label %if.end81
 
 if.end81:                                         ; preds = %if.then80, %if.end75
-  ret i32 %update.1168
+  ret i32 %update.1169
 }
 
 declare ptr @lpReplace(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

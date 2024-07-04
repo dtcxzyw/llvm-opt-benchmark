@@ -271,7 +271,7 @@ define internal i32 @dissect_classicstun(ptr noundef %0, ptr noundef %1, ptr nou
   br label %47
 
 47:                                               ; preds = %41, %27
-  %.0243 = phi ptr [ %40, %27 ], [ %43, %41 ]
+  %.0241 = phi ptr [ %40, %27 ], [ %43, %41 ]
   %48 = getelementptr inbounds i8, ptr %1, i64 80
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 50
@@ -296,12 +296,12 @@ define internal i32 @dissect_classicstun(ptr noundef %0, ptr noundef %1, ptr nou
   %62 = getelementptr inbounds i8, ptr %58, i64 8
   %63 = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false)
-  %64 = load ptr, ptr %.0243, align 8
+  %64 = load ptr, ptr %.0241, align 8
   call void @wmem_tree_insert32_array(ptr noundef %64, ptr noundef nonnull %5, ptr noundef nonnull %58) #4
   br label %.thread
 
 65:                                               ; preds = %53
-  %66 = load ptr, ptr %.0243, align 8
+  %66 = load ptr, ptr %.0241, align 8
   %67 = call ptr @wmem_tree_lookup32_array(ptr noundef %66, ptr noundef nonnull %5) #4
   %.not260 = icmp eq ptr %67, null
   br i1 %.not260, label %.thread281, label %68
@@ -314,7 +314,7 @@ define internal i32 @dissect_classicstun(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.thread
 
 72:                                               ; preds = %47
-  %73 = load ptr, ptr %.0243, align 8
+  %73 = load ptr, ptr %.0241, align 8
   %74 = call ptr @wmem_tree_lookup32_array(ptr noundef %73, ptr noundef nonnull %5) #4
   %.not261 = icmp eq ptr %74, null
   br i1 %.not261, label %.thread281, label %.thread
@@ -441,10 +441,10 @@ proto_item_set_generated.exit:                    ; preds = %proto_item_set_gene
   br label %136
 
 136:                                              ; preds = %128, %proto_item_set_generated.exit278
-  %.0240288 = phi i16 [ %24, %128 ], [ %320, %proto_item_set_generated.exit278 ]
-  %.0241287 = phi i32 [ 20, %128 ], [ %318, %proto_item_set_generated.exit278 ]
-  %137 = zext i16 %.0240288 to i32
-  %138 = and i32 %.0241287, 65535
+  %.0243288 = phi i32 [ 20, %128 ], [ %318, %proto_item_set_generated.exit278 ]
+  %.0244287 = phi i16 [ %24, %128 ], [ %320, %proto_item_set_generated.exit278 ]
+  %137 = zext i16 %.0244287 to i32
+  %138 = and i32 %.0243288, 65535
   %139 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %138) #4
   %140 = add nuw nsw i32 %138, 2
   %141 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %140) #4
@@ -467,7 +467,7 @@ proto_item_set_generated.exit:                    ; preds = %proto_item_set_gene
 
 155:                                              ; preds = %136
   %156 = call ptr @proto_tree_add_uint(ptr noundef %147, i32 noundef %151, ptr noundef %0, i32 noundef %152, i32 noundef 2, i32 noundef %142) #4
-  %157 = trunc i32 %.0241287 to i16
+  %157 = trunc i32 %.0243288 to i16
   %158 = add i16 %157, 4
   switch i16 %139, label %proto_item_set_generated.exit278 [
     i16 1, label %160
@@ -640,14 +640,14 @@ proto_item_set_generated.exit:                    ; preds = %proto_item_set_gene
   br label %proto_item_set_generated.exit278
 
 245:                                              ; preds = %.lr.ph, %245
-  %.0244286 = phi i32 [ 0, %.lr.ph ], [ %252, %245 ]
+  %.0242286 = phi i32 [ 0, %.lr.ph ], [ %252, %245 ]
   %246 = load i32, ptr @hf_classicstun_att_unknown, align 4
-  %247 = add nuw nsw i32 %.0244286, %159
+  %247 = add nuw nsw i32 %.0242286, %159
   %248 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %246, ptr noundef %0, i32 noundef %247, i32 noundef 2, i32 noundef 0) #4
   %249 = load i32, ptr @hf_classicstun_att_unknown, align 4
   %250 = add nuw nsw i32 %247, 2
   %251 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %249, ptr noundef %0, i32 noundef %250, i32 noundef 2, i32 noundef 0) #4
-  %252 = add nuw nsw i32 %.0244286, 4
+  %252 = add nuw nsw i32 %.0242286, 4
   %253 = icmp ult i32 %252, %142
   br i1 %253, label %245, label %proto_item_set_generated.exit278, !llvm.loop !4
 
@@ -760,7 +760,7 @@ proto_item_set_generated.exit278:                 ; preds = %245, %.preheader, %
   %317 = zext i16 %158 to i32
   %318 = add nuw nsw i32 %142, %317
   %319 = trunc i32 %143 to i16
-  %320 = sub i16 %.0240288, %319
+  %320 = sub i16 %.0244287, %319
   %.not265 = icmp eq i16 %320, 0
   br i1 %.not265, label %.loopexit, label %136, !llvm.loop !6
 

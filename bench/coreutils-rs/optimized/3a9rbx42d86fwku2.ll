@@ -987,16 +987,16 @@ define void @_ZN6uu_cut9cut_files17h68757c20467e9be9E(ptr noalias nocapture noun
   br i1 %.not, label %.outer, label %132
 
 132:                                              ; preds = %.thread, %129
-  %.sroa.7.0109 = phi ptr [ @anon.305833e901efdab365351de932979111.3, %.thread ], [ %131, %129 ]
-  %.sroa.089.0107 = phi ptr [ %122, %.thread ], [ %130, %129 ]
-  %133 = icmp ne ptr %.sroa.7.0109, null
+  %.sroa.089.0109 = phi ptr [ %122, %.thread ], [ %130, %129 ]
+  %.sroa.7.0107 = phi ptr [ @anon.305833e901efdab365351de932979111.3, %.thread ], [ %131, %129 ]
+  %133 = icmp ne ptr %.sroa.7.0107, null
   call void @llvm.assume(i1 %133)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  store ptr %.sroa.089.0107, ptr %7, align 8
-  store ptr %.sroa.7.0109, ptr %79, align 8
-  %134 = getelementptr inbounds i8, ptr %.sroa.7.0109, i64 96
+  store ptr %.sroa.089.0109, ptr %7, align 8
+  store ptr %.sroa.7.0107, ptr %79, align 8
+  %134 = getelementptr inbounds i8, ptr %.sroa.7.0107, i64 96
   %135 = load ptr, ptr %134, align 8, !invariant.load !5, !nonnull !5
-  %136 = invoke noundef i32 %135(ptr noundef nonnull align 1 %.sroa.089.0107)
+  %136 = invoke noundef i32 %135(ptr noundef nonnull align 1 %.sroa.089.0109)
           to label %139 unwind label %137
 
 137:                                              ; preds = %142, %140, %139, %132

@@ -5292,8 +5292,8 @@ r_byte.exit276.thread:                            ; preds = %r_byte.exit276.thre
   br label %_read_ascii
 
 _read_ascii:                                      ; preds = %r_byte.exit276.thread, %r_long.exit
-  %is_interned.2 = phi i32 [ %is_interned.0, %r_long.exit ], [ %is_interned.1, %r_byte.exit276.thread ]
   %n.0 = phi i64 [ %or11.i, %r_long.exit ], [ %conv318, %r_byte.exit276.thread ]
+  %is_interned.2 = phi i32 [ %is_interned.0, %r_long.exit ], [ %is_interned.1, %r_byte.exit276.thread ]
   %call172 = tail call fastcc ptr @r_string(i64 noundef %n.0, ptr noundef nonnull %p)
   %cmp173 = icmp eq ptr %call172, null
   br i1 %cmp173, label %sw.epilog, label %if.end176

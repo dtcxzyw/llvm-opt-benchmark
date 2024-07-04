@@ -220,7 +220,7 @@ define range(i32 -1, 1) i32 @H5_build_extpath(ptr noundef %0, ptr nocapture noun
   br label %61
 
 61:                                               ; preds = %59, %5
-  %.044.ph = phi ptr [ %22, %59 ], [ null, %5 ]
+  %.045.ph = phi ptr [ %22, %59 ], [ null, %5 ]
   %.043.ph = phi ptr [ %13, %59 ], [ null, %5 ]
   %.0.ph = phi ptr [ %42, %59 ], [ %6, %5 ]
   %62 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.0.ph, i32 noundef 47) #17
@@ -232,24 +232,24 @@ define range(i32 -1, 1) i32 @H5_build_extpath(ptr noundef %0, ptr nocapture noun
 
 .thread66:                                        ; preds = %28, %44, %34, %24, %61
   %.175 = phi ptr [ %.043.ph, %61 ], [ %13, %24 ], [ %13, %34 ], [ %13, %44 ], [ %13, %28 ]
-  %.14573 = phi ptr [ %.044.ph, %61 ], [ null, %24 ], [ %22, %34 ], [ %22, %44 ], [ %22, %28 ]
-  %.04671 = phi i32 [ 0, %61 ], [ -1, %24 ], [ -1, %34 ], [ -1, %44 ], [ 0, %28 ]
+  %.04473 = phi i32 [ 0, %61 ], [ -1, %24 ], [ -1, %34 ], [ -1, %44 ], [ 0, %28 ]
+  %.14671 = phi ptr [ %.045.ph, %61 ], [ null, %24 ], [ %22, %34 ], [ %22, %44 ], [ %22, %28 ]
   %64 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.175) #15
   br label %65
 
 65:                                               ; preds = %.thread66, %61
-  %.14574 = phi ptr [ %.14573, %.thread66 ], [ %.044.ph, %61 ]
-  %.04672 = phi i32 [ %.04671, %.thread66 ], [ 0, %61 ]
-  %.not57 = icmp eq ptr %.14574, null
+  %.04474 = phi i32 [ %.04473, %.thread66 ], [ 0, %61 ]
+  %.14672 = phi ptr [ %.14671, %.thread66 ], [ %.045.ph, %61 ]
+  %.not57 = icmp eq ptr %.14672, null
   br i1 %.not57, label %.thread82, label %66
 
 66:                                               ; preds = %65
-  %67 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.14574) #15
+  %67 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.14672) #15
   br label %.thread82
 
 .thread82:                                        ; preds = %8, %15, %66, %65
-  %.0467286 = phi i32 [ %.04672, %66 ], [ %.04672, %65 ], [ -1, %15 ], [ -1, %8 ]
-  ret i32 %.0467286
+  %.0447486 = phi i32 [ %.04474, %66 ], [ %.04474, %65 ], [ -1, %15 ], [ -1, %8 ]
+  ret i32 %.0447486
 }
 
 declare noalias ptr @H5MM_strdup(ptr noundef) local_unnamed_addr #1
@@ -778,9 +778,9 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not83, label %.loopexit, label %.lr.ph105
 
 .loopexit:                                        ; preds = %68, %.lr.ph.split, %62, %64, %54, %60, %51, %61
-  %.06298 = phi i64 [ %indvars.iv, %62 ], [ %indvars.iv, %64 ], [ %indvars.iv, %61 ], [ %indvars.iv, %51 ], [ %indvars.iv, %54 ], [ %indvars.iv, %60 ], [ 0, %.lr.ph.split ], [ %indvars.iv.next, %68 ]
-  %.061.ph = phi i32 [ 63, %62 ], [ 63, %64 ], [ %48, %61 ], [ %48, %51 ], [ %48, %54 ], [ %48, %60 ], [ 63, %.lr.ph.split ], [ 63, %68 ]
-  %71 = and i64 %.06298, 4294967295
+  %.06198 = phi i64 [ %indvars.iv, %62 ], [ %indvars.iv, %64 ], [ %indvars.iv, %61 ], [ %indvars.iv, %51 ], [ %indvars.iv, %54 ], [ %indvars.iv, %60 ], [ 0, %.lr.ph.split ], [ %indvars.iv.next, %68 ]
+  %.062.ph = phi i32 [ 63, %62 ], [ 63, %64 ], [ %48, %61 ], [ %48, %51 ], [ %48, %54 ], [ %48, %60 ], [ 63, %.lr.ph.split ], [ 63, %68 ]
+  %71 = and i64 %.06198, 4294967295
   %72 = getelementptr inbounds %struct.h5_long_options, ptr %3, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
@@ -798,7 +798,7 @@ sub_2:                                            ; preds = %sub_1
   br label %.critedge
 
 .critedge:                                        ; preds = %39, %75, %77, %.loopexit
-  %.1 = phi i32 [ %.061.ph, %.loopexit ], [ 63, %77 ], [ 63, %75 ], [ 63, %39 ]
+  %.1 = phi i32 [ %.062.ph, %.loopexit ], [ 63, %77 ], [ 63, %75 ], [ 63, %39 ]
   %81 = load i32, ptr @H5_optind, align 4
   %82 = add nsw i32 %81, 1
   store i32 %82, ptr @H5_optind, align 4

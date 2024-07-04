@@ -37,13 +37,13 @@ define i64 @f32_to_i32(i32 %0, i8 noundef zeroext %1, i1 noundef zeroext %2) loc
   br label %softfloat_shiftRightJam64.exit
 
 softfloat_shiftRightJam64.exit:                   ; preds = %22, %14, %3
-  %.018 = phi i64 [ %10, %3 ], [ %21, %14 ], [ %24, %22 ]
+  %.0 = phi i64 [ %10, %3 ], [ %21, %14 ], [ %24, %22 ]
   %25 = icmp eq i64 %7, 0
   %26 = icmp ne i64 %6, 255
   %27 = icmp slt i32 %0, 0
   %or.cond.not = or i1 %25, %26
   %spec.select = and i1 %27, %or.cond.not
-  %28 = tail call i64 @softfloat_roundToI32(i1 noundef zeroext %spec.select, i64 noundef %.018, i8 noundef zeroext %1, i1 noundef zeroext %2) #2
+  %28 = tail call i64 @softfloat_roundToI32(i1 noundef zeroext %spec.select, i64 noundef %.0, i8 noundef zeroext %1, i1 noundef zeroext %2) #2
   ret i64 %28
 }
 

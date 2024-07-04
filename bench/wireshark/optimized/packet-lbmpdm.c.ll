@@ -1365,17 +1365,17 @@ proto_item_set_generated.exit76:                  ; preds = %proto_item_set_gene
   br i1 %.not.i77, label %._crit_edge148.i, label %.lr.ph147.i
 
 .lr.ph147.i:                                      ; preds = %.preheader.i, %.lr.ph147.i
-  %.0146.i = phi i64 [ %124, %.lr.ph147.i ], [ %121, %.preheader.i ]
-  %.0137145.i = phi i8 [ %125, %.lr.ph147.i ], [ %119, %.preheader.i ]
-  %124 = mul i64 %.0146.i, 10
-  %125 = add nsw i8 %.0137145.i, -1
-  %126 = icmp ugt i8 %.0137145.i, 1
+  %.0136146.i = phi i8 [ %125, %.lr.ph147.i ], [ %119, %.preheader.i ]
+  %.0137145.i = phi i64 [ %124, %.lr.ph147.i ], [ %121, %.preheader.i ]
+  %124 = mul i64 %.0137145.i, 10
+  %125 = add nsw i8 %.0136146.i, -1
+  %126 = icmp ugt i8 %.0136146.i, 1
   br i1 %126, label %.lr.ph147.i, label %._crit_edge148.i, !llvm.loop !11
 
 ._crit_edge148.i:                                 ; preds = %.lr.ph147.i, %.preheader.i
-  %.0.lcssa.i = phi i64 [ %121, %.preheader.i ], [ %124, %.lr.ph147.i ]
+  %.0137.lcssa.i = phi i64 [ %121, %.preheader.i ], [ %124, %.lr.ph147.i ]
   %127 = load i32, ptr @hf_lbmpdm_field_value_decimal, align 4
-  %128 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %13, i32 noundef %127, ptr noundef %0, i32 noundef %.0, i32 noundef %.060, ptr noundef nonnull @.str.126, i64 noundef %.0.lcssa.i, i64 noundef %121, i32 noundef %122) #7
+  %128 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %13, i32 noundef %127, ptr noundef %0, i32 noundef %.0, i32 noundef %.060, ptr noundef nonnull @.str.126, i64 noundef %.0137.lcssa.i, i64 noundef %121, i32 noundef %122) #7
   br label %dissect_field_value.exit
 
 129:                                              ; preds = %118
@@ -1385,19 +1385,19 @@ proto_item_set_generated.exit76:                  ; preds = %proto_item_set_gene
   br i1 %132, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %129, %.lr.ph.i
-  %.0136144.i = phi i64 [ %133, %.lr.ph.i ], [ 1, %129 ]
-  %.1138143.i = phi i8 [ %134, %.lr.ph.i ], [ %131, %129 ]
-  %133 = mul i64 %.0136144.i, 10
-  %134 = add nsw i8 %.1138143.i, -1
-  %135 = icmp ugt i8 %.1138143.i, 1
+  %.0144.i = phi i64 [ %133, %.lr.ph.i ], [ 1, %129 ]
+  %.1143.i = phi i8 [ %134, %.lr.ph.i ], [ %131, %129 ]
+  %133 = mul i64 %.0144.i, 10
+  %134 = add nsw i8 %.1143.i, -1
+  %135 = icmp ugt i8 %.1143.i, 1
   br i1 %135, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %129
-  %.0136.lcssa.i = phi i64 [ 1, %129 ], [ %133, %.lr.ph.i ]
+  %.0.lcssa.i = phi i64 [ 1, %129 ], [ %133, %.lr.ph.i ]
   %136 = icmp slt i64 %121, 0
-  %.1.i = call i64 @llvm.abs.i64(i64 %121, i1 false)
-  %137 = urem i64 %.1.i, %.0136.lcssa.i
-  %138 = udiv i64 %.1.i, %.0136.lcssa.i
+  %.1138.i = call i64 @llvm.abs.i64(i64 %121, i1 false)
+  %137 = urem i64 %.1138.i, %.0.lcssa.i
+  %138 = udiv i64 %.1138.i, %.0.lcssa.i
   %139 = sub i64 0, %138
   %.2.i = select i1 %136, i64 %139, i64 %138
   %140 = load i32, ptr @hf_lbmpdm_field_value_decimal, align 4

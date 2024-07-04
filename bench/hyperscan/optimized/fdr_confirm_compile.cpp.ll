@@ -522,8 +522,8 @@ _ZN3ue29verify_u8ImEEhT_.exit.i.i:                ; preds = %for.body.i.i
 
 for.body19.i.i:                                   ; preds = %for.inc.i.i, %_ZN3ue29verify_u8ImEEhT_.exit.i.i
   %indvars.iv.i.i = phi i64 [ 0, %_ZN3ue29verify_u8ImEEhT_.exit.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %msk15.073.i.i = phi i64 [ -1, %_ZN3ue29verify_u8ImEEhT_.exit.i.i ], [ %msk15.1.i.i, %for.inc.i.i ]
-  %val.071.i.i = phi i64 [ 0, %_ZN3ue29verify_u8ImEEhT_.exit.i.i ], [ %val.1.i.i, %for.inc.i.i ]
+  %val.072.i.i = phi i64 [ 0, %_ZN3ue29verify_u8ImEEhT_.exit.i.i ], [ %val.1.i.i, %for.inc.i.i ]
+  %msk15.071.i.i = phi i64 [ -1, %_ZN3ue29verify_u8ImEEhT_.exit.i.i ], [ %msk15.1.i.i, %for.inc.i.i ]
   %35 = shl nuw nsw i64 %indvars.iv.i.i, 3
   %36 = sub nuw nsw i64 56, %35
   %call25.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #18, !noalias !7
@@ -533,7 +533,7 @@ for.body19.i.i:                                   ; preds = %for.inc.i.i, %_ZN3u
 if.then27.i.i:                                    ; preds = %for.body19.i.i
   %shl.i.i = shl nuw i64 255, %36
   %not.i.i = xor i64 %shl.i.i, -1
-  %and.i33.i = and i64 %msk15.073.i.i, %not.i.i
+  %and.i33.i = and i64 %msk15.071.i.i, %not.i.i
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body19.i.i
@@ -561,22 +561,22 @@ land.lhs.true.i.i:                                ; preds = %if.else.i.i
 if.then38.i.i:                                    ; preds = %land.lhs.true.i.i
   %shl40.i.i = shl nuw nsw i64 32, %36
   %not41.i.i = xor i64 %shl40.i.i, -1
-  %and42.i.i = and i64 %msk15.073.i.i, %not41.i.i
+  %and42.i.i = and i64 %msk15.071.i.i, %not41.i.i
   %44 = and i8 %38, -33
   %conv45.i.i = zext i8 %44 to i64
   %shl47.i.i = shl nuw i64 %conv45.i.i, %36
-  %or48.i.i = or i64 %shl47.i.i, %val.071.i.i
+  %or48.i.i = or i64 %shl47.i.i, %val.072.i.i
   br label %for.inc.i.i
 
 if.else49.i.i:                                    ; preds = %land.lhs.true.i.i, %if.else.i.i
   %conv50.i.i = zext i8 %38 to i64
   %shl52.i.i = shl nuw i64 %conv50.i.i, %36
-  %or53.i.i = or i64 %shl52.i.i, %val.071.i.i
+  %or53.i.i = or i64 %shl52.i.i, %val.072.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else49.i.i, %if.then38.i.i, %if.then27.i.i
-  %val.1.i.i = phi i64 [ %val.071.i.i, %if.then27.i.i ], [ %or48.i.i, %if.then38.i.i ], [ %or53.i.i, %if.else49.i.i ]
-  %msk15.1.i.i = phi i64 [ %and.i33.i, %if.then27.i.i ], [ %and42.i.i, %if.then38.i.i ], [ %msk15.073.i.i, %if.else49.i.i ]
+  %msk15.1.i.i = phi i64 [ %and.i33.i, %if.then27.i.i ], [ %and42.i.i, %if.then38.i.i ], [ %msk15.071.i.i, %if.else49.i.i ]
+  %val.1.i.i = phi i64 [ %val.072.i.i, %if.then27.i.i ], [ %or48.i.i, %if.then38.i.i ], [ %or53.i.i, %if.else49.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body19.i.i, !llvm.loop !11

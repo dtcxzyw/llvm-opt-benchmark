@@ -424,10 +424,10 @@ define dso_local ptr @strip_quotes(ptr noundef %0, ptr noundef %1, i1 noundef ze
 
 8:                                                ; preds = %4, %6
   %9 = phi i8 [ %.pre, %6 ], [ %5, %4 ]
-  %.046 = phi i32 [ %7, %6 ], [ 0, %4 ]
+  %.045 = phi i32 [ %7, %6 ], [ 0, %4 ]
   %.not55.not = phi i1 [ true, %6 ], [ false, %4 ]
-  %.045 = phi i32 [ 1, %6 ], [ 0, %4 ]
-  %10 = zext nneg i32 %.045 to i64
+  %.0 = phi i32 [ 1, %6 ], [ 0, %4 ]
+  %10 = zext nneg i32 %.0 to i64
   %11 = getelementptr inbounds i8, ptr %0, i64 %10
   %.not5459 = icmp eq i8 %9, 0
   br i1 %.not5459, label %._crit_edge, label %.lr.ph
@@ -475,9 +475,9 @@ define dso_local ptr @strip_quotes(ptr noundef %0, ptr noundef %1, i1 noundef ze
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %33 ], [ %10, %.lr.ph.split.us ]
   %23 = phi i8 [ %36, %33 ], [ %9, %.lr.ph.split.us ]
   %24 = phi ptr [ %35, %33 ], [ %11, %.lr.ph.split.us ]
-  %.160.us = phi i32 [ %34, %33 ], [ %.045, %.lr.ph.split.us ]
+  %.160.us = phi i32 [ %34, %33 ], [ %.0, %.lr.ph.split.us ]
   %25 = sext i8 %23 to i32
-  %26 = icmp eq i32 %.046, %25
+  %26 = icmp eq i32 %.045, %25
   br i1 %26, label %._crit_edge.loopexit.split.loop.exit, label %27
 
 27:                                               ; preds = %.lr.ph.split.us.split
@@ -537,9 +537,9 @@ define dso_local ptr @strip_quotes(ptr noundef %0, ptr noundef %1, i1 noundef ze
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %49 ], [ %10, %.lr.ph.split ]
   %43 = phi i8 [ %52, %49 ], [ %9, %.lr.ph.split ]
   %44 = phi ptr [ %51, %49 ], [ %11, %.lr.ph.split ]
-  %.160 = phi i32 [ %50, %49 ], [ %.045, %.lr.ph.split ]
+  %.160 = phi i32 [ %50, %49 ], [ %.0, %.lr.ph.split ]
   %45 = sext i8 %43 to i32
-  %46 = icmp eq i32 %.046, %45
+  %46 = icmp eq i32 %.045, %45
   br i1 %46, label %._crit_edge.loopexit89.split.loop.exit, label %47
 
 47:                                               ; preds = %.lr.ph.split.split
@@ -577,9 +577,9 @@ define dso_local ptr @strip_quotes(ptr noundef %0, ptr noundef %1, i1 noundef ze
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %49, %33, %._crit_edge.loopexit89.split.loop.exit, %._crit_edge.loopexit.split.loop.exit, %._crit_edge.loopexit81, %._crit_edge.loopexit77, %8
-  %.1.lcssa = phi i32 [ %.045, %8 ], [ %53, %._crit_edge.loopexit77 ], [ %54, %._crit_edge.loopexit81 ], [ %55, %._crit_edge.loopexit.split.loop.exit ], [ %56, %._crit_edge.loopexit89.split.loop.exit ], [ %34, %33 ], [ %50, %49 ]
-  %.048 = phi i32 [ 0, %8 ], [ 0, %._crit_edge.loopexit77 ], [ 0, %._crit_edge.loopexit81 ], [ 1, %._crit_edge.loopexit.split.loop.exit ], [ 1, %._crit_edge.loopexit89.split.loop.exit ], [ 0, %33 ], [ 0, %49 ]
-  %57 = sub nsw i32 %.1.lcssa, %.045
+  %.1.lcssa = phi i32 [ %.0, %8 ], [ %53, %._crit_edge.loopexit77 ], [ %54, %._crit_edge.loopexit81 ], [ %55, %._crit_edge.loopexit.split.loop.exit ], [ %56, %._crit_edge.loopexit89.split.loop.exit ], [ %34, %33 ], [ %50, %49 ]
+  %.047 = phi i32 [ 0, %8 ], [ 0, %._crit_edge.loopexit77 ], [ 0, %._crit_edge.loopexit81 ], [ 1, %._crit_edge.loopexit.split.loop.exit ], [ 1, %._crit_edge.loopexit89.split.loop.exit ], [ 0, %33 ], [ 0, %49 ]
+  %57 = sub nsw i32 %.1.lcssa, %.0
   %58 = add nsw i32 %57, 1
   %59 = sext i32 %58 to i64
   %60 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %59, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 152, ptr noundef nonnull @__func__.strip_quotes) #20
@@ -589,15 +589,15 @@ define dso_local ptr @strip_quotes(ptr noundef %0, ptr noundef %1, i1 noundef ze
   br i1 %.not57, label %66, label %62
 
 62:                                               ; preds = %._crit_edge
-  %63 = add nuw nsw i32 %.048, %.1.lcssa
+  %63 = add nuw nsw i32 %.047, %.1.lcssa
   %64 = load i32, ptr %1, align 4
   %65 = add nsw i32 %63, %64
   store i32 %65, ptr %1, align 4
   br label %66
 
 66:                                               ; preds = %._crit_edge, %62, %3
-  %.0 = phi ptr [ null, %3 ], [ %60, %62 ], [ %60, %._crit_edge ]
-  ret ptr %.0
+  %.048 = phi ptr [ null, %3 ], [ %60, %62 ], [ %60, %._crit_edge ]
+  ret ptr %.048
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

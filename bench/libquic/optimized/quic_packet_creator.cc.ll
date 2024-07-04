@@ -2053,14 +2053,14 @@ land.rhs.lr.ph:                                   ; preds = %entry
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body
   %indvars.iv = phi i64 [ 0, %land.rhs.lr.ph ], [ %indvars.iv.next, %while.body ]
-  %iov_offset.addr.044 = phi i64 [ %iov_offset, %land.rhs.lr.ph ], [ %sub, %while.body ]
+  %iov_offset.addr.043 = phi i64 [ %iov_offset, %land.rhs.lr.ph ], [ %sub, %while.body ]
   %iov_len = getelementptr inbounds %struct.iovec, ptr %1, i64 %indvars.iv, i32 1
   %2 = load i64, ptr %iov_len, align 8
-  %cmp2.not = icmp ult i64 %iov_offset.addr.044, %2
+  %cmp2.not = icmp ult i64 %iov_offset.addr.043, %2
   br i1 %cmp2.not, label %if.end18.loopexit, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %sub = sub i64 %iov_offset.addr.044, %2
+  %sub = sub i64 %iov_offset.addr.043, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %cleanup.done, label %land.rhs, !llvm.loop !20
@@ -2070,8 +2070,8 @@ if.end18.loopexit:                                ; preds = %land.rhs
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end18.loopexit, %entry
+  %iov_offset.addr.0.lcssa = phi i64 [ %iov_offset, %entry ], [ %iov_offset.addr.043, %if.end18.loopexit ]
   %iovnum.0.lcssa = phi i32 [ 0, %entry ], [ %3, %if.end18.loopexit ]
-  %iov_offset.addr.0.lcssa = phi i64 [ %iov_offset, %entry ], [ %iov_offset.addr.044, %if.end18.loopexit ]
   %cmp20 = icmp sge i32 %iovnum.0.lcssa, %0
   %cmp21 = icmp eq i64 %length, 0
   %or.cond = or i1 %cmp21, %cmp20

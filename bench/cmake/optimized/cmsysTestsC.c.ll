@@ -64,10 +64,10 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 20:                                               ; preds = %17, %2
   %21 = phi i32 [ %13, %17 ], [ 0, %2 ]
-  %.079 = phi i32 [ %13, %17 ], [ -1, %2 ]
+  %.075 = phi i32 [ %13, %17 ], [ -1, %2 ]
   %.072 = phi ptr [ %19, %17 ], [ %1, %2 ]
   %.071 = phi i32 [ %18, %17 ], [ %0, %2 ]
-  %22 = icmp eq i32 %.079, -1
+  %22 = icmp eq i32 %.075, -1
   %23 = icmp sgt i32 %.071, 1
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %sub_0, label %88
@@ -199,8 +199,8 @@ isTestSkipped.exit.thread:                        ; preds = %42, %isTestSkipped.
 
 .thread114:                                       ; preds = %sub_0, %sub_1121, %.tail119, %88
   %89 = phi i1 [ false, %88 ], [ %36, %.tail119 ], [ %36, %sub_1121 ], [ false, %sub_0 ]
-  %.078107111116 = phi i32 [ 0, %88 ], [ %35, %.tail119 ], [ %35, %sub_1121 ], [ 0, %sub_0 ]
-  %90 = add nuw nsw i32 %.078107111116, 1
+  %.080106111116 = phi i32 [ 0, %88 ], [ %35, %.tail119 ], [ %35, %sub_1121 ], [ 0, %sub_0 ]
+  %90 = add nuw nsw i32 %.080106111116, 1
   %91 = zext nneg i32 %90 to i64
   %92 = getelementptr inbounds ptr, ptr %.072, i64 %91
   %93 = load ptr, ptr %92, align 8
@@ -232,8 +232,8 @@ lowercase.exit:                                   ; preds = %.lr.ph.i97
   br i1 %22, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.thread114, %98, %lowercase.exit
-  %.082163 = phi ptr [ %96, %lowercase.exit ], [ %96, %98 ], [ null, %.thread114 ]
-  %107 = icmp eq i32 %.078107111116, 0
+  %.078163 = phi ptr [ %96, %lowercase.exit ], [ %96, %98 ], [ null, %.thread114 ]
+  %107 = icmp eq i32 %.080106111116, 0
   br label %108
 
 108:                                              ; preds = %.lr.ph, %138
@@ -272,7 +272,7 @@ lowercase.exit102:                                ; preds = %.lr.ph.i99, %108, %
   br i1 %89, label %126, label %131
 
 126:                                              ; preds = %lowercase.exit102
-  %127 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull dereferenceable(1) %.082163) #10
+  %127 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull dereferenceable(1) %.078163) #10
   %.not91 = icmp eq ptr %127, null
   br i1 %.not91, label %131, label %128
 
@@ -285,7 +285,7 @@ lowercase.exit102:                                ; preds = %.lr.ph.i99, %108, %
   br i1 %107, label %132, label %138
 
 132:                                              ; preds = %131
-  %133 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull dereferenceable(1) %.082163) #10
+  %133 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull dereferenceable(1) %.078163) #10
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %135, label %138
 
@@ -295,28 +295,28 @@ lowercase.exit102:                                ; preds = %.lr.ph.i99, %108, %
   br label %138
 
 138:                                              ; preds = %131, %132, %135, %128
-  %.281 = phi i32 [ %125, %128 ], [ %125, %135 ], [ -1, %132 ], [ -1, %131 ]
+  %.277 = phi i32 [ %125, %128 ], [ %125, %135 ], [ -1, %132 ], [ -1, %131 ]
   %.274 = phi ptr [ %130, %128 ], [ %137, %135 ], [ %.173127, %132 ], [ %.173127, %131 ]
   %.2 = phi i32 [ %129, %128 ], [ %136, %135 ], [ %.1128, %132 ], [ %.1128, %131 ]
   call void @free(ptr noundef %114) #11
-  %139 = icmp eq i32 %.281, -1
-  %140 = and i1 %139, %109
+  %139 = icmp eq i32 %.277, -1
+  %140 = and i1 %109, %139
   br i1 %140, label %108, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge.thread:                               ; preds = %lowercase.exit, %88
-  %.082164.ph = phi ptr [ %96, %lowercase.exit ], [ null, %88 ]
-  call void @free(ptr noundef %.082164.ph) #11
+  %.078164.ph = phi ptr [ %96, %lowercase.exit ], [ null, %88 ]
+  call void @free(ptr noundef %.078164.ph) #11
   br label %141
 
 ._crit_edge:                                      ; preds = %138
-  call void @free(ptr noundef %.082163) #11
+  call void @free(ptr noundef %.078163) #11
   br i1 %139, label %.critedge179, label %141
 
 141:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %.1.lcssa175 = phi i32 [ %.071, %._crit_edge.thread ], [ %.2, %._crit_edge ]
   %.173.lcssa174 = phi ptr [ %.072, %._crit_edge.thread ], [ %.274, %._crit_edge ]
-  %.180.lcssa173 = phi i32 [ %.079, %._crit_edge.thread ], [ %.281, %._crit_edge ]
-  %or.cond5 = icmp ugt i32 %.180.lcssa173, 1
+  %.176.lcssa173 = phi i32 [ %.075, %._crit_edge.thread ], [ %.277, %._crit_edge ]
+  %or.cond5 = icmp ugt i32 %.176.lcssa173, 1
   br i1 %or.cond5, label %142, label %144
 
 142:                                              ; preds = %141
@@ -324,7 +324,7 @@ lowercase.exit102:                                ; preds = %.lr.ph.i99, %108, %
   br label %154
 
 144:                                              ; preds = %141
-  %145 = zext nneg i32 %.180.lcssa173 to i64
+  %145 = zext nneg i32 %.176.lcssa173 to i64
   %146 = getelementptr inbounds [3 x %struct.functionMapEntry], ptr @cmakeGeneratedFunctionMapEntries, i64 0, i64 %145, i32 1
   %147 = load ptr, ptr %146, align 8
   %148 = call i32 %147(i32 noundef %.1.lcssa175, ptr noundef %.173.lcssa174) #11

@@ -492,8 +492,8 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr nocapture readnone 
   %198 = getelementptr inbounds ptr, ptr %49, i64 %197
   %199 = load ptr, ptr %198, align 8
   tail call void @N_VScale(double noundef %196, ptr noundef %2, ptr noundef %199) #12
-  %.326.i = add nsw i32 %68, 1
-  %200 = icmp slt i32 %.326.i, %32
+  %.335126.i = add nsw i32 %68, 1
+  %200 = icmp slt i32 %.335126.i, %32
   br i1 %200, label %.lr.ph30.preheader.i, label %.preheader1.i
 
 .lr.ph30.preheader.i:                             ; preds = %194
@@ -502,28 +502,28 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr nocapture readnone 
   br label %.lr.ph30.i
 
 .preheader1.i:                                    ; preds = %.lr.ph30.i, %194
-  %.4355.lcssa.i = phi i64 [ 0, %194 ], [ %wide.trip.count89.i, %.lr.ph30.i ]
-  %.not36932.i = icmp slt i32 %68, 0
-  br i1 %.not36932.i, label %.loopexit2.i, label %.lr.ph35.i
+  %.4.lcssa.i = phi i64 [ 0, %194 ], [ %wide.trip.count89.i, %.lr.ph30.i ]
+  %.not37032.i = icmp slt i32 %68, 0
+  br i1 %.not37032.i, label %.loopexit2.i, label %.lr.ph35.i
 
 .lr.ph30.i:                                       ; preds = %.lr.ph30.i, %.lr.ph30.preheader.i
   %indvars.iv85.i = phi i64 [ 0, %.lr.ph30.preheader.i ], [ %indvars.iv.next86.i, %.lr.ph30.i ]
-  %.328.i = phi i32 [ %.326.i, %.lr.ph30.preheader.i ], [ %.3.i, %.lr.ph30.i ]
+  %.335128.i = phi i32 [ %.335126.i, %.lr.ph30.preheader.i ], [ %.3351.i, %.lr.ph30.i ]
   %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
   %202 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv85.i
-  store i32 %.328.i, ptr %202, align 4
-  %.3.i = add nsw i32 %.328.i, 1
+  store i32 %.335128.i, ptr %202, align 4
+  %.3351.i = add nsw i32 %.335128.i, 1
   %exitcond90.not.i = icmp eq i64 %indvars.iv.next86.i, %wide.trip.count89.i
   br i1 %exitcond90.not.i, label %.preheader1.i, label %.lr.ph30.i
 
 .lr.ph35.i:                                       ; preds = %.preheader1.i, %.lr.ph35.i
-  %indvars.iv91.i = phi i64 [ %indvars.iv.next92.i, %.lr.ph35.i ], [ %.4355.lcssa.i, %.preheader1.i ]
-  %.434.i = phi i32 [ %204, %.lr.ph35.i ], [ 0, %.preheader1.i ]
+  %indvars.iv91.i = phi i64 [ %indvars.iv.next92.i, %.lr.ph35.i ], [ %.4.lcssa.i, %.preheader1.i ]
+  %.435233.i = phi i32 [ %204, %.lr.ph35.i ], [ 0, %.preheader1.i ]
   %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 1
   %203 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv91.i
-  store i32 %.434.i, ptr %203, align 4
-  %204 = add nuw i32 %.434.i, 1
-  %exitcond95.not.i = icmp eq i32 %.434.i, %68
+  store i32 %.435233.i, ptr %203, align 4
+  %204 = add nuw i32 %.435233.i, 1
+  %exitcond95.not.i = icmp eq i32 %.435233.i, %68
   br i1 %exitcond95.not.i, label %.loopexit2.i, label %.lr.ph35.i
 
 .loopexit2.i:                                     ; preds = %.lr.ph35.i, %.preheader1.i, %122, %86
@@ -536,7 +536,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr nocapture readnone 
   br i1 %207, label %.preheader.lr.ph.i, label %._crit_edge42.thread.i
 
 .preheader.lr.ph.i:                               ; preds = %.loopexit2.i
-  %.5371.i = add i32 %32, 1
+  %.5353372.i = add i32 %32, 1
   %208 = sext i32 %32 to i64
   %smin.i = zext nneg i32 %spec.select.i to i64
   %209 = add nuw i32 %spec.select.i, 1
@@ -544,20 +544,20 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr nocapture readnone 
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %229, %.preheader.lr.ph.i
-  %indvars.iv103.in.i = phi i64 [ %smin.i, %.preheader.lr.ph.i ], [ %indvars.iv103.i, %229 ]
-  %indvars.iv101.i = phi i64 [ 1, %.preheader.lr.ph.i ], [ %indvars.iv.next102.i, %229 ]
-  %indvars.iv103.i = add nsw i64 %indvars.iv103.in.i, -1
-  %210 = icmp slt i64 %indvars.iv103.in.i, %smin.i
-  %211 = getelementptr inbounds double, ptr %57, i64 %indvars.iv103.i
+  %indvars.iv104.i = phi i64 [ 1, %.preheader.lr.ph.i ], [ %indvars.iv.next105.i, %229 ]
+  %indvars.iv101.in.i = phi i64 [ %smin.i, %.preheader.lr.ph.i ], [ %indvars.iv101.i, %229 ]
+  %indvars.iv101.i = add nsw i64 %indvars.iv101.in.i, -1
+  %210 = icmp slt i64 %indvars.iv101.in.i, %smin.i
+  %211 = getelementptr inbounds double, ptr %57, i64 %indvars.iv101.i
   %.promoted.i = load double, ptr %211, align 8
   br i1 %210, label %.lr.ph38.i, label %._crit_edge39.i
 
 .lr.ph38.i:                                       ; preds = %.preheader.i
-  %invariant.gep135.i = getelementptr double, ptr %55, i64 %indvars.iv103.i
+  %invariant.gep135.i = getelementptr double, ptr %55, i64 %indvars.iv101.i
   br label %212
 
 212:                                              ; preds = %212, %.lr.ph38.i
-  %indvars.iv98.i = phi i64 [ %indvars.iv103.in.i, %.lr.ph38.i ], [ %indvars.iv.next99.i, %212 ]
+  %indvars.iv98.i = phi i64 [ %indvars.iv101.in.i, %.lr.ph38.i ], [ %indvars.iv.next99.i, %212 ]
   %213 = phi double [ %.promoted.i, %.lr.ph38.i ], [ %219, %212 ]
   %214 = mul nsw i64 %indvars.iv98.i, %208
   %gep136.i = getelementptr double, ptr %invariant.gep135.i, i64 %214
@@ -578,8 +578,8 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr nocapture readnone 
   br i1 %221, label %229, label %222
 
 222:                                              ; preds = %._crit_edge39.i
-  %223 = trunc nuw nsw i64 %indvars.iv103.i to i32
-  %224 = mul i32 %.5371.i, %223
+  %223 = trunc nuw nsw i64 %indvars.iv101.i to i32
+  %224 = mul i32 %.5353372.i, %223
   %225 = sext i32 %224 to i64
   %226 = getelementptr inbounds double, ptr %55, i64 %225
   %227 = load double, ptr %226, align 8
@@ -590,26 +590,26 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr nocapture readnone 
   %storemerge.i = phi double [ %228, %222 ], [ 0.000000e+00, %._crit_edge39.i ]
   store double %storemerge.i, ptr %211, align 8
   %230 = fneg double %storemerge.i
-  %231 = getelementptr inbounds double, ptr %51, i64 %indvars.iv101.i
+  %231 = getelementptr inbounds double, ptr %51, i64 %indvars.iv104.i
   store double %230, ptr %231, align 8
-  %232 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv103.i
+  %232 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv101.i
   %233 = load i32, ptr %232, align 4
   %234 = sext i32 %233 to i64
   %235 = getelementptr inbounds ptr, ptr %47, i64 %234
   %236 = load ptr, ptr %235, align 8
-  %237 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv101.i
+  %237 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv104.i
   store ptr %236, ptr %237, align 8
-  %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
-  %exitcond109.not.i = icmp eq i64 %indvars.iv.next102.i, %wide.trip.count108.i
+  %indvars.iv.next105.i = add nuw nsw i64 %indvars.iv104.i, 1
+  %exitcond109.not.i = icmp eq i64 %indvars.iv.next105.i, %wide.trip.count108.i
   br i1 %exitcond109.not.i, label %._crit_edge42.i, label %.preheader.i
 
 ._crit_edge42.i:                                  ; preds = %229
-  %.not370.i = icmp eq i32 %61, 0
-  br i1 %.not370.i, label %.loopexit.i, label %.lr.ph48.preheader.i
+  %.not371.i = icmp eq i32 %61, 0
+  br i1 %.not371.i, label %.loopexit.i, label %.lr.ph48.preheader.i
 
 ._crit_edge42.thread.i:                           ; preds = %.loopexit2.i
-  %.not370122.i = icmp eq i32 %61, 0
-  br i1 %.not370122.i, label %.loopexit.i, label %.thread124.i
+  %.not371122.i = icmp eq i32 %61, 0
+  br i1 %.not371122.i, label %.loopexit.i, label %.thread124.i
 
 .thread124.i:                                     ; preds = %._crit_edge42.thread.i
   %238 = fsub double 1.000000e+00, %63
@@ -656,8 +656,8 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr nocapture readnone 
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %.thread124.i, %._crit_edge42.thread.i, %._crit_edge42.i
-  %.2.i = phi i32 [ %209, %._crit_edge42.i ], [ %258, %.loopexit.loopexit.i ], [ 1, %._crit_edge42.thread.i ], [ 2, %.thread124.i ]
-  %259 = tail call i32 @N_VLinearCombination(i32 noundef %.2.i, ptr noundef nonnull %51, ptr noundef nonnull %53, ptr noundef %2) #12
+  %.2357.i = phi i32 [ %209, %._crit_edge42.i ], [ %258, %.loopexit.loopexit.i ], [ 1, %._crit_edge42.thread.i ], [ 2, %.thread124.i ]
+  %259 = tail call i32 @N_VLinearCombination(i32 noundef %.2357.i, ptr noundef nonnull %51, ptr noundef nonnull %53, ptr noundef %2) #12
   br label %AndersonAccelerate.exit
 
 AndersonAccelerate.exit:                          ; preds = %.loopexit.i, %77, %34

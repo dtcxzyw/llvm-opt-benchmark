@@ -292,30 +292,30 @@ define internal i32 @dissect_nbifom(ptr noundef %0, ptr nocapture noundef readon
   br i1 %49, label %.lr.ph.i, label %dissect_nbifom_routing_rules.exit
 
 .lr.ph.i:                                         ; preds = %47, %167
-  %.02.i = phi i32 [ %.14.i, %167 ], [ %30, %47 ]
-  %.0831.i = phi i32 [ %51, %167 ], [ 0, %47 ]
+  %.02.i = phi i32 [ %51, %167 ], [ 0, %47 ]
+  %.0831.i = phi i32 [ %.14.i, %167 ], [ %30, %47 ]
   %50 = load i32, ptr @ett_nbifom_routing_rule, align 4
-  %51 = add i32 %.0831.i, 1
-  %52 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %27, ptr noundef %0, i32 noundef %.02.i, i32 noundef -1, i32 noundef %50, ptr noundef nonnull %6, ptr noundef nonnull @.str.115, i32 noundef %51) #3
+  %51 = add i32 %.02.i, 1
+  %52 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %27, ptr noundef %0, i32 noundef %.0831.i, i32 noundef -1, i32 noundef %50, ptr noundef nonnull %6, ptr noundef nonnull @.str.115, i32 noundef %51) #3
   %53 = load i32, ptr @hf_nbifom_routing_rule_len, align 4
-  %54 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %53, ptr noundef %0, i32 noundef %.02.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #3
+  %54 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %53, ptr noundef %0, i32 noundef %.0831.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #3
   %55 = load ptr, ptr %6, align 8
   %56 = load i32, ptr %5, align 4
   %57 = add i32 %56, 1
   call void @proto_item_set_len(ptr noundef %55, i32 noundef %57) #3
-  %58 = add i32 %.02.i, 1
+  %58 = add i32 %.0831.i, 1
   %59 = load i32, ptr @hf_nbifom_routing_rule_id, align 4
   %60 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %59, ptr noundef %0, i32 noundef %58, i32 noundef 1, i32 noundef 0) #3
-  %61 = add i32 %.02.i, 2
+  %61 = add i32 %.0831.i, 2
   call void @proto_tree_add_bitmask_list(ptr noundef %52, ptr noundef %0, i32 noundef %61, i32 noundef 1, ptr noundef nonnull @dissect_nbifom_routing_rules.flags1, i32 noundef 0) #3
-  %62 = add i32 %.02.i, 3
+  %62 = add i32 %.0831.i, 3
   %63 = load i32, ptr @hf_nbifom_routing_rule_prio, align 4
   %64 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %63, ptr noundef %0, i32 noundef %62, i32 noundef 1, i32 noundef 0) #3
-  %65 = add i32 %.02.i, 4
+  %65 = add i32 %.0831.i, 4
   %66 = load i32, ptr @hf_nbifom_routing_rule_flags, align 4
   %67 = load i32, ptr @ett_nbifom_routing_rule_flags, align 4
   %68 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %52, ptr noundef %0, i32 noundef %65, i32 noundef %66, i32 noundef %67, ptr noundef nonnull @dissect_nbifom_routing_rules.flags2, i32 noundef 0, ptr noundef nonnull %7) #3
-  %69 = add i32 %.02.i, 8
+  %69 = add i32 %.0831.i, 8
   %70 = load i64, ptr %7, align 8
   %71 = and i64 %70, 16777216
   %.not.i = icmp eq i64 %71, 0
@@ -324,7 +324,7 @@ define internal i32 @dissect_nbifom(ptr noundef %0, ptr nocapture noundef readon
 72:                                               ; preds = %.lr.ph.i
   %73 = load i32, ptr @hf_nbifom_routing_rule_src_ipv4_addr, align 4
   %74 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %73, ptr noundef %0, i32 noundef %69, i32 noundef 4, i32 noundef 0) #3
-  %75 = add i32 %.02.i, 12
+  %75 = add i32 %.0831.i, 12
   %.pre.i = load i64, ptr %7, align 8
   br label %76
 

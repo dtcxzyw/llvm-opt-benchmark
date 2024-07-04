@@ -1083,7 +1083,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
           to label %173 unwind label %171
 
 160:                                              ; preds = %155, %154
-  %.0148 = phi i8 [ 1, %154 ], [ %spec.select, %155 ]
+  %.0 = phi i8 [ 1, %154 ], [ %spec.select, %155 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %63)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %62)
   %161 = getelementptr inbounds i8, ptr %73, i64 80
@@ -1092,8 +1092,8 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
   %163 = getelementptr inbounds i8, ptr %62, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %163, ptr noundef nonnull align 8 dereferenceable(32) %162, i64 32, i1 false)
   %164 = getelementptr inbounds i8, ptr %62, i64 32
-  store i8 %.0148, ptr %164, align 8
-  %165 = trunc nuw i8 %.0148 to i1
+  store i8 %.0, ptr %164, align 8
+  %165 = trunc nuw i8 %.0 to i1
   %166 = load i64, ptr %62, align 8, !range !38, !noundef !10
   %167 = icmp eq i64 %166, -9223372036854775807
   %168 = load i64, ptr %163, align 8, !range !11

@@ -1046,7 +1046,7 @@ alignment_of_long_double.exit.i:                  ; preds = %.preheader.preheade
   br i1 %or.cond.i, label %alignment_of_long_double.exit.split.us.i, label %alignment_of_long_double.exit.split.i
 
 alignment_of_long_double.exit.split.us.i:         ; preds = %alignment_of_long_double.exit.i, %alignment_of_long_double.exit.split.us.i
-  %.019.us.i = phi i64 [ %91, %alignment_of_long_double.exit.split.us.i ], [ %.064, %alignment_of_long_double.exit.i ]
+  %.020.us.i = phi i64 [ %91, %alignment_of_long_double.exit.split.us.i ], [ %.064, %alignment_of_long_double.exit.i ]
   %.018.us.i = phi ptr [ %89, %alignment_of_long_double.exit.split.us.i ], [ %.0, %alignment_of_long_double.exit.i ]
   %.0.us.i = phi ptr [ %90, %alignment_of_long_double.exit.split.us.i ], [ %.066, %alignment_of_long_double.exit.i ]
   %87 = load x86_fp80, ptr %.018.us.i, align 16
@@ -1054,12 +1054,12 @@ alignment_of_long_double.exit.split.us.i:         ; preds = %alignment_of_long_d
   store fp128 %88, ptr %.0.us.i, align 16
   %89 = getelementptr inbounds i8, ptr %.018.us.i, i64 %4
   %90 = getelementptr inbounds i8, ptr %.0.us.i, i64 16
-  %91 = add nsw i64 %.019.us.i, -1
-  %92 = icmp sgt i64 %.019.us.i, 1
+  %91 = add nsw i64 %.020.us.i, -1
+  %92 = icmp sgt i64 %.020.us.i, 1
   br i1 %92, label %alignment_of_long_double.exit.split.us.i, label %ldbl_to_f128.exit, !llvm.loop !16
 
 alignment_of_long_double.exit.split.i:            ; preds = %alignment_of_long_double.exit.i, %alignment_of_long_double.exit.split.i
-  %.019.i = phi i64 [ %96, %alignment_of_long_double.exit.split.i ], [ %.064, %alignment_of_long_double.exit.i ]
+  %.020.i = phi i64 [ %96, %alignment_of_long_double.exit.split.i ], [ %.064, %alignment_of_long_double.exit.i ]
   %.018.i = phi ptr [ %94, %alignment_of_long_double.exit.split.i ], [ %.0, %alignment_of_long_double.exit.i ]
   %.0.i = phi ptr [ %95, %alignment_of_long_double.exit.split.i ], [ %.066, %alignment_of_long_double.exit.i ]
   %.0.copyload.i = load x86_fp80, ptr %.018.i, align 1
@@ -1067,8 +1067,8 @@ alignment_of_long_double.exit.split.i:            ; preds = %alignment_of_long_d
   store fp128 %93, ptr %.0.i, align 1
   %94 = getelementptr inbounds i8, ptr %.018.i, i64 %4
   %95 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %96 = add nsw i64 %.019.i, -1
-  %97 = icmp sgt i64 %.019.i, 1
+  %96 = add nsw i64 %.020.i, -1
+  %97 = icmp sgt i64 %.020.i, 1
   br i1 %97, label %alignment_of_long_double.exit.split.i, label %ldbl_to_f128.exit, !llvm.loop !16
 
 ldbl_to_f128.exit:                                ; preds = %alignment_of_long_double.exit.split.i, %alignment_of_long_double.exit.split.us.i, %opal_dt_swap_bytes.exit89
@@ -1099,7 +1099,7 @@ alignment_of_long_double.exit.i90:                ; preds = %.preheader.preheade
   br i1 %or.cond.i92, label %alignment_of_long_double.exit.split.us.i97, label %alignment_of_long_double.exit.split.i93
 
 alignment_of_long_double.exit.split.us.i97:       ; preds = %alignment_of_long_double.exit.i90, %alignment_of_long_double.exit.split.us.i97
-  %.019.us.i98 = phi i64 [ %114, %alignment_of_long_double.exit.split.us.i97 ], [ %.064, %alignment_of_long_double.exit.i90 ]
+  %.020.us.i98 = phi i64 [ %114, %alignment_of_long_double.exit.split.us.i97 ], [ %.064, %alignment_of_long_double.exit.i90 ]
   %.018.us.i99 = phi ptr [ %113, %alignment_of_long_double.exit.split.us.i97 ], [ %.1, %alignment_of_long_double.exit.i90 ]
   %.0.us.i100 = phi ptr [ %112, %alignment_of_long_double.exit.split.us.i97 ], [ %.066, %alignment_of_long_double.exit.i90 ]
   %110 = load fp128, ptr %.018.us.i99, align 16
@@ -1107,12 +1107,12 @@ alignment_of_long_double.exit.split.us.i97:       ; preds = %alignment_of_long_d
   store x86_fp80 %111, ptr %.0.us.i100, align 16
   %112 = getelementptr inbounds i8, ptr %.0.us.i100, i64 %7
   %113 = getelementptr inbounds i8, ptr %.018.us.i99, i64 16
-  %114 = add nsw i64 %.019.us.i98, -1
-  %115 = icmp sgt i64 %.019.us.i98, 1
+  %114 = add nsw i64 %.020.us.i98, -1
+  %115 = icmp sgt i64 %.020.us.i98, 1
   br i1 %115, label %alignment_of_long_double.exit.split.us.i97, label %f128_to_ldbl.exit, !llvm.loop !17
 
 alignment_of_long_double.exit.split.i93:          ; preds = %alignment_of_long_double.exit.i90, %alignment_of_long_double.exit.split.i93
-  %.019.i94 = phi i64 [ %119, %alignment_of_long_double.exit.split.i93 ], [ %.064, %alignment_of_long_double.exit.i90 ]
+  %.020.i94 = phi i64 [ %119, %alignment_of_long_double.exit.split.i93 ], [ %.064, %alignment_of_long_double.exit.i90 ]
   %.018.i95 = phi ptr [ %118, %alignment_of_long_double.exit.split.i93 ], [ %.1, %alignment_of_long_double.exit.i90 ]
   %.0.i96 = phi ptr [ %117, %alignment_of_long_double.exit.split.i93 ], [ %.066, %alignment_of_long_double.exit.i90 ]
   %.0.copyload2.i = load fp128, ptr %.018.i95, align 1
@@ -1120,8 +1120,8 @@ alignment_of_long_double.exit.split.i93:          ; preds = %alignment_of_long_d
   store x86_fp80 %116, ptr %.0.i96, align 1
   %117 = getelementptr inbounds i8, ptr %.0.i96, i64 %7
   %118 = getelementptr inbounds i8, ptr %.018.i95, i64 16
-  %119 = add nsw i64 %.019.i94, -1
-  %120 = icmp sgt i64 %.019.i94, 1
+  %119 = add nsw i64 %.020.i94, -1
+  %120 = icmp sgt i64 %.020.i94, 1
   br i1 %120, label %alignment_of_long_double.exit.split.i93, label %f128_to_ldbl.exit, !llvm.loop !17
 
 f128_to_ldbl.exit:                                ; preds = %alignment_of_long_double.exit.split.i93, %alignment_of_long_double.exit.split.us.i97, %ldbl_to_f128.exit
@@ -1834,7 +1834,7 @@ alignment_of_long_double.exit.i:                  ; preds = %.preheader.preheade
   br i1 %or.cond.i, label %alignment_of_long_double.exit.split.us.i, label %alignment_of_long_double.exit.split.i
 
 alignment_of_long_double.exit.split.us.i:         ; preds = %alignment_of_long_double.exit.i, %alignment_of_long_double.exit.split.us.i
-  %.019.us.i = phi i64 [ %93, %alignment_of_long_double.exit.split.us.i ], [ %.064, %alignment_of_long_double.exit.i ]
+  %.020.us.i = phi i64 [ %93, %alignment_of_long_double.exit.split.us.i ], [ %.064, %alignment_of_long_double.exit.i ]
   %.018.us.i = phi ptr [ %91, %alignment_of_long_double.exit.split.us.i ], [ %.0, %alignment_of_long_double.exit.i ]
   %.0.us.i = phi ptr [ %92, %alignment_of_long_double.exit.split.us.i ], [ %.066, %alignment_of_long_double.exit.i ]
   %89 = load x86_fp80, ptr %.018.us.i, align 16
@@ -1842,12 +1842,12 @@ alignment_of_long_double.exit.split.us.i:         ; preds = %alignment_of_long_d
   store fp128 %90, ptr %.0.us.i, align 16
   %91 = getelementptr inbounds i8, ptr %.018.us.i, i64 %24
   %92 = getelementptr inbounds i8, ptr %.0.us.i, i64 16
-  %93 = add nsw i64 %.019.us.i, -1
-  %94 = icmp sgt i64 %.019.us.i, 1
+  %93 = add nsw i64 %.020.us.i, -1
+  %94 = icmp sgt i64 %.020.us.i, 1
   br i1 %94, label %alignment_of_long_double.exit.split.us.i, label %ldbl_to_f128.exit, !llvm.loop !16
 
 alignment_of_long_double.exit.split.i:            ; preds = %alignment_of_long_double.exit.i, %alignment_of_long_double.exit.split.i
-  %.019.i = phi i64 [ %98, %alignment_of_long_double.exit.split.i ], [ %.064, %alignment_of_long_double.exit.i ]
+  %.020.i = phi i64 [ %98, %alignment_of_long_double.exit.split.i ], [ %.064, %alignment_of_long_double.exit.i ]
   %.018.i = phi ptr [ %96, %alignment_of_long_double.exit.split.i ], [ %.0, %alignment_of_long_double.exit.i ]
   %.0.i = phi ptr [ %97, %alignment_of_long_double.exit.split.i ], [ %.066, %alignment_of_long_double.exit.i ]
   %.0.copyload.i = load x86_fp80, ptr %.018.i, align 1
@@ -1855,8 +1855,8 @@ alignment_of_long_double.exit.split.i:            ; preds = %alignment_of_long_d
   store fp128 %95, ptr %.0.i, align 1
   %96 = getelementptr inbounds i8, ptr %.018.i, i64 %24
   %97 = getelementptr inbounds i8, ptr %.0.i, i64 16
-  %98 = add nsw i64 %.019.i, -1
-  %99 = icmp sgt i64 %.019.i, 1
+  %98 = add nsw i64 %.020.i, -1
+  %99 = icmp sgt i64 %.020.i, 1
   br i1 %99, label %alignment_of_long_double.exit.split.i, label %ldbl_to_f128.exit, !llvm.loop !16
 
 ldbl_to_f128.exit:                                ; preds = %alignment_of_long_double.exit.split.i, %alignment_of_long_double.exit.split.us.i, %opal_dt_swap_bytes.exit89
@@ -1887,7 +1887,7 @@ alignment_of_long_double.exit.i90:                ; preds = %.preheader.preheade
   br i1 %or.cond.i92, label %alignment_of_long_double.exit.split.us.i97, label %alignment_of_long_double.exit.split.i93
 
 alignment_of_long_double.exit.split.us.i97:       ; preds = %alignment_of_long_double.exit.i90, %alignment_of_long_double.exit.split.us.i97
-  %.019.us.i98 = phi i64 [ %116, %alignment_of_long_double.exit.split.us.i97 ], [ %.064, %alignment_of_long_double.exit.i90 ]
+  %.020.us.i98 = phi i64 [ %116, %alignment_of_long_double.exit.split.us.i97 ], [ %.064, %alignment_of_long_double.exit.i90 ]
   %.018.us.i99 = phi ptr [ %115, %alignment_of_long_double.exit.split.us.i97 ], [ %.1, %alignment_of_long_double.exit.i90 ]
   %.0.us.i100 = phi ptr [ %114, %alignment_of_long_double.exit.split.us.i97 ], [ %.066, %alignment_of_long_double.exit.i90 ]
   %112 = load fp128, ptr %.018.us.i99, align 16
@@ -1895,12 +1895,12 @@ alignment_of_long_double.exit.split.us.i97:       ; preds = %alignment_of_long_d
   store x86_fp80 %113, ptr %.0.us.i100, align 16
   %114 = getelementptr inbounds i8, ptr %.0.us.i100, i64 %26
   %115 = getelementptr inbounds i8, ptr %.018.us.i99, i64 16
-  %116 = add nsw i64 %.019.us.i98, -1
-  %117 = icmp sgt i64 %.019.us.i98, 1
+  %116 = add nsw i64 %.020.us.i98, -1
+  %117 = icmp sgt i64 %.020.us.i98, 1
   br i1 %117, label %alignment_of_long_double.exit.split.us.i97, label %f128_to_ldbl.exit, !llvm.loop !17
 
 alignment_of_long_double.exit.split.i93:          ; preds = %alignment_of_long_double.exit.i90, %alignment_of_long_double.exit.split.i93
-  %.019.i94 = phi i64 [ %121, %alignment_of_long_double.exit.split.i93 ], [ %.064, %alignment_of_long_double.exit.i90 ]
+  %.020.i94 = phi i64 [ %121, %alignment_of_long_double.exit.split.i93 ], [ %.064, %alignment_of_long_double.exit.i90 ]
   %.018.i95 = phi ptr [ %120, %alignment_of_long_double.exit.split.i93 ], [ %.1, %alignment_of_long_double.exit.i90 ]
   %.0.i96 = phi ptr [ %119, %alignment_of_long_double.exit.split.i93 ], [ %.066, %alignment_of_long_double.exit.i90 ]
   %.0.copyload2.i = load fp128, ptr %.018.i95, align 1
@@ -1908,8 +1908,8 @@ alignment_of_long_double.exit.split.i93:          ; preds = %alignment_of_long_d
   store x86_fp80 %118, ptr %.0.i96, align 1
   %119 = getelementptr inbounds i8, ptr %.0.i96, i64 %26
   %120 = getelementptr inbounds i8, ptr %.018.i95, i64 16
-  %121 = add nsw i64 %.019.i94, -1
-  %122 = icmp sgt i64 %.019.i94, 1
+  %121 = add nsw i64 %.020.i94, -1
+  %122 = icmp sgt i64 %.020.i94, 1
   br i1 %122, label %alignment_of_long_double.exit.split.i93, label %f128_to_ldbl.exit, !llvm.loop !17
 
 f128_to_ldbl.exit:                                ; preds = %alignment_of_long_double.exit.split.i93, %alignment_of_long_double.exit.split.us.i97, %ldbl_to_f128.exit

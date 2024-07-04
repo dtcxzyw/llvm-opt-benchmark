@@ -553,8 +553,8 @@ while.end:                                        ; preds = %while.end.loopexit,
   br label %do.body
 
 do.body:                                          ; preds = %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit, %while.end
-  %it.sroa.0.0 = phi ptr [ %9, %while.end ], [ %it.sroa.0.3, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit ]
   %it.sroa.9.0 = phi i32 [ %conv.i.i, %while.end ], [ %it.sroa.9.2, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit ]
+  %it.sroa.0.0 = phi ptr [ %9, %while.end ], [ %it.sroa.0.3, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit ]
   %next9.0 = phi ptr [ null, %while.end ], [ %23, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit ]
   %arrayidx.i.i.i5 = getelementptr i8, ptr %it.sroa.0.0, i64 11
   %11 = load i8, ptr %arrayidx.i.i.i5, align 1
@@ -615,8 +615,8 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
   br label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit
 
 _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit: ; preds = %land.rhs.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.loopexit.split.loop.exit20, %while.end33.i.i.i, %land.lhs.true.i.i
-  %it.sroa.0.3 = phi ptr [ %it.sroa.0.0, %land.lhs.true.i.i ], [ %it.sroa.0.1, %while.end33.i.i.i ], [ %13, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.loopexit.split.loop.exit20 ], [ %it.sroa.0.0, %land.rhs.i.i.i ]
   %it.sroa.9.2.in = phi i32 [ %it.sroa.9.0, %land.lhs.true.i.i ], [ %conv36.i.i.i, %while.end33.i.i.i ], [ %conv8.i.i.i.le, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.loopexit.split.loop.exit20 ], [ %it.sroa.9.0, %land.rhs.i.i.i ]
+  %it.sroa.0.3 = phi ptr [ %it.sroa.0.0, %land.lhs.true.i.i ], [ %it.sroa.0.1, %while.end33.i.i.i ], [ %13, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.loopexit.split.loop.exit20 ], [ %it.sroa.0.0, %land.rhs.i.i.i ]
   %it.sroa.9.2 = add nsw i32 %it.sroa.9.2.in, -1
   %21 = and i32 %it.sroa.9.2, 255
   %conv6.i.i = zext nneg i32 %21 to i64
@@ -2052,8 +2052,8 @@ if.end36.loopexit48.split.loop.exit:              ; preds = %while.body.i.i.i22
   br label %if.end36
 
 if.end36:                                         ; preds = %land.rhs.i.i.i18, %while.cond24.i.i.i, %if.end36.loopexit48.split.loop.exit, %land.lhs.true.i.i13, %if.end
-  %retval.sroa.0.2 = phi ptr [ %10, %if.end ], [ %10, %land.lhs.true.i.i13 ], [ %15, %if.end36.loopexit48.split.loop.exit ], [ %storemerge.i.i.i28, %while.cond24.i.i.i ], [ %10, %land.rhs.i.i.i18 ]
   %retval.sroa.7.2 = phi i32 [ %11, %if.end ], [ %inc.i.i, %land.lhs.true.i.i13 ], [ %conv8.i.i.i24.le, %if.end36.loopexit48.split.loop.exit ], [ 0, %while.cond24.i.i.i ], [ %inc.i.i, %land.rhs.i.i.i18 ]
+  %retval.sroa.0.2 = phi ptr [ %10, %if.end ], [ %10, %land.lhs.true.i.i13 ], [ %15, %if.end36.loopexit48.split.loop.exit ], [ %storemerge.i.i.i28, %while.cond24.i.i.i ], [ %10, %land.rhs.i.i.i18 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.2, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.7.2, 1
   ret { ptr, i32 } %.fca.1.insert

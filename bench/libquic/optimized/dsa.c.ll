@@ -193,8 +193,8 @@ for.cond.preheader:                               ; preds = %lor.lhs.false
   br label %for.cond44
 
 for.cond44:                                       ; preds = %for.cond44.backedge, %for.cond.preheader
-  %m.1 = phi i32 [ 0, %for.cond.preheader ], [ %inc, %for.cond44.backedge ]
   %seed_in.addr.1 = phi i1 [ %0, %for.cond.preheader ], [ true, %for.cond44.backedge ]
+  %m.1 = phi i32 [ 0, %for.cond.preheader ], [ %inc, %for.cond44.backedge ]
   %inc = add nuw nsw i32 %m.1, 1
   %call45 = call i32 @BN_GENCB_call(ptr noundef %cb, i32 noundef 0, i32 noundef %m.1) #8
   %tobool46.not = icmp eq i32 %call45, 0

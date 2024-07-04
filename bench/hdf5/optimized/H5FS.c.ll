@@ -1430,8 +1430,8 @@ H5FS__dirty.exit.thread:                          ; preds = %53, %56, %3
   br label %138
 
 104:                                              ; preds = %95, %75
-  %.0 = phi ptr [ %82, %95 ], [ %1, %75 ]
-  %105 = getelementptr inbounds i8, ptr %.0, i64 344
+  %.058 = phi ptr [ %82, %95 ], [ %1, %75 ]
+  %105 = getelementptr inbounds i8, ptr %.058, i64 344
   %106 = load i64, ptr %105, align 8
   store i64 -1, ptr %105, align 8
   br i1 %2, label %107, label %138
@@ -1472,8 +1472,8 @@ H5FS__dirty.exit.thread:                          ; preds = %53, %56, %3
   br label %138
 
 138:                                              ; preds = %H5FS__dirty.exit.thread, %107, %104, %134, %100, %91, %84, %71, %59, %49, %37, %29, %13
-  %.058 = phi i32 [ -1, %13 ], [ -1, %29 ], [ -1, %37 ], [ -1, %59 ], [ -1, %71 ], [ -1, %84 ], [ -1, %91 ], [ -1, %100 ], [ -1, %134 ], [ 0, %107 ], [ 0, %104 ], [ 0, %H5FS__dirty.exit.thread ], [ -1, %49 ]
-  ret i32 %.058
+  %.0 = phi i32 [ -1, %13 ], [ -1, %29 ], [ -1, %37 ], [ -1, %59 ], [ -1, %71 ], [ -1, %84 ], [ -1, %91 ], [ -1, %100 ], [ -1, %134 ], [ 0, %107 ], [ 0, %104 ], [ 0, %H5FS__dirty.exit.thread ], [ -1, %49 ]
+  ret i32 %.0
 }
 
 declare i32 @H5SL_destroy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

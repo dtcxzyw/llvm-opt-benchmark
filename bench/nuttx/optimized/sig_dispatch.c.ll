@@ -128,13 +128,13 @@ up_irq_restore.exit86:                            ; preds = %50, %52
   br label %60
 
 60:                                               ; preds = %61, %57
-  %.011.in.i.i = phi ptr [ %59, %57 ], [ %.011.i.i, %61 ]
-  %.011.i.i = load ptr, ptr %.011.in.i.i, align 8
-  %.not.i.i = icmp eq ptr %.011.i.i, null
+  %.0.in.i.i = phi ptr [ %59, %57 ], [ %.0.i.i, %61 ]
+  %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
+  %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %.critedge.i.i, label %61
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %62 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
   %63 = load i8, ptr %62, align 8
   %.not12.i.i = icmp eq i8 %63, %55
   br i1 %.not12.i.i, label %.critedge.i.i, label %60, !llvm.loop !9
@@ -152,7 +152,7 @@ nxsig_find_pendingsignal.exit.i:                  ; preds = %65, %.critedge.i.i
   br i1 %.not.i.i, label %nxsig_find_pendingsignal.exit.thread.i, label %66
 
 66:                                               ; preds = %nxsig_find_pendingsignal.exit.i
-  %67 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %67 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
   br label %up_irq_restore.exit
 
@@ -403,7 +403,7 @@ nxsig_queue_action.exit:                          ; preds = %108, %115, %118, %1
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %173, %171, %100, %96, %up_irq_restore.exit.i, %nxsig_alloc_pendingsignal.exit.i, %76, %66
-  %.071 = phi i32 [ 0, %66 ], [ 0, %76 ], [ 0, %nxsig_alloc_pendingsignal.exit.i ], [ 0, %up_irq_restore.exit.i ], [ 0, %96 ], [ 0, %100 ], [ %.0.i, %171 ], [ %.0.i, %173 ]
+  %.0 = phi i32 [ 0, %66 ], [ 0, %76 ], [ 0, %nxsig_alloc_pendingsignal.exit.i ], [ 0, %up_irq_restore.exit.i ], [ 0, %96 ], [ 0, %100 ], [ %.0.i, %171 ], [ %.0.i, %173 ]
   %174 = icmp eq i32 %20, 0
   br i1 %174, label %175, label %up_irq_restore.exit95
 
@@ -458,14 +458,14 @@ up_irq_restore.exit:                              ; preds = %173, %171, %100, %9
   br label %up_irq_restore.exit95
 
 up_irq_restore.exit95:                            ; preds = %47, %49, %194, %192, %up_irq_restore.exit
-  %.07197 = phi i32 [ %.071, %up_irq_restore.exit ], [ %.071, %192 ], [ %.071, %194 ], [ 0, %49 ], [ 0, %47 ]
+  %.097 = phi i32 [ %.0, %up_irq_restore.exit ], [ %.0, %192 ], [ %.0, %194 ], [ 0, %49 ], [ 0, %47 ]
   %195 = icmp slt i32 %20, 0
-  %spec.select = select i1 %195, i32 -22, i32 %.07197
+  %spec.select = select i1 %195, i32 -22, i32 %.097
   br label %196
 
 196:                                              ; preds = %14, %2, %up_irq_restore.exit95
-  %.0 = phi i32 [ %spec.select, %up_irq_restore.exit95 ], [ -3, %2 ], [ 0, %14 ]
-  ret i32 %.0
+  %.071 = phi i32 [ %spec.select, %up_irq_restore.exit95 ], [ -3, %2 ], [ 0, %14 ]
+  ret i32 %.071
 }
 
 declare i32 @nxsig_ismember(ptr noundef, i32 noundef) local_unnamed_addr #1

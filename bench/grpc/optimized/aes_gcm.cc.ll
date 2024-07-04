@@ -1141,10 +1141,10 @@ if.end49:                                         ; preds = %for.end
   br i1 %cmp5177.not, label %for.end78, label %for.body52
 
 for.body52:                                       ; preds = %if.end49, %for.inc76
-  %i.180 = phi i64 [ %inc77, %for.inc76 ], [ 0, %if.end49 ]
-  %ciphertext_length.079 = phi i64 [ %ciphertext_length.1, %for.inc76 ], [ %13, %if.end49 ]
-  %ciphertext.078 = phi ptr [ %ciphertext.1, %for.inc76 ], [ %12, %if.end49 ]
-  %arrayidx53 = getelementptr inbounds %struct.iovec, ptr %plaintext_vec, i64 %i.180
+  %ciphertext_length.080 = phi i64 [ %ciphertext_length.1, %for.inc76 ], [ %13, %if.end49 ]
+  %ciphertext.079 = phi ptr [ %ciphertext.1, %for.inc76 ], [ %12, %if.end49 ]
+  %i.178 = phi i64 [ %inc77, %for.inc76 ], [ 0, %if.end49 ]
+  %arrayidx53 = getelementptr inbounds %struct.iovec, ptr %plaintext_vec, i64 %i.178
   %14 = load ptr, ptr %arrayidx53, align 8
   %iov_len56 = getelementptr inbounds i8, ptr %arrayidx53, i64 8
   %15 = load i64, ptr %iov_len56, align 8
@@ -1160,7 +1160,7 @@ if.end61:                                         ; preds = %if.then58
   br label %return
 
 if.end62:                                         ; preds = %for.body52
-  %cmp63 = icmp ult i64 %ciphertext_length.079, %15
+  %cmp63 = icmp ult i64 %ciphertext_length.080, %15
   br i1 %cmp63, label %if.then64, label %if.end65
 
 if.then64:                                        ; preds = %if.end62
@@ -1171,7 +1171,7 @@ if.end65:                                         ; preds = %if.end62
   store i32 0, ptr %bytes_written, align 4
   %conv66 = trunc i64 %15 to i32
   %16 = load ptr, ptr %ctx, align 8
-  %call68 = call i32 @EVP_EncryptUpdate(ptr noundef %16, ptr noundef %ciphertext.078, ptr noundef nonnull %bytes_written, ptr noundef nonnull %14, i32 noundef %conv66)
+  %call68 = call i32 @EVP_EncryptUpdate(ptr noundef %16, ptr noundef %ciphertext.079, ptr noundef nonnull %bytes_written, ptr noundef nonnull %14, i32 noundef %conv66)
   %tobool69.not = icmp eq i32 %call68, 0
   br i1 %tobool69.not, label %if.then70, label %if.end71
 
@@ -1190,14 +1190,14 @@ if.then73:                                        ; preds = %if.end71
 
 if.end74:                                         ; preds = %if.end71
   %idx.ext = sext i32 %17 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %ciphertext.078, i64 %idx.ext
-  %sub = sub i64 %ciphertext_length.079, %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %ciphertext.079, i64 %idx.ext
+  %sub = sub i64 %ciphertext_length.080, %idx.ext
   br label %for.inc76
 
 for.inc76:                                        ; preds = %if.then58, %if.end74
-  %ciphertext.1 = phi ptr [ %ciphertext.078, %if.then58 ], [ %add.ptr, %if.end74 ]
-  %ciphertext_length.1 = phi i64 [ %ciphertext_length.079, %if.then58 ], [ %sub, %if.end74 ]
-  %inc77 = add nuw i64 %i.180, 1
+  %ciphertext.1 = phi ptr [ %ciphertext.079, %if.then58 ], [ %add.ptr, %if.end74 ]
+  %ciphertext_length.1 = phi i64 [ %ciphertext_length.080, %if.then58 ], [ %sub, %if.end74 ]
+  %inc77 = add nuw i64 %i.178, 1
   %exitcond82.not = icmp eq i64 %inc77, %plaintext_vec_length
   br i1 %exitcond82.not, label %for.end78, label %for.body52, !llvm.loop !9
 
@@ -1301,12 +1301,12 @@ if.then11:                                        ; preds = %if.end7
   br label %return
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %total_ciphertext_length.0133 = phi i64 [ %add, %for.body ], [ 0, %for.cond.preheader ]
-  %i.0132 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
-  %iov_len = getelementptr inbounds %struct.iovec, ptr %ciphertext_vec, i64 %i.0132, i32 1
+  %i.0133 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
+  %total_ciphertext_length.0132 = phi i64 [ %add, %for.body ], [ 0, %for.cond.preheader ]
+  %iov_len = getelementptr inbounds %struct.iovec, ptr %ciphertext_vec, i64 %i.0133, i32 1
   %0 = load i64, ptr %iov_len, align 8
-  %add = add i64 %0, %total_ciphertext_length.0133
-  %inc = add nuw i64 %i.0132, 1
+  %add = add i64 %0, %total_ciphertext_length.0132
+  %inc = add nuw i64 %i.0133, 1
   %exitcond.not = icmp eq i64 %inc, %ciphertext_vec_length
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
@@ -1439,9 +1439,9 @@ if.then61:                                        ; preds = %for.end55
 for.body66:                                       ; preds = %for.cond63.preheader, %for.inc103
   %plaintext_length.0141 = phi i64 [ %plaintext_length.1, %for.inc103 ], [ %14, %for.cond63.preheader ]
   %plaintext.0140 = phi ptr [ %plaintext.1, %for.inc103 ], [ %13, %for.cond63.preheader ]
-  %total_ciphertext_length.1139 = phi i64 [ %total_ciphertext_length.2, %for.inc103 ], [ %add, %for.cond63.preheader ]
-  %i.2138 = phi i64 [ %inc104, %for.inc103 ], [ 0, %for.cond63.preheader ]
-  %arrayidx67 = getelementptr inbounds %struct.iovec, ptr %ciphertext_vec, i64 %i.2138
+  %i.2139 = phi i64 [ %inc104, %for.inc103 ], [ 0, %for.cond63.preheader ]
+  %total_ciphertext_length.1138 = phi i64 [ %total_ciphertext_length.2, %for.inc103 ], [ %add, %for.cond63.preheader ]
+  %arrayidx67 = getelementptr inbounds %struct.iovec, ptr %ciphertext_vec, i64 %i.2139
   %16 = load ptr, ptr %arrayidx67, align 8
   %iov_len70 = getelementptr inbounds i8, ptr %arrayidx67, i64 8
   %17 = load i64, ptr %iov_len70, align 8
@@ -1461,7 +1461,7 @@ if.end75:                                         ; preds = %if.then72
 
 if.end78:                                         ; preds = %for.body66
   store i64 0, ptr %bytes_written, align 8
-  %sub = add i64 %total_ciphertext_length.1139, -16
+  %sub = add i64 %total_ciphertext_length.1138, -16
   %spec.select = call i64 @llvm.umin.i64(i64 %17, i64 %sub)
   %cmp83 = icmp ult i64 %plaintext_length.0141, %spec.select
   br i1 %cmp83, label %if.then84, label %if.end85
@@ -1499,18 +1499,18 @@ if.then95:                                        ; preds = %if.end93
 if.end98:                                         ; preds = %if.end93
   %add.ptr = getelementptr inbounds i8, ptr %16, i64 %23
   %sub99 = sub i64 %17, %23
-  %sub100 = sub i64 %total_ciphertext_length.1139, %23
+  %sub100 = sub i64 %total_ciphertext_length.1138, %23
   %add.ptr101 = getelementptr inbounds i8, ptr %plaintext.0140, i64 %23
   %sub102 = sub i64 %plaintext_length.0141, %23
   br label %for.inc103
 
 for.inc103:                                       ; preds = %if.then72, %if.end98
-  %total_ciphertext_length.2 = phi i64 [ %total_ciphertext_length.1139, %if.then72 ], [ %sub100, %if.end98 ]
+  %total_ciphertext_length.2 = phi i64 [ %total_ciphertext_length.1138, %if.then72 ], [ %sub100, %if.end98 ]
   %plaintext.1 = phi ptr [ %plaintext.0140, %if.then72 ], [ %add.ptr101, %if.end98 ]
   %plaintext_length.1 = phi i64 [ %plaintext_length.0141, %if.then72 ], [ %sub102, %if.end98 ]
   %ciphertext.1 = phi ptr [ null, %if.then72 ], [ %add.ptr, %if.end98 ]
   %ciphertext_length.1 = phi i64 [ 0, %if.then72 ], [ %sub99, %if.end98 ]
-  %inc104 = add nuw i64 %i.2138, 1
+  %inc104 = add nuw i64 %i.2139, 1
   %cmp64 = icmp ult i64 %inc104, %ciphertext_vec_length
   %cmp65 = icmp ugt i64 %total_ciphertext_length.2, 16
   %26 = select i1 %cmp64, i1 %cmp65, i1 false
@@ -1547,8 +1547,8 @@ if.end116:                                        ; preds = %for.end105.thread, 
 
 for.body119:                                      ; preds = %if.end116, %for.inc134
   %tag_tmp.1151 = phi ptr [ %tag_tmp.2, %for.inc134 ], [ %tag_tmp.0, %if.end116 ]
-  %i.3149 = phi i64 [ %inc135, %for.inc134 ], [ %i.2.lcssa162172, %if.end116 ]
-  %arrayidx120 = getelementptr inbounds %struct.iovec, ptr %ciphertext_vec, i64 %i.3149
+  %i.3150 = phi i64 [ %inc135, %for.inc134 ], [ %i.2.lcssa162172, %if.end116 ]
+  %arrayidx120 = getelementptr inbounds %struct.iovec, ptr %ciphertext_vec, i64 %i.3150
   %29 = load ptr, ptr %arrayidx120, align 8
   %iov_len123 = getelementptr inbounds i8, ptr %arrayidx120, i64 8
   %30 = load i64, ptr %iov_len123, align 8
@@ -1573,7 +1573,7 @@ if.end131:                                        ; preds = %for.body119
 
 for.inc134:                                       ; preds = %if.then125, %if.end131
   %tag_tmp.2 = phi ptr [ %tag_tmp.1151, %if.then125 ], [ %add.ptr132, %if.end131 ]
-  %inc135 = add i64 %i.3149, 1
+  %inc135 = add i64 %i.3150, 1
   %exitcond154.not = icmp eq i64 %inc135, %ciphertext_vec_length
   br i1 %exitcond154.not, label %for.end136, label %for.body119, !llvm.loop !13
 

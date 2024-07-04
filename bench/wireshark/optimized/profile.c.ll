@@ -45,17 +45,17 @@ define hidden ptr @get_profile_parent(ptr noundef readonly %0) local_unnamed_add
 
 .preheader:                                       ; preds = %1, %._crit_edge
   %.030 = phi i32 [ %24, %._crit_edge ], [ 0, %1 ]
-  %.01529 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %1 ]
-  %.01628 = phi ptr [ %23, %._crit_edge ], [ %3, %1 ]
-  %.not2025 = icmp eq ptr %.01628, null
+  %.01429 = phi ptr [ %23, %._crit_edge ], [ %3, %1 ]
+  %.01528 = phi ptr [ %.116.lcssa, %._crit_edge ], [ %0, %1 ]
+  %.not2025 = icmp eq ptr %.01429, null
   br i1 %.not2025, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %19
-  %.127 = phi ptr [ %.2, %19 ], [ %.01529, %.preheader ]
-  %.11726 = phi ptr [ %21, %19 ], [ %.01628, %.preheader ]
-  %7 = load ptr, ptr %.11726, align 8
+  %.127 = phi ptr [ %21, %19 ], [ %.01429, %.preheader ]
+  %.11626 = phi ptr [ %.2, %19 ], [ %.01528, %.preheader ]
+  %7 = load ptr, ptr %.127, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %.127) #6
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %.11626) #6
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %19
 
@@ -72,14 +72,14 @@ define hidden ptr @get_profile_parent(ptr noundef readonly %0) local_unnamed_add
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %15, %.lr.ph
-  %.2 = phi ptr [ %.127, %.lr.ph ], [ %17, %15 ]
-  %20 = getelementptr inbounds i8, ptr %.11726, i64 8
+  %.2 = phi ptr [ %.11626, %.lr.ph ], [ %17, %15 ]
+  %20 = getelementptr inbounds i8, ptr %.127, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not20 = icmp eq ptr %21, null
   br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %19, %.preheader
-  %.1.lcssa = phi ptr [ %.01529, %.preheader ], [ %.2, %19 ]
+  %.116.lcssa = phi ptr [ %.01528, %.preheader ], [ %.2, %19 ]
   %22 = load ptr, ptr @edited_profiles, align 8
   %23 = tail call ptr @g_list_first(ptr noundef %22) #5
   %24 = add nuw i32 %.030, 1
@@ -87,8 +87,8 @@ define hidden ptr @get_profile_parent(ptr noundef readonly %0) local_unnamed_add
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !6
 
 .loopexit:                                        ; preds = %._crit_edge, %11, %15, %1
-  %.014 = phi ptr [ %0, %1 ], [ null, %15 ], [ null, %11 ], [ %.1.lcssa, %._crit_edge ]
-  ret ptr %.014
+  %.017 = phi ptr [ %0, %1 ], [ null, %15 ], [ null, %11 ], [ %.116.lcssa, %._crit_edge ]
+  ret ptr %.017
 }
 
 declare i32 @g_list_length(ptr noundef) local_unnamed_addr #1
@@ -107,8 +107,8 @@ define hidden noalias ptr @apply_profile_changes() local_unnamed_addr #0 {
   br i1 %.not89, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %profile_name_is_valid.exit.thread
-  %.06990 = phi ptr [ %18, %profile_name_is_valid.exit.thread ], [ %5, %0 ]
-  %6 = load ptr, ptr %.06990, align 8
+  %.07090 = phi ptr [ %18, %profile_name_is_valid.exit.thread ], [ %5, %0 ]
+  %6 = load ptr, ptr %.07090, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @g_strchug(ptr noundef %7) #5
   %9 = tail call ptr @g_strchomp(ptr noundef %8) #5
@@ -134,7 +134,7 @@ profile_name_is_valid.exit:                       ; preds = %12
   br label %159
 
 profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profile_name_is_valid.exit
-  %17 = getelementptr inbounds i8, ptr %.06990, i64 8
+  %17 = getelementptr inbounds i8, ptr %.07090, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -147,8 +147,8 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   br i1 %.not7591, label %._crit_edge95, label %.lr.ph94
 
 .lr.ph94:                                         ; preds = %._crit_edge, %65
-  %.17092 = phi ptr [ %67, %65 ], [ %21, %._crit_edge ]
-  %22 = load ptr, ptr %.17092, align 8
+  %.17192 = phi ptr [ %67, %65 ], [ %21, %._crit_edge ]
+  %22 = load ptr, ptr %.17192, align 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @g_strchug(ptr noundef %23) #5
   %25 = call ptr @g_strchomp(ptr noundef %24) #5
@@ -214,7 +214,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
   br label %65
 
 65:                                               ; preds = %61, %.lr.ph94
-  %66 = getelementptr inbounds i8, ptr %.17092, i64 8
+  %66 = getelementptr inbounds i8, ptr %.17192, i64 8
   %67 = load ptr, ptr %66, align 8
   %.not75 = icmp eq ptr %67, null
   br i1 %.not75, label %._crit_edge95, label %.lr.ph94, !llvm.loop !8
@@ -342,8 +342,8 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
 
 .lr.ph105:                                        ; preds = %.lr.ph110, %143
   %.068103 = phi i32 [ %.1, %143 ], [ 0, %.lr.ph110 ]
-  %.071102 = phi ptr [ %145, %143 ], [ %126, %.lr.ph110 ]
-  %127 = load ptr, ptr %.071102, align 8
+  %.069102 = phi ptr [ %145, %143 ], [ %126, %.lr.ph110 ]
+  %127 = load ptr, ptr %.069102, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 20
   %129 = load i32, ptr %128, align 4
   %.not80 = icmp eq i32 %129, 0
@@ -372,7 +372,7 @@ profile_name_is_valid.exit.thread:                ; preds = %.lr.ph, %12, %profi
 
 143:                                              ; preds = %130, %140, %135, %.lr.ph105
   %.1 = phi i32 [ %.068103, %.lr.ph105 ], [ 1, %140 ], [ %.068103, %135 ], [ 1, %130 ]
-  %144 = getelementptr inbounds i8, ptr %.071102, i64 8
+  %144 = getelementptr inbounds i8, ptr %.069102, i64 8
   %145 = load ptr, ptr %144, align 8
   %.not78 = icmp eq ptr %145, null
   br i1 %.not78, label %._crit_edge106, label %.lr.ph105, !llvm.loop !10

@@ -679,13 +679,13 @@ if.end32:                                         ; preds = %_ZN7logging11CheckL
 
 if.end44:                                         ; preds = %if.end32, %if.end44
   %add57 = phi i64 [ %add, %if.end44 ], [ %div1153, %if.end32 ]
-  %under.056 = phi i64 [ %under.0.add, %if.end44 ], [ 0, %if.end32 ]
-  %over.055 = phi i64 [ %add.over.0, %if.end44 ], [ %10, %if.end32 ]
+  %over.056 = phi i64 [ %add.over.0, %if.end44 ], [ %10, %if.end32 ]
+  %under.055 = phi i64 [ %under.0.add, %if.end44 ], [ 0, %if.end32 ]
   %add.ptr.i.i27 = getelementptr inbounds i32, ptr %.pre59, i64 %add57
   %11 = load i32, ptr %add.ptr.i.i27, align 4
   %cmp47.not = icmp sgt i32 %11, %value
-  %add.over.0 = select i1 %cmp47.not, i64 %add57, i64 %over.055
-  %under.0.add = select i1 %cmp47.not, i64 %under.056, i64 %add57
+  %under.0.add = select i1 %cmp47.not, i64 %under.055, i64 %add57
+  %add.over.0 = select i1 %cmp47.not, i64 %add57, i64 %over.056
   %sub = sub i64 %add.over.0, %under.0.add
   %div11 = lshr i64 %sub, 1
   %add = add i64 %div11, %under.0.add

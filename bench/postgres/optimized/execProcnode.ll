@@ -262,12 +262,12 @@ define dso_local ptr @ExecInitNode(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 .lr.ph165:                                        ; preds = %.lr.ph, %.lr.ph165
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph165 ], [ 0, %.lr.ph ]
-  %.0149159163 = phi ptr [ %109, %.lr.ph165 ], [ null, %.lr.ph ]
+  %.0150158164 = phi ptr [ %109, %.lr.ph165 ], [ null, %.lr.ph ]
   %105 = load ptr, ptr %102, align 8
   %106 = getelementptr %union.ListCell, ptr %105, i64 %indvars.iv
   %107 = load ptr, ptr %106, align 8
   %108 = tail call ptr @ExecInitSubPlan(ptr noundef %107, ptr noundef %.0148) #6
-  %109 = tail call ptr @lappend(ptr noundef %.0149159163, ptr noundef %108) #6
+  %109 = tail call ptr @lappend(ptr noundef %.0150158164, ptr noundef %108) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %110 = load i32, ptr %101, align 4
   %111 = sext i32 %110 to i64
@@ -275,9 +275,9 @@ define dso_local ptr @ExecInitNode(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %112, label %.lr.ph165, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph165, %.lr.ph, %95
-  %.0149.lcssa = phi ptr [ null, %95 ], [ null, %.lr.ph ], [ %109, %.lr.ph165 ]
+  %.0150.lcssa = phi ptr [ null, %95 ], [ null, %.lr.ph ], [ %109, %.lr.ph165 ]
   %113 = getelementptr inbounds i8, ptr %.0148, i64 88
-  store ptr %.0149.lcssa, ptr %113, align 8
+  store ptr %.0150.lcssa, ptr %113, align 8
   %114 = getelementptr inbounds i8, ptr %1, i64 196
   %115 = load i32, ptr %114, align 4
   %.not155 = icmp eq i32 %115, 0

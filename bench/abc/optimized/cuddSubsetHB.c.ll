@@ -679,8 +679,8 @@ SubsetCountNodes.exit:                            ; preds = %100
   br label %195
 
 195:                                              ; preds = %187, %14, %188, %155, %149, %117, %102, %45, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %45 ], [ null, %102 ], [ null, %117 ], [ null, %149 ], [ null, %155 ], [ %137, %188 ], [ %1, %14 ], [ null, %187 ]
-  ret ptr %.0
+  %.079 = phi ptr [ null, %9 ], [ null, %45 ], [ null, %102 ], [ null, %117 ], [ null, %149 ], [ null, %155 ], [ %137, %188 ], [ %1, %14 ], [ null, %187 ]
+  ret ptr %.079
 }
 
 ; Function Attrs: nounwind uwtable

@@ -292,8 +292,8 @@ define range(i32 0, 17) i32 @fc_initialize(ptr noundef readonly %0) local_unname
   br label %155
 
 70:                                               ; preds = %65, %62, %59
-  %.047 = phi i32 [ %66, %65 ], [ 176, %62 ], [ 176, %59 ]
-  tail call void @openlog(ptr noundef nonnull @.str.25, i32 noundef 1, i32 noundef %.047) #15
+  %.0 = phi i32 [ %66, %65 ], [ 176, %62 ], [ 176, %59 ]
+  tail call void @openlog(ptr noundef nonnull @.str.25, i32 noundef 1, i32 noundef %.0) #15
   store i16 1, ptr @logg_syslog, align 2
   br label %71
 
@@ -457,13 +457,13 @@ define range(i32 0, 17) i32 @fc_initialize(ptr noundef readonly %0) local_unname
   br label %155
 
 155:                                              ; preds = %54, %68, %126, %153, %134
-  %.048.ph = phi i32 [ 3, %134 ], [ 2, %153 ], [ 3, %126 ], [ 13, %68 ], [ 13, %54 ]
+  %.047.ph = phi i32 [ 3, %134 ], [ 2, %153 ], [ 3, %126 ], [ 13, %68 ], [ 13, %54 ]
   tail call void @fc_cleanup()
   br label %156
 
 156:                                              ; preds = %150, %137, %155, %4
-  %.0 = phi i32 [ 16, %4 ], [ %.048.ph, %155 ], [ 0, %150 ], [ 0, %137 ]
-  ret i32 %.0
+  %.048 = phi i32 [ 16, %4 ], [ %.047.ph, %155 ], [ 0, %150 ], [ 0, %137 ]
+  ret i32 %.048
 }
 
 declare zeroext i1 @clrs_log_init() local_unnamed_addr #2
@@ -1068,13 +1068,13 @@ define range(i32 0, 17) i32 @fc_dns_query_update_info(ptr noundef %0, ptr nounde
 
 78:                                               ; preds = %9, %13, %18, %25, %34, %39, %45
   %.033.ph = phi ptr [ %16, %45 ], [ %16, %39 ], [ %16, %34 ], [ %16, %25 ], [ null, %18 ], [ null, %13 ], [ null, %9 ]
-  %.0.ph = phi i32 [ 11, %45 ], [ 11, %39 ], [ 11, %34 ], [ 11, %25 ], [ 11, %18 ], [ 11, %13 ], [ 16, %9 ]
+  %.032.ph = phi i32 [ 11, %45 ], [ 11, %39 ], [ 11, %34 ], [ 11, %25 ], [ 11, %18 ], [ 11, %13 ], [ 16, %9 ]
   call void @free(ptr noundef %.033.ph) #15
   br label %79
 
 79:                                               ; preds = %77, %78
-  %.051 = phi i32 [ %.0.ph, %78 ], [ 0, %77 ]
-  ret i32 %.051
+  %.03251 = phi i32 [ %.032.ph, %78 ], [ 0, %77 ]
+  ret i32 %.03251
 }
 
 declare ptr @dnsquery(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -1404,7 +1404,7 @@ fc_strerror.exit:                                 ; preds = %.lr.ph.split.us, %.
   br i1 %exitcond.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %._crit_edge, %24, %109, %62, %60, %fc_strerror.exit, %107, %101, %80, %.split113.us, %22, %16
-  %.0 = phi i32 [ 16, %16 ], [ 3, %22 ], [ %122, %fc_strerror.exit ], [ 19, %107 ], [ 19, %80 ], [ 17, %101 ], [ %36, %.split113.us ], [ 0, %60 ], [ 0, %62 ], [ 0, %109 ], [ 0, %24 ], [ 0, %._crit_edge ]
+  %.040 = phi i32 [ 16, %16 ], [ 3, %22 ], [ %122, %fc_strerror.exit ], [ 19, %107 ], [ 19, %80 ], [ 17, %101 ], [ %36, %.split113.us ], [ 0, %60 ], [ 0, %62 ], [ 0, %109 ], [ 0, %24 ], [ 0, %._crit_edge ]
   %129 = load ptr, ptr %9, align 8
   %.not53 = icmp eq ptr %129, null
   br i1 %.not53, label %131, label %130
@@ -1414,7 +1414,7 @@ fc_strerror.exit:                                 ; preds = %.lr.ph.split.us, %.
   br label %131
 
 131:                                              ; preds = %130, %.loopexit
-  ret i32 %.0
+  ret i32 %.040
 }
 
 declare i32 @updatedb(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -1511,7 +1511,7 @@ define noundef i32 @fc_update_databases(ptr noundef readonly %0, i32 noundef %1,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %61 ]
-  %.02740 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %61 ]
+  %.040 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %61 ]
   %58 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8
   %60 = call i32 @fc_update_database(ptr noundef %59, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef nonnull %10)
@@ -1522,7 +1522,7 @@ define noundef i32 @fc_update_databases(ptr noundef readonly %0, i32 noundef %1,
   %62 = load i32, ptr %10, align 4
   %.not36 = icmp ne i32 %62, 0
   %63 = zext i1 %.not36 to i32
-  %spec.select = add i32 %.02740, %63
+  %spec.select = add i32 %.040, %63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -1532,8 +1532,8 @@ define noundef i32 @fc_update_databases(ptr noundef readonly %0, i32 noundef %1,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %53, %31, %16
-  %.0 = phi i32 [ 16, %16 ], [ 19, %31 ], [ 0, %53 ], [ 0, %._crit_edge ], [ %60, %.lr.ph ]
-  ret i32 %.0
+  %.028 = phi i32 [ 16, %16 ], [ 19, %31 ], [ 0, %53 ], [ 0, %._crit_edge ], [ %60, %.lr.ph ]
+  ret i32 %.028
 }
 
 declare i32 @save_freshclam_dat() local_unnamed_addr #2
@@ -1581,9 +1581,9 @@ define noundef i32 @fc_download_url_database(ptr noundef %0, ptr noundef %1, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %22 = phi i64 [ %42, %37 ], [ %21, %.lr.ph.preheader ]
-  %.02238 = phi i64 [ %40, %37 ], [ 1, %.lr.ph.preheader ]
+  %.038 = phi i64 [ %40, %37 ], [ 1, %.lr.ph.preheader ]
   store i32 0, ptr %5, align 4
-  %23 = icmp eq i64 %.02238, %22
+  %23 = icmp eq i64 %.038, %22
   %24 = zext i1 %23 to i32
   %25 = call i32 @updatecustomdb(ptr noundef %0, ptr noundef %1, i32 noundef %24, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %2) #15
   switch i32 %25, label %91 [
@@ -1612,16 +1612,16 @@ define noundef i32 @fc_download_url_database(ptr noundef %0, ptr noundef %1, ptr
 33:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
   %34 = load i32, ptr @g_maxAttempts, align 4
   %35 = zext i32 %34 to i64
-  %36 = icmp ult i64 %.02238, %35
+  %36 = icmp ult i64 %.038, %35
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %33
   %38 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.64) #15
   %39 = call i32 @sleep(i32 noundef 5) #15
-  %40 = add nuw nsw i64 %.02238, 1
+  %40 = add nuw nsw i64 %.038, 1
   %41 = load i32, ptr @g_maxAttempts, align 4
   %42 = zext i32 %41 to i64
-  %.not29.not = icmp ult i64 %.02238, %42
+  %.not29.not = icmp ult i64 %.038, %42
   br i1 %.not29.not, label %.lr.ph, label %.loopexit
 
 43:                                               ; preds = %33
@@ -1696,7 +1696,7 @@ define noundef i32 @fc_download_url_database(ptr noundef %0, ptr noundef %1, ptr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %18, %78, %31, %29, %91, %76, %69, %50, %43, %16, %10
-  %.0 = phi i32 [ 16, %10 ], [ 3, %16 ], [ %25, %91 ], [ 19, %76 ], [ 19, %50 ], [ 17, %69 ], [ %25, %43 ], [ 0, %29 ], [ 0, %31 ], [ 0, %78 ], [ 0, %18 ], [ 0, %37 ]
+  %.022 = phi i32 [ 16, %10 ], [ 3, %16 ], [ %25, %91 ], [ 19, %76 ], [ 19, %50 ], [ 17, %69 ], [ %25, %43 ], [ 0, %29 ], [ 0, %31 ], [ 0, %78 ], [ 0, %18 ], [ 0, %37 ]
   %93 = load ptr, ptr %4, align 8
   %.not32 = icmp eq ptr %93, null
   br i1 %.not32, label %95, label %94
@@ -1706,7 +1706,7 @@ define noundef i32 @fc_download_url_database(ptr noundef %0, ptr noundef %1, ptr
   br label %95
 
 95:                                               ; preds = %94, %.loopexit
-  ret i32 %.0
+  ret i32 %.022
 }
 
 declare i32 @updatecustomdb(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

@@ -40,7 +40,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr nocapture noundef r
   br label %.preheader.outer
 
 .preheader.outer:                                 ; preds = %get_12_norm.exit130, %14
-  %.066163.ph = phi i32 [ %202, %get_12_norm.exit130 ], [ 1, %14 ]
+  %.067163.ph = phi i32 [ %202, %get_12_norm.exit130 ], [ 1, %14 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.outer, %209
@@ -48,7 +48,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr nocapture noundef r
 
 .lr.ph158:                                        ; preds = %.preheader, %167
   %indvars.iv176 = phi i64 [ %indvars.iv.next177, %167 ], [ 0, %.preheader ]
-  %.1157 = phi i1 [ %.3, %167 ], [ false, %.preheader ]
+  %.169156 = phi i1 [ %.3, %167 ], [ false, %.preheader ]
   %17 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv176
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr i8, ptr %17, i64 4
@@ -98,7 +98,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr nocapture noundef r
 
 43:                                               ; preds = %.lr.ph, %126
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %126 ]
-  %.2154 = phi i1 [ %.1157, %.lr.ph ], [ %.3, %126 ]
+  %.2152 = phi i1 [ %.169156, %.lr.ph ], [ %.3, %126 ]
   %.sroa.0135.3151 = phi double [ %.sroa.0135.2, %.lr.ph ], [ %.sroa.0135.4, %126 ]
   %44 = icmp eq i64 %indvars.iv, %indvars.iv176
   br i1 %44, label %126, label %45
@@ -251,7 +251,7 @@ get_local_12_norm.exit100:                        ; preds = %115, %get_local_12_
 
 126:                                              ; preds = %get_local_12_norm.exit100, %43, %125
   %.sroa.0135.4 = phi double [ %.sroa.0135.3151, %43 ], [ %.sroa.0135.3151, %125 ], [ %.sroa.0131.2, %get_local_12_norm.exit100 ]
-  %.3 = phi i1 [ %.2154, %43 ], [ %.2154, %125 ], [ true, %get_local_12_norm.exit100 ]
+  %.3 = phi i1 [ %.2152, %43 ], [ %.2152, %125 ], [ true, %get_local_12_norm.exit100 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond174.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
   br i1 %exitcond174.not, label %._crit_edge, label %43
@@ -419,19 +419,19 @@ get_12_norm.exit:                                 ; preds = %._crit_edge.i101
   br i1 %exitcond.not.i119, label %get_12_norm.exit130, label %.lr.ph71.i111
 
 get_12_norm.exit130:                              ; preds = %._crit_edge.i116, %._crit_edge159.thread, %170
-  %.1.lcssa184187 = phi i1 [ %.3, %170 ], [ false, %._crit_edge159.thread ], [ %.3, %._crit_edge.i116 ]
+  %.169.lcssa184187 = phi i1 [ %.3, %170 ], [ false, %._crit_edge159.thread ], [ %.3, %._crit_edge.i116 ]
   %.sroa.0135.14 = phi double [ %16, %170 ], [ %16, %._crit_edge159.thread ], [ %.sroa.0135.13, %._crit_edge.i116 ]
   %storemerge.lcssa.i108 = phi double [ 0.000000e+00, %170 ], [ 0.000000e+00, %._crit_edge159.thread ], [ %199, %._crit_edge.i116 ]
   %200 = fdiv double %storemerge.lcssa.i108, %16
   %201 = load ptr, ptr @stderr, align 8
-  %202 = add nuw nsw i32 %.066163.ph, 1
-  %203 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %201, ptr noundef nonnull @.str.4, i32 noundef %.066163.ph, double noundef %.sroa.0135.14, double noundef %200) #9
+  %202 = add nuw nsw i32 %.067163.ph, 1
+  %203 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %201, ptr noundef nonnull @.str.4, i32 noundef %.067163.ph, double noundef %.sroa.0135.14, double noundef %200) #9
   %204 = tail call i64 @clock() #7
   %205 = sub nsw i64 %204, %8
   %206 = sitofp i64 %205 to double
   %207 = fdiv double %206, 1.000000e+06
   %208 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0, ptr noundef nonnull @.str.3, double noundef %207, double noundef %.sroa.0135.14, double noundef %200) #7
-  br i1 %.1.lcssa184187, label %.preheader.outer, label %.thread188
+  br i1 %.169.lcssa184187, label %.preheader.outer, label %.thread188
 
 209:                                              ; preds = %._crit_edge159
   br i1 %.3, label %.preheader, label %.thread188
@@ -482,7 +482,7 @@ define dso_local void @country_graph_coloring(i32 noundef %0, ptr noundef %1, pt
 
 .lr.ph64:                                         ; preds = %.lr.ph64.preheader, %._crit_edge
   %indvars.iv70 = phi i64 [ 0, %.lr.ph64.preheader ], [ %indvars.iv.next71, %._crit_edge ]
-  %.04961 = phi ptr [ %13, %.lr.ph64.preheader ], [ %35, %._crit_edge ]
+  %.04861 = phi ptr [ %13, %.lr.ph64.preheader ], [ %35, %._crit_edge ]
   store double 0.000000e+00, ptr %5, align 8
   %15 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv70
   %16 = load i32, ptr %15, align 4
@@ -500,7 +500,7 @@ define dso_local void @country_graph_coloring(i32 noundef %0, ptr noundef %1, pt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
   %22 = phi i32 [ %18, %.lr.ph.preheader ], [ %31, %30 ]
   %indvars.iv = phi i64 [ %20, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
-  %.158 = phi ptr [ %.04961, %.lr.ph.preheader ], [ %.2, %30 ]
+  %.159 = phi ptr [ %.04861, %.lr.ph.preheader ], [ %.2, %30 ]
   %23 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
@@ -511,29 +511,29 @@ define dso_local void @country_graph_coloring(i32 noundef %0, ptr noundef %1, pt
   %27 = load double, ptr %5, align 8
   %28 = fadd double %27, 1.000000e+00
   store double %28, ptr %5, align 8
-  %29 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %.158, i32 noundef %21, i32 noundef %24, ptr noundef nonnull %4) #7
+  %29 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %.159, i32 noundef %21, i32 noundef %24, ptr noundef nonnull %4) #7
   %.pre = load i32, ptr %17, align 4
   br label %30
 
 30:                                               ; preds = %.lr.ph, %26
   %31 = phi i32 [ %.pre, %26 ], [ %22, %.lr.ph ]
-  %.2 = phi ptr [ %29, %26 ], [ %.158, %.lr.ph ]
+  %.2 = phi ptr [ %29, %26 ], [ %.159, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
   br i1 %33, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %30, %.lr.ph64
-  %.1.lcssa = phi ptr [ %.04961, %.lr.ph64 ], [ %.2, %30 ]
+  %.1.lcssa = phi ptr [ %.04861, %.lr.ph64 ], [ %.2, %30 ]
   %34 = trunc nuw nsw i64 %indvars.iv70 to i32
   %35 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %.1.lcssa, i32 noundef %34, i32 noundef %34, ptr noundef nonnull %5) #7
   %exitcond.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge65, label %.lr.ph64
 
 ._crit_edge65:                                    ; preds = %._crit_edge, %3
-  %.049.lcssa = phi ptr [ %13, %3 ], [ %35, %._crit_edge ]
-  %36 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %.049.lcssa) #7
-  call void @SparseMatrix_delete(ptr noundef %.049.lcssa) #7
+  %.048.lcssa = phi ptr [ %13, %3 ], [ %35, %._crit_edge ]
+  %36 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %.048.lcssa) #7
+  call void @SparseMatrix_delete(ptr noundef %.048.lcssa) #7
   %37 = getelementptr inbounds i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = call ptr @power_method(ptr noundef %36, i32 noundef %38, i32 noundef %0) #7

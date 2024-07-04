@@ -469,7 +469,7 @@ default.unreachable:                              ; preds = %9
   unreachable
 
 15:                                               ; preds = %9, %14, %13
-  %.050 = phi double [ 1.600000e+01, %14 ], [ 8.000000e+00, %13 ], [ 2.000000e+00, %9 ]
+  %.047 = phi double [ 1.600000e+01, %14 ], [ 8.000000e+00, %13 ], [ 2.000000e+00, %9 ]
   %16 = lshr i8 %5, 2
   %17 = and i8 %16, 3
   %18 = and i8 %5, 3
@@ -497,29 +497,29 @@ default.unreachable:                              ; preds = %9
   br i1 %.not61, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %26, %.split.us
-  %.04766.us = phi i32 [ %32, %.split.us ], [ 0, %26 ]
-  %.04865.us = phi ptr [ %33, %.split.us ], [ %6, %26 ]
-  %.05364.us = phi i32 [ %34, %.split.us ], [ 0, %26 ]
-  %28 = shl i32 %.04766.us, 8
-  %29 = load i8, ptr %.04865.us, align 1
+  %.04666.us = phi i32 [ %32, %.split.us ], [ 0, %26 ]
+  %.04965.us = phi i32 [ %34, %.split.us ], [ 0, %26 ]
+  %.05364.us = phi ptr [ %33, %.split.us ], [ %6, %26 ]
+  %28 = shl i32 %.04666.us, 8
+  %29 = load i8, ptr %.05364.us, align 1
   %30 = xor i8 %29, -1
   %31 = zext i8 %30 to i32
   %32 = or disjoint i32 %28, %31
-  %33 = getelementptr i8, ptr %.04865.us, i64 1
-  %34 = add nuw nsw i32 %.05364.us, 1
+  %33 = getelementptr i8, ptr %.05364.us, i64 1
+  %34 = add nuw nsw i32 %.04965.us, 1
   %exitcond80.not = icmp eq i32 %34, %20
   br i1 %exitcond80.not, label %.split68.us, label %.split.us, !llvm.loop !8
 
 .split:                                           ; preds = %26, %.split
-  %.04766 = phi i32 [ %38, %.split ], [ 0, %26 ]
-  %.04865 = phi ptr [ %39, %.split ], [ %6, %26 ]
-  %.05364 = phi i32 [ %40, %.split ], [ 0, %26 ]
-  %35 = shl i32 %.04766, 8
-  %36 = load i8, ptr %.04865, align 1
+  %.04666 = phi i32 [ %38, %.split ], [ 0, %26 ]
+  %.04965 = phi i32 [ %40, %.split ], [ 0, %26 ]
+  %.05364 = phi ptr [ %39, %.split ], [ %6, %26 ]
+  %35 = shl i32 %.04666, 8
+  %36 = load i8, ptr %.05364, align 1
   %37 = zext i8 %36 to i32
   %38 = or disjoint i32 %35, %37
-  %39 = getelementptr i8, ptr %.04865, i64 1
-  %40 = add nuw nsw i32 %.05364, 1
+  %39 = getelementptr i8, ptr %.05364, i64 1
+  %40 = add nuw nsw i32 %.04965, 1
   %exitcond.not = icmp eq i32 %40, %20
   br i1 %exitcond.not, label %.split68.us, label %.split, !llvm.loop !8
 
@@ -551,15 +551,15 @@ default.unreachable:                              ; preds = %9
   unreachable
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.04672 = phi i64 [ %50, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.14971 = phi ptr [ %51, %.lr.ph ], [ %.us-phi, %.lr.ph.preheader ]
-  %.15470 = phi i32 [ %52, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %47 = shl i64 %.04672, 8
-  %48 = load i8, ptr %.14971, align 1
+  %.072 = phi i64 [ %50, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.15071 = phi i32 [ %52, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.15470 = phi ptr [ %51, %.lr.ph ], [ %.us-phi, %.lr.ph.preheader ]
+  %47 = shl i64 %.072, 8
+  %48 = load i8, ptr %.15470, align 1
   %49 = zext i8 %48 to i64
   %50 = or disjoint i64 %47, %49
-  %51 = getelementptr i8, ptr %.14971, i64 1
-  %52 = add nuw nsw i32 %.15470, 1
+  %51 = getelementptr i8, ptr %.15470, i64 1
+  %52 = add nuw nsw i32 %.15071, 1
   %exitcond81.not = icmp eq i32 %52, %umax
   br i1 %exitcond81.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
@@ -568,14 +568,14 @@ default.unreachable:                              ; preds = %9
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.046.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %53, %._crit_edge.loopexit ]
-  %54 = fneg double %.046.lcssa
-  %55 = select i1 %.not59, double %.046.lcssa, double %54
+  %.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %53, %._crit_edge.loopexit ]
+  %54 = fneg double %.0.lcssa
+  %55 = select i1 %.not59, double %.0.lcssa, double %54
   %56 = zext nneg i8 %17 to i32
   %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %56) #11
   %57 = fmul double %55, %ldexp
   %58 = sitofp i32 %spec.select to double
-  %59 = tail call double @pow(double noundef %.050, double noundef %58) #11
+  %59 = tail call double @pow(double noundef %.047, double noundef %58) #11
   %60 = fmul double %57, %59
   br label %68
 
@@ -599,8 +599,8 @@ default.unreachable:                              ; preds = %9
   br label %68
 
 68:                                               ; preds = %._crit_edge, %64, %62, %9, %2
-  %.0 = phi double [ 0.000000e+00, %2 ], [ 0.000000e+00, %9 ], [ %60, %._crit_edge ], [ %67, %64 ], [ %switch.select63, %62 ]
-  ret double %.0
+  %.052 = phi double [ 0.000000e+00, %2 ], [ 0.000000e+00, %9 ], [ %60, %._crit_edge ], [ %67, %64 ], [ %switch.select63, %62 ]
+  ret double %.052
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)

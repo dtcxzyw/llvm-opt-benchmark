@@ -2466,8 +2466,8 @@ if.then.i61:                                      ; preds = %land.lhs.true.i.i.i
   br label %invoke.cont106
 
 invoke.cont106:                                   ; preds = %for.body.i.i.i, %for.inc36.i.i.i, %for.body20.i.i.i, %if.then.i61, %for.cond18.preheader.i.i.i
-  %d.sroa.7.1 = phi ptr [ null, %for.cond18.preheader.i.i.i ], [ %d.sroa.7.0.copyload, %if.then.i61 ], [ null, %for.body20.i.i.i ], [ null, %for.inc36.i.i.i ], [ null, %for.body.i.i.i ]
   %d.sroa.473.1 = phi ptr [ null, %for.cond18.preheader.i.i.i ], [ %d.sroa.473.0.copyload, %if.then.i61 ], [ null, %for.body20.i.i.i ], [ null, %for.inc36.i.i.i ], [ null, %for.body.i.i.i ]
+  %d.sroa.7.1 = phi ptr [ null, %for.cond18.preheader.i.i.i ], [ %d.sroa.7.0.copyload, %if.then.i61 ], [ null, %for.body20.i.i.i ], [ null, %for.inc36.i.i.i ], [ null, %for.body.i.i.i ]
   %d.sroa.0.0 = phi i32 [ 19, %for.cond18.preheader.i.i.i ], [ %d.sroa.0.0.copyload, %if.then.i61 ], [ 19, %for.body20.i.i.i ], [ 19, %for.inc36.i.i.i ], [ 19, %for.body.i.i.i ]
   br i1 %markdown, label %if.then109, label %if.else116
 
@@ -10141,8 +10141,8 @@ while.body:                                       ; preds = %entry, %_ZSt10__pop
   br i1 %cmp23.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %while.body, %while.body.i.i
-  %__holeIndex.addr.024.i.i = phi i64 [ %spec.select.i.i, %while.body.i.i ], [ 0, %while.body ]
-  %add.i.i = shl i64 %__holeIndex.addr.024.i.i, 1
+  %__secondChild.024.i.i = phi i64 [ %spec.select.i.i, %while.body.i.i ], [ 0, %while.body ]
+  %add.i.i = shl i64 %__secondChild.024.i.i, 1
   %mul.i.i = add i64 %add.i.i, 2
   %add.ptr.i.i = getelementptr inbounds %class.symbol, ptr %__first, i64 %mul.i.i
   %sub1.i.i = or disjoint i64 %add.i.i, 1
@@ -10150,14 +10150,14 @@ while.body.i.i:                                   ; preds = %while.body, %while.
   %call.i.i.i.i = call noundef zeroext i1 @_Z2ltRK6symbolS1_(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr2.i.i)
   %spec.select.i.i = select i1 %call.i.i.i.i, i64 %sub1.i.i, i64 %mul.i.i
   %add.ptr3.i.i = getelementptr inbounds %class.symbol, ptr %__first, i64 %spec.select.i.i
-  %add.ptr4.i.i = getelementptr inbounds %class.symbol, ptr %__first, i64 %__holeIndex.addr.024.i.i
+  %add.ptr4.i.i = getelementptr inbounds %class.symbol, ptr %__first, i64 %__secondChild.024.i.i
   %1 = load i64, ptr %add.ptr3.i.i, align 8
   store i64 %1, ptr %add.ptr4.i.i, align 8
   %cmp.i.i = icmp slt i64 %spec.select.i.i, %div.i.i
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !63
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %while.body
-  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ 0, %while.body ], [ %spec.select.i.i, %while.body.i.i ]
+  %__secondChild.0.lcssa.i.i = phi i64 [ 0, %while.body ], [ %spec.select.i.i, %while.body.i.i ]
   %2 = and i64 %sub.ptr.sub.i, 8
   %cmp5.i.i = icmp eq i64 %2, 0
   br i1 %cmp5.i.i, label %land.lhs.true.i.i, label %if.end16.i.i
@@ -10165,20 +10165,20 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %wh
 land.lhs.true.i.i:                                ; preds = %while.end.i.i
   %sub6.i.i = add nsw i64 %sub.ptr.div.i, -2
   %div7.i.i = ashr exact i64 %sub6.i.i, 1
-  %cmp8.i.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i, %div7.i.i
+  %cmp8.i.i = icmp eq i64 %__secondChild.0.lcssa.i.i, %div7.i.i
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end16.i.i
 
 if.then9.i.i:                                     ; preds = %land.lhs.true.i.i
-  %add10.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i, 1
+  %add10.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i, 1
   %sub12.i.i = or disjoint i64 %add10.i.i, 1
   %add.ptr13.i.i = getelementptr inbounds %class.symbol, ptr %__first, i64 %sub12.i.i
-  %add.ptr14.i.i = getelementptr inbounds %class.symbol, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
+  %add.ptr14.i.i = getelementptr inbounds %class.symbol, ptr %__first, i64 %__secondChild.0.lcssa.i.i
   %3 = load i64, ptr %add.ptr13.i.i, align 8
   store i64 %3, ptr %add.ptr14.i.i, align 8
   br label %if.end16.i.i
 
 if.end16.i.i:                                     ; preds = %if.then9.i.i, %land.lhs.true.i.i, %while.end.i.i
-  %__holeIndex.addr.1.i.i = phi i64 [ %sub12.i.i, %if.then9.i.i ], [ %__holeIndex.addr.0.lcssa.i.i, %land.lhs.true.i.i ], [ %__holeIndex.addr.0.lcssa.i.i, %while.end.i.i ]
+  %__holeIndex.addr.1.i.i = phi i64 [ %sub12.i.i, %if.then9.i.i ], [ %__secondChild.0.lcssa.i.i, %land.lhs.true.i.i ], [ %__secondChild.0.lcssa.i.i, %while.end.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__value.i.i.i)
   store ptr %__value.sroa.0.0.copyload.i, ptr %__value.i.i.i, align 8
   %cmp12.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i, 0
@@ -10241,8 +10241,8 @@ if.end.split:                                     ; preds = %entry
   br i1 %cmp23.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %if.end.split, %while.body.i
-  %__holeIndex.addr.024.i = phi i64 [ %spec.select.i, %while.body.i ], [ %div13, %if.end.split ]
-  %add.i = shl i64 %__holeIndex.addr.024.i, 1
+  %__secondChild.024.i = phi i64 [ %spec.select.i, %while.body.i ], [ %div13, %if.end.split ]
+  %add.i = shl i64 %__secondChild.024.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds %class.symbol, ptr %__first, i64 %mul.i
   %sub1.i = or disjoint i64 %add.i, 1
@@ -10250,32 +10250,32 @@ while.body.i:                                     ; preds = %if.end.split, %whil
   %call.i.i.i = tail call noundef zeroext i1 @_Z2ltRK6symbolS1_(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr2.i)
   %spec.select.i = select i1 %call.i.i.i, i64 %sub1.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds %class.symbol, ptr %__first, i64 %spec.select.i
-  %add.ptr4.i = getelementptr inbounds %class.symbol, ptr %__first, i64 %__holeIndex.addr.024.i
+  %add.ptr4.i = getelementptr inbounds %class.symbol, ptr %__first, i64 %__secondChild.024.i
   %0 = load i64, ptr %add.ptr3.i, align 8
   store i64 %0, ptr %add.ptr4.i, align 8
   %cmp.i = icmp slt i64 %spec.select.i, %div.i6163
   br i1 %cmp.i, label %while.body.i, label %while.end.i, !llvm.loop !63
 
 while.end.i:                                      ; preds = %while.body.i, %if.end.split
-  %__holeIndex.addr.0.lcssa.i = phi i64 [ %div13, %if.end.split ], [ %spec.select.i, %while.body.i ]
+  %__secondChild.0.lcssa.i = phi i64 [ %div13, %if.end.split ], [ %spec.select.i, %while.body.i ]
   %1 = and i64 %sub.ptr.sub, 8
   %cmp5.i = icmp eq i64 %1, 0
   %div7.i = ashr exact i64 %sub, 1
-  %cmp8.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i, %div7.i
+  %cmp8.i = icmp eq i64 %__secondChild.0.lcssa.i, %div7.i
   %or.cond = select i1 %cmp5.i, i1 %cmp8.i, i1 false
   br i1 %or.cond, label %if.then9.i, label %if.end16.i
 
 if.then9.i:                                       ; preds = %while.end.i
-  %add10.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i, 1
+  %add10.i = shl nsw i64 %__secondChild.0.lcssa.i, 1
   %sub12.i = or disjoint i64 %add10.i, 1
   %add.ptr13.i = getelementptr inbounds %class.symbol, ptr %__first, i64 %sub12.i
-  %add.ptr14.i = getelementptr inbounds %class.symbol, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr14.i = getelementptr inbounds %class.symbol, ptr %__first, i64 %__secondChild.0.lcssa.i
   %2 = load i64, ptr %add.ptr13.i, align 8
   store i64 %2, ptr %add.ptr14.i, align 8
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %if.then9.i, %while.end.i
-  %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
+  %__holeIndex.addr.1.i = phi i64 [ %sub12.i, %if.then9.i ], [ %__secondChild.0.lcssa.i, %while.end.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__value.i.i)
   store ptr %__value.sroa.0.0.copyload10, ptr %__value.i.i, align 8
   %cmp12.i.i = icmp sgt i64 %__holeIndex.addr.1.i, %div13
@@ -10334,8 +10334,8 @@ while.end.i18.us.thread:                          ; preds = %if.end8.split.us
   br label %_ZSt13__adjust_heapIP6symbollS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_T0_SA_T1_T2_.exit60.us
 
 while.body.i48.us:                                ; preds = %if.end8.split.us, %while.body.i48.us
-  %__holeIndex.addr.024.i49.us = phi i64 [ %spec.select.i56.us, %while.body.i48.us ], [ %dec.us, %if.end8.split.us ]
-  %add.i50.us = shl i64 %__holeIndex.addr.024.i49.us, 1
+  %__secondChild.024.i49.us = phi i64 [ %spec.select.i56.us, %while.body.i48.us ], [ %dec.us, %if.end8.split.us ]
+  %add.i50.us = shl i64 %__secondChild.024.i49.us, 1
   %mul.i51.us = add i64 %add.i50.us, 2
   %add.ptr.i52.us = getelementptr inbounds %class.symbol, ptr %__first, i64 %mul.i51.us
   %sub1.i53.us = or disjoint i64 %add.i50.us, 1
@@ -10343,7 +10343,7 @@ while.body.i48.us:                                ; preds = %if.end8.split.us, %
   %call.i.i.i55.us = call noundef zeroext i1 @_Z2ltRK6symbolS1_(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i52.us, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr2.i54.us)
   %spec.select.i56.us = select i1 %call.i.i.i55.us, i64 %sub1.i53.us, i64 %mul.i51.us
   %add.ptr3.i57.us = getelementptr inbounds %class.symbol, ptr %__first, i64 %spec.select.i56.us
-  %add.ptr4.i58.us = getelementptr inbounds %class.symbol, ptr %__first, i64 %__holeIndex.addr.024.i49.us
+  %add.ptr4.i58.us = getelementptr inbounds %class.symbol, ptr %__first, i64 %__secondChild.024.i49.us
   %7 = load i64, ptr %add.ptr3.i57.us, align 8
   store i64 %7, ptr %add.ptr4.i58.us, align 8
   %cmp.i59.us = icmp slt i64 %spec.select.i56.us, %div.i6163
@@ -10394,8 +10394,8 @@ if.end8.split:                                    ; preds = %if.end8.split.prehe
   br i1 %cmp23.i17.not, label %while.end.i18, label %while.body.i48
 
 while.body.i48:                                   ; preds = %if.end8.split, %while.body.i48
-  %__holeIndex.addr.024.i49 = phi i64 [ %spec.select.i56, %while.body.i48 ], [ %dec, %if.end8.split ]
-  %add.i50 = shl i64 %__holeIndex.addr.024.i49, 1
+  %__secondChild.024.i49 = phi i64 [ %spec.select.i56, %while.body.i48 ], [ %dec, %if.end8.split ]
+  %add.i50 = shl i64 %__secondChild.024.i49, 1
   %mul.i51 = add i64 %add.i50, 2
   %add.ptr.i52 = getelementptr inbounds %class.symbol, ptr %__first, i64 %mul.i51
   %sub1.i53 = or disjoint i64 %add.i50, 1
@@ -10403,15 +10403,15 @@ while.body.i48:                                   ; preds = %if.end8.split, %whi
   %call.i.i.i55 = call noundef zeroext i1 @_Z2ltRK6symbolS1_(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i52, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr2.i54)
   %spec.select.i56 = select i1 %call.i.i.i55, i64 %sub1.i53, i64 %mul.i51
   %add.ptr3.i57 = getelementptr inbounds %class.symbol, ptr %__first, i64 %spec.select.i56
-  %add.ptr4.i58 = getelementptr inbounds %class.symbol, ptr %__first, i64 %__holeIndex.addr.024.i49
+  %add.ptr4.i58 = getelementptr inbounds %class.symbol, ptr %__first, i64 %__secondChild.024.i49
   %11 = load i64, ptr %add.ptr3.i57, align 8
   store i64 %11, ptr %add.ptr4.i58, align 8
   %cmp.i59 = icmp slt i64 %spec.select.i56, %div.i6163
   br i1 %cmp.i59, label %while.body.i48, label %while.end.i18, !llvm.loop !63
 
 while.end.i18:                                    ; preds = %while.body.i48, %if.end8.split
-  %__holeIndex.addr.0.lcssa.i19 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i56, %while.body.i48 ]
-  %cmp8.i42 = icmp eq i64 %__holeIndex.addr.0.lcssa.i19, %div7.i
+  %__secondChild.0.lcssa.i19 = phi i64 [ %dec, %if.end8.split ], [ %spec.select.i56, %while.body.i48 ]
+  %cmp8.i42 = icmp eq i64 %__secondChild.0.lcssa.i19, %div7.i
   br i1 %cmp8.i42, label %if.then9.i43, label %if.end16.i22
 
 if.then9.i43:                                     ; preds = %while.end.i18
@@ -10420,7 +10420,7 @@ if.then9.i43:                                     ; preds = %while.end.i18
   br label %if.end16.i22
 
 if.end16.i22:                                     ; preds = %if.then9.i43, %while.end.i18
-  %__holeIndex.addr.1.i23 = phi i64 [ %sub12.i45, %if.then9.i43 ], [ %__holeIndex.addr.0.lcssa.i19, %while.end.i18 ]
+  %__holeIndex.addr.1.i23 = phi i64 [ %sub12.i45, %if.then9.i43 ], [ %__secondChild.0.lcssa.i19, %while.end.i18 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__value.i.i14)
   store ptr %__value.sroa.0.0.copyload12, ptr %__value.i.i14, align 8
   %cmp12.i.i24.not = icmp slt i64 %__holeIndex.addr.1.i23, %__parent.065

@@ -2512,10 +2512,10 @@ for.body.lr.ph.i:                                 ; preds = %land.lhs.true.i.i.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i, %for.body.lr.ph.i
-  %__begin3.sroa.5.013.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %__begin3.sroa.5.2.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i ]
-  %__begin3.sroa.0.012.i = phi ptr [ %274, %for.body.lr.ph.i ], [ %__begin3.sroa.0.2.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i ]
-  %data.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.012.i, i64 16
-  %arrayidx.i.i = getelementptr inbounds [10 x %"class.grpc_core::ManualConstructor"], ptr %data.i.i, i64 0, i64 %__begin3.sroa.5.013.i
+  %__begin3.sroa.0.013.i = phi ptr [ %274, %for.body.lr.ph.i ], [ %__begin3.sroa.0.2.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i ]
+  %__begin3.sroa.5.012.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %__begin3.sroa.5.2.i, %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i ]
+  %data.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.013.i, i64 16
+  %arrayidx.i.i = getelementptr inbounds [10 x %"class.grpc_core::ManualConstructor"], ptr %data.i.i, i64 0, i64 %__begin3.sroa.5.012.i
   %second.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 32
   %second.val.i = load ptr, ptr %second.i, align 8
   %281 = getelementptr i8, ptr %arrayidx.i.i, i64 40
@@ -2561,12 +2561,12 @@ call.i.i.i.i30.noexc:                             ; preds = %for.body.i
 .noexc99:                                         ; preds = %call.i.i.i.i30.noexc
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %ref.tmp4.i.i.i)
-  %inc.i.i = add i64 %__begin3.sroa.5.013.i, 1
+  %inc.i.i = add i64 %__begin3.sroa.5.012.i, 1
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.body.i.i, %.noexc99
-  %__begin3.sroa.0.1.i = phi ptr [ %__begin3.sroa.0.012.i, %.noexc99 ], [ %286, %while.body.i.i ]
   %__begin3.sroa.5.1.i = phi i64 [ %inc.i.i, %.noexc99 ], [ 0, %while.body.i.i ]
+  %__begin3.sroa.0.1.i = phi ptr [ %__begin3.sroa.0.013.i, %.noexc99 ], [ %286, %while.body.i.i ]
   %count.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.1.i, i64 8
   %285 = load i64, ptr %count.i.i, align 8
   %cmp4.i.i = icmp eq i64 %__begin3.sroa.5.1.i, %285
@@ -2578,11 +2578,11 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   br i1 %cmp.not.i.i, label %_ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i, label %land.rhs.i.i, !llvm.loop !110
 
 _ZN9grpc_core13ChunkedVectorISt4pairINS_5SliceES2_ELm10EE20ConstForwardIteratorppEv.exit.i: ; preds = %while.body.i.i, %land.rhs.i.i
-  %__begin3.sroa.0.2.i = phi ptr [ null, %while.body.i.i ], [ %__begin3.sroa.0.1.i, %land.rhs.i.i ]
   %__begin3.sroa.5.2.i = phi i64 [ 0, %while.body.i.i ], [ %__begin3.sroa.5.1.i, %land.rhs.i.i ]
+  %__begin3.sroa.0.2.i = phi ptr [ null, %while.body.i.i ], [ %__begin3.sroa.0.1.i, %land.rhs.i.i ]
   %cmp.i.i.i = icmp ne ptr %__begin3.sroa.0.2.i, null
   %cmp4.i.i.i = icmp ne i64 %__begin3.sroa.5.2.i, 0
-  %.not.i.i = or i1 %cmp.i.i.i, %cmp4.i.i.i
+  %.not.i.i = or i1 %cmp4.i.i.i, %cmp.i.i.i
   br i1 %.not.i.i, label %for.body.i, label %invoke.cont60
 
 lpad40.loopexit:                                  ; preds = %for.body.i, %call.i.i.i.i30.noexc

@@ -473,9 +473,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %alpha.0445 = phi i32 [ 0, %while.body.lr.ph ], [ %alpha.1, %if.end153 ]
   %j.0444 = phi i32 [ 2, %while.body.lr.ph ], [ %inc154, %if.end153 ]
   %dontsort.0443 = phi i32 [ 0, %while.body.lr.ph ], [ %dontsort.2, %if.end153 ]
-  %getop.0442 = phi i32 [ 0, %while.body.lr.ph ], [ %getop.1, %if.end153 ]
+  %storekey.0442 = phi ptr [ null, %while.body.lr.ph ], [ %storekey.1, %if.end153 ]
   %sortby.0441 = phi ptr [ null, %while.body.lr.ph ], [ %sortby.1, %if.end153 ]
-  %storekey.0440 = phi ptr [ null, %while.body.lr.ph ], [ %storekey.1, %if.end153 ]
+  %getop.0440 = phi i32 [ 0, %while.body.lr.ph ], [ %getop.1, %if.end153 ]
   %6 = xor i32 %j.0444, -1
   %sub4 = add i32 %5, %6
   %7 = load ptr, ptr %argv, align 8
@@ -708,7 +708,7 @@ if.end136:                                        ; preds = %if.end132
   %pattern2.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %33, ptr %pattern2.i, align 8
   %call142 = call ptr @listAddNodeTail(ptr noundef %call, ptr noundef nonnull %call.i) #12
-  %inc143 = add nsw i32 %getop.0442, 1
+  %inc143 = add nsw i32 %getop.0440, 1
   br label %if.end153
 
 if.else145:                                       ; preds = %if.else101
@@ -717,9 +717,9 @@ if.else145:                                       ; preds = %if.else101
   br label %if.then156
 
 if.end153:                                        ; preds = %if.end94, %if.then70, %lor.lhs.false, %if.else14, %if.else, %while.body, %if.end136, %if.then55
-  %storekey.1 = phi ptr [ %13, %if.then55 ], [ %storekey.0440, %if.end136 ], [ %storekey.0440, %while.body ], [ %storekey.0440, %if.else ], [ %storekey.0440, %if.else14 ], [ %storekey.0440, %lor.lhs.false ], [ %storekey.0440, %if.then70 ], [ %storekey.0440, %if.end94 ]
+  %getop.1 = phi i32 [ %getop.0440, %if.then55 ], [ %inc143, %if.end136 ], [ %getop.0440, %while.body ], [ %getop.0440, %if.else ], [ %getop.0440, %if.else14 ], [ %getop.0440, %lor.lhs.false ], [ %getop.0440, %if.then70 ], [ %getop.0440, %if.end94 ]
   %sortby.1 = phi ptr [ %sortby.0441, %if.then55 ], [ %sortby.0441, %if.end136 ], [ %sortby.0441, %while.body ], [ %sortby.0441, %if.else ], [ %sortby.0441, %if.else14 ], [ %sortby.0441, %lor.lhs.false ], [ %14, %if.then70 ], [ %14, %if.end94 ]
-  %getop.1 = phi i32 [ %getop.0442, %if.then55 ], [ %inc143, %if.end136 ], [ %getop.0442, %while.body ], [ %getop.0442, %if.else ], [ %getop.0442, %if.else14 ], [ %getop.0442, %lor.lhs.false ], [ %getop.0442, %if.then70 ], [ %getop.0442, %if.end94 ]
+  %storekey.1 = phi ptr [ %13, %if.then55 ], [ %storekey.0442, %if.end136 ], [ %storekey.0442, %while.body ], [ %storekey.0442, %if.else ], [ %storekey.0442, %if.else14 ], [ %storekey.0442, %lor.lhs.false ], [ %storekey.0442, %if.then70 ], [ %storekey.0442, %if.end94 ]
   %dontsort.2 = phi i32 [ %dontsort.0443, %if.then55 ], [ %dontsort.0443, %if.end136 ], [ %dontsort.0443, %while.body ], [ %dontsort.0443, %if.else ], [ %dontsort.0443, %if.else14 ], [ %dontsort.0443, %lor.lhs.false ], [ 1, %if.then70 ], [ %dontsort.0443, %if.end94 ]
   %j.1 = phi i32 [ %add57, %if.then55 ], [ %add138, %if.end136 ], [ %j.0444, %while.body ], [ %j.0444, %if.else ], [ %j.0444, %if.else14 ], [ %add37, %lor.lhs.false ], [ %add72, %if.then70 ], [ %add72, %if.end94 ]
   %alpha.1 = phi i32 [ %alpha.0445, %if.then55 ], [ %alpha.0445, %if.end136 ], [ %alpha.0445, %while.body ], [ %alpha.0445, %if.else ], [ 1, %if.else14 ], [ %alpha.0445, %lor.lhs.false ], [ %alpha.0445, %if.then70 ], [ %alpha.0445, %if.end94 ]
@@ -734,9 +734,9 @@ if.then156:                                       ; preds = %if.then30, %lor.lhs
   br label %return
 
 if.end157:                                        ; preds = %if.end153, %entry
-  %storekey.0.lcssa = phi ptr [ null, %entry ], [ %storekey.1, %if.end153 ]
-  %sortby.0.lcssa = phi ptr [ null, %entry ], [ %sortby.1, %if.end153 ]
   %getop.0.lcssa = phi i32 [ 0, %entry ], [ %getop.1, %if.end153 ]
+  %sortby.0.lcssa = phi ptr [ null, %entry ], [ %sortby.1, %if.end153 ]
+  %storekey.0.lcssa = phi ptr [ null, %entry ], [ %storekey.1, %if.end153 ]
   %dontsort.0.lcssa = phi i32 [ 0, %entry ], [ %dontsort.2, %if.end153 ]
   %alpha.0.lcssa = phi i32 [ 0, %entry ], [ %alpha.1, %if.end153 ]
   %desc.0.lcssa = phi i32 [ 0, %entry ], [ %desc.1, %if.end153 ]
@@ -1071,9 +1071,9 @@ while.body433.lr.ph:                              ; preds = %if.end430
 while.body433:                                    ; preds = %while.body433.lr.ph, %sdslen.exit365
   %indvars.iv505 = phi i64 [ 0, %while.body433.lr.ph ], [ %indvars.iv.next506, %sdslen.exit365 ]
   %dec461.in = phi i32 [ %vectorlen.1, %while.body433.lr.ph ], [ %dec461, %sdslen.exit365 ]
-  %ln.1459 = phi ptr [ %ln.0, %while.body433.lr.ph ], [ %cond461, %sdslen.exit365 ]
+  %ln.1460 = phi ptr [ %ln.0, %while.body433.lr.ph ], [ %cond461, %sdslen.exit365 ]
   %dec461 = add nsw i32 %dec461.in, -1
-  %cmp434.not = icmp eq ptr %ln.1459, null
+  %cmp434.not = icmp eq ptr %ln.1460, null
   br i1 %cmp434.not, label %cond.false440, label %cond.end441
 
 cond.false440:                                    ; preds = %while.body433
@@ -1082,7 +1082,7 @@ cond.false440:                                    ; preds = %while.body433
   unreachable
 
 cond.end441:                                      ; preds = %while.body433
-  %60 = load ptr, ptr %ln.1459, align 8
+  %60 = load ptr, ptr %ln.1460, align 8
   %arrayidx.i347 = getelementptr inbounds i8, ptr %60, i64 -1
   %61 = load i8, ptr %arrayidx.i347, align 1
   %conv.i348 = zext i8 %61 to i32
@@ -1131,7 +1131,7 @@ sdslen.exit365:                                   ; preds = %cond.end441, %sw.bb
   %u449 = getelementptr inbounds i8, ptr %arrayidx445, i64 8
   store ptr null, ptr %u449, align 8
   %indvars.iv.next506 = add nuw nsw i64 %indvars.iv505, 1
-  %cond461.in = getelementptr inbounds i8, ptr %ln.1459, i64 %cond461.in.v
+  %cond461.in = getelementptr inbounds i8, ptr %ln.1460, i64 %cond461.in.v
   %cond461 = load ptr, ptr %cond461.in, align 8
   %tobool432.not = icmp eq i32 %dec461, 0
   br i1 %tobool432.not, label %while.end462.loopexit, label %while.body433, !llvm.loop !10

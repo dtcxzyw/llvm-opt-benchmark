@@ -295,14 +295,14 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %.loopexit450
 
 .loopexit450:                                     ; preds = %69, %.preheader449, %75
-  %.0275 = phi ptr [ %78, %75 ], [ null, %.preheader449 ], [ null, %69 ]
-  %79 = tail call ptr @prte_schizo_base_detect_proxy(ptr noundef %.0275) #16
+  %.0271 = phi ptr [ %78, %75 ], [ null, %.preheader449 ], [ null, %69 ]
+  %79 = tail call ptr @prte_schizo_base_detect_proxy(ptr noundef %.0271) #16
   %80 = icmp eq ptr %79, null
   br i1 %80, label %81, label %84
 
 81:                                               ; preds = %.loopexit450
   %82 = load ptr, ptr @prte_tool_basename, align 8
-  %83 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 1, ptr noundef %82, ptr noundef %.0275) #16
+  %83 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 1, ptr noundef %82, ptr noundef %.0271) #16
   br label %641
 
 84:                                               ; preds = %.loopexit450
@@ -1487,10 +1487,10 @@ pmix_obj_run_constructors.exit434:                ; preds = %.lr.ph.i431, %438
   br label %.thread
 
 591:                                              ; preds = %453, %pmix_obj_run_constructors.exit434, %287, %255, %170, %283, %301, %340, %358, %476, %484, %518, %533, %289
-  %.2 = phi i32 [ -8, %170 ], [ -1, %283 ], [ %288, %289 ], [ -1, %301 ], [ %337, %340 ], [ -1, %358 ], [ -1, %476 ], [ -1, %484 ], [ %515, %518 ], [ %530, %533 ], [ 1, %255 ], [ %288, %287 ], [ -8, %pmix_obj_run_constructors.exit434 ], [ -8, %453 ]
+  %.2276 = phi i32 [ -8, %170 ], [ -1, %283 ], [ %288, %289 ], [ -1, %301 ], [ %337, %340 ], [ -1, %358 ], [ -1, %476 ], [ -1, %484 ], [ %515, %518 ], [ %530, %533 ], [ 1, %255 ], [ %288, %287 ], [ -8, %pmix_obj_run_constructors.exit434 ], [ -8, %453 ]
   %592 = load i32, ptr @prte_exit_status, align 4
   %593 = icmp eq i32 %592, 0
-  %594 = icmp ne i32 %.2, 0
+  %594 = icmp ne i32 %.2276, 0
   %or.cond17 = and i1 %594, %593
   br i1 %or.cond17, label %595, label %.thread
 
@@ -1508,11 +1508,11 @@ pmix_obj_run_constructors.exit434:                ; preds = %.lr.ph.i431, %438
 
 602:                                              ; preds = %597
   %603 = call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #16
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %596, ptr noundef nonnull @.str.52, ptr noundef %603, ptr noundef nonnull @.str.6, i32 noundef 808, i32 noundef %.2) #16
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %596, ptr noundef nonnull @.str.52, ptr noundef %603, ptr noundef nonnull @.str.6, i32 noundef 808, i32 noundef %.2276) #16
   br label %604
 
 604:                                              ; preds = %602, %597, %595
-  store i32 %.2, ptr @prte_exit_status, align 4
+  store i32 %.2276, ptr @prte_exit_status, align 4
   br label %.thread
 
 .thread:                                          ; preds = %500, %._crit_edge484, %494, %489, %470, %432, %427, %413, %403, %.loopexit447, %387, %365, %351, %346, %591, %604

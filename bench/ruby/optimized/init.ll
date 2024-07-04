@@ -847,19 +847,19 @@ read_buffered_data.exit.thread:                   ; preds = %RSTRING_PTR.exit, %
   unreachable
 
 71:                                               ; preds = %read_buffered_data.exit.thread, %read_buffered_data.exit
-  %.031 = phi i64 [ %57, %read_buffered_data.exit.thread ], [ %49, %read_buffered_data.exit ]
+  %.0 = phi i64 [ %57, %read_buffered_data.exit.thread ], [ %49, %read_buffered_data.exit ]
   %72 = getelementptr inbounds i8, ptr %32, i64 16
   %73 = load i64, ptr %72, align 8
-  %.not = icmp eq i64 %.031, %73
+  %.not = icmp eq i64 %.0, %73
   br i1 %.not, label %75, label %74
 
 74:                                               ; preds = %71
   call void @rb_str_modify(i64 noundef %.0.i37) #9
-  call void @rb_str_set_len(i64 noundef %.0.i37, i64 noundef %.031) #9
+  call void @rb_str_set_len(i64 noundef %.0.i37, i64 noundef %.0) #9
   br label %75
 
 75:                                               ; preds = %74, %71
-  %76 = icmp eq i64 %.031, 0
+  %76 = icmp eq i64 %.0, 0
   br i1 %76, label %77, label %80
 
 77:                                               ; preds = %75
@@ -871,8 +871,8 @@ read_buffered_data.exit.thread:                   ; preds = %RSTRING_PTR.exit, %
   unreachable
 
 80:                                               ; preds = %75, %77, %65, %30
-  %.0 = phi i64 [ %.0.i37, %30 ], [ %66, %65 ], [ 4, %77 ], [ %.0.i37, %75 ]
-  ret i64 %.0
+  %.031 = phi i64 [ %.0.i37, %30 ], [ %66, %65 ], [ 4, %77 ], [ %.0.i37, %75 ]
+  ret i64 %.031
 }
 
 declare i64 @recv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
@@ -905,7 +905,7 @@ define i64 @rsock_write_nonblock(i64 noundef %0, i64 noundef %1, i64 noundef %2)
   br label %14
 
 14:                                               ; preds = %.critedge, %8
-  %.038 = phi i64 [ %1, %8 ], [ %13, %.critedge ]
+  %.037 = phi i64 [ %1, %8 ], [ %13, %.critedge ]
   %15 = tail call i64 @rb_io_get_write_io(i64 noundef %0) #9
   %16 = tail call i64 @rb_io_taint_check(i64 noundef %15) #9
   %17 = inttoptr i64 %16 to ptr
@@ -925,7 +925,7 @@ define i64 @rsock_write_nonblock(i64 noundef %0, i64 noundef %1, i64 noundef %2)
 25:                                               ; preds = %23, %14
   %26 = getelementptr inbounds i8, ptr %19, i64 16
   %27 = load i32, ptr %26, align 8
-  %28 = inttoptr i64 %.038 to ptr
+  %28 = inttoptr i64 %.037 to ptr
   %29 = load i64, ptr %28, align 8, !noalias !19
   %30 = and i64 %29, 8192
   %.not.i.i = icmp eq i64 %30, 0
@@ -974,8 +974,8 @@ RSTRING_PTR.exit:                                 ; preds = %25, %32
   br label %52
 
 52:                                               ; preds = %49, %43
-  %.037 = phi i64 [ %44, %43 ], [ %51, %49 ]
-  ret i64 %.037
+  %.038 = phi i64 [ %44, %43 ], [ %51, %49 ]
+  ret i64 %.038
 }
 
 declare i64 @rb_obj_as_string(i64 noundef) local_unnamed_addr #2
@@ -1349,8 +1349,8 @@ rsock_init_sock.exit:                             ; preds = %32, %39
   br label %42
 
 42:                                               ; preds = %rsock_init_sock.exit, %28
-  %.0 = phi i64 [ %33, %rsock_init_sock.exit ], [ %31, %28 ]
-  ret i64 %.0
+  %.015 = phi i64 [ %33, %rsock_init_sock.exit ], [ %31, %28 ]
+  ret i64 %.015
 }
 
 ; Function Attrs: nounwind uwtable

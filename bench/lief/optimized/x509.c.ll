@@ -394,7 +394,7 @@ define hidden i32 @mbedtls_x509_get_name(ptr noundef %0, ptr noundef %1, ptr nou
   br label %6
 
 6:                                                ; preds = %60, %3
-  %.019 = phi ptr [ %2, %3 ], [ %61, %60 ]
+  %.0 = phi ptr [ %2, %3 ], [ %61, %60 ]
   %7 = call i32 @mbedtls_asn1_get_tag(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, i32 noundef 49) #12
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
@@ -410,7 +410,7 @@ define hidden i32 @mbedtls_x509_get_name(ptr noundef %0, ptr noundef %1, ptr nou
   br label %14
 
 14:                                               ; preds = %53, %10
-  %.1 = phi ptr [ %.019, %10 ], [ %55, %53 ]
+  %.1 = phi ptr [ %.0, %10 ], [ %55, %53 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %15 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %13, ptr noundef nonnull %4, i32 noundef 48) #12
   %.not.i = icmp eq i32 %15, 0
@@ -523,8 +523,8 @@ x509_get_attr_type_value.exit:                    ; preds = %37, %22, %14
   br i1 %63, label %.loopexit, label %6
 
 .loopexit:                                        ; preds = %60, %58, %53, %x509_get_attr_type_value.exit, %x509_get_attr_type_value.exit.thread, %8
-  %.0 = phi i32 [ %9, %8 ], [ %.0.i.ph, %x509_get_attr_type_value.exit.thread ], [ -10368, %53 ], [ %.0.i, %x509_get_attr_type_value.exit ], [ -10368, %60 ], [ 0, %58 ]
-  ret i32 %.0
+  %.019 = phi i32 [ %9, %8 ], [ %.0.i.ph, %x509_get_attr_type_value.exit.thread ], [ -10368, %53 ], [ %.0.i, %x509_get_attr_type_value.exit ], [ -10368, %60 ], [ 0, %58 ]
+  ret i32 %.019
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
@@ -552,7 +552,7 @@ define hidden i32 @mbedtls_x509_get_time(ptr noundef %0, ptr noundef %1, ptr noc
 
 13:                                               ; preds = %10, %12
   %14 = phi i1 [ false, %12 ], [ true, %10 ]
-  %.013 = phi i64 [ 4, %12 ], [ 2, %10 ]
+  %.0 = phi i64 [ 4, %12 ], [ 2, %10 ]
   %15 = getelementptr inbounds i8, ptr %5, i64 1
   store ptr %15, ptr %0, align 8
   %16 = call i32 @mbedtls_asn1_get_len(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4) #12
@@ -565,7 +565,7 @@ define hidden i32 @mbedtls_x509_get_time(ptr noundef %0, ptr noundef %1, ptr noc
 
 19:                                               ; preds = %13
   %20 = load i64, ptr %4, align 8
-  %21 = or disjoint i64 %.013, 8
+  %21 = or disjoint i64 %.0, 8
   %22 = icmp ugt i64 %21, %20
   br i1 %22, label %x509_parse_time.exit, label %23
 
@@ -576,7 +576,7 @@ define hidden i32 @mbedtls_x509_get_time(ptr noundef %0, ptr noundef %1, ptr noc
 
 .lr.ph.i.i:                                       ; preds = %23, %29
   %25 = phi i32 [ %37, %29 ], [ 0, %23 ]
-  %.0811.i.i = phi i64 [ %38, %29 ], [ %.013, %23 ]
+  %.0811.i.i = phi i64 [ %38, %29 ], [ %.0, %23 ]
   %26 = load ptr, ptr %0, align 8
   %27 = load i8, ptr %26, align 1
   %28 = add i8 %27, -58
@@ -738,8 +738,8 @@ define hidden i32 @mbedtls_x509_get_time(ptr noundef %0, ptr noundef %1, ptr noc
   br label %x509_parse_time.exit
 
 x509_parse_time.exit:                             ; preds = %.lr.ph.i.i, %.lr.ph.i56.i, %.lr.ph.i62.i, %.lr.ph.i68.i, %105, %100, %99, %96, %94, %91, %19, %10, %3, %17
-  %.0 = phi i32 [ %18, %17 ], [ -9312, %3 ], [ -9314, %10 ], [ -9216, %19 ], [ %93, %91 ], [ %98, %96 ], [ -9216, %94 ], [ %106, %105 ], [ -9216, %100 ], [ -9216, %99 ], [ -9216, %.lr.ph.i68.i ], [ -9216, %.lr.ph.i62.i ], [ -9216, %.lr.ph.i56.i ], [ -9216, %.lr.ph.i.i ]
-  ret i32 %.0
+  %.013 = phi i32 [ %18, %17 ], [ -9312, %3 ], [ -9314, %10 ], [ -9216, %19 ], [ %93, %91 ], [ %98, %96 ], [ -9216, %94 ], [ %106, %105 ], [ -9216, %100 ], [ -9216, %99 ], [ -9216, %.lr.ph.i68.i ], [ -9216, %.lr.ph.i62.i ], [ -9216, %.lr.ph.i56.i ], [ -9216, %.lr.ph.i.i ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -901,7 +901,7 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
   %.0.ph110 = phi ptr [ %66, %.outer ], [ %0, %3 ]
   %.063.ph109 = phi ptr [ %70, %.outer ], [ %2, %3 ]
   %.064.ph108 = phi i8 [ %68, %.outer ], [ 0, %3 ]
-  %.066.ph107 = phi i64 [ %65, %.outer ], [ %1, %3 ]
+  %.065.ph107 = phi i64 [ %65, %.outer ], [ %1, %3 ]
   br label %6
 
 6:                                                ; preds = %.lr.ph, %9
@@ -924,22 +924,22 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
 13:                                               ; preds = %12
   %.not82 = icmp eq i8 %.064.ph108, 0
   %14 = select i1 %.not82, ptr @.str.3, ptr @.str.2
-  %15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0.ph110, i64 noundef %.066.ph107, ptr noundef nonnull %14) #12
+  %15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0.ph110, i64 noundef %.065.ph107, ptr noundef nonnull %14) #12
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %13
   %18 = zext nneg i32 %15 to i64
-  %.not83 = icmp ugt i64 %.066.ph107, %18
+  %.not83 = icmp ugt i64 %.065.ph107, %18
   br i1 %.not83, label %19, label %.loopexit
 
 19:                                               ; preds = %17
-  %20 = sub i64 %.066.ph107, %18
+  %20 = sub i64 %.065.ph107, %18
   %21 = getelementptr inbounds i8, ptr %.0.ph110, i64 %18
   br label %22
 
 22:                                               ; preds = %19, %12
-  %.167 = phi i64 [ %20, %19 ], [ %.066.ph107, %12 ]
+  %.166 = phi i64 [ %20, %19 ], [ %.065.ph107, %12 ]
   %.1 = phi ptr [ %21, %19 ], [ %.0.ph110, %12 ]
   %23 = call i32 @mbedtls_oid_get_attr_short_name(ptr noundef nonnull %.06398, ptr noundef nonnull %4) #12
   %24 = icmp eq i32 %23, 0
@@ -947,25 +947,25 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr %4, align 8
-  %27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.1, i64 noundef %.167, ptr noundef nonnull @.str.4, ptr noundef %26) #12
+  %27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.1, i64 noundef %.166, ptr noundef nonnull @.str.4, ptr noundef %26) #12
   br label %30
 
 28:                                               ; preds = %22
-  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.1, i64 noundef %.167, ptr noundef nonnull @.str.5) #12
+  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.1, i64 noundef %.166, ptr noundef nonnull @.str.5) #12
   br label %30
 
 30:                                               ; preds = %25, %28
-  %.071 = phi i32 [ %27, %25 ], [ %29, %28 ]
-  %31 = icmp slt i32 %.071, 0
+  %.070 = phi i32 [ %27, %25 ], [ %29, %28 ]
+  %31 = icmp slt i32 %.070, 0
   br i1 %31, label %.loopexit, label %32
 
 32:                                               ; preds = %30
-  %33 = zext nneg i32 %.071 to i64
-  %.not84 = icmp ugt i64 %.167, %33
+  %33 = zext nneg i32 %.070 to i64
+  %.not84 = icmp ugt i64 %.166, %33
   br i1 %.not84, label %34, label %.loopexit
 
 34:                                               ; preds = %32
-  %35 = sub i64 %.167, %33
+  %35 = sub i64 %.166, %33
   %36 = getelementptr inbounds i8, ptr %.1, i64 %33
   %37 = getelementptr inbounds i8, ptr %.06398, i64 32
   %38 = load i64, ptr %37, align 8
@@ -977,14 +977,14 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
   br label %40
 
 40:                                               ; preds = %.lr.ph103, %.thread
-  %.068101 = phi i64 [ 0, %.lr.ph103 ], [ %57, %.thread ]
-  %.070100 = phi i64 [ 0, %.lr.ph103 ], [ %56, %.thread ]
-  %41 = icmp ugt i64 %.068101, 254
+  %.067101 = phi i64 [ 0, %.lr.ph103 ], [ %57, %.thread ]
+  %.069100 = phi i64 [ 0, %.lr.ph103 ], [ %56, %.thread ]
+  %41 = icmp ugt i64 %.067101, 254
   br i1 %41, label %.loopexit, label %42
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr %39, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 %.070100
+  %44 = getelementptr inbounds i8, ptr %43, i64 %.069100
   %45 = load i8, ptr %44, align 1
   %.not86 = icmp eq i8 %45, 0
   br i1 %.not86, label %.thread, label %46
@@ -996,36 +996,36 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
   br i1 %.not87, label %53, label %48
 
 48:                                               ; preds = %46
-  %49 = icmp eq i64 %.068101, 254
+  %49 = icmp eq i64 %.067101, 254
   br i1 %49, label %.loopexit, label %50
 
 50:                                               ; preds = %48
-  %51 = add nuw nsw i64 %.068101, 1
-  %52 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %.068101
+  %51 = add nuw nsw i64 %.067101, 1
+  %52 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %.067101
   store i8 92, ptr %52, align 1
   br label %53
 
 53:                                               ; preds = %50, %46
-  %.169 = phi i64 [ %51, %50 ], [ %.068101, %46 ]
+  %.168 = phi i64 [ %51, %50 ], [ %.067101, %46 ]
   %54 = add i8 %45, -127
   %or.cond = icmp ult i8 %54, -95
   %spec.select = select i1 %or.cond, i8 63, i8 %45
   br label %.thread
 
 .thread:                                          ; preds = %53, %42
-  %.16990.sink = phi i64 [ %.068101, %42 ], [ %.169, %53 ]
+  %.16890.sink = phi i64 [ %.067101, %42 ], [ %.168, %53 ]
   %.sink = phi i8 [ 63, %42 ], [ %spec.select, %53 ]
-  %55 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %.16990.sink
+  %55 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %.16890.sink
   store i8 %.sink, ptr %55, align 1
-  %56 = add nuw i64 %.070100, 1
-  %57 = add nuw nsw i64 %.16990.sink, 1
+  %56 = add nuw i64 %.069100, 1
+  %57 = add nuw nsw i64 %.16890.sink, 1
   %58 = load i64, ptr %37, align 8
   %59 = icmp ult i64 %56, %58
   br i1 %59, label %40, label %._crit_edge104, !llvm.loop !7
 
 ._crit_edge104:                                   ; preds = %.thread, %34
-  %.068.lcssa = phi i64 [ 0, %34 ], [ %57, %.thread ]
-  %60 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %.068.lcssa
+  %.067.lcssa = phi i64 [ 0, %34 ], [ %57, %.thread ]
+  %60 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %.067.lcssa
   store i8 0, ptr %60, align 1
   %61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %36, i64 noundef %35, ptr noundef nonnull @.str.7, ptr noundef nonnull %5) #12
   %62 = icmp slt i32 %61, 0
@@ -1047,14 +1047,14 @@ define hidden i32 @mbedtls_x509_dn_gets(ptr nocapture noundef writeonly %0, i64 
   br i1 %.not97, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !6
 
 .outer._crit_edge:                                ; preds = %.outer, %9, %3
-  %.066.ph.lcssa96 = phi i64 [ %1, %3 ], [ %.066.ph107, %9 ], [ %65, %.outer ]
-  %71 = sub i64 %1, %.066.ph.lcssa96
+  %.065.ph.lcssa96 = phi i64 [ %1, %3 ], [ %.065.ph107, %9 ], [ %65, %.outer ]
+  %71 = sub i64 %1, %.065.ph.lcssa96
   %72 = trunc i64 %71 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge104, %63, %30, %32, %13, %17, %48, %40, %.outer._crit_edge
-  %.065 = phi i32 [ %72, %.outer._crit_edge ], [ -10624, %40 ], [ -10624, %48 ], [ -10624, %17 ], [ -10624, %13 ], [ -10624, %32 ], [ -10624, %30 ], [ -10624, %63 ], [ -10624, %._crit_edge104 ]
-  ret i32 %.065
+  %.071 = phi i32 [ %72, %.outer._crit_edge ], [ -10624, %40 ], [ -10624, %48 ], [ -10624, %17 ], [ -10624, %13 ], [ -10624, %32 ], [ -10624, %30 ], [ -10624, %63 ], [ -10624, %._crit_edge104 ]
+  ret i32 %.071
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1096,9 +1096,9 @@ define hidden i32 @mbedtls_x509_serial_gets(ptr nocapture noundef writeonly %0, 
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %33
   %.055 = phi ptr [ %.1, %33 ], [ %0, %.lr.ph ]
-  %.03954 = phi i64 [ %.140, %33 ], [ %1, %.lr.ph ]
-  %.04153 = phi i64 [ %34, %33 ], [ 0, %.lr.ph ]
-  %16 = icmp eq i64 %.04153, 0
+  %.03854 = phi i64 [ %.139, %33 ], [ %1, %.lr.ph ]
+  %.04053 = phi i64 [ %34, %33 ], [ 0, %.lr.ph ]
+  %16 = icmp eq i64 %.04053, 0
   %.pre = load ptr, ptr %7, align 8
   br i1 %16, label %17, label %20
 
@@ -1108,29 +1108,29 @@ define hidden i32 @mbedtls_x509_serial_gets(ptr nocapture noundef writeonly %0, 
   br i1 %19, label %33, label %20
 
 20:                                               ; preds = %17, %.lr.ph.split
-  %21 = getelementptr inbounds i8, ptr %.pre, i64 %.04153
+  %21 = getelementptr inbounds i8, ptr %.pre, i64 %.04053
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
-  %24 = icmp ult i64 %.04153, %8
+  %24 = icmp ult i64 %.04053, %8
   %25 = select i1 %24, ptr @.str.9, ptr @.str.10
-  %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.055, i64 noundef %.03954, ptr noundef nonnull @.str.8, i32 noundef %23, ptr noundef nonnull %25) #12
+  %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.055, i64 noundef %.03854, ptr noundef nonnull @.str.8, i32 noundef %23, ptr noundef nonnull %25) #12
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %.loopexit, label %28
 
 28:                                               ; preds = %20
   %29 = zext nneg i32 %26 to i64
-  %.not50 = icmp ugt i64 %.03954, %29
+  %.not50 = icmp ugt i64 %.03854, %29
   br i1 %.not50, label %30, label %.loopexit
 
 30:                                               ; preds = %28
-  %31 = sub i64 %.03954, %29
+  %31 = sub i64 %.03854, %29
   %32 = getelementptr inbounds i8, ptr %.055, i64 %29
   br label %33
 
 33:                                               ; preds = %17, %30
-  %.140 = phi i64 [ %.03954, %17 ], [ %31, %30 ]
+  %.139 = phi i64 [ %.03854, %17 ], [ %31, %30 ]
   %.1 = phi ptr [ %.055, %17 ], [ %32, %30 ]
-  %34 = add nuw i64 %.04153, 1
+  %34 = add nuw i64 %.04053, 1
   %exitcond.not = icmp eq i64 %34, %spec.select.fr
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
@@ -1140,35 +1140,35 @@ define hidden i32 @mbedtls_x509_serial_gets(ptr nocapture noundef writeonly %0, 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %33, %._crit_edge.loopexit, %3
-  %.039.lcssa = phi i64 [ %1, %3 ], [ %36, %._crit_edge.loopexit ], [ %.140, %33 ]
+  %.038.lcssa = phi i64 [ %1, %3 ], [ %36, %._crit_edge.loopexit ], [ %.139, %33 ]
   %.0.lcssa = phi ptr [ %0, %3 ], [ %35, %._crit_edge.loopexit ], [ %.1, %33 ]
   %37 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %spec.select.fr, %37
   br i1 %.not, label %45, label %38
 
 38:                                               ; preds = %._crit_edge
-  %39 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0.lcssa, i64 noundef %.039.lcssa, ptr noundef nonnull @.str.11) #12
+  %39 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0.lcssa, i64 noundef %.038.lcssa, ptr noundef nonnull @.str.11) #12
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %38
   %42 = zext nneg i32 %39 to i64
-  %.not49 = icmp ugt i64 %.039.lcssa, %42
+  %.not49 = icmp ugt i64 %.038.lcssa, %42
   br i1 %.not49, label %43, label %.loopexit
 
 43:                                               ; preds = %41
-  %44 = sub i64 %.039.lcssa, %42
+  %44 = sub i64 %.038.lcssa, %42
   br label %45
 
 45:                                               ; preds = %43, %._crit_edge
-  %.2 = phi i64 [ %44, %43 ], [ %.039.lcssa, %._crit_edge ]
+  %.2 = phi i64 [ %44, %43 ], [ %.038.lcssa, %._crit_edge ]
   %46 = sub i64 %1, %.2
   %47 = trunc i64 %46 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %20, %14, %.lr.ph.split.us, %38, %41, %45
-  %.038 = phi i32 [ %47, %45 ], [ -10624, %41 ], [ -10624, %38 ], [ -10624, %.lr.ph.split.us ], [ -10624, %14 ], [ -10624, %20 ], [ -10624, %28 ]
-  ret i32 %.038
+  %.041 = phi i32 [ %47, %45 ], [ -10624, %41 ], [ -10624, %38 ], [ -10624, %.lr.ph.split.us ], [ -10624, %14 ], [ -10624, %20 ], [ -10624, %28 ]
+  ret i32 %.041
 }
 
 ; Function Attrs: nounwind uwtable

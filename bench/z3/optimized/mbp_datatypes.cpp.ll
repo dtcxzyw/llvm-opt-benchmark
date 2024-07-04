@@ -4045,10 +4045,10 @@ for.body.preheader:                               ; preds = %if.end11
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %has_new.0116 = phi i1 [ %has_new.1, %for.inc ], [ false, %for.body.preheader ]
-  %__begin3.0115 = phi ptr [ %incdec.ptr, %for.inc ], [ %m_args.i.ptr, %for.body.preheader ]
+  %__begin3.0116 = phi ptr [ %incdec.ptr, %for.inc ], [ %m_args.i.ptr, %for.body.preheader ]
+  %has_new.0115 = phi i1 [ %has_new.1, %for.inc ], [ false, %for.body.preheader ]
   %has_v.0114 = phi i1 [ %has_v.1, %for.inc ], [ false, %for.body.preheader ]
-  %26 = load ptr, ptr %__begin3.0115, align 8
+  %26 = load ptr, ptr %__begin3.0116, align 8
   %27 = load i32, ptr %26, align 4
   %28 = load i32, ptr %m_marks.i.i, align 8
   %cmp.i.i26 = icmp ult i32 %27, %28
@@ -4190,8 +4190,8 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit62: ; p
 
 for.inc:                                          ; preds = %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit50, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit62
   %has_v.1 = phi i1 [ %44, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit62 ], [ %has_v.0114, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit50 ]
-  %has_new.1 = phi i1 [ %has_new.0116, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit62 ], [ true, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit50 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.0115, i64 8
+  %has_new.1 = phi i1 [ %has_new.0115, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit62 ], [ true, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit50 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.0116, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i24.ptr
   br i1 %cmp.not, label %for.end, label %for.body
 

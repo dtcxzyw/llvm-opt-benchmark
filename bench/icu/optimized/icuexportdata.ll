@@ -4936,11 +4936,11 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %propNames.sroa.0.0140 = phi ptr [ null, %for.body.preheader ], [ %propNames.sroa.0.1, %for.inc ]
+  %propNames.sroa.21.0140 = phi ptr [ null, %for.body.preheader ], [ %propNames.sroa.21.1, %for.inc ]
   %propNames.sroa.10.0139 = phi ptr [ null, %for.body.preheader ], [ %propNames.sroa.10.1, %for.inc ]
-  %propNames.sroa.21.0138 = phi ptr [ null, %for.body.preheader ], [ %propNames.sroa.21.1, %for.inc ]
+  %propNames.sroa.0.0138 = phi ptr [ null, %for.body.preheader ], [ %propNames.sroa.0.1, %for.inc ]
   %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
-  %cmp.not.i = icmp eq ptr %propNames.sroa.10.0139, %propNames.sroa.21.0138
+  %cmp.not.i = icmp eq ptr %propNames.sroa.10.0139, %propNames.sroa.21.0140
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
@@ -4949,8 +4949,8 @@ if.then.i:                                        ; preds = %for.body
   br label %for.inc
 
 if.else.i:                                        ; preds = %for.body
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %propNames.sroa.10.0139 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %propNames.sroa.0.0140 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %propNames.sroa.21.0140 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %propNames.sroa.0.0138 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i
@@ -4986,16 +4986,16 @@ _ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %propNames.sroa.0.0140, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %propNames.sroa.0.0138, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
 
 _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %tobool.not.i.i.i = icmp eq ptr %propNames.sroa.0.0140, null
+  %tobool.not.i.i.i = icmp eq ptr %propNames.sroa.0.0138, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %propNames.sroa.0.0140) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %propNames.sroa.0.0138) #27
   br label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
@@ -5003,9 +5003,9 @@ _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iter
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i
-  %propNames.sroa.21.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %propNames.sroa.21.0138, %if.then.i ]
+  %propNames.sroa.0.1 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %propNames.sroa.0.0138, %if.then.i ]
   %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %propNames.sroa.10.0139, %if.then.i ]
-  %propNames.sroa.0.1 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %propNames.sroa.0.0140, %if.then.i ]
+  %propNames.sroa.21.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %propNames.sroa.21.0140, %if.then.i ]
   %propNames.sroa.10.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5027,13 +5027,13 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %cond.true.i.i.i
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then90, %invoke.cont91, %invoke.cont93, %if.else128, %invoke.cont129, %invoke.cont131, %if.then146, %if.then.i.i.i, %if.then.i.i.i80
-  %propNames.sroa.0.2.ph.ph.ph = phi ptr [ %propNames.sroa.0.3146, %if.then.i.i.i80 ], [ %propNames.sroa.0.6, %if.then146 ], [ %propNames.sroa.0.6, %if.else128 ], [ %propNames.sroa.0.6, %invoke.cont129 ], [ %propNames.sroa.0.6, %invoke.cont131 ], [ %propNames.sroa.0.6, %if.then90 ], [ %propNames.sroa.0.6, %invoke.cont91 ], [ %propNames.sroa.0.6, %invoke.cont93 ], [ %propNames.sroa.0.0140, %if.then.i.i.i ]
+  %propNames.sroa.0.2.ph.ph.ph = phi ptr [ %propNames.sroa.0.3144, %if.then.i.i.i80 ], [ %propNames.sroa.0.6, %if.then146 ], [ %propNames.sroa.0.6, %if.else128 ], [ %propNames.sroa.0.6, %invoke.cont129 ], [ %propNames.sroa.0.6, %invoke.cont131 ], [ %propNames.sroa.0.6, %if.then90 ], [ %propNames.sroa.0.6, %invoke.cont91 ], [ %propNames.sroa.0.6, %invoke.cont93 ], [ %propNames.sroa.0.0138, %if.then.i.i.i ]
   %lpad.loopexit.split-lp122 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %propNames.sroa.0.2 = phi ptr [ %propNames.sroa.0.6, %lpad.loopexit ], [ %propNames.sroa.0.3146, %lpad.loopexit.split-lp.loopexit ], [ %propNames.sroa.0.0140, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %propNames.sroa.0.2.ph.ph.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %propNames.sroa.0.2 = phi ptr [ %propNames.sroa.0.6, %lpad.loopexit ], [ %propNames.sroa.0.3144, %lpad.loopexit.split-lp.loopexit ], [ %propNames.sroa.0.0138, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %propNames.sroa.0.2.ph.ph.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit116, %lpad.loopexit ], [ %lpad.loopexit118, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit121, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp122, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %tobool.not.i.i.i47 = icmp eq ptr %propNames.sroa.0.2, null
   br i1 %tobool.not.i.i.i47, label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit, label %if.then.i.i.i48
@@ -5046,18 +5046,18 @@ _ZNSt6vectorIPKcSaIS1_EED2Ev.exit:                ; preds = %lpad, %if.then.i.i.
   resume { ptr, i32 } %lpad.phi
 
 for.end:                                          ; preds = %for.inc, %entry
-  %propNames.sroa.21.0.lcssa = phi ptr [ null, %entry ], [ %propNames.sroa.21.1, %for.inc ]
-  %propNames.sroa.10.0.lcssa = phi ptr [ null, %entry ], [ %propNames.sroa.10.1, %for.inc ]
   %propNames.sroa.0.0.lcssa = phi ptr [ null, %entry ], [ %propNames.sroa.0.1, %for.inc ]
+  %propNames.sroa.10.0.lcssa = phi ptr [ null, %entry ], [ %propNames.sroa.10.1, %for.inc ]
+  %propNames.sroa.21.0.lcssa = phi ptr [ null, %entry ], [ %propNames.sroa.21.1, %for.inc ]
   %3 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 274), align 2
   %tobool.not = icmp eq i8 %3, 0
   br i1 %tobool.not, label %if.end43, label %if.end15
 
 if.end15:                                         ; preds = %for.end, %if.end41
   %spec.store.select1147 = phi i32 [ %spec.store.select1, %if.end41 ], [ 0, %for.end ]
-  %propNames.sroa.0.3146 = phi ptr [ %propNames.sroa.0.5, %if.end41 ], [ %propNames.sroa.0.0.lcssa, %for.end ]
+  %propNames.sroa.21.2146 = phi ptr [ %propNames.sroa.21.4, %if.end41 ], [ %propNames.sroa.21.0.lcssa, %for.end ]
   %propNames.sroa.10.2145 = phi ptr [ %propNames.sroa.10.4, %if.end41 ], [ %propNames.sroa.10.0.lcssa, %for.end ]
-  %propNames.sroa.21.2144 = phi ptr [ %propNames.sroa.21.4, %if.end41 ], [ %propNames.sroa.21.0.lcssa, %for.end ]
+  %propNames.sroa.0.3144 = phi ptr [ %propNames.sroa.0.5, %if.end41 ], [ %propNames.sroa.0.0.lcssa, %for.end ]
   %call = invoke ptr @u_getPropertyName_75(i32 noundef %spec.store.select1147, i32 noundef 0)
           to label %invoke.cont16 unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -5094,7 +5094,7 @@ if.end31:                                         ; preds = %invoke.cont19
 
 if.then33:                                        ; preds = %invoke.cont16, %invoke.cont26, %if.end31
   %propName.0115 = phi ptr [ %call20, %if.end31 ], [ %call, %invoke.cont16 ], [ %call20, %invoke.cont26 ]
-  %cmp.not.i51 = icmp eq ptr %propNames.sroa.10.2145, %propNames.sroa.21.2144
+  %cmp.not.i51 = icmp eq ptr %propNames.sroa.10.2145, %propNames.sroa.21.2146
   br i1 %cmp.not.i51, label %if.else.i54, label %if.then.i52
 
 if.then.i52:                                      ; preds = %if.then33
@@ -5103,8 +5103,8 @@ if.then.i52:                                      ; preds = %if.then33
   br label %if.end41
 
 if.else.i54:                                      ; preds = %if.then33
-  %sub.ptr.lhs.cast.i.i.i.i55 = ptrtoint ptr %propNames.sroa.10.2145 to i64
-  %sub.ptr.rhs.cast.i.i.i.i56 = ptrtoint ptr %propNames.sroa.0.3146 to i64
+  %sub.ptr.lhs.cast.i.i.i.i55 = ptrtoint ptr %propNames.sroa.21.2146 to i64
+  %sub.ptr.rhs.cast.i.i.i.i56 = ptrtoint ptr %propNames.sroa.0.3144 to i64
   %sub.ptr.sub.i.i.i.i57 = sub i64 %sub.ptr.lhs.cast.i.i.i.i55, %sub.ptr.rhs.cast.i.i.i.i56
   %cmp.i.i.i58 = icmp eq i64 %sub.ptr.sub.i.i.i.i57, 9223372036854775800
   br i1 %cmp.i.i.i58, label %if.then.i.i.i80, label %_ZNKSt6vectorIPKcSaIS1_EE12_M_check_lenEmS1_.exit.i.i59
@@ -5139,17 +5139,17 @@ _ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i.i68: ; preds = %cond.true.
   br i1 %cmp.i.i.i.i.i71, label %if.then.i.i.i.i.i79, label %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i72
 
 if.then.i.i.i.i.i79:                              ; preds = %_ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i.i68
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i69, ptr align 8 %propNames.sroa.0.3146, i64 %sub.ptr.sub.i.i.i.i57, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i69, ptr align 8 %propNames.sroa.0.3144, i64 %sub.ptr.sub.i.i.i.i57, i1 false)
   br label %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i72
 
 _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i72: ; preds = %if.then.i.i.i.i.i79, %_ZNSt12_Vector_baseIPKcSaIS1_EE11_M_allocateEm.exit.i.i68
   %add.ptr.i.i.i.i.i73 = getelementptr inbounds i8, ptr %cond.i10.i.i69, i64 %sub.ptr.sub.i.i.i.i57
   %incdec.ptr.i.i74 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i73, i64 8
-  %tobool.not.i.i.i75 = icmp eq ptr %propNames.sroa.0.3146, null
+  %tobool.not.i.i.i75 = icmp eq ptr %propNames.sroa.0.3144, null
   br i1 %tobool.not.i.i.i75, label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i77, label %if.then.i18.i.i76
 
 if.then.i18.i.i76:                                ; preds = %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i72
-  tail call void @_ZdlPv(ptr noundef nonnull %propNames.sroa.0.3146) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %propNames.sroa.0.3144) #27
   br label %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i77
 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i77: ; preds = %if.then.i18.i.i76, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i72
@@ -5169,9 +5169,9 @@ invoke.cont37:                                    ; preds = %invoke.cont35
           to label %if.end41 unwind label %lpad.loopexit.split-lp.loopexit
 
 if.end41:                                         ; preds = %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i77, %if.then.i52, %invoke.cont37
-  %propNames.sroa.21.4 = phi ptr [ %propNames.sroa.21.2144, %invoke.cont37 ], [ %add.ptr19.i.i78, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i77 ], [ %propNames.sroa.21.2144, %if.then.i52 ]
+  %propNames.sroa.0.5 = phi ptr [ %propNames.sroa.0.3144, %invoke.cont37 ], [ %cond.i10.i.i69, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i77 ], [ %propNames.sroa.0.3144, %if.then.i52 ]
   %propNames.sroa.10.4 = phi ptr [ %propNames.sroa.10.2145, %invoke.cont37 ], [ %incdec.ptr.i.i74, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i77 ], [ %incdec.ptr.i53, %if.then.i52 ]
-  %propNames.sroa.0.5 = phi ptr [ %propNames.sroa.0.3146, %invoke.cont37 ], [ %cond.i10.i.i69, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i77 ], [ %propNames.sroa.0.3146, %if.then.i52 ]
+  %propNames.sroa.21.4 = phi ptr [ %propNames.sroa.21.2146, %invoke.cont37 ], [ %add.ptr19.i.i78, %_ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i77 ], [ %propNames.sroa.21.2146, %if.then.i52 ]
   %inc42 = add nsw i32 %spec.store.select1147, 1
   %cmp2 = icmp eq i32 %inc42, 75
   %spec.store.select9 = select i1 %cmp2, i32 4096, i32 %inc42
@@ -5185,8 +5185,8 @@ if.end41:                                         ; preds = %_ZNSt6vectorIPKcSaI
   br i1 %cmp13, label %if.end43, label %if.end15, !llvm.loop !26
 
 if.end43:                                         ; preds = %if.end41, %for.end
-  %propNames.sroa.10.5 = phi ptr [ %propNames.sroa.10.0.lcssa, %for.end ], [ %propNames.sroa.10.4, %if.end41 ]
   %propNames.sroa.0.6 = phi ptr [ %propNames.sroa.0.0.lcssa, %for.end ], [ %propNames.sroa.0.5, %if.end41 ]
+  %propNames.sroa.10.5 = phi ptr [ %propNames.sroa.10.0.lcssa, %for.end ], [ %propNames.sroa.10.4, %if.end41 ]
   %cmp.i.i = icmp ne ptr %propNames.sroa.0.6, %propNames.sroa.10.5
   %6 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 34), align 2
   %tobool45 = icmp eq i8 %6, 0

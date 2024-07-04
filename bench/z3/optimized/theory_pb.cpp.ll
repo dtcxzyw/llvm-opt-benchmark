@@ -16894,10 +16894,10 @@ for.body32.preheader:                             ; preds = %land.lhs.true25
   br label %for.body32
 
 for.body32:                                       ; preds = %for.body32.preheader, %for.inc55
-  %it.079 = phi ptr [ %incdec.ptr56, %for.inc55 ], [ %17, %for.body32.preheader ]
-  %it2.078 = phi ptr [ %it2.2, %for.inc55 ], [ %17, %for.body32.preheader ]
+  %it2.079 = phi ptr [ %it2.2, %for.inc55 ], [ %17, %for.body32.preheader ]
+  %it.078 = phi ptr [ %incdec.ptr56, %for.inc55 ], [ %17, %for.body32.preheader ]
   %24 = load ptr, ptr %ctx, align 8
-  %25 = load ptr, ptr %it.079, align 8
+  %25 = load ptr, ptr %it.078, align 8
   %retval.sroa.0.0.copyload.i = load i32, ptr %25, align 8
   %m_assignment.i.i = getelementptr inbounds i8, ptr %24, i64 9392
   %26 = load ptr, ptr %m_assignment.i.i, align 8
@@ -16915,21 +16915,21 @@ if.end39:                                         ; preds = %for.body32
   ]
 
 for.cond43.preheader:                             ; preds = %if.end39
-  %cmp44.not80 = icmp eq ptr %it.079, %add.ptr.i
+  %cmp44.not80 = icmp eq ptr %it.078, %add.ptr.i
   br i1 %cmp44.not80, label %for.end48, label %for.body45
 
 for.body45:                                       ; preds = %for.cond43.preheader, %for.body45
-  %it.182 = phi ptr [ %incdec.ptr, %for.body45 ], [ %it.079, %for.cond43.preheader ]
-  %it2.181 = phi ptr [ %incdec.ptr47, %for.body45 ], [ %it2.078, %for.cond43.preheader ]
-  %28 = load ptr, ptr %it.182, align 8
-  store ptr %28, ptr %it2.181, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %it.182, i64 8
-  %incdec.ptr47 = getelementptr inbounds i8, ptr %it2.181, i64 8
+  %it2.182 = phi ptr [ %incdec.ptr47, %for.body45 ], [ %it2.079, %for.cond43.preheader ]
+  %it.181 = phi ptr [ %incdec.ptr, %for.body45 ], [ %it.078, %for.cond43.preheader ]
+  %28 = load ptr, ptr %it.181, align 8
+  store ptr %28, ptr %it2.182, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %it.181, i64 8
+  %incdec.ptr47 = getelementptr inbounds i8, ptr %it2.182, i64 8
   %cmp44.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp44.not, label %for.end48, label %for.body45, !llvm.loop !120
 
 for.end48:                                        ; preds = %for.body45, %for.cond43.preheader
-  %it2.1.lcssa = phi ptr [ %it2.078, %for.cond43.preheader ], [ %incdec.ptr47, %for.body45 ]
+  %it2.1.lcssa = phi ptr [ %it2.079, %for.cond43.preheader ], [ %incdec.ptr47, %for.body45 ]
   %29 = load ptr, ptr %16, align 8
   %tobool.not.i = icmp eq ptr %29, null
   br i1 %tobool.not.i, label %if.end67, label %if.then.i
@@ -16945,21 +16945,21 @@ if.then.i:                                        ; preds = %for.end48
   br label %if.end67
 
 sw.bb50:                                          ; preds = %if.end39
-  %cmp51.not = icmp eq ptr %it2.078, %it.079
+  %cmp51.not = icmp eq ptr %it2.079, %it.078
   br i1 %cmp51.not, label %if.end53, label %if.then52
 
 if.then52:                                        ; preds = %sw.bb50
-  %30 = load ptr, ptr %it.079, align 8
-  store ptr %30, ptr %it2.078, align 8
+  %30 = load ptr, ptr %it.078, align 8
+  store ptr %30, ptr %it2.079, align 8
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then52, %sw.bb50
-  %incdec.ptr54 = getelementptr inbounds i8, ptr %it2.078, i64 8
+  %incdec.ptr54 = getelementptr inbounds i8, ptr %it2.079, i64 8
   br label %for.inc55
 
 for.inc55:                                        ; preds = %if.end39, %if.end53, %for.body32
-  %it2.2 = phi ptr [ %it2.078, %for.body32 ], [ %it2.078, %if.end39 ], [ %incdec.ptr54, %if.end53 ]
-  %incdec.ptr56 = getelementptr inbounds i8, ptr %it.079, i64 8
+  %it2.2 = phi ptr [ %it2.079, %for.body32 ], [ %it2.079, %if.end39 ], [ %incdec.ptr54, %if.end53 ]
+  %incdec.ptr56 = getelementptr inbounds i8, ptr %it.078, i64 8
   %cmp31.not = icmp eq ptr %incdec.ptr56, %add.ptr.i
   br i1 %cmp31.not, label %for.end57, label %for.body32, !llvm.loop !121
 
@@ -21729,7 +21729,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK6vectorIjLb0EjE
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %j.048 = phi i32 [ 0, %for.body.lr.ph ], [ %j.1, %for.inc ]
+  %j.049 = phi i32 [ 0, %for.body.lr.ph ], [ %j.1, %for.inc ]
   %10 = load ptr, ptr %m_active_vars, align 8
   %arrayidx.i13 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
   %11 = load i32, ptr %arrayidx.i13, align 4
@@ -21926,7 +21926,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i:          ; preds = %if.then.i.i, %lor.l
   br label %_ZN16tracked_uint_set6insertEj.exit
 
 _ZN16tracked_uint_set6insertEj.exit:              ; preds = %_ZN6vectorIcLb0EjE7reserveEjRKc.exit.i, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i
-  %33 = zext i32 %j.048 to i64
+  %33 = zext i32 %j.049 to i64
   %cmp12.not = icmp eq i64 %indvars.iv, %33
   br i1 %cmp12.not, label %if.end, label %if.then13
 
@@ -21939,11 +21939,11 @@ if.then13:                                        ; preds = %_ZN16tracked_uint_s
   br label %if.end
 
 if.end:                                           ; preds = %if.then13, %_ZN16tracked_uint_set6insertEj.exit
-  %inc = add i32 %j.048, 1
+  %inc = add i32 %j.049, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true, %_ZNK6vectorIiLb0EjE3getEjRKi.exit.i, %_ZNK16tracked_uint_set8containsEj.exit, %_ZNK3smt9theory_pb9get_coeffEj.exit, %if.end
-  %j.1 = phi i32 [ %j.048, %_ZNK16tracked_uint_set8containsEj.exit ], [ %inc, %if.end ], [ %j.048, %_ZNK3smt9theory_pb9get_coeffEj.exit ], [ %j.048, %_ZNK6vectorIiLb0EjE3getEjRKi.exit.i ], [ %j.048, %land.lhs.true ]
+  %j.1 = phi i32 [ %j.049, %_ZNK16tracked_uint_set8containsEj.exit ], [ %inc, %if.end ], [ %j.049, %_ZNK3smt9theory_pb9get_coeffEj.exit ], [ %j.049, %_ZNK6vectorIiLb0EjE3getEjRKi.exit.i ], [ %j.049, %land.lhs.true ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !142

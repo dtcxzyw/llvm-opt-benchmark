@@ -670,8 +670,8 @@ if.else:                                          ; preds = %if.end32
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end32, %if.else
-  %server_to_client.0 = phi ptr [ null, %if.end32 ], [ %call38, %if.else ]
   %client_to_server.0 = phi ptr [ null, %if.end32 ], [ %call36, %if.else ]
+  %server_to_client.0 = phi ptr [ null, %if.end32 ], [ %call38, %if.else ]
   %call40 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1505, ptr noundef nonnull @.str.7, ptr noundef %client_to_server.0) #10
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %err, label %lor.lhs.false42

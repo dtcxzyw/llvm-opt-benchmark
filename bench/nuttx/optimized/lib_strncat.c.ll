@@ -11,24 +11,24 @@ define noundef ptr @strncat(ptr noundef returned %0, ptr nocapture noundef reado
   br i1 %.not12, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %7
-  %.015 = phi ptr [ %9, %7 ], [ %5, %3 ]
-  %.0914 = phi i64 [ %10, %7 ], [ %2, %3 ]
-  %.01013 = phi ptr [ %8, %7 ], [ %1, %3 ]
-  %6 = load i8, ptr %.01013, align 1
+  %.015 = phi i64 [ %10, %7 ], [ %2, %3 ]
+  %.0914 = phi ptr [ %8, %7 ], [ %1, %3 ]
+  %.01013 = phi ptr [ %9, %7 ], [ %5, %3 ]
+  %6 = load i8, ptr %.0914, align 1
   %.not11 = icmp eq i8 %6, 0
   br i1 %.not11, label %.critedge, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %.01013, i64 1
-  %9 = getelementptr inbounds i8, ptr %.015, i64 1
-  store i8 %6, ptr %.015, align 1
-  %10 = add i64 %.0914, -1
+  %8 = getelementptr inbounds i8, ptr %.0914, i64 1
+  %9 = getelementptr inbounds i8, ptr %.01013, i64 1
+  store i8 %6, ptr %.01013, align 1
+  %10 = add i64 %.015, -1
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !6
 
 .critedge:                                        ; preds = %.lr.ph, %7, %3
-  %.0.lcssa = phi ptr [ %5, %3 ], [ %9, %7 ], [ %.015, %.lr.ph ]
-  store i8 0, ptr %.0.lcssa, align 1
+  %.010.lcssa = phi ptr [ %5, %3 ], [ %9, %7 ], [ %.01013, %.lr.ph ]
+  store i8 0, ptr %.010.lcssa, align 1
   ret ptr %0
 }
 

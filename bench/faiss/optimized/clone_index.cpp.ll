@@ -1022,8 +1022,8 @@ _ZN5faiss20RandomRotationMatrixC2ERKS0_.exit:     ; preds = %83
   br label %101
 
 100:                                              ; preds = %_ZN5faiss20RandomRotationMatrixC2ERKS0_.exit, %_ZN5faiss9ITQMatrixC2ERKS0_.exit, %_ZN5faiss9OPQMatrixC2ERKS0_.exit, %_ZN5faiss24RemapDimensionsTransformC2ERKS0_.exit, %89, %45
-  %.021 = phi ptr [ %9, %_ZN5faiss24RemapDimensionsTransformC2ERKS0_.exit ], [ %38, %_ZN5faiss9OPQMatrixC2ERKS0_.exit ], [ %46, %45 ], [ %52, %_ZN5faiss9ITQMatrixC2ERKS0_.exit ], [ %84, %_ZN5faiss20RandomRotationMatrixC2ERKS0_.exit ], [ %90, %89 ]
-  ret ptr %.021
+  %.025 = phi ptr [ %9, %_ZN5faiss24RemapDimensionsTransformC2ERKS0_.exit ], [ %38, %_ZN5faiss9OPQMatrixC2ERKS0_.exit ], [ %46, %45 ], [ %52, %_ZN5faiss9ITQMatrixC2ERKS0_.exit ], [ %84, %_ZN5faiss20RandomRotationMatrixC2ERKS0_.exit ], [ %90, %89 ]
+  ret ptr %.025
 
 101:                                              ; preds = %97, %99, %91, %85, %.body, %47, %41, %33
   %.pn40 = phi { ptr, i32 } [ %34, %33 ], [ %42, %41 ], [ %48, %47 ], [ %eh.lpad-body, %.body ], [ %86, %85 ], [ %92, %91 ], [ %.pn68, %99 ], [ %98, %97 ]
@@ -1951,8 +1951,8 @@ define noundef nonnull ptr @_ZN5faiss6Cloner14clone_IndexIVFEPKNS_8IndexIVFE(ptr
   br label %104
 
 103:                                              ; preds = %92, %86, %80, %74, %68, %62, %56, %50, %44, %38, %32, %26, %20, %14, %8
-  %.048 = phi ptr [ %9, %8 ], [ %15, %14 ], [ %21, %20 ], [ %27, %26 ], [ %33, %32 ], [ %39, %38 ], [ %45, %44 ], [ %51, %50 ], [ %57, %56 ], [ %63, %62 ], [ %69, %68 ], [ %75, %74 ], [ %81, %80 ], [ %87, %86 ], [ %93, %92 ]
-  ret ptr %.048
+  %.052 = phi ptr [ %9, %8 ], [ %15, %14 ], [ %21, %20 ], [ %27, %26 ], [ %33, %32 ], [ %39, %38 ], [ %45, %44 ], [ %51, %50 ], [ %57, %56 ], [ %63, %62 ], [ %69, %68 ], [ %75, %74 ], [ %81, %80 ], [ %87, %86 ], [ %93, %92 ]
+  ret ptr %.052
 
 104:                                              ; preds = %100, %102, %94, %88, %82, %76, %70, %64, %58, %52, %46, %40, %34, %28, %22, %16, %10
   %.pn85 = phi { ptr, i32 } [ %11, %10 ], [ %17, %16 ], [ %23, %22 ], [ %29, %28 ], [ %35, %34 ], [ %41, %40 ], [ %47, %46 ], [ %53, %52 ], [ %59, %58 ], [ %65, %64 ], [ %71, %70 ], [ %77, %76 ], [ %83, %82 ], [ %89, %88 ], [ %95, %94 ], [ %.pn133, %102 ], [ %101, %100 ]
@@ -6049,8 +6049,8 @@ _ZN5faiss18IndexIDMapTemplateINS_5IndexEEC2ERKS2_.exit: ; preds = %.noexc5.i.thr
   br label %48
 
 47:                                               ; preds = %_ZN5faiss18IndexIDMapTemplateINS_5IndexEEC2ERKS2_.exit, %7
-  %.09 = phi ptr [ %8, %7 ], [ %12, %_ZN5faiss18IndexIDMapTemplateINS_5IndexEEC2ERKS2_.exit ]
-  ret ptr %.09
+  %.013 = phi ptr [ %8, %7 ], [ %12, %_ZN5faiss18IndexIDMapTemplateINS_5IndexEEC2ERKS2_.exit ]
+  ret ptr %.013
 
 48:                                               ; preds = %44, %46, %.body, %9
   %.pn19 = phi { ptr, i32 } [ %10, %9 ], [ %35, %.body ], [ %.pn26, %46 ], [ %45, %44 ]
@@ -6460,8 +6460,8 @@ _ZN5faiss11IndexHNSWSQC2ERKS0_.exit:              ; preds = %41
   br label %61
 
 60:                                               ; preds = %_ZN5faiss11IndexHNSWSQC2ERKS0_.exit, %_ZN5faiss11IndexHNSWPQC2ERKS0_.exit, %_ZN5faiss13IndexHNSWFlatC2ERKS0_.exit, %_ZN5faiss15IndexHNSW2LevelC2ERKS0_.exit, %49
-  %.018 = phi ptr [ %8, %_ZN5faiss15IndexHNSW2LevelC2ERKS0_.exit ], [ %19, %_ZN5faiss13IndexHNSWFlatC2ERKS0_.exit ], [ %30, %_ZN5faiss11IndexHNSWPQC2ERKS0_.exit ], [ %40, %_ZN5faiss11IndexHNSWSQC2ERKS0_.exit ], [ %40, %49 ]
-  ret ptr %.018
+  %.022 = phi ptr [ %8, %_ZN5faiss15IndexHNSW2LevelC2ERKS0_.exit ], [ %19, %_ZN5faiss13IndexHNSWFlatC2ERKS0_.exit ], [ %30, %_ZN5faiss11IndexHNSWPQC2ERKS0_.exit ], [ %40, %_ZN5faiss11IndexHNSWSQC2ERKS0_.exit ], [ %40, %49 ]
+  ret ptr %.022
 
 61:                                               ; preds = %57, %59, %50, %.body40, %.body38, %.body36, %.body
   %.pn34 = phi { ptr, i32 } [ %13, %.body ], [ %24, %.body36 ], [ %35, %.body38 ], [ %46, %.body40 ], [ %51, %50 ], [ %.pn56, %59 ], [ %58, %57 ]
@@ -8155,8 +8155,8 @@ _ZN5faiss15ScalarQuantizerC2ERKS0_.exit:          ; preds = %.noexc5.i.thread, %
   br label %64
 
 63:                                               ; preds = %_ZN5faiss15ScalarQuantizerC2ERKS0_.exit, %_ZN5faiss20LocalSearchQuantizerC2ERKS0_.exit, %21, %7
-  %.015 = phi ptr [ %8, %7 ], [ %14, %_ZN5faiss20LocalSearchQuantizerC2ERKS0_.exit ], [ %22, %21 ], [ %28, %_ZN5faiss15ScalarQuantizerC2ERKS0_.exit ]
-  ret ptr %.015
+  %.019 = phi ptr [ %8, %7 ], [ %14, %_ZN5faiss20LocalSearchQuantizerC2ERKS0_.exit ], [ %22, %21 ], [ %28, %_ZN5faiss15ScalarQuantizerC2ERKS0_.exit ]
+  ret ptr %.019
 
 64:                                               ; preds = %60, %62, %54, %23, %17, %9
   %.pn30 = phi { ptr, i32 } [ %10, %9 ], [ %18, %17 ], [ %24, %23 ], [ %55, %54 ], [ %.pn46, %62 ], [ %61, %60 ]
@@ -8367,8 +8367,8 @@ define noundef nonnull ptr @_ZN5faiss28clone_AdditiveQuantizerIndexEPKNS_5IndexE
   br label %73
 
 72:                                               ; preds = %61, %55, %49, %43, %37, %31, %25, %19, %13, %7
-  %.033 = phi ptr [ %8, %7 ], [ %14, %13 ], [ %20, %19 ], [ %26, %25 ], [ %32, %31 ], [ %38, %37 ], [ %44, %43 ], [ %50, %49 ], [ %56, %55 ], [ %62, %61 ]
-  ret ptr %.033
+  %.037 = phi ptr [ %8, %7 ], [ %14, %13 ], [ %20, %19 ], [ %26, %25 ], [ %32, %31 ], [ %38, %37 ], [ %44, %43 ], [ %50, %49 ], [ %56, %55 ], [ %62, %61 ]
+  ret ptr %.037
 
 73:                                               ; preds = %69, %71, %63, %57, %51, %45, %39, %33, %27, %21, %15, %9
   %.pn60 = phi { ptr, i32 } [ %10, %9 ], [ %16, %15 ], [ %22, %21 ], [ %28, %27 ], [ %34, %33 ], [ %40, %39 ], [ %46, %45 ], [ %52, %51 ], [ %58, %57 ], [ %64, %63 ], [ %.pn93, %71 ], [ %70, %69 ]

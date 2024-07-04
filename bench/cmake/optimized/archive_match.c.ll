@@ -841,8 +841,8 @@ define internal fastcc range(i32 -2147483648, 2) i32 @owner_excluded(ptr noundef
 
 13:                                               ; preds = %20, %.lr.ph.i
   %.019.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %20 ]
-  %.01418.i = phi i32 [ %10, %.lr.ph.i ], [ %.115.i, %20 ]
-  %14 = add i32 %.01418.i, %.019.i
+  %.01318.i = phi i32 [ %10, %.lr.ph.i ], [ %.114.i, %20 ]
+  %14 = add i32 %.01318.i, %.019.i
   %15 = lshr i32 %14, 1
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds i64, ptr %12, i64 %16
@@ -853,9 +853,9 @@ define internal fastcc range(i32 -2147483648, 2) i32 @owner_excluded(ptr noundef
 20:                                               ; preds = %13
   %21 = icmp slt i64 %18, %8
   %22 = add nuw i32 %15, 1
-  %.115.i = select i1 %21, i32 %.01418.i, i32 %15
+  %.114.i = select i1 %21, i32 %.01318.i, i32 %15
   %.1.i = select i1 %21, i32 %22, i32 %.019.i
-  %23 = icmp ult i32 %.1.i, %.115.i
+  %23 = icmp ult i32 %.1.i, %.114.i
   br i1 %23, label %13, label %match_owner_id.exit.thread, !llvm.loop !11
 
 match_owner_id.exit:                              ; preds = %13, %2
@@ -878,8 +878,8 @@ match_owner_id.exit:                              ; preds = %13, %2
 
 32:                                               ; preds = %39, %.lr.ph.i30
   %.019.i31 = phi i32 [ 0, %.lr.ph.i30 ], [ %.1.i34, %39 ]
-  %.01418.i32 = phi i32 [ %29, %.lr.ph.i30 ], [ %.115.i33, %39 ]
-  %33 = add i32 %.01418.i32, %.019.i31
+  %.01318.i32 = phi i32 [ %29, %.lr.ph.i30 ], [ %.114.i33, %39 ]
+  %33 = add i32 %.01318.i32, %.019.i31
   %34 = lshr i32 %33, 1
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds i64, ptr %31, i64 %35
@@ -890,9 +890,9 @@ match_owner_id.exit:                              ; preds = %13, %2
 39:                                               ; preds = %32
   %40 = icmp slt i64 %37, %27
   %41 = add nuw i32 %34, 1
-  %.115.i33 = select i1 %40, i32 %.01418.i32, i32 %34
+  %.114.i33 = select i1 %40, i32 %.01318.i32, i32 %34
   %.1.i34 = select i1 %40, i32 %41, i32 %.019.i31
-  %42 = icmp ult i32 %.1.i34, %.115.i33
+  %42 = icmp ult i32 %.1.i34, %.114.i33
   br i1 %42, label %32, label %match_owner_id.exit.thread, !llvm.loop !11
 
 match_owner_id.exit36:                            ; preds = %32, %match_owner_id.exit
@@ -1278,8 +1278,8 @@ define internal fastcc i32 @add_pattern_from_file(ptr noundef %0, ptr nocapture 
   br label %24
 
 24:                                               ; preds = %22, %20
-  %.064 = phi i32 [ %21, %20 ], [ %23, %22 ]
-  %.not73 = icmp eq i32 %.064, 0
+  %.063 = phi i32 [ %21, %20 ], [ %23, %22 ]
+  %.not73 = icmp eq i32 %.063, 0
   br i1 %.not73, label %27, label %25
 
 25:                                               ; preds = %24
@@ -1331,7 +1331,7 @@ define internal fastcc i32 @add_pattern_from_file(ptr noundef %0, ptr nocapture 
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %65
   %44 = phi i64 [ %66, %65 ], [ %40, %.preheader.us.us.preheader ]
-  %.06397.us.us = phi ptr [ %72, %65 ], [ %41, %.preheader.us.us.preheader ]
+  %.06297.us.us = phi ptr [ %72, %65 ], [ %41, %.preheader.us.us.preheader ]
   br label %67
 
 45:                                               ; preds = %.split.us.us.us
@@ -1377,7 +1377,7 @@ define internal fastcc i32 @add_pattern_from_file(ptr noundef %0, ptr nocapture 
 
 67:                                               ; preds = %69, %.preheader.us.us
   %.06190.us.us.us = phi i64 [ 0, %.preheader.us.us ], [ %71, %69 ]
-  %.189.us.us.us = phi ptr [ %.06397.us.us, %.preheader.us.us ], [ %70, %69 ]
+  %.189.us.us.us = phi ptr [ %.06297.us.us, %.preheader.us.us ], [ %70, %69 ]
   %68 = load i8, ptr %.189.us.us.us, align 1
   switch i8 %68, label %69 [
     i8 13, label %.split.us.us.us
@@ -1395,13 +1395,13 @@ define internal fastcc i32 @add_pattern_from_file(ptr noundef %0, ptr nocapture 
   %.neg.us.us = xor i64 %.06190.us.us.us, -1
   %73 = add i64 %44, %.neg.us.us
   store i64 %73, ptr %9, align 8
-  %74 = call ptr @archive_strncat(ptr noundef nonnull %7, ptr noundef %.06397.us.us, i64 noundef %.06190.us.us.us) #13
+  %74 = call ptr @archive_strncat(ptr noundef nonnull %7, ptr noundef %.06297.us.us, i64 noundef %.06190.us.us.us) #13
   %75 = load i64, ptr %34, align 8
   %.not80.us.us = icmp eq i64 %75, 0
   br i1 %.not80.us.us, label %65, label %45
 
 .critedge.split.us.split.us.us:                   ; preds = %69
-  %76 = call ptr @archive_strncat(ptr noundef nonnull %7, ptr noundef %.06397.us.us, i64 noundef %44) #13
+  %76 = call ptr @archive_strncat(ptr noundef nonnull %7, ptr noundef %.06297.us.us, i64 noundef %44) #13
   br label %.loopexit.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.loopexit
@@ -1415,12 +1415,12 @@ define internal fastcc i32 @add_pattern_from_file(ptr noundef %0, ptr nocapture 
 
 .preheader:                                       ; preds = %.preheader.preheader, %112
   %79 = phi i64 [ %113, %112 ], [ %77, %.preheader.preheader ]
-  %.06397 = phi ptr [ %83, %112 ], [ %78, %.preheader.preheader ]
+  %.06297 = phi ptr [ %83, %112 ], [ %78, %.preheader.preheader ]
   br label %80
 
 80:                                               ; preds = %.preheader, %84
   %.06190 = phi i64 [ 0, %.preheader ], [ %85, %84 ]
-  %.189 = phi ptr [ %.06397, %.preheader ], [ %83, %84 ]
+  %.189 = phi ptr [ %.06297, %.preheader ], [ %83, %84 ]
   %81 = load i8, ptr %.189, align 1
   %82 = icmp eq i8 %81, 0
   %83 = getelementptr inbounds i8, ptr %.189, i64 1
@@ -1432,14 +1432,14 @@ define internal fastcc i32 @add_pattern_from_file(ptr noundef %0, ptr nocapture 
   br i1 %exitcond.not, label %.critedge.split, label %80, !llvm.loop !15
 
 .critedge.split:                                  ; preds = %84
-  %86 = call ptr @archive_strncat(ptr noundef nonnull %7, ptr noundef %.06397, i64 noundef %79) #13
+  %86 = call ptr @archive_strncat(ptr noundef nonnull %7, ptr noundef %.06297, i64 noundef %79) #13
   br label %.loopexit
 
 .split:                                           ; preds = %80
   %.neg = xor i64 %.06190, -1
   %87 = add i64 %79, %.neg
   store i64 %87, ptr %9, align 8
-  %88 = call ptr @archive_strncat(ptr noundef nonnull %7, ptr noundef %.06397, i64 noundef %.06190) #13
+  %88 = call ptr @archive_strncat(ptr noundef nonnull %7, ptr noundef %.06297, i64 noundef %.06190) #13
   %89 = load i64, ptr %34, align 8
   %.not80 = icmp eq i64 %89, 0
   br i1 %.not80, label %112, label %90
@@ -1533,8 +1533,8 @@ define internal fastcc i32 @add_pattern_from_file(ptr noundef %0, ptr nocapture 
   br label %130
 
 130:                                              ; preds = %29, %128, %126, %117, %.split99.us, %32, %25, %17, %13
-  %.062 = phi i32 [ -30, %13 ], [ %16, %17 ], [ %.064, %25 ], [ %28, %32 ], [ -30, %.split99.us ], [ %.lcssa, %117 ], [ %125, %126 ], [ 0, %128 ], [ 0, %29 ]
-  ret i32 %.062
+  %.064 = phi i32 [ -30, %13 ], [ %16, %17 ], [ %.063, %25 ], [ %28, %32 ], [ -30, %.split99.us ], [ %.lcssa, %117 ], [ %125, %126 ], [ 0, %128 ], [ 0, %29 ]
+  ret i32 %.064
 }
 
 ; Function Attrs: nounwind uwtable

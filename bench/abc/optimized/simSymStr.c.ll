@@ -459,8 +459,8 @@ Sim_SymmsPartitionNodes.exit.i:                   ; preds = %Vec_PtrPush.exit.i.
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %211
-  %.031.lcssa.i.i.i = phi i32 [ 0, %211 ], [ %224, %._crit_edge.loopexit.i.i.i ]
-  %225 = icmp eq i32 %.031.lcssa.i.i.i, %215
+  %.0.lcssa.i.i.i = phi i32 [ 0, %211 ], [ %224, %._crit_edge.loopexit.i.i.i ]
+  %225 = icmp eq i32 %.0.lcssa.i.i.i, %215
   br i1 %225, label %Vec_IntPushUnique.exit.i.i, label %226
 
 226:                                              ; preds = %._crit_edge.i.i.i, %190
@@ -477,18 +477,18 @@ Sim_SymmsIsCompatibleWithNodes.exit.i.i:          ; preds = %226, %169
   %230 = and i32 %173, 65535
   %231 = lshr i32 %173, 16
   %232 = icmp sgt i32 %227, 0
-  br i1 %232, label %.lr.ph.i20.i.i, label %Sim_SymmsIsCompatibleWithGroup.exit.thread.i.i
+  br i1 %232, label %.lr.ph.i21.i.i, label %Sim_SymmsIsCompatibleWithGroup.exit.thread.i.i
 
-.lr.ph.i20.i.i:                                   ; preds = %229
+.lr.ph.i21.i.i:                                   ; preds = %229
   %233 = load ptr, ptr %53, align 8
-  %wide.trip.count.i21.i.i = zext nneg i32 %227 to i64
+  %wide.trip.count.i22.i.i = zext nneg i32 %227 to i64
   br label %234
 
-234:                                              ; preds = %234, %.lr.ph.i20.i.i
-  %indvars.iv.i22.i.i = phi i64 [ 0, %.lr.ph.i20.i.i ], [ %indvars.iv.next.i23.i.i, %234 ]
-  %.023.i.i.i = phi i32 [ 0, %.lr.ph.i20.i.i ], [ %.1.i.i.i, %234 ]
-  %.01622.i.i.i = phi i32 [ 0, %.lr.ph.i20.i.i ], [ %.117.i.i.i, %234 ]
-  %235 = getelementptr inbounds ptr, ptr %233, i64 %indvars.iv.i22.i.i
+234:                                              ; preds = %234, %.lr.ph.i21.i.i
+  %indvars.iv.i23.i.i = phi i64 [ 0, %.lr.ph.i21.i.i ], [ %indvars.iv.next.i24.i.i, %234 ]
+  %.023.i.i.i = phi i32 [ 0, %.lr.ph.i21.i.i ], [ %.1.i.i.i, %234 ]
+  %.01622.i.i.i = phi i32 [ 0, %.lr.ph.i21.i.i ], [ %.117.i.i.i, %234 ]
+  %235 = getelementptr inbounds ptr, ptr %233, i64 %indvars.iv.i23.i.i
   %236 = load ptr, ptr %235, align 8
   %237 = ptrtoint ptr %236 to i64
   %238 = and i64 %237, -2
@@ -503,9 +503,9 @@ Sim_SymmsIsCompatibleWithNodes.exit.i.i:          ; preds = %226, %169
   %spec.select.i.i.i = select i1 %246, i32 1, i32 %.023.i.i.i
   %.117.i.i.i = select i1 %245, i32 1, i32 %.01622.i.i.i
   %.1.i.i.i = select i1 %245, i32 %.023.i.i.i, i32 %spec.select.i.i.i
-  %indvars.iv.next.i23.i.i = add nuw nsw i64 %indvars.iv.i22.i.i, 1
-  %exitcond.not.i24.i.i = icmp eq i64 %indvars.iv.next.i23.i.i, %wide.trip.count.i21.i.i
-  br i1 %exitcond.not.i24.i.i, label %Sim_SymmsIsCompatibleWithGroup.exit.i.i, label %234, !llvm.loop !10
+  %indvars.iv.next.i24.i.i = add nuw nsw i64 %indvars.iv.i23.i.i, 1
+  %exitcond.not.i25.i.i = icmp eq i64 %indvars.iv.next.i24.i.i, %wide.trip.count.i22.i.i
+  br i1 %exitcond.not.i25.i.i, label %Sim_SymmsIsCompatibleWithGroup.exit.i.i, label %234, !llvm.loop !10
 
 Sim_SymmsIsCompatibleWithGroup.exit.i.i:          ; preds = %234
   %.not.i.i = icmp eq i32 %.117.i.i.i, %.1.i.i.i
@@ -514,24 +514,24 @@ Sim_SymmsIsCompatibleWithGroup.exit.i.i:          ; preds = %234
 Sim_SymmsIsCompatibleWithGroup.exit.thread.i.i:   ; preds = %Sim_SymmsIsCompatibleWithGroup.exit.i.i, %229, %Sim_SymmsIsCompatibleWithNodes.exit.i.i
   %247 = load i32, ptr %55, align 4
   %248 = icmp eq i32 %247, 0
-  br i1 %248, label %Sim_SymmsIsCompatibleWithGroup.exit39.thread.i.i, label %249
+  br i1 %248, label %Sim_SymmsIsCompatibleWithGroup.exit40.thread.i.i, label %249
 
 249:                                              ; preds = %Sim_SymmsIsCompatibleWithGroup.exit.thread.i.i
   %250 = and i32 %173, 65535
   %251 = lshr i32 %173, 16
   %252 = icmp sgt i32 %247, 0
-  br i1 %252, label %.lr.ph.i29.i.i, label %Sim_SymmsIsCompatibleWithGroup.exit39.thread.i.i
+  br i1 %252, label %.lr.ph.i30.i.i, label %Sim_SymmsIsCompatibleWithGroup.exit40.thread.i.i
 
-.lr.ph.i29.i.i:                                   ; preds = %249
+.lr.ph.i30.i.i:                                   ; preds = %249
   %253 = load ptr, ptr %57, align 8
-  %wide.trip.count.i30.i.i = zext nneg i32 %247 to i64
+  %wide.trip.count.i31.i.i = zext nneg i32 %247 to i64
   br label %254
 
-254:                                              ; preds = %254, %.lr.ph.i29.i.i
-  %indvars.iv.i31.i.i = phi i64 [ 0, %.lr.ph.i29.i.i ], [ %indvars.iv.next.i37.i.i, %254 ]
-  %.023.i32.i.i = phi i32 [ 0, %.lr.ph.i29.i.i ], [ %.1.i36.i.i, %254 ]
-  %.01622.i33.i.i = phi i32 [ 0, %.lr.ph.i29.i.i ], [ %.117.i35.i.i, %254 ]
-  %255 = getelementptr inbounds ptr, ptr %253, i64 %indvars.iv.i31.i.i
+254:                                              ; preds = %254, %.lr.ph.i30.i.i
+  %indvars.iv.i32.i.i = phi i64 [ 0, %.lr.ph.i30.i.i ], [ %indvars.iv.next.i38.i.i, %254 ]
+  %.023.i33.i.i = phi i32 [ 0, %.lr.ph.i30.i.i ], [ %.1.i37.i.i, %254 ]
+  %.01622.i34.i.i = phi i32 [ 0, %.lr.ph.i30.i.i ], [ %.117.i36.i.i, %254 ]
+  %255 = getelementptr inbounds ptr, ptr %253, i64 %indvars.iv.i32.i.i
   %256 = load ptr, ptr %255, align 8
   %257 = ptrtoint ptr %256 to i64
   %258 = and i64 %257, -2
@@ -543,49 +543,49 @@ Sim_SymmsIsCompatibleWithGroup.exit.thread.i.i:   ; preds = %Sim_SymmsIsCompatib
   %264 = load i32, ptr %263, align 4
   %265 = icmp eq i32 %264, %250
   %266 = icmp eq i32 %264, %251
-  %spec.select.i34.i.i = select i1 %266, i32 1, i32 %.023.i32.i.i
-  %.117.i35.i.i = select i1 %265, i32 1, i32 %.01622.i33.i.i
-  %.1.i36.i.i = select i1 %265, i32 %.023.i32.i.i, i32 %spec.select.i34.i.i
-  %indvars.iv.next.i37.i.i = add nuw nsw i64 %indvars.iv.i31.i.i, 1
-  %exitcond.not.i38.i.i = icmp eq i64 %indvars.iv.next.i37.i.i, %wide.trip.count.i30.i.i
-  br i1 %exitcond.not.i38.i.i, label %Sim_SymmsIsCompatibleWithGroup.exit39.i.i, label %254, !llvm.loop !10
+  %spec.select.i35.i.i = select i1 %266, i32 1, i32 %.023.i33.i.i
+  %.117.i36.i.i = select i1 %265, i32 1, i32 %.01622.i34.i.i
+  %.1.i37.i.i = select i1 %265, i32 %.023.i33.i.i, i32 %spec.select.i35.i.i
+  %indvars.iv.next.i38.i.i = add nuw nsw i64 %indvars.iv.i32.i.i, 1
+  %exitcond.not.i39.i.i = icmp eq i64 %indvars.iv.next.i38.i.i, %wide.trip.count.i31.i.i
+  br i1 %exitcond.not.i39.i.i, label %Sim_SymmsIsCompatibleWithGroup.exit40.i.i, label %254, !llvm.loop !10
 
-Sim_SymmsIsCompatibleWithGroup.exit39.i.i:        ; preds = %254
-  %.not60.i.i = icmp eq i32 %.117.i35.i.i, %.1.i36.i.i
-  br i1 %.not60.i.i, label %Sim_SymmsIsCompatibleWithGroup.exit39.thread.i.i, label %Vec_IntPushUnique.exit.i.i
+Sim_SymmsIsCompatibleWithGroup.exit40.i.i:        ; preds = %254
+  %.not61.i.i = icmp eq i32 %.117.i36.i.i, %.1.i37.i.i
+  br i1 %.not61.i.i, label %Sim_SymmsIsCompatibleWithGroup.exit40.thread.i.i, label %Vec_IntPushUnique.exit.i.i
 
-Sim_SymmsIsCompatibleWithGroup.exit39.thread.i.i: ; preds = %Sim_SymmsIsCompatibleWithGroup.exit39.i.i, %249, %Sim_SymmsIsCompatibleWithGroup.exit.thread.i.i
+Sim_SymmsIsCompatibleWithGroup.exit40.thread.i.i: ; preds = %Sim_SymmsIsCompatibleWithGroup.exit40.i.i, %249, %Sim_SymmsIsCompatibleWithGroup.exit.thread.i.i
   %267 = load i32, ptr %151, align 4
   %268 = icmp sgt i32 %267, 0
-  br i1 %268, label %.lr.ph.i41.i.i, label %._crit_edge.i40.i.i
+  br i1 %268, label %.lr.ph.i42.i.i, label %._crit_edge.i41.i.i
 
-.lr.ph.i41.i.i:                                   ; preds = %Sim_SymmsIsCompatibleWithGroup.exit39.thread.i.i
+.lr.ph.i42.i.i:                                   ; preds = %Sim_SymmsIsCompatibleWithGroup.exit40.thread.i.i
   %269 = load ptr, ptr %153, align 8
-  %wide.trip.count.i42.i.i = zext nneg i32 %267 to i64
+  %wide.trip.count.i43.i.i = zext nneg i32 %267 to i64
   br label %271
 
 270:                                              ; preds = %271
-  %indvars.iv.next.i44.i.i = add nuw nsw i64 %indvars.iv.i43.i.i, 1
-  %exitcond.not.i45.i.i = icmp eq i64 %indvars.iv.next.i44.i.i, %wide.trip.count.i42.i.i
-  br i1 %exitcond.not.i45.i.i, label %._crit_edge.i40.i.i, label %271, !llvm.loop !11
+  %indvars.iv.next.i45.i.i = add nuw nsw i64 %indvars.iv.i44.i.i, 1
+  %exitcond.not.i46.i.i = icmp eq i64 %indvars.iv.next.i45.i.i, %wide.trip.count.i43.i.i
+  br i1 %exitcond.not.i46.i.i, label %._crit_edge.i41.i.i, label %271, !llvm.loop !11
 
-271:                                              ; preds = %270, %.lr.ph.i41.i.i
-  %indvars.iv.i43.i.i = phi i64 [ 0, %.lr.ph.i41.i.i ], [ %indvars.iv.next.i44.i.i, %270 ]
-  %272 = getelementptr inbounds i32, ptr %269, i64 %indvars.iv.i43.i.i
+271:                                              ; preds = %270, %.lr.ph.i42.i.i
+  %indvars.iv.i44.i.i = phi i64 [ 0, %.lr.ph.i42.i.i ], [ %indvars.iv.next.i45.i.i, %270 ]
+  %272 = getelementptr inbounds i32, ptr %269, i64 %indvars.iv.i44.i.i
   %273 = load i32, ptr %272, align 4
   %274 = icmp eq i32 %273, %173
   br i1 %274, label %Vec_IntPushUnique.exit.i.i, label %270
 
-._crit_edge.i40.i.i:                              ; preds = %270, %Sim_SymmsIsCompatibleWithGroup.exit39.thread.i.i
+._crit_edge.i41.i.i:                              ; preds = %270, %Sim_SymmsIsCompatibleWithGroup.exit40.thread.i.i
   %275 = load i32, ptr %150, align 8
   %276 = icmp eq i32 %267, %275
   br i1 %276, label %277, label %.Vec_IntGrow.exit10_crit_edge.i.i.i.i
 
-.Vec_IntGrow.exit10_crit_edge.i.i.i.i:            ; preds = %._crit_edge.i40.i.i
+.Vec_IntGrow.exit10_crit_edge.i.i.i.i:            ; preds = %._crit_edge.i41.i.i
   %.pre.i.i.i.i = load ptr, ptr %153, align 8
   br label %Vec_IntPush.exit.i.i.i
 
-277:                                              ; preds = %._crit_edge.i40.i.i
+277:                                              ; preds = %._crit_edge.i41.i.i
   %278 = icmp slt i32 %267, 16
   br i1 %278, label %279, label %286
 
@@ -640,8 +640,8 @@ Vec_IntPush.exit.i.i.i:                           ; preds = %295, %Vec_IntGrow.e
   %.pre.i.i = load i32, ptr %165, align 4
   br label %Vec_IntPushUnique.exit.i.i
 
-Vec_IntPushUnique.exit.i.i:                       ; preds = %._crit_edge.i.i.i, %209, %271, %223, %Vec_IntPush.exit.i.i.i, %Sim_SymmsIsCompatibleWithGroup.exit39.i.i, %Sim_SymmsIsCompatibleWithGroup.exit.i.i
-  %301 = phi i32 [ %.pre.i.i, %Vec_IntPush.exit.i.i.i ], [ %170, %Sim_SymmsIsCompatibleWithGroup.exit.i.i ], [ %170, %Sim_SymmsIsCompatibleWithGroup.exit39.i.i ], [ %170, %223 ], [ %170, %271 ], [ %170, %209 ], [ %170, %._crit_edge.i.i.i ]
+Vec_IntPushUnique.exit.i.i:                       ; preds = %._crit_edge.i.i.i, %209, %271, %223, %Vec_IntPush.exit.i.i.i, %Sim_SymmsIsCompatibleWithGroup.exit40.i.i, %Sim_SymmsIsCompatibleWithGroup.exit.i.i
+  %301 = phi i32 [ %.pre.i.i, %Vec_IntPush.exit.i.i.i ], [ %170, %Sim_SymmsIsCompatibleWithGroup.exit.i.i ], [ %170, %Sim_SymmsIsCompatibleWithGroup.exit40.i.i ], [ %170, %223 ], [ %170, %271 ], [ %170, %209 ], [ %170, %._crit_edge.i.i.i ]
   %indvars.iv.next.i35.i = add nuw nsw i64 %indvars.iv.i34.i, 1
   %302 = sext i32 %301 to i64
   %303 = icmp slt i64 %indvars.iv.next.i35.i, %302
@@ -1148,8 +1148,8 @@ define internal fastcc void @Sim_SymmsAppendFromGroup(ptr nocapture noundef read
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %86
-  %.031.lcssa.i = phi i32 [ 0, %86 ], [ %99, %._crit_edge.loopexit.i ]
-  %100 = icmp eq i32 %.031.lcssa.i, %90
+  %.0.lcssa.i = phi i32 [ 0, %86 ], [ %99, %._crit_edge.loopexit.i ]
+  %100 = icmp eq i32 %.0.lcssa.i, %90
   br i1 %100, label %Vec_IntPushUnique.exit, label %101
 
 101:                                              ; preds = %._crit_edge.i, %65

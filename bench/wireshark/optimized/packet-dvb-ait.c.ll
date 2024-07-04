@@ -534,8 +534,8 @@ dissect_dvb_ait_trpt_proto_desc_body.exit:        ; preds = %.lr.ph.i72, %74, %9
   br label %dissect_dvb_ait_app_name_desc_body.exit.thread
 
 dissect_dvb_ait_app_name_desc_body.exit.thread:   ; preds = %dissect_dvb_ait_app_name_desc_body.exit, %61, %dissect_dvb_ait_trpt_proto_desc_body.exit, %dissect_dvb_ait_app_desc_body.exit, %132, %128
-  %.0 = phi i32 [ %135, %132 ], [ %131, %128 ], [ %spec.select, %dissect_dvb_ait_app_desc_body.exit ], [ %spec.select66, %dissect_dvb_ait_trpt_proto_desc_body.exit ], [ %18, %61 ], [ %spec.select3, %dissect_dvb_ait_app_name_desc_body.exit ]
-  %136 = sub i32 %.0, %1
+  %.061 = phi i32 [ %135, %132 ], [ %131, %128 ], [ %spec.select, %dissect_dvb_ait_app_desc_body.exit ], [ %spec.select66, %dissect_dvb_ait_trpt_proto_desc_body.exit ], [ %18, %61 ], [ %spec.select3, %dissect_dvb_ait_app_name_desc_body.exit ]
+  %136 = sub i32 %.061, %1
   br label %139
 
 137:                                              ; preds = %3
@@ -543,8 +543,8 @@ dissect_dvb_ait_app_name_desc_body.exit.thread:   ; preds = %dissect_dvb_ait_app
   br label %139
 
 139:                                              ; preds = %137, %dissect_dvb_ait_app_name_desc_body.exit.thread
-  %.061 = phi i32 [ %136, %dissect_dvb_ait_app_name_desc_body.exit.thread ], [ %138, %137 ]
-  ret i32 %.061
+  %.0 = phi i32 [ %136, %dissect_dvb_ait_app_name_desc_body.exit.thread ], [ %138, %137 ]
+  ret i32 %.0
 }
 
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1

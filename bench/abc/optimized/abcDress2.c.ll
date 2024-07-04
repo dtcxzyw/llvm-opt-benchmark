@@ -1957,9 +1957,9 @@ define void @Abc_NtkDress2Transfer(ptr nocapture noundef readonly %0, ptr nocapt
 
 18:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %.04265 = phi ptr [ null, %.lr.ph ], [ %.143, %34 ]
+  %.04265 = phi i32 [ 0, %.lr.ph ], [ %.143, %34 ]
   %.04464 = phi i32 [ 0, %.lr.ph ], [ %.145, %34 ]
-  %.04663 = phi i32 [ 0, %.lr.ph ], [ %.147, %34 ]
+  %.04862 = phi ptr [ null, %.lr.ph ], [ %.149, %34 ]
   %.05061 = phi ptr [ null, %.lr.ph ], [ %.151, %34 ]
   %19 = getelementptr inbounds i32, ptr %.val59, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
@@ -1988,23 +1988,23 @@ define void @Abc_NtkDress2Transfer(ptr nocapture noundef readonly %0, ptr nocapt
   br label %34
 
 34:                                               ; preds = %26, %30
-  %.151 = phi ptr [ %29, %26 ], [ %.05061, %30 ]
-  %.147 = phi i32 [ %.04663, %26 ], [ %25, %30 ]
-  %.145 = phi i32 [ %25, %26 ], [ %.04464, %30 ]
-  %.143 = phi ptr [ %.04265, %26 ], [ %33, %30 ]
+  %.151 = phi ptr [ %.05061, %26 ], [ %33, %30 ]
+  %.149 = phi ptr [ %29, %26 ], [ %.04862, %30 ]
+  %.145 = phi i32 [ %.04464, %26 ], [ %25, %30 ]
+  %.143 = phi i32 [ %25, %26 ], [ %.04265, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge2, label %18, !llvm.loop !24
 
 .critedge2:                                       ; preds = %34
-  %35 = icmp eq ptr %.143, null
-  %36 = icmp eq ptr %.151, null
+  %35 = icmp eq ptr %.151, null
+  %36 = icmp eq ptr %.149, null
   %or.cond = select i1 %35, i1 true, i1 %36
   br i1 %or.cond, label %.critedge2.thread, label %37
 
 37:                                               ; preds = %.critedge2
   %38 = load ptr, ptr %10, align 8
-  %39 = getelementptr inbounds i8, ptr %.143, i64 16
+  %39 = getelementptr inbounds i8, ptr %.151, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = tail call ptr @Nm_ManFindNameById(ptr noundef %38, i32 noundef %40) #20
   %.not53 = icmp eq ptr %41, null
@@ -2012,23 +2012,23 @@ define void @Abc_NtkDress2Transfer(ptr nocapture noundef readonly %0, ptr nocapt
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr %11, align 8
-  %44 = getelementptr inbounds i8, ptr %.151, i64 16
+  %44 = getelementptr inbounds i8, ptr %.149, i64 16
   %45 = load i32, ptr %44, align 8
   %46 = tail call ptr @Nm_ManFindNameById(ptr noundef %43, i32 noundef %45) #20
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.critedge2.thread, label %48
 
 48:                                               ; preds = %42
-  %.not54 = icmp eq i32 %.147, %.145
+  %.not54 = icmp eq i32 %.145, %.143
   br i1 %.not54, label %52, label %49
 
 49:                                               ; preds = %48
-  %50 = tail call ptr @Abc_ObjAssignName(ptr noundef nonnull %.143, ptr noundef nonnull %46, ptr noundef nonnull @.str.13) #20
+  %50 = tail call ptr @Abc_ObjAssignName(ptr noundef nonnull %.151, ptr noundef nonnull %46, ptr noundef nonnull @.str.13) #20
   %51 = add nsw i32 %.04071, 1
   br label %.critedge2.thread
 
 52:                                               ; preds = %48
-  %53 = tail call ptr @Abc_ObjAssignName(ptr noundef nonnull %.143, ptr noundef nonnull %46, ptr noundef null) #20
+  %53 = tail call ptr @Abc_ObjAssignName(ptr noundef nonnull %.151, ptr noundef nonnull %46, ptr noundef null) #20
   %54 = add nsw i32 %.072, 1
   br label %.critedge2.thread
 

@@ -2115,16 +2115,16 @@ _ZN7mitsuba9ArgParser5parseEiPPc.exit.preheader:  ; preds = %535
   br i1 %.not230939, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN7mitsuba9ArgParser5parseEiPPc.exit.preheader, %_ZN7mitsuba9ArgParser5parseEiPPc.exit
-  %.0190941 = phi ptr [ %541, %_ZN7mitsuba9ArgParser5parseEiPPc.exit ], [ %152, %_ZN7mitsuba9ArgParser5parseEiPPc.exit.preheader ]
+  %.0155941 = phi ptr [ %541, %_ZN7mitsuba9ArgParser5parseEiPPc.exit ], [ %152, %_ZN7mitsuba9ArgParser5parseEiPPc.exit.preheader ]
   %.0824940 = phi i32 [ %539, %_ZN7mitsuba9ArgParser5parseEiPPc.exit ], [ 0, %_ZN7mitsuba9ArgParser5parseEiPPc.exit.preheader ]
-  %536 = getelementptr inbounds i8, ptr %.0190941, i64 25
+  %536 = getelementptr inbounds i8, ptr %.0155941, i64 25
   %537 = load i8, ptr %536, align 1
   %538 = trunc i8 %537 to i1
   br i1 %538, label %_ZN7mitsuba9ArgParser5parseEiPPc.exit, label %.critedge
 
 _ZN7mitsuba9ArgParser5parseEiPPc.exit:            ; preds = %.lr.ph
   %539 = add nuw nsw i32 %.0824940, 1
-  %540 = getelementptr inbounds i8, ptr %.0190941, i64 32
+  %540 = getelementptr inbounds i8, ptr %.0155941, i64 32
   %541 = load ptr, ptr %540, align 8
   %.not230 = icmp eq ptr %541, null
   br i1 %.not230, label %.critedge, label %.lr.ph, !llvm.loop !47
@@ -2216,8 +2216,8 @@ _ZN7mitsuba9ArgParser5parseEiPPc.exit:            ; preds = %.lr.ph
   br label %.body593
 
 575:                                              ; preds = %572, %566, %565, %557, %551
-  %.0188 = phi i64 [ %558, %557 ], [ %550, %551 ], [ 1, %565 ], [ 1, %566 ], [ 1, %572 ]
-  invoke void @_ZN7mitsuba6Thread16set_thread_countEm(i64 noundef %.0188)
+  %.0 = phi i64 [ %558, %557 ], [ %550, %551 ], [ 1, %565 ], [ 1, %566 ], [ 1, %572 ]
+  invoke void @_ZN7mitsuba6Thread16set_thread_countEm(i64 noundef %.0)
           to label %.preheader unwind label %.loopexit.split-lp855
 
 .preheader:                                       ; preds = %575
@@ -2230,14 +2230,14 @@ _ZN7mitsuba9ArgParser5parseEiPPc.exit:            ; preds = %.lr.ph
   br label %578
 
 578:                                              ; preds = %.lr.ph945, %606
-  %.0186944 = phi ptr [ %183, %.lr.ph945 ], [ %608, %606 ]
-  %579 = getelementptr inbounds i8, ptr %.0186944, i64 25
+  %.0188944 = phi ptr [ %183, %.lr.ph945 ], [ %608, %606 ]
+  %579 = getelementptr inbounds i8, ptr %.0188944, i64 25
   %580 = load i8, ptr %579, align 1
   %581 = trunc i8 %580 to i1
   br i1 %581, label %582, label %.critedge2
 
 582:                                              ; preds = %578
-  %583 = getelementptr inbounds i8, ptr %.0186944, i64 40
+  %583 = getelementptr inbounds i8, ptr %.0188944, i64 40
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %583)
           to label %584 unwind label %.loopexit854
 
@@ -2317,7 +2317,7 @@ _ZN7mitsuba9ArgParser5parseEiPPc.exit:            ; preds = %.lr.ph
   store ptr %.0.i, ptr %576, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %73) #20
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %72) #20
-  %607 = getelementptr inbounds i8, ptr %.0186944, i64 32
+  %607 = getelementptr inbounds i8, ptr %.0188944, i64 32
   %608 = load ptr, ptr %607, align 8
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %70) #20
   %.not232 = icmp eq ptr %608, null
@@ -3922,9 +3922,9 @@ _ZN7mitsuba3refINS_12FileResolverEED2Ev.exit732:  ; preds = %1180, %1179, %769
 .body593:                                         ; preds = %.loopexit854, %.loopexit.split-lp855, %1181, %_ZN7mitsuba3refINS_12FileResolverEED2Ev.exit732, %714, %573, %694, %692, %614
   %.pn252.pn = phi { ptr, i32 } [ %.pn252, %614 ], [ %695, %694 ], [ %693, %692 ], [ %574, %573 ], [ %715, %714 ], [ %.pn245.pn.pn.pn, %_ZN7mitsuba3refINS_12FileResolverEED2Ev.exit732 ], [ %.pn245.pn.pn.pn, %1181 ], [ %lpad.loopexit856, %.loopexit854 ], [ %lpad.loopexit.split-lp857, %.loopexit.split-lp855 ]
   %.24 = extractvalue { ptr, i32 } %.pn252.pn, 0
-  %.24179 = extractvalue { ptr, i32 } %.pn252.pn, 1
+  %.24181 = extractvalue { ptr, i32 } %.pn252.pn, 1
   %1182 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #20
-  %1183 = icmp eq i32 %.24179, %1182
+  %1183 = icmp eq i32 %.24181, %1182
   %1184 = call ptr @__cxa_begin_catch(ptr %.24) #20
   br i1 %1183, label %1185, label %1258
 

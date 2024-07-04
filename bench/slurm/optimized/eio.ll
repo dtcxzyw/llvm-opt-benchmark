@@ -172,10 +172,10 @@ define range(i32 -1, 1) i32 @eio_handle_mainloop(ptr noundef %0) #0 {
   br label %15
 
 15:                                               ; preds = %.backedge, %1
-  %.037 = phi i32 [ 0, %1 ], [ %.1, %.backedge ]
+  %.0 = phi i32 [ 0, %1 ], [ %.1, %.backedge ]
   %16 = load ptr, ptr %7, align 8
   %17 = call i32 @list_count(ptr noundef %16) #10
-  %18 = icmp ult i32 %.037, %17
+  %18 = icmp ult i32 %.0, %17
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %15
@@ -189,7 +189,7 @@ define range(i32 -1, 1) i32 @eio_handle_mainloop(ptr noundef %0) #0 {
   br label %27
 
 27:                                               ; preds = %19, %15
-  %.1 = phi i32 [ %17, %19 ], [ %.037, %15 ]
+  %.1 = phi i32 [ %17, %19 ], [ %.0, %15 ]
   %28 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %.loopexit, label %29
@@ -563,10 +563,10 @@ _poll_dispatch.exit:                              ; preds = %_poll_handle_event.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_poll_setup_pollfds.exit, %27, %_poll_internal.exit, %198
-  %.0 = phi i32 [ -1, %_poll_internal.exit ], [ -1, %198 ], [ 0, %27 ], [ 0, %_poll_setup_pollfds.exit ]
+  %.037 = phi i32 [ -1, %_poll_internal.exit ], [ -1, %198 ], [ 0, %27 ], [ 0, %_poll_setup_pollfds.exit ]
   call void @slurm_xfree(ptr noundef nonnull %5) #10
   call void @slurm_xfree(ptr noundef nonnull %6) #10
-  ret i32 %.0
+  ret i32 %.037
 }
 
 ; Function Attrs: nounwind uwtable

@@ -616,8 +616,8 @@ define internal range(i32 0, 2) i32 @eyesdn_dump(ptr noundef %0, ptr nocapture n
   br label %89
 
 36:                                               ; preds = %17, %34, %33, %32, %31, %30, %29, %28
-  %.033.shrunk = phi i8 [ %25, %34 ], [ %25, %33 ], [ %25, %32 ], [ %25, %31 ], [ -128, %30 ], [ %25, %29 ], [ %25, %28 ], [ %25, %17 ]
-  %.032 = phi i8 [ 16, %34 ], [ 14, %33 ], [ 8, %32 ], [ 4, %31 ], [ 6, %30 ], [ 10, %29 ], [ 2, %28 ], [ 0, %17 ]
+  %.032.shrunk = phi i8 [ %25, %34 ], [ %25, %33 ], [ %25, %32 ], [ %25, %31 ], [ -128, %30 ], [ %25, %29 ], [ %25, %28 ], [ %25, %17 ]
+  %.0 = phi i8 [ 16, %34 ], [ 14, %33 ], [ 8, %32 ], [ 4, %31 ], [ 6, %30 ], [ 10, %29 ], [ 2, %28 ], [ 0, %17 ]
   %37 = ashr i32 %21, 16
   %38 = trunc nsw i32 %37 to i8
   store i8 %38, ptr %8, align 1
@@ -646,10 +646,10 @@ define internal range(i32 0, 2) i32 @eyesdn_dump(ptr noundef %0, ptr nocapture n
   %55 = getelementptr inbounds i8, ptr %8, i64 7
   store i8 %54, ptr %55, align 1
   %56 = getelementptr inbounds i8, ptr %8, i64 8
-  store i8 %.033.shrunk, ptr %56, align 1
+  store i8 %.032.shrunk, ptr %56, align 1
   %.not35 = icmp ne i32 %23, 0
   %57 = zext i1 %.not35 to i8
-  %58 = or disjoint i8 %.032, %57
+  %58 = or disjoint i8 %.0, %57
   %59 = getelementptr inbounds i8, ptr %8, i64 9
   store i8 %58, ptr %59, align 1
   %60 = lshr i32 %14, 8
@@ -748,8 +748,8 @@ esc_write.exit47:                                 ; preds = %78, %77
   br label %89
 
 89:                                               ; preds = %88, %esc_write.exit47, %esc_write.exit.thread, %36, %35, %16, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %16 ], [ 0, %35 ], [ 0, %36 ], [ 0, %esc_write.exit.thread ], [ 0, %88 ], [ 1, %esc_write.exit47 ]
-  ret i32 %.0
+  %.033 = phi i32 [ 0, %11 ], [ 0, %16 ], [ 0, %35 ], [ 0, %36 ], [ 0, %esc_write.exit.thread ], [ 0, %88 ], [ 1, %esc_write.exit47 ]
+  ret i32 %.033
 }
 
 declare i32 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1

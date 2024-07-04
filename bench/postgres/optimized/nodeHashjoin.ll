@@ -1107,9 +1107,9 @@ ExecParallelHashJoinOuterGetTuple.exit:           ; preds = %218
   br i1 %307, label %.thread205, label %ExecParallelHashJoinOuterGetTuple.exit.thread200
 
 ExecParallelHashJoinOuterGetTuple.exit.thread200: ; preds = %204, %302, %264, %ExecParallelHashJoinOuterGetTuple.exit
-  %.0142204 = phi ptr [ %306, %ExecParallelHashJoinOuterGetTuple.exit ], [ %283, %302 ], [ %.145.i, %264 ], [ %.03037.i, %204 ]
+  %.0204 = phi ptr [ %306, %ExecParallelHashJoinOuterGetTuple.exit ], [ %283, %302 ], [ %.145.i, %264 ], [ %.03037.i, %204 ]
   %.1193203 = phi ptr [ %.0141, %ExecParallelHashJoinOuterGetTuple.exit ], [ %.1194, %302 ], [ %.1194, %264 ], [ %.0141, %204 ]
-  %308 = getelementptr inbounds i8, ptr %.0142204, i64 4
+  %308 = getelementptr inbounds i8, ptr %.0204, i64 4
   %309 = load i16, ptr %308, align 4
   %310 = and i16 %309, 2
   %.not161 = icmp eq i16 %310, 0
@@ -1153,7 +1153,7 @@ ExecParallelHashJoinOuterGetTuple.exit.thread:    ; preds = %.lr.ph.i176, %ExecP
   br label %.backedge.backedge
 
 319:                                              ; preds = %ExecParallelHashJoinOuterGetTuple.exit.thread200
-  store ptr %.0142204, ptr %42, align 8
+  store ptr %.0204, ptr %42, align 8
   store i8 0, ptr %46, align 4
   %320 = load i32, ptr %18, align 4
   store i32 %320, ptr %60, align 8
@@ -1171,7 +1171,7 @@ ExecParallelHashJoinOuterGetTuple.exit.thread:    ; preds = %.lr.ph.i176, %ExecP
   br i1 %or.cond, label %327, label %347
 
 327:                                              ; preds = %319
-  %328 = call ptr @ExecFetchSlotMinimalTuple(ptr noundef nonnull %.0142204, ptr noundef nonnull %20) #6
+  %328 = call ptr @ExecFetchSlotMinimalTuple(ptr noundef nonnull %.0204, ptr noundef nonnull %20) #6
   %329 = load i32, ptr %18, align 4
   %330 = getelementptr inbounds i8, ptr %.1193203, i64 120
   %331 = load ptr, ptr %330, align 8
@@ -1887,8 +1887,8 @@ ExecHashJoinNewBatch.exit:                        ; preds = %620, %657, %661
   unreachable
 
 ExecHashJoinNewBatch.exit.thread:                 ; preds = %592, %ExecHashJoinNewBatch.exit, %182, %.lr.ph, %117, %ExecParallelHashJoinNewBatch.exit, %116, %474, %429, %380, %101
-  %.0 = phi ptr [ %481, %474 ], [ %436, %429 ], [ %387, %380 ], [ null, %101 ], [ null, %116 ], [ null, %ExecParallelHashJoinNewBatch.exit ], [ null, %117 ], [ null, %.lr.ph ], [ null, %182 ], [ null, %ExecHashJoinNewBatch.exit ], [ null, %592 ]
-  ret ptr %.0
+  %.0142 = phi ptr [ %481, %474 ], [ %436, %429 ], [ %387, %380 ], [ null, %101 ], [ null, %116 ], [ null, %ExecParallelHashJoinNewBatch.exit ], [ null, %117 ], [ null, %.lr.ph ], [ null, %182 ], [ null, %ExecHashJoinNewBatch.exit ], [ null, %592 ]
+  ret ptr %.0142
 }
 
 declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1

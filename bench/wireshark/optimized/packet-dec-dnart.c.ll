@@ -771,13 +771,13 @@ set_dnet_address.exit200:                         ; preds = %set_dnet_address.ex
   br i1 %247, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %242, %.split.us.i
-  %.049.us.i = phi i32 [ %264, %.split.us.i ], [ 1, %242 ]
-  %.048.us.i = phi i32 [ %265, %.split.us.i ], [ %245, %242 ]
+  %.049.us.i = phi i32 [ %265, %.split.us.i ], [ %245, %242 ]
+  %.048.us.i = phi i32 [ %264, %.split.us.i ], [ 1, %242 ]
   %.0.us.i = phi i32 [ %266, %.split.us.i ], [ %246, %242 ]
-  %248 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.048.us.i) #3
-  %249 = add i32 %.048.us.i, 2
+  %248 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.049.us.i) #3
+  %249 = add i32 %.049.us.i, 2
   %250 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %249) #3
-  %251 = add i32 %.048.us.i, 4
+  %251 = add i32 %.049.us.i, 4
   %252 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %251) #3
   %253 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %253, i32 noundef 25, ptr noundef nonnull @.str.210) #3
@@ -788,23 +788,23 @@ set_dnet_address.exit200:                         ; preds = %set_dnet_address.ex
   %258 = lshr i32 %257, 10
   %259 = and i32 %258, 31
   %260 = and i32 %257, 1023
-  %261 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %194, i32 noundef %254, ptr noundef %0, i32 noundef %.048.us.i, i32 noundef 6, ptr noundef nonnull @.str.211, i32 noundef %255, i32 noundef %256, i32 noundef %259, i32 noundef %260) #3
-  %262 = add i32 %.049.us.i, %255
+  %261 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %194, i32 noundef %254, ptr noundef %0, i32 noundef %.049.us.i, i32 noundef 6, ptr noundef nonnull @.str.211, i32 noundef %255, i32 noundef %256, i32 noundef %259, i32 noundef %260) #3
+  %262 = add i32 %.048.us.i, %255
   %263 = add i32 %262, %256
   %264 = add i32 %263, %257
-  %265 = add i32 %.048.us.i, 6
+  %265 = add i32 %.049.us.i, 6
   %266 = add i32 %.0.us.i, -6
   %267 = icmp ugt i32 %266, 6
   br i1 %267, label %.split.us.i, label %.preheader.i, !llvm.loop !4
 
 .split.i:                                         ; preds = %242, %.split.i
-  %.049.i = phi i32 [ %284, %.split.i ], [ 1, %242 ]
-  %.048.i = phi i32 [ %285, %.split.i ], [ %245, %242 ]
+  %.049.i = phi i32 [ %285, %.split.i ], [ %245, %242 ]
+  %.048.i = phi i32 [ %284, %.split.i ], [ 1, %242 ]
   %.0.i206 = phi i32 [ %286, %.split.i ], [ %246, %242 ]
-  %268 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.048.i) #3
-  %269 = add i32 %.048.i, 2
+  %268 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.049.i) #3
+  %269 = add i32 %.049.i, 2
   %270 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %269) #3
-  %271 = add i32 %.048.i, 4
+  %271 = add i32 %.049.i, 4
   %272 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %271) #3
   %273 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %273, i32 noundef 25, ptr noundef nonnull @.str.212) #3
@@ -815,11 +815,11 @@ set_dnet_address.exit200:                         ; preds = %set_dnet_address.ex
   %278 = lshr i32 %277, 10
   %279 = and i32 %278, 31
   %280 = and i32 %277, 1023
-  %281 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %194, i32 noundef %274, ptr noundef %0, i32 noundef %.048.i, i32 noundef 6, ptr noundef nonnull @.str.213, i32 noundef %275, i32 noundef %276, i32 noundef %279, i32 noundef %280) #3
-  %282 = add i32 %.049.i, %275
+  %281 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %194, i32 noundef %274, ptr noundef %0, i32 noundef %.049.i, i32 noundef 6, ptr noundef nonnull @.str.213, i32 noundef %275, i32 noundef %276, i32 noundef %279, i32 noundef %280) #3
+  %282 = add i32 %.048.i, %275
   %283 = add i32 %282, %276
   %284 = add i32 %283, %277
-  %285 = add i32 %.048.i, 6
+  %285 = add i32 %.049.i, 6
   %286 = add i32 %.0.i206, -6
   %287 = icmp ugt i32 %286, 6
   br i1 %287, label %.split.i, label %.preheader.i, !llvm.loop !4

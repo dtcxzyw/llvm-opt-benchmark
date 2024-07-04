@@ -25,9 +25,9 @@ entry:
   br i1 %cmp7.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %next_vertex.09 = phi i32 [ %next_vertex.1, %for.inc ], [ 0, %entry ]
-  %i.08 = phi i64 [ %inc5, %for.inc ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds i32, ptr %indices, i64 %i.08
+  %i.09 = phi i64 [ %inc5, %for.inc ], [ 0, %entry ]
+  %next_vertex.08 = phi i32 [ %next_vertex.1, %for.inc ], [ 0, %entry ]
+  %arrayidx = getelementptr inbounds i32, ptr %indices, i64 %i.09
   %0 = load i32, ptr %arrayidx, align 4
   %idxprom = zext i32 %0 to i64
   %arrayidx1 = getelementptr inbounds i32, ptr %destination, i64 %idxprom
@@ -36,13 +36,13 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp2, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %inc = add i32 %next_vertex.09, 1
-  store i32 %next_vertex.09, ptr %arrayidx1, align 4
+  %inc = add i32 %next_vertex.08, 1
+  store i32 %next_vertex.08, ptr %arrayidx1, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %next_vertex.1 = phi i32 [ %inc, %if.then ], [ %next_vertex.09, %for.body ]
-  %inc5 = add nuw i64 %i.08, 1
+  %next_vertex.1 = phi i32 [ %inc, %if.then ], [ %next_vertex.08, %for.body ]
+  %inc5 = add nuw i64 %i.09, 1
   %exitcond.not = icmp eq i64 %inc5, %index_count
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !5
 
@@ -106,9 +106,9 @@ invoke.cont2:                                     ; preds = %if.end
   br i1 %cmp529.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %invoke.cont2, %if.end13
-  %next_vertex.031 = phi i32 [ %next_vertex.1, %if.end13 ], [ 0, %invoke.cont2 ]
-  %i.030 = phi i64 [ %inc15, %if.end13 ], [ 0, %invoke.cont2 ]
-  %arrayidx = getelementptr inbounds i32, ptr %indices, i64 %i.030
+  %i.031 = phi i64 [ %inc15, %if.end13 ], [ 0, %invoke.cont2 ]
+  %next_vertex.030 = phi i32 [ %next_vertex.1, %if.end13 ], [ 0, %invoke.cont2 ]
+  %arrayidx = getelementptr inbounds i32, ptr %indices, i64 %i.031
   %3 = load i32, ptr %arrayidx, align 4
   %idxprom = zext i32 %3 to i64
   %arrayidx6 = getelementptr inbounds i32, ptr %call.i26, i64 %idxprom
@@ -117,21 +117,21 @@ for.body:                                         ; preds = %invoke.cont2, %if.e
   br i1 %cmp7, label %if.then8, label %if.end13
 
 if.then8:                                         ; preds = %for.body
-  %conv = zext i32 %next_vertex.031 to i64
+  %conv = zext i32 %next_vertex.030 to i64
   %mul9 = mul i64 %conv, %vertex_size
   %add.ptr = getelementptr inbounds i8, ptr %destination, i64 %mul9
   %mul11 = mul i64 %idxprom, %vertex_size
   %add.ptr12 = getelementptr inbounds i8, ptr %vertices.addr.0, i64 %mul11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %add.ptr12, i64 %vertex_size, i1 false)
-  %inc = add i32 %next_vertex.031, 1
-  store i32 %next_vertex.031, ptr %arrayidx6, align 4
+  %inc = add i32 %next_vertex.030, 1
+  store i32 %next_vertex.030, ptr %arrayidx6, align 4
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then8, %for.body
-  %5 = phi i32 [ %next_vertex.031, %if.then8 ], [ %4, %for.body ]
-  %next_vertex.1 = phi i32 [ %inc, %if.then8 ], [ %next_vertex.031, %for.body ]
+  %5 = phi i32 [ %next_vertex.030, %if.then8 ], [ %4, %for.body ]
+  %next_vertex.1 = phi i32 [ %inc, %if.then8 ], [ %next_vertex.030, %for.body ]
   store i32 %5, ptr %arrayidx, align 4
-  %inc15 = add nuw i64 %i.030, 1
+  %inc15 = add nuw i64 %i.031, 1
   %exitcond.not = icmp eq i64 %inc15, %index_count
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !7
 

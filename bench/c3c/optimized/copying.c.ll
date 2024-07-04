@@ -78,27 +78,27 @@ define internal fastcc noundef ptr @ast_copy_deep(ptr noundef %0, ptr noundef %1
   br label %6
 
 6:                                                ; preds = %913, %3
-  %.0338 = phi ptr [ %1, %3 ], [ %916, %913 ]
-  %.0337 = phi ptr [ %4, %3 ], [ %.1, %913 ]
-  %.0336 = phi ptr [ null, %3 ], [ %911, %913 ]
-  %.not404 = icmp eq ptr %.0336, null
+  %.0334 = phi ptr [ %1, %3 ], [ %916, %913 ]
+  %.0333 = phi ptr [ %4, %3 ], [ %.1, %913 ]
+  %.0 = phi ptr [ null, %3 ], [ %911, %913 ]
+  %.not404 = icmp eq ptr %.0, null
   br i1 %.not404, label %15, label %7
 
 7:                                                ; preds = %6
   %8 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull readonly align 8 dereferenceable(48) %.0338, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull readonly align 8 dereferenceable(48) %.0334, i64 48, i1 false)
   %9 = load ptr, ptr @ast_arena, align 8
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = sdiv exact i64 %12, 48
   %14 = trunc i64 %13 to i32
-  store i32 %14, ptr %.0336, align 4
+  store i32 %14, ptr %.0, align 4
   br label %15
 
 15:                                               ; preds = %7, %6
-  %.1 = phi ptr [ %8, %7 ], [ %.0337, %6 ]
-  %16 = getelementptr inbounds i8, ptr %.0338, i64 12
+  %.1 = phi ptr [ %8, %7 ], [ %.0333, %6 ]
+  %16 = getelementptr inbounds i8, ptr %.0334, i64 12
   %17 = load i8, ptr %16, align 4
   switch i8 %17, label %doc_ast_copy.exit [
     i8 22, label %831
@@ -150,8 +150,8 @@ define internal fastcc noundef ptr @ast_copy_deep(ptr noundef %0, ptr noundef %1
 
 .lr.ph541:                                        ; preds = %.lr.ph541.preheader, %expand_.exit
   %indvars.iv577 = phi i64 [ 0, %.lr.ph541.preheader ], [ %indvars.iv.next578, %expand_.exit ]
-  %.021.i539 = phi ptr [ null, %.lr.ph541.preheader ], [ %49, %expand_.exit ]
-  %.not.i472 = icmp eq ptr %.021.i539, null
+  %.020.i539 = phi ptr [ null, %.lr.ph541.preheader ], [ %49, %expand_.exit ]
+  %.not.i472 = icmp eq ptr %.020.i539, null
   br i1 %.not.i472, label %24, label %27
 
 24:                                               ; preds = %.lr.ph541
@@ -161,8 +161,8 @@ define internal fastcc noundef ptr @ast_copy_deep(ptr noundef %0, ptr noundef %1
   br label %29
 
 27:                                               ; preds = %.lr.ph541
-  %28 = getelementptr inbounds i8, ptr %.021.i539, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.021.i539, i64 -4
+  %28 = getelementptr inbounds i8, ptr %.020.i539, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.020.i539, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %29
 
@@ -212,8 +212,8 @@ expand_.exit:                                     ; preds = %29, %33
   br i1 %exitcond581.not, label %copy_decl_list.exit, label %.lr.ph541, !llvm.loop !7
 
 copy_decl_list.exit:                              ; preds = %expand_.exit, %18, %21
-  %.021.i.lcssa = phi ptr [ null, %21 ], [ null, %18 ], [ %49, %expand_.exit ]
-  store ptr %.021.i.lcssa, ptr %19, align 8
+  %.020.i.lcssa = phi ptr [ null, %21 ], [ null, %18 ], [ %49, %expand_.exit ]
+  store ptr %.020.i.lcssa, ptr %19, align 8
   br label %doc_ast_copy.exit
 
 57:                                               ; preds = %15
@@ -235,7 +235,7 @@ copy_decl_list.exit:                              ; preds = %expand_.exit, %18, 
   br label %doc_ast_copy.exit
 
 67:                                               ; preds = %15
-  %68 = getelementptr inbounds i8, ptr %.0338, i64 16
+  %68 = getelementptr inbounds i8, ptr %.0334, i64 16
   %69 = load i8, ptr %68, align 8
   %70 = and i8 %69, 15
   switch i8 %70, label %doc_ast_copy.exit [
@@ -245,14 +245,14 @@ copy_decl_list.exit:                              ; preds = %expand_.exit, %18, 
   ]
 
 71:                                               ; preds = %67, %67
-  %72 = getelementptr inbounds i8, ptr %.0338, i64 24
+  %72 = getelementptr inbounds i8, ptr %.0334, i64 24
   %73 = load ptr, ptr %72, align 8
   %74 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %73)
   store ptr %74, ptr %72, align 8
   br label %doc_ast_copy.exit
 
 75:                                               ; preds = %67
-  %76 = getelementptr inbounds i8, ptr %.0338, i64 24
+  %76 = getelementptr inbounds i8, ptr %.0334, i64 24
   %77 = load ptr, ptr %76, align 8
   %.not.i474 = icmp eq ptr %77, null
   br i1 %.not.i474, label %copy_ast_list.exit478, label %78
@@ -269,8 +269,8 @@ copy_decl_list.exit:                              ; preds = %expand_.exit, %18, 
 
 .lr.ph537:                                        ; preds = %.lr.ph537.preheader, %expand_.exit.i
   %indvars.iv572 = phi i64 [ 0, %.lr.ph537.preheader ], [ %indvars.iv.next573, %expand_.exit.i ]
-  %.021.i476535 = phi ptr [ null, %.lr.ph537.preheader ], [ %106, %expand_.exit.i ]
-  %.not.i.i = icmp eq ptr %.021.i476535, null
+  %.020.i476535 = phi ptr [ null, %.lr.ph537.preheader ], [ %106, %expand_.exit.i ]
+  %.not.i.i = icmp eq ptr %.020.i476535, null
   br i1 %.not.i.i, label %81, label %84
 
 81:                                               ; preds = %.lr.ph537
@@ -280,8 +280,8 @@ copy_decl_list.exit:                              ; preds = %expand_.exit, %18, 
   br label %86
 
 84:                                               ; preds = %.lr.ph537
-  %85 = getelementptr inbounds i8, ptr %.021.i476535, i64 -8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.021.i476535, i64 -4
+  %85 = getelementptr inbounds i8, ptr %.020.i476535, i64 -8
+  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.020.i476535, i64 -4
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   br label %86
 
@@ -331,8 +331,8 @@ expand_.exit.i:                                   ; preds = %90, %86
   br i1 %exitcond576.not, label %copy_ast_list.exit478, label %.lr.ph537, !llvm.loop !9
 
 copy_ast_list.exit478:                            ; preds = %expand_.exit.i, %75, %78
-  %.021.i476.lcssa = phi ptr [ null, %78 ], [ null, %75 ], [ %106, %expand_.exit.i ]
-  store ptr %.021.i476.lcssa, ptr %76, align 8
+  %.020.i476.lcssa = phi ptr [ null, %78 ], [ null, %75 ], [ %106, %expand_.exit.i ]
+  store ptr %.020.i476.lcssa, ptr %76, align 8
   br label %doc_ast_copy.exit
 
 114:                                              ; preds = %15
@@ -362,8 +362,8 @@ copy_ast_list.exit478:                            ; preds = %expand_.exit.i, %75
   br label %132
 
 132:                                              ; preds = %118, %121
-  %.0359 = phi i32 [ %131, %121 ], [ 0, %118 ]
-  store i32 %.0359, ptr %119, align 8
+  %.0354 = phi i32 [ %131, %121 ], [ 0, %118 ]
+  store i32 %.0354, ptr %119, align 8
   br label %doc_ast_copy.exit
 
 133:                                              ; preds = %114
@@ -391,8 +391,8 @@ copy_ast_list.exit478:                            ; preds = %expand_.exit.i, %75
   br label %150
 
 150:                                              ; preds = %133, %139
-  %.0339 = phi i32 [ %149, %139 ], [ 0, %133 ]
-  store i32 %.0339, ptr %137, align 8
+  %.0353 = phi i32 [ %149, %139 ], [ 0, %133 ]
+  store i32 %.0353, ptr %137, align 8
   br label %doc_ast_copy.exit
 
 151:                                              ; preds = %15
@@ -413,8 +413,8 @@ copy_ast_list.exit478:                            ; preds = %expand_.exit.i, %75
 
 .lr.ph533:                                        ; preds = %.lr.ph533.preheader, %expand_.exit485
   %indvars.iv567 = phi i64 [ 0, %.lr.ph533.preheader ], [ %indvars.iv.next568, %expand_.exit485 ]
-  %.021.i445531 = phi ptr [ null, %.lr.ph533.preheader ], [ %182, %expand_.exit485 ]
-  %.not.i479 = icmp eq ptr %.021.i445531, null
+  %.020.i445531 = phi ptr [ null, %.lr.ph533.preheader ], [ %182, %expand_.exit485 ]
+  %.not.i479 = icmp eq ptr %.020.i445531, null
   br i1 %.not.i479, label %157, label %160
 
 157:                                              ; preds = %.lr.ph533
@@ -424,8 +424,8 @@ copy_ast_list.exit478:                            ; preds = %expand_.exit.i, %75
   br label %162
 
 160:                                              ; preds = %.lr.ph533
-  %161 = getelementptr inbounds i8, ptr %.021.i445531, i64 -8
-  %.phi.trans.insert.i480 = getelementptr inbounds i8, ptr %.021.i445531, i64 -4
+  %161 = getelementptr inbounds i8, ptr %.020.i445531, i64 -8
+  %.phi.trans.insert.i480 = getelementptr inbounds i8, ptr %.020.i445531, i64 -4
   %.pre.i481 = load i32, ptr %.phi.trans.insert.i480, align 4
   br label %162
 
@@ -475,8 +475,8 @@ expand_.exit485:                                  ; preds = %162, %166
   br i1 %exitcond571.not, label %copy_expr_list.exit, label %.lr.ph533, !llvm.loop !10
 
 copy_expr_list.exit:                              ; preds = %expand_.exit485, %151, %154
-  %.021.i445.lcssa = phi ptr [ null, %154 ], [ null, %151 ], [ %182, %expand_.exit485 ]
-  store ptr %.021.i445.lcssa, ptr %152, align 8
+  %.020.i445.lcssa = phi ptr [ null, %154 ], [ null, %151 ], [ %182, %expand_.exit485 ]
+  store ptr %.020.i445.lcssa, ptr %152, align 8
   br label %doc_ast_copy.exit
 
 190:                                              ; preds = %15, %15
@@ -499,8 +499,8 @@ copy_expr_list.exit:                              ; preds = %expand_.exit485, %1
   br label %204
 
 204:                                              ; preds = %190, %193
-  %.0360 = phi i32 [ %203, %193 ], [ 0, %190 ]
-  store i32 %.0360, ptr %191, align 8
+  %.0352 = phi i32 [ %203, %193 ], [ 0, %190 ]
+  store i32 %.0352, ptr %191, align 8
   %205 = getelementptr inbounds i8, ptr %.1, i64 20
   %206 = load i32, ptr %205, align 4
   %.not437 = icmp eq i32 %206, 0
@@ -520,8 +520,8 @@ copy_expr_list.exit:                              ; preds = %expand_.exit485, %1
   br label %218
 
 218:                                              ; preds = %204, %207
-  %.0362 = phi i32 [ %217, %207 ], [ 0, %204 ]
-  store i32 %.0362, ptr %205, align 4
+  %.0351 = phi i32 [ %217, %207 ], [ 0, %204 ]
+  store i32 %.0351, ptr %205, align 4
   %219 = getelementptr inbounds i8, ptr %.1, i64 32
   %220 = load ptr, ptr %219, align 8
   %.not.i447 = icmp eq ptr %220, null
@@ -539,8 +539,8 @@ copy_expr_list.exit:                              ; preds = %expand_.exit485, %1
 
 .lr.ph529:                                        ; preds = %.lr.ph529.preheader, %expand_.exit492
   %indvars.iv562 = phi i64 [ 0, %.lr.ph529.preheader ], [ %indvars.iv.next563, %expand_.exit492 ]
-  %.021.i449527 = phi ptr [ null, %.lr.ph529.preheader ], [ %249, %expand_.exit492 ]
-  %.not.i486 = icmp eq ptr %.021.i449527, null
+  %.020.i449527 = phi ptr [ null, %.lr.ph529.preheader ], [ %249, %expand_.exit492 ]
+  %.not.i486 = icmp eq ptr %.020.i449527, null
   br i1 %.not.i486, label %224, label %227
 
 224:                                              ; preds = %.lr.ph529
@@ -550,8 +550,8 @@ copy_expr_list.exit:                              ; preds = %expand_.exit485, %1
   br label %229
 
 227:                                              ; preds = %.lr.ph529
-  %228 = getelementptr inbounds i8, ptr %.021.i449527, i64 -8
-  %.phi.trans.insert.i487 = getelementptr inbounds i8, ptr %.021.i449527, i64 -4
+  %228 = getelementptr inbounds i8, ptr %.020.i449527, i64 -8
+  %.phi.trans.insert.i487 = getelementptr inbounds i8, ptr %.020.i449527, i64 -4
   %.pre.i488 = load i32, ptr %.phi.trans.insert.i487, align 4
   br label %229
 
@@ -601,8 +601,8 @@ expand_.exit492:                                  ; preds = %229, %233
   br i1 %exitcond566.not, label %copy_expr_list.exit451, label %.lr.ph529, !llvm.loop !10
 
 copy_expr_list.exit451:                           ; preds = %expand_.exit492, %218, %221
-  %.021.i449.lcssa = phi ptr [ null, %221 ], [ null, %218 ], [ %249, %expand_.exit492 ]
-  store ptr %.021.i449.lcssa, ptr %219, align 8
+  %.020.i449.lcssa = phi ptr [ null, %221 ], [ null, %218 ], [ %249, %expand_.exit492 ]
+  store ptr %.020.i449.lcssa, ptr %219, align 8
   br label %doc_ast_copy.exit
 
 257:                                              ; preds = %15, %15
@@ -626,18 +626,18 @@ copy_expr_list.exit451:                           ; preds = %expand_.exit492, %2
   br label %269
 
 269:                                              ; preds = %270, %264
-  %.09.i = phi ptr [ %268, %264 ], [ %271, %270 ]
-  %.not.i452 = icmp eq ptr %.09.i, %0
-  br i1 %.not.i452, label %doc_ast_copy.exit, label %270
+  %.0.i452 = phi ptr [ %268, %264 ], [ %271, %270 ]
+  %.not.i453 = icmp eq ptr %.0.i452, %0
+  br i1 %.not.i453, label %doc_ast_copy.exit, label %270
 
 270:                                              ; preds = %269
-  %271 = getelementptr inbounds i8, ptr %.09.i, i64 -16
+  %271 = getelementptr inbounds i8, ptr %.0.i452, i64 -16
   %272 = load ptr, ptr %271, align 8
   %273 = icmp eq ptr %272, %267
   br i1 %273, label %fixup.exit, label %269, !llvm.loop !11
 
 fixup.exit:                                       ; preds = %270
-  %274 = getelementptr inbounds i8, ptr %.09.i, i64 -8
+  %274 = getelementptr inbounds i8, ptr %.0.i452, i64 -8
   %275 = load ptr, ptr %274, align 8
   %.not435 = icmp eq ptr %275, null
   br i1 %.not435, label %doc_ast_copy.exit, label %276
@@ -656,7 +656,7 @@ fixup.exit:                                       ; preds = %270
   %284 = getelementptr inbounds i8, ptr %283, i64 8
   store ptr %.1, ptr %284, align 8
   %285 = load ptr, ptr %5, align 8
-  store ptr %.0338, ptr %285, align 8
+  store ptr %.0334, ptr %285, align 8
   %286 = load ptr, ptr %5, align 8
   %287 = getelementptr inbounds i8, ptr %286, i64 16
   store ptr %287, ptr %5, align 8
@@ -691,8 +691,8 @@ copy_reg_ref.exit:                                ; preds = %282
   br label %306
 
 306:                                              ; preds = %copy_reg_ref.exit, %295
-  %.0363 = phi i32 [ %305, %295 ], [ 0, %copy_reg_ref.exit ]
-  store i32 %.0363, ptr %290, align 8
+  %.0350 = phi i32 [ %305, %295 ], [ 0, %copy_reg_ref.exit ]
+  store i32 %.0350, ptr %290, align 8
   %307 = getelementptr inbounds i8, ptr %.1, i64 20
   %308 = load i32, ptr %307, align 4
   %.not432 = icmp eq i32 %308, 0
@@ -712,8 +712,8 @@ copy_reg_ref.exit:                                ; preds = %282
   br label %320
 
 320:                                              ; preds = %306, %309
-  %.0365 = phi i32 [ %319, %309 ], [ 0, %306 ]
-  store i32 %.0365, ptr %307, align 4
+  %.0349 = phi i32 [ %319, %309 ], [ 0, %306 ]
+  store i32 %.0349, ptr %307, align 4
   br label %doc_ast_copy.exit
 
 321:                                              ; preds = %15
@@ -736,8 +736,8 @@ copy_reg_ref.exit:                                ; preds = %282
   br label %335
 
 335:                                              ; preds = %321, %324
-  %.0341 = phi i32 [ %334, %324 ], [ 0, %321 ]
-  store i32 %.0341, ptr %322, align 8
+  %.0356 = phi i32 [ %334, %324 ], [ 0, %321 ]
+  store i32 %.0356, ptr %322, align 8
   br label %doc_ast_copy.exit
 
 336:                                              ; preds = %15
@@ -764,8 +764,8 @@ copy_reg_ref.exit:                                ; preds = %282
   br label %353
 
 353:                                              ; preds = %336, %342
-  %.0342 = phi i32 [ %352, %342 ], [ 0, %336 ]
-  store i32 %.0342, ptr %340, align 8
+  %.0359 = phi i32 [ %352, %342 ], [ 0, %336 ]
+  store i32 %.0359, ptr %340, align 8
   %354 = getelementptr inbounds i8, ptr %.1, i64 28
   %355 = load i32, ptr %354, align 4
   %.not429 = icmp eq i32 %355, 0
@@ -785,8 +785,8 @@ copy_reg_ref.exit:                                ; preds = %282
   br label %367
 
 367:                                              ; preds = %353, %356
-  %.0344 = phi i32 [ %366, %356 ], [ 0, %353 ]
-  store i32 %.0344, ptr %354, align 4
+  %.0362 = phi i32 [ %366, %356 ], [ 0, %353 ]
+  store i32 %.0362, ptr %354, align 4
   br label %doc_ast_copy.exit
 
 368:                                              ; preds = %15
@@ -809,8 +809,8 @@ copy_reg_ref.exit:                                ; preds = %282
   br label %382
 
 382:                                              ; preds = %368, %371
-  %.0345 = phi i32 [ %381, %371 ], [ 0, %368 ]
-  store i32 %.0345, ptr %369, align 8
+  %.0365 = phi i32 [ %381, %371 ], [ 0, %368 ]
+  store i32 %.0365, ptr %369, align 8
   br label %doc_ast_copy.exit
 
 383:                                              ; preds = %15
@@ -833,8 +833,8 @@ copy_reg_ref.exit:                                ; preds = %282
   br label %397
 
 397:                                              ; preds = %383, %386
-  %.0 = phi i32 [ %396, %386 ], [ 0, %383 ]
-  store i32 %.0, ptr %384, align 8
+  %.0335 = phi i32 [ %396, %386 ], [ 0, %383 ]
+  store i32 %.0335, ptr %384, align 8
   %398 = getelementptr inbounds i8, ptr %.1, i64 20
   %399 = load i32, ptr %398, align 4
   %.not424 = icmp eq i32 %399, 0
@@ -854,8 +854,8 @@ copy_reg_ref.exit:                                ; preds = %282
   br label %411
 
 411:                                              ; preds = %397, %400
-  %.0333 = phi i32 [ %410, %400 ], [ 0, %397 ]
-  store i32 %.0333, ptr %398, align 4
+  %.0338 = phi i32 [ %410, %400 ], [ 0, %397 ]
+  store i32 %.0338, ptr %398, align 4
   %412 = getelementptr inbounds i8, ptr %.1, i64 24
   %413 = load i32, ptr %412, align 8
   %.not425 = icmp eq i32 %413, 0
@@ -875,8 +875,8 @@ copy_reg_ref.exit:                                ; preds = %282
   br label %425
 
 425:                                              ; preds = %411, %414
-  %.0347 = phi i32 [ %424, %414 ], [ 0, %411 ]
-  store i32 %.0347, ptr %412, align 8
+  %.0366 = phi i32 [ %424, %414 ], [ 0, %411 ]
+  store i32 %.0366, ptr %412, align 8
   %426 = getelementptr inbounds i8, ptr %.1, i64 28
   %427 = load i32, ptr %426, align 4
   %.not426 = icmp eq i32 %427, 0
@@ -896,8 +896,8 @@ copy_reg_ref.exit:                                ; preds = %282
   br label %439
 
 439:                                              ; preds = %425, %428
-  %.0366 = phi i32 [ %438, %428 ], [ 0, %425 ]
-  store i32 %.0366, ptr %426, align 4
+  %.0348 = phi i32 [ %438, %428 ], [ 0, %425 ]
+  store i32 %.0348, ptr %426, align 4
   br label %doc_ast_copy.exit
 
 440:                                              ; preds = %15
@@ -920,8 +920,8 @@ copy_reg_ref.exit:                                ; preds = %282
   br label %454
 
 454:                                              ; preds = %440, %443
-  %.0364 = phi i32 [ %453, %443 ], [ 0, %440 ]
-  store i32 %.0364, ptr %441, align 8
+  %.0347 = phi i32 [ %453, %443 ], [ 0, %440 ]
+  store i32 %.0347, ptr %441, align 8
   %455 = getelementptr inbounds i8, ptr %.1, i64 24
   %456 = load ptr, ptr %455, align 8
   %.not.i454 = icmp eq ptr %456, null
@@ -939,8 +939,8 @@ copy_reg_ref.exit:                                ; preds = %282
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %expand_.exit499
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %expand_.exit499 ]
-  %.021.i456525 = phi ptr [ null, %.lr.ph.preheader ], [ %485, %expand_.exit499 ]
-  %.not.i493 = icmp eq ptr %.021.i456525, null
+  %.020.i456525 = phi ptr [ null, %.lr.ph.preheader ], [ %485, %expand_.exit499 ]
+  %.not.i493 = icmp eq ptr %.020.i456525, null
   br i1 %.not.i493, label %460, label %463
 
 460:                                              ; preds = %.lr.ph
@@ -950,8 +950,8 @@ copy_reg_ref.exit:                                ; preds = %282
   br label %465
 
 463:                                              ; preds = %.lr.ph
-  %464 = getelementptr inbounds i8, ptr %.021.i456525, i64 -8
-  %.phi.trans.insert.i494 = getelementptr inbounds i8, ptr %.021.i456525, i64 -4
+  %464 = getelementptr inbounds i8, ptr %.020.i456525, i64 -8
+  %.phi.trans.insert.i494 = getelementptr inbounds i8, ptr %.020.i456525, i64 -4
   %.pre.i495 = load i32, ptr %.phi.trans.insert.i494, align 4
   br label %465
 
@@ -1001,8 +1001,8 @@ expand_.exit499:                                  ; preds = %465, %469
   br i1 %exitcond.not, label %copy_ast_list.exit, label %.lr.ph, !llvm.loop !9
 
 copy_ast_list.exit:                               ; preds = %expand_.exit499, %454, %457
-  %.021.i456.lcssa = phi ptr [ null, %457 ], [ null, %454 ], [ %485, %expand_.exit499 ]
-  store ptr %.021.i456.lcssa, ptr %455, align 8
+  %.020.i456.lcssa = phi ptr [ null, %457 ], [ null, %454 ], [ %485, %expand_.exit499 ]
+  store ptr %.020.i456.lcssa, ptr %455, align 8
   br label %doc_ast_copy.exit
 
 493:                                              ; preds = %15
@@ -1040,13 +1040,13 @@ copy_ast_list.exit:                               ; preds = %expand_.exit499, %4
   br label %516
 
 516:                                              ; preds = %501, %505
-  %.0348 = phi i32 [ %515, %505 ], [ 0, %501 ]
-  store i32 %.0348, ptr %503, align 4
+  %.0364 = phi i32 [ %515, %505 ], [ 0, %501 ]
+  store i32 %.0364, ptr %503, align 4
   %517 = load ptr, ptr %5, align 8
   %518 = getelementptr inbounds i8, ptr %517, i64 8
   store ptr %.1, ptr %518, align 8
   %519 = load ptr, ptr %5, align 8
-  store ptr %.0338, ptr %519, align 8
+  store ptr %.0334, ptr %519, align 8
   %520 = load ptr, ptr %5, align 8
   %521 = getelementptr inbounds i8, ptr %520, i64 16
   store ptr %521, ptr %5, align 8
@@ -1069,18 +1069,18 @@ copy_reg_ref.exit458:                             ; preds = %516
   br label %529
 
 529:                                              ; preds = %530, %525
-  %.09.i459 = phi ptr [ %521, %525 ], [ %531, %530 ]
-  %.not.i460 = icmp eq ptr %.09.i459, %0
+  %.0.i459 = phi ptr [ %521, %525 ], [ %531, %530 ]
+  %.not.i460 = icmp eq ptr %.0.i459, %0
   br i1 %.not.i460, label %doc_ast_copy.exit, label %530
 
 530:                                              ; preds = %529
-  %531 = getelementptr inbounds i8, ptr %.09.i459, i64 -16
+  %531 = getelementptr inbounds i8, ptr %.0.i459, i64 -16
   %532 = load ptr, ptr %531, align 8
   %533 = icmp eq ptr %532, %528
   br i1 %533, label %fixup.exit462, label %529, !llvm.loop !11
 
 fixup.exit462:                                    ; preds = %530
-  %534 = getelementptr inbounds i8, ptr %.09.i459, i64 -8
+  %534 = getelementptr inbounds i8, ptr %.0.i459, i64 -8
   %535 = load ptr, ptr %534, align 8
   %.not421 = icmp eq ptr %535, null
   br i1 %.not421, label %doc_ast_copy.exit, label %536
@@ -1106,7 +1106,7 @@ fixup.exit462:                                    ; preds = %530
   %548 = getelementptr inbounds i8, ptr %547, i64 8
   store ptr %.1, ptr %548, align 8
   %549 = load ptr, ptr %5, align 8
-  store ptr %.0338, ptr %549, align 8
+  store ptr %.0334, ptr %549, align 8
   %550 = load ptr, ptr %5, align 8
   %551 = getelementptr inbounds i8, ptr %550, i64 16
   store ptr %551, ptr %5, align 8
@@ -1167,8 +1167,8 @@ decl_copy_label_from_macro.exit:                  ; preds = %copy_reg_ref.exit46
   br label %588
 
 588:                                              ; preds = %decl_copy_label_from_macro.exit, %577
-  %.0361 = phi i32 [ %587, %577 ], [ 0, %decl_copy_label_from_macro.exit ]
-  store i32 %.0361, ptr %575, align 8
+  %.0346 = phi i32 [ %587, %577 ], [ 0, %decl_copy_label_from_macro.exit ]
+  store i32 %.0346, ptr %575, align 8
   %589 = load i32, ptr %574, align 8
   %.not416 = icmp eq i32 %589, 0
   br i1 %.not416, label %601, label %590
@@ -1187,8 +1187,8 @@ decl_copy_label_from_macro.exit:                  ; preds = %copy_reg_ref.exit46
   br label %601
 
 601:                                              ; preds = %588, %590
-  %.0358 = phi i32 [ %600, %590 ], [ 0, %588 ]
-  store i32 %.0358, ptr %574, align 8
+  %.0345 = phi i32 [ %600, %590 ], [ 0, %588 ]
+  store i32 %.0345, ptr %574, align 8
   %602 = getelementptr inbounds i8, ptr %.1, i64 36
   %603 = load i32, ptr %602, align 4
   %.not417 = icmp eq i32 %603, 0
@@ -1208,8 +1208,8 @@ decl_copy_label_from_macro.exit:                  ; preds = %copy_reg_ref.exit46
   br label %615
 
 615:                                              ; preds = %601, %604
-  %.0350 = phi i32 [ %614, %604 ], [ 0, %601 ]
-  store i32 %.0350, ptr %602, align 4
+  %.0363 = phi i32 [ %614, %604 ], [ 0, %601 ]
+  store i32 %.0363, ptr %602, align 4
   %616 = getelementptr inbounds i8, ptr %.1, i64 28
   %617 = load i32, ptr %616, align 4
   %.not418 = icmp eq i32 %617, 0
@@ -1229,8 +1229,8 @@ decl_copy_label_from_macro.exit:                  ; preds = %copy_reg_ref.exit46
   br label %629
 
 629:                                              ; preds = %615, %618
-  %.0355 = phi i32 [ %628, %618 ], [ 0, %615 ]
-  store i32 %.0355, ptr %616, align 4
+  %.0343 = phi i32 [ %628, %618 ], [ 0, %615 ]
+  store i32 %.0343, ptr %616, align 4
   store ptr %551, ptr %5, align 8
   br label %doc_ast_copy.exit
 
@@ -1239,7 +1239,7 @@ decl_copy_label_from_macro.exit:                  ; preds = %copy_reg_ref.exit46
   %632 = getelementptr inbounds i8, ptr %631, i64 8
   store ptr %.1, ptr %632, align 8
   %633 = load ptr, ptr %5, align 8
-  store ptr %.0338, ptr %633, align 8
+  store ptr %.0334, ptr %633, align 8
   %634 = load ptr, ptr %5, align 8
   %635 = getelementptr inbounds i8, ptr %634, i64 16
   store ptr %635, ptr %5, align 8
@@ -1299,8 +1299,8 @@ decl_copy_label_from_macro.exit504:               ; preds = %copy_reg_ref.exit46
   br label %671
 
 671:                                              ; preds = %decl_copy_label_from_macro.exit504, %660
-  %.0352 = phi i32 [ %670, %660 ], [ 0, %decl_copy_label_from_macro.exit504 ]
-  store i32 %.0352, ptr %658, align 4
+  %.0342 = phi i32 [ %670, %660 ], [ 0, %decl_copy_label_from_macro.exit504 ]
+  store i32 %.0342, ptr %658, align 4
   %672 = getelementptr inbounds i8, ptr %.1, i64 36
   %673 = load i32, ptr %672, align 4
   %.not412 = icmp eq i32 %673, 0
@@ -1320,8 +1320,8 @@ decl_copy_label_from_macro.exit504:               ; preds = %copy_reg_ref.exit46
   br label %685
 
 685:                                              ; preds = %671, %674
-  %.0334 = phi i32 [ %684, %674 ], [ 0, %671 ]
-  store i32 %.0334, ptr %672, align 4
+  %.0341 = phi i32 [ %684, %674 ], [ 0, %671 ]
+  store i32 %.0341, ptr %672, align 4
   %686 = getelementptr inbounds i8, ptr %.1, i64 40
   %687 = load i32, ptr %686, align 8
   %.not413 = icmp eq i32 %687, 0
@@ -1341,8 +1341,8 @@ decl_copy_label_from_macro.exit504:               ; preds = %copy_reg_ref.exit46
   br label %699
 
 699:                                              ; preds = %685, %688
-  %.0335 = phi i32 [ %698, %688 ], [ 0, %685 ]
-  store i32 %.0335, ptr %686, align 8
+  %.0344 = phi i32 [ %698, %688 ], [ 0, %685 ]
+  store i32 %.0344, ptr %686, align 8
   %700 = getelementptr inbounds i8, ptr %.1, i64 32
   %701 = load i32, ptr %700, align 8
   %.not414 = icmp eq i32 %701, 0
@@ -1362,8 +1362,8 @@ decl_copy_label_from_macro.exit504:               ; preds = %copy_reg_ref.exit46
   br label %713
 
 713:                                              ; preds = %699, %702
-  %.0351 = phi i32 [ %712, %702 ], [ 0, %699 ]
-  store i32 %.0351, ptr %700, align 8
+  %.0361 = phi i32 [ %712, %702 ], [ 0, %699 ]
+  store i32 %.0361, ptr %700, align 8
   store ptr %635, ptr %5, align 8
   br label %doc_ast_copy.exit
 
@@ -1372,7 +1372,7 @@ decl_copy_label_from_macro.exit504:               ; preds = %copy_reg_ref.exit46
   %716 = getelementptr inbounds i8, ptr %715, i64 8
   store ptr %.1, ptr %716, align 8
   %717 = load ptr, ptr %5, align 8
-  store ptr %.0338, ptr %717, align 8
+  store ptr %.0334, ptr %717, align 8
   %718 = load ptr, ptr %5, align 8
   %719 = getelementptr inbounds i8, ptr %718, i64 16
   store ptr %719, ptr %5, align 8
@@ -1432,8 +1432,8 @@ decl_copy_label_from_macro.exit507:               ; preds = %copy_reg_ref.exit46
   br label %755
 
 755:                                              ; preds = %decl_copy_label_from_macro.exit507, %744
-  %.0349 = phi i32 [ %754, %744 ], [ 0, %decl_copy_label_from_macro.exit507 ]
-  store i32 %.0349, ptr %742, align 8
+  %.0340 = phi i32 [ %754, %744 ], [ 0, %decl_copy_label_from_macro.exit507 ]
+  store i32 %.0340, ptr %742, align 8
   %756 = getelementptr inbounds i8, ptr %.1, i64 32
   %757 = load i32, ptr %756, align 8
   %.not409 = icmp eq i32 %757, 0
@@ -1453,8 +1453,8 @@ decl_copy_label_from_macro.exit507:               ; preds = %copy_reg_ref.exit46
   br label %769
 
 769:                                              ; preds = %755, %758
-  %.0353 = phi i32 [ %768, %758 ], [ 0, %755 ]
-  store i32 %.0353, ptr %756, align 8
+  %.0360 = phi i32 [ %768, %758 ], [ 0, %755 ]
+  store i32 %.0360, ptr %756, align 8
   %770 = getelementptr inbounds i8, ptr %.1, i64 28
   %771 = load i32, ptr %770, align 4
   %.not410 = icmp eq i32 %771, 0
@@ -1474,8 +1474,8 @@ decl_copy_label_from_macro.exit507:               ; preds = %copy_reg_ref.exit46
   br label %783
 
 783:                                              ; preds = %769, %772
-  %.0354 = phi i32 [ %782, %772 ], [ 0, %769 ]
-  store i32 %.0354, ptr %770, align 4
+  %.0358 = phi i32 [ %782, %772 ], [ 0, %769 ]
+  store i32 %.0358, ptr %770, align 4
   br label %doc_ast_copy.exit
 
 784:                                              ; preds = %15
@@ -1498,8 +1498,8 @@ decl_copy_label_from_macro.exit507:               ; preds = %copy_reg_ref.exit46
   br label %798
 
 798:                                              ; preds = %784, %787
-  %.0346 = phi i32 [ %797, %787 ], [ 0, %784 ]
-  store i32 %.0346, ptr %785, align 8
+  %.0339 = phi i32 [ %797, %787 ], [ 0, %784 ]
+  store i32 %.0339, ptr %785, align 8
   br label %doc_ast_copy.exit
 
 799:                                              ; preds = %15, %15
@@ -1526,8 +1526,8 @@ decl_copy_label_from_macro.exit507:               ; preds = %copy_reg_ref.exit46
   br label %816
 
 816:                                              ; preds = %799, %805
-  %.0356 = phi i32 [ %815, %805 ], [ 0, %799 ]
-  store i32 %.0356, ptr %803, align 8
+  %.0357 = phi i32 [ %815, %805 ], [ 0, %799 ]
+  store i32 %.0357, ptr %803, align 8
   %817 = getelementptr inbounds i8, ptr %.1, i64 28
   %818 = load i32, ptr %817, align 4
   %.not406 = icmp eq i32 %818, 0
@@ -1547,8 +1547,8 @@ decl_copy_label_from_macro.exit507:               ; preds = %copy_reg_ref.exit46
   br label %830
 
 830:                                              ; preds = %816, %819
-  %.0357 = phi i32 [ %829, %819 ], [ 0, %816 ]
-  store i32 %.0357, ptr %817, align 4
+  %.0355 = phi i32 [ %829, %819 ], [ 0, %816 ]
+  store i32 %.0355, ptr %817, align 4
   br label %doc_ast_copy.exit
 
 831:                                              ; preds = %15, %15
@@ -1556,7 +1556,7 @@ decl_copy_label_from_macro.exit507:               ; preds = %copy_reg_ref.exit46
   %833 = getelementptr inbounds i8, ptr %832, i64 8
   store ptr %.1, ptr %833, align 8
   %834 = load ptr, ptr %5, align 8
-  store ptr %.0338, ptr %834, align 8
+  store ptr %.0334, ptr %834, align 8
   %835 = load ptr, ptr %5, align 8
   %836 = getelementptr inbounds i8, ptr %835, i64 16
   store ptr %836, ptr %5, align 8
@@ -1616,8 +1616,8 @@ decl_copy_label_from_macro.exit510:               ; preds = %copy_reg_ref.exit46
   br label %872
 
 872:                                              ; preds = %decl_copy_label_from_macro.exit510, %861
-  %.0343 = phi i32 [ %871, %861 ], [ 0, %decl_copy_label_from_macro.exit510 ]
-  store i32 %.0343, ptr %859, align 8
+  %.0337 = phi i32 [ %871, %861 ], [ 0, %decl_copy_label_from_macro.exit510 ]
+  store i32 %.0337, ptr %859, align 8
   %873 = getelementptr inbounds i8, ptr %.1, i64 32
   %874 = load ptr, ptr %873, align 8
   %.not.i467 = icmp eq ptr %874, null
@@ -1635,8 +1635,8 @@ decl_copy_label_from_macro.exit510:               ; preds = %copy_reg_ref.exit46
 
 .lr.ph545:                                        ; preds = %.lr.ph545.preheader, %expand_.exit517
   %indvars.iv582 = phi i64 [ 0, %.lr.ph545.preheader ], [ %indvars.iv.next583, %expand_.exit517 ]
-  %.021.i469543 = phi ptr [ null, %.lr.ph545.preheader ], [ %903, %expand_.exit517 ]
-  %.not.i511 = icmp eq ptr %.021.i469543, null
+  %.020.i469543 = phi ptr [ null, %.lr.ph545.preheader ], [ %903, %expand_.exit517 ]
+  %.not.i511 = icmp eq ptr %.020.i469543, null
   br i1 %.not.i511, label %878, label %881
 
 878:                                              ; preds = %.lr.ph545
@@ -1646,8 +1646,8 @@ decl_copy_label_from_macro.exit510:               ; preds = %copy_reg_ref.exit46
   br label %883
 
 881:                                              ; preds = %.lr.ph545
-  %882 = getelementptr inbounds i8, ptr %.021.i469543, i64 -8
-  %.phi.trans.insert.i512 = getelementptr inbounds i8, ptr %.021.i469543, i64 -4
+  %882 = getelementptr inbounds i8, ptr %.020.i469543, i64 -8
+  %.phi.trans.insert.i512 = getelementptr inbounds i8, ptr %.020.i469543, i64 -4
   %.pre.i513 = load i32, ptr %.phi.trans.insert.i512, align 4
   br label %883
 
@@ -1697,8 +1697,8 @@ expand_.exit517:                                  ; preds = %883, %887
   br i1 %exitcond586.not, label %copy_ast_list.exit471, label %.lr.ph545, !llvm.loop !9
 
 copy_ast_list.exit471:                            ; preds = %expand_.exit517, %872, %875
-  %.021.i469.lcssa = phi ptr [ null, %875 ], [ null, %872 ], [ %903, %expand_.exit517 ]
-  store ptr %.021.i469.lcssa, ptr %873, align 8
+  %.020.i469.lcssa = phi ptr [ null, %875 ], [ null, %872 ], [ %903, %expand_.exit517 ]
+  store ptr %.020.i469.lcssa, ptr %873, align 8
   store ptr %836, ptr %5, align 8
   br label %doc_ast_copy.exit
 
@@ -1715,8 +1715,8 @@ doc_ast_copy.exit:                                ; preds = %529, %269, %copy_as
   br label %6
 
 .loopexit:                                        ; preds = %doc_ast_copy.exit, %2
-  %.0340 = phi ptr [ null, %2 ], [ %4, %doc_ast_copy.exit ]
-  ret ptr %.0340
+  %.0336 = phi ptr [ null, %2 ], [ %4, %doc_ast_copy.exit ]
+  ret ptr %.0336
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
@@ -1790,8 +1790,8 @@ define internal fastcc noundef ptr @copy_type_info(ptr noundef %0, ptr noundef r
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %expand_.exit.i
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %expand_.exit.i ]
-  %.021.i35 = phi ptr [ null, %.lr.ph.preheader ], [ %45, %expand_.exit.i ]
-  %.not.i.i = icmp eq ptr %.021.i35, null
+  %.020.i35 = phi ptr [ null, %.lr.ph.preheader ], [ %45, %expand_.exit.i ]
+  %.not.i.i = icmp eq ptr %.020.i35, null
   br i1 %.not.i.i, label %20, label %23
 
 20:                                               ; preds = %.lr.ph
@@ -1801,8 +1801,8 @@ define internal fastcc noundef ptr @copy_type_info(ptr noundef %0, ptr noundef r
   br label %25
 
 23:                                               ; preds = %.lr.ph
-  %24 = getelementptr inbounds i8, ptr %.021.i35, i64 -8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.021.i35, i64 -4
+  %24 = getelementptr inbounds i8, ptr %.020.i35, i64 -8
+  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.020.i35, i64 -4
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   br label %25
 
@@ -1852,8 +1852,8 @@ expand_.exit.i:                                   ; preds = %29, %25
   br i1 %exitcond.not, label %copy_expr_list.exit, label %.lr.ph, !llvm.loop !10
 
 copy_expr_list.exit:                              ; preds = %expand_.exit.i, %11, %17
-  %.021.i.lcssa = phi ptr [ null, %17 ], [ null, %11 ], [ %45, %expand_.exit.i ]
-  store ptr %.021.i.lcssa, ptr %15, align 8
+  %.020.i.lcssa = phi ptr [ null, %17 ], [ null, %11 ], [ %45, %expand_.exit.i ]
+  store ptr %.020.i.lcssa, ptr %15, align 8
   br label %common.ret41
 
 53:                                               ; preds = %8, %8, %8, %8
@@ -2055,8 +2055,8 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   br label %33
 
 33:                                               ; preds = %19, %22
-  %.0413 = phi i32 [ %32, %22 ], [ 0, %19 ]
-  store i32 %.0413, ptr %20, align 8
+  %.0431 = phi i32 [ %32, %22 ], [ 0, %19 ]
+  store i32 %.0431, ptr %20, align 8
   %34 = getelementptr inbounds i8, ptr %4, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %35)
@@ -2091,8 +2091,8 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   br label %57
 
 57:                                               ; preds = %37, %46
-  %.0409 = phi i32 [ %56, %46 ], [ 0, %37 ]
-  store i32 %.0409, ptr %44, align 8
+  %.0424 = phi i32 [ %56, %46 ], [ 0, %37 ]
+  store i32 %.0424, ptr %44, align 8
   br label %common.ret575
 
 58:                                               ; preds = %3
@@ -2138,8 +2138,8 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   br label %86
 
 86:                                               ; preds = %72, %75
-  %.0415 = phi i32 [ %85, %75 ], [ 0, %72 ]
-  store i32 %.0415, ptr %73, align 8
+  %.0429 = phi i32 [ %85, %75 ], [ 0, %72 ]
+  store i32 %.0429, ptr %73, align 8
   br label %common.ret575
 
 87:                                               ; preds = %3
@@ -2167,8 +2167,8 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   br label %103
 
 103:                                              ; preds = %89, %92
-  %.0416 = phi i32 [ %102, %92 ], [ 0, %89 ]
-  store i32 %.0416, ptr %90, align 4
+  %.0428 = phi i32 [ %102, %92 ], [ 0, %89 ]
+  store i32 %.0428, ptr %90, align 4
   br label %common.ret575
 
 104:                                              ; preds = %3
@@ -2191,8 +2191,8 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   br label %118
 
 118:                                              ; preds = %104, %107
-  %.0418 = phi i32 [ %117, %107 ], [ 0, %104 ]
-  store i32 %.0418, ptr %105, align 8
+  %.0426 = phi i32 [ %117, %107 ], [ 0, %104 ]
+  store i32 %.0426, ptr %105, align 8
   %119 = getelementptr inbounds i8, ptr %4, i64 28
   %120 = load i32, ptr %119, align 4
   %.not497 = icmp eq i32 %120, 0
@@ -2212,8 +2212,8 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   br label %132
 
 132:                                              ; preds = %118, %121
-  %.0419 = phi i32 [ %131, %121 ], [ 0, %118 ]
-  store i32 %.0419, ptr %119, align 4
+  %.0425 = phi i32 [ %131, %121 ], [ 0, %118 ]
+  store i32 %.0425, ptr %119, align 4
   br label %common.ret575
 
 133:                                              ; preds = %3
@@ -2236,8 +2236,8 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   br label %147
 
 147:                                              ; preds = %133, %136
-  %.0421 = phi i32 [ %146, %136 ], [ 0, %133 ]
-  store i32 %.0421, ptr %134, align 4
+  %.0423 = phi i32 [ %146, %136 ], [ 0, %133 ]
+  store i32 %.0423, ptr %134, align 4
   br label %common.ret575
 
 148:                                              ; preds = %3
@@ -2327,18 +2327,18 @@ common.ret575:                                    ; preds = %621, %fixup.exit519
   br label %201
 
 201:                                              ; preds = %202, %196
-  %.09.i = phi ptr [ %200, %196 ], [ %203, %202 ]
-  %.not.i = icmp eq ptr %.09.i, %0
+  %.0.i = phi ptr [ %200, %196 ], [ %203, %202 ]
+  %.not.i = icmp eq ptr %.0.i, %0
   br i1 %.not.i, label %common.ret575, label %202
 
 202:                                              ; preds = %201
-  %203 = getelementptr inbounds i8, ptr %.09.i, i64 -16
+  %203 = getelementptr inbounds i8, ptr %.0.i, i64 -16
   %204 = load ptr, ptr %203, align 8
   %205 = icmp eq ptr %204, %198
   br i1 %205, label %fixup.exit, label %201, !llvm.loop !11
 
 fixup.exit:                                       ; preds = %202
-  %206 = getelementptr inbounds i8, ptr %.09.i, i64 -8
+  %206 = getelementptr inbounds i8, ptr %.0.i, i64 -8
   %207 = load ptr, ptr %206, align 8
   %.not493 = icmp eq ptr %207, null
   br i1 %.not493, label %common.ret575, label %208
@@ -2406,8 +2406,8 @@ fixup.exit:                                       ; preds = %202
   br label %248
 
 248:                                              ; preds = %234, %237
-  %.0424 = phi i32 [ %247, %237 ], [ 0, %234 ]
-  store i32 %.0424, ptr %235, align 4
+  %.0421 = phi i32 [ %247, %237 ], [ 0, %234 ]
+  store i32 %.0421, ptr %235, align 4
   br label %common.ret575
 
 249:                                              ; preds = %3
@@ -2434,8 +2434,8 @@ fixup.exit:                                       ; preds = %202
   br label %264
 
 264:                                              ; preds = %250, %253
-  %.0425 = phi i32 [ %263, %253 ], [ 0, %250 ]
-  store i32 %.0425, ptr %251, align 8
+  %.0420 = phi i32 [ %263, %253 ], [ 0, %250 ]
+  store i32 %.0420, ptr %251, align 8
   %265 = getelementptr inbounds i8, ptr %4, i64 32
   %266 = load i32, ptr %265, align 4
   %.not.i502 = icmp eq i32 %266, 0
@@ -2514,8 +2514,8 @@ copy_range.exit:                                  ; preds = %278, %281
   br label %310
 
 310:                                              ; preds = %296, %299
-  %.0427 = phi i32 [ %309, %299 ], [ 0, %296 ]
-  store i32 %.0427, ptr %297, align 8
+  %.0419 = phi i32 [ %309, %299 ], [ 0, %296 ]
+  store i32 %.0419, ptr %297, align 8
   br label %common.ret575
 
 311:                                              ; preds = %292
@@ -2542,8 +2542,8 @@ copy_range.exit:                                  ; preds = %278, %281
   br label %326
 
 326:                                              ; preds = %312, %315
-  %.0428 = phi i32 [ %325, %315 ], [ 0, %312 ]
-  store i32 %.0428, ptr %313, align 4
+  %.0418 = phi i32 [ %325, %315 ], [ 0, %312 ]
+  store i32 %.0418, ptr %313, align 4
   %327 = getelementptr inbounds i8, ptr %4, i64 32
   %328 = load i32, ptr %327, align 8
   %.not487 = icmp eq i32 %328, 0
@@ -2563,8 +2563,8 @@ copy_range.exit:                                  ; preds = %278, %281
   br label %340
 
 340:                                              ; preds = %326, %329
-  %.0 = phi i32 [ %339, %329 ], [ 0, %326 ]
-  store i32 %.0, ptr %327, align 8
+  %.0414 = phi i32 [ %339, %329 ], [ 0, %326 ]
+  store i32 %.0414, ptr %327, align 8
   br label %common.ret575
 
 341:                                              ; preds = %3
@@ -2608,8 +2608,8 @@ copy_range.exit:                                  ; preds = %278, %281
   br label %367
 
 367:                                              ; preds = %353, %356
-  %.0430 = phi i32 [ %366, %356 ], [ 0, %353 ]
-  store i32 %.0430, ptr %354, align 8
+  %.0416 = phi i32 [ %366, %356 ], [ 0, %353 ]
+  store i32 %.0416, ptr %354, align 8
   br label %common.ret575
 
 368:                                              ; preds = %3
@@ -2643,8 +2643,8 @@ copy_range.exit:                                  ; preds = %278, %281
   br label %389
 
 389:                                              ; preds = %372, %378
-  %.0410 = phi i32 [ %388, %378 ], [ 0, %372 ]
-  store i32 %.0410, ptr %373, align 8
+  %.0427 = phi i32 [ %388, %378 ], [ 0, %372 ]
+  store i32 %.0427, ptr %373, align 8
   %390 = getelementptr inbounds i8, ptr %4, i64 40
   %391 = load ptr, ptr %390, align 8
   %392 = tail call fastcc ptr @copy_decl(ptr noundef %0, ptr noundef %391)
@@ -2682,8 +2682,8 @@ copy_range.exit:                                  ; preds = %278, %281
   br label %414
 
 414:                                              ; preds = %400, %403
-  %.0412 = phi i32 [ %413, %403 ], [ 0, %400 ]
-  store i32 %.0412, ptr %401, align 8
+  %.0430 = phi i32 [ %413, %403 ], [ 0, %400 ]
+  store i32 %.0430, ptr %401, align 8
   br label %common.ret575
 
 415:                                              ; preds = %3
@@ -2716,18 +2716,18 @@ copy_range.exit:                                  ; preds = %278, %281
   br label %428
 
 428:                                              ; preds = %429, %423
-  %.09.i504 = phi ptr [ %427, %423 ], [ %430, %429 ]
-  %.not.i505 = icmp eq ptr %.09.i504, %0
+  %.0.i504 = phi ptr [ %427, %423 ], [ %430, %429 ]
+  %.not.i505 = icmp eq ptr %.0.i504, %0
   br i1 %.not.i505, label %common.ret575, label %429
 
 429:                                              ; preds = %428
-  %430 = getelementptr inbounds i8, ptr %.09.i504, i64 -16
+  %430 = getelementptr inbounds i8, ptr %.0.i504, i64 -16
   %431 = load ptr, ptr %430, align 8
   %432 = icmp eq ptr %431, %425
   br i1 %432, label %fixup.exit507, label %428, !llvm.loop !11
 
 fixup.exit507:                                    ; preds = %429
-  %433 = getelementptr inbounds i8, ptr %.09.i504, i64 -8
+  %433 = getelementptr inbounds i8, ptr %.0.i504, i64 -8
   %434 = load ptr, ptr %433, align 8
   %.not481 = icmp eq ptr %434, null
   br i1 %.not481, label %common.ret575, label %435
@@ -2756,18 +2756,18 @@ fixup.exit507:                                    ; preds = %429
   br label %447
 
 447:                                              ; preds = %448, %442
-  %.09.i508 = phi ptr [ %446, %442 ], [ %449, %448 ]
-  %.not.i509 = icmp eq ptr %.09.i508, %0
+  %.0.i508 = phi ptr [ %446, %442 ], [ %449, %448 ]
+  %.not.i509 = icmp eq ptr %.0.i508, %0
   br i1 %.not.i509, label %common.ret575, label %448
 
 448:                                              ; preds = %447
-  %449 = getelementptr inbounds i8, ptr %.09.i508, i64 -16
+  %449 = getelementptr inbounds i8, ptr %.0.i508, i64 -16
   %450 = load ptr, ptr %449, align 8
   %451 = icmp eq ptr %450, %444
   br i1 %451, label %fixup.exit511, label %447, !llvm.loop !11
 
 fixup.exit511:                                    ; preds = %448
-  %452 = getelementptr inbounds i8, ptr %.09.i508, i64 -8
+  %452 = getelementptr inbounds i8, ptr %.0.i508, i64 -8
   %453 = load ptr, ptr %452, align 8
   %.not482 = icmp eq ptr %453, null
   br i1 %.not482, label %common.ret575, label %454
@@ -2796,8 +2796,8 @@ fixup.exit511:                                    ; preds = %448
   br label %469
 
 469:                                              ; preds = %455, %458
-  %.0431 = phi i32 [ %468, %458 ], [ 0, %455 ]
-  store i32 %.0431, ptr %456, align 8
+  %.0415 = phi i32 [ %468, %458 ], [ 0, %455 ]
+  store i32 %.0415, ptr %456, align 8
   %470 = getelementptr inbounds i8, ptr %4, i64 28
   %471 = load i32, ptr %470, align 4
   %.not479 = icmp eq i32 %471, 0
@@ -2817,8 +2817,8 @@ fixup.exit511:                                    ; preds = %448
   br label %483
 
 483:                                              ; preds = %469, %472
-  %.0429 = phi i32 [ %482, %472 ], [ 0, %469 ]
-  store i32 %.0429, ptr %470, align 4
+  %.0413 = phi i32 [ %482, %472 ], [ 0, %469 ]
+  store i32 %.0413, ptr %470, align 4
   br label %common.ret575
 
 484:                                              ; preds = %3
@@ -2841,8 +2841,8 @@ fixup.exit511:                                    ; preds = %448
   br label %498
 
 498:                                              ; preds = %484, %487
-  %.0426 = phi i32 [ %497, %487 ], [ 0, %484 ]
-  store i32 %.0426, ptr %485, align 8
+  %.0412 = phi i32 [ %497, %487 ], [ 0, %484 ]
+  store i32 %.0412, ptr %485, align 8
   %499 = getelementptr inbounds i8, ptr %4, i64 28
   %500 = load i32, ptr %499, align 4
   %.not476 = icmp eq i32 %500, 0
@@ -2862,8 +2862,8 @@ fixup.exit511:                                    ; preds = %448
   br label %512
 
 512:                                              ; preds = %498, %501
-  %.0423 = phi i32 [ %511, %501 ], [ 0, %498 ]
-  store i32 %.0423, ptr %499, align 4
+  %.0411 = phi i32 [ %511, %501 ], [ 0, %498 ]
+  store i32 %.0411, ptr %499, align 4
   %513 = getelementptr inbounds i8, ptr %4, i64 32
   %514 = load i32, ptr %513, align 8
   %.not477 = icmp eq i32 %514, 0
@@ -2883,8 +2883,8 @@ fixup.exit511:                                    ; preds = %448
   br label %526
 
 526:                                              ; preds = %512, %515
-  %.0420 = phi i32 [ %525, %515 ], [ 0, %512 ]
-  store i32 %.0420, ptr %513, align 8
+  %.0410 = phi i32 [ %525, %515 ], [ 0, %512 ]
+  store i32 %.0410, ptr %513, align 8
   br label %common.ret575
 
 527:                                              ; preds = %3, %3
@@ -2923,18 +2923,18 @@ fixup.exit511:                                    ; preds = %448
   br label %548
 
 548:                                              ; preds = %549, %542
-  %.09.i512 = phi ptr [ %547, %542 ], [ %550, %549 ]
-  %.not.i513 = icmp eq ptr %.09.i512, %0
+  %.0.i512 = phi ptr [ %547, %542 ], [ %550, %549 ]
+  %.not.i513 = icmp eq ptr %.0.i512, %0
   br i1 %.not.i513, label %fixup.exit515.thread, label %549
 
 549:                                              ; preds = %548
-  %550 = getelementptr inbounds i8, ptr %.09.i512, i64 -16
+  %550 = getelementptr inbounds i8, ptr %.0.i512, i64 -16
   %551 = load ptr, ptr %550, align 8
   %552 = icmp eq ptr %551, %545
   br i1 %552, label %fixup.exit515, label %548, !llvm.loop !11
 
 fixup.exit515:                                    ; preds = %549
-  %553 = getelementptr inbounds i8, ptr %.09.i512, i64 -8
+  %553 = getelementptr inbounds i8, ptr %.0.i512, i64 -8
   %554 = load ptr, ptr %553, align 8
   %.not471 = icmp eq ptr %554, null
   br i1 %.not471, label %fixup.exit515.thread, label %555
@@ -2967,8 +2967,8 @@ fixup.exit515:                                    ; preds = %549
   br label %574
 
 574:                                              ; preds = %561, %563
-  %.0417 = phi i32 [ %573, %563 ], [ 0, %561 ]
-  store i32 %.0417, ptr %536, align 8
+  %.0409 = phi i32 [ %573, %563 ], [ 0, %561 ]
+  store i32 %.0409, ptr %536, align 8
   br label %fixup.exit515.thread
 
 fixup.exit515.thread:                             ; preds = %548, %fixup.exit515, %555, %540, %574
@@ -2991,8 +2991,8 @@ fixup.exit515.thread:                             ; preds = %548, %fixup.exit515
   br label %588
 
 588:                                              ; preds = %fixup.exit515.thread, %577
-  %.0414 = phi i32 [ %587, %577 ], [ 0, %fixup.exit515.thread ]
-  store i32 %.0414, ptr %575, align 4
+  %.0408 = phi i32 [ %587, %577 ], [ 0, %fixup.exit515.thread ]
+  store i32 %.0408, ptr %575, align 4
   %589 = getelementptr inbounds i8, ptr %4, i64 40
   %590 = load ptr, ptr %589, align 8
   %591 = tail call fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef %590)
@@ -3037,18 +3037,18 @@ fixup.exit515.thread:                             ; preds = %548, %fixup.exit515
   br label %614
 
 614:                                              ; preds = %615, %611
-  %.09.i516 = phi ptr [ %613, %611 ], [ %616, %615 ]
-  %.not.i517 = icmp eq ptr %.09.i516, %0
+  %.0.i516 = phi ptr [ %613, %611 ], [ %616, %615 ]
+  %.not.i517 = icmp eq ptr %.0.i516, %0
   br i1 %.not.i517, label %common.ret575, label %615
 
 615:                                              ; preds = %614
-  %616 = getelementptr inbounds i8, ptr %.09.i516, i64 -16
+  %616 = getelementptr inbounds i8, ptr %.0.i516, i64 -16
   %617 = load ptr, ptr %616, align 8
   %618 = icmp eq ptr %617, %610
   br i1 %618, label %fixup.exit519, label %614, !llvm.loop !11
 
 fixup.exit519:                                    ; preds = %615
-  %619 = getelementptr inbounds i8, ptr %.09.i516, i64 -8
+  %619 = getelementptr inbounds i8, ptr %.0.i516, i64 -8
   %620 = load ptr, ptr %619, align 8
   %.not467 = icmp eq ptr %620, null
   br i1 %.not467, label %common.ret575, label %621
@@ -3103,8 +3103,8 @@ fixup.exit519:                                    ; preds = %615
   br label %650
 
 650:                                              ; preds = %636, %639
-  %.0411 = phi i32 [ %649, %639 ], [ 0, %636 ]
-  store i32 %.0411, ptr %637, align 4
+  %.0407 = phi i32 [ %649, %639 ], [ 0, %636 ]
+  store i32 %.0407, ptr %637, align 4
   %651 = getelementptr inbounds i8, ptr %4, i64 32
   %652 = load i32, ptr %651, align 8
   %.not466 = icmp eq i32 %652, 0
@@ -3124,8 +3124,8 @@ fixup.exit519:                                    ; preds = %615
   br label %664
 
 664:                                              ; preds = %650, %653
-  %.0407 = phi i32 [ %663, %653 ], [ 0, %650 ]
-  store i32 %.0407, ptr %651, align 8
+  %.0417 = phi i32 [ %663, %653 ], [ 0, %650 ]
+  store i32 %.0417, ptr %651, align 8
   br label %common.ret575
 
 665:                                              ; preds = %3
@@ -3215,8 +3215,8 @@ define dso_local void @doc_ast_copy(ptr noundef %0, ptr nocapture noundef %1) lo
 
 .lr.ph.i:                                         ; preds = %38, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %38 ]
-  %.02125.i = phi ptr [ null, %.lr.ph.preheader.i ], [ %41, %38 ]
-  %.not.i.i = icmp eq ptr %.02125.i, null
+  %.02025.i = phi ptr [ null, %.lr.ph.preheader.i ], [ %41, %38 ]
+  %.not.i.i = icmp eq ptr %.02025.i, null
   br i1 %.not.i.i, label %15, label %18
 
 15:                                               ; preds = %.lr.ph.i
@@ -3226,8 +3226,8 @@ define dso_local void @doc_ast_copy(ptr noundef %0, ptr nocapture noundef %1) lo
   br label %20
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = getelementptr inbounds i8, ptr %.02125.i, i64 -8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.02125.i, i64 -4
+  %19 = getelementptr inbounds i8, ptr %.02025.i, i64 -8
+  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.02025.i, i64 -4
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   br label %20
 
@@ -3277,8 +3277,8 @@ define dso_local void @doc_ast_copy(ptr noundef %0, ptr nocapture noundef %1) lo
   br i1 %exitcond.not.i, label %copy_ast_list.exit, label %.lr.ph.i, !llvm.loop !9
 
 copy_ast_list.exit:                               ; preds = %38, %9, %12
-  %.021.lcssa.i = phi ptr [ null, %12 ], [ null, %9 ], [ %41, %38 ]
-  store ptr %.021.lcssa.i, ptr %10, align 8
+  %.020.lcssa.i = phi ptr [ null, %12 ], [ null, %9 ], [ %41, %38 ]
+  store ptr %.020.lcssa.i, ptr %10, align 8
   br label %49
 
 49:                                               ; preds = %copy_ast_list.exit, %5, %2
@@ -3302,8 +3302,8 @@ define dso_local ptr @copy_decl_list_macro(ptr noundef readonly %0) local_unname
 
 .lr.ph.i:                                         ; preds = %28, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %28 ]
-  %.02125.i = phi ptr [ null, %.lr.ph.preheader.i ], [ %31, %28 ]
-  %.not.i.i = icmp eq ptr %.02125.i, null
+  %.02025.i = phi ptr [ null, %.lr.ph.preheader.i ], [ %31, %28 ]
+  %.not.i.i = icmp eq ptr %.02025.i, null
   br i1 %.not.i.i, label %5, label %8
 
 5:                                                ; preds = %.lr.ph.i
@@ -3313,8 +3313,8 @@ define dso_local ptr @copy_decl_list_macro(ptr noundef readonly %0) local_unname
   br label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = getelementptr inbounds i8, ptr %.02125.i, i64 -8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.02125.i, i64 -4
+  %9 = getelementptr inbounds i8, ptr %.02025.i, i64 -8
+  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.02025.i, i64 -4
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   br label %10
 
@@ -3364,8 +3364,8 @@ define dso_local ptr @copy_decl_list_macro(ptr noundef readonly %0) local_unname
   br i1 %exitcond.not.i, label %copy_decl_list.exit, label %.lr.ph.i, !llvm.loop !7
 
 copy_decl_list.exit:                              ; preds = %28, %1, %2
-  %.021.lcssa.i = phi ptr [ null, %2 ], [ null, %1 ], [ %31, %28 ]
-  ret ptr %.021.lcssa.i
+  %.020.lcssa.i = phi ptr [ null, %2 ], [ null, %1 ], [ %31, %28 ]
+  ret ptr %.020.lcssa.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3385,8 +3385,8 @@ define internal fastcc ptr @copy_decl_list(ptr noundef %0, ptr noundef readonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
-  %.02125 = phi ptr [ null, %.lr.ph.preheader ], [ %32, %29 ]
-  %.not.i = icmp eq ptr %.02125, null
+  %.02025 = phi ptr [ null, %.lr.ph.preheader ], [ %32, %29 ]
+  %.not.i = icmp eq ptr %.02025, null
   br i1 %.not.i, label %6, label %9
 
 6:                                                ; preds = %.lr.ph
@@ -3396,8 +3396,8 @@ define internal fastcc ptr @copy_decl_list(ptr noundef %0, ptr noundef readonly 
   br label %11
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.02125, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.02125, i64 -4
+  %10 = getelementptr inbounds i8, ptr %.02025, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.02025, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %11
 
@@ -3447,8 +3447,8 @@ define internal fastcc ptr @copy_decl_list(ptr noundef %0, ptr noundef readonly 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %29, %2, %3
-  %.021.lcssa = phi ptr [ null, %3 ], [ null, %2 ], [ %32, %29 ]
-  ret ptr %.021.lcssa
+  %.020.lcssa = phi ptr [ null, %3 ], [ null, %2 ], [ %32, %29 ]
+  ret ptr %.020.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3471,8 +3471,8 @@ define dso_local ptr @copy_decl_list_single(ptr noundef readonly %0) local_unnam
 
 .lr.ph.i.i:                                       ; preds = %28, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %28 ]
-  %.02125.i.i = phi ptr [ null, %.lr.ph.preheader.i.i ], [ %31, %28 ]
-  %.not.i.i.i = icmp eq ptr %.02125.i.i, null
+  %.02025.i.i = phi ptr [ null, %.lr.ph.preheader.i.i ], [ %31, %28 ]
+  %.not.i.i.i = icmp eq ptr %.02025.i.i, null
   br i1 %.not.i.i.i, label %5, label %8
 
 5:                                                ; preds = %.lr.ph.i.i
@@ -3482,8 +3482,8 @@ define dso_local ptr @copy_decl_list_single(ptr noundef readonly %0) local_unnam
   br label %10
 
 8:                                                ; preds = %.lr.ph.i.i
-  %9 = getelementptr inbounds i8, ptr %.02125.i.i, i64 -8
-  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.02125.i.i, i64 -4
+  %9 = getelementptr inbounds i8, ptr %.02025.i.i, i64 -8
+  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.02025.i.i, i64 -4
   %.pre.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4
   br label %10
 
@@ -3533,9 +3533,9 @@ define dso_local ptr @copy_decl_list_single(ptr noundef readonly %0) local_unnam
   br i1 %exitcond.not.i.i, label %copy_decl_list_macro.exit, label %.lr.ph.i.i, !llvm.loop !7
 
 copy_decl_list_macro.exit:                        ; preds = %28, %1, %2
-  %.021.lcssa.i.i = phi ptr [ null, %2 ], [ null, %1 ], [ %31, %28 ]
+  %.020.lcssa.i.i = phi ptr [ null, %2 ], [ null, %1 ], [ %31, %28 ]
   store i8 0, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777209), align 1
-  ret ptr %.021.lcssa.i.i
+  ret ptr %.020.lcssa.i.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3558,7 +3558,7 @@ define dso_local ptr @copy_attributes_single(ptr noundef readonly %0) local_unna
 
 .lr.ph.i:                                         ; preds = %70, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %70 ]
-  %.02936.i = phi ptr [ null, %.lr.ph.preheader.i ], [ %73, %70 ]
+  %.02935.i = phi ptr [ null, %.lr.ph.preheader.i ], [ %73, %70 ]
   %5 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @calloc_arena(i64 noundef 40) #5
@@ -3580,8 +3580,8 @@ define dso_local ptr @copy_attributes_single(ptr noundef readonly %0) local_unna
 
 .lr.ph.i.i:                                       ; preds = %36, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %36 ]
-  %.02125.i.i = phi ptr [ null, %.lr.ph.preheader.i.i ], [ %39, %36 ]
-  %.not.i.i.i = icmp eq ptr %.02125.i.i, null
+  %.02025.i.i = phi ptr [ null, %.lr.ph.preheader.i.i ], [ %39, %36 ]
+  %.not.i.i.i = icmp eq ptr %.02025.i.i, null
   br i1 %.not.i.i.i, label %13, label %16
 
 13:                                               ; preds = %.lr.ph.i.i
@@ -3591,8 +3591,8 @@ define dso_local ptr @copy_attributes_single(ptr noundef readonly %0) local_unna
   br label %18
 
 16:                                               ; preds = %.lr.ph.i.i
-  %17 = getelementptr inbounds i8, ptr %.02125.i.i, i64 -8
-  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.02125.i.i, i64 -4
+  %17 = getelementptr inbounds i8, ptr %.02025.i.i, i64 -8
+  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.02025.i.i, i64 -4
   %.pre.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4
   br label %18
 
@@ -3642,9 +3642,9 @@ define dso_local ptr @copy_attributes_single(ptr noundef readonly %0) local_unna
   br i1 %exitcond.not.i.i, label %copy_expr_list.exit.i, label %.lr.ph.i.i, !llvm.loop !10
 
 copy_expr_list.exit.i:                            ; preds = %36, %10, %.lr.ph.i
-  %.021.lcssa.i.i = phi ptr [ null, %10 ], [ null, %.lr.ph.i ], [ %39, %36 ]
-  store ptr %.021.lcssa.i.i, ptr %8, align 8
-  %.not.i34.i = icmp eq ptr %.02936.i, null
+  %.020.lcssa.i.i = phi ptr [ null, %10 ], [ null, %.lr.ph.i ], [ %39, %36 ]
+  store ptr %.020.lcssa.i.i, ptr %8, align 8
+  %.not.i34.i = icmp eq ptr %.02935.i, null
   br i1 %.not.i34.i, label %47, label %50
 
 47:                                               ; preds = %copy_expr_list.exit.i
@@ -3654,8 +3654,8 @@ copy_expr_list.exit.i:                            ; preds = %36, %10, %.lr.ph.i
   br label %52
 
 50:                                               ; preds = %copy_expr_list.exit.i
-  %51 = getelementptr inbounds i8, ptr %.02936.i, i64 -8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.02936.i, i64 -4
+  %51 = getelementptr inbounds i8, ptr %.02935.i, i64 -8
+  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.02935.i, i64 -4
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   br label %52
 
@@ -3700,9 +3700,9 @@ copy_expr_list.exit.i:                            ; preds = %36, %10, %.lr.ph.i
   br i1 %exitcond.not.i, label %copy_attributes.exit, label %.lr.ph.i, !llvm.loop !12
 
 copy_attributes.exit:                             ; preds = %70, %1, %2
-  %.028.i = phi ptr [ null, %1 ], [ null, %2 ], [ %73, %70 ]
+  %.030.i = phi ptr [ null, %1 ], [ null, %2 ], [ %73, %70 ]
   store i8 0, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777209), align 1
-  ret ptr %.028.i
+  ret ptr %.030.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3727,8 +3727,8 @@ define dso_local ptr @copy_decl_list_single_for_unit(ptr noundef readonly %0) lo
 
 .lr.ph.i.i:                                       ; preds = %29, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %29 ]
-  %.02125.i.i = phi ptr [ null, %.lr.ph.preheader.i.i ], [ %32, %29 ]
-  %.not.i.i.i = icmp eq ptr %.02125.i.i, null
+  %.02025.i.i = phi ptr [ null, %.lr.ph.preheader.i.i ], [ %32, %29 ]
+  %.not.i.i.i = icmp eq ptr %.02025.i.i, null
   br i1 %.not.i.i.i, label %6, label %9
 
 6:                                                ; preds = %.lr.ph.i.i
@@ -3738,8 +3738,8 @@ define dso_local ptr @copy_decl_list_single_for_unit(ptr noundef readonly %0) lo
   br label %11
 
 9:                                                ; preds = %.lr.ph.i.i
-  %10 = getelementptr inbounds i8, ptr %.02125.i.i, i64 -8
-  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.02125.i.i, i64 -4
+  %10 = getelementptr inbounds i8, ptr %.02025.i.i, i64 -8
+  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.02025.i.i, i64 -4
   %.pre.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4
   br label %11
 
@@ -3789,11 +3789,11 @@ define dso_local ptr @copy_decl_list_single_for_unit(ptr noundef readonly %0) lo
   br i1 %exitcond.not.i.i, label %copy_decl_list_macro.exit, label %.lr.ph.i.i, !llvm.loop !7
 
 copy_decl_list_macro.exit:                        ; preds = %29, %1, %3
-  %.021.lcssa.i.i = phi ptr [ null, %3 ], [ null, %1 ], [ %32, %29 ]
+  %.020.lcssa.i.i = phi ptr [ null, %3 ], [ null, %1 ], [ %32, %29 ]
   %40 = and i8 %2, 1
   store i8 0, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777209), align 1
   store i8 %40, ptr getelementptr inbounds (i8, ptr @copy_struct, i64 16777210), align 2
-  ret ptr %.021.lcssa.i.i
+  ret ptr %.020.lcssa.i.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3872,7 +3872,7 @@ copy_reg_ref.exit:                                ; preds = %decl_is_resolved_st
 
 .lr.ph569:                                        ; preds = %.lr.ph569.preheader, %expand_.exit
   %indvars.iv721 = phi i64 [ 0, %.lr.ph569.preheader ], [ %indvars.iv.next722, %expand_.exit ]
-  %.029.i568 = phi ptr [ null, %.lr.ph569.preheader ], [ %95, %expand_.exit ]
+  %.029.i567 = phi ptr [ null, %.lr.ph569.preheader ], [ %95, %expand_.exit ]
   %29 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv721
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @calloc_arena(i64 noundef 40) #5
@@ -3894,8 +3894,8 @@ copy_reg_ref.exit:                                ; preds = %decl_is_resolved_st
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %expand_.exit.i449
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %expand_.exit.i449 ]
-  %.021.i443565 = phi ptr [ null, %.lr.ph.preheader ], [ %62, %expand_.exit.i449 ]
-  %.not.i.i445 = icmp eq ptr %.021.i443565, null
+  %.020.i443565 = phi ptr [ null, %.lr.ph.preheader ], [ %62, %expand_.exit.i449 ]
+  %.not.i.i445 = icmp eq ptr %.020.i443565, null
   br i1 %.not.i.i445, label %37, label %40
 
 37:                                               ; preds = %.lr.ph
@@ -3905,8 +3905,8 @@ copy_reg_ref.exit:                                ; preds = %decl_is_resolved_st
   br label %42
 
 40:                                               ; preds = %.lr.ph
-  %41 = getelementptr inbounds i8, ptr %.021.i443565, i64 -8
-  %.phi.trans.insert.i.i446 = getelementptr inbounds i8, ptr %.021.i443565, i64 -4
+  %41 = getelementptr inbounds i8, ptr %.020.i443565, i64 -8
+  %.phi.trans.insert.i.i446 = getelementptr inbounds i8, ptr %.020.i443565, i64 -4
   %.pre.i.i447 = load i32, ptr %.phi.trans.insert.i.i446, align 4
   br label %42
 
@@ -3956,9 +3956,9 @@ expand_.exit.i449:                                ; preds = %46, %42
   br i1 %exitcond.not, label %copy_expr_list.exit452, label %.lr.ph, !llvm.loop !10
 
 copy_expr_list.exit452:                           ; preds = %expand_.exit.i449, %.lr.ph569, %34
-  %.021.i443.lcssa = phi ptr [ null, %34 ], [ null, %.lr.ph569 ], [ %62, %expand_.exit.i449 ]
-  store ptr %.021.i443.lcssa, ptr %32, align 8
-  %.not.i439 = icmp eq ptr %.029.i568, null
+  %.020.i443.lcssa = phi ptr [ null, %34 ], [ null, %.lr.ph569 ], [ %62, %expand_.exit.i449 ]
+  store ptr %.020.i443.lcssa, ptr %32, align 8
+  %.not.i439 = icmp eq ptr %.029.i567, null
   br i1 %.not.i439, label %70, label %73
 
 70:                                               ; preds = %copy_expr_list.exit452
@@ -3968,8 +3968,8 @@ copy_expr_list.exit452:                           ; preds = %expand_.exit.i449, 
   br label %75
 
 73:                                               ; preds = %copy_expr_list.exit452
-  %74 = getelementptr inbounds i8, ptr %.029.i568, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.029.i568, i64 -4
+  %74 = getelementptr inbounds i8, ptr %.029.i567, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.029.i567, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %75
 
@@ -4014,8 +4014,8 @@ expand_.exit:                                     ; preds = %75, %79
   br i1 %exitcond725.not, label %copy_attributes.exit, label %.lr.ph569, !llvm.loop !12
 
 copy_attributes.exit:                             ; preds = %expand_.exit, %26, %copy_reg_ref.exit
-  %.028.i = phi ptr [ null, %copy_reg_ref.exit ], [ null, %26 ], [ %95, %expand_.exit ]
-  store ptr %.028.i, ptr %24, align 8
+  %.030.i = phi ptr [ null, %copy_reg_ref.exit ], [ null, %26 ], [ %95, %expand_.exit ]
+  store ptr %.030.i, ptr %24, align 8
   %98 = getelementptr inbounds i8, ptr %1, i64 24
   %99 = load i64, ptr %98, align 8
   %100 = trunc i64 %99 to i32
@@ -4064,8 +4064,8 @@ copy_attributes.exit:                             ; preds = %expand_.exit, %26, 
 
 .lr.ph645:                                        ; preds = %.lr.ph645.preheader, %expand_.exit459
   %indvars.iv816 = phi i64 [ 0, %.lr.ph645.preheader ], [ %indvars.iv.next817, %expand_.exit459 ]
-  %.021.i643 = phi ptr [ null, %.lr.ph645.preheader ], [ %133, %expand_.exit459 ]
-  %.not.i453 = icmp eq ptr %.021.i643, null
+  %.020.i643 = phi ptr [ null, %.lr.ph645.preheader ], [ %133, %expand_.exit459 ]
+  %.not.i453 = icmp eq ptr %.020.i643, null
   br i1 %.not.i453, label %108, label %111
 
 108:                                              ; preds = %.lr.ph645
@@ -4075,8 +4075,8 @@ copy_attributes.exit:                             ; preds = %expand_.exit, %26, 
   br label %113
 
 111:                                              ; preds = %.lr.ph645
-  %112 = getelementptr inbounds i8, ptr %.021.i643, i64 -8
-  %.phi.trans.insert.i454 = getelementptr inbounds i8, ptr %.021.i643, i64 -4
+  %112 = getelementptr inbounds i8, ptr %.020.i643, i64 -8
+  %.phi.trans.insert.i454 = getelementptr inbounds i8, ptr %.020.i643, i64 -4
   %.pre.i455 = load i32, ptr %.phi.trans.insert.i454, align 4
   br label %113
 
@@ -4126,8 +4126,8 @@ expand_.exit459:                                  ; preds = %113, %117
   br i1 %exitcond820.not, label %type_info_copy_list_from_macro.exit, label %.lr.ph645, !llvm.loop !13
 
 type_info_copy_list_from_macro.exit:              ; preds = %expand_.exit459, %102, %105
-  %.021.i.lcssa = phi ptr [ null, %105 ], [ null, %102 ], [ %133, %expand_.exit459 ]
-  store ptr %.021.i.lcssa, ptr %103, align 8
+  %.020.i.lcssa = phi ptr [ null, %105 ], [ null, %102 ], [ %133, %expand_.exit459 ]
+  store ptr %.020.i.lcssa, ptr %103, align 8
   %141 = getelementptr inbounds i8, ptr %15, i64 88
   %142 = load ptr, ptr %141, align 8
   %.not.i244 = icmp eq ptr %142, null
@@ -4145,8 +4145,8 @@ type_info_copy_list_from_macro.exit:              ; preds = %expand_.exit459, %1
 
 .lr.ph649:                                        ; preds = %.lr.ph649.preheader, %expand_.exit.i
   %indvars.iv821 = phi i64 [ 0, %.lr.ph649.preheader ], [ %indvars.iv.next822, %expand_.exit.i ]
-  %.021.i246647 = phi ptr [ null, %.lr.ph649.preheader ], [ %171, %expand_.exit.i ]
-  %.not.i.i = icmp eq ptr %.021.i246647, null
+  %.020.i246647 = phi ptr [ null, %.lr.ph649.preheader ], [ %171, %expand_.exit.i ]
+  %.not.i.i = icmp eq ptr %.020.i246647, null
   br i1 %.not.i.i, label %146, label %149
 
 146:                                              ; preds = %.lr.ph649
@@ -4156,8 +4156,8 @@ type_info_copy_list_from_macro.exit:              ; preds = %expand_.exit459, %1
   br label %151
 
 149:                                              ; preds = %.lr.ph649
-  %150 = getelementptr inbounds i8, ptr %.021.i246647, i64 -8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.021.i246647, i64 -4
+  %150 = getelementptr inbounds i8, ptr %.020.i246647, i64 -8
+  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.020.i246647, i64 -4
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   br label %151
 
@@ -4207,8 +4207,8 @@ expand_.exit.i:                                   ; preds = %155, %151
   br i1 %exitcond825.not, label %copy_decl_list.exit, label %.lr.ph649, !llvm.loop !7
 
 copy_decl_list.exit:                              ; preds = %expand_.exit.i, %type_info_copy_list_from_macro.exit, %143
-  %.021.i246.lcssa = phi ptr [ null, %143 ], [ null, %type_info_copy_list_from_macro.exit ], [ %171, %expand_.exit.i ]
-  store ptr %.021.i246.lcssa, ptr %141, align 8
+  %.020.i246.lcssa = phi ptr [ null, %143 ], [ null, %type_info_copy_list_from_macro.exit ], [ %171, %expand_.exit.i ]
+  store ptr %.020.i246.lcssa, ptr %141, align 8
   %179 = getelementptr inbounds i8, ptr %15, i64 96
   %180 = load ptr, ptr %179, align 8
   %.not.i248 = icmp eq ptr %180, null
@@ -4226,8 +4226,8 @@ copy_decl_list.exit:                              ; preds = %expand_.exit.i, %ty
 
 .lr.ph653:                                        ; preds = %.lr.ph653.preheader, %expand_.exit.i256
   %indvars.iv826 = phi i64 [ 0, %.lr.ph653.preheader ], [ %indvars.iv.next827, %expand_.exit.i256 ]
-  %.021.i250651 = phi ptr [ null, %.lr.ph653.preheader ], [ %209, %expand_.exit.i256 ]
-  %.not.i.i252 = icmp eq ptr %.021.i250651, null
+  %.020.i250651 = phi ptr [ null, %.lr.ph653.preheader ], [ %209, %expand_.exit.i256 ]
+  %.not.i.i252 = icmp eq ptr %.020.i250651, null
   br i1 %.not.i.i252, label %184, label %187
 
 184:                                              ; preds = %.lr.ph653
@@ -4237,8 +4237,8 @@ copy_decl_list.exit:                              ; preds = %expand_.exit.i, %ty
   br label %189
 
 187:                                              ; preds = %.lr.ph653
-  %188 = getelementptr inbounds i8, ptr %.021.i250651, i64 -8
-  %.phi.trans.insert.i.i253 = getelementptr inbounds i8, ptr %.021.i250651, i64 -4
+  %188 = getelementptr inbounds i8, ptr %.020.i250651, i64 -8
+  %.phi.trans.insert.i.i253 = getelementptr inbounds i8, ptr %.020.i250651, i64 -4
   %.pre.i.i254 = load i32, ptr %.phi.trans.insert.i.i253, align 4
   br label %189
 
@@ -4288,8 +4288,8 @@ expand_.exit.i256:                                ; preds = %193, %189
   br i1 %exitcond830.not, label %copy_decl_list.exit259, label %.lr.ph653, !llvm.loop !7
 
 copy_decl_list.exit259:                           ; preds = %expand_.exit.i256, %copy_decl_list.exit, %181
-  %.021.i250.lcssa = phi ptr [ null, %181 ], [ null, %copy_decl_list.exit ], [ %209, %expand_.exit.i256 ]
-  store ptr %.021.i250.lcssa, ptr %179, align 8
+  %.020.i250.lcssa = phi ptr [ null, %181 ], [ null, %copy_decl_list.exit ], [ %209, %expand_.exit.i256 ]
+  store ptr %.020.i250.lcssa, ptr %179, align 8
   br label %common.ret1025
 
 217:                                              ; preds = %copy_attributes.exit
@@ -4314,8 +4314,8 @@ copy_decl_list.exit259:                           ; preds = %expand_.exit.i256, 
 
 .lr.ph641:                                        ; preds = %.lr.ph641.preheader, %expand_.exit466
   %indvars.iv811 = phi i64 [ 0, %.lr.ph641.preheader ], [ %indvars.iv.next812, %expand_.exit466 ]
-  %.021.i262639 = phi ptr [ null, %.lr.ph641.preheader ], [ %251, %expand_.exit466 ]
-  %.not.i460 = icmp eq ptr %.021.i262639, null
+  %.020.i262639 = phi ptr [ null, %.lr.ph641.preheader ], [ %251, %expand_.exit466 ]
+  %.not.i460 = icmp eq ptr %.020.i262639, null
   br i1 %.not.i460, label %226, label %229
 
 226:                                              ; preds = %.lr.ph641
@@ -4325,8 +4325,8 @@ copy_decl_list.exit259:                           ; preds = %expand_.exit.i256, 
   br label %231
 
 229:                                              ; preds = %.lr.ph641
-  %230 = getelementptr inbounds i8, ptr %.021.i262639, i64 -8
-  %.phi.trans.insert.i461 = getelementptr inbounds i8, ptr %.021.i262639, i64 -4
+  %230 = getelementptr inbounds i8, ptr %.020.i262639, i64 -8
+  %.phi.trans.insert.i461 = getelementptr inbounds i8, ptr %.020.i262639, i64 -4
   %.pre.i462 = load i32, ptr %.phi.trans.insert.i461, align 4
   br label %231
 
@@ -4376,8 +4376,8 @@ expand_.exit466:                                  ; preds = %231, %235
   br i1 %exitcond815.not, label %copy_expr_list.exit, label %.lr.ph641, !llvm.loop !10
 
 copy_expr_list.exit:                              ; preds = %expand_.exit466, %217, %223
-  %.021.i262.lcssa = phi ptr [ null, %223 ], [ null, %217 ], [ %251, %expand_.exit466 ]
-  store ptr %.021.i262.lcssa, ptr %221, align 8
+  %.020.i262.lcssa = phi ptr [ null, %223 ], [ null, %217 ], [ %251, %expand_.exit466 ]
+  store ptr %.020.i262.lcssa, ptr %221, align 8
   br label %common.ret1025
 
 259:                                              ; preds = %copy_attributes.exit
@@ -4405,8 +4405,8 @@ copy_expr_list.exit:                              ; preds = %expand_.exit466, %2
 
 .lr.ph637:                                        ; preds = %.lr.ph637.preheader, %expand_.exit.i272
   %indvars.iv806 = phi i64 [ 0, %.lr.ph637.preheader ], [ %indvars.iv.next807, %expand_.exit.i272 ]
-  %.021.i266635 = phi ptr [ null, %.lr.ph637.preheader ], [ %294, %expand_.exit.i272 ]
-  %.not.i.i268 = icmp eq ptr %.021.i266635, null
+  %.020.i266635 = phi ptr [ null, %.lr.ph637.preheader ], [ %294, %expand_.exit.i272 ]
+  %.not.i.i268 = icmp eq ptr %.020.i266635, null
   br i1 %.not.i.i268, label %269, label %272
 
 269:                                              ; preds = %.lr.ph637
@@ -4416,8 +4416,8 @@ copy_expr_list.exit:                              ; preds = %expand_.exit466, %2
   br label %274
 
 272:                                              ; preds = %.lr.ph637
-  %273 = getelementptr inbounds i8, ptr %.021.i266635, i64 -8
-  %.phi.trans.insert.i.i269 = getelementptr inbounds i8, ptr %.021.i266635, i64 -4
+  %273 = getelementptr inbounds i8, ptr %.020.i266635, i64 -8
+  %.phi.trans.insert.i.i269 = getelementptr inbounds i8, ptr %.020.i266635, i64 -4
   %.pre.i.i270 = load i32, ptr %.phi.trans.insert.i.i269, align 4
   br label %274
 
@@ -4467,8 +4467,8 @@ expand_.exit.i272:                                ; preds = %278, %274
   br i1 %exitcond810.not, label %copy_decl_list.exit275, label %.lr.ph637, !llvm.loop !7
 
 copy_decl_list.exit275:                           ; preds = %expand_.exit.i272, %263, %266
-  %.021.i266.lcssa = phi ptr [ null, %266 ], [ null, %263 ], [ %294, %expand_.exit.i272 ]
-  store ptr %.021.i266.lcssa, ptr %264, align 8
+  %.020.i266.lcssa = phi ptr [ null, %266 ], [ null, %263 ], [ %294, %expand_.exit.i272 ]
+  store ptr %.020.i266.lcssa, ptr %264, align 8
   br label %common.ret1025
 
 302:                                              ; preds = %copy_attributes.exit, %copy_attributes.exit
@@ -4514,8 +4514,8 @@ copy_decl_type.exit:                              ; preds = %302, %305
 
 .lr.ph625:                                        ; preds = %.lr.ph625.preheader, %expand_.exit473
   %indvars.iv791 = phi i64 [ 0, %.lr.ph625.preheader ], [ %indvars.iv.next792, %expand_.exit473 ]
-  %.021.i279623 = phi ptr [ null, %.lr.ph625.preheader ], [ %344, %expand_.exit473 ]
-  %.not.i467 = icmp eq ptr %.021.i279623, null
+  %.020.i279623 = phi ptr [ null, %.lr.ph625.preheader ], [ %344, %expand_.exit473 ]
+  %.not.i467 = icmp eq ptr %.020.i279623, null
   br i1 %.not.i467, label %319, label %322
 
 319:                                              ; preds = %.lr.ph625
@@ -4525,8 +4525,8 @@ copy_decl_type.exit:                              ; preds = %302, %305
   br label %324
 
 322:                                              ; preds = %.lr.ph625
-  %323 = getelementptr inbounds i8, ptr %.021.i279623, i64 -8
-  %.phi.trans.insert.i468 = getelementptr inbounds i8, ptr %.021.i279623, i64 -4
+  %323 = getelementptr inbounds i8, ptr %.020.i279623, i64 -8
+  %.phi.trans.insert.i468 = getelementptr inbounds i8, ptr %.020.i279623, i64 -4
   %.pre.i469 = load i32, ptr %.phi.trans.insert.i468, align 4
   br label %324
 
@@ -4576,8 +4576,8 @@ expand_.exit473:                                  ; preds = %324, %328
   br i1 %exitcond795.not, label %type_info_copy_list_from_macro.exit281, label %.lr.ph625, !llvm.loop !13
 
 type_info_copy_list_from_macro.exit281:           ; preds = %expand_.exit473, %copy_decl_type.exit, %316
-  %.021.i279.lcssa = phi ptr [ null, %316 ], [ null, %copy_decl_type.exit ], [ %344, %expand_.exit473 ]
-  store ptr %.021.i279.lcssa, ptr %314, align 8
+  %.020.i279.lcssa = phi ptr [ null, %316 ], [ null, %copy_decl_type.exit ], [ %344, %expand_.exit473 ]
+  store ptr %.020.i279.lcssa, ptr %314, align 8
   %352 = getelementptr inbounds i8, ptr %15, i64 104
   %353 = load ptr, ptr %352, align 8
   %.not.i282 = icmp eq ptr %353, null
@@ -4595,8 +4595,8 @@ type_info_copy_list_from_macro.exit281:           ; preds = %expand_.exit473, %c
 
 .lr.ph629:                                        ; preds = %.lr.ph629.preheader, %expand_.exit.i290
   %indvars.iv796 = phi i64 [ 0, %.lr.ph629.preheader ], [ %indvars.iv.next797, %expand_.exit.i290 ]
-  %.021.i284627 = phi ptr [ null, %.lr.ph629.preheader ], [ %382, %expand_.exit.i290 ]
-  %.not.i.i286 = icmp eq ptr %.021.i284627, null
+  %.020.i284627 = phi ptr [ null, %.lr.ph629.preheader ], [ %382, %expand_.exit.i290 ]
+  %.not.i.i286 = icmp eq ptr %.020.i284627, null
   br i1 %.not.i.i286, label %357, label %360
 
 357:                                              ; preds = %.lr.ph629
@@ -4606,8 +4606,8 @@ type_info_copy_list_from_macro.exit281:           ; preds = %expand_.exit473, %c
   br label %362
 
 360:                                              ; preds = %.lr.ph629
-  %361 = getelementptr inbounds i8, ptr %.021.i284627, i64 -8
-  %.phi.trans.insert.i.i287 = getelementptr inbounds i8, ptr %.021.i284627, i64 -4
+  %361 = getelementptr inbounds i8, ptr %.020.i284627, i64 -8
+  %.phi.trans.insert.i.i287 = getelementptr inbounds i8, ptr %.020.i284627, i64 -4
   %.pre.i.i288 = load i32, ptr %.phi.trans.insert.i.i287, align 4
   br label %362
 
@@ -4657,8 +4657,8 @@ expand_.exit.i290:                                ; preds = %366, %362
   br i1 %exitcond800.not, label %copy_decl_list.exit293, label %.lr.ph629, !llvm.loop !7
 
 copy_decl_list.exit293:                           ; preds = %expand_.exit.i290, %type_info_copy_list_from_macro.exit281, %354
-  %.021.i284.lcssa = phi ptr [ null, %354 ], [ null, %type_info_copy_list_from_macro.exit281 ], [ %382, %expand_.exit.i290 ]
-  store ptr %.021.i284.lcssa, ptr %352, align 8
+  %.020.i284.lcssa = phi ptr [ null, %354 ], [ null, %type_info_copy_list_from_macro.exit281 ], [ %382, %expand_.exit.i290 ]
+  store ptr %.020.i284.lcssa, ptr %352, align 8
   %390 = getelementptr inbounds i8, ptr %15, i64 88
   %391 = load ptr, ptr %390, align 8
   %.not.i294 = icmp eq ptr %391, null
@@ -4676,8 +4676,8 @@ copy_decl_list.exit293:                           ; preds = %expand_.exit.i290, 
 
 .lr.ph633:                                        ; preds = %.lr.ph633.preheader, %expand_.exit.i302
   %indvars.iv801 = phi i64 [ 0, %.lr.ph633.preheader ], [ %indvars.iv.next802, %expand_.exit.i302 ]
-  %.021.i296631 = phi ptr [ null, %.lr.ph633.preheader ], [ %420, %expand_.exit.i302 ]
-  %.not.i.i298 = icmp eq ptr %.021.i296631, null
+  %.020.i296631 = phi ptr [ null, %.lr.ph633.preheader ], [ %420, %expand_.exit.i302 ]
+  %.not.i.i298 = icmp eq ptr %.020.i296631, null
   br i1 %.not.i.i298, label %395, label %398
 
 395:                                              ; preds = %.lr.ph633
@@ -4687,8 +4687,8 @@ copy_decl_list.exit293:                           ; preds = %expand_.exit.i290, 
   br label %400
 
 398:                                              ; preds = %.lr.ph633
-  %399 = getelementptr inbounds i8, ptr %.021.i296631, i64 -8
-  %.phi.trans.insert.i.i299 = getelementptr inbounds i8, ptr %.021.i296631, i64 -4
+  %399 = getelementptr inbounds i8, ptr %.020.i296631, i64 -8
+  %.phi.trans.insert.i.i299 = getelementptr inbounds i8, ptr %.020.i296631, i64 -4
   %.pre.i.i300 = load i32, ptr %.phi.trans.insert.i.i299, align 4
   br label %400
 
@@ -4738,8 +4738,8 @@ expand_.exit.i302:                                ; preds = %404, %400
   br i1 %exitcond805.not, label %copy_decl_list.exit305, label %.lr.ph633, !llvm.loop !7
 
 copy_decl_list.exit305:                           ; preds = %expand_.exit.i302, %copy_decl_list.exit293, %392
-  %.021.i296.lcssa = phi ptr [ null, %392 ], [ null, %copy_decl_list.exit293 ], [ %420, %expand_.exit.i302 ]
-  store ptr %.021.i296.lcssa, ptr %390, align 8
+  %.020.i296.lcssa = phi ptr [ null, %392 ], [ null, %copy_decl_list.exit293 ], [ %420, %expand_.exit.i302 ]
+  store ptr %.020.i296.lcssa, ptr %390, align 8
   br label %common.ret1025
 
 428:                                              ; preds = %copy_attributes.exit, %copy_attributes.exit
@@ -4789,8 +4789,8 @@ copy_decl_type.exit307:                           ; preds = %429, %432
 
 .lr.ph613:                                        ; preds = %.lr.ph613.preheader, %expand_.exit480
   %indvars.iv776 = phi i64 [ 0, %.lr.ph613.preheader ], [ %indvars.iv.next777, %expand_.exit480 ]
-  %.021.i310611 = phi ptr [ null, %.lr.ph613.preheader ], [ %471, %expand_.exit480 ]
-  %.not.i474 = icmp eq ptr %.021.i310611, null
+  %.020.i310611 = phi ptr [ null, %.lr.ph613.preheader ], [ %471, %expand_.exit480 ]
+  %.not.i474 = icmp eq ptr %.020.i310611, null
   br i1 %.not.i474, label %446, label %449
 
 446:                                              ; preds = %.lr.ph613
@@ -4800,8 +4800,8 @@ copy_decl_type.exit307:                           ; preds = %429, %432
   br label %451
 
 449:                                              ; preds = %.lr.ph613
-  %450 = getelementptr inbounds i8, ptr %.021.i310611, i64 -8
-  %.phi.trans.insert.i475 = getelementptr inbounds i8, ptr %.021.i310611, i64 -4
+  %450 = getelementptr inbounds i8, ptr %.020.i310611, i64 -8
+  %.phi.trans.insert.i475 = getelementptr inbounds i8, ptr %.020.i310611, i64 -4
   %.pre.i476 = load i32, ptr %.phi.trans.insert.i475, align 4
   br label %451
 
@@ -4851,8 +4851,8 @@ expand_.exit480:                                  ; preds = %451, %455
   br i1 %exitcond780.not, label %type_info_copy_list_from_macro.exit312, label %.lr.ph613, !llvm.loop !13
 
 type_info_copy_list_from_macro.exit312:           ; preds = %expand_.exit480, %copy_decl_type.exit307, %443
-  %.021.i310.lcssa = phi ptr [ null, %443 ], [ null, %copy_decl_type.exit307 ], [ %471, %expand_.exit480 ]
-  store ptr %.021.i310.lcssa, ptr %441, align 8
+  %.020.i310.lcssa = phi ptr [ null, %443 ], [ null, %copy_decl_type.exit307 ], [ %471, %expand_.exit480 ]
+  store ptr %.020.i310.lcssa, ptr %441, align 8
   %479 = getelementptr inbounds i8, ptr %15, i64 96
   %480 = getelementptr inbounds i8, ptr %15, i64 104
   %481 = load ptr, ptr %480, align 8
@@ -4871,8 +4871,8 @@ type_info_copy_list_from_macro.exit312:           ; preds = %expand_.exit480, %c
 
 .lr.ph617:                                        ; preds = %.lr.ph617.preheader, %expand_.exit.i321
   %indvars.iv781 = phi i64 [ 0, %.lr.ph617.preheader ], [ %indvars.iv.next782, %expand_.exit.i321 ]
-  %.021.i315615 = phi ptr [ null, %.lr.ph617.preheader ], [ %510, %expand_.exit.i321 ]
-  %.not.i.i317 = icmp eq ptr %.021.i315615, null
+  %.020.i315615 = phi ptr [ null, %.lr.ph617.preheader ], [ %510, %expand_.exit.i321 ]
+  %.not.i.i317 = icmp eq ptr %.020.i315615, null
   br i1 %.not.i.i317, label %485, label %488
 
 485:                                              ; preds = %.lr.ph617
@@ -4882,8 +4882,8 @@ type_info_copy_list_from_macro.exit312:           ; preds = %expand_.exit480, %c
   br label %490
 
 488:                                              ; preds = %.lr.ph617
-  %489 = getelementptr inbounds i8, ptr %.021.i315615, i64 -8
-  %.phi.trans.insert.i.i318 = getelementptr inbounds i8, ptr %.021.i315615, i64 -4
+  %489 = getelementptr inbounds i8, ptr %.020.i315615, i64 -8
+  %.phi.trans.insert.i.i318 = getelementptr inbounds i8, ptr %.020.i315615, i64 -4
   %.pre.i.i319 = load i32, ptr %.phi.trans.insert.i.i318, align 4
   br label %490
 
@@ -4933,8 +4933,8 @@ expand_.exit.i321:                                ; preds = %494, %490
   br i1 %exitcond785.not, label %copy_decl_list.exit324, label %.lr.ph617, !llvm.loop !7
 
 copy_decl_list.exit324:                           ; preds = %expand_.exit.i321, %type_info_copy_list_from_macro.exit312, %482
-  %.021.i315.lcssa = phi ptr [ null, %482 ], [ null, %type_info_copy_list_from_macro.exit312 ], [ %510, %expand_.exit.i321 ]
-  store ptr %.021.i315.lcssa, ptr %480, align 8
+  %.020.i315.lcssa = phi ptr [ null, %482 ], [ null, %type_info_copy_list_from_macro.exit312 ], [ %510, %expand_.exit.i321 ]
+  store ptr %.020.i315.lcssa, ptr %480, align 8
   %518 = load ptr, ptr %479, align 8
   %519 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %518)
   store ptr %519, ptr %479, align 8
@@ -4955,8 +4955,8 @@ copy_decl_list.exit324:                           ; preds = %expand_.exit.i321, 
 
 .lr.ph621:                                        ; preds = %.lr.ph621.preheader, %expand_.exit.i333
   %indvars.iv786 = phi i64 [ 0, %.lr.ph621.preheader ], [ %indvars.iv.next787, %expand_.exit.i333 ]
-  %.021.i327619 = phi ptr [ null, %.lr.ph621.preheader ], [ %550, %expand_.exit.i333 ]
-  %.not.i.i329 = icmp eq ptr %.021.i327619, null
+  %.020.i327619 = phi ptr [ null, %.lr.ph621.preheader ], [ %550, %expand_.exit.i333 ]
+  %.not.i.i329 = icmp eq ptr %.020.i327619, null
   br i1 %.not.i.i329, label %525, label %528
 
 525:                                              ; preds = %.lr.ph621
@@ -4966,8 +4966,8 @@ copy_decl_list.exit324:                           ; preds = %expand_.exit.i321, 
   br label %530
 
 528:                                              ; preds = %.lr.ph621
-  %529 = getelementptr inbounds i8, ptr %.021.i327619, i64 -8
-  %.phi.trans.insert.i.i330 = getelementptr inbounds i8, ptr %.021.i327619, i64 -4
+  %529 = getelementptr inbounds i8, ptr %.020.i327619, i64 -8
+  %.phi.trans.insert.i.i330 = getelementptr inbounds i8, ptr %.020.i327619, i64 -4
   %.pre.i.i331 = load i32, ptr %.phi.trans.insert.i.i330, align 4
   br label %530
 
@@ -5017,8 +5017,8 @@ expand_.exit.i333:                                ; preds = %534, %530
   br i1 %exitcond790.not, label %copy_decl_list.exit336, label %.lr.ph621, !llvm.loop !7
 
 copy_decl_list.exit336:                           ; preds = %expand_.exit.i333, %copy_decl_list.exit324, %522
-  %.021.i327.lcssa = phi ptr [ null, %522 ], [ null, %copy_decl_list.exit324 ], [ %550, %expand_.exit.i333 ]
-  store ptr %.021.i327.lcssa, ptr %520, align 8
+  %.020.i327.lcssa = phi ptr [ null, %522 ], [ null, %copy_decl_list.exit324 ], [ %550, %expand_.exit.i333 ]
+  store ptr %.020.i327.lcssa, ptr %520, align 8
   br label %common.ret1025
 
 558:                                              ; preds = %copy_attributes.exit, %copy_attributes.exit
@@ -5064,8 +5064,8 @@ copy_decl_type.exit338:                           ; preds = %558, %561
 
 .lr.ph597:                                        ; preds = %.lr.ph597.preheader, %expand_.exit487
   %indvars.iv756 = phi i64 [ 0, %.lr.ph597.preheader ], [ %indvars.iv.next757, %expand_.exit487 ]
-  %.021.i341595 = phi ptr [ null, %.lr.ph597.preheader ], [ %600, %expand_.exit487 ]
-  %.not.i481 = icmp eq ptr %.021.i341595, null
+  %.020.i341595 = phi ptr [ null, %.lr.ph597.preheader ], [ %600, %expand_.exit487 ]
+  %.not.i481 = icmp eq ptr %.020.i341595, null
   br i1 %.not.i481, label %575, label %578
 
 575:                                              ; preds = %.lr.ph597
@@ -5075,8 +5075,8 @@ copy_decl_type.exit338:                           ; preds = %558, %561
   br label %580
 
 578:                                              ; preds = %.lr.ph597
-  %579 = getelementptr inbounds i8, ptr %.021.i341595, i64 -8
-  %.phi.trans.insert.i482 = getelementptr inbounds i8, ptr %.021.i341595, i64 -4
+  %579 = getelementptr inbounds i8, ptr %.020.i341595, i64 -8
+  %.phi.trans.insert.i482 = getelementptr inbounds i8, ptr %.020.i341595, i64 -4
   %.pre.i483 = load i32, ptr %.phi.trans.insert.i482, align 4
   br label %580
 
@@ -5126,8 +5126,8 @@ expand_.exit487:                                  ; preds = %580, %584
   br i1 %exitcond760.not, label %type_info_copy_list_from_macro.exit343, label %.lr.ph597, !llvm.loop !13
 
 type_info_copy_list_from_macro.exit343:           ; preds = %expand_.exit487, %copy_decl_type.exit338, %572
-  %.021.i341.lcssa = phi ptr [ null, %572 ], [ null, %copy_decl_type.exit338 ], [ %600, %expand_.exit487 ]
-  store ptr %.021.i341.lcssa, ptr %570, align 8
+  %.020.i341.lcssa = phi ptr [ null, %572 ], [ null, %copy_decl_type.exit338 ], [ %600, %expand_.exit487 ]
+  store ptr %.020.i341.lcssa, ptr %570, align 8
   %608 = getelementptr inbounds i8, ptr %15, i64 88
   %609 = load ptr, ptr %608, align 8
   %.not.i344 = icmp eq ptr %609, null
@@ -5145,8 +5145,8 @@ type_info_copy_list_from_macro.exit343:           ; preds = %expand_.exit487, %c
 
 .lr.ph601:                                        ; preds = %.lr.ph601.preheader, %expand_.exit.i352
   %indvars.iv761 = phi i64 [ 0, %.lr.ph601.preheader ], [ %indvars.iv.next762, %expand_.exit.i352 ]
-  %.021.i346599 = phi ptr [ null, %.lr.ph601.preheader ], [ %638, %expand_.exit.i352 ]
-  %.not.i.i348 = icmp eq ptr %.021.i346599, null
+  %.020.i346599 = phi ptr [ null, %.lr.ph601.preheader ], [ %638, %expand_.exit.i352 ]
+  %.not.i.i348 = icmp eq ptr %.020.i346599, null
   br i1 %.not.i.i348, label %613, label %616
 
 613:                                              ; preds = %.lr.ph601
@@ -5156,8 +5156,8 @@ type_info_copy_list_from_macro.exit343:           ; preds = %expand_.exit487, %c
   br label %618
 
 616:                                              ; preds = %.lr.ph601
-  %617 = getelementptr inbounds i8, ptr %.021.i346599, i64 -8
-  %.phi.trans.insert.i.i349 = getelementptr inbounds i8, ptr %.021.i346599, i64 -4
+  %617 = getelementptr inbounds i8, ptr %.020.i346599, i64 -8
+  %.phi.trans.insert.i.i349 = getelementptr inbounds i8, ptr %.020.i346599, i64 -4
   %.pre.i.i350 = load i32, ptr %.phi.trans.insert.i.i349, align 4
   br label %618
 
@@ -5207,8 +5207,8 @@ expand_.exit.i352:                                ; preds = %622, %618
   br i1 %exitcond765.not, label %copy_decl_list.exit355, label %.lr.ph601, !llvm.loop !7
 
 copy_decl_list.exit355:                           ; preds = %expand_.exit.i352, %type_info_copy_list_from_macro.exit343, %610
-  %.021.i346.lcssa = phi ptr [ null, %610 ], [ null, %type_info_copy_list_from_macro.exit343 ], [ %638, %expand_.exit.i352 ]
-  store ptr %.021.i346.lcssa, ptr %608, align 8
+  %.020.i346.lcssa = phi ptr [ null, %610 ], [ null, %type_info_copy_list_from_macro.exit343 ], [ %638, %expand_.exit.i352 ]
+  store ptr %.020.i346.lcssa, ptr %608, align 8
   %646 = getelementptr inbounds i8, ptr %15, i64 96
   %647 = getelementptr inbounds i8, ptr %15, i64 104
   %648 = load ptr, ptr %647, align 8
@@ -5227,8 +5227,8 @@ copy_decl_list.exit355:                           ; preds = %expand_.exit.i352, 
 
 .lr.ph605:                                        ; preds = %.lr.ph605.preheader, %expand_.exit.i364
   %indvars.iv766 = phi i64 [ 0, %.lr.ph605.preheader ], [ %indvars.iv.next767, %expand_.exit.i364 ]
-  %.021.i358603 = phi ptr [ null, %.lr.ph605.preheader ], [ %677, %expand_.exit.i364 ]
-  %.not.i.i360 = icmp eq ptr %.021.i358603, null
+  %.020.i358603 = phi ptr [ null, %.lr.ph605.preheader ], [ %677, %expand_.exit.i364 ]
+  %.not.i.i360 = icmp eq ptr %.020.i358603, null
   br i1 %.not.i.i360, label %652, label %655
 
 652:                                              ; preds = %.lr.ph605
@@ -5238,8 +5238,8 @@ copy_decl_list.exit355:                           ; preds = %expand_.exit.i352, 
   br label %657
 
 655:                                              ; preds = %.lr.ph605
-  %656 = getelementptr inbounds i8, ptr %.021.i358603, i64 -8
-  %.phi.trans.insert.i.i361 = getelementptr inbounds i8, ptr %.021.i358603, i64 -4
+  %656 = getelementptr inbounds i8, ptr %.020.i358603, i64 -8
+  %.phi.trans.insert.i.i361 = getelementptr inbounds i8, ptr %.020.i358603, i64 -4
   %.pre.i.i362 = load i32, ptr %.phi.trans.insert.i.i361, align 4
   br label %657
 
@@ -5289,8 +5289,8 @@ expand_.exit.i364:                                ; preds = %661, %657
   br i1 %exitcond770.not, label %copy_decl_list.exit367, label %.lr.ph605, !llvm.loop !7
 
 copy_decl_list.exit367:                           ; preds = %expand_.exit.i364, %copy_decl_list.exit355, %649
-  %.021.i358.lcssa = phi ptr [ null, %649 ], [ null, %copy_decl_list.exit355 ], [ %677, %expand_.exit.i364 ]
-  store ptr %.021.i358.lcssa, ptr %647, align 8
+  %.020.i358.lcssa = phi ptr [ null, %649 ], [ null, %copy_decl_list.exit355 ], [ %677, %expand_.exit.i364 ]
+  store ptr %.020.i358.lcssa, ptr %647, align 8
   %685 = getelementptr inbounds i8, ptr %15, i64 112
   %686 = load ptr, ptr %685, align 8
   %687 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %686)
@@ -5311,8 +5311,8 @@ copy_decl_list.exit367:                           ; preds = %expand_.exit.i364, 
 
 .lr.ph609:                                        ; preds = %.lr.ph609.preheader, %expand_.exit.i376
   %indvars.iv771 = phi i64 [ 0, %.lr.ph609.preheader ], [ %indvars.iv.next772, %expand_.exit.i376 ]
-  %.021.i370607 = phi ptr [ null, %.lr.ph609.preheader ], [ %717, %expand_.exit.i376 ]
-  %.not.i.i372 = icmp eq ptr %.021.i370607, null
+  %.020.i370607 = phi ptr [ null, %.lr.ph609.preheader ], [ %717, %expand_.exit.i376 ]
+  %.not.i.i372 = icmp eq ptr %.020.i370607, null
   br i1 %.not.i.i372, label %692, label %695
 
 692:                                              ; preds = %.lr.ph609
@@ -5322,8 +5322,8 @@ copy_decl_list.exit367:                           ; preds = %expand_.exit.i364, 
   br label %697
 
 695:                                              ; preds = %.lr.ph609
-  %696 = getelementptr inbounds i8, ptr %.021.i370607, i64 -8
-  %.phi.trans.insert.i.i373 = getelementptr inbounds i8, ptr %.021.i370607, i64 -4
+  %696 = getelementptr inbounds i8, ptr %.020.i370607, i64 -8
+  %.phi.trans.insert.i.i373 = getelementptr inbounds i8, ptr %.020.i370607, i64 -4
   %.pre.i.i374 = load i32, ptr %.phi.trans.insert.i.i373, align 4
   br label %697
 
@@ -5373,8 +5373,8 @@ expand_.exit.i376:                                ; preds = %701, %697
   br i1 %exitcond775.not, label %copy_decl_list.exit379, label %.lr.ph609, !llvm.loop !7
 
 copy_decl_list.exit379:                           ; preds = %expand_.exit.i376, %copy_decl_list.exit367, %689
-  %.021.i370.lcssa = phi ptr [ null, %689 ], [ null, %copy_decl_list.exit367 ], [ %717, %expand_.exit.i376 ]
-  store ptr %.021.i370.lcssa, ptr %646, align 8
+  %.020.i370.lcssa = phi ptr [ null, %689 ], [ null, %copy_decl_list.exit367 ], [ %717, %expand_.exit.i376 ]
+  store ptr %.020.i370.lcssa, ptr %646, align 8
   br label %common.ret1025
 
 725:                                              ; preds = %copy_attributes.exit
@@ -5395,8 +5395,8 @@ copy_decl_list.exit379:                           ; preds = %expand_.exit.i376, 
 
 .lr.ph593:                                        ; preds = %.lr.ph593.preheader, %expand_.exit.i496
   %indvars.iv751 = phi i64 [ 0, %.lr.ph593.preheader ], [ %indvars.iv.next752, %expand_.exit.i496 ]
-  %.021.i490591 = phi ptr [ null, %.lr.ph593.preheader ], [ %756, %expand_.exit.i496 ]
-  %.not.i.i492 = icmp eq ptr %.021.i490591, null
+  %.020.i490591 = phi ptr [ null, %.lr.ph593.preheader ], [ %756, %expand_.exit.i496 ]
+  %.not.i.i492 = icmp eq ptr %.020.i490591, null
   br i1 %.not.i.i492, label %731, label %734
 
 731:                                              ; preds = %.lr.ph593
@@ -5406,8 +5406,8 @@ copy_decl_list.exit379:                           ; preds = %expand_.exit.i376, 
   br label %736
 
 734:                                              ; preds = %.lr.ph593
-  %735 = getelementptr inbounds i8, ptr %.021.i490591, i64 -8
-  %.phi.trans.insert.i.i493 = getelementptr inbounds i8, ptr %.021.i490591, i64 -4
+  %735 = getelementptr inbounds i8, ptr %.020.i490591, i64 -8
+  %.phi.trans.insert.i.i493 = getelementptr inbounds i8, ptr %.020.i490591, i64 -4
   %.pre.i.i494 = load i32, ptr %.phi.trans.insert.i.i493, align 4
   br label %736
 
@@ -5457,8 +5457,8 @@ expand_.exit.i496:                                ; preds = %740, %736
   br i1 %exitcond755.not, label %copy_decl_list.exit499, label %.lr.ph593, !llvm.loop !7
 
 copy_decl_list.exit499:                           ; preds = %expand_.exit.i496, %725, %728
-  %.021.i490.lcssa = phi ptr [ null, %728 ], [ null, %725 ], [ %756, %expand_.exit.i496 ]
-  store ptr %.021.i490.lcssa, ptr %726, align 8
+  %.020.i490.lcssa = phi ptr [ null, %728 ], [ null, %725 ], [ %756, %expand_.exit.i496 ]
+  store ptr %.020.i490.lcssa, ptr %726, align 8
   %764 = getelementptr inbounds i8, ptr %15, i64 88
   %765 = load i32, ptr %764, align 8
   %.not.i380 = icmp eq i32 %765, 0
@@ -5527,8 +5527,8 @@ copy_decl_type.exit383:                           ; preds = %777, %780
   br label %802
 
 802:                                              ; preds = %copy_decl_type.exit383, %791
-  %.0209 = phi i32 [ %801, %791 ], [ 0, %copy_decl_type.exit383 ]
-  store i32 %.0209, ptr %789, align 8
+  %.0215 = phi i32 [ %801, %791 ], [ 0, %copy_decl_type.exit383 ]
+  store i32 %.0215, ptr %789, align 8
   %803 = getelementptr inbounds i8, ptr %15, i64 116
   %804 = load i32, ptr %803, align 4
   %.not240 = icmp eq i32 %804, 0
@@ -5548,8 +5548,8 @@ copy_decl_type.exit383:                           ; preds = %777, %780
   br label %816
 
 816:                                              ; preds = %802, %805
-  %.0213 = phi i32 [ %815, %805 ], [ 0, %802 ]
-  store i32 %.0213, ptr %803, align 4
+  %.0212 = phi i32 [ %815, %805 ], [ 0, %802 ]
+  store i32 %.0212, ptr %803, align 4
   %817 = getelementptr inbounds i8, ptr %15, i64 104
   %818 = load ptr, ptr %817, align 8
   %.not.i500 = icmp eq ptr %818, null
@@ -5567,8 +5567,8 @@ copy_decl_type.exit383:                           ; preds = %777, %780
 
 .lr.ph589:                                        ; preds = %.lr.ph589.preheader, %expand_.exit.i508
   %indvars.iv746 = phi i64 [ 0, %.lr.ph589.preheader ], [ %indvars.iv.next747, %expand_.exit.i508 ]
-  %.021.i502587 = phi ptr [ null, %.lr.ph589.preheader ], [ %847, %expand_.exit.i508 ]
-  %.not.i.i504 = icmp eq ptr %.021.i502587, null
+  %.020.i502587 = phi ptr [ null, %.lr.ph589.preheader ], [ %847, %expand_.exit.i508 ]
+  %.not.i.i504 = icmp eq ptr %.020.i502587, null
   br i1 %.not.i.i504, label %822, label %825
 
 822:                                              ; preds = %.lr.ph589
@@ -5578,8 +5578,8 @@ copy_decl_type.exit383:                           ; preds = %777, %780
   br label %827
 
 825:                                              ; preds = %.lr.ph589
-  %826 = getelementptr inbounds i8, ptr %.021.i502587, i64 -8
-  %.phi.trans.insert.i.i505 = getelementptr inbounds i8, ptr %.021.i502587, i64 -4
+  %826 = getelementptr inbounds i8, ptr %.020.i502587, i64 -8
+  %.phi.trans.insert.i.i505 = getelementptr inbounds i8, ptr %.020.i502587, i64 -4
   %.pre.i.i506 = load i32, ptr %.phi.trans.insert.i.i505, align 4
   br label %827
 
@@ -5629,8 +5629,8 @@ expand_.exit.i508:                                ; preds = %831, %827
   br i1 %exitcond750.not, label %copy_decl_list.exit511, label %.lr.ph589, !llvm.loop !7
 
 copy_decl_list.exit511:                           ; preds = %expand_.exit.i508, %816, %819
-  %.021.i502.lcssa = phi ptr [ null, %819 ], [ null, %816 ], [ %847, %expand_.exit.i508 ]
-  store ptr %.021.i502.lcssa, ptr %817, align 8
+  %.020.i502.lcssa = phi ptr [ null, %819 ], [ null, %816 ], [ %847, %expand_.exit.i508 ]
+  store ptr %.020.i502.lcssa, ptr %817, align 8
   %855 = getelementptr inbounds i8, ptr %15, i64 96
   %856 = load i32, ptr %855, align 8
   %.not.i384 = icmp eq i32 %856, 0
@@ -5671,8 +5671,8 @@ copy_signature_deep.exit386:                      ; preds = %copy_decl_list.exit
   br label %881
 
 881:                                              ; preds = %copy_signature_deep.exit386, %870
-  %.0215 = phi i32 [ %880, %870 ], [ 0, %copy_signature_deep.exit386 ]
-  store i32 %.0215, ptr %868, align 8
+  %.0211 = phi i32 [ %880, %870 ], [ 0, %copy_signature_deep.exit386 ]
+  store i32 %.0211, ptr %868, align 8
   br label %common.ret1025
 
 882:                                              ; preds = %copy_attributes.exit
@@ -5696,8 +5696,8 @@ copy_signature_deep.exit386:                      ; preds = %copy_decl_list.exit
   br label %897
 
 897:                                              ; preds = %882, %886
-  %.0210 = phi i32 [ %896, %886 ], [ 0, %882 ]
-  store i32 %.0210, ptr %884, align 4
+  %.0214 = phi i32 [ %896, %886 ], [ 0, %882 ]
+  store i32 %.0214, ptr %884, align 4
   %898 = load i32, ptr %883, align 8
   %trunc = trunc i32 %898 to i8
   switch i8 %trunc, label %912 [
@@ -5754,18 +5754,18 @@ common.ret1025:                                   ; preds = %11, %copy_attribute
   br label %925
 
 925:                                              ; preds = %926, %920
-  %.09.i = phi ptr [ %924, %920 ], [ %927, %926 ]
-  %.not.i387 = icmp eq ptr %.09.i, %0
-  br i1 %.not.i387, label %fixup.exit.thread, label %926
+  %.0.i387 = phi ptr [ %924, %920 ], [ %927, %926 ]
+  %.not.i388 = icmp eq ptr %.0.i387, %0
+  br i1 %.not.i388, label %fixup.exit.thread, label %926
 
 926:                                              ; preds = %925
-  %927 = getelementptr inbounds i8, ptr %.09.i, i64 -16
+  %927 = getelementptr inbounds i8, ptr %.0.i387, i64 -16
   %928 = load ptr, ptr %927, align 8
   %929 = icmp eq ptr %928, %923
   br i1 %929, label %fixup.exit, label %925, !llvm.loop !11
 
 fixup.exit:                                       ; preds = %926
-  %930 = getelementptr inbounds i8, ptr %.09.i, i64 -8
+  %930 = getelementptr inbounds i8, ptr %.0.i387, i64 -8
   %931 = load ptr, ptr %930, align 8
   %.not236 = icmp eq ptr %931, null
   br i1 %.not236, label %fixup.exit.thread, label %932
@@ -5796,8 +5796,8 @@ fixup.exit.thread:                                ; preds = %925, %916, %932, %f
 
 .lr.ph581:                                        ; preds = %.lr.ph581.preheader, %expand_.exit518
   %indvars.iv736 = phi i64 [ 0, %.lr.ph581.preheader ], [ %indvars.iv.next737, %expand_.exit518 ]
-  %.021.i391579 = phi ptr [ null, %.lr.ph581.preheader ], [ %967, %expand_.exit518 ]
-  %.not.i512 = icmp eq ptr %.021.i391579, null
+  %.020.i391579 = phi ptr [ null, %.lr.ph581.preheader ], [ %967, %expand_.exit518 ]
+  %.not.i512 = icmp eq ptr %.020.i391579, null
   br i1 %.not.i512, label %942, label %945
 
 942:                                              ; preds = %.lr.ph581
@@ -5807,8 +5807,8 @@ fixup.exit.thread:                                ; preds = %925, %916, %932, %f
   br label %947
 
 945:                                              ; preds = %.lr.ph581
-  %946 = getelementptr inbounds i8, ptr %.021.i391579, i64 -8
-  %.phi.trans.insert.i513 = getelementptr inbounds i8, ptr %.021.i391579, i64 -4
+  %946 = getelementptr inbounds i8, ptr %.020.i391579, i64 -8
+  %.phi.trans.insert.i513 = getelementptr inbounds i8, ptr %.020.i391579, i64 -4
   %.pre.i514 = load i32, ptr %.phi.trans.insert.i513, align 4
   br label %947
 
@@ -5858,8 +5858,8 @@ expand_.exit518:                                  ; preds = %947, %951
   br i1 %exitcond740.not, label %copy_expr_list.exit393, label %.lr.ph581, !llvm.loop !10
 
 copy_expr_list.exit393:                           ; preds = %expand_.exit518, %fixup.exit.thread, %939
-  %.021.i391.lcssa = phi ptr [ null, %939 ], [ null, %fixup.exit.thread ], [ %967, %expand_.exit518 ]
-  store ptr %.021.i391.lcssa, ptr %917, align 8
+  %.020.i391.lcssa = phi ptr [ null, %939 ], [ null, %fixup.exit.thread ], [ %967, %expand_.exit518 ]
+  store ptr %.020.i391.lcssa, ptr %917, align 8
   br label %common.ret1025
 
 975:                                              ; preds = %copy_attributes.exit
@@ -5876,18 +5876,18 @@ copy_expr_list.exit393:                           ; preds = %expand_.exit518, %f
   br label %983
 
 983:                                              ; preds = %984, %978
-  %.09.i394 = phi ptr [ %982, %978 ], [ %985, %984 ]
-  %.not.i395 = icmp eq ptr %.09.i394, %0
+  %.0.i394 = phi ptr [ %982, %978 ], [ %985, %984 ]
+  %.not.i395 = icmp eq ptr %.0.i394, %0
   br i1 %.not.i395, label %common.ret1025, label %984
 
 984:                                              ; preds = %983
-  %985 = getelementptr inbounds i8, ptr %.09.i394, i64 -16
+  %985 = getelementptr inbounds i8, ptr %.0.i394, i64 -16
   %986 = load ptr, ptr %985, align 8
   %987 = icmp eq ptr %986, %981
   br i1 %987, label %fixup.exit397, label %983, !llvm.loop !11
 
 fixup.exit397:                                    ; preds = %984
-  %988 = getelementptr inbounds i8, ptr %.09.i394, i64 -8
+  %988 = getelementptr inbounds i8, ptr %.0.i394, i64 -8
   %989 = load ptr, ptr %988, align 8
   %.not234 = icmp eq ptr %989, null
   br i1 %.not234, label %common.ret1025, label %990
@@ -5987,8 +5987,8 @@ copy_decl_type.exit401:                           ; preds = %1017, %1020
 
 .lr.ph573:                                        ; preds = %.lr.ph573.preheader, %expand_.exit525
   %indvars.iv726 = phi i64 [ 0, %.lr.ph573.preheader ], [ %indvars.iv.next727, %expand_.exit525 ]
-  %.021.i404571 = phi ptr [ null, %.lr.ph573.preheader ], [ %1059, %expand_.exit525 ]
-  %.not.i519 = icmp eq ptr %.021.i404571, null
+  %.020.i404571 = phi ptr [ null, %.lr.ph573.preheader ], [ %1059, %expand_.exit525 ]
+  %.not.i519 = icmp eq ptr %.020.i404571, null
   br i1 %.not.i519, label %1034, label %1037
 
 1034:                                             ; preds = %.lr.ph573
@@ -5998,8 +5998,8 @@ copy_decl_type.exit401:                           ; preds = %1017, %1020
   br label %1039
 
 1037:                                             ; preds = %.lr.ph573
-  %1038 = getelementptr inbounds i8, ptr %.021.i404571, i64 -8
-  %.phi.trans.insert.i520 = getelementptr inbounds i8, ptr %.021.i404571, i64 -4
+  %1038 = getelementptr inbounds i8, ptr %.020.i404571, i64 -8
+  %.phi.trans.insert.i520 = getelementptr inbounds i8, ptr %.020.i404571, i64 -4
   %.pre.i521 = load i32, ptr %.phi.trans.insert.i520, align 4
   br label %1039
 
@@ -6049,8 +6049,8 @@ expand_.exit525:                                  ; preds = %1039, %1043
   br i1 %exitcond730.not, label %type_info_copy_list_from_macro.exit406, label %.lr.ph573, !llvm.loop !13
 
 type_info_copy_list_from_macro.exit406:           ; preds = %expand_.exit525, %copy_decl_type.exit401, %1031
-  %.021.i404.lcssa = phi ptr [ null, %1031 ], [ null, %copy_decl_type.exit401 ], [ %1059, %expand_.exit525 ]
-  store ptr %.021.i404.lcssa, ptr %1029, align 8
+  %.020.i404.lcssa = phi ptr [ null, %1031 ], [ null, %copy_decl_type.exit401 ], [ %1059, %expand_.exit525 ]
+  store ptr %.020.i404.lcssa, ptr %1029, align 8
   %1067 = getelementptr inbounds i8, ptr %15, i64 88
   %1068 = load ptr, ptr %1067, align 8
   %.not.i407 = icmp eq ptr %1068, null
@@ -6068,8 +6068,8 @@ type_info_copy_list_from_macro.exit406:           ; preds = %expand_.exit525, %c
 
 .lr.ph577:                                        ; preds = %.lr.ph577.preheader, %expand_.exit.i415
   %indvars.iv731 = phi i64 [ 0, %.lr.ph577.preheader ], [ %indvars.iv.next732, %expand_.exit.i415 ]
-  %.021.i409575 = phi ptr [ null, %.lr.ph577.preheader ], [ %1097, %expand_.exit.i415 ]
-  %.not.i.i411 = icmp eq ptr %.021.i409575, null
+  %.020.i409575 = phi ptr [ null, %.lr.ph577.preheader ], [ %1097, %expand_.exit.i415 ]
+  %.not.i.i411 = icmp eq ptr %.020.i409575, null
   br i1 %.not.i.i411, label %1072, label %1075
 
 1072:                                             ; preds = %.lr.ph577
@@ -6079,8 +6079,8 @@ type_info_copy_list_from_macro.exit406:           ; preds = %expand_.exit525, %c
   br label %1077
 
 1075:                                             ; preds = %.lr.ph577
-  %1076 = getelementptr inbounds i8, ptr %.021.i409575, i64 -8
-  %.phi.trans.insert.i.i412 = getelementptr inbounds i8, ptr %.021.i409575, i64 -4
+  %1076 = getelementptr inbounds i8, ptr %.020.i409575, i64 -8
+  %.phi.trans.insert.i.i412 = getelementptr inbounds i8, ptr %.020.i409575, i64 -4
   %.pre.i.i413 = load i32, ptr %.phi.trans.insert.i.i412, align 4
   br label %1077
 
@@ -6130,8 +6130,8 @@ expand_.exit.i415:                                ; preds = %1081, %1077
   br i1 %exitcond735.not, label %copy_decl_list.exit418, label %.lr.ph577, !llvm.loop !7
 
 copy_decl_list.exit418:                           ; preds = %expand_.exit.i415, %type_info_copy_list_from_macro.exit406, %1069
-  %.021.i409.lcssa = phi ptr [ null, %1069 ], [ null, %type_info_copy_list_from_macro.exit406 ], [ %1097, %expand_.exit.i415 ]
-  store ptr %.021.i409.lcssa, ptr %1067, align 8
+  %.020.i409.lcssa = phi ptr [ null, %1069 ], [ null, %type_info_copy_list_from_macro.exit406 ], [ %1097, %expand_.exit.i415 ]
+  store ptr %.020.i409.lcssa, ptr %1067, align 8
   %1105 = getelementptr inbounds i8, ptr %15, i64 96
   %1106 = load ptr, ptr %1105, align 8
   %1107 = tail call fastcc ptr @copy_type_info(ptr noundef %0, ptr noundef %1106)
@@ -6172,8 +6172,8 @@ copy_decl_list.exit418:                           ; preds = %expand_.exit.i415, 
   br label %1130
 
 1130:                                             ; preds = %1116, %1119
-  %.0214 = phi i32 [ %1129, %1119 ], [ 0, %1116 ]
-  store i32 %.0214, ptr %1117, align 4
+  %.0210 = phi i32 [ %1129, %1119 ], [ 0, %1116 ]
+  store i32 %.0210, ptr %1117, align 4
   %1131 = getelementptr inbounds i8, ptr %1, i64 80
   %1132 = load i32, ptr %1131, align 8
   %.not230 = icmp eq i32 %1132, 0
@@ -6193,8 +6193,8 @@ copy_decl_list.exit418:                           ; preds = %expand_.exit.i415, 
   br label %1144
 
 1144:                                             ; preds = %1130, %1133
-  %.0212 = phi i32 [ %1143, %1133 ], [ 0, %1130 ]
-  store i32 %.0212, ptr %1131, align 8
+  %.0213 = phi i32 [ %1143, %1133 ], [ 0, %1130 ]
+  store i32 %.0213, ptr %1131, align 8
   %1145 = getelementptr inbounds i8, ptr %15, i64 104
   %1146 = load ptr, ptr %1145, align 8
   %.not.i526 = icmp eq ptr %1146, null
@@ -6212,8 +6212,8 @@ copy_decl_list.exit418:                           ; preds = %expand_.exit.i415, 
 
 .lr.ph585:                                        ; preds = %.lr.ph585.preheader, %expand_.exit.i534
   %indvars.iv741 = phi i64 [ 0, %.lr.ph585.preheader ], [ %indvars.iv.next742, %expand_.exit.i534 ]
-  %.021.i528583 = phi ptr [ null, %.lr.ph585.preheader ], [ %1175, %expand_.exit.i534 ]
-  %.not.i.i530 = icmp eq ptr %.021.i528583, null
+  %.020.i528583 = phi ptr [ null, %.lr.ph585.preheader ], [ %1175, %expand_.exit.i534 ]
+  %.not.i.i530 = icmp eq ptr %.020.i528583, null
   br i1 %.not.i.i530, label %1150, label %1153
 
 1150:                                             ; preds = %.lr.ph585
@@ -6223,8 +6223,8 @@ copy_decl_list.exit418:                           ; preds = %expand_.exit.i415, 
   br label %1155
 
 1153:                                             ; preds = %.lr.ph585
-  %1154 = getelementptr inbounds i8, ptr %.021.i528583, i64 -8
-  %.phi.trans.insert.i.i531 = getelementptr inbounds i8, ptr %.021.i528583, i64 -4
+  %1154 = getelementptr inbounds i8, ptr %.020.i528583, i64 -8
+  %.phi.trans.insert.i.i531 = getelementptr inbounds i8, ptr %.020.i528583, i64 -4
   %.pre.i.i532 = load i32, ptr %.phi.trans.insert.i.i531, align 4
   br label %1155
 
@@ -6274,8 +6274,8 @@ expand_.exit.i534:                                ; preds = %1159, %1155
   br i1 %exitcond745.not, label %copy_decl_list.exit537, label %.lr.ph585, !llvm.loop !7
 
 copy_decl_list.exit537:                           ; preds = %expand_.exit.i534, %1144, %1147
-  %.021.i528.lcssa = phi ptr [ null, %1147 ], [ null, %1144 ], [ %1175, %expand_.exit.i534 ]
-  store ptr %.021.i528.lcssa, ptr %1145, align 8
+  %.020.i528.lcssa = phi ptr [ null, %1147 ], [ null, %1144 ], [ %1175, %expand_.exit.i534 ]
+  store ptr %.020.i528.lcssa, ptr %1145, align 8
   %1183 = getelementptr inbounds i8, ptr %15, i64 96
   %1184 = load i32, ptr %1183, align 8
   %.not.i419 = icmp eq i32 %1184, 0
@@ -6316,8 +6316,8 @@ copy_signature_deep.exit421:                      ; preds = %copy_decl_list.exit
   br label %1209
 
 1209:                                             ; preds = %copy_signature_deep.exit421, %1198
-  %.0211 = phi i32 [ %1208, %1198 ], [ 0, %copy_signature_deep.exit421 ]
-  store i32 %.0211, ptr %1196, align 8
+  %.0209 = phi i32 [ %1208, %1198 ], [ 0, %copy_signature_deep.exit421 ]
+  store i32 %.0209, ptr %1196, align 8
   %1210 = getelementptr inbounds i8, ptr %1, i64 120
   %1211 = load i32, ptr %1210, align 8
   %.not232 = icmp eq i32 %1211, 0
@@ -6359,8 +6359,8 @@ copy_signature_deep.exit421:                      ; preds = %copy_decl_list.exit
 
 .lr.ph657:                                        ; preds = %.lr.ph657.preheader, %expand_.exit.i430
   %indvars.iv831 = phi i64 [ 0, %.lr.ph657.preheader ], [ %indvars.iv.next832, %expand_.exit.i430 ]
-  %.021.i424655 = phi ptr [ null, %.lr.ph657.preheader ], [ %1255, %expand_.exit.i430 ]
-  %.not.i.i426 = icmp eq ptr %.021.i424655, null
+  %.020.i424655 = phi ptr [ null, %.lr.ph657.preheader ], [ %1255, %expand_.exit.i430 ]
+  %.not.i.i426 = icmp eq ptr %.020.i424655, null
   br i1 %.not.i.i426, label %1230, label %1233
 
 1230:                                             ; preds = %.lr.ph657
@@ -6370,8 +6370,8 @@ copy_signature_deep.exit421:                      ; preds = %copy_decl_list.exit
   br label %1235
 
 1233:                                             ; preds = %.lr.ph657
-  %1234 = getelementptr inbounds i8, ptr %.021.i424655, i64 -8
-  %.phi.trans.insert.i.i427 = getelementptr inbounds i8, ptr %.021.i424655, i64 -4
+  %1234 = getelementptr inbounds i8, ptr %.020.i424655, i64 -8
+  %.phi.trans.insert.i.i427 = getelementptr inbounds i8, ptr %.020.i424655, i64 -4
   %.pre.i.i428 = load i32, ptr %.phi.trans.insert.i.i427, align 4
   br label %1235
 
@@ -6421,8 +6421,8 @@ expand_.exit.i430:                                ; preds = %1239, %1235
   br i1 %exitcond835.not, label %copy_decl_list.exit433, label %.lr.ph657, !llvm.loop !7
 
 copy_decl_list.exit433:                           ; preds = %expand_.exit.i430, %1224, %1227
-  %.021.i424.lcssa = phi ptr [ null, %1227 ], [ null, %1224 ], [ %1255, %expand_.exit.i430 ]
-  store ptr %.021.i424.lcssa, ptr %1225, align 8
+  %.020.i424.lcssa = phi ptr [ null, %1227 ], [ null, %1224 ], [ %1255, %expand_.exit.i430 ]
+  store ptr %.020.i424.lcssa, ptr %1225, align 8
   %1263 = getelementptr inbounds i8, ptr %1, i64 88
   %1264 = load ptr, ptr %1263, align 8
   %.not.i434 = icmp eq ptr %1264, null
@@ -6440,7 +6440,7 @@ copy_decl_list.exit433:                           ; preds = %expand_.exit.i430, 
 
 .lr.ph665:                                        ; preds = %.lr.ph665.preheader, %expand_.exit544
   %indvars.iv841 = phi i64 [ 0, %.lr.ph665.preheader ], [ %indvars.iv.next842, %expand_.exit544 ]
-  %.029.i436664 = phi ptr [ null, %.lr.ph665.preheader ], [ %1334, %expand_.exit544 ]
+  %.029.i435663 = phi ptr [ null, %.lr.ph665.preheader ], [ %1334, %expand_.exit544 ]
   %1268 = getelementptr inbounds ptr, ptr %1264, i64 %indvars.iv841
   %1269 = load ptr, ptr %1268, align 8
   %1270 = tail call ptr @calloc_arena(i64 noundef 40) #5
@@ -6462,8 +6462,8 @@ copy_decl_list.exit433:                           ; preds = %expand_.exit.i430, 
 
 .lr.ph661:                                        ; preds = %.lr.ph661.preheader, %expand_.exit.i553
   %indvars.iv836 = phi i64 [ 0, %.lr.ph661.preheader ], [ %indvars.iv.next837, %expand_.exit.i553 ]
-  %.021.i547659 = phi ptr [ null, %.lr.ph661.preheader ], [ %1301, %expand_.exit.i553 ]
-  %.not.i.i549 = icmp eq ptr %.021.i547659, null
+  %.020.i547659 = phi ptr [ null, %.lr.ph661.preheader ], [ %1301, %expand_.exit.i553 ]
+  %.not.i.i549 = icmp eq ptr %.020.i547659, null
   br i1 %.not.i.i549, label %1276, label %1279
 
 1276:                                             ; preds = %.lr.ph661
@@ -6473,8 +6473,8 @@ copy_decl_list.exit433:                           ; preds = %expand_.exit.i430, 
   br label %1281
 
 1279:                                             ; preds = %.lr.ph661
-  %1280 = getelementptr inbounds i8, ptr %.021.i547659, i64 -8
-  %.phi.trans.insert.i.i550 = getelementptr inbounds i8, ptr %.021.i547659, i64 -4
+  %1280 = getelementptr inbounds i8, ptr %.020.i547659, i64 -8
+  %.phi.trans.insert.i.i550 = getelementptr inbounds i8, ptr %.020.i547659, i64 -4
   %.pre.i.i551 = load i32, ptr %.phi.trans.insert.i.i550, align 4
   br label %1281
 
@@ -6524,9 +6524,9 @@ expand_.exit.i553:                                ; preds = %1285, %1281
   br i1 %exitcond840.not, label %copy_expr_list.exit556, label %.lr.ph661, !llvm.loop !10
 
 copy_expr_list.exit556:                           ; preds = %expand_.exit.i553, %.lr.ph665, %1273
-  %.021.i547.lcssa = phi ptr [ null, %1273 ], [ null, %.lr.ph665 ], [ %1301, %expand_.exit.i553 ]
-  store ptr %.021.i547.lcssa, ptr %1271, align 8
-  %.not.i538 = icmp eq ptr %.029.i436664, null
+  %.020.i547.lcssa = phi ptr [ null, %1273 ], [ null, %.lr.ph665 ], [ %1301, %expand_.exit.i553 ]
+  store ptr %.020.i547.lcssa, ptr %1271, align 8
+  %.not.i538 = icmp eq ptr %.029.i435663, null
   br i1 %.not.i538, label %1309, label %1312
 
 1309:                                             ; preds = %copy_expr_list.exit556
@@ -6536,8 +6536,8 @@ copy_expr_list.exit556:                           ; preds = %expand_.exit.i553, 
   br label %1314
 
 1312:                                             ; preds = %copy_expr_list.exit556
-  %1313 = getelementptr inbounds i8, ptr %.029.i436664, i64 -8
-  %.phi.trans.insert.i539 = getelementptr inbounds i8, ptr %.029.i436664, i64 -4
+  %1313 = getelementptr inbounds i8, ptr %.029.i435663, i64 -8
+  %.phi.trans.insert.i539 = getelementptr inbounds i8, ptr %.029.i435663, i64 -4
   %.pre.i540 = load i32, ptr %.phi.trans.insert.i539, align 4
   br label %1314
 
@@ -6582,8 +6582,8 @@ expand_.exit544:                                  ; preds = %1314, %1318
   br i1 %exitcond845.not, label %copy_attributes.exit438, label %.lr.ph665, !llvm.loop !12
 
 copy_attributes.exit438:                          ; preds = %expand_.exit544, %1265, %copy_decl_list.exit433
-  %.028.i437 = phi ptr [ null, %copy_decl_list.exit433 ], [ null, %1265 ], [ %1334, %expand_.exit544 ]
-  store ptr %.028.i437, ptr %1263, align 8
+  %.030.i437 = phi ptr [ null, %copy_decl_list.exit433 ], [ null, %1265 ], [ %1334, %expand_.exit544 ]
+  store ptr %.030.i437, ptr %1263, align 8
   br label %common.ret1025
 
 1337:                                             ; preds = %copy_attributes.exit
@@ -6654,8 +6654,8 @@ define internal fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef readonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
-  %.02125 = phi ptr [ null, %.lr.ph.preheader ], [ %32, %29 ]
-  %.not.i = icmp eq ptr %.02125, null
+  %.02025 = phi ptr [ null, %.lr.ph.preheader ], [ %32, %29 ]
+  %.not.i = icmp eq ptr %.02025, null
   br i1 %.not.i, label %6, label %9
 
 6:                                                ; preds = %.lr.ph
@@ -6665,8 +6665,8 @@ define internal fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef readonly 
   br label %11
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.02125, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.02125, i64 -4
+  %10 = getelementptr inbounds i8, ptr %.02025, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.02025, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %11
 
@@ -6716,8 +6716,8 @@ define internal fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef readonly 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %29, %2, %3
-  %.021.lcssa = phi ptr [ null, %3 ], [ null, %2 ], [ %32, %29 ]
-  ret ptr %.021.lcssa
+  %.020.lcssa = phi ptr [ null, %3 ], [ null, %2 ], [ %32, %29 ]
+  ret ptr %.020.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6737,7 +6737,7 @@ define internal fastcc ptr @macro_copy_designator_list(ptr noundef %0, ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
-  %.03239 = phi ptr [ null, %.lr.ph.preheader ], [ %46, %43 ]
+  %.03238 = phi ptr [ null, %.lr.ph.preheader ], [ %46, %43 ]
   %6 = tail call ptr @calloc_arena(i64 noundef 32) #5
   %7 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
@@ -6766,7 +6766,7 @@ define internal fastcc ptr @macro_copy_designator_list(ptr noundef %0, ptr nound
   %18 = load ptr, ptr %17, align 8
   %19 = tail call fastcc ptr @copy_expr(ptr noundef %0, ptr noundef %18)
   store ptr %19, ptr %17, align 8
-  %.not.i = icmp eq ptr %.03239, null
+  %.not.i = icmp eq ptr %.03238, null
   br i1 %.not.i, label %20, label %23
 
 20:                                               ; preds = %16
@@ -6776,8 +6776,8 @@ define internal fastcc ptr @macro_copy_designator_list(ptr noundef %0, ptr nound
   br label %25
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %.03239, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.03239, i64 -4
+  %24 = getelementptr inbounds i8, ptr %.03238, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.03238, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %25
 
@@ -6960,12 +6960,12 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
 
 .lr.ph117:                                        ; preds = %.lr.ph117.preheader, %77
   %indvars.iv137 = phi i64 [ 0, %.lr.ph117.preheader ], [ %indvars.iv.next138, %77 ]
-  %.078115 = phi ptr [ null, %.lr.ph117.preheader ], [ %80, %77 ]
+  %.080115 = phi ptr [ null, %.lr.ph117.preheader ], [ %80, %77 ]
   %52 = getelementptr inbounds ptr, ptr %48, i64 %indvars.iv137
   %53 = load ptr, ptr %52, align 8
   store ptr %53, ptr %3, align 8
   call fastcc void @copy_const_initializer(ptr noundef %0, ptr noundef nonnull %3)
-  %.not.i = icmp eq ptr %.078115, null
+  %.not.i = icmp eq ptr %.080115, null
   br i1 %.not.i, label %54, label %57
 
 54:                                               ; preds = %.lr.ph117
@@ -6975,8 +6975,8 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
   br label %59
 
 57:                                               ; preds = %.lr.ph117
-  %58 = getelementptr inbounds i8, ptr %.078115, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.078115, i64 -4
+  %58 = getelementptr inbounds i8, ptr %.080115, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.080115, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %59
 
@@ -7022,8 +7022,8 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
   br i1 %exitcond141.not, label %._crit_edge118, label %.lr.ph117, !llvm.loop !16
 
 ._crit_edge118:                                   ; preds = %77, %46, %49
-  %.078.lcssa = phi ptr [ null, %49 ], [ null, %46 ], [ %80, %77 ]
-  store ptr %.078.lcssa, ptr %47, align 8
+  %.080.lcssa = phi ptr [ null, %49 ], [ null, %46 ], [ %80, %77 ]
+  store ptr %.080.lcssa, ptr %47, align 8
   br label %.loopexit
 
 84:                                               ; preds = %tailrecurse
@@ -7044,12 +7044,12 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %115
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %115 ]
-  %.084113 = phi ptr [ null, %.lr.ph.preheader ], [ %118, %115 ]
+  %.082112 = phi ptr [ null, %.lr.ph.preheader ], [ %118, %115 ]
   %90 = getelementptr inbounds ptr, ptr %86, i64 %indvars.iv
   %91 = load ptr, ptr %90, align 8
   store ptr %91, ptr %4, align 8
   call fastcc void @copy_const_initializer(ptr noundef %0, ptr noundef nonnull %4)
-  %.not.i97 = icmp eq ptr %.084113, null
+  %.not.i97 = icmp eq ptr %.082112, null
   br i1 %.not.i97, label %92, label %95
 
 92:                                               ; preds = %.lr.ph
@@ -7059,8 +7059,8 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
   br label %97
 
 95:                                               ; preds = %.lr.ph
-  %96 = getelementptr inbounds i8, ptr %.084113, i64 -8
-  %.phi.trans.insert.i98 = getelementptr inbounds i8, ptr %.084113, i64 -4
+  %96 = getelementptr inbounds i8, ptr %.082112, i64 -8
+  %.phi.trans.insert.i98 = getelementptr inbounds i8, ptr %.082112, i64 -4
   %.pre.i99 = load i32, ptr %.phi.trans.insert.i98, align 4
   br label %97
 
@@ -7106,8 +7106,8 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %115, %84, %87
-  %.084.lcssa = phi ptr [ null, %87 ], [ null, %84 ], [ %118, %115 ]
-  store ptr %.084.lcssa, ptr %85, align 8
+  %.082.lcssa = phi ptr [ null, %87 ], [ null, %84 ], [ %118, %115 ]
+  store ptr %.082.lcssa, ptr %85, align 8
   br label %.loopexit
 
 122:                                              ; preds = %tailrecurse

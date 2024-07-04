@@ -2537,8 +2537,8 @@ cond.false28:                                     ; preds = %if.else
   br label %if.end32
 
 if.end32:                                         ; preds = %if.else, %if.then5, %cond.false28, %cond.false
-  %top_e.0 = phi i32 [ %sub9, %cond.false ], [ %conv29, %cond.false28 ], [ -1, %if.then5 ], [ -1, %if.else ]
   %base_e.0 = phi i32 [ %shl, %cond.false ], [ %cond22, %cond.false28 ], [ %shl, %if.then5 ], [ %cond22, %if.else ]
+  %top_e.0 = phi i32 [ %sub9, %cond.false ], [ %conv29, %cond.false28 ], [ -1, %if.then5 ], [ -1, %if.else ]
   %range_.i = getelementptr inbounds i8, ptr %p, i64 12
   %6 = load i32, ptr %range_.i, align 4
   %spec.select = tail call i32 @llvm.umin.i32(i32 %base_e.0, i32 %6)
@@ -4682,8 +4682,8 @@ cond.false28:                                     ; preds = %if.else
   br label %if.end32
 
 if.end32:                                         ; preds = %if.else, %if.then5, %cond.false28, %cond.false
-  %top_e.0 = phi i32 [ %sub9, %cond.false ], [ %conv29, %cond.false28 ], [ -1, %if.then5 ], [ -1, %if.else ]
   %base_e.0 = phi i32 [ %shl, %cond.false ], [ %cond22, %cond.false28 ], [ %shl, %if.then5 ], [ %cond22, %if.else ]
+  %top_e.0 = phi i32 [ %sub9, %cond.false ], [ %conv29, %cond.false28 ], [ -1, %if.then5 ], [ -1, %if.else ]
   %range_.i = getelementptr inbounds i8, ptr %p, i64 12
   %9 = load i32, ptr %range_.i, align 4
   %spec.select = tail call i32 @llvm.umin.i32(i32 %base_e.0, i32 %9)
@@ -9859,8 +9859,8 @@ cond.false32.i:                                   ; preds = %if.else.i560
   br label %if.end36.i
 
 if.end36.i:                                       ; preds = %cond.false32.i, %if.else.i560, %cond.false.i, %if.then5.i
-  %top_e.0.i = phi i8 [ %196, %cond.false.i ], [ %conv33.i, %cond.false32.i ], [ -1, %if.then5.i ], [ -1, %if.else.i560 ]
   %base_e.0.i = phi i8 [ %conv6.i, %cond.false.i ], [ %cond26.i, %cond.false32.i ], [ %conv6.i, %if.then5.i ], [ %cond26.i, %if.else.i560 ]
+  %top_e.0.i = phi i8 [ %196, %cond.false.i ], [ %conv33.i, %cond.false32.i ], [ -1, %if.then5.i ], [ -1, %if.else.i560 ]
   %199 = load i8, ptr %range_.i.i217, align 1
   %spec.select.i = call i8 @llvm.umin.i8(i8 %base_e.0.i, i8 %199)
   %cond54.i = call i8 @llvm.umin.i8(i8 %top_e.0.i, i8 %199)
@@ -16290,8 +16290,8 @@ cond.false32.i:                                   ; preds = %if.else.i572
   br label %if.end36.i
 
 if.end36.i:                                       ; preds = %cond.false32.i, %if.else.i572, %cond.false.i, %if.then5.i
-  %top_e.0.i = phi i16 [ %193, %cond.false.i ], [ %conv33.i, %cond.false32.i ], [ -1, %if.then5.i ], [ -1, %if.else.i572 ]
   %base_e.0.i = phi i16 [ %conv6.i, %cond.false.i ], [ %cond26.i, %cond.false32.i ], [ %conv6.i, %if.then5.i ], [ %cond26.i, %if.else.i572 ]
+  %top_e.0.i = phi i16 [ %193, %cond.false.i ], [ %conv33.i, %cond.false32.i ], [ -1, %if.then5.i ], [ -1, %if.else.i572 ]
   %196 = load i16, ptr %range_.i.i217, align 2
   %spec.select.i = call i16 @llvm.umin.i16(i16 %base_e.0.i, i16 %196)
   %cond54.i = call i16 @llvm.umin.i16(i16 %top_e.0.i, i16 %196)
@@ -20606,8 +20606,8 @@ cond.false28.i:                                   ; preds = %if.else.i557
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %cond.false28.i, %if.else.i557, %cond.false.i, %if.then5.i
-  %top_e.0.i = phi i32 [ %sub9.i, %cond.false.i ], [ %conv29.i, %cond.false28.i ], [ -1, %if.then5.i ], [ -1, %if.else.i557 ]
   %base_e.0.i = phi i32 [ %shl.i, %cond.false.i ], [ %cond22.i, %cond.false28.i ], [ %shl.i, %if.then5.i ], [ %cond22.i, %if.else.i557 ]
+  %top_e.0.i = phi i32 [ %sub9.i, %cond.false.i ], [ %conv29.i, %cond.false28.i ], [ -1, %if.then5.i ], [ -1, %if.else.i557 ]
   %194 = load i32, ptr %range_.i.i216, align 4
   %spec.select.i = call i32 @llvm.umin.i32(i32 %base_e.0.i, i32 %194)
   %cond46.i = call i32 @llvm.umin.i32(i32 %top_e.0.i, i32 %194)
@@ -24465,8 +24465,8 @@ cond.false29.i:                                   ; preds = %if.else.i558
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %cond.false29.i, %if.else.i558, %cond.false.i, %if.then5.i
-  %top_e.0.i = phi i64 [ %sub10.i, %cond.false.i ], [ %conv30.i, %cond.false29.i ], [ -1, %if.then5.i ], [ -1, %if.else.i558 ]
   %base_e.0.i = phi i64 [ %shl.i, %cond.false.i ], [ %cond23.i, %cond.false29.i ], [ %shl.i, %if.then5.i ], [ %cond23.i, %if.else.i558 ]
+  %top_e.0.i = phi i64 [ %sub10.i, %cond.false.i ], [ %conv30.i, %cond.false29.i ], [ -1, %if.then5.i ], [ -1, %if.else.i558 ]
   %194 = load i64, ptr %range_.i.i217, align 8
   %spec.select.i = call i64 @llvm.umin.i64(i64 %base_e.0.i, i64 %194)
   %cond47.i = call i64 @llvm.umin.i64(i64 %top_e.0.i, i64 %194)
@@ -28782,8 +28782,8 @@ cond.false32.i:                                   ; preds = %if.else.i560
   br label %if.end36.i
 
 if.end36.i:                                       ; preds = %cond.false32.i, %if.else.i560, %cond.false.i, %if.then5.i
-  %top_e.0.i = phi i8 [ %196, %cond.false.i ], [ %conv33.i, %cond.false32.i ], [ -1, %if.then5.i ], [ -1, %if.else.i560 ]
   %base_e.0.i = phi i8 [ %conv6.i, %cond.false.i ], [ %cond26.i, %cond.false32.i ], [ %conv6.i, %if.then5.i ], [ %cond26.i, %if.else.i560 ]
+  %top_e.0.i = phi i8 [ %196, %cond.false.i ], [ %conv33.i, %cond.false32.i ], [ -1, %if.then5.i ], [ -1, %if.else.i560 ]
   %199 = load i8, ptr %range_.i.i217, align 1
   %spec.select.i = call i8 @llvm.umin.i8(i8 %base_e.0.i, i8 %199)
   %cond54.i = call i8 @llvm.umin.i8(i8 %top_e.0.i, i8 %199)
@@ -33140,8 +33140,8 @@ cond.false32.i:                                   ; preds = %if.else.i572
   br label %if.end36.i
 
 if.end36.i:                                       ; preds = %cond.false32.i, %if.else.i572, %cond.false.i, %if.then5.i
-  %top_e.0.i = phi i16 [ %193, %cond.false.i ], [ %conv33.i, %cond.false32.i ], [ -1, %if.then5.i ], [ -1, %if.else.i572 ]
   %base_e.0.i = phi i16 [ %conv6.i, %cond.false.i ], [ %cond26.i, %cond.false32.i ], [ %conv6.i, %if.then5.i ], [ %cond26.i, %if.else.i572 ]
+  %top_e.0.i = phi i16 [ %193, %cond.false.i ], [ %conv33.i, %cond.false32.i ], [ -1, %if.then5.i ], [ -1, %if.else.i572 ]
   %196 = load i16, ptr %range_.i.i217, align 2
   %spec.select.i = call i16 @llvm.umin.i16(i16 %base_e.0.i, i16 %196)
   %cond54.i = call i16 @llvm.umin.i16(i16 %top_e.0.i, i16 %196)
@@ -37456,8 +37456,8 @@ cond.false28.i:                                   ; preds = %if.else.i558
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %cond.false28.i, %if.else.i558, %cond.false.i, %if.then5.i
-  %top_e.0.i = phi i32 [ %sub9.i, %cond.false.i ], [ %conv29.i, %cond.false28.i ], [ -1, %if.then5.i ], [ -1, %if.else.i558 ]
   %base_e.0.i = phi i32 [ %shl.i, %cond.false.i ], [ %cond22.i, %cond.false28.i ], [ %shl.i, %if.then5.i ], [ %cond22.i, %if.else.i558 ]
+  %top_e.0.i = phi i32 [ %sub9.i, %cond.false.i ], [ %conv29.i, %cond.false28.i ], [ -1, %if.then5.i ], [ -1, %if.else.i558 ]
   %194 = load i32, ptr %range_.i.i217, align 4
   %spec.select.i = call i32 @llvm.umin.i32(i32 %base_e.0.i, i32 %194)
   %cond46.i = call i32 @llvm.umin.i32(i32 %top_e.0.i, i32 %194)
@@ -41860,8 +41860,8 @@ cond.false29.i:                                   ; preds = %if.else.i559
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %cond.false29.i, %if.else.i559, %cond.false.i, %if.then5.i
-  %top_e.0.i = phi i64 [ %sub10.i, %cond.false.i ], [ %conv30.i, %cond.false29.i ], [ -1, %if.then5.i ], [ -1, %if.else.i559 ]
   %base_e.0.i = phi i64 [ %shl.i, %cond.false.i ], [ %cond23.i, %cond.false29.i ], [ %shl.i, %if.then5.i ], [ %cond23.i, %if.else.i559 ]
+  %top_e.0.i = phi i64 [ %sub10.i, %cond.false.i ], [ %conv30.i, %cond.false29.i ], [ -1, %if.then5.i ], [ -1, %if.else.i559 ]
   %194 = load i64, ptr %range_.i.i218, align 8
   %spec.select.i = call i64 @llvm.umin.i64(i64 %base_e.0.i, i64 %194)
   %cond47.i = call i64 @llvm.umin.i64(i64 %top_e.0.i, i64 %194)

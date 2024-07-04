@@ -262,8 +262,8 @@ isdiagonal.exit:                                  ; preds = %66, %39, %46, %53
   br label %.loopexit
 
 .loopexit:                                        ; preds = %isdiagonal.exit, %91, %._crit_edge
-  %.038 = phi i32 [ %90, %._crit_edge ], [ 0, %91 ], [ -1, %isdiagonal.exit ]
-  ret i32 %.038
+  %.040 = phi i32 [ %90, %._crit_edge ], [ 0, %91 ], [ -1, %isdiagonal.exit ]
+  ret i32 %.040
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)

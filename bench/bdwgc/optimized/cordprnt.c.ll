@@ -138,9 +138,9 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   %.0144 = phi i32 [ %.1145, %96 ], [ 0, %62 ]
   %.0142 = phi i32 [ %.1143, %96 ], [ 0, %62 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %96 ], [ 1, %62 ]
-  %.04260.i = phi i32 [ %.2.i, %96 ], [ 0, %62 ]
-  %.04359.i = phi i32 [ %.144.i, %96 ], [ 0, %62 ]
-  %.04558.i = phi i32 [ %.146.i, %96 ], [ 0, %62 ]
+  %.04160.i = phi i32 [ %.2.i, %96 ], [ 0, %62 ]
+  %.04259.i = phi i32 [ %.143.i, %96 ], [ 0, %62 ]
+  %.04458.i = phi i32 [ %.145.i, %96 ], [ 0, %62 ]
   %64 = load i64, ptr %12, align 16
   %.not48.i = icmp eq i64 %64, 0
   br i1 %.not48.i, label %72, label %65
@@ -205,22 +205,22 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   ]
 
 76:                                               ; preds = %74
-  %.not52.i = icmp ne i32 %.04260.i, 0
-  %77 = mul nsw i32 %.04558.i, 10
-  %spec.select.i = select i1 %.not52.i, i32 %77, i32 %.04558.i
+  %.not52.i = icmp ne i32 %.04160.i, 0
+  %77 = mul nsw i32 %.04458.i, 10
+  %spec.select.i = select i1 %.not52.i, i32 %77, i32 %.04458.i
   %spec.select53.i = zext i1 %.not52.i to i32
   br label %89
 
 78:                                               ; preds = %74, %74, %74, %74, %74, %74, %74, %74, %74
   %79 = zext nneg i8 %.in.i to i32
-  %80 = mul nsw i32 %.04558.i, 10
+  %80 = mul nsw i32 %.04458.i, 10
   %81 = add i32 %80, -48
   %82 = add i32 %81, %79
   br label %89
 
 83:                                               ; preds = %74
-  %.not51.i = icmp eq i32 %.04260.i, 0
-  %spec.select165 = select i1 %.not51.i, i32 %.0150, i32 %.04558.i
+  %.not51.i = icmp eq i32 %.04160.i, 0
+  %spec.select165 = select i1 %.not51.i, i32 %.0150, i32 %.04458.i
   br label %89
 
 84:                                               ; preds = %74, %74
@@ -242,9 +242,9 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   %.1151 = phi i32 [ %.0150, %88 ], [ %.0150, %87 ], [ %.0150, %86 ], [ %.0150, %85 ], [ %.0150, %84 ], [ %.0150, %78 ], [ %.0150, %76 ], [ %.0150, %74 ], [ %spec.select165, %83 ]
   %.1145 = phi i32 [ 1, %88 ], [ %.0144, %87 ], [ %.0144, %86 ], [ %.0144, %85 ], [ %.0144, %84 ], [ %.0144, %78 ], [ %.0144, %76 ], [ %.0144, %74 ], [ %.0144, %83 ]
   %.1143 = phi i32 [ %.0142, %88 ], [ %.0142, %87 ], [ -1, %86 ], [ 2, %85 ], [ 1, %84 ], [ %.0142, %78 ], [ %.0142, %76 ], [ %.0142, %74 ], [ %.0142, %83 ]
-  %.146.i = phi i32 [ 0, %88 ], [ 0, %87 ], [ 0, %86 ], [ 0, %85 ], [ 0, %84 ], [ %82, %78 ], [ %spec.select.i, %76 ], [ -2, %74 ], [ 0, %83 ]
-  %.144.i = phi i32 [ %.04359.i, %88 ], [ %.04359.i, %87 ], [ %.04359.i, %86 ], [ %.04359.i, %85 ], [ %.04359.i, %84 ], [ %.04359.i, %78 ], [ %.04359.i, %76 ], [ %.04359.i, %74 ], [ 1, %83 ]
-  %.2.i = phi i32 [ %.04260.i, %88 ], [ %.04260.i, %87 ], [ %.04260.i, %86 ], [ %.04260.i, %85 ], [ %.04260.i, %84 ], [ 1, %78 ], [ %spec.select53.i, %76 ], [ 1, %74 ], [ 0, %83 ]
+  %.145.i = phi i32 [ 0, %88 ], [ 0, %87 ], [ 0, %86 ], [ 0, %85 ], [ 0, %84 ], [ %82, %78 ], [ %spec.select.i, %76 ], [ -2, %74 ], [ 0, %83 ]
+  %.143.i = phi i32 [ %.04259.i, %88 ], [ %.04259.i, %87 ], [ %.04259.i, %86 ], [ %.04259.i, %85 ], [ %.04259.i, %84 ], [ %.04259.i, %78 ], [ %.04259.i, %76 ], [ %.04259.i, %74 ], [ 1, %83 ]
+  %.2.i = phi i32 [ %.04160.i, %88 ], [ %.04160.i, %87 ], [ %.04160.i, %86 ], [ %.04160.i, %85 ], [ %.04160.i, %84 ], [ 1, %78 ], [ %spec.select53.i, %76 ], [ 1, %74 ], [ 0, %83 ]
   %90 = load i64, ptr %5, align 16
   %91 = add i64 %90, 1
   %92 = load i64, ptr %12, align 16
@@ -267,12 +267,12 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br i1 %or.cond.i, label %extract_conv_spec.exit.thread, label %.lr.ph.i, !llvm.loop !4
 
 99:                                               ; preds = %74, %74, %74, %74, %74, %74, %74, %74, %74, %74, %74, %74, %74, %74, %74, %74, %74, %74
-  %.not49.i = icmp eq i32 %.04260.i, 0
-  %.not50.i = icmp eq i32 %.04359.i, 0
-  %spec.select166 = select i1 %.not50.i, i32 %.04558.i, i32 %.0150
+  %.not49.i = icmp eq i32 %.04160.i, 0
+  %.not50.i = icmp eq i32 %.04259.i, 0
+  %spec.select166 = select i1 %.not50.i, i32 %.04458.i, i32 %.0150
   %.2152 = select i1 %.not49.i, i32 %.0150, i32 %spec.select166
   %100 = select i1 %.not49.i, i1 true, i1 %.not50.i
-  %.1148 = select i1 %100, i32 -1, i32 %.04558.i
+  %.1148 = select i1 %100, i32 -1, i32 %.04458.i
   %101 = and i64 %indvars.iv.next.i, 4294967295
   %102 = getelementptr inbounds i8, ptr %6, i64 %101
   store i8 0, ptr %102, align 1

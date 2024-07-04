@@ -123,16 +123,16 @@ define internal fastcc range(i32 0, 109) i32 @dissect_wol_pdu(ptr noundef %0, pt
 
 .sink.split:                                      ; preds = %20, %18
   %.sink3 = phi i32 [ 2, %18 ], [ 1, %20 ]
-  %.060.ph = phi i32 [ 106, %18 ], [ 108, %20 ]
+  %.062.ph = phi i32 [ 106, %18 ], [ 108, %20 ]
   %.ph = xor i1 %or.cond, true
   %22 = load ptr, ptr %10, align 8
   %23 = tail call ptr @tvb_address_to_str(ptr noundef %22, ptr noundef %0, i32 noundef %.sink3, i32 noundef 102) #2
   br label %24
 
 24:                                               ; preds = %.sink.split, %20
-  %.062 = phi ptr [ null, %20 ], [ %23, %.sink.split ]
   %25 = phi i1 [ false, %20 ], [ %.ph, %.sink.split ]
-  %.060 = phi i32 [ 102, %20 ], [ %.060.ph, %.sink.split ]
+  %.062 = phi i32 [ 102, %20 ], [ %.062.ph, %.sink.split ]
+  %.060 = phi ptr [ null, %20 ], [ %23, %.sink.split ]
   %26 = getelementptr inbounds i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
   tail call void @col_set_str(ptr noundef %27, i32 noundef 34, ptr noundef nonnull @.str.7) #2
@@ -147,12 +147,12 @@ define internal fastcc range(i32 0, 109) i32 @dissect_wol_pdu(ptr noundef %0, pt
   %32 = load ptr, ptr %10, align 8
   %33 = call ptr @address_with_resolution_to_str(ptr noundef %32, ptr noundef nonnull %4) #2
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.13, ptr noundef %33) #2
-  %.not65 = icmp eq ptr %.062, null
+  %.not65 = icmp eq ptr %.060, null
   br i1 %.not65, label %36, label %34
 
 34:                                               ; preds = %24
   %35 = load ptr, ptr %26, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %35, i32 noundef 25, ptr noundef nonnull @.str.14, ptr noundef nonnull %.062) #2
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %35, i32 noundef 25, ptr noundef nonnull @.str.14, ptr noundef nonnull %.060) #2
   br label %36
 
 36:                                               ; preds = %34, %24
@@ -161,14 +161,14 @@ define internal fastcc range(i32 0, 109) i32 @dissect_wol_pdu(ptr noundef %0, pt
 
 37:                                               ; preds = %36
   %38 = load i32, ptr @proto_wol, align 4
-  %39 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %38, ptr noundef %0, i32 noundef 0, i32 noundef %.060, i32 noundef 0) #2
+  %39 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %38, ptr noundef %0, i32 noundef 0, i32 noundef %.062, i32 noundef 0) #2
   %40 = load ptr, ptr %10, align 8
   %41 = call ptr @address_with_resolution_to_str(ptr noundef %40, ptr noundef nonnull %4) #2
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.15, ptr noundef %41) #2
   br i1 %.not65, label %43, label %42
 
 42:                                               ; preds = %37
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.16, ptr noundef nonnull %.062) #2
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.16, ptr noundef nonnull %.060) #2
   br label %43
 
 43:                                               ; preds = %42, %37
@@ -197,11 +197,11 @@ define internal fastcc range(i32 0, 109) i32 @dissect_wol_pdu(ptr noundef %0, pt
 .loopexit.sink.split:                             ; preds = %57
   %.mux = select i1 %or.cond, i32 4, i32 6
   %58 = load i32, ptr @hf_wol_passwd, align 4
-  %59 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %45, i32 noundef %58, ptr noundef %0, i32 noundef 102, i32 noundef %.mux, ptr noundef %.062, ptr noundef nonnull @.str.18, ptr noundef %.062) #2
+  %59 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %45, i32 noundef %58, ptr noundef %0, i32 noundef 102, i32 noundef %.mux, ptr noundef %.060, ptr noundef nonnull @.str.18, ptr noundef %.060) #2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %57, %.loopexit.sink.split, %36, %7, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %7 ], [ %.060, %36 ], [ %.060, %.loopexit.sink.split ], [ %.060, %57 ], [ 0, %16 ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %7 ], [ %.062, %36 ], [ %.062, %.loopexit.sink.split ], [ %.062, %57 ], [ 0, %16 ]
   ret i32 %.0
 }
 

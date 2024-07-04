@@ -105,7 +105,7 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
 27:                                               ; preds = %.lr.ph, %38
   %28 = phi ptr [ %1, %.lr.ph ], [ %41, %38 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %.091110 = phi i32 [ 0, %.lr.ph ], [ %46, %38 ]
+  %.093110 = phi i32 [ 0, %.lr.ph ], [ %46, %38 ]
   %29 = load ptr, ptr %10, align 8
   %30 = ptrtoint ptr %29 to i64
   %.neg103 = sub i64 %12, %30
@@ -122,14 +122,14 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
 38:                                               ; preds = %27
   %39 = getelementptr inbounds %struct.cli_exe_section, ptr %4, i64 %indvars.iv
   %40 = getelementptr inbounds i8, ptr %39, i64 8
-  store i32 %.091110, ptr %40, align 4
+  store i32 %.093110, ptr %40, align 4
   %41 = load ptr, ptr %11, align 8
   %42 = ptrtoint ptr %41 to i64
   %43 = sub i64 %42, %33
   %44 = trunc i64 %43 to i32
   %45 = getelementptr inbounds i8, ptr %39, i64 12
   store i32 %44, ptr %45, align 4
-  %46 = add i32 %.091110, %44
+  %46 = add i32 %.093110, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader107, label %27
@@ -151,7 +151,7 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
 
 .lr.ph118:                                        ; preds = %.lr.ph118.preheader, %59
   %indvars.iv125 = phi i64 [ 0, %.lr.ph118.preheader ], [ %indvars.iv.next126, %59 ]
-  %.092116 = phi i32 [ %3, %.lr.ph118.preheader ], [ %.193, %59 ]
+  %.091116 = phi i32 [ %3, %.lr.ph118.preheader ], [ %.192, %59 ]
   %.not101 = icmp eq i64 %indvars.iv125, %47
   br i1 %.not101, label %58, label %50
 
@@ -163,19 +163,19 @@ define range(i32 -1, 2) i32 @unfsg_133(ptr noundef %0, ptr noundef %1, i32 nound
   %55 = sub i32 %53, %54
   %56 = getelementptr inbounds i8, ptr %51, i64 4
   store i32 %55, ptr %56, align 4
-  %.neg = sub i32 %.092116, %53
+  %.neg = sub i32 %.091116, %53
   %57 = add i32 %.neg, %54
   br label %59
 
 58:                                               ; preds = %.lr.ph118
-  store i32 %.092116, ptr %49, align 4
+  store i32 %.091116, ptr %49, align 4
   %.pre130 = load i32, ptr %.phi.trans.insert, align 4
   br label %59
 
 59:                                               ; preds = %58, %50
-  %60 = phi i32 [ %55, %50 ], [ %.092116, %58 ]
+  %60 = phi i32 [ %55, %50 ], [ %.091116, %58 ]
   %61 = phi i32 [ %54, %50 ], [ %.pre130, %58 ]
-  %.193 = phi i32 [ %57, %50 ], [ %.092116, %58 ]
+  %.192 = phi i32 [ %57, %50 ], [ %.091116, %58 ]
   %62 = getelementptr inbounds %struct.cli_exe_section, ptr %4, i64 %indvars.iv125
   %63 = getelementptr inbounds i8, ptr %62, i64 8
   %64 = load i32, ptr %63, align 4

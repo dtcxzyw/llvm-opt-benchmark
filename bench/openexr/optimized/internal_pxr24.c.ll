@@ -350,12 +350,12 @@ for.body.i:                                       ; preds = %for.inc155.i, %for.
   %5 = phi i16 [ %.pre.i, %for.body.lr.ph.i ], [ %30, %for.inc155.i ]
   %6 = phi i16 [ %.pre.i, %for.body.lr.ph.i ], [ %31, %for.inc155.i ]
   %out.0117.i = phi ptr [ %uncompressed_data, %for.body.lr.ph.i ], [ %out.1.lcssa.i, %for.inc155.i ]
-  %nOut.0116.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %nOut.1.lcssa.i, %for.inc155.i ]
-  %nDec.0115.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %nDec.1.lcssa.i, %for.inc155.i ]
-  %lastIn.0114.i = phi ptr [ %0, %for.body.lr.ph.i ], [ %lastIn.1.lcssa.i, %for.inc155.i ]
-  %y.0113.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc156.i, %for.inc155.i ]
+  %y.0116.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc156.i, %for.inc155.i ]
+  %lastIn.0115.i = phi ptr [ %0, %for.body.lr.ph.i ], [ %lastIn.1.lcssa.i, %for.inc155.i ]
+  %nDec.0114.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %nDec.1.lcssa.i, %for.inc155.i ]
+  %nOut.0113.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %nOut.1.lcssa.i, %for.inc155.i ]
   %7 = load i32, ptr %start_y.i, align 8
-  %add.i = add nsw i32 %7, %y.0113.i
+  %add.i = add nsw i32 %7, %y.0116.i
   %cmp7102.i = icmp sgt i16 %6, 0
   br i1 %cmp7102.i, label %for.body9.i, label %for.inc155.i
 
@@ -363,9 +363,9 @@ for.body9.i:                                      ; preds = %for.body.i, %for.in
   %8 = phi i16 [ %27, %for.inc152.i ], [ %5, %for.body.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc152.i ], [ 0, %for.body.i ]
   %out.1107.i = phi ptr [ %out.2.i, %for.inc152.i ], [ %out.0117.i, %for.body.i ]
-  %nOut.1106.i = phi i64 [ %nOut.2.i, %for.inc152.i ], [ %nOut.0116.i, %for.body.i ]
-  %nDec.1105.i = phi i64 [ %nDec.3.i, %for.inc152.i ], [ %nDec.0115.i, %for.body.i ]
-  %lastIn.1104.i = phi ptr [ %lastIn.3.i, %for.inc152.i ], [ %lastIn.0114.i, %for.body.i ]
+  %lastIn.1105.i = phi ptr [ %lastIn.3.i, %for.inc152.i ], [ %lastIn.0115.i, %for.body.i ]
+  %nDec.1104.i = phi i64 [ %nDec.3.i, %for.inc152.i ], [ %nDec.0114.i, %for.body.i ]
+  %nOut.1103.i = phi i64 [ %nOut.2.i, %for.inc152.i ], [ %nOut.0113.i, %for.body.i ]
   %9 = load ptr, ptr %decode, align 8
   %add.ptr.i = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %9, i64 %indvars.iv.i
   %width.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
@@ -392,7 +392,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp18.not.i, label %if.end21.i, label %for.inc152.i
 
 if.end21.i:                                       ; preds = %land.lhs.true.i, %lor.lhs.false.i
-  %add22.i = add i64 %mul.i, %nOut.1106.i
+  %add22.i = add i64 %mul.i, %nOut.1103.i
   %cmp23.i = icmp ugt i64 %add22.i, %uncompressed_size
   br i1 %cmp23.i, label %undo_pxr24_impl.exit, label %if.end26.i
 
@@ -406,11 +406,11 @@ if.end26.i:                                       ; preds = %if.end21.i
   ]
 
 sw.bb.i:                                          ; preds = %if.end26.i
-  %add.ptr29.i = getelementptr inbounds i8, ptr %lastIn.1104.i, i64 %conv10.i
+  %add.ptr29.i = getelementptr inbounds i8, ptr %lastIn.1105.i, i64 %conv10.i
   %add.ptr32.i = getelementptr inbounds i8, ptr %add.ptr29.i, i64 %conv10.i
   %add.ptr35.i = getelementptr inbounds i8, ptr %add.ptr32.i, i64 %conv10.i
   %add.ptr38.i = getelementptr inbounds i8, ptr %add.ptr35.i, i64 %conv10.i
-  %add39.i = add i64 %mul.i, %nDec.1105.i
+  %add39.i = add i64 %mul.i, %nDec.1104.i
   %15 = load i64, ptr %outSize.i, align 8
   %cmp40.i = icmp ugt i64 %add39.i, %15
   br i1 %cmp40.i, label %undo_pxr24_impl.exit, label %for.cond44.preheader.i
@@ -423,7 +423,7 @@ for.body47.i:                                     ; preds = %for.cond44.preheade
   %x.0100.i = phi i32 [ %inc.i, %for.body47.i ], [ 0, %for.cond44.preheader.i ]
   %dout.099.i = phi ptr [ %incdec.ptr64.i, %for.body47.i ], [ %out.1107.i, %for.cond44.preheader.i ]
   %pixel.098.i = phi i32 [ %add63.i, %for.body47.i ], [ 0, %for.cond44.preheader.i ]
-  %ptr.sroa.0.097.i = phi ptr [ %incdec.ptr.i, %for.body47.i ], [ %lastIn.1104.i, %for.cond44.preheader.i ]
+  %ptr.sroa.0.097.i = phi ptr [ %incdec.ptr.i, %for.body47.i ], [ %lastIn.1105.i, %for.cond44.preheader.i ]
   %ptr.sroa.3.096.i = phi ptr [ %incdec.ptr51.i, %for.body47.i ], [ %add.ptr29.i, %for.cond44.preheader.i ]
   %ptr.sroa.6.095.i = phi ptr [ %incdec.ptr55.i, %for.body47.i ], [ %add.ptr32.i, %for.cond44.preheader.i ]
   %ptr.sroa.9.094.i = phi ptr [ %incdec.ptr60.i, %for.body47.i ], [ %add.ptr35.i, %for.cond44.preheader.i ]
@@ -453,9 +453,9 @@ for.body47.i:                                     ; preds = %for.cond44.preheade
   br i1 %exitcond122.not.i, label %sw.epilog.i, label %for.body47.i, !llvm.loop !10
 
 sw.bb66.i:                                        ; preds = %if.end26.i
-  %add.ptr72.i = getelementptr inbounds i8, ptr %lastIn.1104.i, i64 %conv10.i
+  %add.ptr72.i = getelementptr inbounds i8, ptr %lastIn.1105.i, i64 %conv10.i
   %add.ptr75.i = getelementptr inbounds i8, ptr %add.ptr72.i, i64 %conv10.i
-  %add76.i = add i64 %mul.i, %nDec.1105.i
+  %add76.i = add i64 %mul.i, %nDec.1104.i
   %20 = load i64, ptr %outSize.i, align 8
   %cmp77.i = icmp ugt i64 %add76.i, %20
   br i1 %cmp77.i, label %undo_pxr24_impl.exit, label %for.cond82.preheader.i
@@ -468,7 +468,7 @@ for.body85.i:                                     ; preds = %for.cond82.preheade
   %x81.092.i = phi i32 [ %inc99.i, %for.body85.i ], [ 0, %for.cond82.preheader.i ]
   %dout69.091.i = phi ptr [ %incdec.ptr97.i, %for.body85.i ], [ %out.1107.i, %for.cond82.preheader.i ]
   %pixel68.090.i = phi i16 [ %add95.i, %for.body85.i ], [ 0, %for.cond82.preheader.i ]
-  %ptr67.sroa.0.089.i = phi ptr [ %incdec.ptr88.i, %for.body85.i ], [ %lastIn.1104.i, %for.cond82.preheader.i ]
+  %ptr67.sroa.0.089.i = phi ptr [ %incdec.ptr88.i, %for.body85.i ], [ %lastIn.1105.i, %for.cond82.preheader.i ]
   %ptr67.sroa.3.088.i = phi ptr [ %incdec.ptr92.i, %for.body85.i ], [ %add.ptr72.i, %for.cond82.preheader.i ]
   %incdec.ptr88.i = getelementptr inbounds i8, ptr %ptr67.sroa.0.089.i, i64 1
   %21 = load i8, ptr %ptr67.sroa.0.089.i, align 1
@@ -486,12 +486,12 @@ for.body85.i:                                     ; preds = %for.cond82.preheade
   br i1 %exitcond121.not.i, label %sw.epilog.i, label %for.body85.i, !llvm.loop !11
 
 sw.bb102.i:                                       ; preds = %if.end26.i
-  %add.ptr108.i = getelementptr inbounds i8, ptr %lastIn.1104.i, i64 %conv10.i
+  %add.ptr108.i = getelementptr inbounds i8, ptr %lastIn.1105.i, i64 %conv10.i
   %add.ptr111.i = getelementptr inbounds i8, ptr %add.ptr108.i, i64 %conv10.i
   %add.ptr114.i = getelementptr inbounds i8, ptr %add.ptr111.i, i64 %conv10.i
   %mul115.i = mul nsw i32 %10, 3
   %conv116.i = sext i32 %mul115.i to i64
-  %add117.i = add i64 %nDec.1105.i, %conv116.i
+  %add117.i = add i64 %nDec.1104.i, %conv116.i
   %23 = load i64, ptr %outSize.i, align 8
   %cmp118.i = icmp ugt i64 %add117.i, %23
   br i1 %cmp118.i, label %undo_pxr24_impl.exit, label %for.cond123.preheader.i
@@ -504,7 +504,7 @@ for.body126.i:                                    ; preds = %for.cond123.prehead
   %x122.086.i = phi i32 [ %inc145.i, %for.body126.i ], [ 0, %for.cond123.preheader.i ]
   %dout105.085.i = phi ptr [ %incdec.ptr143.i, %for.body126.i ], [ %out.1107.i, %for.cond123.preheader.i ]
   %pixel104.084.i = phi i32 [ %add142.i, %for.body126.i ], [ 0, %for.cond123.preheader.i ]
-  %ptr103.sroa.0.083.i = phi ptr [ %incdec.ptr129.i, %for.body126.i ], [ %lastIn.1104.i, %for.cond123.preheader.i ]
+  %ptr103.sroa.0.083.i = phi ptr [ %incdec.ptr129.i, %for.body126.i ], [ %lastIn.1105.i, %for.cond123.preheader.i ]
   %ptr103.sroa.3.082.i = phi ptr [ %incdec.ptr133.i, %for.body126.i ], [ %add.ptr108.i, %for.cond123.preheader.i ]
   %ptr103.sroa.6.081.i = phi ptr [ %incdec.ptr138.i, %for.body126.i ], [ %add.ptr111.i, %for.cond123.preheader.i ]
   %incdec.ptr129.i = getelementptr inbounds i8, ptr %ptr103.sroa.0.083.i, i64 1
@@ -529,17 +529,17 @@ for.body126.i:                                    ; preds = %for.cond123.prehead
   br i1 %exitcond.not.i, label %sw.epilog.i, label %for.body126.i, !llvm.loop !12
 
 sw.epilog.i:                                      ; preds = %for.body126.i, %for.body85.i, %for.body47.i, %for.cond123.preheader.i, %for.cond82.preheader.i, %for.cond44.preheader.i
-  %lastIn.2.i = phi ptr [ %add.ptr38.i, %for.cond44.preheader.i ], [ %add.ptr75.i, %for.cond82.preheader.i ], [ %add.ptr114.i, %for.cond123.preheader.i ], [ %add.ptr38.i, %for.body47.i ], [ %add.ptr75.i, %for.body85.i ], [ %add.ptr114.i, %for.body126.i ]
   %nDec.2.i = phi i64 [ %add39.i, %for.cond44.preheader.i ], [ %add76.i, %for.cond82.preheader.i ], [ %add117.i, %for.cond123.preheader.i ], [ %add39.i, %for.body47.i ], [ %add76.i, %for.body85.i ], [ %add117.i, %for.body126.i ]
+  %lastIn.2.i = phi ptr [ %add.ptr38.i, %for.cond44.preheader.i ], [ %add.ptr75.i, %for.cond82.preheader.i ], [ %add.ptr114.i, %for.cond123.preheader.i ], [ %add.ptr38.i, %for.body47.i ], [ %add.ptr75.i, %for.body85.i ], [ %add.ptr114.i, %for.body126.i ]
   %add.ptr150.i = getelementptr inbounds i8, ptr %out.1107.i, i64 %mul.i
   %.pre124.i = load i16, ptr %channel_count.i, align 8
   br label %for.inc152.i
 
 for.inc152.i:                                     ; preds = %sw.epilog.i, %land.lhs.true.i, %for.body9.i
   %27 = phi i16 [ %8, %for.body9.i ], [ %8, %land.lhs.true.i ], [ %.pre124.i, %sw.epilog.i ]
-  %lastIn.3.i = phi ptr [ %lastIn.1104.i, %for.body9.i ], [ %lastIn.1104.i, %land.lhs.true.i ], [ %lastIn.2.i, %sw.epilog.i ]
-  %nDec.3.i = phi i64 [ %nDec.1105.i, %for.body9.i ], [ %nDec.1105.i, %land.lhs.true.i ], [ %nDec.2.i, %sw.epilog.i ]
-  %nOut.2.i = phi i64 [ %nOut.1106.i, %for.body9.i ], [ %nOut.1106.i, %land.lhs.true.i ], [ %add22.i, %sw.epilog.i ]
+  %nOut.2.i = phi i64 [ %nOut.1103.i, %for.body9.i ], [ %nOut.1103.i, %land.lhs.true.i ], [ %add22.i, %sw.epilog.i ]
+  %nDec.3.i = phi i64 [ %nDec.1104.i, %for.body9.i ], [ %nDec.1104.i, %land.lhs.true.i ], [ %nDec.2.i, %sw.epilog.i ]
+  %lastIn.3.i = phi ptr [ %lastIn.1105.i, %for.body9.i ], [ %lastIn.1105.i, %land.lhs.true.i ], [ %lastIn.2.i, %sw.epilog.i ]
   %out.2.i = phi ptr [ %out.1107.i, %for.body9.i ], [ %out.1107.i, %land.lhs.true.i ], [ %add.ptr150.i, %sw.epilog.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %28 = sext i16 %27 to i64
@@ -554,11 +554,11 @@ for.inc155.i:                                     ; preds = %for.inc155.loopexit
   %29 = phi i32 [ %4, %for.body.i ], [ %.pre125.i, %for.inc155.loopexit.i ]
   %30 = phi i16 [ %5, %for.body.i ], [ %27, %for.inc155.loopexit.i ]
   %31 = phi i16 [ %6, %for.body.i ], [ %27, %for.inc155.loopexit.i ]
-  %lastIn.1.lcssa.i = phi ptr [ %lastIn.0114.i, %for.body.i ], [ %lastIn.3.i, %for.inc155.loopexit.i ]
-  %nDec.1.lcssa.i = phi i64 [ %nDec.0115.i, %for.body.i ], [ %nDec.3.i, %for.inc155.loopexit.i ]
-  %nOut.1.lcssa.i = phi i64 [ %nOut.0116.i, %for.body.i ], [ %nOut.2.i, %for.inc155.loopexit.i ]
+  %nOut.1.lcssa.i = phi i64 [ %nOut.0113.i, %for.body.i ], [ %nOut.2.i, %for.inc155.loopexit.i ]
+  %nDec.1.lcssa.i = phi i64 [ %nDec.0114.i, %for.body.i ], [ %nDec.3.i, %for.inc155.loopexit.i ]
+  %lastIn.1.lcssa.i = phi ptr [ %lastIn.0115.i, %for.body.i ], [ %lastIn.3.i, %for.inc155.loopexit.i ]
   %out.1.lcssa.i = phi ptr [ %out.0117.i, %for.body.i ], [ %out.2.i, %for.inc155.loopexit.i ]
-  %inc156.i = add nuw nsw i32 %y.0113.i, 1
+  %inc156.i = add nuw nsw i32 %y.0116.i, 1
   %cmp4.i = icmp slt i32 %inc156.i, %29
   br i1 %cmp4.i, label %for.body.i, label %undo_pxr24_impl.exit, !llvm.loop !14
 

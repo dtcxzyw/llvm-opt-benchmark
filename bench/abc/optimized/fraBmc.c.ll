@@ -276,7 +276,7 @@ Aig_ManObj.exit67:                                ; preds = %15, %18
 
 39:                                               ; preds = %.lr.ph, %111
   %40 = phi i32 [ %31, %.lr.ph ], [ %112, %111 ]
-  %.04468 = phi i32 [ %30, %.lr.ph ], [ %113, %111 ]
+  %.068 = phi i32 [ %30, %.lr.ph ], [ %113, %111 ]
   %.val48 = load i32, ptr %33, align 4
   %.val49 = load ptr, ptr %34, align 8
   %41 = getelementptr i8, ptr %.val49, i64 64
@@ -286,7 +286,7 @@ Aig_ManObj.exit67:                                ; preds = %15, %18
   %43 = getelementptr i8, ptr %.val49.val, i64 48
   %.val49.val.val51 = load ptr, ptr %43, align 8
   %44 = mul nsw i32 %.val49.val.val, %.val48
-  %45 = add nsw i32 %44, %.04468
+  %45 = add nsw i32 %44, %.068
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds ptr, ptr %.val49.val.val51, i64 %46
   %48 = load ptr, ptr %47, align 8
@@ -299,7 +299,7 @@ Aig_ManObj.exit67:                                ; preds = %15, %18
   %51 = getelementptr i8, ptr %.val47.val, i64 48
   %.val47.val.val50 = load ptr, ptr %51, align 8
   %52 = mul nsw i32 %.val47.val.val, %.val
-  %53 = add nsw i32 %52, %.04468
+  %53 = add nsw i32 %52, %.068
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds ptr, ptr %.val47.val.val50, i64 %54
   %56 = load ptr, ptr %55, align 8
@@ -382,7 +382,7 @@ Aig_ManObj.exit67:                                ; preds = %15, %18
 
 111:                                              ; preds = %._crit_edge, %104, %102
   %112 = phi i32 [ %.pre, %._crit_edge ], [ %40, %104 ], [ %40, %102 ]
-  %113 = add nsw i32 %.04468, 1
+  %113 = add nsw i32 %.068, 1
   %114 = icmp slt i32 %113, %112
   br i1 %114, label %39, label %.loopexit, !llvm.loop !6
 
@@ -1218,7 +1218,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   br label %54
 
 54:                                               ; preds = %37, %Abc_Clock.exit
-  %.050 = phi i32 [ %.val58, %37 ], [ 0, %Abc_Clock.exit ]
+  %.0 = phi i32 [ %.val58, %37 ], [ 0, %Abc_Clock.exit ]
   %55 = load ptr, ptr %29, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 32
   %57 = load ptr, ptr %56, align 8
@@ -1351,7 +1351,7 @@ Abc_Clock.exit72:                                 ; preds = %98, %117
   br i1 %.not54, label %142, label %140
 
 140:                                              ; preds = %Abc_Clock.exit72
-  %141 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.050)
+  %141 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.0)
   br label %142
 
 142:                                              ; preds = %140, %Abc_Clock.exit72

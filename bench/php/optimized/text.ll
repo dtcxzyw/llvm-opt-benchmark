@@ -125,30 +125,30 @@ define hidden range(i32 -1, 1) i32 @dom_text_whole_text_read(ptr noundef %0, ptr
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge6
-  %.197 = phi ptr [ %17, %.critedge6 ], [ %.085, %.critedge.preheader ]
-  %.08696 = phi ptr [ %15, %.critedge6 ], [ null, %.critedge.preheader ]
-  %11 = getelementptr inbounds i8, ptr %.197, i64 8
+  %.097 = phi ptr [ %15, %.critedge6 ], [ null, %.critedge.preheader ]
+  %.196 = phi ptr [ %17, %.critedge6 ], [ %.085, %.critedge.preheader ]
+  %11 = getelementptr inbounds i8, ptr %.196, i64 8
   %12 = load i32, ptr %11, align 8
   %.off94 = add i32 %12, -3
   %switch95 = icmp ult i32 %.off94, 2
   br i1 %switch95, label %.critedge6, label %.critedge4
 
 .critedge6:                                       ; preds = %.critedge
-  %13 = getelementptr inbounds i8, ptr %.197, i64 80
+  %13 = getelementptr inbounds i8, ptr %.196, i64 80
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call ptr @xmlStrcat(ptr noundef %.08696, ptr noundef %14) #6
-  %16 = getelementptr inbounds i8, ptr %.197, i64 48
+  %15 = tail call ptr @xmlStrcat(ptr noundef %.097, ptr noundef %14) #6
+  %16 = getelementptr inbounds i8, ptr %.196, i64 48
   %17 = load ptr, ptr %16, align 8
   %.not92 = icmp eq ptr %17, null
   br i1 %.not92, label %.critedge4, label %.critedge
 
 .critedge4:                                       ; preds = %.critedge, %.critedge6
-  %.086.lcssa = phi ptr [ %.08696, %.critedge ], [ %15, %.critedge6 ]
-  %.not93 = icmp eq ptr %.086.lcssa, null
+  %.0.lcssa = phi ptr [ %.097, %.critedge ], [ %15, %.critedge6 ]
+  %.not93 = icmp eq ptr %.0.lcssa, null
   br i1 %.not93, label %30, label %18
 
 18:                                               ; preds = %.critedge4
-  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.086.lcssa) #7
+  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.lcssa) #7
   %20 = and i64 %19, -8
   %21 = add i64 %20, 32
   %22 = tail call noalias ptr @_emalloc(i64 noundef %21) #8
@@ -160,14 +160,14 @@ define hidden range(i32 -1, 1) i32 @dom_text_whole_text_read(ptr noundef %0, ptr
   %25 = getelementptr inbounds i8, ptr %22, i64 16
   store i64 %19, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %22, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 1 %.086.lcssa, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 1 %.0.lcssa, i64 %19, i1 false)
   %27 = getelementptr inbounds [1 x i8], ptr %26, i64 0, i64 %19
   store i8 0, ptr %27, align 1
   store ptr %22, ptr %1, align 8
   %28 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 262, ptr %28, align 8
   %29 = load ptr, ptr @xmlFree, align 8
-  tail call void %29(ptr noundef nonnull %.086.lcssa) #6
+  tail call void %29(ptr noundef nonnull %.0.lcssa) #6
   br label %33
 
 30:                                               ; preds = %.critedge4
@@ -178,8 +178,8 @@ define hidden range(i32 -1, 1) i32 @dom_text_whole_text_read(ptr noundef %0, ptr
   br label %33
 
 33:                                               ; preds = %18, %30, %5
-  %.0 = phi i32 [ -1, %5 ], [ 0, %30 ], [ 0, %18 ]
-  ret i32 %.0
+  %.086 = phi i32 [ -1, %5 ], [ 0, %30 ], [ 0, %18 ]
+  ret i32 %.086
 }
 
 declare ptr @xmlStrcat(ptr noundef, ptr noundef) local_unnamed_addr #1

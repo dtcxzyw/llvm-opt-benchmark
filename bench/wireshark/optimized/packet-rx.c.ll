@@ -324,23 +324,23 @@ define internal i32 @dissect_rx(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %.not82.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %61, %.lr.ph.i
-  %.084.i = phi i32 [ %86, %.lr.ph.i ], [ 46, %61 ]
-  %.08183.i = phi i8 [ %83, %.lr.ph.i ], [ %79, %61 ]
-  %83 = add i8 %.08183.i, -1
+  %.084.i = phi i8 [ %83, %.lr.ph.i ], [ %79, %61 ]
+  %.08183.i = phi i32 [ %86, %.lr.ph.i ], [ 46, %61 ]
+  %83 = add i8 %.084.i, -1
   %84 = load i32, ptr @hf_rx_ack_type, align 4
-  %85 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %84, ptr noundef %0, i32 noundef %.084.i, i32 noundef 1, i32 noundef 0) #2
-  %86 = add nuw nsw i32 %.084.i, 1
+  %85 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %84, ptr noundef %0, i32 noundef %.08183.i, i32 noundef 1, i32 noundef 0) #2
+  %86 = add nuw nsw i32 %.08183.i, 1
   %.not.i = icmp eq i8 %83, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %61
-  %.0.lcssa.i = phi i32 [ 46, %61 ], [ %86, %.lr.ph.i ]
-  %87 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.lcssa.i) #2
+  %.081.lcssa.i = phi i32 [ 46, %61 ], [ %86, %.lr.ph.i ]
+  %87 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.081.lcssa.i) #2
   %88 = icmp sgt i32 %87, 3
   br i1 %88, label %89, label %dissect_rx_acks.exit
 
 89:                                               ; preds = %._crit_edge.i
-  %90 = add i32 %.0.lcssa.i, 3
+  %90 = add i32 %.081.lcssa.i, 3
   %91 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %90) #2
   %92 = icmp sgt i32 %91, 3
   br i1 %92, label %93, label %97
@@ -348,7 +348,7 @@ define internal i32 @dissect_rx(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 93:                                               ; preds = %89
   %94 = load i32, ptr @hf_rx_maxmtu, align 4
   %95 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %94, ptr noundef %0, i32 noundef %90, i32 noundef 4, i32 noundef 0) #2
-  %96 = add i32 %.0.lcssa.i, 7
+  %96 = add i32 %.081.lcssa.i, 7
   br label %97
 
 97:                                               ; preds = %93, %89
@@ -388,7 +388,7 @@ define internal i32 @dissect_rx(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %dissect_rx_acks.exit
 
 dissect_rx_acks.exit:                             ; preds = %._crit_edge.i, %111, %114
-  %.4.i = phi i32 [ %117, %114 ], [ %.3.i, %111 ], [ %.0.lcssa.i, %._crit_edge.i ]
+  %.4.i = phi i32 [ %117, %114 ], [ %.3.i, %111 ], [ %.081.lcssa.i, %._crit_edge.i ]
   %118 = load ptr, ptr %14, align 8
   %119 = zext i8 %76 to i32
   %120 = call ptr @val_to_str(i32 noundef %119, ptr noundef nonnull @rx_reason, ptr noundef nonnull @.str.123) #2

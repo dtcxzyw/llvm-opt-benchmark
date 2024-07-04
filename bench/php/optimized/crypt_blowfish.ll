@@ -103,30 +103,30 @@ _crypt_output_magic.exit:                         ; preds = %4, %11, %16, %20
   %indvars.iv.i = phi i64 [ 0, %45 ], [ %indvars.iv.next.i, %62 ]
   %.045.i = phi i32 [ 0, %45 ], [ %64, %62 ]
   %.03144.i = phi i32 [ 0, %45 ], [ %.2.i, %62 ]
-  %.03243.i = phi ptr [ @.str.4, %45 ], [ %.234.i, %62 ]
+  %.03442.i = phi ptr [ @.str.4, %45 ], [ %.236.i, %62 ]
   br label %48
 
 48:                                               ; preds = %48, %47
   %.141.i = phi i32 [ %.03144.i, %47 ], [ %.2.i, %48 ]
-  %.13340.i = phi ptr [ %.03243.i, %47 ], [ %.234.i, %48 ]
-  %.03539.i = phi i32 [ 0, %47 ], [ %61, %48 ]
+  %.03240.i = phi i32 [ 0, %47 ], [ %61, %48 ]
+  %.13539.i = phi ptr [ %.03442.i, %47 ], [ %.236.i, %48 ]
   %49 = phi i32 [ 0, %47 ], [ %54, %48 ]
   %50 = phi i32 [ 0, %47 ], [ %57, %48 ]
   %51 = shl i32 %49, 8
-  %52 = load i8, ptr %.13340.i, align 1
+  %52 = load i8, ptr %.13539.i, align 1
   %53 = zext i8 %52 to i32
   %54 = or disjoint i32 %51, %53
   %55 = shl i32 %50, 8
   %56 = sext i8 %52 to i32
   %57 = or i32 %55, %56
-  %.not.i = icmp eq i32 %.03539.i, 0
+  %.not.i = icmp eq i32 %.03240.i, 0
   %58 = and i32 %56, 128
   %59 = select i1 %.not.i, i32 0, i32 %58
   %.2.i = or i32 %59, %.141.i
   %.not37.i = icmp eq i8 %52, 0
-  %60 = getelementptr inbounds i8, ptr %.13340.i, i64 1
-  %.234.i = select i1 %.not37.i, ptr @.str.4, ptr %60
-  %61 = add nuw nsw i32 %.03539.i, 1
+  %60 = getelementptr inbounds i8, ptr %.13539.i, i64 1
+  %.236.i = select i1 %.not37.i, ptr @.str.4, ptr %60
+  %61 = add nuw nsw i32 %.03240.i, 1
   %exitcond.not.i = icmp eq i32 %61, 4
   br i1 %exitcond.not.i, label %62, label %48
 
@@ -158,21 +158,21 @@ BF_set_key.exit:                                  ; preds = %62
 
 78:                                               ; preds = %87, %BF_set_key.exit
   %indvars.iv.i40 = phi i64 [ 0, %BF_set_key.exit ], [ %indvars.iv.next.i52, %87 ]
-  %.03243.i43 = phi ptr [ @.str.4, %BF_set_key.exit ], [ %.234.i50, %87 ]
+  %.03442.i43 = phi ptr [ @.str.4, %BF_set_key.exit ], [ %.236.i50, %87 ]
   br label %79
 
 79:                                               ; preds = %79, %78
-  %.13340.i45 = phi ptr [ %.03243.i43, %78 ], [ %.234.i50, %79 ]
-  %.03539.i46 = phi i32 [ 0, %78 ], [ %86, %79 ]
+  %.03240.i45 = phi i32 [ 0, %78 ], [ %86, %79 ]
+  %.13539.i46 = phi ptr [ %.03442.i43, %78 ], [ %.236.i50, %79 ]
   %80 = phi i32 [ 0, %78 ], [ %84, %79 ]
   %81 = shl i32 %80, 8
-  %82 = load i8, ptr %.13340.i45, align 1
+  %82 = load i8, ptr %.13539.i46, align 1
   %83 = zext i8 %82 to i32
   %84 = or disjoint i32 %81, %83
   %.not37.i49 = icmp eq i8 %82, 0
-  %85 = getelementptr inbounds i8, ptr %.13340.i45, i64 1
-  %.234.i50 = select i1 %.not37.i49, ptr @.str.4, ptr %85
-  %86 = add nuw nsw i32 %.03539.i46, 1
+  %85 = getelementptr inbounds i8, ptr %.13539.i46, i64 1
+  %.236.i50 = select i1 %.not37.i49, ptr @.str.4, ptr %85
+  %86 = add nuw nsw i32 %.03240.i45, 1
   %exitcond.not.i51 = icmp eq i32 %86, 4
   br i1 %exitcond.not.i51, label %87, label %79
 
@@ -2929,37 +2929,37 @@ define internal fastcc void @BF_set_key(ptr nocapture noundef readonly %0, ptr n
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %28 ]
   %.045 = phi i32 [ 0, %4 ], [ %30, %28 ]
   %.03144 = phi i32 [ 0, %4 ], [ %.2, %28 ]
-  %.03243 = phi ptr [ %0, %4 ], [ %.234, %28 ]
+  %.03442 = phi ptr [ %0, %4 ], [ %.236, %28 ]
   store i32 0, ptr %8, align 4
   br label %12
 
 12:                                               ; preds = %11, %12
   %.141 = phi i32 [ %.03144, %11 ], [ %.2, %12 ]
-  %.13340 = phi ptr [ %.03243, %11 ], [ %.234, %12 ]
-  %.03539 = phi i32 [ 0, %11 ], [ %27, %12 ]
+  %.03240 = phi i32 [ 0, %11 ], [ %27, %12 ]
+  %.13539 = phi ptr [ %.03442, %11 ], [ %.236, %12 ]
   %13 = phi i32 [ 0, %11 ], [ %18, %12 ]
   %14 = phi i32 [ 0, %11 ], [ %22, %12 ]
   %15 = shl i32 %13, 8
   store i32 %15, ptr %5, align 4
-  %16 = load i8, ptr %.13340, align 1
+  %16 = load i8, ptr %.13539, align 1
   %17 = zext i8 %16 to i32
   %18 = or disjoint i32 %15, %17
   store i32 %18, ptr %5, align 4
   %19 = shl i32 %14, 8
   store i32 %19, ptr %8, align 4
-  %20 = load i8, ptr %.13340, align 1
+  %20 = load i8, ptr %.13539, align 1
   %21 = sext i8 %20 to i32
   %22 = or i32 %19, %21
   store i32 %22, ptr %8, align 4
-  %.not = icmp eq i32 %.03539, 0
+  %.not = icmp eq i32 %.03240, 0
   %23 = and i32 %21, 128
   %24 = select i1 %.not, i32 0, i32 %23
   %.2 = or i32 %24, %.141
-  %25 = load i8, ptr %.13340, align 1
+  %25 = load i8, ptr %.13539, align 1
   %.not37 = icmp eq i8 %25, 0
-  %26 = getelementptr inbounds i8, ptr %.13340, i64 1
-  %.234 = select i1 %.not37, ptr %0, ptr %26
-  %27 = add nuw nsw i32 %.03539, 1
+  %26 = getelementptr inbounds i8, ptr %.13539, i64 1
+  %.236 = select i1 %.not37, ptr %0, ptr %26
+  %27 = add nuw nsw i32 %.03240, 1
   %exitcond.not = icmp eq i32 %27, 4
   br i1 %exitcond.not, label %28, label %12
 
@@ -3004,9 +3004,9 @@ define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr nocapture noundef wri
 
 .lr.ph:                                           ; preds = %2, %53
   %7 = phi i32 [ %58, %53 ], [ %5, %2 ]
-  %.039.idx2 = phi i64 [ %.add53, %53 ], [ 0, %2 ]
-  %.0401 = phi ptr [ %43, %53 ], [ %1, %2 ]
-  %.039.ptr3 = getelementptr inbounds i8, ptr %0, i64 %.039.idx2
+  %.0392 = phi ptr [ %43, %53 ], [ %1, %2 ]
+  %.040.idx1 = phi i64 [ %.add53, %53 ], [ 0, %2 ]
+  %.040.ptr3 = getelementptr inbounds i8, ptr %0, i64 %.040.idx1
   %8 = zext nneg i32 %7 to i64
   %9 = getelementptr inbounds [96 x i8], ptr @BF_atoi64, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
@@ -3014,8 +3014,8 @@ define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr nocapture noundef wri
   br i1 %11, label %split, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %.0401, i64 1
-  %14 = getelementptr inbounds i8, ptr %.0401, i64 2
+  %13 = getelementptr inbounds i8, ptr %.0392, i64 1
+  %14 = getelementptr inbounds i8, ptr %.0392, i64 2
   %15 = load i8, ptr %13, align 1
   %16 = zext i8 %15 to i32
   %17 = add nsw i32 %16, -32
@@ -3033,13 +3033,13 @@ define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr nocapture noundef wri
   %25 = shl nuw i8 %10, 2
   %26 = lshr i8 %22, 4
   %27 = or disjoint i8 %26, %25
-  %.ptr = getelementptr inbounds i8, ptr %.039.ptr3, i64 1
-  store i8 %27, ptr %.039.ptr3, align 1
-  %.not = icmp ult i64 %.039.idx2, 15
+  %.ptr = getelementptr inbounds i8, ptr %.040.ptr3, i64 1
+  store i8 %27, ptr %.040.ptr3, align 1
+  %.not = icmp ult i64 %.040.idx1, 15
   br i1 %.not, label %28, label %split
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %.0401, i64 3
+  %29 = getelementptr inbounds i8, ptr %.0392, i64 3
   %30 = load i8, ptr %14, align 1
   %31 = zext i8 %30 to i32
   %32 = add nsw i32 %31, -32
@@ -3057,9 +3057,9 @@ define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr nocapture noundef wri
   %40 = shl i8 %22, 4
   %41 = lshr i8 %37, 2
   %42 = or disjoint i8 %41, %40
-  %.ptr54 = getelementptr inbounds i8, ptr %.039.ptr3, i64 2
+  %.ptr54 = getelementptr inbounds i8, ptr %.040.ptr3, i64 2
   store i8 %42, ptr %.ptr, align 1
-  %43 = getelementptr inbounds i8, ptr %.0401, i64 4
+  %43 = getelementptr inbounds i8, ptr %.0392, i64 4
   %44 = load i8, ptr %29, align 1
   %45 = zext i8 %44 to i32
   %46 = add nsw i32 %45, -32
@@ -3076,7 +3076,7 @@ define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr nocapture noundef wri
 53:                                               ; preds = %48
   %54 = shl i8 %37, 6
   %55 = or disjoint i8 %51, %54
-  %.add53 = add nuw nsw i64 %.039.idx2, 3
+  %.add53 = add nuw nsw i64 %.040.idx1, 3
   store i8 %55, ptr %.ptr54, align 1
   %56 = load i8, ptr %43, align 1
   %57 = zext i8 %56 to i32

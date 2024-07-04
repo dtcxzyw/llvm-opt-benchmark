@@ -706,7 +706,7 @@ define internal i32 @dissect_zbee_nwk(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %33
 
 33:                                               ; preds = %30, %26
-  %.0240.i = phi ptr [ %32, %30 ], [ %27, %26 ]
+  %.0239.i = phi ptr [ %32, %30 ], [ %27, %26 ]
   %34 = tail call ptr @wmem_file_scope() #8
   %35 = tail call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str.243) #8
   %36 = tail call ptr @p_get_proto_data(ptr noundef %34, ptr noundef nonnull %1, i32 noundef %35, i32 noundef 0) #8
@@ -928,12 +928,12 @@ proto_item_set_hidden.exit.i:                     ; preds = %119, %115, %112, %9
   store ptr null, ptr %135, align 8
   %136 = load ptr, ptr %104, align 8
   %137 = tail call ptr @address_to_str(ptr noundef %136, ptr noundef nonnull %132) #8
-  %138 = icmp ne ptr %.0240.i, null
+  %138 = icmp ne ptr %.0239.i, null
   %139 = zext i16 %124 to i32
   br i1 %138, label %140, label %proto_item_set_hidden.exit._crit_edge.i
 
 140:                                              ; preds = %proto_item_set_hidden.exit.i
-  %141 = getelementptr inbounds i8, ptr %.0240.i, i64 4
+  %141 = getelementptr inbounds i8, ptr %.0239.i, i64 4
   store i32 %139, ptr %141, align 4
   br label %proto_item_set_hidden.exit._crit_edge.i
 
@@ -1026,7 +1026,7 @@ proto_item_set_hidden.exit307.i:                  ; preds = %proto_item_set_hidd
   br i1 %82, label %proto_item_set_hidden.exit307.thread.i, label %.loopexit.i
 
 proto_item_set_hidden.exit307.thread.i:           ; preds = %proto_item_set_hidden.exit307.i, %183, %179, %176, %169
-  %.0238397.i = phi i32 [ 8, %proto_item_set_hidden.exit307.i ], [ 16, %183 ], [ 16, %179 ], [ 16, %169 ], [ 16, %176 ]
+  %.0240397.i = phi i32 [ 8, %proto_item_set_hidden.exit307.i ], [ 16, %183 ], [ 16, %179 ], [ 16, %169 ], [ 16, %176 ]
   %187 = getelementptr inbounds i8, ptr %3, i64 66
   %188 = load i16, ptr %187, align 2
   store i16 %188, ptr %9, align 2
@@ -1034,13 +1034,13 @@ proto_item_set_hidden.exit307.thread.i:           ; preds = %proto_item_set_hidd
   br i1 %.not251.i, label %223, label %189
 
 189:                                              ; preds = %proto_item_set_hidden.exit307.thread.i
-  %190 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %.0238397.i) #8
+  %190 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %.0240397.i) #8
   %191 = getelementptr inbounds i8, ptr %8, i64 40
   store i64 %190, ptr %191, align 8
   %192 = load i32, ptr @hf_zbee_nwk_src64, align 4
-  %193 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %192, ptr noundef %0, i32 noundef %.0238397.i, i32 noundef 8, i32 noundef -2147483648) #8
+  %193 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %192, ptr noundef %0, i32 noundef %.0240397.i, i32 noundef 8, i32 noundef -2147483648) #8
   %194 = load i32, ptr @hf_zbee_nwk_addr64, align 4
-  %195 = tail call ptr @proto_tree_add_eui64(ptr noundef %43, i32 noundef %194, ptr noundef %0, i32 noundef %.0238397.i, i32 noundef 8, i64 noundef %190) #8
+  %195 = tail call ptr @proto_tree_add_eui64(ptr noundef %43, i32 noundef %194, ptr noundef %0, i32 noundef %.0240397.i, i32 noundef 8, i64 noundef %190) #8
   store ptr %195, ptr %7, align 8
   %.not.i308.i = icmp eq ptr %195, null
   br i1 %.not.i308.i, label %proto_item_set_hidden.exit313.i, label %196
@@ -1068,7 +1068,7 @@ proto_item_set_hidden.exit307.thread.i:           ; preds = %proto_item_set_hidd
   br label %proto_item_set_hidden.exit313.i
 
 proto_item_set_hidden.exit313.i:                  ; preds = %203, %199, %196, %189
-  %207 = add nuw nsw i32 %.0238397.i, 8
+  %207 = add nuw nsw i32 %.0240397.i, 8
   %208 = load ptr, ptr %20, align 8
   %209 = getelementptr inbounds i8, ptr %208, i64 50
   %210 = load i16, ptr %209, align 2
@@ -1080,7 +1080,7 @@ proto_item_set_hidden.exit313.i:                  ; preds = %203, %199, %196, %1
 213:                                              ; preds = %proto_item_set_hidden.exit313.i
   %214 = load i16, ptr %187, align 2
   %215 = zext i16 %214 to i32
-  store i32 %215, ptr %.0240.i, align 8
+  store i32 %215, ptr %.0239.i, align 8
   switch i16 %124, label %216 [
     i16 -1, label %proto_item_set_generated.exit325.i
     i16 -3, label %proto_item_set_generated.exit325.i
@@ -1093,7 +1093,7 @@ proto_item_set_hidden.exit313.i:                  ; preds = %203, %199, %196, %1
   %219 = getelementptr inbounds i8, ptr %1, i64 20
   %220 = load i32, ptr %219, align 4
   %221 = tail call ptr @ieee802154_addr_update(ptr noundef nonnull @zbee_nwk_map, i16 noundef zeroext %124, i16 noundef zeroext %217, i64 noundef %190, ptr noundef %218, i32 noundef %220) #8
-  %222 = getelementptr inbounds i8, ptr %.0240.i, i64 8
+  %222 = getelementptr inbounds i8, ptr %.0239.i, i64 8
   store ptr %221, ptr %222, align 8
   br label %proto_item_set_generated.exit325.i
 
@@ -1108,7 +1108,7 @@ proto_item_set_hidden.exit313.i:                  ; preds = %203, %199, %196, %1
 
 229:                                              ; preds = %223
   %230 = zext i16 %188 to i32
-  store i32 %230, ptr %.0240.i, align 8
+  store i32 %230, ptr %.0239.i, align 8
   %231 = getelementptr inbounds i8, ptr %9, i64 2
   store i16 %124, ptr %231, align 2
   %232 = load ptr, ptr getelementptr inbounds (i8, ptr @zbee_nwk_map, i64 8), align 8
@@ -1117,7 +1117,7 @@ proto_item_set_hidden.exit313.i:                  ; preds = %203, %199, %196, %1
   br i1 %.not255.i, label %236, label %234
 
 234:                                              ; preds = %229
-  %235 = getelementptr inbounds i8, ptr %.0240.i, i64 8
+  %235 = getelementptr inbounds i8, ptr %.0239.i, i64 8
   store ptr %233, ptr %235, align 8
   br label %proto_item_set_generated.exit325.i
 
@@ -1129,7 +1129,7 @@ proto_item_set_hidden.exit313.i:                  ; preds = %203, %199, %196, %1
   br i1 %.not256.i, label %proto_item_set_generated.exit325.i, label %240
 
 240:                                              ; preds = %236
-  %241 = getelementptr inbounds i8, ptr %.0240.i, i64 8
+  %241 = getelementptr inbounds i8, ptr %.0239.i, i64 8
   store ptr %239, ptr %241, align 8
   br label %proto_item_set_generated.exit325.i
 
@@ -1137,7 +1137,7 @@ proto_item_set_hidden.exit313.i:                  ; preds = %203, %199, %196, %1
   br i1 %138, label %243, label %proto_item_set_generated.exit325.i
 
 243:                                              ; preds = %242
-  %244 = getelementptr inbounds i8, ptr %.0240.i, i64 8
+  %244 = getelementptr inbounds i8, ptr %.0239.i, i64 8
   %245 = load ptr, ptr %244, align 8
   %.not252.i = icmp eq ptr %245, null
   br i1 %.not252.i, label %proto_item_set_generated.exit325.i, label %246
@@ -1146,7 +1146,7 @@ proto_item_set_hidden.exit313.i:                  ; preds = %203, %199, %196, %1
   %247 = load i32, ptr @hf_zbee_nwk_src64, align 4
   %248 = getelementptr inbounds i8, ptr %245, i64 16
   %249 = load i64, ptr %248, align 8
-  %250 = tail call ptr @proto_tree_add_eui64(ptr noundef %43, i32 noundef %247, ptr noundef %0, i32 noundef %.0238397.i, i32 noundef 0, i64 noundef %249) #8
+  %250 = tail call ptr @proto_tree_add_eui64(ptr noundef %43, i32 noundef %247, ptr noundef %0, i32 noundef %.0240397.i, i32 noundef 0, i64 noundef %249) #8
   %.not.i314.i = icmp eq ptr %250, null
   br i1 %.not.i314.i, label %proto_item_set_generated.exit316.i, label %251
 
@@ -1168,7 +1168,7 @@ proto_item_set_generated.exit316.i:               ; preds = %254, %251, %246
   %259 = load ptr, ptr %244, align 8
   %260 = getelementptr inbounds i8, ptr %259, i64 16
   %261 = load i64, ptr %260, align 8
-  %262 = tail call ptr @proto_tree_add_eui64(ptr noundef %43, i32 noundef %258, ptr noundef %0, i32 noundef %.0238397.i, i32 noundef 0, i64 noundef %261) #8
+  %262 = tail call ptr @proto_tree_add_eui64(ptr noundef %43, i32 noundef %258, ptr noundef %0, i32 noundef %.0240397.i, i32 noundef 0, i64 noundef %261) #8
   %.not.i317.i = icmp eq ptr %262, null
   br i1 %.not.i317.i, label %proto_item_set_hidden.exit322.i, label %263
 
@@ -1230,7 +1230,7 @@ proto_item_set_hidden.exit322.i:                  ; preds = %270, %266, %263, %p
   br label %proto_item_set_generated.exit325.i
 
 proto_item_set_generated.exit325.i:               ; preds = %286, %283, %282, %243, %242, %240, %236, %234, %216, %213, %213, %213, %proto_item_set_hidden.exit313.i
-  %.1.i = phi i32 [ %207, %216 ], [ %207, %213 ], [ %207, %proto_item_set_hidden.exit313.i ], [ %.0238397.i, %234 ], [ %.0238397.i, %240 ], [ %.0238397.i, %236 ], [ %.0238397.i, %243 ], [ %.0238397.i, %242 ], [ %207, %213 ], [ %207, %213 ], [ %.0238397.i, %282 ], [ %.0238397.i, %283 ], [ %.0238397.i, %286 ]
+  %.1.i = phi i32 [ %207, %216 ], [ %207, %213 ], [ %207, %proto_item_set_hidden.exit313.i ], [ %.0240397.i, %234 ], [ %.0240397.i, %240 ], [ %.0240397.i, %236 ], [ %.0240397.i, %243 ], [ %.0240397.i, %242 ], [ %207, %213 ], [ %207, %213 ], [ %.0240397.i, %282 ], [ %.0240397.i, %283 ], [ %.0240397.i, %286 ]
   %290 = load ptr, ptr %20, align 8
   %291 = getelementptr inbounds i8, ptr %290, i64 50
   %292 = load i16, ptr %291, align 2

@@ -525,28 +525,28 @@ define internal i32 @dissect_starteam(ptr noundef %0, ptr nocapture noundef read
 
 62:                                               ; preds = %.thread121, %41, %49
   %63 = phi ptr [ %46, %49 ], [ %46, %41 ], [ %40, %.thread121 ]
-  %.not109113120123 = phi i1 [ false, %49 ], [ false, %41 ], [ true, %.thread121 ]
-  %.0 = phi i32 [ 20, %49 ], [ 0, %41 ], [ 0, %.thread121 ]
-  %64 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0) #3
+  %.not109114119123 = phi i1 [ false, %49 ], [ false, %41 ], [ true, %.thread121 ]
+  %.0105 = phi i32 [ 20, %49 ], [ 0, %41 ], [ 0, %.thread121 ]
+  %64 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0105) #3
   %65 = icmp sgt i32 %64, 15
   br i1 %65, label %66, label %116
 
 66:                                               ; preds = %62
   %67 = load i32, ptr @ett_starteam_ph, align 4
-  %68 = tail call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %0, i32 noundef %.0, i32 noundef 16, i32 noundef %67, ptr noundef null, ptr noundef nonnull @.str.252) #3
+  %68 = tail call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %0, i32 noundef %.0105, i32 noundef 16, i32 noundef %67, ptr noundef null, ptr noundef nonnull @.str.252) #3
   %69 = load i32, ptr @hf_starteam_ph_signature, align 4
-  %70 = tail call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %69, ptr noundef %0, i32 noundef %.0, i32 noundef 4, i32 noundef 0) #3
+  %70 = tail call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %69, ptr noundef %0, i32 noundef %.0105, i32 noundef 4, i32 noundef 0) #3
   %71 = load i32, ptr @hf_starteam_ph_packet_size, align 4
-  %72 = add nuw nsw i32 %.0, 4
+  %72 = add nuw nsw i32 %.0105, 4
   %73 = tail call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %71, ptr noundef %0, i32 noundef %72, i32 noundef 4, i32 noundef -2147483648) #3
   %74 = load i32, ptr @hf_starteam_ph_data_size, align 4
-  %75 = or disjoint i32 %.0, 8
+  %75 = or disjoint i32 %.0105, 8
   %76 = tail call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %74, ptr noundef %0, i32 noundef %75, i32 noundef 4, i32 noundef -2147483648) #3
   %77 = load i32, ptr @hf_starteam_ph_data_flags, align 4
-  %78 = add nuw nsw i32 %.0, 12
+  %78 = add nuw nsw i32 %.0105, 12
   %79 = tail call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %77, ptr noundef %0, i32 noundef %78, i32 noundef 4, i32 noundef -2147483648) #3
-  %80 = add nuw nsw i32 %.0, 16
-  br i1 %.not109113120123, label %108, label %81
+  %80 = add nuw nsw i32 %.0105, 16
+  br i1 %.not109114119123, label %108, label %81
 
 81:                                               ; preds = %66
   %82 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %80) #3
@@ -559,37 +559,37 @@ define internal i32 @dissect_starteam(ptr noundef %0, ptr nocapture noundef read
   %87 = load i32, ptr @hf_starteam_id_revision_level, align 4
   %88 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %87, ptr noundef %0, i32 noundef %80, i32 noundef 2, i32 noundef -2147483648) #3
   %89 = load i32, ptr @hf_starteam_id_client, align 4
-  %90 = add nuw nsw i32 %.0, 18
+  %90 = add nuw nsw i32 %.0105, 18
   %91 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %89, ptr noundef %0, i32 noundef %90, i32 noundef 16, i32 noundef 0) #3
   %92 = load i32, ptr @hf_starteam_id_connect, align 4
-  %93 = or disjoint i32 %.0, 34
+  %93 = or disjoint i32 %.0105, 34
   %94 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %92, ptr noundef %0, i32 noundef %93, i32 noundef 4, i32 noundef -2147483648) #3
   %95 = load i32, ptr @hf_starteam_id_component, align 4
-  %96 = add nuw nsw i32 %.0, 38
+  %96 = add nuw nsw i32 %.0105, 38
   %97 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %95, ptr noundef %0, i32 noundef %96, i32 noundef 4, i32 noundef -2147483648) #3
   %98 = load i32, ptr @hf_starteam_id_command, align 4
-  %99 = or disjoint i32 %.0, 42
+  %99 = or disjoint i32 %.0105, 42
   %100 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %98, ptr noundef %0, i32 noundef %99, i32 noundef 4, i32 noundef -2147483648) #3
   %101 = load i32, ptr @hf_starteam_id_command_time, align 4
-  %102 = add nuw nsw i32 %.0, 46
+  %102 = add nuw nsw i32 %.0105, 46
   %103 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %101, ptr noundef %0, i32 noundef %102, i32 noundef 4, i32 noundef -2147483648) #3
   %104 = load i32, ptr @hf_starteam_id_command_userid, align 4
-  %105 = add nuw nsw i32 %.0, 50
+  %105 = add nuw nsw i32 %.0105, 50
   %106 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %104, ptr noundef %0, i32 noundef %105, i32 noundef 4, i32 noundef -2147483648) #3
-  %107 = add nuw nsw i32 %.0, 54
+  %107 = add nuw nsw i32 %.0105, 54
   br label %108
 
 108:                                              ; preds = %81, %84, %66
-  %.1 = phi i32 [ %107, %84 ], [ %80, %81 ], [ %80, %66 ]
-  %109 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #3
+  %.1106 = phi i32 [ %107, %84 ], [ %80, %81 ], [ %80, %66 ]
+  %109 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1106) #3
   %110 = icmp sgt i32 %109, 0
   br i1 %110, label %111, label %116
 
 111:                                              ; preds = %108
   %112 = load i32, ptr @ett_starteam_data, align 4
-  %113 = tail call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %0, i32 noundef %.1, i32 noundef -1, i32 noundef %112, ptr noundef null, ptr noundef nonnull @.str.47) #3
+  %113 = tail call ptr @proto_tree_add_subtree(ptr noundef %63, ptr noundef %0, i32 noundef %.1106, i32 noundef -1, i32 noundef %112, ptr noundef null, ptr noundef nonnull @.str.47) #3
   %114 = load i32, ptr @hf_starteam_data_data, align 4
-  %115 = tail call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %114, ptr noundef %0, i32 noundef %.1, i32 noundef -1, i32 noundef 0) #3
+  %115 = tail call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %114, ptr noundef %0, i32 noundef %.1106, i32 noundef -1, i32 noundef 0) #3
   br label %116
 
 116:                                              ; preds = %.thread, %34, %108, %111, %62, %13

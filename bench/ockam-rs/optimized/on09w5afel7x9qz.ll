@@ -15839,8 +15839,8 @@ default.unreachable42:                            ; preds = %1372, %1168, %1153,
   br label %545
 
 545:                                              ; preds = %539, %375
-  %.sroa.0135.0.i.i = phi i64 [ 0, %539 ], [ 2, %375 ]
   %.sroa.6136.0.i.i = phi ptr [ %540, %539 ], [ undef, %375 ]
+  %.sroa.0135.0.i.i = phi i64 [ 0, %539 ], [ 2, %375 ]
   %.sroa.9137.sroa.0.0.i.i = phi ptr [ %542, %539 ], [ undef, %375 ]
   %.sroa.9137.sroa.6.0.i.i = phi i8 [ %544, %539 ], [ 3, %375 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %105), !noalias !1951

@@ -245,7 +245,7 @@ plaintree.exit:                                   ; preds = %22, %29
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %79
   %45 = phi i32 [ %32, %.lr.ph.preheader ], [ %80, %79 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %79 ]
-  %.04045 = phi ptr [ %44, %.lr.ph.preheader ], [ %.1, %79 ]
+  %.045 = phi ptr [ %44, %.lr.ph.preheader ], [ %.1, %79 ]
   %46 = getelementptr %union.QueryItem, ptr %40, i64 %indvars.iv
   %47 = load i8, ptr %46, align 4
   %.not = icmp eq i8 %47, 1
@@ -263,17 +263,17 @@ plaintree.exit:                                   ; preds = %22, %29
   %57 = getelementptr i8, ptr %52, i64 %56
   %58 = and i32 %54, 4095
   %59 = zext nneg i32 %58 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04045, ptr align 1 %57, i64 %59, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.045, ptr align 1 %57, i64 %59, i1 false)
   %60 = load i32, ptr %53, align 4
   %61 = and i32 %60, 4095
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr i8, ptr %.04045, i64 %62
+  %63 = getelementptr i8, ptr %.045, i64 %62
   store i8 0, ptr %63, align 1
   %64 = load i32, ptr %39, align 4
   %65 = sext i32 %64 to i64
   %66 = mul nsw i64 %65, 12
   %67 = getelementptr i8, ptr %40, i64 %66
-  %68 = ptrtoint ptr %.04045 to i64
+  %68 = ptrtoint ptr %.045 to i64
   %69 = ptrtoint ptr %67 to i64
   %70 = sub i64 %68, %69
   %71 = trunc i64 %70 to i32
@@ -284,21 +284,21 @@ plaintree.exit:                                   ; preds = %22, %29
   store i32 %75, ptr %53, align 4
   %76 = add nuw nsw i32 %74, 1
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr i8, ptr %.04045, i64 %77
+  %78 = getelementptr i8, ptr %.045, i64 %77
   %.pre = load i32, ptr %39, align 4
   br label %79
 
 79:                                               ; preds = %.lr.ph, %48
   %80 = phi i32 [ %45, %.lr.ph ], [ %.pre, %48 ]
-  %.1 = phi ptr [ %.04045, %.lr.ph ], [ %78, %48 ]
+  %.1 = phi ptr [ %.045, %.lr.ph ], [ %78, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next, %81
   br i1 %82, label %.lr.ph, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %79, %plaintree.exit, %2, %19
-  %.0 = phi ptr [ %20, %19 ], [ %0, %2 ], [ %37, %plaintree.exit ], [ %37, %79 ]
-  ret ptr %.0
+  %.041 = phi ptr [ %20, %19 ], [ %0, %2 ], [ %37, %plaintree.exit ], [ %37, %79 ]
+  ret ptr %.041
 }
 
 ; Function Attrs: nounwind uwtable
@@ -450,8 +450,8 @@ define internal fastcc ptr @clean_stopword_intree(ptr noundef %0, ptr nocapture 
   br label %79
 
 79:                                               ; preds = %16, %62, %68, %69, %59, %3, %50, %20, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %20 ], [ null, %50 ], [ %0, %3 ], [ %60, %59 ], [ %67, %62 ], [ %0, %69 ], [ %0, %68 ], [ %0, %16 ]
-  ret ptr %.0
+  %.054 = phi ptr [ null, %11 ], [ null, %20 ], [ null, %50 ], [ %0, %3 ], [ %60, %59 ], [ %67, %62 ], [ %0, %69 ], [ %0, %68 ], [ %0, %16 ]
+  ret ptr %.054
 }
 
 declare zeroext i1 @errstart(i32 noundef, ptr noundef) local_unnamed_addr #1

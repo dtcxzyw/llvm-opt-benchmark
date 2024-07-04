@@ -23326,10 +23326,10 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i: ; preds = %76, %.noe
 
 "_ZN4core3ptr132drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$17hb55fdf47cff0dabcE.exit": ; preds = %.noexc31, %81
   invoke void @_ZN5tokio7runtime4task3raw7RawTask8shutdown17h0d2fa854f249e37bE(ptr noundef nonnull %11)
-          to label %.thread91 unwind label %.thread84
+          to label %"_ZN4core3ptr188drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio..runtime..task..list..CountedOwnedTasksInner$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$$GT$17he37e31fbafe1aca0E.exit37" unwind label %.thread84
 
-.thread91:                                        ; preds = %96, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i34, %"_ZN4core3ptr132drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$17hb55fdf47cff0dabcE.exit"
-  %.sroa.3.094 = phi ptr [ null, %"_ZN4core3ptr132drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$17hb55fdf47cff0dabcE.exit" ], [ %11, %96 ], [ %11, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i34 ]
+"_ZN4core3ptr188drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio..runtime..task..list..CountedOwnedTasksInner$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$$GT$17he37e31fbafe1aca0E.exit37": ; preds = %"_ZN4core3ptr132drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$17hb55fdf47cff0dabcE.exit", %96, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i34
+  %.sroa.3.094 = phi ptr [ %11, %96 ], [ %11, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i34 ], [ null, %"_ZN4core3ptr132drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$17hb55fdf47cff0dabcE.exit" ]
   %82 = insertvalue { ptr, ptr } poison, ptr %11, 0
   %83 = insertvalue { ptr, ptr } %82, ptr %.sroa.3.094, 1
   ret { ptr, ptr } %83
@@ -23358,11 +23358,11 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i33: 
 _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i34: ; preds = %93, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i33, %88, %84
   %94 = atomicrmw xchg ptr %0, i32 0 release, align 4, !noalias !4228
   %95 = icmp eq i32 %94, 2
-  br i1 %95, label %96, label %.thread91
+  br i1 %95, label %96, label %"_ZN4core3ptr188drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio..runtime..task..list..CountedOwnedTasksInner$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$$GT$17he37e31fbafe1aca0E.exit37"
 
 96:                                               ; preds = %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i34
   call void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4wake17hcd5401d505f8775bE(ptr noundef nonnull align 4 %0)
-  br label %.thread91
+  br label %"_ZN4core3ptr188drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio..runtime..task..list..CountedOwnedTasksInner$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$$GT$17he37e31fbafe1aca0E.exit37"
 
 97:                                               ; preds = %42, %59
   %lpad.thr_comm.split-lp83 = landingpad { ptr, i32 }
@@ -23627,10 +23627,10 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i: ; preds = %76, %.noe
 
 "_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h61773b142151d26dE.exit": ; preds = %.noexc31, %81
   invoke void @_ZN5tokio7runtime4task3raw7RawTask8shutdown17h0d2fa854f249e37bE(ptr noundef nonnull %11)
-          to label %.thread91 unwind label %.thread84
+          to label %"_ZN4core3ptr194drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio..runtime..task..list..CountedOwnedTasksInner$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17h71c36d59d8fc7cf3E.exit37" unwind label %.thread84
 
-.thread91:                                        ; preds = %96, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i34, %"_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h61773b142151d26dE.exit"
-  %.sroa.3.094 = phi ptr [ null, %"_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h61773b142151d26dE.exit" ], [ %11, %96 ], [ %11, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i34 ]
+"_ZN4core3ptr194drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio..runtime..task..list..CountedOwnedTasksInner$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17h71c36d59d8fc7cf3E.exit37": ; preds = %"_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h61773b142151d26dE.exit", %96, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i34
+  %.sroa.3.094 = phi ptr [ %11, %96 ], [ %11, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i34 ], [ null, %"_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17h61773b142151d26dE.exit" ]
   %82 = insertvalue { ptr, ptr } poison, ptr %11, 0
   %83 = insertvalue { ptr, ptr } %82, ptr %.sroa.3.094, 1
   ret { ptr, ptr } %83
@@ -23659,11 +23659,11 @@ _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i33: 
 _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i34: ; preds = %93, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.exit.i.i.i33, %88, %84
   %94 = atomicrmw xchg ptr %0, i32 0 release, align 4, !noalias !4248
   %95 = icmp eq i32 %94, 2
-  br i1 %95, label %96, label %.thread91
+  br i1 %95, label %96, label %"_ZN4core3ptr194drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio..runtime..task..list..CountedOwnedTasksInner$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17h71c36d59d8fc7cf3E.exit37"
 
 96:                                               ; preds = %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i34
   call void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4wake17hcd5401d505f8775bE(ptr noundef nonnull align 4 %0)
-  br label %.thread91
+  br label %"_ZN4core3ptr194drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio..runtime..task..list..CountedOwnedTasksInner$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$$GT$17h71c36d59d8fc7cf3E.exit37"
 
 97:                                               ; preds = %42, %59
   %lpad.thr_comm.split-lp83 = landingpad { ptr, i32 }
@@ -27625,7 +27625,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr79drop
   br label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h16f506f07df019abE.exit"
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h16f506f07df019abE.exit": ; preds = %92, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h9a4a2feb8aa36bc2E.llvm.3320867604257097217.exit"
-  %.0 = phi ptr [ %140, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h9a4a2feb8aa36bc2E.llvm.3320867604257097217.exit" ], [ %94, %92 ]
+  %.07 = phi ptr [ %140, %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h9a4a2feb8aa36bc2E.llvm.3320867604257097217.exit" ], [ %94, %92 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4525)
   call void @llvm.experimental.noalias.scope.decl(metadata !4528)
   %146 = load ptr, ptr %0, align 8, !alias.scope !4531, !nonnull !4, !align !95, !noundef !4
@@ -27727,7 +27727,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr79drop
   br label %184
 
 "_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17hf6d994dad34c12a3E.exit": ; preds = %.noexc50, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17ha80e6b6bad139d64E.exit42", %.noexc46, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17ha80e6b6bad139d64E.exit44"
-  %.1 = phi ptr [ null, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17ha80e6b6bad139d64E.exit44" ], [ null, %.noexc46 ], [ %.0, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17ha80e6b6bad139d64E.exit42" ], [ %.0, %.noexc50 ]
+  %.1 = phi ptr [ null, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17ha80e6b6bad139d64E.exit44" ], [ null, %.noexc46 ], [ %.07, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17ha80e6b6bad139d64E.exit42" ], [ %.07, %.noexc50 ]
   store i8 1, ptr %9, align 8
   %187 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.1, 1
   br label %common.ret

@@ -219,11 +219,11 @@ thread-pre-split:                                 ; preds = %15
   br i1 %.not86, label %25, label %24
 
 24:                                               ; preds = %8, %19, %15
-  %.080.ph = phi ptr [ %10, %15 ], [ %10, %19 ], [ null, %8 ]
-  %.079.ph = phi i32 [ 16, %15 ], [ 16, %19 ], [ 0, %8 ]
   %.078.ph = phi i32 [ 1, %15 ], [ 1, %19 ], [ 0, %8 ]
+  %.077.ph = phi ptr [ %10, %15 ], [ %10, %19 ], [ null, %8 ]
+  %.076.ph = phi i32 [ 16, %15 ], [ 16, %19 ], [ 0, %8 ]
   %.075.ph = phi i32 [ 9, %15 ], [ 9, %19 ], [ 1, %8 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.075.ph, i32 noundef %.078.ph, ptr noundef null, i32 noundef %.079.ph, ptr noundef %.080.ph) #16
+  call void @zend_wrong_parameter_error(i32 noundef %.075.ph, i32 noundef %.078.ph, ptr noundef null, i32 noundef %.076.ph, ptr noundef %.077.ph) #16
   br label %56
 
 25:                                               ; preds = %17, %19
@@ -354,11 +354,11 @@ thread-pre-split:                                 ; preds = %15
   br i1 %.not86, label %25, label %24
 
 24:                                               ; preds = %8, %19, %15
-  %.080.ph = phi ptr [ %10, %15 ], [ %10, %19 ], [ null, %8 ]
-  %.079.ph = phi i32 [ 16, %15 ], [ 16, %19 ], [ 0, %8 ]
   %.078.ph = phi i32 [ 1, %15 ], [ 1, %19 ], [ 0, %8 ]
+  %.077.ph = phi ptr [ %10, %15 ], [ %10, %19 ], [ null, %8 ]
+  %.076.ph = phi i32 [ 16, %15 ], [ 16, %19 ], [ 0, %8 ]
   %.075.ph = phi i32 [ 9, %15 ], [ 9, %19 ], [ 1, %8 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.075.ph, i32 noundef %.078.ph, ptr noundef null, i32 noundef %.079.ph, ptr noundef %.080.ph) #16
+  call void @zend_wrong_parameter_error(i32 noundef %.075.ph, i32 noundef %.078.ph, ptr noundef null, i32 noundef %.076.ph, ptr noundef %.077.ph) #16
   br label %56
 
 25:                                               ; preds = %17, %19
@@ -530,10 +530,10 @@ thread-pre-split:                                 ; preds = %16
 
 .thread182:                                       ; preds = %34, %16, %20, %9
   %.0121192 = phi i32 [ 9, %16 ], [ 9, %20 ], [ 1, %9 ], [ 9, %34 ]
-  %.0124191 = phi i32 [ 16, %16 ], [ 16, %20 ], [ 0, %9 ], [ 28, %34 ]
-  %.0125190 = phi ptr [ %11, %16 ], [ %11, %20 ], [ null, %9 ], [ %27, %34 ]
-  %.0126189 = phi i32 [ 1, %16 ], [ 1, %20 ], [ 0, %9 ], [ 2, %34 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0121192, i32 noundef %.0126189, ptr noundef null, i32 noundef %.0124191, ptr noundef %.0125190) #16
+  %.0123191 = phi i32 [ 16, %16 ], [ 16, %20 ], [ 0, %9 ], [ 28, %34 ]
+  %.0124190 = phi ptr [ %11, %16 ], [ %11, %20 ], [ null, %9 ], [ %27, %34 ]
+  %.0125189 = phi i32 [ 1, %16 ], [ 1, %20 ], [ 0, %9 ], [ 2, %34 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0121192, i32 noundef %.0125189, ptr noundef null, i32 noundef %.0123191, ptr noundef %.0124190) #16
   br label %84
 
 .thread195:                                       ; preds = %34, %30, %32
@@ -635,8 +635,8 @@ php_get_gid_by_name.exit:                         ; preds = %55
   br label %75
 
 75:                                               ; preds = %73, %71
-  %.0129 = phi i32 [ %72, %71 ], [ %74, %73 ]
-  %76 = icmp eq i32 %.0129, -1
+  %.0126 = phi i32 [ %72, %71 ], [ %74, %73 ]
+  %76 = icmp eq i32 %.0126, -1
   br i1 %76, label %77, label %82
 
 77:                                               ; preds = %75
@@ -764,10 +764,10 @@ thread-pre-split:                                 ; preds = %16
 
 .thread182:                                       ; preds = %34, %16, %20, %9
   %.0121192 = phi i32 [ 9, %16 ], [ 9, %20 ], [ 1, %9 ], [ 9, %34 ]
-  %.0124191 = phi i32 [ 16, %16 ], [ 16, %20 ], [ 0, %9 ], [ 28, %34 ]
-  %.0125190 = phi ptr [ %11, %16 ], [ %11, %20 ], [ null, %9 ], [ %27, %34 ]
-  %.0126189 = phi i32 [ 1, %16 ], [ 1, %20 ], [ 0, %9 ], [ 2, %34 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0121192, i32 noundef %.0126189, ptr noundef null, i32 noundef %.0124191, ptr noundef %.0125190) #16
+  %.0123191 = phi i32 [ 16, %16 ], [ 16, %20 ], [ 0, %9 ], [ 28, %34 ]
+  %.0124190 = phi ptr [ %11, %16 ], [ %11, %20 ], [ null, %9 ], [ %27, %34 ]
+  %.0125189 = phi i32 [ 1, %16 ], [ 1, %20 ], [ 0, %9 ], [ 2, %34 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0121192, i32 noundef %.0125189, ptr noundef null, i32 noundef %.0123191, ptr noundef %.0124190) #16
   br label %84
 
 .thread195:                                       ; preds = %34, %30, %32
@@ -869,8 +869,8 @@ php_get_uid_by_name.exit:                         ; preds = %55
   br label %75
 
 75:                                               ; preds = %73, %71
-  %.0129 = phi i32 [ %72, %71 ], [ %74, %73 ]
-  %76 = icmp eq i32 %.0129, -1
+  %.0126 = phi i32 [ %72, %71 ], [ %74, %73 ]
+  %76 = icmp eq i32 %.0126, -1
   br i1 %76, label %77, label %82
 
 77:                                               ; preds = %75
@@ -965,10 +965,10 @@ thread-pre-split:                                 ; preds = %14
 
 .thread161:                                       ; preds = %14, %18, %7, %30
   %.0171 = phi i32 [ 9, %30 ], [ 9, %14 ], [ 9, %18 ], [ 1, %7 ]
-  %.0122170 = phi i32 [ 0, %30 ], [ 16, %14 ], [ 16, %18 ], [ 0, %7 ]
-  %.0123169 = phi ptr [ %25, %30 ], [ %9, %14 ], [ %9, %18 ], [ null, %7 ]
-  %.0124168 = phi i32 [ 2, %30 ], [ 1, %14 ], [ 1, %18 ], [ 0, %7 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0171, i32 noundef %.0124168, ptr noundef null, i32 noundef %.0122170, ptr noundef %.0123169) #16
+  %.0121170 = phi i32 [ 0, %30 ], [ 16, %14 ], [ 16, %18 ], [ 0, %7 ]
+  %.0122169 = phi ptr [ %25, %30 ], [ %9, %14 ], [ %9, %18 ], [ null, %7 ]
+  %.0123168 = phi i32 [ 2, %30 ], [ 1, %14 ], [ 1, %18 ], [ 0, %7 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0171, i32 noundef %.0123168, ptr noundef null, i32 noundef %.0121170, ptr noundef %.0122169) #16
   br label %63
 
 .thread181:                                       ; preds = %30, %.thread156
@@ -1177,11 +1177,11 @@ thread-pre-split:                                 ; preds = %17
   br i1 %cond.fr246, label %.thread284, label %.thread265
 
 .thread265:                                       ; preds = %45, %17, %21, %36, %10
-  %.0171280 = phi i32 [ 9, %17 ], [ 9, %21 ], [ 9, %36 ], [ 1, %10 ], [ 9, %45 ]
-  %.0174279 = phi i32 [ 16, %17 ], [ 16, %21 ], [ 1, %36 ], [ 0, %10 ], [ 1, %45 ]
-  %.0175278 = phi ptr [ %12, %17 ], [ %12, %21 ], [ %31, %36 ], [ null, %10 ], [ %40, %45 ]
-  %.0176277 = phi i32 [ 1, %17 ], [ 1, %21 ], [ 2, %36 ], [ 0, %10 ], [ 3, %45 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0171280, i32 noundef %.0176277, ptr noundef null, i32 noundef %.0174279, ptr noundef %.0175278) #16
+  %.0280 = phi i32 [ 9, %17 ], [ 9, %21 ], [ 9, %36 ], [ 1, %10 ], [ 9, %45 ]
+  %.0172279 = phi i32 [ 16, %17 ], [ 16, %21 ], [ 1, %36 ], [ 0, %10 ], [ 1, %45 ]
+  %.0173278 = phi ptr [ %12, %17 ], [ %12, %21 ], [ %31, %36 ], [ null, %10 ], [ %40, %45 ]
+  %.0174277 = phi i32 [ 1, %17 ], [ 1, %21 ], [ 2, %36 ], [ 0, %10 ], [ 3, %45 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0280, i32 noundef %.0174277, ptr noundef null, i32 noundef %.0172279, ptr noundef %.0173278) #16
   br label %110
 
 .thread284:                                       ; preds = %45, %38, %.thread300
@@ -1232,7 +1232,7 @@ thread-pre-split:                                 ; preds = %17
 .thread316:                                       ; preds = %.thread284.thread, %51, %52, %56
   %.3297308314 = phi i1 [ false, %56 ], [ false, %52 ], [ true, %51 ], [ true, %.thread284.thread ]
   %.3200296309313 = phi i8 [ %.3200296, %56 ], [ %.3200296, %52 ], [ %.3200296, %51 ], [ 1, %.thread284.thread ]
-  %.0179 = phi ptr [ %6, %56 ], [ %6, %52 ], [ null, %51 ], [ null, %.thread284.thread ]
+  %.0175 = phi ptr [ %6, %56 ], [ %6, %52 ], [ null, %51 ], [ null, %.thread284.thread ]
   %59 = call ptr @php_stream_locate_url_wrapper(ptr noundef nonnull %28, ptr noundef null, i32 noundef 0) #16
   %.not221 = icmp eq ptr %59, @php_plain_files_wrapper
   br i1 %.not221, label %60, label %63
@@ -1254,7 +1254,7 @@ thread-pre-split:                                 ; preds = %17
   br i1 %.not225, label %72, label %67
 
 67:                                               ; preds = %.thread298
-  %68 = call i32 %66(ptr noundef nonnull %59, ptr noundef nonnull %28, i32 noundef 1, ptr noundef %.0179, ptr noundef null) #16
+  %68 = call i32 %66(ptr noundef nonnull %59, ptr noundef nonnull %28, i32 noundef 1, ptr noundef %.0175, ptr noundef null) #16
   %.not227 = icmp eq i32 %68, 0
   %69 = getelementptr inbounds i8, ptr %1, i64 8
   br i1 %.not227, label %71, label %70
@@ -1330,7 +1330,7 @@ thread-pre-split:                                 ; preds = %17
   br label %100
 
 100:                                              ; preds = %98, %88
-  %101 = call i32 @utime(ptr noundef nonnull %28, ptr noundef %.0179) #16
+  %101 = call i32 @utime(ptr noundef nonnull %28, ptr noundef %.0175) #16
   %102 = icmp eq i32 %101, -1
   br i1 %102, label %103, label %108
 
@@ -1599,18 +1599,18 @@ define void @php_stat(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) 
   %21 = icmp eq i32 %1, 11
   %22 = add i32 %1, -9
   %or.cond3 = icmp ult i32 %22, 3
-  %.0.sroa.gep = getelementptr inbounds i8, ptr %4, i64 28
-  %.0.sroa.gep834 = getelementptr inbounds i8, ptr %4, i64 32
-  %.0.sroa.gep837 = getelementptr inbounds i8, ptr %4, i64 8
-  %.0.sroa.gep840 = getelementptr inbounds i8, ptr %4, i64 24
-  %.0.sroa.gep843 = getelementptr inbounds i8, ptr %4, i64 16
-  %.0.sroa.gep852 = getelementptr inbounds i8, ptr %4, i64 40
-  %.0.sroa.gep855 = getelementptr inbounds i8, ptr %4, i64 48
-  %.0.sroa.gep858 = getelementptr inbounds i8, ptr %4, i64 72
-  %.0.sroa.gep861 = getelementptr inbounds i8, ptr %4, i64 88
-  %.0.sroa.gep864 = getelementptr inbounds i8, ptr %4, i64 104
-  %.0.sroa.gep867 = getelementptr inbounds i8, ptr %4, i64 56
-  %.0.sroa.gep870 = getelementptr inbounds i8, ptr %4, i64 64
+  %.0766.sroa.gep = getelementptr inbounds i8, ptr %4, i64 28
+  %.0766.sroa.gep834 = getelementptr inbounds i8, ptr %4, i64 32
+  %.0766.sroa.gep837 = getelementptr inbounds i8, ptr %4, i64 8
+  %.0766.sroa.gep840 = getelementptr inbounds i8, ptr %4, i64 24
+  %.0766.sroa.gep843 = getelementptr inbounds i8, ptr %4, i64 16
+  %.0766.sroa.gep852 = getelementptr inbounds i8, ptr %4, i64 40
+  %.0766.sroa.gep855 = getelementptr inbounds i8, ptr %4, i64 48
+  %.0766.sroa.gep858 = getelementptr inbounds i8, ptr %4, i64 72
+  %.0766.sroa.gep861 = getelementptr inbounds i8, ptr %4, i64 88
+  %.0766.sroa.gep864 = getelementptr inbounds i8, ptr %4, i64 104
+  %.0766.sroa.gep867 = getelementptr inbounds i8, ptr %4, i64 56
+  %.0766.sroa.gep870 = getelementptr inbounds i8, ptr %4, i64 64
   switch i32 %1, label %.critedge827 [
     i32 15, label %23
     i32 11, label %23
@@ -1666,7 +1666,7 @@ define void @php_stat(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) 
   br label %.critedge829
 
 .critedge829:                                     ; preds = %44, %41
-  %.0776 = phi ptr [ %42, %41 ], [ %spec.select, %44 ]
+  %.0779 = phi ptr [ %42, %41 ], [ %spec.select, %44 ]
   switch i32 %1, label %.critedge827 [
     i32 15, label %47
     i32 9, label %51
@@ -1675,31 +1675,31 @@ define void @php_stat(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) 
   ]
 
 47:                                               ; preds = %.critedge829
-  %48 = call i32 @access(ptr noundef %.0776, i32 noundef 0) #16
+  %48 = call i32 @access(ptr noundef %.0779, i32 noundef 0) #16
   %49 = icmp eq i32 %48, 0
   %50 = select i1 %49, i32 3, i32 2
   br label %.loopexit.sink.split
 
 51:                                               ; preds = %.critedge829
-  %52 = call i32 @access(ptr noundef %.0776, i32 noundef 2) #16
+  %52 = call i32 @access(ptr noundef %.0779, i32 noundef 2) #16
   %53 = icmp eq i32 %52, 0
   %54 = select i1 %53, i32 3, i32 2
   br label %.loopexit.sink.split
 
 55:                                               ; preds = %.critedge829
-  %56 = call i32 @access(ptr noundef %.0776, i32 noundef 4) #16
+  %56 = call i32 @access(ptr noundef %.0779, i32 noundef 4) #16
   %57 = icmp eq i32 %56, 0
   %58 = select i1 %57, i32 3, i32 2
   br label %.loopexit.sink.split
 
 59:                                               ; preds = %.critedge829
-  %60 = call i32 @access(ptr noundef %.0776, i32 noundef 1) #16
+  %60 = call i32 @access(ptr noundef %.0779, i32 noundef 1) #16
   %61 = icmp eq i32 %60, 0
   %62 = select i1 %61, i32 3, i32 2
   br label %.loopexit.sink.split
 
 .critedge827:                                     ; preds = %35, %3, %.critedge829
-  %.0773 = phi ptr [ @php_plain_files_wrapper, %.critedge829 ], [ null, %3 ], [ %36, %35 ]
+  %.0775 = phi ptr [ @php_plain_files_wrapper, %.critedge829 ], [ null, %3 ], [ %36, %35 ]
   %63 = add i32 %1, -8
   %64 = call i32 @llvm.fshl.i32(i32 %63, i32 %63, i32 31)
   %65 = icmp ult i32 %64, 6
@@ -1712,7 +1712,7 @@ switch.lookup:                                    ; preds = %.critedge827
   br label %67
 
 67:                                               ; preds = %switch.lookup, %.critedge827
-  %.0766 = phi i32 [ 0, %.critedge827 ], [ %switch.load, %switch.lookup ]
+  %.0767 = phi i32 [ 0, %.critedge827 ], [ %switch.load, %switch.lookup ]
   switch i32 %1, label %70 [
     i32 18, label %68
     i32 15, label %68
@@ -1725,12 +1725,12 @@ switch.lookup:                                    ; preds = %.critedge827
   ]
 
 68:                                               ; preds = %67, %67, %67, %67, %67, %67, %67, %67
-  %69 = or disjoint i32 %.0766, 2
+  %69 = or disjoint i32 %.0767, 2
   br label %70
 
 70:                                               ; preds = %67, %68
-  %.1 = phi i32 [ %69, %68 ], [ %.0766, %67 ]
-  %71 = and i32 %.1, 1
+  %.1768 = phi i32 [ %69, %68 ], [ %.0767, %67 ]
+  %71 = and i32 %.1768, 1
   %.not804 = icmp eq i32 %71, 0
   br i1 %.not804, label %84, label %72
 
@@ -1777,7 +1777,7 @@ switch.lookup:                                    ; preds = %.critedge827
   br i1 %95, label %172, label %.critedge
 
 .critedge:                                        ; preds = %87, %94, %88, %75, %82, %76
-  %.not807 = icmp eq ptr %.0773, null
+  %.not807 = icmp eq ptr %.0775, null
   br i1 %.not807, label %96, label %.thread919
 
 96:                                               ; preds = %.critedge
@@ -1817,8 +1817,8 @@ switch.early.test:                                ; preds = %99
   br i1 %.not811, label %118, label %.thread919
 
 .thread919:                                       ; preds = %107, %.critedge, %110
-  %.1774922 = phi ptr [ %105, %110 ], [ @php_plain_files_wrapper, %107 ], [ %.0773, %.critedge ]
-  %111 = load ptr, ptr %.1774922, align 8
+  %.1776922 = phi ptr [ %105, %110 ], [ @php_plain_files_wrapper, %107 ], [ %.0775, %.critedge ]
+  %111 = load ptr, ptr %.1776922, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 24
   %113 = load ptr, ptr %112, align 8
   %.not812 = icmp eq ptr %113, null
@@ -1826,8 +1826,8 @@ switch.early.test:                                ; preds = %99
 
 114:                                              ; preds = %.thread919
   %115 = load ptr, ptr %5, align 8
-  %116 = or i32 %.1, 4
-  %117 = call i32 %113(ptr noundef nonnull %.1774922, ptr noundef %115, i32 noundef %116, ptr noundef nonnull %4, ptr noundef null) #16
+  %116 = or i32 %.1768, 4
+  %117 = call i32 %113(ptr noundef nonnull %.1776922, ptr noundef %115, i32 noundef %116, ptr noundef nonnull %4, ptr noundef null) #16
   %.not813 = icmp eq i32 %117, 0
   br i1 %.not813, label %123, label %118
 
@@ -1907,7 +1907,7 @@ switch.early.test:                                ; preds = %99
 146:                                              ; preds = %139, %143
   store ptr %0, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 544), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) getelementptr inbounds (i8, ptr @basic_globals, i64 696), ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  %147 = load i32, ptr %.0.sroa.gep840, align 8
+  %147 = load i32, ptr %.0766.sroa.gep840, align 8
   %148 = and i32 %147, 61440
   %149 = icmp eq i32 %148, 40960
   br i1 %149, label %172, label %.critedge831
@@ -1965,30 +1965,30 @@ switch.early.test:                                ; preds = %99
   br label %172
 
 172:                                              ; preds = %84, %94, %72, %82, %146, %171
-  %.2775 = phi ptr [ %.1774922, %146 ], [ %.1774922, %171 ], [ %.0773, %82 ], [ %.0773, %72 ], [ %.0773, %94 ], [ %.0773, %84 ]
-  %.0.sroa.phi = phi ptr [ %.0.sroa.gep, %146 ], [ %.0.sroa.gep, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 724), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 724), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 580), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 580), %84 ]
-  %.0.sroa.phi833 = phi ptr [ %.0.sroa.gep834, %146 ], [ %.0.sroa.gep834, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 728), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 728), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 584), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 584), %84 ]
-  %.0.sroa.phi836 = phi ptr [ %.0.sroa.gep837, %146 ], [ %.0.sroa.gep837, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 704), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 704), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 560), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 560), %84 ]
-  %.0.sroa.phi839 = phi ptr [ %.0.sroa.gep840, %146 ], [ %.0.sroa.gep840, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 720), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 720), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 576), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 576), %84 ]
-  %.0.sroa.phi842 = phi ptr [ %.0.sroa.gep843, %146 ], [ %.0.sroa.gep843, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 712), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 712), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 568), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 568), %84 ]
-  %.0.sroa.phi851 = phi ptr [ %.0.sroa.gep852, %146 ], [ %.0.sroa.gep852, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 736), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 736), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 592), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 592), %84 ]
-  %.0.sroa.phi854 = phi ptr [ %.0.sroa.gep855, %146 ], [ %.0.sroa.gep855, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 744), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 744), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 600), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 600), %84 ]
-  %.0.sroa.phi857 = phi ptr [ %.0.sroa.gep858, %146 ], [ %.0.sroa.gep858, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 768), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 768), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 624), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 624), %84 ]
-  %.0.sroa.phi860 = phi ptr [ %.0.sroa.gep861, %146 ], [ %.0.sroa.gep861, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 784), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 784), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 640), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 640), %84 ]
-  %.0.sroa.phi863 = phi ptr [ %.0.sroa.gep864, %146 ], [ %.0.sroa.gep864, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 800), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 800), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 656), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 656), %84 ]
-  %.0.sroa.phi866 = phi ptr [ %.0.sroa.gep867, %146 ], [ %.0.sroa.gep867, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 752), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 752), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 608), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 608), %84 ]
-  %.0.sroa.phi869 = phi ptr [ %.0.sroa.gep870, %146 ], [ %.0.sroa.gep870, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 760), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 760), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 616), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 616), %84 ]
-  %.0 = phi ptr [ %4, %146 ], [ %4, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 696), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 696), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 552), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 552), %84 ]
+  %.2777 = phi ptr [ %.1776922, %146 ], [ %.1776922, %171 ], [ %.0775, %82 ], [ %.0775, %72 ], [ %.0775, %94 ], [ %.0775, %84 ]
+  %.0766.sroa.phi = phi ptr [ %.0766.sroa.gep, %146 ], [ %.0766.sroa.gep, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 724), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 724), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 580), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 580), %84 ]
+  %.0766.sroa.phi833 = phi ptr [ %.0766.sroa.gep834, %146 ], [ %.0766.sroa.gep834, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 728), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 728), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 584), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 584), %84 ]
+  %.0766.sroa.phi836 = phi ptr [ %.0766.sroa.gep837, %146 ], [ %.0766.sroa.gep837, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 704), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 704), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 560), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 560), %84 ]
+  %.0766.sroa.phi839 = phi ptr [ %.0766.sroa.gep840, %146 ], [ %.0766.sroa.gep840, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 720), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 720), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 576), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 576), %84 ]
+  %.0766.sroa.phi842 = phi ptr [ %.0766.sroa.gep843, %146 ], [ %.0766.sroa.gep843, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 712), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 712), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 568), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 568), %84 ]
+  %.0766.sroa.phi851 = phi ptr [ %.0766.sroa.gep852, %146 ], [ %.0766.sroa.gep852, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 736), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 736), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 592), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 592), %84 ]
+  %.0766.sroa.phi854 = phi ptr [ %.0766.sroa.gep855, %146 ], [ %.0766.sroa.gep855, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 744), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 744), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 600), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 600), %84 ]
+  %.0766.sroa.phi857 = phi ptr [ %.0766.sroa.gep858, %146 ], [ %.0766.sroa.gep858, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 768), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 768), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 624), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 624), %84 ]
+  %.0766.sroa.phi860 = phi ptr [ %.0766.sroa.gep861, %146 ], [ %.0766.sroa.gep861, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 784), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 784), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 640), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 640), %84 ]
+  %.0766.sroa.phi863 = phi ptr [ %.0766.sroa.gep864, %146 ], [ %.0766.sroa.gep864, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 800), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 800), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 656), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 656), %84 ]
+  %.0766.sroa.phi866 = phi ptr [ %.0766.sroa.gep867, %146 ], [ %.0766.sroa.gep867, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 752), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 752), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 608), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 608), %84 ]
+  %.0766.sroa.phi869 = phi ptr [ %.0766.sroa.gep870, %146 ], [ %.0766.sroa.gep870, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 760), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 760), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 616), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 616), %84 ]
+  %.0766 = phi ptr [ %4, %146 ], [ %4, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 696), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 696), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 552), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 552), %84 ]
   br i1 %or.cond3, label %173, label %.thread933
 
 173:                                              ; preds = %172
-  %174 = load i32, ptr %.0.sroa.phi, align 4
+  %174 = load i32, ptr %.0766.sroa.phi, align 4
   %175 = call i32 @getuid() #16
   %176 = icmp eq i32 %174, %175
   br i1 %176, label %.thread924, label %177
 
 177:                                              ; preds = %173
-  %178 = load i32, ptr %.0.sroa.phi833, align 8
+  %178 = load i32, ptr %.0766.sroa.phi833, align 8
   %179 = call i32 @getgid() #16
   %180 = icmp eq i32 %178, %179
   br i1 %180, label %.thread924, label %181
@@ -2006,7 +2006,7 @@ switch.early.test:                                ; preds = %99
   br i1 %188, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %184
-  %189 = load i32, ptr %.0.sroa.phi833, align 8
+  %189 = load i32, ptr %.0766.sroa.phi833, align 8
   %wide.trip.count = zext nneg i32 %187 to i64
   br label %191
 
@@ -2023,28 +2023,28 @@ switch.early.test:                                ; preds = %99
   br i1 %194, label %._crit_edge, label %190
 
 ._crit_edge:                                      ; preds = %191, %190, %184
-  %.0771 = phi i32 [ 1, %184 ], [ 1, %190 ], [ 8, %191 ]
-  %.0769 = phi i32 [ 2, %184 ], [ 2, %190 ], [ 16, %191 ]
-  %.0767 = phi i32 [ 4, %184 ], [ 4, %190 ], [ 32, %191 ]
+  %.0773 = phi i32 [ 1, %184 ], [ 1, %190 ], [ 8, %191 ]
+  %.0771 = phi i32 [ 2, %184 ], [ 2, %190 ], [ 16, %191 ]
+  %.0769 = phi i32 [ 4, %184 ], [ 4, %190 ], [ 32, %191 ]
   call void @_efree(ptr noundef %186) #16
   br label %.thread924
 
 .thread924:                                       ; preds = %._crit_edge, %181, %173, %177
-  %.1768932 = phi i32 [ %.0767, %._crit_edge ], [ 32, %177 ], [ 256, %173 ], [ 4, %181 ]
-  %.1770930 = phi i32 [ %.0769, %._crit_edge ], [ 16, %177 ], [ 128, %173 ], [ 2, %181 ]
-  %.1772928 = phi i32 [ %.0771, %._crit_edge ], [ 8, %177 ], [ 64, %173 ], [ 1, %181 ]
+  %.1770932 = phi i32 [ %.0769, %._crit_edge ], [ 32, %177 ], [ 256, %173 ], [ 4, %181 ]
+  %.1772930 = phi i32 [ %.0771, %._crit_edge ], [ 16, %177 ], [ 128, %173 ], [ 2, %181 ]
+  %.1774928 = phi i32 [ %.0773, %._crit_edge ], [ 8, %177 ], [ 64, %173 ], [ 1, %181 ]
   %195 = call i32 @getuid() #16
   %196 = icmp ne i32 %195, 0
-  %197 = icmp ne ptr %.2775, @php_plain_files_wrapper
+  %197 = icmp ne ptr %.2777, @php_plain_files_wrapper
   %or.cond85.not939 = or i1 %197, %196
   %brmerge = or i1 %21, %or.cond85.not939
-  %.1772.mux = select i1 %or.cond85.not939, i32 %.1772928, i32 73
+  %.1774.mux = select i1 %or.cond85.not939, i32 %.1774928, i32 73
   br i1 %brmerge, label %.thread933, label %.loopexit.sink.split
 
 .thread933:                                       ; preds = %172, %.thread924
-  %.1768931 = phi i32 [ %.1768932, %.thread924 ], [ 4, %172 ]
-  %.1770929 = phi i32 [ %.1770930, %.thread924 ], [ 2, %172 ]
-  %.2 = phi i32 [ %.1772.mux, %.thread924 ], [ 1, %172 ]
+  %.1770931 = phi i32 [ %.1770932, %.thread924 ], [ 4, %172 ]
+  %.1772929 = phi i32 [ %.1772930, %.thread924 ], [ 2, %172 ]
+  %.2 = phi i32 [ %.1774.mux, %.thread924 ], [ 1, %172 ]
   switch i32 %1, label %365 [
     i32 0, label %198
     i32 18, label %198
@@ -2068,50 +2068,50 @@ switch.early.test:                                ; preds = %99
   ]
 
 198:                                              ; preds = %.thread933, %.thread933
-  %199 = load i32, ptr %.0.sroa.phi839, align 8
+  %199 = load i32, ptr %.0766.sroa.phi839, align 8
   %200 = zext i32 %199 to i64
   store i64 %200, ptr %2, align 8
   br label %.loopexit.sink.split
 
 201:                                              ; preds = %.thread933
-  %202 = load i64, ptr %.0.sroa.phi836, align 8
+  %202 = load i64, ptr %.0766.sroa.phi836, align 8
   store i64 %202, ptr %2, align 8
   br label %.loopexit.sink.split
 
 203:                                              ; preds = %.thread933
-  %204 = load i64, ptr %.0.sroa.phi854, align 8
+  %204 = load i64, ptr %.0766.sroa.phi854, align 8
   store i64 %204, ptr %2, align 8
   br label %.loopexit.sink.split
 
 205:                                              ; preds = %.thread933
-  %206 = load i32, ptr %.0.sroa.phi, align 4
+  %206 = load i32, ptr %.0766.sroa.phi, align 4
   %207 = zext i32 %206 to i64
   store i64 %207, ptr %2, align 8
   br label %.loopexit.sink.split
 
 208:                                              ; preds = %.thread933
-  %209 = load i32, ptr %.0.sroa.phi833, align 8
+  %209 = load i32, ptr %.0766.sroa.phi833, align 8
   %210 = zext i32 %209 to i64
   store i64 %210, ptr %2, align 8
   br label %.loopexit.sink.split
 
 211:                                              ; preds = %.thread933
-  %212 = load i64, ptr %.0.sroa.phi857, align 8
+  %212 = load i64, ptr %.0766.sroa.phi857, align 8
   store i64 %212, ptr %2, align 8
   br label %.loopexit.sink.split
 
 213:                                              ; preds = %.thread933
-  %214 = load i64, ptr %.0.sroa.phi860, align 8
+  %214 = load i64, ptr %.0766.sroa.phi860, align 8
   store i64 %214, ptr %2, align 8
   br label %.loopexit.sink.split
 
 215:                                              ; preds = %.thread933
-  %216 = load i64, ptr %.0.sroa.phi863, align 8
+  %216 = load i64, ptr %.0766.sroa.phi863, align 8
   store i64 %216, ptr %2, align 8
   br label %.loopexit.sink.split
 
 217:                                              ; preds = %.thread933
-  %218 = load i32, ptr %.0.sroa.phi839, align 8
+  %218 = load i32, ptr %.0766.sroa.phi839, align 8
   %219 = and i32 %218, 61440
   %220 = icmp eq i32 %219, 40960
   br i1 %220, label %221, label %228
@@ -2253,42 +2253,42 @@ switch.early.test:                                ; preds = %99
   br label %.loopexit.sink.split
 
 280:                                              ; preds = %.thread933
-  %281 = load i32, ptr %.0.sroa.phi839, align 8
-  %282 = and i32 %281, %.1770929
+  %281 = load i32, ptr %.0766.sroa.phi839, align 8
+  %282 = and i32 %281, %.1772929
   %.not824 = icmp eq i32 %282, 0
   %283 = select i1 %.not824, i32 2, i32 3
   br label %.loopexit.sink.split
 
 284:                                              ; preds = %.thread933
-  %285 = load i32, ptr %.0.sroa.phi839, align 8
-  %286 = and i32 %285, %.1768931
+  %285 = load i32, ptr %.0766.sroa.phi839, align 8
+  %286 = and i32 %285, %.1770931
   %.not823 = icmp eq i32 %286, 0
   %287 = select i1 %.not823, i32 2, i32 3
   br label %.loopexit.sink.split
 
 288:                                              ; preds = %.thread933
-  %289 = load i32, ptr %.0.sroa.phi839, align 8
+  %289 = load i32, ptr %.0766.sroa.phi839, align 8
   %290 = and i32 %289, %.2
   %.not822 = icmp eq i32 %290, 0
   %291 = select i1 %.not822, i32 2, i32 3
   br label %.loopexit.sink.split
 
 292:                                              ; preds = %.thread933
-  %293 = load i32, ptr %.0.sroa.phi839, align 8
+  %293 = load i32, ptr %.0766.sroa.phi839, align 8
   %294 = and i32 %293, 61440
   %295 = icmp eq i32 %294, 32768
   %296 = select i1 %295, i32 3, i32 2
   br label %.loopexit.sink.split
 
 297:                                              ; preds = %.thread933
-  %298 = load i32, ptr %.0.sroa.phi839, align 8
+  %298 = load i32, ptr %.0766.sroa.phi839, align 8
   %299 = and i32 %298, 61440
   %300 = icmp eq i32 %299, 16384
   %301 = select i1 %300, i32 3, i32 2
   br label %.loopexit.sink.split
 
 302:                                              ; preds = %.thread933
-  %303 = load i32, ptr %.0.sroa.phi839, align 8
+  %303 = load i32, ptr %.0766.sroa.phi839, align 8
   %304 = and i32 %303, 61440
   %305 = icmp eq i32 %304, 40960
   %306 = select i1 %305, i32 3, i32 2
@@ -2324,83 +2324,83 @@ switch.early.test:                                ; preds = %99
   store ptr %320, ptr %2, align 8
   %321 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 775, ptr %321, align 8
-  %322 = load i64, ptr %.0, align 8
+  %322 = load i64, ptr %.0766, align 8
   store i64 %322, ptr %7, align 8
   %323 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 4, ptr %323, align 8
-  %324 = load i64, ptr %.0.sroa.phi836, align 8
+  %324 = load i64, ptr %.0766.sroa.phi836, align 8
   store i64 %324, ptr %8, align 8
   %325 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 4, ptr %325, align 8
-  %326 = load i32, ptr %.0.sroa.phi839, align 8
+  %326 = load i32, ptr %.0766.sroa.phi839, align 8
   %327 = zext i32 %326 to i64
   store i64 %327, ptr %9, align 8
   %328 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 4, ptr %328, align 8
-  %329 = load i64, ptr %.0.sroa.phi842, align 8
+  %329 = load i64, ptr %.0766.sroa.phi842, align 8
   store i64 %329, ptr %10, align 8
   %330 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 4, ptr %330, align 8
-  %331 = load i32, ptr %.0.sroa.phi, align 4
+  %331 = load i32, ptr %.0766.sroa.phi, align 4
   %332 = zext i32 %331 to i64
   store i64 %332, ptr %11, align 8
   %333 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 4, ptr %333, align 8
-  %334 = load i32, ptr %.0.sroa.phi833, align 8
+  %334 = load i32, ptr %.0766.sroa.phi833, align 8
   %335 = zext i32 %334 to i64
   store i64 %335, ptr %12, align 8
   %336 = getelementptr inbounds i8, ptr %12, i64 8
   store i32 4, ptr %336, align 8
-  %337 = load i64, ptr %.0.sroa.phi851, align 8
+  %337 = load i64, ptr %.0766.sroa.phi851, align 8
   store i64 %337, ptr %13, align 8
   %338 = getelementptr inbounds i8, ptr %13, i64 8
   store i32 4, ptr %338, align 8
-  %339 = load i64, ptr %.0.sroa.phi854, align 8
+  %339 = load i64, ptr %.0766.sroa.phi854, align 8
   store i64 %339, ptr %14, align 8
   %340 = getelementptr inbounds i8, ptr %14, i64 8
   store i32 4, ptr %340, align 8
-  %341 = load i64, ptr %.0.sroa.phi857, align 8
+  %341 = load i64, ptr %.0766.sroa.phi857, align 8
   store i64 %341, ptr %15, align 8
   %342 = getelementptr inbounds i8, ptr %15, i64 8
   store i32 4, ptr %342, align 8
-  %343 = load i64, ptr %.0.sroa.phi860, align 8
+  %343 = load i64, ptr %.0766.sroa.phi860, align 8
   store i64 %343, ptr %16, align 8
   %344 = getelementptr inbounds i8, ptr %16, i64 8
   store i32 4, ptr %344, align 8
-  %345 = load i64, ptr %.0.sroa.phi863, align 8
+  %345 = load i64, ptr %.0766.sroa.phi863, align 8
   store i64 %345, ptr %17, align 8
   %346 = getelementptr inbounds i8, ptr %17, i64 8
   store i32 4, ptr %346, align 8
-  %347 = load i64, ptr %.0.sroa.phi866, align 8
+  %347 = load i64, ptr %.0766.sroa.phi866, align 8
   store i64 %347, ptr %18, align 8
   %348 = getelementptr inbounds i8, ptr %18, i64 8
   store i32 4, ptr %348, align 8
-  %349 = load i64, ptr %.0.sroa.phi869, align 8
+  %349 = load i64, ptr %.0766.sroa.phi869, align 8
   store i64 %349, ptr %19, align 8
   %350 = getelementptr inbounds i8, ptr %19, i64 8
   store i32 4, ptr %350, align 8
   br label %351
 
 351:                                              ; preds = %307, %351
-  %.0778947 = phi i64 [ 0, %307 ], [ %356, %351 ]
+  %.0947 = phi i64 [ 0, %307 ], [ %356, %351 ]
   %352 = load ptr, ptr %2, align 8
-  %353 = getelementptr inbounds [13 x ptr], ptr %20, i64 0, i64 %.0778947
+  %353 = getelementptr inbounds [13 x ptr], ptr %20, i64 0, i64 %.0947
   %354 = load ptr, ptr %353, align 8
   %355 = call ptr @zend_hash_next_index_insert(ptr noundef %352, ptr noundef %354) #16
-  %356 = add nuw nsw i64 %.0778947, 1
+  %356 = add nuw nsw i64 %.0947, 1
   %exitcond950.not = icmp eq i64 %356, 13
   br i1 %exitcond950.not, label %.preheader, label %351
 
 .preheader:                                       ; preds = %351, %.preheader
-  %.1779948 = phi i64 [ %364, %.preheader ], [ 0, %351 ]
+  %.1948 = phi i64 [ %364, %.preheader ], [ 0, %351 ]
   %357 = load ptr, ptr %2, align 8
-  %358 = getelementptr inbounds [13 x ptr], ptr @__const.php_stat.stat_sb_names, i64 0, i64 %.1779948
+  %358 = getelementptr inbounds [13 x ptr], ptr @__const.php_stat.stat_sb_names, i64 0, i64 %.1948
   %359 = load ptr, ptr %358, align 8
   %360 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %359) #17
-  %361 = getelementptr inbounds [13 x ptr], ptr %20, i64 0, i64 %.1779948
+  %361 = getelementptr inbounds [13 x ptr], ptr %20, i64 0, i64 %.1948
   %362 = load ptr, ptr %361, align 8
   %363 = call ptr @zend_hash_str_add_new(ptr noundef %357, ptr noundef %359, i64 noundef %360, ptr noundef %362) #16
-  %364 = add nuw nsw i64 %.1779948, 1
+  %364 = add nuw nsw i64 %.1948, 1
   %exitcond951.not = icmp eq i64 %364, 13
   br i1 %exitcond951.not, label %.loopexit, label %.preheader
 
@@ -2536,10 +2536,10 @@ define hidden void @zif_fileperms(ptr noundef %0, ptr nocapture noundef %1) loca
 
 .thread82:                                        ; preds = %13, %6
   %.091 = phi i32 [ 1, %6 ], [ 9, %13 ]
-  %.05290 = phi i32 [ 0, %6 ], [ 1, %13 ]
-  %.05389 = phi i32 [ 0, %6 ], [ 4, %13 ]
-  %.05488 = phi ptr [ null, %6 ], [ %8, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05290, ptr noundef null, i32 noundef %.05389, ptr noundef %.05488) #16
+  %.05290 = phi i32 [ 0, %6 ], [ 4, %13 ]
+  %.05389 = phi ptr [ null, %6 ], [ %8, %13 ]
+  %.05488 = phi i32 [ 0, %6 ], [ 1, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05488, ptr noundef null, i32 noundef %.05290, ptr noundef %.05389) #16
   br label %16
 
 .thread75:                                        ; preds = %..thread75_crit_edge, %.thread71
@@ -2586,10 +2586,10 @@ define hidden void @zif_fileinode(ptr noundef %0, ptr nocapture noundef %1) loca
 
 .thread82:                                        ; preds = %13, %6
   %.091 = phi i32 [ 1, %6 ], [ 9, %13 ]
-  %.05290 = phi i32 [ 0, %6 ], [ 1, %13 ]
-  %.05389 = phi i32 [ 0, %6 ], [ 4, %13 ]
-  %.05488 = phi ptr [ null, %6 ], [ %8, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05290, ptr noundef null, i32 noundef %.05389, ptr noundef %.05488) #16
+  %.05290 = phi i32 [ 0, %6 ], [ 4, %13 ]
+  %.05389 = phi ptr [ null, %6 ], [ %8, %13 ]
+  %.05488 = phi i32 [ 0, %6 ], [ 1, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05488, ptr noundef null, i32 noundef %.05290, ptr noundef %.05389) #16
   br label %16
 
 .thread75:                                        ; preds = %..thread75_crit_edge, %.thread71
@@ -2636,10 +2636,10 @@ define hidden void @zif_filesize(ptr noundef %0, ptr nocapture noundef %1) local
 
 .thread82:                                        ; preds = %13, %6
   %.091 = phi i32 [ 1, %6 ], [ 9, %13 ]
-  %.05290 = phi i32 [ 0, %6 ], [ 1, %13 ]
-  %.05389 = phi i32 [ 0, %6 ], [ 4, %13 ]
-  %.05488 = phi ptr [ null, %6 ], [ %8, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05290, ptr noundef null, i32 noundef %.05389, ptr noundef %.05488) #16
+  %.05290 = phi i32 [ 0, %6 ], [ 4, %13 ]
+  %.05389 = phi ptr [ null, %6 ], [ %8, %13 ]
+  %.05488 = phi i32 [ 0, %6 ], [ 1, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05488, ptr noundef null, i32 noundef %.05290, ptr noundef %.05389) #16
   br label %16
 
 .thread75:                                        ; preds = %..thread75_crit_edge, %.thread71
@@ -2686,10 +2686,10 @@ define hidden void @zif_fileowner(ptr noundef %0, ptr nocapture noundef %1) loca
 
 .thread82:                                        ; preds = %13, %6
   %.091 = phi i32 [ 1, %6 ], [ 9, %13 ]
-  %.05290 = phi i32 [ 0, %6 ], [ 1, %13 ]
-  %.05389 = phi i32 [ 0, %6 ], [ 4, %13 ]
-  %.05488 = phi ptr [ null, %6 ], [ %8, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05290, ptr noundef null, i32 noundef %.05389, ptr noundef %.05488) #16
+  %.05290 = phi i32 [ 0, %6 ], [ 4, %13 ]
+  %.05389 = phi ptr [ null, %6 ], [ %8, %13 ]
+  %.05488 = phi i32 [ 0, %6 ], [ 1, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05488, ptr noundef null, i32 noundef %.05290, ptr noundef %.05389) #16
   br label %16
 
 .thread75:                                        ; preds = %..thread75_crit_edge, %.thread71
@@ -2736,10 +2736,10 @@ define hidden void @zif_filegroup(ptr noundef %0, ptr nocapture noundef %1) loca
 
 .thread82:                                        ; preds = %13, %6
   %.091 = phi i32 [ 1, %6 ], [ 9, %13 ]
-  %.05290 = phi i32 [ 0, %6 ], [ 1, %13 ]
-  %.05389 = phi i32 [ 0, %6 ], [ 4, %13 ]
-  %.05488 = phi ptr [ null, %6 ], [ %8, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05290, ptr noundef null, i32 noundef %.05389, ptr noundef %.05488) #16
+  %.05290 = phi i32 [ 0, %6 ], [ 4, %13 ]
+  %.05389 = phi ptr [ null, %6 ], [ %8, %13 ]
+  %.05488 = phi i32 [ 0, %6 ], [ 1, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05488, ptr noundef null, i32 noundef %.05290, ptr noundef %.05389) #16
   br label %16
 
 .thread75:                                        ; preds = %..thread75_crit_edge, %.thread71
@@ -2786,10 +2786,10 @@ define hidden void @zif_fileatime(ptr noundef %0, ptr nocapture noundef %1) loca
 
 .thread82:                                        ; preds = %13, %6
   %.091 = phi i32 [ 1, %6 ], [ 9, %13 ]
-  %.05290 = phi i32 [ 0, %6 ], [ 1, %13 ]
-  %.05389 = phi i32 [ 0, %6 ], [ 4, %13 ]
-  %.05488 = phi ptr [ null, %6 ], [ %8, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05290, ptr noundef null, i32 noundef %.05389, ptr noundef %.05488) #16
+  %.05290 = phi i32 [ 0, %6 ], [ 4, %13 ]
+  %.05389 = phi ptr [ null, %6 ], [ %8, %13 ]
+  %.05488 = phi i32 [ 0, %6 ], [ 1, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05488, ptr noundef null, i32 noundef %.05290, ptr noundef %.05389) #16
   br label %16
 
 .thread75:                                        ; preds = %..thread75_crit_edge, %.thread71
@@ -2836,10 +2836,10 @@ define hidden void @zif_filemtime(ptr noundef %0, ptr nocapture noundef %1) loca
 
 .thread82:                                        ; preds = %13, %6
   %.091 = phi i32 [ 1, %6 ], [ 9, %13 ]
-  %.05290 = phi i32 [ 0, %6 ], [ 1, %13 ]
-  %.05389 = phi i32 [ 0, %6 ], [ 4, %13 ]
-  %.05488 = phi ptr [ null, %6 ], [ %8, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05290, ptr noundef null, i32 noundef %.05389, ptr noundef %.05488) #16
+  %.05290 = phi i32 [ 0, %6 ], [ 4, %13 ]
+  %.05389 = phi ptr [ null, %6 ], [ %8, %13 ]
+  %.05488 = phi i32 [ 0, %6 ], [ 1, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05488, ptr noundef null, i32 noundef %.05290, ptr noundef %.05389) #16
   br label %16
 
 .thread75:                                        ; preds = %..thread75_crit_edge, %.thread71
@@ -2886,10 +2886,10 @@ define hidden void @zif_filectime(ptr noundef %0, ptr nocapture noundef %1) loca
 
 .thread82:                                        ; preds = %13, %6
   %.091 = phi i32 [ 1, %6 ], [ 9, %13 ]
-  %.05290 = phi i32 [ 0, %6 ], [ 1, %13 ]
-  %.05389 = phi i32 [ 0, %6 ], [ 4, %13 ]
-  %.05488 = phi ptr [ null, %6 ], [ %8, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05290, ptr noundef null, i32 noundef %.05389, ptr noundef %.05488) #16
+  %.05290 = phi i32 [ 0, %6 ], [ 4, %13 ]
+  %.05389 = phi ptr [ null, %6 ], [ %8, %13 ]
+  %.05488 = phi i32 [ 0, %6 ], [ 1, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05488, ptr noundef null, i32 noundef %.05290, ptr noundef %.05389) #16
   br label %16
 
 .thread75:                                        ; preds = %..thread75_crit_edge, %.thread71
@@ -2936,10 +2936,10 @@ define hidden void @zif_filetype(ptr noundef %0, ptr nocapture noundef %1) local
 
 .thread82:                                        ; preds = %13, %6
   %.091 = phi i32 [ 1, %6 ], [ 9, %13 ]
-  %.05290 = phi i32 [ 0, %6 ], [ 1, %13 ]
-  %.05389 = phi i32 [ 0, %6 ], [ 4, %13 ]
-  %.05488 = phi ptr [ null, %6 ], [ %8, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05290, ptr noundef null, i32 noundef %.05389, ptr noundef %.05488) #16
+  %.05290 = phi i32 [ 0, %6 ], [ 4, %13 ]
+  %.05389 = phi ptr [ null, %6 ], [ %8, %13 ]
+  %.05488 = phi i32 [ 0, %6 ], [ 1, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05488, ptr noundef null, i32 noundef %.05290, ptr noundef %.05389) #16
   br label %16
 
 .thread75:                                        ; preds = %..thread75_crit_edge, %.thread71
@@ -2986,10 +2986,10 @@ define hidden void @zif_is_writable(ptr noundef %0, ptr nocapture noundef %1) lo
 
 .thread82:                                        ; preds = %13, %6
   %.091 = phi i32 [ 1, %6 ], [ 9, %13 ]
-  %.05290 = phi i32 [ 0, %6 ], [ 1, %13 ]
-  %.05389 = phi i32 [ 0, %6 ], [ 4, %13 ]
-  %.05488 = phi ptr [ null, %6 ], [ %8, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05290, ptr noundef null, i32 noundef %.05389, ptr noundef %.05488) #16
+  %.05290 = phi i32 [ 0, %6 ], [ 4, %13 ]
+  %.05389 = phi ptr [ null, %6 ], [ %8, %13 ]
+  %.05488 = phi i32 [ 0, %6 ], [ 1, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05488, ptr noundef null, i32 noundef %.05290, ptr noundef %.05389) #16
   br label %16
 
 .thread75:                                        ; preds = %..thread75_crit_edge, %.thread71
@@ -3036,10 +3036,10 @@ define hidden void @zif_is_readable(ptr noundef %0, ptr nocapture noundef %1) lo
 
 .thread82:                                        ; preds = %13, %6
   %.091 = phi i32 [ 1, %6 ], [ 9, %13 ]
-  %.05290 = phi i32 [ 0, %6 ], [ 1, %13 ]
-  %.05389 = phi i32 [ 0, %6 ], [ 4, %13 ]
-  %.05488 = phi ptr [ null, %6 ], [ %8, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05290, ptr noundef null, i32 noundef %.05389, ptr noundef %.05488) #16
+  %.05290 = phi i32 [ 0, %6 ], [ 4, %13 ]
+  %.05389 = phi ptr [ null, %6 ], [ %8, %13 ]
+  %.05488 = phi i32 [ 0, %6 ], [ 1, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05488, ptr noundef null, i32 noundef %.05290, ptr noundef %.05389) #16
   br label %16
 
 .thread75:                                        ; preds = %..thread75_crit_edge, %.thread71
@@ -3086,10 +3086,10 @@ define hidden void @zif_is_executable(ptr noundef %0, ptr nocapture noundef %1) 
 
 .thread82:                                        ; preds = %13, %6
   %.091 = phi i32 [ 1, %6 ], [ 9, %13 ]
-  %.05290 = phi i32 [ 0, %6 ], [ 1, %13 ]
-  %.05389 = phi i32 [ 0, %6 ], [ 4, %13 ]
-  %.05488 = phi ptr [ null, %6 ], [ %8, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05290, ptr noundef null, i32 noundef %.05389, ptr noundef %.05488) #16
+  %.05290 = phi i32 [ 0, %6 ], [ 4, %13 ]
+  %.05389 = phi ptr [ null, %6 ], [ %8, %13 ]
+  %.05488 = phi i32 [ 0, %6 ], [ 1, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05488, ptr noundef null, i32 noundef %.05290, ptr noundef %.05389) #16
   br label %16
 
 .thread75:                                        ; preds = %..thread75_crit_edge, %.thread71
@@ -3136,10 +3136,10 @@ define hidden void @zif_is_file(ptr noundef %0, ptr nocapture noundef %1) local_
 
 .thread82:                                        ; preds = %13, %6
   %.091 = phi i32 [ 1, %6 ], [ 9, %13 ]
-  %.05290 = phi i32 [ 0, %6 ], [ 1, %13 ]
-  %.05389 = phi i32 [ 0, %6 ], [ 4, %13 ]
-  %.05488 = phi ptr [ null, %6 ], [ %8, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05290, ptr noundef null, i32 noundef %.05389, ptr noundef %.05488) #16
+  %.05290 = phi i32 [ 0, %6 ], [ 4, %13 ]
+  %.05389 = phi ptr [ null, %6 ], [ %8, %13 ]
+  %.05488 = phi i32 [ 0, %6 ], [ 1, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05488, ptr noundef null, i32 noundef %.05290, ptr noundef %.05389) #16
   br label %16
 
 .thread75:                                        ; preds = %..thread75_crit_edge, %.thread71
@@ -3186,10 +3186,10 @@ define hidden void @zif_is_dir(ptr noundef %0, ptr nocapture noundef %1) local_u
 
 .thread82:                                        ; preds = %13, %6
   %.091 = phi i32 [ 1, %6 ], [ 9, %13 ]
-  %.05290 = phi i32 [ 0, %6 ], [ 1, %13 ]
-  %.05389 = phi i32 [ 0, %6 ], [ 4, %13 ]
-  %.05488 = phi ptr [ null, %6 ], [ %8, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05290, ptr noundef null, i32 noundef %.05389, ptr noundef %.05488) #16
+  %.05290 = phi i32 [ 0, %6 ], [ 4, %13 ]
+  %.05389 = phi ptr [ null, %6 ], [ %8, %13 ]
+  %.05488 = phi i32 [ 0, %6 ], [ 1, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05488, ptr noundef null, i32 noundef %.05290, ptr noundef %.05389) #16
   br label %16
 
 .thread75:                                        ; preds = %..thread75_crit_edge, %.thread71
@@ -3236,10 +3236,10 @@ define hidden void @zif_is_link(ptr noundef %0, ptr nocapture noundef %1) local_
 
 .thread82:                                        ; preds = %13, %6
   %.091 = phi i32 [ 1, %6 ], [ 9, %13 ]
-  %.05290 = phi i32 [ 0, %6 ], [ 1, %13 ]
-  %.05389 = phi i32 [ 0, %6 ], [ 4, %13 ]
-  %.05488 = phi ptr [ null, %6 ], [ %8, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05290, ptr noundef null, i32 noundef %.05389, ptr noundef %.05488) #16
+  %.05290 = phi i32 [ 0, %6 ], [ 4, %13 ]
+  %.05389 = phi ptr [ null, %6 ], [ %8, %13 ]
+  %.05488 = phi i32 [ 0, %6 ], [ 1, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05488, ptr noundef null, i32 noundef %.05290, ptr noundef %.05389) #16
   br label %16
 
 .thread75:                                        ; preds = %..thread75_crit_edge, %.thread71
@@ -3286,10 +3286,10 @@ define hidden void @zif_file_exists(ptr noundef %0, ptr nocapture noundef %1) lo
 
 .thread82:                                        ; preds = %13, %6
   %.091 = phi i32 [ 1, %6 ], [ 9, %13 ]
-  %.05290 = phi i32 [ 0, %6 ], [ 1, %13 ]
-  %.05389 = phi i32 [ 0, %6 ], [ 4, %13 ]
-  %.05488 = phi ptr [ null, %6 ], [ %8, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05290, ptr noundef null, i32 noundef %.05389, ptr noundef %.05488) #16
+  %.05290 = phi i32 [ 0, %6 ], [ 4, %13 ]
+  %.05389 = phi ptr [ null, %6 ], [ %8, %13 ]
+  %.05488 = phi i32 [ 0, %6 ], [ 1, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05488, ptr noundef null, i32 noundef %.05290, ptr noundef %.05389) #16
   br label %16
 
 .thread75:                                        ; preds = %..thread75_crit_edge, %.thread71
@@ -3336,10 +3336,10 @@ define hidden void @zif_lstat(ptr noundef %0, ptr nocapture noundef %1) local_un
 
 .thread82:                                        ; preds = %13, %6
   %.091 = phi i32 [ 1, %6 ], [ 9, %13 ]
-  %.05290 = phi i32 [ 0, %6 ], [ 1, %13 ]
-  %.05389 = phi i32 [ 0, %6 ], [ 4, %13 ]
-  %.05488 = phi ptr [ null, %6 ], [ %8, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05290, ptr noundef null, i32 noundef %.05389, ptr noundef %.05488) #16
+  %.05290 = phi i32 [ 0, %6 ], [ 4, %13 ]
+  %.05389 = phi ptr [ null, %6 ], [ %8, %13 ]
+  %.05488 = phi i32 [ 0, %6 ], [ 1, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05488, ptr noundef null, i32 noundef %.05290, ptr noundef %.05389) #16
   br label %16
 
 .thread75:                                        ; preds = %..thread75_crit_edge, %.thread71
@@ -3386,10 +3386,10 @@ define hidden void @zif_stat(ptr noundef %0, ptr nocapture noundef %1) local_unn
 
 .thread82:                                        ; preds = %13, %6
   %.091 = phi i32 [ 1, %6 ], [ 9, %13 ]
-  %.05290 = phi i32 [ 0, %6 ], [ 1, %13 ]
-  %.05389 = phi i32 [ 0, %6 ], [ 4, %13 ]
-  %.05488 = phi ptr [ null, %6 ], [ %8, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05290, ptr noundef null, i32 noundef %.05389, ptr noundef %.05488) #16
+  %.05290 = phi i32 [ 0, %6 ], [ 4, %13 ]
+  %.05389 = phi ptr [ null, %6 ], [ %8, %13 ]
+  %.05488 = phi i32 [ 0, %6 ], [ 1, %13 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.091, i32 noundef %.05488, ptr noundef null, i32 noundef %.05290, ptr noundef %.05389) #16
   br label %16
 
 .thread75:                                        ; preds = %..thread75_crit_edge, %.thread71

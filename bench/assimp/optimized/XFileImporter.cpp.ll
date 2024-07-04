@@ -2756,8 +2756,8 @@ for.body165.lr.ph:                                ; preds = %if.end.i.i.i.i.i65.
 
 for.body165:                                      ; preds = %for.body165.lr.ph, %for.inc293
   %conv1621217 = phi i64 [ 0, %for.body165.lr.ph ], [ %conv162, %for.inc293 ]
-  %newIndex.01216 = phi i32 [ 0, %for.body165.lr.ph ], [ %newIndex.1.lcssa, %for.inc293 ]
-  %c160.01215 = phi i32 [ 0, %for.body165.lr.ph ], [ %inc294, %for.inc293 ]
+  %c160.01216 = phi i32 [ 0, %for.body165.lr.ph ], [ %inc294, %for.inc293 ]
+  %newIndex.01215 = phi i32 [ 0, %for.body165.lr.ph ], [ %newIndex.1.lcssa, %for.inc293 ]
   %add.ptr.i260 = getelementptr inbounds i32, ptr %faces.sroa.0.8, i64 %conv1621217
   %49 = load i32, ptr %add.ptr.i260, align 4
   %conv169 = zext i32 %49 to i64
@@ -2787,10 +2787,10 @@ invoke.cont179:                                   ; preds = %for.body165
 
 for.body185:                                      ; preds = %invoke.cont179, %for.inc290
   %indvars.iv1432 = phi i64 [ %indvars.iv.next1433, %for.inc290 ], [ 0, %invoke.cont179 ]
-  %newIndex.11212 = phi i32 [ %newIndex.2, %for.inc290 ], [ %newIndex.01216, %invoke.cont179 ]
+  %newIndex.11211 = phi i32 [ %newIndex.2, %for.inc290 ], [ %newIndex.01215, %invoke.cont179 ]
   %56 = load ptr, ptr %mIndices181, align 8
   %arrayidx188 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv1432
-  store i32 %newIndex.11212, ptr %arrayidx188, align 4
+  store i32 %newIndex.11211, ptr %arrayidx188, align 4
   %57 = load ptr, ptr %add.ptr.i261, align 8
   %add.ptr.i267 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv1432
   %58 = load i32, ptr %add.ptr.i267, align 4
@@ -2805,7 +2805,7 @@ for.body185:                                      ; preds = %invoke.cont179, %fo
   br i1 %cmp194.not, label %if.end196, label %for.inc290
 
 if.end196:                                        ; preds = %for.body185
-  %conv200 = zext i32 %newIndex.11212 to i64
+  %conv200 = zext i32 %newIndex.11211 to i64
   %add.ptr.i274 = getelementptr inbounds i32, ptr %call5.i.i.i.i522, i64 %conv200
   store i32 %58, ptr %add.ptr.i274, align 4
   %61 = load ptr, ptr %add.ptr.i261, align 8
@@ -2922,11 +2922,11 @@ for.inc286:                                       ; preds = %_ZNK6aiMesh15HasVer
   br i1 %exitcond1431.not, label %for.end288, label %_ZNK6aiMesh15HasVertexColorsEj.exit, !llvm.loop !26
 
 for.end288:                                       ; preds = %for.inc286
-  %inc289 = add i32 %newIndex.11212, 1
+  %inc289 = add i32 %newIndex.11211, 1
   br label %for.inc290
 
 for.inc290:                                       ; preds = %for.body185, %for.end288
-  %newIndex.2 = phi i32 [ %newIndex.11212, %for.body185 ], [ %inc289, %for.end288 ]
+  %newIndex.2 = phi i32 [ %newIndex.11211, %for.body185 ], [ %inc289, %for.end288 ]
   %indvars.iv.next1433 = add nuw nsw i64 %indvars.iv1432, 1
   %86 = load i32, ptr %arrayidx173, align 8
   %87 = zext i32 %86 to i64
@@ -2934,8 +2934,8 @@ for.inc290:                                       ; preds = %for.body185, %for.e
   br i1 %cmp184, label %for.body185, label %for.inc293, !llvm.loop !27
 
 for.inc293:                                       ; preds = %for.inc290, %invoke.cont179
-  %newIndex.1.lcssa = phi i32 [ %newIndex.01216, %invoke.cont179 ], [ %newIndex.2, %for.inc290 ]
-  %inc294 = add i32 %c160.01215, 1
+  %newIndex.1.lcssa = phi i32 [ %newIndex.01215, %invoke.cont179 ], [ %newIndex.2, %for.inc290 ]
+  %inc294 = add i32 %c160.01216, 1
   %conv162 = zext i32 %inc294 to i64
   %cmp164 = icmp ugt i64 %sub.ptr.div.i234, %conv162
   br i1 %cmp164, label %for.body165, label %for.end295, !llvm.loop !28

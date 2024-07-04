@@ -930,7 +930,7 @@ opal_convertor_get_packed_size.exit:              ; preds = %opal_obj_run_constr
   br label %ompi_request_complete.exit68
 
 ompi_request_complete.exit68:                     ; preds = %.critedge.i67, %158, %128, %134
-  %.054 = phi i32 [ 0, %128 ], [ 0, %134 ], [ %150, %158 ], [ %150, %.critedge.i67 ]
+  %.053 = phi i32 [ 0, %128 ], [ 0, %134 ], [ %150, %158 ], [ %150, %.critedge.i67 ]
   %162 = getelementptr inbounds i8, ptr %0, i64 304
   store i32 0, ptr %162, align 8
   %163 = getelementptr inbounds i8, ptr %0, i64 296
@@ -944,8 +944,8 @@ ompi_request_complete.exit68:                     ; preds = %.critedge.i67, %158
   br label %167
 
 167:                                              ; preds = %126, %5, %ompi_request_complete.exit68, %125, %109, %ompi_request_complete.exit
-  %.0 = phi i32 [ 0, %ompi_request_complete.exit ], [ -2, %109 ], [ -2, %125 ], [ %.054, %ompi_request_complete.exit68 ], [ 20, %5 ], [ %127, %126 ]
-  ret i32 %.0
+  %.054 = phi i32 [ 0, %ompi_request_complete.exit ], [ -2, %109 ], [ -2, %125 ], [ %.053, %ompi_request_complete.exit68 ], [ 20, %5 ], [ %127, %126 ]
+  ret i32 %.054
 }
 
 declare void @mca_common_ompio_request_alloc(ptr noundef, i32 noundef) local_unnamed_addr #1

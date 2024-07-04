@@ -3150,7 +3150,7 @@ define internal ptr @H5HF__cache_iblock_deserialize(ptr noundef %0, i64 %1, ptr 
 
 .lr.ph:                                           ; preds = %107, %.lr.ph
   %114 = phi i64 [ %120, %.lr.ph ], [ 0, %107 ]
-  %.0139167 = phi i64 [ %121, %.lr.ph ], [ 0, %107 ]
+  %.0138167 = phi i64 [ %121, %.lr.ph ], [ 0, %107 ]
   %115 = phi ptr [ %117, %.lr.ph ], [ %113, %107 ]
   %116 = shl i64 %114, 8
   %117 = getelementptr inbounds i8, ptr %115, i64 -1
@@ -3159,7 +3159,7 @@ define internal ptr @H5HF__cache_iblock_deserialize(ptr noundef %0, i64 %1, ptr 
   %119 = zext i8 %118 to i64
   %120 = or disjoint i64 %116, %119
   store i64 %120, ptr %109, align 8
-  %121 = add nuw nsw i64 %.0139167, 1
+  %121 = add nuw nsw i64 %.0138167, 1
   %122 = icmp ult i64 %121, %112
   br i1 %122, label %.lr.ph, label %._crit_edge
 
@@ -4416,7 +4416,7 @@ define internal range(i32 -1, 1) i32 @H5HF__cache_dblock_pre_serialize(ptr nound
   br label %21
 
 21:                                               ; preds = %7, %18
-  %.0111 = phi i32 [ %20, %18 ], [ 0, %7 ]
+  %.0116 = phi i32 [ %20, %18 ], [ 0, %7 ]
   %22 = tail call zeroext i1 @H5F_is_tmp_addr(ptr noundef %0, i64 noundef %2) #9
   %23 = getelementptr inbounds i8, ptr %1, i64 296
   %24 = load ptr, ptr %23, align 8
@@ -4442,14 +4442,14 @@ define internal range(i32 -1, 1) i32 @H5HF__cache_dblock_pre_serialize(ptr nound
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0112149 = phi ptr [ %36, %.lr.ph ], [ %30, %.lr.ph.preheader ]
-  %.0113148 = phi i64 [ %37, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0114147 = phi i64 [ %38, %.lr.ph ], [ %34, %.lr.ph.preheader ]
-  %35 = trunc i64 %.0114147 to i8
-  %36 = getelementptr inbounds i8, ptr %.0112149, i64 1
-  store i8 %35, ptr %.0112149, align 1
-  %37 = add nuw nsw i64 %.0113148, 1
-  %38 = lshr i64 %.0114147, 8
+  %.0110149 = phi ptr [ %36, %.lr.ph ], [ %30, %.lr.ph.preheader ]
+  %.0111148 = phi i64 [ %37, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.0112147 = phi i64 [ %38, %.lr.ph ], [ %34, %.lr.ph.preheader ]
+  %35 = trunc i64 %.0112147 to i8
+  %36 = getelementptr inbounds i8, ptr %.0110149, i64 1
+  store i8 %35, ptr %.0110149, align 1
+  %37 = add nuw nsw i64 %.0111148, 1
+  %38 = lshr i64 %.0112147, 8
   %39 = load i8, ptr %31, align 1
   %40 = zext i8 %39 to i64
   %41 = icmp ult i64 %37, %40
@@ -4621,7 +4621,7 @@ define internal range(i32 -1, 1) i32 @H5HF__cache_dblock_pre_serialize(ptr nound
 128:                                              ; preds = %89
   %129 = getelementptr inbounds i8, ptr %17, i64 352
   %130 = load ptr, ptr %129, align 8
-  %131 = zext i32 %.0111 to i64
+  %131 = zext i32 %.0116 to i64
   %132 = getelementptr inbounds %struct.H5HF_indirect_filt_ent_t, ptr %130, i64 %131, i32 1
   %133 = load i32, ptr %132, align 8
   %134 = load i32, ptr %12, align 4
@@ -4740,7 +4740,7 @@ define internal range(i32 -1, 1) i32 @H5HF__cache_dblock_pre_serialize(ptr nound
 192:                                              ; preds = %181
   %193 = getelementptr inbounds i8, ptr %17, i64 344
   %194 = load ptr, ptr %193, align 8
-  %195 = zext i32 %.0111 to i64
+  %195 = zext i32 %.0116 to i64
   %196 = getelementptr inbounds %struct.H5HF_indirect_ent_t, ptr %194, i64 %195
   store i64 %175, ptr %196, align 8
   %197 = call i32 @H5HF__iblock_dirty(ptr noundef %17) #9
@@ -4771,7 +4771,7 @@ define internal range(i32 -1, 1) i32 @H5HF__cache_dblock_pre_serialize(ptr nound
   br label %210
 
 210:                                              ; preds = %203, %209
-  %.0116 = phi i32 [ 2, %209 ], [ 0, %203 ]
+  %.0114 = phi i32 [ 2, %209 ], [ 0, %203 ]
   %211 = load i32, ptr %69, align 4
   %.not134 = icmp eq i32 %211, 0
   %.not135 = icmp eq i64 %206, %3
@@ -4779,17 +4779,17 @@ define internal range(i32 -1, 1) i32 @H5HF__cache_dblock_pre_serialize(ptr nound
   br i1 %or.cond146, label %214, label %212
 
 212:                                              ; preds = %210
-  %213 = or disjoint i32 %.0116, 1
+  %213 = or disjoint i32 %.0114, 1
   store i64 %206, ptr %5, align 8
   br label %214
 
 214:                                              ; preds = %212, %210
-  %.1117 = phi i32 [ %213, %212 ], [ %.0116, %210 ]
-  store i32 %.1117, ptr %6, align 4
+  %.1115 = phi i32 [ %213, %212 ], [ %.0114, %210 ]
+  store i32 %.1115, ptr %6, align 4
   br label %215
 
 215:                                              ; preds = %214, %199, %188, %177, %166, %154, %146, %124, %116, %108, %85, %76
-  %.0115 = phi i32 [ -1, %76 ], [ -1, %85 ], [ -1, %116 ], [ -1, %124 ], [ 0, %214 ], [ -1, %108 ], [ -1, %154 ], [ -1, %166 ], [ -1, %146 ], [ -1, %177 ], [ -1, %188 ], [ -1, %199 ]
+  %.0113 = phi i32 [ -1, %76 ], [ -1, %85 ], [ -1, %116 ], [ -1, %124 ], [ 0, %214 ], [ -1, %108 ], [ -1, %154 ], [ -1, %166 ], [ -1, %146 ], [ -1, %177 ], [ -1, %188 ], [ -1, %199 ]
   %216 = load ptr, ptr %8, align 8
   %.not136 = icmp eq ptr %216, null
   br i1 %.not136, label %225, label %217
@@ -4810,7 +4810,7 @@ define internal range(i32 -1, 1) i32 @H5HF__cache_dblock_pre_serialize(ptr nound
   br label %225
 
 225:                                              ; preds = %223, %219, %217, %215
-  ret i32 %.0115
+  ret i32 %.0113
 }
 
 ; Function Attrs: nounwind uwtable

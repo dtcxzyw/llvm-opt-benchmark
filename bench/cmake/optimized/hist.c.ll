@@ -30,9 +30,9 @@ define dso_local i32 @HIST_count_simple(ptr nocapture noundef %0, ptr nocapture 
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader32, %.lr.ph
-  %.02933 = phi ptr [ %13, %.lr.ph ], [ %2, %.preheader32 ]
-  %13 = getelementptr inbounds i8, ptr %.02933, i64 1
-  %14 = load i8, ptr %.02933, align 1
+  %.02833 = phi ptr [ %13, %.lr.ph ], [ %2, %.preheader32 ]
+  %13 = getelementptr inbounds i8, ptr %.02833, i64 1
+  %14 = load i8, ptr %.02833, align 1
   %15 = zext i8 %14 to i64
   %16 = getelementptr inbounds i32, ptr %0, i64 %15
   %17 = load i32, ptr %16, align 4
@@ -68,8 +68,8 @@ define dso_local i32 @HIST_count_simple(ptr nocapture noundef %0, ptr nocapture 
   br i1 %.not31.not, label %25, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %25, %12
-  %.028 = phi i32 [ 0, %12 ], [ %spec.select, %25 ]
-  ret i32 %.028
+  %.029 = phi i32 [ 0, %12 ], [ %spec.select, %25 ]
+  ret i32 %.029
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -95,9 +95,9 @@ define dso_local range(i64 -66, 4294967296) i64 @HIST_countFast_wksp(ptr nocaptu
   br label %HIST_count_simple.exit
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
-  %.02933.i = phi ptr [ %16, %.lr.ph.i ], [ %2, %8 ]
-  %16 = getelementptr inbounds i8, ptr %.02933.i, i64 1
-  %17 = load i8, ptr %.02933.i, align 1
+  %.02833.i = phi ptr [ %16, %.lr.ph.i ], [ %2, %8 ]
+  %16 = getelementptr inbounds i8, ptr %.02833.i, i64 1
+  %17 = load i8, ptr %.02833.i, align 1
   %18 = zext i8 %17 to i64
   %19 = getelementptr inbounds i32, ptr %0, i64 %18
   %20 = load i32, ptr %19, align 4
@@ -177,7 +177,7 @@ define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(
   br i1 %16, label %.lr.ph.preheader, label %.preheader106
 
 .lr.ph.preheader:                                 ; preds = %15
-  %.096107 = getelementptr inbounds i8, ptr %2, i64 4
+  %.097107 = getelementptr inbounds i8, ptr %2, i64 4
   %.val = load i32, ptr %2, align 1
   br label %.lr.ph
 
@@ -187,10 +187,10 @@ define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(
   br i1 %17, label %.lr.ph112, label %.preheader105.preheader
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.096110 = phi ptr [ %.096, %.lr.ph ], [ %.096107, %.lr.ph.preheader ]
+  %.097110 = phi ptr [ %.097, %.lr.ph ], [ %.097107, %.lr.ph.preheader ]
   %.095109 = phi i32 [ %.val104, %.lr.ph ], [ %.val, %.lr.ph.preheader ]
   %.pn108 = phi ptr [ %64, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %.096.val = load i32, ptr %.096110, align 1
+  %.097.val = load i32, ptr %.097110, align 1
   %18 = getelementptr inbounds i8, ptr %.pn108, i64 8
   %19 = and i32 %.095109, 255
   %20 = zext nneg i32 %19 to i64
@@ -220,27 +220,27 @@ define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(
   store i32 %40, ptr %38, align 4
   %.val102 = load i32, ptr %18, align 1
   %41 = getelementptr inbounds i8, ptr %.pn108, i64 12
-  %42 = and i32 %.096.val, 255
+  %42 = and i32 %.097.val, 255
   %43 = zext nneg i32 %42 to i64
   %44 = getelementptr inbounds i32, ptr %5, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4
-  %47 = lshr i32 %.096.val, 8
+  %47 = lshr i32 %.097.val, 8
   %48 = and i32 %47, 255
   %49 = zext nneg i32 %48 to i64
   %50 = getelementptr inbounds i32, ptr %11, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = add i32 %51, 1
   store i32 %52, ptr %50, align 4
-  %53 = lshr i32 %.096.val, 16
+  %53 = lshr i32 %.097.val, 16
   %54 = and i32 %53, 255
   %55 = zext nneg i32 %54 to i64
   %56 = getelementptr inbounds i32, ptr %12, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = add i32 %57, 1
   store i32 %58, ptr %56, align 4
-  %59 = lshr i32 %.096.val, 24
+  %59 = lshr i32 %.097.val, 24
   %60 = zext nneg i32 %59 to i64
   %61 = getelementptr inbounds i32, ptr %13, i64 %60
   %62 = load i32, ptr %61, align 4
@@ -301,14 +301,14 @@ define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(
   %107 = load i32, ptr %106, align 4
   %108 = add i32 %107, 1
   store i32 %108, ptr %106, align 4
-  %.096 = getelementptr inbounds i8, ptr %.pn108, i64 20
-  %109 = icmp ult ptr %.096, %.ptr115
+  %.097 = getelementptr inbounds i8, ptr %.pn108, i64 20
+  %109 = icmp ult ptr %.097, %.ptr115
   br i1 %109, label %.lr.ph, label %.preheader106, !llvm.loop !9
 
 .lr.ph112:                                        ; preds = %.preheader106, %.lr.ph112
-  %.1111 = phi ptr [ %110, %.lr.ph112 ], [ %.pn.lcssa, %.preheader106 ]
-  %110 = getelementptr inbounds i8, ptr %.1111, i64 1
-  %111 = load i8, ptr %.1111, align 1
+  %.198111 = phi ptr [ %110, %.lr.ph112 ], [ %.pn.lcssa, %.preheader106 ]
+  %110 = getelementptr inbounds i8, ptr %.198111, i64 1
+  %111 = load i8, ptr %.198111, align 1
   %112 = zext i8 %111 to i64
   %113 = getelementptr inbounds i32, ptr %5, i64 %112
   %114 = load i32, ptr %113, align 4
@@ -322,7 +322,7 @@ define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(
 
 .preheader105:                                    ; preds = %.preheader105.preheader, %.preheader105
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader105 ], [ 0, %.preheader105.preheader ]
-  %.097113 = phi i32 [ %spec.select, %.preheader105 ], [ 0, %.preheader105.preheader ]
+  %.096113 = phi i32 [ %spec.select, %.preheader105 ], [ 0, %.preheader105.preheader ]
   %117 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
   %118 = load i32, ptr %117, align 4
   %119 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
@@ -335,7 +335,7 @@ define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(
   %126 = load i32, ptr %125, align 4
   %127 = add i32 %124, %126
   store i32 %127, ptr %125, align 4
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %127, i32 %.097113)
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %127, i32 %.096113)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %.preheader, label %.preheader105, !llvm.loop !11
@@ -405,9 +405,9 @@ define dso_local range(i64 -66, 4294967296) i64 @HIST_count_wksp(ptr nocapture n
   br label %HIST_countFast_wksp.exit
 
 .lr.ph.i.i:                                       ; preds = %18, %.lr.ph.i.i
-  %.02933.i.i = phi ptr [ %22, %.lr.ph.i.i ], [ %2, %18 ]
-  %22 = getelementptr inbounds i8, ptr %.02933.i.i, i64 1
-  %23 = load i8, ptr %.02933.i.i, align 1
+  %.02833.i.i = phi ptr [ %22, %.lr.ph.i.i ], [ %2, %18 ]
+  %22 = getelementptr inbounds i8, ptr %.02833.i.i, i64 1
+  %23 = load i8, ptr %.02833.i.i, align 1
   %24 = zext i8 %23 to i64
   %25 = getelementptr inbounds i32, ptr %0, i64 %24
   %26 = load i32, ptr %25, align 4
@@ -473,9 +473,9 @@ define dso_local range(i64 -66, 4294967296) i64 @HIST_countFast(ptr nocapture no
   br label %HIST_countFast_wksp.exit
 
 .lr.ph.i.i:                                       ; preds = %7, %.lr.ph.i.i
-  %.02933.i.i = phi ptr [ %15, %.lr.ph.i.i ], [ %2, %7 ]
-  %15 = getelementptr inbounds i8, ptr %.02933.i.i, i64 1
-  %16 = load i8, ptr %.02933.i.i, align 1
+  %.02833.i.i = phi ptr [ %15, %.lr.ph.i.i ], [ %2, %7 ]
+  %15 = getelementptr inbounds i8, ptr %.02833.i.i, i64 1
+  %16 = load i8, ptr %.02833.i.i, align 1
   %17 = zext i8 %16 to i64
   %18 = getelementptr inbounds i32, ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4
@@ -547,9 +547,9 @@ define dso_local range(i64 -66, 4294967296) i64 @HIST_count(ptr nocapture nounde
   br label %HIST_count_wksp.exit
 
 .lr.ph.i.i.i:                                     ; preds = %12, %.lr.ph.i.i.i
-  %.02933.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i ], [ %2, %12 ]
-  %16 = getelementptr inbounds i8, ptr %.02933.i.i.i, i64 1
-  %17 = load i8, ptr %.02933.i.i.i, align 1
+  %.02833.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i ], [ %2, %12 ]
+  %16 = getelementptr inbounds i8, ptr %.02833.i.i.i, i64 1
+  %17 = load i8, ptr %.02833.i.i.i, align 1
   %18 = zext i8 %17 to i64
   %19 = getelementptr inbounds i32, ptr %0, i64 %18
   %20 = load i32, ptr %19, align 4

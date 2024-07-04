@@ -345,8 +345,8 @@ progress_calc.exit:                               ; preds = %trspeed.exit51.i, %
   br label %170
 
 170:                                              ; preds = %165, %163, %158, %150, %147
-  %.062.i = phi i64 [ %156, %158 ], [ %156, %165 ], [ %156, %163 ], [ 0, %150 ], [ 0, %147 ]
-  %.060.i = phi i64 [ %162, %158 ], [ %169, %165 ], [ 0, %163 ], [ 0, %150 ], [ 0, %147 ]
+  %.063.i = phi i64 [ %162, %158 ], [ %169, %165 ], [ 0, %163 ], [ 0, %150 ], [ 0, %147 ]
+  %.061.i = phi i64 [ %156, %158 ], [ %156, %165 ], [ %156, %163 ], [ 0, %150 ], [ 0, %147 ]
   %171 = and i32 %148, 64
   %.not74.i = icmp eq i32 %171, 0
   br i1 %.not74.i, label %191, label %172
@@ -381,9 +381,9 @@ progress_calc.exit:                               ; preds = %trspeed.exit51.i, %
   br label %191
 
 191:                                              ; preds = %187, %185, %181, %172, %170
-  %.061.i = phi i64 [ %179, %181 ], [ %179, %187 ], [ %179, %185 ], [ 0, %172 ], [ 0, %170 ]
+  %.060.i = phi i64 [ %179, %181 ], [ %179, %187 ], [ %179, %185 ], [ 0, %172 ], [ 0, %170 ]
   %.0.i = phi i64 [ %184, %181 ], [ %190, %187 ], [ 0, %185 ], [ 0, %172 ], [ 0, %170 ]
-  %192 = tail call i64 @llvm.smax.i64(i64 %.062.i, i64 %.061.i)
+  %192 = tail call i64 @llvm.smax.i64(i64 %.061.i, i64 %.060.i)
   %193 = icmp sgt i64 %192, 0
   %194 = sub nsw i64 %192, %131
   %195 = select i1 %193, i64 %194, i64 0
@@ -547,7 +547,7 @@ time2str.exit93.i:                                ; preds = %251, %247, %238, %2
   br label %progress_meter.exit
 
 progress_meter.exit:                              ; preds = %266, %269, %271
-  %.063.i = phi i64 [ %268, %266 ], [ %273, %271 ], [ 0, %269 ]
+  %.062.i = phi i64 [ %268, %266 ], [ %273, %271 ], [ 0, %269 ]
   %274 = getelementptr inbounds i8, ptr %0, i64 408
   %275 = load ptr, ptr %274, align 8
   %276 = getelementptr inbounds i8, ptr %2, i64 20
@@ -568,7 +568,7 @@ progress_meter.exit:                              ; preds = %266, %269, %271
   %291 = load i64, ptr %290, align 8
   %292 = getelementptr inbounds i8, ptr %2, i64 50
   %293 = call fastcc ptr @max5data(i64 noundef %291, ptr noundef nonnull %292)
-  %294 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %275, ptr noundef nonnull @.str.4, i64 noundef %.063.i, ptr noundef nonnull %276, i64 noundef %.0.i, ptr noundef nonnull %2, i64 noundef %.060.i, ptr noundef nonnull %281, ptr noundef nonnull %285, ptr noundef nonnull %288, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %292) #9
+  %294 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %275, ptr noundef nonnull @.str.4, i64 noundef %.062.i, ptr noundef nonnull %276, i64 noundef %.0.i, ptr noundef nonnull %2, i64 noundef %.063.i, ptr noundef nonnull %281, ptr noundef nonnull %285, ptr noundef nonnull %288, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %292) #9
   %295 = load ptr, ptr %274, align 8
   %296 = call i32 @fflush(ptr noundef %295)
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %2)
@@ -922,19 +922,19 @@ define dso_local i64 @Curl_pgrsLimitWaitTime(i64 noundef %0, i64 noundef %1, i64
   br label %19
 
 19:                                               ; preds = %15, %12
-  %.017 = phi i64 [ %14, %12 ], [ %spec.select, %15 ]
+  %.0 = phi i64 [ %14, %12 ], [ %spec.select, %15 ]
   %20 = load i64, ptr %5, align 8
   %21 = getelementptr inbounds i8, ptr %5, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = tail call i64 @Curl_timediff_ceil(i64 %20, i32 %22, i64 %3, i32 %4) #9
-  %24 = icmp slt i64 %23, %.017
-  %25 = sub nsw i64 %.017, %23
+  %24 = icmp slt i64 %23, %.0
+  %25 = sub nsw i64 %.0, %23
   %spec.select22 = select i1 %24, i64 %25, i64 0
   br label %26
 
 26:                                               ; preds = %19, %6
-  %.0 = phi i64 [ 0, %6 ], [ %spec.select22, %19 ]
-  ret i64 %.0
+  %.017 = phi i64 [ 0, %6 ], [ %spec.select22, %19 ]
+  ret i64 %.017
 }
 
 declare i64 @Curl_timediff_ceil(i64, i32, i64, i32) local_unnamed_addr #1

@@ -2743,9 +2743,9 @@ for.inc:                                          ; preds = %for.body, %if.then2
   br i1 %cmp16.not, label %if.end39, label %for.body
 
 for.body29:                                       ; preds = %for.body29.preheader, %for.inc36
-  %__begin223.sroa.5.033 = phi ptr [ %spec.select, %for.inc36 ], [ null, %for.body29.preheader ]
-  %__begin223.sroa.0.032 = phi ptr [ %30, %for.inc36 ], [ %12, %for.body29.preheader ]
-  %23 = load ptr, ptr %__begin223.sroa.0.032, align 8
+  %__begin223.sroa.0.033 = phi ptr [ %30, %for.inc36 ], [ %12, %for.body29.preheader ]
+  %__begin223.sroa.5.032 = phi ptr [ %spec.select, %for.inc36 ], [ null, %for.body29.preheader ]
+  %23 = load ptr, ptr %__begin223.sroa.0.033, align 8
   %24 = load i32, ptr %bv.i, align 8
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %23, i64 4
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4
@@ -2771,13 +2771,13 @@ _ZNK14bv_recognizers9is_bv2intEPK4expr.exit:      ; preds = %land.rhs.i.i
   br i1 %29, label %if.then34, label %for.inc36
 
 if.then34:                                        ; preds = %_ZNK14bv_recognizers9is_bv2intEPK4expr.exit
-  call fastcc void @"_ZZN2bv6solver9new_eq_ehERKN3euf5th_eqEENK3$_0clEPNS1_5enodeE"(ptr noundef nonnull align 8 dereferenceable(16) %propagate_bv2int, ptr noundef nonnull %__begin223.sroa.0.032)
+  call fastcc void @"_ZZN2bv6solver9new_eq_ehERKN3euf5th_eqEENK3$_0clEPNS1_5enodeE"(ptr noundef nonnull align 8 dereferenceable(16) %propagate_bv2int, ptr noundef nonnull %__begin223.sroa.0.033)
   br label %for.inc36
 
 for.inc36:                                        ; preds = %land.rhs.i.i, %for.body29, %_ZNK14bv_recognizers9is_bv2intEPK4expr.exit, %if.then34
-  %tobool.not.i = icmp eq ptr %__begin223.sroa.5.033, null
-  %spec.select = select i1 %tobool.not.i, ptr %__begin223.sroa.0.032, ptr %__begin223.sroa.5.033
-  %m_next.i = getelementptr inbounds i8, ptr %__begin223.sroa.0.032, i64 56
+  %tobool.not.i = icmp eq ptr %__begin223.sroa.5.032, null
+  %spec.select = select i1 %tobool.not.i, ptr %__begin223.sroa.0.033, ptr %__begin223.sroa.5.032
+  %m_next.i = getelementptr inbounds i8, ptr %__begin223.sroa.0.033, i64 56
   %30 = load ptr, ptr %m_next.i, align 8
   %cmp.i.i19 = icmp ne ptr %spec.select, %12
   %cmp4.i.i = icmp ne ptr %30, %12
@@ -2831,8 +2831,8 @@ if.then7:                                         ; preds = %if.end
 if.end8:                                          ; preds = %if.then7, %if.end
   %idxprom.i14.pre-phi = phi i64 [ %idxprom.i.i, %if.then7 ], [ %idxprom.i.i4, %if.end ]
   %idxprom.i10.pre-phi = phi i64 [ %idxprom.i.i4, %if.then7 ], [ %idxprom.i.i, %if.end ]
-  %r2.0 = phi i32 [ %v.addr.0.i, %if.then7 ], [ %v.addr.0.i3, %if.end ]
   %r1.0 = phi i32 [ %v.addr.0.i3, %if.then7 ], [ %v.addr.0.i, %if.end ]
+  %r2.0 = phi i32 [ %v.addr.0.i, %if.then7 ], [ %v.addr.0.i3, %if.end ]
   %v2.addr.0 = phi i32 [ %v1, %if.then7 ], [ %v2, %if.end ]
   %v1.addr.0 = phi i32 [ %v2, %if.then7 ], [ %v1, %if.end ]
   %6 = load ptr, ptr %this, align 8

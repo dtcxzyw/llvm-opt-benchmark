@@ -248,7 +248,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5G__create_api_
   br label %.thread
 
 40:                                               ; preds = %33, %31
-  %.030 = phi i64 [ %32, %31 ], [ %2, %33 ]
+  %.031 = phi i64 [ %32, %31 ], [ %2, %33 ]
   %41 = icmp eq i64 %3, 0
   br i1 %41, label %42, label %44
 
@@ -270,11 +270,11 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5G__create_api_
 
 51:                                               ; preds = %44, %42
   %.032 = phi i64 [ %43, %42 ], [ %3, %44 ]
-  call void @H5CX_set_lcpl(i64 noundef %.030) #2
+  call void @H5CX_set_lcpl(i64 noundef %.031) #2
   %52 = load ptr, ptr %11, align 8
   %53 = load i64, ptr %8, align 8
   %54 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
-  %55 = call ptr @H5VL_group_create(ptr noundef %52, ptr noundef nonnull %10, ptr noundef nonnull %1, i64 noundef %.030, i64 noundef %.032, i64 noundef %53, i64 noundef %54, ptr noundef %5) #2
+  %55 = call ptr @H5VL_group_create(ptr noundef %52, ptr noundef nonnull %10, ptr noundef nonnull %1, i64 noundef %.031, i64 noundef %.032, i64 noundef %53, i64 noundef %54, ptr noundef %5) #2
   %56 = icmp eq ptr %55, null
   br i1 %56, label %57, label %61
 

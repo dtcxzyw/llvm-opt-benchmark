@@ -139,8 +139,8 @@ if.then:                                          ; preds = %qobject_check_type.
   br label %if.end
 
 if.end:                                           ; preds = %qobject_check_type.exit38, %if.then
-  %new_key.0 = phi ptr [ %call7, %if.then ], [ null, %qobject_check_type.exit38 ]
   %key.0 = phi ptr [ %call7, %if.then ], [ %1, %qobject_check_type.exit38 ]
+  %new_key.0 = phi ptr [ %call7, %if.then ], [ null, %qobject_check_type.exit38 ]
   %tobool9.not = icmp eq ptr %retval.0.i42, null
   br i1 %tobool9.not, label %if.else17, label %land.lhs.true
 
@@ -971,9 +971,9 @@ if.else:                                          ; preds = %lor.lhs.false
   unreachable
 
 for.body:                                         ; preds = %for.body.preheader, %if.end24
-  %i.030 = phi i32 [ %inc, %if.end24 ], [ 0, %for.body.preheader ]
-  %entries.029 = phi i32 [ %add, %if.end24 ], [ 0, %for.body.preheader ]
-  %call5 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.10, ptr noundef %subqdict, i32 noundef %i.030) #7
+  %entries.030 = phi i32 [ %add, %if.end24 ], [ 0, %for.body.preheader ]
+  %i.029 = phi i32 [ %inc, %if.end24 ], [ 0, %for.body.preheader ]
+  %call5 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.10, ptr noundef %subqdict, i32 noundef %i.029) #7
   %call.i = tail call ptr @qdict_first(ptr noundef %src) #7
   %tobool.not6.i = icmp eq ptr %call.i, null
   br i1 %tobool.not6.i, label %qdict_count_prefixed_entries.exit, label %for.body.i
@@ -1023,27 +1023,27 @@ if.else18:                                        ; preds = %if.end14
 
 if.end24:                                         ; preds = %if.else18
   %cond = select i1 %tobool16, i32 %retval.0.i, i32 1
-  %add = add i32 %cond, %entries.029
-  %inc = add nuw nsw i32 %i.030, 1
+  %add = add i32 %cond, %entries.030
+  %inc = add nuw nsw i32 %i.029, 1
   %cmp3.not = icmp eq i32 %inc, 2147483647
   br i1 %cmp3.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %if.else18, %if.end24
-  %entries.0.lcssa = phi i32 [ %entries.029, %if.else18 ], [ %add, %if.end24 ]
-  %i.0.lcssa = phi i32 [ %i.030, %if.else18 ], [ 2147483647, %if.end24 ]
+  %i.0.lcssa = phi i32 [ %i.029, %if.else18 ], [ 2147483647, %if.end24 ]
+  %entries.0.lcssa = phi i32 [ %entries.030, %if.else18 ], [ %add, %if.end24 ]
   %call26 = tail call ptr @qdict_first(ptr noundef %src) #7
   %tobool28.not31 = icmp eq ptr %call26, null
   br i1 %tobool28.not31, label %for.end38, label %for.body29
 
 for.body29:                                       ; preds = %for.end, %for.body29
-  %entry1.033 = phi ptr [ %call37, %for.body29 ], [ %call26, %for.end ]
-  %entries.132 = phi i32 [ %spec.select, %for.body29 ], [ %entries.0.lcssa, %for.end ]
-  %call30 = tail call ptr @qdict_entry_key(ptr noundef nonnull %entry1.033) #7
+  %entries.133 = phi i32 [ %spec.select, %for.body29 ], [ %entries.0.lcssa, %for.end ]
+  %entry1.032 = phi ptr [ %call37, %for.body29 ], [ %call26, %for.end ]
+  %call30 = tail call ptr @qdict_entry_key(ptr noundef nonnull %entry1.032) #7
   %call31 = tail call i32 @strstart(ptr noundef %call30, ptr noundef %subqdict, ptr noundef null) #7
   %tobool32.not = icmp eq i32 %call31, 0
   %inc34 = zext i1 %tobool32.not to i32
-  %spec.select = add i32 %entries.132, %inc34
-  %call37 = tail call ptr @qdict_next(ptr noundef %src, ptr noundef nonnull %entry1.033) #7
+  %spec.select = add i32 %entries.133, %inc34
+  %call37 = tail call ptr @qdict_next(ptr noundef %src, ptr noundef nonnull %entry1.032) #7
   %tobool28.not = icmp eq ptr %call37, null
   br i1 %tobool28.not, label %for.end38, label %for.body29, !llvm.loop !17
 

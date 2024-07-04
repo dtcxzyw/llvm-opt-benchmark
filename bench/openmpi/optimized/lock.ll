@@ -39,7 +39,7 @@ define range(i32 0, 15) i32 @ADIOI_GEN_SetLock(ptr nocapture noundef readonly %0
   br label %.critedge2.outer
 
 .critedge2.outer:                                 ; preds = %22, %11
-  %.026.ph = phi i32 [ %23, %22 ], [ 0, %11 ]
+  %.0.ph = phi i32 [ %23, %22 ], [ 0, %11 ]
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.outer, %20
@@ -56,7 +56,7 @@ define range(i32 0, 15) i32 @ADIOI_GEN_SetLock(ptr nocapture noundef readonly %0
   ]
 
 22:                                               ; preds = %20
-  %23 = add nuw nsw i32 %.026.ph, 1
+  %23 = add nuw nsw i32 %.0.ph, 1
   %exitcond.not = icmp eq i32 %23, 10000
   br i1 %exitcond.not, label %.critedge.thread, label %.critedge2.outer, !llvm.loop !4
 
@@ -77,8 +77,8 @@ define range(i32 0, 15) i32 @ADIOI_GEN_SetLock(ptr nocapture noundef readonly %0
   br label %.critedge32
 
 .critedge32:                                      ; preds = %20, %.critedge33, %.critedge.thread, %6
-  %.0 = phi i32 [ 0, %6 ], [ 14, %.critedge.thread ], [ 0, %.critedge33 ], [ 14, %20 ]
-  ret i32 %.0
+  %.026 = phi i32 [ 0, %6 ], [ 14, %.critedge.thread ], [ 0, %.critedge33 ], [ 14, %20 ]
+  ret i32 %.026
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)

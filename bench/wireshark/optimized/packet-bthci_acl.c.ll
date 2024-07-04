@@ -270,7 +270,7 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
 
 75:                                               ; preds = %71, %.thread
   %invalid_session.sink = phi ptr [ @invalid_session, %.thread ], [ %72, %71 ]
-  %.0377 = phi ptr [ null, %.thread ], [ %66, %71 ]
+  %.0373 = phi ptr [ null, %.thread ], [ %66, %71 ]
   %76 = getelementptr inbounds i8, ptr %46, i64 24
   store ptr %invalid_session.sink, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %46, i64 32
@@ -296,8 +296,8 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread500
 
 .thread500:                                       ; preds = %75, %85, %82
-  %.0369 = phi i32 [ %86, %85 ], [ -1, %82 ], [ -1, %75 ]
-  %.0368 = phi i32 [ %88, %85 ], [ 0, %82 ], [ 0, %75 ]
+  %.0366 = phi i32 [ %86, %85 ], [ -1, %82 ], [ -1, %75 ]
+  %.0365 = phi i32 [ %88, %85 ], [ 0, %82 ], [ 0, %75 ]
   %89 = getelementptr inbounds i8, ptr %3, i64 24
   %90 = load ptr, ptr %89, align 8
   %91 = call ptr @wmem_tree_lookup32_array(ptr noundef %90, ptr noundef nonnull %5) #7
@@ -396,16 +396,16 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread507
 
 .thread507:                                       ; preds = %134, %.thread507.fold.split531, %132, %.thread507.fold.split, %130, %136
-  %.0374 = phi i32 [ 1, %136 ], [ %135, %134 ], [ 2, %132 ], [ 0, %130 ], [ 0, %.thread507.fold.split ], [ 0, %.thread507.fold.split531 ]
-  %.0372 = phi i32 [ 2, %136 ], [ 1, %134 ], [ %133, %132 ], [ 0, %130 ], [ 0, %.thread507.fold.split ], [ 0, %.thread507.fold.split531 ]
+  %.0370 = phi i32 [ 1, %136 ], [ %135, %134 ], [ 2, %132 ], [ 0, %130 ], [ 0, %.thread507.fold.split ], [ 0, %.thread507.fold.split531 ]
+  %.0368 = phi i32 [ 2, %136 ], [ 1, %134 ], [ %133, %132 ], [ 0, %130 ], [ 0, %.thread507.fold.split ], [ 0, %.thread507.fold.split531 ]
   %137 = getelementptr inbounds i8, ptr %129, i64 4
   %138 = load i32, ptr %137, align 4
   br label %.thread504
 
 .thread504:                                       ; preds = %95, %.thread507, %127
-  %.1375 = phi i32 [ %.0374, %.thread507 ], [ 0, %127 ], [ 0, %95 ]
-  %.1373 = phi i32 [ %.0372, %.thread507 ], [ 0, %127 ], [ 0, %95 ]
-  %.0371 = phi i32 [ %138, %.thread507 ], [ 0, %127 ], [ 0, %95 ]
+  %.1371 = phi i32 [ %.0370, %.thread507 ], [ 0, %127 ], [ 0, %95 ]
+  %.1369 = phi i32 [ %.0368, %.thread507 ], [ 0, %127 ], [ 0, %95 ]
+  %.0367 = phi i32 [ %138, %.thread507 ], [ 0, %127 ], [ 0, %95 ]
   %139 = getelementptr inbounds i8, ptr %3, i64 48
   %140 = load ptr, ptr %139, align 8
   %141 = call ptr @wmem_tree_lookup32_array(ptr noundef %140, ptr noundef nonnull %5) #7
@@ -424,18 +424,18 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread508
 
 .thread508:                                       ; preds = %.thread504, %142, %145
-  %.0365 = phi ptr [ %147, %145 ], [ @.str.67, %142 ], [ @.str.67, %.thread504 ]
+  %.0363 = phi ptr [ %147, %145 ], [ @.str.67, %142 ], [ @.str.67, %.thread504 ]
   %148 = call ptr @get_ether_name(ptr noundef nonnull %96) #7
   %149 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %148) #8
   %150 = add i64 %149, 3
-  %151 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0365) #8
+  %151 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0363) #8
   %152 = add i64 %150, %151
   %153 = load ptr, ptr %44, align 8
   %154 = shl i64 %152, 32
   %sext = add i64 %154, 4294967296
   %155 = ashr exact i64 %sext, 32
   %156 = call noalias ptr @wmem_alloc(ptr noundef %153, i64 noundef %155) #7
-  %157 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %156, i64 noundef %155, ptr noundef nonnull @.str.71, ptr noundef %148, ptr noundef %.0365) #7
+  %157 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %156, i64 noundef %155, ptr noundef nonnull @.str.71, ptr noundef %148, ptr noundef %.0363) #7
   %158 = load i32, ptr %21, align 4
   switch i32 %158, label %.fold.split [
     i32 1, label %162
@@ -462,15 +462,15 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
   br label %162
 
 162:                                              ; preds = %.thread502, %.fold.split454, %.thread508, %.fold.split, %161, %159
-  %.0388 = phi ptr [ %14, %159 ], [ %14, %161 ], [ %96, %.thread508 ], [ %14, %.fold.split ], [ %14, %.thread502 ], [ %14, %.fold.split454 ]
-  %.0386 = phi ptr [ @.str.67, %159 ], [ @.str.67, %161 ], [ %.0365, %.thread508 ], [ @.str.67, %.fold.split ], [ @.str.67, %.thread502 ], [ @.str.67, %.fold.split454 ]
-  %.0384 = phi ptr [ @.str.67, %159 ], [ @.str.67, %161 ], [ %156, %.thread508 ], [ @.str.67, %.fold.split ], [ @.str.72, %.thread502 ], [ @.str.67, %.fold.split454 ]
-  %.0382 = phi ptr [ %96, %159 ], [ %14, %161 ], [ %14, %.thread508 ], [ %14, %.fold.split ], [ %14, %.thread502 ], [ %14, %.fold.split454 ]
-  %.0380 = phi ptr [ %.0365, %159 ], [ @.str.67, %161 ], [ @.str.67, %.thread508 ], [ @.str.67, %.fold.split ], [ @.str.67, %.thread502 ], [ @.str.67, %.fold.split454 ]
-  %.0378 = phi ptr [ %156, %159 ], [ @.str.72, %161 ], [ @.str.67, %.thread508 ], [ @.str.67, %.fold.split ], [ @.str.67, %.thread502 ], [ @.str.67, %.fold.split454 ]
-  %.2376 = phi i32 [ %.1375, %159 ], [ 0, %161 ], [ %.1375, %.thread508 ], [ %.1375, %.fold.split ], [ 0, %.thread502 ], [ 0, %.fold.split454 ]
-  %.2 = phi i32 [ %.1373, %159 ], [ 0, %161 ], [ %.1373, %.thread508 ], [ %.1373, %.fold.split ], [ 0, %.thread502 ], [ 0, %.fold.split454 ]
-  %.1 = phi i32 [ %.0371, %159 ], [ 0, %161 ], [ %.0371, %.thread508 ], [ %.0371, %.fold.split ], [ 0, %.thread502 ], [ 0, %.fold.split454 ]
+  %.0384 = phi ptr [ %14, %159 ], [ %14, %161 ], [ %96, %.thread508 ], [ %14, %.fold.split ], [ %14, %.thread502 ], [ %14, %.fold.split454 ]
+  %.0382 = phi ptr [ @.str.67, %159 ], [ @.str.67, %161 ], [ %.0363, %.thread508 ], [ @.str.67, %.fold.split ], [ @.str.67, %.thread502 ], [ @.str.67, %.fold.split454 ]
+  %.0380 = phi ptr [ @.str.67, %159 ], [ @.str.67, %161 ], [ %156, %.thread508 ], [ @.str.67, %.fold.split ], [ @.str.72, %.thread502 ], [ @.str.67, %.fold.split454 ]
+  %.0378 = phi ptr [ %96, %159 ], [ %14, %161 ], [ %14, %.thread508 ], [ %14, %.fold.split ], [ %14, %.thread502 ], [ %14, %.fold.split454 ]
+  %.0376 = phi ptr [ %.0363, %159 ], [ @.str.67, %161 ], [ @.str.67, %.thread508 ], [ @.str.67, %.fold.split ], [ @.str.67, %.thread502 ], [ @.str.67, %.fold.split454 ]
+  %.0374 = phi ptr [ %156, %159 ], [ @.str.72, %161 ], [ @.str.67, %.thread508 ], [ @.str.67, %.fold.split ], [ @.str.67, %.thread502 ], [ @.str.67, %.fold.split454 ]
+  %.2372 = phi i32 [ %.1371, %159 ], [ 0, %161 ], [ %.1371, %.thread508 ], [ %.1371, %.fold.split ], [ 0, %.thread502 ], [ 0, %.fold.split454 ]
+  %.2 = phi i32 [ %.1369, %159 ], [ 0, %161 ], [ %.1369, %.thread508 ], [ %.1369, %.fold.split ], [ 0, %.thread502 ], [ 0, %.fold.split454 ]
+  %.1 = phi i32 [ %.0367, %159 ], [ 0, %161 ], [ %.0367, %.thread508 ], [ %.0367, %.fold.split ], [ 0, %.thread502 ], [ 0, %.fold.split454 ]
   store i32 1, ptr %5, align 16
   store ptr %6, ptr %54, align 8
   store i32 1, ptr %55, align 16
@@ -500,7 +500,7 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
   br label %172
 
 172:                                              ; preds = %.thread510, %169
-  %.0390 = phi ptr [ %171, %169 ], [ @.str.73, %.thread510 ]
+  %.0387 = phi ptr [ %171, %169 ], [ @.str.73, %.thread510 ]
   %173 = getelementptr inbounds i8, ptr %3, i64 72
   %174 = load ptr, ptr %173, align 8
   %175 = call ptr @wmem_tree_lookup32_array(ptr noundef %174, ptr noundef nonnull %5) #7
@@ -519,17 +519,17 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread512
 
 .thread512:                                       ; preds = %172, %176, %179
-  %.0370 = phi ptr [ %181, %179 ], [ @.str.67, %176 ], [ @.str.67, %172 ]
-  %182 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0390) #8
+  %.0388 = phi ptr [ %181, %179 ], [ @.str.67, %176 ], [ @.str.67, %172 ]
+  %182 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0387) #8
   %183 = add i64 %182, 3
-  %184 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0370) #8
+  %184 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0388) #8
   %185 = add i64 %183, %184
   %186 = load ptr, ptr %44, align 8
   %187 = shl i64 %185, 32
   %sext431 = add i64 %187, 4294967296
   %188 = ashr exact i64 %sext431, 32
   %189 = call noalias ptr @wmem_alloc(ptr noundef %186, i64 noundef %188) #7
-  %190 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %189, i64 noundef %188, ptr noundef nonnull @.str.71, ptr noundef %.0390, ptr noundef %.0370) #7
+  %190 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %189, i64 noundef %188, ptr noundef nonnull @.str.71, ptr noundef %.0387, ptr noundef %.0388) #7
   %191 = load i32, ptr %21, align 4
   switch i32 %191, label %.fold.split455 [
     i32 1, label %193
@@ -543,12 +543,12 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
   br label %193
 
 193:                                              ; preds = %.thread512, %.fold.split455, %192
-  %.1389 = phi ptr [ %13, %192 ], [ %.0388, %.thread512 ], [ %.0388, %.fold.split455 ]
-  %.1387 = phi ptr [ %.0370, %192 ], [ %.0386, %.thread512 ], [ %.0386, %.fold.split455 ]
-  %.1385 = phi ptr [ %189, %192 ], [ %.0384, %.thread512 ], [ %.0384, %.fold.split455 ]
-  %.1383 = phi ptr [ %.0382, %192 ], [ %13, %.thread512 ], [ %.0382, %.fold.split455 ]
-  %.1381 = phi ptr [ %.0380, %192 ], [ %.0370, %.thread512 ], [ %.0380, %.fold.split455 ]
-  %.1379 = phi ptr [ %.0378, %192 ], [ %189, %.thread512 ], [ %.0378, %.fold.split455 ]
+  %.1385 = phi ptr [ %13, %192 ], [ %.0384, %.thread512 ], [ %.0384, %.fold.split455 ]
+  %.1383 = phi ptr [ %.0388, %192 ], [ %.0382, %.thread512 ], [ %.0382, %.fold.split455 ]
+  %.1381 = phi ptr [ %189, %192 ], [ %.0380, %.thread512 ], [ %.0380, %.fold.split455 ]
+  %.1379 = phi ptr [ %.0378, %192 ], [ %13, %.thread512 ], [ %.0378, %.fold.split455 ]
+  %.1377 = phi ptr [ %.0376, %192 ], [ %.0388, %.thread512 ], [ %.0376, %.fold.split455 ]
+  %.1375 = phi ptr [ %.0374, %192 ], [ %189, %.thread512 ], [ %.0374, %.fold.split455 ]
   store i32 1, ptr %5, align 16
   store ptr %6, ptr %54, align 8
   store i32 1, ptr %55, align 16
@@ -618,7 +618,7 @@ define internal i32 @dissect_bthci_acl(ptr noundef %0, ptr noundef %1, ptr nound
   unreachable
 
 222:                                              ; preds = %219, %211
-  %.0367 = phi ptr [ %202, %219 ], [ %215, %211 ]
+  %.0389 = phi ptr [ %202, %219 ], [ %215, %211 ]
   %223 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 2) #7
   %224 = load i32, ptr @hf_bthci_acl_length, align 4
   %225 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %224, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #7
@@ -645,11 +645,11 @@ default.unreachable:                              ; preds = %222
   br label %234
 
 234:                                              ; preds = %222, %233, %226
-  %.0366 = phi i16 [ 0, %233 ], [ %227, %226 ], [ 0, %222 ]
-  %.0364 = phi i32 [ 0, %233 ], [ %232, %226 ], [ 1, %222 ]
+  %.0390 = phi i16 [ 0, %233 ], [ %227, %226 ], [ 0, %222 ]
+  %.0386 = phi i32 [ 0, %233 ], [ %232, %226 ], [ 1, %222 ]
   %235 = load ptr, ptr %44, align 8
   %236 = getelementptr inbounds i8, ptr %1, i64 160
-  %237 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1387) #8
+  %237 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1383) #8
   %238 = trunc i64 %237 to i32
   %239 = add i32 %238, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %236, i8 0, i64 24, i1 false)
@@ -659,7 +659,7 @@ default.unreachable:                              ; preds = %222
 
 241:                                              ; preds = %234
   %242 = sext i32 %239 to i64
-  %243 = call noalias ptr @wmem_memdup(ptr noundef %235, ptr noundef %.1387, i64 noundef %242) #7
+  %243 = call noalias ptr @wmem_memdup(ptr noundef %235, ptr noundef %.1383, i64 noundef %242) #7
   %244 = getelementptr inbounds i8, ptr %1, i64 176
   store ptr %243, ptr %244, align 8
   %245 = getelementptr inbounds i8, ptr %1, i64 168
@@ -674,7 +674,7 @@ alloc_address_wmem.exit:                          ; preds = %234, %241
   %248 = getelementptr inbounds i8, ptr %1, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %248, i8 0, i64 24, i1 false)
   store i32 1, ptr %248, align 8
-  %249 = call noalias ptr @wmem_memdup(ptr noundef %247, ptr noundef nonnull %.1389, i64 noundef 6) #7
+  %249 = call noalias ptr @wmem_memdup(ptr noundef %247, ptr noundef nonnull %.1385, i64 noundef 6) #7
   %250 = getelementptr inbounds i8, ptr %1, i64 128
   store ptr %249, ptr %250, align 8
   %251 = getelementptr inbounds i8, ptr %1, i64 120
@@ -683,7 +683,7 @@ alloc_address_wmem.exit:                          ; preds = %234, %241
   store i32 6, ptr %252, align 4
   %253 = load ptr, ptr %44, align 8
   %254 = getelementptr inbounds i8, ptr %1, i64 208
-  %255 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1385) #8
+  %255 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1381) #8
   %256 = trunc i64 %255 to i32
   %257 = add i32 %256, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %254, i8 0, i64 24, i1 false)
@@ -693,7 +693,7 @@ alloc_address_wmem.exit:                          ; preds = %234, %241
 
 259:                                              ; preds = %alloc_address_wmem.exit
   %260 = sext i32 %257 to i64
-  %261 = call noalias ptr @wmem_memdup(ptr noundef %253, ptr noundef %.1385, i64 noundef %260) #7
+  %261 = call noalias ptr @wmem_memdup(ptr noundef %253, ptr noundef %.1381, i64 noundef %260) #7
   %262 = getelementptr inbounds i8, ptr %1, i64 224
   store ptr %261, ptr %262, align 8
   %263 = getelementptr inbounds i8, ptr %1, i64 216
@@ -706,7 +706,7 @@ alloc_address_wmem.exit:                          ; preds = %234, %241
 alloc_address_wmem.exit457:                       ; preds = %alloc_address_wmem.exit, %259
   %265 = phi ptr [ %253, %alloc_address_wmem.exit ], [ %.pre524, %259 ]
   %266 = getelementptr inbounds i8, ptr %1, i64 184
-  %267 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1381) #8
+  %267 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1377) #8
   %268 = trunc i64 %267 to i32
   %269 = add i32 %268, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %266, i8 0, i64 24, i1 false)
@@ -716,7 +716,7 @@ alloc_address_wmem.exit457:                       ; preds = %alloc_address_wmem.
 
 271:                                              ; preds = %alloc_address_wmem.exit457
   %272 = sext i32 %269 to i64
-  %273 = call noalias ptr @wmem_memdup(ptr noundef %265, ptr noundef %.1381, i64 noundef %272) #7
+  %273 = call noalias ptr @wmem_memdup(ptr noundef %265, ptr noundef %.1377, i64 noundef %272) #7
   %274 = getelementptr inbounds i8, ptr %1, i64 200
   store ptr %273, ptr %274, align 8
   %275 = getelementptr inbounds i8, ptr %1, i64 192
@@ -731,7 +731,7 @@ alloc_address_wmem.exit458:                       ; preds = %alloc_address_wmem.
   %278 = getelementptr inbounds i8, ptr %1, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %278, i8 0, i64 24, i1 false)
   store i32 1, ptr %278, align 8
-  %279 = call noalias ptr @wmem_memdup(ptr noundef %277, ptr noundef nonnull %.1383, i64 noundef 6) #7
+  %279 = call noalias ptr @wmem_memdup(ptr noundef %277, ptr noundef nonnull %.1379, i64 noundef 6) #7
   %280 = getelementptr inbounds i8, ptr %1, i64 152
   store ptr %279, ptr %280, align 8
   %281 = getelementptr inbounds i8, ptr %1, i64 144
@@ -740,7 +740,7 @@ alloc_address_wmem.exit458:                       ; preds = %alloc_address_wmem.
   store i32 6, ptr %282, align 4
   %283 = load ptr, ptr %44, align 8
   %284 = getelementptr inbounds i8, ptr %1, i64 232
-  %285 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1379) #8
+  %285 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1375) #8
   %286 = trunc i64 %285 to i32
   %287 = add i32 %286, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %284, i8 0, i64 24, i1 false)
@@ -750,7 +750,7 @@ alloc_address_wmem.exit458:                       ; preds = %alloc_address_wmem.
 
 289:                                              ; preds = %alloc_address_wmem.exit458
   %290 = sext i32 %287 to i64
-  %291 = call noalias ptr @wmem_memdup(ptr noundef %283, ptr noundef %.1379, i64 noundef %290) #7
+  %291 = call noalias ptr @wmem_memdup(ptr noundef %283, ptr noundef %.1375, i64 noundef %290) #7
   %292 = getelementptr inbounds i8, ptr %1, i64 248
   store ptr %291, ptr %292, align 8
   %293 = getelementptr inbounds i8, ptr %1, i64 240
@@ -760,7 +760,7 @@ alloc_address_wmem.exit458:                       ; preds = %alloc_address_wmem.
   br label %alloc_address_wmem.exit459
 
 alloc_address_wmem.exit459:                       ; preds = %alloc_address_wmem.exit458, %289
-  %.not433 = icmp eq i32 %.0364, 0
+  %.not433 = icmp eq i32 %.0386, 0
   br i1 %.not433, label %298, label %295
 
 295:                                              ; preds = %alloc_address_wmem.exit459
@@ -810,7 +810,7 @@ alloc_address_wmem.exit459:                       ; preds = %alloc_address_wmem.
   store i32 %318, ptr %317, align 8
   %319 = getelementptr inbounds i8, ptr %317, i64 4
   store i32 0, ptr %319, align 4
-  %320 = add i16 %.0366, 4
+  %320 = add i16 %.0390, 4
   %321 = getelementptr inbounds i8, ptr %317, i64 8
   store i16 %320, ptr %321, align 8
   %322 = call ptr @wmem_file_scope() #7
@@ -831,13 +831,13 @@ alloc_address_wmem.exit459:                       ; preds = %alloc_address_wmem.
   %333 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %331, i32 noundef 4, i64 noundef %332) #7
   %334 = getelementptr inbounds i8, ptr %317, i64 24
   store i32 %327, ptr %334, align 8
-  %335 = load ptr, ptr %.0367, align 8
+  %335 = load ptr, ptr %.0389, align 8
   %336 = load i32, ptr %42, align 4
   call void @wmem_tree_insert32(ptr noundef %335, i32 noundef %336, ptr noundef nonnull %317) #7
   br label %.thread515
 
 337:                                              ; preds = %310
-  %338 = load ptr, ptr %.0367, align 8
+  %338 = load ptr, ptr %.0389, align 8
   %339 = load i32, ptr %42, align 4
   %340 = call ptr @wmem_tree_lookup32(ptr noundef %338, i32 noundef %339) #7
   %.not440 = icmp eq ptr %340, null
@@ -879,7 +879,7 @@ proto_item_set_generated.exit:                    ; preds = %343, %346, %349
   br i1 %355, label %356, label %.critedge
 
 356:                                              ; preds = %354
-  %357 = load ptr, ptr %.0367, align 8
+  %357 = load ptr, ptr %.0389, align 8
   %358 = load i32, ptr %42, align 4
   %359 = call ptr @wmem_tree_lookup32_le(ptr noundef %357, i32 noundef %358) #7
   %360 = load ptr, ptr %203, align 8
@@ -1030,12 +1030,12 @@ proto_item_set_generated.exit465:                 ; preds = %405, %408, %411
   br label %434
 
 434:                                              ; preds = %430, %433, %.critedge
-  %.not449 = icmp eq ptr %.0377, null
+  %.not449 = icmp eq ptr %.0373, null
   br i1 %.not449, label %proto_item_set_generated.exit471, label %435
 
 435:                                              ; preds = %434
   %436 = load i32, ptr @hf_bthci_acl_connect_in, align 4
-  %437 = load i32, ptr %.0377, align 4
+  %437 = load i32, ptr %.0373, align 4
   %438 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %436, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %437) #7
   %.not.i466 = icmp eq ptr %438, null
   br i1 %.not.i466, label %proto_item_set_generated.exit468, label %439
@@ -1054,7 +1054,7 @@ proto_item_set_generated.exit465:                 ; preds = %405, %408, %411
   br label %proto_item_set_generated.exit468
 
 proto_item_set_generated.exit468:                 ; preds = %435, %439, %442
-  %446 = getelementptr inbounds i8, ptr %.0377, i64 4
+  %446 = getelementptr inbounds i8, ptr %.0373, i64 4
   %447 = load i32, ptr %446, align 4
   %.not450 = icmp eq i32 %447, -1
   br i1 %.not450, label %proto_item_set_generated.exit471, label %448
@@ -1125,7 +1125,7 @@ proto_item_set_generated.exit471:                 ; preds = %454, %451, %448, %p
 
 489:                                              ; preds = %468, %463
   %490 = load i32, ptr @hf_bthci_acl_src_bd_addr, align 4
-  %491 = call ptr @proto_tree_add_ether(ptr noundef %20, i32 noundef %490, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %.1389) #7
+  %491 = call ptr @proto_tree_add_ether(ptr noundef %20, i32 noundef %490, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %.1385) #7
   %.not.i472 = icmp eq ptr %491, null
   br i1 %.not.i472, label %proto_item_set_generated.exit474, label %492
 
@@ -1144,7 +1144,7 @@ proto_item_set_generated.exit471:                 ; preds = %454, %451, %448, %p
 
 proto_item_set_generated.exit474:                 ; preds = %489, %492, %495
   %499 = load i32, ptr @hf_bthci_acl_src_name, align 4
-  %500 = call ptr @proto_tree_add_string(ptr noundef %20, i32 noundef %499, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %.1387) #7
+  %500 = call ptr @proto_tree_add_string(ptr noundef %20, i32 noundef %499, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %.1383) #7
   %.not.i475 = icmp eq ptr %500, null
   br i1 %.not.i475, label %proto_item_set_generated.exit477, label %501
 
@@ -1163,7 +1163,7 @@ proto_item_set_generated.exit474:                 ; preds = %489, %492, %495
 
 proto_item_set_generated.exit477:                 ; preds = %proto_item_set_generated.exit474, %501, %504
   %508 = load i32, ptr @hf_bthci_acl_src_role, align 4
-  %509 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %508, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.2376) #7
+  %509 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %508, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.2372) #7
   %.not.i478 = icmp eq ptr %509, null
   br i1 %.not.i478, label %proto_item_set_generated.exit480, label %510
 
@@ -1182,7 +1182,7 @@ proto_item_set_generated.exit477:                 ; preds = %proto_item_set_gene
 
 proto_item_set_generated.exit480:                 ; preds = %proto_item_set_generated.exit477, %510, %513
   %517 = load i32, ptr @hf_bthci_acl_dst_bd_addr, align 4
-  %518 = call ptr @proto_tree_add_ether(ptr noundef %20, i32 noundef %517, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %.1383) #7
+  %518 = call ptr @proto_tree_add_ether(ptr noundef %20, i32 noundef %517, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %.1379) #7
   %.not.i481 = icmp eq ptr %518, null
   br i1 %.not.i481, label %proto_item_set_generated.exit483, label %519
 
@@ -1201,7 +1201,7 @@ proto_item_set_generated.exit480:                 ; preds = %proto_item_set_gene
 
 proto_item_set_generated.exit483:                 ; preds = %proto_item_set_generated.exit480, %519, %522
   %526 = load i32, ptr @hf_bthci_acl_dst_name, align 4
-  %527 = call ptr @proto_tree_add_string(ptr noundef %20, i32 noundef %526, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %.1381) #7
+  %527 = call ptr @proto_tree_add_string(ptr noundef %20, i32 noundef %526, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %.1377) #7
   %.not.i484 = icmp eq ptr %527, null
   br i1 %.not.i484, label %proto_item_set_generated.exit486, label %528
 
@@ -1262,7 +1262,7 @@ proto_item_set_generated.exit489:                 ; preds = %proto_item_set_gene
 
 proto_item_set_generated.exit492:                 ; preds = %550, %547, %544, %proto_item_set_generated.exit489
   %554 = load i32, ptr @hf_bthci_acl_mode, align 4
-  %555 = call ptr @proto_tree_add_int(ptr noundef %20, i32 noundef %554, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.0369) #7
+  %555 = call ptr @proto_tree_add_int(ptr noundef %20, i32 noundef %554, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.0366) #7
   %.not.i493 = icmp eq ptr %555, null
   br i1 %.not.i493, label %proto_item_set_generated.exit495, label %556
 
@@ -1280,12 +1280,12 @@ proto_item_set_generated.exit492:                 ; preds = %550, %547, %544, %p
   br label %proto_item_set_generated.exit495
 
 proto_item_set_generated.exit495:                 ; preds = %proto_item_set_generated.exit492, %556, %559
-  %.not453 = icmp eq i32 %.0368, 0
+  %.not453 = icmp eq i32 %.0365, 0
   br i1 %.not453, label %proto_item_set_generated.exit498, label %563
 
 563:                                              ; preds = %proto_item_set_generated.exit495
   %564 = load i32, ptr @hf_bthci_acl_mode_last_change_in_frame, align 4
-  %565 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %564, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.0368) #7
+  %565 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %564, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.0365) #7
   %.not.i496 = icmp eq ptr %565, null
   br i1 %.not.i496, label %proto_item_set_generated.exit498, label %566
 

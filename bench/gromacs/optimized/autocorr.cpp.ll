@@ -973,18 +973,18 @@ _ZL12do_four_coremiPfS_S_.exit:                   ; preds = %.lr.ph217.i, %.loop
 
 .preheader131.us.us.us.us.us.us.us.us.us.i:       ; preds = %.preheader131.us.us.us.us.us.us.us.us.us.i, %.preheader132.us.us.us.us.us.us.us.us.us.i
   %indvars.iv.i.us.us.us.us.us.us.us.us.us.i = phi i64 [ %indvars.iv.next.i.us.us.us.us.us.us.us.us.us.i, %.preheader131.us.us.us.us.us.us.us.us.us.i ], [ 0, %.preheader132.us.us.us.us.us.us.us.us.us.i ]
-  %.02333.i.us.us.us.us.us.us.us.us.us.i = phi double [ %320, %.preheader131.us.us.us.us.us.us.us.us.us.i ], [ 0.000000e+00, %.preheader132.us.us.us.us.us.us.us.us.us.i ]
-  %.02432.i.us.us.us.us.us.us.us.us.us.i = phi double [ %319, %.preheader131.us.us.us.us.us.us.us.us.us.i ], [ 0.000000e+00, %.preheader132.us.us.us.us.us.us.us.us.us.i ]
-  %.02531.i.us.us.us.us.us.us.us.us.us.i = phi double [ %318, %.preheader131.us.us.us.us.us.us.us.us.us.i ], [ 0.000000e+00, %.preheader132.us.us.us.us.us.us.us.us.us.i ]
+  %.033.i.us.us.us.us.us.us.us.us.us.i = phi double [ %320, %.preheader131.us.us.us.us.us.us.us.us.us.i ], [ 0.000000e+00, %.preheader132.us.us.us.us.us.us.us.us.us.i ]
+  %.02332.i.us.us.us.us.us.us.us.us.us.i = phi double [ %319, %.preheader131.us.us.us.us.us.us.us.us.us.i ], [ 0.000000e+00, %.preheader132.us.us.us.us.us.us.us.us.us.i ]
+  %.02431.i.us.us.us.us.us.us.us.us.us.i = phi double [ %318, %.preheader131.us.us.us.us.us.us.us.us.us.i ], [ 0.000000e+00, %.preheader132.us.us.us.us.us.us.us.us.us.i ]
   %312 = getelementptr inbounds float, ptr %21, i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.i
   %313 = load float, ptr %312, align 4
   %314 = fpext float %313 to double
   %315 = getelementptr inbounds float, ptr %22, i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.i
   %316 = load float, ptr %315, align 4
   %317 = fpext float %316 to double
-  %318 = call double @llvm.fmuladd.f64(double %314, double %317, double %.02531.i.us.us.us.us.us.us.us.us.us.i)
-  %319 = call double @llvm.fmuladd.f64(double %314, double %314, double %.02432.i.us.us.us.us.us.us.us.us.us.i)
-  %320 = call double @llvm.fmuladd.f64(double %317, double %317, double %.02333.i.us.us.us.us.us.us.us.us.us.i)
+  %318 = call double @llvm.fmuladd.f64(double %314, double %317, double %.02431.i.us.us.us.us.us.us.us.us.us.i)
+  %319 = call double @llvm.fmuladd.f64(double %314, double %314, double %.02332.i.us.us.us.us.us.us.us.us.us.i)
+  %320 = call double @llvm.fmuladd.f64(double %317, double %317, double %.033.i.us.us.us.us.us.us.us.us.us.i)
   %indvars.iv.next.i.us.us.us.us.us.us.us.us.us.i = add nuw nsw i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.i, 1
   %exitcond.not.i.us.us.us.us.us.us.us.us.us.i = icmp eq i64 %indvars.iv.next.i.us.us.us.us.us.us.us.us.us.i, 3
   br i1 %exitcond.not.i.us.us.us.us.us.us.us.us.us.i, label %321, label %.preheader131.us.us.us.us.us.us.us.us.us.i, !llvm.loop !25
@@ -1006,8 +1006,8 @@ _ZL9cos_anglePKfS0_.exit.us.us.us.us.us.us.us.us.us.i: ; preds = %324, %321
   %329 = fcmp ogt float %.026.i.us.us.us.us.us.us.us.us.us.i, 1.000000e+00
   %330 = fcmp olt float %.026.i.us.us.us.us.us.us.us.us.us.i, -1.000000e+00
   %..026.i.us.us.us.us.us.us.us.us.us.i = select i1 %330, float -1.000000e+00, float %.026.i.us.us.us.us.us.us.us.us.us.i
-  %.0.i.us.us.us.us.us.us.us.us.us.i = select i1 %329, float 1.000000e+00, float %..026.i.us.us.us.us.us.us.us.us.us.i
-  %331 = fpext float %.0.i.us.us.us.us.us.us.us.us.us.i to double
+  %.025.i.us.us.us.us.us.us.us.us.us.i = select i1 %329, float 1.000000e+00, float %..026.i.us.us.us.us.us.us.us.us.us.i
+  %331 = fpext float %.025.i.us.us.us.us.us.us.us.us.us.i to double
   %332 = fadd double %331, -1.000000e+00
   %333 = fcmp ogt double %332, 1.000000e-15
   br i1 %333, label %334, label %348
@@ -1029,7 +1029,7 @@ _ZL9cos_anglePKfS0_.exit.us.us.us.us.us.us.us.us.us.i: ; preds = %324, %321
   br label %348
 
 348:                                              ; preds = %334, %_ZL9cos_anglePKfS0_.exit.us.us.us.us.us.us.us.us.us.i
-  %349 = call noundef float @_Z9LegendrePfj(float noundef %.0.i.us.us.us.us.us.us.us.us.us.i, i32 noundef %.0110.i)
+  %349 = call noundef float @_Z9LegendrePfj(float noundef %.025.i.us.us.us.us.us.us.us.us.us.i, i32 noundef %.0110.i)
   %350 = getelementptr inbounds float, ptr %90, i64 %indvars.iv261.i
   %351 = load float, ptr %350, align 4
   %352 = fadd float %349, %351

@@ -1560,7 +1560,7 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #0 {
   br i1 %31, label %.lr.ph115, label %._crit_edge
 
 .lr.ph115:                                        ; preds = %.lr.ph96, %92
-  %.06592114 = phi i1 [ %.267, %92 ], [ false, %.lr.ph96 ]
+  %.06591114 = phi i1 [ %.267, %92 ], [ false, %.lr.ph96 ]
   %.06393113 = phi ptr [ %.3, %92 ], [ null, %.lr.ph96 ]
   %.06194112 = phi i1 [ %.162, %92 ], [ false, %.lr.ph96 ]
   %.06095111 = phi i1 [ %.1, %92 ], [ false, %.lr.ph96 ]
@@ -1676,7 +1676,7 @@ select.unfold:                                    ; preds = %67
   br label %92
 
 92:                                               ; preds = %53, %58, %40, %45, %82, %91, %76, %60, %59, %46
-  %.267 = phi i1 [ %.06592114, %46 ], [ %.06592114, %59 ], [ true, %76 ], [ false, %91 ], [ false, %82 ], [ %.06592114, %60 ], [ %.06592114, %45 ], [ %.06592114, %40 ], [ %.06592114, %58 ], [ %.06592114, %53 ]
+  %.267 = phi i1 [ %.06591114, %46 ], [ %.06591114, %59 ], [ true, %76 ], [ false, %91 ], [ false, %82 ], [ %.06591114, %60 ], [ %.06591114, %45 ], [ %.06591114, %40 ], [ %.06591114, %58 ], [ %.06591114, %53 ]
   %.3 = phi ptr [ %.06393113, %46 ], [ %.06393113, %59 ], [ %.06393113, %76 ], [ %34, %91 ], [ %.06393113, %82 ], [ %.06393113, %60 ], [ %34, %45 ], [ %.06393113, %40 ], [ %34, %58 ], [ %.06393113, %53 ]
   %.162 = phi i1 [ %.06194112, %46 ], [ true, %59 ], [ false, %76 ], [ false, %91 ], [ false, %82 ], [ false, %60 ], [ %.06194112, %45 ], [ %.06194112, %40 ], [ true, %58 ], [ true, %53 ]
   %.1 = phi i1 [ true, %46 ], [ false, %59 ], [ false, %76 ], [ false, %91 ], [ false, %82 ], [ false, %60 ], [ true, %45 ], [ true, %40 ], [ false, %58 ], [ false, %53 ]
@@ -1688,7 +1688,7 @@ select.unfold:                                    ; preds = %67
 
 ._crit_edge:                                      ; preds = %92, %.lr.ph96
   %.06393.lcssa = phi ptr [ null, %.lr.ph96 ], [ %.3, %92 ]
-  %.06592.lcssa = phi i1 [ false, %.lr.ph96 ], [ %.267, %92 ]
+  %.06591.lcssa = phi i1 [ false, %.lr.ph96 ], [ %.267, %92 ]
   %.not76 = icmp eq ptr %.06393.lcssa, null
   br i1 %.not76, label %117, label %96
 
@@ -1725,7 +1725,7 @@ select.unfold:                                    ; preds = %67
   br label %.thread
 
 117:                                              ; preds = %._crit_edge
-  br i1 %.06592.lcssa, label %118, label %.thread
+  br i1 %.06591.lcssa, label %118, label %.thread
 
 118:                                              ; preds = %117
   tail call fastcc void @rebuild_database_list(i32 noundef 0)
@@ -1830,7 +1830,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %20
 
 .lr.ph87:                                         ; preds = %.lr.ph80, %53
   %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.lr.ph80 ]
-  %.37985 = phi i32 [ %.4, %53 ], [ %.159.lcssa, %.lr.ph80 ]
+  %.37886 = phi i32 [ %.4, %53 ], [ %.159.lcssa, %.lr.ph80 ]
   %40 = load ptr, ptr %37, align 8
   %41 = getelementptr %union.ListCell, ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8
@@ -1846,13 +1846,13 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %20
   br i1 %49, label %53, label %50
 
 50:                                               ; preds = %46
-  %51 = add i32 %.37985, 1
+  %51 = add i32 %.37886, 1
   %52 = getelementptr inbounds i8, ptr %47, i64 16
-  store i32 %.37985, ptr %52, align 8
+  store i32 %.37886, ptr %52, align 8
   br label %53
 
 53:                                               ; preds = %46, %50, %.lr.ph87
-  %.4 = phi i32 [ %.37985, %.lr.ph87 ], [ %.37985, %46 ], [ %51, %50 ]
+  %.4 = phi i32 [ %.37886, %.lr.ph87 ], [ %.37886, %46 ], [ %51, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = load i32, ptr %36, align 4
   %55 = sext i32 %54 to i64
@@ -1906,9 +1906,9 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %20
 
 78:                                               ; preds = %.lr.ph97, %dlist_push_head.exit
   %indvars.iv99 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next100, %dlist_push_head.exit ]
-  %.05794 = phi i64 [ %69, %.lr.ph97 ], [ %80, %dlist_push_head.exit ]
+  %.05694 = phi i64 [ %69, %.lr.ph97 ], [ %80, %dlist_push_head.exit ]
   %79 = getelementptr %struct.avl_dbase, ptr %61, i64 %indvars.iv99
-  %80 = add i64 %.05794, %77
+  %80 = add i64 %.05694, %77
   %81 = getelementptr inbounds i8, ptr %79, i64 8
   store i64 %80, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %79, i64 24
@@ -2278,7 +2278,7 @@ define internal fastcc void @do_autovacuum() unnamed_addr #0 {
   br label %.outer225.outer
 
 .outer225.outer:                                  ; preds = %82, %51
-  %.0156.ph.ph = phi ptr [ %83, %82 ], [ null, %51 ]
+  %.0157.ph.ph = phi ptr [ %83, %82 ], [ null, %51 ]
   %.0.ph.ph = phi ptr [ %.0.ph227, %82 ], [ null, %51 ]
   br label %.outer225
 
@@ -2324,7 +2324,7 @@ define internal fastcc void @do_autovacuum() unnamed_addr #0 {
   br i1 %81, label %82, label %.outer225, !llvm.loop !17
 
 82:                                               ; preds = %77
-  %83 = call ptr @lappend_oid(ptr noundef %.0156.ph.ph, i32 noundef %73) #18
+  %83 = call ptr @lappend_oid(ptr noundef %.0157.ph.ph, i32 noundef %73) #18
   br label %.outer225.outer, !llvm.loop !17
 
 84:                                               ; preds = %72
@@ -2453,14 +2453,14 @@ extract_autovac_opts.exit214:                     ; preds = %132
   br label %147
 
 147:                                              ; preds = %extract_autovac_opts.exit214, %142, %138
-  %.0165 = phi ptr [ null, %138 ], [ %136, %extract_autovac_opts.exit214 ], [ %spec.select, %142 ]
+  %.0159 = phi ptr [ null, %138 ], [ %136, %extract_autovac_opts.exit214 ], [ %spec.select, %142 ]
   %148 = getelementptr inbounds i8, ptr %128, i64 113
   %149 = load i8, ptr %148, align 1
   %150 = trunc i8 %149 to i1
   %151 = load i32, ptr %14, align 4
   %152 = call ptr @pgstat_fetch_stat_tabentry_ext(i1 noundef zeroext %150, i32 noundef %151) #18
   %153 = load i32, ptr %14, align 4
-  call fastcc void @relation_needs_vacanalyze(i32 noundef %153, ptr noundef %.0165, ptr noundef nonnull %128, ptr noundef %152, i32 noundef %23, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17)
+  call fastcc void @relation_needs_vacanalyze(i32 noundef %153, ptr noundef %.0159, ptr noundef nonnull %128, ptr noundef %152, i32 noundef %23, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17)
   %154 = load i8, ptr %15, align 1
   %155 = trunc i8 %154 to i1
   br i1 %155, label %156, label %.outer, !llvm.loop !18
@@ -2478,12 +2478,12 @@ extract_autovac_opts.exit214:                     ; preds = %132
   %164 = load ptr, ptr %163, align 8
   call void %164(ptr noundef nonnull %119) #18
   call void @table_close(ptr noundef %53, i32 noundef 1) #18
-  %165 = getelementptr inbounds i8, ptr %.0156.ph.ph, i64 4
-  %.not184 = icmp eq ptr %.0156.ph.ph, null
+  %165 = getelementptr inbounds i8, ptr %.0157.ph.ph, i64 4
+  %.not184 = icmp eq ptr %.0157.ph.ph, null
   br i1 %.not184, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %159
-  %166 = getelementptr inbounds i8, ptr %.0156.ph.ph, i64 16
+  %166 = getelementptr inbounds i8, ptr %.0157.ph.ph, i64 16
   %167 = getelementptr inbounds i8, ptr %19, i64 4
   %168 = getelementptr inbounds i8, ptr %19, i64 8
   %169 = load i32, ptr %165, align 4
@@ -2605,8 +2605,8 @@ extract_autovac_opts.exit214:                     ; preds = %132
   br i1 %224, label %.critedge, label %._crit_edge
 
 .critedge212:                                     ; preds = %.lr.ph244, %538
-  %.0161241278 = phi i1 [ %.2163, %538 ], [ false, %.lr.ph244 ]
-  %.0158242277 = phi i1 [ %.2160, %538 ], [ false, %.lr.ph244 ]
+  %.0164240278 = phi i1 [ %.2166, %538 ], [ false, %.lr.ph244 ]
+  %.0161241277 = phi i1 [ %.2163, %538 ], [ false, %.lr.ph244 ]
   %indvars.iv258276 = phi i64 [ %indvars.iv.next259, %538 ], [ 0, %.lr.ph244 ]
   %225 = load ptr, ptr %180, align 8
   %226 = getelementptr %union.ListCell, ptr %225, i64 %indvars.iv258276
@@ -2619,11 +2619,11 @@ extract_autovac_opts.exit214:                     ; preds = %132
 
 .._crit_edge245.loopexit_crit_edge:               ; preds = %538
   %229 = xor i1 %.2163, true
-  %230 = select i1 %.2160, i1 true, i1 %229
+  %230 = select i1 %.2166, i1 true, i1 %229
   br label %._crit_edge245
 
 ._crit_edge245:                                   ; preds = %.lr.ph244, %.._crit_edge245.loopexit_crit_edge, %._crit_edge
-  %.0158.lcssa = phi i1 [ true, %._crit_edge ], [ %230, %.._crit_edge245.loopexit_crit_edge ], [ true, %.lr.ph244 ]
+  %.0164.lcssa = phi i1 [ true, %._crit_edge ], [ %230, %.._crit_edge245.loopexit_crit_edge ], [ true, %.lr.ph244 ]
   store volatile ptr null, ptr %8, align 8
   %231 = load ptr, ptr @MainLWLockArray, align 8
   %232 = getelementptr i8, ptr %231, i64 2816
@@ -2794,13 +2794,13 @@ extract_autovac_opts.exit.i:                      ; preds = %293
 
 317:                                              ; preds = %312, %308, %extract_autovac_opts.exit.i, %extract_autovac_opts.exit.thread.i
   %318 = phi ptr [ %305, %308 ], [ %305, %extract_autovac_opts.exit.i ], [ %305, %312 ], [ %304, %extract_autovac_opts.exit.thread.i ]
-  %.066.i = phi ptr [ null, %308 ], [ null, %extract_autovac_opts.exit.i ], [ %spec.select.i, %312 ], [ %302, %extract_autovac_opts.exit.thread.i ]
+  %.065.i = phi ptr [ null, %308 ], [ null, %extract_autovac_opts.exit.i ], [ %spec.select.i, %312 ], [ %302, %extract_autovac_opts.exit.thread.i ]
   %319 = load i32, ptr %2, align 4
   %320 = getelementptr inbounds i8, ptr %299, i64 113
   %321 = load i8, ptr %320, align 1
   %322 = trunc i8 %321 to i1
   %323 = call ptr @pgstat_fetch_stat_tabentry_ext(i1 noundef zeroext %322, i32 noundef %319) #18
-  call fastcc void @relation_needs_vacanalyze(i32 noundef %319, ptr noundef %.066.i, ptr noundef %299, ptr noundef %323, i32 noundef %23, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @relation_needs_vacanalyze(i32 noundef %319, ptr noundef %.065.i, ptr noundef %299, ptr noundef %323, i32 noundef %23, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %324 = load i8, ptr %318, align 1
   %325 = icmp eq i8 %324, 116
   br i1 %325, label %recheck_relation_needs_vacanalyze.exit.thread.i, label %recheck_relation_needs_vacanalyze.exit.i
@@ -2826,7 +2826,7 @@ table_recheck_autovac.exit.thread223:             ; preds = %recheck_relation_ne
 
 329:                                              ; preds = %recheck_relation_needs_vacanalyze.exit.thread.i, %recheck_relation_needs_vacanalyze.exit.i
   %330 = phi i32 [ 0, %recheck_relation_needs_vacanalyze.exit.thread.i ], [ 2, %recheck_relation_needs_vacanalyze.exit.i ]
-  %.not75.i = icmp eq ptr %.066.i, null
+  %.not75.i = icmp eq ptr %.065.i, null
   br i1 %.not75.i, label %.thread87.i, label %.thread.i
 
 .thread87.i:                                      ; preds = %329
@@ -2837,27 +2837,27 @@ table_recheck_autovac.exit.thread223:             ; preds = %recheck_relation_ne
   br label %356
 
 .thread.i:                                        ; preds = %329
-  %335 = getelementptr inbounds i8, ptr %.066.i, i64 44
+  %335 = getelementptr inbounds i8, ptr %.065.i, i64 44
   %336 = load i32, ptr %335, align 4
   %337 = load i32, ptr @Log_autovacuum_min_duration, align 4
   %338 = icmp slt i32 %336, 0
   %spec.select89.i = select i1 %338, i32 %337, i32 %336
-  %339 = getelementptr inbounds i8, ptr %.066.i, i64 20
+  %339 = getelementptr inbounds i8, ptr %.065.i, i64 20
   %340 = load i32, ptr %339, align 4
   %341 = load i32, ptr @default_freeze_min_age, align 4
   %342 = icmp slt i32 %340, 0
   %343 = select i1 %342, i32 %341, i32 %340
-  %344 = getelementptr inbounds i8, ptr %.066.i, i64 28
+  %344 = getelementptr inbounds i8, ptr %.065.i, i64 28
   %345 = load i32, ptr %344, align 4
   %346 = load i32, ptr @default_freeze_table_age, align 4
   %347 = icmp slt i32 %345, 0
   %348 = select i1 %347, i32 %346, i32 %345
-  %349 = getelementptr inbounds i8, ptr %.066.i, i64 32
+  %349 = getelementptr inbounds i8, ptr %.065.i, i64 32
   %350 = load i32, ptr %349, align 8
   %351 = load i32, ptr @default_multixact_freeze_min_age, align 4
   %352 = icmp slt i32 %350, 0
   %spec.select90.i = select i1 %352, i32 %351, i32 %350
-  %353 = getelementptr inbounds i8, ptr %.066.i, i64 40
+  %353 = getelementptr inbounds i8, ptr %.065.i, i64 40
   %354 = load i32, ptr %353, align 8
   %355 = icmp sgt i32 %354, -1
   br i1 %355, label %362, label %356
@@ -2924,11 +2924,11 @@ table_recheck_autovac.exit.thread223:             ; preds = %recheck_relation_ne
   br label %418
 
 395:                                              ; preds = %362
-  %396 = getelementptr inbounds i8, ptr %.066.i, i64 16
+  %396 = getelementptr inbounds i8, ptr %.065.i, i64 16
   %397 = load i32, ptr %396, align 8
   %398 = getelementptr inbounds i8, ptr %368, i64 56
   store i32 %397, ptr %398, align 8
-  %399 = getelementptr inbounds i8, ptr %.066.i, i64 48
+  %399 = getelementptr inbounds i8, ptr %.065.i, i64 48
   %400 = load double, ptr %399, align 8
   %401 = getelementptr inbounds i8, ptr %368, i64 48
   store double %400, ptr %401, align 8
@@ -3160,7 +3160,7 @@ autovacuum_do_vac_analyze.exit:                   ; preds = %479, %483
 
 thread-pre-split:                                 ; preds = %468, %516, %autovac_recalculate_workers_for_balance.exit
   %518 = phi ptr [ %465, %autovac_recalculate_workers_for_balance.exit ], [ %465, %468 ], [ %.pr.pre, %516 ]
-  %.1159 = phi i1 [ %.0158242277, %autovac_recalculate_workers_for_balance.exit ], [ %.0158242277, %468 ], [ true, %516 ]
+  %.1165 = phi i1 [ %.0164240278, %autovac_recalculate_workers_for_balance.exit ], [ %.0164240278, %468 ], [ true, %516 ]
   %.not201 = icmp eq ptr %518, null
   br i1 %.not201, label %520, label %519
 
@@ -3205,8 +3205,8 @@ thread-pre-split:                                 ; preds = %468, %516, %autovac
   br label %538
 
 538:                                              ; preds = %238, %526, %409, %279
-  %.2163 = phi i1 [ true, %279 ], [ %.0161241278, %409 ], [ %.0161241278, %526 ], [ %.0161241278, %238 ]
-  %.2160 = phi i1 [ %.0158242277, %279 ], [ %.0158242277, %409 ], [ %.1159, %526 ], [ %.0158242277, %238 ]
+  %.2166 = phi i1 [ %.0164240278, %279 ], [ %.0164240278, %409 ], [ %.1165, %526 ], [ %.0164240278, %238 ]
+  %.2163 = phi i1 [ true, %279 ], [ %.0161241277, %409 ], [ %.0161241277, %526 ], [ %.0161241277, %238 ]
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258276, 1
   %539 = load i32, ptr %179, align 4
   %540 = sext i32 %539 to i64
@@ -3280,7 +3280,7 @@ thread-pre-split:                                 ; preds = %468, %516, %autovac
   %572 = load ptr, ptr @MainLWLockArray, align 8
   %573 = getelementptr i8, ptr %572, i64 2816
   call void @LWLockRelease(ptr noundef %573) #18
-  br i1 %.0158.lcssa, label %574, label %575
+  br i1 %.0164.lcssa, label %574, label %575
 
 574:                                              ; preds = %571
   call void @vac_update_datfrozenxid() #18
@@ -3416,10 +3416,10 @@ define internal fastcc void @relation_needs_vacanalyze(i32 noundef %0, ptr nound
   br label %78
 
 78:                                               ; preds = %.thread133, %73
-  %.093 = phi i1 [ false, %.thread133 ], [ %77, %73 ]
-  %79 = zext i1 %.093 to i8
+  %.094 = phi i1 [ false, %.thread133 ], [ %77, %73 ]
+  %79 = zext i1 %.094 to i8
   store i8 %79, ptr %7, align 1
-  %brmerge = select i1 %.not114, i1 true, i1 %.093
+  %brmerge = select i1 %.not114, i1 true, i1 %.094
   br i1 %brmerge, label %81, label %80
 
 80:                                               ; preds = %78
@@ -3429,7 +3429,7 @@ define internal fastcc void @relation_needs_vacanalyze(i32 noundef %0, ptr nound
 
 81:                                               ; preds = %.thread134, %78
   %82 = phi i8 [ 1, %.thread134 ], [ %79, %78 ]
-  %.093138 = phi i1 [ true, %.thread134 ], [ %.093, %78 ]
+  %.094138 = phi i1 [ true, %.thread134 ], [ %.094, %78 ]
   %.not116 = icmp eq ptr %3, null
   br i1 %.not116, label %134, label %83
 
@@ -3454,13 +3454,13 @@ define internal fastcc void @relation_needs_vacanalyze(i32 noundef %0, ptr nound
   %98 = load i64, ptr %97, align 8
   %99 = sitofp i64 %98 to float
   %100 = fcmp olt float %90, 0.000000e+00
-  %.094 = select i1 %100, float 0.000000e+00, float %90
+  %.093 = select i1 %100, float 0.000000e+00, float %90
   %101 = sitofp i32 %57 to float
-  %102 = tail call float @llvm.fmuladd.f32(float %61, float %.094, float %101)
+  %102 = tail call float @llvm.fmuladd.f32(float %61, float %.093, float %101)
   %103 = sitofp i32 %56 to float
-  %104 = tail call float @llvm.fmuladd.f32(float %60, float %.094, float %103)
+  %104 = tail call float @llvm.fmuladd.f32(float %60, float %.093, float %103)
   %105 = sitofp i32 %55 to float
-  %106 = tail call float @llvm.fmuladd.f32(float %59, float %.094, float %105)
+  %106 = tail call float @llvm.fmuladd.f32(float %59, float %.093, float %105)
   %107 = icmp sgt i32 %56, -1
   %108 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #18
   br i1 %107, label %109, label %119
@@ -3498,7 +3498,7 @@ define internal fastcc void @relation_needs_vacanalyze(i32 noundef %0, ptr nound
 
 127:                                              ; preds = %.sink.split, %119, %109
   %128 = fcmp olt float %102, %93
-  %or.cond = select i1 %.093138, i1 true, i1 %128
+  %or.cond = select i1 %.094138, i1 true, i1 %128
   %129 = fcmp olt float %104, %96
   %130 = select i1 %107, i1 %129, i1 false
   %narrow = select i1 %or.cond, i1 true, i1 %130

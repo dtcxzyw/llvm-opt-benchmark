@@ -22,7 +22,7 @@ define hidden i32 @jsmn_parse(ptr nocapture noundef %0, ptr nocapture noundef re
 12:                                               ; preds = %.lr.ph205, %.loopexit
   %13 = phi i64 [ %9, %.lr.ph205 ], [ %202, %.loopexit ]
   %14 = phi i32 [ %8, %.lr.ph205 ], [ %201, %.loopexit ]
-  %.0112204 = phi i32 [ %7, %.lr.ph205 ], [ %.1113, %.loopexit ]
+  %.0204 = phi i32 [ %7, %.lr.ph205 ], [ %.1, %.loopexit ]
   %15 = getelementptr i8, ptr %1, i64 %13
   %16 = load i8, ptr %15, align 1
   switch i8 %16, label %jsmn_alloc_token.exit.thread [
@@ -55,7 +55,7 @@ define hidden i32 @jsmn_parse(ptr nocapture noundef %0, ptr nocapture noundef re
   ]
 
 17:                                               ; preds = %12, %12
-  %18 = add i32 %.0112204, 1
+  %18 = add i32 %.0204, 1
   br i1 %.not215, label %.loopexit, label %19
 
 19:                                               ; preds = %17
@@ -210,7 +210,7 @@ jsmn_alloc_token.exit:                            ; preds = %19
   br i1 %.not215, label %jsmn_parse_string.exit.thread155, label %87
 
 jsmn_parse_string.exit.thread155:                 ; preds = %85
-  %86 = add i32 %.0112204, 1
+  %86 = add i32 %.0204, 1
   br label %.loopexit
 
 87:                                               ; preds = %85
@@ -320,7 +320,7 @@ jsmn_parse_string.exit:                           ; preds = %jsmn_alloc_token.ex
   store i32 %79, ptr %93, align 4
   store i32 %122, ptr %92, align 4
   store i32 0, ptr %94, align 4
-  %123 = add i32 %.0112204, 1
+  %123 = add i32 %.0204, 1
   %124 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %124, -1
   br i1 %.not, label %.loopexit, label %125
@@ -455,7 +455,7 @@ jsmn_parse_string.exit:                           ; preds = %jsmn_alloc_token.ex
 .thread:                                          ; preds = %177
   %178 = add i32 %168, -1
   store i32 %178, ptr %0, align 4
-  %179 = add i32 %.0112204, 1
+  %179 = add i32 %.0204, 1
   br label %.loopexit
 
 180:                                              ; preds = %177
@@ -486,7 +486,7 @@ jsmn_alloc_token.exit.i151:                       ; preds = %180
   %191 = load i32, ptr %0, align 4
   %192 = add i32 %191, -1
   store i32 %192, ptr %0, align 4
-  %193 = add i32 %.0112204, 1
+  %193 = add i32 %.0204, 1
   %194 = load i32, ptr %11, align 4
   %.not216 = icmp eq i32 %194, -1
   br i1 %.not216, label %.loopexit, label %195
@@ -500,7 +500,7 @@ jsmn_alloc_token.exit.i151:                       ; preds = %180
   br label %.loopexit
 
 .loopexit:                                        ; preds = %155, %76, %140, %.preheader, %.thread, %jsmn_parse_string.exit.thread155, %136, %12, %12, %12, %12, %35, %130, %17, %41, %74, %125, %jsmn_parse_string.exit, %153, %134, %133, %195, %189
-  %.1113 = phi i32 [ %193, %195 ], [ %193, %189 ], [ %.0112204, %153 ], [ %.0112204, %134 ], [ %.0112204, %133 ], [ %.0112204, %130 ], [ %123, %125 ], [ %123, %jsmn_parse_string.exit ], [ %.0112204, %41 ], [ %.0112204, %74 ], [ %18, %17 ], [ %18, %35 ], [ %.0112204, %12 ], [ %.0112204, %12 ], [ %.0112204, %12 ], [ %.0112204, %12 ], [ %.0112204, %136 ], [ %86, %jsmn_parse_string.exit.thread155 ], [ %179, %.thread ], [ %.0112204, %.preheader ], [ %.0112204, %140 ], [ %.0112204, %76 ], [ %.0112204, %155 ]
+  %.1 = phi i32 [ %193, %195 ], [ %193, %189 ], [ %.0204, %153 ], [ %.0204, %134 ], [ %.0204, %133 ], [ %.0204, %130 ], [ %123, %125 ], [ %123, %jsmn_parse_string.exit ], [ %.0204, %41 ], [ %.0204, %74 ], [ %18, %17 ], [ %18, %35 ], [ %.0204, %12 ], [ %.0204, %12 ], [ %.0204, %12 ], [ %.0204, %12 ], [ %.0204, %136 ], [ %86, %jsmn_parse_string.exit.thread155 ], [ %179, %.thread ], [ %.0204, %.preheader ], [ %.0204, %140 ], [ %.0204, %76 ], [ %.0204, %155 ]
   %200 = load i32, ptr %0, align 4
   %201 = add i32 %200, 1
   store i32 %201, ptr %0, align 4
@@ -509,7 +509,7 @@ jsmn_alloc_token.exit.i151:                       ; preds = %180
   br i1 %203, label %12, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %.loopexit, %12, %5
-  %.0112.lcssa = phi i32 [ %7, %5 ], [ %.0112204, %12 ], [ %.1113, %.loopexit ]
+  %.0.lcssa = phi i32 [ %7, %5 ], [ %.0204, %12 ], [ %.1, %.loopexit ]
   %.not132 = icmp eq ptr %3, null
   br i1 %.not132, label %jsmn_alloc_token.exit.thread, label %204
 
@@ -543,13 +543,13 @@ jsmn_alloc_token.exit.i151:                       ; preds = %180
   br i1 %216, label %.lr.ph211, label %jsmn_alloc_token.exit.thread, !llvm.loop !12
 
 jsmn_alloc_token.exit.thread.sink.split:          ; preds = %jsmn_alloc_token.exit.i151, %180, %78, %87, %jsmn_alloc_token.exit.i, %.lr.ph.i149, %173, %171, %.lr.ph.i, %118, %100, %switch.early.test.i
-  %.0.ph = phi i32 [ -2, %switch.early.test.i ], [ -2, %100 ], [ -3, %118 ], [ -3, %.lr.ph.i ], [ -2, %171 ], [ -3, %173 ], [ -3, %.lr.ph.i149 ], [ -1, %jsmn_alloc_token.exit.i ], [ -1, %87 ], [ -3, %78 ], [ -1, %jsmn_alloc_token.exit.i151 ], [ -1, %180 ]
+  %.0113.ph = phi i32 [ -2, %switch.early.test.i ], [ -2, %100 ], [ -3, %118 ], [ -3, %.lr.ph.i ], [ -2, %171 ], [ -3, %173 ], [ -3, %.lr.ph.i149 ], [ -1, %jsmn_alloc_token.exit.i ], [ -1, %87 ], [ -3, %78 ], [ -1, %jsmn_alloc_token.exit.i151 ], [ -1, %180 ]
   store i32 %14, ptr %0, align 4
   br label %jsmn_alloc_token.exit.thread
 
 jsmn_alloc_token.exit.thread:                     ; preds = %19, %12, %164, %160, %.loopexit163, %55, %jsmn_alloc_token.exit, %61, %211, %215, %jsmn_alloc_token.exit.thread.sink.split, %204, %.critedge
-  %.0 = phi i32 [ %.0112.lcssa, %.critedge ], [ %.0112.lcssa, %204 ], [ %.0.ph, %jsmn_alloc_token.exit.thread.sink.split ], [ -3, %211 ], [ %.0112.lcssa, %215 ], [ -2, %61 ], [ -1, %19 ], [ -2, %12 ], [ -2, %164 ], [ -2, %160 ], [ -2, %.loopexit163 ], [ -2, %55 ], [ -1, %jsmn_alloc_token.exit ]
-  ret i32 %.0
+  %.0113 = phi i32 [ %.0.lcssa, %.critedge ], [ %.0.lcssa, %204 ], [ %.0113.ph, %jsmn_alloc_token.exit.thread.sink.split ], [ -3, %211 ], [ %.0.lcssa, %215 ], [ -2, %61 ], [ -1, %19 ], [ -2, %12 ], [ -2, %164 ], [ -2, %160 ], [ -2, %.loopexit163 ], [ -2, %55 ], [ -1, %jsmn_alloc_token.exit ]
+  ret i32 %.0113
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

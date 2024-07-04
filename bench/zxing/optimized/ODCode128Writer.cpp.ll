@@ -150,16 +150,16 @@ define void @_ZNK5ZXing4OneD13Code128Writer6encodeERKNSt7__cxx1112basic_stringIw
 
 .lr.ph171:                                        ; preds = %.lr.ph171.preheader, %182
   %.078169 = phi i32 [ %189, %182 ], [ 0, %.lr.ph171.preheader ]
-  %.079168 = phi i32 [ %spec.select104, %182 ], [ 1, %.lr.ph171.preheader ]
-  %.085166 = phi i32 [ %.186, %182 ], [ 0, %.lr.ph171.preheader ]
-  %.087164 = phi i32 [ %.289, %182 ], [ 0, %.lr.ph171.preheader ]
+  %.083168 = phi i32 [ %spec.select104, %182 ], [ 1, %.lr.ph171.preheader ]
+  %.085166 = phi i32 [ %.287, %182 ], [ 0, %.lr.ph171.preheader ]
+  %.088164 = phi i32 [ %.189, %182 ], [ 0, %.lr.ph171.preheader ]
   %44 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #7
   %45 = trunc i64 %44 to i32
-  %.not.i.i = icmp slt i32 %.087164, %45
+  %.not.i.i = icmp slt i32 %.085166, %45
   br i1 %.not.i.i, label %46, label %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit.i
 
 46:                                               ; preds = %.lr.ph171
-  %47 = sext i32 %.087164 to i64
+  %47 = sext i32 %.085166 to i64
   %48 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %47) #7
   %49 = load i32, ptr %48, align 4
   %.not.i = icmp eq i32 %49, 241
@@ -171,7 +171,7 @@ define void @_ZNK5ZXing4OneD13Code128Writer6encodeERKNSt7__cxx1112basic_stringIw
   br i1 %or.cond.i.i, label %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit.i, label %52
 
 52:                                               ; preds = %50
-  %53 = add nsw i32 %.087164, 1
+  %53 = add nsw i32 %.085166, 1
   %.not21.i.i = icmp slt i32 %53, %45
   br i1 %.not21.i.i, label %54, label %select.unfold.i
 
@@ -184,25 +184,25 @@ define void @_ZNK5ZXing4OneD13Code128Writer6encodeERKNSt7__cxx1112basic_stringIw
   br i1 %or.cond3.i.i, label %select.unfold.i, label %.thread.i
 
 select.unfold.i:                                  ; preds = %54, %52
-  %59 = icmp eq i32 %.085166, 101
+  %59 = icmp eq i32 %.088164, 101
   %..i = select i1 %59, i32 101, i32 100
   br label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit
 
 _ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit.i: ; preds = %50, %.lr.ph171
   %60 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #7
   %61 = trunc i64 %60 to i32
-  %62 = icmp slt i32 %.087164, %61
+  %62 = icmp slt i32 %.085166, %61
   br i1 %62, label %63, label %73
 
 63:                                               ; preds = %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit.i
-  %64 = sext i32 %.087164 to i64
+  %64 = sext i32 %.085166 to i64
   %65 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %64) #7
   %66 = load i32, ptr %65, align 4
   %67 = icmp slt i32 %66, 32
   br i1 %67, label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit, label %68
 
 68:                                               ; preds = %63
-  %69 = icmp eq i32 %.085166, 101
+  %69 = icmp eq i32 %.088164, 101
   br i1 %69, label %70, label %73
 
 70:                                               ; preds = %68
@@ -216,18 +216,18 @@ _ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE
   br label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit
 
 74:                                               ; preds = %46
-  %switch.tableidx = add i32 %.085166, -99
+  %switch.tableidx = add i32 %.088164, -99
   %75 = icmp ult i32 %switch.tableidx, 3
   br i1 %75, label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit, label %127
 
 .thread.i:                                        ; preds = %54
-  switch i32 %.085166, label %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit72.thread94.i [
+  switch i32 %.088164, label %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit72.thread94.i [
     i32 99, label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit
     i32 100, label %76
   ]
 
 76:                                               ; preds = %.thread.i
-  %77 = add nsw i32 %.087164, 2
+  %77 = add nsw i32 %.085166, 2
   %78 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #7
   %79 = trunc i64 %78 to i32
   %.not.i52.i = icmp slt i32 %77, %79
@@ -246,7 +246,7 @@ _ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE
   br i1 %or.cond.i54.i, label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit, label %87
 
 87:                                               ; preds = %85
-  %88 = add nsw i32 %.087164, 3
+  %88 = add nsw i32 %.085166, 3
   %.not21.i55.i = icmp slt i32 %88, %79
   br i1 %.not21.i55.i, label %89, label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit
 
@@ -259,7 +259,7 @@ _ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE
   br i1 %or.cond3.i56.i, label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit, label %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit58.i
 
 94:                                               ; preds = %80
-  %95 = add nsw i32 %.087164, 3
+  %95 = add nsw i32 %.085166, 3
   %96 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #7
   %97 = trunc i64 %96 to i32
   %.not.i130 = icmp slt i32 %95, %97
@@ -274,7 +274,7 @@ _ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE
   br i1 %or.cond.i131, label %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit.thread, label %103
 
 103:                                              ; preds = %98
-  %104 = add nsw i32 %.087164, 4
+  %104 = add nsw i32 %.085166, 4
   %.not21.i = icmp slt i32 %104, %97
   br i1 %.not21.i, label %105, label %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit.thread
 
@@ -290,7 +290,7 @@ _ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE
   br label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit
 
 _ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit58.i: ; preds = %89
-  %110 = add nsw i32 %.087164, 4
+  %110 = add nsw i32 %.085166, 4
   %111 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #7
   %112 = trunc i64 %111 to i32
   %.not.i5999.i = icmp slt i32 %110, %112
@@ -332,7 +332,7 @@ _ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE
   br i1 %or.cond3.i63.i, label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit, label %114
 
 127:                                              ; preds = %74
-  %128 = add nsw i32 %.087164, 1
+  %128 = add nsw i32 %.085166, 1
   %129 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #7
   %130 = trunc i64 %129 to i32
   %.not.i66.i = icmp slt i32 %128, %130
@@ -347,7 +347,7 @@ _ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE
   br i1 %or.cond.i68.i, label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit, label %136
 
 136:                                              ; preds = %131
-  %137 = add nsw i32 %.087164, 2
+  %137 = add nsw i32 %.085166, 2
   %.not21.i69.i = icmp slt i32 %137, %130
   br i1 %.not21.i69.i, label %138, label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit
 
@@ -363,12 +363,12 @@ _ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE
   br label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit
 
 _ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit: ; preds = %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit65.i, %121, %.lr.ph.i, %114, %74, %.thread.i, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit72.thread94.i, %138, %136, %131, %127, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit58.i, %89, %87, %85, %76, %73, %70, %63, %select.unfold.i, %105, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit.thread
-  %.041.i = phi i32 [ 100, %73 ], [ %..i, %select.unfold.i ], [ 101, %70 ], [ 101, %63 ], [ 99, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit72.thread94.i ], [ 100, %76 ], [ 100, %85 ], [ 100, %87 ], [ 100, %89 ], [ 100, %127 ], [ 100, %131 ], [ 100, %136 ], [ 100, %138 ], [ 99, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit58.i ], [ 100, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit.thread ], [ 99, %105 ], [ %.085166, %.thread.i ], [ %.085166, %74 ], [ 100, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit65.i ], [ 100, %121 ], [ 99, %.lr.ph.i ], [ 99, %114 ]
-  %143 = icmp eq i32 %.041.i, %.085166
+  %.042.i = phi i32 [ 100, %73 ], [ %..i, %select.unfold.i ], [ 101, %70 ], [ 101, %63 ], [ 99, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit72.thread94.i ], [ 100, %76 ], [ 100, %85 ], [ 100, %87 ], [ 100, %89 ], [ 100, %127 ], [ 100, %131 ], [ 100, %136 ], [ 100, %138 ], [ 99, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit58.i ], [ 100, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit.thread ], [ 99, %105 ], [ %.088164, %.thread.i ], [ %.088164, %74 ], [ 100, %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit65.i ], [ 100, %121 ], [ 99, %.lr.ph.i ], [ 99, %114 ]
+  %143 = icmp eq i32 %.042.i, %.088164
   br i1 %143, label %144, label %175
 
 144:                                              ; preds = %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit
-  %145 = sext i32 %.087164 to i64
+  %145 = sext i32 %.085166 to i64
   %146 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %145) #7
   %147 = load i32, ptr %146, align 4
   switch i32 %147, label %153 [
@@ -395,14 +395,14 @@ _ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwE
   br label %173
 
 150:                                              ; preds = %144
-  %151 = icmp eq i32 %.085166, 101
+  %151 = icmp eq i32 %.088164, 101
   %152 = select i1 %151, i32 101, i32 100
   br label %173
 
 153:                                              ; preds = %144
   %154 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %145) #7
   %155 = load i32, ptr %154, align 4
-  switch i32 %.085166, label %160 [
+  switch i32 %.088164, label %160 [
     i32 101, label %156
     i32 100, label %158
   ]
@@ -420,7 +420,7 @@ _ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwE
 160:                                              ; preds = %153
   %161 = mul i32 %155, 10
   %162 = add i32 %161, -480
-  %163 = add nsw i32 %.087164, 1
+  %163 = add nsw i32 %.085166, 1
   %164 = icmp slt i32 %163, %12
   br i1 %164, label %165, label %170
 
@@ -437,17 +437,17 @@ _ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwE
   br label %173
 
 173:                                              ; preds = %156, %144, %170, %158, %150, %149, %148
-  %.188 = phi i32 [ %.087164, %158 ], [ %163, %170 ], [ %.087164, %150 ], [ %.087164, %149 ], [ %.087164, %148 ], [ %.087164, %144 ], [ %.087164, %156 ]
-  %.082 = phi i32 [ %159, %158 ], [ %172, %170 ], [ %152, %150 ], [ 96, %149 ], [ 97, %148 ], [ 102, %144 ], [ %spec.select, %156 ]
-  %174 = add nsw i32 %.188, 1
+  %.186 = phi i32 [ %.085166, %158 ], [ %163, %170 ], [ %.085166, %150 ], [ %.085166, %149 ], [ %.085166, %148 ], [ %.085166, %144 ], [ %.085166, %156 ]
+  %.080 = phi i32 [ %159, %158 ], [ %172, %170 ], [ %152, %150 ], [ 96, %149 ], [ 97, %148 ], [ 102, %144 ], [ %spec.select, %156 ]
+  %174 = add nsw i32 %.186, 1
   br label %180
 
 175:                                              ; preds = %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit
-  %176 = icmp eq i32 %.085166, 0
+  %176 = icmp eq i32 %.088164, 0
   br i1 %176, label %177, label %180
 
 177:                                              ; preds = %175
-  switch i32 %.041.i, label %179 [
+  switch i32 %.042.i, label %179 [
     i32 101, label %180
     i32 100, label %178
   ]
@@ -459,14 +459,14 @@ _ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwE
   br label %180
 
 180:                                              ; preds = %178, %179, %177, %175, %173
-  %.289 = phi i32 [ %174, %173 ], [ %.087164, %175 ], [ %.087164, %177 ], [ %.087164, %179 ], [ %.087164, %178 ]
-  %.186 = phi i32 [ %.085166, %173 ], [ %.041.i, %175 ], [ %.041.i, %177 ], [ 99, %179 ], [ %.041.i, %178 ]
-  %.284 = phi i32 [ %.082, %173 ], [ %.041.i, %175 ], [ 103, %177 ], [ 105, %179 ], [ 104, %178 ]
+  %.189 = phi i32 [ %.088164, %173 ], [ %.042.i, %175 ], [ %.042.i, %177 ], [ 99, %179 ], [ %.042.i, %178 ]
+  %.287 = phi i32 [ %174, %173 ], [ %.085166, %175 ], [ %.085166, %177 ], [ %.085166, %179 ], [ %.085166, %178 ]
+  %.282 = phi i32 [ %.080, %173 ], [ %.042.i, %175 ], [ 103, %177 ], [ 105, %179 ], [ 104, %178 ]
   %181 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #9
           to label %182 unwind label %.loopexit155
 
 182:                                              ; preds = %180
-  %183 = sext i32 %.284 to i64
+  %183 = sext i32 %.282 to i64
   %184 = getelementptr inbounds [107 x %"struct.std::array.12"], ptr @_ZN5ZXing4OneD7Code12813CODE_PATTERNSE, i64 0, i64 %183
   %185 = getelementptr inbounds i8, ptr %181, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %185, ptr noundef nonnull align 4 dereferenceable(24) %184, i64 24, i1 false)
@@ -474,12 +474,12 @@ _ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwE
   %186 = load i64, ptr %43, align 8
   %187 = add i64 %186, 1
   store i64 %187, ptr %43, align 8
-  %188 = mul nsw i32 %.284, %.079168
+  %188 = mul nsw i32 %.282, %.083168
   %189 = add nsw i32 %188, %.078169
-  %.not = icmp ne i32 %.289, 0
+  %.not = icmp ne i32 %.287, 0
   %190 = zext i1 %.not to i32
-  %spec.select104 = add nuw nsw i32 %.079168, %190
-  %191 = icmp slt i32 %.289, %12
+  %spec.select104 = add nuw nsw i32 %.083168, %190
+  %191 = icmp slt i32 %.287, %12
   br i1 %191, label %.lr.ph171, label %._crit_edge172, !llvm.loop !7
 
 ._crit_edge172:                                   ; preds = %182
@@ -511,7 +511,7 @@ _ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwE
   br i1 %.not153173, label %._crit_edge178, label %.lr.ph177
 
 .lr.ph177:                                        ; preds = %201, %_ZN5ZXing6ReduceISt5arrayIiLm6EEiSt4plusIiEEET0_RKT_S5_T1_.exit
-  %.081175 = phi i32 [ %209, %_ZN5ZXing6ReduceISt5arrayIiLm6EEiSt4plusIiEEET0_RKT_S5_T1_.exit ], [ 2, %201 ]
+  %.079175 = phi i32 [ %209, %_ZN5ZXing6ReduceISt5arrayIiLm6EEiSt4plusIiEEET0_RKT_S5_T1_.exit ], [ 2, %201 ]
   %.sroa.0137.0174 = phi ptr [ %210, %_ZN5ZXing6ReduceISt5arrayIiLm6EEiSt4plusIiEEET0_RKT_S5_T1_.exit ], [ %205, %201 ]
   %206 = getelementptr inbounds i8, ptr %.sroa.0137.0174, i64 16
   br label %.lr.ph.i.i.i
@@ -527,14 +527,14 @@ _ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwE
   br i1 %.not.i.i.i, label %_ZN5ZXing6ReduceISt5arrayIiLm6EEiSt4plusIiEEET0_RKT_S5_T1_.exit, label %.lr.ph.i.i.i, !llvm.loop !8
 
 _ZN5ZXing6ReduceISt5arrayIiLm6EEiSt4plusIiEEET0_RKT_S5_T1_.exit: ; preds = %.lr.ph.i.i.i
-  %209 = add nsw i32 %208, %.081175
+  %209 = add nsw i32 %208, %.079175
   %210 = load ptr, ptr %.sroa.0137.0174, align 8
   %.not153 = icmp eq ptr %210, %9
   br i1 %.not153, label %._crit_edge178, label %.lr.ph177
 
 ._crit_edge178:                                   ; preds = %_ZN5ZXing6ReduceISt5arrayIiLm6EEiSt4plusIiEEET0_RKT_S5_T1_.exit, %201
-  %.081.lcssa = phi i32 [ 2, %201 ], [ %209, %_ZN5ZXing6ReduceISt5arrayIiLm6EEiSt4plusIiEEET0_RKT_S5_T1_.exit ]
-  %211 = sext i32 %.081.lcssa to i64
+  %.079.lcssa = phi i32 [ 2, %201 ], [ %209, %_ZN5ZXing6ReduceISt5arrayIiLm6EEiSt4plusIiEEET0_RKT_S5_T1_.exit ]
+  %211 = sext i32 %.079.lcssa to i64
   store ptr null, ptr %10, align 8
   %212 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 0, ptr %212, align 8
@@ -544,7 +544,7 @@ _ZN5ZXing6ReduceISt5arrayIiLm6EEiSt4plusIiEEET0_RKT_S5_T1_.exit: ; preds = %.lr.
   store i32 0, ptr %214, align 8
   %215 = getelementptr inbounds i8, ptr %10, i64 32
   store ptr null, ptr %215, align 8
-  %.not.i.i108 = icmp eq i32 %.081.lcssa, 0
+  %.not.i.i108 = icmp eq i32 %.079.lcssa, 0
   br i1 %.not.i.i108, label %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit, label %216
 
 216:                                              ; preds = %._crit_edge178
@@ -560,14 +560,14 @@ _ZN5ZXing6ReduceISt5arrayIiLm6EEiSt4plusIiEEET0_RKT_S5_T1_.exit: ; preds = %.lr.
   store ptr %223, ptr %215, align 8
   store ptr %220, ptr %10, align 8
   store i32 0, ptr %212, align 8
-  %224 = sdiv i32 %.081.lcssa, 64
+  %224 = sdiv i32 %.079.lcssa, 64
   %.sext151 = sext i32 %224 to i64
   %225 = getelementptr inbounds i64, ptr %220, i64 %.sext151
   %226 = and i64 %211, -9223372036854775745
   %227 = icmp ugt i64 %226, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %227, i64 -8, i64 0
   %storemerge.i.i.i.i.i = getelementptr inbounds i8, ptr %225, i64 %storemerge.idx.i.i.i.i.i
-  %228 = and i32 %.081.lcssa, 63
+  %228 = and i32 %.079.lcssa, 63
   store ptr %storemerge.i.i.i.i.i, ptr %213, align 8
   store i32 %228, ptr %214, align 8
   %.idx.i = shl nuw nsw i64 %222, 3

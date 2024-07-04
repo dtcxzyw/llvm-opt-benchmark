@@ -1093,8 +1093,8 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %17, %20
   br label %103
 
 103:                                              ; preds = %99, %92, %95, %90
-  %.0 = phi i32 [ 1, %95 ], [ 1, %92 ], [ %13, %90 ], [ %spec.select, %99 ]
-  %104 = zext i32 %.0 to i64
+  %.080 = phi i32 [ 1, %95 ], [ 1, %92 ], [ %13, %90 ], [ %spec.select, %99 ]
+  %104 = zext i32 %.080 to i64
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %5, i8 0, i64 57, i1 false)
   %105 = invoke ptr @_ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_mRNS3_14PointerUpdaterIP6CFaceOEE(ptr noundef nonnull align 8 dereferenceable(1196) %0, i64 noundef %104, ptr noundef nonnull align 8 dereferenceable(57) %5)
@@ -1120,7 +1120,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %17, %20
 
 _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %106, %109
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  %.not105 = icmp eq i32 %.0, 0
+  %.not105 = icmp eq i32 %.080, 0
   br i1 %.not105, label %._crit_edge101, label %.lr.ph100
 
 .lr.ph100:                                        ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit
@@ -5611,8 +5611,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit140.thread:          ; preds = %44
 
 _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge, %154, %152, %151, %._crit_edge
   %155 = phi ptr [ %.pre218, %._crit_edge ], [ %.pre, %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge ], [ %.pre218227, %151 ], [ %.pre218227, %152 ], [ %.pre218227, %154 ]
-  %.094 = phi i32 [ %31, %._crit_edge ], [ 1, %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge ], [ 1, %151 ], [ 1, %152 ], [ 1, %154 ]
-  invoke void @ctmDefineMesh(ptr noundef %66, ptr noundef nonnull %.sroa.0164.0221, i32 noundef %29, ptr noundef nonnull %155, i32 noundef %.094, ptr noundef null)
+  %.093 = phi i32 [ %31, %._crit_edge ], [ 1, %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge ], [ 1, %151 ], [ 1, %152 ], [ 1, %154 ]
+  invoke void @ctmDefineMesh(ptr noundef %66, ptr noundef nonnull %.sroa.0164.0221, i32 noundef %29, ptr noundef nonnull %155, i32 noundef %.093, ptr noundef null)
           to label %156 unwind label %73
 
 156:                                              ; preds = %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
@@ -5824,7 +5824,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %231, %233, %235, %2
 
 254:                                              ; preds = %253, %252, %158
   %.sroa.0151.5 = phi ptr [ %.sroa.0151.4, %253 ], [ %.sroa.0151.4, %252 ], [ %.sroa.0151.0178, %158 ]
-  %.088 = phi i32 [ 0, %253 ], [ %251, %252 ], [ %157, %158 ]
+  %.094 = phi i32 [ 0, %253 ], [ %251, %252 ], [ %157, %158 ]
   %255 = load ptr, ptr %9, align 8
   %.not.i.i.i132 = icmp eq ptr %255, null
   br i1 %.not.i.i.i132, label %_ZNSt6vectorIjSaIjEED2Ev.exit133, label %256
@@ -5859,7 +5859,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit136:                 ; preds = %_ZNSt6vectorIfSaIfE
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit138
 
 _ZNSt6vectorIfSaIfEED2Ev.exit138:                 ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit136, %260
-  ret i32 %.088
+  ret i32 %.094
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %76, %73, %71
   %.sroa.0151.6 = phi ptr [ %.sroa.0151.0178, %71 ], [ %.sroa.0151.1, %73 ], [ %.sroa.0151.1, %76 ]

@@ -111,8 +111,8 @@ define dso_local float @gimme_edge_table(ptr nocapture noundef readnone %0, ptr 
   br label %gimme_edge.exit
 
 gimme_edge.exit:                                  ; preds = %28, %._crit_edge.i
-  %.0.i = phi i32 [ 0, %28 ], [ 1, %._crit_edge.i ]
-  %35 = add i32 %.0.i, %.079
+  %.023.i = phi i32 [ 0, %28 ], [ 1, %._crit_edge.i ]
+  %35 = add i32 %.023.i, %.079
   %36 = load i32, ptr %16, align 4
   %37 = load i32, ptr %13, align 4
   %38 = sext i32 %36 to i64
@@ -199,8 +199,8 @@ gimme_edge.exit50:                                ; preds = %48, %._crit_edge.i4
   br label %gimme_edge.exit59
 
 gimme_edge.exit59:                                ; preds = %69, %._crit_edge.i51
-  %.0.i52 = phi i32 [ 0, %69 ], [ 1, %._crit_edge.i51 ]
-  %76 = add i32 %35, %.0.i52
+  %.023.i52 = phi i32 [ 0, %69 ], [ 1, %._crit_edge.i51 ]
+  %76 = add i32 %35, %.023.i52
   %77 = load i32, ptr %57, align 4
   %78 = load i32, ptr %55, align 4
   %79 = sext i32 %77 to i64
@@ -370,8 +370,8 @@ remove_gene.exit:                                 ; preds = %remove_gene.exit.lo
 
 .lr.ph.i38:                                       ; preds = %64, %.lr.ph.preheader.i36
   %indvars.iv.i39 = phi i64 [ 0, %.lr.ph.preheader.i36 ], [ %indvars.iv.next.i40, %64 ]
-  %.02748.i = phi i32 [ -1, %.lr.ph.preheader.i36 ], [ %.1.i, %64 ]
-  %.02847.i = phi i32 [ 5, %.lr.ph.preheader.i36 ], [ %.129.i, %64 ]
+  %.048.i = phi i32 [ -1, %.lr.ph.preheader.i36 ], [ %.1.i, %64 ]
+  %.02747.i = phi i32 [ 5, %.lr.ph.preheader.i36 ], [ %.128.i, %64 ]
   %46 = getelementptr [4 x i32], ptr %5, i64 0, i64 %indvars.iv.i39
   %47 = load i32, ptr %46, align 4
   %48 = icmp slt i32 %47, 0
@@ -385,11 +385,11 @@ remove_gene.exit:                                 ; preds = %remove_gene.exit.lo
   %52 = zext nneg i32 %47 to i64
   %53 = getelementptr %struct.Edge, ptr %1, i64 %52, i32 2
   %54 = load i32, ptr %53, align 4
-  %55 = icmp slt i32 %54, %.02847.i
+  %55 = icmp slt i32 %54, %.02747.i
   br i1 %55, label %64, label %56
 
 56:                                               ; preds = %51
-  %57 = icmp eq i32 %.02748.i, -1
+  %57 = icmp eq i32 %.048.i, -1
   br i1 %57, label %58, label %61
 
 58:                                               ; preds = %56
@@ -400,13 +400,13 @@ remove_gene.exit:                                 ; preds = %remove_gene.exit.lo
   unreachable
 
 61:                                               ; preds = %56
-  %62 = icmp eq i32 %54, %.02847.i
+  %62 = icmp eq i32 %54, %.02747.i
   %63 = zext i1 %62 to i32
-  %spec.select.i = add nuw i32 %.02748.i, %63
+  %spec.select.i = add nuw i32 %.048.i, %63
   br label %64
 
 64:                                               ; preds = %61, %51
-  %.129.i = phi i32 [ %54, %51 ], [ %.02847.i, %61 ]
+  %.128.i = phi i32 [ %54, %51 ], [ %.02747.i, %61 ]
   %.1.i = phi i32 [ 1, %51 ], [ %spec.select.i, %61 ]
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i39, 1
   %exitcond.not.i41 = icmp eq i64 %indvars.iv.next.i40, %wide.trip.count.i37
@@ -425,7 +425,7 @@ remove_gene.exit:                                 ; preds = %remove_gene.exit.lo
   %69 = sext i32 %68 to i64
   %70 = getelementptr %struct.Edge, ptr %1, i64 %69, i32 2
   %71 = load i32, ptr %70, align 4
-  %72 = icmp eq i32 %71, %.129.i
+  %72 = icmp eq i32 %71, %.128.i
   br i1 %72, label %73, label %76
 
 73:                                               ; preds = %.lr.ph54.i
@@ -447,7 +447,7 @@ remove_gene.exit:                                 ; preds = %remove_gene.exit.lo
   unreachable
 
 gimme_gene.exit:                                  ; preds = %73, %49
-  %.0.i = phi i32 [ %50, %49 ], [ %68, %73 ]
+  %.031.i = phi i32 [ %50, %49 ], [ %68, %73 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %edge_failure.exit
 
@@ -495,12 +495,12 @@ gimme_gene.exit:                                  ; preds = %73, %49
 
 .lr.ph86.i:                                       ; preds = %91, %106
   %.284.i = phi i32 [ %.3.i51, %106 ], [ %.1.i48, %91 ]
-  %.15583.i = phi i32 [ %107, %106 ], [ 1, %91 ]
-  %.not68.i = icmp eq i32 %.15583.i, %37
+  %.15483.i = phi i32 [ %107, %106 ], [ 1, %91 ]
+  %.not68.i = icmp eq i32 %.15483.i, %37
   br i1 %.not68.i, label %106, label %94
 
 94:                                               ; preds = %.lr.ph86.i
-  %95 = sext i32 %.15583.i to i64
+  %95 = sext i32 %.15483.i to i64
   %96 = getelementptr %struct.Edge, ptr %1, i64 %95
   %97 = getelementptr inbounds i8, ptr %96, i64 20
   %98 = load i32, ptr %97, align 4
@@ -520,7 +520,7 @@ gimme_gene.exit:                                  ; preds = %73, %49
 
 106:                                              ; preds = %103, %99, %94, %.lr.ph86.i
   %.3.i51 = phi i32 [ %104, %103 ], [ %.284.i, %99 ], [ %.284.i, %94 ], [ %.284.i, %.lr.ph86.i ]
-  %107 = add i32 %.15583.i, 1
+  %107 = add i32 %.15483.i, 1
   %.not67.i = icmp sgt i32 %107, %3
   br i1 %.not67.i, label %._crit_edge87.i, label %.lr.ph86.i, !llvm.loop !14
 
@@ -539,12 +539,12 @@ gimme_gene.exit:                                  ; preds = %73, %49
 
 .lr.ph92.i:                                       ; preds = %110, %120
   %.25190.i = phi i32 [ %.352.i, %120 ], [ %.150.i, %110 ]
-  %.25689.i = phi i32 [ %121, %120 ], [ 1, %110 ]
-  %.not65.i = icmp eq i32 %.25689.i, %37
+  %.25589.i = phi i32 [ %121, %120 ], [ 1, %110 ]
+  %.not65.i = icmp eq i32 %.25589.i, %37
   br i1 %.not65.i, label %120, label %113
 
 113:                                              ; preds = %.lr.ph92.i
-  %114 = sext i32 %.25689.i to i64
+  %114 = sext i32 %.25589.i to i64
   %115 = getelementptr %struct.Edge, ptr %1, i64 %114, i32 2
   %116 = load i32, ptr %115, align 4
   %.not66.i = icmp eq i32 %116, -1
@@ -557,7 +557,7 @@ gimme_gene.exit:                                  ; preds = %73, %49
 
 120:                                              ; preds = %117, %113, %.lr.ph92.i
   %.352.i = phi i32 [ %118, %117 ], [ %.25190.i, %113 ], [ %.25190.i, %.lr.ph92.i ]
-  %121 = add i32 %.25689.i, 1
+  %121 = add i32 %.25589.i, 1
   %.not64.i = icmp sgt i32 %121, %3
   br i1 %.not64.i, label %._crit_edge93.i, label %.lr.ph92.i, !llvm.loop !15
 
@@ -566,15 +566,15 @@ gimme_gene.exit:                                  ; preds = %73, %49
   br i1 %122, label %.sink.split.i, label %131
 
 .lr.ph96.i:                                       ; preds = %109, %127
-  %.35795.i = phi i32 [ %128, %127 ], [ 1, %109 ]
-  %123 = sext i32 %.35795.i to i64
+  %.35695.i = phi i32 [ %128, %127 ], [ 1, %109 ]
+  %123 = sext i32 %.35695.i to i64
   %124 = getelementptr %struct.Edge, ptr %1, i64 %123, i32 2
   %125 = load i32, ptr %124, align 4
   %126 = icmp sgt i32 %125, -1
   br i1 %126, label %edge_failure.exit, label %127
 
 127:                                              ; preds = %.lr.ph96.i
-  %128 = add i32 %.35795.i, 1
+  %128 = add i32 %.35695.i, 1
   %.not63.i = icmp sgt i32 %128, %3
   br i1 %.not63.i, label %._crit_edge97.i, label %.lr.ph96.i, !llvm.loop !16
 
@@ -597,10 +597,10 @@ gimme_gene.exit:                                  ; preds = %73, %49
   unreachable
 
 edge_failure.exit:                                ; preds = %103, %117, %.lr.ph96.i, %gimme_gene.exit
-  %.053.i.sink = phi i32 [ %.0.i, %gimme_gene.exit ], [ %.35795.i, %.lr.ph96.i ], [ %.25689.i, %117 ], [ %.15583.i, %103 ]
+  %.057.i.sink = phi i32 [ %.031.i, %gimme_gene.exit ], [ %.35695.i, %.lr.ph96.i ], [ %.25589.i, %117 ], [ %.15483.i, %103 ]
   %.1 = phi i32 [ %.073, %gimme_gene.exit ], [ %79, %.lr.ph96.i ], [ %79, %117 ], [ %79, %103 ]
   %134 = getelementptr i32, ptr %2, i64 %indvars.iv
-  store i32 %.053.i.sink, ptr %134, align 4
+  store i32 %.057.i.sink, ptr %134, align 4
   %135 = load i32, ptr %gep, align 4
   %136 = sext i32 %135 to i64
   %137 = getelementptr %struct.Edge, ptr %1, i64 %136, i32 2

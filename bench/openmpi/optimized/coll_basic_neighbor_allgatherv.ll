@@ -341,7 +341,7 @@ mca_coll_basic_neighbor_allgatherv_cart.exit:     ; preds = %126, %148, %18, %27
   br label %173
 
 173:                                              ; preds = %164, %160
-  %.044.i = phi ptr [ %172, %164 ], [ %162, %160 ]
+  %.043.i = phi ptr [ %172, %164 ], [ %162, %160 ]
   %174 = getelementptr inbounds i8, ptr %6, i64 48
   %175 = load i64, ptr %174, align 8
   %176 = getelementptr inbounds i8, ptr %6, i64 56
@@ -375,7 +375,7 @@ mca_coll_basic_neighbor_allgatherv_cart.exit:     ; preds = %126, %148, %18, %27
   %194 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i38
   %195 = load i32, ptr %194, align 4
   %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds i32, ptr %.044.i, i64 %indvars.iv.i38
+  %197 = getelementptr inbounds i32, ptr %.043.i, i64 %indvars.iv.i38
   %198 = load i32, ptr %197, align 4
   %199 = call i32 %188(ptr noundef %193, i64 noundef %196, ptr noundef %6, i32 noundef %198, i32 noundef -10, ptr noundef %7, ptr noundef nonnull %.071.i) #3
   %.not.i39 = icmp eq i32 %199, 0
@@ -509,7 +509,7 @@ ompi_request_cancel.exit.i63.i:                   ; preds = %249, %246
   br i1 %exitcond.not.i61.i, label %mca_coll_basic_neighbor_allgatherv_graph.exit, label %.lr.ph.i55.i, !llvm.loop !6
 
 mca_coll_basic_neighbor_allgatherv_graph.exit:    ; preds = %231, %257, %151, %173, %210, %._crit_edge.i36, %237
-  %.041.i = phi i32 [ 0, %151 ], [ -2, %173 ], [ 0, %._crit_edge.i36 ], [ %.1.ph.i, %210 ], [ %236, %237 ], [ %236, %257 ], [ %.1.ph.i, %231 ]
+  %.044.i = phi i32 [ 0, %151 ], [ -2, %173 ], [ 0, %._crit_edge.i36 ], [ %.1.ph.i, %210 ], [ %236, %237 ], [ %236, %257 ], [ %.1.ph.i, %231 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   br label %mca_coll_basic_neighbor_allgatherv_dist_graph.exit
 
@@ -757,7 +757,7 @@ ompi_request_cancel.exit.i91.i:                   ; preds = %363, %360
   br i1 %exitcond.not.i89.i, label %mca_coll_basic_neighbor_allgatherv_dist_graph.exit, label %.lr.ph.i83.i, !llvm.loop !6
 
 mca_coll_basic_neighbor_allgatherv_dist_graph.exit: ; preds = %320, %349, %371, %353, %._crit_edge.i53, %328, %271, %260, %258, %9, %mca_coll_basic_neighbor_allgatherv_graph.exit, %mca_coll_basic_neighbor_allgatherv_cart.exit
-  %.0 = phi i32 [ %.077.i, %mca_coll_basic_neighbor_allgatherv_cart.exit ], [ %.041.i, %mca_coll_basic_neighbor_allgatherv_graph.exit ], [ -8, %9 ], [ -8, %258 ], [ 0, %260 ], [ -2, %271 ], [ 0, %._crit_edge.i53 ], [ %325, %328 ], [ %352, %353 ], [ %352, %371 ], [ %325, %349 ], [ %299, %320 ]
+  %.0 = phi i32 [ %.077.i, %mca_coll_basic_neighbor_allgatherv_cart.exit ], [ %.044.i, %mca_coll_basic_neighbor_allgatherv_graph.exit ], [ -8, %9 ], [ -8, %258 ], [ 0, %260 ], [ -2, %271 ], [ 0, %._crit_edge.i53 ], [ %325, %328 ], [ %352, %353 ], [ %352, %371 ], [ %325, %349 ], [ %299, %320 ]
   ret i32 %.0
 }
 

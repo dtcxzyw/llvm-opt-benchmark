@@ -820,16 +820,16 @@ Vec_IntFillNatural.exit:                          ; preds = %31, %Vec_IntGrow.ex
   br label %50
 
 50:                                               ; preds = %.lr.ph70, %.critedge4
-  %.069 = phi i32 [ 0, %.lr.ph70 ], [ %97, %.critedge4 ]
-  %.04768 = phi i32 [ 0, %.lr.ph70 ], [ %.2.lcssa, %.critedge4 ]
+  %.069 = phi i32 [ 0, %.lr.ph70 ], [ %.2.lcssa, %.critedge4 ]
+  %.04968 = phi i32 [ 0, %.lr.ph70 ], [ %97, %.critedge4 ]
   %.val55 = load i32, ptr %45, align 4
   %.val56 = load ptr, ptr %46, align 8
-  %51 = mul nsw i32 %.val55, %.069
+  %51 = mul nsw i32 %.val55, %.04968
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds i64, ptr %.val56, i64 %52
   %.val57 = load i32, ptr %47, align 8
   %.val58 = load ptr, ptr %48, align 8
-  %54 = mul nsw i32 %.val57, %.069
+  %54 = mul nsw i32 %.val57, %.04968
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds i64, ptr %.val58, i64 %55
   %57 = load i32, ptr %4, align 4
@@ -837,7 +837,7 @@ Vec_IntFillNatural.exit:                          ; preds = %31, %Vec_IntGrow.ex
   br i1 %58, label %.lr.ph.preheader, label %.critedge2.preheader
 
 .lr.ph.preheader:                                 ; preds = %50
-  %59 = sext i32 %.04768 to i64
+  %59 = sext i32 %.069 to i64
   br label %.lr.ph
 
 .critedge2.preheader.loopexit:                    ; preds = %.lr.ph
@@ -845,7 +845,7 @@ Vec_IntFillNatural.exit:                          ; preds = %31, %Vec_IntGrow.ex
   br label %.critedge2.preheader
 
 .critedge2.preheader:                             ; preds = %.critedge2.preheader.loopexit, %50
-  %.1.lcssa = phi i32 [ %.04768, %50 ], [ %60, %.critedge2.preheader.loopexit ]
+  %.1.lcssa = phi i32 [ %.069, %50 ], [ %60, %.critedge2.preheader.loopexit ]
   %61 = load i32, ptr %6, align 8
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %.critedge2.preheader71, label %.critedge4
@@ -856,12 +856,12 @@ Vec_IntFillNatural.exit:                          ; preds = %31, %Vec_IntGrow.ex
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %59, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.04861 = phi i32 [ 0, %.lr.ph.preheader ], [ %77, %.lr.ph ]
-  %64 = lshr i32 %.04861, 5
+  %.04761 = phi i32 [ 0, %.lr.ph.preheader ], [ %77, %.lr.ph ]
+  %64 = lshr i32 %.04761, 5
   %65 = zext nneg i32 %64 to i64
   %66 = getelementptr inbounds i64, ptr %53, i64 %65
   %67 = load i64, ptr %66, align 8
-  %68 = shl nuw i32 %.04861, 1
+  %68 = shl nuw i32 %.04761, 1
   %69 = and i32 %68, 62
   %70 = zext nneg i32 %69 to i64
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -873,19 +873,19 @@ Vec_IntFillNatural.exit:                          ; preds = %31, %Vec_IntGrow.ex
   %75 = shl i64 %74, %70
   %76 = or i64 %75, %67
   store i64 %76, ptr %66, align 8
-  %77 = add nuw nsw i32 %.04861, 1
+  %77 = add nuw nsw i32 %.04761, 1
   %78 = load i32, ptr %4, align 4
   %79 = icmp slt i32 %77, %78
   br i1 %79, label %.lr.ph, label %.critedge2.preheader.loopexit, !llvm.loop !11
 
 .critedge2:                                       ; preds = %.critedge2.preheader71, %.critedge2
   %indvars.iv74 = phi i64 [ %63, %.critedge2.preheader71 ], [ %indvars.iv.next75, %.critedge2 ]
-  %.14963 = phi i32 [ 0, %.critedge2.preheader71 ], [ %93, %.critedge2 ]
-  %80 = lshr i32 %.14963, 5
+  %.14863 = phi i32 [ 0, %.critedge2.preheader71 ], [ %93, %.critedge2 ]
+  %80 = lshr i32 %.14863, 5
   %81 = zext nneg i32 %80 to i64
   %82 = getelementptr inbounds i64, ptr %56, i64 %81
   %83 = load i64, ptr %82, align 8
-  %84 = shl nuw i32 %.14963, 1
+  %84 = shl nuw i32 %.14863, 1
   %85 = and i32 %84, 62
   %86 = zext nneg i32 %85 to i64
   %indvars.iv.next75 = add nsw i64 %indvars.iv74, 1
@@ -897,7 +897,7 @@ Vec_IntFillNatural.exit:                          ; preds = %31, %Vec_IntGrow.ex
   %91 = shl i64 %90, %86
   %92 = or i64 %91, %83
   store i64 %92, ptr %82, align 8
-  %93 = add nuw nsw i32 %.14963, 1
+  %93 = add nuw nsw i32 %.14863, 1
   %94 = load i32, ptr %6, align 8
   %95 = icmp slt i32 %93, %94
   br i1 %95, label %.critedge2, label %.critedge4.loopexit, !llvm.loop !12
@@ -908,7 +908,7 @@ Vec_IntFillNatural.exit:                          ; preds = %31, %Vec_IntGrow.ex
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %.critedge2.preheader
   %.2.lcssa = phi i32 [ %.1.lcssa, %.critedge2.preheader ], [ %96, %.critedge4.loopexit ]
-  %97 = add nuw nsw i32 %.069, 1
+  %97 = add nuw nsw i32 %.04968, 1
   %.val54 = load i32, ptr %10, align 4
   %98 = icmp slt i32 %97, %.val54
   br i1 %98, label %50, label %.critedge, !llvm.loop !13

@@ -5503,9 +5503,9 @@ if.end61:                                         ; preds = %if.end55
   br i1 %exitcond.not, label %if.end70, label %for.body50, !llvm.loop !33
 
 if.end70:                                         ; preds = %if.end61, %for.body50, %if.end55, %if.then32, %if.then35, %if.end28
-  %tobool71.not = phi i1 [ true, %if.then35 ], [ true, %if.then32 ], [ true, %if.end28 ], [ true, %if.end61 ], [ false, %for.body50 ], [ false, %if.end55 ]
-  %numRegions.0 = phi i32 [ %call33, %if.then35 ], [ %call33, %if.then32 ], [ 0, %if.end28 ], [ %call33, %if.end55 ], [ %call33, %for.body50 ], [ %call33, %if.end61 ]
   %regions.0 = phi ptr [ null, %if.then35 ], [ null, %if.then32 ], [ null, %if.end28 ], [ %call37, %if.end55 ], [ %call37, %for.body50 ], [ %call37, %if.end61 ]
+  %numRegions.0 = phi i32 [ %call33, %if.then35 ], [ %call33, %if.then32 ], [ 0, %if.end28 ], [ %call33, %if.end55 ], [ %call33, %for.body50 ], [ %call33, %if.end61 ]
+  %tobool71.not = phi i1 [ true, %if.then35 ], [ true, %if.then32 ], [ true, %if.end28 ], [ true, %if.end61 ], [ false, %for.body50 ], [ false, %if.end55 ]
   call void @ures_close_75(ptr noundef %call29)
   call void @ures_close_75(ptr noundef %call)
   br i1 %tobool71.not, label %if.end87, label %if.then74
@@ -6570,7 +6570,7 @@ land.end33.i:                                     ; preds = %if.end25.i
 
 if.then36.i:                                      ; preds = %land.end33.i, %land.end33.thread.i
   %call3473.i = phi ptr [ %call3469.i, %land.end33.thread.i ], [ %call34.i, %land.end33.i ]
-  %conv71.i = phi i8 [ %conv68.i, %land.end33.thread.i ], [ 0, %land.end33.i ]
+  %conv70.i = phi i8 [ %conv68.i, %land.end33.thread.i ], [ 0, %land.end33.i ]
   %call37.i = tail call noalias dereferenceable_or_null(32) ptr @uprv_malloc_75(i64 noundef 32) #21
   %cmp38.i = icmp eq ptr %call37.i, null
   br i1 %cmp38.i, label %delete.end.i.sink.split, label %if.end40.i
@@ -6580,7 +6580,7 @@ if.end40.i:                                       ; preds = %if.then36.i
   %type.i = getelementptr inbounds i8, ptr %call37.i, i64 8
   store i32 16, ptr %type.i, align 8
   %ambiguousType42.i = getelementptr inbounds i8, ptr %call37.i, i64 12
-  store i8 %conv71.i, ptr %ambiguousType42.i, align 4
+  store i8 %conv70.i, ptr %ambiguousType42.i, align 4
   %parseRegions43.i = getelementptr inbounds i8, ptr %call37.i, i64 16
   store ptr %13, ptr %parseRegions43.i, align 8
   %nRegions.i = getelementptr inbounds i8, ptr %call37.i, i64 24
@@ -6591,7 +6591,7 @@ if.end40.i:                                       ; preds = %if.then36.i
 
 if.end44.i:                                       ; preds = %if.end40.i, %land.end33.i
   %call3472.i = phi ptr [ %call3473.i, %if.end40.i ], [ %call34.i, %land.end33.i ]
-  %conv70.i = phi i8 [ %conv71.i, %if.end40.i ], [ 0, %land.end33.i ]
+  %conv71.i = phi i8 [ %conv70.i, %if.end40.i ], [ 0, %land.end33.i ]
   %16 = load i32, ptr %status, align 4
   %cmp.i60.i = icmp slt i32 %16, 1
   %or.cond2.i = and i1 %cmp29.i, %cmp.i60.i
@@ -6607,7 +6607,7 @@ if.end53.i:                                       ; preds = %if.then49.i
   %type55.i = getelementptr inbounds i8, ptr %call50.i, i64 8
   store i32 32, ptr %type55.i, align 8
   %ambiguousType56.i = getelementptr inbounds i8, ptr %call50.i, i64 12
-  store i8 %conv70.i, ptr %ambiguousType56.i, align 4
+  store i8 %conv71.i, ptr %ambiguousType56.i, align 4
   %parseRegions57.i = getelementptr inbounds i8, ptr %call50.i, i64 16
   store ptr %13, ptr %parseRegions57.i, align 8
   %nRegions58.i = getelementptr inbounds i8, ptr %call50.i, i64 24

@@ -200,8 +200,8 @@ define internal void @_ZN12_GLOBAL__N_19CoverPass7executeESt6vectorINSt7__cxx111
   %.0145 = phi i1 [ %.1, %_ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit ], [ true, %3 ]
   %.046144 = phi i64 [ %102, %_ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit ], [ 1, %3 ]
   %.sroa.092.0143 = phi ptr [ %.sroa.092.2, %_ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit ], [ null, %3 ]
-  %.sroa.8.0142 = phi ptr [ %.sroa.8.2, %_ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit ], [ null, %3 ]
-  %.sroa.15.0141 = phi ptr [ %.sroa.15.2, %_ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit ], [ null, %3 ]
+  %.sroa.15.0142 = phi ptr [ %.sroa.15.2, %_ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit ], [ null, %3 ]
+  %.sroa.8.0141 = phi ptr [ %.sroa.8.2, %_ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit ], [ null, %3 ]
   %16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %15, i64 %.046144
   %17 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.29) #15
   %18 = icmp eq i32 %17, 0
@@ -294,7 +294,7 @@ define internal void @_ZN12_GLOBAL__N_19CoverPass7executeESt6vectorINSt7__cxx111
   br i1 %64, label %.preheader, label %77
 
 .preheader:                                       ; preds = %63
-  %.not106184 = icmp eq ptr %.sroa.092.0143, %.sroa.8.0142
+  %.not106184 = icmp eq ptr %.sroa.092.0143, %.sroa.8.0141
   br i1 %.not106184, label %._crit_edge187, label %.lr.ph186
 
 .lr.ph186:                                        ; preds = %.preheader, %.lr.ph186
@@ -302,7 +302,7 @@ define internal void @_ZN12_GLOBAL__N_19CoverPass7executeESt6vectorINSt7__cxx111
   %65 = load ptr, ptr %.sroa.088.0185, align 8
   %66 = call i32 @fclose(ptr noundef %65)
   %67 = getelementptr inbounds i8, ptr %.sroa.088.0185, i64 8
-  %.not106 = icmp eq ptr %67, %.sroa.8.0142
+  %.not106 = icmp eq ptr %67, %.sroa.8.0141
   br i1 %.not106, label %._crit_edge187, label %.lr.ph186
 
 ._crit_edge187:                                   ; preds = %.lr.ph186, %.preheader
@@ -321,16 +321,16 @@ define internal void @_ZN12_GLOBAL__N_19CoverPass7executeESt6vectorINSt7__cxx111
   unreachable
 
 77:                                               ; preds = %63
-  %.not.i = icmp eq ptr %.sroa.8.0142, %.sroa.15.0141
+  %.not.i = icmp eq ptr %.sroa.8.0141, %.sroa.15.0142
   br i1 %.not.i, label %80, label %78
 
 78:                                               ; preds = %77
-  store ptr %storemerge, ptr %.sroa.8.0142, align 8
-  %79 = getelementptr inbounds i8, ptr %.sroa.8.0142, i64 8
+  store ptr %storemerge, ptr %.sroa.8.0141, align 8
+  %79 = getelementptr inbounds i8, ptr %.sroa.8.0141, i64 8
   br label %_ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit
 
 80:                                               ; preds = %77
-  %81 = ptrtoint ptr %.sroa.8.0142 to i64
+  %81 = ptrtoint ptr %.sroa.15.0142 to i64
   %82 = ptrtoint ptr %.sroa.092.0143 to i64
   %83 = sub i64 %81, %82
   %84 = icmp eq i64 %83, 9223372036854775800
@@ -384,8 +384,8 @@ _ZNSt6vectorIP8_IO_FILESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__norm
   br label %_ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP8_IO_FILESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %78, %.lr.ph
-  %.sroa.15.2 = phi ptr [ %.sroa.15.0141, %.lr.ph ], [ %101, %_ZNSt6vectorIP8_IO_FILESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.sroa.15.0141, %78 ]
-  %.sroa.8.2 = phi ptr [ %.sroa.8.0142, %.lr.ph ], [ %99, %_ZNSt6vectorIP8_IO_FILESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %79, %78 ]
+  %.sroa.8.2 = phi ptr [ %.sroa.8.0141, %.lr.ph ], [ %99, %_ZNSt6vectorIP8_IO_FILESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %79, %78 ]
+  %.sroa.15.2 = phi ptr [ %.sroa.15.0142, %.lr.ph ], [ %101, %_ZNSt6vectorIP8_IO_FILESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.sroa.15.0142, %78 ]
   %.sroa.092.2 = phi ptr [ %.sroa.092.0143, %.lr.ph ], [ %94, %_ZNSt6vectorIP8_IO_FILESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.sroa.092.0143, %78 ]
   %.147 = phi i64 [ %.046144, %.lr.ph ], [ %35, %_ZNSt6vectorIP8_IO_FILESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %35, %78 ]
   %.1 = phi i1 [ false, %.lr.ph ], [ %.0145, %_ZNSt6vectorIP8_IO_FILESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %.0145, %78 ]
@@ -402,7 +402,7 @@ _ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP8
 ._crit_edge.loopexit:                             ; preds = %34, %_ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit, %.._crit_edge.loopexit_crit_edge
   %.pre200 = phi ptr [ %.pre200.pre, %.._crit_edge.loopexit_crit_edge ], [ %104, %_ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit ], [ %37, %34 ]
   %.pre = phi ptr [ %.pre.pre, %.._crit_edge.loopexit_crit_edge ], [ %103, %_ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit ], [ %36, %34 ]
-  %.sroa.8.0.lcssa.ph = phi ptr [ %.sroa.8.0142, %.._crit_edge.loopexit_crit_edge ], [ %.sroa.8.2, %_ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit ], [ %.sroa.8.0142, %34 ]
+  %.sroa.8.0.lcssa.ph = phi ptr [ %.sroa.8.0141, %.._crit_edge.loopexit_crit_edge ], [ %.sroa.8.2, %_ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit ], [ %.sroa.8.0141, %34 ]
   %.sroa.092.0.lcssa.ph = phi ptr [ %.sroa.092.0143, %.._crit_edge.loopexit_crit_edge ], [ %.sroa.092.2, %_ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit ], [ %.sroa.092.0143, %34 ]
   %.046.lcssa.ph = phi i64 [ %.046144, %.._crit_edge.loopexit_crit_edge ], [ %102, %_ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit ], [ %.046144, %34 ]
   %.0.lcssa.ph = phi i1 [ %.0145, %.._crit_edge.loopexit_crit_edge ], [ %.1, %_ZNSt6vectorIP8_IO_FILESaIS1_EE9push_backERKS1_.exit ], [ %.0145, %34 ]

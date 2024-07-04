@@ -149,11 +149,11 @@ define noundef i64 @_ZN18AudioRoutingFilter8readDataEPcx(ptr nocapture noundef n
   br label %19
 
 19:                                               ; preds = %.lr.ph, %41
-  %.03942.in = phi i64 [ %17, %.lr.ph ], [ %.03942, %41 ]
-  %.03942 = add nsw i64 %.03942.in, -1
-  %20 = shl nuw nsw i64 %.03942, 1
+  %.042.in = phi i64 [ %17, %.lr.ph ], [ %.042, %41 ]
+  %.042 = add nsw i64 %.042.in, -1
+  %20 = shl nuw nsw i64 %.042, 1
   %21 = load i32, ptr %18, align 8
-  %22 = shl nuw i64 %.03942, 2
+  %22 = shl nuw i64 %.042, 2
   %23 = getelementptr i8, ptr %1, i64 %22
   switch i32 %21, label %40 [
     i32 2, label %24
@@ -194,7 +194,7 @@ define noundef i64 @_ZN18AudioRoutingFilter8readDataEPcx(ptr nocapture noundef n
   br label %41
 
 41:                                               ; preds = %24, %34, %40, %29
-  %42 = icmp ugt i64 %.03942.in, 2
+  %42 = icmp ugt i64 %.042.in, 2
   br i1 %42, label %19, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %41, %15
@@ -202,8 +202,8 @@ define noundef i64 @_ZN18AudioRoutingFilter8readDataEPcx(ptr nocapture noundef n
   br label %44
 
 44:                                               ; preds = %11, %._crit_edge, %9
-  %.0 = phi i64 [ %43, %._crit_edge ], [ %10, %9 ], [ %13, %11 ]
-  ret i64 %.0
+  %.039 = phi i64 [ %43, %._crit_edge ], [ %10, %9 ], [ %13, %11 ]
+  ret i64 %.039
 }
 
 declare noundef i64 @_ZN9QIODevice4readEPcx(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) local_unnamed_addr #1

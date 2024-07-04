@@ -154,7 +154,7 @@ define internal noundef i64 @H5Z__filter_shuffle(i32 noundef %0, i64 noundef %1,
 
 .split:                                           ; preds = %32, %71
   %.0124172 = phi i64 [ %72, %71 ], [ 0, %32 ]
-  %.0126171 = phi ptr [ %67, %71 ], [ %33, %32 ]
+  %.0134171 = phi ptr [ %67, %71 ], [ %33, %32 ]
   %37 = getelementptr inbounds i8, ptr %21, i64 %.0124172
   switch i64 %36, label %.split.unreachabledefault [
     i64 0, label %38
@@ -168,73 +168,73 @@ define internal noundef i64 @H5Z__filter_shuffle(i32 noundef %0, i64 noundef %1,
   ]
 
 38:                                               ; preds = %.split, %66
-  %.1135 = phi ptr [ %69, %66 ], [ %37, %.split ]
-  %.1127 = phi ptr [ %67, %66 ], [ %.0126171, %.split ]
+  %.1135 = phi ptr [ %67, %66 ], [ %.0134171, %.split ]
+  %.1127 = phi ptr [ %69, %66 ], [ %37, %.split ]
   %.0115 = phi i64 [ %70, %66 ], [ %35, %.split ]
-  %39 = getelementptr inbounds i8, ptr %.1127, i64 1
-  %40 = load i8, ptr %.1127, align 1
-  store i8 %40, ptr %.1135, align 1
-  %41 = getelementptr inbounds i8, ptr %.1135, i64 %15
+  %39 = getelementptr inbounds i8, ptr %.1135, i64 1
+  %40 = load i8, ptr %.1135, align 1
+  store i8 %40, ptr %.1127, align 1
+  %41 = getelementptr inbounds i8, ptr %.1127, i64 %15
   br label %42
 
 42:                                               ; preds = %38, %.split
-  %.2136 = phi ptr [ %41, %38 ], [ %37, %.split ]
-  %.2128 = phi ptr [ %39, %38 ], [ %.0126171, %.split ]
+  %.2136 = phi ptr [ %39, %38 ], [ %.0134171, %.split ]
+  %.2128 = phi ptr [ %41, %38 ], [ %37, %.split ]
   %.1116 = phi i64 [ %.0115, %38 ], [ %35, %.split ]
-  %43 = getelementptr inbounds i8, ptr %.2128, i64 1
-  %44 = load i8, ptr %.2128, align 1
-  store i8 %44, ptr %.2136, align 1
-  %45 = getelementptr inbounds i8, ptr %.2136, i64 %15
+  %43 = getelementptr inbounds i8, ptr %.2136, i64 1
+  %44 = load i8, ptr %.2136, align 1
+  store i8 %44, ptr %.2128, align 1
+  %45 = getelementptr inbounds i8, ptr %.2128, i64 %15
   br label %46
 
 46:                                               ; preds = %42, %.split
-  %.3137 = phi ptr [ %45, %42 ], [ %37, %.split ]
-  %.3129 = phi ptr [ %43, %42 ], [ %.0126171, %.split ]
+  %.3137 = phi ptr [ %43, %42 ], [ %.0134171, %.split ]
+  %.3129 = phi ptr [ %45, %42 ], [ %37, %.split ]
   %.2117 = phi i64 [ %.1116, %42 ], [ %35, %.split ]
-  %47 = getelementptr inbounds i8, ptr %.3129, i64 1
-  %48 = load i8, ptr %.3129, align 1
-  store i8 %48, ptr %.3137, align 1
-  %49 = getelementptr inbounds i8, ptr %.3137, i64 %15
+  %47 = getelementptr inbounds i8, ptr %.3137, i64 1
+  %48 = load i8, ptr %.3137, align 1
+  store i8 %48, ptr %.3129, align 1
+  %49 = getelementptr inbounds i8, ptr %.3129, i64 %15
   br label %50
 
 50:                                               ; preds = %46, %.split
-  %.4138 = phi ptr [ %49, %46 ], [ %37, %.split ]
-  %.4130 = phi ptr [ %47, %46 ], [ %.0126171, %.split ]
+  %.4138 = phi ptr [ %47, %46 ], [ %.0134171, %.split ]
+  %.4130 = phi ptr [ %49, %46 ], [ %37, %.split ]
   %.3118 = phi i64 [ %.2117, %46 ], [ %35, %.split ]
-  %51 = getelementptr inbounds i8, ptr %.4130, i64 1
-  %52 = load i8, ptr %.4130, align 1
-  store i8 %52, ptr %.4138, align 1
-  %53 = getelementptr inbounds i8, ptr %.4138, i64 %15
+  %51 = getelementptr inbounds i8, ptr %.4138, i64 1
+  %52 = load i8, ptr %.4138, align 1
+  store i8 %52, ptr %.4130, align 1
+  %53 = getelementptr inbounds i8, ptr %.4130, i64 %15
   br label %54
 
 54:                                               ; preds = %50, %.split
-  %.5139 = phi ptr [ %53, %50 ], [ %37, %.split ]
-  %.5131 = phi ptr [ %51, %50 ], [ %.0126171, %.split ]
+  %.5139 = phi ptr [ %51, %50 ], [ %.0134171, %.split ]
+  %.5131 = phi ptr [ %53, %50 ], [ %37, %.split ]
   %.4119 = phi i64 [ %.3118, %50 ], [ %35, %.split ]
-  %55 = getelementptr inbounds i8, ptr %.5131, i64 1
-  %56 = load i8, ptr %.5131, align 1
-  store i8 %56, ptr %.5139, align 1
-  %57 = getelementptr inbounds i8, ptr %.5139, i64 %15
+  %55 = getelementptr inbounds i8, ptr %.5139, i64 1
+  %56 = load i8, ptr %.5139, align 1
+  store i8 %56, ptr %.5131, align 1
+  %57 = getelementptr inbounds i8, ptr %.5131, i64 %15
   br label %58
 
 58:                                               ; preds = %54, %.split
-  %.6140 = phi ptr [ %57, %54 ], [ %37, %.split ]
-  %.6132 = phi ptr [ %55, %54 ], [ %.0126171, %.split ]
+  %.6140 = phi ptr [ %55, %54 ], [ %.0134171, %.split ]
+  %.6132 = phi ptr [ %57, %54 ], [ %37, %.split ]
   %.5120 = phi i64 [ %.4119, %54 ], [ %35, %.split ]
-  %59 = getelementptr inbounds i8, ptr %.6132, i64 1
-  %60 = load i8, ptr %.6132, align 1
-  store i8 %60, ptr %.6140, align 1
-  %61 = getelementptr inbounds i8, ptr %.6140, i64 %15
+  %59 = getelementptr inbounds i8, ptr %.6140, i64 1
+  %60 = load i8, ptr %.6140, align 1
+  store i8 %60, ptr %.6132, align 1
+  %61 = getelementptr inbounds i8, ptr %.6132, i64 %15
   br label %62
 
 62:                                               ; preds = %58, %.split
-  %.7141 = phi ptr [ %61, %58 ], [ %37, %.split ]
-  %.7133 = phi ptr [ %59, %58 ], [ %.0126171, %.split ]
+  %.7141 = phi ptr [ %59, %58 ], [ %.0134171, %.split ]
+  %.7133 = phi ptr [ %61, %58 ], [ %37, %.split ]
   %.6121 = phi i64 [ %.5120, %58 ], [ %35, %.split ]
-  %63 = getelementptr inbounds i8, ptr %.7133, i64 1
-  %64 = load i8, ptr %.7133, align 1
-  store i8 %64, ptr %.7141, align 1
-  %65 = getelementptr inbounds i8, ptr %.7141, i64 %15
+  %63 = getelementptr inbounds i8, ptr %.7141, i64 1
+  %64 = load i8, ptr %.7141, align 1
+  store i8 %64, ptr %.7133, align 1
+  %65 = getelementptr inbounds i8, ptr %.7133, i64 %15
   br label %66
 
 .split.unreachabledefault:                        ; preds = %.split
@@ -244,13 +244,13 @@ default.unreachable:                              ; preds = %.preheader.split
   unreachable
 
 66:                                               ; preds = %.split, %62
-  %.8142 = phi ptr [ %37, %.split ], [ %65, %62 ]
-  %.8 = phi ptr [ %.0126171, %.split ], [ %63, %62 ]
+  %.8142 = phi ptr [ %.0134171, %.split ], [ %63, %62 ]
+  %.8 = phi ptr [ %37, %.split ], [ %65, %62 ]
   %.7122 = phi i64 [ %35, %.split ], [ %.6121, %62 ]
-  %67 = getelementptr inbounds i8, ptr %.8, i64 1
-  %68 = load i8, ptr %.8, align 1
-  store i8 %68, ptr %.8142, align 1
-  %69 = getelementptr inbounds i8, ptr %.8142, i64 %15
+  %67 = getelementptr inbounds i8, ptr %.8142, i64 1
+  %68 = load i8, ptr %.8142, align 1
+  store i8 %68, ptr %.8, align 1
+  %69 = getelementptr inbounds i8, ptr %.8, i64 %15
   %70 = add i64 %.7122, -1
   %.not165 = icmp eq i64 %70, 0
   br i1 %.not165, label %71, label %38
@@ -274,7 +274,7 @@ default.unreachable:                              ; preds = %.preheader.split
 
 .preheader.split:                                 ; preds = %.preheader, %114
   %.1125174 = phi i64 [ %115, %114 ], [ 0, %.preheader ]
-  %.9143173 = phi ptr [ %111, %114 ], [ %21, %.preheader ]
+  %.9173 = phi ptr [ %111, %114 ], [ %21, %.preheader ]
   %79 = load ptr, ptr %5, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 %.1125174
   switch i64 %31, label %default.unreachable [
@@ -289,83 +289,83 @@ default.unreachable:                              ; preds = %.preheader.split
   ]
 
 81:                                               ; preds = %.preheader.split, %109
-  %.10144 = phi ptr [ %111, %109 ], [ %.9143173, %.preheader.split ]
-  %.10 = phi ptr [ %112, %109 ], [ %80, %.preheader.split ]
+  %.10144 = phi ptr [ %112, %109 ], [ %80, %.preheader.split ]
+  %.10 = phi ptr [ %111, %109 ], [ %.9173, %.preheader.split ]
   %.0 = phi i64 [ %113, %109 ], [ %30, %.preheader.split ]
-  %82 = load i8, ptr %.10, align 1
-  %83 = getelementptr inbounds i8, ptr %.10144, i64 1
-  store i8 %82, ptr %.10144, align 1
-  %84 = getelementptr inbounds i8, ptr %.10, i64 %15
+  %82 = load i8, ptr %.10144, align 1
+  %83 = getelementptr inbounds i8, ptr %.10, i64 1
+  store i8 %82, ptr %.10, align 1
+  %84 = getelementptr inbounds i8, ptr %.10144, i64 %15
   br label %85
 
 85:                                               ; preds = %81, %.preheader.split
-  %.11145 = phi ptr [ %83, %81 ], [ %.9143173, %.preheader.split ]
-  %.11 = phi ptr [ %84, %81 ], [ %80, %.preheader.split ]
+  %.11145 = phi ptr [ %84, %81 ], [ %80, %.preheader.split ]
+  %.11 = phi ptr [ %83, %81 ], [ %.9173, %.preheader.split ]
   %.1 = phi i64 [ %.0, %81 ], [ %30, %.preheader.split ]
-  %86 = load i8, ptr %.11, align 1
-  %87 = getelementptr inbounds i8, ptr %.11145, i64 1
-  store i8 %86, ptr %.11145, align 1
-  %88 = getelementptr inbounds i8, ptr %.11, i64 %15
+  %86 = load i8, ptr %.11145, align 1
+  %87 = getelementptr inbounds i8, ptr %.11, i64 1
+  store i8 %86, ptr %.11, align 1
+  %88 = getelementptr inbounds i8, ptr %.11145, i64 %15
   br label %89
 
 89:                                               ; preds = %85, %.preheader.split
-  %.12146 = phi ptr [ %87, %85 ], [ %.9143173, %.preheader.split ]
-  %.12 = phi ptr [ %88, %85 ], [ %80, %.preheader.split ]
+  %.12146 = phi ptr [ %88, %85 ], [ %80, %.preheader.split ]
+  %.12 = phi ptr [ %87, %85 ], [ %.9173, %.preheader.split ]
   %.2 = phi i64 [ %.1, %85 ], [ %30, %.preheader.split ]
-  %90 = load i8, ptr %.12, align 1
-  %91 = getelementptr inbounds i8, ptr %.12146, i64 1
-  store i8 %90, ptr %.12146, align 1
-  %92 = getelementptr inbounds i8, ptr %.12, i64 %15
+  %90 = load i8, ptr %.12146, align 1
+  %91 = getelementptr inbounds i8, ptr %.12, i64 1
+  store i8 %90, ptr %.12, align 1
+  %92 = getelementptr inbounds i8, ptr %.12146, i64 %15
   br label %93
 
 93:                                               ; preds = %89, %.preheader.split
-  %.13147 = phi ptr [ %91, %89 ], [ %.9143173, %.preheader.split ]
-  %.13 = phi ptr [ %92, %89 ], [ %80, %.preheader.split ]
+  %.13147 = phi ptr [ %92, %89 ], [ %80, %.preheader.split ]
+  %.13 = phi ptr [ %91, %89 ], [ %.9173, %.preheader.split ]
   %.3 = phi i64 [ %.2, %89 ], [ %30, %.preheader.split ]
-  %94 = load i8, ptr %.13, align 1
-  %95 = getelementptr inbounds i8, ptr %.13147, i64 1
-  store i8 %94, ptr %.13147, align 1
-  %96 = getelementptr inbounds i8, ptr %.13, i64 %15
+  %94 = load i8, ptr %.13147, align 1
+  %95 = getelementptr inbounds i8, ptr %.13, i64 1
+  store i8 %94, ptr %.13, align 1
+  %96 = getelementptr inbounds i8, ptr %.13147, i64 %15
   br label %97
 
 97:                                               ; preds = %93, %.preheader.split
-  %.14148 = phi ptr [ %95, %93 ], [ %.9143173, %.preheader.split ]
-  %.14 = phi ptr [ %96, %93 ], [ %80, %.preheader.split ]
+  %.14148 = phi ptr [ %96, %93 ], [ %80, %.preheader.split ]
+  %.14 = phi ptr [ %95, %93 ], [ %.9173, %.preheader.split ]
   %.4 = phi i64 [ %.3, %93 ], [ %30, %.preheader.split ]
-  %98 = load i8, ptr %.14, align 1
-  %99 = getelementptr inbounds i8, ptr %.14148, i64 1
-  store i8 %98, ptr %.14148, align 1
-  %100 = getelementptr inbounds i8, ptr %.14, i64 %15
+  %98 = load i8, ptr %.14148, align 1
+  %99 = getelementptr inbounds i8, ptr %.14, i64 1
+  store i8 %98, ptr %.14, align 1
+  %100 = getelementptr inbounds i8, ptr %.14148, i64 %15
   br label %101
 
 101:                                              ; preds = %97, %.preheader.split
-  %.15149 = phi ptr [ %99, %97 ], [ %.9143173, %.preheader.split ]
-  %.15 = phi ptr [ %100, %97 ], [ %80, %.preheader.split ]
+  %.15149 = phi ptr [ %100, %97 ], [ %80, %.preheader.split ]
+  %.15 = phi ptr [ %99, %97 ], [ %.9173, %.preheader.split ]
   %.5 = phi i64 [ %.4, %97 ], [ %30, %.preheader.split ]
-  %102 = load i8, ptr %.15, align 1
-  %103 = getelementptr inbounds i8, ptr %.15149, i64 1
-  store i8 %102, ptr %.15149, align 1
-  %104 = getelementptr inbounds i8, ptr %.15, i64 %15
+  %102 = load i8, ptr %.15149, align 1
+  %103 = getelementptr inbounds i8, ptr %.15, i64 1
+  store i8 %102, ptr %.15, align 1
+  %104 = getelementptr inbounds i8, ptr %.15149, i64 %15
   br label %105
 
 105:                                              ; preds = %101, %.preheader.split
-  %.16150 = phi ptr [ %103, %101 ], [ %.9143173, %.preheader.split ]
-  %.16 = phi ptr [ %104, %101 ], [ %80, %.preheader.split ]
+  %.16150 = phi ptr [ %104, %101 ], [ %80, %.preheader.split ]
+  %.16 = phi ptr [ %103, %101 ], [ %.9173, %.preheader.split ]
   %.6 = phi i64 [ %.5, %101 ], [ %30, %.preheader.split ]
-  %106 = load i8, ptr %.16, align 1
-  %107 = getelementptr inbounds i8, ptr %.16150, i64 1
-  store i8 %106, ptr %.16150, align 1
-  %108 = getelementptr inbounds i8, ptr %.16, i64 %15
+  %106 = load i8, ptr %.16150, align 1
+  %107 = getelementptr inbounds i8, ptr %.16, i64 1
+  store i8 %106, ptr %.16, align 1
+  %108 = getelementptr inbounds i8, ptr %.16150, i64 %15
   br label %109
 
 109:                                              ; preds = %.preheader.split, %105
-  %.17151 = phi ptr [ %.9143173, %.preheader.split ], [ %107, %105 ]
-  %.17 = phi ptr [ %80, %.preheader.split ], [ %108, %105 ]
+  %.17151 = phi ptr [ %80, %.preheader.split ], [ %108, %105 ]
+  %.17 = phi ptr [ %.9173, %.preheader.split ], [ %107, %105 ]
   %.7 = phi i64 [ %30, %.preheader.split ], [ %.6, %105 ]
-  %110 = load i8, ptr %.17, align 1
-  %111 = getelementptr inbounds i8, ptr %.17151, i64 1
-  store i8 %110, ptr %.17151, align 1
-  %112 = getelementptr inbounds i8, ptr %.17, i64 %15
+  %110 = load i8, ptr %.17151, align 1
+  %111 = getelementptr inbounds i8, ptr %.17, i64 1
+  store i8 %110, ptr %.17, align 1
+  %112 = getelementptr inbounds i8, ptr %.17151, i64 %15
   %113 = add i64 %.7, -1
   %.not163 = icmp eq i64 %113, 0
   br i1 %.not163, label %114, label %81

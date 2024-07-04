@@ -14,7 +14,7 @@ define i32 @ompi_mpiext_init() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %0, %6
   %2 = phi ptr [ %8, %6 ], [ %1, %0 ]
-  %.0613 = phi ptr [ %7, %6 ], [ @ompi_mpiext_components, %0 ]
+  %.013 = phi ptr [ %7, %6 ], [ @ompi_mpiext_components, %0 ]
   %3 = load ptr, ptr %2, align 8
   %.not10 = icmp eq ptr %3, null
   br i1 %.not10, label %6, label %4
@@ -25,7 +25,7 @@ define i32 @ompi_mpiext_init() local_unnamed_addr #0 {
   br i1 %.not11, label %6, label %.loopexit
 
 6:                                                ; preds = %4, %.lr.ph
-  %7 = getelementptr inbounds i8, ptr %.0613, i64 8
+  %7 = getelementptr inbounds i8, ptr %.013, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -35,8 +35,8 @@ define i32 @ompi_mpiext_init() local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ %5, %4 ]
-  ret i32 %.0
+  %.06 = phi i32 [ 0, %._crit_edge ], [ %5, %4 ]
+  ret i32 %.06
 }
 
 declare void @opal_finalize_append_cleanup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -49,7 +49,7 @@ define internal i32 @ompi_mpiext_fini() #0 {
 
 .lr.ph:                                           ; preds = %0, %7
   %2 = phi ptr [ %9, %7 ], [ %1, %0 ]
-  %.0613 = phi ptr [ %8, %7 ], [ @ompi_mpiext_components, %0 ]
+  %.013 = phi ptr [ %8, %7 ], [ @ompi_mpiext_components, %0 ]
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not10 = icmp eq ptr %4, null
@@ -61,14 +61,14 @@ define internal i32 @ompi_mpiext_fini() #0 {
   br i1 %.not11, label %7, label %._crit_edge
 
 7:                                                ; preds = %5, %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %.0613, i64 8
+  %8 = getelementptr inbounds i8, ptr %.013, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %5, %7, %0
-  %.0 = phi i32 [ 0, %0 ], [ 0, %7 ], [ %6, %5 ]
-  ret i32 %.0
+  %.06 = phi i32 [ 0, %0 ], [ 0, %7 ], [ %6, %5 ]
+  ret i32 %.06
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -433,7 +433,7 @@ define internal range(i32 -1, 1) i32 @H5D__efl_readvv_cb(i64 noundef %0, i64 nou
   %.190.i = phi i64 [ %.05882.i, %.lr.ph91.i ], [ %99, %93 ]
   %.05989.i = phi i64 [ %2, %.lr.ph91.i ], [ %97, %93 ]
   %.16288.i = phi i64 [ %.061.i, %.lr.ph91.i ], [ 0, %93 ]
-  %.06387.i = phi ptr [ %11, %.lr.ph91.i ], [ %98, %93 ]
+  %.06587.i = phi ptr [ %11, %.lr.ph91.i ], [ %98, %93 ]
   %30 = load i64, ptr %12, align 8
   %.not74.i = icmp ult i64 %.190.i, %30
   br i1 %.not74.i, label %35, label %31
@@ -508,7 +508,7 @@ define internal range(i32 -1, 1) i32 @H5D__efl_readvv_cb(i64 noundef %0, i64 nou
   %80 = load i64, ptr %79, align 8
   %81 = sub i64 %80, %.16288.i
   %..059.i = call i64 @llvm.umin.i64(i64 %81, i64 %.05989.i)
-  %82 = call i64 @read(i32 noundef %60, ptr noundef %.06387.i, i64 noundef %..059.i) #11
+  %82 = call i64 @read(i32 noundef %60, ptr noundef %.06587.i, i64 noundef %..059.i) #11
   %83 = icmp slt i64 %82, 0
   br i1 %83, label %84, label %88
 
@@ -523,7 +523,7 @@ define internal range(i32 -1, 1) i32 @H5D__efl_readvv_cb(i64 noundef %0, i64 nou
   br i1 %89, label %90, label %93
 
 90:                                               ; preds = %88
-  %91 = getelementptr inbounds i8, ptr %.06387.i, i64 %82
+  %91 = getelementptr inbounds i8, ptr %.06587.i, i64 %82
   %92 = sub i64 %..059.i, %82
   call void @llvm.memset.p0.i64(ptr align 1 %91, i8 0, i64 %92, i1 false)
   br label %93
@@ -534,13 +534,13 @@ define internal range(i32 -1, 1) i32 @H5D__efl_readvv_cb(i64 noundef %0, i64 nou
   store ptr %95, ptr %5, align 8
   %96 = call i32 @close(i32 noundef %60) #11
   %97 = sub i64 %.05989.i, %..059.i
-  %98 = getelementptr inbounds i8, ptr %.06387.i, i64 %..059.i
+  %98 = getelementptr inbounds i8, ptr %.06587.i, i64 %..059.i
   %99 = add nuw i64 %.190.i, 1
   %.not.i = icmp eq i64 %97, 0
   br i1 %.not.i, label %.loopexit.i, label %29
 
 .loopexit.i:                                      ; preds = %93, %84, %73, %62, %54, %42, %31, %.loopexit76.i
-  %.165.i = phi i32 [ -1, %31 ], [ -1, %42 ], [ -1, %54 ], [ %60, %62 ], [ %60, %73 ], [ %60, %84 ], [ -1, %.loopexit76.i ], [ -1, %93 ]
+  %.164.i = phi i32 [ -1, %31 ], [ -1, %42 ], [ -1, %54 ], [ %60, %62 ], [ %60, %73 ], [ %60, %84 ], [ -1, %.loopexit76.i ], [ -1, %93 ]
   %100 = phi i1 [ true, %31 ], [ true, %42 ], [ true, %54 ], [ true, %62 ], [ true, %73 ], [ true, %84 ], [ false, %.loopexit76.i ], [ false, %93 ]
   %101 = load ptr, ptr %5, align 8
   %.not75.i = icmp eq ptr %101, null
@@ -552,11 +552,11 @@ define internal range(i32 -1, 1) i32 @H5D__efl_readvv_cb(i64 noundef %0, i64 nou
   br label %104
 
 104:                                              ; preds = %102, %.loopexit.i
-  %105 = icmp sgt i32 %.165.i, -1
+  %105 = icmp sgt i32 %.164.i, -1
   br i1 %105, label %106, label %H5D__efl_read.exit
 
 106:                                              ; preds = %104
-  %107 = call i32 @close(i32 noundef %.165.i) #11
+  %107 = call i32 @close(i32 noundef %.164.i) #11
   br label %H5D__efl_read.exit
 
 H5D__efl_read.exit:                               ; preds = %104, %106
@@ -649,8 +649,8 @@ define internal range(i32 -1, 1) i32 @H5D__efl_writevv_cb(i64 noundef %0, i64 no
 29:                                               ; preds = %93, %.lr.ph87.i
   %.186.i = phi i64 [ %.05478.i, %.lr.ph87.i ], [ %99, %93 ]
   %.15685.i = phi i64 [ %.055.i, %.lr.ph87.i ], [ 0, %93 ]
-  %.05884.i = phi i64 [ %2, %.lr.ph87.i ], [ %97, %93 ]
-  %.06183.i = phi ptr [ %11, %.lr.ph87.i ], [ %98, %93 ]
+  %.06084.i = phi ptr [ %11, %.lr.ph87.i ], [ %98, %93 ]
+  %.06183.i = phi i64 [ %2, %.lr.ph87.i ], [ %97, %93 ]
   %30 = load i64, ptr %12, align 8
   %.not69.i = icmp ult i64 %.186.i, %30
   br i1 %.not69.i, label %35, label %31
@@ -734,9 +734,9 @@ define internal range(i32 -1, 1) i32 @H5D__efl_writevv_cb(i64 noundef %0, i64 no
   %85 = getelementptr inbounds %struct.H5O_efl_entry_t, ptr %84, i64 %.186.i, i32 3
   %86 = load i64, ptr %85, align 8
   %87 = sub i64 %86, %.15685.i
-  %..058.i = call i64 @llvm.umin.i64(i64 %87, i64 %.05884.i)
-  %88 = call i64 @write(i32 noundef %60, ptr noundef %.06183.i, i64 noundef %..058.i) #11
-  %.not70.i = icmp eq i64 %88, %..058.i
+  %..061.i = call i64 @llvm.umin.i64(i64 %87, i64 %.06183.i)
+  %88 = call i64 @write(i32 noundef %60, ptr noundef %.06084.i, i64 noundef %..061.i) #11
+  %.not70.i = icmp eq i64 %88, %..061.i
   br i1 %.not70.i, label %93, label %89
 
 89:                                               ; preds = %83
@@ -750,14 +750,14 @@ define internal range(i32 -1, 1) i32 @H5D__efl_writevv_cb(i64 noundef %0, i64 no
   %95 = call ptr @H5MM_xfree(ptr noundef %94) #11
   store ptr %95, ptr %5, align 8
   %96 = call i32 @close(i32 noundef %60) #11
-  %97 = sub i64 %.05884.i, %..058.i
-  %98 = getelementptr inbounds i8, ptr %.06183.i, i64 %..058.i
+  %97 = sub i64 %.06183.i, %..061.i
+  %98 = getelementptr inbounds i8, ptr %.06084.i, i64 %..061.i
   %99 = add nuw i64 %.186.i, 1
   %.not.i = icmp eq i64 %97, 0
   br i1 %.not.i, label %.loopexit.i, label %29
 
 .loopexit.i:                                      ; preds = %93, %89, %79, %70, %68, %54, %42, %31, %.loopexit72.i
-  %.160.i = phi i32 [ -1, %31 ], [ -1, %42 ], [ -1, %54 ], [ %60, %68 ], [ %60, %70 ], [ %60, %79 ], [ %60, %89 ], [ -1, %.loopexit72.i ], [ -1, %93 ]
+  %.159.i = phi i32 [ -1, %31 ], [ -1, %42 ], [ -1, %54 ], [ %60, %68 ], [ %60, %70 ], [ %60, %79 ], [ %60, %89 ], [ -1, %.loopexit72.i ], [ -1, %93 ]
   %100 = phi i1 [ true, %31 ], [ true, %42 ], [ true, %54 ], [ true, %68 ], [ true, %70 ], [ true, %79 ], [ true, %89 ], [ false, %.loopexit72.i ], [ false, %93 ]
   %101 = load ptr, ptr %5, align 8
   %.not71.i = icmp eq ptr %101, null
@@ -769,11 +769,11 @@ define internal range(i32 -1, 1) i32 @H5D__efl_writevv_cb(i64 noundef %0, i64 no
   br label %104
 
 104:                                              ; preds = %102, %.loopexit.i
-  %105 = icmp sgt i32 %.160.i, -1
+  %105 = icmp sgt i32 %.159.i, -1
   br i1 %105, label %106, label %H5D__efl_write.exit
 
 106:                                              ; preds = %104
-  %107 = call i32 @close(i32 noundef %.160.i) #11
+  %107 = call i32 @close(i32 noundef %.159.i) #11
   br label %H5D__efl_write.exit
 
 H5D__efl_write.exit:                              ; preds = %104, %106

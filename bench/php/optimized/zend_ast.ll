@@ -1939,8 +1939,8 @@ define i32 @zend_ast_evaluate_ex(ptr noundef %0, ptr nocapture noundef readonly 
   %switch.selectcmp = icmp eq i16 %13, 64
   %14 = select i1 %switch.selectcmp, i64 20, i64 4
   %15 = getelementptr inbounds i8, ptr %1, i64 %14
-  %.0 = load i32, ptr %15, align 4
-  %16 = zext i32 %.0 to i64
+  %.022 = load i32, ptr %15, align 4
+  %16 = zext i32 %.022 to i64
   store i64 %16, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %17 = tail call i32 @zend_ast_evaluate_inner(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
   store ptr %8, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
@@ -2006,8 +2006,8 @@ define i32 @zend_ast_evaluate_inner(ptr noundef %0, ptr nocapture noundef readon
   %switch.selectcmp = icmp eq i16 %22, 64
   %23 = select i1 %switch.selectcmp, i64 20, i64 4
   %24 = getelementptr inbounds i8, ptr %14, i64 %23
-  %.0.i = load i32, ptr %24, align 4
-  %25 = zext i32 %.0.i to i64
+  %.022.i = load i32, ptr %24, align 4
+  %25 = zext i32 %.022.i to i64
   store i64 %25, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %26 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef %4)
   store ptr %17, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
@@ -2111,8 +2111,8 @@ zend_ast_evaluate_ex.exit981.thread:              ; preds = %66
   %switch.selectcmp1305 = icmp eq i16 %74, 64
   %75 = select i1 %switch.selectcmp1305, i64 20, i64 4
   %76 = getelementptr inbounds i8, ptr %68, i64 %75
-  %.0.i976 = load i32, ptr %76, align 4
-  %77 = zext i32 %.0.i976 to i64
+  %.022.i976 = load i32, ptr %76, align 4
+  %77 = zext i32 %.022.i976 to i64
   store i64 %77, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %78 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %6, ptr noundef nonnull %68, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef %4)
   store ptr %69, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
@@ -2141,8 +2141,8 @@ zend_ast_evaluate_ex.exit981:                     ; preds = %66
   %switch.selectcmp1307 = icmp eq i16 %88, 64
   %89 = select i1 %switch.selectcmp1307, i64 20, i64 4
   %90 = getelementptr inbounds i8, ptr %85, i64 %89
-  %.0.i985 = load i32, ptr %90, align 4
-  %91 = zext i32 %.0.i985 to i64
+  %.022.i985 = load i32, ptr %90, align 4
+  %91 = zext i32 %.022.i985 to i64
   store i64 %91, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %92 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %7, ptr noundef nonnull %85, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef %4)
   store ptr %69, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
@@ -2242,8 +2242,8 @@ zend_ast_evaluate_ex.exit990:                     ; preds = %.thread1142, %83
   %switch.selectcmp1309 = icmp eq i16 %137, 64
   %138 = select i1 %switch.selectcmp1309, i64 20, i64 4
   %139 = getelementptr inbounds i8, ptr %129, i64 %138
-  %.0.i994 = load i32, ptr %139, align 4
-  %140 = zext i32 %.0.i994 to i64
+  %.022.i994 = load i32, ptr %139, align 4
+  %140 = zext i32 %.022.i994 to i64
   store i64 %140, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %141 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %6, ptr noundef nonnull %129, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef %4)
   store ptr %132, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
@@ -2472,8 +2472,8 @@ zend_ast_evaluate_ex.exit999:                     ; preds = %.thread1147, %131
   %switch.selectcmp1311 = icmp eq i16 %255, 64
   %256 = select i1 %switch.selectcmp1311, i64 20, i64 4
   %257 = getelementptr inbounds i8, ptr %247, i64 %256
-  %.0.i1003 = load i32, ptr %257, align 4
-  %258 = zext i32 %.0.i1003 to i64
+  %.022.i1003 = load i32, ptr %257, align 4
+  %258 = zext i32 %.022.i1003 to i64
   store i64 %258, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %259 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %6, ptr noundef nonnull %247, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef %4)
   store ptr %250, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
@@ -2591,8 +2591,8 @@ zend_ast_evaluate_ex.exit1008:                    ; preds = %.thread1152, %249
   %switch.selectcmp1313 = icmp eq i16 %311, 64
   %312 = select i1 %switch.selectcmp1313, i64 20, i64 4
   %313 = getelementptr inbounds i8, ptr %303, i64 %312
-  %.0.i1012 = load i32, ptr %313, align 4
-  %314 = zext i32 %.0.i1012 to i64
+  %.022.i1012 = load i32, ptr %313, align 4
+  %314 = zext i32 %.022.i1012 to i64
   store i64 %314, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %315 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %6, ptr noundef nonnull %303, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef %4)
   store ptr %306, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
@@ -2710,8 +2710,8 @@ zend_ast_evaluate_ex.exit1017:                    ; preds = %.thread1157, %305
   %switch.selectcmp1315 = icmp eq i16 %367, 64
   %368 = select i1 %switch.selectcmp1315, i64 20, i64 4
   %369 = getelementptr inbounds i8, ptr %359, i64 %368
-  %.0.i1021 = load i32, ptr %369, align 4
-  %370 = zext i32 %.0.i1021 to i64
+  %.022.i1021 = load i32, ptr %369, align 4
+  %370 = zext i32 %.022.i1021 to i64
   store i64 %370, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %371 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %6, ptr noundef nonnull %359, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef %4)
   store ptr %362, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
@@ -2849,8 +2849,8 @@ zend_ast_evaluate_ex.exit1026:                    ; preds = %.thread1162, %361
   %switch.selectcmp1317 = icmp eq i16 %430, 64
   %431 = select i1 %switch.selectcmp1317, i64 20, i64 4
   %432 = getelementptr inbounds i8, ptr %422, i64 %431
-  %.0.i1030 = load i32, ptr %432, align 4
-  %433 = zext i32 %.0.i1030 to i64
+  %.022.i1030 = load i32, ptr %432, align 4
+  %433 = zext i32 %.022.i1030 to i64
   store i64 %433, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %434 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %6, ptr noundef nonnull %422, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef %4)
   store ptr %425, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
@@ -2939,8 +2939,8 @@ zend_ast_evaluate_ex.exit1035:                    ; preds = %.thread1167, %424
   %switch.selectcmp1319 = icmp eq i16 %472, 64
   %473 = select i1 %switch.selectcmp1319, i64 20, i64 4
   %474 = getelementptr inbounds i8, ptr %464, i64 %473
-  %.0.i1039 = load i32, ptr %474, align 4
-  %475 = zext i32 %.0.i1039 to i64
+  %.022.i1039 = load i32, ptr %474, align 4
+  %475 = zext i32 %.022.i1039 to i64
   store i64 %475, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %476 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %7, ptr noundef nonnull %464, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef %4)
   store ptr %467, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
@@ -2998,8 +2998,8 @@ zend_ast_evaluate_ex.exit1044:                    ; preds = %.thread1172, %466
   %switch.selectcmp1321 = icmp eq i16 %499, 64
   %500 = select i1 %switch.selectcmp1321, i64 20, i64 4
   %501 = getelementptr inbounds i8, ptr %491, i64 %500
-  %.0.i1048 = load i32, ptr %501, align 4
-  %502 = zext i32 %.0.i1048 to i64
+  %.022.i1048 = load i32, ptr %501, align 4
+  %502 = zext i32 %.022.i1048 to i64
   store i64 %502, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %503 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %7, ptr noundef nonnull %491, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef %4)
   store ptr %494, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
@@ -3093,8 +3093,8 @@ zend_ast_evaluate_ex.exit1053:                    ; preds = %.thread1177, %493
   %switch.selectcmp1323 = icmp eq i16 %544, 64
   %545 = select i1 %switch.selectcmp1323, i64 20, i64 4
   %546 = getelementptr inbounds i8, ptr %537, i64 %545
-  %.0.i1057 = load i32, ptr %546, align 4
-  %547 = zext i32 %.0.i1057 to i64
+  %.022.i1057 = load i32, ptr %546, align 4
+  %547 = zext i32 %.022.i1057 to i64
   store i64 %547, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %548 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %6, ptr noundef nonnull %537, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef %4)
   store ptr %540, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
@@ -3148,7 +3148,7 @@ zend_ast_evaluate_ex.exit1062:                    ; preds = %.thread1182, %539
 .lr.ph.i:                                         ; preds = %592, %.lr.ph.preheader.i
   %.0365.i = phi i32 [ %593, %592 ], [ %564, %.lr.ph.preheader.i ]
   %.0374.i = phi ptr [ %.1.i, %592 ], [ %566, %.lr.ph.preheader.i ]
-  %.0383.i = phi ptr [ %.139.i, %592 ], [ null, %.lr.ph.preheader.i ]
+  %.0402.i = phi ptr [ %.141.i, %592 ], [ null, %.lr.ph.preheader.i ]
   %567 = load i32, ptr %562, align 8
   %568 = and i32 %567, 4
   %.not42.i = icmp eq i32 %568, 0
@@ -3165,7 +3165,7 @@ zend_ast_evaluate_ex.exit1062:                    ; preds = %.thread1182, %539
   br label %575
 
 575:                                              ; preds = %571, %569
-  %.139.i = phi ptr [ %.0383.i, %569 ], [ %574, %571 ]
+  %.141.i = phi ptr [ %.0402.i, %569 ], [ %574, %571 ]
   %.1.i = phi ptr [ %570, %569 ], [ %572, %571 ]
   %576 = getelementptr inbounds i8, ptr %.0374.i, i64 8
   %577 = load i8, ptr %576, align 8
@@ -3173,12 +3173,12 @@ zend_ast_evaluate_ex.exit1062:                    ; preds = %.thread1182, %539
   br i1 %578, label %592, label %579
 
 579:                                              ; preds = %575
-  %.not43.i = icmp eq ptr %.139.i, null
+  %.not43.i = icmp eq ptr %.141.i, null
   %580 = load ptr, ptr %0, align 8
   br i1 %.not43.i, label %583, label %581
 
 581:                                              ; preds = %579
-  %582 = call ptr @zend_hash_update(ptr noundef %580, ptr noundef nonnull %.139.i, ptr noundef nonnull %.0374.i) #14
+  %582 = call ptr @zend_hash_update(ptr noundef %580, ptr noundef nonnull %.141.i, ptr noundef nonnull %.0374.i) #14
   br label %585
 
 583:                                              ; preds = %579
@@ -3285,8 +3285,8 @@ zend_ast_evaluate_ex.exit1062:                    ; preds = %.thread1182, %539
   %switch.selectcmp1325 = icmp eq i16 %628, 64
   %629 = select i1 %switch.selectcmp1325, i64 20, i64 4
   %630 = getelementptr inbounds i8, ptr %620, i64 %629
-  %.0.i1068 = load i32, ptr %630, align 4
-  %631 = zext i32 %.0.i1068 to i64
+  %.022.i1068 = load i32, ptr %630, align 4
+  %631 = zext i32 %.022.i1068 to i64
   store i64 %631, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %632 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %6, ptr noundef nonnull %620, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef %4)
   store ptr %624, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
@@ -3341,8 +3341,8 @@ zend_ast_evaluate_ex.exit1073:                    ; preds = %.thread1189, %623
   %switch.selectcmp1327 = icmp eq i16 %652, 64
   %653 = select i1 %switch.selectcmp1327, i64 20, i64 4
   %654 = getelementptr inbounds i8, ptr %645, i64 %653
-  %.0.i1077 = load i32, ptr %654, align 4
-  %655 = zext i32 %.0.i1077 to i64
+  %.022.i1077 = load i32, ptr %654, align 4
+  %655 = zext i32 %.022.i1077 to i64
   store i64 %655, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %656 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %7, ptr noundef nonnull %645, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef %4)
   store ptr %648, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
@@ -3555,8 +3555,8 @@ zend_ast_add_array_element.exit.thread:           ; preds = %zend_ast_add_array_
   %switch.selectcmp1329 = icmp eq i16 %747, 64
   %748 = select i1 %switch.selectcmp1329, i64 20, i64 4
   %749 = getelementptr inbounds i8, ptr %739, i64 %748
-  %.0.i1088 = load i32, ptr %749, align 4
-  %750 = zext i32 %.0.i1088 to i64
+  %.022.i1088 = load i32, ptr %749, align 4
+  %750 = zext i32 %.022.i1088 to i64
   store i64 %750, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %751 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %6, ptr noundef nonnull %739, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef %4)
   store ptr %742, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
@@ -3775,8 +3775,8 @@ zend_ast_evaluate_ex.exit1093:                    ; preds = %.thread1201, %741
   %switch.selectcmp1331 = icmp eq i16 %860, 64
   %861 = select i1 %switch.selectcmp1331, i64 20, i64 4
   %862 = getelementptr inbounds i8, ptr %852, i64 %861
-  %.0.i1097 = load i32, ptr %862, align 4
-  %863 = zext i32 %.0.i1097 to i64
+  %.022.i1097 = load i32, ptr %862, align 4
+  %863 = zext i32 %.022.i1097 to i64
   store i64 %863, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %864 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %7, ptr noundef nonnull %852, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef %4)
   store ptr %855, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
@@ -3838,8 +3838,8 @@ zend_ast_evaluate_ex.exit1102:                    ; preds = %.thread1206, %854
   %switch.selectcmp1333 = icmp eq i16 %890, 64
   %891 = select i1 %switch.selectcmp1333, i64 20, i64 4
   %892 = getelementptr inbounds i8, ptr %1, i64 %891
-  %.0777 = load i32, ptr %892, align 4
-  %893 = zext i32 %.0777 to i64
+  %.0783 = load i32, ptr %892, align 4
+  %893 = zext i32 %.0783 to i64
   store i64 %893, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %894 = getelementptr inbounds i8, ptr %1, i64 2
   %895 = load i16, ptr %894, align 2
@@ -3995,12 +3995,12 @@ zend_ast_evaluate_ex.exit1102:                    ; preds = %.thread1206, %854
   br label %980
 
 980:                                              ; preds = %971, %966
-  %.0788 = phi ptr [ %977, %971 ], [ null, %966 ]
-  %.0787 = phi ptr [ %979, %971 ], [ %968, %966 ]
+  %.0781 = phi ptr [ %979, %971 ], [ %968, %966 ]
+  %.0780 = phi ptr [ %977, %971 ], [ null, %966 ]
   br i1 %.not.i1103, label %.thread1214, label %982
 
 .thread1214:                                      ; preds = %980
-  %981 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %10, ptr noundef %.0787, ptr noundef null, ptr noundef nonnull %8, ptr noundef %4)
+  %981 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %10, ptr noundef %.0781, ptr noundef null, ptr noundef nonnull %8, ptr noundef %4)
   br label %zend_ast_evaluate_ex.exit1111
 
 982:                                              ; preds = %980
@@ -4008,15 +4008,15 @@ zend_ast_evaluate_ex.exit1102:                    ; preds = %.thread1206, %854
   %984 = load i64, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %985 = load ptr, ptr %965, align 8
   store ptr %985, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
-  %986 = load i16, ptr %.0787, align 8
+  %986 = load i16, ptr %.0781, align 8
   %987 = and i16 %986, -2
   %switch.selectcmp1335 = icmp eq i16 %987, 64
   %988 = select i1 %switch.selectcmp1335, i64 20, i64 4
-  %989 = getelementptr inbounds i8, ptr %.0787, i64 %988
-  %.0.i1106 = load i32, ptr %989, align 4
-  %990 = zext i32 %.0.i1106 to i64
+  %989 = getelementptr inbounds i8, ptr %.0781, i64 %988
+  %.022.i1106 = load i32, ptr %989, align 4
+  %990 = zext i32 %.022.i1106 to i64
   store i64 %990, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
-  %991 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %10, ptr noundef nonnull %.0787, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef %4)
+  %991 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %10, ptr noundef nonnull %.0781, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef %4)
   store ptr %983, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
   store i64 %984, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   br label %zend_ast_evaluate_ex.exit1111
@@ -4032,16 +4032,16 @@ zend_ast_evaluate_ex.exit1111:                    ; preds = %.thread1214, %982
   br label %.loopexit1230
 
 994:                                              ; preds = %zend_ast_evaluate_ex.exit1111
-  %.not841 = icmp eq ptr %.0788, null
+  %.not841 = icmp eq ptr %.0780, null
   br i1 %.not841, label %999, label %995
 
 995:                                              ; preds = %994
-  %996 = call ptr @zend_hash_add(ptr noundef %962, ptr noundef nonnull %.0788, ptr noundef nonnull %10) #14
+  %996 = call ptr @zend_hash_add(ptr noundef %962, ptr noundef nonnull %.0780, ptr noundef nonnull %10) #14
   %.not842 = icmp eq ptr %996, null
   br i1 %.not842, label %997, label %1001
 
 997:                                              ; preds = %995
-  %998 = getelementptr inbounds i8, ptr %.0788, i64 24
+  %998 = getelementptr inbounds i8, ptr %.0780, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef nonnull %998) #14
   call void @zend_array_destroy(ptr noundef %962) #14
   call void @zval_ptr_dtor(ptr noundef %0) #14
@@ -4138,8 +4138,8 @@ zend_ast_evaluate_ex.exit1111:                    ; preds = %.thread1214, %982
   %switch.selectcmp1337 = icmp eq i16 %1043, 64
   %1044 = select i1 %switch.selectcmp1337, i64 20, i64 4
   %1045 = getelementptr inbounds i8, ptr %1040, i64 %1044
-  %.0.i1115 = load i32, ptr %1045, align 4
-  %1046 = zext i32 %.0.i1115 to i64
+  %.022.i1115 = load i32, ptr %1045, align 4
+  %1046 = zext i32 %.022.i1115 to i64
   store i64 %1046, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %1047 = call i32 @zend_ast_evaluate_inner(ptr noundef %1038, ptr noundef nonnull %1040, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef %4)
   store ptr %.pre, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
@@ -4253,8 +4253,8 @@ zend_ast_evaluate_ex.exit1111:                    ; preds = %.thread1214, %982
   %switch.selectcmp1339 = icmp eq i16 %1091, 64
   %1092 = select i1 %switch.selectcmp1339, i64 20, i64 4
   %1093 = getelementptr inbounds i8, ptr %1083, i64 %1092
-  %.0.i1124 = load i32, ptr %1093, align 4
-  %1094 = zext i32 %.0.i1124 to i64
+  %.022.i1124 = load i32, ptr %1093, align 4
+  %1094 = zext i32 %.022.i1124 to i64
   store i64 %1094, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %1095 = call i32 @zend_ast_evaluate_inner(ptr noundef nonnull %6, ptr noundef nonnull %1083, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef %4)
   store ptr %1086, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
@@ -4595,8 +4595,8 @@ zend_ast_evaluate_ex.exit1129:                    ; preds = %.thread1224, %1085
   br label %.loopexit1230
 
 .loopexit1230:                                    ; preds = %zend_ast_add_array_element.exit.thread, %521, %zend_ast_evaluate_ex.exit981.thread, %809, %519, %771, %1253, %64, %59, %56, %125, %120, %117, %142, %150, %155, %157, %164, %177, %193, %190, %203, %201, %207, %239, %241, %224, %222, %299, %294, %291, %355, %350, %347, %412, %413, %418, %377, %396, %391, %390, %454, %455, %460, %439, %477, %482, %487, %504, %509, %514, %842, %837, %832, %937, %932, %929, %zend_ast_evaluate_ex.exit, %39, %34, %31, %zend_ast_evaluate_ex.exit981, %101, %96, %93, %zend_ast_evaluate_ex.exit999, %zend_ast_evaluate_ex.exit1008, %274, %269, %266, %zend_ast_evaluate_ex.exit1017, %332, %327, %324, %zend_ast_evaluate_ex.exit1026, %388, %383, %382, %410, %405, %404, %zend_ast_evaluate_ex.exit1035, %452, %447, %446, %zend_ast_evaluate_ex.exit1044, %zend_ast_evaluate_ex.exit1053, %zend_ast_evaluate_ex.exit1093, %783, %778, %775, %1243, %1246, %1251, %1213, %1216, %1221, %1189, %1192, %1197, %1139, %1142, %1147, %1113, %1116, %1121, %zend_ast_evaluate_ex.exit1129, %1074, %952, %939, %901, %905, %910, %868, %871, %876, %zend_ast_evaluate_ex.exit1102, %830, %811, %719, %722, %727, %666, %669, %674, %633, %636, %641, %602, %605, %610, %549, %552, %557, %1170, %1107, %1099, %1076, %1051, %997, %993, %755, %232, %211, %175
-  %.0778 = phi i32 [ 0, %1099 ], [ 0, %1107 ], [ 0, %1170 ], [ -1, %993 ], [ -1, %997 ], [ -1, %1076 ], [ -1, %1051 ], [ 0, %755 ], [ -1, %232 ], [ -1, %211 ], [ -1, %175 ], [ -1, %557 ], [ -1, %552 ], [ -1, %549 ], [ -1, %610 ], [ -1, %605 ], [ -1, %602 ], [ -1, %641 ], [ -1, %636 ], [ -1, %633 ], [ -1, %674 ], [ -1, %669 ], [ -1, %666 ], [ -1, %727 ], [ -1, %722 ], [ -1, %719 ], [ -1, %811 ], [ -1, %830 ], [ -1, %zend_ast_evaluate_ex.exit1102 ], [ -1, %876 ], [ -1, %871 ], [ -1, %868 ], [ -1, %910 ], [ -1, %905 ], [ -1, %901 ], [ -1, %939 ], [ -1, %952 ], [ 0, %1074 ], [ -1, %zend_ast_evaluate_ex.exit1129 ], [ -1, %1121 ], [ -1, %1116 ], [ -1, %1113 ], [ -1, %1147 ], [ -1, %1142 ], [ -1, %1139 ], [ -1, %1197 ], [ -1, %1192 ], [ -1, %1189 ], [ -1, %1221 ], [ -1, %1216 ], [ -1, %1213 ], [ 0, %1251 ], [ 0, %1246 ], [ 0, %1243 ], [ -1, %1253 ], [ 0, %932 ], [ 0, %937 ], [ 0, %929 ], [ 0, %837 ], [ 0, %842 ], [ 0, %832 ], [ -1, %771 ], [ 0, %519 ], [ %506, %509 ], [ %506, %514 ], [ %506, %504 ], [ %479, %482 ], [ %479, %487 ], [ %479, %477 ], [ 0, %439 ], [ 0, %455 ], [ 0, %460 ], [ 0, %454 ], [ 0, %391 ], [ 0, %396 ], [ 0, %390 ], [ 0, %377 ], [ 0, %413 ], [ 0, %418 ], [ 0, %412 ], [ 0, %350 ], [ 0, %355 ], [ 0, %347 ], [ 0, %294 ], [ 0, %299 ], [ 0, %291 ], [ 0, %222 ], [ 0, %224 ], [ 0, %239 ], [ 0, %241 ], [ 0, %201 ], [ 0, %203 ], [ 0, %207 ], [ 0, %190 ], [ 0, %193 ], [ 0, %177 ], [ 0, %164 ], [ 0, %157 ], [ %147, %150 ], [ %147, %155 ], [ %147, %142 ], [ %107, %120 ], [ %107, %125 ], [ %107, %117 ], [ %46, %59 ], [ %46, %64 ], [ %46, %56 ], [ -1, %zend_ast_evaluate_ex.exit ], [ -1, %39 ], [ -1, %34 ], [ -1, %31 ], [ -1, %zend_ast_evaluate_ex.exit981 ], [ -1, %101 ], [ -1, %96 ], [ -1, %93 ], [ -1, %zend_ast_evaluate_ex.exit999 ], [ -1, %zend_ast_evaluate_ex.exit1008 ], [ -1, %274 ], [ -1, %269 ], [ -1, %266 ], [ -1, %zend_ast_evaluate_ex.exit1017 ], [ -1, %332 ], [ -1, %327 ], [ -1, %324 ], [ -1, %zend_ast_evaluate_ex.exit1026 ], [ -1, %388 ], [ -1, %383 ], [ -1, %382 ], [ -1, %410 ], [ -1, %405 ], [ -1, %404 ], [ -1, %zend_ast_evaluate_ex.exit1035 ], [ -1, %452 ], [ -1, %447 ], [ -1, %446 ], [ -1, %zend_ast_evaluate_ex.exit1044 ], [ -1, %zend_ast_evaluate_ex.exit1053 ], [ -1, %zend_ast_evaluate_ex.exit1093 ], [ -1, %783 ], [ -1, %778 ], [ -1, %775 ], [ %spec.select, %809 ], [ -1, %zend_ast_evaluate_ex.exit981.thread ], [ 0, %521 ], [ 0, %zend_ast_add_array_element.exit.thread ]
-  ret i32 %.0778
+  %.0786 = phi i32 [ 0, %1099 ], [ 0, %1107 ], [ 0, %1170 ], [ -1, %993 ], [ -1, %997 ], [ -1, %1076 ], [ -1, %1051 ], [ 0, %755 ], [ -1, %232 ], [ -1, %211 ], [ -1, %175 ], [ -1, %557 ], [ -1, %552 ], [ -1, %549 ], [ -1, %610 ], [ -1, %605 ], [ -1, %602 ], [ -1, %641 ], [ -1, %636 ], [ -1, %633 ], [ -1, %674 ], [ -1, %669 ], [ -1, %666 ], [ -1, %727 ], [ -1, %722 ], [ -1, %719 ], [ -1, %811 ], [ -1, %830 ], [ -1, %zend_ast_evaluate_ex.exit1102 ], [ -1, %876 ], [ -1, %871 ], [ -1, %868 ], [ -1, %910 ], [ -1, %905 ], [ -1, %901 ], [ -1, %939 ], [ -1, %952 ], [ 0, %1074 ], [ -1, %zend_ast_evaluate_ex.exit1129 ], [ -1, %1121 ], [ -1, %1116 ], [ -1, %1113 ], [ -1, %1147 ], [ -1, %1142 ], [ -1, %1139 ], [ -1, %1197 ], [ -1, %1192 ], [ -1, %1189 ], [ -1, %1221 ], [ -1, %1216 ], [ -1, %1213 ], [ 0, %1251 ], [ 0, %1246 ], [ 0, %1243 ], [ -1, %1253 ], [ 0, %932 ], [ 0, %937 ], [ 0, %929 ], [ 0, %837 ], [ 0, %842 ], [ 0, %832 ], [ -1, %771 ], [ 0, %519 ], [ %506, %509 ], [ %506, %514 ], [ %506, %504 ], [ %479, %482 ], [ %479, %487 ], [ %479, %477 ], [ 0, %439 ], [ 0, %455 ], [ 0, %460 ], [ 0, %454 ], [ 0, %391 ], [ 0, %396 ], [ 0, %390 ], [ 0, %377 ], [ 0, %413 ], [ 0, %418 ], [ 0, %412 ], [ 0, %350 ], [ 0, %355 ], [ 0, %347 ], [ 0, %294 ], [ 0, %299 ], [ 0, %291 ], [ 0, %222 ], [ 0, %224 ], [ 0, %239 ], [ 0, %241 ], [ 0, %201 ], [ 0, %203 ], [ 0, %207 ], [ 0, %190 ], [ 0, %193 ], [ 0, %177 ], [ 0, %164 ], [ 0, %157 ], [ %147, %150 ], [ %147, %155 ], [ %147, %142 ], [ %107, %120 ], [ %107, %125 ], [ %107, %117 ], [ %46, %59 ], [ %46, %64 ], [ %46, %56 ], [ -1, %zend_ast_evaluate_ex.exit ], [ -1, %39 ], [ -1, %34 ], [ -1, %31 ], [ -1, %zend_ast_evaluate_ex.exit981 ], [ -1, %101 ], [ -1, %96 ], [ -1, %93 ], [ -1, %zend_ast_evaluate_ex.exit999 ], [ -1, %zend_ast_evaluate_ex.exit1008 ], [ -1, %274 ], [ -1, %269 ], [ -1, %266 ], [ -1, %zend_ast_evaluate_ex.exit1017 ], [ -1, %332 ], [ -1, %327 ], [ -1, %324 ], [ -1, %zend_ast_evaluate_ex.exit1026 ], [ -1, %388 ], [ -1, %383 ], [ -1, %382 ], [ -1, %410 ], [ -1, %405 ], [ -1, %404 ], [ -1, %zend_ast_evaluate_ex.exit1035 ], [ -1, %452 ], [ -1, %447 ], [ -1, %446 ], [ -1, %zend_ast_evaluate_ex.exit1044 ], [ -1, %zend_ast_evaluate_ex.exit1053 ], [ -1, %zend_ast_evaluate_ex.exit1093 ], [ -1, %783 ], [ -1, %778 ], [ -1, %775 ], [ %spec.select, %809 ], [ -1, %zend_ast_evaluate_ex.exit981.thread ], [ 0, %521 ], [ 0, %zend_ast_add_array_element.exit.thread ]
+  ret i32 %.0786
 }
 
 declare ptr @get_binary_op(i32 noundef) local_unnamed_addr #2
@@ -4679,8 +4679,8 @@ define i32 @zend_ast_evaluate(ptr noundef %0, ptr nocapture noundef readonly %1,
   %switch.selectcmp.i = icmp eq i16 %13, 64
   %14 = select i1 %switch.selectcmp.i, i64 20, i64 4
   %15 = getelementptr inbounds i8, ptr %1, i64 %14
-  %.0.i = load i32, ptr %15, align 4
-  %16 = zext i32 %.0.i to i64
+  %.022.i = load i32, ptr %15, align 4
+  %16 = zext i32 %.022.i to i64
   store i64 %16, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1704), align 8
   %17 = call i32 @zend_ast_evaluate_inner(ptr noundef %0, ptr noundef nonnull readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %4) #16
   store ptr %8, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1696), align 8
@@ -4738,7 +4738,7 @@ define internal fastcc i64 @zend_ast_tree_size(ptr nocapture noundef readonly %0
 
 14:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %.036 = phi i64 [ %12, %.lr.ph ], [ %.1, %20 ]
+  %.02835 = phi i64 [ %12, %.lr.ph ], [ %.1, %20 ]
   %15 = getelementptr inbounds [1 x ptr], ptr %13, i64 0, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %.not33 = icmp eq ptr %16, null
@@ -4746,11 +4746,11 @@ define internal fastcc i64 @zend_ast_tree_size(ptr nocapture noundef readonly %0
 
 17:                                               ; preds = %14
   %18 = tail call fastcc i64 @zend_ast_tree_size(ptr noundef nonnull %16)
-  %19 = add i64 %18, %.036
+  %19 = add i64 %18, %.02835
   br label %20
 
 20:                                               ; preds = %14, %17
-  %.1 = phi i64 [ %19, %17 ], [ %.036, %14 ]
+  %.1 = phi i64 [ %19, %17 ], [ %.02835, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
   br i1 %exitcond.not, label %.loopexit, label %14
@@ -4770,7 +4770,7 @@ define internal fastcc i64 @zend_ast_tree_size(ptr nocapture noundef readonly %0
 
 26:                                               ; preds = %.lr.ph39, %32
   %indvars.iv45 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next46, %32 ]
-  %.238 = phi i64 [ %24, %.lr.ph39 ], [ %.3, %32 ]
+  %.237 = phi i64 [ %24, %.lr.ph39 ], [ %.3, %32 ]
   %27 = getelementptr inbounds [1 x ptr], ptr %25, i64 0, i64 %indvars.iv45
   %28 = load ptr, ptr %27, align 8
   %.not32 = icmp eq ptr %28, null
@@ -4778,11 +4778,11 @@ define internal fastcc i64 @zend_ast_tree_size(ptr nocapture noundef readonly %0
 
 29:                                               ; preds = %26
   %30 = tail call fastcc i64 @zend_ast_tree_size(ptr noundef nonnull %28)
-  %31 = add i64 %30, %.238
+  %31 = add i64 %30, %.237
   br label %32
 
 32:                                               ; preds = %26, %29
-  %.3 = phi i64 [ %31, %29 ], [ %.238, %26 ]
+  %.3 = phi i64 [ %31, %29 ], [ %.237, %26 ]
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count48
   br i1 %exitcond49.not, label %.loopexit, label %26
@@ -4973,9 +4973,9 @@ define internal fastcc nonnull ptr @zend_ast_tree_copy(ptr nocapture noundef rea
   %switch.selectcmp = icmp eq i16 %93, 64
   %94 = select i1 %switch.selectcmp, i64 20, i64 4
   %95 = getelementptr inbounds i8, ptr %0, i64 %94
-  %.0114 = load i32, ptr %95, align 4
+  %.0116 = load i32, ptr %95, align 4
   %96 = getelementptr inbounds i8, ptr %1, i64 20
-  store i32 %.0114, ptr %96, align 4
+  store i32 %.0116, ptr %96, align 4
   %97 = getelementptr inbounds i8, ptr %1, i64 24
   br label %.loopexit
 
@@ -4990,8 +4990,8 @@ define void @zend_ast_destroy(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %.not91, label %.loopexit, label %.lr.ph94
 
 .lr.ph94:                                         ; preds = %1, %.backedge
-  %.092 = phi ptr [ %.0.be, %.backedge ], [ %0, %1 ]
-  %2 = load i16, ptr %.092, align 8
+  %.07192 = phi ptr [ %.071.be, %.backedge ], [ %0, %1 ]
+  %2 = load i16, ptr %.07192, align 8
   %3 = icmp ugt i16 %2, 255
   br i1 %3, label %4, label %12
 
@@ -5001,7 +5001,7 @@ define void @zend_ast_destroy(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 .lr.ph89:                                         ; preds = %4
   %6 = lshr i16 %2, 8
-  %7 = getelementptr inbounds i8, ptr %.092, i64 8
+  %7 = getelementptr inbounds i8, ptr %.07192, i64 8
   %wide.trip.count = zext nneg i16 %6 to i64
   br label %8
 
@@ -5016,9 +5016,9 @@ define void @zend_ast_destroy(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 .backedge:                                        ; preds = %30, %8, %4, %26, %78
   %.sink = phi i64 [ 64, %78 ], [ 16, %26 ], [ 8, %4 ], [ 8, %8 ], [ 16, %30 ]
-  %11 = getelementptr inbounds i8, ptr %.092, i64 %.sink
-  %.0.be = load ptr, ptr %11, align 8
-  %.not = icmp eq ptr %.0.be, null
+  %11 = getelementptr inbounds i8, ptr %.07192, i64 %.sink
+  %.071.be = load ptr, ptr %11, align 8
+  %.not = icmp eq ptr %.071.be, null
   br i1 %.not, label %.loopexit, label %.lr.ph94
 
 12:                                               ; preds = %.lr.ph94
@@ -5026,8 +5026,8 @@ define void @zend_ast_destroy(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %13, label %14, label %25
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %.092, i64 8
-  %16 = getelementptr inbounds i8, ptr %.092, i64 17
+  %15 = getelementptr inbounds i8, ptr %.07192, i64 8
+  %16 = getelementptr inbounds i8, ptr %.07192, i64 17
   %17 = load i8, ptr %16, align 1
   %.not82 = icmp eq i8 %17, 0
   br i1 %.not82, label %.loopexit, label %18
@@ -5052,7 +5052,7 @@ define void @zend_ast_destroy(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %.not75, label %36, label %26
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %.092, i64 8
+  %27 = getelementptr inbounds i8, ptr %.07192, i64 8
   %28 = load i32, ptr %27, align 8
   switch i32 %28, label %.lr.ph [
     i32 0, label %.loopexit
@@ -5060,7 +5060,7 @@ define void @zend_ast_destroy(ptr noundef readonly %0) local_unnamed_addr #0 {
   ]
 
 .lr.ph:                                           ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %.092, i64 16
+  %29 = getelementptr inbounds i8, ptr %.07192, i64 16
   br label %30
 
 30:                                               ; preds = %.lr.ph, %30
@@ -5079,7 +5079,7 @@ define void @zend_ast_destroy(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %37, label %38, label %50
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %.092, i64 8
+  %39 = getelementptr inbounds i8, ptr %.07192, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
@@ -5105,7 +5105,7 @@ define void @zend_ast_destroy(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %51, label %52, label %.loopexit
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %.092, i64 24
+  %53 = getelementptr inbounds i8, ptr %.07192, i64 24
   %54 = load ptr, ptr %53, align 8
   %.not76 = icmp eq ptr %54, null
   br i1 %.not76, label %65, label %55
@@ -5131,7 +5131,7 @@ define void @zend_ast_destroy(ptr noundef readonly %0) local_unnamed_addr #0 {
   br label %65
 
 65:                                               ; preds = %55, %64, %59, %52
-  %66 = getelementptr inbounds i8, ptr %.092, i64 16
+  %66 = getelementptr inbounds i8, ptr %.07192, i64 16
   %67 = load ptr, ptr %66, align 8
   %.not78 = icmp eq ptr %67, null
   br i1 %.not78, label %78, label %68
@@ -5157,16 +5157,16 @@ define void @zend_ast_destroy(ptr noundef readonly %0) local_unnamed_addr #0 {
   br label %78
 
 78:                                               ; preds = %68, %77, %72, %65
-  %79 = getelementptr inbounds i8, ptr %.092, i64 32
+  %79 = getelementptr inbounds i8, ptr %.07192, i64 32
   %80 = load ptr, ptr %79, align 8
   tail call void @zend_ast_destroy(ptr noundef %80)
-  %81 = getelementptr inbounds i8, ptr %.092, i64 40
+  %81 = getelementptr inbounds i8, ptr %.07192, i64 40
   %82 = load ptr, ptr %81, align 8
   tail call void @zend_ast_destroy(ptr noundef %82)
-  %83 = getelementptr inbounds i8, ptr %.092, i64 48
+  %83 = getelementptr inbounds i8, ptr %.07192, i64 48
   %84 = load ptr, ptr %83, align 8
   tail call void @zend_ast_destroy(ptr noundef %84)
-  %85 = getelementptr inbounds i8, ptr %.092, i64 56
+  %85 = getelementptr inbounds i8, ptr %.07192, i64 56
   %86 = load ptr, ptr %85, align 8
   tail call void @zend_ast_destroy(ptr noundef %86)
   br label %.backedge
@@ -5303,8 +5303,8 @@ define internal fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %1, 
   br label %6
 
 6:                                                ; preds = %.lr.ph, %.backedge
-  %.044595853 = phi ptr [ %.tr55795856, %.lr.ph ], [ %.04459.be, %.backedge ]
-  %7 = load i16, ptr %.044595853, align 8
+  %.044455853 = phi ptr [ %.tr55795856, %.lr.ph ], [ %.04445.be, %.backedge ]
+  %7 = load i16, ptr %.044455853, align 8
   switch i16 %7, label %2863 [
     i16 64, label %8
     i16 65, label %10
@@ -5417,12 +5417,12 @@ define internal fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %1, 
   ]
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %9 = getelementptr inbounds i8, ptr %.044455853, i64 8
   tail call fastcc void @zend_ast_export_zval(ptr noundef %0, ptr noundef nonnull %9, i32 noundef %.tr55805857, i32 noundef %3)
   br label %zend_ast_export_list.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %11 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 24
   %14 = getelementptr inbounds i8, ptr %12, i64 16
@@ -5493,8 +5493,8 @@ define internal fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %1, 
   br label %zend_ast_export_list.exit
 
 45:                                               ; preds = %6, %6, %6, %6
-  %46 = getelementptr inbounds i8, ptr %.044595853, i64 32
-  %47 = getelementptr inbounds i8, ptr %.044595853, i64 64
+  %46 = getelementptr inbounds i8, ptr %.044455853, i64 32
+  %47 = getelementptr inbounds i8, ptr %.044455853, i64 64
   %48 = load ptr, ptr %47, align 8
   %.not5500 = icmp eq ptr %48, null
   br i1 %.not5500, label %52, label %49
@@ -5507,7 +5507,7 @@ define internal fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %1, 
   br label %52
 
 52:                                               ; preds = %49, %45
-  %53 = getelementptr inbounds i8, ptr %.044595853, i64 12
+  %53 = getelementptr inbounds i8, ptr %.044455853, i64 12
   %54 = load i32, ptr %53, align 4
   tail call fastcc void @zend_ast_export_visibility(ptr noundef %0, i32 noundef %54)
   %55 = load i32, ptr %53, align 4
@@ -5629,7 +5629,7 @@ define internal fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %1, 
   br label %108
 
 108:                                              ; preds = %101, %90
-  %109 = load i16, ptr %.044595853, align 8
+  %109 = load i16, ptr %.044455853, align 8
   %110 = icmp eq i16 %109, 71
   %111 = load ptr, ptr %0, align 8
   %.not5512 = icmp eq ptr %111, null
@@ -5733,14 +5733,14 @@ define internal fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %1, 
   br label %156
 
 156:                                              ; preds = %149, %136
-  %157 = load i16, ptr %.044595853, align 8
+  %157 = load i16, ptr %.044455853, align 8
   switch i16 %157, label %158 [
     i16 68, label %178
     i16 71, label %178
   ]
 
 158:                                              ; preds = %156
-  %159 = getelementptr inbounds i8, ptr %.044595853, i64 24
+  %159 = getelementptr inbounds i8, ptr %.044455853, i64 24
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds i8, ptr %160, i64 24
   %162 = getelementptr inbounds i8, ptr %160, i64 16
@@ -5836,10 +5836,10 @@ define internal fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %1, 
   %206 = load ptr, ptr %0, align 8
   %207 = getelementptr inbounds i8, ptr %206, i64 16
   store i64 %.14574, ptr %207, align 8
-  %208 = getelementptr inbounds i8, ptr %.044595853, i64 40
+  %208 = getelementptr inbounds i8, ptr %.044455853, i64 40
   %209 = load ptr, ptr %208, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %209, i32 noundef 0, i32 noundef %3)
-  %210 = getelementptr inbounds i8, ptr %.044595853, i64 56
+  %210 = getelementptr inbounds i8, ptr %.044455853, i64 56
   %211 = load ptr, ptr %210, align 8
   %.not5525 = icmp eq ptr %211, null
   br i1 %.not5525, label %228, label %212
@@ -5880,13 +5880,13 @@ define internal fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %1, 
   br label %228
 
 228:                                              ; preds = %220, %201
-  %229 = getelementptr inbounds i8, ptr %.044595853, i64 48
+  %229 = getelementptr inbounds i8, ptr %.044455853, i64 48
   %230 = load ptr, ptr %229, align 8
   %.not5528 = icmp eq ptr %230, null
   br i1 %.not5528, label %303, label %231
 
 231:                                              ; preds = %228
-  %232 = load i16, ptr %.044595853, align 8
+  %232 = load i16, ptr %.044455853, align 8
   %233 = icmp eq i16 %232, 71
   br i1 %233, label %234, label %255
 
@@ -5901,7 +5901,7 @@ define internal fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %1, 
   br label %240
 
 240:                                              ; preds = %237, %234
-  %.04440 = phi ptr [ %239, %237 ], [ %230, %234 ]
+  %.0 = phi ptr [ %239, %237 ], [ %230, %234 ]
   %241 = load ptr, ptr %0, align 8
   %.not5538 = icmp eq ptr %241, null
   br i1 %.not5538, label %247, label %242
@@ -5935,13 +5935,13 @@ define internal fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %1, 
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %248, %1203, %1998, %2659
-  %.tr5579.be = phi ptr [ %.04440, %248 ], [ %1204, %1203 ], [ %2006, %1998 ], [ %2666, %2659 ]
+  %.tr5579.be = phi ptr [ %.0, %248 ], [ %1204, %1203 ], [ %2006, %1998 ], [ %2666, %2659 ]
   %.tr5580.be = phi i32 [ 0, %248 ], [ 80, %1203 ], [ 0, %1998 ], [ 0, %2659 ]
   %.not5852 = icmp eq ptr %.tr5579.be, null
   br i1 %.not5852, label %zend_ast_export_list.exit, label %.lr.ph
 
 255:                                              ; preds = %231
-  %256 = getelementptr inbounds i8, ptr %.044595853, i64 48
+  %256 = getelementptr inbounds i8, ptr %.044455853, i64 48
   %257 = load ptr, ptr %0, align 8
   %.not5531 = icmp eq ptr %257, null
   br i1 %.not5531, label %263, label %258
@@ -6004,7 +6004,7 @@ tailrecurse.backedge:                             ; preds = %248, %1203, %1998, 
   %285 = load ptr, ptr %0, align 8
   %286 = getelementptr inbounds i8, ptr %285, i64 16
   store i64 %.14572, ptr %286, align 8
-  %287 = load i16, ptr %.044595853, align 8
+  %287 = load i16, ptr %.044455853, align 8
   %.not5535 = icmp eq i16 %287, 68
   br i1 %.not5535, label %zend_ast_export_list.exit, label %288
 
@@ -6073,7 +6073,7 @@ tailrecurse.backedge:                             ; preds = %248, %1203, %1998, 
   br label %zend_ast_export_list.exit
 
 318:                                              ; preds = %6
-  %319 = getelementptr inbounds i8, ptr %.044595853, i64 56
+  %319 = getelementptr inbounds i8, ptr %.044455853, i64 56
   %320 = load ptr, ptr %319, align 8
   %.not5471 = icmp eq ptr %320, null
   br i1 %.not5471, label %322, label %321
@@ -6083,7 +6083,7 @@ tailrecurse.backedge:                             ; preds = %248, %1203, %1998, 
   br label %322
 
 322:                                              ; preds = %321, %318
-  %323 = getelementptr inbounds i8, ptr %.044595853, i64 12
+  %323 = getelementptr inbounds i8, ptr %.044455853, i64 12
   %324 = load i32, ptr %323, align 4
   %325 = and i32 %324, 1
   %.not5472 = icmp eq i32 %325, 0
@@ -6342,7 +6342,7 @@ tailrecurse.backedge:                             ; preds = %248, %1203, %1998, 
   %436 = load ptr, ptr %0, align 8
   %437 = getelementptr inbounds i8, ptr %436, i64 16
   store i64 %.14608.sink, ptr %437, align 8
-  %438 = getelementptr inbounds i8, ptr %.044595853, i64 24
+  %438 = getelementptr inbounds i8, ptr %.044455853, i64 24
   %439 = load ptr, ptr %438, align 8
   %440 = getelementptr inbounds i8, ptr %439, i64 24
   %441 = getelementptr inbounds i8, ptr %439, i64 16
@@ -6383,7 +6383,7 @@ tailrecurse.backedge:                             ; preds = %248, %1203, %1998, 
   br i1 %.not5494, label %478, label %459
 
 459:                                              ; preds = %450
-  %460 = getelementptr inbounds i8, ptr %.044595853, i64 64
+  %460 = getelementptr inbounds i8, ptr %.044455853, i64 64
   %461 = load ptr, ptr %460, align 8
   %.not5495 = icmp eq ptr %461, null
   br i1 %.not5495, label %478, label %462
@@ -6424,7 +6424,7 @@ tailrecurse.backedge:                             ; preds = %248, %1203, %1998, 
   br label %478
 
 478:                                              ; preds = %470, %459, %450
-  tail call fastcc void @zend_ast_export_class_no_header(ptr noundef nonnull %0, ptr noundef nonnull %.044595853, i32 noundef %3)
+  tail call fastcc void @zend_ast_export_class_no_header(ptr noundef nonnull %0, ptr noundef nonnull %.044455853, i32 noundef %3)
   %479 = load ptr, ptr %0, align 8
   %.not5498 = icmp eq ptr %479, null
   br i1 %.not5498, label %485, label %480
@@ -6456,14 +6456,14 @@ tailrecurse.backedge:                             ; preds = %248, %1203, %1998, 
   br label %zend_ast_export_list.exit
 
 .loopexit:                                        ; preds = %6, %6, %6, %746, %664, %673, %763, %778, %735, %688
-  %.14460 = phi ptr [ %.044595853, %763 ], [ %.044595853, %778 ], [ %736, %735 ], [ %.044595853, %688 ], [ %621, %673 ], [ %621, %664 ], [ %.044595853, %746 ], [ %.044595853, %6 ], [ %.044595853, %6 ], [ %.044595853, %6 ]
-  %493 = getelementptr inbounds i8, ptr %.14460, i64 8
+  %.14446 = phi ptr [ %.044455853, %763 ], [ %.044455853, %778 ], [ %736, %735 ], [ %.044455853, %688 ], [ %621, %673 ], [ %621, %664 ], [ %.044455853, %746 ], [ %.044455853, %6 ], [ %.044455853, %6 ], [ %.044455853, %6 ]
+  %493 = getelementptr inbounds i8, ptr %.14446, i64 8
   %494 = load i32, ptr %493, align 8
   %.not5863 = icmp eq i32 %494, 0
   br i1 %.not5863, label %zend_ast_export_list.exit, label %.lr.ph5861
 
 .lr.ph5861:                                       ; preds = %.loopexit
-  %495 = getelementptr inbounds i8, ptr %.14460, i64 16
+  %495 = getelementptr inbounds i8, ptr %.14446, i64 16
   br label %496
 
 496:                                              ; preds = %.lr.ph5861, %512
@@ -6543,7 +6543,7 @@ tailrecurse.backedge:                             ; preds = %248, %1203, %1998, 
   %531 = load ptr, ptr %0, align 8
   %532 = getelementptr inbounds i8, ptr %531, i64 16
   store i64 %.14566, ptr %532, align 8
-  tail call fastcc void @zend_ast_export_list(ptr noundef nonnull %0, ptr noundef nonnull %.044595853, i1 noundef zeroext true, i32 noundef 20, i32 noundef %3)
+  tail call fastcc void @zend_ast_export_list(ptr noundef nonnull %0, ptr noundef nonnull %.044455853, i1 noundef zeroext true, i32 noundef 20, i32 noundef %3)
   %533 = load ptr, ptr %0, align 8
   %.not5469 = icmp eq ptr %533, null
   br i1 %.not5469, label %539, label %534
@@ -6603,7 +6603,7 @@ tailrecurse.backedge:                             ; preds = %248, %1203, %1998, 
   %560 = load ptr, ptr %0, align 8
   %561 = getelementptr inbounds i8, ptr %560, i64 16
   store i64 %.14562, ptr %561, align 8
-  tail call fastcc void @zend_ast_export_encaps_list(ptr noundef nonnull %0, i8 noundef signext 34, ptr noundef nonnull %.044595853, i32 noundef %3)
+  tail call fastcc void @zend_ast_export_encaps_list(ptr noundef nonnull %0, i8 noundef signext 34, ptr noundef nonnull %.044455853, i32 noundef %3)
   %562 = load ptr, ptr %0, align 8
   %.not5465 = icmp eq ptr %562, null
   br i1 %.not5465, label %568, label %563
@@ -6635,21 +6635,21 @@ tailrecurse.backedge:                             ; preds = %248, %1203, %1998, 
   br label %zend_ast_export_list.exit
 
 576:                                              ; preds = %6, %6
-  tail call fastcc void @zend_ast_export_stmt(ptr noundef %0, ptr noundef nonnull %.044595853, i32 noundef %3)
+  tail call fastcc void @zend_ast_export_stmt(ptr noundef %0, ptr noundef nonnull %.044455853, i32 noundef %3)
   br label %zend_ast_export_list.exit
 
 577:                                              ; preds = %6
-  tail call fastcc void @zend_ast_export_if_stmt(ptr noundef %0, ptr noundef nonnull %.044595853, i32 noundef %3)
+  tail call fastcc void @zend_ast_export_if_stmt(ptr noundef %0, ptr noundef nonnull %.044455853, i32 noundef %3)
   br label %zend_ast_export_list.exit
 
 578:                                              ; preds = %6, %6, %6
-  %579 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %579 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %580 = load i32, ptr %579, align 8
   %.not5862 = icmp eq i32 %580, 0
   br i1 %.not5862, label %zend_ast_export_list.exit, label %.lr.ph5859
 
 .lr.ph5859:                                       ; preds = %578
-  %581 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %581 = getelementptr inbounds i8, ptr %.044455853, i64 16
   br label %582
 
 582:                                              ; preds = %.lr.ph5859, %582
@@ -6694,7 +6694,7 @@ tailrecurse.backedge:                             ; preds = %248, %1203, %1998, 
   %601 = load ptr, ptr %0, align 8
   %602 = getelementptr inbounds i8, ptr %601, i64 16
   store i64 %.14622, ptr %602, align 8
-  tail call fastcc void @zend_ast_export_var_list(ptr noundef nonnull %0, ptr noundef nonnull %.044595853, i32 noundef %3)
+  tail call fastcc void @zend_ast_export_var_list(ptr noundef nonnull %0, ptr noundef nonnull %.044455853, i32 noundef %3)
   %603 = load ptr, ptr %0, align 8
   %.not5461 = icmp eq ptr %603, null
   br i1 %.not5461, label %609, label %604
@@ -6726,11 +6726,11 @@ tailrecurse.backedge:                             ; preds = %248, %1203, %1998, 
   br label %zend_ast_export_list.exit
 
 617:                                              ; preds = %6
-  %618 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %618 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %619 = load ptr, ptr %618, align 8
-  %620 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %620 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %621 = load ptr, ptr %620, align 8
-  %622 = getelementptr inbounds i8, ptr %.044595853, i64 24
+  %622 = getelementptr inbounds i8, ptr %.044455853, i64 24
   %623 = load ptr, ptr %622, align 8
   %.not5449 = icmp eq ptr %623, null
   br i1 %.not5449, label %625, label %624
@@ -6740,7 +6740,7 @@ tailrecurse.backedge:                             ; preds = %248, %1203, %1998, 
   br label %625
 
 625:                                              ; preds = %624, %617
-  %626 = getelementptr inbounds i8, ptr %.044595853, i64 2
+  %626 = getelementptr inbounds i8, ptr %.044455853, i64 2
   %627 = load i16, ptr %626, align 2
   %628 = zext i16 %627 to i32
   tail call fastcc void @zend_ast_export_visibility(ptr noundef %0, i32 noundef %628)
@@ -6892,8 +6892,8 @@ tailrecurse.backedge:                             ; preds = %248, %1203, %1998, 
   br label %.loopexit
 
 695:                                              ; preds = %6
-  %696 = getelementptr inbounds i8, ptr %.044595853, i64 8
-  %697 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %696 = getelementptr inbounds i8, ptr %.044455853, i64 8
+  %697 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %698 = load ptr, ptr %697, align 8
   %.not5441 = icmp eq ptr %698, null
   br i1 %.not5441, label %700, label %699
@@ -6903,7 +6903,7 @@ tailrecurse.backedge:                             ; preds = %248, %1203, %1998, 
   br label %700
 
 700:                                              ; preds = %699, %695
-  %701 = getelementptr inbounds i8, ptr %.044595853, i64 2
+  %701 = getelementptr inbounds i8, ptr %.044455853, i64 2
   %702 = load i16, ptr %701, align 2
   %703 = zext i16 %702 to i32
   tail call fastcc void @zend_ast_export_visibility(ptr noundef %0, i32 noundef %703)
@@ -6937,7 +6937,7 @@ tailrecurse.backedge:                             ; preds = %248, %1203, %1998, 
   %716 = load ptr, ptr %0, align 8
   %717 = getelementptr inbounds i8, ptr %716, i64 16
   store i64 %.14630, ptr %717, align 8
-  %718 = getelementptr inbounds i8, ptr %.044595853, i64 24
+  %718 = getelementptr inbounds i8, ptr %.044455853, i64 24
   %719 = load ptr, ptr %718, align 8
   %.not5444 = icmp eq ptr %719, null
   br i1 %.not5444, label %735, label %720
@@ -6979,7 +6979,7 @@ tailrecurse.backedge:                             ; preds = %248, %1203, %1998, 
   br label %.loopexit
 
 737:                                              ; preds = %6
-  tail call fastcc void @zend_ast_export_name_list_ex(ptr noundef %0, ptr noundef nonnull %.044595853, i32 noundef %3, ptr noundef nonnull @.str.26)
+  tail call fastcc void @zend_ast_export_name_list_ex(ptr noundef %0, ptr noundef nonnull %.044455853, i32 noundef %3, ptr noundef nonnull @.str.26)
   br label %zend_ast_export_list.exit
 
 738:                                              ; preds = %6
@@ -7013,7 +7013,7 @@ tailrecurse.backedge:                             ; preds = %248, %1203, %1998, 
   %751 = load ptr, ptr %0, align 8
   %752 = getelementptr inbounds i8, ptr %751, i64 16
   store i64 %.14632, ptr %752, align 8
-  %753 = getelementptr inbounds i8, ptr %.044595853, i64 2
+  %753 = getelementptr inbounds i8, ptr %.044455853, i64 2
   %754 = load i16, ptr %753, align 2
   switch i16 %754, label %.loopexit [
     i16 310, label %755
@@ -7087,7 +7087,7 @@ tailrecurse.backedge:                             ; preds = %248, %1203, %1998, 
   br label %.loopexit
 
 switch.lookup:                                    ; preds = %6
-  %785 = getelementptr inbounds i8, ptr %.044595853, i64 2
+  %785 = getelementptr inbounds i8, ptr %.044455853, i64 2
   %786 = load i16, ptr %785, align 2
   %switch.tableidx = add nsw i16 %786, -343
   %787 = sext i16 %switch.tableidx to i64
@@ -7095,7 +7095,7 @@ switch.lookup:                                    ; preds = %6
   br label %.loopexit5587.sink.split
 
 switch.lookup7081:                                ; preds = %6
-  %788 = getelementptr inbounds i8, ptr %.044595853, i64 2
+  %788 = getelementptr inbounds i8, ptr %.044455853, i64 2
   %789 = load i16, ptr %788, align 2
   %790 = and i16 %789, -257
   %switch.tableidx7082 = add nsw i16 %790, -7
@@ -7132,13 +7132,13 @@ switch.lookup7081:                                ; preds = %6
   %805 = load ptr, ptr %0, align 8
   %806 = getelementptr inbounds i8, ptr %805, i64 16
   store i64 %.14552, ptr %806, align 8
-  %807 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %807 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %808 = load ptr, ptr %807, align 8
   tail call fastcc void @zend_ast_export_var(ptr noundef nonnull %0, ptr noundef %808, i32 noundef %3)
   br label %zend_ast_export_list.exit
 
 809:                                              ; preds = %6
-  %810 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %810 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %811 = load ptr, ptr %810, align 8
   tail call fastcc void @zend_ast_export_ns_name(ptr noundef %0, ptr noundef %811, i32 noundef %3)
   br label %zend_ast_export_list.exit
@@ -7174,17 +7174,17 @@ switch.lookup7081:                                ; preds = %6
   %825 = load ptr, ptr %0, align 8
   %826 = getelementptr inbounds i8, ptr %825, i64 16
   store i64 %.14638, ptr %826, align 8
-  %827 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %827 = getelementptr inbounds i8, ptr %.044455853, i64 8
   br label %.backedge
 
 .backedge:                                        ; preds = %820, %914, %2227, %3086, %3119
-  %.04459.be.in = phi ptr [ %3109, %3119 ], [ %2234, %2227 ], [ %3076, %3086 ], [ %921, %914 ], [ %827, %820 ]
-  %.04459.be = load ptr, ptr %.04459.be.in, align 8
-  %.not = icmp eq ptr %.04459.be, null
+  %.04445.be.in = phi ptr [ %3109, %3119 ], [ %2234, %2227 ], [ %3076, %3086 ], [ %921, %914 ], [ %827, %820 ]
+  %.04445.be = load ptr, ptr %.04445.be.in, align 8
+  %.not = icmp eq ptr %.04445.be, null
   br i1 %.not, label %zend_ast_export_list.exit, label %6
 
 828:                                              ; preds = %6
-  %829 = getelementptr inbounds i8, ptr %.044595853, i64 2
+  %829 = getelementptr inbounds i8, ptr %.044455853, i64 2
   %830 = load i16, ptr %829, align 2
   switch i16 %830, label %837 [
     i16 1, label %2916
@@ -7246,7 +7246,7 @@ switch.lookup7081:                                ; preds = %6
   %851 = load ptr, ptr %0, align 8
   %852 = getelementptr inbounds i8, ptr %851, i64 16
   store i64 %.14550, ptr %852, align 8
-  %853 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %853 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %854 = load ptr, ptr %853, align 8
   %855 = load i16, ptr %854, align 8
   %856 = icmp eq i16 %855, 130
@@ -7296,13 +7296,13 @@ switch.lookup7081:                                ; preds = %6
   br label %zend_ast_export_list.exit
 
 877:                                              ; preds = %6
-  %878 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %878 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %879 = load ptr, ptr %878, align 8
   %.not5412 = icmp eq ptr %879, null
   br i1 %.not5412, label %.loopexit5587, label %.loopexit5585
 
 switch.lookup7085:                                ; preds = %6
-  %880 = getelementptr inbounds i8, ptr %.044595853, i64 2
+  %880 = getelementptr inbounds i8, ptr %.044455853, i64 2
   %881 = load i16, ptr %880, align 2
   %882 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %881, i1 true)
   %883 = zext nneg i16 %882 to i64
@@ -7311,7 +7311,7 @@ switch.lookup7085:                                ; preds = %6
   br label %.loopexit5585
 
 884:                                              ; preds = %6
-  %885 = getelementptr inbounds i8, ptr %.044595853, i64 2
+  %885 = getelementptr inbounds i8, ptr %.044455853, i64 2
   %886 = load i16, ptr %885, align 2
   %switch = icmp eq i16 %886, 13
   %.str.60..str.61 = select i1 %switch, ptr @.str.60, ptr @.str.61
@@ -7324,7 +7324,7 @@ switch.lookup7085:                                ; preds = %6
   br label %3060
 
 889:                                              ; preds = %6
-  %890 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %890 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %891 = load ptr, ptr %890, align 8
   tail call fastcc void @zend_ast_export_name(ptr noundef %0, ptr noundef %891, i32 noundef 0, i32 noundef %3)
   %892 = load ptr, ptr %0, align 8
@@ -7386,7 +7386,7 @@ switch.lookup7085:                                ; preds = %6
   %919 = load ptr, ptr %0, align 8
   %920 = getelementptr inbounds i8, ptr %919, i64 16
   store i64 %.14544, ptr %920, align 8
-  %921 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %921 = getelementptr inbounds i8, ptr %.044455853, i64 8
   br label %.backedge
 
 922:                                              ; preds = %6
@@ -7426,7 +7426,7 @@ switch.lookup7085:                                ; preds = %6
   %937 = load ptr, ptr %0, align 8
   %938 = getelementptr inbounds i8, ptr %937, i64 16
   store i64 %.14640, ptr %938, align 8
-  %939 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %939 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %940 = load ptr, ptr %939, align 8
   tail call fastcc void @zend_ast_export_name(ptr noundef nonnull %0, ptr noundef %940, i32 noundef 0, i32 noundef %3)
   br label %zend_ast_export_list.exit
@@ -7438,7 +7438,7 @@ switch.lookup7085:                                ; preds = %6
   br label %3060
 
 943:                                              ; preds = %6
-  %944 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %944 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %945 = load ptr, ptr %944, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %945, i32 noundef 260, i32 noundef %3)
   %946 = load ptr, ptr %0, align 8
@@ -7469,7 +7469,7 @@ switch.lookup7085:                                ; preds = %6
   %958 = load ptr, ptr %0, align 8
   %959 = getelementptr inbounds i8, ptr %958, i64 16
   store i64 %.14542, ptr %959, align 8
-  %960 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %960 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %961 = load ptr, ptr %960, align 8
   %.not5392 = icmp eq ptr %961, null
   br i1 %.not5392, label %963, label %962
@@ -7510,10 +7510,10 @@ switch.lookup7085:                                ; preds = %6
   br label %zend_ast_export_list.exit
 
 978:                                              ; preds = %6, %6
-  %979 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %979 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %980 = load ptr, ptr %979, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %980, i32 noundef 0, i32 noundef %3)
-  %981 = load i16, ptr %.044595853, align 8
+  %981 = load i16, ptr %.044455853, align 8
   %982 = icmp eq i16 %981, 514
   %983 = select i1 %982, ptr @.str.73, ptr @.str.74
   %984 = select i1 %982, i64 3, i64 2
@@ -7547,13 +7547,13 @@ switch.lookup7085:                                ; preds = %6
   %997 = load ptr, ptr %0, align 8
   %998 = getelementptr inbounds i8, ptr %997, i64 16
   store i64 %.14642, ptr %998, align 8
-  %999 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %999 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %1000 = load ptr, ptr %999, align 8
   tail call fastcc void @zend_ast_export_var(ptr noundef nonnull %0, ptr noundef %1000, i32 noundef %3)
   br label %zend_ast_export_list.exit
 
 1001:                                             ; preds = %6
-  %1002 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %1002 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %1003 = load ptr, ptr %1002, align 8
   tail call fastcc void @zend_ast_export_ns_name(ptr noundef %0, ptr noundef %1003, i32 noundef %3)
   %1004 = load ptr, ptr %0, align 8
@@ -7586,13 +7586,13 @@ switch.lookup7085:                                ; preds = %6
   %1016 = load ptr, ptr %0, align 8
   %1017 = getelementptr inbounds i8, ptr %1016, i64 16
   store i64 %.14644, ptr %1017, align 8
-  %1018 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %1018 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %1019 = load ptr, ptr %1018, align 8
   tail call fastcc void @zend_ast_export_var(ptr noundef nonnull %0, ptr noundef %1019, i32 noundef %3)
   br label %zend_ast_export_list.exit
 
 1020:                                             ; preds = %6
-  %1021 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %1021 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %1022 = load ptr, ptr %1021, align 8
   tail call fastcc void @zend_ast_export_ns_name(ptr noundef %0, ptr noundef %1022, i32 noundef %3)
   %1023 = load ptr, ptr %0, align 8
@@ -7623,7 +7623,7 @@ switch.lookup7085:                                ; preds = %6
   %1035 = load ptr, ptr %0, align 8
   %1036 = getelementptr inbounds i8, ptr %1035, i64 16
   store i64 %.14538, ptr %1036, align 8
-  %1037 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %1037 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %1038 = load ptr, ptr %1037, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %1038, i32 noundef 0, i32 noundef %3)
   %1039 = load ptr, ptr %0, align 8
@@ -7690,7 +7690,7 @@ switch.lookup7085:                                ; preds = %6
   br label %zend_ast_export_list.exit
 
 1068:                                             ; preds = %6
-  %1069 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %1069 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %1070 = load ptr, ptr %1069, align 8
   tail call fastcc void @zend_ast_export_ns_name(ptr noundef %0, ptr noundef %1070, i32 noundef %3)
   %1071 = load ptr, ptr %0, align 8
@@ -7723,19 +7723,19 @@ switch.lookup7085:                                ; preds = %6
   %1083 = load ptr, ptr %0, align 8
   %1084 = getelementptr inbounds i8, ptr %1083, i64 16
   store i64 %.14648, ptr %1084, align 8
-  %1085 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %1085 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %1086 = load ptr, ptr %1085, align 8
   tail call fastcc void @zend_ast_export_name(ptr noundef nonnull %0, ptr noundef %1086, i32 noundef 0, i32 noundef %3)
   br label %zend_ast_export_list.exit
 
 1087:                                             ; preds = %6
-  %1088 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %1088 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %1089 = load ptr, ptr %1088, align 8
   %1090 = icmp eq ptr %1089, null
   br i1 %1090, label %1091, label %1123
 
 1091:                                             ; preds = %1087
-  %1092 = getelementptr inbounds i8, ptr %.044595853, i64 2
+  %1092 = getelementptr inbounds i8, ptr %.044455853, i64 2
   %1093 = load i16, ptr %1092, align 2
   %switch5556 = icmp eq i16 %1093, 1
   %1094 = load ptr, ptr %0, align 8
@@ -7842,7 +7842,7 @@ switch.lookup7085:                                ; preds = %6
   br label %zend_ast_export_list.exit
 
 switch.lookup7088:                                ; preds = %6
-  %1139 = getelementptr inbounds i8, ptr %.044595853, i64 2
+  %1139 = getelementptr inbounds i8, ptr %.044455853, i64 2
   %1140 = load i16, ptr %1139, align 2
   %switch.tableidx7089 = add nsw i16 %1140, -1
   %1141 = sext i16 %switch.tableidx7089 to i64
@@ -7851,7 +7851,7 @@ switch.lookup7088:                                ; preds = %6
   br label %2864
 
 1142:                                             ; preds = %6
-  %1143 = getelementptr inbounds i8, ptr %.044595853, i64 2
+  %1143 = getelementptr inbounds i8, ptr %.044455853, i64 2
   %1144 = load i16, ptr %1143, align 2
   switch i16 %1144, label %1164 [
     i16 1, label %2864
@@ -7940,8 +7940,8 @@ switch.lookup7088:                                ; preds = %6
   br label %2864
 
 1166:                                             ; preds = %6
-  %1167 = getelementptr inbounds i8, ptr %.044595853, i64 8
-  %1168 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %1167 = getelementptr inbounds i8, ptr %.044455853, i64 8
+  %1168 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %1169 = load ptr, ptr %1168, align 8
   %.not5360 = icmp eq ptr %1169, null
   br i1 %.not5360, label %1185, label %1170
@@ -7981,7 +7981,7 @@ switch.lookup7088:                                ; preds = %6
   br label %1185
 
 1185:                                             ; preds = %1178, %1166
-  %1186 = getelementptr inbounds i8, ptr %.044595853, i64 2
+  %1186 = getelementptr inbounds i8, ptr %.044455853, i64 2
   %1187 = load i16, ptr %1186, align 2
   %.not5363 = icmp eq i16 %1187, 0
   br i1 %.not5363, label %1203, label %1188
@@ -8052,7 +8052,7 @@ switch.lookup7088:                                ; preds = %6
   %1218 = load ptr, ptr %0, align 8
   %1219 = getelementptr inbounds i8, ptr %1218, i64 16
   store i64 %.14658, ptr %1219, align 8
-  %1220 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %1220 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %1221 = load ptr, ptr %1220, align 8
   %1222 = load i16, ptr %1221, align 8
   %1223 = icmp eq i16 %1222, 70
@@ -8099,7 +8099,7 @@ switch.lookup7088:                                ; preds = %6
   %1241 = load ptr, ptr %0, align 8
   %1242 = getelementptr inbounds i8, ptr %1241, i64 16
   store i64 %.14660, ptr %1242, align 8
-  %1243 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %1243 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %1244 = load ptr, ptr %1243, align 8
   %1245 = load i16, ptr %1244, align 8
   %1246 = and i16 %1245, 128
@@ -8207,7 +8207,7 @@ switch.lookup7088:                                ; preds = %6
   %1294 = load ptr, ptr %0, align 8
   %1295 = getelementptr inbounds i8, ptr %1294, i64 16
   store i64 %.14528, ptr %1295, align 8
-  %1296 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %1296 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %1297 = load ptr, ptr %1296, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %1297, i32 noundef 0, i32 noundef %3)
   %1298 = load ptr, ptr %0, align 8
@@ -8241,7 +8241,7 @@ switch.lookup7088:                                ; preds = %6
   br label %zend_ast_export_list.exit
 
 1312:                                             ; preds = %6
-  %1313 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %1313 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %1314 = load ptr, ptr %1313, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %1314, i32 noundef 0, i32 noundef %3)
   %1315 = load ptr, ptr %0, align 8
@@ -8274,7 +8274,7 @@ switch.lookup7088:                                ; preds = %6
   %1327 = load ptr, ptr %0, align 8
   %1328 = getelementptr inbounds i8, ptr %1327, i64 16
   store i64 %.14662, ptr %1328, align 8
-  %1329 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %1329 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %1330 = load ptr, ptr %1329, align 8
   tail call fastcc void @zend_ast_export_ns_name(ptr noundef nonnull %0, ptr noundef %1330, i32 noundef %3)
   br label %zend_ast_export_list.exit
@@ -8345,13 +8345,13 @@ switch.lookup7088:                                ; preds = %6
   %1361 = load ptr, ptr %0, align 8
   %1362 = getelementptr inbounds i8, ptr %1361, i64 16
   store i64 %.14664, ptr %1362, align 8
-  %1363 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %1363 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %1364 = load ptr, ptr %1363, align 8
   %.not5337 = icmp eq ptr %1364, null
   br i1 %.not5337, label %1385, label %1365
 
 1365:                                             ; preds = %1356
-  %1366 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %1366 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %1367 = load ptr, ptr %1366, align 8
   %.not5338 = icmp eq ptr %1367, null
   br i1 %.not5338, label %1383, label %1368
@@ -8467,7 +8467,7 @@ switch.lookup7088:                                ; preds = %6
   %1416 = load ptr, ptr %0, align 8
   %1417 = getelementptr inbounds i8, ptr %1416, i64 16
   store i64 %.14668, ptr %1417, align 8
-  %1418 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %1418 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %1419 = load ptr, ptr %1418, align 8
   %1420 = load i16, ptr %1419, align 8
   %1421 = icmp eq i16 %1420, 64
@@ -8552,7 +8552,7 @@ switch.lookup7088:                                ; preds = %6
   %1460 = load ptr, ptr %0, align 8
   %1461 = getelementptr inbounds i8, ptr %1460, i64 16
   store i64 %.14670, ptr %1461, align 8
-  %1462 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %1462 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %1463 = load ptr, ptr %1462, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %1463, i32 noundef 0, i32 noundef %3)
   %1464 = load ptr, ptr %0, align 8
@@ -8585,7 +8585,7 @@ switch.lookup7088:                                ; preds = %6
   %1476 = load ptr, ptr %0, align 8
   %1477 = getelementptr inbounds i8, ptr %1476, i64 16
   store i64 %.14672, ptr %1477, align 8
-  %1478 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %1478 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %1479 = load ptr, ptr %1478, align 8
   %1480 = add nsw i32 %3, 1
   tail call fastcc void @zend_ast_export_stmt(ptr noundef nonnull %0, ptr noundef %1479, i32 noundef %1480)
@@ -8651,7 +8651,7 @@ switch.lookup7088:                                ; preds = %6
   %1508 = load ptr, ptr %0, align 8
   %1509 = getelementptr inbounds i8, ptr %1508, i64 16
   store i64 %.14674, ptr %1509, align 8
-  %1510 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %1510 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %1511 = load ptr, ptr %1510, align 8
   %1512 = add nsw i32 %3, 1
   tail call fastcc void @zend_ast_export_stmt(ptr noundef nonnull %0, ptr noundef %1511, i32 noundef %1512)
@@ -8686,7 +8686,7 @@ switch.lookup7088:                                ; preds = %6
   %1525 = load ptr, ptr %0, align 8
   %1526 = getelementptr inbounds i8, ptr %1525, i64 16
   store i64 %.14676, ptr %1526, align 8
-  %1527 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %1527 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %1528 = load ptr, ptr %1527, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %1528, i32 noundef 0, i32 noundef %3)
   %1529 = load ptr, ptr %0, align 8
@@ -8720,7 +8720,7 @@ switch.lookup7088:                                ; preds = %6
   br label %zend_ast_export_list.exit
 
 1543:                                             ; preds = %6
-  %1544 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %1544 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %1545 = load ptr, ptr %1544, align 8
   %.not5307 = icmp eq ptr %1545, null
   %1546 = load ptr, ptr %0, align 8
@@ -8820,7 +8820,7 @@ switch.lookup7088:                                ; preds = %6
   %1587 = load ptr, ptr %0, align 8
   %1588 = getelementptr inbounds i8, ptr %1587, i64 16
   store i64 %.14682.sink, ptr %1588, align 8
-  %1589 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %1589 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %1590 = load ptr, ptr %1589, align 8
   %1591 = add nsw i32 %3, 1
   tail call fastcc void @zend_ast_export_stmt(ptr noundef nonnull %0, ptr noundef %1590, i32 noundef %1591)
@@ -8886,7 +8886,7 @@ switch.lookup7088:                                ; preds = %6
   %1619 = load ptr, ptr %0, align 8
   %1620 = getelementptr inbounds i8, ptr %1619, i64 16
   store i64 %.14684, ptr %1620, align 8
-  %1621 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %1621 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %1622 = load ptr, ptr %1621, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %1622, i32 noundef 0, i32 noundef %3)
   %1623 = load ptr, ptr %0, align 8
@@ -8919,7 +8919,7 @@ switch.lookup7088:                                ; preds = %6
   %1635 = load ptr, ptr %0, align 8
   %1636 = getelementptr inbounds i8, ptr %1635, i64 16
   store i64 %.14686, ptr %1636, align 8
-  %1637 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %1637 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %1638 = load ptr, ptr %1637, align 8
   %1639 = add nsw i32 %3, 1
   tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %1638, i32 noundef 0, i32 noundef %1639)
@@ -8956,7 +8956,7 @@ switch.lookup7088:                                ; preds = %6
 
 1654:                                             ; preds = %6
   tail call fastcc void @zend_ast_export_indent(ptr noundef %0, i32 noundef %3)
-  %1655 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %1655 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %1656 = load ptr, ptr %1655, align 8
   %.not5294 = icmp eq ptr %1656, null
   %1657 = load ptr, ptr %0, align 8
@@ -9056,7 +9056,7 @@ switch.lookup7088:                                ; preds = %6
   %1698 = load ptr, ptr %0, align 8
   %1699 = getelementptr inbounds i8, ptr %1698, i64 16
   store i64 %.14692.sink, ptr %1699, align 8
-  %1700 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %1700 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %1701 = load ptr, ptr %1700, align 8
   %1702 = add nsw i32 %3, 1
   tail call fastcc void @zend_ast_export_stmt(ptr noundef nonnull %0, ptr noundef %1701, i32 noundef %1702)
@@ -9093,7 +9093,7 @@ switch.lookup7088:                                ; preds = %6
   %1716 = load ptr, ptr %0, align 8
   %1717 = getelementptr inbounds i8, ptr %1716, i64 16
   store i64 %.14694, ptr %1717, align 8
-  %1718 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %1718 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %1719 = load ptr, ptr %1718, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %1719, i32 noundef 0, i32 noundef %3)
   %1720 = load ptr, ptr %0, align 8
@@ -9126,7 +9126,7 @@ switch.lookup7088:                                ; preds = %6
   %1732 = load ptr, ptr %0, align 8
   %1733 = getelementptr inbounds i8, ptr %1732, i64 16
   store i64 %.14696, ptr %1733, align 8
-  %1734 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %1734 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %1735 = load ptr, ptr %1734, align 8
   %1736 = add nsw i32 %3, 1
   tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %1735, i32 noundef 0, i32 noundef %1736)
@@ -9163,7 +9163,7 @@ switch.lookup7088:                                ; preds = %6
 
 1751:                                             ; preds = %6
   tail call fastcc void @zend_ast_export_indent(ptr noundef %0, i32 noundef %3)
-  %1752 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %1752 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %1753 = load ptr, ptr %1752, align 8
   %.not5281 = icmp eq ptr %1753, null
   br i1 %.not5281, label %1767, label %1754
@@ -9234,7 +9234,7 @@ switch.lookup7088:                                ; preds = %6
   %1781 = load ptr, ptr %0, align 8
   %1782 = getelementptr inbounds i8, ptr %1781, i64 16
   store i64 %.14700.sink, ptr %1782, align 8
-  %1783 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %1783 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %1784 = load ptr, ptr %1783, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %1784, i32 noundef 0, i32 noundef 0)
   %1785 = load ptr, ptr %0, align 8
@@ -9300,7 +9300,7 @@ switch.lookup7088:                                ; preds = %6
   %1812 = load ptr, ptr %0, align 8
   %1813 = getelementptr inbounds i8, ptr %1812, i64 16
   store i64 %.14704, ptr %1813, align 8
-  %1814 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %1814 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %1815 = load ptr, ptr %1814, align 8
   %1816 = load i16, ptr %1815, align 8
   %1817 = icmp eq i16 %1816, 139
@@ -9334,7 +9334,7 @@ switch.lookup7088:                                ; preds = %6
   %1830 = load ptr, ptr %0, align 8
   %1831 = getelementptr inbounds i8, ptr %1830, i64 16
   store i64 %.14510, ptr %1831, align 8
-  %1832 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %1832 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %1833 = load ptr, ptr %1832, align 8
   %.not5274 = icmp eq ptr %1833, null
   %1834 = load ptr, ptr %0, align 8
@@ -9465,7 +9465,7 @@ switch.lookup7088:                                ; preds = %6
   br label %1894
 
 1894:                                             ; preds = %1887, %6
-  %1895 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %1895 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %1896 = load ptr, ptr %1895, align 8
   %1897 = load i16, ptr %1896, align 8
   %1898 = icmp eq i16 %1897, 64
@@ -9550,10 +9550,10 @@ switch.lookup7088:                                ; preds = %6
   %1937 = load ptr, ptr %0, align 8
   %1938 = getelementptr inbounds i8, ptr %1937, i64 16
   store i64 %.14708, ptr %1938, align 8
-  %1939 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %1939 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %1940 = load ptr, ptr %1939, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %1940, i32 noundef 0, i32 noundef %3)
-  %1941 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %1941 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %1942 = load ptr, ptr %1941, align 8
   %.not5261 = icmp eq ptr %1942, null
   %1943 = load ptr, ptr %0, align 8
@@ -9657,7 +9657,7 @@ switch.lookup7088:                                ; preds = %6
   br label %zend_ast_export_list.exit
 
 1988:                                             ; preds = %6
-  %1989 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %1989 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %1990 = load ptr, ptr %1989, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %1990, i32 noundef 0, i32 noundef %3)
   %1991 = load ptr, ptr %0, align 8
@@ -9690,12 +9690,12 @@ switch.lookup7088:                                ; preds = %6
   %2003 = load ptr, ptr %0, align 8
   %2004 = getelementptr inbounds i8, ptr %2003, i64 16
   store i64 %.14716, ptr %2004, align 8
-  %2005 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %2005 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %2006 = load ptr, ptr %2005, align 8
   br label %tailrecurse.backedge
 
 2007:                                             ; preds = %6
-  %2008 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %2008 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %2009 = load ptr, ptr %2008, align 8
   %.not5254 = icmp eq ptr %2009, null
   br i1 %.not5254, label %2025, label %2010
@@ -9735,7 +9735,7 @@ switch.lookup7088:                                ; preds = %6
   br label %2025
 
 2025:                                             ; preds = %2018, %2007
-  %2026 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %2026 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %2027 = load ptr, ptr %2026, align 8
   tail call fastcc void @zend_ast_export_name(ptr noundef %0, ptr noundef %2027, i32 noundef 0, i32 noundef %3)
   br label %zend_ast_export_list.exit
@@ -9771,7 +9771,7 @@ switch.lookup7088:                                ; preds = %6
   %2041 = load ptr, ptr %0, align 8
   %2042 = getelementptr inbounds i8, ptr %2041, i64 16
   store i64 %.14720, ptr %2042, align 8
-  %2043 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %2043 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %2044 = load ptr, ptr %2043, align 8
   %.not5244 = icmp eq ptr %2044, null
   br i1 %.not5244, label %2061, label %2045
@@ -9810,7 +9810,7 @@ switch.lookup7088:                                ; preds = %6
   br label %2061
 
 2061:                                             ; preds = %2053, %2036
-  %2062 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %2062 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %2063 = load ptr, ptr %2062, align 8
   %.not5247 = icmp eq ptr %2063, null
   %2064 = load ptr, ptr %0, align 8
@@ -9912,10 +9912,10 @@ switch.lookup7088:                                ; preds = %6
   br label %zend_ast_export_list.exit
 
 2109:                                             ; preds = %6, %6
-  %2110 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %2110 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %2111 = load ptr, ptr %2110, align 8
   tail call fastcc void @zend_ast_export_name(ptr noundef %0, ptr noundef %2111, i32 noundef 0, i32 noundef %3)
-  %2112 = getelementptr inbounds i8, ptr %.044595853, i64 2
+  %2112 = getelementptr inbounds i8, ptr %.044455853, i64 2
   %2113 = load i16, ptr %2112, align 2
   %2114 = zext i16 %2113 to i32
   %2115 = and i32 %2114, 1
@@ -10023,7 +10023,7 @@ switch.lookup7088:                                ; preds = %6
   br label %.sink.split
 
 2159:                                             ; preds = %2144
-  %2160 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %2160 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %2161 = load ptr, ptr %2160, align 8
   %.not5230 = icmp eq ptr %2161, null
   br i1 %.not5230, label %2177, label %2162
@@ -10066,7 +10066,7 @@ switch.lookup7088:                                ; preds = %6
   br label %2177
 
 2177:                                             ; preds = %.sink.split, %2159
-  %2178 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %2178 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %2179 = load ptr, ptr %2178, align 8
   %.not5239 = icmp eq ptr %2179, null
   br i1 %.not5239, label %zend_ast_export_list.exit, label %2180
@@ -10105,7 +10105,7 @@ switch.lookup7088:                                ; preds = %6
   br label %zend_ast_export_list.exit
 
 2196:                                             ; preds = %6
-  %2197 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %2197 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %2198 = load ptr, ptr %2197, align 8
   %2199 = load i16, ptr %2198, align 8
   %2200 = icmp eq i16 %2199, 64
@@ -10128,8 +10128,8 @@ switch.lookup7088:                                ; preds = %6
   br i1 %.not5224, label %2213, label %2212
 
 2212:                                             ; preds = %2196, %2207
-  %.0 = phi i64 [ %2205, %2196 ], [ %2210, %2207 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0) #14
+  %.04434 = phi i64 [ %2205, %2196 ], [ %2210, %2207 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.04434) #14
   %.pre6199 = load ptr, ptr %0, align 8
   %.phi.trans.insert6200 = getelementptr inbounds i8, ptr %.pre6199, i64 16
   %.pre6201 = load i64, ptr %.phi.trans.insert6200, align 8
@@ -10138,7 +10138,7 @@ switch.lookup7088:                                ; preds = %6
 2213:                                             ; preds = %2212, %2207
   %2214 = phi i64 [ %.pre6201, %2212 ], [ %2209, %2207 ]
   %2215 = phi ptr [ %.pre6199, %2212 ], [ %2206, %2207 ]
-  %.1 = phi i64 [ %.0, %2212 ], [ %2210, %2207 ]
+  %.1 = phi i64 [ %.04434, %2212 ], [ %2210, %2207 ]
   %2216 = getelementptr inbounds i8, ptr %2215, i64 24
   %2217 = getelementptr inbounds i8, ptr %2216, i64 %2214
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2217, ptr nonnull align 1 %2203, i64 %2205, i1 false)
@@ -10175,14 +10175,14 @@ switch.lookup7088:                                ; preds = %6
   %2232 = load ptr, ptr %0, align 8
   %2233 = getelementptr inbounds i8, ptr %2232, i64 16
   store i64 %.14734, ptr %2233, align 8
-  %2234 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %2234 = getelementptr inbounds i8, ptr %.044455853, i64 16
   br label %.backedge
 
 2235:                                             ; preds = %6, %6
-  %2236 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %2236 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %2237 = load ptr, ptr %2236, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %2237, i32 noundef 0, i32 noundef %3)
-  %2238 = load i16, ptr %.044595853, align 8
+  %2238 = load i16, ptr %.044455853, align 8
   %2239 = icmp eq i16 %2238, 769
   %2240 = select i1 %2239, ptr @.str.73, ptr @.str.74
   %2241 = select i1 %2239, i64 3, i64 2
@@ -10216,7 +10216,7 @@ switch.lookup7088:                                ; preds = %6
   %2254 = load ptr, ptr %0, align 8
   %2255 = getelementptr inbounds i8, ptr %2254, i64 16
   store i64 %.14736, ptr %2255, align 8
-  %2256 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %2256 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %2257 = load ptr, ptr %2256, align 8
   tail call fastcc void @zend_ast_export_var(ptr noundef nonnull %0, ptr noundef %2257, i32 noundef %3)
   %2258 = load ptr, ptr %0, align 8
@@ -10247,7 +10247,7 @@ switch.lookup7088:                                ; preds = %6
   %2270 = load ptr, ptr %0, align 8
   %2271 = getelementptr inbounds i8, ptr %2270, i64 16
   store i64 %.14496, ptr %2271, align 8
-  %2272 = getelementptr inbounds i8, ptr %.044595853, i64 24
+  %2272 = getelementptr inbounds i8, ptr %.044455853, i64 24
   %2273 = load ptr, ptr %2272, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %2273, i32 noundef 0, i32 noundef %3)
   %2274 = load ptr, ptr %0, align 8
@@ -10281,7 +10281,7 @@ switch.lookup7088:                                ; preds = %6
   br label %zend_ast_export_list.exit
 
 2288:                                             ; preds = %6
-  %2289 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %2289 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %2290 = load ptr, ptr %2289, align 8
   tail call fastcc void @zend_ast_export_ns_name(ptr noundef %0, ptr noundef %2290, i32 noundef %3)
   %2291 = load ptr, ptr %0, align 8
@@ -10314,7 +10314,7 @@ switch.lookup7088:                                ; preds = %6
   %2303 = load ptr, ptr %0, align 8
   %2304 = getelementptr inbounds i8, ptr %2303, i64 16
   store i64 %.14738, ptr %2304, align 8
-  %2305 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %2305 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %2306 = load ptr, ptr %2305, align 8
   tail call fastcc void @zend_ast_export_var(ptr noundef nonnull %0, ptr noundef %2306, i32 noundef %3)
   %2307 = load ptr, ptr %0, align 8
@@ -10345,7 +10345,7 @@ switch.lookup7088:                                ; preds = %6
   %2319 = load ptr, ptr %0, align 8
   %2320 = getelementptr inbounds i8, ptr %2319, i64 16
   store i64 %.14492, ptr %2320, align 8
-  %2321 = getelementptr inbounds i8, ptr %.044595853, i64 24
+  %2321 = getelementptr inbounds i8, ptr %.044455853, i64 24
   %2322 = load ptr, ptr %2321, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %2322, i32 noundef 0, i32 noundef %3)
   %2323 = load ptr, ptr %0, align 8
@@ -10414,10 +10414,10 @@ switch.lookup7088:                                ; preds = %6
   br label %2354
 
 2354:                                             ; preds = %2347, %2337
-  %2355 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %2355 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %2356 = load ptr, ptr %2355, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %2356, i32 noundef 100, i32 noundef %3)
-  %2357 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %2357 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %2358 = load ptr, ptr %2357, align 8
   %.not5202 = icmp eq ptr %2358, null
   %2359 = load ptr, ptr %0, align 8
@@ -10517,7 +10517,7 @@ switch.lookup7088:                                ; preds = %6
   %2400 = load ptr, ptr %0, align 8
   %2401 = getelementptr inbounds i8, ptr %2400, i64 16
   store i64 %.14744.sink, ptr %2401, align 8
-  %2402 = getelementptr inbounds i8, ptr %.044595853, i64 24
+  %2402 = getelementptr inbounds i8, ptr %.044455853, i64 24
   %2403 = load ptr, ptr %2402, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %2403, i32 noundef 101, i32 noundef %3)
   br i1 %2338, label %2404, label %zend_ast_export_list.exit
@@ -10584,15 +10584,15 @@ switch.lookup7088:                                ; preds = %6
   %2432 = load ptr, ptr %0, align 8
   %2433 = getelementptr inbounds i8, ptr %2432, i64 16
   store i64 %.14746, ptr %2433, align 8
-  %2434 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %2434 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %2435 = load ptr, ptr %2434, align 8
   %2436 = add nsw i32 %3, 1
   tail call fastcc void @zend_ast_export_stmt(ptr noundef nonnull %0, ptr noundef %2435, i32 noundef %2436)
   tail call fastcc void @zend_ast_export_indent(ptr noundef nonnull %0, i32 noundef %3)
-  %2437 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %2437 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %2438 = load ptr, ptr %2437, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %2438, i32 noundef 0, i32 noundef %3)
-  %2439 = getelementptr inbounds i8, ptr %.044595853, i64 24
+  %2439 = getelementptr inbounds i8, ptr %.044455853, i64 24
   %2440 = load ptr, ptr %2439, align 8
   %.not5195 = icmp eq ptr %2440, null
   br i1 %.not5195, label %2457, label %2441
@@ -10695,10 +10695,10 @@ switch.lookup7088:                                ; preds = %6
   %2485 = load ptr, ptr %0, align 8
   %2486 = getelementptr inbounds i8, ptr %2485, i64 16
   store i64 %.14750, ptr %2486, align 8
-  %2487 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %2487 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %2488 = load ptr, ptr %2487, align 8
   tail call fastcc void @zend_ast_export_name_list_ex(ptr noundef nonnull %0, ptr noundef %2488, i32 noundef %3, ptr noundef nonnull @.str.155)
-  %2489 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %2489 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %2490 = load ptr, ptr %2489, align 8
   %.not5188 = icmp eq ptr %2490, null
   br i1 %.not5188, label %2507, label %2491
@@ -10769,7 +10769,7 @@ switch.lookup7088:                                ; preds = %6
   %2520 = load ptr, ptr %0, align 8
   %2521 = getelementptr inbounds i8, ptr %2520, i64 16
   store i64 %.14754, ptr %2521, align 8
-  %2522 = getelementptr inbounds i8, ptr %.044595853, i64 24
+  %2522 = getelementptr inbounds i8, ptr %.044455853, i64 24
   %2523 = load ptr, ptr %2522, align 8
   %2524 = add nsw i32 %3, 1
   tail call fastcc void @zend_ast_export_stmt(ptr noundef nonnull %0, ptr noundef %2523, i32 noundef %2524)
@@ -10777,8 +10777,8 @@ switch.lookup7088:                                ; preds = %6
   br label %zend_ast_export_list.exit
 
 2525:                                             ; preds = %6
-  %2526 = getelementptr inbounds i8, ptr %.044595853, i64 8
-  %2527 = getelementptr inbounds i8, ptr %.044595853, i64 32
+  %2526 = getelementptr inbounds i8, ptr %.044455853, i64 8
+  %2527 = getelementptr inbounds i8, ptr %.044455853, i64 32
   %2528 = load ptr, ptr %2527, align 8
   %.not5174 = icmp eq ptr %2528, null
   br i1 %.not5174, label %2530, label %2529
@@ -10825,7 +10825,7 @@ switch.lookup7088:                                ; preds = %6
   br label %2547
 
 2547:                                             ; preds = %2540, %2530
-  %2548 = getelementptr inbounds i8, ptr %.044595853, i64 2
+  %2548 = getelementptr inbounds i8, ptr %.044455853, i64 2
   %2549 = load i16, ptr %2548, align 2
   %2550 = and i16 %2549, 8
   %.not5178 = icmp eq i16 %2550, 0
@@ -10931,7 +10931,7 @@ switch.lookup7088:                                ; preds = %6
   %2597 = load ptr, ptr %0, align 8
   %2598 = getelementptr inbounds i8, ptr %2597, i64 16
   store i64 %.14478, ptr %2598, align 8
-  %2599 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %2599 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %2600 = load ptr, ptr %2599, align 8
   %2601 = load i16, ptr %2600, align 8
   %2602 = icmp eq i16 %2601, 64
@@ -10986,8 +10986,8 @@ switch.lookup7088:                                ; preds = %6
   br label %zend_ast_export_name.exit
 
 2628:                                             ; preds = %6
-  %2629 = getelementptr inbounds i8, ptr %.044595853, i64 8
-  %2630 = getelementptr inbounds i8, ptr %.044595853, i64 32
+  %2629 = getelementptr inbounds i8, ptr %.044455853, i64 8
+  %2630 = getelementptr inbounds i8, ptr %.044455853, i64 32
   %2631 = load ptr, ptr %2630, align 8
   %.not5168 = icmp eq ptr %2631, null
   br i1 %.not5168, label %2633, label %2632
@@ -11029,7 +11029,7 @@ switch.lookup7088:                                ; preds = %6
   store i64 %.14758, ptr %2647, align 8
   %2648 = load ptr, ptr %2629, align 8
   tail call fastcc void @zend_ast_export_name(ptr noundef nonnull %0, ptr noundef %2648, i32 noundef 0, i32 noundef %3)
-  %2649 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %2649 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %2650 = load ptr, ptr %2649, align 8
   %.not5171 = icmp eq ptr %2650, null
   br i1 %.not5171, label %zend_ast_export_list.exit, label %2651
@@ -11099,7 +11099,7 @@ switch.lookup7088:                                ; preds = %6
   %2680 = load ptr, ptr %0, align 8
   %2681 = getelementptr inbounds i8, ptr %2680, i64 16
   store i64 %.14762, ptr %2681, align 8
-  %2682 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %2682 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %2683 = load ptr, ptr %2682, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %2683, i32 noundef 0, i32 noundef %3)
   %2684 = load ptr, ptr %0, align 8
@@ -11130,7 +11130,7 @@ switch.lookup7088:                                ; preds = %6
   %2696 = load ptr, ptr %0, align 8
   %2697 = getelementptr inbounds i8, ptr %2696, i64 16
   store i64 %.14476, ptr %2697, align 8
-  %2698 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %2698 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %2699 = load ptr, ptr %2698, align 8
   %.not5156 = icmp eq ptr %2699, null
   br i1 %.not5156, label %2716, label %2700
@@ -11197,7 +11197,7 @@ switch.lookup7088:                                ; preds = %6
   %2729 = load ptr, ptr %0, align 8
   %2730 = getelementptr inbounds i8, ptr %2729, i64 16
   store i64 %.14472, ptr %2730, align 8
-  %2731 = getelementptr inbounds i8, ptr %.044595853, i64 24
+  %2731 = getelementptr inbounds i8, ptr %.044455853, i64 24
   %2732 = load ptr, ptr %2731, align 8
   %.not5161 = icmp eq ptr %2732, null
   br i1 %.not5161, label %2749, label %2733
@@ -11266,7 +11266,7 @@ switch.lookup7088:                                ; preds = %6
   %2762 = load ptr, ptr %0, align 8
   %2763 = getelementptr inbounds i8, ptr %2762, i64 16
   store i64 %.14764, ptr %2763, align 8
-  %2764 = getelementptr inbounds i8, ptr %.044595853, i64 32
+  %2764 = getelementptr inbounds i8, ptr %.044455853, i64 32
   %2765 = load ptr, ptr %2764, align 8
   %2766 = add nsw i32 %3, 1
   tail call fastcc void @zend_ast_export_stmt(ptr noundef nonnull %0, ptr noundef %2765, i32 noundef %2766)
@@ -11332,7 +11332,7 @@ switch.lookup7088:                                ; preds = %6
   %2794 = load ptr, ptr %0, align 8
   %2795 = getelementptr inbounds i8, ptr %2794, i64 16
   store i64 %.14766, ptr %2795, align 8
-  %2796 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %2796 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %2797 = load ptr, ptr %2796, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %2797, i32 noundef 0, i32 noundef %3)
   %2798 = load ptr, ptr %0, align 8
@@ -11365,7 +11365,7 @@ switch.lookup7088:                                ; preds = %6
   %2810 = load ptr, ptr %0, align 8
   %2811 = getelementptr inbounds i8, ptr %2810, i64 16
   store i64 %.14768, ptr %2811, align 8
-  %2812 = getelementptr inbounds i8, ptr %.044595853, i64 24
+  %2812 = getelementptr inbounds i8, ptr %.044455853, i64 24
   %2813 = load ptr, ptr %2812, align 8
   %.not5544 = icmp eq ptr %2813, null
   br i1 %.not5544, label %2829, label %2814
@@ -11405,7 +11405,7 @@ switch.lookup7088:                                ; preds = %6
   br label %2829
 
 2829:                                             ; preds = %2822, %2805
-  %2830 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %2830 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %2831 = load ptr, ptr %2830, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %2831, i32 noundef 0, i32 noundef %3)
   %2832 = load ptr, ptr %0, align 8
@@ -11438,7 +11438,7 @@ switch.lookup7088:                                ; preds = %6
   %2844 = load ptr, ptr %0, align 8
   %2845 = getelementptr inbounds i8, ptr %2844, i64 16
   store i64 %.14772, ptr %2845, align 8
-  %2846 = getelementptr inbounds i8, ptr %.044595853, i64 32
+  %2846 = getelementptr inbounds i8, ptr %.044455853, i64 32
   %2847 = load ptr, ptr %2846, align 8
   %2848 = add nsw i32 %3, 1
   tail call fastcc void @zend_ast_export_stmt(ptr noundef nonnull %0, ptr noundef %2847, i32 noundef %2848)
@@ -11492,11 +11492,11 @@ switch.lookup7088:                                ; preds = %6
   br label %2864
 
 2864:                                             ; preds = %6, %.loopexit7095, %switch.lookup7088, %.loopexit6816, %.loopexit6538, %.loopexit5868, %.loopexit5588, %1142, %1402, %1165, %1163, %1162, %1161, %1160, %1159, %1158, %1157, %1156, %1155, %1154, %1153, %1152, %1151, %1150, %1149, %1148, %1147, %1146, %1145
-  %.04451 = phi i32 [ 110, %1402 ], [ 120, %1165 ], [ 180, %1163 ], [ 40, %1162 ], [ 250, %1161 ], [ 180, %1160 ], [ 180, %1159 ], [ 170, %1158 ], [ 170, %1157 ], [ 170, %1156 ], [ 170, %1155 ], [ 150, %1154 ], [ 160, %1153 ], [ 140, %1152 ], [ 185, %1151 ], [ 190, %1150 ], [ 190, %1149 ], [ 210, %1148 ], [ 210, %1147 ], [ 210, %1146 ], [ 200, %1145 ], [ 200, %1142 ], [ 90, %.loopexit5588 ], [ 90, %.loopexit5868 ], [ 90, %.loopexit6538 ], [ 180, %.loopexit6816 ], [ 90, %switch.lookup7088 ], [ 180, %.loopexit7095 ], [ 130, %6 ]
-  %.04448 = phi i32 [ 111, %1402 ], [ 120, %1165 ], [ 181, %1163 ], [ 40, %1162 ], [ 251, %1161 ], [ 181, %1160 ], [ 181, %1159 ], [ 171, %1158 ], [ 171, %1157 ], [ 171, %1156 ], [ 171, %1155 ], [ 150, %1154 ], [ 160, %1153 ], [ 140, %1152 ], [ 185, %1151 ], [ 190, %1150 ], [ 190, %1149 ], [ 210, %1148 ], [ 210, %1147 ], [ 210, %1146 ], [ 200, %1145 ], [ 200, %1142 ], [ 91, %.loopexit5588 ], [ 91, %.loopexit5868 ], [ 91, %.loopexit6538 ], [ 181, %.loopexit6816 ], [ 91, %switch.lookup7088 ], [ 181, %.loopexit7095 ], [ 130, %6 ]
-  %.04447 = phi i32 [ 110, %1402 ], [ 121, %1165 ], [ 181, %1163 ], [ 41, %1162 ], [ 250, %1161 ], [ 181, %1160 ], [ 181, %1159 ], [ 171, %1158 ], [ 171, %1157 ], [ 171, %1156 ], [ 171, %1155 ], [ 151, %1154 ], [ 161, %1153 ], [ 141, %1152 ], [ 186, %1151 ], [ 191, %1150 ], [ 191, %1149 ], [ 211, %1148 ], [ 211, %1147 ], [ 211, %1146 ], [ 201, %1145 ], [ 201, %1142 ], [ 90, %.loopexit5588 ], [ 90, %.loopexit5868 ], [ 90, %.loopexit6538 ], [ 181, %.loopexit6816 ], [ 90, %switch.lookup7088 ], [ 181, %.loopexit7095 ], [ 131, %6 ]
-  %.04445 = phi ptr [ @.str.124, %1402 ], [ @.str.118, %1165 ], [ @.str.114, %1163 ], [ @.str.113, %1162 ], [ @.str.112, %1161 ], [ @.str.111, %1160 ], [ @.str.110, %1159 ], [ @.str.109, %1158 ], [ @.str.108, %1157 ], [ @.str.107, %1156 ], [ @.str.106, %1155 ], [ @.str.105, %1154 ], [ @.str.104, %1153 ], [ @.str.103, %1152 ], [ @.str.102, %1151 ], [ @.str.101, %1150 ], [ @.str.100, %1149 ], [ @.str.99, %1148 ], [ @.str.98, %1147 ], [ @.str.97, %1146 ], [ @.str.96, %1145 ], [ @.str.95, %1142 ], [ @.str.80, %.loopexit5588 ], [ @.str.81, %.loopexit5868 ], [ @.str.94, %.loopexit6538 ], [ @.str.115, %.loopexit6816 ], [ %switch.load7091, %switch.lookup7088 ], [ @.str.116, %.loopexit7095 ], [ @.str.117, %6 ]
-  %2865 = icmp slt i32 %.04451, %.tr55805857
+  %.04441 = phi i32 [ 110, %1402 ], [ 120, %1165 ], [ 180, %1163 ], [ 40, %1162 ], [ 250, %1161 ], [ 180, %1160 ], [ 180, %1159 ], [ 170, %1158 ], [ 170, %1157 ], [ 170, %1156 ], [ 170, %1155 ], [ 150, %1154 ], [ 160, %1153 ], [ 140, %1152 ], [ 185, %1151 ], [ 190, %1150 ], [ 190, %1149 ], [ 210, %1148 ], [ 210, %1147 ], [ 210, %1146 ], [ 200, %1145 ], [ 200, %1142 ], [ 90, %.loopexit5588 ], [ 90, %.loopexit5868 ], [ 90, %.loopexit6538 ], [ 180, %.loopexit6816 ], [ 90, %switch.lookup7088 ], [ 180, %.loopexit7095 ], [ 130, %6 ]
+  %.04438 = phi i32 [ 111, %1402 ], [ 120, %1165 ], [ 181, %1163 ], [ 40, %1162 ], [ 251, %1161 ], [ 181, %1160 ], [ 181, %1159 ], [ 171, %1158 ], [ 171, %1157 ], [ 171, %1156 ], [ 171, %1155 ], [ 150, %1154 ], [ 160, %1153 ], [ 140, %1152 ], [ 185, %1151 ], [ 190, %1150 ], [ 190, %1149 ], [ 210, %1148 ], [ 210, %1147 ], [ 210, %1146 ], [ 200, %1145 ], [ 200, %1142 ], [ 91, %.loopexit5588 ], [ 91, %.loopexit5868 ], [ 91, %.loopexit6538 ], [ 181, %.loopexit6816 ], [ 91, %switch.lookup7088 ], [ 181, %.loopexit7095 ], [ 130, %6 ]
+  %.04437 = phi i32 [ 110, %1402 ], [ 121, %1165 ], [ 181, %1163 ], [ 41, %1162 ], [ 250, %1161 ], [ 181, %1160 ], [ 181, %1159 ], [ 171, %1158 ], [ 171, %1157 ], [ 171, %1156 ], [ 171, %1155 ], [ 151, %1154 ], [ 161, %1153 ], [ 141, %1152 ], [ 186, %1151 ], [ 191, %1150 ], [ 191, %1149 ], [ 211, %1148 ], [ 211, %1147 ], [ 211, %1146 ], [ 201, %1145 ], [ 201, %1142 ], [ 90, %.loopexit5588 ], [ 90, %.loopexit5868 ], [ 90, %.loopexit6538 ], [ 181, %.loopexit6816 ], [ 90, %switch.lookup7088 ], [ 181, %.loopexit7095 ], [ 131, %6 ]
+  %.04435 = phi ptr [ @.str.124, %1402 ], [ @.str.118, %1165 ], [ @.str.114, %1163 ], [ @.str.113, %1162 ], [ @.str.112, %1161 ], [ @.str.111, %1160 ], [ @.str.110, %1159 ], [ @.str.109, %1158 ], [ @.str.108, %1157 ], [ @.str.107, %1156 ], [ @.str.106, %1155 ], [ @.str.105, %1154 ], [ @.str.104, %1153 ], [ @.str.103, %1152 ], [ @.str.102, %1151 ], [ @.str.101, %1150 ], [ @.str.100, %1149 ], [ @.str.99, %1148 ], [ @.str.98, %1147 ], [ @.str.97, %1146 ], [ @.str.96, %1145 ], [ @.str.95, %1142 ], [ @.str.80, %.loopexit5588 ], [ @.str.81, %.loopexit5868 ], [ @.str.94, %.loopexit6538 ], [ @.str.115, %.loopexit6816 ], [ %switch.load7091, %switch.lookup7088 ], [ @.str.116, %.loopexit7095 ], [ @.str.117, %6 ]
+  %2865 = icmp slt i32 %.04441, %.tr55805857
   br i1 %2865, label %2866, label %2881
 
 2866:                                             ; preds = %2864
@@ -11531,10 +11531,10 @@ switch.lookup7088:                                ; preds = %6
   br label %2881
 
 2881:                                             ; preds = %2874, %2864
-  %2882 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %2882 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %2883 = load ptr, ptr %2882, align 8
-  tail call fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %2883, i32 noundef %.04448, i32 noundef %3)
-  %2884 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.04445) #17
+  tail call fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %2883, i32 noundef %.04438, i32 noundef %3)
+  %2884 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.04435) #17
   %2885 = load ptr, ptr %0, align 8
   %.not5368 = icmp eq ptr %2885, null
   br i1 %.not5368, label %2891, label %2886
@@ -11561,13 +11561,13 @@ switch.lookup7088:                                ; preds = %6
   %.14774 = phi i64 [ %.04773, %2891 ], [ %2889, %2886 ]
   %2895 = getelementptr inbounds i8, ptr %2894, i64 24
   %2896 = getelementptr inbounds i8, ptr %2895, i64 %2893
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2896, ptr nonnull align 1 %.04445, i64 %2884, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2896, ptr nonnull align 1 %.04435, i64 %2884, i1 false)
   %2897 = load ptr, ptr %0, align 8
   %2898 = getelementptr inbounds i8, ptr %2897, i64 16
   store i64 %.14774, ptr %2898, align 8
-  %2899 = getelementptr inbounds i8, ptr %.044595853, i64 16
+  %2899 = getelementptr inbounds i8, ptr %.044455853, i64 16
   %2900 = load ptr, ptr %2899, align 8
-  tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %2900, i32 noundef %.04447, i32 noundef %3)
+  tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %2900, i32 noundef %.04437, i32 noundef %3)
   br i1 %2865, label %2901, label %zend_ast_export_list.exit
 
 2901:                                             ; preds = %2892
@@ -11617,10 +11617,10 @@ switch.lookup7088:                                ; preds = %6
   br label %2916
 
 2916:                                             ; preds = %6, %.loopexit7094, %.loopexit6814, %.loopexit6536, %.loopexit5865, %.loopexit5584, %884, %828, %1401, %887, %836, %835, %834, %833, %832, %831
-  %.14452 = phi i32 [ 85, %1401 ], [ 240, %887 ], [ 240, %836 ], [ 240, %835 ], [ 240, %834 ], [ 240, %833 ], [ 240, %832 ], [ 240, %831 ], [ 240, %828 ], [ 240, %884 ], [ 240, %.loopexit5584 ], [ 240, %.loopexit5865 ], [ 240, %.loopexit6536 ], [ 270, %.loopexit6814 ], [ 60, %.loopexit7094 ], [ 240, %6 ]
-  %.14449 = phi i32 [ 86, %1401 ], [ 241, %887 ], [ 241, %836 ], [ 241, %835 ], [ 241, %834 ], [ 241, %833 ], [ 241, %832 ], [ 241, %831 ], [ 241, %828 ], [ 241, %884 ], [ 241, %.loopexit5584 ], [ 241, %.loopexit5865 ], [ 241, %.loopexit6536 ], [ 271, %.loopexit6814 ], [ 61, %.loopexit7094 ], [ 241, %6 ]
-  %.14446 = phi ptr [ @.str.123, %1401 ], [ @.str.63, %887 ], [ @.str.48, %836 ], [ @.str.47, %835 ], [ @.str.46, %834 ], [ @.str.45, %833 ], [ @.str.44, %832 ], [ @.str.43, %831 ], [ @.str.42, %828 ], [ %.str.60..str.61, %884 ], [ @.str.40, %.loopexit5584 ], [ @.str.41, %.loopexit5865 ], [ @.str.51, %.loopexit6536 ], [ @.str.52, %.loopexit6814 ], [ @.str.54, %.loopexit7094 ], [ @.str.62, %6 ]
-  %2917 = icmp slt i32 %.14452, %.tr55805857
+  %.14442 = phi i32 [ 85, %1401 ], [ 240, %887 ], [ 240, %836 ], [ 240, %835 ], [ 240, %834 ], [ 240, %833 ], [ 240, %832 ], [ 240, %831 ], [ 240, %828 ], [ 240, %884 ], [ 240, %.loopexit5584 ], [ 240, %.loopexit5865 ], [ 240, %.loopexit6536 ], [ 270, %.loopexit6814 ], [ 60, %.loopexit7094 ], [ 240, %6 ]
+  %.14439 = phi i32 [ 86, %1401 ], [ 241, %887 ], [ 241, %836 ], [ 241, %835 ], [ 241, %834 ], [ 241, %833 ], [ 241, %832 ], [ 241, %831 ], [ 241, %828 ], [ 241, %884 ], [ 241, %.loopexit5584 ], [ 241, %.loopexit5865 ], [ 241, %.loopexit6536 ], [ 271, %.loopexit6814 ], [ 61, %.loopexit7094 ], [ 241, %6 ]
+  %.14436 = phi ptr [ @.str.123, %1401 ], [ @.str.63, %887 ], [ @.str.48, %836 ], [ @.str.47, %835 ], [ @.str.46, %834 ], [ @.str.45, %833 ], [ @.str.44, %832 ], [ @.str.43, %831 ], [ @.str.42, %828 ], [ %.str.60..str.61, %884 ], [ @.str.40, %.loopexit5584 ], [ @.str.41, %.loopexit5865 ], [ @.str.51, %.loopexit6536 ], [ @.str.52, %.loopexit6814 ], [ @.str.54, %.loopexit7094 ], [ @.str.62, %6 ]
+  %2917 = icmp slt i32 %.14442, %.tr55805857
   br i1 %2917, label %2918, label %2933
 
 2918:                                             ; preds = %2916
@@ -11637,25 +11637,25 @@ switch.lookup7088:                                ; preds = %6
   br i1 %.not5424, label %2926, label %2925
 
 2925:                                             ; preds = %2918, %2920
-  %.04457 = phi i64 [ 1, %2918 ], [ %2923, %2920 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.04457) #14
+  %.04459 = phi i64 [ 1, %2918 ], [ %2923, %2920 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.04459) #14
   %.pre6402 = load ptr, ptr %0, align 8
   br label %2926
 
 2926:                                             ; preds = %2925, %2920
   %2927 = phi ptr [ %.pre6402, %2925 ], [ %2919, %2920 ]
-  %.14458 = phi i64 [ %.04457, %2925 ], [ %2923, %2920 ]
+  %.14460 = phi i64 [ %.04459, %2925 ], [ %2923, %2920 ]
   %2928 = getelementptr inbounds i8, ptr %2927, i64 24
-  %2929 = add i64 %.14458, -1
+  %2929 = add i64 %.14460, -1
   %2930 = getelementptr inbounds [1 x i8], ptr %2928, i64 0, i64 %2929
   store i8 40, ptr %2930, align 1
   %2931 = load ptr, ptr %0, align 8
   %2932 = getelementptr inbounds i8, ptr %2931, i64 16
-  store i64 %.14458, ptr %2932, align 8
+  store i64 %.14460, ptr %2932, align 8
   br label %2933
 
 2933:                                             ; preds = %2926, %2916
-  %2934 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.14446) #17
+  %2934 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.14436) #17
   %2935 = load ptr, ptr %0, align 8
   %.not5425 = icmp eq ptr %2935, null
   br i1 %.not5425, label %2941, label %2936
@@ -11682,13 +11682,13 @@ switch.lookup7088:                                ; preds = %6
   %.14776 = phi i64 [ %.04775, %2941 ], [ %2939, %2936 ]
   %2945 = getelementptr inbounds i8, ptr %2944, i64 24
   %2946 = getelementptr inbounds i8, ptr %2945, i64 %2943
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2946, ptr nonnull align 1 %.14446, i64 %2934, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2946, ptr nonnull align 1 %.14436, i64 %2934, i1 false)
   %2947 = load ptr, ptr %0, align 8
   %2948 = getelementptr inbounds i8, ptr %2947, i64 16
   store i64 %.14776, ptr %2948, align 8
-  %2949 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %2949 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %2950 = load ptr, ptr %2949, align 8
-  tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %2950, i32 noundef %.14449, i32 noundef %3)
+  tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %2950, i32 noundef %.14439, i32 noundef %3)
   br i1 %2917, label %2951, label %zend_ast_export_list.exit
 
 2951:                                             ; preds = %2942
@@ -11705,21 +11705,21 @@ switch.lookup7088:                                ; preds = %6
   br i1 %.not5428, label %2959, label %2958
 
 2958:                                             ; preds = %2951, %2953
-  %.04455 = phi i64 [ 1, %2951 ], [ %2956, %2953 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.04455) #14
+  %.04457 = phi i64 [ 1, %2951 ], [ %2956, %2953 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.04457) #14
   %.pre6406 = load ptr, ptr %0, align 8
   br label %2959
 
 2959:                                             ; preds = %2958, %2953
   %2960 = phi ptr [ %.pre6406, %2958 ], [ %2952, %2953 ]
-  %.14456 = phi i64 [ %.04455, %2958 ], [ %2956, %2953 ]
+  %.14458 = phi i64 [ %.04457, %2958 ], [ %2956, %2953 ]
   %2961 = getelementptr inbounds i8, ptr %2960, i64 24
-  %2962 = add i64 %.14456, -1
+  %2962 = add i64 %.14458, -1
   %2963 = getelementptr inbounds [1 x i8], ptr %2961, i64 0, i64 %2962
   store i8 41, ptr %2963, align 1
   %2964 = load ptr, ptr %0, align 8
   %2965 = getelementptr inbounds i8, ptr %2964, i64 16
-  store i64 %.14456, ptr %2965, align 8
+  store i64 %.14458, ptr %2965, align 8
   br label %zend_ast_export_list.exit
 
 .loopexit5586.loopexit:                           ; preds = %6
@@ -11744,25 +11744,25 @@ switch.lookup7088:                                ; preds = %6
   br i1 %.not5407, label %2975, label %2974
 
 2974:                                             ; preds = %2967, %2969
-  %.04443 = phi i64 [ 1, %2967 ], [ %2972, %2969 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.04443) #14
+  %.04455 = phi i64 [ 1, %2967 ], [ %2972, %2969 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.04455) #14
   %.pre6390 = load ptr, ptr %0, align 8
   br label %2975
 
 2975:                                             ; preds = %2974, %2969
   %2976 = phi ptr [ %.pre6390, %2974 ], [ %2968, %2969 ]
-  %.14444 = phi i64 [ %.04443, %2974 ], [ %2972, %2969 ]
+  %.14456 = phi i64 [ %.04455, %2974 ], [ %2972, %2969 ]
   %2977 = getelementptr inbounds i8, ptr %2976, i64 24
-  %2978 = add i64 %.14444, -1
+  %2978 = add i64 %.14456, -1
   %2979 = getelementptr inbounds [1 x i8], ptr %2977, i64 0, i64 %2978
   store i8 40, ptr %2979, align 1
   %2980 = load ptr, ptr %0, align 8
   %2981 = getelementptr inbounds i8, ptr %2980, i64 16
-  store i64 %.14444, ptr %2981, align 8
+  store i64 %.14456, ptr %2981, align 8
   br label %2982
 
 2982:                                             ; preds = %2975, %.loopexit5586
-  %2983 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %2983 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %2984 = load ptr, ptr %2983, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef %2984, i32 noundef 241, i32 noundef %3)
   %2985 = load ptr, ptr %0, align 8
@@ -11812,21 +11812,21 @@ switch.lookup7088:                                ; preds = %6
   br i1 %.not5411, label %3008, label %3007
 
 3007:                                             ; preds = %3000, %3002
-  %.04441 = phi i64 [ 1, %3000 ], [ %3005, %3002 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.04441) #14
+  %.04453 = phi i64 [ 1, %3000 ], [ %3005, %3002 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.04453) #14
   %.pre6394 = load ptr, ptr %0, align 8
   br label %3008
 
 3008:                                             ; preds = %3007, %3002
   %3009 = phi ptr [ %.pre6394, %3007 ], [ %3001, %3002 ]
-  %.14442 = phi i64 [ %.04441, %3007 ], [ %3005, %3002 ]
+  %.14454 = phi i64 [ %.04453, %3007 ], [ %3005, %3002 ]
   %3010 = getelementptr inbounds i8, ptr %3009, i64 24
-  %3011 = add i64 %.14442, -1
+  %3011 = add i64 %.14454, -1
   %3012 = getelementptr inbounds [1 x i8], ptr %3010, i64 0, i64 %3011
   store i8 41, ptr %3012, align 1
   %3013 = load ptr, ptr %0, align 8
   %3014 = getelementptr inbounds i8, ptr %3013, i64 16
-  store i64 %.14442, ptr %3014, align 8
+  store i64 %.14454, ptr %3014, align 8
   br label %zend_ast_export_list.exit
 
 .loopexit5585.loopexit:                           ; preds = %6
@@ -11881,22 +11881,22 @@ switch.lookup7088:                                ; preds = %6
   br i1 %.not5420, label %3037, label %3036
 
 3036:                                             ; preds = %3023, %3031
-  %.04438 = phi i64 [ 1, %3023 ], [ %3034, %3031 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.04438) #14
+  %.04451 = phi i64 [ 1, %3023 ], [ %3034, %3031 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.04451) #14
   %.pre6400 = load ptr, ptr %0, align 8
   br label %3037
 
 3037:                                             ; preds = %3036, %3031
   %3038 = phi ptr [ %.pre6400, %3036 ], [ %3030, %3031 ]
-  %.14439 = phi i64 [ %.04438, %3036 ], [ %3034, %3031 ]
+  %.14452 = phi i64 [ %.04451, %3036 ], [ %3034, %3031 ]
   %3039 = getelementptr inbounds i8, ptr %3038, i64 24
-  %3040 = add i64 %.14439, -1
+  %3040 = add i64 %.14452, -1
   %3041 = getelementptr inbounds [1 x i8], ptr %3039, i64 0, i64 %3040
   store i8 40, ptr %3041, align 1
   %3042 = load ptr, ptr %0, align 8
   %3043 = getelementptr inbounds i8, ptr %3042, i64 16
-  store i64 %.14439, ptr %3043, align 8
-  %3044 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  store i64 %.14452, ptr %3043, align 8
+  %3044 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %3045 = load ptr, ptr %3044, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef %3045, i32 noundef 0, i32 noundef %3)
   %3046 = load ptr, ptr %0, align 8
@@ -11912,21 +11912,21 @@ switch.lookup7088:                                ; preds = %6
   br i1 %.not5422, label %3053, label %3052
 
 3052:                                             ; preds = %3037, %3047
-  %.04436 = phi i64 [ 1, %3037 ], [ %3050, %3047 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.04436) #14
+  %.04449 = phi i64 [ 1, %3037 ], [ %3050, %3047 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.04449) #14
   %.pre6401 = load ptr, ptr %0, align 8
   br label %3053
 
 3053:                                             ; preds = %3052, %3047
   %3054 = phi ptr [ %.pre6401, %3052 ], [ %3046, %3047 ]
-  %.14437 = phi i64 [ %.04436, %3052 ], [ %3050, %3047 ]
+  %.14450 = phi i64 [ %.04449, %3052 ], [ %3050, %3047 ]
   %3055 = getelementptr inbounds i8, ptr %3054, i64 24
-  %3056 = add i64 %.14437, -1
+  %3056 = add i64 %.14450, -1
   %3057 = getelementptr inbounds [1 x i8], ptr %3055, i64 0, i64 %3056
   store i8 41, ptr %3057, align 1
   %3058 = load ptr, ptr %0, align 8
   %3059 = getelementptr inbounds i8, ptr %3058, i64 16
-  store i64 %.14437, ptr %3059, align 8
+  store i64 %.14450, ptr %3059, align 8
   br label %zend_ast_export_list.exit
 
 3060:                                             ; preds = %6, %942, %941, %923, %922, %888
@@ -11962,7 +11962,7 @@ switch.lookup7088:                                ; preds = %6
   %3074 = load ptr, ptr %0, align 8
   %3075 = getelementptr inbounds i8, ptr %3074, i64 16
   store i64 %.14782, ptr %3075, align 8
-  %3076 = getelementptr inbounds i8, ptr %.044595853, i64 8
+  %3076 = getelementptr inbounds i8, ptr %.044455853, i64 8
   %3077 = load ptr, ptr %3076, align 8
   %.not5403 = icmp eq ptr %3077, null
   br i1 %.not5403, label %zend_ast_export_list.exit, label %3078
@@ -11981,21 +11981,21 @@ switch.lookup7088:                                ; preds = %6
   br i1 %.not5405, label %3086, label %3085
 
 3085:                                             ; preds = %3078, %3080
-  %.04434 = phi i64 [ 1, %3078 ], [ %3083, %3080 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.04434) #14
+  %.04447 = phi i64 [ 1, %3078 ], [ %3083, %3080 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.04447) #14
   %.pre6389 = load ptr, ptr %0, align 8
   br label %3086
 
 3086:                                             ; preds = %3085, %3080
   %3087 = phi ptr [ %.pre6389, %3085 ], [ %3079, %3080 ]
-  %.14435 = phi i64 [ %.04434, %3085 ], [ %3083, %3080 ]
+  %.14448 = phi i64 [ %.04447, %3085 ], [ %3083, %3080 ]
   %3088 = getelementptr inbounds i8, ptr %3087, i64 24
-  %3089 = add i64 %.14435, -1
+  %3089 = add i64 %.14448, -1
   %3090 = getelementptr inbounds [1 x i8], ptr %3088, i64 0, i64 %3089
   store i8 32, ptr %3090, align 1
   %3091 = load ptr, ptr %0, align 8
   %3092 = getelementptr inbounds i8, ptr %3091, i64 16
-  store i64 %.14435, ptr %3092, align 8
+  store i64 %.14448, ptr %3092, align 8
   br label %.backedge
 
 .loopexit5587.sink.split:                         ; preds = %switch.lookup, %switch.lookup7081
@@ -12039,9 +12039,9 @@ switch.lookup7088:                                ; preds = %6
   br label %zend_ast_export_list.exit
 
 zend_ast_export_name.exit:                        ; preds = %2627, %2620, %1923, %1916, %1446, %1439
-  %.34454 = phi i64 [ 1, %1439 ], [ 1, %1446 ], [ 1, %1916 ], [ 1, %1923 ], [ 2, %2620 ], [ 2, %2627 ]
-  %3108 = getelementptr inbounds i8, ptr %.044595853, i64 8
-  %3109 = getelementptr inbounds [1 x ptr], ptr %3108, i64 0, i64 %.34454
+  %.34444 = phi i64 [ 1, %1439 ], [ 1, %1446 ], [ 1, %1916 ], [ 1, %1923 ], [ 2, %2620 ], [ 2, %2627 ]
+  %3108 = getelementptr inbounds i8, ptr %.044455853, i64 8
+  %3109 = getelementptr inbounds [1 x ptr], ptr %3108, i64 0, i64 %.34444
   %3110 = load ptr, ptr %3109, align 8
   %.not5330 = icmp eq ptr %3110, null
   br i1 %.not5330, label %zend_ast_export_list.exit, label %3111
@@ -12157,7 +12157,7 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef %0, ptr nocapture 
 
 13:                                               ; preds = %4, %10
   %14 = phi i8 [ %.pre, %10 ], [ %8, %4 ]
-  %.0411 = phi ptr [ %12, %10 ], [ %1, %4 ]
+  %.0399 = phi ptr [ %12, %10 ], [ %1, %4 ]
   switch i8 %14, label %294 [
     i8 1, label %15
     i8 2, label %31
@@ -12184,8 +12184,8 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef %0, ptr nocapture 
   br i1 %.not493, label %24, label %23
 
 23:                                               ; preds = %15, %17
-  %.0422 = phi i64 [ 4, %15 ], [ %20, %17 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0422) #14
+  %.0432 = phi i64 [ 4, %15 ], [ %20, %17 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0432) #14
   %.pre529 = load ptr, ptr %0, align 8
   %.phi.trans.insert530 = getelementptr inbounds i8, ptr %.pre529, i64 16
   %.pre531 = load i64, ptr %.phi.trans.insert530, align 8
@@ -12194,13 +12194,13 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef %0, ptr nocapture 
 24:                                               ; preds = %23, %17
   %25 = phi i64 [ %.pre531, %23 ], [ %19, %17 ]
   %26 = phi ptr [ %.pre529, %23 ], [ %16, %17 ]
-  %.1423 = phi i64 [ %.0422, %23 ], [ %20, %17 ]
+  %.1433 = phi i64 [ %.0432, %23 ], [ %20, %17 ]
   %27 = getelementptr inbounds i8, ptr %26, i64 24
   %28 = getelementptr inbounds i8, ptr %27, i64 %25
   store i32 1819047278, ptr %28, align 1
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 16
-  store i64 %.1423, ptr %30, align 8
+  store i64 %.1433, ptr %30, align 8
   br label %295
 
 31:                                               ; preds = %13
@@ -12218,8 +12218,8 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef %0, ptr nocapture 
   br i1 %.not491, label %40, label %39
 
 39:                                               ; preds = %31, %33
-  %.0424 = phi i64 [ 5, %31 ], [ %36, %33 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0424) #14
+  %.0430 = phi i64 [ 5, %31 ], [ %36, %33 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0430) #14
   %.pre526 = load ptr, ptr %0, align 8
   %.phi.trans.insert527 = getelementptr inbounds i8, ptr %.pre526, i64 16
   %.pre528 = load i64, ptr %.phi.trans.insert527, align 8
@@ -12228,13 +12228,13 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef %0, ptr nocapture 
 40:                                               ; preds = %39, %33
   %41 = phi i64 [ %.pre528, %39 ], [ %35, %33 ]
   %42 = phi ptr [ %.pre526, %39 ], [ %32, %33 ]
-  %.1425 = phi i64 [ %.0424, %39 ], [ %36, %33 ]
+  %.1431 = phi i64 [ %.0430, %39 ], [ %36, %33 ]
   %43 = getelementptr inbounds i8, ptr %42, i64 24
   %44 = getelementptr inbounds i8, ptr %43, i64 %41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %44, ptr noundef nonnull align 1 dereferenceable(5) @.str.161, i64 5, i1 false)
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 16
-  store i64 %.1425, ptr %46, align 8
+  store i64 %.1431, ptr %46, align 8
   br label %295
 
 47:                                               ; preds = %13
@@ -12252,8 +12252,8 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef %0, ptr nocapture 
   br i1 %.not489, label %56, label %55
 
 55:                                               ; preds = %47, %49
-  %.0426 = phi i64 [ 4, %47 ], [ %52, %49 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0426) #14
+  %.0428 = phi i64 [ 4, %47 ], [ %52, %49 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0428) #14
   %.pre523 = load ptr, ptr %0, align 8
   %.phi.trans.insert524 = getelementptr inbounds i8, ptr %.pre523, i64 16
   %.pre525 = load i64, ptr %.phi.trans.insert524, align 8
@@ -12262,17 +12262,17 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef %0, ptr nocapture 
 56:                                               ; preds = %55, %49
   %57 = phi i64 [ %.pre525, %55 ], [ %51, %49 ]
   %58 = phi ptr [ %.pre523, %55 ], [ %48, %49 ]
-  %.1427 = phi i64 [ %.0426, %55 ], [ %52, %49 ]
+  %.1429 = phi i64 [ %.0428, %55 ], [ %52, %49 ]
   %59 = getelementptr inbounds i8, ptr %58, i64 24
   %60 = getelementptr inbounds i8, ptr %59, i64 %57
   store i32 1702195828, ptr %60, align 1
   %61 = load ptr, ptr %0, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 16
-  store i64 %.1427, ptr %62, align 8
+  store i64 %.1429, ptr %62, align 8
   br label %295
 
 63:                                               ; preds = %13
-  %64 = load i64, ptr %.0411, align 8
+  %64 = load i64, ptr %.0399, align 8
   %65 = getelementptr inbounds i8, ptr %6, i64 31
   %66 = icmp slt i64 %64, 0
   br i1 %66, label %67, label %77
@@ -12334,8 +12334,8 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef %0, ptr nocapture 
   br i1 %.not487, label %95, label %94
 
 94:                                               ; preds = %.loopexit, %88
-  %.0420 = phi i64 [ %86, %.loopexit ], [ %91, %88 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0420) #14
+  %.0424 = phi i64 [ %86, %.loopexit ], [ %91, %88 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0424) #14
   %.pre520 = load ptr, ptr %0, align 8
   %.phi.trans.insert521 = getelementptr inbounds i8, ptr %.pre520, i64 16
   %.pre522 = load i64, ptr %.phi.trans.insert521, align 8
@@ -12344,17 +12344,17 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef %0, ptr nocapture 
 95:                                               ; preds = %94, %88
   %96 = phi i64 [ %.pre522, %94 ], [ %90, %88 ]
   %97 = phi ptr [ %.pre520, %94 ], [ %87, %88 ]
-  %.1421 = phi i64 [ %.0420, %94 ], [ %91, %88 ]
+  %.1425 = phi i64 [ %.0424, %94 ], [ %91, %88 ]
   %98 = getelementptr inbounds i8, ptr %97, i64 24
   %99 = getelementptr inbounds i8, ptr %98, i64 %96
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %99, ptr nonnull align 1 %.0416, i64 %86, i1 false)
   %100 = load ptr, ptr %0, align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 16
-  store i64 %.1421, ptr %101, align 8
+  store i64 %.1425, ptr %101, align 8
   br label %295
 
 102:                                              ; preds = %13
-  %103 = load double, ptr %.0411, align 8
+  %103 = load double, ptr %.0399, align 8
   %104 = load i64, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 512), align 8
   %105 = trunc i64 %104 to i32
   tail call void @smart_str_append_double(ptr noundef %0, double noundef %103, i32 noundef %105, i1 noundef zeroext false) #14
@@ -12375,22 +12375,22 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef %0, ptr nocapture 
   br i1 %.not481, label %115, label %114
 
 114:                                              ; preds = %106, %108
-  %.0405 = phi i64 [ 1, %106 ], [ %111, %108 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0405) #14
+  %.0406 = phi i64 [ 1, %106 ], [ %111, %108 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0406) #14
   %.pre518 = load ptr, ptr %0, align 8
   br label %115
 
 115:                                              ; preds = %114, %108
   %116 = phi ptr [ %.pre518, %114 ], [ %107, %108 ]
-  %.1406 = phi i64 [ %.0405, %114 ], [ %111, %108 ]
+  %.1407 = phi i64 [ %.0406, %114 ], [ %111, %108 ]
   %117 = getelementptr inbounds i8, ptr %116, i64 24
-  %118 = add i64 %.1406, -1
+  %118 = add i64 %.1407, -1
   %119 = getelementptr inbounds [1 x i8], ptr %117, i64 0, i64 %118
   store i8 39, ptr %119, align 1
   %120 = load ptr, ptr %0, align 8
   %121 = getelementptr inbounds i8, ptr %120, i64 16
-  store i64 %.1406, ptr %121, align 8
-  %122 = load ptr, ptr %.0411, align 8
+  store i64 %.1407, ptr %121, align 8
+  %122 = load ptr, ptr %.0399, align 8
   tail call fastcc void @zend_ast_export_str(ptr noundef nonnull %0, ptr noundef %122)
   %123 = load ptr, ptr %0, align 8
   %.not482 = icmp eq ptr %123, null
@@ -12406,21 +12406,21 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef %0, ptr nocapture 
   br i1 %.not483, label %131, label %130
 
 130:                                              ; preds = %115, %124
-  %.0401 = phi i64 [ 1, %115 ], [ %127, %124 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0401) #14
+  %.0404 = phi i64 [ 1, %115 ], [ %127, %124 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0404) #14
   %.pre519 = load ptr, ptr %0, align 8
   br label %131
 
 131:                                              ; preds = %130, %124
   %132 = phi ptr [ %.pre519, %130 ], [ %123, %124 ]
-  %.1402 = phi i64 [ %.0401, %130 ], [ %127, %124 ]
+  %.1405 = phi i64 [ %.0404, %130 ], [ %127, %124 ]
   %133 = getelementptr inbounds i8, ptr %132, i64 24
-  %134 = add i64 %.1402, -1
+  %134 = add i64 %.1405, -1
   %135 = getelementptr inbounds [1 x i8], ptr %133, i64 0, i64 %134
   store i8 39, ptr %135, align 1
   %136 = load ptr, ptr %0, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 16
-  store i64 %.1402, ptr %137, align 8
+  store i64 %.1405, ptr %137, align 8
   br label %295
 
 138:                                              ; preds = %13
@@ -12438,22 +12438,22 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef %0, ptr nocapture 
   br i1 %.not462, label %147, label %146
 
 146:                                              ; preds = %138, %140
-  %.0394 = phi i64 [ 1, %138 ], [ %143, %140 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0394) #14
+  %.0402 = phi i64 [ 1, %138 ], [ %143, %140 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0402) #14
   %.pre503 = load ptr, ptr %0, align 8
   br label %147
 
 147:                                              ; preds = %146, %140
   %148 = phi ptr [ %.pre503, %146 ], [ %139, %140 ]
-  %.1395 = phi i64 [ %.0394, %146 ], [ %143, %140 ]
+  %.1403 = phi i64 [ %.0402, %146 ], [ %143, %140 ]
   %149 = getelementptr inbounds i8, ptr %148, i64 24
-  %150 = add i64 %.1395, -1
+  %150 = add i64 %.1403, -1
   %151 = getelementptr inbounds [1 x i8], ptr %149, i64 0, i64 %150
   store i8 91, ptr %151, align 1
   %152 = load ptr, ptr %0, align 8
   %153 = getelementptr inbounds i8, ptr %152, i64 16
-  store i64 %.1395, ptr %153, align 8
-  %154 = load ptr, ptr %.0411, align 8
+  store i64 %.1403, ptr %153, align 8
+  %154 = load ptr, ptr %.0399, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 8
   %156 = getelementptr inbounds i8, ptr %154, i64 24
   %157 = load i32, ptr %156, align 8
@@ -12469,42 +12469,42 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef %0, ptr nocapture 
   br label %163
 
 163:                                              ; preds = %.lr.ph, %274
-  %.0391501 = phi i32 [ %157, %.lr.ph ], [ %275, %274 ]
-  %.0392500 = phi ptr [ %159, %.lr.ph ], [ %.1393, %274 ]
-  %.0396499 = phi i32 [ 0, %.lr.ph ], [ %.1397, %274 ]
-  %.0398498 = phi ptr [ null, %.lr.ph ], [ %.1399, %274 ]
-  %.0403497 = phi i1 [ true, %.lr.ph ], [ %.2, %274 ]
+  %.0501 = phi i32 [ %157, %.lr.ph ], [ %275, %274 ]
+  %.0389500 = phi ptr [ %159, %.lr.ph ], [ %.1, %274 ]
+  %.0392499 = phi i32 [ 0, %.lr.ph ], [ %.1393, %274 ]
+  %.0394498 = phi ptr [ null, %.lr.ph ], [ %.1395, %274 ]
+  %.0397497 = phi i1 [ true, %.lr.ph ], [ %.2, %274 ]
   %164 = load i32, ptr %155, align 8
   %165 = and i32 %164, 4
   %.not466 = icmp eq i32 %165, 0
   br i1 %.not466, label %170, label %166
 
 166:                                              ; preds = %163
-  %167 = getelementptr inbounds i8, ptr %.0392500, i64 16
-  %168 = zext i32 %.0396499 to i64
-  %169 = add i32 %.0396499, 1
+  %167 = getelementptr inbounds i8, ptr %.0389500, i64 16
+  %168 = zext i32 %.0392499 to i64
+  %169 = add i32 %.0392499, 1
   br label %176
 
 170:                                              ; preds = %163
-  %171 = getelementptr inbounds i8, ptr %.0392500, i64 32
-  %172 = getelementptr inbounds i8, ptr %.0392500, i64 16
+  %171 = getelementptr inbounds i8, ptr %.0389500, i64 32
+  %172 = getelementptr inbounds i8, ptr %.0389500, i64 16
   %173 = load i64, ptr %172, align 8
-  %174 = getelementptr inbounds i8, ptr %.0392500, i64 24
+  %174 = getelementptr inbounds i8, ptr %.0389500, i64 24
   %175 = load ptr, ptr %174, align 8
   br label %176
 
 176:                                              ; preds = %170, %166
-  %.0400 = phi i64 [ %168, %166 ], [ %173, %170 ]
-  %.1399 = phi ptr [ %.0398498, %166 ], [ %175, %170 ]
-  %.1397 = phi i32 [ %169, %166 ], [ %.0396499, %170 ]
-  %.1393 = phi ptr [ %167, %166 ], [ %171, %170 ]
-  %177 = getelementptr inbounds i8, ptr %.0392500, i64 8
+  %.0396 = phi i64 [ %168, %166 ], [ %173, %170 ]
+  %.1395 = phi ptr [ %.0394498, %166 ], [ %175, %170 ]
+  %.1393 = phi i32 [ %169, %166 ], [ %.0392499, %170 ]
+  %.1 = phi ptr [ %167, %166 ], [ %171, %170 ]
+  %177 = getelementptr inbounds i8, ptr %.0389500, i64 8
   %178 = load i8, ptr %177, align 8
   %179 = icmp eq i8 %178, 0
   br i1 %179, label %274, label %180
 
 180:                                              ; preds = %176
-  br i1 %.0403497, label %196, label %181
+  br i1 %.0397497, label %196, label %181
 
 181:                                              ; preds = %180
   %182 = load ptr, ptr %0, align 8
@@ -12520,8 +12520,8 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef %0, ptr nocapture 
   br i1 %.not468, label %189, label %188
 
 188:                                              ; preds = %181, %183
-  %.0428 = phi i64 [ 2, %181 ], [ %186, %183 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0428) #14
+  %.0426 = phi i64 [ 2, %181 ], [ %186, %183 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0426) #14
   %.pre504 = load ptr, ptr %0, align 8
   %.phi.trans.insert505 = getelementptr inbounds i8, ptr %.pre504, i64 16
   %.pre506 = load i64, ptr %.phi.trans.insert505, align 8
@@ -12530,17 +12530,17 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef %0, ptr nocapture 
 189:                                              ; preds = %188, %183
   %190 = phi i64 [ %.pre506, %188 ], [ %185, %183 ]
   %191 = phi ptr [ %.pre504, %188 ], [ %182, %183 ]
-  %.1429 = phi i64 [ %.0428, %188 ], [ %186, %183 ]
+  %.1427 = phi i64 [ %.0426, %188 ], [ %186, %183 ]
   %192 = getelementptr inbounds i8, ptr %191, i64 24
   %193 = getelementptr inbounds i8, ptr %192, i64 %190
   store i16 8236, ptr %193, align 1
   %194 = load ptr, ptr %0, align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 16
-  store i64 %.1429, ptr %195, align 8
+  store i64 %.1427, ptr %195, align 8
   br label %196
 
 196:                                              ; preds = %180, %189
-  %.not469 = icmp eq ptr %.1399, null
+  %.not469 = icmp eq ptr %.1395, null
   br i1 %.not469, label %224, label %197
 
 197:                                              ; preds = %196
@@ -12557,22 +12557,22 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef %0, ptr nocapture 
   br i1 %.not477, label %205, label %204
 
 204:                                              ; preds = %197, %199
-  %.0389 = phi i64 [ 1, %197 ], [ %202, %199 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0389) #14
+  %.0400 = phi i64 [ 1, %197 ], [ %202, %199 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0400) #14
   %.pre507 = load ptr, ptr %0, align 8
   br label %205
 
 205:                                              ; preds = %204, %199
   %206 = phi ptr [ %.pre507, %204 ], [ %198, %199 ]
-  %.1390 = phi i64 [ %.0389, %204 ], [ %202, %199 ]
+  %.1401 = phi i64 [ %.0400, %204 ], [ %202, %199 ]
   %207 = getelementptr inbounds i8, ptr %206, i64 24
-  %208 = add i64 %.1390, -1
+  %208 = add i64 %.1401, -1
   %209 = getelementptr inbounds [1 x i8], ptr %207, i64 0, i64 %208
   store i8 39, ptr %209, align 1
   %210 = load ptr, ptr %0, align 8
   %211 = getelementptr inbounds i8, ptr %210, i64 16
-  store i64 %.1390, ptr %211, align 8
-  call fastcc void @zend_ast_export_str(ptr noundef nonnull %0, ptr noundef nonnull %.1399)
+  store i64 %.1401, ptr %211, align 8
+  call fastcc void @zend_ast_export_str(ptr noundef nonnull %0, ptr noundef nonnull %.1395)
   %212 = load ptr, ptr %0, align 8
   %.not478 = icmp eq ptr %212, null
   br i1 %.not478, label %218, label %213
@@ -12586,8 +12586,8 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef %0, ptr nocapture 
   br i1 %.not479, label %219, label %218
 
 218:                                              ; preds = %205, %213
-  %.0430 = phi i64 [ 5, %205 ], [ %216, %213 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0430) #14
+  %.0422 = phi i64 [ 5, %205 ], [ %216, %213 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0422) #14
   %.pre508 = load ptr, ptr %0, align 8
   %.phi.trans.insert509 = getelementptr inbounds i8, ptr %.pre508, i64 16
   %.pre510 = load i64, ptr %.phi.trans.insert509, align 8
@@ -12596,35 +12596,35 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef %0, ptr nocapture 
 219:                                              ; preds = %218, %213
   %220 = phi i64 [ %.pre510, %218 ], [ %215, %213 ]
   %221 = phi ptr [ %.pre508, %218 ], [ %212, %213 ]
-  %.1431 = phi i64 [ %.0430, %218 ], [ %216, %213 ]
+  %.1423 = phi i64 [ %.0422, %218 ], [ %216, %213 ]
   %222 = getelementptr inbounds i8, ptr %221, i64 24
   %223 = getelementptr inbounds i8, ptr %222, i64 %220
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %223, ptr noundef nonnull align 1 dereferenceable(5) @.str.163, i64 5, i1 false)
   br label %271
 
 224:                                              ; preds = %196
-  %225 = icmp slt i64 %.0400, 0
+  %225 = icmp slt i64 %.0396, 0
   br i1 %225, label %226, label %236
 
 226:                                              ; preds = %224
-  %227 = sub i64 0, %.0400
+  %227 = sub i64 0, %.0396
   store i8 0, ptr %161, align 1
   br label %228
 
 228:                                              ; preds = %228, %226
-  %.0410 = phi i64 [ %227, %226 ], [ %233, %228 ]
-  %.0409 = phi ptr [ %161, %226 ], [ %232, %228 ]
-  %229 = urem i64 %.0410, 10
+  %.0411 = phi i64 [ %227, %226 ], [ %233, %228 ]
+  %.0410 = phi ptr [ %161, %226 ], [ %232, %228 ]
+  %229 = urem i64 %.0411, 10
   %230 = trunc nuw nsw i64 %229 to i8
   %231 = or disjoint i8 %230, 48
-  %232 = getelementptr inbounds i8, ptr %.0409, i64 -1
+  %232 = getelementptr inbounds i8, ptr %.0410, i64 -1
   store i8 %231, ptr %232, align 1
-  %233 = udiv i64 %.0410, 10
-  %.not471 = icmp ult i64 %.0410, 10
+  %233 = udiv i64 %.0411, 10
+  %.not471 = icmp ult i64 %.0411, 10
   br i1 %.not471, label %234, label %228
 
 234:                                              ; preds = %228
-  %235 = getelementptr inbounds i8, ptr %.0409, i64 -2
+  %235 = getelementptr inbounds i8, ptr %.0410, i64 -2
   store i8 45, ptr %235, align 1
   br label %.loopexit494
 
@@ -12633,15 +12633,15 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef %0, ptr nocapture 
   br label %237
 
 237:                                              ; preds = %237, %236
-  %.0408 = phi i64 [ %.0400, %236 ], [ %242, %237 ]
-  %.0407 = phi ptr [ %161, %236 ], [ %241, %237 ]
-  %238 = urem i64 %.0408, 10
+  %.0409 = phi i64 [ %.0396, %236 ], [ %242, %237 ]
+  %.0408 = phi ptr [ %161, %236 ], [ %241, %237 ]
+  %238 = urem i64 %.0409, 10
   %239 = trunc nuw nsw i64 %238 to i8
   %240 = or disjoint i8 %239, 48
-  %241 = getelementptr inbounds i8, ptr %.0407, i64 -1
+  %241 = getelementptr inbounds i8, ptr %.0408, i64 -1
   store i8 %240, ptr %241, align 1
-  %242 = udiv i64 %.0408, 10
-  %.not470 = icmp ult i64 %.0408, 10
+  %242 = udiv i64 %.0409, 10
+  %.not470 = icmp ult i64 %.0409, 10
   br i1 %.not470, label %.loopexit494, label %237
 
 .loopexit494:                                     ; preds = %237, %234
@@ -12691,8 +12691,8 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef %0, ptr nocapture 
   br i1 %.not475, label %266, label %265
 
 265:                                              ; preds = %252, %260
-  %.0432 = phi i64 [ 4, %252 ], [ %263, %260 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0432) #14
+  %.0420 = phi i64 [ 4, %252 ], [ %263, %260 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0420) #14
   %.pre514 = load ptr, ptr %0, align 8
   %.phi.trans.insert515 = getelementptr inbounds i8, ptr %.pre514, i64 16
   %.pre516 = load i64, ptr %.phi.trans.insert515, align 8
@@ -12701,23 +12701,23 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef %0, ptr nocapture 
 266:                                              ; preds = %265, %260
   %267 = phi i64 [ %.pre516, %265 ], [ %262, %260 ]
   %268 = phi ptr [ %.pre514, %265 ], [ %259, %260 ]
-  %.1433 = phi i64 [ %.0432, %265 ], [ %263, %260 ]
+  %.1421 = phi i64 [ %.0420, %265 ], [ %263, %260 ]
   %269 = getelementptr inbounds i8, ptr %268, i64 24
   %270 = getelementptr inbounds i8, ptr %269, i64 %267
   store i32 540949792, ptr %270, align 1
   br label %271
 
 271:                                              ; preds = %266, %219
-  %.1433.sink = phi i64 [ %.1433, %266 ], [ %.1431, %219 ]
+  %.1421.sink = phi i64 [ %.1421, %266 ], [ %.1423, %219 ]
   %272 = load ptr, ptr %0, align 8
   %273 = getelementptr inbounds i8, ptr %272, i64 16
-  store i64 %.1433.sink, ptr %273, align 8
-  call fastcc void @zend_ast_export_zval(ptr noundef nonnull %0, ptr noundef %.0392500, i32 noundef 0, i32 noundef %3)
+  store i64 %.1421.sink, ptr %273, align 8
+  call fastcc void @zend_ast_export_zval(ptr noundef nonnull %0, ptr noundef %.0389500, i32 noundef 0, i32 noundef %3)
   br label %274
 
 274:                                              ; preds = %176, %271
-  %.2 = phi i1 [ %.0403497, %176 ], [ false, %271 ]
-  %275 = add i32 %.0391501, -1
+  %.2 = phi i1 [ %.0397497, %176 ], [ false, %271 ]
+  %275 = add i32 %.0501, -1
   %.not463 = icmp eq i32 %275, 0
   br i1 %.not463, label %._crit_edge, label %163
 
@@ -12736,25 +12736,25 @@ define internal fastcc void @zend_ast_export_zval(ptr noundef %0, ptr nocapture 
   br i1 %.not465, label %284, label %283
 
 283:                                              ; preds = %._crit_edge, %277
-  %.0 = phi i64 [ 1, %._crit_edge ], [ %280, %277 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0) #14
+  %.0390 = phi i64 [ 1, %._crit_edge ], [ %280, %277 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0390) #14
   %.pre517 = load ptr, ptr %0, align 8
   br label %284
 
 284:                                              ; preds = %283, %277
   %285 = phi ptr [ %.pre517, %283 ], [ %276, %277 ]
-  %.1 = phi i64 [ %.0, %283 ], [ %280, %277 ]
+  %.1391 = phi i64 [ %.0390, %283 ], [ %280, %277 ]
   %286 = getelementptr inbounds i8, ptr %285, i64 24
-  %287 = add i64 %.1, -1
+  %287 = add i64 %.1391, -1
   %288 = getelementptr inbounds [1 x i8], ptr %286, i64 0, i64 %287
   store i8 93, ptr %288, align 1
   %289 = load ptr, ptr %0, align 8
   %290 = getelementptr inbounds i8, ptr %289, i64 16
-  store i64 %.1, ptr %290, align 8
+  store i64 %.1391, ptr %290, align 8
   br label %295
 
 291:                                              ; preds = %13
-  %292 = load ptr, ptr %.0411, align 8
+  %292 = load ptr, ptr %.0399, align 8
   %293 = getelementptr inbounds i8, ptr %292, i64 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef %0, ptr noundef nonnull %293, i32 noundef %2, i32 noundef %3)
   br label %295
@@ -13040,14 +13040,14 @@ zend_ast_export_ns_name.exit:                     ; preds = %101, %108
   br i1 %.not97.i, label %134, label %133
 
 133:                                              ; preds = %128, %119
-  %.0.i = phi i64 [ 1, %119 ], [ %131, %128 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #14
+  %.080.i = phi i64 [ 1, %119 ], [ %131, %128 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.080.i) #14
   %.pre152 = load ptr, ptr %0, align 8
   br label %134
 
 134:                                              ; preds = %133, %128
   %135 = phi ptr [ %.pre152, %133 ], [ %127, %128 ]
-  %.1.i = phi i64 [ %.0.i, %133 ], [ %131, %128 ]
+  %.1.i = phi i64 [ %.080.i, %133 ], [ %131, %128 ]
   %136 = getelementptr inbounds i8, ptr %135, i64 24
   %137 = add i64 %.1.i, -1
   %138 = getelementptr inbounds [1 x i8], ptr %136, i64 0, i64 %137
@@ -13468,14 +13468,14 @@ define internal fastcc void @zend_ast_export_type(ptr noundef %0, ptr noundef %1
   br i1 %.not102, label %70, label %69
 
 69:                                               ; preds = %61, %63
-  %.088 = phi i64 [ 1, %61 ], [ %66, %63 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.088) #14
+  %.089 = phi i64 [ 1, %61 ], [ %66, %63 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.089) #14
   %.pre122 = load ptr, ptr %0, align 8
   br label %70
 
 70:                                               ; preds = %69, %63
   %71 = phi ptr [ %.pre122, %69 ], [ %62, %63 ]
-  %.1 = phi i64 [ %.088, %69 ], [ %66, %63 ]
+  %.1 = phi i64 [ %.089, %69 ], [ %66, %63 ]
   %72 = getelementptr inbounds i8, ptr %71, i64 24
   %73 = add i64 %.1, -1
   %74 = getelementptr inbounds [1 x i8], ptr %72, i64 0, i64 %73
@@ -14068,21 +14068,21 @@ zend_ast_var_needs_braces.exit.thread:            ; preds = %30, %9, %zend_ast_v
   br i1 %.not80, label %50, label %49
 
 49:                                               ; preds = %zend_ast_var_needs_braces.exit.thread, %44
-  %.069 = phi i64 [ 1, %zend_ast_var_needs_braces.exit.thread ], [ %47, %44 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.069) #14
+  %.070 = phi i64 [ 1, %zend_ast_var_needs_braces.exit.thread ], [ %47, %44 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.070) #14
   %.pre = load ptr, ptr %0, align 8
   br label %50
 
 50:                                               ; preds = %49, %44
   %51 = phi ptr [ %.pre, %49 ], [ %43, %44 ]
-  %.170 = phi i64 [ %.069, %49 ], [ %47, %44 ]
+  %.171 = phi i64 [ %.070, %49 ], [ %47, %44 ]
   %52 = getelementptr inbounds i8, ptr %51, i64 24
-  %53 = add i64 %.170, -1
+  %53 = add i64 %.171, -1
   %54 = getelementptr inbounds [1 x i8], ptr %52, i64 0, i64 %53
   store i8 123, ptr %54, align 1
   %55 = load ptr, ptr %0, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 16
-  store i64 %.170, ptr %56, align 8
+  store i64 %.171, ptr %56, align 8
   tail call fastcc void @zend_ast_export_ex(ptr noundef nonnull %0, ptr noundef nonnull %12, i32 noundef 0, i32 noundef %3)
   %57 = load ptr, ptr %0, align 8
   %.not81 = icmp eq ptr %57, null
@@ -14097,14 +14097,14 @@ zend_ast_var_needs_braces.exit.thread:            ; preds = %30, %9, %zend_ast_v
   br i1 %.not82, label %64, label %63
 
 63:                                               ; preds = %50, %58
-  %.0 = phi i64 [ 1, %50 ], [ %61, %58 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0) #14
+  %.069 = phi i64 [ 1, %50 ], [ %61, %58 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.069) #14
   %.pre86 = load ptr, ptr %0, align 8
   br label %64
 
 64:                                               ; preds = %63, %58
   %65 = phi ptr [ %.pre86, %63 ], [ %57, %58 ]
-  %.1 = phi i64 [ %.0, %63 ], [ %61, %58 ]
+  %.1 = phi i64 [ %.069, %63 ], [ %61, %58 ]
   %66 = getelementptr inbounds i8, ptr %65, i64 24
   %67 = add i64 %.1, -1
   %68 = getelementptr inbounds [1 x i8], ptr %66, i64 0, i64 %67
@@ -14146,8 +14146,8 @@ define internal fastcc void @zend_ast_export_if_stmt(ptr noundef %0, ptr nocaptu
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.loopexit
   %11 = phi ptr [ %4, %.lr.ph.lr.ph ], [ %9, %.loopexit ]
-  %.0169226 = phi ptr [ %1, %.lr.ph.lr.ph ], [ %115, %.loopexit ]
-  %12 = getelementptr inbounds i8, ptr %.0169226, i64 16
+  %.0166226 = phi ptr [ %1, %.lr.ph.lr.ph ], [ %115, %.loopexit ]
+  %12 = getelementptr inbounds i8, ptr %.0166226, i64 16
   br label %13
 
 13:                                               ; preds = %.lr.ph, %134
@@ -14180,8 +14180,8 @@ define internal fastcc void @zend_ast_export_if_stmt(ptr noundef %0, ptr nocaptu
   br i1 %.not201, label %30, label %29
 
 29:                                               ; preds = %22, %24
-  %.0167 = phi i64 [ 4, %22 ], [ %27, %24 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0167) #14
+  %.0168 = phi i64 [ 4, %22 ], [ %27, %24 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0168) #14
   %.pre232 = load ptr, ptr %0, align 8
   %.phi.trans.insert233 = getelementptr inbounds i8, ptr %.pre232, i64 16
   %.pre234 = load i64, ptr %.phi.trans.insert233, align 8
@@ -14190,7 +14190,7 @@ define internal fastcc void @zend_ast_export_if_stmt(ptr noundef %0, ptr nocaptu
 30:                                               ; preds = %29, %24
   %31 = phi i64 [ %.pre234, %29 ], [ %26, %24 ]
   %32 = phi ptr [ %.pre232, %29 ], [ %23, %24 ]
-  %.1168 = phi i64 [ %.0167, %29 ], [ %27, %24 ]
+  %.1169 = phi i64 [ %.0168, %29 ], [ %27, %24 ]
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = getelementptr inbounds i8, ptr %33, i64 %31
   store i32 673212009, ptr %34, align 1
@@ -14266,7 +14266,7 @@ zend_ast_export_indent.exit:                      ; preds = %43, %35
   br label %64
 
 64:                                               ; preds = %59, %30
-  %.1171.sink = phi i64 [ %.1171, %59 ], [ %.1168, %30 ]
+  %.1171.sink = phi i64 [ %.1171, %59 ], [ %.1169, %30 ]
   %65 = load ptr, ptr %0, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 16
   store i64 %.1171.sink, ptr %66, align 8
@@ -14487,14 +14487,14 @@ zend_ast_export_indent.exit223:                   ; preds = %149, %._crit_edge
   br i1 %.not191, label %166, label %165
 
 165:                                              ; preds = %zend_ast_export_indent.exit223, %159
-  %.0 = phi i64 [ 1, %zend_ast_export_indent.exit223 ], [ %162, %159 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0) #14
+  %.0167 = phi i64 [ 1, %zend_ast_export_indent.exit223 ], [ %162, %159 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0167) #14
   %.pre244 = load ptr, ptr %0, align 8
   br label %166
 
 166:                                              ; preds = %165, %159
   %167 = phi ptr [ %.pre244, %165 ], [ %158, %159 ]
-  %.1 = phi i64 [ %.0, %165 ], [ %162, %159 ]
+  %.1 = phi i64 [ %.0167, %165 ], [ %162, %159 ]
   %168 = getelementptr inbounds i8, ptr %167, i64 24
   %169 = add i64 %.1, -1
   %170 = getelementptr inbounds [1 x i8], ptr %168, i64 0, i64 %169
@@ -15170,8 +15170,8 @@ define internal fastcc void @zend_ast_export_qstr(ptr noundef %0, i8 noundef sig
   br label %8
 
 8:                                                ; preds = %.lr.ph, %160
-  %.0270336 = phi i64 [ 0, %.lr.ph ], [ %163, %160 ]
-  %9 = getelementptr inbounds [1 x i8], ptr %6, i64 0, i64 %.0270336
+  %.0336 = phi i64 [ 0, %.lr.ph ], [ %163, %160 ]
+  %9 = getelementptr inbounds [1 x i8], ptr %6, i64 0, i64 %.0336
   %10 = load i8, ptr %9, align 1
   %.fr = freeze i8 %10
   %11 = icmp ult i8 %.fr, 32
@@ -15500,14 +15500,14 @@ switch.early.test:                                ; preds = %130
   br i1 %.not317, label %155, label %154
 
 154:                                              ; preds = %147, %149
-  %.0 = phi i64 [ 1, %147 ], [ %152, %149 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0) #14
+  %.0270 = phi i64 [ 1, %147 ], [ %152, %149 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0270) #14
   %.pre338 = load ptr, ptr %0, align 8
   br label %155
 
 155:                                              ; preds = %154, %149
   %156 = phi ptr [ %.pre338, %154 ], [ %148, %149 ]
-  %.1 = phi i64 [ %.0, %154 ], [ %152, %149 ]
+  %.1 = phi i64 [ %.0270, %154 ], [ %152, %149 ]
   %157 = getelementptr inbounds i8, ptr %156, i64 24
   %158 = add i64 %.1, -1
   %159 = getelementptr inbounds [1 x i8], ptr %157, i64 0, i64 %158
@@ -15519,7 +15519,7 @@ switch.early.test:                                ; preds = %130
   %161 = load ptr, ptr %0, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 16
   store i64 %.1.sink, ptr %162, align 8
-  %163 = add nuw i64 %.0270336, 1
+  %163 = add nuw i64 %.0336, 1
   %164 = load i64, ptr %4, align 8
   %165 = icmp ult i64 %163, %164
   br i1 %165, label %8, label %._crit_edge
@@ -15602,8 +15602,8 @@ define internal fastcc void @zend_ast_export_str(ptr noundef %0, ptr nocapture n
   br label %7
 
 7:                                                ; preds = %.lr.ph, %38
-  %.07389 = phi i64 [ 0, %.lr.ph ], [ %44, %38 ]
-  %8 = getelementptr inbounds [1 x i8], ptr %5, i64 0, i64 %.07389
+  %.089 = phi i64 [ 0, %.lr.ph ], [ %44, %38 ]
+  %8 = getelementptr inbounds [1 x i8], ptr %5, i64 0, i64 %.089
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %31 [
     i8 92, label %10
@@ -15665,14 +15665,14 @@ define internal fastcc void @zend_ast_export_str(ptr noundef %0, ptr nocapture n
   br i1 %.not84, label %38, label %.sink.split
 
 .sink.split:                                      ; preds = %33, %31, %26, %18
-  %.0.sink = phi i64 [ 1, %18 ], [ %29, %26 ], [ 1, %31 ], [ %36, %33 ]
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.sink) #14
+  %.073.sink = phi i64 [ 1, %18 ], [ %29, %26 ], [ 1, %31 ], [ %36, %33 ]
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.073.sink) #14
   %.pre92 = load ptr, ptr %0, align 8
   br label %38
 
 38:                                               ; preds = %.sink.split, %33, %26
   %.sink = phi ptr [ %25, %26 ], [ %32, %33 ], [ %.pre92, %.sink.split ]
-  %.175.sink96 = phi i64 [ %29, %26 ], [ %36, %33 ], [ %.0.sink, %.sink.split ]
+  %.175.sink96 = phi i64 [ %29, %26 ], [ %36, %33 ], [ %.073.sink, %.sink.split ]
   %39 = getelementptr inbounds i8, ptr %.sink, i64 24
   %40 = add i64 %.175.sink96, -1
   %41 = getelementptr inbounds [1 x i8], ptr %39, i64 0, i64 %40
@@ -15680,7 +15680,7 @@ define internal fastcc void @zend_ast_export_str(ptr noundef %0, ptr nocapture n
   %42 = load ptr, ptr %0, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 16
   store i64 %.175.sink96, ptr %43, align 8
-  %44 = add nuw i64 %.07389, 1
+  %44 = add nuw i64 %.089, 1
   %45 = load i64, ptr %3, align 8
   %46 = icmp ult i64 %44, %45
   br i1 %46, label %7, label %._crit_edge

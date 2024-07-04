@@ -945,23 +945,23 @@ if.end.i.i:                                       ; preds = %if.end
   br i1 %cmp4.not5.i.i, label %if.end18.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.inc.i.i
-  %overhead.07.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i ]
-  %curr.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %3, %if.end.i.i ]
-  %5 = load ptr, ptr %curr.06.i.i, align 8
+  %curr.07.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i.i ], [ %3, %if.end.i.i ]
+  %overhead.06.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i ]
+  %5 = load ptr, ptr %curr.07.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.i.i.i, label %if.else.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %for.body.i.i
-  store ptr null, ptr %curr.06.i.i, align 8
+  store ptr null, ptr %curr.07.i.i, align 8
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %inc.i.i = add i32 %overhead.07.i.i, 1
+  %inc.i.i = add i32 %overhead.06.i.i, 1
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then5.i.i
-  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.07.i.i, %if.then5.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.06.i.i, i64 8
+  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.06.i.i, %if.then5.i.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %curr.07.i.i, i64 8
   %cmp4.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
   br i1 %cmp4.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !9
 
@@ -2140,10 +2140,10 @@ for.body89.preheader:                             ; preds = %if.then80
   br label %for.body89
 
 for.body89:                                       ; preds = %for.body89.preheader, %for.inc161
-  %j.0356 = phi i32 [ %inc, %for.inc161 ], [ 0, %for.body89.preheader ]
-  %__begin6.0355 = phi ptr [ %incdec.ptr162, %for.inc161 ], [ %m_args.i204.ptr.ptr.ptr, %for.body89.preheader ]
-  %71 = load ptr, ptr %__begin6.0355, align 8
-  %inc = add nuw i32 %j.0356, 1
+  %__begin6.0356 = phi ptr [ %incdec.ptr162, %for.inc161 ], [ %m_args.i204.ptr.ptr.ptr, %for.body89.preheader ]
+  %j.0355 = phi i32 [ %inc, %for.inc161 ], [ 0, %for.body89.preheader ]
+  %71 = load ptr, ptr %__begin6.0356, align 8
+  %inc = add nuw i32 %j.0355, 1
   %m_kind.i.i209 = getelementptr inbounds i8, ptr %71, i64 4
   %bf.load.i.i210 = load i32, ptr %m_kind.i.i209, align 4
   %bf.clear.i.i211 = and i32 %bf.load.i.i210, 65535
@@ -2188,7 +2188,7 @@ for.body102:                                      ; preds = %if.end93, %for.inc
   %k.0349 = phi i32 [ %inc103, %for.inc ], [ 0, %if.end93 ]
   %78 = load ptr, ptr %__begin7.0350, align 8
   %inc103 = add nuw i32 %k.0349, 1
-  %cmp104 = icmp eq i32 %k.0349, %j.0356
+  %cmp104 = icmp eq i32 %k.0349, %j.0355
   br i1 %cmp104, label %for.inc, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %for.body102
@@ -2291,7 +2291,7 @@ for.body129:                                      ; preds = %if.end116, %for.inc
   %k.1352 = phi i32 [ %inc131, %for.inc136 ], [ 0, %if.end116 ]
   %87 = load ptr, ptr %__begin7121.0353, align 8
   %inc131 = add nuw i32 %k.1352, 1
-  %cmp132.not = icmp eq i32 %k.1352, %j.0356
+  %cmp132.not = icmp eq i32 %k.1352, %j.0355
   br i1 %cmp132.not, label %for.inc136, label %if.then133
 
 if.then133:                                       ; preds = %for.body129
@@ -2512,7 +2512,7 @@ terminate.lpad.i.i319:                            ; preds = %if.end.i.i.i.i.i
   unreachable
 
 for.inc161:                                       ; preds = %invoke.cont108, %lor.end, %for.body89, %land.lhs.true.i213, %if.end.i.i.i.i.i, %_ZN3euf12dependent_eqD2Ev.exit317, %invoke.cont90
-  %incdec.ptr162 = getelementptr inbounds i8, ptr %__begin6.0355, i64 8
+  %incdec.ptr162 = getelementptr inbounds i8, ptr %__begin6.0356, i64 8
   %cmp88.not = icmp eq ptr %incdec.ptr162, %add.ptr.i208.ptr
   br i1 %cmp88.not, label %if.end166, label %for.body89
 

@@ -1774,8 +1774,8 @@ if.then30:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then30
-  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
   %cmp20 = icmp slt i32 %nReturnValue.1, 0
   %cmp21 = icmp ult i64 %n.1, 500000

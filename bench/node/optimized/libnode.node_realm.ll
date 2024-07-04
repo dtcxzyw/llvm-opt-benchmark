@@ -10323,27 +10323,22 @@ if.end1970:                                       ; preds = %if.end1962, %land.l
   br i1 %cond848, label %if.then1980, label %if.then.i3309
 
 if.then.i3309:                                    ; preds = %if.end1970
-  %cmp.i.i5444 = icmp eq ptr %call, null
-  br i1 %cmp.i.i5444, label %do.body1988, label %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit
+  %364 = load i64, ptr %call.i3306, align 8
+  %365 = load i64, ptr %call, align 8
+  %cmp.i.not = icmp eq i64 %364, %365
+  br i1 %cmp.i.not, label %do.end1991, label %do.body1988
 
 if.then1980:                                      ; preds = %if.end1970
-  %364 = load ptr, ptr @stderr, align 8
-  %365 = tail call i64 @fwrite(ptr nonnull @.str.141, i64 63, i64 1, ptr %364) #23
-  %cmp.i9.i = icmp eq ptr %call, null
-  br i1 %cmp.i9.i, label %do.end1991, label %do.body1988
+  %366 = load ptr, ptr @stderr, align 8
+  %367 = tail call i64 @fwrite(ptr nonnull @.str.141, i64 63, i64 1, ptr %366) #23
+  br label %do.body1988
 
-_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit: ; preds = %if.then.i3309
-  %366 = load i64, ptr %call.i3306, align 8
-  %367 = load i64, ptr %call, align 8
-  %cmp.i = icmp eq i64 %366, %367
-  br i1 %cmp.i, label %do.end1991, label %do.body1988
-
-do.body1988:                                      ; preds = %if.then1980, %if.then.i3309, %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit
+do.body1988:                                      ; preds = %if.then1980, %if.then.i3309
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node5Realm21DeserializePropertiesEPKNS_18RealmSerializeInfoEE4args) #18
   tail call void @abort() #19
   unreachable
 
-do.end1991:                                       ; preds = %if.then1980, %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit
+do.end1991:                                       ; preds = %if.then.i3309
   %kind_.i = getelementptr inbounds i8, ptr %this, i64 680
   %368 = load i32, ptr %kind_.i, align 8
   %cmp.i1261 = icmp eq i32 %368, 0

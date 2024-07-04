@@ -5903,29 +5903,29 @@ default.unreachable243:                           ; preds = %68
   br label %81
 
 79:                                               ; preds = %68, %76
-  %.0104.ph = phi i64 [ 8, %76 ], [ 2, %68 ]
+  %.0106.ph = phi i64 [ 8, %76 ], [ 2, %68 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !680)
   %.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %30, i64 %24)
   %80 = sub nuw i64 %24, %.0.sroa.speculated.i.i.i.i
-  %.not.not = icmp ult i64 %80, %.0104.ph
+  %.not.not = icmp ult i64 %80, %.0106.ph
   br i1 %.not.not, label %_ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit, label %85
 
 81:                                               ; preds = %85, %77
   %82 = phi i64 [ %87, %85 ], [ %30, %77 ]
-  %.097 = phi i64 [ %91, %85 ], [ %78, %77 ]
+  %.099 = phi i64 [ %91, %85 ], [ %78, %77 ]
   %83 = load i8, ptr %7, align 1, !range !73, !noundef !5
   %84 = trunc nuw i8 %83 to i1
   br i1 %84, label %92, label %96
 
 85:                                               ; preds = %79
   %86 = getelementptr inbounds i8, ptr %22, i64 %.0.sroa.speculated.i.i.i.i
-  %87 = add i64 %30, %.0104.ph
+  %87 = add i64 %30, %.0106.ph
   store i64 %87, ptr %20, align 8, !alias.scope !683, !noalias !686
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !689
   store i64 0, ptr %4, align 8, !noalias !689
-  %88 = sub nuw nsw i64 8, %.0104.ph
+  %88 = sub nuw nsw i64 8, %.0106.ph
   %89 = getelementptr inbounds i8, ptr %4, i64 %88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %89, ptr noundef nonnull align 1 dereferenceable(1) %86, i64 %.0104.ph, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %89, ptr noundef nonnull align 1 dereferenceable(1) %86, i64 %.0106.ph, i1 false)
   %90 = load i64, ptr %4, align 8, !noalias !689
   %91 = call noundef i64 @llvm.bswap.i64(i64 %90)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !689
@@ -6000,7 +6000,7 @@ default.unreachable243:                           ; preds = %68
   %.sroa.957.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store <4 x i8> %.sroa.344.0, ptr %.sroa.957.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.097, ptr %.sroa.11.0..sroa_idx, align 8
+  store i64 %.099, ptr %.sroa.11.0..sroa_idx, align 8
   store i64 15, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %10)

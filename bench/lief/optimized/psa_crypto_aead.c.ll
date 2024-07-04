@@ -91,8 +91,8 @@ define hidden i32 @mbedtls_psa_aead_encrypt(ptr nocapture noundef readonly %0, p
   br label %mbedtls_psa_aead_abort.exit
 
 mbedtls_psa_aead_abort.exit:                      ; preds = %.thread, %45, %43, %42, %22
-  %.0 = phi i32 [ -134, %22 ], [ %.1.ph, %42 ], [ %.1.ph, %43 ], [ %.1.ph, %45 ], [ %.141, %.thread ]
-  ret i32 %.0
+  %.036 = phi i32 [ -134, %22 ], [ %.1.ph, %42 ], [ %.1.ph, %43 ], [ %.1.ph, %45 ], [ %.141, %.thread ]
+  ret i32 %.036
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

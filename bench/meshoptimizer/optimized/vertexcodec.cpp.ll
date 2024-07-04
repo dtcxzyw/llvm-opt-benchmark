@@ -50,13 +50,13 @@ if.end3:                                          ; preds = %if.then2, %if.end
   br i1 %cmp1.not, label %while.end, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end3, %if.end13
-  %data.060 = phi ptr [ %data.addr.0.lcssa.i45, %if.end13 ], [ %incdec.ptr, %if.end3 ]
-  %vertex_offset.059 = phi i64 [ %add14, %if.end13 ], [ 0, %if.end3 ]
-  %add7 = add i64 %vertex_offset.059, %cond.i
+  %vertex_offset.060 = phi i64 [ %add14, %if.end13 ], [ 0, %if.end3 ]
+  %data.059 = phi ptr [ %data.addr.0.lcssa.i45, %if.end13 ], [ %incdec.ptr, %if.end3 ]
+  %add7 = add i64 %vertex_offset.060, %cond.i
   %cmp8 = icmp ult i64 %add7, %vertex_count
-  %sub = sub i64 %vertex_count, %vertex_offset.059
+  %sub = sub i64 %vertex_count, %vertex_offset.060
   %cond = select i1 %cmp8, i64 %cond.i, i64 %sub
-  %mul = mul i64 %vertex_offset.059, %vertex_size
+  %mul = mul i64 %vertex_offset.060, %vertex_size
   %add.ptr9 = getelementptr inbounds i8, ptr %vertices, i64 %mul
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buffer.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %buffer.i, i8 0, i64 256, i1 false)
@@ -74,7 +74,7 @@ for.body.lr.ph.split.us.i:                        ; preds = %for.body.lr.ph.i
 
 for.body.us.us.i:                                 ; preds = %for.body.lr.ph.split.us.i, %for.cond.us.us.i
   %k.033.us.us.i = phi i64 [ %inc14.us.us.i, %for.cond.us.us.i ], [ 0, %for.body.lr.ph.split.us.i ]
-  %data.addr.032.us.us.i = phi ptr [ %add.ptr.i.us.us.i, %for.cond.us.us.i ], [ %data.060, %for.body.lr.ph.split.us.i ]
+  %data.addr.032.us.us.i = phi ptr [ %add.ptr.i.us.us.i, %for.cond.us.us.i ], [ %data.059, %for.body.lr.ph.split.us.i ]
   %arrayidx.us.us.i = getelementptr inbounds i8, ptr %last_vertex, i64 %k.033.us.us.i
   %p.0.us.us.pre.i = load i8, ptr %arrayidx.us.us.i, align 1
   br label %for.body3.us.us.i
@@ -111,7 +111,7 @@ for.cond1.for.end_crit_edge.us.us.i:              ; preds = %for.body3.us.us.i
 
 for.body.us.i:                                    ; preds = %for.body.lr.ph.split.us.i, %for.cond.us.i
   %k.033.us.i = phi i64 [ %inc14.us.i, %for.cond.us.i ], [ 0, %for.body.lr.ph.split.us.i ]
-  %data.addr.032.us.i = phi ptr [ %add.ptr.i.us.i, %for.cond.us.i ], [ %data.060, %for.body.lr.ph.split.us.i ]
+  %data.addr.032.us.i = phi ptr [ %add.ptr.i.us.i, %for.cond.us.i ], [ %data.059, %for.body.lr.ph.split.us.i ]
   %sub.ptr.rhs.cast.i.us.i = ptrtoint ptr %data.addr.032.us.i to i64
   %sub.ptr.sub.i.us.i = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.i.us.i
   %cmp.i.us.i = icmp ult i64 %sub.ptr.sub.i.us.i, %div128.i.i
@@ -139,7 +139,7 @@ _ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_.exit.thread39: ; preds = %for.cond
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.cond.i
   %k.033.i = phi i64 [ %inc14.i, %for.cond.i ], [ 0, %for.body.lr.ph.i ]
-  %data.addr.032.i = phi ptr [ %retval.0.i32.i.i, %for.cond.i ], [ %data.060, %for.body.lr.ph.i ]
+  %data.addr.032.i = phi ptr [ %retval.0.i32.i.i, %for.cond.i ], [ %data.059, %for.body.lr.ph.i ]
   br i1 %cmp227.not.i, label %for.end.i, label %for.body3.preheader.i
 
 for.body3.preheader.i:                            ; preds = %for.body.i
@@ -188,10 +188,10 @@ if.end8.i.i:                                      ; preds = %for.body.i.i
   br label %for.body12.i.i
 
 for.body12.i.i:                                   ; preds = %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i, %if.end8.i.i
-  %best_bits.042.i.i = phi i32 [ 8, %if.end8.i.i ], [ %spec.select31.i.i, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i ]
-  %bits.041.i.i = phi i32 [ 1, %if.end8.i.i ], [ %mul.i.i, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i ]
-  %best_size.040.i.i = phi i64 [ 16, %if.end8.i.i ], [ %spec.select.i.i, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i ]
-  %cond38.i.i = icmp eq i32 %bits.041.i.i, 1
+  %bits.042.i.i = phi i32 [ 1, %if.end8.i.i ], [ %mul.i.i, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i ]
+  %best_size.041.i.i = phi i64 [ 16, %if.end8.i.i ], [ %spec.select31.i.i, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i ]
+  %best_bits.040.i.i = phi i32 [ 8, %if.end8.i.i ], [ %spec.select.i.i, %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i ]
+  %cond38.i.i = icmp eq i32 %bits.042.i.i, 1
   br i1 %cond38.i.i, label %for.body.i.preheader.i.i.i, label %if.end3.i.i.i
 
 for.body.i.preheader.i.i.i:                       ; preds = %for.body12.i.i
@@ -217,9 +217,9 @@ _ZN7meshoptL20encodeBytesGroupZeroEPKh.exit.loopexit.i.i.i: ; preds = %for.body.
   br label %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i
 
 if.end3.i.i.i:                                    ; preds = %for.body12.i.i
-  %13 = shl nuw nsw i32 %bits.041.i.i, 1
+  %13 = shl nuw nsw i32 %bits.042.i.i, 1
   %14 = zext nneg i32 %13 to i64
-  %notmask.i.i.i = shl nsw i32 -1, %bits.041.i.i
+  %notmask.i.i.i = shl nsw i32 -1, %bits.042.i.i
   %15 = and i32 %notmask.i.i.i, 126
   %conv7.i.i.i = xor i32 %15, 127
   br label %for.body.i.i.i
@@ -239,17 +239,17 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
 
 _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i: ; preds = %for.body.i.i.i, %_ZN7meshoptL20encodeBytesGroupZeroEPKh.exit.loopexit.i.i.i, %for.body.i.preheader.i.i.i
   %retval.0.i.i.i = phi i64 [ -1, %for.body.i.preheader.i.i.i ], [ %12, %_ZN7meshoptL20encodeBytesGroupZeroEPKh.exit.loopexit.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
-  %cmp15.i.i = icmp ult i64 %retval.0.i.i.i, %best_size.040.i.i
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %retval.0.i.i.i, i64 %best_size.040.i.i)
-  %spec.select31.i.i = select i1 %cmp15.i.i, i32 %bits.041.i.i, i32 %best_bits.042.i.i
-  %mul.i.i = shl nuw nsw i32 %bits.041.i.i, 1
-  %cmp11.i.i = icmp ult i32 %bits.041.i.i, 4
+  %cmp15.i.i = icmp ult i64 %retval.0.i.i.i, %best_size.041.i.i
+  %spec.select.i.i = select i1 %cmp15.i.i, i32 %bits.042.i.i, i32 %best_bits.040.i.i
+  %spec.select31.i.i = tail call i64 @llvm.umin.i64(i64 %retval.0.i.i.i, i64 %best_size.041.i.i)
+  %mul.i.i = shl nuw nsw i32 %bits.042.i.i, 1
+  %cmp11.i.i = icmp ult i32 %bits.042.i.i, 4
   br i1 %cmp11.i.i, label %for.body12.i.i, label %for.end.i.i, !llvm.loop !10
 
 for.end.i.i:                                      ; preds = %_ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i.i
-  %cmp18.i.i = icmp eq i32 %spec.select31.i.i, 1
-  %cmp19.i.i = icmp eq i32 %spec.select31.i.i, 2
-  %cmp22.i.i = icmp eq i32 %spec.select31.i.i, 4
+  %cmp18.i.i = icmp eq i32 %spec.select.i.i, 1
+  %cmp19.i.i = icmp eq i32 %spec.select.i.i, 2
+  %cmp22.i.i = icmp eq i32 %spec.select.i.i, 4
   %cond.i.i = select i1 %cmp22.i.i, i32 2, i32 3
   %cond23.i.i = select i1 %cmp19.i.i, i32 1, i32 %cond.i.i
   %cond25.i.i = select i1 %cmp18.i.i, i32 0, i32 %cond23.i.i
@@ -263,7 +263,7 @@ for.end.i.i:                                      ; preds = %_ZN7meshoptL23encod
   %20 = trunc nuw i32 %shl.i18.i to i8
   %conv29.i.i = or i8 %19, %20
   store i8 %conv29.i.i, ptr %arrayidx.i.i, align 1
-  switch i32 %spec.select31.i.i, label %if.end3.i33.i.i [
+  switch i32 %spec.select.i.i, label %if.end3.i33.i.i [
     i32 1, label %_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i
     i32 8, label %if.then2.i.i.i
   ]
@@ -274,9 +274,9 @@ if.then2.i.i.i:                                   ; preds = %for.end.i.i
   br label %_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i
 
 if.end3.i33.i.i:                                  ; preds = %for.end.i.i
-  %div.i.i.i = sdiv i32 8, %spec.select31.i.i
+  %div.i.i.i = sdiv i32 8, %spec.select.i.i
   %conv.i34.i.i = sext i32 %div.i.i.i to i64
-  %notmask.i35.i.i = shl nsw i32 -1, %spec.select31.i.i
+  %notmask.i35.i.i = shl nsw i32 -1, %spec.select.i.i
   %21 = trunc i32 %notmask.i35.i.i to i8
   %conv4.i36.i.i = xor i8 %21, -1
   %cmp728.not.i.i.i = icmp eq i32 %div.i.i.i, 0
@@ -295,7 +295,7 @@ for.body8.us.i.i.i:                               ; preds = %for.body8.us.i.i.i,
   %23 = load i8, ptr %arrayidx.us.i.i.i, align 1
   %.conv4.us.i.i.i = tail call i8 @llvm.umin.i8(i8 %23, i8 %conv4.i36.i.i)
   %conv14.us.i.i.i = zext i8 %byte.029.us.i.i.i to i32
-  %shl15.us.i.i.i = shl nuw nsw i32 %conv14.us.i.i.i, %spec.select31.i.i
+  %shl15.us.i.i.i = shl nuw nsw i32 %conv14.us.i.i.i, %spec.select.i.i
   %24 = trunc i32 %shl15.us.i.i.i to i8
   %conv19.us.i.i.i = or i8 %.conv4.us.i.i.i, %24
   %inc.us.i.i.i = add nuw i64 %k.030.us.i.i.i, 1
@@ -360,7 +360,7 @@ _ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_.exit: ; preds = %for.cond.us.us.i,
 
 if.end13:                                         ; preds = %_ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_.exit.thread39, %_ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_.exit
   %data.addr.0.lcssa.i45 = phi ptr [ %retval.0.i32.i.i, %_ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_.exit.thread39 ], [ %data.addr.0.lcssa.i, %_ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_.exit ]
-  %add14 = add i64 %cond, %vertex_offset.059
+  %add14 = add i64 %cond, %vertex_offset.060
   %cmp6 = icmp ult i64 %add14, %vertex_count
   br i1 %cmp6, label %for.body.lr.ph.i, label %while.end, !llvm.loop !15
 

@@ -171,15 +171,15 @@ proto_item_set_generated.exit91:                  ; preds = %proto_item_set_gene
 
 53:                                               ; preds = %77
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.split.loop.exit115, label %54, !llvm.loop !4
+  br i1 %exitcond.not, label %.split.loop.exit114, label %54, !llvm.loop !4
 
 54:                                               ; preds = %proto_item_set_generated.exit91, %53
   %indvars.iv = phi i64 [ 0, %proto_item_set_generated.exit91 ], [ %indvars.iv.next, %53 ]
-  %.0101 = phi i32 [ 2, %proto_item_set_generated.exit91 ], [ %88, %53 ]
-  %.08199 = phi i16 [ undef, %proto_item_set_generated.exit91 ], [ %.in, %53 ]
+  %.078101 = phi i32 [ 2, %proto_item_set_generated.exit91 ], [ %88, %53 ]
+  %.08099 = phi i16 [ undef, %proto_item_set_generated.exit91 ], [ %.in, %53 ]
   %55 = trunc nuw nsw i64 %indvars.iv to i32
   %56 = load i32, ptr @ett_st2110_20_srd_row, align 4
-  %57 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %16, ptr noundef %0, i32 noundef %.0101, i32 noundef 6, i32 noundef %56, ptr noundef nonnull %5, ptr noundef nonnull @.str.30, i32 noundef %55) #3
+  %57 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %16, ptr noundef %0, i32 noundef %.078101, i32 noundef 6, i32 noundef %56, ptr noundef nonnull %5, ptr noundef nonnull @.str.30, i32 noundef %55) #3
   %58 = getelementptr [3 x ptr], ptr %7, i64 0, i64 %indvars.iv
   store ptr %57, ptr %58, align 8
   %59 = load i32, ptr @hf_st2110_srd_index, align 4
@@ -201,12 +201,12 @@ proto_item_set_generated.exit91:                  ; preds = %proto_item_set_gene
   br label %proto_item_set_generated.exit94
 
 proto_item_set_generated.exit94:                  ; preds = %54, %61, %64
-  %68 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.0101, i32 noundef 0) #3
+  %68 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.078101, i32 noundef 0) #3
   %69 = getelementptr [3 x i16], ptr %6, i64 0, i64 %indvars.iv
   store i16 %68, ptr %69, align 2
   %70 = load i32, ptr @hf_st2110_srd_length, align 4
-  %71 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %70, ptr noundef %0, i32 noundef %.0101, i32 noundef 2, i32 noundef 0) #3
-  %72 = add nuw nsw i32 %.0101, 2
+  %71 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %70, ptr noundef %0, i32 noundef %.078101, i32 noundef 2, i32 noundef 0) #3
+  %72 = add nuw nsw i32 %.078101, 2
   %73 = icmp eq i64 %indvars.iv, 0
   br i1 %73, label %74, label %77
 
@@ -216,36 +216,36 @@ proto_item_set_generated.exit94:                  ; preds = %54, %61, %64
   br label %77
 
 77:                                               ; preds = %proto_item_set_generated.exit94, %74
-  %.in = phi i16 [ %76, %74 ], [ %.08199, %proto_item_set_generated.exit94 ]
+  %.in = phi i16 [ %76, %74 ], [ %.08099, %proto_item_set_generated.exit94 ]
   %78 = load i32, ptr @hf_st2110_field_ident, align 4
   %79 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %78, ptr noundef %0, i32 noundef %72, i32 noundef 2, i32 noundef 0) #3
   %80 = load i32, ptr @hf_st2110_row_num, align 4
   %81 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %80, ptr noundef %0, i32 noundef %72, i32 noundef 2, i32 noundef 0) #3
-  %82 = add nuw nsw i32 %.0101, 4
+  %82 = add nuw nsw i32 %.078101, 4
   %83 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %82, i32 noundef 0) #3
   %84 = load i32, ptr @hf_st2110_continuation, align 4
   %85 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %84, ptr noundef %0, i32 noundef %82, i32 noundef 2, i32 noundef 0) #3
   %86 = load i32, ptr @hf_st2110_srd_offset, align 4
   %87 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %86, ptr noundef %0, i32 noundef %82, i32 noundef 2, i32 noundef 0) #3
-  %88 = add nuw nsw i32 %.0101, 6
+  %88 = add nuw nsw i32 %.078101, 6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not88.not = icmp sgt i16 %83, -1
   br i1 %.not88.not, label %.split.loop.exit, label %53
 
 .split.loop.exit:                                 ; preds = %77
-  %indvars.le = trunc i64 %indvars.iv.next to i8
-  br label %.split.loop.exit115
+  %indvars108.le = trunc i64 %indvars.iv.next to i8
+  br label %.split.loop.exit114
 
-.split.loop.exit115:                              ; preds = %53, %.split.loop.exit
+.split.loop.exit114:                              ; preds = %53, %.split.loop.exit
   %.lcssa106 = phi i32 [ %88, %.split.loop.exit ], [ 20, %53 ]
-  %.lcssa105 = phi i8 [ %indvars.le, %.split.loop.exit ], [ 3, %53 ]
+  %.lcssa105 = phi i8 [ %indvars108.le, %.split.loop.exit ], [ 3, %53 ]
   %89 = load i32, ptr @hf_st2110_srd_rows, align 4
   %90 = zext i8 %.lcssa105 to i32
   %91 = call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %89, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %90) #3
   %.not.i95 = icmp eq ptr %91, null
   br i1 %.not.i95, label %proto_item_set_generated.exit97, label %92
 
-92:                                               ; preds = %.split.loop.exit115
+92:                                               ; preds = %.split.loop.exit114
   %93 = getelementptr inbounds i8, ptr %91, i64 32
   %94 = load ptr, ptr %93, align 8
   %.not5.i96 = icmp eq ptr %94, null
@@ -258,7 +258,7 @@ proto_item_set_generated.exit94:                  ; preds = %54, %61, %64
   store i32 %98, ptr %96, align 4
   br label %proto_item_set_generated.exit97
 
-proto_item_set_generated.exit97:                  ; preds = %.split.loop.exit115, %92, %95
+proto_item_set_generated.exit97:                  ; preds = %.split.loop.exit114, %92, %95
   %.not104 = icmp eq i8 %.lcssa105, 0
   br i1 %.not104, label %._crit_edge, label %.lr.ph.preheader
 
@@ -268,18 +268,18 @@ proto_item_set_generated.exit97:                  ; preds = %.split.loop.exit115
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv110 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next111, %.lr.ph ]
-  %.2103 = phi i32 [ %.lcssa106, %.lr.ph.preheader ], [ %106, %.lr.ph ]
+  %.2102 = phi i32 [ %.lcssa106, %.lr.ph.preheader ], [ %106, %.lr.ph ]
   %99 = getelementptr [3 x i16], ptr %6, i64 0, i64 %indvars.iv110
   %100 = load i16, ptr %99, align 2
   %101 = getelementptr [3 x ptr], ptr %7, i64 0, i64 %indvars.iv110
   %102 = load ptr, ptr %101, align 8
   %103 = load i32, ptr @hf_st2110_srd_data, align 4
   %104 = zext i16 %100 to i32
-  %105 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %103, ptr noundef %0, i32 noundef %.2103, i32 noundef %104, i32 noundef 0) #3
-  %106 = add i32 %.2103, %104
+  %105 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %103, ptr noundef %0, i32 noundef %.2102, i32 noundef %104, i32 noundef 0) #3
+  %106 = add i32 %.2102, %104
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
-  %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count
-  br i1 %exitcond114.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  %exitcond113.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count
+  br i1 %exitcond113.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %proto_item_set_generated.exit97
   %.2.lcssa = phi i32 [ %.lcssa106, %proto_item_set_generated.exit97 ], [ %106, %.lr.ph ]

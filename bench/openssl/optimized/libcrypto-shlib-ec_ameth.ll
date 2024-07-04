@@ -693,8 +693,8 @@ if.end47:                                         ; preds = %if.end45, %if.end28
   br label %err
 
 err:                                              ; preds = %if.end38, %if.end34, %if.then30, %if.then18, %lor.lhs.false22, %if.end11, %if.end7, %if.end47
-  %rv.0 = phi i32 [ 0, %if.end7 ], [ 0, %if.then18 ], [ 0, %if.then30 ], [ %call49, %if.end47 ], [ 0, %if.end38 ], [ 0, %if.end34 ], [ 0, %lor.lhs.false22 ], [ 0, %if.end11 ]
   %params.0 = phi ptr [ null, %if.end7 ], [ null, %if.then18 ], [ null, %if.then30 ], [ %call48, %if.end47 ], [ null, %if.end38 ], [ null, %if.end34 ], [ null, %lor.lhs.false22 ], [ null, %if.end11 ]
+  %rv.0 = phi i32 [ 0, %if.end7 ], [ 0, %if.then18 ], [ 0, %if.then30 ], [ %call49, %if.end47 ], [ 0, %if.end38 ], [ 0, %if.end34 ], [ 0, %lor.lhs.false22 ], [ 0, %if.end11 ]
   call void @OSSL_PARAM_BLD_free(ptr noundef nonnull %call4) #4
   call void @OSSL_PARAM_free(ptr noundef %params.0) #4
   %2 = load ptr, ptr %pub_key_buf, align 8

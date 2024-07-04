@@ -10528,8 +10528,8 @@ if.else:                                          ; preds = %invoke.cont
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %c.sroa.0.2.in = phi ptr [ %arrayidx.i.i55, %if.then ], [ %arrayidx.i.i103, %if.else ]
   %t.sroa.0.2 = phi ptr [ %10, %if.then ], [ %13, %if.else ]
+  %c.sroa.0.2.in = phi ptr [ %arrayidx.i.i55, %if.then ], [ %arrayidx.i.i103, %if.else ]
   %c.sroa.0.2 = load ptr, ptr %c.sroa.0.2.in, align 8, !noalias !27
   store ptr %t.sroa.0.2, ptr %agg.tmp, align 8
   %call24 = call noundef i32 @_ZN4cvc58internal6theory2bv5utils7getSizeENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %agg.tmp)
@@ -10995,8 +10995,8 @@ if.else:                                          ; preds = %invoke.cont
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %c.sroa.0.2.in = phi ptr [ %arrayidx.i.i56, %if.then ], [ %arrayidx.i.i104, %if.else ]
   %t.sroa.0.2 = phi ptr [ %10, %if.then ], [ %13, %if.else ]
+  %c.sroa.0.2.in = phi ptr [ %arrayidx.i.i56, %if.then ], [ %arrayidx.i.i104, %if.else ]
   %c.sroa.0.2 = load ptr, ptr %c.sroa.0.2.in, align 8, !noalias !27
   %call.i110 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v(ptr noundef nonnull align 8 dereferenceable(16) %c.sroa.0.2)
   store ptr %c.sroa.0.2, ptr %agg.tmp, align 8

@@ -5171,8 +5171,8 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   br label %14
 
 .loopexit:                                        ; preds = %70, %72, %74
-  %.013.i = phi i64 [ 1, %70 ], [ %..i, %74 ], [ 2, %72 ]
-  %13 = add i64 %.013.i, %16
+  %.012.i = phi i64 [ 1, %70 ], [ %..i, %74 ], [ 2, %72 ]
+  %13 = add i64 %.012.i, %16
   store i64 %13, ptr %4, align 8, !alias.scope !1206, !noalias !1209
   br label %14
 
@@ -5809,9 +5809,9 @@ select.unfold:                                    ; preds = %.noexc20.select.unf
   br label %58
 
 58:                                               ; preds = %.lr.ph, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hfea879d8ce7f9fbaE.exit38"
-  %.sroa.13.0102 = phi i32 [ %.sroa.13.0.copyload, %.lr.ph ], [ %.sroa.13.1.ph, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hfea879d8ce7f9fbaE.exit38" ]
-  %.sroa.7.0100 = phi ptr [ %.sroa.7.0.copyload, %.lr.ph ], [ %.sroa.7.1.ph, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hfea879d8ce7f9fbaE.exit38" ]
-  %59 = getelementptr inbounds i8, ptr %.sroa.7.0100, i64 16
+  %.sroa.7.0101 = phi ptr [ %.sroa.7.0.copyload, %.lr.ph ], [ %.sroa.7.1.ph, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hfea879d8ce7f9fbaE.exit38" ]
+  %.sroa.13.0100 = phi i32 [ %.sroa.13.0.copyload, %.lr.ph ], [ %.sroa.13.1.ph, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hfea879d8ce7f9fbaE.exit38" ]
+  %59 = getelementptr inbounds i8, ptr %.sroa.7.0101, i64 16
   %60 = load ptr, ptr %59, align 8, !noalias !1288, !noundef !4
   %61 = icmp eq ptr %60, null
   br i1 %61, label %69, label %62
@@ -5836,11 +5836,11 @@ select.unfold:                                    ; preds = %.noexc20.select.unf
   br label %109
 
 69:                                               ; preds = %58
-  %70 = icmp sgt i32 %.sroa.13.0102, -1
+  %70 = icmp sgt i32 %.sroa.13.0100, -1
   br i1 %70, label %109, label %71
 
 71:                                               ; preds = %69
-  %72 = and i32 %.sroa.13.0102, 2147483647
+  %72 = and i32 %.sroa.13.0100, 2147483647
   %73 = invoke noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %72)
           to label %.noexc15.i.i unwind label %.loopexit, !noalias !1297
 
@@ -5898,7 +5898,7 @@ select.unfold:                                    ; preds = %.noexc20.select.unf
 
 .body.i.i:                                        ; preds = %.loopexit, %.loopexit.split-lp, %85, %78
   %.pn.i.i = phi { ptr, i32 } [ %79, %85 ], [ %79, %78 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %95 = getelementptr inbounds i8, ptr %.sroa.7.0100, i64 48
+  %95 = getelementptr inbounds i8, ptr %.sroa.7.0101, i64 48
   %96 = load i32, ptr %95, align 4, !noalias !1315, !noundef !4
   %97 = add i32 %96, -1
   store i32 %97, ptr %95, align 4, !noalias !1315
@@ -5906,7 +5906,7 @@ select.unfold:                                    ; preds = %.noexc20.select.unf
   br i1 %98, label %99, label %.thread
 
 99:                                               ; preds = %.body.i.i
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sroa.7.0100)
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sroa.7.0101)
           to label %.thread unwind label %100, !noalias !1297
 
 .loopexit:                                        ; preds = %71, %.noexc15.i.i
@@ -5954,10 +5954,10 @@ select.unfold:                                    ; preds = %.noexc20.select.unf
   br label %.body
 
 109:                                              ; preds = %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hfea879d8ce7f9fbaE.exit.i.i.i", %69, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17h3e09f874d5afc6adE.exit.i.i.i"
+  %.sroa.13.1.ph = phi i32 [ undef, %69 ], [ %.sroa.13.0100, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17h3e09f874d5afc6adE.exit.i.i.i" ], [ %76, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hfea879d8ce7f9fbaE.exit.i.i.i" ]
   %.sroa.7.1.ph = phi ptr [ null, %69 ], [ %60, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17h3e09f874d5afc6adE.exit.i.i.i" ], [ %75, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hfea879d8ce7f9fbaE.exit.i.i.i" ]
-  %.sroa.13.1.ph = phi i32 [ undef, %69 ], [ %.sroa.13.0102, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$6parent17h3e09f874d5afc6adE.exit.i.i.i" ], [ %76, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hfea879d8ce7f9fbaE.exit.i.i.i" ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  store ptr %.sroa.7.0100, ptr %9, align 8
+  store ptr %.sroa.7.0101, ptr %9, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1339)
   %110 = load i64, ptr %25, align 8, !alias.scope !1339, !noalias !1342, !noundef !4
   %111 = icmp eq i64 %110, 0
@@ -5965,7 +5965,7 @@ select.unfold:                                    ; preds = %.noexc20.select.unf
 
 112:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !1344
-  %113 = invoke { ptr, i32 } @_ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.llvm.4613852783100018038(ptr noundef nonnull align 8 %.sroa.7.0100)
+  %113 = invoke { ptr, i32 } @_ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.llvm.4613852783100018038(ptr noundef nonnull align 8 %.sroa.7.0101)
           to label %.noexc30 unwind label %.loopexit76
 
 .noexc30:                                         ; preds = %112
@@ -6050,7 +6050,7 @@ select.unfold:                                    ; preds = %.noexc20.select.unf
           to label %141 unwind label %.loopexit.split-lp77
 
 select.unfold65:                                  ; preds = %.noexc32.select.unfold65_crit_edge, %109
-  %135 = phi ptr [ %.pre116, %.noexc32.select.unfold65_crit_edge ], [ %.sroa.7.0100, %109 ]
+  %135 = phi ptr [ %.pre116, %.noexc32.select.unfold65_crit_edge ], [ %.sroa.7.0101, %109 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1383)
   call void @llvm.experimental.noalias.scope.decl(metadata !1384)
   call void @llvm.experimental.noalias.scope.decl(metadata !1385)
@@ -10454,9 +10454,9 @@ define void @_ZN7ide_ssr11MatchFinder22debug_where_text_equal17hda14bdb95cd88ba1
   br label %31
 
 31:                                               ; preds = %69, %22
-  %.019 = phi i32 [ 0, %22 ], [ %45, %69 ]
-  %.sroa.06.0 = phi ptr [ %26, %22 ], [ %71, %69 ]
   %.sroa.59.0 = phi i64 [ %24, %22 ], [ %70, %69 ]
+  %.sroa.06.0 = phi ptr [ %26, %22 ], [ %71, %69 ]
+  %.0 = phi i32 [ 0, %22 ], [ %45, %69 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !2430
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6), !noalias !2430
   invoke void @_ZN4core3str7pattern11StrSearcher3new17heb1c26811addaa28E(ptr noalias nocapture noundef nonnull sret({ { i64, [8 x i64] }, { ptr, i64 }, { ptr, i64 } }) align 8 dereferenceable(104) %6, ptr noalias noundef nonnull readonly align 1 %.sroa.06.0, i64 noundef %.sroa.59.0, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
@@ -10501,7 +10501,7 @@ define void @_ZN7ide_ssr11MatchFinder22debug_where_text_equal17hda14bdb95cd88ba1
 
 42:                                               ; preds = %39
   %43 = trunc i64 %41 to i32
-  %44 = add i32 %.019, %43
+  %44 = add i32 %.0, %43
   %45 = add i32 %44, %27
   %46 = invoke noundef align 8 dereferenceable(8) ptr @"_ZN82_$LT$syntax..ast..generated..nodes..SourceFile$u20$as$u20$syntax..ast..AstNode$GT$6syntax17h29e88a43d2d1cb5dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11)
           to label %54 unwind label %.loopexit
@@ -11226,8 +11226,8 @@ _ZN9text_size5range9TextRange14contains_range17h647aeeafda0cedbfE.exit.thread: ;
 
 "_ZN7ide_ssr11MatchFinder31output_debug_for_nodes_at_range28_$u7b$$u7b$closure$u7d$$u7d$17haf5970d44900e120E.exit.i": ; preds = %.noexc84, %196
   %.sroa.3.sroa.0.0.i.i = phi ptr [ %201, %.noexc84 ], [ %.sroa.6.0.copyload102, %196 ]
-  %.sroa.03.0.i.i = phi i64 [ %200, %.noexc84 ], [ %.sroa.598.0.copyload100, %196 ]
   %.sroa.3.sroa.3.0.i.i = phi i64 [ 37, %.noexc84 ], [ %.sroa.7.0.copyload104, %196 ]
+  %.sroa.03.0.i.i = phi i64 [ %200, %.noexc84 ], [ %.sroa.598.0.copyload100, %196 ]
   store i64 %.sroa.03.0.i.i, ptr %.sroa.598.0..sroa_idx, align 8, !alias.scope !2618, !noalias !2613
   store ptr %.sroa.3.sroa.0.0.i.i, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !2618, !noalias !2613
   store i64 %.sroa.3.sroa.3.0.i.i, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !2618, !noalias !2613

@@ -10210,7 +10210,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h17bea780c3e33110E.exit: ; preds = %
           to label %"_ZN6either19Either$LT$L$C$R$GT$4left17hd44a51b7df335308E.exit" unwind label %.loopexit.split-lp370
 
 "_ZN6either19Either$LT$L$C$R$GT$4left17hd44a51b7df335308E.exit": ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17hc7fbdb4dfd44d355E.exit.i, %315, %311, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17h30e700428f5d48beE.exit.sink.split.i.i", %_ZN4core4iter6traits8iterator8Iterator3nth17h17bea780c3e33110E.exit
-  %.092 = phi ptr [ null, %_ZN4core4iter6traits8iterator8Iterator3nth17h17bea780c3e33110E.exit ], [ null, %315 ], [ %313, %311 ], [ null, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17h30e700428f5d48beE.exit.sink.split.i.i" ], [ null, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hc7fbdb4dfd44d355E.exit.i ]
+  %.087 = phi ptr [ null, %_ZN4core4iter6traits8iterator8Iterator3nth17h17bea780c3e33110E.exit ], [ null, %315 ], [ %313, %311 ], [ null, %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Attr$GT$17h30e700428f5d48beE.exit.sink.split.i.i" ], [ null, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hc7fbdb4dfd44d355E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %56)
   invoke void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Item$GT$17ha18a0e74390cd641E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %57)
           to label %324 unwind label %322
@@ -10310,8 +10310,8 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h17bea780c3e33110E.exit: ; preds = %
   br label %356
 
 356:                                              ; preds = %359, %"_ZN4core3ptr591drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..collect_attrs..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$$C$hir_expand..attrs..collect_attrs..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2936814e5ef275dfE.exit"
-  %.193 = phi ptr [ %.092, %"_ZN4core3ptr591drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..collect_attrs..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$$C$hir_expand..attrs..collect_attrs..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2936814e5ef275dfE.exit" ], [ %361, %359 ]
-  %357 = icmp eq ptr %.193, null
+  %.188 = phi ptr [ %.087, %"_ZN4core3ptr591drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..collect_attrs..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..flatten..Flatten$LT$core..option..IntoIter$LT$core..iter..adapters..filter..Filter$LT$syntax..ast..traits..AttrDocCommentIter$C$hir_expand..attrs..inner_attributes..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$$C$hir_expand..attrs..collect_attrs..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2936814e5ef275dfE.exit" ], [ %361, %359 ]
+  %357 = icmp eq ptr %.188, null
   br i1 %357, label %358, label %362
 
 358:                                              ; preds = %356, %292
@@ -10325,7 +10325,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h17bea780c3e33110E.exit: ; preds = %
           to label %356 unwind label %261
 
 362:                                              ; preds = %356
-  store ptr %.193, ptr %58, align 8
+  store ptr %.188, ptr %58, align 8
   %363 = invoke noundef ptr @"_ZN6syntax3ast8node_ext53_$LT$impl$u20$syntax..ast..generated..nodes..Attr$GT$10token_tree17h781a9e4edc476c8fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %58)
           to label %372 unwind label %364
 
@@ -12995,8 +12995,8 @@ _ZN10hir_expand18builtin_attr_macro19BuiltinAttrExpander6expand17h3fcea027ad756c
           to label %304 unwind label %212, !noalias !3260
 
 "_ZN4core6option15Option$LT$T$GT$2or17he12d02188a958b91E.exit.i": ; preds = %.critedge.i.i, %289, %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h6581b2a1b3627727E.llvm.4743249442795103037.exit.sink.split.i.i.i.i", %281, %281, %281, %281, %280
-  %.sroa.0111.0.i = phi i8 [ %.sroa.03.0.copyload.i86.i, %.critedge.i.i ], [ %.sroa.0107.0.copyload.i, %280 ], [ %.sroa.0107.0.copyload.i, %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h6581b2a1b3627727E.llvm.4743249442795103037.exit.sink.split.i.i.i.i" ], [ %.sroa.0107.0.copyload.i, %289 ], [ %.sroa.0107.0.copyload.i, %281 ], [ %.sroa.0107.0.copyload.i, %281 ], [ %.sroa.0107.0.copyload.i, %281 ], [ %.sroa.0107.0.copyload.i, %281 ]
   %.sroa.5113.sroa.5.0.i = phi ptr [ %.sroa.6117.0.copyload227.i, %.critedge.i.i ], [ %.sroa.6109.sroa.4.0.copyload.i, %280 ], [ %.sroa.6109.sroa.4.0.copyload.i, %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h6581b2a1b3627727E.llvm.4743249442795103037.exit.sink.split.i.i.i.i" ], [ %.sroa.6109.sroa.4.0.copyload.i, %289 ], [ %.sroa.6109.sroa.4.0.copyload.i, %281 ], [ %.sroa.6109.sroa.4.0.copyload.i, %281 ], [ %.sroa.6109.sroa.4.0.copyload.i, %281 ], [ %.sroa.6109.sroa.4.0.copyload.i, %281 ]
+  %.sroa.0111.0.i = phi i8 [ %.sroa.03.0.copyload.i86.i, %.critedge.i.i ], [ %.sroa.0107.0.copyload.i, %280 ], [ %.sroa.0107.0.copyload.i, %"_ZN4core3ptr37drop_in_place$LT$mbe..ExpandError$GT$17h6581b2a1b3627727E.llvm.4743249442795103037.exit.sink.split.i.i.i.i" ], [ %.sroa.0107.0.copyload.i, %289 ], [ %.sroa.0107.0.copyload.i, %281 ], [ %.sroa.0107.0.copyload.i, %281 ], [ %.sroa.0107.0.copyload.i, %281 ], [ %.sroa.0107.0.copyload.i, %281 ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.5116.i)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.6109.sroa.0.i)
   store i8 %.sroa.0111.0.i, ptr %17, align 8, !noalias !3258

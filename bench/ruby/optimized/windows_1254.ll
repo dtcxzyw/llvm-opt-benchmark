@@ -117,7 +117,7 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
 .lr.ph:                                           ; preds = %6, %56
   %12 = phi ptr [ %60, %56 ], [ %8, %6 ]
   %.071 = phi i32 [ %spec.select, %56 ], [ %7, %6 ]
-  %.05470 = phi ptr [ %57, %56 ], [ %3, %6 ]
+  %.05570 = phi ptr [ %57, %56 ], [ %3, %6 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 1
   store ptr %13, ptr %1, align 8
   %14 = load i8, ptr %12, align 1
@@ -131,8 +131,8 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
 
 18:                                               ; preds = %16
   %19 = or i32 %.071, 262144
-  %20 = getelementptr inbounds i8, ptr %.05470, i64 1
-  store i8 83, ptr %.05470, align 1
+  %20 = getelementptr inbounds i8, ptr %.05570, i64 1
+  store i8 83, ptr %.05570, align 1
   %21 = and i32 %.071, 32768
   %.not67 = icmp eq i32 %21, 0
   %22 = select i1 %.not67, i8 83, i8 115
@@ -145,8 +145,8 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
 
 25:                                               ; preds = %23
   %26 = or i32 %.071, 262144
-  %27 = getelementptr inbounds i8, ptr %.05470, i64 1
-  store i8 115, ptr %.05470, align 1
+  %27 = getelementptr inbounds i8, ptr %.05570, i64 1
+  store i8 115, ptr %.05570, align 1
   br label %56
 
 28:                                               ; preds = %.lr.ph
@@ -221,11 +221,11 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
   br label %56
 
 56:                                               ; preds = %47, %.fold.split, %43, %43, %43, %43, %40, %37, %44, %54, %52, %49, %18, %25, %23
-  %.056 = phi i8 [ %22, %18 ], [ 115, %25 ], [ -33, %23 ], [ %39, %37 ], [ %42, %40 ], [ %14, %43 ], [ %51, %49 ], [ %53, %52 ], [ %55, %54 ], [ %14, %44 ], [ %14, %43 ], [ %14, %43 ], [ %14, %43 ], [ 73, %47 ], [ -97, %.fold.split ]
-  %.155 = phi ptr [ %20, %18 ], [ %27, %25 ], [ %.05470, %23 ], [ %.05470, %37 ], [ %.05470, %40 ], [ %.05470, %43 ], [ %.05470, %49 ], [ %.05470, %52 ], [ %.05470, %54 ], [ %.05470, %44 ], [ %.05470, %43 ], [ %.05470, %43 ], [ %.05470, %43 ], [ %.05470, %47 ], [ %.05470, %.fold.split ]
+  %.156 = phi ptr [ %20, %18 ], [ %27, %25 ], [ %.05570, %23 ], [ %.05570, %37 ], [ %.05570, %40 ], [ %.05570, %43 ], [ %.05570, %49 ], [ %.05570, %52 ], [ %.05570, %54 ], [ %.05570, %44 ], [ %.05570, %43 ], [ %.05570, %43 ], [ %.05570, %43 ], [ %.05570, %47 ], [ %.05570, %.fold.split ]
+  %.054 = phi i8 [ %22, %18 ], [ 115, %25 ], [ -33, %23 ], [ %39, %37 ], [ %42, %40 ], [ %14, %43 ], [ %51, %49 ], [ %53, %52 ], [ %55, %54 ], [ %14, %44 ], [ %14, %43 ], [ %14, %43 ], [ %14, %43 ], [ 73, %47 ], [ -97, %.fold.split ]
   %.1 = phi i32 [ %19, %18 ], [ %26, %25 ], [ %.071, %23 ], [ %35, %37 ], [ %35, %40 ], [ %.071, %43 ], [ %48, %49 ], [ %48, %52 ], [ %48, %54 ], [ %.071, %44 ], [ %.071, %43 ], [ %.071, %43 ], [ %.071, %43 ], [ %48, %47 ], [ %48, %.fold.split ]
-  %57 = getelementptr inbounds i8, ptr %.155, i64 1
-  store i8 %.056, ptr %.155, align 1
+  %57 = getelementptr inbounds i8, ptr %.156, i64 1
+  store i8 %.054, ptr %.156, align 1
   %58 = and i32 %.1, 32768
   %.not68 = icmp eq i32 %58, 0
   %59 = xor i32 %.1, 57344
@@ -237,10 +237,10 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
   br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %56, %6
-  %.054.lcssa = phi ptr [ %3, %6 ], [ %57, %56 ]
+  %.055.lcssa = phi ptr [ %3, %6 ], [ %57, %56 ]
   %.0.lcssa = phi i32 [ %7, %6 ], [ %spec.select, %56 ]
   store i32 %.0.lcssa, ptr %0, align 4
-  %64 = ptrtoint ptr %.054.lcssa to i64
+  %64 = ptrtoint ptr %.055.lcssa to i64
   %65 = ptrtoint ptr %3 to i64
   %66 = sub i64 %64, %65
   %67 = trunc i64 %66 to i32

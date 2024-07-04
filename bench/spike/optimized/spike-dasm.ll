@@ -342,23 +342,23 @@ _ZNSt6vectorIP13disasm_insn_tSaIS1_EED2Ev.exit:   ; preds = %67, %._crit_edge, %
 
 .lr.ph195:                                        ; preds = %.preheader, %.backedge
   %116 = phi i64 [ %404, %.backedge ], [ %115, %.preheader ]
-  %.020194 = phi i64 [ %.020.be, %.backedge ], [ 0, %.preheader ]
+  %.0194 = phi i64 [ %.0.be, %.backedge ], [ 0, %.preheader ]
   %117 = load ptr, ptr %6, align 8
-  %118 = sub i64 %116, %.020194
+  %118 = sub i64 %116, %.0194
   %.not3339.i.i = icmp ult i64 %118, 5
   br i1 %.not3339.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph195
   %119 = getelementptr inbounds i8, ptr %117, i64 %116
-  %120 = getelementptr inbounds i8, ptr %117, i64 %.020194
+  %120 = getelementptr inbounds i8, ptr %117, i64 %.0194
   %121 = ptrtoint ptr %119 to i64
   br label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %128, %.lr.ph.i.i
   %.041.i.i = phi i64 [ %118, %.lr.ph.i.i ], [ %131, %128 ]
-  %.02840.i.i = phi ptr [ %120, %.lr.ph.i.i ], [ %129, %128 ]
+  %.02740.i.i = phi ptr [ %120, %.lr.ph.i.i ], [ %129, %128 ]
   %122 = add i64 %.041.i.i, -4
-  %123 = call ptr @memchr(ptr noundef %.02840.i.i, i32 noundef 68, i64 noundef %122) #23
+  %123 = call ptr @memchr(ptr noundef %.02740.i.i, i32 noundef 68, i64 noundef %122) #23
   %.not34.i.i = icmp eq ptr %123, null
   br i1 %.not34.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
@@ -405,14 +405,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit: ; preds =
 
 143:                                              ; preds = %137, %141, %132
   %144 = phi i8 [ %.pre227, %141 ], [ %135, %132 ], [ 48, %137 ]
-  %.121 = phi i64 [ %142, %141 ], [ %133, %132 ], [ %133, %137 ]
+  %.1 = phi i64 [ %142, %141 ], [ %133, %132 ], [ %133, %137 ]
   %145 = sext i8 %144 to i32
   %146 = call i32 @isxdigit(i32 noundef %145) #27
   %.not28 = icmp eq i32 %146, 0
   br i1 %.not28, label %.backedge, label %147
 
 147:                                              ; preds = %143
-  %148 = getelementptr inbounds i8, ptr %117, i64 %.121
+  %148 = getelementptr inbounds i8, ptr %117, i64 %.1
   %149 = call i64 @strtoull(ptr noundef nonnull %148, ptr noundef nonnull %14, i32 noundef 16) #23
   %150 = load ptr, ptr %14, align 8
   %151 = load i8, ptr %150, align 1
@@ -1272,9 +1272,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %_ZN
   br label %.backedge
 
 .backedge:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79, %143, %147
-  %.020.be = phi i64 [ %.121, %147 ], [ %400, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79 ], [ %.121, %143 ]
+  %.0.be = phi i64 [ %.1, %147 ], [ %400, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79 ], [ %.1, %143 ]
   %404 = load i64, ptr %21, align 8
-  %.not.i.i48 = icmp ugt i64 %404, %.020.be
+  %.not.i.i48 = icmp ugt i64 %404, %.0.be
   br i1 %.not.i.i48, label %.lr.ph195, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm.exit.thread, !llvm.loop !15
 
 .loopexit145:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i

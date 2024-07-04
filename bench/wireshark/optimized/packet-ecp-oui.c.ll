@@ -175,11 +175,11 @@ define internal i32 @dissect_ecp(ptr noundef %0, ptr nocapture noundef readonly 
   br label %32
 
 32:                                               ; preds = %29, %20
-  %.059.i = phi ptr [ %31, %29 ], [ @.str.52, %20 ]
+  %.0.i = phi ptr [ %31, %29 ], [ @.str.52, %20 ]
   %narrow.i = add nuw nsw i16 %21, 2
   %33 = zext nneg i16 %narrow.i to i32
   %34 = load i32, ptr @ett_ecp, align 4
-  %35 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %9, ptr noundef %0, i32 noundef %.0374557, i32 noundef %33, i32 noundef %34, ptr noundef null, ptr noundef nonnull @.str.54, ptr noundef nonnull %spec.store.select.i, ptr noundef %.059.i) #2
+  %35 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %9, ptr noundef %0, i32 noundef %.0374557, i32 noundef %33, i32 noundef %34, ptr noundef null, ptr noundef nonnull @.str.54, ptr noundef nonnull %spec.store.select.i, ptr noundef %.0.i) #2
   %36 = load i32, ptr @hf_ecp_vdp_mode, align 4
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef 0) #2
   %38 = add i32 %.0374557, 7
@@ -213,27 +213,27 @@ define internal i32 @dissect_ecp(ptr noundef %0, ptr nocapture noundef readonly 
   %62 = icmp eq i16 %59, 1
   %63 = select i1 %62, ptr @.str.59, ptr @.str.60
   %64 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %35, ptr noundef %0, i32 noundef %57, i32 noundef 2, i32 noundef %60, ptr noundef null, ptr noundef nonnull @.str.58, i32 noundef %61, ptr noundef nonnull %63) #2
-  %.0211.i.i = add i32 %.0374557, 32
+  %.01.i.i = add i32 %.0374557, 32
   %.not.i.i = icmp eq i16 %59, 0
   br i1 %.not.i.i, label %dissect_vdp_fi_macvid.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %58, %.lr.ph.i.i
-  %.0214.i.i = phi i32 [ %.021.i.i, %.lr.ph.i.i ], [ %.0211.i.i, %58 ]
-  %.03.i.i = phi i32 [ %70, %.lr.ph.i.i ], [ 0, %58 ]
-  %.021.in2.i.i = phi i32 [ %67, %.lr.ph.i.i ], [ %57, %58 ]
+  %.04.i.i = phi i32 [ %.0.i.i, %.lr.ph.i.i ], [ %.01.i.i, %58 ]
+  %.0.in3.i.i = phi i32 [ %67, %.lr.ph.i.i ], [ %57, %58 ]
+  %.0212.i.i = phi i32 [ %70, %.lr.ph.i.i ], [ 0, %58 ]
   %65 = load i32, ptr @hf_ecp_vdp_mac, align 4
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %65, ptr noundef %0, i32 noundef %.0214.i.i, i32 noundef 6, i32 noundef 0) #2
-  %67 = add i32 %.021.in2.i.i, 8
+  %66 = tail call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %65, ptr noundef %0, i32 noundef %.04.i.i, i32 noundef 6, i32 noundef 0) #2
+  %67 = add i32 %.0.in3.i.i, 8
   %68 = load i32, ptr @hf_ecp_vdp_vlan, align 4
   %69 = tail call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %68, ptr noundef %0, i32 noundef %67, i32 noundef 2, i32 noundef 0) #2
-  %70 = add nuw nsw i32 %.03.i.i, 1
-  %.021.i.i = add i32 %.021.in2.i.i, 10
+  %70 = add nuw nsw i32 %.0212.i.i, 1
+  %.0.i.i = add i32 %.0.in3.i.i, 10
   %exitcond.not.i.i = icmp eq i32 %70, %61
   br i1 %exitcond.not.i.i, label %dissect_vdp_fi_macvid.exit.i, label %.lr.ph.i.i, !llvm.loop !4
 
 dissect_vdp_fi_macvid.exit.i:                     ; preds = %.lr.ph.i.i, %58
-  %.021.lcssa.i.i = phi i32 [ %.0211.i.i, %58 ], [ %.021.i.i, %.lr.ph.i.i ]
-  %71 = sub i32 %.021.lcssa.i.i, %57
+  %.0.lcssa.i.i = phi i32 [ %.01.i.i, %58 ], [ %.0.i.i, %.lr.ph.i.i ]
+  %71 = sub i32 %.0.lcssa.i.i, %57
   %72 = and i32 %71, 65535
   %73 = add nuw nsw i32 %72, 30
   %.pre = add i32 %73, %.0374557

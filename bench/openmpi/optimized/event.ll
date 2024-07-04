@@ -426,13 +426,13 @@ define dso_local range(i32 1, 0) i32 @psched_notify_event(i32 noundef %0, ptr no
   br i1 %.not, label %._crit_edge132, label %.lr.ph131
 
 37:                                               ; preds = %.lr.ph131
-  %38 = add nuw i64 %.081129, 1
+  %38 = add nuw i64 %.0129, 1
   %exitcond.not = icmp eq i64 %38, %36
   br i1 %exitcond.not, label %._crit_edge132, label %.lr.ph131, !llvm.loop !9
 
 .lr.ph131:                                        ; preds = %35, %37
-  %.081129 = phi i64 [ %38, %37 ], [ 0, %35 ]
-  %39 = getelementptr inbounds %struct.pmix_info, ptr %3, i64 %.081129
+  %.0129 = phi i64 [ %38, %37 ], [ 0, %35 ]
+  %39 = getelementptr inbounds %struct.pmix_info, ptr %3, i64 %.0129
   %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(22) @.str.1) #15
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.loopexit, label %37
@@ -788,8 +788,8 @@ pmix_obj_run_destructors.exit127:                 ; preds = %.lr.ph.i124, %180
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph131, %._crit_edge, %70, %174, %193, %191, %149, %168, %166, %118, %137, %135, %108, %104, %96, %91, %86, %81, %76
-  %.0 = phi i32 [ %73, %76 ], [ %78, %81 ], [ %83, %86 ], [ %88, %91 ], [ %93, %96 ], [ %101, %104 ], [ -32, %108 ], [ -32, %135 ], [ -32, %137 ], [ -32, %118 ], [ -1, %166 ], [ -1, %168 ], [ -1, %149 ], [ -157, %191 ], [ -157, %193 ], [ -157, %174 ], [ -157, %70 ], [ -157, %._crit_edge ], [ -157, %.lr.ph131 ]
-  ret i32 %.0
+  %.081 = phi i32 [ %73, %76 ], [ %78, %81 ], [ %83, %86 ], [ %88, %91 ], [ %93, %96 ], [ %101, %104 ], [ -32, %108 ], [ -32, %135 ], [ -32, %137 ], [ -32, %118 ], [ -1, %166 ], [ -1, %168 ], [ -1, %149 ], [ -157, %191 ], [ -157, %193 ], [ -157, %174 ], [ -157, %70 ], [ -157, %._crit_edge ], [ -157, %.lr.ph131 ]
+  ret i32 %.081
 }
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1

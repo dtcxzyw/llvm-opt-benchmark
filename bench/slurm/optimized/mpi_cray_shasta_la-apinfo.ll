@@ -164,7 +164,7 @@ define range(i32 -1, 1) i32 @create_apinfo(ptr nocapture noundef readonly %0, pt
   br i1 %.not.i, label %.critedge4.preheader.i, label %.lr.ph115.i, !llvm.loop !8
 
 .preheader.i:                                     ; preds = %.loopexit.i, %.critedge4.backedge.i, %.critedge4.preheader.i
-  %.073.ph.i.lcssa = phi i32 [ 0, %.critedge4.preheader.i ], [ %.073.ph.i438, %.critedge4.backedge.i ], [ %spec.select.i, %.loopexit.i ]
+  %.070.ph.i.lcssa = phi i32 [ 0, %.critedge4.preheader.i ], [ %.070.ph.i438, %.critedge4.backedge.i ], [ %spec.select.i, %.loopexit.i ]
   %58 = load i32, ptr %23, align 8
   %.not136.i = icmp eq i32 %58, 0
   br i1 %.not136.i, label %.loopexit, label %.lr.ph132.i
@@ -175,8 +175,8 @@ define range(i32 -1, 1) i32 @create_apinfo(ptr nocapture noundef readonly %0, pt
 
 59:                                               ; preds = %.lr.ph, %.critedge4.backedge.i
   %60 = phi ptr [ %129, %.lr.ph ], [ %75, %.critedge4.backedge.i ]
-  %.075.i434 = phi i32 [ %.075.ph.i437, %.lr.ph ], [ %61, %.critedge4.backedge.i ]
-  %61 = add nsw i32 %.075.i434, 1
+  %.072.i434 = phi i32 [ %.072.ph.i437, %.lr.ph ], [ %61, %.critedge4.backedge.i ]
+  %61 = add nsw i32 %.072.i434, 1
   %62 = load i8, ptr %60, align 1
   %cond116.i = icmp eq i8 %62, 0
   br i1 %cond116.i, label %.critedge4.backedge.i, label %.lr.ph119.i
@@ -188,7 +188,7 @@ define range(i32 -1, 1) i32 @create_apinfo(ptr nocapture noundef readonly %0, pt
 
 65:                                               ; preds = %71, %.lr.ph119.i
   %66 = phi i8 [ %62, %.lr.ph119.i ], [ %73, %71 ]
-  %.066117.i = phi ptr [ %60, %.lr.ph119.i ], [ %72, %71 ]
+  %.0117.i = phi ptr [ %60, %.lr.ph119.i ], [ %72, %71 ]
   %67 = sext i8 %66 to i64
   %68 = getelementptr inbounds i16, ptr %64, i64 %67
   %69 = load i16, ptr %68, align 2
@@ -197,7 +197,7 @@ define range(i32 -1, 1) i32 @create_apinfo(ptr nocapture noundef readonly %0, pt
   br i1 %.not86.i, label %.critedge.i, label %71
 
 71:                                               ; preds = %65
-  %72 = getelementptr inbounds i8, ptr %.066117.i, i64 1
+  %72 = getelementptr inbounds i8, ptr %.0117.i, i64 1
   %73 = load i8, ptr %72, align 1
   %cond.i = icmp eq i8 %73, 0
   br i1 %cond.i, label %.critedge4.backedge.i, label %65, !llvm.loop !9
@@ -216,7 +216,7 @@ define range(i32 -1, 1) i32 @create_apinfo(ptr nocapture noundef readonly %0, pt
 
 .lr.ph122.i:                                      ; preds = %.critedge.i, %81
   %76 = phi i8 [ %83, %81 ], [ %66, %.critedge.i ]
-  %.167121.i = phi ptr [ %82, %81 ], [ %.066117.i, %.critedge.i ]
+  %.1121.i = phi ptr [ %82, %81 ], [ %.0117.i, %.critedge.i ]
   %77 = sext i8 %76 to i64
   %78 = getelementptr inbounds i16, ptr %64, i64 %77
   %79 = load i16, ptr %78, align 2
@@ -225,19 +225,19 @@ define range(i32 -1, 1) i32 @create_apinfo(ptr nocapture noundef readonly %0, pt
   br i1 %.not88.i, label %81, label %.critedge2.i
 
 81:                                               ; preds = %.lr.ph122.i
-  %82 = getelementptr inbounds i8, ptr %.167121.i, i64 1
+  %82 = getelementptr inbounds i8, ptr %.1121.i, i64 1
   %83 = load i8, ptr %82, align 1
   %.not87.i = icmp eq i8 %83, 0
   br i1 %.not87.i, label %.critedge2.thread.i, label %.lr.ph122.i, !llvm.loop !10
 
 .critedge2.i:                                     ; preds = %.lr.ph122.i
-  store i8 0, ptr %.167121.i, align 1
+  store i8 0, ptr %.1121.i, align 1
   br label %84
 
 84:                                               ; preds = %86, %.critedge2.i
-  %.167.pn.i = phi ptr [ %.167121.i, %.critedge2.i ], [ %.268.i, %86 ]
-  %.268.i = getelementptr inbounds i8, ptr %.167.pn.i, i64 1
-  %85 = load i8, ptr %.268.i, align 1
+  %.1.pn.i = phi ptr [ %.1121.i, %.critedge2.i ], [ %.2.i, %86 ]
+  %.2.i = getelementptr inbounds i8, ptr %.1.pn.i, i64 1
+  %85 = load i8, ptr %.2.i, align 1
   %.not89.i = icmp eq i8 %85, 0
   br i1 %.not89.i, label %.critedge4.backedge.i, label %86
 
@@ -251,7 +251,7 @@ define range(i32 -1, 1) i32 @create_apinfo(ptr nocapture noundef readonly %0, pt
   br i1 %.not90.i, label %92, label %84, !llvm.loop !11
 
 92:                                               ; preds = %86
-  %93 = call i32 @xstrcmp(ptr noundef nonnull %.066117.i, ptr noundef nonnull @.str.13) #11
+  %93 = call i32 @xstrcmp(ptr noundef nonnull %.0117.i, ptr noundef nonnull @.str.13) #11
   %.not91.i = icmp eq i32 %93, 0
   br i1 %.not91.i, label %.preheader95.i, label %105
 
@@ -263,28 +263,28 @@ define range(i32 -1, 1) i32 @create_apinfo(ptr nocapture noundef readonly %0, pt
 .lr.ph129.i:                                      ; preds = %.preheader95.i, %101
   %95 = phi i32 [ %102, %101 ], [ %94, %.preheader95.i ]
   %indvars.iv159.i = phi i64 [ %indvars.iv.next160.i, %101 ], [ 0, %.preheader95.i ]
-  %.070127.i = phi i32 [ %.171.i, %101 ], [ 0, %.preheader95.i ]
+  %.067128.i = phi i32 [ %.168.i, %101 ], [ 0, %.preheader95.i ]
   %96 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv159.i
   %97 = load i32, ptr %96, align 4
   %98 = icmp eq i32 %97, -2
   br i1 %98, label %99, label %101
 
 99:                                               ; preds = %.lr.ph129.i
-  store i32 %.073.ph.i438, ptr %96, align 4
-  %100 = add nsw i32 %.070127.i, 1
+  store i32 %.070.ph.i438, ptr %96, align 4
+  %100 = add nsw i32 %.067128.i, 1
   %.pre.i = load i32, ptr %23, align 8
   br label %101
 
 101:                                              ; preds = %99, %.lr.ph129.i
   %102 = phi i32 [ %.pre.i, %99 ], [ %95, %.lr.ph129.i ]
-  %.171.i = phi i32 [ %100, %99 ], [ %.070127.i, %.lr.ph129.i ]
+  %.168.i = phi i32 [ %100, %99 ], [ %.067128.i, %.lr.ph129.i ]
   %indvars.iv.next160.i = add nuw nsw i64 %indvars.iv159.i, 1
   %103 = zext i32 %102 to i64
   %104 = icmp ult i64 %indvars.iv.next160.i, %103
   br i1 %104, label %.lr.ph129.i, label %.loopexit.i, !llvm.loop !12
 
 105:                                              ; preds = %92
-  %106 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.14, ptr noundef nonnull %.066117.i) #11
+  %106 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.14, ptr noundef nonnull %.0117.i) #11
   store ptr %106, ptr %9, align 8
   %107 = call ptr @hostlist_create(ptr noundef %106) #11
   call void @slurm_xfree(ptr noundef nonnull %9) #11
@@ -298,7 +298,7 @@ define range(i32 -1, 1) i32 @create_apinfo(ptr nocapture noundef readonly %0, pt
 
 .lr.ph125.i:                                      ; preds = %.preheader96.i, %120
   %109 = phi ptr [ %124, %120 ], [ %108, %.preheader96.i ]
-  %.272124.i = phi i32 [ %123, %120 ], [ 0, %.preheader96.i ]
+  %.269124.i = phi i32 [ %123, %120 ], [ 0, %.preheader96.i ]
   %110 = call i64 @strtol(ptr noundef nonnull %109, ptr noundef nonnull %7, i32 noundef 10) #11
   %111 = trunc i64 %110 to i32
   %112 = load ptr, ptr %7, align 8
@@ -323,22 +323,22 @@ define range(i32 -1, 1) i32 @create_apinfo(ptr nocapture noundef readonly %0, pt
   call void @free(ptr noundef nonnull %109) #11
   %121 = and i64 %110, 2147483647
   %122 = getelementptr inbounds i32, ptr %40, i64 %121
-  store i32 %.073.ph.i438, ptr %122, align 4
-  %123 = add nuw nsw i32 %.272124.i, 1
+  store i32 %.070.ph.i438, ptr %122, align 4
+  %123 = add nuw nsw i32 %.269124.i, 1
   %124 = call ptr @hostlist_pop(ptr noundef nonnull %107) #11
   %.not93.i = icmp eq ptr %124, null
   br i1 %.not93.i, label %._crit_edge126.i, label %.lr.ph125.i, !llvm.loop !13
 
 ._crit_edge126.i:                                 ; preds = %120, %.preheader96.i
-  %.272.lcssa.i = phi i32 [ 0, %.preheader96.i ], [ %123, %120 ]
+  %.269.lcssa.i = phi i32 [ 0, %.preheader96.i ], [ %123, %120 ]
   call void @hostlist_destroy(ptr noundef nonnull %107) #11
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %101, %._crit_edge126.i, %.preheader95.i
-  %.3.i = phi i32 [ %.272.lcssa.i, %._crit_edge126.i ], [ 0, %.preheader95.i ], [ %.171.i, %101 ]
+  %.3.i = phi i32 [ %.269.lcssa.i, %._crit_edge126.i ], [ 0, %.preheader95.i ], [ %.168.i, %101 ]
   %125 = icmp sgt i32 %.3.i, 0
   %126 = zext i1 %125 to i32
-  %spec.select.i = add nuw nsw i32 %.073.ph.i438, %126
+  %spec.select.i = add nuw nsw i32 %.070.ph.i438, %126
   %.not83.i431 = icmp eq i32 %61, 0
   %127 = load ptr, ptr %6, align 8
   %.sink.i432 = select i1 %.not83.i431, ptr %127, ptr null
@@ -348,8 +348,8 @@ define range(i32 -1, 1) i32 @create_apinfo(ptr nocapture noundef readonly %0, pt
 
 .lr.ph:                                           ; preds = %.critedge4.preheader.i, %.loopexit.i
   %129 = phi ptr [ %128, %.loopexit.i ], [ %53, %.critedge4.preheader.i ]
-  %.073.ph.i438 = phi i32 [ %spec.select.i, %.loopexit.i ], [ 0, %.critedge4.preheader.i ]
-  %.075.ph.i437 = phi i32 [ %61, %.loopexit.i ], [ 0, %.critedge4.preheader.i ]
+  %.070.ph.i438 = phi i32 [ %spec.select.i, %.loopexit.i ], [ 0, %.critedge4.preheader.i ]
+  %.072.ph.i437 = phi i32 [ %61, %.loopexit.i ], [ 0, %.critedge4.preheader.i ]
   br label %59
 
 130:                                              ; preds = %137, %.lr.ph132.i
@@ -374,7 +374,7 @@ define range(i32 -1, 1) i32 @create_apinfo(ptr nocapture noundef readonly %0, pt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %137, %.critedge2.thread.i, %.preheader.i
-  %storemerge165.i = phi i32 [ 0, %.critedge2.thread.i ], [ %.073.ph.i.lcssa, %.preheader.i ], [ %.073.ph.i.lcssa, %137 ]
+  %storemerge165.i = phi i32 [ 0, %.critedge2.thread.i ], [ %.070.ph.i.lcssa, %.preheader.i ], [ %.070.ph.i.lcssa, %137 ]
   %storemerge.i = phi ptr [ null, %.critedge2.thread.i ], [ %40, %.preheader.i ], [ %40, %137 ]
   call void @slurm_xfree(ptr noundef nonnull %6) #11
   store ptr %storemerge.i, ptr %17, align 8

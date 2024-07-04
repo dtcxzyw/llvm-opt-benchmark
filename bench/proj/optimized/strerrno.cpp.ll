@@ -41,37 +41,37 @@ define noundef ptr @proj_context_errno_string(ptr noundef %0, i32 noundef %1) lo
   br label %6
 
 6:                                                ; preds = %4, %2
-  %.028 = phi ptr [ %5, %4 ], [ %0, %2 ]
+  %.030 = phi ptr [ %5, %4 ], [ %0, %2 ]
   %7 = icmp eq i32 %1, 0
   br i1 %7, label %29, label %.preheader
 
 8:                                                ; preds = %.preheader
-  %.029.add = add nuw nsw i64 %.029.idx38, 16
-  %.not = icmp eq i64 %.029.add, 224
+  %.0.add = add nuw nsw i64 %.0.idx38, 16
+  %.not = icmp eq i64 %.0.add, 224
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %6, %8
-  %.029.idx38 = phi i64 [ %.029.add, %8 ], [ 0, %6 ]
-  %.029.ptr39 = getelementptr inbounds i8, ptr @_ZL13error_strings, i64 %.029.idx38
-  %9 = load i32, ptr %.029.ptr39, align 16
+  %.0.idx38 = phi i64 [ %.0.add, %8 ], [ 0, %6 ]
+  %.0.ptr39 = getelementptr inbounds i8, ptr @_ZL13error_strings, i64 %.0.idx38
+  %9 = load i32, ptr %.0.ptr39, align 16
   %10 = icmp eq i32 %9, %1
   br i1 %10, label %11, label %8
 
 11:                                               ; preds = %.preheader
-  %.029.ptr39.le = getelementptr inbounds i8, ptr @_ZL13error_strings, i64 %.029.idx38
-  %12 = getelementptr inbounds i8, ptr %.029.ptr39.le, i64 8
+  %.0.ptr39.le = getelementptr inbounds i8, ptr @_ZL13error_strings, i64 %.0.idx38
+  %12 = getelementptr inbounds i8, ptr %.0.ptr39.le, i64 8
   %13 = load ptr, ptr %12, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %11
-  %.030 = phi ptr [ %13, %11 ], [ null, %8 ]
-  %14 = icmp eq ptr %.030, null
+  %.029 = phi ptr [ %13, %11 ], [ null, %8 ]
+  %14 = icmp eq ptr %.029, null
   %15 = icmp sgt i32 %1, 0
   %or.cond = and i1 %15, %14
   %16 = and i32 %1, 1024
   %.not33 = icmp eq i32 %16, 0
   %spec.select = select i1 %.not33, ptr null, ptr @.str
-  %.1 = select i1 %or.cond, ptr %spec.select, ptr %.030
+  %.1 = select i1 %or.cond, ptr %spec.select, ptr %.029
   %17 = icmp eq ptr %.1, null
   %or.cond3 = and i1 %15, %17
   %18 = and i32 %1, 2048
@@ -82,26 +82,26 @@ define noundef ptr @proj_context_errno_string(ptr noundef %0, i32 noundef %1) lo
   br i1 %.not35, label %21, label %19
 
 19:                                               ; preds = %.loopexit
-  %20 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.028, ptr noundef nonnull %.2)
+  %20 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.030, ptr noundef nonnull %.2)
   br label %27
 
 21:                                               ; preds = %.loopexit
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %.028, i64 noundef 50)
-  %22 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %.028, i64 noundef 0)
-  %23 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.028) #5
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %.030, i64 noundef 50)
+  %22 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %.030, i64 noundef 0)
+  %23 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.030) #5
   %24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %22, i64 noundef %23, ptr noundef nonnull @.str.2, i32 noundef %1) #5
-  %25 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.028) #5
+  %25 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.030) #5
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #6
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %.028, i64 noundef %26)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %.030, i64 noundef %26)
   br label %27
 
 27:                                               ; preds = %21, %19
-  %28 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.028) #5
+  %28 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.030) #5
   br label %29
 
 29:                                               ; preds = %6, %27
-  %.0 = phi ptr [ %28, %27 ], [ null, %6 ]
-  ret ptr %.0
+  %.028 = phi ptr [ %28, %27 ], [ null, %6 ]
+  ret ptr %.028
 }
 
 declare noundef ptr @_Z18pj_get_default_ctxv() local_unnamed_addr #1

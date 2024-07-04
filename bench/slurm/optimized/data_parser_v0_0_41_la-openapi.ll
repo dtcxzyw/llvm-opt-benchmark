@@ -440,14 +440,14 @@ define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, 
   br label %23
 
 23:                                               ; preds = %14, %.thread, %5, %8, %20
-  %.044 = phi i32 [ %22, %20 ], [ 11, %8 ], [ 11, %5 ], [ 10, %.thread ], [ %spec.select74, %14 ]
+  %.043 = phi i32 [ %22, %20 ], [ 11, %8 ], [ 11, %5 ], [ 10, %.thread ], [ %spec.select74, %14 ]
   %24 = getelementptr inbounds i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   %27 = icmp ne ptr %3, null
   %or.cond = or i1 %27, %26
   %spec.select = select i1 %or.cond, ptr %3, ptr %25
-  %28 = tail call fastcc ptr @_set_openapi_props(ptr noundef %0, i32 noundef %.044, ptr noundef %spec.select)
+  %28 = tail call fastcc ptr @_set_openapi_props(ptr noundef %0, i32 noundef %.043, ptr noundef %spec.select)
   %.not54 = icmp eq ptr %28, null
   br i1 %.not54, label %.loopexit, label %29
 

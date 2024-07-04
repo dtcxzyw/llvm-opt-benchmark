@@ -534,8 +534,8 @@ if.end.i:                                         ; preds = %if.then.i
   %cmp7.i = icmp ult i32 %and.i.i, %and.i16.i
   %cmp9.i = icmp ne i32 %and.i.i, %and.i16.i
   %..i = zext i1 %cmp9.i to i32
-  %minLength.0.i = tail call i32 @llvm.umin.i32(i32 %and.i.i, i32 %and.i16.i)
   %result.0.i = select i1 %cmp7.i, i32 -1, i32 %..i
+  %minLength.0.i = tail call i32 @llvm.umin.i32(i32 %and.i.i, i32 %and.i16.i)
   %cmp14.not.i = icmp eq i32 %minLength.0.i, 0
   br i1 %cmp14.not.i, label %if.end24.i, label %if.then15.i
 
@@ -586,8 +586,8 @@ if.end:                                           ; preds = %if.then
   %cmp7 = icmp ult i32 %and.i, %and.i16
   %cmp9 = icmp ne i32 %and.i, %and.i16
   %. = zext i1 %cmp9 to i32
-  %minLength.0 = tail call i32 @llvm.umin.i32(i32 %and.i, i32 %and.i16)
   %result.0 = select i1 %cmp7, i32 -1, i32 %.
+  %minLength.0 = tail call i32 @llvm.umin.i32(i32 %and.i, i32 %and.i16)
   %cmp14.not = icmp eq i32 %minLength.0, 0
   br i1 %cmp14.not, label %if.end24, label %if.then15
 

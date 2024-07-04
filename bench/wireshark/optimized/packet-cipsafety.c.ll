@@ -1132,9 +1132,9 @@ define internal i32 @dissect_s_supervisor_output_connection_point_owners(ptr nou
   br label %19
 
 19:                                               ; preds = %15, %41
-  %.05463 = phi i32 [ 2, %15 ], [ %37, %41 ]
+  %.063 = phi i32 [ 2, %15 ], [ %37, %41 ]
   %.05562 = phi i16 [ 0, %15 ], [ %46, %41 ]
-  %20 = add i32 %.05463, 11
+  %20 = add i32 %.063, 11
   %21 = icmp sgt i32 %20, %5
   br i1 %21, label %22, label %24
 
@@ -1143,7 +1143,7 @@ define internal i32 @dissect_s_supervisor_output_connection_point_owners(ptr nou
   br label %.loopexit
 
 24:                                               ; preds = %19
-  %25 = add i32 %.05463, %4
+  %25 = add i32 %.063, %4
   %26 = load i32, ptr @hf_cip_ssupervisor_output_cp_owners_ocpunid_snn_timestamp, align 4
   %27 = load i32, ptr @hf_cip_ssupervisor_output_cp_owners_ocpunid_snn_date, align 4
   %28 = load i32, ptr @hf_cip_ssupervisor_output_cp_owners_ocpunid_snn_time, align 4
@@ -1152,7 +1152,7 @@ define internal i32 @dissect_s_supervisor_output_connection_point_owners(ptr nou
   %31 = load i32, ptr @ett_ssupervisor_output_cp_owners_ocpunid_snn, align 4
   call void @dissect_unid(ptr noundef %3, ptr poison, i32 noundef %25, ptr noundef %13, ptr noundef nonnull @.str.440, i32 noundef %26, i32 noundef %27, i32 noundef %28, i32 noundef %29, i32 noundef %30, i32 noundef %31)
   %32 = load i32, ptr @hf_cip_ssupervisor_cp_owners_app_path_size, align 4
-  %33 = add i32 %18, %.05463
+  %33 = add i32 %18, %.063
   %34 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %32, ptr noundef %3, i32 noundef %33, i32 noundef 1, i32 noundef -2147483648) #6
   %35 = call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %33) #6
   %36 = zext i8 %35 to i32
@@ -1175,8 +1175,8 @@ define internal i32 @dissect_s_supervisor_output_connection_point_owners(ptr nou
   br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !4
 
 .loopexit:                                        ; preds = %41, %11, %39, %22, %9
-  %.0 = phi i32 [ %5, %9 ], [ %5, %22 ], [ %5, %39 ], [ 2, %11 ], [ %37, %41 ]
-  ret i32 %.0
+  %.054 = phi i32 [ %5, %9 ], [ %5, %22 ], [ %5, %39 ], [ 2, %11 ], [ %37, %41 ]
+  ret i32 %.054
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1247,17 +1247,17 @@ define internal range(i32 -2147483648, 512) i32 @dissect_s_validator_time_coord_
   br label %.loopexit
 
 16:                                               ; preds = %.lr.ph, %16
-  %.01821 = phi i32 [ 0, %.lr.ph ], [ %20, %16 ]
+  %.021 = phi i32 [ 0, %.lr.ph ], [ %20, %16 ]
   %17 = load i32, ptr @hf_cip_svalidator_time_coord_msg_min_mult_item, align 4
-  %18 = add i32 %13, %.01821
+  %18 = add i32 %13, %.021
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %17, ptr noundef %3, i32 noundef %18, i32 noundef 2, i32 noundef -2147483648) #6
-  %20 = add nuw nsw i32 %.01821, 2
+  %20 = add nuw nsw i32 %.021, 2
   %21 = icmp ult i32 %20, %11
   br i1 %21, label %16, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %16, %.preheader, %14
-  %.0 = phi i32 [ %5, %14 ], [ %12, %.preheader ], [ %12, %16 ]
-  ret i32 %.0
+  %.018 = phi i32 [ %5, %14 ], [ %12, %.preheader ], [ %12, %16 ]
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1284,17 +1284,17 @@ define internal range(i32 -2147483648, 512) i32 @dissect_s_validator_network_tim
   br label %.loopexit
 
 16:                                               ; preds = %.lr.ph, %16
-  %.01821 = phi i32 [ 0, %.lr.ph ], [ %20, %16 ]
+  %.021 = phi i32 [ 0, %.lr.ph ], [ %20, %16 ]
   %17 = load i32, ptr @hf_cip_svalidator_network_time_multiplier_item, align 4
-  %18 = add i32 %13, %.01821
+  %18 = add i32 %13, %.021
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %17, ptr noundef %3, i32 noundef %18, i32 noundef 2, i32 noundef -2147483648) #6
-  %20 = add nuw nsw i32 %.01821, 2
+  %20 = add nuw nsw i32 %.021, 2
   %21 = icmp ult i32 %20, %11
   br i1 %21, label %16, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %16, %.preheader, %14
-  %.0 = phi i32 [ %5, %14 ], [ %12, %.preheader ], [ %12, %16 ]
-  ret i32 %.0
+  %.018 = phi i32 [ %5, %14 ], [ %12, %.preheader ], [ %12, %16 ]
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1320,17 +1320,17 @@ define internal range(i32 -2147483648, 257) i32 @dissect_s_validator_timeout_mul
   br label %.loopexit
 
 15:                                               ; preds = %.lr.ph, %15
-  %.01821 = phi i32 [ 0, %.lr.ph ], [ %19, %15 ]
+  %.021 = phi i32 [ 0, %.lr.ph ], [ %19, %15 ]
   %16 = load i32, ptr @hf_cip_svalidator_timeout_multiplier_item, align 4
-  %17 = add i32 %12, %.01821
+  %17 = add i32 %12, %.021
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %16, ptr noundef %3, i32 noundef %17, i32 noundef 1, i32 noundef -2147483648) #6
-  %19 = add nuw nsw i32 %.01821, 1
+  %19 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %19, %10
   br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !8
 
 .loopexit:                                        ; preds = %15, %.preheader, %13
-  %.0 = phi i32 [ %5, %13 ], [ %11, %.preheader ], [ %11, %15 ]
-  ret i32 %.0
+  %.018 = phi i32 [ %5, %13 ], [ %11, %.preheader ], [ %11, %15 ]
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1357,17 +1357,17 @@ define internal range(i32 -2147483648, 512) i32 @dissect_s_validator_coordinatio
   br label %.loopexit
 
 16:                                               ; preds = %.lr.ph, %16
-  %.01821 = phi i32 [ 0, %.lr.ph ], [ %20, %16 ]
+  %.021 = phi i32 [ 0, %.lr.ph ], [ %20, %16 ]
   %17 = load i32, ptr @hf_cip_svalidator_coordination_conn_inst_item, align 4
-  %18 = add i32 %13, %.01821
+  %18 = add i32 %13, %.021
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %17, ptr noundef %3, i32 noundef %18, i32 noundef 2, i32 noundef -2147483648) #6
-  %20 = add nuw nsw i32 %.01821, 2
+  %20 = add nuw nsw i32 %.021, 2
   %21 = icmp ult i32 %20, %11
   br i1 %21, label %16, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %16, %.preheader, %14
-  %.0 = phi i32 [ %5, %14 ], [ %12, %.preheader ], [ %12, %16 ]
-  ret i32 %.0
+  %.018 = phi i32 [ %5, %14 ], [ %12, %.preheader ], [ %12, %16 ]
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1403,17 +1403,17 @@ define internal range(i32 -2147483648, 257) i32 @dissect_s_validator_prod_cons_f
   br label %.loopexit
 
 15:                                               ; preds = %.lr.ph, %15
-  %.01821 = phi i32 [ 0, %.lr.ph ], [ %19, %15 ]
+  %.021 = phi i32 [ 0, %.lr.ph ], [ %19, %15 ]
   %16 = load i32, ptr @hf_cip_svalidator_prod_cons_fault_count_item, align 4
-  %17 = add i32 %12, %.01821
+  %17 = add i32 %12, %.021
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %16, ptr noundef %3, i32 noundef %17, i32 noundef 1, i32 noundef -2147483648) #6
-  %19 = add nuw nsw i32 %.01821, 1
+  %19 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %19, %10
   br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !10
 
 .loopexit:                                        ; preds = %15, %.preheader, %13
-  %.0 = phi i32 [ %5, %13 ], [ %11, %.preheader ], [ %11, %15 ]
-  ret i32 %.0
+  %.018 = phi i32 [ %5, %13 ], [ %11, %.preheader ], [ %11, %15 ]
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1566,9 +1566,9 @@ define internal i32 @dissect_cipsafety(ptr noundef %0, ptr noundef %1, ptr nound
   br label %44
 
 44:                                               ; preds = %37, %34, %29
-  %.0147.i = phi i32 [ %43, %37 ], [ 0, %34 ], [ 0, %29 ]
-  %.0146.i = phi i32 [ %38, %37 ], [ 0, %34 ], [ 0, %29 ]
-  %.0145.i = phi i32 [ %40, %37 ], [ 0, %34 ], [ 0, %29 ]
+  %.0146.i = phi i32 [ %43, %37 ], [ 0, %34 ], [ 0, %29 ]
+  %.0145.i = phi i32 [ %38, %37 ], [ 0, %34 ], [ 0, %29 ]
+  %.0144.i = phi i32 [ %40, %37 ], [ 0, %34 ], [ 0, %29 ]
   %45 = select i1 %24, i32 12, i32 6
   %46 = icmp sgt i32 %45, %19
   br i1 %46, label %47, label %49
@@ -1578,14 +1578,14 @@ define internal i32 @dissect_cipsafety(ptr noundef %0, ptr noundef %1, ptr nound
   br label %dissect_cip_safety_data.exit
 
 49:                                               ; preds = %44
-  %50 = icmp eq i32 %.0146.i, 1
-  %51 = icmp eq i32 %.0147.i, 0
+  %50 = icmp eq i32 %.0145.i, 1
+  %51 = icmp eq i32 %.0146.i, 0
   %or.cond.i = select i1 %50, i1 %51, i1 false
   br i1 %or.cond.i, label %55, label %52
 
 52:                                               ; preds = %49
-  %53 = icmp eq i32 %.0146.i, 2
-  %54 = icmp eq i32 %.0147.i, 1
+  %53 = icmp eq i32 %.0145.i, 2
+  %54 = icmp eq i32 %.0146.i, 1
   %or.cond3.i = select i1 %53, i1 %54, i1 false
   br i1 %or.cond3.i, label %.thread.i, label %138
 
@@ -1623,7 +1623,7 @@ define internal i32 @dissect_cipsafety(ptr noundef %0, ptr noundef %1, ptr nound
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.516) #6
   %73 = load ptr, ptr %32, align 8
   tail call void @col_append_str(ptr noundef %73, i32 noundef 25, ptr noundef nonnull @.str.10) #6
-  switch i32 %.0145.i, label %dissect_cip_safety_data.exit [
+  switch i32 %.0144.i, label %dissect_cip_safety_data.exit [
     i32 0, label %74
     i32 1, label %107
   ]
@@ -1780,7 +1780,7 @@ dissect_extended_format_time_coordination_message.exit.i: ; preds = %113, %110, 
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.517) #6
   %151 = load ptr, ptr %32, align 8
   tail call void @col_append_str(ptr noundef %151, i32 noundef 25, ptr noundef nonnull @.str.11) #6
-  switch i32 %.0145.i, label %dissect_cip_safety_data.exit [
+  switch i32 %.0144.i, label %dissect_cip_safety_data.exit [
     i32 0, label %152
     i32 1, label %167
   ]
@@ -1840,7 +1840,7 @@ dissect_extended_format_time_coordination_message.exit.i: ; preds = %113, %110, 
 
 174:                                              ; preds = %170, %168
   %.sink.i = phi i32 [ %173, %170 ], [ %169, %168 ]
-  %.0142.i = phi i32 [ %171, %170 ], [ %149, %168 ]
+  %.0147.i = phi i32 [ %171, %170 ], [ %149, %168 ]
   %175 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.sink.i) #6
   br i1 %30, label %176, label %178
 
@@ -1853,7 +1853,7 @@ dissect_extended_format_time_coordination_message.exit.i: ; preds = %113, %110, 
   br i1 %150, label %182, label %179
 
 179:                                              ; preds = %178
-  call fastcc void @dissect_extended_format_1_or_2_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %.0142.i, i32 noundef %31, ptr noundef nonnull %14, ptr noundef %.0.i)
+  call fastcc void @dissect_extended_format_1_or_2_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %.0147.i, i32 noundef %31, ptr noundef nonnull %14, ptr noundef %.0.i)
   br i1 %24, label %180, label %dissect_cip_safety_data.exit
 
 180:                                              ; preds = %179
@@ -1871,11 +1871,11 @@ dissect_extended_format_time_coordination_message.exit.i: ; preds = %113, %110, 
   br label %dissect_cip_safety_data.exit
 
 186:                                              ; preds = %182
-  call fastcc void @dissect_extended_format_3_to_250_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %.0142.i, i32 noundef %31, ptr noundef nonnull %14, ptr noundef %.0.i)
+  call fastcc void @dissect_extended_format_3_to_250_byte_data(ptr noundef nonnull %1, ptr noundef %18, ptr noundef %0, i32 noundef %.0147.i, i32 noundef %31, ptr noundef nonnull %14, ptr noundef %.0.i)
   br i1 %24, label %187, label %dissect_cip_safety_data.exit
 
 187:                                              ; preds = %186
-  %188 = shl nsw i32 %.0142.i, 1
+  %188 = shl nsw i32 %.0147.i, 1
   %189 = add i32 %188, 8
   tail call fastcc void @dissect_extended_format_time_correction_message(ptr noundef %18, ptr noundef %0, i32 noundef %189)
   br label %dissect_cip_safety_data.exit

@@ -727,8 +727,8 @@ define i64 @gzoffset64(ptr noundef readonly %0) local_unnamed_addr #0 {
   br label %18
 
 18:                                               ; preds = %10, %13, %5, %3, %1
-  %.0 = phi i64 [ -1, %1 ], [ -1, %3 ], [ -1, %5 ], [ %17, %13 ], [ %8, %10 ]
-  ret i64 %.0
+  %.010 = phi i64 [ -1, %1 ], [ -1, %3 ], [ -1, %5 ], [ %17, %13 ], [ %8, %10 ]
+  ret i64 %.010
 }
 
 ; Function Attrs: nounwind uwtable
@@ -763,8 +763,8 @@ define i64 @gzoffset(ptr noundef readonly %0) local_unnamed_addr #0 {
   br label %gzoffset64.exit
 
 gzoffset64.exit:                                  ; preds = %1, %3, %5, %10, %13
-  %.0.i = phi i64 [ -1, %1 ], [ -1, %3 ], [ -1, %5 ], [ %17, %13 ], [ %8, %10 ]
-  ret i64 %.0.i
+  %.010.i = phi i64 [ -1, %1 ], [ -1, %3 ], [ -1, %5 ], [ %17, %13 ], [ %8, %10 ]
+  ret i64 %.010.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

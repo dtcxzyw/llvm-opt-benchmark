@@ -252,22 +252,22 @@ define dso_local noundef i32 @blake2sp_update(ptr noundef %0, ptr noundef %1, i6
   br label %20
 
 20:                                               ; preds = %17, %7, %3
-  %.047 = phi ptr [ %18, %17 ], [ %1, %7 ], [ %1, %3 ]
-  %.046 = phi i64 [ 0, %17 ], [ %5, %7 ], [ 0, %3 ]
-  %.045 = phi i64 [ %19, %17 ], [ %2, %7 ], [ %2, %3 ]
-  %21 = icmp ugt i64 %.045, 511
+  %.047 = phi i64 [ %19, %17 ], [ %2, %7 ], [ %2, %3 ]
+  %.046 = phi ptr [ %18, %17 ], [ %1, %7 ], [ %1, %3 ]
+  %.045 = phi i64 [ 0, %17 ], [ %5, %7 ], [ 0, %3 ]
+  %21 = icmp ugt i64 %.047, 511
   br i1 %21, label %.lr.ph.us, label %.split61.us
 
 .lr.ph.us:                                        ; preds = %20, %._crit_edge.us
   %.159.us = phi i64 [ %30, %._crit_edge.us ], [ 0, %20 ]
   %22 = shl nuw nsw i64 %.159.us, 6
-  %23 = getelementptr inbounds i8, ptr %.047, i64 %22
+  %23 = getelementptr inbounds i8, ptr %.046, i64 %22
   %24 = getelementptr inbounds [8 x [1 x %struct.blake2s_state__]], ptr %0, i64 0, i64 %.159.us
   br label %25
 
 25:                                               ; preds = %.lr.ph.us, %25
   %.058.us = phi ptr [ %23, %.lr.ph.us ], [ %27, %25 ]
-  %.04357.us = phi i64 [ %.045, %.lr.ph.us ], [ %28, %25 ]
+  %.04357.us = phi i64 [ %.047, %.lr.ph.us ], [ %28, %25 ]
   %26 = tail call i32 @blake2s_update(ptr noundef %24, ptr noundef %.058.us, i64 noundef 64) #7
   %27 = getelementptr inbounds i8, ptr %.058.us, i64 512
   %28 = add i64 %.04357.us, -512
@@ -280,20 +280,20 @@ define dso_local noundef i32 @blake2sp_update(ptr noundef %0, ptr noundef %1, i6
   br i1 %exitcond63.not, label %.split61.us, label %.lr.ph.us, !llvm.loop !11
 
 .split61.us:                                      ; preds = %._crit_edge.us, %20
-  %31 = and i64 %.045, 511
+  %31 = and i64 %.047, 511
   %.not55 = icmp eq i64 %31, 0
   br i1 %.not55, label %37, label %32
 
 32:                                               ; preds = %.split61.us
-  %33 = and i64 %.045, -512
-  %34 = getelementptr inbounds i8, ptr %.047, i64 %33
+  %33 = and i64 %.047, -512
+  %34 = getelementptr inbounds i8, ptr %.046, i64 %33
   %35 = getelementptr inbounds i8, ptr %0, i64 1224
-  %36 = getelementptr inbounds i8, ptr %35, i64 %.046
+  %36 = getelementptr inbounds i8, ptr %35, i64 %.045
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr align 1 %34, i64 %31, i1 false)
   br label %37
 
 37:                                               ; preds = %32, %.split61.us
-  %38 = add i64 %31, %.046
+  %38 = add i64 %.045, %31
   store i64 %38, ptr %4, align 8
   ret i32 0
 }

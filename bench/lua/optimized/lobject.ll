@@ -525,8 +525,8 @@ if.end.i:                                         ; preds = %land.lhs.true37.i, 
 
 if.end51.i:                                       ; preds = %for.body.i, %if.end.i, %if.else.i, %if.then.i
   %s.addr.2.i = phi ptr [ %s.addr.0.i, %if.else.i ], [ %add.ptr.i, %if.then.i ], [ %incdec.ptr49.i, %if.end.i ], [ %incdec.ptr24.i, %for.body.i ]
-  %tobool63.not.i = phi i1 [ false, %if.else.i ], [ false, %if.then.i ], [ true, %if.end.i ], [ true, %for.body.i ]
   %a.2.i = phi i64 [ 0, %if.else.i ], [ 0, %if.then.i ], [ %add47.i, %if.end.i ], [ %add23.i, %for.body.i ]
+  %tobool63.not.i = phi i1 [ false, %if.else.i ], [ false, %if.then.i ], [ true, %if.end.i ], [ true, %for.body.i ]
   br label %while.cond52.i
 
 while.cond52.i:                                   ; preds = %while.cond52.i, %if.end51.i

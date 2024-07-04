@@ -603,13 +603,13 @@ define dso_local void @_hash_kill_items(ptr nocapture noundef readonly %0) local
   br label %16
 
 16:                                               ; preds = %12, %11
-  %.0 = phi i32 [ %9, %11 ], [ %15, %12 ]
-  %17 = icmp slt i32 %.0, 0
+  %.042 = phi i32 [ %9, %11 ], [ %15, %12 ]
+  %17 = icmp slt i32 %.042, 0
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %20 = xor i32 %.0, -1
+  %20 = xor i32 %.042, -1
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr ptr, ptr %19, i64 %21
   %23 = load ptr, ptr %22, align 8
@@ -617,7 +617,7 @@ define dso_local void @_hash_kill_items(ptr nocapture noundef readonly %0) local
 
 24:                                               ; preds = %16
   %25 = load ptr, ptr @BufferBlocks, align 8
-  %26 = add nsw i32 %.0, -1
+  %26 = add nsw i32 %.042, -1
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 13
   %29 = getelementptr i8, ptr %25, i64 %28
@@ -649,7 +649,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
 
 .outer:                                           ; preds = %.loopexit.thread, %.lr.ph51
   %indvars.iv.ph = phi i64 [ %indvars.iv.next54, %.loopexit.thread ], [ 0, %.lr.ph51 ]
-  %.04149.ph = phi i1 [ true, %.loopexit.thread ], [ false, %.lr.ph51 ]
+  %.03950.ph = phi i1 [ true, %.loopexit.thread ], [ false, %.lr.ph51 ]
   br label %44
 
 44:                                               ; preds = %.outer, %.loopexit
@@ -665,13 +665,13 @@ BufferGetPage.exit:                               ; preds = %18, %24
   br i1 %.not47, label %.loopexit, label %.lr.ph
 
 52:                                               ; preds = %.lr.ph
-  %53 = add i16 %.03948, 1
+  %53 = add i16 %.04148, 1
   %.not = icmp ugt i16 %53, %.0.i
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %44, %52
-  %.03948 = phi i16 [ %53, %52 ], [ %51, %44 ]
-  %54 = zext i16 %.03948 to i64
+  %.04148 = phi i16 [ %53, %52 ], [ %51, %44 ]
+  %54 = zext i16 %.04148 to i64
   %55 = add nsw i64 %54, -1
   %56 = getelementptr [0 x %struct.ItemIdData], ptr %43, i64 0, i64 %55
   %.val44 = load i32, ptr %56, align 4
@@ -696,14 +696,14 @@ BufferGetPage.exit:                               ; preds = %18, %24
   br i1 %exitcond.not55, label %._crit_edge.thread, label %.outer, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.loopexit
-  br i1 %.04149.ph, label %._crit_edge.thread, label %.critedge
+  br i1 %.03950.ph, label %._crit_edge.thread, label %.critedge
 
 ._crit_edge.thread:                               ; preds = %.loopexit.thread, %._crit_edge
   %64 = getelementptr inbounds i8, ptr %33, i64 12
   %65 = load i16, ptr %64, align 4
   %66 = or i16 %65, 128
   store i16 %66, ptr %64, align 4
-  tail call void @MarkBufferDirtyHint(i32 noundef %.0, i1 noundef zeroext true) #8
+  tail call void @MarkBufferDirtyHint(i32 noundef %.042, i1 noundef zeroext true) #8
   br label %.critedge
 
 .critedge:                                        ; preds = %BufferGetPage.exit, %._crit_edge.thread, %._crit_edge
@@ -719,7 +719,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
   br label %73
 
 72:                                               ; preds = %.critedge
-  tail call void @_hash_relbuf(ptr noundef %5, i32 noundef %.0) #8
+  tail call void @_hash_relbuf(ptr noundef %5, i32 noundef %.042) #8
   br label %73
 
 73:                                               ; preds = %72, %71

@@ -644,9 +644,9 @@ define dso_local ptr @GetPredicateLockStatusData() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %24 = phi ptr [ %34, %.lr.ph ], [ %23, %8 ]
-  %.01923 = phi i32 [ %33, %.lr.ph ], [ 0, %8 ]
+  %.023 = phi i32 [ %33, %.lr.ph ], [ 0, %8 ]
   %25 = load ptr, ptr %18, align 8
-  %26 = sext i32 %.01923 to i64
+  %26 = sext i32 %.023 to i64
   %27 = getelementptr %struct.PREDICATELOCKTARGETTAG, ptr %25, i64 %26
   %28 = load ptr, ptr %24, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
@@ -655,7 +655,7 @@ define dso_local ptr @GetPredicateLockStatusData() local_unnamed_addr #0 {
   %31 = getelementptr inbounds i8, ptr %24, i64 8
   %32 = load ptr, ptr %31, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr align 8 %32, i64 168, i1 true)
-  %33 = add i32 %.01923, 1
+  %33 = add i32 %.023, 1
   %34 = call ptr @hash_seq_search(ptr noundef nonnull %1) #12
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -1066,9 +1066,9 @@ CreatePredXact.exit.thread:                       ; preds = %13, %CreatePredXact
   br label %SerialPagePrecedesLogically.exit.i.i
 
 SerialPagePrecedesLogically.exit.i.i:             ; preds = %93, %85, %81
-  %.023.in.i.i = phi i32 [ %84, %81 ], [ %narrow.i.i, %85 ], [ %narrow.i.i, %93 ]
-  %.022.i.i = phi i1 [ true, %81 ], [ false, %85 ], [ %95, %93 ]
-  %.023.i.i = zext nneg i32 %.023.in.i.i to i64
+  %.022.in.i.i = phi i32 [ %84, %81 ], [ %narrow.i.i, %85 ], [ %narrow.i.i, %93 ]
+  %.0.i.i = phi i1 [ true, %81 ], [ false, %85 ], [ %95, %93 ]
+  %.022.i.i = zext nneg i32 %.022.in.i.i to i64
   %96 = load ptr, ptr @serialControl, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 4
   %98 = load i32, ptr %97, align 4
@@ -1090,18 +1090,18 @@ SerialPagePrecedesLogically.exit.i.i:             ; preds = %93, %85, %81
   br label %104
 
 104:                                              ; preds = %101, %99
-  br i1 %.022.i.i, label %105, label %.critedge.i.i
+  br i1 %.0.i.i, label %105, label %.critedge.i.i
 
 105:                                              ; preds = %104
   %106 = trunc nuw nsw i64 %67 to i32
   %107 = load ptr, ptr @serialControl, align 8
   store i32 %106, ptr %107, align 4
   %108 = tail call zeroext i1 @LWLockAcquire(ptr noundef %74, i32 noundef 0) #12
-  %.not2728.i.i = icmp eq i64 %67, %.023.i.i
+  %.not2728.i.i = icmp eq i64 %67, %.022.i.i
   br i1 %.not2728.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %105, %.lr.ph.i.i
-  %.129.i.i = phi i64 [ %112, %.lr.ph.i.i ], [ %.023.i.i, %105 ]
+  %.129.i.i = phi i64 [ %112, %.lr.ph.i.i ], [ %.022.i.i, %105 ]
   %109 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @SerialSlruCtlData, i64 noundef %.129.i.i) #12
   %110 = icmp ugt i64 %.129.i.i, 4194302
   %111 = add nuw nsw i64 %.129.i.i, 1
@@ -1119,11 +1119,11 @@ SerialPagePrecedesLogically.exit.i.i:             ; preds = %93, %85, %81
   br label %SerialAdd.exit.i
 
 SerialAdd.exit.i:                                 ; preds = %.critedge.i.i, %._crit_edge.i.i
-  %.0.i.i = phi i32 [ %113, %._crit_edge.i.i ], [ %115, %.critedge.i.i ]
+  %.023.i.i = phi i32 [ %113, %._crit_edge.i.i ], [ %115, %.critedge.i.i ]
   %116 = load ptr, ptr @SerialSlruCtlData, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8
-  %119 = sext i32 %.0.i.i to i64
+  %119 = sext i32 %.023.i.i to i64
   %120 = getelementptr ptr, ptr %118, i64 %119
   %121 = load ptr, ptr %120, align 8
   %122 = shl nuw nsw i64 %66, 3
@@ -2251,7 +2251,7 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
 .lr.ph.i:                                         ; preds = %.outer.i, %.lr.ph.lr.ph.i
   %49 = phi ptr [ %44, %.lr.ph.lr.ph.i ], [ %133, %.outer.i ]
   %.0.ph88.i = phi ptr [ null, %.lr.ph.lr.ph.i ], [ %.1.i, %.outer.i ]
-  %.057.ph87.i = phi i32 [ 0, %.lr.ph.lr.ph.i ], [ %.158.i, %.outer.i ]
+  %.056.ph87.i = phi i32 [ 0, %.lr.ph.lr.ph.i ], [ %.157.i, %.outer.i ]
   br i1 %.not67.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.backedge.us.i
@@ -2326,7 +2326,7 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
   br label %79
 
 79:                                               ; preds = %76, %69, %.thread.i
-  %.158.i = phi i32 [ %71, %69 ], [ %71, %76 ], [ %.057.ph87.i, %.thread.i ]
+  %.157.i = phi i32 [ %71, %69 ], [ %71, %76 ], [ %.056.ph87.i, %.thread.i ]
   %.1.i = phi ptr [ %73, %69 ], [ %73, %76 ], [ %.0.ph88.i, %.thread.i ]
   %80 = getelementptr inbounds i8, ptr %.us-phi.i, i64 16
   %81 = getelementptr inbounds i8, ptr %.us-phi.i, i64 24
@@ -2366,7 +2366,7 @@ PredicateLockingNeededForRelation.exit.i:         ; preds = %11
   %100 = ptrtoint ptr %90 to i64
   %101 = trunc i64 %100 to i32
   %102 = shl i32 %101, 4
-  %103 = xor i32 %102, %.158.i
+  %103 = xor i32 %102, %.157.i
   %104 = call ptr @hash_search_with_hash_value(ptr noundef %99, ptr noundef nonnull %7, i32 noundef %103, i32 noundef 1, ptr noundef nonnull %5) #12
   %105 = load i8, ptr %5, align 1
   %106 = trunc i8 %105 to i1

@@ -981,13 +981,13 @@ opal_obj_run_destructors.exit140.i.i:             ; preds = %.lr.ph.i137.i.i, %2
 
 339:                                              ; preds = %338, %.thread153.i.i
   %.020.i = phi ptr [ null, %338 ], [ %334, %.thread153.i.i ]
-  %.7157.i.i = phi i32 [ %.6.i.i, %338 ], [ %.5.i.i, %.thread153.i.i ]
+  %.7158.i.i = phi i32 [ %.6.i.i, %338 ], [ %.5.i.i, %.thread153.i.i ]
   call void @free(ptr noundef nonnull %228) #9
   br label %.thread.thread162.i.i
 
 .thread.thread162.i.i:                            ; preds = %128, %339, %338, %._crit_edge.i.i, %opal_obj_run_destructors.exit140.i.i, %opal_thread_add_fetch_32.exit135.i.i, %opal_obj_run_destructors.exit.i.i, %opal_thread_add_fetch_32.exit.i.i
   %.1.i = phi ptr [ null, %338 ], [ %.020.i, %339 ], [ null, %._crit_edge.i.i ], [ null, %opal_obj_run_destructors.exit140.i.i ], [ null, %opal_thread_add_fetch_32.exit135.i.i ], [ null, %opal_obj_run_destructors.exit.i.i ], [ null, %opal_thread_add_fetch_32.exit.i.i ], [ null, %128 ]
-  %.7152164.i.i = phi i32 [ -5, %338 ], [ %.7157.i.i, %339 ], [ %225, %._crit_edge.i.i ], [ -5, %opal_obj_run_destructors.exit140.i.i ], [ -5, %opal_thread_add_fetch_32.exit135.i.i ], [ -5, %opal_obj_run_destructors.exit.i.i ], [ -5, %opal_thread_add_fetch_32.exit.i.i ], [ -5, %128 ]
+  %.7152164.i.i = phi i32 [ -5, %338 ], [ %.7158.i.i, %339 ], [ %225, %._crit_edge.i.i ], [ -5, %opal_obj_run_destructors.exit140.i.i ], [ -5, %opal_thread_add_fetch_32.exit135.i.i ], [ -5, %opal_obj_run_destructors.exit.i.i ], [ -5, %opal_thread_add_fetch_32.exit.i.i ], [ -5, %128 ]
   %340 = load i8, ptr @opal_uses_threads, align 1
   %341 = trunc i8 %340 to i1
   br i1 %341, label %342, label %345
@@ -1270,8 +1270,8 @@ opal_obj_run_destructors.exit71:                  ; preds = %.lr.ph.i68, %441
   br label %455
 
 455:                                              ; preds = %.sink.split, %.thread117, %20
-  %.0 = load ptr, ptr %8, align 8
-  ret ptr %.0
+  %.037 = load ptr, ptr %8, align 8
+  ret ptr %.037
 }
 
 declare i32 @opal_proc_table_get_value(ptr noundef, i64, ptr noundef) local_unnamed_addr #1
@@ -1603,15 +1603,15 @@ define void @mca_btl_tcp_proc_accept(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %.outer
 
 .outer:                                           ; preds = %.thread, %.lr.ph
+  %.05169.ph = phi i64 [ %58, %.thread ], [ 0, %.lr.ph ]
+  %.05268.ph = phi ptr [ %23, %.thread ], [ undef, %.lr.ph ]
   %19 = phi i1 [ false, %.thread ], [ true, %.lr.ph ]
-  %.05368.ph = phi ptr [ %23, %.thread ], [ undef, %.lr.ph ]
-  %.05567.ph = phi i64 [ %58, %.thread ], [ 0, %.lr.ph ]
   br label %20
 
 20:                                               ; preds = %.outer, %54
-  %.05567 = phi i64 [ %55, %54 ], [ %.05567.ph, %.outer ]
+  %.05169 = phi i64 [ %55, %54 ], [ %.05169.ph, %.outer ]
   %21 = load ptr, ptr %15, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %.05567
+  %22 = getelementptr inbounds ptr, ptr %21, i64 %.05169
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 56
   %25 = load ptr, ptr %24, align 8
@@ -1646,7 +1646,7 @@ define void @mca_btl_tcp_proc_accept(ptr noundef %0, ptr noundef %1, i32 noundef
   %42 = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull %16, ptr noundef nonnull %4, i32 noundef 16) #9
   %43 = load ptr, ptr %24, align 8
   %44 = call ptr @inet_ntop(i32 noundef 2, ptr noundef %43, ptr noundef nonnull %18, i32 noundef 16) #9
-  %45 = trunc i64 %.05567 to i32
+  %45 = trunc i64 %.05169 to i32
   %46 = load i64, ptr %13, align 8
   %47 = trunc i64 %46 to i32
   call void (i32, ptr, ...) @opal_output(i32 noundef %36, ptr noundef nonnull @.str.8, ptr noundef %41, ptr noundef %42, ptr noundef %44, i32 noundef %45, i32 noundef %47) #9
@@ -1667,13 +1667,13 @@ define void @mca_btl_tcp_proc_accept(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %53, label %.sink.split, label %118
 
 54:                                               ; preds = %35, %32, %20
-  %55 = add nuw i64 %.05567, 1
+  %55 = add nuw i64 %.05169, 1
   %56 = load i64, ptr %13, align 8
   %57 = icmp ult i64 %55, %56
   br i1 %57, label %20, label %._crit_edge, !llvm.loop !16
 
 .thread:                                          ; preds = %48
-  %58 = add nuw i64 %.05567, 1
+  %58 = add nuw i64 %.05169, 1
   %59 = load i64, ptr %13, align 8
   %60 = icmp ult i64 %58, %59
   br i1 %60, label %.outer, label %._crit_edge.thread87, !llvm.loop !16
@@ -1682,8 +1682,8 @@ define void @mca_btl_tcp_proc_accept(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %19, label %._crit_edge.thread, label %._crit_edge.thread87
 
 ._crit_edge.thread87:                             ; preds = %.thread, %._crit_edge
-  %.1548590 = phi ptr [ %.05368.ph, %._crit_edge ], [ %23, %.thread ]
-  call void @mca_btl_tcp_endpoint_accept(ptr noundef %.1548590, ptr noundef nonnull %1, i32 noundef %2) #9
+  %.1538690 = phi ptr [ %.05268.ph, %._crit_edge ], [ %23, %.thread ]
+  call void @mca_btl_tcp_endpoint_accept(ptr noundef %.1538690, ptr noundef nonnull %1, i32 noundef %2) #9
   %61 = load i8, ptr @opal_uses_threads, align 1
   %62 = trunc i8 %61 to i1
   br i1 %62, label %.sink.split, label %118
@@ -1703,10 +1703,10 @@ define void @mca_btl_tcp_proc_accept(ptr noundef %0, ptr noundef %1, i32 noundef
 
 68:                                               ; preds = %.lr.ph75, %89
   %69 = phi i64 [ %66, %.lr.ph75 ], [ %90, %89 ]
-  %.05073 = phi i64 [ 0, %.lr.ph75 ], [ %91, %89 ]
-  %.05172 = phi ptr [ null, %.lr.ph75 ], [ %.152, %89 ]
+  %.073 = phi i64 [ 0, %.lr.ph75 ], [ %91, %89 ]
+  %.05072 = phi ptr [ null, %.lr.ph75 ], [ %.1, %89 ]
   %70 = load ptr, ptr %67, align 8
-  %71 = getelementptr inbounds ptr, ptr %70, i64 %.05073
+  %71 = getelementptr inbounds ptr, ptr %70, i64 %.073
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 56
   %74 = load ptr, ptr %73, align 8
@@ -1720,7 +1720,7 @@ define void @mca_btl_tcp_proc_accept(ptr noundef %0, ptr noundef %1, i32 noundef
 79:                                               ; preds = %68
   %80 = zext i8 %76 to i32
   %81 = call ptr @inet_ntop(i32 noundef %80, ptr noundef nonnull %74, ptr noundef nonnull %6, i32 noundef 127) #9
-  %82 = icmp eq ptr %.05172, null
+  %82 = icmp eq ptr %.05072, null
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %79
@@ -1728,8 +1728,8 @@ define void @mca_btl_tcp_proc_accept(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %87
 
 85:                                               ; preds = %79
-  %86 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.10, ptr noundef nonnull %.05172, ptr noundef nonnull %6) #9
-  call void @free(ptr noundef nonnull %.05172) #9
+  %86 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.10, ptr noundef nonnull %.05072, ptr noundef nonnull %6) #9
+  call void @free(ptr noundef nonnull %.05072) #9
   br label %87
 
 87:                                               ; preds = %85, %83
@@ -1739,13 +1739,13 @@ define void @mca_btl_tcp_proc_accept(ptr noundef %0, ptr noundef %1, i32 noundef
 
 89:                                               ; preds = %68, %87
   %90 = phi i64 [ %69, %68 ], [ %.pre, %87 ]
-  %.152 = phi ptr [ %.05172, %68 ], [ %88, %87 ]
-  %91 = add nuw i64 %.05073, 1
+  %.1 = phi ptr [ %.05072, %68 ], [ %88, %87 ]
+  %91 = add nuw i64 %.073, 1
   %92 = icmp ult i64 %91, %90
   br i1 %92, label %68, label %._crit_edge76, !llvm.loop !17
 
 ._crit_edge76:                                    ; preds = %89, %._crit_edge.thread
-  %.051.lcssa = phi ptr [ null, %._crit_edge.thread ], [ %.152, %89 ]
+  %.050.lcssa = phi ptr [ null, %._crit_edge.thread ], [ %.1, %89 ]
   %93 = load ptr, ptr @opal_get_proc_hostname, align 8
   %94 = getelementptr inbounds i8, ptr %0, i64 40
   %95 = load ptr, ptr %94, align 8
@@ -1762,15 +1762,15 @@ define void @mca_btl_tcp_proc_accept(ptr noundef %0, ptr noundef %1, i32 noundef
   %105 = call ptr %101(i64 %104) #9
   %106 = call ptr @opal_net_get_hostname(ptr noundef %1) #9
   %107 = load i64, ptr %13, align 8
-  %108 = icmp eq ptr %.051.lcssa, null
-  %109 = select i1 %108, ptr @.str.13, ptr %.051.lcssa
+  %108 = icmp eq ptr %.050.lcssa, null
+  %109 = select i1 %108, ptr @.str.13, ptr %.050.lcssa
   %110 = call i32 (ptr, ptr, i32, ...) %97(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 1, ptr noundef %98, i32 noundef %99, ptr noundef %100, ptr noundef %105, ptr noundef %106, i64 noundef %107, ptr noundef nonnull %109) #9
   %111 = load ptr, ptr %5, align 8
   call void @free(ptr noundef %111) #9
   br i1 %108, label %113, label %112
 
 112:                                              ; preds = %._crit_edge76
-  call void @free(ptr noundef nonnull %.051.lcssa) #9
+  call void @free(ptr noundef nonnull %.050.lcssa) #9
   br label %113
 
 113:                                              ; preds = %._crit_edge76, %112

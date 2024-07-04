@@ -7717,12 +7717,12 @@ define linkonce_odr dso_local void @_ZN15CoverageVisitor8linesCovB5cxx11ERKNS_10
   br i1 %.not3340, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit34, %61
-  %.02043 = phi i32 [ %47, %61 ], [ 0, %.loopexit34 ]
-  %.02142 = phi i32 [ %.122, %61 ], [ 0, %.loopexit34 ]
+  %.043 = phi i32 [ %47, %61 ], [ 0, %.loopexit34 ]
+  %.02042 = phi i32 [ %.121, %61 ], [ 0, %.loopexit34 ]
   %.sroa.030.041 = phi ptr [ %62, %61 ], [ %44, %.loopexit34 ]
   %46 = getelementptr inbounds i8, ptr %.sroa.030.041, i64 32
   %47 = load i32, ptr %46, align 4
-  %.not26 = icmp eq i32 %.02142, 0
+  %.not26 = icmp eq i32 %.02042, 0
   br i1 %.not26, label %61, label %48
 
 .loopexit:                                        ; preds = %53, %55
@@ -7736,7 +7736,7 @@ define linkonce_odr dso_local void @_ZN15CoverageVisitor8linesCovB5cxx11ERKNS_10
   br label %.body
 
 48:                                               ; preds = %.lr.ph
-  %49 = add nsw i32 %.02043, 1
+  %49 = add nsw i32 %.043, 1
   %50 = icmp eq i32 %47, %49
   br i1 %50, label %61, label %51
 
@@ -7749,7 +7749,7 @@ define linkonce_odr dso_local void @_ZN15CoverageVisitor8linesCovB5cxx11ERKNS_10
           to label %55 unwind label %.loopexit
 
 55:                                               ; preds = %53, %51
-  invoke void @_ZN15CoverageVisitor14linesFirstLastB5cxx11Eii(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %.02142, i32 noundef %.02043)
+  invoke void @_ZN15CoverageVisitor14linesFirstLastB5cxx11Eii(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %.02042, i32 noundef %.043)
           to label %56 unwind label %.loopexit
 
 56:                                               ; preds = %55
@@ -7767,13 +7767,13 @@ define linkonce_odr dso_local void @_ZN15CoverageVisitor8linesCovB5cxx11ERKNS_10
   br label %.body
 
 61:                                               ; preds = %48, %.lr.ph, %58
-  %.122 = phi i32 [ %47, %58 ], [ %47, %.lr.ph ], [ %.02142, %48 ]
+  %.121 = phi i32 [ %47, %58 ], [ %47, %.lr.ph ], [ %.02042, %48 ]
   %62 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.030.041) #20
   %.not33 = icmp eq ptr %62, %45
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %61
-  %.not = icmp eq i32 %.122, 0
+  %.not = icmp eq i32 %.121, 0
   br i1 %.not, label %._crit_edge.thread, label %63
 
 63:                                               ; preds = %._crit_edge
@@ -7785,7 +7785,7 @@ define linkonce_odr dso_local void @_ZN15CoverageVisitor8linesCovB5cxx11ERKNS_10
           to label %67 unwind label %.loopexit.split-lp
 
 67:                                               ; preds = %65, %63
-  invoke void @_ZN15CoverageVisitor14linesFirstLastB5cxx11Eii(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, i32 noundef %.122, i32 noundef %47)
+  invoke void @_ZN15CoverageVisitor14linesFirstLastB5cxx11Eii(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, i32 noundef %.121, i32 noundef %47)
           to label %68 unwind label %.loopexit.split-lp
 
 68:                                               ; preds = %67

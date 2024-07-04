@@ -598,9 +598,9 @@ define internal range(i32 0, 2) i32 @dissect_waveagent_heur(ptr noundef %0, ptr 
 
 50:                                               ; preds = %35, %27
   %.060.i = phi ptr [ %48, %35 ], [ %32, %27 ]
-  %.059.i = phi i32 [ %43, %35 ], [ %23, %27 ]
+  %.058.i = phi i32 [ %43, %35 ], [ %23, %27 ]
   %.0.i = phi i32 [ %49, %35 ], [ %33, %27 ]
-  switch i32 %.059.i, label %dissect_wa_payload.exit.i [
+  switch i32 %.058.i, label %dissect_wa_payload.exit.i [
     i32 17, label %51
     i32 35, label %63
     i32 36, label %72
@@ -804,16 +804,16 @@ define internal range(i32 0, 2) i32 @dissect_waveagent_heur(ptr noundef %0, ptr 
   br label %185
 
 185:                                              ; preds = %184, %173
-  %.0483.i.i = phi i32 [ 8, %184 ], [ %182, %173 ]
+  %.0486.i.i = phi i32 [ 8, %184 ], [ %182, %173 ]
   %186 = add i32 %.0.i, 16
   %187 = tail call ptr @wmem_packet_scope() #2
   %188 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %187, i64 noundef 8) #2
-  %.not500.i.i = icmp eq i32 %.0483.i.i, 0
+  %.not500.i.i = icmp eq i32 %.0486.i.i, 0
   br i1 %.not500.i.i, label %dissect_wa_payload.exit.i, label %.lr.ph497.i.i
 
 .lr.ph497.i.i:                                    ; preds = %185
   %189 = add i32 %.0.i, 52
-  %wide.trip.count.i.i = zext nneg i32 %.0483.i.i to i64
+  %wide.trip.count.i.i = zext nneg i32 %.0486.i.i to i64
   br label %190
 
 190:                                              ; preds = %.loopexit.i, %.lr.ph497.i.i
@@ -833,8 +833,8 @@ define internal range(i32 0, 2) i32 @dissect_waveagent_heur(ptr noundef %0, ptr 
   br i1 %.not.i.i, label %.loopexit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %190, %212
-  %.0485494.i.i = phi i32 [ %213, %212 ], [ 0, %190 ]
-  %201 = add i32 %.0485494.i.i, %189
+  %.0484494.i.i = phi i32 [ %213, %212 ], [ 0, %190 ]
+  %201 = add i32 %.0484494.i.i, %189
   %202 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %201) #2
   %203 = icmp eq i8 %202, -1
   br i1 %203, label %204, label %207
@@ -854,7 +854,7 @@ define internal range(i32 0, 2) i32 @dissect_waveagent_heur(ptr noundef %0, ptr 
   br label %212
 
 212:                                              ; preds = %207, %204
-  %213 = add nuw i32 %.0485494.i.i, 1
+  %213 = add nuw i32 %.0484494.i.i, 1
   %exitcond502.not.i.i = icmp eq i32 %213, %200
   br i1 %exitcond502.not.i.i, label %.loopexit.i, label %.preheader.i.i, !llvm.loop !6
 
@@ -1027,12 +1027,12 @@ define internal range(i32 0, 2) i32 @dissect_waveagent_heur(ptr noundef %0, ptr 
   br i1 %.not499.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %348, %.lr.ph.i.i
-  %.0486493.i.i = phi i32 [ %367, %.lr.ph.i.i ], [ 0, %348 ]
-  %363 = mul i32 %.0486493.i.i, 6
+  %.0483493.i.i = phi i32 [ %367, %.lr.ph.i.i ], [ 0, %348 ]
+  %363 = mul i32 %.0483493.i.i, 6
   %364 = add i32 %362, %363
   %365 = load i32, ptr @hf_waveagent_scanbssid, align 4
   %366 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %365, ptr noundef %0, i32 noundef %364, i32 noundef 6, i32 noundef 0) #2
-  %367 = add nuw i32 %.0486493.i.i, 1
+  %367 = add nuw i32 %.0483493.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %367, %361
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
@@ -1206,8 +1206,8 @@ dissect_wa_payload.exit.i:                        ; preds = %.loopexit.i, %163, 
   br label %dissect_waveagent.exit
 
 dissect_waveagent.exit:                           ; preds = %4, %7, %10, %dissect_wa_payload.exit.i
-  %.058.i = phi i32 [ %505, %dissect_wa_payload.exit.i ], [ 0, %4 ], [ 0, %7 ], [ 0, %10 ]
-  ret i32 %.058.i
+  %.059.i = phi i32 [ %505, %dissect_wa_payload.exit.i ], [ 0, %4 ], [ 0, %7 ], [ 0, %10 ]
+  ret i32 %.059.i
 }
 
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1

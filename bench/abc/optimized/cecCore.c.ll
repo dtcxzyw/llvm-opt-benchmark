@@ -333,52 +333,52 @@ define void @Cec_ManSimulation(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %18
 
 18:                                               ; preds = %.lr.ph, %30
-  %.047 = phi i32 [ 0, %.lr.ph ], [ %31, %30 ]
-  %.02846 = phi i32 [ 0, %.lr.ph ], [ %.129, %30 ]
-  %.03045 = phi i32 [ %13, %.lr.ph ], [ %.131, %30 ]
+  %.02747 = phi i32 [ 0, %.lr.ph ], [ %.1, %30 ]
+  %.02846 = phi i32 [ %13, %.lr.ph ], [ %.129, %30 ]
+  %.03045 = phi i32 [ 0, %.lr.ph ], [ %31, %30 ]
   %19 = tail call i32 @Cec_ManSimulationOne(ptr noundef %0, ptr noundef nonnull %1)
   %.not34 = icmp eq i32 %19, 0
   br i1 %.not34, label %20, label %.thread
 
 20:                                               ; preds = %18
   %21 = tail call i32 @Gia_ManEquivCountLits(ptr noundef %0) #13
-  %22 = icmp eq i32 %.03045, 0
-  %23 = icmp sgt i32 %.03045, %21
+  %22 = icmp eq i32 %.02846, 0
+  %23 = icmp sgt i32 %.02846, %21
   %or.cond37 = select i1 %22, i1 true, i1 %23
   br i1 %or.cond37, label %30, label %24
 
 24:                                               ; preds = %20
-  %25 = add nsw i32 %.02846, 1
+  %25 = add nsw i32 %.02747, 1
   %26 = load i32, ptr %17, align 4
   %27 = icmp eq i32 %25, %26
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %24
-  %29 = add nuw nsw i32 %.047, 1
+  %29 = add nuw nsw i32 %.03045, 1
   %.pre = load i32, ptr %14, align 4
   br label %.loopexit
 
 30:                                               ; preds = %20, %24
-  %.131 = phi i32 [ %.03045, %24 ], [ %21, %20 ]
-  %.129 = phi i32 [ %25, %24 ], [ 0, %20 ]
-  %31 = add nuw nsw i32 %.047, 1
+  %.129 = phi i32 [ %.02846, %24 ], [ %21, %20 ]
+  %.1 = phi i32 [ %25, %24 ], [ 0, %20 ]
+  %31 = add nuw nsw i32 %.03045, 1
   %32 = load i32, ptr %14, align 4
   %33 = icmp slt i32 %31, %32
   br i1 %33, label %18, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %30, %12, %28
   %34 = phi i32 [ %.pre, %28 ], [ %15, %12 ], [ %32, %30 ]
-  %.1 = phi i32 [ %29, %28 ], [ 0, %12 ], [ %31, %30 ]
-  %35 = icmp eq i32 %.1, %34
+  %.131 = phi i32 [ %29, %28 ], [ 0, %12 ], [ %31, %30 ]
+  %35 = icmp eq i32 %.131, %34
   br i1 %35, label %.thread, label %36
 
 .thread:                                          ; preds = %18, %.loopexit
-  %.140 = phi i32 [ %34, %.loopexit ], [ %.047, %18 ]
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, i32 noundef %.140)
+  %.13140 = phi i32 [ %34, %.loopexit ], [ %.03045, %18 ]
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, i32 noundef %.13140)
   br label %37
 
 36:                                               ; preds = %.loopexit
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, i32 noundef %.1)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, i32 noundef %.131)
   br label %37
 
 37:                                               ; preds = %36, %.thread
@@ -706,7 +706,7 @@ Abc_Clock.exit255:                                ; preds = %144, %147
   br label %175
 
 175:                                              ; preds = %.lr.ph, %373
-  %.0322 = phi i32 [ 1, %.lr.ph ], [ %374, %373 ]
+  %.0200322 = phi i32 [ 1, %.lr.ph ], [ %374, %373 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %176 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %13) #13
   %177 = icmp slt i32 %176, 0
@@ -734,7 +734,7 @@ Abc_Clock.exit257:                                ; preds = %175, %178
   br label %186
 
 186:                                              ; preds = %182, %Abc_Clock.exit257
-  %.0199 = phi i32 [ %185, %182 ], [ 0, %Abc_Clock.exit257 ]
+  %.0 = phi i32 [ %185, %182 ], [ 0, %Abc_Clock.exit257 ]
   %187 = call ptr @Cec_ManFraSpecReduction(ptr noundef nonnull %85) #13
   %188 = load i32, ptr %121, align 4
   %.not215 = icmp eq i32 %188, 0
@@ -914,7 +914,7 @@ Abc_Clock.exit261:                                ; preds = %237, %240
   %275 = add i32 %.val3.i263, %.val.i262
   %276 = xor i32 %275, -1
   %277 = add i32 %268, %276
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, i32 noundef %.0322, i32 noundef %263, i32 noundef %264, i32 noundef %265, i32 noundef %.0199, i32 noundef %277)
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, i32 noundef %.0200322, i32 noundef %263, i32 noundef %264, i32 noundef %265, i32 noundef %.0, i32 noundef %277)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   %278 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #13
   %279 = icmp slt i32 %278, 0
@@ -1116,9 +1116,9 @@ Abc_Clock.exit269:                                ; preds = %309, %312
   br label %373
 
 373:                                              ; preds = %.sink.split, %345, %.thread
-  %374 = add nuw nsw i32 %.0322, 1
+  %374 = add nuw nsw i32 %.0200322, 1
   %375 = load i32, ptr %158, align 4
-  %.not213.not = icmp slt i32 %.0322, %375
+  %.not213.not = icmp slt i32 %.0200322, %375
   br i1 %.not213.not, label %175, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %331, %199, %201, %373, %Abc_Clock.exit269, %Abc_Clock.exit255, %257, %305, %302, %339, %336, %251, %142

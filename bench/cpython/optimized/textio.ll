@@ -1494,8 +1494,8 @@ if.then120:                                       ; preds = %if.else114
   br i1 %cmp122, label %if.end223, label %for.cond126
 
 for.cond126:                                      ; preds = %if.then120, %if.end155
-  %i121.0 = phi i64 [ %i121.2, %if.end155 ], [ 0, %if.then120 ]
   %seennl.0 = phi i32 [ %seennl.1, %if.end155 ], [ %bf.cast58, %if.then120 ]
+  %i121.0 = phi i64 [ %i121.2, %if.end155 ], [ 0, %if.then120 ]
   switch i32 %bf.clear65, label %while.cond128 [
     i32 1, label %while.cond128.us
     i32 2, label %while.cond128.us643
@@ -1599,8 +1599,8 @@ if.else151:                                       ; preds = %PyUnicode_READ.exit
   br label %if.end155
 
 if.end155:                                        ; preds = %PyUnicode_READ.exit195, %if.else151, %if.then148, %if.then139
-  %i121.2 = phi i64 [ %inc135.pre-phi, %if.then139 ], [ %inc150, %if.then148 ], [ %inc135.pre-phi, %if.else151 ], [ %inc135.pre-phi, %PyUnicode_READ.exit195 ]
   %seennl.1 = phi i32 [ %or140, %if.then139 ], [ %or149, %if.then148 ], [ %or152, %if.else151 ], [ %seennl.0, %PyUnicode_READ.exit195 ]
+  %i121.2 = phi i64 [ %inc135.pre-phi, %if.then139 ], [ %inc150, %if.then148 ], [ %inc135.pre-phi, %if.else151 ], [ %inc135.pre-phi, %PyUnicode_READ.exit195 ]
   %cmp156 = icmp sge i64 %i121.2, %output.2.val
   %cmp160 = icmp eq i32 %seennl.1, 7
   %or.cond3 = select i1 %cmp156, i1 true, i1 %cmp160
@@ -5422,8 +5422,8 @@ do.end64:                                         ; preds = %if.else54, %if.then
 
 if.end68:                                         ; preds = %do.end64, %_Py_NewRef.exit
   %line.1 = phi ptr [ %12, %_Py_NewRef.exit ], [ %call56, %do.end64 ]
-  %offset_to_buffer.0 = phi i64 [ 0, %_Py_NewRef.exit ], [ %remaining.0.val, %do.end64 ]
   %start.0 = phi i64 [ %21, %_Py_NewRef.exit ], [ 0, %do.end64 ]
+  %offset_to_buffer.0 = phi i64 [ 0, %_Py_NewRef.exit ], [ %remaining.0.val, %do.end64 ]
   %25 = getelementptr i8, ptr %line.1, i64 32
   %op.val.i = load i32, ptr %25, align 8
   %26 = and i32 %op.val.i, 32
@@ -6925,8 +6925,8 @@ if.end17.i.i:                                     ; preds = %if.end.i155.i.i, %i
   br label %if.end21.i.i
 
 if.end21.i.i:                                     ; preds = %if.end17.i.i, %if.end.i163.i.i, %if.end9.i.i
-  %errors.addr.1.i.i = phi ptr [ %errors.addr.0.i.i, %if.end9.i.i ], [ %errors.addr.0.i.i, %if.end.i163.i.i ], [ %spec.select.i.i, %if.end17.i.i ]
   %encoding.addr.1.i.i = phi ptr [ %34, %if.end9.i.i ], [ %34, %if.end.i163.i.i ], [ %encoding.addr.0.i.i, %if.end17.i.i ]
+  %errors.addr.1.i.i = phi ptr [ %errors.addr.0.i.i, %if.end9.i.i ], [ %errors.addr.0.i.i, %if.end.i163.i.i ], [ %spec.select.i.i, %if.end17.i.i ]
   %38 = load i32, ptr %errors.addr.1.i.i, align 8
   %add.i.i.i = add i32 %38, 1
   %cmp.i147.i.i = icmp eq i32 %add.i.i.i, 0
@@ -9550,8 +9550,8 @@ if.end73.i:                                       ; preds = %if.end67.i
   br i1 %cmp76191.i, label %while.body.i, label %if.then134.i
 
 while.body.i:                                     ; preds = %if.end73.i, %if.end131.i
-  %skip_bytes.0193.i = phi i64 [ %skip_bytes.1.i, %if.end131.i ], [ %conv74.i, %if.end73.i ]
-  %skip_back.0192.i = phi i64 [ %skip_back.1.i, %if.end131.i ], [ 1, %if.end73.i ]
+  %skip_back.0193.i = phi i64 [ %skip_back.1.i, %if.end131.i ], [ 1, %if.end73.i ]
+  %skip_bytes.0192.i = phi i64 [ %skip_bytes.1.i, %if.end131.i ], [ %conv74.i, %if.end73.i ]
   %cookie.val135.i = load i64, ptr %cookie.i, align 8
   %cookie.val136.i = load i32, ptr %dec_flags57.i, align 8
   %call78.i = call fastcc i32 @_textiowrapper_decoder_setstate(ptr noundef nonnull %self, i64 %cookie.val135.i, i32 %cookie.val136.i)
@@ -9560,7 +9560,7 @@ while.body.i:                                     ; preds = %if.end73.i, %if.end
 
 do.body83.i:                                      ; preds = %while.body.i
   %30 = load ptr, ptr %decoder.i, align 8
-  %call85.i = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %30, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 42488), ptr noundef nonnull @.str.101, ptr noundef nonnull %ob_sval.i.i, i64 noundef %skip_bytes.0193.i) #10
+  %call85.i = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %30, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 42488), ptr noundef nonnull @.str.101, ptr noundef nonnull %ob_sval.i.i, i64 noundef %skip_bytes.0192.i) #10
   %call86.i = call fastcc i32 @check_decoded(ptr noundef %call85.i)
   %cmp87.i = icmp slt i32 %call86.i, 0
   br i1 %cmp87.i, label %if.then241.i, label %if.end90.i
@@ -9697,13 +9697,13 @@ do.end120.i:                                      ; preds = %if.then1.i324.i, %i
   br i1 %cmp121.i, label %while.end.i, label %if.end131.i
 
 if.else128.i:                                     ; preds = %do.end92.i
-  %mul130.i = shl i64 %skip_back.0192.i, 1
+  %mul130.i = shl i64 %skip_back.0193.i, 1
   br label %if.end131.i
 
 if.end131.i:                                      ; preds = %if.else128.i, %do.end120.i
+  %call119.pn.i = phi i64 [ %skip_back.0193.i, %if.else128.i ], [ %.val132.i, %do.end120.i ]
   %skip_back.1.i = phi i64 [ %mul130.i, %if.else128.i ], [ 1, %do.end120.i ]
-  %call119.pn.i = phi i64 [ %skip_back.0192.i, %if.else128.i ], [ %.val132.i, %do.end120.i ]
-  %skip_bytes.1.i = sub i64 %skip_bytes.0193.i, %call119.pn.i
+  %skip_bytes.1.i = sub i64 %skip_bytes.0192.i, %call119.pn.i
   %cmp76.i = icmp sgt i64 %skip_bytes.1.i, 0
   br i1 %cmp76.i, label %while.body.i, label %if.then134.i, !llvm.loop !17
 
@@ -9722,7 +9722,7 @@ if.then134.i:                                     ; preds = %if.end131.i, %if.en
 
 if.end140.i:                                      ; preds = %if.then134.i, %while.end.i
   %chars_to_skip.0168.i = phi i64 [ %26, %if.then134.i ], [ %sub125.i, %while.end.i ]
-  %skip_bytes.2.i = phi i64 [ 0, %if.then134.i ], [ %skip_bytes.0193.i, %while.end.i ]
+  %skip_bytes.2.i = phi i64 [ 0, %if.then134.i ], [ %skip_bytes.0192.i, %while.end.i ]
   %55 = load i64, ptr %cookie.i, align 8
   %add.i = add i64 %55, %skip_bytes.2.i
   store i64 %add.i, ptr %cookie.i, align 8
@@ -9747,11 +9747,11 @@ do.body155.lr.ph.i:                               ; preds = %if.end147.i
   br label %do.body155.i
 
 do.body155.i:                                     ; preds = %if.end212.i, %do.body155.lr.ph.i
-  %chars_to_skip.1197.i = phi i64 [ %chars_to_skip.0168.i, %do.body155.lr.ph.i ], [ %chars_to_skip.2.i, %if.end212.i ]
+  %input.0197.i = phi ptr [ %add.ptr150.i, %do.body155.lr.ph.i ], [ %incdec.ptr.i, %if.end212.i ]
   %chars_decoded.0196.i = phi i64 [ 0, %do.body155.lr.ph.i ], [ %chars_decoded.1.i, %if.end212.i ]
-  %input.0195.i = phi ptr [ %add.ptr150.i, %do.body155.lr.ph.i ], [ %incdec.ptr.i, %if.end212.i ]
+  %chars_to_skip.1195.i = phi i64 [ %chars_to_skip.0168.i, %do.body155.lr.ph.i ], [ %chars_to_skip.2.i, %if.end212.i ]
   %58 = load ptr, ptr %decoder.i, align 8
-  %call158.i = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %58, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 42488), ptr noundef nonnull @.str.101, ptr noundef %input.0195.i, i64 noundef 1) #10
+  %call158.i = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %58, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 42488), ptr noundef nonnull @.str.101, ptr noundef %input.0197.i, i64 noundef 1) #10
   %call159.i = call fastcc i32 @check_decoded(ptr noundef %call158.i)
   %cmp160.i = icmp slt i32 %call159.i, 0
   br i1 %cmp160.i, label %if.then241.i, label %if.end163.i
@@ -9885,7 +9885,7 @@ if.then1.i279.i:                                  ; preds = %if.end.i276.i
 
 do.end195.i:                                      ; preds = %if.then1.i279.i, %if.end.i276.i, %if.end193.i
   %cmp196.i = icmp ne i64 %.val130.i, 0
-  %cmp198.not.i = icmp sgt i64 %add166.i, %chars_to_skip.1197.i
+  %cmp198.not.i = icmp sgt i64 %add166.i, %chars_to_skip.1195.i
   %or.cond.i = select i1 %cmp196.i, i1 true, i1 %cmp198.not.i
   br i1 %or.cond.i, label %if.end208.i, label %if.then200.i
 
@@ -9895,33 +9895,33 @@ if.then200.i:                                     ; preds = %do.end195.i
   %84 = load i64, ptr %cookie.i, align 8
   %add204.i = add i64 %84, %conv202.i
   store i64 %add204.i, ptr %cookie.i, align 8
-  %sub205.i = sub i64 %chars_to_skip.1197.i, %add166.i
+  %sub205.i = sub i64 %chars_to_skip.1195.i, %add166.i
   %85 = load i32, ptr %dec_flags.i, align 4
   store i32 %85, ptr %dec_flags57.i, align 8
   store i32 0, ptr %bytes_to_feed.i, align 4
   br label %if.end208.i
 
 if.end208.i:                                      ; preds = %if.then200.i, %do.end195.i
+  %chars_to_skip.2.i = phi i64 [ %sub205.i, %if.then200.i ], [ %chars_to_skip.1195.i, %do.end195.i ]
   %chars_decoded.1.i = phi i64 [ 0, %if.then200.i ], [ %add166.i, %do.end195.i ]
-  %chars_to_skip.2.i = phi i64 [ %sub205.i, %if.then200.i ], [ %chars_to_skip.1197.i, %do.end195.i ]
   %cmp209.not.i = icmp slt i64 %chars_decoded.1.i, %chars_to_skip.2.i
   br i1 %cmp209.not.i, label %if.end212.i, label %while.end213.i
 
 if.end212.i:                                      ; preds = %if.end208.i
-  %incdec.ptr.i = getelementptr i8, ptr %input.0195.i, i64 1
+  %incdec.ptr.i = getelementptr i8, ptr %input.0197.i, i64 1
   %exitcond.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %exitcond.not.i, label %if.then216.i, label %do.body155.i, !llvm.loop !18
 
 while.end213.i:                                   ; preds = %if.end208.i, %if.end147.i
-  %input.0.lcssa.i = phi ptr [ %add.ptr150.i, %if.end147.i ], [ %input.0195.i, %if.end208.i ]
-  %chars_decoded.2.i = phi i64 [ 0, %if.end147.i ], [ %chars_decoded.1.i, %if.end208.i ]
+  %input.0.lcssa.i = phi ptr [ %add.ptr150.i, %if.end147.i ], [ %input.0197.i, %if.end208.i ]
   %chars_to_skip.3.i = phi i64 [ %chars_to_skip.0168.i, %if.end147.i ], [ %chars_to_skip.2.i, %if.end208.i ]
+  %chars_decoded.2.i = phi i64 [ 0, %if.end147.i ], [ %chars_decoded.1.i, %if.end208.i ]
   %cmp214.i = icmp eq ptr %input.0.lcssa.i, %add.ptr.i
   br i1 %cmp214.i, label %if.then216.i, label %finally.i
 
 if.then216.i:                                     ; preds = %if.end212.i, %while.end213.i
-  %chars_to_skip.3226.i = phi i64 [ %chars_to_skip.3.i, %while.end213.i ], [ %chars_to_skip.2.i, %if.end212.i ]
-  %chars_decoded.2225.i = phi i64 [ %chars_decoded.2.i, %while.end213.i ], [ %chars_decoded.1.i, %if.end212.i ]
+  %chars_decoded.2226.i = phi i64 [ %chars_decoded.2.i, %while.end213.i ], [ %chars_decoded.1.i, %if.end212.i ]
+  %chars_to_skip.3225.i = phi i64 [ %chars_to_skip.3.i, %while.end213.i ], [ %chars_to_skip.2.i, %if.end212.i ]
   %86 = load ptr, ptr %decoder.i, align 8
   %call218.i = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %86, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 42488), ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.9, ptr noundef nonnull @_Py_TrueStruct) #10
   %call219.i = call fastcc i32 @check_decoded(ptr noundef %call218.i)
@@ -9931,7 +9931,7 @@ if.then216.i:                                     ; preds = %if.end212.i, %while
 if.end223.i:                                      ; preds = %if.then216.i
   %87 = getelementptr i8, ptr %call218.i, i64 16
   %call218.val.i = load i64, ptr %87, align 8
-  %add225.i = add i64 %call218.val.i, %chars_decoded.2225.i
+  %add225.i = add i64 %call218.val.i, %chars_decoded.2226.i
   %88 = load i64, ptr %call218.i, align 8
   %89 = and i64 %88, 2147483648
   %cmp.i429.not.i = icmp eq i64 %89, 0
@@ -9950,7 +9950,7 @@ if.then1.i270.i:                                  ; preds = %if.end.i267.i
 Py_DECREF.exit272.i:                              ; preds = %if.then1.i270.i, %if.end.i267.i, %if.end223.i
   %need_eof.i = getelementptr inbounds i8, ptr %cookie.i, i64 20
   store i8 1, ptr %need_eof.i, align 4
-  %cmp226.i = icmp slt i64 %add225.i, %chars_to_skip.3226.i
+  %cmp226.i = icmp slt i64 %add225.i, %chars_to_skip.3225.i
   br i1 %cmp226.i, label %if.then228.i, label %finally.i
 
 if.then228.i:                                     ; preds = %Py_DECREF.exit272.i
@@ -9959,7 +9959,7 @@ if.then228.i:                                     ; preds = %Py_DECREF.exit272.i
   br label %if.then241.i
 
 finally.i:                                        ; preds = %Py_DECREF.exit272.i, %while.end213.i, %if.end140.i
-  %chars_to_skip.4.i = phi i64 [ 0, %if.end140.i ], [ %chars_to_skip.3226.i, %Py_DECREF.exit272.i ], [ %chars_to_skip.3.i, %while.end213.i ]
+  %chars_to_skip.4.i = phi i64 [ 0, %if.end140.i ], [ %chars_to_skip.3225.i, %Py_DECREF.exit272.i ], [ %chars_to_skip.3.i, %while.end213.i ]
   %91 = load ptr, ptr %decoder.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i)
   store ptr %91, ptr %args.i.i, align 16

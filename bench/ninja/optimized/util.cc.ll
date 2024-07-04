@@ -288,20 +288,20 @@ define dso_local void @_Z16CanonicalizePathPcPmS0_(ptr noundef %0, ptr nocapture
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !5
 
 .critedge:                                        ; preds = %16, %.lr.ph, %24, %20, %.preheader107, %11
-  %.190 = phi ptr [ %12, %11 ], [ %0, %.preheader107 ], [ %.0111, %16 ], [ %.0111, %.lr.ph ], [ %13, %24 ], [ %.0111, %20 ]
-  %.088 = phi ptr [ %12, %11 ], [ %0, %.preheader107 ], [ %0, %20 ], [ %0, %24 ], [ %0, %.lr.ph ], [ %0, %16 ]
+  %.093 = phi ptr [ %12, %11 ], [ %0, %.preheader107 ], [ %0, %20 ], [ %0, %24 ], [ %0, %.lr.ph ], [ %0, %16 ]
+  %.191 = phi ptr [ %12, %11 ], [ %0, %.preheader107 ], [ %.0111, %16 ], [ %.0111, %.lr.ph ], [ %13, %24 ], [ %.0111, %20 ]
   %.1 = phi ptr [ %12, %11 ], [ %0, %.preheader107 ], [ %.0111, %16 ], [ %.0111, %.lr.ph ], [ %25, %24 ], [ %.0111, %20 ]
   %27 = ptrtoint ptr %7 to i64
-  %28 = icmp ult ptr %.190, %7
+  %28 = icmp ult ptr %.191, %7
   br i1 %28, label %.lr.ph125, label %._crit_edge
 
 .lr.ph125:                                        ; preds = %.critedge, %.critedge2
   %.2124 = phi ptr [ %.4, %.critedge2 ], [ %.1, %.critedge ]
-  %.291123 = phi ptr [ %33, %.critedge2 ], [ %.190, %.critedge ]
-  %.092122 = phi i32 [ %.193, %.critedge2 ], [ 0, %.critedge ]
-  %29 = ptrtoint ptr %.291123 to i64
+  %.088123 = phi i32 [ %.189, %.critedge2 ], [ 0, %.critedge ]
+  %.292122 = phi ptr [ %33, %.critedge2 ], [ %.191, %.critedge ]
+  %29 = ptrtoint ptr %.292122 to i64
   %30 = sub i64 %27, %29
-  %31 = tail call noundef ptr @memchr(ptr noundef %.291123, i32 noundef 47, i64 noundef %30) #30
+  %31 = tail call noundef ptr @memchr(ptr noundef %.292122, i32 noundef 47, i64 noundef %30) #30
   %.not104 = icmp eq ptr %31, null
   br i1 %.not104, label %._crit_edge.loopexit, label %32
 
@@ -313,11 +313,11 @@ define dso_local void @_Z16CanonicalizePathPcPmS0_(ptr noundef %0, ptr nocapture
   br i1 %36, label %37, label %65
 
 37:                                               ; preds = %32
-  %38 = icmp eq ptr %31, %.291123
+  %38 = icmp eq ptr %31, %.292122
   br i1 %38, label %.critedge2, label %39
 
 39:                                               ; preds = %37
-  %40 = load i8, ptr %.291123, align 1
+  %40 = load i8, ptr %.292122, align 1
   %41 = icmp eq i8 %40, 46
   br i1 %41, label %42, label %65
 
@@ -326,17 +326,17 @@ define dso_local void @_Z16CanonicalizePathPcPmS0_(ptr noundef %0, ptr nocapture
   br i1 %43, label %.critedge2, label %44
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %.291123, i64 1
+  %45 = getelementptr inbounds i8, ptr %.292122, i64 1
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 46
   br i1 %47, label %48, label %65
 
 48:                                               ; preds = %44
-  %49 = icmp sgt i32 %.092122, 0
+  %49 = icmp sgt i32 %.088123, 0
   br i1 %49, label %50, label %59
 
 50:                                               ; preds = %48
-  %51 = add nsw i32 %.092122, -1
+  %51 = add nsw i32 %.088123, -1
   br label %52
 
 52:                                               ; preds = %55, %50
@@ -355,7 +355,7 @@ define dso_local void @_Z16CanonicalizePathPcPmS0_(ptr noundef %0, ptr nocapture
   store i8 46, ptr %.2124, align 1
   %60 = getelementptr inbounds i8, ptr %.2124, i64 1
   store i8 46, ptr %60, align 1
-  %61 = getelementptr inbounds i8, ptr %.291123, i64 2
+  %61 = getelementptr inbounds i8, ptr %.292122, i64 2
   %62 = load i8, ptr %61, align 1
   %63 = getelementptr inbounds i8, ptr %.2124, i64 2
   store i8 %62, ptr %63, align 1
@@ -363,14 +363,14 @@ define dso_local void @_Z16CanonicalizePathPcPmS0_(ptr noundef %0, ptr nocapture
   br label %.critedge2
 
 65:                                               ; preds = %39, %44, %32
-  %66 = add nsw i32 %.092122, 1
-  %.not106 = icmp eq ptr %.2124, %.291123
+  %66 = add nsw i32 %.088123, 1
+  %.not106 = icmp eq ptr %.2124, %.292122
   %.pre = ptrtoint ptr %33 to i64
   %.pre135 = sub i64 %.pre, %29
   br i1 %.not106, label %._crit_edge134, label %67
 
 67:                                               ; preds = %65
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.2124, ptr align 1 %.291123, i64 %.pre135, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.2124, ptr align 1 %.292122, i64 %.pre135, i1 false)
   br label %._crit_edge134
 
 ._crit_edge134:                                   ; preds = %65, %67
@@ -378,29 +378,29 @@ define dso_local void @_Z16CanonicalizePathPcPmS0_(ptr noundef %0, ptr nocapture
   br label %.critedge2
 
 .critedge2:                                       ; preds = %52, %55, %59, %42, %37, %._crit_edge134
-  %.193 = phi i32 [ %.092122, %37 ], [ %.092122, %42 ], [ %.092122, %59 ], [ %66, %._crit_edge134 ], [ %51, %55 ], [ %51, %52 ]
+  %.189 = phi i32 [ %.088123, %37 ], [ %.088123, %42 ], [ %.088123, %59 ], [ %66, %._crit_edge134 ], [ %51, %55 ], [ %51, %52 ]
   %.4 = phi ptr [ %.2124, %37 ], [ %.2124, %42 ], [ %64, %59 ], [ %68, %._crit_edge134 ], [ %53, %55 ], [ %53, %52 ]
   %69 = icmp ult ptr %33, %7
   br i1 %69, label %.lr.ph125, label %._crit_edge.loopexit, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph125, %.critedge2
-  %.092.lcssa.ph = phi i32 [ %.193, %.critedge2 ], [ %.092122, %.lr.ph125 ]
-  %.291.lcssa.ph = phi ptr [ %33, %.critedge2 ], [ %.291123, %.lr.ph125 ]
+  %.292.lcssa.ph = phi ptr [ %33, %.critedge2 ], [ %.292122, %.lr.ph125 ]
+  %.088.lcssa.ph = phi i32 [ %.189, %.critedge2 ], [ %.088123, %.lr.ph125 ]
   %.2.lcssa.ph = phi ptr [ %.4, %.critedge2 ], [ %.2124, %.lr.ph125 ]
-  %70 = icmp sgt i32 %.092.lcssa.ph, 0
+  %70 = icmp sgt i32 %.088.lcssa.ph, 0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.critedge
-  %.092.lcssa = phi i1 [ false, %.critedge ], [ %70, %._crit_edge.loopexit ]
-  %.291.lcssa = phi ptr [ %.190, %.critedge ], [ %.291.lcssa.ph, %._crit_edge.loopexit ]
+  %.292.lcssa = phi ptr [ %.191, %.critedge ], [ %.292.lcssa.ph, %._crit_edge.loopexit ]
+  %.088.lcssa = phi i1 [ false, %.critedge ], [ %70, %._crit_edge.loopexit ]
   %.2.lcssa = phi ptr [ %.1, %.critedge ], [ %.2.lcssa.ph, %._crit_edge.loopexit ]
-  %71 = ptrtoint ptr %.291.lcssa to i64
+  %71 = ptrtoint ptr %.292.lcssa to i64
   %72 = sub i64 %27, %71
-  %73 = icmp eq ptr %7, %.291.lcssa
+  %73 = icmp eq ptr %7, %.292.lcssa
   br i1 %73, label %.critedge4, label %74
 
 74:                                               ; preds = %._crit_edge
-  %75 = load i8, ptr %.291.lcssa, align 1
+  %75 = load i8, ptr %.292.lcssa, align 1
   %76 = icmp eq i8 %75, 46
   br i1 %76, label %77, label %93
 
@@ -409,13 +409,13 @@ define dso_local void @_Z16CanonicalizePathPcPmS0_(ptr noundef %0, ptr nocapture
   br i1 %78, label %.critedge4, label %79
 
 79:                                               ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %.291.lcssa, i64 1
+  %80 = getelementptr inbounds i8, ptr %.292.lcssa, i64 1
   %81 = load i8, ptr %80, align 1
   %82 = icmp eq i8 %81, 46
   br i1 %82, label %83, label %93
 
 83:                                               ; preds = %79
-  br i1 %.092.lcssa, label %.preheader, label %90
+  br i1 %.088.lcssa, label %.preheader, label %90
 
 .preheader:                                       ; preds = %83, %86
   %.5 = phi ptr [ %84, %86 ], [ %.2.lcssa, %83 ]
@@ -437,11 +437,11 @@ define dso_local void @_Z16CanonicalizePathPcPmS0_(ptr noundef %0, ptr nocapture
   br label %.critedge4
 
 93:                                               ; preds = %79, %74
-  %.not105 = icmp eq ptr %.2.lcssa, %.291.lcssa
+  %.not105 = icmp eq ptr %.2.lcssa, %.292.lcssa
   br i1 %.not105, label %95, label %94
 
 94:                                               ; preds = %93
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.2.lcssa, ptr nonnull align 1 %.291.lcssa, i64 %72, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.2.lcssa, ptr nonnull align 1 %.292.lcssa, i64 %72, i1 false)
   br label %95
 
 95:                                               ; preds = %94, %93
@@ -450,7 +450,7 @@ define dso_local void @_Z16CanonicalizePathPcPmS0_(ptr noundef %0, ptr nocapture
 
 .critedge4:                                       ; preds = %.preheader, %86, %90, %77, %._crit_edge, %95
   %.6 = phi ptr [ %.2.lcssa, %._crit_edge ], [ %.2.lcssa, %77 ], [ %92, %90 ], [ %96, %95 ], [ %84, %86 ], [ %84, %.preheader ]
-  %97 = icmp ugt ptr %.6, %.088
+  %97 = icmp ugt ptr %.6, %.093
   br i1 %97, label %98, label %102
 
 98:                                               ; preds = %.critedge4

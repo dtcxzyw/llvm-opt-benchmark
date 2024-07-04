@@ -1299,7 +1299,7 @@ dissect_command.exit:                             ; preds = %estimated_command_p
 
 .loopexit.i:                                      ; preds = %396, %.critedge.i
   %405 = phi i1 [ true, %.critedge.i ], [ false, %396 ]
-  %.065.i = phi i32 [ %spec.select.i, %.critedge.i ], [ 0, %396 ]
+  %.064.i = phi i32 [ %spec.select.i, %.critedge.i ], [ 0, %396 ]
   %.1.i = phi i32 [ %spec.select73.i, %.critedge.i ], [ %.06383.i, %396 ]
   %.not71.i = icmp eq i32 %.1.i, %.173138
   br i1 %.not71.i, label %proto_item_set_generated.exit76.i, label %406
@@ -1366,7 +1366,7 @@ proto_item_set_generated.exit76.i:                ; preds = %434, %431, %426, %p
   br label %dissect_response.exit
 
 440:                                              ; preds = %proto_item_set_generated.exit76.i, %382
-  %.064.i = phi ptr [ %385, %382 ], [ @.str.119, %proto_item_set_generated.exit76.i ]
+  %.066.i = phi ptr [ %385, %382 ], [ @.str.119, %proto_item_set_generated.exit76.i ]
   %.2.i = phi i32 [ %.173138, %382 ], [ %.1.i, %proto_item_set_generated.exit76.i ]
   %441 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2.i) #6
   %442 = getelementptr inbounds i8, ptr %.2143, i64 32
@@ -1376,7 +1376,7 @@ proto_item_set_generated.exit76.i:                ; preds = %434, %431, %426, %p
 
 445:                                              ; preds = %440
   %446 = load i32, ptr @hf_mpsse_response, align 4
-  %447 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %18, i32 noundef %446, ptr noundef %0, i32 noundef %.2.i, i32 noundef %443, ptr noundef null, ptr noundef nonnull @.str.120, ptr noundef nonnull %.064.i) #6
+  %447 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %18, i32 noundef %446, ptr noundef %0, i32 noundef %.2.i, i32 noundef %443, ptr noundef null, ptr noundef nonnull @.str.120, ptr noundef nonnull %.066.i) #6
   %448 = load i32, ptr @ett_mpsse_response_data, align 4
   %449 = call ptr @proto_item_add_subtree(ptr noundef %447, i32 noundef %448) #6
   %450 = load i32, ptr @hf_mpsse_command_in, align 4
@@ -1612,7 +1612,7 @@ dissect_response_data.exit.i:                     ; preds = %544, %539, %537, %4
   br label %dissect_response.exit
 
 dissect_response.exit:                            ; preds = %440, %438, %dissect_response_data.exit.i
-  %.3104 = phi i32 [ %.065.i, %438 ], [ 0, %dissect_response_data.exit.i ], [ 1, %440 ]
+  %.3104 = phi i32 [ %.064.i, %438 ], [ 0, %dissect_response_data.exit.i ], [ 1, %440 ]
   %.0.i94 = phi i32 [ %439, %438 ], [ %551, %dissect_response_data.exit.i ], [ 0, %440 ]
   %552 = getelementptr inbounds i8, ptr %.2143, i64 48
   %553 = load ptr, ptr %552, align 8

@@ -374,11 +374,11 @@ for.body:                                         ; preds = %for.body.preheader,
   %order_2_is_valid.0179 = phi i32 [ 1, %for.body.preheader ], [ %spec.select296, %cond.end261 ]
   %order_1_is_valid.0178 = phi i32 [ 1, %for.body.preheader ], [ %spec.select170, %cond.end261 ]
   %order_0_is_valid.0177 = phi i32 [ 1, %for.body.preheader ], [ %spec.select, %cond.end261 ]
-  %total_error_0.0176 = phi i64 [ 0, %for.body.preheader ], [ %add263, %cond.end261 ]
-  %total_error_1.0175 = phi i64 [ 0, %for.body.preheader ], [ %add264, %cond.end261 ]
+  %total_error_4.0176 = phi i64 [ 0, %for.body.preheader ], [ %add267, %cond.end261 ]
+  %total_error_3.0175 = phi i64 [ 0, %for.body.preheader ], [ %add266, %cond.end261 ]
   %total_error_2.0174 = phi i64 [ 0, %for.body.preheader ], [ %add265, %cond.end261 ]
-  %total_error_3.0173 = phi i64 [ 0, %for.body.preheader ], [ %add266, %cond.end261 ]
-  %total_error_4.0172 = phi i64 [ 0, %for.body.preheader ], [ %add267, %cond.end261 ]
+  %total_error_1.0173 = phi i64 [ 0, %for.body.preheader ], [ %add264, %cond.end261 ]
+  %total_error_0.0172 = phi i64 [ 0, %for.body.preheader ], [ %add263, %cond.end261 ]
   %arrayidx = getelementptr i32, ptr %data, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
   %conv = sext i32 %0 to i64
@@ -439,11 +439,11 @@ cond.end261:                                      ; preds = %for.body, %cond.end
   %cond98154159.fr = freeze i64 %cond98154159
   %cond171161.fr = freeze i64 %cond171161
   %cond45149153160.fr = freeze i64 %cond45149153160
-  %add263 = add i64 %cond, %total_error_0.0176
-  %add264 = add i64 %cond45149153160.fr, %total_error_1.0175
+  %add263 = add i64 %cond, %total_error_0.0172
+  %add264 = add i64 %cond45149153160.fr, %total_error_1.0173
   %add265 = add i64 %cond98154159.fr, %total_error_2.0174
-  %add266 = add i64 %cond171161.fr, %total_error_3.0173
-  %add267 = add i64 %cond262, %total_error_4.0172
+  %add266 = add i64 %cond171161.fr, %total_error_3.0175
+  %add267 = add i64 %cond262, %total_error_4.0176
   %cmp268 = icmp ugt i64 %cond, 2147483647
   %spec.select = select i1 %cmp268, i32 0, i32 %order_0_is_valid.0177
   %cmp270 = icmp ugt i64 %cond45149153160.fr, 2147483647
@@ -491,9 +491,9 @@ if.end302:                                        ; preds = %for.end, %cond.true
   br i1 %or.cond139, label %if.then307, label %if.end324
 
 if.end302.thread:                                 ; preds = %entry, %if.then288
-  %total_error_4.0.lcssa209255 = phi i64 [ %add267, %if.then288 ], [ 0, %entry ]
-  %total_error_3.0.lcssa213254 = phi i64 [ %add266, %if.then288 ], [ 0, %entry ]
-  %total_error_2.0.lcssa217253 = phi i64 [ %add265, %if.then288 ], [ 0, %entry ]
+  %total_error_2.0.lcssa215254 = phi i64 [ %add265, %if.then288 ], [ 0, %entry ]
+  %total_error_3.0.lcssa219253 = phi i64 [ %add266, %if.then288 ], [ 0, %entry ]
+  %total_error_4.0.lcssa223252 = phi i64 [ %add267, %if.then288 ], [ 0, %entry ]
   %order_2_is_valid.0.lcssa229251 = phi i1 [ %12, %if.then288 ], [ true, %entry ]
   %order_3_is_valid.0.lcssa233250 = phi i1 [ %13, %if.then288 ], [ true, %entry ]
   %order_4_is_valid.0.lcssa237249 = phi i1 [ %14, %if.then288 ], [ true, %entry ]
@@ -519,24 +519,24 @@ if.end324:                                        ; preds = %if.end302, %if.end3
   %order_4_is_valid.0.lcssa235 = phi i1 [ %14, %cond.true310 ], [ %14, %if.then307 ], [ %order_4_is_valid.0.lcssa237249, %if.end302.thread ], [ %14, %if.end302 ]
   %order_3_is_valid.0.lcssa231 = phi i1 [ %13, %cond.true310 ], [ %13, %if.then307 ], [ %order_3_is_valid.0.lcssa233250, %if.end302.thread ], [ %13, %if.end302 ]
   %order_2_is_valid.0.lcssa227 = phi i1 [ %12, %cond.true310 ], [ %12, %if.then307 ], [ %order_2_is_valid.0.lcssa229251, %if.end302.thread ], [ %12, %if.end302 ]
-  %total_error_0.0.lcssa222 = phi i64 [ %add263, %cond.true310 ], [ %add263, %if.then307 ], [ 0, %if.end302.thread ], [ %add263, %if.end302 ]
-  %total_error_2.0.lcssa215 = phi i64 [ %add265, %cond.true310 ], [ %add265, %if.then307 ], [ %total_error_2.0.lcssa217253, %if.end302.thread ], [ %add265, %if.end302 ]
-  %total_error_3.0.lcssa211 = phi i64 [ %add266, %cond.true310 ], [ %add266, %if.then307 ], [ %total_error_3.0.lcssa213254, %if.end302.thread ], [ %add266, %if.end302 ]
-  %total_error_4.0.lcssa207 = phi i64 [ %add267, %cond.true310 ], [ %add267, %if.then307 ], [ %total_error_4.0.lcssa209255, %if.end302.thread ], [ %add267, %if.end302 ]
+  %total_error_4.0.lcssa221 = phi i64 [ %add267, %cond.true310 ], [ %add267, %if.then307 ], [ %total_error_4.0.lcssa223252, %if.end302.thread ], [ %add267, %if.end302 ]
+  %total_error_3.0.lcssa217 = phi i64 [ %add266, %cond.true310 ], [ %add266, %if.then307 ], [ %total_error_3.0.lcssa219253, %if.end302.thread ], [ %add266, %if.end302 ]
+  %total_error_2.0.lcssa213 = phi i64 [ %add265, %cond.true310 ], [ %add265, %if.then307 ], [ %total_error_2.0.lcssa215254, %if.end302.thread ], [ %add265, %if.end302 ]
+  %total_error_0.0.lcssa208 = phi i64 [ %add263, %cond.true310 ], [ %add263, %if.then307 ], [ 0, %if.end302.thread ], [ %add263, %if.end302 ]
   %smallest_error.1 = phi i64 [ %add264, %cond.true310 ], [ %add264, %if.then307 ], [ 0, %if.end302.thread ], [ %smallest_error.0, %if.end302 ]
   %order.1 = phi i32 [ 1, %cond.true310 ], [ 1, %if.then307 ], [ 0, %if.end302.thread ], [ 0, %if.end302 ]
   %arrayidx323 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 4
   store float %.sink, ptr %arrayidx323, align 4
-  %cmp327 = icmp ult i64 %total_error_2.0.lcssa215, %smallest_error.1
+  %cmp327 = icmp ult i64 %total_error_2.0.lcssa213, %smallest_error.1
   %or.cond140 = select i1 %order_2_is_valid.0.lcssa227, i1 %cmp327, i1 false
   br i1 %or.cond140, label %if.then329, label %if.end346
 
 if.then329:                                       ; preds = %if.end324
-  %cmp330.not = icmp eq i64 %total_error_0.0.lcssa222, 0
+  %cmp330.not = icmp eq i64 %total_error_0.0.lcssa208, 0
   br i1 %cmp330.not, label %if.end346, label %cond.true332
 
 cond.true332:                                     ; preds = %if.then329
-  %conv333 = uitofp i64 %total_error_0.0.lcssa222 to double
+  %conv333 = uitofp i64 %total_error_0.0.lcssa208 to double
   %mul334 = fmul reassoc nsz arcp double %conv333, 0x3FE62E42FEFA39EF
   %conv335 = uitofp i32 %data_len to double
   %div336 = fdiv reassoc nsz arcp double %mul334, %conv335
@@ -547,20 +547,20 @@ cond.true332:                                     ; preds = %if.then329
 
 if.end346:                                        ; preds = %if.end324, %cond.true332, %if.then329
   %.sink297 = phi float [ %17, %cond.true332 ], [ 0.000000e+00, %if.then329 ], [ 3.400000e+01, %if.end324 ]
-  %smallest_error.2 = phi i64 [ %total_error_2.0.lcssa215, %cond.true332 ], [ %total_error_2.0.lcssa215, %if.then329 ], [ %smallest_error.1, %if.end324 ]
+  %smallest_error.2 = phi i64 [ %total_error_2.0.lcssa213, %cond.true332 ], [ %total_error_2.0.lcssa213, %if.then329 ], [ %smallest_error.1, %if.end324 ]
   %order.2 = phi i32 [ 2, %cond.true332 ], [ 2, %if.then329 ], [ %order.1, %if.end324 ]
   %arrayidx345 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 8
   store float %.sink297, ptr %arrayidx345, align 4
-  %cmp349 = icmp ult i64 %total_error_3.0.lcssa211, %smallest_error.2
+  %cmp349 = icmp ult i64 %total_error_3.0.lcssa217, %smallest_error.2
   %or.cond141 = select i1 %order_3_is_valid.0.lcssa231, i1 %cmp349, i1 false
   br i1 %or.cond141, label %if.then351, label %if.end368
 
 if.then351:                                       ; preds = %if.end346
-  %cmp352.not = icmp eq i64 %total_error_0.0.lcssa222, 0
+  %cmp352.not = icmp eq i64 %total_error_0.0.lcssa208, 0
   br i1 %cmp352.not, label %if.end368, label %cond.true354
 
 cond.true354:                                     ; preds = %if.then351
-  %conv355 = uitofp i64 %total_error_0.0.lcssa222 to double
+  %conv355 = uitofp i64 %total_error_0.0.lcssa208 to double
   %mul356 = fmul reassoc nsz arcp double %conv355, 0x3FE62E42FEFA39EF
   %conv357 = uitofp i32 %data_len to double
   %div358 = fdiv reassoc nsz arcp double %mul356, %conv357
@@ -571,20 +571,20 @@ cond.true354:                                     ; preds = %if.then351
 
 if.end368:                                        ; preds = %if.end346, %cond.true354, %if.then351
   %.sink298 = phi float [ %18, %cond.true354 ], [ 0.000000e+00, %if.then351 ], [ 3.400000e+01, %if.end346 ]
-  %smallest_error.3 = phi i64 [ %total_error_3.0.lcssa211, %cond.true354 ], [ %total_error_3.0.lcssa211, %if.then351 ], [ %smallest_error.2, %if.end346 ]
+  %smallest_error.3 = phi i64 [ %total_error_3.0.lcssa217, %cond.true354 ], [ %total_error_3.0.lcssa217, %if.then351 ], [ %smallest_error.2, %if.end346 ]
   %order.3 = phi i32 [ 3, %cond.true354 ], [ 3, %if.then351 ], [ %order.2, %if.end346 ]
   %arrayidx367 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 12
   store float %.sink298, ptr %arrayidx367, align 4
-  %cmp371 = icmp ult i64 %total_error_4.0.lcssa207, %smallest_error.3
+  %cmp371 = icmp ult i64 %total_error_4.0.lcssa221, %smallest_error.3
   %or.cond142 = select i1 %order_4_is_valid.0.lcssa235, i1 %cmp371, i1 false
   br i1 %or.cond142, label %if.then373, label %if.end390
 
 if.then373:                                       ; preds = %if.end368
-  %cmp374.not = icmp eq i64 %total_error_0.0.lcssa222, 0
+  %cmp374.not = icmp eq i64 %total_error_0.0.lcssa208, 0
   br i1 %cmp374.not, label %if.end390, label %cond.true376
 
 cond.true376:                                     ; preds = %if.then373
-  %conv377 = uitofp i64 %total_error_0.0.lcssa222 to double
+  %conv377 = uitofp i64 %total_error_0.0.lcssa208 to double
   %mul378 = fmul reassoc nsz arcp double %conv377, 0x3FE62E42FEFA39EF
   %conv379 = uitofp i32 %data_len to double
   %div380 = fdiv reassoc nsz arcp double %mul378, %conv379
@@ -618,11 +618,11 @@ for.body:                                         ; preds = %for.body.preheader,
   %order_2_is_valid.0180 = phi i32 [ 1, %for.body.preheader ], [ %spec.select296, %cond.end208 ]
   %order_1_is_valid.0179 = phi i32 [ 1, %for.body.preheader ], [ %spec.select170, %cond.end208 ]
   %order_0_is_valid.0178 = phi i32 [ 1, %for.body.preheader ], [ %spec.select, %cond.end208 ]
-  %total_error_0.0177 = phi i64 [ 0, %for.body.preheader ], [ %add210, %cond.end208 ]
-  %total_error_1.0176 = phi i64 [ 0, %for.body.preheader ], [ %add211, %cond.end208 ]
+  %total_error_4.0177 = phi i64 [ 0, %for.body.preheader ], [ %add214, %cond.end208 ]
+  %total_error_3.0176 = phi i64 [ 0, %for.body.preheader ], [ %add213, %cond.end208 ]
   %total_error_2.0175 = phi i64 [ 0, %for.body.preheader ], [ %add212, %cond.end208 ]
-  %total_error_3.0174 = phi i64 [ 0, %for.body.preheader ], [ %add213, %cond.end208 ]
-  %total_error_4.0173 = phi i64 [ 0, %for.body.preheader ], [ %add214, %cond.end208 ]
+  %total_error_1.0174 = phi i64 [ 0, %for.body.preheader ], [ %add211, %cond.end208 ]
+  %total_error_0.0173 = phi i64 [ 0, %for.body.preheader ], [ %add210, %cond.end208 ]
   %arrayidx = getelementptr i64, ptr %data, i64 %indvars.iv
   %0 = load i64, ptr %arrayidx, align 8
   %cond = tail call i64 @llvm.abs.i64(i64 %0, i1 true)
@@ -678,11 +678,11 @@ cond.end208:                                      ; preds = %for.body, %cond.end
   %cond76154159.fr = freeze i64 %cond76154159
   %cond135161.fr = freeze i64 %cond135161
   %cond34149153160.fr = freeze i64 %cond34149153160
-  %add210 = add i64 %cond, %total_error_0.0177
-  %add211 = add i64 %cond34149153160.fr, %total_error_1.0176
+  %add210 = add i64 %cond, %total_error_0.0173
+  %add211 = add i64 %cond34149153160.fr, %total_error_1.0174
   %add212 = add i64 %cond76154159.fr, %total_error_2.0175
-  %add213 = add i64 %cond135161.fr, %total_error_3.0174
-  %add214 = add i64 %cond209, %total_error_4.0173
+  %add213 = add i64 %cond135161.fr, %total_error_3.0176
+  %add214 = add i64 %cond209, %total_error_4.0177
   %cmp215 = icmp ugt i64 %cond, 2147483647
   %spec.select = select i1 %cmp215, i32 0, i32 %order_0_is_valid.0178
   %cmp216 = icmp ugt i64 %cond34149153160.fr, 2147483647
@@ -730,9 +730,9 @@ if.end241:                                        ; preds = %for.end, %cond.true
   br i1 %or.cond139, label %if.then246, label %if.end263
 
 if.end241.thread:                                 ; preds = %entry, %if.then229
-  %total_error_4.0.lcssa209255 = phi i64 [ %add214, %if.then229 ], [ 0, %entry ]
-  %total_error_3.0.lcssa213254 = phi i64 [ %add213, %if.then229 ], [ 0, %entry ]
-  %total_error_2.0.lcssa217253 = phi i64 [ %add212, %if.then229 ], [ 0, %entry ]
+  %total_error_2.0.lcssa215254 = phi i64 [ %add212, %if.then229 ], [ 0, %entry ]
+  %total_error_3.0.lcssa219253 = phi i64 [ %add213, %if.then229 ], [ 0, %entry ]
+  %total_error_4.0.lcssa223252 = phi i64 [ %add214, %if.then229 ], [ 0, %entry ]
   %order_2_is_valid.0.lcssa229251 = phi i1 [ %12, %if.then229 ], [ true, %entry ]
   %order_3_is_valid.0.lcssa233250 = phi i1 [ %13, %if.then229 ], [ true, %entry ]
   %order_4_is_valid.0.lcssa237249 = phi i1 [ %14, %if.then229 ], [ true, %entry ]
@@ -758,24 +758,24 @@ if.end263:                                        ; preds = %if.end241, %if.end2
   %order_4_is_valid.0.lcssa235 = phi i1 [ %14, %cond.true249 ], [ %14, %if.then246 ], [ %order_4_is_valid.0.lcssa237249, %if.end241.thread ], [ %14, %if.end241 ]
   %order_3_is_valid.0.lcssa231 = phi i1 [ %13, %cond.true249 ], [ %13, %if.then246 ], [ %order_3_is_valid.0.lcssa233250, %if.end241.thread ], [ %13, %if.end241 ]
   %order_2_is_valid.0.lcssa227 = phi i1 [ %12, %cond.true249 ], [ %12, %if.then246 ], [ %order_2_is_valid.0.lcssa229251, %if.end241.thread ], [ %12, %if.end241 ]
-  %total_error_0.0.lcssa222 = phi i64 [ %add210, %cond.true249 ], [ %add210, %if.then246 ], [ 0, %if.end241.thread ], [ %add210, %if.end241 ]
-  %total_error_2.0.lcssa215 = phi i64 [ %add212, %cond.true249 ], [ %add212, %if.then246 ], [ %total_error_2.0.lcssa217253, %if.end241.thread ], [ %add212, %if.end241 ]
-  %total_error_3.0.lcssa211 = phi i64 [ %add213, %cond.true249 ], [ %add213, %if.then246 ], [ %total_error_3.0.lcssa213254, %if.end241.thread ], [ %add213, %if.end241 ]
-  %total_error_4.0.lcssa207 = phi i64 [ %add214, %cond.true249 ], [ %add214, %if.then246 ], [ %total_error_4.0.lcssa209255, %if.end241.thread ], [ %add214, %if.end241 ]
+  %total_error_4.0.lcssa221 = phi i64 [ %add214, %cond.true249 ], [ %add214, %if.then246 ], [ %total_error_4.0.lcssa223252, %if.end241.thread ], [ %add214, %if.end241 ]
+  %total_error_3.0.lcssa217 = phi i64 [ %add213, %cond.true249 ], [ %add213, %if.then246 ], [ %total_error_3.0.lcssa219253, %if.end241.thread ], [ %add213, %if.end241 ]
+  %total_error_2.0.lcssa213 = phi i64 [ %add212, %cond.true249 ], [ %add212, %if.then246 ], [ %total_error_2.0.lcssa215254, %if.end241.thread ], [ %add212, %if.end241 ]
+  %total_error_0.0.lcssa208 = phi i64 [ %add210, %cond.true249 ], [ %add210, %if.then246 ], [ 0, %if.end241.thread ], [ %add210, %if.end241 ]
   %smallest_error.1 = phi i64 [ %add211, %cond.true249 ], [ %add211, %if.then246 ], [ 0, %if.end241.thread ], [ %smallest_error.0, %if.end241 ]
   %order.1 = phi i32 [ 1, %cond.true249 ], [ 1, %if.then246 ], [ 0, %if.end241.thread ], [ 0, %if.end241 ]
   %arrayidx262 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 4
   store float %.sink, ptr %arrayidx262, align 4
-  %cmp266 = icmp ult i64 %total_error_2.0.lcssa215, %smallest_error.1
+  %cmp266 = icmp ult i64 %total_error_2.0.lcssa213, %smallest_error.1
   %or.cond140 = select i1 %order_2_is_valid.0.lcssa227, i1 %cmp266, i1 false
   br i1 %or.cond140, label %if.then268, label %if.end285
 
 if.then268:                                       ; preds = %if.end263
-  %cmp269.not = icmp eq i64 %total_error_0.0.lcssa222, 0
+  %cmp269.not = icmp eq i64 %total_error_0.0.lcssa208, 0
   br i1 %cmp269.not, label %if.end285, label %cond.true271
 
 cond.true271:                                     ; preds = %if.then268
-  %conv272 = uitofp i64 %total_error_0.0.lcssa222 to double
+  %conv272 = uitofp i64 %total_error_0.0.lcssa208 to double
   %mul273 = fmul reassoc nsz arcp double %conv272, 0x3FE62E42FEFA39EF
   %conv274 = uitofp i32 %data_len to double
   %div275 = fdiv reassoc nsz arcp double %mul273, %conv274
@@ -786,20 +786,20 @@ cond.true271:                                     ; preds = %if.then268
 
 if.end285:                                        ; preds = %if.end263, %cond.true271, %if.then268
   %.sink297 = phi float [ %17, %cond.true271 ], [ 0.000000e+00, %if.then268 ], [ 3.400000e+01, %if.end263 ]
-  %smallest_error.2 = phi i64 [ %total_error_2.0.lcssa215, %cond.true271 ], [ %total_error_2.0.lcssa215, %if.then268 ], [ %smallest_error.1, %if.end263 ]
+  %smallest_error.2 = phi i64 [ %total_error_2.0.lcssa213, %cond.true271 ], [ %total_error_2.0.lcssa213, %if.then268 ], [ %smallest_error.1, %if.end263 ]
   %order.2 = phi i32 [ 2, %cond.true271 ], [ 2, %if.then268 ], [ %order.1, %if.end263 ]
   %arrayidx284 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 8
   store float %.sink297, ptr %arrayidx284, align 4
-  %cmp288 = icmp ult i64 %total_error_3.0.lcssa211, %smallest_error.2
+  %cmp288 = icmp ult i64 %total_error_3.0.lcssa217, %smallest_error.2
   %or.cond141 = select i1 %order_3_is_valid.0.lcssa231, i1 %cmp288, i1 false
   br i1 %or.cond141, label %if.then290, label %if.end307
 
 if.then290:                                       ; preds = %if.end285
-  %cmp291.not = icmp eq i64 %total_error_0.0.lcssa222, 0
+  %cmp291.not = icmp eq i64 %total_error_0.0.lcssa208, 0
   br i1 %cmp291.not, label %if.end307, label %cond.true293
 
 cond.true293:                                     ; preds = %if.then290
-  %conv294 = uitofp i64 %total_error_0.0.lcssa222 to double
+  %conv294 = uitofp i64 %total_error_0.0.lcssa208 to double
   %mul295 = fmul reassoc nsz arcp double %conv294, 0x3FE62E42FEFA39EF
   %conv296 = uitofp i32 %data_len to double
   %div297 = fdiv reassoc nsz arcp double %mul295, %conv296
@@ -810,20 +810,20 @@ cond.true293:                                     ; preds = %if.then290
 
 if.end307:                                        ; preds = %if.end285, %cond.true293, %if.then290
   %.sink298 = phi float [ %18, %cond.true293 ], [ 0.000000e+00, %if.then290 ], [ 3.400000e+01, %if.end285 ]
-  %smallest_error.3 = phi i64 [ %total_error_3.0.lcssa211, %cond.true293 ], [ %total_error_3.0.lcssa211, %if.then290 ], [ %smallest_error.2, %if.end285 ]
+  %smallest_error.3 = phi i64 [ %total_error_3.0.lcssa217, %cond.true293 ], [ %total_error_3.0.lcssa217, %if.then290 ], [ %smallest_error.2, %if.end285 ]
   %order.3 = phi i32 [ 3, %cond.true293 ], [ 3, %if.then290 ], [ %order.2, %if.end285 ]
   %arrayidx306 = getelementptr inbounds i8, ptr %residual_bits_per_sample, i64 12
   store float %.sink298, ptr %arrayidx306, align 4
-  %cmp310 = icmp ult i64 %total_error_4.0.lcssa207, %smallest_error.3
+  %cmp310 = icmp ult i64 %total_error_4.0.lcssa221, %smallest_error.3
   %or.cond142 = select i1 %order_4_is_valid.0.lcssa235, i1 %cmp310, i1 false
   br i1 %or.cond142, label %if.then312, label %if.end329
 
 if.then312:                                       ; preds = %if.end307
-  %cmp313.not = icmp eq i64 %total_error_0.0.lcssa222, 0
+  %cmp313.not = icmp eq i64 %total_error_0.0.lcssa208, 0
   br i1 %cmp313.not, label %if.end329, label %cond.true315
 
 cond.true315:                                     ; preds = %if.then312
-  %conv316 = uitofp i64 %total_error_0.0.lcssa222 to double
+  %conv316 = uitofp i64 %total_error_0.0.lcssa208 to double
   %mul317 = fmul reassoc nsz arcp double %conv316, 0x3FE62E42FEFA39EF
   %conv318 = uitofp i32 %data_len to double
   %div319 = fdiv reassoc nsz arcp double %mul317, %conv318

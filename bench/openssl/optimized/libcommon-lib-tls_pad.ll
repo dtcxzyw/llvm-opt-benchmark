@@ -123,40 +123,40 @@ for.cond79.preheader:                             ; preds = %for.body, %if.end50
   br label %for.body82
 
 for.body:                                         ; preds = %if.end50, %for.body
-  %in_mac.085 = phi i64 [ %and67, %for.body ], [ 0, %if.end50 ]
-  %rotate_offset.084 = phi i64 [ %or69, %for.body ], [ 0, %if.end50 ]
-  %j.083 = phi i64 [ %and77, %for.body ], [ 0, %if.end50 ]
-  %i.082 = phi i64 [ %inc78, %for.body ], [ %spec.select, %if.end50 ]
-  %xor.i = xor i64 %i.082, %sub
+  %rotate_offset.085 = phi i64 [ %or69, %for.body ], [ 0, %if.end50 ]
+  %j.084 = phi i64 [ %and77, %for.body ], [ 0, %if.end50 ]
+  %i.083 = phi i64 [ %inc78, %for.body ], [ %spec.select, %if.end50 ]
+  %in_mac.082 = phi i64 [ %and67, %for.body ], [ 0, %if.end50 ]
+  %xor.i = xor i64 %i.083, %sub
   %not.i.i = xor i64 %xor.i, -1
   %sub.i.i = add i64 %xor.i, -1
   %and.i.i = and i64 %sub.i.i, %not.i.i
   %shr.neg.i.i.i = ashr i64 %and.i.i, 63
-  %xor.i52 = xor i64 %i.082, %0
-  %sub.i = sub i64 %i.082, %0
+  %xor.i52 = xor i64 %i.083, %0
+  %sub.i = sub i64 %i.083, %0
   %xor1.i = xor i64 %sub.i, %0
   %or.i = or i64 %xor1.i, %xor.i52
-  %xor2.i = xor i64 %or.i, %i.082
-  %arrayidx66 = getelementptr inbounds i8, ptr %recdata, i64 %i.082
+  %xor2.i = xor i64 %or.i, %i.083
+  %arrayidx66 = getelementptr inbounds i8, ptr %recdata, i64 %i.083
   %4 = load i8, ptr %arrayidx66, align 1
-  %or = or i64 %shr.neg.i.i.i, %in_mac.085
+  %or = or i64 %shr.neg.i.i.i, %in_mac.082
   %isneg79 = icmp slt i64 %xor2.i, 0
   %and67 = select i1 %isneg79, i64 %or, i64 0
-  %and68 = and i64 %shr.neg.i.i.i, %j.083
-  %or69 = or i64 %and68, %rotate_offset.084
-  %inc = add i64 %j.083, 1
-  %arrayidx72 = getelementptr inbounds i8, ptr %add.ptr, i64 %j.083
+  %and68 = and i64 %shr.neg.i.i.i, %j.084
+  %or69 = or i64 %and68, %rotate_offset.085
+  %inc = add i64 %j.084, 1
+  %arrayidx72 = getelementptr inbounds i8, ptr %add.ptr, i64 %j.084
   %5 = load i8, ptr %arrayidx72, align 1
   %6 = trunc i64 %and67 to i8
   %7 = and i8 %4, %6
   %conv75 = or i8 %7, %5
   store i8 %conv75, ptr %arrayidx72, align 1
   %sub.i54 = sub i64 %inc, %mac_size
-  %8 = sub i64 -2, %j.083
+  %8 = sub i64 -2, %j.084
   %xor2.i57 = and i64 %sub.i54, %8
   %isneg80 = icmp slt i64 %xor2.i57, 0
   %and77 = select i1 %isneg80, i64 %inc, i64 0
-  %inc78 = add nuw i64 %i.082, 1
+  %inc78 = add nuw i64 %i.083, 1
   %exitcond.not = icmp eq i64 %inc78, %origreclen
   br i1 %exitcond.not, label %for.cond79.preheader, label %for.body, !llvm.loop !4
 

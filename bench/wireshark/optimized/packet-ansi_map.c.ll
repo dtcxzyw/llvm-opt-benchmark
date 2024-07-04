@@ -7064,9 +7064,9 @@ define internal i32 @dissect_ansi_map_WIN_TriggerList(i1 noundef zeroext %0, ptr
   br i1 %16, label %.lr.ph.i, label %dissect_ansi_map_win_trigger_list.exit
 
 .lr.ph.i:                                         ; preds = %10, %36
-  %.02.i = phi i32 [ %37, %36 ], [ 0, %10 ]
-  %.0321.i = phi i32 [ %.1.i, %36 ], [ 0, %10 ]
-  %17 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %9, i32 noundef %.02.i) #5
+  %.02.i = phi i32 [ %.1.i, %36 ], [ 0, %10 ]
+  %.0321.i = phi i32 [ %37, %36 ], [ 0, %10 ]
+  %17 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %9, i32 noundef %.0321.i) #5
   switch i8 %17, label %30 [
     i8 -36, label %18
     i8 -35, label %21
@@ -7076,35 +7076,35 @@ define internal i32 @dissect_ansi_map_WIN_TriggerList(i1 noundef zeroext %0, ptr
 
 18:                                               ; preds = %.lr.ph.i
   %19 = load i32, ptr @hf_ansi_map_win_trigger_list, align 4
-  %20 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %15, i32 noundef %19, ptr noundef nonnull %9, i32 noundef %.02.i, i32 noundef 1, i32 noundef 220, ptr noundef nonnull @.str.2563) #5
+  %20 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %15, i32 noundef %19, ptr noundef nonnull %9, i32 noundef %.0321.i, i32 noundef 1, i32 noundef 220, ptr noundef nonnull @.str.2563) #5
   br label %36
 
 21:                                               ; preds = %.lr.ph.i
   %22 = load i32, ptr @hf_ansi_map_win_trigger_list, align 4
-  %23 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %15, i32 noundef %22, ptr noundef nonnull %9, i32 noundef %.02.i, i32 noundef 1, i32 noundef 221, ptr noundef nonnull @.str.2564) #5
+  %23 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %15, i32 noundef %22, ptr noundef nonnull %9, i32 noundef %.0321.i, i32 noundef 1, i32 noundef 221, ptr noundef nonnull @.str.2564) #5
   br label %36
 
 24:                                               ; preds = %.lr.ph.i
   %25 = load i32, ptr @hf_ansi_map_win_trigger_list, align 4
-  %26 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %15, i32 noundef %25, ptr noundef nonnull %9, i32 noundef %.02.i, i32 noundef 1, i32 noundef 222, ptr noundef nonnull @.str.2565) #5
+  %26 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %15, i32 noundef %25, ptr noundef nonnull %9, i32 noundef %.0321.i, i32 noundef 1, i32 noundef 222, ptr noundef nonnull @.str.2565) #5
   br label %36
 
 27:                                               ; preds = %.lr.ph.i
   %28 = load i32, ptr @hf_ansi_map_win_trigger_list, align 4
-  %29 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %15, i32 noundef %28, ptr noundef nonnull %9, i32 noundef %.02.i, i32 noundef 1, i32 noundef 223, ptr noundef nonnull @.str.2566) #5
+  %29 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %15, i32 noundef %28, ptr noundef nonnull %9, i32 noundef %.0321.i, i32 noundef 1, i32 noundef 223, ptr noundef nonnull @.str.2566) #5
   br label %36
 
 30:                                               ; preds = %.lr.ph.i
   %31 = zext i8 %17 to i32
   %32 = load i32, ptr @hf_ansi_map_win_trigger_list, align 4
   %33 = call ptr @val_to_str_ext(i32 noundef %31, ptr noundef nonnull @ansi_map_TriggerType_vals_ext, ptr noundef nonnull @.str.2568) #5
-  %34 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %15, i32 noundef %32, ptr noundef nonnull %9, i32 noundef %.02.i, i32 noundef 1, i32 noundef %31, ptr noundef nonnull @.str.2567, i32 noundef %.0321.i, i32 noundef %31, ptr noundef %33) #5
-  %35 = add i32 %.0321.i, 1
+  %34 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %15, i32 noundef %32, ptr noundef nonnull %9, i32 noundef %.0321.i, i32 noundef 1, i32 noundef %31, ptr noundef nonnull @.str.2567, i32 noundef %.02.i, i32 noundef %31, ptr noundef %33) #5
+  %35 = add i32 %.02.i, 1
   br label %36
 
 36:                                               ; preds = %30, %27, %24, %21, %18
   %.1.i = phi i32 [ %35, %30 ], [ 0, %27 ], [ 0, %24 ], [ 0, %21 ], [ 0, %18 ]
-  %37 = add nuw nsw i32 %.02.i, 1
+  %37 = add nuw nsw i32 %.0321.i, 1
   %exitcond.not.i = icmp eq i32 %37, %11
   br i1 %exitcond.not.i, label %dissect_ansi_map_win_trigger_list.exit, label %.lr.ph.i, !llvm.loop !7
 

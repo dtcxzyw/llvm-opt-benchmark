@@ -5376,8 +5376,8 @@ _ZN12clap_builder6output5usage5Usage17needs_options_tag17he0f20c589d0e4de5E.exit
   br label %216
 
 216:                                              ; preds = %.backedge, %._crit_edge698.i
-  %.sroa.0370.0.i = phi ptr [ %210, %._crit_edge698.i ], [ %.sroa.0370.1499.ph.i, %.backedge ]
   %.sroa.8.0.i = phi ptr [ %2, %._crit_edge698.i ], [ %.sroa.8.1.ph.i, %.backedge ]
+  %.sroa.0370.0.i = phi ptr [ %210, %._crit_edge698.i ], [ %.sroa.0370.1499.ph.i, %.backedge ]
   %217 = icmp eq ptr %.sroa.0370.0.i, null
   %218 = icmp eq ptr %.sroa.0370.0.i, %211
   %or.cond628.i = select i1 %217, i1 true, i1 %218
@@ -5504,8 +5504,8 @@ select.unfold.i:                                  ; preds = %216
   br label %"_ZN12clap_builder4util8flat_set16FlatSet$LT$T$GT$8contains17h689a1dbb7504a148E.exit338.i"
 
 "_ZN12clap_builder4util8flat_set16FlatSet$LT$T$GT$8contains17h689a1dbb7504a148E.exit338.i": ; preds = %"_ZN12clap_builder4util8flat_set16FlatSet$LT$T$GT$8contains17h689a1dbb7504a148E.exit338.i.backedge", %241
-  %.sroa.0380.0.i = phi ptr [ %244, %241 ], [ %.sroa.0380.1533.ph.i, %"_ZN12clap_builder4util8flat_set16FlatSet$LT$T$GT$8contains17h689a1dbb7504a148E.exit338.i.backedge" ]
   %.sroa.8383.0.i = phi ptr [ %2, %241 ], [ %.sroa.8383.1.ph.i, %"_ZN12clap_builder4util8flat_set16FlatSet$LT$T$GT$8contains17h689a1dbb7504a148E.exit338.i.backedge" ]
+  %.sroa.0380.0.i = phi ptr [ %244, %241 ], [ %.sroa.0380.1533.ph.i, %"_ZN12clap_builder4util8flat_set16FlatSet$LT$T$GT$8contains17h689a1dbb7504a148E.exit338.i.backedge" ]
   %252 = icmp eq ptr %.sroa.0380.0.i, null
   %253 = icmp eq ptr %.sroa.0380.0.i, %246
   %or.cond629.i = select i1 %252, i1 true, i1 %253
@@ -7450,8 +7450,8 @@ define hidden void @_ZN12clap_builder6output5usage5Usage23get_required_usage_fro
   br label %.backedge342
 
 .backedge342:                                     ; preds = %.backedge342.backedge, %._crit_edge361
-  %.sroa.0211.0 = phi ptr [ %63, %._crit_edge361 ], [ %.sroa.0211.1252.ph, %.backedge342.backedge ]
   %.sroa.8.0 = phi ptr [ %2, %._crit_edge361 ], [ %.sroa.8.1.ph, %.backedge342.backedge ]
+  %.sroa.0211.0 = phi ptr [ %63, %._crit_edge361 ], [ %.sroa.0211.1252.ph, %.backedge342.backedge ]
   %73 = icmp eq ptr %.sroa.0211.0, null
   %74 = icmp eq ptr %.sroa.0211.0, %64
   %or.cond = select i1 %73, i1 true, i1 %74

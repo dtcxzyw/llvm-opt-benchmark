@@ -5243,8 +5243,8 @@ for.body156.preheader:                            ; preds = %invoke.cont150
 
 for.body156:                                      ; preds = %for.body156.preheader, %invoke.cont198
   %i151.02117 = phi i64 [ %inc207, %invoke.cont198 ], [ 0, %for.body156.preheader ]
-  %vecZ.sroa.7.02116 = phi float [ %tvec.sroa.29.3.i, %invoke.cont198 ], [ 0.000000e+00, %for.body156.preheader ]
-  %vecZ.sroa.0.02115 = phi <2 x float> [ %tvec.sroa.0.3.i, %invoke.cont198 ], [ zeroinitializer, %for.body156.preheader ]
+  %vecZ.sroa.0.02116 = phi <2 x float> [ %tvec.sroa.0.3.i, %invoke.cont198 ], [ zeroinitializer, %for.body156.preheader ]
+  %vecZ.sroa.7.02115 = phi float [ %tvec.sroa.29.3.i, %invoke.cont198 ], [ 0.000000e+00, %for.body156.preheader ]
   %spine.val = load ptr, ptr %spine, align 8
   %spine.val148 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i.i712 = ptrtoint ptr %spine.val148 to i64
@@ -5533,14 +5533,14 @@ if.then81.i:                                      ; preds = %if.else65.i
   br label %if.end85.i
 
 if.end85.i:                                       ; preds = %for.body.i743, %if.then81.i, %if.else65.i, %if.then61.i, %if.then45.i, %if.then43.i, %if.then39.i, %for.end.i, %if.then4.i, %if.end28.i
-  %tvec.sroa.0.1.i733 = phi <2 x float> [ %168, %if.then4.i ], [ %193, %for.end.i ], [ zeroinitializer, %if.then39.i ], [ %vecZ.sroa.0.02115, %if.then61.i ], [ %vecZ.sroa.0.02115, %if.then81.i ], [ zeroinitializer, %if.end28.i ], [ %vecZ.sroa.0.02115, %if.then43.i ], [ %223, %if.then45.i ], [ %254, %if.else65.i ], [ %193, %for.body.i743 ]
-  %tvec.sroa.29.1.i = phi float [ %172, %if.then4.i ], [ %197, %for.end.i ], [ 1.000000e+00, %if.then39.i ], [ %vecZ.sroa.7.02116, %if.then61.i ], [ %vecZ.sroa.7.02116, %if.then81.i ], [ 1.000000e+00, %if.end28.i ], [ %vecZ.sroa.7.02116, %if.then43.i ], [ %227, %if.then45.i ], [ %258, %if.else65.i ], [ %197, %for.body.i743 ]
-  %pVecZ_Prev.sroa.0.0.vec.extract.i = extractelement <2 x float> %vecZ.sroa.0.02115, i64 0
-  %264 = fmul <2 x float> %vecZ.sroa.0.02115, %tvec.sroa.0.1.i733
+  %tvec.sroa.0.1.i733 = phi <2 x float> [ %168, %if.then4.i ], [ %193, %for.end.i ], [ zeroinitializer, %if.then39.i ], [ %vecZ.sroa.0.02116, %if.then61.i ], [ %vecZ.sroa.0.02116, %if.then81.i ], [ zeroinitializer, %if.end28.i ], [ %vecZ.sroa.0.02116, %if.then43.i ], [ %223, %if.then45.i ], [ %254, %if.else65.i ], [ %193, %for.body.i743 ]
+  %tvec.sroa.29.1.i = phi float [ %172, %if.then4.i ], [ %197, %for.end.i ], [ 1.000000e+00, %if.then39.i ], [ %vecZ.sroa.7.02115, %if.then61.i ], [ %vecZ.sroa.7.02115, %if.then81.i ], [ 1.000000e+00, %if.end28.i ], [ %vecZ.sroa.7.02115, %if.then43.i ], [ %227, %if.then45.i ], [ %258, %if.else65.i ], [ %197, %for.body.i743 ]
+  %pVecZ_Prev.sroa.0.0.vec.extract.i = extractelement <2 x float> %vecZ.sroa.0.02116, i64 0
+  %264 = fmul <2 x float> %vecZ.sroa.0.02116, %tvec.sroa.0.1.i733
   %mul3.i.i = extractelement <2 x float> %264, i64 1
   %265 = extractelement <2 x float> %tvec.sroa.0.1.i733, i64 0
   %266 = call float @llvm.fmuladd.f32(float %265, float %pVecZ_Prev.sroa.0.0.vec.extract.i, float %mul3.i.i)
-  %267 = call noundef float @llvm.fmuladd.f32(float %tvec.sroa.29.1.i, float %vecZ.sroa.7.02116, float %266)
+  %267 = call noundef float @llvm.fmuladd.f32(float %tvec.sroa.29.1.i, float %vecZ.sroa.7.02115, float %266)
   %cmp87.i = fcmp olt float %267, 0.000000e+00
   %268 = fneg <2 x float> %tvec.sroa.0.1.i733
   %fneg2.i.i = fneg float %tvec.sroa.29.1.i

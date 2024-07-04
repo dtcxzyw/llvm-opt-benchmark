@@ -736,8 +736,8 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
   br i1 %.not217.i.i, label %.preheader154.i.i, label %.preheader.us.i.i
 
 .critedge.thread.us.i.i:                          ; preds = %.critedge2.us.i.i, %.critedge4.us.i.i, %.critedge4.us.thread.i.i
-  %.1136162.us.i.i = phi i32 [ %91, %.critedge4.us.thread.i.i ], [ %.2137.lcssa.us.i.i, %.critedge4.us.i.i ], [ %.1136210.us.i.i, %.critedge2.us.i.i ]
-  %60 = icmp ult i32 %.1136162.us.i.i, %46
+  %.1139162.us.i.i = phi i32 [ %91, %.critedge4.us.thread.i.i ], [ %.2140.lcssa.us.i.i, %.critedge4.us.i.i ], [ %.1139210.us.i.i, %.critedge2.us.i.i ]
+  %60 = icmp ult i32 %.1139162.us.i.i, %46
   br i1 %60, label %.preheader.us.i.i.backedge, label %._crit_edge214.i.i
 
 61:                                               ; preds = %.preheader.us.i.i, %.critedge2.us.i.i
@@ -755,7 +755,7 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
   %69 = zext i16 %63 to i64
   %70 = getelementptr inbounds i32, ptr %68, i64 %69
   %71 = load i32, ptr %70, align 4
-  %.not152.us.i.i = icmp eq i32 %.1136210.us.i.i, %71
+  %.not152.us.i.i = icmp eq i32 %.1139210.us.i.i, %71
   br i1 %.not152.us.i.i, label %.critedge.preheader.us.i.i, label %.critedge2.us.i.i
 
 .critedge2.us.i.i:                                ; preds = %66, %61
@@ -766,7 +766,7 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
 
 .lr.ph202.us.i.i:                                 ; preds = %.critedge.preheader.us.i.i, %.critedge.us.i.i
   %indvars.iv243.i.i = phi i64 [ %indvars.iv.next244.i.i, %.critedge.us.i.i ], [ %indvars.iv239.i.i, %.critedge.preheader.us.i.i ]
-  %.2137200.us.i.i = phi i32 [ %91, %.critedge.us.i.i ], [ %.1136210.us.i.i, %.critedge.preheader.us.i.i ]
+  %.2140200.us.i.i = phi i32 [ %91, %.critedge.us.i.i ], [ %.1139210.us.i.i, %.critedge.preheader.us.i.i ]
   %74 = load ptr, ptr %3, align 8
   %75 = getelementptr inbounds i16, ptr %74, i64 %indvars.iv243.i.i
   %76 = load i16, ptr %75, align 2
@@ -781,7 +781,7 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
   %83 = zext i16 %76 to i64
   %84 = getelementptr inbounds i32, ptr %82, i64 %83
   %85 = load i32, ptr %84, align 4
-  %86 = icmp eq i32 %.2137200.us.i.i, %85
+  %86 = icmp eq i32 %.2140200.us.i.i, %85
   br i1 %86, label %.critedge.us.i.i, label %.critedge4.us.loopexit.i.i
 
 .critedge4.us.loopexit.i.i:                       ; preds = %80, %.lr.ph202.us.i.i
@@ -789,7 +789,7 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
   br label %.critedge4.us.i.i
 
 .critedge4.us.i.i:                                ; preds = %.critedge.preheader.us.i.i, %.critedge4.us.loopexit.i.i
-  %.2137.lcssa.us.i.i = phi i32 [ %.1136210.us.i.i, %.critedge.preheader.us.i.i ], [ %.2137200.us.i.i, %.critedge4.us.loopexit.i.i ]
+  %.2140.lcssa.us.i.i = phi i32 [ %.1139210.us.i.i, %.critedge.preheader.us.i.i ], [ %.2140200.us.i.i, %.critedge4.us.loopexit.i.i ]
   %.0.lcssa.us.i.i = phi i32 [ %95, %.critedge.preheader.us.i.i ], [ %87, %.critedge4.us.loopexit.i.i ]
   %88 = sub nsw i32 %.0.lcssa.us.i.i, %95
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.46, i32 noundef %95, i32 noundef %88) #13
@@ -798,13 +798,13 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
 
 .preheader.us.i.i.backedge:                       ; preds = %.critedge4.us.i.i, %.critedge.thread.us.i.i
   %.0131211.us.i.i.be = phi i32 [ %.0.lcssa.us.i.i, %.critedge4.us.i.i ], [ 0, %.critedge.thread.us.i.i ]
-  %.1136210.us.i.i.be = phi i32 [ %.2137.lcssa.us.i.i, %.critedge4.us.i.i ], [ %.1136162.us.i.i, %.critedge.thread.us.i.i ]
+  %.1139210.us.i.i.be = phi i32 [ %.2140.lcssa.us.i.i, %.critedge4.us.i.i ], [ %.1139162.us.i.i, %.critedge.thread.us.i.i ]
   br label %.preheader.us.i.i, !llvm.loop !12
 
 .critedge.us.i.i:                                 ; preds = %80
   %90 = add nuw i16 %76, 1
   store i16 %90, ptr %75, align 2
-  %91 = add i32 %.2137200.us.i.i, 1
+  %91 = add i32 %.2140200.us.i.i, 1
   %indvars.iv.next244.i.i = add nuw nsw i64 %indvars.iv243.i.i, 1
   %92 = trunc nsw i64 %indvars.iv.next244.i.i to i32
   %93 = icmp ugt i32 %44, %92
@@ -822,7 +822,7 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
 
 .preheader.us.i.i:                                ; preds = %.preheader154.lr.ph.i.i, %.preheader.us.i.i.backedge
   %.0131211.us.i.i = phi i32 [ %.0131211.us.i.i.be, %.preheader.us.i.i.backedge ], [ 0, %.preheader154.lr.ph.i.i ]
-  %.1136210.us.i.i = phi i32 [ %.1136210.us.i.i.be, %.preheader.us.i.i.backedge ], [ 0, %.preheader154.lr.ph.i.i ]
+  %.1139210.us.i.i = phi i32 [ %.1139210.us.i.i.be, %.preheader.us.i.i.backedge ], [ 0, %.preheader154.lr.ph.i.i ]
   %97 = load ptr, ptr %3, align 8
   %98 = sext i32 %.0131211.us.i.i to i64
   br label %61
@@ -865,8 +865,8 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
   br i1 %.not215.i.i, label %.preheader158.i.i, label %.preheader157.us.i.i
 
 .critedge6.thread.us.i.i:                         ; preds = %.critedge8.us.i.i, %.critedge12.us.i.i, %.critedge12.us.thread.i.i
-  %.4139165.us.i.i = phi i32 [ %148, %.critedge12.us.thread.i.i ], [ %.6.lcssa.us.i.i, %.critedge12.us.i.i ], [ %.4139189.us.i.i, %.critedge8.us.i.i ]
-  %109 = icmp ult i32 %.4139165.us.i.i, %46
+  %.4142165.us.i.i = phi i32 [ %148, %.critedge12.us.thread.i.i ], [ %.6.lcssa.us.i.i, %.critedge12.us.i.i ], [ %.4142189.us.i.i, %.critedge8.us.i.i ]
+  %109 = icmp ult i32 %.4142165.us.i.i, %46
   br i1 %109, label %.preheader157.us.i.i.backedge, label %._crit_edge193.i.i
 
 110:                                              ; preds = %.preheader157.us.i.i, %.critedge8.us.i.i
@@ -886,7 +886,7 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
   %118 = zext i16 %112 to i64
   %119 = getelementptr inbounds i32, ptr %117, i64 %118
   %120 = load i32, ptr %119, align 4
-  %.not147.us.i.i = icmp eq i32 %.4139189.us.i.i, %120
+  %.not147.us.i.i = icmp eq i32 %.4142189.us.i.i, %120
   br i1 %.not147.us.i.i, label %.critedge6.preheader.us.i.i, label %.critedge8.us.i.i
 
 .critedge8.us.i.i:                                ; preds = %115, %110
@@ -896,25 +896,25 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
 .lr.ph.us.i.i:                                    ; preds = %.critedge6.preheader.us.i.i, %.critedge6.us.i.i
   %122 = phi i16 [ %158, %.critedge6.us.i.i ], [ %168, %.critedge6.preheader.us.i.i ]
   %123 = phi ptr [ %157, %.critedge6.us.i.i ], [ %167, %.critedge6.preheader.us.i.i ]
-  %.5140168.us.i.i = phi i32 [ %155, %.critedge6.us.i.i ], [ %.4139189.us.i.i, %.critedge6.preheader.us.i.i ]
-  %.0141167.us.i.i = phi i32 [ %153, %.critedge6.us.i.i ], [ 0, %.critedge6.preheader.us.i.i ]
+  %.0135168.us.i.i = phi i32 [ %153, %.critedge6.us.i.i ], [ 0, %.critedge6.preheader.us.i.i ]
+  %.5143167.us.i.i = phi i32 [ %155, %.critedge6.us.i.i ], [ %.4142189.us.i.i, %.critedge6.preheader.us.i.i ]
   %124 = load ptr, ptr %165, align 8
   %125 = zext i16 %122 to i64
   %126 = getelementptr inbounds i32, ptr %124, i64 %125
   %127 = load i32, ptr %126, align 4
-  %128 = icmp eq i32 %.5140168.us.i.i, %127
+  %128 = icmp eq i32 %.5143167.us.i.i, %127
   br i1 %128, label %.critedge6.us.i.i, label %.critedge10.us.i.i
 
 .critedge10.us.i.i:                               ; preds = %.critedge6.us.i.i, %.lr.ph.us.i.i, %.critedge6.preheader.us.i.i
-  %.0141.lcssa.us.i.i = phi i32 [ 0, %.critedge6.preheader.us.i.i ], [ %153, %.critedge6.us.i.i ], [ %.0141167.us.i.i, %.lr.ph.us.i.i ]
-  %.5140.lcssa.us.i.i = phi i32 [ %.4139189.us.i.i, %.critedge6.preheader.us.i.i ], [ %155, %.critedge6.us.i.i ], [ %.5140168.us.i.i, %.lr.ph.us.i.i ]
+  %.5143.lcssa.us.i.i = phi i32 [ %.4142189.us.i.i, %.critedge6.preheader.us.i.i ], [ %155, %.critedge6.us.i.i ], [ %.5143167.us.i.i, %.lr.ph.us.i.i ]
+  %.0135.lcssa.us.i.i = phi i32 [ 0, %.critedge6.preheader.us.i.i ], [ %153, %.critedge6.us.i.i ], [ %.0135168.us.i.i, %.lr.ph.us.i.i ]
   %.1177.us.i.i = add nsw i32 %163, 1
   %129 = icmp ult i32 %.1177.us.i.i, %44
   br i1 %129, label %.lr.ph180.us.i.i, label %.critedge12.us.i.i
 
 130:                                              ; preds = %.lr.ph180.us.i.i, %146
   %indvars.iv231.i.i = phi i64 [ %178, %.lr.ph180.us.i.i ], [ %indvars.iv.next232.i.i, %146 ]
-  %.6178.us.i.i = phi i32 [ %.5140.lcssa.us.i.i, %.lr.ph180.us.i.i ], [ %148, %146 ]
+  %.6178.us.i.i = phi i32 [ %.5143.lcssa.us.i.i, %.lr.ph180.us.i.i ], [ %148, %146 ]
   %131 = load ptr, ptr %3, align 8
   %132 = getelementptr inbounds i16, ptr %131, i64 %indvars.iv231.i.i
   %133 = load i16, ptr %132, align 2
@@ -937,7 +937,7 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
 
 ._crit_edge.us.i.i:                               ; preds = %152, %140, %.preheader156.us.i.i
   %.0133.lcssa.us.i.i = phi i32 [ 0, %.preheader156.us.i.i ], [ %indvars227.i.i, %140 ], [ %161, %152 ]
-  %.not150.us.i.i = icmp eq i32 %.0133.lcssa.us.i.i, %.0141.lcssa.us.i.i
+  %.not150.us.i.i = icmp eq i32 %.0133.lcssa.us.i.i, %.0135.lcssa.us.i.i
   br i1 %.not150.us.i.i, label %146, label %.critedge12.us.loopexit.i.i
 
 .critedge12.us.loopexit.i.i:                      ; preds = %._crit_edge.us.i.i, %130
@@ -945,22 +945,22 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
   br label %.critedge12.us.i.i
 
 .critedge12.us.i.i:                               ; preds = %.critedge12.us.loopexit.i.i, %.critedge10.us.i.i
-  %.6.lcssa.us.i.i = phi i32 [ %.5140.lcssa.us.i.i, %.critedge10.us.i.i ], [ %.6178.us.i.i, %.critedge12.us.loopexit.i.i ]
+  %.6.lcssa.us.i.i = phi i32 [ %.5143.lcssa.us.i.i, %.critedge10.us.i.i ], [ %.6178.us.i.i, %.critedge12.us.loopexit.i.i ]
   %.1.lcssa.us.i.i = phi i32 [ %.1177.us.i.i, %.critedge10.us.i.i ], [ %143, %.critedge12.us.loopexit.i.i ]
   %144 = sub nsw i32 %.1.lcssa.us.i.i, %163
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.49, i32 noundef %163, i32 noundef %144, i32 noundef %.0141.lcssa.us.i.i) #13
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.49, i32 noundef %163, i32 noundef %144, i32 noundef %.0135.lcssa.us.i.i) #13
   %145 = icmp ult i32 %.1.lcssa.us.i.i, %44
   br i1 %145, label %.preheader157.us.i.i.backedge, label %.critedge6.thread.us.i.i
 
 .preheader157.us.i.i.backedge:                    ; preds = %.critedge12.us.i.i, %.critedge6.thread.us.i.i
   %.2190.us.i.i.be = phi i32 [ %.1.lcssa.us.i.i, %.critedge12.us.i.i ], [ 0, %.critedge6.thread.us.i.i ]
-  %.4139189.us.i.i.be = phi i32 [ %.6.lcssa.us.i.i, %.critedge12.us.i.i ], [ %.4139165.us.i.i, %.critedge6.thread.us.i.i ]
+  %.4142189.us.i.i.be = phi i32 [ %.6.lcssa.us.i.i, %.critedge12.us.i.i ], [ %.4142165.us.i.i, %.critedge6.thread.us.i.i ]
   br label %.preheader157.us.i.i, !llvm.loop !15
 
 146:                                              ; preds = %._crit_edge.us.i.i
   %147 = add i16 %133, %177
   store i16 %147, ptr %132, align 2
-  %148 = add i32 %.6178.us.i.i, %.0141.lcssa.us.i.i
+  %148 = add i32 %.6178.us.i.i, %.0135.lcssa.us.i.i
   %indvars.iv.next232.i.i = add nuw nsw i64 %indvars.iv231.i.i, 1
   %149 = trunc nsw i64 %indvars.iv.next232.i.i to i32
   %150 = icmp ugt i32 %44, %149
@@ -968,7 +968,7 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
 
 .critedge12.us.thread.i.i:                        ; preds = %146
   %151 = sub nsw i32 %44, %163
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.49, i32 noundef %163, i32 noundef %151, i32 noundef %.0141.lcssa.us.i.i) #13
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.49, i32 noundef %163, i32 noundef %151, i32 noundef %.0135.lcssa.us.i.i) #13
   br label %.critedge6.thread.us.i.i
 
 152:                                              ; preds = %140
@@ -977,10 +977,10 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
   br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %140, !llvm.loop !17
 
 .critedge6.us.i.i:                                ; preds = %.lr.ph.us.i.i
-  %153 = add i32 %.0141167.us.i.i, 1
+  %153 = add i32 %.0135168.us.i.i, 1
   %154 = add nuw i16 %122, 1
   store i16 %154, ptr %123, align 2
-  %155 = add i32 %.5140168.us.i.i, 1
+  %155 = add i32 %.5143167.us.i.i, 1
   %156 = load ptr, ptr %3, align 8
   %157 = getelementptr inbounds i16, ptr %156, i64 %164
   %158 = load i16, ptr %157, align 2
@@ -1007,7 +1007,7 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
 
 .preheader157.us.i.i:                             ; preds = %.preheader158.lr.ph.i.i, %.preheader157.us.i.i.backedge
   %.2190.us.i.i = phi i32 [ %.2190.us.i.i.be, %.preheader157.us.i.i.backedge ], [ 0, %.preheader158.lr.ph.i.i ]
-  %.4139189.us.i.i = phi i32 [ %.4139189.us.i.i.be, %.preheader157.us.i.i.backedge ], [ 0, %.preheader158.lr.ph.i.i ]
+  %.4142189.us.i.i = phi i32 [ %.4142189.us.i.i.be, %.preheader157.us.i.i.backedge ], [ 0, %.preheader158.lr.ph.i.i ]
   %171 = load ptr, ptr %3, align 8
   %172 = sext i32 %.2190.us.i.i to i64
   br label %110
@@ -1021,8 +1021,8 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
   br label %140
 
 .lr.ph180.us.i.i:                                 ; preds = %.critedge10.us.i.i
-  %176 = add i32 %.0141.lcssa.us.i.i, -1
-  %177 = trunc i32 %.0141.lcssa.us.i.i to i16
+  %176 = add i32 %.0135.lcssa.us.i.i, -1
+  %177 = trunc i32 %.0135.lcssa.us.i.i to i16
   %sext.i = shl i64 %indvars.iv.next.i.i, 32
   %178 = ashr exact i64 %sext.i, 32
   br label %130
@@ -1048,34 +1048,34 @@ define i32 @pmi2_setup_srun(ptr nocapture noundef readonly %0, ptr noundef %1) l
 .lr.ph.i.i:                                       ; preds = %192, %.lr.ph.preheader.i.i
   %indvars.iv234.i.i = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next235.i.i, %192 ]
   %.4196.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.5.i.i, %192 ]
-  %.0142194.i.i = phi i32 [ %181, %.lr.ph.preheader.i.i ], [ %.1143.i.i, %192 ]
+  %.0136194.i.i = phi i32 [ %181, %.lr.ph.preheader.i.i ], [ %.1137.i.i, %192 ]
   %183 = getelementptr inbounds i16, ptr %50, i64 %indvars.iv234.i.i
   %184 = load i16, ptr %183, align 2
   %185 = zext i16 %184 to i32
-  %186 = icmp eq i32 %.0142194.i.i, %185
+  %186 = icmp eq i32 %.0136194.i.i, %185
   br i1 %186, label %192, label %187
 
 187:                                              ; preds = %.lr.ph.i.i
   %188 = trunc nuw nsw i64 %indvars.iv234.i.i to i32
   %189 = sub nsw i32 %188, %.4196.i.i
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.49, i32 noundef %.4196.i.i, i32 noundef %189, i32 noundef %.0142194.i.i) #13
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.49, i32 noundef %.4196.i.i, i32 noundef %189, i32 noundef %.0136194.i.i) #13
   %190 = load i16, ptr %183, align 2
   %191 = zext i16 %190 to i32
   br label %192
 
 192:                                              ; preds = %187, %.lr.ph.i.i
-  %.1143.i.i = phi i32 [ %.0142194.i.i, %.lr.ph.i.i ], [ %191, %187 ]
+  %.1137.i.i = phi i32 [ %.0136194.i.i, %.lr.ph.i.i ], [ %191, %187 ]
   %.5.i.i = phi i32 [ %.4196.i.i, %.lr.ph.i.i ], [ %188, %187 ]
   %indvars.iv.next235.i.i = add nuw nsw i64 %indvars.iv234.i.i, 1
   %exitcond238.not.i.i = icmp eq i64 %indvars.iv.next235.i.i, %wide.trip.count237.i.i
   br i1 %exitcond238.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !19
 
 ._crit_edge.i.i:                                  ; preds = %192, %179
-  %.0142.lcssa.i.i = phi i32 [ %181, %179 ], [ %.1143.i.i, %192 ]
+  %.0136.lcssa.i.i = phi i32 [ %181, %179 ], [ %.1137.i.i, %192 ]
   %.1134.lcssa.i.i = phi i32 [ 1, %179 ], [ %44, %192 ]
   %.4.lcssa.i.i = phi i32 [ 0, %179 ], [ %.5.i.i, %192 ]
   %193 = sub nsw i32 %.1134.lcssa.i.i, %.4.lcssa.i.i
-  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.50, i32 noundef %.4.lcssa.i.i, i32 noundef %193, i32 noundef %.0142.lcssa.i.i) #13
+  call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.50, i32 noundef %.4.lcssa.i.i, i32 noundef %193, i32 noundef %.0136.lcssa.i.i) #13
   br label %194
 
 194:                                              ; preds = %._crit_edge.i.i, %._crit_edge193.i.i, %101, %._crit_edge214.i.i

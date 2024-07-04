@@ -300,15 +300,15 @@ io_tofile.exit:                                   ; preds = %io_tofilep.exit.i
   br i1 %cmp3.i, label %for.body.i, label %io_file_write.exit
 
 for.body.i:                                       ; preds = %io_tofile.exit, %land.end.i
-  %tv.05.i = phi ptr [ %incdec.ptr.i, %land.end.i ], [ %add.ptr.i, %io_tofile.exit ]
-  %status.04.i = phi i32 [ %land.ext.i, %land.end.i ], [ 1, %io_tofile.exit ]
-  %call.i = call ptr @lj_strfmt_wstrnum(ptr noundef nonnull %L, ptr noundef nonnull %tv.05.i, ptr noundef nonnull %len.i) #10
+  %status.05.i = phi i32 [ %land.ext.i, %land.end.i ], [ 1, %io_tofile.exit ]
+  %tv.04.i = phi ptr [ %incdec.ptr.i, %land.end.i ], [ %add.ptr.i, %io_tofile.exit ]
+  %call.i = call ptr @lj_strfmt_wstrnum(ptr noundef nonnull %L, ptr noundef nonnull %tv.04.i, ptr noundef nonnull %len.i) #10
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then.i3, label %if.end.i
 
 if.then.i3:                                       ; preds = %for.body.i
   %6 = load ptr, ptr %base.i.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %tv.05.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %tv.04.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 3
@@ -318,7 +318,7 @@ if.then.i3:                                       ; preds = %for.body.i
   unreachable
 
 if.end.i:                                         ; preds = %for.body.i
-  %tobool3.not.i = icmp eq i32 %status.04.i, 0
+  %tobool3.not.i = icmp eq i32 %status.05.i, 0
   br i1 %tobool3.not.i, label %land.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end.i
@@ -333,7 +333,7 @@ land.rhs.i:                                       ; preds = %if.end.i
 land.end.i:                                       ; preds = %land.rhs.i, %if.end.i
   %9 = phi i1 [ false, %if.end.i ], [ %cmp7.i, %land.rhs.i ]
   %land.ext.i = zext i1 %9 to i32
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %tv.05.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %tv.04.i, i64 8
   %10 = load ptr, ptr %top.i.i, align 8
   %cmp.i2 = icmp ult ptr %incdec.ptr.i, %10
   br i1 %cmp.i2, label %for.body.i, label %io_file_write.exit, !llvm.loop !4
@@ -817,8 +817,8 @@ if.else36:                                        ; preds = %if.else24
   br i1 %cmp39, label %for.cond.i, label %if.else42
 
 for.cond.i:                                       ; preds = %if.else36, %for.cond.i
-  %n.0.i = phi i32 [ %m.0.i, %for.cond.i ], [ 0, %if.else36 ]
   %m.0.i = phi i32 [ %add16.i, %for.cond.i ], [ 8192, %if.else36 ]
+  %n.0.i = phi i32 [ %m.0.i, %for.cond.i ], [ 0, %if.else36 ]
   %call.i40 = call ptr @lj_buf_tmp(ptr noundef %L, i32 noundef %m.0.i) #10
   %idx.ext.i = zext i32 %n.0.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i40, i64 %idx.ext.i
@@ -977,13 +977,13 @@ entry:
 if.end:                                           ; preds = %entry, %if.end11
   %add.ptr37 = phi ptr [ %add.ptr, %if.end11 ], [ %call30, %entry ]
   %call36 = phi ptr [ %call, %if.end11 ], [ %call30, %entry ]
-  %m.035 = phi i32 [ %spec.select, %if.end11 ], [ 8192, %entry ]
-  %ok.034 = phi i32 [ %or, %if.end11 ], [ 0, %entry ]
-  %n.033 = phi i32 [ %add, %if.end11 ], [ 0, %entry ]
+  %ok.035 = phi i32 [ %or, %if.end11 ], [ 0, %entry ]
+  %n.034 = phi i32 [ %add, %if.end11 ], [ 0, %entry ]
+  %m.033 = phi i32 [ %spec.select, %if.end11 ], [ 8192, %entry ]
   %call4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr37) #12
   %conv = trunc i64 %call4 to i32
-  %add = add i32 %n.033, %conv
-  %or = or i32 %add, %ok.034
+  %add = add i32 %n.034, %conv
+  %or = or i32 %add, %ok.035
   %tobool.not = icmp eq i32 %add, 0
   br i1 %tobool.not, label %if.end11, label %land.lhs.true
 
@@ -1000,10 +1000,10 @@ if.then9:                                         ; preds = %land.lhs.true
   br label %for.end
 
 if.end11:                                         ; preds = %land.lhs.true, %if.end
-  %sub12 = add i32 %m.035, -64
+  %sub12 = add i32 %m.033, -64
   %cmp13.not = icmp uge i32 %add, %sub12
   %add16 = zext i1 %cmp13.not to i32
-  %spec.select = shl i32 %m.035, %add16
+  %spec.select = shl i32 %m.033, %add16
   %call = tail call ptr @lj_buf_tmp(ptr noundef %L, i32 noundef %spec.select) #10
   %idx.ext = zext i32 %add to i64
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %idx.ext
@@ -1427,15 +1427,15 @@ io_stdfile.exit:                                  ; preds = %entry
   br i1 %cmp3.i, label %for.body.i, label %io_file_write.exit
 
 for.body.i:                                       ; preds = %io_stdfile.exit, %land.end.i
-  %tv.05.i = phi ptr [ %incdec.ptr.i, %land.end.i ], [ %5, %io_stdfile.exit ]
-  %status.04.i = phi i32 [ %land.ext.i, %land.end.i ], [ 1, %io_stdfile.exit ]
-  %call.i = call ptr @lj_strfmt_wstrnum(ptr noundef nonnull %L, ptr noundef %tv.05.i, ptr noundef nonnull %len.i) #10
+  %status.05.i = phi i32 [ %land.ext.i, %land.end.i ], [ 1, %io_stdfile.exit ]
+  %tv.04.i = phi ptr [ %incdec.ptr.i, %land.end.i ], [ %5, %io_stdfile.exit ]
+  %call.i = call ptr @lj_strfmt_wstrnum(ptr noundef nonnull %L, ptr noundef %tv.04.i, ptr noundef nonnull %len.i) #10
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then.i4, label %if.end.i
 
 if.then.i4:                                       ; preds = %for.body.i
   %7 = load ptr, ptr %base.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %tv.05.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %tv.04.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 3
@@ -1445,7 +1445,7 @@ if.then.i4:                                       ; preds = %for.body.i
   unreachable
 
 if.end.i:                                         ; preds = %for.body.i
-  %tobool3.not.i = icmp eq i32 %status.04.i, 0
+  %tobool3.not.i = icmp eq i32 %status.05.i, 0
   br i1 %tobool3.not.i, label %land.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end.i
@@ -1460,7 +1460,7 @@ land.rhs.i:                                       ; preds = %if.end.i
 land.end.i:                                       ; preds = %land.rhs.i, %if.end.i
   %10 = phi i1 [ false, %if.end.i ], [ %cmp7.i, %land.rhs.i ]
   %land.ext.i = zext i1 %10 to i32
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %tv.05.i, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %tv.04.i, i64 8
   %11 = load ptr, ptr %top.i, align 8
   %cmp.i3 = icmp ult ptr %incdec.ptr.i, %11
   br i1 %cmp.i3, label %for.body.i, label %io_file_write.exit, !llvm.loop !4

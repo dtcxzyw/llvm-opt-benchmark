@@ -76,11 +76,11 @@ define hidden void @zif_sha1(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br i1 %.fr, label %.thread224, label %.thread231
 
 .thread231:                                       ; preds = %25, %17, %10
-  %.0200240 = phi i32 [ 1, %17 ], [ 0, %10 ], [ 2, %25 ]
-  %.0201239 = phi i32 [ 9, %17 ], [ 1, %10 ], [ 9, %25 ]
-  %.0202238 = phi ptr [ %12, %17 ], [ null, %10 ], [ %26, %25 ]
-  %.0203237 = phi i32 [ 4, %17 ], [ 0, %10 ], [ 2, %25 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0201239, i32 noundef %.0200240, ptr noundef null, i32 noundef %.0203237, ptr noundef %.0202238) #7
+  %.0199240 = phi i32 [ 9, %17 ], [ 1, %10 ], [ 9, %25 ]
+  %.0200239 = phi i32 [ 4, %17 ], [ 0, %10 ], [ 2, %25 ]
+  %.0201238 = phi ptr [ %12, %17 ], [ null, %10 ], [ %26, %25 ]
+  %.0202237 = phi i32 [ 1, %17 ], [ 0, %10 ], [ 2, %25 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0199240, i32 noundef %.0202237, ptr noundef null, i32 noundef %.0200239, ptr noundef %.0201238) #7
   br label %66
 
 .thread224:                                       ; preds = %25, %.thread220, %19
@@ -480,11 +480,11 @@ thread-pre-split:                                 ; preds = %18
   br i1 %cond.fr246, label %.thread270, label %.thread259
 
 .thread259:                                       ; preds = %34, %18, %22, %11
-  %.0226269 = phi i32 [ 9, %18 ], [ 9, %22 ], [ 1, %11 ], [ 9, %34 ]
-  %.0227268 = phi i32 [ 1, %18 ], [ 1, %22 ], [ 0, %11 ], [ 2, %34 ]
-  %.0228267 = phi i32 [ 16, %18 ], [ 16, %22 ], [ 0, %11 ], [ 2, %34 ]
-  %.0229266 = phi ptr [ %13, %18 ], [ %13, %22 ], [ null, %11 ], [ %35, %34 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0226269, i32 noundef %.0227268, ptr noundef null, i32 noundef %.0228267, ptr noundef %.0229266) #7
+  %.0223269 = phi i32 [ 9, %18 ], [ 9, %22 ], [ 1, %11 ], [ 9, %34 ]
+  %.0224268 = phi i32 [ 16, %18 ], [ 16, %22 ], [ 0, %11 ], [ 2, %34 ]
+  %.0225267 = phi ptr [ %13, %18 ], [ %13, %22 ], [ null, %11 ], [ %35, %34 ]
+  %.0226266 = phi i32 [ 1, %18 ], [ 1, %22 ], [ 0, %11 ], [ 2, %34 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0223269, i32 noundef %.0226266, ptr noundef null, i32 noundef %.0224268, ptr noundef %.0225267) #7
   br label %96
 
 .thread270:                                       ; preds = %34, %.thread278, %27

@@ -4494,10 +4494,10 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit: ; preds = %5, %9
   br i1 %exitcond.not.i, label %_ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit, label %35, !llvm.loop !28
 
 _ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit: ; preds = %35, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit
-  %.sroa.035.061 = phi ptr [ null, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit ], [ %31, %35 ]
-  %.sroa.9.058 = phi ptr [ null, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit ], [ %32, %35 ]
-  %62 = ptrtoint ptr %.sroa.9.058 to i64
-  %63 = ptrtoint ptr %.sroa.035.061 to i64
+  %.sroa.9.060 = phi ptr [ null, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit ], [ %32, %35 ]
+  %.sroa.035.059 = phi ptr [ null, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit ], [ %31, %35 ]
+  %62 = ptrtoint ptr %.sroa.9.060 to i64
+  %63 = ptrtoint ptr %.sroa.035.059 to i64
   %64 = sub i64 %62, %63
   %65 = sdiv exact i64 %64, 12
   %66 = trunc i64 %65 to i32
@@ -4506,7 +4506,7 @@ _ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit: ; preds 
   %69 = fptosi float %68 to i32
   %70 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i32 noundef %25, i32 noundef %66, i32 noundef %69, i32 noundef %0)
   %71 = tail call noundef float @cosf(float noundef %2) #26
-  %.not5354 = icmp eq ptr %.sroa.035.061, %.sroa.9.058
+  %.not5354 = icmp eq ptr %.sroa.035.059, %.sroa.9.060
   br i1 %.not5354, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit
@@ -4516,7 +4516,7 @@ _ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit: ; preds 
   br label %73
 
 73:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit
-  %.sroa.031.055 = phi ptr [ %.sroa.035.061, %.lr.ph ], [ %113, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit ]
+  %.sroa.031.055 = phi ptr [ %.sroa.035.059, %.lr.ph ], [ %113, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit ]
   %74 = load float, ptr %.sroa.031.055, align 4
   %75 = getelementptr inbounds i8, ptr %.sroa.031.055, i64 4
   %76 = load float, ptr %75, align 4
@@ -4616,11 +4616,11 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17
 
 111:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i19 = icmp eq ptr %.sroa.035.061, null
+  %.not.i.i.i19 = icmp eq ptr %.sroa.035.059, null
   br i1 %.not.i.i.i19, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit, label %112
 
 112:                                              ; preds = %111
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.035.061) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.035.059) #25
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit:   ; preds = %111, %112
@@ -4628,15 +4628,15 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit:   ; preds = %111, %112
 
 _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %86, %73
   %113 = getelementptr inbounds i8, ptr %.sroa.031.055, i64 12
-  %.not53 = icmp eq ptr %113, %.sroa.9.058
+  %.not53 = icmp eq ptr %113, %.sroa.9.060
   br i1 %.not53, label %._crit_edge, label %73, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE9push_backERKS2_.exit, %_ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit
-  %.not.i.i.i20 = icmp eq ptr %.sroa.035.061, null
+  %.not.i.i.i20 = icmp eq ptr %.sroa.035.059, null
   br i1 %.not.i.i.i20, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit21, label %114
 
 114:                                              ; preds = %._crit_edge
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.035.061) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.035.059) #25
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit21
 
 _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit21: ; preds = %._crit_edge, %114

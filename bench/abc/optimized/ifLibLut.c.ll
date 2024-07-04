@@ -1056,8 +1056,8 @@ define range(i32 0, 2) i32 @If_LibLutDelaysAreDifferent(ptr nocapture noundef re
   br i1 %20, label %.loopexit, label %17
 
 .loopexit:                                        ; preds = %16, %12, %.lr.ph, %17, %.preheader24, %.preheader
-  %.0 = phi i32 [ 0, %.preheader ], [ 0, %.preheader24 ], [ 1, %.lr.ph ], [ 0, %17 ], [ 1, %12 ], [ 0, %16 ]
-  ret i32 %.0
+  %.019 = phi i32 [ 0, %.preheader ], [ 0, %.preheader24 ], [ 1, %.lr.ph ], [ 0, %17 ], [ 1, %12 ], [ 0, %16 ]
+  ret i32 %.019
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable

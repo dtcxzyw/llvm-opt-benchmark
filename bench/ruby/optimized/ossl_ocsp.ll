@@ -737,7 +737,7 @@ rb_num2int_inline.exit:                           ; preds = %22, %24
   br label %27
 
 27:                                               ; preds = %rb_num2int_inline.exit, %13
-  %.014 = phi i64 [ 0, %13 ], [ %26, %rb_num2int_inline.exit ]
+  %.013 = phi i64 [ 0, %13 ], [ %26, %rb_num2int_inline.exit ]
   %28 = load i64, ptr %8, align 8
   %29 = icmp eq i64 %28, 4
   br i1 %29, label %32, label %30
@@ -747,13 +747,13 @@ rb_num2int_inline.exit:                           ; preds = %22, %24
   br label %32
 
 32:                                               ; preds = %27, %30
-  %.013 = phi ptr [ %31, %30 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %30 ], [ null, %27 ]
   %33 = load i64, ptr %6, align 8
   %34 = icmp eq i64 %33, 4
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %32
-  %36 = or i64 %.014, 1
+  %36 = or i64 %.013, 1
   br label %39
 
 37:                                               ; preds = %32
@@ -761,10 +761,10 @@ rb_num2int_inline.exit:                           ; preds = %22, %24
   br label %39
 
 39:                                               ; preds = %37, %35
-  %.1 = phi i64 [ %36, %35 ], [ %.014, %37 ]
-  %.0 = phi ptr [ null, %35 ], [ %38, %37 ]
-  %40 = call i32 @OCSP_request_sign(ptr noundef nonnull %10, ptr noundef %15, ptr noundef %17, ptr noundef %.013, ptr noundef %.0, i64 noundef %.1) #4
-  call void @OPENSSL_sk_pop_free(ptr noundef %.0, ptr noundef nonnull @X509_free) #4
+  %.014 = phi ptr [ null, %35 ], [ %38, %37 ]
+  %.1 = phi i64 [ %36, %35 ], [ %.013, %37 ]
+  %40 = call i32 @OCSP_request_sign(ptr noundef nonnull %10, ptr noundef %15, ptr noundef %17, ptr noundef %.0, ptr noundef %.014, i64 noundef %.1) #4
+  call void @OPENSSL_sk_pop_free(ptr noundef %.014, ptr noundef nonnull @X509_free) #4
   %.not16 = icmp eq i32 %40, 0
   br i1 %.not16, label %41, label %43
 
@@ -1612,7 +1612,7 @@ rb_num2int_inline.exit72:                         ; preds = %59, %61
   br label %68
 
 68:                                               ; preds = %65, %.loopexit82
-  %.046 = phi ptr [ %67, %65 ], [ null, %.loopexit82 ]
+  %.045 = phi ptr [ %67, %65 ], [ null, %.loopexit82 ]
   %.044 = phi i32 [ %66, %65 ], [ 0, %.loopexit82 ]
   %69 = call i64 @rb_protect(ptr noundef nonnull @add_status_convert_time, i64 noundef %5, ptr noundef nonnull %9) #4
   %70 = load i32, ptr %9, align 4
@@ -1635,8 +1635,8 @@ rb_num2int_inline.exit72:                         ; preds = %59, %61
   br label %79
 
 79:                                               ; preds = %77, %71
-  %.048 = phi ptr [ null, %71 ], [ %78, %77 ]
-  %80 = call ptr @OCSP_basic_add1_status(ptr noundef nonnull %10, ptr noundef nonnull %14, i32 noundef %23, i32 noundef %.044, ptr noundef %.046, ptr noundef %72, ptr noundef %.048) #4
+  %.047 = phi ptr [ null, %71 ], [ %78, %77 ]
+  %80 = call ptr @OCSP_basic_add1_status(ptr noundef nonnull %10, ptr noundef nonnull %14, i32 noundef %23, i32 noundef %.044, ptr noundef %.045, ptr noundef %72, ptr noundef %.047) #4
   %.not59 = icmp eq ptr %80, null
   br i1 %.not59, label %.loopexit, label %81
 
@@ -1684,19 +1684,19 @@ rb_array_const_ptr.exit78:                        ; preds = %rb_array_len.exit75
 
 .loopexit:                                        ; preds = %rb_array_const_ptr.exit78, %79
   call void @ASN1_TIME_free(ptr noundef %72) #4
-  call void @ASN1_TIME_free(ptr noundef %.048) #4
-  call void @ASN1_TIME_free(ptr noundef %.046) #4
+  call void @ASN1_TIME_free(ptr noundef %.047) #4
+  call void @ASN1_TIME_free(ptr noundef %.045) #4
   %101 = load i64, ptr @eOCSPError, align 8
   call void (i64, ptr, ...) @ossl_raise(i64 noundef %101, ptr noundef null) #5
   unreachable
 
 .critedge:                                        ; preds = %rb_array_len.exit75.thread, %rb_array_len.exit75, %74, %81, %68, %rb_num2int_inline.exit72
-  %.149.ph = phi ptr [ null, %74 ], [ %.048, %81 ], [ null, %68 ], [ null, %rb_num2int_inline.exit72 ], [ %.048, %rb_array_len.exit75 ], [ %.048, %rb_array_len.exit75.thread ]
-  %.147.ph = phi ptr [ %.046, %74 ], [ %.046, %81 ], [ %.046, %68 ], [ null, %rb_num2int_inline.exit72 ], [ %.046, %rb_array_len.exit75 ], [ %.046, %rb_array_len.exit75.thread ]
-  %.045.ph = phi ptr [ %72, %74 ], [ %72, %81 ], [ null, %68 ], [ null, %rb_num2int_inline.exit72 ], [ %72, %rb_array_len.exit75 ], [ %72, %rb_array_len.exit75.thread ]
-  call void @ASN1_TIME_free(ptr noundef %.045.ph) #4
-  call void @ASN1_TIME_free(ptr noundef %.149.ph) #4
-  call void @ASN1_TIME_free(ptr noundef %.147.ph) #4
+  %.049.ph = phi ptr [ %72, %74 ], [ %72, %81 ], [ null, %68 ], [ null, %rb_num2int_inline.exit72 ], [ %72, %rb_array_len.exit75 ], [ %72, %rb_array_len.exit75.thread ]
+  %.148.ph = phi ptr [ null, %74 ], [ %.047, %81 ], [ null, %68 ], [ null, %rb_num2int_inline.exit72 ], [ %.047, %rb_array_len.exit75 ], [ %.047, %rb_array_len.exit75.thread ]
+  %.146.ph = phi ptr [ %.045, %74 ], [ %.045, %81 ], [ %.045, %68 ], [ null, %rb_num2int_inline.exit72 ], [ %.045, %rb_array_len.exit75 ], [ %.045, %rb_array_len.exit75.thread ]
+  call void @ASN1_TIME_free(ptr noundef %.049.ph) #4
+  call void @ASN1_TIME_free(ptr noundef %.148.ph) #4
+  call void @ASN1_TIME_free(ptr noundef %.146.ph) #4
   %102 = load i32, ptr %9, align 4
   %.not62 = icmp eq i32 %102, 0
   br i1 %.not62, label %104, label %103
@@ -1976,7 +1976,7 @@ rb_num2int_inline.exit:                           ; preds = %22, %24
   br label %27
 
 27:                                               ; preds = %rb_num2int_inline.exit, %13
-  %.014 = phi i64 [ 0, %13 ], [ %26, %rb_num2int_inline.exit ]
+  %.013 = phi i64 [ 0, %13 ], [ %26, %rb_num2int_inline.exit ]
   %28 = load i64, ptr %8, align 8
   %29 = icmp eq i64 %28, 4
   br i1 %29, label %32, label %30
@@ -1986,13 +1986,13 @@ rb_num2int_inline.exit:                           ; preds = %22, %24
   br label %32
 
 32:                                               ; preds = %27, %30
-  %.013 = phi ptr [ %31, %30 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %30 ], [ null, %27 ]
   %33 = load i64, ptr %6, align 8
   %34 = icmp eq i64 %33, 4
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %32
-  %36 = or i64 %.014, 1
+  %36 = or i64 %.013, 1
   br label %39
 
 37:                                               ; preds = %32
@@ -2000,10 +2000,10 @@ rb_num2int_inline.exit:                           ; preds = %22, %24
   br label %39
 
 39:                                               ; preds = %37, %35
-  %.1 = phi i64 [ %36, %35 ], [ %.014, %37 ]
-  %.0 = phi ptr [ null, %35 ], [ %38, %37 ]
-  %40 = call i32 @OCSP_basic_sign(ptr noundef nonnull %10, ptr noundef %15, ptr noundef %17, ptr noundef %.013, ptr noundef %.0, i64 noundef %.1) #4
-  call void @OPENSSL_sk_pop_free(ptr noundef %.0, ptr noundef nonnull @X509_free) #4
+  %.014 = phi ptr [ null, %35 ], [ %38, %37 ]
+  %.1 = phi i64 [ %36, %35 ], [ %.013, %37 ]
+  %40 = call i32 @OCSP_basic_sign(ptr noundef nonnull %10, ptr noundef %15, ptr noundef %17, ptr noundef %.0, ptr noundef %.014, i64 noundef %.1) #4
+  call void @OPENSSL_sk_pop_free(ptr noundef %.014, ptr noundef nonnull @X509_free) #4
   %.not16 = icmp eq i32 %40, 0
   br i1 %.not16, label %41, label %43
 

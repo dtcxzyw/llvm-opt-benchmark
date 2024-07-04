@@ -817,8 +817,8 @@ if.else:                                          ; preds = %if.end23
   br label %if.end38
 
 if.end38:                                         ; preds = %if.else, %if.then28
-  %infoSize.0 = phi i16 [ %7, %if.then28 ], [ %or.i29, %if.else ]
   %headerSize.0 = phi i16 [ %6, %if.then28 ], [ %or.i, %if.else ]
+  %infoSize.0 = phi i16 [ %7, %if.then28 ], [ %or.i29, %if.else ]
   %cmp40 = icmp ult i16 %headerSize.0, 24
   %cmp43 = icmp ult i16 %infoSize.0, 20
   %or.cond3 = select i1 %cmp40, i1 true, i1 %cmp43
@@ -831,7 +831,7 @@ lor.lhs.false44:                                  ; preds = %if.end38
   %cmp47 = icmp ugt i64 %add, %conv39
   %conv51 = zext i16 %headerSize.0 to i32
   %or.cond28 = icmp ugt i32 %conv51, %length
-  %or.cond30 = or i1 %cmp47, %or.cond28
+  %or.cond30 = or i1 %or.cond28, %cmp47
   br i1 %or.cond30, label %if.then53, label %if.end54
 
 if.then53:                                        ; preds = %lor.lhs.false44, %if.end38

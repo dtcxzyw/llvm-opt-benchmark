@@ -534,11 +534,11 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %._crit_edge694
 
 ._crit_edge694:                                   ; preds = %4, %27
-  %.0560 = phi ptr [ %28, %27 ], [ @.str.22, %4 ]
+  %.0569 = phi ptr [ %28, %27 ], [ @.str.22, %4 ]
   %29 = load ptr, ptr %20, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %29, i32 noundef 34, ptr noundef nonnull @.str.255, i32 noundef %25) #4
   %30 = load ptr, ptr %20, align 8
-  tail call void @col_add_str(ptr noundef %30, i32 noundef 25, ptr noundef %.0560) #4
+  tail call void @col_add_str(ptr noundef %30, i32 noundef 25, ptr noundef %.0569) #4
   %31 = load i32, ptr @proto_pim, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %33 = load i32, ptr @ett_pim, align 4
@@ -599,18 +599,18 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 65:                                               ; preds = %.thread608, %60, %63
   %66 = phi i32 [ %61, %63 ], [ %61, %60 ], [ %50, %.thread608 ]
-  %.0558607610 = phi i8 [ 0, %63 ], [ 0, %60 ], [ %49, %.thread608 ]
-  %.0559 = phi i32 [ 8, %63 ], [ %61, %60 ], [ %50, %.thread608 ]
+  %.0562607610 = phi i8 [ 0, %63 ], [ 0, %60 ], [ %49, %.thread608 ]
+  %.0568 = phi i32 [ 8, %63 ], [ %61, %60 ], [ %50, %.thread608 ]
   %67 = getelementptr inbounds i8, ptr %1, i64 272
   %68 = load i32, ptr %67, align 8
   %.not574 = icmp ne i32 %68, 0
-  %.not575 = icmp ult i32 %66, %.0559
+  %.not575 = icmp ult i32 %66, %.0568
   %or.cond = select i1 %.not574, i1 true, i1 %.not575
   br i1 %or.cond, label %105, label %69
 
 69:                                               ; preds = %65
   %70 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
-  %.not576 = icmp ult i32 %70, %.0559
+  %.not576 = icmp ult i32 %70, %.0568
   br i1 %.not576, label %105, label %71
 
 71:                                               ; preds = %69
@@ -623,8 +623,8 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 74:                                               ; preds = %71
   %75 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %.0559, ptr %75, align 8
-  %76 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %.0559) #4
+  store i32 %.0568, ptr %75, align 8
+  %76 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %.0568) #4
   store ptr %76, ptr %5, align 16
   %77 = load i32, ptr @hf_pim_cksum, align 4
   %78 = load i32, ptr @hf_pim_cksum_status, align 4
@@ -648,7 +648,7 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %91 = load i32, ptr %90, align 4
   %92 = getelementptr inbounds i8, ptr %5, i64 24
   store i32 %91, ptr %92, align 8
-  %93 = tail call i32 @llvm.bswap.i32(i32 %.0559)
+  %93 = tail call i32 @llvm.bswap.i32(i32 %.0568)
   store i32 %93, ptr %6, align 4
   %94 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 1728053248, ptr %94, align 4
@@ -658,8 +658,8 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store i32 8, ptr %96, align 8
   %97 = getelementptr inbounds i8, ptr %5, i64 48
   %98 = getelementptr inbounds i8, ptr %5, i64 56
-  store i32 %.0559, ptr %98, align 8
-  %99 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %.0559) #4
+  store i32 %.0568, ptr %98, align 8
+  %99 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %.0568) #4
   store ptr %99, ptr %97, align 16
   %100 = load i32, ptr @hf_pim_cksum, align 4
   %101 = load i32, ptr @hf_pim_cksum_status, align 4
@@ -709,8 +709,8 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .lr.ph671:                                        ; preds = %.preheader, %.loopexit
   %.0557670 = phi i32 [ %207, %.loopexit ], [ 4, %.preheader ]
-  %.0567669 = phi i32 [ %119, %.loopexit ], [ 0, %.preheader ]
-  %119 = add i32 %.0567669, 1
+  %.0571669 = phi i32 [ %119, %.loopexit ], [ 0, %.preheader ]
+  %119 = add i32 %.0571669, 1
   %120 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0557670) #4
   %121 = add i32 %.0557670, 2
   %122 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %121) #4
@@ -819,16 +819,16 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %194, label %.lr.ph667, label %.loopexit
 
 .lr.ph667:                                        ; preds = %187, %198
-  %.0568665 = phi i32 [ %200, %198 ], [ %192, %187 ]
+  %.0570665 = phi i32 [ %200, %198 ], [ %192, %187 ]
   %195 = load i32, ptr @hf_pim_address_list_ip4, align 4
   %196 = load i32, ptr @hf_pim_address_list_ip6, align 4
-  %197 = call fastcc i32 @dissect_pim_addr(ptr noundef %1, ptr noundef %191, ptr noundef %0, i32 noundef %.0568665, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef %195, i32 noundef %196, ptr noundef nonnull %9)
+  %197 = call fastcc i32 @dissect_pim_addr(ptr noundef %1, ptr noundef %191, ptr noundef %0, i32 noundef %.0570665, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef %195, i32 noundef %196, ptr noundef nonnull %9)
   %.not602 = icmp eq i32 %197, 0
   br i1 %.not602, label %.loopexit, label %198
 
 198:                                              ; preds = %.lr.ph667
   %199 = load i32, ptr %9, align 4
-  %200 = add i32 %199, %.0568665
+  %200 = add i32 %199, %.0570665
   %201 = icmp slt i32 %200, %193
   br i1 %201, label %.lr.ph667, label %.loopexit, !llvm.loop !4
 
@@ -849,8 +849,8 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %209, label %.lr.ph671, label %._crit_edge672, !llvm.loop !6
 
 ._crit_edge672:                                   ; preds = %.loopexit, %.preheader
-  %.0567.lcssa = phi i32 [ 0, %.preheader ], [ %119, %.loopexit ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %114, ptr noundef nonnull @.str.260, i32 noundef %.0567.lcssa) #4
+  %.0571.lcssa = phi i32 [ 0, %.preheader ], [ %119, %.loopexit ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %114, ptr noundef nonnull @.str.260, i32 noundef %.0571.lcssa) #4
   br label %.loopexit611
 
 210:                                              ; preds = %112
@@ -975,14 +975,14 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %283
 
 283:                                              ; preds = %.lr.ph663, %._crit_edge658
-  %.1661 = phi i32 [ %281, %.lr.ph663 ], [ %.1571.lcssa, %._crit_edge658 ]
-  %.0569660 = phi i32 [ 0, %.lr.ph663 ], [ %324, %._crit_edge658 ]
+  %.1661 = phi i32 [ %281, %.lr.ph663 ], [ %.1567.lcssa, %._crit_edge658 ]
+  %.0565660 = phi i32 [ 0, %.lr.ph663 ], [ %324, %._crit_edge658 ]
   %284 = load i32, ptr @hf_pim_group, align 4
-  %285 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %116, i32 noundef %284, ptr noundef %0, i32 noundef %.1661, i32 noundef -1, ptr noundef nonnull @.str.266, ptr noundef nonnull @.str.268, i32 noundef %.0569660) #4
+  %285 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %116, i32 noundef %284, ptr noundef %0, i32 noundef %.1661, i32 noundef -1, ptr noundef nonnull @.str.266, ptr noundef nonnull @.str.268, i32 noundef %.0565660) #4
   %286 = load i32, ptr @ett_pim, align 4
   %287 = call ptr @proto_item_add_subtree(ptr noundef %285, i32 noundef %286) #4
   %288 = load ptr, ptr %282, align 8
-  %289 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %288, ptr noundef nonnull @.str.268, i32 noundef %.0569660) #4
+  %289 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %288, ptr noundef nonnull @.str.268, i32 noundef %.0565660) #4
   %290 = load i32, ptr @hf_pim_group_ip4, align 4
   %291 = load i32, ptr @hf_pim_group_ip6, align 4
   %292 = call fastcc i32 @dissect_pim_addr(ptr noundef %1, ptr noundef %287, ptr noundef %0, i32 noundef %.1661, i32 noundef 1, ptr noundef %289, ptr noundef null, i32 noundef %290, i32 noundef %291, ptr noundef nonnull %11)
@@ -1006,23 +1006,23 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not676, label %._crit_edge652, label %.lr.ph651
 
 .lr.ph651:                                        ; preds = %293, %309
-  %.0565649 = phi i32 [ %312, %309 ], [ 0, %293 ]
-  %.0570648 = phi i32 [ %311, %309 ], [ %305, %293 ]
+  %.0563649 = phi i32 [ %312, %309 ], [ 0, %293 ]
+  %.0566648 = phi i32 [ %311, %309 ], [ %305, %293 ]
   %306 = load i32, ptr @hf_pim_join_ip4, align 4
   %307 = load i32, ptr @hf_pim_join_ip6, align 4
-  %308 = call fastcc i32 @dissect_pim_addr(ptr noundef %1, ptr noundef %304, ptr noundef %0, i32 noundef %.0570648, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef %306, i32 noundef %307, ptr noundef nonnull %11)
+  %308 = call fastcc i32 @dissect_pim_addr(ptr noundef %1, ptr noundef %304, ptr noundef %0, i32 noundef %.0566648, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef %306, i32 noundef %307, ptr noundef nonnull %11)
   %.not598 = icmp eq i32 %308, 0
   br i1 %.not598, label %.loopexit611, label %309
 
 309:                                              ; preds = %.lr.ph651
   %310 = load i32, ptr %11, align 4
-  %311 = add i32 %310, %.0570648
-  %312 = add nuw nsw i32 %.0565649, 1
+  %311 = add i32 %310, %.0566648
+  %312 = add nuw nsw i32 %.0563649, 1
   %exitcond691.not = icmp eq i32 %312, %297
   br i1 %exitcond691.not, label %._crit_edge652, label %.lr.ph651, !llvm.loop !7
 
 ._crit_edge652:                                   ; preds = %309, %293
-  %.0570.lcssa = phi i32 [ %305, %293 ], [ %311, %309 ]
+  %.0566.lcssa = phi i32 [ %305, %293 ], [ %311, %309 ]
   %313 = load i32, ptr @hf_pim_numprunes, align 4
   %314 = call ptr @proto_tree_add_item(ptr noundef %287, i32 noundef %313, ptr noundef %0, i32 noundef %298, i32 noundef 2, i32 noundef 0) #4
   %315 = load i32, ptr @ett_pim, align 4
@@ -1031,24 +1031,24 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not677, label %._crit_edge658, label %.lr.ph657
 
 .lr.ph657:                                        ; preds = %._crit_edge652, %320
-  %.1566655 = phi i32 [ %323, %320 ], [ 0, %._crit_edge652 ]
-  %.1571654 = phi i32 [ %322, %320 ], [ %.0570.lcssa, %._crit_edge652 ]
+  %.1564655 = phi i32 [ %323, %320 ], [ 0, %._crit_edge652 ]
+  %.1567654 = phi i32 [ %322, %320 ], [ %.0566.lcssa, %._crit_edge652 ]
   %317 = load i32, ptr @hf_pim_prune_ip4, align 4
   %318 = load i32, ptr @hf_pim_prune_ip6, align 4
-  %319 = call fastcc i32 @dissect_pim_addr(ptr noundef %1, ptr noundef %316, ptr noundef %0, i32 noundef %.1571654, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef %317, i32 noundef %318, ptr noundef nonnull %11)
+  %319 = call fastcc i32 @dissect_pim_addr(ptr noundef %1, ptr noundef %316, ptr noundef %0, i32 noundef %.1567654, i32 noundef 2, ptr noundef null, ptr noundef null, i32 noundef %317, i32 noundef %318, ptr noundef nonnull %11)
   %.not597 = icmp eq i32 %319, 0
   br i1 %.not597, label %.loopexit611, label %320
 
 320:                                              ; preds = %.lr.ph657
   %321 = load i32, ptr %11, align 4
-  %322 = add i32 %321, %.1571654
-  %323 = add nuw nsw i32 %.1566655, 1
+  %322 = add i32 %321, %.1567654
+  %323 = add nuw nsw i32 %.1564655, 1
   %exitcond692.not = icmp eq i32 %323, %300
   br i1 %exitcond692.not, label %._crit_edge658, label %.lr.ph657, !llvm.loop !8
 
 ._crit_edge658:                                   ; preds = %320, %._crit_edge652
-  %.1571.lcssa = phi i32 [ %.0570.lcssa, %._crit_edge652 ], [ %322, %320 ]
-  %324 = add nuw nsw i32 %.0569660, 1
+  %.1567.lcssa = phi i32 [ %.0566.lcssa, %._crit_edge652 ], [ %322, %320 ]
+  %324 = add nuw nsw i32 %.0565660, 1
   %exitcond693.not = icmp eq i32 %324, %275
   br i1 %exitcond693.not, label %.loopexit611, label %283, !llvm.loop !9
 
@@ -1078,9 +1078,9 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 341:                                              ; preds = %.lr.ph646, %._crit_edge641
   %.2644 = phi i32 [ %337, %.lr.ph646 ], [ %.3.lcssa, %._crit_edge641 ]
-  %.0564643 = phi i32 [ 0, %.lr.ph646 ], [ %377, %._crit_edge641 ]
+  %.0561643 = phi i32 [ 0, %.lr.ph646 ], [ %377, %._crit_edge641 ]
   %342 = load ptr, ptr %340, align 8
-  %343 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %342, ptr noundef nonnull @.str.268, i32 noundef %.0564643) #4
+  %343 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %342, ptr noundef nonnull @.str.268, i32 noundef %.0561643) #4
   %344 = load i32, ptr @hf_pim_group_ip4, align 4
   %345 = load i32, ptr @hf_pim_group_ip6, align 4
   %346 = call fastcc i32 @dissect_pim_addr(ptr noundef nonnull %1, ptr noundef %116, ptr noundef %0, i32 noundef %.2644, i32 noundef 1, ptr noundef %343, ptr noundef nonnull %13, i32 noundef %344, i32 noundef %345, ptr noundef nonnull %12)
@@ -1106,9 +1106,9 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .lr.ph640:                                        ; preds = %347, %365
   %.3638 = phi i32 [ %.3, %365 ], [ %.3636, %347 ]
-  %.0563637 = phi i32 [ %376, %365 ], [ 0, %347 ]
+  %.0560637 = phi i32 [ %376, %365 ], [ 0, %347 ]
   %360 = load ptr, ptr %340, align 8
-  %361 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %360, ptr noundef nonnull @.str.269, i32 noundef %.0563637) #4
+  %361 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %360, ptr noundef nonnull @.str.269, i32 noundef %.0560637) #4
   %362 = load i32, ptr @hf_pim_rp_ip4, align 4
   %363 = load i32, ptr @hf_pim_rp_ip6, align 4
   %364 = call fastcc i32 @dissect_pim_addr(ptr noundef nonnull %1, ptr noundef %116, ptr noundef %0, i32 noundef %.3638, i32 noundef 0, ptr noundef %361, ptr noundef null, i32 noundef %362, i32 noundef %363, ptr noundef nonnull %12)
@@ -1126,14 +1126,14 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %373 = add i32 %367, 3
   %374 = load i32, ptr @hf_pim_res_bytes, align 4
   %375 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %374, ptr noundef %0, i32 noundef %373, i32 noundef 1, i32 noundef 0) #4
-  %376 = add nuw nsw i32 %.0563637, 1
+  %376 = add nuw nsw i32 %.0560637, 1
   %.3 = add i32 %367, 4
   %exitcond690.not = icmp eq i32 %376, %357
   br i1 %exitcond690.not, label %._crit_edge641, label %.lr.ph640, !llvm.loop !10
 
 ._crit_edge641:                                   ; preds = %365, %347
   %.3.lcssa = phi i32 [ %.3636, %347 ], [ %.3, %365 ]
-  %377 = add i32 %.0564643, 1
+  %377 = add i32 %.0561643, 1
   %378 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3.lcssa) #4
   %379 = icmp sgt i32 %378, 0
   br i1 %379, label %341, label %.loopexit611, !llvm.loop !11
@@ -1193,9 +1193,9 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .lr.ph634:                                        ; preds = %.lr.ph634.preheader, %421
   %.4632 = phi i32 [ %423, %421 ], [ %415, %.lr.ph634.preheader ]
-  %.0562631 = phi i32 [ %424, %421 ], [ 0, %.lr.ph634.preheader ]
+  %.0559631 = phi i32 [ %424, %421 ], [ 0, %.lr.ph634.preheader ]
   %416 = load ptr, ptr %413, align 8
-  %417 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %416, ptr noundef nonnull @.str.268, i32 noundef %.0562631) #4
+  %417 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %416, ptr noundef nonnull @.str.268, i32 noundef %.0559631) #4
   %418 = load i32, ptr @hf_pim_group_ip4, align 4
   %419 = load i32, ptr @hf_pim_group_ip6, align 4
   %420 = call fastcc i32 @dissect_pim_addr(ptr noundef nonnull %1, ptr noundef %116, ptr noundef %0, i32 noundef %.4632, i32 noundef 1, ptr noundef %417, ptr noundef null, i32 noundef %418, i32 noundef %419, ptr noundef nonnull %15)
@@ -1205,7 +1205,7 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 421:                                              ; preds = %.lr.ph634
   %422 = load i32, ptr %15, align 4
   %423 = add i32 %422, %.4632
-  %424 = add nuw nsw i32 %.0562631, 1
+  %424 = add nuw nsw i32 %.0559631, 1
   %exitcond.not = icmp eq i32 %424, %402
   br i1 %exitcond.not, label %.loopexit611, label %.lr.ph634, !llvm.loop !12
 
@@ -1278,7 +1278,7 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %477 = load i32, ptr @hf_pim_metric, align 4
   %478 = call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %477, ptr noundef %0, i32 noundef %476, i32 noundef 4, i32 noundef 0) #4
   %479 = add i32 %472, 12
-  %480 = and i8 %.0558607610, 15
+  %480 = and i8 %.0562607610, 15
   switch i8 %480, label %.loopexit611 [
     i8 3, label %481
     i8 4, label %496
@@ -1337,8 +1337,8 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .lr.ph629:                                        ; preds = %512, %.loopexit617
   %.5628 = phi i32 [ %.7, %.loopexit617 ], [ %514, %512 ]
-  %.0561627 = phi i32 [ %517, %.loopexit617 ], [ 0, %512 ]
-  %517 = add i32 %.0561627, 1
+  %.0558627 = phi i32 [ %517, %.loopexit617 ], [ 0, %512 ]
+  %517 = add i32 %.0558627, 1
   %518 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.5628) #4
   %519 = add i32 %.5628, 2
   %520 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %519) #4
@@ -1415,8 +1415,8 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %563, label %.lr.ph629, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.loopexit617, %512
-  %.0561.lcssa = phi i32 [ 0, %512 ], [ %517, %.loopexit617 ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %114, ptr noundef nonnull @.str.260, i32 noundef %.0561.lcssa) #4
+  %.0558.lcssa = phi i32 [ 0, %512 ], [ %517, %.loopexit617 ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %114, ptr noundef nonnull @.str.260, i32 noundef %.0558.lcssa) #4
   br label %.loopexit611
 
 .loopexit611:                                     ; preds = %.lr.ph, %.lr.ph634, %421, %341, %._crit_edge641, %.lr.ph640, %283, %._crit_edge658, %.lr.ph651, %.lr.ph657, %412, %335, %268, %._crit_edge672, %390, %441, %210, %250, %252, %243, %245, %229, %239, %234, %254, %258, %264, %325, %380, %384, %400, %425, %429, %435, %467, %496, %481, %500, %485, %471, %508, %._crit_edge, %112, %109, %51, %57
@@ -1471,23 +1471,23 @@ define internal i32 @dissect_pimv1(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %35
 
 35:                                               ; preds = %30, %33
-  %.0248 = phi i32 [ 8, %33 ], [ %31, %30 ]
+  %.0253 = phi i32 [ 8, %33 ], [ %31, %30 ]
   %36 = getelementptr inbounds i8, ptr %1, i64 272
   %37 = load i32, ptr %36, align 8
   %.not255 = icmp ne i32 %37, 0
-  %.not256 = icmp ult i32 %31, %.0248
+  %.not256 = icmp ult i32 %31, %.0253
   %or.cond = select i1 %.not255, i1 true, i1 %.not256
   br i1 %or.cond, label %47, label %38
 
 38:                                               ; preds = %35
   %39 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
-  %.not257 = icmp ult i32 %39, %.0248
+  %.not257 = icmp ult i32 %39, %.0253
   br i1 %.not257, label %47, label %40
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 %.0248, ptr %41, align 8
-  %42 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %.0248) #4
+  store i32 %.0253, ptr %41, align 8
+  %42 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %.0253) #4
   store ptr %42, ptr %5, align 16
   %43 = load i32, ptr @hf_pim_cksum, align 4
   %44 = load i32, ptr @hf_pim_cksum_status, align 4
@@ -1635,52 +1635,52 @@ define internal i32 @dissect_pimv1(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %127
 
 127:                                              ; preds = %.lr.ph271, %._crit_edge266
-  %.0249269 = phi i32 [ 0, %.lr.ph271 ], [ %172, %._crit_edge266 ]
-  %.0252268 = phi i32 [ 20, %.lr.ph271 ], [ %.1251.lcssa, %._crit_edge266 ]
+  %.0248269 = phi i32 [ 0, %.lr.ph271 ], [ %172, %._crit_edge266 ]
+  %.0251268 = phi i32 [ 20, %.lr.ph271 ], [ %.1250.lcssa, %._crit_edge266 ]
   %128 = load i32, ptr @hf_pim_group_ip4, align 4
-  %129 = call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %.0252268) #4
+  %129 = call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %.0251268) #4
   %130 = load ptr, ptr %126, align 8
-  %131 = call ptr @tvb_address_to_str(ptr noundef %130, ptr noundef %0, i32 noundef 2, i32 noundef %.0252268) #4
-  %132 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format(ptr noundef %62, i32 noundef %128, ptr noundef %0, i32 noundef %.0252268, i32 noundef 4, i32 noundef %129, ptr noundef nonnull @.str.304, i32 noundef %.0249269, ptr noundef %131) #4
+  %131 = call ptr @tvb_address_to_str(ptr noundef %130, ptr noundef %0, i32 noundef 2, i32 noundef %.0251268) #4
+  %132 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format(ptr noundef %62, i32 noundef %128, ptr noundef %0, i32 noundef %.0251268, i32 noundef 4, i32 noundef %129, ptr noundef nonnull @.str.304, i32 noundef %.0248269, ptr noundef %131) #4
   %133 = load i32, ptr @ett_pim, align 4
   %134 = call ptr @proto_item_add_subtree(ptr noundef %132, i32 noundef %133) #4
-  %135 = add i32 %.0252268, 4
+  %135 = add i32 %.0251268, 4
   %136 = load i32, ptr @hf_pim_group_mask_ip4, align 4
   %137 = call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %135) #4
   %138 = load ptr, ptr %126, align 8
   %139 = call ptr @tvb_address_to_str(ptr noundef %138, ptr noundef %0, i32 noundef 2, i32 noundef %135) #4
-  %140 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format(ptr noundef %134, i32 noundef %136, ptr noundef %0, i32 noundef %135, i32 noundef 4, i32 noundef %137, ptr noundef nonnull @.str.305, i32 noundef %.0249269, ptr noundef %139) #4
-  %141 = add i32 %.0252268, 8
+  %140 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format(ptr noundef %134, i32 noundef %136, ptr noundef %0, i32 noundef %135, i32 noundef 4, i32 noundef %137, ptr noundef nonnull @.str.305, i32 noundef %.0248269, ptr noundef %139) #4
+  %141 = add i32 %.0251268, 8
   %142 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %141) #4
   %143 = zext i16 %142 to i32
-  %144 = add i32 %.0252268, 10
+  %144 = add i32 %.0251268, 10
   %145 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %144) #4
   %146 = zext i16 %145 to i32
   %147 = load i32, ptr @hf_pim_numjoins, align 4
   %148 = call ptr @proto_tree_add_item(ptr noundef %134, i32 noundef %147, ptr noundef %0, i32 noundef %141, i32 noundef 2, i32 noundef 0) #4
   %149 = load i32, ptr @ett_pim, align 4
   %150 = call ptr @proto_item_add_subtree(ptr noundef %148, i32 noundef %149) #4
-  %151 = add i32 %.0252268, 12
+  %151 = add i32 %.0251268, 12
   %.not274 = icmp eq i16 %142, 0
   br i1 %.not274, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %127, %.lr.ph
   %.0247261 = phi i32 [ %159, %.lr.ph ], [ 0, %127 ]
-  %.0250260 = phi i32 [ %158, %.lr.ph ], [ %151, %127 ]
+  %.0249260 = phi i32 [ %158, %.lr.ph ], [ %151, %127 ]
   %152 = load i32, ptr @hf_pim_join_ip4, align 4
-  call void @proto_tree_add_bitmask_list(ptr noundef %150, ptr noundef %0, i32 noundef %.0250260, i32 noundef 1, ptr noundef nonnull @pim_src_flags_fields, i32 noundef 0) #4
-  %153 = add i32 %.0250260, 1
+  call void @proto_tree_add_bitmask_list(ptr noundef %150, ptr noundef %0, i32 noundef %.0249260, i32 noundef 1, ptr noundef nonnull @pim_src_flags_fields, i32 noundef 0) #4
+  %153 = add i32 %.0249260, 1
   %154 = load i32, ptr @hf_pim_mask_len, align 4
   %155 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %154, ptr noundef %0, i32 noundef %153, i32 noundef 1, i32 noundef 0) #4
-  %156 = add i32 %.0250260, 2
+  %156 = add i32 %.0249260, 2
   %157 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %152, ptr noundef %0, i32 noundef %156, i32 noundef 4, i32 noundef 0) #4
-  %158 = add i32 %.0250260, 6
+  %158 = add i32 %.0249260, 6
   %159 = add nuw nsw i32 %.0247261, 1
   %exitcond.not = icmp eq i32 %159, %143
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %127
-  %.0250.lcssa = phi i32 [ %151, %127 ], [ %158, %.lr.ph ]
+  %.0249.lcssa = phi i32 [ %151, %127 ], [ %158, %.lr.ph ]
   %160 = load i32, ptr @hf_pim_numprunes, align 4
   %161 = call ptr @proto_tree_add_item(ptr noundef %134, i32 noundef %160, ptr noundef %0, i32 noundef %144, i32 noundef 2, i32 noundef 0) #4
   %162 = load i32, ptr @ett_pim, align 4
@@ -1690,22 +1690,22 @@ define internal i32 @dissect_pimv1(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .lr.ph265:                                        ; preds = %._crit_edge, %.lr.ph265
   %.1263 = phi i32 [ %171, %.lr.ph265 ], [ 0, %._crit_edge ]
-  %.1251262 = phi i32 [ %170, %.lr.ph265 ], [ %.0250.lcssa, %._crit_edge ]
+  %.1250262 = phi i32 [ %170, %.lr.ph265 ], [ %.0249.lcssa, %._crit_edge ]
   %164 = load i32, ptr @hf_pim_prune_ip4, align 4
-  call void @proto_tree_add_bitmask_list(ptr noundef %163, ptr noundef %0, i32 noundef %.1251262, i32 noundef 1, ptr noundef nonnull @pim_src_flags_fields, i32 noundef 0) #4
-  %165 = add i32 %.1251262, 1
+  call void @proto_tree_add_bitmask_list(ptr noundef %163, ptr noundef %0, i32 noundef %.1250262, i32 noundef 1, ptr noundef nonnull @pim_src_flags_fields, i32 noundef 0) #4
+  %165 = add i32 %.1250262, 1
   %166 = load i32, ptr @hf_pim_mask_len, align 4
   %167 = call ptr @proto_tree_add_item(ptr noundef %163, i32 noundef %166, ptr noundef %0, i32 noundef %165, i32 noundef 1, i32 noundef 0) #4
-  %168 = add i32 %.1251262, 2
+  %168 = add i32 %.1250262, 2
   %169 = call ptr @proto_tree_add_item(ptr noundef %163, i32 noundef %164, ptr noundef %0, i32 noundef %168, i32 noundef 4, i32 noundef 0) #4
-  %170 = add i32 %.1251262, 6
+  %170 = add i32 %.1250262, 6
   %171 = add nuw nsw i32 %.1263, 1
   %exitcond277.not = icmp eq i32 %171, %146
   br i1 %exitcond277.not, label %._crit_edge266, label %.lr.ph265, !llvm.loop !16
 
 ._crit_edge266:                                   ; preds = %.lr.ph265, %._crit_edge
-  %.1251.lcssa = phi i32 [ %.0250.lcssa, %._crit_edge ], [ %170, %.lr.ph265 ]
-  %172 = add nuw nsw i32 %.0249269, 1
+  %.1250.lcssa = phi i32 [ %.0249.lcssa, %._crit_edge ], [ %170, %.lr.ph265 ]
+  %172 = add nuw nsw i32 %.0248269, 1
   %exitcond278.not = icmp eq i32 %172, %123
   br i1 %exitcond278.not, label %.loopexit, label %127, !llvm.loop !17
 
@@ -1736,7 +1736,7 @@ define internal i32 @dissect_pimv1(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge266, %109, %63, %104, %173, %184, %68, %100, %102, %93, %95, %79, %89, %84, %58, %51, %22
-  %.0 = phi i32 [ %29, %22 ], [ 8, %51 ], [ 8, %58 ], [ 24, %184 ], [ 24, %173 ], [ 16, %104 ], [ 8, %68 ], [ 8, %100 ], [ 8, %102 ], [ 8, %93 ], [ 8, %95 ], [ 8, %79 ], [ 8, %84 ], [ 8, %89 ], [ 12, %63 ], [ 20, %109 ], [ %.1251.lcssa, %._crit_edge266 ]
+  %.0 = phi i32 [ %29, %22 ], [ 8, %51 ], [ 8, %58 ], [ 24, %184 ], [ 24, %173 ], [ 16, %104 ], [ 8, %68 ], [ 8, %100 ], [ 8, %102 ], [ 8, %93 ], [ 8, %95 ], [ 8, %79 ], [ 8, %84 ], [ 8, %89 ], [ 12, %63 ], [ 20, %109 ], [ %.1250.lcssa, %._crit_edge266 ]
   ret i32 %.0
 }
 

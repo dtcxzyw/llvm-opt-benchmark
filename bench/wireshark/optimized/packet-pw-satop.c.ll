@@ -247,12 +247,12 @@ define internal fastcc void @dissect_pw_satop(ptr noundef %0, ptr noundef %1, pt
   %39 = and i8 %38, 3
   %.not190 = icmp eq i8 %39, 0
   %40 = or disjoint i32 %spec.select206, 32
-  %.1176 = select i1 %.not190, i32 %spec.select206, i32 %40
+  %.1178 = select i1 %.not190, i32 %spec.select206, i32 %40
   %41 = or disjoint i32 %.1, 1
   %42 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %41) #2
   %.not191 = icmp ult i8 %42, 64
-  %43 = or disjoint i32 %.1176, 16
-  %.2 = select i1 %.not191, i32 %.1176, i32 %43
+  %43 = or disjoint i32 %.1178, 16
+  %.2 = select i1 %.not191, i32 %.1178, i32 %43
   %44 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %41) #2
   %45 = and i8 %44, 63
   %46 = sub nsw i32 %8, %.0169
@@ -290,8 +290,8 @@ define internal fastcc void @dissect_pw_satop(ptr noundef %0, ptr noundef %1, pt
   br label %62
 
 62:                                               ; preds = %35, %51, %60, %55
+  %.0179 = phi i32 [ 0, %51 ], [ 0, %55 ], [ %61, %60 ], [ 0, %35 ]
   %.3 = phi i32 [ %52, %51 ], [ %56, %55 ], [ %.2, %60 ], [ %.2, %35 ]
-  %.0174 = phi i32 [ 0, %51 ], [ 0, %55 ], [ %61, %60 ], [ 0, %35 ]
   %.0173 = phi i32 [ %46, %51 ], [ %46, %55 ], [ %49, %60 ], [ %46, %35 ]
   %63 = icmp eq i32 %.0173, 0
   br i1 %63, label %.thread213, label %68
@@ -306,7 +306,7 @@ define internal fastcc void @dissect_pw_satop(ptr noundef %0, ptr noundef %1, pt
 
 68:                                               ; preds = %.thread, %62
   %.0173212 = phi i32 [ %.0173, %62 ], [ %46, %.thread ]
-  %.0174211 = phi i32 [ %.0174, %62 ], [ 0, %.thread ]
+  %.0179211 = phi i32 [ %.0179, %62 ], [ 0, %.thread ]
   %.4 = phi i32 [ %.3, %62 ], [ %59, %.thread ]
   switch i32 %.0173212, label %71 [
     i32 256, label %76
@@ -328,18 +328,18 @@ define internal fastcc void @dissect_pw_satop(ptr noundef %0, ptr noundef %1, pt
 
 74:                                               ; preds = %.thread213, %68, %71
   %.4221 = phi i32 [ %spec.select207, %.thread213 ], [ %.4, %68 ], [ %.4, %71 ]
-  %.0174211219 = phi i32 [ %.0174, %.thread213 ], [ %.0174211, %68 ], [ %.0174211, %71 ]
+  %.0179211219 = phi i32 [ %.0179, %.thread213 ], [ %.0179211, %68 ], [ %.0179211, %71 ]
   %.0173212217 = phi i32 [ 0, %.thread213 ], [ %.0173212, %68 ], [ %.0173212, %71 ]
   %75 = phi i1 [ true, %.thread213 ], [ false, %68 ], [ false, %71 ]
   br label %76
 
 76:                                               ; preds = %71, %68, %69, %74, %70
   %.4222 = phi i32 [ %.4, %69 ], [ %.4, %70 ], [ %.4221, %74 ], [ %.4, %68 ], [ %.4, %71 ]
-  %.0174211220 = phi i32 [ %.0174211, %69 ], [ %.0174211, %70 ], [ %.0174211219, %74 ], [ %.0174211, %68 ], [ %.0174211, %71 ]
+  %.0179211220 = phi i32 [ %.0179211, %69 ], [ %.0179211, %70 ], [ %.0179211219, %74 ], [ %.0179211, %68 ], [ %.0179211, %71 ]
   %.0173212218 = phi i32 [ %.0173212, %69 ], [ %.0173212, %70 ], [ %.0173212217, %74 ], [ %.0173212, %68 ], [ %.0173212, %71 ]
   %77 = phi i1 [ false, %69 ], [ false, %70 ], [ %75, %74 ], [ false, %68 ], [ false, %71 ]
   %78 = phi i1 [ true, %69 ], [ true, %70 ], [ false, %74 ], [ true, %68 ], [ true, %71 ]
-  %.0179 = phi i64 [ 1, %69 ], [ 2, %70 ], [ -1, %74 ], [ 0, %68 ], [ 3, %71 ]
+  %.0174 = phi i64 [ 1, %69 ], [ 2, %70 ], [ -1, %74 ], [ 0, %68 ], [ 3, %71 ]
   %79 = getelementptr inbounds i8, ptr %1, i64 8
   %80 = load ptr, ptr %79, align 8
   tail call void @col_set_str(ptr noundef %80, i32 noundef 34, ptr noundef nonnull @shortname) #2
@@ -369,12 +369,12 @@ define internal fastcc void @dissect_pw_satop(ptr noundef %0, ptr noundef %1, pt
   br label %90
 
 90:                                               ; preds = %89, %88
-  %.not196 = icmp eq i32 %.0174211220, 0
+  %.not196 = icmp eq i32 %.0179211220, 0
   br i1 %.not196, label %93, label %91
 
 91:                                               ; preds = %90
   %92 = load ptr, ptr %79, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %92, i32 noundef 25, ptr noundef nonnull @.str.50, i32 noundef %.0174211220) #2
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %92, i32 noundef 25, ptr noundef nonnull @.str.50, i32 noundef %.0179211220) #2
   br label %93
 
 93:                                               ; preds = %91, %90
@@ -501,7 +501,7 @@ define internal fastcc void @dissect_pw_satop(ptr noundef %0, ptr noundef %1, pt
   br i1 %78, label %switch.lookup, label %162
 
 switch.lookup:                                    ; preds = %156
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_pw_satop, i64 0, i64 %.0179
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.dissect_pw_satop, i64 0, i64 %.0174
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %162
 
@@ -530,14 +530,14 @@ switch.lookup:                                    ; preds = %156
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %171, %168, %162, %154, %151
-  %175 = icmp sgt i32 %.0174211220, 0
+  %175 = icmp sgt i32 %.0179211220, 0
   br i1 %175, label %176, label %183
 
 176:                                              ; preds = %proto_item_set_hidden.exit
   %177 = load i32, ptr @ett_pw_satop, align 4
   %178 = tail call ptr @proto_item_add_subtree(ptr noundef %95, i32 noundef %177) #2
   %179 = add nsw i32 %.0173212218, 4
-  %180 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %179, i32 noundef %.0174211220, i32 noundef -1) #2
+  %180 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %179, i32 noundef %.0179211220, i32 noundef -1) #2
   %181 = load ptr, ptr @pw_padding_handle, align 8
   %182 = tail call i32 @call_dissector(ptr noundef %181, ptr noundef %180, ptr noundef nonnull %1, ptr noundef %178) #2
   br label %183

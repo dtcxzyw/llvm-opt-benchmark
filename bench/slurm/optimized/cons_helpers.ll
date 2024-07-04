@@ -207,8 +207,8 @@ switch.early.test:                                ; preds = %.lr.ph116.split
   br label %63
 
 63:                                               ; preds = %57, %62
-  %.073.in = phi i16 [ %.069, %62 ], [ %6, %57 ]
-  %.073 = zext i16 %.073.in to i32
+  %.071.in = phi i16 [ %.069, %62 ], [ %6, %57 ]
+  %.071 = zext i16 %.071.in to i32
   %64 = getelementptr inbounds i8, ptr %41, i64 296
   %65 = load ptr, ptr %64, align 8
   %.not91 = icmp eq ptr %65, null
@@ -242,7 +242,7 @@ switch.early.test:                                ; preds = %.lr.ph116.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %78
   %indvars.iv = phi i64 [ %indvars.iv.next, %78 ], [ 0, %.lr.ph ]
-  %.074107 = phi i32 [ %.1, %78 ], [ %.073, %.lr.ph ]
+  %.072107 = phi i32 [ %.1, %78 ], [ %.071, %.lr.ph ]
   %74 = load ptr, ptr %64, align 8
   %75 = call i32 @slurm_bit_test(ptr noundef %74, i64 noundef %indvars.iv) #2
   %.not92 = icmp eq i32 %75, 0
@@ -250,12 +250,12 @@ switch.early.test:                                ; preds = %.lr.ph116.split
 
 76:                                               ; preds = %.lr.ph.split
   call void @slurm_bit_clear(ptr noundef %45, i64 noundef %indvars.iv) #2
-  %77 = add nsw i32 %.074107, -1
+  %77 = add nsw i32 %.072107, -1
   %.not94 = icmp eq i32 %77, 0
   br i1 %.not94, label %.thread, label %78
 
 78:                                               ; preds = %.lr.ph.split, %76
-  %.1 = phi i32 [ %.074107, %.lr.ph.split ], [ %77, %76 ]
+  %.1 = phi i32 [ %.072107, %.lr.ph.split ], [ %77, %76 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = load i16, ptr %42, align 8
   %80 = zext i16 %79 to i64
@@ -263,10 +263,10 @@ switch.early.test:                                ; preds = %.lr.ph116.split
   br i1 %81, label %.lr.ph.split, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %78, %70, %.preheader104, %63
-  %.2 = phi i32 [ %.073, %63 ], [ %.073, %.preheader104 ], [ %.073, %70 ], [ %.1, %78 ]
+  %.2 = phi i32 [ %.071, %63 ], [ %.071, %.preheader104 ], [ %.071, %70 ], [ %.1, %78 ]
   %82 = icmp eq i32 %.2, 0
   %or.cond4.not97 = select i1 %.not93, i1 true, i1 %82
-  %83 = icmp eq i16 %.073.in, -2
+  %83 = icmp eq i16 %.071.in, -2
   %or.cond6 = or i1 %83, %or.cond4.not97
   br i1 %or.cond6, label %.thread, label %84
 
@@ -293,33 +293,33 @@ switch.early.test:                                ; preds = %.lr.ph116.split
   br label %100
 
 100:                                              ; preds = %94, %90
-  %.080 = phi i32 [ %93, %90 ], [ -1, %94 ]
-  %.076 = phi i32 [ 0, %90 ], [ %99, %94 ]
+  %.080 = phi i32 [ 0, %90 ], [ %95, %94 ]
+  %.079 = phi i32 [ %89, %90 ], [ -1, %94 ]
+  %.077 = phi i32 [ 0, %90 ], [ %99, %94 ]
+  %.076 = phi i32 [ %93, %90 ], [ -1, %94 ]
   %.075 = phi i32 [ 1, %90 ], [ -1, %94 ]
-  %.071 = phi i32 [ %89, %90 ], [ -1, %94 ]
-  %.070 = phi i32 [ 0, %90 ], [ %95, %94 ]
   %101 = icmp sgt i32 %.2, 0
-  %102 = icmp ne i32 %.070, %.071
+  %102 = icmp ne i32 %.080, %.079
   %103 = select i1 %101, i1 %102, i1 false
   br i1 %103, label %.preheader.lr.ph, label %.thread
 
 .preheader.lr.ph:                                 ; preds = %100
-  %.not120 = icmp eq i32 %.076, %.080
+  %.not120 = icmp eq i32 %.077, %.076
   %104 = getelementptr inbounds i8, ptr %41, i64 74
   br i1 %.not120, label %.thread, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
   %.3114.us = phi i32 [ %.5.us, %._crit_edge.us ], [ %.2, %.preheader.lr.ph ]
-  %.078113.us = phi i32 [ %119, %._crit_edge.us ], [ %.070, %.preheader.lr.ph ]
+  %.074113.us = phi i32 [ %119, %._crit_edge.us ], [ %.080, %.preheader.lr.ph ]
   br label %105
 
 105:                                              ; preds = %.preheader.us, %114
   %.4110.us = phi i32 [ %.3114.us, %.preheader.us ], [ %.5.us, %114 ]
-  %.077109.us = phi i32 [ %.076, %.preheader.us ], [ %115, %114 ]
+  %.073109.us = phi i32 [ %.077, %.preheader.us ], [ %115, %114 ]
   %106 = load i16, ptr %104, align 2
   %107 = zext i16 %106 to i32
-  %108 = mul nsw i32 %.077109.us, %107
-  %109 = add nsw i32 %108, %.078113.us
+  %108 = mul nsw i32 %.073109.us, %107
+  %109 = add nsw i32 %108, %.074113.us
   %110 = sext i32 %109 to i64
   %111 = call i32 @slurm_bit_test(ptr noundef %45, i64 noundef %110) #2
   %.not98.us = icmp eq i32 %111, 0
@@ -332,16 +332,16 @@ switch.early.test:                                ; preds = %.lr.ph116.split
 
 114:                                              ; preds = %112, %105
   %.5.us = phi i32 [ %113, %112 ], [ %.4110.us, %105 ]
-  %115 = add nsw i32 %.077109.us, %.075
+  %115 = add nsw i32 %.073109.us, %.075
   %116 = icmp ne i32 %.5.us, 0
-  %117 = icmp ne i32 %115, %.080
+  %117 = icmp ne i32 %115, %.076
   %118 = select i1 %116, i1 %117, i1 false
   br i1 %118, label %105, label %._crit_edge.us, !llvm.loop !11
 
 ._crit_edge.us:                                   ; preds = %114
-  %119 = add nsw i32 %.078113.us, %.075
+  %119 = add nsw i32 %.074113.us, %.075
   %120 = icmp sgt i32 %.5.us, 0
-  %121 = icmp ne i32 %119, %.071
+  %121 = icmp ne i32 %119, %.079
   %122 = select i1 %120, i1 %121, i1 false
   br i1 %122, label %.preheader.us, label %.thread, !llvm.loop !12
 

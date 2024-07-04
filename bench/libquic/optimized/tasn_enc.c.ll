@@ -745,8 +745,8 @@ if.else22:                                        ; preds = %lor.lhs.false, %if.
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then20, %if.else22, %if.then16
-  %utype.0 = phi i32 [ %6, %if.then16 ], [ %9, %if.then20 ], [ %10, %if.else22 ]
   %pval.addr.0 = phi ptr [ %pval, %if.then16 ], [ %value, %if.then20 ], [ %pval, %if.else22 ]
+  %utype.0 = phi i32 [ %6, %if.then16 ], [ %9, %if.then20 ], [ %10, %if.else22 ]
   switch i32 %utype.0, label %sw.default [
     i32 6, label %sw.bb
     i32 5, label %return

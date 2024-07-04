@@ -710,8 +710,8 @@ lpad30:                                           ; preds = %invoke.cont29
 
 catch.dispatch:                                   ; preds = %lpad30, %lpad22
   %.pn = phi { ptr, i32 } [ %18, %lpad30 ], [ %17, %lpad22 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches = icmp eq i32 %ehselector.slot.0, %19
   %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #23
@@ -2335,8 +2335,8 @@ lpad31:                                           ; preds = %invoke.cont29
 
 catch.dispatch:                                   ; preds = %lpad31, %lpad22
   %.pn = phi { ptr, i32 } [ %18, %lpad31 ], [ %17, %lpad22 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches = icmp eq i32 %ehselector.slot.0, %19
   %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #23
@@ -2720,8 +2720,8 @@ lpad31:                                           ; preds = %invoke.cont29
 
 catch.dispatch:                                   ; preds = %lpad31, %lpad22
   %.pn = phi { ptr, i32 } [ %18, %lpad31 ], [ %17, %lpad22 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches = icmp eq i32 %ehselector.slot.0, %19
   %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #23

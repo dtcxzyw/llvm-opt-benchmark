@@ -408,37 +408,37 @@ define internal i32 @dissect_smrse_T_octet_format(i1 zeroext %0, ptr noundef %1,
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.028 = phi i32 [ %33, %.lr.ph ], [ %17, %.lr.ph.preheader ]
-  %.02427 = phi i32 [ %34, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.02526 = phi ptr [ %32, %.lr.ph ], [ %7, %.lr.ph.preheader ]
-  %21 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.028) #2
+  %.028 = phi i32 [ %34, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.02427 = phi ptr [ %32, %.lr.ph ], [ %7, %.lr.ph.preheader ]
+  %.02526 = phi i32 [ %33, %.lr.ph ], [ %17, %.lr.ph.preheader ]
+  %21 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.02526) #2
   %22 = and i8 %21, 15
   %23 = zext nneg i8 %22 to i64
   %24 = getelementptr [16 x i8], ptr @dissect_smrse_T_octet_format.n2a, i64 0, i64 %23
   %25 = load i8, ptr %24, align 1
-  %26 = getelementptr i8, ptr %.02526, i64 1
-  store i8 %25, ptr %.02526, align 1
-  %27 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.028) #2
+  %26 = getelementptr i8, ptr %.02427, i64 1
+  store i8 %25, ptr %.02427, align 1
+  %27 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.02526) #2
   %28 = lshr i8 %27, 4
   %29 = zext nneg i8 %28 to i64
   %30 = getelementptr [16 x i8], ptr @dissect_smrse_T_octet_format.n2a, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1
-  %32 = getelementptr i8, ptr %.02526, i64 2
+  %32 = getelementptr i8, ptr %.02427, i64 2
   store i8 %31, ptr %26, align 1
-  %33 = add i32 %.028, 1
-  %34 = add nuw i32 %.02427, 1
+  %33 = add i32 %.02526, 1
+  %34 = add nuw i32 %.028, 1
   %35 = load i32, ptr %12, align 4
   %36 = icmp ult i32 %34, %35
   br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
-  %.025.lcssa = phi ptr [ %7, %20 ], [ %32, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %17, %20 ], [ %33, %.lr.ph ]
-  store i8 0, ptr %.025.lcssa, align 1
+  %.025.lcssa = phi i32 [ %17, %20 ], [ %33, %.lr.ph ]
+  %.024.lcssa = phi ptr [ %7, %20 ], [ %32, %.lr.ph ]
+  store i8 0, ptr %.024.lcssa, align 1
   %37 = load i32, ptr @hf_smrse_Octet_Format, align 4
-  %38 = sub i32 %.0.lcssa, %2
+  %38 = sub i32 %.025.lcssa, %2
   %39 = call ptr @proto_tree_add_string(ptr noundef %4, i32 noundef %37, ptr noundef %1, i32 noundef %2, i32 noundef %38, ptr noundef nonnull %7) #2
-  ret i32 %.0.lcssa
+  ret i32 %.025.lcssa
 }
 
 declare i32 @dissect_ber_identifier(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

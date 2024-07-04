@@ -898,7 +898,7 @@ define dso_local void @_ZN10Bookkeeper25output_pointer_statisticsERSo(ptr nounde
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %.lr.ph
-  %31 = add nsw i32 %.05876, 1
+  %31 = add nsw i32 %.05677, 1
   br label %40
 
 32:                                               ; preds = %.lr.ph
@@ -911,17 +911,17 @@ define dso_local void @_ZN10Bookkeeper25output_pointer_statisticsERSo(ptr nounde
   ]
 
 36:                                               ; preds = %32
-  %37 = add nsw i32 %.05677, 1
+  %37 = add nsw i32 %.06075, 1
   br label %40
 
 38:                                               ; preds = %32
-  %39 = add nsw i32 %.06075, 1
+  %39 = add nsw i32 %.05876, 1
   br label %40
 
 40:                                               ; preds = %32, %30, %38, %36
-  %.161 = phi i32 [ %.06075, %30 ], [ %.06075, %36 ], [ %39, %38 ], [ %.06075, %32 ]
-  %.159 = phi i32 [ %31, %30 ], [ %.05876, %36 ], [ %.05876, %38 ], [ %.05876, %32 ]
-  %.157 = phi i32 [ %.05677, %30 ], [ %37, %36 ], [ %.05677, %38 ], [ %.05677, %32 ]
+  %.161 = phi i32 [ %.06075, %30 ], [ %37, %36 ], [ %.06075, %38 ], [ %.06075, %32 ]
+  %.159 = phi i32 [ %.05876, %30 ], [ %.05876, %36 ], [ %39, %38 ], [ %.05876, %32 ]
+  %.157 = phi i32 [ %31, %30 ], [ %.05677, %36 ], [ %.05677, %38 ], [ %.05677, %32 ]
   %41 = add nuw i64 %.080, 1
   %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN11FactPointTo8all_ptrsE, i64 8), align 8
   %43 = load ptr, ptr @_ZN11FactPointTo8all_ptrsE, align 8
@@ -1151,15 +1151,15 @@ _Z10calc_totalRKSt6vectorIiSaIiEE.exit72:         ; preds = %.lr.ph.i67, %._crit
 .loopexit:                                        ; preds = %.lr.ph94, %164, %._crit_edge91
   %198 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.62)
   %199 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %198, ptr noundef nonnull @.str.31)
-  %200 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %199, i32 noundef %.058.lcssa)
+  %200 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %199, i32 noundef %.056.lcssa)
   %201 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %200, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %202 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.62)
   %203 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %202, ptr noundef nonnull @.str.32)
-  %204 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %203, i32 noundef %.056.lcssa)
+  %204 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %203, i32 noundef %.060.lcssa)
   %205 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %204, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %206 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.62)
   %207 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %206, ptr noundef nonnull @.str.33)
-  %208 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %207, i32 noundef %.060.lcssa)
+  %208 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %207, i32 noundef %.058.lcssa)
   %209 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %208, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %210 = load ptr, ptr %0, align 8
   %211 = getelementptr i8, ptr %210, i64 -24

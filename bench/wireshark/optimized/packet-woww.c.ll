@@ -7309,37 +7309,37 @@ define internal i32 @dissect_woww(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %29
 
 29:                                               ; preds = %19, %11
-  %.044 = phi ptr [ %21, %19 ], [ %17, %11 ]
+  %.048 = phi ptr [ %21, %19 ], [ %17, %11 ]
   %30 = getelementptr inbounds i8, ptr %1, i64 284
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds i8, ptr %1, i64 288
   %33 = load i32, ptr %32, align 8
   %34 = icmp ult i32 %31, %33
-  %.048 = select i1 %34, i8 4, i8 6
-  %.046.v = select i1 %34, i64 112, i64 96
-  %.046 = getelementptr inbounds i8, ptr %.044, i64 %.046.v
+  %.047.v = select i1 %34, i64 112, i64 96
+  %.047 = getelementptr inbounds i8, ptr %.048, i64 %.047.v
+  %.046 = select i1 %34, i8 4, i8 6
   %35 = load i32, ptr @proto_woww, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %37 = load i32, ptr @ett_woww, align 4
   %38 = tail call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37) #5
   %39 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %40 = getelementptr inbounds i8, ptr %1, i64 20
-  %41 = getelementptr inbounds i8, ptr %.044, i64 80
-  %42 = getelementptr inbounds i8, ptr %.046, i64 8
-  %43 = zext nneg i8 %.048 to i16
-  %wide.trip.count.i = zext nneg i8 %.048 to i64
-  %44 = getelementptr inbounds i8, ptr %.046, i64 4
-  %45 = getelementptr inbounds i8, ptr %.044, i64 88
-  %46 = getelementptr inbounds i8, ptr %.044, i64 40
-  %47 = getelementptr inbounds i8, ptr %.046, i64 1
-  %48 = zext nneg i8 %.048 to i32
+  %41 = getelementptr inbounds i8, ptr %.048, i64 80
+  %42 = getelementptr inbounds i8, ptr %.047, i64 8
+  %43 = zext nneg i8 %.046 to i16
+  %wide.trip.count.i = zext nneg i8 %.046 to i64
+  %44 = getelementptr inbounds i8, ptr %.047, i64 4
+  %45 = getelementptr inbounds i8, ptr %.048, i64 88
+  %46 = getelementptr inbounds i8, ptr %.048, i64 40
+  %47 = getelementptr inbounds i8, ptr %.047, i64 1
+  %48 = zext nneg i8 %.046 to i32
   br label %49
 
 49:                                               ; preds = %add_header_to_tree.exit, %29
-  %.047 = phi i32 [ 0, %29 ], [ %186, %add_header_to_tree.exit ]
-  %.045 = phi i8 [ 0, %29 ], [ %188, %add_header_to_tree.exit ]
+  %.045 = phi i32 [ 0, %29 ], [ %186, %add_header_to_tree.exit ]
+  %.044 = phi i8 [ 0, %29 ], [ %188, %add_header_to_tree.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %50 = zext i8 %.045 to i64
+  %50 = zext i8 %.044 to i64
   %51 = shl nuw nsw i64 %50, 32
   %52 = load i32, ptr %40, align 4
   %53 = zext i32 %52 to i64
@@ -7366,7 +7366,7 @@ define internal i32 @dissect_woww(ptr noundef %0, ptr noundef %1, ptr noundef %2
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %60
   %indvars.iv.i = phi i64 [ 0, %60 ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %63 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %64 = add i32 %.047, %63
+  %64 = add i32 %.045, %63
   %65 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %64) #5
   %66 = getelementptr i8, ptr %62, i64 %indvars.iv.i
   store i8 %65, ptr %66, align 1
@@ -7436,7 +7436,7 @@ session_key_is_fully_deduced.exit95.i:            ; preds = %82
   %90 = call noalias ptr @wmem_alloc0(ptr noundef %89, i64 noundef 2) #5
   %91 = load i8, ptr %47, align 1
   store i8 %91, ptr %90, align 1
-  %92 = load i8, ptr %.046, align 8
+  %92 = load i8, ptr %.047, align 8
   %93 = getelementptr inbounds i8, ptr %90, i64 1
   store i8 %92, ptr %93, align 1
   %94 = call ptr @wmem_file_scope() #5
@@ -7451,7 +7451,7 @@ session_key_is_fully_deduced.exit95.i:            ; preds = %82
   br i1 %101, label %102, label %103
 
 102:                                              ; preds = %88
-  call fastcc void @deduce_header(ptr noundef nonnull %.044, ptr noundef nonnull %46, ptr noundef %62, ptr noundef nonnull %.046)
+  call fastcc void @deduce_header(ptr noundef nonnull %.048, ptr noundef nonnull %46, ptr noundef %62, ptr noundef nonnull %.047)
   br label %handle_packet_header.exit.thread
 
 103:                                              ; preds = %88
@@ -7466,7 +7466,7 @@ session_key_is_fully_deduced.exit95.i:            ; preds = %82
   %110 = getelementptr i8, ptr %62, i64 %wide.trip.count.i
   %111 = getelementptr i8, ptr %110, i64 -1
   %112 = load i8, ptr %111, align 1
-  store i8 %112, ptr %.046, align 8
+  store i8 %112, ptr %.047, align 8
   br label %handle_packet_header.exit.thread
 
 113:                                              ; preds = %session_key_is_fully_deduced.exit95.i, %session_key_is_fully_deduced.exit.i
@@ -7481,7 +7481,7 @@ session_key_is_fully_deduced.exit95.i:            ; preds = %82
 
 .thread.i:                                        ; preds = %.thread106.i, %113
   %.073.i = phi ptr [ %70, %.thread106.i ], [ %47, %113 ]
-  %.072.i = phi ptr [ %114, %.thread106.i ], [ %.046, %113 ]
+  %.072.i = phi ptr [ %114, %.thread106.i ], [ %.047, %113 ]
   %117 = call ptr @wmem_file_scope() #5
   %118 = call noalias ptr @wmem_alloc0(ptr noundef %117, i64 noundef 8) #5
   %.pre.i.i = load i8, ptr %.073.i, align 1
@@ -7496,7 +7496,7 @@ session_key_is_fully_deduced.exit95.i:            ; preds = %82
   %122 = load i8, ptr %121, align 1
   %123 = sub i8 %122, %119
   %124 = zext i8 %120 to i64
-  %125 = getelementptr i8, ptr %.044, i64 %124
+  %125 = getelementptr i8, ptr %.048, i64 %124
   %126 = load i8, ptr %125, align 1
   %127 = xor i8 %126, %123
   %128 = getelementptr i8, ptr %118, i64 %indvars.iv.i99.i
@@ -7554,14 +7554,14 @@ handle_packet_header.exit:                        ; preds = %._crit_edge.i
   %151 = zext i8 %150 to i32
   %152 = or disjoint i32 %148, %151
   %153 = add nuw nsw i32 %152, 2
-  %154 = add i32 %153, %.047
+  %154 = add i32 %153, %.045
   %155 = icmp sgt i32 %154, %39
   br i1 %155, label %.loopexit61, label %156
 
 156:                                              ; preds = %145
   %157 = load i32, ptr @proto_woww, align 4
   %158 = and i32 %153, 65535
-  %159 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %157, ptr noundef %0, i32 noundef %.047, i32 noundef %158, i32 noundef 0) #5
+  %159 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %157, ptr noundef %0, i32 noundef %.045, i32 noundef %158, i32 noundef 0) #5
   %160 = load i32, ptr @ett_message, align 4
   %161 = call ptr @proto_item_add_subtree(ptr noundef %159, i32 noundef %160) #5
   %162 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %.0.i60, i32 noundef %48, i32 noundef %48) #5
@@ -7591,7 +7591,7 @@ handle_packet_header.exit:                        ; preds = %._crit_edge.i
   %.0.i53 = phi i32 [ %170, %168 ], [ %174, %173 ], [ 0, %171 ]
   %176 = load i32, ptr @hf_woww_opcode, align 4
   %177 = call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %176, ptr noundef %162, i32 noundef 2, i32 noundef %.048.i, i32 noundef -2147483648) #5
-  %178 = icmp eq i32 %.047, 0
+  %178 = icmp eq i32 %.045, 0
   %179 = load ptr, ptr %12, align 8
   br i1 %178, label %180, label %182
 
@@ -7610,10 +7610,10 @@ handle_packet_header.exit:                        ; preds = %._crit_edge.i
 add_header_to_tree.exit:                          ; preds = %180, %182
   %185 = call ptr @val_to_str_const(i32 noundef %.0.i53, ptr noundef nonnull @world_packet_strings, ptr noundef nonnull @.str.6229) #5
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %161, ptr noundef nonnull @.str.6231, ptr noundef %185) #5
-  %186 = add i32 %158, %.047
-  %187 = add i32 %.047, %48
+  %186 = add i32 %158, %.045
+  %187 = add i32 %.045, %48
   call fastcc void @add_body_fields(i32 noundef %.0.i53, ptr noundef %161, ptr noundef %0, i32 noundef %187, i32 noundef %186, ptr noundef nonnull %1)
-  %188 = add i8 %.045, 1
+  %188 = add i8 %.044, 1
   %189 = icmp slt i32 %186, %39
   br i1 %189, label %49, label %.loopexit61.sink.split, !llvm.loop !8
 
@@ -7622,7 +7622,7 @@ add_header_to_tree.exit:                          ; preds = %180, %182
   br label %.loopexit61
 
 .loopexit61:                                      ; preds = %145, %.loopexit61.sink.split, %8, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ %190, %.loopexit61.sink.split ], [ %.047, %145 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ %190, %.loopexit61.sink.split ], [ %.045, %145 ]
   ret i32 %.0
 }
 
@@ -8469,10 +8469,10 @@ define internal fastcc void @add_body_fields(i32 noundef %0, ptr noundef %1, ptr
   br i1 %.not5748, label %.loopexit, label %.lr.ph5682
 
 .lr.ph5682:                                       ; preds = %95, %.lr.ph5682
-  %.048315680 = phi i32 [ %105, %.lr.ph5682 ], [ 0, %95 ]
+  %.048325680 = phi i32 [ %105, %.lr.ph5682 ], [ 0, %95 ]
   %103 = load i32, ptr @hf_woww_nodes, align 4
   %104 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %103, i32 noundef 4, i32 noundef -2147483648) #5
-  %105 = add nuw i32 %.048315680, 1
+  %105 = add nuw i32 %.048325680, 1
   %106 = load i32, ptr %66, align 4
   %107 = icmp ult i32 %105, %106
   br i1 %107, label %.lr.ph5682, label %.loopexit, !llvm.loop !9
@@ -8517,10 +8517,10 @@ define internal fastcc void @add_body_fields(i32 noundef %0, ptr noundef %1, ptr
   br i1 %.not5747, label %.loopexit, label %.lr.ph5679
 
 .lr.ph5679:                                       ; preds = %122, %.lr.ph5679
-  %.048325677 = phi i32 [ %132, %.lr.ph5679 ], [ 0, %122 ]
+  %.048315677 = phi i32 [ %132, %.lr.ph5679 ], [ 0, %122 ]
   %130 = load i32, ptr @hf_woww_outbid_item_ids, align 4
   %131 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %130, i32 noundef 4, i32 noundef -2147483648) #5
-  %132 = add nuw i32 %.048325677, 1
+  %132 = add nuw i32 %.048315677, 1
   %133 = load i32, ptr %32, align 4
   %134 = icmp ult i32 %132, %133
   br i1 %134, label %.lr.ph5679, label %.loopexit, !llvm.loop !10
@@ -9849,9 +9849,9 @@ add_cstring.exit:                                 ; preds = %213, %208
   br label %1002
 
 1002:                                             ; preds = %999, %add_cstring.exit5271
-  %.048335673 = phi i32 [ 0, %999 ], [ %1019, %add_cstring.exit5271 ]
+  %.048305673 = phi i32 [ 0, %999 ], [ %1019, %add_cstring.exit5271 ]
   %1003 = load i32, ptr @ett_message, align 4
-  %1004 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %1003, ptr noundef nonnull @.str.6237, i32 noundef %.048335673) #5
+  %1004 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %1003, ptr noundef nonnull @.str.6237, i32 noundef %.048305673) #5
   %1005 = load i32, ptr @hf_woww_question_id, align 4
   %1006 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %1005, i32 noundef 4, i32 noundef -2147483648) #5
   %1007 = load i32, ptr @hf_woww_answer, align 4
@@ -9877,7 +9877,7 @@ add_cstring.exit5271:                             ; preds = %1016, %1011
   %1017 = load i32, ptr @hf_woww_comment, align 4
   %1018 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %1017, i32 noundef %.0.i.i5270, i32 noundef 2) #5
   tail call void @ptvcursor_pop_subtree(ptr noundef %82) #5
-  %1019 = add nuw nsw i32 %.048335673, 1
+  %1019 = add nuw nsw i32 %.048305673, 1
   %exitcond5837.not = icmp eq i32 %1019, 10
   br i1 %exitcond5837.not, label %1020, label %1002, !llvm.loop !13
 
@@ -11664,10 +11664,10 @@ add_cstring.exit5271:                             ; preds = %1016, %1011
   br i1 %.not5745, label %._crit_edge5669, label %.lr.ph5668
 
 .lr.ph5668:                                       ; preds = %2163, %.lr.ph5668
-  %.048305666 = phi i32 [ %2177, %.lr.ph5668 ], [ 0, %2163 ]
+  %.048295666 = phi i32 [ %2177, %.lr.ph5668 ], [ 0, %2163 ]
   %2175 = load i32, ptr @hf_woww_zones, align 4
   %2176 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %2175, i32 noundef 4, i32 noundef -2147483648) #5
-  %2177 = add nuw i32 %.048305666, 1
+  %2177 = add nuw i32 %.048295666, 1
   %2178 = load i32, ptr %48, align 4
   %2179 = icmp ult i32 %2177, %2178
   br i1 %2179, label %.lr.ph5668, label %._crit_edge5669, !llvm.loop !14
@@ -11680,7 +11680,7 @@ add_cstring.exit5271:                             ; preds = %1016, %1011
   br i1 %.not5746, label %.loopexit, label %.lr.ph5672
 
 .lr.ph5672:                                       ; preds = %._crit_edge5669, %add_cstring.exit5275
-  %.048295670 = phi i32 [ %2193, %add_cstring.exit5275 ], [ 0, %._crit_edge5669 ]
+  %.048285670 = phi i32 [ %2193, %add_cstring.exit5275 ], [ 0, %._crit_edge5669 ]
   %2183 = call ptr @ptvcursor_tvbuff(ptr noundef %82) #5
   %2184 = call i32 @ptvcursor_current_offset(ptr noundef %82) #5
   br label %2185
@@ -11701,7 +11701,7 @@ add_cstring.exit5275:                             ; preds = %2190, %2185
   %.0.i.i5274 = phi i32 [ %2189, %2185 ], [ 0, %2190 ]
   %2191 = load i32, ptr @hf_woww_search_strings, align 4
   %2192 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %2191, i32 noundef %.0.i.i5274, i32 noundef 2) #5
-  %2193 = add nuw i32 %.048295670, 1
+  %2193 = add nuw i32 %.048285670, 1
   %2194 = load i32, ptr %45, align 4
   %2195 = icmp ult i32 %2193, %2194
   br i1 %2195, label %.lr.ph5672, label %.loopexit, !llvm.loop !15
@@ -11775,9 +11775,9 @@ add_cstring.exit5275:                             ; preds = %2190, %2185
   br i1 %.not5743, label %._crit_edge5662, label %.lr.ph5661
 
 .lr.ph5661:                                       ; preds = %2241, %.lr.ph5661
-  %.048285659 = phi i32 [ %2253, %.lr.ph5661 ], [ 0, %2241 ]
+  %.048275659 = phi i32 [ %2253, %.lr.ph5661 ], [ 0, %2241 ]
   %2245 = load i32, ptr @ett_message, align 4
-  %2246 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %2245, ptr noundef nonnull @.str.6238, i32 noundef %.048285659) #5
+  %2246 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %2245, ptr noundef nonnull @.str.6238, i32 noundef %.048275659) #5
   %2247 = load i32, ptr @hf_woww_player, align 4
   %2248 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %2247, i32 noundef 8, i32 noundef -2147483648) #5
   %2249 = load i32, ptr @hf_woww_position_x, align 4
@@ -11785,7 +11785,7 @@ add_cstring.exit5275:                             ; preds = %2190, %2185
   %2251 = load i32, ptr @hf_woww_position_y, align 4
   %2252 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %2251, i32 noundef 4, i32 noundef -2147483648) #5
   call void @ptvcursor_pop_subtree(ptr noundef %82) #5
-  %2253 = add nuw i32 %.048285659, 1
+  %2253 = add nuw i32 %.048275659, 1
   %2254 = load i32, ptr %47, align 4
   %2255 = icmp ult i32 %2253, %2254
   br i1 %2255, label %.lr.ph5661, label %._crit_edge5662, !llvm.loop !16
@@ -11798,9 +11798,9 @@ add_cstring.exit5275:                             ; preds = %2190, %2185
   br i1 %.not5744, label %.loopexit, label %.lr.ph5665
 
 .lr.ph5665:                                       ; preds = %._crit_edge5662, %.lr.ph5665
-  %.048275663 = phi i32 [ %2267, %.lr.ph5665 ], [ 0, %._crit_edge5662 ]
+  %.048265663 = phi i32 [ %2267, %.lr.ph5665 ], [ 0, %._crit_edge5662 ]
   %2259 = load i32, ptr @ett_message, align 4
-  %2260 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %2259, ptr noundef nonnull @.str.6238, i32 noundef %.048275663) #5
+  %2260 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %2259, ptr noundef nonnull @.str.6238, i32 noundef %.048265663) #5
   %2261 = load i32, ptr @hf_woww_player, align 4
   %2262 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %2261, i32 noundef 8, i32 noundef -2147483648) #5
   %2263 = load i32, ptr @hf_woww_position_x, align 4
@@ -11808,7 +11808,7 @@ add_cstring.exit5275:                             ; preds = %2190, %2185
   %2265 = load i32, ptr @hf_woww_position_y, align 4
   %2266 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %2265, i32 noundef 4, i32 noundef -2147483648) #5
   call void @ptvcursor_pop_subtree(ptr noundef %82) #5
-  %2267 = add nuw i32 %.048275663, 1
+  %2267 = add nuw i32 %.048265663, 1
   %2268 = load i32, ptr %9, align 4
   %2269 = icmp ult i32 %2267, %2268
   br i1 %2269, label %.lr.ph5665, label %.loopexit, !llvm.loop !17
@@ -11935,9 +11935,9 @@ add_cstring.exit5275:                             ; preds = %2190, %2185
   br i1 %.not5742, label %.loopexit, label %.lr.ph5658
 
 .lr.ph5658:                                       ; preds = %2361, %add_cstring.exit5279
-  %.048265656 = phi i32 [ %2389, %add_cstring.exit5279 ], [ 0, %2361 ]
+  %.048255656 = phi i32 [ %2389, %add_cstring.exit5279 ], [ 0, %2361 ]
   %2367 = load i32, ptr @ett_message, align 4
-  %2368 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %2367, ptr noundef nonnull @.str.6239, i32 noundef %.048265656) #5
+  %2368 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %2367, ptr noundef nonnull @.str.6239, i32 noundef %.048255656) #5
   %2369 = load i32, ptr @hf_woww_pet_number, align 4
   %2370 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %2369, i32 noundef 4, i32 noundef -2147483648) #5
   %2371 = load i32, ptr @hf_woww_entry, align 4
@@ -11969,7 +11969,7 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   %2387 = load i32, ptr @hf_woww_slot, align 4
   %2388 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %2387, i32 noundef 1, i32 noundef -2147483648) #5
   call void @ptvcursor_pop_subtree(ptr noundef %82) #5
-  %2389 = add nuw i32 %.048265656, 1
+  %2389 = add nuw i32 %.048255656, 1
   %2390 = load i32, ptr %34, align 4
   %2391 = icmp ult i32 %2389, %2390
   br i1 %2391, label %.lr.ph5658, label %.loopexit, !llvm.loop !18
@@ -16329,9 +16329,9 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br i1 %.not5740, label %.loopexit, label %.lr.ph5655
 
 .lr.ph5655:                                       ; preds = %5336, %._crit_edge5652
-  %.048255653 = phi i32 [ %5362, %._crit_edge5652 ], [ 0, %5336 ]
+  %.048245653 = phi i32 [ %5362, %._crit_edge5652 ], [ 0, %5336 ]
   %5340 = load i32, ptr @ett_message, align 4
-  %5341 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %5340, ptr noundef nonnull @.str.6240, i32 noundef %.048255653) #5
+  %5341 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %5340, ptr noundef nonnull @.str.6240, i32 noundef %.048245653) #5
   %5342 = load i32, ptr @hf_woww_player, align 4
   %5343 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5342, i32 noundef 8, i32 noundef -2147483648) #5
   %5344 = load i32, ptr @hf_woww_pvp_rank, align 4
@@ -16351,17 +16351,17 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br i1 %.not5741, label %._crit_edge5652, label %.lr.ph5651
 
 .lr.ph5651:                                       ; preds = %.lr.ph5655, %.lr.ph5651
-  %.048245649 = phi i32 [ %5359, %.lr.ph5651 ], [ 0, %.lr.ph5655 ]
+  %.048235649 = phi i32 [ %5359, %.lr.ph5651 ], [ 0, %.lr.ph5655 ]
   %5357 = load i32, ptr @hf_woww_fields, align 4
   %5358 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5357, i32 noundef 4, i32 noundef -2147483648) #5
-  %5359 = add nuw i32 %.048245649, 1
+  %5359 = add nuw i32 %.048235649, 1
   %5360 = load i32, ptr %18, align 4
   %5361 = icmp ult i32 %5359, %5360
   br i1 %5361, label %.lr.ph5651, label %._crit_edge5652, !llvm.loop !19
 
 ._crit_edge5652:                                  ; preds = %.lr.ph5651, %.lr.ph5655
   call void @ptvcursor_pop_subtree(ptr noundef %82) #5
-  %5362 = add nuw i32 %.048255653, 1
+  %5362 = add nuw i32 %.048245653, 1
   %5363 = load i32, ptr %35, align 4
   %5364 = icmp ult i32 %5362, %5363
   br i1 %5364, label %.lr.ph5655, label %.loopexit, !llvm.loop !20
@@ -16432,15 +16432,15 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   ]
 
 .preheader:                                       ; preds = %5402, %.preheader
-  %.048235648 = phi i32 [ %5412, %.preheader ], [ 0, %5402 ]
+  %.048225648 = phi i32 [ %5412, %.preheader ], [ 0, %5402 ]
   %5406 = load i32, ptr @ett_message, align 4
-  %5407 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %5406, ptr noundef nonnull @.str.6241, i32 noundef %.048235648) #5
+  %5407 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %5406, ptr noundef nonnull @.str.6241, i32 noundef %.048225648) #5
   %5408 = load i32, ptr @hf_woww_raid_target_index, align 4
   %5409 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5408, i32 noundef 1, i32 noundef -2147483648) #5
   %5410 = load i32, ptr @hf_woww_guid, align 4
   %5411 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5410, i32 noundef 8, i32 noundef -2147483648) #5
   call void @ptvcursor_pop_subtree(ptr noundef %82) #5
-  %5412 = add nuw nsw i32 %.048235648, 1
+  %5412 = add nuw nsw i32 %.048225648, 1
   %exitcond5836.not = icmp eq i32 %5412, 8
   br i1 %exitcond5836.not, label %.loopexit, label %.preheader, !llvm.loop !21
 
@@ -16534,18 +16534,18 @@ add_cstring.exit5279:                             ; preds = %2382, %2377
   br label %.loopexit
 
 .preheader5357:                                   ; preds = %6, %.preheader5357
-  %.048225647 = phi i32 [ %5480, %.preheader5357 ], [ 0, %6 ]
+  %.048215647 = phi i32 [ %5480, %.preheader5357 ], [ 0, %6 ]
   %5478 = load i32, ptr @hf_woww_data, align 4
   %5479 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5478, i32 noundef 4, i32 noundef -2147483648) #5
-  %5480 = add nuw nsw i32 %.048225647, 1
+  %5480 = add nuw nsw i32 %.048215647, 1
   %exitcond5835.not = icmp eq i32 %5480, 32
   br i1 %exitcond5835.not, label %.loopexit, label %.preheader5357, !llvm.loop !22
 
 .preheader5359:                                   ; preds = %6, %.preheader5359
-  %.048215646 = phi i32 [ %5483, %.preheader5359 ], [ 0, %6 ]
+  %.048205646 = phi i32 [ %5483, %.preheader5359 ], [ 0, %6 ]
   %5481 = load i32, ptr @hf_woww_data, align 4
   %5482 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5481, i32 noundef 4, i32 noundef -2147483648) #5
-  %5483 = add nuw nsw i32 %.048215646, 1
+  %5483 = add nuw nsw i32 %.048205646, 1
   %exitcond5834.not = icmp eq i32 %5483, 120
   br i1 %exitcond5834.not, label %.loopexit, label %.preheader5359, !llvm.loop !23
 
@@ -16650,9 +16650,9 @@ add_cstring.exit5283:                             ; preds = %5518, %5513
   br i1 %.not5739, label %._crit_edge5644, label %.lr.ph5643
 
 .lr.ph5643:                                       ; preds = %5535, %.lr.ph5643
-  %.048205641 = phi i32 [ %5555, %.lr.ph5643 ], [ 0, %5535 ]
+  %.048195641 = phi i32 [ %5555, %.lr.ph5643 ], [ 0, %5535 ]
   %5543 = load i32, ptr @ett_message, align 4
-  %5544 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %5543, ptr noundef nonnull @.str.6243, i32 noundef %.048205641) #5
+  %5544 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %5543, ptr noundef nonnull @.str.6243, i32 noundef %.048195641) #5
   %5545 = load i32, ptr @hf_woww_spell_school_mask, align 4
   %5546 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5545, i32 noundef 4, i32 noundef -2147483648) #5
   %5547 = load i32, ptr @hf_woww_damage_float, align 4
@@ -16664,7 +16664,7 @@ add_cstring.exit5283:                             ; preds = %5518, %5513
   %5553 = load i32, ptr @hf_woww_resist, align 4
   %5554 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5553, i32 noundef 4, i32 noundef -2147483648) #5
   call void @ptvcursor_pop_subtree(ptr noundef %82) #5
-  %5555 = add nuw i32 %.048205641, 1
+  %5555 = add nuw i32 %.048195641, 1
   %5556 = load i32, ptr %13, align 4
   %5557 = icmp ult i32 %5555, %5556
   br i1 %5557, label %.lr.ph5643, label %._crit_edge5644, !llvm.loop !25
@@ -16702,9 +16702,9 @@ add_cstring.exit5283:                             ; preds = %5518, %5513
   br i1 %.not5738, label %._crit_edge5640, label %.lr.ph5639
 
 .lr.ph5639:                                       ; preds = %5574, %.lr.ph5639
-  %.048195637 = phi i32 [ %5608, %.lr.ph5639 ], [ 0, %5574 ]
+  %.048185637 = phi i32 [ %5608, %.lr.ph5639 ], [ 0, %5574 ]
   %5578 = load i32, ptr @ett_message, align 4
-  %5579 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %5578, ptr noundef nonnull @.str.6244, i32 noundef %.048195637) #5
+  %5579 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %5578, ptr noundef nonnull @.str.6244, i32 noundef %.048185637) #5
   %5580 = load i32, ptr @hf_woww_id, align 4
   %5581 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5580, i32 noundef 4, i32 noundef -2147483648) #5
   %5582 = load i32, ptr @hf_woww_item, align 4
@@ -16734,7 +16734,7 @@ add_cstring.exit5283:                             ; preds = %5518, %5513
   %5606 = load i32, ptr @hf_woww_highest_bid, align 4
   %5607 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5606, i32 noundef 4, i32 noundef -2147483648) #5
   call void @ptvcursor_pop_subtree(ptr noundef %82) #5
-  %5608 = add nuw i32 %.048195637, 1
+  %5608 = add nuw i32 %.048185637, 1
   %5609 = load i32, ptr %53, align 4
   %5610 = icmp ult i32 %5608, %5609
   br i1 %5610, label %.lr.ph5639, label %._crit_edge5640, !llvm.loop !26
@@ -16830,9 +16830,9 @@ add_cstring.exit5283:                             ; preds = %5518, %5513
   br i1 %.not5737, label %._crit_edge5636, label %.lr.ph5635
 
 .lr.ph5635:                                       ; preds = %5666, %.lr.ph5635
-  %.048185633 = phi i32 [ %5700, %.lr.ph5635 ], [ 0, %5666 ]
+  %.048175633 = phi i32 [ %5700, %.lr.ph5635 ], [ 0, %5666 ]
   %5670 = load i32, ptr @ett_message, align 4
-  %5671 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %5670, ptr noundef nonnull @.str.6244, i32 noundef %.048185633) #5
+  %5671 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %5670, ptr noundef nonnull @.str.6244, i32 noundef %.048175633) #5
   %5672 = load i32, ptr @hf_woww_id, align 4
   %5673 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5672, i32 noundef 4, i32 noundef -2147483648) #5
   %5674 = load i32, ptr @hf_woww_item, align 4
@@ -16862,7 +16862,7 @@ add_cstring.exit5283:                             ; preds = %5518, %5513
   %5698 = load i32, ptr @hf_woww_highest_bid, align 4
   %5699 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5698, i32 noundef 4, i32 noundef -2147483648) #5
   call void @ptvcursor_pop_subtree(ptr noundef %82) #5
-  %5700 = add nuw i32 %.048185633, 1
+  %5700 = add nuw i32 %.048175633, 1
   %5701 = load i32, ptr %53, align 4
   %5702 = icmp ult i32 %5700, %5701
   br i1 %5702, label %.lr.ph5635, label %._crit_edge5636, !llvm.loop !27
@@ -16880,9 +16880,9 @@ add_cstring.exit5283:                             ; preds = %5518, %5513
   br i1 %.not5736, label %._crit_edge5632, label %.lr.ph5631
 
 .lr.ph5631:                                       ; preds = %5705, %.lr.ph5631
-  %.048175629 = phi i32 [ %5739, %.lr.ph5631 ], [ 0, %5705 ]
+  %.048165629 = phi i32 [ %5739, %.lr.ph5631 ], [ 0, %5705 ]
   %5709 = load i32, ptr @ett_message, align 4
-  %5710 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %5709, ptr noundef nonnull @.str.6244, i32 noundef %.048175629) #5
+  %5710 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %5709, ptr noundef nonnull @.str.6244, i32 noundef %.048165629) #5
   %5711 = load i32, ptr @hf_woww_id, align 4
   %5712 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5711, i32 noundef 4, i32 noundef -2147483648) #5
   %5713 = load i32, ptr @hf_woww_item, align 4
@@ -16912,7 +16912,7 @@ add_cstring.exit5283:                             ; preds = %5518, %5513
   %5737 = load i32, ptr @hf_woww_highest_bid, align 4
   %5738 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5737, i32 noundef 4, i32 noundef -2147483648) #5
   call void @ptvcursor_pop_subtree(ptr noundef %82) #5
-  %5739 = add nuw i32 %.048175629, 1
+  %5739 = add nuw i32 %.048165629, 1
   %5740 = load i32, ptr %53, align 4
   %5741 = icmp ult i32 %5739, %5740
   br i1 %5741, label %.lr.ph5631, label %._crit_edge5632, !llvm.loop !28
@@ -16988,10 +16988,10 @@ add_cstring.exit5283:                             ; preds = %5518, %5513
   br i1 %.not5735, label %.loopexit, label %.lr.ph5628
 
 .lr.ph5628:                                       ; preds = %5781, %.lr.ph5628
-  %.048165626 = phi i32 [ %5793, %.lr.ph5628 ], [ 0, %5781 ]
+  %.048155626 = phi i32 [ %5793, %.lr.ph5628 ], [ 0, %5781 ]
   %5791 = load i32, ptr @hf_woww_battlegrounds, align 4
   %5792 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5791, i32 noundef 4, i32 noundef -2147483648) #5
-  %5793 = add nuw i32 %.048165626, 1
+  %5793 = add nuw i32 %.048155626, 1
   %5794 = load i32, ptr %67, align 4
   %5795 = icmp ult i32 %5793, %5794
   br i1 %5795, label %.lr.ph5628, label %.loopexit, !llvm.loop !29
@@ -17143,15 +17143,15 @@ add_cstring.exit5283:                             ; preds = %5518, %5513
   br i1 %.not5734, label %.loopexit, label %.lr.ph5625
 
 .lr.ph5625:                                       ; preds = %5887, %.lr.ph5625
-  %.048155623 = phi i32 [ %5899, %.lr.ph5625 ], [ 0, %5887 ]
+  %.048145623 = phi i32 [ %5899, %.lr.ph5625 ], [ 0, %5887 ]
   %5893 = load i32, ptr @ett_message, align 4
-  %5894 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %5893, ptr noundef nonnull @.str.6245, i32 noundef %.048155623) #5
+  %5894 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %5893, ptr noundef nonnull @.str.6245, i32 noundef %.048145623) #5
   %5895 = load i32, ptr @hf_woww_guid, align 4
   %5896 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5895, i32 noundef 8, i32 noundef -2147483648) #5
   %5897 = load i32, ptr @hf_woww_channel_member_flags, align 4
   %5898 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5897, i32 noundef 1, i32 noundef -2147483648) #5
   call void @ptvcursor_pop_subtree(ptr noundef %82) #5
-  %5899 = add nuw i32 %.048155623, 1
+  %5899 = add nuw i32 %.048145623, 1
   %5900 = load i32, ptr %28, align 4
   %5901 = icmp ult i32 %5899, %5900
   br i1 %5901, label %.lr.ph5625, label %.loopexit, !llvm.loop !30
@@ -17185,9 +17185,9 @@ add_cstring.exit5283:                             ; preds = %5518, %5513
   br i1 %.not5733, label %.loopexit, label %.lr.ph5622
 
 .lr.ph5622:                                       ; preds = %5914, %5982
-  %.048145620 = phi i32 [ %5987, %5982 ], [ 0, %5914 ]
+  %.048135620 = phi i32 [ %5987, %5982 ], [ 0, %5914 ]
   %5918 = load i32, ptr @ett_message, align 4
-  %5919 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %5918, ptr noundef nonnull @.str.6246, i32 noundef %.048145620) #5
+  %5919 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %5918, ptr noundef nonnull @.str.6246, i32 noundef %.048135620) #5
   %5920 = load i32, ptr @hf_woww_guid, align 4
   %5921 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5920, i32 noundef 8, i32 noundef -2147483648) #5
   %5922 = call ptr @ptvcursor_tvbuff(ptr noundef %82) #5
@@ -17256,15 +17256,15 @@ add_cstring.exit5287:                             ; preds = %5929, %5924
   br label %5974
 
 5974:                                             ; preds = %add_cstring.exit5287, %5974
-  %.048135619 = phi i32 [ 0, %add_cstring.exit5287 ], [ %5981, %5974 ]
+  %.048125619 = phi i32 [ 0, %add_cstring.exit5287 ], [ %5981, %5974 ]
   %5975 = load i32, ptr @ett_message, align 4
-  %5976 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %5975, ptr noundef nonnull @.str.6247, i32 noundef %.048135619) #5
+  %5976 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %82, i32 noundef -1, i32 noundef %5975, ptr noundef nonnull @.str.6247, i32 noundef %.048125619) #5
   %5977 = load i32, ptr @hf_woww_equipment_display_id, align 4
   %5978 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5977, i32 noundef 4, i32 noundef -2147483648) #5
   %5979 = load i32, ptr @hf_woww_inventory_type, align 4
   %5980 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5979, i32 noundef 1, i32 noundef -2147483648) #5
   call void @ptvcursor_pop_subtree(ptr noundef %82) #5
-  %5981 = add nuw nsw i32 %.048135619, 1
+  %5981 = add nuw nsw i32 %.048125619, 1
   %exitcond5833.not = icmp eq i32 %5981, 19
   br i1 %exitcond5833.not, label %5982, label %5974, !llvm.loop !31
 
@@ -17274,7 +17274,7 @@ add_cstring.exit5287:                             ; preds = %5929, %5924
   %5985 = load i32, ptr @hf_woww_first_bag_inventory_id, align 4
   %5986 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5985, i32 noundef 1, i32 noundef -2147483648) #5
   call void @ptvcursor_pop_subtree(ptr noundef %82) #5
-  %5987 = add nuw i32 %.048145620, 1
+  %5987 = add nuw i32 %.048135620, 1
   %5988 = load i32, ptr %10, align 4
   %5989 = icmp ult i32 %5987, %5988
   br i1 %5989, label %.lr.ph5622, label %.loopexit, !llvm.loop !32
@@ -23346,11 +23346,11 @@ define internal fastcc void @add_update_mask(ptr noundef %0, ptr noundef %1) unn
 
 23:                                               ; preds = %.preheader54, %23
   %.14957 = phi i32 [ %.04859, %.preheader54 ], [ %spec.select, %23 ]
-  %.05256 = phi i32 [ 0, %.preheader54 ], [ %26, %23 ]
-  %24 = lshr i32 %22, %.05256
+  %.05156 = phi i32 [ 0, %.preheader54 ], [ %26, %23 ]
+  %24 = lshr i32 %22, %.05156
   %25 = and i32 %24, 1
   %spec.select = add i32 %25, %.14957
-  %26 = add nuw nsw i32 %.05256, 1
+  %26 = add nuw nsw i32 %.05156, 1
   %exitcond.not = icmp eq i32 %26, 32
   br i1 %exitcond.not, label %27, label %23, !llvm.loop !106
 
@@ -23379,17 +23379,17 @@ define internal fastcc void @add_update_mask(ptr noundef %0, ptr noundef %1) unn
 
 .preheader:                                       ; preds = %._crit_edge60, %59
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %59 ], [ 0, %._crit_edge60 ]
-  %.04763 = phi i32 [ %.2, %59 ], [ 0, %._crit_edge60 ]
+  %.04663 = phi i32 [ %.2, %59 ], [ 0, %._crit_edge60 ]
   %37 = getelementptr i32, ptr %12, i64 %indvars.iv75
   %38 = trunc nuw i64 %indvars.iv75 to i32
   %39 = shl i32 %38, 5
   br label %40
 
 40:                                               ; preds = %.preheader, %57
-  %.04562 = phi i32 [ 0, %.preheader ], [ %58, %57 ]
-  %.161 = phi i32 [ %.04763, %.preheader ], [ %.2, %57 ]
+  %.062 = phi i32 [ 0, %.preheader ], [ %58, %57 ]
+  %.161 = phi i32 [ %.04663, %.preheader ], [ %.2, %57 ]
   %41 = load i32, ptr %37, align 4
-  %42 = shl nuw i32 1, %.04562
+  %42 = shl nuw i32 1, %.062
   %43 = and i32 %41, %42
   %.not = icmp eq i32 %43, 0
   br i1 %.not, label %57, label %44
@@ -23397,7 +23397,7 @@ define internal fastcc void @add_update_mask(ptr noundef %0, ptr noundef %1) unn
 44:                                               ; preds = %40
   %45 = load i32, ptr @ett_message, align 4
   %46 = call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %45, ptr noundef nonnull @.str.6294) #5
-  %47 = add nuw nsw i32 %.04562, %39
+  %47 = add nuw nsw i32 %.062, %39
   %48 = zext i32 %.161 to i64
   %49 = getelementptr i32, ptr %31, i64 %48
   store i32 %47, ptr %49, align 4
@@ -23413,7 +23413,7 @@ define internal fastcc void @add_update_mask(ptr noundef %0, ptr noundef %1) unn
 
 57:                                               ; preds = %40, %44
   %.2 = phi i32 [ %54, %44 ], [ %.161, %40 ]
-  %58 = add nuw nsw i32 %.04562, 1
+  %58 = add nuw nsw i32 %.062, 1
   %exitcond74.not = icmp eq i32 %58, 32
   br i1 %exitcond74.not, label %59, label %40, !llvm.loop !108
 

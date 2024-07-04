@@ -3117,8 +3117,8 @@ if.else:                                          ; preds = %if.then30
   br label %if.end42
 
 if.end42:                                         ; preds = %if.else, %if.then32
-  %lastMatchEnd.0 = phi i32 [ %conv33, %if.then32 ], [ %call37, %if.else ]
   %matchStart.0 = phi i32 [ %conv34, %if.then32 ], [ %add, %if.else ]
+  %lastMatchEnd.0 = phi i32 [ %conv33, %if.then32 ], [ %call37, %if.else ]
   %cmp43270 = icmp slt i32 %lastMatchEnd.0, %matchStart.0
   br i1 %cmp43270, label %for.body.preheader, label %if.end60
 
@@ -4065,14 +4065,14 @@ if.end32.us.preheader:                            ; preds = %if.end32.lr.ph
 if.end32.us:                                      ; preds = %if.end32.us.preheader, %for.inc131.us
   %4 = phi ptr [ %.pre, %if.end32.us.preheader ], [ %8, %for.inc131.us ]
   %indvars.iv244 = phi i64 [ 0, %if.end32.us.preheader ], [ %indvars.iv.next245, %for.inc131.us ]
-  %nextOutputStringStart.0137.us = phi i64 [ 0, %if.end32.us.preheader ], [ %9, %for.inc131.us ]
-  %destIdx.0136.us = phi i32 [ 0, %if.end32.us.preheader ], [ %add57.us, %for.inc131.us ]
+  %destIdx.0137.us = phi i32 [ 0, %if.end32.us.preheader ], [ %add57.us, %for.inc131.us ]
+  %nextOutputStringStart.0135.us = phi i64 [ 0, %if.end32.us.preheader ], [ %9, %for.inc131.us ]
   %call34.us = call noundef signext i8 @_ZN6icu_7512RegexMatcher4findEv(ptr noundef nonnull align 8 dereferenceable(336) %4)
   %tobool.not.us = icmp eq i8 %call34.us, 0
   br i1 %tobool.not.us, label %if.else108.loopexit, label %if.then35.us
 
 if.then35.us:                                     ; preds = %if.end32.us
-  %idxprom39.us = sext i32 %destIdx.0136.us to i64
+  %idxprom39.us = sext i32 %destIdx.0137.us to i64
   %arrayidx40.us = getelementptr inbounds i16, ptr %destBuf, i64 %idxprom39.us
   %cond42.us = select i1 %cmp36, ptr null, ptr %arrayidx40.us
   %arrayidx44.us = getelementptr inbounds ptr, ptr %destFields, i64 %indvars.iv244
@@ -4080,10 +4080,10 @@ if.then35.us:                                     ; preds = %if.end32.us
   %5 = load ptr, ptr %fMatcher, align 8
   %fMatchStart.us = getelementptr inbounds i8, ptr %5, i64 136
   %6 = load i64, ptr %fMatchStart.us, align 8
-  %sub48.us = sub nsw i32 %destCapacity, %destIdx.0136.us
+  %sub48.us = sub nsw i32 %destCapacity, %destIdx.0137.us
   %cond54.us = call i32 @llvm.smax.i32(i32 %sub48.us, i32 0)
-  %call55.us = call i32 @utext_extract_75(ptr noundef %2, i64 noundef %nextOutputStringStart.0137.us, i64 noundef %6, ptr noundef %cond42.us, i32 noundef %cond54.us, ptr noundef nonnull %tStatus)
-  %add56.us = add i32 %destIdx.0136.us, 1
+  %call55.us = call i32 @utext_extract_75(ptr noundef %2, i64 noundef %nextOutputStringStart.0135.us, i64 noundef %6, ptr noundef %cond42.us, i32 noundef %cond54.us, ptr noundef nonnull %tStatus)
+  %add56.us = add i32 %destIdx.0137.us, 1
   %add57.us = add i32 %add56.us, %call55.us
   %7 = load i32, ptr %tStatus, align 4
   %cmp58.us = icmp eq i32 %7, 15
@@ -4110,9 +4110,9 @@ for.inc131.us:                                    ; preds = %if.end60.us
   br i1 %exitcond.not, label %if.then6, label %if.end32.us, !llvm.loop !11
 
 if.then6:                                         ; preds = %for.inc131, %for.inc131.us, %if.end
+  %nextOutputStringStart.0.lcssa = phi i64 [ 0, %if.end ], [ %9, %for.inc131.us ], [ %17, %for.inc131 ]
   %i.0.lcssa = phi i32 [ 0, %if.end ], [ %sub, %for.inc131.us ], [ %inc132, %for.inc131 ]
   %destIdx.0.lcssa = phi i32 [ 0, %if.end ], [ %add57.us, %for.inc131.us ], [ %destIdx.2.lcssa, %for.inc131 ]
-  %nextOutputStringStart.0.lcssa = phi i64 [ 0, %if.end ], [ %9, %for.inc131.us ], [ %17, %for.inc131 ]
   %cmp7 = icmp sgt i64 %3, %nextOutputStringStart.0.lcssa
   br i1 %cmp7, label %if.then8, label %for.end133
 
@@ -4148,28 +4148,28 @@ if.end14:                                         ; preds = %if.then8, %if.then1
   br label %for.end133
 
 if.end32:                                         ; preds = %if.end32.lr.ph, %for.inc131
-  %nextOutputStringStart.0137 = phi i64 [ %17, %for.inc131 ], [ 0, %if.end32.lr.ph ]
-  %destIdx.0136 = phi i32 [ %destIdx.2.lcssa, %for.inc131 ], [ 0, %if.end32.lr.ph ]
-  %i.0135 = phi i32 [ %inc132, %for.inc131 ], [ 0, %if.end32.lr.ph ]
+  %destIdx.0137 = phi i32 [ %destIdx.2.lcssa, %for.inc131 ], [ 0, %if.end32.lr.ph ]
+  %i.0136 = phi i32 [ %inc132, %for.inc131 ], [ 0, %if.end32.lr.ph ]
+  %nextOutputStringStart.0135 = phi i64 [ %17, %for.inc131 ], [ 0, %if.end32.lr.ph ]
   %12 = load ptr, ptr %fMatcher, align 8
   %call34 = call noundef signext i8 @_ZN6icu_7512RegexMatcher4findEv(ptr noundef nonnull align 8 dereferenceable(336) %12)
   %tobool.not = icmp eq i8 %call34, 0
   br i1 %tobool.not, label %if.else108, label %if.then35
 
 if.then35:                                        ; preds = %if.end32
-  %idxprom39 = sext i32 %destIdx.0136 to i64
+  %idxprom39 = sext i32 %destIdx.0137 to i64
   %arrayidx40 = getelementptr inbounds i16, ptr %destBuf, i64 %idxprom39
   %cond42 = select i1 %cmp36, ptr null, ptr %arrayidx40
-  %idxprom43 = sext i32 %i.0135 to i64
+  %idxprom43 = sext i32 %i.0136 to i64
   %arrayidx44 = getelementptr inbounds ptr, ptr %destFields, i64 %idxprom43
   store ptr %cond42, ptr %arrayidx44, align 8
   %13 = load ptr, ptr %fMatcher, align 8
   %fMatchStart = getelementptr inbounds i8, ptr %13, i64 136
   %14 = load i64, ptr %fMatchStart, align 8
-  %sub48 = sub nsw i32 %destCapacity, %destIdx.0136
+  %sub48 = sub nsw i32 %destCapacity, %destIdx.0137
   %cond54 = call i32 @llvm.smax.i32(i32 %sub48, i32 0)
-  %call55 = call i32 @utext_extract_75(ptr noundef %2, i64 noundef %nextOutputStringStart.0137, i64 noundef %14, ptr noundef %cond42, i32 noundef %cond54, ptr noundef nonnull %tStatus)
-  %add56 = add i32 %destIdx.0136, 1
+  %call55 = call i32 @utext_extract_75(ptr noundef %2, i64 noundef %nextOutputStringStart.0135, i64 noundef %14, ptr noundef %cond42, i32 noundef %cond54, ptr noundef nonnull %tStatus)
+  %add56 = add i32 %destIdx.0137, 1
   %add57 = add i32 %add56, %call55
   %15 = load i32, ptr %tStatus, align 4
   %cmp58 = icmp eq i32 %15, 15
@@ -4187,7 +4187,7 @@ if.end60:                                         ; preds = %if.else, %if.then59
   %16 = load ptr, ptr %fMatcher, align 8
   %fMatchEnd = getelementptr inbounds i8, ptr %16, i64 144
   %17 = load i64, ptr %fMatchEnd, align 8
-  %cmp65124 = icmp eq i32 %i.0135, %sub
+  %cmp65124 = icmp eq i32 %i.0136, %sub
   br i1 %cmp65124, label %for.end, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end60, %for.inc
@@ -4366,19 +4366,19 @@ if.else108.loopexit:                              ; preds = %if.end32.us
   br label %if.else108
 
 if.else108:                                       ; preds = %if.end32, %if.else108.loopexit
-  %.us-phi142 = phi i32 [ %32, %if.else108.loopexit ], [ %i.0135, %if.end32 ]
-  %.us-phi143 = phi i32 [ %destIdx.0136.us, %if.else108.loopexit ], [ %destIdx.0136, %if.end32 ]
-  %.us-phi144 = phi i64 [ %nextOutputStringStart.0137.us, %if.else108.loopexit ], [ %nextOutputStringStart.0137, %if.end32 ]
-  %idxprom112 = sext i32 %.us-phi143 to i64
+  %.us-phi142 = phi i64 [ %nextOutputStringStart.0135.us, %if.else108.loopexit ], [ %nextOutputStringStart.0135, %if.end32 ]
+  %.us-phi143 = phi i32 [ %32, %if.else108.loopexit ], [ %i.0136, %if.end32 ]
+  %.us-phi144 = phi i32 [ %destIdx.0137.us, %if.else108.loopexit ], [ %destIdx.0137, %if.end32 ]
+  %idxprom112 = sext i32 %.us-phi144 to i64
   %arrayidx113 = getelementptr inbounds i16, ptr %destBuf, i64 %idxprom112
   %cond115 = select i1 %cmp36, ptr null, ptr %arrayidx113
-  %idxprom116 = sext i32 %.us-phi142 to i64
+  %idxprom116 = sext i32 %.us-phi143 to i64
   %arrayidx117 = getelementptr inbounds ptr, ptr %destFields, i64 %idxprom116
   store ptr %cond115, ptr %arrayidx117, align 8
-  %sub120 = sub nsw i32 %destCapacity, %.us-phi143
+  %sub120 = sub nsw i32 %destCapacity, %.us-phi144
   %cond126 = call i32 @llvm.smax.i32(i32 %sub120, i32 0)
-  %call127 = call i32 @utext_extract_75(ptr noundef %2, i64 noundef %.us-phi144, i64 noundef %3, ptr noundef %cond115, i32 noundef %cond126, ptr noundef %status)
-  %add128 = add i32 %.us-phi143, 1
+  %call127 = call i32 @utext_extract_75(ptr noundef %2, i64 noundef %.us-phi142, i64 noundef %3, ptr noundef %cond115, i32 noundef %cond126, ptr noundef %status)
+  %add128 = add i32 %.us-phi144, 1
   %add129 = add i32 %add128, %call127
   br label %for.end133
 
@@ -4388,7 +4388,7 @@ for.inc131:                                       ; preds = %for.end
   br i1 %cmp5.not, label %if.end32, label %if.then6, !llvm.loop !11
 
 for.end133:                                       ; preds = %if.then6, %if.end14, %if.else108, %if.end105
-  %i.4 = phi i32 [ %sub, %if.end14 ], [ %i.0.lcssa, %if.then6 ], [ %spec.select113, %if.end105 ], [ %.us-phi142, %if.else108 ]
+  %i.4 = phi i32 [ %sub, %if.end14 ], [ %i.0.lcssa, %if.then6 ], [ %spec.select113, %if.end105 ], [ %.us-phi143, %if.else108 ]
   %destIdx.3 = phi i32 [ %add30, %if.end14 ], [ %destIdx.0.lcssa, %if.then6 ], [ %inc106, %if.end105 ], [ %add129, %if.else108 ]
   %add134 = add nsw i32 %i.4, 1
   %cmp136202 = icmp slt i32 %add134, %destFieldsCapacity

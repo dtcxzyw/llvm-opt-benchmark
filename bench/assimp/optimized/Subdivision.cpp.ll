@@ -2054,14 +2054,14 @@ for.cond250.preheader:                            ; preds = %for.body241, %for.c
   br i1 %cmp.not.i.i.i.i, label %for.end294, label %for.body252
 
 for.body241:                                      ; preds = %for.body241.preheader, %for.body241
-  %cur.02154 = phi i32 [ %add245, %for.body241 ], [ 0, %for.body241.preheader ]
-  %i237.02153 = phi i64 [ %add242, %for.body241 ], [ 0, %for.body241.preheader ]
-  %add242 = add nuw i64 %i237.02153, 1
+  %i237.02154 = phi i64 [ %add242, %for.body241 ], [ 0, %for.body241.preheader ]
+  %cur.02153 = phi i32 [ %add245, %for.body241 ], [ 0, %for.body241.preheader ]
+  %add242 = add nuw i64 %i237.02154, 1
   %add.ptr.i579 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i569, i64 %add242
-  store i32 %cur.02154, ptr %add.ptr.i579, align 4
-  %add.ptr.i580 = getelementptr inbounds i32, ptr %cntadjfac.sroa.0.020522062, i64 %i237.02153
+  store i32 %cur.02153, ptr %add.ptr.i579, align 4
+  %add.ptr.i580 = getelementptr inbounds i32, ptr %cntadjfac.sroa.0.020522062, i64 %i237.02154
   %260 = load i32, ptr %add.ptr.i580, align 4
-  %add245 = add i32 %260, %cur.02154
+  %add245 = add i32 %260, %cur.02153
   %exitcond2265.not = icmp eq i64 %add242, %umax
   br i1 %exitcond2265.not, label %for.cond250.preheader, label %for.body241, !llvm.loop !58
 

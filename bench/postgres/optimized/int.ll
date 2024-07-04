@@ -179,16 +179,16 @@ define dso_local noundef i64 @int2vectorin(ptr nocapture noundef readonly %0) lo
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %55
   %11 = phi i8 [ %9, %.lr.ph.lr.ph ], [ %62, %55 ]
-  %.04476 = phi ptr [ %5, %.lr.ph.lr.ph ], [ %60, %55 ]
-  %.04575 = phi ptr [ %8, %.lr.ph.lr.ph ], [ %.146, %55 ]
-  %.04774 = phi i32 [ 32, %.lr.ph.lr.ph ], [ %.148, %55 ]
-  %.04973 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %61, %55 ]
+  %.076 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %61, %55 ]
+  %.04475 = phi i32 [ 32, %.lr.ph.lr.ph ], [ %.1, %55 ]
+  %.04574 = phi ptr [ %8, %.lr.ph.lr.ph ], [ %.146, %55 ]
+  %.04773 = phi ptr [ %5, %.lr.ph.lr.ph ], [ %60, %55 ]
   %12 = load ptr, ptr %10, align 8
   br label %13
 
 13:                                               ; preds = %.lr.ph, %19
   %14 = phi i8 [ %11, %.lr.ph ], [ %21, %19 ]
-  %.167 = phi ptr [ %.04476, %.lr.ph ], [ %20, %19 ]
+  %.14867 = phi ptr [ %.04773, %.lr.ph ], [ %20, %19 ]
   %15 = zext i8 %14 to i64
   %16 = getelementptr i16, ptr %12, i64 %15
   %17 = load i16, ptr %16, align 2
@@ -197,31 +197,31 @@ define dso_local noundef i64 @int2vectorin(ptr nocapture noundef readonly %0) lo
   br i1 %.not53, label %.critedge, label %19
 
 19:                                               ; preds = %13
-  %20 = getelementptr i8, ptr %.167, i64 1
+  %20 = getelementptr i8, ptr %.14867, i64 1
   %21 = load i8, ptr %20, align 1
   %.not = icmp eq i8 %21, 0
   br i1 %.not, label %._crit_edge, label %13, !llvm.loop !8
 
 .critedge:                                        ; preds = %13
-  %.not54 = icmp slt i32 %.04973, %.04774
+  %.not54 = icmp slt i32 %.076, %.04475
   br i1 %.not54, label %28, label %22
 
 22:                                               ; preds = %.critedge
-  %23 = shl i32 %.04774, 1
+  %23 = shl i32 %.04475, 1
   %24 = sext i32 %23 to i64
   %25 = shl nsw i64 %24, 1
   %26 = add nsw i64 %25, 24
-  %27 = tail call ptr @repalloc(ptr noundef %.04575, i64 noundef %26) #12
+  %27 = tail call ptr @repalloc(ptr noundef %.04574, i64 noundef %26) #12
   br label %28
 
 28:                                               ; preds = %22, %.critedge
-  %.148 = phi i32 [ %23, %22 ], [ %.04774, %.critedge ]
-  %.146 = phi ptr [ %27, %22 ], [ %.04575, %.critedge ]
+  %.146 = phi ptr [ %27, %22 ], [ %.04574, %.critedge ]
+  %.1 = phi i32 [ %23, %22 ], [ %.04475, %.critedge ]
   %29 = tail call ptr @__errno_location() #13
   store i32 0, ptr %29, align 4
-  %30 = call i64 @strtol(ptr noundef nonnull %.167, ptr noundef nonnull %2, i32 noundef 10) #12
+  %30 = call i64 @strtol(ptr noundef nonnull %.14867, ptr noundef nonnull %2, i32 noundef 10) #12
   %31 = load ptr, ptr %2, align 8
-  %32 = icmp eq ptr %.167, %31
+  %32 = icmp eq ptr %.14867, %31
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %28
@@ -230,7 +230,7 @@ define dso_local noundef i64 @int2vectorin(ptr nocapture noundef readonly %0) lo
 
 35:                                               ; preds = %33
   %36 = tail call i32 @errcode(i32 noundef 33685634) #12
-  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %.167) #12
+  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %.14867) #12
   tail call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef 175, ptr noundef nonnull @__func__.int2vectorin) #12
   br label %71
 
@@ -248,7 +248,7 @@ define dso_local noundef i64 @int2vectorin(ptr nocapture noundef readonly %0) lo
 
 45:                                               ; preds = %43
   %46 = tail call i32 @errcode(i32 noundef 50331778) #12
-  %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %.167, ptr noundef nonnull @.str.1) #12
+  %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %.14867, ptr noundef nonnull @.str.1) #12
   tail call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef 181, ptr noundef nonnull @__func__.int2vectorin) #12
   br label %71
 
@@ -265,26 +265,26 @@ define dso_local noundef i64 @int2vectorin(ptr nocapture noundef readonly %0) lo
 
 52:                                               ; preds = %50
   %53 = tail call i32 @errcode(i32 noundef 33685634) #12
-  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %.167) #12
+  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull %.14867) #12
   tail call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef 187, ptr noundef nonnull @__func__.int2vectorin) #12
   br label %71
 
 55:                                               ; preds = %48, %48
   %56 = trunc nsw i64 %30 to i16
   %57 = getelementptr inbounds i8, ptr %.146, i64 24
-  %58 = sext i32 %.04973 to i64
+  %58 = sext i32 %.076 to i64
   %59 = getelementptr [0 x i16], ptr %57, i64 0, i64 %58
   store i16 %56, ptr %59, align 2
   %60 = load ptr, ptr %2, align 8
-  %61 = add i32 %.04973, 1
+  %61 = add i32 %.076, 1
   %62 = load i8, ptr %60, align 1
   %.not66 = icmp eq i8 %62, 0
   br i1 %.not66, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %55, %19, %1
-  %.049.lcssa = phi i32 [ 0, %1 ], [ %.04973, %19 ], [ %61, %55 ]
-  %.045.lcssa = phi ptr [ %8, %1 ], [ %.04575, %19 ], [ %.146, %55 ]
-  %63 = shl i32 %.049.lcssa, 3
+  %.045.lcssa = phi ptr [ %8, %1 ], [ %.04574, %19 ], [ %.146, %55 ]
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %.076, %19 ], [ %61, %55 ]
+  %63 = shl i32 %.0.lcssa, 3
   %64 = add i32 %63, 96
   store i32 %64, ptr %.045.lcssa, align 4
   %65 = getelementptr inbounds i8, ptr %.045.lcssa, i64 4
@@ -294,15 +294,15 @@ define dso_local noundef i64 @int2vectorin(ptr nocapture noundef readonly %0) lo
   %67 = getelementptr inbounds i8, ptr %.045.lcssa, i64 12
   store i32 21, ptr %67, align 4
   %68 = getelementptr inbounds i8, ptr %.045.lcssa, i64 16
-  store i32 %.049.lcssa, ptr %68, align 4
+  store i32 %.0.lcssa, ptr %68, align 4
   %69 = getelementptr inbounds i8, ptr %.045.lcssa, i64 20
   store i32 0, ptr %69, align 4
   %70 = ptrtoint ptr %.045.lcssa to i64
   br label %71
 
 71:                                               ; preds = %52, %50, %45, %43, %35, %33, %._crit_edge
-  %.0 = phi i64 [ %70, %._crit_edge ], [ 0, %33 ], [ 0, %35 ], [ 0, %43 ], [ 0, %45 ], [ 0, %50 ], [ 0, %52 ]
-  ret i64 %.0
+  %.049 = phi i64 [ %70, %._crit_edge ], [ 0, %33 ], [ 0, %35 ], [ 0, %43 ], [ 0, %45 ], [ 0, %50 ], [ 0, %52 ]
+  ret i64 %.049
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
@@ -345,17 +345,17 @@ define dso_local i64 @int2vectorout(ptr nocapture noundef readonly %0) local_unn
 
 13:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %.01314 = phi ptr [ %10, %.lr.ph ], [ %21, %16 ]
+  %.015 = phi ptr [ %10, %.lr.ph ], [ %21, %16 ]
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %16, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr i8, ptr %.01314, i64 1
-  store i8 32, ptr %.01314, align 1
+  %15 = getelementptr i8, ptr %.015, i64 1
+  store i8 32, ptr %.015, align 1
   br label %16
 
 16:                                               ; preds = %14, %13
-  %.1 = phi ptr [ %15, %14 ], [ %.01314, %13 ]
+  %.1 = phi ptr [ %15, %14 ], [ %.015, %13 ]
   %17 = getelementptr [0 x i16], ptr %12, i64 0, i64 %indvars.iv
   %18 = load i16, ptr %17, align 2
   %19 = tail call i32 @pg_itoa(i16 noundef signext %18, ptr noundef %.1) #12
@@ -366,8 +366,8 @@ define dso_local i64 @int2vectorout(ptr nocapture noundef readonly %0) local_unn
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %16, %1
-  %.013.lcssa = phi ptr [ %10, %1 ], [ %21, %16 ]
-  store i8 0, ptr %.013.lcssa, align 1
+  %.0.lcssa = phi ptr [ %10, %1 ], [ %21, %16 ]
+  store i8 0, ptr %.0.lcssa, align 1
   %22 = ptrtoint ptr %10 to i64
   ret i64 %22
 }
@@ -946,9 +946,9 @@ define dso_local range(i64 0, 2) i64 @in_range_int4_int4(ptr nocapture noundef r
   br label %32
 
 32:                                               ; preds = %30, %28, %26
-  %.0.in = phi i1 [ %spec.select18, %26 ], [ %29, %28 ], [ %31, %30 ]
-  %.0 = zext i1 %.0.in to i64
-  ret i64 %.0
+  %.016.in = phi i1 [ %spec.select18, %26 ], [ %29, %28 ], [ %31, %30 ]
+  %.016 = zext i1 %.016.in to i64
+  ret i64 %.016
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1024,9 +1024,9 @@ define dso_local range(i64 0, 2) i64 @in_range_int4_int8(ptr nocapture noundef r
   br label %31
 
 31:                                               ; preds = %29, %27, %25
-  %.0.in = phi i1 [ %spec.select18, %25 ], [ %28, %27 ], [ %30, %29 ]
-  %.0 = zext i1 %.0.in to i64
-  ret i64 %.0
+  %.016.in = phi i1 [ %spec.select18, %25 ], [ %28, %27 ], [ %30, %29 ]
+  %.016 = zext i1 %.016.in to i64
+  ret i64 %.016
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1085,9 +1085,9 @@ define dso_local range(i64 0, 2) i64 @in_range_int2_int4(ptr nocapture noundef r
   br label %34
 
 34:                                               ; preds = %32, %30, %28
-  %.0.in = phi i1 [ %spec.select18, %28 ], [ %31, %30 ], [ %33, %32 ]
-  %.0 = zext i1 %.0.in to i64
-  ret i64 %.0
+  %.016.in = phi i1 [ %spec.select18, %28 ], [ %31, %30 ], [ %33, %32 ]
+  %.016 = zext i1 %.016.in to i64
+  ret i64 %.016
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2354,7 +2354,7 @@ list_length.exit:                                 ; preds = %is_funcclause.exit
   br label %31
 
 31:                                               ; preds = %list_length.exit, %26
-  %.037 = phi ptr [ %30, %26 ], [ null, %list_length.exit ]
+  %.0 = phi ptr [ %30, %26 ], [ null, %list_length.exit ]
   %32 = load i32, ptr %18, align 4
   %33 = icmp ne i32 %32, 7
   br i1 %33, label %38, label %34
@@ -2377,16 +2377,16 @@ list_length.exit:                                 ; preds = %is_funcclause.exit
   br i1 %44, label %is_funcclause.exit.thread.sink.split, label %45
 
 45:                                               ; preds = %41, %38
-  %.not = icmp eq ptr %.037, null
+  %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.thread, label %46
 
 46:                                               ; preds = %45
-  %47 = load i32, ptr %.037, align 4
+  %47 = load i32, ptr %.0, align 4
   %48 = icmp eq i32 %47, 7
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %.037, i64 32
+  %50 = getelementptr inbounds i8, ptr %.0, i64 32
   %51 = load i8, ptr %50, align 8
   %52 = trunc i8 %51 to i1
   br i1 %52, label %is_funcclause.exit.thread.sink.split, label %53
@@ -2403,12 +2403,12 @@ list_length.exit:                                 ; preds = %is_funcclause.exit
   br i1 %.not, label %.thread42, label %55
 
 55:                                               ; preds = %54
-  %56 = load i32, ptr %.037, align 4
+  %56 = load i32, ptr %.0, align 4
   %57 = icmp eq i32 %56, 7
   br i1 %57, label %58, label %is_funcclause.exit.thread
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %.037, i64 24
+  %59 = getelementptr inbounds i8, ptr %.0, i64 24
   %60 = load i64, ptr %59, align 8
   %61 = trunc i64 %60 to i32
   %62 = sitofp i32 %61 to double
@@ -2438,8 +2438,8 @@ is_funcclause.exit.thread.sink.split:             ; preds = %34, %41, %49, %.thr
   br label %is_funcclause.exit.thread
 
 is_funcclause.exit.thread:                        ; preds = %is_funcclause.exit.thread.sink.split, %.thread, %53, %7, %is_funcclause.exit, %55, %58, %1
-  %.0 = phi i64 [ 0, %58 ], [ 0, %55 ], [ 0, %53 ], [ 0, %is_funcclause.exit ], [ 0, %1 ], [ 0, %7 ], [ 0, %.thread ], [ %3, %is_funcclause.exit.thread.sink.split ]
-  ret i64 %.0
+  %.037 = phi i64 [ 0, %58 ], [ 0, %55 ], [ 0, %53 ], [ 0, %is_funcclause.exit ], [ 0, %1 ], [ 0, %7 ], [ 0, %.thread ], [ %3, %is_funcclause.exit.thread.sink.split ]
+  ret i64 %.037
 }
 
 declare ptr @estimate_expression_value(ptr noundef, ptr noundef) local_unnamed_addr #1

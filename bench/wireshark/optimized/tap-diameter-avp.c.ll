@@ -188,8 +188,8 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
   %30 = load i32, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %3, i64 28
   %32 = load i32, ptr %31, align 4
-  %.not58 = icmp eq i32 %26, 0
-  br i1 %.not58, label %33, label %39
+  %.not59 = icmp eq i32 %26, 0
+  br i1 %.not59, label %33, label %39
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds i8, ptr %1, i64 24
@@ -201,50 +201,50 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
   br label %39
 
 39:                                               ; preds = %33, %24
-  %.051 = phi double [ 0.000000e+00, %24 ], [ %38, %33 ]
+  %.050 = phi double [ 0.000000e+00, %24 ], [ %38, %33 ]
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   %41 = load i32, ptr %40, align 8
-  %.not59 = icmp eq i32 %41, 0
-  %.not60 = icmp eq i32 %41, %28
-  %or.cond66 = select i1 %.not59, i1 true, i1 %.not60
-  br i1 %or.cond66, label %42, label %.loopexit
+  %.not60 = icmp eq i32 %41, 0
+  %.not61 = icmp eq i32 %41, %28
+  %or.cond67 = select i1 %.not60, i1 true, i1 %.not61
+  br i1 %or.cond67, label %42, label %.loopexit
 
 42:                                               ; preds = %39
   %43 = load ptr, ptr %11, align 8
   %44 = load ptr, ptr %43, align 8
-  %.not6168 = icmp eq ptr %44, null
-  br i1 %.not6168, label %.loopexit, label %.lr.ph
+  %.not6269 = icmp eq ptr %44, null
+  br i1 %.not6269, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %42
-  %.not65 = icmp eq i32 %30, 0
+  %.not66 = icmp eq i32 %30, 0
   %45 = getelementptr inbounds i8, ptr %1, i64 24
   %46 = getelementptr inbounds i8, ptr %1, i64 408
   %47 = getelementptr inbounds i8, ptr %1, i64 208
   %48 = getelementptr inbounds i8, ptr %1, i64 284
   %49 = getelementptr inbounds i8, ptr %1, i64 232
   %50 = getelementptr inbounds i8, ptr %1, i64 288
-  br i1 %.not58, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not59, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.thread.us
-  %.04970.us = phi ptr [ %52, %.thread.us ], [ %44, %.lr.ph ]
-  %.05069.us = phi i32 [ %.1.us, %.thread.us ], [ 0, %.lr.ph ]
-  %51 = getelementptr inbounds i8, ptr %.04970.us, i64 16
+  %.071.us = phi ptr [ %52, %.thread.us ], [ %44, %.lr.ph ]
+  %.04970.us = phi i32 [ %.1.us, %.thread.us ], [ 0, %.lr.ph ]
+  %51 = getelementptr inbounds i8, ptr %.071.us, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %.04970.us, i64 32
+  %53 = getelementptr inbounds i8, ptr %.071.us, i64 32
   %54 = load ptr, ptr %53, align 8
-  %.not62.us = icmp eq ptr %54, null
-  br i1 %.not62.us, label %.thread.us, label %55
+  %.not63.us = icmp eq ptr %54, null
+  br i1 %.not63.us, label %.thread.us, label %55
 
 55:                                               ; preds = %.lr.ph.split.us
   %56 = load ptr, ptr %54, align 8
-  %.not63.us = icmp eq ptr %56, null
-  br i1 %.not63.us, label %.thread.us, label %57
+  %.not64.us = icmp eq ptr %56, null
+  br i1 %.not64.us, label %.thread.us, label %57
 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds i8, ptr %56, i64 8
   %59 = load ptr, ptr %58, align 8
-  %.not64.us = icmp eq ptr %59, null
-  br i1 %.not64.us, label %.thread.us, label %60
+  %.not65.us = icmp eq ptr %59, null
+  br i1 %.not65.us, label %.thread.us, label %60
 
 60:                                               ; preds = %57
   %61 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(9) @.str.1) #13
@@ -255,7 +255,7 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
   %64 = load ptr, ptr %6, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 4
   %66 = load i32, ptr %65, align 4
-  %67 = icmp eq i32 %66, %.05069.us
+  %67 = icmp eq i32 %66, %.04970.us
   br i1 %67, label %68, label %90
 
 68:                                               ; preds = %63
@@ -263,7 +263,7 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
   %70 = load i32, ptr %69, align 8
   %71 = add i32 %70, 1
   store i32 %71, ptr %69, align 8
-  br i1 %.not65, label %76, label %72
+  br i1 %.not66, label %76, label %72
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds i8, ptr %64, i64 20
@@ -284,40 +284,40 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
   %85 = load ptr, ptr %6, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 4
   %87 = load i32, ptr %86, align 4
-  %88 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %77, double noundef %78, ptr noundef %80, i32 noundef %81, ptr noundef %83, i32 noundef %84, i32 noundef %87, i32 noundef 0, i32 noundef %28, i32 noundef %30, i32 noundef %32, double noundef %.051)
-  %89 = call fastcc i32 @tree_traverse_pre_order(ptr noundef nonnull %.04970.us, ptr noundef nonnull %6)
+  %88 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %77, double noundef %78, ptr noundef %80, i32 noundef %81, ptr noundef %83, i32 noundef %84, i32 noundef %87, i32 noundef 0, i32 noundef %28, i32 noundef %30, i32 noundef %32, double noundef %.050)
+  %89 = call fastcc i32 @tree_traverse_pre_order(ptr noundef nonnull %.071.us, ptr noundef nonnull %6)
   %putchar.us = call i32 @putchar(i32 10)
   br label %90
 
 90:                                               ; preds = %76, %63
-  %91 = add i32 %.05069.us, 1
+  %91 = add i32 %.04970.us, 1
   br label %.thread.us
 
 .thread.us:                                       ; preds = %90, %60, %57, %55, %.lr.ph.split.us
-  %.1.us = phi i32 [ %91, %90 ], [ %.05069.us, %60 ], [ %.05069.us, %57 ], [ %.05069.us, %55 ], [ %.05069.us, %.lr.ph.split.us ]
-  %.not61.us = icmp eq ptr %52, null
-  br i1 %.not61.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !8
+  %.1.us = phi i32 [ %91, %90 ], [ %.04970.us, %60 ], [ %.04970.us, %57 ], [ %.04970.us, %55 ], [ %.04970.us, %.lr.ph.split.us ]
+  %.not62.us = icmp eq ptr %52, null
+  br i1 %.not62.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread
-  %.04970 = phi ptr [ %93, %.thread ], [ %44, %.lr.ph ]
-  %.05069 = phi i32 [ %.1, %.thread ], [ 0, %.lr.ph ]
-  %92 = getelementptr inbounds i8, ptr %.04970, i64 16
+  %.071 = phi ptr [ %93, %.thread ], [ %44, %.lr.ph ]
+  %.04970 = phi i32 [ %.1, %.thread ], [ 0, %.lr.ph ]
+  %92 = getelementptr inbounds i8, ptr %.071, i64 16
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %.04970, i64 32
+  %94 = getelementptr inbounds i8, ptr %.071, i64 32
   %95 = load ptr, ptr %94, align 8
-  %.not62 = icmp eq ptr %95, null
-  br i1 %.not62, label %.thread, label %96
+  %.not63 = icmp eq ptr %95, null
+  br i1 %.not63, label %.thread, label %96
 
 96:                                               ; preds = %.lr.ph.split
   %97 = load ptr, ptr %95, align 8
-  %.not63 = icmp eq ptr %97, null
-  br i1 %.not63, label %.thread, label %98
+  %.not64 = icmp eq ptr %97, null
+  br i1 %.not64, label %.thread, label %98
 
 98:                                               ; preds = %96
   %99 = getelementptr inbounds i8, ptr %97, i64 8
   %100 = load ptr, ptr %99, align 8
-  %.not64 = icmp eq ptr %100, null
-  br i1 %.not64, label %.thread, label %101
+  %.not65 = icmp eq ptr %100, null
+  br i1 %.not65, label %.thread, label %101
 
 101:                                              ; preds = %98
   %102 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(9) @.str.1) #13
@@ -328,7 +328,7 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
   %105 = load ptr, ptr %6, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 4
   %107 = load i32, ptr %106, align 4
-  %108 = icmp eq i32 %107, %.05069
+  %108 = icmp eq i32 %107, %.04970
   br i1 %108, label %109, label %126
 
 109:                                              ; preds = %104
@@ -347,19 +347,19 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
   %121 = load ptr, ptr %6, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 4
   %123 = load i32, ptr %122, align 4
-  %124 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %113, double noundef %114, ptr noundef %116, i32 noundef %117, ptr noundef %119, i32 noundef %120, i32 noundef %123, i32 noundef %26, i32 noundef %28, i32 noundef %30, i32 noundef %32, double noundef %.051)
-  %125 = call fastcc i32 @tree_traverse_pre_order(ptr noundef nonnull %.04970, ptr noundef nonnull %6)
+  %124 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %113, double noundef %114, ptr noundef %116, i32 noundef %117, ptr noundef %119, i32 noundef %120, i32 noundef %123, i32 noundef %26, i32 noundef %28, i32 noundef %30, i32 noundef %32, double noundef %.050)
+  %125 = call fastcc i32 @tree_traverse_pre_order(ptr noundef nonnull %.071, ptr noundef nonnull %6)
   %putchar = call i32 @putchar(i32 10)
   br label %126
 
 126:                                              ; preds = %109, %104
-  %127 = add i32 %.05069, 1
+  %127 = add i32 %.04970, 1
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph.split, %126, %101, %98, %96
-  %.1 = phi i32 [ %127, %126 ], [ %.05069, %101 ], [ %.05069, %98 ], [ %.05069, %96 ], [ %.05069, %.lr.ph.split ]
-  %.not61 = icmp eq ptr %93, null
-  br i1 %.not61, label %.loopexit, label %.lr.ph.split, !llvm.loop !8
+  %.1 = phi i32 [ %127, %126 ], [ %.04970, %101 ], [ %.04970, %98 ], [ %.04970, %96 ], [ %.04970, %.lr.ph.split ]
+  %.not62 = icmp eq ptr %93, null
+  br i1 %.not62, label %.loopexit, label %.lr.ph.split, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.thread, %.thread.us, %42, %39, %5, %10
   ret i32 0
@@ -433,13 +433,13 @@ define internal fastcc noundef i32 @diam_tree_to_csv(ptr noundef %0, ptr noundef
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  %.not26 = icmp eq ptr %8, null
-  br i1 %.not26, label %.thread, label %9
+  %.not27 = icmp eq ptr %8, null
+  br i1 %.not27, label %.thread, label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %8, align 8
-  %.not27 = icmp eq ptr %10, null
-  br i1 %.not27, label %.thread, label %13
+  %.not28 = icmp eq ptr %10, null
+  br i1 %.not28, label %.thread, label %13
 
 .thread:                                          ; preds = %6, %9
   %11 = load ptr, ptr @stderr, align 8
@@ -458,8 +458,8 @@ define internal fastcc noundef i32 @diam_tree_to_csv(ptr noundef %0, ptr noundef
   %19 = getelementptr inbounds i8, ptr %10, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = tail call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %18, i32 noundef 0, i32 noundef %20) #9
-  %.not28 = icmp eq ptr %21, null
-  br i1 %.not28, label %24, label %22
+  %.not29 = icmp eq ptr %21, null
+  br i1 %.not29, label %24, label %22
 
 22:                                               ; preds = %17
   %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull %21) #9
@@ -472,10 +472,10 @@ define internal fastcc noundef i32 @diam_tree_to_csv(ptr noundef %0, ptr noundef
   br label %27
 
 27:                                               ; preds = %24, %22
-  %.021 = phi ptr [ %23, %22 ], [ %26, %24 ]
+  %.0 = phi ptr [ %23, %22 ], [ %26, %24 ]
   %28 = load ptr, ptr %10, align 8
-  %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef %28, ptr noundef %.021)
-  tail call void @g_free(ptr noundef %.021) #9
+  %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef %28, ptr noundef %.0)
+  tail call void @g_free(ptr noundef %.0) #9
   br label %30
 
 30:                                               ; preds = %13, %27, %.thread, %3

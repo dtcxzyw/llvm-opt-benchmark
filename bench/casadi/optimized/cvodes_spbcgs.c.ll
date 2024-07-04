@@ -520,14 +520,14 @@ define range(i32 -101, 1) i32 @CVSpbcgB(ptr noundef %0, i32 noundef %1, i32 noun
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
   %.sink = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.029 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
-  %20 = load i32, ptr %.029, align 8
+  %.0 = load ptr, ptr %.sink, align 8, !nonnull !4, !noundef !4
+  %20 = load i32, ptr %.0, align 8
   %21 = icmp eq i32 %20, %1
-  %22 = getelementptr inbounds i8, ptr %.029, i64 120
+  %22 = getelementptr inbounds i8, ptr %.0, i64 120
   br i1 %21, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.029, i64 16
+  %23 = getelementptr inbounds i8, ptr %.0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #7
   %26 = icmp eq ptr %25, null
@@ -545,9 +545,9 @@ define range(i32 -101, 1) i32 @CVSpbcgB(ptr noundef %0, i32 noundef %1, i32 noun
   %31 = getelementptr inbounds i8, ptr %25, i64 48
   store ptr null, ptr %31, align 8
   store ptr null, ptr %25, align 8
-  %32 = getelementptr inbounds i8, ptr %.029, i64 72
+  %32 = getelementptr inbounds i8, ptr %.0, i64 72
   store ptr %25, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %.029, i64 80
+  %33 = getelementptr inbounds i8, ptr %.0, i64 80
   store ptr @CVSpbcgFreeB, ptr %33, align 8
   %34 = tail call i32 @CVSpbcg(ptr noundef %24, i32 noundef %2, i32 noundef %3)
   %.not34 = icmp eq i32 %34, 0
@@ -558,8 +558,8 @@ define range(i32 -101, 1) i32 @CVSpbcgB(ptr noundef %0, i32 noundef %1, i32 noun
   br label %36
 
 36:                                               ; preds = %28, %35, %27, %17, %11, %6
-  %.0 = phi i32 [ -1, %6 ], [ -101, %11 ], [ -3, %17 ], [ -4, %27 ], [ %34, %35 ], [ 0, %28 ]
-  ret i32 %.0
+  %.029 = phi i32 [ -1, %6 ], [ -101, %11 ], [ -3, %17 ], [ -4, %27 ], [ %34, %35 ], [ 0, %28 ]
+  ret i32 %.029
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable

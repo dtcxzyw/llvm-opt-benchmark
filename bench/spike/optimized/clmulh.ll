@@ -110,14 +110,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32i_clmulhP11p
 
 21:                                               ; preds = %.critedge, %21
   %indvars.iv = phi i64 [ 1, %.critedge ], [ %indvars.iv.next, %21 ]
-  %.028 = phi i64 [ 0, %.critedge ], [ %.1, %21 ]
+  %.02027 = phi i64 [ 0, %.critedge ], [ %.1, %21 ]
   %22 = shl nuw nsw i64 1, %indvars.iv
   %23 = and i64 %22, %20
   %.not = icmp eq i64 %23, 0
   %24 = sub nuw nsw i64 32, %indvars.iv
   %25 = lshr i64 %16, %24
   %26 = select i1 %.not, i64 0, i64 %25
-  %.1 = xor i64 %26, %.028
+  %.1 = xor i64 %26, %.02027
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %27, label %21, !llvm.loop !4
@@ -190,14 +190,14 @@ define noundef i64 @_Z17fast_rv64i_clmulhP11processor_t6insn_tm(ptr nocapture no
 
 20:                                               ; preds = %.critedge, %20
   %indvars.iv = phi i64 [ 1, %.critedge ], [ %indvars.iv.next, %20 ]
-  %.028 = phi i64 [ 0, %.critedge ], [ %.1, %20 ]
+  %.02027 = phi i64 [ 0, %.critedge ], [ %.1, %20 ]
   %21 = shl nuw i64 1, %indvars.iv
   %22 = and i64 %21, %19
   %.not = icmp eq i64 %22, 0
   %23 = sub nuw nsw i64 64, %indvars.iv
   %24 = lshr i64 %15, %23
   %25 = select i1 %.not, i64 0, i64 %24
-  %.1 = xor i64 %25, %.028
+  %.1 = xor i64 %25, %.02027
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %26, label %20, !llvm.loop !6
@@ -253,14 +253,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32i_clmulhP1
 
 21:                                               ; preds = %.critedge, %21
   %indvars.iv = phi i64 [ 1, %.critedge ], [ %indvars.iv.next, %21 ]
-  %.033 = phi i64 [ 0, %.critedge ], [ %.1, %21 ]
+  %.02332 = phi i64 [ 0, %.critedge ], [ %.1, %21 ]
   %22 = shl nuw nsw i64 1, %indvars.iv
   %23 = and i64 %22, %20
   %.not = icmp eq i64 %23, 0
   %24 = sub nuw nsw i64 32, %indvars.iv
   %25 = lshr i64 %16, %24
   %26 = select i1 %.not, i64 0, i64 %25
-  %.1 = xor i64 %26, %.033
+  %.1 = xor i64 %26, %.02332
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %27, label %21, !llvm.loop !7
@@ -376,14 +376,14 @@ define noundef i64 @_Z19logged_rv64i_clmulhP11processor_t6insn_tm(ptr noundef %0
 
 20:                                               ; preds = %.critedge, %20
   %indvars.iv = phi i64 [ 1, %.critedge ], [ %indvars.iv.next, %20 ]
-  %.033 = phi i64 [ 0, %.critedge ], [ %.1, %20 ]
+  %.02332 = phi i64 [ 0, %.critedge ], [ %.1, %20 ]
   %21 = shl nuw i64 1, %indvars.iv
   %22 = and i64 %21, %19
   %.not = icmp eq i64 %22, 0
   %23 = sub nuw nsw i64 64, %indvars.iv
   %24 = lshr i64 %15, %23
   %25 = select i1 %.not, i64 0, i64 %24
-  %.1 = xor i64 %25, %.033
+  %.1 = xor i64 %25, %.02332
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %26, label %20, !llvm.loop !9
@@ -528,14 +528,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_clmulhP11p
 
 35:                                               ; preds = %32, %35
   %indvars.iv = phi i64 [ 1, %32 ], [ %indvars.iv.next, %35 ]
-  %.02842 = phi i64 [ 0, %32 ], [ %.1, %35 ]
+  %.02642 = phi i64 [ 0, %32 ], [ %.1, %35 ]
   %36 = shl nuw nsw i64 1, %indvars.iv
   %37 = and i64 %36, %34
   %.not = icmp eq i64 %37, 0
   %38 = sub nuw nsw i64 32, %indvars.iv
   %39 = lshr i64 %23, %38
   %40 = select i1 %.not, i64 0, i64 %39
-  %.1 = xor i64 %40, %.02842
+  %.1 = xor i64 %40, %.02642
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %41, label %35, !llvm.loop !10
@@ -642,14 +642,14 @@ define noundef i64 @_Z17fast_rv64e_clmulhP11processor_t6insn_tm(ptr nocapture no
 
 34:                                               ; preds = %31, %34
   %indvars.iv = phi i64 [ 1, %31 ], [ %indvars.iv.next, %34 ]
-  %.02842 = phi i64 [ 0, %31 ], [ %.1, %34 ]
+  %.02642 = phi i64 [ 0, %31 ], [ %.1, %34 ]
   %35 = shl nuw i64 1, %indvars.iv
   %36 = and i64 %35, %33
   %.not = icmp eq i64 %36, 0
   %37 = sub nuw nsw i64 64, %indvars.iv
   %38 = lshr i64 %22, %37
   %39 = select i1 %.not, i64 0, i64 %38
-  %.1 = xor i64 %39, %.02842
+  %.1 = xor i64 %39, %.02642
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %40, label %34, !llvm.loop !11
@@ -753,14 +753,14 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_clmulhP1
 
 35:                                               ; preds = %32, %35
   %indvars.iv = phi i64 [ 1, %32 ], [ %indvars.iv.next, %35 ]
-  %.03147 = phi i64 [ 0, %32 ], [ %.1, %35 ]
+  %.03047 = phi i64 [ 0, %32 ], [ %.1, %35 ]
   %36 = shl nuw nsw i64 1, %indvars.iv
   %37 = and i64 %36, %34
   %.not = icmp eq i64 %37, 0
   %38 = sub nuw nsw i64 32, %indvars.iv
   %39 = lshr i64 %23, %38
   %40 = select i1 %.not, i64 0, i64 %39
-  %.1 = xor i64 %40, %.03147
+  %.1 = xor i64 %40, %.03047
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %41, label %35, !llvm.loop !12
@@ -924,14 +924,14 @@ define noundef i64 @_Z19logged_rv64e_clmulhP11processor_t6insn_tm(ptr noundef %0
 
 34:                                               ; preds = %31, %34
   %indvars.iv = phi i64 [ 1, %31 ], [ %indvars.iv.next, %34 ]
-  %.03147 = phi i64 [ 0, %31 ], [ %.1, %34 ]
+  %.03047 = phi i64 [ 0, %31 ], [ %.1, %34 ]
   %35 = shl nuw i64 1, %indvars.iv
   %36 = and i64 %35, %33
   %.not = icmp eq i64 %36, 0
   %37 = sub nuw nsw i64 64, %indvars.iv
   %38 = lshr i64 %22, %37
   %39 = select i1 %.not, i64 0, i64 %38
-  %.1 = xor i64 %39, %.03147
+  %.1 = xor i64 %39, %.03047
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %40, label %34, !llvm.loop !13

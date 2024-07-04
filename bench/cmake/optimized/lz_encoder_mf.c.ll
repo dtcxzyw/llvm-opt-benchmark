@@ -49,8 +49,8 @@ define dso_local i32 @lzma_mf_find(ptr noundef %0, ptr nocapture noundef writeon
   br i1 %30, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %15, %41
-  %.03954 = phi i32 [ %42, %41 ], [ %11, %15 ]
-  %31 = zext i32 %.03954 to i64
+  %.04154 = phi i32 [ %42, %41 ], [ %11, %15 ]
+  %31 = zext i32 %.04154 to i64
   %32 = getelementptr inbounds i8, ptr %23, i64 %31
   %.val51 = load i64, ptr %32, align 1
   %33 = getelementptr inbounds i8, ptr %29, i64 %31
@@ -63,23 +63,23 @@ define dso_local i32 @lzma_mf_find(ptr noundef %0, ptr nocapture noundef writeon
   %36 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %35, i1 true)
   %37 = trunc nuw nsw i64 %36 to i32
   %38 = lshr i32 %37, 3
-  %39 = add i32 %38, %.03954
+  %39 = add i32 %38, %.04154
   %40 = tail call i32 @llvm.umin.i32(i32 %39, i32 %spec.select)
   br label %.loopexit
 
 41:                                               ; preds = %.lr.ph
-  %42 = add i32 %.03954, 8
+  %42 = add i32 %.04154, 8
   %43 = icmp ult i32 %42, %spec.select
   br i1 %43, label %.lr.ph, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %41, %15, %34, %7, %3
-  %.041 = phi i32 [ %11, %7 ], [ 0, %3 ], [ %40, %34 ], [ %spec.select, %15 ], [ %spec.select, %41 ]
+  %.040 = phi i32 [ %11, %7 ], [ 0, %3 ], [ %40, %34 ], [ %spec.select, %15 ], [ %spec.select, %41 ]
   store i32 %6, ptr %1, align 4
   %44 = getelementptr inbounds i8, ptr %0, i64 28
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4
-  ret i32 %.041
+  ret i32 %.040
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -108,7 +108,7 @@ define dso_local i32 @lzma_mf_hc3_find(ptr nocapture noundef %0, ptr noundef %1)
   br label %move_pos.exit
 
 15:                                               ; preds = %2, %8
-  %.079 = phi i32 [ %5, %8 ], [ %7, %2 ]
+  %.078 = phi i32 [ %5, %8 ], [ %7, %2 ]
   %.val87 = load ptr, ptr %0, align 8
   %16 = zext i32 %.val to i64
   %17 = getelementptr inbounds i8, ptr %.val87, i64 %16
@@ -161,19 +161,19 @@ define dso_local i32 @lzma_mf_hc3_find(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %59, label %.preheader, label %114
 
 .preheader:                                       ; preds = %53
-  %60 = icmp ugt i32 %.079, 2
+  %60 = icmp ugt i32 %.078, 2
   br i1 %60, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %66, %.preheader
-  store i32 %.079, ptr %1, align 4
+  store i32 %.078, ptr %1, align 4
   %61 = add i32 %43, -1
   %62 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 %61, ptr %62, align 4
   br label %78
 
 .lr.ph:                                           ; preds = %.preheader, %66
-  %.077108 = phi i32 [ %67, %66 ], [ 2, %.preheader ]
-  %63 = zext i32 %.077108 to i64
+  %.079108 = phi i32 [ %67, %66 ], [ 2, %.preheader ]
+  %63 = zext i32 %.079108 to i64
   %64 = getelementptr inbounds i8, ptr %56, i64 %63
   %.val89 = load i64, ptr %64, align 1
   %65 = getelementptr inbounds i8, ptr %17, i64 %63
@@ -182,8 +182,8 @@ define dso_local i32 @lzma_mf_hc3_find(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %.not85, label %66, label %69
 
 66:                                               ; preds = %.lr.ph
-  %67 = add i32 %.077108, 8
-  %68 = icmp ult i32 %67, %.079
+  %67 = add i32 %.079108, 8
+  %68 = icmp ult i32 %67, %.078
   br i1 %68, label %.lr.ph, label %.thread, !llvm.loop !5
 
 69:                                               ; preds = %.lr.ph
@@ -191,13 +191,13 @@ define dso_local i32 @lzma_mf_hc3_find(ptr nocapture noundef %0, ptr noundef %1)
   %71 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %70, i1 true)
   %72 = trunc nuw nsw i64 %71 to i32
   %73 = lshr i32 %72, 3
-  %74 = add i32 %73, %.077108
-  %75 = tail call i32 @llvm.umin.i32(i32 %74, i32 %.079)
+  %74 = add i32 %73, %.079108
+  %75 = tail call i32 @llvm.umin.i32(i32 %74, i32 %.078)
   store i32 %75, ptr %1, align 4
   %76 = add i32 %43, -1
   %77 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 %76, ptr %77, align 4
-  %.not106 = icmp ugt i32 %.079, %74
+  %.not106 = icmp ugt i32 %.078, %74
   br i1 %.not106, label %._crit_edge, label %78
 
 ._crit_edge:                                      ; preds = %69
@@ -273,7 +273,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
 
 114:                                              ; preds = %._crit_edge, %15, %53
   %115 = phi i32 [ %.pre, %._crit_edge ], [ %51, %53 ], [ %51, %15 ]
-  %.080 = phi i64 [ 1, %._crit_edge ], [ 0, %53 ], [ 0, %15 ]
+  %.077 = phi i64 [ 1, %._crit_edge ], [ 0, %53 ], [ 0, %15 ]
   %.0 = phi i32 [ %75, %._crit_edge ], [ 2, %53 ], [ 2, %15 ]
   %116 = getelementptr inbounds i8, ptr %0, i64 92
   %117 = load i32, ptr %116, align 4
@@ -281,8 +281,8 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds i8, ptr %0, i64 80
   %121 = load i32, ptr %120, align 8
-  %122 = getelementptr inbounds %struct.lzma_match, ptr %1, i64 %.080
-  %123 = tail call fastcc ptr @hc_find_func(i32 noundef %.079, i32 noundef %20, ptr noundef nonnull %17, i32 noundef %47, i32 noundef %117, ptr noundef %119, i32 noundef %121, i32 noundef %115, ptr noundef %122, i32 noundef %.0)
+  %122 = getelementptr inbounds %struct.lzma_match, ptr %1, i64 %.077
+  %123 = tail call fastcc ptr @hc_find_func(i32 noundef %.078, i32 noundef %20, ptr noundef nonnull %17, i32 noundef %47, i32 noundef %117, ptr noundef %119, i32 noundef %121, i32 noundef %115, ptr noundef %122, i32 noundef %.0)
   %124 = ptrtoint ptr %123 to i64
   %125 = ptrtoint ptr %1 to i64
   %126 = sub i64 %124, %125
@@ -348,8 +348,8 @@ normalize.exit.i103:                              ; preds = %.lr.ph32.i.i99, %.p
   br label %move_pos.exit
 
 move_pos.exit:                                    ; preds = %normalize.exit.i103, %114, %normalize.exit.i, %78, %10
-  %.078 = phi i32 [ 0, %10 ], [ 1, %78 ], [ 1, %normalize.exit.i ], [ %128, %114 ], [ %128, %normalize.exit.i103 ]
-  ret i32 %.078
+  %.080 = phi i32 [ 0, %10 ], [ 1, %78 ], [ 1, %normalize.exit.i ], [ %128, %114 ], [ %128, %normalize.exit.i103 ]
+  ret i32 %.080
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -378,8 +378,8 @@ define internal fastcc ptr @hc_find_func(i32 noundef %0, i32 noundef %1, ptr noc
 .lr.ph73.split.us:                                ; preds = %.lr.ph73, %56
   %18 = phi i32 [ %58, %56 ], [ %15, %.lr.ph73 ]
   %19 = phi i32 [ %57, %56 ], [ %13, %.lr.ph73 ]
-  %.05572.us = phi i32 [ %.1.us, %56 ], [ %9, %.lr.ph73 ]
-  %.05671.us = phi ptr [ %.157.us, %56 ], [ %8, %.lr.ph73 ]
+  %.072.us = phi i32 [ %.1.us, %56 ], [ %9, %.lr.ph73 ]
+  %.05371.us = phi ptr [ %.154.us, %56 ], [ %8, %.lr.ph73 ]
   %20 = zext i32 %19 to i64
   %21 = sub nsw i64 0, %20
   %22 = getelementptr inbounds i8, ptr %2, i64 %21
@@ -390,7 +390,7 @@ define internal fastcc ptr @hc_find_func(i32 noundef %0, i32 noundef %1, ptr noc
   %27 = zext i32 %26 to i64
   %28 = getelementptr inbounds i32, ptr %5, i64 %27
   %29 = load i32, ptr %28, align 4
-  %30 = zext i32 %.05572.us to i64
+  %30 = zext i32 %.072.us to i64
   %31 = getelementptr inbounds i8, ptr %22, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = getelementptr inbounds i8, ptr %2, i64 %30
@@ -405,8 +405,8 @@ define internal fastcc ptr @hc_find_func(i32 noundef %0, i32 noundef %1, ptr noc
   br i1 %39, label %.preheader.us, label %56
 
 .preheader.us:                                    ; preds = %36, %60
-  %.05368.us = phi i32 [ %61, %60 ], [ 1, %36 ]
-  %40 = zext i32 %.05368.us to i64
+  %.05868.us = phi i32 [ %61, %60 ], [ 1, %36 ]
+  %40 = zext i32 %.05868.us to i64
   %41 = getelementptr inbounds i8, ptr %22, i64 %40
   %.val.us = load i64, ptr %41, align 1
   %42 = getelementptr inbounds i8, ptr %2, i64 %40
@@ -419,27 +419,27 @@ define internal fastcc ptr @hc_find_func(i32 noundef %0, i32 noundef %1, ptr noc
   %45 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %44, i1 true)
   %46 = trunc nuw nsw i64 %45 to i32
   %47 = lshr i32 %46, 3
-  %48 = add i32 %47, %.05368.us
+  %48 = add i32 %47, %.05868.us
   %49 = tail call i32 @llvm.umin.i32(i32 %48, i32 %0)
   br label %..loopexit_crit_edge.us
 
 ..loopexit_crit_edge.us:                          ; preds = %60, %43
-  %.0.us = phi i32 [ %49, %43 ], [ %0, %60 ]
-  %50 = icmp ult i32 %.05572.us, %.0.us
+  %.055.us = phi i32 [ %49, %43 ], [ %0, %60 ]
+  %50 = icmp ult i32 %.072.us, %.055.us
   br i1 %50, label %51, label %56
 
 51:                                               ; preds = %..loopexit_crit_edge.us
-  store i32 %.0.us, ptr %.05671.us, align 4
+  store i32 %.055.us, ptr %.05371.us, align 4
   %52 = add i32 %19, -1
-  %53 = getelementptr inbounds i8, ptr %.05671.us, i64 4
+  %53 = getelementptr inbounds i8, ptr %.05371.us, i64 4
   store i32 %52, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %.05671.us, i64 8
-  %55 = icmp eq i32 %.0.us, %0
+  %54 = getelementptr inbounds i8, ptr %.05371.us, i64 8
+  %55 = icmp eq i32 %.055.us, %0
   br i1 %55, label %._crit_edge, label %56
 
 56:                                               ; preds = %51, %..loopexit_crit_edge.us, %36, %.lr.ph73.split.us
-  %.157.us = phi ptr [ %54, %51 ], [ %.05671.us, %..loopexit_crit_edge.us ], [ %.05671.us, %36 ], [ %.05671.us, %.lr.ph73.split.us ]
-  %.1.us = phi i32 [ %.0.us, %51 ], [ %.05572.us, %..loopexit_crit_edge.us ], [ %.05572.us, %36 ], [ %.05572.us, %.lr.ph73.split.us ]
+  %.154.us = phi ptr [ %54, %51 ], [ %.05371.us, %..loopexit_crit_edge.us ], [ %.05371.us, %36 ], [ %.05371.us, %.lr.ph73.split.us ]
+  %.1.us = phi i32 [ %.055.us, %51 ], [ %.072.us, %..loopexit_crit_edge.us ], [ %.072.us, %36 ], [ %.072.us, %.lr.ph73.split.us ]
   %57 = sub i32 %1, %29
   %58 = add i32 %18, -1
   %59 = icmp ne i32 %18, 0
@@ -448,7 +448,7 @@ define internal fastcc ptr @hc_find_func(i32 noundef %0, i32 noundef %1, ptr noc
   br i1 %or.cond.us, label %.lr.ph73.split.us, label %._crit_edge
 
 60:                                               ; preds = %.preheader.us
-  %61 = add i32 %.05368.us, 8
+  %61 = add i32 %.05868.us, 8
   %62 = icmp ult i32 %61, %0
   br i1 %62, label %.preheader.us, label %..loopexit_crit_edge.us, !llvm.loop !5
 
@@ -494,8 +494,8 @@ define internal fastcc ptr @hc_find_func(i32 noundef %0, i32 noundef %1, ptr noc
   br i1 %or.cond, label %.lr.ph73.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %85, %56, %51, %._crit_edge.split, %10
-  %.054 = phi ptr [ %8, %10 ], [ %84, %._crit_edge.split ], [ %54, %51 ], [ %.157.us, %56 ], [ %8, %85 ]
-  ret ptr %.054
+  %.059 = phi ptr [ %8, %10 ], [ %84, %._crit_edge.split ], [ %54, %51 ], [ %.154.us, %56 ], [ %8, %85 ]
+  ret ptr %.059
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -659,7 +659,7 @@ define dso_local i32 @lzma_mf_hc4_find(ptr nocapture noundef %0, ptr noundef %1)
   br label %move_pos.exit
 
 15:                                               ; preds = %2, %8
-  %.0105 = phi i32 [ %5, %8 ], [ %7, %2 ]
+  %.0106 = phi i32 [ %5, %8 ], [ %7, %2 ]
   %.val119 = load ptr, ptr %0, align 8
   %16 = zext i32 %.val to i64
   %17 = getelementptr inbounds i8, ptr %.val119, i64 %16
@@ -736,7 +736,7 @@ define dso_local i32 @lzma_mf_hc4_find(ptr nocapture noundef %0, ptr noundef %1)
 
 78:                                               ; preds = %75, %68, %15
   %.not116 = phi i1 [ false, %75 ], [ true, %68 ], [ true, %15 ]
-  %.0106 = phi i32 [ 1, %75 ], [ 0, %68 ], [ 0, %15 ]
+  %.0104 = phi i32 [ 1, %75 ], [ 0, %68 ], [ 0, %15 ]
   %.0 = phi i32 [ 2, %75 ], [ 1, %68 ], [ 1, %15 ]
   %.not115 = icmp eq i32 %55, %50
   br i1 %.not115, label %93, label %79
@@ -757,8 +757,8 @@ define dso_local i32 @lzma_mf_hc4_find(ptr nocapture noundef %0, ptr noundef %1)
 
 .thread:                                          ; preds = %82
   %89 = add i32 %56, -1
-  %90 = add nuw nsw i32 %.0106, 1
-  %91 = zext nneg i32 %.0106 to i64
+  %90 = add nuw nsw i32 %.0104, 1
+  %91 = zext nneg i32 %.0104 to i64
   %92 = getelementptr inbounds %struct.lzma_match, ptr %1, i64 %91, i32 1
   store i32 %89, ptr %92, align 4
   br label %94
@@ -774,21 +774,21 @@ define dso_local i32 @lzma_mf_hc4_find(ptr nocapture noundef %0, ptr noundef %1)
 94:                                               ; preds = %._crit_edge, %.thread
   %.pre-phi154 = phi i64 [ %.pre153, %._crit_edge ], [ %84, %.thread ]
   %.1144 = phi i32 [ %.0, %._crit_edge ], [ 3, %.thread ]
-  %.1107141 = phi i32 [ 1, %._crit_edge ], [ %90, %.thread ]
+  %.1105141 = phi i32 [ 1, %._crit_edge ], [ %90, %.thread ]
   %95 = getelementptr inbounds i8, ptr %17, i64 %.pre-phi154
-  %96 = icmp ult i32 %.1144, %.0105
+  %96 = icmp ult i32 %.1144, %.0106
   br i1 %96, label %.lr.ph, label %.thread145
 
 .thread145:                                       ; preds = %103, %94
-  %97 = zext nneg i32 %.1107141 to i64
+  %97 = zext nneg i32 %.1105141 to i64
   %98 = getelementptr %struct.lzma_match, ptr %1, i64 %97
   %99 = getelementptr i8, ptr %98, i64 -8
-  store i32 %.0105, ptr %99, align 4
+  store i32 %.0106, ptr %99, align 4
   br label %116
 
 .lr.ph:                                           ; preds = %94, %103
-  %.0102149 = phi i32 [ %104, %103 ], [ %.1144, %94 ]
-  %100 = zext i32 %.0102149 to i64
+  %.0103149 = phi i32 [ %104, %103 ], [ %.1144, %94 ]
+  %100 = zext i32 %.0103149 to i64
   %101 = getelementptr inbounds i8, ptr %95, i64 %100
   %.val121 = load i64, ptr %101, align 1
   %102 = getelementptr inbounds i8, ptr %17, i64 %100
@@ -797,8 +797,8 @@ define dso_local i32 @lzma_mf_hc4_find(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %.not117, label %103, label %106
 
 103:                                              ; preds = %.lr.ph
-  %104 = add i32 %.0102149, 8
-  %105 = icmp ult i32 %104, %.0105
+  %104 = add i32 %.0103149, 8
+  %105 = icmp ult i32 %104, %.0106
   br i1 %105, label %.lr.ph, label %.thread145, !llvm.loop !5
 
 106:                                              ; preds = %.lr.ph
@@ -806,13 +806,13 @@ define dso_local i32 @lzma_mf_hc4_find(ptr nocapture noundef %0, ptr noundef %1)
   %108 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %107, i1 true)
   %109 = trunc nuw nsw i64 %108 to i32
   %110 = lshr i32 %109, 3
-  %111 = add i32 %110, %.0102149
-  %112 = tail call i32 @llvm.umin.i32(i32 %111, i32 %.0105)
-  %113 = zext nneg i32 %.1107141 to i64
+  %111 = add i32 %110, %.0103149
+  %112 = tail call i32 @llvm.umin.i32(i32 %111, i32 %.0106)
+  %113 = zext nneg i32 %.1105141 to i64
   %114 = getelementptr %struct.lzma_match, ptr %1, i64 %113
   %115 = getelementptr i8, ptr %114, i64 -8
   store i32 %112, ptr %115, align 4
-  %.not147 = icmp ugt i32 %.0105, %111
+  %.not147 = icmp ugt i32 %.0106, %111
   br i1 %.not147, label %152, label %116
 
 116:                                              ; preds = %.thread145, %106
@@ -883,7 +883,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
   br label %move_pos.exit
 
 152:                                              ; preds = %106, %93
-  %.1107142 = phi i32 [ %.1107141, %106 ], [ 0, %93 ]
+  %.1105142 = phi i32 [ %.1105141, %106 ], [ 0, %93 ]
   %.2 = phi i32 [ %112, %106 ], [ %.0, %93 ]
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.2, i32 3)
   %153 = getelementptr inbounds i8, ptr %0, i64 92
@@ -893,9 +893,9 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
   %157 = getelementptr inbounds i8, ptr %0, i64 80
   %158 = load i32, ptr %157, align 8
   %159 = load i32, ptr %65, align 4
-  %160 = zext nneg i32 %.1107142 to i64
+  %160 = zext nneg i32 %.1105142 to i64
   %161 = getelementptr inbounds %struct.lzma_match, ptr %1, i64 %160
-  %162 = tail call fastcc ptr @hc_find_func(i32 noundef %.0105, i32 noundef %20, ptr noundef nonnull %17, i32 noundef %60, i32 noundef %154, ptr noundef %156, i32 noundef %158, i32 noundef %159, ptr noundef %161, i32 noundef %spec.store.select)
+  %162 = tail call fastcc ptr @hc_find_func(i32 noundef %.0106, i32 noundef %20, ptr noundef nonnull %17, i32 noundef %60, i32 noundef %154, ptr noundef %156, i32 noundef %158, i32 noundef %159, ptr noundef %161, i32 noundef %spec.store.select)
   %163 = ptrtoint ptr %162 to i64
   %164 = ptrtoint ptr %1 to i64
   %165 = sub i64 %163, %164
@@ -961,8 +961,8 @@ normalize.exit.i135:                              ; preds = %.lr.ph32.i.i131, %.
   br label %move_pos.exit
 
 move_pos.exit:                                    ; preds = %normalize.exit.i135, %152, %normalize.exit.i, %116, %10
-  %.0104 = phi i32 [ 0, %10 ], [ %.1107141, %116 ], [ %.1107141, %normalize.exit.i ], [ %167, %152 ], [ %167, %normalize.exit.i135 ]
-  ret i32 %.0104
+  %.0107 = phi i32 [ 0, %10 ], [ %.1105141, %116 ], [ %.1105141, %normalize.exit.i ], [ %167, %152 ], [ %167, %normalize.exit.i135 ]
+  ret i32 %.0107
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1178,23 +1178,23 @@ define dso_local i32 @lzma_mf_bt2_find(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %or.cond108.i, label %.lr.ph116.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %99, %19
-  %.089.lcssa.i = phi ptr [ %1, %19 ], [ %.190.i, %99 ]
-  %.085.lcssa.i = phi ptr [ %41, %19 ], [ %.186.i, %99 ]
-  %.083.lcssa.i = phi ptr [ %40, %19 ], [ %.184.i, %99 ]
-  store i32 0, ptr %.085.lcssa.i, align 4
-  store i32 0, ptr %.083.lcssa.i, align 4
+  %.086.lcssa.i = phi ptr [ %1, %19 ], [ %.187.i, %99 ]
+  %.082.lcssa.i = phi ptr [ %41, %19 ], [ %.183.i, %99 ]
+  %.080.lcssa.i = phi ptr [ %40, %19 ], [ %.181.i, %99 ]
+  store i32 0, ptr %.082.lcssa.i, align 4
+  store i32 0, ptr %.080.lcssa.i, align 4
   br label %bt_find_func.exit
 
 .lr.ph116.i:                                      ; preds = %19, %99
   %.in.i = phi i32 [ %45, %99 ], [ %31, %19 ]
   %44 = phi i32 [ %100, %99 ], [ %42, %19 ]
-  %.080115.i = phi i32 [ %.1.i, %99 ], [ 0, %19 ]
-  %.081114.i = phi i32 [ %.182.i, %99 ], [ 0, %19 ]
-  %.083113.i = phi ptr [ %.184.i, %99 ], [ %40, %19 ]
-  %.085112.i = phi ptr [ %.186.i, %99 ], [ %41, %19 ]
-  %.087111.i = phi i32 [ %.188.i, %99 ], [ 1, %19 ]
-  %.089110.i = phi ptr [ %.190.i, %99 ], [ %1, %19 ]
-  %.091109.i = phi i32 [ %.192.i, %99 ], [ %29, %19 ]
+  %.077115.i = phi i32 [ %.1.i, %99 ], [ 0, %19 ]
+  %.078114.i = phi i32 [ %.179.i, %99 ], [ 0, %19 ]
+  %.080113.i = phi ptr [ %.181.i, %99 ], [ %40, %19 ]
+  %.082112.i = phi ptr [ %.183.i, %99 ], [ %41, %19 ]
+  %.084111.i = phi i32 [ %.185.i, %99 ], [ 1, %19 ]
+  %.086110.i = phi ptr [ %.187.i, %99 ], [ %1, %19 ]
+  %.090109.i = phi i32 [ %.191.i, %99 ], [ %29, %19 ]
   %45 = add i32 %.in.i, -1
   %46 = sub i32 %35, %44
   %47 = icmp ugt i32 %44, %35
@@ -1206,7 +1206,7 @@ define dso_local i32 @lzma_mf_bt2_find(ptr nocapture noundef %0, ptr noundef %1)
   %53 = zext i32 %44 to i64
   %54 = sub nsw i64 0, %53
   %55 = getelementptr inbounds i8, ptr %21, i64 %54
-  %56 = tail call i32 @llvm.umin.i32(i32 %.081114.i, i32 %.080115.i)
+  %56 = tail call i32 @llvm.umin.i32(i32 %.078114.i, i32 %.077115.i)
   %57 = zext i32 %56 to i64
   %58 = getelementptr inbounds i8, ptr %55, i64 %57
   %59 = load i8, ptr %58, align 1
@@ -1221,8 +1221,8 @@ define dso_local i32 @lzma_mf_bt2_find(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %65, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %63, %76
-  %.078106.i = phi i32 [ %77, %76 ], [ %64, %63 ]
-  %66 = zext i32 %.078106.i to i64
+  %.092106.i = phi i32 [ %77, %76 ], [ %64, %63 ]
+  %66 = zext i32 %.092106.i to i64
   %67 = getelementptr inbounds i8, ptr %55, i64 %66
   %.val.i = load i64, ptr %67, align 1
   %68 = getelementptr inbounds i8, ptr %21, i64 %66
@@ -1235,41 +1235,41 @@ define dso_local i32 @lzma_mf_bt2_find(ptr nocapture noundef %0, ptr noundef %1)
   %71 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %70, i1 true)
   %72 = trunc nuw nsw i64 %71 to i32
   %73 = lshr i32 %72, 3
-  %74 = add i32 %73, %.078106.i
+  %74 = add i32 %73, %.092106.i
   %75 = tail call i32 @llvm.umin.i32(i32 %74, i32 %.029)
   br label %.loopexit.i
 
 76:                                               ; preds = %.lr.ph.i
-  %77 = add i32 %.078106.i, 8
+  %77 = add i32 %.092106.i, 8
   %78 = icmp ult i32 %77, %.029
   br i1 %78, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !5
 
 .loopexit.i:                                      ; preds = %76, %69, %63
-  %.077.i = phi i32 [ %75, %69 ], [ %.029, %63 ], [ %.029, %76 ]
-  %79 = icmp ult i32 %.087111.i, %.077.i
+  %.088.i = phi i32 [ %75, %69 ], [ %.029, %63 ], [ %.029, %76 ]
+  %79 = icmp ult i32 %.084111.i, %.088.i
   br i1 %79, label %80, label %89
 
 80:                                               ; preds = %.loopexit.i
-  store i32 %.077.i, ptr %.089110.i, align 4
+  store i32 %.088.i, ptr %.086110.i, align 4
   %81 = add i32 %44, -1
-  %82 = getelementptr inbounds i8, ptr %.089110.i, i64 4
+  %82 = getelementptr inbounds i8, ptr %.086110.i, i64 4
   store i32 %81, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %.089110.i, i64 8
-  %84 = icmp eq i32 %.077.i, %.029
+  %83 = getelementptr inbounds i8, ptr %.086110.i, i64 8
+  %84 = icmp eq i32 %.088.i, %.029
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %80
   %86 = load i32, ptr %52, align 4
-  store i32 %86, ptr %.083113.i, align 4
+  store i32 %86, ptr %.080113.i, align 4
   %87 = getelementptr inbounds i8, ptr %52, i64 4
   %88 = load i32, ptr %87, align 4
-  store i32 %88, ptr %.085112.i, align 4
+  store i32 %88, ptr %.082112.i, align 4
   br label %bt_find_func.exit
 
 89:                                               ; preds = %80, %.loopexit.i, %.lr.ph116.i
-  %.190.i = phi ptr [ %83, %80 ], [ %.089110.i, %.loopexit.i ], [ %.089110.i, %.lr.ph116.i ]
-  %.188.i = phi i32 [ %.077.i, %80 ], [ %.087111.i, %.loopexit.i ], [ %.087111.i, %.lr.ph116.i ]
-  %.0.i = phi i32 [ %.077.i, %80 ], [ %.077.i, %.loopexit.i ], [ %56, %.lr.ph116.i ]
+  %.187.i = phi ptr [ %83, %80 ], [ %.086110.i, %.loopexit.i ], [ %.086110.i, %.lr.ph116.i ]
+  %.185.i = phi i32 [ %.088.i, %80 ], [ %.084111.i, %.loopexit.i ], [ %.084111.i, %.lr.ph116.i ]
+  %.0.i = phi i32 [ %.088.i, %80 ], [ %.088.i, %.loopexit.i ], [ %56, %.lr.ph116.i ]
   %90 = zext i32 %.0.i to i64
   %91 = getelementptr inbounds i8, ptr %55, i64 %90
   %92 = load i8, ptr %91, align 1
@@ -1279,30 +1279,30 @@ define dso_local i32 @lzma_mf_bt2_find(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %89
-  store i32 %.091109.i, ptr %.083113.i, align 4
+  store i32 %.090109.i, ptr %.080113.i, align 4
   %97 = getelementptr inbounds i8, ptr %52, i64 4
   br label %99
 
 98:                                               ; preds = %89
-  store i32 %.091109.i, ptr %.085112.i, align 4
+  store i32 %.090109.i, ptr %.082112.i, align 4
   br label %99
 
 99:                                               ; preds = %98, %96
-  %.192.in.i = phi ptr [ %97, %96 ], [ %52, %98 ]
-  %.186.i = phi ptr [ %.085112.i, %96 ], [ %52, %98 ]
-  %.184.i = phi ptr [ %97, %96 ], [ %.083113.i, %98 ]
-  %.182.i = phi i32 [ %.081114.i, %96 ], [ %.0.i, %98 ]
-  %.1.i = phi i32 [ %.0.i, %96 ], [ %.080115.i, %98 ]
-  %.192.i = load i32, ptr %.192.in.i, align 4
-  %100 = sub i32 %24, %.192.i
+  %.191.in.i = phi ptr [ %97, %96 ], [ %52, %98 ]
+  %.183.i = phi ptr [ %.082112.i, %96 ], [ %52, %98 ]
+  %.181.i = phi ptr [ %97, %96 ], [ %.080113.i, %98 ]
+  %.179.i = phi i32 [ %.078114.i, %96 ], [ %.0.i, %98 ]
+  %.1.i = phi i32 [ %.0.i, %96 ], [ %.077115.i, %98 ]
+  %.191.i = load i32, ptr %.191.in.i, align 4
+  %100 = sub i32 %24, %.191.i
   %101 = icmp ne i32 %45, 0
   %.not.i = icmp ult i32 %100, %37
   %or.cond.i = select i1 %101, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %.lr.ph116.i, label %._crit_edge.i
 
 bt_find_func.exit:                                ; preds = %._crit_edge.i, %85
-  %.079.i = phi ptr [ %.089.lcssa.i, %._crit_edge.i ], [ %83, %85 ]
-  %102 = ptrtoint ptr %.079.i to i64
+  %.093.i = phi ptr [ %.086.lcssa.i, %._crit_edge.i ], [ %83, %85 ]
+  %102 = ptrtoint ptr %.093.i to i64
   %103 = ptrtoint ptr %1 to i64
   %104 = sub i64 %102, %103
   %105 = lshr exact i64 %104, 3
@@ -1442,20 +1442,20 @@ define dso_local void @lzma_mf_bt2_skip(ptr nocapture noundef %0, i32 noundef %1
   br i1 %or.cond104.i, label %.lr.ph110.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %91, %28
-  %.075.lcssa.i = phi ptr [ %44, %28 ], [ %.176.i, %91 ]
-  %.073.lcssa.i = phi ptr [ %43, %28 ], [ %.174.i, %91 ]
-  store i32 0, ptr %.075.lcssa.i, align 4
-  store i32 0, ptr %.073.lcssa.i, align 4
+  %.071.lcssa.i = phi ptr [ %44, %28 ], [ %.172.i, %91 ]
+  %.069.lcssa.i = phi ptr [ %43, %28 ], [ %.170.i, %91 ]
+  store i32 0, ptr %.071.lcssa.i, align 4
+  store i32 0, ptr %.069.lcssa.i, align 4
   br label %bt_skip_func.exit
 
 .lr.ph110.i:                                      ; preds = %28, %91
   %.in.i = phi i32 [ %48, %91 ], [ %37, %28 ]
   %47 = phi i32 [ %92, %91 ], [ %45, %28 ]
-  %.068109.i = phi i32 [ %.1.i, %91 ], [ %36, %28 ]
-  %.069108.i = phi i32 [ %.170.i, %91 ], [ 0, %28 ]
-  %.071107.i = phi i32 [ %.172.i, %91 ], [ 0, %28 ]
-  %.073106.i = phi ptr [ %.174.i, %91 ], [ %43, %28 ]
-  %.075105.i = phi ptr [ %.176.i, %91 ], [ %44, %28 ]
+  %.066109.i = phi i32 [ %.1.i, %91 ], [ 0, %28 ]
+  %.067108.i = phi i32 [ %.168.i, %91 ], [ 0, %28 ]
+  %.069107.i = phi ptr [ %.170.i, %91 ], [ %43, %28 ]
+  %.071106.i = phi ptr [ %.172.i, %91 ], [ %44, %28 ]
+  %.075105.i = phi i32 [ %.176.i, %91 ], [ %36, %28 ]
   %48 = add i32 %.in.i, -1
   %49 = sub i32 %39, %47
   %50 = icmp ugt i32 %47, %39
@@ -1467,7 +1467,7 @@ define dso_local void @lzma_mf_bt2_skip(ptr nocapture noundef %0, i32 noundef %1
   %56 = zext i32 %47 to i64
   %57 = sub nsw i64 0, %56
   %58 = getelementptr inbounds i8, ptr %30, i64 %57
-  %59 = tail call i32 @llvm.umin.i32(i32 %.071107.i, i32 %.069108.i)
+  %59 = tail call i32 @llvm.umin.i32(i32 %.067108.i, i32 %.066109.i)
   %60 = zext i32 %59 to i64
   %61 = getelementptr inbounds i8, ptr %58, i64 %60
   %62 = load i8, ptr %61, align 1
@@ -1482,8 +1482,8 @@ define dso_local void @lzma_mf_bt2_skip(ptr nocapture noundef %0, i32 noundef %1
   br i1 %68, label %.lr.ph.i, label %.thread.i
 
 .lr.ph.i:                                         ; preds = %66, %72
-  %.06796.i = phi i32 [ %73, %72 ], [ %67, %66 ]
-  %69 = zext i32 %.06796.i to i64
+  %.07796.i = phi i32 [ %73, %72 ], [ %67, %66 ]
+  %69 = zext i32 %.07796.i to i64
   %70 = getelementptr inbounds i8, ptr %58, i64 %69
   %.val.i = load i64, ptr %70, align 1
   %71 = getelementptr inbounds i8, ptr %30, i64 %69
@@ -1492,7 +1492,7 @@ define dso_local void @lzma_mf_bt2_skip(ptr nocapture noundef %0, i32 noundef %1
   br i1 %.not83.i, label %72, label %75
 
 72:                                               ; preds = %.lr.ph.i
-  %73 = add i32 %.06796.i, 8
+  %73 = add i32 %.07796.i, 8
   %74 = icmp ult i32 %73, %.025
   br i1 %74, label %.lr.ph.i, label %.thread.i, !llvm.loop !5
 
@@ -1501,7 +1501,7 @@ define dso_local void @lzma_mf_bt2_skip(ptr nocapture noundef %0, i32 noundef %1
   %77 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %76, i1 true)
   %78 = trunc nuw nsw i64 %77 to i32
   %79 = lshr i32 %78, 3
-  %80 = add i32 %79, %.06796.i
+  %80 = add i32 %79, %.07796.i
   %.not86.i = icmp ult i32 %80, %.025
   br i1 %.not86.i, label %._crit_edge125.i, label %.thread.i
 
@@ -1515,10 +1515,10 @@ define dso_local void @lzma_mf_bt2_skip(ptr nocapture noundef %0, i32 noundef %1
 
 .thread.i:                                        ; preds = %75, %66, %72
   %81 = load i32, ptr %55, align 4
-  store i32 %81, ptr %.073106.i, align 4
+  store i32 %81, ptr %.069107.i, align 4
   %82 = getelementptr inbounds i8, ptr %55, i64 4
   %83 = load i32, ptr %82, align 4
-  store i32 %83, ptr %.075105.i, align 4
+  store i32 %83, ptr %.071106.i, align 4
   br label %bt_skip_func.exit
 
 84:                                               ; preds = %._crit_edge125.i, %.lr.ph110.i
@@ -1529,22 +1529,22 @@ define dso_local void @lzma_mf_bt2_skip(ptr nocapture noundef %0, i32 noundef %1
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %84
-  store i32 %.068109.i, ptr %.073106.i, align 4
+  store i32 %.075105.i, ptr %.069107.i, align 4
   %89 = getelementptr inbounds i8, ptr %55, i64 4
   br label %91
 
 90:                                               ; preds = %84
-  store i32 %.068109.i, ptr %.075105.i, align 4
+  store i32 %.075105.i, ptr %.071106.i, align 4
   br label %91
 
 91:                                               ; preds = %90, %88
-  %.176.i = phi ptr [ %.075105.i, %88 ], [ %55, %90 ]
-  %.174.i = phi ptr [ %89, %88 ], [ %.073106.i, %90 ]
-  %.172.i = phi i32 [ %.071107.i, %88 ], [ %.0.i, %90 ]
-  %.170.i = phi i32 [ %.0.i, %88 ], [ %.069108.i, %90 ]
-  %.1.in.i = phi ptr [ %89, %88 ], [ %55, %90 ]
-  %.1.i = load i32, ptr %.1.in.i, align 4
-  %92 = sub i32 %32, %.1.i
+  %.176.in.i = phi ptr [ %89, %88 ], [ %55, %90 ]
+  %.172.i = phi ptr [ %.071106.i, %88 ], [ %55, %90 ]
+  %.170.i = phi ptr [ %89, %88 ], [ %.069107.i, %90 ]
+  %.168.i = phi i32 [ %.067108.i, %88 ], [ %.0.i, %90 ]
+  %.1.i = phi i32 [ %.0.i, %88 ], [ %.066109.i, %90 ]
+  %.176.i = load i32, ptr %.176.in.i, align 4
+  %92 = sub i32 %32, %.176.i
   %93 = icmp ne i32 %48, 0
   %.not.i = icmp ult i32 %92, %40
   %or.cond.i = select i1 %93, i1 %.not.i, i1 false
@@ -1649,7 +1649,7 @@ define dso_local i32 @lzma_mf_bt3_find(ptr nocapture noundef %0, ptr noundef %1)
   br label %move_pos.exit
 
 19:                                               ; preds = %2, %10
-  %.085 = phi i32 [ %5, %10 ], [ %7, %2 ]
+  %.084 = phi i32 [ %5, %10 ], [ %7, %2 ]
   %.val93 = load ptr, ptr %0, align 8
   %20 = zext i32 %.val to i64
   %21 = getelementptr inbounds i8, ptr %.val93, i64 %20
@@ -1702,19 +1702,19 @@ define dso_local i32 @lzma_mf_bt3_find(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %63, label %.preheader, label %172
 
 .preheader:                                       ; preds = %57
-  %64 = icmp ugt i32 %.085, 2
+  %64 = icmp ugt i32 %.084, 2
   br i1 %64, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %70, %.preheader
-  store i32 %.085, ptr %1, align 4
+  store i32 %.084, ptr %1, align 4
   %65 = add i32 %47, -1
   %66 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 %65, ptr %66, align 4
   br label %82
 
 .lr.ph:                                           ; preds = %.preheader, %70
-  %.083143 = phi i32 [ %71, %70 ], [ 2, %.preheader ]
-  %67 = zext i32 %.083143 to i64
+  %.085143 = phi i32 [ %71, %70 ], [ 2, %.preheader ]
+  %67 = zext i32 %.085143 to i64
   %68 = getelementptr inbounds i8, ptr %21, i64 %67
   %.val95 = load i64, ptr %68, align 1
   %69 = getelementptr inbounds i8, ptr %60, i64 %67
@@ -1723,8 +1723,8 @@ define dso_local i32 @lzma_mf_bt3_find(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %.not91, label %70, label %73
 
 70:                                               ; preds = %.lr.ph
-  %71 = add i32 %.083143, 8
-  %72 = icmp ult i32 %71, %.085
+  %71 = add i32 %.085143, 8
+  %72 = icmp ult i32 %71, %.084
   br i1 %72, label %.lr.ph, label %.thread, !llvm.loop !5
 
 73:                                               ; preds = %.lr.ph
@@ -1732,13 +1732,13 @@ define dso_local i32 @lzma_mf_bt3_find(ptr nocapture noundef %0, ptr noundef %1)
   %75 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %74, i1 true)
   %76 = trunc nuw nsw i64 %75 to i32
   %77 = lshr i32 %76, 3
-  %78 = add i32 %77, %.083143
-  %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 %.085)
+  %78 = add i32 %77, %.085143
+  %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 %.084)
   store i32 %79, ptr %1, align 4
   %80 = add i32 %47, -1
   %81 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 %80, ptr %81, align 4
-  %.not120 = icmp ugt i32 %.085, %78
+  %.not120 = icmp ugt i32 %.084, %78
   br i1 %.not120, label %._crit_edge, label %82
 
 ._crit_edge:                                      ; preds = %73
@@ -1764,20 +1764,20 @@ define dso_local i32 @lzma_mf_bt3_find(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %or.cond104.i, label %.lr.ph110.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %140, %82
-  %.075.lcssa.i = phi ptr [ %93, %82 ], [ %.176.i, %140 ]
-  %.073.lcssa.i = phi ptr [ %92, %82 ], [ %.174.i, %140 ]
-  store i32 0, ptr %.075.lcssa.i, align 4
-  store i32 0, ptr %.073.lcssa.i, align 4
+  %.071.lcssa.i = phi ptr [ %93, %82 ], [ %.172.i, %140 ]
+  %.069.lcssa.i = phi ptr [ %92, %82 ], [ %.170.i, %140 ]
+  store i32 0, ptr %.071.lcssa.i, align 4
+  store i32 0, ptr %.069.lcssa.i, align 4
   br label %bt_skip_func.exit
 
 .lr.ph110.i:                                      ; preds = %82, %140
   %.in.i = phi i32 [ %97, %140 ], [ %84, %82 ]
   %96 = phi i32 [ %141, %140 ], [ %94, %82 ]
-  %.068109.i = phi i32 [ %.1.i, %140 ], [ %51, %82 ]
-  %.069108.i = phi i32 [ %.170.i, %140 ], [ 0, %82 ]
-  %.071107.i = phi i32 [ %.172.i, %140 ], [ 0, %82 ]
-  %.073106.i = phi ptr [ %.174.i, %140 ], [ %92, %82 ]
-  %.075105.i = phi ptr [ %.176.i, %140 ], [ %93, %82 ]
+  %.066109.i = phi i32 [ %.1.i, %140 ], [ 0, %82 ]
+  %.067108.i = phi i32 [ %.168.i, %140 ], [ 0, %82 ]
+  %.069107.i = phi ptr [ %.170.i, %140 ], [ %92, %82 ]
+  %.071106.i = phi ptr [ %.172.i, %140 ], [ %93, %82 ]
+  %.075105.i = phi i32 [ %.176.i, %140 ], [ %51, %82 ]
   %97 = add i32 %.in.i, -1
   %98 = sub i32 %88, %96
   %99 = icmp ugt i32 %96, %88
@@ -1789,7 +1789,7 @@ define dso_local i32 @lzma_mf_bt3_find(ptr nocapture noundef %0, ptr noundef %1)
   %105 = zext i32 %96 to i64
   %106 = sub nsw i64 0, %105
   %107 = getelementptr inbounds i8, ptr %21, i64 %106
-  %108 = tail call i32 @llvm.umin.i32(i32 %.071107.i, i32 %.069108.i)
+  %108 = tail call i32 @llvm.umin.i32(i32 %.067108.i, i32 %.066109.i)
   %109 = zext i32 %108 to i64
   %110 = getelementptr inbounds i8, ptr %107, i64 %109
   %111 = load i8, ptr %110, align 1
@@ -1800,12 +1800,12 @@ define dso_local i32 @lzma_mf_bt3_find(ptr nocapture noundef %0, ptr noundef %1)
 
 115:                                              ; preds = %.lr.ph110.i
   %116 = add i32 %108, 1
-  %117 = icmp ult i32 %116, %.085
+  %117 = icmp ult i32 %116, %.084
   br i1 %117, label %.lr.ph.i, label %.thread.i
 
 .lr.ph.i:                                         ; preds = %115, %121
-  %.06796.i = phi i32 [ %122, %121 ], [ %116, %115 ]
-  %118 = zext i32 %.06796.i to i64
+  %.07796.i = phi i32 [ %122, %121 ], [ %116, %115 ]
+  %118 = zext i32 %.07796.i to i64
   %119 = getelementptr inbounds i8, ptr %107, i64 %118
   %.val.i = load i64, ptr %119, align 1
   %120 = getelementptr inbounds i8, ptr %21, i64 %118
@@ -1814,8 +1814,8 @@ define dso_local i32 @lzma_mf_bt3_find(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %.not83.i, label %121, label %124
 
 121:                                              ; preds = %.lr.ph.i
-  %122 = add i32 %.06796.i, 8
-  %123 = icmp ult i32 %122, %.085
+  %122 = add i32 %.07796.i, 8
+  %123 = icmp ult i32 %122, %.084
   br i1 %123, label %.lr.ph.i, label %.thread.i, !llvm.loop !5
 
 124:                                              ; preds = %.lr.ph.i
@@ -1823,8 +1823,8 @@ define dso_local i32 @lzma_mf_bt3_find(ptr nocapture noundef %0, ptr noundef %1)
   %126 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %125, i1 true)
   %127 = trunc nuw nsw i64 %126 to i32
   %128 = lshr i32 %127, 3
-  %129 = add i32 %128, %.06796.i
-  %.not86.i = icmp ult i32 %129, %.085
+  %129 = add i32 %128, %.07796.i
+  %.not86.i = icmp ult i32 %129, %.084
   br i1 %.not86.i, label %._crit_edge125.i, label %.thread.i
 
 ._crit_edge125.i:                                 ; preds = %124
@@ -1837,10 +1837,10 @@ define dso_local i32 @lzma_mf_bt3_find(ptr nocapture noundef %0, ptr noundef %1)
 
 .thread.i:                                        ; preds = %124, %115, %121
   %130 = load i32, ptr %104, align 4
-  store i32 %130, ptr %.073106.i, align 4
+  store i32 %130, ptr %.069107.i, align 4
   %131 = getelementptr inbounds i8, ptr %104, i64 4
   %132 = load i32, ptr %131, align 4
-  store i32 %132, ptr %.075105.i, align 4
+  store i32 %132, ptr %.071106.i, align 4
   br label %bt_skip_func.exit
 
 133:                                              ; preds = %._crit_edge125.i, %.lr.ph110.i
@@ -1851,22 +1851,22 @@ define dso_local i32 @lzma_mf_bt3_find(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %136, label %137, label %139
 
 137:                                              ; preds = %133
-  store i32 %.068109.i, ptr %.073106.i, align 4
+  store i32 %.075105.i, ptr %.069107.i, align 4
   %138 = getelementptr inbounds i8, ptr %104, i64 4
   br label %140
 
 139:                                              ; preds = %133
-  store i32 %.068109.i, ptr %.075105.i, align 4
+  store i32 %.075105.i, ptr %.071106.i, align 4
   br label %140
 
 140:                                              ; preds = %139, %137
-  %.176.i = phi ptr [ %.075105.i, %137 ], [ %104, %139 ]
-  %.174.i = phi ptr [ %138, %137 ], [ %.073106.i, %139 ]
-  %.172.i = phi i32 [ %.071107.i, %137 ], [ %.0.i, %139 ]
-  %.170.i = phi i32 [ %.0.i, %137 ], [ %.069108.i, %139 ]
-  %.1.in.i = phi ptr [ %138, %137 ], [ %104, %139 ]
-  %.1.i = load i32, ptr %.1.in.i, align 4
-  %141 = sub i32 %24, %.1.i
+  %.176.in.i = phi ptr [ %138, %137 ], [ %104, %139 ]
+  %.172.i = phi ptr [ %.071106.i, %137 ], [ %104, %139 ]
+  %.170.i = phi ptr [ %138, %137 ], [ %.069107.i, %139 ]
+  %.168.i = phi i32 [ %.067108.i, %137 ], [ %.0.i, %139 ]
+  %.1.i = phi i32 [ %.0.i, %137 ], [ %.066109.i, %139 ]
+  %.176.i = load i32, ptr %.176.in.i, align 4
+  %141 = sub i32 %24, %.176.i
   %142 = icmp ne i32 %97, 0
   %.not.i = icmp ult i32 %141, %89
   %or.cond.i = select i1 %142, i1 %.not.i, i1 false
@@ -1934,7 +1934,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
 
 172:                                              ; preds = %._crit_edge, %19, %57
   %173 = phi i32 [ %.pre, %._crit_edge ], [ %55, %57 ], [ %55, %19 ]
-  %.086 = phi i64 [ 1, %._crit_edge ], [ 0, %57 ], [ 0, %19 ]
+  %.083 = phi i64 [ 1, %._crit_edge ], [ 0, %57 ], [ 0, %19 ]
   %.0 = phi i32 [ %79, %._crit_edge ], [ 2, %57 ], [ 2, %19 ]
   %174 = getelementptr inbounds i8, ptr %0, i64 92
   %175 = load i32, ptr %174, align 4
@@ -1942,7 +1942,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
   %177 = load ptr, ptr %176, align 8
   %178 = getelementptr inbounds i8, ptr %0, i64 80
   %179 = load i32, ptr %178, align 8
-  %180 = getelementptr inbounds %struct.lzma_match, ptr %1, i64 %.086
+  %180 = getelementptr inbounds %struct.lzma_match, ptr %1, i64 %.083
   %181 = shl i32 %179, 1
   %182 = zext i32 %181 to i64
   %183 = getelementptr inbounds i32, ptr %177, i64 %182
@@ -1954,23 +1954,23 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
   br i1 %or.cond108.i, label %.lr.ph116.i, label %._crit_edge.i97
 
 ._crit_edge.i97:                                  ; preds = %242, %172
-  %.089.lcssa.i = phi ptr [ %180, %172 ], [ %.190.i, %242 ]
-  %.085.lcssa.i = phi ptr [ %184, %172 ], [ %.186.i, %242 ]
-  %.083.lcssa.i = phi ptr [ %183, %172 ], [ %.184.i, %242 ]
-  store i32 0, ptr %.085.lcssa.i, align 4
-  store i32 0, ptr %.083.lcssa.i, align 4
+  %.086.lcssa.i = phi ptr [ %180, %172 ], [ %.187.i, %242 ]
+  %.082.lcssa.i = phi ptr [ %184, %172 ], [ %.183.i, %242 ]
+  %.080.lcssa.i = phi ptr [ %183, %172 ], [ %.181.i, %242 ]
+  store i32 0, ptr %.082.lcssa.i, align 4
+  store i32 0, ptr %.080.lcssa.i, align 4
   br label %bt_find_func.exit
 
 .lr.ph116.i:                                      ; preds = %172, %242
   %.in.i98 = phi i32 [ %188, %242 ], [ %175, %172 ]
   %187 = phi i32 [ %243, %242 ], [ %185, %172 ]
-  %.080115.i = phi i32 [ %.1.i100, %242 ], [ 0, %172 ]
-  %.081114.i = phi i32 [ %.182.i, %242 ], [ 0, %172 ]
-  %.083113.i = phi ptr [ %.184.i, %242 ], [ %183, %172 ]
-  %.085112.i = phi ptr [ %.186.i, %242 ], [ %184, %172 ]
-  %.087111.i = phi i32 [ %.188.i, %242 ], [ %.0, %172 ]
-  %.089110.i = phi ptr [ %.190.i, %242 ], [ %180, %172 ]
-  %.091109.i = phi i32 [ %.192.i, %242 ], [ %51, %172 ]
+  %.077115.i = phi i32 [ %.1.i100, %242 ], [ 0, %172 ]
+  %.078114.i = phi i32 [ %.179.i, %242 ], [ 0, %172 ]
+  %.080113.i = phi ptr [ %.181.i, %242 ], [ %183, %172 ]
+  %.082112.i = phi ptr [ %.183.i, %242 ], [ %184, %172 ]
+  %.084111.i = phi i32 [ %.185.i, %242 ], [ %.0, %172 ]
+  %.086110.i = phi ptr [ %.187.i, %242 ], [ %180, %172 ]
+  %.090109.i = phi i32 [ %.191.i, %242 ], [ %51, %172 ]
   %188 = add i32 %.in.i98, -1
   %189 = sub i32 %179, %187
   %190 = icmp ugt i32 %187, %179
@@ -1982,7 +1982,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
   %196 = zext i32 %187 to i64
   %197 = sub nsw i64 0, %196
   %198 = getelementptr inbounds i8, ptr %21, i64 %197
-  %199 = tail call i32 @llvm.umin.i32(i32 %.081114.i, i32 %.080115.i)
+  %199 = tail call i32 @llvm.umin.i32(i32 %.078114.i, i32 %.077115.i)
   %200 = zext i32 %199 to i64
   %201 = getelementptr inbounds i8, ptr %198, i64 %200
   %202 = load i8, ptr %201, align 1
@@ -1993,12 +1993,12 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
 
 206:                                              ; preds = %.lr.ph116.i
   %207 = add i32 %199, 1
-  %208 = icmp ult i32 %207, %.085
+  %208 = icmp ult i32 %207, %.084
   br i1 %208, label %.lr.ph.i103, label %.loopexit.i
 
 .lr.ph.i103:                                      ; preds = %206, %219
-  %.078106.i = phi i32 [ %220, %219 ], [ %207, %206 ]
-  %209 = zext i32 %.078106.i to i64
+  %.092106.i = phi i32 [ %220, %219 ], [ %207, %206 ]
+  %209 = zext i32 %.092106.i to i64
   %210 = getelementptr inbounds i8, ptr %198, i64 %209
   %.val.i104 = load i64, ptr %210, align 1
   %211 = getelementptr inbounds i8, ptr %21, i64 %209
@@ -2011,41 +2011,41 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
   %214 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %213, i1 true)
   %215 = trunc nuw nsw i64 %214 to i32
   %216 = lshr i32 %215, 3
-  %217 = add i32 %216, %.078106.i
-  %218 = tail call i32 @llvm.umin.i32(i32 %217, i32 %.085)
+  %217 = add i32 %216, %.092106.i
+  %218 = tail call i32 @llvm.umin.i32(i32 %217, i32 %.084)
   br label %.loopexit.i
 
 219:                                              ; preds = %.lr.ph.i103
-  %220 = add i32 %.078106.i, 8
-  %221 = icmp ult i32 %220, %.085
+  %220 = add i32 %.092106.i, 8
+  %221 = icmp ult i32 %220, %.084
   br i1 %221, label %.lr.ph.i103, label %.loopexit.i, !llvm.loop !5
 
 .loopexit.i:                                      ; preds = %219, %212, %206
-  %.077.i = phi i32 [ %218, %212 ], [ %.085, %206 ], [ %.085, %219 ]
-  %222 = icmp ult i32 %.087111.i, %.077.i
+  %.088.i = phi i32 [ %218, %212 ], [ %.084, %206 ], [ %.084, %219 ]
+  %222 = icmp ult i32 %.084111.i, %.088.i
   br i1 %222, label %223, label %232
 
 223:                                              ; preds = %.loopexit.i
-  store i32 %.077.i, ptr %.089110.i, align 4
+  store i32 %.088.i, ptr %.086110.i, align 4
   %224 = add i32 %187, -1
-  %225 = getelementptr inbounds i8, ptr %.089110.i, i64 4
+  %225 = getelementptr inbounds i8, ptr %.086110.i, i64 4
   store i32 %224, ptr %225, align 4
-  %226 = getelementptr inbounds i8, ptr %.089110.i, i64 8
-  %227 = icmp eq i32 %.077.i, %.085
+  %226 = getelementptr inbounds i8, ptr %.086110.i, i64 8
+  %227 = icmp eq i32 %.088.i, %.084
   br i1 %227, label %228, label %232
 
 228:                                              ; preds = %223
   %229 = load i32, ptr %195, align 4
-  store i32 %229, ptr %.083113.i, align 4
+  store i32 %229, ptr %.080113.i, align 4
   %230 = getelementptr inbounds i8, ptr %195, i64 4
   %231 = load i32, ptr %230, align 4
-  store i32 %231, ptr %.085112.i, align 4
+  store i32 %231, ptr %.082112.i, align 4
   br label %bt_find_func.exit
 
 232:                                              ; preds = %223, %.loopexit.i, %.lr.ph116.i
-  %.190.i = phi ptr [ %226, %223 ], [ %.089110.i, %.loopexit.i ], [ %.089110.i, %.lr.ph116.i ]
-  %.188.i = phi i32 [ %.077.i, %223 ], [ %.087111.i, %.loopexit.i ], [ %.087111.i, %.lr.ph116.i ]
-  %.0.i99 = phi i32 [ %.077.i, %223 ], [ %.077.i, %.loopexit.i ], [ %199, %.lr.ph116.i ]
+  %.187.i = phi ptr [ %226, %223 ], [ %.086110.i, %.loopexit.i ], [ %.086110.i, %.lr.ph116.i ]
+  %.185.i = phi i32 [ %.088.i, %223 ], [ %.084111.i, %.loopexit.i ], [ %.084111.i, %.lr.ph116.i ]
+  %.0.i99 = phi i32 [ %.088.i, %223 ], [ %.088.i, %.loopexit.i ], [ %199, %.lr.ph116.i ]
   %233 = zext i32 %.0.i99 to i64
   %234 = getelementptr inbounds i8, ptr %198, i64 %233
   %235 = load i8, ptr %234, align 1
@@ -2055,30 +2055,30 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
   br i1 %238, label %239, label %241
 
 239:                                              ; preds = %232
-  store i32 %.091109.i, ptr %.083113.i, align 4
+  store i32 %.090109.i, ptr %.080113.i, align 4
   %240 = getelementptr inbounds i8, ptr %195, i64 4
   br label %242
 
 241:                                              ; preds = %232
-  store i32 %.091109.i, ptr %.085112.i, align 4
+  store i32 %.090109.i, ptr %.082112.i, align 4
   br label %242
 
 242:                                              ; preds = %241, %239
-  %.192.in.i = phi ptr [ %240, %239 ], [ %195, %241 ]
-  %.186.i = phi ptr [ %.085112.i, %239 ], [ %195, %241 ]
-  %.184.i = phi ptr [ %240, %239 ], [ %.083113.i, %241 ]
-  %.182.i = phi i32 [ %.081114.i, %239 ], [ %.0.i99, %241 ]
-  %.1.i100 = phi i32 [ %.0.i99, %239 ], [ %.080115.i, %241 ]
-  %.192.i = load i32, ptr %.192.in.i, align 4
-  %243 = sub i32 %24, %.192.i
+  %.191.in.i = phi ptr [ %240, %239 ], [ %195, %241 ]
+  %.183.i = phi ptr [ %.082112.i, %239 ], [ %195, %241 ]
+  %.181.i = phi ptr [ %240, %239 ], [ %.080113.i, %241 ]
+  %.179.i = phi i32 [ %.078114.i, %239 ], [ %.0.i99, %241 ]
+  %.1.i100 = phi i32 [ %.0.i99, %239 ], [ %.077115.i, %241 ]
+  %.191.i = load i32, ptr %.191.in.i, align 4
+  %243 = sub i32 %24, %.191.i
   %244 = icmp ne i32 %188, 0
   %.not.i101 = icmp ult i32 %243, %173
   %or.cond.i102 = select i1 %244, i1 %.not.i101, i1 false
   br i1 %or.cond.i102, label %.lr.ph116.i, label %._crit_edge.i97
 
 bt_find_func.exit:                                ; preds = %._crit_edge.i97, %228
-  %.079.i = phi ptr [ %.089.lcssa.i, %._crit_edge.i97 ], [ %226, %228 ]
-  %245 = ptrtoint ptr %.079.i to i64
+  %.093.i = phi ptr [ %.086.lcssa.i, %._crit_edge.i97 ], [ %226, %228 ]
+  %245 = ptrtoint ptr %.093.i to i64
   %246 = ptrtoint ptr %1 to i64
   %247 = sub i64 %245, %246
   %248 = lshr exact i64 %247, 3
@@ -2143,8 +2143,8 @@ normalize.exit.i117:                              ; preds = %.lr.ph32.i.i113, %.
   br label %move_pos.exit
 
 move_pos.exit:                                    ; preds = %normalize.exit.i117, %bt_find_func.exit, %normalize.exit.i, %bt_skip_func.exit, %14
-  %.084 = phi i32 [ 0, %14 ], [ 1, %bt_skip_func.exit ], [ 1, %normalize.exit.i ], [ %249, %bt_find_func.exit ], [ %249, %normalize.exit.i117 ]
-  ret i32 %.084
+  %.086 = phi i32 [ 0, %14 ], [ 1, %bt_skip_func.exit ], [ 1, %normalize.exit.i ], [ %249, %bt_find_func.exit ], [ %249, %normalize.exit.i117 ]
+  ret i32 %.086
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -2240,20 +2240,20 @@ define dso_local void @lzma_mf_bt3_skip(ptr nocapture noundef %0, i32 noundef %1
   br i1 %or.cond104.i, label %.lr.ph110.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %113, %29
-  %.075.lcssa.i = phi ptr [ %66, %29 ], [ %.176.i, %113 ]
-  %.073.lcssa.i = phi ptr [ %65, %29 ], [ %.174.i, %113 ]
-  store i32 0, ptr %.075.lcssa.i, align 4
-  store i32 0, ptr %.073.lcssa.i, align 4
+  %.071.lcssa.i = phi ptr [ %66, %29 ], [ %.172.i, %113 ]
+  %.069.lcssa.i = phi ptr [ %65, %29 ], [ %.170.i, %113 ]
+  store i32 0, ptr %.071.lcssa.i, align 4
+  store i32 0, ptr %.069.lcssa.i, align 4
   br label %bt_skip_func.exit
 
 .lr.ph110.i:                                      ; preds = %29, %113
   %.in.i = phi i32 [ %70, %113 ], [ %59, %29 ]
   %69 = phi i32 [ %114, %113 ], [ %67, %29 ]
-  %.068109.i = phi i32 [ %.1.i, %113 ], [ %54, %29 ]
-  %.069108.i = phi i32 [ %.170.i, %113 ], [ 0, %29 ]
-  %.071107.i = phi i32 [ %.172.i, %113 ], [ 0, %29 ]
-  %.073106.i = phi ptr [ %.174.i, %113 ], [ %65, %29 ]
-  %.075105.i = phi ptr [ %.176.i, %113 ], [ %66, %29 ]
+  %.066109.i = phi i32 [ %.1.i, %113 ], [ 0, %29 ]
+  %.067108.i = phi i32 [ %.168.i, %113 ], [ 0, %29 ]
+  %.069107.i = phi ptr [ %.170.i, %113 ], [ %65, %29 ]
+  %.071106.i = phi ptr [ %.172.i, %113 ], [ %66, %29 ]
+  %.075105.i = phi i32 [ %.176.i, %113 ], [ %54, %29 ]
   %70 = add i32 %.in.i, -1
   %71 = sub i32 %61, %69
   %72 = icmp ugt i32 %69, %61
@@ -2265,7 +2265,7 @@ define dso_local void @lzma_mf_bt3_skip(ptr nocapture noundef %0, i32 noundef %1
   %78 = zext i32 %69 to i64
   %79 = sub nsw i64 0, %78
   %80 = getelementptr inbounds i8, ptr %31, i64 %79
-  %81 = tail call i32 @llvm.umin.i32(i32 %.071107.i, i32 %.069108.i)
+  %81 = tail call i32 @llvm.umin.i32(i32 %.067108.i, i32 %.066109.i)
   %82 = zext i32 %81 to i64
   %83 = getelementptr inbounds i8, ptr %80, i64 %82
   %84 = load i8, ptr %83, align 1
@@ -2280,8 +2280,8 @@ define dso_local void @lzma_mf_bt3_skip(ptr nocapture noundef %0, i32 noundef %1
   br i1 %90, label %.lr.ph.i, label %.thread.i
 
 .lr.ph.i:                                         ; preds = %88, %94
-  %.06796.i = phi i32 [ %95, %94 ], [ %89, %88 ]
-  %91 = zext i32 %.06796.i to i64
+  %.07796.i = phi i32 [ %95, %94 ], [ %89, %88 ]
+  %91 = zext i32 %.07796.i to i64
   %92 = getelementptr inbounds i8, ptr %80, i64 %91
   %.val.i = load i64, ptr %92, align 1
   %93 = getelementptr inbounds i8, ptr %31, i64 %91
@@ -2290,7 +2290,7 @@ define dso_local void @lzma_mf_bt3_skip(ptr nocapture noundef %0, i32 noundef %1
   br i1 %.not83.i, label %94, label %97
 
 94:                                               ; preds = %.lr.ph.i
-  %95 = add i32 %.06796.i, 8
+  %95 = add i32 %.07796.i, 8
   %96 = icmp ult i32 %95, %.033
   br i1 %96, label %.lr.ph.i, label %.thread.i, !llvm.loop !5
 
@@ -2299,7 +2299,7 @@ define dso_local void @lzma_mf_bt3_skip(ptr nocapture noundef %0, i32 noundef %1
   %99 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %98, i1 true)
   %100 = trunc nuw nsw i64 %99 to i32
   %101 = lshr i32 %100, 3
-  %102 = add i32 %101, %.06796.i
+  %102 = add i32 %101, %.07796.i
   %.not86.i = icmp ult i32 %102, %.033
   br i1 %.not86.i, label %._crit_edge125.i, label %.thread.i
 
@@ -2313,10 +2313,10 @@ define dso_local void @lzma_mf_bt3_skip(ptr nocapture noundef %0, i32 noundef %1
 
 .thread.i:                                        ; preds = %97, %88, %94
   %103 = load i32, ptr %77, align 4
-  store i32 %103, ptr %.073106.i, align 4
+  store i32 %103, ptr %.069107.i, align 4
   %104 = getelementptr inbounds i8, ptr %77, i64 4
   %105 = load i32, ptr %104, align 4
-  store i32 %105, ptr %.075105.i, align 4
+  store i32 %105, ptr %.071106.i, align 4
   br label %bt_skip_func.exit
 
 106:                                              ; preds = %._crit_edge125.i, %.lr.ph110.i
@@ -2327,22 +2327,22 @@ define dso_local void @lzma_mf_bt3_skip(ptr nocapture noundef %0, i32 noundef %1
   br i1 %109, label %110, label %112
 
 110:                                              ; preds = %106
-  store i32 %.068109.i, ptr %.073106.i, align 4
+  store i32 %.075105.i, ptr %.069107.i, align 4
   %111 = getelementptr inbounds i8, ptr %77, i64 4
   br label %113
 
 112:                                              ; preds = %106
-  store i32 %.068109.i, ptr %.075105.i, align 4
+  store i32 %.075105.i, ptr %.071106.i, align 4
   br label %113
 
 113:                                              ; preds = %112, %110
-  %.176.i = phi ptr [ %.075105.i, %110 ], [ %77, %112 ]
-  %.174.i = phi ptr [ %111, %110 ], [ %.073106.i, %112 ]
-  %.172.i = phi i32 [ %.071107.i, %110 ], [ %.0.i, %112 ]
-  %.170.i = phi i32 [ %.0.i, %110 ], [ %.069108.i, %112 ]
-  %.1.in.i = phi ptr [ %111, %110 ], [ %77, %112 ]
-  %.1.i = load i32, ptr %.1.in.i, align 4
-  %114 = sub i32 %33, %.1.i
+  %.176.in.i = phi ptr [ %111, %110 ], [ %77, %112 ]
+  %.172.i = phi ptr [ %.071106.i, %110 ], [ %77, %112 ]
+  %.170.i = phi ptr [ %111, %110 ], [ %.069107.i, %112 ]
+  %.168.i = phi i32 [ %.067108.i, %110 ], [ %.0.i, %112 ]
+  %.1.i = phi i32 [ %.0.i, %110 ], [ %.066109.i, %112 ]
+  %.176.i = load i32, ptr %.176.in.i, align 4
+  %114 = sub i32 %33, %.176.i
   %115 = icmp ne i32 %70, 0
   %.not.i = icmp ult i32 %114, %62
   %or.cond.i = select i1 %115, i1 %.not.i, i1 false
@@ -2447,7 +2447,7 @@ define dso_local i32 @lzma_mf_bt4_find(ptr nocapture noundef %0, ptr noundef %1)
   br label %move_pos.exit
 
 19:                                               ; preds = %2, %10
-  %.0111 = phi i32 [ %5, %10 ], [ %7, %2 ]
+  %.0112 = phi i32 [ %5, %10 ], [ %7, %2 ]
   %.val125 = load ptr, ptr %0, align 8
   %20 = zext i32 %.val to i64
   %21 = getelementptr inbounds i8, ptr %.val125, i64 %20
@@ -2524,7 +2524,7 @@ define dso_local i32 @lzma_mf_bt4_find(ptr nocapture noundef %0, ptr noundef %1)
 
 82:                                               ; preds = %79, %72, %19
   %.not122 = phi i1 [ false, %79 ], [ true, %72 ], [ true, %19 ]
-  %.0112 = phi i32 [ 1, %79 ], [ 0, %72 ], [ 0, %19 ]
+  %.0110 = phi i32 [ 1, %79 ], [ 0, %72 ], [ 0, %19 ]
   %.0 = phi i32 [ 2, %79 ], [ 1, %72 ], [ 1, %19 ]
   %.not121 = icmp eq i32 %59, %54
   br i1 %.not121, label %97, label %83
@@ -2545,8 +2545,8 @@ define dso_local i32 @lzma_mf_bt4_find(ptr nocapture noundef %0, ptr noundef %1)
 
 .thread:                                          ; preds = %86
   %93 = add i32 %60, -1
-  %94 = add nuw nsw i32 %.0112, 1
-  %95 = zext nneg i32 %.0112 to i64
+  %94 = add nuw nsw i32 %.0110, 1
+  %95 = zext nneg i32 %.0110 to i64
   %96 = getelementptr inbounds %struct.lzma_match, ptr %1, i64 %95, i32 1
   store i32 %93, ptr %96, align 4
   br label %98
@@ -2562,21 +2562,21 @@ define dso_local i32 @lzma_mf_bt4_find(ptr nocapture noundef %0, ptr noundef %1)
 98:                                               ; preds = %._crit_edge, %.thread
   %.pre-phi209 = phi i64 [ %.pre208, %._crit_edge ], [ %88, %.thread ]
   %.1158 = phi i32 [ %.0, %._crit_edge ], [ 3, %.thread ]
-  %.1113155 = phi i32 [ 1, %._crit_edge ], [ %94, %.thread ]
+  %.1111155 = phi i32 [ 1, %._crit_edge ], [ %94, %.thread ]
   %99 = getelementptr inbounds i8, ptr %21, i64 %.pre-phi209
-  %100 = icmp ult i32 %.1158, %.0111
+  %100 = icmp ult i32 %.1158, %.0112
   br i1 %100, label %.lr.ph, label %.thread159
 
 .thread159:                                       ; preds = %107, %98
-  %101 = zext nneg i32 %.1113155 to i64
+  %101 = zext nneg i32 %.1111155 to i64
   %102 = getelementptr %struct.lzma_match, ptr %1, i64 %101
   %103 = getelementptr i8, ptr %102, i64 -8
-  store i32 %.0111, ptr %103, align 4
+  store i32 %.0112, ptr %103, align 4
   br label %120
 
 .lr.ph:                                           ; preds = %98, %107
-  %.0108184 = phi i32 [ %108, %107 ], [ %.1158, %98 ]
-  %104 = zext i32 %.0108184 to i64
+  %.0109184 = phi i32 [ %108, %107 ], [ %.1158, %98 ]
+  %104 = zext i32 %.0109184 to i64
   %105 = getelementptr inbounds i8, ptr %21, i64 %104
   %.val127 = load i64, ptr %105, align 1
   %106 = getelementptr inbounds i8, ptr %99, i64 %104
@@ -2585,8 +2585,8 @@ define dso_local i32 @lzma_mf_bt4_find(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %.not123, label %107, label %110
 
 107:                                              ; preds = %.lr.ph
-  %108 = add i32 %.0108184, 8
-  %109 = icmp ult i32 %108, %.0111
+  %108 = add i32 %.0109184, 8
+  %109 = icmp ult i32 %108, %.0112
   br i1 %109, label %.lr.ph, label %.thread159, !llvm.loop !5
 
 110:                                              ; preds = %.lr.ph
@@ -2594,13 +2594,13 @@ define dso_local i32 @lzma_mf_bt4_find(ptr nocapture noundef %0, ptr noundef %1)
   %112 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %111, i1 true)
   %113 = trunc nuw nsw i64 %112 to i32
   %114 = lshr i32 %113, 3
-  %115 = add i32 %114, %.0108184
-  %116 = tail call i32 @llvm.umin.i32(i32 %115, i32 %.0111)
-  %117 = zext nneg i32 %.1113155 to i64
+  %115 = add i32 %114, %.0109184
+  %116 = tail call i32 @llvm.umin.i32(i32 %115, i32 %.0112)
+  %117 = zext nneg i32 %.1111155 to i64
   %118 = getelementptr %struct.lzma_match, ptr %1, i64 %117
   %119 = getelementptr i8, ptr %118, i64 -8
   store i32 %116, ptr %119, align 4
-  %.not161 = icmp ugt i32 %.0111, %115
+  %.not161 = icmp ugt i32 %.0112, %115
   br i1 %.not161, label %210, label %120
 
 120:                                              ; preds = %.thread159, %110
@@ -2622,20 +2622,20 @@ define dso_local i32 @lzma_mf_bt4_find(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %or.cond104.i, label %.lr.ph110.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %178, %120
-  %.075.lcssa.i = phi ptr [ %131, %120 ], [ %.176.i, %178 ]
-  %.073.lcssa.i = phi ptr [ %130, %120 ], [ %.174.i, %178 ]
-  store i32 0, ptr %.075.lcssa.i, align 4
-  store i32 0, ptr %.073.lcssa.i, align 4
+  %.071.lcssa.i = phi ptr [ %131, %120 ], [ %.172.i, %178 ]
+  %.069.lcssa.i = phi ptr [ %130, %120 ], [ %.170.i, %178 ]
+  store i32 0, ptr %.071.lcssa.i, align 4
+  store i32 0, ptr %.069.lcssa.i, align 4
   br label %bt_skip_func.exit
 
 .lr.ph110.i:                                      ; preds = %120, %178
   %.in.i = phi i32 [ %135, %178 ], [ %122, %120 ]
   %134 = phi i32 [ %179, %178 ], [ %132, %120 ]
-  %.068109.i = phi i32 [ %.1.i, %178 ], [ %64, %120 ]
-  %.069108.i = phi i32 [ %.170.i, %178 ], [ 0, %120 ]
-  %.071107.i = phi i32 [ %.172.i, %178 ], [ 0, %120 ]
-  %.073106.i = phi ptr [ %.174.i, %178 ], [ %130, %120 ]
-  %.075105.i = phi ptr [ %.176.i, %178 ], [ %131, %120 ]
+  %.066109.i = phi i32 [ %.1.i, %178 ], [ 0, %120 ]
+  %.067108.i = phi i32 [ %.168.i, %178 ], [ 0, %120 ]
+  %.069107.i = phi ptr [ %.170.i, %178 ], [ %130, %120 ]
+  %.071106.i = phi ptr [ %.172.i, %178 ], [ %131, %120 ]
+  %.075105.i = phi i32 [ %.176.i, %178 ], [ %64, %120 ]
   %135 = add i32 %.in.i, -1
   %136 = sub i32 %126, %134
   %137 = icmp ugt i32 %134, %126
@@ -2647,7 +2647,7 @@ define dso_local i32 @lzma_mf_bt4_find(ptr nocapture noundef %0, ptr noundef %1)
   %143 = zext i32 %134 to i64
   %144 = sub nsw i64 0, %143
   %145 = getelementptr inbounds i8, ptr %21, i64 %144
-  %146 = tail call i32 @llvm.umin.i32(i32 %.071107.i, i32 %.069108.i)
+  %146 = tail call i32 @llvm.umin.i32(i32 %.067108.i, i32 %.066109.i)
   %147 = zext i32 %146 to i64
   %148 = getelementptr inbounds i8, ptr %145, i64 %147
   %149 = load i8, ptr %148, align 1
@@ -2658,12 +2658,12 @@ define dso_local i32 @lzma_mf_bt4_find(ptr nocapture noundef %0, ptr noundef %1)
 
 153:                                              ; preds = %.lr.ph110.i
   %154 = add i32 %146, 1
-  %155 = icmp ult i32 %154, %.0111
+  %155 = icmp ult i32 %154, %.0112
   br i1 %155, label %.lr.ph.i, label %.thread.i
 
 .lr.ph.i:                                         ; preds = %153, %159
-  %.06796.i = phi i32 [ %160, %159 ], [ %154, %153 ]
-  %156 = zext i32 %.06796.i to i64
+  %.07796.i = phi i32 [ %160, %159 ], [ %154, %153 ]
+  %156 = zext i32 %.07796.i to i64
   %157 = getelementptr inbounds i8, ptr %145, i64 %156
   %.val.i = load i64, ptr %157, align 1
   %158 = getelementptr inbounds i8, ptr %21, i64 %156
@@ -2672,8 +2672,8 @@ define dso_local i32 @lzma_mf_bt4_find(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %.not83.i, label %159, label %162
 
 159:                                              ; preds = %.lr.ph.i
-  %160 = add i32 %.06796.i, 8
-  %161 = icmp ult i32 %160, %.0111
+  %160 = add i32 %.07796.i, 8
+  %161 = icmp ult i32 %160, %.0112
   br i1 %161, label %.lr.ph.i, label %.thread.i, !llvm.loop !5
 
 162:                                              ; preds = %.lr.ph.i
@@ -2681,8 +2681,8 @@ define dso_local i32 @lzma_mf_bt4_find(ptr nocapture noundef %0, ptr noundef %1)
   %164 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %163, i1 true)
   %165 = trunc nuw nsw i64 %164 to i32
   %166 = lshr i32 %165, 3
-  %167 = add i32 %166, %.06796.i
-  %.not86.i = icmp ult i32 %167, %.0111
+  %167 = add i32 %166, %.07796.i
+  %.not86.i = icmp ult i32 %167, %.0112
   br i1 %.not86.i, label %._crit_edge125.i, label %.thread.i
 
 ._crit_edge125.i:                                 ; preds = %162
@@ -2695,10 +2695,10 @@ define dso_local i32 @lzma_mf_bt4_find(ptr nocapture noundef %0, ptr noundef %1)
 
 .thread.i:                                        ; preds = %162, %153, %159
   %168 = load i32, ptr %142, align 4
-  store i32 %168, ptr %.073106.i, align 4
+  store i32 %168, ptr %.069107.i, align 4
   %169 = getelementptr inbounds i8, ptr %142, i64 4
   %170 = load i32, ptr %169, align 4
-  store i32 %170, ptr %.075105.i, align 4
+  store i32 %170, ptr %.071106.i, align 4
   br label %bt_skip_func.exit
 
 171:                                              ; preds = %._crit_edge125.i, %.lr.ph110.i
@@ -2709,22 +2709,22 @@ define dso_local i32 @lzma_mf_bt4_find(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %174, label %175, label %177
 
 175:                                              ; preds = %171
-  store i32 %.068109.i, ptr %.073106.i, align 4
+  store i32 %.075105.i, ptr %.069107.i, align 4
   %176 = getelementptr inbounds i8, ptr %142, i64 4
   br label %178
 
 177:                                              ; preds = %171
-  store i32 %.068109.i, ptr %.075105.i, align 4
+  store i32 %.075105.i, ptr %.071106.i, align 4
   br label %178
 
 178:                                              ; preds = %177, %175
-  %.176.i = phi ptr [ %.075105.i, %175 ], [ %142, %177 ]
-  %.174.i = phi ptr [ %176, %175 ], [ %.073106.i, %177 ]
-  %.172.i = phi i32 [ %.071107.i, %175 ], [ %.0.i, %177 ]
-  %.170.i = phi i32 [ %.0.i, %175 ], [ %.069108.i, %177 ]
-  %.1.in.i = phi ptr [ %176, %175 ], [ %142, %177 ]
-  %.1.i = load i32, ptr %.1.in.i, align 4
-  %179 = sub i32 %24, %.1.i
+  %.176.in.i = phi ptr [ %176, %175 ], [ %142, %177 ]
+  %.172.i = phi ptr [ %.071106.i, %175 ], [ %142, %177 ]
+  %.170.i = phi ptr [ %176, %175 ], [ %.069107.i, %177 ]
+  %.168.i = phi i32 [ %.067108.i, %175 ], [ %.0.i, %177 ]
+  %.1.i = phi i32 [ %.0.i, %175 ], [ %.066109.i, %177 ]
+  %.176.i = load i32, ptr %.176.in.i, align 4
+  %179 = sub i32 %24, %.176.i
   %180 = icmp ne i32 %135, 0
   %.not.i = icmp ult i32 %179, %127
   %or.cond.i = select i1 %180, i1 %.not.i, i1 false
@@ -2791,7 +2791,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
   br label %move_pos.exit
 
 210:                                              ; preds = %110, %97
-  %.1113156 = phi i32 [ %.1113155, %110 ], [ 0, %97 ]
+  %.1111156 = phi i32 [ %.1111155, %110 ], [ 0, %97 ]
   %.2 = phi i32 [ %116, %110 ], [ %.0, %97 ]
   %211 = getelementptr inbounds i8, ptr %0, i64 92
   %212 = load i32, ptr %211, align 4
@@ -2800,7 +2800,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
   %215 = getelementptr inbounds i8, ptr %0, i64 80
   %216 = load i32, ptr %215, align 8
   %217 = load i32, ptr %69, align 4
-  %218 = zext nneg i32 %.1113156 to i64
+  %218 = zext nneg i32 %.1111156 to i64
   %219 = getelementptr inbounds %struct.lzma_match, ptr %1, i64 %218
   %220 = shl i32 %216, 1
   %221 = zext i32 %220 to i64
@@ -2817,23 +2817,23 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
   br label %.lr.ph116.i
 
 ._crit_edge.i129:                                 ; preds = %281, %210
-  %.089.lcssa.i = phi ptr [ %219, %210 ], [ %.190.i, %281 ]
-  %.085.lcssa.i = phi ptr [ %223, %210 ], [ %.186.i, %281 ]
-  %.083.lcssa.i = phi ptr [ %222, %210 ], [ %.184.i, %281 ]
-  store i32 0, ptr %.085.lcssa.i, align 4
-  store i32 0, ptr %.083.lcssa.i, align 4
+  %.086.lcssa.i = phi ptr [ %219, %210 ], [ %.187.i, %281 ]
+  %.082.lcssa.i = phi ptr [ %223, %210 ], [ %.183.i, %281 ]
+  %.080.lcssa.i = phi ptr [ %222, %210 ], [ %.181.i, %281 ]
+  store i32 0, ptr %.082.lcssa.i, align 4
+  store i32 0, ptr %.080.lcssa.i, align 4
   br label %bt_find_func.exit
 
 .lr.ph116.i:                                      ; preds = %.lr.ph116.i.preheader, %281
   %.in.i130 = phi i32 [ %227, %281 ], [ %212, %.lr.ph116.i.preheader ]
   %226 = phi i32 [ %282, %281 ], [ %224, %.lr.ph116.i.preheader ]
-  %.080115.i = phi i32 [ %.1.i132, %281 ], [ 0, %.lr.ph116.i.preheader ]
-  %.081114.i = phi i32 [ %.182.i, %281 ], [ 0, %.lr.ph116.i.preheader ]
-  %.083113.i = phi ptr [ %.184.i, %281 ], [ %222, %.lr.ph116.i.preheader ]
-  %.085112.i = phi ptr [ %.186.i, %281 ], [ %223, %.lr.ph116.i.preheader ]
-  %.087111.i = phi i32 [ %.188.i, %281 ], [ %spec.store.select, %.lr.ph116.i.preheader ]
-  %.089110.i = phi ptr [ %.190.i, %281 ], [ %219, %.lr.ph116.i.preheader ]
-  %.091109.i = phi i32 [ %.192.i, %281 ], [ %64, %.lr.ph116.i.preheader ]
+  %.077115.i = phi i32 [ %.1.i132, %281 ], [ 0, %.lr.ph116.i.preheader ]
+  %.078114.i = phi i32 [ %.179.i, %281 ], [ 0, %.lr.ph116.i.preheader ]
+  %.080113.i = phi ptr [ %.181.i, %281 ], [ %222, %.lr.ph116.i.preheader ]
+  %.082112.i = phi ptr [ %.183.i, %281 ], [ %223, %.lr.ph116.i.preheader ]
+  %.084111.i = phi i32 [ %.185.i, %281 ], [ %spec.store.select, %.lr.ph116.i.preheader ]
+  %.086110.i = phi ptr [ %.187.i, %281 ], [ %219, %.lr.ph116.i.preheader ]
+  %.090109.i = phi i32 [ %.191.i, %281 ], [ %64, %.lr.ph116.i.preheader ]
   %227 = add i32 %.in.i130, -1
   %228 = sub i32 %216, %226
   %229 = icmp ugt i32 %226, %216
@@ -2845,7 +2845,7 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
   %235 = zext i32 %226 to i64
   %236 = sub nsw i64 0, %235
   %237 = getelementptr inbounds i8, ptr %21, i64 %236
-  %238 = tail call i32 @llvm.umin.i32(i32 %.081114.i, i32 %.080115.i)
+  %238 = tail call i32 @llvm.umin.i32(i32 %.078114.i, i32 %.077115.i)
   %239 = zext i32 %238 to i64
   %240 = getelementptr inbounds i8, ptr %237, i64 %239
   %241 = load i8, ptr %240, align 1
@@ -2856,12 +2856,12 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
 
 245:                                              ; preds = %.lr.ph116.i
   %246 = add i32 %238, 1
-  %247 = icmp ult i32 %246, %.0111
+  %247 = icmp ult i32 %246, %.0112
   br i1 %247, label %.lr.ph.i135, label %.loopexit.i
 
 .lr.ph.i135:                                      ; preds = %245, %258
-  %.078106.i = phi i32 [ %259, %258 ], [ %246, %245 ]
-  %248 = zext i32 %.078106.i to i64
+  %.092106.i = phi i32 [ %259, %258 ], [ %246, %245 ]
+  %248 = zext i32 %.092106.i to i64
   %249 = getelementptr inbounds i8, ptr %237, i64 %248
   %.val.i136 = load i64, ptr %249, align 1
   %250 = getelementptr inbounds i8, ptr %21, i64 %248
@@ -2874,41 +2874,41 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
   %253 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %252, i1 true)
   %254 = trunc nuw nsw i64 %253 to i32
   %255 = lshr i32 %254, 3
-  %256 = add i32 %255, %.078106.i
-  %257 = tail call i32 @llvm.umin.i32(i32 %256, i32 %.0111)
+  %256 = add i32 %255, %.092106.i
+  %257 = tail call i32 @llvm.umin.i32(i32 %256, i32 %.0112)
   br label %.loopexit.i
 
 258:                                              ; preds = %.lr.ph.i135
-  %259 = add i32 %.078106.i, 8
-  %260 = icmp ult i32 %259, %.0111
+  %259 = add i32 %.092106.i, 8
+  %260 = icmp ult i32 %259, %.0112
   br i1 %260, label %.lr.ph.i135, label %.loopexit.i, !llvm.loop !5
 
 .loopexit.i:                                      ; preds = %258, %251, %245
-  %.077.i = phi i32 [ %257, %251 ], [ %.0111, %245 ], [ %.0111, %258 ]
-  %261 = icmp ult i32 %.087111.i, %.077.i
+  %.088.i = phi i32 [ %257, %251 ], [ %.0112, %245 ], [ %.0112, %258 ]
+  %261 = icmp ult i32 %.084111.i, %.088.i
   br i1 %261, label %262, label %271
 
 262:                                              ; preds = %.loopexit.i
-  store i32 %.077.i, ptr %.089110.i, align 4
+  store i32 %.088.i, ptr %.086110.i, align 4
   %263 = add i32 %226, -1
-  %264 = getelementptr inbounds i8, ptr %.089110.i, i64 4
+  %264 = getelementptr inbounds i8, ptr %.086110.i, i64 4
   store i32 %263, ptr %264, align 4
-  %265 = getelementptr inbounds i8, ptr %.089110.i, i64 8
-  %266 = icmp eq i32 %.077.i, %.0111
+  %265 = getelementptr inbounds i8, ptr %.086110.i, i64 8
+  %266 = icmp eq i32 %.088.i, %.0112
   br i1 %266, label %267, label %271
 
 267:                                              ; preds = %262
   %268 = load i32, ptr %234, align 4
-  store i32 %268, ptr %.083113.i, align 4
+  store i32 %268, ptr %.080113.i, align 4
   %269 = getelementptr inbounds i8, ptr %234, i64 4
   %270 = load i32, ptr %269, align 4
-  store i32 %270, ptr %.085112.i, align 4
+  store i32 %270, ptr %.082112.i, align 4
   br label %bt_find_func.exit
 
 271:                                              ; preds = %262, %.loopexit.i, %.lr.ph116.i
-  %.190.i = phi ptr [ %265, %262 ], [ %.089110.i, %.loopexit.i ], [ %.089110.i, %.lr.ph116.i ]
-  %.188.i = phi i32 [ %.077.i, %262 ], [ %.087111.i, %.loopexit.i ], [ %.087111.i, %.lr.ph116.i ]
-  %.0.i131 = phi i32 [ %.077.i, %262 ], [ %.077.i, %.loopexit.i ], [ %238, %.lr.ph116.i ]
+  %.187.i = phi ptr [ %265, %262 ], [ %.086110.i, %.loopexit.i ], [ %.086110.i, %.lr.ph116.i ]
+  %.185.i = phi i32 [ %.088.i, %262 ], [ %.084111.i, %.loopexit.i ], [ %.084111.i, %.lr.ph116.i ]
+  %.0.i131 = phi i32 [ %.088.i, %262 ], [ %.088.i, %.loopexit.i ], [ %238, %.lr.ph116.i ]
   %272 = zext i32 %.0.i131 to i64
   %273 = getelementptr inbounds i8, ptr %237, i64 %272
   %274 = load i8, ptr %273, align 1
@@ -2918,30 +2918,30 @@ normalize.exit.i:                                 ; preds = %.lr.ph32.i.i, %.pre
   br i1 %277, label %278, label %280
 
 278:                                              ; preds = %271
-  store i32 %.091109.i, ptr %.083113.i, align 4
+  store i32 %.090109.i, ptr %.080113.i, align 4
   %279 = getelementptr inbounds i8, ptr %234, i64 4
   br label %281
 
 280:                                              ; preds = %271
-  store i32 %.091109.i, ptr %.085112.i, align 4
+  store i32 %.090109.i, ptr %.082112.i, align 4
   br label %281
 
 281:                                              ; preds = %280, %278
-  %.192.in.i = phi ptr [ %279, %278 ], [ %234, %280 ]
-  %.186.i = phi ptr [ %.085112.i, %278 ], [ %234, %280 ]
-  %.184.i = phi ptr [ %279, %278 ], [ %.083113.i, %280 ]
-  %.182.i = phi i32 [ %.081114.i, %278 ], [ %.0.i131, %280 ]
-  %.1.i132 = phi i32 [ %.0.i131, %278 ], [ %.080115.i, %280 ]
-  %.192.i = load i32, ptr %.192.in.i, align 4
-  %282 = sub i32 %24, %.192.i
+  %.191.in.i = phi ptr [ %279, %278 ], [ %234, %280 ]
+  %.183.i = phi ptr [ %.082112.i, %278 ], [ %234, %280 ]
+  %.181.i = phi ptr [ %279, %278 ], [ %.080113.i, %280 ]
+  %.179.i = phi i32 [ %.078114.i, %278 ], [ %.0.i131, %280 ]
+  %.1.i132 = phi i32 [ %.0.i131, %278 ], [ %.077115.i, %280 ]
+  %.191.i = load i32, ptr %.191.in.i, align 4
+  %282 = sub i32 %24, %.191.i
   %283 = icmp ne i32 %227, 0
   %.not.i133 = icmp ult i32 %282, %217
   %or.cond.i134 = select i1 %283, i1 %.not.i133, i1 false
   br i1 %or.cond.i134, label %.lr.ph116.i, label %._crit_edge.i129
 
 bt_find_func.exit:                                ; preds = %._crit_edge.i129, %267
-  %.079.i = phi ptr [ %.089.lcssa.i, %._crit_edge.i129 ], [ %265, %267 ]
-  %284 = ptrtoint ptr %.079.i to i64
+  %.093.i = phi ptr [ %.086.lcssa.i, %._crit_edge.i129 ], [ %265, %267 ]
+  %284 = ptrtoint ptr %.093.i to i64
   %285 = ptrtoint ptr %1 to i64
   %286 = sub i64 %284, %285
   %287 = lshr exact i64 %286, 3
@@ -3006,8 +3006,8 @@ normalize.exit.i149:                              ; preds = %.lr.ph32.i.i145, %.
   br label %move_pos.exit
 
 move_pos.exit:                                    ; preds = %normalize.exit.i149, %bt_find_func.exit, %normalize.exit.i, %bt_skip_func.exit, %14
-  %.0110 = phi i32 [ 0, %14 ], [ %.1113155, %bt_skip_func.exit ], [ %.1113155, %normalize.exit.i ], [ %288, %bt_find_func.exit ], [ %288, %normalize.exit.i149 ]
-  ret i32 %.0110
+  %.0113 = phi i32 [ 0, %14 ], [ %.1111155, %bt_skip_func.exit ], [ %.1111155, %normalize.exit.i ], [ %288, %bt_find_func.exit ], [ %288, %normalize.exit.i149 ]
+  ret i32 %.0113
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -3116,20 +3116,20 @@ define dso_local void @lzma_mf_bt4_skip(ptr nocapture noundef %0, i32 noundef %1
   br i1 %or.cond104.i, label %.lr.ph110.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %125, %29
-  %.075.lcssa.i = phi ptr [ %78, %29 ], [ %.176.i, %125 ]
-  %.073.lcssa.i = phi ptr [ %77, %29 ], [ %.174.i, %125 ]
-  store i32 0, ptr %.075.lcssa.i, align 4
-  store i32 0, ptr %.073.lcssa.i, align 4
+  %.071.lcssa.i = phi ptr [ %78, %29 ], [ %.172.i, %125 ]
+  %.069.lcssa.i = phi ptr [ %77, %29 ], [ %.170.i, %125 ]
+  store i32 0, ptr %.071.lcssa.i, align 4
+  store i32 0, ptr %.069.lcssa.i, align 4
   br label %bt_skip_func.exit
 
 .lr.ph110.i:                                      ; preds = %29, %125
   %.in.i = phi i32 [ %82, %125 ], [ %71, %29 ]
   %81 = phi i32 [ %126, %125 ], [ %79, %29 ]
-  %.068109.i = phi i32 [ %.1.i, %125 ], [ %62, %29 ]
-  %.069108.i = phi i32 [ %.170.i, %125 ], [ 0, %29 ]
-  %.071107.i = phi i32 [ %.172.i, %125 ], [ 0, %29 ]
-  %.073106.i = phi ptr [ %.174.i, %125 ], [ %77, %29 ]
-  %.075105.i = phi ptr [ %.176.i, %125 ], [ %78, %29 ]
+  %.066109.i = phi i32 [ %.1.i, %125 ], [ 0, %29 ]
+  %.067108.i = phi i32 [ %.168.i, %125 ], [ 0, %29 ]
+  %.069107.i = phi ptr [ %.170.i, %125 ], [ %77, %29 ]
+  %.071106.i = phi ptr [ %.172.i, %125 ], [ %78, %29 ]
+  %.075105.i = phi i32 [ %.176.i, %125 ], [ %62, %29 ]
   %82 = add i32 %.in.i, -1
   %83 = sub i32 %73, %81
   %84 = icmp ugt i32 %81, %73
@@ -3141,7 +3141,7 @@ define dso_local void @lzma_mf_bt4_skip(ptr nocapture noundef %0, i32 noundef %1
   %90 = zext i32 %81 to i64
   %91 = sub nsw i64 0, %90
   %92 = getelementptr inbounds i8, ptr %31, i64 %91
-  %93 = tail call i32 @llvm.umin.i32(i32 %.071107.i, i32 %.069108.i)
+  %93 = tail call i32 @llvm.umin.i32(i32 %.067108.i, i32 %.066109.i)
   %94 = zext i32 %93 to i64
   %95 = getelementptr inbounds i8, ptr %92, i64 %94
   %96 = load i8, ptr %95, align 1
@@ -3156,8 +3156,8 @@ define dso_local void @lzma_mf_bt4_skip(ptr nocapture noundef %0, i32 noundef %1
   br i1 %102, label %.lr.ph.i, label %.thread.i
 
 .lr.ph.i:                                         ; preds = %100, %106
-  %.06796.i = phi i32 [ %107, %106 ], [ %101, %100 ]
-  %103 = zext i32 %.06796.i to i64
+  %.07796.i = phi i32 [ %107, %106 ], [ %101, %100 ]
+  %103 = zext i32 %.07796.i to i64
   %104 = getelementptr inbounds i8, ptr %92, i64 %103
   %.val.i = load i64, ptr %104, align 1
   %105 = getelementptr inbounds i8, ptr %31, i64 %103
@@ -3166,7 +3166,7 @@ define dso_local void @lzma_mf_bt4_skip(ptr nocapture noundef %0, i32 noundef %1
   br i1 %.not83.i, label %106, label %109
 
 106:                                              ; preds = %.lr.ph.i
-  %107 = add i32 %.06796.i, 8
+  %107 = add i32 %.07796.i, 8
   %108 = icmp ult i32 %107, %.039
   br i1 %108, label %.lr.ph.i, label %.thread.i, !llvm.loop !5
 
@@ -3175,7 +3175,7 @@ define dso_local void @lzma_mf_bt4_skip(ptr nocapture noundef %0, i32 noundef %1
   %111 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %110, i1 true)
   %112 = trunc nuw nsw i64 %111 to i32
   %113 = lshr i32 %112, 3
-  %114 = add i32 %113, %.06796.i
+  %114 = add i32 %113, %.07796.i
   %.not86.i = icmp ult i32 %114, %.039
   br i1 %.not86.i, label %._crit_edge125.i, label %.thread.i
 
@@ -3189,10 +3189,10 @@ define dso_local void @lzma_mf_bt4_skip(ptr nocapture noundef %0, i32 noundef %1
 
 .thread.i:                                        ; preds = %109, %100, %106
   %115 = load i32, ptr %89, align 4
-  store i32 %115, ptr %.073106.i, align 4
+  store i32 %115, ptr %.069107.i, align 4
   %116 = getelementptr inbounds i8, ptr %89, i64 4
   %117 = load i32, ptr %116, align 4
-  store i32 %117, ptr %.075105.i, align 4
+  store i32 %117, ptr %.071106.i, align 4
   br label %bt_skip_func.exit
 
 118:                                              ; preds = %._crit_edge125.i, %.lr.ph110.i
@@ -3203,22 +3203,22 @@ define dso_local void @lzma_mf_bt4_skip(ptr nocapture noundef %0, i32 noundef %1
   br i1 %121, label %122, label %124
 
 122:                                              ; preds = %118
-  store i32 %.068109.i, ptr %.073106.i, align 4
+  store i32 %.075105.i, ptr %.069107.i, align 4
   %123 = getelementptr inbounds i8, ptr %89, i64 4
   br label %125
 
 124:                                              ; preds = %118
-  store i32 %.068109.i, ptr %.075105.i, align 4
+  store i32 %.075105.i, ptr %.071106.i, align 4
   br label %125
 
 125:                                              ; preds = %124, %122
-  %.176.i = phi ptr [ %.075105.i, %122 ], [ %89, %124 ]
-  %.174.i = phi ptr [ %123, %122 ], [ %.073106.i, %124 ]
-  %.172.i = phi i32 [ %.071107.i, %122 ], [ %.0.i, %124 ]
-  %.170.i = phi i32 [ %.0.i, %122 ], [ %.069108.i, %124 ]
-  %.1.in.i = phi ptr [ %123, %122 ], [ %89, %124 ]
-  %.1.i = load i32, ptr %.1.in.i, align 4
-  %126 = sub i32 %33, %.1.i
+  %.176.in.i = phi ptr [ %123, %122 ], [ %89, %124 ]
+  %.172.i = phi ptr [ %.071106.i, %122 ], [ %89, %124 ]
+  %.170.i = phi ptr [ %123, %122 ], [ %.069107.i, %124 ]
+  %.168.i = phi i32 [ %.067108.i, %122 ], [ %.0.i, %124 ]
+  %.1.i = phi i32 [ %.0.i, %122 ], [ %.066109.i, %124 ]
+  %.176.i = load i32, ptr %.176.in.i, align 4
+  %126 = sub i32 %33, %.176.i
   %127 = icmp ne i32 %82, 0
   %.not.i = icmp ult i32 %126, %74
   %or.cond.i = select i1 %127, i1 %.not.i, i1 false

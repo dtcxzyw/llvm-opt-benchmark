@@ -380,10 +380,10 @@ Min_CoverCountCubes.exit.thread:                  ; preds = %.critedge
   br label %48
 
 48:                                               ; preds = %46, %48
-  %.04260 = phi ptr [ %24, %46 ], [ %50, %48 ]
-  %49 = tail call ptr @Abc_NtkCovDeriveCube(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %.04260, ptr noundef %22, i32 noundef 0)
+  %.04360 = phi ptr [ %24, %46 ], [ %50, %48 ]
+  %49 = tail call ptr @Abc_NtkCovDeriveCube(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %.04360, ptr noundef %22, i32 noundef 0)
   tail call void @Abc_ObjAddFanin(ptr noundef %47, ptr noundef %49) #6
-  %50 = load ptr, ptr %.04260, align 8
+  %50 = load ptr, ptr %.04360, align 8
   %.not47 = icmp eq ptr %50, null
   br i1 %.not47, label %51, label %48, !llvm.loop !10
 
@@ -396,12 +396,12 @@ Min_CoverCountCubes.exit.thread:                  ; preds = %.critedge
   br label %56
 
 56:                                               ; preds = %44, %51, %Min_CoverCountCubes.exit.thread
-  %.043 = phi ptr [ %43, %Min_CoverCountCubes.exit.thread ], [ %45, %44 ], [ %47, %51 ]
-  store ptr %.043, ptr %11, align 8
+  %.042 = phi ptr [ %43, %Min_CoverCountCubes.exit.thread ], [ %45, %44 ], [ %47, %51 ]
+  store ptr %.042, ptr %11, align 8
   br label %57
 
 57:                                               ; preds = %10, %56, %7
-  %.041 = phi ptr [ %9, %7 ], [ %.043, %56 ], [ %12, %10 ]
+  %.041 = phi ptr [ %9, %7 ], [ %.042, %56 ], [ %12, %10 ]
   ret ptr %.041
 }
 
@@ -758,10 +758,10 @@ Min_CoverCountCubes.exit.thread:                  ; preds = %.critedge
   br label %46
 
 46:                                               ; preds = %44, %46
-  %.04363 = phi ptr [ %23, %44 ], [ %48, %46 ]
-  %47 = tail call ptr @Abc_NtkCovDeriveCubeInv(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %.04363, ptr noundef %21)
+  %.04463 = phi ptr [ %23, %44 ], [ %48, %46 ]
+  %47 = tail call ptr @Abc_NtkCovDeriveCubeInv(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %.04463, ptr noundef %21)
   tail call void @Abc_ObjAddFanin(ptr noundef %45, ptr noundef %47) #6
-  %48 = load ptr, ptr %.04363, align 8
+  %48 = load ptr, ptr %.04463, align 8
   %.not46 = icmp eq ptr %48, null
   br i1 %.not46, label %49, label %46, !llvm.loop !14
 
@@ -774,20 +774,20 @@ Min_CoverCountCubes.exit.thread:                  ; preds = %.critedge
   br label %54
 
 54:                                               ; preds = %42, %49, %Min_CoverCountCubes.exit.thread
-  %.044 = phi ptr [ %41, %Min_CoverCountCubes.exit.thread ], [ %43, %42 ], [ %45, %49 ]
-  store ptr %.044, ptr %5, align 8
+  %.043 = phi ptr [ %41, %Min_CoverCountCubes.exit.thread ], [ %43, %42 ], [ %45, %49 ]
+  store ptr %.043, ptr %5, align 8
   %.not.i54 = icmp eq i32 %3, 0
   br i1 %.not.i54, label %Abc_NtkCovDeriveInv.exit, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %.044, i64 64
+  %56 = getelementptr inbounds i8, ptr %.043, i64 64
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %Abc_NtkCovDeriveInv.exit.sink.split, label %Abc_NtkCovDeriveInv.exit
 
 Abc_NtkCovDeriveInv.exit.sink.split:              ; preds = %55, %8
-  %.044.sink = phi ptr [ %6, %8 ], [ %.044, %55 ]
-  %59 = tail call ptr @Abc_NtkCreateNodeInv(ptr noundef %1, ptr noundef nonnull %.044.sink) #6
+  %.043.sink = phi ptr [ %6, %8 ], [ %.043, %55 ]
+  %59 = tail call ptr @Abc_NtkCreateNodeInv(ptr noundef %1, ptr noundef nonnull %.043.sink) #6
   %60 = load ptr, ptr %5, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 64
   store ptr %59, ptr %61, align 8
@@ -795,7 +795,7 @@ Abc_NtkCovDeriveInv.exit.sink.split:              ; preds = %55, %8
   br label %Abc_NtkCovDeriveInv.exit
 
 Abc_NtkCovDeriveInv.exit:                         ; preds = %Abc_NtkCovDeriveInv.exit.sink.split, %55, %54, %8, %7
-  %.pn.i.pn = phi ptr [ %2, %7 ], [ %6, %8 ], [ %2, %54 ], [ %.044, %55 ], [ %.pre.i58, %Abc_NtkCovDeriveInv.exit.sink.split ]
+  %.pn.i.pn = phi ptr [ %2, %7 ], [ %6, %8 ], [ %2, %54 ], [ %.043, %55 ], [ %.pre.i58, %Abc_NtkCovDeriveInv.exit.sink.split ]
   %.042.in = getelementptr inbounds i8, ptr %.pn.i.pn, i64 64
   %.042 = load ptr, ptr %.042.in, align 8
   ret ptr %.042
@@ -1048,7 +1048,7 @@ Min_CoverCountCubes.exit192:                      ; preds = %.lr.ph.i187
   br label %53
 
 53:                                               ; preds = %.thread207, %.thread214, %Min_CoverCountCubes.exit192, %Min_CoverCountCubes.exit178, %40, %Min_CoverCountCubes.exit136, %26, %Min_CoverCountCubes.exit164, %.thread204
-  %.079 = phi ptr [ %20, %.thread214 ], [ undef, %Min_CoverCountCubes.exit192 ], [ undef, %Min_CoverCountCubes.exit178 ], [ undef, %40 ], [ %16, %Min_CoverCountCubes.exit136 ], [ %16, %26 ], [ %18, %Min_CoverCountCubes.exit164 ], [ %18, %.thread204 ], [ undef, %.thread207 ]
+  %.080 = phi ptr [ %20, %.thread214 ], [ undef, %Min_CoverCountCubes.exit192 ], [ undef, %Min_CoverCountCubes.exit178 ], [ undef, %40 ], [ %16, %Min_CoverCountCubes.exit136 ], [ %16, %26 ], [ %18, %Min_CoverCountCubes.exit164 ], [ %18, %.thread204 ], [ undef, %.thread207 ]
   %54 = phi i32 [ 0, %.thread214 ], [ 0, %Min_CoverCountCubes.exit192 ], [ 0, %Min_CoverCountCubes.exit178 ], [ 0, %40 ], [ 0, %Min_CoverCountCubes.exit136 ], [ 0, %26 ], [ 1, %Min_CoverCountCubes.exit164 ], [ 1, %.thread204 ], [ 0, %.thread207 ]
   %.0 = phi i8 [ 120, %.thread214 ], [ 0, %Min_CoverCountCubes.exit192 ], [ 0, %Min_CoverCountCubes.exit178 ], [ 0, %40 ], [ 49, %Min_CoverCountCubes.exit136 ], [ 49, %26 ], [ 48, %Min_CoverCountCubes.exit164 ], [ 48, %.thread204 ], [ 0, %.thread207 ]
   %55 = getelementptr i8, ptr %15, i64 4
@@ -1081,12 +1081,12 @@ Min_CoverCountCubes.exit192:                      ; preds = %.lr.ph.i187
   br i1 %69, label %58, label %.critedge2, !llvm.loop !16
 
 .critedge2:                                       ; preds = %58, %53
-  %.not5.i193 = icmp eq ptr %.079, null
+  %.not5.i193 = icmp eq ptr %.080, null
   br i1 %.not5.i193, label %Min_CoverCountCubes.exit199.thread, label %.lr.ph.i194
 
 .lr.ph.i194:                                      ; preds = %.critedge2, %.lr.ph.i194
   %.07.i195 = phi i32 [ %70, %.lr.ph.i194 ], [ 0, %.critedge2 ]
-  %.046.i196 = phi ptr [ %71, %.lr.ph.i194 ], [ %.079, %.critedge2 ]
+  %.046.i196 = phi ptr [ %71, %.lr.ph.i194 ], [ %.080, %.critedge2 ]
   %70 = add nuw nsw i32 %.07.i195, 1
   %71 = load ptr, ptr %.046.i196, align 8
   %.not.i197 = icmp eq ptr %71, null
@@ -1101,7 +1101,7 @@ Min_CoverCountCubes.exit199.thread:               ; preds = %.critedge2
   br label %102
 
 73:                                               ; preds = %Min_CoverCountCubes.exit199
-  %74 = tail call ptr @Abc_NtkCovDeriveCube(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %.079, ptr noundef %15, i32 noundef %54)
+  %74 = tail call ptr @Abc_NtkCovDeriveCube(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %.080, ptr noundef %15, i32 noundef %54)
   br label %102
 
 75:                                               ; preds = %Min_CoverCountCubes.exit199
@@ -1144,7 +1144,7 @@ Min_CoverCountCubes.exit199.thread:               ; preds = %.critedge2
   %94 = tail call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #7
   %95 = getelementptr inbounds i8, ptr %92, i64 8
   store ptr %94, ptr %95, align 8
-  tail call void @Min_CoverCreate(ptr noundef nonnull %92, ptr noundef nonnull %.079, i8 noundef signext %.0) #6
+  tail call void @Min_CoverCreate(ptr noundef nonnull %92, ptr noundef nonnull %.080, i8 noundef signext %.0) #6
   %96 = getelementptr inbounds i8, ptr %1, i64 256
   %97 = load ptr, ptr %96, align 8
   %.val115 = load ptr, ptr %95, align 8
@@ -1164,13 +1164,13 @@ Vec_StrFree.exit:                                 ; preds = %.critedge4, %101
   br label %102
 
 102:                                              ; preds = %73, %Vec_StrFree.exit, %Min_CoverCountCubes.exit199.thread
-  %.080 = phi ptr [ %72, %Min_CoverCountCubes.exit199.thread ], [ %74, %73 ], [ %76, %Vec_StrFree.exit ]
-  store ptr %.080, ptr %4, align 8
+  %.079 = phi ptr [ %72, %Min_CoverCountCubes.exit199.thread ], [ %74, %73 ], [ %76, %Vec_StrFree.exit ]
+  store ptr %.079, ptr %4, align 8
   br label %103
 
 103:                                              ; preds = %3, %102
-  %.077 = phi ptr [ %.080, %102 ], [ %5, %3 ]
-  ret ptr %.077
+  %.078 = phi ptr [ %.079, %102 ], [ %5, %3 ]
+  ret ptr %.078
 }
 
 declare void @Min_CoverCreate(ptr noundef, ptr noundef, i8 noundef signext) local_unnamed_addr #1

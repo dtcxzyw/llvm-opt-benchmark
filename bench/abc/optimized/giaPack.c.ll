@@ -619,10 +619,10 @@ Vec_IntUpdateEntry.exit:                          ; preds = %.lr.ph119, %114
   br i1 %exitcond.not, label %.critedge6, label %.critedge2, !llvm.loop !13
 
 .critedge6:                                       ; preds = %.critedge2, %.critedge, %.critedge2.preheader
-  %.166.lcssa = phi i32 [ 0, %.critedge2.preheader ], [ 0, %.critedge ], [ %.val73, %.critedge2 ]
-  store i32 %.166.lcssa, ptr %62, align 4
+  %.1.lcssa = phi i32 [ 0, %.critedge2.preheader ], [ 0, %.critedge ], [ %.val73, %.critedge2 ]
+  store i32 %.1.lcssa, ptr %62, align 4
   %129 = getelementptr i8, ptr %60, i64 8
-  %130 = tail call ptr @Abc_MergeSortCost(ptr noundef %.val91, i32 noundef %.166.lcssa) #9
+  %130 = tail call ptr @Abc_MergeSortCost(ptr noundef %.val91, i32 noundef %.1.lcssa) #9
   %131 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
   %132 = add i32 %.val73, -1
   %or.cond.i94 = icmp ult i32 %132, 15
@@ -863,7 +863,7 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntStart.exit13
 50:                                               ; preds = %.lr.ph200, %._crit_edge
   %.val120 = phi ptr [ %.val120226, %.lr.ph200 ], [ %.val128, %._crit_edge ]
   %indvars.iv216 = phi i64 [ 0, %.lr.ph200 ], [ %indvars.iv.next217, %._crit_edge ]
-  %.098198 = phi i32 [ 0, %.lr.ph200 ], [ %142, %._crit_edge ]
+  %.0199 = phi i32 [ 0, %.lr.ph200 ], [ %142, %._crit_edge ]
   %.val121 = load ptr, ptr %45, align 8
   %51 = getelementptr inbounds i32, ptr %.val121, i64 %indvars.iv216
   %52 = load i32, ptr %51, align 4
@@ -1047,7 +1047,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 136:                                              ; preds = %Vec_IntPush.exit, %104
   %.pn = phi i32 [ %3, %104 ], [ %2, %Vec_IntPush.exit ]
-  %.099 = add nsw i32 %.pn, %95
+  %.096 = add nsw i32 %.pn, %95
   br i1 %90, label %.lr.ph196.preheader, label %._crit_edge
 
 .lr.ph196.preheader:                              ; preds = %136
@@ -1056,21 +1056,21 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph196:                                        ; preds = %.lr.ph196.preheader, %.lr.ph196
   %indvars.iv211 = phi i64 [ 1, %.lr.ph196.preheader ], [ %indvars.iv.next212, %.lr.ph196 ]
-  %.1100194 = phi i32 [ %.099, %.lr.ph196.preheader ], [ %140, %.lr.ph196 ]
+  %.1195 = phi i32 [ %.096, %.lr.ph196.preheader ], [ %140, %.lr.ph196 ]
   %137 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 %indvars.iv211
   %138 = load i32, ptr %137, align 4
   %139 = add nsw i32 %138, %2
-  %140 = tail call noundef i32 @llvm.smax.i32(i32 %.1100194, i32 %139)
+  %140 = tail call noundef i32 @llvm.smax.i32(i32 %.1195, i32 %139)
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %exitcond215.not = icmp eq i64 %indvars.iv.next212, %wide.trip.count214
   br i1 %exitcond215.not, label %._crit_edge, label %.lr.ph196, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph196, %136
-  %.1100.lcssa = phi i32 [ %.099, %136 ], [ %140, %.lr.ph196 ]
+  %.1.lcssa = phi i32 [ %.096, %136 ], [ %140, %.lr.ph196 ]
   %.val128 = load ptr, ptr %47, align 8
   %141 = getelementptr inbounds i32, ptr %.val128, i64 %54
-  store i32 %.1100.lcssa, ptr %141, align 4
-  %142 = tail call noundef i32 @llvm.smax.i32(i32 %.098198, i32 %.1100.lcssa)
+  store i32 %.1.lcssa, ptr %141, align 4
+  %142 = tail call noundef i32 @llvm.smax.i32(i32 %.0199, i32 %.1.lcssa)
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %.val112 = load i32, ptr %32, align 4
   %143 = sext i32 %.val112 to i64
@@ -1083,7 +1083,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 .critedge:                                        ; preds = %.critedge.loopexit, %Vec_IntAlloc.exit
   %.val110 = phi i32 [ 0, %Vec_IntAlloc.exit ], [ %.val110.pre, %.critedge.loopexit ]
-  %.098.lcssa = phi i32 [ 0, %Vec_IntAlloc.exit ], [ %142, %.critedge.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %Vec_IntAlloc.exit ], [ %142, %.critedge.loopexit ]
   %.val112.lcssa = phi i32 [ %.val113, %Vec_IntAlloc.exit ], [ %.val112, %.critedge.loopexit ]
   %145 = add nsw i32 %.val110, %.val112.lcssa
   %146 = add nsw i32 %145, 1
@@ -1479,7 +1479,7 @@ Vec_IntFree.exit188:                              ; preds = %Vec_IntFree.exit186
 
 Vec_IntFreeP.exit:                                ; preds = %Vec_IntFree.exit188, %294, %.thread.i
   store ptr %147, ptr %288, align 8
-  %298 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.098.lcssa)
+  %298 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.0.lcssa)
   ret void
 }
 

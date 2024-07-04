@@ -435,19 +435,19 @@ define hidden range(i32 -1, 1) i32 @cdf_read_sat(ptr nocapture noundef readonly 
   br label %12
 
 12:                                               ; preds = %3, %16
-  %.074135 = phi i64 [ 0, %3 ], [ %17, %16 ]
-  %13 = getelementptr inbounds [109 x i32], ptr %11, i64 0, i64 %.074135
+  %.077135 = phi i64 [ 0, %3 ], [ %17, %16 ]
+  %13 = getelementptr inbounds [109 x i32], ptr %11, i64 0, i64 %.077135
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %12
-  %17 = add nuw nsw i64 %.074135, 1
+  %17 = add nuw nsw i64 %.077135, 1
   %exitcond.not = icmp eq i64 %17, 109
   br i1 %exitcond.not, label %18, label %12
 
 18:                                               ; preds = %12, %16
-  %.074.lcssa = phi i64 [ %.074135, %12 ], [ 109, %16 ]
+  %.077.lcssa = phi i64 [ %.077135, %12 ], [ 109, %16 ]
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %._crit_edge159, label %19
 
@@ -468,7 +468,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_sat(ptr nocapture noundef readonly 
 
 27:                                               ; preds = %._crit_edge159, %19
   %.pre-phi162 = phi i64 [ %.pre161, %._crit_edge159 ], [ %24, %19 ]
-  %28 = icmp ugt i64 %.074.lcssa, %.pre-phi162
+  %28 = icmp ugt i64 %.077.lcssa, %.pre-phi162
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %27, %19
@@ -481,7 +481,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_sat(ptr nocapture noundef readonly 
   %33 = load i32, ptr %32, align 8
   %34 = zext i32 %33 to i64
   %35 = mul i64 %10, %34
-  %36 = add i64 %35, %.074.lcssa
+  %36 = add i64 %35, %.077.lcssa
   %37 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %36, ptr %37, align 8
   %38 = tail call noalias ptr @_ecalloc(i64 noundef %36, i64 noundef %8) #22
@@ -578,10 +578,10 @@ cdf_read_sector.exit:                             ; preds = %66
   br label %85
 
 85:                                               ; preds = %.lr.ph144, %._crit_edge
-  %.2142 = phi i64 [ %.1.lcssa, %.lr.ph144 ], [ %.3.lcssa, %._crit_edge ]
-  %.075141 = phi i32 [ %80, %.lr.ph144 ], [ %148, %._crit_edge ]
-  %.076140 = phi i64 [ 0, %.lr.ph144 ], [ %149, %._crit_edge ]
-  %exitcond156 = icmp eq i64 %.076140, 10000
+  %.0142 = phi i32 [ %80, %.lr.ph144 ], [ %148, %._crit_edge ]
+  %.076141 = phi i64 [ 0, %.lr.ph144 ], [ %149, %._crit_edge ]
+  %.2140 = phi i64 [ %.1.lcssa, %.lr.ph144 ], [ %.3.lcssa, %._crit_edge ]
+  %exitcond156 = icmp eq i64 %.076141, 10000
   br i1 %exitcond156, label %cdf_read_sector.exit95.thread.sink.split, label %86
 
 86:                                               ; preds = %85
@@ -589,7 +589,7 @@ cdf_read_sector.exit:                             ; preds = %66
   %88 = zext nneg i16 %87 to i32
   %89 = shl nuw i32 1, %88
   %90 = sext i32 %89 to i64
-  %91 = zext nneg i32 %.075141 to i64
+  %91 = zext nneg i32 %.0142 to i64
   %mul.i88 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %90, i64 %91)
   %mul.ov.i89 = extractvalue { i64, i1 } %mul.i88, 1
   br i1 %mul.ov.i89, label %cdf_read_sector.exit95.thread, label %92
@@ -635,10 +635,10 @@ cdf_read_sector.exit95:                           ; preds = %103
 
 .lr.ph:                                           ; preds = %.preheader, %141
   %108 = phi i32 [ %142, %141 ], [ %.pre158, %.preheader ]
-  %.3138 = phi i64 [ %144, %141 ], [ %.2142, %.preheader ]
-  %.077137 = phi i64 [ %143, %141 ], [ 0, %.preheader ]
+  %.075138 = phi i64 [ %143, %141 ], [ 0, %.preheader ]
+  %.3137 = phi i64 [ %144, %141 ], [ %.2140, %.preheader ]
   %109 = icmp eq i32 %108, 16909060
-  %110 = getelementptr inbounds i32, ptr %76, i64 %.077137
+  %110 = getelementptr inbounds i32, ptr %76, i64 %.075138
   %111 = load i32, ptr %110, align 4
   %.sroa.0.0.insert.insert.i = tail call i32 @llvm.bswap.i32(i32 %111)
   %112 = select i1 %109, i32 %.sroa.0.0.insert.insert.i, i32 %111
@@ -647,7 +647,7 @@ cdf_read_sector.exit95:                           ; preds = %103
 
 114:                                              ; preds = %.lr.ph
   %115 = load i64, ptr %37, align 8
-  %.not86 = icmp ult i64 %.3138, %115
+  %.not86 = icmp ult i64 %.3137, %115
   br i1 %.not86, label %116, label %cdf_read_sector.exit95.thread.sink.split
 
 116:                                              ; preds = %114
@@ -661,7 +661,7 @@ cdf_read_sector.exit95:                           ; preds = %103
   br i1 %mul.ov.i97, label %cdf_read_sector.exit95.thread, label %122
 
 122:                                              ; preds = %116
-  %123 = mul i64 %.3138, %8
+  %123 = mul i64 %.3137, %8
   %124 = load ptr, ptr %2, align 8
   %125 = add nuw nsw i64 %121, 1
   %126 = mul nsw i64 %125, %120
@@ -701,19 +701,19 @@ cdf_read_sector.exit103:                          ; preds = %136
 
 141:                                              ; preds = %cdf_read_sector.exit103.thread114, %cdf_read_sector.exit103
   %142 = phi i32 [ %108, %cdf_read_sector.exit103.thread114 ], [ %.pre, %cdf_read_sector.exit103 ]
-  %143 = add nuw i64 %.077137, 1
-  %144 = add nuw i64 %.3138, 1
+  %143 = add nuw i64 %.075138, 1
+  %144 = add nuw i64 %.3137, 1
   %exitcond155.not = icmp eq i64 %143, %10
   br i1 %exitcond155.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %141, %.preheader
   %145 = phi i32 [ %.pre158, %.preheader ], [ %142, %141 ]
-  %.3.lcssa = phi i64 [ %.2142, %.preheader ], [ %144, %141 ]
+  %.3.lcssa = phi i64 [ %.2140, %.preheader ], [ %144, %141 ]
   %146 = icmp eq i32 %145, 16909060
   %147 = load i32, ptr %84, align 4
   %.sroa.0.0.insert.insert.i104 = tail call i32 @llvm.bswap.i32(i32 %147)
   %148 = select i1 %146, i32 %.sroa.0.0.insert.insert.i104, i32 %147
-  %149 = add nuw nsw i64 %.076140, 1
+  %149 = add nuw nsw i64 %.076141, 1
   %150 = load i32, ptr %32, align 8
   %151 = zext i32 %150 to i64
   %152 = icmp uge i64 %149, %151
@@ -722,7 +722,7 @@ cdf_read_sector.exit103:                          ; preds = %136
   br i1 %or.cond, label %.loopexit, label %85
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph, %78
-  %.4 = phi i64 [ %.1.lcssa, %78 ], [ %.3138, %.lr.ph ], [ %.3.lcssa, %._crit_edge ]
+  %.4 = phi i64 [ %.1.lcssa, %78 ], [ %.3137, %.lr.ph ], [ %.3.lcssa, %._crit_edge ]
   store i64 %.4, ptr %37, align 8
   tail call void @_efree(ptr noundef nonnull %76) #20
   br label %156
@@ -742,8 +742,8 @@ cdf_read_sector.exit.thread:                      ; preds = %66, %46, %cdf_read_
   br label %156
 
 156:                                              ; preds = %31, %cdf_read_sector.exit.thread, %.loopexit, %29
-  %.0 = phi i32 [ -1, %29 ], [ -1, %cdf_read_sector.exit.thread ], [ 0, %.loopexit ], [ -1, %31 ]
-  ret i32 %.0
+  %.074 = phi i32 [ -1, %29 ], [ -1, %cdf_read_sector.exit.thread ], [ 0, %.loopexit ], [ -1, %31 ]
+  ret i32 %.074
 }
 
 ; Function Attrs: allocsize(0,1)
@@ -764,9 +764,9 @@ define hidden i64 @cdf_count_chain(ptr nocapture noundef readonly %0, i32 nounde
   br i1 %10, label %.lr.ph.split, label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.preheader, %12
-  %.01522 = phi i64 [ %17, %12 ], [ 0, %.preheader ]
+  %.022 = phi i64 [ %17, %12 ], [ 0, %.preheader ]
   %.01720 = phi i32 [ %16, %12 ], [ %1, %.preheader ]
-  %11 = icmp ult i64 %.01522, 10000
+  %11 = icmp ult i64 %.022, 10000
   %.not = icmp slt i32 %.01720, %8
   %or.cond = select i1 %11, i1 %.not, i1 false
   br i1 %or.cond, label %12, label %.loopexit
@@ -776,7 +776,7 @@ define hidden i64 @cdf_count_chain(ptr nocapture noundef readonly %0, i32 nounde
   %14 = zext nneg i32 %.01720 to i64
   %15 = getelementptr inbounds i32, ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4
-  %17 = add nuw nsw i64 %.01522, 1
+  %17 = add nuw nsw i64 %.022, 1
   %18 = icmp sgt i32 %16, -1
   br i1 %18, label %.lr.ph.split, label %._crit_edge.thread
 
@@ -786,8 +786,8 @@ define hidden i64 @cdf_count_chain(ptr nocapture noundef readonly %0, i32 nounde
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %12, %3, %.loopexit
-  %.0 = phi i64 [ -1, %.loopexit ], [ 0, %3 ], [ %17, %12 ]
-  ret i64 %.0
+  %.016 = phi i64 [ -1, %.loopexit ], [ 0, %3 ], [ %17, %12 ]
+  ret i64 %.016
 }
 
 ; Function Attrs: nounwind uwtable
@@ -811,9 +811,9 @@ define hidden range(i32 -1, 1) i32 @cdf_read_long_sector_chain(ptr nocapture nou
   br i1 %18, label %.lr.ph.split.i, label %.loopexit.i
 
 .lr.ph.split.i:                                   ; preds = %.preheader.i, %20
-  %.01522.i = phi i64 [ %25, %20 ], [ 0, %.preheader.i ]
+  %.022.i = phi i64 [ %25, %20 ], [ 0, %.preheader.i ]
   %.01720.i = phi i32 [ %24, %20 ], [ %3, %.preheader.i ]
-  %19 = icmp ult i64 %.01522.i, 10000
+  %19 = icmp ult i64 %.022.i, 10000
   %.not.i = icmp slt i32 %.01720.i, %16
   %or.cond.i = select i1 %19, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %20, label %.loopexit.i
@@ -823,7 +823,7 @@ define hidden range(i32 -1, 1) i32 @cdf_read_long_sector_chain(ptr nocapture nou
   %22 = zext nneg i32 %.01720.i to i64
   %23 = getelementptr inbounds i32, ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4
-  %25 = add nuw nsw i64 %.01522.i, 1
+  %25 = add nuw nsw i64 %.022.i, 1
   %26 = icmp sgt i32 %24, -1
   br i1 %26, label %.lr.ph.split.i, label %cdf_count_chain.exit
 
@@ -833,9 +833,9 @@ define hidden range(i32 -1, 1) i32 @cdf_read_long_sector_chain(ptr nocapture nou
   br label %cdf_count_chain.exit
 
 cdf_count_chain.exit:                             ; preds = %20, %6, %.loopexit.i
-  %.0.i = phi i64 [ -1, %.loopexit.i ], [ 0, %6 ], [ %25, %20 ]
+  %.016.i = phi i64 [ -1, %.loopexit.i ], [ 0, %6 ], [ %25, %20 ]
   %28 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %.0.i, ptr %28, align 8
+  store i64 %.016.i, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %1, i64 56
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
@@ -854,11 +854,11 @@ cdf_count_chain.exit:                             ; preds = %20, %6, %.loopexit.
   br label %.loopexit.sink.split
 
 37:                                               ; preds = %cdf_count_chain.exit
-  %38 = icmp eq i64 %.0.i, -1
+  %38 = icmp eq i64 %.016.i, -1
   br i1 %38, label %.thread, label %39
 
 39:                                               ; preds = %37
-  %40 = tail call noalias ptr @_ecalloc(i64 noundef %.0.i, i64 noundef %11) #22
+  %40 = tail call noalias ptr @_ecalloc(i64 noundef %.016.i, i64 noundef %11) #22
   store ptr %40, ptr %5, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %45, label %.preheader
@@ -877,14 +877,14 @@ cdf_count_chain.exit:                             ; preds = %20, %6, %.loopexit.
   br label %.loopexit.sink.split
 
 46:                                               ; preds = %.lr.ph, %76
-  %.04770 = phi i64 [ 0, %.lr.ph ], [ %80, %76 ]
-  %.04968 = phi i32 [ %3, %.lr.ph ], [ %79, %76 ]
-  %exitcond = icmp eq i64 %.04770, 10000
+  %.04769 = phi i64 [ 0, %.lr.ph ], [ %80, %76 ]
+  %.04967 = phi i32 [ %3, %.lr.ph ], [ %79, %76 ]
+  %exitcond = icmp eq i64 %.04769, 10000
   br i1 %exitcond, label %.thread, label %47
 
 47:                                               ; preds = %46
   %48 = load i64, ptr %28, align 8
-  %.not = icmp ult i64 %.04770, %48
+  %.not = icmp ult i64 %.04769, %48
   br i1 %.not, label %49, label %.thread
 
 49:                                               ; preds = %47
@@ -892,13 +892,13 @@ cdf_count_chain.exit:                             ; preds = %20, %6, %.loopexit.
   %51 = zext nneg i16 %50 to i32
   %52 = shl nuw i32 1, %51
   %53 = sext i32 %52 to i64
-  %54 = zext nneg i32 %.04968 to i64
+  %54 = zext nneg i32 %.04967 to i64
   %mul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %53, i64 %54)
   %mul.ov.i = extractvalue { i64, i1 } %mul.i, 1
   br i1 %mul.ov.i, label %.thread, label %55
 
 55:                                               ; preds = %49
-  %56 = mul i64 %.04770, %11
+  %56 = mul i64 %.04769, %11
   %57 = load ptr, ptr %5, align 8
   %58 = add nuw nsw i64 %54, 1
   %59 = mul nsw i64 %58, %53
@@ -911,9 +911,9 @@ cdf_count_chain.exit:                             ; preds = %20, %6, %.loopexit.
   %63 = add i64 %59, %11
   %64 = load i64, ptr %44, align 8
   %.not24.i.i = icmp ult i64 %64, %63
-  br i1 %.not24.i.i, label %66, label %cdf_read_sector.exit.thread60
+  br i1 %.not24.i.i, label %66, label %cdf_read_sector.exit.thread59
 
-cdf_read_sector.exit.thread60:                    ; preds = %62
+cdf_read_sector.exit.thread59:                    ; preds = %62
   %65 = getelementptr inbounds i8, ptr %61, i64 %59
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %60, ptr noundef nonnull align 1 dereferenceable(1) %65, i64 %11, i1 false)
   br label %76
@@ -939,11 +939,11 @@ cdf_read_sector.exit:                             ; preds = %69
   %.not25.i.i = icmp eq i64 %75, %11
   br i1 %.not25.i.i, label %76, label %.thread
 
-76:                                               ; preds = %cdf_read_sector.exit.thread60, %cdf_read_sector.exit
+76:                                               ; preds = %cdf_read_sector.exit.thread59, %cdf_read_sector.exit
   %77 = load ptr, ptr %2, align 8
   %78 = getelementptr inbounds i32, ptr %77, i64 %54
   %79 = load i32, ptr %78, align 4
-  %80 = add nuw nsw i64 %.04770, 1
+  %80 = add nuw nsw i64 %.04769, 1
   %81 = icmp sgt i32 %79, -1
   br i1 %81, label %46, label %.loopexit
 
@@ -984,16 +984,16 @@ define hidden range(i32 -1, 1) i32 @cdf_read_short_sector_chain(ptr nocapture no
   %20 = lshr i64 %19, 2
   %21 = trunc i64 %20 to i32
   %22 = icmp eq i32 %3, -2
-  br i1 %22, label %.loopexit45, label %.preheader.i
+  br i1 %22, label %.loopexit44, label %.preheader.i
 
 .preheader.i:                                     ; preds = %6
   %23 = icmp sgt i32 %3, -1
   br i1 %23, label %.lr.ph.split.i, label %cdf_count_chain.exit
 
 .lr.ph.split.i:                                   ; preds = %.preheader.i, %25
-  %.01522.i = phi i64 [ %30, %25 ], [ 0, %.preheader.i ]
+  %.022.i = phi i64 [ %30, %25 ], [ 0, %.preheader.i ]
   %.01720.i = phi i32 [ %29, %25 ], [ %3, %.preheader.i ]
-  %24 = icmp ult i64 %.01522.i, 10000
+  %24 = icmp ult i64 %.022.i, 10000
   %.not.i = icmp slt i32 %.01720.i, %21
   %or.cond.i = select i1 %24, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %25, label %cdf_count_chain.exit
@@ -1003,9 +1003,9 @@ define hidden range(i32 -1, 1) i32 @cdf_read_short_sector_chain(ptr nocapture no
   %27 = zext nneg i32 %.01720.i to i64
   %28 = getelementptr inbounds i32, ptr %26, i64 %27
   %29 = load i32, ptr %28, align 4
-  %30 = add nuw nsw i64 %.01522.i, 1
+  %30 = add nuw nsw i64 %.022.i, 1
   %31 = icmp sgt i32 %29, -1
-  br i1 %31, label %.lr.ph.split.i, label %.loopexit45
+  br i1 %31, label %.lr.ph.split.i, label %.loopexit44
 
 cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.preheader.i
   %32 = tail call ptr @__errno_location() #21
@@ -1013,20 +1013,20 @@ cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.p
   %33 = getelementptr inbounds i8, ptr %5, i64 8
   br label %cdf_read_short_sector.exit.thread
 
-.loopexit45:                                      ; preds = %25, %6
-  %.0.i.ph = phi i64 [ 0, %6 ], [ %30, %25 ]
+.loopexit44:                                      ; preds = %25, %6
+  %.016.i.ph = phi i64 [ 0, %6 ], [ %30, %25 ]
   %34 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %.0.i.ph, ptr %34, align 8
+  store i64 %.016.i.ph, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %5, i64 16
   store i64 %4, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 %11, ptr %36, align 8
-  %37 = tail call noalias ptr @_ecalloc(i64 noundef %.0.i.ph, i64 noundef %11) #22
+  %37 = tail call noalias ptr @_ecalloc(i64 noundef %.016.i.ph, i64 noundef %11) #22
   store ptr %37, ptr %5, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %41, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit45
+.preheader:                                       ; preds = %.loopexit44
   %39 = icmp sgt i32 %3, -1
   br i1 %39, label %.lr.ph, label %.loopexit
 
@@ -1034,29 +1034,29 @@ cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.p
   %40 = getelementptr inbounds i8, ptr %2, i64 8
   br label %.lr.ph.split
 
-41:                                               ; preds = %.loopexit45
+41:                                               ; preds = %.loopexit44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
   br label %.loopexit.sink.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %cdf_read_short_sector.exit
-  %.051 = phi i64 [ %69, %cdf_read_short_sector.exit ], [ 0, %.lr.ph ]
-  %.03749 = phi i32 [ %68, %cdf_read_short_sector.exit ], [ %3, %.lr.ph ]
-  %exitcond = icmp eq i64 %.051, 10000
+  %.050 = phi i64 [ %69, %cdf_read_short_sector.exit ], [ 0, %.lr.ph ]
+  %.03748 = phi i32 [ %68, %cdf_read_short_sector.exit ], [ %3, %.lr.ph ]
+  %exitcond = icmp eq i64 %.050, 10000
   br i1 %exitcond, label %cdf_read_short_sector.exit.thread, label %42
 
 42:                                               ; preds = %.lr.ph.split
   %43 = load i64, ptr %34, align 8
-  %.not = icmp ult i64 %.051, %43
+  %.not = icmp ult i64 %.050, %43
   br i1 %.not, label %44, label %cdf_read_short_sector.exit.thread
 
 44:                                               ; preds = %42
   %45 = load ptr, ptr %5, align 8
-  %46 = mul i64 %.051, %11
+  %46 = mul i64 %.050, %11
   %47 = load i16, ptr %7, align 8
   %48 = zext nneg i16 %47 to i32
   %49 = shl nuw i32 1, %48
   %50 = sext i32 %49 to i64
-  %51 = zext nneg i32 %.03749 to i64
+  %51 = zext nneg i32 %.03748 to i64
   %mul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %50, i64 %51)
   %mul.ov.i = extractvalue { i64, i1 } %mul.i, 1
   br i1 %mul.ov.i, label %cdf_read_short_sector.exit.thread, label %52
@@ -1086,7 +1086,7 @@ cdf_read_short_sector.exit:                       ; preds = %52
   %66 = load ptr, ptr %1, align 8
   %67 = getelementptr inbounds i32, ptr %66, i64 %51
   %68 = load i32, ptr %67, align 4
-  %69 = add nuw nsw i64 %.051, 1
+  %69 = add nuw nsw i64 %.050, 1
   %70 = icmp sgt i32 %68, -1
   br i1 %70, label %.lr.ph.split, label %.loopexit
 
@@ -1150,16 +1150,16 @@ define hidden range(i32 -1, 1) i32 @cdf_read_dir(ptr nocapture noundef readonly 
   %15 = lshr i64 %14, 2
   %16 = trunc i64 %15 to i32
   %17 = icmp eq i32 %11, -2
-  br i1 %17, label %.loopexit96, label %.preheader.i
+  br i1 %17, label %.loopexit95, label %.preheader.i
 
 .preheader.i:                                     ; preds = %4
   %18 = icmp sgt i32 %11, -1
   br i1 %18, label %.lr.ph.split.i, label %cdf_count_chain.exit
 
 .lr.ph.split.i:                                   ; preds = %.preheader.i, %20
-  %.01522.i = phi i64 [ %25, %20 ], [ 0, %.preheader.i ]
+  %.022.i = phi i64 [ %25, %20 ], [ 0, %.preheader.i ]
   %.01720.i = phi i32 [ %24, %20 ], [ %11, %.preheader.i ]
-  %19 = icmp ult i64 %.01522.i, 10000
+  %19 = icmp ult i64 %.022.i, 10000
   %.not.i = icmp slt i32 %.01720.i, %16
   %or.cond.i = select i1 %19, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %20, label %cdf_count_chain.exit
@@ -1169,19 +1169,19 @@ define hidden range(i32 -1, 1) i32 @cdf_read_dir(ptr nocapture noundef readonly 
   %22 = zext nneg i32 %.01720.i to i64
   %23 = getelementptr inbounds i32, ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4
-  %25 = add nuw nsw i64 %.01522.i, 1
+  %25 = add nuw nsw i64 %.022.i, 1
   %26 = icmp sgt i32 %24, -1
-  br i1 %26, label %.lr.ph.split.i, label %.loopexit96
+  br i1 %26, label %.lr.ph.split.i, label %.loopexit95
 
 cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.preheader.i
   %27 = tail call ptr @__errno_location() #21
   store i32 22, ptr %27, align 4
   br label %119
 
-.loopexit96:                                      ; preds = %20, %4
-  %.0.i.ph = phi i64 [ 0, %4 ], [ %25, %20 ]
+.loopexit95:                                      ; preds = %20, %4
+  %.016.i.ph = phi i64 [ 0, %4 ], [ %25, %20 ]
   %28 = lshr i64 %9, 7
-  %29 = mul i64 %.0.i.ph, %28
+  %29 = mul i64 %.016.i.ph, %28
   %30 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %29, ptr %30, align 8
   %31 = tail call noalias ptr @_ecalloc(i64 noundef %29, i64 noundef 136) #22
@@ -1189,19 +1189,19 @@ cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.p
   %32 = icmp eq ptr %31, null
   br i1 %32, label %119, label %33
 
-33:                                               ; preds = %.loopexit96
+33:                                               ; preds = %.loopexit95
   %34 = tail call noalias ptr @_emalloc(i64 noundef %9) #23
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %38, label %.preheader95
+  br i1 %35, label %38, label %.preheader94
 
-.preheader95:                                     ; preds = %33
-  %.not107 = icmp eq i64 %.0.i.ph, 0
-  br i1 %.not107, label %.loopexit, label %.lr.ph104
+.preheader94:                                     ; preds = %33
+  %.not106 = icmp eq i64 %.016.i.ph, 0
+  br i1 %.not106, label %.loopexit, label %.lr.ph103
 
-.lr.ph104:                                        ; preds = %.preheader95
+.lr.ph103:                                        ; preds = %.preheader94
   %36 = getelementptr inbounds i8, ptr %0, i64 8
   %37 = getelementptr inbounds i8, ptr %0, i64 16
-  %.not108 = icmp ult i16 %6, 7
+  %.not107 = icmp ult i16 %6, 7
   %umax = tail call i64 @llvm.umax.i64(i64 %28, i64 1)
   br label %40
 
@@ -1210,11 +1210,11 @@ cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.p
   tail call void @_efree(ptr noundef %39) #20
   br label %119
 
-40:                                               ; preds = %.lr.ph104, %._crit_edge
-  %.0103 = phi i32 [ %11, %.lr.ph104 ], [ %114, %._crit_edge ]
-  %.082102 = phi i64 [ 0, %.lr.ph104 ], [ %115, %._crit_edge ]
-  %.083101 = phi i64 [ 0, %.lr.ph104 ], [ %116, %._crit_edge ]
-  %41 = icmp ugt i64 %.083101, 9999
+40:                                               ; preds = %.lr.ph103, %._crit_edge
+  %.0102 = phi i32 [ %11, %.lr.ph103 ], [ %114, %._crit_edge ]
+  %.082101 = phi i64 [ 0, %.lr.ph103 ], [ %116, %._crit_edge ]
+  %.083100 = phi i64 [ 0, %.lr.ph103 ], [ %115, %._crit_edge ]
+  %41 = icmp ugt i64 %.082101, 9999
   br i1 %41, label %cdf_read_sector.exit.thread, label %42
 
 42:                                               ; preds = %40
@@ -1222,7 +1222,7 @@ cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.p
   %44 = zext nneg i16 %43 to i32
   %45 = shl nuw i32 1, %44
   %46 = sext i32 %45 to i64
-  %47 = sext i32 %.0103 to i64
+  %47 = sext i32 %.0102 to i64
   %mul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %46, i64 %47)
   %mul.ov.i = extractvalue { i64, i1 } %mul.i, 1
   br i1 %mul.ov.i, label %cdf_read_sector.exit.thread, label %48
@@ -1238,12 +1238,12 @@ cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.p
   %53 = add nsw i64 %50, %9
   %54 = load i64, ptr %37, align 8
   %.not24.i.i = icmp ult i64 %54, %53
-  br i1 %.not24.i.i, label %56, label %cdf_read_sector.exit.thread115
+  br i1 %.not24.i.i, label %56, label %cdf_read_sector.exit.thread114
 
-cdf_read_sector.exit.thread115:                   ; preds = %52
+cdf_read_sector.exit.thread114:                   ; preds = %52
   %55 = getelementptr inbounds i8, ptr %51, i64 %50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %34, ptr noundef nonnull align 1 dereferenceable(1) %55, i64 %9, i1 false)
-  br label %.preheader94
+  br label %.preheader93
 
 56:                                               ; preds = %52, %48
   %57 = load i32, ptr %0, align 8
@@ -1264,21 +1264,21 @@ cdf_read_sector.exit:                             ; preds = %59
   %64 = load i32, ptr %0, align 8
   %65 = tail call i64 @read(i32 noundef %64, ptr noundef nonnull %34, i64 noundef %9) #20
   %.not25.i.i = icmp eq i64 %65, %9
-  br i1 %.not25.i.i, label %.preheader94, label %cdf_read_sector.exit.thread
+  br i1 %.not25.i.i, label %.preheader93, label %cdf_read_sector.exit.thread
 
-.preheader94:                                     ; preds = %cdf_read_sector.exit.thread115, %cdf_read_sector.exit
-  br i1 %.not108, label %._crit_edge, label %.lr.ph
+.preheader93:                                     ; preds = %cdf_read_sector.exit.thread114, %cdf_read_sector.exit
+  br i1 %.not107, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader94
-  %66 = mul i64 %.082102, %28
+.lr.ph:                                           ; preds = %.preheader93
+  %66 = mul i64 %.083100, %28
   br label %67
 
 67:                                               ; preds = %.lr.ph, %67
-  %.184100 = phi i64 [ 0, %.lr.ph ], [ %111, %67 ]
+  %.199 = phi i64 [ 0, %.lr.ph ], [ %111, %67 ]
   %68 = load ptr, ptr %3, align 8
   %69 = getelementptr %struct.cdf_directory_t, ptr %68, i64 %66
-  %70 = getelementptr %struct.cdf_directory_t, ptr %69, i64 %.184100
-  %71 = shl nuw i64 %.184100, 7
+  %70 = getelementptr %struct.cdf_directory_t, ptr %69, i64 %.199
+  %71 = shl nuw i64 %.199, 7
   %72 = getelementptr inbounds i8, ptr %34, i64 %71
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %70, ptr noundef nonnull readonly align 1 dereferenceable(64) %72, i64 64, i1 false)
   %73 = getelementptr inbounds i8, ptr %70, i64 64
@@ -1332,21 +1332,21 @@ cdf_read_sector.exit:                             ; preds = %59
   %109 = getelementptr inbounds i8, ptr %72, i64 124
   %110 = load i32, ptr %109, align 1
   store i32 %110, ptr %108, align 8
-  %111 = add nuw nsw i64 %.184100, 1
+  %111 = add nuw nsw i64 %.199, 1
   %exitcond.not = icmp eq i64 %111, %umax
   br i1 %exitcond.not, label %._crit_edge, label %67
 
-._crit_edge:                                      ; preds = %67, %.preheader94
-  %.184.lcssa = phi i64 [ 0, %.preheader94 ], [ %umax, %67 ]
+._crit_edge:                                      ; preds = %67, %.preheader93
+  %.1.lcssa = phi i64 [ 0, %.preheader93 ], [ %umax, %67 ]
   %112 = load ptr, ptr %2, align 8
   %113 = getelementptr inbounds i32, ptr %112, i64 %47
   %114 = load i32, ptr %113, align 4
-  %115 = add nuw nsw i64 %.082102, 1
-  %116 = add nuw nsw i64 %.184.lcssa, 1
-  %exitcond114.not = icmp eq i64 %115, %.0.i.ph
-  br i1 %exitcond114.not, label %.loopexit, label %40
+  %115 = add nuw nsw i64 %.083100, 1
+  %116 = add nuw nsw i64 %.1.lcssa, 1
+  %exitcond113.not = icmp eq i64 %115, %.016.i.ph
+  br i1 %exitcond113.not, label %.loopexit, label %40
 
-.loopexit:                                        ; preds = %._crit_edge, %.preheader95
+.loopexit:                                        ; preds = %._crit_edge, %.preheader94
   tail call void @_efree(ptr noundef nonnull %34) #20
   br label %119
 
@@ -1358,8 +1358,8 @@ cdf_read_sector.exit.thread:                      ; preds = %59, %42, %cdf_read_
   store i32 22, ptr %118, align 4
   br label %119
 
-119:                                              ; preds = %cdf_count_chain.exit, %.loopexit96, %cdf_read_sector.exit.thread, %.loopexit, %38
-  %.081 = phi i32 [ -1, %38 ], [ -1, %cdf_read_sector.exit.thread ], [ 0, %.loopexit ], [ -1, %cdf_count_chain.exit ], [ -1, %.loopexit96 ]
+119:                                              ; preds = %cdf_count_chain.exit, %.loopexit95, %cdf_read_sector.exit.thread, %.loopexit, %38
+  %.081 = phi i32 [ -1, %38 ], [ -1, %cdf_read_sector.exit.thread ], [ 0, %.loopexit ], [ -1, %cdf_count_chain.exit ], [ -1, %.loopexit95 ]
   ret i32 %.081
 }
 
@@ -1382,16 +1382,16 @@ define hidden range(i32 -1, 1) i32 @cdf_read_ssat(ptr nocapture noundef readonly
   %15 = lshr i64 %14, 2
   %16 = trunc i64 %15 to i32
   %17 = icmp eq i32 %11, -2
-  br i1 %17, label %.loopexit45, label %.preheader.i
+  br i1 %17, label %.loopexit44, label %.preheader.i
 
 .preheader.i:                                     ; preds = %4
   %18 = icmp sgt i32 %11, -1
   br i1 %18, label %.lr.ph.split.i, label %cdf_count_chain.exit
 
 .lr.ph.split.i:                                   ; preds = %.preheader.i, %20
-  %.01522.i = phi i64 [ %25, %20 ], [ 0, %.preheader.i ]
+  %.022.i = phi i64 [ %25, %20 ], [ 0, %.preheader.i ]
   %.01720.i = phi i32 [ %24, %20 ], [ %11, %.preheader.i ]
-  %19 = icmp ult i64 %.01522.i, 10000
+  %19 = icmp ult i64 %.022.i, 10000
   %.not.i = icmp slt i32 %.01720.i, %16
   %or.cond.i = select i1 %19, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %20, label %cdf_count_chain.exit
@@ -1401,9 +1401,9 @@ define hidden range(i32 -1, 1) i32 @cdf_read_ssat(ptr nocapture noundef readonly
   %22 = zext nneg i32 %.01720.i to i64
   %23 = getelementptr inbounds i32, ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4
-  %25 = add nuw nsw i64 %.01522.i, 1
+  %25 = add nuw nsw i64 %.022.i, 1
   %26 = icmp sgt i32 %24, -1
-  br i1 %26, label %.lr.ph.split.i, label %.loopexit45
+  br i1 %26, label %.lr.ph.split.i, label %.loopexit44
 
 cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.preheader.i
   %27 = tail call ptr @__errno_location() #21
@@ -1412,16 +1412,16 @@ cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.p
   store i64 -1, ptr %28, align 8
   br label %cdf_read_sector.exit.thread.sink.split
 
-.loopexit45:                                      ; preds = %20, %4
-  %.0.i.ph = phi i64 [ 0, %4 ], [ %25, %20 ]
+.loopexit44:                                      ; preds = %20, %4
+  %.016.i.ph = phi i64 [ 0, %4 ], [ %25, %20 ]
   %29 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %.0.i.ph, ptr %29, align 8
-  %30 = tail call noalias ptr @_ecalloc(i64 noundef %.0.i.ph, i64 noundef %9) #22
+  store i64 %.016.i.ph, ptr %29, align 8
+  %30 = tail call noalias ptr @_ecalloc(i64 noundef %.016.i.ph, i64 noundef %9) #22
   store ptr %30, ptr %3, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %cdf_read_sector.exit.thread, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit45
+.preheader:                                       ; preds = %.loopexit44
   %32 = icmp sgt i32 %11, -1
   br i1 %32, label %.lr.ph, label %.loopexit
 
@@ -1431,28 +1431,28 @@ cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.p
   br label %35
 
 35:                                               ; preds = %.lr.ph, %65
-  %.051 = phi i32 [ %11, %.lr.ph ], [ %68, %65 ]
-  %.03250 = phi i64 [ 0, %.lr.ph ], [ %69, %65 ]
-  %exitcond = icmp eq i64 %.03250, 10000
-  br i1 %exitcond, label %.loopexit44.loopexit, label %36
+  %.050 = phi i32 [ %11, %.lr.ph ], [ %68, %65 ]
+  %.03149 = phi i64 [ 0, %.lr.ph ], [ %69, %65 ]
+  %exitcond = icmp eq i64 %.03149, 10000
+  br i1 %exitcond, label %.loopexit43.loopexit, label %36
 
 36:                                               ; preds = %35
   %37 = load i64, ptr %29, align 8
-  %.not = icmp ult i64 %.03250, %37
-  br i1 %.not, label %38, label %.loopexit44.loopexit
+  %.not = icmp ult i64 %.03149, %37
+  br i1 %.not, label %38, label %.loopexit43.loopexit
 
 38:                                               ; preds = %36
   %39 = load i16, ptr %5, align 2
   %40 = zext nneg i16 %39 to i32
   %41 = shl nuw i32 1, %40
   %42 = sext i32 %41 to i64
-  %43 = zext nneg i32 %.051 to i64
+  %43 = zext nneg i32 %.050 to i64
   %mul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %42, i64 %43)
   %mul.ov.i = extractvalue { i64, i1 } %mul.i, 1
   br i1 %mul.ov.i, label %cdf_read_sector.exit.thread, label %44
 
 44:                                               ; preds = %38
-  %45 = mul i64 %.03250, %9
+  %45 = mul i64 %.03149, %9
   %46 = load ptr, ptr %3, align 8
   %47 = add nuw nsw i64 %43, 1
   %48 = mul nsw i64 %47, %42
@@ -1465,9 +1465,9 @@ cdf_count_chain.exit:                             ; preds = %.lr.ph.split.i, %.p
   %52 = add i64 %48, %9
   %53 = load i64, ptr %34, align 8
   %.not24.i.i = icmp ult i64 %53, %52
-  br i1 %.not24.i.i, label %55, label %cdf_read_sector.exit.thread41
+  br i1 %.not24.i.i, label %55, label %cdf_read_sector.exit.thread40
 
-cdf_read_sector.exit.thread41:                    ; preds = %51
+cdf_read_sector.exit.thread40:                    ; preds = %51
   %54 = getelementptr inbounds i8, ptr %50, i64 %48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %49, ptr noundef nonnull align 1 dereferenceable(1) %54, i64 %9, i1 false)
   br label %65
@@ -1492,31 +1492,31 @@ cdf_read_sector.exit:                             ; preds = %58
   %.not25.i.i = icmp eq i64 %64, %9
   br i1 %.not25.i.i, label %65, label %cdf_read_sector.exit.thread
 
-65:                                               ; preds = %cdf_read_sector.exit.thread41, %cdf_read_sector.exit
+65:                                               ; preds = %cdf_read_sector.exit.thread40, %cdf_read_sector.exit
   %66 = load ptr, ptr %2, align 8
   %67 = getelementptr inbounds i32, ptr %66, i64 %43
   %68 = load i32, ptr %67, align 4
-  %69 = add nuw nsw i64 %.03250, 1
+  %69 = add nuw nsw i64 %.03149, 1
   %70 = icmp sgt i32 %68, -1
   br i1 %70, label %35, label %.loopexit
 
-.loopexit44.loopexit:                             ; preds = %35, %36
+.loopexit43.loopexit:                             ; preds = %35, %36
   %.pre = tail call ptr @__errno_location() #21
   br label %cdf_read_sector.exit.thread.sink.split
 
-cdf_read_sector.exit.thread.sink.split:           ; preds = %cdf_count_chain.exit, %.loopexit44.loopexit, %61
-  %.sink = phi ptr [ %62, %61 ], [ %.pre, %.loopexit44.loopexit ], [ %27, %cdf_count_chain.exit ]
+cdf_read_sector.exit.thread.sink.split:           ; preds = %cdf_count_chain.exit, %.loopexit43.loopexit, %61
+  %.sink = phi ptr [ %62, %61 ], [ %.pre, %.loopexit43.loopexit ], [ %27, %cdf_count_chain.exit ]
   store i32 22, ptr %.sink, align 4
   br label %cdf_read_sector.exit.thread
 
-cdf_read_sector.exit.thread:                      ; preds = %58, %38, %cdf_read_sector.exit, %cdf_read_sector.exit.thread.sink.split, %.loopexit45
+cdf_read_sector.exit.thread:                      ; preds = %58, %38, %cdf_read_sector.exit, %cdf_read_sector.exit.thread.sink.split, %.loopexit44
   %71 = load ptr, ptr %3, align 8
   tail call void @_efree(ptr noundef %71) #20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %65, %.preheader, %cdf_read_sector.exit.thread
-  %.031 = phi i32 [ -1, %cdf_read_sector.exit.thread ], [ 0, %.preheader ], [ 0, %65 ]
-  ret i32 %.031
+  %.033 = phi i32 [ -1, %cdf_read_sector.exit.thread ], [ 0, %.preheader ], [ 0, %65 ]
+  ret i32 %.033
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1532,25 +1532,25 @@ define hidden range(i32 -1, 1) i32 @cdf_read_short_stream(ptr nocapture noundef 
   br label %10
 
 10:                                               ; preds = %.lr.ph, %14
-  %.02123 = phi i64 [ 0, %.lr.ph ], [ %15, %14 ]
-  %11 = getelementptr inbounds %struct.cdf_directory_t, ptr %9, i64 %.02123, i32 2
+  %.023 = phi i64 [ 0, %.lr.ph ], [ %15, %14 ]
+  %11 = getelementptr inbounds %struct.cdf_directory_t, ptr %9, i64 %.023, i32 2
   %12 = load i8, ptr %11, align 2
   %13 = icmp eq i8 %12, 5
   br i1 %13, label %._crit_edge, label %14
 
 14:                                               ; preds = %10
-  %15 = add nuw i64 %.02123, 1
+  %15 = add nuw i64 %.023, 1
   %exitcond.not = icmp eq i64 %15, %8
   br i1 %exitcond.not, label %._crit_edge.thread, label %10
 
 ._crit_edge:                                      ; preds = %10, %6
-  %.021.lcssa = phi i64 [ 0, %6 ], [ %.02123, %10 ]
-  %16 = icmp eq i64 %.021.lcssa, %8
+  %.0.lcssa = phi i64 [ 0, %6 ], [ %.023, %10 ]
+  %16 = icmp eq i64 %.0.lcssa, %8
   br i1 %16, label %._crit_edge.thread, label %17
 
 17:                                               ; preds = %._crit_edge
   %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.cdf_directory_t, ptr %18, i64 %.021.lcssa
+  %19 = getelementptr inbounds %struct.cdf_directory_t, ptr %18, i64 %.0.lcssa
   store ptr %19, ptr %5, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 120
   %21 = load i32, ptr %20, align 8
@@ -1571,8 +1571,8 @@ define hidden range(i32 -1, 1) i32 @cdf_read_short_stream(ptr nocapture noundef 
   br label %28
 
 28:                                               ; preds = %._crit_edge.thread, %23
-  %.0 = phi i32 [ 0, %._crit_edge.thread ], [ %27, %23 ]
-  ret i32 %.0
+  %.021 = phi i32 [ 0, %._crit_edge.thread ], [ %27, %23 ]
+  ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1720,21 +1720,21 @@ define hidden i32 @cdf_find_stream(ptr nocapture noundef readonly %0, ptr nocapt
   br label %8
 
 8:                                                ; preds = %12, %.lr.ph.split.us
-  %.01330.us = phi i64 [ %6, %.lr.ph.split.us ], [ %13, %12 ]
-  %gep = getelementptr %struct.cdf_directory_t, ptr %invariant.gep, i64 %.01330.us
+  %.030.us = phi i64 [ %6, %.lr.ph.split.us ], [ %13, %12 ]
+  %gep = getelementptr %struct.cdf_directory_t, ptr %invariant.gep, i64 %.030.us
   %9 = load i8, ptr %gep, align 2
   %10 = zext i8 %9 to i32
   %11 = icmp eq i32 %10, %2
   br i1 %11, label %cdf_namecmp.exit.thread, label %12
 
 12:                                               ; preds = %8
-  %13 = add i64 %.01330.us, -1
+  %13 = add i64 %.030.us, -1
   %.not.us = icmp eq i64 %13, 0
   br i1 %.not.us, label %.critedge, label %8
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %31
-  %.01330 = phi i64 [ %32, %31 ], [ %6, %.lr.ph ]
-  %14 = getelementptr %struct.cdf_directory_t, ptr %7, i64 %.01330
+  %.030 = phi i64 [ %32, %31 ], [ %6, %.lr.ph ]
+  %14 = getelementptr %struct.cdf_directory_t, ptr %7, i64 %.030
   %15 = getelementptr i8, ptr %14, i64 -70
   %16 = load i8, ptr %15, align 2
   %17 = zext i8 %16 to i32
@@ -1769,13 +1769,13 @@ cdf_namecmp.exit.loopexit15:                      ; preds = %.thread.i
   br i1 %30, label %cdf_namecmp.exit.thread, label %31
 
 31:                                               ; preds = %.lr.ph.split.split, %cdf_namecmp.exit.loopexit15
-  %32 = add i64 %.01330, -1
+  %32 = add i64 %.030, -1
   %.not = icmp eq i64 %32, 0
   br i1 %.not, label %.critedge, label %.lr.ph.split.split
 
 cdf_namecmp.exit.thread:                          ; preds = %cdf_namecmp.exit.loopexit15, %25, %8
-  %.01328 = phi i64 [ %.01330.us, %8 ], [ %.01330, %25 ], [ %.01330, %cdf_namecmp.exit.loopexit15 ]
-  %33 = trunc i64 %.01328 to i32
+  %.028 = phi i64 [ %.030.us, %8 ], [ %.030, %25 ], [ %.030, %cdf_namecmp.exit.loopexit15 ]
+  %33 = trunc i64 %.028 to i32
   br label %35
 
 .critedge:                                        ; preds = %31, %12, %3
@@ -1784,8 +1784,8 @@ cdf_namecmp.exit.thread:                          ; preds = %cdf_namecmp.exit.lo
   br label %35
 
 35:                                               ; preds = %.critedge, %cdf_namecmp.exit.thread
-  %.0 = phi i32 [ %33, %cdf_namecmp.exit.thread ], [ 0, %.critedge ]
-  ret i32 %.0
+  %.013 = phi i32 [ %33, %cdf_namecmp.exit.thread ], [ 0, %.critedge ]
+  ret i32 %.013
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1917,9 +1917,9 @@ cdf_check_stream_offset.exit159.thread:           ; preds = %55
   br label %cdf_get_property_info_pos.exit.thread
 
 63:                                               ; preds = %.lr.ph202, %cdf_check_stream_offset.exit159
-  %.0121201 = phi ptr [ %50, %.lr.ph202 ], [ %.2, %cdf_check_stream_offset.exit159 ]
-  %.0122200 = phi i64 [ 0, %.lr.ph202 ], [ %160, %cdf_check_stream_offset.exit159 ]
-  %64 = shl i64 %.0122200, 3
+  %.0120201 = phi ptr [ %50, %.lr.ph202 ], [ %.2, %cdf_check_stream_offset.exit159 ]
+  %.0126200 = phi i64 [ 0, %.lr.ph202 ], [ %160, %cdf_check_stream_offset.exit159 ]
+  %64 = shl i64 %.0126200, 3
   %65 = or disjoint i64 %64, 4
   %66 = load ptr, ptr %0, align 8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %64
@@ -1957,7 +1957,7 @@ cdf_check_stream_offset.exit.i:                   ; preds = %67
 cdf_get_property_info_pos.exit:                   ; preds = %76
   %81 = getelementptr inbounds i8, ptr %54, i64 %64
   %.0.copyload.i = load i32, ptr %81, align 1
-  %82 = getelementptr inbounds %struct.cdf_property_info_t, ptr %.0121201, i64 %.0122200
+  %82 = getelementptr inbounds %struct.cdf_property_info_t, ptr %.0120201, i64 %.0126200
   store i32 %.0.copyload.i, ptr %82, align 8
   %83 = ptrtoint ptr %80 to i64
   %84 = sub i64 %31, %83
@@ -1988,9 +1988,9 @@ cdf_get_property_info_pos.exit:                   ; preds = %76
   br label %96
 
 96:                                               ; preds = %86, %94
-  %.0128 = phi i64 [ %95, %94 ], [ 1, %86 ]
-  %.0125 = phi i64 [ 2, %94 ], [ 1, %86 ]
-  %97 = shl nuw nsw i64 %.0125, 2
+  %.0124 = phi i64 [ %95, %94 ], [ 1, %86 ]
+  %.0121 = phi i64 [ 2, %94 ], [ 1, %86 ]
+  %97 = shl nuw nsw i64 %.0121, 2
   %98 = and i32 %.0.copyload.i163, 57344
   %.not142 = icmp eq i32 %98, 0
   br i1 %.not142, label %99, label %cdf_copy_info.exit.thread
@@ -2060,38 +2060,38 @@ cdf_copy_info.exit179:                            ; preds = %115
   br label %cdf_check_stream_offset.exit159
 
 122:                                              ; preds = %99, %99
-  %123 = icmp ugt i64 %.0128, 1
+  %123 = icmp ugt i64 %.0124, 1
   br i1 %123, label %124, label %133
 
 124:                                              ; preds = %122
   %125 = load ptr, ptr %3, align 8
-  %126 = tail call fastcc ptr @cdf_grow_info(ptr noundef nonnull %3, ptr noundef nonnull %5, i64 noundef %.0128)
+  %126 = tail call fastcc ptr @cdf_grow_info(ptr noundef nonnull %3, ptr noundef nonnull %5, i64 noundef %.0124)
   %127 = icmp eq ptr %126, null
   br i1 %127, label %cdf_get_property_info_pos.exit.thread, label %128
 
 128:                                              ; preds = %124
-  %129 = ptrtoint ptr %.0121201 to i64
+  %129 = ptrtoint ptr %.0120201 to i64
   %130 = ptrtoint ptr %125 to i64
   %131 = sub i64 %129, %130
   %132 = getelementptr inbounds i8, ptr %126, i64 %131
   br label %133
 
 133:                                              ; preds = %128, %122
-  %.1 = phi ptr [ %132, %128 ], [ %.0121201, %122 ]
-  %134 = icmp ult i64 %.0122200, %36
+  %.1 = phi ptr [ %132, %128 ], [ %.0120201, %122 ]
+  %134 = icmp ult i64 %.0126200, %36
   br i1 %134, label %.lr.ph.split, label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %133, %143
-  %.1123199 = phi i64 [ %153, %143 ], [ %.0122200, %133 ]
-  %.1126198 = phi i64 [ %150, %143 ], [ %.0125, %133 ]
-  %.0127197 = phi i64 [ %152, %143 ], [ 0, %133 ]
-  %.0129196 = phi i64 [ %151, %143 ], [ %97, %133 ]
-  %135 = add i64 %.0129196, 4
+  %.1122199 = phi i64 [ %150, %143 ], [ %.0121, %133 ]
+  %.0123198 = phi i64 [ %152, %143 ], [ 0, %133 ]
+  %.0125197 = phi i64 [ %151, %143 ], [ %97, %133 ]
+  %.1127196 = phi i64 [ %153, %143 ], [ %.0126200, %133 ]
+  %135 = add i64 %.0125197, 4
   %136 = icmp ugt i64 %135, %84
   br i1 %136, label %cdf_get_property_info_pos.exit.thread, label %137
 
 137:                                              ; preds = %.lr.ph.split
-  %138 = shl i64 %.1126198, 2
+  %138 = shl i64 %.1122199, 2
   %139 = getelementptr inbounds i8, ptr %80, i64 %138
   %.0.copyload.i180 = load i32, ptr %139, align 1
   %140 = zext i32 %.0.copyload.i180 to i64
@@ -2100,7 +2100,7 @@ cdf_copy_info.exit179:                            ; preds = %115
   br i1 %142, label %cdf_get_property_info_pos.exit.thread, label %143
 
 143:                                              ; preds = %137
-  %144 = getelementptr inbounds %struct.cdf_property_info_t, ptr %.1, i64 %.1123199, i32 2
+  %144 = getelementptr inbounds %struct.cdf_property_info_t, ptr %.1, i64 %.1127196, i32 2
   store i32 %.0.copyload.i180, ptr %144, align 8
   %145 = getelementptr inbounds i8, ptr %80, i64 %135
   %146 = getelementptr inbounds i8, ptr %144, i64 8
@@ -2109,18 +2109,18 @@ cdf_copy_info.exit179:                            ; preds = %115
   %spec.select = add i32 %147, %.0.copyload.i180
   %148 = lshr i32 %spec.select, 1
   %149 = zext nneg i32 %148 to i64
-  %150 = add i64 %.1126198, %149
+  %150 = add i64 %.1122199, %149
   %151 = shl i64 %150, 2
-  %152 = add nuw nsw i64 %.0127197, 1
-  %153 = add nuw nsw i64 %.1123199, 1
-  %154 = icmp ult i64 %152, %.0128
+  %152 = add nuw nsw i64 %.0123198, 1
+  %153 = add nuw nsw i64 %.1127196, 1
+  %154 = icmp ult i64 %152, %.0124
   %155 = icmp ult i64 %153, %36
   %156 = select i1 %154, i1 %155, i1 false
   br i1 %156, label %.lr.ph.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %143, %133
-  %.1123.lcssa = phi i64 [ %.0122200, %133 ], [ %153, %143 ]
-  %157 = add i64 %.1123.lcssa, -1
+  %.1127.lcssa = phi i64 [ %.0126200, %133 ], [ %153, %143 ]
+  %157 = add i64 %.1127.lcssa, -1
   br label %cdf_check_stream_offset.exit159
 
 158:                                              ; preds = %99
@@ -2132,9 +2132,9 @@ cdf_copy_info.exit.thread:                        ; preds = %115, %108, %101, %9
   br label %cdf_check_stream_offset.exit159
 
 cdf_check_stream_offset.exit159:                  ; preds = %cdf_copy_info.exit179, %cdf_copy_info.exit175, %cdf_copy_info.exit, %._crit_edge, %cdf_copy_info.exit.thread, %99, %99, %158
-  %.2124 = phi i64 [ %.0122200, %cdf_copy_info.exit.thread ], [ %.0122200, %158 ], [ %157, %._crit_edge ], [ %.0122200, %cdf_copy_info.exit179 ], [ %.0122200, %cdf_copy_info.exit175 ], [ %.0122200, %cdf_copy_info.exit ], [ %.0122200, %99 ], [ %.0122200, %99 ]
-  %.2 = phi ptr [ %.0121201, %cdf_copy_info.exit.thread ], [ %.0121201, %158 ], [ %.1, %._crit_edge ], [ %.0121201, %cdf_copy_info.exit179 ], [ %.0121201, %cdf_copy_info.exit175 ], [ %.0121201, %cdf_copy_info.exit ], [ %.0121201, %99 ], [ %.0121201, %99 ]
-  %160 = add i64 %.2124, 1
+  %.2128 = phi i64 [ %.0126200, %cdf_copy_info.exit.thread ], [ %.0126200, %158 ], [ %157, %._crit_edge ], [ %.0126200, %cdf_copy_info.exit179 ], [ %.0126200, %cdf_copy_info.exit175 ], [ %.0126200, %cdf_copy_info.exit ], [ %.0126200, %99 ], [ %.0126200, %99 ]
+  %.2 = phi ptr [ %.0120201, %cdf_copy_info.exit.thread ], [ %.0120201, %158 ], [ %.1, %._crit_edge ], [ %.0120201, %cdf_copy_info.exit179 ], [ %.0120201, %cdf_copy_info.exit175 ], [ %.0120201, %cdf_copy_info.exit ], [ %.0120201, %99 ], [ %.0120201, %99 ]
+  %160 = add i64 %.2128, 1
   %161 = icmp ult i64 %160, %36
   br i1 %161, label %63, label %.loopexit
 
@@ -2149,8 +2149,8 @@ cdf_get_property_info_pos.exit.thread:            ; preds = %76, %cdf_check_stre
   br label %.loopexit
 
 .loopexit:                                        ; preds = %cdf_check_stream_offset.exit159, %cdf_check_stream_offset.exit159.preheader, %cdf_get_property_info_pos.exit.thread
-  %.0120 = phi i32 [ -1, %cdf_get_property_info_pos.exit.thread ], [ 0, %cdf_check_stream_offset.exit159.preheader ], [ 0, %cdf_check_stream_offset.exit159 ]
-  ret i32 %.0120
+  %.0129 = phi i32 [ -1, %cdf_get_property_info_pos.exit.thread ], [ 0, %cdf_check_stream_offset.exit159.preheader ], [ 0, %cdf_check_stream_offset.exit159 ]
+  ret i32 %.0129
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2258,26 +2258,26 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr nocapture noundef rea
 
 .lr.ph.split:                                     ; preds = %3, %14
   %spec.select141156 = phi i16 [ %.0.copyload, %14 ], [ %.0.copyload151, %3 ]
-  %.0119155 = phi ptr [ %12, %14 ], [ %5, %3 ]
-  %.0120154 = phi i64 [ %15, %14 ], [ 0, %3 ]
+  %.0122155 = phi i64 [ %15, %14 ], [ 0, %3 ]
+  %.0124154 = phi ptr [ %12, %14 ], [ %5, %3 ]
   %11 = zext i16 %spec.select141156 to i64
-  %12 = getelementptr inbounds i8, ptr %.0119155, i64 %11
+  %12 = getelementptr inbounds i8, ptr %.0124154, i64 %11
   %13 = icmp ugt ptr %12, %9
   br i1 %13, label %._crit_edge, label %14
 
 14:                                               ; preds = %.lr.ph.split
-  %15 = add i64 %.0120154, 1
+  %15 = add i64 %.0122155, 1
   %.0.copyload = load i16, ptr %12, align 1
   %16 = icmp eq i16 %.0.copyload, 0
   br i1 %16, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %14, %.lr.ph.split
-  %.0120.lcssa.ph255 = phi i64 [ %15, %14 ], [ %.0120154, %.lr.ph.split ]
-  %17 = icmp eq i64 %.0120.lcssa.ph255, 0
+  %.0122.lcssa.ph255 = phi i64 [ %15, %14 ], [ %.0122155, %.lr.ph.split ]
+  %17 = icmp eq i64 %.0122.lcssa.ph255, 0
   br i1 %17, label %._crit_edge.thread, label %18
 
 18:                                               ; preds = %._crit_edge
-  %19 = add i64 %.0120.lcssa.ph255, -1
+  %19 = add i64 %.0122.lcssa.ph255, -1
   %20 = mul i64 %19, 528
   %21 = add i64 %20, 536
   %22 = tail call noalias ptr @_emalloc(i64 noundef %21) #23
@@ -2296,32 +2296,32 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr nocapture noundef rea
   br label %.lr.ph169.split
 
 .lr.ph169.split:                                  ; preds = %.lr.ph169.split.preheader, %64
-  %.1166 = phi ptr [ %66, %64 ], [ %26, %.lr.ph169.split.preheader ]
-  %.0121165 = phi i64 [ %.1122, %64 ], [ 0, %.lr.ph169.split.preheader ]
-  %.0124164 = phi i64 [ %.1125, %64 ], [ 0, %.lr.ph169.split.preheader ]
-  %27 = getelementptr inbounds %struct.cdf_catalog_entry_t, ptr %25, i64 %.0124164
-  %28 = getelementptr inbounds i8, ptr %.1166, i64 2
+  %.0119167 = phi i64 [ %.1, %64 ], [ 0, %.lr.ph169.split.preheader ]
+  %.0120166 = phi i64 [ %.1121, %64 ], [ 0, %.lr.ph169.split.preheader ]
+  %.1125164 = phi ptr [ %66, %64 ], [ %26, %.lr.ph169.split.preheader ]
+  %27 = getelementptr inbounds %struct.cdf_catalog_entry_t, ptr %25, i64 %.0119167
+  %28 = getelementptr inbounds i8, ptr %.1125164, i64 2
   %29 = icmp ugt ptr %28, %9
   br i1 %29, label %.loopexit.sink.split, label %.thread
 
 .thread:                                          ; preds = %.lr.ph169.split
-  %30 = load i16, ptr %.1166, align 1
+  %30 = load i16, ptr %.1125164, align 1
   store i16 %30, ptr %27, align 8
-  %31 = getelementptr inbounds %struct.cdf_catalog_entry_t, ptr %25, i64 %.0121165
+  %31 = getelementptr inbounds %struct.cdf_catalog_entry_t, ptr %25, i64 %.0120166
   store i16 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %.1166, i64 8
+  %32 = getelementptr inbounds i8, ptr %.1125164, i64 8
   %33 = icmp ugt ptr %32, %9
   br i1 %33, label %.loopexit.sink.split, label %34
 
 34:                                               ; preds = %.thread
-  %35 = getelementptr inbounds i8, ptr %.1166, i64 4
+  %35 = getelementptr inbounds i8, ptr %.1125164, i64 4
   %36 = getelementptr inbounds i8, ptr %27, i64 4
   %37 = load i32, ptr %35, align 1
   store i32 %37, ptr %36, align 4
   %38 = and i32 %37, 65535
   %39 = getelementptr inbounds i8, ptr %31, i64 4
   store i32 %38, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %.1166, i64 16
+  %40 = getelementptr inbounds i8, ptr %.1125164, i64 16
   %41 = icmp ugt ptr %40, %9
   br i1 %41, label %.loopexit.sink.split, label %42
 
@@ -2329,7 +2329,7 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr nocapture noundef rea
   %43 = getelementptr inbounds i8, ptr %27, i64 8
   %44 = load i64, ptr %32, align 1
   store i64 %44, ptr %43, align 8
-  %45 = getelementptr inbounds %struct.cdf_catalog_entry_t, ptr %25, i64 %.0121165, i32 2
+  %45 = getelementptr inbounds %struct.cdf_catalog_entry_t, ptr %25, i64 %.0120166, i32 2
   store i64 %44, ptr %45, align 8
   %46 = load i16, ptr %27, align 8
   %47 = icmp ult i16 %46, 14
@@ -2357,12 +2357,12 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr nocapture noundef rea
   br label %55
 
 55:                                               ; preds = %.lr.ph161, %55
-  %.0123160 = phi i64 [ 0, %.lr.ph161 ], [ %59, %55 ]
-  %56 = getelementptr inbounds i16, ptr %40, i64 %.0123160
+  %.0160 = phi i64 [ 0, %.lr.ph161 ], [ %59, %55 ]
+  %56 = getelementptr inbounds i16, ptr %40, i64 %.0160
   %57 = load i16, ptr %56, align 2
-  %58 = getelementptr inbounds [256 x i16], ptr %54, i64 0, i64 %.0123160
+  %58 = getelementptr inbounds [256 x i16], ptr %54, i64 0, i64 %.0160
   store i16 %57, ptr %58, align 2
-  %59 = add nuw nsw i64 %.0123160, 1
+  %59 = add nuw nsw i64 %.0160, 1
   %60 = icmp ult i64 %59, %51
   br i1 %60, label %55, label %._crit_edge162
 
@@ -2370,15 +2370,15 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr nocapture noundef rea
   %61 = getelementptr inbounds i8, ptr %27, i64 16
   %62 = getelementptr inbounds [256 x i16], ptr %61, i64 0, i64 %51
   store i16 0, ptr %62, align 2
-  %63 = add nuw i64 %.0121165, 1
+  %63 = add nuw i64 %.0120166, 1
   br label %64
 
 64:                                               ; preds = %._crit_edge162, %48
-  %.1125 = phi i64 [ %.0124164, %48 ], [ %.0121165, %._crit_edge162 ]
-  %.1122 = phi i64 [ %.0121165, %48 ], [ %63, %._crit_edge162 ]
+  %.1121 = phi i64 [ %.0120166, %48 ], [ %63, %._crit_edge162 ]
+  %.1 = phi i64 [ %.0119167, %48 ], [ %.0120166, %._crit_edge162 ]
   %65 = zext i16 %46 to i64
-  %66 = getelementptr inbounds i8, ptr %.1166, i64 %65
-  %67 = icmp ult i64 %.1122, %19
+  %66 = getelementptr inbounds i8, ptr %.1125164, i64 %65
+  %67 = icmp ult i64 %.1121, %19
   br i1 %67, label %.lr.ph169.split, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %49, %34, %.thread, %.lr.ph169.split
@@ -2386,13 +2386,13 @@ define hidden range(i32 -1, 1) i32 @cdf_unpack_catalog(ptr nocapture noundef rea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %64, %.loopexit.sink.split, %24
-  %.0124146 = phi i64 [ 0, %24 ], [ %.0124164, %.loopexit.sink.split ], [ %.1125, %64 ]
-  store i64 %.0124146, ptr %22, align 8
+  %.0119146 = phi i64 [ 0, %24 ], [ %.0119167, %.loopexit.sink.split ], [ %.1, %64 ]
+  store i64 %.0119146, ptr %22, align 8
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %3, %18, %._crit_edge, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ -1, %._crit_edge ], [ -1, %18 ], [ -1, %3 ]
-  ret i32 %.0
+  %.0123 = phi i32 [ 0, %.loopexit ], [ -1, %._crit_edge ], [ -1, %18 ], [ -1, %3 ]
+  ret i32 %.0123
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2493,12 +2493,12 @@ define hidden i32 @cdf_print_elapsed_time(ptr noundef %0, i64 noundef %1, i64 no
   br i1 %.not55, label %._crit_edge, label %.thread
 
 .thread:                                          ; preds = %19, %14
-  %.04654 = phi i32 [ %17, %14 ], [ 0, %19 ]
-  %20 = sext i32 %.04654 to i64
+  %.054 = phi i32 [ %17, %14 ], [ 0, %19 ]
+  %20 = sext i32 %.054 to i64
   %21 = getelementptr inbounds i8, ptr %0, i64 %20
   %22 = sub i64 %1, %20
   %23 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %21, i64 noundef %22, ptr noundef nonnull @.str.7, i32 noundef %11) #20
-  %24 = add nsw i32 %23, %.04654
+  %24 = add nsw i32 %23, %.054
   %25 = sext i32 %24 to i64
   %.not50 = icmp ult i64 %25, %1
   br i1 %.not50, label %._crit_edge, label %37
@@ -2522,8 +2522,8 @@ define hidden i32 @cdf_print_elapsed_time(ptr noundef %0, i64 noundef %1, i64 no
   br label %37
 
 37:                                               ; preds = %._crit_edge, %.thread, %14, %32
-  %.0 = phi i32 [ %36, %32 ], [ %17, %14 ], [ %24, %.thread ], [ %30, %._crit_edge ]
-  ret i32 %.0
+  %.046 = phi i32 [ %36, %32 ], [ %17, %14 ], [ %24, %.thread ], [ %30, %._crit_edge ]
+  ret i32 %.046
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable

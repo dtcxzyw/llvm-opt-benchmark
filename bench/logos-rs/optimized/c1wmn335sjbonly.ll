@@ -730,8 +730,8 @@ define i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..t
   br label %8
 
 8:                                                ; preds = %8, %6
-  %.sroa.07.0 = phi i64 [ %2, %6 ], [ %10, %8 ]
   %.sroa.09.0 = phi i64 [ 0, %6 ], [ %11, %8 ]
+  %.sroa.07.0 = phi i64 [ %2, %6 ], [ %10, %8 ]
   %9 = getelementptr inbounds { i64, [4 x i64] }, ptr %0, i64 %.sroa.09.0
   %10 = call i64 @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb4d35d9c2e3aa063E"(ptr nonnull align 1 %4, i64 %.sroa.07.0, ptr align 8 %9)
   %11 = add nuw i64 %.sroa.09.0, 1
@@ -803,8 +803,8 @@ define i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..t
   br label %8
 
 8:                                                ; preds = %8, %6
-  %.sroa.07.0 = phi i64 [ %2, %6 ], [ %10, %8 ]
   %.sroa.09.0 = phi i64 [ 0, %6 ], [ %11, %8 ]
+  %.sroa.07.0 = phi i64 [ %2, %6 ], [ %10, %8 ]
   %9 = getelementptr inbounds { i64, [4 x i64] }, ptr %0, i64 %.sroa.09.0
   %10 = call i64 @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3e27605a382bd12dE"(ptr nonnull align 1 %4, i64 %.sroa.07.0, ptr align 8 %9)
   %11 = add nuw i64 %.sroa.09.0, 1

@@ -61,8 +61,8 @@ define i32 @f32_div(i32 %0, i32 %1) local_unnamed_addr #0 {
   br label %27
 
 27:                                               ; preds = %17, %23
-  %.059 = phi i64 [ %26, %23 ], [ %10, %17 ]
-  %.058 = phi i64 [ %25, %23 ], [ %9, %17 ]
+  %.063 = phi i64 [ %25, %23 ], [ %9, %17 ]
+  %.062 = phi i64 [ %26, %23 ], [ %10, %17 ]
   %.not73 = icmp eq i64 %5, 0
   br i1 %.not73, label %28, label %33
 
@@ -79,29 +79,29 @@ define i32 @f32_div(i32 %0, i32 %1) local_unnamed_addr #0 {
 33:                                               ; preds = %29, %27
   %.057 = phi i64 [ %6, %27 ], [ %32, %29 ]
   %.0 = phi i64 [ %5, %27 ], [ %31, %29 ]
-  %34 = sub i64 %.0, %.058
+  %34 = sub i64 %.0, %.063
   %35 = or i64 %.057, 8388608
-  %36 = or i64 %.059, 8388608
+  %36 = or i64 %.062, 8388608
   %37 = icmp ult i64 %35, %36
-  %.063.v = select i1 %37, i64 125, i64 126
-  %.063 = add nsw i64 %34, %.063.v
-  %.062.v = select i1 %37, i64 31, i64 30
-  %.062 = shl i64 %35, %.062.v
-  %38 = udiv i64 %.062, %36
+  %.061.v = select i1 %37, i64 125, i64 126
+  %.061 = add nsw i64 %34, %.061.v
+  %.060.v = select i1 %37, i64 31, i64 30
+  %.060 = shl i64 %35, %.060.v
+  %38 = udiv i64 %.060, %36
   %39 = and i64 %38, 63
   %.not75 = icmp eq i64 %39, 0
   br i1 %.not75, label %40, label %45
 
 40:                                               ; preds = %33
   %41 = mul i64 %38, %36
-  %42 = icmp ne i64 %41, %.062
+  %42 = icmp ne i64 %41, %.060
   %43 = zext i1 %42 to i64
   %44 = or disjoint i64 %38, %43
   br label %45
 
 45:                                               ; preds = %40, %33
-  %.061 = phi i64 [ %38, %33 ], [ %44, %40 ]
-  %46 = tail call i32 @softfloat_roundPackToF32(i1 noundef zeroext %11, i64 noundef %.063, i64 noundef %.061) #2
+  %.059 = phi i64 [ %38, %33 ], [ %44, %40 ]
+  %46 = tail call i32 @softfloat_roundPackToF32(i1 noundef zeroext %11, i64 noundef %.061, i64 noundef %.059) #2
   br label %54
 
 47:                                               ; preds = %18, %16, %13

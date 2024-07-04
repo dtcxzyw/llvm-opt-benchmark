@@ -837,8 +837,8 @@ if.else73:                                        ; preds = %if.else
   br label %if.end78
 
 if.end78:                                         ; preds = %invoke.cont63, %if.else73, %if.then70, %land.lhs.true, %if.end42
-  %minFrac.0 = phi i32 [ %.sroa.speculated177, %if.then70 ], [ %16, %if.else73 ], [ %16, %land.lhs.true ], [ %16, %if.end42 ], [ %call64, %invoke.cont63 ]
   %maxFrac.0 = phi i32 [ %15, %if.then70 ], [ %.sroa.speculated, %if.else73 ], [ %15, %land.lhs.true ], [ %15, %if.end42 ], [ %call64, %invoke.cont63 ]
+  %minFrac.0 = phi i32 [ %.sroa.speculated177, %if.then70 ], [ %16, %if.else73 ], [ %16, %land.lhs.true ], [ %16, %if.end42 ], [ %call64, %invoke.cont63 ]
   %cmp79 = icmp eq i32 %14, 0
   %cmp81 = icmp ne i32 %maxFrac.0, 0
   %or.cond2 = select i1 %cmp79, i1 %cmp81, i1 false
@@ -881,8 +881,8 @@ cond.false139:                                    ; preds = %cond.false136
   br label %if.end149
 
 if.end149:                                        ; preds = %if.else108, %cond.false139, %cond.false136, %if.then82
-  %minFrac.1 = phi i32 [ %cond, %if.then82 ], [ %cond113, %if.else108 ], [ %cond113, %cond.false136 ], [ %cond113, %cond.false139 ]
   %maxFrac.1 = phi i32 [ %cond97, %if.then82 ], [ %cond123, %if.else108 ], [ %cond123, %cond.false136 ], [ %cond123, %cond.false139 ]
+  %minFrac.1 = phi i32 [ %cond, %if.then82 ], [ %cond113, %if.else108 ], [ %cond113, %cond.false136 ], [ %cond113, %cond.false139 ]
   %minInt.0 = phi i32 [ 0, %if.then82 ], [ %cond133, %if.else108 ], [ %cond133, %cond.false136 ], [ %cond133, %cond.false139 ]
   %maxInt.0 = phi i32 [ %cond107, %if.then82 ], [ -1, %if.else108 ], [ %cond133, %cond.false136 ], [ %cond144, %cond.false139 ]
   store i32 0, ptr %precision, align 8

@@ -180,12 +180,12 @@ entry:
   br label %while.body
 
 while.body:                                       ; preds = %entry, %if.end25
-  %pos.08 = phi i64 [ 0, %entry ], [ %pos.1, %if.end25 ]
-  %coeff_num.07 = phi i64 [ 0, %entry ], [ %coeff_num.1, %if.end25 ]
-  %arrayidx7 = getelementptr inbounds [2688 x i8], ptr %buf, i64 0, i64 %pos.08
+  %coeff_num.08 = phi i64 [ 0, %entry ], [ %coeff_num.1, %if.end25 ]
+  %pos.07 = phi i64 [ 0, %entry ], [ %pos.1, %if.end25 ]
+  %arrayidx7 = getelementptr inbounds [2688 x i8], ptr %buf, i64 0, i64 %pos.07
   %0 = load i8, ptr %arrayidx7, align 1
   %conv = zext i8 %0 to i16
-  %add = add nuw nsw i64 %pos.08, 1
+  %add = add nuw nsw i64 %pos.07, 1
   %arrayidx8 = getelementptr inbounds [2688 x i8], ptr %buf, i64 0, i64 %add
   %1 = load i8, ptr %arrayidx8, align 1
   %conv10 = zext i8 %1 to i16
@@ -196,14 +196,14 @@ while.body:                                       ; preds = %entry, %if.end25
   br i1 %cmp13, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  %inc = add nuw nsw i64 %coeff_num.07, 1
-  %arrayidx15 = getelementptr inbounds [1024 x i16], ptr %a, i64 0, i64 %coeff_num.07
+  %inc = add nuw nsw i64 %coeff_num.08, 1
+  %arrayidx15 = getelementptr inbounds [1024 x i16], ptr %a, i64 0, i64 %coeff_num.08
   store i16 %and, ptr %arrayidx15, align 2
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %while.body
-  %coeff_num.1 = phi i64 [ %inc, %if.then ], [ %coeff_num.07, %while.body ]
-  %add16 = add nsw i64 %pos.08, 2
+  %coeff_num.1 = phi i64 [ %inc, %if.then ], [ %coeff_num.08, %while.body ]
+  %add16 = add nsw i64 %pos.07, 2
   %cmp17 = icmp ugt i64 %add16, 2686
   br i1 %cmp17, label %if.then19, label %if.end25
 
@@ -245,13 +245,13 @@ for.body:                                         ; preds = %entry, %for.end
   br label %for.body3
 
 for.body3:                                        ; preds = %for.body, %for.body3
-  %j.011 = phi i64 [ 0, %for.body ], [ %inc, %for.body3 ]
-  %d.010 = phi i32 [ 0, %for.body ], [ %add, %for.body3 ]
-  %sh_prom = trunc nuw nsw i64 %j.011 to i32
+  %d.011 = phi i32 [ 0, %for.body ], [ %add, %for.body3 ]
+  %j.010 = phi i64 [ 0, %for.body ], [ %inc, %for.body3 ]
+  %sh_prom = trunc nuw nsw i64 %j.010 to i32
   %shr = lshr i32 %0, %sh_prom
   %and = and i32 %shr, 16843009
-  %add = add i32 %and, %d.010
-  %inc = add nuw nsw i64 %j.011, 1
+  %add = add i32 %and, %d.011
+  %inc = add nuw nsw i64 %j.010, 1
   %exitcond.not = icmp eq i64 %inc, 8
   br i1 %exitcond.not, label %for.end, label %for.body3, !llvm.loop !11
 

@@ -1394,7 +1394,7 @@ rb_num2int_inline.exit:                           ; preds = %17, %19
   br label %22
 
 22:                                               ; preds = %rb_num2int_inline.exit, %3
-  %.038 = phi i32 [ 0, %3 ], [ %21, %rb_num2int_inline.exit ]
+  %.037 = phi i32 [ 0, %3 ], [ %21, %rb_num2int_inline.exit ]
   %23 = load i64, ptr %4, align 8
   %24 = call i64 @rb_check_sockaddr_string_type(i64 noundef %23) #13
   %25 = icmp eq i64 %24, 4
@@ -1531,19 +1531,19 @@ RARRAY_AREF.exit73:                               ; preds = %RARRAY_AREF.exit70,
   unreachable
 
 91:                                               ; preds = %85, %RARRAY_AREF.exit73, %RARRAY_AREF.exit61
-  %.040 = phi i64 [ %62, %RARRAY_AREF.exit61 ], [ %84, %RARRAY_AREF.exit73 ], [ %86, %85 ]
-  %.039 = phi i64 [ %60, %RARRAY_AREF.exit61 ], [ %81, %RARRAY_AREF.exit73 ], [ %88, %85 ]
-  %.034 = phi i64 [ %59, %RARRAY_AREF.exit61 ], [ %82, %RARRAY_AREF.exit73 ], [ %87, %85 ]
-  %92 = and i32 %.038, 16
+  %.040 = phi i64 [ %59, %RARRAY_AREF.exit61 ], [ %82, %RARRAY_AREF.exit73 ], [ %87, %85 ]
+  %.039 = phi i64 [ %62, %RARRAY_AREF.exit61 ], [ %84, %RARRAY_AREF.exit73 ], [ %86, %85 ]
+  %.038 = phi i64 [ %60, %RARRAY_AREF.exit61 ], [ %81, %RARRAY_AREF.exit73 ], [ %88, %85 ]
+  %92 = and i32 %.037, 16
   %.not = icmp eq i32 %92, 0
   %93 = select i1 %.not, i32 1, i32 2
   %94 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %93, ptr %94, align 8
-  %95 = icmp eq i64 %.034, 4
+  %95 = icmp eq i64 %.040, 4
   br i1 %95, label %100, label %96
 
 96:                                               ; preds = %91
-  %97 = call i32 @rsock_family_arg(i64 noundef %.034) #13
+  %97 = call i32 @rsock_family_arg(i64 noundef %.040) #13
   br label %100
 
 98:                                               ; preds = %39
@@ -1555,19 +1555,19 @@ RARRAY_AREF.exit73:                               ; preds = %RARRAY_AREF.exit70,
   %101 = phi i32 [ %97, %96 ], [ 0, %91 ]
   %102 = getelementptr inbounds i8, ptr %8, i64 4
   store i32 %101, ptr %102, align 4
-  %103 = call ptr @rsock_getaddrinfo(i64 noundef %.040, i64 noundef %.039, ptr noundef nonnull %8, i32 noundef 0) #13
+  %103 = call ptr @rsock_getaddrinfo(i64 noundef %.039, i64 noundef %.038, ptr noundef nonnull %8, i32 noundef 0) #13
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 24
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds i8, ptr %104, i64 16
   %108 = load i32, ptr %107, align 8
-  %109 = call i32 @rb_getnameinfo(ptr noundef %106, i32 noundef %108, ptr noundef nonnull %6, i64 noundef 1024, ptr noundef nonnull %7, i64 noundef 1024, i32 noundef %.038) #13
+  %109 = call i32 @rb_getnameinfo(ptr noundef %106, i32 noundef %108, ptr noundef nonnull %6, i64 noundef 1024, ptr noundef nonnull %7, i64 noundef 1024, i32 noundef %.037) #13
   %.not44 = icmp eq i32 %109, 0
   br i1 %.not44, label %114, label %.thread101
 
 .thread86:                                        ; preds = %38, %RSTRING_PTR.exit
   %110 = trunc nuw i64 %29 to i32
-  %111 = call i32 @rb_getnameinfo(ptr noundef nonnull %9, i32 noundef %110, ptr noundef nonnull %6, i64 noundef 1024, ptr noundef nonnull %7, i64 noundef 1024, i32 noundef %.038) #13
+  %111 = call i32 @rb_getnameinfo(ptr noundef nonnull %9, i32 noundef %110, ptr noundef nonnull %6, i64 noundef 1024, ptr noundef nonnull %7, i64 noundef 1024, i32 noundef %.037) #13
   %.not4490 = icmp eq i32 %111, 0
   br i1 %.not4490, label %.thread93, label %.thread96
 
@@ -1581,18 +1581,18 @@ RARRAY_AREF.exit73:                               ; preds = %RARRAY_AREF.exit70,
   br label %116
 
 116:                                              ; preds = %125, %114
-  %.pn = phi ptr [ %115, %114 ], [ %.036, %125 ]
-  %.036.in = getelementptr inbounds i8, ptr %.pn, i64 40
-  %.036 = load ptr, ptr %.036.in, align 8
-  %.not46 = icmp eq ptr %.036, null
+  %.pn = phi ptr [ %115, %114 ], [ %.035, %125 ]
+  %.035.in = getelementptr inbounds i8, ptr %.pn, i64 40
+  %.035 = load ptr, ptr %.035.in, align 8
+  %.not46 = icmp eq ptr %.035, null
   br i1 %.not46, label %129, label %117
 
 117:                                              ; preds = %116
-  %118 = getelementptr inbounds i8, ptr %.036, i64 24
+  %118 = getelementptr inbounds i8, ptr %.035, i64 24
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %.036, i64 16
+  %120 = getelementptr inbounds i8, ptr %.035, i64 16
   %121 = load i32, ptr %120, align 8
-  %122 = call i32 @rb_getnameinfo(ptr noundef %119, i32 noundef %121, ptr noundef nonnull %10, i64 noundef 1024, ptr noundef nonnull %11, i64 noundef 1024, i32 noundef %.038) #13
+  %122 = call i32 @rb_getnameinfo(ptr noundef %119, i32 noundef %121, ptr noundef nonnull %10, i64 noundef 1024, ptr noundef nonnull %11, i64 noundef 1024, i32 noundef %.037) #13
   %.not47 = icmp eq i32 %122, 0
   br i1 %.not47, label %123, label %.thread101
 
@@ -1623,7 +1623,7 @@ RARRAY_AREF.exit73:                               ; preds = %RARRAY_AREF.exit70,
   ret i64 %132
 
 .thread101:                                       ; preds = %117, %100
-  %.035106 = phi i32 [ %109, %100 ], [ %122, %117 ]
+  %.034106 = phi i32 [ %109, %100 ], [ %122, %117 ]
   %133 = call ptr @rb_errno_ptr() #13
   %134 = load i32, ptr %133, align 4
   call void @rb_freeaddrinfo(ptr noundef nonnull %103) #13
@@ -1631,10 +1631,10 @@ RARRAY_AREF.exit73:                               ; preds = %RARRAY_AREF.exit70,
 
 135:                                              ; preds = %.thread96, %.thread101
   %136 = phi i32 [ %113, %.thread96 ], [ %134, %.thread101 ]
-  %.035100 = phi i32 [ %111, %.thread96 ], [ %.035106, %.thread101 ]
+  %.034100 = phi i32 [ %111, %.thread96 ], [ %.034106, %.thread101 ]
   %137 = call ptr @rb_errno_ptr() #13
   store i32 %136, ptr %137, align 4
-  call void @rsock_raise_resolution_error(ptr noundef nonnull @.str.25, i32 noundef %.035100) #15
+  call void @rsock_raise_resolution_error(ptr noundef nonnull @.str.25, i32 noundef %.034100) #15
   unreachable
 }
 

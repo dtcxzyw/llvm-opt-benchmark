@@ -267,8 +267,8 @@ ompi_request_cancel.exit.i89:                     ; preds = %115, %112
   br i1 %exitcond.not.i87, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i81, !llvm.loop !4
 
 ompi_coll_base_free_reqs.exit:                    ; preds = %66, %103, %123, %._crit_edge, %83, %ompi_comm_remote_size.exit
-  %.0 = phi i32 [ -2, %ompi_comm_remote_size.exit ], [ %106, %._crit_edge ], [ %82, %83 ], [ %106, %123 ], [ %82, %103 ], [ %47, %66 ]
-  ret i32 %.0
+  %.055 = phi i32 [ -2, %ompi_comm_remote_size.exit ], [ %106, %._crit_edge ], [ %82, %83 ], [ %106, %123 ], [ %82, %103 ], [ %47, %66 ]
+  ret i32 %.055
 }
 
 declare ptr @ompi_coll_base_comm_get_reqs(ptr noundef, i32 noundef) local_unnamed_addr #1

@@ -592,7 +592,7 @@ _ZN4core5slice4sort20provide_sorted_batch17h3b7ebf091b13b58aE.exit: ; preds = %.
   br i1 %or.cond415.i, label %.lr.ph.i55, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h0ce0ea9a0a49c8e2E.exit"
 
 .lr.ph24.i:                                       ; preds = %212, %.lr.ph24.i
-  %.02723.i = phi ptr [ %229, %.lr.ph24.i ], [ %209, %212 ]
+  %.02823.i = phi ptr [ %229, %.lr.ph24.i ], [ %209, %212 ]
   %.sroa.10.022.i = phi ptr [ %228, %.lr.ph24.i ], [ %214, %212 ]
   %.sroa.18.021.i = phi ptr [ %226, %.lr.ph24.i ], [ %208, %212 ]
   %220 = getelementptr i8, ptr %.sroa.10.022.i, i64 -8
@@ -612,35 +612,35 @@ _ZN4core5slice4sort20provide_sorted_batch17h3b7ebf091b13b58aE.exit: ; preds = %.
   %227 = xor i1 %spec.select.i.i.i63, true
   %.neg34.i = sext i1 %227 to i64
   %228 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %.sroa.10.022.i, i64 %.neg34.i
-  %.026.i = select i1 %spec.select.i.i.i63, ptr %226, ptr %228
-  %229 = getelementptr inbounds i8, ptr %.02723.i, i64 -32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %229, ptr noundef nonnull align 8 dereferenceable(32) %.026.i, i64 32, i1 false)
+  %.027.i = select i1 %spec.select.i.i.i63, ptr %226, ptr %228
+  %229 = getelementptr inbounds i8, ptr %.02823.i, i64 -32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %229, ptr noundef nonnull align 8 dereferenceable(32) %.027.i, i64 32, i1 false)
   %230 = icmp ugt ptr %226, %207
   %231 = icmp ugt ptr %228, %14
   %or.cond.i64 = select i1 %230, i1 %231, i1 false
   br i1 %or.cond.i64, label %.lr.ph24.i, label %"_ZN4core5slice4sort10merge_sort37RunVec$LT$RunAllocF$C$RunDeallocF$GT$6remove17h0ce0ea9a0a49c8e2E.exit"
 
 .lr.ph.i55:                                       ; preds = %216, %.lr.ph.i55
-  %.02818.i = phi ptr [ %240, %.lr.ph.i55 ], [ %208, %216 ]
+  %.02618.i = phi ptr [ %240, %.lr.ph.i55 ], [ %208, %216 ]
   %.sroa.0.117.i = phi ptr [ %243, %.lr.ph.i55 ], [ %14, %216 ]
   %.sroa.18.216.i = phi ptr [ %238, %.lr.ph.i55 ], [ %207, %216 ]
-  %232 = getelementptr i8, ptr %.02818.i, i64 24
-  %.028.val.i = load i32, ptr %232, align 8, !alias.scope !53, !noundef !14
-  %233 = getelementptr i8, ptr %.02818.i, i64 28
-  %.028.val38.i = load i32, ptr %233, align 4, !alias.scope !53, !noundef !14
+  %232 = getelementptr i8, ptr %.02618.i, i64 24
+  %.026.val.i = load i32, ptr %232, align 8, !alias.scope !53, !noundef !14
+  %233 = getelementptr i8, ptr %.02618.i, i64 28
+  %.026.val38.i = load i32, ptr %233, align 4, !alias.scope !53, !noundef !14
   %234 = getelementptr i8, ptr %.sroa.0.117.i, i64 24
   %.val39.i = load i32, ptr %234, align 8, !noalias !53, !noundef !14
   %235 = getelementptr i8, ptr %.sroa.0.117.i, i64 28
   %.val40.i = load i32, ptr %235, align 4, !noalias !53, !noundef !14
-  %236 = icmp ult i32 %.028.val.i, %.val39.i
-  %.not.i.i41.i56 = icmp eq i32 %.028.val.i, %.val39.i
-  %237 = icmp ult i32 %.028.val38.i, %.val40.i
+  %236 = icmp ult i32 %.026.val.i, %.val39.i
+  %.not.i.i41.i56 = icmp eq i32 %.026.val.i, %.val39.i
+  %237 = icmp ult i32 %.026.val38.i, %.val40.i
   %spec.select.i.i42.i57 = select i1 %.not.i.i41.i56, i1 %237, i1 %236
-  %.029.i = select i1 %spec.select.i.i42.i57, ptr %.02818.i, ptr %.sroa.0.117.i
+  %.029.i = select i1 %spec.select.i.i42.i57, ptr %.02618.i, ptr %.sroa.0.117.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.18.216.i, ptr noundef nonnull align 8 dereferenceable(32) %.029.i, i64 32, i1 false)
   %238 = getelementptr inbounds i8, ptr %.sroa.18.216.i, i64 32
   %239 = zext i1 %spec.select.i.i42.i57 to i64
-  %240 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %.02818.i, i64 %239
+  %240 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %.02618.i, i64 %239
   %241 = xor i1 %spec.select.i.i42.i57, true
   %242 = zext i1 %241 to i64
   %243 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %.sroa.0.117.i, i64 %242

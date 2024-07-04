@@ -93,12 +93,12 @@ define noundef ptr @_Z6rtodmsPcmdii(ptr noundef returned %0, i64 noundef %1, dou
   br label %15
 
 15:                                               ; preds = %5, %7, %12
-  %.067 = phi i32 [ 0, %12 ], [ %4, %7 ], [ %3, %5 ]
-  %.066 = phi ptr [ %14, %12 ], [ %0, %7 ], [ %0, %5 ]
-  %.065 = phi double [ %8, %12 ], [ %8, %7 ], [ %2, %5 ]
-  %.064 = phi i64 [ %13, %12 ], [ %1, %7 ], [ %1, %5 ]
+  %.067 = phi double [ %8, %12 ], [ %8, %7 ], [ %2, %5 ]
+  %.065 = phi i32 [ 0, %12 ], [ %4, %7 ], [ %3, %5 ]
+  %.064 = phi ptr [ %14, %12 ], [ %0, %7 ], [ %0, %5 ]
+  %.063 = phi i64 [ %13, %12 ], [ %1, %7 ], [ %1, %5 ]
   %16 = load double, ptr @_ZL4CONV, align 8
-  %17 = tail call double @llvm.fmuladd.f64(double %.065, double %16, double 5.000000e-01)
+  %17 = tail call double @llvm.fmuladd.f64(double %.067, double %16, double 5.000000e-01)
   %18 = tail call double @llvm.floor.f64(double %17)
   %19 = load double, ptr @_ZL3RES, align 8
   %20 = fdiv double %18, %19
@@ -112,11 +112,11 @@ define noundef ptr @_Z6rtodmsPcmdii(ptr noundef returned %0, i64 noundef %1, dou
   %28 = tail call double @llvm.floor.f64(double %27)
   %29 = fptosi double %28 to i32
   %30 = load i32, ptr @_ZL6dolong, align 4
-  %.not77 = icmp eq i32 %30, 0
-  br i1 %.not77, label %33, label %31
+  %.not78 = icmp eq i32 %30, 0
+  br i1 %.not78, label %33, label %31
 
 31:                                               ; preds = %15
-  %32 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.066, i64 noundef %.064, ptr noundef nonnull @_ZL6format, i32 noundef %29, i32 noundef %26, double noundef %21, i32 noundef %.067) #6
+  %32 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.064, i64 noundef %.063, ptr noundef nonnull @_ZL6format, i32 noundef %29, i32 noundef %26, double noundef %21, i32 noundef %.065) #6
   br label %59
 
 33:                                               ; preds = %15
@@ -124,40 +124,40 @@ define noundef ptr @_Z6rtodmsPcmdii(ptr noundef returned %0, i64 noundef %1, dou
   br i1 %34, label %35, label %54
 
 35:                                               ; preds = %33
-  %.not79 = icmp eq i32 %.067, 0
-  %.neg = select i1 %.not79, i64 -2, i64 -3
-  %36 = select i1 %.not79, i64 2, i64 3
-  %37 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.066, i64 noundef %.064, ptr noundef nonnull @_ZL6format, i32 noundef %29, i32 noundef %26, double noundef %21, i32 noundef %.067) #6
+  %.not80 = icmp eq i32 %.065, 0
+  %.neg = select i1 %.not80, i64 -2, i64 -3
+  %36 = select i1 %.not80, i64 2, i64 3
+  %37 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.064, i64 noundef %.063, ptr noundef nonnull @_ZL6format, i32 noundef %29, i32 noundef %26, double noundef %21, i32 noundef %.065) #6
   br label %38
 
 38:                                               ; preds = %41, %35
-  %.063 = phi ptr [ %.066, %35 ], [ %42, %41 ]
-  %39 = load i8, ptr %.063, align 1
+  %.0 = phi ptr [ %.064, %35 ], [ %42, %41 ]
+  %39 = load i8, ptr %.0, align 1
   switch i8 %39, label %41 [
-    i8 0, label %.loopexit85
+    i8 0, label %.loopexit86
     i8 44, label %40
   ]
 
 40:                                               ; preds = %38
-  store i8 46, ptr %.063, align 1
-  br label %.loopexit85
+  store i8 46, ptr %.0, align 1
+  br label %.loopexit86
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %.063, i64 1
+  %42 = getelementptr inbounds i8, ptr %.0, i64 1
   br label %38, !llvm.loop !6
 
-.loopexit85:                                      ; preds = %38, %40
-  %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.066) #7
+.loopexit86:                                      ; preds = %38, %40
+  %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.064) #7
   %44 = icmp ugt i64 %36, %43
   br i1 %44, label %59, label %45
 
-45:                                               ; preds = %.loopexit85
-  %46 = getelementptr inbounds i8, ptr %.066, i64 %43
+45:                                               ; preds = %.loopexit86
+  %46 = getelementptr inbounds i8, ptr %.064, i64 %43
   %47 = getelementptr inbounds i8, ptr %46, i64 %.neg
   br label %48
 
 48:                                               ; preds = %50, %45
-  %.1.idx = phi i64 [ 0, %45 ], [ %.1.add83, %50 ]
+  %.1.idx = phi i64 [ 0, %45 ], [ %.1.add84, %50 ]
   %.1.ptr = getelementptr inbounds i8, ptr %47, i64 %.1.idx
   %49 = load i8, ptr %.1.ptr, align 1
   switch i8 %49, label %51 [
@@ -166,7 +166,7 @@ define noundef ptr @_Z6rtodmsPcmdii(ptr noundef returned %0, i64 noundef %1, dou
   ]
 
 50:                                               ; preds = %48
-  %.1.add83 = add nsw i64 %.1.idx, -1
+  %.1.add84 = add nsw i64 %.1.idx, -1
   br label %48, !llvm.loop !7
 
 51:                                               ; preds = %48
@@ -175,8 +175,8 @@ define noundef ptr @_Z6rtodmsPcmdii(ptr noundef returned %0, i64 noundef %1, dou
 
 .loopexit:                                        ; preds = %48, %51
   %.2.idx = phi i64 [ %.1.add, %51 ], [ %.1.idx, %48 ]
-  %.not82 = icmp eq i64 %.2.idx, 1
-  br i1 %.not82, label %59, label %52
+  %.not83 = icmp eq i64 %.2.idx, 1
+  br i1 %.not83, label %59, label %52
 
 52:                                               ; preds = %.loopexit
   %.2.ptr = getelementptr inbounds i8, ptr %47, i64 %.2.idx
@@ -185,18 +185,18 @@ define noundef ptr @_Z6rtodmsPcmdii(ptr noundef returned %0, i64 noundef %1, dou
   br label %59
 
 54:                                               ; preds = %33
-  %.not78 = icmp eq i32 %26, 0
-  br i1 %.not78, label %57, label %55
+  %.not79 = icmp eq i32 %26, 0
+  br i1 %.not79, label %57, label %55
 
 55:                                               ; preds = %54
-  %56 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.066, i64 noundef %.064, ptr noundef nonnull @.str.2, i32 noundef %29, i32 noundef %26, i32 noundef %.067) #6
+  %56 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.064, i64 noundef %.063, ptr noundef nonnull @.str.2, i32 noundef %29, i32 noundef %26, i32 noundef %.065) #6
   br label %59
 
 57:                                               ; preds = %54
-  %58 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.066, i64 noundef %.064, ptr noundef nonnull @.str.3, i32 noundef %29, i32 noundef %.067) #6
+  %58 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.064, i64 noundef %.063, ptr noundef nonnull @.str.3, i32 noundef %29, i32 noundef %.065) #6
   br label %59
 
-59:                                               ; preds = %31, %55, %57, %.loopexit, %52, %.loopexit85, %11
+59:                                               ; preds = %31, %55, %57, %.loopexit, %52, %.loopexit86, %11
   ret ptr %0
 }
 

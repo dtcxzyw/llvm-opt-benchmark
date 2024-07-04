@@ -397,8 +397,8 @@ define internal i32 @archive_write_pax_header(ptr noundef %0, ptr noundef %1) #0
   br i1 %39, label %554, label %40
 
 40:                                               ; preds = %33, %37, %30
-  %.0455 = phi ptr [ null, %30 ], [ %38, %37 ], [ %35, %33 ]
-  %41 = call i32 @_archive_entry_hardlink_l(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %9, ptr noundef %.0455) #15
+  %.0437 = phi ptr [ null, %30 ], [ %38, %37 ], [ %35, %33 ]
+  %41 = call i32 @_archive_entry_hardlink_l(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %9, ptr noundef %.0437) #15
   %.not.i = icmp eq i32 %41, 0
   br i1 %.not.i, label %get_entry_hardlink.exit, label %42
 
@@ -428,13 +428,13 @@ get_entry_hardlink.exit574:                       ; preds = %48
 
 51:                                               ; preds = %48, %46
   %52 = load ptr, ptr %3, align 8
-  %53 = call ptr @archive_string_conversion_charset_name(ptr noundef %.0455) #15
+  %53 = call ptr @archive_string_conversion_charset_name(ptr noundef %.0437) #15
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.22, ptr noundef %52, ptr noundef %53) #15
   br label %get_entry_hardlink.exit
 
 get_entry_hardlink.exit:                          ; preds = %40, %51
-  %.1456 = phi ptr [ null, %51 ], [ %.0455, %40 ]
-  %.0435 = phi i32 [ -20, %51 ], [ 0, %40 ]
+  %.0449 = phi i32 [ -20, %51 ], [ 0, %40 ]
+  %.1438 = phi ptr [ null, %51 ], [ %.0437, %40 ]
   %54 = load ptr, ptr %3, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %82
@@ -527,14 +527,14 @@ get_entry_hardlink.exit:                          ; preds = %40, %51
   br i1 %cond651, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %93, %99
-  %.0461652 = phi ptr [ %100, %99 ], [ %95, %93 ]
-  %96 = getelementptr inbounds i8, ptr %.0461652, i64 1
+  %.0435652 = phi ptr [ %100, %99 ], [ %95, %93 ]
+  %96 = getelementptr inbounds i8, ptr %.0435652, i64 1
   %97 = load i8, ptr %96, align 1
   %98 = icmp eq i8 %97, 0
   br i1 %98, label %99, label %.critedge
 
 99:                                               ; preds = %.lr.ph
-  store i8 0, ptr %.0461652, align 1
+  store i8 0, ptr %.0435652, align 1
   %100 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %89, i32 noundef 47) #17
   %cond = icmp eq ptr %100, null
   br i1 %cond, label %._crit_edge, label %.lr.ph, !llvm.loop !5
@@ -546,8 +546,8 @@ get_entry_hardlink.exit:                          ; preds = %40, %51
   br label %107
 
 .critedge:                                        ; preds = %.lr.ph
-  %103 = getelementptr inbounds i8, ptr %.0461652, i64 1
-  %104 = getelementptr inbounds i8, ptr %.0461652, i64 3
+  %103 = getelementptr inbounds i8, ptr %.0435652, i64 1
+  %104 = getelementptr inbounds i8, ptr %.0435652, i64 3
   %105 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %103) #17
   %106 = add i64 %105, 1
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %104, ptr nonnull align 1 %103, i64 %106, i1 false)
@@ -587,7 +587,7 @@ get_entry_hardlink.exit:                          ; preds = %40, %51
   br i1 %122, label %554, label %123
 
 123:                                              ; preds = %118
-  %spec.select = call i32 @llvm.smin.i32(i32 %116, i32 %.0435)
+  %spec.select = call i32 @llvm.smin.i32(i32 %116, i32 %.0449)
   %spec.select562 = call i32 @llvm.smin.i32(i32 %spec.select, i32 %121)
   %124 = load ptr, ptr %25, align 8
   %125 = load i64, ptr %124, align 8
@@ -637,7 +637,7 @@ archive_write_pax_finish_entry.exit:              ; preds = %136, %123, %.prehea
   br label %144
 
 144:                                              ; preds = %143, %82
-  %.3438 = phi i32 [ %.0435, %82 ], [ %spec.select563, %143 ]
+  %.3452 = phi i32 [ %.0449, %82 ], [ %spec.select563, %143 ]
   %145 = call ptr @archive_entry_clone(ptr noundef %1) #15
   %146 = icmp eq ptr %145, null
   br i1 %146, label %147, label %148
@@ -701,9 +701,9 @@ sparse_list_clear.exit:                           ; preds = %.lr.ph.i576, %148
   br label %173
 
 173:                                              ; preds = %._crit_edge654, %.preheader
-  %.0450.lcssa = phi i64 [ %172, %._crit_edge654 ], [ 0, %.preheader ]
+  %.0434.lcssa = phi i64 [ %172, %._crit_edge654 ], [ 0, %.preheader ]
   %174 = call i64 @archive_entry_size(ptr noundef %145) #15
-  %175 = icmp slt i64 %.0450.lcssa, %174
+  %175 = icmp slt i64 %.0434.lcssa, %174
   br i1 %175, label %176, label %178
 
 176:                                              ; preds = %173
@@ -716,8 +716,8 @@ sparse_list_clear.exit:                           ; preds = %.lr.ph.i576, %148
   br label %.thread
 
 .thread:                                          ; preds = %sparse_list_clear.exit, %161, %178, %164
-  %.1449 = phi i32 [ %179, %178 ], [ 0, %164 ], [ 0, %161 ], [ 0, %sparse_list_clear.exit ]
-  %180 = call i32 @_archive_entry_pathname_l(ptr noundef %145, ptr noundef nonnull %4, ptr noundef nonnull %10, ptr noundef %.1456) #15
+  %.1448 = phi i32 [ %179, %178 ], [ 0, %164 ], [ 0, %161 ], [ 0, %sparse_list_clear.exit ]
+  %180 = call i32 @_archive_entry_pathname_l(ptr noundef %145, ptr noundef nonnull %4, ptr noundef nonnull %10, ptr noundef %.1438) #15
   %.not.i578 = icmp eq i32 %180, 0
   br i1 %.not.i578, label %get_entry_pathname.exit, label %181
 
@@ -749,14 +749,14 @@ sparse_list_clear.exit:                           ; preds = %.lr.ph.i576, %148
 
 192:                                              ; preds = %188, %186
   %193 = load ptr, ptr %4, align 8
-  %194 = call ptr @archive_string_conversion_charset_name(ptr noundef %.1456) #15
+  %194 = call ptr @archive_string_conversion_charset_name(ptr noundef %.1438) #15
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.24, ptr noundef %193, ptr noundef %194) #15
   br label %get_entry_pathname.exit
 
 get_entry_pathname.exit:                          ; preds = %.thread, %192
-  %.2457 = phi ptr [ null, %192 ], [ %.1456, %.thread ]
-  %.4439 = phi i32 [ -20, %192 ], [ %.3438, %.thread ]
-  %195 = call i32 @_archive_entry_uname_l(ptr noundef %145, ptr noundef nonnull %6, ptr noundef nonnull %12, ptr noundef %.2457) #15
+  %.4453 = phi i32 [ -20, %192 ], [ %.3452, %.thread ]
+  %.2439 = phi ptr [ null, %192 ], [ %.1438, %.thread ]
+  %195 = call i32 @_archive_entry_uname_l(ptr noundef %145, ptr noundef nonnull %6, ptr noundef nonnull %12, ptr noundef %.2439) #15
   %.not.i583 = icmp eq i32 %195, 0
   br i1 %.not.i583, label %get_entry_uname.exit, label %196
 
@@ -782,14 +782,14 @@ get_entry_pathname.exit:                          ; preds = %.thread, %192
 
 205:                                              ; preds = %201
   %206 = load ptr, ptr %6, align 8
-  %207 = call ptr @archive_string_conversion_charset_name(ptr noundef %.2457) #15
+  %207 = call ptr @archive_string_conversion_charset_name(ptr noundef %.2439) #15
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.25, ptr noundef %206, ptr noundef %207) #15
   br label %get_entry_uname.exit
 
 get_entry_uname.exit:                             ; preds = %get_entry_pathname.exit, %205
-  %.3458 = phi ptr [ null, %205 ], [ %.2457, %get_entry_pathname.exit ]
-  %.5440 = phi i32 [ -20, %205 ], [ %.4439, %get_entry_pathname.exit ]
-  %208 = call fastcc i32 @get_entry_gname(ptr noundef %0, ptr noundef %145, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef %.3458)
+  %.5454 = phi i32 [ -20, %205 ], [ %.4453, %get_entry_pathname.exit ]
+  %.3440 = phi ptr [ null, %205 ], [ %.2439, %get_entry_pathname.exit ]
+  %208 = call fastcc i32 @get_entry_gname(ptr noundef %0, ptr noundef %145, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef %.3440)
   switch i32 %208, label %210 [
     i32 -30, label %209
     i32 0, label %217
@@ -810,13 +810,13 @@ get_entry_uname.exit:                             ; preds = %get_entry_pathname.
 
 214:                                              ; preds = %210
   %215 = load ptr, ptr %7, align 8
-  %216 = call ptr @archive_string_conversion_charset_name(ptr noundef %.3458) #15
+  %216 = call ptr @archive_string_conversion_charset_name(ptr noundef %.3440) #15
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.26, ptr noundef %215, ptr noundef %216) #15
   br label %217
 
 217:                                              ; preds = %get_entry_uname.exit, %214
-  %.4459 = phi ptr [ null, %214 ], [ %.3458, %get_entry_uname.exit ]
-  %.6441 = phi i32 [ -20, %214 ], [ %.5440, %get_entry_uname.exit ]
+  %.6455 = phi i32 [ -20, %214 ], [ %.5454, %get_entry_uname.exit ]
+  %.4441 = phi ptr [ null, %214 ], [ %.3440, %get_entry_uname.exit ]
   %218 = load ptr, ptr %3, align 8
   store ptr %218, ptr %5, align 8
   %219 = load i64, ptr %9, align 8
@@ -825,7 +825,7 @@ get_entry_uname.exit:                             ; preds = %get_entry_pathname.
   br i1 %220, label %221, label %230
 
 221:                                              ; preds = %217
-  %222 = call fastcc i32 @get_entry_symlink(ptr noundef %0, ptr noundef %145, ptr noundef nonnull %5, ptr noundef nonnull %11, ptr noundef %.4459)
+  %222 = call fastcc i32 @get_entry_symlink(ptr noundef %0, ptr noundef %145, ptr noundef nonnull %5, ptr noundef nonnull %11, ptr noundef %.4441)
   switch i32 %222, label %224 [
     i32 -30, label %223
     i32 0, label %230
@@ -846,16 +846,16 @@ get_entry_uname.exit:                             ; preds = %get_entry_pathname.
 
 .thread622:                                       ; preds = %224
   %228 = load ptr, ptr %5, align 8
-  %229 = call ptr @archive_string_conversion_charset_name(ptr noundef %.4459) #15
+  %229 = call ptr @archive_string_conversion_charset_name(ptr noundef %.4441) #15
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.22, ptr noundef %228, ptr noundef %229) #15
   br label %232
 
 230:                                              ; preds = %221, %217
-  %231 = icmp eq ptr %.4459, null
+  %231 = icmp eq ptr %.4441, null
   br i1 %231, label %232, label %.critedge565
 
 232:                                              ; preds = %.thread622, %230
-  %.7442626 = phi i32 [ -20, %.thread622 ], [ %.6441, %230 ]
+  %.7456626 = phi i32 [ -20, %.thread622 ], [ %.6455, %230 ]
   %233 = load i32, ptr %31, align 8
   %.not521 = icmp eq i32 %233, 0
   br i1 %.not521, label %234, label %255
@@ -913,7 +913,7 @@ get_entry_uname.exit:                             ; preds = %get_entry_pathname.
   br label %.critedge565
 
 .critedge565:                                     ; preds = %230, %255
-  %.7442625 = phi i32 [ %.6441, %230 ], [ %.7442626, %255 ]
+  %.7456625 = phi i32 [ %.6455, %230 ], [ %.7456626, %255 ]
   %256 = load ptr, ptr %4, align 8
   %257 = icmp eq ptr %256, null
   br i1 %257, label %has_non_ASCII.exit.thread, label %.preheader.i585
@@ -955,15 +955,15 @@ has_non_ASCII.exit.thread:                        ; preds = %.critedge565, %has_
   br label %275
 
 275:                                              ; preds = %272, %267
-  %.0432 = phi ptr [ %274, %272 ], [ %270, %267 ]
-  %276 = icmp eq ptr %.0432, null
+  %.0433 = phi ptr [ %274, %272 ], [ %270, %267 ]
+  %276 = icmp eq ptr %.0433, null
   br i1 %276, label %285, label %277
 
 277:                                              ; preds = %275
-  %278 = getelementptr inbounds i8, ptr %.0432, i64 1
+  %278 = getelementptr inbounds i8, ptr %.0433, i64 1
   %279 = load i8, ptr %278, align 1
   %280 = icmp eq i8 %279, 0
-  %281 = ptrtoint ptr %.0432 to i64
+  %281 = ptrtoint ptr %.0433 to i64
   %282 = ptrtoint ptr %256 to i64
   %283 = sub i64 %281, %282
   %284 = icmp sgt i64 %283, 155
@@ -983,7 +983,7 @@ has_non_ASCII.exit.thread:                        ; preds = %.critedge565, %has_
   br label %290
 
 290:                                              ; preds = %.sink.split, %277, %264
-  %.0434 = phi i32 [ 0, %264 ], [ 0, %277 ], [ 1, %.sink.split ]
+  %.0436 = phi i32 [ 0, %264 ], [ 0, %277 ], [ 1, %.sink.split ]
   %291 = load ptr, ptr %5, align 8
   %.not524 = icmp eq ptr %291, null
   br i1 %.not524, label %305, label %292
@@ -1025,7 +1025,7 @@ has_non_ASCII.exit594:                            ; preds = %.preheader.i588
   br label %305
 
 305:                                              ; preds = %297, %304, %303, %290, %has_non_ASCII.exit594
-  %.1 = phi i32 [ %.0434, %has_non_ASCII.exit594 ], [ %.0434, %290 ], [ 1, %303 ], [ 1, %304 ], [ 1, %297 ]
+  %.1 = phi i32 [ %.0436, %has_non_ASCII.exit594 ], [ %.0436, %290 ], [ 1, %303 ], [ 1, %304 ], [ 1, %297 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %306 = call ptr @archive_entry_pathname(ptr noundef %145) #15
   %307 = call ptr @archive_entry_pathname(ptr noundef %145) #15
@@ -1189,7 +1189,7 @@ select.unfold:                                    ; preds = %371, %369
 
 375:                                              ; preds = %.thread633, %371, %select.unfold
   %376 = phi i1 [ %374, %select.unfold ], [ false, %371 ], [ false, %.thread633 ]
-  %377 = icmp sgt i32 %.1449, 0
+  %377 = icmp sgt i32 %.1448, 0
   %or.cond5 = select i1 %376, i1 %377, i1 false
   %378 = call i32 @archive_entry_acl_types(ptr noundef %1) #15
   %379 = icmp eq i32 %378, 0
@@ -1316,7 +1316,7 @@ select.unfold:                                    ; preds = %371, %369
   br label %554
 
 436:                                              ; preds = %432, %430
-  %.8443 = phi i32 [ %433, %432 ], [ %.7442625, %430 ]
+  %.8457 = phi i32 [ %433, %432 ], [ %.7456625, %430 ]
   %437 = and i32 %378, 256
   %.not551 = icmp eq i32 %437, 0
   br i1 %.not551, label %442, label %438
@@ -1332,7 +1332,7 @@ select.unfold:                                    ; preds = %371, %369
   br label %554
 
 442:                                              ; preds = %438, %436
-  %.9444 = phi i32 [ %439, %438 ], [ %.8443, %436 ]
+  %.9458 = phi i32 [ %439, %438 ], [ %.8457, %436 ]
   %443 = and i32 %378, 512
   %.not552 = icmp eq i32 %443, 0
   br i1 %.not552, label %448, label %444
@@ -1348,7 +1348,7 @@ select.unfold:                                    ; preds = %371, %369
   br label %554
 
 448:                                              ; preds = %444, %442
-  %.10445 = phi i32 [ %445, %444 ], [ %.9444, %442 ]
+  %.10459 = phi i32 [ %445, %444 ], [ %.9458, %442 ]
   br i1 %377, label %449, label %.loopexit
 
 449:                                              ; preds = %448
@@ -1362,11 +1362,11 @@ select.unfold:                                    ; preds = %371, %369
   %453 = load ptr, ptr %19, align 8
   %454 = call fastcc ptr @build_gnu_sparse_name(ptr noundef nonnull %18, ptr noundef %453)
   call void @archive_entry_set_pathname(ptr noundef %145, ptr noundef nonnull %18) #15
-  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %151, ptr noundef nonnull @.str.46, i32 noundef %.1449) #15
+  call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %151, ptr noundef nonnull @.str.46, i32 noundef %.1448) #15
   br label %455
 
 455:                                              ; preds = %458, %449
-  %.0451 = phi i64 [ 0, %449 ], [ %462, %458 ]
+  %.0443 = phi i64 [ 0, %449 ], [ %462, %458 ]
   %456 = call i32 @archive_entry_sparse_next(ptr noundef %145, ptr noundef nonnull %23, ptr noundef nonnull %24) #15
   %457 = icmp eq i32 %456, 0
   br i1 %457, label %458, label %.loopexit
@@ -1376,7 +1376,7 @@ select.unfold:                                    ; preds = %371, %369
   %460 = load i64, ptr %24, align 8
   call void (ptr, ptr, ...) @archive_string_sprintf(ptr noundef nonnull %151, ptr noundef nonnull @.str.47, i64 noundef %459, i64 noundef %460) #15
   %461 = load i64, ptr %24, align 8
-  %462 = add i64 %461, %.0451
+  %462 = add i64 %461, %.0443
   %463 = load i64, ptr %23, align 8
   %464 = call fastcc i32 @sparse_list_add(ptr noundef %26, i64 noundef %463, i64 noundef %461)
   %.not561 = icmp eq i32 %464, 0
@@ -1389,7 +1389,7 @@ select.unfold:                                    ; preds = %371, %369
   br label %554
 
 .loopexit:                                        ; preds = %455, %448
-  %.1452 = phi i64 [ 0, %448 ], [ %.0451, %455 ]
+  %.1444 = phi i64 [ 0, %448 ], [ %.0443, %455 ]
   %466 = call fastcc i32 @archive_write_pax_header_xattrs(ptr noundef %0, ptr noundef %26, ptr noundef %1)
   %467 = icmp eq i32 %466, -30
   br i1 %467, label %468, label %469
@@ -1418,8 +1418,8 @@ select.unfold:                                    ; preds = %371, %369
   br label %477
 
 477:                                              ; preds = %472, %476, %473, %410
-  %.2453 = phi i64 [ %.1452, %472 ], [ %.1452, %476 ], [ %.1452, %473 ], [ 0, %410 ]
-  %.11446 = phi i32 [ %.10445, %472 ], [ %.10445, %476 ], [ %.10445, %473 ], [ %.7442625, %410 ]
+  %.11460 = phi i32 [ %.10459, %472 ], [ %.10459, %476 ], [ %.10459, %473 ], [ %.7456625, %410 ]
+  %.2445 = phi i64 [ %.1444, %472 ], [ %.1444, %476 ], [ %.1444, %473 ], [ 0, %410 ]
   %478 = call i32 @archive_entry_filetype(ptr noundef %145) #15
   %.not553 = icmp eq i32 %478, 32768
   br i1 %.not553, label %480, label %479
@@ -1461,7 +1461,7 @@ select.unfold:                                    ; preds = %371, %369
   %494 = and i64 %493, 511
   %495 = getelementptr inbounds i8, ptr %26, i64 88
   store i64 %494, ptr %495, align 8
-  %496 = add i64 %491, %.2453
+  %496 = add i64 %491, %.2445
   %497 = add i64 %496, %494
   call void @archive_entry_set_size(ptr noundef %145, i64 noundef %497) #15
   br label %498
@@ -1529,7 +1529,7 @@ select.unfold:                                    ; preds = %371, %369
   br label %554
 
 525:                                              ; preds = %509
-  %spec.select571 = call i32 @llvm.smin.i32(i32 %522, i32 %.11446)
+  %spec.select571 = call i32 @llvm.smin.i32(i32 %522, i32 %.11460)
   %526 = call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef nonnull %14, i64 noundef 512) #15
   %.not557 = icmp eq i32 %526, 0
   br i1 %.not557, label %528, label %527
@@ -1574,7 +1574,7 @@ select.unfold:                                    ; preds = %371, %369
   br label %541
 
 541:                                              ; preds = %540, %507
-  %.13 = phi i32 [ %spec.select571, %540 ], [ %.11446, %507 ]
+  %.13 = phi i32 [ %spec.select571, %540 ], [ %.11460, %507 ]
   %542 = call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef nonnull %15, i64 noundef 512) #15
   %.not560 = icmp eq i32 %542, 0
   br i1 %.not560, label %544, label %543
@@ -1597,8 +1597,8 @@ select.unfold:                                    ; preds = %371, %369
   br label %550
 
 550:                                              ; preds = %548, %544
-  %.3454 = phi i64 [ %490, %548 ], [ %.2453, %544 ]
-  %551 = sub nsw i64 0, %.3454
+  %.3446 = phi i64 [ %490, %548 ], [ %.2445, %544 ]
+  %551 = sub nsw i64 0, %.3446
   %552 = and i64 %551, 511
   %553 = getelementptr inbounds i8, ptr %26, i64 8
   store i64 %552, ptr %553, align 8
@@ -1655,7 +1655,7 @@ define internal i64 @archive_write_pax_data(ptr noundef %0, ptr noundef %1, i64 
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.backedge
-  %.04567 = phi i64 [ 0, %.preheader.lr.ph ], [ %.045.be, %.backedge ]
+  %.04467 = phi i64 [ 0, %.preheader.lr.ph ], [ %.044.be, %.backedge ]
   %23 = load ptr, ptr %22, align 8
   %.not5665 = icmp eq ptr %23, null
   br i1 %.not5665, label %.critedge.thread, label %.lr.ph
@@ -1675,7 +1675,7 @@ define internal i64 @archive_write_pax_data(ptr noundef %0, ptr noundef %1, i64 
   br i1 %.not56, label %.critedge.thread, label %.lr.ph, !llvm.loop !12
 
 .critedge:                                        ; preds = %.lr.ph
-  %30 = sub i64 %2, %.04567
+  %30 = sub i64 %2, %.04467
   %spec.select = tail call i64 @llvm.umin.i64(i64 %30, i64 %26)
   %31 = getelementptr inbounds i8, ptr %24, i64 8
   %32 = load i32, ptr %31, align 8
@@ -1689,12 +1689,12 @@ define internal i64 @archive_write_pax_data(ptr noundef %0, ptr noundef %1, i64 
   br label %.backedge
 
 .backedge:                                        ; preds = %33, %37
-  %.045.be = add i64 %spec.select, %.04567
-  %36 = icmp ult i64 %.045.be, %2
+  %.044.be = add i64 %spec.select, %.04467
+  %36 = icmp ult i64 %.044.be, %2
   br i1 %36, label %.preheader, label %.critedge.thread, !llvm.loop !13
 
 37:                                               ; preds = %.critedge
-  %38 = getelementptr inbounds i8, ptr %1, i64 %.04567
+  %38 = getelementptr inbounds i8, ptr %1, i64 %.04467
   %39 = tail call i32 @__archive_write_output(ptr noundef %0, ptr noundef %38, i64 noundef %spec.select) #15
   %40 = load ptr, ptr %22, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 24
@@ -1709,7 +1709,7 @@ define internal i64 @archive_write_pax_data(ptr noundef %0, ptr noundef %1, i64 
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.backedge, %.preheader, %28, %21, %44, %18, %12
-  %.0 = phi i64 [ %13, %12 ], [ %19, %18 ], [ %45, %44 ], [ 0, %21 ], [ %.04567, %28 ], [ %.04567, %.preheader ], [ %.045.be, %.backedge ]
+  %.0 = phi i64 [ %13, %12 ], [ %19, %18 ], [ %45, %44 ], [ 0, %21 ], [ %.04467, %28 ], [ %.04467, %.preheader ], [ %.044.be, %.backedge ]
   ret i64 %.0
 }
 
@@ -2137,41 +2137,41 @@ define internal fastcc noundef ptr @build_ustar_entry_name(ptr noundef returned 
   %38 = sub i64 %32, %37
   %39 = getelementptr inbounds i8, ptr %1, i64 155
   %40 = icmp slt i64 %.1119.idx, 155
-  %.0125 = select i1 %40, ptr %.1119.ptr, ptr %39
-  %41 = icmp ugt ptr %.0125, %1
+  %.0124 = select i1 %40, ptr %.1119.ptr, ptr %39
+  %41 = icmp ugt ptr %.0124, %1
   br i1 %41, label %.lr.ph184, label %.critedge3
 
 .lr.ph184:                                        ; preds = %.critedge, %43
-  %.1126183 = phi ptr [ %44, %43 ], [ %.0125, %.critedge ]
-  %42 = load i8, ptr %.1126183, align 1
+  %.1125183 = phi ptr [ %44, %43 ], [ %.0124, %.critedge ]
+  %42 = load i8, ptr %.1125183, align 1
   %.not143 = icmp eq i8 %42, 47
   br i1 %.not143, label %.critedge3, label %43
 
 43:                                               ; preds = %.lr.ph184
-  %44 = getelementptr inbounds i8, ptr %.1126183, i64 -1
+  %44 = getelementptr inbounds i8, ptr %.1125183, i64 -1
   %45 = icmp ugt ptr %44, %1
   br i1 %45, label %.lr.ph184, label %.critedge3, !llvm.loop !15
 
 .critedge3:                                       ; preds = %.lr.ph184, %43, %.critedge
-  %.1126.lcssa = phi ptr [ %.0125, %.critedge ], [ %1, %43 ], [ %.1126183, %.lr.ph184 ]
-  %46 = icmp ult ptr %.1126.lcssa, %.1119.ptr
+  %.1125.lcssa = phi ptr [ %.0124, %.critedge ], [ %1, %43 ], [ %.1125183, %.lr.ph184 ]
+  %46 = icmp ult ptr %.1125.lcssa, %.1119.ptr
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %.critedge3
-  %48 = load i8, ptr %.1126.lcssa, align 1
+  %48 = load i8, ptr %.1125.lcssa, align 1
   %49 = icmp eq i8 %48, 47
   %spec.select147.idx = zext i1 %49 to i64
-  %spec.select147 = getelementptr inbounds i8, ptr %.1126.lcssa, i64 %spec.select147.idx
+  %spec.select147 = getelementptr inbounds i8, ptr %.1125.lcssa, i64 %spec.select147.idx
   br label %50
 
 50:                                               ; preds = %47, %.critedge3
-  %.2127 = phi ptr [ %.1126.lcssa, %.critedge3 ], [ %spec.select147, %47 ]
-  %51 = getelementptr inbounds i8, ptr %.2127, i64 %38
+  %.2126 = phi ptr [ %.1125.lcssa, %.critedge3 ], [ %spec.select147, %47 ]
+  %51 = getelementptr inbounds i8, ptr %.2126, i64 %38
   %52 = icmp ugt ptr %51, %.1119.ptr
   %spec.select148 = select i1 %52, ptr %.1119.ptr, ptr %51
-  %53 = icmp ult ptr %spec.select148, %.2127
-  %.1121 = select i1 %53, ptr %.2127, ptr %spec.select148
-  %54 = icmp ugt ptr %.1121, %.2127
+  %53 = icmp ult ptr %spec.select148, %.2126
+  %.1121 = select i1 %53, ptr %.2126, ptr %spec.select148
+  %54 = icmp ugt ptr %.1121, %.2126
   br i1 %54, label %.lr.ph189, label %.critedge5
 
 .lr.ph189:                                        ; preds = %50, %56
@@ -2182,7 +2182,7 @@ define internal fastcc noundef ptr @build_ustar_entry_name(ptr noundef returned 
 
 56:                                               ; preds = %.lr.ph189
   %57 = getelementptr inbounds i8, ptr %.2122188, i64 -1
-  %58 = icmp ugt ptr %57, %.2127
+  %58 = icmp ugt ptr %57, %.2126
   br i1 %58, label %.lr.ph189, label %.critedge5, !llvm.loop !16
 
 .critedge5:                                       ; preds = %.lr.ph189, %56, %50
@@ -2199,11 +2199,11 @@ define internal fastcc noundef ptr @build_ustar_entry_name(ptr noundef returned 
 
 63:                                               ; preds = %60, %.critedge5
   %.3123 = phi ptr [ %.2122.lcssa, %.critedge5 ], [ %spec.select149, %60 ]
-  %64 = icmp ugt ptr %.2127, %1
+  %64 = icmp ugt ptr %.2126, %1
   br i1 %64, label %65, label %71
 
 65:                                               ; preds = %63
-  %66 = ptrtoint ptr %.2127 to i64
+  %66 = ptrtoint ptr %.2126 to i64
   %67 = ptrtoint ptr %1 to i64
   %68 = sub i64 %66, %67
   %69 = tail call ptr @strncpy(ptr noundef %0, ptr noundef %1, i64 noundef %68) #15
@@ -2212,14 +2212,14 @@ define internal fastcc noundef ptr @build_ustar_entry_name(ptr noundef returned 
 
 71:                                               ; preds = %65, %63
   %.0115 = phi ptr [ %70, %65 ], [ %0, %63 ]
-  %72 = icmp ugt ptr %.3123, %.2127
+  %72 = icmp ugt ptr %.3123, %.2126
   br i1 %72, label %73, label %79
 
 73:                                               ; preds = %71
   %74 = ptrtoint ptr %.3123 to i64
-  %75 = ptrtoint ptr %.2127 to i64
+  %75 = ptrtoint ptr %.2126 to i64
   %76 = sub i64 %74, %75
-  %77 = tail call ptr @strncpy(ptr noundef %.0115, ptr noundef %.2127, i64 noundef %76) #15
+  %77 = tail call ptr @strncpy(ptr noundef %.0115, ptr noundef %.2126, i64 noundef %76) #15
   %78 = getelementptr inbounds i8, ptr %.0115, i64 %76
   br label %79
 
@@ -2532,8 +2532,8 @@ define internal fastcc range(i32 -30, 1) i32 @sparse_list_add(ptr nocapture noun
   br label %13
 
 13:                                               ; preds = %3, %7
-  %.014 = phi i64 [ %12, %7 ], [ 0, %3 ]
-  %14 = icmp slt i64 %.014, %1
+  %.0 = phi i64 [ %12, %7 ], [ 0, %3 ]
+  %14 = icmp slt i64 %.0, %1
   br i1 %14, label %15, label %25
 
 15:                                               ; preds = %13
@@ -2542,12 +2542,12 @@ define internal fastcc range(i32 -30, 1) i32 @sparse_list_add(ptr nocapture noun
   br i1 %17, label %_sparse_list_add_block.exit, label %_sparse_list_add_block.exit.thread
 
 _sparse_list_add_block.exit.thread:               ; preds = %15
-  %18 = sub nsw i64 %1, %.014
+  %18 = sub nsw i64 %1, %.0
   store ptr null, ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %16, i64 8
   store i32 1, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %16, i64 16
-  store i64 %.014, ptr %20, align 8
+  store i64 %.0, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %16, i64 24
   store i64 %18, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 96
@@ -2594,8 +2594,8 @@ _sparse_list_add_block.exit.thread:               ; preds = %15
   br label %_sparse_list_add_block.exit
 
 _sparse_list_add_block.exit:                      ; preds = %.sink.split.i18, %25, %15
-  %.0 = phi i32 [ -30, %15 ], [ -30, %25 ], [ 0, %.sink.split.i18 ]
-  ret i32 %.0
+  %.014 = phi i32 [ -30, %15 ], [ -30, %25 ], [ 0, %.sink.split.i18 ]
+  ret i32 %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2910,8 +2910,8 @@ url_encode.exit.thread:                           ; preds = %._crit_edge.thread.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %archive_write_pax_header_xattr.exit, %3, %url_encode.exit.thread, %160
-  %.0 = phi i32 [ -30, %url_encode.exit.thread ], [ -25, %160 ], [ 0, %3 ], [ 0, %archive_write_pax_header_xattr.exit ]
-  ret i32 %.0
+  %.017 = phi i32 [ -30, %url_encode.exit.thread ], [ -25, %160 ], [ 0, %3 ], [ 0, %archive_write_pax_header_xattr.exit ]
+  ret i32 %.017
 }
 
 declare i32 @__archive_write_format_header_ustar(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -3028,18 +3028,18 @@ define internal fastcc void @add_pax_attr_binary(ptr noundef %0, ptr noundef %1,
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.025 = phi i32 [ %14, %.lr.ph ], [ 1, %4 ]
-  %.02124 = phi i32 [ %13, %.lr.ph ], [ 0, %4 ]
-  %.02223 = phi i32 [ %12, %.lr.ph ], [ %10, %4 ]
-  %12 = udiv i32 %.02223, 10
-  %13 = add nuw nsw i32 %.02124, 1
+  %.02124 = phi i32 [ %12, %.lr.ph ], [ %10, %4 ]
+  %.02223 = phi i32 [ %13, %.lr.ph ], [ 0, %4 ]
+  %12 = udiv i32 %.02124, 10
+  %13 = add nuw nsw i32 %.02223, 1
   %14 = mul nuw nsw i32 %.025, 10
-  %.not27 = icmp ult i32 %.02223, 10
+  %.not27 = icmp ult i32 %.02124, 10
   br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
-  %.021.lcssa = phi i32 [ 0, %4 ], [ %13, %.lr.ph ]
+  %.022.lcssa = phi i32 [ 0, %4 ], [ %13, %.lr.ph ]
   %.0.lcssa = phi i32 [ 1, %4 ], [ %14, %.lr.ph ]
-  %15 = add i32 %.021.lcssa, %10
+  %15 = add i32 %.022.lcssa, %10
   %.not = icmp sge i32 %15, %.0.lcssa
   %16 = zext i1 %.not to i32
   %17 = getelementptr inbounds i8, ptr %5, i64 12

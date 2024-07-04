@@ -420,9 +420,9 @@ lpad:                                             ; preds = %entry
   br label %ehcleanup
 
 for.body:                                         ; preds = %invoke.cont, %if.then
-  %maxOffset.019 = phi i64 [ %.sroa.speculated, %if.then ], [ 0, %invoke.cont ]
-  %__begin1.sroa.0.018 = phi ptr [ %call.i, %if.then ], [ %0, %invoke.cont ]
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.018, i64 32
+  %__begin1.sroa.0.019 = phi ptr [ %call.i, %if.then ], [ %0, %invoke.cont ]
+  %maxOffset.018 = phi i64 [ %.sroa.speculated, %if.then ], [ 0, %invoke.cont ]
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.019, i64 32
   %2 = load i32, ptr %_M_storage.i.i, align 4
   %call7 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNK3ue213ReportManager9getReportEj(ptr noundef nonnull align 8 dereferenceable(505) %rm, i32 noundef %2)
           to label %invoke.cont6 unwind label %lpad5
@@ -442,8 +442,8 @@ invoke.cont6:                                     ; preds = %for.body
   br i1 %or.cond, label %if.then, label %cleanup
 
 if.then:                                          ; preds = %invoke.cont6
-  %.sroa.speculated = call i64 @llvm.umax.i64(i64 %maxOffset.019, i64 %4)
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.018) #16
+  %.sroa.speculated = call i64 @llvm.umax.i64(i64 %maxOffset.018, i64 %4)
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.019) #16
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %cleanup, label %for.body
 

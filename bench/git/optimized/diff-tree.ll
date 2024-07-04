@@ -77,8 +77,8 @@ sub_1:                                            ; preds = %land.lhs.true
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i32
   %7 = add nsw i32 %6, -104
-  %.not36 = icmp eq i32 %7, 0
-  br i1 %.not36, label %sub_2, label %land.lhs.true.tail
+  %.not39 = icmp eq i32 %7, 0
+  br i1 %.not39, label %sub_2, label %land.lhs.true.tail
 
 sub_2:                                            ; preds = %sub_1
   %8 = getelementptr inbounds i8, ptr %0, i64 2
@@ -154,40 +154,40 @@ if.then22:                                        ; preds = %if.end19.thread, %i
 while.cond.outer.preheader:                       ; preds = %if.then22, %if.end19
   br label %while.cond.outer
 
-while.cond.outer:                                 ; preds = %while.cond.outer.preheader, %if.end28
-  %tobool35 = phi i1 [ true, %if.end28 ], [ false, %while.cond.outer.preheader ]
-  %read_stdin.0.ph = phi i32 [ %read_stdin.0, %if.end28 ], [ 0, %while.cond.outer.preheader ]
-  %argv.addr.0.ph = phi ptr [ %incdec.ptr, %if.end28 ], [ %argv, %while.cond.outer.preheader ]
-  %argc.addr.0.ph = phi i32 [ %dec, %if.end28 ], [ %call10, %while.cond.outer.preheader ]
+while.cond.outer:                                 ; preds = %while.body, %while.cond.outer.preheader
+  %tobool33 = phi i1 [ false, %while.cond.outer.preheader ], [ true, %while.body ]
+  %merge_base.0.ph = phi i32 [ 0, %while.cond.outer.preheader ], [ %merge_base.0, %while.body ]
+  %argv.addr.0.ph = phi ptr [ %argv, %while.cond.outer.preheader ], [ %incdec.ptr, %while.body ]
+  %argc.addr.0.ph = phi i32 [ %call10, %while.cond.outer.preheader ], [ %dec, %while.body ]
   br label %while.cond
 
-while.cond:                                       ; preds = %while.cond.outer, %while.body
-  %read_stdin.0 = phi i32 [ 1, %while.body ], [ %read_stdin.0.ph, %while.cond.outer ]
-  %argv.addr.0 = phi ptr [ %incdec.ptr, %while.body ], [ %argv.addr.0.ph, %while.cond.outer ]
-  %argc.addr.0 = phi i32 [ %dec, %while.body ], [ %argc.addr.0.ph, %while.cond.outer ]
+while.cond:                                       ; preds = %while.cond.outer, %if.end28
+  %merge_base.0 = phi i32 [ 1, %if.end28 ], [ %merge_base.0.ph, %while.cond.outer ]
+  %argv.addr.0 = phi ptr [ %incdec.ptr, %if.end28 ], [ %argv.addr.0.ph, %while.cond.outer ]
+  %argc.addr.0 = phi i32 [ %dec, %if.end28 ], [ %argc.addr.0.ph, %while.cond.outer ]
+  %dec = add nsw i32 %argc.addr.0, -1
   %cmp24 = icmp sgt i32 %argc.addr.0, 1
   br i1 %cmp24, label %while.body, label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %dec = add nsw i32 %argc.addr.0, -1
   %incdec.ptr = getelementptr inbounds i8, ptr %argv.addr.0, i64 8
   %16 = load ptr, ptr %incdec.ptr, align 8
   %call25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(8) @.str.2) #12
   %tobool26.not = icmp eq i32 %call25, 0
-  br i1 %tobool26.not, label %while.cond, label %if.end28, !llvm.loop !5
+  br i1 %tobool26.not, label %while.cond.outer, label %if.end28, !llvm.loop !5
 
 if.end28:                                         ; preds = %while.body
   %call29 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(13) @.str.3) #12
   %tobool30.not = icmp eq i32 %call29, 0
-  br i1 %tobool30.not, label %while.cond.outer, label %if.end32, !llvm.loop !5
+  br i1 %tobool30.not, label %while.cond, label %if.end32, !llvm.loop !5
 
 if.end32:                                         ; preds = %if.end28
   call void @usage(ptr noundef nonnull @diff_tree_usage) #10
   unreachable
 
 while.end:                                        ; preds = %while.cond
-  %tobool33 = icmp ne i32 %read_stdin.0, 0
-  %or.cond = and i1 %tobool33, %tobool35
+  %tobool35 = icmp ne i32 %merge_base.0, 0
+  %or.cond = select i1 %tobool33, i1 %tobool35, i1 false
   br i1 %or.cond, label %if.then36, label %if.end38
 
 if.then36:                                        ; preds = %while.end
@@ -292,13 +292,13 @@ if.end89:                                         ; preds = %if.then87, %if.then
 
 if.end91:                                         ; preds = %if.end89, %if.then79
   %30 = load ptr, ptr @stdin, align 8
-  %call9431 = call ptr @fgets(ptr noundef nonnull %line, i32 noundef 1000, ptr noundef %30)
-  %tobool95.not32 = icmp eq ptr %call9431, null
-  br i1 %tobool95.not32, label %while.end119, label %while.body96
+  %call9434 = call ptr @fgets(ptr noundef nonnull %line, i32 noundef 1000, ptr noundef %30)
+  %tobool95.not35 = icmp eq ptr %call9434, null
+  br i1 %tobool95.not35, label %while.end119, label %while.body96
 
 while.body96:                                     ; preds = %if.end91, %if.end118
-  %saved_dcctc.034 = phi i32 [ %saved_dcctc.1, %if.end118 ], [ 0, %if.end91 ]
-  %saved_nrl.033 = phi i32 [ %saved_nrl.2, %if.end118 ], [ 0, %if.end91 ]
+  %saved_dcctc.037 = phi i32 [ %saved_dcctc.1, %if.end118 ], [ 0, %if.end91 ]
+  %saved_nrl.036 = phi i32 [ %saved_nrl.2, %if.end118 ], [ 0, %if.end91 ]
   %call99 = call i32 @get_oid_hex(ptr noundef nonnull %line, ptr noundef nonnull %oid97) #11
   %tobool100.not = icmp eq i32 %call99, 0
   br i1 %tobool100.not, label %if.else105, label %if.then101
@@ -482,15 +482,15 @@ diff_tree_stdin.exit:                             ; preds = %if.else105, %lor.lh
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
   %53 = load i32, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1768), align 8
-  %spec.select21 = call i32 @llvm.smax.i32(i32 %saved_nrl.033, i32 %53)
+  %spec.select21 = call i32 @llvm.smax.i32(i32 %saved_nrl.036, i32 %53)
   %54 = load i32, ptr getelementptr inbounds (i8, ptr @log_tree_opt, i64 1772), align 4
   %tobool115.not = icmp eq i32 %54, 0
-  %spec.select22 = select i1 %tobool115.not, i32 %saved_dcctc.034, i32 1
+  %spec.select22 = select i1 %tobool115.not, i32 %saved_dcctc.037, i32 1
   br label %if.end118
 
 if.end118:                                        ; preds = %diff_tree_stdin.exit, %if.then101
-  %saved_nrl.2 = phi i32 [ %saved_nrl.033, %if.then101 ], [ %spec.select21, %diff_tree_stdin.exit ]
-  %saved_dcctc.1 = phi i32 [ %saved_dcctc.034, %if.then101 ], [ %spec.select22, %diff_tree_stdin.exit ]
+  %saved_nrl.2 = phi i32 [ %saved_nrl.036, %if.then101 ], [ %spec.select21, %diff_tree_stdin.exit ]
+  %saved_dcctc.1 = phi i32 [ %saved_dcctc.037, %if.then101 ], [ %spec.select22, %diff_tree_stdin.exit ]
   %55 = load ptr, ptr @stdin, align 8
   %call94 = call ptr @fgets(ptr noundef nonnull %line, i32 noundef 1000, ptr noundef %55)
   %tobool95.not = icmp eq ptr %call94, null

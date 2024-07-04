@@ -1373,11 +1373,11 @@ land.rhs:                                         ; preds = %_ZNK15b2DistancePro
   %61 = phi i32 [ 0, %_ZNK15b2DistanceProxy10GetSupportERK6b2Vec2.exit86 ], [ %add24, %_ZNK9b2Simplex15GetClosestPointEv.exit ]
   %lambda5.0378 = phi float [ 0.000000e+00, %_ZNK15b2DistanceProxy10GetSupportERK6b2Vec2.exit86 ], [ %lambda5.1, %_ZNK9b2Simplex15GetClosestPointEv.exit ]
   %iter.0377 = phi i32 [ 0, %_ZNK15b2DistanceProxy10GetSupportERK6b2Vec2.exit86 ], [ %inc, %_ZNK9b2Simplex15GetClosestPointEv.exit ]
-  %n.sroa.0.0376 = phi <2 x float> [ zeroinitializer, %_ZNK15b2DistanceProxy10GetSupportERK6b2Vec2.exit86 ], [ %n.sroa.0.1, %_ZNK9b2Simplex15GetClosestPointEv.exit ]
-  %v.sroa.0.0375 = phi <2 x float> [ %59, %_ZNK15b2DistanceProxy10GetSupportERK6b2Vec2.exit86 ], [ %retval.sroa.0.0.i, %_ZNK9b2Simplex15GetClosestPointEv.exit ]
-  %62 = extractelement <2 x float> %v.sroa.0.0375, i64 1
+  %v.sroa.0.0376 = phi <2 x float> [ %59, %_ZNK15b2DistanceProxy10GetSupportERK6b2Vec2.exit86 ], [ %retval.sroa.0.0.i, %_ZNK9b2Simplex15GetClosestPointEv.exit ]
+  %n.sroa.0.0375 = phi <2 x float> [ zeroinitializer, %_ZNK15b2DistanceProxy10GetSupportERK6b2Vec2.exit86 ], [ %n.sroa.0.1, %_ZNK9b2Simplex15GetClosestPointEv.exit ]
+  %62 = extractelement <2 x float> %v.sroa.0.0376, i64 1
   %mul4.i = fmul float %62, %62
-  %63 = extractelement <2 x float> %v.sroa.0.0375, i64 0
+  %63 = extractelement <2 x float> %v.sroa.0.0376, i64 0
   %64 = tail call float @llvm.fmuladd.f32(float %63, float %63, float %mul4.i)
   %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %64)
   %sub21 = fsub float %sqrt.i, %cond.i104
@@ -1496,10 +1496,10 @@ _ZNK15b2DistanceProxy10GetSupportERK6b2Vec2.exit181: ; preds = %for.body.i169, %
   %div.i = fdiv float 1.000000e+00, %sqrt.i
   %107 = insertelement <2 x float> poison, float %div.i, i64 0
   %108 = shufflevector <2 x float> %107, <2 x float> poison, <2 x i32> zeroinitializer
-  %109 = fmul <2 x float> %v.sroa.0.0375, %108
+  %109 = fmul <2 x float> %v.sroa.0.0376, %108
   %110 = insertelement <2 x i1> poison, i1 %cmp.i202, i64 0
   %111 = shufflevector <2 x i1> %110, <2 x i1> poison, <2 x i32> zeroinitializer
-  %112 = select <2 x i1> %111, <2 x float> %v.sroa.0.0375, <2 x float> %109
+  %112 = select <2 x i1> %111, <2 x float> %v.sroa.0.0376, <2 x float> %109
   %113 = extractelement <2 x float> %112, i64 1
   %114 = fmul <2 x float> %106, %112
   %mul3.i = extractelement <2 x float> %114, i64 1
@@ -1528,7 +1528,7 @@ if.end52:                                         ; preds = %if.end
 
 if.end56:                                         ; preds = %if.end52, %_ZNK15b2DistanceProxy10GetSupportERK6b2Vec2.exit181
   %119 = phi i32 [ 0, %if.end52 ], [ %60, %_ZNK15b2DistanceProxy10GetSupportERK6b2Vec2.exit181 ]
-  %n.sroa.0.1 = phi <2 x float> [ %118, %if.end52 ], [ %n.sroa.0.0376, %_ZNK15b2DistanceProxy10GetSupportERK6b2Vec2.exit181 ]
+  %n.sroa.0.1 = phi <2 x float> [ %118, %if.end52 ], [ %n.sroa.0.0375, %_ZNK15b2DistanceProxy10GetSupportERK6b2Vec2.exit181 ]
   %lambda5.1 = phi float [ %div, %if.end52 ], [ %lambda5.0378, %_ZNK15b2DistanceProxy10GetSupportERK6b2Vec2.exit181 ]
   %idx.ext = sext i32 %119 to i64
   %add.ptr = getelementptr inbounds %struct.b2SimplexVertex, ptr %simplex, i64 %idx.ext
@@ -1650,8 +1650,8 @@ while.end:                                        ; preds = %land.rhs
 
 if.end83:                                         ; preds = %_ZNK9b2Simplex15GetClosestPointEv.exit, %while.end
   %150 = phi i32 [ %60, %while.end ], [ %149, %_ZNK9b2Simplex15GetClosestPointEv.exit ]
-  %v.sroa.0.0374 = phi <2 x float> [ %v.sroa.0.0375, %while.end ], [ %retval.sroa.0.0.i, %_ZNK9b2Simplex15GetClosestPointEv.exit ]
-  %n.sroa.0.0371 = phi <2 x float> [ %n.sroa.0.0376, %while.end ], [ %n.sroa.0.1, %_ZNK9b2Simplex15GetClosestPointEv.exit ]
+  %n.sroa.0.0374 = phi <2 x float> [ %n.sroa.0.0375, %while.end ], [ %n.sroa.0.1, %_ZNK9b2Simplex15GetClosestPointEv.exit ]
+  %v.sroa.0.0371 = phi <2 x float> [ %v.sroa.0.0376, %while.end ], [ %retval.sroa.0.0.i, %_ZNK9b2Simplex15GetClosestPointEv.exit ]
   %iter.0368 = phi i32 [ %iter.0377, %while.end ], [ 20, %_ZNK9b2Simplex15GetClosestPointEv.exit ]
   %lambda5.0365 = phi float [ %lambda5.0378, %while.end ], [ %lambda5.1, %_ZNK9b2Simplex15GetClosestPointEv.exit ]
   switch i32 %150, label %_ZNK9b2Simplex16GetWitnessPointsEP6b2Vec2S1_.exit [
@@ -1700,15 +1700,15 @@ sw.bb29.i:                                        ; preds = %if.end83
 
 _ZNK9b2Simplex16GetWitnessPointsEP6b2Vec2S1_.exit: ; preds = %if.end83, %sw.bb2.i250, %sw.bb4.i, %sw.bb29.i
   %pointA.sroa.0.0 = phi <2 x float> [ undef, %if.end83 ], [ %160, %sw.bb4.i ], [ %151, %sw.bb2.i250 ], [ %174, %sw.bb29.i ]
-  %175 = fmul <2 x float> %v.sroa.0.0374, %v.sroa.0.0374
+  %175 = fmul <2 x float> %v.sroa.0.0371, %v.sroa.0.0371
   %mul4.i252 = extractelement <2 x float> %175, i64 1
-  %176 = extractelement <2 x float> %v.sroa.0.0374, i64 0
+  %176 = extractelement <2 x float> %v.sroa.0.0371, i64 0
   %177 = tail call noundef float @llvm.fmuladd.f32(float %176, float %176, float %mul4.i252)
   %cmp85 = fcmp ogt float %177, 0.000000e+00
   br i1 %cmp85, label %if.then86, label %if.end90
 
 if.then86:                                        ; preds = %_ZNK9b2Simplex16GetWitnessPointsEP6b2Vec2S1_.exit
-  %178 = fneg <2 x float> %v.sroa.0.0374
+  %178 = fneg <2 x float> %v.sroa.0.0371
   %sqrt.i.i260 = tail call noundef float @llvm.sqrt.f32(float %177)
   %cmp.i261 = fcmp olt float %sqrt.i.i260, 0x3E80000000000000
   br i1 %cmp.i261, label %if.end90, label %if.end.i262
@@ -1721,7 +1721,7 @@ if.end.i262:                                      ; preds = %if.then86
   br label %if.end90
 
 if.end90:                                         ; preds = %if.end.i262, %if.then86, %_ZNK9b2Simplex16GetWitnessPointsEP6b2Vec2S1_.exit
-  %n.sroa.0.3 = phi <2 x float> [ %n.sroa.0.0371, %_ZNK9b2Simplex16GetWitnessPointsEP6b2Vec2S1_.exit ], [ %178, %if.then86 ], [ %181, %if.end.i262 ]
+  %n.sroa.0.3 = phi <2 x float> [ %n.sroa.0.0374, %_ZNK9b2Simplex16GetWitnessPointsEP6b2Vec2S1_.exit ], [ %178, %if.then86 ], [ %181, %if.end.i262 ]
   %182 = insertelement <2 x float> poison, float %cond.i, i64 0
   %183 = shufflevector <2 x float> %182, <2 x float> poison, <2 x i32> zeroinitializer
   %184 = fmul <2 x float> %183, %n.sroa.0.3

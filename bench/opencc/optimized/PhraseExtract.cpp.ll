@@ -1978,20 +1978,20 @@ _ZNSt6vectorIN6opencc19UTF8StringSliceBaseIhEESaIS2_EE13shrink_to_fitEv.exit: ; 
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 173:                                              ; preds = %184
-  %174 = add nuw nsw i64 %.01742.i.i.i.i.i.i.i.i, 1
+  %174 = add nuw nsw i64 %.042.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %174, %167
   br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !36
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %173, %.lr.ph.preheader.i.i.i.i.i.i.i.i
-  %.01742.i.i.i.i.i.i.i.i = phi i64 [ %174, %173 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i.i ]
-  %.01841.i.i.i.i.i.i.i.i = phi ptr [ %178, %173 ], [ %162, %.lr.ph.preheader.i.i.i.i.i.i.i.i ]
-  %.01940.i.i.i.i.i.i.i.i = phi ptr [ %180, %173 ], [ %172, %.lr.ph.preheader.i.i.i.i.i.i.i.i ]
-  %175 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01841.i.i.i.i.i.i.i.i)
-  %176 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01940.i.i.i.i.i.i.i.i)
+  %.042.i.i.i.i.i.i.i.i = phi i64 [ %174, %173 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.i.i ]
+  %.01741.i.i.i.i.i.i.i.i = phi ptr [ %180, %173 ], [ %172, %.lr.ph.preheader.i.i.i.i.i.i.i.i ]
+  %.01840.i.i.i.i.i.i.i.i = phi ptr [ %178, %173 ], [ %162, %.lr.ph.preheader.i.i.i.i.i.i.i.i ]
+  %175 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01840.i.i.i.i.i.i.i.i)
+  %176 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01741.i.i.i.i.i.i.i.i)
   %177 = sub i64 0, %175
-  %178 = getelementptr inbounds i8, ptr %.01841.i.i.i.i.i.i.i.i, i64 %177
+  %178 = getelementptr inbounds i8, ptr %.01840.i.i.i.i.i.i.i.i, i64 %177
   %179 = sub i64 0, %176
-  %180 = getelementptr inbounds i8, ptr %.01940.i.i.i.i.i.i.i.i, i64 %179
+  %180 = getelementptr inbounds i8, ptr %.01741.i.i.i.i.i.i.i.i, i64 %179
   %.sroa.speculated.i.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %176, i64 %175)
   %181 = tail call i32 @strncmp(ptr noundef %178, ptr noundef %180, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i) #23
   %182 = icmp slt i32 %181, 0
@@ -8606,20 +8606,20 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %.lr.ph.i.i.i.i.i
 
 53:                                               ; preds = %64
-  %54 = add nuw nsw i64 %.01742.i.i.i.i.i, 1
+  %54 = add nuw nsw i64 %.042.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %54, %43
   br i1 %exitcond.not.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !36
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %53, %.lr.ph.preheader.i.i.i.i.i
-  %.01742.i.i.i.i.i = phi i64 [ %54, %53 ], [ 0, %.lr.ph.preheader.i.i.i.i.i ]
-  %.01841.i.i.i.i.i = phi ptr [ %58, %53 ], [ %52, %.lr.ph.preheader.i.i.i.i.i ]
-  %.01940.i.i.i.i.i = phi ptr [ %60, %53 ], [ %48, %.lr.ph.preheader.i.i.i.i.i ]
-  %55 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01841.i.i.i.i.i)
-  %56 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01940.i.i.i.i.i)
+  %.042.i.i.i.i.i = phi i64 [ %54, %53 ], [ 0, %.lr.ph.preheader.i.i.i.i.i ]
+  %.01741.i.i.i.i.i = phi ptr [ %60, %53 ], [ %48, %.lr.ph.preheader.i.i.i.i.i ]
+  %.01840.i.i.i.i.i = phi ptr [ %58, %53 ], [ %52, %.lr.ph.preheader.i.i.i.i.i ]
+  %55 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01840.i.i.i.i.i)
+  %56 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01741.i.i.i.i.i)
   %57 = sub i64 0, %55
-  %58 = getelementptr inbounds i8, ptr %.01841.i.i.i.i.i, i64 %57
+  %58 = getelementptr inbounds i8, ptr %.01840.i.i.i.i.i, i64 %57
   %59 = sub i64 0, %56
-  %60 = getelementptr inbounds i8, ptr %.01940.i.i.i.i.i, i64 %59
+  %60 = getelementptr inbounds i8, ptr %.01741.i.i.i.i.i, i64 %59
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %56, i64 %55)
   %61 = tail call i32 @strncmp(ptr noundef %58, ptr noundef %60, i64 noundef %.sroa.speculated.i.i.i.i.i) #23
   %62 = icmp slt i32 %61, 0
@@ -8671,20 +8671,20 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %.lr.ph.i.i.i28.i.i
 
 84:                                               ; preds = %95
-  %85 = add nuw nsw i64 %.01742.i.i.i29.i.i, 1
+  %85 = add nuw nsw i64 %.042.i.i.i29.i.i, 1
   %exitcond.not.i.i.i37.i.i = icmp eq i64 %85, %73
   br i1 %exitcond.not.i.i.i37.i.i, label %._crit_edge.loopexit.i.i.i38.i.i, label %.lr.ph.i.i.i28.i.i, !llvm.loop !36
 
 .lr.ph.i.i.i28.i.i:                               ; preds = %84, %.lr.ph.preheader.i.i.i27.i.i
-  %.01742.i.i.i29.i.i = phi i64 [ %85, %84 ], [ 0, %.lr.ph.preheader.i.i.i27.i.i ]
-  %.01841.i.i.i30.i.i = phi ptr [ %89, %84 ], [ %83, %.lr.ph.preheader.i.i.i27.i.i ]
-  %.01940.i.i.i31.i.i = phi ptr [ %91, %84 ], [ %78, %.lr.ph.preheader.i.i.i27.i.i ]
-  %86 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01841.i.i.i30.i.i)
-  %87 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01940.i.i.i31.i.i)
+  %.042.i.i.i29.i.i = phi i64 [ %85, %84 ], [ 0, %.lr.ph.preheader.i.i.i27.i.i ]
+  %.01741.i.i.i30.i.i = phi ptr [ %91, %84 ], [ %78, %.lr.ph.preheader.i.i.i27.i.i ]
+  %.01840.i.i.i31.i.i = phi ptr [ %89, %84 ], [ %83, %.lr.ph.preheader.i.i.i27.i.i ]
+  %86 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01840.i.i.i31.i.i)
+  %87 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01741.i.i.i30.i.i)
   %88 = sub i64 0, %86
-  %89 = getelementptr inbounds i8, ptr %.01841.i.i.i30.i.i, i64 %88
+  %89 = getelementptr inbounds i8, ptr %.01840.i.i.i31.i.i, i64 %88
   %90 = sub i64 0, %87
-  %91 = getelementptr inbounds i8, ptr %.01940.i.i.i31.i.i, i64 %90
+  %91 = getelementptr inbounds i8, ptr %.01741.i.i.i30.i.i, i64 %90
   %.sroa.speculated.i.i.i32.i.i = tail call i64 @llvm.umin.i64(i64 %87, i64 %86)
   %92 = tail call i32 @strncmp(ptr noundef %89, ptr noundef %91, i64 noundef %.sroa.speculated.i.i.i32.i.i) #23
   %93 = icmp slt i32 %92, 0
@@ -8742,20 +8742,20 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %.lr.ph.i.i.i45.i.i
 
 113:                                              ; preds = %124
-  %114 = add nuw nsw i64 %.01742.i.i.i46.i.i, 1
+  %114 = add nuw nsw i64 %.042.i.i.i46.i.i, 1
   %exitcond.not.i.i.i54.i.i = icmp eq i64 %114, %103
   br i1 %exitcond.not.i.i.i54.i.i, label %._crit_edge.loopexit.i.i.i55.i.i, label %.lr.ph.i.i.i45.i.i, !llvm.loop !36
 
 .lr.ph.i.i.i45.i.i:                               ; preds = %113, %.lr.ph.preheader.i.i.i44.i.i
-  %.01742.i.i.i46.i.i = phi i64 [ %114, %113 ], [ 0, %.lr.ph.preheader.i.i.i44.i.i ]
-  %.01841.i.i.i47.i.i = phi ptr [ %118, %113 ], [ %112, %.lr.ph.preheader.i.i.i44.i.i ]
-  %.01940.i.i.i48.i.i = phi ptr [ %120, %113 ], [ %108, %.lr.ph.preheader.i.i.i44.i.i ]
-  %115 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01841.i.i.i47.i.i)
-  %116 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01940.i.i.i48.i.i)
+  %.042.i.i.i46.i.i = phi i64 [ %114, %113 ], [ 0, %.lr.ph.preheader.i.i.i44.i.i ]
+  %.01741.i.i.i47.i.i = phi ptr [ %120, %113 ], [ %108, %.lr.ph.preheader.i.i.i44.i.i ]
+  %.01840.i.i.i48.i.i = phi ptr [ %118, %113 ], [ %112, %.lr.ph.preheader.i.i.i44.i.i ]
+  %115 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01840.i.i.i48.i.i)
+  %116 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01741.i.i.i47.i.i)
   %117 = sub i64 0, %115
-  %118 = getelementptr inbounds i8, ptr %.01841.i.i.i47.i.i, i64 %117
+  %118 = getelementptr inbounds i8, ptr %.01840.i.i.i48.i.i, i64 %117
   %119 = sub i64 0, %116
-  %120 = getelementptr inbounds i8, ptr %.01940.i.i.i48.i.i, i64 %119
+  %120 = getelementptr inbounds i8, ptr %.01741.i.i.i47.i.i, i64 %119
   %.sroa.speculated.i.i.i49.i.i = tail call i64 @llvm.umin.i64(i64 %116, i64 %115)
   %121 = tail call i32 @strncmp(ptr noundef %118, ptr noundef %120, i64 noundef %.sroa.speculated.i.i.i49.i.i) #23
   %122 = icmp slt i32 %121, 0
@@ -8822,20 +8822,20 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %.lr.ph.i.i.i62.i.i
 
 143:                                              ; preds = %154
-  %144 = add nuw nsw i64 %.01742.i.i.i63.i.i, 1
+  %144 = add nuw nsw i64 %.042.i.i.i63.i.i, 1
   %exitcond.not.i.i.i71.i.i = icmp eq i64 %144, %133
   br i1 %exitcond.not.i.i.i71.i.i, label %._crit_edge.loopexit.i.i.i72.i.i, label %.lr.ph.i.i.i62.i.i, !llvm.loop !36
 
 .lr.ph.i.i.i62.i.i:                               ; preds = %143, %.lr.ph.preheader.i.i.i61.i.i
-  %.01742.i.i.i63.i.i = phi i64 [ %144, %143 ], [ 0, %.lr.ph.preheader.i.i.i61.i.i ]
-  %.01841.i.i.i64.i.i = phi ptr [ %148, %143 ], [ %142, %.lr.ph.preheader.i.i.i61.i.i ]
-  %.01940.i.i.i65.i.i = phi ptr [ %150, %143 ], [ %138, %.lr.ph.preheader.i.i.i61.i.i ]
-  %145 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01841.i.i.i64.i.i)
-  %146 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01940.i.i.i65.i.i)
+  %.042.i.i.i63.i.i = phi i64 [ %144, %143 ], [ 0, %.lr.ph.preheader.i.i.i61.i.i ]
+  %.01741.i.i.i64.i.i = phi ptr [ %150, %143 ], [ %138, %.lr.ph.preheader.i.i.i61.i.i ]
+  %.01840.i.i.i65.i.i = phi ptr [ %148, %143 ], [ %142, %.lr.ph.preheader.i.i.i61.i.i ]
+  %145 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01840.i.i.i65.i.i)
+  %146 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01741.i.i.i64.i.i)
   %147 = sub i64 0, %145
-  %148 = getelementptr inbounds i8, ptr %.01841.i.i.i64.i.i, i64 %147
+  %148 = getelementptr inbounds i8, ptr %.01840.i.i.i65.i.i, i64 %147
   %149 = sub i64 0, %146
-  %150 = getelementptr inbounds i8, ptr %.01940.i.i.i65.i.i, i64 %149
+  %150 = getelementptr inbounds i8, ptr %.01741.i.i.i64.i.i, i64 %149
   %.sroa.speculated.i.i.i66.i.i = tail call i64 @llvm.umin.i64(i64 %146, i64 %145)
   %151 = tail call i32 @strncmp(ptr noundef %148, ptr noundef %150, i64 noundef %.sroa.speculated.i.i.i66.i.i) #23
   %152 = icmp slt i32 %151, 0
@@ -8894,20 +8894,20 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %.lr.ph.i.i.i79.i.i
 
 173:                                              ; preds = %184
-  %174 = add nuw nsw i64 %.01742.i.i.i80.i.i, 1
+  %174 = add nuw nsw i64 %.042.i.i.i80.i.i, 1
   %exitcond.not.i.i.i88.i.i = icmp eq i64 %174, %162
   br i1 %exitcond.not.i.i.i88.i.i, label %._crit_edge.loopexit.i.i.i89.i.i, label %.lr.ph.i.i.i79.i.i, !llvm.loop !36
 
 .lr.ph.i.i.i79.i.i:                               ; preds = %173, %.lr.ph.preheader.i.i.i78.i.i
-  %.01742.i.i.i80.i.i = phi i64 [ %174, %173 ], [ 0, %.lr.ph.preheader.i.i.i78.i.i ]
-  %.01841.i.i.i81.i.i = phi ptr [ %178, %173 ], [ %172, %.lr.ph.preheader.i.i.i78.i.i ]
-  %.01940.i.i.i82.i.i = phi ptr [ %180, %173 ], [ %167, %.lr.ph.preheader.i.i.i78.i.i ]
-  %175 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01841.i.i.i81.i.i)
-  %176 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01940.i.i.i82.i.i)
+  %.042.i.i.i80.i.i = phi i64 [ %174, %173 ], [ 0, %.lr.ph.preheader.i.i.i78.i.i ]
+  %.01741.i.i.i81.i.i = phi ptr [ %180, %173 ], [ %167, %.lr.ph.preheader.i.i.i78.i.i ]
+  %.01840.i.i.i82.i.i = phi ptr [ %178, %173 ], [ %172, %.lr.ph.preheader.i.i.i78.i.i ]
+  %175 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01840.i.i.i82.i.i)
+  %176 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01741.i.i.i81.i.i)
   %177 = sub i64 0, %175
-  %178 = getelementptr inbounds i8, ptr %.01841.i.i.i81.i.i, i64 %177
+  %178 = getelementptr inbounds i8, ptr %.01840.i.i.i82.i.i, i64 %177
   %179 = sub i64 0, %176
-  %180 = getelementptr inbounds i8, ptr %.01940.i.i.i82.i.i, i64 %179
+  %180 = getelementptr inbounds i8, ptr %.01741.i.i.i81.i.i, i64 %179
   %.sroa.speculated.i.i.i83.i.i = tail call i64 @llvm.umin.i64(i64 %176, i64 %175)
   %181 = tail call i32 @strncmp(ptr noundef %178, ptr noundef %180, i64 noundef %.sroa.speculated.i.i.i83.i.i) #23
   %182 = icmp slt i32 %181, 0
@@ -8983,20 +8983,20 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %.lr.ph.i.i.i.i15.i
 
 204:                                              ; preds = %215
-  %205 = add nuw nsw i64 %.01742.i.i.i.i16.i, 1
+  %205 = add nuw nsw i64 %.042.i.i.i.i16.i, 1
   %exitcond.not.i.i.i.i24.i = icmp eq i64 %205, %194
   br i1 %exitcond.not.i.i.i.i24.i, label %._crit_edge.loopexit.i.i.i.i25.i, label %.lr.ph.i.i.i.i15.i, !llvm.loop !36
 
 .lr.ph.i.i.i.i15.i:                               ; preds = %204, %.lr.ph.preheader.i.i.i.i14.i
-  %.01742.i.i.i.i16.i = phi i64 [ %205, %204 ], [ 0, %.lr.ph.preheader.i.i.i.i14.i ]
-  %.01841.i.i.i.i17.i = phi ptr [ %209, %204 ], [ %203, %.lr.ph.preheader.i.i.i.i14.i ]
-  %.01940.i.i.i.i18.i = phi ptr [ %211, %204 ], [ %198, %.lr.ph.preheader.i.i.i.i14.i ]
-  %206 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01841.i.i.i.i17.i)
-  %207 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01940.i.i.i.i18.i)
+  %.042.i.i.i.i16.i = phi i64 [ %205, %204 ], [ 0, %.lr.ph.preheader.i.i.i.i14.i ]
+  %.01741.i.i.i.i17.i = phi ptr [ %211, %204 ], [ %198, %.lr.ph.preheader.i.i.i.i14.i ]
+  %.01840.i.i.i.i18.i = phi ptr [ %209, %204 ], [ %203, %.lr.ph.preheader.i.i.i.i14.i ]
+  %206 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01840.i.i.i.i18.i)
+  %207 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01741.i.i.i.i17.i)
   %208 = sub i64 0, %206
-  %209 = getelementptr inbounds i8, ptr %.01841.i.i.i.i17.i, i64 %208
+  %209 = getelementptr inbounds i8, ptr %.01840.i.i.i.i18.i, i64 %208
   %210 = sub i64 0, %207
-  %211 = getelementptr inbounds i8, ptr %.01940.i.i.i.i18.i, i64 %210
+  %211 = getelementptr inbounds i8, ptr %.01741.i.i.i.i17.i, i64 %210
   %.sroa.speculated.i.i.i.i19.i = tail call i64 @llvm.umin.i64(i64 %207, i64 %206)
   %212 = tail call i32 @strncmp(ptr noundef %209, ptr noundef %211, i64 noundef %.sroa.speculated.i.i.i.i19.i) #23
   %213 = icmp slt i32 %212, 0
@@ -9056,20 +9056,20 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %.lr.ph.i.i.i10.i.i
 
 235:                                              ; preds = %246
-  %236 = add nuw nsw i64 %.01742.i.i.i11.i.i, 1
+  %236 = add nuw nsw i64 %.042.i.i.i11.i.i, 1
   %exitcond.not.i.i.i19.i.i = icmp eq i64 %236, %225
   br i1 %exitcond.not.i.i.i19.i.i, label %._crit_edge.loopexit.i.i.i20.i.i, label %.lr.ph.i.i.i10.i.i, !llvm.loop !36
 
 .lr.ph.i.i.i10.i.i:                               ; preds = %235, %.lr.ph.preheader.i.i.i9.i.i
-  %.01742.i.i.i11.i.i = phi i64 [ %236, %235 ], [ 0, %.lr.ph.preheader.i.i.i9.i.i ]
-  %.01841.i.i.i12.i.i = phi ptr [ %240, %235 ], [ %234, %.lr.ph.preheader.i.i.i9.i.i ]
-  %.01940.i.i.i13.i.i = phi ptr [ %242, %235 ], [ %230, %.lr.ph.preheader.i.i.i9.i.i ]
-  %237 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01841.i.i.i12.i.i)
-  %238 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01940.i.i.i13.i.i)
+  %.042.i.i.i11.i.i = phi i64 [ %236, %235 ], [ 0, %.lr.ph.preheader.i.i.i9.i.i ]
+  %.01741.i.i.i12.i.i = phi ptr [ %242, %235 ], [ %230, %.lr.ph.preheader.i.i.i9.i.i ]
+  %.01840.i.i.i13.i.i = phi ptr [ %240, %235 ], [ %234, %.lr.ph.preheader.i.i.i9.i.i ]
+  %237 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01840.i.i.i13.i.i)
+  %238 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01741.i.i.i12.i.i)
   %239 = sub i64 0, %237
-  %240 = getelementptr inbounds i8, ptr %.01841.i.i.i12.i.i, i64 %239
+  %240 = getelementptr inbounds i8, ptr %.01840.i.i.i13.i.i, i64 %239
   %241 = sub i64 0, %238
-  %242 = getelementptr inbounds i8, ptr %.01940.i.i.i13.i.i, i64 %241
+  %242 = getelementptr inbounds i8, ptr %.01741.i.i.i12.i.i, i64 %241
   %.sroa.speculated.i.i.i14.i.i = tail call i64 @llvm.umin.i64(i64 %238, i64 %237)
   %243 = tail call i32 @strncmp(ptr noundef %240, ptr noundef %242, i64 noundef %.sroa.speculated.i.i.i14.i.i) #23
   %244 = icmp slt i32 %243, 0
@@ -9163,20 +9163,20 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br label %.lr.ph.i.i.i
 
 30:                                               ; preds = %41
-  %31 = add nuw nsw i64 %.01742.i.i.i, 1
+  %31 = add nuw nsw i64 %.042.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %31, %19
   br i1 %exitcond.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !36
 
 .lr.ph.i.i.i:                                     ; preds = %30, %.lr.ph.preheader.i.i.i
-  %.01742.i.i.i = phi i64 [ %31, %30 ], [ 0, %.lr.ph.preheader.i.i.i ]
-  %.01841.i.i.i = phi ptr [ %35, %30 ], [ %29, %.lr.ph.preheader.i.i.i ]
-  %.01940.i.i.i = phi ptr [ %37, %30 ], [ %24, %.lr.ph.preheader.i.i.i ]
-  %32 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01841.i.i.i)
-  %33 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01940.i.i.i)
+  %.042.i.i.i = phi i64 [ %31, %30 ], [ 0, %.lr.ph.preheader.i.i.i ]
+  %.01741.i.i.i = phi ptr [ %37, %30 ], [ %24, %.lr.ph.preheader.i.i.i ]
+  %.01840.i.i.i = phi ptr [ %35, %30 ], [ %29, %.lr.ph.preheader.i.i.i ]
+  %32 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01840.i.i.i)
+  %33 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01741.i.i.i)
   %34 = sub i64 0, %32
-  %35 = getelementptr inbounds i8, ptr %.01841.i.i.i, i64 %34
+  %35 = getelementptr inbounds i8, ptr %.01840.i.i.i, i64 %34
   %36 = sub i64 0, %33
-  %37 = getelementptr inbounds i8, ptr %.01940.i.i.i, i64 %36
+  %37 = getelementptr inbounds i8, ptr %.01741.i.i.i, i64 %36
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %33, i64 %32)
   %38 = tail call i32 @strncmp(ptr noundef %35, ptr noundef %37, i64 noundef %.sroa.speculated.i.i.i) #23
   %39 = icmp slt i32 %38, 0
@@ -9270,20 +9270,20 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   br label %.lr.ph.i.i.i.i
 
 76:                                               ; preds = %87
-  %77 = add nuw nsw i64 %.01742.i.i.i.i, 1
+  %77 = add nuw nsw i64 %.042.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %77, %70
   br i1 %exitcond.not.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !36
 
 .lr.ph.i.i.i.i:                                   ; preds = %76, %.lr.ph.preheader.i.i.i.i
-  %.01742.i.i.i.i = phi i64 [ %77, %76 ], [ 0, %.lr.ph.preheader.i.i.i.i ]
-  %.01841.i.i.i.i = phi ptr [ %81, %76 ], [ %75, %.lr.ph.preheader.i.i.i.i ]
-  %.01940.i.i.i.i = phi ptr [ %83, %76 ], [ %64, %.lr.ph.preheader.i.i.i.i ]
-  %78 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01841.i.i.i.i)
-  %79 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01940.i.i.i.i)
+  %.042.i.i.i.i = phi i64 [ %77, %76 ], [ 0, %.lr.ph.preheader.i.i.i.i ]
+  %.01741.i.i.i.i = phi ptr [ %83, %76 ], [ %64, %.lr.ph.preheader.i.i.i.i ]
+  %.01840.i.i.i.i = phi ptr [ %81, %76 ], [ %75, %.lr.ph.preheader.i.i.i.i ]
+  %78 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01840.i.i.i.i)
+  %79 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01741.i.i.i.i)
   %80 = sub i64 0, %78
-  %81 = getelementptr inbounds i8, ptr %.01841.i.i.i.i, i64 %80
+  %81 = getelementptr inbounds i8, ptr %.01840.i.i.i.i, i64 %80
   %82 = sub i64 0, %79
-  %83 = getelementptr inbounds i8, ptr %.01940.i.i.i.i, i64 %82
+  %83 = getelementptr inbounds i8, ptr %.01741.i.i.i.i, i64 %82
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %79, i64 %78)
   %84 = tail call i32 @strncmp(ptr noundef %81, ptr noundef %83, i64 noundef %.sroa.speculated.i.i.i.i) #23
   %85 = icmp slt i32 %84, 0
@@ -9367,20 +9367,20 @@ define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_itera
   br label %.lr.ph.i.i.i
 
 23:                                               ; preds = %34
-  %24 = add nuw nsw i64 %.01742.i.i.i, 1
+  %24 = add nuw nsw i64 %.042.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %24, %13
   br i1 %exitcond.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !36
 
 .lr.ph.i.i.i:                                     ; preds = %23, %.lr.ph.preheader.i.i.i
-  %.01742.i.i.i = phi i64 [ %24, %23 ], [ 0, %.lr.ph.preheader.i.i.i ]
-  %.01841.i.i.i = phi ptr [ %28, %23 ], [ %22, %.lr.ph.preheader.i.i.i ]
-  %.01940.i.i.i = phi ptr [ %30, %23 ], [ %17, %.lr.ph.preheader.i.i.i ]
-  %25 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01841.i.i.i)
-  %26 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01940.i.i.i)
+  %.042.i.i.i = phi i64 [ %24, %23 ], [ 0, %.lr.ph.preheader.i.i.i ]
+  %.01741.i.i.i = phi ptr [ %30, %23 ], [ %17, %.lr.ph.preheader.i.i.i ]
+  %.01840.i.i.i = phi ptr [ %28, %23 ], [ %22, %.lr.ph.preheader.i.i.i ]
+  %25 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01840.i.i.i)
+  %26 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01741.i.i.i)
   %27 = sub i64 0, %25
-  %28 = getelementptr inbounds i8, ptr %.01841.i.i.i, i64 %27
+  %28 = getelementptr inbounds i8, ptr %.01840.i.i.i, i64 %27
   %29 = sub i64 0, %26
-  %30 = getelementptr inbounds i8, ptr %.01940.i.i.i, i64 %29
+  %30 = getelementptr inbounds i8, ptr %.01741.i.i.i, i64 %29
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %26, i64 %25)
   %31 = tail call i32 @strncmp(ptr noundef %28, ptr noundef %30, i64 noundef %.sroa.speculated.i.i.i) #23
   %32 = icmp slt i32 %31, 0
@@ -9449,20 +9449,20 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBas
   br label %.lr.ph.i.i.i.i
 
 56:                                               ; preds = %67
-  %57 = add nuw nsw i64 %.01742.i.i.i.i, 1
+  %57 = add nuw nsw i64 %.042.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %57, %50
   br i1 %exitcond.not.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !36
 
 .lr.ph.i.i.i.i:                                   ; preds = %56, %.lr.ph.preheader.i.i.i.i
-  %.01742.i.i.i.i = phi i64 [ %57, %56 ], [ 0, %.lr.ph.preheader.i.i.i.i ]
-  %.01841.i.i.i.i = phi ptr [ %61, %56 ], [ %45, %.lr.ph.preheader.i.i.i.i ]
-  %.01940.i.i.i.i = phi ptr [ %63, %56 ], [ %55, %.lr.ph.preheader.i.i.i.i ]
-  %58 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01841.i.i.i.i)
-  %59 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01940.i.i.i.i)
+  %.042.i.i.i.i = phi i64 [ %57, %56 ], [ 0, %.lr.ph.preheader.i.i.i.i ]
+  %.01741.i.i.i.i = phi ptr [ %63, %56 ], [ %55, %.lr.ph.preheader.i.i.i.i ]
+  %.01840.i.i.i.i = phi ptr [ %61, %56 ], [ %45, %.lr.ph.preheader.i.i.i.i ]
+  %58 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01840.i.i.i.i)
+  %59 = tail call noundef i64 @_ZN6opencc8UTF8Util14PrevCharLengthEPKc(ptr noundef %.01741.i.i.i.i)
   %60 = sub i64 0, %58
-  %61 = getelementptr inbounds i8, ptr %.01841.i.i.i.i, i64 %60
+  %61 = getelementptr inbounds i8, ptr %.01840.i.i.i.i, i64 %60
   %62 = sub i64 0, %59
-  %63 = getelementptr inbounds i8, ptr %.01940.i.i.i.i, i64 %62
+  %63 = getelementptr inbounds i8, ptr %.01741.i.i.i.i, i64 %62
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %59, i64 %58)
   %64 = tail call i32 @strncmp(ptr noundef %61, ptr noundef %63, i64 noundef %.sroa.speculated.i.i.i.i) #23
   %65 = icmp slt i32 %64, 0
@@ -9836,8 +9836,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i"
 
 "_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader", %319
-  %.sroa.020.0.i.i = phi ptr [ %.sroa.020.1.i.i, %319 ], [ %storemerge66192, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader" ]
   %.sroa.023.0.i.i = phi ptr [ %320, %319 ], [ %21, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader" ]
+  %.sroa.020.0.i.i = phi ptr [ %.sroa.020.1.i.i, %319 ], [ %storemerge66192, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i.preheader" ]
   br label %178
 
 178:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6opencc13PhraseExtract21ExtractWordCandidatesEvE3$_0EclINS_17__normal_iteratorIPNS2_19UTF8StringSliceBaseIhEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread.i13.i", %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN6opencc19UTF8StringSliceBaseIhEESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13PhraseExtract21ExtractWordCandidatesEvE3$_0EEEvT_SF_SF_SF_T0_.exit.i"

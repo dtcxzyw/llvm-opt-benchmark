@@ -319,9 +319,9 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64___construct(ptr nounde
 .thread172:                                       ; preds = %19, %.thread150
   %.073160 = phi i32 [ 0, %.thread150 ], [ 1, %19 ]
   %.074159 = phi ptr [ null, %.thread150 ], [ %14, %19 ]
-  %.075158 = phi i32 [ 0, %.thread150 ], [ 29, %19 ]
-  %.076157 = phi i32 [ 1, %.thread150 ], [ 9, %19 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.076157, i32 noundef %.073160, ptr noundef null, i32 noundef %.075158, ptr noundef %.074159) #7
+  %.077158 = phi i32 [ 0, %.thread150 ], [ 29, %19 ]
+  %.078157 = phi i32 [ 1, %.thread150 ], [ 9, %19 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.078157, i32 noundef %.073160, ptr noundef null, i32 noundef %.077158, ptr noundef %.074159) #7
   br label %61
 
 .thread164:                                       ; preds = %13, %11
@@ -503,9 +503,9 @@ define hidden void @zim_Random_Engine_PcgOneseq128XslRr64_jump(ptr noundef %0, p
 
 16:                                               ; preds = %14, %.thread79
   %.086 = phi i32 [ 1, %.thread79 ], [ 9, %14 ]
-  %.05785 = phi i32 [ 0, %.thread79 ], [ 1, %14 ]
-  %.05984 = phi ptr [ null, %.thread79 ], [ %9, %14 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.086, i32 noundef %.05785, ptr noundef null, i32 noundef 0, ptr noundef %.05984) #7
+  %.05885 = phi ptr [ null, %.thread79 ], [ %9, %14 ]
+  %.05984 = phi i32 [ 0, %.thread79 ], [ 1, %14 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.086, i32 noundef %.05984, ptr noundef null, i32 noundef 0, ptr noundef %.05885) #7
   br label %35
 
 .thread87thread-pre-split:                        ; preds = %14

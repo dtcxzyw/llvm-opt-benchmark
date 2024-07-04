@@ -1053,8 +1053,8 @@ call1.i.i367.noexc:                               ; preds = %call.i.i.i366.noexc
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %call1.i.i367.noexc, %if.end20.i
-  %any_bytes.i.sroa.5.1.i = phi ptr [ null, %if.end20.i ], [ %50, %call1.i.i367.noexc ]
   %any_bytes.i.sroa.0.1.i = phi i64 [ 0, %if.end20.i ], [ %51, %call1.i.i367.noexc ]
+  %any_bytes.i.sroa.5.1.i = phi ptr [ null, %if.end20.i ], [ %50, %call1.i.i367.noexc ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %factory.i.i), !noalias !20
   invoke void @_ZN6google8protobuf21DynamicMessageFactoryC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %factory.i.i)
           to label %.noexc379 unwind label %lpad48.i
@@ -14200,9 +14200,9 @@ for.body.lr.ph:                                   ; preds = %_ZNSt12_Vector_base
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.0220 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %fields.sroa.0.1219 = phi ptr [ %call5.i.i.i.i13, %for.body.lr.ph ], [ %fields.sroa.0.5, %for.inc ]
+  %fields.sroa.17.1219 = phi ptr [ %add.ptr21.i, %for.body.lr.ph ], [ %fields.sroa.17.3, %for.inc ]
   %fields.sroa.9.1218 = phi ptr [ %call5.i.i.i.i13, %for.body.lr.ph ], [ %fields.sroa.9.3, %for.inc ]
-  %fields.sroa.17.1217 = phi ptr [ %add.ptr21.i, %for.body.lr.ph ], [ %fields.sroa.17.3, %for.inc ]
+  %fields.sroa.0.1217 = phi ptr [ %call5.i.i.i.i13, %for.body.lr.ph ], [ %fields.sroa.0.5, %for.inc ]
   %call.i14 = invoke { ptr, i64 } @_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv(ptr noundef nonnull align 8 dereferenceable(208) %desc)
           to label %invoke.cont2 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -14262,7 +14262,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %for.body, %invoke.
   br label %ehcleanup
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i, %_ZNSt12_Vector_baseIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE11_M_allocateEm.exit.i, %if.then.i.i.i, %if.then.i.i114
-  %fields.sroa.0.2.ph.ph.ph = phi ptr [ null, %_ZNSt12_Vector_baseIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE11_M_allocateEm.exit.i ], [ %fields.sroa.0.5, %if.then.i.i114 ], [ %fields.sroa.0.1219, %if.then.i.i.i ], [ null, %if.then.i ]
+  %fields.sroa.0.2.ph.ph.ph = phi ptr [ null, %_ZNSt12_Vector_baseIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE11_M_allocateEm.exit.i ], [ %fields.sroa.0.5, %if.then.i.i114 ], [ %fields.sroa.0.1217, %if.then.i.i.i ], [ null, %if.then.i ]
   %lpad.loopexit.split-lp210 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -14271,7 +14271,7 @@ if.end:                                           ; preds = %invoke.cont4
   br i1 %cmp6, label %if.then24, label %for.inc
 
 if.then24:                                        ; preds = %land.end18, %if.end
-  %cmp.not.i = icmp eq ptr %fields.sroa.9.1218, %fields.sroa.17.1217
+  %cmp.not.i = icmp eq ptr %fields.sroa.9.1218, %fields.sroa.17.1219
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i21
 
 if.then.i21:                                      ; preds = %if.then24
@@ -14280,8 +14280,8 @@ if.then.i21:                                      ; preds = %if.then24
   br label %for.inc
 
 if.else.i:                                        ; preds = %if.then24
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %fields.sroa.9.1218 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %fields.sroa.0.1219 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %fields.sroa.17.1219 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %fields.sroa.0.1217 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE12_M_check_lenEmPKc.exit.i.i
@@ -14316,17 +14316,17 @@ _ZNSt12_Vector_baseIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit17.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %fields.sroa.0.1219, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %fields.sroa.0.1217, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit17.i.i
 
 _ZNSt6vectorIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i, i64 8
-  %tobool.not.i.i.i = icmp eq ptr %fields.sroa.0.1219, null
+  %tobool.not.i.i.i = icmp eq ptr %fields.sroa.0.1217, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit17.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %fields.sroa.0.1219) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %fields.sroa.0.1217) #28
   br label %_ZNSt6vectorIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i
 
 _ZNSt6vectorIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit17.i.i
@@ -14334,9 +14334,9 @@ _ZNSt6vectorIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE17_M
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, %if.then.i21, %land.end18, %if.end
-  %fields.sroa.17.3 = phi ptr [ %fields.sroa.17.1217, %if.end ], [ %fields.sroa.17.1217, %land.end18 ], [ %add.ptr19.i.i, %_ZNSt6vectorIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ], [ %fields.sroa.17.1217, %if.then.i21 ]
+  %fields.sroa.0.5 = phi ptr [ %fields.sroa.0.1217, %if.end ], [ %fields.sroa.0.1217, %land.end18 ], [ %cond.i10.i.i, %_ZNSt6vectorIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ], [ %fields.sroa.0.1217, %if.then.i21 ]
   %fields.sroa.9.3 = phi ptr [ %fields.sroa.9.1218, %if.end ], [ %fields.sroa.9.1218, %land.end18 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i21 ]
-  %fields.sroa.0.5 = phi ptr [ %fields.sroa.0.1219, %if.end ], [ %fields.sroa.0.1219, %land.end18 ], [ %cond.i10.i.i, %_ZNSt6vectorIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ], [ %fields.sroa.0.1219, %if.then.i21 ]
+  %fields.sroa.17.3 = phi ptr [ %fields.sroa.17.1219, %if.end ], [ %fields.sroa.17.1219, %land.end18 ], [ %add.ptr19.i.i, %_ZNSt6vectorIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ], [ %fields.sroa.17.1219, %if.then.i21 ]
   %inc = add nuw i64 %i.0220, 1
   %exitcond.not = icmp eq i64 %inc, %conv.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !548
@@ -14905,24 +14905,24 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %cleanup.thread255, 
   br i1 %cmp.i32.not, label %for.end47, label %call.i.noexc
 
 for.end47:                                        ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %if.end.i, %for.end, %invoke.cont28
-  %fields.sroa.0.1.lcssa233239 = phi ptr [ %fields.sroa.0.5, %invoke.cont28 ], [ %fields.sroa.0.5, %for.end ], [ null, %if.end.i ], [ %fields.sroa.0.5, %_ZN4absl12lts_202308026StatusD2Ev.exit ]
+  %fields.sroa.0.1.lcssa232239 = phi ptr [ %fields.sroa.0.5, %invoke.cont28 ], [ %fields.sroa.0.5, %for.end ], [ null, %if.end.i ], [ %fields.sroa.0.5, %_ZN4absl12lts_202308026StatusD2Ev.exit ]
   store i64 0, ptr %agg.result, align 8, !alias.scope !558
   br label %cleanup49
 
 cleanup49:                                        ; preds = %cleanup, %cleanup.thread260, %for.end47
-  %fields.sroa.0.1.lcssa234 = phi ptr [ %fields.sroa.0.1.lcssa233239, %for.end47 ], [ %fields.sroa.0.5, %cleanup.thread260 ], [ %fields.sroa.0.5, %cleanup ]
-  %tobool.not.i.i.i66 = icmp eq ptr %fields.sroa.0.1.lcssa234, null
+  %fields.sroa.0.1.lcssa233 = phi ptr [ %fields.sroa.0.1.lcssa232239, %for.end47 ], [ %fields.sroa.0.5, %cleanup.thread260 ], [ %fields.sroa.0.5, %cleanup ]
+  %tobool.not.i.i.i66 = icmp eq ptr %fields.sroa.0.1.lcssa233, null
   br i1 %tobool.not.i.i.i66, label %_ZNSt6vectorIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EED2Ev.exit, label %if.then.i.i.i67
 
 if.then.i.i.i67:                                  ; preds = %cleanup49
-  call void @_ZdlPv(ptr noundef nonnull %fields.sroa.0.1.lcssa234) #28
+  call void @_ZdlPv(ptr noundef nonnull %fields.sroa.0.1.lcssa233) #28
   br label %_ZNSt6vectorIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EED2Ev.exit
 
 _ZNSt6vectorIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EED2Ev.exit: ; preds = %cleanup49, %if.then.i.i.i67
   ret void
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i
-  %fields.sroa.0.3 = phi ptr [ %fields.sroa.0.5, %lpad.i ], [ %fields.sroa.0.5, %lpad.loopexit ], [ %fields.sroa.0.5, %lpad.loopexit.split-lp.loopexit ], [ %fields.sroa.0.1219, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %fields.sroa.0.2.ph.ph.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %fields.sroa.0.3 = phi ptr [ %fields.sroa.0.5, %lpad.i ], [ %fields.sroa.0.5, %lpad.loopexit ], [ %fields.sroa.0.5, %lpad.loopexit.split-lp.loopexit ], [ %fields.sroa.0.1217, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %fields.sroa.0.2.ph.ph.ph, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %eh.lpad-body = phi { ptr, i32 } [ %43, %lpad.i ], [ %lpad.loopexit203, %lpad.loopexit ], [ %lpad.loopexit205, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit209, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp210, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %tobool.not.i.i.i69 = icmp eq ptr %fields.sroa.0.3, null
   br i1 %tobool.not.i.i.i69, label %_ZNSt6vectorIPKN6google8protobuf13json_internal12ResolverPool5FieldESaIS6_EED2Ev.exit71, label %if.then.i.i.i70

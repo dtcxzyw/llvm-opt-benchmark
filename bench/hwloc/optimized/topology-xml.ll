@@ -503,13 +503,13 @@ hwloc__xml_verbose.exit.i:                        ; preds = %60, %55
   br label %.thread17
 
 68:                                               ; preds = %53, %49, %45, %41, %39, %35, %31, %27
-  %.165.i = phi ptr [ %.06499.i, %53 ], [ %.06499.i, %49 ], [ %.06499.i, %45 ], [ %.06499.i, %41 ], [ %.06499.i, %39 ], [ %.06499.i, %35 ], [ %32, %31 ], [ %.06499.i, %27 ]
-  %.163.i = phi ptr [ %.062100.i, %53 ], [ %.062100.i, %49 ], [ %.062100.i, %45 ], [ %.062100.i, %41 ], [ %.062100.i, %39 ], [ %36, %35 ], [ %.062100.i, %31 ], [ %.062100.i, %27 ]
-  %.161.i = phi ptr [ %.060101.i, %53 ], [ %.060101.i, %49 ], [ %.060101.i, %45 ], [ %.060101.i, %41 ], [ %40, %39 ], [ %.060101.i, %35 ], [ %.060101.i, %31 ], [ %.060101.i, %27 ]
-  %.159.i = phi ptr [ %.058102.i, %53 ], [ %.058102.i, %49 ], [ %46, %45 ], [ %.058102.i, %41 ], [ %.058102.i, %39 ], [ %.058102.i, %35 ], [ %.058102.i, %31 ], [ %.058102.i, %27 ]
-  %.157.i = phi ptr [ %.056103.i, %53 ], [ %50, %49 ], [ %.056103.i, %45 ], [ %.056103.i, %41 ], [ %.056103.i, %39 ], [ %.056103.i, %35 ], [ %.056103.i, %31 ], [ %.056103.i, %27 ]
-  %.155.i = phi ptr [ %54, %53 ], [ %.054104.i, %49 ], [ %.054104.i, %45 ], [ %.054104.i, %41 ], [ %.054104.i, %39 ], [ %.054104.i, %35 ], [ %.054104.i, %31 ], [ %.054104.i, %27 ]
-  %.1.i = phi ptr [ %.053105.i, %53 ], [ %.053105.i, %49 ], [ %.053105.i, %45 ], [ %.053105.i, %41 ], [ %.053105.i, %39 ], [ %.053105.i, %35 ], [ %.053105.i, %31 ], [ %28, %27 ]
+  %.165.i = phi ptr [ %.06499.i, %53 ], [ %.06499.i, %49 ], [ %.06499.i, %45 ], [ %.06499.i, %41 ], [ %.06499.i, %39 ], [ %.06499.i, %35 ], [ %.06499.i, %31 ], [ %28, %27 ]
+  %.163.i = phi ptr [ %.062100.i, %53 ], [ %.062100.i, %49 ], [ %.062100.i, %45 ], [ %.062100.i, %41 ], [ %.062100.i, %39 ], [ %.062100.i, %35 ], [ %32, %31 ], [ %.062100.i, %27 ]
+  %.161.i = phi ptr [ %.060101.i, %53 ], [ %.060101.i, %49 ], [ %.060101.i, %45 ], [ %.060101.i, %41 ], [ %.060101.i, %39 ], [ %36, %35 ], [ %.060101.i, %31 ], [ %.060101.i, %27 ]
+  %.159.i = phi ptr [ %.058102.i, %53 ], [ %.058102.i, %49 ], [ %.058102.i, %45 ], [ %.058102.i, %41 ], [ %40, %39 ], [ %.058102.i, %35 ], [ %.058102.i, %31 ], [ %.058102.i, %27 ]
+  %.157.i = phi ptr [ %.056103.i, %53 ], [ %.056103.i, %49 ], [ %46, %45 ], [ %.056103.i, %41 ], [ %.056103.i, %39 ], [ %.056103.i, %35 ], [ %.056103.i, %31 ], [ %.056103.i, %27 ]
+  %.155.i = phi ptr [ %.054104.i, %53 ], [ %50, %49 ], [ %.054104.i, %45 ], [ %.054104.i, %41 ], [ %.054104.i, %39 ], [ %.054104.i, %35 ], [ %.054104.i, %31 ], [ %.054104.i, %27 ]
+  %.1.i = phi ptr [ %54, %53 ], [ %.053105.i, %49 ], [ %.053105.i, %45 ], [ %.053105.i, %41 ], [ %.053105.i, %39 ], [ %.053105.i, %35 ], [ %.053105.i, %31 ], [ %.053105.i, %27 ]
   %69 = load ptr, ptr %13, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 24
   %71 = load ptr, ptr %70, align 8
@@ -518,19 +518,19 @@ hwloc__xml_verbose.exit.i:                        ; preds = %60, %55
   br i1 %73, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %68
-  %.not75.i = icmp eq ptr %.1.i, null
+  %.not75.i = icmp eq ptr %.165.i, null
   br i1 %.not75.i, label %150, label %74
 
 74:                                               ; preds = %._crit_edge.i
-  %75 = call i32 @atoi(ptr nocapture noundef nonnull %.1.i) #22
+  %75 = call i32 @atoi(ptr nocapture noundef nonnull %.165.i) #22
   %cond.i = icmp eq i32 %75, 0
   br i1 %cond.i, label %76, label %150
 
 76:                                               ; preds = %74
-  %77 = icmp ne ptr %.165.i, null
-  %78 = icmp ne ptr %.163.i, null
+  %77 = icmp ne ptr %.163.i, null
+  %78 = icmp ne ptr %.161.i, null
   %or.cond.i = select i1 %77, i1 %78, i1 false
-  %79 = icmp ne ptr %.161.i, null
+  %79 = icmp ne ptr %.159.i, null
   %or.cond3.i = select i1 %or.cond.i, i1 %79, i1 false
   br i1 %or.cond3.i, label %93, label %80
 
@@ -566,8 +566,8 @@ hwloc__xml_verbose.exit83.i:                      ; preds = %85, %80
   br label %150
 
 93:                                               ; preds = %76
-  %94 = icmp ne ptr %.157.i, null
-  %95 = icmp ne ptr %.155.i, null
+  %94 = icmp ne ptr %.155.i, null
+  %95 = icmp ne ptr %.1.i, null
   %or.cond5.i = select i1 %94, i1 %95, i1 false
   br i1 %or.cond5.i, label %109, label %96
 
@@ -603,9 +603,9 @@ hwloc__xml_verbose.exit86.i:                      ; preds = %101, %96
   br label %150
 
 109:                                              ; preds = %93
-  %110 = call i32 @atoi(ptr nocapture noundef nonnull %.161.i) #22
+  %110 = call i32 @atoi(ptr nocapture noundef nonnull %.159.i) #22
   %111 = icmp ne i32 %110, 2
-  %112 = icmp ne ptr %.159.i, null
+  %112 = icmp ne ptr %.157.i, null
   %or.cond7.i = select i1 %111, i1 true, i1 %112
   br i1 %or.cond7.i, label %126, label %113
 
@@ -647,10 +647,10 @@ hwloc__xml_verbose.exit89.i:                      ; preds = %118, %113
 
 128:                                              ; preds = %126
   store i32 0, ptr %127, align 8
-  %129 = call i32 @atoi(ptr nocapture noundef nonnull %.165.i) #22
+  %129 = call i32 @atoi(ptr nocapture noundef nonnull %.163.i) #22
   %130 = getelementptr inbounds i8, ptr %127, i64 16
   store i32 %129, ptr %130, align 8
-  %131 = call i32 @atoi(ptr nocapture noundef nonnull %.163.i) #22
+  %131 = call i32 @atoi(ptr nocapture noundef nonnull %.161.i) #22
   %132 = getelementptr inbounds i8, ptr %127, i64 20
   store i32 %131, ptr %132, align 4
   %133 = getelementptr inbounds i8, ptr %127, i64 24
@@ -663,25 +663,25 @@ hwloc__xml_verbose.exit89.i:                      ; preds = %118, %113
   ]
 
 134:                                              ; preds = %128
-  %135 = call i64 @strtoull(ptr nocapture noundef nonnull %.157.i, ptr noundef null, i32 noundef 0) #21
+  %135 = call i64 @strtoull(ptr nocapture noundef nonnull %.155.i, ptr noundef null, i32 noundef 0) #21
   %136 = getelementptr inbounds i8, ptr %127, i64 40
   store i64 %135, ptr %136, align 8
-  %137 = call i64 @strtoull(ptr nocapture noundef nonnull %.155.i, ptr noundef null, i32 noundef 0) #21
+  %137 = call i64 @strtoull(ptr nocapture noundef nonnull %.1.i, ptr noundef null, i32 noundef 0) #21
   %138 = getelementptr inbounds i8, ptr %127, i64 48
   store i64 %137, ptr %138, align 8
   br label %147
 
 139:                                              ; preds = %128
-  %140 = call noalias ptr @strdup(ptr noundef %.159.i) #21
+  %140 = call noalias ptr @strdup(ptr noundef %.157.i) #21
   %141 = getelementptr inbounds i8, ptr %127, i64 32
   store ptr %140, ptr %141, align 8
   br label %142
 
 142:                                              ; preds = %139, %128
-  %143 = call noalias ptr @strdup(ptr noundef nonnull %.157.i) #21
+  %143 = call noalias ptr @strdup(ptr noundef nonnull %.155.i) #21
   %144 = getelementptr inbounds i8, ptr %127, i64 40
   store ptr %143, ptr %144, align 8
-  %145 = call noalias ptr @strdup(ptr noundef nonnull %.155.i) #21
+  %145 = call noalias ptr @strdup(ptr noundef nonnull %.1.i) #21
   %146 = getelementptr inbounds i8, ptr %127, i64 48
   store ptr %145, ptr %146, align 8
   br label %147
@@ -751,8 +751,8 @@ define i32 @hwloc_topology_diff_load_xml(ptr noundef %0, ptr noundef %1, ptr nou
   %7 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #22
   %.not = icmp eq ptr %7, null
   %8 = getelementptr inbounds i8, ptr %7, i64 1
-  %.021 = select i1 %.not, ptr %0, ptr %8
-  %9 = call noalias ptr @strdup(ptr noundef %.021) #21
+  %.020 = select i1 %.not, ptr %0, ptr %8
+  %9 = call noalias ptr @strdup(ptr noundef %.020) #21
   %10 = getelementptr inbounds i8, ptr %5, i64 72
   store ptr %9, ptr %10, align 8
   call void @hwloc_components_init() #21
@@ -765,7 +765,7 @@ define i32 @hwloc_topology_diff_load_xml(ptr noundef %0, ptr noundef %1, ptr nou
   br label %14
 
 14:                                               ; preds = %3, %12
-  %.020 = phi ptr [ %13, %12 ], [ null, %3 ]
+  %.021 = phi ptr [ %13, %12 ], [ null, %3 ]
   store ptr null, ptr %1, align 8
   %.b.i = load i1, ptr @hwloc_nolibxml_import.checked, align 4
   br i1 %.b.i, label %hwloc_nolibxml_import.exit, label %15
@@ -850,7 +850,7 @@ hwloc_nolibxml_import.exit:                       ; preds = %14, %21
   br i1 %.not27, label %47, label %45
 
 45:                                               ; preds = %.loopexit
-  %46 = call ptr @uselocale(ptr noundef %.020) #21
+  %46 = call ptr @uselocale(ptr noundef %.021) #21
   call void @freelocale(ptr noundef nonnull %11) #21
   br label %47
 
@@ -3501,7 +3501,7 @@ define i32 @hwloc_topology_export_xml(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %18
 
 18:                                               ; preds = %14, %16
-  %.019 = phi ptr [ %17, %16 ], [ null, %14 ]
+  %.018 = phi ptr [ %17, %16 ], [ null, %14 ]
   %.b.i = load i1, ptr @hwloc_nolibxml_export.checked, align 4
   br i1 %.b.i, label %hwloc_nolibxml_export.exit, label %19
 
@@ -3585,13 +3585,13 @@ hwloc_nolibxml_export.exit:                       ; preds = %18, %25
   br i1 %.not25, label %51, label %49
 
 49:                                               ; preds = %.loopexit
-  %50 = call ptr @uselocale(ptr noundef %.019) #21
+  %50 = call ptr @uselocale(ptr noundef %.018) #21
   call void @freelocale(ptr noundef nonnull %15) #21
   br label %51
 
 51:                                               ; preds = %49, %.loopexit, %12, %8
-  %.018 = phi i32 [ -1, %12 ], [ -1, %8 ], [ %.0, %.loopexit ], [ %.0, %49 ]
-  ret i32 %.018
+  %.019 = phi i32 [ -1, %12 ], [ -1, %8 ], [ %.0, %.loopexit ], [ %.0, %49 ]
+  ret i32 %.019
 }
 
 declare void @hwloc_internal_distances_refresh(ptr noundef) local_unnamed_addr #8
@@ -3631,7 +3631,7 @@ define i32 @hwloc_topology_export_xmlbuffer(ptr noundef %0, ptr noundef %1, ptr 
   br label %19
 
 19:                                               ; preds = %15, %17
-  %.021 = phi ptr [ %18, %17 ], [ null, %15 ]
+  %.020 = phi ptr [ %18, %17 ], [ null, %15 ]
   %.b.i = load i1, ptr @hwloc_nolibxml_export.checked, align 4
   br i1 %.b.i, label %hwloc_nolibxml_export.exit, label %20
 
@@ -3715,13 +3715,13 @@ hwloc_nolibxml_export.exit:                       ; preds = %19, %26
   br i1 %.not27, label %52, label %50
 
 50:                                               ; preds = %.loopexit
-  %51 = call ptr @uselocale(ptr noundef %.021) #21
+  %51 = call ptr @uselocale(ptr noundef %.020) #21
   call void @freelocale(ptr noundef nonnull %16) #21
   br label %52
 
 52:                                               ; preds = %50, %.loopexit, %13, %9
-  %.020 = phi i32 [ -1, %13 ], [ -1, %9 ], [ %.0, %.loopexit ], [ %.0, %50 ]
-  ret i32 %.020
+  %.021 = phi i32 [ -1, %13 ], [ -1, %9 ], [ %.0, %.loopexit ], [ %.0, %50 ]
+  ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3730,8 +3730,8 @@ define i32 @hwloc_topology_diff_export_xml(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %8
-  %.02029 = phi ptr [ %10, %8 ], [ %0, %3 ]
-  %4 = load i32, ptr %.02029, align 8
+  %.01929 = phi ptr [ %10, %8 ], [ %0, %3 ]
+  %4 = load i32, ptr %.01929, align 8
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %6, label %8
 
@@ -3741,7 +3741,7 @@ define i32 @hwloc_topology_diff_export_xml(ptr noundef %0, ptr noundef %1, ptr n
   br label %48
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.02029, i64 8
+  %9 = getelementptr inbounds i8, ptr %.01929, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
@@ -3757,7 +3757,7 @@ define i32 @hwloc_topology_diff_export_xml(ptr noundef %0, ptr noundef %1, ptr n
   br label %14
 
 14:                                               ; preds = %._crit_edge, %12
-  %.021 = phi ptr [ %13, %12 ], [ null, %._crit_edge ]
+  %.020 = phi ptr [ %13, %12 ], [ null, %._crit_edge ]
   %.b.i = load i1, ptr @hwloc_nolibxml_export.checked, align 4
   br i1 %.b.i, label %hwloc_nolibxml_export.exit, label %15
 
@@ -3841,7 +3841,7 @@ hwloc_nolibxml_export.exit:                       ; preds = %14, %21
   br i1 %.not26, label %47, label %45
 
 45:                                               ; preds = %.loopexit
-  %46 = tail call ptr @uselocale(ptr noundef %.021) #21
+  %46 = tail call ptr @uselocale(ptr noundef %.020) #21
   tail call void @freelocale(ptr noundef nonnull %11) #21
   br label %47
 
@@ -3850,8 +3850,8 @@ hwloc_nolibxml_export.exit:                       ; preds = %14, %21
   br label %48
 
 48:                                               ; preds = %47, %6
-  %.019 = phi i32 [ -1, %6 ], [ %.0, %47 ]
-  ret i32 %.019
+  %.021 = phi i32 [ -1, %6 ], [ %.0, %47 ]
+  ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3860,8 +3860,8 @@ define i32 @hwloc_topology_diff_export_xmlbuffer(ptr noundef %0, ptr noundef %1,
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %9
-  %.02231 = phi ptr [ %11, %9 ], [ %0, %4 ]
-  %5 = load i32, ptr %.02231, align 8
+  %.02131 = phi ptr [ %11, %9 ], [ %0, %4 ]
+  %5 = load i32, ptr %.02131, align 8
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %7, label %9
 
@@ -3871,7 +3871,7 @@ define i32 @hwloc_topology_diff_export_xmlbuffer(ptr noundef %0, ptr noundef %1,
   br label %49
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.02231, i64 8
+  %10 = getelementptr inbounds i8, ptr %.02131, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
@@ -3887,7 +3887,7 @@ define i32 @hwloc_topology_diff_export_xmlbuffer(ptr noundef %0, ptr noundef %1,
   br label %15
 
 15:                                               ; preds = %._crit_edge, %13
-  %.023 = phi ptr [ %14, %13 ], [ null, %._crit_edge ]
+  %.022 = phi ptr [ %14, %13 ], [ null, %._crit_edge ]
   %.b.i = load i1, ptr @hwloc_nolibxml_export.checked, align 4
   br i1 %.b.i, label %hwloc_nolibxml_export.exit, label %16
 
@@ -3971,7 +3971,7 @@ hwloc_nolibxml_export.exit:                       ; preds = %15, %22
   br i1 %.not28, label %48, label %46
 
 46:                                               ; preds = %.loopexit
-  %47 = tail call ptr @uselocale(ptr noundef %.023) #21
+  %47 = tail call ptr @uselocale(ptr noundef %.022) #21
   tail call void @freelocale(ptr noundef nonnull %12) #21
   br label %48
 
@@ -3980,8 +3980,8 @@ hwloc_nolibxml_export.exit:                       ; preds = %15, %22
   br label %49
 
 49:                                               ; preds = %48, %7
-  %.021 = phi i32 [ -1, %7 ], [ %.0, %48 ]
-  ret i32 %.021
+  %.023 = phi i32 [ -1, %7 ], [ %.0, %48 ]
+  ret i32 %.023
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4508,8 +4508,8 @@ define internal fastcc ptr @hwloc_obj_get_info_by_name(ptr nocapture noundef rea
   br label %hwloc_get_info_by_name.exit
 
 hwloc_get_info_by_name.exit:                      ; preds = %7, %2, %12
-  %.0.i = phi ptr [ %14, %12 ], [ null, %2 ], [ null, %7 ]
-  ret ptr %.0.i
+  %.08.i = phi ptr [ %14, %12 ], [ null, %2 ], [ null, %7 ]
+  ret ptr %.08.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4770,7 +4770,7 @@ define internal ptr @hwloc_xml_component_instantiate(ptr noundef %0, ptr noundef
   br label %.critedge51
 
 15:                                               ; preds = %11, %6
-  %.040 = phi ptr [ %3, %6 ], [ %12, %11 ]
+  %.039 = phi ptr [ %3, %6 ], [ %12, %11 ]
   %16 = tail call ptr @hwloc_backend_alloc(ptr noundef %0, ptr noundef %1, i64 noundef 104) #21
   %.not46 = icmp eq ptr %16, null
   br i1 %.not46, label %.critedge51, label %17
@@ -4783,14 +4783,14 @@ define internal ptr @hwloc_xml_component_instantiate(ptr noundef %0, ptr noundef
   store ptr @hwloc_xml_backend_disable, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %16, i64 48
   store i32 0, ptr %21, align 8
-  %.not47 = icmp eq ptr %.040, null
+  %.not47 = icmp eq ptr %.039, null
   br i1 %.not47, label %25, label %22
 
 22:                                               ; preds = %17
-  %23 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.040, i32 noundef 47) #22
+  %23 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.039, i32 noundef 47) #22
   %.not48 = icmp eq ptr %23, null
   %24 = getelementptr inbounds i8, ptr %23, i64 1
-  %spec.select = select i1 %.not48, ptr %.040, ptr %24
+  %spec.select = select i1 %.not48, ptr %.039, ptr %24
   br label %25
 
 25:                                               ; preds = %22, %17
@@ -4836,7 +4836,7 @@ hwloc_nolibxml_import.exit:                       ; preds = %25, %34
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph
   %36 = load ptr, ptr %.pr, align 8
-  %37 = tail call i32 %36(ptr noundef nonnull %18, ptr noundef %.040, ptr noundef %4, i32 noundef %8) #21
+  %37 = tail call i32 %36(ptr noundef nonnull %18, ptr noundef %.039, ptr noundef %4, i32 noundef %8) #21
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %39, label %.critedge51
 
@@ -4853,7 +4853,7 @@ hwloc_nolibxml_import.exit:                       ; preds = %25, %34
 
 44:                                               ; preds = %.lr.ph.split.split.us
   %45 = load ptr, ptr %.pr, align 8
-  %46 = tail call i32 %45(ptr noundef nonnull %18, ptr noundef %.040, ptr noundef %4, i32 noundef %8) #21
+  %46 = tail call i32 %45(ptr noundef nonnull %18, ptr noundef %.039, ptr noundef %4, i32 noundef %8) #21
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %48, label %.critedge51
 
@@ -4870,7 +4870,7 @@ hwloc_nolibxml_import.exit:                       ; preds = %25, %34
 ._crit_edge:                                      ; preds = %._crit_edge.sink.split, %.lr.ph.split.split.us, %hwloc_nolibxml_import.exit
   %52 = load ptr, ptr @hwloc_nolibxml_callbacks, align 8
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call i32 %53(ptr noundef nonnull %18, ptr noundef %.040, ptr noundef %4, i32 noundef %8) #21
+  %54 = tail call i32 %53(ptr noundef nonnull %18, ptr noundef %.039, ptr noundef %4, i32 noundef %8) #21
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %.critedge, label %.critedge51
 
@@ -4881,8 +4881,8 @@ hwloc_nolibxml_import.exit:                       ; preds = %25, %34
   br label %.critedge51
 
 .critedge51:                                      ; preds = %.lr.ph.split.us.split.us, %44, %13, %.critedge, %15, %._crit_edge
-  %.039 = phi ptr [ %16, %._crit_edge ], [ null, %15 ], [ null, %.critedge ], [ null, %13 ], [ %16, %44 ], [ %16, %.lr.ph.split.us.split.us ]
-  ret ptr %.039
+  %.040 = phi ptr [ %16, %._crit_edge ], [ null, %15 ], [ null, %.critedge ], [ null, %13 ], [ %16, %44 ], [ %16, %.lr.ph.split.us.split.us ]
+  ret ptr %.040
 }
 
 declare ptr @hwloc_backend_alloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
@@ -4928,7 +4928,7 @@ define internal range(i32 -1, 1) i32 @hwloc_look_xml(ptr noundef %0, ptr nocaptu
   br label %34
 
 34:                                               ; preds = %2, %32
-  %.0125 = phi ptr [ %33, %32 ], [ null, %2 ]
+  %.0123 = phi ptr [ %33, %32 ], [ null, %2 ]
   %35 = getelementptr inbounds i8, ptr %0, i64 176
   %36 = getelementptr inbounds i8, ptr %0, i64 177
   %37 = getelementptr inbounds i8, ptr %0, i64 178
@@ -5728,9 +5728,9 @@ hwloc__xml_verbose.exit.i181:                     ; preds = %379, %374
   %.089.i.i = phi ptr [ %.1.i.i, %462 ], [ null, %419 ]
   %.03688.i.i = phi ptr [ %.137.i.i, %462 ], [ null, %419 ]
   %.03887.i.i = phi ptr [ %.139.i.i, %462 ], [ null, %419 ]
-  %.04186.i.i = phi ptr [ %.142.i.i, %462 ], [ null, %419 ]
-  %.04385.i.i = phi ptr [ %.144.i.i, %462 ], [ null, %419 ]
-  %.04584.i.i = phi ptr [ %.146.i.i, %462 ], [ null, %419 ]
+  %.04086.i.i = phi ptr [ %.141.i.i, %462 ], [ null, %419 ]
+  %.04285.i.i = phi ptr [ %.143.i.i, %462 ], [ null, %419 ]
+  %.04484.i.i = phi ptr [ %.145.i.i, %462 ], [ null, %419 ]
   %425 = load ptr, ptr %8, align 8
   %426 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %425, ptr noundef nonnull dereferenceable(20) @.str.128) #22
   %.not.i44.i = icmp eq i32 %426, 0
@@ -5817,9 +5817,9 @@ hwloc__xml_verbose.exit.i.i:                      ; preds = %454, %449
   br label %hwloc__xml_import_memattr_value.exit.i
 
 462:                                              ; preds = %447, %443, %439, %435, %431, %427
-  %.146.i.i = phi ptr [ %.04584.i.i, %447 ], [ %.04584.i.i, %443 ], [ %.04584.i.i, %439 ], [ %.04584.i.i, %435 ], [ %432, %431 ], [ %.04584.i.i, %427 ]
-  %.144.i.i = phi ptr [ %.04385.i.i, %447 ], [ %.04385.i.i, %443 ], [ %.04385.i.i, %439 ], [ %.04385.i.i, %435 ], [ %.04385.i.i, %431 ], [ %428, %427 ]
-  %.142.i.i = phi ptr [ %.04186.i.i, %447 ], [ %.04186.i.i, %443 ], [ %.04186.i.i, %439 ], [ %436, %435 ], [ %.04186.i.i, %431 ], [ %.04186.i.i, %427 ]
+  %.145.i.i = phi ptr [ %.04484.i.i, %447 ], [ %.04484.i.i, %443 ], [ %.04484.i.i, %439 ], [ %.04484.i.i, %435 ], [ %.04484.i.i, %431 ], [ %428, %427 ]
+  %.143.i.i = phi ptr [ %.04285.i.i, %447 ], [ %.04285.i.i, %443 ], [ %.04285.i.i, %439 ], [ %.04285.i.i, %435 ], [ %432, %431 ], [ %.04285.i.i, %427 ]
+  %.141.i.i = phi ptr [ %.04086.i.i, %447 ], [ %.04086.i.i, %443 ], [ %.04086.i.i, %439 ], [ %436, %435 ], [ %.04086.i.i, %431 ], [ %.04086.i.i, %427 ]
   %.139.i.i = phi ptr [ %.03887.i.i, %447 ], [ %.03887.i.i, %443 ], [ %440, %439 ], [ %.03887.i.i, %435 ], [ %.03887.i.i, %431 ], [ %.03887.i.i, %427 ]
   %.137.i.i = phi ptr [ %.03688.i.i, %447 ], [ %444, %443 ], [ %.03688.i.i, %439 ], [ %.03688.i.i, %435 ], [ %.03688.i.i, %431 ], [ %.03688.i.i, %427 ]
   %.1.i.i = phi ptr [ %448, %447 ], [ %.089.i.i, %443 ], [ %.089.i.i, %439 ], [ %.089.i.i, %435 ], [ %.089.i.i, %431 ], [ %.089.i.i, %427 ]
@@ -5831,7 +5831,7 @@ hwloc__xml_verbose.exit.i.i:                      ; preds = %454, %449
   br i1 %467, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %462
-  %.not54.i.i = icmp eq ptr %.146.i.i, null
+  %.not54.i.i = icmp eq ptr %.143.i.i, null
   br i1 %.not54.i.i, label %._crit_edge.thread.i.i, label %480
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %419
@@ -5866,7 +5866,7 @@ hwloc__xml_verbose.exit66.i.i:                    ; preds = %472, %._crit_edge.t
   br label %hwloc__xml_import_memattr_value.exit.i
 
 480:                                              ; preds = %._crit_edge.i.i
-  %481 = call i32 @hwloc_type_sscanf(ptr noundef nonnull %.146.i.i, ptr noundef nonnull %7, ptr noundef null, i64 noundef 0) #21
+  %481 = call i32 @hwloc_type_sscanf(ptr noundef nonnull %.143.i.i, ptr noundef nonnull %7, ptr noundef null, i64 noundef 0) #21
   %482 = icmp slt i32 %481, 0
   br i1 %482, label %483, label %496
 
@@ -5898,12 +5898,12 @@ hwloc__xml_verbose.exit69.i.i:                    ; preds = %488, %483
   %492 = load ptr, ptr %104, align 8
   %493 = getelementptr inbounds i8, ptr %492, i64 72
   %494 = load ptr, ptr %493, align 8
-  %495 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %491, ptr noundef nonnull @.str.251, ptr noundef %494, ptr noundef nonnull %.146.i.i) #23
+  %495 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %491, ptr noundef nonnull @.str.251, ptr noundef %494, ptr noundef nonnull %.143.i.i) #23
   br label %hwloc__xml_import_memattr_value.exit.i
 
 496:                                              ; preds = %480
-  %497 = icmp ne ptr %.142.i.i, null
-  %498 = icmp ne ptr %.144.i.i, null
+  %497 = icmp ne ptr %.141.i.i, null
+  %498 = icmp ne ptr %.145.i.i, null
   %or.cond.i.i = select i1 %497, i1 %498, i1 false
   br i1 %or.cond.i.i, label %512, label %499
 
@@ -5939,8 +5939,8 @@ hwloc__xml_verbose.exit72.i.i:                    ; preds = %504, %499
   br label %hwloc__xml_import_memattr_value.exit.i
 
 512:                                              ; preds = %496
-  %513 = call i64 @strtoull(ptr nocapture noundef nonnull %.144.i.i, ptr noundef null, i32 noundef 10) #21
-  %514 = call i64 @strtoull(ptr nocapture noundef nonnull %.142.i.i, ptr noundef null, i32 noundef 10) #21
+  %513 = call i64 @strtoull(ptr nocapture noundef nonnull %.145.i.i, ptr noundef null, i32 noundef 10) #21
+  %514 = call i64 @strtoull(ptr nocapture noundef nonnull %.141.i.i, ptr noundef null, i32 noundef 10) #21
   br i1 %.not57.i.i, label %567, label %515
 
 515:                                              ; preds = %512
@@ -6065,7 +6065,7 @@ hwloc__xml_verbose.exit75.i.i:                    ; preds = %538, %533
   br label %hwloc__xml_import_memattr_value.exit.i
 
 hwloc__xml_import_memattr_value.exit.i:           ; preds = %567, %565, %560, %554, %552, %540, %hwloc__xml_verbose.exit75.i.i, %526, %hwloc__xml_verbose.exit54.i, %506, %hwloc__xml_verbose.exit72.i.i, %490, %hwloc__xml_verbose.exit69.i.i, %474, %hwloc__xml_verbose.exit66.i.i, %456, %hwloc__xml_verbose.exit.i.i
-  %.040.i.i = phi i32 [ -1, %456 ], [ -1, %hwloc__xml_verbose.exit.i.i ], [ -1, %474 ], [ -1, %hwloc__xml_verbose.exit66.i.i ], [ -1, %490 ], [ -1, %hwloc__xml_verbose.exit69.i.i ], [ -1, %506 ], [ -1, %hwloc__xml_verbose.exit72.i.i ], [ -1, %526 ], [ -1, %hwloc__xml_verbose.exit54.i ], [ -1, %540 ], [ -1, %hwloc__xml_verbose.exit75.i.i ], [ -1, %554 ], [ -1, %552 ], [ 0, %560 ], [ 0, %565 ], [ 0, %567 ]
+  %.046.i.i = phi i32 [ -1, %456 ], [ -1, %hwloc__xml_verbose.exit.i.i ], [ -1, %474 ], [ -1, %hwloc__xml_verbose.exit66.i.i ], [ -1, %490 ], [ -1, %hwloc__xml_verbose.exit69.i.i ], [ -1, %506 ], [ -1, %hwloc__xml_verbose.exit72.i.i ], [ -1, %526 ], [ -1, %hwloc__xml_verbose.exit54.i ], [ -1, %540 ], [ -1, %hwloc__xml_verbose.exit75.i.i ], [ -1, %554 ], [ -1, %552 ], [ 0, %560 ], [ 0, %565 ], [ 0, %567 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -6151,7 +6151,7 @@ hwloc__xml_verbose.exit51.i:                      ; preds = %597, %592
   br label %hwloc__xml_import_memattr.exit.thread
 
 605:                                              ; preds = %hwloc___xml_import_info.exit.i, %hwloc__xml_import_memattr_value.exit.i
-  %.0.i = phi i32 [ %.010.i.i, %hwloc___xml_import_info.exit.i ], [ %.040.i.i, %hwloc__xml_import_memattr_value.exit.i ]
+  %.0.i = phi i32 [ %.010.i.i, %hwloc___xml_import_info.exit.i ], [ %.046.i.i, %hwloc__xml_import_memattr_value.exit.i ]
   %606 = icmp slt i32 %.0.i, 0
   br i1 %606, label %hwloc__xml_import_memattr.exit.thread, label %607
 
@@ -6655,14 +6655,14 @@ hwloc__xml_verbose.exit190:                       ; preds = %803, %808
   br i1 %.not, label %833, label %.sink.split
 
 .sink.split:                                      ; preds = %831, %799
-  %.0123.ph = phi i32 [ 0, %799 ], [ -1, %831 ]
-  %832 = call ptr @uselocale(ptr noundef %.0125) #21
+  %.0125.ph = phi i32 [ 0, %799 ], [ -1, %831 ]
+  %832 = call ptr @uselocale(ptr noundef %.0123) #21
   call void @freelocale(ptr noundef nonnull %31) #21
   br label %833
 
 833:                                              ; preds = %.sink.split, %831, %799
-  %.0123 = phi i32 [ 0, %799 ], [ -1, %831 ], [ %.0123.ph, %.sink.split ]
-  ret i32 %.0123
+  %.0125 = phi i32 [ 0, %799 ], [ -1, %831 ], [ %.0125.ph, %.sink.split ]
+  ret i32 %.0125
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9435,12 +9435,12 @@ define internal fastcc i32 @hwloc__xml_import_distances(ptr noundef %0, ptr noun
   br label %24
 
 24:                                               ; preds = %.lr.ph, %96
-  %.0147292 = phi i32 [ 0, %.lr.ph ], [ %.1148, %96 ]
-  %.0153291 = phi i32 [ %2, %.lr.ph ], [ %.1154, %96 ]
-  %.0162290 = phi i64 [ 0, %.lr.ph ], [ %.1163, %96 ]
-  %.0164289 = phi ptr [ null, %.lr.ph ], [ %.1165, %96 ]
-  %.0166288 = phi i32 [ %2, %.lr.ph ], [ %.1167, %96 ]
-  %.0168287 = phi i32 [ 0, %.lr.ph ], [ %.1169, %96 ]
+  %.0155292 = phi i64 [ 0, %.lr.ph ], [ %.1156, %96 ]
+  %.0157291 = phi ptr [ null, %.lr.ph ], [ %.1158, %96 ]
+  %.0159290 = phi i32 [ %2, %.lr.ph ], [ %.1160, %96 ]
+  %.0161289 = phi i32 [ 0, %.lr.ph ], [ %.1162, %96 ]
+  %.0163288 = phi i32 [ %2, %.lr.ph ], [ %.1164, %96 ]
+  %.0165287 = phi i32 [ 0, %.lr.ph ], [ %.1166, %96 ]
   %25 = load ptr, ptr %7, align 8
   %26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(7) @.str.81) #22
   %.not = icmp eq i32 %26, 0
@@ -9549,7 +9549,7 @@ sub_2245:                                         ; preds = %sub_1244
 .tail242:                                         ; preds = %sub_0243, %sub_1244, %sub_2245
   %73 = phi i32 [ %65, %sub_0243 ], [ %69, %sub_1244 ], [ %72, %sub_2245 ]
   %.not185 = icmp eq i32 %73, 0
-  %spec.select = select i1 %.not185, i32 1, i32 %.0166288
+  %spec.select = select i1 %.not185, i32 1, i32 %.0159290
   br label %96
 
 74:                                               ; preds = %51
@@ -9603,12 +9603,12 @@ hwloc__xml_verbose.exit229:                       ; preds = %83, %88
   br label %96
 
 96:                                               ; preds = %.tail242, %.tail, %33, %76, %hwloc__xml_verbose.exit229, %90, %81, %27
-  %.1169 = phi i32 [ %.0168287, %90 ], [ %.0168287, %hwloc__xml_verbose.exit229 ], [ %.0168287, %81 ], [ %.0168287, %76 ], [ %.0168287, %33 ], [ %.0168287, %27 ], [ 1, %.tail ], [ %.0168287, %.tail242 ]
-  %.1167 = phi i32 [ %.0166288, %90 ], [ %.0166288, %hwloc__xml_verbose.exit229 ], [ %.0166288, %81 ], [ %.0166288, %76 ], [ %.0166288, %33 ], [ %.0166288, %27 ], [ %.0166288, %.tail ], [ %spec.select, %.tail242 ]
-  %.1165 = phi ptr [ %.0164289, %90 ], [ %.0164289, %hwloc__xml_verbose.exit229 ], [ %82, %81 ], [ %.0164289, %76 ], [ %.0164289, %33 ], [ %.0164289, %27 ], [ %.0164289, %.tail ], [ %.0164289, %.tail242 ]
-  %.1163 = phi i64 [ %.0162290, %90 ], [ %.0162290, %hwloc__xml_verbose.exit229 ], [ %.0162290, %81 ], [ %78, %76 ], [ %.0162290, %33 ], [ %.0162290, %27 ], [ %.0162290, %.tail ], [ %.0162290, %.tail242 ]
-  %.1154 = phi i32 [ %.0153291, %90 ], [ %.0153291, %hwloc__xml_verbose.exit229 ], [ %.0153291, %81 ], [ %.0153291, %76 ], [ %.0153291, %33 ], [ %.0153291, %27 ], [ 1, %.tail ], [ 1, %.tail242 ]
-  %.1148 = phi i32 [ %.0147292, %90 ], [ %.0147292, %hwloc__xml_verbose.exit229 ], [ %.0147292, %81 ], [ %.0147292, %76 ], [ %.0147292, %33 ], [ %30, %27 ], [ %.0147292, %.tail ], [ %.0147292, %.tail242 ]
+  %.1166 = phi i32 [ %.0165287, %90 ], [ %.0165287, %hwloc__xml_verbose.exit229 ], [ %.0165287, %81 ], [ %.0165287, %76 ], [ %.0165287, %33 ], [ %30, %27 ], [ %.0165287, %.tail ], [ %.0165287, %.tail242 ]
+  %.1164 = phi i32 [ %.0163288, %90 ], [ %.0163288, %hwloc__xml_verbose.exit229 ], [ %.0163288, %81 ], [ %.0163288, %76 ], [ %.0163288, %33 ], [ %.0163288, %27 ], [ 1, %.tail ], [ 1, %.tail242 ]
+  %.1162 = phi i32 [ %.0161289, %90 ], [ %.0161289, %hwloc__xml_verbose.exit229 ], [ %.0161289, %81 ], [ %.0161289, %76 ], [ %.0161289, %33 ], [ %.0161289, %27 ], [ 1, %.tail ], [ %.0161289, %.tail242 ]
+  %.1160 = phi i32 [ %.0159290, %90 ], [ %.0159290, %hwloc__xml_verbose.exit229 ], [ %.0159290, %81 ], [ %.0159290, %76 ], [ %.0159290, %33 ], [ %.0159290, %27 ], [ %.0159290, %.tail ], [ %spec.select, %.tail242 ]
+  %.1158 = phi ptr [ %.0157291, %90 ], [ %.0157291, %hwloc__xml_verbose.exit229 ], [ %82, %81 ], [ %.0157291, %76 ], [ %.0157291, %33 ], [ %.0157291, %27 ], [ %.0157291, %.tail ], [ %.0157291, %.tail242 ]
+  %.1156 = phi i64 [ %.0155292, %90 ], [ %.0155292, %hwloc__xml_verbose.exit229 ], [ %.0155292, %81 ], [ %78, %76 ], [ %.0155292, %33 ], [ %.0155292, %27 ], [ %.0155292, %.tail ], [ %.0155292, %.tail242 ]
   %97 = load ptr, ptr %17, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 24
   %99 = load ptr, ptr %98, align 8
@@ -9617,7 +9617,7 @@ hwloc__xml_verbose.exit229:                       ; preds = %83, %88
   br i1 %101, label %._crit_edge, label %24
 
 ._crit_edge:                                      ; preds = %96
-  %.not190 = icmp eq i32 %.1148, 0
+  %.not190 = icmp eq i32 %.1166, 0
   br i1 %.not190, label %._crit_edge.thread, label %102
 
 102:                                              ; preds = %._crit_edge
@@ -9626,9 +9626,9 @@ hwloc__xml_verbose.exit229:                       ; preds = %83, %88
   %105 = icmp ne i32 %104, -1
   %not. = xor i1 %103, true
   %or.cond = select i1 %not., i1 true, i1 %105
-  %106 = icmp ne i32 %.1154, 0
+  %106 = icmp ne i32 %.1164, 0
   %or.cond3 = select i1 %or.cond, i1 %106, i1 false
-  %107 = icmp ne i64 %.1163, 0
+  %107 = icmp ne i64 %.1156, 0
   %or.cond5 = select i1 %or.cond3, i1 %107, i1 false
   br i1 %or.cond5, label %121, label %._crit_edge.thread
 
@@ -9666,10 +9666,10 @@ hwloc__xml_verbose.exit232:                       ; preds = %._crit_edge.thread,
   br label %405
 
 121:                                              ; preds = %102
-  %122 = zext i32 %.1148 to i64
+  %122 = zext i32 %.1166 to i64
   %123 = shl nuw nsw i64 %122, 3
   %124 = call noalias ptr @malloc(i64 noundef %123) #24
-  %125 = mul i32 %.1148, %.1148
+  %125 = mul i32 %.1166, %.1166
   %126 = zext i32 %125 to i64
   %127 = shl nuw nsw i64 %126, 3
   %128 = call noalias ptr @malloc(i64 noundef %127) #24
@@ -9681,11 +9681,11 @@ hwloc__xml_verbose.exit232:                       ; preds = %._crit_edge.thread,
   br label %132
 
 132:                                              ; preds = %129, %121
-  %.0146 = phi ptr [ %131, %129 ], [ null, %121 ]
+  %.0167 = phi ptr [ %131, %129 ], [ null, %121 ]
   %133 = icmp ne ptr %124, null
   %134 = icmp ne ptr %128, null
   %or.cond7 = and i1 %133, %134
-  %135 = icmp ne ptr %.0146, null
+  %135 = icmp ne ptr %.0167, null
   %or.cond9 = or i1 %103, %135
   %or.cond223 = and i1 %or.cond7, %or.cond9
   br i1 %or.cond223, label %.outer, label %136
@@ -9719,7 +9719,7 @@ hwloc__xml_verbose.exit235:                       ; preds = %136, %141
   %146 = getelementptr inbounds i8, ptr %145, i64 72
   %147 = load ptr, ptr %146, align 8
   %148 = select i1 %103, ptr @.str.80, ptr @.str.79
-  %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %144, ptr noundef nonnull @.str.233, ptr noundef %147, ptr noundef nonnull %148, i32 noundef %.1148) #23
+  %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %144, ptr noundef nonnull @.str.233, ptr noundef %147, ptr noundef nonnull %148, i32 noundef %.1166) #23
   br label %.loopexit248
 
 150:                                              ; preds = %.outer, %hwloc___xml_import_info.exit
@@ -9880,7 +9880,7 @@ hwloc__xml_verbose.exit239:                       ; preds = %202, %207
   br i1 %.not196.not, label %235, label %293
 
 235:                                              ; preds = %234
-  %.not203 = icmp ult i32 %.0159.ph, %.1148
+  %.not203 = icmp ult i32 %.0152.ph, %.1166
   br i1 %.not203, label %245, label %236
 
 236:                                              ; preds = %235
@@ -9894,7 +9894,7 @@ hwloc__xml_verbose.exit239:                       ; preds = %202, %207
   %241 = getelementptr inbounds i8, ptr %240, i64 72
   %242 = load ptr, ptr %241, align 8
   %243 = select i1 %103, ptr @.str.80, ptr @.str.79
-  %244 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %239, ptr noundef nonnull @.str.237, ptr noundef %242, ptr noundef nonnull %243, i32 noundef %.1148) #23
+  %244 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %239, ptr noundef nonnull @.str.237, ptr noundef %242, ptr noundef nonnull %243, i32 noundef %.1166) #23
   br label %.loopexit248
 
 245:                                              ; preds = %235
@@ -9902,35 +9902,35 @@ hwloc__xml_verbose.exit239:                       ; preds = %202, %207
   br i1 %103, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %245, %250
-  %.1160.us = phi i32 [ %251, %250 ], [ %.0159.ph, %245 ]
-  %.0149.us = phi ptr [ %256, %250 ], [ %246, %245 ]
-  %247 = call i64 @strtoull(ptr noundef %.0149.us, ptr noundef nonnull %14, i32 noundef 0) #21
+  %.1153.us = phi i32 [ %251, %250 ], [ %.0152.ph, %245 ]
+  %.0145.us = phi ptr [ %256, %250 ], [ %246, %245 ]
+  %247 = call i64 @strtoull(ptr noundef %.0145.us, ptr noundef nonnull %14, i32 noundef 0) #21
   %248 = load ptr, ptr %14, align 8
-  %249 = icmp eq ptr %248, %.0149.us
+  %249 = icmp eq ptr %248, %.0145.us
   br i1 %249, label %.loopexit, label %250
 
 250:                                              ; preds = %.split.us
-  %251 = add i32 %.1160.us, 1
-  %252 = zext i32 %.1160.us to i64
+  %251 = add i32 %.1153.us, 1
+  %252 = zext i32 %.1153.us to i64
   %253 = getelementptr inbounds i64, ptr %124, i64 %252
   store i64 %247, ptr %253, align 8
   %254 = load i8, ptr %248, align 1
   %.not207.us = icmp ne i8 %254, 32
-  %255 = icmp eq i32 %251, %.1148
+  %255 = icmp eq i32 %251, %.1166
   %or.cond225.us = select i1 %.not207.us, i1 true, i1 %255
   %256 = getelementptr inbounds i8, ptr %248, i64 1
   br i1 %or.cond225.us, label %.loopexit, label %.split.us
 
 .split:                                           ; preds = %245, %287
-  %.1160 = phi i32 [ %288, %287 ], [ %.0159.ph, %245 ]
-  %.0149 = phi ptr [ %292, %287 ], [ %246, %245 ]
+  %.1153 = phi i32 [ %288, %287 ], [ %.0152.ph, %245 ]
+  %.0145 = phi ptr [ %292, %287 ], [ %246, %245 ]
   store i32 -1, ptr %15, align 4
-  %257 = load i8, ptr %.0149, align 1
+  %257 = load i8, ptr %.0145, align 1
   %.not204 = icmp eq i8 %257, 0
   br i1 %.not204, label %.loopexit, label %258
 
 258:                                              ; preds = %.split
-  %259 = call i32 @hwloc_type_sscanf(ptr noundef nonnull %.0149, ptr noundef nonnull %15, ptr noundef null, i64 noundef 0) #21
+  %259 = call i32 @hwloc_type_sscanf(ptr noundef nonnull %.0145, ptr noundef nonnull %15, ptr noundef null, i64 noundef 0) #21
   %260 = icmp slt i32 %259, 0
   br i1 %260, label %261, label %269
 
@@ -9944,11 +9944,11 @@ hwloc__xml_verbose.exit239:                       ; preds = %202, %207
   %265 = load ptr, ptr %17, align 8
   %266 = getelementptr inbounds i8, ptr %265, i64 72
   %267 = load ptr, ptr %266, align 8
-  %268 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %264, ptr noundef nonnull @.str.238, ptr noundef %267, ptr noundef nonnull @.str.79, ptr noundef nonnull %.0149) #23
+  %268 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %264, ptr noundef nonnull @.str.238, ptr noundef %267, ptr noundef nonnull @.str.79, ptr noundef nonnull %.0145) #23
   br label %.loopexit248
 
 269:                                              ; preds = %258
-  %270 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0149, i32 noundef 58) #22
+  %270 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0145, i32 noundef 58) #22
   %.not205 = icmp eq ptr %270, null
   br i1 %.not205, label %271, label %279
 
@@ -9962,14 +9962,14 @@ hwloc__xml_verbose.exit239:                       ; preds = %202, %207
   %275 = load ptr, ptr %17, align 8
   %276 = getelementptr inbounds i8, ptr %275, i64 72
   %277 = load ptr, ptr %276, align 8
-  %278 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %274, ptr noundef nonnull @.str.239, ptr noundef %277, ptr noundef nonnull @.str.79, ptr noundef nonnull %.0149) #23
+  %278 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %274, ptr noundef nonnull @.str.239, ptr noundef %277, ptr noundef nonnull @.str.79, ptr noundef nonnull %.0145) #23
   br label %.loopexit248
 
 279:                                              ; preds = %269
   %280 = getelementptr inbounds i8, ptr %270, i64 1
   %281 = load i32, ptr %15, align 4
-  %282 = zext i32 %.1160 to i64
-  %283 = getelementptr inbounds i32, ptr %.0146, i64 %282
+  %282 = zext i32 %.1153 to i64
+  %283 = getelementptr inbounds i32, ptr %.0167, i64 %282
   store i32 %281, ptr %283, align 4
   %284 = call i64 @strtoull(ptr noundef nonnull %280, ptr noundef nonnull %14, i32 noundef 0) #21
   %285 = load ptr, ptr %14, align 8
@@ -9977,18 +9977,18 @@ hwloc__xml_verbose.exit239:                       ; preds = %202, %207
   br i1 %286, label %.loopexit, label %287
 
 287:                                              ; preds = %279
-  %288 = add i32 %.1160, 1
+  %288 = add i32 %.1153, 1
   %289 = getelementptr inbounds i64, ptr %124, i64 %282
   store i64 %284, ptr %289, align 8
   %290 = load i8, ptr %285, align 1
   %.not207 = icmp ne i8 %290, 32
-  %291 = icmp eq i32 %288, %.1148
+  %291 = icmp eq i32 %288, %.1166
   %or.cond225 = select i1 %.not207, i1 true, i1 %291
   %292 = getelementptr inbounds i8, ptr %285, i64 1
   br i1 %or.cond225, label %.loopexit, label %.split
 
 293:                                              ; preds = %234
-  %.not200 = icmp ult i32 %.0157.ph, %125
+  %.not200 = icmp ult i32 %.0150.ph, %125
   br i1 %.not200, label %303, label %294
 
 294:                                              ; preds = %293
@@ -10022,9 +10022,9 @@ hwloc__xml_verbose.exit239:                       ; preds = %202, %207
 .lr.ph301:                                        ; preds = %303, %308
   %313 = phi ptr [ %311, %308 ], [ %306, %303 ]
   %314 = phi i64 [ %310, %308 ], [ %305, %303 ]
-  %.1158299 = phi i32 [ %315, %308 ], [ %.0157.ph, %303 ]
-  %315 = add i32 %.1158299, 1
-  %316 = zext i32 %.1158299 to i64
+  %.1151299 = phi i32 [ %315, %308 ], [ %.0150.ph, %303 ]
+  %315 = add i32 %.1151299, 1
+  %316 = zext i32 %.1151299 to i64
   %317 = getelementptr inbounds i64, ptr %128, i64 %316
   store i64 %314, ptr %317, align 8
   %318 = load i8, ptr %313, align 1
@@ -10034,8 +10034,8 @@ hwloc__xml_verbose.exit239:                       ; preds = %202, %207
   br i1 %or.cond226, label %.loopexit, label %308
 
 .loopexit:                                        ; preds = %308, %.lr.ph301, %287, %279, %.split, %250, %.split.us, %303
-  %.2161 = phi i32 [ %.0159.ph, %303 ], [ %251, %250 ], [ %.1160.us, %.split.us ], [ %.1160, %.split ], [ %288, %287 ], [ %.1160, %279 ], [ %.0159.ph, %.lr.ph301 ], [ %.0159.ph, %308 ]
-  %.2 = phi i32 [ %.0157.ph, %303 ], [ %.0157.ph, %.split.us ], [ %.0157.ph, %250 ], [ %.0157.ph, %.split ], [ %.0157.ph, %279 ], [ %.0157.ph, %287 ], [ %315, %.lr.ph301 ], [ %315, %308 ]
+  %.2154 = phi i32 [ %.0152.ph, %303 ], [ %251, %250 ], [ %.1153.us, %.split.us ], [ %.1153, %.split ], [ %288, %287 ], [ %.1153, %279 ], [ %.0152.ph, %.lr.ph301 ], [ %.0152.ph, %308 ]
+  %.2 = phi i32 [ %.0150.ph, %303 ], [ %.0150.ph, %.split.us ], [ %.0150.ph, %250 ], [ %.0150.ph, %.split ], [ %.0150.ph, %279 ], [ %.0150.ph, %287 ], [ %315, %.lr.ph301 ], [ %315, %308 ]
   %320 = load ptr, ptr %17, align 8
   %321 = getelementptr inbounds i8, ptr %320, i64 64
   %322 = load ptr, ptr %321, align 8
@@ -10058,7 +10058,7 @@ hwloc__xml_verbose.exit239:                       ; preds = %202, %207
   %333 = getelementptr inbounds i8, ptr %332, i64 72
   %334 = load ptr, ptr %333, align 8
   %335 = select i1 %103, ptr @.str.80, ptr @.str.79
-  %336 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %331, ptr noundef nonnull @.str.237, ptr noundef %334, ptr noundef nonnull %335, i32 noundef %.1148) #23
+  %336 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %331, ptr noundef nonnull @.str.237, ptr noundef %334, ptr noundef nonnull %335, i32 noundef %.1166) #23
   br label %.loopexit248
 
 337:                                              ; preds = %.loopexit
@@ -10069,12 +10069,12 @@ hwloc__xml_verbose.exit239:                       ; preds = %202, %207
   br label %.outer
 
 .outer:                                           ; preds = %132, %337
-  %.0159.ph = phi i32 [ %.2161, %337 ], [ 0, %132 ]
-  %.0157.ph = phi i32 [ %.2, %337 ], [ 0, %132 ]
+  %.0152.ph = phi i32 [ %.2154, %337 ], [ 0, %132 ]
+  %.0150.ph = phi i32 [ %.2, %337 ], [ 0, %132 ]
   br label %150
 
 341:                                              ; preds = %150
-  %.not213 = icmp eq i32 %.0159.ph, %.1148
+  %.not213 = icmp eq i32 %.0152.ph, %.1166
   br i1 %.not213, label %351, label %342
 
 342:                                              ; preds = %341
@@ -10088,11 +10088,11 @@ hwloc__xml_verbose.exit239:                       ; preds = %202, %207
   %347 = getelementptr inbounds i8, ptr %346, i64 72
   %348 = load ptr, ptr %347, align 8
   %349 = select i1 %103, ptr @.str.80, ptr @.str.79
-  %350 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %345, ptr noundef nonnull @.str.241, ptr noundef %348, ptr noundef nonnull %349, i32 noundef %.1148) #23
+  %350 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %345, ptr noundef nonnull @.str.241, ptr noundef %348, ptr noundef nonnull %349, i32 noundef %.1166) #23
   br label %.loopexit248
 
 351:                                              ; preds = %341
-  %.not214 = icmp eq i32 %.0157.ph, %125
+  %.not214 = icmp eq i32 %.0150.ph, %125
   br i1 %.not214, label %361, label %352
 
 352:                                              ; preds = %351
@@ -10110,7 +10110,7 @@ hwloc__xml_verbose.exit239:                       ; preds = %202, %207
   br label %.loopexit248
 
 361:                                              ; preds = %351
-  %362 = icmp eq i32 %.1148, 1
+  %362 = icmp eq i32 %.1166, 1
   br i1 %362, label %363, label %372
 
 363:                                              ; preds = %361
@@ -10135,7 +10135,7 @@ hwloc__xml_verbose.exit239:                       ; preds = %202, %207
   ]
 
 374:                                              ; preds = %372, %372
-  %.not217 = icmp eq i32 %.1169, 0
+  %.not217 = icmp eq i32 %.1162, 0
   br i1 %.not217, label %375, label %394
 
 375:                                              ; preds = %374
@@ -10153,7 +10153,7 @@ hwloc__xml_verbose.exit239:                       ; preds = %202, %207
   br label %400
 
 384:                                              ; preds = %372
-  %.not215 = icmp eq i32 %.1167, 0
+  %.not215 = icmp eq i32 %.1160, 0
   br i1 %.not215, label %385, label %394
 
 385:                                              ; preds = %384
@@ -10178,16 +10178,16 @@ hwloc__xml_verbose.exit239:                       ; preds = %202, %207
   br i1 %.not219, label %398, label %400
 
 398:                                              ; preds = %394
-  %399 = call i32 @hwloc_internal_distances_add_by_index(ptr noundef nonnull %0, ptr noundef %.1165, i32 noundef %373, ptr noundef %.0146, i32 noundef %.1148, ptr noundef nonnull %124, ptr noundef nonnull %128, i64 noundef %.1163, i64 noundef 0) #21
+  %399 = call i32 @hwloc_internal_distances_add_by_index(ptr noundef nonnull %0, ptr noundef %.1158, i32 noundef %373, ptr noundef %.0167, i32 noundef %.1166, ptr noundef nonnull %124, ptr noundef nonnull %128, i64 noundef %.1156, i64 noundef 0) #21
   br label %400
 
 400:                                              ; preds = %394, %385, %387, %375, %377, %363, %365, %398
-  %.0156 = phi ptr [ %124, %365 ], [ %124, %363 ], [ %124, %394 ], [ null, %398 ], [ %124, %377 ], [ %124, %375 ], [ %124, %387 ], [ %124, %385 ]
-  %.0155 = phi ptr [ %128, %365 ], [ %128, %363 ], [ %128, %394 ], [ null, %398 ], [ %128, %377 ], [ %128, %375 ], [ %128, %387 ], [ %128, %385 ]
-  %.1 = phi ptr [ %.0146, %365 ], [ %.0146, %363 ], [ %.0146, %394 ], [ null, %398 ], [ %.0146, %377 ], [ %.0146, %375 ], [ %.0146, %387 ], [ %.0146, %385 ]
-  call void @free(ptr noundef %.1) #21
-  call void @free(ptr noundef %.0156) #21
-  call void @free(ptr noundef %.0155) #21
+  %.1168 = phi ptr [ %.0167, %365 ], [ %.0167, %363 ], [ %.0167, %394 ], [ null, %398 ], [ %.0167, %377 ], [ %.0167, %375 ], [ %.0167, %387 ], [ %.0167, %385 ]
+  %.0149 = phi ptr [ %124, %365 ], [ %124, %363 ], [ %124, %394 ], [ null, %398 ], [ %124, %377 ], [ %124, %375 ], [ %124, %387 ], [ %124, %385 ]
+  %.0148 = phi ptr [ %128, %365 ], [ %128, %363 ], [ %128, %394 ], [ null, %398 ], [ %128, %377 ], [ %128, %375 ], [ %128, %387 ], [ %128, %385 ]
+  call void @free(ptr noundef %.1168) #21
+  call void @free(ptr noundef %.0149) #21
+  call void @free(ptr noundef %.0148) #21
   %401 = load ptr, ptr %17, align 8
   %402 = getelementptr inbounds i8, ptr %401, i64 40
   %403 = load ptr, ptr %402, align 8
@@ -10195,14 +10195,14 @@ hwloc__xml_verbose.exit239:                       ; preds = %202, %207
   br label %405
 
 .loopexit248:                                     ; preds = %hwloc___xml_import_info.exit, %hwloc___xml_import_info.exit.thread, %352, %354, %342, %344, %328, %330, %294, %296, %271, %273, %261, %263, %236, %238, %225, %227, %hwloc__xml_verbose.exit239, %209, %184, %186, %hwloc__xml_verbose.exit235, %143
-  call void @free(ptr noundef %.0146) #21
+  call void @free(ptr noundef %.0167) #21
   call void @free(ptr noundef %124) #21
   call void @free(ptr noundef %128) #21
   br label %405
 
 405:                                              ; preds = %.loopexit248, %44, %hwloc__xml_verbose.exit, %114, %hwloc__xml_verbose.exit232, %400
-  %.0 = phi i32 [ %404, %400 ], [ -1, %hwloc__xml_verbose.exit232 ], [ -1, %114 ], [ -1, %hwloc__xml_verbose.exit ], [ -1, %44 ], [ -1, %.loopexit248 ]
-  ret i32 %.0
+  %.0169 = phi i32 [ %404, %400 ], [ -1, %hwloc__xml_verbose.exit232 ], [ -1, %114 ], [ -1, %hwloc__xml_verbose.exit ], [ -1, %44 ], [ -1, %.loopexit248 ]
+  ret i32 %.0169
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10706,7 +10706,7 @@ define internal fastcc void @hwloc__xml_import_report_outoforder(ptr noundef %0,
   br label %.lr.ph.i.i27
 
 .lr.ph.i.i27:                                     ; preds = %19, %24
-  %.0.i.i = phi ptr [ %26, %24 ], [ null, %19 ]
+  %.08.i.i = phi ptr [ %26, %24 ], [ null, %19 ]
   br label %28
 
 27:                                               ; preds = %28
@@ -10728,8 +10728,8 @@ define internal fastcc void @hwloc__xml_import_report_outoforder(ptr noundef %0,
   br label %hwloc_obj_get_info_by_name.exit34
 
 hwloc_obj_get_info_by_name.exit34:                ; preds = %27, %3, %32
-  %.0.i.i36 = phi ptr [ %.0.i.i, %32 ], [ null, %3 ], [ %.0.i.i, %27 ]
-  %.0.i.i33 = phi ptr [ %34, %32 ], [ null, %3 ], [ null, %27 ]
+  %.08.i.i36 = phi ptr [ %.08.i.i, %32 ], [ null, %3 ], [ %.08.i.i, %27 ]
+  %.08.i.i33 = phi ptr [ %34, %32 ], [ null, %3 ], [ null, %27 ]
   store ptr null, ptr %7, align 8
   store ptr null, ptr %8, align 8
   %35 = getelementptr inbounds i8, ptr %1, i64 184
@@ -10780,15 +10780,15 @@ hwloc_obj_get_info_by_name.exit34:                ; preds = %27, %3, %32
   %.not25 = icmp eq ptr %10, null
   %68 = select i1 %.not25, ptr @.str.224, ptr %10
   %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.223, ptr noundef nonnull %68) #23
-  %70 = icmp ne ptr %.0.i.i36, null
-  %71 = icmp ne ptr %.0.i.i33, null
+  %70 = icmp ne ptr %.08.i.i36, null
+  %71 = icmp ne ptr %.08.i.i33, null
   %or.cond = select i1 %70, i1 true, i1 %71
   %72 = load ptr, ptr @stderr, align 8
   br i1 %or.cond, label %73, label %77
 
 73:                                               ; preds = %51
-  %74 = select i1 %70, ptr %.0.i.i36, ptr @.str.226
-  %75 = select i1 %71, ptr %.0.i.i33, ptr @.str.224
+  %74 = select i1 %70, ptr %.08.i.i36, ptr @.str.226
+  %75 = select i1 %71, ptr %.08.i.i33, ptr @.str.224
   %76 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.225, ptr noundef nonnull %74, ptr noundef nonnull %75) #23
   br label %79
 

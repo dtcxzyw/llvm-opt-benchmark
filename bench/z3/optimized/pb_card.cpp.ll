@@ -265,8 +265,8 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %k.022.us = phi i32 [ %k.2.us, %for.inc.us ], [ %0, %for.body.lr.ph ]
   %slack.021.us = phi i32 [ %slack.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %__begin1.019.us = phi ptr [ %incdec.ptr.us, %for.inc.us ], [ %m_lits.i.ptr, %for.body.lr.ph ]
-  %l.sroa.0.0.copyload.us = load i32, ptr %__begin1.019.us, align 4
+  %__begin1.020.us = phi ptr [ %incdec.ptr.us, %for.inc.us ], [ %m_lits.i.ptr, %for.body.lr.ph ]
+  %l.sroa.0.0.copyload.us = load i32, ptr %__begin1.020.us, align 4
   %vtable6.us = load ptr, ptr %s, align 8
   %vfn7.us = getelementptr inbounds i8, ptr %vtable6.us, i64 24
   %5 = load ptr, ptr %vfn7.us, align 8
@@ -289,16 +289,16 @@ sw.bb10.us:                                       ; preds = %sw.bb.us, %for.body
 for.inc.us:                                       ; preds = %sw.bb10.us, %for.body.us
   %slack.1.us = phi i32 [ %slack.021.us, %for.body.us ], [ %inc.us, %sw.bb10.us ]
   %k.2.us = phi i32 [ %k.022.us, %for.body.us ], [ %k.1.us, %sw.bb10.us ]
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %__begin1.019.us, i64 4
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %__begin1.020.us, i64 4
   %cmp5.not.us = icmp eq ptr %incdec.ptr.us, %add.ptr.i.ptr
   br i1 %cmp5.not.us, label %for.end, label %for.body.us
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %k.022 = phi i32 [ %k.2, %for.inc ], [ %0, %for.body.lr.ph ]
   %slack.021 = phi i32 [ %slack.1, %for.inc ], [ 0, %for.body.lr.ph ]
-  %to_add.020 = phi double [ %to_add.2, %for.inc ], [ %conv, %for.body.lr.ph ]
-  %__begin1.019 = phi ptr [ %incdec.ptr, %for.inc ], [ %m_lits.i.ptr, %for.body.lr.ph ]
-  %l.sroa.0.0.copyload = load i32, ptr %__begin1.019, align 4
+  %__begin1.020 = phi ptr [ %incdec.ptr, %for.inc ], [ %m_lits.i.ptr, %for.body.lr.ph ]
+  %to_add.019 = phi double [ %to_add.2, %for.inc ], [ %conv, %for.body.lr.ph ]
+  %l.sroa.0.0.copyload = load i32, ptr %__begin1.020, align 4
   %vtable6 = load ptr, ptr %s, align 8
   %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 24
   %6 = load ptr, ptr %vfn7, align 8
@@ -318,15 +318,15 @@ sw.bb10:                                          ; preds = %sw.bb, %for.body
   %vtable15 = load ptr, ptr %literal_occs, align 8
   %7 = load ptr, ptr %vtable15, align 8
   %call17 = tail call noundef double %7(ptr noundef nonnull align 8 dereferenceable(8) %literal_occs, i32 %l.sroa.0.0.copyload)
-  %add = fadd double %to_add.020, %call17
+  %add = fadd double %to_add.019, %call17
   %inc = add i32 %slack.021, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %sw.bb10
-  %to_add.2 = phi double [ %to_add.020, %for.body ], [ %add, %sw.bb10 ]
+  %to_add.2 = phi double [ %to_add.019, %for.body ], [ %add, %sw.bb10 ]
   %slack.1 = phi i32 [ %slack.021, %for.body ], [ %inc, %sw.bb10 ]
   %k.2 = phi i32 [ %k.022, %for.body ], [ %k.1, %sw.bb10 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.019, i64 4
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.020, i64 4
   %cmp5.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp5.not, label %for.end, label %for.body
 

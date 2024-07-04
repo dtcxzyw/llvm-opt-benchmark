@@ -704,8 +704,8 @@ define dso_local zeroext i1 @has_rolreplication(i32 noundef %0) local_unnamed_ad
   br label %16
 
 16:                                               ; preds = %3, %6, %1
-  %.0 = phi i1 [ true, %1 ], [ %15, %6 ], [ false, %3 ]
-  ret i1 %.0
+  %.07 = phi i1 [ true, %1 ], [ %15, %6 ], [ false, %3 ]
+  ret i1 %.07
 }
 
 declare zeroext i1 @superuser_arg(i32 noundef) local_unnamed_addr #1
@@ -1068,7 +1068,7 @@ define internal fastcc void @CreateLockFile(ptr noundef %0, i1 noundef zeroext %
   br label %14
 
 14:                                               ; preds = %5, %12
-  %.073 = phi i32 [ %13, %12 ], [ 0, %5 ]
+  %.075 = phi i32 [ %13, %12 ], [ 0, %5 ]
   %15 = load i32, ptr @pg_file_create_mode, align 4
   %16 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 194, i32 noundef %15) #21
   %17 = icmp sgt i32 %16, -1
@@ -1173,7 +1173,7 @@ define internal fastcc void @CreateLockFile(ptr noundef %0, i1 noundef zeroext %
   %.not86 = icmp eq i32 %62, %9
   %.not87 = icmp eq i32 %62, %10
   %or.cond96 = select i1 %.not86, i1 true, i1 %.not87
-  %.not88 = icmp eq i32 %62, %.073
+  %.not88 = icmp eq i32 %62, %.075
   %or.cond97 = select i1 %or.cond96, i1 true, i1 %.not88
   br i1 %or.cond97, label %79, label %68
 
@@ -1206,15 +1206,15 @@ define internal fastcc void @CreateLockFile(ptr noundef %0, i1 noundef zeroext %
   br i1 %3, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %79, %82
-  %.074119 = phi i32 [ %84, %82 ], [ 1, %79 ]
-  %.075118 = phi ptr [ %83, %82 ], [ %6, %79 ]
-  %80 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.075118, i32 noundef 10) #24
+  %.073119 = phi i32 [ %84, %82 ], [ 1, %79 ]
+  %.074118 = phi ptr [ %83, %82 ], [ %6, %79 ]
+  %80 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.074118, i32 noundef 10) #24
   %81 = icmp eq ptr %80, null
   br i1 %81, label %.thread, label %82
 
 82:                                               ; preds = %.preheader
   %83 = getelementptr i8, ptr %80, i64 1
-  %84 = add nuw nsw i32 %.074119, 1
+  %84 = add nuw nsw i32 %.073119, 1
   %exitcond.not = icmp eq i32 %84, 7
   br i1 %exitcond.not, label %85, label %.preheader, !llvm.loop !5
 

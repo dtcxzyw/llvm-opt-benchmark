@@ -720,24 +720,24 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_NAME(ptr noundef %0, i32 nou
   br label %17
 
 17:                                               ; preds = %13, %12
-  %.024 = phi ptr [ %14, %13 ], [ null, %12 ]
-  %.023 = phi ptr [ %16, %13 ], [ null, %12 ]
+  %.023 = phi ptr [ %14, %13 ], [ null, %12 ]
+  %.0 = phi ptr [ %16, %13 ], [ null, %12 ]
   %18 = load i32, ptr @hf_dnsserver_DNS_RPC_NAME_NameLength, align 4
-  %19 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %9) #4
+  %19 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %9) #4
   %20 = load i32, ptr @hf_dnsserver_DNS_RPC_NAME_name, align 4
   %21 = load i8, ptr %9, align 1
   %22 = zext i8 %21 to i32
-  %23 = call ptr @proto_tree_add_item(ptr noundef %.023, i32 noundef %20, ptr noundef %0, i32 noundef %19, i32 noundef %22, i32 noundef 2) #4
+  %23 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %20, ptr noundef %0, i32 noundef %19, i32 noundef %22, i32 noundef 2) #4
   %24 = load i8, ptr %9, align 1
   %25 = zext i8 %24 to i32
   %26 = add i32 %19, %25
   %27 = sub i32 %26, %1
-  call void @proto_item_set_len(ptr noundef %.024, i32 noundef %27) #4
+  call void @proto_item_set_len(ptr noundef %.023, i32 noundef %27) #4
   br label %28
 
 28:                                               ; preds = %8, %17
-  %.0 = phi i32 [ %26, %17 ], [ %1, %8 ]
-  ret i32 %.0
+  %.024 = phi i32 [ %26, %17 ], [ %1, %8 ]
+  ret i32 %.024
 }
 
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -784,27 +784,27 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_VERSION(ptr noundef %0, i32 
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -2
   %13 = add i32 %12, 2
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.036 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_dnsserver_DNS_RPC_VERSION, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_dnsserver_DNS_RPC_VERSION_OSMajorVersion, align 4
-  %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
   %21 = load i32, ptr @hf_dnsserver_DNS_RPC_VERSION_OSMinorVersion, align 4
-  %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
+  %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
   %23 = load i32, ptr @hf_dnsserver_DNS_RPC_VERSION_ServicePackVersion, align 4
-  %24 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #4
-  %25 = sub i32 %24, %.0
-  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #4
+  %24 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #4
+  %25 = sub i32 %24, %.036
+  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %25) #4
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 96
@@ -1115,62 +1115,62 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_RECORD(ptr noundef %0, i32 n
   %or.cond = or i1 %.not68, %.not
   %15 = and i32 %1, -4
   %16 = add i32 %15, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %16
+  %.066 = select i1 %or.cond, i32 %1, i32 %16
   %.not69 = icmp eq ptr %3, null
   br i1 %.not69, label %21, label %17
 
 17:                                               ; preds = %8
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.066, i32 noundef -1, i32 noundef 0) #4
   %19 = load i32, ptr @ett_dnsserver_DNS_RPC_RECORD, align 4
   %20 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19) #4
   br label %21
 
 21:                                               ; preds = %17, %8
-  %.066 = phi ptr [ %18, %17 ], [ null, %8 ]
-  %.065 = phi ptr [ %20, %17 ], [ null, %8 ]
+  %.065 = phi ptr [ %18, %17 ], [ null, %8 ]
+  %.0 = phi ptr [ %20, %17 ], [ null, %8 ]
   %22 = load i32, ptr @hf_dnsserver_DNS_RPC_RECORD_DataLength, align 4
-  %23 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.065, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 noundef 0) #4
+  %23 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.066, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 noundef 0) #4
   %24 = load i32, ptr @hf_dnsserver_DNS_RPC_RECORD_Type, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11)
   store i16 0, ptr %11, align 2
-  %25 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.065, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %11) #4
+  %25 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %11) #4
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11)
   %26 = load i32, ptr @hf_dnsserver_DNS_RPC_RECORD_Flags, align 4
-  %27 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.065, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, i32 noundef 0) #4
+  %27 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, i32 noundef 0) #4
   %28 = load i32, ptr @hf_dnsserver_DNS_RPC_RECORD_Serial, align 4
-  %29 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.065, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 noundef 0) #4
+  %29 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 noundef 0) #4
   %30 = load i32, ptr @hf_dnsserver_DNS_RPC_RECORD_TtlSeconds, align 4
-  %31 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.065, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, i32 noundef 0) #4
+  %31 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, i32 noundef 0) #4
   %32 = load i32, ptr @hf_dnsserver_DNS_RPC_RECORD_TimeStamp, align 4
-  %33 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.065, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_dnsserver_DNS_RPC_RECORD_reserved, align 4
-  %35 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.065, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_dnsserver_DNS_RPC_RECORD_record, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store ptr null, ptr %9, align 8
-  %.not.i.i = icmp eq ptr %.065, null
+  %.not.i.i = icmp eq ptr %.0, null
   br i1 %.not.i.i, label %40, label %37
 
 37:                                               ; preds = %21
   %38 = load i32, ptr @ett_dnsserver_DNS_RPC_RECORD_UNION, align 4
-  %39 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.065, ptr noundef %0, i32 noundef %35, i32 noundef -1, i32 noundef %38, ptr noundef nonnull %9, ptr noundef nonnull @.str.373) #4
+  %39 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %35, i32 noundef -1, i32 noundef %38, ptr noundef nonnull %9, ptr noundef nonnull @.str.373) #4
   br label %40
 
 40:                                               ; preds = %37, %21
-  %.020.i.i = phi ptr [ %39, %37 ], [ null, %21 ]
-  %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.020.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10) #4
+  %.0.i.i = phi ptr [ %39, %37 ], [ null, %21 ]
+  %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10) #4
   %42 = load i32, ptr %10, align 4
   %cond.i.i = icmp eq i32 %42, 2
   br i1 %cond.i.i, label %43, label %dnsserver_dissect_element_DNS_RPC_RECORD_record.exit
 
 43:                                               ; preds = %40
-  %.not.i.i.i.i = icmp eq ptr %.020.i.i, null
+  %.not.i.i.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i.i.i, label %dnsserver_dissect_element_DNS_RPC_RECORD_UNION_NodeName.exit.i.i, label %44
 
 44:                                               ; preds = %43
   %45 = load i32, ptr @hf_dnsserver_DNS_RPC_RECORD_UNION_NodeName, align 4
-  %46 = call ptr @proto_tree_add_item(ptr noundef nonnull %.020.i.i, i32 noundef %45, ptr noundef %0, i32 noundef %41, i32 noundef -1, i32 noundef 0) #4
+  %46 = call ptr @proto_tree_add_item(ptr noundef nonnull %.0.i.i, i32 noundef %45, ptr noundef %0, i32 noundef %41, i32 noundef -1, i32 noundef 0) #4
   %47 = load i32, ptr @ett_dnsserver_DNS_RPC_RECORD_NODE_NAME, align 4
   %48 = call ptr @proto_item_add_subtree(ptr noundef %46, i32 noundef %47) #4
   br label %dnsserver_dissect_element_DNS_RPC_RECORD_UNION_NodeName.exit.i.i
@@ -1185,14 +1185,14 @@ dnsserver_dissect_element_DNS_RPC_RECORD_UNION_NodeName.exit.i.i: ; preds = %44,
   br label %dnsserver_dissect_element_DNS_RPC_RECORD_record.exit
 
 dnsserver_dissect_element_DNS_RPC_RECORD_record.exit: ; preds = %40, %dnsserver_dissect_element_DNS_RPC_RECORD_UNION_NodeName.exit.i.i
-  %.0.i.i = phi i32 [ %50, %dnsserver_dissect_element_DNS_RPC_RECORD_UNION_NodeName.exit.i.i ], [ %41, %40 ]
+  %.020.i.i = phi i32 [ %50, %dnsserver_dissect_element_DNS_RPC_RECORD_UNION_NodeName.exit.i.i ], [ %41, %40 ]
   %52 = load ptr, ptr %9, align 8
-  %53 = sub i32 %.0.i.i, %35
+  %53 = sub i32 %.020.i.i, %35
   call void @proto_item_set_len(ptr noundef %52, i32 noundef %53) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %54 = sub i32 %.0.i.i, %.0
-  call void @proto_item_set_len(ptr noundef %.066, i32 noundef %54) #4
+  %54 = sub i32 %.020.i.i, %.066
+  call void @proto_item_set_len(ptr noundef %.065, i32 noundef %54) #4
   %55 = getelementptr inbounds i8, ptr %4, i64 72
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 96
@@ -1204,18 +1204,18 @@ dnsserver_dissect_element_DNS_RPC_RECORD_record.exit: ; preds = %40, %dnsserver_
 60:                                               ; preds = %dnsserver_dissect_element_DNS_RPC_RECORD_record.exit
   %61 = load i32, ptr %12, align 4
   %.not71 = icmp ne i32 %61, 0
-  %62 = and i32 %.0.i.i, 3
+  %62 = and i32 %.020.i.i, 3
   %.not72 = icmp eq i32 %62, 0
   %or.cond73 = or i1 %.not72, %.not71
   br i1 %or.cond73, label %66, label %63
 
 63:                                               ; preds = %60
-  %64 = and i32 %.0.i.i, -4
+  %64 = and i32 %.020.i.i, -4
   %65 = add i32 %64, 4
   br label %66
 
 66:                                               ; preds = %60, %63, %dnsserver_dissect_element_DNS_RPC_RECORD_record.exit
-  %.1 = phi i32 [ %.0.i.i, %60 ], [ %65, %63 ], [ %.0.i.i, %dnsserver_dissect_element_DNS_RPC_RECORD_record.exit ]
+  %.1 = phi i32 [ %.020.i.i, %60 ], [ %65, %63 ], [ %.020.i.i, %dnsserver_dissect_element_DNS_RPC_RECORD_record.exit ]
   ret i32 %.1
 }
 
@@ -1229,38 +1229,38 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_NODE(ptr noundef %0, i32 nou
   %or.cond = or i1 %.not56, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.054 = select i1 %or.cond, i32 %1, i32 %13
   %.not57 = icmp eq ptr %3, null
   br i1 %.not57, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.054, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_dnsserver_DNS_RPC_NODE, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.054 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.053 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.053 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_dnsserver_DNS_RPC_NODE_Length, align 4
-  %20 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %20 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.054, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
   %21 = load i32, ptr %9, align 4
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %22, label %dnsserver_dissect_element_DNS_RPC_NODE_RecordCount.exit
 
 22:                                               ; preds = %18
   %23 = load i32, ptr @hf_dnsserver_DNS_RPC_NODE_RecordCount, align 4
-  %24 = tail call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull @node_record_count) #4
+  %24 = tail call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull @node_record_count) #4
   br label %dnsserver_dissect_element_DNS_RPC_NODE_RecordCount.exit
 
 dnsserver_dissect_element_DNS_RPC_NODE_RecordCount.exit: ; preds = %18, %22
   %.0.i = phi i32 [ %24, %22 ], [ %20, %18 ]
   %25 = load i32, ptr @hf_dnsserver_DNS_RPC_NODE_Flags, align 4
-  %26 = tail call i32 @dnsserver_dissect_bitmap_DNS_RPC_NODE_FLAGS(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
+  %26 = tail call i32 @dnsserver_dissect_bitmap_DNS_RPC_NODE_FLAGS(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
   %27 = load i32, ptr @hf_dnsserver_DNS_RPC_NODE_Childcount, align 4
-  %28 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #4
+  %28 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #4
   %29 = load i32, ptr @hf_dnsserver_DNS_RPC_NODE_NodeName, align 4
-  %30 = tail call i32 @dnsserver_dissect_struct_DNS_RPC_NAME(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 poison)
+  %30 = tail call i32 @dnsserver_dissect_struct_DNS_RPC_NAME(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 poison)
   %31 = load i32, ptr %9, align 4
   %.not.i62 = icmp eq i32 %31, 0
   br i1 %.not.i62, label %.preheader.i, label %dnsserver_dissect_element_DNS_RPC_NODE_records.exit
@@ -1275,7 +1275,7 @@ dnsserver_dissect_element_DNS_RPC_NODE_RecordCount.exit: ; preds = %18, %22
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.0912.i = phi i32 [ %35, %.lr.ph.i ], [ %30, %.preheader.i ]
   %34 = load i32, ptr @hf_dnsserver_DNS_RPC_NODE_records, align 4
-  %35 = tail call i32 @dnsserver_dissect_struct_DNS_RPC_RECORD(ptr noundef %0, i32 noundef %.0912.i, ptr noundef %2, ptr noundef %.053, ptr noundef %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %35 = tail call i32 @dnsserver_dissect_struct_DNS_RPC_RECORD(ptr noundef %0, i32 noundef %.0912.i, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %34, i32 poison)
   %36 = load i16, ptr @node_record_count, align 2
   %37 = add i16 %36, -1
   store i16 %37, ptr @node_record_count, align 2
@@ -1284,8 +1284,8 @@ dnsserver_dissect_element_DNS_RPC_NODE_RecordCount.exit: ; preds = %18, %22
 
 dnsserver_dissect_element_DNS_RPC_NODE_records.exit: ; preds = %.lr.ph.i, %dnsserver_dissect_element_DNS_RPC_NODE_RecordCount.exit, %.preheader.i
   %.0.i63 = phi i32 [ %30, %dnsserver_dissect_element_DNS_RPC_NODE_RecordCount.exit ], [ %30, %.preheader.i ], [ %35, %.lr.ph.i ]
-  %38 = sub i32 %.0.i63, %.0
-  tail call void @proto_item_set_len(ptr noundef %.054, i32 noundef %38) #4
+  %38 = sub i32 %.0.i63, %.054
+  tail call void @proto_item_set_len(ptr noundef %.053, i32 noundef %38) #4
   %39 = getelementptr inbounds i8, ptr %4, i64 72
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 96
@@ -1322,24 +1322,24 @@ define hidden i32 @dnsserver_dissect_struct_IP4_ARRAY(ptr noundef %0, i32 nounde
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_dnsserver_IP4_ARRAY, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_dnsserver_IP4_ARRAY_AddrCount, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_IP4_ARRAY_AddrArray_) #4
-  %22 = sub i32 %21, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %22) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_IP4_ARRAY_AddrArray_) #4
+  %22 = sub i32 %21, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %22) #4
   %23 = getelementptr inbounds i8, ptr %4, i64 72
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 96
@@ -1404,165 +1404,165 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_SERVER_INFO_DOTNET(ptr nound
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.0380 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not386 = icmp eq ptr %3, null
   br i1 %.not386, label %33, label %29
 
 29:                                               ; preds = %28
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0380, i32 noundef -1, i32 noundef 0) #4
   %31 = load i32, ptr @ett_dnsserver_DNS_RPC_SERVER_INFO_DOTNET, align 4
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #4
   br label %33
 
 33:                                               ; preds = %29, %28
-  %.0380 = phi ptr [ %30, %29 ], [ null, %28 ]
-  %.0379 = phi ptr [ %32, %29 ], [ null, %28 ]
+  %.0379 = phi ptr [ %30, %29 ], [ null, %28 ]
+  %.0 = phi ptr [ %32, %29 ], [ null, %28 ]
   %34 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RpcStructureVersion, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0380, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_reserved0, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
   %38 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_Version, align 4
-  %39 = tail call i32 @dnsserver_dissect_struct_DNS_RPC_VERSION(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
+  %39 = tail call i32 @dnsserver_dissect_struct_DNS_RPC_VERSION(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
   %40 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_BootMethod, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   store i8 0, ptr %10, align 1
-  %41 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, ptr noundef nonnull %10) #4
+  %41 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, ptr noundef nonnull %10) #4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   %42 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AdminConfigured, align 4
-  %43 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #4
+  %43 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #4
   %44 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AllowUpdate, align 4
-  %45 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #4
+  %45 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #4
   %46 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsAvailable, align 4
-  %47 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #4
+  %47 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #4
   %48 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ServerName, align 4
-  %49 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ServerName_, i32 noundef 2, ptr noundef nonnull @.str.374, i32 noundef %48) #4
+  %49 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ServerName_, i32 noundef 2, ptr noundef nonnull @.str.374, i32 noundef %48) #4
   %50 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsContainer, align 4
-  %51 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DsContainer_, i32 noundef 2, ptr noundef nonnull @.str.376, i32 noundef %50) #4
+  %51 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DsContainer_, i32 noundef 2, ptr noundef nonnull @.str.376, i32 noundef %50) #4
   %52 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ServerAddrs, align 4
-  %53 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ServerAddrs_, i32 noundef 2, ptr noundef nonnull @.str.377, i32 noundef %52) #4
+  %53 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ServerAddrs_, i32 noundef 2, ptr noundef nonnull @.str.377, i32 noundef %52) #4
   %54 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ListenAddrs, align 4
-  %55 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ListenAddrs_, i32 noundef 2, ptr noundef nonnull @.str.378, i32 noundef %54) #4
+  %55 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ListenAddrs_, i32 noundef 2, ptr noundef nonnull @.str.378, i32 noundef %54) #4
   %56 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_Forwarders, align 4
-  %57 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Forwarders_, i32 noundef 2, ptr noundef nonnull @.str.379, i32 noundef %56) #4
+  %57 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Forwarders_, i32 noundef 2, ptr noundef nonnull @.str.379, i32 noundef %56) #4
   %58 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LogFilter, align 4
-  %59 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LogFilter_, i32 noundef 2, ptr noundef nonnull @.str.380, i32 noundef %58) #4
+  %59 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LogFilter_, i32 noundef 2, ptr noundef nonnull @.str.380, i32 noundef %58) #4
   %60 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LogFilePath, align 4
-  %61 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LogFilePath_, i32 noundef 2, ptr noundef nonnull @.str.381, i32 noundef %60) #4
+  %61 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LogFilePath_, i32 noundef 2, ptr noundef nonnull @.str.381, i32 noundef %60) #4
   %62 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DomainName, align 4
-  %63 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %61, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DomainName_, i32 noundef 2, ptr noundef nonnull @.str.382, i32 noundef %62) #4
+  %63 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %61, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DomainName_, i32 noundef 2, ptr noundef nonnull @.str.382, i32 noundef %62) #4
   %64 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForestName, align 4
-  %65 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ForestName_, i32 noundef 2, ptr noundef nonnull @.str.383, i32 noundef %64) #4
+  %65 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ForestName_, i32 noundef 2, ptr noundef nonnull @.str.383, i32 noundef %64) #4
   %66 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DomainDirectoryPartition, align 4
-  %67 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DomainDirectoryPartition_, i32 noundef 2, ptr noundef nonnull @.str.384, i32 noundef %66) #4
+  %67 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DomainDirectoryPartition_, i32 noundef 2, ptr noundef nonnull @.str.384, i32 noundef %66) #4
   %68 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForestDirectoryPartition, align 4
-  %69 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %67, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ForestDirectoryPartition_, i32 noundef 2, ptr noundef nonnull @.str.385, i32 noundef %68) #4
+  %69 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %67, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ForestDirectoryPartition_, i32 noundef 2, ptr noundef nonnull @.str.385, i32 noundef %68) #4
   %70 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension0, align 4
-  %71 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %69, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension0_, i32 noundef 2, ptr noundef nonnull @.str.386, i32 noundef %70) #4
+  %71 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %69, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension0_, i32 noundef 2, ptr noundef nonnull @.str.386, i32 noundef %70) #4
   %72 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension1, align 4
-  %73 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %71, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension1_, i32 noundef 2, ptr noundef nonnull @.str.387, i32 noundef %72) #4
+  %73 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %71, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension1_, i32 noundef 2, ptr noundef nonnull @.str.387, i32 noundef %72) #4
   %74 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension2, align 4
-  %75 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension2_, i32 noundef 2, ptr noundef nonnull @.str.388, i32 noundef %74) #4
+  %75 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension2_, i32 noundef 2, ptr noundef nonnull @.str.388, i32 noundef %74) #4
   %76 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension3, align 4
-  %77 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %75, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension3_, i32 noundef 2, ptr noundef nonnull @.str.389, i32 noundef %76) #4
+  %77 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %75, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension3_, i32 noundef 2, ptr noundef nonnull @.str.389, i32 noundef %76) #4
   %78 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension4, align 4
-  %79 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %77, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension4_, i32 noundef 2, ptr noundef nonnull @.str.390, i32 noundef %78) #4
+  %79 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %77, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension4_, i32 noundef 2, ptr noundef nonnull @.str.390, i32 noundef %78) #4
   %80 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension5, align 4
-  %81 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %79, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension5_, i32 noundef 2, ptr noundef nonnull @.str.391, i32 noundef %80) #4
+  %81 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %79, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension5_, i32 noundef 2, ptr noundef nonnull @.str.391, i32 noundef %80) #4
   %82 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LogLevel, align 4
-  %83 = call i32 @dnsserver_dissect_bitmap_DNS_LOG_LEVELS(ptr noundef %0, i32 noundef %81, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %82, i32 poison)
+  %83 = call i32 @dnsserver_dissect_bitmap_DNS_LOG_LEVELS(ptr noundef %0, i32 noundef %81, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %82, i32 poison)
   %84 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DebugLevel, align 4
-  %85 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %83, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %84, i32 noundef 0) #4
+  %85 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %83, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %84, i32 noundef 0) #4
   %86 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForwardTimeout, align 4
-  %87 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %85, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %86, i32 noundef 0) #4
+  %87 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %85, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %86, i32 noundef 0) #4
   %88 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RpcProtocol, align 4
-  %89 = call i32 @dnsserver_dissect_bitmap_DNS_RPC_PROTOCOLS(ptr noundef %0, i32 noundef %87, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %88, i32 poison)
+  %89 = call i32 @dnsserver_dissect_bitmap_DNS_RPC_PROTOCOLS(ptr noundef %0, i32 noundef %87, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %88, i32 poison)
   %90 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_NameCheckFlag, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %91 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %89, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %90, ptr noundef nonnull %9) #4
+  %91 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %89, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %90, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %92 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AddressAnswerLimit, align 4
-  %93 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %91, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %92, i32 noundef 0) #4
+  %93 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %91, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %92, i32 noundef 0) #4
   %94 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RecursionRetry, align 4
-  %95 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %93, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %94, i32 noundef 0) #4
+  %95 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %93, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %94, i32 noundef 0) #4
   %96 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RecursionTimeout, align 4
-  %97 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %95, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %96, i32 noundef 0) #4
+  %97 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %95, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %96, i32 noundef 0) #4
   %98 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_MaxCacheTtl, align 4
-  %99 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %97, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %98, i32 noundef 0) #4
+  %99 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %97, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %98, i32 noundef 0) #4
   %100 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsPollingInterval, align 4
-  %101 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %99, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %100, i32 noundef 0) #4
+  %101 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %99, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %100, i32 noundef 0) #4
   %102 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LocalNetPriorityNetmask, align 4
-  %103 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %101, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %102, i32 noundef 0) #4
+  %103 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %101, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %102, i32 noundef 0) #4
   %104 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ScavengingInterval, align 4
-  %105 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %103, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %104, i32 noundef 0) #4
+  %105 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %103, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %104, i32 noundef 0) #4
   %106 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DefaultRefreshInterval, align 4
-  %107 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %105, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %106, i32 noundef 0) #4
+  %107 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %105, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %106, i32 noundef 0) #4
   %108 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DefaultNoRefreshInterval, align 4
-  %109 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %107, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %108, i32 noundef 0) #4
+  %109 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %107, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %108, i32 noundef 0) #4
   %110 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LastScavengeTime, align 4
-  %111 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %109, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %110, i32 noundef 0) #4
+  %111 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %109, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %110, i32 noundef 0) #4
   %112 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_EventLogLevel, align 4
-  %113 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %111, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %112, i32 noundef 0) #4
+  %113 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %112, i32 noundef 0) #4
   %114 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LogFileMaxSize, align 4
-  %115 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %113, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %114, i32 noundef 0) #4
+  %115 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %113, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %114, i32 noundef 0) #4
   %116 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsForestVersion, align 4
-  %117 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %115, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %116, i32 noundef 0) #4
+  %117 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %115, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %116, i32 noundef 0) #4
   %118 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsDomainVersion, align 4
-  %119 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %117, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %118, i32 noundef 0) #4
+  %119 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %117, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %118, i32 noundef 0) #4
   %120 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsDsaVersion, align 4
-  %121 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %119, ptr noundef %2, ptr noundef %.0379, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %120, i32 noundef 0) #4
+  %121 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %119, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %120, i32 noundef 0) #4
   br label %122
 
 122:                                              ; preds = %122, %33
   %.010.i = phi i32 [ 0, %33 ], [ %125, %122 ]
   %.089.i = phi i32 [ %121, %33 ], [ %124, %122 ]
   %123 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_reserve_array, align 4
-  %124 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %123, i32 noundef 0) #4
+  %124 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %123, i32 noundef 0) #4
   %125 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %125, 4
   br i1 %exitcond.not.i, label %dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array.exit, label %122, !llvm.loop !6
 
 dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array.exit: ; preds = %122
   %126 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AutoReverseZones, align 4
-  %127 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %124, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %126, i32 noundef 0) #4
+  %127 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %124, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %126, i32 noundef 0) #4
   %128 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AutoCacheUpdate, align 4
-  %129 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %127, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %128, i32 noundef 0) #4
+  %129 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %127, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %128, i32 noundef 0) #4
   %130 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RecurseAfterForwarding, align 4
-  %131 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %129, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %130, i32 noundef 0) #4
+  %131 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %129, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %130, i32 noundef 0) #4
   %132 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForwardDelegations, align 4
-  %133 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %131, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %132, i32 noundef 0) #4
+  %133 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %131, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %132, i32 noundef 0) #4
   %134 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_NoRecursion, align 4
-  %135 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %133, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %134, i32 noundef 0) #4
+  %135 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %133, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %134, i32 noundef 0) #4
   %136 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_SecureResponses, align 4
-  %137 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %135, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %136, i32 noundef 0) #4
+  %137 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %135, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %136, i32 noundef 0) #4
   %138 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RoundRobin, align 4
-  %139 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %137, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %138, i32 noundef 0) #4
+  %139 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %137, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %138, i32 noundef 0) #4
   %140 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LocalNetPriority, align 4
-  %141 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %139, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %140, i32 noundef 0) #4
+  %141 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %139, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %140, i32 noundef 0) #4
   %142 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_BindSecondaries, align 4
-  %143 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %141, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %142, i32 noundef 0) #4
+  %143 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %141, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %142, i32 noundef 0) #4
   %144 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_WriteAuthorityNs, align 4
-  %145 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %143, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %144, i32 noundef 0) #4
+  %145 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %143, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %144, i32 noundef 0) #4
   %146 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_StrictFileParsing, align 4
-  %147 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %145, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %146, i32 noundef 0) #4
+  %147 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %145, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %146, i32 noundef 0) #4
   %148 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LooseWildcarding, align 4
-  %149 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %147, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %148, i32 noundef 0) #4
+  %149 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %147, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %148, i32 noundef 0) #4
   %150 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DefaultAgingState, align 4
-  %151 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %149, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %150, i32 noundef 0) #4
+  %151 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %149, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %150, i32 noundef 0) #4
   br label %152
 
 152:                                              ; preds = %152, %dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array.exit
   %.010.i392 = phi i32 [ 0, %dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array.exit ], [ %155, %152 ]
   %.089.i393 = phi i32 [ %151, %dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array.exit ], [ %154, %152 ]
   %153 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_reserve_array2, align 4
-  %154 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i393, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %153, i32 noundef 0) #4
+  %154 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i393, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %153, i32 noundef 0) #4
   %155 = add nuw nsw i32 %.010.i392, 1
   %exitcond.not.i394 = icmp eq i32 %155, 15
   br i1 %exitcond.not.i394, label %dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array2.exit, label %152, !llvm.loop !7
 
 dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array2.exit: ; preds = %152
-  %156 = sub i32 %154, %.0
-  call void @proto_item_set_len(ptr noundef %.0380, i32 noundef %156) #4
+  %156 = sub i32 %154, %.0380
+  call void @proto_item_set_len(ptr noundef %.0379, i32 noundef %156) #4
   %157 = load ptr, ptr %11, align 8
   %158 = getelementptr inbounds i8, ptr %157, i64 96
   %159 = load i32, ptr %158, align 8
@@ -1623,23 +1623,23 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RECORD_BUFFER(ptr noundef %0, i3
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_dnsserver_DNS_RECORD_BUFFER, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_dnsserver_DNS_RECORD_BUFFER_rpc_node, align 4
-  %20 = tail call i32 @dnsserver_dissect_struct_DNS_RPC_NODE(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @dnsserver_dissect_struct_DNS_RPC_NODE(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -2298,8 +2298,8 @@ define internal i32 @dnsserver_dissect_element_DnssrvQuery2_data_(ptr noundef %0
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.039.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.039.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #4
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #4
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -2334,7 +2334,7 @@ define internal i32 @dnsserver_dissect_element_DnssrvQuery2_data_(ptr noundef %0
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.039.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   switch i32 %33, label %dnsserver_dissect_DNSSRV_RPC_UNION.exit [
     i32 0, label %34
@@ -2344,21 +2344,21 @@ define internal i32 @dnsserver_dissect_element_DnssrvQuery2_data_(ptr noundef %0
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_dnsserver_DNSSRV_RPC_UNION_null, align 4
-  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.039.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNSSRV_RPC_UNION_null_, i32 noundef 2, ptr noundef nonnull @.str.476, i32 noundef %35) #4
+  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.039.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNSSRV_RPC_UNION_null_, i32 noundef 2, ptr noundef nonnull @.str.476, i32 noundef %35) #4
   br label %dnsserver_dissect_DNSSRV_RPC_UNION.exit
 
 37:                                               ; preds = %32
   %38 = load i32, ptr @hf_dnsserver_DNSSRV_RPC_UNION_dword, align 4
-  %39 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.039.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
+  %39 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.039.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
   br label %dnsserver_dissect_DNSSRV_RPC_UNION.exit
 
 40:                                               ; preds = %32
   %41 = load i32, ptr @hf_dnsserver_DNSSRV_RPC_UNION_ServerInfoDotnet, align 4
-  %42 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.039.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNSSRV_RPC_UNION_ServerInfoDotnet_, i32 noundef 2, ptr noundef nonnull @.str.477, i32 noundef %41) #4
+  %42 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.039.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dnsserver_dissect_element_DNSSRV_RPC_UNION_ServerInfoDotnet_, i32 noundef 2, ptr noundef nonnull @.str.477, i32 noundef %41) #4
   br label %dnsserver_dissect_DNSSRV_RPC_UNION.exit
 
 dnsserver_dissect_DNSSRV_RPC_UNION.exit:          ; preds = %32, %34, %37, %40
-  %.1.i = phi i32 [ %.0.i, %32 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
+  %.1.i = phi i32 [ %.039.i, %32 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
   %43 = load ptr, ptr %7, align 8
   %44 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %43, i32 noundef %44) #4

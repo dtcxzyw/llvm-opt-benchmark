@@ -281,7 +281,7 @@ Rwr_ManIncTravId.exit:                            ; preds = %.critedge, %.crited
 .lr.ph137:                                        ; preds = %.critedge4.preheader, %.critedge4
   %146 = phi ptr [ %157, %.critedge4 ], [ %142, %.critedge4.preheader ]
   %indvars.iv150 = phi i64 [ %indvars.iv.next151, %.critedge4 ], [ 5, %.critedge4.preheader ]
-  %.1101135 = phi i32 [ %.2102, %.critedge4 ], [ 5, %.critedge4.preheader ]
+  %.198136 = phi i32 [ %.299, %.critedge4 ], [ 5, %.critedge4.preheader ]
   %147 = getelementptr i8, ptr %146, i64 8
   %.val111 = load ptr, ptr %147, align 8
   %148 = getelementptr inbounds ptr, ptr %.val111, i64 %indvars.iv150
@@ -293,17 +293,17 @@ Rwr_ManIncTravId.exit:                            ; preds = %.critedge, %.crited
   br i1 %.not, label %.critedge4, label %153
 
 153:                                              ; preds = %.lr.ph137
-  %154 = sext i32 %.1101135 to i64
+  %154 = sext i32 %.198136 to i64
   %155 = getelementptr inbounds ptr, ptr %.val111, i64 %154
   store ptr %149, ptr %155, align 8
-  %156 = add nsw i32 %.1101135, 1
-  store i32 %.1101135, ptr %149, align 8
+  %156 = add nsw i32 %.198136, 1
+  store i32 %.198136, ptr %149, align 8
   %.pre157 = load ptr, ptr %3, align 8
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.lr.ph137, %153
   %157 = phi ptr [ %.pre157, %153 ], [ %146, %.lr.ph137 ]
-  %.2102 = phi i32 [ %156, %153 ], [ %.1101135, %.lr.ph137 ]
+  %.299 = phi i32 [ %156, %153 ], [ %.198136, %.lr.ph137 ]
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %158 = getelementptr i8, ptr %157, i64 4
   %.val107 = load i32, ptr %158, align 4
@@ -314,9 +314,9 @@ Rwr_ManIncTravId.exit:                            ; preds = %.critedge, %.crited
 .critedge6:                                       ; preds = %.critedge4, %Rwr_ManIncTravId.exit, %.critedge4.preheader
   %.0.lcssa161 = phi i32 [ %.1, %.critedge4.preheader ], [ 0, %Rwr_ManIncTravId.exit ], [ %.1, %.critedge4 ]
   %.lcssa133 = phi ptr [ %142, %.critedge4.preheader ], [ %120, %Rwr_ManIncTravId.exit ], [ %157, %.critedge4 ]
-  %.1101.lcssa = phi i32 [ 5, %.critedge4.preheader ], [ 5, %Rwr_ManIncTravId.exit ], [ %.2102, %.critedge4 ]
+  %.198.lcssa = phi i32 [ 5, %.critedge4.preheader ], [ 5, %Rwr_ManIncTravId.exit ], [ %.299, %.critedge4 ]
   %161 = getelementptr i8, ptr %.lcssa133, i64 4
-  store i32 %.1101.lcssa, ptr %161, align 4
+  store i32 %.198.lcssa, ptr %161, align 4
   %162 = load ptr, ptr %3, align 8
   %163 = getelementptr inbounds i8, ptr %162, i64 4
   %164 = load i32, ptr %163, align 4

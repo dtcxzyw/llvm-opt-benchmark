@@ -11113,16 +11113,16 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6_EED2Ev.exit
   %2 = phi ptr [ %1, %while.body.lr.ph ], [ %39, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6_EED2Ev.exit ]
-  %pCounter.0135 = phi i64 [ 0, %while.body.lr.ph ], [ %inc31, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6_EED2Ev.exit ]
-  %oinit.0134 = phi ptr [ null, %while.body.lr.ph ], [ %spec.select, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6_EED2Ev.exit ]
-  %prev.0133 = phi ptr [ null, %while.body.lr.ph ], [ %prev.1.lcssa, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6_EED2Ev.exit ]
+  %oinit.0135 = phi ptr [ null, %while.body.lr.ph ], [ %spec.select, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6_EED2Ev.exit ]
+  %prev.0134 = phi ptr [ null, %while.body.lr.ph ], [ %prev.1.lcssa, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6_EED2Ev.exit ]
+  %pCounter.0133 = phi i64 [ 0, %while.body.lr.ph ], [ %inc31, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6_EED2Ev.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %gens, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   %cmp.not5.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not5.i.i.i, label %if.then, label %while.body.lr.ph.i.i.i
 
 while.body.lr.ph.i.i.i:                           ; preds = %while.body
-  %add.ptr.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %2, i64 %pCounter.0135
+  %add.ptr.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %2, i64 %pCounter.0133
   %4 = load ptr, ptr %add.ptr.i, align 8
   %bf.load3.i.i.i.i.i = load i64, ptr %4, align 8
   %bf.clear4.i.i.i.i.i = and i64 %bf.load3.i.i.i.i.i, 1099511627775
@@ -11185,7 +11185,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
 
 invoke.cont6:                                     ; preds = %if.else.i.i, %if.then.i.i, %if.then13.i.i
   %9 = load ptr, ptr %pats, align 8
-  %add.ptr.i16 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %9, i64 %pCounter.0135
+  %add.ptr.i16 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %9, i64 %pCounter.0133
   %10 = load ptr, ptr %add.ptr.i16, align 8
   store ptr %10, ptr %agg.tmp7, align 8
   %bf.load.i.i17 = load i64, ptr %10, align 8
@@ -11307,8 +11307,8 @@ if.else:                                          ; preds = %invoke.cont
 
 if.end:                                           ; preds = %if.then13.i.i48, %if.then.i.i42, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %if.else
   %init.0 = phi ptr [ %20, %if.else ], [ %call13, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %call13, %if.then.i.i42 ], [ %call13, %if.then13.i.i48 ]
-  %cmp15 = icmp eq i64 %pCounter.0135, 0
-  %spec.select = select i1 %cmp15, ptr %init.0, ptr %oinit.0134
+  %cmp15 = icmp eq i64 %pCounter.0133, 0
+  %spec.select = select i1 %cmp15, ptr %init.0, ptr %oinit.0135
   %21 = load ptr, ptr %_M_finish.i51, align 8
   %22 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %21, %22
@@ -11389,7 +11389,7 @@ _ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6
 while.body22:                                     ; preds = %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6_EE9push_backERKS6_.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit89
   %28 = phi ptr [ %36, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit89 ], [ %26, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6_EE9push_backERKS6_.exit ]
   %counter.0126 = phi i64 [ %inc, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit89 ], [ 0, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6_EE9push_backERKS6_.exit ]
-  %prev.1125 = phi ptr [ %29, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit89 ], [ %prev.0133, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6_EE9push_backERKS6_.exit ]
+  %prev.1125 = phi ptr [ %29, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit89 ], [ %prev.0134, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6_EE9push_backERKS6_.exit ]
   %add.ptr.i63 = getelementptr inbounds ptr, ptr %28, i64 %counter.0126
   %29 = load ptr, ptr %add.ptr.i63, align 8
   %tobool.not = icmp eq ptr %prev.1125, null
@@ -11476,9 +11476,9 @@ lpad28:                                           ; preds = %invoke.cont27
   br label %ehcleanup32
 
 while.end:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit89, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6_EE9push_backERKS6_.exit
-  %prev.1.lcssa = phi ptr [ %prev.0133, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6_EE9push_backERKS6_.exit ], [ %29, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit89 ]
+  %prev.1.lcssa = phi ptr [ %prev.0134, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6_EE9push_backERKS6_.exit ], [ %29, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit89 ]
   %.lcssa = phi ptr [ %26, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6_EE9push_backERKS6_.exit ], [ %36, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit89 ]
-  %inc31 = add nuw i64 %pCounter.0135, 1
+  %inc31 = add nuw i64 %pCounter.0133, 1
   %tobool.not.i.i.i90 = icmp eq ptr %.lcssa, null
   br i1 %tobool.not.i.i.i90, label %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6_EED2Ev.exit, label %if.then.i.i.i91
 

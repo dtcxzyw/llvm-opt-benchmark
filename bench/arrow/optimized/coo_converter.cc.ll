@@ -3648,9 +3648,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
   %values.addr.033.us = phi ptr [ %values.addr.1.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032.us = phi ptr [ %incdec.ptr20.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
-  %5 = load i8, ptr %tensor_data.032.us, align 1
+  %n.032.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031.us = phi ptr [ %incdec.ptr20.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
+  %5 = load i8, ptr %tensor_data.031.us, align 1
   %cmp8.not.us = icmp eq i8 %5, 0
   br i1 %cmp8.not.us, label %if.end.us, label %if.then.us
 
@@ -3701,17 +3701,17 @@ while.body.i.us:                                  ; preds = %land.rhs.i.us
   br i1 %cmp7.i.us, label %land.rhs.i.us, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us, !llvm.loop !92
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us: ; preds = %land.rhs.i.us, %while.body.i.us, %if.end.us
-  %incdec.ptr20.us = getelementptr inbounds i8, ptr %tensor_data.032.us, i64 1
-  %dec.us = add nsw i64 %n.031.us, -1
-  %cmp.us = icmp sgt i64 %n.031.us, 1
+  %incdec.ptr20.us = getelementptr inbounds i8, ptr %tensor_data.031.us, i64 1
+  %dec.us = add nsw i64 %n.032.us, -1
+  %cmp.us = icmp sgt i64 %n.032.us, 1
   br i1 %cmp.us, label %for.body.us, label %if.then.i.i.i19, !llvm.loop !93
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %indices.addr.034 = phi ptr [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %indices, %for.body.lr.ph ]
   %values.addr.033 = phi ptr [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032 = phi ptr [ %incdec.ptr20, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
-  %13 = load i8, ptr %tensor_data.032, align 1
+  %n.032 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031 = phi ptr [ %incdec.ptr20, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
+  %13 = load i8, ptr %tensor_data.031, align 1
   %cmp8.not = icmp eq i8 %13, 0
   br i1 %cmp8.not, label %if.end, label %if.then
 
@@ -3775,9 +3775,9 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !92
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit: ; preds = %land.rhs.i, %while.body.i, %if.end
-  %incdec.ptr20 = getelementptr inbounds i8, ptr %tensor_data.032, i64 1
-  %dec = add nsw i64 %n.031, -1
-  %cmp = icmp sgt i64 %n.031, 1
+  %incdec.ptr20 = getelementptr inbounds i8, ptr %tensor_data.031, i64 1
+  %dec = add nsw i64 %n.032, -1
+  %cmp = icmp sgt i64 %n.032, 1
   br i1 %cmp, label %for.body, label %if.then.i.i.i19, !llvm.loop !93
 
 for.end:                                          ; preds = %for.cond.preheader
@@ -3852,9 +3852,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
   %values.addr.033.us = phi ptr [ %values.addr.1.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032.us = phi ptr [ %incdec.ptr19.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
-  %5 = load i16, ptr %tensor_data.032.us, align 2
+  %n.032.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031.us = phi ptr [ %incdec.ptr19.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
+  %5 = load i16, ptr %tensor_data.031.us, align 2
   %cmp8.not.us = icmp eq i16 %5, 0
   br i1 %cmp8.not.us, label %if.end.us, label %if.then.us
 
@@ -3905,17 +3905,17 @@ while.body.i.us:                                  ; preds = %land.rhs.i.us
   br i1 %cmp7.i.us, label %land.rhs.i.us, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us, !llvm.loop !92
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us: ; preds = %land.rhs.i.us, %while.body.i.us, %if.end.us
-  %incdec.ptr19.us = getelementptr inbounds i8, ptr %tensor_data.032.us, i64 2
-  %dec.us = add nsw i64 %n.031.us, -1
-  %cmp.us = icmp sgt i64 %n.031.us, 1
+  %incdec.ptr19.us = getelementptr inbounds i8, ptr %tensor_data.031.us, i64 2
+  %dec.us = add nsw i64 %n.032.us, -1
+  %cmp.us = icmp sgt i64 %n.032.us, 1
   br i1 %cmp.us, label %for.body.us, label %if.then.i.i.i19, !llvm.loop !94
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %indices.addr.034 = phi ptr [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %indices, %for.body.lr.ph ]
   %values.addr.033 = phi ptr [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032 = phi ptr [ %incdec.ptr19, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
-  %13 = load i16, ptr %tensor_data.032, align 2
+  %n.032 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031 = phi ptr [ %incdec.ptr19, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
+  %13 = load i16, ptr %tensor_data.031, align 2
   %cmp8.not = icmp eq i16 %13, 0
   br i1 %cmp8.not, label %if.end, label %if.then
 
@@ -3979,9 +3979,9 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !92
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit: ; preds = %land.rhs.i, %while.body.i, %if.end
-  %incdec.ptr19 = getelementptr inbounds i8, ptr %tensor_data.032, i64 2
-  %dec = add nsw i64 %n.031, -1
-  %cmp = icmp sgt i64 %n.031, 1
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %tensor_data.031, i64 2
+  %dec = add nsw i64 %n.032, -1
+  %cmp = icmp sgt i64 %n.032, 1
   br i1 %cmp, label %for.body, label %if.then.i.i.i19, !llvm.loop !94
 
 for.end:                                          ; preds = %for.cond.preheader
@@ -4056,9 +4056,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
   %values.addr.033.us = phi ptr [ %values.addr.1.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032.us = phi ptr [ %incdec.ptr18.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
-  %5 = load i32, ptr %tensor_data.032.us, align 4
+  %n.032.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031.us = phi ptr [ %incdec.ptr18.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
+  %5 = load i32, ptr %tensor_data.031.us, align 4
   %cmp7.not.us = icmp eq i32 %5, 0
   br i1 %cmp7.not.us, label %if.end.us, label %if.then.us
 
@@ -4109,17 +4109,17 @@ while.body.i.us:                                  ; preds = %land.rhs.i.us
   br i1 %cmp7.i.us, label %land.rhs.i.us, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us, !llvm.loop !92
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us: ; preds = %land.rhs.i.us, %while.body.i.us, %if.end.us
-  %incdec.ptr18.us = getelementptr inbounds i8, ptr %tensor_data.032.us, i64 4
-  %dec.us = add nsw i64 %n.031.us, -1
-  %cmp.us = icmp sgt i64 %n.031.us, 1
+  %incdec.ptr18.us = getelementptr inbounds i8, ptr %tensor_data.031.us, i64 4
+  %dec.us = add nsw i64 %n.032.us, -1
+  %cmp.us = icmp sgt i64 %n.032.us, 1
   br i1 %cmp.us, label %for.body.us, label %if.then.i.i.i19, !llvm.loop !95
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %indices.addr.034 = phi ptr [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %indices, %for.body.lr.ph ]
   %values.addr.033 = phi ptr [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032 = phi ptr [ %incdec.ptr18, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
-  %13 = load i32, ptr %tensor_data.032, align 4
+  %n.032 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031 = phi ptr [ %incdec.ptr18, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
+  %13 = load i32, ptr %tensor_data.031, align 4
   %cmp7.not = icmp eq i32 %13, 0
   br i1 %cmp7.not, label %if.end, label %if.then
 
@@ -4183,9 +4183,9 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !92
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit: ; preds = %land.rhs.i, %while.body.i, %if.end
-  %incdec.ptr18 = getelementptr inbounds i8, ptr %tensor_data.032, i64 4
-  %dec = add nsw i64 %n.031, -1
-  %cmp = icmp sgt i64 %n.031, 1
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %tensor_data.031, i64 4
+  %dec = add nsw i64 %n.032, -1
+  %cmp = icmp sgt i64 %n.032, 1
   br i1 %cmp, label %for.body, label %if.then.i.i.i19, !llvm.loop !95
 
 for.end:                                          ; preds = %for.cond.preheader
@@ -4260,9 +4260,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
   %values.addr.033.us = phi ptr [ %values.addr.1.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032.us = phi ptr [ %incdec.ptr18.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
-  %5 = load i64, ptr %tensor_data.032.us, align 8
+  %n.032.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031.us = phi ptr [ %incdec.ptr18.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
+  %5 = load i64, ptr %tensor_data.031.us, align 8
   %cmp7.not.us = icmp eq i64 %5, 0
   br i1 %cmp7.not.us, label %if.end.us, label %if.then.us
 
@@ -4313,17 +4313,17 @@ while.body.i.us:                                  ; preds = %land.rhs.i.us
   br i1 %cmp7.i.us, label %land.rhs.i.us, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us, !llvm.loop !92
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us: ; preds = %land.rhs.i.us, %while.body.i.us, %if.end.us
-  %incdec.ptr18.us = getelementptr inbounds i8, ptr %tensor_data.032.us, i64 8
-  %dec.us = add nsw i64 %n.031.us, -1
-  %cmp.us = icmp sgt i64 %n.031.us, 1
+  %incdec.ptr18.us = getelementptr inbounds i8, ptr %tensor_data.031.us, i64 8
+  %dec.us = add nsw i64 %n.032.us, -1
+  %cmp.us = icmp sgt i64 %n.032.us, 1
   br i1 %cmp.us, label %for.body.us, label %if.then.i.i.i19, !llvm.loop !96
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %indices.addr.034 = phi ptr [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %indices, %for.body.lr.ph ]
   %values.addr.033 = phi ptr [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032 = phi ptr [ %incdec.ptr18, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
-  %13 = load i64, ptr %tensor_data.032, align 8
+  %n.032 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031 = phi ptr [ %incdec.ptr18, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
+  %13 = load i64, ptr %tensor_data.031, align 8
   %cmp7.not = icmp eq i64 %13, 0
   br i1 %cmp7.not, label %if.end, label %if.then
 
@@ -4387,9 +4387,9 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !92
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit: ; preds = %land.rhs.i, %while.body.i, %if.end
-  %incdec.ptr18 = getelementptr inbounds i8, ptr %tensor_data.032, i64 8
-  %dec = add nsw i64 %n.031, -1
-  %cmp = icmp sgt i64 %n.031, 1
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %tensor_data.031, i64 8
+  %dec = add nsw i64 %n.032, -1
+  %cmp = icmp sgt i64 %n.032, 1
   br i1 %cmp, label %for.body, label %if.then.i.i.i19, !llvm.loop !96
 
 for.end:                                          ; preds = %for.cond.preheader
@@ -4465,9 +4465,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
   %values.addr.033.us = phi ptr [ %values.addr.1.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032.us = phi ptr [ %incdec.ptr20.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
-  %5 = load i8, ptr %tensor_data.032.us, align 1
+  %n.032.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031.us = phi ptr [ %incdec.ptr20.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
+  %5 = load i8, ptr %tensor_data.031.us, align 1
   %cmp8.not.us = icmp eq i8 %5, 0
   br i1 %cmp8.not.us, label %if.end.us, label %if.then.us
 
@@ -4518,17 +4518,17 @@ while.body.i.us:                                  ; preds = %land.rhs.i.us
   br i1 %cmp7.i.us, label %land.rhs.i.us, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us, !llvm.loop !97
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us: ; preds = %land.rhs.i.us, %while.body.i.us, %if.end.us
-  %incdec.ptr20.us = getelementptr inbounds i8, ptr %tensor_data.032.us, i64 1
-  %dec.us = add nsw i64 %n.031.us, -1
-  %cmp.us = icmp sgt i64 %n.031.us, 1
+  %incdec.ptr20.us = getelementptr inbounds i8, ptr %tensor_data.031.us, i64 1
+  %dec.us = add nsw i64 %n.032.us, -1
+  %cmp.us = icmp sgt i64 %n.032.us, 1
   br i1 %cmp.us, label %for.body.us, label %if.then.i.i.i19, !llvm.loop !98
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %indices.addr.034 = phi ptr [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %indices, %for.body.lr.ph ]
   %values.addr.033 = phi ptr [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032 = phi ptr [ %incdec.ptr20, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
-  %13 = load i8, ptr %tensor_data.032, align 1
+  %n.032 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031 = phi ptr [ %incdec.ptr20, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
+  %13 = load i8, ptr %tensor_data.031, align 1
   %cmp8.not = icmp eq i8 %13, 0
   br i1 %cmp8.not, label %if.end, label %if.then
 
@@ -4592,9 +4592,9 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !97
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit: ; preds = %land.rhs.i, %while.body.i, %if.end
-  %incdec.ptr20 = getelementptr inbounds i8, ptr %tensor_data.032, i64 1
-  %dec = add nsw i64 %n.031, -1
-  %cmp = icmp sgt i64 %n.031, 1
+  %incdec.ptr20 = getelementptr inbounds i8, ptr %tensor_data.031, i64 1
+  %dec = add nsw i64 %n.032, -1
+  %cmp = icmp sgt i64 %n.032, 1
   br i1 %cmp, label %for.body, label %if.then.i.i.i19, !llvm.loop !98
 
 for.end:                                          ; preds = %for.cond.preheader
@@ -4670,9 +4670,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
   %values.addr.033.us = phi ptr [ %values.addr.1.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032.us = phi ptr [ %incdec.ptr19.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
-  %5 = load i16, ptr %tensor_data.032.us, align 2
+  %n.032.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031.us = phi ptr [ %incdec.ptr19.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
+  %5 = load i16, ptr %tensor_data.031.us, align 2
   %cmp8.not.us = icmp eq i16 %5, 0
   br i1 %cmp8.not.us, label %if.end.us, label %if.then.us
 
@@ -4723,17 +4723,17 @@ while.body.i.us:                                  ; preds = %land.rhs.i.us
   br i1 %cmp7.i.us, label %land.rhs.i.us, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us, !llvm.loop !97
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us: ; preds = %land.rhs.i.us, %while.body.i.us, %if.end.us
-  %incdec.ptr19.us = getelementptr inbounds i8, ptr %tensor_data.032.us, i64 2
-  %dec.us = add nsw i64 %n.031.us, -1
-  %cmp.us = icmp sgt i64 %n.031.us, 1
+  %incdec.ptr19.us = getelementptr inbounds i8, ptr %tensor_data.031.us, i64 2
+  %dec.us = add nsw i64 %n.032.us, -1
+  %cmp.us = icmp sgt i64 %n.032.us, 1
   br i1 %cmp.us, label %for.body.us, label %if.then.i.i.i19, !llvm.loop !99
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %indices.addr.034 = phi ptr [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %indices, %for.body.lr.ph ]
   %values.addr.033 = phi ptr [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032 = phi ptr [ %incdec.ptr19, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
-  %13 = load i16, ptr %tensor_data.032, align 2
+  %n.032 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031 = phi ptr [ %incdec.ptr19, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
+  %13 = load i16, ptr %tensor_data.031, align 2
   %cmp8.not = icmp eq i16 %13, 0
   br i1 %cmp8.not, label %if.end, label %if.then
 
@@ -4797,9 +4797,9 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !97
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit: ; preds = %land.rhs.i, %while.body.i, %if.end
-  %incdec.ptr19 = getelementptr inbounds i8, ptr %tensor_data.032, i64 2
-  %dec = add nsw i64 %n.031, -1
-  %cmp = icmp sgt i64 %n.031, 1
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %tensor_data.031, i64 2
+  %dec = add nsw i64 %n.032, -1
+  %cmp = icmp sgt i64 %n.032, 1
   br i1 %cmp, label %for.body, label %if.then.i.i.i19, !llvm.loop !99
 
 for.end:                                          ; preds = %for.cond.preheader
@@ -4875,9 +4875,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
   %values.addr.033.us = phi ptr [ %values.addr.1.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032.us = phi ptr [ %incdec.ptr18.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
-  %5 = load i32, ptr %tensor_data.032.us, align 4
+  %n.032.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031.us = phi ptr [ %incdec.ptr18.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
+  %5 = load i32, ptr %tensor_data.031.us, align 4
   %cmp7.not.us = icmp eq i32 %5, 0
   br i1 %cmp7.not.us, label %if.end.us, label %if.then.us
 
@@ -4928,17 +4928,17 @@ while.body.i.us:                                  ; preds = %land.rhs.i.us
   br i1 %cmp7.i.us, label %land.rhs.i.us, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us, !llvm.loop !97
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us: ; preds = %land.rhs.i.us, %while.body.i.us, %if.end.us
-  %incdec.ptr18.us = getelementptr inbounds i8, ptr %tensor_data.032.us, i64 4
-  %dec.us = add nsw i64 %n.031.us, -1
-  %cmp.us = icmp sgt i64 %n.031.us, 1
+  %incdec.ptr18.us = getelementptr inbounds i8, ptr %tensor_data.031.us, i64 4
+  %dec.us = add nsw i64 %n.032.us, -1
+  %cmp.us = icmp sgt i64 %n.032.us, 1
   br i1 %cmp.us, label %for.body.us, label %if.then.i.i.i19, !llvm.loop !100
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %indices.addr.034 = phi ptr [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %indices, %for.body.lr.ph ]
   %values.addr.033 = phi ptr [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032 = phi ptr [ %incdec.ptr18, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
-  %13 = load i32, ptr %tensor_data.032, align 4
+  %n.032 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031 = phi ptr [ %incdec.ptr18, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
+  %13 = load i32, ptr %tensor_data.031, align 4
   %cmp7.not = icmp eq i32 %13, 0
   br i1 %cmp7.not, label %if.end, label %if.then
 
@@ -5002,9 +5002,9 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !97
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit: ; preds = %land.rhs.i, %while.body.i, %if.end
-  %incdec.ptr18 = getelementptr inbounds i8, ptr %tensor_data.032, i64 4
-  %dec = add nsw i64 %n.031, -1
-  %cmp = icmp sgt i64 %n.031, 1
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %tensor_data.031, i64 4
+  %dec = add nsw i64 %n.032, -1
+  %cmp = icmp sgt i64 %n.032, 1
   br i1 %cmp, label %for.body, label %if.then.i.i.i19, !llvm.loop !100
 
 for.end:                                          ; preds = %for.cond.preheader
@@ -5080,9 +5080,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
   %values.addr.033.us = phi ptr [ %values.addr.1.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032.us = phi ptr [ %incdec.ptr18.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
-  %5 = load i64, ptr %tensor_data.032.us, align 8
+  %n.032.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031.us = phi ptr [ %incdec.ptr18.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
+  %5 = load i64, ptr %tensor_data.031.us, align 8
   %cmp7.not.us = icmp eq i64 %5, 0
   br i1 %cmp7.not.us, label %if.end.us, label %if.then.us
 
@@ -5133,17 +5133,17 @@ while.body.i.us:                                  ; preds = %land.rhs.i.us
   br i1 %cmp7.i.us, label %land.rhs.i.us, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us, !llvm.loop !97
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us: ; preds = %land.rhs.i.us, %while.body.i.us, %if.end.us
-  %incdec.ptr18.us = getelementptr inbounds i8, ptr %tensor_data.032.us, i64 8
-  %dec.us = add nsw i64 %n.031.us, -1
-  %cmp.us = icmp sgt i64 %n.031.us, 1
+  %incdec.ptr18.us = getelementptr inbounds i8, ptr %tensor_data.031.us, i64 8
+  %dec.us = add nsw i64 %n.032.us, -1
+  %cmp.us = icmp sgt i64 %n.032.us, 1
   br i1 %cmp.us, label %for.body.us, label %if.then.i.i.i19, !llvm.loop !101
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %indices.addr.034 = phi ptr [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %indices, %for.body.lr.ph ]
   %values.addr.033 = phi ptr [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032 = phi ptr [ %incdec.ptr18, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
-  %13 = load i64, ptr %tensor_data.032, align 8
+  %n.032 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031 = phi ptr [ %incdec.ptr18, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
+  %13 = load i64, ptr %tensor_data.031, align 8
   %cmp7.not = icmp eq i64 %13, 0
   br i1 %cmp7.not, label %if.end, label %if.then
 
@@ -5207,9 +5207,9 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !97
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit: ; preds = %land.rhs.i, %while.body.i, %if.end
-  %incdec.ptr18 = getelementptr inbounds i8, ptr %tensor_data.032, i64 8
-  %dec = add nsw i64 %n.031, -1
-  %cmp = icmp sgt i64 %n.031, 1
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %tensor_data.031, i64 8
+  %dec = add nsw i64 %n.032, -1
+  %cmp = icmp sgt i64 %n.032, 1
   br i1 %cmp, label %for.body, label %if.then.i.i.i19, !llvm.loop !101
 
 for.end:                                          ; preds = %for.cond.preheader
@@ -5285,9 +5285,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
   %values.addr.033.us = phi ptr [ %values.addr.1.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032.us = phi ptr [ %incdec.ptr20.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
-  %5 = load i8, ptr %tensor_data.032.us, align 1
+  %n.032.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031.us = phi ptr [ %incdec.ptr20.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
+  %5 = load i8, ptr %tensor_data.031.us, align 1
   %cmp8.not.us = icmp eq i8 %5, 0
   br i1 %cmp8.not.us, label %if.end.us, label %if.then.us
 
@@ -5338,17 +5338,17 @@ while.body.i.us:                                  ; preds = %land.rhs.i.us
   br i1 %cmp7.i.us, label %land.rhs.i.us, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us, !llvm.loop !102
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us: ; preds = %land.rhs.i.us, %while.body.i.us, %if.end.us
-  %incdec.ptr20.us = getelementptr inbounds i8, ptr %tensor_data.032.us, i64 1
-  %dec.us = add nsw i64 %n.031.us, -1
-  %cmp.us = icmp sgt i64 %n.031.us, 1
+  %incdec.ptr20.us = getelementptr inbounds i8, ptr %tensor_data.031.us, i64 1
+  %dec.us = add nsw i64 %n.032.us, -1
+  %cmp.us = icmp sgt i64 %n.032.us, 1
   br i1 %cmp.us, label %for.body.us, label %if.then.i.i.i19, !llvm.loop !103
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %indices.addr.034 = phi ptr [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %indices, %for.body.lr.ph ]
   %values.addr.033 = phi ptr [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032 = phi ptr [ %incdec.ptr20, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
-  %13 = load i8, ptr %tensor_data.032, align 1
+  %n.032 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031 = phi ptr [ %incdec.ptr20, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
+  %13 = load i8, ptr %tensor_data.031, align 1
   %cmp8.not = icmp eq i8 %13, 0
   br i1 %cmp8.not, label %if.end, label %if.then
 
@@ -5412,9 +5412,9 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !102
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit: ; preds = %land.rhs.i, %while.body.i, %if.end
-  %incdec.ptr20 = getelementptr inbounds i8, ptr %tensor_data.032, i64 1
-  %dec = add nsw i64 %n.031, -1
-  %cmp = icmp sgt i64 %n.031, 1
+  %incdec.ptr20 = getelementptr inbounds i8, ptr %tensor_data.031, i64 1
+  %dec = add nsw i64 %n.032, -1
+  %cmp = icmp sgt i64 %n.032, 1
   br i1 %cmp, label %for.body, label %if.then.i.i.i19, !llvm.loop !103
 
 for.end:                                          ; preds = %for.cond.preheader
@@ -5490,9 +5490,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
   %values.addr.033.us = phi ptr [ %values.addr.1.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032.us = phi ptr [ %incdec.ptr19.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
-  %5 = load i16, ptr %tensor_data.032.us, align 2
+  %n.032.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031.us = phi ptr [ %incdec.ptr19.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
+  %5 = load i16, ptr %tensor_data.031.us, align 2
   %cmp8.not.us = icmp eq i16 %5, 0
   br i1 %cmp8.not.us, label %if.end.us, label %if.then.us
 
@@ -5543,17 +5543,17 @@ while.body.i.us:                                  ; preds = %land.rhs.i.us
   br i1 %cmp7.i.us, label %land.rhs.i.us, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us, !llvm.loop !102
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us: ; preds = %land.rhs.i.us, %while.body.i.us, %if.end.us
-  %incdec.ptr19.us = getelementptr inbounds i8, ptr %tensor_data.032.us, i64 2
-  %dec.us = add nsw i64 %n.031.us, -1
-  %cmp.us = icmp sgt i64 %n.031.us, 1
+  %incdec.ptr19.us = getelementptr inbounds i8, ptr %tensor_data.031.us, i64 2
+  %dec.us = add nsw i64 %n.032.us, -1
+  %cmp.us = icmp sgt i64 %n.032.us, 1
   br i1 %cmp.us, label %for.body.us, label %if.then.i.i.i19, !llvm.loop !104
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %indices.addr.034 = phi ptr [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %indices, %for.body.lr.ph ]
   %values.addr.033 = phi ptr [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032 = phi ptr [ %incdec.ptr19, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
-  %13 = load i16, ptr %tensor_data.032, align 2
+  %n.032 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031 = phi ptr [ %incdec.ptr19, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
+  %13 = load i16, ptr %tensor_data.031, align 2
   %cmp8.not = icmp eq i16 %13, 0
   br i1 %cmp8.not, label %if.end, label %if.then
 
@@ -5617,9 +5617,9 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !102
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit: ; preds = %land.rhs.i, %while.body.i, %if.end
-  %incdec.ptr19 = getelementptr inbounds i8, ptr %tensor_data.032, i64 2
-  %dec = add nsw i64 %n.031, -1
-  %cmp = icmp sgt i64 %n.031, 1
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %tensor_data.031, i64 2
+  %dec = add nsw i64 %n.032, -1
+  %cmp = icmp sgt i64 %n.032, 1
   br i1 %cmp, label %for.body, label %if.then.i.i.i19, !llvm.loop !104
 
 for.end:                                          ; preds = %for.cond.preheader
@@ -5695,9 +5695,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
   %values.addr.033.us = phi ptr [ %values.addr.1.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032.us = phi ptr [ %incdec.ptr18.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
-  %5 = load i32, ptr %tensor_data.032.us, align 4
+  %n.032.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031.us = phi ptr [ %incdec.ptr18.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
+  %5 = load i32, ptr %tensor_data.031.us, align 4
   %cmp7.not.us = icmp eq i32 %5, 0
   br i1 %cmp7.not.us, label %if.end.us, label %if.then.us
 
@@ -5748,17 +5748,17 @@ while.body.i.us:                                  ; preds = %land.rhs.i.us
   br i1 %cmp7.i.us, label %land.rhs.i.us, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us, !llvm.loop !102
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us: ; preds = %land.rhs.i.us, %while.body.i.us, %if.end.us
-  %incdec.ptr18.us = getelementptr inbounds i8, ptr %tensor_data.032.us, i64 4
-  %dec.us = add nsw i64 %n.031.us, -1
-  %cmp.us = icmp sgt i64 %n.031.us, 1
+  %incdec.ptr18.us = getelementptr inbounds i8, ptr %tensor_data.031.us, i64 4
+  %dec.us = add nsw i64 %n.032.us, -1
+  %cmp.us = icmp sgt i64 %n.032.us, 1
   br i1 %cmp.us, label %for.body.us, label %if.then.i.i.i19, !llvm.loop !105
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %indices.addr.034 = phi ptr [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %indices, %for.body.lr.ph ]
   %values.addr.033 = phi ptr [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032 = phi ptr [ %incdec.ptr18, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
-  %13 = load i32, ptr %tensor_data.032, align 4
+  %n.032 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031 = phi ptr [ %incdec.ptr18, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
+  %13 = load i32, ptr %tensor_data.031, align 4
   %cmp7.not = icmp eq i32 %13, 0
   br i1 %cmp7.not, label %if.end, label %if.then
 
@@ -5822,9 +5822,9 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !102
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit: ; preds = %land.rhs.i, %while.body.i, %if.end
-  %incdec.ptr18 = getelementptr inbounds i8, ptr %tensor_data.032, i64 4
-  %dec = add nsw i64 %n.031, -1
-  %cmp = icmp sgt i64 %n.031, 1
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %tensor_data.031, i64 4
+  %dec = add nsw i64 %n.032, -1
+  %cmp = icmp sgt i64 %n.032, 1
   br i1 %cmp, label %for.body, label %if.then.i.i.i19, !llvm.loop !105
 
 for.end:                                          ; preds = %for.cond.preheader
@@ -5900,9 +5900,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
   %values.addr.033.us = phi ptr [ %values.addr.1.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032.us = phi ptr [ %incdec.ptr18.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
-  %5 = load i64, ptr %tensor_data.032.us, align 8
+  %n.032.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031.us = phi ptr [ %incdec.ptr18.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
+  %5 = load i64, ptr %tensor_data.031.us, align 8
   %cmp7.not.us = icmp eq i64 %5, 0
   br i1 %cmp7.not.us, label %if.end.us, label %if.then.us
 
@@ -5953,17 +5953,17 @@ while.body.i.us:                                  ; preds = %land.rhs.i.us
   br i1 %cmp7.i.us, label %land.rhs.i.us, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us, !llvm.loop !102
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us: ; preds = %land.rhs.i.us, %while.body.i.us, %if.end.us
-  %incdec.ptr18.us = getelementptr inbounds i8, ptr %tensor_data.032.us, i64 8
-  %dec.us = add nsw i64 %n.031.us, -1
-  %cmp.us = icmp sgt i64 %n.031.us, 1
+  %incdec.ptr18.us = getelementptr inbounds i8, ptr %tensor_data.031.us, i64 8
+  %dec.us = add nsw i64 %n.032.us, -1
+  %cmp.us = icmp sgt i64 %n.032.us, 1
   br i1 %cmp.us, label %for.body.us, label %if.then.i.i.i19, !llvm.loop !106
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %indices.addr.034 = phi ptr [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %indices, %for.body.lr.ph ]
   %values.addr.033 = phi ptr [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %values, %for.body.lr.ph ]
-  %tensor_data.032 = phi ptr [ %incdec.ptr18, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.031 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
-  %13 = load i64, ptr %tensor_data.032, align 8
+  %n.032 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.031 = phi ptr [ %incdec.ptr18, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
+  %13 = load i64, ptr %tensor_data.031, align 8
   %cmp7.not = icmp eq i64 %13, 0
   br i1 %cmp7.not, label %if.end, label %if.then
 
@@ -6027,9 +6027,9 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !102
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit: ; preds = %land.rhs.i, %while.body.i, %if.end
-  %incdec.ptr18 = getelementptr inbounds i8, ptr %tensor_data.032, i64 8
-  %dec = add nsw i64 %n.031, -1
-  %cmp = icmp sgt i64 %n.031, 1
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %tensor_data.031, i64 8
+  %dec = add nsw i64 %n.032, -1
+  %cmp = icmp sgt i64 %n.032, 1
   br i1 %cmp, label %for.body, label %if.then.i.i.i19, !llvm.loop !106
 
 for.end:                                          ; preds = %for.cond.preheader
@@ -6105,9 +6105,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
   %values.addr.032.us = phi ptr [ %values.addr.1.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %values, %for.body.lr.ph ]
-  %tensor_data.031.us = phi ptr [ %incdec.ptr20.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.030.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
-  %5 = load i8, ptr %tensor_data.031.us, align 1
+  %n.031.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.030.us = phi ptr [ %incdec.ptr20.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
+  %5 = load i8, ptr %tensor_data.030.us, align 1
   %cmp8.not.us = icmp eq i8 %5, 0
   br i1 %cmp8.not.us, label %if.end.us, label %if.then.us
 
@@ -6156,17 +6156,17 @@ while.body.i.us:                                  ; preds = %land.rhs.i.us
   br i1 %cmp7.i.us, label %land.rhs.i.us, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us, !llvm.loop !107
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us: ; preds = %land.rhs.i.us, %while.body.i.us, %if.end.us
-  %incdec.ptr20.us = getelementptr inbounds i8, ptr %tensor_data.031.us, i64 1
-  %dec.us = add nsw i64 %n.030.us, -1
-  %cmp.us = icmp sgt i64 %n.030.us, 1
+  %incdec.ptr20.us = getelementptr inbounds i8, ptr %tensor_data.030.us, i64 1
+  %dec.us = add nsw i64 %n.031.us, -1
+  %cmp.us = icmp sgt i64 %n.031.us, 1
   br i1 %cmp.us, label %for.body.us, label %if.then.i.i.i18, !llvm.loop !108
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %indices.addr.033 = phi ptr [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %indices, %for.body.lr.ph ]
   %values.addr.032 = phi ptr [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %values, %for.body.lr.ph ]
-  %tensor_data.031 = phi ptr [ %incdec.ptr20, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.030 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
-  %13 = load i8, ptr %tensor_data.031, align 1
+  %n.031 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.030 = phi ptr [ %incdec.ptr20, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
+  %13 = load i8, ptr %tensor_data.030, align 1
   %cmp8.not = icmp eq i8 %13, 0
   br i1 %cmp8.not, label %if.end, label %if.then
 
@@ -6228,9 +6228,9 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !107
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit: ; preds = %land.rhs.i, %while.body.i, %if.end
-  %incdec.ptr20 = getelementptr inbounds i8, ptr %tensor_data.031, i64 1
-  %dec = add nsw i64 %n.030, -1
-  %cmp = icmp sgt i64 %n.030, 1
+  %incdec.ptr20 = getelementptr inbounds i8, ptr %tensor_data.030, i64 1
+  %dec = add nsw i64 %n.031, -1
+  %cmp = icmp sgt i64 %n.031, 1
   br i1 %cmp, label %for.body, label %if.then.i.i.i18, !llvm.loop !108
 
 for.end:                                          ; preds = %for.cond.preheader
@@ -6306,9 +6306,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
   %values.addr.032.us = phi ptr [ %values.addr.1.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %values, %for.body.lr.ph ]
-  %tensor_data.031.us = phi ptr [ %incdec.ptr19.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.030.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
-  %5 = load i16, ptr %tensor_data.031.us, align 2
+  %n.031.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.030.us = phi ptr [ %incdec.ptr19.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
+  %5 = load i16, ptr %tensor_data.030.us, align 2
   %cmp8.not.us = icmp eq i16 %5, 0
   br i1 %cmp8.not.us, label %if.end.us, label %if.then.us
 
@@ -6357,17 +6357,17 @@ while.body.i.us:                                  ; preds = %land.rhs.i.us
   br i1 %cmp7.i.us, label %land.rhs.i.us, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us, !llvm.loop !107
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us: ; preds = %land.rhs.i.us, %while.body.i.us, %if.end.us
-  %incdec.ptr19.us = getelementptr inbounds i8, ptr %tensor_data.031.us, i64 2
-  %dec.us = add nsw i64 %n.030.us, -1
-  %cmp.us = icmp sgt i64 %n.030.us, 1
+  %incdec.ptr19.us = getelementptr inbounds i8, ptr %tensor_data.030.us, i64 2
+  %dec.us = add nsw i64 %n.031.us, -1
+  %cmp.us = icmp sgt i64 %n.031.us, 1
   br i1 %cmp.us, label %for.body.us, label %if.then.i.i.i18, !llvm.loop !109
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %indices.addr.033 = phi ptr [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %indices, %for.body.lr.ph ]
   %values.addr.032 = phi ptr [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %values, %for.body.lr.ph ]
-  %tensor_data.031 = phi ptr [ %incdec.ptr19, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.030 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
-  %13 = load i16, ptr %tensor_data.031, align 2
+  %n.031 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.030 = phi ptr [ %incdec.ptr19, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
+  %13 = load i16, ptr %tensor_data.030, align 2
   %cmp8.not = icmp eq i16 %13, 0
   br i1 %cmp8.not, label %if.end, label %if.then
 
@@ -6429,9 +6429,9 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !107
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit: ; preds = %land.rhs.i, %while.body.i, %if.end
-  %incdec.ptr19 = getelementptr inbounds i8, ptr %tensor_data.031, i64 2
-  %dec = add nsw i64 %n.030, -1
-  %cmp = icmp sgt i64 %n.030, 1
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %tensor_data.030, i64 2
+  %dec = add nsw i64 %n.031, -1
+  %cmp = icmp sgt i64 %n.031, 1
   br i1 %cmp, label %for.body, label %if.then.i.i.i18, !llvm.loop !109
 
 for.end:                                          ; preds = %for.cond.preheader
@@ -6507,9 +6507,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
   %values.addr.032.us = phi ptr [ %values.addr.1.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %values, %for.body.lr.ph ]
-  %tensor_data.031.us = phi ptr [ %incdec.ptr18.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.030.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
-  %5 = load i32, ptr %tensor_data.031.us, align 4
+  %n.031.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.030.us = phi ptr [ %incdec.ptr18.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
+  %5 = load i32, ptr %tensor_data.030.us, align 4
   %cmp7.not.us = icmp eq i32 %5, 0
   br i1 %cmp7.not.us, label %if.end.us, label %if.then.us
 
@@ -6558,17 +6558,17 @@ while.body.i.us:                                  ; preds = %land.rhs.i.us
   br i1 %cmp7.i.us, label %land.rhs.i.us, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us, !llvm.loop !107
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us: ; preds = %land.rhs.i.us, %while.body.i.us, %if.end.us
-  %incdec.ptr18.us = getelementptr inbounds i8, ptr %tensor_data.031.us, i64 4
-  %dec.us = add nsw i64 %n.030.us, -1
-  %cmp.us = icmp sgt i64 %n.030.us, 1
+  %incdec.ptr18.us = getelementptr inbounds i8, ptr %tensor_data.030.us, i64 4
+  %dec.us = add nsw i64 %n.031.us, -1
+  %cmp.us = icmp sgt i64 %n.031.us, 1
   br i1 %cmp.us, label %for.body.us, label %if.then.i.i.i18, !llvm.loop !110
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %indices.addr.033 = phi ptr [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %indices, %for.body.lr.ph ]
   %values.addr.032 = phi ptr [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %values, %for.body.lr.ph ]
-  %tensor_data.031 = phi ptr [ %incdec.ptr18, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.030 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
-  %13 = load i32, ptr %tensor_data.031, align 4
+  %n.031 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.030 = phi ptr [ %incdec.ptr18, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
+  %13 = load i32, ptr %tensor_data.030, align 4
   %cmp7.not = icmp eq i32 %13, 0
   br i1 %cmp7.not, label %if.end, label %if.then
 
@@ -6630,9 +6630,9 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !107
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit: ; preds = %land.rhs.i, %while.body.i, %if.end
-  %incdec.ptr18 = getelementptr inbounds i8, ptr %tensor_data.031, i64 4
-  %dec = add nsw i64 %n.030, -1
-  %cmp = icmp sgt i64 %n.030, 1
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %tensor_data.030, i64 4
+  %dec = add nsw i64 %n.031, -1
+  %cmp = icmp sgt i64 %n.031, 1
   br i1 %cmp, label %for.body, label %if.then.i.i.i18, !llvm.loop !110
 
 for.end:                                          ; preds = %for.cond.preheader
@@ -6708,9 +6708,9 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
   %values.addr.032.us = phi ptr [ %values.addr.1.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %values, %for.body.lr.ph ]
-  %tensor_data.031.us = phi ptr [ %incdec.ptr18.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.030.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
-  %5 = load i64, ptr %tensor_data.031.us, align 8
+  %n.031.us = phi i64 [ %dec.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.030.us = phi ptr [ %incdec.ptr18.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %cond.i.i, %for.body.lr.ph ]
+  %5 = load i64, ptr %tensor_data.030.us, align 8
   %cmp7.not.us = icmp eq i64 %5, 0
   br i1 %cmp7.not.us, label %if.end.us, label %if.then.us
 
@@ -6759,17 +6759,17 @@ while.body.i.us:                                  ; preds = %land.rhs.i.us
   br i1 %cmp7.i.us, label %land.rhs.i.us, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us, !llvm.loop !107
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us: ; preds = %land.rhs.i.us, %while.body.i.us, %if.end.us
-  %incdec.ptr18.us = getelementptr inbounds i8, ptr %tensor_data.031.us, i64 8
-  %dec.us = add nsw i64 %n.030.us, -1
-  %cmp.us = icmp sgt i64 %n.030.us, 1
+  %incdec.ptr18.us = getelementptr inbounds i8, ptr %tensor_data.030.us, i64 8
+  %dec.us = add nsw i64 %n.031.us, -1
+  %cmp.us = icmp sgt i64 %n.031.us, 1
   br i1 %cmp.us, label %for.body.us, label %if.then.i.i.i18, !llvm.loop !111
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit
   %indices.addr.033 = phi ptr [ %indices.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %indices, %for.body.lr.ph ]
   %values.addr.032 = phi ptr [ %values.addr.1, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %values, %for.body.lr.ph ]
-  %tensor_data.031 = phi ptr [ %incdec.ptr18, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
-  %n.030 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
-  %13 = load i64, ptr %tensor_data.031, align 8
+  %n.031 = phi i64 [ %dec, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %call6, %for.body.lr.ph ]
+  %tensor_data.030 = phi ptr [ %incdec.ptr18, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit ], [ %cond.i.i, %for.body.lr.ph ]
+  %13 = load i64, ptr %tensor_data.030, align 8
   %cmp7.not = icmp eq i64 %13, 0
   br i1 %cmp7.not, label %if.end, label %if.then
 
@@ -6831,9 +6831,9 @@ while.body.i:                                     ; preds = %land.rhs.i
   br i1 %cmp7.i, label %land.rhs.i, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit, !llvm.loop !107
 
 _ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit: ; preds = %land.rhs.i, %while.body.i, %if.end
-  %incdec.ptr18 = getelementptr inbounds i8, ptr %tensor_data.031, i64 8
-  %dec = add nsw i64 %n.030, -1
-  %cmp = icmp sgt i64 %n.030, 1
+  %incdec.ptr18 = getelementptr inbounds i8, ptr %tensor_data.030, i64 8
+  %dec = add nsw i64 %n.031, -1
+  %cmp = icmp sgt i64 %n.031, 1
   br i1 %cmp, label %for.body, label %if.then.i.i.i18, !llvm.loop !111
 
 for.end:                                          ; preds = %for.cond.preheader
@@ -17867,8 +17867,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br label %while.body.i.i3
 
 while.body.i.i3:                                  ; preds = %if.end.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i
-  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %incdec.ptr.i23.i.i, %if.end.i.i ]
+  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__comp.val2.val.i.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i4.i = icmp sgt i32 %__comp.val2.val.i.i, 0
   br i1 %cmp1.i.i.i4.i, label %for.body.lr.ph.i.i.lr.ph.i.i, label %while.end.thread.i.i
@@ -18271,8 +18271,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br label %while.body.i.i3
 
 while.body.i.i3:                                  ; preds = %if.end.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i
-  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %incdec.ptr.i23.i.i, %if.end.i.i ]
+  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__comp.val2.val.i.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i4.i = icmp sgt i32 %__comp.val2.val.i.i, 0
   br i1 %cmp1.i.i.i4.i, label %for.body.lr.ph.i.i.lr.ph.i.i, label %while.end.thread.i.i
@@ -18672,8 +18672,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br label %while.body.i.i3
 
 while.body.i.i3:                                  ; preds = %if.end.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i
-  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %incdec.ptr.i23.i.i, %if.end.i.i ]
+  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__comp.val2.val.i.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i4.i = icmp sgt i32 %__comp.val2.val.i.i, 0
   br i1 %cmp1.i.i.i4.i, label %for.body.lr.ph.i.i.lr.ph.i.i, label %while.end.thread.i.i
@@ -19073,8 +19073,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br label %while.body.i.i3
 
 while.body.i.i3:                                  ; preds = %if.end.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i
-  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %incdec.ptr.i23.i.i, %if.end.i.i ]
+  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIhmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__comp.val2.val.i.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i4.i = icmp sgt i32 %__comp.val2.val.i.i, 0
   br i1 %cmp1.i.i.i4.i, label %for.body.lr.ph.i.i.lr.ph.i.i, label %while.end.thread.i.i
@@ -19474,8 +19474,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br label %while.body.i.i3
 
 while.body.i.i3:                                  ; preds = %if.end.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i
-  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %incdec.ptr.i23.i.i, %if.end.i.i ]
+  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIthEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__comp.val2.val.i.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i4.i = icmp sgt i32 %__comp.val2.val.i.i, 0
   br i1 %cmp1.i.i.i4.i, label %for.body.lr.ph.i.i.lr.ph.i.i, label %while.end.thread.i.i
@@ -19875,8 +19875,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br label %while.body.i.i3
 
 while.body.i.i3:                                  ; preds = %if.end.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i
-  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %incdec.ptr.i23.i.i, %if.end.i.i ]
+  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIttEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__comp.val2.val.i.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i4.i = icmp sgt i32 %__comp.val2.val.i.i, 0
   br i1 %cmp1.i.i.i4.i, label %for.body.lr.ph.i.i.lr.ph.i.i, label %while.end.thread.i.i
@@ -20276,8 +20276,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br label %while.body.i.i3
 
 while.body.i.i3:                                  ; preds = %if.end.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i
-  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %incdec.ptr.i23.i.i, %if.end.i.i ]
+  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__comp.val2.val.i.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i4.i = icmp sgt i32 %__comp.val2.val.i.i, 0
   br i1 %cmp1.i.i.i4.i, label %for.body.lr.ph.i.i.lr.ph.i.i, label %while.end.thread.i.i
@@ -20677,8 +20677,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br label %while.body.i.i3
 
 while.body.i.i3:                                  ; preds = %if.end.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i
-  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %incdec.ptr.i23.i.i, %if.end.i.i ]
+  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorItmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__comp.val2.val.i.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i4.i = icmp sgt i32 %__comp.val2.val.i.i, 0
   br i1 %cmp1.i.i.i4.i, label %for.body.lr.ph.i.i.lr.ph.i.i, label %while.end.thread.i.i
@@ -21078,8 +21078,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br label %while.body.i.i3
 
 while.body.i.i3:                                  ; preds = %if.end.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i
-  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %incdec.ptr.i23.i.i, %if.end.i.i ]
+  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__comp.val2.val.i.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i4.i = icmp sgt i32 %__comp.val2.val.i.i, 0
   br i1 %cmp1.i.i.i4.i, label %for.body.lr.ph.i.i.lr.ph.i.i, label %while.end.thread.i.i
@@ -21479,8 +21479,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br label %while.body.i.i3
 
 while.body.i.i3:                                  ; preds = %if.end.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i
-  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %incdec.ptr.i23.i.i, %if.end.i.i ]
+  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjtEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__comp.val2.val.i.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i4.i = icmp sgt i32 %__comp.val2.val.i.i, 0
   br i1 %cmp1.i.i.i4.i, label %for.body.lr.ph.i.i.lr.ph.i.i, label %while.end.thread.i.i
@@ -21880,8 +21880,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br label %while.body.i.i3
 
 while.body.i.i3:                                  ; preds = %if.end.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i
-  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %incdec.ptr.i23.i.i, %if.end.i.i ]
+  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjjEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__comp.val2.val.i.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i4.i = icmp sgt i32 %__comp.val2.val.i.i, 0
   br i1 %cmp1.i.i.i4.i, label %for.body.lr.ph.i.i.lr.ph.i.i, label %while.end.thread.i.i
@@ -22281,8 +22281,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br label %while.body.i.i3
 
 while.body.i.i3:                                  ; preds = %if.end.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i
-  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %incdec.ptr.i23.i.i, %if.end.i.i ]
+  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIjmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__comp.val2.val.i.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i4.i = icmp sgt i32 %__comp.val2.val.i.i, 0
   br i1 %cmp1.i.i.i4.i, label %for.body.lr.ph.i.i.lr.ph.i.i, label %while.end.thread.i.i
@@ -22682,8 +22682,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br label %while.body.i.i3
 
 while.body.i.i3:                                  ; preds = %if.end.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i
-  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %incdec.ptr.i23.i.i, %if.end.i.i ]
+  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlhEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__comp.val2.val.i.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i4.i = icmp sgt i32 %__comp.val2.val.i.i, 0
   br i1 %cmp1.i.i.i4.i, label %for.body.lr.ph.i.i.lr.ph.i.i, label %while.end.thread.i.i
@@ -23083,8 +23083,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br label %while.body.i.i3
 
 while.body.i.i3:                                  ; preds = %if.end.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i
-  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %incdec.ptr.i23.i.i, %if.end.i.i ]
+  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIltEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__comp.val2.val.i.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i4.i = icmp sgt i32 %__comp.val2.val.i.i, 0
   br i1 %cmp1.i.i.i4.i, label %for.body.lr.ph.i.i.lr.ph.i.i, label %while.end.thread.i.i
@@ -23484,8 +23484,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br label %while.body.i.i3
 
 while.body.i.i3:                                  ; preds = %if.end.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i
-  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %incdec.ptr.i23.i.i, %if.end.i.i ]
+  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIljEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__comp.val2.val.i.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i4.i = icmp sgt i32 %__comp.val2.val.i.i, 0
   br i1 %cmp1.i.i.i4.i, label %for.body.lr.ph.i.i.lr.ph.i.i, label %while.end.thread.i.i
@@ -23885,8 +23885,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEE
   br label %while.body.i.i3
 
 while.body.i.i3:                                  ; preds = %if.end.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i
-  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %incdec.ptr.i23.i.i, %if.end.i.i ]
+  %__last.sroa.0.0.i.i = phi ptr [ %storemerge2256, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_comp_iterIZN5arrow8internal12_GLOBAL__N_124ConvertColumnMajorTensorIlmEEvRKNS9_6TensorEPT_PT0_lEUlllE_EEEvSG_SG_SG_SG_SI_.exit.i ], [ %__last.sroa.0.139.i.i, %if.end.i.i ]
   %__comp.val2.val.i.i = load i32, ptr %__comp.coerce0, align 4
   %cmp1.i.i.i4.i = icmp sgt i32 %__comp.val2.val.i.i, 0
   br i1 %cmp1.i.i.i4.i, label %for.body.lr.ph.i.i.lr.ph.i.i, label %while.end.thread.i.i

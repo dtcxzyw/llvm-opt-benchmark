@@ -224,7 +224,7 @@ define range(i32 -13, 1) i32 @opal_util_keyval_parse(ptr noundef %0, ptr noundef
   br i1 %.not63.i, label %parse_line.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %57, %237
-  %.01664.i = phi i32 [ %238, %237 ], [ %14, %57 ]
+  %.064.i = phi i32 [ %238, %237 ], [ %14, %57 ]
   %59 = load i64, ptr @key_buffer_len, align 8
   %60 = load ptr, ptr @opal_util_keyval_yytext, align 8
   %61 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #14
@@ -255,7 +255,7 @@ save_param_name.exit.i:                           ; preds = %64
   %70 = phi ptr [ %.pre4.i.i, %67 ], [ %60, %.lr.ph.i ]
   %71 = phi ptr [ %65, %67 ], [ %.pre.i.i, %.lr.ph.i ]
   tail call void @opal_string_copy(ptr noundef %71, ptr noundef %70, i64 noundef %69) #13
-  switch i32 %.01664.i, label %233 [
+  switch i32 %.064.i, label %233 [
     i32 6, label %72
     i32 8, label %142
     i32 7, label %192

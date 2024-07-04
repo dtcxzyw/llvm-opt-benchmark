@@ -16750,8 +16750,8 @@ switch.lookup:                                    ; preds = %337
   br label %342
 
 342:                                              ; preds = %switch.lookup, %337
-  %.sroa.5.0 = phi ptr [ null, %337 ], [ %switch.load, %switch.lookup ]
   %.sroa.0211.0 = phi i64 [ 0, %337 ], [ 5, %switch.lookup ]
+  %.sroa.5.0 = phi ptr [ null, %337 ], [ %switch.load, %switch.lookup ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   store i64 %.sroa.0211.0, ptr %6, align 8, !alias.scope !701, !noalias !704
   %.sroa.2.0..sroa_idx.i4.i138 = getelementptr inbounds i8, ptr %6, i64 8
@@ -17616,16 +17616,16 @@ define internal fastcc void @"_ZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERS
   br label %20
 
 19:                                               ; preds = %20
-  %.016.add = add nuw nsw i64 %.016.idx5, 32
-  %.not20 = icmp eq i64 %.016.add, 64
+  %.015.add = add nuw nsw i64 %.015.idx5, 32
+  %.not20 = icmp eq i64 %.015.add, 64
   br i1 %.not20, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_.exit, label %20
 
 20:                                               ; preds = %.preheader, %19
-  %.016.idx5 = phi i64 [ %.016.add, %19 ], [ 0, %.preheader ]
-  %.016.ptr6 = getelementptr inbounds i8, ptr @"_ZZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11", i64 %.016.idx5
+  %.015.idx5 = phi i64 [ %.015.add, %19 ], [ 0, %.preheader ]
+  %.015.ptr6 = getelementptr inbounds i8, ptr @"_ZZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEEE11listOptionsB5cxx11", i64 %.015.idx5
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
-  %23 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %.016.ptr6, i64 noundef 0) #21
+  %23 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %.015.ptr6, i64 noundef 0) #21
   %.not21 = icmp eq i64 %23, -1
   br i1 %.not21, label %19, label %24
 
@@ -17639,7 +17639,7 @@ define internal fastcc void @"_ZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERS
   br i1 %.not.i, label %33, label %30
 
 30:                                               ; preds = %24
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %.016.ptr6)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %.015.ptr6)
   %31 = load ptr, ptr %26, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 32
   store ptr %32, ptr %26, align 8
@@ -17647,7 +17647,7 @@ define internal fastcc void @"_ZZN22cmQtAutoGenInitializer7InitRccEvENK3$_0clERS
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds i8, ptr %25, i64 40
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr %27, ptr noundef nonnull align 8 dereferenceable(32) %.016.ptr6)
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr %27, ptr noundef nonnull align 8 dereferenceable(32) %.015.ptr6)
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_.exit
 
 .thread:                                          ; preds = %15
@@ -27671,15 +27671,15 @@ _ZNSt6vectorIN11cmQtAutoGen14IntegerVersionESaIS1_EE7reserveEm.exit: ; preds = %
   br i1 %.not121, label %.thread, label %.lr.ph
 
 _ZNSt6vectorIN11cmQtAutoGen14IntegerVersionESaIS1_EE2atEm.exit: ; preds = %.lr.ph, %142
-  %.sroa.097.0.in.in = phi ptr [ %138, %142 ], [ %.sroa.093.0130, %.lr.ph ]
-  %.sroa.097.0.in = load i64, ptr %.sroa.097.0.in.in, align 4
-  %.sroa.6.sroa.0.0.in = lshr i64 %.sroa.097.0.in, 32
-  %148 = and i64 %.sroa.097.0.in, 4294967295
+  %.sroa.6.sroa.0.0.in.in.in = phi ptr [ %138, %142 ], [ %.sroa.093.0130, %.lr.ph ]
+  %.sroa.6.sroa.0.0.in.in = load i64, ptr %.sroa.6.sroa.0.0.in.in.in, align 4
+  %.sroa.6.sroa.0.0.in = lshr i64 %.sroa.6.sroa.0.0.in.in, 32
+  %148 = and i64 %.sroa.6.sroa.0.0.in.in, 4294967295
   %149 = icmp eq i64 %148, 0
   br i1 %149, label %.thread, label %329
 
 .thread:                                          ; preds = %146, %137, %_ZNSt6vectorIN11cmQtAutoGen14IntegerVersionESaIS1_EE2atEm.exit
-  %.sroa.6.sroa.0.0120 = phi i64 [ %.sroa.6.sroa.0.0.in, %_ZNSt6vectorIN11cmQtAutoGen14IntegerVersionESaIS1_EE2atEm.exit ], [ 0, %137 ], [ 0, %146 ]
+  %.sroa.6.sroa.0.0119 = phi i64 [ %.sroa.6.sroa.0.0.in, %_ZNSt6vectorIN11cmQtAutoGen14IntegerVersionESaIS1_EE2atEm.exit ], [ 0, %137 ], [ 0, %146 ]
   %150 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
   br i1 %150, label %151, label %180
 
@@ -28267,8 +28267,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %329
 
 329:                                              ; preds = %180, %328, %_ZNSt6vectorIN11cmQtAutoGen14IntegerVersionESaIS1_EE2atEm.exit
-  %.sroa.097.1 = phi i64 [ 0, %180 ], [ %.sroa.0.0.i, %328 ], [ %.sroa.097.0.in, %_ZNSt6vectorIN11cmQtAutoGen14IntegerVersionESaIS1_EE2atEm.exit ]
-  %.sroa.6.sroa.0.1 = phi i64 [ %.sroa.6.sroa.0.0120, %180 ], [ %.sroa.6.0.i, %328 ], [ %.sroa.6.sroa.0.0.in, %_ZNSt6vectorIN11cmQtAutoGen14IntegerVersionESaIS1_EE2atEm.exit ]
+  %.sroa.6.sroa.0.1 = phi i64 [ %.sroa.6.sroa.0.0119, %180 ], [ %.sroa.6.0.i, %328 ], [ %.sroa.6.sroa.0.0.in, %_ZNSt6vectorIN11cmQtAutoGen14IntegerVersionESaIS1_EE2atEm.exit ]
+  %.sroa.097.1 = phi i64 [ 0, %180 ], [ %.sroa.0.0.i, %328 ], [ %.sroa.6.sroa.0.0.in.in, %_ZNSt6vectorIN11cmQtAutoGen14IntegerVersionESaIS1_EE2atEm.exit ]
   %330 = load ptr, ptr %31, align 8
   %.not.i.i.i = icmp eq ptr %330, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN11cmQtAutoGen14IntegerVersionESaIS1_EED2Ev.exit, label %331
@@ -28280,7 +28280,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 _ZNSt6vectorIN11cmQtAutoGen14IntegerVersionESaIS1_EED2Ev.exit: ; preds = %329, %331
   %.sroa.6.0.insert.ext = shl nuw i64 %.sroa.6.sroa.0.1, 32
   %.sroa.097.0.insert.ext = and i64 %.sroa.097.1, 4294967295
-  %.sroa.097.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.ext, %.sroa.097.0.insert.ext
+  %.sroa.097.0.insert.insert = or disjoint i64 %.sroa.097.0.insert.ext, %.sroa.6.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.097.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.0.i, 1
   ret { i64, i32 } %.fca.1.insert
@@ -31627,40 +31627,40 @@ define linkonce_odr dso_local void @_ZNSt7__cxx119to_stringEj(ptr dead_on_unwind
   br i1 %4, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %16
-  %.02230.i = phi i32 [ %17, %16 ], [ %1, %2 ]
-  %.02329.i = phi i32 [ %18, %16 ], [ 1, %2 ]
-  %5 = icmp ult i32 %.02230.i, 100
+  %.030.i = phi i32 [ %18, %16 ], [ 1, %2 ]
+  %.02329.i = phi i32 [ %17, %16 ], [ %1, %2 ]
+  %5 = icmp ult i32 %.02329.i, 100
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %.lr.ph.i
-  %7 = add i32 %.02329.i, 1
+  %7 = add i32 %.030.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = icmp ult i32 %.02230.i, 1000
+  %9 = icmp ult i32 %.02329.i, 1000
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = add i32 %.02329.i, 2
+  %11 = add i32 %.030.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 12:                                               ; preds = %8
-  %13 = icmp ult i32 %.02230.i, 10000
+  %13 = icmp ult i32 %.02329.i, 10000
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
-  %15 = add i32 %.02329.i, 3
+  %15 = add i32 %.030.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 16:                                               ; preds = %12
-  %17 = udiv i32 %.02230.i, 10000
-  %18 = add i32 %.02329.i, 4
-  %19 = icmp ult i32 %.02230.i, 100000
+  %17 = udiv i32 %.02329.i, 10000
+  %18 = add i32 %.030.i, 4
+  %19 = icmp ult i32 %.02329.i, 100000
   br i1 %19, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !1039
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %14
-  %.0.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
-  %20 = zext i32 %.0.i to i64
+  %.022.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
+  %20 = zext i32 %.022.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #21
   %21 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %61

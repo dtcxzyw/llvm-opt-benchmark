@@ -7,8 +7,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.wc_HmacHash = type { %struct.wc_Sha3 }
 %struct.wc_Sha3 = type { [25 x i64], [200 x i8], i8, ptr }
 
-@switch.table.wc_PRF = private unnamed_addr constant [6 x i32] [i32 16, i32 20, i32 16, i32 32, i32 48, i32 64], align 4
-@switch.table.wc_PRF.1 = private unnamed_addr constant [6 x i32] [i32 3, i32 4, i32 3, i32 6, i32 7, i32 8], align 4
+@switch.table.wc_PRF = private unnamed_addr constant [6 x i32] [i32 3, i32 4, i32 3, i32 6, i32 7, i32 8], align 4
+@switch.table.wc_PRF.1 = private unnamed_addr constant [6 x i32] [i32 16, i32 20, i32 16, i32 32, i32 48, i32 64], align 4
 
 ; Function Attrs: nounwind uwtable
 define i32 @wc_PRF(ptr nocapture noundef writeonly %result, i32 noundef %resLen, ptr noundef %secret, i32 noundef %secLen, ptr noundef %seed, i32 noundef %seedLen, i32 noundef %hash, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
@@ -33,8 +33,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %2 = zext nneg i32 %switch.tableidx to i64
   %switch.gep93 = getelementptr inbounds [6 x i32], ptr @switch.table.wc_PRF.1, i64 0, i64 %2
   %switch.load94 = load i32, ptr %switch.gep93, align 4
-  %div = udiv i32 %resLen, %switch.load
-  %rem = urem i32 %resLen, %switch.load
+  %div = udiv i32 %resLen, %switch.load94
+  %rem = urem i32 %resLen, %switch.load94
   %tobool = icmp ne i32 %rem, 0
   %add = zext i1 %tobool to i32
   %spec.select = add nuw nsw i32 %div, %add
@@ -48,7 +48,7 @@ if.end6:                                          ; preds = %switch.lookup
   br i1 %cmp7, label %if.then8, label %for.cond.preheader.i
 
 if.then8:                                         ; preds = %if.end6
-  %call10 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef %switch.load94, ptr noundef %secret, i32 noundef %secLen) #6
+  %call10 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef %switch.load, ptr noundef %secret, i32 noundef %secLen) #6
   %cmp11 = icmp eq i32 %call10, 0
   br i1 %cmp11, label %if.end15, label %if.end67
 
@@ -63,14 +63,14 @@ if.end21:                                         ; preds = %if.end15
   br i1 %cmp22, label %for.cond.preheader, label %if.end67
 
 for.cond.preheader:                               ; preds = %if.end21
-  %conv50 = zext nneg i32 %switch.load to i64
+  %conv50 = zext nneg i32 %switch.load94 to i64
   %conv = zext nneg i32 %rem to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %idx.092 = phi i32 [ 0, %for.cond.preheader ], [ %idx.1, %for.inc ]
   %i.091 = phi i32 [ 0, %for.cond.preheader ], [ %inc, %for.inc ]
-  %call27 = call i32 @wc_HmacUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %previous, i32 noundef %switch.load) #6
+  %call27 = call i32 @wc_HmacUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %previous, i32 noundef %switch.load94) #6
   %cmp28.not = icmp eq i32 %call27, 0
   br i1 %cmp28.not, label %if.end30, label %if.end67
 
@@ -97,12 +97,12 @@ if.then44:                                        ; preds = %if.end41
 
 if.else:                                          ; preds = %if.end41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx, ptr noundef nonnull align 16 dereferenceable(1) %current, i64 %conv50, i1 false)
-  %call54 = call i32 @wc_HmacUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %previous, i32 noundef %switch.load) #6
+  %call54 = call i32 @wc_HmacUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %previous, i32 noundef %switch.load94) #6
   %cmp55.not = icmp eq i32 %call54, 0
   br i1 %cmp55.not, label %if.end58, label %if.end67
 
 if.end58:                                         ; preds = %if.else
-  %add51 = add i32 %idx.092, %switch.load
+  %add51 = add i32 %idx.092, %switch.load94
   %call61 = call i32 @wc_HmacFinal(ptr noundef nonnull %hmac, ptr noundef nonnull %previous) #6
   %cmp62.not = icmp eq i32 %call61, 0
   br i1 %cmp62.not, label %for.inc, label %if.end67

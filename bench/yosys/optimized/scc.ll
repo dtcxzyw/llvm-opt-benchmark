@@ -1657,7 +1657,7 @@ define internal void @_ZN12_GLOBAL__N_17SccPass7executeESt6vectorINSt7__cxx1112b
   %.064621 = phi i1 [ %.165, %117 ], [ false, %.preheader222 ]
   %.066620 = phi i1 [ %.167, %117 ], [ false, %.preheader222 ]
   %.068619 = phi i32 [ %.169, %117 ], [ -1, %.preheader222 ]
-  %.070618 = phi i32 [ %.171, %117 ], [ -1, %.preheader222 ]
+  %.071618 = phi i32 [ %.172, %117 ], [ -1, %.preheader222 ]
   %.083617 = phi i64 [ %118, %117 ], [ 1, %.preheader222 ]
   %48 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %47, i64 %.083617
   %49 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull @.str.31) #22
@@ -1771,7 +1771,7 @@ define internal void @_ZN12_GLOBAL__N_17SccPass7executeESt6vectorINSt7__cxx1112b
 
 117:                                              ; preds = %112, %108, %105, %83, %79, %75, %59
   %.184 = phi i64 [ %52, %59 ], [ %68, %75 ], [ %.083617, %79 ], [ %.083617, %83 ], [ %94, %105 ], [ %.083617, %108 ], [ %.083617, %112 ]
-  %.171 = phi i32 [ %.070618, %59 ], [ %78, %75 ], [ %.070618, %79 ], [ %.070618, %83 ], [ %.070618, %105 ], [ %.070618, %108 ], [ %.070618, %112 ]
+  %.172 = phi i32 [ %.071618, %59 ], [ %78, %75 ], [ %.071618, %79 ], [ %.071618, %83 ], [ %.071618, %105 ], [ %.071618, %108 ], [ %.071618, %112 ]
   %.169 = phi i32 [ %62, %59 ], [ %.068619, %75 ], [ %.068619, %79 ], [ %.068619, %83 ], [ %.068619, %105 ], [ %.068619, %108 ], [ %.068619, %112 ]
   %.167 = phi i1 [ %.066620, %59 ], [ %.066620, %75 ], [ %.066620, %79 ], [ %.066620, %83 ], [ %.066620, %105 ], [ %.066620, %108 ], [ true, %112 ]
   %.165 = phi i1 [ %.064621, %59 ], [ %.064621, %75 ], [ true, %79 ], [ %.064621, %83 ], [ %.064621, %105 ], [ %.064621, %108 ], [ %.064621, %112 ]
@@ -1789,7 +1789,7 @@ define internal void @_ZN12_GLOBAL__N_17SccPass7executeESt6vectorINSt7__cxx1112b
 
 ._crit_edge:                                      ; preds = %117, %112, %.preheader222
   %.083.lcssa = phi i64 [ 1, %.preheader222 ], [ %.083617, %112 ], [ %118, %117 ]
-  %.070.lcssa = phi i32 [ -1, %.preheader222 ], [ %.070618, %112 ], [ %.171, %117 ]
+  %.071.lcssa = phi i32 [ -1, %.preheader222 ], [ %.071618, %112 ], [ %.172, %117 ]
   %.068.lcssa = phi i32 [ -1, %.preheader222 ], [ %.068619, %112 ], [ %.169, %117 ]
   %.066.lcssa = phi i1 [ false, %.preheader222 ], [ %.066620, %112 ], [ %.167, %117 ]
   %.064.lcssa = phi i1 [ false, %.preheader222 ], [ %.064621, %112 ], [ %.165, %117 ]
@@ -1914,7 +1914,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit: ; preds = %._crit_edge664, %193
-  %194 = icmp sgt i32 %.070.lcssa, -1
+  %194 = icmp sgt i32 %.071.lcssa, -1
   br i1 %194, label %1743, label %.invoke
 
 195:                                              ; preds = %134
@@ -5509,11 +5509,11 @@ _ZN12_GLOBAL__N_19SccWorker6selectERN5Yosys5RTLIL9SelectionE.exit: ; preds = %_Z
   br label %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit125
 
 1743:                                             ; preds = %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit
-  %1744 = icmp eq i32 %.085.lcssa, %.070.lcssa
+  %1744 = icmp eq i32 %.085.lcssa, %.071.lcssa
   br i1 %1744, label %.invoke, label %1745
 
 1745:                                             ; preds = %1743
-  invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.41, i32 noundef %.085.lcssa, i32 noundef %.070.lcssa) #25
+  invoke void (ptr, ...) @_ZN5Yosys9log_errorEPKcz(ptr noundef nonnull @.str.41, i32 noundef %.085.lcssa, i32 noundef %.071.lcssa) #25
           to label %1746 unwind label %197
 
 1746:                                             ; preds = %1745
@@ -5521,7 +5521,7 @@ _ZN12_GLOBAL__N_19SccWorker6selectERN5Yosys5RTLIL9SelectionE.exit: ; preds = %_Z
 
 .invoke:                                          ; preds = %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit, %1743
   %1747 = phi ptr [ @.str.40, %1743 ], [ @.str.42, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit ]
-  %1748 = phi i32 [ %.070.lcssa, %1743 ], [ %.085.lcssa, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit ]
+  %1748 = phi i32 [ %.071.lcssa, %1743 ], [ %.085.lcssa, %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit ]
   invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull %1747, i32 noundef %1748)
           to label %1749 unwind label %197
 
@@ -9455,8 +9455,8 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit345:             ; preds = %1586, %1591, %1598
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit317
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit347:             ; preds = %1613, %1606, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit345, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit331
-  %.092 = phi i1 [ true, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit331 ], [ %1585, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit345 ], [ %1585, %1606 ], [ %1585, %1613 ]
-  %.091 = phi i1 [ true, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit331 ], [ %1537, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit345 ], [ %1537, %1606 ], [ %1537, %1613 ]
+  %.092 = phi i1 [ true, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit331 ], [ %1537, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit345 ], [ %1537, %1606 ], [ %1537, %1613 ]
+  %.091 = phi i1 [ true, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit331 ], [ %1585, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit345 ], [ %1585, %1606 ], [ %1585, %1613 ]
   %1623 = getelementptr inbounds i8, ptr %1449, i64 8
   invoke void @_ZN5Yosys5RTLIL7SigSpecC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef nonnull align 8 dereferenceable(64) %1623)
           to label %1624 unwind label %.loopexit800
@@ -9574,7 +9574,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit375:              ; preds = %_ZSt8_DestroyIPN5Yo
           to label %1651 unwind label %1658
 
 1651:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit375
-  br i1 %.091, label %1652, label %1660
+  br i1 %.092, label %1652, label %1660
 
 1652:                                             ; preds = %1651
   invoke void @_ZN5Yosys5RTLIL7SigSpec6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(64) %34)
@@ -9603,7 +9603,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit375:              ; preds = %_ZSt8_DestroyIPN5Yo
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit317
 
 1660:                                             ; preds = %1652, %1651
-  br i1 %.092, label %1661, label %1662
+  br i1 %.091, label %1661, label %1662
 
 1661:                                             ; preds = %1660
   invoke void @_ZN5Yosys5RTLIL7SigSpec6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %34)
@@ -56746,14 +56746,14 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %8
   br label %230
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.01673, i64 1
+  %30 = getelementptr inbounds i8, ptr %.073, i64 1
   %31 = load i8, ptr %30, align 1
   %.not19 = icmp eq i8 %31, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !347
 
 .lr.ph:                                           ; preds = %.preheader, %29
   %32 = phi i8 [ %31, %29 ], [ %7, %.preheader ]
-  %.01673 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
+  %.073 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
   %33 = icmp ult i8 %32, 33
   br i1 %33, label %34, label %29
 
@@ -57200,8 +57200,8 @@ _ZNSt6vectorIiSaIiEE2atEm.exit57:                 ; preds = %_ZNSt6vectorIPcSaIS
   br label %230
 
 230:                                              ; preds = %_ZNSt6vectorIiSaIiEE2atEm.exit57, %227, %1, %_ZNSt6vectorIiSaIiEE2atEm.exit
-  %.0 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
-  ret i32 %.0
+  %.016 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
+  ret i32 %.016
 }
 
 ; Function Attrs: mustprogress uwtable

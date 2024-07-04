@@ -851,7 +851,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %12, %_ZN17QArrayDat
   br i1 %.not, label %_ZN10QByteArrayD2Ev.exit29, label %_ZN7QStringD2Ev.exit.thread
 
 _ZN7QStringD2Ev.exit.thread:                      ; preds = %2, %_ZN7QStringD2Ev.exit
-  %.044 = phi ptr [ %9, %_ZN7QStringD2Ev.exit ], [ %1, %2 ]
+  %.0944 = phi ptr [ %9, %_ZN7QStringD2Ev.exit ], [ %1, %2 ]
   %20 = getelementptr inbounds i8, ptr %0, i64 40
   call void @_ZN7QString13toUtf8_helperERKS_(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %20)
   %21 = getelementptr inbounds i8, ptr %4, i64 8
@@ -886,7 +886,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %24, %_ZN17QArrayDat
           to label %30 unwind label %47
 
 30:                                               ; preds = %29
-  %31 = invoke noundef zeroext i1 @_ZN9QSplitter12restoreStateERK10QByteArray(ptr noundef nonnull align 8 dereferenceable(40) %.044, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  %31 = invoke noundef zeroext i1 @_ZN9QSplitter12restoreStateERK10QByteArray(ptr noundef nonnull align 8 dereferenceable(40) %.0944, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %32 unwind label %49
 
 32:                                               ; preds = %30

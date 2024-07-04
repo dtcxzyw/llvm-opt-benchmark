@@ -81,12 +81,12 @@ define void @Gia_ParComputeSignature(ptr nocapture noundef readonly %0, i32 noun
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %33, %.critedge
-  %.018.i = phi ptr [ %3, %.critedge ], [ %34, %33 ]
+  %.01518.i = phi ptr [ %3, %.critedge ], [ %34, %33 ]
   br label %26
 
 26:                                               ; preds = %26, %.preheader.i
   %indvars.iv.i = phi i64 [ 15, %.preheader.i ], [ %indvars.iv.next.i, %26 ]
-  %27 = load i64, ptr %.018.i, align 8
+  %27 = load i64, ptr %.01518.i, align 8
   %28 = shl i64 %indvars.iv.i, 2
   %29 = lshr i64 %27, %28
   %30 = trunc i64 %29 to i32
@@ -100,7 +100,7 @@ define void @Gia_ParComputeSignature(ptr nocapture noundef readonly %0, i32 noun
   br i1 %.not20.i, label %33, label %26, !llvm.loop !7
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %.018.i, i64 -8
+  %34 = getelementptr inbounds i8, ptr %.01518.i, i64 -8
   %.not.i = icmp ult ptr %34, %3
   br i1 %.not.i, label %Abc_TtPrintHexRev.exit, label %.preheader.i, !llvm.loop !8
 
@@ -1079,13 +1079,13 @@ Vec_IntSum.exit:                                  ; preds = %110, %Vec_IntPush.e
 .lr.ph132.us:                                     ; preds = %.preheader123.us, %179
   %138 = phi i64 [ %184, %179 ], [ %189, %.preheader123.us ]
   %.2131.us = phi i32 [ %180, %179 ], [ %.1134.us, %.preheader123.us ]
-  %.083130.us = phi i32 [ %181, %179 ], [ 0, %.preheader123.us ]
+  %.078130.us = phi i32 [ %181, %179 ], [ 0, %.preheader123.us ]
   %.val96.us = load ptr, ptr %117, align 8
   %139 = getelementptr i8, ptr %.val96.us, i64 8
   %.val96.val.us = load ptr, ptr %139, align 8
   %140 = getelementptr inbounds i32, ptr %.val96.val.us, i64 %138
   %141 = load i32, ptr %140, align 4
-  %142 = add nsw i32 %141, %.083130.us
+  %142 = add nsw i32 %141, %.078130.us
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds i32, ptr %.val96.val.us, i64 %143
   %145 = load i32, ptr %144, align 4
@@ -1164,7 +1164,7 @@ Vec_IntPush.exit117.us:                           ; preds = %Vec_IntGrow.exit.i1
 
 179:                                              ; preds = %Vec_IntPush.exit117.us, %.lr.ph132.us
   %180 = add nsw i32 %.2131.us, -1
-  %181 = add nuw nsw i32 %.083130.us, 1
+  %181 = add nuw nsw i32 %.078130.us, 1
   %182 = load i32, ptr %126, align 8
   %.val95.us = load ptr, ptr %116, align 8
   %183 = getelementptr i8, ptr %.val95.us, i64 8

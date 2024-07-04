@@ -360,21 +360,21 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
   br i1 %10, label %_ZL12gmx_strerrorPKc.exit, label %.preheader.i
 
 11:                                               ; preds = %.preheader.i
-  %.011.add.i = add nuw nsw i64 %.011.idx14.i, 16
-  %.not.i = icmp eq i64 %.011.add.i, 160
+  %.0.add.i = add nuw nsw i64 %.0.idx14.i, 16
+  %.not.i = icmp eq i64 %.0.add.i, 160
   br i1 %.not.i, label %18, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %11
-  %.011.idx14.i = phi i64 [ %.011.add.i, %11 ], [ 0, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
-  %.011.ptr15.i = getelementptr inbounds i8, ptr @__const._ZL12gmx_strerrorPKc.map, i64 %.011.idx14.i
-  %12 = load ptr, ptr %.011.ptr15.i, align 16
+  %.0.idx14.i = phi i64 [ %.0.add.i, %11 ], [ 0, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %.0.ptr15.i = getelementptr inbounds i8, ptr @__const._ZL12gmx_strerrorPKc.map, i64 %.0.idx14.i
+  %12 = load ptr, ptr %.0.ptr15.i, align 16
   %13 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %12) #18
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %11
 
 15:                                               ; preds = %.preheader.i
-  %.011.ptr15.i.le = getelementptr inbounds i8, ptr @__const._ZL12gmx_strerrorPKc.map, i64 %.011.idx14.i
-  %16 = getelementptr inbounds i8, ptr %.011.ptr15.i.le, i64 8
+  %.0.ptr15.i.le = getelementptr inbounds i8, ptr @__const._ZL12gmx_strerrorPKc.map, i64 %.0.idx14.i
+  %16 = getelementptr inbounds i8, ptr %.0.ptr15.i.le, i64 8
   %17 = load ptr, ptr %16, align 8
   br label %_ZL12gmx_strerrorPKc.exit
 
@@ -383,7 +383,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
           to label %_ZL12gmx_strerrorPKc.exit unwind label %29
 
 _ZL12gmx_strerrorPKc.exit:                        ; preds = %15, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %18
-  %.0.i = phi ptr [ %17, %15 ], [ @.str.23, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ %19, %18 ]
+  %.011.i = phi ptr [ %17, %15 ], [ @.str.23, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ %19, %18 ]
   %20 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
   br i1 %20, label %21, label %24
 
@@ -411,7 +411,7 @@ _ZL12gmx_strerrorPKc.exit:                        ; preds = %15, %_ZNSt10lock_gu
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %31
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc15, %24
-  invoke void %9(ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2)
+  invoke void %9(ptr noundef %.011.i, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2)
           to label %25 unwind label %33
 
 25:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit

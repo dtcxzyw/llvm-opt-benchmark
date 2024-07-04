@@ -322,14 +322,14 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br label %175
 
 ._crit_edge160:                                   ; preds = %184, %.lr.ph157, %._crit_edge
-  %.0115.lcssa = phi ptr [ null, %._crit_edge ], [ null, %.lr.ph157 ], [ %.1116, %184 ]
-  %.not134 = icmp eq ptr %.0115.lcssa, null
-  %174 = getelementptr inbounds i8, ptr %.0115.lcssa, i64 16
+  %.0119.lcssa = phi ptr [ null, %._crit_edge ], [ null, %.lr.ph157 ], [ %.1120, %184 ]
+  %.not134 = icmp eq ptr %.0119.lcssa, null
+  %174 = getelementptr inbounds i8, ptr %.0119.lcssa, i64 16
   br label %.outer
 
 175:                                              ; preds = %.lr.ph165, %184
   %indvars.iv171 = phi i64 [ 0, %.lr.ph165 ], [ %indvars.iv.next172, %184 ]
-  %.0115154164 = phi ptr [ null, %.lr.ph165 ], [ %.1116, %184 ]
+  %.0119154164 = phi ptr [ null, %.lr.ph165 ], [ %.1120, %184 ]
   %176 = getelementptr %union.ListCell, ptr %173, i64 %indvars.iv171
   %177 = load ptr, ptr %176, align 8
   %178 = load i32, ptr %177, align 8
@@ -340,11 +340,11 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %181 = getelementptr inbounds i8, ptr %177, i64 4
   %182 = load i32, ptr %181, align 4
   %183 = icmp eq i32 %182, %17
-  %spec.select141 = select i1 %183, ptr %177, ptr %.0115154164
+  %spec.select141 = select i1 %183, ptr %177, ptr %.0119154164
   br label %184
 
 184:                                              ; preds = %180, %175
-  %.1116 = phi ptr [ %.0115154164, %175 ], [ %spec.select141, %180 ]
+  %.1120 = phi ptr [ %.0119154164, %175 ], [ %spec.select141, %180 ]
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge160, label %175

@@ -1534,7 +1534,7 @@ define noalias noundef ptr @Gia_ManFindLatest(ptr noundef %0, i32 noundef %1, i3
 
 15:                                               ; preds = %.lr.ph112, %36
   %indvars.iv124 = phi i64 [ 1, %.lr.ph112 ], [ %indvars.iv.next125, %36 ]
-  %.068111 = phi i32 [ 0, %.lr.ph112 ], [ %.169, %36 ]
+  %.067111 = phi i32 [ 0, %.lr.ph112 ], [ %.1, %36 ]
   %16 = getelementptr inbounds i32, ptr %.val96.val, i64 %indvars.iv124
   %17 = load i32, ptr %16, align 4
   %.not = icmp eq i32 %17, 0
@@ -1578,35 +1578,35 @@ define noalias noundef ptr @Gia_ManFindLatest(ptr noundef %0, i32 noundef %1, i3
   %33 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv124
   %34 = add nsw i32 %32, 1
   store i32 %34, ptr %33, align 4
-  %35 = tail call noundef i32 @llvm.smax.i32(i32 %.068111, i32 %34)
+  %35 = tail call noundef i32 @llvm.smax.i32(i32 %.067111, i32 %34)
   br label %36
 
 36:                                               ; preds = %.critedge, %15
-  %.169 = phi i32 [ %35, %.critedge ], [ %.068111, %15 ]
+  %.1 = phi i32 [ %35, %.critedge ], [ %.067111, %15 ]
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count127
   br i1 %exitcond128.not, label %._crit_edge, label %15, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %36, %9
-  %.068.lcssa = phi i32 [ 0, %9 ], [ %.169, %36 ]
+  %.067.lcssa = phi i32 [ 0, %9 ], [ %.1, %36 ]
   %.not82 = icmp eq i32 %2, 0
   br i1 %.not82, label %43, label %37
 
 37:                                               ; preds = %._crit_edge
   %38 = sitofp i32 %2 to double
   %39 = tail call double @llvm.fmuladd.f64(double %38, double -1.000000e-02, double 1.000000e+00)
-  %40 = uitofp nneg i32 %.068.lcssa to double
+  %40 = uitofp nneg i32 %.067.lcssa to double
   %41 = fmul double %39, %40
   %42 = fptosi double %41 to i32
   br label %43
 
 43:                                               ; preds = %37, %._crit_edge
-  %.0 = phi i32 [ %42, %37 ], [ %1, %._crit_edge ]
-  %44 = icmp slt i32 %.068.lcssa, %.0
+  %.068 = phi i32 [ %42, %37 ], [ %1, %._crit_edge ]
+  %44 = icmp slt i32 %.067.lcssa, %.068
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.068.lcssa, i32 noundef %.0)
+  %46 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.067.lcssa, i32 noundef %.068)
   br label %47
 
 47:                                               ; preds = %45, %43
@@ -1639,7 +1639,7 @@ define noalias noundef ptr @Gia_ManFindLatest(ptr noundef %0, i32 noundef %1, i3
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds i32, ptr %12, i64 %63
   %65 = load i32, ptr %64, align 4
-  %.not85 = icmp slt i32 %65, %.0
+  %.not85 = icmp slt i32 %65, %.068
   br i1 %.not85, label %95, label %66
 
 66:                                               ; preds = %54
@@ -1739,12 +1739,12 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %108
 
 108:                                              ; preds = %102, %100
-  %.1 = phi i32 [ %107, %102 ], [ %1, %100 ]
-  %109 = icmp slt i32 %101, %.1
+  %.169 = phi i32 [ %107, %102 ], [ %1, %100 ]
+  %109 = icmp slt i32 %101, %.169
   br i1 %109, label %110, label %112
 
 110:                                              ; preds = %108
-  %111 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %101, i32 noundef %.1)
+  %111 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %101, i32 noundef %.169)
   br label %112
 
 112:                                              ; preds = %110, %108
@@ -1872,7 +1872,7 @@ Gia_ObjLevel.exit:                                ; preds = %121, %._crit_edge.i
   %163 = ashr exact i64 %sext.i, 30
   %164 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %163
   %165 = load i32, ptr %164, align 4
-  %.not81 = icmp slt i32 %165, %.1
+  %.not81 = icmp slt i32 %165, %.169
   br i1 %.not81, label %195, label %166
 
 166:                                              ; preds = %Gia_ObjLevel.exit

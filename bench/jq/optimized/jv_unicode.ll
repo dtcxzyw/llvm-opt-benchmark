@@ -103,7 +103,7 @@ define ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %36
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %36 ]
-  %.04045 = phi i32 [ %29, %.lr.ph.preheader ], [ %40, %36 ]
+  %.03945 = phi i32 [ %29, %.lr.ph.preheader ], [ %40, %36 ]
   %31 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i64
@@ -113,7 +113,7 @@ define ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   br i1 %.not, label %36, label %._crit_edge.loopexit.split.loop.exit
 
 36:                                               ; preds = %.lr.ph
-  %37 = shl i32 %.04045, 6
+  %37 = shl i32 %.03945, 6
   %38 = and i8 %32, 63
   %39 = zext nneg i8 %38 to i32
   %40 = or disjoint i32 %37, %39
@@ -126,13 +126,13 @@ define ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %36, %._crit_edge.loopexit.split.loop.exit, %25
-  %.141 = phi i32 [ %29, %25 ], [ -1, %._crit_edge.loopexit.split.loop.exit ], [ %40, %36 ]
-  %.039 = phi i32 [ %10, %25 ], [ %41, %._crit_edge.loopexit.split.loop.exit ], [ %10, %36 ]
-  %42 = zext nneg i32 %.039 to i64
+  %.140 = phi i32 [ %29, %25 ], [ -1, %._crit_edge.loopexit.split.loop.exit ], [ %40, %36 ]
+  %.038 = phi i32 [ %10, %25 ], [ %41, %._crit_edge.loopexit.split.loop.exit ], [ %10, %36 ]
+  %42 = zext nneg i32 %.038 to i64
   %43 = getelementptr inbounds [5 x i32], ptr @utf8_first_codepoint, i64 0, i64 %42
   %44 = load i32, ptr %43, align 4
-  %45 = icmp slt i32 %.141, %44
-  %spec.store.select = select i1 %45, i32 -1, i32 %.141
+  %45 = icmp slt i32 %.140, %44
+  %spec.store.select = select i1 %45, i32 -1, i32 %.140
   %46 = and i32 %spec.store.select, -2048
   %or.cond3 = icmp eq i32 %46, 55296
   %spec.store.select5 = select i1 %or.cond3, i32 -1, i32 %spec.store.select
@@ -142,15 +142,15 @@ define ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr nocapture noundef 
 
 48:                                               ; preds = %14, %._crit_edge, %20, %12
   %.2 = phi i32 [ %13, %12 ], [ -1, %20 ], [ %spec.store.select4, %._crit_edge ], [ -1, %14 ]
-  %.1 = phi i32 [ 1, %12 ], [ %24, %20 ], [ %.039, %._crit_edge ], [ 1, %14 ]
+  %.1 = phi i32 [ 1, %12 ], [ %24, %20 ], [ %.038, %._crit_edge ], [ 1, %14 ]
   store i32 %.2, ptr %2, align 4
   %49 = sext i32 %.1 to i64
   %50 = getelementptr inbounds i8, ptr %0, i64 %49
   br label %51
 
 51:                                               ; preds = %3, %48
-  %.0 = phi ptr [ %50, %48 ], [ null, %3 ]
-  ret ptr %.0
+  %.041 = phi ptr [ %50, %48 ], [ null, %3 ]
+  ret ptr %.041
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -196,7 +196,7 @@ define range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly %0, ptr nound
 
 .lr.ph.i:                                         ; preds = %20, %31
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %31 ], [ 1, %20 ]
-  %.04045.i = phi i32 [ %35, %31 ], [ %24, %20 ]
+  %.03945.i = phi i32 [ %35, %31 ], [ %24, %20 ]
   %26 = getelementptr inbounds i8, ptr %.02, i64 %indvars.iv.i
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i64
@@ -206,7 +206,7 @@ define range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly %0, ptr nound
   br i1 %.not.i, label %31, label %._crit_edge.loopexit.split.loop.exit.i
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = shl i32 %.04045.i, 6
+  %32 = shl i32 %.03945.i, 6
   %33 = and i8 %27, 63
   %34 = zext nneg i8 %33 to i32
   %35 = or disjoint i32 %32, %34
@@ -219,13 +219,13 @@ define range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly %0, ptr nound
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %31, %._crit_edge.loopexit.split.loop.exit.i, %20
-  %.141.i = phi i32 [ %24, %20 ], [ -1, %._crit_edge.loopexit.split.loop.exit.i ], [ %35, %31 ]
-  %.039.i = phi i32 [ %10, %20 ], [ %36, %._crit_edge.loopexit.split.loop.exit.i ], [ %10, %31 ]
-  %37 = zext nneg i32 %.039.i to i64
+  %.140.i = phi i32 [ %24, %20 ], [ -1, %._crit_edge.loopexit.split.loop.exit.i ], [ %35, %31 ]
+  %.038.i = phi i32 [ %10, %20 ], [ %36, %._crit_edge.loopexit.split.loop.exit.i ], [ %10, %31 ]
+  %37 = zext nneg i32 %.038.i to i64
   %38 = getelementptr inbounds [5 x i32], ptr @utf8_first_codepoint, i64 0, i64 %37
   %39 = load i32, ptr %38, align 4
-  %40 = icmp slt i32 %.141.i, %39
-  %spec.store.select.i = select i1 %40, i32 -1, i32 %.141.i
+  %40 = icmp slt i32 %.140.i, %39
+  %spec.store.select.i = select i1 %40, i32 -1, i32 %.140.i
   %41 = and i32 %spec.store.select.i, -2048
   %or.cond3.i = icmp eq i32 %41, 55296
   %spec.store.select5.i = select i1 %or.cond3.i, i32 -1, i32 %spec.store.select.i
@@ -234,7 +234,7 @@ define range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly %0, ptr nound
 
 jvp_utf8_next.exit:                               ; preds = %._crit_edge.i, %12
   %.2.i = phi i32 [ %13, %12 ], [ %spec.store.select5.i, %._crit_edge.i ]
-  %.1.i = phi i32 [ 1, %12 ], [ %.039.i, %._crit_edge.i ]
+  %.1.i = phi i32 [ 1, %12 ], [ %.038.i, %._crit_edge.i ]
   %43 = sext i32 %.1.i to i64
   %44 = getelementptr inbounds i8, ptr %.02, i64 %43
   %45 = icmp eq i32 %.2.i, -1

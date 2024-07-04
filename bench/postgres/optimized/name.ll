@@ -497,7 +497,7 @@ list_length.exit.thread:                          ; preds = %1
 
 .lr.ph30:                                         ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.lr.ph ]
-  %.0162428 = phi i32 [ %.1, %26 ], [ 0, %.lr.ph ]
+  %.02329 = phi i32 [ %.1, %26 ], [ 0, %.lr.ph ]
   %16 = load ptr, ptr %13, align 8
   %17 = getelementptr %union.ListCell, ptr %16, i64 %indvars.iv
   %18 = load i32, ptr %17, align 8
@@ -508,14 +508,14 @@ list_length.exit.thread:                          ; preds = %1
 20:                                               ; preds = %.lr.ph30
   %21 = ptrtoint ptr %19 to i64
   %22 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @namein, i32 noundef 0, i64 noundef %21) #10
-  %23 = sext i32 %.0162428 to i64
+  %23 = sext i32 %.02329 to i64
   %24 = getelementptr i64, ptr %11, i64 %23
   store i64 %22, ptr %24, align 8
-  %25 = add i32 %.0162428, 1
+  %25 = add i32 %.02329, 1
   br label %26
 
 26:                                               ; preds = %.lr.ph30, %20
-  %.1 = phi i32 [ %25, %20 ], [ %.0162428, %.lr.ph30 ]
+  %.1 = phi i32 [ %25, %20 ], [ %.02329, %.lr.ph30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %12, align 4
   %28 = sext i32 %27 to i64
@@ -524,9 +524,9 @@ list_length.exit.thread:                          ; preds = %1
 
 ._crit_edge:                                      ; preds = %26, %list_length.exit.thread, %.lr.ph
   %30 = phi ptr [ %11, %.lr.ph ], [ %6, %list_length.exit.thread ], [ %11, %26 ]
-  %.016.lcssa = phi i32 [ 0, %.lr.ph ], [ 0, %list_length.exit.thread ], [ %.1, %26 ]
+  %.0.lcssa = phi i32 [ 0, %.lr.ph ], [ 0, %list_length.exit.thread ], [ %.1, %26 ]
   tail call void @list_free(ptr noundef %5) #10
-  %31 = tail call ptr @construct_array_builtin(ptr noundef %30, i32 noundef %.016.lcssa, i32 noundef 19) #10
+  %31 = tail call ptr @construct_array_builtin(ptr noundef %30, i32 noundef %.0.lcssa, i32 noundef 19) #10
   %32 = ptrtoint ptr %31 to i64
   ret i64 %32
 }

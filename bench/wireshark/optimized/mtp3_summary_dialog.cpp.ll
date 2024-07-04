@@ -3337,8 +3337,8 @@ _ZN7QStringD2Ev.exit706:                          ; preds = %_ZN7QStringD2Ev.exi
 
 969:                                              ; preds = %_ZN7QStringD2Ev.exit706, %_ZN7QStringD2Ev.exit880
   %.0491406 = phi i64 [ 0, %_ZN7QStringD2Ev.exit706 ], [ %1234, %_ZN7QStringD2Ev.exit880 ]
-  %.0511405 = phi i32 [ 0, %_ZN7QStringD2Ev.exit706 ], [ %1087, %_ZN7QStringD2Ev.exit880 ]
-  %.0521404 = phi i32 [ 0, %_ZN7QStringD2Ev.exit706 ], [ %1086, %_ZN7QStringD2Ev.exit880 ]
+  %.0501405 = phi i32 [ 0, %_ZN7QStringD2Ev.exit706 ], [ %1087, %_ZN7QStringD2Ev.exit880 ]
+  %.0511404 = phi i32 [ 0, %_ZN7QStringD2Ev.exit706 ], [ %1086, %_ZN7QStringD2Ev.exit880 ]
   store ptr %855, ptr %95, align 16
   store ptr %857, ptr %948, align 8
   store i64 %859, ptr %949, align 16
@@ -3737,8 +3737,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i777:   ; preds = %_ZN7QStringD2Ev.exi
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN7QStringC2ERKS_.exit711
   %.048.lcssa = phi i32 [ 0, %_ZN7QStringC2ERKS_.exit711 ], [ %977, %.lr.ph ]
   %.047.lcssa = phi i32 [ 0, %_ZN7QStringC2ERKS_.exit711 ], [ %980, %.lr.ph ]
-  %1086 = add i32 %.048.lcssa, %.0521404
-  %1087 = add i32 %.047.lcssa, %.0511405
+  %1086 = add i32 %.048.lcssa, %.0511404
+  %1087 = add i32 %.047.lcssa, %.0501405
   br i1 %950, label %1088, label %_ZN7QStringD2Ev.exit805
 
 1088:                                             ; preds = %._crit_edge

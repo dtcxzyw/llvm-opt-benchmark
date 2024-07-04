@@ -706,12 +706,12 @@ define internal i32 @dissect_ipx(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %64
 
 64:                                               ; preds = %59, %4
-  %.0141 = phi ptr [ %63, %59 ], [ null, %4 ]
+  %.0143 = phi ptr [ %63, %59 ], [ null, %4 ]
   %65 = getelementptr inbounds i8, ptr %1, i64 408
   %66 = load ptr, ptr %65, align 8
   %67 = tail call ptr @address_to_str(ptr noundef %66, ptr noundef nonnull %29) #5
   %68 = load i32, ptr @hf_ipx_src, align 4
-  %69 = tail call ptr @proto_tree_add_string(ptr noundef %.0141, i32 noundef %68, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %67) #5
+  %69 = tail call ptr @proto_tree_add_string(ptr noundef %.0143, i32 noundef %68, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %67) #5
   %.not.i = icmp eq ptr %69, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %70
 
@@ -730,7 +730,7 @@ define internal i32 @dissect_ipx(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 proto_item_set_hidden.exit:                       ; preds = %64, %70, %73
   %77 = load i32, ptr @hf_ipx_addr, align 4
-  %78 = tail call ptr @proto_tree_add_string(ptr noundef %.0141, i32 noundef %77, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %67) #5
+  %78 = tail call ptr @proto_tree_add_string(ptr noundef %.0143, i32 noundef %77, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %67) #5
   %.not.i150 = icmp eq ptr %78, null
   br i1 %.not.i150, label %proto_item_set_hidden.exit152, label %79
 
@@ -751,7 +751,7 @@ proto_item_set_hidden.exit152:                    ; preds = %proto_item_set_hidd
   %86 = load ptr, ptr %65, align 8
   %87 = tail call ptr @address_to_str(ptr noundef %86, ptr noundef nonnull %42) #5
   %88 = load i32, ptr @hf_ipx_dst, align 4
-  %89 = tail call ptr @proto_tree_add_string(ptr noundef %.0141, i32 noundef %88, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %87) #5
+  %89 = tail call ptr @proto_tree_add_string(ptr noundef %.0143, i32 noundef %88, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %87) #5
   %.not.i153 = icmp eq ptr %89, null
   br i1 %.not.i153, label %proto_item_set_hidden.exit155, label %90
 
@@ -770,7 +770,7 @@ proto_item_set_hidden.exit152:                    ; preds = %proto_item_set_hidd
 
 proto_item_set_hidden.exit155:                    ; preds = %proto_item_set_hidden.exit152, %90, %93
   %97 = load i32, ptr @hf_ipx_addr, align 4
-  %98 = tail call ptr @proto_tree_add_string(ptr noundef %.0141, i32 noundef %97, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %87) #5
+  %98 = tail call ptr @proto_tree_add_string(ptr noundef %.0143, i32 noundef %97, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %87) #5
   %.not.i156 = icmp eq ptr %98, null
   br i1 %.not.i156, label %proto_item_set_hidden.exit158, label %99
 
@@ -789,24 +789,24 @@ proto_item_set_hidden.exit155:                    ; preds = %proto_item_set_hidd
 
 proto_item_set_hidden.exit158:                    ; preds = %proto_item_set_hidden.exit155, %99, %102
   %106 = load i32, ptr @hf_ipx_checksum, align 4
-  %107 = tail call ptr @proto_tree_add_checksum(ptr noundef %.0141, ptr noundef %0, i32 noundef 0, i32 noundef %106, i32 noundef -1, ptr noundef null, ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #5
+  %107 = tail call ptr @proto_tree_add_checksum(ptr noundef %.0143, ptr noundef %0, i32 noundef 0, i32 noundef %106, i32 noundef -1, ptr noundef null, ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #5
   %108 = load i32, ptr @hf_ipx_len, align 4
   %109 = load i16, ptr %19, align 4
   %110 = zext i16 %109 to i32
-  %111 = tail call ptr @proto_tree_add_uint(ptr noundef %.0141, i32 noundef %108, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %110) #5
+  %111 = tail call ptr @proto_tree_add_uint(ptr noundef %.0143, i32 noundef %108, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %110) #5
   %112 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #5
   %113 = load i32, ptr @hf_ipx_hops, align 4
   %114 = zext i8 %112 to i32
-  %115 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.0141, i32 noundef %113, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %114, ptr noundef nonnull @.str.400, i32 noundef %114) #5
+  %115 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.0143, i32 noundef %113, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %114, ptr noundef nonnull @.str.400, i32 noundef %114) #5
   %116 = load i32, ptr @hf_ipx_packet_type, align 4
   %117 = load i8, ptr %17, align 2
   %118 = zext i8 %117 to i32
-  %119 = tail call ptr @proto_tree_add_uint(ptr noundef %.0141, i32 noundef %116, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef %118) #5
+  %119 = tail call ptr @proto_tree_add_uint(ptr noundef %.0143, i32 noundef %116, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef %118) #5
   %120 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 6) #5
   %121 = load i32, ptr @hf_ipx_dnet, align 4
-  %122 = tail call ptr @proto_tree_add_ipxnet(ptr noundef %.0141, i32 noundef %121, ptr noundef %0, i32 noundef 6, i32 noundef 4, i32 noundef %120) #5
+  %122 = tail call ptr @proto_tree_add_ipxnet(ptr noundef %.0143, i32 noundef %121, ptr noundef %0, i32 noundef 6, i32 noundef 4, i32 noundef %120) #5
   %123 = load i32, ptr @hf_ipx_net, align 4
-  %124 = tail call ptr @proto_tree_add_ipxnet(ptr noundef %.0141, i32 noundef %123, ptr noundef %0, i32 noundef 6, i32 noundef 4, i32 noundef %120) #5
+  %124 = tail call ptr @proto_tree_add_ipxnet(ptr noundef %.0143, i32 noundef %123, ptr noundef %0, i32 noundef 6, i32 noundef 4, i32 noundef %120) #5
   %.not.i159 = icmp eq ptr %124, null
   br i1 %.not.i159, label %proto_item_set_hidden.exit161, label %125
 
@@ -825,9 +825,9 @@ proto_item_set_hidden.exit158:                    ; preds = %proto_item_set_hidd
 
 proto_item_set_hidden.exit161:                    ; preds = %proto_item_set_hidden.exit158, %125, %128
   %132 = load i32, ptr @hf_ipx_dnode, align 4
-  %133 = tail call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %132, ptr noundef %0, i32 noundef 10, i32 noundef 6, i32 noundef 0) #5
+  %133 = tail call ptr @proto_tree_add_item(ptr noundef %.0143, i32 noundef %132, ptr noundef %0, i32 noundef 10, i32 noundef 6, i32 noundef 0) #5
   %134 = load i32, ptr @hf_ipx_node, align 4
-  %135 = tail call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %134, ptr noundef %0, i32 noundef 10, i32 noundef 6, i32 noundef 0) #5
+  %135 = tail call ptr @proto_tree_add_item(ptr noundef %.0143, i32 noundef %134, ptr noundef %0, i32 noundef 10, i32 noundef 6, i32 noundef 0) #5
   %.not.i162 = icmp eq ptr %135, null
   br i1 %.not.i162, label %proto_item_set_hidden.exit164, label %136
 
@@ -848,11 +848,11 @@ proto_item_set_hidden.exit164:                    ; preds = %proto_item_set_hidd
   %143 = load i32, ptr @hf_ipx_dsocket, align 4
   %144 = load i16, ptr %14, align 2
   %145 = zext i16 %144 to i32
-  %146 = tail call ptr @proto_tree_add_uint(ptr noundef %.0141, i32 noundef %143, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef %145) #5
+  %146 = tail call ptr @proto_tree_add_uint(ptr noundef %.0143, i32 noundef %143, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef %145) #5
   %147 = load i32, ptr @hf_ipx_socket, align 4
   %148 = load i16, ptr %14, align 2
   %149 = zext i16 %148 to i32
-  %150 = tail call ptr @proto_tree_add_uint(ptr noundef %.0141, i32 noundef %147, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef %149) #5
+  %150 = tail call ptr @proto_tree_add_uint(ptr noundef %.0143, i32 noundef %147, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef %149) #5
   %.not.i165 = icmp eq ptr %150, null
   br i1 %.not.i165, label %proto_item_set_hidden.exit167, label %151
 
@@ -872,9 +872,9 @@ proto_item_set_hidden.exit164:                    ; preds = %proto_item_set_hidd
 proto_item_set_hidden.exit167:                    ; preds = %proto_item_set_hidden.exit164, %151, %154
   %158 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 18) #5
   %159 = load i32, ptr @hf_ipx_snet, align 4
-  %160 = tail call ptr @proto_tree_add_ipxnet(ptr noundef %.0141, i32 noundef %159, ptr noundef %0, i32 noundef 18, i32 noundef 4, i32 noundef %158) #5
+  %160 = tail call ptr @proto_tree_add_ipxnet(ptr noundef %.0143, i32 noundef %159, ptr noundef %0, i32 noundef 18, i32 noundef 4, i32 noundef %158) #5
   %161 = load i32, ptr @hf_ipx_net, align 4
-  %162 = tail call ptr @proto_tree_add_ipxnet(ptr noundef %.0141, i32 noundef %161, ptr noundef %0, i32 noundef 18, i32 noundef 4, i32 noundef %158) #5
+  %162 = tail call ptr @proto_tree_add_ipxnet(ptr noundef %.0143, i32 noundef %161, ptr noundef %0, i32 noundef 18, i32 noundef 4, i32 noundef %158) #5
   %.not.i168 = icmp eq ptr %162, null
   br i1 %.not.i168, label %proto_item_set_hidden.exit170, label %163
 
@@ -893,9 +893,9 @@ proto_item_set_hidden.exit167:                    ; preds = %proto_item_set_hidd
 
 proto_item_set_hidden.exit170:                    ; preds = %proto_item_set_hidden.exit167, %163, %166
   %170 = load i32, ptr @hf_ipx_snode, align 4
-  %171 = tail call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %170, ptr noundef %0, i32 noundef 22, i32 noundef 6, i32 noundef 0) #5
+  %171 = tail call ptr @proto_tree_add_item(ptr noundef %.0143, i32 noundef %170, ptr noundef %0, i32 noundef 22, i32 noundef 6, i32 noundef 0) #5
   %172 = load i32, ptr @hf_ipx_node, align 4
-  %173 = tail call ptr @proto_tree_add_item(ptr noundef %.0141, i32 noundef %172, ptr noundef %0, i32 noundef 22, i32 noundef 6, i32 noundef 0) #5
+  %173 = tail call ptr @proto_tree_add_item(ptr noundef %.0143, i32 noundef %172, ptr noundef %0, i32 noundef 22, i32 noundef 6, i32 noundef 0) #5
   %.not.i171 = icmp eq ptr %173, null
   br i1 %.not.i171, label %proto_item_set_hidden.exit173, label %174
 
@@ -916,11 +916,11 @@ proto_item_set_hidden.exit173:                    ; preds = %proto_item_set_hidd
   %181 = load i32, ptr @hf_ipx_ssocket, align 4
   %182 = load i16, ptr %9, align 8
   %183 = zext i16 %182 to i32
-  %184 = tail call ptr @proto_tree_add_uint(ptr noundef %.0141, i32 noundef %181, ptr noundef %0, i32 noundef 28, i32 noundef 2, i32 noundef %183) #5
+  %184 = tail call ptr @proto_tree_add_uint(ptr noundef %.0143, i32 noundef %181, ptr noundef %0, i32 noundef 28, i32 noundef 2, i32 noundef %183) #5
   %185 = load i32, ptr @hf_ipx_socket, align 4
   %186 = load i16, ptr %9, align 8
   %187 = zext i16 %186 to i32
-  %188 = tail call ptr @proto_tree_add_uint(ptr noundef %.0141, i32 noundef %185, ptr noundef %0, i32 noundef 28, i32 noundef 2, i32 noundef %187) #5
+  %188 = tail call ptr @proto_tree_add_uint(ptr noundef %.0143, i32 noundef %185, ptr noundef %0, i32 noundef 28, i32 noundef 2, i32 noundef %187) #5
   %.not.i174 = icmp eq ptr %188, null
   br i1 %.not.i174, label %proto_item_set_hidden.exit176, label %189
 

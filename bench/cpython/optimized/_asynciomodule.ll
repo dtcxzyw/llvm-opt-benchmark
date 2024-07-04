@@ -3462,16 +3462,16 @@ create_cancelled_error.exit:                      ; preds = %if.then5.i, %if.els
   br i1 %tobool16.not, label %return, label %if.end19
 
 if.end19:                                         ; preds = %create_cancelled_error.exit.thread, %if.then4, %create_cancelled_error.exit
-  %clear_exc.0 = phi i32 [ 1, %create_cancelled_error.exit ], [ 0, %if.then4 ], [ 1, %create_cancelled_error.exit.thread ]
   %exc.addr.1 = phi ptr [ %retval.0.i, %create_cancelled_error.exit ], [ %exc, %if.then4 ], [ %4, %create_cancelled_error.exit.thread ]
+  %clear_exc.0 = phi i32 [ 1, %create_cancelled_error.exit ], [ 0, %if.then4 ], [ 1, %create_cancelled_error.exit.thread ]
   %bf.load21 = load i8, ptr %task_must_cancel, align 4
   %bf.clear22 = and i8 %bf.load21, -5
   store i8 %bf.clear22, ptr %task_must_cancel, align 4
   br label %do.body
 
 do.body:                                          ; preds = %if.end, %if.end19
-  %clear_exc.1 = phi i32 [ %clear_exc.0, %if.end19 ], [ 0, %if.end ]
   %exc.addr.2 = phi ptr [ %exc.addr.1, %if.end19 ], [ %exc, %if.end ]
+  %clear_exc.1 = phi i32 [ %clear_exc.0, %if.end19 ], [ 0, %if.end ]
   %task_fut_waiter = getelementptr inbounds i8, ptr %task, i64 112
   %7 = load ptr, ptr %task_fut_waiter, align 8
   %cmp24.not = icmp eq ptr %7, null
@@ -7453,17 +7453,17 @@ land.rhs.lr.ph.i:                                 ; preds = %for.cond.preheader.
 
 land.rhs.i:                                       ; preds = %for.inc.i, %land.rhs.lr.ph.i
   %23 = phi ptr [ %21, %land.rhs.lr.ph.i ], [ %31, %for.inc.i ]
-  %i.010.i = phi i64 [ 0, %land.rhs.lr.ph.i ], [ %inc93.i, %for.inc.i ]
-  %j.09.i = phi i64 [ 0, %land.rhs.lr.ph.i ], [ %j.1.i, %for.inc.i ]
+  %j.010.i = phi i64 [ 0, %land.rhs.lr.ph.i ], [ %j.1.i, %for.inc.i ]
+  %i.09.i = phi i64 [ 0, %land.rhs.lr.ph.i ], [ %inc93.i, %for.inc.i ]
   %24 = getelementptr i8, ptr %23, i64 16
   %.val93.i = load i64, ptr %24, align 8
-  %cmp76.i = icmp slt i64 %i.010.i, %.val93.i
+  %cmp76.i = icmp slt i64 %i.09.i, %.val93.i
   br i1 %cmp76.i, label %for.body.i, label %for.end.thread.i
 
 for.body.i:                                       ; preds = %land.rhs.i
   %ob_item78.i = getelementptr inbounds i8, ptr %23, i64 24
   %25 = load ptr, ptr %ob_item78.i, align 8
-  %arrayidx79.i = getelementptr ptr, ptr %25, i64 %i.010.i
+  %arrayidx79.i = getelementptr ptr, ptr %25, i64 %i.09.i
   %26 = load ptr, ptr %arrayidx79.i, align 8
   %27 = load i32, ptr %26, align 8
   %add.i.i = add i32 %27, 1
@@ -7482,14 +7482,14 @@ Py_INCREF.exit.i:                                 ; preds = %if.end.i.i, %for.bo
   br i1 %cmp83.i, label %if.then84.i, label %if.end89.i
 
 if.then84.i:                                      ; preds = %Py_INCREF.exit.i
-  %cmp85.i = icmp slt i64 %j.09.i, %.val94.i
+  %cmp85.i = icmp slt i64 %j.010.i, %.val94.i
   br i1 %cmp85.i, label %if.then86.i, label %if.end87.i
 
 if.then86.i:                                      ; preds = %if.then84.i
   %call68.val95.i = load ptr, ptr %22, align 8
-  %arrayidx.i.i = getelementptr ptr, ptr %call68.val95.i, i64 %j.09.i
+  %arrayidx.i.i = getelementptr ptr, ptr %call68.val95.i, i64 %j.010.i
   store ptr %26, ptr %arrayidx.i.i, align 8
-  %inc.i = add nsw i64 %j.09.i, 1
+  %inc.i = add nsw i64 %j.010.i, 1
   br label %for.inc.i
 
 if.end87.i:                                       ; preds = %if.then84.i
@@ -7518,14 +7518,14 @@ Py_DECREF.exit164.i:                              ; preds = %if.then1.i162.i, %i
   br i1 %cmp90.i, label %fail.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %Py_DECREF.exit164.i, %if.then86.i
-  %j.1.i = phi i64 [ %inc.i, %if.then86.i ], [ %j.09.i, %Py_DECREF.exit164.i ]
-  %inc93.i = add nuw nsw i64 %i.010.i, 1
+  %j.1.i = phi i64 [ %inc.i, %if.then86.i ], [ %j.010.i, %Py_DECREF.exit164.i ]
+  %inc93.i = add nuw nsw i64 %i.09.i, 1
   %31 = load ptr, ptr %fut_callbacks.i, align 8
   %cmp73.not.i = icmp eq ptr %31, null
   br i1 %cmp73.not.i, label %do.end105.i, label %land.rhs.i, !llvm.loop !8
 
 for.end.thread.i:                                 ; preds = %land.rhs.i
-  %cmp943.i = icmp eq i64 %j.09.i, 0
+  %cmp943.i = icmp eq i64 %j.010.i, 0
   br i1 %cmp943.i, label %if.then103.i, label %if.end108.i
 
 if.then103.i:                                     ; preds = %for.end.thread.i
@@ -7567,7 +7567,7 @@ Py_DECREF.exit146.i:                              ; preds = %if.then1.i144.i, %i
   br label %exit
 
 if.end108.i:                                      ; preds = %for.end.thread.i
-  %cmp109.i = icmp slt i64 %j.09.i, %.val94.i
+  %cmp109.i = icmp slt i64 %j.010.i, %.val94.i
   %ob_size.i.i = getelementptr i8, ptr %call68.i, i64 16
   br i1 %cmp109.i, label %if.then110.i, label %if.end108.if.end111_crit_edge.i
 
@@ -7576,7 +7576,7 @@ if.end108.if.end111_crit_edge.i:                  ; preds = %if.end108.i
   br label %if.end111.i
 
 if.then110.i:                                     ; preds = %if.end108.i
-  store i64 %j.09.i, ptr %ob_size.i.i, align 8
+  store i64 %j.010.i, ptr %ob_size.i.i, align 8
   %.pre.i = load ptr, ptr %fut_callbacks.i, align 8
   %.phi.trans.insert16.i = getelementptr i8, ptr %.pre.i, i64 16
   %.val.pre.i = load i64, ptr %.phi.trans.insert16.i, align 8
@@ -7585,7 +7585,7 @@ if.then110.i:                                     ; preds = %if.end108.i
 if.end111.i:                                      ; preds = %if.then110.i, %if.end108.if.end111_crit_edge.i
   %.val.i = phi i64 [ %.val93.i, %if.end108.if.end111_crit_edge.i ], [ %.val.pre.i, %if.then110.i ]
   %36 = phi ptr [ %23, %if.end108.if.end111_crit_edge.i ], [ %.pre.i, %if.then110.i ]
-  %call68.val.i = phi i64 [ %call68.val.pre.i, %if.end108.if.end111_crit_edge.i ], [ %j.09.i, %if.then110.i ]
+  %call68.val.i = phi i64 [ %call68.val.pre.i, %if.end108.if.end111_crit_edge.i ], [ %j.010.i, %if.then110.i ]
   %cmp115.not.i = icmp eq i64 %call68.val.i, %.val.i
   br i1 %cmp115.not.i, label %if.end122.i, label %if.then116.i
 

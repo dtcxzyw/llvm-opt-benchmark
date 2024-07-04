@@ -528,9 +528,9 @@ if.else28.i:                                      ; preds = %lor.lhs.false.i
   br label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.else28.i, %if.then26.i, %if.then9.i, %if.end.i
+  %host.0.i = phi ptr [ %add.ptr.i, %if.then9.i ], [ %2, %if.then26.i ], [ %2, %if.else28.i ], [ %add.ptr.i, %if.end.i ]
   %port.0.i = phi ptr [ %add.ptr10.i, %if.then9.i ], [ null, %if.then26.i ], [ %add.ptr22.i, %if.else28.i ], [ null, %if.end.i ]
   %host_len.0.i = phi i64 [ %sub.ptr.sub.i, %if.then9.i ], [ %call27.i, %if.then26.i ], [ %sub.ptr.sub31.i, %if.else28.i ], [ %sub.ptr.sub.i, %if.end.i ]
-  %host.0.i = phi ptr [ %add.ptr.i, %if.then9.i ], [ %2, %if.then26.i ], [ %2, %if.else28.i ], [ %add.ptr.i, %if.end.i ]
   %call35.i = call ptr @BUF_strndup(ptr noundef nonnull %host.0.i, i64 noundef %host_len.0.i) #9
   store ptr %call35.i, ptr %host, align 8
   %cmp36.i = icmp eq ptr %call35.i, null

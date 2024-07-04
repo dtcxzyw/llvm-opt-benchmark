@@ -121,8 +121,8 @@ define void @_Z9set_histpP7t_atomsPA3_fP8t_symtabff(ptr nocapture noundef readon
 
 35:                                               ; preds = %.lr.ph181, %_ZL10in_stringsPciPPKc.exit145.thread
   %indvars.iv212 = phi i64 [ 0, %.lr.ph181 ], [ %indvars.iv.next213, %_ZL10in_stringsPciPPKc.exit145.thread ]
-  %.0116179 = phi i32 [ 0, %.lr.ph181 ], [ %.1117, %_ZL10in_stringsPciPPKc.exit145.thread ]
-  %.0131178 = phi i32 [ 0, %.lr.ph181 ], [ %.1132, %_ZL10in_stringsPciPPKc.exit145.thread ]
+  %.0128180 = phi i32 [ 0, %.lr.ph181 ], [ %.1129, %_ZL10in_stringsPciPPKc.exit145.thread ]
+  %.0130179 = phi i32 [ 0, %.lr.ph181 ], [ %.1131, %_ZL10in_stringsPciPPKc.exit145.thread ]
   %36 = load ptr, ptr %34, align 8
   %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv212
   %38 = load ptr, ptr %37, align 8
@@ -145,7 +145,7 @@ define void @_Z9set_histpP7t_atomsPA3_fP8t_symtabff(ptr nocapture noundef readon
 _ZL10in_stringsPciPPKc.exit:                      ; preds = %.lr.ph.i
   %45 = getelementptr inbounds i8, ptr %31, i64 %indvars.iv212
   store i8 1, ptr %45, align 1
-  %46 = add nsw i32 %.0131178, 1
+  %46 = add nsw i32 %.0128180, 1
   %.pre = load ptr, ptr %34, align 8
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv212
   %.pre221 = load ptr, ptr %.phi.trans.insert, align 8
@@ -154,7 +154,7 @@ _ZL10in_stringsPciPPKc.exit:                      ; preds = %.lr.ph.i
 
 _ZL10in_stringsPciPPKc.exit.thread:               ; preds = %44, %_ZL10in_stringsPciPPKc.exit
   %47 = phi ptr [ %.pre222, %_ZL10in_stringsPciPPKc.exit ], [ %39, %44 ]
-  %.1132 = phi i32 [ %46, %_ZL10in_stringsPciPPKc.exit ], [ %.0131178, %44 ]
+  %.1129 = phi i32 [ %46, %_ZL10in_stringsPciPPKc.exit ], [ %.0128180, %44 ]
   br label %.lr.ph.i139
 
 .lr.ph.i139:                                      ; preds = %52, %_ZL10in_stringsPciPPKc.exit.thread
@@ -173,20 +173,20 @@ _ZL10in_stringsPciPPKc.exit.thread:               ; preds = %44, %_ZL10in_string
 _ZL10in_stringsPciPPKc.exit145:                   ; preds = %.lr.ph.i139
   %53 = getelementptr inbounds i8, ptr %30, i64 %indvars.iv212
   store i8 1, ptr %53, align 1
-  %54 = add nsw i32 %.0116179, 1
+  %54 = add nsw i32 %.0130179, 1
   br label %_ZL10in_stringsPciPPKc.exit145.thread
 
 _ZL10in_stringsPciPPKc.exit145.thread:            ; preds = %52, %_ZL10in_stringsPciPPKc.exit145
-  %.1117 = phi i32 [ %54, %_ZL10in_stringsPciPPKc.exit145 ], [ %.0116179, %52 ]
+  %.1131 = phi i32 [ %54, %_ZL10in_stringsPciPPKc.exit145 ], [ %.0130179, %52 ]
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %exitcond216.not = icmp eq i64 %indvars.iv.next213, %wide.trip.count215
   br i1 %exitcond216.not, label %._crit_edge, label %35, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZL10in_stringsPciPPKc.exit145.thread, %26
-  %.0131.lcssa = phi i32 [ 0, %26 ], [ %.1132, %_ZL10in_stringsPciPPKc.exit145.thread ]
-  %.0116.lcssa = phi i32 [ 0, %26 ], [ %.1117, %_ZL10in_stringsPciPPKc.exit145.thread ]
+  %.0130.lcssa = phi i32 [ 0, %26 ], [ %.1131, %_ZL10in_stringsPciPPKc.exit145.thread ]
+  %.0128.lcssa = phi i32 [ 0, %26 ], [ %.1129, %_ZL10in_stringsPciPPKc.exit145.thread ]
   %55 = load ptr, ptr @stderr, align 8
-  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.25, i32 noundef %.0116.lcssa, i32 noundef %.0131.lcssa) #15
+  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.25, i32 noundef %.0130.lcssa, i32 noundef %.0128.lcssa) #15
   %.val = load i32, ptr %0, align 8
   %57 = getelementptr inbounds i8, ptr %33, i64 8
   %58 = add nsw i32 %.val, 1
@@ -214,7 +214,7 @@ _ZL10in_stringsPciPPKc.exit145.thread:            ; preds = %52, %_ZL10in_string
 70:                                               ; preds = %.loopexit.i, %.lr.ph15.i
   %indvars.iv26.i = phi i64 [ 0, %.lr.ph15.i ], [ %indvars.iv.next27.pre-phi.i, %.loopexit.i ]
   %indvars.iv.i146 = phi i64 [ 1, %.lr.ph15.i ], [ %indvars.iv.next.i147, %.loopexit.i ]
-  %.04911.i = phi i32 [ 0, %.lr.ph15.i ], [ %.5.i, %.loopexit.i ]
+  %.04813.i = phi i32 [ 0, %.lr.ph15.i ], [ %.5.i, %.loopexit.i ]
   %71 = getelementptr inbounds i8, ptr %30, i64 %indvars.iv26.i
   %72 = load i8, ptr %71, align 1
   %73 = trunc i8 %72 to i1
@@ -233,7 +233,7 @@ _ZL10in_stringsPciPPKc.exit145.thread:            ; preds = %52, %_ZL10in_string
 
 79:                                               ; preds = %106, %.lr.ph9.i
   %indvars.iv21.i = phi i64 [ %indvars.iv.i146, %.lr.ph9.i ], [ %indvars.iv.next22.i, %106 ]
-  %.17.i = phi i32 [ %.04911.i, %.lr.ph9.i ], [ %.2.i, %106 ]
+  %.17.i = phi i32 [ %.04813.i, %.lr.ph9.i ], [ %.2.i, %106 ]
   %80 = getelementptr inbounds i8, ptr %31, i64 %indvars.iv21.i
   %81 = load i8, ptr %80, align 1
   %82 = trunc i8 %81 to i1
@@ -290,7 +290,7 @@ _ZL10in_stringsPciPPKc.exit145.thread:            ; preds = %52, %_ZL10in_string
 
 116:                                              ; preds = %143, %.lr.ph.i148
   %indvars.iv18.i = phi i64 [ %indvars.iv.i146, %.lr.ph.i148 ], [ %indvars.iv.next19.i, %143 ]
-  %.34.i = phi i32 [ %.04911.i, %.lr.ph.i148 ], [ %.4.i, %143 ]
+  %.34.i = phi i32 [ %.04813.i, %.lr.ph.i148 ], [ %.4.i, %143 ]
   %117 = getelementptr inbounds i8, ptr %30, i64 %indvars.iv18.i
   %118 = load i8, ptr %117, align 1
   %119 = trunc i8 %118 to i1
@@ -332,7 +332,7 @@ _ZL10in_stringsPciPPKc.exit145.thread:            ; preds = %52, %_ZL10in_string
 
 .loopexit.i:                                      ; preds = %143, %106, %107, %.preheader.i
   %indvars.iv.next27.pre-phi.i = phi i64 [ %74, %.preheader.i ], [ %111, %107 ], [ %74, %106 ], [ %111, %143 ]
-  %.5.i = phi i32 [ %.04911.i, %.preheader.i ], [ %.04911.i, %107 ], [ %.2.i, %106 ], [ %.4.i, %143 ]
+  %.5.i = phi i32 [ %.04813.i, %.preheader.i ], [ %.04813.i, %107 ], [ %.2.i, %106 ], [ %.4.i, %143 ]
   %144 = load ptr, ptr %57, align 8
   %indvars.iv.next.i147 = add nuw nsw i64 %indvars.iv.i146, 1
   %145 = getelementptr inbounds i32, ptr %144, i64 %indvars.iv.i146
@@ -341,10 +341,10 @@ _ZL10in_stringsPciPPKc.exit145.thread:            ; preds = %52, %_ZL10in_string
   br i1 %exitcond34.not.i, label %_ZL9chk_allhbP7t_atomsPA3_fP8t_blockaPKbS6_f.exit, label %70, !llvm.loop !11
 
 _ZL9chk_allhbP7t_atomsPA3_fP8t_blockaPKbS6_f.exit: ; preds = %.loopexit.i, %._crit_edge
-  %.049.lcssa.i = phi i32 [ 0, %._crit_edge ], [ %.5.i, %.loopexit.i ]
-  store i32 %.049.lcssa.i, ptr %65, align 8
+  %.048.lcssa.i = phi i32 [ 0, %._crit_edge ], [ %.5.i, %.loopexit.i ]
+  store i32 %.048.lcssa.i, ptr %65, align 8
   %146 = load ptr, ptr @stderr, align 8
-  %147 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %146, ptr noundef nonnull @.str.26, i32 noundef %.049.lcssa.i) #15
+  %147 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %146, ptr noundef nonnull @.str.26, i32 noundef %.048.lcssa.i) #15
   %148 = icmp slt i32 %.0.lcssa, %9
   br i1 %148, label %.lr.ph206, label %._crit_edge207
 
@@ -357,7 +357,7 @@ _ZL9chk_allhbP7t_atomsPA3_fP8t_blockaPKbS6_f.exit: ; preds = %.loopexit.i, %._cr
 
 153:                                              ; preds = %.lr.ph206, %298
   %.1205 = phi i32 [ %.0.lcssa, %.lr.ph206 ], [ %.3, %298 ]
-  %.0129204 = phi i32 [ -1, %.lr.ph206 ], [ %.1130, %298 ]
+  %.0126204 = phi i32 [ -1, %.lr.ph206 ], [ %.1127, %298 ]
   %154 = load ptr, ptr %10, align 8
   %155 = load ptr, ptr %149, align 8
   %156 = sext i32 %.1205 to i64
@@ -379,7 +379,7 @@ _ZL9chk_allhbP7t_atomsPA3_fP8t_blockaPKbS6_f.exit: ; preds = %.loopexit.i, %._cr
   %167 = load ptr, ptr %149, align 8
   %168 = getelementptr inbounds %struct.t_atom, ptr %167, i64 %156, i32 7
   %169 = load i32, ptr %168, align 4
-  %.not136 = icmp eq i32 %169, %.0129204
+  %.not136 = icmp eq i32 %169, %.0126204
   br i1 %.not136, label %298, label %.preheader
 
 .preheader:                                       ; preds = %166
@@ -388,11 +388,11 @@ _ZL9chk_allhbP7t_atomsPA3_fP8t_blockaPKbS6_f.exit: ; preds = %.loopexit.i, %._cr
 
 .lr.ph190:                                        ; preds = %.preheader, %203
   %indvars.iv217 = phi i64 [ %indvars.iv.next218, %203 ], [ %156, %.preheader ]
-  %.0118188 = phi i32 [ %.1119, %203 ], [ -1, %.preheader ]
-  %.0120187 = phi i32 [ %.1121, %203 ], [ -1, %.preheader ]
-  %.0122186 = phi i32 [ %.1123, %203 ], [ -1, %.preheader ]
-  %.0124185 = phi i32 [ %.1125, %203 ], [ -1, %.preheader ]
-  %.0126184 = phi i32 [ %.1127, %203 ], [ -1, %.preheader ]
+  %.0115188 = phi i32 [ %.1116, %203 ], [ -1, %.preheader ]
+  %.0117187 = phi i32 [ %.1118, %203 ], [ -1, %.preheader ]
+  %.0119186 = phi i32 [ %.1120, %203 ], [ -1, %.preheader ]
+  %.0121185 = phi i32 [ %.1122, %203 ], [ -1, %.preheader ]
+  %.0123184 = phi i32 [ %.1124, %203 ], [ -1, %.preheader ]
   %171 = getelementptr inbounds %struct.t_atom, ptr %167, i64 %indvars.iv217, i32 7
   %172 = load i32, ptr %171, align 4
   %173 = icmp eq i32 %172, %169
@@ -447,43 +447,43 @@ sub_2:                                            ; preds = %sub_1
 200:                                              ; preds = %197
   %201 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %179, ptr noundef nonnull dereferenceable(4) @.str.15) #14
   %202 = icmp eq i32 %201, 0
-  %spec.select = select i1 %202, i32 %174, i32 %.0124185
+  %spec.select = select i1 %202, i32 %174, i32 %.0121185
   br label %203
 
 203:                                              ; preds = %200, %197, %194, %.tail, %175
-  %.1127 = phi i32 [ %.0126184, %175 ], [ %.0126184, %.tail ], [ %.0126184, %194 ], [ %174, %197 ], [ %.0126184, %200 ]
-  %.1125 = phi i32 [ %.0124185, %175 ], [ %.0124185, %.tail ], [ %.0124185, %194 ], [ %.0124185, %197 ], [ %spec.select, %200 ]
-  %.1123 = phi i32 [ %.0122186, %175 ], [ %174, %.tail ], [ %.0122186, %194 ], [ %.0122186, %197 ], [ %.0122186, %200 ]
-  %.1121 = phi i32 [ %174, %175 ], [ %.0120187, %.tail ], [ %.0120187, %194 ], [ %.0120187, %197 ], [ %.0120187, %200 ]
-  %.1119 = phi i32 [ %.0118188, %175 ], [ %.0118188, %.tail ], [ %174, %194 ], [ %.0118188, %197 ], [ %.0118188, %200 ]
+  %.1124 = phi i32 [ %.0123184, %175 ], [ %.0123184, %.tail ], [ %.0123184, %194 ], [ %174, %197 ], [ %.0123184, %200 ]
+  %.1122 = phi i32 [ %.0121185, %175 ], [ %.0121185, %.tail ], [ %.0121185, %194 ], [ %.0121185, %197 ], [ %spec.select, %200 ]
+  %.1120 = phi i32 [ %.0119186, %175 ], [ %174, %.tail ], [ %.0119186, %194 ], [ %.0119186, %197 ], [ %.0119186, %200 ]
+  %.1118 = phi i32 [ %174, %175 ], [ %.0117187, %.tail ], [ %.0117187, %194 ], [ %.0117187, %197 ], [ %.0117187, %200 ]
+  %.1116 = phi i32 [ %.0115188, %175 ], [ %.0115188, %.tail ], [ %174, %194 ], [ %.0115188, %197 ], [ %.0115188, %200 ]
   %indvars.iv.next218 = add nsw i64 %indvars.iv217, 1
   %exitcond220.not = icmp eq i64 %indvars.iv.next218, %29
   br i1 %exitcond220.not, label %.critedge2, label %.lr.ph190, !llvm.loop !12
 
 .critedge2:                                       ; preds = %.lr.ph190, %203, %.preheader
-  %.0126.lcssa = phi i32 [ -1, %.preheader ], [ %.1127, %203 ], [ %.0126184, %.lr.ph190 ]
-  %.0124.lcssa = phi i32 [ -1, %.preheader ], [ %.1125, %203 ], [ %.0124185, %.lr.ph190 ]
-  %.0122.lcssa = phi i32 [ -1, %.preheader ], [ %.1123, %203 ], [ %.0122186, %.lr.ph190 ]
-  %.0120.lcssa = phi i32 [ -1, %.preheader ], [ %.1121, %203 ], [ %.0120187, %.lr.ph190 ]
-  %.0118.lcssa = phi i32 [ -1, %.preheader ], [ %.1119, %203 ], [ %.0118188, %.lr.ph190 ]
+  %.0123.lcssa = phi i32 [ -1, %.preheader ], [ %.1124, %203 ], [ %.0123184, %.lr.ph190 ]
+  %.0121.lcssa = phi i32 [ -1, %.preheader ], [ %.1122, %203 ], [ %.0121185, %.lr.ph190 ]
+  %.0119.lcssa = phi i32 [ -1, %.preheader ], [ %.1120, %203 ], [ %.0119186, %.lr.ph190 ]
+  %.0117.lcssa = phi i32 [ -1, %.preheader ], [ %.1118, %203 ], [ %.0117187, %.lr.ph190 ]
+  %.0115.lcssa = phi i32 [ -1, %.preheader ], [ %.1116, %203 ], [ %.0115188, %.lr.ph190 ]
   %.2.lcssa = phi i32 [ %.1205, %.preheader ], [ %9, %203 ], [ %174, %.lr.ph190 ]
-  %204 = icmp eq i32 %.0122.lcssa, -1
-  %205 = icmp eq i32 %.0120.lcssa, -1
+  %204 = icmp eq i32 %.0119.lcssa, -1
+  %205 = icmp eq i32 %.0117.lcssa, -1
   %or.cond = select i1 %204, i1 true, i1 %205
-  %206 = icmp eq i32 %.0118.lcssa, -1
+  %206 = icmp eq i32 %.0115.lcssa, -1
   %or.cond5 = select i1 %or.cond, i1 true, i1 %206
-  %207 = icmp eq i32 %.0126.lcssa, -1
+  %207 = icmp eq i32 %.0123.lcssa, -1
   %or.cond7 = select i1 %or.cond5, i1 true, i1 %207
-  %208 = icmp eq i32 %.0124.lcssa, -1
+  %208 = icmp eq i32 %.0121.lcssa, -1
   %or.cond9 = select i1 %or.cond7, i1 true, i1 %208
   br i1 %or.cond9, label %290, label %209
 
 209:                                              ; preds = %.critedge2
-  %210 = sext i32 %.0126.lcssa to i64
+  %210 = sext i32 %.0123.lcssa to i64
   %211 = getelementptr inbounds [3 x float], ptr %1, i64 %210
-  %212 = sext i32 %.0122.lcssa to i64
+  %212 = sext i32 %.0119.lcssa to i64
   %213 = getelementptr inbounds [3 x float], ptr %1, i64 %212
-  %214 = sext i32 %.0118.lcssa to i64
+  %214 = sext i32 %.0115.lcssa to i64
   %215 = getelementptr inbounds [3 x float], ptr %1, i64 %214
   %216 = getelementptr inbounds i8, ptr %211, i64 8
   %217 = load float, ptr %216, align 4
@@ -517,9 +517,9 @@ sub_2:                                            ; preds = %sub_1
   %244 = fadd float %217, %242
   store <2 x float> %243, ptr %6, align 8
   store float %244, ptr %151, align 8
-  %245 = sext i32 %.0124.lcssa to i64
+  %245 = sext i32 %.0121.lcssa to i64
   %246 = getelementptr inbounds [3 x float], ptr %1, i64 %245
-  %247 = sext i32 %.0120.lcssa to i64
+  %247 = sext i32 %.0117.lcssa to i64
   %248 = getelementptr inbounds [3 x float], ptr %1, i64 %247
   %249 = getelementptr inbounds i8, ptr %246, i64 8
   %250 = load float, ptr %249, align 4
@@ -550,20 +550,20 @@ sub_2:                                            ; preds = %sub_1
   %274 = fadd float %250, %272
   store <2 x float> %273, ptr %7, align 8
   store float %274, ptr %152, align 8
-  %275 = call fastcc noundef zeroext i1 @_ZL10chk_hbondsiP7t_atomsPA3_fPKbPbPfff(i32 noundef %.0126.lcssa, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %31, ptr noundef %32, ptr noundef nonnull %6, float noundef %3, float noundef %4)
-  %276 = call fastcc noundef zeroext i1 @_ZL10chk_hbondsiP7t_atomsPA3_fPKbPbPfff(i32 noundef %.0126.lcssa, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %30, ptr noundef %32, ptr noundef nonnull %6, float noundef %3, float noundef %4)
-  %277 = call fastcc noundef zeroext i1 @_ZL10chk_hbondsiP7t_atomsPA3_fPKbPbPfff(i32 noundef %.0124.lcssa, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %31, ptr noundef %32, ptr noundef nonnull %7, float noundef %3, float noundef %4)
-  %278 = call fastcc noundef zeroext i1 @_ZL10chk_hbondsiP7t_atomsPA3_fPKbPbPfff(i32 noundef %.0124.lcssa, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %30, ptr noundef %32, ptr noundef nonnull %7, float noundef %3, float noundef %4)
+  %275 = call fastcc noundef zeroext i1 @_ZL10chk_hbondsiP7t_atomsPA3_fPKbPbPfff(i32 noundef %.0123.lcssa, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %31, ptr noundef %32, ptr noundef nonnull %6, float noundef %3, float noundef %4)
+  %276 = call fastcc noundef zeroext i1 @_ZL10chk_hbondsiP7t_atomsPA3_fPKbPbPfff(i32 noundef %.0123.lcssa, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %30, ptr noundef %32, ptr noundef nonnull %6, float noundef %3, float noundef %4)
+  %277 = call fastcc noundef zeroext i1 @_ZL10chk_hbondsiP7t_atomsPA3_fPKbPbPfff(i32 noundef %.0121.lcssa, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %31, ptr noundef %32, ptr noundef nonnull %7, float noundef %3, float noundef %4)
+  %278 = call fastcc noundef zeroext i1 @_ZL10chk_hbondsiP7t_atomsPA3_fPKbPbPfff(i32 noundef %.0121.lcssa, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %30, ptr noundef %32, ptr noundef nonnull %7, float noundef %3, float noundef %4)
   %. = select i1 %277, i32 2, i32 0
-  %.0128 = select i1 %275, i32 %., i32 1
+  %.0125 = select i1 %275, i32 %., i32 1
   %279 = load ptr, ptr @stderr, align 8
-  %280 = tail call noundef ptr @_Z17enumValueToString15HistidineStates(i32 noundef %.0128)
+  %280 = tail call noundef ptr @_Z17enumValueToString15HistidineStates(i32 noundef %.0125)
   %281 = load ptr, ptr %10, align 8
   %282 = sext i32 %169 to i64
   %283 = getelementptr inbounds %struct.t_resinfo, ptr %281, i64 %282, i32 1
   %284 = load i32, ptr %283, align 8
   %285 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %279, ptr noundef nonnull @.str.30, ptr noundef %280, i32 noundef %284) #15
-  %286 = tail call noundef ptr @_Z17enumValueToString15HistidineStates(i32 noundef %.0128)
+  %286 = tail call noundef ptr @_Z17enumValueToString15HistidineStates(i32 noundef %.0125)
   %287 = tail call noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef %2, ptr noundef %286)
   %288 = load ptr, ptr %10, align 8
   %289 = getelementptr inbounds %struct.t_resinfo, ptr %288, i64 %282, i32 5
@@ -589,7 +589,7 @@ sub_2:                                            ; preds = %sub_1
   resume { ptr, i32 } %297
 
 298:                                              ; preds = %166, %209, %164
-  %.1130 = phi i32 [ %.0129204, %164 ], [ %169, %209 ], [ %.0129204, %166 ]
+  %.1127 = phi i32 [ %.0126204, %164 ], [ %169, %209 ], [ %.0126204, %166 ]
   %.3 = phi i32 [ %165, %164 ], [ %.2.lcssa, %209 ], [ %.1205, %166 ]
   %299 = icmp slt i32 %.3, %9
   br i1 %299, label %153, label %._crit_edge207, !llvm.loop !13
@@ -697,18 +697,18 @@ define internal fastcc noundef zeroext i1 @_ZL10chk_hbondsiP7t_atomsPA3_fPKbPbPf
 
 61:                                               ; preds = %61, %43
   %indvars.iv.i = phi i64 [ 0, %43 ], [ %indvars.iv.next.i, %61 ]
-  %.02333.i = phi double [ 0.000000e+00, %43 ], [ %70, %61 ]
-  %.02432.i = phi double [ 0.000000e+00, %43 ], [ %69, %61 ]
-  %.02531.i = phi double [ 0.000000e+00, %43 ], [ %68, %61 ]
+  %.033.i = phi double [ 0.000000e+00, %43 ], [ %70, %61 ]
+  %.02332.i = phi double [ 0.000000e+00, %43 ], [ %69, %61 ]
+  %.02431.i = phi double [ 0.000000e+00, %43 ], [ %68, %61 ]
   %62 = getelementptr inbounds float, ptr %9, i64 %indvars.iv.i
   %63 = load float, ptr %62, align 4
   %64 = fpext float %63 to double
   %65 = getelementptr inbounds float, ptr %10, i64 %indvars.iv.i
   %66 = load float, ptr %65, align 4
   %67 = fpext float %66 to double
-  %68 = tail call double @llvm.fmuladd.f64(double %64, double %67, double %.02531.i)
-  %69 = tail call double @llvm.fmuladd.f64(double %64, double %64, double %.02432.i)
-  %70 = tail call double @llvm.fmuladd.f64(double %67, double %67, double %.02333.i)
+  %68 = tail call double @llvm.fmuladd.f64(double %64, double %67, double %.02431.i)
+  %69 = tail call double @llvm.fmuladd.f64(double %64, double %64, double %.02332.i)
+  %70 = tail call double @llvm.fmuladd.f64(double %67, double %67, double %.033.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %71, label %61, !llvm.loop !14
@@ -735,8 +735,8 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %71, %78
   %83 = fcmp ogt float %.026.i, 1.000000e+00
   %84 = fcmp olt float %.026.i, -1.000000e+00
   %..026.i = select i1 %84, float -1.000000e+00, float %.026.i
-  %.0.i = select i1 %83, float 1.000000e+00, float %..026.i
-  %85 = tail call noundef float @acosf(float noundef %.0.i) #17
+  %.025.i = select i1 %83, float 1.000000e+00, float %..026.i
+  %85 = tail call noundef float @acosf(float noundef %.025.i) #17
   %86 = fcmp olt float %75, %17
   br i1 %86, label %87, label %93
 

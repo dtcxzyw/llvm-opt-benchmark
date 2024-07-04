@@ -1901,8 +1901,8 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi13IdasInterface4resFEdP17_generic
           to label %61 unwind label %62
 
 _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit:    ; preds = %.lr.ph.i, %42, %21, %41
-  %.0 = phi i32 [ -1, %41 ], [ 1, %21 ], [ 0, %42 ], [ 0, %.lr.ph.i ]
-  ret i32 %.0
+  %.020 = phi i32 [ -1, %41 ], [ 1, %21 ], [ 0, %42 ], [ 0, %.lr.ph.i ]
+  ret i32 %.020
 
 61:                                               ; preds = %59, %22
   %.merged = phi { ptr, i32 } [ %60, %59 ], [ %23, %22 ]
@@ -2247,8 +2247,8 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi13IdasInterface7jtimesFEdP17_gene
           to label %71 unwind label %72
 
 _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit:    ; preds = %.lr.ph.i, %51, %30, %50
-  %.0 = phi i32 [ -1, %50 ], [ 1, %30 ], [ 0, %51 ], [ 0, %.lr.ph.i ]
-  ret i32 %.0
+  %.024 = phi i32 [ -1, %50 ], [ 1, %30 ], [ 0, %51 ], [ 0, %.lr.ph.i ]
+  ret i32 %.024
 
 71:                                               ; preds = %69, %31
   %.merged = phi { ptr, i32 } [ %70, %69 ], [ %32, %31 ]
@@ -2365,8 +2365,8 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi13IdasInterface7jtimesBEdP17_gene
           to label %74 unwind label %75
 
 _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit:    ; preds = %.lr.ph.i, %55, %34, %54
-  %.0 = phi i32 [ -1, %54 ], [ 1, %34 ], [ 0, %55 ], [ 0, %.lr.ph.i ]
-  ret i32 %.0
+  %.024 = phi i32 [ -1, %54 ], [ 1, %34 ], [ 0, %55 ], [ 0, %.lr.ph.i ]
+  ret i32 %.024
 
 74:                                               ; preds = %72, %35
   %.merged = phi { ptr, i32 } [ %73, %72 ], [ %36, %35 ]
@@ -3867,30 +3867,30 @@ _ZN6casadi12casadi_clearIdEEvPT_x.exit.i:         ; preds = %.lr.ph.preheader.i.
 
 .lr.ph69.i:                                       ; preds = %.loopexit.i, %.lr.ph69.preheader.i
   %101 = phi i64 [ %100, %.loopexit.i ], [ %.pre.i, %.lr.ph69.preheader.i ]
-  %.068.i = phi i64 [ %103, %.loopexit.i ], [ 0, %.lr.ph69.preheader.i ]
-  %102 = getelementptr inbounds i64, ptr %89, i64 %.068.i
-  %103 = add nuw nsw i64 %.068.i, 1
+  %.05468.i = phi i64 [ %103, %.loopexit.i ], [ 0, %.lr.ph69.preheader.i ]
+  %102 = getelementptr inbounds i64, ptr %89, i64 %.05468.i
+  %103 = add nuw nsw i64 %.05468.i, 1
   %104 = getelementptr inbounds i64, ptr %89, i64 %103
   %105 = load i64, ptr %104, align 8
   %106 = icmp slt i64 %101, %105
   br i1 %106, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph69.i, %.lr.ph.i
-  %.05459.i = phi i64 [ %112, %.lr.ph.i ], [ %101, %.lr.ph69.i ]
-  %107 = getelementptr inbounds double, ptr %77, i64 %.05459.i
+  %.059.i = phi i64 [ %112, %.lr.ph.i ], [ %101, %.lr.ph69.i ]
+  %107 = getelementptr inbounds double, ptr %77, i64 %.059.i
   %108 = load double, ptr %107, align 8
-  %109 = getelementptr inbounds i64, ptr %91, i64 %.05459.i
+  %109 = getelementptr inbounds i64, ptr %91, i64 %.059.i
   %110 = load i64, ptr %109, align 8
   %111 = getelementptr inbounds double, ptr %85, i64 %110
   store double %108, ptr %111, align 8
-  %112 = add nsw i64 %.05459.i, 1
+  %112 = add nsw i64 %.059.i, 1
   %113 = load i64, ptr %104, align 8
   %114 = icmp slt i64 %112, %113
   br i1 %114, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !28
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph69.i
   %115 = phi i64 [ %105, %.lr.ph69.i ], [ %113, %.lr.ph.i ]
-  %gep.i = getelementptr i64, ptr %94, i64 %.068.i
+  %gep.i = getelementptr i64, ptr %94, i64 %.05468.i
   %116 = load i64, ptr %gep.i, align 8
   %117 = getelementptr i8, ptr %gep.i, i64 8
   %118 = load i64, ptr %117, align 8
@@ -3991,30 +3991,30 @@ _ZN6casadi12casadi_clearIdEEvPT_x.exit.i83:       ; preds = %.lr.ph.preheader.i.
 
 .lr.ph69.i86:                                     ; preds = %.loopexit.i91, %.lr.ph69.preheader.i84
   %164 = phi i64 [ %163, %.loopexit.i91 ], [ %.pre.i85, %.lr.ph69.preheader.i84 ]
-  %.068.i87 = phi i64 [ %166, %.loopexit.i91 ], [ 0, %.lr.ph69.preheader.i84 ]
-  %165 = getelementptr inbounds i64, ptr %151, i64 %.068.i87
-  %166 = add nuw nsw i64 %.068.i87, 1
+  %.05468.i87 = phi i64 [ %166, %.loopexit.i91 ], [ 0, %.lr.ph69.preheader.i84 ]
+  %165 = getelementptr inbounds i64, ptr %151, i64 %.05468.i87
+  %166 = add nuw nsw i64 %.05468.i87, 1
   %167 = getelementptr inbounds i64, ptr %151, i64 %166
   %168 = load i64, ptr %167, align 8
   %169 = icmp slt i64 %164, %168
   br i1 %169, label %.lr.ph.i102, label %._crit_edge.i88
 
 .lr.ph.i102:                                      ; preds = %.lr.ph69.i86, %.lr.ph.i102
-  %.05459.i103 = phi i64 [ %175, %.lr.ph.i102 ], [ %164, %.lr.ph69.i86 ]
-  %170 = getelementptr inbounds double, ptr %141, i64 %.05459.i103
+  %.059.i103 = phi i64 [ %175, %.lr.ph.i102 ], [ %164, %.lr.ph69.i86 ]
+  %170 = getelementptr inbounds double, ptr %141, i64 %.059.i103
   %171 = load double, ptr %170, align 8
-  %172 = getelementptr inbounds i64, ptr %153, i64 %.05459.i103
+  %172 = getelementptr inbounds i64, ptr %153, i64 %.059.i103
   %173 = load i64, ptr %172, align 8
   %174 = getelementptr inbounds double, ptr %147, i64 %173
   store double %171, ptr %174, align 8
-  %175 = add nsw i64 %.05459.i103, 1
+  %175 = add nsw i64 %.059.i103, 1
   %176 = load i64, ptr %167, align 8
   %177 = icmp slt i64 %175, %176
   br i1 %177, label %.lr.ph.i102, label %._crit_edge.i88, !llvm.loop !28
 
 ._crit_edge.i88:                                  ; preds = %.lr.ph.i102, %.lr.ph69.i86
   %178 = phi i64 [ %168, %.lr.ph69.i86 ], [ %176, %.lr.ph.i102 ]
-  %gep.i89 = getelementptr i64, ptr %156, i64 %.068.i87
+  %gep.i89 = getelementptr i64, ptr %156, i64 %.05468.i87
   %179 = load i64, ptr %gep.i89, align 8
   %180 = getelementptr i8, ptr %gep.i89, i64 8
   %181 = load i64, ptr %180, align 8
@@ -4116,30 +4116,30 @@ _ZN6casadi12casadi_clearIdEEvPT_x.exit.i108:      ; preds = %.lr.ph.preheader.i.
 
 .lr.ph69.i111:                                    ; preds = %.loopexit.i116, %.lr.ph69.preheader.i109
   %227 = phi i64 [ %226, %.loopexit.i116 ], [ %.pre.i110, %.lr.ph69.preheader.i109 ]
-  %.068.i112 = phi i64 [ %229, %.loopexit.i116 ], [ 0, %.lr.ph69.preheader.i109 ]
-  %228 = getelementptr inbounds i64, ptr %215, i64 %.068.i112
-  %229 = add nuw nsw i64 %.068.i112, 1
+  %.05468.i112 = phi i64 [ %229, %.loopexit.i116 ], [ 0, %.lr.ph69.preheader.i109 ]
+  %228 = getelementptr inbounds i64, ptr %215, i64 %.05468.i112
+  %229 = add nuw nsw i64 %.05468.i112, 1
   %230 = getelementptr inbounds i64, ptr %215, i64 %229
   %231 = load i64, ptr %230, align 8
   %232 = icmp slt i64 %227, %231
   br i1 %232, label %.lr.ph.i127, label %._crit_edge.i113
 
 .lr.ph.i127:                                      ; preds = %.lr.ph69.i111, %.lr.ph.i127
-  %.05459.i128 = phi i64 [ %238, %.lr.ph.i127 ], [ %227, %.lr.ph69.i111 ]
-  %233 = getelementptr inbounds double, ptr %205, i64 %.05459.i128
+  %.059.i128 = phi i64 [ %238, %.lr.ph.i127 ], [ %227, %.lr.ph69.i111 ]
+  %233 = getelementptr inbounds double, ptr %205, i64 %.059.i128
   %234 = load double, ptr %233, align 8
-  %235 = getelementptr inbounds i64, ptr %217, i64 %.05459.i128
+  %235 = getelementptr inbounds i64, ptr %217, i64 %.059.i128
   %236 = load i64, ptr %235, align 8
   %237 = getelementptr inbounds double, ptr %211, i64 %236
   store double %234, ptr %237, align 8
-  %238 = add nsw i64 %.05459.i128, 1
+  %238 = add nsw i64 %.059.i128, 1
   %239 = load i64, ptr %230, align 8
   %240 = icmp slt i64 %238, %239
   br i1 %240, label %.lr.ph.i127, label %._crit_edge.i113, !llvm.loop !28
 
 ._crit_edge.i113:                                 ; preds = %.lr.ph.i127, %.lr.ph69.i111
   %241 = phi i64 [ %231, %.lr.ph69.i111 ], [ %239, %.lr.ph.i127 ]
-  %gep.i114 = getelementptr i64, ptr %invariant.gep.i, i64 %.068.i112
+  %gep.i114 = getelementptr i64, ptr %invariant.gep.i, i64 %.05468.i112
   %242 = load i64, ptr %gep.i114, align 8
   %243 = getelementptr i8, ptr %gep.i114, i64 8
   %244 = load i64, ptr %243, align 8
@@ -4241,30 +4241,30 @@ _ZN6casadi12casadi_clearIdEEvPT_x.exit.i133:      ; preds = %.lr.ph.preheader.i.
 
 .lr.ph69.i137:                                    ; preds = %.loopexit.i142, %.lr.ph69.preheader.i135
   %290 = phi i64 [ %289, %.loopexit.i142 ], [ %.pre.i136, %.lr.ph69.preheader.i135 ]
-  %.068.i138 = phi i64 [ %292, %.loopexit.i142 ], [ 0, %.lr.ph69.preheader.i135 ]
-  %291 = getelementptr inbounds i64, ptr %277, i64 %.068.i138
-  %292 = add nuw nsw i64 %.068.i138, 1
+  %.05468.i138 = phi i64 [ %292, %.loopexit.i142 ], [ 0, %.lr.ph69.preheader.i135 ]
+  %291 = getelementptr inbounds i64, ptr %277, i64 %.05468.i138
+  %292 = add nuw nsw i64 %.05468.i138, 1
   %293 = getelementptr inbounds i64, ptr %277, i64 %292
   %294 = load i64, ptr %293, align 8
   %295 = icmp slt i64 %290, %294
   br i1 %295, label %.lr.ph.i153, label %._crit_edge.i139
 
 .lr.ph.i153:                                      ; preds = %.lr.ph69.i137, %.lr.ph.i153
-  %.05459.i154 = phi i64 [ %301, %.lr.ph.i153 ], [ %290, %.lr.ph69.i137 ]
-  %296 = getelementptr inbounds double, ptr %267, i64 %.05459.i154
+  %.059.i154 = phi i64 [ %301, %.lr.ph.i153 ], [ %290, %.lr.ph69.i137 ]
+  %296 = getelementptr inbounds double, ptr %267, i64 %.059.i154
   %297 = load double, ptr %296, align 8
-  %298 = getelementptr inbounds i64, ptr %279, i64 %.05459.i154
+  %298 = getelementptr inbounds i64, ptr %279, i64 %.059.i154
   %299 = load i64, ptr %298, align 8
   %300 = getelementptr inbounds double, ptr %273, i64 %299
   store double %297, ptr %300, align 8
-  %301 = add nsw i64 %.05459.i154, 1
+  %301 = add nsw i64 %.059.i154, 1
   %302 = load i64, ptr %293, align 8
   %303 = icmp slt i64 %301, %302
   br i1 %303, label %.lr.ph.i153, label %._crit_edge.i139, !llvm.loop !28
 
 ._crit_edge.i139:                                 ; preds = %.lr.ph.i153, %.lr.ph69.i137
   %304 = phi i64 [ %294, %.lr.ph69.i137 ], [ %302, %.lr.ph.i153 ]
-  %gep.i140 = getelementptr i64, ptr %invariant.gep.i134, i64 %.068.i138
+  %gep.i140 = getelementptr i64, ptr %invariant.gep.i134, i64 %.05468.i138
   %305 = load i64, ptr %gep.i140, align 8
   %306 = getelementptr i8, ptr %gep.i140, i64 8
   %307 = load i64, ptr %306, align 8
@@ -4340,8 +4340,8 @@ _ZN6casadi17casadi_copy_blockIdEEvPKT_PKxPS1_S5_xxS6_.exit156: ; preds = %.loope
 
 .lr.ph167:                                        ; preds = %.lr.ph167.preheader, %.loopexit
   %336 = phi i64 [ %335, %.loopexit ], [ %.pre, %.lr.ph167.preheader ]
-  %.071166 = phi i64 [ %337, %.loopexit ], [ 0, %.lr.ph167.preheader ]
-  %337 = add nuw nsw i64 %.071166, 1
+  %.070166 = phi i64 [ %337, %.loopexit ], [ 0, %.lr.ph167.preheader ]
+  %337 = add nuw nsw i64 %.070166, 1
   %338 = getelementptr inbounds i64, ptr %331, i64 %337
   %339 = load i64, ptr %338, align 8
   %340 = icmp slt i64 %336, %339
@@ -4349,15 +4349,15 @@ _ZN6casadi17casadi_copy_blockIdEEvPKT_PKxPS1_S5_xxS6_.exit156: ; preds = %.loope
 
 .lr.ph:                                           ; preds = %.lr.ph167, %350
   %341 = phi i64 [ %351, %350 ], [ %339, %.lr.ph167 ]
-  %.070165 = phi i64 [ %352, %350 ], [ %336, %.lr.ph167 ]
-  %342 = getelementptr inbounds i64, ptr %333, i64 %.070165
+  %.0165 = phi i64 [ %352, %350 ], [ %336, %.lr.ph167 ]
+  %342 = getelementptr inbounds i64, ptr %333, i64 %.0165
   %343 = load i64, ptr %342, align 8
-  %344 = icmp eq i64 %343, %.071166
+  %344 = icmp eq i64 %343, %.070166
   br i1 %344, label %345, label %350
 
 345:                                              ; preds = %.lr.ph
   %346 = load ptr, ptr %80, align 8
-  %347 = getelementptr inbounds double, ptr %346, i64 %.070165
+  %347 = getelementptr inbounds double, ptr %346, i64 %.0165
   %348 = load double, ptr %347, align 8
   %349 = fsub double %348, %4
   store double %349, ptr %347, align 8
@@ -4366,7 +4366,7 @@ _ZN6casadi17casadi_copy_blockIdEEvPKT_PKxPS1_S5_xxS6_.exit156: ; preds = %.loope
 
 350:                                              ; preds = %.lr.ph, %345
   %351 = phi i64 [ %341, %.lr.ph ], [ %.pre175, %345 ]
-  %352 = add nsw i64 %.070165, 1
+  %352 = add nsw i64 %.0165, 1
   %353 = icmp slt i64 %352, %351
   br i1 %353, label %.lr.ph, label %.loopexit, !llvm.loop !32
 
@@ -4393,8 +4393,8 @@ _ZN6casadi17casadi_copy_blockIdEEvPKT_PKxPS1_S5_xxS6_.exit156: ; preds = %.loope
           to label %364 unwind label %365
 
 363:                                              ; preds = %358, %50, %359, %73
-  %.0 = phi i32 [ 0, %359 ], [ -1, %73 ], [ 1, %50 ], [ 1, %358 ]
-  ret i32 %.0
+  %.071 = phi i32 [ 0, %359 ], [ -1, %73 ], [ 1, %50 ], [ 1, %358 ]
+  ret i32 %.071
 
 364:                                              ; preds = %361, %57
   %.merged = phi { ptr, i32 } [ %362, %361 ], [ %.pn77, %57 ]
@@ -4437,16 +4437,16 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi13IdasInterface7psolveFEdP17_gene
 
 26:                                               ; preds = %.lr.ph, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit136
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit136 ]
-  %.0114199 = phi ptr [ %.pre218, %.lr.ph ], [ %55, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit136 ]
+  %.0113199 = phi ptr [ %.pre218, %.lr.ph ], [ %55, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit136 ]
   %27 = load i64, ptr %24, align 8
   %28 = mul nsw i64 %27, %indvars.iv
   %29 = getelementptr double, ptr %17, i64 %28
-  %.not.i = icmp eq ptr %.0114199, null
+  %.not.i = icmp eq ptr %.0113199, null
   br i1 %.not.i, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.thread226, label %32
 
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.thread226: ; preds = %26
   %30 = load i64, ptr %24, align 8
-  %31 = getelementptr double, ptr %.0114199, i64 %30
+  %31 = getelementptr double, ptr %.0113199, i64 %30
   br label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit136
 
 32:                                               ; preds = %26
@@ -4461,12 +4461,12 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.thread226: ; preds = %26
 
 .lr.ph23.preheader.i:                             ; preds = %.preheader.i
   %34 = shl nuw i64 %27, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0114199, i8 0, i64 %34, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0113199, i8 0, i64 %34, i1 false)
   br label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.thread
 
 .lr.ph.i:                                         ; preds = %.preheader16.i, %.lr.ph.i
   %.020.i = phi i64 [ %38, %.lr.ph.i ], [ 0, %.preheader16.i ]
-  %.01019.i = phi ptr [ %37, %.lr.ph.i ], [ %.0114199, %.preheader16.i ]
+  %.01019.i = phi ptr [ %37, %.lr.ph.i ], [ %.0113199, %.preheader16.i ]
   %.01218.i = phi ptr [ %35, %.lr.ph.i ], [ %29, %.preheader16.i ]
   %35 = getelementptr inbounds i8, ptr %.01218.i, i64 8
   %36 = load double, ptr %.01218.i, align 8
@@ -4478,12 +4478,12 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.thread226: ; preds = %26
 
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.thread: ; preds = %.preheader16.i, %.preheader.i, %.lr.ph23.preheader.i
   %39 = load i64, ptr %24, align 8
-  %40 = getelementptr double, ptr %.0114199, i64 %39
+  %40 = getelementptr double, ptr %.0113199, i64 %39
   br label %43
 
 _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit:       ; preds = %.lr.ph.i
   %41 = load i64, ptr %24, align 8
-  %42 = getelementptr double, ptr %.0114199, i64 %41
+  %42 = getelementptr double, ptr %.0113199, i64 %41
   br i1 %.not.i, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit136, label %43
 
 43:                                               ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.thread, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit
@@ -4964,8 +4964,8 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit196:    ; preds = %.lr.ph.i189, %_ZN6c
           to label %243 unwind label %244
 
 .loopexit:                                        ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit196, %203, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit158, %202, %150, %84, %76
-  %.0 = phi i32 [ -1, %76 ], [ 1, %84 ], [ 1, %150 ], [ 1, %202 ], [ 0, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit158 ], [ 0, %203 ], [ 0, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit196 ]
-  ret i32 %.0
+  %.0116 = phi i32 [ -1, %76 ], [ 1, %84 ], [ 1, %150 ], [ 1, %202 ], [ 0, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit158 ], [ 0, %203 ], [ 0, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit196 ]
+  ret i32 %.0116
 
 243:                                              ; preds = %241, %57
   %.merged = phi { ptr, i32 } [ %242, %241 ], [ %58, %57 ]
@@ -7247,8 +7247,8 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi13IdasInterface4resBEdP17_generic
           to label %71 unwind label %72
 
 _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit:    ; preds = %.lr.ph.i, %52, %31, %51
-  %.0 = phi i32 [ -1, %51 ], [ 1, %31 ], [ 0, %52 ], [ 0, %.lr.ph.i ]
-  ret i32 %.0
+  %.024 = phi i32 [ -1, %51 ], [ 1, %31 ], [ 0, %52 ], [ 0, %.lr.ph.i ]
+  ret i32 %.024
 
 71:                                               ; preds = %69, %32
   %.merged = phi { ptr, i32 } [ %70, %69 ], [ %33, %32 ]
@@ -7394,7 +7394,7 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi13IdasInterface7lsetupBEP9IDAMemR
   br label %66
 
 64:                                               ; preds = %50, %49
-  %.028 = phi i1 [ false, %50 ], [ true, %49 ]
+  %.0 = phi i1 [ false, %50 ], [ true, %49 ]
   %65 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
@@ -7403,7 +7403,7 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi13IdasInterface7lsetupBEP9IDAMemR
 
 66:                                               ; preds = %64, %62
   %.pn = phi { ptr, i32 } [ %65, %64 ], [ %63, %62 ]
-  %.1 = phi i1 [ %.028, %64 ], [ true, %62 ]
+  %.1 = phi i1 [ %.0, %64 ], [ true, %62 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #22
   br label %67
 
@@ -7441,14 +7441,14 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi13IdasInterface7lsetupBEP9IDAMemR
 
 72:                                               ; preds = %70, %71, %51
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn53, %71 ], [ %.pn.pn.pn.pn.pn, %70 ], [ %52, %51 ]
-  %.642 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn, 1
+  %.635 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn, 1
   %73 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
-  %74 = icmp eq i32 %.642, %73
+  %74 = icmp eq i32 %.635, %73
   br i1 %74, label %75, label %96
 
 75:                                               ; preds = %72
-  %.635 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn, 0
-  %76 = call ptr @__cxa_begin_catch(ptr %.635) #22
+  %.642 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn, 0
+  %76 = call ptr @__cxa_begin_catch(ptr %.642) #22
   %77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi4uerrEv()
           to label %78 unwind label %93
 
@@ -7485,8 +7485,8 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi13IdasInterface7lsetupBEP9IDAMemR
           to label %96 unwind label %97
 
 95:                                               ; preds = %89, %88
-  %.0 = phi i32 [ -1, %88 ], [ %92, %89 ]
-  ret i32 %.0
+  %.028 = phi i32 [ -1, %88 ], [ %92, %89 ]
+  ret i32 %.028
 
 96:                                               ; preds = %93, %72
   %.merged = phi { ptr, i32 } [ %94, %93 ], [ %.pn.pn.pn.pn.pn.pn.pn, %72 ]
@@ -7676,14 +7676,14 @@ define noundef i32 @_ZN6casadi13IdasInterface7lsolveBEP9IDAMemRecP17_generic_N_V
 
 73:                                               ; preds = %71, %72, %52
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn67, %72 ], [ %.pn.pn.pn.pn.pn, %71 ], [ %53, %52 ]
-  %.653 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn, 1
+  %.646 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn, 1
   %74 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
-  %75 = icmp eq i32 %.653, %74
+  %75 = icmp eq i32 %.646, %74
   br i1 %75, label %76, label %106
 
 76:                                               ; preds = %73
-  %.646 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn, 0
-  %77 = call ptr @__cxa_begin_catch(ptr %.646) #22
+  %.653 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn, 0
+  %77 = call ptr @__cxa_begin_catch(ptr %.653) #22
   %78 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi4uerrEv()
           to label %79 unwind label %103
 
@@ -7813,8 +7813,8 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi13IdasInterface7psetupBEdP17_gene
           to label %37 unwind label %38
 
 36:                                               ; preds = %11, %33
-  %.0 = phi i32 [ -1, %33 ], [ %13, %11 ]
-  ret i32 %.0
+  %.013 = phi i32 [ -1, %33 ], [ %13, %11 ]
+  ret i32 %.013
 
 37:                                               ; preds = %34, %14
   %.merged = phi { ptr, i32 } [ %35, %34 ], [ %15, %14 ]
@@ -8007,8 +8007,8 @@ define noundef range(i32 -1, 2) i32 @_ZN6casadi13IdasInterface5rhsQBEdP17_generi
           to label %67 unwind label %68
 
 _ZN6casadi11casadi_scalIdEEvxT_PS1_.exit:         ; preds = %.lr.ph.i, %52, %31, %51
-  %.0 = phi i32 [ -1, %51 ], [ 1, %31 ], [ 0, %52 ], [ 0, %.lr.ph.i ]
-  ret i32 %.0
+  %.023 = phi i32 [ -1, %51 ], [ 1, %31 ], [ 0, %52 ], [ 0, %.lr.ph.i ]
+  ret i32 %.023
 
 67:                                               ; preds = %65, %32
   %.merged = phi { ptr, i32 } [ %66, %65 ], [ %33, %32 ]

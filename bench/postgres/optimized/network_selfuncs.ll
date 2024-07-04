@@ -162,11 +162,11 @@ inet_opr_codenum.exit:                            ; preds = %71, %72, %73, %74, 
   br label %90
 
 90:                                               ; preds = %87, %inet_opr_codenum.exit
-  %.026 = phi double [ %86, %inet_opr_codenum.exit ], [ %89, %87 ]
+  %.025 = phi double [ %86, %inet_opr_codenum.exit ], [ %89, %87 ]
   %91 = fsub double 1.000000e+00, %64
   %92 = load double, ptr %6, align 8
   %93 = fsub double %91, %92
-  %94 = call double @llvm.fmuladd.f64(double %93, double %.026, double %68)
+  %94 = call double @llvm.fmuladd.f64(double %93, double %.025, double %68)
   %95 = fcmp olt double %94, 0.000000e+00
   br i1 %95, label %99, label %96
 
@@ -178,7 +178,7 @@ inet_opr_codenum.exit:                            ; preds = %71, %72, %73, %74, 
   br label %99
 
 99:                                               ; preds = %90, %96, %98
-  %.025 = phi double [ 1.000000e+00, %98 ], [ %94, %96 ], [ 0.000000e+00, %90 ]
+  %.026 = phi double [ 1.000000e+00, %98 ], [ %94, %96 ], [ 0.000000e+00, %90 ]
   %100 = load ptr, ptr %50, align 8
   %.not33 = icmp eq ptr %100, null
   br i1 %.not33, label %104, label %101
@@ -190,7 +190,7 @@ inet_opr_codenum.exit:                            ; preds = %71, %72, %73, %74, 
   br label %104
 
 104:                                              ; preds = %99, %101
-  %105 = bitcast double %.025 to i64
+  %105 = bitcast double %.026 to i64
   br label %106
 
 106:                                              ; preds = %44, %41, %104, %52, %34, %21
@@ -309,12 +309,12 @@ inet_inclusion_cmp.exit:                          ; preds = %24, %33, %49, %53, 
   br label %67
 
 67:                                               ; preds = %.lr.ph, %190
-  %.049109 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %190 ]
-  %.050108 = phi ptr [ %14, %.lr.ph ], [ %72, %190 ]
-  %.051107 = phi i32 [ %.0.i, %.lr.ph ], [ %.0.i59101, %190 ]
-  %.052106 = phi i32 [ 0, %.lr.ph ], [ %191, %190 ]
-  %.053105 = phi i32 [ %9, %.lr.ph ], [ %192, %190 ]
-  %68 = sext i32 %.053105 to i64
+  %.0109 = phi i32 [ %.0.i, %.lr.ph ], [ %.0.i59101, %190 ]
+  %.049108 = phi i32 [ 0, %.lr.ph ], [ %191, %190 ]
+  %.050107 = phi i32 [ %9, %.lr.ph ], [ %192, %190 ]
+  %.051106 = phi ptr [ %14, %.lr.ph ], [ %72, %190 ]
+  %.052105 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %190 ]
+  %68 = sext i32 %.050107 to i64
   %69 = getelementptr i64, ptr %0, i64 %68
   %70 = load i64, ptr %69, align 8
   %71 = inttoptr i64 %70 to ptr
@@ -385,34 +385,34 @@ inet_inclusion_cmp.exit:                          ; preds = %24, %33, %49, %53, 
 
 inet_inclusion_cmp.exit70:                        ; preds = %91, %105, %107
   %.0.i59 = phi i32 [ %110, %107 ], [ 0, %91 ], [ %spec.select.i.i69, %105 ]
-  %111 = icmp eq i32 %.051107, 0
+  %111 = icmp eq i32 %.0109, 0
   %112 = icmp eq i32 %.0.i59, 0
   %or.cond = select i1 %111, i1 %112, i1 false
   br i1 %or.cond, label %113, label %inet_inclusion_cmp.exit70.thread
 
 113:                                              ; preds = %inet_inclusion_cmp.exit70
-  %114 = fadd double %.049109, 1.000000e+00
+  %114 = fadd double %.052105, 1.000000e+00
   br label %190
 
 inet_inclusion_cmp.exit70.thread:                 ; preds = %82, %inet_inclusion_cmp.exit70
   %.0.i59100 = phi i32 [ %.0.i59, %inet_inclusion_cmp.exit70 ], [ %90, %82 ]
-  %115 = icmp slt i32 %.051107, 1
+  %115 = icmp slt i32 %.0109, 1
   %116 = icmp sgt i32 %.0.i59100, -1
   %or.cond3 = select i1 %115, i1 %116, i1 false
   br i1 %or.cond3, label %120, label %117
 
 117:                                              ; preds = %inet_inclusion_cmp.exit70.thread
-  %118 = icmp sgt i32 %.051107, -1
+  %118 = icmp sgt i32 %.0109, -1
   %119 = icmp slt i32 %.0.i59100, 1
   %or.cond5 = select i1 %118, i1 %119, i1 false
   br i1 %or.cond5, label %120, label %190
 
 120:                                              ; preds = %117, %inet_inclusion_cmp.exit70.thread
-  %121 = load i8, ptr %.050108, align 1
+  %121 = load i8, ptr %.051106, align 1
   %122 = and i8 %121, 1
   %.not.i71 = icmp eq i8 %122, 0
   %.v.i72 = select i1 %.not.i71, i64 4, i64 1
-  %123 = getelementptr inbounds i8, ptr %.050108, i64 %.v.i72
+  %123 = getelementptr inbounds i8, ptr %.051106, i64 %.v.i72
   %124 = load i8, ptr %123, align 1
   %125 = load i8, ptr %11, align 1
   %126 = and i8 %125, 1
@@ -559,14 +559,14 @@ inet_hist_match_divider.exit97.thread:            ; preds = %178, %inet_hist_mat
   %187 = tail call i32 @llvm.smax.i32(i32 %.040.i, i32 %.040.i82104)
   %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %187) #9
   %188 = fdiv double 1.000000e+00, %ldexp
-  %189 = fadd double %.049109, %188
+  %189 = fadd double %.052105, %188
   br label %190
 
 190:                                              ; preds = %117, %inet_hist_match_divider.exit97, %inet_hist_match_divider.exit97.thread, %113
   %.0.i59101 = phi i32 [ 0, %113 ], [ %.0.i59100, %inet_hist_match_divider.exit97.thread ], [ %.0.i59100, %inet_hist_match_divider.exit97 ], [ %.0.i59100, %117 ]
-  %.1 = phi double [ %114, %113 ], [ %189, %inet_hist_match_divider.exit97.thread ], [ %.049109, %inet_hist_match_divider.exit97 ], [ %.049109, %117 ]
-  %191 = add i32 %.052106, 1
-  %192 = add i32 %.053105, %9
+  %.1 = phi double [ %114, %113 ], [ %189, %inet_hist_match_divider.exit97.thread ], [ %.052105, %inet_hist_match_divider.exit97 ], [ %.052105, %117 ]
+  %191 = add i32 %.049108, 1
+  %192 = add i32 %.050107, %9
   %193 = icmp slt i32 %192, %1
   br i1 %193, label %67, label %._crit_edge.loopexit, !llvm.loop !5
 
@@ -576,8 +576,8 @@ inet_hist_match_divider.exit97.thread:            ; preds = %178, %inet_hist_mat
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %inet_inclusion_cmp.exit, %._crit_edge.loopexit, %4
-  %.0 = phi double [ 0.000000e+00, %4 ], [ 0x7FF8000000000000, %inet_inclusion_cmp.exit ], [ %195, %._crit_edge.loopexit ]
-  ret double %.0
+  %.053 = phi double [ 0.000000e+00, %4 ], [ 0x7FF8000000000000, %inet_inclusion_cmp.exit ], [ %195, %._crit_edge.loopexit ]
+  ret double %.053
 }
 
 declare void @free_attstatsslot(ptr noundef) local_unnamed_addr #1
@@ -953,15 +953,15 @@ inet_mcv_hist_sel.exit101.i:                      ; preds = %.lr.ph.i96.i, %137
 
 .lr.ph.i103.i:                                    ; preds = %.lr.ph.i103.i, %.lr.ph.preheader.i102.i
   %.021.i.i = phi i32 [ %182, %.lr.ph.i103.i ], [ 0, %.lr.ph.preheader.i102.i ]
-  %.01620.i.i = phi i32 [ %183, %.lr.ph.i103.i ], [ 1, %.lr.ph.preheader.i102.i ]
-  %.01719.i.i = phi double [ %181, %.lr.ph.i103.i ], [ 0.000000e+00, %.lr.ph.preheader.i102.i ]
-  %177 = sext i32 %.01620.i.i to i64
+  %.01520.i.i = phi i32 [ %183, %.lr.ph.i103.i ], [ 1, %.lr.ph.preheader.i102.i ]
+  %.01619.i.i = phi double [ %181, %.lr.ph.i103.i ], [ 0.000000e+00, %.lr.ph.preheader.i102.i ]
+  %177 = sext i32 %.01520.i.i to i64
   %178 = getelementptr i64, ptr %169, i64 %177
   %179 = load i64, ptr %178, align 8
   %180 = call fastcc double @inet_hist_value_sel(ptr noundef readonly %165, i32 noundef %167, i64 noundef %179, i32 noundef %.0.i.i)
-  %181 = fadd double %.01719.i.i, %180
+  %181 = fadd double %.01619.i.i, %180
   %182 = add i32 %.021.i.i, 1
-  %183 = add i32 %175, %.01620.i.i
+  %183 = add i32 %175, %.01520.i.i
   %184 = icmp slt i32 %183, %176
   br i1 %184, label %.lr.ph.i103.i, label %._crit_edge.i.i, !llvm.loop !11
 
@@ -971,8 +971,8 @@ inet_mcv_hist_sel.exit101.i:                      ; preds = %.lr.ph.i96.i, %137
   br label %inet_hist_inclusion_join_sel.exit.i
 
 inet_hist_inclusion_join_sel.exit.i:              ; preds = %._crit_edge.i.i, %158
-  %.015.i.i = phi double [ %186, %._crit_edge.i.i ], [ 0.000000e+00, %158 ]
-  %187 = call double @llvm.fmuladd.f64(double %163, double %.015.i.i, double %.2.i)
+  %.017.i.i = phi double [ %186, %._crit_edge.i.i ], [ 0.000000e+00, %158 ]
+  %187 = call double @llvm.fmuladd.f64(double %163, double %.017.i.i, double %.2.i)
   br label %188
 
 188:                                              ; preds = %inet_hist_inclusion_join_sel.exit.i, %157
@@ -1126,10 +1126,10 @@ define internal fastcc double @networkjoinsel_semi(i32 noundef %0, ptr nocapture
   br label %mcv_population.exit
 
 mcv_population.exit:                              ; preds = %.lr.ph.i, %27, %11, %35
-  %.079 = phi double [ 0.000000e+00, %11 ], [ 0.000000e+00, %35 ], [ 0.000000e+00, %27 ], [ %34, %.lr.ph.i ]
-  %.077 = phi double [ %20, %11 ], [ 0.000000e+00, %35 ], [ %20, %27 ], [ %20, %.lr.ph.i ]
-  %.074.shrunk = phi i1 [ false, %11 ], [ false, %35 ], [ true, %27 ], [ true, %.lr.ph.i ]
-  %.072.shrunk = phi i1 [ %23, %11 ], [ false, %35 ], [ %23, %27 ], [ %23, %.lr.ph.i ]
+  %.077 = phi double [ 0.000000e+00, %11 ], [ 0.000000e+00, %35 ], [ 0.000000e+00, %27 ], [ %34, %.lr.ph.i ]
+  %.075 = phi double [ %20, %11 ], [ 0.000000e+00, %35 ], [ %20, %27 ], [ %20, %.lr.ph.i ]
+  %.072.shrunk = phi i1 [ false, %11 ], [ false, %35 ], [ true, %27 ], [ true, %.lr.ph.i ]
+  %.070.shrunk = phi i1 [ %23, %11 ], [ false, %35 ], [ %23, %27 ], [ %23, %.lr.ph.i ]
   %.067 = phi i32 [ %26, %11 ], [ 0, %35 ], [ %26, %27 ], [ %26, %.lr.ph.i ]
   %36 = getelementptr inbounds i8, ptr %2, i64 16
   %37 = load ptr, ptr %36, align 8
@@ -1181,10 +1181,10 @@ mcv_population.exit:                              ; preds = %.lr.ph.i, %27, %11,
   br label %mcv_population.exit99
 
 mcv_population.exit99:                            ; preds = %.lr.ph.i94, %54, %38, %62
-  %.078 = phi double [ 0.000000e+00, %38 ], [ 0.000000e+00, %62 ], [ 0.000000e+00, %54 ], [ %61, %.lr.ph.i94 ]
-  %.076 = phi double [ %47, %38 ], [ 0.000000e+00, %62 ], [ %47, %54 ], [ %47, %.lr.ph.i94 ]
-  %.073.shrunk = phi i1 [ false, %38 ], [ false, %62 ], [ true, %54 ], [ true, %.lr.ph.i94 ]
-  %.071.shrunk = phi i1 [ %50, %38 ], [ false, %62 ], [ %50, %54 ], [ %50, %.lr.ph.i94 ]
+  %.076 = phi double [ 0.000000e+00, %38 ], [ 0.000000e+00, %62 ], [ 0.000000e+00, %54 ], [ %61, %.lr.ph.i94 ]
+  %.074 = phi double [ %47, %38 ], [ 0.000000e+00, %62 ], [ %47, %54 ], [ %47, %.lr.ph.i94 ]
+  %.071.shrunk = phi i1 [ false, %38 ], [ false, %62 ], [ true, %54 ], [ true, %.lr.ph.i94 ]
+  %.069.shrunk = phi i1 [ %50, %38 ], [ false, %62 ], [ %50, %54 ], [ %50, %.lr.ph.i94 ]
   %.066 = phi i32 [ %53, %38 ], [ 0, %62 ], [ %53, %54 ], [ %53, %.lr.ph.i94 ]
   switch i32 %0, label %67 [
     i32 933, label %inet_opr_codenum.exit
@@ -1217,7 +1217,7 @@ inet_opr_codenum.exit:                            ; preds = %mcv_population.exit
   %.0.i = phi i32 [ 2, %66 ], [ 1, %65 ], [ 0, %64 ], [ -1, %63 ], [ -2, %mcv_population.exit99 ]
   %70 = call i32 @get_opcode(i32 noundef %0) #9
   call void @fmgr_info(i32 noundef %70, ptr noundef nonnull %4) #9
-  br i1 %.071.shrunk, label %71, label %80
+  br i1 %.069.shrunk, label %71, label %80
 
 71:                                               ; preds = %inet_opr_codenum.exit
   %72 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1226,20 +1226,20 @@ inet_opr_codenum.exit:                            ; preds = %mcv_population.exit
   br i1 %.not84, label %80, label %74
 
 74:                                               ; preds = %71
-  %75 = fsub double 1.000000e+00, %.076
-  %76 = fsub double %75, %.078
+  %75 = fsub double 1.000000e+00, %.074
+  %76 = fsub double %75, %.076
   %77 = getelementptr inbounds i8, ptr %73, i64 16
   %78 = load double, ptr %77, align 8
   %79 = fmul double %76, %78
   br label %80
 
 80:                                               ; preds = %74, %71, %inet_opr_codenum.exit
-  %.075 = phi double [ %79, %74 ], [ 0.000000e+00, %71 ], [ 0.000000e+00, %inet_opr_codenum.exit ]
-  %brmerge = select i1 %.073.shrunk, i1 true, i1 %.071.shrunk
-  %or.cond88 = select i1 %.074.shrunk, i1 %brmerge, i1 false
+  %.073 = phi double [ %79, %74 ], [ 0.000000e+00, %71 ], [ 0.000000e+00, %inet_opr_codenum.exit ]
+  %brmerge = select i1 %.071.shrunk, i1 true, i1 %.069.shrunk
+  %or.cond88 = select i1 %.072.shrunk, i1 %brmerge, i1 false
   %81 = icmp sgt i32 %.067, 0
-  %or.cond128 = select i1 %or.cond88, i1 %81, i1 false
-  br i1 %or.cond128, label %.lr.ph, label %.loopexit
+  %or.cond127 = select i1 %or.cond88, i1 %81, i1 false
+  br i1 %or.cond127, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %80
   %82 = getelementptr inbounds i8, ptr %5, i64 32
@@ -1248,17 +1248,17 @@ inet_opr_codenum.exit:                            ; preds = %mcv_population.exit
   %85 = getelementptr inbounds i8, ptr %8, i64 16
   %86 = getelementptr inbounds i8, ptr %8, i64 24
   %87 = icmp sgt i32 %.066, 0
-  %or.cond25.i = and i1 %.073.shrunk, %87
-  %wide.trip.count.i102 = zext nneg i32 %.066 to i64
-  %88 = fcmp ogt double %.075, 0.000000e+00
-  %or.cond.i = and i1 %.071.shrunk, %88
+  %or.cond25.i = and i1 %.071.shrunk, %87
+  %wide.trip.count.i101 = zext nneg i32 %.066 to i64
+  %88 = fcmp ogt double %.073, 0.000000e+00
+  %or.cond.i = and i1 %.069.shrunk, %88
   %89 = sub nsw i32 0, %.0.i
   %wide.trip.count = zext nneg i32 %.067 to i64
   br label %90
 
 90:                                               ; preds = %.lr.ph, %inet_semi_join_sel.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %inet_semi_join_sel.exit ]
-  %.069120 = phi double [ 0.000000e+00, %.lr.ph ], [ %112, %inet_semi_join_sel.exit ]
+  %.078119 = phi double [ 0.000000e+00, %.lr.ph ], [ %112, %inet_semi_join_sel.exit ]
   %91 = load ptr, ptr %82, align 8
   %92 = getelementptr float, ptr %91, i64 %indvars.iv
   %93 = load float, ptr %92, align 4
@@ -1269,16 +1269,16 @@ inet_opr_codenum.exit:                            ; preds = %mcv_population.exit
   %98 = load ptr, ptr %84, align 8
   %99 = load ptr, ptr %85, align 8
   %100 = load i32, ptr %86, align 8
-  br i1 %or.cond25.i, label %.lr.ph.i103, label %.loopexit.i
+  br i1 %or.cond25.i, label %.lr.ph.i102, label %.loopexit.i
 
-101:                                              ; preds = %.lr.ph.i103
-  %indvars.iv.next.i105 = add nuw nsw i64 %indvars.iv.i104, 1
-  %exitcond.not.i106 = icmp eq i64 %indvars.iv.next.i105, %wide.trip.count.i102
-  br i1 %exitcond.not.i106, label %.loopexit.i, label %.lr.ph.i103, !llvm.loop !12
+101:                                              ; preds = %.lr.ph.i102
+  %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i103, 1
+  %exitcond.not.i105 = icmp eq i64 %indvars.iv.next.i104, %wide.trip.count.i101
+  br i1 %exitcond.not.i105, label %.loopexit.i, label %.lr.ph.i102, !llvm.loop !12
 
-.lr.ph.i103:                                      ; preds = %90, %101
-  %indvars.iv.i104 = phi i64 [ %indvars.iv.next.i105, %101 ], [ 0, %90 ]
-  %102 = getelementptr i64, ptr %98, i64 %indvars.iv.i104
+.lr.ph.i102:                                      ; preds = %90, %101
+  %indvars.iv.i103 = phi i64 [ %indvars.iv.next.i104, %101 ], [ 0, %90 ]
+  %102 = getelementptr i64, ptr %98, i64 %indvars.iv.i103
   %103 = load i64, ptr %102, align 8
   %104 = call i64 @FunctionCall2Coll(ptr noundef nonnull %4, i32 noundef 0, i64 noundef %97, i64 noundef %103) #9
   %.not.i = icmp eq i64 %104, 0
@@ -1293,28 +1293,28 @@ inet_opr_codenum.exit:                            ; preds = %mcv_population.exit
   br i1 %107, label %108, label %inet_semi_join_sel.exit
 
 108:                                              ; preds = %105
-  %109 = fmul double %.075, %106
+  %109 = fmul double %.073, %106
   %110 = fcmp ogt double %109, 1.000000e+00
   %111 = select i1 %110, double 1.000000e+00, double %109
   br label %inet_semi_join_sel.exit
 
-inet_semi_join_sel.exit:                          ; preds = %.lr.ph.i103, %.loopexit.i, %105, %108
-  %.0.i100 = phi double [ %111, %108 ], [ 0.000000e+00, %105 ], [ 0.000000e+00, %.loopexit.i ], [ 1.000000e+00, %.lr.ph.i103 ]
-  %112 = call double @llvm.fmuladd.f64(double %94, double %.0.i100, double %.069120)
+inet_semi_join_sel.exit:                          ; preds = %.lr.ph.i102, %.loopexit.i, %105, %108
+  %.020.i = phi double [ %111, %108 ], [ 0.000000e+00, %105 ], [ 0.000000e+00, %.loopexit.i ], [ 1.000000e+00, %.lr.ph.i102 ]
+  %112 = call double @llvm.fmuladd.f64(double %94, double %.020.i, double %.078119)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %90, !llvm.loop !13
 
 .loopexit:                                        ; preds = %inet_semi_join_sel.exit, %80
-  %.170 = phi double [ 0.000000e+00, %80 ], [ %112, %inet_semi_join_sel.exit ]
+  %.179 = phi double [ 0.000000e+00, %80 ], [ %112, %inet_semi_join_sel.exit ]
   %113 = getelementptr inbounds i8, ptr %7, i64 24
   %114 = load i32, ptr %113, align 8
   %115 = icmp sgt i32 %114, 2
-  %or.cond = select i1 %.072.shrunk, i1 %115, i1 false
+  %or.cond = select i1 %.070.shrunk, i1 %115, i1 false
   %or.cond89 = select i1 %or.cond, i1 %brmerge, i1 false
-  br i1 %or.cond89, label %.lr.ph125, label %157
+  br i1 %or.cond89, label %.lr.ph124, label %157
 
-.lr.ph125:                                        ; preds = %.loopexit
+.lr.ph124:                                        ; preds = %.loopexit
   %116 = add nsw i32 %114, -3
   %117 = lshr i32 %116, 10
   %118 = add nuw nsw i32 %117, 1
@@ -1323,81 +1323,81 @@ inet_semi_join_sel.exit:                          ; preds = %.lr.ph.i103, %.loop
   %121 = getelementptr inbounds i8, ptr %8, i64 16
   %122 = getelementptr inbounds i8, ptr %8, i64 24
   %123 = icmp sgt i32 %.066, 0
-  %or.cond25.i107 = and i1 %.073.shrunk, %123
-  %wide.trip.count.i112 = zext nneg i32 %.066 to i64
-  %124 = fcmp ogt double %.075, 0.000000e+00
-  %or.cond.i109 = and i1 %.071.shrunk, %124
+  %or.cond25.i106 = and i1 %.071.shrunk, %123
+  %wide.trip.count.i111 = zext nneg i32 %.066 to i64
+  %124 = fcmp ogt double %.073, 0.000000e+00
+  %or.cond.i108 = and i1 %.069.shrunk, %124
   %125 = sub nsw i32 0, %.0.i
   br label %126
 
-126:                                              ; preds = %.lr.ph125, %inet_semi_join_sel.exit118
-  %.0124 = phi i32 [ 0, %.lr.ph125 ], [ %146, %inet_semi_join_sel.exit118 ]
-  %.065123 = phi double [ 0.000000e+00, %.lr.ph125 ], [ %145, %inet_semi_join_sel.exit118 ]
-  %.1122 = phi i32 [ 1, %.lr.ph125 ], [ %147, %inet_semi_join_sel.exit118 ]
+126:                                              ; preds = %.lr.ph124, %inet_semi_join_sel.exit117
+  %.0123 = phi i32 [ 0, %.lr.ph124 ], [ %146, %inet_semi_join_sel.exit117 ]
+  %.065122 = phi double [ 0.000000e+00, %.lr.ph124 ], [ %145, %inet_semi_join_sel.exit117 ]
+  %.1121 = phi i32 [ 1, %.lr.ph124 ], [ %147, %inet_semi_join_sel.exit117 ]
   %127 = load ptr, ptr %119, align 8
-  %128 = sext i32 %.1122 to i64
+  %128 = sext i32 %.1121 to i64
   %129 = getelementptr i64, ptr %127, i64 %128
   %130 = load i64, ptr %129, align 8
   %131 = load ptr, ptr %120, align 8
   %132 = load ptr, ptr %121, align 8
   %133 = load i32, ptr %122, align 8
-  br i1 %or.cond25.i107, label %.lr.ph.i113, label %.loopexit.i108
+  br i1 %or.cond25.i106, label %.lr.ph.i112, label %.loopexit.i107
 
-134:                                              ; preds = %.lr.ph.i113
-  %indvars.iv.next.i116 = add nuw nsw i64 %indvars.iv.i114, 1
-  %exitcond.not.i117 = icmp eq i64 %indvars.iv.next.i116, %wide.trip.count.i112
-  br i1 %exitcond.not.i117, label %.loopexit.i108, label %.lr.ph.i113, !llvm.loop !12
+134:                                              ; preds = %.lr.ph.i112
+  %indvars.iv.next.i115 = add nuw nsw i64 %indvars.iv.i113, 1
+  %exitcond.not.i116 = icmp eq i64 %indvars.iv.next.i115, %wide.trip.count.i111
+  br i1 %exitcond.not.i116, label %.loopexit.i107, label %.lr.ph.i112, !llvm.loop !12
 
-.lr.ph.i113:                                      ; preds = %126, %134
-  %indvars.iv.i114 = phi i64 [ %indvars.iv.next.i116, %134 ], [ 0, %126 ]
-  %135 = getelementptr i64, ptr %131, i64 %indvars.iv.i114
+.lr.ph.i112:                                      ; preds = %126, %134
+  %indvars.iv.i113 = phi i64 [ %indvars.iv.next.i115, %134 ], [ 0, %126 ]
+  %135 = getelementptr i64, ptr %131, i64 %indvars.iv.i113
   %136 = load i64, ptr %135, align 8
   %137 = call i64 @FunctionCall2Coll(ptr noundef nonnull %4, i32 noundef 0, i64 noundef %130, i64 noundef %136) #9
-  %.not.i115 = icmp eq i64 %137, 0
-  br i1 %.not.i115, label %134, label %inet_semi_join_sel.exit118
+  %.not.i114 = icmp eq i64 %137, 0
+  br i1 %.not.i114, label %134, label %inet_semi_join_sel.exit117
 
-.loopexit.i108:                                   ; preds = %134, %126
-  br i1 %or.cond.i109, label %138, label %inet_semi_join_sel.exit118
+.loopexit.i107:                                   ; preds = %134, %126
+  br i1 %or.cond.i108, label %138, label %inet_semi_join_sel.exit117
 
-138:                                              ; preds = %.loopexit.i108
+138:                                              ; preds = %.loopexit.i107
   %139 = call fastcc double @inet_hist_value_sel(ptr noundef readonly %132, i32 noundef %133, i64 noundef %130, i32 noundef %125)
   %140 = fcmp ogt double %139, 0.000000e+00
-  br i1 %140, label %141, label %inet_semi_join_sel.exit118
+  br i1 %140, label %141, label %inet_semi_join_sel.exit117
 
 141:                                              ; preds = %138
-  %142 = fmul double %.075, %139
+  %142 = fmul double %.073, %139
   %143 = fcmp ogt double %142, 1.000000e+00
   %144 = select i1 %143, double 1.000000e+00, double %142
-  br label %inet_semi_join_sel.exit118
+  br label %inet_semi_join_sel.exit117
 
-inet_semi_join_sel.exit118:                       ; preds = %.lr.ph.i113, %.loopexit.i108, %138, %141
-  %.0.i110 = phi double [ %144, %141 ], [ 0.000000e+00, %138 ], [ 0.000000e+00, %.loopexit.i108 ], [ 1.000000e+00, %.lr.ph.i113 ]
-  %145 = fadd double %.065123, %.0.i110
-  %146 = add i32 %.0124, 1
-  %147 = add i32 %118, %.1122
+inet_semi_join_sel.exit117:                       ; preds = %.lr.ph.i112, %.loopexit.i107, %138, %141
+  %.020.i109 = phi double [ %144, %141 ], [ 0.000000e+00, %138 ], [ 0.000000e+00, %.loopexit.i107 ], [ 1.000000e+00, %.lr.ph.i112 ]
+  %145 = fadd double %.065122, %.020.i109
+  %146 = add i32 %.0123, 1
+  %147 = add i32 %118, %.1121
   %148 = load i32, ptr %113, align 8
   %149 = add i32 %148, -1
   %150 = icmp slt i32 %147, %149
   br i1 %150, label %126, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %inet_semi_join_sel.exit118
+._crit_edge:                                      ; preds = %inet_semi_join_sel.exit117
   %151 = sitofp i32 %146 to double
-  %152 = fsub double 1.000000e+00, %.077
-  %153 = fsub double %152, %.079
+  %152 = fsub double 1.000000e+00, %.075
+  %153 = fsub double %152, %.077
   %154 = fmul double %153, %145
   %155 = fdiv double %154, %151
-  %156 = fadd double %.170, %155
+  %156 = fadd double %.179, %155
   br label %157
 
 157:                                              ; preds = %._crit_edge, %.loopexit
-  %.2 = phi double [ %156, %._crit_edge ], [ %.170, %.loopexit ]
-  %brmerge86 = select i1 %.074.shrunk, i1 true, i1 %.072.shrunk
+  %.2 = phi double [ %156, %._crit_edge ], [ %.179, %.loopexit ]
+  %brmerge86 = select i1 %.072.shrunk, i1 true, i1 %.070.shrunk
   %or.cond90 = select i1 %brmerge86, i1 %brmerge, i1 false
   br i1 %or.cond90, label %165, label %158
 
 158:                                              ; preds = %157
-  %159 = fsub double 1.000000e+00, %.077
-  %160 = fsub double 1.000000e+00, %.076
+  %159 = fsub double 1.000000e+00, %.075
+  %160 = fsub double 1.000000e+00, %.074
   %161 = fmul double %159, %160
   %162 = icmp eq i32 %0, 3552
   %163 = select i1 %162, double 1.000000e-02, double 5.000000e-03

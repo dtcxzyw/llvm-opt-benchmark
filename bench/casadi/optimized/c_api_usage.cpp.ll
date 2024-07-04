@@ -185,30 +185,30 @@ define noundef range(i32 -1, 2) i32 @_Z7usage_cv() local_unnamed_addr #0 {
   br i1 %33, label %.lr.ph77, label %._crit_edge78
 
 .lr.ph77:                                         ; preds = %20, %._crit_edge
-  %.05475 = phi i64 [ %70, %._crit_edge ], [ 0, %20 ]
-  %34 = icmp slt i64 %.05475, %24
+  %.05675 = phi i64 [ %70, %._crit_edge ], [ 0, %20 ]
+  %34 = icmp slt i64 %.05675, %24
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %.lr.ph77
-  %36 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i64 noundef %.05475)
-  %37 = call ptr @casadi_c_sparsity_in_id(i32 noundef %23, i64 noundef %.05475)
+  %36 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i64 noundef %.05675)
+  %37 = call ptr @casadi_c_sparsity_in_id(i32 noundef %23, i64 noundef %.05675)
   br label %42
 
 38:                                               ; preds = %.lr.ph77
-  %39 = sub nsw i64 %.05475, %24
+  %39 = sub nsw i64 %.05675, %24
   %40 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i64 noundef %39)
   %41 = call ptr @casadi_c_sparsity_out_id(i32 noundef %23, i64 noundef %39)
   br label %42
 
 42:                                               ; preds = %38, %35
-  %.055 = phi ptr [ %37, %35 ], [ %41, %38 ]
-  %43 = icmp eq ptr %.055, null
+  %.057 = phi ptr [ %37, %35 ], [ %41, %38 ]
+  %43 = icmp eq ptr %.057, null
   br i1 %43, label %.loopexit71, label %44
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %.055, i64 8
-  %46 = load i64, ptr %.055, align 8
-  %47 = getelementptr inbounds i8, ptr %.055, i64 16
+  %45 = getelementptr inbounds i8, ptr %.057, i64 8
+  %46 = load i64, ptr %.057, align 8
+  %47 = getelementptr inbounds i8, ptr %.057, i64 16
   %48 = load i64, ptr %45, align 8
   %49 = getelementptr inbounds i64, ptr %47, i64 %48
   %50 = getelementptr inbounds i8, ptr %49, i64 8
@@ -229,16 +229,16 @@ define noundef range(i32 -1, 2) i32 @_Z7usage_cv() local_unnamed_addr #0 {
 
 .lr.ph74:                                         ; preds = %.lr.ph74.preheader, %.loopexit
   %56 = phi i64 [ %55, %.loopexit ], [ %.pre, %.lr.ph74.preheader ]
-  %.05673 = phi i64 [ %57, %.loopexit ], [ 0, %.lr.ph74.preheader ]
-  %57 = add nuw nsw i64 %.05673, 1
+  %.05573 = phi i64 [ %57, %.loopexit ], [ 0, %.lr.ph74.preheader ]
+  %57 = add nuw nsw i64 %.05573, 1
   %58 = getelementptr inbounds i64, ptr %47, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = icmp slt i64 %56, %59
   br i1 %60, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph74, %63
-  %.05772 = phi i64 [ %67, %63 ], [ %56, %.lr.ph74 ]
-  %.not66 = icmp eq i64 %.05772, 0
+  %.05472 = phi i64 [ %67, %63 ], [ %56, %.lr.ph74 ]
+  %.not66 = icmp eq i64 %.05472, 0
   br i1 %.not66, label %63, label %61
 
 61:                                               ; preds = %.lr.ph
@@ -246,17 +246,17 @@ define noundef range(i32 -1, 2) i32 @_Z7usage_cv() local_unnamed_addr #0 {
   br label %63
 
 63:                                               ; preds = %61, %.lr.ph
-  %64 = getelementptr inbounds i64, ptr %50, i64 %.05772
+  %64 = getelementptr inbounds i64, ptr %50, i64 %.05472
   %65 = load i64, ptr %64, align 8
-  %66 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i64 noundef %65, i64 noundef %.05673)
-  %67 = add nsw i64 %.05772, 1
+  %66 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i64 noundef %65, i64 noundef %.05573)
+  %67 = add nsw i64 %.05472, 1
   %68 = load i64, ptr %58, align 8
   %69 = icmp slt i64 %67, %68
   br i1 %69, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.loopexit, %44
   %puts65 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  %70 = add nuw nsw i64 %.05475, 1
+  %70 = add nuw nsw i64 %.05675, 1
   %exitcond79.not = icmp eq i64 %70, %32
   br i1 %exitcond79.not, label %._crit_edge78, label %.lr.ph77, !llvm.loop !7
 

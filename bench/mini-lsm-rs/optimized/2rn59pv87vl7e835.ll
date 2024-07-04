@@ -5587,12 +5587,12 @@ _ZN8mini_lsm9mem_table8MemTable3get17h8883c2e264cb0dcaE.exit.thread.i: ; preds =
           to label %149 unwind label %143, !noalias !630
 
 144:                                              ; preds = %"_ZN4core3ptr69drop_in_place$LT$alloc..sync..Arc$LT$mini_lsm..table..SsTable$GT$$GT$17h4e61fe947a68f8ddE.exit229.i", %.lr.ph403.i
-  %.sroa.0240.0399.i = phi ptr [ %137, %.lr.ph403.i ], [ %145, %"_ZN4core3ptr69drop_in_place$LT$alloc..sync..Arc$LT$mini_lsm..table..SsTable$GT$$GT$17h4e61fe947a68f8ddE.exit229.i" ]
-  %145 = getelementptr inbounds i8, ptr %.sroa.0240.0399.i, i64 8
+  %.sroa.0240.0400.i = phi ptr [ %137, %.lr.ph403.i ], [ %145, %"_ZN4core3ptr69drop_in_place$LT$alloc..sync..Arc$LT$mini_lsm..table..SsTable$GT$$GT$17h4e61fe947a68f8ddE.exit229.i" ]
+  %145 = getelementptr inbounds i8, ptr %.sroa.0240.0400.i, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30), !noalias !633
   %146 = load ptr, ptr %34, align 8, !noalias !633, !nonnull !7, !noundef !7
   %147 = getelementptr inbounds i8, ptr %146, i64 96
-  %.val150.i = load i64, ptr %.sroa.0240.0399.i, align 8, !noalias !630
+  %.val150.i = load i64, ptr %.sroa.0240.0400.i, align 8, !noalias !630
   %148 = invoke fastcc noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h72d125576257b35bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %147, i64 %.val150.i)
           to label %393 unwind label %.thread261.loopexit.i, !noalias !630
 
@@ -6988,12 +6988,12 @@ default.unreachable.i:                            ; preds = %445, %._crit_edge69
   br label %.thread625.i
 
 156:                                              ; preds = %"_ZN4core3ptr69drop_in_place$LT$alloc..sync..Arc$LT$mini_lsm..table..SsTable$GT$$GT$17h4e61fe947a68f8ddE.exit370.i", %.lr.ph688.i
-  %.sroa.0386.0684.i = phi ptr [ %146, %.lr.ph688.i ], [ %157, %"_ZN4core3ptr69drop_in_place$LT$alloc..sync..Arc$LT$mini_lsm..table..SsTable$GT$$GT$17h4e61fe947a68f8ddE.exit370.i" ]
-  %157 = getelementptr inbounds i8, ptr %.sroa.0386.0684.i, i64 8
+  %.sroa.0386.0686.i = phi ptr [ %146, %.lr.ph688.i ], [ %157, %"_ZN4core3ptr69drop_in_place$LT$alloc..sync..Arc$LT$mini_lsm..table..SsTable$GT$$GT$17h4e61fe947a68f8ddE.exit370.i" ]
+  %157 = getelementptr inbounds i8, ptr %.sroa.0386.0686.i, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47), !noalias !894
   %158 = load ptr, ptr %54, align 8, !noalias !894, !nonnull !7, !noundef !7
   %159 = getelementptr inbounds i8, ptr %158, i64 96
-  %.val267.i = load i64, ptr %.sroa.0386.0684.i, align 8, !noalias !894
+  %.val267.i = load i64, ptr %.sroa.0386.0686.i, align 8, !noalias !894
   %160 = invoke fastcc noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h72d125576257b35bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %159, i64 %.val267.i)
           to label %427 unwind label %.thread458.loopexit.i, !noalias !894
 
@@ -9091,8 +9091,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   br label %201
 
 201:                                              ; preds = %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$mini_lsm..table..SsTable$GT$$GT$$GT$17h3a719e512e7cd3fcE.exit295.i", %193
-  %.sroa.0314.0.i = phi ptr [ %194, %193 ], [ %.sroa.0314.1351.ph.i, %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$mini_lsm..table..SsTable$GT$$GT$$GT$17h3a719e512e7cd3fcE.exit295.i" ]
   %.sroa.8.0.i = phi ptr [ %197, %193 ], [ %.sroa.8.1.ph.i, %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$mini_lsm..table..SsTable$GT$$GT$$GT$17h3a719e512e7cd3fcE.exit295.i" ]
+  %.sroa.0314.0.i = phi ptr [ %194, %193 ], [ %.sroa.0314.1351.ph.i, %"_ZN4core3ptr97drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$mini_lsm..table..SsTable$GT$$GT$$GT$17h3a719e512e7cd3fcE.exit295.i" ]
   %202 = icmp eq ptr %.sroa.0314.0.i, null
   %203 = icmp eq ptr %.sroa.0314.0.i, %196
   %or.cond.i = select i1 %202, i1 true, i1 %203

@@ -536,9 +536,9 @@ _ZN4pbrtL13TerminalWidthEv.exit:                  ; preds = %if.then.i, %if.then
   br label %while.body
 
 while.body:                                       ; preds = %_ZN4pbrtL13TerminalWidthEv.exit, %if.end102
-  %plussesPrinted.059 = phi i32 [ 0, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %plussesPrinted.1.lcssa, %if.end102 ]
-  %curSpace.058 = phi ptr [ %add.ptr, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %curSpace.1.lcssa, %if.end102 ]
-  %iterCount.056 = phi i32 [ 0, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %inc30, %if.end102 ]
+  %iterCount.058 = phi i32 [ 0, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %inc30, %if.end102 ]
+  %plussesPrinted.057 = phi i32 [ 0, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %plussesPrinted.1.lcssa, %if.end102 ]
+  %curSpace.056 = phi ptr [ %add.ptr, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %curSpace.1.lcssa, %if.end102 ]
   %sleepDuration.sroa.0.055 = phi i64 [ 250, %_ZN4pbrtL13TerminalWidthEv.exit ], [ %sleepDuration.sroa.0.1, %if.end102 ]
   %14 = load atomic i8, ptr %exitThread seq_cst, align 8
   %tobool.i.i = trunc i8 %14 to i1
@@ -592,8 +592,8 @@ _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit, %while.body
-  %inc30 = add nuw nsw i32 %iterCount.056, 1
-  switch i32 %iterCount.056, label %if.end50 [
+  %inc30 = add nuw nsw i32 %iterCount.058, 1
+  switch i32 %iterCount.058, label %if.end50 [
     i32 9, label %if.then32
     i32 69, label %if.then38
     i32 519, label %if.then44
@@ -621,22 +621,22 @@ if.end50:                                         ; preds = %if.end, %if.then38,
   %mul = fmul float %div, %conv54
   %18 = call noundef float @llvm.round.f32(float %mul)
   %conv57 = fptosi float %18 to i32
-  %cmp5951 = icmp slt i32 %plussesPrinted.059, %conv57
+  %cmp5951 = icmp slt i32 %plussesPrinted.057, %conv57
   br i1 %cmp5951, label %while.body60.preheader, label %while.end
 
 while.body60.preheader:                           ; preds = %if.end50
-  %19 = xor i32 %plussesPrinted.059, -1
+  %19 = xor i32 %plussesPrinted.057, -1
   %20 = add i32 %19, %conv57
   %21 = zext i32 %20 to i64
   %22 = add nuw nsw i64 %21, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %curSpace.058, i8 43, i64 %22, i1 false)
-  %scevgep61 = getelementptr i8, ptr %curSpace.058, i64 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %curSpace.056, i8 43, i64 %22, i1 false)
+  %scevgep61 = getelementptr i8, ptr %curSpace.056, i64 1
   %scevgep62 = getelementptr i8, ptr %scevgep61, i64 %21
   br label %while.end
 
 while.end:                                        ; preds = %while.body60.preheader, %if.end50
-  %curSpace.1.lcssa = phi ptr [ %curSpace.058, %if.end50 ], [ %scevgep62, %while.body60.preheader ]
-  %plussesPrinted.1.lcssa = phi i32 [ %plussesPrinted.059, %if.end50 ], [ %conv57, %while.body60.preheader ]
+  %curSpace.1.lcssa = phi ptr [ %curSpace.056, %if.end50 ], [ %scevgep62, %while.body60.preheader ]
+  %plussesPrinted.1.lcssa = phi i32 [ %plussesPrinted.057, %if.end50 ], [ %conv57, %while.body60.preheader ]
   %23 = load ptr, ptr @stdout, align 8
   %call65 = call i32 @fputs(ptr noundef nonnull %call.i20, ptr noundef %23)
   %24 = load i8, ptr %set.i.i, align 4

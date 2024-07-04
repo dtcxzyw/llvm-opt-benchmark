@@ -2990,15 +2990,15 @@ common.resume:                                    ; preds = %"_ZN4core3ptr73drop
           to label %210 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .lr.ph:                                           ; preds = %185, %272
-  %.sroa.8167.0252 = phi i64 [ %209, %272 ], [ 0, %185 ]
-  %.sroa.0166.0251 = phi ptr [ %208, %272 ], [ %189, %185 ]
-  %208 = getelementptr inbounds i8, ptr %.sroa.0166.0251, i64 24
-  %209 = add i64 %.sroa.8167.0252, 1
+  %.sroa.0166.0252 = phi ptr [ %208, %272 ], [ %189, %185 ]
+  %.sroa.8167.0251 = phi i64 [ %209, %272 ], [ 0, %185 ]
+  %208 = getelementptr inbounds i8, ptr %.sroa.0166.0252, i64 24
+  %209 = add i64 %.sroa.8167.0251, 1
   store i64 0, ptr %.sroa.576.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
   store i64 %.sroa.020.0253, ptr %177, align 8
-  store ptr %.sroa.0166.0251, ptr %20, align 8
+  store ptr %.sroa.0166.0252, ptr %20, align 8
   invoke void @_ZN10arrow_cast7display14ValueFormatter5write17h4eb20de32acb0458E(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %20, ptr noundef nonnull align 1 %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7f594b1cc0dc9c97352e1e787ce274d2.8)
           to label %215 unwind label %.loopexit.split-lp.loopexit
 

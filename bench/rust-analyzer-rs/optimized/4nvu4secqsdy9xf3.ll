@@ -1748,8 +1748,8 @@ _ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit: ; preds = %.noexc, %55
   br label %.outer
 
 .outer:                                           ; preds = %71, %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit
+  %.116.ph = phi i16 [ 181, %71 ], [ %33, %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit ]
   %.014.ph = phi i1 [ true, %71 ], [ false, %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit ]
-  %.1.ph = phi i16 [ 181, %71 ], [ %33, %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit ]
   br label %61
 
 35:                                               ; preds = %25, %.noexc17
@@ -1860,15 +1860,15 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit23: ; preds = %69
           to label %.outer unwind label %.body.thread28.loopexit.loopexit.split-lp
 
 73:                                               ; preds = %66, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit20, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit
-  %.115 = phi i1 [ %.014, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit ], [ %.014, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit20 ], [ true, %66 ]
+  %.1 = phi i1 [ %.014, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit ], [ %.014, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit20 ], [ true, %66 ]
   %74 = invoke noundef zeroext i1 @_ZN6parser6parser6Parser6expect17h1094570d9e783b68E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i16 noundef 5)
           to label %75 unwind label %.body.thread28.loopexit.split-lp
 
 75:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
-  %.016 = select i1 %.115, i16 %.1.ph, i16 181
-  %76 = call { i32, i16 } @_ZN6parser6parser6Marker8complete17h245dafe3ae51cd9dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i16 noundef %.016)
+  %.013 = select i1 %.1, i16 %.116.ph, i16 181
+  %76 = call { i32, i16 } @_ZN6parser6parser6Marker8complete17h245dafe3ae51cd9dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i16 noundef %.013)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   ret { i32, i16 } %76

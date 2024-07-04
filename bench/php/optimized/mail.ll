@@ -92,45 +92,45 @@ define ptr @php_mail_build_headers(ptr nocapture noundef readonly %0) local_unna
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %554
-  %.0206473 = phi i32 [ %555, %554 ], [ %5, %.lr.ph.preheader ]
-  %.0207472 = phi ptr [ %.1, %554 ], [ %7, %.lr.ph.preheader ]
-  %.0209471 = phi i32 [ %.1210, %554 ], [ 0, %.lr.ph.preheader ]
-  %.0211470 = phi ptr [ %.1212, %554 ], [ null, %.lr.ph.preheader ]
+  %.0473 = phi i32 [ %555, %554 ], [ %5, %.lr.ph.preheader ]
+  %.0205472 = phi ptr [ %.1, %554 ], [ %7, %.lr.ph.preheader ]
+  %.0206471 = phi i32 [ %.1207, %554 ], [ 0, %.lr.ph.preheader ]
+  %.0208470 = phi ptr [ %.1209, %554 ], [ null, %.lr.ph.preheader ]
   %8 = load i32, ptr %3, align 8
   %9 = and i32 %8, 4
   %.not247 = icmp eq i32 %9, 0
   br i1 %.not247, label %14, label %10
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %.0207472, i64 16
-  %12 = zext i32 %.0209471 to i64
-  %13 = add i32 %.0209471, 1
+  %11 = getelementptr inbounds i8, ptr %.0205472, i64 16
+  %12 = zext i32 %.0206471 to i64
+  %13 = add i32 %.0206471, 1
   br label %20
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %.0207472, i64 32
-  %16 = getelementptr inbounds i8, ptr %.0207472, i64 16
+  %15 = getelementptr inbounds i8, ptr %.0205472, i64 32
+  %16 = getelementptr inbounds i8, ptr %.0205472, i64 16
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %.0207472, i64 24
+  %18 = getelementptr inbounds i8, ptr %.0205472, i64 24
   %19 = load ptr, ptr %18, align 8
   br label %20
 
 20:                                               ; preds = %14, %10
-  %.1212 = phi ptr [ %.0211470, %10 ], [ %19, %14 ]
-  %.1210 = phi i32 [ %13, %10 ], [ %.0209471, %14 ]
-  %.0208 = phi i64 [ %12, %10 ], [ %17, %14 ]
+  %.0210 = phi i64 [ %12, %10 ], [ %17, %14 ]
+  %.1209 = phi ptr [ %.0208470, %10 ], [ %19, %14 ]
+  %.1207 = phi i32 [ %13, %10 ], [ %.0206471, %14 ]
   %.1 = phi ptr [ %11, %10 ], [ %15, %14 ]
-  %21 = getelementptr inbounds i8, ptr %.0207472, i64 8
+  %21 = getelementptr inbounds i8, ptr %.0205472, i64 8
   %22 = load i8, ptr %21, align 8
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %554, label %24
 
 24:                                               ; preds = %20
-  %.not248 = icmp eq ptr %.1212, null
+  %.not248 = icmp eq ptr %.1209, null
   br i1 %.not248, label %25, label %26
 
 25:                                               ; preds = %24
-  call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str, i64 noundef %.0208) #11
+  call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str, i64 noundef %.0210) #11
   br label %.loopexitthread-pre-split
 
 26:                                               ; preds = %24
@@ -138,25 +138,25 @@ define ptr @php_mail_build_headers(ptr nocapture noundef readonly %0) local_unna
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %26
-  %29 = load ptr, ptr %.0207472, align 8
+  %29 = load ptr, ptr %.0205472, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   br label %31
 
 31:                                               ; preds = %26, %28
-  %.0205 = phi ptr [ %30, %28 ], [ %.0207472, %26 ]
-  %32 = getelementptr inbounds i8, ptr %.1212, i64 16
+  %.0211 = phi ptr [ %30, %28 ], [ %.0205472, %26 ]
+  %32 = getelementptr inbounds i8, ptr %.1209, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = icmp eq i64 %33, 9
   br i1 %34, label %35, label %83
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %.1212, i64 24
+  %36 = getelementptr inbounds i8, ptr %.1209, i64 24
   %37 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %36, i64 noundef 9, ptr noundef nonnull @.str.1, i64 noundef 9) #11
   %.not251 = icmp eq i32 %37, 0
   br i1 %.not251, label %38, label %thread-pre-split
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %.0205, i64 8
+  %39 = getelementptr inbounds i8, ptr %.0211, i64 8
   %40 = load i8, ptr %39, align 8
   switch i8 %40, label %81 [
     i8 6, label %41
@@ -164,7 +164,7 @@ define ptr @php_mail_build_headers(ptr nocapture noundef readonly %0) local_unna
   ]
 
 41:                                               ; preds = %38
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1212, ptr noundef nonnull %.0205)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1209, ptr noundef nonnull %.0211)
   br label %php_mail_build_headers_elems.exit
 
 42:                                               ; preds = %38
@@ -182,51 +182,51 @@ define ptr @php_mail_build_headers(ptr nocapture noundef readonly %0) local_unna
   br label %php_mail_build_headers_elems.exit
 
 48:                                               ; preds = %45, %42
-  %.0205.val = load ptr, ptr %.0205, align 8
-  %49 = getelementptr inbounds i8, ptr %.0205.val, i64 8
-  %50 = getelementptr inbounds i8, ptr %.0205.val, i64 24
+  %.0211.val = load ptr, ptr %.0211, align 8
+  %49 = getelementptr inbounds i8, ptr %.0211.val, i64 8
+  %50 = getelementptr inbounds i8, ptr %.0211.val, i64 24
   %51 = load i32, ptr %50, align 8
   %.not2.i = icmp eq i32 %51, 0
   br i1 %.not2.i, label %php_mail_build_headers_elems.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %.0205.val, i64 16
+  %52 = getelementptr inbounds i8, ptr %.0211.val, i64 16
   %53 = load ptr, ptr %52, align 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %79, %.lr.ph.preheader.i
-  %.0346.i = phi i32 [ %80, %79 ], [ %51, %.lr.ph.preheader.i ]
-  %.0355.i = phi ptr [ %.1.i, %79 ], [ %53, %.lr.ph.preheader.i ]
-  %.0364.i = phi ptr [ %.137.i, %79 ], [ null, %.lr.ph.preheader.i ]
+  %.06.i = phi i32 [ %80, %79 ], [ %51, %.lr.ph.preheader.i ]
+  %.0345.i = phi ptr [ %.1.i, %79 ], [ %53, %.lr.ph.preheader.i ]
+  %.0383.i = phi ptr [ %.139.i, %79 ], [ null, %.lr.ph.preheader.i ]
   %54 = load i32, ptr %49, align 8
   %55 = and i32 %54, 4
   %.not41.i = icmp eq i32 %55, 0
   br i1 %.not41.i, label %58, label %56
 
 56:                                               ; preds = %.lr.ph.i
-  %57 = getelementptr inbounds i8, ptr %.0355.i, i64 16
+  %57 = getelementptr inbounds i8, ptr %.0345.i, i64 16
   br label %62
 
 58:                                               ; preds = %.lr.ph.i
-  %59 = getelementptr inbounds i8, ptr %.0355.i, i64 32
-  %60 = getelementptr inbounds i8, ptr %.0355.i, i64 24
+  %59 = getelementptr inbounds i8, ptr %.0345.i, i64 32
+  %60 = getelementptr inbounds i8, ptr %.0345.i, i64 24
   %61 = load ptr, ptr %60, align 8
   br label %62
 
 62:                                               ; preds = %58, %56
-  %.137.i = phi ptr [ %.0364.i, %56 ], [ %61, %58 ]
+  %.139.i = phi ptr [ %.0383.i, %56 ], [ %61, %58 ]
   %.1.i = phi ptr [ %57, %56 ], [ %59, %58 ]
-  %63 = getelementptr inbounds i8, ptr %.0355.i, i64 8
+  %63 = getelementptr inbounds i8, ptr %.0345.i, i64 8
   %64 = load i8, ptr %63, align 8
   %65 = icmp eq i8 %64, 0
   br i1 %65, label %79, label %66
 
 66:                                               ; preds = %62
-  %.not42.i = icmp eq ptr %.137.i, null
+  %.not42.i = icmp eq ptr %.139.i, null
   br i1 %.not42.i, label %69, label %67
 
 67:                                               ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %.137.i, i64 24
+  %68 = getelementptr inbounds i8, ptr %.139.i, i64 24
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.44, ptr noundef nonnull %36, ptr noundef nonnull %68) #11
   br label %php_mail_build_headers_elems.exit
 
@@ -235,7 +235,7 @@ define ptr @php_mail_build_headers(ptr nocapture noundef readonly %0) local_unna
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %69
-  %72 = load ptr, ptr %.0355.i, align 8
+  %72 = load ptr, ptr %.0345.i, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 8
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %72, i64 16
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8
@@ -243,26 +243,26 @@ define ptr @php_mail_build_headers(ptr nocapture noundef readonly %0) local_unna
 
 74:                                               ; preds = %71, %69
   %75 = phi i8 [ %.pre.i, %71 ], [ %64, %69 ]
-  %.0.i = phi ptr [ %73, %71 ], [ %.0355.i, %69 ]
+  %.035.i = phi ptr [ %73, %71 ], [ %.0345.i, %69 ]
   %.not43.i = icmp eq i8 %75, 6
   br i1 %.not43.i, label %78, label %76
 
 76:                                               ; preds = %74
-  %77 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0.i) #11
+  %77 = call ptr @zend_zval_value_name(ptr noundef nonnull %.035.i) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.45, ptr noundef nonnull %36, ptr noundef %77) #11
   br label %php_mail_build_headers_elems.exit
 
 78:                                               ; preds = %74
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1212, ptr noundef nonnull %.0.i)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1209, ptr noundef nonnull %.035.i)
   br label %79
 
 79:                                               ; preds = %78, %62
-  %80 = add i32 %.0346.i, -1
+  %80 = add i32 %.06.i, -1
   %.not.i = icmp eq i32 %80, 0
   br i1 %.not.i, label %php_mail_build_headers_elems.exit, label %.lr.ph.i
 
 81:                                               ; preds = %38
-  %82 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0205) #11
+  %82 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0211) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.3, ptr noundef nonnull %36, ptr noundef %82) #11
   br label %php_mail_build_headers_elems.exit
 
@@ -276,7 +276,7 @@ thread-pre-split:                                 ; preds = %35
   br i1 %85, label %86, label %134
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %.1212, i64 24
+  %87 = getelementptr inbounds i8, ptr %.1209, i64 24
   %88 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %87, i64 noundef 4, ptr noundef nonnull @.str.4, i64 noundef 4) #11
   %.not253 = icmp eq i32 %88, 0
   br i1 %.not253, label %89, label %._crit_edge
@@ -286,7 +286,7 @@ thread-pre-split:                                 ; preds = %35
   br label %134
 
 89:                                               ; preds = %86
-  %90 = getelementptr inbounds i8, ptr %.0205, i64 8
+  %90 = getelementptr inbounds i8, ptr %.0211, i64 8
   %91 = load i8, ptr %90, align 8
   switch i8 %91, label %132 [
     i8 6, label %92
@@ -294,7 +294,7 @@ thread-pre-split:                                 ; preds = %35
   ]
 
 92:                                               ; preds = %89
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1212, ptr noundef nonnull %.0205)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1209, ptr noundef nonnull %.0211)
   br label %php_mail_build_headers_elems.exit
 
 93:                                               ; preds = %89
@@ -312,51 +312,51 @@ thread-pre-split:                                 ; preds = %35
   br label %php_mail_build_headers_elems.exit
 
 99:                                               ; preds = %96, %93
-  %.0205.val274 = load ptr, ptr %.0205, align 8
-  %100 = getelementptr inbounds i8, ptr %.0205.val274, i64 8
-  %101 = getelementptr inbounds i8, ptr %.0205.val274, i64 24
+  %.0211.val274 = load ptr, ptr %.0211, align 8
+  %100 = getelementptr inbounds i8, ptr %.0211.val274, i64 8
+  %101 = getelementptr inbounds i8, ptr %.0211.val274, i64 24
   %102 = load i32, ptr %101, align 8
   %.not2.i283 = icmp eq i32 %102, 0
   br i1 %.not2.i283, label %php_mail_build_headers_elems.exit, label %.lr.ph.preheader.i284
 
 .lr.ph.preheader.i284:                            ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %.0205.val274, i64 16
+  %103 = getelementptr inbounds i8, ptr %.0211.val274, i64 16
   %104 = load ptr, ptr %103, align 8
   br label %.lr.ph.i285
 
 .lr.ph.i285:                                      ; preds = %130, %.lr.ph.preheader.i284
-  %.0346.i286 = phi i32 [ %131, %130 ], [ %102, %.lr.ph.preheader.i284 ]
-  %.0355.i287 = phi ptr [ %.1.i291, %130 ], [ %104, %.lr.ph.preheader.i284 ]
-  %.0364.i288 = phi ptr [ %.137.i290, %130 ], [ null, %.lr.ph.preheader.i284 ]
+  %.06.i286 = phi i32 [ %131, %130 ], [ %102, %.lr.ph.preheader.i284 ]
+  %.0345.i287 = phi ptr [ %.1.i291, %130 ], [ %104, %.lr.ph.preheader.i284 ]
+  %.0383.i288 = phi ptr [ %.139.i290, %130 ], [ null, %.lr.ph.preheader.i284 ]
   %105 = load i32, ptr %100, align 8
   %106 = and i32 %105, 4
   %.not41.i289 = icmp eq i32 %106, 0
   br i1 %.not41.i289, label %109, label %107
 
 107:                                              ; preds = %.lr.ph.i285
-  %108 = getelementptr inbounds i8, ptr %.0355.i287, i64 16
+  %108 = getelementptr inbounds i8, ptr %.0345.i287, i64 16
   br label %113
 
 109:                                              ; preds = %.lr.ph.i285
-  %110 = getelementptr inbounds i8, ptr %.0355.i287, i64 32
-  %111 = getelementptr inbounds i8, ptr %.0355.i287, i64 24
+  %110 = getelementptr inbounds i8, ptr %.0345.i287, i64 32
+  %111 = getelementptr inbounds i8, ptr %.0345.i287, i64 24
   %112 = load ptr, ptr %111, align 8
   br label %113
 
 113:                                              ; preds = %109, %107
-  %.137.i290 = phi ptr [ %.0364.i288, %107 ], [ %112, %109 ]
+  %.139.i290 = phi ptr [ %.0383.i288, %107 ], [ %112, %109 ]
   %.1.i291 = phi ptr [ %108, %107 ], [ %110, %109 ]
-  %114 = getelementptr inbounds i8, ptr %.0355.i287, i64 8
+  %114 = getelementptr inbounds i8, ptr %.0345.i287, i64 8
   %115 = load i8, ptr %114, align 8
   %116 = icmp eq i8 %115, 0
   br i1 %116, label %130, label %117
 
 117:                                              ; preds = %113
-  %.not42.i292 = icmp eq ptr %.137.i290, null
+  %.not42.i292 = icmp eq ptr %.139.i290, null
   br i1 %.not42.i292, label %120, label %118
 
 118:                                              ; preds = %117
-  %119 = getelementptr inbounds i8, ptr %.137.i290, i64 24
+  %119 = getelementptr inbounds i8, ptr %.139.i290, i64 24
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.44, ptr noundef nonnull %87, ptr noundef nonnull %119) #11
   br label %php_mail_build_headers_elems.exit
 
@@ -365,7 +365,7 @@ thread-pre-split:                                 ; preds = %35
   br i1 %121, label %122, label %125
 
 122:                                              ; preds = %120
-  %123 = load ptr, ptr %.0355.i287, align 8
+  %123 = load ptr, ptr %.0345.i287, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 8
   %.phi.trans.insert.i296 = getelementptr inbounds i8, ptr %123, i64 16
   %.pre.i297 = load i8, ptr %.phi.trans.insert.i296, align 8
@@ -373,26 +373,26 @@ thread-pre-split:                                 ; preds = %35
 
 125:                                              ; preds = %122, %120
   %126 = phi i8 [ %.pre.i297, %122 ], [ %115, %120 ]
-  %.0.i293 = phi ptr [ %124, %122 ], [ %.0355.i287, %120 ]
+  %.035.i293 = phi ptr [ %124, %122 ], [ %.0345.i287, %120 ]
   %.not43.i294 = icmp eq i8 %126, 6
   br i1 %.not43.i294, label %129, label %127
 
 127:                                              ; preds = %125
-  %128 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0.i293) #11
+  %128 = call ptr @zend_zval_value_name(ptr noundef nonnull %.035.i293) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.45, ptr noundef nonnull %87, ptr noundef %128) #11
   br label %php_mail_build_headers_elems.exit
 
 129:                                              ; preds = %125
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1212, ptr noundef nonnull %.0.i293)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1209, ptr noundef nonnull %.035.i293)
   br label %130
 
 130:                                              ; preds = %129, %113
-  %131 = add i32 %.0346.i286, -1
+  %131 = add i32 %.06.i286, -1
   %.not.i295 = icmp eq i32 %131, 0
   br i1 %.not.i295, label %php_mail_build_headers_elems.exit, label %.lr.ph.i285
 
 132:                                              ; preds = %89
-  %133 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0205) #11
+  %133 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0211) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.3, ptr noundef nonnull %87, ptr noundef %133) #11
   br label %php_mail_build_headers_elems.exit
 
@@ -402,13 +402,13 @@ thread-pre-split:                                 ; preds = %35
   br i1 %136, label %137, label %185
 
 137:                                              ; preds = %134
-  %138 = getelementptr inbounds i8, ptr %.1212, i64 24
+  %138 = getelementptr inbounds i8, ptr %.1209, i64 24
   %139 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %138, i64 noundef 6, ptr noundef nonnull @.str.5, i64 noundef 6) #11
   %.not255 = icmp eq i32 %139, 0
   br i1 %.not255, label %140, label %thread-pre-split427
 
 140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %.0205, i64 8
+  %141 = getelementptr inbounds i8, ptr %.0211, i64 8
   %142 = load i8, ptr %141, align 8
   switch i8 %142, label %183 [
     i8 6, label %143
@@ -416,7 +416,7 @@ thread-pre-split:                                 ; preds = %35
   ]
 
 143:                                              ; preds = %140
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1212, ptr noundef nonnull %.0205)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1209, ptr noundef nonnull %.0211)
   br label %php_mail_build_headers_elems.exit
 
 144:                                              ; preds = %140
@@ -434,51 +434,51 @@ thread-pre-split:                                 ; preds = %35
   br label %php_mail_build_headers_elems.exit
 
 150:                                              ; preds = %147, %144
-  %.0205.val275 = load ptr, ptr %.0205, align 8
-  %151 = getelementptr inbounds i8, ptr %.0205.val275, i64 8
-  %152 = getelementptr inbounds i8, ptr %.0205.val275, i64 24
+  %.0211.val275 = load ptr, ptr %.0211, align 8
+  %151 = getelementptr inbounds i8, ptr %.0211.val275, i64 8
+  %152 = getelementptr inbounds i8, ptr %.0211.val275, i64 24
   %153 = load i32, ptr %152, align 8
   %.not2.i299 = icmp eq i32 %153, 0
   br i1 %.not2.i299, label %php_mail_build_headers_elems.exit, label %.lr.ph.preheader.i300
 
 .lr.ph.preheader.i300:                            ; preds = %150
-  %154 = getelementptr inbounds i8, ptr %.0205.val275, i64 16
+  %154 = getelementptr inbounds i8, ptr %.0211.val275, i64 16
   %155 = load ptr, ptr %154, align 8
   br label %.lr.ph.i301
 
 .lr.ph.i301:                                      ; preds = %181, %.lr.ph.preheader.i300
-  %.0346.i302 = phi i32 [ %182, %181 ], [ %153, %.lr.ph.preheader.i300 ]
-  %.0355.i303 = phi ptr [ %.1.i307, %181 ], [ %155, %.lr.ph.preheader.i300 ]
-  %.0364.i304 = phi ptr [ %.137.i306, %181 ], [ null, %.lr.ph.preheader.i300 ]
+  %.06.i302 = phi i32 [ %182, %181 ], [ %153, %.lr.ph.preheader.i300 ]
+  %.0345.i303 = phi ptr [ %.1.i307, %181 ], [ %155, %.lr.ph.preheader.i300 ]
+  %.0383.i304 = phi ptr [ %.139.i306, %181 ], [ null, %.lr.ph.preheader.i300 ]
   %156 = load i32, ptr %151, align 8
   %157 = and i32 %156, 4
   %.not41.i305 = icmp eq i32 %157, 0
   br i1 %.not41.i305, label %160, label %158
 
 158:                                              ; preds = %.lr.ph.i301
-  %159 = getelementptr inbounds i8, ptr %.0355.i303, i64 16
+  %159 = getelementptr inbounds i8, ptr %.0345.i303, i64 16
   br label %164
 
 160:                                              ; preds = %.lr.ph.i301
-  %161 = getelementptr inbounds i8, ptr %.0355.i303, i64 32
-  %162 = getelementptr inbounds i8, ptr %.0355.i303, i64 24
+  %161 = getelementptr inbounds i8, ptr %.0345.i303, i64 32
+  %162 = getelementptr inbounds i8, ptr %.0345.i303, i64 24
   %163 = load ptr, ptr %162, align 8
   br label %164
 
 164:                                              ; preds = %160, %158
-  %.137.i306 = phi ptr [ %.0364.i304, %158 ], [ %163, %160 ]
+  %.139.i306 = phi ptr [ %.0383.i304, %158 ], [ %163, %160 ]
   %.1.i307 = phi ptr [ %159, %158 ], [ %161, %160 ]
-  %165 = getelementptr inbounds i8, ptr %.0355.i303, i64 8
+  %165 = getelementptr inbounds i8, ptr %.0345.i303, i64 8
   %166 = load i8, ptr %165, align 8
   %167 = icmp eq i8 %166, 0
   br i1 %167, label %181, label %168
 
 168:                                              ; preds = %164
-  %.not42.i308 = icmp eq ptr %.137.i306, null
+  %.not42.i308 = icmp eq ptr %.139.i306, null
   br i1 %.not42.i308, label %171, label %169
 
 169:                                              ; preds = %168
-  %170 = getelementptr inbounds i8, ptr %.137.i306, i64 24
+  %170 = getelementptr inbounds i8, ptr %.139.i306, i64 24
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.44, ptr noundef nonnull %138, ptr noundef nonnull %170) #11
   br label %php_mail_build_headers_elems.exit
 
@@ -487,7 +487,7 @@ thread-pre-split:                                 ; preds = %35
   br i1 %172, label %173, label %176
 
 173:                                              ; preds = %171
-  %174 = load ptr, ptr %.0355.i303, align 8
+  %174 = load ptr, ptr %.0345.i303, align 8
   %175 = getelementptr inbounds i8, ptr %174, i64 8
   %.phi.trans.insert.i312 = getelementptr inbounds i8, ptr %174, i64 16
   %.pre.i313 = load i8, ptr %.phi.trans.insert.i312, align 8
@@ -495,26 +495,26 @@ thread-pre-split:                                 ; preds = %35
 
 176:                                              ; preds = %173, %171
   %177 = phi i8 [ %.pre.i313, %173 ], [ %166, %171 ]
-  %.0.i309 = phi ptr [ %175, %173 ], [ %.0355.i303, %171 ]
+  %.035.i309 = phi ptr [ %175, %173 ], [ %.0345.i303, %171 ]
   %.not43.i310 = icmp eq i8 %177, 6
   br i1 %.not43.i310, label %180, label %178
 
 178:                                              ; preds = %176
-  %179 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0.i309) #11
+  %179 = call ptr @zend_zval_value_name(ptr noundef nonnull %.035.i309) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.45, ptr noundef nonnull %138, ptr noundef %179) #11
   br label %php_mail_build_headers_elems.exit
 
 180:                                              ; preds = %176
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1212, ptr noundef nonnull %.0.i309)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1209, ptr noundef nonnull %.035.i309)
   br label %181
 
 181:                                              ; preds = %180, %164
-  %182 = add i32 %.0346.i302, -1
+  %182 = add i32 %.06.i302, -1
   %.not.i311 = icmp eq i32 %182, 0
   br i1 %.not.i311, label %php_mail_build_headers_elems.exit, label %.lr.ph.i301
 
 183:                                              ; preds = %140
-  %184 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0205) #11
+  %184 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0211) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.3, ptr noundef nonnull %138, ptr noundef %184) #11
   br label %php_mail_build_headers_elems.exit
 
@@ -528,7 +528,7 @@ thread-pre-split427:                              ; preds = %137
   br i1 %187, label %188, label %236
 
 188:                                              ; preds = %185
-  %189 = getelementptr inbounds i8, ptr %.1212, i64 24
+  %189 = getelementptr inbounds i8, ptr %.1209, i64 24
   %190 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %189, i64 noundef 8, ptr noundef nonnull @.str.6, i64 noundef 8) #11
   %.not257 = icmp eq i32 %190, 0
   br i1 %.not257, label %191, label %._crit_edge505
@@ -538,7 +538,7 @@ thread-pre-split427:                              ; preds = %137
   br label %236
 
 191:                                              ; preds = %188
-  %192 = getelementptr inbounds i8, ptr %.0205, i64 8
+  %192 = getelementptr inbounds i8, ptr %.0211, i64 8
   %193 = load i8, ptr %192, align 8
   switch i8 %193, label %234 [
     i8 6, label %194
@@ -546,7 +546,7 @@ thread-pre-split427:                              ; preds = %137
   ]
 
 194:                                              ; preds = %191
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1212, ptr noundef nonnull %.0205)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1209, ptr noundef nonnull %.0211)
   br label %php_mail_build_headers_elems.exit
 
 195:                                              ; preds = %191
@@ -564,51 +564,51 @@ thread-pre-split427:                              ; preds = %137
   br label %php_mail_build_headers_elems.exit
 
 201:                                              ; preds = %198, %195
-  %.0205.val276 = load ptr, ptr %.0205, align 8
-  %202 = getelementptr inbounds i8, ptr %.0205.val276, i64 8
-  %203 = getelementptr inbounds i8, ptr %.0205.val276, i64 24
+  %.0211.val276 = load ptr, ptr %.0211, align 8
+  %202 = getelementptr inbounds i8, ptr %.0211.val276, i64 8
+  %203 = getelementptr inbounds i8, ptr %.0211.val276, i64 24
   %204 = load i32, ptr %203, align 8
   %.not2.i315 = icmp eq i32 %204, 0
   br i1 %.not2.i315, label %php_mail_build_headers_elems.exit, label %.lr.ph.preheader.i316
 
 .lr.ph.preheader.i316:                            ; preds = %201
-  %205 = getelementptr inbounds i8, ptr %.0205.val276, i64 16
+  %205 = getelementptr inbounds i8, ptr %.0211.val276, i64 16
   %206 = load ptr, ptr %205, align 8
   br label %.lr.ph.i317
 
 .lr.ph.i317:                                      ; preds = %232, %.lr.ph.preheader.i316
-  %.0346.i318 = phi i32 [ %233, %232 ], [ %204, %.lr.ph.preheader.i316 ]
-  %.0355.i319 = phi ptr [ %.1.i323, %232 ], [ %206, %.lr.ph.preheader.i316 ]
-  %.0364.i320 = phi ptr [ %.137.i322, %232 ], [ null, %.lr.ph.preheader.i316 ]
+  %.06.i318 = phi i32 [ %233, %232 ], [ %204, %.lr.ph.preheader.i316 ]
+  %.0345.i319 = phi ptr [ %.1.i323, %232 ], [ %206, %.lr.ph.preheader.i316 ]
+  %.0383.i320 = phi ptr [ %.139.i322, %232 ], [ null, %.lr.ph.preheader.i316 ]
   %207 = load i32, ptr %202, align 8
   %208 = and i32 %207, 4
   %.not41.i321 = icmp eq i32 %208, 0
   br i1 %.not41.i321, label %211, label %209
 
 209:                                              ; preds = %.lr.ph.i317
-  %210 = getelementptr inbounds i8, ptr %.0355.i319, i64 16
+  %210 = getelementptr inbounds i8, ptr %.0345.i319, i64 16
   br label %215
 
 211:                                              ; preds = %.lr.ph.i317
-  %212 = getelementptr inbounds i8, ptr %.0355.i319, i64 32
-  %213 = getelementptr inbounds i8, ptr %.0355.i319, i64 24
+  %212 = getelementptr inbounds i8, ptr %.0345.i319, i64 32
+  %213 = getelementptr inbounds i8, ptr %.0345.i319, i64 24
   %214 = load ptr, ptr %213, align 8
   br label %215
 
 215:                                              ; preds = %211, %209
-  %.137.i322 = phi ptr [ %.0364.i320, %209 ], [ %214, %211 ]
+  %.139.i322 = phi ptr [ %.0383.i320, %209 ], [ %214, %211 ]
   %.1.i323 = phi ptr [ %210, %209 ], [ %212, %211 ]
-  %216 = getelementptr inbounds i8, ptr %.0355.i319, i64 8
+  %216 = getelementptr inbounds i8, ptr %.0345.i319, i64 8
   %217 = load i8, ptr %216, align 8
   %218 = icmp eq i8 %217, 0
   br i1 %218, label %232, label %219
 
 219:                                              ; preds = %215
-  %.not42.i324 = icmp eq ptr %.137.i322, null
+  %.not42.i324 = icmp eq ptr %.139.i322, null
   br i1 %.not42.i324, label %222, label %220
 
 220:                                              ; preds = %219
-  %221 = getelementptr inbounds i8, ptr %.137.i322, i64 24
+  %221 = getelementptr inbounds i8, ptr %.139.i322, i64 24
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.44, ptr noundef nonnull %189, ptr noundef nonnull %221) #11
   br label %php_mail_build_headers_elems.exit
 
@@ -617,7 +617,7 @@ thread-pre-split427:                              ; preds = %137
   br i1 %223, label %224, label %227
 
 224:                                              ; preds = %222
-  %225 = load ptr, ptr %.0355.i319, align 8
+  %225 = load ptr, ptr %.0345.i319, align 8
   %226 = getelementptr inbounds i8, ptr %225, i64 8
   %.phi.trans.insert.i328 = getelementptr inbounds i8, ptr %225, i64 16
   %.pre.i329 = load i8, ptr %.phi.trans.insert.i328, align 8
@@ -625,26 +625,26 @@ thread-pre-split427:                              ; preds = %137
 
 227:                                              ; preds = %224, %222
   %228 = phi i8 [ %.pre.i329, %224 ], [ %217, %222 ]
-  %.0.i325 = phi ptr [ %226, %224 ], [ %.0355.i319, %222 ]
+  %.035.i325 = phi ptr [ %226, %224 ], [ %.0345.i319, %222 ]
   %.not43.i326 = icmp eq i8 %228, 6
   br i1 %.not43.i326, label %231, label %229
 
 229:                                              ; preds = %227
-  %230 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0.i325) #11
+  %230 = call ptr @zend_zval_value_name(ptr noundef nonnull %.035.i325) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.45, ptr noundef nonnull %189, ptr noundef %230) #11
   br label %php_mail_build_headers_elems.exit
 
 231:                                              ; preds = %227
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1212, ptr noundef nonnull %.0.i325)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1209, ptr noundef nonnull %.035.i325)
   br label %232
 
 232:                                              ; preds = %231, %215
-  %233 = add i32 %.0346.i318, -1
+  %233 = add i32 %.06.i318, -1
   %.not.i327 = icmp eq i32 %233, 0
   br i1 %.not.i327, label %php_mail_build_headers_elems.exit, label %.lr.ph.i317
 
 234:                                              ; preds = %191
-  %235 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0205) #11
+  %235 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0211) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.3, ptr noundef nonnull %189, ptr noundef %235) #11
   br label %php_mail_build_headers_elems.exit
 
@@ -654,7 +654,7 @@ thread-pre-split427:                              ; preds = %137
   br i1 %238, label %239, label %.thread
 
 239:                                              ; preds = %236
-  %240 = getelementptr inbounds i8, ptr %.1212, i64 24
+  %240 = getelementptr inbounds i8, ptr %.1209, i64 24
   %241 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %240, i64 noundef 2, ptr noundef nonnull @.str.7, i64 noundef 2) #11
   %.not259 = icmp eq i32 %241, 0
   br i1 %.not259, label %242, label %243
@@ -674,7 +674,7 @@ thread-pre-split427:                              ; preds = %137
   br i1 %.not260, label %247, label %thread-pre-split431
 
 247:                                              ; preds = %245
-  %248 = getelementptr inbounds i8, ptr %.0205, i64 8
+  %248 = getelementptr inbounds i8, ptr %.0211, i64 8
   %249 = load i8, ptr %248, align 8
   switch i8 %249, label %290 [
     i8 6, label %250
@@ -682,7 +682,7 @@ thread-pre-split427:                              ; preds = %137
   ]
 
 250:                                              ; preds = %247
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1212, ptr noundef nonnull %.0205)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1209, ptr noundef nonnull %.0211)
   br label %php_mail_build_headers_elems.exit
 
 251:                                              ; preds = %247
@@ -700,51 +700,51 @@ thread-pre-split427:                              ; preds = %137
   br label %php_mail_build_headers_elems.exit
 
 257:                                              ; preds = %254, %251
-  %.0205.val277 = load ptr, ptr %.0205, align 8
-  %258 = getelementptr inbounds i8, ptr %.0205.val277, i64 8
-  %259 = getelementptr inbounds i8, ptr %.0205.val277, i64 24
+  %.0211.val277 = load ptr, ptr %.0211, align 8
+  %258 = getelementptr inbounds i8, ptr %.0211.val277, i64 8
+  %259 = getelementptr inbounds i8, ptr %.0211.val277, i64 24
   %260 = load i32, ptr %259, align 8
   %.not2.i331 = icmp eq i32 %260, 0
   br i1 %.not2.i331, label %php_mail_build_headers_elems.exit, label %.lr.ph.preheader.i332
 
 .lr.ph.preheader.i332:                            ; preds = %257
-  %261 = getelementptr inbounds i8, ptr %.0205.val277, i64 16
+  %261 = getelementptr inbounds i8, ptr %.0211.val277, i64 16
   %262 = load ptr, ptr %261, align 8
   br label %.lr.ph.i333
 
 .lr.ph.i333:                                      ; preds = %288, %.lr.ph.preheader.i332
-  %.0346.i334 = phi i32 [ %289, %288 ], [ %260, %.lr.ph.preheader.i332 ]
-  %.0355.i335 = phi ptr [ %.1.i339, %288 ], [ %262, %.lr.ph.preheader.i332 ]
-  %.0364.i336 = phi ptr [ %.137.i338, %288 ], [ null, %.lr.ph.preheader.i332 ]
+  %.06.i334 = phi i32 [ %289, %288 ], [ %260, %.lr.ph.preheader.i332 ]
+  %.0345.i335 = phi ptr [ %.1.i339, %288 ], [ %262, %.lr.ph.preheader.i332 ]
+  %.0383.i336 = phi ptr [ %.139.i338, %288 ], [ null, %.lr.ph.preheader.i332 ]
   %263 = load i32, ptr %258, align 8
   %264 = and i32 %263, 4
   %.not41.i337 = icmp eq i32 %264, 0
   br i1 %.not41.i337, label %267, label %265
 
 265:                                              ; preds = %.lr.ph.i333
-  %266 = getelementptr inbounds i8, ptr %.0355.i335, i64 16
+  %266 = getelementptr inbounds i8, ptr %.0345.i335, i64 16
   br label %271
 
 267:                                              ; preds = %.lr.ph.i333
-  %268 = getelementptr inbounds i8, ptr %.0355.i335, i64 32
-  %269 = getelementptr inbounds i8, ptr %.0355.i335, i64 24
+  %268 = getelementptr inbounds i8, ptr %.0345.i335, i64 32
+  %269 = getelementptr inbounds i8, ptr %.0345.i335, i64 24
   %270 = load ptr, ptr %269, align 8
   br label %271
 
 271:                                              ; preds = %267, %265
-  %.137.i338 = phi ptr [ %.0364.i336, %265 ], [ %270, %267 ]
+  %.139.i338 = phi ptr [ %.0383.i336, %265 ], [ %270, %267 ]
   %.1.i339 = phi ptr [ %266, %265 ], [ %268, %267 ]
-  %272 = getelementptr inbounds i8, ptr %.0355.i335, i64 8
+  %272 = getelementptr inbounds i8, ptr %.0345.i335, i64 8
   %273 = load i8, ptr %272, align 8
   %274 = icmp eq i8 %273, 0
   br i1 %274, label %288, label %275
 
 275:                                              ; preds = %271
-  %.not42.i340 = icmp eq ptr %.137.i338, null
+  %.not42.i340 = icmp eq ptr %.139.i338, null
   br i1 %.not42.i340, label %278, label %276
 
 276:                                              ; preds = %275
-  %277 = getelementptr inbounds i8, ptr %.137.i338, i64 24
+  %277 = getelementptr inbounds i8, ptr %.139.i338, i64 24
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.44, ptr noundef nonnull %240, ptr noundef nonnull %277) #11
   br label %php_mail_build_headers_elems.exit
 
@@ -753,7 +753,7 @@ thread-pre-split427:                              ; preds = %137
   br i1 %279, label %280, label %283
 
 280:                                              ; preds = %278
-  %281 = load ptr, ptr %.0355.i335, align 8
+  %281 = load ptr, ptr %.0345.i335, align 8
   %282 = getelementptr inbounds i8, ptr %281, i64 8
   %.phi.trans.insert.i344 = getelementptr inbounds i8, ptr %281, i64 16
   %.pre.i345 = load i8, ptr %.phi.trans.insert.i344, align 8
@@ -761,26 +761,26 @@ thread-pre-split427:                              ; preds = %137
 
 283:                                              ; preds = %280, %278
   %284 = phi i8 [ %.pre.i345, %280 ], [ %273, %278 ]
-  %.0.i341 = phi ptr [ %282, %280 ], [ %.0355.i335, %278 ]
+  %.035.i341 = phi ptr [ %282, %280 ], [ %.0345.i335, %278 ]
   %.not43.i342 = icmp eq i8 %284, 6
   br i1 %.not43.i342, label %287, label %285
 
 285:                                              ; preds = %283
-  %286 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0.i341) #11
+  %286 = call ptr @zend_zval_value_name(ptr noundef nonnull %.035.i341) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.45, ptr noundef nonnull %240, ptr noundef %286) #11
   br label %php_mail_build_headers_elems.exit
 
 287:                                              ; preds = %283
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1212, ptr noundef nonnull %.0.i341)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1209, ptr noundef nonnull %.035.i341)
   br label %288
 
 288:                                              ; preds = %287, %271
-  %289 = add i32 %.0346.i334, -1
+  %289 = add i32 %.06.i334, -1
   %.not.i343 = icmp eq i32 %289, 0
   br i1 %.not.i343, label %php_mail_build_headers_elems.exit, label %.lr.ph.i333
 
 290:                                              ; preds = %247
-  %291 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0205) #11
+  %291 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0211) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.3, ptr noundef nonnull %240, ptr noundef %291) #11
   br label %php_mail_build_headers_elems.exit
 
@@ -794,7 +794,7 @@ thread-pre-split431:                              ; preds = %245
   br i1 %293, label %294, label %342
 
 294:                                              ; preds = %.thread
-  %295 = getelementptr inbounds i8, ptr %.1212, i64 24
+  %295 = getelementptr inbounds i8, ptr %.1209, i64 24
   %296 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %295, i64 noundef 3, ptr noundef nonnull @.str.10, i64 noundef 3) #11
   %.not262 = icmp eq i32 %296, 0
   br i1 %.not262, label %297, label %._crit_edge507
@@ -804,7 +804,7 @@ thread-pre-split431:                              ; preds = %245
   br label %342
 
 297:                                              ; preds = %294
-  %298 = getelementptr inbounds i8, ptr %.0205, i64 8
+  %298 = getelementptr inbounds i8, ptr %.0211, i64 8
   %299 = load i8, ptr %298, align 8
   switch i8 %299, label %340 [
     i8 6, label %300
@@ -812,7 +812,7 @@ thread-pre-split431:                              ; preds = %245
   ]
 
 300:                                              ; preds = %297
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1212, ptr noundef nonnull %.0205)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1209, ptr noundef nonnull %.0211)
   br label %php_mail_build_headers_elems.exit
 
 301:                                              ; preds = %297
@@ -830,51 +830,51 @@ thread-pre-split431:                              ; preds = %245
   br label %php_mail_build_headers_elems.exit
 
 307:                                              ; preds = %304, %301
-  %.0205.val278 = load ptr, ptr %.0205, align 8
-  %308 = getelementptr inbounds i8, ptr %.0205.val278, i64 8
-  %309 = getelementptr inbounds i8, ptr %.0205.val278, i64 24
+  %.0211.val278 = load ptr, ptr %.0211, align 8
+  %308 = getelementptr inbounds i8, ptr %.0211.val278, i64 8
+  %309 = getelementptr inbounds i8, ptr %.0211.val278, i64 24
   %310 = load i32, ptr %309, align 8
   %.not2.i347 = icmp eq i32 %310, 0
   br i1 %.not2.i347, label %php_mail_build_headers_elems.exit, label %.lr.ph.preheader.i348
 
 .lr.ph.preheader.i348:                            ; preds = %307
-  %311 = getelementptr inbounds i8, ptr %.0205.val278, i64 16
+  %311 = getelementptr inbounds i8, ptr %.0211.val278, i64 16
   %312 = load ptr, ptr %311, align 8
   br label %.lr.ph.i349
 
 .lr.ph.i349:                                      ; preds = %338, %.lr.ph.preheader.i348
-  %.0346.i350 = phi i32 [ %339, %338 ], [ %310, %.lr.ph.preheader.i348 ]
-  %.0355.i351 = phi ptr [ %.1.i355, %338 ], [ %312, %.lr.ph.preheader.i348 ]
-  %.0364.i352 = phi ptr [ %.137.i354, %338 ], [ null, %.lr.ph.preheader.i348 ]
+  %.06.i350 = phi i32 [ %339, %338 ], [ %310, %.lr.ph.preheader.i348 ]
+  %.0345.i351 = phi ptr [ %.1.i355, %338 ], [ %312, %.lr.ph.preheader.i348 ]
+  %.0383.i352 = phi ptr [ %.139.i354, %338 ], [ null, %.lr.ph.preheader.i348 ]
   %313 = load i32, ptr %308, align 8
   %314 = and i32 %313, 4
   %.not41.i353 = icmp eq i32 %314, 0
   br i1 %.not41.i353, label %317, label %315
 
 315:                                              ; preds = %.lr.ph.i349
-  %316 = getelementptr inbounds i8, ptr %.0355.i351, i64 16
+  %316 = getelementptr inbounds i8, ptr %.0345.i351, i64 16
   br label %321
 
 317:                                              ; preds = %.lr.ph.i349
-  %318 = getelementptr inbounds i8, ptr %.0355.i351, i64 32
-  %319 = getelementptr inbounds i8, ptr %.0355.i351, i64 24
+  %318 = getelementptr inbounds i8, ptr %.0345.i351, i64 32
+  %319 = getelementptr inbounds i8, ptr %.0345.i351, i64 24
   %320 = load ptr, ptr %319, align 8
   br label %321
 
 321:                                              ; preds = %317, %315
-  %.137.i354 = phi ptr [ %.0364.i352, %315 ], [ %320, %317 ]
+  %.139.i354 = phi ptr [ %.0383.i352, %315 ], [ %320, %317 ]
   %.1.i355 = phi ptr [ %316, %315 ], [ %318, %317 ]
-  %322 = getelementptr inbounds i8, ptr %.0355.i351, i64 8
+  %322 = getelementptr inbounds i8, ptr %.0345.i351, i64 8
   %323 = load i8, ptr %322, align 8
   %324 = icmp eq i8 %323, 0
   br i1 %324, label %338, label %325
 
 325:                                              ; preds = %321
-  %.not42.i356 = icmp eq ptr %.137.i354, null
+  %.not42.i356 = icmp eq ptr %.139.i354, null
   br i1 %.not42.i356, label %328, label %326
 
 326:                                              ; preds = %325
-  %327 = getelementptr inbounds i8, ptr %.137.i354, i64 24
+  %327 = getelementptr inbounds i8, ptr %.139.i354, i64 24
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.44, ptr noundef nonnull %295, ptr noundef nonnull %327) #11
   br label %php_mail_build_headers_elems.exit
 
@@ -883,7 +883,7 @@ thread-pre-split431:                              ; preds = %245
   br i1 %329, label %330, label %333
 
 330:                                              ; preds = %328
-  %331 = load ptr, ptr %.0355.i351, align 8
+  %331 = load ptr, ptr %.0345.i351, align 8
   %332 = getelementptr inbounds i8, ptr %331, i64 8
   %.phi.trans.insert.i360 = getelementptr inbounds i8, ptr %331, i64 16
   %.pre.i361 = load i8, ptr %.phi.trans.insert.i360, align 8
@@ -891,26 +891,26 @@ thread-pre-split431:                              ; preds = %245
 
 333:                                              ; preds = %330, %328
   %334 = phi i8 [ %.pre.i361, %330 ], [ %323, %328 ]
-  %.0.i357 = phi ptr [ %332, %330 ], [ %.0355.i351, %328 ]
+  %.035.i357 = phi ptr [ %332, %330 ], [ %.0345.i351, %328 ]
   %.not43.i358 = icmp eq i8 %334, 6
   br i1 %.not43.i358, label %337, label %335
 
 335:                                              ; preds = %333
-  %336 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0.i357) #11
+  %336 = call ptr @zend_zval_value_name(ptr noundef nonnull %.035.i357) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.45, ptr noundef nonnull %295, ptr noundef %336) #11
   br label %php_mail_build_headers_elems.exit
 
 337:                                              ; preds = %333
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1212, ptr noundef nonnull %.0.i357)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1209, ptr noundef nonnull %.035.i357)
   br label %338
 
 338:                                              ; preds = %337, %321
-  %339 = add i32 %.0346.i350, -1
+  %339 = add i32 %.06.i350, -1
   %.not.i359 = icmp eq i32 %339, 0
   br i1 %.not.i359, label %php_mail_build_headers_elems.exit, label %.lr.ph.i349
 
 340:                                              ; preds = %297
-  %341 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0205) #11
+  %341 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0211) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.3, ptr noundef nonnull %295, ptr noundef %341) #11
   br label %php_mail_build_headers_elems.exit
 
@@ -920,13 +920,13 @@ thread-pre-split431:                              ; preds = %245
   br i1 %344, label %345, label %.thread435
 
 345:                                              ; preds = %342
-  %346 = getelementptr inbounds i8, ptr %.1212, i64 24
+  %346 = getelementptr inbounds i8, ptr %.1209, i64 24
   %347 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %346, i64 noundef 10, ptr noundef nonnull @.str.11, i64 noundef 10) #11
   %.not264 = icmp eq i32 %347, 0
   br i1 %.not264, label %348, label %393
 
 348:                                              ; preds = %345
-  %349 = getelementptr inbounds i8, ptr %.0205, i64 8
+  %349 = getelementptr inbounds i8, ptr %.0211, i64 8
   %350 = load i8, ptr %349, align 8
   switch i8 %350, label %391 [
     i8 6, label %351
@@ -934,7 +934,7 @@ thread-pre-split431:                              ; preds = %245
   ]
 
 351:                                              ; preds = %348
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1212, ptr noundef nonnull %.0205)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1209, ptr noundef nonnull %.0211)
   br label %php_mail_build_headers_elems.exit
 
 352:                                              ; preds = %348
@@ -952,51 +952,51 @@ thread-pre-split431:                              ; preds = %245
   br label %php_mail_build_headers_elems.exit
 
 358:                                              ; preds = %355, %352
-  %.0205.val279 = load ptr, ptr %.0205, align 8
-  %359 = getelementptr inbounds i8, ptr %.0205.val279, i64 8
-  %360 = getelementptr inbounds i8, ptr %.0205.val279, i64 24
+  %.0211.val279 = load ptr, ptr %.0211, align 8
+  %359 = getelementptr inbounds i8, ptr %.0211.val279, i64 8
+  %360 = getelementptr inbounds i8, ptr %.0211.val279, i64 24
   %361 = load i32, ptr %360, align 8
   %.not2.i363 = icmp eq i32 %361, 0
   br i1 %.not2.i363, label %php_mail_build_headers_elems.exit, label %.lr.ph.preheader.i364
 
 .lr.ph.preheader.i364:                            ; preds = %358
-  %362 = getelementptr inbounds i8, ptr %.0205.val279, i64 16
+  %362 = getelementptr inbounds i8, ptr %.0211.val279, i64 16
   %363 = load ptr, ptr %362, align 8
   br label %.lr.ph.i365
 
 .lr.ph.i365:                                      ; preds = %389, %.lr.ph.preheader.i364
-  %.0346.i366 = phi i32 [ %390, %389 ], [ %361, %.lr.ph.preheader.i364 ]
-  %.0355.i367 = phi ptr [ %.1.i371, %389 ], [ %363, %.lr.ph.preheader.i364 ]
-  %.0364.i368 = phi ptr [ %.137.i370, %389 ], [ null, %.lr.ph.preheader.i364 ]
+  %.06.i366 = phi i32 [ %390, %389 ], [ %361, %.lr.ph.preheader.i364 ]
+  %.0345.i367 = phi ptr [ %.1.i371, %389 ], [ %363, %.lr.ph.preheader.i364 ]
+  %.0383.i368 = phi ptr [ %.139.i370, %389 ], [ null, %.lr.ph.preheader.i364 ]
   %364 = load i32, ptr %359, align 8
   %365 = and i32 %364, 4
   %.not41.i369 = icmp eq i32 %365, 0
   br i1 %.not41.i369, label %368, label %366
 
 366:                                              ; preds = %.lr.ph.i365
-  %367 = getelementptr inbounds i8, ptr %.0355.i367, i64 16
+  %367 = getelementptr inbounds i8, ptr %.0345.i367, i64 16
   br label %372
 
 368:                                              ; preds = %.lr.ph.i365
-  %369 = getelementptr inbounds i8, ptr %.0355.i367, i64 32
-  %370 = getelementptr inbounds i8, ptr %.0355.i367, i64 24
+  %369 = getelementptr inbounds i8, ptr %.0345.i367, i64 32
+  %370 = getelementptr inbounds i8, ptr %.0345.i367, i64 24
   %371 = load ptr, ptr %370, align 8
   br label %372
 
 372:                                              ; preds = %368, %366
-  %.137.i370 = phi ptr [ %.0364.i368, %366 ], [ %371, %368 ]
+  %.139.i370 = phi ptr [ %.0383.i368, %366 ], [ %371, %368 ]
   %.1.i371 = phi ptr [ %367, %366 ], [ %369, %368 ]
-  %373 = getelementptr inbounds i8, ptr %.0355.i367, i64 8
+  %373 = getelementptr inbounds i8, ptr %.0345.i367, i64 8
   %374 = load i8, ptr %373, align 8
   %375 = icmp eq i8 %374, 0
   br i1 %375, label %389, label %376
 
 376:                                              ; preds = %372
-  %.not42.i372 = icmp eq ptr %.137.i370, null
+  %.not42.i372 = icmp eq ptr %.139.i370, null
   br i1 %.not42.i372, label %379, label %377
 
 377:                                              ; preds = %376
-  %378 = getelementptr inbounds i8, ptr %.137.i370, i64 24
+  %378 = getelementptr inbounds i8, ptr %.139.i370, i64 24
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.44, ptr noundef nonnull %346, ptr noundef nonnull %378) #11
   br label %php_mail_build_headers_elems.exit
 
@@ -1005,7 +1005,7 @@ thread-pre-split431:                              ; preds = %245
   br i1 %380, label %381, label %384
 
 381:                                              ; preds = %379
-  %382 = load ptr, ptr %.0355.i367, align 8
+  %382 = load ptr, ptr %.0345.i367, align 8
   %383 = getelementptr inbounds i8, ptr %382, i64 8
   %.phi.trans.insert.i376 = getelementptr inbounds i8, ptr %382, i64 16
   %.pre.i377 = load i8, ptr %.phi.trans.insert.i376, align 8
@@ -1013,26 +1013,26 @@ thread-pre-split431:                              ; preds = %245
 
 384:                                              ; preds = %381, %379
   %385 = phi i8 [ %.pre.i377, %381 ], [ %374, %379 ]
-  %.0.i373 = phi ptr [ %383, %381 ], [ %.0355.i367, %379 ]
+  %.035.i373 = phi ptr [ %383, %381 ], [ %.0345.i367, %379 ]
   %.not43.i374 = icmp eq i8 %385, 6
   br i1 %.not43.i374, label %388, label %386
 
 386:                                              ; preds = %384
-  %387 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0.i373) #11
+  %387 = call ptr @zend_zval_value_name(ptr noundef nonnull %.035.i373) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.45, ptr noundef nonnull %346, ptr noundef %387) #11
   br label %php_mail_build_headers_elems.exit
 
 388:                                              ; preds = %384
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1212, ptr noundef nonnull %.0.i373)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1209, ptr noundef nonnull %.035.i373)
   br label %389
 
 389:                                              ; preds = %388, %372
-  %390 = add i32 %.0346.i366, -1
+  %390 = add i32 %.06.i366, -1
   %.not.i375 = icmp eq i32 %390, 0
   br i1 %.not.i375, label %php_mail_build_headers_elems.exit, label %.lr.ph.i365
 
 391:                                              ; preds = %348
-  %392 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0205) #11
+  %392 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0211) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.3, ptr noundef nonnull %346, ptr noundef %392) #11
   br label %php_mail_build_headers_elems.exit
 
@@ -1047,7 +1047,7 @@ thread-pre-split431:                              ; preds = %245
   br i1 %.not266, label %397, label %thread-pre-split436
 
 397:                                              ; preds = %395
-  %398 = getelementptr inbounds i8, ptr %.0205, i64 8
+  %398 = getelementptr inbounds i8, ptr %.0211, i64 8
   %399 = load i8, ptr %398, align 8
   switch i8 %399, label %440 [
     i8 6, label %400
@@ -1055,7 +1055,7 @@ thread-pre-split431:                              ; preds = %245
   ]
 
 400:                                              ; preds = %397
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1212, ptr noundef nonnull %.0205)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1209, ptr noundef nonnull %.0211)
   br label %php_mail_build_headers_elems.exit
 
 401:                                              ; preds = %397
@@ -1073,51 +1073,51 @@ thread-pre-split431:                              ; preds = %245
   br label %php_mail_build_headers_elems.exit
 
 407:                                              ; preds = %404, %401
-  %.0205.val280 = load ptr, ptr %.0205, align 8
-  %408 = getelementptr inbounds i8, ptr %.0205.val280, i64 8
-  %409 = getelementptr inbounds i8, ptr %.0205.val280, i64 24
+  %.0211.val280 = load ptr, ptr %.0211, align 8
+  %408 = getelementptr inbounds i8, ptr %.0211.val280, i64 8
+  %409 = getelementptr inbounds i8, ptr %.0211.val280, i64 24
   %410 = load i32, ptr %409, align 8
   %.not2.i379 = icmp eq i32 %410, 0
   br i1 %.not2.i379, label %php_mail_build_headers_elems.exit, label %.lr.ph.preheader.i380
 
 .lr.ph.preheader.i380:                            ; preds = %407
-  %411 = getelementptr inbounds i8, ptr %.0205.val280, i64 16
+  %411 = getelementptr inbounds i8, ptr %.0211.val280, i64 16
   %412 = load ptr, ptr %411, align 8
   br label %.lr.ph.i381
 
 .lr.ph.i381:                                      ; preds = %438, %.lr.ph.preheader.i380
-  %.0346.i382 = phi i32 [ %439, %438 ], [ %410, %.lr.ph.preheader.i380 ]
-  %.0355.i383 = phi ptr [ %.1.i387, %438 ], [ %412, %.lr.ph.preheader.i380 ]
-  %.0364.i384 = phi ptr [ %.137.i386, %438 ], [ null, %.lr.ph.preheader.i380 ]
+  %.06.i382 = phi i32 [ %439, %438 ], [ %410, %.lr.ph.preheader.i380 ]
+  %.0345.i383 = phi ptr [ %.1.i387, %438 ], [ %412, %.lr.ph.preheader.i380 ]
+  %.0383.i384 = phi ptr [ %.139.i386, %438 ], [ null, %.lr.ph.preheader.i380 ]
   %413 = load i32, ptr %408, align 8
   %414 = and i32 %413, 4
   %.not41.i385 = icmp eq i32 %414, 0
   br i1 %.not41.i385, label %417, label %415
 
 415:                                              ; preds = %.lr.ph.i381
-  %416 = getelementptr inbounds i8, ptr %.0355.i383, i64 16
+  %416 = getelementptr inbounds i8, ptr %.0345.i383, i64 16
   br label %421
 
 417:                                              ; preds = %.lr.ph.i381
-  %418 = getelementptr inbounds i8, ptr %.0355.i383, i64 32
-  %419 = getelementptr inbounds i8, ptr %.0355.i383, i64 24
+  %418 = getelementptr inbounds i8, ptr %.0345.i383, i64 32
+  %419 = getelementptr inbounds i8, ptr %.0345.i383, i64 24
   %420 = load ptr, ptr %419, align 8
   br label %421
 
 421:                                              ; preds = %417, %415
-  %.137.i386 = phi ptr [ %.0364.i384, %415 ], [ %420, %417 ]
+  %.139.i386 = phi ptr [ %.0383.i384, %415 ], [ %420, %417 ]
   %.1.i387 = phi ptr [ %416, %415 ], [ %418, %417 ]
-  %422 = getelementptr inbounds i8, ptr %.0355.i383, i64 8
+  %422 = getelementptr inbounds i8, ptr %.0345.i383, i64 8
   %423 = load i8, ptr %422, align 8
   %424 = icmp eq i8 %423, 0
   br i1 %424, label %438, label %425
 
 425:                                              ; preds = %421
-  %.not42.i388 = icmp eq ptr %.137.i386, null
+  %.not42.i388 = icmp eq ptr %.139.i386, null
   br i1 %.not42.i388, label %428, label %426
 
 426:                                              ; preds = %425
-  %427 = getelementptr inbounds i8, ptr %.137.i386, i64 24
+  %427 = getelementptr inbounds i8, ptr %.139.i386, i64 24
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.44, ptr noundef nonnull %346, ptr noundef nonnull %427) #11
   br label %php_mail_build_headers_elems.exit
 
@@ -1126,7 +1126,7 @@ thread-pre-split431:                              ; preds = %245
   br i1 %429, label %430, label %433
 
 430:                                              ; preds = %428
-  %431 = load ptr, ptr %.0355.i383, align 8
+  %431 = load ptr, ptr %.0345.i383, align 8
   %432 = getelementptr inbounds i8, ptr %431, i64 8
   %.phi.trans.insert.i392 = getelementptr inbounds i8, ptr %431, i64 16
   %.pre.i393 = load i8, ptr %.phi.trans.insert.i392, align 8
@@ -1134,26 +1134,26 @@ thread-pre-split431:                              ; preds = %245
 
 433:                                              ; preds = %430, %428
   %434 = phi i8 [ %.pre.i393, %430 ], [ %423, %428 ]
-  %.0.i389 = phi ptr [ %432, %430 ], [ %.0355.i383, %428 ]
+  %.035.i389 = phi ptr [ %432, %430 ], [ %.0345.i383, %428 ]
   %.not43.i390 = icmp eq i8 %434, 6
   br i1 %.not43.i390, label %437, label %435
 
 435:                                              ; preds = %433
-  %436 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0.i389) #11
+  %436 = call ptr @zend_zval_value_name(ptr noundef nonnull %.035.i389) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.45, ptr noundef nonnull %346, ptr noundef %436) #11
   br label %php_mail_build_headers_elems.exit
 
 437:                                              ; preds = %433
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1212, ptr noundef nonnull %.0.i389)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1209, ptr noundef nonnull %.035.i389)
   br label %438
 
 438:                                              ; preds = %437, %421
-  %439 = add i32 %.0346.i382, -1
+  %439 = add i32 %.06.i382, -1
   %.not.i391 = icmp eq i32 %439, 0
   br i1 %.not.i391, label %php_mail_build_headers_elems.exit, label %.lr.ph.i381
 
 440:                                              ; preds = %397
-  %441 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0205) #11
+  %441 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0211) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.3, ptr noundef nonnull %346, ptr noundef %441) #11
   br label %php_mail_build_headers_elems.exit
 
@@ -1167,7 +1167,7 @@ thread-pre-split436:                              ; preds = %395
   br i1 %443, label %444, label %492
 
 444:                                              ; preds = %.thread435
-  %445 = getelementptr inbounds i8, ptr %.1212, i64 24
+  %445 = getelementptr inbounds i8, ptr %.1209, i64 24
   %446 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %445, i64 noundef 11, ptr noundef nonnull @.str.13, i64 noundef 11) #11
   %.not268 = icmp eq i32 %446, 0
   br i1 %.not268, label %447, label %._crit_edge509
@@ -1177,7 +1177,7 @@ thread-pre-split436:                              ; preds = %395
   br label %492
 
 447:                                              ; preds = %444
-  %448 = getelementptr inbounds i8, ptr %.0205, i64 8
+  %448 = getelementptr inbounds i8, ptr %.0211, i64 8
   %449 = load i8, ptr %448, align 8
   switch i8 %449, label %490 [
     i8 6, label %450
@@ -1185,7 +1185,7 @@ thread-pre-split436:                              ; preds = %395
   ]
 
 450:                                              ; preds = %447
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1212, ptr noundef nonnull %.0205)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1209, ptr noundef nonnull %.0211)
   br label %php_mail_build_headers_elems.exit
 
 451:                                              ; preds = %447
@@ -1203,51 +1203,51 @@ thread-pre-split436:                              ; preds = %395
   br label %php_mail_build_headers_elems.exit
 
 457:                                              ; preds = %454, %451
-  %.0205.val281 = load ptr, ptr %.0205, align 8
-  %458 = getelementptr inbounds i8, ptr %.0205.val281, i64 8
-  %459 = getelementptr inbounds i8, ptr %.0205.val281, i64 24
+  %.0211.val281 = load ptr, ptr %.0211, align 8
+  %458 = getelementptr inbounds i8, ptr %.0211.val281, i64 8
+  %459 = getelementptr inbounds i8, ptr %.0211.val281, i64 24
   %460 = load i32, ptr %459, align 8
   %.not2.i395 = icmp eq i32 %460, 0
   br i1 %.not2.i395, label %php_mail_build_headers_elems.exit, label %.lr.ph.preheader.i396
 
 .lr.ph.preheader.i396:                            ; preds = %457
-  %461 = getelementptr inbounds i8, ptr %.0205.val281, i64 16
+  %461 = getelementptr inbounds i8, ptr %.0211.val281, i64 16
   %462 = load ptr, ptr %461, align 8
   br label %.lr.ph.i397
 
 .lr.ph.i397:                                      ; preds = %488, %.lr.ph.preheader.i396
-  %.0346.i398 = phi i32 [ %489, %488 ], [ %460, %.lr.ph.preheader.i396 ]
-  %.0355.i399 = phi ptr [ %.1.i403, %488 ], [ %462, %.lr.ph.preheader.i396 ]
-  %.0364.i400 = phi ptr [ %.137.i402, %488 ], [ null, %.lr.ph.preheader.i396 ]
+  %.06.i398 = phi i32 [ %489, %488 ], [ %460, %.lr.ph.preheader.i396 ]
+  %.0345.i399 = phi ptr [ %.1.i403, %488 ], [ %462, %.lr.ph.preheader.i396 ]
+  %.0383.i400 = phi ptr [ %.139.i402, %488 ], [ null, %.lr.ph.preheader.i396 ]
   %463 = load i32, ptr %458, align 8
   %464 = and i32 %463, 4
   %.not41.i401 = icmp eq i32 %464, 0
   br i1 %.not41.i401, label %467, label %465
 
 465:                                              ; preds = %.lr.ph.i397
-  %466 = getelementptr inbounds i8, ptr %.0355.i399, i64 16
+  %466 = getelementptr inbounds i8, ptr %.0345.i399, i64 16
   br label %471
 
 467:                                              ; preds = %.lr.ph.i397
-  %468 = getelementptr inbounds i8, ptr %.0355.i399, i64 32
-  %469 = getelementptr inbounds i8, ptr %.0355.i399, i64 24
+  %468 = getelementptr inbounds i8, ptr %.0345.i399, i64 32
+  %469 = getelementptr inbounds i8, ptr %.0345.i399, i64 24
   %470 = load ptr, ptr %469, align 8
   br label %471
 
 471:                                              ; preds = %467, %465
-  %.137.i402 = phi ptr [ %.0364.i400, %465 ], [ %470, %467 ]
+  %.139.i402 = phi ptr [ %.0383.i400, %465 ], [ %470, %467 ]
   %.1.i403 = phi ptr [ %466, %465 ], [ %468, %467 ]
-  %472 = getelementptr inbounds i8, ptr %.0355.i399, i64 8
+  %472 = getelementptr inbounds i8, ptr %.0345.i399, i64 8
   %473 = load i8, ptr %472, align 8
   %474 = icmp eq i8 %473, 0
   br i1 %474, label %488, label %475
 
 475:                                              ; preds = %471
-  %.not42.i404 = icmp eq ptr %.137.i402, null
+  %.not42.i404 = icmp eq ptr %.139.i402, null
   br i1 %.not42.i404, label %478, label %476
 
 476:                                              ; preds = %475
-  %477 = getelementptr inbounds i8, ptr %.137.i402, i64 24
+  %477 = getelementptr inbounds i8, ptr %.139.i402, i64 24
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.44, ptr noundef nonnull %445, ptr noundef nonnull %477) #11
   br label %php_mail_build_headers_elems.exit
 
@@ -1256,7 +1256,7 @@ thread-pre-split436:                              ; preds = %395
   br i1 %479, label %480, label %483
 
 480:                                              ; preds = %478
-  %481 = load ptr, ptr %.0355.i399, align 8
+  %481 = load ptr, ptr %.0345.i399, align 8
   %482 = getelementptr inbounds i8, ptr %481, i64 8
   %.phi.trans.insert.i408 = getelementptr inbounds i8, ptr %481, i64 16
   %.pre.i409 = load i8, ptr %.phi.trans.insert.i408, align 8
@@ -1264,26 +1264,26 @@ thread-pre-split436:                              ; preds = %395
 
 483:                                              ; preds = %480, %478
   %484 = phi i8 [ %.pre.i409, %480 ], [ %473, %478 ]
-  %.0.i405 = phi ptr [ %482, %480 ], [ %.0355.i399, %478 ]
+  %.035.i405 = phi ptr [ %482, %480 ], [ %.0345.i399, %478 ]
   %.not43.i406 = icmp eq i8 %484, 6
   br i1 %.not43.i406, label %487, label %485
 
 485:                                              ; preds = %483
-  %486 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0.i405) #11
+  %486 = call ptr @zend_zval_value_name(ptr noundef nonnull %.035.i405) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.45, ptr noundef nonnull %445, ptr noundef %486) #11
   br label %php_mail_build_headers_elems.exit
 
 487:                                              ; preds = %483
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1212, ptr noundef nonnull %.0.i405)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1209, ptr noundef nonnull %.035.i405)
   br label %488
 
 488:                                              ; preds = %487, %471
-  %489 = add i32 %.0346.i398, -1
+  %489 = add i32 %.06.i398, -1
   %.not.i407 = icmp eq i32 %489, 0
   br i1 %.not.i407, label %php_mail_build_headers_elems.exit, label %.lr.ph.i397
 
 490:                                              ; preds = %447
-  %491 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0205) #11
+  %491 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0211) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.3, ptr noundef nonnull %445, ptr noundef %491) #11
   br label %php_mail_build_headers_elems.exit
 
@@ -1293,7 +1293,7 @@ thread-pre-split436:                              ; preds = %395
   br i1 %494, label %495, label %499
 
 495:                                              ; preds = %492
-  %496 = getelementptr inbounds i8, ptr %.1212, i64 24
+  %496 = getelementptr inbounds i8, ptr %.1209, i64 24
   %497 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %496, i64 noundef 7, ptr noundef nonnull @.str.14, i64 noundef 7) #11
   %.not270 = icmp eq i32 %497, 0
   br i1 %.not270, label %498, label %499
@@ -1303,7 +1303,7 @@ thread-pre-split436:                              ; preds = %395
   br label %php_mail_build_headers_elems.exit
 
 499:                                              ; preds = %492, %495
-  %500 = getelementptr inbounds i8, ptr %.0205, i64 8
+  %500 = getelementptr inbounds i8, ptr %.0211, i64 8
   %501 = load i8, ptr %500, align 8
   switch i8 %501, label %538 [
     i8 6, label %502
@@ -1311,56 +1311,56 @@ thread-pre-split436:                              ; preds = %395
   ]
 
 502:                                              ; preds = %499
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1212, ptr noundef nonnull %.0205)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef nonnull %.1209, ptr noundef nonnull %.0211)
   br label %php_mail_build_headers_elems.exit
 
 503:                                              ; preds = %499
-  %.0205.val282 = load ptr, ptr %.0205, align 8
-  %504 = getelementptr inbounds i8, ptr %.0205.val282, i64 8
-  %505 = getelementptr inbounds i8, ptr %.0205.val282, i64 24
+  %.0211.val282 = load ptr, ptr %.0211, align 8
+  %504 = getelementptr inbounds i8, ptr %.0211.val282, i64 8
+  %505 = getelementptr inbounds i8, ptr %.0211.val282, i64 24
   %506 = load i32, ptr %505, align 8
   %.not2.i411 = icmp eq i32 %506, 0
   br i1 %.not2.i411, label %php_mail_build_headers_elems.exit, label %.lr.ph.preheader.i412
 
 .lr.ph.preheader.i412:                            ; preds = %503
-  %507 = getelementptr inbounds i8, ptr %.0205.val282, i64 16
+  %507 = getelementptr inbounds i8, ptr %.0211.val282, i64 16
   %508 = load ptr, ptr %507, align 8
   br label %.lr.ph.i413
 
 .lr.ph.i413:                                      ; preds = %536, %.lr.ph.preheader.i412
-  %.0346.i414 = phi i32 [ %537, %536 ], [ %506, %.lr.ph.preheader.i412 ]
-  %.0355.i415 = phi ptr [ %.1.i419, %536 ], [ %508, %.lr.ph.preheader.i412 ]
-  %.0364.i416 = phi ptr [ %.137.i418, %536 ], [ null, %.lr.ph.preheader.i412 ]
+  %.06.i414 = phi i32 [ %537, %536 ], [ %506, %.lr.ph.preheader.i412 ]
+  %.0345.i415 = phi ptr [ %.1.i419, %536 ], [ %508, %.lr.ph.preheader.i412 ]
+  %.0383.i416 = phi ptr [ %.139.i418, %536 ], [ null, %.lr.ph.preheader.i412 ]
   %509 = load i32, ptr %504, align 8
   %510 = and i32 %509, 4
   %.not41.i417 = icmp eq i32 %510, 0
   br i1 %.not41.i417, label %513, label %511
 
 511:                                              ; preds = %.lr.ph.i413
-  %512 = getelementptr inbounds i8, ptr %.0355.i415, i64 16
+  %512 = getelementptr inbounds i8, ptr %.0345.i415, i64 16
   br label %517
 
 513:                                              ; preds = %.lr.ph.i413
-  %514 = getelementptr inbounds i8, ptr %.0355.i415, i64 32
-  %515 = getelementptr inbounds i8, ptr %.0355.i415, i64 24
+  %514 = getelementptr inbounds i8, ptr %.0345.i415, i64 32
+  %515 = getelementptr inbounds i8, ptr %.0345.i415, i64 24
   %516 = load ptr, ptr %515, align 8
   br label %517
 
 517:                                              ; preds = %513, %511
-  %.137.i418 = phi ptr [ %.0364.i416, %511 ], [ %516, %513 ]
+  %.139.i418 = phi ptr [ %.0383.i416, %511 ], [ %516, %513 ]
   %.1.i419 = phi ptr [ %512, %511 ], [ %514, %513 ]
-  %518 = getelementptr inbounds i8, ptr %.0355.i415, i64 8
+  %518 = getelementptr inbounds i8, ptr %.0345.i415, i64 8
   %519 = load i8, ptr %518, align 8
   %520 = icmp eq i8 %519, 0
   br i1 %520, label %536, label %521
 
 521:                                              ; preds = %517
-  %.not42.i420 = icmp eq ptr %.137.i418, null
+  %.not42.i420 = icmp eq ptr %.139.i418, null
   br i1 %.not42.i420, label %525, label %522
 
 522:                                              ; preds = %521
-  %523 = getelementptr inbounds i8, ptr %.1212, i64 24
-  %524 = getelementptr inbounds i8, ptr %.137.i418, i64 24
+  %523 = getelementptr inbounds i8, ptr %.1209, i64 24
+  %524 = getelementptr inbounds i8, ptr %.139.i418, i64 24
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.44, ptr noundef nonnull %523, ptr noundef nonnull %524) #11
   br label %php_mail_build_headers_elems.exit
 
@@ -1369,7 +1369,7 @@ thread-pre-split436:                              ; preds = %395
   br i1 %526, label %527, label %530
 
 527:                                              ; preds = %525
-  %528 = load ptr, ptr %.0355.i415, align 8
+  %528 = load ptr, ptr %.0345.i415, align 8
   %529 = getelementptr inbounds i8, ptr %528, i64 8
   %.phi.trans.insert.i424 = getelementptr inbounds i8, ptr %528, i64 16
   %.pre.i425 = load i8, ptr %.phi.trans.insert.i424, align 8
@@ -1377,28 +1377,28 @@ thread-pre-split436:                              ; preds = %395
 
 530:                                              ; preds = %527, %525
   %531 = phi i8 [ %.pre.i425, %527 ], [ %519, %525 ]
-  %.0.i421 = phi ptr [ %529, %527 ], [ %.0355.i415, %525 ]
+  %.035.i421 = phi ptr [ %529, %527 ], [ %.0345.i415, %525 ]
   %.not43.i422 = icmp eq i8 %531, 6
   br i1 %.not43.i422, label %535, label %532
 
 532:                                              ; preds = %530
-  %533 = getelementptr inbounds i8, ptr %.1212, i64 24
-  %534 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0.i421) #11
+  %533 = getelementptr inbounds i8, ptr %.1209, i64 24
+  %534 = call ptr @zend_zval_value_name(ptr noundef nonnull %.035.i421) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.45, ptr noundef nonnull %533, ptr noundef %534) #11
   br label %php_mail_build_headers_elems.exit
 
 535:                                              ; preds = %530
-  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1212, ptr noundef nonnull %.0.i421)
+  call fastcc void @php_mail_build_headers_elem(ptr noundef nonnull %2, ptr noundef %.1209, ptr noundef nonnull %.035.i421)
   br label %536
 
 536:                                              ; preds = %535, %517
-  %537 = add i32 %.0346.i414, -1
+  %537 = add i32 %.06.i414, -1
   %.not.i423 = icmp eq i32 %537, 0
   br i1 %.not.i423, label %php_mail_build_headers_elems.exit, label %.lr.ph.i413
 
 538:                                              ; preds = %499
-  %539 = getelementptr inbounds i8, ptr %.1212, i64 24
-  %540 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0205) #11
+  %539 = getelementptr inbounds i8, ptr %.1209, i64 24
+  %540 = call ptr @zend_zval_value_name(ptr noundef nonnull %.0211) #11
   call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.3, ptr noundef nonnull %539, ptr noundef %540) #11
   br label %php_mail_build_headers_elems.exit
 
@@ -1433,7 +1433,7 @@ php_mail_build_headers_elems.exit:                ; preds = %536, %488, %438, %3
   br label %.thread438
 
 554:                                              ; preds = %php_mail_build_headers_elems.exit, %20
-  %555 = add i32 %.0206473, -1
+  %555 = add i32 %.0473, -1
   %.not = icmp eq i32 %555, 0
   br i1 %.not, label %.loopexitthread-pre-split, label %.lr.ph
 
@@ -1458,8 +1458,8 @@ php_mail_build_headers_elems.exit:                ; preds = %536, %488, %438, %3
   br label %.thread438
 
 .thread438:                                       ; preds = %542, %548, %553, %544, %557, %.loopexit
-  %.0 = phi ptr [ null, %.loopexit ], [ %.pre511, %557 ], [ null, %544 ], [ null, %553 ], [ null, %548 ], [ null, %542 ]
-  ret ptr %.0
+  %.0212 = phi ptr [ null, %.loopexit ], [ %.pre511, %557 ], [ null, %544 ], [ null, %553 ], [ null, %548 ], [ null, %542 ]
+  ret ptr %.0212
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1530,8 +1530,8 @@ php_mail_build_headers_check_field_name.exit.thread: ; preds = %6, %php_mail_bui
   br i1 %.not.i132, label %php_mail_build_headers_check_field_value.exit, label %.lr.ph.i133
 
 .lr.ph.i133:                                      ; preds = %php_mail_build_headers_check_field_name.exit.thread, %.backedge.i
-  %.0171.i = phi i64 [ %34, %.backedge.i ], [ 0, %php_mail_build_headers_check_field_name.exit.thread ]
-  %22 = getelementptr inbounds i8, ptr %19, i64 %.0171.i
+  %.01.i = phi i64 [ %34, %.backedge.i ], [ 0, %php_mail_build_headers_check_field_name.exit.thread ]
+  %22 = getelementptr inbounds i8, ptr %19, i64 %.01.i
   %23 = load i8, ptr %22, align 1
   switch i8 %23, label %.backedge.i [
     i8 13, label %24
@@ -1539,7 +1539,7 @@ php_mail_build_headers_check_field_name.exit.thread: ; preds = %6, %php_mail_bui
   ]
 
 24:                                               ; preds = %.lr.ph.i133
-  %25 = sub i64 %21, %.0171.i
+  %25 = sub i64 %21, %.01.i
   %26 = icmp ugt i64 %25, 2
   br i1 %26, label %27, label %36
 
@@ -1559,7 +1559,7 @@ php_mail_build_headers_check_field_name.exit.thread: ; preds = %6, %php_mail_bui
 
 .backedge.i:                                      ; preds = %31, %31, %.lr.ph.i133
   %.sink.i = phi i64 [ 1, %.lr.ph.i133 ], [ 3, %31 ], [ 3, %31 ]
-  %34 = add i64 %.sink.i, %.0171.i
+  %34 = add i64 %.sink.i, %.01.i
   %35 = icmp ult i64 %34, %21
   br i1 %35, label %.lr.ph.i133, label %php_mail_build_headers_check_field_value.exit
 
@@ -1711,39 +1711,39 @@ php_mail_build_headers_check_field_value.exit:    ; preds = %.backedge.i, %php_m
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %134
-  %.034.i143 = phi i32 [ %135, %134 ], [ %104, %.lr.ph.preheader ]
-  %.035.i142 = phi ptr [ %.1.i, %134 ], [ %106, %.lr.ph.preheader ]
-  %.036.i141 = phi ptr [ %.137.i, %134 ], [ null, %.lr.ph.preheader ]
+  %.0.i143 = phi i32 [ %135, %134 ], [ %104, %.lr.ph.preheader ]
+  %.034.i142 = phi ptr [ %.1.i, %134 ], [ %106, %.lr.ph.preheader ]
+  %.038.i140 = phi ptr [ %.139.i, %134 ], [ null, %.lr.ph.preheader ]
   %107 = load i32, ptr %102, align 8
   %108 = and i32 %107, 4
   %.not41.i = icmp eq i32 %108, 0
   br i1 %.not41.i, label %111, label %109
 
 109:                                              ; preds = %.lr.ph
-  %110 = getelementptr inbounds i8, ptr %.035.i142, i64 16
+  %110 = getelementptr inbounds i8, ptr %.034.i142, i64 16
   br label %115
 
 111:                                              ; preds = %.lr.ph
-  %112 = getelementptr inbounds i8, ptr %.035.i142, i64 32
-  %113 = getelementptr inbounds i8, ptr %.035.i142, i64 24
+  %112 = getelementptr inbounds i8, ptr %.034.i142, i64 32
+  %113 = getelementptr inbounds i8, ptr %.034.i142, i64 24
   %114 = load ptr, ptr %113, align 8
   br label %115
 
 115:                                              ; preds = %111, %109
-  %.137.i = phi ptr [ %.036.i141, %109 ], [ %114, %111 ]
+  %.139.i = phi ptr [ %.038.i140, %109 ], [ %114, %111 ]
   %.1.i = phi ptr [ %110, %109 ], [ %112, %111 ]
-  %116 = getelementptr inbounds i8, ptr %.035.i142, i64 8
+  %116 = getelementptr inbounds i8, ptr %.034.i142, i64 8
   %117 = load i8, ptr %116, align 8
   %118 = icmp eq i8 %117, 0
   br i1 %118, label %134, label %119
 
 119:                                              ; preds = %115
-  %.not42.i = icmp eq ptr %.137.i, null
+  %.not42.i = icmp eq ptr %.139.i, null
   br i1 %.not42.i, label %123, label %120
 
 120:                                              ; preds = %119
   %121 = getelementptr inbounds i8, ptr %1, i64 24
-  %122 = getelementptr inbounds i8, ptr %.137.i, i64 24
+  %122 = getelementptr inbounds i8, ptr %.139.i, i64 24
   tail call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.44, ptr noundef nonnull %121, ptr noundef nonnull %122) #11
   br label %php_mail_build_headers_elems.exit
 
@@ -1752,7 +1752,7 @@ php_mail_build_headers_check_field_value.exit:    ; preds = %.backedge.i, %php_m
   br i1 %124, label %125, label %128
 
 125:                                              ; preds = %123
-  %126 = load ptr, ptr %.035.i142, align 8
+  %126 = load ptr, ptr %.034.i142, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %126, i64 16
   %.pre = load i8, ptr %.phi.trans.insert, align 8
@@ -1760,22 +1760,22 @@ php_mail_build_headers_check_field_value.exit:    ; preds = %.backedge.i, %php_m
 
 128:                                              ; preds = %125, %123
   %129 = phi i8 [ %.pre, %125 ], [ %117, %123 ]
-  %.0.i = phi ptr [ %127, %125 ], [ %.035.i142, %123 ]
+  %.035.i = phi ptr [ %127, %125 ], [ %.034.i142, %123 ]
   %.not43.i = icmp eq i8 %129, 6
   br i1 %.not43.i, label %133, label %130
 
 130:                                              ; preds = %128
   %131 = getelementptr inbounds i8, ptr %1, i64 24
-  %132 = tail call ptr @zend_zval_value_name(ptr noundef nonnull %.0.i) #11
+  %132 = tail call ptr @zend_zval_value_name(ptr noundef nonnull %.035.i) #11
   tail call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.45, ptr noundef nonnull %131, ptr noundef %132) #11
   br label %php_mail_build_headers_elems.exit
 
 133:                                              ; preds = %128
-  tail call fastcc void @php_mail_build_headers_elem(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0.i)
+  tail call fastcc void @php_mail_build_headers_elem(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.035.i)
   br label %134
 
 134:                                              ; preds = %133, %115
-  %135 = add i32 %.034.i143, -1
+  %135 = add i32 %.0.i143, -1
   %.not.i135 = icmp eq i32 %135, 0
   br i1 %.not.i135, label %php_mail_build_headers_elems.exit, label %.lr.ph
 
@@ -1995,11 +1995,11 @@ thread-pre-split483:                              ; preds = %82
   br i1 %.not413, label %92, label %91
 
 91:                                               ; preds = %82, %86, %12, %73, %23, %19, %40, %36, %57, %53
-  %.0331.ph = phi i32 [ 3, %53 ], [ 3, %57 ], [ 2, %36 ], [ 2, %40 ], [ 1, %19 ], [ 1, %23 ], [ 4, %73 ], [ 0, %12 ], [ 5, %86 ], [ 5, %82 ]
-  %.0330.ph = phi ptr [ %48, %53 ], [ %48, %57 ], [ %31, %36 ], [ %31, %40 ], [ %14, %19 ], [ %14, %23 ], [ %66, %73 ], [ null, %12 ], [ %77, %86 ], [ %77, %82 ]
-  %.0329.ph = phi i32 [ 16, %53 ], [ 16, %57 ], [ 16, %36 ], [ 16, %40 ], [ 16, %19 ], [ 16, %23 ], [ 26, %73 ], [ 0, %12 ], [ 16, %86 ], [ 16, %82 ]
+  %.0330.ph = phi i32 [ 3, %53 ], [ 3, %57 ], [ 2, %36 ], [ 2, %40 ], [ 1, %19 ], [ 1, %23 ], [ 4, %73 ], [ 0, %12 ], [ 5, %86 ], [ 5, %82 ]
+  %.0329.ph = phi ptr [ %48, %53 ], [ %48, %57 ], [ %31, %36 ], [ %31, %40 ], [ %14, %19 ], [ %14, %23 ], [ %66, %73 ], [ null, %12 ], [ %77, %86 ], [ %77, %82 ]
+  %.0328.ph = phi i32 [ 16, %53 ], [ 16, %57 ], [ 16, %36 ], [ 16, %40 ], [ 16, %19 ], [ 16, %23 ], [ 26, %73 ], [ 0, %12 ], [ 16, %86 ], [ 16, %82 ]
   %.0.ph = phi i32 [ 9, %53 ], [ 9, %57 ], [ 9, %36 ], [ 9, %40 ], [ 9, %19 ], [ 9, %23 ], [ 9, %73 ], [ 1, %12 ], [ 9, %86 ], [ 9, %82 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.0331.ph, ptr noundef null, i32 noundef %.0329.ph, ptr noundef %.0330.ph) #11
+  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.0330.ph, ptr noundef null, i32 noundef %.0328.ph, ptr noundef %.0329.ph) #11
   br label %229
 
 92:                                               ; preds = %75, %86, %84
@@ -2080,7 +2080,7 @@ thread-pre-split483:                              ; preds = %82
 .lr.ph:                                           ; preds = %121, %.loopexit540
   %123 = phi i8 [ %145, %.loopexit540 ], [ %122, %121 ]
   %124 = phi ptr [ %144, %.loopexit540 ], [ %111, %121 ]
-  %.0339544 = phi i64 [ %143, %.loopexit540 ], [ 0, %121 ]
+  %.0333544 = phi i64 [ %143, %.loopexit540 ], [ 0, %121 ]
   %125 = zext i8 %123 to i64
   %126 = getelementptr inbounds i16, ptr %.pre554, i64 %125
   %127 = load i16, ptr %126, align 2
@@ -2099,7 +2099,7 @@ thread-pre-split483:                              ; preds = %82
   br i1 %134, label %135, label %142
 
 135:                                              ; preds = %131
-  %136 = add i64 %.0339544, 2
+  %136 = add i64 %.0333544, 2
   %137 = getelementptr inbounds i8, ptr %111, i64 %136
   %138 = load i8, ptr %137, align 1
   switch i8 %138, label %142 [
@@ -2128,7 +2128,7 @@ thread-pre-split483:                              ; preds = %82
   br label %.loopexit540
 
 .loopexit540:                                     ; preds = %.critedge, %.lr.ph, %142
-  %.2 = phi i64 [ %.0339544, %142 ], [ %.0339544, %.lr.ph ], [ %.1, %.critedge ]
+  %.2 = phi i64 [ %.0333544, %142 ], [ %.0333544, %.lr.ph ], [ %.1, %.critedge ]
   %143 = add i64 %.2, 1
   %144 = getelementptr inbounds i8, ptr %111, i64 %143
   %145 = load i8, ptr %144, align 1
@@ -2136,7 +2136,7 @@ thread-pre-split483:                              ; preds = %82
   br i1 %.not422, label %.loopexit541, label %.lr.ph
 
 .loopexit541:                                     ; preds = %.loopexit540, %121, %.thread536
-  %.0337 = phi ptr [ %30, %.thread536 ], [ %111, %121 ], [ %111, %.loopexit540 ]
+  %.0332 = phi ptr [ %30, %.thread536 ], [ %111, %121 ], [ %111, %.loopexit540 ]
   %.not423 = icmp eq i64 %46, 0
   br i1 %.not423, label %.loopexit539, label %146
 
@@ -2228,7 +2228,7 @@ thread-pre-split483:                              ; preds = %82
   br i1 %.not426, label %.loopexit539, label %.lr.ph550
 
 .loopexit539:                                     ; preds = %.loopexit, %157, %.loopexit541
-  %.0336 = phi ptr [ %47, %.loopexit541 ], [ %147, %157 ], [ %147, %.loopexit ]
+  %.0331 = phi ptr [ %47, %.loopexit541 ], [ %147, %157 ], [ %147, %.loopexit ]
   %.not427 = icmp eq ptr %8, null
   br i1 %.not427, label %184, label %182
 
@@ -2267,7 +2267,7 @@ thread-pre-split483:                              ; preds = %82
   %.not431 = icmp eq ptr %190, null
   %198 = getelementptr inbounds i8, ptr %190, i64 24
   %199 = select i1 %.not431, ptr null, ptr %198
-  %200 = call i32 @php_mail(ptr noundef nonnull %.0337, ptr noundef nonnull %.0336, ptr noundef nonnull %63, ptr noundef %197, ptr noundef %199)
+  %200 = call i32 @php_mail(ptr noundef nonnull %.0332, ptr noundef nonnull %.0331, ptr noundef nonnull %63, ptr noundef %197, ptr noundef %199)
   %.not432 = icmp eq i32 %200, 0
   %spec.select556 = select i1 %.not432, i32 2, i32 3
   %201 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2322,19 +2322,19 @@ thread-pre-split483:                              ; preds = %82
   br label %225
 
 225:                                              ; preds = %215, %224, %219, %213
-  %.not437 = icmp eq ptr %.0337, %30
+  %.not437 = icmp eq ptr %.0332, %30
   br i1 %.not437, label %227, label %226
 
 226:                                              ; preds = %225
-  call void @_efree(ptr noundef nonnull %.0337) #11
+  call void @_efree(ptr noundef nonnull %.0332) #11
   br label %227
 
 227:                                              ; preds = %226, %225
-  %.not438 = icmp eq ptr %.0336, %47
+  %.not438 = icmp eq ptr %.0331, %47
   br i1 %.not438, label %229, label %228
 
 228:                                              ; preds = %227
-  call void @_efree(ptr noundef nonnull %.0336) #11
+  call void @_efree(ptr noundef nonnull %.0331) #11
   br label %229
 
 229:                                              ; preds = %107, %228, %227, %101, %91

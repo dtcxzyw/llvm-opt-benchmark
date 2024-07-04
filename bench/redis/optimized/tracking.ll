@@ -837,10 +837,10 @@ if.end24.thread:                                  ; preds = %if.end14, %if.then1
   br i1 %cmp2634, label %if.then27, label %land.lhs.true
 
 if.then27:                                        ; preds = %if.end24.thread, %if.end24
-  %c.addr.038 = phi ptr [ %call, %if.end24.thread ], [ %c, %if.end24 ]
-  %old_flags.037 = phi i64 [ %8, %if.end24.thread ], [ %0, %if.end24 ]
-  tail call void @addReplyPushLen(ptr noundef nonnull %c.addr.038, i64 noundef 2) #8
-  tail call void @addReplyBulkCBuffer(ptr noundef nonnull %c.addr.038, ptr noundef nonnull @.str.9, i64 noundef 10) #8
+  %old_flags.040 = phi i64 [ %8, %if.end24.thread ], [ %0, %if.end24 ]
+  %c.addr.035 = phi ptr [ %call, %if.end24.thread ], [ %c, %if.end24 ]
+  tail call void @addReplyPushLen(ptr noundef nonnull %c.addr.035, i64 noundef 2) #8
+  tail call void @addReplyBulkCBuffer(ptr noundef nonnull %c.addr.035, ptr noundef nonnull @.str.9, i64 noundef 10) #8
   br label %if.end41
 
 land.lhs.true:                                    ; preds = %if.end24.thread
@@ -856,39 +856,39 @@ if.then32:                                        ; preds = %land.lhs.true
 
 if.else33:                                        ; preds = %if.end24, %land.lhs.true
   %12 = phi i64 [ %or23, %land.lhs.true ], [ %or, %if.end24 ]
-  %old_flags.03646 = phi i64 [ %8, %land.lhs.true ], [ %0, %if.end24 ]
-  %c.addr.04044 = phi ptr [ %call, %land.lhs.true ], [ %c, %if.end24 ]
-  %and34 = and i64 %old_flags.03646, 70368744177664
+  %c.addr.03746 = phi ptr [ %call, %land.lhs.true ], [ %c, %if.end24 ]
+  %old_flags.03944 = phi i64 [ %8, %land.lhs.true ], [ %0, %if.end24 ]
+  %and34 = and i64 %old_flags.03944, 70368744177664
   %tobool35.not = icmp eq i64 %and34, 0
   br i1 %tobool35.not, label %if.then36, label %if.end52
 
 if.then36:                                        ; preds = %if.else33
-  %flags37 = getelementptr inbounds i8, ptr %c.addr.04044, i64 8
+  %flags37 = getelementptr inbounds i8, ptr %c.addr.03746, i64 8
   br label %if.end52.sink.split
 
 if.end41:                                         ; preds = %if.then32, %if.then27
-  %c.addr.039 = phi ptr [ %call, %if.then32 ], [ %c.addr.038, %if.then27 ]
-  %old_flags.035 = phi i64 [ %8, %if.then32 ], [ %old_flags.037, %if.then27 ]
+  %old_flags.038 = phi i64 [ %8, %if.then32 ], [ %old_flags.040, %if.then27 ]
+  %c.addr.036 = phi ptr [ %call, %if.then32 ], [ %c.addr.035, %if.then27 ]
   %tobool42.not = icmp eq i32 %proto, 0
   br i1 %tobool42.not, label %if.else44, label %if.then43
 
 if.then43:                                        ; preds = %if.end41
-  tail call void @addReplyProto(ptr noundef nonnull %c.addr.039, ptr noundef %keyname, i64 noundef %keylen) #8
+  tail call void @addReplyProto(ptr noundef nonnull %c.addr.036, ptr noundef %keyname, i64 noundef %keylen) #8
   br label %if.end45
 
 if.else44:                                        ; preds = %if.end41
-  tail call void @addReplyArrayLen(ptr noundef nonnull %c.addr.039, i64 noundef 1) #8
-  tail call void @addReplyBulkCBuffer(ptr noundef nonnull %c.addr.039, ptr noundef %keyname, i64 noundef %keylen) #8
+  tail call void @addReplyArrayLen(ptr noundef nonnull %c.addr.036, i64 noundef 1) #8
+  tail call void @addReplyBulkCBuffer(ptr noundef nonnull %c.addr.036, ptr noundef %keyname, i64 noundef %keylen) #8
   br label %if.end45
 
 if.end45:                                         ; preds = %if.else44, %if.then43
-  %call46 = tail call i32 @updateClientMemUsageAndBucket(ptr noundef nonnull %c.addr.039) #8
-  %and47 = and i64 %old_flags.035, 70368744177664
+  %call46 = tail call i32 @updateClientMemUsageAndBucket(ptr noundef nonnull %c.addr.036) #8
+  %and47 = and i64 %old_flags.038, 70368744177664
   %tobool48.not = icmp eq i64 %and47, 0
   br i1 %tobool48.not, label %if.then49, label %if.end52
 
 if.then49:                                        ; preds = %if.end45
-  %flags50 = getelementptr inbounds i8, ptr %c.addr.039, i64 8
+  %flags50 = getelementptr inbounds i8, ptr %c.addr.036, i64 8
   %13 = load i64, ptr %flags50, align 8
   br label %if.end52.sink.split
 

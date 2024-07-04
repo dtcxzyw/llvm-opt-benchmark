@@ -2241,8 +2241,8 @@ invoke.cont66:                                    ; preds = %for.body.i, %if.end
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end110, %invoke.cont66
-  %bestSkeleton.0 = phi ptr [ null, %invoke.cont66 ], [ %bestSkeleton.1, %if.end110 ]
   %bestDistance.0 = phi i32 [ 56632, %invoke.cont66 ], [ %bestDistance.1, %if.end110 ]
+  %bestSkeleton.0 = phi ptr [ null, %invoke.cont66 ], [ %bestSkeleton.1, %if.end110 ]
   %71 = load ptr, ptr %fIntervalPatterns, align 8
   %72 = load ptr, ptr %71, align 8
   %call.i159 = invoke noundef ptr @uhash_nextElement_75(ptr noundef %72, ptr noundef nonnull %pos)
@@ -2365,8 +2365,8 @@ if.then109:                                       ; preds = %for.end107
   br label %if.end110
 
 if.end110:                                        ; preds = %if.then109, %for.end107
-  %bestSkeleton.1 = phi ptr [ %keyTok.sroa.0.0.copyload, %if.then109 ], [ %bestSkeleton.0, %for.end107 ]
   %bestDistance.1 = phi i32 [ %distance.1, %if.then109 ], [ %bestDistance.0, %for.end107 ]
+  %bestSkeleton.1 = phi ptr [ %keyTok.sroa.0.0.copyload, %if.then109 ], [ %bestSkeleton.0, %for.end107 ]
   %cmp111 = icmp eq i32 %distance.1, 0
   br i1 %cmp111, label %if.then112, label %while.cond, !llvm.loop !11
 

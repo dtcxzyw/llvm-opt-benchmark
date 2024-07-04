@@ -948,11 +948,11 @@ Vec_IntAlloc.exit167:                             ; preds = %.loopexit, %243
   br label %256
 
 256:                                              ; preds = %.lr.ph195, %317
-  %.0102194 = phi i32 [ %249, %.lr.ph195 ], [ %288, %317 ]
-  %.2193 = phi i32 [ 0, %.lr.ph195 ], [ %318, %317 ]
-  %.0107192 = phi i32 [ 0, %.lr.ph195 ], [ %287, %317 ]
-  %257 = tail call i32 @Tim_ManBoxInputNum(ptr noundef %4, i32 noundef %.2193) #16
-  %258 = tail call i32 @Tim_ManBoxOutputNum(ptr noundef %4, i32 noundef %.2193) #16
+  %.2194 = phi i32 [ 0, %.lr.ph195 ], [ %318, %317 ]
+  %.0106193 = phi i32 [ 0, %.lr.ph195 ], [ %287, %317 ]
+  %.0107192 = phi i32 [ %249, %.lr.ph195 ], [ %288, %317 ]
+  %257 = tail call i32 @Tim_ManBoxInputNum(ptr noundef %4, i32 noundef %.2194) #16
+  %258 = tail call i32 @Tim_ManBoxOutputNum(ptr noundef %4, i32 noundef %.2194) #16
   %259 = icmp sgt i32 %257, 0
   br i1 %259, label %.lr.ph187, label %.preheader
 
@@ -962,7 +962,7 @@ Vec_IntAlloc.exit167:                             ; preds = %.loopexit, %243
   %.val131.val = load ptr, ptr %260, align 8
   %261 = load ptr, ptr %253, align 8
   %262 = load i32, ptr %254, align 8
-  %263 = sext i32 %.0107192 to i64
+  %263 = sext i32 %.0106193 to i64
   %wide.trip.count = zext nneg i32 %257 to i64
   %invariant.gep = getelementptr i32, ptr %.val131.val, i64 %263
   br label %269
@@ -978,7 +978,7 @@ Vec_IntAlloc.exit167:                             ; preds = %.loopexit, %243
   %.val135.val = load ptr, ptr %265, align 8
   %266 = load ptr, ptr %253, align 8
   %267 = load i32, ptr %254, align 8
-  %268 = sext i32 %.0102194 to i64
+  %268 = sext i32 %.0107192 to i64
   %wide.trip.count208 = zext nneg i32 %258 to i64
   %invariant.gep211 = getelementptr i32, ptr %.val135.val, i64 %268
   br label %278
@@ -1019,8 +1019,8 @@ Vec_IntAlloc.exit167:                             ; preds = %.loopexit, %243
 
 ._crit_edge:                                      ; preds = %278, %.preheader
   %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader ], [ %286, %278 ]
-  %287 = add nsw i32 %257, %.0107192
-  %288 = add nsw i32 %258, %.0102194
+  %287 = add nsw i32 %257, %.0106193
+  %288 = add nsw i32 %258, %.0107192
   %.not118 = icmp eq i32 %.1.lcssa, 0
   br i1 %.not118, label %317, label %289
 
@@ -1085,11 +1085,11 @@ Vec_IntPush.exit178:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %314, ptr %242, align 4
   %315 = sext i32 %290 to i64
   %316 = getelementptr inbounds i32, ptr %313, i64 %315
-  store i32 %.2193, ptr %316, align 4
+  store i32 %.2194, ptr %316, align 4
   br label %317
 
 317:                                              ; preds = %._crit_edge, %Vec_IntPush.exit178
-  %318 = add nuw nsw i32 %.2193, 1
+  %318 = add nuw nsw i32 %.2194, 1
   %319 = tail call i32 @Gia_ManBoxNum(ptr noundef nonnull %0) #16
   %320 = icmp slt i32 %318, %319
   br i1 %320, label %256, label %._crit_edge196, !llvm.loop !15
@@ -3806,9 +3806,9 @@ Vec_IntFindMax.exit:                              ; preds = %.lr.ph.i, %6, %13
   br label %25
 
 25:                                               ; preds = %.lr.ph, %Vec_IntCountEntry.exit.thread
-  %.04876 = phi ptr [ %20, %.lr.ph ], [ %.1, %Vec_IntCountEntry.exit.thread ]
-  %.04974 = phi i32 [ 1, %.lr.ph ], [ %74, %Vec_IntCountEntry.exit.thread ]
-  %26 = getelementptr inbounds i8, ptr %.04876, i64 472
+  %.075 = phi i32 [ 1, %.lr.ph ], [ %74, %Vec_IntCountEntry.exit.thread ]
+  %.04874 = phi ptr [ %20, %.lr.ph ], [ %.1, %Vec_IntCountEntry.exit.thread ]
+  %26 = getelementptr inbounds i8, ptr %.04874, i64 472
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
@@ -3826,7 +3826,7 @@ Vec_IntFindMax.exit:                              ; preds = %.lr.ph.i, %6, %13
   %.09.i = phi i32 [ 0, %.lr.ph.i55 ], [ %38, %33 ]
   %34 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv.i57
   %35 = load i32, ptr %34, align 4
-  %36 = icmp eq i32 %35, %.04974
+  %36 = icmp eq i32 %35, %.075
   %37 = zext i1 %36 to i32
   %38 = add nuw nsw i32 %.09.i, %37
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i57, 1
@@ -3838,17 +3838,17 @@ Vec_IntCountEntry.exit:                           ; preds = %33
   br i1 %39, label %Vec_IntCountEntry.exit.thread, label %40
 
 40:                                               ; preds = %Vec_IntCountEntry.exit
-  %41 = getelementptr inbounds i8, ptr %.04876, i64 528
+  %41 = getelementptr inbounds i8, ptr %.04874, i64 528
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call ptr @Gia_ManDupCollapse(ptr noundef %.04876, ptr noundef %42, ptr noundef null, i32 noundef 1) #16
+  %43 = tail call ptr @Gia_ManDupCollapse(ptr noundef %.04874, ptr noundef %42, ptr noundef null, i32 noundef 1) #16
   %44 = load ptr, ptr %26, align 8
-  tail call void @Gia_ManSweepComputeOneDomainEquivs(ptr noundef %43, ptr noundef %44, i32 noundef %.04974, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
-  %45 = call ptr @Gia_ManFraigSelectReprs(ptr noundef %.04876, ptr noundef %43, i32 noundef %4, ptr noundef nonnull %7)
+  tail call void @Gia_ManSweepComputeOneDomainEquivs(ptr noundef %43, ptr noundef %44, i32 noundef %.075, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
+  %45 = call ptr @Gia_ManFraigSelectReprs(ptr noundef %.04874, ptr noundef %43, i32 noundef %4, ptr noundef nonnull %7)
   tail call void @Gia_ManStop(ptr noundef %43) #16
-  tail call void @Gia_ManTransferTiming(ptr noundef %0, ptr noundef %.04876) #16
-  %46 = tail call ptr @Gia_ManFraigReduceGia(ptr noundef %.04876, ptr noundef %45)
+  tail call void @Gia_ManTransferTiming(ptr noundef %0, ptr noundef %.04874) #16
+  %46 = tail call ptr @Gia_ManFraigReduceGia(ptr noundef %.04874, ptr noundef %45)
   tail call void @Gia_ManTransferTiming(ptr noundef %46, ptr noundef %0) #16
-  tail call void @Gia_ManStop(ptr noundef %.04876) #16
+  tail call void @Gia_ManStop(ptr noundef %.04874) #16
   %.not53 = icmp eq ptr %45, null
   br i1 %.not53, label %48, label %47
 
@@ -3877,7 +3877,7 @@ Vec_IntCountEntry.exit:                           ; preds = %33
   %.09.i64 = phi i32 [ 0, %.lr.ph.i61 ], [ %62, %57 ]
   %58 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv.i63
   %59 = load i32, ptr %58, align 4
-  %60 = icmp eq i32 %59, %.04974
+  %60 = icmp eq i32 %59, %.075
   %61 = zext i1 %60 to i32
   %62 = add nuw nsw i32 %.09.i64, %61
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i63, 1
@@ -3895,7 +3895,7 @@ Vec_IntCountEntry.exit67:                         ; preds = %57, %48
   br i1 %.not54, label %Vec_IntCountEntry.exit.thread, label %68
 
 68:                                               ; preds = %Vec_IntCountEntry.exit67
-  %69 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %.04974, i32 noundef %38, i32 noundef %.0.lcssa.i60)
+  %69 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %.075, i32 noundef %38, i32 noundef %.0.lcssa.i60)
   %70 = tail call noundef i32 @llvm.smax.i32(i32 %67, i32 0)
   %71 = sub nsw i32 0, %67
   %72 = tail call noundef i32 @llvm.smax.i32(i32 %71, i32 0)
@@ -3903,9 +3903,9 @@ Vec_IntCountEntry.exit67:                         ; preds = %57, %48
   br label %Vec_IntCountEntry.exit.thread
 
 Vec_IntCountEntry.exit.thread:                    ; preds = %25, %Vec_IntCountEntry.exit67, %68, %Vec_IntCountEntry.exit
-  %.1 = phi ptr [ %.04876, %Vec_IntCountEntry.exit ], [ %49, %68 ], [ %49, %Vec_IntCountEntry.exit67 ], [ %.04876, %25 ]
-  %74 = add nuw i32 %.04974, 1
-  %exitcond.not = icmp eq i32 %.04974, %.012.i
+  %.1 = phi ptr [ %.04874, %Vec_IntCountEntry.exit ], [ %49, %68 ], [ %49, %Vec_IntCountEntry.exit67 ], [ %.04874, %25 ]
+  %74 = add nuw i32 %.075, 1
+  %exitcond.not = icmp eq i32 %.075, %.012.i
   br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %Vec_IntCountEntry.exit.thread, %22
@@ -3916,8 +3916,8 @@ Vec_IntCountEntry.exit.thread:                    ; preds = %25, %Vec_IntCountEn
   br label %76
 
 76:                                               ; preds = %Vec_IntFindMax.exit, %._crit_edge
-  %.0 = phi ptr [ %75, %._crit_edge ], [ null, %Vec_IntFindMax.exit ]
-  ret ptr %.0
+  %.049 = phi ptr [ %75, %._crit_edge ], [ null, %Vec_IntFindMax.exit ]
+  ret ptr %.049
 }
 
 declare ptr @Gia_ManDupUnnormalize(ptr noundef) local_unnamed_addr #1

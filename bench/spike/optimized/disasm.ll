@@ -8205,7 +8205,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2088:       ; preds = %1519, %1521
   br i1 %.not.i.i.i2094, label %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1966, label %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1966.sink.split
 
 1533:                                             ; preds = %1482, %1478
-  %.0914 = phi i1 [ false, %1482 ], [ true, %1478 ]
+  %.0915 = phi i1 [ false, %1482 ], [ true, %1478 ]
   %1534 = landingpad { ptr, i32 }
           cleanup
   %1535 = load ptr, ptr %88, align 8
@@ -8214,13 +8214,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2088:       ; preds = %1519, %1521
 
 1536:                                             ; preds = %1533
   call void @_ZdlPv(ptr noundef nonnull %1535) #22
-  br i1 %.0914, label %common.resume.sink.split, label %common.resume
+  br i1 %.0915, label %common.resume.sink.split, label %common.resume
 
 .body2059:                                        ; preds = %1533
-  br i1 %.0914, label %common.resume.sink.split, label %common.resume
+  br i1 %.0915, label %common.resume.sink.split, label %common.resume
 
 1537:                                             ; preds = %1494, %1490
-  %.0916 = phi i1 [ false, %1494 ], [ true, %1490 ]
+  %.0919 = phi i1 [ false, %1494 ], [ true, %1490 ]
   %1538 = landingpad { ptr, i32 }
           cleanup
   %1539 = load ptr, ptr %89, align 8
@@ -8229,13 +8229,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2088:       ; preds = %1519, %1521
 
 1540:                                             ; preds = %1537
   call void @_ZdlPv(ptr noundef nonnull %1539) #22
-  br i1 %.0916, label %common.resume.sink.split, label %common.resume
+  br i1 %.0919, label %common.resume.sink.split, label %common.resume
 
 .body2067:                                        ; preds = %1537
-  br i1 %.0916, label %common.resume.sink.split, label %common.resume
+  br i1 %.0919, label %common.resume.sink.split, label %common.resume
 
 1541:                                             ; preds = %1506, %1502
-  %.0918 = phi i1 [ false, %1506 ], [ true, %1502 ]
+  %.0922 = phi i1 [ false, %1506 ], [ true, %1502 ]
   %1542 = landingpad { ptr, i32 }
           cleanup
   %1543 = load ptr, ptr %90, align 8
@@ -8244,13 +8244,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2088:       ; preds = %1519, %1521
 
 1544:                                             ; preds = %1541
   call void @_ZdlPv(ptr noundef nonnull %1543) #22
-  br i1 %.0918, label %common.resume.sink.split, label %common.resume
+  br i1 %.0922, label %common.resume.sink.split, label %common.resume
 
 .body2075:                                        ; preds = %1541
-  br i1 %.0918, label %common.resume.sink.split, label %common.resume
+  br i1 %.0922, label %common.resume.sink.split, label %common.resume
 
 1545:                                             ; preds = %1518, %1514
-  %.0920 = phi i1 [ false, %1518 ], [ true, %1514 ]
+  %.0929 = phi i1 [ false, %1518 ], [ true, %1514 ]
   %1546 = landingpad { ptr, i32 }
           cleanup
   %1547 = load ptr, ptr %91, align 8
@@ -8259,13 +8259,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2088:       ; preds = %1519, %1521
 
 1548:                                             ; preds = %1545
   call void @_ZdlPv(ptr noundef nonnull %1547) #22
-  br i1 %.0920, label %common.resume.sink.split, label %common.resume
+  br i1 %.0929, label %common.resume.sink.split, label %common.resume
 
 .body2083:                                        ; preds = %1545
-  br i1 %.0920, label %common.resume.sink.split, label %common.resume
+  br i1 %.0929, label %common.resume.sink.split, label %common.resume
 
 1549:                                             ; preds = %1530, %1526
-  %.0922 = phi i1 [ false, %1530 ], [ true, %1526 ]
+  %.0931 = phi i1 [ false, %1530 ], [ true, %1526 ]
   %1550 = landingpad { ptr, i32 }
           cleanup
   %1551 = load ptr, ptr %92, align 8
@@ -8274,10 +8274,10 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2088:       ; preds = %1519, %1521
 
 1552:                                             ; preds = %1549
   call void @_ZdlPv(ptr noundef nonnull %1551) #22
-  br i1 %.0922, label %common.resume.sink.split, label %common.resume
+  br i1 %.0931, label %common.resume.sink.split, label %common.resume
 
 .body2091:                                        ; preds = %1549
-  br i1 %.0922, label %common.resume.sink.split, label %common.resume
+  br i1 %.0931, label %common.resume.sink.split, label %common.resume
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1966.sink.split: ; preds = %1531, %1352
   %.sink = phi ptr [ %1353, %1352 ], [ %1532, %1531 ]
@@ -8439,7 +8439,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2135:       ; preds = %1589, %1591
   br label %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2143
 
 1604:                                             ; preds = %1564, %1560
-  %.0925 = phi i1 [ false, %1564 ], [ true, %1560 ]
+  %.0933 = phi i1 [ false, %1564 ], [ true, %1560 ]
   %1605 = landingpad { ptr, i32 }
           cleanup
   %1606 = load ptr, ptr %93, align 8
@@ -8448,13 +8448,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2135:       ; preds = %1589, %1591
 
 1607:                                             ; preds = %1604
   call void @_ZdlPv(ptr noundef nonnull %1606) #22
-  br i1 %.0925, label %common.resume.sink.split, label %common.resume
+  br i1 %.0933, label %common.resume.sink.split, label %common.resume
 
 .body2114:                                        ; preds = %1604
-  br i1 %.0925, label %common.resume.sink.split, label %common.resume
+  br i1 %.0933, label %common.resume.sink.split, label %common.resume
 
 1608:                                             ; preds = %1576, %1572
-  %.0929 = phi i1 [ false, %1576 ], [ true, %1572 ]
+  %.0935 = phi i1 [ false, %1576 ], [ true, %1572 ]
   %1609 = landingpad { ptr, i32 }
           cleanup
   %1610 = load ptr, ptr %94, align 8
@@ -8463,13 +8463,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2135:       ; preds = %1589, %1591
 
 1611:                                             ; preds = %1608
   call void @_ZdlPv(ptr noundef nonnull %1610) #22
-  br i1 %.0929, label %common.resume.sink.split, label %common.resume
+  br i1 %.0935, label %common.resume.sink.split, label %common.resume
 
 .body2122:                                        ; preds = %1608
-  br i1 %.0929, label %common.resume.sink.split, label %common.resume
+  br i1 %.0935, label %common.resume.sink.split, label %common.resume
 
 1612:                                             ; preds = %1588, %1584
-  %.0931 = phi i1 [ false, %1588 ], [ true, %1584 ]
+  %.0937 = phi i1 [ false, %1588 ], [ true, %1584 ]
   %1613 = landingpad { ptr, i32 }
           cleanup
   %1614 = load ptr, ptr %95, align 8
@@ -8478,13 +8478,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2135:       ; preds = %1589, %1591
 
 1615:                                             ; preds = %1612
   call void @_ZdlPv(ptr noundef nonnull %1614) #22
-  br i1 %.0931, label %common.resume.sink.split, label %common.resume
+  br i1 %.0937, label %common.resume.sink.split, label %common.resume
 
 .body2130:                                        ; preds = %1612
-  br i1 %.0931, label %common.resume.sink.split, label %common.resume
+  br i1 %.0937, label %common.resume.sink.split, label %common.resume
 
 1616:                                             ; preds = %1600, %1596
-  %.0933 = phi i1 [ false, %1600 ], [ true, %1596 ]
+  %.0939 = phi i1 [ false, %1600 ], [ true, %1596 ]
   %1617 = landingpad { ptr, i32 }
           cleanup
   %1618 = load ptr, ptr %96, align 8
@@ -8493,10 +8493,10 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2135:       ; preds = %1589, %1591
 
 1619:                                             ; preds = %1616
   call void @_ZdlPv(ptr noundef nonnull %1618) #22
-  br i1 %.0933, label %common.resume.sink.split, label %common.resume
+  br i1 %.0939, label %common.resume.sink.split, label %common.resume
 
 .body2138:                                        ; preds = %1616
-  br i1 %.0933, label %common.resume.sink.split, label %common.resume
+  br i1 %.0939, label %common.resume.sink.split, label %common.resume
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2143:       ; preds = %1603, %1601, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit1966
   %1620 = load i64, ptr %237, align 8
@@ -8653,7 +8653,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2179:       ; preds = %1656, %1658
   br label %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2187
 
 1671:                                             ; preds = %1631, %1627
-  %.0935 = phi i1 [ false, %1631 ], [ true, %1627 ]
+  %.0941 = phi i1 [ false, %1631 ], [ true, %1627 ]
   %1672 = landingpad { ptr, i32 }
           cleanup
   %1673 = load ptr, ptr %97, align 8
@@ -8662,13 +8662,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2179:       ; preds = %1656, %1658
 
 1674:                                             ; preds = %1671
   call void @_ZdlPv(ptr noundef nonnull %1673) #22
-  br i1 %.0935, label %common.resume.sink.split, label %common.resume
+  br i1 %.0941, label %common.resume.sink.split, label %common.resume
 
 .body2158:                                        ; preds = %1671
-  br i1 %.0935, label %common.resume.sink.split, label %common.resume
+  br i1 %.0941, label %common.resume.sink.split, label %common.resume
 
 1675:                                             ; preds = %1643, %1639
-  %.0937 = phi i1 [ false, %1643 ], [ true, %1639 ]
+  %.0943 = phi i1 [ false, %1643 ], [ true, %1639 ]
   %1676 = landingpad { ptr, i32 }
           cleanup
   %1677 = load ptr, ptr %98, align 8
@@ -8677,13 +8677,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2179:       ; preds = %1656, %1658
 
 1678:                                             ; preds = %1675
   call void @_ZdlPv(ptr noundef nonnull %1677) #22
-  br i1 %.0937, label %common.resume.sink.split, label %common.resume
+  br i1 %.0943, label %common.resume.sink.split, label %common.resume
 
 .body2166:                                        ; preds = %1675
-  br i1 %.0937, label %common.resume.sink.split, label %common.resume
+  br i1 %.0943, label %common.resume.sink.split, label %common.resume
 
 1679:                                             ; preds = %1655, %1651
-  %.0939 = phi i1 [ false, %1655 ], [ true, %1651 ]
+  %.0945 = phi i1 [ false, %1655 ], [ true, %1651 ]
   %1680 = landingpad { ptr, i32 }
           cleanup
   %1681 = load ptr, ptr %99, align 8
@@ -8692,13 +8692,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2179:       ; preds = %1656, %1658
 
 1682:                                             ; preds = %1679
   call void @_ZdlPv(ptr noundef nonnull %1681) #22
-  br i1 %.0939, label %common.resume.sink.split, label %common.resume
+  br i1 %.0945, label %common.resume.sink.split, label %common.resume
 
 .body2174:                                        ; preds = %1679
-  br i1 %.0939, label %common.resume.sink.split, label %common.resume
+  br i1 %.0945, label %common.resume.sink.split, label %common.resume
 
 1683:                                             ; preds = %1667, %1663
-  %.0942 = phi i1 [ false, %1667 ], [ true, %1663 ]
+  %.0947 = phi i1 [ false, %1667 ], [ true, %1663 ]
   %1684 = landingpad { ptr, i32 }
           cleanup
   %1685 = load ptr, ptr %100, align 8
@@ -8707,10 +8707,10 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2179:       ; preds = %1656, %1658
 
 1686:                                             ; preds = %1683
   call void @_ZdlPv(ptr noundef nonnull %1685) #22
-  br i1 %.0942, label %common.resume.sink.split, label %common.resume
+  br i1 %.0947, label %common.resume.sink.split, label %common.resume
 
 .body2182:                                        ; preds = %1683
-  br i1 %.0942, label %common.resume.sink.split, label %common.resume
+  br i1 %.0947, label %common.resume.sink.split, label %common.resume
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2187:       ; preds = %1670, %1668, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2143
   %1687 = load i64, ptr %237, align 8
@@ -8929,7 +8929,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2231:       ; preds = %1735, %1737
   br i1 %.0951, label %common.resume.sink.split, label %common.resume
 
 1761:                                             ; preds = %1722, %1718
-  %.0953 = phi i1 [ false, %1722 ], [ true, %1718 ]
+  %.0955 = phi i1 [ false, %1722 ], [ true, %1718 ]
   %1762 = landingpad { ptr, i32 }
           cleanup
   %1763 = load ptr, ptr %103, align 8
@@ -8938,13 +8938,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2231:       ; preds = %1735, %1737
 
 1764:                                             ; preds = %1761
   call void @_ZdlPv(ptr noundef nonnull %1763) #22
-  br i1 %.0953, label %common.resume.sink.split, label %common.resume
+  br i1 %.0955, label %common.resume.sink.split, label %common.resume
 
 .body2218:                                        ; preds = %1761
-  br i1 %.0953, label %common.resume.sink.split, label %common.resume
+  br i1 %.0955, label %common.resume.sink.split, label %common.resume
 
 1765:                                             ; preds = %1734, %1730
-  %.0955 = phi i1 [ false, %1734 ], [ true, %1730 ]
+  %.0957 = phi i1 [ false, %1734 ], [ true, %1730 ]
   %1766 = landingpad { ptr, i32 }
           cleanup
   %1767 = load ptr, ptr %104, align 8
@@ -8953,13 +8953,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2231:       ; preds = %1735, %1737
 
 1768:                                             ; preds = %1765
   call void @_ZdlPv(ptr noundef nonnull %1767) #22
-  br i1 %.0955, label %common.resume.sink.split, label %common.resume
+  br i1 %.0957, label %common.resume.sink.split, label %common.resume
 
 .body2226:                                        ; preds = %1765
-  br i1 %.0955, label %common.resume.sink.split, label %common.resume
+  br i1 %.0957, label %common.resume.sink.split, label %common.resume
 
 1769:                                             ; preds = %1749, %1745
-  %.0957 = phi i1 [ false, %1749 ], [ true, %1745 ]
+  %.0961 = phi i1 [ false, %1749 ], [ true, %1745 ]
   %1770 = landingpad { ptr, i32 }
           cleanup
   %1771 = load ptr, ptr %105, align 8
@@ -8968,10 +8968,10 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2231:       ; preds = %1735, %1737
 
 1772:                                             ; preds = %1769
   call void @_ZdlPv(ptr noundef nonnull %1771) #22
-  br i1 %.0957, label %common.resume.sink.split, label %common.resume
+  br i1 %.0961, label %common.resume.sink.split, label %common.resume
 
 .body2234:                                        ; preds = %1769
-  br i1 %.0957, label %common.resume.sink.split, label %common.resume
+  br i1 %.0961, label %common.resume.sink.split, label %common.resume
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2239:       ; preds = %1752, %1750, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2231
   %1773 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #20
@@ -9231,7 +9231,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2302:       ; preds = %1842, %1844
   br label %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2310
 
 1857:                                             ; preds = %1781, %1777
-  %.0959 = phi i1 [ false, %1781 ], [ true, %1777 ]
+  %.0963 = phi i1 [ false, %1781 ], [ true, %1777 ]
   %1858 = landingpad { ptr, i32 }
           cleanup
   %1859 = load ptr, ptr %106, align 8
@@ -9240,13 +9240,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2302:       ; preds = %1842, %1844
 
 1860:                                             ; preds = %1857
   call void @_ZdlPv(ptr noundef nonnull %1859) #22
-  br i1 %.0959, label %common.resume.sink.split, label %common.resume
+  br i1 %.0963, label %common.resume.sink.split, label %common.resume
 
 .body2257:                                        ; preds = %1857
-  br i1 %.0959, label %common.resume.sink.split, label %common.resume
+  br i1 %.0963, label %common.resume.sink.split, label %common.resume
 
 1861:                                             ; preds = %1793, %1789
-  %.0961 = phi i1 [ false, %1793 ], [ true, %1789 ]
+  %.0967 = phi i1 [ false, %1793 ], [ true, %1789 ]
   %1862 = landingpad { ptr, i32 }
           cleanup
   %1863 = load ptr, ptr %107, align 8
@@ -9255,13 +9255,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2302:       ; preds = %1842, %1844
 
 1864:                                             ; preds = %1861
   call void @_ZdlPv(ptr noundef nonnull %1863) #22
-  br i1 %.0961, label %common.resume.sink.split, label %common.resume
+  br i1 %.0967, label %common.resume.sink.split, label %common.resume
 
 .body2265:                                        ; preds = %1861
-  br i1 %.0961, label %common.resume.sink.split, label %common.resume
+  br i1 %.0967, label %common.resume.sink.split, label %common.resume
 
 1865:                                             ; preds = %1805, %1801
-  %.0963 = phi i1 [ false, %1805 ], [ true, %1801 ]
+  %.0969 = phi i1 [ false, %1805 ], [ true, %1801 ]
   %1866 = landingpad { ptr, i32 }
           cleanup
   %1867 = load ptr, ptr %108, align 8
@@ -9270,13 +9270,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2302:       ; preds = %1842, %1844
 
 1868:                                             ; preds = %1865
   call void @_ZdlPv(ptr noundef nonnull %1867) #22
-  br i1 %.0963, label %common.resume.sink.split, label %common.resume
+  br i1 %.0969, label %common.resume.sink.split, label %common.resume
 
 .body2273:                                        ; preds = %1865
-  br i1 %.0963, label %common.resume.sink.split, label %common.resume
+  br i1 %.0969, label %common.resume.sink.split, label %common.resume
 
 1869:                                             ; preds = %1817, %1813
-  %.0965 = phi i1 [ false, %1817 ], [ true, %1813 ]
+  %.0973 = phi i1 [ false, %1817 ], [ true, %1813 ]
   %1870 = landingpad { ptr, i32 }
           cleanup
   %1871 = load ptr, ptr %109, align 8
@@ -9285,13 +9285,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2302:       ; preds = %1842, %1844
 
 1872:                                             ; preds = %1869
   call void @_ZdlPv(ptr noundef nonnull %1871) #22
-  br i1 %.0965, label %common.resume.sink.split, label %common.resume
+  br i1 %.0973, label %common.resume.sink.split, label %common.resume
 
 .body2281:                                        ; preds = %1869
-  br i1 %.0965, label %common.resume.sink.split, label %common.resume
+  br i1 %.0973, label %common.resume.sink.split, label %common.resume
 
 1873:                                             ; preds = %1829, %1825
-  %.0967 = phi i1 [ false, %1829 ], [ true, %1825 ]
+  %.0975 = phi i1 [ false, %1829 ], [ true, %1825 ]
   %1874 = landingpad { ptr, i32 }
           cleanup
   %1875 = load ptr, ptr %110, align 8
@@ -9300,13 +9300,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2302:       ; preds = %1842, %1844
 
 1876:                                             ; preds = %1873
   call void @_ZdlPv(ptr noundef nonnull %1875) #22
-  br i1 %.0967, label %common.resume.sink.split, label %common.resume
+  br i1 %.0975, label %common.resume.sink.split, label %common.resume
 
 .body2289:                                        ; preds = %1873
-  br i1 %.0967, label %common.resume.sink.split, label %common.resume
+  br i1 %.0975, label %common.resume.sink.split, label %common.resume
 
 1877:                                             ; preds = %1841, %1837
-  %.0969 = phi i1 [ false, %1841 ], [ true, %1837 ]
+  %.0979 = phi i1 [ false, %1841 ], [ true, %1837 ]
   %1878 = landingpad { ptr, i32 }
           cleanup
   %1879 = load ptr, ptr %111, align 8
@@ -9315,13 +9315,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2302:       ; preds = %1842, %1844
 
 1880:                                             ; preds = %1877
   call void @_ZdlPv(ptr noundef nonnull %1879) #22
-  br i1 %.0969, label %common.resume.sink.split, label %common.resume
+  br i1 %.0979, label %common.resume.sink.split, label %common.resume
 
 .body2297:                                        ; preds = %1877
-  br i1 %.0969, label %common.resume.sink.split, label %common.resume
+  br i1 %.0979, label %common.resume.sink.split, label %common.resume
 
 1881:                                             ; preds = %1853, %1849
-  %.0971 = phi i1 [ false, %1853 ], [ true, %1849 ]
+  %.0981 = phi i1 [ false, %1853 ], [ true, %1849 ]
   %1882 = landingpad { ptr, i32 }
           cleanup
   %1883 = load ptr, ptr %112, align 8
@@ -9330,10 +9330,10 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2302:       ; preds = %1842, %1844
 
 1884:                                             ; preds = %1881
   call void @_ZdlPv(ptr noundef nonnull %1883) #22
-  br i1 %.0971, label %common.resume.sink.split, label %common.resume
+  br i1 %.0981, label %common.resume.sink.split, label %common.resume
 
 .body2305:                                        ; preds = %1881
-  br i1 %.0971, label %common.resume.sink.split, label %common.resume
+  br i1 %.0981, label %common.resume.sink.split, label %common.resume
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2310:       ; preds = %1856, %1854, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2187
   %1885 = load i64, ptr %237, align 8
@@ -9491,7 +9491,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2355:       ; preds = %1924, %1926
   br i1 %.not.i.i.i2361, label %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2363, label %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2363.sink.split
 
 1938:                                             ; preds = %1899, %1895
-  %.0975 = phi i1 [ false, %1899 ], [ true, %1895 ]
+  %.0985 = phi i1 [ false, %1899 ], [ true, %1895 ]
   %1939 = landingpad { ptr, i32 }
           cleanup
   %1940 = load ptr, ptr %113, align 8
@@ -9500,13 +9500,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2355:       ; preds = %1924, %1926
 
 1941:                                             ; preds = %1938
   call void @_ZdlPv(ptr noundef nonnull %1940) #22
-  br i1 %.0975, label %common.resume.sink.split, label %common.resume
+  br i1 %.0985, label %common.resume.sink.split, label %common.resume
 
 .body2334:                                        ; preds = %1938
-  br i1 %.0975, label %common.resume.sink.split, label %common.resume
+  br i1 %.0985, label %common.resume.sink.split, label %common.resume
 
 1942:                                             ; preds = %1911, %1907
-  %.0977 = phi i1 [ false, %1911 ], [ true, %1907 ]
+  %.0987 = phi i1 [ false, %1911 ], [ true, %1907 ]
   %1943 = landingpad { ptr, i32 }
           cleanup
   %1944 = load ptr, ptr %114, align 8
@@ -9515,13 +9515,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2355:       ; preds = %1924, %1926
 
 1945:                                             ; preds = %1942
   call void @_ZdlPv(ptr noundef nonnull %1944) #22
-  br i1 %.0977, label %common.resume.sink.split, label %common.resume
+  br i1 %.0987, label %common.resume.sink.split, label %common.resume
 
 .body2342:                                        ; preds = %1942
-  br i1 %.0977, label %common.resume.sink.split, label %common.resume
+  br i1 %.0987, label %common.resume.sink.split, label %common.resume
 
 1946:                                             ; preds = %1923, %1919
-  %.0981 = phi i1 [ false, %1923 ], [ true, %1919 ]
+  %.0991 = phi i1 [ false, %1923 ], [ true, %1919 ]
   %1947 = landingpad { ptr, i32 }
           cleanup
   %1948 = load ptr, ptr %115, align 8
@@ -9530,13 +9530,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2355:       ; preds = %1924, %1926
 
 1949:                                             ; preds = %1946
   call void @_ZdlPv(ptr noundef nonnull %1948) #22
-  br i1 %.0981, label %common.resume.sink.split, label %common.resume
+  br i1 %.0991, label %common.resume.sink.split, label %common.resume
 
 .body2350:                                        ; preds = %1946
-  br i1 %.0981, label %common.resume.sink.split, label %common.resume
+  br i1 %.0991, label %common.resume.sink.split, label %common.resume
 
 1950:                                             ; preds = %1935, %1931
-  %.0983 = phi i1 [ false, %1935 ], [ true, %1931 ]
+  %.0993 = phi i1 [ false, %1935 ], [ true, %1931 ]
   %1951 = landingpad { ptr, i32 }
           cleanup
   %1952 = load ptr, ptr %116, align 8
@@ -9545,10 +9545,10 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2355:       ; preds = %1924, %1926
 
 1953:                                             ; preds = %1950
   call void @_ZdlPv(ptr noundef nonnull %1952) #22
-  br i1 %.0983, label %common.resume.sink.split, label %common.resume
+  br i1 %.0993, label %common.resume.sink.split, label %common.resume
 
 .body2358:                                        ; preds = %1950
-  br i1 %.0983, label %common.resume.sink.split, label %common.resume
+  br i1 %.0993, label %common.resume.sink.split, label %common.resume
 
 1954:                                             ; preds = %1887
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, i8 0, i64 24, i1 false)
@@ -9694,7 +9694,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2399:       ; preds = %1987, %1989
   br i1 %.not.i.i.i2405, label %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2363, label %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2363.sink.split
 
 2001:                                             ; preds = %1962, %1958
-  %.0987 = phi i1 [ false, %1962 ], [ true, %1958 ]
+  %.0997 = phi i1 [ false, %1962 ], [ true, %1958 ]
   %2002 = landingpad { ptr, i32 }
           cleanup
   %2003 = load ptr, ptr %117, align 8
@@ -9703,13 +9703,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2399:       ; preds = %1987, %1989
 
 2004:                                             ; preds = %2001
   call void @_ZdlPv(ptr noundef nonnull %2003) #22
-  br i1 %.0987, label %common.resume.sink.split, label %common.resume
+  br i1 %.0997, label %common.resume.sink.split, label %common.resume
 
 .body2378:                                        ; preds = %2001
-  br i1 %.0987, label %common.resume.sink.split, label %common.resume
+  br i1 %.0997, label %common.resume.sink.split, label %common.resume
 
 2005:                                             ; preds = %1974, %1970
-  %.0989 = phi i1 [ false, %1974 ], [ true, %1970 ]
+  %.0999 = phi i1 [ false, %1974 ], [ true, %1970 ]
   %2006 = landingpad { ptr, i32 }
           cleanup
   %2007 = load ptr, ptr %118, align 8
@@ -9718,13 +9718,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2399:       ; preds = %1987, %1989
 
 2008:                                             ; preds = %2005
   call void @_ZdlPv(ptr noundef nonnull %2007) #22
-  br i1 %.0989, label %common.resume.sink.split, label %common.resume
+  br i1 %.0999, label %common.resume.sink.split, label %common.resume
 
 .body2386:                                        ; preds = %2005
-  br i1 %.0989, label %common.resume.sink.split, label %common.resume
+  br i1 %.0999, label %common.resume.sink.split, label %common.resume
 
 2009:                                             ; preds = %1986, %1982
-  %.0993 = phi i1 [ false, %1986 ], [ true, %1982 ]
+  %.0995 = phi i1 [ false, %1986 ], [ true, %1982 ]
   %2010 = landingpad { ptr, i32 }
           cleanup
   %2011 = load ptr, ptr %119, align 8
@@ -9733,13 +9733,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2399:       ; preds = %1987, %1989
 
 2012:                                             ; preds = %2009
   call void @_ZdlPv(ptr noundef nonnull %2011) #22
-  br i1 %.0993, label %common.resume.sink.split, label %common.resume
+  br i1 %.0995, label %common.resume.sink.split, label %common.resume
 
 .body2394:                                        ; preds = %2009
-  br i1 %.0993, label %common.resume.sink.split, label %common.resume
+  br i1 %.0995, label %common.resume.sink.split, label %common.resume
 
 2013:                                             ; preds = %1998, %1994
-  %.0995 = phi i1 [ false, %1998 ], [ true, %1994 ]
+  %.0989 = phi i1 [ false, %1998 ], [ true, %1994 ]
   %2014 = landingpad { ptr, i32 }
           cleanup
   %2015 = load ptr, ptr %120, align 8
@@ -9748,10 +9748,10 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2399:       ; preds = %1987, %1989
 
 2016:                                             ; preds = %2013
   call void @_ZdlPv(ptr noundef nonnull %2015) #22
-  br i1 %.0995, label %common.resume.sink.split, label %common.resume
+  br i1 %.0989, label %common.resume.sink.split, label %common.resume
 
 .body2402:                                        ; preds = %2013
-  br i1 %.0995, label %common.resume.sink.split, label %common.resume
+  br i1 %.0989, label %common.resume.sink.split, label %common.resume
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2363.sink.split: ; preds = %1999, %1936
   %.sink4034 = phi ptr [ %1937, %1936 ], [ %2000, %1999 ]
@@ -9833,7 +9833,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2427:       ; preds = %2026, %2028
   br label %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2435
 
 2041:                                             ; preds = %2025, %2021
-  %.0999 = phi i1 [ false, %2025 ], [ true, %2021 ]
+  %.0983 = phi i1 [ false, %2025 ], [ true, %2021 ]
   %2042 = landingpad { ptr, i32 }
           cleanup
   %2043 = load ptr, ptr %121, align 8
@@ -9842,13 +9842,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2427:       ; preds = %2026, %2028
 
 2044:                                             ; preds = %2041
   call void @_ZdlPv(ptr noundef nonnull %2043) #22
-  br i1 %.0999, label %common.resume.sink.split, label %common.resume
+  br i1 %.0983, label %common.resume.sink.split, label %common.resume
 
 .body2422:                                        ; preds = %2041
-  br i1 %.0999, label %common.resume.sink.split, label %common.resume
+  br i1 %.0983, label %common.resume.sink.split, label %common.resume
 
 2045:                                             ; preds = %2037, %2033
-  %.0997 = phi i1 [ false, %2037 ], [ true, %2033 ]
+  %.0977 = phi i1 [ false, %2037 ], [ true, %2033 ]
   %2046 = landingpad { ptr, i32 }
           cleanup
   %2047 = load ptr, ptr %122, align 8
@@ -9857,10 +9857,10 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2427:       ; preds = %2026, %2028
 
 2048:                                             ; preds = %2045
   call void @_ZdlPv(ptr noundef nonnull %2047) #22
-  br i1 %.0997, label %common.resume.sink.split, label %common.resume
+  br i1 %.0977, label %common.resume.sink.split, label %common.resume
 
 .body2430:                                        ; preds = %2045
-  br i1 %.0997, label %common.resume.sink.split, label %common.resume
+  br i1 %.0977, label %common.resume.sink.split, label %common.resume
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2435:       ; preds = %2040, %2038, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2310
   %2049 = load i64, ptr %237, align 8
@@ -9939,7 +9939,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2449:       ; preds = %2061, %2063
   br label %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2457
 
 2076:                                             ; preds = %2060, %2056
-  %.0991 = phi i1 [ false, %2060 ], [ true, %2056 ]
+  %.0971 = phi i1 [ false, %2060 ], [ true, %2056 ]
   %2077 = landingpad { ptr, i32 }
           cleanup
   %2078 = load ptr, ptr %123, align 8
@@ -9948,13 +9948,13 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2449:       ; preds = %2061, %2063
 
 2079:                                             ; preds = %2076
   call void @_ZdlPv(ptr noundef nonnull %2078) #22
-  br i1 %.0991, label %common.resume.sink.split, label %common.resume
+  br i1 %.0971, label %common.resume.sink.split, label %common.resume
 
 .body2444:                                        ; preds = %2076
-  br i1 %.0991, label %common.resume.sink.split, label %common.resume
+  br i1 %.0971, label %common.resume.sink.split, label %common.resume
 
 2080:                                             ; preds = %2072, %2068
-  %.0985 = phi i1 [ false, %2072 ], [ true, %2068 ]
+  %.0965 = phi i1 [ false, %2072 ], [ true, %2068 ]
   %2081 = landingpad { ptr, i32 }
           cleanup
   %2082 = load ptr, ptr %124, align 8
@@ -9963,10 +9963,10 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2449:       ; preds = %2061, %2063
 
 2083:                                             ; preds = %2080
   call void @_ZdlPv(ptr noundef nonnull %2082) #22
-  br i1 %.0985, label %common.resume.sink.split, label %common.resume
+  br i1 %.0965, label %common.resume.sink.split, label %common.resume
 
 .body2452:                                        ; preds = %2080
-  br i1 %.0985, label %common.resume.sink.split, label %common.resume
+  br i1 %.0965, label %common.resume.sink.split, label %common.resume
 
 _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2457:       ; preds = %2075, %2073, %_ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2435
   %2084 = load i64, ptr %237, align 8
@@ -10252,7 +10252,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2479:       ; preds = %2108, %2110
   br label %2199
 
 2199:                                             ; preds = %.preheader3888, %2590
-  %.09483924 = phi i64 [ 0, %.preheader3888 ], [ %2591, %2590 ]
+  %.09283924 = phi i64 [ 0, %.preheader3888 ], [ %2591, %2590 ]
   store i64 7, ptr %133, align 16
   store i64 502296703, ptr %2157, align 8
   store ptr @.str.492, ptr %2158, align 16
@@ -10289,9 +10289,9 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit2479:       ; preds = %2108, %2110
   store i64 502296703, ptr %2189, align 8
   store ptr @.str.500, ptr %2190, align 16
   store ptr %127, ptr %2191, align 8
-  %2200 = trunc nuw nsw i64 %.09483924 to i32
+  %2200 = trunc nuw nsw i64 %.09283924 to i32
   %2201 = shl nuw nsw i32 8, %2200
-  %2202 = getelementptr inbounds [8 x i64], ptr @__const._ZN14disassembler_t16add_instructionsEPK12isa_parser_t.elt_map, i64 0, i64 %.09483924
+  %2202 = getelementptr inbounds [8 x i64], ptr @__const._ZN14disassembler_t16add_instructionsEPK12isa_parser_t.elt_map, i64 0, i64 %.09283924
   br label %2203
 
 2203:                                             ; preds = %2199, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2531
@@ -10507,14 +10507,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %2263
 
 2263:                                             ; preds = %2261, %_ZN14disassembler_t8add_insnEP13disasm_insn_t.exit
-  %.0941.idx3919 = phi i64 [ 0, %2261 ], [ %.0941.add, %_ZN14disassembler_t8add_insnEP13disasm_insn_t.exit ]
-  %.0941.ptr = getelementptr inbounds i8, ptr %133, i64 %.0941.idx3919
-  %.sroa.0125.0.copyload = load i64, ptr %.0941.ptr, align 16
-  %.sroa.2126.0..sroa_idx = getelementptr inbounds i8, ptr %.0941.ptr, i64 8
+  %.0921.idx3919 = phi i64 [ 0, %2261 ], [ %.0921.add, %_ZN14disassembler_t8add_insnEP13disasm_insn_t.exit ]
+  %.0921.ptr = getelementptr inbounds i8, ptr %133, i64 %.0921.idx3919
+  %.sroa.0125.0.copyload = load i64, ptr %.0921.ptr, align 16
+  %.sroa.2126.0..sroa_idx = getelementptr inbounds i8, ptr %.0921.ptr, i64 8
   %.sroa.2126.0.copyload = load i64, ptr %.sroa.2126.0..sroa_idx, align 8
-  %.sroa.3127.0..sroa_idx = getelementptr inbounds i8, ptr %.0941.ptr, i64 16
+  %.sroa.3127.0..sroa_idx = getelementptr inbounds i8, ptr %.0921.ptr, i64 16
   %.sroa.3127.0.copyload = load ptr, ptr %.sroa.3127.0..sroa_idx, align 16
-  %.sroa.4128.0..sroa_idx = getelementptr inbounds i8, ptr %.0941.ptr, i64 24
+  %.sroa.4128.0..sroa_idx = getelementptr inbounds i8, ptr %.0921.ptr, i64 24
   %.sroa.4128.0.copyload = load ptr, ptr %.sroa.4128.0..sroa_idx, align 8
   %2264 = load ptr, ptr %134, align 8
   %2265 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %137, i64 noundef 128, ptr noundef %.sroa.3127.0.copyload, ptr noundef %2264, i32 noundef %2201) #19
@@ -10922,12 +10922,12 @@ _ZNSt6vectorIPK13disasm_insn_tSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx1
   br label %_ZN14disassembler_t8add_insnEP13disasm_insn_t.exit
 
 _ZN14disassembler_t8add_insnEP13disasm_insn_t.exit: ; preds = %_ZNSt6vectorIPK13disasm_insn_tSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %2391
-  %.0941.add = add nuw nsw i64 %.0941.idx3919, 32
-  %.not1277 = icmp eq i64 %.0941.add, 288
+  %.0921.add = add nuw nsw i64 %.0921.idx3919, 32
+  %.not1277 = icmp eq i64 %.0921.add, 288
   br i1 %.not1277, label %2430, label %2263
 
 2417:                                             ; preds = %2095, %2091
-  %.0979 = phi i1 [ false, %2095 ], [ true, %2091 ]
+  %.0959 = phi i1 [ false, %2095 ], [ true, %2091 ]
   %2418 = landingpad { ptr, i32 }
           cleanup
   %2419 = load ptr, ptr %125, align 8
@@ -10936,13 +10936,13 @@ _ZN14disassembler_t8add_insnEP13disasm_insn_t.exit: ; preds = %_ZNSt6vectorIPK13
 
 2420:                                             ; preds = %2417
   call void @_ZdlPv(ptr noundef nonnull %2419) #22
-  br i1 %.0979, label %common.resume.sink.split, label %common.resume
+  br i1 %.0959, label %common.resume.sink.split, label %common.resume
 
 .body2466:                                        ; preds = %2417
-  br i1 %.0979, label %common.resume.sink.split, label %common.resume
+  br i1 %.0959, label %common.resume.sink.split, label %common.resume
 
 2421:                                             ; preds = %2107, %2103
-  %.0973 = phi i1 [ false, %2107 ], [ true, %2103 ]
+  %.0953 = phi i1 [ false, %2107 ], [ true, %2103 ]
   %2422 = landingpad { ptr, i32 }
           cleanup
   %2423 = load ptr, ptr %126, align 8
@@ -10951,10 +10951,10 @@ _ZN14disassembler_t8add_insnEP13disasm_insn_t.exit: ; preds = %_ZNSt6vectorIPK13
 
 2424:                                             ; preds = %2421
   call void @_ZdlPv(ptr noundef nonnull %2423) #22
-  br i1 %.0973, label %common.resume.sink.split, label %common.resume
+  br i1 %.0953, label %common.resume.sink.split, label %common.resume
 
 .body2474:                                        ; preds = %2421
-  br i1 %.0973, label %common.resume.sink.split, label %common.resume
+  br i1 %.0953, label %common.resume.sink.split, label %common.resume
 
 .loopexit:                                        ; preds = %.preheader, %2577
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -11060,15 +11060,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2534: ; preds = %_
   br label %3276
 
 .preheader:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2531, %_ZN14disassembler_t8add_insnEP13disasm_insn_t.exit2563
-  %.09273923 = phi i64 [ %2589, %_ZN14disassembler_t8add_insnEP13disasm_insn_t.exit2563 ], [ 7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2531 ]
-  %.09283922 = phi i64 [ %2588, %_ZN14disassembler_t8add_insnEP13disasm_insn_t.exit2563 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2531 ]
-  %2440 = add nuw nsw i64 %.09273923, 1
+  %.09173923 = phi i64 [ %2589, %_ZN14disassembler_t8add_insnEP13disasm_insn_t.exit2563 ], [ 7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2531 ]
+  %.09183922 = phi i64 [ %2588, %_ZN14disassembler_t8add_insnEP13disasm_insn_t.exit2563 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2531 ]
+  %2440 = add nuw nsw i64 %.09173923, 1
   %2441 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %138, i64 noundef 128, ptr noundef nonnull @.str.503, i64 noundef %2440, i32 noundef %2201) #19
   %2442 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #20
           to label %2443 unwind label %.loopexit
 
 2443:                                             ; preds = %.preheader
-  %2444 = shl nuw nsw i64 %.09273923, 29
+  %2444 = shl nuw nsw i64 %.09173923, 29
   %2445 = or i64 %2444, %2269
   %2446 = trunc i64 %2445 to i32
   %2447 = or i32 %2446, 41943047
@@ -11463,8 +11463,8 @@ _ZNSt6vectorIPK13disasm_insn_tSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx1
   br label %_ZN14disassembler_t8add_insnEP13disasm_insn_t.exit2563
 
 _ZN14disassembler_t8add_insnEP13disasm_insn_t.exit2563: ; preds = %_ZNSt6vectorIPK13disasm_insn_tSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i2557, %2562
-  %2588 = add nuw nsw i64 %.09283922, 1
-  %2589 = lshr i64 %.09273923, 1
+  %2588 = add nuw nsw i64 %.09183922, 1
+  %2589 = lshr i64 %.09173923, 1
   %exitcond3963.not = icmp eq i64 %2588, 4
   br i1 %exitcond3963.not, label %2590, label %.preheader, !llvm.loop !51
 
@@ -11484,7 +11484,7 @@ _ZN14disassembler_t8add_insnEP13disasm_insn_t.exit2563: ; preds = %_ZNSt6vectorI
   br label %3276
 
 2590:                                             ; preds = %_ZN14disassembler_t8add_insnEP13disasm_insn_t.exit2563
-  %2591 = add nuw nsw i64 %.09483924, 1
+  %2591 = add nuw nsw i64 %.09283924, 1
   %exitcond3964.not = icmp eq i64 %2591, 8
   br i1 %exitcond3964.not, label %2592, label %2199, !llvm.loop !52
 
@@ -17488,45 +17488,45 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEj(ptr dead_on_unwind noalias w
   br i1 %4, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %16
-  %.02230.i = phi i32 [ %17, %16 ], [ %1, %2 ]
-  %.02329.i = phi i32 [ %18, %16 ], [ 1, %2 ]
-  %5 = icmp ult i32 %.02230.i, 100
+  %.030.i = phi i32 [ %18, %16 ], [ 1, %2 ]
+  %.02329.i = phi i32 [ %17, %16 ], [ %1, %2 ]
+  %5 = icmp ult i32 %.02329.i, 100
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %.lr.ph.i
-  %7 = add i32 %.02329.i, 1
+  %7 = add i32 %.030.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = icmp ult i32 %.02230.i, 1000
+  %9 = icmp ult i32 %.02329.i, 1000
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = add i32 %.02329.i, 2
+  %11 = add i32 %.030.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 12:                                               ; preds = %8
-  %13 = icmp ult i32 %.02230.i, 10000
+  %13 = icmp ult i32 %.02329.i, 10000
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
-  %15 = add i32 %.02329.i, 3
+  %15 = add i32 %.030.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 16:                                               ; preds = %12
-  %17 = udiv i32 %.02230.i, 10000
-  %18 = add i32 %.02329.i, 4
-  %19 = icmp ult i32 %.02230.i, 100000
+  %17 = udiv i32 %.02329.i, 10000
+  %18 = add i32 %.030.i, 4
+  %19 = icmp ult i32 %.02329.i, 100000
   br i1 %19, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !53
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %14
-  %.0.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
-  %20 = zext i32 %.0.i to i64
+  %.022.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
+  %20 = zext i32 %.022.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   store ptr %21, ptr %0, align 8
-  %22 = icmp ugt i32 %.0.i, 15
+  %22 = icmp ugt i32 %.022.i, 15
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
@@ -17540,7 +17540,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
   br label %28
 
 26:                                               ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
-  switch i32 %.0.i, label %28 [
+  switch i32 %.022.i, label %28 [
     i32 0, label %32
     i32 1, label %27
   ]
@@ -31572,41 +31572,41 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   br i1 %5, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %17
-  %.02230.i = phi i32 [ %18, %17 ], [ %4, %2 ]
-  %.02329.i = phi i32 [ %19, %17 ], [ 1, %2 ]
-  %6 = icmp ult i32 %.02230.i, 100
+  %.030.i = phi i32 [ %19, %17 ], [ 1, %2 ]
+  %.02329.i = phi i32 [ %18, %17 ], [ %4, %2 ]
+  %6 = icmp ult i32 %.02329.i, 100
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = add i32 %.02329.i, 1
+  %8 = add i32 %.030.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = icmp ult i32 %.02230.i, 1000
+  %10 = icmp ult i32 %.02329.i, 1000
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = add i32 %.02329.i, 2
+  %12 = add i32 %.030.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 13:                                               ; preds = %9
-  %14 = icmp ult i32 %.02230.i, 10000
+  %14 = icmp ult i32 %.02329.i, 10000
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = add i32 %.02329.i, 3
+  %16 = add i32 %.030.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 17:                                               ; preds = %13
-  %18 = udiv i32 %.02230.i, 10000
-  %19 = add i32 %.02329.i, 4
-  %20 = icmp ult i32 %.02230.i, 100000
+  %18 = udiv i32 %.02329.i, 10000
+  %19 = add i32 %.030.i, 4
+  %20 = icmp ult i32 %.02329.i, 100000
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !53
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.022.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
-  %21 = add i32 %.0.i, %.lobit
+  %21 = add i32 %.022.i, %.lobit
   %22 = zext i32 %21 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   %23 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31662,7 +31662,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   br i1 %41, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %34
-  %42 = add i32 %.0.i, -1
+  %42 = add i32 %.022.i, -1
   br label %.lr.ph.i11
 
 .lr.ph.i11:                                       ; preds = %.lr.ph.i11, %.lr.ph.preheader.i
@@ -31869,45 +31869,45 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind noalias w
   br i1 %4, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %16
-  %.02229.i = phi i64 [ %17, %16 ], [ %1, %2 ]
-  %.02328.i = phi i32 [ %18, %16 ], [ 1, %2 ]
-  %5 = icmp ult i64 %.02229.i, 100
+  %.029.i = phi i32 [ %18, %16 ], [ 1, %2 ]
+  %.02328.i = phi i64 [ %17, %16 ], [ %1, %2 ]
+  %5 = icmp ult i64 %.02328.i, 100
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %.lr.ph.i
-  %7 = add i32 %.02328.i, 1
+  %7 = add i32 %.029.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = icmp ult i64 %.02229.i, 1000
+  %9 = icmp ult i64 %.02328.i, 1000
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = add i32 %.02328.i, 2
+  %11 = add i32 %.029.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 12:                                               ; preds = %8
-  %13 = icmp ult i64 %.02229.i, 10000
+  %13 = icmp ult i64 %.02328.i, 10000
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
-  %15 = add i32 %.02328.i, 3
+  %15 = add i32 %.029.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 16:                                               ; preds = %12
-  %17 = udiv i64 %.02229.i, 10000
-  %18 = add i32 %.02328.i, 4
-  %19 = icmp ult i64 %.02229.i, 100000
+  %17 = udiv i64 %.02328.i, 10000
+  %18 = add i32 %.029.i, 4
+  %19 = icmp ult i64 %.02328.i, 100000
   br i1 %19, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %.lr.ph.i, !llvm.loop !140
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %14
-  %.0.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
-  %20 = zext i32 %.0.i to i64
+  %.022.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
+  %20 = zext i32 %.022.i to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %3) #19
   store ptr %21, ptr %0, align 8
-  %22 = icmp ugt i32 %.0.i, 15
+  %22 = icmp ugt i32 %.022.i, 15
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
@@ -31921,7 +31921,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
   br label %28
 
 26:                                               ; preds = %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
-  switch i32 %.0.i, label %28 [
+  switch i32 %.022.i, label %28 [
     i32 0, label %31
     i32 1, label %27
   ]

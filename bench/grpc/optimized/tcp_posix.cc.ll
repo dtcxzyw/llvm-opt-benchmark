@@ -6395,8 +6395,8 @@ for.body.lr.ph:                                   ; preds = %while.body
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end29
   %4 = phi i64 [ %3, %for.body.lr.ph ], [ 0, %cond.end29 ]
   %outgoing_slice_idx.1150 = phi i64 [ %outgoing_slice_idx.0, %for.body.lr.ph ], [ %inc, %cond.end29 ]
-  %iov_size.0149 = phi i64 [ 0, %for.body.lr.ph ], [ %inc36, %cond.end29 ]
-  %sending_length.0148 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %cond.end29 ]
+  %sending_length.0149 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %cond.end29 ]
+  %iov_size.0148 = phi i64 [ 0, %for.body.lr.ph ], [ %inc36, %cond.end29 ]
   %5 = load ptr, ptr %slices, align 8
   %arrayidx = getelementptr inbounds %struct.grpc_slice, ptr %5, i64 %outgoing_slice_idx.1150
   %6 = load ptr, ptr %arrayidx, align 8
@@ -6415,7 +6415,7 @@ cond.false:                                       ; preds = %for.body
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi ptr [ %7, %cond.true ], [ %bytes10, %cond.false ]
   %add.ptr = getelementptr inbounds i8, ptr %cond, i64 %4
-  %arrayidx12 = getelementptr inbounds [260 x %struct.iovec], ptr %iov, i64 0, i64 %iov_size.0149
+  %arrayidx12 = getelementptr inbounds [260 x %struct.iovec], ptr %iov, i64 0, i64 %iov_size.0148
   store ptr %add.ptr, ptr %arrayidx12, align 16
   %8 = load ptr, ptr %slices, align 8
   %arrayidx15 = getelementptr inbounds %struct.grpc_slice, ptr %8, i64 %outgoing_slice_idx.1150
@@ -6438,10 +6438,10 @@ cond.end29:                                       ; preds = %cond.false23, %cond
   %sub = sub i64 %cond30, %4
   %iov_len = getelementptr inbounds i8, ptr %arrayidx12, i64 8
   store i64 %sub, ptr %iov_len, align 8
-  %add = add i64 %sub, %sending_length.0148
+  %add = add i64 %sub, %sending_length.0149
   %inc = add i64 %outgoing_slice_idx.1150, 1
   store i64 0, ptr %outgoing_byte_idx, align 8
-  %inc36 = add nuw nsw i64 %iov_size.0149, 1
+  %inc36 = add nuw nsw i64 %iov_size.0148, 1
   %12 = load i64, ptr %count, align 8
   %cmp = icmp ne i64 %inc, %12
   %cmp1 = icmp ne i64 %inc36, 260
@@ -7430,8 +7430,8 @@ if.then11.i:                                      ; preds = %if.then9.i
 
 if.end14.i:                                       ; preds = %if.then6.if.end14_crit_edge.i, %if.end3.i
   %48 = phi i32 [ %.pre.i, %if.then6.if.end14_crit_edge.i ], [ %45, %if.end3.i ]
-  %opt_stats.0.i = phi ptr [ %call.i, %if.then6.if.end14_crit_edge.i ], [ null, %if.end3.i ]
   %next_cmsg.0.i = phi ptr [ %call7.i, %if.then6.if.end14_crit_edge.i ], [ %call.i, %if.end3.i ]
+  %opt_stats.0.i = phi ptr [ %call.i, %if.then6.if.end14_crit_edge.i ], [ null, %if.end3.i ]
   switch i32 %48, label %if.then25.i [
     i32 0, label %lor.lhs.false19.i
     i32 41, label %lor.lhs.false19.i

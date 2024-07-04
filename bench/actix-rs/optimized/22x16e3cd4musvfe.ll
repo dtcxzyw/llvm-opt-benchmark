@@ -851,14 +851,14 @@ _ZN19brotli_decompressor6decode25ReadCodeLengthCodeLengths17hbab142c62b2f485fE.e
   br label %.backedge
 
 .preheader91:                                     ; preds = %_ZN19brotli_decompressor6decode25ReadCodeLengthCodeLengths17hbab142c62b2f485fE.exit, %228
-  %.sroa.7.0190 = phi i64 [ %229, %228 ], [ 0, %_ZN19brotli_decompressor6decode25ReadCodeLengthCodeLengths17hbab142c62b2f485fE.exit ]
-  %.sroa.070.0.idx189 = phi i64 [ %.sroa.070.0.add, %228 ], [ 128, %_ZN19brotli_decompressor6decode25ReadCodeLengthCodeLengths17hbab142c62b2f485fE.exit ]
-  %.sroa.070.0.ptr = getelementptr inbounds i8, ptr %6, i64 %.sroa.070.0.idx189
-  %221 = trunc i64 %.sroa.7.0190 to i32
+  %.sroa.070.0.idx190 = phi i64 [ %.sroa.070.0.add, %228 ], [ 128, %_ZN19brotli_decompressor6decode25ReadCodeLengthCodeLengths17hbab142c62b2f485fE.exit ]
+  %.sroa.7.0189 = phi i64 [ %229, %228 ], [ 0, %_ZN19brotli_decompressor6decode25ReadCodeLengthCodeLengths17hbab142c62b2f485fE.exit ]
+  %.sroa.070.0.ptr = getelementptr inbounds i8, ptr %6, i64 %.sroa.070.0.idx190
+  %221 = trunc i64 %.sroa.7.0189 to i32
   %222 = add i32 %221, -16
   store i32 %222, ptr %.sroa.070.0.ptr, align 4
   %223 = load i64, ptr %30, align 8, !noundef !12
-  %224 = add i64 %223, %.sroa.7.0190
+  %224 = add i64 %223, %.sroa.7.0189
   %225 = shl i64 %224, 32
   %sext = add i64 %225, -68719476736
   %226 = ashr exact i64 %sext, 32
@@ -866,8 +866,8 @@ _ZN19brotli_decompressor6decode25ReadCodeLengthCodeLengths17hbab142c62b2f485fE.e
   br i1 %227, label %228, label %232, !prof !61
 
 228:                                              ; preds = %.preheader91
-  %229 = add nuw nsw i64 %.sroa.7.0190, 1
-  %.sroa.070.0.add = add nuw nsw i64 %.sroa.070.0.idx189, 4
+  %229 = add nuw nsw i64 %.sroa.7.0189, 1
+  %.sroa.070.0.add = add nuw nsw i64 %.sroa.070.0.idx190, 4
   %230 = getelementptr inbounds [720 x i16], ptr %invariant.gep, i64 0, i64 %226
   store i16 -1, ptr %230, align 2
   %231 = icmp eq i64 %.sroa.070.0.add, 192

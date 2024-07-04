@@ -252,7 +252,7 @@ define void @_Z11init_disresP8_IO_FILERK10gmx_mtop_tP10t_inputrec13DisResRunMode
 
 .lr.ph:                                           ; preds = %97, %133
   %indvars.iv = phi i64 [ %indvars.iv.next, %133 ], [ 0, %97 ]
-  %.0138178 = phi i32 [ %.1, %133 ], [ 0, %97 ]
+  %.0137178 = phi i32 [ %.1, %133 ], [ 0, %97 ]
   %.1170177 = phi i32 [ %.2, %133 ], [ %.0169184, %97 ]
   %.1172176 = phi i32 [ %.2173, %133 ], [ %.0171183, %97 ]
   %109 = call noundef nonnull align 8 dereferenceable(2256) ptr @_ZNK10IListProxy4listEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
@@ -260,7 +260,7 @@ define void @_Z11init_disresP8_IO_FILERK10gmx_mtop_tP10t_inputrec13DisResRunMode
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr inbounds i32, ptr %111, i64 %indvars.iv
   %113 = load i32, ptr %112, align 4
-  %114 = add nsw i32 %.0138178, 1
+  %114 = add nsw i32 %.0137178, 1
   %115 = sext i32 %113 to i64
   %116 = load ptr, ptr %80, align 8
   %117 = getelementptr inbounds %union.t_iparams, ptr %116, i64 %115, i32 0, i32 2
@@ -890,8 +890,8 @@ define void @_Z15calc_disres_R_6PK9t_commrecPK14gmx_multisim_tiPKiPA3_KfPK5t_pbc
   br label %35
 
 35:                                               ; preds = %27, %8
-  %.0104 = phi float [ %34, %27 ], [ 0.000000e+00, %8 ]
-  %.0103 = phi float [ %29, %27 ], [ 0.000000e+00, %8 ]
+  %.0106 = phi float [ %29, %27 ], [ 0.000000e+00, %8 ]
+  %.0105 = phi float [ %34, %27 ], [ 0.000000e+00, %8 ]
   %36 = getelementptr inbounds i8, ptr %6, i64 28
   %37 = load i32, ptr %36, align 4
   %38 = icmp sgt i32 %37, 0
@@ -906,7 +906,7 @@ define void @_Z15calc_disres_R_6PK9t_commrecPK14gmx_multisim_tiPKiPA3_KfPK5t_pbc
   %.not111 = icmp eq ptr %5, null
   %41 = getelementptr inbounds i8, ptr %9, i64 4
   %42 = getelementptr inbounds i8, ptr %9, i64 8
-  %43 = fsub float %14, %.0103
+  %43 = fsub float %14, %.0106
   %44 = getelementptr inbounds i8, ptr %7, i64 8
   br i1 %.not111, label %.lr.ph118.split.us.preheader, label %.lr.ph118.split
 
@@ -959,7 +959,7 @@ define void @_Z15calc_disres_R_6PK9t_commrecPK14gmx_multisim_tiPKiPA3_KfPK5t_pbc
   %80 = load float, ptr %79, align 4
   %81 = fmul float %16, %74
   %82 = tail call float @llvm.fmuladd.f32(float %43, float %80, float %81)
-  %83 = fmul float %.0104, %82
+  %83 = fmul float %.0105, %82
   br label %84
 
 84:                                               ; preds = %.lr.ph118.split.us, %77
@@ -1029,7 +1029,7 @@ define void @_Z15calc_disres_R_6PK9t_commrecPK14gmx_multisim_tiPKiPA3_KfPK5t_pbc
   %128 = load float, ptr %127, align 4
   %129 = fmul float %16, %122
   %130 = call float @llvm.fmuladd.f32(float %43, float %128, float %129)
-  %131 = fmul float %.0104, %130
+  %131 = fmul float %.0105, %130
   br label %132
 
 132:                                              ; preds = %.lr.ph118.split, %125
@@ -1172,7 +1172,7 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
   br label %39
 
 39:                                               ; preds = %31, %14
-  %.0182 = phi float [ %38, %31 ], [ %27, %14 ]
+  %.0207 = phi float [ %38, %31 ], [ %27, %14 ]
   %40 = icmp sgt i32 %0, 0
   br i1 %40, label %.lr.ph, label %._crit_edge
 
@@ -1195,10 +1195,10 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
 
 53:                                               ; preds = %.lr.ph, %.thread234
   %indvars.iv265 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next266, %.thread234 ]
-  %.0188256 = phi float [ 0.000000e+00, %.lr.ph ], [ %.2190245, %.thread234 ]
-  %.0192254 = phi float [ 0.000000e+00, %.lr.ph ], [ %.1193244, %.thread234 ]
-  %.0194253 = phi float [ 0.000000e+00, %.lr.ph ], [ %.1195243, %.thread234 ]
-  %.0196252 = phi float [ 0.000000e+00, %.lr.ph ], [ %.2198242, %.thread234 ]
+  %.0192252 = phi float [ 0.000000e+00, %.lr.ph ], [ %.2194245, %.thread234 ]
+  %.0195251 = phi float [ 0.000000e+00, %.lr.ph ], [ %.1196244, %.thread234 ]
+  %.0197250 = phi float [ 0.000000e+00, %.lr.ph ], [ %.1198243, %.thread234 ]
+  %.0199249 = phi float [ 0.000000e+00, %.lr.ph ], [ %.2201242, %.thread234 ]
   %54 = phi <2 x float> [ zeroinitializer, %.lr.ph ], [ %264, %.thread234 ]
   %55 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv265
   %56 = load i32, ptr %55, align 4
@@ -1213,7 +1213,7 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
   %65 = load float, ptr %58, align 4
   %66 = getelementptr inbounds i8, ptr %58, i64 12
   %67 = load float, ptr %66, align 4
-  %68 = fmul float %.0182, %67
+  %68 = fmul float %.0207, %67
   %69 = load i32, ptr %47, align 4
   %70 = sub nsw i32 %56, %69
   %71 = getelementptr inbounds i8, ptr %58, i64 16
@@ -1250,8 +1250,8 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
   br label %97
 
 97:                                               ; preds = %88, %74
-  %.0203.in = phi i1 [ %75, %74 ], [ %73, %88 ]
-  %.0202 = phi i8 [ %18, %74 ], [ 0, %88 ]
+  %.0185.in = phi i1 [ %75, %74 ], [ %73, %88 ]
+  %.0184 = phi i8 [ %18, %74 ], [ 0, %88 ]
   %98 = phi <2 x float> [ %87, %74 ], [ %96, %88 ]
   %99 = extractelement <2 x float> %98, i64 1
   %100 = fcmp ogt float %99, %62
@@ -1263,11 +1263,11 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
 
 103:                                              ; preds = %101, %97
   %.pn = phi float [ %62, %97 ], [ %65, %101 ]
-  %.1187.ph = fsub float %99, %.pn
+  %.1203.ph = fsub float %99, %.pn
   %104 = sitofp i32 %60 to float
   %105 = fdiv float 1.000000e+00, %104
   %106 = fsub float %64, %62
-  %107 = fcmp ogt float %.1187.ph, %106
+  %107 = fcmp ogt float %.1203.ph, %106
   %108 = fpext float %68 to double
   %109 = fmul double %108, 5.000000e-01
   br i1 %107, label %110, label %115
@@ -1275,12 +1275,12 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
 110:                                              ; preds = %103
   %111 = fpext float %106 to double
   %112 = fmul double %109, %111
-  %113 = call float @llvm.fmuladd.f32(float %.1187.ph, float 2.000000e+00, float %62)
+  %113 = call float @llvm.fmuladd.f32(float %.1203.ph, float 2.000000e+00, float %62)
   %114 = fsub float %113, %64
   br label %117
 
 115:                                              ; preds = %103
-  %116 = fmul float %.1187.ph, %.1187.ph
+  %116 = fmul float %.1203.ph, %.1203.ph
   br label %117
 
 117:                                              ; preds = %115, %110
@@ -1289,16 +1289,16 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
   %118 = fpext float %.sink to double
   %119 = fmul double %.sink273, %118
   %120 = fpext float %105 to double
-  %121 = fpext float %.0196252 to double
+  %121 = fpext float %.0192252 to double
   %122 = call double @llvm.fmuladd.f64(double %119, double %120, double %121)
-  %.1197 = fptrunc double %122 to float
-  %123 = trunc i8 %.0202 to i1
+  %.1193 = fptrunc double %122 to float
+  %123 = trunc i8 %.0184 to i1
   br i1 %123, label %128, label %124
 
 124:                                              ; preds = %117
   %125 = fneg float %68
-  %126 = fmul float %.1187.ph, %125
-  %127 = call noundef float @llvm.fabs.f32(float %.1187.ph)
+  %126 = fmul float %.1203.ph, %125
+  %127 = call noundef float @llvm.fabs.f32(float %.1203.ph)
   br label %141
 
 128:                                              ; preds = %117
@@ -1307,19 +1307,19 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
   br i1 %130, label %131, label %133
 
 131:                                              ; preds = %128
-  %132 = fcmp ogt float %.1187.ph, 0.000000e+00
+  %132 = fcmp ogt float %.1203.ph, 0.000000e+00
   br i1 %132, label %136, label %.thread234
 
 133:                                              ; preds = %128
   %134 = fcmp olt float %129, %65
-  %135 = fcmp olt float %.1187.ph, 0.000000e+00
+  %135 = fcmp olt float %.1203.ph, 0.000000e+00
   %or.cond = and i1 %134, %135
   br i1 %or.cond, label %136, label %.thread234
 
 136:                                              ; preds = %133, %131
   %.pn246 = phi float [ %62, %131 ], [ %65, %133 ]
-  %.1189.ph = fsub float %129, %.pn246
-  %137 = fmul float %.1187.ph, %.1189.ph
+  %.1200.ph = fsub float %129, %.pn246
+  %137 = fmul float %.1203.ph, %.1200.ph
   %138 = call noundef float @sqrtf(float noundef %137) #21
   %139 = fneg float %68
   %140 = fmul float %138, %139
@@ -1328,19 +1328,19 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
 141:                                              ; preds = %136, %124
   %.sink275 = phi float [ %138, %136 ], [ %127, %124 ]
   %.pre-phi = phi float [ %139, %136 ], [ %125, %124 ]
-  %.1193 = phi float [ %138, %136 ], [ %.0192254, %124 ]
-  %.2190 = phi float [ %.1189.ph, %136 ], [ %.0188256, %124 ]
-  %.1 = phi float [ %140, %136 ], [ %126, %124 ]
-  %142 = call float @llvm.fmuladd.f32(float %.sink275, float %105, float %.0194253)
+  %.1205 = phi float [ %140, %136 ], [ %126, %124 ]
+  %.2201 = phi float [ %.1200.ph, %136 ], [ %.0199249, %124 ]
+  %.1198 = phi float [ %138, %136 ], [ %.0197250, %124 ]
+  %142 = call float @llvm.fmuladd.f32(float %.sink275, float %105, float %.0195251)
   %143 = fmul float %106, %.pre-phi
-  br i1 %.0203.in, label %144, label %172
+  br i1 %.0185.in, label %144, label %172
 
 144:                                              ; preds = %141
   %145 = fcmp une float %68, 0.000000e+00
   br i1 %145, label %146, label %151
 
 146:                                              ; preds = %144
-  %147 = fneg float %.1
+  %147 = fneg float %.1205
   %148 = fdiv float %147, %68
   %149 = fcmp ogt float %148, %106
   br i1 %149, label %150, label %151
@@ -1349,7 +1349,7 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
   br label %151
 
 151:                                              ; preds = %150, %146, %144
-  %.2 = phi float [ %143, %150 ], [ %.1, %146 ], [ %.1, %144 ]
+  %.2206 = phi float [ %143, %150 ], [ %.1205, %146 ], [ %.1205, %144 ]
   br i1 %123, label %158, label %152
 
 152:                                              ; preds = %151
@@ -1357,14 +1357,14 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
   %154 = getelementptr inbounds float, ptr %25, i64 %153
   %155 = load float, ptr %154, align 4
   %156 = fdiv float %99, %155
-  %157 = fmul float %.2, %156
+  %157 = fmul float %.2206, %156
   br label %180
 
 158:                                              ; preds = %151
-  %159 = fmul float %.1193, 2.000000e+00
-  %160 = fdiv float %.2, %159
-  %161 = insertelement <2 x float> poison, float %.2190, i64 0
-  %162 = insertelement <2 x float> %161, float %.1187.ph, i64 1
+  %159 = fmul float %.1198, 2.000000e+00
+  %160 = fdiv float %.2206, %159
+  %161 = insertelement <2 x float> poison, float %.2201, i64 0
+  %162 = insertelement <2 x float> %161, float %.1203.ph, i64 1
   %163 = fmul <2 x float> %98, %162
   %164 = sext i32 %70 to i64
   %165 = getelementptr inbounds float, ptr %25, i64 %164
@@ -1377,7 +1377,7 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
   br label %180
 
 172:                                              ; preds = %141
-  %173 = fdiv float %.1, %104
+  %173 = fdiv float %.1205, %104
   %174 = fcmp une float %68, 0.000000e+00
   br i1 %174, label %175, label %180
 
@@ -1436,7 +1436,7 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
   %212 = call noundef float @llvm.fmuladd.f32(float %206, float %206, float %211)
   %sqrt = call float @llvm.sqrt.f32(float %212)
   %213 = fdiv float 1.000000e+00, %sqrt
-  br i1 %.0203.in, label %214, label %235
+  br i1 %.0185.in, label %214, label %235
 
 214:                                              ; preds = %205
   %215 = load ptr, ptr %50, align 8
@@ -1516,22 +1516,22 @@ define noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3g
   br i1 %exitcond.not, label %.thread234, label %.split, !llvm.loop !11
 
 .thread234:                                       ; preds = %.split, %.split.us, %133, %131, %101
-  %.2190245 = phi float [ %.0188256, %101 ], [ %.0188256, %131 ], [ %.0188256, %133 ], [ %.2190, %.split.us ], [ %.2190, %.split ]
-  %.1193244 = phi float [ %.0192254, %101 ], [ %.0192254, %131 ], [ %.0192254, %133 ], [ %.1193, %.split.us ], [ %.1193, %.split ]
-  %.1195243 = phi float [ %.0194253, %101 ], [ %.0194253, %131 ], [ %.0194253, %133 ], [ %142, %.split.us ], [ %142, %.split ]
-  %.2198242 = phi float [ %.0196252, %101 ], [ %.1197, %131 ], [ %.1197, %133 ], [ %.1197, %.split.us ], [ %.1197, %.split ]
-  %264 = phi <2 x float> [ %54, %101 ], [ %54, %131 ], [ %54, %133 ], [ %181, %.split.us ], [ %181, %.split ]
+  %.2194245 = phi float [ %.1193, %131 ], [ %.1193, %133 ], [ %.0192252, %101 ], [ %.1193, %.split.us ], [ %.1193, %.split ]
+  %.1196244 = phi float [ %.0195251, %131 ], [ %.0195251, %133 ], [ %.0195251, %101 ], [ %142, %.split.us ], [ %142, %.split ]
+  %.1198243 = phi float [ %.0197250, %131 ], [ %.0197250, %133 ], [ %.0197250, %101 ], [ %.1198, %.split.us ], [ %.1198, %.split ]
+  %.2201242 = phi float [ %.0199249, %131 ], [ %.0199249, %133 ], [ %.0199249, %101 ], [ %.2201, %.split.us ], [ %.2201, %.split ]
+  %264 = phi <2 x float> [ %54, %131 ], [ %54, %133 ], [ %54, %101 ], [ %181, %.split.us ], [ %181, %.split ]
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 3
   %265 = trunc nuw i64 %indvars.iv.next266 to i32
   %266 = icmp slt i32 %265, %0
   br i1 %266, label %53, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.thread234, %39
-  %.0196.lcssa = phi float [ 0.000000e+00, %39 ], [ %.2198242, %.thread234 ]
-  %.0194.lcssa = phi float [ 0.000000e+00, %39 ], [ %.1195243, %.thread234 ]
+  %.0195.lcssa = phi float [ 0.000000e+00, %39 ], [ %.1196244, %.thread234 ]
+  %.0192.lcssa = phi float [ 0.000000e+00, %39 ], [ %.2194245, %.thread234 ]
   %267 = getelementptr inbounds i8, ptr %11, i64 40
-  %268 = atomicrmw fadd ptr %267, float %.0194.lcssa monotonic, align 8
-  ret float %.0196.lcssa
+  %268 = atomicrmw fadd ptr %267, float %.0195.lcssa monotonic, align 8
+  ret float %.0192.lcssa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

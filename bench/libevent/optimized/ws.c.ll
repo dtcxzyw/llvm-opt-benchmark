@@ -614,13 +614,13 @@ if.then40.i:                                      ; preds = %for.end.i
   br label %if.end8.thread
 
 if.end45.i:                                       ; preds = %for.end.i, %if.end24.i, %if.then16.i
-  %pos.1.i = phi i64 [ 2, %if.then16.i ], [ 4, %if.end24.i ], [ 10, %for.end.i ]
   %payload_len.0.i = phi i64 [ %conv17.i, %if.then16.i ], [ %conv25.i, %if.end24.i ], [ %or.i, %for.end.i ]
+  %pos.1.i = phi i64 [ 2, %if.then16.i ], [ 4, %if.end24.i ], [ 10, %for.end.i ]
   %6 = lshr i8 %3, 5
   %7 = and i8 %6, 4
   %conv48.i = zext nneg i8 %7 to i64
-  %add46.i = add nuw nsw i64 %pos.1.i, %conv48.i
-  %add49.i = add nuw nsw i64 %add46.i, %payload_len.0.i
+  %add46.i = add nuw nsw i64 %payload_len.0.i, %conv48.i
+  %add49.i = add nuw nsw i64 %add46.i, %pos.1.i
   %cmp50.i = icmp ugt i64 %add49.i, %call365
   br i1 %cmp50.i, label %bailout, label %if.end53.i
 
@@ -849,11 +849,11 @@ if.else19.i:                                      ; preds = %if.else.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.else19.i
   %indvars.iv.i = phi i64 [ 56, %if.else19.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %pos.018.i = phi i64 [ 2, %if.else19.i ], [ %inc27.i, %for.body.i ]
+  %pos.017.i = phi i64 [ 2, %if.else19.i ], [ %inc27.i, %for.body.i ]
   %shr24.i = lshr i64 %str_len, %indvars.iv.i
   %conv26.i = trunc i64 %shr24.i to i8
-  %inc27.i = add nuw nsw i64 %pos.018.i, 1
-  %arrayidx28.i = getelementptr inbounds [16 x i8], ptr %header.i, i64 0, i64 %pos.018.i
+  %inc27.i = add nuw nsw i64 %pos.017.i, 1
+  %arrayidx28.i = getelementptr inbounds [16 x i8], ptr %header.i, i64 0, i64 %pos.017.i
   store i8 %conv26.i, ptr %arrayidx28.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -8
   %exitcond.not.i = icmp eq i64 %inc27.i, 10

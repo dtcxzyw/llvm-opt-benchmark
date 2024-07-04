@@ -953,8 +953,8 @@ sendAuthRequest.exit.i:                           ; preds = %387, %375
 416:                                              ; preds = %408
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   %417 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i.i78 = icmp eq i32 %417, 0
-  br i1 %.not.i.i78, label %419, label %418
+  %.not.i.i77 = icmp eq i32 %417, 0
+  br i1 %.not.i.i77, label %419, label %418
 
 418:                                              ; preds = %416
   tail call void @ProcessInterrupts() #16
@@ -978,20 +978,20 @@ sendAuthRequest.exit.i:                           ; preds = %387, %375
   %428 = load ptr, ptr %427, align 8
   %429 = call i32 %428() #16
   %430 = load volatile i32, ptr @InterruptPending, align 4
-  %.not6.i.i79 = icmp eq i32 %430, 0
-  br i1 %.not6.i.i79, label %sendAuthRequest.exit.i80, label %431
+  %.not6.i.i78 = icmp eq i32 %430, 0
+  br i1 %.not6.i.i78, label %sendAuthRequest.exit.i79, label %431
 
 431:                                              ; preds = %419
   call void @ProcessInterrupts() #16
-  br label %sendAuthRequest.exit.i80
+  br label %sendAuthRequest.exit.i79
 
-sendAuthRequest.exit.i80:                         ; preds = %431, %419
+sendAuthRequest.exit.i79:                         ; preds = %431, %419
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   %432 = call fastcc ptr @recv_password_packet()
   %433 = icmp eq ptr %432, null
   br i1 %433, label %CheckPWChallengeAuth.exit.thread, label %434
 
-434:                                              ; preds = %sendAuthRequest.exit.i80
+434:                                              ; preds = %sendAuthRequest.exit.i79
   %435 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %432) #19
   %436 = icmp ugt i64 %435, 128
   br i1 %436, label %437, label %442
@@ -1049,8 +1049,8 @@ list_head.exit60.i:                               ; preds = %458, %list_head.exi
   %461 = phi ptr [ %460, %458 ], [ null, %list_head.exit58.i ]
   %462 = getelementptr inbounds i8, ptr %443, i64 472
   %463 = load ptr, ptr %462, align 8
-  %.not.i81 = icmp eq ptr %463, null
-  br i1 %.not.i81, label %._crit_edge.i, label %.lr.ph.i
+  %.not.i80 = icmp eq ptr %463, null
+  br i1 %.not.i80, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %list_head.exit60.i
   %464 = getelementptr inbounds i8, ptr %463, i64 4
@@ -1075,28 +1075,28 @@ list_head.exit60.i:                               ; preds = %458, %list_head.exi
   br i1 %482, label %.lr.ph, label %._crit_edge.i
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %list_length.exit68.thread.i
-  %.04378.i96 = phi ptr [ %.144.i, %list_length.exit68.thread.i ], [ %449, %.lr.ph.i ]
-  %.04179.i95 = phi ptr [ %.142.i, %list_length.exit68.thread.i ], [ %455, %.lr.ph.i ]
-  %.04080.i94 = phi ptr [ %.1.i, %list_length.exit68.thread.i ], [ %461, %.lr.ph.i ]
-  %indvars.iv.i93 = phi i64 [ %indvars.iv.next.i, %list_length.exit68.thread.i ], [ 0, %.lr.ph.i ]
+  %.04178.i94 = phi ptr [ %.142.i, %list_length.exit68.thread.i ], [ %449, %.lr.ph.i ]
+  %.03979.i93 = phi ptr [ %.140.i, %list_length.exit68.thread.i ], [ %455, %.lr.ph.i ]
+  %.080.i92 = phi ptr [ %.1.i, %list_length.exit68.thread.i ], [ %461, %.lr.ph.i ]
+  %indvars.iv.i91 = phi i64 [ %indvars.iv.next.i, %list_length.exit68.thread.i ], [ 0, %.lr.ph.i ]
   %483 = load ptr, ptr %465, align 8
-  %484 = getelementptr %union.ListCell, ptr %483, i64 %indvars.iv.i93
+  %484 = getelementptr %union.ListCell, ptr %483, i64 %indvars.iv.i91
   %485 = load ptr, ptr %484, align 8
-  %486 = load ptr, ptr %.04378.i96, align 8
-  %.not49.i = icmp eq ptr %.04179.i95, null
+  %486 = load ptr, ptr %.04178.i94, align 8
+  %.not49.i = icmp eq ptr %.03979.i93, null
   br i1 %.not49.i, label %489, label %487
 
 487:                                              ; preds = %.lr.ph
-  %488 = load ptr, ptr %.04179.i95, align 8
+  %488 = load ptr, ptr %.03979.i93, align 8
   br label %489
 
 489:                                              ; preds = %487, %.lr.ph
   %490 = phi ptr [ %488, %487 ], [ null, %.lr.ph ]
-  %.not50.i = icmp eq ptr %.04080.i94, null
+  %.not50.i = icmp eq ptr %.080.i92, null
   br i1 %.not50.i, label %493, label %491
 
 491:                                              ; preds = %489
-  %492 = load ptr, ptr %.04080.i94, align 8
+  %492 = load ptr, ptr %.080.i92, align 8
   br label %493
 
 493:                                              ; preds = %491, %489
@@ -1298,11 +1298,11 @@ radius_add_attribute.exit169.i.i:                 ; preds = %567, %565, %563
 .lr.ph178.i.i:                                    ; preds = %.loopexit.i.i, %.lr.ph178.preheader.i.i
   %indvars.iv193.i.i = phi i64 [ 16, %.lr.ph178.preheader.i.i ], [ %indvars.iv.next194.i.i, %.loopexit.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph178.preheader.i.i ], [ %indvars.iv.next.i.i, %.loopexit.i.i ]
-  %.0148177.i.i = phi ptr [ %470, %.lr.ph178.preheader.i.i ], [ %591, %.loopexit.i.i ]
+  %.0149177.i.i = phi ptr [ %470, %.lr.ph178.preheader.i.i ], [ %591, %.loopexit.i.i ]
   store ptr null, ptr %13, align 8
   %589 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %486) #19
   %590 = getelementptr i8, ptr %584, i64 %589
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %590, ptr noundef nonnull align 1 dereferenceable(16) %.0148177.i.i, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %590, ptr noundef nonnull align 1 dereferenceable(16) %.0149177.i.i, i64 16, i1 false)
   %591 = getelementptr i8, ptr %5, i64 %indvars.iv.i.i
   %592 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %486) #19
   %593 = add i64 %592, 16
@@ -1807,7 +1807,7 @@ list_length.exit.i:                               ; preds = %826
 833:                                              ; preds = %list_length.exit.i
   %834 = getelementptr i8, ptr %829, i64 16
   %.val51.i = load ptr, ptr %834, align 8
-  %835 = getelementptr i8, ptr %.04378.i96, i64 8
+  %835 = getelementptr i8, ptr %.04178.i94, i64 8
   %836 = zext nneg i32 %831 to i64
   %837 = getelementptr %union.ListCell, ptr %.val51.i, i64 %836
   %838 = icmp ult ptr %835, %837
@@ -1815,7 +1815,7 @@ list_length.exit.i:                               ; preds = %826
   br label %list_length.exit.thread.i
 
 list_length.exit.thread.i:                        ; preds = %833, %list_length.exit.i, %826
-  %.144.i = phi ptr [ %..i63.i, %833 ], [ %.04378.i96, %list_length.exit.i ], [ %.04378.i96, %826 ]
+  %.142.i = phi ptr [ %..i63.i, %833 ], [ %.04178.i94, %list_length.exit.i ], [ %.04178.i94, %826 ]
   %839 = getelementptr inbounds i8, ptr %827, i64 520
   %840 = load ptr, ptr %839, align 8
   %.not.i64.i = icmp eq ptr %840, null
@@ -1830,7 +1830,7 @@ list_length.exit65.i:                             ; preds = %list_length.exit.th
 844:                                              ; preds = %list_length.exit65.i
   %845 = getelementptr i8, ptr %840, i64 16
   %.val53.i = load ptr, ptr %845, align 8
-  %846 = getelementptr i8, ptr %.04179.i95, i64 8
+  %846 = getelementptr i8, ptr %.03979.i93, i64 8
   %847 = zext nneg i32 %842 to i64
   %848 = getelementptr %union.ListCell, ptr %.val53.i, i64 %847
   %849 = icmp ult ptr %846, %848
@@ -1838,7 +1838,7 @@ list_length.exit65.i:                             ; preds = %list_length.exit.th
   br label %list_length.exit65.thread.i
 
 list_length.exit65.thread.i:                      ; preds = %844, %list_length.exit65.i, %list_length.exit.thread.i
-  %.142.i = phi ptr [ %..i66.i, %844 ], [ %.04179.i95, %list_length.exit65.i ], [ %.04179.i95, %list_length.exit.thread.i ]
+  %.140.i = phi ptr [ %..i66.i, %844 ], [ %.03979.i93, %list_length.exit65.i ], [ %.03979.i93, %list_length.exit.thread.i ]
   %850 = getelementptr inbounds i8, ptr %827, i64 504
   %851 = load ptr, ptr %850, align 8
   %.not.i67.i = icmp eq ptr %851, null
@@ -1853,7 +1853,7 @@ list_length.exit68.i:                             ; preds = %list_length.exit65.
 855:                                              ; preds = %list_length.exit68.i
   %856 = getelementptr i8, ptr %851, i64 16
   %.val55.i = load ptr, ptr %856, align 8
-  %857 = getelementptr i8, ptr %.04080.i94, i64 8
+  %857 = getelementptr i8, ptr %.080.i92, i64 8
   %858 = zext nneg i32 %853 to i64
   %859 = getelementptr %union.ListCell, ptr %.val55.i, i64 %858
   %860 = icmp ult ptr %857, %859
@@ -1861,8 +1861,8 @@ list_length.exit68.i:                             ; preds = %list_length.exit65.
   br label %list_length.exit68.thread.i
 
 list_length.exit68.thread.i:                      ; preds = %855, %list_length.exit68.i, %list_length.exit65.thread.i
-  %.1.i = phi ptr [ %..i69.i, %855 ], [ %.04080.i94, %list_length.exit68.i ], [ %.04080.i94, %list_length.exit65.thread.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i93, 1
+  %.1.i = phi ptr [ %..i69.i, %855 ], [ %.080.i92, %list_length.exit68.i ], [ %.080.i92, %list_length.exit65.thread.i ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i91, 1
   %861 = load i32, ptr %464, align 4
   %862 = sext i32 %861 to i64
   %863 = icmp slt i64 %indvars.iv.next.i, %862
@@ -1902,15 +1902,15 @@ CheckPWChallengeAuth.exit:                        ; preds = %60, %60, %821, %398
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 661, ptr noundef nonnull @__func__.ClientAuthentication) #16
   br label %CheckPWChallengeAuth.exit.thread
 
-CheckPWChallengeAuth.exit.thread:                 ; preds = %sendAuthRequest.exit.i80, %414, %412, %406, %404, %._crit_edge.i, %824, %441, %.thread22.i, %394, %sendAuthRequest.exit.i, %368, %60, %871, %869, %CheckPWChallengeAuth.exit
-  %883 = phi i1 [ true, %871 ], [ true, %869 ], [ %866, %CheckPWChallengeAuth.exit ], [ false, %60 ], [ false, %368 ], [ false, %sendAuthRequest.exit.i ], [ false, %394 ], [ false, %.thread22.i ], [ false, %441 ], [ false, %824 ], [ false, %._crit_edge.i ], [ false, %404 ], [ false, %406 ], [ false, %412 ], [ false, %414 ], [ false, %sendAuthRequest.exit.i80 ]
-  %.089 = phi i32 [ 0, %871 ], [ 0, %869 ], [ %.0, %CheckPWChallengeAuth.exit ], [ -1, %60 ], [ %.018.i, %368 ], [ -2, %sendAuthRequest.exit.i ], [ %396, %394 ], [ -1, %.thread22.i ], [ -1, %441 ], [ -1, %824 ], [ -1, %._crit_edge.i ], [ -1, %404 ], [ -1, %406 ], [ -1, %412 ], [ -1, %414 ], [ -2, %sendAuthRequest.exit.i80 ]
+CheckPWChallengeAuth.exit.thread:                 ; preds = %sendAuthRequest.exit.i79, %414, %412, %406, %404, %._crit_edge.i, %824, %441, %.thread22.i, %394, %sendAuthRequest.exit.i, %368, %60, %871, %869, %CheckPWChallengeAuth.exit
+  %883 = phi i1 [ true, %871 ], [ true, %869 ], [ %866, %CheckPWChallengeAuth.exit ], [ false, %60 ], [ false, %368 ], [ false, %sendAuthRequest.exit.i ], [ false, %394 ], [ false, %.thread22.i ], [ false, %441 ], [ false, %824 ], [ false, %._crit_edge.i ], [ false, %404 ], [ false, %406 ], [ false, %412 ], [ false, %414 ], [ false, %sendAuthRequest.exit.i79 ]
+  %.087 = phi i32 [ 0, %871 ], [ 0, %869 ], [ %.0, %CheckPWChallengeAuth.exit ], [ -1, %60 ], [ %.018.i, %368 ], [ -2, %sendAuthRequest.exit.i ], [ %396, %394 ], [ -1, %.thread22.i ], [ -1, %441 ], [ -1, %824 ], [ -1, %._crit_edge.i ], [ -1, %404 ], [ -1, %406 ], [ -1, %412 ], [ -1, %414 ], [ -2, %sendAuthRequest.exit.i79 ]
   %884 = load ptr, ptr @ClientAuthentication_hook, align 8
   %.not70 = icmp eq ptr %884, null
   br i1 %.not70, label %886, label %885
 
 885:                                              ; preds = %CheckPWChallengeAuth.exit.thread
-  call void %884(ptr noundef %0, i32 noundef %.089) #16
+  call void %884(ptr noundef %0, i32 noundef %.087) #16
   br label %886
 
 886:                                              ; preds = %885, %CheckPWChallengeAuth.exit.thread
@@ -1919,8 +1919,8 @@ CheckPWChallengeAuth.exit.thread:                 ; preds = %sendAuthRequest.exi
 887:                                              ; preds = %886
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %888 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i83 = icmp eq i32 %888, 0
-  br i1 %.not.i83, label %890, label %889
+  %.not.i81 = icmp eq i32 %888, 0
+  br i1 %.not.i81, label %890, label %889
 
 889:                                              ; preds = %887
   call void @ProcessInterrupts() #16
@@ -1953,7 +1953,7 @@ sendAuthRequest.exit:                             ; preds = %890, %898
 
 899:                                              ; preds = %886
   %900 = load ptr, ptr %36, align 8
-  %901 = icmp eq i32 %.089, -2
+  %901 = icmp eq i32 %.087, -2
   br i1 %901, label %902, label %903
 
 902:                                              ; preds = %899
@@ -1972,39 +1972,39 @@ switch.lookup:                                    ; preds = %903
   %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table.ClientAuthentication, i64 0, i64 %908
   %switch.load = load ptr, ptr %switch.gep, align 8
   %909 = zext nneg i32 %906 to i64
-  %switch.gep106 = getelementptr inbounds [15 x i32], ptr @switch.table.ClientAuthentication.3, i64 0, i64 %909
-  %switch.load107 = load i32, ptr %switch.gep106, align 4
+  %switch.gep104 = getelementptr inbounds [15 x i32], ptr @switch.table.ClientAuthentication.3, i64 0, i64 %909
+  %switch.load105 = load i32, ptr %switch.gep104, align 4
   br label %910
 
 910:                                              ; preds = %903, %switch.lookup
-  %.014.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.26, %903 ]
-  %.0.i84 = phi i32 [ %switch.load107, %switch.lookup ], [ 514, %903 ]
+  %.013.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.26, %903 ]
+  %.0.i82 = phi i32 [ %switch.load105, %switch.lookup ], [ 514, %903 ]
   %911 = load ptr, ptr %904, align 8
   %912 = getelementptr inbounds i8, ptr %904, i64 8
   %913 = load i32, ptr %912, align 8
   %914 = getelementptr inbounds i8, ptr %904, i64 16
   %915 = load ptr, ptr %914, align 8
   %916 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.27, ptr noundef %911, i32 noundef %913, ptr noundef %915) #16
-  %.not.i85 = icmp eq ptr %900, null
-  br i1 %.not.i85, label %919, label %917
+  %.not.i83 = icmp eq ptr %900, null
+  br i1 %.not.i83, label %919, label %917
 
 917:                                              ; preds = %910
   %918 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.28, ptr noundef nonnull %900, ptr noundef %916) #16
   br label %919
 
 919:                                              ; preds = %917, %910
-  %.013.i = phi ptr [ %918, %917 ], [ %916, %910 ]
+  %.014.i = phi ptr [ %918, %917 ], [ %916, %910 ]
   %920 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #17
   call void @llvm.assume(i1 %920)
-  %921 = call i32 @errcode(i32 noundef %.0.i84) #16
+  %921 = call i32 @errcode(i32 noundef %.0.i82) #16
   %922 = getelementptr inbounds i8, ptr %0, i64 336
   %923 = load ptr, ptr %922, align 8
-  %924 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.014.i, ptr noundef %923) #16
-  %.not16.i = icmp eq ptr %.013.i, null
+  %924 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.013.i, ptr noundef %923) #16
+  %.not16.i = icmp eq ptr %.014.i, null
   br i1 %.not16.i, label %927, label %925
 
 925:                                              ; preds = %919
-  %926 = call i32 (ptr, ...) @errdetail_log(ptr noundef nonnull @.str.29, ptr noundef nonnull %.013.i) #16
+  %926 = call i32 (ptr, ...) @errdetail_log(ptr noundef nonnull @.str.29, ptr noundef nonnull %.014.i) #16
   br label %927
 
 927:                                              ; preds = %925, %919

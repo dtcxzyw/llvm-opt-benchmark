@@ -24,7 +24,7 @@ define hidden void @zif_hrtime(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %13
 
 13:                                               ; preds = %2, %7
-  %.070 = phi i64 [ %12, %7 ], [ 0, %2 ]
+  %.074 = phi i64 [ %12, %7 ], [ 0, %2 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 44
   %15 = load i32, ptr %14, align 4
   %16 = icmp ugt i32 %15, 1
@@ -65,11 +65,11 @@ define hidden void @zif_hrtime(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %.thread94
 
 .thread101:                                       ; preds = %24, %17
-  %.071110 = phi i32 [ 0, %17 ], [ 1, %24 ]
-  %.072109 = phi i32 [ 1, %17 ], [ 9, %24 ]
-  %.073108 = phi i32 [ 0, %17 ], [ 2, %24 ]
-  %.074107 = phi ptr [ null, %17 ], [ %25, %24 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.072109, i32 noundef %.071110, ptr noundef null, i32 noundef %.073108, ptr noundef %.074107) #4
+  %.070110 = phi i32 [ 1, %17 ], [ 9, %24 ]
+  %.071109 = phi i32 [ 0, %17 ], [ 2, %24 ]
+  %.072108 = phi ptr [ null, %17 ], [ %25, %24 ]
+  %.073107 = phi i32 [ 0, %17 ], [ 1, %24 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.070110, i32 noundef %.073107, ptr noundef null, i32 noundef %.071109, ptr noundef %.072108) #4
   br label %37
 
 .thread94:                                        ; preds = %..thread94_crit_edge, %.thread90
@@ -78,7 +78,7 @@ define hidden void @zif_hrtime(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %28, label %29, label %.thread94.thread
 
 29:                                               ; preds = %.thread94
-  store i64 %.070, ptr %1, align 8
+  store i64 %.074, ptr %1, align 8
   %30 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 4, ptr %30, align 8
   br label %37
@@ -89,9 +89,9 @@ define hidden void @zif_hrtime(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 775, ptr %32, align 8
   call void @zend_hash_real_init_packed(ptr noundef %31) #4
-  %33 = udiv i64 %.070, 1000000000
+  %33 = udiv i64 %.074, 1000000000
   %34 = call i32 @add_next_index_long(ptr noundef nonnull %1, i64 noundef %33) #4
-  %35 = urem i64 %.070, 1000000000
+  %35 = urem i64 %.074, 1000000000
   %36 = call i32 @add_next_index_long(ptr noundef nonnull %1, i64 noundef %35) #4
   br label %37
 

@@ -13,8 +13,8 @@ define ptr @ether_aton_r(ptr nocapture noundef readonly %0, ptr noundef writeonl
 
 3:                                                ; preds = %40, %2
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %40 ]
-  %.01739 = phi ptr [ %0, %2 ], [ %41, %40 ]
-  %4 = load i8, ptr %.01739, align 1
+  %.01838 = phi ptr [ %0, %2 ], [ %41, %40 ]
+  %4 = load i8, ptr %.01838, align 1
   %5 = sext i8 %4 to i32
   %6 = add nsw i32 %5, -48
   %7 = icmp ult i32 %6, 10
@@ -39,7 +39,7 @@ define ptr @ether_aton_r(ptr nocapture noundef readonly %0, ptr noundef writeonl
 
 xdigit.exit.thread:                               ; preds = %13, %3, %11
   %.0.i27 = phi i32 [ %6, %3 ], [ %12, %11 ], [ %16, %13 ]
-  %18 = getelementptr inbounds i8, ptr %.01739, i64 1
+  %18 = getelementptr inbounds i8, ptr %.01838, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = sext i8 %19 to i32
   %21 = add nsw i32 %20, -48
@@ -65,7 +65,7 @@ xdigit.exit.thread:                               ; preds = %13, %3, %11
 
 xdigit.exit25.thread:                             ; preds = %xdigit.exit.thread, %26, %28
   %.0.i2432 = phi i32 [ %31, %28 ], [ %21, %xdigit.exit.thread ], [ %27, %26 ]
-  %33 = getelementptr inbounds i8, ptr %.01739, i64 2
+  %33 = getelementptr inbounds i8, ptr %.01838, i64 2
   %34 = shl nuw nsw i32 %.0.i27, 4
   %35 = add nuw nsw i32 %.0.i2432, %34
   %36 = trunc i32 %35 to i8
@@ -80,7 +80,7 @@ xdigit.exit25.thread:                             ; preds = %xdigit.exit.thread,
   br i1 %.not22, label %40, label %xdigit.exit.thread28
 
 40:                                               ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %.01739, i64 3
+  %41 = getelementptr inbounds i8, ptr %.01838, i64 3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %3
 
@@ -90,8 +90,8 @@ xdigit.exit25.thread:                             ; preds = %xdigit.exit.thread,
   br label %xdigit.exit.thread28
 
 xdigit.exit.thread28:                             ; preds = %28, %13, %39, %42
-  %.0 = phi ptr [ %., %42 ], [ null, %39 ], [ null, %13 ], [ null, %28 ]
-  ret ptr %.0
+  %.017 = phi ptr [ %., %42 ], [ null, %39 ], [ null, %13 ], [ null, %28 ]
+  ret ptr %.017
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
@@ -101,8 +101,8 @@ define ptr @ether_aton(ptr nocapture noundef readonly %0) local_unnamed_addr #1 
 
 2:                                                ; preds = %39, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %39 ]
-  %.01739.i = phi ptr [ %0, %1 ], [ %40, %39 ]
-  %3 = load i8, ptr %.01739.i, align 1
+  %.01838.i = phi ptr [ %0, %1 ], [ %40, %39 ]
+  %3 = load i8, ptr %.01838.i, align 1
   %4 = sext i8 %3 to i32
   %5 = add nsw i32 %4, -48
   %6 = icmp ult i32 %5, 10
@@ -127,7 +127,7 @@ define ptr @ether_aton(ptr nocapture noundef readonly %0) local_unnamed_addr #1 
 
 xdigit.exit.thread.i:                             ; preds = %12, %10, %2
   %.0.i27.i = phi i32 [ %5, %2 ], [ %11, %10 ], [ %15, %12 ]
-  %17 = getelementptr inbounds i8, ptr %.01739.i, i64 1
+  %17 = getelementptr inbounds i8, ptr %.01838.i, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = sext i8 %18 to i32
   %20 = add nsw i32 %19, -48
@@ -162,13 +162,13 @@ xdigit.exit25.thread.i:                           ; preds = %27, %25, %xdigit.ex
   br i1 %.not21.i, label %41, label %36
 
 36:                                               ; preds = %xdigit.exit25.thread.i
-  %37 = getelementptr inbounds i8, ptr %.01739.i, i64 2
+  %37 = getelementptr inbounds i8, ptr %.01838.i, i64 2
   %38 = load i8, ptr %37, align 1
   %.not22.i = icmp eq i8 %38, 58
   br i1 %.not22.i, label %39, label %ether_aton_r.exit
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %.01739.i, i64 3
+  %40 = getelementptr inbounds i8, ptr %.01838.i, i64 3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %2
 
@@ -179,8 +179,8 @@ xdigit.exit25.thread.i:                           ; preds = %27, %25, %xdigit.ex
   br label %ether_aton_r.exit
 
 ether_aton_r.exit:                                ; preds = %12, %27, %36, %41
-  %.0.i = phi ptr [ %..i, %41 ], [ null, %36 ], [ null, %27 ], [ null, %12 ]
-  ret ptr %.0.i
+  %.017.i = phi ptr [ %..i, %41 ], [ null, %36 ], [ null, %27 ], [ null, %12 ]
+  ret ptr %.017.i
 }
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

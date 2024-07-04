@@ -40,7 +40,7 @@ define noundef ptr @Kit_SopToBdd(ptr noundef %0, ptr nocapture noundef readonly 
 
 12:                                               ; preds = %.lr.ph.us, %25
   %.043.us = phi i32 [ 0, %.lr.ph.us ], [ %26, %25 ]
-  %.03742.us = phi ptr [ %11, %.lr.ph.us ], [ %.1.us, %25 ]
+  %.03842.us = phi ptr [ %11, %.lr.ph.us ], [ %.1.us, %25 ]
   %13 = shl nuw nsw i32 %.043.us, 1
   %14 = lshr i32 %10, %13
   %15 = and i32 %14, 3
@@ -61,14 +61,14 @@ define noundef ptr @Kit_SopToBdd(ptr noundef %0, ptr nocapture noundef readonly 
   br label %23
 
 23:                                               ; preds = %18, %16
-  %.038.us = phi ptr [ %22, %18 ], [ %17, %16 ]
-  %24 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.03742.us, ptr noundef %.038.us) #5
+  %.037.us = phi ptr [ %22, %18 ], [ %17, %16 ]
+  %24 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.03842.us, ptr noundef %.037.us) #5
   tail call void @Cudd_Ref(ptr noundef %24) #5
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.03742.us) #5
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.03842.us) #5
   br label %25
 
 25:                                               ; preds = %23, %12
-  %.1.us = phi ptr [ %24, %23 ], [ %.03742.us, %12 ]
+  %.1.us = phi ptr [ %24, %23 ], [ %.03842.us, %12 ]
   %26 = add nuw nsw i32 %.043.us, 1
   %exitcond.not = icmp eq i32 %26, %2
   br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !4

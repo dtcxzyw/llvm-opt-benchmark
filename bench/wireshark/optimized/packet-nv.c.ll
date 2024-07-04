@@ -141,15 +141,15 @@ define internal i32 @dissect_nv(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %.not76, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25, %.lr.ph
-  %.075 = phi i32 [ %85, %.lr.ph ], [ 12, %25 ]
-  %.07274 = phi i32 [ %86, %.lr.ph ], [ 0, %25 ]
-  %55 = add i32 %.075, 4
+  %.075 = phi i32 [ %86, %.lr.ph ], [ 0, %25 ]
+  %.07274 = phi i32 [ %85, %.lr.ph ], [ 12, %25 ]
+  %55 = add i32 %.07274, 4
   %56 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %55) #3
   %57 = load i32, ptr @hf_nv_variable, align 4
   %58 = zext i16 %56 to i32
   %59 = add nuw nsw i32 %58, 8
-  %60 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %57, ptr noundef %0, i32 noundef %.075, i32 noundef %59, i32 noundef 0) #3
-  %61 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.075) #3
+  %60 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %57, ptr noundef %0, i32 noundef %.07274, i32 noundef %59, i32 noundef 0) #3
+  %61 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.07274) #3
   %62 = zext i16 %61 to i32
   %63 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %55) #3
   %64 = zext i16 %63 to i32
@@ -158,24 +158,24 @@ define internal i32 @dissect_nv(ptr noundef %0, ptr nocapture noundef readonly %
   %66 = load i32, ptr @ett_nv_var, align 4
   %67 = call ptr @proto_item_add_subtree(ptr noundef %60, i32 noundef %66) #3
   %68 = load i32, ptr @hf_nv_varheader, align 4
-  %69 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %68, ptr noundef %0, i32 noundef %.075, i32 noundef 8, i32 noundef 0) #3
+  %69 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %68, ptr noundef %0, i32 noundef %.07274, i32 noundef 8, i32 noundef 0) #3
   %70 = load i32, ptr @ett_nv_varheader, align 4
   %71 = call ptr @proto_item_add_subtree(ptr noundef %69, i32 noundef %70) #3
   %72 = load i32, ptr @hf_nv_id, align 4
-  %73 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %72, ptr noundef %0, i32 noundef %.075, i32 noundef 2, i32 noundef -2147483648) #3
-  %74 = add i32 %.075, 2
+  %73 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %72, ptr noundef %0, i32 noundef %.07274, i32 noundef 2, i32 noundef -2147483648) #3
+  %74 = add i32 %.07274, 2
   %75 = load i32, ptr @hf_nv_hash, align 4
   %76 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %75, ptr noundef %0, i32 noundef %74, i32 noundef 2, i32 noundef -2147483648) #3
   %77 = load i32, ptr @hf_nv_length, align 4
   %78 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %77, ptr noundef %0, i32 noundef %55, i32 noundef 2, i32 noundef -2147483648) #3
-  %79 = add i32 %.075, 6
+  %79 = add i32 %.07274, 6
   %80 = load i32, ptr @hf_nv_quality, align 4
   %81 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %80, ptr noundef %0, i32 noundef %79, i32 noundef 2, i32 noundef -2147483648) #3
-  %82 = add i32 %.075, 8
+  %82 = add i32 %.07274, 8
   %83 = load i32, ptr @hf_nv_data, align 4
   %84 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %83, ptr noundef %0, i32 noundef %82, i32 noundef %58, i32 noundef 0) #3
   %85 = add i32 %82, %58
-  %86 = add nuw nsw i32 %.07274, 1
+  %86 = add nuw nsw i32 %.075, 1
   %exitcond.not = icmp eq i32 %86, %54
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 

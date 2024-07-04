@@ -3329,16 +3329,16 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table.get_call_expr_arg_stable, i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 %switch.load
-  %.021.i = load ptr, ptr %10, align 8
+  %.0.i = load ptr, ptr %10, align 8
   %11 = icmp slt i32 %1, 0
   br i1 %11, label %get_call_expr_arg_stable.exit, label %12
 
 12:                                               ; preds = %switch.lookup
-  %.not.i.i = icmp eq ptr %.021.i, null
+  %.not.i.i = icmp eq ptr %.0.i, null
   br i1 %.not.i.i, label %list_length.exit.i, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %.021.i, i64 4
+  %14 = getelementptr inbounds i8, ptr %.0.i, i64 4
   %15 = load i32, ptr %14, align 4
   br label %list_length.exit.i
 
@@ -3348,10 +3348,10 @@ list_length.exit.i:                               ; preds = %13, %12
   br i1 %.not.i, label %17, label %get_call_expr_arg_stable.exit
 
 17:                                               ; preds = %list_length.exit.i
-  %18 = getelementptr i8, ptr %.021.i, i64 16
-  %.021.val.i = load ptr, ptr %18, align 8
+  %18 = getelementptr i8, ptr %.0.i, i64 16
+  %.0.val.i = load ptr, ptr %18, align 8
   %19 = zext nneg i32 %1 to i64
-  %20 = getelementptr %union.ListCell, ptr %.021.val.i, i64 %19
+  %20 = getelementptr %union.ListCell, ptr %.0.val.i, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %21, align 4
   switch i32 %22, label %27 [
@@ -3395,16 +3395,16 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table.get_call_expr_arg_stable, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 %switch.load
-  %.021 = load ptr, ptr %8, align 8
+  %.0 = load ptr, ptr %8, align 8
   %9 = icmp slt i32 %1, 0
   br i1 %9, label %26, label %10
 
 10:                                               ; preds = %switch.lookup
-  %.not.i = icmp eq ptr %.021, null
+  %.not.i = icmp eq ptr %.0, null
   br i1 %.not.i, label %list_length.exit, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %.021, i64 4
+  %12 = getelementptr inbounds i8, ptr %.0, i64 4
   %13 = load i32, ptr %12, align 4
   br label %list_length.exit
 
@@ -3414,10 +3414,10 @@ list_length.exit:                                 ; preds = %10, %11
   br i1 %.not, label %15, label %26
 
 15:                                               ; preds = %list_length.exit
-  %16 = getelementptr i8, ptr %.021, i64 16
-  %.021.val = load ptr, ptr %16, align 8
+  %16 = getelementptr i8, ptr %.0, i64 16
+  %.0.val = load ptr, ptr %16, align 8
   %17 = zext nneg i32 %1 to i64
-  %18 = getelementptr %union.ListCell, ptr %.021.val, i64 %17
+  %18 = getelementptr %union.ListCell, ptr %.0.val, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 4
   switch i32 %20, label %25 [
@@ -3435,8 +3435,8 @@ list_length.exit:                                 ; preds = %10, %11
   br label %26
 
 26:                                               ; preds = %switch.hole_check, %4, %21, %15, %switch.lookup, %list_length.exit, %2, %25
-  %.0 = phi i1 [ false, %25 ], [ false, %2 ], [ false, %4 ], [ false, %list_length.exit ], [ false, %switch.lookup ], [ true, %15 ], [ true, %21 ], [ false, %switch.hole_check ]
-  ret i1 %.0
+  %.021 = phi i1 [ false, %25 ], [ false, %2 ], [ false, %4 ], [ false, %list_length.exit ], [ false, %switch.lookup ], [ true, %15 ], [ true, %21 ], [ false, %switch.hole_check ]
+  ret i1 %.021
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

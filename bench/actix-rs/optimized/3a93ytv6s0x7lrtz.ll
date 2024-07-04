@@ -918,8 +918,8 @@ common.ret:                                       ; preds = %171, %47
   br label %85
 
 85:                                               ; preds = %51, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit"
-  %.sroa.476.0 = phi i64 [ %66, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit" ], [ %44, %51 ]
   %.sroa.10.0 = phi i64 [ %.sroa.858.sroa.8.0.copyload, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit" ], [ %.sroa.13.sroa.9.i.sroa.7.0.copyload90, %51 ]
+  %.sroa.476.0 = phi i64 [ %66, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit" ], [ %44, %51 ]
   %86 = phi <2 x i64> [ %76, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit" ], [ %52, %51 ]
   %87 = phi <2 x i64> [ %77, %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit" ], [ %53, %51 ]
   %88 = getelementptr inbounds i8, ptr %1, i64 256
@@ -1153,12 +1153,12 @@ common.ret:                                       ; preds = %171, %47
   br label %168
 
 171:                                              ; preds = %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit", %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit"
+  %.sroa.1385.0 = phi i64 [ %159, %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit" ], [ undef, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
+  %.sroa.12.0 = phi ptr [ %.sroa.567.0, %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit" ], [ undef, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
+  %.sroa.1184.0 = phi i64 [ %.sink.i, %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit" ], [ undef, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
+  %.sroa.10.1 = phi i64 [ %.sroa.069.sroa.10.0.copyload, %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit" ], [ %.sroa.10.0, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
   %.sroa.476.1 = phi i64 [ %.sroa.069.sroa.6.0.copyload, %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit" ], [ %.sroa.476.0, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
   %.sroa.074.1 = phi i64 [ %.sroa.069.sroa.0.0.copyload, %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit" ], [ 3, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
-  %.sroa.10.1 = phi i64 [ %.sroa.069.sroa.10.0.copyload, %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit" ], [ %.sroa.10.0, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
-  %.sroa.1184.0 = phi i64 [ %.sink.i, %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit" ], [ undef, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
-  %.sroa.12.0 = phi ptr [ %.sroa.567.0, %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit" ], [ undef, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
-  %.sroa.1385.0 = phi i64 [ %159, %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit" ], [ undef, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
   %172 = phi <2 x i64> [ %166, %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit" ], [ %86, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
   %173 = phi <2 x i64> [ %167, %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit" ], [ %87, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
   store i64 %.sroa.074.1, ptr %0, align 8

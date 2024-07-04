@@ -25,11 +25,11 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly %0, i64 nounde
   br label %17
 
 17:                                               ; preds = %.lr.ph, %74
-  %.03955 = phi i64 [ 0, %.lr.ph ], [ %.1, %74 ]
-  %.04054 = phi ptr [ %0, %.lr.ph ], [ %75, %74 ]
+  %.03855 = phi i64 [ 0, %.lr.ph ], [ %.1, %74 ]
+  %.03954 = phi ptr [ %6, %.lr.ph ], [ %.140, %74 ]
   %.04153 = phi ptr [ %2, %.lr.ph ], [ %.2, %74 ]
-  %.04352 = phi ptr [ %6, %.lr.ph ], [ %.144, %74 ]
-  %18 = load i8, ptr %.04054, align 1
+  %.04352 = phi ptr [ %0, %.lr.ph ], [ %75, %74 ]
+  %18 = load i8, ptr %.04352, align 1
   %19 = zext i8 %18 to i64
   %20 = getelementptr inbounds [256 x i8], ptr @sf_decode64tab, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
@@ -37,9 +37,9 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly %0, i64 nounde
   br i1 %.not, label %74, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %.04352, i64 1
-  store i8 %18, ptr %.04352, align 1
-  %24 = add i64 %.03955, 1
+  %23 = getelementptr inbounds i8, ptr %.03954, i64 1
+  store i8 %18, ptr %.03954, align 1
+  %24 = add i64 %.03855, 1
   %25 = and i64 %24, 3
   %.not46 = icmp eq i64 %25, 0
   br i1 %.not46, label %26, label %74
@@ -118,10 +118,10 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly %0, i64 nounde
   br label %74
 
 74:                                               ; preds = %22, %67, %17
-  %.144 = phi ptr [ %23, %22 ], [ %6, %67 ], [ %.04352, %17 ]
   %.2 = phi ptr [ %.04153, %22 ], [ %71, %67 ], [ %.04153, %17 ]
-  %.1 = phi i64 [ %24, %22 ], [ %24, %67 ], [ %.03955, %17 ]
-  %75 = getelementptr inbounds i8, ptr %.04054, i64 1
+  %.140 = phi ptr [ %23, %22 ], [ %6, %67 ], [ %.03954, %17 ]
+  %.1 = phi i64 [ %24, %22 ], [ %24, %67 ], [ %.03855, %17 ]
+  %75 = getelementptr inbounds i8, ptr %.04352, i64 1
   %76 = icmp ult ptr %75, %10
   %77 = icmp ult i64 %.1, %9
   %78 = select i1 %76, i1 %77, i1 false

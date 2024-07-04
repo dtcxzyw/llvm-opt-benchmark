@@ -6712,23 +6712,23 @@ define hidden void @_ZN6casadi11ThreadsWorkERKNS_8FunctionExPPKdPPdPxS6_xRi(ptr 
   br i1 %28, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %8, %35
-  %.075 = phi i64 [ %38, %35 ], [ 0, %8 ]
-  %29 = getelementptr inbounds ptr, ptr %2, i64 %.075
+  %.06075 = phi i64 [ %38, %35 ], [ 0, %8 ]
+  %29 = getelementptr inbounds ptr, ptr %2, i64 %.06075
   %30 = load ptr, ptr %29, align 8
   %.not74 = icmp eq ptr %30, null
   br i1 %.not74, label %35, label %31
 
 31:                                               ; preds = %.lr.ph
-  %32 = call noundef i64 @_ZNK6casadi8Function6nnz_inEx(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %.075)
+  %32 = call noundef i64 @_ZNK6casadi8Function6nnz_inEx(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %.06075)
   %33 = mul nsw i64 %32, %1
   %34 = getelementptr inbounds double, ptr %30, i64 %33
   br label %35
 
 35:                                               ; preds = %.lr.ph, %31
   %36 = phi ptr [ %34, %31 ], [ null, %.lr.ph ]
-  %37 = getelementptr inbounds ptr, ptr %27, i64 %.075
+  %37 = getelementptr inbounds ptr, ptr %27, i64 %.06075
   store ptr %36, ptr %37, align 8
-  %38 = add nuw nsw i64 %.075, 1
+  %38 = add nuw nsw i64 %.06075, 1
   %exitcond.not = icmp eq i64 %38, %22
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
 
@@ -6741,23 +6741,23 @@ define hidden void @_ZN6casadi11ThreadsWorkERKNS_8FunctionExPPKdPPdPxS6_xRi(ptr 
   br i1 %43, label %.lr.ph78, label %._crit_edge79
 
 .lr.ph78:                                         ; preds = %._crit_edge, %50
-  %.06076 = phi i64 [ %53, %50 ], [ 0, %._crit_edge ]
-  %44 = getelementptr inbounds ptr, ptr %3, i64 %.06076
+  %.05976 = phi i64 [ %53, %50 ], [ 0, %._crit_edge ]
+  %44 = getelementptr inbounds ptr, ptr %3, i64 %.05976
   %45 = load ptr, ptr %44, align 8
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %50, label %46
 
 46:                                               ; preds = %.lr.ph78
-  %47 = call noundef i64 @_ZNK6casadi8Function7nnz_outEx(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %.06076)
+  %47 = call noundef i64 @_ZNK6casadi8Function7nnz_outEx(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %.05976)
   %48 = mul nsw i64 %47, %1
   %49 = getelementptr inbounds double, ptr %45, i64 %48
   br label %50
 
 50:                                               ; preds = %.lr.ph78, %46
   %51 = phi ptr [ %49, %46 ], [ null, %.lr.ph78 ]
-  %52 = getelementptr inbounds ptr, ptr %42, i64 %.06076
+  %52 = getelementptr inbounds ptr, ptr %42, i64 %.05976
   store ptr %51, ptr %52, align 8
-  %53 = add nuw nsw i64 %.06076, 1
+  %53 = add nuw nsw i64 %.05976, 1
   %exitcond80.not = icmp eq i64 %53, %23
   br i1 %exitcond80.not, label %._crit_edge79, label %.lr.ph78, !llvm.loop !75
 

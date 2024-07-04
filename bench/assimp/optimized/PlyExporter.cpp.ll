@@ -625,25 +625,25 @@ for.body.lr.ph:                                   ; preds = %invoke.cont10
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc40
   %indvars.iv174 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next175, %for.inc40 ]
-  %faces.0145 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %for.inc40 ]
-  %components.0143 = phi i32 [ 0, %for.body.lr.ph ], [ %.us-phi140, %for.inc40 ]
-  %vertices.0142 = phi i32 [ 0, %for.body.lr.ph ], [ %add17, %for.inc40 ]
+  %components.0144 = phi i32 [ 0, %for.body.lr.ph ], [ %.us-phi140, %for.inc40 ]
+  %vertices.0143 = phi i32 [ 0, %for.body.lr.ph ], [ %add17, %for.inc40 ]
+  %faces.0142 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %for.inc40 ]
   %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv174
   %4 = load ptr, ptr %arrayidx, align 8
   %mNumFaces = getelementptr inbounds i8, ptr %4, i64 8
   %5 = load i32, ptr %mNumFaces, align 8
-  %add = add i32 %5, %faces.0145
+  %add = add i32 %5, %faces.0142
   %mNumVertices = getelementptr inbounds i8, ptr %4, i64 4
   %6 = load i32, ptr %mNumVertices, align 4
   %.fr = freeze i32 %6
-  %add17 = add i32 %.fr, %vertices.0142
+  %add17 = add i32 %.fr, %vertices.0143
   %mNormals.i = getelementptr inbounds i8, ptr %4, i64 24
   %7 = load ptr, ptr %mNormals.i, align 8
   %cmp.not.i = icmp ne ptr %7, null
   %cmp2.i = icmp ne i32 %.fr, 0
   %8 = and i1 %cmp.not.i, %cmp2.i
   %or = zext i1 %8 to i32
-  %spec.select = or i32 %components.0143, %or
+  %spec.select = or i32 %components.0144, %or
   %mTangents.i = getelementptr inbounds i8, ptr %4, i64 32
   %9 = load ptr, ptr %mTangents.i, align 8
   %cmp.not.i86 = icmp eq ptr %9, null
@@ -652,7 +652,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp2.not.i = icmp eq ptr %10, null
   %or.cond.i = select i1 %cmp.not.i86, i1 true, i1 %cmp2.not.i
   %or23 = or i32 %spec.select, 2
-  %spec.select116 = select i1 %cmp2.i, i32 %or23, i32 %components.0143
+  %spec.select116 = select i1 %cmp2.i, i32 %or23, i32 %components.0144
   %11 = select i1 %or.cond.i, i32 %spec.select, i32 %spec.select116
   %mTextureCoords.i = getelementptr inbounds i8, ptr %4, i64 112
   br i1 %cmp2.i, label %if.end.i89, label %for.inc40
@@ -766,9 +766,9 @@ for.inc40:                                        ; preds = %_ZNK6aiMesh15HasVer
   br i1 %exitcond177.not, label %for.end42, label %for.body, !llvm.loop !7
 
 for.end42:                                        ; preds = %for.inc40, %invoke.cont10
+  %faces.0.lcssa = phi i32 [ 0, %invoke.cont10 ], [ %add, %for.inc40 ]
   %vertices.0.lcssa = phi i32 [ 0, %invoke.cont10 ], [ %add17, %for.inc40 ]
   %components.0.lcssa = phi i32 [ 0, %invoke.cont10 ], [ %.us-phi140, %for.inc40 ]
-  %faces.0.lcssa = phi i32 [ 0, %invoke.cont10 ], [ %add, %for.inc40 ]
   %call45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull @.str.8)
           to label %invoke.cont44 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

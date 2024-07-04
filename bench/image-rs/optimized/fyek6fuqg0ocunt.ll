@@ -3057,8 +3057,8 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17h604de83b4
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5807be072f893fa3E.exit.thread", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5807be072f893fa3E.exit"
-  %.sroa.8181.0232.ph = phi i8 [ %.sroa.8181.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5807be072f893fa3E.exit" ], [ %33, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5807be072f893fa3E.exit.thread" ]
-  %.sroa.5180.0230.ph = phi i8 [ %.sroa.5180.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5807be072f893fa3E.exit" ], [ %31, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5807be072f893fa3E.exit.thread" ]
+  %.sroa.5180.0232.ph = phi i8 [ %.sroa.5180.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5807be072f893fa3E.exit" ], [ %31, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5807be072f893fa3E.exit.thread" ]
+  %.sroa.8181.0230.ph = phi i8 [ %.sroa.8181.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5807be072f893fa3E.exit" ], [ %33, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5807be072f893fa3E.exit.thread" ]
   call void @llvm.lifetime.end.p0(i64 61, ptr nonnull %.sroa.11182)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   invoke void @"_ZN4tiff7decoder16Decoder$LT$R$GT$21find_tag_unsigned_vec17h6e84315c660efc23E"(ptr noalias nocapture noundef nonnull sret({ i16, [19 x i16] }) align 8 dereferenceable(40) %10, ptr noalias noundef nonnull align 8 dereferenceable(352) %13, i16 noundef 41, i16 undef)
@@ -3097,7 +3097,7 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17h604de83b4
 
 47:                                               ; preds = %42, %58
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
-  switch i8 %.sroa.5180.0230.ph, label %17 [
+  switch i8 %.sroa.5180.0232.ph, label %17 [
     i8 0, label %59
     i8 1, label %60
     i8 2, label %71
@@ -3154,7 +3154,7 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17h604de83b4
   br label %47
 
 59:                                               ; preds = %47
-  switch i8 %.sroa.8181.0232.ph, label %71 [
+  switch i8 %.sroa.8181.0230.ph, label %71 [
     i8 8, label %.thread254
     i8 16, label %.thread250
   ]
@@ -3163,7 +3163,7 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17h604de83b4
   br label %.thread250
 
 60:                                               ; preds = %47
-  switch i8 %.sroa.8181.0232.ph, label %65 [
+  switch i8 %.sroa.8181.0230.ph, label %65 [
     i8 8, label %.thread259
     i8 16, label %.thread250
   ]
@@ -3172,23 +3172,23 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17h604de83b4
   br label %.thread250
 
 61:                                               ; preds = %47
-  switch i8 %.sroa.8181.0232.ph, label %73 [
+  switch i8 %.sroa.8181.0230.ph, label %73 [
     i8 8, label %.thread250
     i8 16, label %76
   ]
 
 62:                                               ; preds = %47
-  switch i8 %.sroa.8181.0232.ph, label %79 [
+  switch i8 %.sroa.8181.0230.ph, label %79 [
     i8 8, label %.thread250
     i8 16, label %77
   ]
 
 63:                                               ; preds = %47
-  %64 = icmp eq i8 %.sroa.8181.0232.ph, 8
+  %64 = icmp eq i8 %.sroa.8181.0230.ph, 8
   br i1 %64, label %.thread250, label %79
 
 65:                                               ; preds = %60
-  %66 = call { i8, i1 } @llvm.umul.with.overflow.i8(i8 %.sroa.8181.0232.ph, i8 3)
+  %66 = call { i8, i1 } @llvm.umul.with.overflow.i8(i8 %.sroa.8181.0230.ph, i8 3)
   %67 = extractvalue { i8, i1 } %66, 0
   %68 = extractvalue { i8, i1 } %66, 1
   %spec.select144 = select i1 %68, i8 -1, i8 %67
@@ -3219,13 +3219,13 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17h604de83b4
   %.sroa.6193.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 41
   store i8 26, ptr %.sroa.6193.0..sroa_idx, align 1
   %.sroa.7194.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 42
-  store i8 %.sroa.8181.0232.ph, ptr %.sroa.7194.0..sroa_idx, align 2
+  store i8 %.sroa.8181.0230.ph, ptr %.sroa.7194.0..sroa_idx, align 2
   store i64 3, ptr %0, align 8
   br label %70
 
 73:                                               ; preds = %61
-  %74 = shl i8 %.sroa.8181.0232.ph, 1
-  %.inv = icmp sgt i8 %.sroa.8181.0232.ph, -1
+  %74 = shl i8 %.sroa.8181.0230.ph, 1
+  %.inv = icmp sgt i8 %.sroa.8181.0230.ph, -1
   %spec.select147 = select i1 %.inv, i8 %74, i8 -1
   %75 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %75, align 8
@@ -3263,8 +3263,8 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17h604de83b4
   ret void
 
 79:                                               ; preds = %62, %63
-  %80 = shl i8 %.sroa.8181.0232.ph, 2
-  %81 = icmp ugt i8 %.sroa.8181.0232.ph, 63
+  %80 = shl i8 %.sroa.8181.0230.ph, 2
+  %81 = icmp ugt i8 %.sroa.8181.0230.ph, 63
   %spec.select150 = select i1 %81, i8 -1, i8 %80
   %82 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %82, align 8
@@ -3280,7 +3280,7 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17h604de83b4
   br label %70
 
 83:                                               ; preds = %47
-  %84 = call { i8, i1 } @llvm.umul.with.overflow.i8(i8 %.sroa.8181.0232.ph, i8 3)
+  %84 = call { i8, i1 } @llvm.umul.with.overflow.i8(i8 %.sroa.8181.0230.ph, i8 3)
   %85 = extractvalue { i8, i1 } %84, 0
   %86 = extractvalue { i8, i1 } %84, 1
   %spec.select = select i1 %86, i8 -1, i8 %85
@@ -3460,8 +3460,8 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17hd232c915d
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5807be072f893fa3E.exit.thread", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5807be072f893fa3E.exit"
-  %.sroa.8181.0232.ph = phi i8 [ %.sroa.8181.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5807be072f893fa3E.exit" ], [ %33, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5807be072f893fa3E.exit.thread" ]
-  %.sroa.5180.0230.ph = phi i8 [ %.sroa.5180.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5807be072f893fa3E.exit" ], [ %31, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5807be072f893fa3E.exit.thread" ]
+  %.sroa.5180.0232.ph = phi i8 [ %.sroa.5180.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5807be072f893fa3E.exit" ], [ %31, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5807be072f893fa3E.exit.thread" ]
+  %.sroa.8181.0230.ph = phi i8 [ %.sroa.8181.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5807be072f893fa3E.exit" ], [ %33, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5807be072f893fa3E.exit.thread" ]
   call void @llvm.lifetime.end.p0(i64 61, ptr nonnull %.sroa.11182)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   invoke void @"_ZN4tiff7decoder16Decoder$LT$R$GT$21find_tag_unsigned_vec17hb781334d2806feb1E"(ptr noalias nocapture noundef nonnull sret({ i16, [19 x i16] }) align 8 dereferenceable(40) %10, ptr noalias noundef nonnull align 8 dereferenceable(376) %13, i16 noundef 41, i16 undef)
@@ -3500,7 +3500,7 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17hd232c915d
 
 47:                                               ; preds = %42, %58
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
-  switch i8 %.sroa.5180.0230.ph, label %17 [
+  switch i8 %.sroa.5180.0232.ph, label %17 [
     i8 0, label %59
     i8 1, label %60
     i8 2, label %71
@@ -3557,7 +3557,7 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17hd232c915d
   br label %47
 
 59:                                               ; preds = %47
-  switch i8 %.sroa.8181.0232.ph, label %71 [
+  switch i8 %.sroa.8181.0230.ph, label %71 [
     i8 8, label %.thread254
     i8 16, label %.thread250
   ]
@@ -3566,7 +3566,7 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17hd232c915d
   br label %.thread250
 
 60:                                               ; preds = %47
-  switch i8 %.sroa.8181.0232.ph, label %65 [
+  switch i8 %.sroa.8181.0230.ph, label %65 [
     i8 8, label %.thread259
     i8 16, label %.thread250
   ]
@@ -3575,23 +3575,23 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17hd232c915d
   br label %.thread250
 
 61:                                               ; preds = %47
-  switch i8 %.sroa.8181.0232.ph, label %73 [
+  switch i8 %.sroa.8181.0230.ph, label %73 [
     i8 8, label %.thread250
     i8 16, label %76
   ]
 
 62:                                               ; preds = %47
-  switch i8 %.sroa.8181.0232.ph, label %79 [
+  switch i8 %.sroa.8181.0230.ph, label %79 [
     i8 8, label %.thread250
     i8 16, label %77
   ]
 
 63:                                               ; preds = %47
-  %64 = icmp eq i8 %.sroa.8181.0232.ph, 8
+  %64 = icmp eq i8 %.sroa.8181.0230.ph, 8
   br i1 %64, label %.thread250, label %79
 
 65:                                               ; preds = %60
-  %66 = call { i8, i1 } @llvm.umul.with.overflow.i8(i8 %.sroa.8181.0232.ph, i8 3)
+  %66 = call { i8, i1 } @llvm.umul.with.overflow.i8(i8 %.sroa.8181.0230.ph, i8 3)
   %67 = extractvalue { i8, i1 } %66, 0
   %68 = extractvalue { i8, i1 } %66, 1
   %spec.select144 = select i1 %68, i8 -1, i8 %67
@@ -3622,13 +3622,13 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17hd232c915d
   %.sroa.6193.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 41
   store i8 26, ptr %.sroa.6193.0..sroa_idx, align 1
   %.sroa.7194.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 42
-  store i8 %.sroa.8181.0232.ph, ptr %.sroa.7194.0..sroa_idx, align 2
+  store i8 %.sroa.8181.0230.ph, ptr %.sroa.7194.0..sroa_idx, align 2
   store i64 3, ptr %0, align 8
   br label %70
 
 73:                                               ; preds = %61
-  %74 = shl i8 %.sroa.8181.0232.ph, 1
-  %.inv = icmp sgt i8 %.sroa.8181.0232.ph, -1
+  %74 = shl i8 %.sroa.8181.0230.ph, 1
+  %.inv = icmp sgt i8 %.sroa.8181.0230.ph, -1
   %spec.select147 = select i1 %.inv, i8 %74, i8 -1
   %75 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %75, align 8
@@ -3666,8 +3666,8 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17hd232c915d
   ret void
 
 79:                                               ; preds = %62, %63
-  %80 = shl i8 %.sroa.8181.0232.ph, 2
-  %81 = icmp ugt i8 %.sroa.8181.0232.ph, 63
+  %80 = shl i8 %.sroa.8181.0230.ph, 2
+  %81 = icmp ugt i8 %.sroa.8181.0230.ph, 63
   %spec.select150 = select i1 %81, i8 -1, i8 %80
   %82 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %82, align 8
@@ -3683,7 +3683,7 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17hd232c915d
   br label %70
 
 83:                                               ; preds = %47
-  %84 = call { i8, i1 } @llvm.umul.with.overflow.i8(i8 %.sroa.8181.0232.ph, i8 3)
+  %84 = call { i8, i1 } @llvm.umul.with.overflow.i8(i8 %.sroa.8181.0230.ph, i8 3)
   %85 = extractvalue { i8, i1 } %84, 0
   %86 = extractvalue { i8, i1 } %84, 1
   %spec.select = select i1 %86, i8 -1, i8 %85
@@ -4258,12 +4258,12 @@ default.unreachable208:                           ; preds = %64
           to label %104 unwind label %84
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %109
-  %.sroa.6.0206 = phi i64 [ %102, %109 ], [ %97, %.lr.ph.preheader ]
-  %.sroa.0151.0205 = phi ptr [ %101, %109 ], [ %100, %.lr.ph.preheader ]
-  %101 = getelementptr inbounds i8, ptr %.sroa.0151.0205, i64 4
-  %102 = add i64 %.sroa.6.0206, -4
+  %.sroa.0151.0206 = phi ptr [ %101, %109 ], [ %100, %.lr.ph.preheader ]
+  %.sroa.6.0205 = phi i64 [ %102, %109 ], [ %97, %.lr.ph.preheader ]
+  %101 = getelementptr inbounds i8, ptr %.sroa.0151.0206, i64 4
+  %102 = add i64 %.sroa.6.0205, -4
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %26)
-  %103 = invoke i24 @_ZN5image6codecs4tiff11cmyk_to_rgb17h5c7c3e9b49b39b97E(ptr noalias noundef nonnull readonly align 1 %.sroa.0151.0205, i64 noundef 4)
+  %103 = invoke i24 @_ZN5image6codecs4tiff11cmyk_to_rgb17h5c7c3e9b49b39b97E(ptr noalias noundef nonnull readonly align 1 %.sroa.0151.0206, i64 noundef 4)
           to label %105 unwind label %90
 
 104:                                              ; preds = %._crit_edge
@@ -5046,12 +5046,12 @@ default.unreachable208:                           ; preds = %64
           to label %104 unwind label %84
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %109
-  %.sroa.6.0206 = phi i64 [ %102, %109 ], [ %97, %.lr.ph.preheader ]
-  %.sroa.0151.0205 = phi ptr [ %101, %109 ], [ %100, %.lr.ph.preheader ]
-  %101 = getelementptr inbounds i8, ptr %.sroa.0151.0205, i64 4
-  %102 = add i64 %.sroa.6.0206, -4
+  %.sroa.0151.0206 = phi ptr [ %101, %109 ], [ %100, %.lr.ph.preheader ]
+  %.sroa.6.0205 = phi i64 [ %102, %109 ], [ %97, %.lr.ph.preheader ]
+  %101 = getelementptr inbounds i8, ptr %.sroa.0151.0206, i64 4
+  %102 = add i64 %.sroa.6.0205, -4
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %26)
-  %103 = invoke i24 @_ZN5image6codecs4tiff11cmyk_to_rgb17h5c7c3e9b49b39b97E(ptr noalias noundef nonnull readonly align 1 %.sroa.0151.0205, i64 noundef 4)
+  %103 = invoke i24 @_ZN5image6codecs4tiff11cmyk_to_rgb17h5c7c3e9b49b39b97E(ptr noalias noundef nonnull readonly align 1 %.sroa.0151.0206, i64 noundef 4)
           to label %105 unwind label %90
 
 104:                                              ; preds = %._crit_edge

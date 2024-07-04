@@ -269,8 +269,8 @@ entry:
   %curr_header.i = getelementptr inbounds i8, ptr %s, i64 48
   %0 = load i32, ptr %curr_header.i, align 8
   %cmp.i = icmp eq i32 %0, 0
-  %spec.select.i = select i1 %cmp.i, i64 131072, i64 65536
-  %spec.select13.i = zext i1 %cmp.i to i32
+  %spec.select.i = zext i1 %cmp.i to i32
+  %spec.select13.i = select i1 %cmp.i, i64 131072, i64 65536
   %headers.i = getelementptr inbounds i8, ptr %s, i64 56
   %idxprom.i = sext i32 %0 to i64
   %arrayidx.i = getelementptr [2 x ptr], ptr %headers.i, i64 0, i64 %idxprom.i
@@ -308,15 +308,15 @@ if.then9.i:                                       ; preds = %if.end7.i
 if.end11.i:                                       ; preds = %if.then9.i, %if.end7.i
   %file.i = getelementptr inbounds i8, ptr %bs, i64 16840
   %4 = load ptr, ptr %file.i, align 8
-  %call.i = call fastcc i32 @vhdx_write_header(ptr noundef %4, ptr noundef nonnull %2, i64 noundef %spec.select.i, i1 noundef zeroext true)
+  %call.i = call fastcc i32 @vhdx_write_header(ptr noundef %4, ptr noundef nonnull %2, i64 noundef %spec.select13.i, i1 noundef zeroext true)
   %cmp12.i = icmp slt i32 %call.i, 0
   br i1 %cmp12.i, label %return, label %if.end
 
 if.end:                                           ; preds = %if.end11.i
-  store i32 %spec.select13.i, ptr %curr_header.i, align 8
+  store i32 %spec.select.i, ptr %curr_header.i, align 8
   %cmp.i8 = xor i1 %cmp.i, true
-  %spec.select.i9 = select i1 %cmp.i, i64 65536, i64 131072
-  %spec.select13.i10 = zext i1 %cmp.i8 to i32
+  %spec.select.i9 = zext i1 %cmp.i8 to i32
+  %spec.select13.i10 = select i1 %cmp.i, i64 65536, i64 131072
   %5 = load ptr, ptr %arrayidx4.i, align 8
   %idxprom3.i14 = zext i1 %cmp.i8 to i64
   %arrayidx4.i15 = getelementptr [2 x ptr], ptr %headers.i, i64 0, i64 %idxprom3.i14
@@ -348,12 +348,12 @@ if.then9.i23:                                     ; preds = %if.end7.i21
 
 if.end11.i25:                                     ; preds = %if.then9.i23, %if.end7.i21
   %8 = load ptr, ptr %file.i, align 8
-  %call.i27 = call fastcc i32 @vhdx_write_header(ptr noundef %8, ptr noundef nonnull %6, i64 noundef %spec.select.i9, i1 noundef zeroext true)
+  %call.i27 = call fastcc i32 @vhdx_write_header(ptr noundef %8, ptr noundef nonnull %6, i64 noundef %spec.select13.i10, i1 noundef zeroext true)
   %cmp12.i28 = icmp slt i32 %call.i27, 0
   br i1 %cmp12.i28, label %return, label %if.end14.i29
 
 if.end14.i29:                                     ; preds = %if.end11.i25
-  store i32 %spec.select13.i10, ptr %curr_header.i, align 8
+  store i32 %spec.select.i9, ptr %curr_header.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end11.i, %if.end14.i29, %if.end11.i25
@@ -1798,8 +1798,8 @@ while.body.preheader:                             ; preds = %vhdx_user_visible_w
 while.body:                                       ; preds = %while.body.preheader, %if.end88
   %bat_entry_offset.0 = phi i64 [ %bat_entry_offset.1, %if.end88 ], [ 0, %while.body.preheader ]
   %nb_sectors.addr.0 = phi i32 [ %sub90, %if.end88 ], [ %nb_sectors, %while.body.preheader ]
-  %bytes_done.0 = phi i64 [ %add96, %if.end88 ], [ 0, %while.body.preheader ]
   %sector_num.addr.0 = phi i64 [ %add93, %if.end88 ], [ %sector_num, %while.body.preheader ]
+  %bytes_done.0 = phi i64 [ %add96, %if.end88 ], [ 0, %while.body.preheader ]
   %bat_prior_offset.0 = phi i64 [ %bat_prior_offset.1, %if.end88 ], [ 0, %while.body.preheader ]
   %3 = load i32, ptr %data_bits, align 2
   %and = and i32 %3, 2
@@ -2167,10 +2167,10 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %payblocks.048 = phi i64 [ %4, %for.body.lr.ph ], [ %payblocks.1, %for.inc ]
-  %i.046 = phi i64 [ 0, %for.body.lr.ph ], [ %inc64, %for.inc ]
-  %ret.045 = phi i32 [ 0, %for.body.lr.ph ], [ %ret.3, %for.inc ]
+  %ret.047 = phi i32 [ 0, %for.body.lr.ph ], [ %ret.3, %for.inc ]
+  %i.045 = phi i64 [ 0, %for.body.lr.ph ], [ %inc64, %for.inc ]
   %5 = load ptr, ptr %bat, align 8
-  %arrayidx = getelementptr i64, ptr %5, i64 %i.046
+  %arrayidx = getelementptr i64, ptr %5, i64 %i.045
   %6 = load i64, ptr %arrayidx, align 8
   %and = and i64 %6, 7
   %cmp5 = icmp eq i64 %and, 6
@@ -2182,7 +2182,7 @@ if.then7:                                         ; preds = %for.body
   %conv11 = zext i32 %7 to i64
   %8 = load i64, ptr %total_sectors, align 8
   %mul = shl i64 %8, 9
-  %mul14 = mul nuw i64 %i.046, %conv11
+  %mul14 = mul nuw i64 %i.045, %conv11
   %sub = sub i64 %mul, %mul14
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %conv11)
   %sub20 = xor i64 %conv11, 9223372036854775807
@@ -2190,7 +2190,7 @@ if.then7:                                         ; preds = %for.body
   br i1 %cmp21, label %if.then23, label %if.end26
 
 if.then23:                                        ; preds = %if.then7
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.29, i64 noundef %i.046) #17
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.29, i64 noundef %i.045) #17
   br i1 %tobool.not, label %return, label %if.end26.thread
 
 if.end26:                                         ; preds = %if.then7
@@ -2205,22 +2205,22 @@ if.end26.thread:                                  ; preds = %if.then23
   br i1 %cmp27.not56, label %if.else, label %if.then29.thread
 
 if.then29.thread:                                 ; preds = %if.end26.thread
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.30, i64 noundef %i.046, i64 noundef %and10, i64 noundef %call) #17
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.30, i64 noundef %i.045, i64 noundef %and10, i64 noundef %call) #17
   br label %if.end46.sink.split
 
 if.then29:                                        ; preds = %if.end26
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.30, i64 noundef %i.046, i64 noundef %and10, i64 noundef %call) #17
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.30, i64 noundef %i.045, i64 noundef %and10, i64 noundef %call) #17
   br i1 %tobool.not, label %return, label %if.end46.sink.split
 
 if.else:                                          ; preds = %if.end26.thread, %if.end26
-  %ret.157 = phi i32 [ -22, %if.end26.thread ], [ %ret.045, %if.end26 ]
+  %ret.157 = phi i32 [ -22, %if.end26.thread ], [ %ret.047, %if.end26 ]
   %add = add nuw i64 %cond, %and10
   %cmp35 = icmp ugt i64 %add, %call
   br i1 %cmp35, label %if.then37, label %if.end46
 
 if.then37:                                        ; preds = %if.else
   %sub40 = add i64 %add, -1
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.31, i64 noundef %i.046, i64 noundef %sub40, i64 noundef %call) #17
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.31, i64 noundef %i.045, i64 noundef %sub40, i64 noundef %call) #17
   br i1 %tobool.not, label %return, label %if.end46.sink.split
 
 if.end46.sink.split:                              ; preds = %if.then37, %if.then29, %if.then29.thread
@@ -2276,9 +2276,9 @@ if.else60:                                        ; preds = %if.end46
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.i, %if.then48, %for.body, %if.end57, %if.else60
-  %ret.3 = phi i32 [ -22, %if.end57 ], [ %ret.2, %if.else60 ], [ %ret.045, %for.body ], [ %ret.2, %if.then48 ], [ %ret.2, %for.inc.i ]
+  %ret.3 = phi i32 [ -22, %if.end57 ], [ %ret.2, %if.else60 ], [ %ret.047, %for.body ], [ %ret.2, %if.then48 ], [ %ret.2, %for.inc.i ]
   %payblocks.1 = phi i64 [ %dec, %if.end57 ], [ %15, %if.else60 ], [ %payblocks.048, %for.body ], [ %dec, %if.then48 ], [ %dec, %for.inc.i ]
-  %inc64 = add nuw nsw i64 %i.046, 1
+  %inc64 = add nuw nsw i64 %i.045, 1
   %16 = load i32, ptr %bat_entries, align 8
   %conv2 = zext i32 %16 to i64
   %cmp3 = icmp ult i64 %inc64, %conv2

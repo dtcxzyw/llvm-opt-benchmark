@@ -362,13 +362,13 @@ define noundef i32 @_ZN14colvarbias_alb6updateEv(ptr nocapture noundef nonnull a
 
 38:                                               ; preds = %.lr.ph, %189
   %39 = phi ptr [ %17, %.lr.ph ], [ %192, %189 ]
-  %.074109 = phi i64 [ 0, %.lr.ph ], [ %190, %189 ]
-  %.075108 = phi i1 [ true, %.lr.ph ], [ %.277, %189 ]
+  %.069109 = phi i64 [ 0, %.lr.ph ], [ %190, %189 ]
+  %.070108 = phi i1 [ true, %.lr.ph ], [ %.2, %189 ]
   store double -1.000000e+00, ptr %4, align 8
   %40 = load ptr, ptr %18, align 8
-  %41 = getelementptr inbounds double, ptr %40, i64 %.074109
+  %41 = getelementptr inbounds double, ptr %40, i64 %.069109
   %42 = load double, ptr %41, align 8
-  %43 = getelementptr inbounds ptr, ptr %39, i64 %.074109
+  %43 = getelementptr inbounds ptr, ptr %39, i64 %.069109
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 472
   %46 = load double, ptr %45, align 8
@@ -382,7 +382,7 @@ define noundef i32 @_ZN14colvarbias_alb6updateEv(ptr nocapture noundef nonnull a
 
 48:                                               ; preds = %38
   %49 = load ptr, ptr %20, align 8
-  %50 = getelementptr inbounds %class.colvarvalue, ptr %49, i64 %.074109
+  %50 = getelementptr inbounds %class.colvarvalue, ptr %49, i64 %.069109
   %51 = invoke noundef nonnull align 8 dereferenceable(168) ptr @_ZN11colvarvalueaSERKS_(ptr noundef nonnull align 8 dereferenceable(168) %50, ptr noundef nonnull align 8 dereferenceable(168) %3)
           to label %52 unwind label %118
 
@@ -478,16 +478,16 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit.i.i92:          ; preds = %71, %_ZNSt6vectorIN
 
 _ZN11colvarvalueD2Ev.exit94:                      ; preds = %_ZNSt6vectorIdSaIdEE5clearEv.exit.i.i92, %72
   %73 = load ptr, ptr %18, align 8
-  %74 = getelementptr inbounds double, ptr %73, i64 %.074109
+  %74 = getelementptr inbounds double, ptr %73, i64 %.069109
   %75 = load double, ptr %74, align 8
   %76 = load ptr, ptr %14, align 8
-  %77 = getelementptr inbounds ptr, ptr %76, i64 %.074109
+  %77 = getelementptr inbounds ptr, ptr %76, i64 %.069109
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 472
   %80 = load double, ptr %79, align 8
   %81 = fdiv double %75, %80
   %82 = load ptr, ptr %19, align 8
-  %83 = getelementptr inbounds %class.colvarvalue, ptr %82, i64 %.074109
+  %83 = getelementptr inbounds %class.colvarvalue, ptr %82, i64 %.069109
   %84 = call noundef double @_ZNK14colvarbias_alb19restraint_potentialEdPK6colvarRK11colvarvalue(ptr nonnull align 8 poison, double noundef %81, ptr noundef %78, ptr noundef nonnull align 8 dereferenceable(168) %83)
   %85 = load double, ptr %10, align 8
   %86 = fadd double %84, %85
@@ -498,12 +498,12 @@ _ZN11colvarvalueD2Ev.exit94:                      ; preds = %_ZNSt6vectorIdSaIdE
 
 89:                                               ; preds = %_ZN11colvarvalueD2Ev.exit94
   %90 = load ptr, ptr %14, align 8
-  %91 = getelementptr inbounds ptr, ptr %90, i64 %.074109
+  %91 = getelementptr inbounds ptr, ptr %90, i64 %.069109
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 672
   %94 = call noundef double @_ZNK11colvarvaluecvdEv(ptr noundef nonnull align 8 dereferenceable(168) %93)
   %95 = load ptr, ptr %32, align 8
-  %96 = getelementptr inbounds double, ptr %95, i64 %.074109
+  %96 = getelementptr inbounds double, ptr %95, i64 %.069109
   %97 = load double, ptr %96, align 8
   %98 = fsub double %94, %97
   %99 = load i32, ptr %11, align 8
@@ -512,16 +512,16 @@ _ZN11colvarvalueD2Ev.exit94:                      ; preds = %_ZNSt6vectorIdSaIdE
   %102 = fadd double %97, %101
   store double %102, ptr %96, align 8
   %103 = load ptr, ptr %14, align 8
-  %104 = getelementptr inbounds ptr, ptr %103, i64 %.074109
+  %104 = getelementptr inbounds ptr, ptr %103, i64 %.069109
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 672
   %107 = call noundef double @_ZNK11colvarvaluecvdEv(ptr noundef nonnull align 8 dereferenceable(168) %106)
   %108 = load ptr, ptr %32, align 8
-  %109 = getelementptr inbounds double, ptr %108, i64 %.074109
+  %109 = getelementptr inbounds double, ptr %108, i64 %.069109
   %110 = load double, ptr %109, align 8
   %111 = fsub double %107, %110
   %112 = load ptr, ptr %33, align 8
-  %113 = getelementptr inbounds double, ptr %112, i64 %.074109
+  %113 = getelementptr inbounds double, ptr %112, i64 %.069109
   %114 = load double, ptr %113, align 8
   %115 = call double @llvm.fmuladd.f64(double %98, double %111, double %114)
   store double %115, ptr %113, align 8
@@ -545,17 +545,17 @@ _ZN11colvarvalueD2Ev.exit94:                      ; preds = %_ZNSt6vectorIdSaIdE
 
 121:                                              ; preds = %_ZN11colvarvalueD2Ev.exit94
   %122 = load ptr, ptr %18, align 8
-  %123 = getelementptr inbounds double, ptr %122, i64 %.074109
+  %123 = getelementptr inbounds double, ptr %122, i64 %.069109
   %124 = load double, ptr %123, align 8
   %125 = load ptr, ptr %34, align 8
-  %126 = getelementptr inbounds double, ptr %125, i64 %.074109
+  %126 = getelementptr inbounds double, ptr %125, i64 %.069109
   %127 = load double, ptr %126, align 8
   %128 = fcmp oeq double %127, 0.000000e+00
   br i1 %128, label %139, label %129
 
 129:                                              ; preds = %121
   %130 = load ptr, ptr %35, align 8
-  %131 = getelementptr inbounds double, ptr %130, i64 %.074109
+  %131 = getelementptr inbounds double, ptr %130, i64 %.069109
   %132 = load double, ptr %131, align 8
   %133 = fsub double %124, %132
   %134 = fmul double %133, %133
@@ -569,18 +569,18 @@ _ZN11colvarvalueD2Ev.exit94:                      ; preds = %_ZNSt6vectorIdSaIdE
   br label %139
 
 139:                                              ; preds = %121, %129, %137
-  %.176 = phi i1 [ false, %137 ], [ %.075108, %129 ], [ %.075108, %121 ]
+  %.1 = phi i1 [ false, %137 ], [ %.070108, %129 ], [ %.070108, %121 ]
   %140 = load i8, ptr %36, align 1
   %141 = trunc i8 %140 to i1
   br i1 %141, label %189, label %142
 
 142:                                              ; preds = %139
   %143 = load ptr, ptr %18, align 8
-  %144 = getelementptr inbounds double, ptr %143, i64 %.074109
+  %144 = getelementptr inbounds double, ptr %143, i64 %.069109
   %145 = load double, ptr %144, align 8
   %146 = call double @llvm.fabs.f64(double %145)
   %147 = load ptr, ptr %37, align 8
-  %148 = getelementptr inbounds double, ptr %147, i64 %.074109
+  %148 = getelementptr inbounds double, ptr %147, i64 %.069109
   %149 = load double, ptr %148, align 8
   %150 = fcmp ogt double %146, %149
   br i1 %150, label %151, label %189
@@ -592,7 +592,7 @@ _ZN11colvarvalueD2Ev.exit94:                      ; preds = %_ZNSt6vectorIdSaIdE
 
 153:                                              ; preds = %151
   %154 = load ptr, ptr %14, align 8
-  %155 = getelementptr inbounds ptr, ptr %154, i64 %.074109
+  %155 = getelementptr inbounds ptr, ptr %154, i64 %.069109
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 440
   %158 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %152, ptr noundef nonnull align 8 dereferenceable(32) %157)
@@ -604,7 +604,7 @@ _ZN11colvarvalueD2Ev.exit94:                      ; preds = %_ZNSt6vectorIdSaIdE
 
 161:                                              ; preds = %159
   %162 = load ptr, ptr %37, align 8
-  %163 = getelementptr inbounds double, ptr %162, i64 %.074109
+  %163 = getelementptr inbounds double, ptr %162, i64 %.069109
   %164 = load double, ptr %163, align 8
   %165 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %160, double noundef %164)
           to label %166 unwind label %184
@@ -615,7 +615,7 @@ _ZN11colvarvalueD2Ev.exit94:                      ; preds = %_ZNSt6vectorIdSaIdE
 
 168:                                              ; preds = %166
   %169 = load ptr, ptr %37, align 8
-  %170 = getelementptr inbounds double, ptr %169, i64 %.074109
+  %170 = getelementptr inbounds double, ptr %169, i64 %.069109
   %171 = load double, ptr %170, align 8
   %172 = fmul double %171, 1.250000e+00
   store double %172, ptr %170, align 8
@@ -624,7 +624,7 @@ _ZN11colvarvalueD2Ev.exit94:                      ; preds = %_ZNSt6vectorIdSaIdE
 
 174:                                              ; preds = %168
   %175 = load ptr, ptr %37, align 8
-  %176 = getelementptr inbounds double, ptr %175, i64 %.074109
+  %176 = getelementptr inbounds double, ptr %175, i64 %.069109
   %177 = load double, ptr %176, align 8
   %178 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %173, double noundef %177)
           to label %179 unwind label %184
@@ -663,8 +663,8 @@ _ZN11colvarvalueD2Ev.exit94:                      ; preds = %_ZNSt6vectorIdSaIdE
   br label %321
 
 189:                                              ; preds = %89, %183, %142, %139
-  %.277 = phi i1 [ %.176, %139 ], [ %.176, %183 ], [ %.176, %142 ], [ %.075108, %89 ]
-  %190 = add nuw i64 %.074109, 1
+  %.2 = phi i1 [ %.1, %139 ], [ %.1, %183 ], [ %.1, %142 ], [ %.070108, %89 ]
+  %190 = add nuw i64 %.069109, 1
   %191 = load ptr, ptr %15, align 8
   %192 = load ptr, ptr %14, align 8
   %193 = ptrtoint ptr %191 to i64
@@ -677,11 +677,11 @@ _ZN11colvarvalueD2Ev.exit94:                      ; preds = %_ZNSt6vectorIdSaIdE
 ._crit_edge:                                      ; preds = %189, %1
   %198 = phi ptr [ %16, %1 ], [ %192, %189 ]
   %199 = phi ptr [ %16, %1 ], [ %191, %189 ]
-  %.075.lcssa = phi i1 [ true, %1 ], [ %.277, %189 ]
+  %.070.lcssa = phi i1 [ true, %1 ], [ %.2, %189 ]
   %200 = getelementptr inbounds i8, ptr %0, i64 536
   %201 = load i8, ptr %200, align 8
   %202 = trunc i8 %201 to i1
-  %203 = select i1 %202, i1 %.075.lcssa, i1 false
+  %203 = select i1 %202, i1 %.070.lcssa, i1 false
   br i1 %203, label %.thread, label %204
 
 .thread:                                          ; preds = %._crit_edge
@@ -742,7 +742,7 @@ _ZN11colvarvalueD2Ev.exit94:                      ; preds = %_ZNSt6vectorIdSaIdE
   %242 = load double, ptr %215, align 8
   %243 = fmul double %240, %242
   %.pn79 = select i1 %241, double %243, double %242
-  %.069 = fdiv double %239, %.pn79
+  %.068 = fdiv double %239, %.pn79
   %244 = load ptr, ptr %211, align 8
   %245 = getelementptr inbounds double, ptr %244, i64 %.0111
   store double 0.000000e+00, ptr %245, align 8
@@ -774,7 +774,7 @@ _ZN11colvarvalueD2Ev.exit94:                      ; preds = %_ZNSt6vectorIdSaIdE
   %266 = load ptr, ptr %217, align 8
   %267 = getelementptr inbounds double, ptr %266, i64 %.0111
   %268 = load double, ptr %267, align 8
-  %269 = call double @llvm.fmuladd.f64(double %.069, double %.069, double %268)
+  %269 = call double @llvm.fmuladd.f64(double %.068, double %.068, double %268)
   store double %269, ptr %267, align 8
   %270 = load ptr, ptr %218, align 8
   %271 = getelementptr inbounds double, ptr %270, i64 %.0111
@@ -793,7 +793,7 @@ _ZN11colvarvalueD2Ev.exit94:                      ; preds = %_ZNSt6vectorIdSaIdE
   %283 = load ptr, ptr %218, align 8
   %284 = getelementptr inbounds double, ptr %283, i64 %.0111
   %285 = load double, ptr %284, align 8
-  %286 = call double @llvm.fmuladd.f64(double %282, double %.069, double %285)
+  %286 = call double @llvm.fmuladd.f64(double %282, double %.068, double %285)
   store double %286, ptr %284, align 8
   %287 = load ptr, ptr %218, align 8
   %288 = getelementptr inbounds double, ptr %287, i64 %.0111

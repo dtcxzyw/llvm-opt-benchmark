@@ -101,15 +101,15 @@ define dso_local i32 @archive_read_append_filter(ptr noundef %0, i32 noundef %1)
   br label %58
 
 28:                                               ; preds = %25, %23, %21, %19, %17, %15, %13, %11, %8, %6, %4
-  %.045.ph = phi i32 [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ]
+  %.047.ph = phi i32 [ %5, %4 ], [ %7, %6 ], [ %9, %8 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ %26, %25 ]
   %29 = getelementptr inbounds i8, ptr %0, i64 248
   %scevgep = getelementptr i8, ptr %0, i64 632
   br label %30
 
 30:                                               ; preds = %28, %35
-  %.04663 = phi ptr [ %29, %28 ], [ %37, %35 ]
-  %.04762 = phi i32 [ 0, %28 ], [ %36, %35 ]
-  %31 = getelementptr inbounds i8, ptr %.04663, i64 8
+  %.04563 = phi ptr [ %29, %28 ], [ %37, %35 ]
+  %.04662 = phi i32 [ 0, %28 ], [ %36, %35 ]
+  %31 = getelementptr inbounds i8, ptr %.04563, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not53 = icmp eq ptr %32, null
   br i1 %.not53, label %split.thread, label %33
@@ -120,8 +120,8 @@ define dso_local i32 @archive_read_append_filter(ptr noundef %0, i32 noundef %1)
   br i1 %.not54, label %split.thread66, label %35
 
 35:                                               ; preds = %33
-  %36 = add nuw nsw i32 %.04762, 1
-  %37 = getelementptr inbounds i8, ptr %.04663, i64 24
+  %36 = add nuw nsw i32 %.04662, 1
+  %37 = getelementptr inbounds i8, ptr %.04563, i64 24
   %exitcond.not = icmp eq i32 %36, 16
   br i1 %exitcond.not, label %split, label %30, !llvm.loop !5
 
@@ -132,7 +132,7 @@ split:                                            ; preds = %35
   br i1 %.not55, label %split.thread, label %split.thread66
 
 split.thread66:                                   ; preds = %33, %split
-  %.046.lcssa69 = phi ptr [ %scevgep, %split ], [ %.04663, %33 ]
+  %.045.lcssa69 = phi ptr [ %scevgep, %split ], [ %.04563, %33 ]
   %38 = phi ptr [ %.pre, %split ], [ %32, %33 ]
   %39 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %3) #7
   %.not56 = icmp eq i32 %39, 0
@@ -153,14 +153,14 @@ split.thread:                                     ; preds = %30, %split.thread66
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %41, i64 8
-  store ptr %.046.lcssa69, ptr %45, align 8
+  store ptr %.045.lcssa69, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %41, i64 24
   store ptr %0, ptr %46, align 8
   %47 = load ptr, ptr %scevgep, align 8
   %48 = getelementptr inbounds i8, ptr %41, i64 16
   store ptr %47, ptr %48, align 8
   store ptr %41, ptr %scevgep, align 8
-  %49 = getelementptr inbounds i8, ptr %.046.lcssa69, i64 16
+  %49 = getelementptr inbounds i8, ptr %.045.lcssa69, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
@@ -173,10 +173,10 @@ split.thread:                                     ; preds = %30, %split.thread66
   br label %58
 
 55:                                               ; preds = %2, %44
-  %.04561 = phi i32 [ %.045.ph, %44 ], [ %1, %2 ]
+  %.04761 = phi i32 [ %.047.ph, %44 ], [ %1, %2 ]
   %56 = getelementptr inbounds i8, ptr %0, i64 640
   store i32 1, ptr %56, align 8
-  %57 = tail call i32 @llvm.smin.i32(i32 %.04561, i32 0)
+  %57 = tail call i32 @llvm.smin.i32(i32 %.04761, i32 0)
   br label %58
 
 58:                                               ; preds = %55, %54, %43, %split.thread, %27, %10
@@ -234,21 +234,21 @@ define dso_local range(i32 -30, 1) i32 @archive_read_append_filter_program_signa
   br label %8
 
 8:                                                ; preds = %6, %13
-  %.03241 = phi i32 [ 0, %6 ], [ %14, %13 ]
-  %.03340 = phi ptr [ %7, %6 ], [ %15, %13 ]
-  %9 = load ptr, ptr %.03340, align 8
+  %.03241 = phi ptr [ %7, %6 ], [ %15, %13 ]
+  %.03340 = phi i32 [ 0, %6 ], [ %14, %13 ]
+  %9 = load ptr, ptr %.03241, align 8
   %.not36 = icmp eq ptr %9, null
   br i1 %.not36, label %13, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %.03340, i64 8
+  %11 = getelementptr inbounds i8, ptr %.03241, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not37 = icmp eq ptr %12, null
   br i1 %.not37, label %split.thread, label %13
 
 13:                                               ; preds = %8, %10
-  %14 = add nuw nsw i32 %.03241, 1
-  %15 = getelementptr inbounds i8, ptr %.03340, i64 24
+  %14 = add nuw nsw i32 %.03340, 1
+  %15 = getelementptr inbounds i8, ptr %.03241, i64 24
   %exitcond.not = icmp eq i32 %14, 16
   br i1 %exitcond.not, label %split, label %8, !llvm.loop !7
 
@@ -262,7 +262,7 @@ split:                                            ; preds = %13
   br label %38
 
 split.thread:                                     ; preds = %10, %split
-  %.033.lcssa44 = phi ptr [ %scevgep, %split ], [ %.03340, %10 ]
+  %.032.lcssa44 = phi ptr [ %scevgep, %split ], [ %.03241, %10 ]
   %18 = tail call noalias dereferenceable_or_null(144) ptr @calloc(i64 noundef 1, i64 noundef 144) #8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %21
@@ -273,14 +273,14 @@ split.thread:                                     ; preds = %10, %split
 
 21:                                               ; preds = %split.thread
   %22 = getelementptr inbounds i8, ptr %18, i64 8
-  store ptr %.033.lcssa44, ptr %22, align 8
+  store ptr %.032.lcssa44, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %18, i64 24
   store ptr %0, ptr %23, align 8
   %24 = load ptr, ptr %scevgep, align 8
   %25 = getelementptr inbounds i8, ptr %18, i64 16
   store ptr %24, ptr %25, align 8
   store ptr %18, ptr %scevgep, align 8
-  %26 = getelementptr inbounds i8, ptr %.033.lcssa44, i64 16
+  %26 = getelementptr inbounds i8, ptr %.032.lcssa44, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
@@ -296,7 +296,7 @@ split.thread:                                     ; preds = %10, %split
   %33 = load ptr, ptr %scevgep, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 48
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %.033.lcssa44, i64 8
+  %36 = getelementptr inbounds i8, ptr %.032.lcssa44, i64 8
   store ptr %35, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 640
   store i32 1, ptr %37, align 8

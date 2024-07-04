@@ -117,7 +117,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_set_format(ptr noun
   br label %30
 
 30:                                               ; preds = %28, %35
-  %.02233 = phi i32 [ 0, %28 ], [ %36, %35 ]
+  %.033 = phi i32 [ 0, %28 ], [ %36, %35 ]
   %storemerge32 = phi ptr [ %29, %28 ], [ %37, %35 ]
   %31 = getelementptr inbounds i8, ptr %storemerge32, i64 8
   %32 = load ptr, ptr %31, align 8
@@ -130,7 +130,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_set_format(ptr noun
   br i1 %.not29, label %split.thread35, label %35
 
 35:                                               ; preds = %33
-  %36 = add nuw nsw i32 %.02233, 1
+  %36 = add nuw nsw i32 %.033, 1
   %37 = getelementptr inbounds i8, ptr %storemerge32, i64 88
   store ptr %37, ptr %7, align 8
   %exitcond.not = icmp eq i32 %36, 16
@@ -153,13 +153,13 @@ split.thread:                                     ; preds = %30, %split.thread35
   br label %40
 
 40:                                               ; preds = %split.thread, %split.thread35
-  %.023 = phi i32 [ -30, %split.thread ], [ 0, %split.thread35 ]
-  %41 = tail call i32 @llvm.smin.i32(i32 %.023, i32 %spec.select)
+  %.024 = phi i32 [ -30, %split.thread ], [ 0, %split.thread35 ]
+  %41 = tail call i32 @llvm.smin.i32(i32 %.024, i32 %spec.select)
   br label %42
 
 42:                                               ; preds = %2, %40, %27
-  %.0 = phi i32 [ -30, %27 ], [ %41, %40 ], [ %4, %2 ]
-  ret i32 %.0
+  %.022 = phi i32 [ -30, %27 ], [ %41, %40 ], [ %4, %2 ]
+  ret i32 %.022
 }
 
 declare i32 @archive_read_support_format_by_code(ptr noundef, i32 noundef) local_unnamed_addr #1

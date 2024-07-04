@@ -31,23 +31,23 @@ define range(i32 0, 2) i32 @unspack(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.loopexit57
 
 .loopexit57:                                      ; preds = %.loopexit57.loopexit, %12
-  %.046 = phi i32 [ 0, %12 ], [ %15, %.loopexit57.loopexit ]
-  %.1 = phi i8 [ %9, %12 ], [ %16, %.loopexit57.loopexit ]
-  %17 = icmp ugt i8 %.1, 8
+  %.147 = phi i8 [ %9, %12 ], [ %16, %.loopexit57.loopexit ]
+  %.044 = phi i32 [ 0, %12 ], [ %15, %.loopexit57.loopexit ]
+  %17 = icmp ugt i8 %.147, 8
   br i1 %17, label %.loopexit.loopexit, label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %.loopexit57
-  %18 = udiv i8 %.1, 9
+  %18 = udiv i8 %.147, 9
   %19 = zext nneg i8 %18 to i32
   %.neg60 = mul i8 %18, -9
-  %20 = add i8 %.neg60, %.1
+  %20 = add i8 %.neg60, %.147
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.loopexit57
-  %.047 = phi i32 [ 0, %.loopexit57 ], [ %19, %.loopexit.loopexit ]
-  %.3 = phi i8 [ %.1, %.loopexit57 ], [ %20, %.loopexit.loopexit ]
+  %.3 = phi i8 [ %.147, %.loopexit57 ], [ %20, %.loopexit.loopexit ]
+  %.043 = phi i32 [ 0, %.loopexit57 ], [ %19, %.loopexit.loopexit ]
   %21 = zext i8 %.3 to i32
-  %22 = trunc nuw nsw i32 %.047 to i8
+  %22 = trunc nuw nsw i32 %.043 to i8
   %23 = add i8 %.3, %22
   %24 = zext nneg i8 %23 to i32
   %25 = shl i32 1536, %24
@@ -80,7 +80,7 @@ define range(i32 0, 2) i32 @unspack(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %47
 
 39:                                               ; preds = %32
-  %40 = tail call i32 @very_real_unpack(ptr noundef nonnull %30, i32 noundef %26, i32 noundef %21, i32 noundef %.047, i32 noundef %.046, ptr noundef nonnull %10, i32 noundef %36, ptr noundef %1, i32 noundef %34)
+  %40 = tail call i32 @very_real_unpack(ptr noundef nonnull %30, i32 noundef %26, i32 noundef %21, i32 noundef %.043, i32 noundef %.044, ptr noundef nonnull %10, i32 noundef %36, ptr noundef %1, i32 noundef %34)
   tail call void @free(ptr noundef nonnull %30) #6
   %.not55 = icmp eq i32 %40, 0
   br i1 %.not55, label %41, label %47

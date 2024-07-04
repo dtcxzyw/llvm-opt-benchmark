@@ -102,9 +102,9 @@ define dso_local ptr @GetConnection() local_unnamed_addr #0 {
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %15
-  %.099139 = phi ptr [ %16, %15 ], [ %5, %.preheader ]
-  %.0103138 = phi i32 [ %.1104, %15 ], [ 7, %.preheader ]
-  %10 = getelementptr inbounds i8, ptr %.099139, i64 24
+  %.0139 = phi ptr [ %16, %15 ], [ %5, %.preheader ]
+  %.0107138 = phi i32 [ %.1108, %15 ], [ 7, %.preheader ]
+  %10 = getelementptr inbounds i8, ptr %.0139, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not133 = icmp eq ptr %11, null
   br i1 %.not133, label %15, label %12
@@ -113,19 +113,19 @@ define dso_local ptr @GetConnection() local_unnamed_addr #0 {
   %13 = load i8, ptr %11, align 1
   %.not134 = icmp ne i8 %13, 0
   %14 = zext i1 %.not134 to i32
-  %spec.select = add i32 %.0103138, %14
+  %spec.select = add i32 %.0107138, %14
   br label %15
 
 15:                                               ; preds = %12, %.lr.ph
-  %.1104 = phi i32 [ %.0103138, %.lr.ph ], [ %spec.select, %12 ]
-  %16 = getelementptr i8, ptr %.099139, i64 56
+  %.1108 = phi i32 [ %.0107138, %.lr.ph ], [ %spec.select, %12 ]
+  %16 = getelementptr i8, ptr %.0139, i64 56
   %17 = load ptr, ptr %16, align 8
   %.not117 = icmp eq ptr %17, null
   br i1 %.not117, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %15, %.preheader
-  %.0103.lcssa = phi i32 [ 7, %.preheader ], [ %.1104, %15 ]
-  %18 = add i32 %.0103.lcssa, 1
+  %.0107.lcssa = phi i32 [ 7, %.preheader ], [ %.1108, %15 ]
+  %18 = add i32 %.0107.lcssa, 1
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 3
   %21 = call ptr @pg_malloc0(i64 noundef %20) #15
@@ -139,7 +139,7 @@ define dso_local ptr @GetConnection() local_unnamed_addr #0 {
 .lr.ph144:                                        ; preds = %._crit_edge, %35
   %24 = phi ptr [ %37, %35 ], [ %23, %._crit_edge ]
   %.1142 = phi ptr [ %36, %35 ], [ %5, %._crit_edge ]
-  %.0107141 = phi i32 [ %.1108, %35 ], [ 1, %._crit_edge ]
+  %.0104141 = phi i32 [ %.1105, %35 ], [ 1, %._crit_edge ]
   %25 = getelementptr inbounds i8, ptr %.1142, i64 24
   %26 = load ptr, ptr %25, align 8
   %.not131 = icmp eq ptr %26, null
@@ -151,17 +151,17 @@ define dso_local ptr @GetConnection() local_unnamed_addr #0 {
   br i1 %.not132, label %35, label %29
 
 29:                                               ; preds = %27
-  %30 = sext i32 %.0107141 to i64
+  %30 = sext i32 %.0104141 to i64
   %31 = getelementptr ptr, ptr %21, i64 %30
   store ptr %24, ptr %31, align 8
   %32 = load ptr, ptr %25, align 8
   %33 = getelementptr ptr, ptr %22, i64 %30
   store ptr %32, ptr %33, align 8
-  %34 = add i32 %.0107141, 1
+  %34 = add i32 %.0104141, 1
   br label %35
 
 35:                                               ; preds = %.lr.ph144, %27, %29
-  %.1108 = phi i32 [ %34, %29 ], [ %.0107141, %27 ], [ %.0107141, %.lr.ph144 ]
+  %.1105 = phi i32 [ %34, %29 ], [ %.0104141, %27 ], [ %.0104141, %.lr.ph144 ]
   %36 = getelementptr i8, ptr %.1142, i64 56
   %37 = load ptr, ptr %36, align 8
   %.not118 = icmp eq ptr %37, null
@@ -176,38 +176,38 @@ define dso_local ptr @GetConnection() local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %._crit_edge, %38
-  %.2109 = phi i32 [ 1, %38 ], [ 1, %._crit_edge ], [ %.1108, %35 ]
-  %.0106 = phi ptr [ %39, %38 ], [ %21, %._crit_edge ], [ %21, %35 ]
-  %.0105 = phi ptr [ %40, %38 ], [ %22, %._crit_edge ], [ %22, %35 ]
-  %.0100 = phi ptr [ null, %38 ], [ %5, %._crit_edge ], [ %5, %35 ]
-  %42 = sext i32 %.2109 to i64
-  %43 = getelementptr ptr, ptr %.0106, i64 %42
+  %.2106 = phi i32 [ 1, %38 ], [ 1, %._crit_edge ], [ %.1105, %35 ]
+  %.0103 = phi ptr [ %39, %38 ], [ %21, %._crit_edge ], [ %21, %35 ]
+  %.0102 = phi ptr [ %40, %38 ], [ %22, %._crit_edge ], [ %22, %35 ]
+  %.099 = phi ptr [ null, %38 ], [ %5, %._crit_edge ], [ %5, %35 ]
+  %42 = sext i32 %.2106 to i64
+  %43 = getelementptr ptr, ptr %.0103, i64 %42
   store ptr @.str.2, ptr %43, align 8
   %44 = load ptr, ptr @dbname, align 8
   %45 = icmp eq ptr %44, null
   %46 = select i1 %45, ptr @.str.3, ptr @.str.4
-  %47 = getelementptr ptr, ptr %.0105, i64 %42
+  %47 = getelementptr ptr, ptr %.0102, i64 %42
   store ptr %46, ptr %47, align 8
-  %48 = add i32 %.2109, 1
+  %48 = add i32 %.2106, 1
   %49 = sext i32 %48 to i64
-  %50 = getelementptr ptr, ptr %.0106, i64 %49
+  %50 = getelementptr ptr, ptr %.0103, i64 %49
   store ptr @.str.5, ptr %50, align 8
   %51 = load ptr, ptr @progname, align 8
-  %52 = getelementptr ptr, ptr %.0105, i64 %49
+  %52 = getelementptr ptr, ptr %.0102, i64 %49
   store ptr %51, ptr %52, align 8
-  %53 = add i32 %.2109, 2
+  %53 = add i32 %.2106, 2
   %54 = load ptr, ptr @dbhost, align 8
   %.not119 = icmp eq ptr %54, null
   br i1 %.not119, label %61, label %55
 
 55:                                               ; preds = %.loopexit
   %56 = sext i32 %53 to i64
-  %57 = getelementptr ptr, ptr %.0106, i64 %56
+  %57 = getelementptr ptr, ptr %.0103, i64 %56
   store ptr @.str.6, ptr %57, align 8
   %58 = load ptr, ptr @dbhost, align 8
-  %59 = getelementptr ptr, ptr %.0105, i64 %56
+  %59 = getelementptr ptr, ptr %.0102, i64 %56
   store ptr %58, ptr %59, align 8
-  %60 = add i32 %.2109, 3
+  %60 = add i32 %.2106, 3
   br label %61
 
 61:                                               ; preds = %55, %.loopexit
@@ -218,10 +218,10 @@ define dso_local ptr @GetConnection() local_unnamed_addr #0 {
 
 63:                                               ; preds = %61
   %64 = sext i32 %.3 to i64
-  %65 = getelementptr ptr, ptr %.0106, i64 %64
+  %65 = getelementptr ptr, ptr %.0103, i64 %64
   store ptr @.str.7, ptr %65, align 8
   %66 = load ptr, ptr @dbuser, align 8
-  %67 = getelementptr ptr, ptr %.0105, i64 %64
+  %67 = getelementptr ptr, ptr %.0102, i64 %64
   store ptr %66, ptr %67, align 8
   %68 = add i32 %.3, 1
   br label %69
@@ -234,10 +234,10 @@ define dso_local ptr @GetConnection() local_unnamed_addr #0 {
 
 71:                                               ; preds = %69
   %72 = sext i32 %.4 to i64
-  %73 = getelementptr ptr, ptr %.0106, i64 %72
+  %73 = getelementptr ptr, ptr %.0103, i64 %72
   store ptr @.str.8, ptr %73, align 8
   %74 = load ptr, ptr @dbport, align 8
-  %75 = getelementptr ptr, ptr %.0105, i64 %72
+  %75 = getelementptr ptr, ptr %.0102, i64 %72
   store ptr %74, ptr %75, align 8
   %76 = add i32 %.4, 1
   br label %77
@@ -251,13 +251,13 @@ define dso_local ptr @GetConnection() local_unnamed_addr #0 {
   %81 = select i1 %79, i1 %.not122, i1 false
   %82 = zext i1 %81 to i8
   %83 = sext i32 %.5 to i64
-  %84 = getelementptr ptr, ptr %.0106, i64 %83
-  %85 = getelementptr ptr, ptr %.0105, i64 %83
+  %84 = getelementptr ptr, ptr %.0103, i64 %83
+  %85 = getelementptr ptr, ptr %.0102, i64 %83
   br label %86
 
 86:                                               ; preds = %105, %77
-  %.0101 = phi i8 [ %82, %77 ], [ %.2, %105 ]
-  %87 = trunc nuw i8 %.0101 to i1
+  %.0100 = phi i8 [ %82, %77 ], [ %.2, %105 ]
+  %87 = trunc nuw i8 %.0100 to i1
   %88 = load ptr, ptr @password, align 8
   br i1 %87, label %89, label %thread-pre-split
 
@@ -269,7 +269,7 @@ define dso_local ptr @GetConnection() local_unnamed_addr #0 {
 
 thread-pre-split:                                 ; preds = %86, %89
   %91 = phi ptr [ %90, %89 ], [ %88, %86 ]
-  %.1102 = phi i8 [ 0, %89 ], [ %.0101, %86 ]
+  %.1101 = phi i8 [ 0, %89 ], [ %.0100, %86 ]
   %.not123 = icmp eq ptr %91, null
   %spec.select152 = select i1 %.not123, ptr null, ptr @.str.10
   store ptr %spec.select152, ptr %84, align 8
@@ -277,7 +277,7 @@ thread-pre-split:                                 ; preds = %86, %89
   %92 = load ptr, ptr @connection_string, align 8
   %.not124 = icmp eq ptr %92, null
   %93 = zext i1 %.not124 to i32
-  %94 = call ptr @PQconnectdbParams(ptr noundef nonnull %.0106, ptr noundef nonnull %.0105, i32 noundef %93) #15
+  %94 = call ptr @PQconnectdbParams(ptr noundef nonnull %.0103, ptr noundef nonnull %.0102, i32 noundef %93) #15
   %.not125 = icmp eq ptr %94, null
   br i1 %.not125, label %95, label %96
 
@@ -304,7 +304,7 @@ thread-pre-split:                                 ; preds = %86, %89
   br label %105
 
 105:                                              ; preds = %96, %99, %104
-  %.2 = phi i8 [ 1, %104 ], [ %.1102, %99 ], [ %.1102, %96 ]
+  %.2 = phi i8 [ 1, %104 ], [ %.1101, %99 ], [ %.1101, %96 ]
   %106 = trunc nuw i8 %.2 to i1
   br i1 %106, label %86, label %107, !llvm.loop !8
 
@@ -317,15 +317,15 @@ thread-pre-split:                                 ; preds = %86, %89
   %110 = call ptr @PQerrorMessage(ptr noundef nonnull %94) #15
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %110) #15
   call void @PQfinish(ptr noundef nonnull %94) #15
-  call void @free(ptr noundef nonnull %.0105) #15
-  call void @free(ptr noundef nonnull %.0106) #15
-  call void @PQconninfoFree(ptr noundef %.0100) #15
+  call void @free(ptr noundef nonnull %.0102) #15
+  call void @free(ptr noundef nonnull %.0103) #15
+  call void @PQconninfoFree(ptr noundef %.099) #15
   br label %155
 
 111:                                              ; preds = %107
-  call void @free(ptr noundef nonnull %.0105) #15
-  call void @free(ptr noundef nonnull %.0106) #15
-  call void @PQconninfoFree(ptr noundef %.0100) #15
+  call void @free(ptr noundef nonnull %.0102) #15
+  call void @free(ptr noundef nonnull %.0103) #15
+  call void @PQconninfoFree(ptr noundef %.099) #15
   %112 = load ptr, ptr @dbname, align 8
   %.not127 = icmp eq ptr %112, null
   br i1 %.not127, label %122, label %113
@@ -449,8 +449,8 @@ RetrieveDataDirCreatePerm.exit:                   ; preds = %131, %152
   unreachable
 
 155:                                              ; preds = %RetrieveDataDirCreatePerm.exit, %109
-  %.0 = phi ptr [ null, %109 ], [ %94, %RetrieveDataDirCreatePerm.exit ]
-  ret ptr %.0
+  %.0109 = phi ptr [ null, %109 ], [ %94, %RetrieveDataDirCreatePerm.exit ]
+  ret ptr %.0109
 }
 
 declare ptr @PQconninfoParse(ptr noundef, ptr noundef) local_unnamed_addr #1

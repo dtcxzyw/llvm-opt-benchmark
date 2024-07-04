@@ -33,8 +33,8 @@ define double @lgamma_r(double noundef %0, ptr nocapture noundef writeonly %1) l
   br label %15
 
 15:                                               ; preds = %13, %12
-  %.0155 = phi double [ %14, %13 ], [ %0, %12 ]
-  %16 = tail call double @log(double noundef %.0155) #4
+  %.0156 = phi double [ %14, %13 ], [ %0, %12 ]
+  %16 = tail call double @log(double noundef %.0156) #4
   %17 = fneg double %16
   br label %190
 
@@ -104,15 +104,15 @@ sin_pi.exit:                                      ; preds = %35, %37, %39, %42
   br label %54
 
 54:                                               ; preds = %52, %51
-  %.0158 = phi double [ %.0.i, %51 ], [ %53, %52 ]
-  %55 = fmul double %.0158, %20
+  %.0163 = phi double [ %.0.i, %51 ], [ %53, %52 ]
+  %55 = fmul double %.0163, %20
   %56 = fdiv double 0x400921FB54442D18, %55
   %57 = tail call double @log(double noundef %56) #4
   br label %58
 
 58:                                               ; preds = %54, %18
-  %.0160 = phi double [ %57, %54 ], [ 0.000000e+00, %18 ]
-  %.1 = phi double [ %20, %54 ], [ %0, %18 ]
+  %.0158 = phi double [ %57, %54 ], [ 0.000000e+00, %18 ]
+  %.1157 = phi double [ %20, %54 ], [ %0, %18 ]
   %59 = icmp eq i32 %6, 1072693248
   %60 = icmp eq i32 %6, 1073741824
   %or.cond = or i1 %59, %60
@@ -130,7 +130,7 @@ sin_pi.exit:                                      ; preds = %35, %37, %39, %42
   br i1 %66, label %67, label %73
 
 67:                                               ; preds = %65
-  %68 = tail call double @log(double noundef %.1) #4
+  %68 = tail call double @log(double noundef %.1157) #4
   %69 = fneg double %68
   %70 = icmp ugt i32 %6, 1072130371
   br i1 %70, label %79, label %71
@@ -148,14 +148,14 @@ sin_pi.exit:                                      ; preds = %35, %37, %39, %42
   br i1 %76, label %95, label %77
 
 77:                                               ; preds = %75
-  %78 = fadd double %.1, -1.000000e+00
+  %78 = fadd double %.1157, -1.000000e+00
   br label %118
 
 79:                                               ; preds = %73, %67
   %.pn = phi double [ 1.000000e+00, %67 ], [ 2.000000e+00, %73 ]
-  %.0156.ph = phi double [ %69, %67 ], [ 0.000000e+00, %73 ]
-  %.0159.ph = fsub double %.pn, %.1
-  %80 = fmul double %.0159.ph, %.0159.ph
+  %.0154.ph = phi double [ %69, %67 ], [ 0.000000e+00, %73 ]
+  %.0162.ph = fsub double %.pn, %.1157
+  %80 = fmul double %.0162.ph, %.0162.ph
   %81 = tail call double @llvm.fmuladd.f64(double %80, double 0x3EFA7074428CFA52, double 0x3F2CF2ECED10E54D)
   %82 = tail call double @llvm.fmuladd.f64(double %80, double %81, double 0x3F538A94116F3F5D)
   %83 = tail call double @llvm.fmuladd.f64(double %80, double %82, double 0x3F7E404FB68FEFE8)
@@ -167,15 +167,15 @@ sin_pi.exit:                                      ; preds = %35, %37, %39, %42
   %89 = tail call double @llvm.fmuladd.f64(double %80, double %88, double 0x3F951322AC92547B)
   %90 = tail call double @llvm.fmuladd.f64(double %80, double %89, double 0x3FD4A34CC4A60FAD)
   %91 = fmul double %80, %90
-  %92 = tail call double @llvm.fmuladd.f64(double %.0159.ph, double %85, double %91)
-  %93 = tail call double @llvm.fmuladd.f64(double %.0159.ph, double -5.000000e-01, double %92)
-  %94 = fadd double %.0156.ph, %93
+  %92 = tail call double @llvm.fmuladd.f64(double %.0162.ph, double %85, double %91)
+  %93 = tail call double @llvm.fmuladd.f64(double %.0162.ph, double -5.000000e-01, double %92)
+  %94 = fadd double %.0154.ph, %93
   br label %188
 
 95:                                               ; preds = %75, %71
   %.sink = phi double [ 0xBFDD8B618D5AF8FC, %71 ], [ 0xBFF762D86356BE3F, %75 ]
-  %.0156.ph174 = phi double [ %69, %71 ], [ 0.000000e+00, %75 ]
-  %96 = fadd double %.1, %.sink
+  %.0154.ph174 = phi double [ %69, %71 ], [ 0.000000e+00, %75 ]
+  %96 = fadd double %.1157, %.sink
   %97 = fmul double %96, %96
   %98 = fmul double %96, %97
   %99 = tail call double @llvm.fmuladd.f64(double %98, double 0x3F34AF6D6C0EBBF7, double 0xBF56FE8EBF2D1AF1)
@@ -196,26 +196,26 @@ sin_pi.exit:                                      ; preds = %35, %37, %39, %42
   %114 = fneg double %113
   %115 = tail call double @llvm.fmuladd.f64(double %97, double %102, double %114)
   %116 = fadd double %115, 0xBFBF19B9BCC38A42
-  %117 = fadd double %.0156.ph174, %116
+  %117 = fadd double %.0154.ph174, %116
   br label %188
 
 118:                                              ; preds = %77, %71
-  %.0159 = phi double [ %78, %77 ], [ %.1, %71 ]
-  %.0156 = phi double [ 0.000000e+00, %77 ], [ %69, %71 ]
-  %119 = tail call double @llvm.fmuladd.f64(double %.0159, double 0x3F8B678BBF2BAB09, double 0x3FCD4EAEF6010924)
-  %120 = tail call double @llvm.fmuladd.f64(double %.0159, double %119, double 0x3FEF497644EA8450)
-  %121 = tail call double @llvm.fmuladd.f64(double %.0159, double %120, double 0x3FF7475CD119BD6F)
-  %122 = tail call double @llvm.fmuladd.f64(double %.0159, double %121, double 0x3FE4401E8B005DFF)
-  %123 = tail call double @llvm.fmuladd.f64(double %.0159, double %122, double 0xBFB3C467E37DB0C8)
-  %124 = fmul double %.0159, %123
-  %125 = tail call double @llvm.fmuladd.f64(double %.0159, double 0x3F6A5ABB57D0CF61, double 0x3FBAAE55D6537C88)
-  %126 = tail call double @llvm.fmuladd.f64(double %.0159, double %125, double 0x3FE89DFBE45050AF)
-  %127 = tail call double @llvm.fmuladd.f64(double %.0159, double %126, double 0x40010725A42B18F5)
-  %128 = tail call double @llvm.fmuladd.f64(double %.0159, double %127, double 0x4003A5D7C2BD619C)
-  %129 = tail call double @llvm.fmuladd.f64(double %.0159, double %128, double 1.000000e+00)
+  %.0162 = phi double [ %78, %77 ], [ %.1157, %71 ]
+  %.0154 = phi double [ 0.000000e+00, %77 ], [ %69, %71 ]
+  %119 = tail call double @llvm.fmuladd.f64(double %.0162, double 0x3F8B678BBF2BAB09, double 0x3FCD4EAEF6010924)
+  %120 = tail call double @llvm.fmuladd.f64(double %.0162, double %119, double 0x3FEF497644EA8450)
+  %121 = tail call double @llvm.fmuladd.f64(double %.0162, double %120, double 0x3FF7475CD119BD6F)
+  %122 = tail call double @llvm.fmuladd.f64(double %.0162, double %121, double 0x3FE4401E8B005DFF)
+  %123 = tail call double @llvm.fmuladd.f64(double %.0162, double %122, double 0xBFB3C467E37DB0C8)
+  %124 = fmul double %.0162, %123
+  %125 = tail call double @llvm.fmuladd.f64(double %.0162, double 0x3F6A5ABB57D0CF61, double 0x3FBAAE55D6537C88)
+  %126 = tail call double @llvm.fmuladd.f64(double %.0162, double %125, double 0x3FE89DFBE45050AF)
+  %127 = tail call double @llvm.fmuladd.f64(double %.0162, double %126, double 0x40010725A42B18F5)
+  %128 = tail call double @llvm.fmuladd.f64(double %.0162, double %127, double 0x4003A5D7C2BD619C)
+  %129 = tail call double @llvm.fmuladd.f64(double %.0162, double %128, double 1.000000e+00)
   %130 = fdiv double %124, %129
-  %131 = tail call double @llvm.fmuladd.f64(double %.0159, double -5.000000e-01, double %130)
-  %132 = fadd double %.0156, %131
+  %131 = tail call double @llvm.fmuladd.f64(double %.0162, double -5.000000e-01, double %130)
+  %132 = fadd double %.0154, %131
   br label %188
 
 133:                                              ; preds = %63
@@ -223,9 +223,9 @@ sin_pi.exit:                                      ; preds = %35, %37, %39, %42
   br i1 %134, label %135, label %170
 
 135:                                              ; preds = %133
-  %136 = fptosi double %.1 to i32
+  %136 = fptosi double %.1157 to i32
   %137 = sitofp i32 %136 to double
-  %138 = fsub double %.1, %137
+  %138 = fsub double %.1157, %137
   %139 = tail call double @llvm.fmuladd.f64(double %138, double 0x3F00BFECDD17E945, double 0x3F5E26B67368F239)
   %140 = tail call double @llvm.fmuladd.f64(double %138, double %139, double 0x3F9B481C7E939961)
   %141 = tail call double @llvm.fmuladd.f64(double %138, double %140, double 0x3FC2BB9CBEE5F2F7)
@@ -254,21 +254,21 @@ sin_pi.exit:                                      ; preds = %35, %37, %39, %42
   br label %156
 
 156:                                              ; preds = %154, %135
-  %.0161 = phi double [ 1.000000e+00, %135 ], [ %155, %154 ]
+  %.0159 = phi double [ 1.000000e+00, %135 ], [ %155, %154 ]
   %157 = fadd double %138, 5.000000e+00
-  %158 = fmul double %157, %.0161
+  %158 = fmul double %157, %.0159
   br label %159
 
 159:                                              ; preds = %156, %135
-  %.1162 = phi double [ 1.000000e+00, %135 ], [ %158, %156 ]
+  %.1160 = phi double [ 1.000000e+00, %135 ], [ %158, %156 ]
   %160 = fadd double %138, 4.000000e+00
-  %161 = fmul double %160, %.1162
+  %161 = fmul double %160, %.1160
   br label %162
 
 162:                                              ; preds = %159, %135
-  %.2163 = phi double [ 1.000000e+00, %135 ], [ %161, %159 ]
+  %.2161 = phi double [ 1.000000e+00, %135 ], [ %161, %159 ]
   %163 = fadd double %138, 3.000000e+00
-  %164 = fmul double %163, %.2163
+  %164 = fmul double %163, %.2161
   br label %165
 
 165:                                              ; preds = %162, %135
@@ -281,11 +281,11 @@ sin_pi.exit:                                      ; preds = %35, %37, %39, %42
 
 170:                                              ; preds = %133
   %171 = icmp ult i32 %6, 1133510656
-  %172 = tail call double @log(double noundef %.1) #4
+  %172 = tail call double @log(double noundef %.1157) #4
   br i1 %171, label %173, label %185
 
 173:                                              ; preds = %170
-  %174 = fdiv double 1.000000e+00, %.1
+  %174 = fdiv double 1.000000e+00, %.1157
   %175 = fmul double %174, %174
   %176 = tail call double @llvm.fmuladd.f64(double %175, double 0xBF5AB89D0B9E43E4, double 0x3F4B67BA4CDAD5D1)
   %177 = tail call double @llvm.fmuladd.f64(double %175, double %176, double 0xBF4380CB8C0FE741)
@@ -293,25 +293,25 @@ sin_pi.exit:                                      ; preds = %35, %37, %39, %42
   %179 = tail call double @llvm.fmuladd.f64(double %175, double %178, double 0xBF66C16C16B02E5C)
   %180 = tail call double @llvm.fmuladd.f64(double %175, double %179, double 0x3FB555555555553B)
   %181 = tail call double @llvm.fmuladd.f64(double %174, double %180, double 0x3FDACFE390C97D69)
-  %182 = fadd double %.1, -5.000000e-01
+  %182 = fadd double %.1157, -5.000000e-01
   %183 = fadd double %172, -1.000000e+00
   %184 = tail call double @llvm.fmuladd.f64(double %182, double %183, double %181)
   br label %188
 
 185:                                              ; preds = %170
   %186 = fadd double %172, -1.000000e+00
-  %187 = fmul double %.1, %186
+  %187 = fmul double %.1157, %186
   br label %188
 
 188:                                              ; preds = %58, %118, %95, %79, %173, %185, %135, %165
-  %.1157 = phi double [ %132, %118 ], [ %117, %95 ], [ %94, %79 ], [ %153, %135 ], [ %169, %165 ], [ %184, %173 ], [ %187, %185 ], [ 0.000000e+00, %58 ]
-  %189 = fsub double %.0160, %.1157
-  %.2 = select i1 %.not166, double %.1157, double %189
+  %.1 = phi double [ %132, %118 ], [ %117, %95 ], [ %94, %79 ], [ %153, %135 ], [ %169, %165 ], [ %184, %173 ], [ %187, %185 ], [ 0.000000e+00, %58 ]
+  %189 = fsub double %.0158, %.1
+  %.2 = select i1 %.not166, double %.1, double %189
   br label %190
 
 190:                                              ; preds = %188, %46, %15, %8
-  %.0154 = phi double [ %9, %8 ], [ %17, %15 ], [ %48, %46 ], [ %.2, %188 ]
-  ret double %.0154
+  %.0155 = phi double [ %9, %8 ], [ %17, %15 ], [ %48, %46 ], [ %.2, %188 ]
+  ret double %.0155
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)

@@ -210,8 +210,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   br label %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h624278ca8f72fcc8E.exit"
 
 "_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h624278ca8f72fcc8E.exit": ; preds = %3, %5
-  %.sroa.0.0.i.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i.i, %3 ]
   %.sroa.3.0.i.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i.i, %3 ]
+  %.sroa.0.0.i.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i.i, %3 ]
   store i64 1, ptr %0, align 8, !noalias !21
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.0.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !21
@@ -251,8 +251,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local
   br label %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h15a04fe1ea42b316E.llvm.2781285154437976841.exit"
 
 "_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h15a04fe1ea42b316E.llvm.2781285154437976841.exit": ; preds = %6, %8
-  %.sroa.0.0.i.i.i = phi i64 [ %10, %8 ], [ %.sroa.5.0.copyload.i.i.i, %6 ]
   %.sroa.3.0.i.i.i = phi i64 [ %11, %8 ], [ %.sroa.6.0.copyload.i.i.i, %6 ]
+  %.sroa.0.0.i.i.i = phi i64 [ %10, %8 ], [ %.sroa.5.0.copyload.i.i.i, %6 ]
   store i64 1, ptr %0, align 8, !noalias !39
   store i64 %.sroa.0.0.i.i.i, ptr %4, align 8, !noalias !39
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -993,23 +993,23 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   br i1 %67, label %.lr.ph.i, label %._crit_edge.i
 
 .preheader.i:                                     ; preds = %56, %72
-  %.sroa.025.0138.i = phi i64 [ %68, %72 ], [ 0, %56 ]
-  %.165137.i = phi i8 [ %.2.i, %72 ], [ %.064139.i, %56 ]
-  %68 = add nuw nsw i64 %.sroa.025.0138.i, 1
-  %69 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0138.i
+  %.165138.i = phi i8 [ %.2.i, %72 ], [ %.064139.i, %56 ]
+  %.sroa.025.0137.i = phi i64 [ %68, %72 ], [ 0, %56 ]
+  %68 = add nuw nsw i64 %.sroa.025.0137.i, 1
+  %69 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0137.i
   %70 = load i16, ptr %69, align 2, !noalias !91, !noundef !4
   %71 = icmp eq i16 %70, 0
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %73, %.preheader.i
-  %.2.i = phi i8 [ %.165137.i, %.preheader.i ], [ %79, %73 ]
+  %.2.i = phi i8 [ %.165138.i, %.preheader.i ], [ %79, %73 ]
   %exitcond155.not.i = icmp eq i64 %68, 4
   br i1 %exitcond155.not.i, label %64, label %.preheader.i
 
 73:                                               ; preds = %.preheader.i
-  %74 = shl nuw nsw i64 %.sroa.025.0138.i, 4
+  %74 = shl nuw nsw i64 %.sroa.025.0137.i, 4
   %75 = add nuw nsw i64 %74, %.062140.i
-  %76 = trunc nuw i8 %.165137.i to i1
+  %76 = trunc nuw i8 %.165138.i to i1
   %77 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h171ad6fc75ef21f6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %75, i16 noundef %70, i1 noundef zeroext %76)
   %78 = or i1 %77, %76
   %79 = zext i1 %78 to i8
@@ -1117,8 +1117,8 @@ _ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit: ; preds = %22
   br label %126
 
 .loopexit.i:                                      ; preds = %186, %184, %182
-  %.013.i.i = phi i64 [ 1, %182 ], [ %..i.i, %186 ], [ 2, %184 ]
-  %125 = add i64 %.013.i.i, %127
+  %.012.i.i = phi i64 [ 1, %182 ], [ %..i.i, %186 ], [ 2, %184 ]
+  %125 = add i64 %.012.i.i, %127
   br label %126
 
 126:                                              ; preds = %.loopexit.i, %.lr.ph106.i

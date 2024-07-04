@@ -611,13 +611,13 @@ if.end.i.i:                                       ; preds = %do.end
   br label %finally
 
 finally:                                          ; preds = %if.end.i.i, %do.end, %if.end55, %cond.end51, %if.end18, %if.then16, %if.then9, %if.then4, %if.then
+  %spec.0 = phi ptr [ null, %if.then ], [ %call, %if.then4 ], [ %call, %if.then9 ], [ %call, %if.then16 ], [ %call, %if.end18 ], [ null, %cond.end51 ], [ null, %if.end55 ], [ null, %do.end ], [ null, %if.end.i.i ]
+  %name.0 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ %call2, %if.then9 ], [ %call2, %if.then16 ], [ %call2, %if.end18 ], [ null, %cond.end51 ], [ null, %if.end55 ], [ null, %do.end ], [ null, %if.end.i.i ]
+  %doc.0 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ null, %if.then9 ], [ %call7, %if.then16 ], [ %call7, %if.end18 ], [ null, %cond.end51 ], [ null, %if.end55 ], [ null, %do.end ], [ null, %if.end.i.i ]
+  %slots.0 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ null, %if.then9 ], [ null, %if.then16 ], [ %call14, %if.end18 ], [ null, %cond.end51 ], [ null, %if.end55 ], [ null, %do.end ], [ null, %if.end.i.i ]
   %class.0 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ null, %if.then9 ], [ null, %if.then16 ], [ null, %if.end18 ], [ %call29, %cond.end51 ], [ %call29, %if.end55 ], [ %call29, %do.end ], [ %call29, %if.end.i.i ]
   %instance.0 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ null, %if.then9 ], [ null, %if.then16 ], [ null, %if.end18 ], [ null, %cond.end51 ], [ %call52, %if.end55 ], [ %call52, %do.end ], [ %call52, %if.end.i.i ]
   %result.0 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ null, %if.then9 ], [ null, %if.then16 ], [ null, %if.end18 ], [ null, %cond.end51 ], [ null, %if.end55 ], [ @_Py_NoneStruct, %do.end ], [ @_Py_NoneStruct, %if.end.i.i ]
-  %slots.0 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ null, %if.then9 ], [ null, %if.then16 ], [ %call14, %if.end18 ], [ null, %cond.end51 ], [ null, %if.end55 ], [ null, %do.end ], [ null, %if.end.i.i ]
-  %doc.0 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ null, %if.then9 ], [ %call7, %if.then16 ], [ %call7, %if.end18 ], [ null, %cond.end51 ], [ null, %if.end55 ], [ null, %do.end ], [ null, %if.end.i.i ]
-  %name.0 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ %call2, %if.then9 ], [ %call2, %if.then16 ], [ %call2, %if.end18 ], [ null, %cond.end51 ], [ null, %if.end55 ], [ null, %do.end ], [ null, %if.end.i.i ]
-  %spec.0 = phi ptr [ null, %if.then ], [ %call, %if.then4 ], [ %call, %if.then9 ], [ %call, %if.then16 ], [ %call, %if.end18 ], [ null, %cond.end51 ], [ null, %if.end55 ], [ null, %do.end ], [ null, %if.end.i.i ]
   tail call void @PyMem_Free(ptr noundef %spec.0) #7
   tail call void @PyMem_Free(ptr noundef %name.0) #7
   tail call void @PyMem_Free(ptr noundef %doc.0) #7

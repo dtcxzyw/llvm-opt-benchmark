@@ -37,8 +37,8 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %5
-  %.0109.lcssa = phi i32 [ 0, %5 ], [ %11, %.critedge.loopexit ]
-  %12 = icmp eq i32 %.0109.lcssa, %0
+  %.0108.lcssa = phi i32 [ 0, %5 ], [ %11, %.critedge.loopexit ]
+  %12 = icmp eq i32 %.0108.lcssa, %0
   br i1 %12, label %.critedge.thread, label %14
 
 .critedge.thread:                                 ; preds = %10, %.critedge
@@ -46,7 +46,7 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
   br label %104
 
 14:                                               ; preds = %.critedge
-  %15 = zext nneg i32 %.0109.lcssa to i64
+  %15 = zext nneg i32 %.0108.lcssa to i64
   %16 = getelementptr inbounds ptr, ptr %3, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i32, ptr %1, i64 %15
@@ -61,7 +61,7 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
   %27 = load i64, ptr %26, align 8
   %28 = mul i64 %25, %20
   %29 = add i64 %28, %27
-  %30 = add nuw nsw i32 %.0109.lcssa, 1
+  %30 = add nuw nsw i32 %.0108.lcssa, 1
   %31 = icmp slt i32 %30, %0
   br i1 %31, label %.lr.ph144.preheader, label %._crit_edge
 
@@ -72,17 +72,17 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
 .lr.ph144:                                        ; preds = %.lr.ph144.preheader, %61
   %indvars.iv162 = phi i64 [ %32, %.lr.ph144.preheader ], [ %indvars.iv.next163, %61 ]
   %.0143 = phi i64 [ %20, %.lr.ph144.preheader ], [ %.1, %61 ]
-  %.0112141 = phi ptr [ %17, %.lr.ph144.preheader ], [ %.1113, %61 ]
-  %.0116140 = phi i64 [ 0, %.lr.ph144.preheader ], [ %.2118, %61 ]
-  %.0120139 = phi i64 [ %27, %.lr.ph144.preheader ], [ %.1121, %61 ]
-  %.0124138 = phi i64 [ %25, %.lr.ph144.preheader ], [ %.1125, %61 ]
-  %.0128137 = phi i64 [ %29, %.lr.ph144.preheader ], [ %.1129, %61 ]
+  %.0111141 = phi ptr [ %17, %.lr.ph144.preheader ], [ %.1112, %61 ]
+  %.0115140 = phi i64 [ %27, %.lr.ph144.preheader ], [ %.1116, %61 ]
+  %.0119139 = phi i64 [ %25, %.lr.ph144.preheader ], [ %.1120, %61 ]
+  %.0123138 = phi i64 [ %29, %.lr.ph144.preheader ], [ %.1124, %61 ]
+  %.0127137 = phi i64 [ 0, %.lr.ph144.preheader ], [ %.2129, %61 ]
   %33 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv162
   %34 = load ptr, ptr %33, align 8
-  %35 = icmp eq ptr %34, %.0112141
+  %35 = icmp eq ptr %34, %.0111141
   %36 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv162
   %37 = load i64, ptr %36, align 8
-  %38 = icmp eq i64 %37, %.0128137
+  %38 = icmp eq i64 %37, %.0123138
   %or.cond = select i1 %35, i1 %38, i1 false
   br i1 %or.cond, label %39, label %.lr.ph144._crit_edge
 
@@ -91,14 +91,14 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
   %43 = add i64 %.0143, %42
-  %44 = mul i64 %43, %.0124138
-  %45 = add i64 %44, %.0120139
+  %44 = mul i64 %43, %.0119139
+  %45 = add i64 %44, %.0115140
   br label %61
 
 .lr.ph144._crit_edge:                             ; preds = %.lr.ph144
-  %46 = getelementptr inbounds i8, ptr %.0112141, i64 152
+  %46 = getelementptr inbounds i8, ptr %.0111141, i64 152
   %47 = load i64, ptr %46, align 8
-  %48 = add i64 %47, %.0116140
+  %48 = add i64 %47, %.0127137
   %49 = icmp ugt i64 %.0143, 1
   %50 = add nsw i64 %48, 2
   %spec.select = select i1 %49, i64 %50, i64 %48
@@ -115,11 +115,11 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
   br label %61
 
 61:                                               ; preds = %39, %.lr.ph144._crit_edge
-  %.1129 = phi i64 [ %45, %39 ], [ %60, %.lr.ph144._crit_edge ]
-  %.1125 = phi i64 [ %.0124138, %39 ], [ %55, %.lr.ph144._crit_edge ]
-  %.1121 = phi i64 [ %.0120139, %39 ], [ %37, %.lr.ph144._crit_edge ]
-  %.2118 = phi i64 [ %.0116140, %39 ], [ %spec.select, %.lr.ph144._crit_edge ]
-  %.1113 = phi ptr [ %.0112141, %39 ], [ %34, %.lr.ph144._crit_edge ]
+  %.2129 = phi i64 [ %.0127137, %39 ], [ %spec.select, %.lr.ph144._crit_edge ]
+  %.1124 = phi i64 [ %45, %39 ], [ %60, %.lr.ph144._crit_edge ]
+  %.1120 = phi i64 [ %.0119139, %39 ], [ %55, %.lr.ph144._crit_edge ]
+  %.1116 = phi i64 [ %.0115140, %39 ], [ %37, %.lr.ph144._crit_edge ]
+  %.1112 = phi ptr [ %.0111141, %39 ], [ %34, %.lr.ph144._crit_edge ]
   %.1 = phi i64 [ %43, %39 ], [ %58, %.lr.ph144._crit_edge ]
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %62 = trunc nuw i64 %indvars.iv.next163 to i32
@@ -127,12 +127,12 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
   br i1 %63, label %.lr.ph144, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %61, %14
-  %.0116.lcssa = phi i64 [ 0, %14 ], [ %.2118, %61 ]
-  %.0112.lcssa = phi ptr [ %17, %14 ], [ %.1113, %61 ]
+  %.0127.lcssa = phi i64 [ 0, %14 ], [ %.2129, %61 ]
+  %.0111.lcssa = phi ptr [ %17, %14 ], [ %.1112, %61 ]
   %.0.lcssa = phi i64 [ %20, %14 ], [ %.1, %61 ]
-  %64 = getelementptr inbounds i8, ptr %.0112.lcssa, i64 152
+  %64 = getelementptr inbounds i8, ptr %.0111.lcssa, i64 152
   %65 = load i64, ptr %64, align 8
-  %66 = add i64 %65, %.0116.lcssa
+  %66 = add i64 %65, %.0127.lcssa
   %.not = icmp eq i64 %.0.lcssa, 1
   %67 = add nsw i64 %66, 2
   %spec.select133 = select i1 %.not, i64 %66, i64 %67
@@ -147,19 +147,19 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
 .lr.ph155:                                        ; preds = %.lr.ph155.preheader, %100
   %indvars.iv165 = phi i64 [ %70, %.lr.ph155.preheader ], [ %indvars.iv.next166, %100 ]
   %.2153 = phi i64 [ %20, %.lr.ph155.preheader ], [ %.3, %100 ]
-  %.2114151 = phi ptr [ %17, %.lr.ph155.preheader ], [ %.3115, %100 ]
-  %.2122150 = phi i64 [ %27, %.lr.ph155.preheader ], [ %.3123, %100 ]
-  %.2126149 = phi i64 [ %25, %.lr.ph155.preheader ], [ %.3127, %100 ]
-  %.2130148 = phi i64 [ %29, %.lr.ph155.preheader ], [ %.3131, %100 ]
+  %.2113151 = phi ptr [ %17, %.lr.ph155.preheader ], [ %.3114, %100 ]
+  %.2117150 = phi i64 [ %27, %.lr.ph155.preheader ], [ %.3118, %100 ]
+  %.2121149 = phi i64 [ %25, %.lr.ph155.preheader ], [ %.3122, %100 ]
+  %.2125148 = phi i64 [ %29, %.lr.ph155.preheader ], [ %.3126, %100 ]
   %71 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv165
   %72 = load ptr, ptr %71, align 8
-  %73 = icmp eq ptr %72, %.2114151
+  %73 = icmp eq ptr %72, %.2113151
   br i1 %73, label %74, label %85
 
 74:                                               ; preds = %.lr.ph155
   %75 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv165
   %76 = load i64, ptr %75, align 8
-  %77 = icmp eq i64 %76, %.2130148
+  %77 = icmp eq i64 %76, %.2125148
   br i1 %77, label %78, label %85
 
 78:                                               ; preds = %74
@@ -167,12 +167,12 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
   %80 = load i32, ptr %79, align 4
   %81 = sext i32 %80 to i64
   %82 = add i64 %.2153, %81
-  %83 = mul i64 %82, %.2126149
-  %84 = add i64 %83, %.2122150
+  %83 = mul i64 %82, %.2121149
+  %84 = add i64 %83, %.2117150
   br label %100
 
 85:                                               ; preds = %74, %.lr.ph155
-  %86 = tail call i32 @opal_datatype_add(ptr noundef %69, ptr noundef %.2114151, i64 noundef %.2153, i64 noundef %.2122150, i64 noundef %.2126149) #2
+  %86 = tail call i32 @opal_datatype_add(ptr noundef %69, ptr noundef %.2113151, i64 noundef %.2153, i64 noundef %.2117150, i64 noundef %.2121149) #2
   %87 = load ptr, ptr %71, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 56
   %89 = load i64, ptr %88, align 8
@@ -189,10 +189,10 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
   br label %100
 
 100:                                              ; preds = %78, %85
-  %.3131 = phi i64 [ %84, %78 ], [ %99, %85 ]
-  %.3127 = phi i64 [ %.2126149, %78 ], [ %92, %85 ]
-  %.3123 = phi i64 [ %.2122150, %78 ], [ %97, %85 ]
-  %.3115 = phi ptr [ %.2114151, %78 ], [ %87, %85 ]
+  %.3126 = phi i64 [ %84, %78 ], [ %99, %85 ]
+  %.3122 = phi i64 [ %.2121149, %78 ], [ %92, %85 ]
+  %.3118 = phi i64 [ %.2117150, %78 ], [ %97, %85 ]
+  %.3114 = phi ptr [ %.2113151, %78 ], [ %87, %85 ]
   %.3 = phi i64 [ %82, %78 ], [ %95, %85 ]
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %101 = trunc nuw i64 %indvars.iv.next166 to i32
@@ -200,17 +200,17 @@ define i32 @ompi_datatype_create_struct(i32 noundef %0, ptr nocapture noundef re
   br i1 %102, label %.lr.ph155, label %._crit_edge156, !llvm.loop !7
 
 ._crit_edge156:                                   ; preds = %100, %._crit_edge
-  %.2126.lcssa = phi i64 [ %25, %._crit_edge ], [ %.3127, %100 ]
-  %.2122.lcssa = phi i64 [ %27, %._crit_edge ], [ %.3123, %100 ]
-  %.2114.lcssa = phi ptr [ %17, %._crit_edge ], [ %.3115, %100 ]
+  %.2121.lcssa = phi i64 [ %25, %._crit_edge ], [ %.3122, %100 ]
+  %.2117.lcssa = phi i64 [ %27, %._crit_edge ], [ %.3118, %100 ]
+  %.2113.lcssa = phi ptr [ %17, %._crit_edge ], [ %.3114, %100 ]
   %.2.lcssa = phi i64 [ %20, %._crit_edge ], [ %.3, %100 ]
-  %103 = tail call i32 @opal_datatype_add(ptr noundef %69, ptr noundef %.2114.lcssa, i64 noundef %.2.lcssa, i64 noundef %.2122.lcssa, i64 noundef %.2126.lcssa) #2
+  %103 = tail call i32 @opal_datatype_add(ptr noundef %69, ptr noundef %.2113.lcssa, i64 noundef %.2.lcssa, i64 noundef %.2117.lcssa, i64 noundef %.2121.lcssa) #2
   store ptr %69, ptr %4, align 8
   br label %104
 
 104:                                              ; preds = %._crit_edge156, %.critedge.thread
-  %.0108 = phi i32 [ %13, %.critedge.thread ], [ 0, %._crit_edge156 ]
-  ret i32 %.0108
+  %.0131 = phi i32 [ %13, %.critedge.thread ], [ 0, %._crit_edge156 ]
+  ret i32 %.0131
 }
 
 declare i32 @ompi_datatype_duplicate(ptr noundef, ptr noundef) local_unnamed_addr #1

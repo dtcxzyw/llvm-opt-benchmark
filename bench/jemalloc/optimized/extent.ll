@@ -2432,8 +2432,8 @@ if.then15:                                        ; preds = %if.then13
   br i1 %tobool17, label %return.sink.split, label %do.cond
 
 do.cond:                                          ; preds = %if.end8, %if.then15
-  %again.1 = phi i1 [ true, %if.then15 ], [ %again.0, %if.end8 ]
   %edata.addr.1 = phi ptr [ %call11, %if.then15 ], [ %edata.addr.0.ph, %if.end8 ]
+  %again.1 = phi i1 [ true, %if.then15 ], [ %again.0, %if.end8 ]
   br i1 %again.1, label %do.body3.outer, label %do.end23, !llvm.loop !8
 
 do.end23:                                         ; preds = %do.cond, %extent_coalesce.exit34.thread

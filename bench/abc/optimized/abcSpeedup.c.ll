@@ -1100,10 +1100,10 @@ define void @Abc_NtkDelayTracePrint(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 .lr.ph62.split.us:                                ; preds = %.lr.ph62, %.lr.ph62.split.us
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.lr.ph62.split.us ], [ 0, %.lr.ph62 ]
-  %.04360.us = phi i32 [ %65, %.lr.ph62.split.us ], [ 0, %.lr.ph62 ]
+  %.061.us = phi i32 [ %65, %.lr.ph62.split.us ], [ 0, %.lr.ph62 ]
   %63 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv68
   %64 = load i32, ptr %63, align 4
-  %65 = add nsw i32 %64, %.04360.us
+  %65 = add nsw i32 %64, %.061.us
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %66 = sitofp i32 %65 to double
   %67 = fmul double %66, 1.000000e+02
@@ -1118,10 +1118,10 @@ define void @Abc_NtkDelayTracePrint(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 .lr.ph62.split:                                   ; preds = %.lr.ph62, %.lr.ph62.split
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %.lr.ph62.split ], [ 0, %.lr.ph62 ]
-  %.04360 = phi i32 [ %76, %.lr.ph62.split ], [ 0, %.lr.ph62 ]
+  %.061 = phi i32 [ %76, %.lr.ph62.split ], [ 0, %.lr.ph62 ]
   %74 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv65
   %75 = load i32, ptr %74, align 4
-  %76 = add nsw i32 %75, %.04360
+  %76 = add nsw i32 %75, %.061
   %77 = trunc nuw nsw i64 %indvars.iv65 to i32
   %78 = mul i32 %77, 5
   %79 = add i32 %78, 5

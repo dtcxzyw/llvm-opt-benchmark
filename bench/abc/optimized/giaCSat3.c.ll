@@ -1300,7 +1300,7 @@ define i32 @Cbs3_ManPropagateNew(ptr nocapture noundef %0, i32 noundef %1) local
 
 .lr.ph94.i:                                       ; preds = %26, %122
   %.07193.i = phi i32 [ %.071.i, %122 ], [ %.07190.i, %26 ]
-  %.07292.i = phi ptr [ %.1.i, %122 ], [ %29, %26 ]
+  %.07092.i = phi ptr [ %.1.i, %122 ], [ %29, %26 ]
   %.val79.i = load ptr, ptr %13, align 8
   %30 = sext i32 %.07193.i to i64
   %31 = getelementptr inbounds i32, ptr %.val79.i, i64 %30
@@ -1386,7 +1386,7 @@ define i32 @Cbs3_ManPropagateNew(ptr nocapture noundef %0, i32 noundef %1) local
   %78 = getelementptr inbounds i32, ptr %75, i64 %77
   %79 = getelementptr inbounds i8, ptr %78, i64 8
   %80 = load i32, ptr %79, align 4
-  store i32 %80, ptr %.07292.i, align 4
+  store i32 %80, ptr %.07092.i, align 4
   %.val84.i = load ptr, ptr %13, align 8
   %81 = getelementptr i32, ptr %.val84.i, i64 %30
   %82 = getelementptr i8, ptr %81, i64 8
@@ -1470,7 +1470,7 @@ Cbs3_ManAssign.exit.i:                            ; preds = %101, %._crit_edge.i
   br i1 %121, label %Cbs3_ManPropagateClauses.exit, label %122
 
 122:                                              ; preds = %120, %Cbs3_ManAssign.exit.i, %72, %56
-  %.1.i = phi ptr [ %61, %56 ], [ %.07292.i, %72 ], [ %119, %Cbs3_ManAssign.exit.i ], [ %.07292.i, %120 ]
+  %.1.i = phi ptr [ %61, %56 ], [ %.07092.i, %72 ], [ %119, %Cbs3_ManAssign.exit.i ], [ %.07092.i, %120 ]
   %.071.i = load i32, ptr %.1.i, align 4
   %.not.i = icmp eq i32 %.071.i, 0
   br i1 %.not.i, label %Cbs3_ManPropagateClauses.exit.thread, label %.lr.ph94.i, !llvm.loop !12
@@ -4537,7 +4537,7 @@ define internal fastcc i32 @Cbs3_ManDeriveReason(ptr nocapture noundef %0, i32 n
 
 18:                                               ; preds = %.lr.ph94, %.loopexit
   %indvars.iv100 = phi i64 [ %17, %.lr.ph94 ], [ %indvars.iv.next101, %.loopexit ]
-  %.05892 = phi i32 [ %8, %.lr.ph94 ], [ %.159, %.loopexit ]
+  %.05893 = phi i32 [ %8, %.lr.ph94 ], [ %.1, %.loopexit ]
   %19 = load ptr, ptr %12, align 8
   %20 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv100
   %21 = load i32, ptr %20, align 4
@@ -4627,8 +4627,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 63:                                               ; preds = %Vec_IntPush.exit
   %64 = load ptr, ptr %12, align 8
-  %65 = add nsw i32 %.05892, 1
-  %66 = sext i32 %.05892 to i64
+  %65 = add nsw i32 %.05893, 1
+  %66 = sext i32 %.05893 to i64
   %67 = getelementptr inbounds i32, ptr %64, i64 %66
   store i32 %21, ptr %67, align 4
   br label %.loopexit
@@ -4829,7 +4829,7 @@ Cbs3_QuePush.exit89:                              ; preds = %._crit_edge.i83, %1
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 .loopexit:                                        ; preds = %Cbs3_QuePush.exit89, %Cbs3_QueGrow.exit, %77, %Cbs3_QuePush.exit, %Cbs3_QuePush.exit81, %18, %63
-  %.159 = phi i32 [ %.05892, %18 ], [ %65, %63 ], [ %.05892, %77 ], [ %.05892, %Cbs3_QuePush.exit81 ], [ %.05892, %Cbs3_QuePush.exit ], [ %.05892, %Cbs3_QueGrow.exit ], [ %.05892, %Cbs3_QuePush.exit89 ]
+  %.1 = phi i32 [ %.05893, %18 ], [ %65, %63 ], [ %.05893, %77 ], [ %.05893, %Cbs3_QuePush.exit81 ], [ %.05893, %Cbs3_QuePush.exit ], [ %.05893, %Cbs3_QueGrow.exit ], [ %.05893, %Cbs3_QuePush.exit89 ]
   %indvars.iv.next101 = add nsw i64 %indvars.iv100, 1
   %162 = load i32, ptr %9, align 4
   %163 = sext i32 %162 to i64
@@ -4837,7 +4837,7 @@ Cbs3_QuePush.exit89:                              ; preds = %._crit_edge.i83, %1
   br i1 %164, label %18, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
-  %.058.lcssa = phi i32 [ %8, %2 ], [ %.159, %.loopexit ]
+  %.058.lcssa = phi i32 [ %8, %2 ], [ %.1, %.loopexit ]
   store i32 %.058.lcssa, ptr %9, align 4
   %165 = load ptr, ptr %4, align 8
   %166 = getelementptr i8, ptr %165, i64 4

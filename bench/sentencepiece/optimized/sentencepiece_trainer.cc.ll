@@ -2343,8 +2343,8 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   %657 = load i64, ptr %10, align 8
   %658 = icmp eq i64 %657, 0
   %.sroa.3723.0.copyload = load ptr, ptr %100, align 8
-  %.sroa.0722.0 = select i1 %658, i64 4, i64 %657
   %.sroa.3723.0 = select i1 %658, ptr @.str.24, ptr %.sroa.3723.0.copyload
+  %.sroa.0722.0 = select i1 %658, i64 4, i64 %657
   %659 = call noundef zeroext i1 @_ZN13sentencepiece11string_util12lexical_castIbEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_(i64 %.sroa.0722.0, ptr %.sroa.3723.0, ptr noundef nonnull %69)
   br i1 %659, label %668, label %660
 
@@ -4117,9 +4117,9 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i46: ; preds = %41, %69, %71, %96
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit49: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i46
   %98 = icmp eq i64 %3, 0
-  %spec.select107 = select i1 %98, i64 4, i64 %3
-  %spec.select108 = select i1 %98, ptr @.str.24, ptr %4
-  %99 = call noundef zeroext i1 @_ZN13sentencepiece11string_util12lexical_castIbEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_(i64 %spec.select107, ptr %spec.select108, ptr noundef nonnull %16)
+  %spec.select107 = select i1 %98, ptr @.str.24, ptr %4
+  %spec.select108 = select i1 %98, i64 4, i64 %3
+  %99 = call noundef zeroext i1 @_ZN13sentencepiece11string_util12lexical_castIbEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_(i64 %spec.select108, ptr %spec.select107, ptr noundef nonnull %16)
   br i1 %99, label %108, label %100
 
 100:                                              ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit49

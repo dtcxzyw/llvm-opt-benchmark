@@ -98,8 +98,8 @@ while.body.lr.ph:                                 ; preds = %if.end19
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end251
   %10 = phi i64 [ %9, %while.body.lr.ph ], [ %67, %if.end251 ]
-  %retry.0115 = phi i32 [ 1, %while.body.lr.ph ], [ %retry.1, %if.end251 ]
-  %frag_off.0114 = phi i64 [ 0, %while.body.lr.ph ], [ %frag_off.2, %if.end251 ]
+  %frag_off.0115 = phi i64 [ 0, %while.body.lr.ph ], [ %frag_off.2, %if.end251 ]
+  %retry.0114 = phi i32 [ 1, %while.body.lr.ph ], [ %retry.1, %if.end251 ]
   br i1 %cmp6, label %land.lhs.true28, label %if.end48
 
 land.lhs.true28:                                  ; preds = %while.body
@@ -108,7 +108,7 @@ land.lhs.true28:                                  ; preds = %while.body
   br i1 %cmp30.not, label %if.end48, label %if.then32
 
 if.then32:                                        ; preds = %land.lhs.true28
-  %cmp33.not = icmp eq i64 %frag_off.0114, 0
+  %cmp33.not = icmp eq i64 %frag_off.0115, 0
   br i1 %cmp33.not, label %if.else, label %if.then35
 
 if.then35:                                        ; preds = %if.then32
@@ -129,7 +129,7 @@ if.else:                                          ; preds = %if.then32
   br label %if.end48
 
 if.end48:                                         ; preds = %if.end40, %if.else, %land.lhs.true28, %while.body
-  %frag_off.1 = phi i64 [ %frag_off.0114, %if.end40 ], [ %13, %if.else ], [ %frag_off.0114, %land.lhs.true28 ], [ %frag_off.0114, %while.body ]
+  %frag_off.1 = phi i64 [ %frag_off.0115, %if.end40 ], [ %13, %if.else ], [ %frag_off.0115, %land.lhs.true28 ], [ %frag_off.0115, %while.body ]
   %14 = load ptr, ptr %wbio, align 8
   %call49 = call i64 @BIO_ctrl(ptr noundef %14, i32 noundef 13, i64 noundef 0, ptr noundef null) #9
   %sext = shl i64 %call49, 32
@@ -273,7 +273,7 @@ if.end114:                                        ; preds = %if.end110, %if.end1
   br i1 %cmp120, label %if.then122, label %if.else141
 
 if.then122:                                       ; preds = %if.end114
-  %tobool123.not = icmp eq i32 %retry.0115, 0
+  %tobool123.not = icmp eq i32 %retry.0114, 0
   br i1 %tobool123.not, label %return, label %land.lhs.true124
 
 land.lhs.true124:                                 ; preds = %if.then122
@@ -435,8 +435,8 @@ if.end244:                                        ; preds = %if.end226
   br label %if.end251
 
 if.end251:                                        ; preds = %if.then132, %if.end244
+  %retry.1 = phi i32 [ %retry.0114, %if.end244 ], [ 0, %if.then132 ]
   %frag_off.2 = phi i64 [ %add250, %if.end244 ], [ %frag_off.1, %if.then132 ]
-  %retry.1 = phi i32 [ %retry.0115, %if.end244 ], [ 0, %if.then132 ]
   %67 = load i64, ptr %init_num22, align 8
   %cmp23.not = icmp eq i64 %67, 0
   br i1 %cmp23.not, label %return, label %while.body, !llvm.loop !4
@@ -598,9 +598,9 @@ do.cond.i.i:                                      ; preds = %lor.lhs.false18.i.i
   br i1 %cmp.i.i, label %if.end4.i, label %if.end.i.i, !llvm.loop !6
 
 do.end.i.i:                                       ; preds = %if.end.i.i, %dtls1_hm_fragment_free.exit43.i.i, %if.then28.i.i, %if.else.i.i
-  %tobool63.i.i = phi i1 [ true, %if.else.i.i ], [ true, %if.then28.i.i ], [ false, %dtls1_hm_fragment_free.exit43.i.i ], [ false, %if.end.i.i ]
-  %frag.0.ph.i.i = phi ptr [ %4, %if.else.i.i ], [ %4, %if.then28.i.i ], [ %10, %dtls1_hm_fragment_free.exit43.i.i ], [ %4, %if.end.i.i ]
   %item.0.ph.i.i = phi ptr [ %call166.i.i, %if.else.i.i ], [ %call166.i.i, %if.then28.i.i ], [ %call25.i.i, %dtls1_hm_fragment_free.exit43.i.i ], [ %call166.i.i, %if.end.i.i ]
+  %frag.0.ph.i.i = phi ptr [ %4, %if.else.i.i ], [ %4, %if.then28.i.i ], [ %10, %dtls1_hm_fragment_free.exit43.i.i ], [ %4, %if.end.i.i ]
+  %tobool63.i.i = phi i1 [ true, %if.else.i.i ], [ true, %if.then28.i.i ], [ false, %dtls1_hm_fragment_free.exit43.i.i ], [ false, %if.end.i.i ]
   %reassembly.i.i = getelementptr inbounds i8, ptr %frag.0.ph.i.i, i64 72
   %20 = load ptr, ptr %reassembly.i.i, align 8
   %cmp50.not.i.i = icmp eq ptr %20, null

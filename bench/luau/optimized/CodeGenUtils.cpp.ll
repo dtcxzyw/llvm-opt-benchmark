@@ -367,19 +367,19 @@ define dso_local void @_ZN4Luau7CodeGen11callEpilogCEP9lua_Stateii(ptr nocapture
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %3
-  %.025.lcssa = phi i32 [ %1, %3 ], [ %20, %.lr.ph ]
+  %.024.lcssa = phi i32 [ %1, %3 ], [ %20, %.lr.ph ]
   %.0.lcssa = phi ptr [ %8, %3 ], [ %19, %.lr.ph ]
-  %17 = icmp sgt i32 %.025.lcssa, 0
+  %17 = icmp sgt i32 %.024.lcssa, 0
   br i1 %17, label %.lr.ph33, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.029 = phi ptr [ %19, %.lr.ph ], [ %8, %.lr.ph.preheader ]
-  %.02428 = phi ptr [ %18, %.lr.ph ], [ %16, %.lr.ph.preheader ]
-  %.02527 = phi i32 [ %20, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %18 = getelementptr inbounds i8, ptr %.02428, i64 16
+  %.02428 = phi i32 [ %20, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.02627 = phi ptr [ %18, %.lr.ph ], [ %16, %.lr.ph.preheader ]
+  %18 = getelementptr inbounds i8, ptr %.02627, i64 16
   %19 = getelementptr inbounds i8, ptr %.029, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.029, ptr noundef nonnull align 8 dereferenceable(16) %.02428, i64 16, i1 false)
-  %20 = add nsw i32 %.02527, -1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.029, ptr noundef nonnull align 8 dereferenceable(16) %.02627, i64 16, i1 false)
+  %20 = add nsw i32 %.02428, -1
   %21 = icmp ne i32 %20, 0
   %22 = icmp ult ptr %18, %10
   %23 = select i1 %21, i1 %22, i1 false
@@ -387,12 +387,12 @@ define dso_local void @_ZN4Luau7CodeGen11callEpilogCEP9lua_Stateii(ptr nocapture
 
 .lr.ph33:                                         ; preds = %.preheader, %.lr.ph33
   %.132 = phi ptr [ %25, %.lr.ph33 ], [ %.0.lcssa, %.preheader ]
-  %.12631 = phi i32 [ %24, %.lr.ph33 ], [ %.025.lcssa, %.preheader ]
-  %24 = add nsw i32 %.12631, -1
+  %.12531 = phi i32 [ %24, %.lr.ph33 ], [ %.024.lcssa, %.preheader ]
+  %24 = add nsw i32 %.12531, -1
   %25 = getelementptr inbounds i8, ptr %.132, i64 16
   %26 = getelementptr inbounds i8, ptr %.132, i64 12
   store i32 0, ptr %26, align 4
-  %27 = icmp ugt i32 %.12631, 1
+  %27 = icmp ugt i32 %.12531, 1
   br i1 %27, label %.lr.ph33, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph33, %.preheader
@@ -543,15 +543,15 @@ define dso_local noundef ptr @_ZN4Luau7CodeGen12callFallbackEP9lua_StateP10lua_T
   br i1 %56, label %.lr.ph97, label %._crit_edge98
 
 .lr.ph97:                                         ; preds = %49, %.lr.ph97
-  %.07795 = phi ptr [ %57, %.lr.ph97 ], [ %50, %49 ]
-  %57 = getelementptr inbounds i8, ptr %.07795, i64 16
-  %58 = getelementptr inbounds i8, ptr %.07795, i64 12
+  %.08095 = phi ptr [ %57, %.lr.ph97 ], [ %50, %49 ]
+  %57 = getelementptr inbounds i8, ptr %.08095, i64 16
+  %58 = getelementptr inbounds i8, ptr %.08095, i64 12
   store i32 0, ptr %58, align 4
   %59 = icmp ult ptr %57, %55
   br i1 %59, label %.lr.ph97, label %._crit_edge98, !llvm.loop !11
 
 ._crit_edge98:                                    ; preds = %.lr.ph97, %49
-  %.077.lcssa = phi ptr [ %50, %49 ], [ %57, %.lr.ph97 ]
+  %.080.lcssa = phi ptr [ %50, %49 ], [ %57, %.lr.ph97 ]
   %60 = getelementptr inbounds i8, ptr %48, i64 5
   %61 = load i8, ptr %60, align 1
   %.not85 = icmp eq i8 %61, 0
@@ -562,7 +562,7 @@ define dso_local noundef ptr @_ZN4Luau7CodeGen12callFallbackEP9lua_StateP10lua_T
   br label %64
 
 64:                                               ; preds = %._crit_edge98, %62
-  %65 = phi ptr [ %63, %62 ], [ %.077.lcssa, %._crit_edge98 ]
+  %65 = phi ptr [ %63, %62 ], [ %.080.lcssa, %._crit_edge98 ]
   store ptr %65, ptr %33, align 8
   %66 = getelementptr inbounds i8, ptr %48, i64 16
   %67 = load ptr, ptr %66, align 8
@@ -599,18 +599,18 @@ define dso_local noundef ptr @_ZN4Luau7CodeGen12callFallbackEP9lua_StateP10lua_T
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %74
-  %.079.lcssa = phi ptr [ %78, %74 ], [ %88, %.lr.ph ]
+  %.078.lcssa = phi ptr [ %78, %74 ], [ %88, %.lr.ph ]
   %.076.lcssa = phi i32 [ %3, %74 ], [ %89, %.lr.ph ]
   %86 = icmp sgt i32 %.076.lcssa, 0
   br i1 %86, label %.lr.ph93, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.07689 = phi i32 [ %89, %.lr.ph ], [ %3, %.lr.ph.preheader ]
-  %.07888 = phi ptr [ %87, %.lr.ph ], [ %85, %.lr.ph.preheader ]
-  %.07987 = phi ptr [ %88, %.lr.ph ], [ %78, %.lr.ph.preheader ]
-  %87 = getelementptr inbounds i8, ptr %.07888, i64 16
-  %88 = getelementptr inbounds i8, ptr %.07987, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.07987, ptr noundef nonnull align 8 dereferenceable(16) %.07888, i64 16, i1 false)
+  %.07788 = phi ptr [ %87, %.lr.ph ], [ %85, %.lr.ph.preheader ]
+  %.07887 = phi ptr [ %88, %.lr.ph ], [ %78, %.lr.ph.preheader ]
+  %87 = getelementptr inbounds i8, ptr %.07788, i64 16
+  %88 = getelementptr inbounds i8, ptr %.07887, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.07887, ptr noundef nonnull align 8 dereferenceable(16) %.07788, i64 16, i1 false)
   %89 = add nsw i32 %.07689, -1
   %90 = icmp ne i32 %89, 0
   %91 = icmp ult ptr %87, %79
@@ -619,16 +619,16 @@ define dso_local noundef ptr @_ZN4Luau7CodeGen12callFallbackEP9lua_StateP10lua_T
 
 .lr.ph93:                                         ; preds = %.preheader, %.lr.ph93
   %.192 = phi i32 [ %93, %.lr.ph93 ], [ %.076.lcssa, %.preheader ]
-  %.18091 = phi ptr [ %94, %.lr.ph93 ], [ %.079.lcssa, %.preheader ]
+  %.17991 = phi ptr [ %94, %.lr.ph93 ], [ %.078.lcssa, %.preheader ]
   %93 = add nsw i32 %.192, -1
-  %94 = getelementptr inbounds i8, ptr %.18091, i64 16
-  %95 = getelementptr inbounds i8, ptr %.18091, i64 12
+  %94 = getelementptr inbounds i8, ptr %.17991, i64 16
+  %95 = getelementptr inbounds i8, ptr %.17991, i64 12
   store i32 0, ptr %95, align 4
   %96 = icmp ugt i32 %.192, 1
   br i1 %96, label %.lr.ph93, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph93, %.preheader
-  %.180.lcssa = phi ptr [ %.079.lcssa, %.preheader ], [ %94, %.lr.ph93 ]
+  %.179.lcssa = phi ptr [ %.078.lcssa, %.preheader ], [ %94, %.lr.ph93 ]
   store ptr %76, ptr %11, align 8
   %97 = load ptr, ptr %76, align 8
   store ptr %97, ptr %32, align 8
@@ -641,7 +641,7 @@ define dso_local noundef ptr @_ZN4Luau7CodeGen12callFallbackEP9lua_StateP10lua_T
   br label %102
 
 102:                                              ; preds = %._crit_edge, %99
-  %103 = phi ptr [ %101, %99 ], [ %.180.lcssa, %._crit_edge ]
+  %103 = phi ptr [ %101, %99 ], [ %.179.lcssa, %._crit_edge ]
   store ptr %103, ptr %33, align 8
   br label %104
 
@@ -1793,9 +1793,9 @@ define dso_local noundef nonnull ptr @_ZN4Luau7CodeGen17executeDUPCLOSUREEP9lua_
   br label %41
 
 41:                                               ; preds = %.lr.ph, %82
-  %.077 = phi ptr [ %34, %.lr.ph ], [ %.1, %82 ]
-  %.06876 = phi i32 [ 0, %.lr.ph ], [ %83, %82 ]
-  %42 = sext i32 %.06876 to i64
+  %.077 = phi i32 [ 0, %.lr.ph ], [ %83, %82 ]
+  %.06876 = phi ptr [ %34, %.lr.ph ], [ %.169, %82 ]
+  %42 = sext i32 %.077 to i64
   %43 = getelementptr inbounds i32, ptr %10, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 65280
@@ -1806,11 +1806,11 @@ define dso_local noundef nonnull ptr @_ZN4Luau7CodeGen17executeDUPCLOSUREEP9lua_
   %50 = getelementptr inbounds %struct.lua_TValue, ptr %2, i64 %49
   %51 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %38, i64 0, i64 %49
   %52 = select i1 %46, ptr %50, ptr %51
-  %53 = icmp eq ptr %.077, %19
+  %53 = icmp eq ptr %.06876, %19
   br i1 %53, label %54, label %.critedge
 
 54:                                               ; preds = %41
-  %55 = getelementptr inbounds i8, ptr %.077, i64 32
+  %55 = getelementptr inbounds i8, ptr %.06876, i64 32
   %56 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %55, i64 0, i64 %42
   %57 = tail call noundef i32 @_Z16luaO_rawequalObjPK10lua_TValueS1_(ptr noundef nonnull %56, ptr noundef %52)
   %.not73 = icmp eq i32 %57, 0
@@ -1832,7 +1832,7 @@ define dso_local noundef nonnull ptr @_ZN4Luau7CodeGen17executeDUPCLOSUREEP9lua_
   br label %82
 
 .critedge:                                        ; preds = %41, %58
-  %67 = getelementptr inbounds i8, ptr %.077, i64 32
+  %67 = getelementptr inbounds i8, ptr %.06876, i64 32
   %68 = getelementptr inbounds [1 x %struct.lua_TValue], ptr %67, i64 0, i64 %42
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false)
   %69 = getelementptr inbounds i8, ptr %52, i64 12
@@ -1841,7 +1841,7 @@ define dso_local noundef nonnull ptr @_ZN4Luau7CodeGen17executeDUPCLOSUREEP9lua_
   br i1 %71, label %72, label %82
 
 72:                                               ; preds = %.critedge
-  %73 = getelementptr inbounds i8, ptr %.077, i64 1
+  %73 = getelementptr inbounds i8, ptr %.06876, i64 1
   %74 = load i8, ptr %73, align 1
   %75 = and i8 %74, 4
   %.not74 = icmp eq i8 %75, 0
@@ -1856,23 +1856,23 @@ define dso_local noundef nonnull ptr @_ZN4Luau7CodeGen17executeDUPCLOSUREEP9lua_
   br i1 %.not75, label %82, label %81
 
 81:                                               ; preds = %76
-  tail call void @_Z13luaC_barrierfP9lua_StateP8GCObjectS2_(ptr noundef %0, ptr noundef nonnull %.077, ptr noundef nonnull %77)
+  tail call void @_Z13luaC_barrierfP9lua_StateP8GCObjectS2_(ptr noundef %0, ptr noundef nonnull %.06876, ptr noundef nonnull %77)
   br label %82
 
 82:                                               ; preds = %.critedge, %72, %76, %81, %54, %61
-  %.169 = phi i32 [ %.06876, %54 ], [ -1, %61 ], [ %.06876, %81 ], [ %.06876, %76 ], [ %.06876, %72 ], [ %.06876, %.critedge ]
-  %.1 = phi ptr [ %.077, %54 ], [ %66, %61 ], [ %.077, %81 ], [ %.077, %76 ], [ %.077, %72 ], [ %.077, %.critedge ]
-  %83 = add nsw i32 %.169, 1
+  %.169 = phi ptr [ %.06876, %54 ], [ %66, %61 ], [ %.06876, %81 ], [ %.06876, %76 ], [ %.06876, %72 ], [ %.06876, %.critedge ]
+  %.1 = phi i32 [ %.077, %54 ], [ -1, %61 ], [ %.077, %81 ], [ %.077, %76 ], [ %.077, %72 ], [ %.077, %.critedge ]
+  %83 = add nsw i32 %.1, 1
   %84 = load i8, ptr %36, align 4
   %85 = zext i8 %84 to i32
   %86 = icmp slt i32 %83, %85
   br i1 %86, label %41, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %82, %33
-  %.0.lcssa = phi ptr [ %34, %33 ], [ %.1, %82 ]
-  %87 = getelementptr inbounds i8, ptr %.0.lcssa, i64 6
+  %.068.lcssa = phi ptr [ %34, %33 ], [ %.169, %82 ]
+  %87 = getelementptr inbounds i8, ptr %.068.lcssa, i64 6
   store i8 0, ptr %87, align 2
-  %.not = icmp eq ptr %19, %.0.lcssa
+  %.not = icmp eq ptr %19, %.068.lcssa
   br i1 %.not, label %99, label %88
 
 88:                                               ; preds = %._crit_edge

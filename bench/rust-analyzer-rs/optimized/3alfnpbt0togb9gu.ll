@@ -671,23 +671,23 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   br i1 %60, label %.lr.ph.i, label %._crit_edge.i
 
 .preheader.i:                                     ; preds = %73, %65
-  %.sroa.025.0138.i = phi i64 [ %61, %65 ], [ 0, %73 ]
-  %.165137.i = phi i8 [ %.2.i, %65 ], [ %.064139.i, %73 ]
-  %61 = add nuw nsw i64 %.sroa.025.0138.i, 1
-  %62 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0138.i
+  %.165138.i = phi i8 [ %.2.i, %65 ], [ %.064139.i, %73 ]
+  %.sroa.025.0137.i = phi i64 [ %61, %65 ], [ 0, %73 ]
+  %61 = add nuw nsw i64 %.sroa.025.0137.i, 1
+  %62 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0137.i
   %63 = load i16, ptr %62, align 2, !noalias !69, !noundef !27
   %64 = icmp eq i16 %63, 0
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %66, %.preheader.i
-  %.2.i = phi i8 [ %.165137.i, %.preheader.i ], [ %72, %66 ]
+  %.2.i = phi i8 [ %.165138.i, %.preheader.i ], [ %72, %66 ]
   %exitcond155.not.i = icmp eq i64 %61, 4
   br i1 %exitcond155.not.i, label %57, label %.preheader.i
 
 66:                                               ; preds = %.preheader.i
-  %67 = shl nuw nsw i64 %.sroa.025.0138.i, 4
+  %67 = shl nuw nsw i64 %.sroa.025.0137.i, 4
   %68 = add nuw nsw i64 %67, %.062140.i
-  %69 = trunc nuw i8 %.165137.i to i1
+  %69 = trunc nuw i8 %.165138.i to i1
   %70 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h91ac9146f96aab19E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %68, i16 noundef %63, i1 noundef zeroext %69)
   %71 = or i1 %70, %69
   %72 = zext i1 %71 to i8
@@ -854,8 +854,8 @@ define internal fastcc void @"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u
   br label %14
 
 .loopexit:                                        ; preds = %70, %72, %74
-  %.013.i = phi i64 [ 1, %70 ], [ %..i, %74 ], [ 2, %72 ]
-  %13 = add i64 %.013.i, %16
+  %.012.i = phi i64 [ 1, %70 ], [ %..i, %74 ], [ 2, %72 ]
+  %13 = add i64 %.012.i, %16
   store i64 %13, ptr %4, align 8, !alias.scope !97, !noalias !101
   br label %14
 

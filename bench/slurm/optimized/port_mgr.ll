@@ -350,8 +350,8 @@ _make_all_resv.exit:                              ; preds = %._crit_edge.i, %._c
   br label %153
 
 153:                                              ; preds = %47, %43, %46, %34, %37, %.thread, %._crit_edge38, %_make_all_resv.exit
-  %.0 = phi i32 [ 0, %_make_all_resv.exit ], [ 0, %._crit_edge38 ], [ 0, %.thread ], [ -1, %37 ], [ -1, %34 ], [ -1, %46 ], [ -1, %43 ], [ 0, %47 ]
-  ret i32 %.0
+  %.025 = phi i32 [ 0, %_make_all_resv.exit ], [ 0, %._crit_edge38 ], [ 0, %.thread ], [ -1, %37 ], [ -1, %34 ], [ -1, %46 ], [ -1, %43 ], [ 0, %47 ]
+  ret i32 %.025
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -421,8 +421,8 @@ define dso_local range(i32 0, 2061) i32 @resv_port_alloc(ptr noundef %0) local_u
 
 29:                                               ; preds = %.lr.ph, %46
   %30 = phi i32 [ %26, %.lr.ph ], [ %48, %46 ]
-  %.03038 = phi i32 [ 0, %.lr.ph ], [ %.1, %46 ]
-  %.03137 = phi i32 [ 0, %.lr.ph ], [ %47, %46 ]
+  %.038 = phi i32 [ 0, %.lr.ph ], [ %.1, %46 ]
+  %.03037 = phi i32 [ 0, %.lr.ph ], [ %47, %46 ]
   %31 = load i32, ptr @resv_port_alloc.last_port_alloc, align 4
   %32 = add nsw i32 %31, 1
   %.not = icmp slt i32 %32, %30
@@ -439,8 +439,8 @@ define dso_local range(i32 0, 2061) i32 @resv_port_alloc(ptr noundef %0) local_u
 
 39:                                               ; preds = %29
   %40 = load i32, ptr @resv_port_alloc.last_port_alloc, align 4
-  %41 = add nsw i32 %.03038, 1
-  %42 = sext i32 %.03038 to i64
+  %41 = add nsw i32 %.038, 1
+  %42 = sext i32 %.038 to i64
   %43 = getelementptr inbounds i32, ptr %25, i64 %42
   store i32 %40, ptr %43, align 4
   %44 = load i16, ptr %10, align 8
@@ -449,8 +449,8 @@ define dso_local range(i32 0, 2061) i32 @resv_port_alloc(ptr noundef %0) local_u
   br i1 %.not36, label %46, label %._crit_edge
 
 46:                                               ; preds = %39, %29
-  %.1 = phi i32 [ %.03038, %29 ], [ %41, %39 ]
-  %47 = add nuw nsw i32 %.03137, 1
+  %.1 = phi i32 [ %.038, %29 ], [ %41, %39 ]
+  %47 = add nuw nsw i32 %.03037, 1
   %48 = load i32, ptr @port_resv_cnt, align 4
   %49 = icmp slt i32 %47, %48
   br i1 %49, label %29, label %._crit_edge, !llvm.loop !14
@@ -526,8 +526,8 @@ define dso_local range(i32 0, 2061) i32 @resv_port_alloc(ptr noundef %0) local_u
   br label %84
 
 84:                                               ; preds = %._crit_edge44, %82, %15, %18, %59
-  %.0 = phi i32 [ 2059, %59 ], [ 2060, %18 ], [ 2060, %15 ], [ 0, %82 ], [ 0, %._crit_edge44 ]
-  ret i32 %.0
+  %.032 = phi i32 [ 2059, %59 ], [ 2060, %18 ], [ 2060, %15 ], [ 0, %82 ], [ 0, %._crit_edge44 ]
+  ret i32 %.032
 }
 
 declare zeroext i16 @slurmdb_setup_cluster_dims() local_unnamed_addr #2

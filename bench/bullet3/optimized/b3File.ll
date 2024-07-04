@@ -1472,16 +1472,16 @@ if.then14:                                        ; preds = %if.then7
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then14, %if.then7
+  %chunk.sroa.4.sroa.6.0 = phi i32 [ %chunk.sroa.4.sroa.6.0.extract.shift, %if.then7 ], [ %chunk.sroa.4.sroa.4.0.extract.shift, %if.then14 ]
+  %chunk.sroa.4.sroa.4.0.in = phi i32 [ %chunk.sroa.4.sroa.4.0.extract.shift, %if.then7 ], [ %chunk.sroa.4.sroa.6.0.extract.shift, %if.then14 ]
   %chunk.sroa.4.sroa.0.0.in = phi i32 [ %head.sroa.2.0.copyload, %if.then7 ], [ %chunk.sroa.4.sroa.8.0.extract.shift, %if.then14 ]
   %chunk.sroa.15.sroa.8.0 = phi i32 [ %chunk.sroa.15.sroa.8.0.extract.shift, %if.then7 ], [ %1, %if.then14 ]
   %chunk.sroa.15.sroa.6.0 = phi i32 [ %chunk.sroa.15.sroa.6.0.extract.shift, %if.then7 ], [ %chunk.sroa.15.sroa.4.0.extract.shift, %if.then14 ]
   %chunk.sroa.15.sroa.4.0.in = phi i32 [ %chunk.sroa.15.sroa.4.0.extract.shift, %if.then7 ], [ %chunk.sroa.15.sroa.6.0.extract.shift, %if.then14 ]
   %chunk.sroa.15.sroa.0.0.in = phi i32 [ %head.sroa.4.0.copyload, %if.then7 ], [ %chunk.sroa.15.sroa.8.0.extract.shift, %if.then14 ]
   %chunk.sroa.24.0 = phi i32 [ %head.sroa.5.0.copyload, %if.then7 ], [ %chunk.sroa.24.22.insert.insert, %if.then14 ]
-  %chunk.sroa.4.sroa.4.0.in = phi i32 [ %chunk.sroa.4.sroa.4.0.extract.shift, %if.then7 ], [ %chunk.sroa.4.sroa.6.0.extract.shift, %if.then14 ]
-  %chunk.sroa.4.sroa.6.0 = phi i32 [ %chunk.sroa.4.sroa.6.0.extract.shift, %if.then7 ], [ %chunk.sroa.4.sroa.4.0.extract.shift, %if.then14 ]
-  %chunk.sroa.0.1 = phi i32 [ %c.sroa.0.0.copyload, %if.then7 ], [ %spec.select, %if.then14 ]
   %chunk.sroa.4.sroa.8.0 = phi i32 [ %chunk.sroa.4.sroa.8.0.extract.shift, %if.then7 ], [ %0, %if.then14 ]
+  %chunk.sroa.0.1 = phi i32 [ %c.sroa.0.0.copyload, %if.then7 ], [ %spec.select, %if.then14 ]
   store i32 %chunk.sroa.0.1, ptr %dataChunk, align 8
   %chunk.sroa.4.0.dataChunk.sroa_idx = getelementptr inbounds i8, ptr %dataChunk, i64 4
   %chunk.sroa.4.sroa.8.0.insert.shift = shl nuw i32 %chunk.sroa.4.sroa.8.0, 24

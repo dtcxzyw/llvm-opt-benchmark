@@ -258,8 +258,8 @@ define internal void @_ZL14evaluate_resnrRKN3gmx20SelMethodEvalContextEP15gmx_an
 
 28:                                               ; preds = %37, %10
   %.1 = phi i32 [ %.0912, %10 ], [ %40, %37 ]
-  %.026.i.i = phi i32 [ %25, %10 ], [ %.127.i.i, %37 ]
-  %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %37 ]
+  %.026.i.i = phi i32 [ -1, %10 ], [ %.127.i.i, %37 ]
+  %.0.i.i = phi i32 [ %25, %10 ], [ %.1.i.i, %37 ]
   %29 = sext i32 %.1 to i64
   %30 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %27, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 4
@@ -274,9 +274,9 @@ define internal void @_ZL14evaluate_resnrRKN3gmx20SelMethodEvalContextEP15gmx_an
   br i1 %.not.i.i, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i, label %37
 
 37:                                               ; preds = %34, %28
-  %.127.i.i = phi i32 [ %.1, %28 ], [ %.026.i.i, %34 ]
-  %.1.i.i = phi i32 [ %.0.i.i, %28 ], [ %.1, %34 ]
-  %38 = add i32 %.127.i.i, 1
+  %.127.i.i = phi i32 [ %.026.i.i, %28 ], [ %.1, %34 ]
+  %.1.i.i = phi i32 [ %.1, %28 ], [ %.0.i.i, %34 ]
+  %38 = add nsw i32 %.127.i.i, 1
   %39 = add i32 %38, %.1.i.i
   %40 = ashr i32 %39, 1
   br label %28, !llvm.loop !7
@@ -383,8 +383,8 @@ define internal void @_ZL17evaluate_resindexRKN3gmx20SelMethodEvalContextEP15gmx
 
 26:                                               ; preds = %35, %10
   %.1 = phi i32 [ %.01013, %10 ], [ %38, %35 ]
-  %.026.i.i = phi i32 [ %23, %10 ], [ %.127.i.i, %35 ]
-  %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %35 ]
+  %.026.i.i = phi i32 [ -1, %10 ], [ %.127.i.i, %35 ]
+  %.0.i.i = phi i32 [ %23, %10 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 4
@@ -399,9 +399,9 @@ define internal void @_ZL17evaluate_resindexRKN3gmx20SelMethodEvalContextEP15gmx
   br i1 %.not.i.i, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit, label %35
 
 35:                                               ; preds = %32, %26
-  %.127.i.i = phi i32 [ %.1, %26 ], [ %.026.i.i, %32 ]
-  %.1.i.i = phi i32 [ %.0.i.i, %26 ], [ %.1, %32 ]
-  %36 = add i32 %.127.i.i, 1
+  %.127.i.i = phi i32 [ %.026.i.i, %26 ], [ %.1, %32 ]
+  %.1.i.i = phi i32 [ %.1, %26 ], [ %.0.i.i, %32 ]
+  %36 = add nsw i32 %.127.i.i, 1
   %37 = add i32 %36, %.1.i.i
   %38 = ashr i32 %37, 1
   br label %26, !llvm.loop !7
@@ -554,8 +554,8 @@ define internal void @_ZL17evaluate_molindexRKN3gmx20SelMethodEvalContextEP15gmx
 
 26:                                               ; preds = %35, %10
   %.1 = phi i32 [ %.0913, %10 ], [ %38, %35 ]
-  %.026.i.i = phi i32 [ %23, %10 ], [ %.127.i.i, %35 ]
-  %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %35 ]
+  %.026.i.i = phi i32 [ -1, %10 ], [ %.127.i.i, %35 ]
+  %.0.i.i = phi i32 [ %23, %10 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 4
@@ -570,9 +570,9 @@ define internal void @_ZL17evaluate_molindexRKN3gmx20SelMethodEvalContextEP15gmx
   br i1 %.not.i.i, label %_ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit, label %35
 
 35:                                               ; preds = %32, %26
-  %.127.i.i = phi i32 [ %.1, %26 ], [ %.026.i.i, %32 ]
-  %.1.i.i = phi i32 [ %.0.i.i, %26 ], [ %.1, %32 ]
-  %36 = add i32 %.127.i.i, 1
+  %.127.i.i = phi i32 [ %.026.i.i, %26 ], [ %.1, %32 ]
+  %.1.i.i = phi i32 [ %.1, %26 ], [ %.0.i.i, %32 ]
+  %36 = add nsw i32 %.127.i.i, 1
   %37 = add i32 %36, %.1.i.i
   %38 = ashr i32 %37, 1
   br label %26, !llvm.loop !7
@@ -1029,8 +1029,8 @@ define internal void @_ZL17evaluate_atomnameRKN3gmx20SelMethodEvalContextEP15gmx
 
 26:                                               ; preds = %35, %10
   %.1 = phi i32 [ %.0912, %10 ], [ %38, %35 ]
-  %.026.i.i = phi i32 [ %23, %10 ], [ %.127.i.i, %35 ]
-  %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %35 ]
+  %.026.i.i = phi i32 [ -1, %10 ], [ %.127.i.i, %35 ]
+  %.0.i.i = phi i32 [ %23, %10 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 4
@@ -1045,9 +1045,9 @@ define internal void @_ZL17evaluate_atomnameRKN3gmx20SelMethodEvalContextEP15gmx
   br i1 %.not.i.i, label %_ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit, label %35
 
 35:                                               ; preds = %32, %26
-  %.127.i.i = phi i32 [ %.1, %26 ], [ %.026.i.i, %32 ]
-  %.1.i.i = phi i32 [ %.0.i.i, %26 ], [ %.1, %32 ]
-  %36 = add i32 %.127.i.i, 1
+  %.127.i.i = phi i32 [ %.026.i.i, %26 ], [ %.1, %32 ]
+  %.1.i.i = phi i32 [ %.1, %26 ], [ %.0.i.i, %32 ]
+  %36 = add nsw i32 %.127.i.i, 1
   %37 = add i32 %36, %.1.i.i
   %38 = ashr i32 %37, 1
   br label %26, !llvm.loop !7
@@ -1185,8 +1185,8 @@ define internal void @_ZL20evaluate_pdbatomnameRKN3gmx20SelMethodEvalContextEP15
 
 26:                                               ; preds = %35, %10
   %.1 = phi i32 [ %.01315, %10 ], [ %38, %35 ]
-  %.026.i.i = phi i32 [ %23, %10 ], [ %.127.i.i, %35 ]
-  %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %35 ]
+  %.026.i.i = phi i32 [ -1, %10 ], [ %.127.i.i, %35 ]
+  %.0.i.i = phi i32 [ %23, %10 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 4
@@ -1202,9 +1202,9 @@ define internal void @_ZL20evaluate_pdbatomnameRKN3gmx20SelMethodEvalContextEP15
   br i1 %.not.i.i, label %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit, label %35
 
 35:                                               ; preds = %32, %26
-  %.127.i.i = phi i32 [ %.1, %26 ], [ %.026.i.i, %32 ]
-  %.1.i.i = phi i32 [ %.0.i.i, %26 ], [ %.1, %32 ]
-  %36 = add i32 %.127.i.i, 1
+  %.127.i.i = phi i32 [ %.026.i.i, %26 ], [ %.1, %32 ]
+  %.1.i.i = phi i32 [ %.1, %26 ], [ %.0.i.i, %32 ]
+  %36 = add nsw i32 %.127.i.i, 1
   %37 = add i32 %36, %.1.i.i
   %38 = ashr i32 %37, 1
   br label %26, !llvm.loop !7
@@ -1356,8 +1356,8 @@ define internal void @_ZL17evaluate_atomtypeRKN3gmx20SelMethodEvalContextEP15gmx
 
 26:                                               ; preds = %35, %10
   %.1 = phi i32 [ %.01518, %10 ], [ %38, %35 ]
-  %.026.i = phi i32 [ %23, %10 ], [ %.127.i, %35 ]
-  %.0.i = phi i32 [ -1, %10 ], [ %.1.i, %35 ]
+  %.026.i = phi i32 [ -1, %10 ], [ %.127.i, %35 ]
+  %.0.i = phi i32 [ %23, %10 ], [ %.1.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 4
@@ -1372,9 +1372,9 @@ define internal void @_ZL17evaluate_atomtypeRKN3gmx20SelMethodEvalContextEP15gmx
   br i1 %.not.i, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit, label %35
 
 35:                                               ; preds = %32, %26
-  %.127.i = phi i32 [ %.1, %26 ], [ %.026.i, %32 ]
-  %.1.i = phi i32 [ %.0.i, %26 ], [ %.1, %32 ]
-  %36 = add i32 %.127.i, 1
+  %.127.i = phi i32 [ %.026.i, %26 ], [ %.1, %32 ]
+  %.1.i = phi i32 [ %.1, %26 ], [ %.0.i, %32 ]
+  %36 = add nsw i32 %.127.i, 1
   %37 = add i32 %36, %.1.i
   %38 = ashr i32 %37, 1
   br label %26, !llvm.loop !7
@@ -1445,8 +1445,8 @@ define internal void @_ZL16evaluate_resnameRKN3gmx20SelMethodEvalContextEP15gmx_
 
 26:                                               ; preds = %35, %10
   %.1 = phi i32 [ %.0911, %10 ], [ %38, %35 ]
-  %.026.i.i = phi i32 [ %23, %10 ], [ %.127.i.i, %35 ]
-  %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %35 ]
+  %.026.i.i = phi i32 [ -1, %10 ], [ %.127.i.i, %35 ]
+  %.0.i.i = phi i32 [ %23, %10 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 4
@@ -1462,9 +1462,9 @@ define internal void @_ZL16evaluate_resnameRKN3gmx20SelMethodEvalContextEP15gmx_
   br i1 %.not.i.i, label %_ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit, label %35
 
 35:                                               ; preds = %32, %26
-  %.127.i.i = phi i32 [ %.1, %26 ], [ %.026.i.i, %32 ]
-  %.1.i.i = phi i32 [ %.0.i.i, %26 ], [ %.1, %32 ]
-  %36 = add i32 %.127.i.i, 1
+  %.127.i.i = phi i32 [ %.026.i.i, %26 ], [ %.1, %32 ]
+  %.1.i.i = phi i32 [ %.1, %26 ], [ %.0.i.i, %32 ]
+  %36 = add nsw i32 %.127.i.i, 1
   %37 = add i32 %36, %.1.i.i
   %38 = ashr i32 %37, 1
   br label %26, !llvm.loop !7
@@ -1538,8 +1538,8 @@ define internal void @_ZL19evaluate_insertcodeRKN3gmx20SelMethodEvalContextEP15g
 
 26:                                               ; preds = %35, %10
   %.1 = phi i32 [ %.0911, %10 ], [ %38, %35 ]
-  %.026.i.i = phi i32 [ %23, %10 ], [ %.127.i.i, %35 ]
-  %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %35 ]
+  %.026.i.i = phi i32 [ -1, %10 ], [ %.127.i.i, %35 ]
+  %.0.i.i = phi i32 [ %23, %10 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 4
@@ -1555,9 +1555,9 @@ define internal void @_ZL19evaluate_insertcodeRKN3gmx20SelMethodEvalContextEP15g
   br i1 %.not.i.i, label %_ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit, label %35
 
 35:                                               ; preds = %32, %26
-  %.127.i.i = phi i32 [ %.1, %26 ], [ %.026.i.i, %32 ]
-  %.1.i.i = phi i32 [ %.0.i.i, %26 ], [ %.1, %32 ]
-  %36 = add i32 %.127.i.i, 1
+  %.127.i.i = phi i32 [ %.026.i.i, %26 ], [ %.1, %32 ]
+  %.1.i.i = phi i32 [ %.1, %26 ], [ %.0.i.i, %32 ]
+  %36 = add nsw i32 %.127.i.i, 1
   %37 = add i32 %36, %.1.i.i
   %38 = ashr i32 %37, 1
   br label %26, !llvm.loop !7
@@ -1631,8 +1631,8 @@ define internal void @_ZL14evaluate_chainRKN3gmx20SelMethodEvalContextEP15gmx_an
 
 26:                                               ; preds = %35, %10
   %.1 = phi i32 [ %.0911, %10 ], [ %38, %35 ]
-  %.026.i.i = phi i32 [ %23, %10 ], [ %.127.i.i, %35 ]
-  %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %35 ]
+  %.026.i.i = phi i32 [ -1, %10 ], [ %.127.i.i, %35 ]
+  %.0.i.i = phi i32 [ %23, %10 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 4
@@ -1648,9 +1648,9 @@ define internal void @_ZL14evaluate_chainRKN3gmx20SelMethodEvalContextEP15gmx_an
   br i1 %.not.i.i, label %_ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit, label %35
 
 35:                                               ; preds = %32, %26
-  %.127.i.i = phi i32 [ %.1, %26 ], [ %.026.i.i, %32 ]
-  %.1.i.i = phi i32 [ %.0.i.i, %26 ], [ %.1, %32 ]
-  %36 = add i32 %.127.i.i, 1
+  %.127.i.i = phi i32 [ %.026.i.i, %26 ], [ %.1, %32 ]
+  %.1.i.i = phi i32 [ %.1, %26 ], [ %.0.i.i, %32 ]
+  %36 = add nsw i32 %.127.i.i, 1
   %37 = add i32 %36, %.1.i.i
   %38 = ashr i32 %37, 1
   br label %26, !llvm.loop !7
@@ -1733,8 +1733,8 @@ define internal void @_ZL13evaluate_massRKN3gmx20SelMethodEvalContextEP15gmx_ana
 
 30:                                               ; preds = %39, %14
   %.1 = phi i32 [ %.01012, %14 ], [ %42, %39 ]
-  %.026.i.i.i = phi i32 [ %27, %14 ], [ %.127.i.i.i, %39 ]
-  %.0.i.i.i = phi i32 [ -1, %14 ], [ %.1.i.i.i, %39 ]
+  %.026.i.i.i = phi i32 [ -1, %14 ], [ %.127.i.i.i, %39 ]
+  %.0.i.i.i = phi i32 [ %27, %14 ], [ %.1.i.i.i, %39 ]
   %31 = sext i32 %.1 to i64
   %32 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %29, i64 %31
   %33 = getelementptr inbounds i8, ptr %32, i64 4
@@ -1750,9 +1750,9 @@ define internal void @_ZL13evaluate_massRKN3gmx20SelMethodEvalContextEP15gmx_ana
   br i1 %.not.i.i.i, label %_ZL15mtopGetAtomMassRK10gmx_mtop_tiPi.exit, label %39
 
 39:                                               ; preds = %36, %30
-  %.127.i.i.i = phi i32 [ %.1, %30 ], [ %.026.i.i.i, %36 ]
-  %.1.i.i.i = phi i32 [ %.0.i.i.i, %30 ], [ %.1, %36 ]
-  %40 = add i32 %.127.i.i.i, 1
+  %.127.i.i.i = phi i32 [ %.026.i.i.i, %30 ], [ %.1, %36 ]
+  %.1.i.i.i = phi i32 [ %.1, %30 ], [ %.0.i.i.i, %36 ]
+  %40 = add nsw i32 %.127.i.i.i, 1
   %41 = add i32 %40, %.1.i.i.i
   %42 = ashr i32 %41, 1
   br label %30, !llvm.loop !7
@@ -1893,8 +1893,8 @@ define internal void @_ZL15evaluate_chargeRKN3gmx20SelMethodEvalContextEP15gmx_a
 
 26:                                               ; preds = %35, %10
   %.1 = phi i32 [ %.0911, %10 ], [ %38, %35 ]
-  %.026.i.i = phi i32 [ %23, %10 ], [ %.127.i.i, %35 ]
-  %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %35 ]
+  %.026.i.i = phi i32 [ -1, %10 ], [ %.127.i.i, %35 ]
+  %.0.i.i = phi i32 [ %23, %10 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 4
@@ -1910,9 +1910,9 @@ define internal void @_ZL15evaluate_chargeRKN3gmx20SelMethodEvalContextEP15gmx_a
   br i1 %.not.i.i, label %_ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit, label %35
 
 35:                                               ; preds = %32, %26
-  %.127.i.i = phi i32 [ %.1, %26 ], [ %.026.i.i, %32 ]
-  %.1.i.i = phi i32 [ %.0.i.i, %26 ], [ %.1, %32 ]
-  %36 = add i32 %.127.i.i, 1
+  %.127.i.i = phi i32 [ %.026.i.i, %26 ], [ %.1, %32 ]
+  %.1.i.i = phi i32 [ %.1, %26 ], [ %.0.i.i, %32 ]
+  %36 = add nsw i32 %.127.i.i, 1
   %37 = add i32 %36, %.1.i.i
   %38 = ashr i32 %37, 1
   br label %26, !llvm.loop !7
@@ -1981,8 +1981,8 @@ define internal void @_ZL15evaluate_altlocRKN3gmx20SelMethodEvalContextEP15gmx_a
 
 26:                                               ; preds = %35, %10
   %.1 = phi i32 [ %.0911, %10 ], [ %38, %35 ]
-  %.026.i.i = phi i32 [ %23, %10 ], [ %.127.i.i, %35 ]
-  %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %35 ]
+  %.026.i.i = phi i32 [ -1, %10 ], [ %.127.i.i, %35 ]
+  %.0.i.i = phi i32 [ %23, %10 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 4
@@ -1998,9 +1998,9 @@ define internal void @_ZL15evaluate_altlocRKN3gmx20SelMethodEvalContextEP15gmx_a
   br i1 %.not.i.i, label %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit, label %35
 
 35:                                               ; preds = %32, %26
-  %.127.i.i = phi i32 [ %.1, %26 ], [ %.026.i.i, %32 ]
-  %.1.i.i = phi i32 [ %.0.i.i, %26 ], [ %.1, %32 ]
-  %36 = add i32 %.127.i.i, 1
+  %.127.i.i = phi i32 [ %.026.i.i, %26 ], [ %.1, %32 ]
+  %.1.i.i = phi i32 [ %.1, %26 ], [ %.0.i.i, %32 ]
+  %36 = add nsw i32 %.127.i.i, 1
   %37 = add i32 %36, %.1.i.i
   %38 = ashr i32 %37, 1
   br label %26, !llvm.loop !7
@@ -2068,8 +2068,8 @@ define internal void @_ZL18evaluate_occupancyRKN3gmx20SelMethodEvalContextEP15gm
 
 26:                                               ; preds = %35, %10
   %.1 = phi i32 [ %.0911, %10 ], [ %38, %35 ]
-  %.026.i.i = phi i32 [ %23, %10 ], [ %.127.i.i, %35 ]
-  %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %35 ]
+  %.026.i.i = phi i32 [ -1, %10 ], [ %.127.i.i, %35 ]
+  %.0.i.i = phi i32 [ %23, %10 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 4
@@ -2085,9 +2085,9 @@ define internal void @_ZL18evaluate_occupancyRKN3gmx20SelMethodEvalContextEP15gm
   br i1 %.not.i.i, label %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit, label %35
 
 35:                                               ; preds = %32, %26
-  %.127.i.i = phi i32 [ %.1, %26 ], [ %.026.i.i, %32 ]
-  %.1.i.i = phi i32 [ %.0.i.i, %26 ], [ %.1, %32 ]
-  %36 = add i32 %.127.i.i, 1
+  %.127.i.i = phi i32 [ %.026.i.i, %26 ], [ %.1, %32 ]
+  %.1.i.i = phi i32 [ %.1, %26 ], [ %.0.i.i, %32 ]
+  %36 = add nsw i32 %.127.i.i, 1
   %37 = add i32 %36, %.1.i.i
   %38 = ashr i32 %37, 1
   br label %26, !llvm.loop !7
@@ -2154,8 +2154,8 @@ define internal void @_ZL19evaluate_betafactorRKN3gmx20SelMethodEvalContextEP15g
 
 26:                                               ; preds = %35, %10
   %.1 = phi i32 [ %.0911, %10 ], [ %38, %35 ]
-  %.026.i.i = phi i32 [ %23, %10 ], [ %.127.i.i, %35 ]
-  %.0.i.i = phi i32 [ -1, %10 ], [ %.1.i.i, %35 ]
+  %.026.i.i = phi i32 [ -1, %10 ], [ %.127.i.i, %35 ]
+  %.0.i.i = phi i32 [ %23, %10 ], [ %.1.i.i, %35 ]
   %27 = sext i32 %.1 to i64
   %28 = getelementptr inbounds %struct.MoleculeBlockIndices, ptr %25, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 4
@@ -2171,9 +2171,9 @@ define internal void @_ZL19evaluate_betafactorRKN3gmx20SelMethodEvalContextEP15g
   br i1 %.not.i.i, label %_ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit, label %35
 
 35:                                               ; preds = %32, %26
-  %.127.i.i = phi i32 [ %.1, %26 ], [ %.026.i.i, %32 ]
-  %.1.i.i = phi i32 [ %.0.i.i, %26 ], [ %.1, %32 ]
-  %36 = add i32 %.127.i.i, 1
+  %.127.i.i = phi i32 [ %.026.i.i, %26 ], [ %.1, %32 ]
+  %.1.i.i = phi i32 [ %.1, %26 ], [ %.0.i.i, %32 ]
+  %36 = add nsw i32 %.127.i.i, 1
   %37 = add i32 %36, %.1.i.i
   %38 = ashr i32 %37, 1
   br label %26, !llvm.loop !7

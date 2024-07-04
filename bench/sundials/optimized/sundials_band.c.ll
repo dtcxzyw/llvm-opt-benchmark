@@ -32,11 +32,11 @@ define i64 @SUNDlsMat_bandGBTRF(ptr nocapture noundef readonly %0, i64 noundef %
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
-  %.0116150.us = phi i64 [ %13, %.lr.ph.us ], [ 0, %.lr.ph.us.preheader ]
-  %11 = getelementptr inbounds ptr, ptr %0, i64 %.0116150.us
+  %.0128150.us = phi i64 [ %13, %.lr.ph.us ], [ 0, %.lr.ph.us.preheader ]
+  %11 = getelementptr inbounds ptr, ptr %0, i64 %.0128150.us
   %12 = load ptr, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %12, i8 0, i64 %10, i1 false)
-  %13 = add nuw nsw i64 %.0116150.us, 1
+  %13 = add nuw nsw i64 %.0128150.us, 1
   %exitcond.not = icmp eq i64 %13, %1
   br i1 %exitcond.not, label %.loopexit145, label %.lr.ph.us
 
@@ -47,16 +47,16 @@ define i64 @SUNDlsMat_bandGBTRF(ptr nocapture noundef readonly %0, i64 noundef %
 
 .lr.ph177:                                        ; preds = %.loopexit145, %._crit_edge173
   %.0115175 = phi ptr [ %67, %._crit_edge173 ], [ %5, %.loopexit145 ]
-  %.0126174 = phi i64 [ %21, %._crit_edge173 ], [ 0, %.loopexit145 ]
-  %16 = getelementptr inbounds ptr, ptr %0, i64 %.0126174
+  %.0122174 = phi i64 [ %21, %._crit_edge173 ], [ 0, %.loopexit145 ]
+  %16 = getelementptr inbounds ptr, ptr %0, i64 %.0122174
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds double, ptr %17, i64 %4
   %19 = getelementptr inbounds i8, ptr %18, i64 8
-  %20 = add nsw i64 %.0126174, %3
+  %20 = add nsw i64 %.0122174, %3
   %.not = icmp slt i64 %20, %1
   %. = select i1 %.not, i64 %20, i64 %14
-  %21 = add nuw nsw i64 %.0126174, 1
-  %.not137152.not = icmp sge i64 %.0126174, %.
+  %21 = add nuw nsw i64 %.0122174, 1
+  %.not137152.not = icmp sge i64 %.0122174, %.
   br i1 %.not137152.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph177
@@ -65,24 +65,24 @@ define i64 @SUNDlsMat_bandGBTRF(ptr nocapture noundef readonly %0, i64 noundef %
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0118156 = phi double [ %.1, %.lr.ph ], [ %23, %.lr.ph.preheader ]
-  %.0120155 = phi ptr [ %28, %.lr.ph ], [ %19, %.lr.ph.preheader ]
-  %.0122154 = phi i64 [ %27, %.lr.ph ], [ %21, %.lr.ph.preheader ]
-  %.0127153 = phi i64 [ %.1128, %.lr.ph ], [ %.0126174, %.lr.ph.preheader ]
-  %24 = load double, ptr %.0120155, align 8
+  %.0116156 = phi double [ %.1, %.lr.ph ], [ %23, %.lr.ph.preheader ]
+  %.0118155 = phi ptr [ %28, %.lr.ph ], [ %19, %.lr.ph.preheader ]
+  %.0120154 = phi i64 [ %.1121, %.lr.ph ], [ %.0122174, %.lr.ph.preheader ]
+  %.0124153 = phi i64 [ %27, %.lr.ph ], [ %21, %.lr.ph.preheader ]
+  %24 = load double, ptr %.0118155, align 8
   %25 = tail call double @llvm.fabs.f64(double %24)
-  %26 = fcmp ogt double %25, %.0118156
-  %.1128 = select i1 %26, i64 %.0122154, i64 %.0127153
-  %.1 = select i1 %26, double %25, double %.0118156
-  %27 = add nuw nsw i64 %.0122154, 1
-  %28 = getelementptr inbounds i8, ptr %.0120155, i64 8
-  %.not137.not = icmp slt i64 %.0122154, %.
+  %26 = fcmp ogt double %25, %.0116156
+  %.1121 = select i1 %26, i64 %.0124153, i64 %.0120154
+  %.1 = select i1 %26, double %25, double %.0116156
+  %27 = add nuw nsw i64 %.0124153, 1
+  %28 = getelementptr inbounds i8, ptr %.0118155, i64 8
+  %.not137.not = icmp slt i64 %.0124153, %.
   br i1 %.not137.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph177
-  %.0127.lcssa = phi i64 [ %.0126174, %.lr.ph177 ], [ %.1128, %.lr.ph ]
-  %29 = sub nsw i64 %.0127.lcssa, %.0126174
-  store i64 %.0127.lcssa, ptr %.0115175, align 8
+  %.0120.lcssa = phi i64 [ %.0122174, %.lr.ph177 ], [ %.1121, %.lr.ph ]
+  %29 = sub nsw i64 %.0120.lcssa, %.0122174
+  store i64 %.0120.lcssa, ptr %.0115175, align 8
   %30 = getelementptr double, ptr %17, i64 %29
   %31 = getelementptr double, ptr %30, i64 %4
   %32 = load double, ptr %31, align 8
@@ -90,7 +90,7 @@ define i64 @SUNDlsMat_bandGBTRF(ptr nocapture noundef readonly %0, i64 noundef %
   br i1 %33, label %.loopexit144, label %34
 
 34:                                               ; preds = %._crit_edge
-  %.not138 = icmp eq i64 %.0127.lcssa, %.0126174
+  %.not138 = icmp eq i64 %.0120.lcssa, %.0122174
   %.pre = load double, ptr %18, align 8
   br i1 %.not138, label %36, label %35
 
@@ -105,34 +105,34 @@ define i64 @SUNDlsMat_bandGBTRF(ptr nocapture noundef readonly %0, i64 noundef %
   br i1 %.not137152.not, label %._crit_edge162, label %.lr.ph161
 
 .lr.ph161:                                        ; preds = %36, %.lr.ph161
-  %.1121159 = phi ptr [ %42, %.lr.ph161 ], [ %19, %36 ]
-  %.1123158 = phi i64 [ %41, %.lr.ph161 ], [ %21, %36 ]
-  %39 = load double, ptr %.1121159, align 8
+  %.1119159 = phi ptr [ %42, %.lr.ph161 ], [ %19, %36 ]
+  %.1125158 = phi i64 [ %41, %.lr.ph161 ], [ %21, %36 ]
+  %39 = load double, ptr %.1119159, align 8
   %40 = fmul double %38, %39
-  store double %40, ptr %.1121159, align 8
-  %41 = add nuw nsw i64 %.1123158, 1
-  %42 = getelementptr inbounds i8, ptr %.1121159, i64 8
-  %.not139.not = icmp slt i64 %.1123158, %.
+  store double %40, ptr %.1119159, align 8
+  %41 = add nuw nsw i64 %.1125158, 1
+  %42 = getelementptr inbounds i8, ptr %.1119159, i64 8
+  %.not139.not = icmp slt i64 %.1125158, %.
   br i1 %.not139.not, label %.lr.ph161, label %._crit_edge162
 
 ._crit_edge162:                                   ; preds = %.lr.ph161, %36
-  %43 = add nsw i64 %.0126174, %4
+  %43 = add nsw i64 %.0122174, %4
   %.142 = tail call i64 @llvm.smin.i64(i64 %43, i64 %14)
-  %.not140169.not = icmp slt i64 %.0126174, %.142
+  %.not140169.not = icmp slt i64 %.0122174, %.142
   br i1 %.not140169.not, label %.lr.ph172, label %._crit_edge173
 
 .lr.ph172:                                        ; preds = %._crit_edge162, %.loopexit
-  %.0125170 = phi i64 [ %66, %.loopexit ], [ %21, %._crit_edge162 ]
-  %44 = getelementptr inbounds ptr, ptr %0, i64 %.0125170
+  %.0123170 = phi i64 [ %66, %.loopexit ], [ %21, %._crit_edge162 ]
+  %44 = getelementptr inbounds ptr, ptr %0, i64 %.0123170
   %45 = load ptr, ptr %44, align 8
-  %46 = sub nsw i64 %.0127.lcssa, %.0125170
+  %46 = sub nsw i64 %.0120.lcssa, %.0123170
   %47 = getelementptr double, ptr %45, i64 %46
   %48 = getelementptr double, ptr %47, i64 %4
   %49 = load double, ptr %48, align 8
   br i1 %.not138, label %55, label %50
 
 50:                                               ; preds = %.lr.ph172
-  %51 = sub nsw i64 %.0126174, %.0125170
+  %51 = sub nsw i64 %.0122174, %.0123170
   %52 = getelementptr double, ptr %45, i64 %51
   %53 = getelementptr double, ptr %52, i64 %4
   %54 = load double, ptr %53, align 8
@@ -146,28 +146,28 @@ define i64 @SUNDlsMat_bandGBTRF(ptr nocapture noundef readonly %0, i64 noundef %
   br i1 %brmerge, label %.loopexit, label %.lr.ph168.preheader
 
 .lr.ph168.preheader:                              ; preds = %55
-  %57 = sub nsw i64 %21, %.0125170
+  %57 = sub nsw i64 %21, %.0123170
   %58 = getelementptr double, ptr %45, i64 %57
   %59 = getelementptr double, ptr %58, i64 %4
   br label %.lr.ph168
 
 .lr.ph168:                                        ; preds = %.lr.ph168.preheader, %.lr.ph168
-  %.0119166 = phi ptr [ %65, %.lr.ph168 ], [ %59, %.lr.ph168.preheader ]
+  %.0117166 = phi ptr [ %65, %.lr.ph168 ], [ %59, %.lr.ph168.preheader ]
   %.2165 = phi ptr [ %64, %.lr.ph168 ], [ %19, %.lr.ph168.preheader ]
-  %.2124164 = phi i64 [ %63, %.lr.ph168 ], [ %21, %.lr.ph168.preheader ]
+  %.2126164 = phi i64 [ %63, %.lr.ph168 ], [ %21, %.lr.ph168.preheader ]
   %60 = load double, ptr %.2165, align 8
-  %61 = load double, ptr %.0119166, align 8
+  %61 = load double, ptr %.0117166, align 8
   %62 = tail call double @llvm.fmuladd.f64(double %49, double %60, double %61)
-  store double %62, ptr %.0119166, align 8
-  %63 = add nuw nsw i64 %.2124164, 1
+  store double %62, ptr %.0117166, align 8
+  %63 = add nuw nsw i64 %.2126164, 1
   %64 = getelementptr inbounds i8, ptr %.2165, i64 8
-  %65 = getelementptr inbounds i8, ptr %.0119166, i64 8
-  %.not141.not = icmp slt i64 %.2124164, %.
+  %65 = getelementptr inbounds i8, ptr %.0117166, i64 8
+  %.not141.not = icmp slt i64 %.2126164, %.
   br i1 %.not141.not, label %.lr.ph168, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph168, %55
-  %66 = add nuw nsw i64 %.0125170, 1
-  %.not140.not = icmp slt i64 %.0125170, %.142
+  %66 = add nuw nsw i64 %.0123170, 1
+  %.not140.not = icmp slt i64 %.0123170, %.142
   br i1 %.not140.not, label %.lr.ph172, label %._crit_edge173
 
 ._crit_edge173:                                   ; preds = %.loopexit, %._crit_edge162
@@ -521,29 +521,29 @@ define void @SUNDlsMat_BandCopy(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %.not20.i, label %SUNDlsMat_bandCopy.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph24.i, %._crit_edge.i
-  %.01922.i = phi i64 [ %31, %._crit_edge.i ], [ 0, %.lr.ph24.i ]
-  %18 = getelementptr inbounds ptr, ptr %6, i64 %.01922.i
+  %.022.i = phi i64 [ %31, %._crit_edge.i ], [ 0, %.lr.ph24.i ]
+  %18 = getelementptr inbounds ptr, ptr %6, i64 %.022.i
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds double, ptr %19, i64 %12
   %21 = getelementptr inbounds double, ptr %20, i64 %17
-  %22 = getelementptr inbounds ptr, ptr %8, i64 %.01922.i
+  %22 = getelementptr inbounds ptr, ptr %8, i64 %.022.i
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds double, ptr %23, i64 %14
   %25 = getelementptr inbounds double, ptr %24, i64 %17
   br label %26
 
 26:                                               ; preds = %26, %.lr.ph.i
-  %.021.i = phi i64 [ 0, %.lr.ph.i ], [ %30, %26 ]
-  %27 = getelementptr inbounds double, ptr %21, i64 %.021.i
+  %.01921.i = phi i64 [ 0, %.lr.ph.i ], [ %30, %26 ]
+  %27 = getelementptr inbounds double, ptr %21, i64 %.01921.i
   %28 = load double, ptr %27, align 8
-  %29 = getelementptr inbounds double, ptr %25, i64 %.021.i
+  %29 = getelementptr inbounds double, ptr %25, i64 %.01921.i
   store double %28, ptr %29, align 8
-  %30 = add nuw i64 %.021.i, 1
-  %exitcond.not.i = icmp eq i64 %.021.i, %15
+  %30 = add nuw i64 %.01921.i, 1
+  %exitcond.not.i = icmp eq i64 %.01921.i, %15
   br i1 %exitcond.not.i, label %._crit_edge.i, label %26
 
 ._crit_edge.i:                                    ; preds = %26
-  %31 = add nuw nsw i64 %.01922.i, 1
+  %31 = add nuw nsw i64 %.022.i, 1
   %exitcond27.not.i = icmp eq i64 %31, %10
   br i1 %exitcond27.not.i, label %SUNDlsMat_bandCopy.exit, label %.lr.ph.i
 
@@ -563,29 +563,29 @@ define void @SUNDlsMat_bandCopy(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %.not20, label %._crit_edge25, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph24, %._crit_edge
-  %.01922 = phi i64 [ %24, %._crit_edge ], [ 0, %.lr.ph24 ]
-  %11 = getelementptr inbounds ptr, ptr %0, i64 %.01922
+  %.022 = phi i64 [ %24, %._crit_edge ], [ 0, %.lr.ph24 ]
+  %11 = getelementptr inbounds ptr, ptr %0, i64 %.022
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds double, ptr %12, i64 %3
   %14 = getelementptr inbounds double, ptr %13, i64 %10
-  %15 = getelementptr inbounds ptr, ptr %1, i64 %.01922
+  %15 = getelementptr inbounds ptr, ptr %1, i64 %.022
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds double, ptr %16, i64 %4
   %18 = getelementptr inbounds double, ptr %17, i64 %10
   br label %19
 
 19:                                               ; preds = %.lr.ph, %19
-  %.021 = phi i64 [ 0, %.lr.ph ], [ %23, %19 ]
-  %20 = getelementptr inbounds double, ptr %14, i64 %.021
+  %.01921 = phi i64 [ 0, %.lr.ph ], [ %23, %19 ]
+  %20 = getelementptr inbounds double, ptr %14, i64 %.01921
   %21 = load double, ptr %20, align 8
-  %22 = getelementptr inbounds double, ptr %18, i64 %.021
+  %22 = getelementptr inbounds double, ptr %18, i64 %.01921
   store double %21, ptr %22, align 8
-  %23 = add nuw i64 %.021, 1
-  %exitcond.not = icmp eq i64 %.021, %8
+  %23 = add nuw i64 %.01921, 1
+  %exitcond.not = icmp eq i64 %.01921, %8
   br i1 %exitcond.not, label %._crit_edge, label %19
 
 ._crit_edge:                                      ; preds = %19
-  %24 = add nuw nsw i64 %.01922, 1
+  %24 = add nuw nsw i64 %.022, 1
   %exitcond27.not = icmp eq i64 %24, %2
   br i1 %exitcond27.not, label %._crit_edge25, label %.lr.ph
 
@@ -615,29 +615,29 @@ define void @BandCopy(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   br i1 %.not20.i, label %SUNDlsMat_bandCopy.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph24.i, %._crit_edge.i
-  %.01922.i = phi i64 [ %31, %._crit_edge.i ], [ 0, %.lr.ph24.i ]
-  %18 = getelementptr inbounds ptr, ptr %6, i64 %.01922.i
+  %.022.i = phi i64 [ %31, %._crit_edge.i ], [ 0, %.lr.ph24.i ]
+  %18 = getelementptr inbounds ptr, ptr %6, i64 %.022.i
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds double, ptr %19, i64 %12
   %21 = getelementptr inbounds double, ptr %20, i64 %17
-  %22 = getelementptr inbounds ptr, ptr %8, i64 %.01922.i
+  %22 = getelementptr inbounds ptr, ptr %8, i64 %.022.i
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds double, ptr %23, i64 %14
   %25 = getelementptr inbounds double, ptr %24, i64 %17
   br label %26
 
 26:                                               ; preds = %26, %.lr.ph.i
-  %.021.i = phi i64 [ 0, %.lr.ph.i ], [ %30, %26 ]
-  %27 = getelementptr inbounds double, ptr %21, i64 %.021.i
+  %.01921.i = phi i64 [ 0, %.lr.ph.i ], [ %30, %26 ]
+  %27 = getelementptr inbounds double, ptr %21, i64 %.01921.i
   %28 = load double, ptr %27, align 8
-  %29 = getelementptr inbounds double, ptr %25, i64 %.021.i
+  %29 = getelementptr inbounds double, ptr %25, i64 %.01921.i
   store double %28, ptr %29, align 8
-  %30 = add nuw i64 %.021.i, 1
-  %exitcond.not.i = icmp eq i64 %.021.i, %15
+  %30 = add nuw i64 %.01921.i, 1
+  %exitcond.not.i = icmp eq i64 %.01921.i, %15
   br i1 %exitcond.not.i, label %._crit_edge.i, label %26
 
 ._crit_edge.i:                                    ; preds = %26
-  %31 = add nuw nsw i64 %.01922.i, 1
+  %31 = add nuw nsw i64 %.022.i, 1
   %exitcond27.not.i = icmp eq i64 %31, %10
   br i1 %exitcond27.not.i, label %SUNDlsMat_bandCopy.exit, label %.lr.ph.i
 
@@ -667,25 +667,25 @@ define void @SUNDlsMat_BandScale(double noundef %0, ptr nocapture noundef readon
   br i1 %.not15.i, label %SUNDlsMat_bandScale.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph19.i, %._crit_edge.i
-  %.01417.i = phi i64 [ %25, %._crit_edge.i ], [ 0, %.lr.ph19.i ]
-  %16 = getelementptr inbounds ptr, ptr %4, i64 %.01417.i
+  %.017.i = phi i64 [ %25, %._crit_edge.i ], [ 0, %.lr.ph19.i ]
+  %16 = getelementptr inbounds ptr, ptr %4, i64 %.017.i
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds double, ptr %17, i64 %12
   %19 = getelementptr inbounds double, ptr %18, i64 %15
   br label %20
 
 20:                                               ; preds = %20, %.lr.ph.i
-  %.016.i = phi i64 [ 0, %.lr.ph.i ], [ %24, %20 ]
-  %21 = getelementptr inbounds double, ptr %19, i64 %.016.i
+  %.01416.i = phi i64 [ 0, %.lr.ph.i ], [ %24, %20 ]
+  %21 = getelementptr inbounds double, ptr %19, i64 %.01416.i
   %22 = load double, ptr %21, align 8
   %23 = fmul double %22, %0
   store double %23, ptr %21, align 8
-  %24 = add nuw i64 %.016.i, 1
-  %exitcond.not.i = icmp eq i64 %.016.i, %13
+  %24 = add nuw i64 %.01416.i, 1
+  %exitcond.not.i = icmp eq i64 %.01416.i, %13
   br i1 %exitcond.not.i, label %._crit_edge.i, label %20
 
 ._crit_edge.i:                                    ; preds = %20
-  %25 = add nuw nsw i64 %.01417.i, 1
+  %25 = add nuw nsw i64 %.017.i, 1
   %exitcond22.not.i = icmp eq i64 %25, %6
   br i1 %exitcond22.not.i, label %SUNDlsMat_bandScale.exit, label %.lr.ph.i
 
@@ -705,25 +705,25 @@ define void @SUNDlsMat_bandScale(double noundef %0, ptr nocapture noundef readon
   br i1 %.not15, label %._crit_edge20, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph19, %._crit_edge
-  %.01417 = phi i64 [ %19, %._crit_edge ], [ 0, %.lr.ph19 ]
-  %10 = getelementptr inbounds ptr, ptr %1, i64 %.01417
+  %.017 = phi i64 [ %19, %._crit_edge ], [ 0, %.lr.ph19 ]
+  %10 = getelementptr inbounds ptr, ptr %1, i64 %.017
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds double, ptr %11, i64 %5
   %13 = getelementptr inbounds double, ptr %12, i64 %9
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
-  %.016 = phi i64 [ 0, %.lr.ph ], [ %18, %14 ]
-  %15 = getelementptr inbounds double, ptr %13, i64 %.016
+  %.01416 = phi i64 [ 0, %.lr.ph ], [ %18, %14 ]
+  %15 = getelementptr inbounds double, ptr %13, i64 %.01416
   %16 = load double, ptr %15, align 8
   %17 = fmul double %16, %0
   store double %17, ptr %15, align 8
-  %18 = add nuw i64 %.016, 1
-  %exitcond.not = icmp eq i64 %.016, %7
+  %18 = add nuw i64 %.01416, 1
+  %exitcond.not = icmp eq i64 %.01416, %7
   br i1 %exitcond.not, label %._crit_edge, label %14
 
 ._crit_edge:                                      ; preds = %14
-  %19 = add nuw nsw i64 %.01417, 1
+  %19 = add nuw nsw i64 %.017, 1
   %exitcond22.not = icmp eq i64 %19, %2
   br i1 %exitcond22.not, label %._crit_edge20, label %.lr.ph
 
@@ -753,25 +753,25 @@ define void @BandScale(double noundef %0, ptr nocapture noundef readonly %1) loc
   br i1 %.not15.i, label %SUNDlsMat_bandScale.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph19.i, %._crit_edge.i
-  %.01417.i = phi i64 [ %25, %._crit_edge.i ], [ 0, %.lr.ph19.i ]
-  %16 = getelementptr inbounds ptr, ptr %4, i64 %.01417.i
+  %.017.i = phi i64 [ %25, %._crit_edge.i ], [ 0, %.lr.ph19.i ]
+  %16 = getelementptr inbounds ptr, ptr %4, i64 %.017.i
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds double, ptr %17, i64 %12
   %19 = getelementptr inbounds double, ptr %18, i64 %15
   br label %20
 
 20:                                               ; preds = %20, %.lr.ph.i
-  %.016.i = phi i64 [ 0, %.lr.ph.i ], [ %24, %20 ]
-  %21 = getelementptr inbounds double, ptr %19, i64 %.016.i
+  %.01416.i = phi i64 [ 0, %.lr.ph.i ], [ %24, %20 ]
+  %21 = getelementptr inbounds double, ptr %19, i64 %.01416.i
   %22 = load double, ptr %21, align 8
   %23 = fmul double %22, %0
   store double %23, ptr %21, align 8
-  %24 = add nuw i64 %.016.i, 1
-  %exitcond.not.i = icmp eq i64 %.016.i, %13
+  %24 = add nuw i64 %.01416.i, 1
+  %exitcond.not.i = icmp eq i64 %.01416.i, %13
   br i1 %exitcond.not.i, label %._crit_edge.i, label %20
 
 ._crit_edge.i:                                    ; preds = %20
-  %25 = add nuw nsw i64 %.01417.i, 1
+  %25 = add nuw nsw i64 %.017.i, 1
   %exitcond22.not.i = icmp eq i64 %25, %6
   br i1 %exitcond22.not.i, label %SUNDlsMat_bandScale.exit, label %.lr.ph.i
 
@@ -801,25 +801,25 @@ define void @SUNDlsMat_BandMatvec(ptr nocapture noundef readonly %0, ptr nocaptu
   br label %17
 
 17:                                               ; preds = %._crit_edge.i, %.lr.ph43.i
-  %.03342.i = phi i64 [ 0, %.lr.ph43.i ], [ %35, %._crit_edge.i ]
-  %18 = getelementptr inbounds ptr, ptr %5, i64 %.03342.i
+  %.042.i = phi i64 [ 0, %.lr.ph43.i ], [ %35, %._crit_edge.i ]
+  %18 = getelementptr inbounds ptr, ptr %5, i64 %.042.i
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds double, ptr %19, i64 %13
-  %21 = sub nsw i64 %.03342.i, %9
+  %21 = sub nsw i64 %.042.i, %9
   %22 = tail call i64 @llvm.smax.i64(i64 %21, i64 0)
-  %23 = add nsw i64 %.03342.i, %11
+  %23 = add nsw i64 %.042.i, %11
   %.not.i = icmp slt i64 %23, %7
   %24 = select i1 %.not.i, i64 %23, i64 %16
   %.not3739.i = icmp sgt i64 %22, %24
   br i1 %.not3739.i, label %._crit_edge.i, label %.lr.ph41.i
 
 .lr.ph41.i:                                       ; preds = %17
-  %25 = getelementptr inbounds double, ptr %1, i64 %.03342.i
+  %25 = getelementptr inbounds double, ptr %1, i64 %.042.i
   br label %26
 
 26:                                               ; preds = %26, %.lr.ph41.i
   %.140.i = phi i64 [ %22, %.lr.ph41.i ], [ %34, %26 ]
-  %27 = sub nsw i64 %.140.i, %.03342.i
+  %27 = sub nsw i64 %.140.i, %.042.i
   %28 = getelementptr inbounds double, ptr %20, i64 %27
   %29 = load double, ptr %28, align 8
   %30 = load double, ptr %25, align 8
@@ -832,7 +832,7 @@ define void @SUNDlsMat_BandMatvec(ptr nocapture noundef readonly %0, ptr nocaptu
   br i1 %.not37.not.i, label %26, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %26, %17
-  %35 = add nuw nsw i64 %.03342.i, 1
+  %35 = add nuw nsw i64 %.042.i, 1
   %exitcond.not.i = icmp eq i64 %35, %7
   br i1 %exitcond.not.i, label %SUNDlsMat_bandMatvec.exit, label %17
 
@@ -852,25 +852,25 @@ define void @SUNDlsMat_bandMatvec(ptr nocapture noundef readonly %0, ptr nocaptu
   br label %11
 
 11:                                               ; preds = %.lr.ph43, %._crit_edge
-  %.03342 = phi i64 [ 0, %.lr.ph43 ], [ %29, %._crit_edge ]
-  %12 = getelementptr inbounds ptr, ptr %0, i64 %.03342
+  %.042 = phi i64 [ 0, %.lr.ph43 ], [ %29, %._crit_edge ]
+  %12 = getelementptr inbounds ptr, ptr %0, i64 %.042
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds double, ptr %13, i64 %6
-  %15 = sub nsw i64 %.03342, %4
+  %15 = sub nsw i64 %.042, %4
   %16 = tail call i64 @llvm.smax.i64(i64 %15, i64 0)
-  %17 = add nsw i64 %.03342, %5
+  %17 = add nsw i64 %.042, %5
   %.not = icmp slt i64 %17, %3
   %18 = select i1 %.not, i64 %17, i64 %10
   %.not3739 = icmp sgt i64 %16, %18
   br i1 %.not3739, label %._crit_edge, label %.lr.ph41
 
 .lr.ph41:                                         ; preds = %11
-  %19 = getelementptr inbounds double, ptr %1, i64 %.03342
+  %19 = getelementptr inbounds double, ptr %1, i64 %.042
   br label %20
 
 20:                                               ; preds = %.lr.ph41, %20
   %.140 = phi i64 [ %16, %.lr.ph41 ], [ %28, %20 ]
-  %21 = sub nsw i64 %.140, %.03342
+  %21 = sub nsw i64 %.140, %.042
   %22 = getelementptr inbounds double, ptr %14, i64 %21
   %23 = load double, ptr %22, align 8
   %24 = load double, ptr %19, align 8
@@ -883,7 +883,7 @@ define void @SUNDlsMat_bandMatvec(ptr nocapture noundef readonly %0, ptr nocaptu
   br i1 %.not37.not, label %20, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %20, %11
-  %29 = add nuw nsw i64 %.03342, 1
+  %29 = add nuw nsw i64 %.042, 1
   %exitcond.not = icmp eq i64 %29, %3
   br i1 %exitcond.not, label %._crit_edge44, label %11
 
@@ -913,25 +913,25 @@ define void @BandMatvec(ptr nocapture noundef readonly %0, ptr nocapture noundef
   br label %17
 
 17:                                               ; preds = %._crit_edge.i, %.lr.ph43.i
-  %.03342.i = phi i64 [ 0, %.lr.ph43.i ], [ %35, %._crit_edge.i ]
-  %18 = getelementptr inbounds ptr, ptr %5, i64 %.03342.i
+  %.042.i = phi i64 [ 0, %.lr.ph43.i ], [ %35, %._crit_edge.i ]
+  %18 = getelementptr inbounds ptr, ptr %5, i64 %.042.i
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds double, ptr %19, i64 %13
-  %21 = sub nsw i64 %.03342.i, %9
+  %21 = sub nsw i64 %.042.i, %9
   %22 = tail call i64 @llvm.smax.i64(i64 %21, i64 0)
-  %23 = add nsw i64 %.03342.i, %11
+  %23 = add nsw i64 %.042.i, %11
   %.not.i = icmp slt i64 %23, %7
   %24 = select i1 %.not.i, i64 %23, i64 %16
   %.not3739.i = icmp sgt i64 %22, %24
   br i1 %.not3739.i, label %._crit_edge.i, label %.lr.ph41.i
 
 .lr.ph41.i:                                       ; preds = %17
-  %25 = getelementptr inbounds double, ptr %1, i64 %.03342.i
+  %25 = getelementptr inbounds double, ptr %1, i64 %.042.i
   br label %26
 
 26:                                               ; preds = %26, %.lr.ph41.i
   %.140.i = phi i64 [ %22, %.lr.ph41.i ], [ %34, %26 ]
-  %27 = sub nsw i64 %.140.i, %.03342.i
+  %27 = sub nsw i64 %.140.i, %.042.i
   %28 = getelementptr inbounds double, ptr %20, i64 %27
   %29 = load double, ptr %28, align 8
   %30 = load double, ptr %25, align 8
@@ -944,7 +944,7 @@ define void @BandMatvec(ptr nocapture noundef readonly %0, ptr nocapture noundef
   br i1 %.not37.not.i, label %26, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %26, %17
-  %35 = add nuw nsw i64 %.03342.i, 1
+  %35 = add nuw nsw i64 %.042.i, 1
   %exitcond.not.i = icmp eq i64 %35, %7
   br i1 %exitcond.not.i, label %SUNDlsMat_bandMatvec.exit, label %17
 
@@ -1068,29 +1068,29 @@ define void @bandCopy(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   br i1 %.not20.i, label %SUNDlsMat_bandCopy.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph24.i, %._crit_edge.i
-  %.01922.i = phi i64 [ %24, %._crit_edge.i ], [ 0, %.lr.ph24.i ]
-  %11 = getelementptr inbounds ptr, ptr %0, i64 %.01922.i
+  %.022.i = phi i64 [ %24, %._crit_edge.i ], [ 0, %.lr.ph24.i ]
+  %11 = getelementptr inbounds ptr, ptr %0, i64 %.022.i
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds double, ptr %12, i64 %3
   %14 = getelementptr inbounds double, ptr %13, i64 %10
-  %15 = getelementptr inbounds ptr, ptr %1, i64 %.01922.i
+  %15 = getelementptr inbounds ptr, ptr %1, i64 %.022.i
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds double, ptr %16, i64 %4
   %18 = getelementptr inbounds double, ptr %17, i64 %10
   br label %19
 
 19:                                               ; preds = %19, %.lr.ph.i
-  %.021.i = phi i64 [ 0, %.lr.ph.i ], [ %23, %19 ]
-  %20 = getelementptr inbounds double, ptr %14, i64 %.021.i
+  %.01921.i = phi i64 [ 0, %.lr.ph.i ], [ %23, %19 ]
+  %20 = getelementptr inbounds double, ptr %14, i64 %.01921.i
   %21 = load double, ptr %20, align 8
-  %22 = getelementptr inbounds double, ptr %18, i64 %.021.i
+  %22 = getelementptr inbounds double, ptr %18, i64 %.01921.i
   store double %21, ptr %22, align 8
-  %23 = add nuw i64 %.021.i, 1
-  %exitcond.not.i = icmp eq i64 %.021.i, %8
+  %23 = add nuw i64 %.01921.i, 1
+  %exitcond.not.i = icmp eq i64 %.01921.i, %8
   br i1 %exitcond.not.i, label %._crit_edge.i, label %19
 
 ._crit_edge.i:                                    ; preds = %19
-  %24 = add nuw nsw i64 %.01922.i, 1
+  %24 = add nuw nsw i64 %.022.i, 1
   %exitcond27.not.i = icmp eq i64 %24, %2
   br i1 %exitcond27.not.i, label %SUNDlsMat_bandCopy.exit, label %.lr.ph.i
 
@@ -1110,25 +1110,25 @@ define void @bandScale(double noundef %0, ptr nocapture noundef readonly %1, i64
   br i1 %.not15.i, label %SUNDlsMat_bandScale.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph19.i, %._crit_edge.i
-  %.01417.i = phi i64 [ %19, %._crit_edge.i ], [ 0, %.lr.ph19.i ]
-  %10 = getelementptr inbounds ptr, ptr %1, i64 %.01417.i
+  %.017.i = phi i64 [ %19, %._crit_edge.i ], [ 0, %.lr.ph19.i ]
+  %10 = getelementptr inbounds ptr, ptr %1, i64 %.017.i
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds double, ptr %11, i64 %5
   %13 = getelementptr inbounds double, ptr %12, i64 %9
   br label %14
 
 14:                                               ; preds = %14, %.lr.ph.i
-  %.016.i = phi i64 [ 0, %.lr.ph.i ], [ %18, %14 ]
-  %15 = getelementptr inbounds double, ptr %13, i64 %.016.i
+  %.01416.i = phi i64 [ 0, %.lr.ph.i ], [ %18, %14 ]
+  %15 = getelementptr inbounds double, ptr %13, i64 %.01416.i
   %16 = load double, ptr %15, align 8
   %17 = fmul double %16, %0
   store double %17, ptr %15, align 8
-  %18 = add nuw i64 %.016.i, 1
-  %exitcond.not.i = icmp eq i64 %.016.i, %7
+  %18 = add nuw i64 %.01416.i, 1
+  %exitcond.not.i = icmp eq i64 %.01416.i, %7
   br i1 %exitcond.not.i, label %._crit_edge.i, label %14
 
 ._crit_edge.i:                                    ; preds = %14
-  %19 = add nuw nsw i64 %.01417.i, 1
+  %19 = add nuw nsw i64 %.017.i, 1
   %exitcond22.not.i = icmp eq i64 %19, %2
   br i1 %exitcond22.not.i, label %SUNDlsMat_bandScale.exit, label %.lr.ph.i
 
@@ -1190,25 +1190,25 @@ define void @bandMatvec(ptr nocapture noundef readonly %0, ptr nocapture noundef
   br label %11
 
 11:                                               ; preds = %._crit_edge.i, %.lr.ph43.i
-  %.03342.i = phi i64 [ 0, %.lr.ph43.i ], [ %29, %._crit_edge.i ]
-  %12 = getelementptr inbounds ptr, ptr %0, i64 %.03342.i
+  %.042.i = phi i64 [ 0, %.lr.ph43.i ], [ %29, %._crit_edge.i ]
+  %12 = getelementptr inbounds ptr, ptr %0, i64 %.042.i
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds double, ptr %13, i64 %6
-  %15 = sub nsw i64 %.03342.i, %4
+  %15 = sub nsw i64 %.042.i, %4
   %16 = tail call i64 @llvm.smax.i64(i64 %15, i64 0)
-  %17 = add nsw i64 %.03342.i, %5
+  %17 = add nsw i64 %.042.i, %5
   %.not.i = icmp slt i64 %17, %3
   %18 = select i1 %.not.i, i64 %17, i64 %10
   %.not3739.i = icmp sgt i64 %16, %18
   br i1 %.not3739.i, label %._crit_edge.i, label %.lr.ph41.i
 
 .lr.ph41.i:                                       ; preds = %11
-  %19 = getelementptr inbounds double, ptr %1, i64 %.03342.i
+  %19 = getelementptr inbounds double, ptr %1, i64 %.042.i
   br label %20
 
 20:                                               ; preds = %20, %.lr.ph41.i
   %.140.i = phi i64 [ %16, %.lr.ph41.i ], [ %28, %20 ]
-  %21 = sub nsw i64 %.140.i, %.03342.i
+  %21 = sub nsw i64 %.140.i, %.042.i
   %22 = getelementptr inbounds double, ptr %14, i64 %21
   %23 = load double, ptr %22, align 8
   %24 = load double, ptr %19, align 8
@@ -1221,7 +1221,7 @@ define void @bandMatvec(ptr nocapture noundef readonly %0, ptr nocapture noundef
   br i1 %.not37.not.i, label %20, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %20, %11
-  %29 = add nuw nsw i64 %.03342.i, 1
+  %29 = add nuw nsw i64 %.042.i, 1
   %exitcond.not.i = icmp eq i64 %29, %3
   br i1 %exitcond.not.i, label %SUNDlsMat_bandMatvec.exit, label %11
 

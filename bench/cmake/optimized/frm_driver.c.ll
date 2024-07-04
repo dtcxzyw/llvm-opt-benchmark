@@ -615,21 +615,21 @@ define internal fastcc void @Synchronize_Buffer(ptr nocapture noundef %0) unname
   br label %22
 
 22:                                               ; preds = %25, %.lr.ph.i
-  %.02734.i = phi i32 [ 0, %.lr.ph.i ], [ %31, %25 ]
-  %.02933.i = phi i32 [ 0, %.lr.ph.i ], [ %32, %25 ]
+  %.02734.i = phi i32 [ 0, %.lr.ph.i ], [ %32, %25 ]
+  %.02933.i = phi i32 [ 0, %.lr.ph.i ], [ %31, %25 ]
   %23 = load i32, ptr %19, align 4
-  %24 = icmp slt i32 %.02933.i, %23
+  %24 = icmp slt i32 %.02734.i, %23
   br i1 %24, label %25, label %.critedge.i
 
 25:                                               ; preds = %22
-  %26 = tail call i32 @wmove(ptr noundef nonnull %8, i32 noundef %.02933.i, i32 noundef 0) #13
-  %27 = sext i32 %.02734.i to i64
+  %26 = tail call i32 @wmove(ptr noundef nonnull %8, i32 noundef %.02734.i, i32 noundef 0) #13
+  %27 = sext i32 %.02933.i to i64
   %28 = getelementptr inbounds i8, ptr %14, i64 %27
   %29 = load i32, ptr %21, align 8
   %30 = tail call i32 @winnstr(ptr noundef nonnull %8, ptr noundef %28, i32 noundef %29) #13
-  %31 = add nsw i32 %30, %.02734.i
-  %32 = add nuw nsw i32 %.02933.i, 1
-  %exitcond.not.i = icmp eq i32 %.02933.i, %18
+  %31 = add nsw i32 %30, %.02933.i
+  %32 = add nuw nsw i32 %.02734.i, 1
+  %exitcond.not.i = icmp eq i32 %.02734.i, %18
   br i1 %exitcond.not.i, label %.critedge.i, label %22, !llvm.loop !9
 
 .critedge.thread.i:                               ; preds = %15, %4
@@ -637,12 +637,12 @@ define internal fastcc void @Synchronize_Buffer(ptr nocapture noundef %0) unname
   br label %Window_To_Buffer.exit
 
 .critedge.i:                                      ; preds = %25, %22
-  %.027.lcssa.i = phi i32 [ %.02734.i, %22 ], [ %31, %25 ]
-  %33 = sext i32 %.027.lcssa.i to i64
+  %.029.lcssa.i = phi i32 [ %.02933.i, %22 ], [ %31, %25 ]
+  %33 = sext i32 %.029.lcssa.i to i64
   %34 = getelementptr inbounds i8, ptr %14, i64 %33
   store i8 0, ptr %34, align 1
   %.not32.i = icmp ne i32 %12, 32
-  %35 = icmp sgt i32 %.027.lcssa.i, 0
+  %35 = icmp sgt i32 %.029.lcssa.i, 0
   %or.cond.i = and i1 %.not32.i, %35
   br i1 %or.cond.i, label %.lr.ph39.i, label %Window_To_Buffer.exit
 
@@ -661,7 +661,7 @@ define internal fastcc void @Synchronize_Buffer(ptr nocapture noundef %0) unname
 40:                                               ; preds = %39, %.lr.ph39.i
   %41 = add nuw nsw i32 %.038.i, 1
   %42 = getelementptr inbounds i8, ptr %.02837.i, i64 1
-  %exitcond40.not.i = icmp eq i32 %41, %.027.lcssa.i
+  %exitcond40.not.i = icmp eq i32 %41, %.029.lcssa.i
   br i1 %exitcond40.not.i, label %Window_To_Buffer.exit, label %.lr.ph39.i, !llvm.loop !10
 
 Window_To_Buffer.exit:                            ; preds = %40, %.critedge.thread.i, %.critedge.i
@@ -1043,7 +1043,7 @@ define dso_local range(i32 -14, 1) i32 @_nc_Synchronize_Options(ptr noundef %0, 
   br label %31
 
 31:                                               ; preds = %.sink.split, %14, %27, %17, %3
-  %.057 = phi i32 [ 0, %27 ], [ 0, %17 ], [ 0, %14 ], [ 0, %3 ], [ %30, %.sink.split ]
+  %.056 = phi i32 [ 0, %27 ], [ 0, %17 ], [ 0, %14 ], [ 0, %3 ], [ %30, %.sink.split ]
   %32 = and i32 %6, 512
   %.not69 = icmp eq i32 %32, 0
   br i1 %.not69, label %107, label %33
@@ -1186,8 +1186,8 @@ define dso_local range(i32 -14, 1) i32 @_nc_Synchronize_Options(ptr noundef %0, 
   br label %107
 
 107:                                              ; preds = %.thread81, %105, %31, %2, %13
-  %.056 = phi i32 [ -14, %13 ], [ -2, %2 ], [ %.057, %31 ], [ %.057, %.thread81 ], [ -1, %105 ]
-  ret i32 %.056
+  %.057 = phi i32 [ -14, %13 ], [ -2, %2 ], [ %.056, %31 ], [ %.056, %.thread81 ], [ -1, %105 ]
+  ret i32 %.057
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1509,21 +1509,21 @@ define internal fastcc void @Window_To_Buffer(ptr noundef %0, ptr nocapture noun
   br label %14
 
 14:                                               ; preds = %.lr.ph, %17
-  %.02734 = phi i32 [ 0, %.lr.ph ], [ %23, %17 ]
-  %.02933 = phi i32 [ 0, %.lr.ph ], [ %24, %17 ]
+  %.02734 = phi i32 [ 0, %.lr.ph ], [ %24, %17 ]
+  %.02933 = phi i32 [ 0, %.lr.ph ], [ %23, %17 ]
   %15 = load i32, ptr %11, align 4
-  %16 = icmp slt i32 %.02933, %15
+  %16 = icmp slt i32 %.02734, %15
   br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %14
-  %18 = tail call i32 @wmove(ptr noundef nonnull %0, i32 noundef %.02933, i32 noundef 0) #13
-  %19 = sext i32 %.02734 to i64
+  %18 = tail call i32 @wmove(ptr noundef nonnull %0, i32 noundef %.02734, i32 noundef 0) #13
+  %19 = sext i32 %.02933 to i64
   %20 = getelementptr inbounds i8, ptr %6, i64 %19
   %21 = load i32, ptr %13, align 8
   %22 = tail call i32 @winnstr(ptr noundef nonnull %0, ptr noundef %20, i32 noundef %21) #13
-  %23 = add nsw i32 %22, %.02734
-  %24 = add nuw nsw i32 %.02933, 1
-  %exitcond.not = icmp eq i32 %.02933, %10
+  %23 = add nsw i32 %22, %.02933
+  %24 = add nuw nsw i32 %.02734, 1
+  %exitcond.not = icmp eq i32 %.02734, %10
   br i1 %exitcond.not, label %.critedge, label %14, !llvm.loop !9
 
 .critedge.thread:                                 ; preds = %7, %2
@@ -1531,12 +1531,12 @@ define internal fastcc void @Window_To_Buffer(ptr noundef %0, ptr nocapture noun
   br label %.loopexit
 
 .critedge:                                        ; preds = %14, %17
-  %.027.lcssa = phi i32 [ %.02734, %14 ], [ %23, %17 ]
-  %25 = sext i32 %.027.lcssa to i64
+  %.029.lcssa = phi i32 [ %.02933, %14 ], [ %23, %17 ]
+  %25 = sext i32 %.029.lcssa to i64
   %26 = getelementptr inbounds i8, ptr %6, i64 %25
   store i8 0, ptr %26, align 1
   %.not32 = icmp ne i32 %4, 32
-  %27 = icmp sgt i32 %.027.lcssa, 0
+  %27 = icmp sgt i32 %.029.lcssa, 0
   %or.cond = and i1 %.not32, %27
   br i1 %or.cond, label %.lr.ph39, label %.loopexit
 
@@ -1555,7 +1555,7 @@ define internal fastcc void @Window_To_Buffer(ptr noundef %0, ptr nocapture noun
 32:                                               ; preds = %.lr.ph39, %31
   %33 = add nuw nsw i32 %.038, 1
   %34 = getelementptr inbounds i8, ptr %.02837, i64 1
-  %exitcond40.not = icmp eq i32 %33, %.027.lcssa
+  %exitcond40.not = icmp eq i32 %33, %.029.lcssa
   br i1 %exitcond40.not, label %.loopexit, label %.lr.ph39, !llvm.loop !10
 
 .loopexit:                                        ; preds = %32, %.critedge.thread, %.critedge
@@ -1841,9 +1841,9 @@ Next_Field_On_Page.exit:                          ; preds = %35
   br label %53
 
 53:                                               ; preds = %53, %44
-  %.025 = phi ptr [ %48, %44 ], [ %56, %53 ]
-  %54 = icmp eq ptr %.025, %12
-  %55 = getelementptr inbounds i8, ptr %.025, i64 8
+  %.0 = phi ptr [ %48, %44 ], [ %56, %53 ]
+  %54 = icmp eq ptr %.0, %12
+  %55 = getelementptr inbounds i8, ptr %.0, i64 8
   %56 = select i1 %54, ptr %52, ptr %55
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 48
@@ -1865,8 +1865,8 @@ Next_Field_On_Page.exit:                          ; preds = %35
   br label %65
 
 65:                                               ; preds = %Next_Field_On_Page.exit, %63, %61
-  %.0 = phi ptr [ %64, %63 ], [ %57, %61 ], [ %39, %Next_Field_On_Page.exit ]
-  ret ptr %.0
+  %.025 = phi ptr [ %64, %63 ], [ %57, %61 ], [ %39, %Next_Field_On_Page.exit ]
+  ret ptr %.025
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1987,8 +1987,8 @@ FN_First_Field.exit:                              ; preds = %71
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %3, %FN_First_Field.exit, %38
-  %.022 = phi i32 [ %39, %38 ], [ %80, %FN_First_Field.exit ], [ 0, %3 ], [ -1, %32 ]
-  ret i32 %.022
+  %.023 = phi i32 [ %39, %38 ], [ %80, %FN_First_Field.exit ], [ 0, %3 ], [ -1, %32 ]
+  ret i32 %.023
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2137,9 +2137,9 @@ Next_Field_On_Page.exit.i:                        ; preds = %44
   br label %62
 
 62:                                               ; preds = %62, %53
-  %.025.i = phi ptr [ %57, %53 ], [ %65, %62 ]
-  %63 = icmp eq ptr %.025.i, %21
-  %64 = getelementptr inbounds i8, ptr %.025.i, i64 8
+  %.0.i = phi ptr [ %57, %53 ], [ %65, %62 ]
+  %63 = icmp eq ptr %.0.i, %21
+  %64 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %65 = select i1 %63, ptr %61, ptr %64
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 48
@@ -2161,9 +2161,9 @@ Next_Field_On_Page.exit.i:                        ; preds = %44
   br label %_nc_First_Active_Field.exit
 
 _nc_First_Active_Field.exit:                      ; preds = %Next_Field_On_Page.exit.i, %70, %72
-  %.0.i = phi ptr [ %73, %72 ], [ %66, %70 ], [ %48, %Next_Field_On_Page.exit.i ]
+  %.025.i = phi ptr [ %73, %72 ], [ %66, %70 ], [ %48, %Next_Field_On_Page.exit.i ]
   %74 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr %.0.i, ptr %74, align 8
+  store ptr %.025.i, ptr %74, align 8
   br label %129
 
 75:                                               ; preds = %10
@@ -2258,14 +2258,14 @@ _nc_First_Active_Field.exit:                      ; preds = %Next_Field_On_Page.
   br label %.thread51
 
 .thread51:                                        ; preds = %87, %93, %97, %109, %110, %117, %125, %107, %103
-  %.035 = phi i32 [ %106, %103 ], [ %108, %107 ], [ -8, %109 ], [ %126, %125 ], [ -8, %117 ], [ -8, %110 ], [ -1, %97 ], [ -1, %93 ], [ -8, %87 ]
+  %.034 = phi i32 [ %106, %103 ], [ %108, %107 ], [ -8, %109 ], [ %126, %125 ], [ -8, %117 ], [ -8, %110 ], [ -1, %97 ], [ -1, %93 ], [ -8, %87 ]
   %127 = tail call i32 @_nc_Refresh_Current_Field(ptr noundef nonnull %0)
   %128 = tail call ptr @__errno_location() #14
-  store i32 %.035, ptr %128, align 4
+  store i32 %.034, ptr %128, align 4
   br label %129
 
 129:                                              ; preds = %.thread51, %83, %79, %_nc_First_Active_Field.exit, %8, %3
-  %.0 = phi i32 [ 0, %_nc_First_Active_Field.exit ], [ -5, %79 ], [ %.035, %.thread51 ], [ -7, %83 ], [ -11, %8 ], [ -2, %3 ]
+  %.0 = phi i32 [ 0, %_nc_First_Active_Field.exit ], [ -5, %79 ], [ %.034, %.thread51 ], [ -7, %83 ], [ -11, %8 ], [ -2, %3 ]
   ret i32 %.0
 }
 
@@ -2880,8 +2880,8 @@ define internal fastcc i32 @Data_Entry(ptr noundef %0, i32 noundef %1) unnamed_a
   br label %IFN_Next_Character.exit
 
 IFN_Next_Character.exit:                          ; preds = %.sink.split.i, %131, %.critedge49, %2, %96, %69, %98, %65, %54, %62
-  %.0 = phi i32 [ -12, %62 ], [ -12, %54 ], [ -1, %65 ], [ %97, %96 ], [ %70, %69 ], [ -12, %2 ], [ -1, %98 ], [ 0, %.critedge49 ], [ 0, %131 ], [ 0, %.sink.split.i ]
-  ret i32 %.0
+  %.036 = phi i32 [ -12, %62 ], [ -12, %54 ], [ -1, %65 ], [ %97, %96 ], [ %70, %69 ], [ -12, %2 ], [ -1, %98 ], [ 0, %.critedge49 ], [ 0, %131 ], [ 0, %.sink.split.i ]
+  ret i32 %.036
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2923,8 +2923,8 @@ define dso_local i32 @set_field_buffer(ptr noundef %0, i32 noundef %1, ptr nound
 
 25:                                               ; preds = %.lr.ph, %31
   %26 = phi i8 [ %19, %.lr.ph ], [ %34, %31 ]
-  %.084109 = phi i32 [ 0, %.lr.ph ], [ %33, %31 ]
-  %.085108 = phi ptr [ %2, %.lr.ph ], [ %32, %31 ]
+  %.083109 = phi i32 [ 0, %.lr.ph ], [ %33, %31 ]
+  %.084108 = phi ptr [ %2, %.lr.ph ], [ %32, %31 ]
   %27 = zext i8 %26 to i64
   %28 = getelementptr inbounds i16, ptr %24, i64 %27
   %29 = load i16, ptr %28, align 2
@@ -2933,8 +2933,8 @@ define dso_local i32 @set_field_buffer(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not101, label %.loopexit123, label %31
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %.085108, i64 1
-  %33 = add nuw i32 %.084109, 1
+  %32 = getelementptr inbounds i8, ptr %.084108, i64 1
+  %33 = add nuw i32 %.083109, 1
   %34 = load i8, ptr %32, align 1
   %35 = icmp ne i8 %34, 0
   %36 = icmp ult i32 %33, %17
@@ -2997,7 +2997,7 @@ define dso_local i32 @set_field_buffer(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not100, label %.loopexit123, label %63
 
 .loopexit:                                        ; preds = %63, %59, %40, %.loopexit106
-  %.086 = phi i32 [ %17, %40 ], [ %17, %.loopexit106 ], [ %42, %59 ], [ %42, %63 ]
+  %.085 = phi i32 [ %17, %40 ], [ %17, %.loopexit106 ], [ %42, %59 ], [ %42, %63 ]
   %71 = getelementptr inbounds i8, ptr %0, i64 104
   %72 = load ptr, ptr %71, align 8
   %73 = load i32, ptr %13, align 4
@@ -3007,11 +3007,11 @@ define dso_local i32 @set_field_buffer(ptr noundef %0, i32 noundef %1, ptr nound
   %77 = mul nsw i32 %76, %1
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds i8, ptr %72, i64 %78
-  %80 = zext i32 %.086 to i64
+  %80 = zext i32 %.085 to i64
   %81 = getelementptr inbounds i8, ptr %2, i64 %80
   %82 = load i8, ptr %2, align 1
   %83 = icmp ne i8 %82, 0
-  %84 = icmp ne i32 %.086, 0
+  %84 = icmp ne i32 %.085, 0
   %85 = select i1 %83, i1 %84, i1 false
   br i1 %85, label %.lr.ph113, label %._crit_edge
 
@@ -3021,12 +3021,12 @@ define dso_local i32 @set_field_buffer(ptr noundef %0, i32 noundef %1, ptr nound
 
 87:                                               ; preds = %.lr.ph113, %87
   %88 = phi i8 [ %82, %.lr.ph113 ], [ %93, %87 ]
-  %.083112 = phi ptr [ %2, %.lr.ph113 ], [ %92, %87 ]
-  %89 = ptrtoint ptr %.083112 to i64
+  %.087112 = phi ptr [ %2, %.lr.ph113 ], [ %92, %87 ]
+  %89 = ptrtoint ptr %.087112 to i64
   %90 = sub i64 %89, %86
   %91 = getelementptr inbounds i8, ptr %79, i64 %90
   store i8 %88, ptr %91, align 1
-  %92 = getelementptr inbounds i8, ptr %.083112, i64 1
+  %92 = getelementptr inbounds i8, ptr %.087112, i64 1
   %93 = load i8, ptr %92, align 1
   %94 = icmp ne i8 %93, 0
   %95 = icmp ult ptr %92, %81
@@ -3034,20 +3034,20 @@ define dso_local i32 @set_field_buffer(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %96, label %87, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %87, %.loopexit
-  %.083.lcssa = phi ptr [ %2, %.loopexit ], [ %92, %87 ]
+  %.087.lcssa = phi ptr [ %2, %.loopexit ], [ %92, %87 ]
   %.lcssa107 = phi i8 [ %82, %.loopexit ], [ %93, %87 ]
   %.lcssa = phi i1 [ %84, %.loopexit ], [ %95, %87 ]
   br i1 %.lcssa, label %97, label %.thread
 
 97:                                               ; preds = %._crit_edge
-  %98 = ptrtoint ptr %.083.lcssa to i64
+  %98 = ptrtoint ptr %.087.lcssa to i64
   %99 = ptrtoint ptr %2 to i64
   %100 = sub i64 %98, %99
   %sext = shl i64 %100, 32
   %101 = ashr exact i64 %sext, 32
   %102 = getelementptr inbounds i8, ptr %79, i64 %101
   store i8 %.lcssa107, ptr %102, align 1
-  %103 = getelementptr inbounds i8, ptr %.083.lcssa, i64 1
+  %103 = getelementptr inbounds i8, ptr %.087.lcssa, i64 1
   %104 = ptrtoint ptr %103 to i64
   %105 = sub i64 %104, %99
   %106 = getelementptr inbounds i8, ptr %79, i64 %105
@@ -3056,11 +3056,11 @@ define dso_local i32 @set_field_buffer(ptr noundef %0, i32 noundef %1, ptr nound
   %109 = ptrtoint ptr %79 to i64
   %110 = sub i64 %108, %109
   %111 = trunc i64 %110 to i32
-  %112 = icmp ugt i32 %.086, %111
+  %112 = icmp ugt i32 %.085, %111
   br i1 %112, label %113, label %.thread
 
 113:                                              ; preds = %97
-  %114 = sub i32 %.086, %111
+  %114 = sub i32 %.085, %111
   %115 = zext i32 %114 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %107, i8 32, i64 %115, i1 false)
   br label %.thread
@@ -3101,10 +3101,10 @@ Synchronize_Linked_Fields.exit:                   ; preds = %.lr.ph.i, %116, %.p
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %25, %64, %.thread, %Synchronize_Linked_Fields.exit, %44, %3, %7
-  %.188.sink = phi i32 [ -2, %7 ], [ -2, %3 ], [ -1, %44 ], [ 0, %.thread ], [ %spec.select102, %Synchronize_Linked_Fields.exit ], [ -2, %64 ], [ -2, %25 ]
+  %.1.sink = phi i32 [ -2, %7 ], [ -2, %3 ], [ -1, %44 ], [ 0, %.thread ], [ %spec.select102, %Synchronize_Linked_Fields.exit ], [ -2, %64 ], [ -2, %25 ]
   %126 = tail call ptr @__errno_location() #14
-  store i32 %.188.sink, ptr %126, align 4
-  ret i32 %.188.sink
+  store i32 %.1.sink, ptr %126, align 4
+  ret i32 %.1.sink
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -6382,21 +6382,21 @@ define internal fastcc range(i32 -12, 1) i32 @Wrapping_Not_Necessary_Or_Wrapping
   br i1 %66, label %.lr.ph.i, label %.critedge.thread.i
 
 .lr.ph.i:                                         ; preds = %62, %69
-  %.02734.i = phi i32 [ %75, %69 ], [ 0, %62 ]
-  %.02933.i = phi i32 [ %76, %69 ], [ 0, %62 ]
+  %.02734.i = phi i32 [ %76, %69 ], [ 0, %62 ]
+  %.02933.i = phi i32 [ %75, %69 ], [ 0, %62 ]
   %67 = load i32, ptr %4, align 4
-  %68 = icmp slt i32 %.02933.i, %67
+  %68 = icmp slt i32 %.02734.i, %67
   br i1 %68, label %69, label %.critedge.i
 
 69:                                               ; preds = %.lr.ph.i
-  %70 = tail call i32 @wmove(ptr noundef nonnull %57, i32 noundef %.02933.i, i32 noundef 0) #13
-  %71 = sext i32 %.02734.i to i64
+  %70 = tail call i32 @wmove(ptr noundef nonnull %57, i32 noundef %.02734.i, i32 noundef 0) #13
+  %71 = sext i32 %.02933.i to i64
   %72 = getelementptr inbounds i8, ptr %61, i64 %71
   %73 = load i32, ptr %24, align 8
   %74 = tail call i32 @winnstr(ptr noundef nonnull %57, ptr noundef %72, i32 noundef %73) #13
-  %75 = add nsw i32 %74, %.02734.i
-  %76 = add nuw nsw i32 %.02933.i, 1
-  %exitcond.not.i = icmp eq i32 %.02933.i, %65
+  %75 = add nsw i32 %74, %.02933.i
+  %76 = add nuw nsw i32 %.02734.i, 1
+  %exitcond.not.i = icmp eq i32 %.02734.i, %65
   br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !9
 
 .critedge.thread.i:                               ; preds = %62, %.critedge
@@ -6404,12 +6404,12 @@ define internal fastcc range(i32 -12, 1) i32 @Wrapping_Not_Necessary_Or_Wrapping
   br label %Window_To_Buffer.exit
 
 .critedge.i:                                      ; preds = %69, %.lr.ph.i
-  %.027.lcssa.i = phi i32 [ %.02734.i, %.lr.ph.i ], [ %75, %69 ]
-  %77 = sext i32 %.027.lcssa.i to i64
+  %.029.lcssa.i = phi i32 [ %.02933.i, %.lr.ph.i ], [ %75, %69 ]
+  %77 = sext i32 %.029.lcssa.i to i64
   %78 = getelementptr inbounds i8, ptr %61, i64 %77
   store i8 0, ptr %78, align 1
   %.not32.i = icmp ne i32 %59, 32
-  %79 = icmp sgt i32 %.027.lcssa.i, 0
+  %79 = icmp sgt i32 %.029.lcssa.i, 0
   %or.cond.i = and i1 %.not32.i, %79
   br i1 %or.cond.i, label %.lr.ph39.i, label %Window_To_Buffer.exit
 
@@ -6428,7 +6428,7 @@ define internal fastcc range(i32 -12, 1) i32 @Wrapping_Not_Necessary_Or_Wrapping
 84:                                               ; preds = %83, %.lr.ph39.i
   %85 = add nuw nsw i32 %.038.i, 1
   %86 = getelementptr inbounds i8, ptr %.02837.i, i64 1
-  %exitcond40.not.i = icmp eq i32 %85, %.027.lcssa.i
+  %exitcond40.not.i = icmp eq i32 %85, %.029.lcssa.i
   br i1 %exitcond40.not.i, label %Window_To_Buffer.exit, label %.lr.ph39.i, !llvm.loop !10
 
 Window_To_Buffer.exit:                            ; preds = %84, %.critedge.thread.i, %.critedge.i
@@ -6501,21 +6501,21 @@ After_Last_Whitespace_Character.exit:             ; preds = %90, %92
   br i1 %129, label %.lr.ph.i55, label %.critedge.thread.i54
 
 .lr.ph.i55:                                       ; preds = %125, %132
-  %.02734.i56 = phi i32 [ %138, %132 ], [ 0, %125 ]
-  %.02933.i57 = phi i32 [ %139, %132 ], [ 0, %125 ]
+  %.02734.i56 = phi i32 [ %139, %132 ], [ 0, %125 ]
+  %.02933.i57 = phi i32 [ %138, %132 ], [ 0, %125 ]
   %130 = load i32, ptr %4, align 4
-  %131 = icmp slt i32 %.02933.i57, %130
+  %131 = icmp slt i32 %.02734.i56, %130
   br i1 %131, label %132, label %.critedge.i58
 
 132:                                              ; preds = %.lr.ph.i55
-  %133 = tail call i32 @wmove(ptr noundef nonnull %122, i32 noundef %.02933.i57, i32 noundef 0) #13
-  %134 = sext i32 %.02734.i56 to i64
+  %133 = tail call i32 @wmove(ptr noundef nonnull %122, i32 noundef %.02734.i56, i32 noundef 0) #13
+  %134 = sext i32 %.02933.i57 to i64
   %135 = getelementptr inbounds i8, ptr %124, i64 %134
   %136 = load i32, ptr %24, align 8
   %137 = tail call i32 @winnstr(ptr noundef nonnull %122, ptr noundef %135, i32 noundef %136) #13
-  %138 = add nsw i32 %137, %.02734.i56
-  %139 = add nuw nsw i32 %.02933.i57, 1
-  %exitcond.not.i66 = icmp eq i32 %.02933.i57, %128
+  %138 = add nsw i32 %137, %.02933.i57
+  %139 = add nuw nsw i32 %.02734.i56, 1
+  %exitcond.not.i66 = icmp eq i32 %.02734.i56, %128
   br i1 %exitcond.not.i66, label %.critedge.i58, label %.lr.ph.i55, !llvm.loop !9
 
 .critedge.thread.i54:                             ; preds = %125, %117
@@ -6523,12 +6523,12 @@ After_Last_Whitespace_Character.exit:             ; preds = %90, %92
   br label %Window_To_Buffer.exit67
 
 .critedge.i58:                                    ; preds = %132, %.lr.ph.i55
-  %.027.lcssa.i59 = phi i32 [ %.02734.i56, %.lr.ph.i55 ], [ %138, %132 ]
-  %140 = sext i32 %.027.lcssa.i59 to i64
+  %.029.lcssa.i59 = phi i32 [ %.02933.i57, %.lr.ph.i55 ], [ %138, %132 ]
+  %140 = sext i32 %.029.lcssa.i59 to i64
   %141 = getelementptr inbounds i8, ptr %124, i64 %140
   store i8 0, ptr %141, align 1
   %.not32.i60 = icmp ne i32 %123, 32
-  %142 = icmp sgt i32 %.027.lcssa.i59, 0
+  %142 = icmp sgt i32 %.029.lcssa.i59, 0
   %or.cond.i61 = and i1 %.not32.i60, %142
   br i1 %or.cond.i61, label %.lr.ph39.i62, label %Window_To_Buffer.exit67
 
@@ -6547,7 +6547,7 @@ After_Last_Whitespace_Character.exit:             ; preds = %90, %92
 147:                                              ; preds = %146, %.lr.ph39.i62
   %148 = add nuw nsw i32 %.038.i63, 1
   %149 = getelementptr inbounds i8, ptr %.02837.i64, i64 1
-  %exitcond40.not.i65 = icmp eq i32 %148, %.027.lcssa.i59
+  %exitcond40.not.i65 = icmp eq i32 %148, %.029.lcssa.i59
   br i1 %exitcond40.not.i65, label %Window_To_Buffer.exit67, label %.lr.ph39.i62, !llvm.loop !10
 
 Window_To_Buffer.exit67:                          ; preds = %147, %.critedge.i58, %.critedge.thread.i54, %43, %21, %13, %1, %After_Last_Whitespace_Character.exit, %108, %113, %46

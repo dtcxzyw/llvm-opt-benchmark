@@ -145,36 +145,36 @@ define internal i32 @dissect_mcp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %22
 
 22:                                               ; preds = %.lr.ph, %131
-  %.0181206 = phi i32 [ 0, %.lr.ph ], [ %132, %131 ]
-  %.0184205 = phi i32 [ 1, %.lr.ph ], [ %.1185, %131 ]
-  %23 = sub nsw i32 %19, %.0181206
+  %.0182206 = phi i32 [ 1, %.lr.ph ], [ %.1, %131 ]
+  %.0185205 = phi i32 [ 0, %.lr.ph ], [ %132, %131 ]
+  %23 = sub nsw i32 %19, %.0185205
   %24 = icmp ult i32 %23, 2
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %18, ptr noundef %1, ptr noundef nonnull @ei_mcp_short_tlv, ptr noundef %0, i32 noundef %.0181206, i32 noundef %19, ptr noundef nonnull @.str.38, i32 noundef %23) #2
+  %26 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %18, ptr noundef %1, ptr noundef nonnull @ei_mcp_short_tlv, ptr noundef %0, i32 noundef %.0185205, i32 noundef %19, ptr noundef nonnull @.str.38, i32 noundef %23) #2
   br label %.loopexit
 
 27:                                               ; preds = %22
-  %28 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0181206) #2
-  %.1185 = select i1 %20, i32 0, i32 %.0184205
-  %29 = add nuw nsw i32 %.0181206, 1
+  %28 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0185205) #2
+  %.1 = select i1 %20, i32 0, i32 %.0182206
+  %29 = add nuw nsw i32 %.0185205, 1
   %30 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %29) #2
-  %.not194 = icmp eq i32 %.1185, 0
+  %.not194 = icmp eq i32 %.1, 0
   %31 = zext i8 %30 to i32
   %32 = add nuw nsw i32 %31, 2
   %33 = load i32, ptr @ett_mcp_tlv_header, align 4
   %34 = zext i8 %28 to i32
   %mcp_type_vals.mcp_strict_type_vals = select i1 %.not194, ptr @mcp_type_vals, ptr @mcp_strict_type_vals
   %35 = call ptr @val_to_str(i32 noundef %34, ptr noundef nonnull %mcp_type_vals.mcp_strict_type_vals, ptr noundef nonnull @.str.40) #2
-  %36 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %18, ptr noundef %0, i32 noundef %.0181206, i32 noundef %32, i32 noundef %33, ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef %35) #2
+  %36 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %18, ptr noundef %0, i32 noundef %.0185205, i32 noundef %32, i32 noundef %33, ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef %35) #2
   %hf_mcp_tlv_type.val = load i32, ptr @hf_mcp_tlv_type, align 4
   %hf_mcp_strict_tlv_type.val = load i32, ptr @hf_mcp_strict_tlv_type, align 4
   %37 = select i1 %.not194, i32 %hf_mcp_tlv_type.val, i32 %hf_mcp_strict_tlv_type.val
-  %38 = call ptr @proto_tree_add_uint(ptr noundef %36, i32 noundef %37, ptr noundef %0, i32 noundef %.0181206, i32 noundef 1, i32 noundef %34) #2
+  %38 = call ptr @proto_tree_add_uint(ptr noundef %36, i32 noundef %37, ptr noundef %0, i32 noundef %.0185205, i32 noundef 1, i32 noundef %34) #2
   %39 = load i32, ptr @hf_mcp_tlv_length, align 4
   %40 = call ptr @proto_tree_add_uint(ptr noundef %36, i32 noundef %39, ptr noundef %0, i32 noundef %29, i32 noundef 1, i32 noundef %31) #2
-  %41 = add nuw nsw i32 %.0181206, 2
+  %41 = add nuw nsw i32 %.0185205, 2
   %42 = sub nsw i32 %19, %41
   %43 = icmp ult i32 %42, %31
   br i1 %43, label %44, label %46
@@ -187,8 +187,8 @@ define internal i32 @dissect_mcp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %47 = icmp ugt i8 %28, 5
   %narrow = select i1 %20, i1 %47, i1 false
   %spec.select = zext i1 %narrow to i8
-  %.0186 = add i8 %28, %spec.select
-  switch i8 %.0186, label %127 [
+  %.0181 = add i8 %28, %spec.select
+  switch i8 %.0181, label %127 [
     i8 1, label %48
     i8 2, label %58
     i8 3, label %68
@@ -239,10 +239,10 @@ define internal i32 @dissect_mcp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %69 = load i32, ptr @hf_mcp_vpc_domain, align 4
   %70 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %36, i32 noundef %69, ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %7) #2
   %71 = load i32, ptr @hf_mcp_vpc_id, align 4
-  %72 = add nuw nsw i32 %.0181206, 6
+  %72 = add nuw nsw i32 %.0185205, 6
   %73 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %36, i32 noundef %71, ptr noundef %0, i32 noundef %72, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #2
   %74 = load i32, ptr @hf_mcp_vpc_vtep, align 4
-  %75 = add nuw nsw i32 %.0181206, 10
+  %75 = add nuw nsw i32 %.0185205, 10
   %76 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %74, ptr noundef %0, i32 noundef %75, i32 noundef 4, i32 noundef 0) #2
   %77 = load ptr, ptr %21, align 8
   %78 = call ptr @proto_item_get_display_repr(ptr noundef %77, ptr noundef %76) #2
@@ -351,13 +351,13 @@ define internal i32 @dissect_mcp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %133, label %22, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %131, %.thread, %4, %44, %25
-  %.1 = phi i32 [ %.0181206, %25 ], [ %29, %44 ], [ 0, %4 ], [ %130, %.thread ], [ %132, %131 ]
-  %134 = icmp ult i32 %.1, %19
+  %.1186 = phi i32 [ %.0185205, %25 ], [ %29, %44 ], [ 0, %4 ], [ %130, %.thread ], [ %132, %131 ]
+  %134 = icmp ult i32 %.1186, %19
   br i1 %134, label %135, label %138
 
 135:                                              ; preds = %.loopexit
-  %136 = sub nsw i32 %19, %.1
-  %137 = call ptr @proto_tree_add_expert(ptr noundef %18, ptr noundef %1, ptr noundef nonnull @ei_mcp_trailing_bytes, ptr noundef %0, i32 noundef %.1, i32 noundef %136) #2
+  %136 = sub nsw i32 %19, %.1186
+  %137 = call ptr @proto_tree_add_expert(ptr noundef %18, ptr noundef %1, ptr noundef nonnull @ei_mcp_trailing_bytes, ptr noundef %0, i32 noundef %.1186, i32 noundef %136) #2
   br label %138
 
 138:                                              ; preds = %135, %.loopexit

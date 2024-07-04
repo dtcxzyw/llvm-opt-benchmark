@@ -94,13 +94,13 @@ define dso_local i32 @parse_command(ptr noundef %0, ptr nocapture noundef writeo
   br label %6
 
 4:                                                ; preds = %6
-  %5 = add nuw nsw i64 %.02129, 1
+  %5 = add nuw nsw i64 %.029, 1
   %exitcond.not = icmp eq i64 %5, 17
   br i1 %exitcond.not, label %.loopexit, label %6
 
 6:                                                ; preds = %3, %4
-  %.02129 = phi i64 [ 0, %3 ], [ %5, %4 ]
-  %7 = getelementptr inbounds [17 x %struct.anon], ptr @commands, i64 0, i64 %.02129
+  %.029 = phi i64 [ 0, %3 ], [ %5, %4 ]
+  %7 = getelementptr inbounds [17 x %struct.anon], ptr @commands, i64 0, i64 %.029
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = load ptr, ptr %7, align 16
@@ -157,8 +157,8 @@ define dso_local i32 @parse_command(ptr noundef %0, ptr nocapture noundef writeo
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %31, %29, %23, %18
-  %.0 = phi i32 [ %33, %31 ], [ 0, %29 ], [ 0, %18 ], [ 0, %23 ], [ 0, %4 ]
-  ret i32 %.0
+  %.021 = phi i32 [ %33, %31 ], [ 0, %29 ], [ 0, %18 ], [ 0, %23 ], [ 0, %4 ]
+  ret i32 %.021
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -551,7 +551,7 @@ define dso_local i32 @command(ptr noundef %0, ptr nocapture noundef writeonly %1
   br label %109
 
 109:                                              ; preds = %100, %103, %107, %102
-  %.1111 = phi i32 [ 0, %102 ], [ 1, %107 ], [ %.134, %103 ], [ 0, %100 ]
+  %.1109 = phi i32 [ 0, %102 ], [ 1, %107 ], [ %.134, %103 ], [ 0, %100 ]
   %110 = load i32, ptr %95, align 8
   %111 = call i32 (i32, ptr, ...) @logg(i32 noundef 3, ptr noundef nonnull @.str.25, i32 noundef %110) #13
   %112 = load i32, ptr %95, align 8
@@ -602,7 +602,7 @@ define dso_local i32 @command(ptr noundef %0, ptr nocapture noundef writeonly %1
   br label %132
 
 132:                                              ; preds = %123, %126, %130, %125
-  %.2112 = phi i32 [ 0, %125 ], [ 1, %130 ], [ %.135, %126 ], [ 0, %123 ]
+  %.2110 = phi i32 [ 0, %125 ], [ 1, %130 ], [ %.135, %126 ], [ 0, %123 ]
   %133 = getelementptr inbounds i8, ptr %0, i64 16
   %134 = load i32, ptr %133, align 8
   %135 = call i32 @ftruncate(i32 noundef %134, i64 noundef 0) #13
@@ -649,12 +649,12 @@ define dso_local i32 @command(ptr noundef %0, ptr nocapture noundef writeonly %1
   br label %246
 
 160:                                              ; preds = %73, %154, %55, %46, %45
-  %.0109 = phi i32 [ 12, %154 ], [ 8, %73 ], [ 12, %55 ], [ 12, %46 ], [ 12, %45 ]
-  %.0108 = phi ptr [ null, %154 ], [ %76, %73 ], [ null, %55 ], [ null, %46 ], [ null, %45 ]
   %161 = phi i1 [ false, %154 ], [ true, %73 ], [ false, %55 ], [ false, %46 ], [ false, %45 ]
-  %.0107 = phi i32 [ 0, %154 ], [ 2, %73 ], [ 1, %55 ], [ 1, %46 ], [ 0, %45 ]
+  %.0111 = phi i32 [ 0, %154 ], [ 2, %73 ], [ 1, %55 ], [ 1, %46 ], [ 0, %45 ]
+  %.0107 = phi i32 [ 12, %154 ], [ 8, %73 ], [ 12, %55 ], [ 12, %46 ], [ 12, %45 ]
+  %.0106 = phi ptr [ null, %154 ], [ %76, %73 ], [ null, %55 ], [ null, %46 ], [ null, %45 ]
   %162 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 %.0107, ptr %162, align 8
+  store i32 %.0111, ptr %162, align 8
   %163 = call ptr @optget(ptr noundef %15, ptr noundef nonnull @.str.35) #13
   %164 = getelementptr inbounds i8, ptr %163, i64 24
   %165 = load i64, ptr %164, align 8
@@ -663,8 +663,8 @@ define dso_local i32 @command(ptr noundef %0, ptr nocapture noundef writeonly %1
   %168 = getelementptr inbounds i8, ptr %167, i64 32
   %169 = load i32, ptr %168, align 8
   %.not127 = icmp eq i32 %169, 0
-  %170 = or disjoint i32 %.0109, 2
-  %spec.select = select i1 %.not127, i32 %.0109, i32 %170
+  %170 = or disjoint i32 %.0107, 2
+  %spec.select = select i1 %.not127, i32 %.0107, i32 %170
   %171 = call ptr @optget(ptr noundef %15, ptr noundef nonnull @.str.37) #13
   %172 = getelementptr inbounds i8, ptr %171, i64 32
   %173 = load i32, ptr %172, align 8
@@ -712,7 +712,7 @@ define dso_local i32 @command(ptr noundef %0, ptr nocapture noundef writeonly %1
   br i1 %or.cond, label %197, label %206
 
 197:                                              ; preds = %194
-  call void @thrmgr_group_waitforall(ptr noundef %.0108, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #13
+  call void @thrmgr_group_waitforall(ptr noundef %.0106, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #13
   %198 = load ptr, ptr %38, align 8
   %199 = call i32 @pthread_mutex_lock(ptr noundef %198) #13
   %200 = load ptr, ptr %38, align 8
@@ -814,8 +814,8 @@ select.unfold:                                    ; preds = %conn_reply_single.e
   br label %246
 
 246:                                              ; preds = %select.unfold, %244, %190, %77, %21, %25, %158, %150, %141, %119, %109, %98, %90, %88, %66
-  %.0106 = phi i32 [ 1, %158 ], [ 1, %150 ], [ %.2112, %141 ], [ 0, %119 ], [ 1, %98 ], [ %.1111, %109 ], [ 1, %88 ], [ %93, %90 ], [ 1, %66 ], [ 1, %25 ], [ 1, %21 ], [ %., %77 ], [ %.136, %190 ], [ %.pre151, %244 ], [ %240, %select.unfold ]
-  ret i32 %.0106
+  %.0112 = phi i32 [ 1, %158 ], [ 1, %150 ], [ %.2110, %141 ], [ 0, %119 ], [ 1, %98 ], [ %.1109, %109 ], [ 1, %88 ], [ %93, %90 ], [ 1, %66 ], [ 1, %25 ], [ 1, %21 ], [ %., %77 ], [ %.136, %190 ], [ %.pre151, %244 ], [ %240, %select.unfold ]
+  ret i32 %.0112
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

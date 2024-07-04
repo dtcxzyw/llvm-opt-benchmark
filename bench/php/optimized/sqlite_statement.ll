@@ -379,9 +379,9 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_get_col(ptr noundef %0, i32
   br label %84
 
 84:                                               ; preds = %79, %77, %65
-  %.0160 = phi ptr [ %69, %65 ], [ %78, %77 ], [ %83, %79 ]
-  store ptr %.0160, ptr %2, align 8
-  %85 = getelementptr inbounds i8, ptr %.0160, i64 4
+  %.0161 = phi ptr [ %69, %65 ], [ %78, %77 ], [ %83, %79 ]
+  store ptr %.0161, ptr %2, align 8
+  %85 = getelementptr inbounds i8, ptr %.0161, i64 4
   %86 = load i32, ptr %85, align 4
   %87 = and i32 %86, 64
   %.not171 = icmp eq i32 %87, 0
@@ -391,8 +391,8 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_get_col(ptr noundef %0, i32
   br label %90
 
 90:                                               ; preds = %4, %84, %53, %24, %20, %18, %11
-  %.0161 = phi i32 [ 0, %11 ], [ 1, %84 ], [ 1, %53 ], [ 1, %24 ], [ 1, %20 ], [ 1, %18 ], [ 0, %4 ]
-  ret i32 %.0161
+  %.0160 = phi i32 [ 0, %11 ], [ 1, %84 ], [ 1, %53 ], [ 1, %24 ], [ 1, %20 ], [ 1, %18 ], [ 0, %4 ]
+  ret i32 %.0160
 }
 
 ; Function Attrs: nounwind uwtable
@@ -492,7 +492,7 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_param_hook(ptr noundef %0, 
 
 58:                                               ; preds = %51, %55
   %59 = phi i8 [ %.pre98, %55 ], [ %53, %51 ]
-  %.086 = phi ptr [ %57, %55 ], [ %1, %51 ]
+  %.085 = phi ptr [ %57, %55 ], [ %1, %51 ]
   %60 = icmp eq i8 %59, 1
   br i1 %60, label %61, label %68
 
@@ -506,13 +506,13 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_param_hook(ptr noundef %0, 
   br i1 %67, label %165, label %77
 
 68:                                               ; preds = %58
-  tail call void @convert_to_long(ptr noundef nonnull %.086) #5
+  tail call void @convert_to_long(ptr noundef nonnull %.085) #5
   %69 = getelementptr inbounds i8, ptr %5, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = load i64, ptr %24, align 8
   %72 = trunc i64 %71 to i32
   %73 = add i32 %72, 1
-  %74 = load i64, ptr %.086, align 8
+  %74 = load i64, ptr %.085, align 8
   %75 = tail call i32 @sqlite3_bind_int64(ptr noundef %70, i32 noundef %73, i64 noundef %74) #5
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %165, label %77
@@ -669,8 +669,8 @@ define internal range(i32 0, 2) i32 @pdo_sqlite_stmt_param_hook(ptr noundef %0, 
   br label %165
 
 165:                                              ; preds = %20, %3, %.critedge96, %147, %140, %.critedge, %117, %106, %68, %61, %40, %36, %161, %113, %103, %77, %47
-  %.085 = phi i32 [ 0, %161 ], [ 0, %103 ], [ 0, %113 ], [ 0, %77 ], [ 0, %47 ], [ 0, %36 ], [ 1, %40 ], [ 1, %61 ], [ 1, %68 ], [ 1, %106 ], [ 0, %117 ], [ %., %.critedge ], [ 1, %140 ], [ 0, %147 ], [ 1, %.critedge96 ], [ 1, %3 ], [ 1, %20 ]
-  ret i32 %.085
+  %.086 = phi i32 [ 0, %161 ], [ 0, %103 ], [ 0, %113 ], [ 0, %77 ], [ 0, %47 ], [ 0, %36 ], [ 1, %40 ], [ 1, %61 ], [ 1, %68 ], [ 1, %106 ], [ 0, %117 ], [ %., %.critedge ], [ 1, %140 ], [ 0, %147 ], [ 1, %.critedge96 ], [ 1, %3 ], [ 1, %20 ]
+  ret i32 %.086
 }
 
 ; Function Attrs: nounwind uwtable

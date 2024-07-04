@@ -355,7 +355,7 @@ define ptr @Cudd_zddIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %58
   %indvars.iv = phi i64 [ %47, %.preheader.lr.ph ], [ %indvars.iv.next, %58 ]
-  %.03644 = phi ptr [ %28, %.preheader.lr.ph ], [ %52, %58 ]
+  %.03544 = phi ptr [ %28, %.preheader.lr.ph ], [ %52, %58 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   br label %48
 
@@ -364,7 +364,7 @@ define ptr @Cudd_zddIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %49 = load ptr, ptr %46, align 8
   %50 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv.next
   %51 = load i32, ptr %50, align 4
-  %52 = tail call ptr @cuddUniqueInterZdd(ptr noundef nonnull %0, i32 noundef %51, ptr noundef nonnull %.03644, ptr noundef nonnull %.03644) #20
+  %52 = tail call ptr @cuddUniqueInterZdd(ptr noundef nonnull %0, i32 noundef %51, ptr noundef nonnull %.03544, ptr noundef nonnull %.03544) #20
   %53 = load i32, ptr %24, align 8
   %54 = icmp eq i32 %53, 1
   br i1 %54, label %48, label %55, !llvm.loop !9
@@ -374,7 +374,7 @@ define ptr @Cudd_zddIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %55
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.03644) #20
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.03544) #20
   br label %69
 
 58:                                               ; preds = %55
@@ -385,13 +385,13 @@ define ptr @Cudd_zddIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %63 = load i32, ptr %62, align 4
   %64 = add i32 %63, 1
   store i32 %64, ptr %62, align 4
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.03644) #20
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.03544) #20
   %65 = icmp sgt i64 %indvars.iv, 1
   br i1 %65, label %.preheader, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %58, %33
   %.pre-phi51 = phi ptr [ %36, %33 ], [ %61, %58 ]
-  %.036.lcssa = phi ptr [ %28, %33 ], [ %52, %58 ]
+  %.035.lcssa = phi ptr [ %28, %33 ], [ %52, %58 ]
   %66 = getelementptr inbounds i8, ptr %.pre-phi51, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = add i32 %67, -1
@@ -399,8 +399,8 @@ define ptr @Cudd_zddIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   br label %69
 
 69:                                               ; preds = %31, %2, %._crit_edge, %57
-  %.035 = phi ptr [ null, %57 ], [ %.036.lcssa, %._crit_edge ], [ null, %2 ], [ null, %31 ]
-  ret ptr %.035
+  %.036 = phi ptr [ null, %57 ], [ %.035.lcssa, %._crit_edge ], [ null, %2 ], [ null, %31 ]
+  ret ptr %.036
 }
 
 declare ptr @cuddUniqueInterZdd(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -669,8 +669,8 @@ Cudd_FreeZddTree.exit:                            ; preds = %.loopexit
   br label %120
 
 120:                                              ; preds = %._crit_edge138, %93, %89, %._crit_edge, %12, %2, %119, %114, %107, %75
-  %.0 = phi i32 [ 0, %107 ], [ 0, %114 ], [ 1, %119 ], [ 0, %75 ], [ 0, %2 ], [ 0, %12 ], [ 0, %._crit_edge ], [ 0, %89 ], [ 0, %93 ], [ 0, %._crit_edge138 ]
-  ret i32 %.0
+  %.0108 = phi i32 [ 0, %107 ], [ 0, %114 ], [ 1, %119 ], [ 0, %75 ], [ 0, %2 ], [ 0, %12 ], [ 0, %._crit_edge ], [ 0, %89 ], [ 0, %93 ], [ 0, %._crit_edge138 ]
+  ret i32 %.0108
 }
 
 declare i32 @cuddResizeTableZdd(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -715,8 +715,8 @@ define internal fastcc range(i32 0, 2) i32 @addMultiplicityGroups(ptr nocapture 
   br label %9
 
 9:                                                ; preds = %.lr.ph53, %._crit_edge
-  %.04051 = phi ptr [ %1, %.lr.ph53 ], [ %54, %._crit_edge ]
-  %10 = getelementptr inbounds i8, ptr %.04051, i64 24
+  %.051 = phi ptr [ %1, %.lr.ph53 ], [ %54, %._crit_edge ]
+  %10 = getelementptr inbounds i8, ptr %.051, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not45 = icmp eq ptr %11, null
   br i1 %.not45, label %14, label %12
@@ -727,13 +727,13 @@ define internal fastcc range(i32 0, 2) i32 @addMultiplicityGroups(ptr nocapture 
 
 14:                                               ; preds = %12, %9
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %.04051, i64 12
+  %16 = getelementptr inbounds i8, ptr %.051, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds i32, ptr %15, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = sdiv i32 %20, %2
-  %22 = getelementptr inbounds i8, ptr %.04051, i64 8
+  %22 = getelementptr inbounds i8, ptr %.051, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = udiv i32 %23, %2
   %25 = add i32 %24, %21
@@ -741,7 +741,7 @@ define internal fastcc range(i32 0, 2) i32 @addMultiplicityGroups(ptr nocapture 
   br i1 %26, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %14
-  %27 = getelementptr inbounds i8, ptr %.04051, i64 4
+  %27 = getelementptr inbounds i8, ptr %.051, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = udiv i32 %28, %2
   %30 = sext i32 %21 to i64
@@ -750,14 +750,14 @@ define internal fastcc range(i32 0, 2) i32 @addMultiplicityGroups(ptr nocapture 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %51
   %indvars.iv56 = phi i64 [ %30, %.lr.ph.preheader ], [ %indvars.iv.next57, %51 ]
-  %.04149 = phi i32 [ %29, %.lr.ph.preheader ], [ %.2, %51 ]
+  %.04049 = phi i32 [ %29, %.lr.ph.preheader ], [ %.2, %51 ]
   %32 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv56
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %.preheader.preheader, label %51
 
 .preheader.preheader:                             ; preds = %.lr.ph
-  %35 = zext i32 %.04149 to i64
+  %35 = zext i32 %.04049 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -771,7 +771,7 @@ define internal fastcc range(i32 0, 2) i32 @addMultiplicityGroups(ptr nocapture 
 39:                                               ; preds = %.preheader
   %40 = trunc nuw i64 %indvars.iv to i32
   %41 = mul nsw i32 %40, %2
-  %42 = tail call ptr @Mtr_MakeGroup(ptr noundef nonnull %.04051, i32 noundef %41, i32 noundef %2, i32 noundef 4) #20
+  %42 = tail call ptr @Mtr_MakeGroup(ptr noundef nonnull %.051, i32 noundef %41, i32 noundef %2, i32 noundef 4) #20
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.loopexit, label %44
 
@@ -788,20 +788,20 @@ define internal fastcc range(i32 0, 2) i32 @addMultiplicityGroups(ptr nocapture 
   br label %51
 
 51:                                               ; preds = %.lr.ph, %44
-  %.2 = phi i32 [ %40, %44 ], [ %.04149, %.lr.ph ]
+  %.2 = phi i32 [ %40, %44 ], [ %.04049, %.lr.ph ]
   %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
   %52 = icmp slt i64 %indvars.iv.next57, %31
   br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %51, %14
-  %53 = getelementptr inbounds i8, ptr %.04051, i64 40
+  %53 = getelementptr inbounds i8, ptr %.051, i64 40
   %54 = load ptr, ptr %53, align 8
   %.not = icmp eq ptr %54, null
   br i1 %.not, label %.loopexit, label %9, !llvm.loop !19
 
 .loopexit:                                        ; preds = %._crit_edge, %39, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %39 ], [ 1, %._crit_edge ]
-  ret i32 %.0
+  %.042 = phi i32 [ 1, %5 ], [ 0, %39 ], [ 1, %._crit_edge ]
+  ret i32 %.042
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1256,7 +1256,7 @@ define double @Cudd_ReadUsedSlots(ptr noundef readonly %0) local_unnamed_addr #9
 
 7:                                                ; preds = %.lr.ph54, %._crit_edge
   %indvars.iv79 = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next80, %._crit_edge ]
-  %.052 = phi i64 [ 0, %.lr.ph54 ], [ %.1.lcssa, %._crit_edge ]
+  %.04251 = phi i64 [ 0, %.lr.ph54 ], [ %.143.lcssa, %._crit_edge ]
   %8 = getelementptr inbounds %struct.DdSubtable, ptr %6, i64 %indvars.iv79
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 12
@@ -1270,24 +1270,24 @@ define double @Cudd_ReadUsedSlots(ptr noundef readonly %0) local_unnamed_addr #9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.150 = phi i64 [ %.052, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
+  %.14349 = phi i64 [ %.04251, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %12 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not46 = icmp ne ptr %13, %0
   %14 = zext i1 %.not46 to i64
-  %spec.select = add i64 %.150, %14
+  %spec.select = add i64 %.14349, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
-  %.1.lcssa = phi i64 [ %.052, %7 ], [ %spec.select, %.lr.ph ]
+  %.143.lcssa = phi i64 [ %.04251, %7 ], [ %spec.select, %.lr.ph ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
   br i1 %exitcond83.not, label %._crit_edge55, label %7, !llvm.loop !22
 
 ._crit_edge55:                                    ; preds = %._crit_edge, %1
-  %.0.lcssa = phi i64 [ 0, %1 ], [ %.1.lcssa, %._crit_edge ]
+  %.042.lcssa = phi i64 [ 0, %1 ], [ %.143.lcssa, %._crit_edge ]
   %15 = getelementptr inbounds i8, ptr %0, i64 140
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, 0
@@ -1301,7 +1301,7 @@ define double @Cudd_ReadUsedSlots(ptr noundef readonly %0) local_unnamed_addr #9
 
 20:                                               ; preds = %.lr.ph66, %._crit_edge61
   %indvars.iv89 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next90, %._crit_edge61 ]
-  %.364 = phi i64 [ %.0.lcssa, %.lr.ph66 ], [ %.4.lcssa, %._crit_edge61 ]
+  %.363 = phi i64 [ %.042.lcssa, %.lr.ph66 ], [ %.4.lcssa, %._crit_edge61 ]
   %21 = getelementptr inbounds %struct.DdSubtable, ptr %19, i64 %indvars.iv89
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 12
@@ -1315,24 +1315,24 @@ define double @Cudd_ReadUsedSlots(ptr noundef readonly %0) local_unnamed_addr #9
 
 .lr.ph60:                                         ; preds = %.lr.ph60.preheader, %.lr.ph60
   %indvars.iv84 = phi i64 [ 0, %.lr.ph60.preheader ], [ %indvars.iv.next85, %.lr.ph60 ]
-  %.458 = phi i64 [ %.364, %.lr.ph60.preheader ], [ %spec.select47, %.lr.ph60 ]
+  %.457 = phi i64 [ %.363, %.lr.ph60.preheader ], [ %spec.select47, %.lr.ph60 ]
   %25 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv84
   %26 = load ptr, ptr %25, align 8
   %.not45 = icmp ne ptr %26, null
   %27 = zext i1 %.not45 to i64
-  %spec.select47 = add i64 %.458, %27
+  %spec.select47 = add i64 %.457, %27
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
   br i1 %exitcond88.not, label %._crit_edge61, label %.lr.ph60, !llvm.loop !23
 
 ._crit_edge61:                                    ; preds = %.lr.ph60, %20
-  %.4.lcssa = phi i64 [ %.364, %20 ], [ %spec.select47, %.lr.ph60 ]
+  %.4.lcssa = phi i64 [ %.363, %20 ], [ %spec.select47, %.lr.ph60 ]
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
   br i1 %exitcond93.not, label %._crit_edge67, label %20, !llvm.loop !24
 
 ._crit_edge67:                                    ; preds = %._crit_edge61, %._crit_edge55
-  %.3.lcssa = phi i64 [ %.0.lcssa, %._crit_edge55 ], [ %.4.lcssa, %._crit_edge61 ]
+  %.3.lcssa = phi i64 [ %.042.lcssa, %._crit_edge55 ], [ %.4.lcssa, %._crit_edge61 ]
   %28 = getelementptr inbounds i8, ptr %0, i64 168
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 180
@@ -1346,12 +1346,12 @@ define double @Cudd_ReadUsedSlots(ptr noundef readonly %0) local_unnamed_addr #9
 
 .lr.ph72:                                         ; preds = %.lr.ph72.preheader, %.lr.ph72
   %indvars.iv94 = phi i64 [ 0, %.lr.ph72.preheader ], [ %indvars.iv.next95, %.lr.ph72 ]
-  %.670 = phi i64 [ %.3.lcssa, %.lr.ph72.preheader ], [ %spec.select48, %.lr.ph72 ]
+  %.669 = phi i64 [ %.3.lcssa, %.lr.ph72.preheader ], [ %spec.select48, %.lr.ph72 ]
   %32 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv94
   %33 = load ptr, ptr %32, align 8
   %.not = icmp ne ptr %33, null
   %34 = zext i1 %.not to i64
-  %spec.select48 = add i64 %.670, %34
+  %spec.select48 = add i64 %.669, %34
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
   br i1 %exitcond98.not, label %._crit_edge73, label %.lr.ph72, !llvm.loop !25

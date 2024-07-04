@@ -330,14 +330,14 @@ define hidden range(i32 -1, 1) i32 @file_vprintf(ptr nocapture noundef %0, ptr n
 
 38:                                               ; preds = %33, %31
   %39 = phi ptr [ %37, %33 ], [ %.pre, %31 ]
-  %.021 = phi i64 [ %34, %33 ], [ %16, %31 ]
+  %.0 = phi i64 [ %34, %33 ], [ %16, %31 ]
   store ptr %39, ptr %19, align 8
-  store i64 %.021, ptr %20, align 8
+  store i64 %.0, ptr %20, align 8
   br label %40
 
 40:                                               ; preds = %3, %38, %28, %12
-  %.0 = phi i32 [ -1, %12 ], [ -1, %28 ], [ 0, %38 ], [ 0, %3 ]
-  ret i32 %.0
+  %.021 = phi i32 [ -1, %12 ], [ -1, %28 ], [ 0, %38 ], [ 0, %3 ]
+  ret i32 %.021
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1087,57 +1087,57 @@ define hidden ptr @file_getbuffer(ptr nocapture noundef %0) local_unnamed_addr #
 
 33:                                               ; preds = %.lr.ph, %56
   %34 = phi i8 [ %31, %.lr.ph ], [ %57, %56 ]
-  %.03144 = phi ptr [ %30, %.lr.ph ], [ %.1, %56 ]
-  %.03243 = phi ptr [ %24, %.lr.ph ], [ %.133, %56 ]
+  %.044 = phi ptr [ %24, %.lr.ph ], [ %.1, %56 ]
+  %.03143 = phi ptr [ %30, %.lr.ph ], [ %.132, %56 ]
   %35 = load ptr, ptr %32, align 8
   %36 = zext i8 %34 to i64
   %37 = getelementptr inbounds i16, ptr %35, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, 16384
   %.not41 = icmp eq i16 %39, 0
-  %40 = getelementptr inbounds i8, ptr %.03243, i64 1
+  %40 = getelementptr inbounds i8, ptr %.044, i64 1
   br i1 %.not41, label %42, label %41
 
 41:                                               ; preds = %33
-  store i8 %34, ptr %.03243, align 1
+  store i8 %34, ptr %.044, align 1
   br label %56
 
 42:                                               ; preds = %33
-  store i8 92, ptr %.03243, align 1
-  %43 = load i8, ptr %.03144, align 1
+  store i8 92, ptr %.044, align 1
+  %43 = load i8, ptr %.03143, align 1
   %44 = lshr i8 %43, 6
   %45 = or disjoint i8 %44, 48
-  %46 = getelementptr inbounds i8, ptr %.03243, i64 2
+  %46 = getelementptr inbounds i8, ptr %.044, i64 2
   store i8 %45, ptr %40, align 1
-  %47 = load i8, ptr %.03144, align 1
+  %47 = load i8, ptr %.03143, align 1
   %48 = lshr i8 %47, 3
   %49 = and i8 %48, 7
   %50 = or disjoint i8 %49, 48
-  %51 = getelementptr inbounds i8, ptr %.03243, i64 3
+  %51 = getelementptr inbounds i8, ptr %.044, i64 3
   store i8 %50, ptr %46, align 1
-  %52 = load i8, ptr %.03144, align 1
+  %52 = load i8, ptr %.03143, align 1
   %53 = and i8 %52, 7
   %54 = or disjoint i8 %53, 48
-  %55 = getelementptr inbounds i8, ptr %.03243, i64 4
+  %55 = getelementptr inbounds i8, ptr %.044, i64 4
   store i8 %54, ptr %51, align 1
   br label %56
 
 56:                                               ; preds = %42, %41
-  %.133 = phi ptr [ %40, %41 ], [ %55, %42 ]
-  %.1 = getelementptr inbounds i8, ptr %.03144, i64 1
-  %57 = load i8, ptr %.1, align 1
+  %.1 = phi ptr [ %40, %41 ], [ %55, %42 ]
+  %.132 = getelementptr inbounds i8, ptr %.03143, i64 1
+  %57 = load i8, ptr %.132, align 1
   %.not40 = icmp eq i8 %57, 0
   br i1 %.not40, label %._crit_edge, label %33
 
 ._crit_edge:                                      ; preds = %56, %29
-  %.032.lcssa = phi ptr [ %24, %29 ], [ %.133, %56 ]
-  store i8 0, ptr %.032.lcssa, align 1
+  %.0.lcssa = phi ptr [ %24, %29 ], [ %.1, %56 ]
+  store i8 0, ptr %.0.lcssa, align 1
   %58 = load ptr, ptr %22, align 8
   br label %59
 
 59:                                               ; preds = %5, %11, %1, %._crit_edge, %26, %16
-  %.0 = phi ptr [ null, %16 ], [ null, %26 ], [ %58, %._crit_edge ], [ null, %1 ], [ null, %11 ], [ %10, %5 ]
-  ret ptr %.0
+  %.033 = phi ptr [ null, %16 ], [ null, %26 ], [ %58, %._crit_edge ], [ null, %1 ], [ null, %11 ], [ %10, %5 ]
+  ret ptr %.033
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -1458,9 +1458,9 @@ define hidden noundef ptr @file_printable(ptr nocapture noundef readonly %0, ptr
   br label %13
 
 13:                                               ; preds = %.lr.ph, %43
-  %.034 = phi ptr [ %1, %.lr.ph ], [ %.1, %43 ]
-  %.02633 = phi ptr [ %3, %.lr.ph ], [ %44, %43 ]
-  %14 = load i8, ptr %.02633, align 1
+  %.034 = phi ptr [ %3, %.lr.ph ], [ %44, %43 ]
+  %.02633 = phi ptr [ %1, %.lr.ph ], [ %.1, %43 ]
+  %14 = load i8, ptr %.034, align 1
   %.not = icmp eq i8 %14, 0
   br i1 %.not, label %.critedge, label %15
 
@@ -1481,46 +1481,46 @@ define hidden noundef ptr @file_printable(ptr nocapture noundef readonly %0, ptr
   br i1 %.not30, label %27, label %25
 
 25:                                               ; preds = %18, %15
-  %26 = getelementptr inbounds i8, ptr %.034, i64 1
-  store i8 %14, ptr %.034, align 1
+  %26 = getelementptr inbounds i8, ptr %.02633, i64 1
+  store i8 %14, ptr %.02633, align 1
   br label %43
 
 27:                                               ; preds = %18
-  %.not31 = icmp ult ptr %.034, %9
+  %.not31 = icmp ult ptr %.02633, %9
   br i1 %.not31, label %28, label %.critedge
 
 28:                                               ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %.034, i64 1
-  store i8 92, ptr %.034, align 1
-  %30 = load i8, ptr %.02633, align 1
+  %29 = getelementptr inbounds i8, ptr %.02633, i64 1
+  store i8 92, ptr %.02633, align 1
+  %30 = load i8, ptr %.034, align 1
   %31 = lshr i8 %30, 6
   %32 = or disjoint i8 %31, 48
-  %33 = getelementptr inbounds i8, ptr %.034, i64 2
+  %33 = getelementptr inbounds i8, ptr %.02633, i64 2
   store i8 %32, ptr %29, align 1
-  %34 = load i8, ptr %.02633, align 1
+  %34 = load i8, ptr %.034, align 1
   %35 = lshr i8 %34, 3
   %36 = and i8 %35, 7
   %37 = or disjoint i8 %36, 48
-  %38 = getelementptr inbounds i8, ptr %.034, i64 3
+  %38 = getelementptr inbounds i8, ptr %.02633, i64 3
   store i8 %37, ptr %33, align 1
-  %39 = load i8, ptr %.02633, align 1
+  %39 = load i8, ptr %.034, align 1
   %40 = and i8 %39, 7
   %41 = or disjoint i8 %40, 48
-  %42 = getelementptr inbounds i8, ptr %.034, i64 4
+  %42 = getelementptr inbounds i8, ptr %.02633, i64 4
   store i8 %41, ptr %38, align 1
   br label %43
 
 43:                                               ; preds = %28, %25
   %.1 = phi ptr [ %26, %25 ], [ %42, %28 ]
-  %44 = getelementptr inbounds i8, ptr %.02633, i64 1
+  %44 = getelementptr inbounds i8, ptr %.034, i64 1
   %45 = icmp ult ptr %.1, %7
   %46 = icmp ult ptr %44, %8
   %or.cond = select i1 %45, i1 %46, i1 false
   br i1 %or.cond, label %13, label %.critedge
 
 .critedge:                                        ; preds = %13, %27, %43, %5
-  %.0.lcssa = phi ptr [ %1, %5 ], [ %.1, %43 ], [ %.034, %27 ], [ %.034, %13 ]
-  store i8 0, ptr %.0.lcssa, align 1
+  %.026.lcssa = phi ptr [ %1, %5 ], [ %.1, %43 ], [ %.02633, %27 ], [ %.02633, %13 ]
+  store i8 0, ptr %.026.lcssa, align 1
   ret ptr %1
 }
 

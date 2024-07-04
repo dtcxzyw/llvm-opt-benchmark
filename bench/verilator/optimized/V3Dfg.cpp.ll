@@ -2490,10 +2490,10 @@ _ZNSt13unordered_mapISt4pairIPK9DfgVertexS3_EhSt4hashIS4_ESt8equal_toIS4_ESaIS0_
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %82
-  %.03471 = phi i64 [ %83, %82 ], [ 0, %.preheader ]
-  %72 = getelementptr inbounds %class.DfgEdge, ptr %60, i64 %.03471, i32 2
+  %.071 = phi i64 [ %83, %82 ], [ 0, %.preheader ]
+  %72 = getelementptr inbounds %class.DfgEdge, ptr %60, i64 %.071, i32 2
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds %class.DfgEdge, ptr %66, i64 %.03471, i32 2
+  %74 = getelementptr inbounds %class.DfgEdge, ptr %66, i64 %.071, i32 2
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %73, %75
   br i1 %76, label %82, label %77
@@ -2509,12 +2509,12 @@ _ZNSt13unordered_mapISt4pairIPK9DfgVertexS3_EhSt4hashIS4_ESt8equal_toIS4_ESaIS0_
   br i1 %81, label %82, label %._crit_edge
 
 82:                                               ; preds = %80, %.lr.ph
-  %83 = add nuw i64 %.03471, 1
+  %83 = add nuw i64 %.071, 1
   %exitcond.not = icmp eq i64 %83, %61
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %82, %80, %77, %.preheader
-  %.033 = phi i8 [ 2, %.preheader ], [ 1, %77 ], [ 1, %80 ], [ 2, %82 ]
+  %.034 = phi i8 [ 2, %.preheader ], [ 1, %77 ], [ 1, %80 ], [ 2, %82 ]
   %84 = load i64, ptr %24, align 8
   %85 = urem i64 %23, %84
   %86 = load ptr, ptr %27, align 8
@@ -2577,17 +2577,17 @@ _ZNSt10_HashtableISt4pairIPK9DfgVertexS3_ES0_IKS4_hESaIS6_ENSt8__detail10_Select
 _ZNSt13unordered_mapISt4pairIPK9DfgVertexS3_EhSt4hashIS4_ESt8equal_toIS4_ESaIS0_IKS4_hEEEixERS9_.exit55: ; preds = %_ZNKSt8__detail15_Hashtable_baseISt4pairIPK9DfgVertexS4_ES1_IKS5_hENS_10_Select1stESt8equal_toIS5_ESt4hashIS5_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i54, %.loopexit.i.i50
   %.pn27.i.i52 = phi ptr [ %110, %.loopexit.i.i50 ], [ %93, %_ZNKSt8__detail15_Hashtable_baseISt4pairIPK9DfgVertexS4_ES1_IKS5_hENS_10_Select1stESt8equal_toIS5_ESt4hashIS5_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.i.i.i.i54 ]
   %.0.i.i53 = getelementptr inbounds i8, ptr %.pn27.i.i52, i64 24
-  store i8 %.033, ptr %.0.i.i53, align 1
+  store i8 %.034, ptr %.0.i.i53, align 1
   br label %112
 
 112:                                              ; preds = %_ZNSt13unordered_mapISt4pairIPK9DfgVertexS3_EhSt4hashIS4_ESt8equal_toIS4_ESaIS0_IKS4_hEEEixERS9_.exit55, %_ZNSt13unordered_mapISt4pairIPK9DfgVertexS3_EhSt4hashIS4_ESt8equal_toIS4_ESaIS0_IKS4_hEEEixERS9_.exit
-  %.1 = phi i8 [ %54, %_ZNSt13unordered_mapISt4pairIPK9DfgVertexS3_EhSt4hashIS4_ESt8equal_toIS4_ESaIS0_IKS4_hEEEixERS9_.exit ], [ %.033, %_ZNSt13unordered_mapISt4pairIPK9DfgVertexS3_EhSt4hashIS4_ESt8equal_toIS4_ESaIS0_IKS4_hEEEixERS9_.exit55 ]
+  %.1 = phi i8 [ %54, %_ZNSt13unordered_mapISt4pairIPK9DfgVertexS3_EhSt4hashIS4_ESt8equal_toIS4_ESaIS0_IKS4_hEEEixERS9_.exit ], [ %.034, %_ZNSt13unordered_mapISt4pairIPK9DfgVertexS3_EhSt4hashIS4_ESt8equal_toIS4_ESaIS0_IKS4_hEEEixERS9_.exit55 ]
   %113 = icmp ugt i8 %.1, 1
   br label %114
 
 114:                                              ; preds = %13, %8, %5, %3, %112
-  %.0 = phi i1 [ %113, %112 ], [ true, %3 ], [ false, %5 ], [ false, %8 ], [ false, %13 ]
-  ret i1 %.0
+  %.033 = phi i1 [ %113, %112 ], [ true, %3 ], [ false, %5 ], [ false, %8 ], [ false, %13 ]
+  ret i1 %.033
 }
 
 ; Function Attrs: mustprogress noreturn uwtable

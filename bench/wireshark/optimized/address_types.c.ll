@@ -669,8 +669,8 @@ define internal i32 @ax25_addr_to_str(ptr nocapture noundef readonly %0, ptr nou
   br label %38
 
 38:                                               ; preds = %34, %5
-  %.024 = phi i32 [ %2, %5 ], [ %37, %34 ]
-  ret i32 %.024
+  %.025 = phi i32 [ %2, %5 ], [ %37, %34 ]
+  ret i32 %.025
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

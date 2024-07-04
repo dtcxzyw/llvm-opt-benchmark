@@ -1483,12 +1483,12 @@ lpad135:                                          ; preds = %for.body138
   br label %ehcleanup690
 
 for.body138:                                      ; preds = %for.body138.lr.ph, %for.inc274
-  %__begin1128.sroa.2.01024 = phi i64 [ 0, %for.body138.lr.ph ], [ %inc.i413, %for.inc274 ]
-  %cmp.i.i200 = icmp ult i64 %__begin1128.sroa.2.01024, 8
+  %__begin1128.sroa.2.01018 = phi i64 [ 0, %for.body138.lr.ph ], [ %inc.i413, %for.inc274 ]
+  %cmp.i.i200 = icmp ult i64 %__begin1128.sroa.2.01018, 8
   %73 = load ptr, ptr %values_.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %"struct.rocksdb::IngestedFileInfo", ptr %73, i64 %__begin1128.sroa.2.01024
+  %arrayidx.i.i = getelementptr inbounds %"struct.rocksdb::IngestedFileInfo", ptr %73, i64 %__begin1128.sroa.2.01018
   %74 = load ptr, ptr %vect_.i, align 8
-  %75 = getelementptr %"struct.rocksdb::IngestedFileInfo", ptr %74, i64 %__begin1128.sroa.2.01024
+  %75 = getelementptr %"struct.rocksdb::IngestedFileInfo", ptr %74, i64 %__begin1128.sroa.2.01018
   %add.ptr.i.i.i202 = getelementptr i8, ptr %75, i64 -8192
   %retval.0.i.i = select i1 %cmp.i.i200, ptr %arrayidx.i.i, ptr %add.ptr.i.i.i202
   %copy_file = getelementptr inbounds i8, ptr %retval.0.i.i, i64 932
@@ -2261,7 +2261,7 @@ for.inc274:                                       ; preds = %invoke.cont260
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__node_gen.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path_inside_db) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path_outside_db) #21
-  %inc.i413 = add nuw i64 %__begin1128.sroa.2.01024, 1
+  %inc.i413 = add nuw i64 %__begin1128.sroa.2.01018, 1
   %cmp.i.i199.not = icmp eq i64 %inc.i413, %add.i.i196
   br i1 %cmp.i.i199.not, label %invoke.cont282, label %for.body138
 
@@ -14169,35 +14169,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end16.i
-  %__value.addr.021.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
-  %__n.020.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
-  %cmp5.i = icmp ult i64 %__value.addr.021.i, 100
+  %__n.021.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
+  %__value.addr.020.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
+  %cmp5.i = icmp ult i64 %__value.addr.020.i, 100
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.020.i, 1
+  %add.i = add i32 %__n.021.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end7.i:                                        ; preds = %if.end.i
-  %cmp9.i = icmp ult i64 %__value.addr.021.i, 1000
+  %cmp9.i = icmp ult i64 %__value.addr.020.i, 1000
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.end7.i
-  %add11.i = add i32 %__n.020.i, 2
+  %add11.i = add i32 %__n.021.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end12.i:                                       ; preds = %if.end7.i
-  %cmp13.i = icmp ult i64 %__value.addr.021.i, 10000
+  %cmp13.i = icmp ult i64 %__value.addr.020.i, 10000
   br i1 %cmp13.i, label %if.then14.i, label %if.end16.i
 
 if.then14.i:                                      ; preds = %if.end12.i
-  %add15.i = add i32 %__n.020.i, 3
+  %add15.i = add i32 %__n.021.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %div.i = udiv i64 %__value.addr.021.i, 10000
-  %add17.i = add i32 %__n.020.i, 4
-  %cmp.i = icmp ult i64 %__value.addr.021.i, 100000
+  %div.i = udiv i64 %__value.addr.020.i, 10000
+  %add17.i = add i32 %__n.021.i, 4
+  %cmp.i = icmp ult i64 %__value.addr.020.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !104
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
@@ -17897,8 +17897,8 @@ invoke.cont16.i:                                  ; preds = %invoke.cont55.i.i, 
   br label %while.body.i.i28
 
 while.body.i.i28:                                 ; preds = %invoke.cont20.i.i, %invoke.cont16.i
-  %agg.tmp17.sroa.3.0.i = phi i64 [ %16, %invoke.cont16.i ], [ %storemerge.i.i, %invoke.cont20.i.i ]
   %agg.tmp14.sroa.4.0.in.i = phi i64 [ %agg.tmp.sroa.4.0.copyload.fr.i55, %invoke.cont16.i ], [ %agg.tmp14.sroa.4.1.i, %invoke.cont20.i.i ]
+  %agg.tmp17.sroa.3.0.i = phi i64 [ %16, %invoke.cont16.i ], [ %storemerge.i.i, %invoke.cont20.i.i ]
   br label %while.cond2.i.i
 
 while.cond2.i.i:                                  ; preds = %while.cond2.i.i, %while.body.i.i28
@@ -18306,8 +18306,8 @@ for.body.i.i.i.i.i.preheader:                     ; preds = %invoke.cont14
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %for.body.i.i.i.i.i
-  %agg.tmp2.sroa.3.0.i.i.i.i = phi i64 [ %dec.i5.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.i15, %for.body.i.i.i.i.i.preheader ]
   %agg.tmp1.sroa.2.0.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %__i.sroa.6.034, %for.body.i.i.i.i.i.preheader ]
+  %agg.tmp2.sroa.3.0.i.i.i.i = phi i64 [ %dec.i5.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.i15, %for.body.i.i.i.i.i.preheader ]
   %__n.014.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %sub.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader ]
   %dec.i.i.i.i.i.i = add i64 %agg.tmp1.sroa.2.0.i.i.i.i, -1
   %cmp.i.i.i.i.i.i.i = icmp ult i64 %dec.i.i.i.i.i.i, 8

@@ -631,10 +631,10 @@ for.body:                                         ; preds = %for.cond.preheader,
   %i.073 = phi i64 [ %add, %if.end77 ], [ 0, %for.cond.preheader ]
   %len.072 = phi i64 [ %add78, %if.end77 ], [ 0, %for.cond.preheader ]
   %pad_len.071 = phi i64 [ %pad_len.15164, %if.end77 ], [ 0, %for.cond.preheader ]
-  %out.addr.070 = phi ptr [ %out.addr.2, %if.end77 ], [ %out, %for.cond.preheader ]
-  %in.addr.069 = phi ptr [ %in.addr.2, %if.end77 ], [ %in, %for.cond.preheader ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %in.addr.069, i64 1
-  %0 = load i8, ptr %in.addr.069, align 1
+  %in.addr.070 = phi ptr [ %in.addr.2, %if.end77 ], [ %in, %for.cond.preheader ]
+  %out.addr.069 = phi ptr [ %out.addr.2, %if.end77 ], [ %out, %for.cond.preheader ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %in.addr.070, i64 1
+  %0 = load i8, ptr %in.addr.070, align 1
   %cmp.i = icmp slt i8 %0, 0
   br i1 %cmp.i, label %conv_ascii2bin.exit, label %if.end.i24
 
@@ -646,7 +646,7 @@ if.end.i24:                                       ; preds = %for.body
 
 conv_ascii2bin.exit:                              ; preds = %for.body, %if.end.i24
   %retval.0.i25 = phi i8 [ %1, %if.end.i24 ], [ -1, %for.body ]
-  %incdec.ptr3 = getelementptr inbounds i8, ptr %in.addr.069, i64 2
+  %incdec.ptr3 = getelementptr inbounds i8, ptr %in.addr.070, i64 2
   %2 = load i8, ptr %incdec.ptr, align 1
   %cmp.i26 = icmp slt i8 %2, 0
   br i1 %cmp.i26, label %conv_ascii2bin.exit31, label %if.end.i27
@@ -664,7 +664,7 @@ conv_ascii2bin.exit31:                            ; preds = %conv_ascii2bin.exit
   br i1 %cmp5, label %land.lhs.true, label %if.end15
 
 land.lhs.true:                                    ; preds = %conv_ascii2bin.exit31
-  %arrayidx = getelementptr inbounds i8, ptr %in.addr.069, i64 3
+  %arrayidx = getelementptr inbounds i8, ptr %in.addr.070, i64 3
   %4 = load i8, ptr %arrayidx, align 1
   %cmp6 = icmp eq i8 %4, 61
   br i1 %cmp6, label %if.then8, label %if.end15
@@ -685,7 +685,7 @@ if.then18thread-pre-split:                        ; preds = %if.end15
 if.then18:                                        ; preds = %if.then8, %if.then18thread-pre-split
   %6 = phi i8 [ %.pr, %if.then18thread-pre-split ], [ %5, %if.then8 ]
   %pad_len.152 = phi i64 [ %pad_len.071, %if.then18thread-pre-split ], [ 1, %if.then8 ]
-  %incdec.ptr19 = getelementptr inbounds i8, ptr %in.addr.069, i64 3
+  %incdec.ptr19 = getelementptr inbounds i8, ptr %in.addr.070, i64 3
   %cmp.i32 = icmp slt i8 %6, 0
   br i1 %cmp.i32, label %if.end22, label %if.end.i33
 
@@ -701,7 +701,7 @@ if.end22:                                         ; preds = %if.end.i33, %if.the
   br i1 %cmp23, label %if.then25, label %if.end29
 
 if.then25:                                        ; preds = %if.end22
-  %incdec.ptr26 = getelementptr inbounds i8, ptr %in.addr.069, i64 4
+  %incdec.ptr26 = getelementptr inbounds i8, ptr %in.addr.070, i64 4
   %8 = load i8, ptr %incdec.ptr19, align 1
   %cmp.i38 = icmp slt i8 %8, 0
   br i1 %cmp.i38, label %if.end29, label %if.end.i39
@@ -742,15 +742,15 @@ if.end45:                                         ; preds = %lor.lhs.false36
   %shl50 = shl nuw nsw i32 %conv37, 6
   %shr = lshr i32 %or, 16
   %conv57 = trunc i32 %shr to i8
-  %incdec.ptr58 = getelementptr inbounds i8, ptr %out.addr.070, i64 1
-  store i8 %conv57, ptr %out.addr.070, align 1
+  %incdec.ptr58 = getelementptr inbounds i8, ptr %out.addr.069, i64 1
+  store i8 %conv57, ptr %out.addr.069, align 1
   br i1 %cmp165363, label %if.then61, label %if.end68
 
 if.then61:                                        ; preds = %if.end45
   %or53 = or i32 %shl50, %shl48
   %shr62 = lshr i32 %or53, 8
   %conv66 = trunc i32 %shr62 to i8
-  %incdec.ptr67 = getelementptr inbounds i8, ptr %out.addr.070, i64 2
+  %incdec.ptr67 = getelementptr inbounds i8, ptr %out.addr.069, i64 2
   store i8 %conv66, ptr %incdec.ptr58, align 1
   br label %if.end68
 
@@ -826,17 +826,17 @@ for.body:                                         ; preds = %if.end, %for.inc
   %ln.0121 = phi i32 [ %1, %if.end ], [ %ln.4, %for.inc ]
   %n.0120 = phi i32 [ %0, %if.end ], [ %n.3, %for.inc ]
   %i.0119 = phi i32 [ 0, %if.end ], [ %inc126, %for.inc ]
-  %out.addr.0117 = phi ptr [ %out, %if.end ], [ %out.addr.1, %for.inc ]
-  %exp_nl.0115 = phi i32 [ %2, %if.end ], [ %exp_nl.2, %for.inc ]
-  %in.addr.0114 = phi ptr [ %in, %if.end ], [ %incdec.ptr, %for.inc ]
-  %eof.0113 = phi i32 [ 0, %if.end ], [ %eof.5, %for.inc ]
-  %seof.0112 = phi i32 [ -1, %if.end ], [ %seof.2, %for.inc ]
+  %exp_nl.0117 = phi i32 [ %2, %if.end ], [ %exp_nl.2, %for.inc ]
+  %eof.0116 = phi i32 [ 0, %if.end ], [ %eof.5, %for.inc ]
+  %seof.0115 = phi i32 [ -1, %if.end ], [ %seof.2, %for.inc ]
+  %out.addr.0113 = phi ptr [ %out, %if.end ], [ %out.addr.1, %for.inc ]
+  %in.addr.0112 = phi ptr [ %in, %if.end ], [ %incdec.ptr, %for.inc ]
   %cmp7 = icmp ugt i32 %ln.0121, 79
   br i1 %cmp7, label %end, label %if.end10
 
 if.end10:                                         ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %in.addr.0114, i64 1
-  %4 = load i8, ptr %in.addr.0114, align 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %in.addr.0112, i64 1
+  %4 = load i8, ptr %in.addr.0112, align 1
   %cmp.i64 = icmp slt i8 %4, 0
   br i1 %cmp.i64, label %if.then17, label %conv_ascii2bin.exit69
 
@@ -872,26 +872,26 @@ if.end25:                                         ; preds = %if.else, %if.then17
   br i1 %cmp26, label %if.then28, label %if.end38
 
 if.then28:                                        ; preds = %if.end25
-  %cmp29 = icmp eq i32 %seof.0112, -1
-  %spec.select = select i1 %cmp29, i32 %n.1, i32 %seof.0112
-  %inc33 = add nuw nsw i32 %eof.0113, 1
-  %cmp34 = icmp sgt i32 %eof.0113, 1
+  %cmp29 = icmp eq i32 %seof.0115, -1
+  %spec.select = select i1 %cmp29, i32 %n.1, i32 %seof.0115
+  %inc33 = add nuw nsw i32 %eof.0116, 1
+  %cmp34 = icmp sgt i32 %eof.0116, 1
   br i1 %cmp34, label %end, label %if.end38
 
 if.end38:                                         ; preds = %if.then28, %if.end25
-  %seof.2 = phi i32 [ %spec.select, %if.then28 ], [ %seof.0112, %if.end25 ]
-  %eof.1 = phi i32 [ %inc33, %if.then28 ], [ %eof.0113, %if.end25 ]
+  %seof.2 = phi i32 [ %spec.select, %if.then28 ], [ %seof.0115, %if.end25 ]
+  %eof.1 = phi i32 [ %inc33, %if.then28 ], [ %eof.0116, %if.end25 ]
   switch i8 %retval.0.i6879, label %if.end51 [
     i8 -15, label %if.then41
     i8 -16, label %if.then47
   ]
 
 if.then41:                                        ; preds = %if.end38
-  %tobool.not = icmp eq i32 %exp_nl.0115, 0
+  %tobool.not = icmp eq i32 %exp_nl.0117, 0
   br i1 %tobool.not, label %if.end51, label %for.inc
 
 if.then47:                                        ; preds = %if.end38
-  %tobool48.not = icmp eq i32 %exp_nl.0115, 0
+  %tobool48.not = icmp eq i32 %exp_nl.0117, 0
   br i1 %tobool48.not, label %if.end51, label %for.inc
 
 if.end51:                                         ; preds = %if.end38, %if.then41, %if.then47
@@ -1016,7 +1016,7 @@ EVP_DecodedLength.exit.i:                         ; preds = %while.end15.i
   br i1 %cmp17.i, label %EVP_DecodeBlock.exit.thread, label %if.end.i72
 
 if.end.i72:                                       ; preds = %EVP_DecodedLength.exit.i
-  %call19.i = call i32 @EVP_DecodeBase64(ptr noundef %out.addr.0117, ptr noundef nonnull %dst_len.i, i64 noundef %mul.i.i, ptr noundef nonnull %src.addr.0.i.lcssa, i64 noundef %src_len.addr.1.i.lcssa)
+  %call19.i = call i32 @EVP_DecodeBase64(ptr noundef %out.addr.0113, ptr noundef nonnull %dst_len.i, i64 noundef %mul.i.i, ptr noundef nonnull %src.addr.0.i.lcssa, i64 noundef %src_len.addr.1.i.lcssa)
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool20.not.i, label %EVP_DecodeBlock.exit.thread, label %while.cond23.preheader.i
 
@@ -1029,7 +1029,7 @@ while.cond23.preheader.i:                         ; preds = %if.end.i72
 while.body26.i:                                   ; preds = %while.cond23.preheader.i, %while.body26.i
   %inc2528.i = phi i64 [ %inc.i, %while.body26.i ], [ %dst_len.promoted.i, %while.cond23.preheader.i ]
   %inc.i = add i64 %inc2528.i, 1
-  %arrayidx27.i = getelementptr inbounds i8, ptr %out.addr.0117, i64 %inc2528.i
+  %arrayidx27.i = getelementptr inbounds i8, ptr %out.addr.0113, i64 %inc2528.i
   store i8 0, ptr %arrayidx27.i, align 1
   %rem.i = urem i64 %inc.i, 3
   %cmp24.not.i = icmp eq i64 %rem.i, 0
@@ -1073,13 +1073,13 @@ if.else118:                                       ; preds = %if.end112
 
 if.end124:                                        ; preds = %if.else118
   %idx.ext = zext nneg i32 %v.1 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %out.addr.0117, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %out.addr.0113, i64 %idx.ext
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then47, %lor.lhs.false85, %if.end124, %land.lhs.true81, %if.then41
+  %out.addr.1 = phi ptr [ %out.addr.0113, %if.then41 ], [ %add.ptr, %if.end124 ], [ %out.addr.0113, %land.lhs.true81 ], [ %out.addr.0113, %lor.lhs.false85 ], [ %out.addr.0113, %if.then47 ]
   %eof.5 = phi i32 [ %eof.1, %if.then41 ], [ %eof.4, %if.end124 ], [ %eof.389, %land.lhs.true81 ], [ %eof.3, %lor.lhs.false85 ], [ %eof.1, %if.then47 ]
-  %exp_nl.2 = phi i32 [ %exp_nl.0115, %if.then41 ], [ %spec.select62101, %if.end124 ], [ 0, %land.lhs.true81 ], [ 0, %lor.lhs.false85 ], [ 0, %if.then47 ]
-  %out.addr.1 = phi ptr [ %out.addr.0117, %if.then41 ], [ %add.ptr, %if.end124 ], [ %out.addr.0117, %land.lhs.true81 ], [ %out.addr.0117, %lor.lhs.false85 ], [ %out.addr.0117, %if.then47 ]
+  %exp_nl.2 = phi i32 [ %exp_nl.0117, %if.then41 ], [ %spec.select62101, %if.end124 ], [ 0, %land.lhs.true81 ], [ 0, %lor.lhs.false85 ], [ 0, %if.then47 ]
   %n.3 = phi i32 [ %n.1, %if.then41 ], [ 0, %if.end124 ], [ %n.1, %land.lhs.true81 ], [ %n.1, %lor.lhs.false85 ], [ %n.1, %if.then47 ]
   %ln.4 = phi i32 [ 0, %if.then41 ], [ %ln.3, %if.end124 ], [ %ln.3, %land.lhs.true81 ], [ %ln.3, %lor.lhs.false85 ], [ 0, %if.then47 ]
   %ret.2 = phi i32 [ %ret.0122, %if.then41 ], [ %ret.1, %if.end124 ], [ %ret.0122, %land.lhs.true81 ], [ %ret.0122, %lor.lhs.false85 ], [ %ret.0122, %if.then47 ]
@@ -1090,7 +1090,7 @@ for.inc:                                          ; preds = %if.then47, %lor.lhs
 
 end:                                              ; preds = %for.inc, %if.else118, %if.end112, %if.end104, %EVP_DecodeBlock.exit, %if.then28, %if.else, %for.body, %land.lhs.true, %EVP_DecodeBlock.exit.thread, %entry
   %rv.0 = phi i32 [ 0, %entry ], [ 0, %EVP_DecodeBlock.exit.thread ], [ 0, %land.lhs.true ], [ 1, %for.inc ], [ 0, %if.else118 ], [ 0, %if.end112 ], [ -1, %if.end104 ], [ 0, %EVP_DecodeBlock.exit ], [ -1, %if.then28 ], [ -1, %if.else ], [ -1, %for.body ]
-  %exp_nl.3 = phi i32 [ %2, %entry ], [ %spec.select62100, %EVP_DecodeBlock.exit.thread ], [ %2, %land.lhs.true ], [ %exp_nl.2, %for.inc ], [ %spec.select62101, %if.else118 ], [ %spec.select62101, %if.end112 ], [ %spec.select62100, %if.end104 ], [ %spec.select62100, %EVP_DecodeBlock.exit ], [ %exp_nl.0115, %if.then28 ], [ %exp_nl.0115, %if.else ], [ %exp_nl.0115, %for.body ]
+  %exp_nl.3 = phi i32 [ %2, %entry ], [ %spec.select62100, %EVP_DecodeBlock.exit.thread ], [ %2, %land.lhs.true ], [ %exp_nl.2, %for.inc ], [ %spec.select62101, %if.else118 ], [ %spec.select62101, %if.end112 ], [ %spec.select62100, %if.end104 ], [ %spec.select62100, %EVP_DecodeBlock.exit ], [ %exp_nl.0117, %if.then28 ], [ %exp_nl.0117, %if.else ], [ %exp_nl.0117, %for.body ]
   %n.4 = phi i32 [ %0, %entry ], [ 0, %EVP_DecodeBlock.exit.thread ], [ 0, %land.lhs.true ], [ %n.3, %for.inc ], [ 0, %if.else118 ], [ 0, %if.end112 ], [ 0, %if.end104 ], [ 0, %EVP_DecodeBlock.exit ], [ %n.1, %if.then28 ], [ %n.0120, %if.else ], [ %n.0120, %for.body ]
   %ln.5 = phi i32 [ %1, %entry ], [ %ln.3, %EVP_DecodeBlock.exit.thread ], [ %1, %land.lhs.true ], [ %ln.4, %for.inc ], [ %ln.3, %if.else118 ], [ %ln.3, %if.end112 ], [ %ln.3, %if.end104 ], [ %ln.3, %EVP_DecodeBlock.exit ], [ %ln.1, %if.then28 ], [ %ln.0121, %if.else ], [ %ln.0121, %for.body ]
   %ret.3 = phi i32 [ 0, %entry ], [ %ret.0122, %EVP_DecodeBlock.exit.thread ], [ 0, %land.lhs.true ], [ %ret.2, %for.inc ], [ %ret.1, %if.else118 ], [ %ret.1, %if.end112 ], [ %ret.0122, %if.end104 ], [ %ret.0122, %EVP_DecodeBlock.exit ], [ %ret.0122, %if.then28 ], [ %ret.0122, %if.else ], [ %ret.0122, %for.body ]

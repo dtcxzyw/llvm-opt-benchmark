@@ -4005,73 +4005,73 @@ define linkonce_odr { ptr, i32 } @_ZSt9__find_ifISt13_Bit_iteratorN9__gnu_cxx5__
 
 18:                                               ; preds = %.lr.ph, %_ZNSt13_Bit_iteratorppEv.exit58
   %.0128 = phi i64 [ %14, %.lr.ph ], [ %51, %_ZNSt13_Bit_iteratorppEv.exit58 ]
-  %.sroa.31.0127 = phi i32 [ %1, %.lr.ph ], [ %spec.select116, %_ZNSt13_Bit_iteratorppEv.exit58 ]
-  %.sroa.079.0126 = phi ptr [ %0, %.lr.ph ], [ %spec.select115, %_ZNSt13_Bit_iteratorppEv.exit58 ]
-  %19 = zext nneg i32 %.sroa.31.0127 to i64
+  %.sroa.079.0127 = phi ptr [ %0, %.lr.ph ], [ %spec.select116, %_ZNSt13_Bit_iteratorppEv.exit58 ]
+  %.sroa.31.0126 = phi i32 [ %1, %.lr.ph ], [ %spec.select115, %_ZNSt13_Bit_iteratorppEv.exit58 ]
+  %19 = zext nneg i32 %.sroa.31.0126 to i64
   %20 = shl nuw i64 1, %19
-  %21 = load i64, ptr %.sroa.079.0126, align 8
+  %21 = load i64, ptr %.sroa.079.0127, align 8
   %22 = and i64 %21, %20
   %23 = icmp eq i64 %22, 0
   %24 = xor i1 %23, %17
   br i1 %24, label %_ZNSt13_Bit_iteratorppEv.exit61, label %_ZNSt13_Bit_iteratorppEv.exit
 
 _ZNSt13_Bit_iteratorppEv.exit:                    ; preds = %18
-  %25 = add i32 %.sroa.31.0127, 1
-  %26 = icmp eq i32 %.sroa.31.0127, 63
-  %spec.select.idx = select i1 %26, i64 8, i64 0
-  %spec.select = getelementptr inbounds i8, ptr %.sroa.079.0126, i64 %spec.select.idx
-  %spec.select110 = select i1 %26, i32 0, i32 %25
-  %27 = zext nneg i32 %spec.select110 to i64
+  %25 = add i32 %.sroa.31.0126, 1
+  %26 = icmp eq i32 %.sroa.31.0126, 63
+  %spec.select = select i1 %26, i32 0, i32 %25
+  %spec.select110.idx = select i1 %26, i64 8, i64 0
+  %spec.select110 = getelementptr inbounds i8, ptr %.sroa.079.0127, i64 %spec.select110.idx
+  %27 = zext nneg i32 %spec.select to i64
   %28 = shl nuw i64 1, %27
-  %29 = load i64, ptr %spec.select, align 8
+  %29 = load i64, ptr %spec.select110, align 8
   %30 = and i64 %29, %28
   %31 = icmp eq i64 %30, 0
   %32 = xor i1 %31, %17
   br i1 %32, label %_ZNSt13_Bit_iteratorppEv.exit61, label %_ZNSt13_Bit_iteratorppEv.exit56
 
 _ZNSt13_Bit_iteratorppEv.exit56:                  ; preds = %_ZNSt13_Bit_iteratorppEv.exit
-  %33 = add i32 %spec.select110, 1
-  %34 = icmp eq i32 %spec.select110, 63
-  %spec.select111.idx = select i1 %34, i64 8, i64 0
-  %spec.select111 = getelementptr inbounds i8, ptr %spec.select, i64 %spec.select111.idx
-  %spec.select112 = select i1 %34, i32 0, i32 %33
-  %35 = zext nneg i32 %spec.select112 to i64
+  %33 = add i32 %spec.select, 1
+  %34 = icmp eq i32 %spec.select, 63
+  %spec.select111 = select i1 %34, i32 0, i32 %33
+  %spec.select112.idx = select i1 %34, i64 8, i64 0
+  %spec.select112 = getelementptr inbounds i8, ptr %spec.select110, i64 %spec.select112.idx
+  %35 = zext nneg i32 %spec.select111 to i64
   %36 = shl nuw i64 1, %35
-  %37 = load i64, ptr %spec.select111, align 8
+  %37 = load i64, ptr %spec.select112, align 8
   %38 = and i64 %37, %36
   %39 = icmp eq i64 %38, 0
   %40 = xor i1 %39, %17
   br i1 %40, label %_ZNSt13_Bit_iteratorppEv.exit61, label %_ZNSt13_Bit_iteratorppEv.exit57
 
 _ZNSt13_Bit_iteratorppEv.exit57:                  ; preds = %_ZNSt13_Bit_iteratorppEv.exit56
-  %41 = add i32 %spec.select112, 1
-  %42 = icmp eq i32 %spec.select112, 63
-  %spec.select113.idx = select i1 %42, i64 8, i64 0
-  %spec.select113 = getelementptr inbounds i8, ptr %spec.select111, i64 %spec.select113.idx
-  %spec.select114 = select i1 %42, i32 0, i32 %41
-  %43 = zext nneg i32 %spec.select114 to i64
+  %41 = add i32 %spec.select111, 1
+  %42 = icmp eq i32 %spec.select111, 63
+  %spec.select113 = select i1 %42, i32 0, i32 %41
+  %spec.select114.idx = select i1 %42, i64 8, i64 0
+  %spec.select114 = getelementptr inbounds i8, ptr %spec.select112, i64 %spec.select114.idx
+  %43 = zext nneg i32 %spec.select113 to i64
   %44 = shl nuw i64 1, %43
-  %45 = load i64, ptr %spec.select113, align 8
+  %45 = load i64, ptr %spec.select114, align 8
   %46 = and i64 %45, %44
   %47 = icmp eq i64 %46, 0
   %48 = xor i1 %47, %17
   br i1 %48, label %_ZNSt13_Bit_iteratorppEv.exit61, label %_ZNSt13_Bit_iteratorppEv.exit58
 
 _ZNSt13_Bit_iteratorppEv.exit58:                  ; preds = %_ZNSt13_Bit_iteratorppEv.exit57
-  %49 = add i32 %spec.select114, 1
-  %50 = icmp eq i32 %spec.select114, 63
-  %spec.select115.idx = select i1 %50, i64 8, i64 0
-  %spec.select115 = getelementptr inbounds i8, ptr %spec.select113, i64 %spec.select115.idx
-  %spec.select116 = select i1 %50, i32 0, i32 %49
+  %49 = add i32 %spec.select113, 1
+  %50 = icmp eq i32 %spec.select113, 63
+  %spec.select115 = select i1 %50, i32 0, i32 %49
+  %spec.select116.idx = select i1 %50, i64 8, i64 0
+  %spec.select116 = getelementptr inbounds i8, ptr %spec.select114, i64 %spec.select116.idx
   %51 = add nsw i64 %.0128, -1
   %52 = icmp sgt i64 %.0128, 1
   br i1 %52, label %18, label %._crit_edge.loopexit, !llvm.loop !52
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt13_Bit_iteratorppEv.exit58
-  %.pre131 = ptrtoint ptr %spec.select115 to i64
+  %.pre131 = ptrtoint ptr %spec.select116 to i64
   %.pre132 = sub i64 %6, %.pre131
   %.pre134 = shl nsw i64 %.pre132, 3
-  %.pre136 = zext i32 %spec.select116 to i64
+  %.pre136 = zext i32 %spec.select115 to i64
   %.pre138 = sub nsw i64 %10, %.pre136
   br label %._crit_edge
 
@@ -4079,8 +4079,8 @@ _ZNSt13_Bit_iteratorppEv.exit58:                  ; preds = %_ZNSt13_Bit_iterato
   %.pre-phi139 = phi i64 [ %.pre138, %._crit_edge.loopexit ], [ %12, %5 ]
   %.pre-phi137 = phi i64 [ %.pre136, %._crit_edge.loopexit ], [ %11, %5 ]
   %.pre-phi135 = phi i64 [ %.pre134, %._crit_edge.loopexit ], [ %9, %5 ]
-  %.sroa.079.0.lcssa = phi ptr [ %spec.select115, %._crit_edge.loopexit ], [ %0, %5 ]
-  %.sroa.31.0.lcssa = phi i32 [ %spec.select116, %._crit_edge.loopexit ], [ %1, %5 ]
+  %.sroa.31.0.lcssa = phi i32 [ %spec.select115, %._crit_edge.loopexit ], [ %1, %5 ]
+  %.sroa.079.0.lcssa = phi ptr [ %spec.select116, %._crit_edge.loopexit ], [ %0, %5 ]
   %53 = add i64 %.pre-phi139, %.pre-phi135
   switch i64 %53, label %_ZNSt13_Bit_iteratorppEv.exit61 [
     i64 3, label %54
@@ -4111,20 +4111,20 @@ _ZNSt13_Bit_iteratorppEv.exit58:                  ; preds = %_ZNSt13_Bit_iterato
 62:                                               ; preds = %54
   %63 = add i32 %.sroa.31.0.lcssa, 1
   %64 = icmp eq i32 %.sroa.31.0.lcssa, 63
-  %spec.select117.idx = select i1 %64, i64 8, i64 0
-  %spec.select117 = getelementptr inbounds i8, ptr %.sroa.079.0.lcssa, i64 %spec.select117.idx
-  %spec.select118 = select i1 %64, i32 0, i32 %63
-  %.pre140 = zext nneg i32 %spec.select118 to i64
+  %spec.select117 = select i1 %64, i32 0, i32 %63
+  %spec.select118.idx = select i1 %64, i64 8, i64 0
+  %spec.select118 = getelementptr inbounds i8, ptr %.sroa.079.0.lcssa, i64 %spec.select118.idx
+  %.pre140 = zext nneg i32 %spec.select117 to i64
   br label %_ZNSt13_Bit_iteratorppEv.exit59
 
 _ZNSt13_Bit_iteratorppEv.exit59:                  ; preds = %._crit_edge._ZNSt13_Bit_iteratorppEv.exit59_crit_edge, %62
   %.pre-phi143 = phi i1 [ %.pre142, %._crit_edge._ZNSt13_Bit_iteratorppEv.exit59_crit_edge ], [ %59, %62 ]
   %.pre-phi141 = phi i64 [ %.pre-phi137, %._crit_edge._ZNSt13_Bit_iteratorppEv.exit59_crit_edge ], [ %.pre140, %62 ]
-  %.sroa.079.6 = phi ptr [ %.sroa.079.0.lcssa, %._crit_edge._ZNSt13_Bit_iteratorppEv.exit59_crit_edge ], [ %spec.select117, %62 ]
-  %.sroa.31.6 = phi i32 [ %.sroa.31.0.lcssa, %._crit_edge._ZNSt13_Bit_iteratorppEv.exit59_crit_edge ], [ %spec.select118, %62 ]
+  %.sroa.31.6 = phi i32 [ %.sroa.31.0.lcssa, %._crit_edge._ZNSt13_Bit_iteratorppEv.exit59_crit_edge ], [ %spec.select117, %62 ]
+  %.sroa.079.6 = phi ptr [ %.sroa.079.0.lcssa, %._crit_edge._ZNSt13_Bit_iteratorppEv.exit59_crit_edge ], [ %spec.select118, %62 ]
   %65 = shl nuw i64 1, %.pre-phi141
   %66 = load i64, ptr %.sroa.079.6, align 8
-  %67 = and i64 %65, %66
+  %67 = and i64 %66, %65
   %68 = icmp eq i64 %67, 0
   %69 = xor i1 %68, %.pre-phi143
   br i1 %69, label %_ZNSt13_Bit_iteratorppEv.exit61, label %70
@@ -4132,20 +4132,20 @@ _ZNSt13_Bit_iteratorppEv.exit59:                  ; preds = %._crit_edge._ZNSt13
 70:                                               ; preds = %_ZNSt13_Bit_iteratorppEv.exit59
   %71 = add i32 %.sroa.31.6, 1
   %72 = icmp eq i32 %.sroa.31.6, 63
-  %spec.select119.idx = select i1 %72, i64 8, i64 0
-  %spec.select119 = getelementptr inbounds i8, ptr %.sroa.079.6, i64 %spec.select119.idx
-  %spec.select120 = select i1 %72, i32 0, i32 %71
-  %.pre144 = zext nneg i32 %spec.select120 to i64
+  %spec.select119 = select i1 %72, i32 0, i32 %71
+  %spec.select120.idx = select i1 %72, i64 8, i64 0
+  %spec.select120 = getelementptr inbounds i8, ptr %.sroa.079.6, i64 %spec.select120.idx
+  %.pre144 = zext nneg i32 %spec.select119 to i64
   br label %_ZNSt13_Bit_iteratorppEv.exit60
 
 _ZNSt13_Bit_iteratorppEv.exit60:                  ; preds = %._crit_edge._ZNSt13_Bit_iteratorppEv.exit60_crit_edge, %70
   %.pre-phi147 = phi i1 [ %.pre146, %._crit_edge._ZNSt13_Bit_iteratorppEv.exit60_crit_edge ], [ %.pre-phi143, %70 ]
   %.pre-phi145 = phi i64 [ %.pre-phi137, %._crit_edge._ZNSt13_Bit_iteratorppEv.exit60_crit_edge ], [ %.pre144, %70 ]
-  %.sroa.079.8 = phi ptr [ %.sroa.079.0.lcssa, %._crit_edge._ZNSt13_Bit_iteratorppEv.exit60_crit_edge ], [ %spec.select119, %70 ]
-  %.sroa.31.8 = phi i32 [ %.sroa.31.0.lcssa, %._crit_edge._ZNSt13_Bit_iteratorppEv.exit60_crit_edge ], [ %spec.select120, %70 ]
+  %.sroa.31.8 = phi i32 [ %.sroa.31.0.lcssa, %._crit_edge._ZNSt13_Bit_iteratorppEv.exit60_crit_edge ], [ %spec.select119, %70 ]
+  %.sroa.079.8 = phi ptr [ %.sroa.079.0.lcssa, %._crit_edge._ZNSt13_Bit_iteratorppEv.exit60_crit_edge ], [ %spec.select120, %70 ]
   %73 = shl nuw i64 1, %.pre-phi145
   %74 = load i64, ptr %.sroa.079.8, align 8
-  %75 = and i64 %73, %74
+  %75 = and i64 %74, %73
   %76 = icmp eq i64 %75, 0
   %77 = xor i1 %76, %.pre-phi147
   %spec.select121 = select i1 %77, ptr %.sroa.079.8, ptr %2
@@ -4153,8 +4153,8 @@ _ZNSt13_Bit_iteratorppEv.exit60:                  ; preds = %._crit_edge._ZNSt13
   br label %_ZNSt13_Bit_iteratorppEv.exit61
 
 _ZNSt13_Bit_iteratorppEv.exit61:                  ; preds = %_ZNSt13_Bit_iteratorppEv.exit57, %_ZNSt13_Bit_iteratorppEv.exit56, %_ZNSt13_Bit_iteratorppEv.exit, %18, %_ZNSt13_Bit_iteratorppEv.exit60, %._crit_edge, %_ZNSt13_Bit_iteratorppEv.exit59, %54
-  %.sroa.020.0.in.sroa.speculated = phi ptr [ %.sroa.079.0.lcssa, %54 ], [ %.sroa.079.6, %_ZNSt13_Bit_iteratorppEv.exit59 ], [ %2, %._crit_edge ], [ %spec.select121, %_ZNSt13_Bit_iteratorppEv.exit60 ], [ %spec.select113, %_ZNSt13_Bit_iteratorppEv.exit57 ], [ %spec.select111, %_ZNSt13_Bit_iteratorppEv.exit56 ], [ %spec.select, %_ZNSt13_Bit_iteratorppEv.exit ], [ %.sroa.079.0126, %18 ]
-  %.sroa.9.0 = phi i32 [ %.sroa.31.0.lcssa, %54 ], [ %.sroa.31.6, %_ZNSt13_Bit_iteratorppEv.exit59 ], [ %3, %._crit_edge ], [ %spec.select122, %_ZNSt13_Bit_iteratorppEv.exit60 ], [ %spec.select114, %_ZNSt13_Bit_iteratorppEv.exit57 ], [ %spec.select112, %_ZNSt13_Bit_iteratorppEv.exit56 ], [ %spec.select110, %_ZNSt13_Bit_iteratorppEv.exit ], [ %.sroa.31.0127, %18 ]
+  %.sroa.020.0.in.sroa.speculated = phi ptr [ %.sroa.079.0.lcssa, %54 ], [ %.sroa.079.6, %_ZNSt13_Bit_iteratorppEv.exit59 ], [ %2, %._crit_edge ], [ %spec.select121, %_ZNSt13_Bit_iteratorppEv.exit60 ], [ %spec.select114, %_ZNSt13_Bit_iteratorppEv.exit57 ], [ %spec.select112, %_ZNSt13_Bit_iteratorppEv.exit56 ], [ %spec.select110, %_ZNSt13_Bit_iteratorppEv.exit ], [ %.sroa.079.0127, %18 ]
+  %.sroa.9.0 = phi i32 [ %.sroa.31.0.lcssa, %54 ], [ %.sroa.31.6, %_ZNSt13_Bit_iteratorppEv.exit59 ], [ %3, %._crit_edge ], [ %spec.select122, %_ZNSt13_Bit_iteratorppEv.exit60 ], [ %spec.select113, %_ZNSt13_Bit_iteratorppEv.exit57 ], [ %spec.select111, %_ZNSt13_Bit_iteratorppEv.exit56 ], [ %spec.select, %_ZNSt13_Bit_iteratorppEv.exit ], [ %.sroa.31.0126, %18 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.020.0.in.sroa.speculated, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.9.0, 1
   ret { ptr, i32 } %.fca.1.insert

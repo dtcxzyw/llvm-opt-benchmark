@@ -144,7 +144,7 @@ define void @_Z22nbnxn_kernel_prune_refP16NbnxnPairlistCpuPK16nbnxn_atomdata_tN3
 
 85:                                               ; preds = %.preheader, %85
   %indvars.iv121 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next122, %85 ]
-  %.193102 = phi i1 [ false, %.preheader ], [ %.294, %85 ]
+  %.191102 = phi i1 [ false, %.preheader ], [ %.292, %85 ]
   %86 = add nuw nsw i64 %indvars.iv121, %75
   %.idx134 = mul i64 %86, 12
   %87 = getelementptr inbounds i8, ptr %30, i64 %.idx134
@@ -160,7 +160,7 @@ define void @_Z22nbnxn_kernel_prune_refP16NbnxnPairlistCpuPK16nbnxn_atomdata_tN3
   %97 = tail call float @llvm.fmuladd.f32(float %89, float %89, float %96)
   %98 = tail call float @llvm.fmuladd.f32(float %95, float %95, float %97)
   %99 = fcmp olt float %98, %31
-  %.294 = select i1 %99, i1 true, i1 %.193102
+  %.292 = select i1 %99, i1 true, i1 %.191102
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next122, 4
   br i1 %exitcond123.not, label %100, label %85, !llvm.loop !8
@@ -168,11 +168,11 @@ define void @_Z22nbnxn_kernel_prune_refP16NbnxnPairlistCpuPK16nbnxn_atomdata_tN3
 100:                                              ; preds = %85
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %101 = icmp ugt i64 %indvars.iv124, 2
-  %.not96 = select i1 %101, i1 true, i1 %.294
+  %.not96 = select i1 %101, i1 true, i1 %.292
   br i1 %.not96, label %102, label %.preheader, !llvm.loop !9
 
 102:                                              ; preds = %100
-  br i1 %.294, label %103, label %108
+  br i1 %.292, label %103, label %108
 
 103:                                              ; preds = %102
   %104 = add nsw i32 %.186107, 1

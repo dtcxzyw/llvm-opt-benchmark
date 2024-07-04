@@ -20,8 +20,8 @@ for.body.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %last_set_ip.031.i = phi i32 [ -1, %for.body.preheader.i ], [ %last_set_ip.1.i, %for.inc.i ]
-  %maybe_invalid.029.i = phi i1 [ false, %for.body.preheader.i ], [ %maybe_invalid.2.i, %for.inc.i ]
+  %maybe_invalid.030.i = phi i1 [ false, %for.body.preheader.i ], [ %maybe_invalid.2.i, %for.inc.i ]
+  %last_set_ip.029.i = phi i32 [ -1, %for.body.preheader.i ], [ %last_set_ip.1.i, %for.inc.i ]
   %arrayidx.i = getelementptr %struct._PyUOpInstruction, ptr %buffer, i64 %indvars.iv.i
   %0 = load i16, ptr %arrayidx.i, align 8
   switch i16 %0, label %if.else21.i [
@@ -37,7 +37,7 @@ if.then.i:                                        ; preds = %for.body.i
   br label %for.inc.i
 
 if.then9.i:                                       ; preds = %for.body.i
-  br i1 %maybe_invalid.029.i, label %for.inc.i, label %if.else11.i
+  br i1 %maybe_invalid.030.i, label %for.inc.i, label %if.else11.i
 
 if.else11.i:                                      ; preds = %if.then9.i
   store i16 30, ptr %arrayidx.i, align 8
@@ -52,34 +52,34 @@ if.else21.i:                                      ; preds = %for.body.i
   br i1 %tobool24.not.i, label %if.end33.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.else21.i
-  %cmp26.i = icmp sgt i32 %last_set_ip.031.i, -1
+  %cmp26.i = icmp sgt i32 %last_set_ip.029.i, -1
   br i1 %cmp26.i, label %if.then28.i, label %for.inc.i
 
 if.then28.i:                                      ; preds = %if.then25.i
-  %idxprom29.i = zext nneg i32 %last_set_ip.031.i to i64
+  %idxprom29.i = zext nneg i32 %last_set_ip.029.i to i64
   %arrayidx30.i = getelementptr %struct._PyUOpInstruction, ptr %buffer, i64 %idxprom29.i
   store i16 301, ptr %arrayidx30.i, align 8
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.then28.i, %if.else21.i
-  %maybe_invalid.1.i = phi i1 [ true, %if.then28.i ], [ %maybe_invalid.029.i, %if.else21.i ]
+  %maybe_invalid.1.i = phi i1 [ true, %if.then28.i ], [ %maybe_invalid.030.i, %if.else21.i ]
   %and37.i = and i32 %2, 256
   %tobool38.i = icmp ne i32 %and37.i, 0
   %cmp40.i = icmp eq i16 %0, 385
   %or.cond1.i = or i1 %cmp40.i, %tobool38.i
-  %cmp43.i = icmp sgt i32 %last_set_ip.031.i, -1
+  %cmp43.i = icmp sgt i32 %last_set_ip.029.i, -1
   %or.cond2.i = select i1 %or.cond1.i, i1 %cmp43.i, i1 false
   br i1 %or.cond2.i, label %if.then45.i, label %for.inc.i
 
 if.then45.i:                                      ; preds = %if.end33.i
-  %idxprom46.i = zext nneg i32 %last_set_ip.031.i to i64
+  %idxprom46.i = zext nneg i32 %last_set_ip.029.i to i64
   %arrayidx47.i = getelementptr %struct._PyUOpInstruction, ptr %buffer, i64 %idxprom46.i
   store i16 301, ptr %arrayidx47.i, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then45.i, %if.end33.i, %if.then25.i, %if.else11.i, %if.then9.i, %if.then.i
-  %maybe_invalid.2.i = phi i1 [ %maybe_invalid.029.i, %if.then.i ], [ false, %if.else11.i ], [ %maybe_invalid.1.i, %if.then45.i ], [ %maybe_invalid.1.i, %if.end33.i ], [ false, %if.then9.i ], [ true, %if.then25.i ]
-  %last_set_ip.1.i = phi i32 [ %1, %if.then.i ], [ %last_set_ip.031.i, %if.else11.i ], [ %last_set_ip.031.i, %if.then45.i ], [ %last_set_ip.031.i, %if.end33.i ], [ %last_set_ip.031.i, %if.then9.i ], [ %last_set_ip.031.i, %if.then25.i ]
+  %last_set_ip.1.i = phi i32 [ %1, %if.then.i ], [ %last_set_ip.029.i, %if.else11.i ], [ %last_set_ip.029.i, %if.then45.i ], [ %last_set_ip.029.i, %if.end33.i ], [ %last_set_ip.029.i, %if.then9.i ], [ %last_set_ip.029.i, %if.then25.i ]
+  %maybe_invalid.2.i = phi i1 [ %maybe_invalid.030.i, %if.then.i ], [ false, %if.else11.i ], [ %maybe_invalid.1.i, %if.then45.i ], [ %maybe_invalid.1.i, %if.end33.i ], [ false, %if.then9.i ], [ true, %if.then25.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %remove_unneeded_uops.exit, label %for.body.i, !llvm.loop !5

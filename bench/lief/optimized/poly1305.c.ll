@@ -198,11 +198,11 @@ define internal fastcc void @poly1305_process(ptr nocapture noundef %0, i64 noun
 35:                                               ; preds = %.lr.ph, %35
   %.0159 = phi i64 [ 0, %.lr.ph ], [ %215, %35 ]
   %.0147158 = phi i64 [ 0, %.lr.ph ], [ %214, %35 ]
-  %.0148157 = phi i32 [ %7, %.lr.ph ], [ %198, %35 ]
-  %.0149156 = phi i32 [ %9, %.lr.ph ], [ %202, %35 ]
+  %.0148157 = phi i32 [ %15, %.lr.ph ], [ %213, %35 ]
+  %.0149156 = phi i32 [ %13, %.lr.ph ], [ %210, %35 ]
   %.0150155 = phi i32 [ %11, %.lr.ph ], [ %206, %35 ]
-  %.0151154 = phi i32 [ %13, %.lr.ph ], [ %210, %35 ]
-  %.0152153 = phi i32 [ %15, %.lr.ph ], [ %213, %35 ]
+  %.0151154 = phi i32 [ %9, %.lr.ph ], [ %202, %35 ]
+  %.0152153 = phi i32 [ %7, %.lr.ph ], [ %198, %35 ]
   %36 = getelementptr inbounds i8, ptr %2, i64 %.0147158
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i64
@@ -290,9 +290,9 @@ define internal fastcc void @poly1305_process(ptr nocapture noundef %0, i64 noun
   %120 = zext i8 %119 to i64
   %121 = shl nuw nsw i64 %120, 24
   %122 = or disjoint i64 %116, %121
-  %123 = zext i32 %.0148157 to i64
+  %123 = zext i32 %.0152153 to i64
   %124 = add nuw nsw i64 %56, %123
-  %125 = zext i32 %.0149156 to i64
+  %125 = zext i32 %.0151154 to i64
   %126 = lshr i64 %124, 32
   %127 = add nuw nsw i64 %126, %125
   %128 = add nuw nsw i64 %127, %78
@@ -300,13 +300,13 @@ define internal fastcc void @poly1305_process(ptr nocapture noundef %0, i64 noun
   %130 = lshr i64 %128, 32
   %131 = add nuw nsw i64 %130, %129
   %132 = add nuw nsw i64 %131, %100
-  %133 = zext i32 %.0151154 to i64
+  %133 = zext i32 %.0149156 to i64
   %134 = lshr i64 %132, 32
   %135 = add nuw nsw i64 %134, %133
   %136 = add nuw nsw i64 %135, %122
   %137 = lshr i64 %136, 32
   %138 = trunc nuw nsw i64 %137 to i32
-  %139 = add i32 %.0152153, %3
+  %139 = add i32 %.0148157, %3
   %140 = add i32 %139, %138
   %141 = and i64 %124, 4294967295
   %142 = mul nuw i64 %141, %28
@@ -387,16 +387,16 @@ define internal fastcc void @poly1305_process(ptr nocapture noundef %0, i64 noun
   br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %35, %4
-  %.0152.lcssa = phi i32 [ %15, %4 ], [ %213, %35 ]
-  %.0151.lcssa = phi i32 [ %13, %4 ], [ %210, %35 ]
+  %.0152.lcssa = phi i32 [ %7, %4 ], [ %198, %35 ]
+  %.0151.lcssa = phi i32 [ %9, %4 ], [ %202, %35 ]
   %.0150.lcssa = phi i32 [ %11, %4 ], [ %206, %35 ]
-  %.0149.lcssa = phi i32 [ %9, %4 ], [ %202, %35 ]
-  %.0148.lcssa = phi i32 [ %7, %4 ], [ %198, %35 ]
-  store i32 %.0148.lcssa, ptr %6, align 8
-  store i32 %.0149.lcssa, ptr %8, align 4
+  %.0149.lcssa = phi i32 [ %13, %4 ], [ %210, %35 ]
+  %.0148.lcssa = phi i32 [ %15, %4 ], [ %213, %35 ]
+  store i32 %.0152.lcssa, ptr %6, align 8
+  store i32 %.0151.lcssa, ptr %8, align 4
   store i32 %.0150.lcssa, ptr %10, align 8
-  store i32 %.0151.lcssa, ptr %12, align 4
-  store i32 %.0152.lcssa, ptr %14, align 8
+  store i32 %.0149.lcssa, ptr %12, align 4
+  store i32 %.0148.lcssa, ptr %14, align 8
   ret void
 }
 

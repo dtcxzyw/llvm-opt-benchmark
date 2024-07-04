@@ -4291,8 +4291,8 @@ define range(i32 0, 2160) i32 @unfmt_job_id_string(ptr noundef %0, ptr nocapture
 
 92:                                               ; preds = %90, %._crit_edge
   %93 = phi ptr [ %86, %._crit_edge ], [ %74, %90 ]
-  %.040 = phi i64 [ %84, %._crit_edge ], [ %73, %90 ]
-  %94 = trunc nuw i64 %.040 to i32
+  %.039 = phi i64 [ %84, %._crit_edge ], [ %73, %90 ]
+  %94 = trunc nuw i64 %.039 to i32
   store i32 %94, ptr %11, align 4
   store ptr %93, ptr %3, align 8
   %95 = load i8, ptr %93, align 1
@@ -4345,8 +4345,8 @@ define range(i32 0, 2160) i32 @unfmt_job_id_string(ptr noundef %0, ptr nocapture
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %113, %111, %109, %107, %103, %99, %97, %92, %90, %88, %68, %64, %60, %57, %55, %52, %48, %46, %37, %35, %32, %28, %21, %19, %17, %14, %2, %12, %115, %96, %67
-  %.039 = phi i32 [ 2140, %67 ], [ 2153, %96 ], [ 0, %115 ], [ 2136, %12 ], [ 2136, %2 ], [ 2137, %14 ], [ 2138, %17 ], [ 2139, %19 ], [ 2140, %21 ], [ 2141, %28 ], [ 2142, %32 ], [ 2143, %35 ], [ 2144, %37 ], [ 2145, %46 ], [ 2146, %48 ], [ 2147, %52 ], [ 2148, %55 ], [ 2149, %57 ], [ 2145, %60 ], [ 0, %64 ], [ 2150, %68 ], [ 2151, %88 ], [ 2152, %90 ], [ 0, %92 ], [ 2159, %97 ], [ 0, %99 ], [ 2154, %103 ], [ 2155, %107 ], [ 2156, %109 ], [ 2157, %111 ], [ 2158, %113 ], [ 2153, %.lr.ph ]
-  ret i32 %.039
+  %.040 = phi i32 [ 2140, %67 ], [ 2153, %96 ], [ 0, %115 ], [ 2136, %12 ], [ 2136, %2 ], [ 2137, %14 ], [ 2138, %17 ], [ 2139, %19 ], [ 2140, %21 ], [ 2141, %28 ], [ 2142, %32 ], [ 2143, %35 ], [ 2144, %37 ], [ 2145, %46 ], [ 2146, %48 ], [ 2147, %52 ], [ 2148, %55 ], [ 2149, %57 ], [ 2145, %60 ], [ 0, %64 ], [ 2150, %68 ], [ 2151, %88 ], [ 2152, %90 ], [ 0, %92 ], [ 2159, %97 ], [ 0, %99 ], [ 2154, %103 ], [ 2155, %107 ], [ 2156, %109 ], [ 2157, %111 ], [ 2158, %113 ], [ 2153, %.lr.ph ]
+  ret i32 %.040
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
@@ -12714,33 +12714,33 @@ define void @xlate_array_task_str(ptr noundef %0, i32 noundef %1, ptr noundef wr
 
 50:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ %48, %.lr.ph ], [ %indvars.iv.next, %56 ]
-  %.05083 = phi i32 [ 0, %.lr.ph ], [ %.2, %56 ]
-  %.05282 = phi i32 [ %35, %.lr.ph ], [ %.153, %56 ]
+  %.04984 = phi i32 [ 0, %.lr.ph ], [ %.2, %56 ]
+  %.05083 = phi i32 [ %35, %.lr.ph ], [ %.151, %56 ]
   %indvars86 = trunc i64 %indvars.iv to i32
   %51 = tail call i32 @bit_test(ptr noundef %24, i64 noundef %indvars.iv) #22
   %.not71 = icmp eq i32 %51, 0
   br i1 %.not71, label %56, label %52
 
 52:                                               ; preds = %50
-  %53 = icmp eq i32 %.05083, 0
-  %54 = sub nsw i32 %indvars86, %.05282
+  %53 = icmp eq i32 %.04984, 0
+  %54 = sub nsw i32 %indvars86, %.05083
   br i1 %53, label %56, label %55
 
 55:                                               ; preds = %52
-  %.not72 = icmp eq i32 %54, %.05083
+  %.not72 = icmp eq i32 %54, %.04984
   br i1 %.not72, label %56, label %.loopexit79
 
 56:                                               ; preds = %52, %55, %50
-  %.153 = phi i32 [ %.05282, %50 ], [ %indvars86, %55 ], [ %indvars86, %52 ]
-  %.2 = phi i32 [ %.05083, %50 ], [ %.05083, %55 ], [ %54, %52 ]
+  %.151 = phi i32 [ %.05083, %50 ], [ %indvars86, %55 ], [ %indvars86, %52 ]
+  %.2 = phi i32 [ %.04984, %50 ], [ %.04984, %55 ], [ %54, %52 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %49, %lftr.wideiv
   br i1 %exitcond.not, label %.critedge, label %50, !llvm.loop !65
 
 .critedge:                                        ; preds = %56, %.preheader78
-  %.050.lcssa = phi i32 [ 0, %.preheader78 ], [ %.2, %56 ]
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.649, i32 noundef %35, i32 noundef %37, i32 noundef %.050.lcssa) #22
+  %.049.lcssa = phi i32 [ 0, %.preheader78 ], [ %.2, %56 ]
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.649, i32 noundef %35, i32 noundef %37, i32 noundef %.049.lcssa) #22
   br label %.loopexit
 
 .loopexit79:                                      ; preds = %55, %43, %40, %33

@@ -736,8 +736,8 @@ if.then14:                                        ; preds = %if.end9
   br i1 %cmp16, label %return, label %if.end19
 
 if.end19:                                         ; preds = %if.then14, %if.end9
-  %new_ctx.0 = phi ptr [ %call15, %if.then14 ], [ null, %if.end9 ]
   %ctx.addr.0 = phi ptr [ %call15, %if.then14 ], [ %ctx, %if.end9 ]
+  %new_ctx.0 = phi ptr [ %call15, %if.then14 ], [ null, %if.end9 ]
   tail call void @BN_CTX_start(ptr noundef nonnull %ctx.addr.0) #5
   %call20 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.0) #5
   %call21 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.0) #5
@@ -982,12 +982,12 @@ if.then207:                                       ; preds = %if.end19, %if.else1
   br label %if.end208
 
 if.end208:                                        ; preds = %end, %if.then207
-  %ret.0179 = phi i32 [ %ret.0.ph, %if.then207 ], [ %call108, %end ]
+  %ret.0180 = phi i32 [ %ret.0.ph, %if.then207 ], [ %call108, %end ]
   tail call void @BN_CTX_free(ptr noundef %new_ctx.0) #5
   br label %return
 
 return:                                           ; preds = %if.then14, %if.end208, %if.then7, %if.then2, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ %call3, %if.then2 ], [ %call8, %if.then7 ], [ %ret.0179, %if.end208 ], [ 0, %if.then14 ]
+  %retval.0 = phi i32 [ %call, %if.then ], [ %call3, %if.then2 ], [ %call8, %if.then7 ], [ %ret.0180, %if.end208 ], [ 0, %if.then14 ]
   ret i32 %retval.0
 }
 
@@ -1037,8 +1037,8 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp6, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.then4, %if.end
-  %new_ctx.0 = phi ptr [ %call5, %if.then4 ], [ null, %if.end ]
   %ctx.addr.0 = phi ptr [ %call5, %if.then4 ], [ %ctx, %if.end ]
+  %new_ctx.0 = phi ptr [ %call5, %if.then4 ], [ null, %if.end ]
   tail call void @BN_CTX_start(ptr noundef nonnull %ctx.addr.0) #5
   %call10 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.0) #5
   %call11 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.0) #5
@@ -1301,8 +1301,8 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp6, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.then4, %if.end
-  %new_ctx.0 = phi ptr [ %call5, %if.then4 ], [ null, %if.end ]
   %ctx.addr.0 = phi ptr [ %call5, %if.then4 ], [ %ctx, %if.end ]
+  %new_ctx.0 = phi ptr [ %call5, %if.then4 ], [ null, %if.end ]
   tail call void @BN_CTX_start(ptr noundef nonnull %ctx.addr.0) #5
   %call10 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.0) #5
   %call11 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.0) #5
@@ -1491,8 +1491,8 @@ if.then31:                                        ; preds = %if.end25
   br i1 %cmp33, label %return, label %if.end37
 
 if.end37:                                         ; preds = %if.then31, %if.end25
-  %new_ctx.0 = phi ptr [ %call32, %if.then31 ], [ null, %if.end25 ]
   %ctx.addr.0 = phi ptr [ %call32, %if.then31 ], [ %ctx, %if.end25 ]
+  %new_ctx.0 = phi ptr [ %call32, %if.then31 ], [ null, %if.end25 ]
   tail call void @BN_CTX_start(ptr noundef nonnull %ctx.addr.0) #5
   %call38 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.0) #5
   %call39 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.0) #5
@@ -1623,8 +1623,8 @@ if.then3:                                         ; preds = %if.end
   br i1 %cmp5, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.then3, %if.end
-  %new_ctx.0 = phi ptr [ %call4, %if.then3 ], [ null, %if.end ]
   %ctx.addr.0 = phi ptr [ %call4, %if.then3 ], [ %ctx, %if.end ]
+  %new_ctx.0 = phi ptr [ %call4, %if.then3 ], [ null, %if.end ]
   tail call void @BN_CTX_start(ptr noundef nonnull %ctx.addr.0) #5
   %call9 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.0) #5
   %call10 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.0) #5
@@ -1681,8 +1681,8 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp3, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.then2, %if.end
-  %new_ctx.0 = phi ptr [ %call, %if.then2 ], [ null, %if.end ]
   %ctx.addr.0 = phi ptr [ %call, %if.then2 ], [ %ctx, %if.end ]
+  %new_ctx.0 = phi ptr [ %call, %if.then2 ], [ null, %if.end ]
   tail call void @BN_CTX_start(ptr noundef nonnull %ctx.addr.0) #5
   %call7 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.0) #5
   %call8 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.0) #5

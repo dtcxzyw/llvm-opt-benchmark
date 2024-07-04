@@ -152,19 +152,19 @@ define hidden noundef double @_Z14proj_inv_mdistP6pj_ctxdPKv(ptr noundef %0, dou
   br label %10
 
 10:                                               ; preds = %_Z10proj_mdistdddPKv.exit, %3
-  %.022 = phi double [ %1, %3 ], [ %42, %_Z10proj_mdistdddPKv.exit ]
+  %.021 = phi double [ %1, %3 ], [ %42, %_Z10proj_mdistdddPKv.exit ]
   %.0 = phi i32 [ 20, %3 ], [ %12, %_Z10proj_mdistdddPKv.exit ]
   %.not = icmp eq i32 %.0, 0
   br i1 %.not, label %45, label %11
 
 11:                                               ; preds = %10
   %12 = add nsw i32 %.0, -1
-  %13 = tail call double @sin(double noundef %.022) #9
+  %13 = tail call double @sin(double noundef %.021) #9
   %14 = load double, ptr %4, align 8
   %15 = fneg double %14
   %16 = fmul double %13, %15
   %17 = tail call double @llvm.fmuladd.f64(double %16, double %13, double 1.000000e+00)
-  %18 = tail call double @cos(double noundef %.022) #9
+  %18 = tail call double @cos(double noundef %.021) #9
   %19 = fmul double %13, %13
   %20 = load double, ptr %8, align 8
   %21 = load double, ptr %4, align 8
@@ -193,14 +193,14 @@ _Z10proj_mdistdddPKv.exit:                        ; preds = %.lr.ph.i, %11
   %32 = fmul double %13, %18
   %33 = fmul double %32, %22
   %34 = fdiv double %33, %24
-  %35 = tail call double @llvm.fmuladd.f64(double %.022, double %20, double %34)
+  %35 = tail call double @llvm.fmuladd.f64(double %.021, double %20, double %34)
   %36 = tail call noundef double @llvm.fmuladd.f64(double %32, double %.020.lcssa.i, double %35)
   %37 = fsub double %36, %1
   %38 = tail call double @sqrt(double noundef %17) #9
   %39 = fmul double %17, %38
   %40 = fmul double %37, %39
   %41 = fmul double %7, %40
-  %42 = fsub double %.022, %41
+  %42 = fsub double %.021, %41
   %43 = tail call double @llvm.fabs.f64(double %41)
   %44 = fcmp olt double %43, 0x3D06849B86A12B9B
   br i1 %44, label %.loopexit, label %10, !llvm.loop !8
@@ -210,8 +210,8 @@ _Z10proj_mdistdddPKv.exit:                        ; preds = %.lr.ph.i, %11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_Z10proj_mdistdddPKv.exit, %45
-  %.021 = phi double [ %.022, %45 ], [ %42, %_Z10proj_mdistdddPKv.exit ]
-  ret double %.021
+  %.022 = phi double [ %.021, %45 ], [ %42, %_Z10proj_mdistdddPKv.exit ]
+  ret double %.022
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)

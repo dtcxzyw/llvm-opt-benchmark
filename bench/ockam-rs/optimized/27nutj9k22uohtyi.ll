@@ -12320,8 +12320,8 @@ define hidden void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..
   br label %.loopexit70
 
 .loopexit70:                                      ; preds = %52, %66
-  %.sroa.048.0 = phi ptr [ %60, %66 ], [ %50, %52 ]
   %.sroa.650.0 = phi i64 [ %69, %66 ], [ %53, %52 ]
+  %.sroa.048.0 = phi ptr [ %60, %66 ], [ %50, %52 ]
   %71 = add i64 %.sroa.650.0, -1
   %72 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17hd7ed19bc8460114dE.llvm.17987337322786073641"()
           to label %.noexc28 unwind label %.loopexit76
@@ -12672,8 +12672,8 @@ define hidden void @"_ZN5alloc11collections5btree6append178_$LT$impl$u20$alloc..
   br label %.loopexit67
 
 .loopexit67:                                      ; preds = %36, %50
-  %.sroa.045.0 = phi ptr [ %44, %50 ], [ %34, %36 ]
   %.sroa.647.0 = phi i64 [ %53, %50 ], [ %37, %36 ]
+  %.sroa.045.0 = phi ptr [ %44, %50 ], [ %34, %36 ]
   %55 = add i64 %.sroa.647.0, -1
   %56 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17hd7ed19bc8460114dE.llvm.17987337322786073641"()
           to label %.noexc unwind label %.loopexit73

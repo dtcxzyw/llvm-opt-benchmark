@@ -917,8 +917,8 @@ if.end37.i:                                       ; preds = %if.then33.i, %for.b
   br label %while.cond43.i
 
 while.cond43.i:                                   ; preds = %while.body55.i, %if.end37.i
-  %rhat.0.i = phi i32 [ %sub41.i, %if.end37.i ], [ %add57.i, %while.body55.i ]
   %guess.1.i = phi i32 [ %guess.0.i, %if.end37.i ], [ %dec.i, %while.body55.i ]
+  %rhat.0.i = phi i32 [ %sub41.i, %if.end37.i ], [ %add57.i, %while.body55.i ]
   %conv46.i = zext i32 %guess.1.i to i64
   %mul47.i = mul nuw i64 %conv46.i, %conv45.i
   %conv48.i = zext i32 %rhat.0.i to i64
@@ -2984,8 +2984,8 @@ if.end37.i:                                       ; preds = %if.then33.i, %for.b
   br label %while.cond43.i
 
 while.cond43.i:                                   ; preds = %while.body55.i, %if.end37.i
-  %rhat.0.i = phi i32 [ %sub41.i, %if.end37.i ], [ %add57.i, %while.body55.i ]
   %guess.1.i = phi i32 [ %guess.0.i, %if.end37.i ], [ %dec.i, %while.body55.i ]
+  %rhat.0.i = phi i32 [ %sub41.i, %if.end37.i ], [ %add57.i, %while.body55.i ]
   %conv46.i = zext i32 %guess.1.i to i64
   %mul47.i = mul nuw i64 %conv46.i, %conv45.i
   %conv48.i = zext i32 %rhat.0.i to i64

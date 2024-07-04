@@ -1222,14 +1222,14 @@ _ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i:     ; preds = %60
   br label %_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit
 
 .lr.ph:                                           ; preds = %_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit, %71
-  %.01454 = phi i32 [ %63, %71 ], [ %53, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit ]
+  %.01154 = phi i32 [ %63, %71 ], [ %53, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit ]
   %.sroa.9.053 = phi ptr [ %72, %71 ], [ %52, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit ]
   %63 = load i32, ptr %.sroa.9.053, align 4
   %64 = invoke noundef i32 @_ZNK5QFont9pointSizeEv(ptr noundef nonnull align 8 dereferenceable(12) %0)
           to label %65 unwind label %.loopexit50
 
 65:                                               ; preds = %.lr.ph
-  %66 = icmp sgt i32 %64, %.01454
+  %66 = icmp sgt i32 %64, %.01154
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %65

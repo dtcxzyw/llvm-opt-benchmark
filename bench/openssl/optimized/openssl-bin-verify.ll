@@ -449,8 +449,8 @@ for.body121:                                      ; preds = %for.body121.prehead
   br i1 %exitcond.not, label %end, label %for.body121, !llvm.loop !9
 
 end:                                              ; preds = %sw.bb86, %sw.bb65, %sw.bb58, %sw.bb51, %sw.bb45, %sw.bb39, %sw.bb25, %for.body17, %for.body121, %for.end, %if.then114, %if.end101, %entry, %if.then99, %opthelp
-  %store.0 = phi ptr [ null, %entry ], [ null, %opthelp ], [ null, %if.then99 ], [ null, %if.end101 ], [ %call102, %if.then114 ], [ null, %for.end ], [ %call102, %for.body121 ], [ null, %for.body17 ], [ null, %sw.bb25 ], [ null, %sw.bb39 ], [ null, %sw.bb45 ], [ null, %sw.bb51 ], [ null, %sw.bb58 ], [ null, %sw.bb65 ], [ null, %sw.bb86 ]
   %vfyopts.4 = phi ptr [ null, %entry ], [ %vfyopts.1, %opthelp ], [ %vfyopts.0, %if.then99 ], [ %vfyopts.0, %if.end101 ], [ %vfyopts.0, %if.then114 ], [ %vfyopts.0, %for.end ], [ %vfyopts.0, %for.body121 ], [ %vfyopts.0, %for.body17 ], [ %vfyopts.0, %sw.bb25 ], [ %vfyopts.0, %sw.bb39 ], [ %vfyopts.0, %sw.bb45 ], [ %vfyopts.0, %sw.bb51 ], [ %vfyopts.0, %sw.bb58 ], [ %vfyopts.0, %sw.bb65 ], [ %vfyopts.0, %sw.bb86 ]
+  %store.0 = phi ptr [ null, %entry ], [ null, %opthelp ], [ null, %if.then99 ], [ null, %if.end101 ], [ %call102, %if.then114 ], [ null, %for.end ], [ %call102, %for.body121 ], [ null, %for.body17 ], [ null, %sw.bb25 ], [ null, %sw.bb39 ], [ null, %sw.bb45 ], [ null, %sw.bb51 ], [ null, %sw.bb58 ], [ null, %sw.bb65 ], [ null, %sw.bb86 ]
   %ret.2 = phi i32 [ 1, %entry ], [ 1, %opthelp ], [ 1, %if.then99 ], [ 1, %if.end101 ], [ %sext, %if.then114 ], [ 0, %for.end ], [ %spec.select35, %for.body121 ], [ 0, %for.body17 ], [ 1, %sw.bb25 ], [ 1, %sw.bb39 ], [ 1, %sw.bb45 ], [ 1, %sw.bb51 ], [ 1, %sw.bb58 ], [ 1, %sw.bb65 ], [ 1, %sw.bb86 ]
   %e.2 = phi ptr [ null, %entry ], [ %e.0, %opthelp ], [ %e.0, %if.then99 ], [ %e.0, %if.end101 ], [ %e.0, %if.then114 ], [ %e.0, %for.end ], [ %e.0, %for.body121 ], [ %e.0, %for.body17 ], [ %e.0, %sw.bb86 ], [ %e.0, %sw.bb65 ], [ null, %sw.bb58 ], [ %e.0, %sw.bb51 ], [ %e.0, %sw.bb45 ], [ %e.0, %sw.bb39 ], [ %e.0, %sw.bb25 ]
   %ret.2.fr = freeze i32 %ret.2
@@ -762,8 +762,8 @@ if.end87:                                         ; preds = %if.then45, %for.end
   br label %end
 
 end:                                              ; preds = %if.end87, %if.then22, %if.then16
-  %ret.1 = phi i32 [ 0, %if.then16 ], [ %ret.0, %if.end87 ], [ 0, %if.then22 ]
   %i.2 = phi i32 [ %i.1, %if.then16 ], [ %call39, %if.end87 ], [ %i.1, %if.then22 ]
+  %ret.1 = phi i32 [ 0, %if.then16 ], [ %ret.0, %if.end87 ], [ 0, %if.then22 ]
   %cmp88 = icmp slt i32 %i.2, 1
   br i1 %cmp88, label %if.then90, label %if.end91
 

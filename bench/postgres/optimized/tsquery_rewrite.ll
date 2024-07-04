@@ -128,10 +128,10 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
 
 54:                                               ; preds = %73, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %73 ]
-  %.076101.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %73 ]
-  %.08099.i = phi i32 [ 0, %.lr.ph.i ], [ %.181.i, %73 ]
+  %.0101.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %73 ]
+  %.07999.i = phi i32 [ 0, %.lr.ph.i ], [ %.180.i, %73 ]
   %55 = load i32, ptr %32, align 4
-  %56 = icmp slt i32 %.076101.i, %55
+  %56 = icmp slt i32 %.0101.i, %55
   br i1 %56, label %57, label %.critedge.i
 
 57:                                               ; preds = %54
@@ -139,7 +139,7 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
   %59 = getelementptr ptr, ptr %58, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %53, align 8
-  %62 = sext i32 %.076101.i to i64
+  %62 = sext i32 %.0101.i to i64
   %63 = getelementptr ptr, ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = tail call i32 @QTNodeCompare(ptr noundef %60, ptr noundef %64) #5
@@ -149,8 +149,8 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
 67:                                               ; preds = %57
   %68 = getelementptr i8, ptr %49, i64 %indvars.iv.i
   store i8 1, ptr %68, align 1
-  %69 = add i32 %.08099.i, 1
-  %70 = add nsw i32 %.076101.i, 1
+  %69 = add i32 %.07999.i, 1
+  %70 = add nsw i32 %.0101.i, 1
   br label %73
 
 71:                                               ; preds = %57
@@ -158,8 +158,8 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %72, label %73, label %.critedge.i
 
 73:                                               ; preds = %71, %67
-  %.181.i = phi i32 [ %69, %67 ], [ %.08099.i, %71 ]
-  %.1.i = phi i32 [ %70, %67 ], [ %.076101.i, %71 ]
+  %.180.i = phi i32 [ %69, %67 ], [ %.07999.i, %71 ]
+  %.1.i = phi i32 [ %70, %67 ], [ %.0101.i, %71 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %74 = load i32, ptr %30, align 4
   %75 = sext i32 %74 to i64
@@ -167,9 +167,9 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %76, label %54, label %.critedge.i, !llvm.loop !5
 
 .critedge.i:                                      ; preds = %73, %71, %54, %47
-  %.080.lcssa.i = phi i32 [ 0, %47 ], [ %.08099.i, %54 ], [ %.08099.i, %71 ], [ %.181.i, %73 ]
+  %.079.lcssa.i = phi i32 [ 0, %47 ], [ %.07999.i, %54 ], [ %.07999.i, %71 ], [ %.180.i, %73 ]
   %77 = load i32, ptr %32, align 4
-  %78 = icmp eq i32 %.080.lcssa.i, %77
+  %78 = icmp eq i32 %.079.lcssa.i, %77
   br i1 %78, label %.preheader.i, label %109
 
 .preheader.i:                                     ; preds = %.critedge.i
@@ -272,26 +272,26 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
   br label %findeq.exit
 
 findeq.exit:                                      ; preds = %43, %109, %123
-  %.0.i = phi ptr [ %.082.i, %43 ], [ %0, %109 ], [ %.183.i, %123 ]
-  %.not33 = icmp eq ptr %.0.i, null
+  %.081.i = phi ptr [ %.082.i, %43 ], [ %0, %109 ], [ %.183.i, %123 ]
+  %.not33 = icmp eq ptr %.081.i, null
   br i1 %.not33, label %160, label %findeq.exit.thread
 
 findeq.exit.thread:                               ; preds = %115, %44, %35, %110, %24, %18, %7, %13, %findeq.exit
-  %.0.i38 = phi ptr [ %.0.i, %findeq.exit ], [ %0, %13 ], [ %0, %7 ], [ %0, %18 ], [ %0, %24 ], [ %0, %110 ], [ %0, %35 ], [ %0, %44 ], [ %0, %115 ]
-  %124 = getelementptr inbounds i8, ptr %.0.i38, i64 8
+  %.081.i38 = phi ptr [ %.081.i, %findeq.exit ], [ %0, %13 ], [ %0, %7 ], [ %0, %18 ], [ %0, %24 ], [ %0, %110 ], [ %0, %35 ], [ %0, %44 ], [ %0, %115 ]
+  %124 = getelementptr inbounds i8, ptr %.081.i38, i64 8
   %125 = load i32, ptr %124, align 8
   %126 = and i32 %125, 2
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %128, label %160
 
 128:                                              ; preds = %findeq.exit.thread
-  %129 = load ptr, ptr %.0.i38, align 8
+  %129 = load ptr, ptr %.081.i38, align 8
   %130 = load i8, ptr %129, align 4
   %131 = icmp eq i8 %130, 2
   br i1 %131, label %.preheader, label %160
 
 .preheader:                                       ; preds = %128
-  %132 = getelementptr inbounds i8, ptr %.0.i38, i64 12
+  %132 = getelementptr inbounds i8, ptr %.081.i38, i64 12
   %133 = load i32, ptr %132, align 4
   %134 = icmp sgt i32 %133, 0
   br i1 %134, label %.lr.ph, label %._crit_edge.thread
@@ -301,7 +301,7 @@ findeq.exit.thread:                               ; preds = %115, %44, %35, %110
   br label %151
 
 .lr.ph:                                           ; preds = %.preheader
-  %135 = getelementptr inbounds i8, ptr %.0.i38, i64 32
+  %135 = getelementptr inbounds i8, ptr %.081.i38, i64 32
   %.pre = load ptr, ptr %135, align 8
   br label %136
 
@@ -336,25 +336,25 @@ findeq.exit.thread:                               ; preds = %115, %44, %35, %110
   ]
 
 151:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  tail call void @QTNFree(ptr noundef nonnull %.0.i38) #5
+  tail call void @QTNFree(ptr noundef nonnull %.081.i38) #5
   br label %160
 
 152:                                              ; preds = %._crit_edge
-  %153 = load ptr, ptr %.0.i38, align 8
+  %153 = load ptr, ptr %.081.i38, align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 1
   %155 = load i8, ptr %154, align 1
   %.not34 = icmp eq i8 %155, 1
   br i1 %.not34, label %160, label %156
 
 156:                                              ; preds = %152
-  %157 = getelementptr inbounds i8, ptr %.0.i38, i64 32
+  %157 = getelementptr inbounds i8, ptr %.081.i38, i64 32
   %158 = load ptr, ptr %157, align 8
   %159 = load ptr, ptr %158, align 8
-  tail call void @pfree(ptr noundef nonnull %.0.i38) #5
+  tail call void @pfree(ptr noundef nonnull %.081.i38) #5
   br label %160
 
 160:                                              ; preds = %._crit_edge, %151, %156, %152, %128, %findeq.exit.thread, %findeq.exit
-  %.0 = phi ptr [ null, %151 ], [ %159, %156 ], [ %.0.i38, %152 ], [ %.0.i38, %128 ], [ %.0.i38, %findeq.exit.thread ], [ null, %findeq.exit ], [ %.0.i38, %._crit_edge ]
+  %.0 = phi ptr [ null, %151 ], [ %159, %156 ], [ %.081.i38, %152 ], [ %.081.i38, %128 ], [ %.081.i38, %findeq.exit.thread ], [ null, %findeq.exit ], [ %.081.i38, %._crit_edge ]
   ret ptr %.0
 }
 
@@ -459,12 +459,12 @@ define dso_local i64 @tsquery_rewrite_query(ptr nocapture noundef readonly %0) l
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader107, %.lr.ph.backedge
-  %.1109 = phi ptr [ %.1109.be, %.lr.ph.backedge ], [ %25, %.preheader107 ]
-  %.080108 = phi i64 [ %.080108.be, %.lr.ph.backedge ], [ 0, %.preheader107 ]
+  %.077109 = phi i64 [ %.077109.be, %.lr.ph.backedge ], [ 0, %.preheader107 ]
+  %.1108 = phi ptr [ %.1108.be, %.lr.ph.backedge ], [ %25, %.preheader107 ]
   %59 = load ptr, ptr @SPI_tuptable, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr ptr, ptr %61, i64 %.080108
+  %62 = getelementptr ptr, ptr %61, i64 %.077109
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %59, align 8
   %65 = call i64 @SPI_getbinval(ptr noundef %63, ptr noundef %64, i32 noundef 1, ptr noundef nonnull %3) #5
@@ -476,7 +476,7 @@ define dso_local i64 @tsquery_rewrite_query(ptr nocapture noundef readonly %0) l
   %69 = load ptr, ptr @SPI_tuptable, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr ptr, ptr %71, i64 %.080108
+  %72 = getelementptr ptr, ptr %71, i64 %.077109
   %73 = load ptr, ptr %72, align 8
   %74 = load ptr, ptr %69, align 8
   %75 = call i64 @SPI_getbinval(ptr noundef %73, ptr noundef %74, i32 noundef 2, ptr noundef nonnull %3) #5
@@ -519,7 +519,7 @@ define dso_local i64 @tsquery_rewrite_query(ptr nocapture noundef readonly %0) l
   store ptr %12, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   store i8 0, ptr %2, align 1
-  %100 = call fastcc ptr @dofindsubquery(ptr noundef nonnull %.1109, ptr noundef %89, ptr noundef %.0, ptr noundef nonnull %2)
+  %100 = call fastcc ptr @dofindsubquery(ptr noundef nonnull %.1108, ptr noundef %89, ptr noundef %.0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   store ptr %99, ptr @CurrentMemoryContext, align 8
   call void @QTNFree(ptr noundef %89) #5
@@ -534,15 +534,15 @@ define dso_local i64 @tsquery_rewrite_query(ptr nocapture noundef readonly %0) l
   br label %102
 
 102:                                              ; preds = %78, %68, %101, %.lr.ph
-  %.2 = phi ptr [ %.1109, %.lr.ph ], [ %.1109, %68 ], [ %100, %101 ], [ %.1109, %78 ]
-  %103 = add nuw i64 %.080108, 1
+  %.2 = phi ptr [ %.1108, %.lr.ph ], [ %.1108, %68 ], [ %100, %101 ], [ %.1108, %78 ]
+  %103 = add nuw i64 %.077109, 1
   %104 = load i64, ptr @SPI_processed, align 8
   %105 = icmp ult i64 %103, %104
   br i1 %105, label %.lr.ph.backedge, label %._crit_edge
 
 .lr.ph.backedge:                                  ; preds = %102, %._crit_edge
-  %.1109.be = phi ptr [ %.2, %102 ], [ %.2117, %._crit_edge ]
-  %.080108.be = phi i64 [ %103, %102 ], [ 0, %._crit_edge ]
+  %.077109.be = phi i64 [ %103, %102 ], [ 0, %._crit_edge ]
+  %.1108.be = phi ptr [ %.2, %102 ], [ %.2117, %._crit_edge ]
   br label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %98, %102
@@ -585,7 +585,7 @@ define dso_local i64 @tsquery_rewrite_query(ptr nocapture noundef readonly %0) l
   br label %120
 
 120:                                              ; preds = %118, %114, %119
-  %.078 = phi ptr [ %115, %118 ], [ %115, %114 ], [ %7, %119 ]
+  %.080 = phi ptr [ %115, %118 ], [ %115, %114 ], [ %7, %119 ]
   call void @pfree(ptr noundef %26) #5
   %121 = load i64, ptr %8, align 8
   %122 = inttoptr i64 %121 to ptr
@@ -597,9 +597,9 @@ define dso_local i64 @tsquery_rewrite_query(ptr nocapture noundef readonly %0) l
   br label %124
 
 124:                                              ; preds = %123, %120, %19, %16
-  %.077.in = phi ptr [ %7, %16 ], [ %7, %19 ], [ %.078, %120 ], [ %.078, %123 ]
-  %.077 = ptrtoint ptr %.077.in to i64
-  ret i64 %.077
+  %.078.in = phi ptr [ %7, %16 ], [ %7, %19 ], [ %.080, %120 ], [ %.080, %123 ]
+  %.078 = ptrtoint ptr %.078.in to i64
+  ret i64 %.078
 }
 
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1

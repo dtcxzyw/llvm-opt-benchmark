@@ -2663,24 +2663,24 @@ Abc_Clock.exit67:                                 ; preds = %Abc_Clock.exit, %15
   br label %30
 
 30:                                               ; preds = %.lr.ph, %30
-  %.05496 = phi i32 [ %25, %.lr.ph ], [ %39, %30 ]
-  %.05595 = phi i32 [ 0, %.lr.ph ], [ %38, %30 ]
-  %31 = ashr i32 %.05496, 5
+  %.096 = phi i32 [ 0, %.lr.ph ], [ %38, %30 ]
+  %.05495 = phi i32 [ %25, %.lr.ph ], [ %39, %30 ]
+  %31 = ashr i32 %.05495, 5
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i32, ptr %29, i64 %32
   %34 = load i32, ptr %33, align 4
-  %35 = and i32 %.05496, 31
+  %35 = and i32 %.05495, 31
   %36 = lshr i32 %34, %35
   %37 = and i32 %36, 1
-  %38 = add nuw nsw i32 %37, %.05595
-  %39 = add nsw i32 %.05496, 1
+  %38 = add nuw nsw i32 %37, %.096
+  %39 = add nsw i32 %.05495, 1
   %exitcond.not = icmp eq i32 %39, %27
   br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %30, %Abc_Clock.exit67
-  %.055.lcssa = phi i32 [ 0, %Abc_Clock.exit67 ], [ %38, %30 ]
+  %.0.lcssa = phi i32 [ 0, %Abc_Clock.exit67 ], [ %38, %30 ]
   call void @Abc_CexFree(ptr noundef nonnull %23) #20
-  %40 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.055.lcssa)
+  %40 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.0.lcssa)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %41 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #20
   %42 = icmp slt i32 %41, 0
@@ -3119,16 +3119,16 @@ Abc_Clock.exit94:                                 ; preds = %Abc_Clock.exit, %17
 
 32:                                               ; preds = %.lr.ph, %32
   %.0160 = phi i32 [ 0, %.lr.ph ], [ %40, %32 ]
-  %.074159 = phi i32 [ %27, %.lr.ph ], [ %41, %32 ]
-  %33 = ashr i32 %.074159, 5
+  %.073159 = phi i32 [ %27, %.lr.ph ], [ %41, %32 ]
+  %33 = ashr i32 %.073159, 5
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i32, ptr %31, i64 %34
   %36 = load i32, ptr %35, align 4
-  %37 = and i32 %.074159, 31
+  %37 = and i32 %.073159, 31
   %38 = lshr i32 %36, %37
   %39 = and i32 %38, 1
   %40 = add nuw nsw i32 %39, %.0160
-  %41 = add nsw i32 %.074159, 1
+  %41 = add nsw i32 %.073159, 1
   %exitcond.not = icmp eq i32 %41, %29
   br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !54
 
@@ -3217,15 +3217,15 @@ Abc_Clock.exit98:                                 ; preds = %56, %59
   br label %87
 
 87:                                               ; preds = %.lr.ph162, %Vec_IntPush.exit
-  %.175161 = phi i32 [ %82, %.lr.ph162 ], [ %128, %Vec_IntPush.exit ]
-  %88 = add nsw i32 %.175161, %73
+  %.174161 = phi i32 [ %82, %.lr.ph162 ], [ %128, %Vec_IntPush.exit ]
+  %88 = add nsw i32 %.174161, %73
   %89 = load i32, ptr %81, align 4
   %90 = sub i32 %88, %89
-  %91 = ashr i32 %.175161, 5
+  %91 = ashr i32 %.174161, 5
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds i32, ptr %86, i64 %92
   %94 = load i32, ptr %93, align 4
-  %95 = and i32 %.175161, 31
+  %95 = and i32 %.174161, 31
   %96 = lshr i32 %94, %95
   %97 = and i32 %96, 1
   %98 = shl nsw i32 %90, 1
@@ -3292,7 +3292,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %126 = sext i32 %101 to i64
   %127 = getelementptr inbounds i32, ptr %124, i64 %126
   store i32 %100, ptr %127, align 4
-  %128 = add nsw i32 %.175161, 1
+  %128 = add nsw i32 %.174161, 1
   %129 = load i32, ptr %83, align 4
   %130 = icmp slt i32 %128, %129
   br i1 %130, label %87, label %._crit_edge163, !llvm.loop !55
@@ -3338,7 +3338,7 @@ Abc_Clock.exit100:                                ; preds = %131, %134
 151:                                              ; preds = %144, %Bmc_CexCareDeriveCex.exit119
   %.1167 = phi i32 [ %.0.lcssa, %144 ], [ %.3, %Bmc_CexCareDeriveCex.exit119 ]
   %.070166 = phi ptr [ %25, %144 ], [ %.272, %Bmc_CexCareDeriveCex.exit119 ]
-  %.073165 = phi i32 [ 0, %144 ], [ %295, %Bmc_CexCareDeriveCex.exit119 ]
+  %.075165 = phi i32 [ 0, %144 ], [ %295, %Bmc_CexCareDeriveCex.exit119 ]
   %.0145164 = phi ptr [ null, %144 ], [ %157, %Bmc_CexCareDeriveCex.exit119 ]
   %152 = icmp eq ptr %.0145164, null
   br i1 %152, label %Vec_IntFreeP.exit, label %153
@@ -3374,13 +3374,13 @@ Vec_IntDup.exit:                                  ; preds = %Vec_IntFreeP.exit
   store ptr %162, ptr %163, align 8
   %164 = load ptr, ptr %80, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %162, ptr align 4 %164, i64 %161, i1 false)
-  %.not79 = icmp eq i32 %.073165, 0
+  %.not79 = icmp eq i32 %.075165, 0
   br i1 %.not79, label %Vec_IntReverseOrder.exit, label %166
 
 Vec_IntDup.exit.thread:                           ; preds = %Vec_IntFreeP.exit
   %165 = getelementptr inbounds i8, ptr %157, i64 8
   store ptr null, ptr %165, align 8
-  %.not79170 = icmp eq i32 %.073165, 0
+  %.not79170 = icmp eq i32 %.075165, 0
   br label %Vec_IntReverseOrder.exit
 
 166:                                              ; preds = %Vec_IntDup.exit
@@ -3632,7 +3632,7 @@ Abc_Clock.exit113:                                ; preds = %250, %256
 Bmc_CexCareDeriveCex.exit119:                     ; preds = %281, %269, %265, %Bmc_CexCareDeriveCex.exit
   %.272 = phi ptr [ %.171, %265 ], [ %.171, %Bmc_CexCareDeriveCex.exit ], [ %274, %269 ], [ %274, %281 ]
   %.3 = phi i32 [ %.2, %265 ], [ %.2, %Bmc_CexCareDeriveCex.exit ], [ %249, %269 ], [ %249, %281 ]
-  %295 = add nuw nsw i32 %.073165, 1
+  %295 = add nuw nsw i32 %.075165, 1
   br i1 %.not79172, label %151, label %296, !llvm.loop !56
 
 296:                                              ; preds = %Bmc_CexCareDeriveCex.exit119

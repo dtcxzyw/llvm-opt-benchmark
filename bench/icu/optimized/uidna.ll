@@ -311,8 +311,8 @@ if.end115:                                        ; preds = %if.then109
 
 if.end117:                                        ; preds = %if.end115, %if.then106
   %19 = phi i32 [ %.pre, %if.end115 ], [ %18, %if.then106 ]
-  %b2Len.0 = phi i32 [ %call116, %if.end115 ], [ %call107, %if.then106 ]
   %b2.0 = phi ptr [ %call112, %if.end115 ], [ %b2Stack, %if.then106 ]
+  %b2Len.0 = phi i32 [ %call116, %if.end115 ], [ %call107, %if.then106 ]
   %cmp.i110 = icmp slt i32 %19, 1
   br i1 %cmp.i110, label %if.end121, label %CLEANUP
 
@@ -337,8 +337,8 @@ if.else127:                                       ; preds = %for.cond.i
   br label %CLEANUP
 
 if.end129:                                        ; preds = %if.end124, %if.then99
-  %reqLength.0 = phi i32 [ %b1Len.1, %if.then99 ], [ %add, %if.end124 ]
   %b2.1 = phi ptr [ %b2Stack, %if.then99 ], [ %b2.0, %if.end124 ]
+  %reqLength.0 = phi i32 [ %b1Len.1, %if.then99 ], [ %add, %if.end124 ]
   %cmp130 = icmp sgt i32 %reqLength.0, 63
   br i1 %cmp130, label %if.then131, label %CLEANUP
 
@@ -347,8 +347,8 @@ if.then131:                                       ; preds = %if.end129
   br label %CLEANUP
 
 CLEANUP:                                          ; preds = %if.then97, %if.end129, %if.then131, %if.end117, %if.then82, %if.else88, %if.then87, %if.end41, %if.else127, %if.then123, %if.then114, %if.then46
-  %reqLength.1 = phi i32 [ 0, %if.end41 ], [ 0, %if.then46 ], [ 0, %if.then82 ], [ 0, %if.then87 ], [ 0, %if.else88 ], [ %reqLength.0, %if.then131 ], [ %reqLength.0, %if.end129 ], [ 0, %if.else127 ], [ 0, %if.then114 ], [ 0, %if.end117 ], [ %add, %if.then123 ], [ %b1Len.1, %if.then97 ]
   %b2.2 = phi ptr [ %b2Stack, %if.end41 ], [ %b2Stack, %if.then46 ], [ %b2Stack, %if.then82 ], [ %b2Stack, %if.then87 ], [ %b2Stack, %if.else88 ], [ %b2.1, %if.then131 ], [ %b2.1, %if.end129 ], [ %b2Stack, %if.else127 ], [ null, %if.then114 ], [ %b2.0, %if.end117 ], [ %b2.0, %if.then123 ], [ %b2Stack, %if.then97 ]
+  %reqLength.1 = phi i32 [ 0, %if.end41 ], [ 0, %if.then46 ], [ 0, %if.then82 ], [ 0, %if.then87 ], [ 0, %if.else88 ], [ %reqLength.0, %if.then131 ], [ %reqLength.0, %if.end129 ], [ 0, %if.else127 ], [ 0, %if.then114 ], [ 0, %if.end117 ], [ %add, %if.then123 ], [ %b1Len.1, %if.then97 ]
   %cmp134.not = icmp eq ptr %b1.1, %b1Stack
   br i1 %cmp134.not, label %if.end136, label %if.then135
 
@@ -357,25 +357,25 @@ if.then135.sink.split:                            ; preds = %if.end32, %if.then6
   br label %if.then135
 
 if.then135:                                       ; preds = %if.then135.sink.split, %CLEANUP
-  %b1.2122 = phi ptr [ %b1.1, %CLEANUP ], [ null, %if.then135.sink.split ]
-  %b2.2120 = phi ptr [ %b2.2, %CLEANUP ], [ %b2Stack, %if.then135.sink.split ]
-  %reqLength.1118 = phi i32 [ %reqLength.1, %CLEANUP ], [ 0, %if.then135.sink.split ]
-  call void @uprv_free_75(ptr noundef %b1.2122)
+  %reqLength.1121 = phi i32 [ %reqLength.1, %CLEANUP ], [ 0, %if.then135.sink.split ]
+  %b1.2120 = phi ptr [ %b1.1, %CLEANUP ], [ null, %if.then135.sink.split ]
+  %b2.2118 = phi ptr [ %b2.2, %CLEANUP ], [ %b2Stack, %if.then135.sink.split ]
+  call void @uprv_free_75(ptr noundef %b1.2120)
   br label %if.end136
 
 if.end136:                                        ; preds = %if.then135, %CLEANUP
-  %b2.2121 = phi ptr [ %b2.2120, %if.then135 ], [ %b2.2, %CLEANUP ]
-  %reqLength.1119 = phi i32 [ %reqLength.1118, %if.then135 ], [ %reqLength.1, %CLEANUP ]
-  %cmp138.not = icmp eq ptr %b2.2121, %b2Stack
+  %reqLength.1122 = phi i32 [ %reqLength.1121, %if.then135 ], [ %reqLength.1, %CLEANUP ]
+  %b2.2119 = phi ptr [ %b2.2118, %if.then135 ], [ %b2.2, %CLEANUP ]
+  %cmp138.not = icmp eq ptr %b2.2119, %b2Stack
   br i1 %cmp138.not, label %if.end140, label %if.then139
 
 if.then139:                                       ; preds = %if.end136
-  call void @uprv_free_75(ptr noundef %b2.2121)
+  call void @uprv_free_75(ptr noundef %b2.2119)
   br label %if.end140
 
 if.end140:                                        ; preds = %if.then139, %if.end136
   call void @uprv_free_75(ptr noundef null)
-  %call141 = call i32 @u_terminateUChars_75(ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %reqLength.1119, ptr noundef %status)
+  %call141 = call i32 @u_terminateUChars_75(ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %reqLength.1122, ptr noundef %status)
   ret i32 %call141
 }
 
@@ -1199,8 +1199,8 @@ if.end21:                                         ; preds = %if.end19, %if.end10
   %b2Len.0 = phi i32 [ %call20, %if.end19 ], [ %call11, %if.end10 ]
   %cmp.not.i = icmp eq i32 %b1Len.0, %b2Len.0
   %cmp1.i = icmp slt i32 %b1Len.0, %b2Len.0
-  %..i = select i1 %cmp1.i, i32 -1, i32 1
   %s1Len.s2Len.i = call i32 @llvm.smin.i32(i32 %b1Len.0, i32 %b2Len.0)
+  %..i = select i1 %cmp1.i, i32 -1, i32 1
   %lengthResult.0.i = select i1 %cmp.not.i, i32 0, i32 %..i
   %cmp515.i = icmp eq i32 %s1Len.s2Len.i, 0
   br i1 %cmp515.i, label %CLEANUP, label %if.end7.preheader.i

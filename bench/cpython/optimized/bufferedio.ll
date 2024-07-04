@@ -4195,28 +4195,28 @@ while.body.i.i.backedge:                          ; preds = %if.then87.i.i, %if.
 
 cleanup.i.i:                                      ; preds = %if.else81.i.i, %if.then78.i.i, %if.then41.i.i, %if.end37.thread.i.i, %if.end37.i.i
   %tmp.1.i.i = phi ptr [ %call82.i.i, %if.else81.i.i ], [ %retval.0.i.i.i.i, %if.end37.thread.i.i ], [ null, %if.then78.i.i ], [ %retval.0.i.i.i.i, %if.then41.i.i ], [ @_Py_NoneStruct, %if.end37.i.i ]
-  %chunks.0.i.i = phi ptr [ %call45.i.i, %if.else81.i.i ], [ null, %if.end37.thread.i.i ], [ %call45.i.i, %if.then78.i.i ], [ null, %if.then41.i.i ], [ null, %if.end37.i.i ]
   %res.0.i.i = phi ptr [ %call82.i.i, %if.else81.i.i ], [ %retval.0.i.i.i.i, %if.end37.thread.i.i ], [ %call.i55.i.i, %if.then78.i.i ], [ %.pre.i.i, %if.then41.i.i ], [ %23, %if.end37.i.i ]
+  %chunks.0.i.i = phi ptr [ %call45.i.i, %if.else81.i.i ], [ null, %if.end37.thread.i.i ], [ %call45.i.i, %if.then78.i.i ], [ null, %if.then41.i.i ], [ null, %if.end37.i.i ]
   %cmp.not.i.i.i = icmp eq ptr %res.0.i.i, null
   br i1 %cmp.not.i.i.i, label %Py_XINCREF.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup.i.i, %if.end37.i.i
-  %res.0129.i.i = phi ptr [ %res.0.i.i, %cleanup.i.i ], [ @_Py_NoneStruct, %if.end37.i.i ]
-  %chunks.0128.i.i = phi ptr [ %chunks.0.i.i, %cleanup.i.i ], [ null, %if.end37.i.i ]
+  %chunks.0129.i.i = phi ptr [ %chunks.0.i.i, %cleanup.i.i ], [ null, %if.end37.i.i ]
+  %res.0128.i.i = phi ptr [ %res.0.i.i, %cleanup.i.i ], [ @_Py_NoneStruct, %if.end37.i.i ]
   %tmp.1127.i.i = phi ptr [ %tmp.1.i.i, %cleanup.i.i ], [ @_Py_NoneStruct, %if.end37.i.i ]
-  %61 = load i32, ptr %res.0129.i.i, align 8
+  %61 = load i32, ptr %res.0128.i.i, align 8
   %add.i.i.i.i = add i32 %61, 1
   %cmp.i.i59.i.i = icmp eq i32 %add.i.i.i.i, 0
   br i1 %cmp.i.i59.i.i, label %Py_XINCREF.exit.i.i, label %if.end.i.i60.i.i
 
 if.end.i.i60.i.i:                                 ; preds = %if.then.i.i.i
-  store i32 %add.i.i.i.i, ptr %res.0129.i.i, align 8
+  store i32 %add.i.i.i.i, ptr %res.0128.i.i, align 8
   br label %Py_XINCREF.exit.i.i
 
 Py_XINCREF.exit.i.i:                              ; preds = %if.then50.i.i, %if.end.i.i60.i.i, %if.then.i.i.i, %cleanup.i.i, %if.then73.i.i, %if.end44.i.i, %if.then36.i.i, %Py_DECREF.exit100.i.i, %if.end20.i.i, %cond.end.i.i.i, %if.then12.i.i
-  %res.099.ph.i.i = phi ptr [ null, %cond.end.i.i.i ], [ null, %if.then12.i.i ], [ null, %if.then73.i.i ], [ null, %if.end44.i.i ], [ null, %if.then36.i.i ], [ null, %Py_DECREF.exit100.i.i ], [ null, %if.end20.i.i ], [ %res.0129.i.i, %if.end.i.i60.i.i ], [ %res.0129.i.i, %if.then.i.i.i ], [ null, %cleanup.i.i ], [ null, %if.then50.i.i ]
-  %chunks.098.ph.i.i = phi ptr [ null, %cond.end.i.i.i ], [ null, %if.then12.i.i ], [ %call45.i.i, %if.then73.i.i ], [ null, %if.end44.i.i ], [ null, %if.then36.i.i ], [ null, %Py_DECREF.exit100.i.i ], [ null, %if.end20.i.i ], [ %chunks.0128.i.i, %if.end.i.i60.i.i ], [ %chunks.0128.i.i, %if.then.i.i.i ], [ %chunks.0.i.i, %cleanup.i.i ], [ %call45.i.i, %if.then50.i.i ]
-  %tmp.197.ph.i.i = phi ptr [ null, %cond.end.i.i.i ], [ null, %if.then12.i.i ], [ null, %if.then73.i.i ], [ null, %if.end44.i.i ], [ %retval.0.i.i.i.i, %if.then36.i.i ], [ null, %Py_DECREF.exit100.i.i ], [ null, %if.end20.i.i ], [ %tmp.1127.i.i, %if.end.i.i60.i.i ], [ %tmp.1127.i.i, %if.then.i.i.i ], [ %tmp.1.i.i, %cleanup.i.i ], [ null, %if.then50.i.i ]
+  %chunks.099.ph.i.i = phi ptr [ null, %cond.end.i.i.i ], [ null, %if.then12.i.i ], [ null, %if.end20.i.i ], [ null, %Py_DECREF.exit100.i.i ], [ null, %if.then36.i.i ], [ null, %if.end44.i.i ], [ %call45.i.i, %if.then73.i.i ], [ %chunks.0129.i.i, %if.end.i.i60.i.i ], [ %chunks.0129.i.i, %if.then.i.i.i ], [ %chunks.0.i.i, %cleanup.i.i ], [ %call45.i.i, %if.then50.i.i ]
+  %res.098.ph.i.i = phi ptr [ null, %cond.end.i.i.i ], [ null, %if.then12.i.i ], [ null, %if.end20.i.i ], [ null, %Py_DECREF.exit100.i.i ], [ null, %if.then36.i.i ], [ null, %if.end44.i.i ], [ null, %if.then73.i.i ], [ %res.0128.i.i, %if.end.i.i60.i.i ], [ %res.0128.i.i, %if.then.i.i.i ], [ null, %cleanup.i.i ], [ null, %if.then50.i.i ]
+  %tmp.197.ph.i.i = phi ptr [ null, %cond.end.i.i.i ], [ null, %if.then12.i.i ], [ null, %if.end20.i.i ], [ null, %Py_DECREF.exit100.i.i ], [ %retval.0.i.i.i.i, %if.then36.i.i ], [ null, %if.end44.i.i ], [ null, %if.then73.i.i ], [ %tmp.1127.i.i, %if.end.i.i60.i.i ], [ %tmp.1127.i.i, %if.then.i.i.i ], [ %tmp.1.i.i, %cleanup.i.i ], [ null, %if.then50.i.i ]
   %.pr.i.i = load ptr, ptr %data.i.i, align 8
   %cmp.not.i62.i.i = icmp eq ptr %.pr.i.i, null
   br i1 %cmp.not.i62.i.i, label %Py_XDECREF.exit.i.i, label %if.then.i63.i.i
@@ -4258,29 +4258,29 @@ if.then1.i.i76.i.i:                               ; preds = %if.end.i.i73.i.i
   br label %Py_XDECREF.exit77.i.i
 
 Py_XDECREF.exit77.i.i:                            ; preds = %if.end62.i.i, %if.then1.i.i76.i.i, %if.end.i.i73.i.i, %if.then.i70.i.i, %Py_XDECREF.exit.i.i
-  %res.099104112.i.i = phi ptr [ %res.099.ph.i.i, %Py_XDECREF.exit.i.i ], [ %res.099.ph.i.i, %if.then.i70.i.i ], [ %res.099.ph.i.i, %if.end.i.i73.i.i ], [ %res.099.ph.i.i, %if.then1.i.i76.i.i ], [ null, %if.end62.i.i ]
-  %chunks.098105111.i.i = phi ptr [ %chunks.098.ph.i.i, %Py_XDECREF.exit.i.i ], [ %chunks.098.ph.i.i, %if.then.i70.i.i ], [ %chunks.098.ph.i.i, %if.end.i.i73.i.i ], [ %chunks.098.ph.i.i, %if.then1.i.i76.i.i ], [ %call45.i.i, %if.end62.i.i ]
-  %cmp.not.i78.i.i = icmp eq ptr %chunks.098105111.i.i, null
+  %chunks.099104112.i.i = phi ptr [ %chunks.099.ph.i.i, %Py_XDECREF.exit.i.i ], [ %chunks.099.ph.i.i, %if.then.i70.i.i ], [ %chunks.099.ph.i.i, %if.end.i.i73.i.i ], [ %chunks.099.ph.i.i, %if.then1.i.i76.i.i ], [ %call45.i.i, %if.end62.i.i ]
+  %res.098105111.i.i = phi ptr [ %res.098.ph.i.i, %Py_XDECREF.exit.i.i ], [ %res.098.ph.i.i, %if.then.i70.i.i ], [ %res.098.ph.i.i, %if.end.i.i73.i.i ], [ %res.098.ph.i.i, %if.then1.i.i76.i.i ], [ null, %if.end62.i.i ]
+  %cmp.not.i78.i.i = icmp eq ptr %chunks.099104112.i.i, null
   br i1 %cmp.not.i78.i.i, label %_bufferedreader_read_all.exit.i, label %if.then.i79.i.i
 
 if.then.i79.i.i:                                  ; preds = %Py_XDECREF.exit77.i.i
-  %66 = load i64, ptr %chunks.098105111.i.i, align 8
+  %66 = load i64, ptr %chunks.099104112.i.i, align 8
   %67 = and i64 %66, 2147483648
   %cmp.i2.not.i80.i.i = icmp eq i64 %67, 0
   br i1 %cmp.i2.not.i80.i.i, label %if.end.i.i82.i.i, label %_bufferedreader_read_all.exit.i
 
 if.end.i.i82.i.i:                                 ; preds = %if.then.i79.i.i
   %dec.i.i83.i.i = add i64 %66, -1
-  store i64 %dec.i.i83.i.i, ptr %chunks.098105111.i.i, align 8
+  store i64 %dec.i.i83.i.i, ptr %chunks.099104112.i.i, align 8
   %cmp.i.i84.i.i = icmp eq i64 %dec.i.i83.i.i, 0
   br i1 %cmp.i.i84.i.i, label %if.then1.i.i85.i.i, label %_bufferedreader_read_all.exit.i
 
 if.then1.i.i85.i.i:                               ; preds = %if.end.i.i82.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %chunks.098105111.i.i) #10
+  call void @_Py_Dealloc(ptr noundef nonnull %chunks.099104112.i.i) #10
   br label %_bufferedreader_read_all.exit.i
 
 _bufferedreader_read_all.exit.i:                  ; preds = %if.then1.i.i85.i.i, %if.end.i.i82.i.i, %if.then.i79.i.i, %Py_XDECREF.exit77.i.i, %if.then.i33.i
-  %retval.0.i37.i = phi ptr [ null, %if.then.i33.i ], [ %res.099104112.i.i, %Py_XDECREF.exit77.i.i ], [ %res.099104112.i.i, %if.then.i79.i.i ], [ %res.099104112.i.i, %if.end.i.i82.i.i ], [ %res.099104112.i.i, %if.then1.i.i85.i.i ]
+  %retval.0.i37.i = phi ptr [ null, %if.then.i33.i ], [ %res.098105111.i.i, %Py_XDECREF.exit77.i.i ], [ %res.098105111.i.i, %if.then.i79.i.i ], [ %res.098105111.i.i, %if.end.i.i82.i.i ], [ %res.098105111.i.i, %if.then1.i.i85.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %readall.i.i)
   br label %do.body.i
@@ -4427,8 +4427,8 @@ if.then12.i102.i:                                 ; preds = %if.end9.i.i
   br label %if.end17.i.i
 
 if.end17.i.i:                                     ; preds = %if.then12.i102.i, %if.end9.i.i
-  %written.0.i.i = phi i64 [ %cond123.i.i, %if.then12.i102.i ], [ 0, %if.end9.i.i ]
   %remaining.0.i.i = phi i64 [ %sub14.i.i, %if.then12.i102.i ], [ %6, %if.end9.i.i ]
+  %written.0.i.i = phi i64 [ %cond123.i.i, %if.then12.i102.i ], [ 0, %if.end9.i.i ]
   %writable.i73.i = getelementptr inbounds i8, ptr %self, i64 36
   %86 = load i32, ptr %writable.i73.i, align 4
   %tobool18.not.i.i = icmp eq i32 %86, 0
@@ -4608,7 +4608,7 @@ while.end.i.i:                                    ; preds = %cond.end32.i.i
   br i1 %cmp63157.i.i, label %while.body64.i.i, label %while.end108.i.i
 
 land.rhsthread-pre-split.i.i:                     ; preds = %if.end104.i.i
-  %written.3.i.i = add i64 %call.i111.i.i, %written.2158.i.i
+  %written.3.i.i = add i64 %call.i111.i.i, %written.2159.i.i
   %.pr.i87.i = load i64, ptr %read_end.i101.i.i, align 8
   %105 = load i64, ptr %buffer_size.i.i, align 8
   %cmp63.i.i = icmp slt i64 %.pr.i87.i, %105
@@ -4616,8 +4616,8 @@ land.rhsthread-pre-split.i.i:                     ; preds = %if.end104.i.i
 
 while.body64.i.i:                                 ; preds = %while.end.i.i, %land.rhsthread-pre-split.i.i
   %106 = phi i64 [ %105, %land.rhsthread-pre-split.i.i ], [ %104, %while.end.i.i ]
-  %remaining.2159.i.i = phi i64 [ %sub93.i.i, %land.rhsthread-pre-split.i.i ], [ %remaining.1.fr156.i.i, %while.end.i.i ]
-  %written.2158.i.i = phi i64 [ %written.3.i.i, %land.rhsthread-pre-split.i.i ], [ %written.1155.i.i, %while.end.i.i ]
+  %written.2159.i.i = phi i64 [ %written.3.i.i, %land.rhsthread-pre-split.i.i ], [ %written.1155.i.i, %while.end.i.i ]
+  %remaining.2158.i.i = phi i64 [ %sub93.i.i, %land.rhsthread-pre-split.i.i ], [ %remaining.1.fr156.i.i, %while.end.i.i ]
   %107 = phi i64 [ %.pr.i87.i, %land.rhsthread-pre-split.i.i ], [ 0, %while.end.i.i ]
   %108 = load i32, ptr %readable.i42.i, align 8
   %tobool.not.i103.i.i = icmp eq i32 %108, 0
@@ -4635,8 +4635,8 @@ _bufferedreader_fill_buffer.exit.thread.i.i:      ; preds = %while.body64.i.i
   %add.i112.i.i = add i64 %start.0.i.i.i, %call.i111.i.i
   store i64 %add.i112.i.i, ptr %read_end.i101.i.i, align 8
   store i64 %add.i112.i.i, ptr %raw_pos.i.i, align 8
-  %cmp84.i.i = icmp sgt i64 %remaining.2159.i.i, %call.i111.i.i
-  %add.ptr86.i.i = getelementptr i8, ptr %ob_sval.i.i.i, i64 %written.2158.i.i
+  %cmp84.i.i = icmp sgt i64 %remaining.2158.i.i, %call.i111.i.i
+  %add.ptr86.i.i = getelementptr i8, ptr %ob_sval.i.i.i, i64 %written.2159.i.i
   %110 = load ptr, ptr %buffer.i, align 8
   %111 = load i64, ptr %pos57.i.i, align 8
   %add.ptr89.i.i = getelementptr i8, ptr %110, i64 %111
@@ -4648,12 +4648,12 @@ _bufferedreader_fill_buffer.exit.i.i:             ; preds = %while.body64.i.i
 
 if.then73.i88.i:                                  ; preds = %_bufferedreader_fill_buffer.exit.i.i
   %cmp70.i.i = icmp eq i64 %call.i111.i.i, 0
-  %cmp76.i.i = icmp sgt i64 %written.2158.i.i, 0
+  %cmp76.i.i = icmp sgt i64 %written.2159.i.i, 0
   %or.cond3.i.i = select i1 %cmp70.i.i, i1 true, i1 %cmp76.i.i
   br i1 %or.cond3.i.i, label %if.then77.i.i, label %if.end82.i.i
 
 if.then77.i.i:                                    ; preds = %if.then73.i88.i
-  %call78.i.i = call i32 @_PyBytes_Resize(ptr noundef nonnull %res.i.i, i64 noundef %written.2158.i.i) #10
+  %call78.i.i = call i32 @_PyBytes_Resize(ptr noundef nonnull %res.i.i, i64 noundef %written.2159.i.i) #10
   %tobool79.not.i.i = icmp eq i32 %call78.i.i, 0
   br i1 %tobool79.not.i.i, label %if.end81.i.i, label %error.i.i
 
@@ -4679,9 +4679,9 @@ if.then1.i.i92.i:                                 ; preds = %if.end.i.i89.i
   br label %_bufferedreader_read_generic.exit.i
 
 if.end104.thread.i.i:                             ; preds = %_bufferedreader_fill_buffer.exit.thread.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr86.i.i, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr89.i.i, i64 %remaining.2159.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr86.i.i, ptr noundef nonnull align 1 dereferenceable(1) %add.ptr89.i.i, i64 %remaining.2158.i.i, i1 false)
   %116 = load i64, ptr %pos57.i.i, align 8
-  %add102.i.i = add i64 %116, %remaining.2159.i.i
+  %add102.i.i = add i64 %116, %remaining.2158.i.i
   store i64 %add102.i.i, ptr %pos57.i.i, align 8
   br label %while.end108.i.i
 
@@ -4690,7 +4690,7 @@ if.end104.i.i:                                    ; preds = %_bufferedreader_fil
   %117 = load i64, ptr %pos57.i.i, align 8
   %add92.i.i = add i64 %117, %call.i111.i.i
   store i64 %add92.i.i, ptr %pos57.i.i, align 8
-  %sub93.i.i = sub nsw i64 %remaining.2159.i.i, %call.i111.i.i
+  %sub93.i.i = sub nsw i64 %remaining.2158.i.i, %call.i111.i.i
   %cmp60.i.i = icmp sgt i64 %sub93.i.i, 0
   br i1 %cmp60.i.i, label %land.rhsthread-pre-split.i.i, label %while.end108.i.i, !llvm.loop !11
 
@@ -7379,8 +7379,8 @@ if.end161.i:                                      ; preds = %if.end158.i, %cond.
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.end206.i, %if.end161.i
-  %remaining.0.i = phi i64 [ %65, %if.end161.i ], [ %sub208.i, %if.end206.i ]
   %written.0.i = phi i64 [ 0, %if.end161.i ], [ %add207.i, %if.end206.i ]
+  %remaining.0.i = phi i64 [ %65, %if.end161.i ], [ %sub208.i, %if.end206.i ]
   %66 = load i64, ptr %buffer_size.i, align 8
   %cmp164.i = icmp sgt i64 %remaining.0.i, %66
   br i1 %cmp164.i, label %while.body.i, label %while.end.i
@@ -7463,7 +7463,7 @@ if.then218.i:                                     ; preds = %if.end216.i
   %77 = load ptr, ptr %buffer, align 8
   %add.ptr221.i = getelementptr i8, ptr %77, i64 %written.0.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 1 %add.ptr221.i, i64 %remaining.0.i, i1 false)
-  %add222.i = add i64 %written.0.i, %remaining.0.i
+  %add222.i = add i64 %remaining.0.i, %written.0.i
   %.pre187.i = load i32, ptr %readable.i, align 8
   br label %if.end223.i
 

@@ -143,7 +143,7 @@ for.body13.lr.ph.i:                               ; preds = %for.cond10.preheade
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.inc.i ]
-  %pind.012.i = phi i32 [ 0, %entry ], [ %pind.1.i, %for.inc.i ]
+  %pind.011.i = phi i32 [ 0, %entry ], [ %pind.1.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds [232 x %struct.sc_s], ptr %sc2.i, i64 0, i64 %indvars.iv.i
   %psz.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
   %0 = load i8, ptr %psz.i, align 4
@@ -163,14 +163,14 @@ if.then.i:                                        ; preds = %for.body.i
   %sh_prom4.i = zext nneg i32 %3 to i64
   %shl5.i = shl i64 %conv3.i, %sh_prom4.i
   %add.i = add i64 %shl5.i, %shl.i
-  %idxprom6.i = sext i32 %pind.012.i to i64
+  %idxprom6.i = sext i32 %pind.011.i to i64
   %arrayidx7.i = getelementptr inbounds [200 x i64], ptr @sz_pind2sz_tab, i64 0, i64 %idxprom6.i
   store i64 %add.i, ptr %arrayidx7.i, align 8
-  %inc.i = add nsw i32 %pind.012.i, 1
+  %inc.i = add nsw i32 %pind.011.i, 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
-  %pind.1.i = phi i32 [ %inc.i, %if.then.i ], [ %pind.012.i, %for.body.i ]
+  %pind.1.i = phi i32 [ %inc.i, %if.then.i ], [ %pind.011.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 232
   br i1 %exitcond.not.i, label %for.cond10.preheader.i, label %for.body.i, !llvm.loop !5

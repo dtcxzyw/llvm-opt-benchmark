@@ -704,8 +704,8 @@ gz_skip.exit.thread:                              ; preds = %39, %45, %16, %13
 
 49:                                               ; preds = %.preheader, %.thread
   %50 = phi i32 [ %70, %.thread ], [ %.pre, %.preheader ]
-  %.050 = phi i32 [ %75, %.thread ], [ %46, %.preheader ]
-  %.049 = phi ptr [ %76, %.thread ], [ %1, %.preheader ]
+  %.051 = phi ptr [ %76, %.thread ], [ %1, %.preheader ]
+  %.049 = phi i32 [ %75, %.thread ], [ %46, %.preheader ]
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %.thread
 
@@ -726,9 +726,9 @@ gz_skip.exit.thread:                              ; preds = %39, %45, %16, %13
 
 .thread:                                          ; preds = %49, %55
   %59 = phi i32 [ %.pr, %55 ], [ %50, %49 ]
-  %.050. = tail call i32 @llvm.umin.i32(i32 %59, i32 %.050)
+  %.049. = tail call i32 @llvm.umin.i32(i32 %59, i32 %.049)
   %60 = load ptr, ptr %47, align 8
-  %61 = zext i32 %.050. to i64
+  %61 = zext i32 %.049. to i64
   %62 = tail call ptr @memchr(ptr noundef %60, i32 noundef 10, i64 noundef %61) #14
   %.not64 = icmp eq ptr %62, null
   %63 = ptrtoint ptr %62 to i64
@@ -736,11 +736,11 @@ gz_skip.exit.thread:                              ; preds = %39, %45, %16, %13
   %65 = sub i64 %63, %64
   %66 = trunc i64 %65 to i32
   %67 = add i32 %66, 1
-  %.051 = select i1 %.not64, i32 %.050., i32 %67
-  %68 = zext i32 %.051 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.049, ptr align 1 %60, i64 %68, i1 false)
+  %.0 = select i1 %.not64, i32 %.049., i32 %67
+  %68 = zext i32 %.0 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.051, ptr align 1 %60, i64 %68, i1 false)
   %69 = load i32, ptr %0, align 8
-  %70 = sub i32 %69, %.051
+  %70 = sub i32 %69, %.0
   store i32 %70, ptr %0, align 8
   %71 = load ptr, ptr %47, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 %68
@@ -748,14 +748,14 @@ gz_skip.exit.thread:                              ; preds = %39, %45, %16, %13
   %73 = load i64, ptr %48, align 8
   %74 = add nsw i64 %73, %68
   store i64 %74, ptr %48, align 8
-  %75 = sub i32 %.050, %.051
-  %76 = getelementptr inbounds i8, ptr %.049, i64 %68
+  %75 = sub i32 %.049, %.0
+  %76 = getelementptr inbounds i8, ptr %.051, i64 %68
   %77 = icmp ne i32 %75, 0
   %78 = and i1 %.not64, %77
   br i1 %78, label %49, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.thread, %57
-  %.1 = phi ptr [ %.049, %57 ], [ %76, %.thread ]
+  %.1 = phi ptr [ %.051, %57 ], [ %76, %.thread ]
   %79 = icmp eq ptr %.1, %1
   br i1 %79, label %gz_skip.exit, label %80
 
@@ -764,8 +764,8 @@ gz_skip.exit.thread:                              ; preds = %39, %45, %16, %13
   br label %gz_skip.exit
 
 gz_skip.exit:                                     ; preds = %42, %52, %gz_skip.exit.thread, %.loopexit, %7, %10, %3, %80
-  %.0 = phi ptr [ %1, %80 ], [ null, %3 ], [ null, %10 ], [ null, %7 ], [ null, %.loopexit ], [ null, %gz_skip.exit.thread ], [ null, %52 ], [ null, %42 ]
-  ret ptr %.0
+  %.050 = phi ptr [ %1, %80 ], [ null, %3 ], [ null, %10 ], [ null, %7 ], [ null, %.loopexit ], [ null, %gz_skip.exit.thread ], [ null, %52 ], [ null, %42 ]
+  ret ptr %.050
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1112,7 +1112,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_decomp(ptr noundef %0) unnamed_a
   br label %6
 
 6:                                                ; preds = %22, %1
-  %.027 = phi i32 [ 0, %1 ], [ %15, %22 ]
+  %.0 = phi i32 [ 0, %1 ], [ %15, %22 ]
   %7 = load i32, ptr %5, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %.thread
@@ -1166,7 +1166,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_decomp(ptr noundef %0) unnamed_a
 
 .loopexit30:                                      ; preds = %22, %14
   %27 = phi i32 [ %.pre, %14 ], [ %23, %22 ]
-  %.1 = phi i32 [ %.027, %14 ], [ %15, %22 ]
+  %.1 = phi i32 [ %.0, %14 ], [ %15, %22 ]
   %28 = sub i32 %4, %27
   store i32 %28, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 152
@@ -1185,8 +1185,8 @@ define internal fastcc range(i32 -1, 1) i32 @gz_decomp(ptr noundef %0) unnamed_a
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %.loopexit30, %36, %18, %17, %16
-  %.0 = phi i32 [ -1, %16 ], [ -1, %17 ], [ -1, %18 ], [ 0, %36 ], [ 0, %.loopexit30 ], [ -1, %9 ]
-  ret i32 %.0
+  %.027 = phi i32 [ -1, %16 ], [ -1, %17 ], [ -1, %18 ], [ 0, %36 ], [ 0, %.loopexit30 ], [ -1, %9 ]
+  ret i32 %.027
 }
 
 ; Function Attrs: nofree

@@ -894,7 +894,7 @@ define internal fastcc void @logicalrep_write_tuple(ptr noundef %0, ptr nocaptur
 
 9:                                                ; preds = %column_in_column_list.exit.thread.us, %.lr.ph.split.us
   %indvars.iv11 = phi i64 [ %indvars.iv.next12, %column_in_column_list.exit.thread.us ], [ 0, %.lr.ph.split.us ]
-  %.0602.us = phi i16 [ %.161.us, %column_in_column_list.exit.thread.us ], [ 0, %.lr.ph.split.us ]
+  %.03.us = phi i16 [ %.1.us, %column_in_column_list.exit.thread.us ], [ 0, %.lr.ph.split.us ]
   %10 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %7, i64 0, i64 %indvars.iv11
   %11 = getelementptr inbounds i8, ptr %10, i64 95
   %12 = load i8, ptr %11, align 1
@@ -906,11 +906,11 @@ define internal fastcc void @logicalrep_write_tuple(ptr noundef %0, ptr nocaptur
   %16 = load i8, ptr %15, align 2
   %.not65.us = icmp eq i8 %16, 0
   %17 = zext i1 %.not65.us to i16
-  %spec.select8 = add i16 %.0602.us, %17
+  %spec.select8 = add i16 %.03.us, %17
   br label %column_in_column_list.exit.thread.us
 
 column_in_column_list.exit.thread.us:             ; preds = %14, %9
-  %.161.us = phi i16 [ %.0602.us, %9 ], [ %spec.select8, %14 ]
+  %.1.us = phi i16 [ %.03.us, %9 ], [ %spec.select8, %14 ]
   %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next12, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !122
@@ -918,7 +918,7 @@ column_in_column_list.exit.thread.us:             ; preds = %14, %9
 .lr.ph.split:                                     ; preds = %.lr.ph, %31
   %18 = phi i32 [ %32, %31 ], [ %5, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.lr.ph ]
-  %.0602 = phi i16 [ %.161, %31 ], [ 0, %.lr.ph ]
+  %.03 = phi i16 [ %.1, %31 ], [ 0, %.lr.ph ]
   %19 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %7, i64 0, i64 %indvars.iv
   %20 = getelementptr inbounds i8, ptr %19, i64 95
   %21 = load i8, ptr %20, align 1
@@ -938,23 +938,23 @@ column_in_column_list.exit:                       ; preds = %23
   %29 = tail call zeroext i1 @bms_is_member(i32 noundef %28, ptr noundef nonnull %3) #8
   %cond.fr = freeze i1 %29
   %30 = zext i1 %cond.fr to i16
-  %spec.select = add i16 %.0602, %30
+  %spec.select = add i16 %.03, %30
   %.pre = load i32, ptr %.64.val, align 8
   br label %31
 
 31:                                               ; preds = %column_in_column_list.exit, %.lr.ph.split, %23
   %32 = phi i32 [ %18, %.lr.ph.split ], [ %18, %23 ], [ %.pre, %column_in_column_list.exit ]
-  %.161 = phi i16 [ %.0602, %.lr.ph.split ], [ %.0602, %23 ], [ %spec.select, %column_in_column_list.exit ]
+  %.1 = phi i16 [ %.03, %.lr.ph.split ], [ %.03, %23 ], [ %spec.select, %column_in_column_list.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
   br i1 %34, label %.lr.ph.split, label %._crit_edge, !llvm.loop !122
 
 ._crit_edge:                                      ; preds = %31, %column_in_column_list.exit.thread.us, %4
-  %.060.lcssa = phi i16 [ 0, %4 ], [ %.161.us, %column_in_column_list.exit.thread.us ], [ %.161, %31 ]
+  %.0.lcssa = phi i16 [ 0, %4 ], [ %.1.us, %column_in_column_list.exit.thread.us ], [ %.1, %31 ]
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 2) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !124)
-  %35 = tail call i16 @llvm.bswap.i16(i16 %.060.lcssa)
+  %35 = tail call i16 @llvm.bswap.i16(i16 %.0.lcssa)
   %36 = load ptr, ptr %0, align 8, !alias.scope !124
   %37 = getelementptr inbounds i8, ptr %0, i64 8
   %38 = load i32, ptr %37, align 8, !alias.scope !124
@@ -1757,7 +1757,7 @@ logicalrep_write_namespace.exit:                  ; preds = %32, %44
 
 61:                                               ; preds = %column_in_column_list.exit.thread.us.i, %.lr.ph.split.us.i
   %indvars.iv53.i = phi i64 [ %indvars.iv.next54.i, %column_in_column_list.exit.thread.us.i ], [ 0, %.lr.ph.split.us.i ]
-  %.03845.us.i = phi i16 [ %.139.us.i, %column_in_column_list.exit.thread.us.i ], [ 0, %.lr.ph.split.us.i ]
+  %.03846.us.i = phi i16 [ %.1.us.i, %column_in_column_list.exit.thread.us.i ], [ 0, %.lr.ph.split.us.i ]
   %62 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %59, i64 0, i64 %indvars.iv53.i
   %63 = getelementptr inbounds i8, ptr %62, i64 95
   %64 = load i8, ptr %63, align 1
@@ -1769,11 +1769,11 @@ logicalrep_write_namespace.exit:                  ; preds = %32, %44
   %68 = load i8, ptr %67, align 2
   %.not42.us.i = icmp eq i8 %68, 0
   %69 = zext i1 %.not42.us.i to i16
-  %spec.select51.i = add i16 %.03845.us.i, %69
+  %spec.select51.i = add i16 %.03846.us.i, %69
   br label %column_in_column_list.exit.thread.us.i
 
 column_in_column_list.exit.thread.us.i:           ; preds = %66, %61
-  %.139.us.i = phi i16 [ %.03845.us.i, %61 ], [ %spec.select51.i, %66 ]
+  %.1.us.i = phi i16 [ %.03846.us.i, %61 ], [ %spec.select51.i, %66 ]
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %61, !llvm.loop !213
@@ -1781,7 +1781,7 @@ column_in_column_list.exit.thread.us.i:           ; preds = %66, %61
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %83
   %70 = phi i32 [ %84, %83 ], [ %57, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %83 ], [ 0, %.lr.ph.i ]
-  %.03845.i = phi i16 [ %.139.i, %83 ], [ 0, %.lr.ph.i ]
+  %.03846.i = phi i16 [ %.1.i, %83 ], [ 0, %.lr.ph.i ]
   %71 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %59, i64 0, i64 %indvars.iv.i
   %72 = getelementptr inbounds i8, ptr %71, i64 95
   %73 = load i8, ptr %72, align 1
@@ -1801,20 +1801,20 @@ column_in_column_list.exit.i:                     ; preds = %75
   %81 = tail call zeroext i1 @bms_is_member(i32 noundef %80, ptr noundef nonnull %3) #8
   %cond.fr.i = freeze i1 %81
   %82 = zext i1 %cond.fr.i to i16
-  %spec.select.i = add i16 %.03845.i, %82
+  %spec.select.i = add i16 %.03846.i, %82
   %.pre.i = load i32, ptr %56, align 8
   br label %83
 
 83:                                               ; preds = %column_in_column_list.exit.i, %75, %.lr.ph.split.i
   %84 = phi i32 [ %70, %.lr.ph.split.i ], [ %70, %75 ], [ %.pre.i, %column_in_column_list.exit.i ]
-  %.139.i = phi i16 [ %.03845.i, %.lr.ph.split.i ], [ %.03845.i, %75 ], [ %spec.select.i, %column_in_column_list.exit.i ]
+  %.1.i = phi i16 [ %.03846.i, %.lr.ph.split.i ], [ %.03846.i, %75 ], [ %spec.select.i, %column_in_column_list.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %85 = sext i32 %84 to i64
   %86 = icmp slt i64 %indvars.iv.next.i, %85
   br i1 %86, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !213
 
 ._crit_edge.i:                                    ; preds = %83, %column_in_column_list.exit.thread.us.i, %logicalrep_write_namespace.exit
-  %.038.lcssa.i = phi i16 [ 0, %logicalrep_write_namespace.exit ], [ %.139.us.i, %column_in_column_list.exit.thread.us.i ], [ %.139.i, %83 ]
+  %.038.lcssa.i = phi i16 [ 0, %logicalrep_write_namespace.exit ], [ %.1.us.i, %column_in_column_list.exit.thread.us.i ], [ %.1.i, %83 ]
   tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 2) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !214)
   %87 = tail call i16 @llvm.bswap.i16(i16 %.038.lcssa.i)
@@ -1836,7 +1836,7 @@ column_in_column_list.exit.i:                     ; preds = %75
   br label %99
 
 99:                                               ; preds = %97, %._crit_edge.i
-  %.040.i = phi ptr [ null, %._crit_edge.i ], [ %98, %97 ]
+  %.037.i = phi ptr [ null, %._crit_edge.i ], [ %98, %97 ]
   %100 = load i32, ptr %56, align 8
   %101 = icmp sgt i32 %100, 0
   br i1 %101, label %.lr.ph49.i, label %logicalrep_write_attrs.exit
@@ -1877,7 +1877,7 @@ column_in_column_list.exit43.thread.i:            ; preds = %column_in_column_li
   %118 = load i16, ptr %113, align 2
   %119 = sext i16 %118 to i32
   %120 = add nsw i32 %119, 7
-  %121 = tail call zeroext i1 @bms_is_member(i32 noundef %120, ptr noundef %.040.i) #8
+  %121 = tail call zeroext i1 @bms_is_member(i32 noundef %120, ptr noundef %.037.i) #8
   br i1 %121, label %.split.i, label %.split41.i
 
 .split.i:                                         ; preds = %117, %column_in_column_list.exit43.thread.i
@@ -1929,7 +1929,7 @@ column_in_column_list.exit43.thread.i:            ; preds = %column_in_column_li
   br i1 %146, label %104, label %logicalrep_write_attrs.exit, !llvm.loop !223
 
 logicalrep_write_attrs.exit:                      ; preds = %143, %99
-  tail call void @bms_free(ptr noundef %.040.i) #8
+  tail call void @bms_free(ptr noundef %.037.i) #8
   ret void
 }
 

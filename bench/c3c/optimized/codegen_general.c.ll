@@ -55,8 +55,8 @@ define dso_local ptr @type_abi_find_single_struct_element(ptr noundef %0) local_
   br label %8
 
 8:                                                ; preds = %4, %1
-  %.037 = phi i32 [ %7, %4 ], [ %2, %1 ]
-  %9 = and i32 %.037, -2
+  %.041 = phi i32 [ %7, %4 ], [ %2, %1 ]
+  %9 = and i32 %.041, -2
   %10 = icmp eq i32 %9, 26
   br i1 %10, label %11, label %.loopexit54
 
@@ -87,13 +87,13 @@ define dso_local ptr @type_abi_find_single_struct_element(ptr noundef %0) local_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread52
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.thread52 ]
-  %.03861 = phi i1 [ true, %.lr.ph.preheader ], [ false, %.thread52 ]
+  %.03661 = phi i1 [ true, %.lr.ph.preheader ], [ false, %.thread52 ]
   %23 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = tail call fastcc ptr @type_lowering(ptr noundef %26)
-  br i1 %.03861, label %.preheader, label %.loopexit54
+  br i1 %.03661, label %.preheader, label %.loopexit54
 
 .preheader:                                       ; preds = %.lr.ph, %32
   %.0 = phi ptr [ %34, %32 ], [ %27, %.lr.ph ]
@@ -145,8 +145,8 @@ define dso_local ptr @type_abi_find_single_struct_element(ptr noundef %0) local_
   br label %.loopexit54
 
 .loopexit54:                                      ; preds = %41, %.lr.ph, %17, %20, %._crit_edge, %11, %8
-  %.041 = phi ptr [ null, %8 ], [ null, %11 ], [ %spec.select, %._crit_edge ], [ null, %20 ], [ null, %17 ], [ null, %.lr.ph ], [ null, %41 ]
-  ret ptr %.041
+  %.039 = phi ptr [ null, %8 ], [ null, %11 ], [ %spec.select, %._crit_edge ], [ null, %20 ], [ null, %17 ], [ null, %.lr.ph ], [ null, %41 ]
+  ret ptr %.039
 }
 
 ; Function Attrs: nounwind uwtable
@@ -552,28 +552,28 @@ define dso_local zeroext i1 @type_is_homogenous_aggregate(ptr noundef %0, ptr no
   br i1 %30, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph81, %.lr.ph
-  %.06577 = phi ptr [ %35, %.lr.ph ], [ %28, %.lr.ph81 ]
-  %.06676 = phi i32 [ %34, %.lr.ph ], [ 1, %.lr.ph81 ]
-  %31 = getelementptr inbounds i8, ptr %.06577, i64 56
-  %32 = getelementptr inbounds i8, ptr %.06577, i64 64
+  %.06477 = phi ptr [ %35, %.lr.ph ], [ %28, %.lr.ph81 ]
+  %.06576 = phi i32 [ %34, %.lr.ph ], [ 1, %.lr.ph81 ]
+  %31 = getelementptr inbounds i8, ptr %.06477, i64 56
+  %32 = getelementptr inbounds i8, ptr %.06477, i64 64
   %33 = load i32, ptr %32, align 8
-  %34 = mul i32 %33, %.06676
+  %34 = mul i32 %33, %.06576
   %35 = load ptr, ptr %31, align 8
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 33
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph81
-  %.066.lcssa = phi i32 [ 1, %.lr.ph81 ], [ %34, %.lr.ph ]
-  %.065.lcssa = phi ptr [ %28, %.lr.ph81 ], [ %35, %.lr.ph ]
+  %.065.lcssa = phi i32 [ 1, %.lr.ph81 ], [ %34, %.lr.ph ]
+  %.064.lcssa = phi ptr [ %28, %.lr.ph81 ], [ %35, %.lr.ph ]
   store i32 0, ptr %4, align 4
-  %38 = tail call fastcc ptr @type_lowering(ptr noundef nonnull %.065.lcssa)
+  %38 = tail call fastcc ptr @type_lowering(ptr noundef nonnull %.064.lcssa)
   %39 = call zeroext i1 @type_is_homogenous_aggregate(ptr noundef %38, ptr noundef %1, ptr noundef nonnull %4)
   br i1 %39, label %40, label %type_homogenous_aggregate_small_enough.exit
 
 40:                                               ; preds = %._crit_edge
   %41 = load i32, ptr %4, align 4
-  %42 = mul i32 %41, %.066.lcssa
+  %42 = mul i32 %41, %.065.lcssa
   store i32 %42, ptr %4, align 4
   %43 = load i32, ptr %0, align 8
   %44 = icmp eq i32 %43, 27

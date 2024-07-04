@@ -179,9 +179,9 @@ if.end53:                                         ; preds = %if.end46
   br label %err
 
 err:                                              ; preds = %if.end41, %entry, %if.end53, %if.then52, %if.then40, %if.then31, %if.then27, %if.then23, %if.then18, %if.then14, %if.then7, %if.then3
-  %ret.0 = phi i32 [ 0, %entry ], [ 0, %if.then3 ], [ 0, %if.then7 ], [ 0, %if.then23 ], [ 0, %if.then40 ], [ 0, %if.end41 ], [ 0, %if.then52 ], [ 1, %if.end53 ], [ 0, %if.then31 ], [ 0, %if.then27 ], [ 0, %if.then18 ], [ 0, %if.then14 ]
-  %x.0 = phi ptr [ null, %entry ], [ null, %if.then3 ], [ %call1, %if.then7 ], [ %call1, %if.then23 ], [ %call1, %if.then40 ], [ %call1, %if.end41 ], [ %call1, %if.then52 ], [ %call1, %if.end53 ], [ %call1, %if.then31 ], [ %call1, %if.then27 ], [ %call1, %if.then18 ], [ %call1, %if.then14 ]
   %tmp.0 = phi ptr [ null, %entry ], [ null, %if.then3 ], [ null, %if.then7 ], [ null, %if.then23 ], [ %call21, %if.then40 ], [ %call21, %if.end41 ], [ %call21, %if.then52 ], [ %call21, %if.end53 ], [ %call21, %if.then31 ], [ %call21, %if.then27 ], [ null, %if.then18 ], [ null, %if.then14 ]
+  %x.0 = phi ptr [ null, %entry ], [ null, %if.then3 ], [ %call1, %if.then7 ], [ %call1, %if.then23 ], [ %call1, %if.then40 ], [ %call1, %if.end41 ], [ %call1, %if.then52 ], [ %call1, %if.end53 ], [ %call1, %if.then31 ], [ %call1, %if.then27 ], [ %call1, %if.then18 ], [ %call1, %if.then14 ]
+  %ret.0 = phi i32 [ 0, %entry ], [ 0, %if.then3 ], [ 0, %if.then7 ], [ 0, %if.then23 ], [ 0, %if.then40 ], [ 0, %if.end41 ], [ 0, %if.then52 ], [ 1, %if.end53 ], [ 0, %if.then31 ], [ 0, %if.then27 ], [ 0, %if.then18 ], [ 0, %if.then14 ]
   %buf.0 = phi ptr [ null, %entry ], [ null, %if.then3 ], [ null, %if.then7 ], [ null, %if.then23 ], [ null, %if.then40 ], [ null, %if.end41 ], [ %call42, %if.then52 ], [ null, %if.end53 ], [ null, %if.then31 ], [ null, %if.then27 ], [ null, %if.then18 ], [ null, %if.then14 ]
   tail call void @BN_clear(ptr noundef %x.0) #3
   tail call void @EC_POINT_clear_free(ptr noundef %tmp.0) #3

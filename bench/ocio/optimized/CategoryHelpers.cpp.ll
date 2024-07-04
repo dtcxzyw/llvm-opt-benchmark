@@ -2606,7 +2606,7 @@ lpad39:                                           ; preds = %if.then3.i.i.i.i.i4
   br label %ehcleanup183
 
 if.end44:                                         ; preds = %_ZNSt6vectorIPKN19OpenColorIO_v2_4dev14NamedTransformESaIS3_EEaSERKS5_.exit, %if.end
-  %encsIgnored.0 = phi i1 [ true, %_ZNSt6vectorIPKN19OpenColorIO_v2_4dev14NamedTransformESaIS3_EEaSERKS5_.exit ], [ false, %if.end ]
+  %appNoEncodingsComputed.0 = phi i1 [ true, %_ZNSt6vectorIPKN19OpenColorIO_v2_4dev14NamedTransformESaIS3_EEaSERKS5_.exit ], [ false, %if.end ]
   %appSize.1 = phi i64 [ %add38, %_ZNSt6vectorIPKN19OpenColorIO_v2_4dev14NamedTransformESaIS3_EEaSERKS5_.exit ], [ %add, %if.end ]
   %cmp45 = icmp eq i64 %appSize.1, 0
   br i1 %cmp45, label %land.lhs.true, label %if.end65
@@ -2887,13 +2887,13 @@ lpad59:                                           ; preds = %_ZNSt10shared_ptrIK
   br label %ehcleanup183
 
 if.end65:                                         ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev.exit510, %if.end44
-  %encsIgnored.1 = phi i1 [ false, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev.exit510 ], [ %encsIgnored.0, %if.end44 ]
   %appSize.2 = phi i64 [ %add64, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev.exit510 ], [ %appSize.1, %if.end44 ]
+  %encsIgnored.1 = phi i1 [ false, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev.exit510 ], [ %appNoEncodingsComputed.0, %if.end44 ]
   %cmp66 = icmp eq i64 %appSize.2, 0
   br i1 %cmp66, label %if.then67, label %if.end88
 
 if.then67:                                        ; preds = %land.lhs.true, %if.end65
-  %encsIgnored.11237 = phi i1 [ %encsIgnored.1, %if.end65 ], [ %encsIgnored.0, %land.lhs.true ]
+  %encsIgnored.11237 = phi i1 [ %encsIgnored.1, %if.end65 ], [ %appNoEncodingsComputed.0, %land.lhs.true ]
   store i32 3, ptr %m_appCats.i, align 4
   br label %if.end88
 
@@ -3168,9 +3168,9 @@ lpad81:                                           ; preds = %_ZNSt10shared_ptrIK
   br label %ehcleanup183
 
 if.end88:                                         ; preds = %if.else, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev.exit624, %if.end65, %if.then67
-  %encsIgnored.2 = phi i1 [ true, %if.else ], [ false, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev.exit624 ], [ %encsIgnored.11237, %if.then67 ], [ %encsIgnored.1, %if.end65 ]
+  %appNoEncodingsComputed.1 = phi i1 [ false, %if.else ], [ false, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev.exit624 ], [ %appNoEncodingsComputed.0, %if.then67 ], [ %appNoEncodingsComputed.0, %if.end65 ]
   %appSize.3 = phi i64 [ 0, %if.else ], [ %add86, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev.exit624 ], [ 0, %if.then67 ], [ %appSize.2, %if.end65 ]
-  %appNoEncodingsComputed.1 = phi i1 [ false, %if.else ], [ false, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev.exit624 ], [ %encsIgnored.0, %if.then67 ], [ %encsIgnored.0, %if.end65 ]
+  %encsIgnored.2 = phi i1 [ true, %if.else ], [ false, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev6ConfigEED2Ev.exit624 ], [ %encsIgnored.11237, %if.then67 ], [ %encsIgnored.1, %if.end65 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %userNT, i8 0, i64 24, i1 false)
   %249 = load ptr, ptr %userCategories, align 8
   %_M_finish.i.i635 = getelementptr inbounds i8, ptr %userCategories, i64 8

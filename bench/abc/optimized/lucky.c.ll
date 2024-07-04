@@ -68,30 +68,30 @@ define void @sortAndUnique1(ptr noundef %0, ptr nocapture noundef %1) local_unna
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
   %.024 = phi i64 [ %7, %.lr.ph.preheader ], [ %.1, %15 ]
-  %.01922 = phi i32 [ 1, %.lr.ph.preheader ], [ %.120, %15 ]
+  %.01823 = phi i32 [ 1, %.lr.ph.preheader ], [ %.119, %15 ]
   %8 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %.024, %9
   br i1 %.not, label %15, label %10
 
 10:                                               ; preds = %.lr.ph
-  %11 = sext i32 %.01922 to i64
+  %11 = sext i32 %.01823 to i64
   %12 = getelementptr inbounds i64, ptr %0, i64 %11
   store i64 %9, ptr %12, align 8
   %13 = load i64, ptr %8, align 8
-  %14 = add nsw i32 %.01922, 1
+  %14 = add nsw i32 %.01823, 1
   br label %15
 
 15:                                               ; preds = %.lr.ph, %10
-  %.120 = phi i32 [ %14, %10 ], [ %.01922, %.lr.ph ]
+  %.119 = phi i32 [ %14, %10 ], [ %.01823, %.lr.ph ]
   %.1 = phi i64 [ %13, %10 ], [ %.024, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %15, %2
-  %.019.lcssa = phi i32 [ 1, %2 ], [ %.120, %15 ]
-  store i32 %.019.lcssa, ptr %3, align 8
+  %.018.lcssa = phi i32 [ 1, %2 ], [ %.119, %15 ]
+  store i32 %.018.lcssa, ptr %3, align 8
   ret void
 }
 
@@ -177,7 +177,7 @@ define void @sortAndUnique(ptr noundef %0, ptr nocapture noundef %1) local_unnam
 9:                                                ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %.024 = phi ptr [ %7, %.lr.ph ], [ %.1, %20 ]
-  %.02022 = phi i32 [ 1, %.lr.ph ], [ %.121, %20 ]
+  %.01923 = phi i32 [ 1, %.lr.ph ], [ %.120, %20 ]
   %10 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %8, align 4
@@ -188,23 +188,23 @@ define void @sortAndUnique(ptr noundef %0, ptr nocapture noundef %1) local_unnam
   br i1 %.not, label %20, label %15
 
 15:                                               ; preds = %9
-  %16 = sext i32 %.02022 to i64
+  %16 = sext i32 %.01923 to i64
   %17 = getelementptr inbounds ptr, ptr %0, i64 %16
   store ptr %11, ptr %17, align 8
   %18 = load ptr, ptr %10, align 8
-  %19 = add nsw i32 %.02022, 1
+  %19 = add nsw i32 %.01923, 1
   br label %20
 
 20:                                               ; preds = %9, %15
-  %.121 = phi i32 [ %19, %15 ], [ %.02022, %9 ]
+  %.120 = phi i32 [ %19, %15 ], [ %.01923, %9 ]
   %.1 = phi ptr [ %18, %15 ], [ %.024, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %20, %2
-  %.020.lcssa = phi i32 [ 1, %2 ], [ %.121, %20 ]
-  store i32 %.020.lcssa, ptr %3, align 8
+  %.019.lcssa = phi i32 [ 1, %2 ], [ %.120, %20 ]
+  store i32 %.019.lcssa, ptr %3, align 8
   ret void
 }
 
@@ -378,7 +378,7 @@ define range(i32 0, 2) i32 @minimalFlip1(ptr noundef %0, ptr nocapture noundef %
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %23
-  %.03648 = phi i32 [ %24, %23 ], [ 1, %4 ]
+  %.048 = phi i32 [ %24, %23 ], [ 1, %4 ]
   %9 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #17
   %10 = zext i32 %9 to i64
   br label %11
@@ -404,16 +404,16 @@ define range(i32 0, 2) i32 @minimalFlip1(ptr noundef %0, ptr nocapture noundef %
 
 memCompare.exit:                                  ; preds = %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1, ptr nonnull align 8 %0, i64 %7, i1 false)
-  tail call void @Kit_TruthChangePhase_64bit(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %.03648) #17
+  tail call void @Kit_TruthChangePhase_64bit(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %.048) #17
   br label %23
 
 .loopexit:                                        ; preds = %11, %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %1, i64 %7, i1 false)
-  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.03648) #17
+  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.048) #17
   br label %23
 
 23:                                               ; preds = %memCompare.exit, %.loopexit
-  %24 = add nuw nsw i32 %.03648, 1
+  %24 = add nuw nsw i32 %.048, 1
   %exitcond.not = icmp eq i32 %24, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
@@ -470,7 +470,7 @@ define range(i32 0, 2) i32 @minimalSwap1(ptr noundef %0, ptr nocapture noundef %
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
-  %.03647 = phi i32 [ %25, %24 ], [ 1, %.lr.ph.preheader ]
+  %.047 = phi i32 [ %25, %24 ], [ 1, %.lr.ph.preheader ]
   %10 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #17
   %11 = zext i32 %10 to i64
   br label %12
@@ -496,17 +496,17 @@ define range(i32 0, 2) i32 @minimalSwap1(ptr noundef %0, ptr nocapture noundef %
 
 memCompare.exit:                                  ; preds = %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1, ptr nonnull align 8 %0, i64 %7, i1 false)
-  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %.03647) #17
+  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %.047) #17
   br label %24
 
 .loopexit:                                        ; preds = %12, %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %1, i64 %7, i1 false)
-  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.03647) #17
+  tail call void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.047) #17
   br label %24
 
 24:                                               ; preds = %memCompare.exit, %.loopexit
-  %25 = add nuw nsw i32 %.03647, 1
-  %exitcond.not = icmp eq i32 %.03647, %9
+  %25 = add nuw nsw i32 %.047, 1
+  %exitcond.not = icmp eq i32 %.047, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %24, %4
@@ -585,8 +585,8 @@ define range(i32 0, 2) i32 @minimalFlip(ptr noundef %0, ptr nocapture noundef %1
   br i1 %12, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %28
-  %.04257 = phi i32 [ %.1, %28 ], [ %6, %5 ]
-  %.04356 = phi i32 [ %32, %28 ], [ 1, %5 ]
+  %.057 = phi i32 [ %.1, %28 ], [ %6, %5 ]
+  %.04256 = phi i32 [ %32, %28 ], [ 1, %5 ]
   %13 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #17
   %14 = zext i32 %13 to i64
   br label %15
@@ -617,22 +617,22 @@ memCompare.exit:                                  ; preds = %25
 
 .loopexit:                                        ; preds = %15, %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %1, i64 %9, i1 false)
-  store i32 %.04257, ptr %4, align 4
+  store i32 %.057, ptr %4, align 4
   br label %28
 
 28:                                               ; preds = %.loopexit, %memCompare.exit
-  %.1 = phi i32 [ %27, %memCompare.exit ], [ %.04257, %.loopexit ]
-  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.04356) #17
-  %29 = shl nuw i32 1, %.04356
+  %.1 = phi i32 [ %27, %memCompare.exit ], [ %.057, %.loopexit ]
+  tail call void @Kit_TruthChangePhase_64bit(ptr noundef %0, i32 noundef %3, i32 noundef %.04256) #17
+  %29 = shl nuw i32 1, %.04256
   %30 = load i32, ptr %4, align 4
   %31 = xor i32 %30, %29
   store i32 %31, ptr %4, align 4
-  %32 = add nuw nsw i32 %.04356, 1
+  %32 = add nuw nsw i32 %.04256, 1
   %exitcond.not = icmp eq i32 %32, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %28, %5
-  %.042.lcssa = phi i32 [ %6, %5 ], [ %.1, %28 ]
+  %.0.lcssa = phi i32 [ %6, %5 ], [ %.1, %28 ]
   %33 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #17
   %34 = zext i32 %33 to i64
   br label %35
@@ -658,7 +658,7 @@ memCompare.exit:                                  ; preds = %25
 
 memCompare.exit49:                                ; preds = %45
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %1, i64 %9, i1 false)
-  store i32 %.042.lcssa, ptr %4, align 4
+  store i32 %.0.lcssa, ptr %4, align 4
   br label %memCompare.exit49.thread
 
 memCompare.exit49.thread:                         ; preds = %35, %45, %memCompare.exit49

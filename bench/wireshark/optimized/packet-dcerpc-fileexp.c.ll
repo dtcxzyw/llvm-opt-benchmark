@@ -2278,10 +2278,10 @@ dissect_afsNetAddr.exit.thread:                   ; preds = %17
   br label %25
 
 25:                                               ; preds = %.thread31, %22, %21
-  %.0232934 = phi ptr [ %19, %22 ], [ null, %21 ], [ null, %.thread31 ]
-  %.033.i = phi ptr [ %24, %22 ], [ null, %21 ], [ null, %.thread31 ]
+  %.02934 = phi ptr [ %19, %22 ], [ null, %21 ], [ null, %.thread31 ]
+  %.032.i = phi ptr [ %24, %22 ], [ null, %21 ], [ null, %.thread31 ]
   %26 = load i32, ptr @hf_fileexp_afsNetAddr_type, align 4
-  %27 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.033.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %11) #4
+  %27 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %11) #4
   %28 = load i16, ptr %11, align 2
   %.not39.i = icmp eq i16 %28, 0
   br i1 %.not39.i, label %59, label %29
@@ -2297,7 +2297,7 @@ dissect_afsNetAddr.exit.thread:                   ; preds = %17
   %.042.i = phi i32 [ 0, %29 ], [ %58, %57 ]
   %.03441.i = phi i32 [ %27, %29 ], [ %35, %57 ]
   %34 = load i32, ptr @hf_fileexp_afsNetAddr_data, align 4
-  %35 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %.03441.i, ptr noundef %2, ptr noundef %.033.i, ptr noundef %4, ptr noundef %5, i32 noundef %34, ptr noundef nonnull %12) #4
+  %35 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %.03441.i, ptr noundef %2, ptr noundef %.032.i, ptr noundef %4, ptr noundef %5, i32 noundef %34, ptr noundef nonnull %12) #4
   switch i32 %.042.i, label %57 [
     i32 1, label %36
     i32 2, label %41
@@ -2372,18 +2372,18 @@ dissect_afsNetAddr.exit:                          ; preds = %57, %59
   br i1 %63, label %65, label %dissect_afsNameString_t.exit
 
 65:                                               ; preds = %dissect_afsNetAddr.exit
-  %.not28.i = icmp eq ptr %.0232934, null
+  %.not28.i = icmp eq ptr %.02934, null
   br i1 %.not28.i, label %69, label %66
 
 66:                                               ; preds = %65
   %67 = load i32, ptr @ett_fileexp_afsNameString_t, align 4
-  %68 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0232934, ptr noundef %0, i32 noundef %64, i32 noundef -1, i32 noundef %67, ptr noundef nonnull %7, ptr noundef nonnull @.str.346) #4
+  %68 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.02934, ptr noundef %0, i32 noundef %64, i32 noundef -1, i32 noundef %67, ptr noundef nonnull %7, ptr noundef nonnull @.str.346) #4
   br label %69
 
 69:                                               ; preds = %66, %65
-  %.024.i = phi ptr [ %68, %66 ], [ null, %65 ]
+  %.0.i = phi ptr [ %68, %66 ], [ null, %65 ]
   %70 = load i32, ptr @hf_fileexp_afsNameString_t_principalName_size, align 4
-  %71 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %64, ptr noundef %2, ptr noundef %.024.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %70, ptr noundef nonnull %8) #4
+  %71 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %64, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %70, ptr noundef nonnull %8) #4
   %72 = getelementptr inbounds i8, ptr %2, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = load i32, ptr %8, align 4
@@ -2396,7 +2396,7 @@ dissect_afsNetAddr.exit:                          ; preds = %57, %59
   %78 = load i32, ptr @hf_fileexp_afsNameString_t_principalName_string, align 4
   %79 = getelementptr inbounds i8, ptr %2, i64 408
   %80 = load ptr, ptr %79, align 8
-  %81 = call ptr @proto_tree_add_item_ret_string(ptr noundef %.024.i, i32 noundef %78, ptr noundef %0, i32 noundef %71, i32 noundef %75, i32 noundef 0, ptr noundef %80, ptr noundef nonnull %9) #4
+  %81 = call ptr @proto_tree_add_item_ret_string(ptr noundef %.0.i, i32 noundef %78, ptr noundef %0, i32 noundef %71, i32 noundef %75, i32 noundef 0, ptr noundef %80, ptr noundef nonnull %9) #4
   %82 = load i32, ptr %8, align 4
   %83 = add i32 %82, %71
   %84 = load ptr, ptr %72, align 8
@@ -2417,18 +2417,18 @@ dissect_afsNetAddr.exit:                          ; preds = %57, %59
   br label %dissect_afsNameString_t.exit
 
 dissect_afsNameString_t.exit:                     ; preds = %dissect_afsNetAddr.exit.thread, %dissect_afsNetAddr.exit, %88
-  %.0.i = phi i32 [ %.025.i, %88 ], [ %64, %dissect_afsNetAddr.exit ], [ %20, %dissect_afsNetAddr.exit.thread ]
+  %.024.i = phi i32 [ %.025.i, %88 ], [ %64, %dissect_afsNetAddr.exit ], [ %20, %dissect_afsNetAddr.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %91 = load ptr, ptr %13, align 8
-  %92 = sub i32 %.0.i, %1
+  %92 = sub i32 %.024.i, %1
   call void @proto_item_set_len(ptr noundef %91, i32 noundef %92) #4
   br label %93
 
 93:                                               ; preds = %6, %dissect_afsNameString_t.exit
-  %.0 = phi i32 [ %.0.i, %dissect_afsNameString_t.exit ], [ %1, %6 ]
-  ret i32 %.0
+  %.023 = phi i32 [ %.024.i, %dissect_afsNameString_t.exit ], [ %1, %6 ]
+  ret i32 %.023
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2451,9 +2451,9 @@ define internal i32 @dissect_afsFlags(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %15
 
 15:                                               ; preds = %12, %11
-  %.036 = phi ptr [ %14, %12 ], [ null, %11 ]
+  %.0 = phi ptr [ %14, %12 ], [ null, %11 ]
   %16 = load i32, ptr @hf_fileexp_flags, align 4
-  %17 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.036, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #4
+  %17 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #4
   %18 = load i32, ptr %8, align 4
   %.not39 = icmp eq i32 %18, 0
   br i1 %.not39, label %116, label %19
@@ -2695,8 +2695,8 @@ define internal i32 @dissect_afsFlags(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %119
 
 119:                                              ; preds = %6, %116
-  %.0 = phi i32 [ %17, %116 ], [ %1, %6 ]
-  ret i32 %.0
+  %.036 = phi i32 [ %17, %116 ], [ %1, %6 ]
+  ret i32 %.036
 }
 
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -2721,9 +2721,9 @@ define internal i32 @dissect_afsuuid(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %15
 
 15:                                               ; preds = %12, %11
-  %.017 = phi ptr [ %14, %12 ], [ null, %11 ]
+  %.0 = phi ptr [ %14, %12 ], [ null, %11 ]
   %16 = load i32, ptr @hf_fileexp_afsuuid_uuid, align 4
-  %17 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.017, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %7) #4
+  %17 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %7) #4
   %18 = getelementptr inbounds i8, ptr %2, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %7, align 4
@@ -2764,8 +2764,8 @@ define internal i32 @dissect_afsuuid(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %53
 
 53:                                               ; preds = %6, %15
-  %.0 = phi i32 [ %17, %15 ], [ %1, %6 ]
-  ret i32 %.0
+  %.017 = phi i32 [ %17, %15 ], [ %1, %6 ]
+  ret i32 %.017
 }
 
 declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -2878,11 +2878,11 @@ define internal i32 @dissect_minvvp(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %16
 
 16:                                               ; preds = %13, %12
-  %.023 = phi ptr [ %15, %13 ], [ null, %12 ]
+  %.0 = phi ptr [ %15, %13 ], [ null, %12 ]
   %17 = load i32, ptr @hf_fileexp_minvvp_high, align 4
-  %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %8) #4
+  %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %8) #4
   %19 = load i32, ptr @hf_fileexp_minvvp_low, align 4
-  %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %9) #4
+  %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %9) #4
   %21 = getelementptr inbounds i8, ptr %2, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %8, align 4
@@ -2894,8 +2894,8 @@ define internal i32 @dissect_minvvp(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %27
 
 27:                                               ; preds = %6, %16
-  %.0 = phi i32 [ %20, %16 ], [ %1, %6 ]
-  ret i32 %.0
+  %.023 = phi i32 [ %20, %16 ], [ %1, %6 ]
+  ret i32 %.023
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2954,81 +2954,81 @@ define internal i32 @dissect_fetchstatus(ptr noundef %0, i32 noundef %1, ptr nou
   br label %51
 
 51:                                               ; preds = %48, %47
-  %.0233 = phi ptr [ %50, %48 ], [ null, %47 ]
+  %.0 = phi ptr [ %50, %48 ], [ null, %47 ]
   %52 = load i32, ptr @hf_fileexp_interfaceversion, align 4
-  %53 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, ptr noundef nonnull %8) #4
+  %53 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, ptr noundef nonnull %8) #4
   %54 = load i32, ptr @hf_fileexp_filetype, align 4
-  %55 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, ptr noundef nonnull %9) #4
+  %55 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, ptr noundef nonnull %9) #4
   %56 = load i32, ptr @hf_fileexp_linkcount, align 4
-  %57 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, ptr noundef nonnull %10) #4
+  %57 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, ptr noundef nonnull %10) #4
   %58 = load i32, ptr @hf_fileexp_length_high, align 4
-  %59 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, ptr noundef nonnull %11) #4
+  %59 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, ptr noundef nonnull %11) #4
   %60 = load i32, ptr @hf_fileexp_length_low, align 4
-  %61 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, ptr noundef nonnull %12) #4
+  %61 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, ptr noundef nonnull %12) #4
   %62 = load i32, ptr @hf_fileexp_dataversion_high, align 4
-  %63 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %61, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, ptr noundef nonnull %13) #4
+  %63 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %61, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, ptr noundef nonnull %13) #4
   %64 = load i32, ptr @hf_fileexp_dataversion_low, align 4
-  %65 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, ptr noundef nonnull %14) #4
+  %65 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, ptr noundef nonnull %14) #4
   %66 = load i32, ptr @hf_fileexp_author, align 4
-  %67 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %66, ptr noundef nonnull %15) #4
+  %67 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %66, ptr noundef nonnull %15) #4
   %68 = load i32, ptr @hf_fileexp_owner, align 4
-  %69 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %67, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %68, ptr noundef nonnull %16) #4
+  %69 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %67, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %68, ptr noundef nonnull %16) #4
   %70 = load i32, ptr @hf_fileexp_group, align 4
-  %71 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %69, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %70, ptr noundef nonnull %17) #4
+  %71 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %69, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %70, ptr noundef nonnull %17) #4
   %72 = load i32, ptr @hf_fileexp_calleraccess, align 4
-  %73 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %71, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %72, ptr noundef nonnull %18) #4
+  %73 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %71, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %72, ptr noundef nonnull %18) #4
   %74 = load i32, ptr @hf_fileexp_anonymousaccess, align 4
-  %75 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %74, ptr noundef nonnull %19) #4
+  %75 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %74, ptr noundef nonnull %19) #4
   %76 = load i32, ptr @hf_fileexp_aclexpirationtime, align 4
-  %77 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %75, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %76, ptr noundef nonnull %20) #4
+  %77 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %75, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %76, ptr noundef nonnull %20) #4
   %78 = load i32, ptr @hf_fileexp_mode, align 4
-  %79 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %77, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %78, ptr noundef nonnull %21) #4
+  %79 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %77, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %78, ptr noundef nonnull %21) #4
   %80 = load i32, ptr @hf_fileexp_parentvnode, align 4
-  %81 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %79, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %80, ptr noundef nonnull %22) #4
+  %81 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %79, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %80, ptr noundef nonnull %22) #4
   %82 = load i32, ptr @hf_fileexp_parentunique, align 4
-  %83 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %81, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %82, ptr noundef nonnull %23) #4
+  %83 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %81, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %82, ptr noundef nonnull %23) #4
   %84 = load i32, ptr @hf_fileexp_modtime_sec, align 4
-  %85 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %83, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %84, ptr noundef nonnull %24) #4
+  %85 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %83, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %84, ptr noundef nonnull %24) #4
   %86 = load i32, ptr @hf_fileexp_modtime_msec, align 4
-  %87 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %85, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %86, ptr noundef nonnull %25) #4
+  %87 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %85, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %86, ptr noundef nonnull %25) #4
   %88 = load i32, ptr @hf_fileexp_changetime_sec, align 4
-  %89 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %87, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %88, ptr noundef nonnull %26) #4
+  %89 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %87, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %88, ptr noundef nonnull %26) #4
   %90 = load i32, ptr @hf_fileexp_changetime_msec, align 4
-  %91 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %89, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %90, ptr noundef nonnull %27) #4
+  %91 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %89, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %90, ptr noundef nonnull %27) #4
   %92 = load i32, ptr @hf_fileexp_accesstime_sec, align 4
-  %93 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %91, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %92, ptr noundef nonnull %28) #4
+  %93 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %91, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %92, ptr noundef nonnull %28) #4
   %94 = load i32, ptr @hf_fileexp_accesstime_msec, align 4
-  %95 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %93, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %94, ptr noundef nonnull %29) #4
+  %95 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %93, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %94, ptr noundef nonnull %29) #4
   %96 = load i32, ptr @hf_fileexp_servermodtime_sec, align 4
-  %97 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %95, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %96, ptr noundef nonnull %31) #4
+  %97 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %95, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %96, ptr noundef nonnull %31) #4
   %98 = load i32, ptr @hf_fileexp_servermodtime_msec, align 4
-  %99 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %97, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %98, ptr noundef nonnull %30) #4
+  %99 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %97, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %98, ptr noundef nonnull %30) #4
   %100 = load i32, ptr @hf_fileexp_typeuuid, align 4
-  %101 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %99, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %100, ptr noundef nonnull %43) #4
+  %101 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %99, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %100, ptr noundef nonnull %43) #4
   %102 = load i32, ptr @hf_fileexp_objectuuid, align 4
-  %103 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %101, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %102, ptr noundef nonnull %44) #4
+  %103 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %101, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %102, ptr noundef nonnull %44) #4
   %104 = load i32, ptr @hf_fileexp_devicenumber, align 4
-  %105 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %103, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %104, ptr noundef nonnull %32) #4
+  %105 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %103, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %104, ptr noundef nonnull %32) #4
   %106 = load i32, ptr @hf_fileexp_blocksused, align 4
-  %107 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %105, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %106, ptr noundef nonnull %33) #4
+  %107 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %105, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %106, ptr noundef nonnull %33) #4
   %108 = load i32, ptr @hf_fileexp_clientspare1, align 4
-  %109 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %107, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %108, ptr noundef nonnull %34) #4
+  %109 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %107, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %108, ptr noundef nonnull %34) #4
   %110 = load i32, ptr @hf_fileexp_devicenumberhighbits, align 4
-  %111 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %109, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %110, ptr noundef nonnull %35) #4
+  %111 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %109, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %110, ptr noundef nonnull %35) #4
   %112 = load i32, ptr @hf_fileexp_agtypeunique, align 4
-  %113 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %111, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %112, ptr noundef nonnull %36) #4
+  %113 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %112, ptr noundef nonnull %36) #4
   %114 = load i32, ptr @hf_fileexp_himaxspare, align 4
-  %115 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %113, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %114, ptr noundef nonnull %37) #4
+  %115 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %113, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %114, ptr noundef nonnull %37) #4
   %116 = load i32, ptr @hf_fileexp_lomaxspare, align 4
-  %117 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %115, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %116, ptr noundef nonnull %38) #4
+  %117 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %115, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %116, ptr noundef nonnull %38) #4
   %118 = load i32, ptr @hf_fileexp_pathconfspare, align 4
-  %119 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %117, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %118, ptr noundef nonnull %39) #4
+  %119 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %117, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %118, ptr noundef nonnull %39) #4
   %120 = load i32, ptr @hf_fileexp_spare4, align 4
-  %121 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %119, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %120, ptr noundef nonnull %40) #4
+  %121 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %119, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %120, ptr noundef nonnull %40) #4
   %122 = load i32, ptr @hf_fileexp_spare5, align 4
-  %123 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %121, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %122, ptr noundef nonnull %41) #4
+  %123 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %121, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %122, ptr noundef nonnull %41) #4
   %124 = load i32, ptr @hf_fileexp_spare6, align 4
-  %125 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %123, ptr noundef %2, ptr noundef %.0233, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %124, ptr noundef nonnull %42) #4
+  %125 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %123, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %124, ptr noundef nonnull %42) #4
   %126 = getelementptr inbounds i8, ptr %2, i64 8
   %127 = load ptr, ptr %126, align 8
   %128 = load i32, ptr %8, align 4
@@ -3061,8 +3061,8 @@ define internal i32 @dissect_fetchstatus(ptr noundef %0, i32 noundef %1, ptr nou
   br label %153
 
 153:                                              ; preds = %6, %51
-  %.0 = phi i32 [ %125, %51 ], [ %1, %6 ]
-  ret i32 %.0
+  %.0233 = phi i32 [ %125, %51 ], [ %1, %6 ]
+  ret i32 %.0233
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3093,25 +3093,25 @@ define internal i32 @dissect_afstoken(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %23
 
 23:                                               ; preds = %20, %19
-  %.0102 = phi ptr [ %22, %20 ], [ null, %19 ]
+  %.0 = phi ptr [ %22, %20 ], [ null, %19 ]
   %24 = load i32, ptr @hf_fileexp_tokenid_hi, align 4
-  %25 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0102, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %8) #4
+  %25 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %8) #4
   %26 = load i32, ptr @hf_fileexp_tokenid_low, align 4
-  %27 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.0102, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %9) #4
+  %27 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %9) #4
   %28 = load i32, ptr @hf_fileexp_expirationtime, align 4
-  %29 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.0102, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, ptr noundef nonnull %10) #4
+  %29 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, ptr noundef nonnull %10) #4
   %30 = load i32, ptr @hf_fileexp_type_hi, align 4
-  %31 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.0102, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, ptr noundef nonnull %11) #4
+  %31 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, ptr noundef nonnull %11) #4
   %32 = load i32, ptr @hf_fileexp_type_low, align 4
-  %33 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.0102, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, ptr noundef nonnull %12) #4
+  %33 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, ptr noundef nonnull %12) #4
   %34 = load i32, ptr @hf_fileexp_beginrange, align 4
-  %35 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0102, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, ptr noundef nonnull %13) #4
+  %35 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, ptr noundef nonnull %13) #4
   %36 = load i32, ptr @hf_fileexp_endrange, align 4
-  %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0102, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %14) #4
+  %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %14) #4
   %38 = load i32, ptr @hf_fileexp_beginrangeext, align 4
-  %39 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0102, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, ptr noundef nonnull %15) #4
+  %39 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, ptr noundef nonnull %15) #4
   %40 = load i32, ptr @hf_fileexp_endrangeext, align 4
-  %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0102, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, ptr noundef nonnull %16) #4
+  %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, ptr noundef nonnull %16) #4
   %42 = getelementptr inbounds i8, ptr %2, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %8, align 4
@@ -3311,8 +3311,8 @@ define internal i32 @dissect_afstoken(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %127
 
 127:                                              ; preds = %6, %124
-  %.0 = phi i32 [ %41, %124 ], [ %1, %6 ]
-  ret i32 %.0
+  %.0102 = phi i32 [ %41, %124 ], [ %1, %6 ]
+  ret i32 %.0102
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3342,23 +3342,23 @@ define internal i32 @dissect_volsync(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %22
 
 22:                                               ; preds = %19, %18
-  %.059 = phi ptr [ %21, %19 ], [ null, %18 ]
+  %.0 = phi ptr [ %21, %19 ], [ null, %18 ]
   %23 = load i32, ptr @hf_fileexp_volid_hi, align 4
-  %24 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %8) #4
+  %24 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %8) #4
   %25 = load i32, ptr @hf_fileexp_volid_low, align 4
-  %26 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef nonnull %9) #4
+  %26 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef nonnull %9) #4
   %27 = load i32, ptr @hf_fileexp_vv_hi, align 4
-  %28 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef nonnull %10) #4
+  %28 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef nonnull %10) #4
   %29 = load i32, ptr @hf_fileexp_vv_low, align 4
-  %30 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef nonnull %11) #4
+  %30 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef nonnull %11) #4
   %31 = load i32, ptr @hf_fileexp_vvage, align 4
-  %32 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, ptr noundef nonnull %12) #4
+  %32 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, ptr noundef nonnull %12) #4
   %33 = load i32, ptr @hf_fileexp_vvpingage, align 4
-  %34 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %13) #4
+  %34 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %13) #4
   %35 = load i32, ptr @hf_fileexp_vvspare1, align 4
-  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %14) #4
+  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %14) #4
   %37 = load i32, ptr @hf_fileexp_vvspare2, align 4
-  %38 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef nonnull %15) #4
+  %38 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef nonnull %15) #4
   %39 = getelementptr inbounds i8, ptr %2, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %8, align 4
@@ -3376,8 +3376,8 @@ define internal i32 @dissect_volsync(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %51
 
 51:                                               ; preds = %6, %22
-  %.0 = phi i32 [ %38, %22 ], [ %1, %6 ]
-  ret i32 %.0
+  %.059 = phi i32 [ %38, %22 ], [ %1, %6 ]
+  ret i32 %.059
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3531,59 +3531,59 @@ define internal i32 @dissect_afsstorestatus(ptr noundef %0, i32 noundef %1, ptr 
   br label %40
 
 40:                                               ; preds = %37, %36
-  %.0179 = phi ptr [ %39, %37 ], [ null, %36 ]
+  %.0 = phi ptr [ %39, %37 ], [ null, %36 ]
   %41 = load i32, ptr @hf_fileexp_storestatus_mask, align 4
-  %42 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, ptr noundef nonnull %8) #4
+  %42 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, ptr noundef nonnull %8) #4
   %43 = load i32, ptr @hf_fileexp_storestatus_modtime_sec, align 4
-  %44 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, ptr noundef nonnull %9) #4
+  %44 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, ptr noundef nonnull %9) #4
   %45 = load i32, ptr @hf_fileexp_storestatus_modtime_usec, align 4
-  %46 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, ptr noundef nonnull %32) #4
+  %46 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, ptr noundef nonnull %32) #4
   %47 = load i32, ptr @hf_fileexp_storestatus_accesstime_sec, align 4
-  %48 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %47, ptr noundef nonnull %11) #4
+  %48 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %47, ptr noundef nonnull %11) #4
   %49 = load i32, ptr @hf_fileexp_storestatus_accesstime_usec, align 4
-  %50 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %49, ptr noundef nonnull %21) #4
+  %50 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %49, ptr noundef nonnull %21) #4
   %51 = load i32, ptr @hf_fileexp_storestatus_changetime_sec, align 4
-  %52 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %50, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %51, ptr noundef nonnull %10) #4
+  %52 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %50, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %51, ptr noundef nonnull %10) #4
   %53 = load i32, ptr @hf_fileexp_storestatus_changetime_usec, align 4
-  %54 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %52, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %53, ptr noundef nonnull %22) #4
+  %54 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %52, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %53, ptr noundef nonnull %22) #4
   %55 = load i32, ptr @hf_fileexp_storestatus_owner, align 4
-  %56 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %54, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %55, ptr noundef nonnull %23) #4
+  %56 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %54, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %55, ptr noundef nonnull %23) #4
   %57 = load i32, ptr @hf_fileexp_storestatus_group, align 4
-  %58 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %56, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %57, ptr noundef nonnull %24) #4
+  %58 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %56, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %57, ptr noundef nonnull %24) #4
   %59 = load i32, ptr @hf_fileexp_storestatus_mode, align 4
-  %60 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %58, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %59, ptr noundef nonnull %25) #4
+  %60 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %58, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %59, ptr noundef nonnull %25) #4
   %61 = load i32, ptr @hf_fileexp_storestatus_trunc_high, align 4
-  %62 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %60, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %61, ptr noundef nonnull %26) #4
+  %62 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %60, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %61, ptr noundef nonnull %26) #4
   %63 = load i32, ptr @hf_fileexp_storestatus_trunc_low, align 4
-  %64 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %62, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %63, ptr noundef nonnull %27) #4
+  %64 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %62, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %63, ptr noundef nonnull %27) #4
   %65 = load i32, ptr @hf_fileexp_storestatus_length_high, align 4
-  %66 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %64, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %65, ptr noundef nonnull %28) #4
+  %66 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %64, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %65, ptr noundef nonnull %28) #4
   %67 = load i32, ptr @hf_fileexp_storestatus_length_low, align 4
-  %68 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %66, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %67, ptr noundef nonnull %29) #4
+  %68 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %66, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %67, ptr noundef nonnull %29) #4
   %69 = load i32, ptr @hf_fileexp_storestatus_typeuuid, align 4
-  %70 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %68, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %69, ptr noundef nonnull %33) #4
+  %70 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %68, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %69, ptr noundef nonnull %33) #4
   %71 = load i32, ptr @hf_fileexp_storestatus_devicetype, align 4
-  %72 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %70, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %71, ptr noundef nonnull %30) #4
+  %72 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %70, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %71, ptr noundef nonnull %30) #4
   %73 = load i32, ptr @hf_fileexp_storestatus_devicenumber, align 4
-  %74 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %72, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %73, ptr noundef nonnull %12) #4
+  %74 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %72, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %73, ptr noundef nonnull %12) #4
   %75 = load i32, ptr @hf_fileexp_storestatus_cmask, align 4
-  %76 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %74, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %75, ptr noundef nonnull %31) #4
+  %76 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %74, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %75, ptr noundef nonnull %31) #4
   %77 = load i32, ptr @hf_fileexp_storestatus_clientspare1, align 4
-  %78 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %76, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %77, ptr noundef nonnull %13) #4
+  %78 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %76, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %77, ptr noundef nonnull %13) #4
   %79 = load i32, ptr @hf_fileexp_storestatus_devicenumberhighbits, align 4
-  %80 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %78, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %79, ptr noundef nonnull %14) #4
+  %80 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %78, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %79, ptr noundef nonnull %14) #4
   %81 = load i32, ptr @hf_fileexp_storestatus_spare1, align 4
-  %82 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %80, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %81, ptr noundef nonnull %15) #4
+  %82 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %80, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %81, ptr noundef nonnull %15) #4
   %83 = load i32, ptr @hf_fileexp_storestatus_spare2, align 4
-  %84 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %82, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %83, ptr noundef nonnull %16) #4
+  %84 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %82, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %83, ptr noundef nonnull %16) #4
   %85 = load i32, ptr @hf_fileexp_storestatus_spare3, align 4
-  %86 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %84, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %85, ptr noundef nonnull %17) #4
+  %86 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %84, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %85, ptr noundef nonnull %17) #4
   %87 = load i32, ptr @hf_fileexp_storestatus_spare4, align 4
-  %88 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %86, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %87, ptr noundef nonnull %18) #4
+  %88 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %86, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %87, ptr noundef nonnull %18) #4
   %89 = load i32, ptr @hf_fileexp_storestatus_spare5, align 4
-  %90 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %88, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %89, ptr noundef nonnull %19) #4
+  %90 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %88, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %89, ptr noundef nonnull %19) #4
   %91 = load i32, ptr @hf_fileexp_storestatus_spare6, align 4
-  %92 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %90, ptr noundef %2, ptr noundef %.0179, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %91, ptr noundef nonnull %20) #4
+  %92 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %90, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %91, ptr noundef nonnull %20) #4
   %93 = getelementptr inbounds i8, ptr %2, i64 8
   %94 = load ptr, ptr %93, align 8
   call void @col_append_str(ptr noundef %94, i32 noundef 25, ptr noundef nonnull @.str.422) #4
@@ -3745,8 +3745,8 @@ define internal i32 @dissect_afsstorestatus(ptr noundef %0, i32 noundef %1, ptr 
   br label %166
 
 166:                                              ; preds = %6, %163
-  %.0 = phi i32 [ %92, %163 ], [ %1, %6 ]
-  ret i32 %.0
+  %.0179 = phi i32 [ %92, %163 ], [ %1, %6 ]
+  ret i32 %.0179
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3768,17 +3768,17 @@ define internal i32 @dissect_afsfidtaggedname(ptr noundef %0, i32 noundef %1, pt
   br label %14
 
 14:                                               ; preds = %11, %10
-  %.022 = phi ptr [ %13, %11 ], [ null, %10 ]
-  %15 = call i32 @dissect_afsFid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.022, ptr noundef nonnull %4, ptr noundef %5)
-  %16 = call i32 @dissect_afstaggedname(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %.022, ptr noundef nonnull %4, ptr noundef %5)
+  %.0 = phi ptr [ %13, %11 ], [ null, %10 ]
+  %15 = call i32 @dissect_afsFid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5)
+  %16 = call i32 @dissect_afstaggedname(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5)
   %17 = load ptr, ptr %7, align 8
   %18 = sub i32 %16, %1
   call void @proto_item_set_len(ptr noundef %17, i32 noundef %18) #4
   br label %19
 
 19:                                               ; preds = %6, %14
-  %.0 = phi i32 [ %16, %14 ], [ %1, %6 ]
-  ret i32 %.0
+  %.022 = phi i32 [ %16, %14 ], [ %1, %6 ]
+  ret i32 %.022
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3802,11 +3802,11 @@ define internal i32 @dissect_returntokenidp(ptr noundef %0, i32 noundef %1, ptr 
   br label %16
 
 16:                                               ; preds = %13, %12
-  %.023 = phi ptr [ %15, %13 ], [ null, %12 ]
+  %.0 = phi ptr [ %15, %13 ], [ null, %12 ]
   %17 = load i32, ptr @hf_fileexp_returntokenidp_high, align 4
-  %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %8) #4
+  %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %8) #4
   %19 = load i32, ptr @hf_fileexp_returntokenidp_low, align 4
-  %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %9) #4
+  %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %9) #4
   %21 = getelementptr inbounds i8, ptr %2, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %8, align 4
@@ -3818,8 +3818,8 @@ define internal i32 @dissect_returntokenidp(ptr noundef %0, i32 noundef %1, ptr 
   br label %27
 
 27:                                               ; preds = %6, %16
-  %.0 = phi i32 [ %20, %16 ], [ %1, %6 ]
-  ret i32 %.0
+  %.023 = phi i32 [ %20, %16 ], [ %1, %6 ]
+  ret i32 %.023
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3843,11 +3843,11 @@ define internal i32 @dissect_afstaggedname(ptr noundef %0, i32 noundef %1, ptr n
   br label %16
 
 16:                                               ; preds = %13, %12
-  %.033 = phi ptr [ %15, %13 ], [ null, %12 ]
+  %.032 = phi ptr [ %15, %13 ], [ null, %12 ]
   %17 = load i32, ptr @hf_fileexp_tn_tag, align 4
-  %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.033, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %8) #4
+  %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.032, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %8) #4
   %19 = load i32, ptr @hf_fileexp_tn_length, align 4
-  %20 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.033, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %9) #4
+  %20 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.032, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %9) #4
   %21 = load i16, ptr %9, align 2
   %22 = zext i16 %21 to i32
   %23 = icmp ult i16 %21, 254
@@ -3855,7 +3855,7 @@ define internal i32 @dissect_afstaggedname(ptr noundef %0, i32 noundef %1, ptr n
 
 24:                                               ; preds = %16
   %25 = load i32, ptr @hf_fileexp_tn_string, align 4
-  %26 = call ptr @proto_tree_add_item(ptr noundef %.033, i32 noundef %25, ptr noundef %0, i32 noundef %20, i32 noundef %22, i32 noundef 0) #4
+  %26 = call ptr @proto_tree_add_item(ptr noundef %.032, i32 noundef %25, ptr noundef %0, i32 noundef %20, i32 noundef %22, i32 noundef 0) #4
   %27 = getelementptr inbounds i8, ptr %2, i64 408
   %28 = load ptr, ptr %27, align 8
   %29 = call ptr @tvb_get_string_enc(ptr noundef %28, ptr noundef %0, i32 noundef %20, i32 noundef 257, i32 noundef 0) #4
@@ -3872,14 +3872,14 @@ define internal i32 @dissect_afstaggedname(ptr noundef %0, i32 noundef %1, ptr n
   br label %36
 
 36:                                               ; preds = %33, %24
-  %.032 = phi i32 [ %30, %24 ], [ %20, %33 ]
+  %.033 = phi i32 [ %30, %24 ], [ %20, %33 ]
   %37 = load ptr, ptr %7, align 8
-  %38 = sub i32 %.032, %1
+  %38 = sub i32 %.033, %1
   call void @proto_item_set_len(ptr noundef %37, i32 noundef %38) #4
   br label %39
 
 39:                                               ; preds = %6, %36
-  %.0 = phi i32 [ %.032, %36 ], [ %1, %6 ]
+  %.0 = phi i32 [ %.033, %36 ], [ %1, %6 ]
   ret i32 %.0
 }
 
@@ -3955,11 +3955,11 @@ define internal i32 @dissect_offsetp(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %16
 
 16:                                               ; preds = %13, %12
-  %.023 = phi ptr [ %15, %13 ], [ null, %12 ]
+  %.0 = phi ptr [ %15, %13 ], [ null, %12 ]
   %17 = load i32, ptr @hf_fileexp_offsetp_high, align 4
-  %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %8) #4
+  %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %8) #4
   %19 = load i32, ptr @hf_fileexp_offsetp_low, align 4
-  %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %9) #4
+  %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %9) #4
   %21 = getelementptr inbounds i8, ptr %2, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %8, align 4
@@ -3971,8 +3971,8 @@ define internal i32 @dissect_offsetp(ptr noundef %0, i32 noundef %1, ptr noundef
   br label %27
 
 27:                                               ; preds = %6, %16
-  %.0 = phi i32 [ %20, %16 ], [ %1, %6 ]
-  ret i32 %.0
+  %.023 = phi i32 [ %20, %16 ], [ %1, %6 ]
+  ret i32 %.023
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4003,33 +4003,33 @@ define internal i32 @dissect_afsRecordLock(ptr noundef %0, i32 noundef %1, ptr n
   br label %23
 
 23:                                               ; preds = %20, %19
-  %.064 = phi ptr [ %22, %20 ], [ null, %19 ]
+  %.0 = phi ptr [ %22, %20 ], [ null, %19 ]
   %24 = load i32, ptr @hf_fileexp_l_type, align 4
-  %25 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.064, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %8) #4
+  %25 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %8) #4
   %26 = load i32, ptr @hf_fileexp_l_whence, align 4
-  %27 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.064, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %9) #4
+  %27 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %9) #4
   %28 = load i32, ptr @hf_fileexp_l_start_pos, align 4
-  %29 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.064, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, ptr noundef nonnull %10) #4
+  %29 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, ptr noundef nonnull %10) #4
   %30 = load i32, ptr @hf_fileexp_l_end_pos, align 4
-  %31 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.064, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, ptr noundef nonnull %11) #4
+  %31 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, ptr noundef nonnull %11) #4
   %32 = load i32, ptr @hf_fileexp_l_pid, align 4
-  %33 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.064, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, ptr noundef nonnull %12) #4
+  %33 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, ptr noundef nonnull %12) #4
   %34 = load i32, ptr @hf_fileexp_l_sysid, align 4
-  %35 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.064, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, ptr noundef nonnull %13) #4
+  %35 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, ptr noundef nonnull %13) #4
   %36 = load i32, ptr @hf_fileexp_l_fstype, align 4
-  %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.064, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %14) #4
+  %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %14) #4
   %38 = load i32, ptr @hf_fileexp_l_start_pos_ext, align 4
-  %39 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.064, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, ptr noundef nonnull %15) #4
+  %39 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, ptr noundef nonnull %15) #4
   %40 = load i32, ptr @hf_fileexp_l_end_pos_ext, align 4
-  %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.064, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, ptr noundef nonnull %16) #4
+  %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, ptr noundef nonnull %16) #4
   %42 = load ptr, ptr %7, align 8
   %43 = sub i32 %41, %1
   call void @proto_item_set_len(ptr noundef %42, i32 noundef %43) #4
   br label %44
 
 44:                                               ; preds = %6, %23
-  %.0 = phi i32 [ %41, %23 ], [ %1, %6 ]
-  ret i32 %.0
+  %.064 = phi i32 [ %41, %23 ], [ %1, %6 ]
+  ret i32 %.064
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4111,16 +4111,16 @@ define internal i32 @dissect_afsReturnDesc(ptr noundef %0, i32 noundef %1, ptr n
   br label %18
 
 18:                                               ; preds = %15, %14
-  %.047 = phi ptr [ %17, %15 ], [ null, %14 ]
-  %19 = call i32 @dissect_afsFid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5)
+  %.0 = phi ptr [ %17, %15 ], [ null, %14 ]
+  %19 = call i32 @dissect_afsFid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5)
   %20 = load i32, ptr @hf_fileexp_afsreturndesc_tokenid_high, align 4
-  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %8) #4
+  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %8) #4
   %22 = load i32, ptr @hf_fileexp_afsreturndesc_tokenid_low, align 4
-  %23 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %9) #4
+  %23 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %9) #4
   %24 = load i32, ptr @hf_fileexp_afsreturndesc_type_high, align 4
-  %25 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %10) #4
+  %25 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %10) #4
   %26 = load i32, ptr @hf_fileexp_afsreturndesc_type_low, align 4
-  %27 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %11) #4
+  %27 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, ptr noundef nonnull %11) #4
   %28 = getelementptr inbounds i8, ptr %2, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %8, align 4
@@ -4128,15 +4128,15 @@ define internal i32 @dissect_afsReturnDesc(ptr noundef %0, i32 noundef %1, ptr n
   %32 = load i32, ptr %10, align 4
   %33 = load i32, ptr %11, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.474, i32 noundef %30, i32 noundef %31, i32 noundef %32, i32 noundef %33) #4
-  %34 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dissect_afsFlags, i32 noundef 1, ptr noundef nonnull @.str.472, i32 noundef -1) #4
+  %34 = call i32 @dissect_ndr_pointer(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dissect_afsFlags, i32 noundef 1, ptr noundef nonnull @.str.472, i32 noundef -1) #4
   %35 = load ptr, ptr %7, align 8
   %36 = sub i32 %34, %1
   call void @proto_item_set_len(ptr noundef %35, i32 noundef %36) #4
   br label %37
 
 37:                                               ; preds = %6, %18
-  %.0 = phi i32 [ %34, %18 ], [ %1, %6 ]
-  ret i32 %.0
+  %.047 = phi i32 [ %34, %18 ], [ %1, %6 ]
+  ret i32 %.047
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4160,68 +4160,68 @@ define internal i32 @dissect_afsConnParams(ptr noundef %0, i32 noundef %1, ptr n
   br label %16
 
 16:                                               ; preds = %13, %12
-  %.0149 = phi ptr [ %15, %13 ], [ null, %12 ]
+  %.0 = phi ptr [ %15, %13 ], [ null, %12 ]
   %17 = load i32, ptr @hf_afsconnparams_mask, align 4
-  %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0149, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %8) #4
+  %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %8) #4
   %19 = load i32, ptr @hf_afsconnparams_values, align 4
-  %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.0149, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %9) #4
+  %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %9) #4
   %21 = load i32, ptr @hf_afsconnparams_values, align 4
   %22 = getelementptr inbounds i8, ptr %9, i64 4
-  %23 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0149, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %22) #4
+  %23 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %22) #4
   %24 = load i32, ptr @hf_afsconnparams_values, align 4
   %25 = getelementptr inbounds i8, ptr %9, i64 8
-  %26 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0149, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %25) #4
+  %26 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %25) #4
   %27 = load i32, ptr @hf_afsconnparams_values, align 4
   %28 = getelementptr inbounds i8, ptr %9, i64 12
-  %29 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0149, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef nonnull %28) #4
+  %29 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef nonnull %28) #4
   %30 = load i32, ptr @hf_afsconnparams_values, align 4
   %31 = getelementptr inbounds i8, ptr %9, i64 16
-  %32 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.0149, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, ptr noundef nonnull %31) #4
+  %32 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, ptr noundef nonnull %31) #4
   %33 = load i32, ptr @hf_afsconnparams_values, align 4
   %34 = getelementptr inbounds i8, ptr %9, i64 20
-  %35 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0149, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %34) #4
+  %35 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %34) #4
   %36 = load i32, ptr @hf_afsconnparams_values, align 4
   %37 = getelementptr inbounds i8, ptr %9, i64 24
-  %38 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0149, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %37) #4
+  %38 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %37) #4
   %39 = load i32, ptr @hf_afsconnparams_values, align 4
   %40 = getelementptr inbounds i8, ptr %9, i64 28
-  %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0149, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef nonnull %40) #4
+  %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef nonnull %40) #4
   %42 = load i32, ptr @hf_afsconnparams_values, align 4
   %43 = getelementptr inbounds i8, ptr %9, i64 32
-  %44 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0149, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, ptr noundef nonnull %43) #4
+  %44 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, ptr noundef nonnull %43) #4
   %45 = load i32, ptr @hf_afsconnparams_values, align 4
   %46 = getelementptr inbounds i8, ptr %9, i64 36
-  %47 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0149, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, ptr noundef nonnull %46) #4
+  %47 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, ptr noundef nonnull %46) #4
   %48 = load i32, ptr @hf_afsconnparams_values, align 4
   %49 = getelementptr inbounds i8, ptr %9, i64 40
-  %50 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0149, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %48, ptr noundef nonnull %49) #4
+  %50 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %48, ptr noundef nonnull %49) #4
   %51 = load i32, ptr @hf_afsconnparams_values, align 4
   %52 = getelementptr inbounds i8, ptr %9, i64 44
-  %53 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %50, ptr noundef %2, ptr noundef %.0149, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %51, ptr noundef nonnull %52) #4
+  %53 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %50, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %51, ptr noundef nonnull %52) #4
   %54 = load i32, ptr @hf_afsconnparams_values, align 4
   %55 = getelementptr inbounds i8, ptr %9, i64 48
-  %56 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0149, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, ptr noundef nonnull %55) #4
+  %56 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, ptr noundef nonnull %55) #4
   %57 = load i32, ptr @hf_afsconnparams_values, align 4
   %58 = getelementptr inbounds i8, ptr %9, i64 52
-  %59 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %56, ptr noundef %2, ptr noundef %.0149, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %57, ptr noundef nonnull %58) #4
+  %59 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %56, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %57, ptr noundef nonnull %58) #4
   %60 = load i32, ptr @hf_afsconnparams_values, align 4
   %61 = getelementptr inbounds i8, ptr %9, i64 56
-  %62 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.0149, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, ptr noundef nonnull %61) #4
+  %62 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, ptr noundef nonnull %61) #4
   %63 = load i32, ptr @hf_afsconnparams_values, align 4
   %64 = getelementptr inbounds i8, ptr %9, i64 60
-  %65 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %62, ptr noundef %2, ptr noundef %.0149, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %63, ptr noundef nonnull %64) #4
+  %65 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %62, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %63, ptr noundef nonnull %64) #4
   %66 = load i32, ptr @hf_afsconnparams_values, align 4
   %67 = getelementptr inbounds i8, ptr %9, i64 64
-  %68 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.0149, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %66, ptr noundef nonnull %67) #4
+  %68 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %66, ptr noundef nonnull %67) #4
   %69 = load i32, ptr @hf_afsconnparams_values, align 4
   %70 = getelementptr inbounds i8, ptr %9, i64 68
-  %71 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %68, ptr noundef %2, ptr noundef %.0149, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %69, ptr noundef nonnull %70) #4
+  %71 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %68, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %69, ptr noundef nonnull %70) #4
   %72 = load i32, ptr @hf_afsconnparams_values, align 4
   %73 = getelementptr inbounds i8, ptr %9, i64 72
-  %74 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %71, ptr noundef %2, ptr noundef %.0149, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %72, ptr noundef nonnull %73) #4
+  %74 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %71, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %72, ptr noundef nonnull %73) #4
   %75 = load i32, ptr @hf_afsconnparams_values, align 4
   %76 = getelementptr inbounds i8, ptr %9, i64 76
-  %77 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %74, ptr noundef %2, ptr noundef %.0149, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %75, ptr noundef nonnull %76) #4
+  %77 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %74, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %75, ptr noundef nonnull %76) #4
   %78 = getelementptr inbounds i8, ptr %2, i64 8
   %79 = load ptr, ptr %78, align 8
   call void @col_append_str(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.486) #4
@@ -4384,8 +4384,8 @@ define internal i32 @dissect_afsConnParams(ptr noundef %0, i32 noundef %1, ptr n
   br label %163
 
 163:                                              ; preds = %6, %139
-  %.0 = phi i32 [ %77, %139 ], [ %1, %6 ]
-  ret i32 %.0
+  %.0149 = phi i32 [ %77, %139 ], [ %1, %6 ]
+  ret i32 %.0149
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

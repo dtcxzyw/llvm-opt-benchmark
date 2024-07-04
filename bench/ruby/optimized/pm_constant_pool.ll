@@ -204,8 +204,8 @@ define hidden range(i32 0, 1073741824) i32 @pm_constant_pool_find(ptr nocapture 
 pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i, %3
   %.07.lcssa.i = phi i32 [ 5381, %3 ], [ %11, %.lr.ph.i ]
   %13 = load ptr, ptr %0, align 8
-  %.01822 = and i32 %.07.lcssa.i, %6
-  %14 = zext i32 %.01822 to i64
+  %.022 = and i32 %.07.lcssa.i, %6
+  %14 = zext i32 %.022 to i64
   %15 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 1073741823
@@ -219,7 +219,7 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i, %3
 
 20:                                               ; preds = %.lr.ph, %31
   %21 = phi i32 [ %17, %.lr.ph ], [ %36, %31 ]
-  %.01824 = phi i32 [ %.01822, %.lr.ph ], [ %.018, %31 ]
+  %.024 = phi i32 [ %.022, %.lr.ph ], [ %.0, %31 ]
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr %struct.pm_constant_t, ptr %19, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -8
@@ -235,9 +235,9 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i, %3
   br i1 %30, label %._crit_edge, label %31
 
 31:                                               ; preds = %27, %20
-  %32 = add i32 %.01824, 1
-  %.018 = and i32 %32, %6
-  %33 = zext i32 %.018 to i64
+  %32 = add i32 %.024, 1
+  %.0 = and i32 %32, %6
+  %33 = zext i32 %.0 to i64
   %34 = getelementptr %struct.pm_constant_pool_bucket_t, ptr %13, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 1073741823

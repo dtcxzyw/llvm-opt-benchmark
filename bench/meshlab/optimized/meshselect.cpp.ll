@@ -10560,8 +10560,8 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %.lr.ph906
   %426 = shufflevector <2 x float> %425, <2 x float> poison, <2 x i32> zeroinitializer
   %427 = fdiv <2 x float> %417, %426
   %428 = fdiv float %418, %sqrt.i
-  %.sroa.0760.0 = select i1 %424, <2 x float> %427, <2 x float> %417
   %.sroa.7.0 = select i1 %424, float %428, float %418
+  %.sroa.0760.0 = select i1 %424, <2 x float> %427, <2 x float> %417
   %429 = getelementptr inbounds i8, ptr %.sroa.0770.0905, i64 36
   %430 = load <2 x float>, ptr %429, align 4
   %431 = fmul <2 x float> %430, %430
@@ -23653,7 +23653,7 @@ _ZN5Eigen14JacobiRotationIfE10makeGivensERKfS3_Pf.exit.i: ; preds = %104, %93, %
 157:                                              ; preds = %156
   %158 = fcmp une float %141, 1.000000e+00
   %159 = fcmp une float %123, 0.000000e+00
-  %or.cond.not18.i.i.i = or i1 %158, %159
+  %or.cond.not18.i.i.i = or i1 %159, %158
   br i1 %or.cond.not18.i.i.i, label %.lr.ph.i.i.preheader.i.i, label %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE15applyOnTheRightIfEEvllRKNS_14JacobiRotationIT_EE.exit.i
 
 .lr.ph.i.i.preheader.i.i:                         ; preds = %157
@@ -27040,15 +27040,15 @@ _ZN3vcg4Box3IfE9IntersectERKS1_.exit:             ; preds = %105
 
 .lr.ph88:                                         ; preds = %.lr.ph88.preheader, %._crit_edge89.split
   %.pre.pre = phi ptr [ %185, %._crit_edge89.split ], [ %.pre.pre.pre, %.lr.ph88.preheader ]
-  %.03391 = phi i32 [ %188, %._crit_edge89.split ], [ %148, %.lr.ph88.preheader ]
+  %.03291 = phi i32 [ %188, %._crit_edge89.split ], [ %148, %.lr.ph88.preheader ]
   %152 = load i32, ptr %19, align 8
-  %153 = mul nsw i32 %152, %.03391
+  %153 = mul nsw i32 %152, %.03291
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph88, %._crit_edge
   %.pre = phi ptr [ %.pre.pre, %.lr.ph88 ], [ %185, %._crit_edge ]
-  %.03286 = phi i32 [ %149, %.lr.ph88 ], [ %187, %._crit_edge ]
-  %154 = add nsw i32 %.03286, %153
+  %.03386 = phi i32 [ %149, %.lr.ph88 ], [ %187, %._crit_edge ]
+  %154 = add nsw i32 %.03386, %153
   %155 = load i32, ptr %8, align 4
   %156 = mul nsw i32 %155, %154
   br label %157
@@ -27139,13 +27139,13 @@ _ZNSt6vectorIN3vcg13GridStaticPtrI6CFaceOfE4LinkESaIS4_EE9push_backEOS4_.exit: ;
   br i1 %exitcond.not, label %._crit_edge, label %157, !llvm.loop !244
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN3vcg13GridStaticPtrI6CFaceOfE4LinkESaIS4_EE9push_backEOS4_.exit
-  %187 = add i32 %.03286, 1
-  %exitcond110.not = icmp eq i32 %.03286, %151
+  %187 = add i32 %.03386, 1
+  %exitcond110.not = icmp eq i32 %.03386, %151
   br i1 %exitcond110.not, label %._crit_edge89.split, label %.lr.ph, !llvm.loop !245
 
 ._crit_edge89.split:                              ; preds = %._crit_edge
-  %188 = add i32 %.03391, 1
-  %exitcond111.not = icmp eq i32 %.03391, %150
+  %188 = add i32 %.03291, 1
+  %exitcond111.not = icmp eq i32 %.03291, %150
   br i1 %exitcond111.not, label %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread, label %.lr.ph88, !llvm.loop !246
 
 _ZNK3vcg4Box3IfE6IsNullEv.exit.thread:            ; preds = %._crit_edge89.split, %_ZN3vcg4Box3IfE9IntersectERKS1_.exit.thread, %113, %_ZN3vcg4Box3IfE9IntersectERKS1_.exit
@@ -28590,8 +28590,8 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:
   %146 = tail call noundef float @llvm.fabs.f32(float %141)
   %147 = tail call noundef float @llvm.fabs.f32(float %144)
   %148 = fcmp ogt float %146, %145
-  %.0239 = select i1 %148, float %146, float %145
-  %149 = fcmp ogt float %147, %.0239
+  %.0244 = select i1 %148, float %146, float %145
+  %149 = fcmp ogt float %147, %.0244
   %150 = zext i1 %148 to i64
   %151 = select i1 %149, i64 2, i64 %150
   %152 = getelementptr inbounds [3 x float], ptr %12, i64 0, i64 %151
@@ -28679,11 +28679,11 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:
   br label %301
 
 213:                                              ; preds = %172, %194, %204, %184, %164
-  %.0244 = phi float [ %170, %164 ], [ %179, %172 ], [ %191, %184 ], [ %201, %194 ], [ %210, %204 ]
-  %.0243 = phi float [ %169, %164 ], [ %178, %172 ], [ %190, %184 ], [ %200, %194 ], [ %209, %204 ]
-  %.0242 = phi float [ %168, %164 ], [ %176, %172 ], [ %188, %184 ], [ %198, %194 ], [ %208, %204 ]
-  %.0241 = phi float [ %166, %164 ], [ %174, %172 ], [ %186, %184 ], [ %196, %194 ], [ %206, %204 ]
-  %.0240 = phi float [ %157, %164 ], [ %155, %172 ], [ %153, %184 ], [ %155, %194 ], [ %157, %204 ]
+  %.0249 = phi float [ %170, %164 ], [ %179, %172 ], [ %191, %184 ], [ %201, %194 ], [ %210, %204 ]
+  %.0248 = phi float [ %169, %164 ], [ %178, %172 ], [ %190, %184 ], [ %200, %194 ], [ %209, %204 ]
+  %.0247 = phi float [ %168, %164 ], [ %176, %172 ], [ %188, %184 ], [ %198, %194 ], [ %208, %204 ]
+  %.0246 = phi float [ %166, %164 ], [ %174, %172 ], [ %186, %184 ], [ %196, %194 ], [ %206, %204 ]
+  %.0245 = phi float [ %157, %164 ], [ %155, %172 ], [ %153, %184 ], [ %155, %194 ], [ %157, %204 ]
   br i1 %87, label %214, label %224
 
 214:                                              ; preds = %213
@@ -28770,20 +28770,20 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:
   br label %301
 
 276:                                              ; preds = %225, %252, %264, %239, %214
-  %.0245 = phi float [ %163, %214 ], [ %161, %225 ], [ %159, %239 ], [ %161, %252 ], [ %163, %264 ]
+  %.0243 = phi float [ %163, %214 ], [ %161, %225 ], [ %159, %239 ], [ %161, %252 ], [ %163, %264 ]
   %277 = phi <2 x float> [ %222, %214 ], [ %232, %225 ], [ %246, %239 ], [ %259, %252 ], [ %272, %264 ]
   %278 = phi <2 x float> [ %223, %214 ], [ %234, %225 ], [ %249, %239 ], [ %261, %252 ], [ %273, %264 ]
-  %279 = fmul float %.0244, %.0243
+  %279 = fmul float %.0249, %.0248
   %shift359 = shufflevector <2 x float> %278, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %280 = fmul <2 x float> %278, %shift359
+  %280 = fmul <2 x float> %shift359, %278
   %281 = extractelement <2 x float> %280, i64 0
   %282 = fmul float %279, %281
-  %283 = fmul float %.0240, %282
-  %284 = fmul float %.0244, %.0241
+  %283 = fmul float %.0245, %282
+  %284 = fmul float %.0249, %.0246
   %285 = tail call float @llvm.fmuladd.f32(float %284, float %281, float %283)
-  %286 = fmul float %.0243, %.0242
+  %286 = fmul float %.0248, %.0247
   %287 = tail call float @llvm.fmuladd.f32(float %286, float %281, float %283)
-  %288 = fmul float %282, %.0245
+  %288 = fmul float %.0243, %282
   %289 = insertelement <2 x float> poison, float %279, i64 0
   %290 = shufflevector <2 x float> %289, <2 x float> poison, <2 x i32> zeroinitializer
   %291 = fmul <2 x float> %290, %277
@@ -30515,7 +30515,7 @@ _ZNSt6vectorIN3vcg6KdTreeIfE4NodeESaIS3_EE6resizeEm.exit._crit_edge: ; preds = %
 238:                                              ; preds = %.thread, %_ZNSt6vectorIN3vcg6KdTreeIfE4NodeESaIS3_EE6resizeEm.exit._crit_edge
   %239 = phi ptr [ %226, %.thread ], [ %237, %_ZNSt6vectorIN3vcg6KdTreeIfE4NodeESaIS3_EE6resizeEm.exit._crit_edge ]
   %240 = phi i32 [ %224, %.thread ], [ %235, %_ZNSt6vectorIN3vcg6KdTreeIfE4NodeESaIS3_EE6resizeEm.exit._crit_edge ]
-  %.077117 = phi i32 [ %219, %.thread ], [ %4, %_ZNSt6vectorIN3vcg6KdTreeIfE4NodeESaIS3_EE6resizeEm.exit._crit_edge ]
+  %.075117 = phi i32 [ %219, %.thread ], [ %4, %_ZNSt6vectorIN3vcg6KdTreeIfE4NodeESaIS3_EE6resizeEm.exit._crit_edge ]
   %241 = sub i32 %3, %177
   %242 = getelementptr inbounds i8, ptr %0, i64 96
   %243 = load i32, ptr %242, align 8
@@ -30529,7 +30529,7 @@ _ZNSt6vectorIN3vcg6KdTreeIfE4NodeESaIS3_EE6resizeEm.exit._crit_edge: ; preds = %
 246:                                              ; preds = %._crit_edge145, %238
   %.pre-phi148 = phi i32 [ %.pre147, %._crit_edge145 ], [ %241, %238 ]
   %247 = phi ptr [ %237, %._crit_edge145 ], [ %239, %238 ]
-  %.077116 = phi i32 [ %4, %._crit_edge145 ], [ %.077117, %238 ]
+  %.075116 = phi i32 [ %4, %._crit_edge145 ], [ %.075117, %238 ]
   %248 = getelementptr inbounds i8, ptr %247, i64 4
   %249 = load i32, ptr %248, align 4
   %250 = or i32 %249, 67108864
@@ -30549,10 +30549,10 @@ _ZNSt6vectorIN3vcg6KdTreeIfE4NodeESaIS3_EE6resizeEm.exit._crit_edge: ; preds = %
   br label %258
 
 258:                                              ; preds = %252, %246
-  %.077115 = phi i32 [ %.077116, %246 ], [ %.077117, %252 ]
-  %.076 = phi i32 [ %4, %246 ], [ %257, %252 ]
-  %.077..076 = tail call i32 @llvm.smax.i32(i32 %.077115, i32 %.076)
-  ret i32 %.077..076
+  %.075115 = phi i32 [ %.075116, %246 ], [ %.075117, %252 ]
+  %.074 = phi i32 [ %4, %246 ], [ %257, %252 ]
+  %.075..074 = tail call i32 @llvm.smax.i32(i32 %.075115, i32 %.074)
+  ret i32 %.075..074
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %109, %108
   resume { ptr, i32 } %lpad.phi
@@ -31560,8 +31560,8 @@ _ZNSt6vectorIN3vcg6KdTreeIfE9QueryNodeESaIS3_EEC2EmRKS4_.exit: ; preds = %_ZNSt1
   br label %37
 
 37:                                               ; preds = %_ZNSt6vectorIN3vcg6KdTreeIfE9QueryNodeESaIS3_EEC2EmRKS4_.exit, %.loopexit
-  %.04460 = phi i32 [ 1, %_ZNSt6vectorIN3vcg6KdTreeIfE9QueryNodeESaIS3_EEC2EmRKS4_.exit ], [ %.1, %.loopexit ]
-  %38 = add i32 %.04460, -1
+  %.04560 = phi i32 [ 1, %_ZNSt6vectorIN3vcg6KdTreeIfE9QueryNodeESaIS3_EEC2EmRKS4_.exit ], [ %.1, %.loopexit ]
+  %38 = add i32 %.04560, -1
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds %"struct.vcg::KdTree<float>::QueryNode", ptr %28, i64 %39
   %41 = load i32, ptr %40, align 4
@@ -31637,17 +31637,17 @@ _ZNSt6vectorIN3vcg6KdTreeIfE9QueryNodeESaIS3_EEC2EmRKS4_.exit: ; preds = %_ZNSt1
 
 .lr.ph41.i:                                       ; preds = %.preheader.i, %105
   %89 = phi i32 [ %110, %105 ], [ %82, %.preheader.i ]
-  %.040.i = phi i32 [ %.1.i, %105 ], [ 1, %.preheader.i ]
-  %.02939.i = phi i32 [ %109, %105 ], [ 2, %.preheader.i ]
+  %.03040.i = phi i32 [ %109, %105 ], [ 2, %.preheader.i ]
+  %.03139.i = phi i32 [ %.1.i, %105 ], [ 1, %.preheader.i ]
   %90 = load ptr, ptr %36, align 8
-  %91 = sext i32 %.02939.i to i64
+  %91 = sext i32 %.03040.i to i64
   %92 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %90, i64 %91
-  %93 = icmp slt i32 %.02939.i, %89
+  %93 = icmp slt i32 %.03040.i, %89
   br i1 %93, label %94, label %102
 
 94:                                               ; preds = %.lr.ph41.i
   %95 = load float, ptr %92, align 4
-  %96 = or disjoint i32 %.02939.i, 1
+  %96 = or disjoint i32 %.03040.i, 1
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %90, i64 %97
   %99 = load float, ptr %98, align 4
@@ -31658,16 +31658,16 @@ _ZNSt6vectorIN3vcg6KdTreeIfE9QueryNodeESaIS3_EEC2EmRKS4_.exit: ; preds = %_ZNSt1
   br label %102
 
 102:                                              ; preds = %101, %94, %.lr.ph41.i
-  %.031.i = phi ptr [ %98, %101 ], [ %92, %94 ], [ %92, %.lr.ph41.i ]
-  %.1.i = phi i32 [ %96, %101 ], [ %.02939.i, %94 ], [ %.02939.i, %.lr.ph41.i ]
-  %103 = load float, ptr %.031.i, align 4
+  %.1.i = phi i32 [ %96, %101 ], [ %.03040.i, %94 ], [ %.03040.i, %.lr.ph41.i ]
+  %.029.i = phi ptr [ %98, %101 ], [ %92, %94 ], [ %92, %.lr.ph41.i ]
+  %103 = load float, ptr %.029.i, align 4
   %104 = fcmp ugt float %103, %81
   br i1 %104, label %105, label %._crit_edge42.loopexit.i
 
 105:                                              ; preds = %102
-  %106 = sext i32 %.040.i to i64
+  %106 = sext i32 %.03139.i to i64
   %107 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %90, i64 %106
-  %108 = load i64, ptr %.031.i, align 4
+  %108 = load i64, ptr %.029.i, align 4
   store i64 %108, ptr %107, align 4
   %109 = shl nsw i32 %.1.i, 1
   %110 = load i32, ptr %5, align 8
@@ -31675,17 +31675,17 @@ _ZNSt6vectorIN3vcg6KdTreeIfE9QueryNodeESaIS3_EEC2EmRKS4_.exit: ; preds = %_ZNSt1
   br i1 %.not.i48, label %._crit_edge42.loopexit.i, label %.lr.ph41.i, !llvm.loop !296
 
 ._crit_edge42.loopexit.i:                         ; preds = %105, %102
-  %.0.lcssa.ph.i = phi i32 [ %.1.i, %105 ], [ %.040.i, %102 ]
-  %111 = sext i32 %.0.lcssa.ph.i to i64
+  %.031.lcssa.ph.i = phi i32 [ %.1.i, %105 ], [ %.03139.i, %102 ]
+  %111 = sext i32 %.031.lcssa.ph.i to i64
   br label %._crit_edge42.i
 
 ._crit_edge42.i:                                  ; preds = %._crit_edge42.loopexit.i, %.preheader.i
-  %.0.lcssa.i = phi i64 [ 1, %.preheader.i ], [ %111, %._crit_edge42.loopexit.i ]
+  %.031.lcssa.i = phi i64 [ 1, %.preheader.i ], [ %111, %._crit_edge42.loopexit.i ]
   %112 = load ptr, ptr %36, align 8
-  %113 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %112, i64 %.0.lcssa.i
+  %113 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %112, i64 %.031.lcssa.i
   store float %81, ptr %113, align 4
   %114 = load ptr, ptr %36, align 8
-  %115 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %114, i64 %.0.lcssa.i, i32 1
+  %115 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %114, i64 %.031.lcssa.i, i32 1
   store i32 %65, ptr %115, align 4
   br label %_ZN3vcg20HeapMaxPriorityQueueIifE6insertEif.exit
 
@@ -31696,8 +31696,8 @@ _ZNSt6vectorIN3vcg6KdTreeIfE9QueryNodeESaIS3_EEC2EmRKS4_.exit: ; preds = %_ZNSt1
   br i1 %118, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %116, %125
-  %.03035.i = phi i32 [ %119, %125 ], [ %117, %116 ]
-  %119 = lshr i32 %.03035.i, 1
+  %.035.i = phi i32 [ %119, %125 ], [ %117, %116 ]
+  %119 = lshr i32 %.035.i, 1
   %120 = load ptr, ptr %36, align 8
   %121 = zext nneg i32 %119 to i64
   %122 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %120, i64 %121
@@ -31706,17 +31706,17 @@ _ZNSt6vectorIN3vcg6KdTreeIfE9QueryNodeESaIS3_EEC2EmRKS4_.exit: ; preds = %_ZNSt1
   br i1 %124, label %125, label %._crit_edge.i
 
 125:                                              ; preds = %.lr.ph.i
-  %126 = zext nneg i32 %.03035.i to i64
+  %126 = zext nneg i32 %.035.i to i64
   %127 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %120, i64 %126
   %128 = load i64, ptr %122, align 4
   store i64 %128, ptr %127, align 4
-  %129 = icmp ugt i32 %.03035.i, 3
+  %129 = icmp ugt i32 %.035.i, 3
   br i1 %129, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !297
 
 ._crit_edge.i:                                    ; preds = %125, %.lr.ph.i, %116
-  %.030.lcssa.i = phi i32 [ %117, %116 ], [ %119, %125 ], [ %.03035.i, %.lr.ph.i ]
+  %.0.lcssa.i = phi i32 [ %117, %116 ], [ %119, %125 ], [ %.035.i, %.lr.ph.i ]
   %130 = load ptr, ptr %36, align 8
-  %131 = sext i32 %.030.lcssa.i to i64
+  %131 = sext i32 %.0.lcssa.i to i64
   %132 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %130, i64 %131, i32 1
   store i32 %65, ptr %132, align 4
   %133 = load ptr, ptr %36, align 8
@@ -31742,7 +31742,7 @@ _ZN3vcg20HeapMaxPriorityQueueIifE6insertEif.exit: ; preds = %85, %._crit_edge42.
   br i1 %143, label %145, label %149
 
 145:                                              ; preds = %135
-  %146 = zext i32 %.04460 to i64
+  %146 = zext i32 %.04560 to i64
   %147 = getelementptr inbounds %"struct.vcg::KdTree<float>::QueryNode", ptr %28, i64 %146
   store i32 %144, ptr %147, align 4
   %148 = add nuw nsw i32 %144, 1
@@ -31750,7 +31750,7 @@ _ZN3vcg20HeapMaxPriorityQueueIifE6insertEif.exit: ; preds = %85, %._crit_edge42.
 
 149:                                              ; preds = %135
   %150 = add nuw nsw i32 %144, 1
-  %151 = zext i32 %.04460 to i64
+  %151 = zext i32 %.04560 to i64
   %152 = getelementptr inbounds %"struct.vcg::KdTree<float>::QueryNode", ptr %28, i64 %151
   store i32 %150, ptr %152, align 4
   br label %153
@@ -31765,7 +31765,7 @@ _ZN3vcg20HeapMaxPriorityQueueIifE6insertEif.exit: ; preds = %85, %._crit_edge42.
   store float %155, ptr %156, align 4
   %157 = fmul float %142, %142
   store float %157, ptr %154, align 4
-  %158 = add i32 %.04460, 1
+  %158 = add i32 %.04560, 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN3vcg20HeapMaxPriorityQueueIifE6insertEif.exit, %57, %47, %153

@@ -8041,15 +8041,15 @@ for.cond.preheader:                               ; preds = %if.end14
   br i1 %cmp2134, label %for.body, label %return
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %sk.036 = phi ptr [ %sk.2, %for.inc ], [ null, %for.cond.preheader ]
-  %i.035 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %call23 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %retval.0.i, i32 noundef %i.035) #24
+  %i.036 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
+  %sk.035 = phi ptr [ %sk.2, %for.inc ], [ null, %for.cond.preheader ]
+  %call23 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %retval.0.i, i32 noundef %i.036) #24
   %call24 = tail call i32 @ssl_cipher_disabled(ptr noundef nonnull %cond112225, ptr noundef %call23, i32 noundef 65537, i32 noundef 0) #24
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %if.then26, label %for.inc
 
 if.then26:                                        ; preds = %for.body
-  %tobool27.not = icmp eq ptr %sk.036, null
+  %tobool27.not = icmp eq ptr %sk.035, null
   br i1 %tobool27.not, label %if.end30, label %if.end33
 
 if.end30:                                         ; preds = %if.then26
@@ -8058,7 +8058,7 @@ if.end30:                                         ; preds = %if.then26
   br i1 %tobool31.not, label %return, label %if.end33
 
 if.end33:                                         ; preds = %if.then26, %if.end30
-  %sk.132 = phi ptr [ %call29, %if.end30 ], [ %sk.036, %if.then26 ]
+  %sk.132 = phi ptr [ %call29, %if.end30 ], [ %sk.035, %if.then26 ]
   %call36 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %sk.132, ptr noundef %call23) #24
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %if.then38, label %for.inc
@@ -8068,8 +8068,8 @@ if.then38:                                        ; preds = %if.end33
   br label %return
 
 for.inc:                                          ; preds = %for.body, %if.end33
-  %sk.2 = phi ptr [ %sk.036, %for.body ], [ %sk.132, %if.end33 ]
-  %inc = add nuw nsw i32 %i.035, 1
+  %sk.2 = phi ptr [ %sk.035, %for.body ], [ %sk.132, %if.end33 ]
+  %inc = add nuw nsw i32 %i.036, 1
   %call20 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %retval.0.i) #24
   %cmp21 = icmp slt i32 %inc, %call20
   br i1 %cmp21, label %for.body, label %return, !llvm.loop !13
@@ -8390,10 +8390,10 @@ for.cond.preheader:                               ; preds = %lor.lhs.false27
   br i1 %cmp3546, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %size.addr.049 = phi i32 [ %size.addr.1, %for.inc ], [ %size, %for.cond.preheader ]
-  %i.048 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %p.047 = phi ptr [ %p.2, %for.inc ], [ %buf, %for.cond.preheader ]
-  %call37 = tail call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef %i.048) #24
+  %i.049 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
+  %p.048 = phi ptr [ %p.2, %for.inc ], [ %buf, %for.cond.preheader ]
+  %size.addr.047 = phi i32 [ %size.addr.1, %for.inc ], [ %size, %for.cond.preheader ]
+  %call37 = tail call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef %i.049) #24
   %call40 = tail call i32 @OPENSSL_sk_find(ptr noundef nonnull %retval.0.i.ph, ptr noundef %call37) #24
   %cmp41 = icmp slt i32 %call40, 0
   br i1 %cmp41, label %for.inc, label %if.end43
@@ -8401,34 +8401,34 @@ for.body:                                         ; preds = %for.cond.preheader,
 if.end43:                                         ; preds = %for.body
   %name = getelementptr inbounds i8, ptr %call37, i64 8
   %8 = load ptr, ptr %name, align 8
-  %conv = sext i32 %size.addr.049 to i64
+  %conv = sext i32 %size.addr.047 to i64
   %call44 = tail call i64 @OPENSSL_strnlen(ptr noundef %8, i64 noundef %conv) #24
   %conv45 = trunc i64 %call44 to i32
-  %cmp46.not = icmp sgt i32 %size.addr.049, %conv45
+  %cmp46.not = icmp sgt i32 %size.addr.047, %conv45
   br i1 %cmp46.not, label %if.end53, label %if.then48
 
 if.then48:                                        ; preds = %if.end43
-  %cmp49.not = icmp ne ptr %p.047, %buf
+  %cmp49.not = icmp ne ptr %p.048, %buf
   %spec.select.idx = sext i1 %cmp49.not to i64
-  %spec.select = getelementptr inbounds i8, ptr %p.047, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds i8, ptr %p.048, i64 %spec.select.idx
   br label %return.sink.split
 
 if.end53:                                         ; preds = %if.end43
   %9 = load ptr, ptr %name, align 8
   %sext = shl i64 %call44, 32
   %conv55 = ashr exact i64 %sext, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %p.047, ptr align 1 %9, i64 %conv55, i1 false)
-  %add.ptr = getelementptr inbounds i8, ptr %p.047, i64 %conv55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %p.048, ptr align 1 %9, i64 %conv55, i1 false)
+  %add.ptr = getelementptr inbounds i8, ptr %p.048, i64 %conv55
   %incdec.ptr56 = getelementptr inbounds i8, ptr %add.ptr, i64 1
   store i8 58, ptr %add.ptr, align 1
   %add.neg = xor i32 %conv45, -1
-  %sub = add i32 %size.addr.049, %add.neg
+  %sub = add i32 %size.addr.047, %add.neg
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end53
-  %p.2 = phi ptr [ %p.047, %for.body ], [ %incdec.ptr56, %if.end53 ]
-  %size.addr.1 = phi i32 [ %size.addr.049, %for.body ], [ %sub, %if.end53 ]
-  %inc = add nuw nsw i32 %i.048, 1
+  %size.addr.1 = phi i32 [ %size.addr.047, %for.body ], [ %sub, %if.end53 ]
+  %p.2 = phi ptr [ %p.048, %for.body ], [ %incdec.ptr56, %if.end53 ]
+  %inc = add nuw nsw i32 %i.049, 1
   %call34 = tail call i32 @OPENSSL_sk_num(ptr noundef %3) #24
   %cmp35 = icmp slt i32 %inc, %call34
   br i1 %cmp35, label %for.body, label %for.end, !llvm.loop !15
@@ -9770,8 +9770,8 @@ return.sink.split.i:                              ; preds = %if.end6.i, %if.then
 ssl_has_cert.exit.thread:                         ; preds = %if.end6.i, %return.sink.split.i
   %retval.0.shrunk.i.ph = phi i32 [ %15, %return.sink.split.i ], [ 0, %if.end6.i ]
   %tobool10.not297 = icmp eq i32 %retval.0.shrunk.i.ph, 0
-  %spec.select298 = select i1 %tobool10.not297, i64 0, i64 128
-  %spec.select66299 = select i1 %tobool10.not297, i64 0, i64 528
+  %spec.select298 = select i1 %tobool10.not297, i64 0, i64 528
+  %spec.select66299 = select i1 %tobool10.not297, i64 0, i64 128
   br label %if.end.i77
 
 ssl_has_cert.exit:                                ; preds = %lor.end
@@ -9826,8 +9826,8 @@ return.sink.split.i94:                            ; preds = %if.end6.i97, %if.th
 ssl_has_cert.exit104.thread:                      ; preds = %if.end6.i97, %return.sink.split.i94
   %retval.0.shrunk.i76.ph = phi i32 [ %21, %return.sink.split.i94 ], [ 0, %if.end6.i97 ]
   %tobool15.not308 = icmp eq i32 %retval.0.shrunk.i76.ph, 0
-  %mask_a.1309 = select i1 %tobool15.not308, i64 %spec.select302, i64 128
-  %mask_k.1310 = select i1 %tobool15.not308, i64 %spec.select66304, i64 528
+  %mask_k.1309 = select i1 %tobool15.not308, i64 %spec.select302, i64 528
+  %mask_a.1310 = select i1 %tobool15.not308, i64 %spec.select66304, i64 128
   br label %if.end.i109
 
 ssl_has_cert.exit104:                             ; preds = %ssl_has_cert.exit
@@ -9841,8 +9841,8 @@ ssl_has_cert.exit104.if.end.i109_crit_edge:       ; preds = %ssl_has_cert.exit10
 
 if.end.i109:                                      ; preds = %ssl_has_cert.exit104.if.end.i109_crit_edge, %ssl_has_cert.exit104.thread
   %22 = phi i32 [ %16, %ssl_has_cert.exit104.thread ], [ %.pre368, %ssl_has_cert.exit104.if.end.i109_crit_edge ]
-  %mask_k.1315 = phi i64 [ %mask_k.1310, %ssl_has_cert.exit104.thread ], [ 0, %ssl_has_cert.exit104.if.end.i109_crit_edge ]
-  %mask_a.1313 = phi i64 [ %mask_a.1309, %ssl_has_cert.exit104.thread ], [ 0, %ssl_has_cert.exit104.if.end.i109_crit_edge ]
+  %mask_a.1315 = phi i64 [ %mask_a.1310, %ssl_has_cert.exit104.thread ], [ 0, %ssl_has_cert.exit104.if.end.i109_crit_edge ]
+  %mask_k.1313 = phi i64 [ %mask_k.1309, %ssl_has_cert.exit104.thread ], [ 0, %ssl_has_cert.exit104.if.end.i109_crit_edge ]
   %tobool.not.i.i111 = icmp eq i32 %22, 0
   %ptr.0.in.v.i.i112 = select i1 %tobool.not.i.i111, i64 5368, i64 5384
   %ptr.0.in.i.i113 = getelementptr inbounds i8, ptr %s, i64 %ptr.0.in.v.i.i112
@@ -9880,14 +9880,14 @@ return.sink.split.i126:                           ; preds = %if.end6.i129, %if.t
   br label %ssl_has_cert.exit136
 
 ssl_has_cert.exit136:                             ; preds = %ssl_has_cert.exit104, %if.end6.i129, %return.sink.split.i126
-  %mask_k.1314 = phi i64 [ 0, %ssl_has_cert.exit104 ], [ %mask_k.1315, %if.end6.i129 ], [ %mask_k.1315, %return.sink.split.i126 ]
-  %mask_a.1312 = phi i64 [ 0, %ssl_has_cert.exit104 ], [ %mask_a.1313, %if.end6.i129 ], [ %mask_a.1313, %return.sink.split.i126 ]
+  %mask_a.1314 = phi i64 [ 0, %ssl_has_cert.exit104 ], [ %mask_a.1315, %if.end6.i129 ], [ %mask_a.1315, %return.sink.split.i126 ]
+  %mask_k.1312 = phi i64 [ 0, %ssl_has_cert.exit104 ], [ %mask_k.1313, %if.end6.i129 ], [ %mask_k.1313, %return.sink.split.i126 ]
   %retval.0.shrunk.i108 = phi i32 [ 0, %ssl_has_cert.exit104 ], [ 0, %if.end6.i129 ], [ %27, %return.sink.split.i126 ]
   %tobool21.not = icmp eq i32 %retval.0.shrunk.i108, 0
-  %or23 = or i64 %mask_k.1314, 16
-  %or24 = or i64 %mask_a.1312, 32
-  %mask_a.2 = select i1 %tobool21.not, i64 %mask_a.1312, i64 %or24
-  %mask_k.2 = select i1 %tobool21.not, i64 %mask_k.1314, i64 %or23
+  %or23 = or i64 %mask_k.1312, 16
+  %or24 = or i64 %mask_a.1314, 32
+  %mask_k.2 = select i1 %tobool21.not, i64 %mask_k.1312, i64 %or23
+  %mask_a.2 = select i1 %tobool21.not, i64 %mask_a.1314, i64 %or24
   %tobool26.not = icmp eq i32 %and, 0
   %28 = zext nneg i32 %and to i64
   %mask_k.3 = or i64 %mask_k.2, %28
@@ -9973,10 +9973,10 @@ if.end51:                                         ; preds = %land.lhs.true43, %S
   %38 = zext nneg i32 %37 to i64
   %and58 = and i32 %6, 4096
   %tobool59.not.not = icmp eq i32 %and58, 0
-  %mask_a.5.v = select i1 %tobool59.not.not, i64 4, i64 5
   %and58.lobit = lshr exact i32 %and58, 12
   %or62 = zext nneg i32 %and58.lobit to i64
   %mask_k.5 = or i64 %mask_k.4, %or62
+  %mask_a.5.v = select i1 %tobool59.not.not, i64 4, i64 5
   %and65 = lshr i32 %8, 9
   %39 = and i32 %and65, 8
   %40 = zext nneg i32 %39 to i64
@@ -14145,10 +14145,10 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %scts_extracted.019.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %scts_extracted.1.i, %for.inc.i ]
-  %i.018.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
-  %scts.017.i = phi ptr [ null, %for.body.lr.ph.i ], [ %scts.1.i, %for.inc.i ]
-  %call23.i = call ptr @OCSP_resp_get0(ptr noundef nonnull %call15.i, i32 noundef %i.018.i) #24
+  %i.019.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
+  %scts.018.i = phi ptr [ null, %for.body.lr.ph.i ], [ %scts.1.i, %for.inc.i ]
+  %scts_extracted.017.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %scts_extracted.1.i, %for.inc.i ]
+  %call23.i = call ptr @OCSP_resp_get0(ptr noundef nonnull %call15.i, i32 noundef %i.019.i) #24
   %cmp24.i = icmp eq ptr %call23.i, null
   br i1 %cmp24.i, label %for.inc.i, label %if.end27.i
 
@@ -14159,16 +14159,16 @@ if.end27.i:                                       ; preds = %for.body.i
   br i1 %cmp31.i, label %ct_extract_ocsp_response_scts.exit.loopexit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end27.i, %for.body.i
-  %scts.1.i = phi ptr [ %scts.017.i, %for.body.i ], [ %call28.i, %if.end27.i ]
-  %scts_extracted.1.i = phi i32 [ %scts_extracted.019.i, %for.body.i ], [ %call30.i, %if.end27.i ]
-  %inc.i = add nuw nsw i32 %i.018.i, 1
+  %scts_extracted.1.i = phi i32 [ %scts_extracted.017.i, %for.body.i ], [ %call30.i, %if.end27.i ]
+  %scts.1.i = phi ptr [ %scts.018.i, %for.body.i ], [ %call28.i, %if.end27.i ]
+  %inc.i = add nuw nsw i32 %i.019.i, 1
   %call20.i = call i32 @OCSP_resp_count(ptr noundef nonnull %call15.i) #24
   %cmp21.i = icmp slt i32 %inc.i, %call20.i
   br i1 %cmp21.i, label %for.body.i, label %ct_extract_ocsp_response_scts.exit.loopexit, !llvm.loop !21
 
 ct_extract_ocsp_response_scts.exit.loopexit:      ; preds = %for.inc.i, %if.end27.i
-  %scts.2.i.ph = phi ptr [ %call28.i, %if.end27.i ], [ %scts.1.i, %for.inc.i ]
   %scts_extracted.2.i.ph = phi i32 [ %call30.i, %if.end27.i ], [ %scts_extracted.1.i, %for.inc.i ]
+  %scts.2.i.ph = phi ptr [ %call28.i, %if.end27.i ], [ %scts.1.i, %for.inc.i ]
   %7 = icmp slt i32 %scts_extracted.2.i.ph, 0
   call void @SCT_LIST_free(ptr noundef %scts.2.i.ph) #24
   call void @OCSP_BASICRESP_free(ptr noundef nonnull %call15.i) #24

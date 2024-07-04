@@ -581,10 +581,10 @@ define internal i32 @dissect_ancp_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not65.i, label %dissect_ancp_adj_msg.exit, label %.lr.ph.i87
 
 .lr.ph.i87:                                       ; preds = %130, %.lr.ph.i87
-  %.267.i = phi i32 [ %133, %.lr.ph.i87 ], [ 44, %130 ]
-  %.06466.i = phi i16 [ %134, %.lr.ph.i87 ], [ %127, %130 ]
-  %133 = tail call fastcc i32 @dissect_ancp_tlv(ptr noundef %0, ptr noundef %132, i32 noundef %.267.i)
-  %134 = add i16 %.06466.i, -1
+  %.067.i = phi i16 [ %134, %.lr.ph.i87 ], [ %127, %130 ]
+  %.266.i = phi i32 [ %133, %.lr.ph.i87 ], [ 44, %130 ]
+  %133 = tail call fastcc i32 @dissect_ancp_tlv(ptr noundef %0, ptr noundef %132, i32 noundef %.266.i)
+  %134 = add i16 %.067.i, -1
   %.not.i88 = icmp eq i16 %134, 0
   br i1 %.not.i88, label %dissect_ancp_adj_msg.exit, label %.lr.ph.i87, !llvm.loop !6
 
@@ -666,16 +666,16 @@ define internal fastcc i32 @dissect_ancp_tlv(ptr noundef %0, ptr noundef %1, i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %35
-  %.070 = phi i32 [ %38, %35 ], [ %11, %.lr.ph.preheader ]
-  %.06769 = phi i16 [ %39, %35 ], [ %15, %.lr.ph.preheader ]
+  %.070 = phi i16 [ %39, %35 ], [ %15, %.lr.ph.preheader ]
+  %.06769 = phi i32 [ %38, %35 ], [ %11, %.lr.ph.preheader ]
   %16 = load i32, ptr @hf_ancp_dsl_line_stlv_type, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %16, ptr noundef %0, i32 noundef %.070, i32 noundef 2, i32 noundef 0) #2
-  %18 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.070) #2
-  %19 = add i32 %.070, 2
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %16, ptr noundef %0, i32 noundef %.06769, i32 noundef 2, i32 noundef 0) #2
+  %18 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.06769) #2
+  %19 = add i32 %.06769, 2
   %20 = load i32, ptr @hf_ancp_dsl_line_stlv_len, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %20, ptr noundef %0, i32 noundef %19, i32 noundef 2, i32 noundef 0) #2
   %22 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %19) #2
-  %23 = add i32 %.070, 4
+  %23 = add i32 %.06769, 4
   %24 = load i32, ptr @hf_ancp_dsl_line_stlv_value, align 4
   %25 = zext i16 %22 to i32
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %24, ptr noundef %0, i32 noundef %23, i32 noundef %25, i32 noundef 0) #2
@@ -705,7 +705,7 @@ define internal fastcc i32 @dissect_ancp_tlv(ptr noundef %0, ptr noundef %1, i32
   %36 = add nuw nsw i32 %25, 3
   %37 = and i32 %36, 131068
   %38 = add i32 %37, %23
-  %39 = add nsw i16 %.06769, -1
+  %39 = add nsw i16 %.070, -1
   %.not = icmp eq i16 %39, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 

@@ -40,12 +40,12 @@ define internal fastcc noalias ptr @dfilter_macro_apply_recurse(ptr noundef %0, 
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %3
-  br i1 %.not209, label %common.ret572, label %6
+  br i1 %.not209, label %common.ret571, label %6
 
 6:                                                ; preds = %5
   %7 = tail call ptr (i32, ptr, ptr, ...) @df_error_new_printf(i32 noundef -1, ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #6
   store ptr %7, ptr %2, align 8
-  br label %common.ret572
+  br label %common.ret571
 
 8:                                                ; preds = %3
   br i1 %.not209, label %10, label %9
@@ -305,7 +305,7 @@ g_string_append_c_inline.exit212:                 ; preds = %93, %99
   %140 = load ptr, ptr %.0168, align 8
   %141 = tail call fastcc ptr @dfilter_macro_resolve(ptr noundef %139, ptr noundef %140, ptr noundef %2)
   %142 = icmp eq ptr %141, null
-  br i1 %142, label %.thread236, label %143
+  br i1 %142, label %.thread235, label %143
 
 143:                                              ; preds = %138
   %144 = tail call ptr @g_string_append(ptr noundef %11, ptr noundef nonnull %141) #6
@@ -321,17 +321,17 @@ g_string_append_c_inline.exit212:                 ; preds = %93, %99
 148:                                              ; preds = %146, %143
   %149 = getelementptr inbounds i8, ptr %.0168, i64 8
   %150 = load i32, ptr %149, align 8
-  %.not200298 = icmp eq i32 %150, 0
-  br i1 %.not200298, label %._crit_edge301, label %.lr.ph300
+  %.not200297 = icmp eq i32 %150, 0
+  br i1 %.not200297, label %._crit_edge300, label %.lr.ph299
 
-.lr.ph300:                                        ; preds = %148, %.lr.ph300
+.lr.ph299:                                        ; preds = %148, %.lr.ph299
   %151 = tail call ptr @g_ptr_array_remove_index_fast(ptr noundef nonnull %.0168, i32 noundef 0) #6
   tail call void @g_free(ptr noundef %151) #6
   %152 = load i32, ptr %149, align 8
   %.not200 = icmp eq i32 %152, 0
-  br i1 %.not200, label %._crit_edge301, label %.lr.ph300, !llvm.loop !4
+  br i1 %.not200, label %._crit_edge300, label %.lr.ph299, !llvm.loop !4
 
-._crit_edge301:                                   ; preds = %.lr.ph300, %148
+._crit_edge300:                                   ; preds = %.lr.ph299, %148
   %153 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %.0168, i32 noundef 1) #6
   br label %g_string_append_c_inline.exit.backedge
 
@@ -438,28 +438,28 @@ g_string_append_c_inline.exit217:                 ; preds = %198, %204
 
 209:                                              ; preds = %207, %g_string_append_c_inline.exit217
   %.not197 = icmp eq ptr %.0168, null
-  br i1 %.not197, label %215, label %.preheader242
+  br i1 %.not197, label %215, label %.preheader241
 
-.preheader242:                                    ; preds = %209
+.preheader241:                                    ; preds = %209
   %210 = getelementptr inbounds i8, ptr %.0168, i64 8
   %211 = load i32, ptr %210, align 8
-  %.not198295 = icmp eq i32 %211, 0
-  br i1 %.not198295, label %._crit_edge297, label %.lr.ph296
+  %.not198294 = icmp eq i32 %211, 0
+  br i1 %.not198294, label %._crit_edge296, label %.lr.ph295
 
-.lr.ph296:                                        ; preds = %.preheader242, %.lr.ph296
+.lr.ph295:                                        ; preds = %.preheader241, %.lr.ph295
   %212 = tail call ptr @g_ptr_array_remove_index_fast(ptr noundef nonnull %.0168, i32 noundef 0) #6
   tail call void @g_free(ptr noundef %212) #6
   %213 = load i32, ptr %210, align 8
   %.not198 = icmp eq i32 %213, 0
-  br i1 %.not198, label %._crit_edge297, label %.lr.ph296, !llvm.loop !6
+  br i1 %.not198, label %._crit_edge296, label %.lr.ph295, !llvm.loop !6
 
-._crit_edge297:                                   ; preds = %.lr.ph296, %.preheader242
+._crit_edge296:                                   ; preds = %.lr.ph295, %.preheader241
   %214 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %.0168, i32 noundef 1) #6
   br label %215
 
-215:                                              ; preds = %._crit_edge297, %209
+215:                                              ; preds = %._crit_edge296, %209
   %216 = icmp eq i8 %16, 0
-  br i1 %216, label %.thread233, label %g_string_append_c_inline.exit.backedge
+  br i1 %216, label %.thread232, label %g_string_append_c_inline.exit.backedge
 
 217:                                              ; preds = %g_string_append_c_inline.exit
   switch i8 %16, label %288 [
@@ -536,8 +536,8 @@ g_string_append_c_inline.exit217:                 ; preds = %198, %204
   unreachable
 
 close_char.exit:                                  ; preds = %246, %247
-  %.0.i219 = phi i8 [ 125, %247 ], [ 41, %246 ]
-  %.not191 = icmp eq i8 %16, %.0.i219
+  %.0.i = phi i8 [ 125, %247 ], [ 41, %246 ]
+  %.not191 = icmp eq i8 %16, %.0.i
   %249 = getelementptr inbounds i8, ptr %.0165, i64 8
   %250 = load i64, ptr %249, align 8
   br i1 %.not191, label %264, label %251
@@ -589,7 +589,7 @@ close_char.exit:                                  ; preds = %246, %247
   %274 = load ptr, ptr %.0168, align 8
   %275 = tail call fastcc ptr @dfilter_macro_resolve(ptr noundef %273, ptr noundef %274, ptr noundef %2)
   %276 = icmp eq ptr %275, null
-  br i1 %276, label %.thread236, label %277
+  br i1 %276, label %.thread235, label %277
 
 277:                                              ; preds = %272
   %278 = tail call ptr @g_string_append(ptr noundef %11, ptr noundef nonnull %275) #6
@@ -605,8 +605,8 @@ close_char.exit:                                  ; preds = %246, %247
 282:                                              ; preds = %280, %277
   %283 = getelementptr inbounds i8, ptr %.0168, i64 8
   %284 = load i32, ptr %283, align 8
-  %.not194294 = icmp eq i32 %284, 0
-  br i1 %.not194294, label %._crit_edge, label %.lr.ph
+  %.not194293 = icmp eq i32 %284, 0
+  br i1 %.not194293, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %282, %.lr.ph
   %285 = tail call ptr @g_ptr_array_remove_index_fast(ptr noundef nonnull %.0168, i32 noundef 0) #6
@@ -643,14 +643,14 @@ close_char.exit:                                  ; preds = %246, %247
   %302 = tail call ptr @g_string_insert_c(ptr noundef nonnull %.0165, i64 noundef -1, i8 noundef signext %16) #6
   br label %g_string_append_c_inline.exit.backedge
 
-g_string_append_c_inline.exit.backedge:           ; preds = %301, %295, %262, %256, %243, %237, %176, %170, %133, %127, %111, %105, %86, %80, %29, %23, %215, %178, %178, %135, %17, %224, %._crit_edge, %._crit_edge301, %45, %start_is_field_reference.exit.thread, %g_string_append_c_inline.exit
-  %.0177.be = phi i8 [ %.0177, %g_string_append_c_inline.exit ], [ 0, %._crit_edge ], [ %.0177, %224 ], [ 0, %._crit_edge301 ], [ %.0177, %45 ], [ 123, %start_is_field_reference.exit.thread ], [ %.0177, %17 ], [ %.0177, %135 ], [ %16, %178 ], [ %16, %178 ], [ 0, %215 ], [ %.0177, %23 ], [ %.0177, %29 ], [ %.0177, %80 ], [ %.0177, %86 ], [ %.0177, %105 ], [ %.0177, %111 ], [ %.0177, %127 ], [ %.0177, %133 ], [ %.0177, %170 ], [ %.0177, %176 ], [ %.0177, %237 ], [ %.0177, %243 ], [ %.0177, %256 ], [ %.0177, %262 ], [ %.0177, %295 ], [ %.0177, %301 ]
-  %.0175.be = phi ptr [ %15, %g_string_append_c_inline.exit ], [ %15, %._crit_edge ], [ %15, %224 ], [ %15, %._crit_edge301 ], [ %15, %45 ], [ %15, %start_is_field_reference.exit.thread ], [ %15, %17 ], [ %15, %135 ], [ %15, %178 ], [ %15, %178 ], [ %15, %215 ], [ %15, %23 ], [ %15, %29 ], [ %15, %80 ], [ %15, %86 ], [ %15, %105 ], [ %15, %111 ], [ %15, %127 ], [ %15, %133 ], [ %15, %170 ], [ %15, %176 ], [ %230, %237 ], [ %230, %243 ], [ %15, %256 ], [ %15, %262 ], [ %15, %295 ], [ %15, %301 ]
-  %.0173.be = phi i1 [ %.0173, %g_string_append_c_inline.exit ], [ true, %._crit_edge ], [ %.0173, %224 ], [ true, %._crit_edge301 ], [ %.0173, %45 ], [ %.0173, %start_is_field_reference.exit.thread ], [ %.0173, %17 ], [ %.0173, %135 ], [ %.0173, %178 ], [ %.0173, %178 ], [ %.0173, %215 ], [ %.0173, %23 ], [ %.0173, %29 ], [ %.0173, %80 ], [ %.0173, %86 ], [ %.0173, %105 ], [ %.0173, %111 ], [ %.0173, %127 ], [ %.0173, %133 ], [ %.0173, %170 ], [ %.0173, %176 ], [ %.0173, %237 ], [ %.0173, %243 ], [ %.0173, %256 ], [ %.0173, %262 ], [ %.0173, %295 ], [ %.0173, %301 ]
-  %.0168.be = phi ptr [ %.0168, %g_string_append_c_inline.exit ], [ null, %._crit_edge ], [ %.0168, %224 ], [ null, %._crit_edge301 ], [ %.0168, %45 ], [ %47, %start_is_field_reference.exit.thread ], [ %.0168, %17 ], [ %.0168, %135 ], [ %.0168, %178 ], [ %.0168, %178 ], [ null, %215 ], [ %.0168, %23 ], [ %.0168, %29 ], [ %71, %80 ], [ %71, %86 ], [ %.0168, %105 ], [ %.0168, %111 ], [ %.0168, %127 ], [ %.0168, %133 ], [ %.0168, %170 ], [ %.0168, %176 ], [ %.0168, %237 ], [ %.0168, %243 ], [ %.0168, %256 ], [ %.0168, %262 ], [ %.0168, %295 ], [ %.0168, %301 ]
-  %.0165.be = phi ptr [ %.0165, %g_string_append_c_inline.exit ], [ null, %._crit_edge ], [ %226, %224 ], [ null, %._crit_edge301 ], [ %.0165, %45 ], [ %48, %start_is_field_reference.exit.thread ], [ %.0165, %17 ], [ %.0165, %135 ], [ %.0165, %178 ], [ %.0165, %178 ], [ null, %215 ], [ %.0165, %23 ], [ %.0165, %29 ], [ %72, %80 ], [ %72, %86 ], [ %.0165, %105 ], [ %.0165, %111 ], [ %.0165, %127 ], [ %.0165, %133 ], [ %.0165, %170 ], [ %.0165, %176 ], [ %.0165, %237 ], [ %.0165, %243 ], [ %.0165, %256 ], [ %.0165, %262 ], [ %.0165, %295 ], [ %.0165, %301 ]
-  %.0163.be = phi ptr [ %.0163, %g_string_append_c_inline.exit ], [ null, %._crit_edge ], [ %.0163, %224 ], [ null, %._crit_edge301 ], [ %.0163, %45 ], [ %49, %start_is_field_reference.exit.thread ], [ %.0163, %17 ], [ %.0163, %135 ], [ %.0163, %178 ], [ %.0163, %178 ], [ null, %215 ], [ %.0163, %23 ], [ %.0163, %29 ], [ %73, %80 ], [ %73, %86 ], [ %.0163, %105 ], [ %.0163, %111 ], [ %.0163, %127 ], [ %.0163, %133 ], [ %.0163, %170 ], [ %.0163, %176 ], [ %.0163, %237 ], [ %.0163, %243 ], [ %.0163, %256 ], [ %.0163, %262 ], [ %.0163, %295 ], [ %.0163, %301 ]
-  %.0162.be = phi i32 [ %.0162, %g_string_append_c_inline.exit ], [ 0, %._crit_edge ], [ 4, %224 ], [ 0, %._crit_edge301 ], [ 0, %45 ], [ 2, %start_is_field_reference.exit.thread ], [ 1, %17 ], [ 4, %135 ], [ 4, %178 ], [ 4, %178 ], [ 0, %215 ], [ 0, %23 ], [ 0, %29 ], [ 3, %80 ], [ 3, %86 ], [ 0, %105 ], [ 0, %111 ], [ 2, %127 ], [ 2, %133 ], [ 3, %170 ], [ 3, %176 ], [ 4, %237 ], [ 4, %243 ], [ 4, %256 ], [ 4, %262 ], [ 4, %295 ], [ 4, %301 ]
+g_string_append_c_inline.exit.backedge:           ; preds = %301, %295, %262, %256, %243, %237, %176, %170, %133, %127, %111, %105, %86, %80, %29, %23, %215, %178, %178, %135, %17, %224, %._crit_edge, %._crit_edge300, %45, %start_is_field_reference.exit.thread, %g_string_append_c_inline.exit
+  %.0177.be = phi i8 [ %.0177, %g_string_append_c_inline.exit ], [ 0, %._crit_edge ], [ %.0177, %224 ], [ 0, %._crit_edge300 ], [ %.0177, %45 ], [ 123, %start_is_field_reference.exit.thread ], [ %.0177, %17 ], [ %.0177, %135 ], [ %16, %178 ], [ %16, %178 ], [ 0, %215 ], [ %.0177, %23 ], [ %.0177, %29 ], [ %.0177, %80 ], [ %.0177, %86 ], [ %.0177, %105 ], [ %.0177, %111 ], [ %.0177, %127 ], [ %.0177, %133 ], [ %.0177, %170 ], [ %.0177, %176 ], [ %.0177, %237 ], [ %.0177, %243 ], [ %.0177, %256 ], [ %.0177, %262 ], [ %.0177, %295 ], [ %.0177, %301 ]
+  %.0175.be = phi ptr [ %15, %g_string_append_c_inline.exit ], [ %15, %._crit_edge ], [ %15, %224 ], [ %15, %._crit_edge300 ], [ %15, %45 ], [ %15, %start_is_field_reference.exit.thread ], [ %15, %17 ], [ %15, %135 ], [ %15, %178 ], [ %15, %178 ], [ %15, %215 ], [ %15, %23 ], [ %15, %29 ], [ %15, %80 ], [ %15, %86 ], [ %15, %105 ], [ %15, %111 ], [ %15, %127 ], [ %15, %133 ], [ %15, %170 ], [ %15, %176 ], [ %230, %237 ], [ %230, %243 ], [ %15, %256 ], [ %15, %262 ], [ %15, %295 ], [ %15, %301 ]
+  %.0173.be = phi i1 [ %.0173, %g_string_append_c_inline.exit ], [ true, %._crit_edge ], [ %.0173, %224 ], [ true, %._crit_edge300 ], [ %.0173, %45 ], [ %.0173, %start_is_field_reference.exit.thread ], [ %.0173, %17 ], [ %.0173, %135 ], [ %.0173, %178 ], [ %.0173, %178 ], [ %.0173, %215 ], [ %.0173, %23 ], [ %.0173, %29 ], [ %.0173, %80 ], [ %.0173, %86 ], [ %.0173, %105 ], [ %.0173, %111 ], [ %.0173, %127 ], [ %.0173, %133 ], [ %.0173, %170 ], [ %.0173, %176 ], [ %.0173, %237 ], [ %.0173, %243 ], [ %.0173, %256 ], [ %.0173, %262 ], [ %.0173, %295 ], [ %.0173, %301 ]
+  %.0168.be = phi ptr [ %.0168, %g_string_append_c_inline.exit ], [ null, %._crit_edge ], [ %.0168, %224 ], [ null, %._crit_edge300 ], [ %.0168, %45 ], [ %47, %start_is_field_reference.exit.thread ], [ %.0168, %17 ], [ %.0168, %135 ], [ %.0168, %178 ], [ %.0168, %178 ], [ null, %215 ], [ %.0168, %23 ], [ %.0168, %29 ], [ %71, %80 ], [ %71, %86 ], [ %.0168, %105 ], [ %.0168, %111 ], [ %.0168, %127 ], [ %.0168, %133 ], [ %.0168, %170 ], [ %.0168, %176 ], [ %.0168, %237 ], [ %.0168, %243 ], [ %.0168, %256 ], [ %.0168, %262 ], [ %.0168, %295 ], [ %.0168, %301 ]
+  %.0165.be = phi ptr [ %.0165, %g_string_append_c_inline.exit ], [ null, %._crit_edge ], [ %226, %224 ], [ null, %._crit_edge300 ], [ %.0165, %45 ], [ %48, %start_is_field_reference.exit.thread ], [ %.0165, %17 ], [ %.0165, %135 ], [ %.0165, %178 ], [ %.0165, %178 ], [ null, %215 ], [ %.0165, %23 ], [ %.0165, %29 ], [ %72, %80 ], [ %72, %86 ], [ %.0165, %105 ], [ %.0165, %111 ], [ %.0165, %127 ], [ %.0165, %133 ], [ %.0165, %170 ], [ %.0165, %176 ], [ %.0165, %237 ], [ %.0165, %243 ], [ %.0165, %256 ], [ %.0165, %262 ], [ %.0165, %295 ], [ %.0165, %301 ]
+  %.0163.be = phi ptr [ %.0163, %g_string_append_c_inline.exit ], [ null, %._crit_edge ], [ %.0163, %224 ], [ null, %._crit_edge300 ], [ %.0163, %45 ], [ %49, %start_is_field_reference.exit.thread ], [ %.0163, %17 ], [ %.0163, %135 ], [ %.0163, %178 ], [ %.0163, %178 ], [ null, %215 ], [ %.0163, %23 ], [ %.0163, %29 ], [ %73, %80 ], [ %73, %86 ], [ %.0163, %105 ], [ %.0163, %111 ], [ %.0163, %127 ], [ %.0163, %133 ], [ %.0163, %170 ], [ %.0163, %176 ], [ %.0163, %237 ], [ %.0163, %243 ], [ %.0163, %256 ], [ %.0163, %262 ], [ %.0163, %295 ], [ %.0163, %301 ]
+  %.0162.be = phi i32 [ %.0162, %g_string_append_c_inline.exit ], [ 0, %._crit_edge ], [ 4, %224 ], [ 0, %._crit_edge300 ], [ 0, %45 ], [ 2, %start_is_field_reference.exit.thread ], [ 1, %17 ], [ 4, %135 ], [ 4, %178 ], [ 4, %178 ], [ 0, %215 ], [ 0, %23 ], [ 0, %29 ], [ 3, %80 ], [ 3, %86 ], [ 0, %105 ], [ 0, %111 ], [ 2, %127 ], [ 2, %133 ], [ 3, %170 ], [ 3, %176 ], [ 4, %237 ], [ 4, %243 ], [ 4, %256 ], [ 4, %262 ], [ 4, %295 ], [ 4, %301 ]
   br label %g_string_append_c_inline.exit
 
 g_string_append_c_inline.exit210:                 ; preds = %17, %61, %55
@@ -671,43 +671,43 @@ g_string_append_c_inline.exit210:                 ; preds = %17, %61, %55
 
 308:                                              ; preds = %306, %305
   %.not207 = icmp eq ptr %.0168, null
-  br i1 %.not207, label %.thread233, label %.preheader
+  br i1 %.not207, label %.thread232, label %.preheader
 
 .preheader:                                       ; preds = %308
   %309 = getelementptr inbounds i8, ptr %.0168, i64 8
   %310 = load i32, ptr %309, align 8
-  %.not208305 = icmp eq i32 %310, 0
-  br i1 %.not208305, label %._crit_edge307, label %.lr.ph306
+  %.not208304 = icmp eq i32 %310, 0
+  br i1 %.not208304, label %._crit_edge306, label %.lr.ph305
 
-.lr.ph306:                                        ; preds = %.preheader, %.lr.ph306
+.lr.ph305:                                        ; preds = %.preheader, %.lr.ph305
   %311 = tail call ptr @g_ptr_array_remove_index_fast(ptr noundef nonnull %.0168, i32 noundef 0) #6
   tail call void @g_free(ptr noundef %311) #6
   %312 = load i32, ptr %309, align 8
   %.not208 = icmp eq i32 %312, 0
-  br i1 %.not208, label %._crit_edge307, label %.lr.ph306, !llvm.loop !8
+  br i1 %.not208, label %._crit_edge306, label %.lr.ph305, !llvm.loop !8
 
-._crit_edge307:                                   ; preds = %.lr.ph306, %.preheader
+._crit_edge306:                                   ; preds = %.lr.ph305, %.preheader
   %313 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %.0168, i32 noundef 1) #6
-  br label %.thread233
+  br label %.thread232
 
-.thread233:                                       ; preds = %215, %._crit_edge307, %308
+.thread232:                                       ; preds = %215, %._crit_edge306, %308
   %314 = load ptr, ptr %11, align 8
   br i1 %.0173, label %315, label %319
 
-common.ret572:                                    ; preds = %5, %6, %340, %319, %315
-  %common.ret572.op = phi ptr [ %317, %315 ], [ null, %340 ], [ %320, %319 ], [ null, %6 ], [ null, %5 ]
-  ret ptr %common.ret572.op
+common.ret571:                                    ; preds = %5, %6, %340, %319, %315
+  %common.ret571.op = phi ptr [ %317, %315 ], [ null, %340 ], [ %320, %319 ], [ null, %6 ], [ null, %5 ]
+  ret ptr %common.ret571.op
 
-315:                                              ; preds = %.thread233
+315:                                              ; preds = %.thread232
   %316 = add nuw nsw i32 %1, 1
   %317 = tail call fastcc ptr @dfilter_macro_apply_recurse(ptr noundef %314, i32 noundef %316, ptr noundef %2)
   %318 = tail call ptr @g_string_free(ptr noundef nonnull %11, i32 noundef 1) #6
-  br label %common.ret572
+  br label %common.ret571
 
-319:                                              ; preds = %.thread233
+319:                                              ; preds = %.thread232
   %320 = tail call noalias ptr @wmem_strdup(ptr noundef null, ptr noundef %314) #6
   %321 = tail call ptr @g_string_free(ptr noundef nonnull %11, i32 noundef 1) #6
-  br label %common.ret572
+  br label %common.ret571
 
 .sink.split:                                      ; preds = %269, %245, %223, %218, %155, %154
   %.str.6.sink = phi ptr [ @.str.6, %154 ], [ @.str.7, %155 ], [ @.str.6, %218 ], [ @.str.8, %223 ], [ @.str.6, %245 ], [ @.str.8, %269 ]
@@ -717,44 +717,44 @@ common.ret572:                                    ; preds = %5, %6, %340, %319, 
 
 323:                                              ; preds = %.sink.split, %154, %155, %218, %223, %245, %269
   %.not201 = icmp eq ptr %.0163, null
-  br i1 %.not201, label %325, label %.thread236
+  br i1 %.not201, label %325, label %.thread235
 
-.thread236:                                       ; preds = %272, %138, %323
-  %.4239 = phi ptr [ %.0165, %323 ], [ %.1166, %272 ], [ %.0165, %138 ]
+.thread235:                                       ; preds = %272, %138, %323
+  %.4238 = phi ptr [ %.0165, %323 ], [ %.1166, %272 ], [ %.0165, %138 ]
   %324 = tail call ptr @g_string_free(ptr noundef nonnull %.0163, i32 noundef 1) #6
   br label %325
 
-325:                                              ; preds = %.thread236, %323
-  %.4240 = phi ptr [ %.4239, %.thread236 ], [ %.0165, %323 ]
-  %.not202 = icmp eq ptr %.4240, null
+325:                                              ; preds = %.thread235, %323
+  %.4239 = phi ptr [ %.4238, %.thread235 ], [ %.0165, %323 ]
+  %.not202 = icmp eq ptr %.4239, null
   br i1 %.not202, label %328, label %326
 
 326:                                              ; preds = %325
-  %327 = tail call ptr @g_string_free(ptr noundef nonnull %.4240, i32 noundef 1) #6
+  %327 = tail call ptr @g_string_free(ptr noundef nonnull %.4239, i32 noundef 1) #6
   br label %328
 
 328:                                              ; preds = %326, %325
   %.not203 = icmp eq ptr %.0168, null
-  br i1 %.not203, label %334, label %.preheader241
+  br i1 %.not203, label %334, label %.preheader240
 
-.preheader241:                                    ; preds = %328
+.preheader240:                                    ; preds = %328
   %329 = getelementptr inbounds i8, ptr %.0168, i64 8
   %330 = load i32, ptr %329, align 8
-  %.not204302 = icmp eq i32 %330, 0
-  br i1 %.not204302, label %._crit_edge304, label %.lr.ph303
+  %.not204301 = icmp eq i32 %330, 0
+  br i1 %.not204301, label %._crit_edge303, label %.lr.ph302
 
-.lr.ph303:                                        ; preds = %.preheader241, %.lr.ph303
+.lr.ph302:                                        ; preds = %.preheader240, %.lr.ph302
   %331 = tail call ptr @g_ptr_array_remove_index_fast(ptr noundef nonnull %.0168, i32 noundef 0) #6
   tail call void @g_free(ptr noundef %331) #6
   %332 = load i32, ptr %329, align 8
   %.not204 = icmp eq i32 %332, 0
-  br i1 %.not204, label %._crit_edge304, label %.lr.ph303, !llvm.loop !9
+  br i1 %.not204, label %._crit_edge303, label %.lr.ph302, !llvm.loop !9
 
-._crit_edge304:                                   ; preds = %.lr.ph303, %.preheader241
+._crit_edge303:                                   ; preds = %.lr.ph302, %.preheader240
   %333 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %.0168, i32 noundef 1) #6
   br label %334
 
-334:                                              ; preds = %._crit_edge304, %328
+334:                                              ; preds = %._crit_edge303, %328
   br i1 %.not209, label %340, label %335
 
 335:                                              ; preds = %334
@@ -769,7 +769,7 @@ common.ret572:                                    ; preds = %5, %6, %340, %319, 
 
 340:                                              ; preds = %335, %338, %334
   %341 = tail call ptr @g_string_free(ptr noundef %11, i32 noundef 1) #6
-  br label %common.ret572
+  br label %common.ret571
 }
 
 ; Function Attrs: nounwind uwtable
@@ -788,10 +788,10 @@ define hidden void @macro_parse(ptr nocapture noundef %0) local_unnamed_addr #0 
   br i1 %.not61, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %47
-  %.064 = phi ptr [ %.3, %47 ], [ %9, %1 ]
-  %.04863 = phi i32 [ %.149, %47 ], [ 0, %1 ]
-  %.05062 = phi ptr [ %.353, %47 ], [ %7, %1 ]
-  %10 = load i8, ptr %.064, align 1
+  %.04664 = phi i32 [ %.147, %47 ], [ 0, %1 ]
+  %.04863 = phi ptr [ %.3, %47 ], [ %7, %1 ]
+  %.05062 = phi ptr [ %.353, %47 ], [ %9, %1 ]
+  %10 = load i8, ptr %.05062, align 1
   switch i8 %10, label %11 [
     i8 0, label %.critedge
     i8 36, label %21
@@ -799,22 +799,22 @@ define hidden void @macro_parse(ptr nocapture noundef %0) local_unnamed_addr #0 
   ]
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr i8, ptr %.064, i64 1
-  %13 = getelementptr i8, ptr %.05062, i64 1
-  store i8 %10, ptr %.05062, align 1
+  %12 = getelementptr i8, ptr %.05062, i64 1
+  %13 = getelementptr i8, ptr %.04863, i64 1
+  store i8 %10, ptr %.04863, align 1
   br label %47
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr i8, ptr %.064, i64 1
-  %16 = getelementptr i8, ptr %.05062, i64 1
-  store i8 92, ptr %.05062, align 1
+  %15 = getelementptr i8, ptr %.05062, i64 1
+  %16 = getelementptr i8, ptr %.04863, i64 1
+  store i8 92, ptr %.04863, align 1
   %17 = load i8, ptr %15, align 1
   %.not60 = icmp eq i8 %17, 0
   br i1 %.not60, label %47, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr i8, ptr %.064, i64 2
-  %20 = getelementptr i8, ptr %.05062, i64 2
+  %19 = getelementptr i8, ptr %.05062, i64 2
+  %20 = getelementptr i8, ptr %.04863, i64 2
   store i8 %17, ptr %16, align 1
   br label %47
 
@@ -823,10 +823,10 @@ define hidden void @macro_parse(ptr nocapture noundef %0) local_unnamed_addr #0 
   br label %22
 
 22:                                               ; preds = %26, %21
-  %.151 = phi ptr [ %.05062, %21 ], [ %29, %26 ]
-  %.046 = phi i32 [ 0, %21 ], [ %28, %26 ]
-  %.1 = phi ptr [ %.064, %21 ], [ %23, %26 ]
-  %23 = getelementptr i8, ptr %.1, i64 1
+  %.151 = phi ptr [ %.05062, %21 ], [ %23, %26 ]
+  %.149 = phi ptr [ %.04863, %21 ], [ %29, %26 ]
+  %.0 = phi i32 [ 0, %21 ], [ %28, %26 ]
+  %23 = getelementptr i8, ptr %.151, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = add i8 %24, -48
   %or.cond = icmp ult i8 %25, 10
@@ -834,9 +834,9 @@ define hidden void @macro_parse(ptr nocapture noundef %0) local_unnamed_addr #0 
 
 26:                                               ; preds = %22
   %27 = zext nneg i8 %24 to i32
-  %28 = add i32 %.046, 1
-  %29 = getelementptr i8, ptr %.151, i64 1
-  store i8 0, ptr %.151, align 1
+  %28 = add i32 %.0, 1
+  %29 = getelementptr i8, ptr %.149, i64 1
+  store i8 0, ptr %.149, align 1
   %30 = load i32, ptr %2, align 4
   %31 = mul i32 %30, 10
   %32 = add nsw i32 %27, -48
@@ -847,18 +847,18 @@ define hidden void @macro_parse(ptr nocapture noundef %0) local_unnamed_addr #0 
   br i1 %.not58, label %35, label %22, !llvm.loop !10
 
 35:                                               ; preds = %22, %26
-  %.252 = phi ptr [ %29, %26 ], [ %.151, %22 ]
-  %.147 = phi i32 [ %28, %26 ], [ %.046, %22 ]
-  %.2 = phi ptr [ %23, %26 ], [ %.1, %22 ]
-  %.not59 = icmp eq i32 %.147, 0
+  %.252 = phi ptr [ %23, %26 ], [ %.151, %22 ]
+  %.2 = phi ptr [ %29, %26 ], [ %.149, %22 ]
+  %.1 = phi i32 [ %28, %26 ], [ %.0, %22 ]
+  %.not59 = icmp eq i32 %.1, 0
   br i1 %.not59, label %43, label %36
 
 36:                                               ; preds = %35
-  %37 = getelementptr i8, ptr %.252, i64 1
-  store i8 0, ptr %.252, align 1
-  %38 = getelementptr i8, ptr %.2, i64 1
+  %37 = getelementptr i8, ptr %.2, i64 1
+  store i8 0, ptr %.2, align 1
+  %38 = getelementptr i8, ptr %.252, i64 1
   %39 = load i32, ptr %2, align 4
-  %40 = call i32 @llvm.smax.i32(i32 %.04863, i32 %39)
+  %40 = call i32 @llvm.smax.i32(i32 %.04664, i32 %39)
   %41 = add i32 %39, -1
   store i32 %41, ptr %2, align 4
   %42 = call ptr @g_array_append_vals(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 1) #6
@@ -866,21 +866,21 @@ define hidden void @macro_parse(ptr nocapture noundef %0) local_unnamed_addr #0 
   br label %47
 
 43:                                               ; preds = %35
-  %44 = getelementptr i8, ptr %.2, i64 1
-  %45 = load i8, ptr %.2, align 1
-  %46 = getelementptr i8, ptr %.252, i64 1
-  store i8 %45, ptr %.252, align 1
+  %44 = getelementptr i8, ptr %.252, i64 1
+  %45 = load i8, ptr %.252, align 1
+  %46 = getelementptr i8, ptr %.2, i64 1
+  store i8 %45, ptr %.2, align 1
   br label %47
 
 47:                                               ; preds = %36, %43, %14, %18, %11
-  %.353 = phi ptr [ %13, %11 ], [ %37, %36 ], [ %46, %43 ], [ %20, %18 ], [ %16, %14 ]
-  %.149 = phi i32 [ %.04863, %11 ], [ %40, %36 ], [ %.04863, %43 ], [ %.04863, %18 ], [ %.04863, %14 ]
-  %.3 = phi ptr [ %12, %11 ], [ %38, %36 ], [ %44, %43 ], [ %19, %18 ], [ %15, %14 ]
-  %.not = icmp eq ptr %.3, null
+  %.353 = phi ptr [ %12, %11 ], [ %38, %36 ], [ %44, %43 ], [ %19, %18 ], [ %15, %14 ]
+  %.3 = phi ptr [ %13, %11 ], [ %37, %36 ], [ %46, %43 ], [ %20, %18 ], [ %16, %14 ]
+  %.147 = phi i32 [ %.04664, %11 ], [ %40, %36 ], [ %.04664, %43 ], [ %.04664, %18 ], [ %.04664, %14 ]
+  %.not = icmp eq ptr %.353, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !11
 
 .critedge:                                        ; preds = %47, %.lr.ph, %1
-  %.048.lcssa = phi i32 [ 0, %1 ], [ %.04863, %.lr.ph ], [ %.149, %47 ]
+  %.046.lcssa = phi i32 [ 0, %1 ], [ %.04664, %.lr.ph ], [ %.147, %47 ]
   call void @g_ptr_array_add(ptr noundef %3, ptr noundef null) #6
   %48 = getelementptr inbounds i8, ptr %0, i64 24
   %49 = load ptr, ptr %48, align 8
@@ -893,7 +893,7 @@ define hidden void @macro_parse(ptr nocapture noundef %0) local_unnamed_addr #0 
   %53 = call ptr @g_array_free(ptr noundef %4, i32 noundef 0) #6
   store ptr %53, ptr %51, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 %.048.lcssa, ptr %54, align 8
+  store i32 %.046.lcssa, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 1, ptr %55, align 8
   ret void

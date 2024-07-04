@@ -110,8 +110,8 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   br label %28
 
 28:                                               ; preds = %23, %25
-  %.0241 = phi ptr [ %27, %25 ], [ %13, %23 ]
-  %29 = tail call ptr @type_quoted_error_string(ptr noundef %.0241) #5
+  %.0239 = phi ptr [ %27, %25 ], [ %13, %23 ]
+  %29 = tail call ptr @type_quoted_error_string(ptr noundef %.0239) #5
   %30 = load ptr, ptr %12, align 8
   %.not280 = icmp eq ptr %30, null
   br i1 %.not280, label %37, label %31
@@ -127,8 +127,8 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   br label %37
 
 37:                                               ; preds = %31, %28, %34
-  %.0242 = phi ptr [ %36, %34 ], [ null, %28 ], [ %30, %31 ]
-  %38 = tail call ptr @type_get_ptr(ptr noundef %.0242) #5
+  %.0238 = phi ptr [ %36, %34 ], [ null, %28 ], [ %30, %31 ]
+  %38 = tail call ptr @type_get_ptr(ptr noundef %.0238) #5
   %39 = tail call ptr @type_quoted_error_string(ptr noundef %38) #5
   %40 = load i64, ptr %24, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %40, ptr noundef nonnull @.str.8, ptr noundef %29, ptr noundef %39) #5
@@ -193,7 +193,7 @@ define internal fastcc noundef zeroext i1 @sema_resolve_type(ptr noundef %0, ptr
   unreachable
 
 68:                                               ; preds = %58, %65, %63
-  %.0229 = phi i32 [ %66, %65 ], [ %64, %63 ], [ %2, %58 ]
+  %.0 = phi i32 [ %66, %65 ], [ %64, %63 ], [ %2, %58 ]
   %69 = lshr i16 %6, 3
   %70 = and i16 %69, 63
   switch i16 %70, label %sema_resolve_type_identifier.exit.thread [
@@ -582,7 +582,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
 252:                                              ; preds = %245
   %253 = getelementptr inbounds i8, ptr %240, i64 24
   %254 = load ptr, ptr %253, align 8
-  %255 = tail call fastcc zeroext i1 @sema_resolve_type(ptr noundef %0, ptr noundef %254, i32 noundef %.0229)
+  %255 = tail call fastcc zeroext i1 @sema_resolve_type(ptr noundef %0, ptr noundef %254, i32 noundef %.0)
   br i1 %255, label %256, label %.critedge290
 
 256:                                              ; preds = %252
@@ -600,8 +600,8 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   br i1 %261, label %._crit_edge329, label %.lr.ph328
 
 .lr.ph328:                                        ; preds = %.preheader, %263
-  %.0228327 = phi ptr [ %265, %263 ], [ %258, %.preheader ]
-  %262 = load i32, ptr %.0228327, align 8
+  %.0229327 = phi ptr [ %265, %263 ], [ %258, %.preheader ]
+  %262 = load i32, ptr %.0229327, align 8
   switch i32 %262, label %.critedge288 [
     i32 1, label %._crit_edge329
     i32 43, label %._crit_edge329
@@ -612,7 +612,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   ]
 
 263:                                              ; preds = %.lr.ph328
-  %264 = getelementptr inbounds i8, ptr %.0228327, i64 8
+  %264 = getelementptr inbounds i8, ptr %.0229327, i64 8
   %265 = load ptr, ptr %264, align 8
   %266 = icmp eq ptr %265, %260
   br i1 %266, label %._crit_edge329, label %.lr.ph328
@@ -660,8 +660,8 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   br i1 %284, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.preheader311, %286
-  %.0231316 = phi ptr [ %288, %286 ], [ %281, %.preheader311 ]
-  %285 = load i32, ptr %.0231316, align 8
+  %.0232316 = phi ptr [ %288, %286 ], [ %281, %.preheader311 ]
+  %285 = load i32, ptr %.0232316, align 8
   switch i32 %285, label %.critedge292 [
     i32 1, label %._crit_edge
     i32 43, label %._crit_edge
@@ -672,7 +672,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   ]
 
 286:                                              ; preds = %.lr.ph
-  %287 = getelementptr inbounds i8, ptr %.0231316, i64 8
+  %287 = getelementptr inbounds i8, ptr %.0232316, i64 8
   %288 = load ptr, ptr %287, align 8
   %289 = icmp eq ptr %288, %283
   br i1 %289, label %._crit_edge, label %.lr.ph
@@ -762,14 +762,14 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   br label %555
 
 329:                                              ; preds = %68, %68
-  %330 = and i32 %.0229, 1
+  %330 = and i32 %.0, 1
   %.not = icmp eq i32 %330, 0
   br i1 %.not, label %331, label %345
 
 331:                                              ; preds = %329
   %332 = and i16 %6, 504
   %.not254 = icmp ne i16 %332, 72
-  %333 = and i32 %.0229, 8
+  %333 = and i32 %.0, 8
   %.not255 = icmp eq i32 %333, 0
   %or.cond297 = or i1 %.not254, %.not255
   br i1 %or.cond297, label %334, label %345
@@ -796,7 +796,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %346 = getelementptr inbounds i8, ptr %1, i64 24
   %347 = load ptr, ptr %346, align 8
-  %348 = tail call fastcc zeroext i1 @sema_resolve_type(ptr noundef %0, ptr noundef %347, i32 noundef %.0229)
+  %348 = tail call fastcc zeroext i1 @sema_resolve_type(ptr noundef %0, ptr noundef %347, i32 noundef %.0)
   br i1 %348, label %349, label %468
 
 349:                                              ; preds = %345
@@ -1036,7 +1036,7 @@ sema_resolve_array_type.exit:                     ; preds = %408, %419, %430, %4
 475:                                              ; preds = %68
   %476 = getelementptr inbounds i8, ptr %1, i64 24
   %477 = load ptr, ptr %476, align 8
-  %478 = or i32 %.0229, 6
+  %478 = or i32 %.0, 6
   %479 = tail call fastcc zeroext i1 @sema_resolve_type(ptr noundef %0, ptr noundef %477, i32 noundef %478)
   br i1 %479, label %sema_resolve_ptr_type.exit.thread, label %487
 
@@ -1074,7 +1074,7 @@ sema_resolve_type_identifier.exit.thread:         ; preds = %151, %177, %184, %1
   ]
 
 495:                                              ; preds = %sema_resolve_type_identifier.exit.thread
-  %496 = and i32 %.0229, 2
+  %496 = and i32 %.0, 2
   %.not272 = icmp eq i32 %496, 0
   br i1 %.not272, label %497, label %519
 
@@ -1093,7 +1093,7 @@ sema_resolve_type_identifier.exit.thread:         ; preds = %151, %177, %184, %1
   br label %555
 
 505:                                              ; preds = %sema_resolve_type_identifier.exit.thread
-  %506 = and i32 %.0229, 2
+  %506 = and i32 %.0, 2
   %.not271 = icmp eq i32 %506, 0
   br i1 %.not271, label %507, label %519
 
@@ -1199,8 +1199,8 @@ sema_resolve_type_identifier.exit.thread:         ; preds = %151, %177, %184, %1
   br label %555
 
 555:                                              ; preds = %.critedge, %19, %8, %551, %507, %497, %487, %468, %334, %.critedge296, %.critedge294, %.critedge290, %sema_resolve_type_identifier.exit, %.critedge286, %99, %51, %37
-  %.0232 = phi i1 [ false, %37 ], [ false, %51 ], [ true, %551 ], [ false, %507 ], [ false, %497 ], [ false, %487 ], [ false, %468 ], [ false, %334 ], [ false, %.critedge296 ], [ false, %.critedge294 ], [ false, %.critedge290 ], [ false, %sema_resolve_type_identifier.exit ], [ false, %.critedge286 ], [ false, %99 ], [ false, %8 ], [ true, %19 ], [ true, %.critedge ]
-  ret i1 %.0232
+  %.0230 = phi i1 [ false, %37 ], [ false, %51 ], [ true, %551 ], [ false, %507 ], [ false, %497 ], [ false, %487 ], [ false, %468 ], [ false, %334 ], [ false, %.critedge296 ], [ false, %.critedge294 ], [ false, %.critedge290 ], [ false, %sema_resolve_type_identifier.exit ], [ false, %.critedge286 ], [ false, %99 ], [ false, %8 ], [ true, %19 ], [ true, %.critedge ]
+  ret i1 %.0230
 }
 
 ; Function Attrs: nounwind uwtable

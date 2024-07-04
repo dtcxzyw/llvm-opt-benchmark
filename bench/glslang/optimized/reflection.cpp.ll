@@ -5903,7 +5903,7 @@ _ZN7glslang20TReflectionTraverser14getArrayStrideERKNS_5TTypeES3_.exit293: ; pre
   br label %874
 
 874:                                              ; preds = %_ZN7glslang20TReflectionTraverser14getArrayStrideERKNS_5TTypeES3_.exit293, %833
-  %.0189 = phi i32 [ %.0.i292, %_ZN7glslang20TReflectionTraverser14getArrayStrideERKNS_5TTypeES3_.exit293 ], [ 0, %833 ]
+  %.0191 = phi i32 [ %.0.i292, %_ZN7glslang20TReflectionTraverser14getArrayStrideERKNS_5TTypeES3_.exit293 ], [ 0, %833 ]
   %875 = load ptr, ptr %.0187.lcssa, align 8
   %876 = getelementptr inbounds i8, ptr %875, i64 120
   %877 = load ptr, ptr %876, align 8
@@ -5925,9 +5925,9 @@ _ZN7glslang20TReflectionTraverser14getArrayStrideERKNS_5TTypeES3_.exit293: ; pre
   br label %885
 
 885:                                              ; preds = %884, %881
-  %.0190 = phi i32 [ 1, %884 ], [ %.sroa.speculated, %881 ]
+  %.0193 = phi i32 [ 1, %884 ], [ %.sroa.speculated, %881 ]
   %886 = icmp eq i32 %.0179.lcssa, 0
-  %spec.select211 = select i1 %886, i32 %.0189, i32 %.0179.lcssa
+  %spec.select211 = select i1 %886, i32 %.0191, i32 %.0179.lcssa
   %887 = getelementptr inbounds i8, ptr %42, i64 24
   %888 = getelementptr inbounds i8, ptr %42, i64 8
   %889 = getelementptr inbounds i8, ptr %42, i64 16
@@ -5948,7 +5948,7 @@ _ZN7glslang20TReflectionTraverser14getArrayStrideERKNS_5TTypeES3_.exit293: ; pre
 
 903:                                              ; preds = %885, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit328
   %.6784 = phi i32 [ %.0.lcssa, %885 ], [ %.7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit328 ]
-  %.0193783 = phi i32 [ 0, %885 ], [ %1057, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit328 ]
+  %.0192783 = phi i32 [ 0, %885 ], [ %1057, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit328 ]
   %904 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #19, !noalias !86
   store ptr %904, ptr %42, align 8
   store ptr %887, ptr %888, align 8
@@ -6009,7 +6009,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEC2E
   store i8 0, ptr %902, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !95)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21)
-  %924 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %21, i64 noundef 16, ptr noundef nonnull @.str.24, i32 noundef %.0193783) #19, !noalias !95
+  %924 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %21, i64 noundef 16, ptr noundef nonnull @.str.24, i32 noundef %.0192783) #19, !noalias !95
   %925 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #19, !noalias !95
   store ptr %925, ptr %46, align 8, !alias.scope !95
   store ptr %893, ptr %894, align 8, !alias.scope !95
@@ -6371,7 +6371,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit326: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i325, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit324, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEC2ERKS6_.exit297
   call void @_ZN7glslang5TTypeC2ERKS0_ib(ptr noundef nonnull align 8 dereferenceable(152) %47, ptr noundef nonnull align 8 dereferenceable(152) %.0187.lcssa, i32 noundef 0, i1 noundef zeroext false)
-  %1050 = mul nsw i32 %.0193783, %.0189
+  %1050 = mul nsw i32 %.0192783, %.0191
   %1051 = add nsw i32 %1050, %.0.lcssa
   %1052 = icmp slt i32 %.6784, 0
   %.7 = select i1 %1052, i32 %.6784, i32 %1051
@@ -6387,8 +6387,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit328
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit328: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit326, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11_M_is_localEv.exit.thread.i.i327
-  %1057 = add nuw nsw i32 %.0193783, 1
-  %exitcond861.not = icmp eq i32 %1057, %.0190
+  %1057 = add nuw nsw i32 %.0192783, 1
+  %exitcond861.not = icmp eq i32 %1057, %.0193
   br i1 %exitcond861.not, label %.loopexit, label %903, !llvm.loop !101
 
 1058:                                             ; preds = %_ZN7glslang20TReflectionTraverser23isReflectionGranularityERKNS_5TTypeE.exit.thread640
@@ -6867,9 +6867,9 @@ _ZN7glslang20TReflectionTraverser14getArrayStrideERKNS_5TTypeES3_.exit349: ; pre
   br label %1283
 
 1283:                                             ; preds = %_ZN7glslang20TReflectionTraverser14getArrayStrideERKNS_5TTypeES3_.exit349, %1233, %1227
-  %.0191 = phi i32 [ %.0.i348, %_ZN7glslang20TReflectionTraverser14getArrayStrideERKNS_5TTypeES3_.exit349 ], [ %.0179.lcssa, %1233 ], [ %.0179.lcssa, %1227 ]
+  %.0189 = phi i32 [ %.0.i348, %_ZN7glslang20TReflectionTraverser14getArrayStrideERKNS_5TTypeES3_.exit349 ], [ %.0179.lcssa, %1233 ], [ %.0179.lcssa, %1227 ]
   %1284 = icmp eq i32 %.0177779, -1
-  %1285 = icmp eq i32 %.0191, 0
+  %1285 = icmp eq i32 %.0189, 0
   %or.cond3 = select i1 %1284, i1 %1285, i1 false
   %.1178 = select i1 %or.cond3, i32 %spec.select212, i32 %.0177779
   br i1 %brmerge662.not, label %1286, label %1372
@@ -6996,7 +6996,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
   %1339 = load i64, ptr %1338, align 8
   %1340 = trunc i64 %1339 to i32
   %1341 = and i32 %1340, 127
-  call void @_ZN7glslang20TReflectionTraverser21blowUpActiveAggregateERKNS_5TTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERKNS_5TListIPNS_13TIntermBinaryEEESt20_List_const_iteratorISF_EiiiiiNS_17TStorageQualifierEb(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef nonnull align 8 dereferenceable(152) %50, ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nonnull %101, i32 noundef %1333, i32 noundef %6, i32 noundef 0, i32 noundef %1331, i32 noundef %.0191, i32 noundef %1341, i1 noundef zeroext false)
+  call void @_ZN7glslang20TReflectionTraverser21blowUpActiveAggregateERKNS_5TTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERKNS_5TListIPNS_13TIntermBinaryEEESt20_List_const_iteratorISF_EiiiiiNS_17TStorageQualifierEb(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef nonnull align 8 dereferenceable(152) %50, ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nonnull %101, i32 noundef %1333, i32 noundef %6, i32 noundef 0, i32 noundef %1331, i32 noundef %.0189, i32 noundef %1341, i1 noundef zeroext false)
   br label %1373
 
 ._ZNK7glslang5TType14isUnsizedArrayEv.exit358.thread_crit_edge: ; preds = %1288
@@ -7038,7 +7038,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
   br label %1373
 
 1372:                                             ; preds = %1283
-  call void @_ZN7glslang20TReflectionTraverser21blowUpActiveAggregateERKNS_5TTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERKNS_5TListIPNS_13TIntermBinaryEEESt20_List_const_iteratorISF_EiiiiiNS_17TStorageQualifierEb(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef nonnull align 8 dereferenceable(152) %49, ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nonnull %101, i32 noundef %.9, i32 noundef %6, i32 noundef 0, i32 noundef %.1178, i32 noundef %.0191, i32 noundef %10, i1 noundef zeroext %11)
+  call void @_ZN7glslang20TReflectionTraverser21blowUpActiveAggregateERKNS_5TTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERKNS_5TListIPNS_13TIntermBinaryEEESt20_List_const_iteratorISF_EiiiiiNS_17TStorageQualifierEb(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef nonnull align 8 dereferenceable(152) %49, ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nonnull %101, i32 noundef %.9, i32 noundef %6, i32 noundef 0, i32 noundef %.1178, i32 noundef %.0189, i32 noundef %10, i1 noundef zeroext %11)
   br label %1373
 
 1373:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit355, %1361, %._ZNK7glslang5TType14isUnsizedArrayEv.exit358.thread_crit_edge, %1372
@@ -8309,9 +8309,9 @@ define linkonce_odr noundef i32 @_ZN7glslang20TReflectionTraverser21countAggrega
 
 34:                                               ; preds = %.lr.ph, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread
   %35 = phi ptr [ %33, %.lr.ph ], [ %97, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread ]
-  %.02226 = phi i64 [ 0, %.lr.ph ], [ %95, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread ]
-  %.02325 = phi i32 [ 0, %.lr.ph ], [ %94, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread ]
-  %36 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %35, i64 %.02226
+  %.02126 = phi i64 [ 0, %.lr.ph ], [ %95, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread ]
+  %.02225 = phi i32 [ 0, %.lr.ph ], [ %94, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread ]
+  %36 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %35, i64 %.02126
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef i32 @_ZN7glslang20TReflectionTraverser21countAggregateMembersERKNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef nonnull align 8 dereferenceable(152) %37)
   %39 = load ptr, ptr %37, align 8
@@ -8416,8 +8416,8 @@ _ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit: ; preds = %_ZNK7glslang17TS
 
 _ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread: ; preds = %43, %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, %67, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit, %34
   %.0 = phi i32 [ %38, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit ], [ %93, %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit ], [ %38, %67 ], [ %38, %34 ], [ %38, %43 ]
-  %94 = add nsw i32 %.0, %.02325
-  %95 = add nuw i64 %.02226, 1
+  %94 = add nsw i32 %.0, %.02225
+  %95 = add nuw i64 %.02126, 1
   %96 = load ptr, ptr %31, align 8
   %97 = load ptr, ptr %30, align 8
   %98 = ptrtoint ptr %96 to i64
@@ -8428,8 +8428,8 @@ _ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread: ; preds = %43, %_ZNK7glslan
   br i1 %102, label %34, label %.loopexit, !llvm.loop !127
 
 .loopexit:                                        ; preds = %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread, %27, %2
-  %.021 = phi i32 [ 1, %2 ], [ 0, %27 ], [ %94, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread ]
-  ret i32 %.021
+  %.023 = phi i32 [ 1, %2 ], [ 0, %27 ], [ %94, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread ]
+  ret i32 %.023
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

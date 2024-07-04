@@ -582,8 +582,8 @@ define noalias noundef ptr @lab_gamut(ptr nocapture noundef readonly %0, ptr noc
 
 .lr.ph50:                                         ; preds = %.thread, %.loopexit
   %.03549 = phi ptr [ %.2, %.loopexit ], [ %19, %.thread ]
-  %.03747 = phi i64 [ %45, %.loopexit ], [ 0, %.thread ]
-  %20 = getelementptr inbounds [0 x i8], ptr @lab_gamut_data, i64 0, i64 %.03747
+  %.03647 = phi i64 [ %45, %.loopexit ], [ 0, %.thread ]
+  %20 = getelementptr inbounds [0 x i8], ptr @lab_gamut_data, i64 0, i64 %.03647
   %21 = load i8, ptr %20, align 1
   %22 = sext i8 %21 to i32
   %.not40 = icmp sgt i32 %spec.select, %22
@@ -592,10 +592,10 @@ define noalias noundef ptr @lab_gamut(ptr nocapture noundef readonly %0, ptr noc
   br i1 %or.cond, label %.loopexit, label %23
 
 23:                                               ; preds = %.lr.ph50
-  %24 = or disjoint i64 %.03747, 2
+  %24 = or disjoint i64 %.03647, 2
   %25 = getelementptr inbounds [0 x i8], ptr @lab_gamut_data, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1
-  %27 = or disjoint i64 %.03747, 3
+  %27 = or disjoint i64 %.03647, 3
   %28 = getelementptr inbounds [0 x i8], ptr @lab_gamut_data, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
   %.not4244 = icmp sgt i8 %26, %29
@@ -605,7 +605,7 @@ define noalias noundef ptr @lab_gamut(ptr nocapture noundef readonly %0, ptr noc
   %30 = sext i8 %29 to i32
   %31 = sext i8 %26 to i32
   %32 = sitofp i8 %21 to double
-  %33 = or disjoint i64 %.03747, 1
+  %33 = or disjoint i64 %.03647, 1
   %34 = getelementptr inbounds [0 x i8], ptr @lab_gamut_data, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = sitofp i8 %35 to double
@@ -630,7 +630,7 @@ define noalias noundef ptr @lab_gamut(ptr nocapture noundef readonly %0, ptr noc
 
 .loopexit:                                        ; preds = %37, %23, %.lr.ph50
   %.2 = phi ptr [ %.03549, %.lr.ph50 ], [ %.03549, %23 ], [ %41, %37 ]
-  %45 = add i64 %.03747, 4
+  %45 = add i64 %.03647, 4
   %46 = icmp ult i64 %45, %13
   br i1 %46, label %.lr.ph50, label %._crit_edge
 
@@ -707,8 +707,8 @@ define noalias noundef ptr @color_blend_rgb2lab(ptr noundef %0, i32 noundef %1) 
 
 19:                                               ; preds = %22, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %._crit_edge ]
-  %.1114 = phi ptr [ %31, %22 ], [ %16, %._crit_edge ]
-  %20 = getelementptr inbounds i8, ptr %.1114, i64 1
+  %.1115 = phi ptr [ %31, %22 ], [ %16, %._crit_edge ]
+  %20 = getelementptr inbounds i8, ptr %.1115, i64 1
   %21 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %20, ptr noundef nonnull @.str.2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #20
   %.not123 = icmp eq i32 %21, 3
   br i1 %.not123, label %22, label %32
@@ -869,14 +869,14 @@ define noalias noundef ptr @color_blend_rgb2lab(ptr noundef %0, i32 noundef %1) 
   %.2107156 = phi i32 [ %142, %.critedge ], [ 0, %.lr.ph158.preheader ]
   %.0108155 = phi i32 [ %.1109, %.critedge ], [ 0, %.lr.ph158.preheader ]
   %.1111154 = phi i32 [ %.2112.lcssa, %.critedge ], [ %91, %.lr.ph158.preheader ]
-  %.0115153 = phi double [ %128, %.critedge ], [ 0.000000e+00, %.lr.ph158.preheader ]
+  %.0113153 = phi double [ %128, %.critedge ], [ 0.000000e+00, %.lr.ph158.preheader ]
   %92 = sext i32 %.0108155 to i64
   %93 = getelementptr inbounds %struct.lab_struct, ptr %15, i64 %92
   %94 = sext i32 %.1111154 to i64
   %95 = getelementptr inbounds %struct.lab_struct, ptr %15, i64 %94
   %96 = getelementptr inbounds double, ptr %35, i64 %92
   %97 = load double, ptr %96, align 8
-  %98 = fsub double %.0115153, %97
+  %98 = fsub double %.0113153, %97
   %99 = getelementptr inbounds double, ptr %35, i64 %94
   %100 = load double, ptr %99, align 8
   %101 = fsub double %100, %97
@@ -918,7 +918,7 @@ define noalias noundef ptr @color_blend_rgb2lab(ptr noundef %0, i32 noundef %1) 
   %126 = call double @llvm.fmuladd.f64(double %104, double %125, double %122)
   %127 = getelementptr inbounds i8, ptr %.0103157, i64 16
   store double %126, ptr %127, align 8
-  %128 = fadd double %84, %.0115153
+  %128 = fadd double %84, %.0113153
   %129 = getelementptr inbounds i8, ptr %.0103157, i64 24
   %130 = fcmp ogt double %128, %100
   %.1109 = select i1 %130, i32 %.1111154, i32 %.0108155

@@ -14030,14 +14030,14 @@ define linkonce_odr dso_local noundef ptr @_ZNK11DfgVarArray8driverAtEm(ptr noun
   br i1 %.not.i, label %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit.thread, label %.lr.ph.i
 
 13:                                               ; preds = %.noexc6
-  %14 = add nuw i64 %.0910.i, 1
+  %14 = add nuw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %14, %12
   br i1 %exitcond.not.i, label %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit, label %.lr.ph.i, !llvm.loop !111
 
 .lr.ph.i:                                         ; preds = %.noexc, %13
-  %.0910.i = phi i64 [ %14, %13 ], [ 0, %.noexc ]
+  %.010.i = phi i64 [ %14, %13 ], [ 0, %.noexc ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store i64 %.0910.i, ptr %3, align 8
+  store i64 %.010.i, ptr %3, align 8
   %15 = load ptr, ptr %5, align 8
   %.not.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i, label %16, label %_ZNKSt8functionIFbRK7DfgEdgemEEclES2_m.exit.i
@@ -14050,7 +14050,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK11DfgVarArray8driverAtEm(ptr noun
   unreachable
 
 _ZNKSt8functionIFbRK7DfgEdgemEEclES2_m.exit.i:    ; preds = %.lr.ph.i
-  %17 = getelementptr inbounds %class.DfgEdge, ptr %11, i64 %.0910.i
+  %17 = getelementptr inbounds %class.DfgEdge, ptr %11, i64 %.010.i
   %18 = load ptr, ptr %6, align 8
   %19 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc6 unwind label %.loopexit
@@ -14060,13 +14060,13 @@ _ZNKSt8functionIFbRK7DfgEdgemEEclES2_m.exit.i:    ; preds = %.lr.ph.i
   br i1 %19, label %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit, label %13
 
 _ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit: ; preds = %.noexc6, %13
-  %.0.i.ph = phi ptr [ null, %13 ], [ %17, %.noexc6 ]
+  %.09.i.ph = phi ptr [ null, %13 ], [ %17, %.noexc6 ]
   %.pre = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i, label %_ZNSt8functionIFbRK7DfgEdgemEED2Ev.exit, label %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit.thread
 
 _ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit.thread: ; preds = %.noexc, %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit
-  %.0.i11 = phi ptr [ %.0.i.ph, %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit ], [ null, %.noexc ]
+  %.09.i11 = phi ptr [ %.09.i.ph, %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit ], [ null, %.noexc ]
   %20 = phi ptr [ %.pre, %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit ], [ @_ZNSt17_Function_handlerIFbRK7DfgEdgemEZNK11DfgVarArray8driverAtEmEUlS2_mE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, %.noexc ]
   %21 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 3)
           to label %_ZNSt8functionIFbRK7DfgEdgemEED2Ev.exit unwind label %22
@@ -14079,12 +14079,12 @@ _ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit.thread: ; preds 
   unreachable
 
 _ZNSt8functionIFbRK7DfgEdgemEED2Ev.exit:          ; preds = %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit, %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit.thread
-  %.0.i12 = phi ptr [ %.0.i.ph, %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit ], [ %.0.i11, %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit.thread ]
-  %.not = icmp eq ptr %.0.i12, null
+  %.09.i12 = phi ptr [ %.09.i.ph, %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit ], [ %.09.i11, %_ZNK9DfgVertex14findSourceEdgeESt8functionIFbRK7DfgEdgemEE.exit.thread ]
+  %.not = icmp eq ptr %.09.i12, null
   br i1 %.not, label %28, label %25
 
 25:                                               ; preds = %_ZNSt8functionIFbRK7DfgEdgemEED2Ev.exit
-  %26 = getelementptr inbounds i8, ptr %.0.i12, i64 16
+  %26 = getelementptr inbounds i8, ptr %.09.i12, i64 16
   %27 = load ptr, ptr %26, align 8
   br label %28
 
@@ -14143,14 +14143,14 @@ define linkonce_odr dso_local noundef ptr @_ZNK9DfgVertex14findSourceEdgeESt8fun
   br label %14
 
 12:                                               ; preds = %_ZNKSt8functionIFbRK7DfgEdgemEEclES2_m.exit
-  %13 = add nuw i64 %.0910, 1
+  %13 = add nuw i64 %.010, 1
   %exitcond.not = icmp eq i64 %13, %9
   br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !111
 
 14:                                               ; preds = %.lr.ph, %12
-  %.0910 = phi i64 [ 0, %.lr.ph ], [ %13, %12 ]
+  %.010 = phi i64 [ 0, %.lr.ph ], [ %13, %12 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store i64 %.0910, ptr %3, align 8
+  store i64 %.010, ptr %3, align 8
   %15 = load ptr, ptr %10, align 8
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %16, label %_ZNKSt8functionIFbRK7DfgEdgemEEclES2_m.exit
@@ -14160,15 +14160,15 @@ define linkonce_odr dso_local noundef ptr @_ZNK9DfgVertex14findSourceEdgeESt8fun
   unreachable
 
 _ZNKSt8functionIFbRK7DfgEdgemEEclES2_m.exit:      ; preds = %14
-  %17 = getelementptr inbounds %class.DfgEdge, ptr %8, i64 %.0910
+  %17 = getelementptr inbounds %class.DfgEdge, ptr %8, i64 %.010
   %18 = load ptr, ptr %11, align 8
   %19 = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br i1 %19, label %._crit_edge, label %12
 
 ._crit_edge:                                      ; preds = %_ZNKSt8functionIFbRK7DfgEdgemEEclES2_m.exit, %12, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %12 ], [ %17, %_ZNKSt8functionIFbRK7DfgEdgemEEclES2_m.exit ]
-  ret ptr %.0
+  %.09 = phi ptr [ null, %2 ], [ null, %12 ], [ %17, %_ZNKSt8functionIFbRK7DfgEdgemEEclES2_m.exit ]
+  ret ptr %.09
 }
 
 ; Function Attrs: mustprogress uwtable

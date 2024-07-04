@@ -52,22 +52,22 @@ define noundef i32 @ModifiedGS(ptr nocapture noundef readonly %0, ptr nocapture 
   %35 = fadd double %34, %33
   %36 = fcmp une double %35, %34
   %brmerge = or i1 %36, %14
-  br i1 %brmerge, label %._crit_edge81.thread, label %.lr.ph80
+  br i1 %brmerge, label %._crit_edge82.thread, label %.lr.ph81
 
-.lr.ph80:                                         ; preds = %._crit_edge
+.lr.ph81:                                         ; preds = %._crit_edge
   %37 = zext nneg i32 %11 to i64
   %38 = zext nneg i32 %13 to i64
-  %wide.trip.count86 = zext nneg i32 %2 to i64
+  %wide.trip.count87 = zext nneg i32 %2 to i64
   br label %39
 
-39:                                               ; preds = %.lr.ph80, %57
-  %indvars.iv83 = phi i64 [ %38, %.lr.ph80 ], [ %indvars.iv.next84, %57 ]
-  %.07379 = phi double [ 0.000000e+00, %.lr.ph80 ], [ %.1, %57 ]
-  %40 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv83
+39:                                               ; preds = %.lr.ph81, %57
+  %indvars.iv84 = phi i64 [ %38, %.lr.ph81 ], [ %indvars.iv.next85, %57 ]
+  %.080 = phi double [ 0.000000e+00, %.lr.ph81 ], [ %.1, %57 ]
+  %40 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv84
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %7, align 8
   %43 = tail call double @N_VDotProd(ptr noundef %41, ptr noundef %42) #5
-  %44 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv83
+  %44 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv84
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds double, ptr %45, i64 %37
   %47 = load double, ptr %46, align 8
@@ -83,20 +83,20 @@ define noundef i32 @ModifiedGS(ptr nocapture noundef readonly %0, ptr nocapture 
   %54 = fneg double %43
   %55 = load ptr, ptr %40, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %53, double noundef %54, ptr noundef %55, ptr noundef %53) #5
-  %56 = tail call double @llvm.fmuladd.f64(double %43, double %43, double %.07379)
+  %56 = tail call double @llvm.fmuladd.f64(double %43, double %43, double %.080)
   br label %57
 
 57:                                               ; preds = %39, %51
-  %.1 = phi double [ %.07379, %39 ], [ %56, %51 ]
-  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
-  %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
-  br i1 %exitcond87.not, label %._crit_edge81, label %39, !llvm.loop !6
+  %.1 = phi double [ %.080, %39 ], [ %56, %51 ]
+  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
+  %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
+  br i1 %exitcond88.not, label %._crit_edge82, label %39, !llvm.loop !6
 
-._crit_edge81:                                    ; preds = %57
+._crit_edge82:                                    ; preds = %57
   %58 = fcmp une double %.1, 0.000000e+00
-  br i1 %58, label %59, label %._crit_edge81.thread
+  br i1 %58, label %59, label %._crit_edge82.thread
 
-59:                                               ; preds = %._crit_edge81
+59:                                               ; preds = %._crit_edge82
   %60 = load double, ptr %4, align 8
   %61 = fneg double %.1
   %62 = tail call double @llvm.fmuladd.f64(double %60, double %60, double %61)
@@ -110,9 +110,9 @@ define noundef i32 @ModifiedGS(ptr nocapture noundef readonly %0, ptr nocapture 
 66:                                               ; preds = %59, %64
   %67 = phi double [ %65, %64 ], [ 0.000000e+00, %59 ]
   store double %67, ptr %4, align 8
-  br label %._crit_edge81.thread
+  br label %._crit_edge82.thread
 
-._crit_edge81.thread:                             ; preds = %._crit_edge, %._crit_edge81, %66
+._crit_edge82.thread:                             ; preds = %._crit_edge, %._crit_edge82, %66
   ret i32 0
 }
 
@@ -368,16 +368,16 @@ define i32 @QRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapt
   br label %57
 
 57:                                               ; preds = %._crit_edge148, %43, %50
-  %.0138 = phi double [ %47, %43 ], [ %56, %50 ], [ 0.000000e+00, %._crit_edge148 ]
-  %.0133 = phi double [ %49, %43 ], [ %54, %50 ], [ 1.000000e+00, %._crit_edge148 ]
+  %.0138 = phi double [ %49, %43 ], [ %54, %50 ], [ 1.000000e+00, %._crit_edge148 ]
+  %.0136 = phi double [ %47, %43 ], [ %56, %50 ], [ 0.000000e+00, %._crit_edge148 ]
   %58 = getelementptr inbounds double, ptr %2, i64 %29
-  store double %.0133, ptr %58, align 8
+  store double %.0138, ptr %58, align 8
   %59 = or disjoint i64 %29, 1
   %60 = getelementptr inbounds double, ptr %2, i64 %59
-  store double %.0138, ptr %60, align 8
-  %61 = fneg double %.0138
+  store double %.0136, ptr %60, align 8
+  %61 = fneg double %.0136
   %62 = fmul double %37, %61
-  %63 = tail call double @llvm.fmuladd.f64(double %.0133, double %33, double %62)
+  %63 = tail call double @llvm.fmuladd.f64(double %.0138, double %33, double %62)
   %64 = load ptr, ptr %30, align 8
   %65 = getelementptr inbounds double, ptr %64, i64 %indvars.iv159
   store double %63, ptr %65, align 8
@@ -470,19 +470,19 @@ define i32 @QRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapt
   br label %122
 
 122:                                              ; preds = %._crit_edge, %108, %115
-  %.1139 = phi double [ %112, %108 ], [ %121, %115 ], [ 0.000000e+00, %._crit_edge ]
-  %.1134 = phi double [ %114, %108 ], [ %119, %115 ], [ 1.000000e+00, %._crit_edge ]
+  %.1139 = phi double [ %114, %108 ], [ %119, %115 ], [ 1.000000e+00, %._crit_edge ]
+  %.1137 = phi double [ %112, %108 ], [ %121, %115 ], [ 0.000000e+00, %._crit_edge ]
   %123 = shl nsw i32 %69, 1
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds double, ptr %2, i64 %124
-  store double %.1134, ptr %125, align 8
+  store double %.1139, ptr %125, align 8
   %126 = or disjoint i32 %123, 1
   %127 = sext i32 %126 to i64
   %128 = getelementptr inbounds double, ptr %2, i64 %127
-  store double %.1139, ptr %128, align 8
-  %129 = fneg double %.1139
+  store double %.1137, ptr %128, align 8
+  %129 = fneg double %.1137
   %130 = fmul double %102, %129
-  %131 = tail call double @llvm.fmuladd.f64(double %.1134, double %97, double %130)
+  %131 = tail call double @llvm.fmuladd.f64(double %.1139, double %97, double %130)
   %132 = load ptr, ptr %94, align 8
   %133 = getelementptr inbounds double, ptr %132, i64 %.pre-phi
   store double %131, ptr %133, align 8

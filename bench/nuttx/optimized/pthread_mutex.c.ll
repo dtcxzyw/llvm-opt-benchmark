@@ -140,19 +140,19 @@ define i32 @pthread_mutex_give(ptr noundef %0) local_unnamed_addr #0 {
   br label %7
 
 7:                                                ; preds = %7, %3
-  %.012.i = phi ptr [ null, %3 ], [ %.0.i, %7 ]
-  %.0.in.i = phi ptr [ %6, %3 ], [ %.0.i, %7 ]
-  %.0.i = load ptr, ptr %.0.in.i, align 8
-  %8 = icmp ne ptr %.0.i, null
-  %9 = icmp ne ptr %.0.i, %0
+  %.012.in.i = phi ptr [ %6, %3 ], [ %.012.i, %7 ]
+  %.0.i = phi ptr [ null, %3 ], [ %.012.i, %7 ]
+  %.012.i = load ptr, ptr %.012.in.i, align 8
+  %8 = icmp ne ptr %.012.i, null
+  %9 = icmp ne ptr %.012.i, %0
   %10 = and i1 %8, %9
   br i1 %10, label %7, label %11, !llvm.loop !9
 
 11:                                               ; preds = %7
-  %12 = icmp eq ptr %.012.i, null
+  %12 = icmp eq ptr %.0.i, null
   %13 = load ptr, ptr %0, align 8
-  %..012.lcssa.i = select i1 %12, ptr %6, ptr %.012.i
-  store ptr %13, ptr %..012.lcssa.i, align 8
+  %..0.lcssa.i = select i1 %12, ptr %6, ptr %.0.i
+  store ptr %13, ptr %..0.lcssa.i, align 8
   store ptr null, ptr %0, align 8
   %14 = and i64 %5, 512
   %.not.i.i = icmp eq i64 %14, 0

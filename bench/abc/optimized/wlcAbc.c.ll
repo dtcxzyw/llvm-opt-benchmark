@@ -224,9 +224,9 @@ define void @Wlc_NtkPrintInvStats(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %exitcond.not, label %27, label %24, !llvm.loop !9
 
 27:                                               ; preds = %24, %26
-  %.034.lcssa.in = phi i64 [ %indvars.iv, %24 ], [ %indvars.iv.next, %26 ]
-  %.034.lcssa = trunc i64 %.034.lcssa.in to i32
-  %28 = icmp eq i32 %21, %.034.lcssa
+  %.033.lcssa.in = phi i64 [ %indvars.iv, %24 ], [ %indvars.iv.next, %26 ]
+  %.033.lcssa = trunc i64 %.033.lcssa.in to i32
+  %28 = icmp eq i32 %21, %.033.lcssa
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %27
@@ -399,7 +399,7 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly %
 59:                                               ; preds = %.lr.ph, %100
   %.val95152 = phi i32 [ %.val95116, %.lr.ph ], [ %.val95, %100 ]
   %indvars.iv136 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next137, %100 ]
-  %.082117 = phi i32 [ 0, %.lr.ph ], [ %.183, %100 ]
+  %.081118 = phi i32 [ 0, %.lr.ph ], [ %.1, %100 ]
   %.val99 = load ptr, ptr %14, align 8
   %.val100 = load ptr, ptr %15, align 8
   %60 = getelementptr inbounds i32, ptr %.val99, i64 %indvars.iv136
@@ -420,7 +420,7 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly %
   %70 = call i32 @llvm.abs.i32(i32 %69, i1 true)
   %71 = add nuw nsw i32 %70, 1
   %.val97 = load ptr, ptr %16, align 8
-  %72 = zext nneg i32 %.082117 to i64
+  %72 = zext nneg i32 %.081118 to i64
   %smax = call i32 @llvm.abs.i32(i32 %69, i1 false)
   %73 = add nuw i32 %smax, 1
   %wide.trip.count = zext i32 %73 to i64
@@ -440,9 +440,9 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly %
   br i1 %exitcond.not, label %77, label %74, !llvm.loop !13
 
 77:                                               ; preds = %74, %76
-  %.084.lcssa.in = phi i64 [ %indvars.iv, %74 ], [ %indvars.iv.next, %76 ]
-  %.084.lcssa = trunc i64 %.084.lcssa.in to i32
-  %78 = icmp eq i32 %71, %.084.lcssa
+  %.082.lcssa.in = phi i64 [ %indvars.iv, %74 ], [ %indvars.iv.next, %76 ]
+  %.082.lcssa = trunc i64 %.082.lcssa.in to i32
+  %78 = icmp eq i32 %71, %.082.lcssa
   br i1 %78, label %80, label %.preheader
 
 .preheader:                                       ; preds = %77
@@ -450,7 +450,7 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly %
   br label %82
 
 80:                                               ; preds = %77
-  %81 = add nuw nsw i32 %71, %.082117
+  %81 = add nuw nsw i32 %71, %.081118
   br label %100
 
 82:                                               ; preds = %.preheader, %97
@@ -481,13 +481,13 @@ define ptr @Wlc_NtkGetInv(ptr noundef %0, ptr noundef %1, ptr noundef readonly %
   br i1 %exitcond135.not, label %98, label %82, !llvm.loop !14
 
 98:                                               ; preds = %97
-  %99 = add nuw nsw i32 %71, %.082117
+  %99 = add nuw nsw i32 %71, %.081118
   %.val95.pre = load i32, ptr %12, align 4
   br label %100
 
 100:                                              ; preds = %59, %98, %80
   %.val95 = phi i32 [ %.val95152, %59 ], [ %.val95152, %80 ], [ %.val95.pre, %98 ]
-  %.183 = phi i32 [ %.082117, %59 ], [ %81, %80 ], [ %99, %98 ]
+  %.1 = phi i32 [ %.081118, %59 ], [ %81, %80 ], [ %99, %98 ]
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %101 = sext i32 %.val95 to i64
   %102 = icmp slt i64 %indvars.iv.next137, %101
@@ -875,7 +875,7 @@ Vec_IntPush.exit132:                              ; preds = %128, %.critedge2.th
 
 .preheader:                                       ; preds = %Vec_IntPush.exit132, %.critedge6
   %135 = phi i8 [ %209, %.critedge6 ], [ %134, %Vec_IntPush.exit132 ]
-  %.093162 = phi ptr [ %208, %.critedge6 ], [ %20, %Vec_IntPush.exit132 ]
+  %.091162 = phi ptr [ %208, %.critedge6 ], [ %20, %Vec_IntPush.exit132 ]
   br label %136
 
 136:                                              ; preds = %.preheader, %140
@@ -895,7 +895,7 @@ Vec_IntPush.exit132:                              ; preds = %128, %.critedge2.th
 140:                                              ; preds = %136, %138
   %.185 = phi i32 [ %139, %138 ], [ %.084, %136 ]
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.093162, i64 %indvars.iv.next172
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.091162, i64 %indvars.iv.next172
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   br label %136, !llvm.loop !20
 
@@ -965,7 +965,7 @@ Vec_IntPush.exit139:                              ; preds = %.Vec_IntGrow.exit10
 
 168:                                              ; preds = %205, %Vec_IntPush.exit139
   %indvars.iv175 = phi i64 [ %indvars.iv.next176, %205 ], [ 0, %Vec_IntPush.exit139 ]
-  %169 = getelementptr inbounds i8, ptr %.093162, i64 %indvars.iv175
+  %169 = getelementptr inbounds i8, ptr %.091162, i64 %indvars.iv175
   %170 = load i8, ptr %169, align 1
   switch i8 %170, label %171 [
     i8 32, label %.critedge6
@@ -1052,7 +1052,7 @@ Vec_IntPush.exit146:                              ; preds = %.Vec_IntGrow.exit10
   %.val121 = load i32, ptr %21, align 4
   %206 = add nsw i32 %.val121, 3
   %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds i8, ptr %.093162, i64 %207
+  %208 = getelementptr inbounds i8, ptr %.091162, i64 %207
   %209 = load i8, ptr %208, align 1
   %.not102 = icmp eq i8 %209, 0
   br i1 %.not102, label %._crit_edge, label %.preheader, !llvm.loop !22
@@ -1134,8 +1134,8 @@ Vec_IntFree.exit:                                 ; preds = %Vec_IntPush.exit153
   br label %239
 
 239:                                              ; preds = %9, %Vec_IntFree.exit, %6
-  %.091 = phi ptr [ null, %6 ], [ null, %9 ], [ %129, %Vec_IntFree.exit ]
-  ret ptr %.091
+  %.093 = phi ptr [ null, %6 ], [ null, %9 ], [ %129, %Vec_IntFree.exit ]
+  ret ptr %.093
 }
 
 declare ptr @Abc_NamStart(i32 noundef, i32 noundef) local_unnamed_addr #2

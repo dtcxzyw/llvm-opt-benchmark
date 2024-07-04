@@ -374,15 +374,15 @@ define i32 @Abc_AigCleanup(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph27 ], [ %indvars.iv.next, %._crit_edge ]
   %15 = load ptr, ptr %11, align 8
   %16 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
-  %.022 = load ptr, ptr %16, align 8
-  %.not23 = icmp eq ptr %.022, null
+  %.02022 = load ptr, ptr %16, align 8
+  %.not23 = icmp eq ptr %.02022, null
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %47
-  %.024 = phi ptr [ %.0, %47 ], [ %.022, %13 ]
-  %17 = getelementptr i8, ptr %.024, i64 44
-  %.0.val = load i32, ptr %17, align 4
-  %18 = icmp eq i32 %.0.val, 0
+  %.02024 = phi ptr [ %.020, %47 ], [ %.02022, %13 ]
+  %17 = getelementptr i8, ptr %.02024, i64 44
+  %.020.val = load i32, ptr %17, align 4
+  %18 = icmp eq i32 %.020.val, 0
   br i1 %18, label %19, label %47
 
 19:                                               ; preds = %.lr.ph
@@ -446,13 +446,13 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   store i32 %44, ptr %5, align 4
   %45 = sext i32 %20 to i64
   %46 = getelementptr inbounds ptr, ptr %43, i64 %45
-  store ptr %.024, ptr %46, align 8
+  store ptr %.02024, ptr %46, align 8
   br label %47
 
 47:                                               ; preds = %.lr.ph, %Vec_PtrPush.exit
-  %48 = getelementptr inbounds i8, ptr %.024, i64 8
-  %.0 = load ptr, ptr %48, align 8
-  %.not = icmp eq ptr %.0, null
+  %48 = getelementptr inbounds i8, ptr %.02024, i64 8
+  %.020 = load ptr, ptr %48, align 8
+  %.not = icmp eq ptr %.020, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %47
@@ -1024,17 +1024,17 @@ define range(i32 0, 2) i32 @Abc_AigCheck(ptr nocapture noundef readonly %0) loca
   %indvars.iv129 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next130, %.critedge ]
   %.0117 = phi i32 [ 0, %.lr.ph118 ], [ %.1.lcssa, %.critedge ]
   %82 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv129
-  %.052110 = load ptr, ptr %82, align 8
-  %.not60111 = icmp eq ptr %.052110, null
+  %.051110 = load ptr, ptr %82, align 8
+  %.not60111 = icmp eq ptr %.051110, null
   br i1 %.not60111, label %.critedge, label %.lr.ph114
 
 .lr.ph114:                                        ; preds = %81, %.lr.ph114
-  %.052113 = phi ptr [ %.052, %.lr.ph114 ], [ %.052110, %81 ]
+  %.051113 = phi ptr [ %.051, %.lr.ph114 ], [ %.051110, %81 ]
   %.1112 = phi i32 [ %83, %.lr.ph114 ], [ %.0117, %81 ]
   %83 = add nsw i32 %.1112, 1
-  %84 = getelementptr inbounds i8, ptr %.052113, i64 8
-  %.052 = load ptr, ptr %84, align 8
-  %.not60 = icmp eq ptr %.052, null
+  %84 = getelementptr inbounds i8, ptr %.051113, i64 8
+  %.051 = load ptr, ptr %84, align 8
+  %.not60 = icmp eq ptr %.051, null
   br i1 %.not60, label %.critedge, label %.lr.ph114, !llvm.loop !18
 
 .critedge:                                        ; preds = %.lr.ph114, %81
@@ -1091,25 +1091,25 @@ Abc_AigNodeIsChoice.exit:                         ; preds = %96
   br i1 %100, label %Abc_AigNodeIsChoice.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %Abc_AigNodeIsChoice.exit, %101
-  %.pn = phi ptr [ %.153, %101 ], [ %91, %Abc_AigNodeIsChoice.exit ]
-  %.153.in = getelementptr inbounds i8, ptr %.pn, i64 56
-  %.153 = load ptr, ptr %.153.in, align 8
-  %.not59 = icmp eq ptr %.153, null
+  %.pn = phi ptr [ %.152, %101 ], [ %91, %Abc_AigNodeIsChoice.exit ]
+  %.152.in = getelementptr inbounds i8, ptr %.pn, i64 56
+  %.152 = load ptr, ptr %.152.in, align 8
+  %.not59 = icmp eq ptr %.152, null
   br i1 %.not59, label %Abc_AigNodeIsChoice.exit.thread, label %101
 
 101:                                              ; preds = %.preheader
-  %102 = getelementptr i8, ptr %.153, i64 44
-  %.153.val68 = load i32, ptr %102, align 4
-  %103 = icmp sgt i32 %.153.val68, 0
+  %102 = getelementptr i8, ptr %.152, i64 44
+  %.152.val68 = load i32, ptr %102, align 4
+  %103 = icmp sgt i32 %.152.val68, 0
   br i1 %103, label %104, label %.preheader, !llvm.loop !20
 
 104:                                              ; preds = %101
-  %105 = getelementptr i8, ptr %.153, i64 44
-  %106 = tail call ptr @Abc_ObjName(ptr noundef nonnull %.153) #21
+  %105 = getelementptr i8, ptr %.152, i64 44
+  %106 = tail call ptr @Abc_ObjName(ptr noundef nonnull %.152) #21
   %107 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %106)
   %108 = tail call ptr @Abc_ObjName(ptr noundef nonnull %91) #21
-  %.153.val = load i32, ptr %105, align 4
-  %109 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %108, i32 noundef %.153.val)
+  %.152.val = load i32, ptr %105, align 4
+  %109 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %108, i32 noundef %.152.val)
   br label %.critedge2
 
 Abc_AigNodeIsChoice.exit.thread:                  ; preds = %.preheader, %96, %93, %89, %Abc_AigNodeIsChoice.exit
@@ -1118,8 +1118,8 @@ Abc_AigNodeIsChoice.exit.thread:                  ; preds = %.preheader, %96, %9
   br i1 %exitcond136.not, label %.critedge2, label %89, !llvm.loop !21
 
 .critedge2:                                       ; preds = %Abc_AigNodeIsChoice.exit.thread, %.preheader92, %104, %88, %33, %30, %29
-  %.049 = phi i32 [ 0, %29 ], [ 0, %30 ], [ 0, %33 ], [ 0, %88 ], [ 0, %104 ], [ 1, %.preheader92 ], [ 1, %Abc_AigNodeIsChoice.exit.thread ]
-  ret i32 %.049
+  %.053 = phi i32 [ 0, %29 ], [ 0, %30 ], [ 0, %33 ], [ 0, %88 ], [ 0, %104 ], [ 1, %.preheader92 ], [ 1, %Abc_AigNodeIsChoice.exit.thread ]
+  ret i32 %.053
 }
 
 ; Function Attrs: nofree nounwind

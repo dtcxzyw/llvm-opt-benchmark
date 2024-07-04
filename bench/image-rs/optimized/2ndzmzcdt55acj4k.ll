@@ -5028,10 +5028,10 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h0317d3b220d87
   %38 = uitofp i32 %2 to float
   %39 = fdiv float %37, %38
   %40 = fcmp olt float %39, 1.000000e+00
-  %.087 = select i1 %40, float 1.000000e+00, float %39
+  %.0 = select i1 %40, float 1.000000e+00, float %39
   %41 = getelementptr inbounds i8, ptr %3, i64 16
   %42 = load float, ptr %41, align 8, !noundef !14
-  %43 = fmul float %.087, %42
+  %43 = fmul float %.0, %42
   %.not229 = icmp eq i32 %2, 0
   br i1 %.not229, label %.noexc107, label %.lr.ph228
 
@@ -5141,7 +5141,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h0317d3b220d87
   %90 = add i32 %.sroa.013.0210, 1
   %91 = uitofp i32 %.sroa.013.0210 to float
   %92 = fsub float %91, %77
-  %93 = fdiv float %92, %.087
+  %93 = fdiv float %92, %.0
   %94 = invoke noundef float %79(ptr noundef nonnull align 1 %46, float noundef %93)
           to label %"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E.exit" unwind label %.loopexit166
 
@@ -5508,10 +5508,10 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h15129f9eef9b8
   %38 = uitofp i32 %2 to float
   %39 = fdiv float %37, %38
   %40 = fcmp olt float %39, 1.000000e+00
-  %.084 = select i1 %40, float 1.000000e+00, float %39
+  %.0 = select i1 %40, float 1.000000e+00, float %39
   %41 = getelementptr inbounds i8, ptr %3, i64 16
   %42 = load float, ptr %41, align 8, !noundef !14
-  %43 = fmul float %.084, %42
+  %43 = fmul float %.0, %42
   %.not213 = icmp eq i32 %2, 0
   br i1 %.not213, label %.noexc104, label %.lr.ph212
 
@@ -5622,7 +5622,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h15129f9eef9b8
   %91 = add i32 %.sroa.013.0196, 1
   %92 = uitofp i32 %.sroa.013.0196 to float
   %93 = fsub float %92, %78
-  %94 = fdiv float %93, %.084
+  %94 = fdiv float %93, %.0
   %95 = invoke noundef float %80(ptr noundef nonnull align 1 %46, float noundef %94)
           to label %"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E.exit" unwind label %.loopexit155
 
@@ -5641,10 +5641,10 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h15129f9eef9b8
 
 102:                                              ; preds = %.lr.ph203, %159
   %indvars.iv = phi i64 [ 0, %.lr.ph203 ], [ %indvars.iv.next, %159 ]
-  %.083201 = phi float [ 0.000000e+00, %.lr.ph203 ], [ %169, %159 ]
-  %.sroa.0.0197 = phi ptr [ %97, %.lr.ph203 ], [ %104, %159 ]
+  %.084201 = phi float [ 0.000000e+00, %.lr.ph203 ], [ %169, %159 ]
+  %.sroa.0.0198 = phi ptr [ %97, %.lr.ph203 ], [ %104, %159 ]
   %103 = phi <2 x float> [ zeroinitializer, %.lr.ph203 ], [ %167, %159 ]
-  %104 = getelementptr inbounds i8, ptr %.sroa.0.0197, i64 4
+  %104 = getelementptr inbounds i8, ptr %.sroa.0.0198, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %105 = trunc nuw i64 %indvars.iv to i32
   %106 = add i32 %105, %71
@@ -5724,15 +5724,15 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h15129f9eef9b8
   unreachable
 
 ._crit_edge204:                                   ; preds = %159, %96
-  %.083.lcssa = phi float [ 0.000000e+00, %96 ], [ %169, %159 ]
+  %.084.lcssa = phi float [ 0.000000e+00, %96 ], [ %169, %159 ]
   %129 = phi <2 x float> [ zeroinitializer, %96 ], [ %167, %159 ]
   %130 = fcmp olt <2 x float> %129, zeroinitializer
   %131 = fcmp ogt <2 x float> %129, <float 1.000000e+00, float 1.000000e+00>
   %132 = select <2 x i1> %131, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> %129
   %133 = select <2 x i1> %130, <2 x float> zeroinitializer, <2 x float> %132
-  %134 = fcmp olt float %.083.lcssa, 0.000000e+00
-  %135 = fcmp ogt float %.083.lcssa, 1.000000e+00
-  %.0.in.sroa.speculate.load.3.sroa.speculated.i117 = select i1 %135, float 1.000000e+00, float %.083.lcssa
+  %134 = fcmp olt float %.084.lcssa, 0.000000e+00
+  %135 = fcmp ogt float %.084.lcssa, 1.000000e+00
+  %.0.in.sroa.speculate.load.3.sroa.speculated.i117 = select i1 %135, float 1.000000e+00, float %.084.lcssa
   %.0.in.sroa.speculated.i118 = select i1 %134, float 0.000000e+00, float %.0.in.sroa.speculate.load.3.sroa.speculated.i117
   call void @llvm.experimental.noalias.scope.decl(metadata !498)
   %136 = icmp uge i64 %indvars.iv256, %wide.trip.count259
@@ -5801,13 +5801,13 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h15129f9eef9b8
   %161 = load float, ptr %52, align 8, !noalias !510, !noundef !14
   %162 = load <2 x float>, ptr %6, align 8, !noalias !510
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !510
-  %163 = load float, ptr %.sroa.0.0197, align 4, !noundef !14
+  %163 = load float, ptr %.sroa.0.0198, align 4, !noundef !14
   %164 = insertelement <2 x float> poison, float %163, i64 0
   %165 = shufflevector <2 x float> %164, <2 x float> poison, <2 x i32> zeroinitializer
   %166 = fmul <2 x float> %162, %165
   %167 = fadd <2 x float> %103, %166
   %168 = fmul float %161, %163
-  %169 = fadd float %.083201, %168
+  %169 = fadd float %.084201, %168
   %170 = icmp eq ptr %104, %99
   br i1 %170, label %._crit_edge204, label %102
 
@@ -5959,10 +5959,10 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h1e3e5fe145459
   %40 = uitofp i32 %2 to float
   %41 = fdiv float %39, %40
   %42 = fcmp olt float %41, 1.000000e+00
-  %.085 = select i1 %42, float 1.000000e+00, float %41
+  %.0 = select i1 %42, float 1.000000e+00, float %41
   %43 = getelementptr inbounds i8, ptr %3, i64 16
   %44 = load float, ptr %43, align 8, !noundef !14
-  %45 = fmul float %.085, %44
+  %45 = fmul float %.0, %44
   %.not244 = icmp eq i32 %2, 0
   br i1 %.not244, label %.noexc108, label %.lr.ph243
 
@@ -6070,7 +6070,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h1e3e5fe145459
   %90 = add i32 %.sroa.013.0225, 1
   %91 = uitofp i32 %.sroa.013.0225 to float
   %92 = fsub float %91, %77
-  %93 = fdiv float %92, %.085
+  %93 = fdiv float %92, %.0
   %94 = invoke noundef float %79(ptr noundef nonnull align 1 %48, float noundef %93)
           to label %"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E.exit" unwind label %.loopexit173
 
@@ -6457,10 +6457,10 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h31f7764591547
   %40 = uitofp i32 %2 to float
   %41 = fdiv float %39, %40
   %42 = fcmp olt float %41, 1.000000e+00
-  %.087 = select i1 %42, float 1.000000e+00, float %41
+  %.0 = select i1 %42, float 1.000000e+00, float %41
   %43 = getelementptr inbounds i8, ptr %3, i64 16
   %44 = load float, ptr %43, align 8, !noundef !14
-  %45 = fmul float %.087, %44
+  %45 = fmul float %.0, %44
   %.not244 = icmp eq i32 %2, 0
   br i1 %.not244, label %.noexc110, label %.lr.ph243
 
@@ -6568,7 +6568,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h31f7764591547
   %90 = add i32 %.sroa.013.0225, 1
   %91 = uitofp i32 %.sroa.013.0225 to float
   %92 = fsub float %91, %77
-  %93 = fdiv float %92, %.087
+  %93 = fdiv float %92, %.0
   %94 = invoke noundef float %79(ptr noundef nonnull align 1 %48, float noundef %93)
           to label %"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E.exit" unwind label %.loopexit175
 
@@ -6958,10 +6958,10 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h41d01de9455b1
   %40 = uitofp i32 %2 to float
   %41 = fdiv float %39, %40
   %42 = fcmp olt float %41, 1.000000e+00
-  %.087 = select i1 %42, float 1.000000e+00, float %41
+  %.0 = select i1 %42, float 1.000000e+00, float %41
   %43 = getelementptr inbounds i8, ptr %3, i64 16
   %44 = load float, ptr %43, align 8, !noundef !14
-  %45 = fmul float %.087, %44
+  %45 = fmul float %.0, %44
   %.not244 = icmp eq i32 %2, 0
   br i1 %.not244, label %.noexc110, label %.lr.ph243
 
@@ -7069,7 +7069,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h41d01de9455b1
   %90 = add i32 %.sroa.013.0225, 1
   %91 = uitofp i32 %.sroa.013.0225 to float
   %92 = fsub float %91, %77
-  %93 = fdiv float %92, %.087
+  %93 = fdiv float %92, %.0
   %94 = invoke noundef float %79(ptr noundef nonnull align 1 %48, float noundef %93)
           to label %"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E.exit" unwind label %.loopexit175
 
@@ -7452,10 +7452,10 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h66d8c9163afae
   %40 = uitofp i32 %2 to float
   %41 = fdiv float %39, %40
   %42 = fcmp olt float %41, 1.000000e+00
-  %.087 = select i1 %42, float 1.000000e+00, float %41
+  %.0 = select i1 %42, float 1.000000e+00, float %41
   %43 = getelementptr inbounds i8, ptr %3, i64 16
   %44 = load float, ptr %43, align 8, !noundef !14
-  %45 = fmul float %.087, %44
+  %45 = fmul float %.0, %44
   %.not237 = icmp eq i32 %2, 0
   br i1 %.not237, label %.noexc110, label %.lr.ph236
 
@@ -7563,7 +7563,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h66d8c9163afae
   %90 = add i32 %.sroa.013.0218, 1
   %91 = uitofp i32 %.sroa.013.0218 to float
   %92 = fsub float %91, %77
-  %93 = fdiv float %92, %.087
+  %93 = fdiv float %92, %.0
   %94 = invoke noundef float %79(ptr noundef nonnull align 1 %48, float noundef %93)
           to label %"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E.exit" unwind label %.loopexit174
 
@@ -7927,10 +7927,10 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h7032cb7be23e1
   %38 = uitofp i32 %2 to float
   %39 = fdiv float %37, %38
   %40 = fcmp olt float %39, 1.000000e+00
-  %.087 = select i1 %40, float 1.000000e+00, float %39
+  %.0 = select i1 %40, float 1.000000e+00, float %39
   %41 = getelementptr inbounds i8, ptr %3, i64 16
   %42 = load float, ptr %41, align 8, !noundef !14
-  %43 = fmul float %.087, %42
+  %43 = fmul float %.0, %42
   %.not236 = icmp eq i32 %2, 0
   br i1 %.not236, label %.noexc107, label %.lr.ph235
 
@@ -8040,7 +8040,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h7032cb7be23e1
   %90 = add i32 %.sroa.013.0217, 1
   %91 = uitofp i32 %.sroa.013.0217 to float
   %92 = fsub float %91, %77
-  %93 = fdiv float %92, %.087
+  %93 = fdiv float %92, %.0
   %94 = invoke noundef float %79(ptr noundef nonnull align 1 %46, float noundef %93)
           to label %"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E.exit" unwind label %.loopexit167
 
@@ -8417,10 +8417,10 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17haa59e50452639
   %38 = uitofp i32 %2 to float
   %39 = fdiv float %37, %38
   %40 = fcmp olt float %39, 1.000000e+00
-  %.085 = select i1 %40, float 1.000000e+00, float %39
+  %.0 = select i1 %40, float 1.000000e+00, float %39
   %41 = getelementptr inbounds i8, ptr %3, i64 16
   %42 = load float, ptr %41, align 8, !noundef !14
-  %43 = fmul float %.085, %42
+  %43 = fmul float %.0, %42
   %.not236 = icmp eq i32 %2, 0
   br i1 %.not236, label %.noexc105, label %.lr.ph235
 
@@ -8530,7 +8530,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17haa59e50452639
   %90 = add i32 %.sroa.013.0217, 1
   %91 = uitofp i32 %.sroa.013.0217 to float
   %92 = fsub float %91, %77
-  %93 = fdiv float %92, %.085
+  %93 = fdiv float %92, %.0
   %94 = invoke noundef float %79(ptr noundef nonnull align 1 %46, float noundef %93)
           to label %"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E.exit" unwind label %.loopexit165
 
@@ -8911,10 +8911,10 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17hb62c94970eb0b
   %38 = uitofp i32 %2 to float
   %39 = fdiv float %37, %38
   %40 = fcmp olt float %39, 1.000000e+00
-  %.087 = select i1 %40, float 1.000000e+00, float %39
+  %.0 = select i1 %40, float 1.000000e+00, float %39
   %41 = getelementptr inbounds i8, ptr %3, i64 16
   %42 = load float, ptr %41, align 8, !noundef !14
-  %43 = fmul float %.087, %42
+  %43 = fmul float %.0, %42
   %.not236 = icmp eq i32 %2, 0
   br i1 %.not236, label %.noexc107, label %.lr.ph235
 
@@ -9024,7 +9024,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17hb62c94970eb0b
   %90 = add i32 %.sroa.013.0217, 1
   %91 = uitofp i32 %.sroa.013.0217 to float
   %92 = fsub float %91, %77
-  %93 = fdiv float %92, %.087
+  %93 = fdiv float %92, %.0
   %94 = invoke noundef float %79(ptr noundef nonnull align 1 %46, float noundef %93)
           to label %"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E.exit" unwind label %.loopexit167
 
@@ -9408,10 +9408,10 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17hf5dbeee462c9a
   %38 = uitofp i32 %2 to float
   %39 = fdiv float %37, %38
   %40 = fcmp olt float %39, 1.000000e+00
-  %.084 = select i1 %40, float 1.000000e+00, float %39
+  %.0 = select i1 %40, float 1.000000e+00, float %39
   %41 = getelementptr inbounds i8, ptr %3, i64 16
   %42 = load float, ptr %41, align 8, !noundef !14
-  %43 = fmul float %.084, %42
+  %43 = fmul float %.0, %42
   %.not217 = icmp eq i32 %2, 0
   br i1 %.not217, label %.noexc104, label %.lr.ph216
 
@@ -9521,7 +9521,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17hf5dbeee462c9a
   %90 = add i32 %.sroa.013.0198, 1
   %91 = uitofp i32 %.sroa.013.0198 to float
   %92 = fsub float %91, %77
-  %93 = fdiv float %92, %.084
+  %93 = fdiv float %92, %.0
   %94 = invoke noundef float %79(ptr noundef nonnull align 1 %46, float noundef %93)
           to label %"_ZN86_$LT$alloc..boxed..Box$LT$F$C$A$GT$$u20$as$u20$core..ops..function..Fn$LT$Args$GT$$GT$4call17hc9e10ea69f2cc417E.exit" unwind label %.loopexit156
 
@@ -9540,9 +9540,9 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17hf5dbeee462c9a
 
 101:                                              ; preds = %.lr.ph206, %155
   %indvars.iv = phi i64 [ 0, %.lr.ph206 ], [ %indvars.iv.next, %155 ]
-  %.sroa.0.0199 = phi ptr [ %96, %.lr.ph206 ], [ %103, %155 ]
+  %.sroa.0.0200 = phi ptr [ %96, %.lr.ph206 ], [ %103, %155 ]
   %102 = phi <4 x float> [ zeroinitializer, %.lr.ph206 ], [ %162, %155 ]
-  %103 = getelementptr inbounds i8, ptr %.sroa.0.0199, i64 4
+  %103 = getelementptr inbounds i8, ptr %.sroa.0.0200, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %104 = trunc nuw i64 %indvars.iv to i32
   %105 = add i32 %104, %70
@@ -9690,7 +9690,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17hf5dbeee462c9a
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull readonly align 4 dereferenceable(16) %156, i64 16, i1 false), !alias.scope !1076, !noalias !1080
   %157 = load <4 x float>, ptr %6, align 16, !noalias !1072
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1072
-  %158 = load float, ptr %.sroa.0.0199, align 4, !noundef !14
+  %158 = load float, ptr %.sroa.0.0200, align 4, !noundef !14
   %159 = insertelement <4 x float> poison, float %158, i64 0
   %160 = shufflevector <4 x float> %159, <4 x float> poison, <4 x i32> zeroinitializer
   %161 = fmul <4 x float> %157, %160
@@ -9957,10 +9957,10 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h097e3aabf883e12
   br label %.lr.ph165
 
 .lr.ph165:                                        ; preds = %.lr.ph165.preheader, %119
-  %.sroa.7.0159 = phi i32 [ %120, %119 ], [ 0, %.lr.ph165.preheader ]
-  %.sroa.0.0158 = phi ptr [ %121, %119 ], [ %87, %.lr.ph165.preheader ]
+  %.sroa.0.0159 = phi ptr [ %121, %119 ], [ %87, %.lr.ph165.preheader ]
+  %.sroa.7.0158 = phi i32 [ %120, %119 ], [ 0, %.lr.ph165.preheader ]
   %92 = phi <4 x float> [ %133, %119 ], [ zeroinitializer, %.lr.ph165.preheader ]
-  %93 = add i32 %.sroa.7.0159, %61
+  %93 = add i32 %.sroa.7.0158, %61
   %94 = invoke noundef align 2 dereferenceable(6) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hc4a40bd0c7ce1bc8E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %91, i32 noundef %93, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %119 unwind label %.loopexit
 
@@ -10039,8 +10039,8 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h097e3aabf883e12
   br i1 %exitcond203.not, label %.loopexit130, label %86
 
 119:                                              ; preds = %.lr.ph165
-  %120 = add i32 %.sroa.7.0159, 1
-  %121 = getelementptr inbounds i8, ptr %.sroa.0.0158, i64 4
+  %120 = add i32 %.sroa.7.0158, 1
+  %121 = getelementptr inbounds i8, ptr %.sroa.0.0159, i64 4
   %.sroa.0.0.copyload.i = load i48, ptr %94, align 2
   %.sroa.0.0.insert.ext.i = zext i48 %.sroa.0.0.copyload.i to i64
   %.sroa.075.0.extract.trunc = trunc i48 %.sroa.0.0.copyload.i to i16
@@ -10052,7 +10052,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h097e3aabf883e12
   %123 = insertelement <2 x i16> %122, i16 %.sroa.476.0.extract.trunc, i64 1
   %124 = uitofp <2 x i16> %123 to <2 x float>
   %125 = uitofp i16 %.sroa.577.0.extract.trunc to float
-  %126 = load float, ptr %.sroa.0.0158, align 4, !noundef !14
+  %126 = load float, ptr %.sroa.0.0159, align 4, !noundef !14
   %127 = insertelement <4 x float> poison, float %126, i64 0
   %128 = shufflevector <4 x float> %127, <4 x float> poison, <4 x i32> zeroinitializer
   %129 = shufflevector <2 x float> %124, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
@@ -10323,12 +10323,12 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h1762744e95230fb
   br label %.lr.ph158
 
 .lr.ph158:                                        ; preds = %.lr.ph158.preheader, %127
-  %.sroa.7.0152 = phi i32 [ %95, %127 ], [ 0, %.lr.ph158.preheader ]
-  %.sroa.0.0151 = phi ptr [ %94, %127 ], [ %88, %.lr.ph158.preheader ]
+  %.sroa.0.0152 = phi ptr [ %94, %127 ], [ %88, %.lr.ph158.preheader ]
+  %.sroa.7.0151 = phi i32 [ %95, %127 ], [ 0, %.lr.ph158.preheader ]
   %93 = phi <4 x float> [ %133, %127 ], [ zeroinitializer, %.lr.ph158.preheader ]
-  %94 = getelementptr inbounds i8, ptr %.sroa.0.0151, i64 4
-  %95 = add i32 %.sroa.7.0152, 1
-  %96 = add i32 %.sroa.7.0152, %62
+  %94 = getelementptr inbounds i8, ptr %.sroa.0.0152, i64 4
+  %95 = add i32 %.sroa.7.0151, 1
+  %96 = add i32 %.sroa.7.0151, %62
   %97 = invoke noundef align 4 dereferenceable(12) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h8a420dc2c26f4d4bE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %92, i32 noundef %96, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %122 unwind label %.loopexit
 
@@ -10422,7 +10422,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h1762744e95230fb
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %97, i64 12, i1 false)
   %128 = load <4 x float>, ptr %6, align 16, !noalias !1188
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1188
-  %129 = load float, ptr %.sroa.0.0151, align 4, !noundef !14
+  %129 = load float, ptr %.sroa.0.0152, align 4, !noundef !14
   %130 = insertelement <4 x float> poison, float %129, i64 0
   %131 = shufflevector <4 x float> %130, <4 x float> poison, <4 x i32> zeroinitializer
   %132 = fmul <4 x float> %128, %131
@@ -10689,10 +10689,10 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h2e2f258310cc52e
   br label %.lr.ph165
 
 .lr.ph165:                                        ; preds = %.lr.ph165.preheader, %119
-  %.sroa.7.0159 = phi i32 [ %120, %119 ], [ 0, %.lr.ph165.preheader ]
-  %.sroa.0.0158 = phi ptr [ %121, %119 ], [ %87, %.lr.ph165.preheader ]
+  %.sroa.0.0159 = phi ptr [ %121, %119 ], [ %87, %.lr.ph165.preheader ]
+  %.sroa.7.0158 = phi i32 [ %120, %119 ], [ 0, %.lr.ph165.preheader ]
   %92 = phi <4 x float> [ %133, %119 ], [ zeroinitializer, %.lr.ph165.preheader ]
-  %93 = add i32 %.sroa.7.0159, %61
+  %93 = add i32 %.sroa.7.0158, %61
   %94 = invoke noundef align 1 dereferenceable(3) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h630e749e378e8cebE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %91, i32 noundef %93, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %119 unwind label %.loopexit
 
@@ -10771,8 +10771,8 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h2e2f258310cc52e
   br i1 %exitcond203.not, label %.loopexit130, label %86
 
 119:                                              ; preds = %.lr.ph165
-  %120 = add i32 %.sroa.7.0159, 1
-  %121 = getelementptr inbounds i8, ptr %.sroa.0.0158, i64 4
+  %120 = add i32 %.sroa.7.0158, 1
+  %121 = getelementptr inbounds i8, ptr %.sroa.0.0159, i64 4
   %.sroa.0.0.copyload.i = load i24, ptr %94, align 1
   %.sroa.0.0.insert.ext.i = zext i24 %.sroa.0.0.copyload.i to i32
   %.sroa.075.0.extract.trunc = trunc i24 %.sroa.0.0.copyload.i to i8
@@ -10784,7 +10784,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h2e2f258310cc52e
   %123 = insertelement <2 x i8> %122, i8 %.sroa.476.0.extract.trunc, i64 1
   %124 = uitofp <2 x i8> %123 to <2 x float>
   %125 = uitofp i8 %.sroa.577.0.extract.trunc to float
-  %126 = load float, ptr %.sroa.0.0158, align 4, !noundef !14
+  %126 = load float, ptr %.sroa.0.0159, align 4, !noundef !14
   %127 = insertelement <4 x float> poison, float %126, i64 0
   %128 = shufflevector <4 x float> %127, <4 x float> poison, <4 x i32> zeroinitializer
   %129 = shufflevector <2 x float> %124, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
@@ -11054,10 +11054,10 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h3878542d63973fa
   br label %.lr.ph164
 
 .lr.ph164:                                        ; preds = %.lr.ph164.preheader, %119
-  %.sroa.7.0158 = phi i32 [ %120, %119 ], [ 0, %.lr.ph164.preheader ]
-  %.sroa.0.0157 = phi ptr [ %121, %119 ], [ %87, %.lr.ph164.preheader ]
+  %.sroa.0.0158 = phi ptr [ %121, %119 ], [ %87, %.lr.ph164.preheader ]
+  %.sroa.7.0157 = phi i32 [ %120, %119 ], [ 0, %.lr.ph164.preheader ]
   %92 = phi <4 x float> [ %129, %119 ], [ zeroinitializer, %.lr.ph164.preheader ]
-  %93 = add i32 %.sroa.7.0158, %61
+  %93 = add i32 %.sroa.7.0157, %61
   %94 = invoke noundef align 2 dereferenceable(2) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hd2363a508e017e20E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %91, i32 noundef %93, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %119 unwind label %.loopexit
 
@@ -11136,11 +11136,11 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h3878542d63973fa
   br i1 %exitcond202.not, label %.loopexit129, label %86
 
 119:                                              ; preds = %.lr.ph164
-  %120 = add i32 %.sroa.7.0158, 1
-  %121 = getelementptr inbounds i8, ptr %.sroa.0.0157, i64 4
+  %120 = add i32 %.sroa.7.0157, 1
+  %121 = getelementptr inbounds i8, ptr %.sroa.0.0158, i64 4
   %.sroa.0.0.copyload.i = load i16, ptr %94, align 2
   %122 = uitofp i16 %.sroa.0.0.copyload.i to float
-  %123 = load float, ptr %.sroa.0.0157, align 4, !noundef !14
+  %123 = load float, ptr %.sroa.0.0158, align 4, !noundef !14
   %124 = insertelement <2 x float> poison, float %123, i64 0
   %125 = shufflevector <2 x float> %124, <2 x float> poison, <2 x i32> zeroinitializer
   %126 = insertelement <2 x float> <float poison, float 6.553500e+04>, float %122, i64 0
@@ -11410,12 +11410,12 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h4d8a995c3aaba83
   br label %.lr.ph158
 
 .lr.ph158:                                        ; preds = %.lr.ph158.preheader, %127
-  %.sroa.7.0152 = phi i32 [ %95, %127 ], [ 0, %.lr.ph158.preheader ]
-  %.sroa.0.0151 = phi ptr [ %94, %127 ], [ %88, %.lr.ph158.preheader ]
+  %.sroa.0.0152 = phi ptr [ %94, %127 ], [ %88, %.lr.ph158.preheader ]
+  %.sroa.7.0151 = phi i32 [ %95, %127 ], [ 0, %.lr.ph158.preheader ]
   %93 = phi <4 x float> [ %133, %127 ], [ zeroinitializer, %.lr.ph158.preheader ]
-  %94 = getelementptr inbounds i8, ptr %.sroa.0.0151, i64 4
-  %95 = add i32 %.sroa.7.0152, 1
-  %96 = add i32 %.sroa.7.0152, %62
+  %94 = getelementptr inbounds i8, ptr %.sroa.0.0152, i64 4
+  %95 = add i32 %.sroa.7.0151, 1
+  %96 = add i32 %.sroa.7.0151, %62
   %97 = invoke noundef align 4 dereferenceable(16) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h3f2de7a8af80c824E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %92, i32 noundef %96, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %122 unwind label %.loopexit
 
@@ -11509,7 +11509,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h4d8a995c3aaba83
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %97, i64 16, i1 false)
   %128 = load <4 x float>, ptr %6, align 16, !noalias !1351
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !1351
-  %129 = load float, ptr %.sroa.0.0151, align 4, !noundef !14
+  %129 = load float, ptr %.sroa.0.0152, align 4, !noundef !14
   %130 = insertelement <4 x float> poison, float %129, i64 0
   %131 = shufflevector <4 x float> %130, <4 x float> poison, <4 x i32> zeroinitializer
   %132 = fmul <4 x float> %128, %131
@@ -11776,10 +11776,10 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h4fecdf41759844d
   br label %.lr.ph164
 
 .lr.ph164:                                        ; preds = %.lr.ph164.preheader, %119
-  %.sroa.7.0158 = phi i32 [ %120, %119 ], [ 0, %.lr.ph164.preheader ]
-  %.sroa.0.0157 = phi ptr [ %121, %119 ], [ %87, %.lr.ph164.preheader ]
+  %.sroa.0.0158 = phi ptr [ %121, %119 ], [ %87, %.lr.ph164.preheader ]
+  %.sroa.7.0157 = phi i32 [ %120, %119 ], [ 0, %.lr.ph164.preheader ]
   %92 = phi <4 x float> [ %132, %119 ], [ zeroinitializer, %.lr.ph164.preheader ]
-  %93 = add i32 %.sroa.7.0158, %61
+  %93 = add i32 %.sroa.7.0157, %61
   %94 = invoke noundef align 2 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hceaa3a089891951aE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %91, i32 noundef %93, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %119 unwind label %.loopexit
 
@@ -11858,15 +11858,15 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h4fecdf41759844d
   br i1 %exitcond202.not, label %.loopexit129, label %86
 
 119:                                              ; preds = %.lr.ph164
-  %120 = add i32 %.sroa.7.0158, 1
-  %121 = getelementptr inbounds i8, ptr %.sroa.0.0157, i64 4
+  %120 = add i32 %.sroa.7.0157, 1
+  %121 = getelementptr inbounds i8, ptr %.sroa.0.0158, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %94, align 2
   %.sroa.476.0.extract.shift = lshr i32 %.sroa.0.0.copyload.i, 16
   %122 = insertelement <2 x i32> poison, i32 %.sroa.0.0.copyload.i, i64 0
   %123 = insertelement <2 x i32> %122, i32 %.sroa.476.0.extract.shift, i64 1
   %124 = trunc <2 x i32> %123 to <2 x i16>
   %125 = uitofp <2 x i16> %124 to <2 x float>
-  %126 = load float, ptr %.sroa.0.0157, align 4, !noundef !14
+  %126 = load float, ptr %.sroa.0.0158, align 4, !noundef !14
   %127 = insertelement <4 x float> poison, float %126, i64 0
   %128 = shufflevector <4 x float> %127, <4 x float> poison, <4 x i32> zeroinitializer
   %129 = shufflevector <2 x float> %125, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
@@ -12135,10 +12135,10 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h61e8135335dc229
   br label %.lr.ph164
 
 .lr.ph164:                                        ; preds = %.lr.ph164.preheader, %119
-  %.sroa.7.0158 = phi i32 [ %120, %119 ], [ 0, %.lr.ph164.preheader ]
-  %.sroa.0.0157 = phi ptr [ %121, %119 ], [ %87, %.lr.ph164.preheader ]
+  %.sroa.0.0158 = phi ptr [ %121, %119 ], [ %87, %.lr.ph164.preheader ]
+  %.sroa.7.0157 = phi i32 [ %120, %119 ], [ 0, %.lr.ph164.preheader ]
   %92 = phi <4 x float> [ %135, %119 ], [ zeroinitializer, %.lr.ph164.preheader ]
-  %93 = add i32 %.sroa.7.0158, %61
+  %93 = add i32 %.sroa.7.0157, %61
   %94 = invoke noundef align 2 dereferenceable(8) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17hfefc17e775daebbbE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %91, i32 noundef %93, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %119 unwind label %.loopexit
 
@@ -12217,14 +12217,14 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h61e8135335dc229
   br i1 %exitcond202.not, label %.loopexit129, label %86
 
 119:                                              ; preds = %.lr.ph164
-  %120 = add i32 %.sroa.7.0158, 1
-  %121 = getelementptr inbounds i8, ptr %.sroa.0.0157, i64 4
+  %120 = add i32 %.sroa.7.0157, 1
+  %121 = getelementptr inbounds i8, ptr %.sroa.0.0158, i64 4
   %.sroa.0.0.copyload.i = load i64, ptr %94, align 2
   %.sroa.476.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 16
   %122 = insertelement <2 x i64> poison, i64 %.sroa.0.0.copyload.i, i64 0
   %123 = shufflevector <2 x i64> %122, <2 x i64> poison, <2 x i32> zeroinitializer
   %124 = lshr <2 x i64> %123, <i64 32, i64 48>
-  %125 = load float, ptr %.sroa.0.0157, align 4, !noundef !14
+  %125 = load float, ptr %.sroa.0.0158, align 4, !noundef !14
   %126 = insertelement <4 x i64> poison, i64 %.sroa.0.0.copyload.i, i64 0
   %127 = insertelement <4 x i64> %126, i64 %.sroa.476.0.extract.shift, i64 1
   %128 = shufflevector <2 x i64> %124, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
@@ -12497,10 +12497,10 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17hb1ac84f2b92540e
   br label %.lr.ph164
 
 .lr.ph164:                                        ; preds = %.lr.ph164.preheader, %119
-  %.sroa.7.0158 = phi i32 [ %120, %119 ], [ 0, %.lr.ph164.preheader ]
-  %.sroa.0.0157 = phi ptr [ %121, %119 ], [ %87, %.lr.ph164.preheader ]
+  %.sroa.0.0158 = phi ptr [ %121, %119 ], [ %87, %.lr.ph164.preheader ]
+  %.sroa.7.0157 = phi i32 [ %120, %119 ], [ 0, %.lr.ph164.preheader ]
   %92 = phi <4 x float> [ %132, %119 ], [ zeroinitializer, %.lr.ph164.preheader ]
-  %93 = add i32 %.sroa.7.0158, %61
+  %93 = add i32 %.sroa.7.0157, %61
   %94 = invoke noundef align 1 dereferenceable(4) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h553bd5839299de1eE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %91, i32 noundef %93, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %119 unwind label %.loopexit
 
@@ -12579,13 +12579,13 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17hb1ac84f2b92540e
   br i1 %exitcond202.not, label %.loopexit129, label %86
 
 119:                                              ; preds = %.lr.ph164
-  %120 = add i32 %.sroa.7.0158, 1
-  %121 = getelementptr inbounds i8, ptr %.sroa.0.0157, i64 4
+  %120 = add i32 %.sroa.7.0157, 1
+  %121 = getelementptr inbounds i8, ptr %.sroa.0.0158, i64 4
   %.sroa.0.0.copyload.i = load i32, ptr %94, align 1
   %.sroa.476.0.extract.shift = lshr i32 %.sroa.0.0.copyload.i, 8
   %.sroa.577.0.extract.shift = lshr i32 %.sroa.0.0.copyload.i, 16
   %.sroa.678.0.extract.shift = lshr i32 %.sroa.0.0.copyload.i, 24
-  %122 = load float, ptr %.sroa.0.0157, align 4, !noundef !14
+  %122 = load float, ptr %.sroa.0.0158, align 4, !noundef !14
   %123 = insertelement <4 x i32> poison, i32 %.sroa.0.0.copyload.i, i64 0
   %124 = insertelement <4 x i32> %123, i32 %.sroa.476.0.extract.shift, i64 1
   %125 = insertelement <4 x i32> %124, i32 %.sroa.577.0.extract.shift, i64 2
@@ -12858,10 +12858,10 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17hef6a0e2ed107b33
   br label %.lr.ph164
 
 .lr.ph164:                                        ; preds = %.lr.ph164.preheader, %119
-  %.sroa.7.0158 = phi i32 [ %120, %119 ], [ 0, %.lr.ph164.preheader ]
-  %.sroa.0.0157 = phi ptr [ %121, %119 ], [ %87, %.lr.ph164.preheader ]
+  %.sroa.0.0158 = phi ptr [ %121, %119 ], [ %87, %.lr.ph164.preheader ]
+  %.sroa.7.0157 = phi i32 [ %120, %119 ], [ 0, %.lr.ph164.preheader ]
   %92 = phi <4 x float> [ %129, %119 ], [ zeroinitializer, %.lr.ph164.preheader ]
-  %93 = add i32 %.sroa.7.0158, %61
+  %93 = add i32 %.sroa.7.0157, %61
   %94 = invoke noundef align 1 dereferenceable(1) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h2bfe2e2e7bce91aeE.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %91, i32 noundef %93, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %119 unwind label %.loopexit
 
@@ -12940,11 +12940,11 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17hef6a0e2ed107b33
   br i1 %exitcond202.not, label %.loopexit129, label %86
 
 119:                                              ; preds = %.lr.ph164
-  %120 = add i32 %.sroa.7.0158, 1
-  %121 = getelementptr inbounds i8, ptr %.sroa.0.0157, i64 4
+  %120 = add i32 %.sroa.7.0157, 1
+  %121 = getelementptr inbounds i8, ptr %.sroa.0.0158, i64 4
   %.sroa.0.0.copyload.i = load i8, ptr %94, align 1
   %122 = uitofp i8 %.sroa.0.0.copyload.i to float
-  %123 = load float, ptr %.sroa.0.0157, align 4, !noundef !14
+  %123 = load float, ptr %.sroa.0.0158, align 4, !noundef !14
   %124 = insertelement <2 x float> poison, float %123, i64 0
   %125 = shufflevector <2 x float> %124, <2 x float> poison, <2 x i32> zeroinitializer
   %126 = insertelement <2 x float> <float poison, float 2.550000e+02>, float %122, i64 0
@@ -13213,10 +13213,10 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17hf5a387b683ecef2
   br label %.lr.ph164
 
 .lr.ph164:                                        ; preds = %.lr.ph164.preheader, %119
-  %.sroa.7.0158 = phi i32 [ %120, %119 ], [ 0, %.lr.ph164.preheader ]
-  %.sroa.0.0157 = phi ptr [ %121, %119 ], [ %87, %.lr.ph164.preheader ]
+  %.sroa.0.0158 = phi ptr [ %121, %119 ], [ %87, %.lr.ph164.preheader ]
+  %.sroa.7.0157 = phi i32 [ %120, %119 ], [ 0, %.lr.ph164.preheader ]
   %92 = phi <4 x float> [ %132, %119 ], [ zeroinitializer, %.lr.ph164.preheader ]
-  %93 = add i32 %.sroa.7.0158, %61
+  %93 = add i32 %.sroa.7.0157, %61
   %94 = invoke noundef align 1 dereferenceable(2) ptr @"_ZN5image7buffer_32ImageBuffer$LT$P$C$Container$GT$9get_pixel17h8633644275b32013E.llvm.1814251078191383949"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %91, i32 noundef %93, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c564382f77062b0983ee7bf00026c29e.114.llvm.1814251078191383949)
           to label %119 unwind label %.loopexit
 
@@ -13295,15 +13295,15 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17hf5a387b683ecef2
   br i1 %exitcond202.not, label %.loopexit129, label %86
 
 119:                                              ; preds = %.lr.ph164
-  %120 = add i32 %.sroa.7.0158, 1
-  %121 = getelementptr inbounds i8, ptr %.sroa.0.0157, i64 4
+  %120 = add i32 %.sroa.7.0157, 1
+  %121 = getelementptr inbounds i8, ptr %.sroa.0.0158, i64 4
   %.sroa.0.0.copyload.i = load i16, ptr %94, align 1
   %.sroa.476.0.extract.shift = lshr i16 %.sroa.0.0.copyload.i, 8
   %122 = insertelement <2 x i16> poison, i16 %.sroa.0.0.copyload.i, i64 0
   %123 = insertelement <2 x i16> %122, i16 %.sroa.476.0.extract.shift, i64 1
   %124 = trunc <2 x i16> %123 to <2 x i8>
   %125 = uitofp <2 x i8> %124 to <2 x float>
-  %126 = load float, ptr %.sroa.0.0157, align 4, !noundef !14
+  %126 = load float, ptr %.sroa.0.0158, align 4, !noundef !14
   %127 = insertelement <4 x float> poison, float %126, i64 0
   %128 = shufflevector <4 x float> %127, <4 x float> poison, <4 x i32> zeroinitializer
   %129 = shufflevector <2 x float> %125, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
@@ -29339,8 +29339,8 @@ define void @_ZN5image6codecs3hdr7decoder11HdrMetadata18update_header_info17h84a
   br label %35
 
 .loopexit.i.i.i:                                  ; preds = %95, %93, %91
-  %.016.i.i.i.i = phi i64 [ 1, %91 ], [ %..i.i.i.i, %95 ], [ 2, %93 ]
-  %34 = add i64 %.016.i.i.i.i, %36
+  %.015.i.i.i.i = phi i64 [ 1, %91 ], [ %..i.i.i.i, %95 ], [ 2, %93 ]
+  %34 = add i64 %.015.i.i.i.i, %36
   br label %35
 
 35:                                               ; preds = %.loopexit.i.i.i, %.lr.ph125.i.i.i

@@ -1010,9 +1010,9 @@ _ZN3gmx11ListOfListsIiE5clearEv.exit:             ; preds = %_ZNSt6vectorIiSaIiE
   br label %80
 
 80:                                               ; preds = %"_ZZN3gmx22WholeMoleculeTransform15updateAtomOrderENS_8ArrayRefIKiEERK11gmx_ga2la_tENK3$_0clEi.exit.i", %.lr.ph.i
-  %.sroa.06.010.i = phi ptr [ %73, %.lr.ph.i ], [ %110, %"_ZZN3gmx22WholeMoleculeTransform15updateAtomOrderENS_8ArrayRefIKiEERK11gmx_ga2la_tENK3$_0clEi.exit.i" ]
-  %.sroa.04.09.i = phi ptr [ %79, %.lr.ph.i ], [ %111, %"_ZZN3gmx22WholeMoleculeTransform15updateAtomOrderENS_8ArrayRefIKiEERK11gmx_ga2la_tENK3$_0clEi.exit.i" ]
-  %81 = load i32, ptr %.sroa.06.010.i, align 4
+  %.sroa.04.010.i = phi ptr [ %79, %.lr.ph.i ], [ %111, %"_ZZN3gmx22WholeMoleculeTransform15updateAtomOrderENS_8ArrayRefIKiEERK11gmx_ga2la_tENK3$_0clEi.exit.i" ]
+  %.sroa.06.09.i = phi ptr [ %73, %.lr.ph.i ], [ %110, %"_ZZN3gmx22WholeMoleculeTransform15updateAtomOrderENS_8ArrayRefIKiEERK11gmx_ga2la_tENK3$_0clEi.exit.i" ]
+  %81 = load i32, ptr %.sroa.06.09.i, align 4
   %82 = load i8, ptr %53, align 8
   %83 = trunc i8 %82 to i1
   br i1 %83, label %84, label %91
@@ -1057,9 +1057,9 @@ _ZN3gmx11ListOfListsIiE5clearEv.exit:             ; preds = %_ZNSt6vectorIiSaIiE
 "_ZZN3gmx22WholeMoleculeTransform15updateAtomOrderENS_8ArrayRefIKiEERK11gmx_ga2la_tENK3$_0clEi.exit.i": ; preds = %._crit_edge.i.i, %84
   %.0.i.i.i = phi ptr [ %100, %._crit_edge.i.i ], [ %spec.select.i.i.i, %84 ]
   %109 = load i32, ptr %.0.i.i.i, align 4
-  store i32 %109, ptr %.sroa.04.09.i, align 4
-  %110 = getelementptr inbounds i8, ptr %.sroa.06.010.i, i64 4
-  %111 = getelementptr inbounds i8, ptr %.sroa.04.09.i, i64 4
+  store i32 %109, ptr %.sroa.04.010.i, align 4
+  %110 = getelementptr inbounds i8, ptr %.sroa.06.09.i, i64 4
+  %111 = getelementptr inbounds i8, ptr %.sroa.04.010.i, i64 4
   %.not.i = icmp eq ptr %110, %70
   br i1 %.not.i, label %"_ZSt9transformIN3gmx12ArrayRefIterIKiEENS1_IiEEZNS0_22WholeMoleculeTransform15updateAtomOrderENS0_8ArrayRefIS2_EERK11gmx_ga2la_tE3$_0ET0_T_SD_SC_T1_.exit", label %80, !llvm.loop !12
 

@@ -168,25 +168,25 @@ define dso_local void @xlog_desc(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %62, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %61, %65
-  %.0707374 = phi ptr [ %63, %65 ], [ @wal_level_options, %61 ]
-  %63 = getelementptr i8, ptr %.0707374, i64 16
+  %.07374 = phi ptr [ %63, %65 ], [ @wal_level_options, %61 ]
+  %63 = getelementptr i8, ptr %.07374, i64 16
   %64 = load ptr, ptr %63, align 8
   %.not = icmp eq ptr %64, null
   br i1 %.not, label %._crit_edge, label %65, !llvm.loop !5
 
 65:                                               ; preds = %.lr.ph
-  %66 = getelementptr i8, ptr %.0707374, i64 24
+  %66 = getelementptr i8, ptr %.07374, i64 24
   %67 = load i32, ptr %66, align 8
   %68 = icmp eq i32 %67, %.sroa.6.0.copyload
   br i1 %68, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %65, %61
-  %.0 = phi ptr [ @.str, %61 ], [ @.str.12, %.lr.ph ], [ %64, %65 ]
+  %.070 = phi ptr [ @.str, %61 ], [ @.str.12, %.lr.ph ], [ %64, %65 ]
   %69 = trunc i8 %.sroa.7.0.copyload to i1
   %70 = select i1 %69, ptr @.str.14, ptr @.str.15
   %71 = trunc i8 %.sroa.8.0.copyload to i1
   %72 = select i1 %71, ptr @.str.14, ptr @.str.15
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %.sroa.013.0.copyload, i32 noundef %.sroa.214.0.copyload, i32 noundef %.sroa.315.0.copyload, i32 noundef %.sroa.4.0.copyload, i32 noundef %.sroa.5.0.copyload, ptr noundef nonnull %.0, ptr noundef nonnull %70, ptr noundef nonnull %72) #3
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %.sroa.013.0.copyload, i32 noundef %.sroa.214.0.copyload, i32 noundef %.sroa.315.0.copyload, i32 noundef %.sroa.4.0.copyload, i32 noundef %.sroa.5.0.copyload, ptr noundef nonnull %.070, ptr noundef nonnull %70, ptr noundef nonnull %72) #3
   br label %83
 
 73:                                               ; preds = %56

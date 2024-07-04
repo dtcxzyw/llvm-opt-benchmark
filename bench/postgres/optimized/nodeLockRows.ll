@@ -62,7 +62,7 @@ define dso_local noundef ptr @ExecInitLockRows(ptr noundef %0, ptr noundef %1, i
 
 .lr.ph51:                                         ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.lr.ph ]
-  %.04549 = phi ptr [ %.1, %45 ], [ null, %.lr.ph ]
+  %.0394450 = phi ptr [ %.1, %45 ], [ null, %.lr.ph ]
   %25 = load ptr, ptr %21, align 8
   %26 = getelementptr %union.ListCell, ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
@@ -89,11 +89,11 @@ define dso_local noundef ptr @ExecInitLockRows(ptr noundef %0, ptr noundef %1, i
   br label %45
 
 43:                                               ; preds = %31
-  %44 = tail call ptr @lappend(ptr noundef %.04549, ptr noundef %36) #5
+  %44 = tail call ptr @lappend(ptr noundef %.0394450, ptr noundef %36) #5
   br label %45
 
 45:                                               ; preds = %40, %43, %.lr.ph51
-  %.1 = phi ptr [ %.04549, %.lr.ph51 ], [ %.04549, %40 ], [ %44, %43 ]
+  %.1 = phi ptr [ %.0394450, %.lr.ph51 ], [ %.0394450, %40 ], [ %44, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %20, align 4
   %47 = sext i32 %46 to i64
@@ -101,11 +101,11 @@ define dso_local noundef ptr @ExecInitLockRows(ptr noundef %0, ptr noundef %1, i
   br i1 %48, label %.lr.ph51, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %45, %.lr.ph, %3
-  %.0.lcssa = phi ptr [ null, %3 ], [ null, %.lr.ph ], [ %.1, %45 ]
+  %.039.lcssa = phi ptr [ null, %3 ], [ null, %.lr.ph ], [ %.1, %45 ]
   %49 = getelementptr inbounds i8, ptr %6, i64 208
   %50 = getelementptr inbounds i8, ptr %0, i64 112
   %51 = load i32, ptr %50, align 8
-  tail call void @EvalPlanQualInit(ptr noundef nonnull %49, ptr noundef %1, ptr noundef %5, ptr noundef %.0.lcssa, i32 noundef %51, ptr noundef null) #5
+  tail call void @EvalPlanQualInit(ptr noundef nonnull %49, ptr noundef %1, ptr noundef %5, ptr noundef %.039.lcssa, i32 noundef %51, ptr noundef null) #5
   ret ptr %6
 }
 
@@ -179,7 +179,7 @@ ExecProcNode.exit:                                ; preds = %.backedge, %21
   br i1 %38, label %.lr.ph170, label %.loopexit88
 
 .lr.ph170:                                        ; preds = %.lr.ph, %172
-  %.064111169 = phi i1 [ %.2, %172 ], [ false, %.lr.ph ]
+  %.066110169 = phi i1 [ %.2, %172 ], [ false, %.lr.ph ]
   %indvars.iv168 = phi i64 [ %indvars.iv.next, %172 ], [ 0, %.lr.ph ]
   %39 = load ptr, ptr %33, align 8
   %40 = getelementptr %union.ListCell, ptr %39, i64 %indvars.iv168
@@ -322,7 +322,7 @@ ExecGetJunkAttribute.exit84:                      ; preds = %81, %slot_getsomeat
 124:                                              ; preds = %120
   %125 = load i8, ptr %4, align 1
   %126 = trunc i8 %125 to i1
-  %spec.select = select i1 %126, i1 true, i1 %.064111169
+  %spec.select = select i1 %126, i1 true, i1 %.066110169
   br label %172
 
 127:                                              ; preds = %100
@@ -366,7 +366,7 @@ switch.lookup:                                    ; preds = %127
 146:                                              ; preds = %switch.lookup
   %147 = load i8, ptr %18, align 4
   %148 = trunc i8 %147 to i1
-  %spec.select82 = select i1 %148, i1 true, i1 %.064111169
+  %spec.select82 = select i1 %148, i1 true, i1 %.066110169
   %149 = getelementptr inbounds i8, ptr %42, i64 38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %149, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
   br label %172
@@ -417,7 +417,7 @@ switch.lookup:                                    ; preds = %127
   unreachable
 
 172:                                              ; preds = %124, %146, %76
-  %.2 = phi i1 [ %.064111169, %76 ], [ %spec.select82, %146 ], [ %spec.select, %124 ]
+  %.2 = phi i1 [ %.066110169, %76 ], [ %spec.select82, %146 ], [ %spec.select, %124 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv168, 1
   %173 = load i32, ptr %32, align 4
   %174 = sext i32 %173 to i64

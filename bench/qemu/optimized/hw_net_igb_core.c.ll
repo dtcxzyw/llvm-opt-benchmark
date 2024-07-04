@@ -763,9 +763,9 @@ if.else.i65:                                      ; preds = %land.lhs.true1.i68,
 
 if.end15:                                         ; preds = %if.else.i65, %if.then.i74, %e1000x_inc_reg_if_not_full.exit
   %iovcnt.addr.0 = phi i32 [ 1, %e1000x_inc_reg_if_not_full.exit ], [ %iovcnt, %if.then.i74 ], [ %iovcnt, %if.else.i65 ]
-  %size.0 = phi i64 [ 60, %e1000x_inc_reg_if_not_full.exit ], [ %sub, %if.then.i74 ], [ %sub, %if.else.i65 ]
   %iov.addr.0.sroa.phi = phi ptr [ %iov.addr.0.sroa.gep, %e1000x_inc_reg_if_not_full.exit ], [ %iov.addr.0.sroa.gep267, %if.then.i74 ], [ %iov.addr.0.sroa.gep267, %if.else.i65 ]
   %iov.addr.0 = phi ptr [ %min_iov, %e1000x_inc_reg_if_not_full.exit ], [ %iov, %if.then.i74 ], [ %iov, %if.else.i65 ]
+  %size.0 = phi i64 [ 60, %e1000x_inc_reg_if_not_full.exit ], [ %sub, %if.then.i74 ], [ %sub, %if.else.i65 ]
   %iov_ofs.1 = phi i64 [ 0, %e1000x_inc_reg_if_not_full.exit ], [ %iov_ofs.0, %if.then.i74 ], [ %iov_ofs.0, %if.else.i65 ]
   %rx_pkt16 = getelementptr inbounds i8, ptr %core, i64 134096
   %10 = load ptr, ptr %rx_pkt16, align 8
@@ -1046,7 +1046,7 @@ if.then138.i:                                     ; preds = %if.end133.i
 
 for.body146.i:                                    ; preds = %if.then138.i, %for.body146.i
   %indvars.iv267.i = phi i64 [ %indvars.iv.next268.i, %for.body146.i ], [ 0, %if.then138.i ]
-  %queues.0246.i = phi i16 [ %queues.1.i, %for.body146.i ], [ 0, %if.then138.i ]
+  %queues.0245.i = phi i16 [ %queues.1.i, %for.body146.i ], [ 0, %if.then138.i ]
   %69 = add nuw nsw i64 %indvars.iv267.i, 5812
   %arrayidx150.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 %69
   %70 = load i32, ptr %arrayidx150.i, align 4
@@ -1055,7 +1055,7 @@ for.body146.i:                                    ; preds = %if.then138.i, %for.
   %shl154.i = shl nuw nsw i64 1, %indvars.iv267.i
   %71 = trunc nuw i64 %shl154.i to i16
   %conv157.i = select i1 %tobool152.not.i, i16 0, i16 %71
-  %queues.1.i = or i16 %conv157.i, %queues.0246.i
+  %queues.1.i = or i16 %conv157.i, %queues.0245.i
   %indvars.iv.next268.i = add nuw nsw i64 %indvars.iv267.i, 1
   %exitcond270.not.i = icmp eq i64 %indvars.iv.next268.i, 8
   br i1 %exitcond270.not.i, label %if.end300.i, label %for.body146.i, !llvm.loop !9
@@ -1071,15 +1071,15 @@ for.body173.lr.ph.i:                              ; preds = %if.else162.i
   br label %for.body173.i
 
 for.body173.i:                                    ; preds = %for.inc197.i, %for.body173.lr.ph.i
-  %macp.0238.i = phi ptr [ %add.ptr165.i, %for.body173.lr.ph.i ], [ %add.ptr198.i, %for.inc197.i ]
-  %queues.2237.i = phi i16 [ 0, %for.body173.lr.ph.i ], [ %queues.3.i, %for.inc197.i ]
-  %arrayidx174.i = getelementptr i8, ptr %macp.0238.i, i64 4
+  %queues.2238.i = phi i16 [ 0, %for.body173.lr.ph.i ], [ %queues.3.i, %for.inc197.i ]
+  %macp.0237.i = phi ptr [ %add.ptr165.i, %for.body173.lr.ph.i ], [ %add.ptr198.i, %for.inc197.i ]
+  %arrayidx174.i = getelementptr i8, ptr %macp.0237.i, i64 4
   %72 = load i32, ptr %arrayidx174.i, align 4
   %tobool176.not.i = icmp sgt i32 %72, -1
   br i1 %tobool176.not.i, label %for.inc197.i, label %if.end178.i
 
 if.end178.i:                                      ; preds = %for.body173.i
-  %73 = load i32, ptr %macp.0238.i, align 4
+  %73 = load i32, ptr %macp.0237.i, align 4
   store i32 %73, ptr %ra.i, align 4
   store i32 %72, ptr %arrayidx184.i, align 4
   %bcmp173.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) %ra.i, i64 6)
@@ -1090,12 +1090,12 @@ if.then190.i:                                     ; preds = %if.end178.i
   %and192.i = lshr i32 %72, 18
   %74 = trunc nuw nsw i32 %and192.i to i16
   %75 = and i16 %74, 255
-  %conv195.i = or i16 %75, %queues.2237.i
+  %conv195.i = or i16 %75, %queues.2238.i
   br label %for.inc197.i
 
 for.inc197.i:                                     ; preds = %if.then190.i, %if.end178.i, %for.body173.i
-  %queues.3.i = phi i16 [ %queues.2237.i, %if.end178.i ], [ %conv195.i, %if.then190.i ], [ %queues.2237.i, %for.body173.i ]
-  %add.ptr198.i = getelementptr i8, ptr %macp.0238.i, i64 8
+  %queues.3.i = phi i16 [ %queues.2238.i, %if.end178.i ], [ %conv195.i, %if.then190.i ], [ %queues.2238.i, %for.body173.i ]
+  %add.ptr198.i = getelementptr i8, ptr %macp.0237.i, i64 8
   %cmp171.i = icmp ult ptr %add.ptr198.i, %add.ptr170.i
   br i1 %cmp171.i, label %for.body173.i, label %for.end199.i, !llvm.loop !10
 
@@ -1111,15 +1111,15 @@ for.body210.lr.ph.i:                              ; preds = %for.end199.i
   br label %for.body210.i
 
 for.body210.i:                                    ; preds = %for.inc235.i, %for.body210.lr.ph.i
-  %macp.1241.i = phi ptr [ %add.ptr202.i, %for.body210.lr.ph.i ], [ %add.ptr236.i, %for.inc235.i ]
-  %queues.4240.i = phi i16 [ %queues.2.lcssa.i, %for.body210.lr.ph.i ], [ %queues.5.i, %for.inc235.i ]
-  %arrayidx211.i = getelementptr i8, ptr %macp.1241.i, i64 4
+  %queues.4241.i = phi i16 [ %queues.2.lcssa.i, %for.body210.lr.ph.i ], [ %queues.5.i, %for.inc235.i ]
+  %macp.1240.i = phi ptr [ %add.ptr202.i, %for.body210.lr.ph.i ], [ %add.ptr236.i, %for.inc235.i ]
+  %arrayidx211.i = getelementptr i8, ptr %macp.1240.i, i64 4
   %76 = load i32, ptr %arrayidx211.i, align 4
   %tobool213.not.i = icmp sgt i32 %76, -1
   br i1 %tobool213.not.i, label %for.inc235.i, label %if.end215.i
 
 if.end215.i:                                      ; preds = %for.body210.i
-  %77 = load i32, ptr %macp.1241.i, align 4
+  %77 = load i32, ptr %macp.1240.i, align 4
   store i32 %77, ptr %ra.i, align 4
   store i32 %76, ptr %arrayidx221.i, align 4
   %bcmp171.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) %ra.i, i64 6)
@@ -1130,12 +1130,12 @@ if.then227.i:                                     ; preds = %if.end215.i
   %and229.i = lshr i32 %76, 18
   %78 = trunc nuw nsw i32 %and229.i to i16
   %79 = and i16 %78, 255
-  %conv233.i = or i16 %79, %queues.4240.i
+  %conv233.i = or i16 %79, %queues.4241.i
   br label %for.inc235.i
 
 for.inc235.i:                                     ; preds = %if.then227.i, %if.end215.i, %for.body210.i
-  %queues.5.i = phi i16 [ %queues.4240.i, %if.end215.i ], [ %conv233.i, %if.then227.i ], [ %queues.4240.i, %for.body210.i ]
-  %add.ptr236.i = getelementptr i8, ptr %macp.1241.i, i64 8
+  %queues.5.i = phi i16 [ %queues.4241.i, %if.end215.i ], [ %conv233.i, %if.then227.i ], [ %queues.4241.i, %for.body210.i ]
+  %add.ptr236.i = getelementptr i8, ptr %macp.1240.i, i64 8
   %cmp208.i = icmp ult ptr %add.ptr236.i, %add.ptr207.i
   br i1 %cmp208.i, label %for.body210.i, label %for.end237.i, !llvm.loop !11
 
@@ -1172,7 +1172,7 @@ if.then239.i:                                     ; preds = %for.end237.i
 
 for.body272.i:                                    ; preds = %if.then239.i, %for.body272.i
   %indvars.iv263.i = phi i64 [ %indvars.iv.next264.i, %for.body272.i ], [ 0, %if.then239.i ]
-  %queues.6244.i = phi i16 [ %queues.7.i, %for.body272.i ], [ 0, %if.then239.i ]
+  %queues.6243.i = phi i16 [ %queues.7.i, %for.body272.i ], [ 0, %if.then239.i ]
   %83 = add nuw nsw i64 %indvars.iv263.i, 5812
   %arrayidx276.i = getelementptr [32768 x i32], ptr %core, i64 0, i64 %83
   %84 = load i32, ptr %arrayidx276.i, align 4
@@ -1181,7 +1181,7 @@ for.body272.i:                                    ; preds = %if.then239.i, %for.
   %shl281.i = shl nuw nsw i64 1, %indvars.iv263.i
   %85 = trunc nuw i64 %shl281.i to i16
   %conv284.i = select i1 %tobool278.not.i, i16 0, i16 %85
-  %queues.7.i = or i16 %conv284.i, %queues.6244.i
+  %queues.7.i = or i16 %conv284.i, %queues.6243.i
   %indvars.iv.next264.i = add nuw nsw i64 %indvars.iv263.i, 1
   %exitcond266.not.i = icmp eq i64 %indvars.iv.next264.i, 8
   br i1 %exitcond266.not.i, label %if.end300.i, label %for.body272.i, !llvm.loop !12
@@ -1401,8 +1401,8 @@ igb_receive_assign.exit.thread307:                ; preds = %if.then456.i
 
 for.body465.i:                                    ; preds = %if.then456.i, %for.inc492.i
   %indvars.iv283.i = phi i64 [ %indvars.iv.next284.i, %for.inc492.i ], [ 0, %if.then456.i ]
-  %queues.12254.i = phi i16 [ %queues.13.i, %for.inc492.i ], [ %and452.i, %if.then456.i ]
-  %conv466.i = zext i16 %queues.12254.i to i64
+  %queues.12253.i = phi i16 [ %queues.13.i, %for.inc492.i ], [ %and452.i, %if.then456.i ]
+  %conv466.i = zext i16 %queues.12253.i to i64
   %shl468.i = shl nuw nsw i64 1, %indvars.iv283.i
   %and469.i = and i64 %shl468.i, %conv466.i
   %tobool470.not.i = icmp eq i64 %and469.i, 0
@@ -1419,14 +1419,14 @@ land.lhs.true471.i:                               ; preds = %for.body465.i
 if.then478.i:                                     ; preds = %land.lhs.true471.i
   %shl481.i = shl nuw nsw i64 256, %indvars.iv283.i
   %119 = trunc nuw i64 %shl481.i to i16
-  %conv484.i = or i16 %queues.12254.i, %119
+  %conv484.i = or i16 %queues.12253.i, %119
   %120 = trunc nuw i64 %shl468.i to i16
   %121 = xor i16 %120, -1
   %conv490.i = and i16 %conv484.i, %121
   br label %for.inc492.i
 
 for.inc492.i:                                     ; preds = %if.then478.i, %land.lhs.true471.i, %for.body465.i
-  %queues.13.i = phi i16 [ %conv490.i, %if.then478.i ], [ %queues.12254.i, %land.lhs.true471.i ], [ %queues.12254.i, %for.body465.i ]
+  %queues.13.i = phi i16 [ %conv490.i, %if.then478.i ], [ %queues.12253.i, %land.lhs.true471.i ], [ %queues.12253.i, %for.body465.i ]
   %indvars.iv.next284.i = add nuw nsw i64 %indvars.iv283.i, 1
   %exitcond287.not.i = icmp eq i64 %indvars.iv.next284.i, 8
   br i1 %exitcond287.not.i, label %igb_receive_assign.exit, label %for.body465.i, !llvm.loop !16

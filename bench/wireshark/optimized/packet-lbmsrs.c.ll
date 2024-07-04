@@ -2772,8 +2772,8 @@ dissect_lbmsrs_batch.exit:                        ; preds = %97, %.thread.i, %._
   br label %848
 
 848:                                              ; preds = %dissect_lbmsrs_registration_request.exit, %dissect_lbmsrs_registration_response.exit, %dissect_lbmsrs_stream_request.exit, %dissect_lbmsrs_batch.exit, %845, %5
-  %.0 = phi i32 [ 0, %5 ], [ 0, %845 ], [ %844, %dissect_lbmsrs_batch.exit ], [ %.0.i34, %dissect_lbmsrs_stream_request.exit ], [ %.0.i32, %dissect_lbmsrs_registration_response.exit ], [ %.0.i, %dissect_lbmsrs_registration_request.exit ]
-  ret i32 %.0
+  %.030 = phi i32 [ 0, %5 ], [ 0, %845 ], [ %844, %dissect_lbmsrs_batch.exit ], [ %.0.i34, %dissect_lbmsrs_stream_request.exit ], [ %.0.i32, %dissect_lbmsrs_registration_response.exit ], [ %.0.i, %dissect_lbmsrs_registration_request.exit ]
+  ret i32 %.030
 }
 
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1

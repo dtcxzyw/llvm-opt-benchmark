@@ -455,7 +455,7 @@ define internal fastcc ptr @generate_partition_qual(ptr noundef %0) unnamed_addr
   br label %31
 
 31:                                               ; preds = %26, %22
-  %.032 = phi ptr [ null, %22 ], [ %30, %26 ]
+  %.033 = phi ptr [ null, %22 ], [ %30, %26 ]
   call void @ReleaseSysCache(ptr noundef nonnull %17) #6
   %32 = getelementptr inbounds i8, ptr %14, i64 56
   %33 = load ptr, ptr %32, align 8
@@ -466,12 +466,12 @@ define internal fastcc ptr @generate_partition_qual(ptr noundef %0) unnamed_addr
 
 37:                                               ; preds = %31
   %38 = call fastcc ptr @generate_partition_qual(ptr noundef nonnull %14)
-  %39 = call ptr @list_concat(ptr noundef %38, ptr noundef %.032) #6
+  %39 = call ptr @list_concat(ptr noundef %38, ptr noundef %.033) #6
   br label %40
 
 40:                                               ; preds = %31, %37
-  %.033 = phi ptr [ %39, %37 ], [ %.032, %31 ]
-  %41 = call ptr @map_partition_varattnos(ptr noundef %.033, i32 noundef 1, ptr noundef nonnull %0, ptr noundef nonnull %14) #6
+  %.032 = phi ptr [ %39, %37 ], [ %.033, %31 ]
+  %41 = call ptr @map_partition_varattnos(ptr noundef %.032, i32 noundef 1, ptr noundef nonnull %0, ptr noundef nonnull %14) #6
   %.not36 = icmp eq ptr %41, null
   br i1 %.not36, label %53, label %42
 

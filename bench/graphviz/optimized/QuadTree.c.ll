@@ -2030,8 +2030,8 @@ draw_polygon.exit:                                ; preds = %4, %176
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %._crit_edge.us
-  %.044.us = phi ptr [ %198, %._crit_edge.us ], [ %180, %.split.us.preheader ]
-  %.not40.us = icmp eq ptr %.044.us, %180
+  %.03344.us = phi ptr [ %198, %._crit_edge.us ], [ %180, %.split.us.preheader ]
+  %.not40.us = icmp eq ptr %.03344.us, %180
   br i1 %.not40.us, label %.lr.ph.us, label %184
 
 184:                                              ; preds = %.split.us
@@ -2039,9 +2039,9 @@ draw_polygon.exit:                                ; preds = %4, %176
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %184, %.split.us
-  %185 = getelementptr inbounds i8, ptr %.044.us, i64 8
+  %185 = getelementptr inbounds i8, ptr %.03344.us, i64 8
   %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %.044.us, i64 16
+  %187 = getelementptr inbounds i8, ptr %.03344.us, i64 16
   %188 = load i32, ptr %187, align 8
   %189 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %188) #18
   br label %190
@@ -2065,14 +2065,14 @@ draw_polygon.exit:                                ; preds = %4, %176
 
 ._crit_edge.us:                                   ; preds = %192
   %196 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 2, i64 1, ptr %0)
-  %197 = getelementptr inbounds i8, ptr %.044.us, i64 32
+  %197 = getelementptr inbounds i8, ptr %.03344.us, i64 32
   %198 = load ptr, ptr %197, align 8
   %.not37.us = icmp eq ptr %198, null
   br i1 %.not37.us, label %.split46.us, label %.split.us
 
 .split:                                           ; preds = %181, %200
-  %.044 = phi ptr [ %206, %200 ], [ %180, %181 ]
-  %.not40 = icmp eq ptr %.044, %180
+  %.03344 = phi ptr [ %206, %200 ], [ %180, %181 ]
+  %.not40 = icmp eq ptr %.03344, %180
   br i1 %.not40, label %200, label %199
 
 199:                                              ; preds = %.split
@@ -2080,11 +2080,11 @@ draw_polygon.exit:                                ; preds = %4, %176
   br label %200
 
 200:                                              ; preds = %199, %.split
-  %201 = getelementptr inbounds i8, ptr %.044, i64 16
+  %201 = getelementptr inbounds i8, ptr %.03344, i64 16
   %202 = load i32, ptr %201, align 8
   %203 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %202) #18
   %204 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 2, i64 1, ptr %0)
-  %205 = getelementptr inbounds i8, ptr %.044, i64 32
+  %205 = getelementptr inbounds i8, ptr %.03344, i64 32
   %206 = load ptr, ptr %205, align 8
   %.not37 = icmp eq ptr %206, null
   br i1 %.not37, label %.split46.us, label %.split

@@ -195,8 +195,8 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal9Minimizer12RunCallbacksERKN
 
 12:                                               ; preds = %21, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %3 ]
-  %.030 = phi i32 [ %27, %21 ], [ 0, %3 ]
-  switch i32 %.030, label %68 [
+  %.033 = phi i32 [ %27, %21 ], [ 0, %3 ]
+  switch i32 %.033, label %68 [
     i32 0, label %13
     i32 2, label %28
     i32 1, label %48

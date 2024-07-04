@@ -2091,9 +2091,9 @@ entry:
   br i1 %0, label %for.body, label %for.end.thread
 
 for.body:                                         ; preds = %entry, %_PyFrame_GetFirstComplete.exit
-  %frame.038 = phi ptr [ %frame.addr.08.i, %_PyFrame_GetFirstComplete.exit ], [ %current_frame, %entry ]
-  %frame_count.037 = phi i32 [ %inc, %_PyFrame_GetFirstComplete.exit ], [ 0, %entry ]
-  %previous = getelementptr inbounds i8, ptr %frame.038, i64 8
+  %frame_count.038 = phi i32 [ %inc, %_PyFrame_GetFirstComplete.exit ], [ 0, %entry ]
+  %frame.037 = phi ptr [ %frame.addr.08.i, %_PyFrame_GetFirstComplete.exit ], [ %current_frame, %entry ]
+  %previous = getelementptr inbounds i8, ptr %frame.037, i64 8
   %1 = load ptr, ptr %previous, align 8
   %tobool.not7.i = icmp eq ptr %1, null
   br i1 %tobool.not7.i, label %_PyFrame_GetFirstComplete.exit.thread, label %land.rhs.i
@@ -2126,11 +2126,11 @@ while.body.i:                                     ; preds = %_PyFrame_IsIncomple
   br i1 %tobool.not.i, label %_PyFrame_GetFirstComplete.exit.thread, label %land.rhs.i, !llvm.loop !5
 
 _PyFrame_GetFirstComplete.exit.thread:            ; preds = %for.body, %while.body.i
-  %inc44 = add nuw nsw i32 %frame_count.037, 1
+  %inc44 = add nuw nsw i32 %frame_count.038, 1
   br label %for.end
 
 _PyFrame_GetFirstComplete.exit:                   ; preds = %land.rhs.i, %_PyFrame_IsIncomplete.exit.i
-  %inc = add nuw nsw i32 %frame_count.037, 1
+  %inc = add nuw nsw i32 %frame_count.038, 1
   %cmp = icmp slt i32 %inc, %origin_depth
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
@@ -2151,9 +2151,9 @@ for.body7.lr.ph:                                  ; preds = %for.end
 
 for.body7:                                        ; preds = %for.body7.lr.ph, %_PyFrame_GetFirstComplete.exit34
   %indvars.iv = phi i64 [ 0, %for.body7.lr.ph ], [ %indvars.iv.next, %_PyFrame_GetFirstComplete.exit34 ]
-  %frame.141 = phi ptr [ %current_frame, %for.body7.lr.ph ], [ %frame.addr.0.lcssa.i22, %_PyFrame_GetFirstComplete.exit34 ]
-  %frame.1.val = load ptr, ptr %frame.141, align 8
-  %call9 = tail call i32 @PyUnstable_InterpreterFrame_GetLine(ptr noundef nonnull %frame.141) #7
+  %frame.140 = phi ptr [ %current_frame, %for.body7.lr.ph ], [ %frame.addr.0.lcssa.i22, %_PyFrame_GetFirstComplete.exit34 ]
+  %frame.1.val = load ptr, ptr %frame.140, align 8
+  %call9 = tail call i32 @PyUnstable_InterpreterFrame_GetLine(ptr noundef nonnull %frame.140) #7
   %co_filename = getelementptr inbounds i8, ptr %frame.1.val, i64 112
   %6 = load ptr, ptr %co_filename, align 8
   %co_name = getelementptr inbounds i8, ptr %frame.1.val, i64 120
@@ -2181,7 +2181,7 @@ if.then1.i:                                       ; preds = %if.end.i
 if.end13:                                         ; preds = %for.body7
   %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %indvars.iv
   store ptr %call10, ptr %arrayidx.i, align 8
-  %previous15 = getelementptr inbounds i8, ptr %frame.141, i64 8
+  %previous15 = getelementptr inbounds i8, ptr %frame.140, i64 8
   %10 = load ptr, ptr %previous15, align 8
   %tobool.not7.i18 = icmp eq ptr %10, null
   br i1 %tobool.not7.i18, label %_PyFrame_GetFirstComplete.exit34, label %land.rhs.i19

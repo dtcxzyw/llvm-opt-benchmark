@@ -758,9 +758,9 @@ define internal fastcc void @dissect_babel_subtlvs(ptr noundef %0, i8 noundef ze
 
 13:                                               ; preds = %.lr.ph79, %10
   %14 = phi i32 [ 2, %10 ], [ 1, %.lr.ph79 ]
-  %.070 = phi i8 [ %12, %10 ], [ 0, %.lr.ph79 ]
+  %.071 = phi i8 [ %12, %10 ], [ 0, %.lr.ph79 ]
   %15 = load i32, ptr @hf_babel_subtlv, align 4
-  %16 = zext i8 %.070 to i32
+  %16 = zext i8 %.071 to i32
   %17 = add nuw nsw i32 %14, %16
   %18 = tail call ptr @val_to_str_const(i32 noundef %9, ptr noundef nonnull @subtlvs, ptr noundef nonnull @.str.87) #7
   %19 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %4, i32 noundef %15, ptr noundef %0, i32 noundef %7, i32 noundef %17, i32 noundef %9, ptr noundef nonnull @.str.94, ptr noundef %18, i32 noundef %9) #7
@@ -802,15 +802,15 @@ define internal fastcc void @dissect_babel_subtlvs(ptr noundef %0, i8 noundef ze
   %37 = add nuw nsw i32 %7, 2
   %38 = load i32, ptr @ett_subtlv, align 4
   %39 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %21, ptr noundef %0, i32 noundef %37, i32 noundef 0, i32 noundef %38, ptr noundef null, ptr noundef nonnull @.str.51) #7
-  %.not80 = icmp eq i8 %.070, 0
+  %.not80 = icmp eq i8 %.071, 0
   br i1 %.not80, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36, %.lr.ph
-  %.07177 = phi i32 [ %43, %.lr.ph ], [ 0, %36 ]
+  %.07077 = phi i32 [ %43, %.lr.ph ], [ 0, %36 ]
   %40 = load i32, ptr @hf_babel_subtlv_diversity, align 4
-  %41 = add nuw nsw i32 %.07177, %37
+  %41 = add nuw nsw i32 %.07077, %37
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %40, ptr noundef %0, i32 noundef %41, i32 noundef 1, i32 noundef 0) #7
-  %43 = add nuw nsw i32 %.07177, 1
+  %43 = add nuw nsw i32 %.07077, 1
   %exitcond.not = icmp eq i32 %43, %16
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
@@ -852,7 +852,7 @@ define internal fastcc void @dissect_babel_subtlvs(ptr noundef %0, i8 noundef ze
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %36, %46, %67, %53, %35
-  %70 = zext i8 %.070 to i16
+  %70 = zext i8 %.071 to i16
   %71 = add i16 %.078, 2
   %72 = add i16 %71, %70
   br label %.backedge

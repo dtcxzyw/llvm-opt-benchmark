@@ -143,26 +143,26 @@ while.cond.preheader:                             ; preds = %invoke.cont2
   br i1 %tobool4.not46, label %if.else15, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond.preheader, %invoke.cont7
-  %to_delete.sroa.0.050 = phi ptr [ %to_delete.sroa.0.1, %invoke.cont7 ], [ null, %while.cond.preheader ]
-  %next.049 = phi ptr [ %9, %invoke.cont7 ], [ %5, %while.cond.preheader ]
+  %next.050 = phi ptr [ %9, %invoke.cont7 ], [ %5, %while.cond.preheader ]
+  %to_delete.sroa.10.049 = phi ptr [ %to_delete.sroa.10.1, %invoke.cont7 ], [ null, %while.cond.preheader ]
   %to_delete.sroa.5.048 = phi ptr [ %to_delete.sroa.5.1, %invoke.cont7 ], [ null, %while.cond.preheader ]
-  %to_delete.sroa.10.047 = phi ptr [ %to_delete.sroa.10.1, %invoke.cont7 ], [ null, %while.cond.preheader ]
-  %is_snapshot_5 = getelementptr inbounds i8, ptr %next.049, i64 8
+  %to_delete.sroa.0.047 = phi ptr [ %to_delete.sroa.0.1, %invoke.cont7 ], [ null, %while.cond.preheader ]
+  %is_snapshot_5 = getelementptr inbounds i8, ptr %next.050, i64 8
   %7 = load i8, ptr %is_snapshot_5, align 8
   %tobool6 = trunc i8 %7 to i1
   br i1 %tobool6, label %if.then12, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %cmp.not.i = icmp eq ptr %to_delete.sroa.5.048, %to_delete.sroa.10.047
+  %cmp.not.i = icmp eq ptr %to_delete.sroa.5.048, %to_delete.sroa.10.049
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body
-  store ptr %next.049, ptr %to_delete.sroa.5.048, align 8
+  store ptr %next.050, ptr %to_delete.sroa.5.048, align 8
   br label %invoke.cont7
 
 if.else.i:                                        ; preds = %while.body
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %to_delete.sroa.5.048 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %to_delete.sroa.0.050 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %to_delete.sroa.10.049 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %to_delete.sroa.0.047 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i
@@ -192,21 +192,21 @@ cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIPN4ab
 _ZNSt12_Vector_baseIPN4absl13cord_internal11CordzHandleESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %cond.i10.i.i = phi ptr [ null, %_ZNKSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i6, %cond.true.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
-  store ptr %next.049, ptr %add.ptr.i.i, align 8
+  store ptr %next.050, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIPN4absl13cord_internal11CordzHandleESaIS3_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %to_delete.sroa.0.050, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %to_delete.sroa.0.047, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
 _ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIPN4absl13cord_internal11CordzHandleESaIS3_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %tobool.not.i.i.i = icmp eq ptr %to_delete.sroa.0.050, null
+  %tobool.not.i.i.i = icmp eq ptr %to_delete.sroa.0.047, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %to_delete.sroa.0.050) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %to_delete.sroa.0.047) #15
   br label %_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
@@ -214,11 +214,11 @@ _ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE17_M_realloc_insertIJRK
   br label %invoke.cont7
 
 invoke.cont7:                                     ; preds = %_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i
-  %to_delete.sroa.10.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %to_delete.sroa.10.047, %if.then.i ]
+  %to_delete.sroa.0.1 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %to_delete.sroa.0.047, %if.then.i ]
   %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %to_delete.sroa.5.048, %if.then.i ]
-  %to_delete.sroa.0.1 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %to_delete.sroa.0.050, %if.then.i ]
+  %to_delete.sroa.10.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPN4absl13cord_internal11CordzHandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %to_delete.sroa.10.049, %if.then.i ]
   %to_delete.sroa.5.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
-  %dq_next_8 = getelementptr inbounds i8, ptr %next.049, i64 24
+  %dq_next_8 = getelementptr inbounds i8, ptr %next.050, i64 24
   %9 = load ptr, ptr %dq_next_8, align 8
   %tobool4.not = icmp eq ptr %9, null
   br i1 %tobool4.not, label %if.else15, label %land.rhs, !llvm.loop !6
@@ -230,17 +230,17 @@ if.end:                                           ; preds = %invoke.cont2
   br i1 %tobool11.not, label %if.else15, label %if.then12
 
 if.then12:                                        ; preds = %land.rhs, %if.end
-  %to_delete.sroa.0.236 = phi ptr [ null, %if.end ], [ %to_delete.sroa.0.050, %land.rhs ]
-  %next.135 = phi ptr [ %5, %if.end ], [ %next.049, %land.rhs ]
-  %to_delete.sroa.5.234 = phi ptr [ null, %if.end ], [ %to_delete.sroa.5.048, %land.rhs ]
+  %next.136 = phi ptr [ %5, %if.end ], [ %next.050, %land.rhs ]
+  %to_delete.sroa.5.235 = phi ptr [ null, %if.end ], [ %to_delete.sroa.5.048, %land.rhs ]
+  %to_delete.sroa.0.234 = phi ptr [ null, %if.end ], [ %to_delete.sroa.0.047, %land.rhs ]
   %10 = load ptr, ptr %dq_prev_, align 8
-  %dq_prev_14 = getelementptr inbounds i8, ptr %next.135, i64 16
+  %dq_prev_14 = getelementptr inbounds i8, ptr %next.136, i64 16
   store ptr %10, ptr %dq_prev_14, align 8
   br label %if.end17
 
 if.else15:                                        ; preds = %invoke.cont7, %while.cond.preheader, %if.end
-  %to_delete.sroa.0.228 = phi ptr [ null, %if.end ], [ null, %while.cond.preheader ], [ %to_delete.sroa.0.1, %invoke.cont7 ]
-  %to_delete.sroa.5.226 = phi ptr [ null, %if.end ], [ null, %while.cond.preheader ], [ %to_delete.sroa.5.1, %invoke.cont7 ]
+  %to_delete.sroa.5.228 = phi ptr [ null, %if.end ], [ null, %while.cond.preheader ], [ %to_delete.sroa.5.1, %invoke.cont7 ]
+  %to_delete.sroa.0.226 = phi ptr [ null, %if.end ], [ null, %while.cond.preheader ], [ %to_delete.sroa.0.1, %invoke.cont7 ]
   %dq_tail = getelementptr inbounds i8, ptr %3, i64 8
   %11 = load ptr, ptr %dq_prev_, align 8
   %12 = ptrtoint ptr %11 to i64
@@ -248,13 +248,13 @@ if.else15:                                        ; preds = %invoke.cont7, %whil
   br label %if.end17
 
 if.end17:                                         ; preds = %if.else15, %if.then12
-  %to_delete.sroa.0.227 = phi ptr [ %to_delete.sroa.0.228, %if.else15 ], [ %to_delete.sroa.0.236, %if.then12 ]
-  %to_delete.sroa.5.225 = phi ptr [ %to_delete.sroa.5.226, %if.else15 ], [ %to_delete.sroa.5.234, %if.then12 ]
+  %to_delete.sroa.5.227 = phi ptr [ %to_delete.sroa.5.228, %if.else15 ], [ %to_delete.sroa.5.235, %if.then12 ]
+  %to_delete.sroa.0.225 = phi ptr [ %to_delete.sroa.0.226, %if.else15 ], [ %to_delete.sroa.0.234, %if.then12 ]
   invoke void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %for.cond.preheader unwind label %terminate.lpad.i
 
 for.cond.preheader:                               ; preds = %if.end17
-  %cmp.i.not52 = icmp eq ptr %to_delete.sroa.0.227, %to_delete.sroa.5.225
+  %cmp.i.not52 = icmp eq ptr %to_delete.sroa.0.225, %to_delete.sroa.5.227
   br i1 %cmp.i.not52, label %for.end, label %for.body
 
 terminate.lpad.i:                                 ; preds = %if.end17
@@ -265,7 +265,7 @@ terminate.lpad.i:                                 ; preds = %if.end17
   unreachable
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %__begin3.sroa.0.053 = phi ptr [ %incdec.ptr.i8, %for.inc ], [ %to_delete.sroa.0.227, %for.cond.preheader ]
+  %__begin3.sroa.0.053 = phi ptr [ %incdec.ptr.i8, %for.inc ], [ %to_delete.sroa.0.225, %for.cond.preheader ]
   %15 = load ptr, ptr %__begin3.sroa.0.053, align 8
   %isnull = icmp eq ptr %15, null
   br i1 %isnull, label %for.inc, label %delete.notnull
@@ -279,15 +279,15 @@ delete.notnull:                                   ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %delete.notnull
   %incdec.ptr.i8 = getelementptr inbounds i8, ptr %__begin3.sroa.0.053, i64 8
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i8, %to_delete.sroa.5.225
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i8, %to_delete.sroa.5.227
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %tobool.not.i.i.i9 = icmp eq ptr %to_delete.sroa.0.227, null
+  %tobool.not.i.i.i9 = icmp eq ptr %to_delete.sroa.0.225, null
   br i1 %tobool.not.i.i.i9, label %if.end24, label %if.then.i.i.i10
 
 if.then.i.i.i10:                                  ; preds = %for.end
-  tail call void @_ZdlPv(ptr noundef nonnull %to_delete.sroa.0.227) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %to_delete.sroa.0.225) #15
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then.i.i.i10, %for.end, %invoke.cont

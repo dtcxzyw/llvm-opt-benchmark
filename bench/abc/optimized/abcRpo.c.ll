@@ -36,7 +36,7 @@ define void @Abc_TruthRpoPerform(ptr nocapture noundef readonly %0, i32 noundef 
 
 9:                                                ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %.02125 = phi i32 [ 0, %.lr.ph ], [ %.1, %41 ]
+  %.026 = phi i32 [ 0, %.lr.ph ], [ %.1, %41 ]
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %9
@@ -102,7 +102,7 @@ define void @Abc_TruthRpoPerform(ptr nocapture noundef readonly %0, i32 noundef 
 Lit_Free.exit:                                    ; preds = %32, %37
   tail call void @free(ptr noundef nonnull %34) #10
   tail call void @free(ptr noundef nonnull %18) #10
-  %38 = add nsw i32 %.02125, 1
+  %38 = add nsw i32 %.026, 1
   br label %41
 
 39:                                               ; preds = %13
@@ -114,7 +114,7 @@ Lit_Free.exit:                                    ; preds = %32, %37
   br label %41
 
 41:                                               ; preds = %Lit_Free.exit, %40, %39
-  %.1 = phi i32 [ %38, %Lit_Free.exit ], [ %.02125, %40 ], [ %.02125, %39 ]
+  %.1 = phi i32 [ %38, %Lit_Free.exit ], [ %.026, %40 ], [ %.026, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load i32, ptr %5, align 8
   %43 = sext i32 %42 to i64
@@ -122,15 +122,15 @@ Lit_Free.exit:                                    ; preds = %32, %37
   br i1 %44, label %9, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %41, %3
-  %.021.lcssa = phi i32 [ 0, %3 ], [ %.1, %41 ]
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %.1, %41 ]
   %.lcssa = phi i32 [ %6, %3 ], [ %42, %41 ]
-  %45 = sitofp i32 %.021.lcssa to double
+  %45 = sitofp i32 %.0.lcssa to double
   %46 = fmul double %45, 1.000000e+02
   %47 = sitofp i32 %.lcssa to double
   %48 = fdiv double %46, %47
   %49 = fptrunc double %48 to float
   %50 = fpext float %49 to double
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4, i32 noundef %.021.lcssa, i32 noundef %.lcssa, double noundef %50)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4, i32 noundef %.0.lcssa, i32 noundef %.lcssa, double noundef %50)
   %51 = tail call i64 @clock() #10
   %52 = sub nsw i64 %51, %4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.5)

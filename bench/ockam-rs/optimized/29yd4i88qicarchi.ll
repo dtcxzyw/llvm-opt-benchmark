@@ -4012,8 +4012,8 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %468, %467
-  %.sroa.058.0.i.i = phi ptr [ inttoptr (i64 8 to ptr), %467 ], [ %460, %468 ]
   %.sroa.660.sroa.6.0.i.i = phi i64 [ 0, %467 ], [ 1, %468 ]
+  %.sroa.058.0.i.i = phi ptr [ inttoptr (i64 8 to ptr), %467 ], [ %460, %468 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !886)
   call void @llvm.experimental.noalias.scope.decl(metadata !889)
   %.sroa.0.sroa.0.408..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sroa.0.sroa.0.i.i, i64 408

@@ -71,7 +71,7 @@ define ptr @cs_post(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
 
 .lr.ph61:                                         ; preds = %.lr.ph61.preheader, %40
   %indvars.iv64 = phi i64 [ 0, %.lr.ph61.preheader ], [ %indvars.iv.next65, %40 ]
-  %.04659 = phi i32 [ 0, %.lr.ph61.preheader ], [ %.147, %40 ]
+  %.060 = phi i32 [ 0, %.lr.ph61.preheader ], [ %.1, %40 ]
   %35 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv64
   %36 = load i32, ptr %35, align 4
   %.not53 = icmp eq i32 %36, -1
@@ -79,11 +79,11 @@ define ptr @cs_post(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
 
 37:                                               ; preds = %.lr.ph61
   %38 = trunc nuw nsw i64 %indvars.iv64 to i32
-  %39 = tail call i32 @cs_tdfs(i32 noundef %38, i32 noundef %.04659, ptr noundef nonnull %6, ptr noundef nonnull %13, ptr noundef nonnull %4, ptr noundef nonnull %16) #3
+  %39 = tail call i32 @cs_tdfs(i32 noundef %38, i32 noundef %.060, ptr noundef nonnull %6, ptr noundef nonnull %13, ptr noundef nonnull %4, ptr noundef nonnull %16) #3
   br label %40
 
 40:                                               ; preds = %.lr.ph61, %37
-  %.147 = phi i32 [ %.04659, %.lr.ph61 ], [ %39, %37 ]
+  %.1 = phi i32 [ %.060, %.lr.ph61 ], [ %39, %37 ]
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph61, !llvm.loop !6
@@ -93,8 +93,8 @@ define ptr @cs_post(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr 
   br label %42
 
 42:                                               ; preds = %2, %._crit_edge, %9
-  %.0 = phi ptr [ %41, %._crit_edge ], [ %10, %9 ], [ null, %2 ]
-  ret ptr %.0
+  %.047 = phi ptr [ %41, %._crit_edge ], [ %10, %9 ], [ null, %2 ]
+  ret ptr %.047
 }
 
 declare ptr @cs_malloc(i32 noundef, i64 noundef) local_unnamed_addr #1

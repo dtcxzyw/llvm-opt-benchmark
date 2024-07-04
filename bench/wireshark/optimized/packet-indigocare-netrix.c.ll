@@ -395,20 +395,20 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %122
 
 122:                                              ; preds = %97, %113, %106, %90, %85, %80, %75, %70, %65, %60, %55
-  %.0329 = phi ptr [ %100, %97 ], [ %109, %106 ], [ %118, %113 ], [ %93, %90 ], [ %88, %85 ], [ %83, %80 ], [ %78, %75 ], [ %73, %70 ], [ %68, %65 ], [ %63, %60 ], [ %58, %55 ]
-  %.0328 = phi i32 [ %98, %97 ], [ %107, %106 ], [ %115, %113 ], [ %91, %90 ], [ %86, %85 ], [ %81, %80 ], [ %76, %75 ], [ %71, %70 ], [ %66, %65 ], [ %61, %60 ], [ %56, %55 ]
-  %123 = call ptr @proto_item_add_subtree(ptr noundef %.0329, i32 noundef %.0328) #2
-  %.0330336 = add i32 %47, 1
-  %124 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0330336) #2
+  %.0330 = phi ptr [ %100, %97 ], [ %109, %106 ], [ %118, %113 ], [ %93, %90 ], [ %88, %85 ], [ %83, %80 ], [ %78, %75 ], [ %73, %70 ], [ %68, %65 ], [ %63, %60 ], [ %58, %55 ]
+  %.0 = phi i32 [ %98, %97 ], [ %107, %106 ], [ %115, %113 ], [ %91, %90 ], [ %86, %85 ], [ %81, %80 ], [ %76, %75 ], [ %71, %70 ], [ %66, %65 ], [ %61, %60 ], [ %56, %55 ]
+  %123 = call ptr @proto_item_add_subtree(ptr noundef %.0330, i32 noundef %.0) #2
+  %.0329336 = add i32 %47, 1
+  %124 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0329336) #2
   %.not335337 = icmp eq i8 %124, 3
   br i1 %.not335337, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %122, %267
-  %.0330338 = phi i32 [ %.0330, %267 ], [ %.0330336, %122 ]
-  %125 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.0330338, i32 noundef -1, i8 noundef zeroext 31) #2
+  %.0329338 = phi i32 [ %.0329, %267 ], [ %.0329336, %122 ]
+  %125 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.0329338, i32 noundef -1, i8 noundef zeroext 31) #2
   %126 = load ptr, ptr %48, align 8
-  %127 = sub i32 %125, %.0330338
-  %128 = call ptr @tvb_get_string_enc(ptr noundef %126, ptr noundef %0, i32 noundef %.0330338, i32 noundef %127, i32 noundef 0) #2
+  %127 = sub i32 %125, %.0329338
+  %128 = call ptr @tvb_get_string_enc(ptr noundef %126, ptr noundef %0, i32 noundef %.0329338, i32 noundef %127, i32 noundef 0) #2
   %129 = call zeroext i1 @ws_strtoi32(ptr noundef %128, ptr noundef null, ptr noundef nonnull %6) #2
   %130 = add i32 %125, 1
   %131 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %130, i32 noundef -1, i8 noundef zeroext 30) #2
@@ -460,8 +460,8 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %267
 
 153:                                              ; preds = %136
-  %154 = sub i32 %131, %.0330338
-  %155 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef nonnull %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0330338, i32 noundef %154, ptr noundef nonnull @.str.85, i32 noundef %137, ptr noundef %134) #2
+  %154 = sub i32 %131, %.0329338
+  %155 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef nonnull %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0329338, i32 noundef %154, ptr noundef nonnull @.str.85, i32 noundef %137, ptr noundef %134) #2
   br label %267
 
 156:                                              ; preds = %.lr.ph
@@ -479,9 +479,9 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
 158:                                              ; preds = %156
   %159 = call zeroext i1 @ws_strtoi32(ptr noundef %134, ptr noundef null, ptr noundef nonnull %7) #2
   %160 = load i32, ptr @hf_netrix_groupcall_groupnumber_type, align 4
-  %161 = sub i32 %131, %.0330338
+  %161 = sub i32 %131, %.0329338
   %162 = load i32, ptr %7, align 4
-  %163 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %123, i32 noundef %160, ptr noundef %0, i32 noundef %.0330338, i32 noundef %161, i32 noundef %162, ptr noundef nonnull @.str.79, i32 noundef %162) #2
+  %163 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %123, i32 noundef %160, ptr noundef %0, i32 noundef %.0329338, i32 noundef %161, i32 noundef %162, ptr noundef nonnull @.str.79, i32 noundef %162) #2
   %164 = load ptr, ptr %40, align 8
   %165 = load i32, ptr %7, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %164, i32 noundef 25, ptr noundef nonnull @.str.86, i32 noundef %165) #2
@@ -526,8 +526,8 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %267
 
 188:                                              ; preds = %156
-  %189 = sub i32 %131, %.0330338
-  %190 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef nonnull %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0330338, i32 noundef %189, ptr noundef nonnull @.str.85, i32 noundef %157, ptr noundef %134) #2
+  %189 = sub i32 %131, %.0329338
+  %190 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef nonnull %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0329338, i32 noundef %189, ptr noundef nonnull @.str.85, i32 noundef %157, ptr noundef %134) #2
   br label %267
 
 191:                                              ; preds = %.lr.ph
@@ -545,9 +545,9 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
 193:                                              ; preds = %191
   %194 = call zeroext i1 @ws_strtoi32(ptr noundef %134, ptr noundef null, ptr noundef nonnull %8) #2
   %195 = load i32, ptr @hf_netrix_profilecall_groupnumber_type, align 4
-  %196 = sub i32 %131, %.0330338
+  %196 = sub i32 %131, %.0329338
   %197 = load i32, ptr %8, align 4
-  %198 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %123, i32 noundef %195, ptr noundef %0, i32 noundef %.0330338, i32 noundef %196, i32 noundef %197, ptr noundef nonnull @.str.79, i32 noundef %197) #2
+  %198 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %123, i32 noundef %195, ptr noundef %0, i32 noundef %.0329338, i32 noundef %196, i32 noundef %197, ptr noundef nonnull @.str.79, i32 noundef %197) #2
   %199 = load ptr, ptr %40, align 8
   %200 = load i32, ptr %8, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %199, i32 noundef 25, ptr noundef nonnull @.str.91, i32 noundef %200) #2
@@ -592,8 +592,8 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %267
 
 223:                                              ; preds = %191
-  %224 = sub i32 %131, %.0330338
-  %225 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef nonnull %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0330338, i32 noundef %224, ptr noundef nonnull @.str.85, i32 noundef %192, ptr noundef %134) #2
+  %224 = sub i32 %131, %.0329338
+  %225 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef nonnull %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0329338, i32 noundef %224, ptr noundef nonnull @.str.85, i32 noundef %192, ptr noundef %134) #2
   br label %267
 
 226:                                              ; preds = %.lr.ph
@@ -621,8 +621,8 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %267
 
 238:                                              ; preds = %232
-  %239 = sub i32 %131, %.0330338
-  %240 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef nonnull %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0330338, i32 noundef %239, ptr noundef nonnull @.str.85, i32 noundef %233, ptr noundef %134) #2
+  %239 = sub i32 %131, %.0329338
+  %240 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef nonnull %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0329338, i32 noundef %239, ptr noundef nonnull @.str.85, i32 noundef %233, ptr noundef %134) #2
   br label %267
 
 241:                                              ; preds = %.lr.ph
@@ -652,8 +652,8 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %267
 
 253:                                              ; preds = %243
-  %254 = sub i32 %131, %.0330338
-  %255 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef nonnull %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0330338, i32 noundef %254, ptr noundef nonnull @.str.85, i32 noundef %244, ptr noundef %134) #2
+  %254 = sub i32 %131, %.0329338
+  %255 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef nonnull %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0329338, i32 noundef %254, ptr noundef nonnull @.str.85, i32 noundef %244, ptr noundef %134) #2
   br label %267
 
 256:                                              ; preds = %241
@@ -674,13 +674,13 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %267
 
 264:                                              ; preds = %258
-  %265 = sub i32 %131, %.0330338
-  %266 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef nonnull %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0330338, i32 noundef %265, ptr noundef nonnull @.str.85, i32 noundef %259, ptr noundef %134) #2
+  %265 = sub i32 %131, %.0329338
+  %266 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef nonnull %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0329338, i32 noundef %265, ptr noundef nonnull @.str.85, i32 noundef %259, ptr noundef %134) #2
   br label %267
 
 267:                                              ; preds = %253, %249, %245, %260, %264, %256, %234, %238, %228, %226, %193, %201, %205, %208, %211, %215, %219, %223, %158, %166, %170, %173, %176, %180, %184, %188, %138, %142, %146, %150, %153
-  %.0330 = add i32 %131, 1
-  %268 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0330) #2
+  %.0329 = add i32 %131, 1
+  %268 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0329) #2
   %.not335 = icmp eq i8 %268, 3
   br i1 %.not335, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
@@ -689,8 +689,8 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %270
 
 270:                                              ; preds = %39, %35, %25, %._crit_edge, %14
-  %.0 = phi i32 [ 1, %14 ], [ %269, %._crit_edge ], [ 0, %25 ], [ 0, %35 ], [ 0, %39 ]
-  ret i32 %.0
+  %.0328 = phi i32 [ 1, %14 ], [ %269, %._crit_edge ], [ 0, %25 ], [ 0, %35 ], [ 0, %39 ]
+  ret i32 %.0328
 }
 
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1

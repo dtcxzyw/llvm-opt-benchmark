@@ -1177,21 +1177,21 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntFree.exit109
   br i1 %102, label %.lr.ph.i, label %.preheader5.i
 
 .preheader5.i:                                    ; preds = %197, %Vec_IntAlloc.exit
-  %.029.lcssa.i = phi ptr [ %.val105, %Vec_IntAlloc.exit ], [ %.130.i, %197 ]
-  %.0.lcssa.i = phi ptr [ %.val103, %Vec_IntAlloc.exit ], [ %.1.i, %197 ]
-  %103 = icmp ult ptr %.0.lcssa.i, %97
+  %.029.lcssa.i = phi ptr [ %.val103, %Vec_IntAlloc.exit ], [ %.130.i, %197 ]
+  %.0.lcssa.i = phi ptr [ %.val105, %Vec_IntAlloc.exit ], [ %.1.i, %197 ]
+  %103 = icmp ult ptr %.029.lcssa.i, %97
   br i1 %103, label %.lr.ph10.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %Vec_IntAlloc.exit, %197
-  %.07.i = phi ptr [ %.1.i, %197 ], [ %.val103, %Vec_IntAlloc.exit ]
-  %.0296.i = phi ptr [ %.130.i, %197 ], [ %.val105, %Vec_IntAlloc.exit ]
-  %104 = load i32, ptr %.07.i, align 4
-  %105 = load i32, ptr %.0296.i, align 4
+  %.07.i = phi ptr [ %.1.i, %197 ], [ %.val105, %Vec_IntAlloc.exit ]
+  %.0296.i = phi ptr [ %.130.i, %197 ], [ %.val103, %Vec_IntAlloc.exit ]
+  %104 = load i32, ptr %.0296.i, align 4
+  %105 = load i32, ptr %.07.i, align 4
   %106 = icmp eq i32 %104, %105
   br i1 %106, label %107, label %137
 
 107:                                              ; preds = %.lr.ph.i
-  %108 = getelementptr inbounds i8, ptr %.07.i, i64 4
+  %108 = getelementptr inbounds i8, ptr %.0296.i, i64 4
   %109 = load i32, ptr %81, align 4
   %110 = load i32, ptr %79, align 8
   %111 = icmp eq i32 %109, %110
@@ -1253,7 +1253,7 @@ Vec_IntPush.exit.i:                               ; preds = %130, %Vec_IntGrow.e
   %134 = sext i32 %109 to i64
   %135 = getelementptr inbounds i32, ptr %132, i64 %134
   store i32 %104, ptr %135, align 4
-  %136 = getelementptr inbounds i8, ptr %.0296.i, i64 4
+  %136 = getelementptr inbounds i8, ptr %.07.i, i64 4
   br label %197
 
 137:                                              ; preds = %.lr.ph.i
@@ -1261,7 +1261,7 @@ Vec_IntPush.exit.i:                               ; preds = %130, %Vec_IntGrow.e
   br i1 %138, label %139, label %168
 
 139:                                              ; preds = %137
-  %140 = getelementptr inbounds i8, ptr %.07.i, i64 4
+  %140 = getelementptr inbounds i8, ptr %.0296.i, i64 4
   %141 = load i32, ptr %89, align 4
   %142 = load i32, ptr %88, align 8
   %143 = icmp eq i32 %141, %142
@@ -1326,7 +1326,7 @@ Vec_IntPush.exit41.i:                             ; preds = %162, %Vec_IntGrow.e
   br label %197
 
 168:                                              ; preds = %137
-  %169 = getelementptr inbounds i8, ptr %.0296.i, i64 4
+  %169 = getelementptr inbounds i8, ptr %.07.i, i64 4
   %170 = load i32, ptr %93, align 4
   %171 = load i32, ptr %92, align 8
   %172 = icmp eq i32 %170, %171
@@ -1391,21 +1391,21 @@ Vec_IntPush.exit48.i:                             ; preds = %191, %Vec_IntGrow.e
   br label %197
 
 197:                                              ; preds = %Vec_IntPush.exit48.i, %Vec_IntPush.exit41.i, %Vec_IntPush.exit.i
-  %.130.i = phi ptr [ %136, %Vec_IntPush.exit.i ], [ %.0296.i, %Vec_IntPush.exit41.i ], [ %169, %Vec_IntPush.exit48.i ]
-  %.1.i = phi ptr [ %108, %Vec_IntPush.exit.i ], [ %140, %Vec_IntPush.exit41.i ], [ %.07.i, %Vec_IntPush.exit48.i ]
-  %198 = icmp ult ptr %.1.i, %97
-  %199 = icmp ult ptr %.130.i, %99
+  %.130.i = phi ptr [ %108, %Vec_IntPush.exit.i ], [ %140, %Vec_IntPush.exit41.i ], [ %.0296.i, %Vec_IntPush.exit48.i ]
+  %.1.i = phi ptr [ %136, %Vec_IntPush.exit.i ], [ %.07.i, %Vec_IntPush.exit41.i ], [ %169, %Vec_IntPush.exit48.i ]
+  %198 = icmp ult ptr %.130.i, %97
+  %199 = icmp ult ptr %.1.i, %99
   %200 = select i1 %198, i1 %199, i1 false
   br i1 %200, label %.lr.ph.i, label %.preheader5.i, !llvm.loop !17
 
 .preheader.i:                                     ; preds = %Vec_IntPush.exit55.i, %.preheader5.i
-  %201 = icmp ult ptr %.029.lcssa.i, %99
+  %201 = icmp ult ptr %.0.lcssa.i, %99
   br i1 %201, label %.lr.ph12.i, label %Vec_IntTwoSplit.exit
 
 .lr.ph10.i:                                       ; preds = %.preheader5.i, %Vec_IntPush.exit55.i
-  %.29.i = phi ptr [ %202, %Vec_IntPush.exit55.i ], [ %.0.lcssa.i, %.preheader5.i ]
-  %202 = getelementptr inbounds i8, ptr %.29.i, i64 4
-  %203 = load i32, ptr %.29.i, align 4
+  %.2319.i = phi ptr [ %202, %Vec_IntPush.exit55.i ], [ %.029.lcssa.i, %.preheader5.i ]
+  %202 = getelementptr inbounds i8, ptr %.2319.i, i64 4
+  %203 = load i32, ptr %.2319.i, align 4
   %204 = load i32, ptr %89, align 4
   %205 = load i32, ptr %88, align 8
   %206 = icmp eq i32 %204, %205
@@ -1471,9 +1471,9 @@ Vec_IntPush.exit55.i:                             ; preds = %225, %Vec_IntGrow.e
   br i1 %231, label %.lr.ph10.i, label %.preheader.i, !llvm.loop !18
 
 .lr.ph12.i:                                       ; preds = %.preheader.i, %Vec_IntPush.exit62.i
-  %.23111.i = phi ptr [ %232, %Vec_IntPush.exit62.i ], [ %.029.lcssa.i, %.preheader.i ]
-  %232 = getelementptr inbounds i8, ptr %.23111.i, i64 4
-  %233 = load i32, ptr %.23111.i, align 4
+  %.211.i = phi ptr [ %232, %Vec_IntPush.exit62.i ], [ %.0.lcssa.i, %.preheader.i ]
+  %232 = getelementptr inbounds i8, ptr %.211.i, i64 4
+  %233 = load i32, ptr %.211.i, align 4
   %234 = load i32, ptr %93, align 4
   %235 = load i32, ptr %92, align 8
   %236 = icmp eq i32 %234, %235

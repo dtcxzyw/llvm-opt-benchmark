@@ -23874,8 +23874,8 @@ _ZN17cranelift_codegen9legalizer9imm_const17h3d2c7ca0cae3b681E.exit: ; preds = %
   %.sroa.49.0 = load i16, ptr %.sroa.49.0.in, align 2
   %.sroa.08.0.in = getelementptr inbounds i8, ptr %139, i64 8
   %.sroa.08.0 = load i16, ptr %.sroa.08.0.in, align 8, !range !2448, !noundef !4
-  %.033.in = getelementptr inbounds i8, ptr %139, i64 4
-  %.033 = load i32, ptr %.033.in, align 4, !noundef !4
+  %.034.in = getelementptr inbounds i8, ptr %139, i64 4
+  %.034 = load i32, ptr %.034.in, align 4, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !2449)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
   store i32 %131, ptr %26, align 4, !noalias !2452
@@ -23993,11 +23993,11 @@ _ZN17cranelift_codegen2ir6layout6Layout8set_cold17hf53da97bce31311dE.exit.i: ; p
   br i1 %.0.i40, label %305, label %303
 
 303:                                              ; preds = %_ZN17cranelift_codegen2ir6layout6Layout8set_cold17hf53da97bce31311dE.exit.i
-  %304 = call noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4brif17h01575810c2bcd4d3E(ptr noalias noundef nonnull align 8 dereferenceable(416) %130, i32 noundef %302, i32 noundef %.033, i32 noundef %289, ptr noalias noundef nonnull readonly align 4 @anon.a0b7298307f3a1649f818ae4a5b23c61.3.llvm.5781664634918412060, i64 noundef 0, i32 noundef %291, ptr noalias noundef nonnull readonly align 4 @anon.a0b7298307f3a1649f818ae4a5b23c61.3.llvm.5781664634918412060, i64 noundef 0), !noalias !2460
+  %304 = call noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4brif17h01575810c2bcd4d3E(ptr noalias noundef nonnull align 8 dereferenceable(416) %130, i32 noundef %302, i32 noundef %.034, i32 noundef %289, ptr noalias noundef nonnull readonly align 4 @anon.a0b7298307f3a1649f818ae4a5b23c61.3.llvm.5781664634918412060, i64 noundef 0, i32 noundef %291, ptr noalias noundef nonnull readonly align 4 @anon.a0b7298307f3a1649f818ae4a5b23c61.3.llvm.5781664634918412060, i64 noundef 0), !noalias !2460
   br label %307
 
 305:                                              ; preds = %_ZN17cranelift_codegen2ir6layout6Layout8set_cold17hf53da97bce31311dE.exit.i
-  %306 = call noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4brif17h01575810c2bcd4d3E(ptr noalias noundef nonnull align 8 dereferenceable(416) %130, i32 noundef %302, i32 noundef %.033, i32 noundef %291, ptr noalias noundef nonnull readonly align 4 @anon.a0b7298307f3a1649f818ae4a5b23c61.3.llvm.5781664634918412060, i64 noundef 0, i32 noundef %289, ptr noalias noundef nonnull readonly align 4 @anon.a0b7298307f3a1649f818ae4a5b23c61.3.llvm.5781664634918412060, i64 noundef 0), !noalias !2460
+  %306 = call noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4brif17h01575810c2bcd4d3E(ptr noalias noundef nonnull align 8 dereferenceable(416) %130, i32 noundef %302, i32 noundef %.034, i32 noundef %291, ptr noalias noundef nonnull readonly align 4 @anon.a0b7298307f3a1649f818ae4a5b23c61.3.llvm.5781664634918412060, i64 noundef 0, i32 noundef %289, ptr noalias noundef nonnull readonly align 4 @anon.a0b7298307f3a1649f818ae4a5b23c61.3.llvm.5781664634918412060, i64 noundef 0), !noalias !2460
   br label %307
 
 307:                                              ; preds = %305, %303

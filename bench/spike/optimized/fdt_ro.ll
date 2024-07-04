@@ -169,19 +169,19 @@ define noundef ptr @fdt_get_string(ptr noundef %0, i32 noundef %1, ptr noundef w
   br label %.sink.split
 
 119:                                              ; preds = %26, %109, %88, %90, %67, %45, %25, %3
-  %.040 = phi i32 [ %4, %3 ], [ -4, %25 ], [ -4, %45 ], [ -4, %67 ], [ -4, %88 ], [ -4, %90 ], [ -8, %109 ], [ -13, %26 ]
+  %.0 = phi i32 [ %4, %3 ], [ -4, %25 ], [ -4, %45 ], [ -4, %67 ], [ -4, %88 ], [ -4, %90 ], [ -8, %109 ], [ -13, %26 ]
   %.not53 = icmp eq ptr %2, null
   br i1 %.not53, label %120, label %.sink.split
 
 .sink.split:                                      ; preds = %119, %114
-  %.040.sink = phi i32 [ %118, %114 ], [ %.040, %119 ]
-  %.0.ph = phi ptr [ %111, %114 ], [ null, %119 ]
-  store i32 %.040.sink, ptr %2, align 4
+  %.0.sink = phi i32 [ %118, %114 ], [ %.0, %119 ]
+  %.040.ph = phi ptr [ %111, %114 ], [ null, %119 ]
+  store i32 %.0.sink, ptr %2, align 4
   br label %120
 
 120:                                              ; preds = %.sink.split, %119, %113
-  %.0 = phi ptr [ %111, %113 ], [ null, %119 ], [ %.0.ph, %.sink.split ]
-  ret ptr %.0
+  %.040 = phi ptr [ %111, %113 ], [ null, %119 ], [ %.040.ph, %.sink.split ]
+  ret ptr %.040
 }
 
 declare i32 @fdt_ro_probe_(ptr noundef) local_unnamed_addr #1
@@ -202,16 +202,16 @@ define range(i32 -2147483648, 1) i32 @fdt_find_max_phandle(ptr noundef %0, ptr n
   br i1 %4, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.014.lcssa = phi i32 [ 0, %2 ], [ %spec.select, %.lr.ph ]
+  %.013.lcssa = phi i32 [ 0, %2 ], [ %spec.select, %.lr.ph ]
   %.lcssa = phi i32 [ %3, %2 ], [ %8, %.lr.ph ]
   %5 = icmp eq i32 %.lcssa, -1
   br i1 %5, label %10, label %12
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %6 = phi i32 [ %8, %.lr.ph ], [ %3, %2 ]
-  %.01418 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %2 ]
+  %.01318 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %2 ]
   %7 = tail call i32 @fdt_get_phandle(ptr noundef %0, i32 noundef %6)
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %7, i32 %.01418)
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %7, i32 %.01318)
   %8 = tail call i32 @fdt_next_node(ptr noundef %0, i32 noundef %6, ptr noundef null) #9
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
@@ -221,12 +221,12 @@ define range(i32 -2147483648, 1) i32 @fdt_find_max_phandle(ptr noundef %0, ptr n
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %10
-  store i32 %.014.lcssa, ptr %1, align 4
+  store i32 %.013.lcssa, ptr %1, align 4
   br label %12
 
 12:                                               ; preds = %10, %11, %._crit_edge
-  %.0 = phi i32 [ %.lcssa, %._crit_edge ], [ 0, %11 ], [ 0, %10 ]
-  ret i32 %.0
+  %.014 = phi i32 [ %.lcssa, %._crit_edge ], [ 0, %11 ], [ 0, %10 ]
+  ret i32 %.014
 }
 
 declare i32 @fdt_next_node(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -419,9 +419,9 @@ define range(i32 -2147483648, 1) i32 @fdt_generate_phandle(ptr noundef %0, ptr n
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %7 = phi i32 [ %9, %.lr.ph.i ], [ %3, %2 ]
-  %.01418.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ 0, %2 ]
+  %.01318.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ 0, %2 ]
   %8 = tail call i32 @fdt_get_phandle(ptr noundef %0, i32 noundef %7)
-  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %8, i32 %.01418.i)
+  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %8, i32 %.01318.i)
   %9 = tail call i32 @fdt_next_node(ptr noundef %0, i32 noundef %7, ptr noundef null) #9
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %._crit_edge.i, label %.lr.ph.i
@@ -431,12 +431,12 @@ fdt_find_max_phandle.exit:                        ; preds = %._crit_edge.i
   br i1 %11, label %fdt_find_max_phandle.exit.thread, label %fdt_find_max_phandle.exit.thread14
 
 fdt_find_max_phandle.exit.thread14:               ; preds = %._crit_edge.i.thread, %fdt_find_max_phandle.exit
-  %.014.lcssa.i1216 = phi i32 [ %spec.select.i, %fdt_find_max_phandle.exit ], [ 0, %._crit_edge.i.thread ]
+  %.013.lcssa.i1216 = phi i32 [ %spec.select.i, %fdt_find_max_phandle.exit ], [ 0, %._crit_edge.i.thread ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %fdt_find_max_phandle.exit.thread, label %12
 
 12:                                               ; preds = %fdt_find_max_phandle.exit.thread14
-  %13 = add i32 %.014.lcssa.i1216, 1
+  %13 = add i32 %.013.lcssa.i1216, 1
   store i32 %13, ptr %1, align 4
   br label %fdt_find_max_phandle.exit.thread
 
@@ -1097,29 +1097,29 @@ define ptr @fdt_get_name(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %
   br label %56
 
 56:                                               ; preds = %54, %30
-  %.018 = phi ptr [ %55, %54 ], [ %31, %30 ]
+  %.017 = phi ptr [ %55, %54 ], [ %31, %30 ]
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %61, label %57
 
 57:                                               ; preds = %56
-  %58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.018) #10
+  %58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.017) #10
   %59 = trunc i64 %58 to i32
   br label %.sink.split
 
 60:                                               ; preds = %51, %3, %27
-  %.017 = phi i32 [ %25, %3 ], [ %28, %27 ], [ -11, %51 ]
+  %.0 = phi i32 [ %25, %3 ], [ %28, %27 ], [ -11, %51 ]
   %.not23 = icmp eq ptr %2, null
   br i1 %.not23, label %61, label %.sink.split
 
 .sink.split:                                      ; preds = %60, %57
-  %.017.sink = phi i32 [ %59, %57 ], [ %.017, %60 ]
-  %.0.ph = phi ptr [ %.018, %57 ], [ null, %60 ]
-  store i32 %.017.sink, ptr %2, align 4
+  %.0.sink = phi i32 [ %59, %57 ], [ %.0, %60 ]
+  %.018.ph = phi ptr [ %.017, %57 ], [ null, %60 ]
+  store i32 %.0.sink, ptr %2, align 4
   br label %61
 
 61:                                               ; preds = %.sink.split, %60, %56
-  %.0 = phi ptr [ %.018, %56 ], [ null, %60 ], [ %.0.ph, %.sink.split ]
-  ret ptr %.0
+  %.018 = phi ptr [ %.017, %56 ], [ null, %60 ], [ %.018.ph, %.sink.split ]
+  ret ptr %.018
 }
 
 declare i32 @fdt_check_node_offset_(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1139,8 +1139,8 @@ define i32 @fdt_first_property_offset(ptr noundef %0, i32 noundef %1) local_unna
   br label %7
 
 7:                                                ; preds = %12, %6
-  %.05.i = phi i32 [ %4, %6 ], [ %13, %12 ]
-  %8 = call i32 @fdt_next_tag(ptr noundef %0, i32 noundef %.05.i, ptr noundef nonnull %3) #9
+  %.0.i = phi i32 [ %4, %6 ], [ %13, %12 ]
+  %8 = call i32 @fdt_next_tag(ptr noundef %0, i32 noundef %.0.i, ptr noundef nonnull %3) #9
   switch i32 %8, label %12 [
     i32 9, label %9
     i32 3, label %nextprop_.exit
@@ -1158,12 +1158,12 @@ define i32 @fdt_first_property_offset(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %14, label %7, label %nextprop_.exit, !llvm.loop !9
 
 nextprop_.exit:                                   ; preds = %7, %12, %9
-  %.0.i = phi i32 [ %..i, %9 ], [ %.05.i, %7 ], [ -1, %12 ]
+  %.05.i = phi i32 [ %..i, %9 ], [ %.0.i, %7 ], [ -1, %12 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %15
 
 15:                                               ; preds = %2, %nextprop_.exit
-  %.0 = phi i32 [ %.0.i, %nextprop_.exit ], [ %4, %2 ]
+  %.0 = phi i32 [ %.05.i, %nextprop_.exit ], [ %4, %2 ]
   ret i32 %.0
 }
 
@@ -1179,8 +1179,8 @@ define i32 @fdt_next_property_offset(ptr noundef %0, i32 noundef %1) local_unnam
   br label %7
 
 7:                                                ; preds = %12, %6
-  %.05.i = phi i32 [ %4, %6 ], [ %13, %12 ]
-  %8 = call i32 @fdt_next_tag(ptr noundef %0, i32 noundef %.05.i, ptr noundef nonnull %3) #9
+  %.0.i = phi i32 [ %4, %6 ], [ %13, %12 ]
+  %8 = call i32 @fdt_next_tag(ptr noundef %0, i32 noundef %.0.i, ptr noundef nonnull %3) #9
   switch i32 %8, label %12 [
     i32 9, label %9
     i32 3, label %nextprop_.exit
@@ -1198,12 +1198,12 @@ define i32 @fdt_next_property_offset(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %14, label %7, label %nextprop_.exit, !llvm.loop !9
 
 nextprop_.exit:                                   ; preds = %7, %12, %9
-  %.0.i = phi i32 [ %..i, %9 ], [ %.05.i, %7 ], [ -1, %12 ]
+  %.05.i = phi i32 [ %..i, %9 ], [ %.0.i, %7 ], [ -1, %12 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %15
 
 15:                                               ; preds = %2, %nextprop_.exit
-  %.0 = phi i32 [ %.0.i, %nextprop_.exit ], [ %4, %2 ]
+  %.0 = phi i32 [ %.05.i, %nextprop_.exit ], [ %4, %2 ]
   ret i32 %.0
 }
 
@@ -1356,8 +1356,8 @@ define internal fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 nounde
   br label %13
 
 13:                                               ; preds = %18, %12
-  %.05.i.i = phi i32 [ %10, %12 ], [ %19, %18 ]
-  %14 = call i32 @fdt_next_tag(ptr noundef %0, i32 noundef %.05.i.i, ptr noundef nonnull %9) #9
+  %.0.i.i = phi i32 [ %10, %12 ], [ %19, %18 ]
+  %14 = call i32 @fdt_next_tag(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef nonnull %9) #9
   switch i32 %14, label %18 [
     i32 9, label %15
     i32 3, label %fdt_first_property_offset.exit
@@ -1375,13 +1375,13 @@ define internal fastcc ptr @fdt_get_property_namelen_(ptr noundef %0, i32 nounde
   br i1 %20, label %13, label %fdt_first_property_offset.exit.thread62, !llvm.loop !9
 
 fdt_first_property_offset.exit.thread62:          ; preds = %18, %15
-  %.0.i.i.ph = phi i32 [ %spec.select, %15 ], [ -1, %18 ]
+  %.05.i.i.ph = phi i32 [ %spec.select, %15 ], [ -1, %18 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br label %._crit_edge
 
 fdt_first_property_offset.exit:                   ; preds = %13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %21 = icmp sgt i32 %.05.i.i, -1
+  %21 = icmp sgt i32 %.0.i.i, -1
   br i1 %21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %fdt_first_property_offset.exit
@@ -1394,7 +1394,7 @@ fdt_first_property_offset.exit:                   ; preds = %13
   br label %27
 
 27:                                               ; preds = %.lr.ph, %fdt_next_property_offset.exit
-  %.01954 = phi i32 [ %.05.i.i, %.lr.ph ], [ %.05.i.i28, %fdt_next_property_offset.exit ]
+  %.01954 = phi i32 [ %.0.i.i, %.lr.ph ], [ %.0.i.i28, %fdt_next_property_offset.exit ]
   %28 = call i32 @fdt_check_prop_offset_(ptr noundef %0, i32 noundef %.01954) #9
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %30, label %31
@@ -1499,8 +1499,8 @@ fdt_string_eq_.exit:                              ; preds = %fdt_get_property_by
   br label %94
 
 94:                                               ; preds = %99, %93
-  %.05.i.i28 = phi i32 [ %91, %93 ], [ %100, %99 ]
-  %95 = call i32 @fdt_next_tag(ptr noundef %0, i32 noundef %.05.i.i28, ptr noundef nonnull %7) #9
+  %.0.i.i28 = phi i32 [ %91, %93 ], [ %100, %99 ]
+  %95 = call i32 @fdt_next_tag(ptr noundef %0, i32 noundef %.0.i.i28, ptr noundef nonnull %7) #9
   switch i32 %95, label %99 [
     i32 9, label %96
     i32 3, label %fdt_next_property_offset.exit
@@ -1518,17 +1518,17 @@ fdt_string_eq_.exit:                              ; preds = %fdt_get_property_by
   br i1 %101, label %94, label %fdt_next_property_offset.exit.thread67, !llvm.loop !9
 
 fdt_next_property_offset.exit.thread67:           ; preds = %99, %96
-  %.0.i.i30.ph = phi i32 [ %spec.select80, %96 ], [ -1, %99 ]
+  %.05.i.i30.ph = phi i32 [ %spec.select80, %96 ], [ -1, %99 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %._crit_edge
 
 fdt_next_property_offset.exit:                    ; preds = %94
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %102 = icmp sgt i32 %.05.i.i28, -1
+  %102 = icmp sgt i32 %.0.i.i28, -1
   br i1 %102, label %27, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %90, %fdt_next_property_offset.exit, %6, %fdt_next_property_offset.exit.thread67, %fdt_first_property_offset.exit.thread62, %fdt_first_property_offset.exit
-  %.019.lcssa = phi i32 [ %.05.i.i, %fdt_first_property_offset.exit ], [ %.0.i.i.ph, %fdt_first_property_offset.exit.thread62 ], [ %.0.i.i30.ph, %fdt_next_property_offset.exit.thread67 ], [ %10, %6 ], [ %91, %90 ], [ %.05.i.i28, %fdt_next_property_offset.exit ]
+  %.019.lcssa = phi i32 [ %.0.i.i, %fdt_first_property_offset.exit ], [ %.05.i.i.ph, %fdt_first_property_offset.exit.thread62 ], [ %.05.i.i30.ph, %fdt_next_property_offset.exit.thread67 ], [ %10, %6 ], [ %91, %90 ], [ %.0.i.i28, %fdt_next_property_offset.exit ]
   %.not23 = icmp eq ptr %4, null
   br i1 %.not23, label %.thread, label %.thread46
 
@@ -1994,21 +1994,21 @@ define i32 @fdt_get_path(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %
   br label %.preheader51
 
 .preheader51:                                     ; preds = %.preheader51.lr.ph, %45
-  %.03861 = phi i32 [ 0, %.preheader51.lr.ph ], [ %.2, %45 ]
-  %.03960 = phi i32 [ 0, %.preheader51.lr.ph ], [ %46, %45 ]
-  %.04059 = phi i32 [ 0, %.preheader51.lr.ph ], [ %.3, %45 ]
+  %.03861 = phi i32 [ 0, %.preheader51.lr.ph ], [ %46, %45 ]
+  %.03960 = phi i32 [ 0, %.preheader51.lr.ph ], [ %.3, %45 ]
+  %.04059 = phi i32 [ 0, %.preheader51.lr.ph ], [ %.242, %45 ]
   %13 = load i32, ptr %5, align 4
-  %14 = icmp sgt i32 %.03861, %13
+  %14 = icmp sgt i32 %.04059, %13
   br i1 %14, label %.preheader.preheader, label %._crit_edge
 
 .preheader.preheader:                             ; preds = %.preheader51
-  %15 = add nsw i32 %.03861, -1
+  %15 = add nsw i32 %.04059, -1
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %19
-  %.156 = phi i32 [ %21, %19 ], [ %.03861, %.preheader.preheader ]
-  %.14155 = phi i32 [ %20, %19 ], [ %.04059, %.preheader.preheader ]
-  %16 = sext i32 %.14155 to i64
+  %.156 = phi i32 [ %20, %19 ], [ %.03960, %.preheader.preheader ]
+  %.14155 = phi i32 [ %21, %19 ], [ %.04059, %.preheader.preheader ]
+  %16 = sext i32 %.156 to i64
   br label %17
 
 17:                                               ; preds = %.preheader, %17
@@ -2021,7 +2021,7 @@ define i32 @fdt_get_path(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %
 
 19:                                               ; preds = %17
   %20 = trunc nsw i64 %indvars.iv.next to i32
-  %21 = add nsw i32 %.156, -1
+  %21 = add nsw i32 %.14155, -1
   %22 = icmp sgt i32 %21, %13
   br i1 %22, label %.preheader, label %._crit_edge.loopexit, !llvm.loop !12
 
@@ -2030,24 +2030,24 @@ define i32 @fdt_get_path(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader51
-  %.141.lcssa = phi i32 [ %.04059, %.preheader51 ], [ %20, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i32 [ %.03861, %.preheader51 ], [ %smin, %._crit_edge.loopexit ]
-  %.not = icmp slt i32 %.1.lcssa, %13
+  %.141.lcssa = phi i32 [ %.04059, %.preheader51 ], [ %smin, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i32 [ %.03960, %.preheader51 ], [ %20, %._crit_edge.loopexit ]
+  %.not = icmp slt i32 %.141.lcssa, %13
   br i1 %.not, label %36, label %23
 
 23:                                               ; preds = %._crit_edge
-  %24 = call ptr @fdt_get_name(ptr noundef %0, i32 noundef %.03960, ptr noundef nonnull %6)
+  %24 = call ptr @fdt_get_name(ptr noundef %0, i32 noundef %.03861, ptr noundef nonnull %6)
   %.not47 = icmp eq ptr %24, null
   %25 = load i32, ptr %6, align 4
   br i1 %.not47, label %._crit_edge62.thread, label %26
 
 26:                                               ; preds = %23
-  %27 = add nsw i32 %25, %.141.lcssa
+  %27 = add nsw i32 %25, %.1.lcssa
   %.not48.not = icmp slt i32 %27, %3
   br i1 %.not48.not, label %28, label %36
 
 28:                                               ; preds = %26
-  %29 = sext i32 %.141.lcssa to i64
+  %29 = sext i32 %.1.lcssa to i64
   %30 = getelementptr inbounds i8, ptr %2, i64 %29
   %31 = sext i32 %25 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr nonnull align 1 %24, i64 %31, i1 false)
@@ -2055,18 +2055,18 @@ define i32 @fdt_get_path(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %
   %33 = sext i32 %27 to i64
   %34 = getelementptr inbounds i8, ptr %2, i64 %33
   store i8 47, ptr %34, align 1
-  %35 = add nsw i32 %.1.lcssa, 1
+  %35 = add nsw i32 %.141.lcssa, 1
   br label %36
 
 36:                                               ; preds = %26, %28, %._crit_edge
-  %.3 = phi i32 [ %32, %28 ], [ %.141.lcssa, %26 ], [ %.141.lcssa, %._crit_edge ]
-  %.2 = phi i32 [ %35, %28 ], [ %.1.lcssa, %26 ], [ %.1.lcssa, %._crit_edge ]
-  %37 = icmp eq i32 %.03960, %1
+  %.242 = phi i32 [ %35, %28 ], [ %.141.lcssa, %26 ], [ %.141.lcssa, %._crit_edge ]
+  %.3 = phi i32 [ %32, %28 ], [ %.1.lcssa, %26 ], [ %.1.lcssa, %._crit_edge ]
+  %37 = icmp eq i32 %.03861, %1
   br i1 %37, label %38, label %45
 
 38:                                               ; preds = %36
   %39 = load i32, ptr %5, align 4
-  %.not49 = icmp sgt i32 %.2, %39
+  %.not49 = icmp sgt i32 %.242, %39
   br i1 %.not49, label %40, label %._crit_edge62.thread
 
 40:                                               ; preds = %38
@@ -2079,7 +2079,7 @@ define i32 @fdt_get_path(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %
   br label %._crit_edge62.thread
 
 45:                                               ; preds = %36
-  %46 = call i32 @fdt_next_node(ptr noundef %0, i32 noundef %.03960, ptr noundef nonnull %5) #9
+  %46 = call i32 @fdt_next_node(ptr noundef %0, i32 noundef %.03861, ptr noundef nonnull %5) #9
   %.not64 = icmp ugt i32 %46, %1
   br i1 %.not64, label %._crit_edge62, label %.preheader51, !llvm.loop !13
 
@@ -2089,11 +2089,11 @@ define i32 @fdt_get_path(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %
 
 47:                                               ; preds = %._crit_edge62
   %48 = icmp eq i32 %46, -4
-  %..039 = select i1 %48, i32 -11, i32 %46
+  %..038 = select i1 %48, i32 -11, i32 %46
   br label %._crit_edge62.thread
 
 ._crit_edge62.thread:                             ; preds = %23, %11, %47, %._crit_edge62, %38, %9, %4, %40
-  %.0 = phi i32 [ 0, %40 ], [ %7, %4 ], [ -3, %9 ], [ -3, %38 ], [ -4, %._crit_edge62 ], [ %..039, %47 ], [ -4, %11 ], [ %25, %23 ]
+  %.0 = phi i32 [ 0, %40 ], [ %7, %4 ], [ -3, %9 ], [ -3, %38 ], [ -4, %._crit_edge62 ], [ %..038, %47 ], [ -4, %11 ], [ %25, %23 ]
   ret i32 %.0
 }
 
@@ -2493,25 +2493,25 @@ define range(i32 0, 2) i32 @fdt_stringlist_contains(ptr noundef %0, i32 noundef 
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %12
-  %.01320 = phi ptr [ %18, %12 ], [ %0, %3 ]
-  %.01419 = phi i32 [ %17, %12 ], [ %1, %3 ]
-  %bcmp = tail call i32 @bcmp(ptr %2, ptr %.01320, i64 %7)
+  %.01320 = phi i32 [ %17, %12 ], [ %1, %3 ]
+  %.01419 = phi ptr [ %18, %12 ], [ %0, %3 ]
+  %bcmp = tail call i32 @bcmp(ptr %2, ptr %.01419, i64 %7)
   %8 = icmp eq i32 %bcmp, 0
   br i1 %8, label %._crit_edge, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = sext i32 %.01419 to i64
-  %11 = tail call ptr @memchr(ptr noundef %.01320, i32 noundef 0, i64 noundef %10) #10
+  %10 = sext i32 %.01320 to i64
+  %11 = tail call ptr @memchr(ptr noundef %.01419, i32 noundef 0, i64 noundef %10) #10
   %.not17 = icmp eq ptr %11, null
   br i1 %.not17, label %._crit_edge, label %12
 
 12:                                               ; preds = %9
   %13 = ptrtoint ptr %11 to i64
-  %14 = ptrtoint ptr %.01320 to i64
+  %14 = ptrtoint ptr %.01419 to i64
   %15 = xor i64 %13, -1
   %.neg = add i64 %15, %14
   %16 = trunc i64 %.neg to i32
-  %17 = add i32 %.01419, %16
+  %17 = add i32 %.01320, %16
   %18 = getelementptr inbounds i8, ptr %11, i64 1
   %.not = icmp slt i32 %17, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
@@ -2603,15 +2603,15 @@ define i32 @fdt_stringlist_count(ptr noundef %0, i32 noundef %1, ptr nocapture n
 
 .lr.ph:                                           ; preds = %55, %70
   %.024 = phi i32 [ %71, %70 ], [ 0, %55 ]
-  %.01623 = phi ptr [ %68, %70 ], [ %56, %55 ]
-  %62 = ptrtoint ptr %.01623 to i64
+  %.01523 = phi ptr [ %68, %70 ], [ %56, %55 ]
+  %62 = ptrtoint ptr %.01523 to i64
   %63 = sub i64 %60, %62
-  %64 = call i64 @strnlen(ptr noundef %.01623, i64 noundef %63) #10
+  %64 = call i64 @strnlen(ptr noundef %.01523, i64 noundef %63) #10
   %65 = trunc i64 %64 to i32
   %66 = add i32 %65, 1
   store i32 %66, ptr %5, align 4
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i8, ptr %.01623, i64 %67
+  %68 = getelementptr inbounds i8, ptr %.01523, i64 %67
   %69 = icmp ugt ptr %68, %59
   br i1 %69, label %.loopexit, label %70
 
@@ -2621,8 +2621,8 @@ define i32 @fdt_stringlist_count(ptr noundef %0, i32 noundef %1, ptr nocapture n
   br i1 %72, label %.lr.ph, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph, %70, %55, %53
-  %.015 = phi i32 [ %54, %53 ], [ 0, %55 ], [ -15, %.lr.ph ], [ %71, %70 ]
-  ret i32 %.015
+  %.016 = phi i32 [ %54, %53 ], [ 0, %55 ], [ -15, %.lr.ph ], [ %71, %70 ]
+  ret i32 %.016
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -2711,16 +2711,16 @@ define i32 @fdt_stringlist_search(ptr noundef %0, i32 noundef %1, ptr nocapture 
   br i1 %64, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %56, %77
-  %.01927 = phi ptr [ %71, %77 ], [ %57, %56 ]
-  %.02026 = phi i32 [ %78, %77 ], [ 0, %56 ]
-  %65 = ptrtoint ptr %.01927 to i64
+  %.027 = phi ptr [ %71, %77 ], [ %57, %56 ]
+  %.01926 = phi i32 [ %78, %77 ], [ 0, %56 ]
+  %65 = ptrtoint ptr %.027 to i64
   %66 = sub i64 %63, %65
-  %67 = call i64 @strnlen(ptr noundef %.01927, i64 noundef %66) #10
+  %67 = call i64 @strnlen(ptr noundef %.027, i64 noundef %66) #10
   %68 = trunc i64 %67 to i32
   %69 = add i32 %68, 1
   store i32 %69, ptr %6, align 4
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i8, ptr %.01927, i64 %70
+  %71 = getelementptr inbounds i8, ptr %.027, i64 %70
   %72 = icmp ugt ptr %71, %62
   br i1 %72, label %.loopexit, label %73
 
@@ -2729,18 +2729,18 @@ define i32 @fdt_stringlist_search(ptr noundef %0, i32 noundef %1, ptr nocapture 
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %73
-  %bcmp = call i32 @bcmp(ptr %.01927, ptr %3, i64 %70)
+  %bcmp = call i32 @bcmp(ptr %.027, ptr %3, i64 %70)
   %76 = icmp eq i32 %bcmp, 0
   br i1 %76, label %.loopexit, label %77
 
 77:                                               ; preds = %75, %73
-  %78 = add nuw nsw i32 %.02026, 1
+  %78 = add nuw nsw i32 %.01926, 1
   %79 = icmp ult ptr %71, %62
   br i1 %79, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph, %75, %77, %56, %54
-  %.0 = phi i32 [ %55, %54 ], [ -1, %56 ], [ -15, %.lr.ph ], [ %.02026, %75 ], [ -1, %77 ]
-  ret i32 %.0
+  %.020 = phi i32 [ %55, %54 ], [ -1, %56 ], [ -15, %.lr.ph ], [ %.01926, %75 ], [ -1, %77 ]
+  ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2836,16 +2836,16 @@ define noundef ptr @fdt_stringlist_get(ptr noundef %0, i32 noundef %1, ptr nocap
   br i1 %67, label %68, label %._crit_edge, !llvm.loop !20
 
 68:                                               ; preds = %.lr.ph, %65
-  %.02441 = phi ptr [ %59, %.lr.ph ], [ %75, %65 ]
+  %.041 = phi ptr [ %59, %.lr.ph ], [ %75, %65 ]
   %.02540 = phi i32 [ %3, %.lr.ph ], [ %66, %65 ]
-  %69 = ptrtoint ptr %.02441 to i64
+  %69 = ptrtoint ptr %.041 to i64
   %70 = sub i64 %64, %69
-  %71 = call i64 @strnlen(ptr noundef %.02441, i64 noundef %70) #10
+  %71 = call i64 @strnlen(ptr noundef %.041, i64 noundef %70) #10
   %72 = trunc i64 %71 to i32
   %73 = add i32 %72, 1
   store i32 %73, ptr %7, align 4
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i8, ptr %.02441, i64 %74
+  %75 = getelementptr inbounds i8, ptr %.041, i64 %74
   %76 = icmp ugt ptr %75, %62
   br i1 %76, label %77, label %78
 
@@ -2867,13 +2867,13 @@ define noundef ptr @fdt_stringlist_get(ptr noundef %0, i32 noundef %1, ptr nocap
 
 .sink.split:                                      ; preds = %._crit_edge, %80, %77, %56
   %.sink50 = phi i32 [ %57, %56 ], [ -15, %77 ], [ %72, %80 ], [ -1, %._crit_edge ]
-  %.0.ph = phi ptr [ null, %56 ], [ null, %77 ], [ %.02441, %80 ], [ null, %._crit_edge ]
+  %.024.ph = phi ptr [ null, %56 ], [ null, %77 ], [ %.041, %80 ], [ null, %._crit_edge ]
   store i32 %.sink50, ptr %4, align 4
   br label %81
 
 81:                                               ; preds = %.sink.split, %._crit_edge, %80, %77, %55
-  %.0 = phi ptr [ null, %55 ], [ null, %77 ], [ %.02441, %80 ], [ null, %._crit_edge ], [ %.0.ph, %.sink.split ]
-  ret ptr %.0
+  %.024 = phi ptr [ null, %55 ], [ null, %77 ], [ %.041, %80 ], [ null, %._crit_edge ], [ %.024.ph, %.sink.split ]
+  ret ptr %.024
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2960,25 +2960,25 @@ define i32 @fdt_node_check_compatible(ptr noundef %0, i32 noundef %1, ptr nocapt
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %64
-  %.01320.i = phi ptr [ %70, %64 ], [ %59, %.lr.ph.i.preheader ]
-  %.01419.i = phi i32 [ %69, %64 ], [ %54, %.lr.ph.i.preheader ]
-  %bcmp.i = call i32 @bcmp(ptr readonly %2, ptr nonnull %.01320.i, i64 %58)
+  %.01320.i = phi i32 [ %69, %64 ], [ %54, %.lr.ph.i.preheader ]
+  %.01419.i = phi ptr [ %70, %64 ], [ %59, %.lr.ph.i.preheader ]
+  %bcmp.i = call i32 @bcmp(ptr readonly %2, ptr nonnull %.01419.i, i64 %58)
   %60 = icmp eq i32 %bcmp.i, 0
   br i1 %60, label %fdt_stringlist_contains.exit, label %61
 
 61:                                               ; preds = %.lr.ph.i
-  %62 = sext i32 %.01419.i to i64
-  %63 = call ptr @memchr(ptr noundef nonnull %.01320.i, i32 noundef 0, i64 noundef %62) #10
+  %62 = sext i32 %.01320.i to i64
+  %63 = call ptr @memchr(ptr noundef nonnull %.01419.i, i32 noundef 0, i64 noundef %62) #10
   %.not17.i = icmp eq ptr %63, null
   br i1 %.not17.i, label %fdt_stringlist_contains.exit, label %64
 
 64:                                               ; preds = %61
   %65 = ptrtoint ptr %63 to i64
-  %66 = ptrtoint ptr %.01320.i to i64
+  %66 = ptrtoint ptr %.01419.i to i64
   %67 = xor i64 %65, -1
   %.neg.i = add i64 %67, %66
   %68 = trunc i64 %.neg.i to i32
-  %69 = add i32 %.01419.i, %68
+  %69 = add i32 %.01320.i, %68
   %70 = getelementptr inbounds i8, ptr %63, i64 1
   %.not.i = icmp slt i32 %69, %56
   br i1 %.not.i, label %fdt_stringlist_contains.exit, label %.lr.ph.i, !llvm.loop !17

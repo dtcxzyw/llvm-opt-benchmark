@@ -1620,27 +1620,27 @@ for.body.lr.ph:                                   ; preds = %_ZNK6google8protobu
   br i1 %cmp4, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
-  %found.026.us = phi ptr [ %spec.select.us, %for.body.us ], [ null, %for.body.lr.ph ]
-  %__begin3.025.us = phi ptr [ %incdec.ptr.us, %for.body.us ], [ %15, %for.body.lr.ph ]
-  %raw_.i.us = getelementptr inbounds i8, ptr %__begin3.025.us, i64 8
+  %__begin3.026.us = phi ptr [ %incdec.ptr.us, %for.body.us ], [ %15, %for.body.lr.ph ]
+  %found.025.us = phi ptr [ %spec.select.us, %for.body.us ], [ null, %for.body.lr.ph ]
+  %raw_.i.us = getelementptr inbounds i8, ptr %__begin3.026.us, i64 8
   %16 = load ptr, ptr %raw_.i.us, align 8
   %number_.i.i.us = getelementptr inbounds i8, ptr %16, i64 80
   %17 = load i32, ptr %number_.i.i.us, align 8
   %cmp13.us = icmp eq i32 %17, %number
-  %spec.select.us = select i1 %cmp13.us, ptr %__begin3.025.us, ptr %found.026.us
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %__begin3.025.us, i64 32
+  %spec.select.us = select i1 %cmp13.us, ptr %__begin3.026.us, ptr %found.025.us
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %__begin3.026.us, i64 32
   %cmp10.not.us = icmp eq ptr %incdec.ptr.us, %add.ptr.i34
   br i1 %cmp10.not.us, label %return, label %for.body.us
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %found.026 = phi ptr [ %spec.select, %for.inc ], [ null, %for.body.lr.ph ]
-  %__begin3.025 = phi ptr [ %incdec.ptr, %for.inc ], [ %15, %for.body.lr.ph ]
-  %raw_.i = getelementptr inbounds i8, ptr %__begin3.025, i64 8
+  %__begin3.026 = phi ptr [ %incdec.ptr, %for.inc ], [ %15, %for.body.lr.ph ]
+  %found.025 = phi ptr [ %spec.select, %for.inc ], [ null, %for.body.lr.ph ]
+  %raw_.i = getelementptr inbounds i8, ptr %__begin3.026, i64 8
   %18 = load ptr, ptr %raw_.i, align 8
   %number_.i.i = getelementptr inbounds i8, ptr %18, i64 80
   %19 = load i32, ptr %number_.i.i, align 8
   %cmp13 = icmp eq i32 %19, %number
-  %spec.select = select i1 %cmp13, ptr %__begin3.025, ptr %found.026
+  %spec.select = select i1 %cmp13, ptr %__begin3.026, ptr %found.025
   %20 = load ptr, ptr %fields_by_number_18, align 8, !noalias !36
   tail call void @llvm.prefetch.p0(ptr %20, i32 0, i32 1, i32 1), !noalias !36
   %conv.i.i.i.i.i = zext i32 %19 to i64
@@ -1711,11 +1711,11 @@ if.then.i.i:                                      ; preds = %for.end.i.i.i
   %add.ptr.i3.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.266", ptr %31, i64 %call38.i.i.i
   store i32 %19, ptr %add.ptr.i3.i.i, align 8, !noalias !36
   %second.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i3.i.i, i64 8
-  store ptr %__begin3.025, ptr %second.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !36
+  store ptr %__begin3.026, ptr %second.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !36
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body.i.i.i, %if.then.i.i
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.025, i64 32
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.026, i64 32
   %cmp10.not = icmp eq ptr %incdec.ptr, %add.ptr.i34
   br i1 %cmp10.not, label %return, label %for.body
 
@@ -9073,9 +9073,9 @@ if.end:                                           ; preds = %for.body.i, %if.the
   %17 = phi ptr [ %.pre20, %if.then ], [ %5, %for.body.i ]
   %18 = phi ptr [ %.pre, %if.then ], [ %0, %for.body.i ]
   %retval.sroa.3.0.i16 = phi i8 [ 1, %if.then ], [ 0, %for.body.i ]
-  %retval.sroa.0.0.i15 = phi i64 [ %call38.i, %if.then ], [ %and.i.i, %for.body.i ]
-  %add.ptr.i4 = getelementptr inbounds i8, ptr %18, i64 %retval.sroa.0.0.i15
-  %add.ptr3.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.151", ptr %17, i64 %retval.sroa.0.0.i15
+  %retval.sroa.0.0.i14 = phi i64 [ %call38.i, %if.then ], [ %and.i.i, %for.body.i ]
+  %add.ptr.i4 = getelementptr inbounds i8, ptr %18, i64 %retval.sroa.0.0.i14
+  %add.ptr3.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.151", ptr %17, i64 %retval.sroa.0.0.i14
   store ptr %add.ptr.i4, ptr %agg.result, align 8
   %ref.tmp3.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr3.i, ptr %ref.tmp3.sroa.2.0.agg.result.sroa_idx, align 8
@@ -9876,9 +9876,9 @@ if.end:                                           ; preds = %for.body.i, %if.the
   %14 = phi ptr [ %.pre20, %if.then ], [ %5, %for.body.i ]
   %15 = phi ptr [ %.pre, %if.then ], [ %0, %for.body.i ]
   %retval.sroa.3.0.i16 = phi i8 [ 1, %if.then ], [ 0, %for.body.i ]
-  %retval.sroa.0.0.i15 = phi i64 [ %call38.i, %if.then ], [ %and.i.i, %for.body.i ]
-  %add.ptr.i4 = getelementptr inbounds i8, ptr %15, i64 %retval.sroa.0.0.i15
-  %add.ptr3.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.151", ptr %14, i64 %retval.sroa.0.0.i15
+  %retval.sroa.0.0.i14 = phi i64 [ %call38.i, %if.then ], [ %and.i.i, %for.body.i ]
+  %add.ptr.i4 = getelementptr inbounds i8, ptr %15, i64 %retval.sroa.0.0.i14
+  %add.ptr3.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.151", ptr %14, i64 %retval.sroa.0.0.i14
   store ptr %add.ptr.i4, ptr %agg.result, align 8
   %ref.tmp3.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr3.i, ptr %ref.tmp3.sroa.2.0.agg.result.sroa_idx, align 8

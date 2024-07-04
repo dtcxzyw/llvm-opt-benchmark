@@ -640,8 +640,8 @@ if.then:                                          ; preds = %for.body
   br label %if.end
 
 if.end:                                           ; preds = %for.body, %if.then
-  %aadp.0 = phi ptr [ %aad, %if.then ], [ null, %for.body ]
   %aadlen.0 = phi i64 [ 512, %if.then ], [ 0, %for.body ]
+  %aadp.0 = phi ptr [ %aad, %if.then ], [ null, %for.body ]
   %call7 = call i32 @test_random() #6
   %rem8 = and i32 %call7, 1
   %tobool9.not = icmp eq i32 %rem8, 0
@@ -652,8 +652,8 @@ if.then10:                                        ; preds = %if.end
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end, %if.then10
-  %infop.0 = phi ptr [ %info, %if.then10 ], [ null, %if.end ]
   %infolen.0 = phi i64 [ 32, %if.then10 ], [ 0, %if.end ]
+  %infop.0 = phi ptr [ %info, %if.then10 ], [ null, %if.end ]
   %2 = and i64 %mind.0122, 1
   %or.cond.not = icmp eq i64 %2, 0
   br i1 %or.cond.not, label %if.end25, label %if.then17

@@ -640,9 +640,9 @@ define internal fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %1, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %30, %44, %.preheader, %28
-  %.040.sink = phi ptr [ %20, %28 ], [ %42, %44 ], [ %20, %.preheader ], [ %20, %30 ]
+  %.041.sink = phi ptr [ %20, %28 ], [ %42, %44 ], [ %20, %.preheader ], [ %20, %30 ]
   %.039.ph = phi i32 [ 0, %28 ], [ %59, %44 ], [ 0, %.preheader ], [ %36, %30 ]
-  tail call void @g_strfreev(ptr noundef nonnull %.040.sink) #5
+  tail call void @g_strfreev(ptr noundef nonnull %.041.sink) #5
   br label %60
 
 60:                                               ; preds = %.sink.split, %40, %17

@@ -599,8 +599,8 @@ define dso_local void @_ZN5vcpkg17get_user_mac_hashB5cxx11Ev(ptr dead_on_unwind 
   br i1 %10, label %13, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %.01234 = load ptr, ptr %2, align 8
-  %.not35 = icmp eq ptr %.01234, null
+  %.034 = load ptr, ptr %2, align 8
+  %.not35 = icmp eq ptr %.034, null
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
@@ -642,8 +642,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %72
 
 19:                                               ; preds = %.lr.ph, %64
-  %.01236 = phi ptr [ %.01234, %.lr.ph ], [ %.012, %64 ]
-  %20 = getelementptr inbounds i8, ptr %.01236, i64 24
+  %.036 = phi ptr [ %.034, %.lr.ph ], [ %.0, %64 ]
+  %20 = getelementptr inbounds i8, ptr %.036, i64 24
   %21 = load ptr, ptr %20, align 8
   %.not16 = icmp eq ptr %21, null
   br i1 %.not16, label %64, label %22
@@ -654,7 +654,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not17, label %24, label %64
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %.01236, i64 16
+  %25 = getelementptr inbounds i8, ptr %.036, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 73
   %or.cond23.not = icmp eq i32 %27, 65
@@ -769,8 +769,8 @@ _ZN5vcpkg26is_valid_mac_for_telemetryENS_10StringViewE.exit: ; preds = %52
   br label %64
 
 64:                                               ; preds = %.critedge, %28, %19, %22, %24
-  %.012 = load ptr, ptr %.01236, align 8
-  %.not = icmp eq ptr %.012, null
+  %.0 = load ptr, ptr %.036, align 8
+  %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %19, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %64, %.preheader

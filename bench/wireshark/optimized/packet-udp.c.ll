@@ -509,13 +509,13 @@ define void @decode_udp_ports(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   br label %21
 
 21:                                               ; preds = %19, %7
-  %.0128 = phi i32 [ %17, %7 ], [ %spec.select160, %19 ]
-  %.1127 = phi i32 [ %18, %7 ], [ %spec.select, %19 ]
+  %.0125 = phi i32 [ %17, %7 ], [ %spec.select160, %19 ]
+  %.1124 = phi i32 [ %18, %7 ], [ %spec.select, %19 ]
   %22 = load i32, ptr @hf_udp_payload, align 4
-  %23 = icmp eq i32 %.0128, 1
+  %23 = icmp eq i32 %.0125, 1
   %24 = select i1 %23, ptr @.str.1, ptr @.str.2
-  %25 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %3, i32 noundef %22, ptr noundef %0, i32 noundef %1, i32 noundef -1, ptr noundef null, ptr noundef nonnull @.str, i32 noundef %.0128, ptr noundef nonnull %24) #13
-  %26 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %1, i32 noundef %.0128, i32 noundef %.1127) #13
+  %25 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %3, i32 noundef %22, ptr noundef %0, i32 noundef %1, i32 noundef -1, ptr noundef null, ptr noundef nonnull @.str, i32 noundef %.0125, ptr noundef nonnull %24) #13
+  %26 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %1, i32 noundef %.0125, i32 noundef %.1124) #13
   %27 = load i32, ptr @udp_follow_tap, align 4
   %28 = tail call i32 @have_tap_listener(i32 noundef %27) #13
   %.not141 = icmp eq i32 %28, 0
@@ -592,46 +592,46 @@ define void @decode_udp_ports(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   br label %handle_export_pdu_conversation.exit
 
 68:                                               ; preds = %43
-  %. = tail call i32 @llvm.smax.i32(i32 %4, i32 %5)
-  %.159 = tail call i32 @llvm.smin.i32(i32 %4, i32 %5)
-  %.not144 = icmp eq i32 %.159, 0
+  %. = tail call i32 @llvm.smin.i32(i32 %4, i32 %5)
+  %.159 = tail call i32 @llvm.smax.i32(i32 %4, i32 %5)
+  %.not144 = icmp eq i32 %., 0
   br i1 %.not144, label %76, label %69
 
 69:                                               ; preds = %68
   %70 = load ptr, ptr @udp_dissector_table, align 8
-  %71 = tail call i32 @dissector_is_uint_changed(ptr noundef %70, i32 noundef %.159) #13
+  %71 = tail call i32 @dissector_is_uint_changed(ptr noundef %70, i32 noundef %.) #13
   %.not145 = icmp eq i32 %71, 0
   br i1 %.not145, label %76, label %72
 
 72:                                               ; preds = %69
   %73 = load ptr, ptr @udp_dissector_table, align 8
-  %74 = tail call i32 @dissector_try_uint(ptr noundef %73, i32 noundef %.159, ptr noundef %26, ptr noundef nonnull %2, ptr noundef %11) #13
+  %74 = tail call i32 @dissector_try_uint(ptr noundef %73, i32 noundef %., ptr noundef %26, ptr noundef nonnull %2, ptr noundef %11) #13
   %.not146 = icmp eq i32 %74, 0
   br i1 %.not146, label %76, label %75
 
 75:                                               ; preds = %72
-  tail call fastcc void @handle_export_pdu_dissection_table(ptr noundef nonnull %2, ptr noundef %26, i32 noundef %.159)
+  tail call fastcc void @handle_export_pdu_dissection_table(ptr noundef nonnull %2, ptr noundef %26, i32 noundef %.)
   br label %handle_export_pdu_conversation.exit
 
 76:                                               ; preds = %69, %72, %68
   %.not152 = phi i1 [ true, %72 ], [ true, %68 ], [ false, %69 ]
-  %.not147 = icmp eq i32 %., 0
+  %.not147 = icmp eq i32 %.159, 0
   br i1 %.not147, label %84, label %77
 
 77:                                               ; preds = %76
   %78 = load ptr, ptr @udp_dissector_table, align 8
-  %79 = tail call i32 @dissector_is_uint_changed(ptr noundef %78, i32 noundef %.) #13
+  %79 = tail call i32 @dissector_is_uint_changed(ptr noundef %78, i32 noundef %.159) #13
   %.not148 = icmp eq i32 %79, 0
   br i1 %.not148, label %84, label %80
 
 80:                                               ; preds = %77
   %81 = load ptr, ptr @udp_dissector_table, align 8
-  %82 = tail call i32 @dissector_try_uint(ptr noundef %81, i32 noundef %., ptr noundef %26, ptr noundef nonnull %2, ptr noundef %11) #13
+  %82 = tail call i32 @dissector_try_uint(ptr noundef %81, i32 noundef %.159, ptr noundef %26, ptr noundef nonnull %2, ptr noundef %11) #13
   %.not149 = icmp eq i32 %82, 0
   br i1 %.not149, label %84, label %83
 
 83:                                               ; preds = %80
-  tail call fastcc void @handle_export_pdu_dissection_table(ptr noundef nonnull %2, ptr noundef %26, i32 noundef %.)
+  tail call fastcc void @handle_export_pdu_dissection_table(ptr noundef nonnull %2, ptr noundef %26, i32 noundef %.159)
   br label %handle_export_pdu_conversation.exit
 
 84:                                               ; preds = %77, %80, %76
@@ -659,9 +659,9 @@ define void @decode_udp_ports(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   br label %96
 
 96:                                               ; preds = %90, %89
-  %.0125 = phi ptr [ %16, %89 ], [ %92, %90 ]
+  %.0 = phi ptr [ %16, %89 ], [ %92, %90 ]
   %97 = load ptr, ptr %8, align 8
-  store ptr %97, ptr %.0125, align 8
+  store ptr %97, ptr %.0, align 8
   call fastcc void @handle_export_pdu_heuristic(ptr noundef nonnull %2, ptr noundef %26, ptr noundef %97)
   br label %handle_export_pdu_conversation.exit
 
@@ -670,12 +670,12 @@ define void @decode_udp_ports(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
 
 99:                                               ; preds = %98
   %100 = load ptr, ptr @udp_dissector_table, align 8
-  %101 = call i32 @dissector_try_uint(ptr noundef %100, i32 noundef %.159, ptr noundef %26, ptr noundef nonnull %2, ptr noundef %11) #13
+  %101 = call i32 @dissector_try_uint(ptr noundef %100, i32 noundef %., ptr noundef %26, ptr noundef nonnull %2, ptr noundef %11) #13
   %.not153 = icmp eq i32 %101, 0
   br i1 %.not153, label %103, label %102
 
 102:                                              ; preds = %99
-  call fastcc void @handle_export_pdu_dissection_table(ptr noundef nonnull %2, ptr noundef %26, i32 noundef %.159)
+  call fastcc void @handle_export_pdu_dissection_table(ptr noundef nonnull %2, ptr noundef %26, i32 noundef %.)
   br label %handle_export_pdu_conversation.exit
 
 103:                                              ; preds = %99, %98
@@ -683,12 +683,12 @@ define void @decode_udp_ports(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
 
 104:                                              ; preds = %103
   %105 = load ptr, ptr @udp_dissector_table, align 8
-  %106 = call i32 @dissector_try_uint(ptr noundef %105, i32 noundef %., ptr noundef %26, ptr noundef nonnull %2, ptr noundef %11) #13
+  %106 = call i32 @dissector_try_uint(ptr noundef %105, i32 noundef %.159, ptr noundef %26, ptr noundef nonnull %2, ptr noundef %11) #13
   %.not155 = icmp eq i32 %106, 0
   br i1 %.not155, label %108, label %107
 
 107:                                              ; preds = %104
-  call fastcc void @handle_export_pdu_dissection_table(ptr noundef nonnull %2, ptr noundef %26, i32 noundef %.)
+  call fastcc void @handle_export_pdu_dissection_table(ptr noundef nonnull %2, ptr noundef %26, i32 noundef %.159)
   br label %handle_export_pdu_conversation.exit
 
 108:                                              ; preds = %104, %103
@@ -1015,10 +1015,10 @@ proto_item_set_generated.exit:                    ; preds = %.critedge, %54, %57
   br label %63
 
 63:                                               ; preds = %62, %proto_item_set_generated.exit
-  %.082 = phi i32 [ %.0..0..0..0.31, %62 ], [ %25, %proto_item_set_generated.exit ]
+  %.081 = phi i32 [ %.0..0..0..0.31, %62 ], [ %25, %proto_item_set_generated.exit ]
   %.0..0..0..0.44 = load volatile i32, ptr %9, align 4
   %.0..0..0..0.32 = load volatile i32, ptr %10, align 4
-  %64 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0..0..0..0.44, i32 noundef %.082, i32 noundef %.0..0..0..0.32) #13
+  %64 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0..0..0..0.44, i32 noundef %.081, i32 noundef %.0..0..0..0.32) #13
   %65 = load ptr, ptr %1, align 8
   store volatile i32 0, ptr %12, align 4
   call void @except_setup_try(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull @udp_dissect_pdus.catch_spec, i64 noundef 1) #13
@@ -1149,8 +1149,8 @@ proto_item_set_generated.exit:                    ; preds = %.critedge, %54, %57
   br label %114
 
 114:                                              ; preds = %113, %36, %33, %29
-  %.081 = phi i32 [ %.0..0..0..0.39, %29 ], [ %.0..0..0..0.41, %33 ], [ %.0..0..0..0.42, %36 ], [ %.0..0..0..0.48, %113 ]
-  ret i32 %.081
+  %.082 = phi i32 [ %.0..0..0..0.39, %29 ], [ %.0..0..0..0.41, %33 ], [ %.0..0..0..0.42, %36 ], [ %.0..0..0..0.48, %113 ]
+  ret i32 %.082
 }
 
 declare i32 @tvb_ensure_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1

@@ -269,7 +269,7 @@ define internal i32 @harvest_envars(ptr noundef readonly %0, ptr noundef %1, i64
   br i1 %.not3950, label %.loopexit, label %.lr.ph
 
 18:                                               ; preds = %.lr.ph
-  %19 = add i64 %.02851, 1
+  %19 = add i64 %.051, 1
   %20 = getelementptr inbounds ptr, ptr %16, i64 %19
   %21 = load ptr, ptr %20, align 8
   %.not39 = icmp eq ptr %21, null
@@ -277,7 +277,7 @@ define internal i32 @harvest_envars(ptr noundef readonly %0, ptr noundef %1, i64
 
 .lr.ph:                                           ; preds = %.preheader47, %18
   %22 = phi ptr [ %21, %18 ], [ %17, %.preheader47 ]
-  %.02851 = phi i64 [ %19, %18 ], [ 0, %.preheader47 ]
+  %.051 = phi i64 [ %19, %18 ], [ 0, %.preheader47 ]
   %23 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(7) @.str, i64 noundef 6) #16
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %.loopexit48, label %18
@@ -335,8 +335,8 @@ define internal i32 @harvest_envars(ptr noundef readonly %0, ptr noundef %1, i64
   br i1 %.not40, label %81, label %.preheader
 
 .preheader:                                       ; preds = %45
-  %.03054 = load ptr, ptr getelementptr inbounds (i8, ptr @mynspaces, i64 240), align 8
-  %.not4155 = icmp eq ptr %.03054, getelementptr inbounds (i8, ptr @mynspaces, i64 120)
+  %.02854 = load ptr, ptr getelementptr inbounds (i8, ptr @mynspaces, i64 240), align 8
+  %.not4155 = icmp eq ptr %.02854, getelementptr inbounds (i8, ptr @mynspaces, i64 120)
   br i1 %.not4155, label %.critedge, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %.preheader
@@ -344,20 +344,20 @@ define internal i32 @harvest_envars(ptr noundef readonly %0, ptr noundef %1, i64
   br label %47
 
 47:                                               ; preds = %.lr.ph57, %53
-  %.03056 = phi ptr [ %.03054, %.lr.ph57 ], [ %.030, %53 ]
-  %48 = getelementptr inbounds i8, ptr %.03056, i64 144
+  %.02856 = phi ptr [ %.02854, %.lr.ph57 ], [ %.028, %53 ]
+  %48 = getelementptr inbounds i8, ptr %.02856, i64 144
   %49 = load ptr, ptr %46, align 8
   %50 = tail call zeroext i1 @PMIx_Check_nspace(ptr noundef nonnull %48, ptr noundef %49) #12
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %47
-  %52 = icmp eq ptr %.03056, null
+  %52 = icmp eq ptr %.02856, null
   br i1 %52, label %.critedge, label %81
 
 53:                                               ; preds = %47
-  %54 = getelementptr inbounds i8, ptr %.03056, i64 120
-  %.030 = load ptr, ptr %54, align 8
-  %.not41 = icmp eq ptr %.030, getelementptr inbounds (i8, ptr @mynspaces, i64 120)
+  %54 = getelementptr inbounds i8, ptr %.02856, i64 120
+  %.028 = load ptr, ptr %54, align 8
+  %.not41 = icmp eq ptr %.028, getelementptr inbounds (i8, ptr @mynspaces, i64 120)
   br i1 %.not41, label %.critedge, label %47, !llvm.loop !10
 
 .critedge:                                        ; preds = %53, %.preheader, %51
@@ -457,8 +457,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %60, %6
   br label %.loopexit48
 
 .loopexit48:                                      ; preds = %.lr.ph, %97, %._crit_edge, %39, %44, %13, %101
-  %.0 = phi i32 [ 0, %101 ], [ -1366, %13 ], [ -1366, %44 ], [ -1366, %39 ], [ -1366, %._crit_edge ], [ %100, %97 ], [ -1366, %.lr.ph ]
-  ret i32 %.0
+  %.030 = phi i32 [ 0, %101 ], [ -1366, %13 ], [ -1366, %44 ], [ -1366, %39 ], [ -1366, %._crit_edge ], [ %100, %97 ], [ -1366, %.lr.ph ]
+  ret i32 %.030
 }
 
 ; Function Attrs: nounwind uwtable
@@ -770,8 +770,8 @@ define internal i32 @register_nspace(ptr noundef %0) #0 {
   br label %18
 
 18:                                               ; preds = %15, %10, %1
-  %.052156 = load ptr, ptr getelementptr inbounds (i8, ptr @mynspaces, i64 240), align 8
-  %.not157 = icmp eq ptr %.052156, getelementptr inbounds (i8, ptr @mynspaces, i64 120)
+  %.0156 = load ptr, ptr getelementptr inbounds (i8, ptr @mynspaces, i64 240), align 8
+  %.not157 = icmp eq ptr %.0156, getelementptr inbounds (i8, ptr @mynspaces, i64 120)
   br i1 %.not157, label %pmix_obj_run_destructors.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
@@ -779,24 +779,24 @@ define internal i32 @register_nspace(ptr noundef %0) #0 {
   br label %20
 
 20:                                               ; preds = %.lr.ph, %24
-  %.052158 = phi ptr [ %.052156, %.lr.ph ], [ %.052, %24 ]
-  %21 = getelementptr inbounds i8, ptr %.052158, i64 144
+  %.0158 = phi ptr [ %.0156, %.lr.ph ], [ %.0, %24 ]
+  %21 = getelementptr inbounds i8, ptr %.0158, i64 144
   %22 = load ptr, ptr %19, align 8
   %23 = tail call zeroext i1 @PMIx_Check_nspace(ptr noundef nonnull %21, ptr noundef %22) #12
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %.052158, i64 120
-  %.052 = load ptr, ptr %25, align 8
-  %.not = icmp eq ptr %.052, getelementptr inbounds (i8, ptr @mynspaces, i64 120)
+  %25 = getelementptr inbounds i8, ptr %.0158, i64 120
+  %.0 = load ptr, ptr %25, align 8
+  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @mynspaces, i64 120)
   br i1 %.not, label %pmix_obj_run_destructors.exit, label %20, !llvm.loop !14
 
 26:                                               ; preds = %20
-  %27 = icmp eq ptr %.052158, null
+  %27 = icmp eq ptr %.0158, null
   br i1 %27, label %pmix_obj_run_destructors.exit, label %28
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %.052158, i64 400
+  %29 = getelementptr inbounds i8, ptr %.0158, i64 400
   %30 = load i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
   br i1 %31, label %113, label %32
@@ -940,7 +940,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %37
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds i8, ptr %102, i64 8
   %104 = load i32, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %.052158, i64 416
+  %105 = getelementptr inbounds i8, ptr %.0158, i64 416
   store i32 %104, ptr %105, align 8
   %106 = load ptr, ptr %38, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 48
@@ -963,7 +963,7 @@ pmix_obj_run_destructors.exit95:                  ; preds = %.lr.ph.i92, %99
   br label %113
 
 113:                                              ; preds = %pmix_obj_run_destructors.exit95, %28
-  %114 = getelementptr inbounds i8, ptr %.052158, i64 416
+  %114 = getelementptr inbounds i8, ptr %.0158, i64 416
   %115 = load i32, ptr %114, align 8
   %116 = icmp eq i32 %115, 1
   br i1 %116, label %pmix_obj_run_destructors.exit, label %117
@@ -1418,8 +1418,8 @@ pmix_obj_run_destructors.exit135:                 ; preds = %.lr.ph.i132, %304
   br label %pmix_obj_run_destructors.exit
 
 pmix_obj_run_destructors.exit:                    ; preds = %24, %.lr.ph.i87, %.lr.ph.i83, %.lr.ph.i107, %.lr.ph.i102, %.lr.ph.i127, %.lr.ph.i122, %18, %295, %.loopexit, %180, %.loopexit140, %90, %79, %._crit_edge162, %344, %113, %26
-  %.0 = phi i32 [ -1366, %26 ], [ 0, %113 ], [ 0, %344 ], [ 0, %._crit_edge162 ], [ %76, %79 ], [ -27, %90 ], [ %168, %.loopexit140 ], [ -27, %180 ], [ %283, %.loopexit ], [ -27, %295 ], [ -1366, %18 ], [ %283, %.lr.ph.i122 ], [ -27, %.lr.ph.i127 ], [ %168, %.lr.ph.i102 ], [ -27, %.lr.ph.i107 ], [ %76, %.lr.ph.i83 ], [ -27, %.lr.ph.i87 ], [ -1366, %24 ]
-  ret i32 %.0
+  %.052 = phi i32 [ -1366, %26 ], [ 0, %113 ], [ 0, %344 ], [ 0, %._crit_edge162 ], [ %76, %79 ], [ -27, %90 ], [ %168, %.loopexit140 ], [ -27, %180 ], [ %283, %.loopexit ], [ -27, %295 ], [ -1366, %18 ], [ %283, %.lr.ph.i122 ], [ -27, %.lr.ph.i127 ], [ %168, %.lr.ph.i102 ], [ -27, %.lr.ph.i107 ], [ %76, %.lr.ph.i83 ], [ -27, %.lr.ph.i87 ], [ -1366, %24 ]
+  ret i32 %.052
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1587,8 +1587,8 @@ define internal fastcc noundef zeroext i1 @checkus(ptr noundef %0, i64 noundef %
   br i1 %.not23, label %.loopexit, label %.lr.ph30, !llvm.loop !19
 
 .loopexit:                                        ; preds = %21, %2
-  %.019 = phi i1 [ false, %2 ], [ %.2, %21 ]
-  ret i1 %.019
+  %.020 = phi i1 [ false, %2 ], [ %.2, %21 ]
+  ret i1 %.020
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

@@ -1987,9 +1987,9 @@ if.then51:                                        ; preds = %if.end47
   br label %err
 
 err:                                              ; preds = %if.end47, %if.then51, %if.then46, %if.then39, %if.then28, %if.then22, %if.then17, %if.then12, %if.then8, %if.then3, %if.then
+  %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.then3 ], [ 0, %if.then8 ], [ 0, %if.then12 ], [ 0, %if.then17 ], [ 0, %if.then22 ], [ 0, %if.then28 ], [ 0, %if.then39 ], [ 0, %if.then46 ], [ 0, %if.then51 ], [ 1, %if.end47 ]
   %hmac.0 = phi ptr [ null, %if.then ], [ null, %if.then3 ], [ null, %if.then8 ], [ null, %if.then12 ], [ null, %if.then17 ], [ null, %if.then22 ], [ %call19, %if.then28 ], [ %call19, %if.then39 ], [ %call19, %if.then46 ], [ %call19, %if.then51 ], [ %call19, %if.end47 ]
   %md.0 = phi ptr [ null, %if.then ], [ null, %if.then3 ], [ null, %if.then8 ], [ null, %if.then12 ], [ %call10, %if.then17 ], [ %call10, %if.then22 ], [ %call10, %if.then28 ], [ %call10, %if.then39 ], [ %call10, %if.then46 ], [ %call10, %if.then51 ], [ %call10, %if.end47 ]
-  %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.then3 ], [ 0, %if.then8 ], [ 0, %if.then12 ], [ 0, %if.then17 ], [ 0, %if.then22 ], [ 0, %if.then28 ], [ 0, %if.then39 ], [ 0, %if.then46 ], [ 0, %if.then51 ], [ 1, %if.end47 ]
   call void @HMAC_CTX_free(ptr noundef %hmac.0) #8
   call void @EVP_MD_free(ptr noundef %md.0) #8
   ret i32 %ret.0

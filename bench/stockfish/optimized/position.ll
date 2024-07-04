@@ -943,10 +943,10 @@ define dso_local void @_ZN9Stockfish8Position4initEv() local_unnamed_addr #4 ali
   br label %1
 
 1:                                                ; preds = %0, %13
-  %.019.idx69 = phi i64 [ 0, %0 ], [ %.019.add, %13 ]
+  %.020.idx69 = phi i64 [ 0, %0 ], [ %.020.add, %13 ]
   %.sroa.055.068 = phi i64 [ 1070372, %0 ], [ %10, %13 ]
-  %.019.ptr = getelementptr inbounds i8, ptr @_ZN9Stockfish12_GLOBAL__N_16PiecesE, i64 %.019.idx69
-  %2 = load i32, ptr %.019.ptr, align 4
+  %.020.ptr = getelementptr inbounds i8, ptr @_ZN9Stockfish12_GLOBAL__N_16PiecesE, i64 %.020.idx69
+  %2 = load i32, ptr %.020.ptr, align 4
   %3 = zext i32 %2 to i64
   br label %4
 
@@ -967,8 +967,8 @@ define dso_local void @_ZN9Stockfish8Position4initEv() local_unnamed_addr #4 ali
   br i1 %exitcond.not, label %13, label %4, !llvm.loop !22
 
 13:                                               ; preds = %4
-  %.019.add = add nuw nsw i64 %.019.idx69, 4
-  %.not = icmp eq i64 %.019.add, 48
+  %.020.add = add nuw nsw i64 %.020.idx69, 4
+  %.not = icmp eq i64 %.020.add, 48
   br i1 %.not, label %.preheader65, label %1
 
 .preheader65:                                     ; preds = %13, %.preheader65
@@ -1025,9 +1025,9 @@ define dso_local void @_ZN9Stockfish8Position4initEv() local_unnamed_addr #4 ali
   br label %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit.preheader
 
 _ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit.preheader: ; preds = %.lr.ph.i.i.i.i.i27.preheader, %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit
-  %.021.idx84 = phi i64 [ %.021.add, %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit ], [ 0, %.lr.ph.i.i.i.i.i27.preheader ]
-  %.021.ptr = getelementptr inbounds i8, ptr @_ZN9Stockfish12_GLOBAL__N_16PiecesE, i64 %.021.idx84
-  %44 = load i32, ptr %.021.ptr, align 4
+  %.019.idx84 = phi i64 [ %.019.add, %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit ], [ 0, %.lr.ph.i.i.i.i.i27.preheader ]
+  %.019.ptr = getelementptr inbounds i8, ptr @_ZN9Stockfish12_GLOBAL__N_16PiecesE, i64 %.019.idx84
+  %44 = load i32, ptr %.019.ptr, align 4
   %45 = and i32 %44, 7
   %46 = zext nneg i32 %45 to i64
   %47 = zext i32 %44 to i64
@@ -1140,8 +1140,8 @@ _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %56, %59, %
   br i1 %exitcond101.not, label %.loopexit, label %55, !llvm.loop !27
 
 _ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit: ; preds = %.loopexit
-  %.021.add = add nuw nsw i64 %.021.idx84, 4
-  %.not24 = icmp eq i64 %.021.add, 48
+  %.019.add = add nuw nsw i64 %.019.idx84, 4
+  %.not24 = icmp eq i64 %.019.add, 48
   br i1 %.not24, label %99, label %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit.preheader
 
 99:                                               ; preds = %_ZNSt5arrayIN9Stockfish4MoveELm8192EE4fillERKS1_.exit
@@ -4758,9 +4758,9 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position14has_game_cycleEi(p
   br label %20
 
 20:                                               ; preds = %11, %64
-  %.02535 = phi ptr [ %15, %11 ], [ %24, %64 ]
-  %.02634 = phi i32 [ 3, %11 ], [ %65, %64 ]
-  %21 = getelementptr inbounds i8, ptr %.02535, i64 56
+  %.02535 = phi i32 [ 3, %11 ], [ %65, %64 ]
+  %.02634 = phi ptr [ %15, %11 ], [ %24, %64 ]
+  %21 = getelementptr inbounds i8, ptr %.02634, i64 56
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 56
   %24 = load ptr, ptr %23, align 8
@@ -4803,7 +4803,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position14has_game_cycleEi(p
   br i1 %.not29, label %51, label %64
 
 51:                                               ; preds = %38
-  %52 = icmp slt i32 %.02634, %1
+  %52 = icmp slt i32 %.02535, %1
   br i1 %52, label %.loopexit, label %53
 
 53:                                               ; preds = %51
@@ -4825,7 +4825,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position14has_game_cycleEi(p
   br i1 %.not31, label %64, label %.loopexit
 
 64:                                               ; preds = %32, %61, %38, %53
-  %65 = add nuw nsw i32 %.02634, 2
+  %65 = add nuw nsw i32 %.02535, 2
   %.not = icmp sgt i32 %65, %9
   br i1 %.not, label %.loopexit, label %20, !llvm.loop !55
 

@@ -1766,8 +1766,8 @@ define dso_local void @_ZNK16StatementArrayOp13output_headerERSoRi(ptr nocapture
   br label %13
 
 13:                                               ; preds = %.lr.ph, %80
-  %.055 = phi i64 [ 0, %.lr.ph ], [ %87, %80 ]
-  %.not = icmp eq i64 %.055, 0
+  %.03655 = phi i64 [ 0, %.lr.ph ], [ %87, %80 ]
+  %.not = icmp eq i64 %.03655, 0
   %.pre = load i32, ptr %2, align 4
   br i1 %.not, label %18, label %14
 
@@ -1785,7 +1785,7 @@ define dso_local void @_ZNK16StatementArrayOp13output_headerERSoRi(ptr nocapture
   tail call void @_Z10output_tabRSoi(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %19)
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.1)
   %21 = load ptr, ptr %10, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %.055
+  %22 = getelementptr inbounds ptr, ptr %21, i64 %.03655
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 88
@@ -1793,19 +1793,19 @@ define dso_local void @_ZNK16StatementArrayOp13output_headerERSoRi(ptr nocapture
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(200) %23, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.2)
   %28 = load ptr, ptr %11, align 8
-  %29 = getelementptr inbounds i32, ptr %28, i64 %.055
+  %29 = getelementptr inbounds i32, ptr %28, i64 %.03655
   %30 = load i32, ptr %29, align 4
   %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %27, i32 noundef %30)
   %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @.str.3)
   %33 = load ptr, ptr %10, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %.055
+  %34 = getelementptr inbounds ptr, ptr %33, i64 %.03655
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 88
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull align 8 dereferenceable(200) %35, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %39 = load ptr, ptr %12, align 8
-  %40 = getelementptr inbounds i32, ptr %39, i64 %.055
+  %40 = getelementptr inbounds i32, ptr %39, i64 %.03655
   %41 = load i32, ptr %40, align 4
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %43, label %60
@@ -1838,7 +1838,7 @@ define dso_local void @_ZNK16StatementArrayOp13output_headerERSoRi(ptr nocapture
 
 _ZNK13ArrayVariable9get_sizesEv.exit:             ; preds = %43, %55
   %.sroa.0.1 = phi ptr [ %56, %55 ], [ null, %43 ]
-  %57 = getelementptr inbounds i32, ptr %.sroa.0.1, i64 %.055
+  %57 = getelementptr inbounds i32, ptr %.sroa.0.1, i64 %.03655
   %58 = load i32, ptr %57, align 4
   %59 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %44, i32 noundef %58)
           to label %_ZNSt6vectorIjSaIjEED2Ev.exit unwind label %_ZNSt6vectorIjSaIjEED2Ev.exit38
@@ -1854,7 +1854,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNK13ArrayVariable
 62:                                               ; preds = %60, %_ZNSt6vectorIjSaIjEED2Ev.exit
   %63 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3)
   %64 = load ptr, ptr %10, align 8
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %.055
+  %65 = getelementptr inbounds ptr, ptr %64, i64 %.03655
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 88
@@ -1866,7 +1866,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNK13ArrayVariable
 71:                                               ; preds = %62
   %72 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.2)
   %73 = load ptr, ptr %10, align 8
-  %74 = getelementptr inbounds ptr, ptr %73, i64 %.055
+  %74 = getelementptr inbounds ptr, ptr %73, i64 %.03655
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 88
@@ -1884,12 +1884,12 @@ _ZNSt6vectorIjSaIjEED2Ev.exit38:                  ; preds = %_ZNK13ArrayVariable
   %.str.8.sink = phi ptr [ @.str.6, %71 ], [ @.str.8, %62 ]
   %81 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.str.8.sink)
   %82 = load ptr, ptr %12, align 8
-  %83 = getelementptr inbounds i32, ptr %82, i64 %.055
+  %83 = getelementptr inbounds i32, ptr %82, i64 %.03655
   %84 = load i32, ptr %83, align 4
   %85 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %81, i32 noundef %84)
   %86 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef nonnull @.str.7)
   tail call void @_Z8outputlnRSo(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %87 = add nuw i64 %.055, 1
+  %87 = add nuw i64 %.03655, 1
   %88 = load ptr, ptr %4, align 8
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 40

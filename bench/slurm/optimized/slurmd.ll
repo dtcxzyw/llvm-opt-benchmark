@@ -4970,9 +4970,9 @@ define internal noundef i32 @_reconfig_stepd(ptr noundef %0, ptr nocapture nound
   br label %16
 
 16:                                               ; preds = %13, %11
-  %.017 = phi ptr [ %14, %13 ], [ null, %11 ]
+  %.0 = phi ptr [ %14, %13 ], [ null, %11 ]
   %17 = load i16, ptr %8, align 8
-  %18 = tail call i32 @stepd_reconfig(i32 noundef %9, i16 noundef zeroext %17, ptr noundef %.017) #19
+  %18 = tail call i32 @stepd_reconfig(i32 noundef %9, i16 noundef zeroext %17, ptr noundef %.0) #19
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %23, label %19
 
@@ -4987,11 +4987,11 @@ define internal noundef i32 @_reconfig_stepd(ptr noundef %0, ptr nocapture nound
 
 23:                                               ; preds = %19, %22, %16
   %24 = tail call i32 @close(i32 noundef %9) #19
-  %.not18 = icmp eq ptr %.017, null
-  br i1 %.not18, label %26, label %25
+  %.not19 = icmp eq ptr %.0, null
+  br i1 %.not19, label %26, label %25
 
 25:                                               ; preds = %23
-  tail call void @free_buf(ptr noundef nonnull %.017) #19
+  tail call void @free_buf(ptr noundef nonnull %.0) #19
   br label %26
 
 26:                                               ; preds = %23, %25, %2
@@ -5924,18 +5924,18 @@ _resource_spec_fini.exit31.i:                     ; preds = %135, %133
 
 .preheader.us.i.i:                                ; preds = %._crit_edge37.us.i.i, %.preheader.us.preheader.i.i
   %.03040.us.i.i = phi i32 [ %173, %._crit_edge37.us.i.i ], [ %158, %.preheader.us.preheader.i.i ]
-  %.03139.us.i.i = phi i32 [ %185, %._crit_edge37.us.i.i ], [ %.028.i.i, %.preheader.us.preheader.i.i ]
+  %.03239.us.i.i = phi i32 [ %185, %._crit_edge37.us.i.i ], [ %.028.i.i, %.preheader.us.preheader.i.i ]
   br label %159
 
 159:                                              ; preds = %._crit_edge.us.i.i, %.preheader.us.i.i
   %.135.us.i.i = phi i32 [ %.03040.us.i.i, %.preheader.us.i.i ], [ %173, %._crit_edge.us.i.i ]
-  %.03234.us.i.i = phi i32 [ %.025.i.i, %.preheader.us.i.i ], [ %174, %._crit_edge.us.i.i ]
+  %.03134.us.i.i = phi i32 [ %.025.i.i, %.preheader.us.i.i ], [ %174, %._crit_edge.us.i.i ]
   %160 = load ptr, ptr @conf, align 8
   %161 = getelementptr inbounds i8, ptr %160, i64 4184
   %162 = load i16, ptr %161, align 8
   %163 = zext i16 %162 to i32
-  %164 = mul nsw i32 %.03234.us.i.i, %163
-  %165 = add nsw i32 %164, %.03139.us.i.i
+  %164 = mul nsw i32 %.03134.us.i.i, %163
+  %165 = add nsw i32 %164, %.03239.us.i.i
   %166 = getelementptr inbounds i8, ptr %160, i64 4158
   %167 = load i16, ptr %166, align 2
   %.not43.i.i = icmp eq i16 %167, 0
@@ -5951,8 +5951,8 @@ _resource_spec_fini.exit31.i:                     ; preds = %135, %133
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %180, i64 4184
   %.pre.i.i = load i16, ptr %.phi.trans.insert.i.i, align 8
   %.pre47.i.i = zext i16 %.pre.i.i to i32
-  %.pre48.i.i = mul nsw i32 %.03234.us.i.i, %.pre47.i.i
-  %.pre50.i.i = add nsw i32 %.pre48.i.i, %.03139.us.i.i
+  %.pre48.i.i = mul nsw i32 %.03134.us.i.i, %.pre47.i.i
+  %.pre50.i.i = add nsw i32 %.pre48.i.i, %.03239.us.i.i
   br label %._crit_edge.us.i.i
 
 ._crit_edge.us.i.i:                               ; preds = %._crit_edge.us.loopexit.i.i, %159
@@ -5961,7 +5961,7 @@ _resource_spec_fini.exit31.i:                     ; preds = %135, %133
   %172 = sext i32 %.pre-phi51.i.i to i64
   tail call void @bit_set(ptr noundef %171, i64 noundef %172) #19
   %173 = add nsw i32 %.135.us.i.i, -1
-  %174 = add nsw i32 %.03234.us.i.i, %.023.i.i
+  %174 = add nsw i32 %.03134.us.i.i, %.023.i.i
   %175 = icmp ne i32 %173, 0
   %176 = icmp ne i32 %174, %.024.i.i
   %177 = select i1 %175, i1 %176, i1 false
@@ -5981,7 +5981,7 @@ _resource_spec_fini.exit31.i:                     ; preds = %135, %133
   br i1 %184, label %.lr.ph.us.i.i, label %._crit_edge.us.loopexit.i.i, !llvm.loop !21
 
 ._crit_edge37.us.i.i:                             ; preds = %._crit_edge.us.i.i
-  %185 = add nsw i32 %.03139.us.i.i, %.023.i.i
+  %185 = add nsw i32 %.03239.us.i.i, %.023.i.i
   %186 = icmp ne i32 %185, %.027.i.i
   %187 = select i1 %175, i1 %186, i1 false
   br i1 %187, label %.preheader.us.i.i, label %_select_spec_cores.exit.i, !llvm.loop !22
@@ -7037,8 +7037,8 @@ define internal fastcc range(i32 -1, 1) i32 @_set_work_dir() unnamed_addr #0 {
   br label %.thread16
 
 .thread16:                                        ; preds = %.thread13, %23, %40, %43, %38
-  %.0 = phi i32 [ -1, %38 ], [ 0, %43 ], [ 0, %40 ], [ 0, %23 ], [ 0, %.thread13 ]
-  ret i32 %.0
+  %.04 = phi i32 [ -1, %38 ], [ 0, %43 ], [ 0, %40 ], [ 0, %23 ], [ 0, %.thread13 ]
+  ret i32 %.04
 }
 
 ; Function Attrs: nofree

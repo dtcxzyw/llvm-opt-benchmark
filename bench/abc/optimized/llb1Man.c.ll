@@ -1053,19 +1053,19 @@ define noundef ptr @Llb_ManStart(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %11 = getelementptr inbounds i8, ptr %calloc.i, i64 4
   %12 = getelementptr inbounds i8, ptr %calloc.i, i64 8
   %13 = getelementptr i8, ptr %9, i64 4
-  %.val17.i = load i32, ptr %13, align 4
-  %14 = icmp eq i32 %.val17.i, 0
+  %.val18.i = load i32, ptr %13, align 4
+  %14 = icmp eq i32 %.val18.i, 0
   br i1 %14, label %Vec_IntInvert.exit, label %15
 
 15:                                               ; preds = %3
   %16 = getelementptr i8, ptr %9, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 4
-  %19 = icmp sgt i32 %.val17.i, 1
+  %19 = icmp sgt i32 %.val18.i, 1
   br i1 %19, label %.lr.ph.preheader.i.i, label %Vec_IntFindMax.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %15
-  %wide.trip.count.i.i = zext nneg i32 %.val17.i to i64
+  %wide.trip.count.i.i = zext nneg i32 %.val18.i to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -1082,9 +1082,9 @@ Vec_IntFindMax.exit.i:                            ; preds = %.lr.ph.i.i, %15
   %.012.i.i = phi i32 [ %18, %15 ], [ %spec.select.i.i, %.lr.ph.i.i ]
   %22 = add nsw i32 %.012.i.i, 1
   %.not.i.i.i = icmp sgt i32 %.012.i.i, -1
-  br i1 %.not.i.i.i, label %.lr.ph.i20.i, label %Vec_IntFill.exit.i
+  br i1 %.not.i.i.i, label %.lr.ph.i21.i, label %Vec_IntFill.exit.i
 
-.lr.ph.i20.i:                                     ; preds = %Vec_IntFindMax.exit.i
+.lr.ph.i21.i:                                     ; preds = %Vec_IntFindMax.exit.i
   %23 = zext nneg i32 %22 to i64
   %24 = shl nuw nsw i64 %23, 2
   %25 = tail call noalias ptr @malloc(i64 noundef %24) #9
@@ -1093,14 +1093,14 @@ Vec_IntFindMax.exit.i:                            ; preds = %.lr.ph.i.i, %15
   tail call void @llvm.memset.p0.i64(ptr align 4 %25, i8 -1, i64 %24, i1 false)
   br label %Vec_IntFill.exit.i
 
-Vec_IntFill.exit.i:                               ; preds = %.lr.ph.i20.i, %Vec_IntFindMax.exit.i
-  %.val19.i = phi ptr [ %25, %.lr.ph.i20.i ], [ null, %Vec_IntFindMax.exit.i ]
+Vec_IntFill.exit.i:                               ; preds = %.lr.ph.i21.i, %Vec_IntFindMax.exit.i
+  %.val20.i = phi ptr [ %25, %.lr.ph.i21.i ], [ null, %Vec_IntFindMax.exit.i ]
   store i32 %22, ptr %11, align 4
-  %26 = icmp sgt i32 %.val17.i, 0
+  %26 = icmp sgt i32 %.val18.i, 0
   br i1 %26, label %.lr.ph.i, label %Vec_IntInvert.exit
 
 .lr.ph.i:                                         ; preds = %Vec_IntFill.exit.i
-  %27 = zext nneg i32 %.val17.i to i64
+  %27 = zext nneg i32 %.val18.i to i64
   br label %28
 
 28:                                               ; preds = %35, %.lr.ph.i
@@ -1112,7 +1112,7 @@ Vec_IntFill.exit.i:                               ; preds = %.lr.ph.i20.i, %Vec_
 
 31:                                               ; preds = %28
   %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds i32, ptr %.val19.i, i64 %32
+  %33 = getelementptr inbounds i32, ptr %.val20.i, i64 %32
   %34 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %34, ptr %33, align 4
   br label %35

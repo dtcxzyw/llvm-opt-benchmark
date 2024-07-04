@@ -513,15 +513,15 @@ print_macros.exit:                                ; preds = %103, %._crit_edge.i
   br label %167
 
 167:                                              ; preds = %157, %162, %143, %132, %96, %152
-  %.038 = phi i32 [ 4, %152 ], [ 1, %96 ], [ 4, %132 ], [ 4, %143 ], [ 0, %162 ], [ 0, %157 ]
+  %.038 = phi ptr [ %135, %152 ], [ null, %96 ], [ %135, %132 ], [ %135, %143 ], [ %135, %162 ], [ %135, %157 ]
   %.037 = phi ptr [ %137, %152 ], [ null, %96 ], [ null, %132 ], [ %137, %143 ], [ %137, %162 ], [ %137, %157 ]
-  %.036 = phi ptr [ %135, %152 ], [ null, %96 ], [ %135, %132 ], [ %135, %143 ], [ %135, %162 ], [ %135, %157 ]
+  %.036 = phi i32 [ 4, %152 ], [ 1, %96 ], [ 4, %132 ], [ 4, %143 ], [ 0, %162 ], [ 0, %157 ]
   call void @epan_cleanup() #13
   %168 = load ptr, ptr %7, align 8
   call void @dfilter_free(ptr noundef %168) #13
-  call void @g_free(ptr noundef %.036) #13
+  call void @g_free(ptr noundef %.038) #13
   call void @g_free(ptr noundef %.037) #13
-  call void @exit(i32 noundef %.038) #17
+  call void @exit(i32 noundef %.036) #17
   unreachable
 }
 

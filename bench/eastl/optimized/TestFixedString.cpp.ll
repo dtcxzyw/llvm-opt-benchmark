@@ -20824,14 +20824,14 @@ _ZN5eastl10VectorBaseINS_15fixed_substringIcEENS_9allocatorEE10DoAllocateEm.exit
   br i1 %cmp.not.i.i.i, label %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPNS_15fixed_substringIcEES3_S3_EET1_T_T0_S4_.exit.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %_ZN5eastl10VectorBaseINS_15fixed_substringIcEENS_9allocatorEE10DoAllocateEm.exit.i.i, %.noexc425
-  %retval.sroa.0.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i.i, %.noexc425 ], [ %retval.0.i.i.i, %_ZN5eastl10VectorBaseINS_15fixed_substringIcEENS_9allocatorEE10DoAllocateEm.exit.i.i ]
-  %first.sroa.0.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %.noexc425 ], [ %v.sroa.0.0728, %_ZN5eastl10VectorBaseINS_15fixed_substringIcEENS_9allocatorEE10DoAllocateEm.exit.i.i ]
-  invoke void @_ZN5eastl15fixed_substringIcEC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %retval.sroa.0.08.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %first.sroa.0.07.i.i.i.i.i)
+  %first.sroa.0.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %.noexc425 ], [ %v.sroa.0.0728, %_ZN5eastl10VectorBaseINS_15fixed_substringIcEENS_9allocatorEE10DoAllocateEm.exit.i.i ]
+  %retval.sroa.0.07.i.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i.i, %.noexc425 ], [ %retval.0.i.i.i, %_ZN5eastl10VectorBaseINS_15fixed_substringIcEENS_9allocatorEE10DoAllocateEm.exit.i.i ]
+  invoke void @_ZN5eastl15fixed_substringIcEC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %retval.sroa.0.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %first.sroa.0.08.i.i.i.i.i)
           to label %.noexc425 unwind label %lpad155.loopexit.split-lp.loopexit
 
 .noexc425:                                        ; preds = %for.body.i.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.07.i.i.i.i.i, i64 24
-  %incdec.ptr.i1.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.08.i.i.i.i.i, i64 24
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %first.sroa.0.08.i.i.i.i.i, i64 24
+  %incdec.ptr.i1.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.07.i.i.i.i.i, i64 24
   %cmp.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %v.sroa.11.0729
   br i1 %cmp.i.not.i.i.i.i.i, label %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPNS_15fixed_substringIcEES3_S3_EET1_T_T0_S4_.exit.i.i, label %for.body.i.i.i.i.i, !llvm.loop !11
 
@@ -27779,8 +27779,8 @@ if.then30:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then30
-  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
   %cmp20 = icmp slt i32 %nReturnValue.1, 0
   %cmp21 = icmp ult i64 %n.1, 500000
@@ -28196,8 +28196,8 @@ if.then30:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then30
-  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
   %cmp20 = icmp slt i32 %nReturnValue.1, 0
   %cmp21 = icmp ult i64 %n.1, 500000
@@ -28611,8 +28611,8 @@ if.then30:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then30
-  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
   %cmp20 = icmp slt i32 %nReturnValue.1, 0
   %cmp21 = icmp ult i64 %n.1, 500000
@@ -29026,8 +29026,8 @@ _ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9a
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit80, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit116
-  %n.1 = phi i64 [ %inc, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit116 ], [ %n.0129, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit80 ]
   %nReturnValue.1 = phi i32 [ %call.i120, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit116 ], [ %call.i84, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit80 ]
+  %n.1 = phi i64 [ %inc, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit116 ], [ %n.0129, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0ENS_9allocatorEEEE6resizeEm.exit80 ]
   %mul36 = shl nuw nsw i64 %n.1, 1
   %cmp20 = icmp slt i32 %nReturnValue.1, 0
   %cmp21 = icmp ult i64 %n.1, 500000
@@ -29480,8 +29480,8 @@ if.then30:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then30
-  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
   %cmp20 = icmp slt i32 %nReturnValue.1, 0
   %cmp21 = icmp ult i64 %n.1, 500000
@@ -29936,8 +29936,8 @@ if.then30:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then30
-  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
   %cmp20 = icmp slt i32 %nReturnValue.1, 0
   %cmp21 = icmp ult i64 %n.1, 500000
@@ -30440,8 +30440,8 @@ if.then30:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then30
-  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
   %cmp20 = icmp slt i32 %nReturnValue.1, 0
   %cmp21 = icmp ult i64 %n.1, 500000
@@ -30894,8 +30894,8 @@ if.then30:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then30
-  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
   %cmp20 = icmp slt i32 %nReturnValue.1, 0
   %cmp21 = icmp ult i64 %n.1, 500000
@@ -31348,8 +31348,8 @@ if.then30:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then30
-  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
   %cmp20 = icmp slt i32 %nReturnValue.1, 0
   %cmp21 = icmp ult i64 %n.1, 500000
@@ -31792,8 +31792,8 @@ _ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15Mal
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit80, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit116
-  %n.1 = phi i64 [ %inc, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit116 ], [ %n.0129, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit80 ]
   %nReturnValue.1 = phi i32 [ %call.i120, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit116 ], [ %call.i84, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit80 ]
+  %n.1 = phi i64 [ %inc, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit116 ], [ %n.0129, %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm128ELm1ELm0ELb0E15MallocAllocatorEEE6resizeEm.exit80 ]
   %mul36 = shl nuw nsw i64 %n.1, 1
   %cmp20 = icmp slt i32 %nReturnValue.1, 0
   %cmp21 = icmp ult i64 %n.1, 500000
@@ -32246,8 +32246,8 @@ if.then30:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then30
-  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
   %cmp20 = icmp slt i32 %nReturnValue.1, 0
   %cmp21 = icmp ult i64 %n.1, 500000
@@ -32702,8 +32702,8 @@ if.then30:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then30
-  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
   %cmp20 = icmp slt i32 %nReturnValue.1, 0
   %cmp21 = icmp ult i64 %n.1, 500000
@@ -33186,8 +33186,8 @@ if.then30:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then30
-  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
   %cmp20 = icmp slt i32 %nReturnValue.1, 0
   %cmp21 = icmp ult i64 %n.1, 500000
@@ -33879,8 +33879,8 @@ if.then30:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then30
-  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
   %cmp20 = icmp slt i32 %nReturnValue.1, 0
   %cmp21 = icmp ult i64 %n.1, 500000
@@ -34016,8 +34016,8 @@ if.then30:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then30
-  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
   %cmp20 = icmp slt i32 %nReturnValue.1, 0
   %cmp21 = icmp ult i64 %n.1, 500000

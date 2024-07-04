@@ -669,21 +669,21 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end42
-  %i.049 = phi i32 [ 0, %for.body.lr.ph ], [ %inc52, %if.end42 ]
-  %sector_num.048 = phi i64 [ 0, %for.body.lr.ph ], [ %sector_num.1, %if.end42 ]
-  %start.047 = phi i32 [ 0, %for.body.lr.ph ], [ %start.1, %if.end42 ]
-  %nb_sectors.046 = phi i32 [ 0, %for.body.lr.ph ], [ %conv48, %if.end42 ]
-  %niov.045 = phi i32 [ 0, %for.body.lr.ph ], [ %add51, %if.end42 ]
-  %num_reqs.044 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end42 ]
-  %idxprom = sext i32 %i.049 to i64
+  %sector_num.049 = phi i64 [ 0, %for.body.lr.ph ], [ %sector_num.1, %if.end42 ]
+  %nb_sectors.048 = phi i32 [ 0, %for.body.lr.ph ], [ %conv48, %if.end42 ]
+  %niov.047 = phi i32 [ 0, %for.body.lr.ph ], [ %add51, %if.end42 ]
+  %num_reqs.046 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end42 ]
+  %start.045 = phi i32 [ 0, %for.body.lr.ph ], [ %start.1, %if.end42 ]
+  %i.044 = phi i32 [ 0, %for.body.lr.ph ], [ %inc52, %if.end42 ]
+  %idxprom = sext i32 %i.044 to i64
   %arrayidx9 = getelementptr [32 x ptr], ptr %mrb, i64 0, i64 %idxprom
   %11 = load ptr, ptr %arrayidx9, align 8
-  %cmp10 = icmp sgt i32 %num_reqs.044, 0
+  %cmp10 = icmp sgt i32 %num_reqs.046, 0
   br i1 %cmp10, label %if.then12, label %if.end37
 
 if.then12:                                        ; preds = %for.body
-  %conv13 = sext i32 %nb_sectors.046 to i64
-  %add = add i64 %sector_num.048, %conv13
+  %conv13 = sext i32 %nb_sectors.048 to i64
+  %add = add i64 %sector_num.049, %conv13
   %sector_num14 = getelementptr inbounds i8, ptr %11, i64 56
   %12 = load i64, ptr %sector_num14, align 8
   %cmp15.not = icmp eq i64 %add, %12
@@ -695,7 +695,7 @@ lor.lhs.false:                                    ; preds = %if.then12
   %niov19 = getelementptr inbounds i8, ptr %11, i64 160
   %14 = load i32, ptr %niov19, align 8
   %sub = sub i32 %call18, %14
-  %cmp20 = icmp sgt i32 %niov.045, %sub
+  %cmp20 = icmp sgt i32 %niov.047, %sub
   br i1 %cmp20, label %if.end37.thread, label %lor.lhs.false22
 
 lor.lhs.false22:                                  ; preds = %lor.lhs.false
@@ -711,11 +711,11 @@ lor.lhs.false27:                                  ; preds = %lor.lhs.false22
   br i1 %cmp33, label %if.end37.thread, label %if.end42
 
 if.end37.thread:                                  ; preds = %if.then12, %lor.lhs.false, %lor.lhs.false22, %lor.lhs.false27
-  tail call fastcc void @submit_requests(ptr noundef %s, ptr noundef nonnull %mrb, i32 noundef %start.047, i32 noundef %num_reqs.044, i32 noundef %niov.045)
+  tail call fastcc void @submit_requests(ptr noundef %s, ptr noundef nonnull %mrb, i32 noundef %start.045, i32 noundef %num_reqs.046, i32 noundef %niov.047)
   br label %if.then40
 
 if.end37:                                         ; preds = %for.body
-  %cmp38 = icmp eq i32 %num_reqs.044, 0
+  %cmp38 = icmp eq i32 %num_reqs.046, 0
   br i1 %cmp38, label %if.then40, label %if.end42
 
 if.then40:                                        ; preds = %if.end37.thread, %if.end37
@@ -724,11 +724,11 @@ if.then40:                                        ; preds = %if.end37.thread, %i
   br label %if.end42
 
 if.end42:                                         ; preds = %lor.lhs.false27, %if.then40, %if.end37
-  %num_reqs.138 = phi i32 [ 0, %if.then40 ], [ %num_reqs.044, %if.end37 ], [ %num_reqs.044, %lor.lhs.false27 ]
-  %niov.1 = phi i32 [ 0, %if.then40 ], [ %niov.045, %if.end37 ], [ %niov.045, %lor.lhs.false27 ]
-  %nb_sectors.1 = phi i32 [ 0, %if.then40 ], [ %nb_sectors.046, %if.end37 ], [ %nb_sectors.046, %lor.lhs.false27 ]
-  %start.1 = phi i32 [ %i.049, %if.then40 ], [ %start.047, %if.end37 ], [ %start.047, %lor.lhs.false27 ]
-  %sector_num.1 = phi i64 [ %16, %if.then40 ], [ %sector_num.048, %if.end37 ], [ %sector_num.048, %lor.lhs.false27 ]
+  %num_reqs.138 = phi i32 [ 0, %if.then40 ], [ %num_reqs.046, %if.end37 ], [ %num_reqs.046, %lor.lhs.false27 ]
+  %start.1 = phi i32 [ %i.044, %if.then40 ], [ %start.045, %if.end37 ], [ %start.045, %lor.lhs.false27 ]
+  %niov.1 = phi i32 [ 0, %if.then40 ], [ %niov.047, %if.end37 ], [ %niov.047, %lor.lhs.false27 ]
+  %nb_sectors.1 = phi i32 [ 0, %if.then40 ], [ %nb_sectors.048, %if.end37 ], [ %nb_sectors.048, %lor.lhs.false27 ]
+  %sector_num.1 = phi i64 [ %16, %if.then40 ], [ %sector_num.049, %if.end37 ], [ %sector_num.049, %lor.lhs.false27 ]
   %size44 = getelementptr inbounds i8, ptr %11, i64 184
   %17 = load i64, ptr %size44, align 8
   %div4535 = lshr i64 %17, 9
@@ -738,15 +738,15 @@ if.end42:                                         ; preds = %lor.lhs.false27, %i
   %19 = load i32, ptr %niov50, align 8
   %add51 = add i32 %19, %niov.1
   %inc = add i32 %num_reqs.138, 1
-  %inc52 = add nuw i32 %i.049, 1
+  %inc52 = add nuw i32 %i.044, 1
   %20 = load i32, ptr %num_reqs1, align 8
   %cmp6 = icmp ult i32 %inc52, %20
   br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %if.end42, %if.end
+  %start.0.lcssa = phi i32 [ 0, %if.end ], [ %start.1, %if.end42 ]
   %num_reqs.0.lcssa = phi i32 [ 0, %if.end ], [ %inc, %if.end42 ]
   %niov.0.lcssa = phi i32 [ 0, %if.end ], [ %add51, %if.end42 ]
-  %start.0.lcssa = phi i32 [ 0, %if.end ], [ %start.1, %if.end42 ]
   tail call fastcc void @submit_requests(ptr noundef %s, ptr noundef nonnull %mrb, i32 noundef %start.0.lcssa, i32 noundef %num_reqs.0.lcssa, i32 noundef %niov.0.lcssa)
   br label %return
 
@@ -1261,8 +1261,8 @@ trace_virtio_blk_handle_zone_mgmt.exit:           ; preds = %if.end, %land.lhs.t
   br label %if.end23
 
 if.end23:                                         ; preds = %trace_virtio_blk_handle_zone_mgmt.exit, %trace_virtio_blk_handle_zone_reset_all.exit
-  %len.1 = phi i64 [ %shl3, %trace_virtio_blk_handle_zone_reset_all.exit ], [ %len.0, %trace_virtio_blk_handle_zone_mgmt.exit ]
   %offset.0 = phi i64 [ 0, %trace_virtio_blk_handle_zone_reset_all.exit ], [ %shl, %trace_virtio_blk_handle_zone_mgmt.exit ]
+  %len.1 = phi i64 [ %shl3, %trace_virtio_blk_handle_zone_reset_all.exit ], [ %len.0, %trace_virtio_blk_handle_zone_mgmt.exit ]
   %17 = load ptr, ptr %blk, align 8
   %call.i41 = tail call ptr @blk_bs(ptr noundef %17) #14
   %host_features.i = getelementptr inbounds i8, ptr %0, i64 696
@@ -1272,7 +1272,7 @@ if.end23:                                         ; preds = %trace_virtio_blk_ha
   br i1 %tobool.i.not.i, label %out29, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end23
-  %19 = or i64 %offset.0, %len.1
+  %19 = or i64 %len.1, %offset.0
   %or.cond.not.i = icmp sgt i64 %19, -1
   br i1 %or.cond.not.i, label %lor.lhs.false3.i, label %out29
 

@@ -5617,12 +5617,12 @@ RSTRING_PTR.exit.i15:                             ; preds = %422, %417
   br label %.lr.ph.i18
 
 .lr.ph.i18:                                       ; preds = %.outer.backedge.i, %.lr.ph.lr.ph.i
-  %.0.ph135.i = phi i64 [ 0, %.lr.ph.lr.ph.i ], [ %.058.ph.be.i, %.outer.backedge.i ]
+  %.060.ph136.i = phi i64 [ 0, %.lr.ph.lr.ph.i ], [ %.061.ph.be.i, %.outer.backedge.i ]
   br label %431
 
 431:                                              ; preds = %._crit_edge.i, %.lr.ph.i18
-  %.058129.i = phi i64 [ %.0.ph135.i, %.lr.ph.i18 ], [ %548, %._crit_edge.i ]
-  %432 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i16, i64 %.058129.i
+  %.060129.i = phi i64 [ %.060.ph136.i, %.lr.ph.i18 ], [ %548, %._crit_edge.i ]
+  %432 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i16, i64 %.060129.i
   %433 = load i8, ptr %432, align 1
   %434 = icmp ult i8 %433, 32
   br i1 %434, label %435, label %447
@@ -5668,7 +5668,7 @@ RSTRING_PTR.exit.i15:                             ; preds = %422, %417
   %454 = sext i8 %453 to i16
   %455 = add nsw i16 %454, 1
   %456 = zext i16 %455 to i64
-  %457 = add i64 %.058129.i, %456
+  %457 = add i64 %.060129.i, %456
   %458 = icmp ugt i64 %457, %424
   br i1 %458, label %459, label %461
 
@@ -5679,8 +5679,8 @@ RSTRING_PTR.exit.i15:                             ; preds = %422, %417
 
 461:                                              ; preds = %450
   %462 = icmp eq i8 %433, -30
-  %or.cond.i23 = and i1 %426, %462
-  br i1 %or.cond.i23, label %463, label %543
+  %or.cond.i24 = and i1 %426, %462
+  br i1 %or.cond.i24, label %463, label %543
 
 463:                                              ; preds = %461
   %464 = getelementptr inbounds i8, ptr %432, i64 1
@@ -5697,18 +5697,18 @@ RSTRING_PTR.exit.i15:                             ; preds = %422, %417
 
 471:                                              ; preds = %467
   %472 = icmp eq i8 %469, -88
-  %473 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i16, i64 %.0.ph135.i
-  %474 = sub i64 %.058129.i, %.0.ph135.i
-  %.not.i.i24 = icmp eq i64 %.058129.i, %.0.ph135.i
-  br i1 %.not.i.i24, label %fbuffer_append.exit.i28, label %475
+  %473 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i16, i64 %.060.ph136.i
+  %474 = sub i64 %.060129.i, %.060.ph136.i
+  %.not.i.i25 = icmp eq i64 %.060129.i, %.060.ph136.i
+  br i1 %.not.i.i25, label %fbuffer_append.exit.i29, label %475
 
 475:                                              ; preds = %471
   %476 = load ptr, ptr %7, align 8
   %.not.i.i67.i = icmp eq ptr %476, null
-  br i1 %.not.i.i67.i, label %477, label %._crit_edge.i.i.i25
+  br i1 %.not.i.i67.i, label %477, label %._crit_edge.i.i.i26
 
-._crit_edge.i.i.i25:                              ; preds = %475
-  %.pre.i.i.i26 = load i64, ptr %.phi.trans.insert.i.i.i, align 8
+._crit_edge.i.i.i26:                              ; preds = %475
+  %.pre.i.i.i27 = load i64, ptr %.phi.trans.insert.i.i.i, align 8
   br label %481
 
 477:                                              ; preds = %475
@@ -5719,46 +5719,46 @@ RSTRING_PTR.exit.i15:                             ; preds = %422, %417
   store i64 %480, ptr %.phi.trans.insert.i.i.i, align 8
   br label %481
 
-481:                                              ; preds = %477, %._crit_edge.i.i.i25
-  %482 = phi ptr [ %476, %._crit_edge.i.i.i25 ], [ %479, %477 ]
-  %483 = phi i64 [ %.pre.i.i.i26, %._crit_edge.i.i.i25 ], [ %480, %477 ]
+481:                                              ; preds = %477, %._crit_edge.i.i.i26
+  %482 = phi ptr [ %476, %._crit_edge.i.i.i26 ], [ %479, %477 ]
+  %483 = phi i64 [ %.pre.i.i.i27, %._crit_edge.i.i.i26 ], [ %480, %477 ]
   %484 = load i64, ptr %17, align 8
   br label %485
 
 485:                                              ; preds = %485, %481
-  %.0.i.i.i27 = phi i64 [ %483, %481 ], [ %488, %485 ]
-  %486 = sub i64 %.0.i.i.i27, %484
+  %.0.i.i.i28 = phi i64 [ %483, %481 ], [ %488, %485 ]
+  %486 = sub i64 %.0.i.i.i28, %484
   %487 = icmp ult i64 %486, %474
-  %488 = shl i64 %.0.i.i.i27, 1
+  %488 = shl i64 %.0.i.i.i28, 1
   br i1 %487, label %485, label %489, !llvm.loop !6
 
 489:                                              ; preds = %485
-  %490 = icmp ugt i64 %.0.i.i.i27, %483
+  %490 = icmp ugt i64 %.0.i.i.i28, %483
   br i1 %490, label %491, label %ruby_nonempty_memcpy.exit.i.i
 
 491:                                              ; preds = %489
-  %492 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %482, i64 noundef %.0.i.i.i27, i64 noundef 1) #18
+  %492 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %482, i64 noundef %.0.i.i.i28, i64 noundef 1) #18
   store ptr %492, ptr %7, align 8
-  store i64 %.0.i.i.i27, ptr %.phi.trans.insert.i.i.i, align 8
-  %.pre.i.i29 = load i64, ptr %17, align 8
+  store i64 %.0.i.i.i28, ptr %.phi.trans.insert.i.i.i, align 8
+  %.pre.i.i30 = load i64, ptr %17, align 8
   br label %ruby_nonempty_memcpy.exit.i.i
 
 ruby_nonempty_memcpy.exit.i.i:                    ; preds = %491, %489
-  %493 = phi i64 [ %.pre.i.i29, %491 ], [ %484, %489 ]
+  %493 = phi i64 [ %.pre.i.i30, %491 ], [ %484, %489 ]
   %494 = phi ptr [ %492, %491 ], [ %482, %489 ]
   %495 = getelementptr inbounds i8, ptr %494, i64 %493
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %495, ptr readonly align 1 %473, i64 %474, i1 false)
   %496 = load i64, ptr %17, align 8
   %497 = add i64 %496, %474
   store i64 %497, ptr %17, align 8
-  br label %fbuffer_append.exit.i28
+  br label %fbuffer_append.exit.i29
 
-fbuffer_append.exit.i28:                          ; preds = %ruby_nonempty_memcpy.exit.i.i, %471
+fbuffer_append.exit.i29:                          ; preds = %ruby_nonempty_memcpy.exit.i.i, %471
   %498 = load ptr, ptr %7, align 8
   %.not.i.i68.i = icmp eq ptr %498, null
   br i1 %472, label %499, label %521
 
-499:                                              ; preds = %fbuffer_append.exit.i28
+499:                                              ; preds = %fbuffer_append.exit.i29
   br i1 %.not.i.i68.i, label %500, label %._crit_edge.i.i69.i
 
 ._crit_edge.i.i69.i:                              ; preds = %499
@@ -5807,7 +5807,7 @@ fbuffer_append.exit75.i:                          ; preds = %514, %512
   store i64 %520, ptr %17, align 8
   br label %.outer.backedge.i
 
-521:                                              ; preds = %fbuffer_append.exit.i28
+521:                                              ; preds = %fbuffer_append.exit.i29
   br i1 %.not.i.i68.i, label %522, label %._crit_edge.i.i77.i
 
 ._crit_edge.i.i77.i:                              ; preds = %521
@@ -5867,9 +5867,9 @@ fbuffer_append.exit83.i:                          ; preds = %536, %534
   unreachable
 
 ._crit_edge.i:                                    ; preds = %449, %543
-  %.059.i = phi i16 [ %455, %543 ], [ 1, %449 ]
-  %547 = zext i16 %.059.i to i64
-  %548 = add i64 %.058129.i, %547
+  %.0.i23 = phi i16 [ %455, %543 ], [ 1, %449 ]
+  %547 = zext i16 %.0.i23 to i64
+  %548 = add i64 %.060129.i, %547
   %549 = icmp ult i64 %548, %424
   br i1 %549, label %431, label %.outer._crit_edge.i, !llvm.loop !37
 
@@ -5888,11 +5888,11 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %448, %447, %.loopexit.i.loopexit, %switch.lookup, %437
-  %.061.i = phi i64 [ 6, %437 ], [ 2, %switch.lookup ], [ 2, %447 ], [ 2, %448 ], [ 2, %.loopexit.i.loopexit ]
-  %.060.i = phi ptr [ %4, %437 ], [ %switch.load, %switch.lookup ], [ @.str.86, %447 ], [ @.str.88, %448 ], [ @.str.87, %.loopexit.i.loopexit ]
-  %551 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i16, i64 %.0.ph135.i
-  %552 = sub i64 %.058129.i, %.0.ph135.i
-  %.not.i84.i = icmp eq i64 %.058129.i, %.0.ph135.i
+  %.059.i = phi ptr [ %4, %437 ], [ %switch.load, %switch.lookup ], [ @.str.86, %447 ], [ @.str.88, %448 ], [ @.str.87, %.loopexit.i.loopexit ]
+  %.058.i = phi i64 [ 6, %437 ], [ 2, %switch.lookup ], [ 2, %447 ], [ 2, %448 ], [ 2, %.loopexit.i.loopexit ]
+  %551 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i16, i64 %.060.ph136.i
+  %552 = sub i64 %.060129.i, %.060.ph136.i
+  %.not.i84.i = icmp eq i64 %.060129.i, %.060.ph136.i
   br i1 %.not.i84.i, label %fbuffer_append.exit92.i, label %553
 
 553:                                              ; preds = %.loopexit.i
@@ -5972,7 +5972,7 @@ fbuffer_append.exit92.i:                          ; preds = %ruby_nonempty_memcp
 585:                                              ; preds = %585, %581
   %.0.i.i98.i22 = phi i64 [ %583, %581 ], [ %588, %585 ]
   %586 = sub i64 %.0.i.i98.i22, %584
-  %587 = icmp ult i64 %586, %.061.i
+  %587 = icmp ult i64 %586, %.058.i
   %588 = shl i64 %.0.i.i98.i22, 1
   br i1 %587, label %585, label %589, !llvm.loop !6
 
@@ -5991,22 +5991,22 @@ fbuffer_append.exit101.i:                         ; preds = %591, %589
   %593 = phi i64 [ %.pre.i100.i, %591 ], [ %584, %589 ]
   %594 = phi ptr [ %592, %591 ], [ %582, %589 ]
   %595 = getelementptr inbounds i8, ptr %594, i64 %593
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %595, ptr noundef nonnull readonly align 1 dereferenceable(1) %.060.i, i64 %.061.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %595, ptr noundef nonnull readonly align 1 dereferenceable(1) %.059.i, i64 %.058.i, i1 false)
   %596 = load i64, ptr %17, align 8
-  %597 = add i64 %596, %.061.i
+  %597 = add i64 %596, %.058.i
   store i64 %597, ptr %17, align 8
-  %598 = add i64 %.058129.i, 1
+  %598 = add i64 %.060129.i, 1
   br label %.outer.backedge.i
 
 .outer.backedge.i:                                ; preds = %fbuffer_append.exit101.i, %fbuffer_append.exit83.i, %fbuffer_append.exit75.i
-  %.058.ph.be.i = phi i64 [ %598, %fbuffer_append.exit101.i ], [ %457, %fbuffer_append.exit83.i ], [ %457, %fbuffer_append.exit75.i ]
-  %599 = icmp ult i64 %.058.ph.be.i, %424
+  %.061.ph.be.i = phi i64 [ %598, %fbuffer_append.exit101.i ], [ %457, %fbuffer_append.exit83.i ], [ %457, %fbuffer_append.exit75.i ]
+  %599 = icmp ult i64 %.061.ph.be.i, %424
   br i1 %599, label %.lr.ph.i18, label %convert_UTF8_to_JSON.exit, !llvm.loop !37
 
 .outer._crit_edge.i:                              ; preds = %._crit_edge.i
-  %600 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i16, i64 %.0.ph135.i
-  %601 = sub i64 %548, %.0.ph135.i
-  %.not.i102.i = icmp eq i64 %548, %.0.ph135.i
+  %600 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i16, i64 %.060.ph136.i
+  %601 = sub i64 %548, %.060.ph136.i
+  %.not.i102.i = icmp eq i64 %548, %.060.ph136.i
   br i1 %.not.i102.i, label %convert_UTF8_to_JSON.exit, label %602
 
 602:                                              ; preds = %.outer._crit_edge.i
@@ -6066,12 +6066,12 @@ convert_UTF8_to_JSON.exit:                        ; preds = %.outer.backedge.i, 
 
 625:                                              ; preds = %convert_UTF8_to_JSON.exit, %convert_UTF8_to_JSON_ASCII.exit
   %626 = load ptr, ptr %7, align 8
-  %.not.i.i30 = icmp eq ptr %626, null
-  br i1 %.not.i.i30, label %627, label %._crit_edge.i.i31
+  %.not.i.i31 = icmp eq ptr %626, null
+  br i1 %.not.i.i31, label %627, label %._crit_edge.i.i32
 
-._crit_edge.i.i31:                                ; preds = %625
-  %.phi.trans.insert.i.i32 = getelementptr inbounds i8, ptr %0, i64 24
-  %.pre.i.i33 = load i64, ptr %.phi.trans.insert.i.i32, align 8
+._crit_edge.i.i32:                                ; preds = %625
+  %.phi.trans.insert.i.i33 = getelementptr inbounds i8, ptr %0, i64 24
+  %.pre.i.i34 = load i64, ptr %.phi.trans.insert.i.i33, align 8
   br label %632
 
 627:                                              ; preds = %625
@@ -6083,32 +6083,32 @@ convert_UTF8_to_JSON.exit:                        ; preds = %.outer.backedge.i, 
   store i64 %630, ptr %631, align 8
   br label %632
 
-632:                                              ; preds = %627, %._crit_edge.i.i31
-  %633 = phi ptr [ %626, %._crit_edge.i.i31 ], [ %629, %627 ]
-  %634 = phi i64 [ %.pre.i.i33, %._crit_edge.i.i31 ], [ %630, %627 ]
+632:                                              ; preds = %627, %._crit_edge.i.i32
+  %633 = phi ptr [ %626, %._crit_edge.i.i32 ], [ %629, %627 ]
+  %634 = phi i64 [ %.pre.i.i34, %._crit_edge.i.i32 ], [ %630, %627 ]
   %635 = load i64, ptr %17, align 8
   br label %636
 
 636:                                              ; preds = %636, %632
-  %.0.i.i34 = phi i64 [ %634, %632 ], [ %638, %636 ]
-  %637 = icmp eq i64 %.0.i.i34, %635
-  %638 = shl i64 %.0.i.i34, 1
+  %.0.i.i35 = phi i64 [ %634, %632 ], [ %638, %636 ]
+  %637 = icmp eq i64 %.0.i.i35, %635
+  %638 = shl i64 %.0.i.i35, 1
   br i1 %637, label %636, label %639, !llvm.loop !6
 
 639:                                              ; preds = %636
-  %640 = icmp ugt i64 %.0.i.i34, %634
-  br i1 %640, label %641, label %fbuffer_append_char.exit36
+  %640 = icmp ugt i64 %.0.i.i35, %634
+  br i1 %640, label %641, label %fbuffer_append_char.exit37
 
 641:                                              ; preds = %639
   %642 = getelementptr inbounds i8, ptr %0, i64 24
-  %643 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %633, i64 noundef %.0.i.i34, i64 noundef 1) #18
+  %643 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %633, i64 noundef %.0.i.i35, i64 noundef 1) #18
   store ptr %643, ptr %7, align 8
-  store i64 %.0.i.i34, ptr %642, align 8
-  %.pre.i35 = load i64, ptr %17, align 8
-  br label %fbuffer_append_char.exit36
+  store i64 %.0.i.i35, ptr %642, align 8
+  %.pre.i36 = load i64, ptr %17, align 8
+  br label %fbuffer_append_char.exit37
 
-fbuffer_append_char.exit36:                       ; preds = %639, %641
-  %644 = phi i64 [ %635, %639 ], [ %.pre.i35, %641 ]
+fbuffer_append_char.exit37:                       ; preds = %639, %641
+  %644 = phi i64 [ %635, %639 ], [ %.pre.i36, %641 ]
   %645 = phi ptr [ %633, %639 ], [ %643, %641 ]
   %646 = getelementptr inbounds i8, ptr %645, i64 %644
   store i8 34, ptr %646, align 1

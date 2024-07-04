@@ -218,14 +218,14 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
   unreachable
 
 44:                                               ; preds = %42, %39
-  %.0113 = phi i32 [ %41, %39 ], [ %0, %42 ]
-  %45 = zext i32 %.0113 to i64
-  %46 = icmp slt i32 %.0113, 0
+  %.0114 = phi i32 [ %41, %39 ], [ %0, %42 ]
+  %45 = zext i32 %.0114 to i64
+  %46 = icmp slt i32 %.0114, 0
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %44
   %48 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %48, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef %.0113) #10
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %48, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef %.0114) #10
   unreachable
 
 49:                                               ; preds = %44
@@ -291,17 +291,17 @@ rb_num2int_inline.exit:                           ; preds = %61, %63
   %72 = tail call i64 @rb_fix2int(i64 noundef %71) #8
   %73 = trunc i64 %72 to i32
   %74 = tail call ptr @rb_fiddle_int_to_ffi_type(i32 noundef %73) #8
-  %75 = add nuw nsw i32 %.0113, 1
+  %75 = add nuw nsw i32 %.0114, 1
   %76 = zext nneg i32 %75 to i64
   %77 = tail call noalias nonnull ptr @ruby_xcalloc(i64 noundef %76, i64 noundef 8) #11
-  %.not179 = icmp eq i32 %.0113, 0
+  %.not179 = icmp eq i32 %.0114, 0
   br i1 %.not179, label %._crit_edge171, label %.lr.ph170
 
 .lr.ph170:                                        ; preds = %._crit_edge
   %78 = inttoptr i64 %54 to ptr
   %79 = getelementptr inbounds i8, ptr %78, i64 16
   %80 = getelementptr inbounds i8, ptr %78, i64 32
-  %smax = tail call i32 @llvm.smax.i32(i32 %.0113, i32 1)
+  %smax = tail call i32 @llvm.smax.i32(i32 %.0114, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %81
 
@@ -334,24 +334,24 @@ rb_array_const_ptr.exit:                          ; preds = %81, %84
   br label %._crit_edge171
 
 ._crit_edge171:                                   ; preds = %._crit_edge171.loopexit, %._crit_edge
-  %.0115.lcssa = phi i64 [ 0, %._crit_edge ], [ %92, %._crit_edge171.loopexit ]
-  %93 = getelementptr inbounds ptr, ptr %77, i64 %.0115.lcssa
+  %.0116.lcssa = phi i64 [ 0, %._crit_edge ], [ %92, %._crit_edge171.loopexit ]
+  %93 = getelementptr inbounds ptr, ptr %77, i64 %.0116.lcssa
   store ptr null, ptr %93, align 8
   %94 = tail call i64 @rb_fix2int(i64 noundef %9) #8
   %95 = trunc i64 %94 to i32
   br i1 %.not134, label %98, label %96
 
 96:                                               ; preds = %._crit_edge171
-  %97 = tail call i32 @ffi_prep_cif_var(ptr noundef %50, i32 noundef %95, i32 noundef %27, i32 noundef %.0113, ptr noundef %74, ptr noundef nonnull %77) #8
+  %97 = tail call i32 @ffi_prep_cif_var(ptr noundef %50, i32 noundef %95, i32 noundef %27, i32 noundef %.0114, ptr noundef %74, ptr noundef nonnull %77) #8
   br label %100
 
 98:                                               ; preds = %._crit_edge171
-  %99 = tail call i32 @ffi_prep_cif(ptr noundef %50, i32 noundef %95, i32 noundef %.0113, ptr noundef %74, ptr noundef nonnull %77) #8
+  %99 = tail call i32 @ffi_prep_cif(ptr noundef %50, i32 noundef %95, i32 noundef %.0114, ptr noundef %74, ptr noundef nonnull %77) #8
   br label %100
 
 100:                                              ; preds = %98, %96
-  %.0120 = phi i32 [ %97, %96 ], [ %99, %98 ]
-  %.not137 = icmp eq i32 %.0120, 0
+  %.0113 = phi i32 [ %97, %96 ], [ %99, %98 ]
+  %.not137 = icmp eq i32 %.0113, 0
   br i1 %.not137, label %104, label %101
 
 101:                                              ; preds = %100
@@ -359,17 +359,17 @@ rb_array_const_ptr.exit:                          ; preds = %81, %84
   tail call void @ruby_xfree(ptr noundef nonnull %77) #8
   store ptr null, ptr %102, align 8
   %103 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %103, ptr noundef nonnull @.str.15, i32 noundef %.0120) #10
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %103, ptr noundef nonnull @.str.15, i32 noundef %.0113) #10
   unreachable
 
 104:                                              ; preds = %100, %53
   %.0 = phi i64 [ %10, %53 ], [ %54, %100 ]
   %105 = shl nuw nsw i64 %45, 3
-  %reass.add = shl nuw i32 %.0113, 1
+  %reass.add = shl nuw i32 %.0114, 1
   %narrow = or disjoint i32 %reass.add, 1
   %106 = zext i32 %narrow to i64
   %107 = shl nuw nsw i64 %106, 3
-  %108 = icmp ult i32 %.0113, 64
+  %108 = icmp ult i32 %.0114, 64
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %104
@@ -387,7 +387,7 @@ rb_array_const_ptr.exit:                          ; preds = %81, %84
   %116 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %115, ptr %116, align 8
   %117 = icmp sgt i32 %0, 0
-  %118 = icmp ne i32 %.0113, 0
+  %118 = icmp ne i32 %.0114, 0
   %119 = and i1 %117, %118
   br i1 %119, label %.lr.ph176, label %._crit_edge177
 
@@ -395,13 +395,13 @@ rb_array_const_ptr.exit:                          ; preds = %81, %84
   %120 = inttoptr i64 %.0 to ptr
   %121 = getelementptr inbounds i8, ptr %120, i64 16
   %122 = getelementptr inbounds i8, ptr %120, i64 32
-  %123 = zext nneg i32 %.0113 to i64
+  %123 = zext nneg i32 %.0114 to i64
   br label %124
 
 124:                                              ; preds = %.lr.ph176, %180
   %indvars.iv188 = phi i64 [ 0, %.lr.ph176 ], [ %indvars.iv.next189, %180 ]
   %.1174 = phi i32 [ 0, %.lr.ph176 ], [ %183, %180 ]
-  %.0117172 = phi i64 [ 4, %.lr.ph176 ], [ %.5, %180 ]
+  %.0118172 = phi i64 [ 4, %.lr.ph176 ], [ %.5, %180 ]
   %125 = load i64, ptr %120, align 8
   %126 = and i64 %125, 8192
   %.not.i144 = icmp eq i64 %126, 0
@@ -493,7 +493,7 @@ rbimpl_intern_const.exit154:                      ; preds = %rbimpl_intern_const
   %.lcssa.i151 = phi i64 [ %.pr.i149, %156 ], [ %157, %rbimpl_intern_const.exit154.loopexit ]
   %159 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %13, i64 noundef %.lcssa.i151, i32 noundef 1, i64 noundef %158) #8
   store i64 %159, ptr %6, align 8
-  %160 = icmp eq i64 %.0117172, 4
+  %160 = icmp eq i64 %.0118172, 4
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %rbimpl_intern_const.exit154
@@ -503,21 +503,21 @@ rbimpl_intern_const.exit154:                      ; preds = %rbimpl_intern_const
 
 163:                                              ; preds = %161, %rbimpl_intern_const.exit154
   %164 = phi i64 [ %.pre193, %161 ], [ %159, %rbimpl_intern_const.exit154 ]
-  %.1118 = phi i64 [ %162, %161 ], [ %.0117172, %rbimpl_intern_const.exit154 ]
-  %165 = call i64 @rb_ary_push(i64 noundef %.1118, i64 noundef %164) #8
+  %.1119 = phi i64 [ %162, %161 ], [ %.0118172, %rbimpl_intern_const.exit154 ]
+  %165 = call i64 @rb_ary_push(i64 noundef %.1119, i64 noundef %164) #8
   %.pre194 = load i64, ptr %6, align 8
   br label %166
 
 166:                                              ; preds = %rb_class_of.exit, %163, %140
   %167 = phi i64 [ 1, %140 ], [ %.pre194, %163 ], [ %136, %rb_class_of.exit ]
-  %.2119 = phi i64 [ %.0117172, %140 ], [ %.1118, %163 ], [ %.0117172, %rb_class_of.exit ]
+  %.2120 = phi i64 [ %.0118172, %140 ], [ %.1119, %163 ], [ %.0118172, %rb_class_of.exit ]
   %168 = call i64 @rb_Integer(i64 noundef %167) #8
   store i64 %168, ptr %6, align 8
   br label %169
 
 169:                                              ; preds = %166, %rb_array_const_ptr.exit146
   %170 = phi i64 [ %168, %166 ], [ %136, %rb_array_const_ptr.exit146 ]
-  %.3 = phi i64 [ %.2119, %166 ], [ %.0117172, %rb_array_const_ptr.exit146 ]
+  %.3 = phi i64 [ %.2120, %166 ], [ %.0118172, %rb_array_const_ptr.exit146 ]
   %171 = getelementptr inbounds %union.fiddle_generic, ptr %114, i64 %indvars.iv188
   call void @rb_fiddle_value_to_generic(i32 noundef %132, ptr noundef nonnull %6, ptr noundef nonnull %171) #8
   %172 = load i64, ptr %6, align 8
@@ -557,8 +557,8 @@ rbimpl_intern_const.exit154:                      ; preds = %rbimpl_intern_const
 
 ._crit_edge177:                                   ; preds = %._crit_edge177.loopexit, %113
   %188 = phi ptr [ %115, %113 ], [ %181, %._crit_edge177.loopexit ]
-  %.1116.lcssa = phi i64 [ 0, %113 ], [ %187, %._crit_edge177.loopexit ]
-  %189 = getelementptr inbounds ptr, ptr %188, i64 %.1116.lcssa
+  %.1117.lcssa = phi i64 [ 0, %113 ], [ %187, %._crit_edge177.loopexit ]
+  %189 = getelementptr inbounds ptr, ptr %188, i64 %.1117.lcssa
   store ptr null, ptr %189, align 8
   %190 = and i64 %8, 1
   %.not.i155 = icmp eq i64 %190, 0

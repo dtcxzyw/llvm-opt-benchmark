@@ -1042,7 +1042,7 @@ _ZN7QStringD2Ev.exit76.thread:                    ; preds = %62
   br label %343
 
 337:                                              ; preds = %63, %_ZN28RpcServiceResponseTimeDialog2trEPKcS1_i.exit36
-  %.021 = phi i1 [ false, %63 ], [ true, %_ZN28RpcServiceResponseTimeDialog2trEPKcS1_i.exit36 ]
+  %.023 = phi i1 [ false, %63 ], [ true, %_ZN28RpcServiceResponseTimeDialog2trEPKcS1_i.exit36 ]
   %338 = landingpad { ptr, i32 }
           cleanup
   %339 = load ptr, ptr %15, align 8
@@ -1057,10 +1057,10 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i74:    ; preds = %337
 341:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i74
   %342 = load ptr, ptr %15, align 8
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %342, i64 noundef 2, i64 noundef 8) #19
-  br i1 %.021, label %343, label %.body
+  br i1 %.023, label %343, label %.body
 
 _ZN7QStringD2Ev.exit76:                           ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i74, %337
-  br i1 %.021, label %343, label %.body
+  br i1 %.023, label %343, label %.body
 
 343:                                              ; preds = %341, %_ZN7QStringD2Ev.exit76.thread, %_ZN7QStringD2Ev.exit76
   %.pn282 = phi { ptr, i32 } [ %336, %_ZN7QStringD2Ev.exit76.thread ], [ %338, %_ZN7QStringD2Ev.exit76 ], [ %338, %341 ]
@@ -1073,7 +1073,7 @@ _ZN7QStringD2Ev.exit80.thread:                    ; preds = %72
   br label %351
 
 345:                                              ; preds = %73, %_ZN28RpcServiceResponseTimeDialog2trEPKcS1_i.exit41
-  %.023 = phi i1 [ false, %73 ], [ true, %_ZN28RpcServiceResponseTimeDialog2trEPKcS1_i.exit41 ]
+  %.021 = phi i1 [ false, %73 ], [ true, %_ZN28RpcServiceResponseTimeDialog2trEPKcS1_i.exit41 ]
   %346 = landingpad { ptr, i32 }
           cleanup
   %347 = load ptr, ptr %16, align 8
@@ -1088,10 +1088,10 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i78:    ; preds = %345
 349:                                              ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i78
   %350 = load ptr, ptr %16, align 8
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %350, i64 noundef 2, i64 noundef 8) #19
-  br i1 %.023, label %351, label %.body
+  br i1 %.021, label %351, label %.body
 
 _ZN7QStringD2Ev.exit80:                           ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i78, %345
-  br i1 %.023, label %351, label %.body
+  br i1 %.021, label %351, label %.body
 
 351:                                              ; preds = %349, %_ZN7QStringD2Ev.exit80.thread, %_ZN7QStringD2Ev.exit80
   %.pn26285 = phi { ptr, i32 } [ %344, %_ZN7QStringD2Ev.exit80.thread ], [ %346, %_ZN7QStringD2Ev.exit80 ], [ %346, %349 ]
@@ -5430,12 +5430,12 @@ _ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit: ; preds = %_ZNKSt8_Rb_treeI7
 
 .lr.ph:                                           ; preds = %58, %.lr.ph
   %61 = phi ptr [ %66, %.lr.ph ], [ %48, %58 ]
-  %.03065 = phi i32 [ %64, %.lr.ph ], [ 0, %58 ]
-  %.03164 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %58 ]
+  %.065 = phi i32 [ %64, %.lr.ph ], [ 0, %58 ]
+  %.03364 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %58 ]
   %62 = load i16, ptr %61, align 8
   %63 = zext i16 %62 to i32
-  %spec.select = call i32 @llvm.umax.i32(i32 %.03164, i32 %63)
-  %64 = add i32 %.03065, 1
+  %spec.select = call i32 @llvm.umax.i32(i32 %.03364, i32 %63)
+  %64 = add i32 %.065, 1
   %65 = sext i32 %64 to i64
   %66 = getelementptr %struct._dcerpc_sub_dissector, ptr %48, i64 %65
   %67 = getelementptr inbounds i8, ptr %66, i64 8
@@ -5448,9 +5448,9 @@ _ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit: ; preds = %_ZNKSt8_Rb_treeI7
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %58
-  %.031.lcssa = phi i32 [ 1, %58 ], [ %69, %._crit_edge.loopexit ]
+  %.033.lcssa = phi i32 [ 1, %58 ], [ %69, %._crit_edge.loopexit ]
   %70 = getelementptr inbounds i8, ptr %53, i64 28
-  store i32 %.031.lcssa, ptr %70, align 4
+  store i32 %.033.lcssa, ptr %70, align 4
   br label %121
 
 71:                                               ; preds = %1
@@ -5559,10 +5559,10 @@ _ZNK4QMapI7QStringjE8containsERKS0_.exit:         ; preds = %_ZNKSt8_Rb_treeI7QS
   br label %128
 
 121:                                              ; preds = %115, %._crit_edge, %1
-  %.0 = phi ptr [ null, %1 ], [ %97, %115 ], [ %53, %._crit_edge ]
+  %.030 = phi ptr [ null, %1 ], [ %97, %115 ], [ %53, %._crit_edge ]
   %122 = getelementptr inbounds i8, ptr %0, i64 224
   %123 = load ptr, ptr %122, align 8
-  invoke void @set_srt_table_param_data(ptr noundef %123, ptr noundef %.0)
+  invoke void @set_srt_table_param_data(ptr noundef %123, ptr noundef %.030)
           to label %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit.thread unwind label %34
 
 _ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit.thread: ; preds = %74, %_ZNKSt8_Rb_treeI7QStringSt4pairIKS0_jESt10_Select1stIS3_ESt4lessIS0_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i, %71, %12, %_ZNKSt8_Rb_treeI7QStringSt4pairIKS0_P9_guid_keyESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i, %9, %121, %_ZNK4QMapI7QStringjE8containsERKS0_.exit, %49, %_ZNK4QMapI7QStringP9_guid_keyE8containsERKS0_.exit
@@ -6862,8 +6862,8 @@ _ZSt14__partial_sortIN5QListI7QStringE8iteratorEN9__gnu_cxx5__ops15_Iter_comp_it
   br label %24
 
 24:                                               ; preds = %31, %20
-  %.sroa.010.0.i.i = phi ptr [ %storemerge19, %20 ], [ %.sroa.010.1.i.i, %31 ]
   %.sroa.012.0.i.i = phi ptr [ %11, %20 ], [ %27, %31 ]
+  %.sroa.010.0.i.i = phi ptr [ %storemerge19, %20 ], [ %.sroa.010.1.i.i, %31 ]
   br label %25
 
 25:                                               ; preds = %25, %24

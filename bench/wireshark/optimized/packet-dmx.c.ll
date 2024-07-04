@@ -284,7 +284,7 @@ define internal i32 @dissect_dmx_chan(ptr noundef %0, ptr nocapture noundef read
 .lr.ph:                                           ; preds = %.lr.ph60, %56
   %27 = phi i32 [ %59, %56 ], [ %25, %.lr.ph60 ]
   %28 = phi i32 [ %58, %56 ], [ 0, %.lr.ph60 ]
-  %.04654 = phi i16 [ %57, %56 ], [ 0, %.lr.ph60 ]
+  %.054 = phi i16 [ %57, %56 ], [ 0, %.lr.ph60 ]
   %29 = mul i32 %27, %indvars.iv
   %30 = add i32 %29, %28
   %31 = icmp slt i32 %30, %17
@@ -340,7 +340,7 @@ define internal i32 @dissect_dmx_chan(ptr noundef %0, ptr nocapture noundef read
   br label %56
 
 56:                                               ; preds = %51, %48, %47
-  %57 = add i16 %.04654, 1
+  %57 = add i16 %.054, 1
   %58 = zext i16 %57 to i32
   %59 = load i32, ptr @global_disp_col_count, align 4
   %60 = icmp sgt i32 %59, %58
@@ -558,13 +558,13 @@ define internal i32 @dissect_dmx_test(ptr noundef %0, ptr nocapture noundef read
   br i1 %16, label %.preheader, label %.loopexit
 
 17:                                               ; preds = %.preheader
-  %18 = add nuw nsw i32 %.060, 1
+  %18 = add nuw nsw i32 %.04760, 1
   %exitcond.not = icmp eq i32 %18, 512
   br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !8
 
 .preheader:                                       ; preds = %8, %17
-  %.060 = phi i32 [ %18, %17 ], [ 0, %8 ]
-  %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.060) #2
+  %.04760 = phi i32 [ %18, %17 ], [ 0, %8 ]
+  %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.04760) #2
   %.not49 = icmp eq i8 %19, 85
   br i1 %.not49, label %17, label %.loopexit
 

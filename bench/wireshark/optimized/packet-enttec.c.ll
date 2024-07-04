@@ -371,7 +371,7 @@ define internal range(i32 0, 65545) i32 @dissect_enttec_udp(ptr noundef %0, ptr 
 .lr.ph181.i:                                      ; preds = %.preheader.i, %157
   %126 = phi i32 [ %160, %157 ], [ %124, %.preheader.i ]
   %127 = phi i32 [ %159, %157 ], [ 0, %.preheader.i ]
-  %.0155180.i = phi i16 [ %158, %157 ], [ 0, %.preheader.i ]
+  %.0154180.i = phi i16 [ %158, %157 ], [ 0, %.preheader.i ]
   %128 = mul i32 %126, %indvars.iv197.i
   %129 = add i32 %128, %127
   %130 = icmp slt i32 %129, %114
@@ -429,7 +429,7 @@ define internal range(i32 0, 65545) i32 @dissect_enttec_udp(ptr noundef %0, ptr 
   br label %157
 
 157:                                              ; preds = %152, %149, %148
-  %158 = add i16 %.0155180.i, 1
+  %158 = add i16 %.0154180.i, 1
   %159 = zext i16 %158 to i32
   %160 = load i32, ptr @global_disp_col_count, align 4
   %161 = icmp sgt i32 %160, %159

@@ -516,8 +516,8 @@ sw.default:                                       ; preds = %if.end37
   br label %return
 
 if.end155:                                        ; preds = %if.end74, %if.end135, %if.end146
-  %dest_len.0 = phi i32 [ 110, %if.end135 ], [ 16, %if.end74 ], [ 0, %if.end146 ]
   %dest_addr.0 = phi ptr [ %call137, %if.end135 ], [ %call75, %if.end74 ], [ null, %if.end146 ]
+  %dest_len.0 = phi i32 [ 110, %if.end135 ], [ 16, %if.end74 ], [ 0, %if.end146 ]
   %fd.0 = phi i32 [ %call119, %if.end135 ], [ %call55, %if.end74 ], [ %call142, %if.end146 ]
   %call.i96 = call ptr @qemu_new_net_client(ptr noundef nonnull @net_dgram_socket_info, ptr noundef %peer, ptr noundef nonnull @.str.17, ptr noundef %name) #12
   %fd2.i = getelementptr inbounds i8, ptr %call.i96, i64 376

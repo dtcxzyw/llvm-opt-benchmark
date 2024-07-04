@@ -229,14 +229,14 @@ ReadHeader.exit:                                  ; preds = %CreateRawImageDemux
   br i1 %.not49122, label %._crit_edge, label %.lr.ph
 
 94:                                               ; preds = %.lr.ph
-  %95 = getelementptr inbounds i8, ptr %.035114123, i64 24
+  %95 = getelementptr inbounds i8, ptr %.034114123, i64 24
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %95, ptr noundef nonnull dereferenceable(4) %93, i64 4)
   %.not49 = icmp eq i32 %bcmp, 0
   br i1 %.not49, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %94, %86
   %.lcssa = phi ptr [ @ParseSingleImage, %86 ], [ %106, %94 ]
-  %.035114.lcssa = phi ptr [ @kMasterChunks, %86 ], [ %95, %94 ]
+  %.034114.lcssa = phi ptr [ @kMasterChunks, %86 ], [ %95, %94 ]
   %96 = tail call i32 %.lcssa(ptr noundef nonnull %84) #13
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %98, label %99
@@ -253,7 +253,7 @@ ReadHeader.exit:                                  ; preds = %CreateRawImageDemux
   br i1 %.not50.not, label %101, label %.critedge
 
 101:                                              ; preds = %99
-  %102 = getelementptr inbounds i8, ptr %.035114.lcssa, i64 16
+  %102 = getelementptr inbounds i8, ptr %.034114.lcssa, i64 16
   %103 = load ptr, ptr %102, align 8
   %104 = tail call i32 %103(ptr noundef nonnull %84) #13
   %.not51 = icmp eq i32 %104, 0
@@ -264,8 +264,8 @@ ReadHeader.exit:                                  ; preds = %CreateRawImageDemux
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %86, %94
-  %.035114123 = phi ptr [ %95, %94 ], [ @kMasterChunks, %86 ]
-  %105 = getelementptr inbounds i8, ptr %.035114123, i64 32
+  %.034114123 = phi ptr [ %95, %94 ], [ @kMasterChunks, %86 ]
+  %105 = getelementptr inbounds i8, ptr %.034114123, i64 32
   %106 = load ptr, ptr %105, align 8
   %.not48 = icmp eq ptr %106, null
   br i1 %.not48, label %.loopexit, label %94, !llvm.loop !4
@@ -287,8 +287,8 @@ ReadHeader.exit:                                  ; preds = %CreateRawImageDemux
   br label %111
 
 111:                                              ; preds = %109, %68, %78, %.thread, %80, %ReadHeader.exit, %79, %9, %12, %7, %110
-  %.034 = phi ptr [ null, %110 ], [ null, %7 ], [ null, %12 ], [ null, %9 ], [ null, %79 ], [ null, %ReadHeader.exit ], [ null, %80 ], [ null, %.thread ], [ %39, %78 ], [ %39, %68 ], [ %84, %109 ]
-  ret ptr %.034
+  %.035 = phi ptr [ null, %110 ], [ null, %7 ], [ null, %12 ], [ null, %9 ], [ null, %79 ], [ null, %ReadHeader.exit ], [ null, %80 ], [ null, %.thread ], [ %39, %78 ], [ %39, %68 ], [ %84, %109 ]
+  ret ptr %.035
 }
 
 declare ptr @WebPSafeCalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
@@ -782,22 +782,22 @@ define internal fastcc range(i32 0, 2) i32 @SetChunk(ptr noundef readonly %0, i3
   %10 = getelementptr inbounds i8, ptr %5, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 88
-  %.011.i = load ptr, ptr %12, align 8
-  %.not12.i.not = icmp eq ptr %.011.i, null
+  %.0911.i = load ptr, ptr %12, align 8
+  %.not12.i.not = icmp eq ptr %.0911.i, null
   br i1 %.not12.i.not, label %ChunkCount.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.i
-  %.014.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.011.i, %9 ]
-  %.0913.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ 0, %9 ]
-  %13 = load i64, ptr %.014.i, align 8
+  %.0914.i = phi ptr [ %.09.i, %.lr.ph.i ], [ %.0911.i, %9 ]
+  %.013.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ 0, %9 ]
+  %13 = load i64, ptr %.0914.i, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 %13
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %14, ptr noundef nonnull readonly dereferenceable(4) %0, i64 4)
   %.not10.i = icmp eq i32 %bcmp.i, 0
   %15 = zext i1 %.not10.i to i32
-  %spec.select.i = add nuw nsw i32 %.0913.i, %15
-  %16 = getelementptr inbounds i8, ptr %.014.i, i64 16
-  %.0.i = load ptr, ptr %16, align 8
-  %.not.i = icmp eq ptr %.0.i, null
+  %spec.select.i = add nuw nsw i32 %.013.i, %15
+  %16 = getelementptr inbounds i8, ptr %.0914.i, i64 16
+  %.09.i = load ptr, ptr %16, align 8
+  %.not.i = icmp eq ptr %.09.i, null
   br i1 %.not.i, label %ChunkCount.exit, label %.lr.ph.i, !llvm.loop !9
 
 ChunkCount.exit:                                  ; preds = %.lr.ph.i
@@ -811,36 +811,36 @@ ChunkCount.exit:                                  ; preds = %.lr.ph.i
   br i1 %.not, label %ChunkCount.exit.thread, label %20
 
 20:                                               ; preds = %18
-  %21 = load i64, ptr %.011.i, align 8
+  %21 = load i64, ptr %.0911.i, align 8
   %22 = getelementptr inbounds i8, ptr %11, i64 %21
-  %bcmp.i3339 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %22, ptr noundef nonnull readonly dereferenceable(4) %0, i64 4)
-  %.not12.i3440 = icmp eq i32 %bcmp.i3339, 0
-  %23 = zext i1 %.not12.i3440 to i32
+  %bcmp.i3338 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %22, ptr noundef nonnull readonly dereferenceable(4) %0, i64 4)
+  %.not12.i3439 = icmp eq i32 %bcmp.i3338, 0
+  %23 = zext i1 %.not12.i3439 to i32
   %24 = icmp eq i32 %spec.select, %23
   br i1 %24, label %GetChunk.exit, label %.lr.ph.i32
 
 .lr.ph.i32:                                       ; preds = %20, %.lr.ph.i32
-  %spec.select.i3542 = phi i32 [ %spec.select.i35, %.lr.ph.i32 ], [ %23, %20 ]
-  %.016.i41 = phi ptr [ %.0.i36, %.lr.ph.i32 ], [ %.011.i, %20 ]
-  %25 = getelementptr inbounds i8, ptr %.016.i41, i64 16
-  %.0.i36 = load ptr, ptr %25, align 8, !nonnull !10, !noundef !10
-  %26 = load i64, ptr %.0.i36, align 8
+  %spec.select.i3541 = phi i32 [ %spec.select.i35, %.lr.ph.i32 ], [ %23, %20 ]
+  %.01116.i40 = phi ptr [ %.011.i, %.lr.ph.i32 ], [ %.0911.i, %20 ]
+  %25 = getelementptr inbounds i8, ptr %.01116.i40, i64 16
+  %.011.i = load ptr, ptr %25, align 8, !nonnull !10, !noundef !10
+  %26 = load i64, ptr %.011.i, align 8
   %27 = getelementptr inbounds i8, ptr %11, i64 %26
   %bcmp.i33 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %27, ptr noundef nonnull readonly dereferenceable(4) %0, i64 4)
   %.not12.i34 = icmp eq i32 %bcmp.i33, 0
   %28 = zext i1 %.not12.i34 to i32
-  %spec.select.i35 = add nuw nsw i32 %spec.select.i3542, %28
+  %spec.select.i35 = add nuw nsw i32 %spec.select.i3541, %28
   %29 = icmp eq i32 %spec.select.i35, %spec.select
   br i1 %29, label %GetChunk.exit, label %.lr.ph.i32
 
 GetChunk.exit:                                    ; preds = %.lr.ph.i32, %20
   %30 = phi i64 [ %21, %20 ], [ %26, %.lr.ph.i32 ]
-  %.016.i.lcssa = phi ptr [ %.011.i, %20 ], [ %.0.i36, %.lr.ph.i32 ]
+  %.01116.i.lcssa = phi ptr [ %.0911.i, %20 ], [ %.011.i, %.lr.ph.i32 ]
   %31 = getelementptr inbounds i8, ptr %11, i64 %30
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %.016.i.lcssa, i64 8
+  %34 = getelementptr inbounds i8, ptr %.01116.i.lcssa, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, -8
   %37 = getelementptr inbounds i8, ptr %2, i64 16
@@ -1215,15 +1215,15 @@ define internal range(i32 0, 2) i32 @IsValidExtendedFormat(ptr nocapture noundef
   br i1 %.not4367, label %CheckFrameBounds.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29, %.preheader
-  %.03968 = phi ptr [ %6, %.preheader ], [ %.166, %29 ]
-  %26 = getelementptr inbounds i8, ptr %.03968, i64 32
+  %.068 = phi ptr [ %6, %.preheader ], [ %.166, %29 ]
+  %26 = getelementptr inbounds i8, ptr %.068, i64 32
   %27 = load i32, ptr %26, align 8
   %28 = icmp sgt i32 %27, 1
   %or.cond51 = and i1 %.not, %28
   br label %29
 
 29:                                               ; preds = %.lr.ph, %CheckFrameBounds.exit
-  %.166 = phi ptr [ %.03968, %.lr.ph ], [ %95, %CheckFrameBounds.exit ]
+  %.166 = phi ptr [ %.068, %.lr.ph ], [ %95, %CheckFrameBounds.exit ]
   %30 = getelementptr inbounds i8, ptr %.166, i64 32
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, %27
@@ -1351,8 +1351,8 @@ CheckFrameBounds.exit:                            ; preds = %86, %81, %72, %.thr
   br i1 %.not44, label %CheckFrameBounds.exit.thread, label %29, !llvm.loop !12
 
 CheckFrameBounds.exit.thread:                     ; preds = %CheckFrameBounds.exit, %84, %86, %80, %81, %69, %65, %58, %.thread, %54, %47, %43, %33, %.preheader, %22, %18, %10, %14, %1
-  %.0 = phi i32 [ 1, %1 ], [ 0, %14 ], [ 0, %10 ], [ 0, %18 ], [ 0, %22 ], [ 1, %.preheader ], [ 1, %CheckFrameBounds.exit ], [ 0, %84 ], [ 0, %86 ], [ 0, %80 ], [ 0, %81 ], [ 0, %69 ], [ 0, %65 ], [ 0, %58 ], [ 0, %.thread ], [ 0, %54 ], [ 0, %47 ], [ 0, %43 ], [ 0, %33 ]
-  ret i32 %.0
+  %.039 = phi i32 [ 1, %1 ], [ 0, %14 ], [ 0, %10 ], [ 0, %18 ], [ 0, %22 ], [ 1, %.preheader ], [ 1, %CheckFrameBounds.exit ], [ 0, %84 ], [ 0, %86 ], [ 0, %80 ], [ 0, %81 ], [ 0, %69 ], [ 0, %65 ], [ 0, %58 ], [ 0, %.thread ], [ 0, %54 ], [ 0, %47 ], [ 0, %43 ], [ 0, %33 ]
+  ret i32 %.039
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1385,8 +1385,8 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef %0, i32 nound
 22:                                               ; preds = %.preheader, %62
   %.val74 = phi i64 [ %.val68, %62 ], [ %.val78, %.preheader ]
   %23 = phi i64 [ %.sink, %62 ], [ %.val77, %.preheader ]
-  %.056 = phi i32 [ %.157, %62 ], [ 0, %.preheader ]
-  %.055 = phi i32 [ %.1, %62 ], [ 0, %.preheader ]
+  %.060 = phi i32 [ %.161, %62 ], [ 0, %.preheader ]
+  %.058 = phi i32 [ %.159, %62 ], [ 0, %.preheader ]
   %24 = load ptr, ptr %11, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 %23
   %.val.i.i = load i32, ptr %25, align 1
@@ -1421,7 +1421,7 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef %0, i32 nound
   ]
 
 39:                                               ; preds = %37
-  %40 = icmp eq i32 %.055, 0
+  %40 = icmp eq i32 %.060, 0
   br i1 %40, label %41, label %59
 
 41:                                               ; preds = %39
@@ -1432,11 +1432,11 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef %0, i32 nound
   br label %.sink.split
 
 42:                                               ; preds = %37
-  %43 = icmp sgt i32 %.055, 0
+  %43 = icmp sgt i32 %.060, 0
   br i1 %43, label %.thread, label %44
 
 44:                                               ; preds = %42, %37
-  %45 = icmp eq i32 %.056, 0
+  %45 = icmp eq i32 %.058, 0
   br i1 %45, label %46, label %59
 
 46:                                               ; preds = %44
@@ -1465,17 +1465,17 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef %0, i32 nound
   br label %.sink.split
 
 .sink.split:                                      ; preds = %41, %50
-  %.157.ph = phi i32 [ %.056, %41 ], [ 1, %50 ]
-  %.1.ph = phi i32 [ 1, %41 ], [ %.055, %50 ]
+  %.161.ph = phi i32 [ 1, %41 ], [ %.060, %50 ]
+  %.159.ph = phi i32 [ %.058, %41 ], [ 1, %50 ]
   %57 = load i64, ptr %2, align 8
   %58 = add i64 %57, %spec.select86
   br label %59
 
 59:                                               ; preds = %.sink.split, %37, %44, %39
   %.sink = phi i64 [ %23, %39 ], [ %23, %44 ], [ %23, %37 ], [ %58, %.sink.split ]
+  %.161 = phi i32 [ %.060, %39 ], [ %.060, %44 ], [ %.060, %37 ], [ %.161.ph, %.sink.split ]
+  %.159 = phi i32 [ %.058, %39 ], [ %.058, %44 ], [ %.058, %37 ], [ %.159.ph, %.sink.split ]
   %.not66 = phi i1 [ false, %39 ], [ false, %44 ], [ false, %37 ], [ true, %.sink.split ]
-  %.157 = phi i32 [ %.056, %39 ], [ %.056, %44 ], [ %.056, %37 ], [ %.157.ph, %.sink.split ]
-  %.1 = phi i32 [ %.055, %39 ], [ %.055, %44 ], [ %.055, %37 ], [ %.1.ph, %.sink.split ]
   store i64 %.sink, ptr %2, align 8
   %60 = load i64, ptr %12, align 8
   %61 = icmp eq i64 %.sink, %60
@@ -1491,8 +1491,8 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef %0, i32 nound
   br i1 %66, label %22, label %.thread, !llvm.loop !13
 
 .thread:                                          ; preds = %59, %62, %49, %46, %42, %30, %22, %4
-  %.0 = phi i32 [ 1, %4 ], [ %spec.select, %59 ], [ %spec.select67, %62 ], [ 2, %49 ], [ 1, %46 ], [ 2, %42 ], [ 2, %30 ], [ 2, %22 ]
-  ret i32 %.0
+  %.062 = phi i32 [ 1, %4 ], [ %spec.select, %59 ], [ %spec.select67, %62 ], [ 2, %49 ], [ 1, %46 ], [ 2, %42 ], [ 2, %30 ], [ 2, %22 ]
+  ret i32 %.062
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1514,7 +1514,7 @@ define internal fastcc i32 @ParseVP8XChunks(ptr nocapture noundef %0) unnamed_ad
 
 14:                                               ; preds = %184, %1
   %15 = phi i64 [ %.pre, %1 ], [ %181, %184 ]
-  %.046 = phi i32 [ 0, %1 ], [ %.1, %184 ]
+  %.047 = phi i32 [ 0, %1 ], [ %.148, %184 ]
   %16 = load ptr, ptr %7, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 %15
   %.val.i.i = load i32, ptr %17, align 1
@@ -1550,7 +1550,7 @@ define internal fastcc i32 @ParseVP8XChunks(ptr nocapture noundef %0) unnamed_ad
   ]
 
 28:                                               ; preds = %27, %27, %27
-  %29 = icmp sgt i32 %.046, 0
+  %29 = icmp sgt i32 %.047, 0
   %or.cond = select i1 %29, i1 true, i1 %5
   br i1 %or.cond, label %StoreChunk.exit.thread, label %30
 
@@ -1570,7 +1570,7 @@ define internal fastcc i32 @ParseVP8XChunks(ptr nocapture noundef %0) unnamed_ad
   br i1 %36, label %ParseAnimationFrame.exit, label %37
 
 37:                                               ; preds = %34
-  %38 = icmp eq i32 %.046, 0
+  %38 = icmp eq i32 %.047, 0
   br i1 %38, label %39, label %.thread77
 
 39:                                               ; preds = %37
@@ -1591,7 +1591,7 @@ define internal fastcc i32 @ParseVP8XChunks(ptr nocapture noundef %0) unnamed_ad
   br label %ParseAnimationFrame.exit
 
 48:                                               ; preds = %27
-  %49 = icmp eq i32 %.046, 0
+  %49 = icmp eq i32 %.047, 0
   br i1 %49, label %StoreChunk.exit.thread, label %50
 
 50:                                               ; preds = %48
@@ -1822,8 +1822,8 @@ StoreChunk.exit:                                  ; preds = %.thread71
   br label %ParseAnimationFrame.exit
 
 ParseAnimationFrame.exit:                         ; preds = %.thread77, %.thread, %.thread.i, %158, %136, %59, %56, %50, %164, %34, %.thread82, %39, %30
-  %.148 = phi i32 [ 0, %.thread82 ], [ 0, %39 ], [ %31, %30 ], [ 1, %34 ], [ 1, %164 ], [ 2, %136 ], [ %.1.ph.i, %.thread.i ], [ %141, %158 ], [ 1, %56 ], [ 2, %50 ], [ 2, %59 ], [ 1, %.thread ], [ 1, %.thread77 ]
-  %.1 = phi i32 [ %.046, %.thread82 ], [ 1, %39 ], [ 0, %30 ], [ %.046, %34 ], [ %.046, %164 ], [ 1, %136 ], [ 1, %.thread.i ], [ 1, %158 ], [ 1, %56 ], [ 1, %50 ], [ 1, %59 ], [ %.046, %.thread ], [ %.046, %.thread77 ]
+  %.148 = phi i32 [ %.047, %.thread82 ], [ 1, %39 ], [ 0, %30 ], [ %.047, %34 ], [ %.047, %164 ], [ 1, %50 ], [ 1, %56 ], [ 1, %59 ], [ 1, %136 ], [ 1, %158 ], [ 1, %.thread.i ], [ %.047, %.thread ], [ %.047, %.thread77 ]
+  %.1 = phi i32 [ 0, %.thread82 ], [ 0, %39 ], [ %31, %30 ], [ 1, %34 ], [ 1, %164 ], [ 2, %50 ], [ 1, %56 ], [ 2, %59 ], [ 2, %136 ], [ %141, %158 ], [ %.1.ph.i, %.thread.i ], [ 1, %.thread ], [ 1, %.thread77 ]
   %181 = load i64, ptr %0, align 8
   %182 = load i64, ptr %8, align 8
   %183 = icmp eq i64 %181, %182
@@ -1833,13 +1833,13 @@ ParseAnimationFrame.exit:                         ; preds = %.thread77, %.thread
   %.val58 = load i64, ptr %6, align 8
   %185 = sub i64 %.val58, %181
   %186 = icmp ult i64 %185, 8
-  %spec.select = select i1 %186, i32 1, i32 %.148
+  %spec.select = select i1 %186, i32 1, i32 %.1
   %187 = icmp eq i32 %spec.select, 0
   br i1 %187, label %14, label %StoreChunk.exit.thread, !llvm.loop !14
 
 StoreChunk.exit.thread:                           ; preds = %.thread71, %184, %ParseAnimationFrame.exit, %48, %32, %28, %27, %22, %14
-  %.0 = phi i32 [ 2, %14 ], [ 2, %22 ], [ 2, %27 ], [ 2, %28 ], [ 2, %32 ], [ 2, %48 ], [ %.148, %ParseAnimationFrame.exit ], [ %spec.select, %184 ], [ 2, %.thread71 ]
-  ret i32 %.0
+  %.049 = phi i32 [ 2, %14 ], [ 2, %22 ], [ 2, %27 ], [ 2, %28 ], [ 2, %32 ], [ 2, %48 ], [ %.1, %ParseAnimationFrame.exit ], [ %spec.select, %184 ], [ 2, %.thread71 ]
+  ret i32 %.049
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)

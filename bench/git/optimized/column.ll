@@ -354,13 +354,13 @@ for.body.lr.ph.i29.i:                             ; preds = %compute_column_widt
 
 for.body.i30.i:                                   ; preds = %for.body.i30.i, %for.body.lr.ph.i29.i
   %indvars.iv.i31.i = phi i64 [ 0, %for.body.lr.ph.i29.i ], [ %indvars.iv.next.i33.i, %for.body.i30.i ]
-  %total_width.093.i.i = phi i32 [ %conv25.i.i, %for.body.lr.ph.i29.i ], [ %add34.i.i, %for.body.i30.i ]
+  %total_width.094.i.i = phi i32 [ %conv25.i.i, %for.body.lr.ph.i29.i ], [ %add34.i.i, %for.body.i30.i ]
   %arrayidx.i32.i = getelementptr inbounds i32, ptr %data.sroa.60.1.i, i64 %indvars.iv.i31.i
   %48 = load i32, ptr %arrayidx.i32.i, align 4
   %idxprom30.i.i = sext i32 %48 to i64
   %arrayidx31.i.i = getelementptr inbounds i32, ptr %call4.i, i64 %idxprom30.i.i
   %49 = load i32, ptr %arrayidx31.i.i, align 4
-  %add32.i.i = add i32 %total_width.093.i.i, %nopts.sroa.3.1
+  %add32.i.i = add i32 %total_width.094.i.i, %nopts.sroa.3.1
   %add34.i.i = add i32 %add32.i.i, %49
   %indvars.iv.next.i33.i = add nuw nsw i64 %indvars.iv.i31.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i33.i, %wide.trip.count.i.i

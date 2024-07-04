@@ -42,21 +42,21 @@ define range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture noundef
   br label %15
 
 15:                                               ; preds = %._crit_edge, %19
-  %.0198245 = phi i32 [ 15, %._crit_edge ], [ %20, %19 ]
-  %16 = zext i32 %.0198245 to i64
+  %.0197245 = phi i32 [ 15, %._crit_edge ], [ %20, %19 ]
+  %16 = zext i32 %.0197245 to i64
   %17 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %16
   %18 = load i16, ptr %17, align 2
   %.not213 = icmp eq i16 %18, 0
   br i1 %.not213, label %19, label %21
 
 19:                                               ; preds = %15
-  %20 = add nsw i32 %.0198245, -1
+  %20 = add nsw i32 %.0197245, -1
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %23, label %15, !llvm.loop !6
 
 21:                                               ; preds = %15
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %14, i32 %.0198245)
-  %22 = icmp ugt i32 %.0198245, 1
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %14, i32 %.0197245)
+  %22 = icmp ugt i32 %.0197245, 1
   br i1 %22, label %.lr.ph248, label %._crit_edge249
 
 23:                                               ; preds = %19
@@ -95,8 +95,8 @@ define range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture noundef
   br label %._crit_edge249
 
 ._crit_edge249:                                   ; preds = %30, %._crit_edge249.loopexit.split.loop.exit, %21
-  %.0199.lcssa = phi i32 [ 1, %21 ], [ %31, %._crit_edge249.loopexit.split.loop.exit ], [ %.0198245, %30 ]
-  %spec.select221 = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 %.0199.lcssa)
+  %.0198.lcssa = phi i32 [ 1, %21 ], [ %31, %._crit_edge249.loopexit.split.loop.exit ], [ %.0197245, %30 ]
+  %spec.select221 = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 %.0198.lcssa)
   br label %33
 
 32:                                               ; preds = %33
@@ -106,8 +106,8 @@ define range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture noundef
 
 33:                                               ; preds = %._crit_edge249, %32
   %indvars.iv286 = phi i64 [ 1, %._crit_edge249 ], [ %indvars.iv.next287, %32 ]
-  %.0189253 = phi i32 [ 1, %._crit_edge249 ], [ %38, %32 ]
-  %34 = shl i32 %.0189253, 1
+  %.0188253 = phi i32 [ 1, %._crit_edge249 ], [ %38, %32 ]
+  %34 = shl i32 %.0188253, 1
   %35 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv286
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
@@ -121,7 +121,7 @@ define range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture noundef
 
 41:                                               ; preds = %40
   %42 = icmp eq i32 %0, 0
-  %43 = icmp ne i32 %.0198245, 1
+  %43 = icmp ne i32 %.0197245, 1
   %or.cond = or i1 %42, %43
   br i1 %or.cond, label %.loopexit, label %44
 
@@ -202,24 +202,24 @@ define range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture noundef
   br label %.outer
 
 .outer:                                           ; preds = %152, %.preheader
-  %.3.ph = phi i32 [ %.4, %152 ], [ %.0199.lcssa, %.preheader ]
-  %.2202.ph = phi i32 [ %109, %152 ], [ 0, %.preheader ]
-  %.0193.ph = phi i32 [ %.1194.lcssa, %152 ], [ %spec.select221, %.preheader ]
-  %.0191.ph = phi i32 [ %spec.select222, %152 ], [ 0, %.preheader ]
-  %.0187.ph = phi i32 [ %149, %152 ], [ %70, %.preheader ]
-  %.0185.ph = phi i32 [ %.1186, %152 ], [ 0, %.preheader ]
-  %.0181.ph = phi i32 [ %128, %152 ], [ -1, %.preheader ]
+  %.3.ph = phi i32 [ %.4, %152 ], [ %.0198.lcssa, %.preheader ]
+  %.2201.ph = phi i32 [ %109, %152 ], [ 0, %.preheader ]
+  %.0192.ph = phi i32 [ %.1193.lcssa, %152 ], [ %spec.select221, %.preheader ]
+  %.0190.ph = phi i32 [ %spec.select222, %152 ], [ 0, %.preheader ]
+  %.0186.ph = phi i32 [ %149, %152 ], [ %70, %.preheader ]
+  %.0184.ph = phi i32 [ %.1185, %152 ], [ 0, %.preheader ]
+  %.0180.ph = phi i32 [ %128, %152 ], [ -1, %.preheader ]
   %.0179.ph = phi ptr [ %132, %152 ], [ %72, %.preheader ]
-  %74 = shl nuw i32 1, %.0193.ph
+  %74 = shl nuw i32 1, %.0192.ph
   br label %75
 
 75:                                               ; preds = %.backedge, %.outer
   %.3 = phi i32 [ %.3.ph, %.outer ], [ %.4, %.backedge ]
-  %.2202 = phi i32 [ %.2202.ph, %.outer ], [ %109, %.backedge ]
-  %.0185 = phi i32 [ %.0185.ph, %.outer ], [ %.1186, %.backedge ]
-  %76 = sub i32 %.3, %.0191.ph
+  %.2201 = phi i32 [ %.2201.ph, %.outer ], [ %109, %.backedge ]
+  %.0184 = phi i32 [ %.0184.ph, %.outer ], [ %.1185, %.backedge ]
+  %76 = sub i32 %.3, %.0190.ph
   %77 = trunc i32 %76 to i8
-  %78 = zext i32 %.2202 to i64
+  %78 = zext i32 %.2201 to i64
   %79 = getelementptr inbounds i16, ptr %5, i64 %78
   %80 = load i16, ptr %79, align 2
   %81 = zext i16 %80 to i32
@@ -243,12 +243,12 @@ define range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture noundef
   %.sroa.12.0 = phi i16 [ %91, %85 ], [ %80, %75 ], [ 0, %83 ]
   %.sroa.0.0 = phi i8 [ %89, %85 ], [ 0, %75 ], [ 96, %83 ]
   %.neg = shl nsw i32 -1, %76
-  %93 = lshr i32 %.0185, %.0191.ph
+  %93 = lshr i32 %.0184, %.0190.ph
   br label %94
 
 94:                                               ; preds = %94, %92
-  %.0183 = phi i32 [ %74, %92 ], [ %95, %94 ]
-  %95 = add i32 %.0183, %.neg
+  %.0182 = phi i32 [ %74, %92 ], [ %95, %94 ]
+  %95 = add i32 %.0182, %.neg
   %96 = add i32 %95, %93
   %97 = zext i32 %96 to i64
   %98 = getelementptr inbounds %struct.code, ptr %.0179.ph, i64 %97
@@ -266,19 +266,19 @@ define range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture noundef
   br label %102
 
 102:                                              ; preds = %102, %99
-  %.0184 = phi i32 [ %101, %99 ], [ %104, %102 ]
-  %103 = and i32 %.0184, %.0185
+  %.0183 = phi i32 [ %101, %99 ], [ %104, %102 ]
+  %103 = and i32 %.0183, %.0184
   %.not216 = icmp eq i32 %103, 0
-  %104 = lshr i32 %.0184, 1
+  %104 = lshr i32 %.0183, 1
   br i1 %.not216, label %105, label %102, !llvm.loop !12
 
 105:                                              ; preds = %102
-  %.not217 = icmp eq i32 %.0184, 0
-  %106 = add i32 %.0184, -1
-  %107 = and i32 %106, %.0185
-  %108 = add i32 %107, %.0184
-  %.1186 = select i1 %.not217, i32 0, i32 %108
-  %109 = add i32 %.2202, 1
+  %.not217 = icmp eq i32 %.0183, 0
+  %106 = add i32 %.0183, -1
+  %107 = and i32 %106, %.0184
+  %108 = add i32 %107, %.0183
+  %.1185 = select i1 %.not217, i32 0, i32 %108
+  %109 = add i32 %.2201, 1
   %110 = zext i32 %.3 to i64
   %111 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %110
   %112 = load i16, ptr %111, align 2
@@ -288,7 +288,7 @@ define range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture noundef
   br i1 %114, label %115, label %125
 
 115:                                              ; preds = %105
-  %116 = icmp eq i32 %.3, %.0198245
+  %116 = icmp eq i32 %.3, %.0197245
   br i1 %116, label %166, label %117
 
 117:                                              ; preds = %115
@@ -307,55 +307,55 @@ define range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture noundef
   br i1 %126, label %127, label %.backedge
 
 127:                                              ; preds = %125
-  %128 = and i32 %.1186, %71
-  %.not218 = icmp eq i32 %128, %.0181.ph
+  %128 = and i32 %.1185, %71
+  %.not218 = icmp eq i32 %128, %.0180.ph
   br i1 %.not218, label %.backedge, label %129
 
 .backedge:                                        ; preds = %127, %125
   br label %75
 
 129:                                              ; preds = %127
-  %130 = icmp eq i32 %.0191.ph, 0
-  %spec.select222 = select i1 %130, i32 %spec.select221, i32 %.0191.ph
+  %130 = icmp eq i32 %.0190.ph, 0
+  %spec.select222 = select i1 %130, i32 %spec.select221, i32 %.0190.ph
   %131 = zext i32 %74 to i64
   %132 = getelementptr inbounds %struct.code, ptr %.0179.ph, i64 %131
   %133 = sub i32 %.4, %spec.select222
   %134 = shl nuw i32 1, %133
-  %135 = icmp ult i32 %.4, %.0198245
+  %135 = icmp ult i32 %.4, %.0197245
   br i1 %135, label %.lr.ph261.preheader, label %._crit_edge262
 
 .lr.ph261.preheader:                              ; preds = %129
-  %136 = sub i32 %.0198245, %spec.select222
+  %136 = sub i32 %.0197245, %spec.select222
   br label %.lr.ph261
 
 .lr.ph261:                                        ; preds = %.lr.ph261.preheader, %144
   %137 = phi i32 [ %147, %144 ], [ %.4, %.lr.ph261.preheader ]
-  %.1190259 = phi i32 [ %146, %144 ], [ %134, %.lr.ph261.preheader ]
-  %.1194258 = phi i32 [ %145, %144 ], [ %133, %.lr.ph261.preheader ]
+  %.1189259 = phi i32 [ %146, %144 ], [ %134, %.lr.ph261.preheader ]
+  %.1193258 = phi i32 [ %145, %144 ], [ %133, %.lr.ph261.preheader ]
   %138 = zext i32 %137 to i64
   %139 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %138
   %140 = load i16, ptr %139, align 2
   %141 = zext i16 %140 to i32
-  %142 = sub nsw i32 %.1190259, %141
+  %142 = sub nsw i32 %.1189259, %141
   %143 = icmp slt i32 %142, 1
   br i1 %143, label %._crit_edge262.loopexit, label %144
 
 144:                                              ; preds = %.lr.ph261
-  %145 = add i32 %.1194258, 1
+  %145 = add i32 %.1193258, 1
   %146 = shl nuw i32 %142, 1
   %147 = add i32 %145, %spec.select222
-  %148 = icmp ult i32 %147, %.0198245
+  %148 = icmp ult i32 %147, %.0197245
   br i1 %148, label %.lr.ph261, label %._crit_edge262.loopexit, !llvm.loop !13
 
 ._crit_edge262.loopexit:                          ; preds = %.lr.ph261, %144
-  %.1194.lcssa.ph = phi i32 [ %136, %144 ], [ %.1194258, %.lr.ph261 ]
-  %.pre = shl nuw i32 1, %.1194.lcssa.ph
+  %.1193.lcssa.ph = phi i32 [ %136, %144 ], [ %.1193258, %.lr.ph261 ]
+  %.pre = shl nuw i32 1, %.1193.lcssa.ph
   br label %._crit_edge262
 
 ._crit_edge262:                                   ; preds = %._crit_edge262.loopexit, %129
   %.pre-phi = phi i32 [ %.pre, %._crit_edge262.loopexit ], [ %134, %129 ]
-  %.1194.lcssa = phi i32 [ %.1194.lcssa.ph, %._crit_edge262.loopexit ], [ %133, %129 ]
-  %149 = add i32 %.pre-phi, %.0187.ph
+  %.1193.lcssa = phi i32 [ %.1193.lcssa.ph, %._crit_edge262.loopexit ], [ %133, %129 ]
+  %149 = add i32 %.pre-phi, %.0186.ph
   %150 = icmp ugt i32 %149, 852
   %or.cond7 = select i1 %69, i1 %150, i1 false
   %151 = icmp ugt i32 %149, 592
@@ -364,7 +364,7 @@ define range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture noundef
   br i1 %or.cond223, label %.loopexit, label %152
 
 152:                                              ; preds = %._crit_edge262
-  %153 = trunc i32 %.1194.lcssa to i8
+  %153 = trunc i32 %.1193.lcssa to i8
   %154 = load ptr, ptr %3, align 8
   %155 = zext i32 %128 to i64
   %156 = getelementptr inbounds %struct.code, ptr %154, i64 %155
@@ -383,11 +383,11 @@ define range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture noundef
   br label %.outer
 
 166:                                              ; preds = %115
-  %.not219 = icmp eq i32 %.1186, 0
+  %.not219 = icmp eq i32 %.1185, 0
   br i1 %.not219, label %170, label %167
 
 167:                                              ; preds = %166
-  %168 = zext i32 %.1186 to i64
+  %168 = zext i32 %.1185 to i64
   %169 = getelementptr inbounds %struct.code, ptr %.0179.ph, i64 %168
   store i8 64, ptr %169, align 2
   %.sroa.9.0..sroa_idx25 = getelementptr inbounds i8, ptr %169, i64 1
@@ -398,7 +398,7 @@ define range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture noundef
 
 170:                                              ; preds = %167, %166
   %171 = load ptr, ptr %3, align 8
-  %172 = zext i32 %.0187.ph to i64
+  %172 = zext i32 %.0186.ph to i64
   %173 = getelementptr inbounds %struct.code, ptr %171, i64 %172
   store ptr %173, ptr %3, align 8
   br label %.loopexit.sink.split
@@ -409,8 +409,8 @@ define range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %._crit_edge262, %.loopexit.sink.split, %63, %65, %41
-  %.0180 = phi i32 [ -1, %41 ], [ 1, %65 ], [ 1, %63 ], [ 0, %.loopexit.sink.split ], [ 1, %._crit_edge262 ], [ -1, %33 ]
-  ret i32 %.0180
+  %.0205 = phi i32 [ -1, %41 ], [ 1, %65 ], [ 1, %63 ], [ 0, %.loopexit.sink.split ], [ 1, %._crit_edge262 ], [ -1, %33 ]
+  ret i32 %.0205
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

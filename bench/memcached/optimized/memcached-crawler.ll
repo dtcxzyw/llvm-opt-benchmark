@@ -695,8 +695,8 @@ if.then5:                                         ; preds = %while.body
   br i1 %call1910.i, label %while.body.lr.ph.i, label %item_crawl_hash.exit
 
 while.body.lr.ph.i:                               ; preds = %if.then5, %while.cond.outer.backedge.i
-  %crawls_persleep.0.ph12.i = phi i32 [ %crawls_persleep.0.ph.be.i, %while.cond.outer.backedge.i ], [ %6, %if.then5 ]
-  %items.0.ph11.i = phi i32 [ %items.0.ph.be.i, %while.cond.outer.backedge.i ], [ 0, %if.then5 ]
+  %items.0.ph12.i = phi i32 [ %items.0.ph.be.i, %while.cond.outer.backedge.i ], [ 0, %if.then5 ]
+  %crawls_persleep.0.ph11.i = phi i32 [ %crawls_persleep.0.ph.be.i, %while.cond.outer.backedge.i ], [ %6, %if.then5 ]
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.then29.i, %while.body.lr.ph.i
@@ -710,7 +710,7 @@ if.then.i:                                        ; preds = %while.body.i
   br i1 %cmp2.not.i, label %if.else.i, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %cmp4.i = icmp sgt i32 %items.0.ph11.i, 16
+  %cmp4.i = icmp sgt i32 %items.0.ph12.i, 16
   br i1 %cmp4.i, label %if.then5.i, label %if.end12.i
 
 if.then5.i:                                       ; preds = %if.then3.i
@@ -726,8 +726,8 @@ if.else.i:                                        ; preds = %if.then.i
   br i1 %tobool.i, label %item_crawl_hash.exit, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.else.i, %if.then5.i, %if.then3.i
-  %items.1.i = phi i32 [ 0, %if.then5.i ], [ %items.0.ph11.i, %if.then3.i ], [ %items.0.ph11.i, %if.else.i ]
-  %cmp13.i = icmp sgt i32 %crawls_persleep.0.ph12.i, 0
+  %items.1.i = phi i32 [ 0, %if.then5.i ], [ %items.0.ph12.i, %if.then3.i ], [ %items.0.ph12.i, %if.else.i ]
+  %cmp13.i = icmp sgt i32 %crawls_persleep.0.ph11.i, 0
   %11 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 192), align 8
   %tobool14.not.i = icmp eq i32 %11, 0
   %or.cond.i = select i1 %cmp13.i, i1 true, i1 %tobool14.not.i
@@ -750,8 +750,8 @@ if.then21.i:                                      ; preds = %if.else19.i
   br label %while.cond.outer.backedge.i
 
 while.cond.outer.backedge.i:                      ; preds = %if.end44.i, %if.then21.i, %if.else19.i, %if.then15.i
-  %items.0.ph.be.i = phi i32 [ %inc46.i, %if.end44.i ], [ %items.1.i, %if.else19.i ], [ %items.1.i, %if.then21.i ], [ %items.1.i, %if.then15.i ]
-  %crawls_persleep.0.ph.be.i = phi i32 [ %dec45.i, %if.end44.i ], [ %crawls_persleep.0.ph12.i, %if.else19.i ], [ %crawls_persleep.0.ph12.i, %if.then21.i ], [ %13, %if.then15.i ]
+  %crawls_persleep.0.ph.be.i = phi i32 [ %dec45.i, %if.end44.i ], [ %13, %if.then15.i ], [ %crawls_persleep.0.ph11.i, %if.else19.i ], [ %crawls_persleep.0.ph11.i, %if.then21.i ]
+  %items.0.ph.be.i = phi i32 [ %inc46.i, %if.end44.i ], [ %items.1.i, %if.then15.i ], [ %items.1.i, %if.else19.i ], [ %items.1.i, %if.then21.i ]
   %call19.i = call zeroext i1 @assoc_iterate(ptr noundef %call.i, ptr noundef nonnull %it.i) #17
   br i1 %call19.i, label %while.body.lr.ph.i, label %item_crawl_hash.exit, !llvm.loop !8
 
@@ -800,8 +800,8 @@ if.end44.i:                                       ; preds = %lru_crawler_expand_
   %eval.i = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load ptr, ptr %eval.i, align 8
   call void %21(ptr noundef nonnull @active_crawler_mod, ptr noundef %19, i32 noundef 0, i32 noundef 0) #17
-  %dec45.i = add nsw i32 %crawls_persleep.0.ph12.i, -1
-  %inc46.i = add nsw i32 %items.0.ph11.i, 1
+  %dec45.i = add nsw i32 %crawls_persleep.0.ph11.i, -1
+  %inc46.i = add nsw i32 %items.0.ph12.i, 1
   br label %while.cond.outer.backedge.i
 
 item_crawl_hash.exit:                             ; preds = %if.then5.i, %if.else.i, %while.cond.outer.backedge.i, %if.then37.i, %if.then29.i, %if.then5

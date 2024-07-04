@@ -295,17 +295,17 @@ for.body.preheader:                               ; preds = %_ZNK6hermes2vm10Str
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %__begin2.sroa.5.0223 = phi ptr [ %__begin2.sroa.5.1, %for.inc ], [ %retval.sroa.3.0.i205, %for.body.preheader ]
-  %__begin2.sroa.0.0222 = phi ptr [ %__begin2.sroa.0.1, %for.inc ], [ %retval.sroa.0.0.i7207, %for.body.preheader ]
+  %__begin2.sroa.0.0223 = phi ptr [ %__begin2.sroa.0.1, %for.inc ], [ %retval.sroa.0.0.i7207, %for.body.preheader ]
+  %__begin2.sroa.5.0222 = phi ptr [ %__begin2.sroa.5.1, %for.inc ], [ %retval.sroa.3.0.i205, %for.body.preheader ]
   br i1 %tobool.not.i.i73218, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %for.body
-  %22 = load i8, ptr %__begin2.sroa.0.0222, align 1
+  %22 = load i8, ptr %__begin2.sroa.0.0223, align 1
   %23 = sext i8 %22 to i16
   br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit
 
 cond.false.i:                                     ; preds = %for.body
-  %24 = load i16, ptr %__begin2.sroa.5.0223, align 2
+  %24 = load i16, ptr %__begin2.sroa.5.0222, align 2
   br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit
 
 _ZNK6hermes2vm10StringView14const_iteratordeEv.exit: ; preds = %cond.true.i, %cond.false.i
@@ -505,9 +505,9 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   %63 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i = add i32 %63, 1
   store i32 %add.i, ptr %Size.i.i.i.i.i.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0222, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0223, i64 1
+  %__begin2.sroa.5.1 = getelementptr inbounds i8, ptr %__begin2.sroa.5.0222, i64 %__begin2.sroa.5.1.idx
   %__begin2.sroa.0.1 = select i1 %tobool.not.i.i73218, ptr null, ptr %incdec.ptr.i
-  %__begin2.sroa.5.1 = getelementptr inbounds i8, ptr %__begin2.sroa.5.0223, i64 %__begin2.sroa.5.1.idx
   %.sink.i.i = select i1 %tobool.not.i.i73218, ptr %__begin2.sroa.5.1, ptr %incdec.ptr.i
   %cmp5.i.i.not = icmp eq ptr %.sink.i.i, %.sroa.speculated220
   br i1 %cmp5.i.i.not, label %for.end, label %for.body
@@ -1121,13 +1121,13 @@ _ZNK6hermes2vm10StringView5beginEv.exit207:       ; preds = %_ZNK6hermes2vm10Str
 
 for.body.i:                                       ; preds = %_ZNK6hermes2vm10StringView5beginEv.exit207, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit70.i
   %__trip_count.0287.i = phi i64 [ %dec.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit70.i ], [ %shr.i, %_ZNK6hermes2vm10StringView5beginEv.exit207 ]
-  %__first.sroa.31.0286.i = phi ptr [ %__first.sroa.31.4.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit70.i ], [ %retval.sroa.3.0.i140935, %_ZNK6hermes2vm10StringView5beginEv.exit207 ]
-  %__first.sroa.0.0285.i = phi ptr [ %__first.sroa.0.4.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit70.i ], [ %retval.sroa.0.0.i141937, %_ZNK6hermes2vm10StringView5beginEv.exit207 ]
-  %tobool.not.i.i.i = icmp eq ptr %__first.sroa.0.0285.i, null
+  %__first.sroa.0.0286.i = phi ptr [ %__first.sroa.0.4.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit70.i ], [ %retval.sroa.0.0.i141937, %_ZNK6hermes2vm10StringView5beginEv.exit207 ]
+  %__first.sroa.31.0285.i = phi ptr [ %__first.sroa.31.4.i, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit70.i ], [ %retval.sroa.3.0.i140935, %_ZNK6hermes2vm10StringView5beginEv.exit207 ]
+  %tobool.not.i.i.i = icmp eq ptr %__first.sroa.0.0286.i, null
   br i1 %tobool.not.i.i.i, label %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit.i, label %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit.thread.i
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit.i: ; preds = %for.body.i
-  %42 = load i16, ptr %__first.sroa.31.0286.i, align 2
+  %42 = load i16, ptr %__first.sroa.31.0285.i, align 2
   %43 = add i16 %42, -48
   %or.cond.i827 = icmp ult i16 %43, 10
   %or.i828 = or i16 %42, 32
@@ -1137,7 +1137,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_itera
   br i1 %46, label %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit32.i, label %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit.thread.i: ; preds = %for.body.i
-  %47 = load i8, ptr %__first.sroa.0.0285.i, align 1
+  %47 = load i8, ptr %__first.sroa.0.0286.i, align 1
   %48 = sext i8 %47 to i16
   %49 = add nsw i16 %48, -48
   %or.cond.i825 = icmp ult i16 %49, 10
@@ -1148,7 +1148,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_itera
   br i1 %52, label %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit32.thread.i, label %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit32.i: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit.i
-  %incdec.ptr3.i.i = getelementptr inbounds i8, ptr %__first.sroa.31.0286.i, i64 2
+  %incdec.ptr3.i.i = getelementptr inbounds i8, ptr %__first.sroa.31.0285.i, i64 2
   %53 = load i16, ptr %incdec.ptr3.i.i, align 2
   %54 = add i16 %53, -48
   %or.cond.i823 = icmp ult i16 %54, 10
@@ -1159,7 +1159,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_itera
   br i1 %57, label %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit47.i, label %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit32.thread.i: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit.thread.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0285.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0286.i, i64 1
   %58 = load i8, ptr %incdec.ptr.i.i, align 1
   %59 = sext i8 %58 to i16
   %60 = add nsw i16 %59, -48
@@ -1171,7 +1171,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_itera
   br i1 %63, label %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit47.thread.i, label %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit984
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit47.i: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit32.i
-  %incdec.ptr3.i39.i = getelementptr inbounds i8, ptr %__first.sroa.31.0286.i, i64 4
+  %incdec.ptr3.i39.i = getelementptr inbounds i8, ptr %__first.sroa.31.0285.i, i64 4
   %64 = load i16, ptr %incdec.ptr3.i39.i, align 2
   %65 = add i16 %64, -48
   %or.cond.i819 = icmp ult i16 %65, 10
@@ -1182,7 +1182,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_itera
   br i1 %68, label %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit62.i, label %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit987
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit47.thread.i: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit32.thread.i
-  %incdec.ptr.i35.i = getelementptr inbounds i8, ptr %__first.sroa.0.0285.i, i64 2
+  %incdec.ptr.i35.i = getelementptr inbounds i8, ptr %__first.sroa.0.0286.i, i64 2
   %69 = load i8, ptr %incdec.ptr.i35.i, align 1
   %70 = sext i8 %69 to i16
   %71 = add nsw i16 %70, -48
@@ -1194,7 +1194,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_itera
   br i1 %74, label %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit62.thread.i, label %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit990
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit62.i: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit47.i
-  %incdec.ptr3.i54.i = getelementptr inbounds i8, ptr %__first.sroa.31.0286.i, i64 6
+  %incdec.ptr3.i54.i = getelementptr inbounds i8, ptr %__first.sroa.31.0285.i, i64 6
   %75 = load i16, ptr %incdec.ptr3.i54.i, align 2
   %76 = add i16 %75, -48
   %or.cond.i815 = icmp ult i16 %76, 10
@@ -1205,7 +1205,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_itera
   br i1 %79, label %if.else.i67.i, label %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit993
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit62.thread.i: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit47.thread.i
-  %incdec.ptr.i50.i = getelementptr inbounds i8, ptr %__first.sroa.0.0285.i, i64 3
+  %incdec.ptr.i50.i = getelementptr inbounds i8, ptr %__first.sroa.0.0286.i, i64 3
   %80 = load i8, ptr %incdec.ptr.i50.i, align 1
   %81 = sext i8 %80 to i16
   %82 = add nsw i16 %81, -48
@@ -1217,16 +1217,16 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_itera
   br i1 %85, label %if.then.i64.i, label %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit996
 
 if.then.i64.i:                                    ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit62.thread.i
-  %incdec.ptr.i65.i = getelementptr inbounds i8, ptr %__first.sroa.0.0285.i, i64 4
+  %incdec.ptr.i65.i = getelementptr inbounds i8, ptr %__first.sroa.0.0286.i, i64 4
   br label %_ZN6hermes2vm10StringView14const_iteratorppEv.exit70.i
 
 if.else.i67.i:                                    ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit62.i
-  %incdec.ptr3.i69.i = getelementptr inbounds i8, ptr %__first.sroa.31.0286.i, i64 8
+  %incdec.ptr3.i69.i = getelementptr inbounds i8, ptr %__first.sroa.31.0285.i, i64 8
   br label %_ZN6hermes2vm10StringView14const_iteratorppEv.exit70.i
 
 _ZN6hermes2vm10StringView14const_iteratorppEv.exit70.i: ; preds = %if.else.i67.i, %if.then.i64.i
+  %__first.sroa.31.4.i = phi ptr [ %incdec.ptr3.i69.i, %if.else.i67.i ], [ %__first.sroa.31.0285.i, %if.then.i64.i ]
   %__first.sroa.0.4.i = phi ptr [ null, %if.else.i67.i ], [ %incdec.ptr.i65.i, %if.then.i64.i ]
-  %__first.sroa.31.4.i = phi ptr [ %incdec.ptr3.i69.i, %if.else.i67.i ], [ %__first.sroa.31.0286.i, %if.then.i64.i ]
   %dec.i = add nsw i64 %__trip_count.0287.i, -1
   %cmp.i801 = icmp sgt i64 %__trip_count.0287.i, 1
   br i1 %cmp.i801, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !7
@@ -1242,8 +1242,8 @@ for.end.loopexit.i:                               ; preds = %_ZN6hermes2vm10Stri
 for.end.i:                                        ; preds = %for.end.loopexit.i, %_ZNK6hermes2vm10StringView5beginEv.exit207
   %sub.ptr.div.i83.pre-phi.i = phi i64 [ %.pre306.i, %for.end.loopexit.i ], [ %sub.ptr.div.i.i, %_ZNK6hermes2vm10StringView5beginEv.exit207 ]
   %sub.ptr.sub.i75.pre-phi.i = phi i64 [ %.pre303.i, %for.end.loopexit.i ], [ %sub.ptr.sub.i.i, %_ZNK6hermes2vm10StringView5beginEv.exit207 ]
-  %__first.sroa.0.0.lcssa.i = phi ptr [ %__first.sroa.0.4.i, %for.end.loopexit.i ], [ %retval.sroa.0.0.i141937, %_ZNK6hermes2vm10StringView5beginEv.exit207 ]
   %__first.sroa.31.0.lcssa.i = phi ptr [ %__first.sroa.31.4.i, %for.end.loopexit.i ], [ %retval.sroa.3.0.i140935, %_ZNK6hermes2vm10StringView5beginEv.exit207 ]
+  %__first.sroa.0.0.lcssa.i = phi ptr [ %__first.sroa.0.4.i, %for.end.loopexit.i ], [ %retval.sroa.0.0.i141937, %_ZNK6hermes2vm10StringView5beginEv.exit207 ]
   %retval.0.i76.i = select i1 %tobool.not.i216, i64 %sub.ptr.div.i83.pre-phi.i, i64 %sub.ptr.sub.i75.pre-phi.i
   switch i64 %retval.0.i76.i, label %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit [
     i64 3, label %sw.bb.i
@@ -1289,8 +1289,8 @@ sw.bb24.i:                                        ; preds = %for.end.i
   br i1 %tobool.not.i.i100.i, label %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit106.i, label %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit106.thread.i
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit106.i: ; preds = %sw.bb24.i, %sw.bb24.thread.i
-  %__first.sroa.31.6234.i = phi ptr [ %incdec.ptr3.i98.i, %sw.bb24.thread.i ], [ %__first.sroa.31.0.lcssa.i, %sw.bb24.i ]
-  %97 = load i16, ptr %__first.sroa.31.6234.i, align 2
+  %__first.sroa.31.6232.i = phi ptr [ %incdec.ptr3.i98.i, %sw.bb24.thread.i ], [ %__first.sroa.31.0.lcssa.i, %sw.bb24.i ]
+  %97 = load i16, ptr %__first.sroa.31.6232.i, align 2
   %98 = add i16 %97, -48
   %or.cond.i807 = icmp ult i16 %98, 10
   %or.i808 = or i16 %97, 32
@@ -1300,8 +1300,8 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_itera
   br i1 %101, label %sw.bb30.thread320.i, label %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit106.thread.i: ; preds = %sw.bb24.i, %sw.bb24.thread238.i
-  %__first.sroa.0.6242.i = phi ptr [ %incdec.ptr.i94.i, %sw.bb24.thread238.i ], [ %__first.sroa.0.0.lcssa.i, %sw.bb24.i ]
-  %102 = load i8, ptr %__first.sroa.0.6242.i, align 1
+  %__first.sroa.0.6243.i = phi ptr [ %incdec.ptr.i94.i, %sw.bb24.thread238.i ], [ %__first.sroa.0.0.lcssa.i, %sw.bb24.i ]
+  %102 = load i8, ptr %__first.sroa.0.6243.i, align 1
   %103 = sext i8 %102 to i16
   %104 = add nsw i16 %103, -48
   %or.cond.i805 = icmp ult i16 %104, 10
@@ -1312,11 +1312,11 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_itera
   br i1 %107, label %sw.bb30.thread.i, label %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit
 
 sw.bb30.thread.i:                                 ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit106.thread.i
-  %incdec.ptr.i109.i = getelementptr inbounds i8, ptr %__first.sroa.0.6242.i, i64 1
+  %incdec.ptr.i109.i = getelementptr inbounds i8, ptr %__first.sroa.0.6243.i, i64 1
   br label %cond.true.i.i116.i
 
 sw.bb30.thread320.i:                              ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit106.i
-  %incdec.ptr3.i113.i = getelementptr inbounds i8, ptr %__first.sroa.31.6234.i, i64 2
+  %incdec.ptr3.i113.i = getelementptr inbounds i8, ptr %__first.sroa.31.6232.i, i64 2
   br label %cond.false.i.i120.i
 
 sw.bb30.i:                                        ; preds = %for.end.i
@@ -1324,8 +1324,8 @@ sw.bb30.i:                                        ; preds = %for.end.i
   br i1 %tobool.not.i.i115.i, label %cond.false.i.i120.i, label %cond.true.i.i116.i
 
 cond.true.i.i116.i:                               ; preds = %sw.bb30.i, %sw.bb30.thread.i
-  %__first.sroa.0.8248.i = phi ptr [ %incdec.ptr.i109.i, %sw.bb30.thread.i ], [ %__first.sroa.0.0.lcssa.i, %sw.bb30.i ]
-  %108 = load i8, ptr %__first.sroa.0.8248.i, align 1
+  %__first.sroa.0.8250.i = phi ptr [ %incdec.ptr.i109.i, %sw.bb30.thread.i ], [ %__first.sroa.0.0.lcssa.i, %sw.bb30.i ]
+  %108 = load i8, ptr %__first.sroa.0.8250.i, align 1
   %109 = sext i8 %108 to i16
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit121.i
 
@@ -1335,8 +1335,8 @@ cond.false.i.i120.i:                              ; preds = %sw.bb30.i, %sw.bb30
   br label %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit121.i
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit121.i: ; preds = %cond.false.i.i120.i, %cond.true.i.i116.i
-  %__first.sroa.31.8250.i = phi ptr [ %__first.sroa.31.0.lcssa.i, %cond.true.i.i116.i ], [ %__first.sroa.31.8324.i, %cond.false.i.i120.i ]
-  %__first.sroa.0.8249.i = phi ptr [ %__first.sroa.0.8248.i, %cond.true.i.i116.i ], [ null, %cond.false.i.i120.i ]
+  %__first.sroa.0.8251.i = phi ptr [ %__first.sroa.0.8250.i, %cond.true.i.i116.i ], [ null, %cond.false.i.i120.i ]
+  %__first.sroa.31.8248.i = phi ptr [ %__first.sroa.31.0.lcssa.i, %cond.true.i.i116.i ], [ %__first.sroa.31.8324.i, %cond.false.i.i120.i ]
   %cond.i.i117.i = phi i16 [ %109, %cond.true.i.i116.i ], [ %110, %cond.false.i.i120.i ]
   %111 = add i16 %cond.i.i117.i, -48
   %or.cond.i803 = icmp ult i16 %111, 10
@@ -1344,37 +1344,37 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_itera
   %112 = add i16 %or.i804, -97
   %113 = icmp ult i16 %112, 6
   %114 = or i1 %or.cond.i803, %113
-  %spec.select.i = select i1 %114, ptr %retval.sroa.0.0.i221, ptr %__first.sroa.0.8249.i
-  %spec.select254.i = select i1 %114, ptr %retval.sroa.3.0.i220, ptr %__first.sroa.31.8250.i
+  %spec.select.i = select i1 %114, ptr %retval.sroa.0.0.i221, ptr %__first.sroa.0.8251.i
+  %spec.select254.i = select i1 %114, ptr %retval.sroa.3.0.i220, ptr %__first.sroa.31.8248.i
   br label %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit
 
 _ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit32.i
-  %incdec.ptr3.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.31.0286.i, i64 2
+  %incdec.ptr3.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.31.0285.i, i64 2
   br label %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit
 
 _ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit984: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit32.thread.i
-  %incdec.ptr.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.0285.i, i64 1
+  %incdec.ptr.i.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.0286.i, i64 1
   br label %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit
 
 _ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit987: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit47.i
-  %incdec.ptr3.i39.i.le = getelementptr inbounds i8, ptr %__first.sroa.31.0286.i, i64 4
+  %incdec.ptr3.i39.i.le = getelementptr inbounds i8, ptr %__first.sroa.31.0285.i, i64 4
   br label %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit
 
 _ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit990: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit47.thread.i
-  %incdec.ptr.i35.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.0285.i, i64 2
+  %incdec.ptr.i35.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.0286.i, i64 2
   br label %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit
 
 _ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit993: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit62.i
-  %incdec.ptr3.i54.i.le = getelementptr inbounds i8, ptr %__first.sroa.31.0286.i, i64 6
+  %incdec.ptr3.i54.i.le = getelementptr inbounds i8, ptr %__first.sroa.31.0285.i, i64 6
   br label %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit
 
 _ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit996: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit62.thread.i
-  %incdec.ptr.i50.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.0285.i, i64 3
+  %incdec.ptr.i50.i.le = getelementptr inbounds i8, ptr %__first.sroa.0.0286.i, i64 3
   br label %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit
 
 _ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit: ; preds = %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit.thread.i, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit984, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit987, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit990, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit993, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit996, %for.end.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit91.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit91.thread.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit106.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit106.thread.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit121.i
-  %retval.sroa.0.0.in.sroa.speculated.i = phi ptr [ null, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit91.i ], [ %__first.sroa.0.0.lcssa.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit91.thread.i ], [ null, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit106.i ], [ %retval.sroa.0.0.i221, %for.end.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit121.i ], [ %__first.sroa.0.6242.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit106.thread.i ], [ null, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i.i.le, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit984 ], [ null, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit987 ], [ %incdec.ptr.i35.i.le, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit990 ], [ null, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit993 ], [ %incdec.ptr.i50.i.le, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit996 ], [ null, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit.i ], [ %__first.sroa.0.0285.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit.thread.i ]
-  %retval.sroa.9.0.i = phi ptr [ %__first.sroa.31.0.lcssa.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit91.i ], [ %__first.sroa.31.0.lcssa.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit91.thread.i ], [ %__first.sroa.31.6234.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit106.i ], [ %retval.sroa.3.0.i220, %for.end.i ], [ %spec.select254.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit121.i ], [ %__first.sroa.31.0.lcssa.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit106.thread.i ], [ %incdec.ptr3.i.i.le, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit ], [ %__first.sroa.31.0286.i, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit984 ], [ %incdec.ptr3.i39.i.le, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit987 ], [ %__first.sroa.31.0286.i, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit990 ], [ %incdec.ptr3.i54.i.le, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit993 ], [ %__first.sroa.31.0286.i, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit996 ], [ %__first.sroa.31.0286.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit.thread.i ], [ %__first.sroa.31.0286.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit.i ]
+  %retval.sroa.0.0.in.sroa.speculated.i = phi ptr [ null, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit91.i ], [ %__first.sroa.0.0.lcssa.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit91.thread.i ], [ null, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit106.i ], [ %retval.sroa.0.0.i221, %for.end.i ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit121.i ], [ %__first.sroa.0.6243.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit106.thread.i ], [ null, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i.i.le, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit984 ], [ null, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit987 ], [ %incdec.ptr.i35.i.le, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit990 ], [ null, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit993 ], [ %incdec.ptr.i50.i.le, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit996 ], [ null, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit.i ], [ %__first.sroa.0.0286.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit.thread.i ]
+  %retval.sroa.9.0.i = phi ptr [ %__first.sroa.31.0.lcssa.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit91.i ], [ %__first.sroa.31.0.lcssa.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit91.thread.i ], [ %__first.sroa.31.6232.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit106.i ], [ %retval.sroa.3.0.i220, %for.end.i ], [ %spec.select254.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit121.i ], [ %__first.sroa.31.0.lcssa.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit106.thread.i ], [ %incdec.ptr3.i.i.le, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit ], [ %__first.sroa.31.0285.i, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit984 ], [ %incdec.ptr3.i39.i.le, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit987 ], [ %__first.sroa.31.0285.i, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit990 ], [ %incdec.ptr3.i54.i.le, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit993 ], [ %__first.sroa.31.0285.i, %_ZSt9__find_ifIN6hermes2vm10StringView14const_iteratorEN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEEET_SA_SA_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit996 ], [ %__first.sroa.31.0285.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit.thread.i ], [ %__first.sroa.31.0285.i, %_ZN9__gnu_cxx5__ops12_Iter_negateIPFbDsEEclIN6hermes2vm10StringView14const_iteratorEEEbT_.exit.i ]
   %.sink.i.i = select i1 %tobool.not.i216, ptr %retval.sroa.3.0.i220, ptr %add.ptr.i218
   %.sroa.speculated.i = select i1 %tobool.not.i216, ptr %retval.sroa.9.0.i, ptr %retval.sroa.0.0.in.sroa.speculated.i
   %cmp5.i.i = icmp eq ptr %.sink.i.i, %.sroa.speculated.i
@@ -2400,8 +2400,8 @@ if.end21:                                         ; preds = %_ZN6hermes2vm15Hand
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit, %entry, %if.end21
-  %retval.sroa.0.0 = phi i32 [ 1, %if.end21 ], [ 0, %entry ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ]
   %retval.sroa.4.0 = phi i64 [ %retval.sroa.0.0.copyload.i, %if.end21 ], [ undef, %entry ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.end21 ], [ 0, %entry ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -3111,8 +3111,8 @@ if.end21:                                         ; preds = %_ZN6hermes2vm15Hand
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit, %entry, %if.end21
-  %retval.sroa.0.0 = phi i32 [ 1, %if.end21 ], [ 0, %entry ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ]
   %retval.sroa.4.0 = phi i64 [ %retval.sroa.0.0.copyload.i, %if.end21 ], [ undef, %entry ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.end21 ], [ 0, %entry ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -3228,8 +3228,8 @@ if.end21:                                         ; preds = %_ZN6hermes2vm15Hand
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit, %entry, %if.end21
-  %retval.sroa.0.0 = phi i32 [ 1, %if.end21 ], [ 0, %entry ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ]
   %retval.sroa.4.0 = phi i64 [ %retval.sroa.0.0.copyload.i, %if.end21 ], [ undef, %entry ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.end21 ], [ 0, %entry ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -4193,8 +4193,8 @@ if.end22:                                         ; preds = %_ZN6hermes2vm15Hand
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit, %entry, %if.end22
-  %retval.sroa.0.0 = phi i32 [ 1, %if.end22 ], [ 0, %entry ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ]
   %retval.sroa.4.0 = phi i64 [ %retval.sroa.0.0.copyload.i, %if.end22 ], [ undef, %entry ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.end22 ], [ 0, %entry ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -4444,8 +4444,8 @@ for.body.preheader:                               ; preds = %if.end31
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit
-  %NumOverwritten.080 = phi i64 [ %dec, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit ], [ %sub.ptr.div15, %for.body.preheader ]
-  %J.079 = phi ptr [ %incdec.ptr72, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit ], [ %add.ptr10, %for.body.preheader ]
+  %J.080 = phi ptr [ %incdec.ptr72, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit ], [ %add.ptr10, %for.body.preheader ]
+  %NumOverwritten.079 = phi i64 [ %dec, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit ], [ %sub.ptr.div15, %for.body.preheader ]
   %From.sroa.8.078 = phi ptr [ %From.sroa.8.1, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit ], [ %From.coerce1, %for.body.preheader ]
   %From.sroa.0.077 = phi ptr [ %From.sroa.0.1, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit ], [ %From.coerce0, %for.body.preheader ]
   %tobool.not.i = icmp eq ptr %From.sroa.0.077, null
@@ -4466,9 +4466,9 @@ _ZN6hermes2vm10StringView14const_iteratorppEv.exit: ; preds = %if.then.i63, %if.
   %.sink = phi i16 [ %23, %if.else.i ], [ %22, %if.then.i63 ]
   %From.sroa.0.1 = phi ptr [ null, %if.else.i ], [ %incdec.ptr.i, %if.then.i63 ]
   %From.sroa.8.1 = phi ptr [ %incdec.ptr3.i, %if.else.i ], [ %From.sroa.8.078, %if.then.i63 ]
-  store i16 %.sink, ptr %J.079, align 2
-  %incdec.ptr72 = getelementptr inbounds i8, ptr %J.079, i64 2
-  %dec = add i64 %NumOverwritten.080, -1
+  store i16 %.sink, ptr %J.080, align 2
+  %incdec.ptr72 = getelementptr inbounds i8, ptr %J.080, i64 2
+  %dec = add i64 %NumOverwritten.079, -1
   %cmp43.not = icmp eq i64 %dec, 0
   br i1 %cmp43.not, label %for.end.loopexit, label %for.body, !llvm.loop !28
 

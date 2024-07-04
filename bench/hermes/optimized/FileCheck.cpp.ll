@@ -573,7 +573,7 @@ for.body.lr.ph:                                   ; preds = %if.end140
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %indvars.iv363 = phi i64 [ %indvars.iv.next364, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %IsExpression.0341.us = phi i1 [ %IsExpression.1.us, %for.inc.us ], [ false, %for.body.lr.ph ]
+  %IsExpression.0340.us = phi i1 [ %IsExpression.1.us, %for.inc.us ], [ false, %for.body.lr.ph ]
   %cmp144.us = icmp eq i64 %indvars.iv363, 0
   br i1 %cmp144.us, label %if.then145.us, label %if.end169.us
 
@@ -600,7 +600,7 @@ land.lhs.true174.us:                              ; preds = %if.end169.us
   br i1 %tobool179.not.us, label %land.lhs.true180.us, label %for.inc.us
 
 land.lhs.true180.us:                              ; preds = %land.lhs.true174.us
-  br i1 %IsExpression.0341.us, label %lor.lhs.false182.us, label %if.then192
+  br i1 %IsExpression.0340.us, label %lor.lhs.false182.us, label %if.then192
 
 lor.lhs.false182.us:                              ; preds = %land.lhs.true180.us
   switch i8 %27, label %if.then192 [
@@ -609,7 +609,7 @@ lor.lhs.false182.us:                              ; preds = %land.lhs.true180.us
   ]
 
 for.inc.us:                                       ; preds = %if.then156.us, %lor.lhs.false182.us, %lor.lhs.false182.us, %land.lhs.true174.us, %if.end169.us, %if.then145.us
-  %IsExpression.1.us = phi i1 [ %IsExpression.0341.us, %if.then145.us ], [ %IsExpression.0341.us, %land.lhs.true174.us ], [ true, %lor.lhs.false182.us ], [ %IsExpression.0341.us, %if.end169.us ], [ true, %if.then156.us ], [ true, %lor.lhs.false182.us ]
+  %IsExpression.1.us = phi i1 [ %IsExpression.0340.us, %if.then145.us ], [ %IsExpression.0340.us, %land.lhs.true174.us ], [ true, %lor.lhs.false182.us ], [ %IsExpression.0340.us, %if.end169.us ], [ true, %if.then156.us ], [ true, %lor.lhs.false182.us ]
   %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
   %cmp143.not.us = icmp eq i64 %indvars.iv.next364, %25
   br i1 %cmp143.not.us, label %for.end, label %for.body.us, !llvm.loop !23
@@ -939,8 +939,8 @@ entry:
 while.cond:                                       ; preds = %if.end23, %entry
   %Str.sroa.0.0 = phi ptr [ %Str.coerce0, %entry ], [ %Str.sroa.0.1, %if.end23 ]
   %Str.sroa.9.0 = phi i64 [ %Str.coerce1, %entry ], [ %Str.sroa.9.1, %if.end23 ]
-  %BracketDepth.0 = phi i64 [ 0, %entry ], [ %BracketDepth.2, %if.end23 ]
   %Offset.0 = phi i64 [ 0, %entry ], [ %inc22, %if.end23 ]
+  %BracketDepth.0 = phi i64 [ 0, %entry ], [ %BracketDepth.2, %if.end23 ]
   switch i64 %Str.sroa.9.0, label %if.end.i [
     i64 0, label %return
     i64 1, label %if.end
@@ -1547,8 +1547,8 @@ for.end:                                          ; preds = %for.inc, %if.then10
   br label %if.end72
 
 if.end72:                                         ; preds = %for.end, %if.end8
-  %RegExToMatch.sroa.0.0 = phi ptr [ %call.i, %if.end8 ], [ %call.i125, %for.end ]
   %RegExToMatch.sroa.3.0 = phi i64 [ %call2.i, %if.end8 ], [ %call2.i127, %for.end ]
+  %RegExToMatch.sroa.0.0 = phi ptr [ %call.i, %if.end8 ], [ %call.i125, %for.end ]
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %MatchInfo, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %MatchInfo, align 8
   %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %MatchInfo, i64 8
@@ -2699,14 +2699,14 @@ if.end.i:                                         ; preds = %while.body.i
   br i1 %cmp.not4.i.i, label %if.then12.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i, %for.body.i.i
-  %Count.06.i.i = phi i32 [ %spec.select.i.i, %for.body.i.i ], [ 0, %if.end.i ]
-  %i.05.i.i = phi i64 [ %inc4.i.i, %for.body.i.i ], [ 0, %if.end.i ]
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %40, i64 %i.05.i.i
+  %i.06.i.i = phi i64 [ %inc4.i.i, %for.body.i.i ], [ 0, %if.end.i ]
+  %Count.05.i.i = phi i32 [ %spec.select.i.i, %for.body.i.i ], [ 0, %if.end.i ]
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %40, i64 %i.06.i.i
   %42 = load i8, ptr %arrayidx.i.i, align 1
   %cmp3.i.i = icmp eq i8 %42, 10
   %inc.i.i = zext i1 %cmp3.i.i to i32
-  %spec.select.i.i = add i32 %Count.06.i.i, %inc.i.i
-  %inc4.i.i = add nuw i64 %i.05.i.i, 1
+  %spec.select.i.i = add i32 %Count.05.i.i, %inc.i.i
+  %inc4.i.i = add nuw i64 %i.06.i.i, 1
   %cmp.not.i.i91 = icmp eq i64 %inc4.i.i, %.sroa.speculated.i
   br i1 %cmp.not.i.i91, label %lor.lhs.false.i, label %for.body.i.i, !llvm.loop !66
 
@@ -2876,8 +2876,8 @@ _ZL8SkipWordN4llvh9StringRefEm.exit.i:            ; preds = %while.body.i.i, %sw
 cleanup.i:                                        ; preds = %if.end.i.i, %if.end.i.i.i, %if.end.i359.i.i, %if.end.i368.i.i, %if.end.i377.i.i, %if.end.i386.i.i, %if.end.i395.i.i, %if.end.i404.i.i, %if.end.i413.i.i, %if.end.i422.i.i, %if.end.i431.i.i, %if.end.i440.i.i, %if.end.i449.i.i, %if.end.i458.i.i, %if.end.i467.i.i, %_ZL8SkipWordN4llvh9StringRefEm.exit.i, %while.body.i
   %CheckTy.3 = phi i32 [ %CheckTy.2, %_ZL8SkipWordN4llvh9StringRefEm.exit.i ], [ %CheckTy.1, %while.body.i ], [ 9, %if.end.i404.i.i ], [ 9, %if.end.i413.i.i ], [ 9, %if.end.i422.i.i ], [ 9, %if.end.i431.i.i ], [ 9, %if.end.i440.i.i ], [ 9, %if.end.i449.i.i ], [ 9, %if.end.i458.i.i ], [ 9, %if.end.i467.i.i ], [ 7, %if.end.i395.i.i ], [ 6, %if.end.i386.i.i ], [ 5, %if.end.i377.i.i ], [ 4, %if.end.i368.i.i ], [ 3, %if.end.i359.i.i ], [ 2, %if.end.i.i.i ], [ 1, %if.end.i.i ]
   %LineNumber.4 = phi i32 [ %LineNumber.3, %_ZL8SkipWordN4llvh9StringRefEm.exit.i ], [ %LineNumber.1, %while.body.i ], [ %LineNumber.2, %if.end.i404.i.i ], [ %LineNumber.2, %if.end.i413.i.i ], [ %LineNumber.2, %if.end.i422.i.i ], [ %LineNumber.2, %if.end.i431.i.i ], [ %LineNumber.2, %if.end.i440.i.i ], [ %LineNumber.2, %if.end.i449.i.i ], [ %LineNumber.2, %if.end.i458.i.i ], [ %LineNumber.2, %if.end.i467.i.i ], [ %LineNumber.2, %if.end.i395.i.i ], [ %LineNumber.2, %if.end.i386.i.i ], [ %LineNumber.2, %if.end.i377.i.i ], [ %LineNumber.2, %if.end.i368.i.i ], [ %LineNumber.2, %if.end.i359.i.i ], [ %LineNumber.2, %if.end.i.i.i ], [ %LineNumber.2, %if.end.i.i ]
-  %retval.sroa.7.1.i = phi i64 [ 0, %_ZL8SkipWordN4llvh9StringRefEm.exit.i ], [ 0, %while.body.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i404.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i413.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i422.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i431.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i440.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i449.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i458.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i467.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i395.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i386.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i377.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i368.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i359.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i.i ]
   %retval.sroa.0.1.i = phi ptr [ null, %_ZL8SkipWordN4llvh9StringRefEm.exit.i ], [ null, %while.body.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i404.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i413.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i422.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i431.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i440.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i449.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i458.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i467.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i395.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i386.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i377.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i368.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i359.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i.i ]
+  %retval.sroa.7.1.i = phi i64 [ 0, %_ZL8SkipWordN4llvh9StringRefEm.exit.i ], [ 0, %while.body.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i404.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i413.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i422.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i431.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i440.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i449.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i458.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i467.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i395.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i386.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i377.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i368.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i359.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i.i ]
   %cmp.i.i.i.i = icmp eq ptr %.pre.pre.i, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZL23FindFirstMatchingPrefixRN4llvh5RegexERNS_9StringRefERjRNS_5Check13FileCheckTypeE.exit, label %if.then.i.i.i88
 
@@ -4979,8 +4979,8 @@ for.end:                                          ; preds = %_ZNK4llvh9StringRef
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %for.end46, %for.end
-  %Buffer.sroa.0.0.ph = phi ptr [ %Buffer.sroa.0.1, %for.end46 ], [ %Buffer.coerce0, %for.end ]
   %Buffer.sroa.6.0.ph = phi i64 [ %Buffer.sroa.6.1, %for.end46 ], [ %Buffer.coerce1, %for.end ]
+  %Buffer.sroa.0.0.ph = phi ptr [ %Buffer.sroa.0.1, %for.end46 ], [ %Buffer.coerce0, %for.end ]
   %j.0.ph = phi i32 [ %j.1, %for.end46 ], [ 0, %for.end ]
   %i.0.ph = phi i32 [ %i.2, %for.end46 ], [ 0, %for.end ]
   %ChecksFailed.0.ph = phi i1 [ %ChecksFailed.1, %for.end46 ], [ false, %for.end ]
@@ -5017,8 +5017,8 @@ if.end19:                                         ; preds = %if.end
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then13, %while.cond.outer, %if.end19
-  %Buffer.sroa.0.1 = phi ptr [ %add.ptr.i59, %if.end19 ], [ %Buffer.sroa.0.0.ph, %while.cond.outer ], [ %Buffer.sroa.0.0.ph, %if.then13 ]
   %Buffer.sroa.6.1 = phi i64 [ %sub.i61, %if.end19 ], [ %Buffer.sroa.6.0.ph, %while.cond.outer ], [ %Buffer.sroa.6.0.ph, %if.then13 ]
+  %Buffer.sroa.0.1 = phi ptr [ %add.ptr.i59, %if.end19 ], [ %Buffer.sroa.0.0.ph, %while.cond.outer ], [ %Buffer.sroa.0.0.ph, %if.then13 ]
   %CheckRegion.sroa.6.0 = phi i64 [ %.sroa.speculated92, %if.end19 ], [ %Buffer.sroa.6.0.ph, %while.cond.outer ], [ %Buffer.sroa.6.0.ph, %if.then13 ]
   %j.1 = phi i32 [ %inc25, %if.end19 ], [ %conv, %while.cond.outer ], [ %conv, %if.then13 ]
   %8 = load i8, ptr %EnableVarScope, align 2

@@ -2841,8 +2841,8 @@ define void @"_ZN17all_about_updates18update_with_option1_141_$LT$impl$u20$diese
   br label %23
 
 23:                                               ; preds = %12, %16
-  %.sroa.04.0 = phi ptr [ %20, %16 ], [ null, %12 ]
   %.sroa.55.0 = phi i64 [ %22, %16 ], [ undef, %12 ]
+  %.sroa.04.0 = phi ptr [ %20, %16 ], [ null, %12 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !440)
   %24 = icmp eq ptr %.sroa.0.0, null
   br i1 %24, label %"_ZN113_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..query_builder..update_statement..changeset..AsChangeset$GT$12as_changeset17hf0aedb94b22c316dE.llvm.12703545329642850438.exit.i", label %25

@@ -180,7 +180,7 @@ define internal i32 @dissect_v120(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.str.54.sink = select i1 %22, ptr @.str.53, ptr @.str.54
   %.str.53.sink = select i1 %22, ptr @.str.54, ptr @.str.53
   %24 = zext i1 %22 to i32
-  %.056 = xor i32 %.lobit62, %24
+  %.057 = xor i32 %.lobit62, %24
   %25 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %25, i32 noundef 18, ptr noundef nonnull %.str.54.sink) #2
   %26 = load ptr, ptr %5, align 8
@@ -212,7 +212,7 @@ define internal i32 @dissect_v120(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %49 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %48, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #2
   %50 = load i32, ptr @hf_v120_control, align 4
   %51 = load i32, ptr @ett_v120_control, align 4
-  %52 = tail call i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %1, ptr noundef %30, i32 noundef %50, i32 noundef %51, ptr noundef nonnull @v120_cf_items, ptr noundef nonnull @v120_cf_items_ext, ptr noundef null, ptr noundef null, i32 noundef %.056, i32 noundef 1, i32 noundef 0) #2
+  %52 = tail call i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %1, ptr noundef %30, i32 noundef %50, i32 noundef %51, ptr noundef nonnull @v120_cf_items, ptr noundef nonnull @v120_cf_items_ext, ptr noundef null, ptr noundef null, i32 noundef %.057, i32 noundef 1, i32 noundef 0) #2
   %53 = and i32 %52, 3
   %54 = icmp eq i32 %53, 3
   %55 = select i1 %54, i32 3, i32 4
@@ -279,9 +279,9 @@ dissect_v120_header.exit:                         ; preds = %59, %74
   br label %101
 
 101:                                              ; preds = %dissect_v120_header.exit, %19
-  %.057 = phi i32 [ %100, %dissect_v120_header.exit ], [ %55, %19 ]
-  tail call void @proto_item_set_len(ptr noundef %28, i32 noundef %.057) #2
-  %102 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.057) #2
+  %.056 = phi i32 [ %100, %dissect_v120_header.exit ], [ %55, %19 ]
+  tail call void @proto_item_set_len(ptr noundef %28, i32 noundef %.056) #2
+  %102 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.056) #2
   %103 = tail call i32 @call_data_dissector(ptr noundef %102, ptr noundef nonnull %1, ptr noundef %30) #2
   %104 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   br label %105

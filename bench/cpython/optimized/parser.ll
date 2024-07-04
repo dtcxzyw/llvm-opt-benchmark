@@ -537,9 +537,9 @@ if.end30.i.i:                                     ; preds = %if.end29.i.i, %whil
   br i1 %tobool18.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !5
 
 while.end.i.i:                                    ; preds = %if.end30.i.i, %while.cond.preheader.i.i
+  %_mark.0.lcssa.i.i = phi i32 [ %32, %while.cond.preheader.i.i ], [ %34, %if.end30.i.i ]
   %_children.0.lcssa.i.i = phi ptr [ %call.i.i39, %while.cond.preheader.i.i ], [ %_children.1.i.i, %if.end30.i.i ]
   %_n.0.lcssa.i.i = phi i64 [ 0, %while.cond.preheader.i.i ], [ %inc31.i.i, %if.end30.i.i ]
-  %_mark.0.lcssa.i.i = phi i32 [ %32, %while.cond.preheader.i.i ], [ %34, %if.end30.i.i ]
   store i32 %_mark.0.lcssa.i.i, ptr %mark.i31, align 8
   %arena.i.i41 = getelementptr inbounds i8, ptr %p, i64 32
   %35 = load ptr, ptr %arena.i.i41, align 8
@@ -724,31 +724,31 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end40.i.i.i.i
 
 if.end28.i.i.i.i:                                 ; preds = %land.rhs.i.preheader.i.i.i, %land.rhs.i.i.i.i
   %call19.i21.i.i.i = phi ptr [ %call19.i.i.i.i, %land.rhs.i.i.i.i ], [ %call19.i16.i.i.i, %land.rhs.i.preheader.i.i.i ]
-  %_children_capacity.045.i20.i.i.i = phi i64 [ %_children_capacity.1.i.i.i.i, %land.rhs.i.i.i.i ], [ 1, %land.rhs.i.preheader.i.i.i ]
-  %_n.046.i19.i.i.i = phi i64 [ %inc41.i.i.i.i, %land.rhs.i.i.i.i ], [ 0, %land.rhs.i.preheader.i.i.i ]
-  %_children.047.i18.i.i.i = phi ptr [ %_children.1.i.i.i.i, %land.rhs.i.i.i.i ], [ %call.i.i.i.i, %land.rhs.i.preheader.i.i.i ]
-  %cmp29.i.i.i.i = icmp eq i64 %_n.046.i19.i.i.i, %_children_capacity.045.i20.i.i.i
+  %_children.046.i20.i.i.i = phi ptr [ %_children.1.i.i.i.i, %land.rhs.i.i.i.i ], [ %call.i.i.i.i, %land.rhs.i.preheader.i.i.i ]
+  %_children_capacity.047.i19.i.i.i = phi i64 [ %_children_capacity.1.i.i.i.i, %land.rhs.i.i.i.i ], [ 1, %land.rhs.i.preheader.i.i.i ]
+  %_n.048.i18.i.i.i = phi i64 [ %inc41.i.i.i.i, %land.rhs.i.i.i.i ], [ 0, %land.rhs.i.preheader.i.i.i ]
+  %cmp29.i.i.i.i = icmp eq i64 %_n.048.i18.i.i.i, %_children_capacity.047.i19.i.i.i
   br i1 %cmp29.i.i.i.i, label %if.then30.i.i.i.i, label %if.end40.i.i.i.i
 
 if.then30.i.i.i.i:                                ; preds = %if.end28.i.i.i.i
-  %mul31.i.i.i.i = shl i64 %_children_capacity.045.i20.i.i.i, 4
-  %call32.i.i.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i.i.i, i64 noundef %mul31.i.i.i.i) #4
+  %mul31.i.i.i.i = shl i64 %_children_capacity.047.i19.i.i.i, 4
+  %call32.i.i.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.046.i20.i.i.i, i64 noundef %mul31.i.i.i.i) #4
   %tobool33.not.i.i.i.i = icmp eq ptr %call32.i.i.i.i, null
   br i1 %tobool33.not.i.i.i.i, label %if.then34.i.i.i.i, label %if.end39.i.i.i.i
 
 if.then34.i.i.i.i:                                ; preds = %if.then30.i.i.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i.i.i) #4
+  tail call void @PyMem_Free(ptr noundef %_children.046.i20.i.i.i) #4
   br label %_loop0_142_rule.exit.thread.sink.split.i.i.i
 
 if.end39.i.i.i.i:                                 ; preds = %if.then30.i.i.i.i
-  %mul.i.i.i.i = shl i64 %_children_capacity.045.i20.i.i.i, 1
+  %mul.i.i.i.i = shl i64 %_children_capacity.047.i19.i.i.i, 1
   br label %if.end40.i.i.i.i
 
 if.end40.i.i.i.i:                                 ; preds = %if.end39.i.i.i.i, %if.end28.i.i.i.i
-  %_children_capacity.1.i.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end39.i.i.i.i ], [ %_children_capacity.045.i20.i.i.i, %if.end28.i.i.i.i ]
-  %_children.1.i.i.i.i = phi ptr [ %call32.i.i.i.i, %if.end39.i.i.i.i ], [ %_children.047.i18.i.i.i, %if.end28.i.i.i.i ]
-  %inc41.i.i.i.i = add i64 %_n.046.i19.i.i.i, 1
-  %arrayidx.i.i.i.i = getelementptr ptr, ptr %_children.1.i.i.i.i, i64 %_n.046.i19.i.i.i
+  %_children.1.i.i.i.i = phi ptr [ %call32.i.i.i.i, %if.end39.i.i.i.i ], [ %_children.046.i20.i.i.i, %if.end28.i.i.i.i ]
+  %_children_capacity.1.i.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end39.i.i.i.i ], [ %_children_capacity.047.i19.i.i.i, %if.end28.i.i.i.i ]
+  %inc41.i.i.i.i = add i64 %_n.048.i18.i.i.i, 1
+  %arrayidx.i.i.i.i = getelementptr ptr, ptr %_children.1.i.i.i.i, i64 %_n.048.i18.i.i.i
   store ptr %call19.i21.i.i.i, ptr %arrayidx.i.i.i.i, align 8
   %52 = load i32, ptr %mark.i55, align 8
   %call17.i.i.i.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -756,9 +756,9 @@ if.end40.i.i.i.i:                                 ; preds = %if.end39.i.i.i.i, %
   br i1 %tobool18.not.i.i.i.i, label %while.end.i.i.i.i, label %land.rhs.i.i.i.i, !llvm.loop !8
 
 while.end.i.i.i.i:                                ; preds = %if.end40.i.i.i.i, %land.rhs.i.i.i.i, %land.rhs.i.preheader.i.i.i, %while.cond.preheader.i.i.i.i
-  %_n.0.lcssa.i.i.i.i = phi i64 [ 0, %while.cond.preheader.i.i.i.i ], [ 0, %land.rhs.i.preheader.i.i.i ], [ %inc41.i.i.i.i, %land.rhs.i.i.i.i ], [ %inc41.i.i.i.i, %if.end40.i.i.i.i ]
-  %_children.0.lcssa.i.i.i.i = phi ptr [ %call.i.i.i.i, %while.cond.preheader.i.i.i.i ], [ %call.i.i.i.i, %land.rhs.i.preheader.i.i.i ], [ %_children.1.i.i.i.i, %land.rhs.i.i.i.i ], [ %_children.1.i.i.i.i, %if.end40.i.i.i.i ]
   %_mark.0.lcssa.i.i.i.i = phi i32 [ %50, %while.cond.preheader.i.i.i.i ], [ %50, %land.rhs.i.preheader.i.i.i ], [ %52, %land.rhs.i.i.i.i ], [ %52, %if.end40.i.i.i.i ]
+  %_children.0.lcssa.i.i.i.i = phi ptr [ %call.i.i.i.i, %while.cond.preheader.i.i.i.i ], [ %call.i.i.i.i, %land.rhs.i.preheader.i.i.i ], [ %_children.1.i.i.i.i, %land.rhs.i.i.i.i ], [ %_children.1.i.i.i.i, %if.end40.i.i.i.i ]
+  %_n.0.lcssa.i.i.i.i = phi i64 [ 0, %while.cond.preheader.i.i.i.i ], [ 0, %land.rhs.i.preheader.i.i.i ], [ %inc41.i.i.i.i, %land.rhs.i.i.i.i ], [ %inc41.i.i.i.i, %if.end40.i.i.i.i ]
   store i32 %_mark.0.lcssa.i.i.i.i, ptr %mark.i55, align 8
   %arena.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %53 = load ptr, ptr %arena.i.i.i.i, align 8
@@ -944,31 +944,31 @@ land.rhs.i.i137.i.i:                              ; preds = %if.end40.i.i130.i.i
 
 if.end28.i.i124.i.i:                              ; preds = %land.rhs.i.preheader.i121.i.i, %land.rhs.i.i137.i.i
   %call19.i21.i125.i.i = phi ptr [ %call19.i.i138.i.i, %land.rhs.i.i137.i.i ], [ %call19.i16.i122.i.i, %land.rhs.i.preheader.i121.i.i ]
-  %_children_capacity.045.i20.i126.i.i = phi i64 [ %_children_capacity.1.i.i131.i.i, %land.rhs.i.i137.i.i ], [ 1, %land.rhs.i.preheader.i121.i.i ]
-  %_n.046.i19.i127.i.i = phi i64 [ %inc41.i.i133.i.i, %land.rhs.i.i137.i.i ], [ 0, %land.rhs.i.preheader.i121.i.i ]
-  %_children.047.i18.i128.i.i = phi ptr [ %_children.1.i.i132.i.i, %land.rhs.i.i137.i.i ], [ %call.i.i114.i.i, %land.rhs.i.preheader.i121.i.i ]
-  %cmp29.i.i129.i.i = icmp eq i64 %_n.046.i19.i127.i.i, %_children_capacity.045.i20.i126.i.i
+  %_children.046.i20.i126.i.i = phi ptr [ %_children.1.i.i131.i.i, %land.rhs.i.i137.i.i ], [ %call.i.i114.i.i, %land.rhs.i.preheader.i121.i.i ]
+  %_children_capacity.047.i19.i127.i.i = phi i64 [ %_children_capacity.1.i.i132.i.i, %land.rhs.i.i137.i.i ], [ 1, %land.rhs.i.preheader.i121.i.i ]
+  %_n.048.i18.i128.i.i = phi i64 [ %inc41.i.i133.i.i, %land.rhs.i.i137.i.i ], [ 0, %land.rhs.i.preheader.i121.i.i ]
+  %cmp29.i.i129.i.i = icmp eq i64 %_n.048.i18.i128.i.i, %_children_capacity.047.i19.i127.i.i
   br i1 %cmp29.i.i129.i.i, label %if.then30.i.i164.i.i, label %if.end40.i.i130.i.i
 
 if.then30.i.i164.i.i:                             ; preds = %if.end28.i.i124.i.i
-  %mul31.i.i165.i.i = shl i64 %_children_capacity.045.i20.i126.i.i, 4
-  %call32.i.i166.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i128.i.i, i64 noundef %mul31.i.i165.i.i) #4
+  %mul31.i.i165.i.i = shl i64 %_children_capacity.047.i19.i127.i.i, 4
+  %call32.i.i166.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.046.i20.i126.i.i, i64 noundef %mul31.i.i165.i.i) #4
   %tobool33.not.i.i167.i.i = icmp eq ptr %call32.i.i166.i.i, null
   br i1 %tobool33.not.i.i167.i.i, label %if.then34.i.i170.i.i, label %if.end39.i.i168.i.i
 
 if.then34.i.i170.i.i:                             ; preds = %if.then30.i.i164.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i128.i.i) #4
+  tail call void @PyMem_Free(ptr noundef %_children.046.i20.i126.i.i) #4
   br label %_loop0_144_rule.exit.thread.sink.split.i.i.i
 
 if.end39.i.i168.i.i:                              ; preds = %if.then30.i.i164.i.i
-  %mul.i.i169.i.i = shl i64 %_children_capacity.045.i20.i126.i.i, 1
+  %mul.i.i169.i.i = shl i64 %_children_capacity.047.i19.i127.i.i, 1
   br label %if.end40.i.i130.i.i
 
 if.end40.i.i130.i.i:                              ; preds = %if.end39.i.i168.i.i, %if.end28.i.i124.i.i
-  %_children_capacity.1.i.i131.i.i = phi i64 [ %mul.i.i169.i.i, %if.end39.i.i168.i.i ], [ %_children_capacity.045.i20.i126.i.i, %if.end28.i.i124.i.i ]
-  %_children.1.i.i132.i.i = phi ptr [ %call32.i.i166.i.i, %if.end39.i.i168.i.i ], [ %_children.047.i18.i128.i.i, %if.end28.i.i124.i.i ]
-  %inc41.i.i133.i.i = add i64 %_n.046.i19.i127.i.i, 1
-  %arrayidx.i.i134.i.i = getelementptr ptr, ptr %_children.1.i.i132.i.i, i64 %_n.046.i19.i127.i.i
+  %_children.1.i.i131.i.i = phi ptr [ %call32.i.i166.i.i, %if.end39.i.i168.i.i ], [ %_children.046.i20.i126.i.i, %if.end28.i.i124.i.i ]
+  %_children_capacity.1.i.i132.i.i = phi i64 [ %mul.i.i169.i.i, %if.end39.i.i168.i.i ], [ %_children_capacity.047.i19.i127.i.i, %if.end28.i.i124.i.i ]
+  %inc41.i.i133.i.i = add i64 %_n.048.i18.i128.i.i, 1
+  %arrayidx.i.i134.i.i = getelementptr ptr, ptr %_children.1.i.i131.i.i, i64 %_n.048.i18.i128.i.i
   store ptr %call19.i21.i125.i.i, ptr %arrayidx.i.i134.i.i, align 8
   %63 = load i32, ptr %mark.i55, align 8
   %call17.i.i135.i.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -976,18 +976,18 @@ if.end40.i.i130.i.i:                              ; preds = %if.end39.i.i168.i.i
   br i1 %tobool18.not.i.i136.i.i, label %while.end.i.i140.i.i, label %land.rhs.i.i137.i.i, !llvm.loop !10
 
 while.end.i.i140.i.i:                             ; preds = %if.end40.i.i130.i.i, %land.rhs.i.i137.i.i, %land.rhs.i.preheader.i121.i.i, %while.cond.preheader.i.i118.i.i
-  %_n.0.lcssa.i.i141.i.i = phi i64 [ 0, %while.cond.preheader.i.i118.i.i ], [ 0, %land.rhs.i.preheader.i121.i.i ], [ %inc41.i.i133.i.i, %land.rhs.i.i137.i.i ], [ %inc41.i.i133.i.i, %if.end40.i.i130.i.i ]
-  %_children.0.lcssa.i.i142.i.i = phi ptr [ %call.i.i114.i.i, %while.cond.preheader.i.i118.i.i ], [ %call.i.i114.i.i, %land.rhs.i.preheader.i121.i.i ], [ %_children.1.i.i132.i.i, %land.rhs.i.i137.i.i ], [ %_children.1.i.i132.i.i, %if.end40.i.i130.i.i ]
-  %_mark.0.lcssa.i.i143.i.i = phi i32 [ %61, %while.cond.preheader.i.i118.i.i ], [ %61, %land.rhs.i.preheader.i121.i.i ], [ %63, %land.rhs.i.i137.i.i ], [ %63, %if.end40.i.i130.i.i ]
-  store i32 %_mark.0.lcssa.i.i143.i.i, ptr %mark.i55, align 8
+  %_mark.0.lcssa.i.i141.i.i = phi i32 [ %61, %while.cond.preheader.i.i118.i.i ], [ %61, %land.rhs.i.preheader.i121.i.i ], [ %63, %land.rhs.i.i137.i.i ], [ %63, %if.end40.i.i130.i.i ]
+  %_children.0.lcssa.i.i142.i.i = phi ptr [ %call.i.i114.i.i, %while.cond.preheader.i.i118.i.i ], [ %call.i.i114.i.i, %land.rhs.i.preheader.i121.i.i ], [ %_children.1.i.i131.i.i, %land.rhs.i.i137.i.i ], [ %_children.1.i.i131.i.i, %if.end40.i.i130.i.i ]
+  %_n.0.lcssa.i.i143.i.i = phi i64 [ 0, %while.cond.preheader.i.i118.i.i ], [ 0, %land.rhs.i.preheader.i121.i.i ], [ %inc41.i.i133.i.i, %land.rhs.i.i137.i.i ], [ %inc41.i.i133.i.i, %if.end40.i.i130.i.i ]
+  store i32 %_mark.0.lcssa.i.i141.i.i, ptr %mark.i55, align 8
   %arena.i.i144.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %64 = load ptr, ptr %arena.i.i144.i.i, align 8
-  %call44.i.i145.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i141.i.i, ptr noundef %64) #4
+  %call44.i.i145.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i143.i.i, ptr noundef %64) #4
   %tobool45.not.i.i146.i.i = icmp eq ptr %call44.i.i145.i.i, null
   br i1 %tobool45.not.i.i146.i.i, label %if.then46.i.i162.i.i, label %for.cond.preheader.i.i147.i.i
 
 for.cond.preheader.i.i147.i.i:                    ; preds = %while.end.i.i140.i.i
-  %cmp5254.i.i148.i.i = icmp sgt i64 %_n.0.lcssa.i.i141.i.i, 0
+  %cmp5254.i.i148.i.i = icmp sgt i64 %_n.0.lcssa.i.i143.i.i, 0
   br i1 %cmp5254.i.i148.i.i, label %for.body.lr.ph.i.i152.i.i, label %_gather_143_rule.exit.i.i
 
 for.body.lr.ph.i.i152.i.i:                        ; preds = %for.cond.preheader.i.i147.i.i
@@ -1008,7 +1008,7 @@ for.body.i.i154.i.i:                              ; preds = %for.body.i.i154.i.i
   store ptr %65, ptr %arrayidx56.i.i158.i.i, align 8
   %inc57.i.i159.i.i = add i32 %i.055.i.i156.i.i, 1
   %conv.i.i160.i.i = sext i32 %inc57.i.i159.i.i to i64
-  %cmp52.i.i161.i.i = icmp sgt i64 %_n.0.lcssa.i.i141.i.i, %conv.i.i160.i.i
+  %cmp52.i.i161.i.i = icmp sgt i64 %_n.0.lcssa.i.i143.i.i, %conv.i.i160.i.i
   br i1 %cmp52.i.i161.i.i, label %for.body.i.i154.i.i, label %_gather_143_rule.exit.i.i, !llvm.loop !11
 
 _loop0_144_rule.exit.thread.sink.split.i.i.i:     ; preds = %if.then46.i.i162.i.i, %if.then34.i.i170.i.i, %if.end3.i.i113.i.i
@@ -1140,31 +1140,31 @@ land.rhs.i.i217.i.i:                              ; preds = %if.end40.i.i210.i.i
 
 if.end28.i.i204.i.i:                              ; preds = %land.rhs.i.preheader.i201.i.i, %land.rhs.i.i217.i.i
   %call19.i21.i205.i.i = phi ptr [ %call19.i.i218.i.i, %land.rhs.i.i217.i.i ], [ %call19.i16.i202.i.i, %land.rhs.i.preheader.i201.i.i ]
-  %_children_capacity.045.i20.i206.i.i = phi i64 [ %_children_capacity.1.i.i211.i.i, %land.rhs.i.i217.i.i ], [ 1, %land.rhs.i.preheader.i201.i.i ]
-  %_n.046.i19.i207.i.i = phi i64 [ %inc41.i.i213.i.i, %land.rhs.i.i217.i.i ], [ 0, %land.rhs.i.preheader.i201.i.i ]
-  %_children.047.i18.i208.i.i = phi ptr [ %_children.1.i.i212.i.i, %land.rhs.i.i217.i.i ], [ %call.i.i194.i.i, %land.rhs.i.preheader.i201.i.i ]
-  %cmp29.i.i209.i.i = icmp eq i64 %_n.046.i19.i207.i.i, %_children_capacity.045.i20.i206.i.i
+  %_children.046.i20.i206.i.i = phi ptr [ %_children.1.i.i211.i.i, %land.rhs.i.i217.i.i ], [ %call.i.i194.i.i, %land.rhs.i.preheader.i201.i.i ]
+  %_children_capacity.047.i19.i207.i.i = phi i64 [ %_children_capacity.1.i.i212.i.i, %land.rhs.i.i217.i.i ], [ 1, %land.rhs.i.preheader.i201.i.i ]
+  %_n.048.i18.i208.i.i = phi i64 [ %inc41.i.i213.i.i, %land.rhs.i.i217.i.i ], [ 0, %land.rhs.i.preheader.i201.i.i ]
+  %cmp29.i.i209.i.i = icmp eq i64 %_n.048.i18.i208.i.i, %_children_capacity.047.i19.i207.i.i
   br i1 %cmp29.i.i209.i.i, label %if.then30.i.i244.i.i, label %if.end40.i.i210.i.i
 
 if.then30.i.i244.i.i:                             ; preds = %if.end28.i.i204.i.i
-  %mul31.i.i245.i.i = shl i64 %_children_capacity.045.i20.i206.i.i, 4
-  %call32.i.i246.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i208.i.i, i64 noundef %mul31.i.i245.i.i) #4
+  %mul31.i.i245.i.i = shl i64 %_children_capacity.047.i19.i207.i.i, 4
+  %call32.i.i246.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.046.i20.i206.i.i, i64 noundef %mul31.i.i245.i.i) #4
   %tobool33.not.i.i247.i.i = icmp eq ptr %call32.i.i246.i.i, null
   br i1 %tobool33.not.i.i247.i.i, label %if.then34.i.i250.i.i, label %if.end39.i.i248.i.i
 
 if.then34.i.i250.i.i:                             ; preds = %if.then30.i.i244.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i208.i.i) #4
+  tail call void @PyMem_Free(ptr noundef %_children.046.i20.i206.i.i) #4
   br label %_loop0_146_rule.exit.thread.sink.split.i.i.i
 
 if.end39.i.i248.i.i:                              ; preds = %if.then30.i.i244.i.i
-  %mul.i.i249.i.i = shl i64 %_children_capacity.045.i20.i206.i.i, 1
+  %mul.i.i249.i.i = shl i64 %_children_capacity.047.i19.i207.i.i, 1
   br label %if.end40.i.i210.i.i
 
 if.end40.i.i210.i.i:                              ; preds = %if.end39.i.i248.i.i, %if.end28.i.i204.i.i
-  %_children_capacity.1.i.i211.i.i = phi i64 [ %mul.i.i249.i.i, %if.end39.i.i248.i.i ], [ %_children_capacity.045.i20.i206.i.i, %if.end28.i.i204.i.i ]
-  %_children.1.i.i212.i.i = phi ptr [ %call32.i.i246.i.i, %if.end39.i.i248.i.i ], [ %_children.047.i18.i208.i.i, %if.end28.i.i204.i.i ]
-  %inc41.i.i213.i.i = add i64 %_n.046.i19.i207.i.i, 1
-  %arrayidx.i.i214.i.i = getelementptr ptr, ptr %_children.1.i.i212.i.i, i64 %_n.046.i19.i207.i.i
+  %_children.1.i.i211.i.i = phi ptr [ %call32.i.i246.i.i, %if.end39.i.i248.i.i ], [ %_children.046.i20.i206.i.i, %if.end28.i.i204.i.i ]
+  %_children_capacity.1.i.i212.i.i = phi i64 [ %mul.i.i249.i.i, %if.end39.i.i248.i.i ], [ %_children_capacity.047.i19.i207.i.i, %if.end28.i.i204.i.i ]
+  %inc41.i.i213.i.i = add i64 %_n.048.i18.i208.i.i, 1
+  %arrayidx.i.i214.i.i = getelementptr ptr, ptr %_children.1.i.i211.i.i, i64 %_n.048.i18.i208.i.i
   store ptr %call19.i21.i205.i.i, ptr %arrayidx.i.i214.i.i, align 8
   %74 = load i32, ptr %mark.i55, align 8
   %call17.i.i215.i.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -1172,18 +1172,18 @@ if.end40.i.i210.i.i:                              ; preds = %if.end39.i.i248.i.i
   br i1 %tobool18.not.i.i216.i.i, label %while.end.i.i220.i.i, label %land.rhs.i.i217.i.i, !llvm.loop !12
 
 while.end.i.i220.i.i:                             ; preds = %if.end40.i.i210.i.i, %land.rhs.i.i217.i.i, %land.rhs.i.preheader.i201.i.i, %while.cond.preheader.i.i198.i.i
-  %_n.0.lcssa.i.i221.i.i = phi i64 [ 0, %while.cond.preheader.i.i198.i.i ], [ 0, %land.rhs.i.preheader.i201.i.i ], [ %inc41.i.i213.i.i, %land.rhs.i.i217.i.i ], [ %inc41.i.i213.i.i, %if.end40.i.i210.i.i ]
-  %_children.0.lcssa.i.i222.i.i = phi ptr [ %call.i.i194.i.i, %while.cond.preheader.i.i198.i.i ], [ %call.i.i194.i.i, %land.rhs.i.preheader.i201.i.i ], [ %_children.1.i.i212.i.i, %land.rhs.i.i217.i.i ], [ %_children.1.i.i212.i.i, %if.end40.i.i210.i.i ]
-  %_mark.0.lcssa.i.i223.i.i = phi i32 [ %72, %while.cond.preheader.i.i198.i.i ], [ %72, %land.rhs.i.preheader.i201.i.i ], [ %74, %land.rhs.i.i217.i.i ], [ %74, %if.end40.i.i210.i.i ]
-  store i32 %_mark.0.lcssa.i.i223.i.i, ptr %mark.i55, align 8
+  %_mark.0.lcssa.i.i221.i.i = phi i32 [ %72, %while.cond.preheader.i.i198.i.i ], [ %72, %land.rhs.i.preheader.i201.i.i ], [ %74, %land.rhs.i.i217.i.i ], [ %74, %if.end40.i.i210.i.i ]
+  %_children.0.lcssa.i.i222.i.i = phi ptr [ %call.i.i194.i.i, %while.cond.preheader.i.i198.i.i ], [ %call.i.i194.i.i, %land.rhs.i.preheader.i201.i.i ], [ %_children.1.i.i211.i.i, %land.rhs.i.i217.i.i ], [ %_children.1.i.i211.i.i, %if.end40.i.i210.i.i ]
+  %_n.0.lcssa.i.i223.i.i = phi i64 [ 0, %while.cond.preheader.i.i198.i.i ], [ 0, %land.rhs.i.preheader.i201.i.i ], [ %inc41.i.i213.i.i, %land.rhs.i.i217.i.i ], [ %inc41.i.i213.i.i, %if.end40.i.i210.i.i ]
+  store i32 %_mark.0.lcssa.i.i221.i.i, ptr %mark.i55, align 8
   %arena.i.i224.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %75 = load ptr, ptr %arena.i.i224.i.i, align 8
-  %call44.i.i225.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i221.i.i, ptr noundef %75) #4
+  %call44.i.i225.i.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i223.i.i, ptr noundef %75) #4
   %tobool45.not.i.i226.i.i = icmp eq ptr %call44.i.i225.i.i, null
   br i1 %tobool45.not.i.i226.i.i, label %if.then46.i.i242.i.i, label %for.cond.preheader.i.i227.i.i
 
 for.cond.preheader.i.i227.i.i:                    ; preds = %while.end.i.i220.i.i
-  %cmp5254.i.i228.i.i = icmp sgt i64 %_n.0.lcssa.i.i221.i.i, 0
+  %cmp5254.i.i228.i.i = icmp sgt i64 %_n.0.lcssa.i.i223.i.i, 0
   br i1 %cmp5254.i.i228.i.i, label %for.body.lr.ph.i.i232.i.i, label %_gather_145_rule.exit.i.i
 
 for.body.lr.ph.i.i232.i.i:                        ; preds = %for.cond.preheader.i.i227.i.i
@@ -1204,7 +1204,7 @@ for.body.i.i234.i.i:                              ; preds = %for.body.i.i234.i.i
   store ptr %76, ptr %arrayidx56.i.i238.i.i, align 8
   %inc57.i.i239.i.i = add i32 %i.055.i.i236.i.i, 1
   %conv.i.i240.i.i = sext i32 %inc57.i.i239.i.i to i64
-  %cmp52.i.i241.i.i = icmp sgt i64 %_n.0.lcssa.i.i221.i.i, %conv.i.i240.i.i
+  %cmp52.i.i241.i.i = icmp sgt i64 %_n.0.lcssa.i.i223.i.i, %conv.i.i240.i.i
   br i1 %cmp52.i.i241.i.i, label %for.body.i.i234.i.i, label %_gather_145_rule.exit.i.i, !llvm.loop !13
 
 _loop0_146_rule.exit.thread.sink.split.i.i.i:     ; preds = %if.then46.i.i242.i.i, %if.then34.i.i250.i.i, %if.end3.i.i193.i.i
@@ -1471,18 +1471,18 @@ if.end30.i.i84:                                   ; preds = %if.end29.i.i111, %w
   br i1 %tobool18.not.i32.i, label %while.end.i.i89, label %while.body.i.i78, !llvm.loop !14
 
 while.end.i.i89:                                  ; preds = %if.end30.i.i84, %while.cond.preheader.i.i75
-  %_children.0.lcssa.i.i90 = phi ptr [ %call.i.i72, %while.cond.preheader.i.i75 ], [ %_children.1.i.i85, %if.end30.i.i84 ]
-  %_n.0.lcssa.i.i91 = phi i64 [ 0, %while.cond.preheader.i.i75 ], [ %inc31.i.i87, %if.end30.i.i84 ]
-  %_mark.0.lcssa.i.i92 = phi i32 [ %87, %while.cond.preheader.i.i75 ], [ %89, %if.end30.i.i84 ]
-  store i32 %_mark.0.lcssa.i.i92, ptr %mark.i55, align 8
+  %_mark.0.lcssa.i.i90 = phi i32 [ %87, %while.cond.preheader.i.i75 ], [ %89, %if.end30.i.i84 ]
+  %_children.0.lcssa.i.i91 = phi ptr [ %call.i.i72, %while.cond.preheader.i.i75 ], [ %_children.1.i.i85, %if.end30.i.i84 ]
+  %_n.0.lcssa.i.i92 = phi i64 [ 0, %while.cond.preheader.i.i75 ], [ %inc31.i.i87, %if.end30.i.i84 ]
+  store i32 %_mark.0.lcssa.i.i90, ptr %mark.i55, align 8
   %arena.i.i93 = getelementptr inbounds i8, ptr %p, i64 32
   %90 = load ptr, ptr %arena.i.i93, align 8
-  %call34.i33.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i91, ptr noundef %90) #4
+  %call34.i33.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i92, ptr noundef %90) #4
   %tobool35.not.i34.i = icmp eq ptr %call34.i33.i, null
   br i1 %tobool35.not.i34.i, label %if.then36.i35.i, label %for.cond.preheader.i.i94
 
 for.cond.preheader.i.i94:                         ; preds = %while.end.i.i89
-  %cmp4246.i.i95 = icmp sgt i64 %_n.0.lcssa.i.i91, 0
+  %cmp4246.i.i95 = icmp sgt i64 %_n.0.lcssa.i.i92, 0
   br i1 %cmp4246.i.i95, label %for.body.lr.ph.i.i97, label %land.lhs.true26.i
 
 for.body.lr.ph.i.i97:                             ; preds = %for.cond.preheader.i.i94
@@ -1490,20 +1490,20 @@ for.body.lr.ph.i.i97:                             ; preds = %for.cond.preheader.
   br label %for.body.i.i99
 
 if.then36.i35.i:                                  ; preds = %while.end.i.i89
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i90) #4
+  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i91) #4
   br label %_loop0_2_rule.exit.thread.sink.split.i
 
 for.body.i.i99:                                   ; preds = %for.body.i.i99, %for.body.lr.ph.i.i97
   %conv48.i.i100 = phi i64 [ 0, %for.body.lr.ph.i.i97 ], [ %conv.i.i105, %for.body.i.i99 ]
   %i.047.i.i101 = phi i32 [ 0, %for.body.lr.ph.i.i97 ], [ %inc47.i.i104, %for.body.i.i99 ]
-  %arrayidx44.i.i102 = getelementptr ptr, ptr %_children.0.lcssa.i.i90, i64 %conv48.i.i100
+  %arrayidx44.i.i102 = getelementptr ptr, ptr %_children.0.lcssa.i.i91, i64 %conv48.i.i100
   %91 = load ptr, ptr %arrayidx44.i.i102, align 8
   %92 = load ptr, ptr %elements.i.i98, align 8
   %arrayidx46.i.i103 = getelementptr ptr, ptr %92, i64 %conv48.i.i100
   store ptr %91, ptr %arrayidx46.i.i103, align 8
   %inc47.i.i104 = add i32 %i.047.i.i101, 1
   %conv.i.i105 = sext i32 %inc47.i.i104 to i64
-  %cmp42.i.i106 = icmp sgt i64 %_n.0.lcssa.i.i91, %conv.i.i105
+  %cmp42.i.i106 = icmp sgt i64 %_n.0.lcssa.i.i92, %conv.i.i105
   br i1 %cmp42.i.i106, label %for.body.i.i99, label %land.lhs.true26.i, !llvm.loop !15
 
 _loop0_2_rule.exit.thread.sink.split.i:           ; preds = %if.then36.i35.i, %if.then24.i.i113, %if.end3.i28.i
@@ -1512,7 +1512,7 @@ _loop0_2_rule.exit.thread.sink.split.i:           ; preds = %if.then36.i35.i, %i
   br label %if.end40.sink.split.sink.split.i
 
 land.lhs.true26.i:                                ; preds = %for.body.i.i99, %for.cond.preheader.i.i94
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i90) #4
+  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i91) #4
   %93 = load i32, ptr %level.i47, align 8
   %dec49.i.i96 = add i32 %93, -1
   store i32 %dec49.i.i96, ptr %level.i47, align 8
@@ -1625,10 +1625,10 @@ if.end10.i:                                       ; preds = %if.end3.i
   br i1 %tobool12.not.i, label %while.cond.i, label %if.end21
 
 while.cond.i:                                     ; preds = %if.end10.i, %if.end30.i
+  %_mark.0.i = phi i32 [ %13, %if.end30.i ], [ %6, %if.end10.i ]
   %_children.0.i = phi ptr [ %_children.1.i, %if.end30.i ], [ %call.i, %if.end10.i ]
   %_children_capacity.0.i = phi i64 [ %_children_capacity.1.i, %if.end30.i ], [ 1, %if.end10.i ]
   %_n.0.i = phi i64 [ %inc31.i, %if.end30.i ], [ 0, %if.end10.i ]
-  %_mark.0.i = phi i32 [ %13, %if.end30.i ], [ %6, %if.end10.i ]
   %8 = load i32, ptr %level, align 8
   %inc.i15 = add i32 %8, 1
   store i32 %inc.i15, ptr %level, align 8
@@ -2476,31 +2476,31 @@ land.rhs.i.i:                                     ; preds = %if.end40.i.i
 
 if.end28.i.i:                                     ; preds = %land.rhs.i.preheader.i, %land.rhs.i.i
   %call19.i21.i = phi ptr [ %call19.i.i, %land.rhs.i.i ], [ %call19.i16.i, %land.rhs.i.preheader.i ]
-  %_children_capacity.045.i20.i = phi i64 [ %_children_capacity.1.i.i, %land.rhs.i.i ], [ 1, %land.rhs.i.preheader.i ]
-  %_n.046.i19.i = phi i64 [ %inc41.i.i, %land.rhs.i.i ], [ 0, %land.rhs.i.preheader.i ]
-  %_children.047.i18.i = phi ptr [ %_children.1.i.i, %land.rhs.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ]
-  %cmp29.i.i = icmp eq i64 %_n.046.i19.i, %_children_capacity.045.i20.i
+  %_children.046.i20.i = phi ptr [ %_children.1.i.i, %land.rhs.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ]
+  %_children_capacity.047.i19.i = phi i64 [ %_children_capacity.1.i.i, %land.rhs.i.i ], [ 1, %land.rhs.i.preheader.i ]
+  %_n.048.i18.i = phi i64 [ %inc41.i.i, %land.rhs.i.i ], [ 0, %land.rhs.i.preheader.i ]
+  %cmp29.i.i = icmp eq i64 %_n.048.i18.i, %_children_capacity.047.i19.i
   br i1 %cmp29.i.i, label %if.then30.i.i, label %if.end40.i.i
 
 if.then30.i.i:                                    ; preds = %if.end28.i.i
-  %mul31.i.i = shl i64 %_children_capacity.045.i20.i, 4
-  %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i, i64 noundef %mul31.i.i) #4
+  %mul31.i.i = shl i64 %_children_capacity.047.i19.i, 4
+  %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.046.i20.i, i64 noundef %mul31.i.i) #4
   %tobool33.not.i.i = icmp eq ptr %call32.i.i, null
   br i1 %tobool33.not.i.i, label %if.then34.i.i, label %if.end39.i.i
 
 if.then34.i.i:                                    ; preds = %if.then30.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i) #4
+  tail call void @PyMem_Free(ptr noundef %_children.046.i20.i) #4
   br label %_loop0_5_rule.exit.thread.sink.split.i
 
 if.end39.i.i:                                     ; preds = %if.then30.i.i
-  %mul.i.i = shl i64 %_children_capacity.045.i20.i, 1
+  %mul.i.i = shl i64 %_children_capacity.047.i19.i, 1
   br label %if.end40.i.i
 
 if.end40.i.i:                                     ; preds = %if.end39.i.i, %if.end28.i.i
-  %_children_capacity.1.i.i = phi i64 [ %mul.i.i, %if.end39.i.i ], [ %_children_capacity.045.i20.i, %if.end28.i.i ]
-  %_children.1.i.i = phi ptr [ %call32.i.i, %if.end39.i.i ], [ %_children.047.i18.i, %if.end28.i.i ]
-  %inc41.i.i = add i64 %_n.046.i19.i, 1
-  %arrayidx.i.i = getelementptr ptr, ptr %_children.1.i.i, i64 %_n.046.i19.i
+  %_children.1.i.i = phi ptr [ %call32.i.i, %if.end39.i.i ], [ %_children.046.i20.i, %if.end28.i.i ]
+  %_children_capacity.1.i.i = phi i64 [ %mul.i.i, %if.end39.i.i ], [ %_children_capacity.047.i19.i, %if.end28.i.i ]
+  %inc41.i.i = add i64 %_n.048.i18.i, 1
+  %arrayidx.i.i = getelementptr ptr, ptr %_children.1.i.i, i64 %_n.048.i18.i
   store ptr %call19.i21.i, ptr %arrayidx.i.i, align 8
   %10 = load i32, ptr %mark, align 8
   %call17.i.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 13) #4
@@ -2508,9 +2508,9 @@ if.end40.i.i:                                     ; preds = %if.end39.i.i, %if.e
   br i1 %tobool18.not.i.i, label %while.end.i.i, label %land.rhs.i.i, !llvm.loop !18
 
 while.end.i.i:                                    ; preds = %if.end40.i.i, %land.rhs.i.i, %land.rhs.i.preheader.i, %while.cond.preheader.i.i
-  %_n.0.lcssa.i.i = phi i64 [ 0, %while.cond.preheader.i.i ], [ 0, %land.rhs.i.preheader.i ], [ %inc41.i.i, %land.rhs.i.i ], [ %inc41.i.i, %if.end40.i.i ]
-  %_children.0.lcssa.i.i = phi ptr [ %call.i.i, %while.cond.preheader.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ], [ %_children.1.i.i, %land.rhs.i.i ], [ %_children.1.i.i, %if.end40.i.i ]
   %_mark.0.lcssa.i.i = phi i32 [ %8, %while.cond.preheader.i.i ], [ %8, %land.rhs.i.preheader.i ], [ %10, %land.rhs.i.i ], [ %10, %if.end40.i.i ]
+  %_children.0.lcssa.i.i = phi ptr [ %call.i.i, %while.cond.preheader.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ], [ %_children.1.i.i, %land.rhs.i.i ], [ %_children.1.i.i, %if.end40.i.i ]
+  %_n.0.lcssa.i.i = phi i64 [ 0, %while.cond.preheader.i.i ], [ 0, %land.rhs.i.preheader.i ], [ %inc41.i.i, %land.rhs.i.i ], [ %inc41.i.i, %if.end40.i.i ]
   store i32 %_mark.0.lcssa.i.i, ptr %mark, align 8
   %arena.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena.i.i, align 8
@@ -2989,31 +2989,31 @@ land.rhs.i.i.i:                                   ; preds = %if.end40.i.i.i
 
 if.end28.i.i.i:                                   ; preds = %land.rhs.i.preheader.i.i, %land.rhs.i.i.i
   %call19.i21.i.i = phi ptr [ %call19.i.i.i, %land.rhs.i.i.i ], [ %call19.i16.i.i, %land.rhs.i.preheader.i.i ]
-  %_children_capacity.045.i20.i.i = phi i64 [ %_children_capacity.1.i.i.i, %land.rhs.i.i.i ], [ 1, %land.rhs.i.preheader.i.i ]
-  %_n.046.i19.i.i = phi i64 [ %inc41.i.i.i, %land.rhs.i.i.i ], [ 0, %land.rhs.i.preheader.i.i ]
-  %_children.047.i18.i.i = phi ptr [ %_children.1.i.i.i, %land.rhs.i.i.i ], [ %call.i.i.i, %land.rhs.i.preheader.i.i ]
-  %cmp29.i.i.i = icmp eq i64 %_n.046.i19.i.i, %_children_capacity.045.i20.i.i
+  %_children.046.i20.i.i = phi ptr [ %_children.1.i.i.i, %land.rhs.i.i.i ], [ %call.i.i.i, %land.rhs.i.preheader.i.i ]
+  %_children_capacity.047.i19.i.i = phi i64 [ %_children_capacity.1.i.i.i, %land.rhs.i.i.i ], [ 1, %land.rhs.i.preheader.i.i ]
+  %_n.048.i18.i.i = phi i64 [ %inc41.i.i.i, %land.rhs.i.i.i ], [ 0, %land.rhs.i.preheader.i.i ]
+  %cmp29.i.i.i = icmp eq i64 %_n.048.i18.i.i, %_children_capacity.047.i19.i.i
   br i1 %cmp29.i.i.i, label %if.then30.i.i.i, label %if.end40.i.i.i
 
 if.then30.i.i.i:                                  ; preds = %if.end28.i.i.i
-  %mul31.i.i.i = shl i64 %_children_capacity.045.i20.i.i, 4
-  %call32.i.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i.i, i64 noundef %mul31.i.i.i) #4
+  %mul31.i.i.i = shl i64 %_children_capacity.047.i19.i.i, 4
+  %call32.i.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.046.i20.i.i, i64 noundef %mul31.i.i.i) #4
   %tobool33.not.i.i.i = icmp eq ptr %call32.i.i.i, null
   br i1 %tobool33.not.i.i.i, label %if.then34.i.i.i, label %if.end39.i.i.i
 
 if.then34.i.i.i:                                  ; preds = %if.then30.i.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i.i) #4
+  tail call void @PyMem_Free(ptr noundef %_children.046.i20.i.i) #4
   br label %_loop0_210_rule.exit.thread.sink.split.i.i
 
 if.end39.i.i.i:                                   ; preds = %if.then30.i.i.i
-  %mul.i.i.i = shl i64 %_children_capacity.045.i20.i.i, 1
+  %mul.i.i.i = shl i64 %_children_capacity.047.i19.i.i, 1
   br label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end39.i.i.i, %if.end28.i.i.i
-  %_children_capacity.1.i.i.i = phi i64 [ %mul.i.i.i, %if.end39.i.i.i ], [ %_children_capacity.045.i20.i.i, %if.end28.i.i.i ]
-  %_children.1.i.i.i = phi ptr [ %call32.i.i.i, %if.end39.i.i.i ], [ %_children.047.i18.i.i, %if.end28.i.i.i ]
-  %inc41.i.i.i = add i64 %_n.046.i19.i.i, 1
-  %arrayidx.i.i.i = getelementptr ptr, ptr %_children.1.i.i.i, i64 %_n.046.i19.i.i
+  %_children.1.i.i.i = phi ptr [ %call32.i.i.i, %if.end39.i.i.i ], [ %_children.046.i20.i.i, %if.end28.i.i.i ]
+  %_children_capacity.1.i.i.i = phi i64 [ %mul.i.i.i, %if.end39.i.i.i ], [ %_children_capacity.047.i19.i.i, %if.end28.i.i.i ]
+  %inc41.i.i.i = add i64 %_n.048.i18.i.i, 1
+  %arrayidx.i.i.i = getelementptr ptr, ptr %_children.1.i.i.i, i64 %_n.048.i18.i.i
   store ptr %call19.i21.i.i, ptr %arrayidx.i.i.i, align 8
   %17 = load i32, ptr %mark, align 8
   %call17.i.i.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -3021,9 +3021,9 @@ if.end40.i.i.i:                                   ; preds = %if.end39.i.i.i, %if
   br i1 %tobool18.not.i.i.i, label %while.end.i.i.i, label %land.rhs.i.i.i, !llvm.loop !20
 
 while.end.i.i.i:                                  ; preds = %if.end40.i.i.i, %land.rhs.i.i.i, %land.rhs.i.preheader.i.i, %while.cond.preheader.i.i.i
-  %_n.0.lcssa.i.i.i = phi i64 [ 0, %while.cond.preheader.i.i.i ], [ 0, %land.rhs.i.preheader.i.i ], [ %inc41.i.i.i, %land.rhs.i.i.i ], [ %inc41.i.i.i, %if.end40.i.i.i ]
-  %_children.0.lcssa.i.i.i = phi ptr [ %call.i.i.i, %while.cond.preheader.i.i.i ], [ %call.i.i.i, %land.rhs.i.preheader.i.i ], [ %_children.1.i.i.i, %land.rhs.i.i.i ], [ %_children.1.i.i.i, %if.end40.i.i.i ]
   %_mark.0.lcssa.i.i.i = phi i32 [ %15, %while.cond.preheader.i.i.i ], [ %15, %land.rhs.i.preheader.i.i ], [ %17, %land.rhs.i.i.i ], [ %17, %if.end40.i.i.i ]
+  %_children.0.lcssa.i.i.i = phi ptr [ %call.i.i.i, %while.cond.preheader.i.i.i ], [ %call.i.i.i, %land.rhs.i.preheader.i.i ], [ %_children.1.i.i.i, %land.rhs.i.i.i ], [ %_children.1.i.i.i, %if.end40.i.i.i ]
+  %_n.0.lcssa.i.i.i = phi i64 [ 0, %while.cond.preheader.i.i.i ], [ 0, %land.rhs.i.preheader.i.i ], [ %inc41.i.i.i, %land.rhs.i.i.i ], [ %inc41.i.i.i, %if.end40.i.i.i ]
   store i32 %_mark.0.lcssa.i.i.i, ptr %mark, align 8
   %arena.i.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %18 = load ptr, ptr %arena.i.i.i, align 8
@@ -3277,31 +3277,31 @@ land.rhs.i.i:                                     ; preds = %if.end40.i.i
 
 if.end28.i.i:                                     ; preds = %land.rhs.i.preheader.i, %land.rhs.i.i
   %call19.i21.i = phi ptr [ %call19.i.i, %land.rhs.i.i ], [ %call19.i16.i, %land.rhs.i.preheader.i ]
-  %_children_capacity.045.i20.i = phi i64 [ %_children_capacity.1.i.i, %land.rhs.i.i ], [ 1, %land.rhs.i.preheader.i ]
-  %_n.046.i19.i = phi i64 [ %inc41.i.i, %land.rhs.i.i ], [ 0, %land.rhs.i.preheader.i ]
-  %_children.047.i18.i = phi ptr [ %_children.1.i.i, %land.rhs.i.i ], [ %call.i.i134, %land.rhs.i.preheader.i ]
-  %cmp29.i.i = icmp eq i64 %_n.046.i19.i, %_children_capacity.045.i20.i
+  %_children.046.i20.i = phi ptr [ %_children.1.i.i, %land.rhs.i.i ], [ %call.i.i134, %land.rhs.i.preheader.i ]
+  %_children_capacity.047.i19.i = phi i64 [ %_children_capacity.1.i.i, %land.rhs.i.i ], [ 1, %land.rhs.i.preheader.i ]
+  %_n.048.i18.i = phi i64 [ %inc41.i.i, %land.rhs.i.i ], [ 0, %land.rhs.i.preheader.i ]
+  %cmp29.i.i = icmp eq i64 %_n.048.i18.i, %_children_capacity.047.i19.i
   br i1 %cmp29.i.i, label %if.then30.i.i, label %if.end40.i.i
 
 if.then30.i.i:                                    ; preds = %if.end28.i.i
-  %mul31.i.i = shl i64 %_children_capacity.045.i20.i, 4
-  %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i, i64 noundef %mul31.i.i) #4
+  %mul31.i.i = shl i64 %_children_capacity.047.i19.i, 4
+  %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.046.i20.i, i64 noundef %mul31.i.i) #4
   %tobool33.not.i.i = icmp eq ptr %call32.i.i, null
   br i1 %tobool33.not.i.i, label %if.then34.i.i, label %if.end39.i.i
 
 if.then34.i.i:                                    ; preds = %if.then30.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i) #4
+  tail call void @PyMem_Free(ptr noundef %_children.046.i20.i) #4
   br label %_loop0_52_rule.exit.thread.sink.split.i
 
 if.end39.i.i:                                     ; preds = %if.then30.i.i
-  %mul.i.i = shl i64 %_children_capacity.045.i20.i, 1
+  %mul.i.i = shl i64 %_children_capacity.047.i19.i, 1
   br label %if.end40.i.i
 
 if.end40.i.i:                                     ; preds = %if.end39.i.i, %if.end28.i.i
-  %_children_capacity.1.i.i = phi i64 [ %mul.i.i, %if.end39.i.i ], [ %_children_capacity.045.i20.i, %if.end28.i.i ]
-  %_children.1.i.i = phi ptr [ %call32.i.i, %if.end39.i.i ], [ %_children.047.i18.i, %if.end28.i.i ]
-  %inc41.i.i = add i64 %_n.046.i19.i, 1
-  %arrayidx.i.i = getelementptr ptr, ptr %_children.1.i.i, i64 %_n.046.i19.i
+  %_children.1.i.i = phi ptr [ %call32.i.i, %if.end39.i.i ], [ %_children.046.i20.i, %if.end28.i.i ]
+  %_children_capacity.1.i.i = phi i64 [ %mul.i.i, %if.end39.i.i ], [ %_children_capacity.047.i19.i, %if.end28.i.i ]
+  %inc41.i.i = add i64 %_n.048.i18.i, 1
+  %arrayidx.i.i = getelementptr ptr, ptr %_children.1.i.i, i64 %_n.048.i18.i
   store ptr %call19.i21.i, ptr %arrayidx.i.i, align 8
   %38 = load i32, ptr %mark, align 8
   %call17.i.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -3309,9 +3309,9 @@ if.end40.i.i:                                     ; preds = %if.end39.i.i, %if.e
   br i1 %tobool18.not.i.i, label %while.end.i.i, label %land.rhs.i.i, !llvm.loop !22
 
 while.end.i.i:                                    ; preds = %if.end40.i.i, %land.rhs.i.i, %land.rhs.i.preheader.i, %while.cond.preheader.i.i
-  %_n.0.lcssa.i.i = phi i64 [ 0, %while.cond.preheader.i.i ], [ 0, %land.rhs.i.preheader.i ], [ %inc41.i.i, %land.rhs.i.i ], [ %inc41.i.i, %if.end40.i.i ]
-  %_children.0.lcssa.i.i = phi ptr [ %call.i.i134, %while.cond.preheader.i.i ], [ %call.i.i134, %land.rhs.i.preheader.i ], [ %_children.1.i.i, %land.rhs.i.i ], [ %_children.1.i.i, %if.end40.i.i ]
   %_mark.0.lcssa.i.i = phi i32 [ %36, %while.cond.preheader.i.i ], [ %36, %land.rhs.i.preheader.i ], [ %38, %land.rhs.i.i ], [ %38, %if.end40.i.i ]
+  %_children.0.lcssa.i.i = phi ptr [ %call.i.i134, %while.cond.preheader.i.i ], [ %call.i.i134, %land.rhs.i.preheader.i ], [ %_children.1.i.i, %land.rhs.i.i ], [ %_children.1.i.i, %if.end40.i.i ]
+  %_n.0.lcssa.i.i = phi i64 [ 0, %while.cond.preheader.i.i ], [ 0, %land.rhs.i.preheader.i ], [ %inc41.i.i, %land.rhs.i.i ], [ %inc41.i.i, %if.end40.i.i ]
   store i32 %_mark.0.lcssa.i.i, ptr %mark, align 8
   %arena.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %39 = load ptr, ptr %arena.i.i, align 8
@@ -5016,10 +5016,10 @@ while.cond.preheader.i:                           ; preds = %if.end10.i
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %if.end30.i, %while.cond.preheader.i
+  %_mark.0.i = phi i32 [ %36, %if.end30.i ], [ %10, %while.cond.preheader.i ]
   %_children.0.i = phi ptr [ %_children.1.i, %if.end30.i ], [ %call.i58, %while.cond.preheader.i ]
   %_children_capacity.0.i = phi i64 [ %_children_capacity.1.i, %if.end30.i ], [ 1, %while.cond.preheader.i ]
   %_n.0.i = phi i64 [ %inc31.i, %if.end30.i ], [ 0, %while.cond.preheader.i ]
-  %_mark.0.i = phi i32 [ %36, %if.end30.i ], [ %10, %while.cond.preheader.i ]
   %12 = load i32, ptr %level, align 8
   %inc.i.i = add i32 %12, 1
   store i32 %inc.i.i, ptr %level, align 8
@@ -9572,10 +9572,10 @@ while.cond.preheader.i:                           ; preds = %if.end10.i
   br i1 %tobool18.not66.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.preheader.i, %if.end40.i
-  %_mark.070.i = phi i32 [ %24, %if.end40.i ], [ %17, %while.cond.preheader.i ]
-  %_children.069.i = phi ptr [ %_children.1.i, %if.end40.i ], [ %call.i, %while.cond.preheader.i ]
-  %_n.068.i = phi i64 [ %inc41.i, %if.end40.i ], [ 0, %while.cond.preheader.i ]
-  %_children_capacity.067.i = phi i64 [ %_children_capacity.1.i, %if.end40.i ], [ 1, %while.cond.preheader.i ]
+  %_n.070.i = phi i64 [ %inc41.i, %if.end40.i ], [ 0, %while.cond.preheader.i ]
+  %_children_capacity.069.i = phi i64 [ %_children_capacity.1.i, %if.end40.i ], [ 1, %while.cond.preheader.i ]
+  %_children.068.i = phi ptr [ %_children.1.i, %if.end40.i ], [ %call.i, %while.cond.preheader.i ]
+  %_mark.067.i = phi i32 [ %24, %if.end40.i ], [ %17, %while.cond.preheader.i ]
   %19 = load i32, ptr %level, align 8
   %inc.i.i = add i32 %19, 1
   store i32 %inc.i.i, ptr %level, align 8
@@ -9613,28 +9613,28 @@ if.end28.i:                                       ; preds = %if.end19.i.i, %if.e
   %23 = load i32, ptr %level, align 8
   %dec26.i45.i = add i32 %23, -1
   store i32 %dec26.i45.i, ptr %level, align 8
-  %cmp29.i = icmp eq i64 %_n.068.i, %_children_capacity.067.i
+  %cmp29.i = icmp eq i64 %_n.070.i, %_children_capacity.069.i
   br i1 %cmp29.i, label %if.then30.i, label %if.end40.i
 
 if.then30.i:                                      ; preds = %if.end28.i
-  %mul31.i = shl i64 %_n.068.i, 4
-  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.069.i, i64 noundef %mul31.i) #4
+  %mul31.i = shl i64 %_n.070.i, 4
+  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.068.i, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
   br i1 %tobool33.not.i, label %if.then34.i, label %if.end39.i
 
 if.then34.i:                                      ; preds = %if.then30.i
-  tail call void @PyMem_Free(ptr noundef %_children.069.i) #4
+  tail call void @PyMem_Free(ptr noundef %_children.068.i) #4
   br label %_loop0_91_rule.exit.thread.sink.split
 
 if.end39.i:                                       ; preds = %if.then30.i
-  %mul.i = shl i64 %_n.068.i, 1
+  %mul.i = shl i64 %_n.070.i, 1
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end39.i, %if.end28.i
-  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.067.i, %if.end28.i ]
-  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.069.i, %if.end28.i ]
-  %inc41.i = add i64 %_n.068.i, 1
-  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.068.i
+  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.068.i, %if.end28.i ]
+  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.069.i, %if.end28.i ]
+  %inc41.i = add i64 %_n.070.i, 1
+  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.070.i
   store ptr %_res.0.i.ph.i, ptr %arrayidx.i, align 8
   %24 = load i32, ptr %mark, align 8
   %call17.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -9648,18 +9648,18 @@ while.end.sink.split.i:                           ; preds = %if.end19.i.i, %if.e
   br label %while.end.i
 
 while.end.i:                                      ; preds = %if.end40.i, %while.end.sink.split.i, %while.cond.preheader.i
-  %_n.062.i = phi i64 [ 0, %while.cond.preheader.i ], [ %_n.068.i, %while.end.sink.split.i ], [ %inc41.i, %if.end40.i ]
-  %_children.057.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %_children.069.i, %while.end.sink.split.i ], [ %_children.1.i, %if.end40.i ]
-  %_mark.052.i = phi i32 [ %17, %while.cond.preheader.i ], [ %_mark.070.i, %while.end.sink.split.i ], [ %24, %if.end40.i ]
-  store i32 %_mark.052.i, ptr %mark, align 8
+  %_mark.062.i = phi i32 [ %17, %while.cond.preheader.i ], [ %_mark.067.i, %while.end.sink.split.i ], [ %24, %if.end40.i ]
+  %_children.057.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %_children.068.i, %while.end.sink.split.i ], [ %_children.1.i, %if.end40.i ]
+  %_n.052.i = phi i64 [ 0, %while.cond.preheader.i ], [ %_n.070.i, %while.end.sink.split.i ], [ %inc41.i, %if.end40.i ]
+  store i32 %_mark.062.i, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %26 = load ptr, ptr %arena.i, align 8
-  %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.062.i, ptr noundef %26) #4
+  %call44.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.052.i, ptr noundef %26) #4
   %tobool45.not.i = icmp eq ptr %call44.i, null
   br i1 %tobool45.not.i, label %if.then46.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end.i
-  %cmp5273.i = icmp sgt i64 %_n.062.i, 0
+  %cmp5273.i = icmp sgt i64 %_n.052.i, 0
   br i1 %cmp5273.i, label %for.body.lr.ph.i, label %_gather_90_rule.exit
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
@@ -9680,7 +9680,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store ptr %27, ptr %arrayidx56.i, align 8
   %inc57.i = add i32 %i.074.i, 1
   %conv.i = sext i32 %inc57.i to i64
-  %cmp52.i = icmp sgt i64 %_n.062.i, %conv.i
+  %cmp52.i = icmp sgt i64 %_n.052.i, %conv.i
   br i1 %cmp52.i, label %for.body.i, label %_gather_90_rule.exit, !llvm.loop !27
 
 _loop0_91_rule.exit.thread.sink.split:            ; preds = %if.end3.i65, %if.then46.i, %if.then34.i
@@ -10480,10 +10480,10 @@ while.cond.preheader:                             ; preds = %if.end10
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %if.end30
+  %_mark.0 = phi i32 [ %51, %if.end30 ], [ %2, %while.cond.preheader ]
   %_children.0 = phi ptr [ %_children.1, %if.end30 ], [ %call, %while.cond.preheader ]
   %_children_capacity.0 = phi i64 [ %_children_capacity.1, %if.end30 ], [ 1, %while.cond.preheader ]
   %_n.0 = phi i64 [ %inc31, %if.end30 ], [ 0, %while.cond.preheader ]
-  %_mark.0 = phi i32 [ %51, %if.end30 ], [ %2, %while.cond.preheader ]
   %4 = load i32, ptr %level, align 8
   %inc.i = add i32 %4, 1
   store i32 %inc.i, ptr %level, align 8
@@ -10574,10 +10574,10 @@ if.then13.i77:                                    ; preds = %if.end10.i75
   br label %while.end
 
 while.cond.i79:                                   ; preds = %if.end10.i75, %if.end30.i96
-  %_children.0.i80 = phi ptr [ %_children.1.i97, %if.end30.i96 ], [ %call.i73, %if.end10.i75 ]
-  %_children_capacity.0.i81 = phi i64 [ %_children_capacity.1.i98, %if.end30.i96 ], [ 1, %if.end10.i75 ]
-  %_n.0.i82 = phi i64 [ %inc31.i99, %if.end30.i96 ], [ 0, %if.end10.i75 ]
-  %_mark.0.i83 = phi i32 [ %17, %if.end30.i96 ], [ %10, %if.end10.i75 ]
+  %_mark.0.i80 = phi i32 [ %17, %if.end30.i96 ], [ %10, %if.end10.i75 ]
+  %_children.0.i81 = phi ptr [ %_children.1.i97, %if.end30.i96 ], [ %call.i73, %if.end10.i75 ]
+  %_children_capacity.0.i82 = phi i64 [ %_children_capacity.1.i98, %if.end30.i96 ], [ 1, %if.end10.i75 ]
+  %_n.0.i83 = phi i64 [ %inc31.i99, %if.end30.i96 ], [ 0, %if.end10.i75 ]
   %14 = load i32, ptr %level, align 8
   %inc.i.i85 = add i32 %14, 1
   store i32 %inc.i.i85, ptr %level, align 8
@@ -10607,17 +10607,17 @@ while.body.i94:                                   ; preds = %land.lhs.true.i.i13
   %storemerge.in.i.i91 = load i32, ptr %level, align 8
   %storemerge.i.i92 = add i32 %storemerge.in.i.i91, -1
   store i32 %storemerge.i.i92, ptr %level, align 8
-  %cmp19.i95 = icmp eq i64 %_n.0.i82, %_children_capacity.0.i81
+  %cmp19.i95 = icmp eq i64 %_n.0.i83, %_children_capacity.0.i82
   br i1 %cmp19.i95, label %if.then20.i101, label %if.end30.i96
 
 if.then20.i101:                                   ; preds = %while.body.i94
-  %mul21.i102 = shl i64 %_children_capacity.0.i81, 4
-  %call22.i103 = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i80, i64 noundef %mul21.i102) #4
+  %mul21.i102 = shl i64 %_children_capacity.0.i82, 4
+  %call22.i103 = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i81, i64 noundef %mul21.i102) #4
   %tobool23.not.i104 = icmp eq ptr %call22.i103, null
   br i1 %tobool23.not.i104, label %if.then24.i107, label %if.end29.i105
 
 if.then24.i107:                                   ; preds = %if.then20.i101
-  tail call void @PyMem_Free(ptr noundef %_children.0.i80) #4
+  tail call void @PyMem_Free(ptr noundef %_children.0.i81) #4
   store i32 1, ptr %error_indicator, align 8
   %call26.i108 = tail call ptr @PyErr_NoMemory() #4
   %16 = load i32, ptr %level, align 8
@@ -10625,14 +10625,14 @@ if.then24.i107:                                   ; preds = %if.then20.i101
   br label %while.end
 
 if.end29.i105:                                    ; preds = %if.then20.i101
-  %mul.i106 = shl i64 %_children_capacity.0.i81, 1
+  %mul.i106 = shl i64 %_children_capacity.0.i82, 1
   br label %if.end30.i96
 
 if.end30.i96:                                     ; preds = %if.end29.i105, %while.body.i94
-  %_children.1.i97 = phi ptr [ %call22.i103, %if.end29.i105 ], [ %_children.0.i80, %while.body.i94 ]
-  %_children_capacity.1.i98 = phi i64 [ %mul.i106, %if.end29.i105 ], [ %_children_capacity.0.i81, %while.body.i94 ]
-  %inc31.i99 = add i64 %_n.0.i82, 1
-  %arrayidx.i100 = getelementptr ptr, ptr %_children.1.i97, i64 %_n.0.i82
+  %_children.1.i97 = phi ptr [ %call22.i103, %if.end29.i105 ], [ %_children.0.i81, %while.body.i94 ]
+  %_children_capacity.1.i98 = phi i64 [ %mul.i106, %if.end29.i105 ], [ %_children_capacity.0.i82, %while.body.i94 ]
+  %inc31.i99 = add i64 %_n.0.i83, 1
+  %arrayidx.i100 = getelementptr ptr, ptr %_children.1.i97, i64 %_n.0.i83
   store ptr %call11.i.i133, ptr %arrayidx.i100, align 8
   %17 = load i32, ptr %mark, align 8
   br label %while.cond.i79, !llvm.loop !28
@@ -10641,14 +10641,14 @@ while.end.i110:                                   ; preds = %if.end.i.i87, %if.e
   %storemerge.in.i.i91142 = load i32, ptr %level, align 8
   %storemerge.i.i92143 = add i32 %storemerge.in.i.i91142, -1
   store i32 %storemerge.i.i92143, ptr %level, align 8
-  store i32 %_mark.0.i83, ptr %mark, align 8
+  store i32 %_mark.0.i80, ptr %mark, align 8
   %18 = load ptr, ptr %arena.i111, align 8
-  %call34.i112 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i82, ptr noundef %18) #4
+  %call34.i112 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i83, ptr noundef %18) #4
   %tobool35.not.i113 = icmp eq ptr %call34.i112, null
   br i1 %tobool35.not.i113, label %if.then36.i125, label %for.cond.i114.preheader
 
 for.cond.i114.preheader:                          ; preds = %while.end.i110
-  %cmp42.i117276 = icmp sgt i64 %_n.0.i82, 0
+  %cmp42.i117276 = icmp sgt i64 %_n.0.i83, 0
   br i1 %cmp42.i117276, label %for.body.i120.lr.ph, label %if.then26.i
 
 for.body.i120.lr.ph:                              ; preds = %for.cond.i114.preheader
@@ -10656,7 +10656,7 @@ for.body.i120.lr.ph:                              ; preds = %for.cond.i114.prehe
   br label %for.body.i120
 
 if.then36.i125:                                   ; preds = %while.end.i110
-  tail call void @PyMem_Free(ptr noundef %_children.0.i80) #4
+  tail call void @PyMem_Free(ptr noundef %_children.0.i81) #4
   store i32 1, ptr %error_indicator, align 8
   %call38.i126 = tail call ptr @PyErr_NoMemory() #4
   %19 = load i32, ptr %level, align 8
@@ -10666,18 +10666,18 @@ if.then36.i125:                                   ; preds = %while.end.i110
 for.body.i120:                                    ; preds = %for.body.i120.lr.ph, %for.body.i120
   %conv.i116278 = phi i64 [ 0, %for.body.i120.lr.ph ], [ %conv.i116, %for.body.i120 ]
   %i.0.i115277 = phi i32 [ 0, %for.body.i120.lr.ph ], [ %inc47.i124, %for.body.i120 ]
-  %arrayidx44.i121 = getelementptr ptr, ptr %_children.0.i80, i64 %conv.i116278
+  %arrayidx44.i121 = getelementptr ptr, ptr %_children.0.i81, i64 %conv.i116278
   %20 = load ptr, ptr %arrayidx44.i121, align 8
   %21 = load ptr, ptr %elements.i122, align 8
   %arrayidx46.i123 = getelementptr ptr, ptr %21, i64 %conv.i116278
   store ptr %20, ptr %arrayidx46.i123, align 8
   %inc47.i124 = add i32 %i.0.i115277, 1
   %conv.i116 = sext i32 %inc47.i124 to i64
-  %cmp42.i117 = icmp sgt i64 %_n.0.i82, %conv.i116
+  %cmp42.i117 = icmp sgt i64 %_n.0.i83, %conv.i116
   br i1 %cmp42.i117, label %for.body.i120, label %if.then26.i, !llvm.loop !29
 
 if.then26.i:                                      ; preds = %for.body.i120, %for.cond.i114.preheader
-  tail call void @PyMem_Free(ptr noundef %_children.0.i80) #4
+  tail call void @PyMem_Free(ptr noundef %_children.0.i81) #4
   %22 = load i32, ptr %level, align 8
   %dec49.i119 = add i32 %22, -1
   store i32 %dec49.i119, ptr %level, align 8
@@ -10787,10 +10787,10 @@ if.then13.i:                                      ; preds = %if.end10.i
   br label %while.end
 
 while.cond.i:                                     ; preds = %if.end10.i, %if.end30.i
+  %_mark.0.i = phi i32 [ %38, %if.end30.i ], [ %31, %if.end10.i ]
   %_children.0.i = phi ptr [ %_children.1.i, %if.end30.i ], [ %call.i50, %if.end10.i ]
   %_children_capacity.0.i = phi i64 [ %_children_capacity.1.i, %if.end30.i ], [ 1, %if.end10.i ]
   %_n.0.i = phi i64 [ %inc31.i, %if.end30.i ], [ 0, %if.end10.i ]
-  %_mark.0.i = phi i32 [ %38, %if.end30.i ], [ %31, %if.end10.i ]
   %35 = load i32, ptr %level, align 8
   %inc.i.i = add i32 %35, 1
   store i32 %inc.i.i, ptr %level, align 8
@@ -11137,10 +11137,10 @@ if.end10.i:                                       ; preds = %if.end3.i
   br i1 %tobool12.not.i, label %while.cond.i, label %_loop0_134_rule.exit.thread
 
 while.cond.i:                                     ; preds = %if.end10.i, %if.end30.i
+  %_mark.0.i = phi i32 [ %16, %if.end30.i ], [ %12, %if.end10.i ]
   %_children.0.i = phi ptr [ %_children.1.i, %if.end30.i ], [ %call.i, %if.end10.i ]
   %_children_capacity.0.i = phi i64 [ %_children_capacity.1.i, %if.end30.i ], [ 1, %if.end10.i ]
   %_n.0.i = phi i64 [ %inc31.i, %if.end30.i ], [ 0, %if.end10.i ]
-  %_mark.0.i = phi i32 [ %16, %if.end30.i ], [ %12, %if.end10.i ]
   %14 = load i32, ptr %level, align 8
   %inc.i.i = add i32 %14, 1
   store i32 %inc.i.i, ptr %level, align 8
@@ -11412,10 +11412,10 @@ if.end10.i:                                       ; preds = %if.end3.i
   br i1 %tobool12.not.i, label %while.cond.i, label %if.end57.sink.split
 
 while.cond.i:                                     ; preds = %if.end10.i, %if.end30.i
+  %_mark.0.i = phi i32 [ %20, %if.end30.i ], [ %16, %if.end10.i ]
   %_children.0.i = phi ptr [ %_children.1.i, %if.end30.i ], [ %call.i, %if.end10.i ]
   %_children_capacity.0.i = phi i64 [ %_children_capacity.1.i, %if.end30.i ], [ 1, %if.end10.i ]
   %_n.0.i = phi i64 [ %inc31.i, %if.end30.i ], [ 0, %if.end10.i ]
-  %_mark.0.i = phi i32 [ %20, %if.end30.i ], [ %16, %if.end10.i ]
   %18 = load i32, ptr %level, align 8
   %inc.i43 = add i32 %18, 1
   store i32 %inc.i43, ptr %level, align 8
@@ -12895,10 +12895,10 @@ if.end10.i:                                       ; preds = %if.end3.i
   br i1 %tobool12.not.i, label %while.cond.i, label %if.end28.sink.split
 
 while.cond.i:                                     ; preds = %if.end10.i, %if.end30.i
+  %_mark.0.i = phi i32 [ %9, %if.end30.i ], [ %5, %if.end10.i ]
   %_children.0.i = phi ptr [ %_children.1.i, %if.end30.i ], [ %call.i, %if.end10.i ]
   %_children_capacity.0.i = phi i64 [ %_children_capacity.1.i, %if.end30.i ], [ 1, %if.end10.i ]
   %_n.0.i = phi i64 [ %inc31.i, %if.end30.i ], [ 0, %if.end10.i ]
-  %_mark.0.i = phi i32 [ %9, %if.end30.i ], [ %5, %if.end10.i ]
   %7 = load i32, ptr %level, align 8
   %inc.i28 = add i32 %7, 1
   store i32 %inc.i28, ptr %level, align 8
@@ -13167,27 +13167,27 @@ land.rhs.i:                                       ; preds = %if.end40.i
 
 if.end28.i:                                       ; preds = %land.rhs.i.preheader, %land.rhs.i
   %call19.i60 = phi ptr [ %call19.i, %land.rhs.i ], [ %call19.i55, %land.rhs.i.preheader ]
-  %_children_capacity.0.i3959 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
-  %_n.0.i4058 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
-  %_children.0.i4157 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i24, %land.rhs.i.preheader ]
-  %cmp29.i = icmp eq i64 %_n.0.i4058, %_children_capacity.0.i3959
+  %_children.0.i4059 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i24, %land.rhs.i.preheader ]
+  %_children_capacity.0.i4158 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
+  %_n.0.i4257 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
+  %cmp29.i = icmp eq i64 %_n.0.i4257, %_children_capacity.0.i4158
   br i1 %cmp29.i, label %if.then30.i, label %if.end40.i
 
 if.then30.i:                                      ; preds = %if.end28.i
-  %mul31.i = shl i64 %_n.0.i4058, 4
-  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i4157, i64 noundef %mul31.i) #4
+  %mul31.i = shl i64 %_n.0.i4257, 4
+  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i4059, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
   br i1 %tobool33.not.i, label %if.end15.i.sink.split.sink.split.sink.split, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then30.i
-  %mul.i = shl i64 %_n.0.i4058, 1
+  %mul.i = shl i64 %_n.0.i4257, 1
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end39.i, %if.end28.i
-  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.0.i3959, %if.end28.i ]
-  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.0.i4157, %if.end28.i ]
-  %inc41.i = add i64 %_n.0.i4058, 1
-  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.0.i4058
+  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.0.i4059, %if.end28.i ]
+  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.0.i4158, %if.end28.i ]
+  %inc41.i = add i64 %_n.0.i4257, 1
+  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.0.i4257
   store ptr %call19.i60, ptr %arrayidx.i, align 8
   %9 = load i32, ptr %mark, align 8
   %call17.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -13195,9 +13195,9 @@ if.end40.i:                                       ; preds = %if.end39.i, %if.end
   br i1 %tobool18.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !40
 
 while.end.i:                                      ; preds = %land.rhs.i, %if.end40.i, %land.rhs.i.preheader, %while.cond.i.preheader
-  %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
-  %_children.0.i.lcssa = phi ptr [ %call.i24, %while.cond.i.preheader ], [ %call.i24, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.i.lcssa = phi i32 [ %7, %while.cond.i.preheader ], [ %7, %land.rhs.i.preheader ], [ %9, %if.end40.i ], [ %9, %land.rhs.i ]
+  %_children.0.i.lcssa = phi ptr [ %call.i24, %while.cond.i.preheader ], [ %call.i24, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
+  %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %10 = load ptr, ptr %arena.i, align 8
@@ -13227,7 +13227,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp52.i, label %for.body.i, label %_gather_135_rule.exit, !llvm.loop !41
 
 if.end15.i.sink.split.sink.split.sink.split:      ; preds = %if.then30.i, %while.end.i
-  %_children.0.i.lcssa.sink = phi ptr [ %_children.0.i.lcssa, %while.end.i ], [ %_children.0.i4157, %if.then30.i ]
+  %_children.0.i.lcssa.sink = phi ptr [ %_children.0.i.lcssa, %while.end.i ], [ %_children.0.i4059, %if.then30.i ]
   tail call void @PyMem_Free(ptr noundef %_children.0.i.lcssa.sink) #4
   br label %if.end15.i.sink.split.sink.split
 
@@ -13398,10 +13398,10 @@ if.end10.i:                                       ; preds = %if.end3.i
   br i1 %tobool12.not.i, label %while.cond.i, label %if.end57.sink.split
 
 while.cond.i:                                     ; preds = %if.end10.i, %if.end30.i
+  %_mark.0.i = phi i32 [ %20, %if.end30.i ], [ %16, %if.end10.i ]
   %_children.0.i = phi ptr [ %_children.1.i, %if.end30.i ], [ %call.i, %if.end10.i ]
   %_children_capacity.0.i = phi i64 [ %_children_capacity.1.i, %if.end30.i ], [ 1, %if.end10.i ]
   %_n.0.i = phi i64 [ %inc31.i, %if.end30.i ], [ 0, %if.end10.i ]
-  %_mark.0.i = phi i32 [ %20, %if.end30.i ], [ %16, %if.end10.i ]
   %18 = load i32, ptr %level, align 8
   %inc.i43 = add i32 %18, 1
   store i32 %inc.i43, ptr %level, align 8
@@ -13875,10 +13875,10 @@ if.end10.i:                                       ; preds = %if.end3.i
   br i1 %tobool12.not.i, label %while.cond.i, label %if.end53.sink.split
 
 while.cond.i:                                     ; preds = %if.end10.i, %if.end30.i
+  %_mark.0.i = phi i32 [ %37, %if.end30.i ], [ %10, %if.end10.i ]
   %_children.0.i = phi ptr [ %_children.1.i, %if.end30.i ], [ %call.i, %if.end10.i ]
   %_children_capacity.0.i = phi i64 [ %_children_capacity.1.i, %if.end30.i ], [ 1, %if.end10.i ]
   %_n.0.i = phi i64 [ %inc31.i, %if.end30.i ], [ 0, %if.end10.i ]
-  %_mark.0.i = phi i32 [ %37, %if.end30.i ], [ %10, %if.end10.i ]
   %12 = load i32, ptr %level, align 8
   %inc.i48 = add i32 %12, 1
   store i32 %inc.i48, ptr %level, align 8
@@ -14831,10 +14831,10 @@ if.end10.i:                                       ; preds = %if.end3.i
   br i1 %tobool12.not.i, label %while.cond.i, label %if.end57.sink.split
 
 while.cond.i:                                     ; preds = %if.end10.i, %if.end30.i
+  %_mark.0.i = phi i32 [ %14, %if.end30.i ], [ %10, %if.end10.i ]
   %_children.0.i = phi ptr [ %_children.1.i, %if.end30.i ], [ %call.i, %if.end10.i ]
   %_children_capacity.0.i = phi i64 [ %_children_capacity.1.i, %if.end30.i ], [ 1, %if.end10.i ]
   %_n.0.i = phi i64 [ %inc31.i, %if.end30.i ], [ 0, %if.end10.i ]
-  %_mark.0.i = phi i32 [ %14, %if.end30.i ], [ %10, %if.end10.i ]
   %12 = load i32, ptr %level, align 8
   %inc.i65 = add i32 %12, 1
   store i32 %inc.i65, ptr %level, align 8
@@ -15775,33 +15775,33 @@ land.rhs:                                         ; preds = %if.end40
 
 if.end28:                                         ; preds = %land.rhs.preheader, %land.rhs
   %call1965 = phi ptr [ %call19, %land.rhs ], [ %call1960, %land.rhs.preheader ]
-  %_children_capacity.04564 = phi i64 [ %_children_capacity.1, %land.rhs ], [ 1, %land.rhs.preheader ]
-  %_n.04663 = phi i64 [ %inc41, %land.rhs ], [ 0, %land.rhs.preheader ]
-  %_children.04762 = phi ptr [ %_children.1, %land.rhs ], [ %call, %land.rhs.preheader ]
-  %cmp29 = icmp eq i64 %_n.04663, %_children_capacity.04564
+  %_children.04664 = phi ptr [ %_children.1, %land.rhs ], [ %call, %land.rhs.preheader ]
+  %_children_capacity.04763 = phi i64 [ %_children_capacity.1, %land.rhs ], [ 1, %land.rhs.preheader ]
+  %_n.04862 = phi i64 [ %inc41, %land.rhs ], [ 0, %land.rhs.preheader ]
+  %cmp29 = icmp eq i64 %_n.04862, %_children_capacity.04763
   br i1 %cmp29, label %if.then30, label %if.end40
 
 if.then30:                                        ; preds = %if.end28
-  %mul31 = shl i64 %_n.04663, 4
-  %call32 = tail call ptr @PyMem_Realloc(ptr noundef %_children.04762, i64 noundef %mul31) #4
+  %mul31 = shl i64 %_n.04862, 4
+  %call32 = tail call ptr @PyMem_Realloc(ptr noundef %_children.04664, i64 noundef %mul31) #4
   %tobool33.not = icmp eq ptr %call32, null
   br i1 %tobool33.not, label %if.then34, label %if.end39
 
 if.then34:                                        ; preds = %if.then30
-  tail call void @PyMem_Free(ptr noundef %_children.04762) #4
+  tail call void @PyMem_Free(ptr noundef %_children.04664) #4
   store i32 1, ptr %error_indicator, align 8
   %call36 = tail call ptr @PyErr_NoMemory() #4
   br label %return
 
 if.end39:                                         ; preds = %if.then30
-  %mul = shl i64 %_n.04663, 1
+  %mul = shl i64 %_n.04862, 1
   br label %if.end40
 
 if.end40:                                         ; preds = %if.end39, %if.end28
-  %_children_capacity.1 = phi i64 [ %mul, %if.end39 ], [ %_children_capacity.04564, %if.end28 ]
-  %_children.1 = phi ptr [ %call32, %if.end39 ], [ %_children.04762, %if.end28 ]
-  %inc41 = add i64 %_n.04663, 1
-  %arrayidx = getelementptr ptr, ptr %_children.1, i64 %_n.04663
+  %_children.1 = phi ptr [ %call32, %if.end39 ], [ %_children.04664, %if.end28 ]
+  %_children_capacity.1 = phi i64 [ %mul, %if.end39 ], [ %_children_capacity.04763, %if.end28 ]
+  %inc41 = add i64 %_n.04862, 1
+  %arrayidx = getelementptr ptr, ptr %_children.1, i64 %_n.04862
   store ptr %call1965, ptr %arrayidx, align 8
   %4 = load i32, ptr %mark, align 8
   %call17 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -15809,9 +15809,9 @@ if.end40:                                         ; preds = %if.end39, %if.end28
   br i1 %tobool18.not, label %while.end, label %land.rhs, !llvm.loop !48
 
 while.end:                                        ; preds = %if.end40, %land.rhs, %land.rhs.preheader, %while.cond.preheader
-  %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ 0, %land.rhs.preheader ], [ %inc41, %land.rhs ], [ %inc41, %if.end40 ]
-  %_children.0.lcssa = phi ptr [ %call, %while.cond.preheader ], [ %call, %land.rhs.preheader ], [ %_children.1, %land.rhs ], [ %_children.1, %if.end40 ]
   %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %2, %land.rhs.preheader ], [ %4, %land.rhs ], [ %4, %if.end40 ]
+  %_children.0.lcssa = phi ptr [ %call, %while.cond.preheader ], [ %call, %land.rhs.preheader ], [ %_children.1, %land.rhs ], [ %_children.1, %if.end40 ]
+  %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ 0, %land.rhs.preheader ], [ %inc41, %land.rhs ], [ %inc41, %if.end40 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
   %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
@@ -15988,27 +15988,27 @@ land.rhs.i:                                       ; preds = %if.end40.i
 
 if.end28.i:                                       ; preds = %land.rhs.i.preheader, %land.rhs.i
   %call19.i143 = phi ptr [ %call19.i, %land.rhs.i ], [ %call19.i138, %land.rhs.i.preheader ]
-  %_children_capacity.0.i113142 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
-  %_n.0.i114141 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
-  %_children.0.i115140 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i92, %land.rhs.i.preheader ]
-  %cmp29.i = icmp eq i64 %_n.0.i114141, %_children_capacity.0.i113142
+  %_children.0.i114142 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i92, %land.rhs.i.preheader ]
+  %_children_capacity.0.i115141 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
+  %_n.0.i116140 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
+  %cmp29.i = icmp eq i64 %_n.0.i116140, %_children_capacity.0.i115141
   br i1 %cmp29.i, label %if.then30.i, label %if.end40.i
 
 if.then30.i:                                      ; preds = %if.end28.i
-  %mul31.i = shl i64 %_n.0.i114141, 4
-  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i115140, i64 noundef %mul31.i) #4
+  %mul31.i = shl i64 %_n.0.i116140, 4
+  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i114142, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
   br i1 %tobool33.not.i, label %if.end15.i.sink.split.sink.split.sink.split, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then30.i
-  %mul.i = shl i64 %_n.0.i114141, 1
+  %mul.i = shl i64 %_n.0.i116140, 1
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end39.i, %if.end28.i
-  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.0.i113142, %if.end28.i ]
-  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.0.i115140, %if.end28.i ]
-  %inc41.i = add i64 %_n.0.i114141, 1
-  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.0.i114141
+  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.0.i114142, %if.end28.i ]
+  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.0.i115141, %if.end28.i ]
+  %inc41.i = add i64 %_n.0.i116140, 1
+  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.0.i116140
   store ptr %call19.i143, ptr %arrayidx.i, align 8
   %16 = load i32, ptr %mark, align 8
   %call17.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -16016,9 +16016,9 @@ if.end40.i:                                       ; preds = %if.end39.i, %if.end
   br i1 %tobool18.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !50
 
 while.end.i:                                      ; preds = %land.rhs.i, %if.end40.i, %land.rhs.i.preheader, %while.cond.i.preheader
-  %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
-  %_children.0.i.lcssa = phi ptr [ %call.i92, %while.cond.i.preheader ], [ %call.i92, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.i.lcssa = phi i32 [ %14, %while.cond.i.preheader ], [ %14, %land.rhs.i.preheader ], [ %16, %if.end40.i ], [ %16, %land.rhs.i ]
+  %_children.0.i.lcssa = phi ptr [ %call.i92, %while.cond.i.preheader ], [ %call.i92, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
+  %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %17 = load ptr, ptr %arena.i, align 8
@@ -16048,7 +16048,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp52.i, label %for.body.i, label %_gather_123_rule.exit, !llvm.loop !51
 
 if.end15.i.sink.split.sink.split.sink.split:      ; preds = %if.then30.i, %while.end.i
-  %_children.0.i.lcssa.sink = phi ptr [ %_children.0.i.lcssa, %while.end.i ], [ %_children.0.i115140, %if.then30.i ]
+  %_children.0.i.lcssa.sink = phi ptr [ %_children.0.i.lcssa, %while.end.i ], [ %_children.0.i114142, %if.then30.i ]
   tail call void @PyMem_Free(ptr noundef %_children.0.i.lcssa.sink) #4
   br label %if.end15.i.sink.split.sink.split
 
@@ -16365,31 +16365,31 @@ land.rhs.i:                                       ; preds = %if.end40.i
 
 if.end28.i:                                       ; preds = %land.rhs.i.preheader, %land.rhs.i
   %call19.i206 = phi ptr [ %call19.i, %land.rhs.i ], [ %call19.i201, %land.rhs.i.preheader ]
-  %_children_capacity.045.i205 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
-  %_n.046.i204 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
-  %_children.047.i203 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i, %land.rhs.i.preheader ]
-  %cmp29.i = icmp eq i64 %_n.046.i204, %_children_capacity.045.i205
+  %_children.046.i205 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i, %land.rhs.i.preheader ]
+  %_children_capacity.047.i204 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
+  %_n.048.i203 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
+  %cmp29.i = icmp eq i64 %_n.048.i203, %_children_capacity.047.i204
   br i1 %cmp29.i, label %if.then30.i, label %if.end40.i
 
 if.then30.i:                                      ; preds = %if.end28.i
-  %mul31.i = shl i64 %_children_capacity.045.i205, 4
-  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i203, i64 noundef %mul31.i) #4
+  %mul31.i = shl i64 %_children_capacity.047.i204, 4
+  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.046.i205, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
   br i1 %tobool33.not.i, label %if.then34.i, label %if.end39.i
 
 if.then34.i:                                      ; preds = %if.then30.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i203) #4
+  tail call void @PyMem_Free(ptr noundef %_children.046.i205) #4
   br label %_loop0_275_rule.exit.thread.sink.split
 
 if.end39.i:                                       ; preds = %if.then30.i
-  %mul.i = shl i64 %_children_capacity.045.i205, 1
+  %mul.i = shl i64 %_children_capacity.047.i204, 1
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end39.i, %if.end28.i
-  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.045.i205, %if.end28.i ]
-  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.047.i203, %if.end28.i ]
-  %inc41.i = add i64 %_n.046.i204, 1
-  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.046.i204
+  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.046.i205, %if.end28.i ]
+  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.047.i204, %if.end28.i ]
+  %inc41.i = add i64 %_n.048.i203, 1
+  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.048.i203
   store ptr %call19.i206, ptr %arrayidx.i, align 8
   %10 = load i32, ptr %mark, align 8
   %call17.i196 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -16397,9 +16397,9 @@ if.end40.i:                                       ; preds = %if.end39.i, %if.end
   br i1 %tobool18.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !52
 
 while.end.i:                                      ; preds = %land.rhs.i, %if.end40.i, %land.rhs.i.preheader, %while.cond.preheader.i
-  %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
-  %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.lcssa.i = phi i32 [ %8, %while.cond.preheader.i ], [ %8, %land.rhs.i.preheader ], [ %10, %if.end40.i ], [ %10, %land.rhs.i ]
+  %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
+  %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena.i, align 8
@@ -17044,27 +17044,27 @@ land.rhs.i:                                       ; preds = %if.end40.i
 
 if.end28.i:                                       ; preds = %land.rhs.i.preheader, %land.rhs.i
   %call19.i316 = phi ptr [ %call19.i, %land.rhs.i ], [ %call19.i311, %land.rhs.i.preheader ]
-  %_children_capacity.0.i239315 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
-  %_n.0.i240314 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
-  %_children.0.i241313 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i75, %land.rhs.i.preheader ]
-  %cmp29.i = icmp eq i64 %_n.0.i240314, %_children_capacity.0.i239315
+  %_children.0.i240315 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i75, %land.rhs.i.preheader ]
+  %_children_capacity.0.i241314 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
+  %_n.0.i242313 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
+  %cmp29.i = icmp eq i64 %_n.0.i242313, %_children_capacity.0.i241314
   br i1 %cmp29.i, label %if.then30.i, label %if.end40.i
 
 if.then30.i:                                      ; preds = %if.end28.i
-  %mul31.i = shl i64 %_children_capacity.0.i239315, 4
-  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i241313, i64 noundef %mul31.i) #4
+  %mul31.i = shl i64 %_children_capacity.0.i241314, 4
+  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i240315, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
   br i1 %tobool33.not.i, label %if.end27.sink.split.sink.split.sink.split.sink.split, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then30.i
-  %mul.i = shl i64 %_children_capacity.0.i239315, 1
+  %mul.i = shl i64 %_children_capacity.0.i241314, 1
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end39.i, %if.end28.i
-  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.0.i239315, %if.end28.i ]
-  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.0.i241313, %if.end28.i ]
-  %inc41.i = add i64 %_n.0.i240314, 1
-  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.0.i240314
+  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.0.i240315, %if.end28.i ]
+  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.0.i241314, %if.end28.i ]
+  %inc41.i = add i64 %_n.0.i242313, 1
+  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.0.i242313
   store ptr %call19.i316, ptr %arrayidx.i, align 8
   %8 = load i32, ptr %mark, align 8
   %call17.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -17072,9 +17072,9 @@ if.end40.i:                                       ; preds = %if.end39.i, %if.end
   br i1 %tobool18.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !54
 
 while.end.i:                                      ; preds = %land.rhs.i, %if.end40.i, %land.rhs.i.preheader, %while.cond.i.preheader
-  %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
-  %_children.0.i.lcssa = phi ptr [ %call.i75, %while.cond.i.preheader ], [ %call.i75, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.i.lcssa = phi i32 [ %6, %while.cond.i.preheader ], [ %6, %land.rhs.i.preheader ], [ %8, %if.end40.i ], [ %8, %land.rhs.i ]
+  %_children.0.i.lcssa = phi ptr [ %call.i75, %while.cond.i.preheader ], [ %call.i75, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
+  %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %9 = load ptr, ptr %arena.i, align 8
@@ -17185,27 +17185,27 @@ land.rhs.i103:                                    ; preds = %if.end40.i108
 
 if.end28.i106:                                    ; preds = %land.rhs.i103.preheader, %land.rhs.i103
   %call19.i104327 = phi ptr [ %call19.i104, %land.rhs.i103 ], [ %call19.i104322, %land.rhs.i103.preheader ]
-  %_children_capacity.0.i97253326 = phi i64 [ %_children_capacity.1.i109, %land.rhs.i103 ], [ 1, %land.rhs.i103.preheader ]
-  %_n.0.i98254325 = phi i64 [ %inc41.i111, %land.rhs.i103 ], [ 0, %land.rhs.i103.preheader ]
-  %_children.0.i99255324 = phi ptr [ %_children.1.i110, %land.rhs.i103 ], [ %call.i90, %land.rhs.i103.preheader ]
-  %cmp29.i107 = icmp eq i64 %_n.0.i98254325, %_children_capacity.0.i97253326
+  %_children.0.i98254326 = phi ptr [ %_children.1.i109, %land.rhs.i103 ], [ %call.i90, %land.rhs.i103.preheader ]
+  %_children_capacity.0.i99255325 = phi i64 [ %_children_capacity.1.i110, %land.rhs.i103 ], [ 1, %land.rhs.i103.preheader ]
+  %_n.0.i100256324 = phi i64 [ %inc41.i111, %land.rhs.i103 ], [ 0, %land.rhs.i103.preheader ]
+  %cmp29.i107 = icmp eq i64 %_n.0.i100256324, %_children_capacity.0.i99255325
   br i1 %cmp29.i107, label %if.then30.i113, label %if.end40.i108
 
 if.then30.i113:                                   ; preds = %if.end28.i106
-  %mul31.i114 = shl i64 %_children_capacity.0.i97253326, 4
-  %call32.i115 = tail call ptr @PyMem_Realloc(ptr noundef nonnull %_children.0.i99255324, i64 noundef %mul31.i114) #4
+  %mul31.i114 = shl i64 %_children_capacity.0.i99255325, 4
+  %call32.i115 = tail call ptr @PyMem_Realloc(ptr noundef nonnull %_children.0.i98254326, i64 noundef %mul31.i114) #4
   %tobool33.not.i116 = icmp eq ptr %call32.i115, null
   br i1 %tobool33.not.i116, label %if.end27.sink.split.sink.split.sink.split.sink.split, label %if.end39.i117
 
 if.end39.i117:                                    ; preds = %if.then30.i113
-  %mul.i118 = shl i64 %_children_capacity.0.i97253326, 1
+  %mul.i118 = shl i64 %_children_capacity.0.i99255325, 1
   br label %if.end40.i108
 
 if.end40.i108:                                    ; preds = %if.end39.i117, %if.end28.i106
-  %_children_capacity.1.i109 = phi i64 [ %mul.i118, %if.end39.i117 ], [ %_children_capacity.0.i97253326, %if.end28.i106 ]
-  %_children.1.i110 = phi ptr [ %call32.i115, %if.end39.i117 ], [ %_children.0.i99255324, %if.end28.i106 ]
-  %inc41.i111 = add i64 %_n.0.i98254325, 1
-  %arrayidx.i112 = getelementptr ptr, ptr %_children.1.i110, i64 %_n.0.i98254325
+  %_children.1.i109 = phi ptr [ %call32.i115, %if.end39.i117 ], [ %_children.0.i98254326, %if.end28.i106 ]
+  %_children_capacity.1.i110 = phi i64 [ %mul.i118, %if.end39.i117 ], [ %_children_capacity.0.i99255325, %if.end28.i106 ]
+  %inc41.i111 = add i64 %_n.0.i100256324, 1
+  %arrayidx.i112 = getelementptr ptr, ptr %_children.1.i109, i64 %_n.0.i100256324
   store ptr %call19.i104327, ptr %arrayidx.i112, align 8
   %18 = load i32, ptr %mark, align 8
   %call17.i101 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -17213,17 +17213,17 @@ if.end40.i108:                                    ; preds = %if.end39.i117, %if.
   br i1 %tobool18.not.i102, label %while.end.i122, label %land.rhs.i103, !llvm.loop !56
 
 while.end.i122:                                   ; preds = %land.rhs.i103, %if.end40.i108, %land.rhs.i103.preheader, %while.cond.i96.preheader
-  %_n.0.i98.lcssa = phi i64 [ 0, %while.cond.i96.preheader ], [ 0, %land.rhs.i103.preheader ], [ %inc41.i111, %if.end40.i108 ], [ %inc41.i111, %land.rhs.i103 ]
-  %_children.0.i99.lcssa = phi ptr [ %call.i90, %while.cond.i96.preheader ], [ %call.i90, %land.rhs.i103.preheader ], [ %_children.1.i110, %if.end40.i108 ], [ %_children.1.i110, %land.rhs.i103 ]
-  %_mark.0.i100.lcssa = phi i32 [ %16, %while.cond.i96.preheader ], [ %16, %land.rhs.i103.preheader ], [ %18, %if.end40.i108 ], [ %18, %land.rhs.i103 ]
-  store i32 %_mark.0.i100.lcssa, ptr %mark, align 8
+  %_mark.0.i97.lcssa = phi i32 [ %16, %while.cond.i96.preheader ], [ %16, %land.rhs.i103.preheader ], [ %18, %if.end40.i108 ], [ %18, %land.rhs.i103 ]
+  %_children.0.i98.lcssa = phi ptr [ %call.i90, %while.cond.i96.preheader ], [ %call.i90, %land.rhs.i103.preheader ], [ %_children.1.i109, %if.end40.i108 ], [ %_children.1.i109, %land.rhs.i103 ]
+  %_n.0.i100.lcssa = phi i64 [ 0, %while.cond.i96.preheader ], [ 0, %land.rhs.i103.preheader ], [ %inc41.i111, %if.end40.i108 ], [ %inc41.i111, %land.rhs.i103 ]
+  store i32 %_mark.0.i97.lcssa, ptr %mark, align 8
   %19 = load ptr, ptr %arena.i, align 8
-  %call44.i124 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i98.lcssa, ptr noundef %19) #4
+  %call44.i124 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i100.lcssa, ptr noundef %19) #4
   %tobool45.not.i125 = icmp eq ptr %call44.i124, null
   br i1 %tobool45.not.i125, label %if.end27.sink.split.sink.split.sink.split.sink.split, label %for.cond.i126.preheader
 
 for.cond.i126.preheader:                          ; preds = %while.end.i122
-  %cmp52.i129263 = icmp sgt i64 %_n.0.i98.lcssa, 0
+  %cmp52.i129263 = icmp sgt i64 %_n.0.i100.lcssa, 0
   br i1 %cmp52.i129263, label %for.body.i132.lr.ph, label %_gather_128_rule.exit
 
 for.body.i132.lr.ph:                              ; preds = %for.cond.i126.preheader
@@ -17233,18 +17233,18 @@ for.body.i132.lr.ph:                              ; preds = %for.cond.i126.prehe
 for.body.i132:                                    ; preds = %for.body.i132.lr.ph, %for.body.i132
   %conv.i128265 = phi i64 [ 0, %for.body.i132.lr.ph ], [ %conv.i128, %for.body.i132 ]
   %i.0.i127264 = phi i32 [ 0, %for.body.i132.lr.ph ], [ %inc57.i136, %for.body.i132 ]
-  %arrayidx54.i133 = getelementptr ptr, ptr %_children.0.i99.lcssa, i64 %conv.i128265
+  %arrayidx54.i133 = getelementptr ptr, ptr %_children.0.i98.lcssa, i64 %conv.i128265
   %20 = load ptr, ptr %arrayidx54.i133, align 8
   %21 = load ptr, ptr %elements.i134, align 8
   %arrayidx56.i135 = getelementptr ptr, ptr %21, i64 %conv.i128265
   store ptr %20, ptr %arrayidx56.i135, align 8
   %inc57.i136 = add i32 %i.0.i127264, 1
   %conv.i128 = sext i32 %inc57.i136 to i64
-  %cmp52.i129 = icmp sgt i64 %_n.0.i98.lcssa, %conv.i128
+  %cmp52.i129 = icmp sgt i64 %_n.0.i100.lcssa, %conv.i128
   br i1 %cmp52.i129, label %for.body.i132, label %_gather_128_rule.exit, !llvm.loop !57
 
 _gather_128_rule.exit:                            ; preds = %for.body.i132, %for.cond.i126.preheader
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.i99.lcssa) #4
+  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.i98.lcssa) #4
   %22 = load i32, ptr %level, align 8
   %dec59.i131 = add i32 %22, -1
   store i32 %dec59.i131, ptr %level, align 8
@@ -17270,8 +17270,8 @@ if.then22:                                        ; preds = %land.lhs.true19
   br label %return.sink.split
 
 if.end27.sink.split.sink.split.sink.split.sink.split: ; preds = %if.then30.i, %if.then30.i113, %while.end.i122, %while.end.i
-  %_children.0.i99.lcssa.sink.sink = phi ptr [ %_children.0.i.lcssa, %while.end.i ], [ %_children.0.i99.lcssa, %while.end.i122 ], [ %_children.0.i99255324, %if.then30.i113 ], [ %_children.0.i241313, %if.then30.i ]
-  tail call void @PyMem_Free(ptr noundef %_children.0.i99.lcssa.sink.sink) #4
+  %_children.0.i98.lcssa.sink.sink = phi ptr [ %_children.0.i.lcssa, %while.end.i ], [ %_children.0.i98.lcssa, %while.end.i122 ], [ %_children.0.i98254326, %if.then30.i113 ], [ %_children.0.i240315, %if.then30.i ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.i98.lcssa.sink.sink) #4
   br label %if.end27.sink.split.sink.split.sink.split
 
 if.end27.sink.split.sink.split.sink.split:        ; preds = %if.end27.sink.split.sink.split.sink.split.sink.split, %if.end3.i88, %if.end3.i73
@@ -17362,27 +17362,27 @@ land.rhs.i168:                                    ; preds = %if.end40.i173
 
 if.end28.i171:                                    ; preds = %land.rhs.i168.preheader, %land.rhs.i168
   %call19.i169339 = phi ptr [ %call19.i169, %land.rhs.i168 ], [ %call19.i169334, %land.rhs.i168.preheader ]
-  %_children_capacity.0.i162268338 = phi i64 [ %_children_capacity.1.i174, %land.rhs.i168 ], [ 1, %land.rhs.i168.preheader ]
-  %_n.0.i163269337 = phi i64 [ %inc41.i176, %land.rhs.i168 ], [ 0, %land.rhs.i168.preheader ]
-  %_children.0.i164270336 = phi ptr [ %_children.1.i175, %land.rhs.i168 ], [ %call.i155, %land.rhs.i168.preheader ]
-  %cmp29.i172 = icmp eq i64 %_n.0.i163269337, %_children_capacity.0.i162268338
+  %_children.0.i163269338 = phi ptr [ %_children.1.i174, %land.rhs.i168 ], [ %call.i155, %land.rhs.i168.preheader ]
+  %_children_capacity.0.i164270337 = phi i64 [ %_children_capacity.1.i175, %land.rhs.i168 ], [ 1, %land.rhs.i168.preheader ]
+  %_n.0.i165271336 = phi i64 [ %inc41.i176, %land.rhs.i168 ], [ 0, %land.rhs.i168.preheader ]
+  %cmp29.i172 = icmp eq i64 %_n.0.i165271336, %_children_capacity.0.i164270337
   br i1 %cmp29.i172, label %if.then30.i178, label %if.end40.i173
 
 if.then30.i178:                                   ; preds = %if.end28.i171
-  %mul31.i179 = shl i64 %_children_capacity.0.i162268338, 4
-  %call32.i180 = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i164270336, i64 noundef %mul31.i179) #4
+  %mul31.i179 = shl i64 %_children_capacity.0.i164270337, 4
+  %call32.i180 = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i163269338, i64 noundef %mul31.i179) #4
   %tobool33.not.i181 = icmp eq ptr %call32.i180, null
   br i1 %tobool33.not.i181, label %if.end15.i64.sink.split.sink.split.sink.split, label %if.end39.i182
 
 if.end39.i182:                                    ; preds = %if.then30.i178
-  %mul.i183 = shl i64 %_children_capacity.0.i162268338, 1
+  %mul.i183 = shl i64 %_children_capacity.0.i164270337, 1
   br label %if.end40.i173
 
 if.end40.i173:                                    ; preds = %if.end39.i182, %if.end28.i171
-  %_children_capacity.1.i174 = phi i64 [ %mul.i183, %if.end39.i182 ], [ %_children_capacity.0.i162268338, %if.end28.i171 ]
-  %_children.1.i175 = phi ptr [ %call32.i180, %if.end39.i182 ], [ %_children.0.i164270336, %if.end28.i171 ]
-  %inc41.i176 = add i64 %_n.0.i163269337, 1
-  %arrayidx.i177 = getelementptr ptr, ptr %_children.1.i175, i64 %_n.0.i163269337
+  %_children.1.i174 = phi ptr [ %call32.i180, %if.end39.i182 ], [ %_children.0.i163269338, %if.end28.i171 ]
+  %_children_capacity.1.i175 = phi i64 [ %mul.i183, %if.end39.i182 ], [ %_children_capacity.0.i164270337, %if.end28.i171 ]
+  %inc41.i176 = add i64 %_n.0.i165271336, 1
+  %arrayidx.i177 = getelementptr ptr, ptr %_children.1.i174, i64 %_n.0.i165271336
   store ptr %call19.i169339, ptr %arrayidx.i177, align 8
   %30 = load i32, ptr %mark, align 8
   %call17.i166 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -17390,18 +17390,18 @@ if.end40.i173:                                    ; preds = %if.end39.i182, %if.
   br i1 %tobool18.not.i167, label %while.end.i187, label %land.rhs.i168, !llvm.loop !58
 
 while.end.i187:                                   ; preds = %land.rhs.i168, %if.end40.i173, %land.rhs.i168.preheader, %while.cond.i161.preheader
-  %_n.0.i163.lcssa = phi i64 [ 0, %while.cond.i161.preheader ], [ 0, %land.rhs.i168.preheader ], [ %inc41.i176, %if.end40.i173 ], [ %inc41.i176, %land.rhs.i168 ]
-  %_children.0.i164.lcssa = phi ptr [ %call.i155, %while.cond.i161.preheader ], [ %call.i155, %land.rhs.i168.preheader ], [ %_children.1.i175, %if.end40.i173 ], [ %_children.1.i175, %land.rhs.i168 ]
-  %_mark.0.i165.lcssa = phi i32 [ %28, %while.cond.i161.preheader ], [ %28, %land.rhs.i168.preheader ], [ %30, %if.end40.i173 ], [ %30, %land.rhs.i168 ]
-  store i32 %_mark.0.i165.lcssa, ptr %mark, align 8
+  %_mark.0.i162.lcssa = phi i32 [ %28, %while.cond.i161.preheader ], [ %28, %land.rhs.i168.preheader ], [ %30, %if.end40.i173 ], [ %30, %land.rhs.i168 ]
+  %_children.0.i163.lcssa = phi ptr [ %call.i155, %while.cond.i161.preheader ], [ %call.i155, %land.rhs.i168.preheader ], [ %_children.1.i174, %if.end40.i173 ], [ %_children.1.i174, %land.rhs.i168 ]
+  %_n.0.i165.lcssa = phi i64 [ 0, %while.cond.i161.preheader ], [ 0, %land.rhs.i168.preheader ], [ %inc41.i176, %if.end40.i173 ], [ %inc41.i176, %land.rhs.i168 ]
+  store i32 %_mark.0.i162.lcssa, ptr %mark, align 8
   %arena.i188 = getelementptr inbounds i8, ptr %p, i64 32
   %31 = load ptr, ptr %arena.i188, align 8
-  %call44.i189 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i163.lcssa, ptr noundef %31) #4
+  %call44.i189 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i165.lcssa, ptr noundef %31) #4
   %tobool45.not.i190 = icmp eq ptr %call44.i189, null
   br i1 %tobool45.not.i190, label %if.end15.i64.sink.split.sink.split.sink.split, label %for.cond.i191.preheader
 
 for.cond.i191.preheader:                          ; preds = %while.end.i187
-  %cmp52.i194278 = icmp sgt i64 %_n.0.i163.lcssa, 0
+  %cmp52.i194278 = icmp sgt i64 %_n.0.i165.lcssa, 0
   br i1 %cmp52.i194278, label %for.body.i197.lr.ph, label %_gather_130_rule.exit
 
 for.body.i197.lr.ph:                              ; preds = %for.cond.i191.preheader
@@ -17411,19 +17411,19 @@ for.body.i197.lr.ph:                              ; preds = %for.cond.i191.prehe
 for.body.i197:                                    ; preds = %for.body.i197.lr.ph, %for.body.i197
   %conv.i193280 = phi i64 [ 0, %for.body.i197.lr.ph ], [ %conv.i193, %for.body.i197 ]
   %i.0.i192279 = phi i32 [ 0, %for.body.i197.lr.ph ], [ %inc57.i201, %for.body.i197 ]
-  %arrayidx54.i198 = getelementptr ptr, ptr %_children.0.i164.lcssa, i64 %conv.i193280
+  %arrayidx54.i198 = getelementptr ptr, ptr %_children.0.i163.lcssa, i64 %conv.i193280
   %32 = load ptr, ptr %arrayidx54.i198, align 8
   %33 = load ptr, ptr %elements.i199, align 8
   %arrayidx56.i200 = getelementptr ptr, ptr %33, i64 %conv.i193280
   store ptr %32, ptr %arrayidx56.i200, align 8
   %inc57.i201 = add i32 %i.0.i192279, 1
   %conv.i193 = sext i32 %inc57.i201 to i64
-  %cmp52.i194 = icmp sgt i64 %_n.0.i163.lcssa, %conv.i193
+  %cmp52.i194 = icmp sgt i64 %_n.0.i165.lcssa, %conv.i193
   br i1 %cmp52.i194, label %for.body.i197, label %_gather_130_rule.exit, !llvm.loop !59
 
 if.end15.i64.sink.split.sink.split.sink.split:    ; preds = %if.then30.i178, %while.end.i187
-  %_children.0.i164.lcssa.sink = phi ptr [ %_children.0.i164.lcssa, %while.end.i187 ], [ %_children.0.i164270336, %if.then30.i178 ]
-  tail call void @PyMem_Free(ptr noundef %_children.0.i164.lcssa.sink) #4
+  %_children.0.i163.lcssa.sink = phi ptr [ %_children.0.i163.lcssa, %while.end.i187 ], [ %_children.0.i163269338, %if.then30.i178 ]
+  tail call void @PyMem_Free(ptr noundef %_children.0.i163.lcssa.sink) #4
   br label %if.end15.i64.sink.split.sink.split
 
 if.end15.i64.sink.split.sink.split:               ; preds = %if.end15.i64.sink.split.sink.split.sink.split, %if.end3.i153
@@ -17442,7 +17442,7 @@ _gather_130_rule.exit.thread:                     ; preds = %if.end.i49._gather_
   br label %if.end38
 
 _gather_130_rule.exit:                            ; preds = %for.body.i197, %for.cond.i191.preheader
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.i164.lcssa) #4
+  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.i163.lcssa) #4
   %35 = load i32, ptr %level, align 8
   %dec59.i196 = add i32 %35, -1
   store i32 %dec59.i196, ptr %level, align 8
@@ -17521,27 +17521,27 @@ land.rhs.i.i:                                     ; preds = %if.end40.i.i
 
 if.end28.i.i:                                     ; preds = %land.rhs.i.i.preheader, %land.rhs.i.i
   %call19.i.i351 = phi ptr [ %call19.i.i, %land.rhs.i.i ], [ %call19.i.i346, %land.rhs.i.i.preheader ]
-  %_children_capacity.0.i19.i350 = phi i64 [ %_children_capacity.1.i.i, %land.rhs.i.i ], [ 1, %land.rhs.i.i.preheader ]
-  %_n.0.i20.i349 = phi i64 [ %inc41.i.i, %land.rhs.i.i ], [ 0, %land.rhs.i.i.preheader ]
-  %_children.0.i21.i348 = phi ptr [ %_children.1.i.i, %land.rhs.i.i ], [ %call.i.i, %land.rhs.i.i.preheader ]
-  %cmp29.i.i = icmp eq i64 %_n.0.i20.i349, %_children_capacity.0.i19.i350
+  %_children.0.i20.i350 = phi ptr [ %_children.1.i.i, %land.rhs.i.i ], [ %call.i.i, %land.rhs.i.i.preheader ]
+  %_children_capacity.0.i21.i349 = phi i64 [ %_children_capacity.1.i.i, %land.rhs.i.i ], [ 1, %land.rhs.i.i.preheader ]
+  %_n.0.i22.i348 = phi i64 [ %inc41.i.i, %land.rhs.i.i ], [ 0, %land.rhs.i.i.preheader ]
+  %cmp29.i.i = icmp eq i64 %_n.0.i22.i348, %_children_capacity.0.i21.i349
   br i1 %cmp29.i.i, label %if.then30.i.i, label %if.end40.i.i
 
 if.then30.i.i:                                    ; preds = %if.end28.i.i
-  %mul31.i.i = shl i64 %_children_capacity.0.i19.i350, 4
-  %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i21.i348, i64 noundef %mul31.i.i) #4
+  %mul31.i.i = shl i64 %_children_capacity.0.i21.i349, 4
+  %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i20.i350, i64 noundef %mul31.i.i) #4
   %tobool33.not.i.i = icmp eq ptr %call32.i.i, null
   br i1 %tobool33.not.i.i, label %if.end15.sink.split.sink.split.sink.split.i, label %if.end39.i.i
 
 if.end39.i.i:                                     ; preds = %if.then30.i.i
-  %mul.i.i = shl i64 %_children_capacity.0.i19.i350, 1
+  %mul.i.i = shl i64 %_children_capacity.0.i21.i349, 1
   br label %if.end40.i.i
 
 if.end40.i.i:                                     ; preds = %if.end39.i.i, %if.end28.i.i
-  %_children_capacity.1.i.i = phi i64 [ %mul.i.i, %if.end39.i.i ], [ %_children_capacity.0.i19.i350, %if.end28.i.i ]
-  %_children.1.i.i = phi ptr [ %call32.i.i, %if.end39.i.i ], [ %_children.0.i21.i348, %if.end28.i.i ]
-  %inc41.i.i = add i64 %_n.0.i20.i349, 1
-  %arrayidx.i.i = getelementptr ptr, ptr %_children.1.i.i, i64 %_n.0.i20.i349
+  %_children.1.i.i = phi ptr [ %call32.i.i, %if.end39.i.i ], [ %_children.0.i20.i350, %if.end28.i.i ]
+  %_children_capacity.1.i.i = phi i64 [ %mul.i.i, %if.end39.i.i ], [ %_children_capacity.0.i21.i349, %if.end28.i.i ]
+  %inc41.i.i = add i64 %_n.0.i22.i348, 1
+  %arrayidx.i.i = getelementptr ptr, ptr %_children.1.i.i, i64 %_n.0.i22.i348
   store ptr %call19.i.i351, ptr %arrayidx.i.i, align 8
   %43 = load i32, ptr %mark, align 8
   %call17.i.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -17549,9 +17549,9 @@ if.end40.i.i:                                     ; preds = %if.end39.i.i, %if.e
   br i1 %tobool18.not.i.i, label %while.end.i.i, label %land.rhs.i.i, !llvm.loop !60
 
 while.end.i.i:                                    ; preds = %land.rhs.i.i, %if.end40.i.i, %land.rhs.i.i.preheader, %while.cond.i.preheader.i
-  %_n.0.i.lcssa.i = phi i64 [ 0, %while.cond.i.preheader.i ], [ 0, %land.rhs.i.i.preheader ], [ %inc41.i.i, %if.end40.i.i ], [ %inc41.i.i, %land.rhs.i.i ]
-  %_children.0.i.lcssa.i = phi ptr [ %call.i.i, %while.cond.i.preheader.i ], [ %call.i.i, %land.rhs.i.i.preheader ], [ %_children.1.i.i, %if.end40.i.i ], [ %_children.1.i.i, %land.rhs.i.i ]
   %_mark.0.i.lcssa.i = phi i32 [ %41, %while.cond.i.preheader.i ], [ %41, %land.rhs.i.i.preheader ], [ %43, %if.end40.i.i ], [ %43, %land.rhs.i.i ]
+  %_children.0.i.lcssa.i = phi ptr [ %call.i.i, %while.cond.i.preheader.i ], [ %call.i.i, %land.rhs.i.i.preheader ], [ %_children.1.i.i, %if.end40.i.i ], [ %_children.1.i.i, %land.rhs.i.i ]
+  %_n.0.i.lcssa.i = phi i64 [ 0, %while.cond.i.preheader.i ], [ 0, %land.rhs.i.i.preheader ], [ %inc41.i.i, %if.end40.i.i ], [ %inc41.i.i, %land.rhs.i.i ]
   store i32 %_mark.0.i.lcssa.i, ptr %mark, align 8
   %arena.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %44 = load ptr, ptr %arena.i.i, align 8
@@ -17581,7 +17581,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp52.i.i, label %for.body.i.i, label %_gather_132_rule.exit, !llvm.loop !61
 
 if.end15.sink.split.sink.split.sink.split.i:      ; preds = %if.then30.i.i, %while.end.i.i
-  %_children.0.i.lcssa.sink.i = phi ptr [ %_children.0.i.lcssa.i, %while.end.i.i ], [ %_children.0.i21.i348, %if.then30.i.i ]
+  %_children.0.i.lcssa.sink.i = phi ptr [ %_children.0.i.lcssa.i, %while.end.i.i ], [ %_children.0.i20.i350, %if.then30.i.i ]
   tail call void @PyMem_Free(ptr noundef %_children.0.i.lcssa.sink.i) #4
   br label %if.end15.sink.split.sink.split.i
 
@@ -18979,10 +18979,10 @@ while.cond.i.preheader:                           ; preds = %if.end10.i
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i.preheader, %if.end30.i
+  %_mark.0.i = phi i32 [ %39, %if.end30.i ], [ %14, %while.cond.i.preheader ]
   %_children.0.i = phi ptr [ %_children.1.i, %if.end30.i ], [ %call.i, %while.cond.i.preheader ]
   %_children_capacity.0.i = phi i64 [ %_children_capacity.1.i, %if.end30.i ], [ 1, %while.cond.i.preheader ]
   %_n.0.i = phi i64 [ %inc31.i, %if.end30.i ], [ 0, %while.cond.i.preheader ]
-  %_mark.0.i = phi i32 [ %39, %if.end30.i ], [ %14, %while.cond.i.preheader ]
   %16 = load i32, ptr %level, align 8
   %inc.i32 = add i32 %16, 1
   store i32 %inc.i32, ptr %level, align 8
@@ -19050,10 +19050,10 @@ if.end10.i188:                                    ; preds = %if.end3.i185
   br i1 %tobool12.not.i189, label %while.cond.i190, label %_loop0_114_rule.exit.thread
 
 while.cond.i190:                                  ; preds = %if.end10.i188, %if.end30.i209
-  %_children.0.i191 = phi ptr [ %_children.1.i210, %if.end30.i209 ], [ %call.i186, %if.end10.i188 ]
-  %_children_capacity.0.i192 = phi i64 [ %_children_capacity.1.i211, %if.end30.i209 ], [ 1, %if.end10.i188 ]
-  %_n.0.i193 = phi i64 [ %inc31.i212, %if.end30.i209 ], [ 0, %if.end10.i188 ]
-  %_mark.0.i194 = phi i32 [ %30, %if.end30.i209 ], [ %23, %if.end10.i188 ]
+  %_mark.0.i191 = phi i32 [ %30, %if.end30.i209 ], [ %23, %if.end10.i188 ]
+  %_children.0.i192 = phi ptr [ %_children.1.i210, %if.end30.i209 ], [ %call.i186, %if.end10.i188 ]
+  %_children_capacity.0.i193 = phi i64 [ %_children_capacity.1.i211, %if.end30.i209 ], [ 1, %if.end10.i188 ]
+  %_n.0.i194 = phi i64 [ %inc31.i212, %if.end30.i209 ], [ 0, %if.end10.i188 ]
   %25 = load i32, ptr %level, align 8
   %inc.i.i195 = add i32 %25, 1
   store i32 %inc.i.i195, ptr %level, align 8
@@ -19105,24 +19105,24 @@ while.body.i207:                                  ; preds = %if.then22.i.i, %if.
   %29 = load i32, ptr %level, align 8
   %dec35.i.i = add i32 %29, -1
   store i32 %dec35.i.i, ptr %level, align 8
-  %cmp19.i208 = icmp eq i64 %_n.0.i193, %_children_capacity.0.i192
+  %cmp19.i208 = icmp eq i64 %_n.0.i194, %_children_capacity.0.i193
   br i1 %cmp19.i208, label %if.then20.i214, label %if.end30.i209
 
 if.then20.i214:                                   ; preds = %while.body.i207
-  %mul21.i215 = shl i64 %_children_capacity.0.i192, 4
-  %call22.i216 = call ptr @PyMem_Realloc(ptr noundef %_children.0.i191, i64 noundef %mul21.i215) #4
+  %mul21.i215 = shl i64 %_children_capacity.0.i193, 4
+  %call22.i216 = call ptr @PyMem_Realloc(ptr noundef %_children.0.i192, i64 noundef %mul21.i215) #4
   %tobool23.not.i217 = icmp eq ptr %call22.i216, null
   br i1 %tobool23.not.i217, label %_loop0_114_rule.exit.thread.sink.split.sink.split, label %if.end29.i218
 
 if.end29.i218:                                    ; preds = %if.then20.i214
-  %mul.i219 = shl i64 %_children_capacity.0.i192, 1
+  %mul.i219 = shl i64 %_children_capacity.0.i193, 1
   br label %if.end30.i209
 
 if.end30.i209:                                    ; preds = %if.end29.i218, %while.body.i207
-  %_children.1.i210 = phi ptr [ %call22.i216, %if.end29.i218 ], [ %_children.0.i191, %while.body.i207 ]
-  %_children_capacity.1.i211 = phi i64 [ %mul.i219, %if.end29.i218 ], [ %_children_capacity.0.i192, %while.body.i207 ]
-  %inc31.i212 = add i64 %_n.0.i193, 1
-  %arrayidx.i213 = getelementptr ptr, ptr %_children.1.i210, i64 %_n.0.i193
+  %_children.1.i210 = phi ptr [ %call22.i216, %if.end29.i218 ], [ %_children.0.i192, %while.body.i207 ]
+  %_children_capacity.1.i211 = phi i64 [ %mul.i219, %if.end29.i218 ], [ %_children_capacity.0.i193, %while.body.i207 ]
+  %inc31.i212 = add i64 %_n.0.i194, 1
+  %arrayidx.i213 = getelementptr ptr, ptr %_children.1.i210, i64 %_n.0.i194
   store ptr %_res.0.i.i, ptr %arrayidx.i213, align 8
   %30 = load i32, ptr %mark, align 8
   br label %while.cond.i190, !llvm.loop !62
@@ -19131,14 +19131,14 @@ while.end.i199:                                   ; preds = %if.end19.i.i, %if.e
   %31 = load i32, ptr %level, align 8
   %dec30.i.i = add i32 %31, -1
   store i32 %dec30.i.i, ptr %level, align 8
-  store i32 %_mark.0.i194, ptr %mark, align 8
+  store i32 %_mark.0.i191, ptr %mark, align 8
   %32 = load ptr, ptr %arena.i200, align 8
-  %call34.i = call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i193, ptr noundef %32) #4
+  %call34.i = call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i194, ptr noundef %32) #4
   %tobool35.not.i = icmp eq ptr %call34.i, null
   br i1 %tobool35.not.i, label %_loop0_114_rule.exit.thread.sink.split.sink.split, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %while.end.i199
-  %cmp4263.i = icmp sgt i64 %_n.0.i193, 0
+  %cmp4263.i = icmp sgt i64 %_n.0.i194, 0
   br i1 %cmp4263.i, label %for.body.lr.ph.i, label %land.lhs.true13.i.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
@@ -19148,18 +19148,18 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 for.body.i202:                                    ; preds = %for.body.i202, %for.body.lr.ph.i
   %conv65.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv.i203, %for.body.i202 ]
   %i.064.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc47.i, %for.body.i202 ]
-  %arrayidx44.i = getelementptr ptr, ptr %_children.0.i191, i64 %conv65.i
+  %arrayidx44.i = getelementptr ptr, ptr %_children.0.i192, i64 %conv65.i
   %33 = load ptr, ptr %arrayidx44.i, align 8
   %34 = load ptr, ptr %elements.i201, align 8
   %arrayidx46.i = getelementptr ptr, ptr %34, i64 %conv65.i
   store ptr %33, ptr %arrayidx46.i, align 8
   %inc47.i = add i32 %i.064.i, 1
   %conv.i203 = sext i32 %inc47.i to i64
-  %cmp42.i = icmp sgt i64 %_n.0.i193, %conv.i203
+  %cmp42.i = icmp sgt i64 %_n.0.i194, %conv.i203
   br i1 %cmp42.i, label %for.body.i202, label %land.lhs.true13.i.i, !llvm.loop !63
 
 _loop0_114_rule.exit.thread.sink.split.sink.split: ; preds = %if.then20.i214, %while.end.i199
-  call void @PyMem_Free(ptr noundef %_children.0.i191) #4
+  call void @PyMem_Free(ptr noundef %_children.0.i192) #4
   br label %_loop0_114_rule.exit.thread.sink.split
 
 _loop0_114_rule.exit.thread.sink.split:           ; preds = %_loop0_114_rule.exit.thread.sink.split.sink.split, %if.end3.i185
@@ -19174,7 +19174,7 @@ _loop0_114_rule.exit.thread:                      ; preds = %_loop0_114_rule.exi
   br label %if.end12.i
 
 land.lhs.true13.i.i:                              ; preds = %for.body.i202, %for.cond.preheader.i
-  call void @PyMem_Free(ptr noundef %_children.0.i191) #4
+  call void @PyMem_Free(ptr noundef %_children.0.i192) #4
   %36 = load i32, ptr %level, align 8
   %dec49.i = add i32 %36, -1
   store i32 %dec49.i, ptr %level, align 8
@@ -20036,27 +20036,27 @@ land.rhs.i.i:                                     ; preds = %if.end40.i.i
 
 if.end28.i.i:                                     ; preds = %land.rhs.i.i.preheader, %land.rhs.i.i
   %call19.i.i261 = phi ptr [ %call19.i.i, %land.rhs.i.i ], [ %call19.i.i256, %land.rhs.i.i.preheader ]
-  %_children_capacity.0.i84.i260 = phi i64 [ %_children_capacity.1.i.i, %land.rhs.i.i ], [ 1, %land.rhs.i.i.preheader ]
-  %_n.0.i85.i259 = phi i64 [ %inc41.i.i, %land.rhs.i.i ], [ 0, %land.rhs.i.i.preheader ]
-  %_children.0.i86.i258 = phi ptr [ %_children.1.i.i, %land.rhs.i.i ], [ %call.i66.i, %land.rhs.i.i.preheader ]
-  %cmp29.i.i = icmp eq i64 %_n.0.i85.i259, %_children_capacity.0.i84.i260
+  %_children.0.i85.i260 = phi ptr [ %_children.1.i.i, %land.rhs.i.i ], [ %call.i66.i, %land.rhs.i.i.preheader ]
+  %_children_capacity.0.i86.i259 = phi i64 [ %_children_capacity.1.i.i, %land.rhs.i.i ], [ 1, %land.rhs.i.i.preheader ]
+  %_n.0.i87.i258 = phi i64 [ %inc41.i.i, %land.rhs.i.i ], [ 0, %land.rhs.i.i.preheader ]
+  %cmp29.i.i = icmp eq i64 %_n.0.i87.i258, %_children_capacity.0.i86.i259
   br i1 %cmp29.i.i, label %if.then30.i.i, label %if.end40.i.i
 
 if.then30.i.i:                                    ; preds = %if.end28.i.i
-  %mul31.i.i = shl i64 %_children_capacity.0.i84.i260, 4
-  %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i86.i258, i64 noundef %mul31.i.i) #4
+  %mul31.i.i = shl i64 %_children_capacity.0.i86.i259, 4
+  %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i85.i260, i64 noundef %mul31.i.i) #4
   %tobool33.not.i.i = icmp eq ptr %call32.i.i, null
   br i1 %tobool33.not.i.i, label %if.end15.i.sink.split.sink.split.sink.split.i, label %if.end39.i.i
 
 if.end39.i.i:                                     ; preds = %if.then30.i.i
-  %mul.i.i = shl i64 %_children_capacity.0.i84.i260, 1
+  %mul.i.i = shl i64 %_children_capacity.0.i86.i259, 1
   br label %if.end40.i.i
 
 if.end40.i.i:                                     ; preds = %if.end39.i.i, %if.end28.i.i
-  %_children_capacity.1.i.i = phi i64 [ %mul.i.i, %if.end39.i.i ], [ %_children_capacity.0.i84.i260, %if.end28.i.i ]
-  %_children.1.i.i = phi ptr [ %call32.i.i, %if.end39.i.i ], [ %_children.0.i86.i258, %if.end28.i.i ]
-  %inc41.i.i = add i64 %_n.0.i85.i259, 1
-  %arrayidx.i.i = getelementptr ptr, ptr %_children.1.i.i, i64 %_n.0.i85.i259
+  %_children.1.i.i = phi ptr [ %call32.i.i, %if.end39.i.i ], [ %_children.0.i85.i260, %if.end28.i.i ]
+  %_children_capacity.1.i.i = phi i64 [ %mul.i.i, %if.end39.i.i ], [ %_children_capacity.0.i86.i259, %if.end28.i.i ]
+  %inc41.i.i = add i64 %_n.0.i87.i258, 1
+  %arrayidx.i.i = getelementptr ptr, ptr %_children.1.i.i, i64 %_n.0.i87.i258
   store ptr %call19.i.i261, ptr %arrayidx.i.i, align 8
   %28 = load i32, ptr %mark, align 8
   %call17.i.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -20064,9 +20064,9 @@ if.end40.i.i:                                     ; preds = %if.end39.i.i, %if.e
   br i1 %tobool18.not.i.i, label %while.end.i.i, label %land.rhs.i.i, !llvm.loop !66
 
 while.end.i.i:                                    ; preds = %land.rhs.i.i, %if.end40.i.i, %land.rhs.i.i.preheader, %while.cond.i.preheader.i
-  %_n.0.i.lcssa.i = phi i64 [ 0, %while.cond.i.preheader.i ], [ 0, %land.rhs.i.i.preheader ], [ %inc41.i.i, %if.end40.i.i ], [ %inc41.i.i, %land.rhs.i.i ]
-  %_children.0.i.lcssa.i = phi ptr [ %call.i66.i, %while.cond.i.preheader.i ], [ %call.i66.i, %land.rhs.i.i.preheader ], [ %_children.1.i.i, %if.end40.i.i ], [ %_children.1.i.i, %land.rhs.i.i ]
   %_mark.0.i.lcssa.i = phi i32 [ %26, %while.cond.i.preheader.i ], [ %26, %land.rhs.i.i.preheader ], [ %28, %if.end40.i.i ], [ %28, %land.rhs.i.i ]
+  %_children.0.i.lcssa.i = phi ptr [ %call.i66.i, %while.cond.i.preheader.i ], [ %call.i66.i, %land.rhs.i.i.preheader ], [ %_children.1.i.i, %if.end40.i.i ], [ %_children.1.i.i, %land.rhs.i.i ]
+  %_n.0.i.lcssa.i = phi i64 [ 0, %while.cond.i.preheader.i ], [ 0, %land.rhs.i.i.preheader ], [ %inc41.i.i, %if.end40.i.i ], [ %inc41.i.i, %land.rhs.i.i ]
   store i32 %_mark.0.i.lcssa.i, ptr %mark, align 8
   %arena.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %29 = load ptr, ptr %arena.i.i, align 8
@@ -20096,7 +20096,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp52.i.i, label %for.body.i.i, label %_gather_229_rule.exit.i, !llvm.loop !67
 
 if.end15.i.sink.split.sink.split.sink.split.i:    ; preds = %if.then30.i.i, %while.end.i.i
-  %_children.0.i.lcssa.sink.i = phi ptr [ %_children.0.i.lcssa.i, %while.end.i.i ], [ %_children.0.i86.i258, %if.then30.i.i ]
+  %_children.0.i.lcssa.sink.i = phi ptr [ %_children.0.i.lcssa.i, %while.end.i.i ], [ %_children.0.i85.i260, %if.then30.i.i ]
   tail call void @PyMem_Free(ptr noundef %_children.0.i.lcssa.sink.i) #4
   br label %if.end15.i.sink.split.sink.split.i
 
@@ -21656,9 +21656,9 @@ if.end30.i:                                       ; preds = %if.end29.i, %while.
   br i1 %tobool18.not.i, label %while.end.i, label %while.body.i, !llvm.loop !68
 
 while.end.i:                                      ; preds = %if.end30.i, %while.cond.i.preheader
+  %_mark.0.i.lcssa = phi i32 [ %11, %while.cond.i.preheader ], [ %13, %if.end30.i ]
   %_children.0.i.lcssa = phi ptr [ %call.i, %while.cond.i.preheader ], [ %_children.1.i, %if.end30.i ]
   %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ %inc31.i, %if.end30.i ]
-  %_mark.0.i.lcssa = phi i32 [ %11, %while.cond.i.preheader ], [ %13, %if.end30.i ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %14 = load ptr, ptr %arena.i, align 8
@@ -22716,9 +22716,9 @@ if.end30:                                         ; preds = %if.end29, %while.bo
   br i1 %tobool18.not, label %while.end, label %while.body, !llvm.loop !70
 
 while.end:                                        ; preds = %if.end30, %while.cond.preheader
+  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   %_children.0.lcssa = phi ptr [ %call, %while.cond.preheader ], [ %_children.1, %if.end30 ]
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
-  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
   %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
@@ -23677,33 +23677,33 @@ land.rhs:                                         ; preds = %if.end40
 
 if.end28:                                         ; preds = %land.rhs.preheader, %land.rhs
   %call1965 = phi ptr [ %call19, %land.rhs ], [ %call1960, %land.rhs.preheader ]
-  %_children_capacity.04564 = phi i64 [ %_children_capacity.1, %land.rhs ], [ 1, %land.rhs.preheader ]
-  %_n.04663 = phi i64 [ %inc41, %land.rhs ], [ 0, %land.rhs.preheader ]
-  %_children.04762 = phi ptr [ %_children.1, %land.rhs ], [ %call, %land.rhs.preheader ]
-  %cmp29 = icmp eq i64 %_n.04663, %_children_capacity.04564
+  %_children.04664 = phi ptr [ %_children.1, %land.rhs ], [ %call, %land.rhs.preheader ]
+  %_children_capacity.04763 = phi i64 [ %_children_capacity.1, %land.rhs ], [ 1, %land.rhs.preheader ]
+  %_n.04862 = phi i64 [ %inc41, %land.rhs ], [ 0, %land.rhs.preheader ]
+  %cmp29 = icmp eq i64 %_n.04862, %_children_capacity.04763
   br i1 %cmp29, label %if.then30, label %if.end40
 
 if.then30:                                        ; preds = %if.end28
-  %mul31 = shl i64 %_n.04663, 4
-  %call32 = tail call ptr @PyMem_Realloc(ptr noundef %_children.04762, i64 noundef %mul31) #4
+  %mul31 = shl i64 %_n.04862, 4
+  %call32 = tail call ptr @PyMem_Realloc(ptr noundef %_children.04664, i64 noundef %mul31) #4
   %tobool33.not = icmp eq ptr %call32, null
   br i1 %tobool33.not, label %if.then34, label %if.end39
 
 if.then34:                                        ; preds = %if.then30
-  tail call void @PyMem_Free(ptr noundef %_children.04762) #4
+  tail call void @PyMem_Free(ptr noundef %_children.04664) #4
   store i32 1, ptr %error_indicator, align 8
   %call36 = tail call ptr @PyErr_NoMemory() #4
   br label %return
 
 if.end39:                                         ; preds = %if.then30
-  %mul = shl i64 %_n.04663, 1
+  %mul = shl i64 %_n.04862, 1
   br label %if.end40
 
 if.end40:                                         ; preds = %if.end39, %if.end28
-  %_children_capacity.1 = phi i64 [ %mul, %if.end39 ], [ %_children_capacity.04564, %if.end28 ]
-  %_children.1 = phi ptr [ %call32, %if.end39 ], [ %_children.04762, %if.end28 ]
-  %inc41 = add i64 %_n.04663, 1
-  %arrayidx = getelementptr ptr, ptr %_children.1, i64 %_n.04663
+  %_children.1 = phi ptr [ %call32, %if.end39 ], [ %_children.04664, %if.end28 ]
+  %_children_capacity.1 = phi i64 [ %mul, %if.end39 ], [ %_children_capacity.04763, %if.end28 ]
+  %inc41 = add i64 %_n.04862, 1
+  %arrayidx = getelementptr ptr, ptr %_children.1, i64 %_n.04862
   store ptr %call1965, ptr %arrayidx, align 8
   %4 = load i32, ptr %mark, align 8
   %call17 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -23711,9 +23711,9 @@ if.end40:                                         ; preds = %if.end39, %if.end28
   br i1 %tobool18.not, label %while.end, label %land.rhs, !llvm.loop !72
 
 while.end:                                        ; preds = %if.end40, %land.rhs, %land.rhs.preheader, %while.cond.preheader
-  %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ 0, %land.rhs.preheader ], [ %inc41, %land.rhs ], [ %inc41, %if.end40 ]
-  %_children.0.lcssa = phi ptr [ %call, %while.cond.preheader ], [ %call, %land.rhs.preheader ], [ %_children.1, %land.rhs ], [ %_children.1, %if.end40 ]
   %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %2, %land.rhs.preheader ], [ %4, %land.rhs ], [ %4, %if.end40 ]
+  %_children.0.lcssa = phi ptr [ %call, %while.cond.preheader ], [ %call, %land.rhs.preheader ], [ %_children.1, %land.rhs ], [ %_children.1, %if.end40 ]
+  %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ 0, %land.rhs.preheader ], [ %inc41, %land.rhs ], [ %inc41, %if.end40 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
   %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
@@ -24658,9 +24658,9 @@ if.end30.i:                                       ; preds = %if.end29.i, %while.
   br i1 %tobool18.not.i, label %while.end.i, label %while.body.i, !llvm.loop !74
 
 while.end.i:                                      ; preds = %if.end30.i, %while.cond.i.preheader
+  %_mark.0.i.lcssa = phi i32 [ %14, %while.cond.i.preheader ], [ %16, %if.end30.i ]
   %_children.0.i.lcssa = phi ptr [ %call.i107, %while.cond.i.preheader ], [ %_children.1.i, %if.end30.i ]
   %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ %inc31.i, %if.end30.i ]
-  %_mark.0.i.lcssa = phi i32 [ %14, %while.cond.i.preheader ], [ %16, %if.end30.i ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %17 = load ptr, ptr %arena.i, align 8
@@ -25065,9 +25065,9 @@ if.end30.i:                                       ; preds = %if.end29.i, %while.
   br i1 %tobool18.not.i, label %while.end.i, label %while.body.i, !llvm.loop !76
 
 while.end.i:                                      ; preds = %if.end30.i, %while.cond.preheader.i
+  %_mark.0.lcssa.i = phi i32 [ %5, %while.cond.preheader.i ], [ %7, %if.end30.i ]
   %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %_children.1.i, %if.end30.i ]
   %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %inc31.i, %if.end30.i ]
-  %_mark.0.lcssa.i = phi i32 [ %5, %while.cond.preheader.i ], [ %7, %if.end30.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %8 = load ptr, ptr %arena.i, align 8
@@ -25165,9 +25165,9 @@ if.end30.i81:                                     ; preds = %if.end29.i90, %whil
   br i1 %tobool18.not.i78, label %while.end.i94, label %while.body.i79, !llvm.loop !78
 
 while.end.i94:                                    ; preds = %if.end30.i81, %while.cond.i.preheader
+  %_mark.0.i.lcssa = phi i32 [ %13, %while.cond.i.preheader ], [ %15, %if.end30.i81 ]
   %_children.0.i.lcssa = phi ptr [ %call.i73, %while.cond.i.preheader ], [ %_children.1.i82, %if.end30.i81 ]
   %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ %inc31.i84, %if.end30.i81 ]
-  %_mark.0.i.lcssa = phi i32 [ %13, %while.cond.i.preheader ], [ %15, %if.end30.i81 ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
   %16 = load ptr, ptr %arena.i, align 8
   %call34.i96 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i.lcssa, ptr noundef %16) #4
@@ -25300,31 +25300,31 @@ while.cond.i135.preheader:                        ; preds = %if.end10.i131
 
 while.body.i142:                                  ; preds = %while.cond.i135.preheader, %if.end30.i144
   %call17.i140337 = phi ptr [ %call17.i140, %if.end30.i144 ], [ %call17.i140332, %while.cond.i135.preheader ]
-  %_n.0.i138336 = phi i64 [ %inc31.i147, %if.end30.i144 ], [ 0, %while.cond.i135.preheader ]
-  %_children_capacity.0.i137335 = phi i64 [ %_children_capacity.1.i146, %if.end30.i144 ], [ 1, %while.cond.i135.preheader ]
-  %_children.0.i136334 = phi ptr [ %_children.1.i145, %if.end30.i144 ], [ %call.i129, %while.cond.i135.preheader ]
-  %cmp19.i143 = icmp eq i64 %_n.0.i138336, %_children_capacity.0.i137335
+  %_n.0.i139336 = phi i64 [ %inc31.i147, %if.end30.i144 ], [ 0, %while.cond.i135.preheader ]
+  %_children_capacity.0.i138335 = phi i64 [ %_children_capacity.1.i146, %if.end30.i144 ], [ 1, %while.cond.i135.preheader ]
+  %_children.0.i137334 = phi ptr [ %_children.1.i145, %if.end30.i144 ], [ %call.i129, %while.cond.i135.preheader ]
+  %cmp19.i143 = icmp eq i64 %_n.0.i139336, %_children_capacity.0.i138335
   br i1 %cmp19.i143, label %if.then20.i149, label %if.end30.i144
 
 if.then20.i149:                                   ; preds = %while.body.i142
-  %mul21.i150 = shl i64 %_n.0.i138336, 4
-  %call22.i151 = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i136334, i64 noundef %mul21.i150) #4
+  %mul21.i150 = shl i64 %_n.0.i139336, 4
+  %call22.i151 = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i137334, i64 noundef %mul21.i150) #4
   %tobool23.not.i152 = icmp eq ptr %call22.i151, null
   br i1 %tobool23.not.i152, label %if.then24.i155, label %if.end29.i153
 
 if.then24.i155:                                   ; preds = %if.then20.i149
-  tail call void @PyMem_Free(ptr noundef %_children.0.i136334) #4
+  tail call void @PyMem_Free(ptr noundef %_children.0.i137334) #4
   br label %if.end65.sink.split.sink.split
 
 if.end29.i153:                                    ; preds = %if.then20.i149
-  %mul.i154 = shl i64 %_n.0.i138336, 1
+  %mul.i154 = shl i64 %_n.0.i139336, 1
   br label %if.end30.i144
 
 if.end30.i144:                                    ; preds = %if.end29.i153, %while.body.i142
-  %_children.1.i145 = phi ptr [ %call22.i151, %if.end29.i153 ], [ %_children.0.i136334, %while.body.i142 ]
-  %_children_capacity.1.i146 = phi i64 [ %mul.i154, %if.end29.i153 ], [ %_children_capacity.0.i137335, %while.body.i142 ]
-  %inc31.i147 = add i64 %_n.0.i138336, 1
-  %arrayidx.i148 = getelementptr ptr, ptr %_children.1.i145, i64 %_n.0.i138336
+  %_children.1.i145 = phi ptr [ %call22.i151, %if.end29.i153 ], [ %_children.0.i137334, %while.body.i142 ]
+  %_children_capacity.1.i146 = phi i64 [ %mul.i154, %if.end29.i153 ], [ %_children_capacity.0.i138335, %while.body.i142 ]
+  %inc31.i147 = add i64 %_n.0.i139336, 1
+  %arrayidx.i148 = getelementptr ptr, ptr %_children.1.i145, i64 %_n.0.i139336
   store ptr %call17.i140337, ptr %arrayidx.i148, align 8
   %27 = load i32, ptr %mark, align 8
   %call17.i140 = tail call fastcc ptr @lambda_param_with_default_rule(ptr noundef nonnull %p)
@@ -25332,18 +25332,18 @@ if.end30.i144:                                    ; preds = %if.end29.i153, %whi
   br i1 %tobool18.not.i141, label %while.end.i158, label %while.body.i142, !llvm.loop !80
 
 while.end.i158:                                   ; preds = %if.end30.i144, %while.cond.i135.preheader
-  %_children.0.i136.lcssa = phi ptr [ %call.i129, %while.cond.i135.preheader ], [ %_children.1.i145, %if.end30.i144 ]
-  %_n.0.i138.lcssa = phi i64 [ 0, %while.cond.i135.preheader ], [ %inc31.i147, %if.end30.i144 ]
-  %_mark.0.i139.lcssa = phi i32 [ %25, %while.cond.i135.preheader ], [ %27, %if.end30.i144 ]
-  store i32 %_mark.0.i139.lcssa, ptr %mark, align 8
+  %_mark.0.i136.lcssa = phi i32 [ %25, %while.cond.i135.preheader ], [ %27, %if.end30.i144 ]
+  %_children.0.i137.lcssa = phi ptr [ %call.i129, %while.cond.i135.preheader ], [ %_children.1.i145, %if.end30.i144 ]
+  %_n.0.i139.lcssa = phi i64 [ 0, %while.cond.i135.preheader ], [ %inc31.i147, %if.end30.i144 ]
+  store i32 %_mark.0.i136.lcssa, ptr %mark, align 8
   %arena.i159 = getelementptr inbounds i8, ptr %p, i64 32
   %28 = load ptr, ptr %arena.i159, align 8
-  %call34.i160 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i138.lcssa, ptr noundef %28) #4
+  %call34.i160 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i139.lcssa, ptr noundef %28) #4
   %tobool35.not.i161 = icmp eq ptr %call34.i160, null
   br i1 %tobool35.not.i161, label %if.then36.i173, label %for.cond.i162.preheader
 
 for.cond.i162.preheader:                          ; preds = %while.end.i158
-  %cmp42.i165341 = icmp sgt i64 %_n.0.i138.lcssa, 0
+  %cmp42.i165341 = icmp sgt i64 %_n.0.i139.lcssa, 0
   br i1 %cmp42.i165341, label %for.body.i168.lr.ph, label %land.lhs.true48
 
 for.body.i168.lr.ph:                              ; preds = %for.cond.i162.preheader
@@ -25351,24 +25351,24 @@ for.body.i168.lr.ph:                              ; preds = %for.cond.i162.prehe
   br label %for.body.i168
 
 if.then36.i173:                                   ; preds = %while.end.i158
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.i136.lcssa) #4
+  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.i137.lcssa) #4
   br label %if.end65.sink.split.sink.split
 
 for.body.i168:                                    ; preds = %for.body.i168.lr.ph, %for.body.i168
   %conv.i164343 = phi i64 [ 0, %for.body.i168.lr.ph ], [ %conv.i164, %for.body.i168 ]
   %i.0.i163342 = phi i32 [ 0, %for.body.i168.lr.ph ], [ %inc47.i172, %for.body.i168 ]
-  %arrayidx44.i169 = getelementptr ptr, ptr %_children.0.i136.lcssa, i64 %conv.i164343
+  %arrayidx44.i169 = getelementptr ptr, ptr %_children.0.i137.lcssa, i64 %conv.i164343
   %29 = load ptr, ptr %arrayidx44.i169, align 8
   %30 = load ptr, ptr %elements.i170, align 8
   %arrayidx46.i171 = getelementptr ptr, ptr %30, i64 %conv.i164343
   store ptr %29, ptr %arrayidx46.i171, align 8
   %inc47.i172 = add i32 %i.0.i163342, 1
   %conv.i164 = sext i32 %inc47.i172 to i64
-  %cmp42.i165 = icmp sgt i64 %_n.0.i138.lcssa, %conv.i164
+  %cmp42.i165 = icmp sgt i64 %_n.0.i139.lcssa, %conv.i164
   br i1 %cmp42.i165, label %for.body.i168, label %land.lhs.true48, !llvm.loop !81
 
 land.lhs.true48:                                  ; preds = %for.body.i168, %for.cond.i162.preheader
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.i136.lcssa) #4
+  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.i137.lcssa) #4
   %31 = load i32, ptr %level, align 8
   %dec49.i167 = add i32 %31, -1
   store i32 %dec49.i167, ptr %level, align 8
@@ -25573,33 +25573,33 @@ while.cond.i239.preheader:                        ; preds = %if.end10.i235
 
 while.body.i246:                                  ; preds = %while.cond.i239.preheader, %if.end30.i248
   %call17.i244349 = phi ptr [ %call17.i244, %if.end30.i248 ], [ %call17.i244344, %while.cond.i239.preheader ]
-  %_n.0.i242348 = phi i64 [ %inc31.i251, %if.end30.i248 ], [ 0, %while.cond.i239.preheader ]
-  %_children_capacity.0.i241347 = phi i64 [ %_children_capacity.1.i250, %if.end30.i248 ], [ 1, %while.cond.i239.preheader ]
-  %_children.0.i240346 = phi ptr [ %_children.1.i249, %if.end30.i248 ], [ %call.i233, %while.cond.i239.preheader ]
-  %cmp19.i247 = icmp eq i64 %_n.0.i242348, %_children_capacity.0.i241347
+  %_n.0.i243348 = phi i64 [ %inc31.i251, %if.end30.i248 ], [ 0, %while.cond.i239.preheader ]
+  %_children_capacity.0.i242347 = phi i64 [ %_children_capacity.1.i250, %if.end30.i248 ], [ 1, %while.cond.i239.preheader ]
+  %_children.0.i241346 = phi ptr [ %_children.1.i249, %if.end30.i248 ], [ %call.i233, %while.cond.i239.preheader ]
+  %cmp19.i247 = icmp eq i64 %_n.0.i243348, %_children_capacity.0.i242347
   br i1 %cmp19.i247, label %if.then20.i253, label %if.end30.i248
 
 if.then20.i253:                                   ; preds = %while.body.i246
-  %mul21.i254 = shl i64 %_n.0.i242348, 4
-  %call22.i255 = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i240346, i64 noundef %mul21.i254) #4
+  %mul21.i254 = shl i64 %_n.0.i243348, 4
+  %call22.i255 = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i241346, i64 noundef %mul21.i254) #4
   %tobool23.not.i256 = icmp eq ptr %call22.i255, null
   br i1 %tobool23.not.i256, label %if.then24.i259, label %if.end29.i257
 
 if.then24.i259:                                   ; preds = %if.then20.i253
-  tail call void @PyMem_Free(ptr noundef %_children.0.i240346) #4
+  tail call void @PyMem_Free(ptr noundef %_children.0.i241346) #4
   store i32 1, ptr %error_indicator, align 8
   %call26.i260 = tail call ptr @PyErr_NoMemory() #4
   br label %if.end97
 
 if.end29.i257:                                    ; preds = %if.then20.i253
-  %mul.i258 = shl i64 %_n.0.i242348, 1
+  %mul.i258 = shl i64 %_n.0.i243348, 1
   br label %if.end30.i248
 
 if.end30.i248:                                    ; preds = %if.end29.i257, %while.body.i246
-  %_children.1.i249 = phi ptr [ %call22.i255, %if.end29.i257 ], [ %_children.0.i240346, %while.body.i246 ]
-  %_children_capacity.1.i250 = phi i64 [ %mul.i258, %if.end29.i257 ], [ %_children_capacity.0.i241347, %while.body.i246 ]
-  %inc31.i251 = add i64 %_n.0.i242348, 1
-  %arrayidx.i252 = getelementptr ptr, ptr %_children.1.i249, i64 %_n.0.i242348
+  %_children.1.i249 = phi ptr [ %call22.i255, %if.end29.i257 ], [ %_children.0.i241346, %while.body.i246 ]
+  %_children_capacity.1.i250 = phi i64 [ %mul.i258, %if.end29.i257 ], [ %_children_capacity.0.i242347, %while.body.i246 ]
+  %inc31.i251 = add i64 %_n.0.i243348, 1
+  %arrayidx.i252 = getelementptr ptr, ptr %_children.1.i249, i64 %_n.0.i243348
   store ptr %call17.i244349, ptr %arrayidx.i252, align 8
   %45 = load i32, ptr %mark, align 8
   %call17.i244 = tail call fastcc ptr @lambda_param_with_default_rule(ptr noundef nonnull %p)
@@ -25607,17 +25607,17 @@ if.end30.i248:                                    ; preds = %if.end29.i257, %whi
   br i1 %tobool18.not.i245, label %while.end.i262, label %while.body.i246, !llvm.loop !84
 
 while.end.i262:                                   ; preds = %if.end30.i248, %while.cond.i239.preheader
-  %_children.0.i240.lcssa = phi ptr [ %call.i233, %while.cond.i239.preheader ], [ %_children.1.i249, %if.end30.i248 ]
-  %_n.0.i242.lcssa = phi i64 [ 0, %while.cond.i239.preheader ], [ %inc31.i251, %if.end30.i248 ]
-  %_mark.0.i243.lcssa = phi i32 [ %43, %while.cond.i239.preheader ], [ %45, %if.end30.i248 ]
-  store i32 %_mark.0.i243.lcssa, ptr %mark, align 8
+  %_mark.0.i240.lcssa = phi i32 [ %43, %while.cond.i239.preheader ], [ %45, %if.end30.i248 ]
+  %_children.0.i241.lcssa = phi ptr [ %call.i233, %while.cond.i239.preheader ], [ %_children.1.i249, %if.end30.i248 ]
+  %_n.0.i243.lcssa = phi i64 [ 0, %while.cond.i239.preheader ], [ %inc31.i251, %if.end30.i248 ]
+  store i32 %_mark.0.i240.lcssa, ptr %mark, align 8
   %46 = load ptr, ptr %arena.i204, align 8
-  %call34.i264 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i242.lcssa, ptr noundef %46) #4
+  %call34.i264 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i243.lcssa, ptr noundef %46) #4
   %tobool35.not.i265 = icmp eq ptr %call34.i264, null
   br i1 %tobool35.not.i265, label %if.then36.i277, label %for.cond.i266.preheader
 
 for.cond.i266.preheader:                          ; preds = %while.end.i262
-  %cmp42.i269353 = icmp sgt i64 %_n.0.i242.lcssa, 0
+  %cmp42.i269353 = icmp sgt i64 %_n.0.i243.lcssa, 0
   br i1 %cmp42.i269353, label %for.body.i272.lr.ph, label %land.lhs.true81
 
 for.body.i272.lr.ph:                              ; preds = %for.cond.i266.preheader
@@ -25625,7 +25625,7 @@ for.body.i272.lr.ph:                              ; preds = %for.cond.i266.prehe
   br label %for.body.i272
 
 if.then36.i277:                                   ; preds = %while.end.i262
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.i240.lcssa) #4
+  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.i241.lcssa) #4
   store i32 1, ptr %error_indicator, align 8
   %call38.i278 = tail call ptr @PyErr_NoMemory() #4
   br label %if.end97
@@ -25633,18 +25633,18 @@ if.then36.i277:                                   ; preds = %while.end.i262
 for.body.i272:                                    ; preds = %for.body.i272.lr.ph, %for.body.i272
   %conv.i268355 = phi i64 [ 0, %for.body.i272.lr.ph ], [ %conv.i268, %for.body.i272 ]
   %i.0.i267354 = phi i32 [ 0, %for.body.i272.lr.ph ], [ %inc47.i276, %for.body.i272 ]
-  %arrayidx44.i273 = getelementptr ptr, ptr %_children.0.i240.lcssa, i64 %conv.i268355
+  %arrayidx44.i273 = getelementptr ptr, ptr %_children.0.i241.lcssa, i64 %conv.i268355
   %47 = load ptr, ptr %arrayidx44.i273, align 8
   %48 = load ptr, ptr %elements.i274, align 8
   %arrayidx46.i275 = getelementptr ptr, ptr %48, i64 %conv.i268355
   store ptr %47, ptr %arrayidx46.i275, align 8
   %inc47.i276 = add i32 %i.0.i267354, 1
   %conv.i268 = sext i32 %inc47.i276 to i64
-  %cmp42.i269 = icmp sgt i64 %_n.0.i242.lcssa, %conv.i268
+  %cmp42.i269 = icmp sgt i64 %_n.0.i243.lcssa, %conv.i268
   br i1 %cmp42.i269, label %for.body.i272, label %land.lhs.true81, !llvm.loop !85
 
 land.lhs.true81:                                  ; preds = %for.body.i272, %for.cond.i266.preheader
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.i240.lcssa) #4
+  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.i241.lcssa) #4
   %49 = load i32, ptr %level, align 8
   %dec49.i271 = add i32 %49, -1
   store i32 %dec49.i271, ptr %level, align 8
@@ -26158,9 +26158,9 @@ if.end30:                                         ; preds = %if.end29, %while.bo
   br i1 %tobool18.not, label %while.end, label %while.body, !llvm.loop !90
 
 while.end:                                        ; preds = %if.end30, %while.cond.preheader
+  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   %_children.0.lcssa = phi ptr [ %call, %while.cond.preheader ], [ %_children.1, %if.end30 ]
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
-  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
   %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
@@ -26543,9 +26543,9 @@ if.end30:                                         ; preds = %if.end29, %while.bo
   br i1 %tobool18.not, label %while.end, label %while.body, !llvm.loop !94
 
 while.end:                                        ; preds = %if.end30, %while.cond.preheader
+  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   %_children.0.lcssa = phi ptr [ %call, %while.cond.preheader ], [ %_children.1, %if.end30 ]
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
-  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
   %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
@@ -26663,31 +26663,31 @@ land.rhs.i:                                       ; preds = %if.end40.i
 
 if.end28.i:                                       ; preds = %land.rhs.i.preheader, %land.rhs.i
   %call19.i21 = phi ptr [ %call19.i, %land.rhs.i ], [ %call19.i16, %land.rhs.i.preheader ]
-  %_children_capacity.045.i20 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
-  %_n.046.i19 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
-  %_children.047.i18 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i, %land.rhs.i.preheader ]
-  %cmp29.i = icmp eq i64 %_n.046.i19, %_children_capacity.045.i20
+  %_children.046.i20 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i, %land.rhs.i.preheader ]
+  %_children_capacity.047.i19 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
+  %_n.048.i18 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
+  %cmp29.i = icmp eq i64 %_n.048.i18, %_children_capacity.047.i19
   br i1 %cmp29.i, label %if.then30.i, label %if.end40.i
 
 if.then30.i:                                      ; preds = %if.end28.i
-  %mul31.i = shl i64 %_children_capacity.045.i20, 4
-  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18, i64 noundef %mul31.i) #4
+  %mul31.i = shl i64 %_children_capacity.047.i19, 4
+  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.046.i20, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
   br i1 %tobool33.not.i, label %if.then34.i, label %if.end39.i
 
 if.then34.i:                                      ; preds = %if.then30.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18) #4
+  tail call void @PyMem_Free(ptr noundef %_children.046.i20) #4
   br label %_loop0_190_rule.exit.thread.sink.split
 
 if.end39.i:                                       ; preds = %if.then30.i
-  %mul.i = shl i64 %_children_capacity.045.i20, 1
+  %mul.i = shl i64 %_children_capacity.047.i19, 1
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end39.i, %if.end28.i
-  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.045.i20, %if.end28.i ]
-  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.047.i18, %if.end28.i ]
-  %inc41.i = add i64 %_n.046.i19, 1
-  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.046.i19
+  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.046.i20, %if.end28.i ]
+  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.047.i19, %if.end28.i ]
+  %inc41.i = add i64 %_n.048.i18, 1
+  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.048.i18
   store ptr %call19.i21, ptr %arrayidx.i, align 8
   %7 = load i32, ptr %mark, align 8
   %call17.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -26695,9 +26695,9 @@ if.end40.i:                                       ; preds = %if.end39.i, %if.end
   br i1 %tobool18.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !96
 
 while.end.i:                                      ; preds = %land.rhs.i, %if.end40.i, %land.rhs.i.preheader, %while.cond.preheader.i
-  %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
-  %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.lcssa.i = phi i32 [ %5, %while.cond.preheader.i ], [ %5, %land.rhs.i.preheader ], [ %7, %if.end40.i ], [ %7, %land.rhs.i ]
+  %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
+  %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %8 = load ptr, ptr %arena.i, align 8
@@ -26888,9 +26888,9 @@ if.end30:                                         ; preds = %if.end29, %while.bo
   br i1 %tobool18.not, label %while.end, label %while.body, !llvm.loop !98
 
 while.end:                                        ; preds = %if.end30, %while.cond.preheader
+  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   %_children.0.lcssa = phi ptr [ %call, %while.cond.preheader ], [ %_children.1, %if.end30 ]
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
-  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
   %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
@@ -27065,9 +27065,9 @@ if.end30:                                         ; preds = %if.end29, %while.bo
   br i1 %tobool18.not, label %while.end, label %while.body, !llvm.loop !100
 
 while.end:                                        ; preds = %if.end30, %while.cond.preheader
+  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   %_children.0.lcssa = phi ptr [ %call, %while.cond.preheader ], [ %_children.1, %if.end30 ]
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
-  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
   %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
@@ -27341,9 +27341,9 @@ if.end30.i:                                       ; preds = %if.end29.i, %while.
   br i1 %tobool18.not.i, label %while.end.i, label %while.body.i, !llvm.loop !104
 
 while.end.i:                                      ; preds = %if.end30.i, %while.cond.preheader.i
+  %_mark.0.lcssa.i = phi i32 [ %4, %while.cond.preheader.i ], [ %6, %if.end30.i ]
   %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %_children.1.i, %if.end30.i ]
   %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %inc31.i, %if.end30.i ]
-  %_mark.0.lcssa.i = phi i32 [ %4, %while.cond.preheader.i ], [ %6, %if.end30.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %7 = load ptr, ptr %arena.i, align 8
@@ -27607,18 +27607,18 @@ if.end30.i91:                                     ; preds = %if.end29.i124, %whi
   br i1 %tobool18.not.i97, label %while.end.i98, label %while.body.i85, !llvm.loop !108
 
 while.end.i98:                                    ; preds = %if.end30.i91, %while.cond.preheader.i82
-  %_children.0.lcssa.i99 = phi ptr [ %call.i78, %while.cond.preheader.i82 ], [ %_children.1.i92, %if.end30.i91 ]
-  %_n.0.lcssa.i100 = phi i64 [ 0, %while.cond.preheader.i82 ], [ %inc31.i94, %if.end30.i91 ]
-  %_mark.0.lcssa.i101 = phi i32 [ %23, %while.cond.preheader.i82 ], [ %25, %if.end30.i91 ]
-  store i32 %_mark.0.lcssa.i101, ptr %mark, align 8
+  %_mark.0.lcssa.i99 = phi i32 [ %23, %while.cond.preheader.i82 ], [ %25, %if.end30.i91 ]
+  %_children.0.lcssa.i100 = phi ptr [ %call.i78, %while.cond.preheader.i82 ], [ %_children.1.i92, %if.end30.i91 ]
+  %_n.0.lcssa.i101 = phi i64 [ 0, %while.cond.preheader.i82 ], [ %inc31.i94, %if.end30.i91 ]
+  store i32 %_mark.0.lcssa.i99, ptr %mark, align 8
   %arena.i102 = getelementptr inbounds i8, ptr %p, i64 32
   %26 = load ptr, ptr %arena.i102, align 8
-  %call34.i103 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i100, ptr noundef %26) #4
+  %call34.i103 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i101, ptr noundef %26) #4
   %tobool35.not.i104 = icmp eq ptr %call34.i103, null
   br i1 %tobool35.not.i104, label %if.then36.i118, label %for.cond.preheader.i105
 
 for.cond.preheader.i105:                          ; preds = %while.end.i98
-  %cmp4246.i106 = icmp sgt i64 %_n.0.lcssa.i100, 0
+  %cmp4246.i106 = icmp sgt i64 %_n.0.lcssa.i101, 0
   br i1 %cmp4246.i106, label %for.body.lr.ph.i108, label %land.lhs.true43
 
 for.body.lr.ph.i108:                              ; preds = %for.cond.preheader.i105
@@ -27626,20 +27626,20 @@ for.body.lr.ph.i108:                              ; preds = %for.cond.preheader.
   br label %for.body.i110
 
 if.then36.i118:                                   ; preds = %while.end.i98
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i99) #4
+  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i100) #4
   br label %_loop0_108_rule.exit.thread.sink.split
 
 for.body.i110:                                    ; preds = %for.body.i110, %for.body.lr.ph.i108
   %conv48.i111 = phi i64 [ 0, %for.body.lr.ph.i108 ], [ %conv.i116, %for.body.i110 ]
   %i.047.i112 = phi i32 [ 0, %for.body.lr.ph.i108 ], [ %inc47.i115, %for.body.i110 ]
-  %arrayidx44.i113 = getelementptr ptr, ptr %_children.0.lcssa.i99, i64 %conv48.i111
+  %arrayidx44.i113 = getelementptr ptr, ptr %_children.0.lcssa.i100, i64 %conv48.i111
   %27 = load ptr, ptr %arrayidx44.i113, align 8
   %28 = load ptr, ptr %elements.i109, align 8
   %arrayidx46.i114 = getelementptr ptr, ptr %28, i64 %conv48.i111
   store ptr %27, ptr %arrayidx46.i114, align 8
   %inc47.i115 = add i32 %i.047.i112, 1
   %conv.i116 = sext i32 %inc47.i115 to i64
-  %cmp42.i117 = icmp sgt i64 %_n.0.lcssa.i100, %conv.i116
+  %cmp42.i117 = icmp sgt i64 %_n.0.lcssa.i101, %conv.i116
   br i1 %cmp42.i117, label %for.body.i110, label %land.lhs.true43, !llvm.loop !109
 
 _loop0_108_rule.exit.thread.sink.split:           ; preds = %if.end3.i76, %if.then36.i118, %if.then24.i126
@@ -27648,7 +27648,7 @@ _loop0_108_rule.exit.thread.sink.split:           ; preds = %if.end3.i76, %if.th
   br label %if.end63.sink.split
 
 land.lhs.true43:                                  ; preds = %for.body.i110, %for.cond.preheader.i105
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i99) #4
+  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i100) #4
   %29 = load i32, ptr %level, align 8
   %cmp.i133 = icmp eq i32 %29, 6001
   br i1 %cmp.i133, label %if.then.i198, label %if.end.i134
@@ -27689,33 +27689,33 @@ while.end.i171.thread:                            ; preds = %while.cond.i148.pre
 
 while.body.i155:                                  ; preds = %while.cond.i148.preheader, %if.end30.i157
   %call17.i153234 = phi ptr [ %call17.i153, %if.end30.i157 ], [ %call17.i153229, %while.cond.i148.preheader ]
-  %_n.0.i151233 = phi i64 [ %inc31.i160, %if.end30.i157 ], [ 0, %while.cond.i148.preheader ]
-  %_children_capacity.0.i150232 = phi i64 [ %_children_capacity.1.i159, %if.end30.i157 ], [ 1, %while.cond.i148.preheader ]
-  %_children.0.i149231 = phi ptr [ %_children.1.i158, %if.end30.i157 ], [ %call.i142, %while.cond.i148.preheader ]
-  %cmp19.i156 = icmp eq i64 %_n.0.i151233, %_children_capacity.0.i150232
+  %_n.0.i152233 = phi i64 [ %inc31.i160, %if.end30.i157 ], [ 0, %while.cond.i148.preheader ]
+  %_children_capacity.0.i151232 = phi i64 [ %_children_capacity.1.i159, %if.end30.i157 ], [ 1, %while.cond.i148.preheader ]
+  %_children.0.i150231 = phi ptr [ %_children.1.i158, %if.end30.i157 ], [ %call.i142, %while.cond.i148.preheader ]
+  %cmp19.i156 = icmp eq i64 %_n.0.i152233, %_children_capacity.0.i151232
   br i1 %cmp19.i156, label %if.then20.i162, label %if.end30.i157
 
 if.then20.i162:                                   ; preds = %while.body.i155
-  %mul21.i163 = shl i64 %_n.0.i151233, 4
-  %call22.i164 = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i149231, i64 noundef %mul21.i163) #4
+  %mul21.i163 = shl i64 %_n.0.i152233, 4
+  %call22.i164 = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i150231, i64 noundef %mul21.i163) #4
   %tobool23.not.i165 = icmp eq ptr %call22.i164, null
   br i1 %tobool23.not.i165, label %if.then24.i168, label %if.end29.i166
 
 if.then24.i168:                                   ; preds = %if.then20.i162
-  tail call void @PyMem_Free(ptr noundef %_children.0.i149231) #4
+  tail call void @PyMem_Free(ptr noundef %_children.0.i150231) #4
   store i32 1, ptr %error_indicator, align 8
   %call26.i169 = tail call ptr @PyErr_NoMemory() #4
   br label %if.end63.sink.split
 
 if.end29.i166:                                    ; preds = %if.then20.i162
-  %mul.i167 = shl i64 %_n.0.i151233, 1
+  %mul.i167 = shl i64 %_n.0.i152233, 1
   br label %if.end30.i157
 
 if.end30.i157:                                    ; preds = %if.end29.i166, %while.body.i155
-  %_children.1.i158 = phi ptr [ %call22.i164, %if.end29.i166 ], [ %_children.0.i149231, %while.body.i155 ]
-  %_children_capacity.1.i159 = phi i64 [ %mul.i167, %if.end29.i166 ], [ %_children_capacity.0.i150232, %while.body.i155 ]
-  %inc31.i160 = add i64 %_n.0.i151233, 1
-  %arrayidx.i161 = getelementptr ptr, ptr %_children.1.i158, i64 %_n.0.i151233
+  %_children.1.i158 = phi ptr [ %call22.i164, %if.end29.i166 ], [ %_children.0.i150231, %while.body.i155 ]
+  %_children_capacity.1.i159 = phi i64 [ %mul.i167, %if.end29.i166 ], [ %_children_capacity.0.i151232, %while.body.i155 ]
+  %inc31.i160 = add i64 %_n.0.i152233, 1
+  %arrayidx.i161 = getelementptr ptr, ptr %_children.1.i158, i64 %_n.0.i152233
   store ptr %call17.i153234, ptr %arrayidx.i161, align 8
   %33 = load i32, ptr %mark, align 8
   %call17.i153 = tail call fastcc ptr @lambda_param_with_default_rule(ptr noundef nonnull %p)
@@ -27733,8 +27733,8 @@ lor.lhs.false.i173:                               ; preds = %while.end.i171
   br i1 %tobool36.not.i174, label %if.end40.i177, label %if.then37.i175
 
 if.then37.i175:                                   ; preds = %while.end.i171.thread, %lor.lhs.false.i173, %while.end.i171
-  %_children.0.i149.lcssa260 = phi ptr [ %call.i142, %while.end.i171.thread ], [ %_children.1.i158, %lor.lhs.false.i173 ], [ %_children.1.i158, %while.end.i171 ]
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.i149.lcssa260) #4
+  %_children.0.i150.lcssa260 = phi ptr [ %call.i142, %while.end.i171.thread ], [ %_children.1.i158, %lor.lhs.false.i173 ], [ %_children.1.i158, %while.end.i171 ]
+  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.i150.lcssa260) #4
   br label %if.end63.sink.split
 
 if.end40.i177:                                    ; preds = %lor.lhs.false.i173
@@ -27744,7 +27744,7 @@ if.end40.i177:                                    ; preds = %lor.lhs.false.i173
   br i1 %tobool42.not.i180, label %if.then43.i192, label %for.cond.i181.preheader
 
 for.cond.i181.preheader:                          ; preds = %if.end40.i177
-  %cmp49.i184238 = icmp ult i64 %_n.0.i151233, 9223372036854775807
+  %cmp49.i184238 = icmp ult i64 %_n.0.i152233, 9223372036854775807
   br i1 %cmp49.i184238, label %for.body.i187.lr.ph, label %land.lhs.true46
 
 for.body.i187.lr.ph:                              ; preds = %for.cond.i181.preheader
@@ -28637,9 +28637,9 @@ if.end30.i:                                       ; preds = %if.end29.i, %while.
   br i1 %tobool18.not.i61, label %while.end.i, label %while.body.i, !llvm.loop !112
 
 while.end.i:                                      ; preds = %if.end30.i, %while.cond.i.preheader
+  %_mark.0.i.lcssa = phi i32 [ %37, %while.cond.i.preheader ], [ %39, %if.end30.i ]
   %_children.0.i.lcssa = phi ptr [ %call.i57, %while.cond.i.preheader ], [ %_children.1.i, %if.end30.i ]
   %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ %inc31.i, %if.end30.i ]
-  %_mark.0.i.lcssa = phi i32 [ %37, %while.cond.i.preheader ], [ %39, %if.end30.i ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %40 = load ptr, ptr %arena.i, align 8
@@ -29404,9 +29404,9 @@ if.end30:                                         ; preds = %if.end29, %while.bo
   br i1 %tobool18.not, label %while.end, label %while.body, !llvm.loop !118
 
 while.end:                                        ; preds = %if.end30, %while.cond.preheader
+  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   %_children.0.lcssa = phi ptr [ %call, %while.cond.preheader ], [ %_children.1, %if.end30 ]
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
-  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
   %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
@@ -29623,10 +29623,10 @@ if.end10.i:                                       ; preds = %if.end3.i
   br i1 %tobool12.not.i, label %while.cond.i, label %if.end20
 
 while.cond.i:                                     ; preds = %if.end10.i, %if.end30.i
+  %_mark.0.i = phi i32 [ %8, %if.end30.i ], [ %4, %if.end10.i ]
   %_children.0.i = phi ptr [ %_children.1.i, %if.end30.i ], [ %call.i, %if.end10.i ]
   %_children_capacity.0.i = phi i64 [ %_children_capacity.1.i, %if.end30.i ], [ 1, %if.end10.i ]
   %_n.0.i = phi i64 [ %inc31.i, %if.end30.i ], [ 0, %if.end10.i ]
-  %_mark.0.i = phi i32 [ %8, %if.end30.i ], [ %4, %if.end10.i ]
   %6 = load i32, ptr %level, align 8
   %inc.i.i = add i32 %6, 1
   store i32 %inc.i.i, ptr %level, align 8
@@ -30266,31 +30266,31 @@ land.rhs.i.i.i:                                   ; preds = %if.end40.i.i.i
 
 if.end28.i.i.i:                                   ; preds = %land.rhs.i.preheader.i.i, %land.rhs.i.i.i
   %call19.i21.i.i = phi ptr [ %call19.i.i.i, %land.rhs.i.i.i ], [ %call19.i16.i.i, %land.rhs.i.preheader.i.i ]
-  %_children_capacity.045.i20.i.i = phi i64 [ %_children_capacity.1.i.i.i, %land.rhs.i.i.i ], [ 1, %land.rhs.i.preheader.i.i ]
-  %_n.046.i19.i.i = phi i64 [ %inc41.i.i.i, %land.rhs.i.i.i ], [ 0, %land.rhs.i.preheader.i.i ]
-  %_children.047.i18.i.i = phi ptr [ %_children.1.i.i.i, %land.rhs.i.i.i ], [ %call.i.i.i, %land.rhs.i.preheader.i.i ]
-  %cmp29.i.i.i = icmp eq i64 %_n.046.i19.i.i, %_children_capacity.045.i20.i.i
+  %_children.046.i20.i.i = phi ptr [ %_children.1.i.i.i, %land.rhs.i.i.i ], [ %call.i.i.i, %land.rhs.i.preheader.i.i ]
+  %_children_capacity.047.i19.i.i = phi i64 [ %_children_capacity.1.i.i.i, %land.rhs.i.i.i ], [ 1, %land.rhs.i.preheader.i.i ]
+  %_n.048.i18.i.i = phi i64 [ %inc41.i.i.i, %land.rhs.i.i.i ], [ 0, %land.rhs.i.preheader.i.i ]
+  %cmp29.i.i.i = icmp eq i64 %_n.048.i18.i.i, %_children_capacity.047.i19.i.i
   br i1 %cmp29.i.i.i, label %if.then30.i.i.i, label %if.end40.i.i.i
 
 if.then30.i.i.i:                                  ; preds = %if.end28.i.i.i
-  %mul31.i.i.i = shl i64 %_children_capacity.045.i20.i.i, 4
-  %call32.i.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i.i, i64 noundef %mul31.i.i.i) #4
+  %mul31.i.i.i = shl i64 %_children_capacity.047.i19.i.i, 4
+  %call32.i.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.046.i20.i.i, i64 noundef %mul31.i.i.i) #4
   %tobool33.not.i.i.i = icmp eq ptr %call32.i.i.i, null
   br i1 %tobool33.not.i.i.i, label %if.then34.i.i.i, label %if.end39.i.i.i
 
 if.then34.i.i.i:                                  ; preds = %if.then30.i.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i.i) #4
+  tail call void @PyMem_Free(ptr noundef %_children.046.i20.i.i) #4
   br label %_loop0_81_rule.exit.thread.sink.split.i.i
 
 if.end39.i.i.i:                                   ; preds = %if.then30.i.i.i
-  %mul.i.i.i = shl i64 %_children_capacity.045.i20.i.i, 1
+  %mul.i.i.i = shl i64 %_children_capacity.047.i19.i.i, 1
   br label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end39.i.i.i, %if.end28.i.i.i
-  %_children_capacity.1.i.i.i = phi i64 [ %mul.i.i.i, %if.end39.i.i.i ], [ %_children_capacity.045.i20.i.i, %if.end28.i.i.i ]
-  %_children.1.i.i.i = phi ptr [ %call32.i.i.i, %if.end39.i.i.i ], [ %_children.047.i18.i.i, %if.end28.i.i.i ]
-  %inc41.i.i.i = add i64 %_n.046.i19.i.i, 1
-  %arrayidx.i.i.i = getelementptr ptr, ptr %_children.1.i.i.i, i64 %_n.046.i19.i.i
+  %_children.1.i.i.i = phi ptr [ %call32.i.i.i, %if.end39.i.i.i ], [ %_children.046.i20.i.i, %if.end28.i.i.i ]
+  %_children_capacity.1.i.i.i = phi i64 [ %mul.i.i.i, %if.end39.i.i.i ], [ %_children_capacity.047.i19.i.i, %if.end28.i.i.i ]
+  %inc41.i.i.i = add i64 %_n.048.i18.i.i, 1
+  %arrayidx.i.i.i = getelementptr ptr, ptr %_children.1.i.i.i, i64 %_n.048.i18.i.i
   store ptr %call19.i21.i.i, ptr %arrayidx.i.i.i, align 8
   %9 = load i32, ptr %mark, align 8
   %call17.i.i.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -30298,9 +30298,9 @@ if.end40.i.i.i:                                   ; preds = %if.end39.i.i.i, %if
   br i1 %tobool18.not.i.i.i, label %while.end.i.i.i, label %land.rhs.i.i.i, !llvm.loop !122
 
 while.end.i.i.i:                                  ; preds = %if.end40.i.i.i, %land.rhs.i.i.i, %land.rhs.i.preheader.i.i, %while.cond.preheader.i.i.i
-  %_n.0.lcssa.i.i.i = phi i64 [ 0, %while.cond.preheader.i.i.i ], [ 0, %land.rhs.i.preheader.i.i ], [ %inc41.i.i.i, %land.rhs.i.i.i ], [ %inc41.i.i.i, %if.end40.i.i.i ]
-  %_children.0.lcssa.i.i.i = phi ptr [ %call.i.i.i, %while.cond.preheader.i.i.i ], [ %call.i.i.i, %land.rhs.i.preheader.i.i ], [ %_children.1.i.i.i, %land.rhs.i.i.i ], [ %_children.1.i.i.i, %if.end40.i.i.i ]
   %_mark.0.lcssa.i.i.i = phi i32 [ %7, %while.cond.preheader.i.i.i ], [ %7, %land.rhs.i.preheader.i.i ], [ %9, %land.rhs.i.i.i ], [ %9, %if.end40.i.i.i ]
+  %_children.0.lcssa.i.i.i = phi ptr [ %call.i.i.i, %while.cond.preheader.i.i.i ], [ %call.i.i.i, %land.rhs.i.preheader.i.i ], [ %_children.1.i.i.i, %land.rhs.i.i.i ], [ %_children.1.i.i.i, %if.end40.i.i.i ]
+  %_n.0.lcssa.i.i.i = phi i64 [ 0, %while.cond.preheader.i.i.i ], [ 0, %land.rhs.i.preheader.i.i ], [ %inc41.i.i.i, %land.rhs.i.i.i ], [ %inc41.i.i.i, %if.end40.i.i.i ]
   store i32 %_mark.0.lcssa.i.i.i, ptr %mark, align 8
   %arena.i.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %10 = load ptr, ptr %arena.i.i.i, align 8
@@ -30599,9 +30599,9 @@ if.end30.i.i:                                     ; preds = %if.end29.i.i, %whil
   br i1 %tobool18.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !124
 
 while.end.i.i:                                    ; preds = %if.end30.i.i, %while.cond.preheader.i.i
+  %_mark.0.lcssa.i.i = phi i32 [ %17, %while.cond.preheader.i.i ], [ %19, %if.end30.i.i ]
   %_children.0.lcssa.i.i = phi ptr [ %call.i105.i, %while.cond.preheader.i.i ], [ %_children.1.i.i, %if.end30.i.i ]
   %_n.0.lcssa.i.i = phi i64 [ 0, %while.cond.preheader.i.i ], [ %inc31.i.i, %if.end30.i.i ]
-  %_mark.0.lcssa.i.i = phi i32 [ %17, %while.cond.preheader.i.i ], [ %19, %if.end30.i.i ]
   store i32 %_mark.0.lcssa.i.i, ptr %mark, align 8
   %arena.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %20 = load ptr, ptr %arena.i.i, align 8
@@ -31003,18 +31003,18 @@ if.end30.i.i60:                                   ; preds = %if.end29.i.i93, %wh
   br i1 %tobool18.not.i.i66, label %while.end.i.i67, label %while.body.i.i54, !llvm.loop !126
 
 while.end.i.i67:                                  ; preds = %if.end30.i.i60, %while.cond.preheader.i.i51
-  %_children.0.lcssa.i.i68 = phi ptr [ %call.i.i47, %while.cond.preheader.i.i51 ], [ %_children.1.i.i61, %if.end30.i.i60 ]
-  %_n.0.lcssa.i.i69 = phi i64 [ 0, %while.cond.preheader.i.i51 ], [ %inc31.i.i63, %if.end30.i.i60 ]
-  %_mark.0.lcssa.i.i70 = phi i32 [ %62, %while.cond.preheader.i.i51 ], [ %64, %if.end30.i.i60 ]
-  store i32 %_mark.0.lcssa.i.i70, ptr %mark, align 8
+  %_mark.0.lcssa.i.i68 = phi i32 [ %62, %while.cond.preheader.i.i51 ], [ %64, %if.end30.i.i60 ]
+  %_children.0.lcssa.i.i69 = phi ptr [ %call.i.i47, %while.cond.preheader.i.i51 ], [ %_children.1.i.i61, %if.end30.i.i60 ]
+  %_n.0.lcssa.i.i70 = phi i64 [ 0, %while.cond.preheader.i.i51 ], [ %inc31.i.i63, %if.end30.i.i60 ]
+  store i32 %_mark.0.lcssa.i.i68, ptr %mark, align 8
   %arena.i.i71 = getelementptr inbounds i8, ptr %p, i64 32
   %65 = load ptr, ptr %arena.i.i71, align 8
-  %call34.i.i72 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i69, ptr noundef %65) #4
+  %call34.i.i72 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i.i70, ptr noundef %65) #4
   %tobool35.not.i.i73 = icmp eq ptr %call34.i.i72, null
   br i1 %tobool35.not.i.i73, label %if.then36.i.i88, label %for.cond.preheader.i.i74
 
 for.cond.preheader.i.i74:                         ; preds = %while.end.i.i67
-  %cmp4246.i.i75 = icmp sgt i64 %_n.0.lcssa.i.i69, 0
+  %cmp4246.i.i75 = icmp sgt i64 %_n.0.lcssa.i.i70, 0
   br i1 %cmp4246.i.i75, label %for.body.lr.ph.i.i78, label %land.lhs.true13.i
 
 for.body.lr.ph.i.i78:                             ; preds = %for.cond.preheader.i.i74
@@ -31022,24 +31022,24 @@ for.body.lr.ph.i.i78:                             ; preds = %for.cond.preheader.
   br label %for.body.i.i80
 
 if.then36.i.i88:                                  ; preds = %while.end.i.i67
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i68) #4
+  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i69) #4
   br label %if.end32.sink.split.sink.split.i
 
 for.body.i.i80:                                   ; preds = %for.body.i.i80, %for.body.lr.ph.i.i78
   %conv48.i.i81 = phi i64 [ 0, %for.body.lr.ph.i.i78 ], [ %conv.i.i86, %for.body.i.i80 ]
   %i.047.i.i82 = phi i32 [ 0, %for.body.lr.ph.i.i78 ], [ %inc47.i.i85, %for.body.i.i80 ]
-  %arrayidx44.i.i83 = getelementptr ptr, ptr %_children.0.lcssa.i.i68, i64 %conv48.i.i81
+  %arrayidx44.i.i83 = getelementptr ptr, ptr %_children.0.lcssa.i.i69, i64 %conv48.i.i81
   %66 = load ptr, ptr %arrayidx44.i.i83, align 8
   %67 = load ptr, ptr %elements.i.i79, align 8
   %arrayidx46.i.i84 = getelementptr ptr, ptr %67, i64 %conv48.i.i81
   store ptr %66, ptr %arrayidx46.i.i84, align 8
   %inc47.i.i85 = add i32 %i.047.i.i82, 1
   %conv.i.i86 = sext i32 %inc47.i.i85 to i64
-  %cmp42.i.i87 = icmp sgt i64 %_n.0.lcssa.i.i69, %conv.i.i86
+  %cmp42.i.i87 = icmp sgt i64 %_n.0.lcssa.i.i70, %conv.i.i86
   br i1 %cmp42.i.i87, label %for.body.i.i80, label %land.lhs.true13.i, !llvm.loop !127
 
 land.lhs.true13.i:                                ; preds = %for.body.i.i80, %for.cond.preheader.i.i74
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i68) #4
+  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i.i69) #4
   %68 = load i32, ptr %level, align 8
   %cmp.i66.i = icmp eq i32 %68, 6001
   br i1 %cmp.i66.i, label %if.then.i126.i, label %if.end.i67.i
@@ -31103,17 +31103,17 @@ if.end30.i87.i:                                   ; preds = %if.end29.i120.i, %w
   br i1 %tobool18.not.i93.i, label %while.end.i94.i, label %while.body.i81.i, !llvm.loop !128
 
 while.end.i94.i:                                  ; preds = %if.end30.i87.i, %while.cond.preheader.i78.i
-  %_children.0.lcssa.i95.i = phi ptr [ %call.i74.i, %while.cond.preheader.i78.i ], [ %_children.1.i88.i, %if.end30.i87.i ]
-  %_n.0.lcssa.i96.i = phi i64 [ 0, %while.cond.preheader.i78.i ], [ %inc31.i90.i, %if.end30.i87.i ]
-  %_mark.0.lcssa.i97.i = phi i32 [ %70, %while.cond.preheader.i78.i ], [ %72, %if.end30.i87.i ]
-  store i32 %_mark.0.lcssa.i97.i, ptr %mark, align 8
+  %_mark.0.lcssa.i95.i = phi i32 [ %70, %while.cond.preheader.i78.i ], [ %72, %if.end30.i87.i ]
+  %_children.0.lcssa.i96.i = phi ptr [ %call.i74.i, %while.cond.preheader.i78.i ], [ %_children.1.i88.i, %if.end30.i87.i ]
+  %_n.0.lcssa.i97.i = phi i64 [ 0, %while.cond.preheader.i78.i ], [ %inc31.i90.i, %if.end30.i87.i ]
+  store i32 %_mark.0.lcssa.i95.i, ptr %mark, align 8
   %73 = load ptr, ptr %arena.i.i71, align 8
-  %call34.i99.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i96.i, ptr noundef %73) #4
+  %call34.i99.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i97.i, ptr noundef %73) #4
   %tobool35.not.i100.i = icmp eq ptr %call34.i99.i, null
   br i1 %tobool35.not.i100.i, label %if.then36.i114.i, label %for.cond.preheader.i101.i
 
 for.cond.preheader.i101.i:                        ; preds = %while.end.i94.i
-  %cmp4246.i102.i = icmp sgt i64 %_n.0.lcssa.i96.i, 0
+  %cmp4246.i102.i = icmp sgt i64 %_n.0.lcssa.i97.i, 0
   br i1 %cmp4246.i102.i, label %for.body.lr.ph.i104.i, label %land.lhs.true16.i
 
 for.body.lr.ph.i104.i:                            ; preds = %for.cond.preheader.i101.i
@@ -31121,24 +31121,24 @@ for.body.lr.ph.i104.i:                            ; preds = %for.cond.preheader.
   br label %for.body.i106.i
 
 if.then36.i114.i:                                 ; preds = %while.end.i94.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i95.i) #4
+  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i96.i) #4
   br label %if.end32.sink.split.sink.split.i
 
 for.body.i106.i:                                  ; preds = %for.body.i106.i, %for.body.lr.ph.i104.i
   %conv48.i107.i = phi i64 [ 0, %for.body.lr.ph.i104.i ], [ %conv.i112.i, %for.body.i106.i ]
   %i.047.i108.i = phi i32 [ 0, %for.body.lr.ph.i104.i ], [ %inc47.i111.i, %for.body.i106.i ]
-  %arrayidx44.i109.i = getelementptr ptr, ptr %_children.0.lcssa.i95.i, i64 %conv48.i107.i
+  %arrayidx44.i109.i = getelementptr ptr, ptr %_children.0.lcssa.i96.i, i64 %conv48.i107.i
   %74 = load ptr, ptr %arrayidx44.i109.i, align 8
   %75 = load ptr, ptr %elements.i105.i, align 8
   %arrayidx46.i110.i = getelementptr ptr, ptr %75, i64 %conv48.i107.i
   store ptr %74, ptr %arrayidx46.i110.i, align 8
   %inc47.i111.i = add i32 %i.047.i108.i, 1
   %conv.i112.i = sext i32 %inc47.i111.i to i64
-  %cmp42.i113.i = icmp sgt i64 %_n.0.lcssa.i96.i, %conv.i112.i
+  %cmp42.i113.i = icmp sgt i64 %_n.0.lcssa.i97.i, %conv.i112.i
   br i1 %cmp42.i113.i, label %for.body.i106.i, label %land.lhs.true16.i, !llvm.loop !129
 
 land.lhs.true16.i:                                ; preds = %for.body.i106.i, %for.cond.preheader.i101.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i95.i) #4
+  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i96.i) #4
   %76 = load i32, ptr %level, align 8
   %dec49.i71.i = add i32 %76, -1
   store i32 %dec49.i71.i, ptr %level, align 8
@@ -31275,18 +31275,18 @@ if.end30.i156.i:                                  ; preds = %if.end29.i189.i, %w
   br i1 %tobool18.not.i162.i, label %while.end.i163.i, label %while.body.i150.i, !llvm.loop !130
 
 while.end.i163.i:                                 ; preds = %if.end30.i156.i, %while.cond.preheader.i147.i
-  %_children.0.lcssa.i164.i = phi ptr [ %call.i143.i, %while.cond.preheader.i147.i ], [ %_children.1.i157.i, %if.end30.i156.i ]
-  %_n.0.lcssa.i165.i = phi i64 [ 0, %while.cond.preheader.i147.i ], [ %inc31.i159.i, %if.end30.i156.i ]
-  %_mark.0.lcssa.i166.i = phi i32 [ %84, %while.cond.preheader.i147.i ], [ %86, %if.end30.i156.i ]
-  store i32 %_mark.0.lcssa.i166.i, ptr %mark, align 8
+  %_mark.0.lcssa.i164.i = phi i32 [ %84, %while.cond.preheader.i147.i ], [ %86, %if.end30.i156.i ]
+  %_children.0.lcssa.i165.i = phi ptr [ %call.i143.i, %while.cond.preheader.i147.i ], [ %_children.1.i157.i, %if.end30.i156.i ]
+  %_n.0.lcssa.i166.i = phi i64 [ 0, %while.cond.preheader.i147.i ], [ %inc31.i159.i, %if.end30.i156.i ]
+  store i32 %_mark.0.lcssa.i164.i, ptr %mark, align 8
   %arena.i167.i = getelementptr inbounds i8, ptr %p, i64 32
   %87 = load ptr, ptr %arena.i167.i, align 8
-  %call34.i168.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i165.i, ptr noundef %87) #4
+  %call34.i168.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i166.i, ptr noundef %87) #4
   %tobool35.not.i169.i = icmp eq ptr %call34.i168.i, null
   br i1 %tobool35.not.i169.i, label %if.then36.i183.i, label %for.cond.preheader.i170.i
 
 for.cond.preheader.i170.i:                        ; preds = %while.end.i163.i
-  %cmp4246.i171.i = icmp sgt i64 %_n.0.lcssa.i165.i, 0
+  %cmp4246.i171.i = icmp sgt i64 %_n.0.lcssa.i166.i, 0
   br i1 %cmp4246.i171.i, label %for.body.lr.ph.i173.i, label %land.lhs.true48.i
 
 for.body.lr.ph.i173.i:                            ; preds = %for.cond.preheader.i170.i
@@ -31294,20 +31294,20 @@ for.body.lr.ph.i173.i:                            ; preds = %for.cond.preheader.
   br label %for.body.i175.i
 
 if.then36.i183.i:                                 ; preds = %while.end.i163.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i164.i) #4
+  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i165.i) #4
   br label %_loop0_38_rule.exit.thread.sink.split.i
 
 for.body.i175.i:                                  ; preds = %for.body.i175.i, %for.body.lr.ph.i173.i
   %conv48.i176.i = phi i64 [ 0, %for.body.lr.ph.i173.i ], [ %conv.i181.i, %for.body.i175.i ]
   %i.047.i177.i = phi i32 [ 0, %for.body.lr.ph.i173.i ], [ %inc47.i180.i, %for.body.i175.i ]
-  %arrayidx44.i178.i = getelementptr ptr, ptr %_children.0.lcssa.i164.i, i64 %conv48.i176.i
+  %arrayidx44.i178.i = getelementptr ptr, ptr %_children.0.lcssa.i165.i, i64 %conv48.i176.i
   %88 = load ptr, ptr %arrayidx44.i178.i, align 8
   %89 = load ptr, ptr %elements.i174.i, align 8
   %arrayidx46.i179.i = getelementptr ptr, ptr %89, i64 %conv48.i176.i
   store ptr %88, ptr %arrayidx46.i179.i, align 8
   %inc47.i180.i = add i32 %i.047.i177.i, 1
   %conv.i181.i = sext i32 %inc47.i180.i to i64
-  %cmp42.i182.i = icmp sgt i64 %_n.0.lcssa.i165.i, %conv.i181.i
+  %cmp42.i182.i = icmp sgt i64 %_n.0.lcssa.i166.i, %conv.i181.i
   br i1 %cmp42.i182.i, label %for.body.i175.i, label %land.lhs.true48.i, !llvm.loop !131
 
 _loop0_38_rule.exit.thread.sink.split.i:          ; preds = %if.then36.i183.i, %if.then24.i191.i, %if.end3.i141.i
@@ -31321,7 +31321,7 @@ _loop0_38_rule.exit.thread.i:                     ; preds = %_loop0_38_rule.exit
   br label %if.end65.i35
 
 land.lhs.true48.i:                                ; preds = %for.body.i175.i, %for.cond.preheader.i170.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i164.i) #4
+  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i165.i) #4
   %91 = load i32, ptr %level, align 8
   %dec49.i140.i = add i32 %91, -1
   store i32 %dec49.i140.i, ptr %level, align 8
@@ -31554,17 +31554,17 @@ if.end30.i261.i:                                  ; preds = %if.end29.i294.i, %w
   br i1 %tobool18.not.i267.i, label %while.end.i268.i, label %while.body.i255.i, !llvm.loop !134
 
 while.end.i268.i:                                 ; preds = %if.end30.i261.i, %while.cond.preheader.i252.i
-  %_children.0.lcssa.i269.i = phi ptr [ %call.i248.i, %while.cond.preheader.i252.i ], [ %_children.1.i262.i, %if.end30.i261.i ]
-  %_n.0.lcssa.i270.i = phi i64 [ 0, %while.cond.preheader.i252.i ], [ %inc31.i264.i, %if.end30.i261.i ]
-  %_mark.0.lcssa.i271.i = phi i32 [ %103, %while.cond.preheader.i252.i ], [ %105, %if.end30.i261.i ]
-  store i32 %_mark.0.lcssa.i271.i, ptr %mark, align 8
+  %_mark.0.lcssa.i269.i = phi i32 [ %103, %while.cond.preheader.i252.i ], [ %105, %if.end30.i261.i ]
+  %_children.0.lcssa.i270.i = phi ptr [ %call.i248.i, %while.cond.preheader.i252.i ], [ %_children.1.i262.i, %if.end30.i261.i ]
+  %_n.0.lcssa.i271.i = phi i64 [ 0, %while.cond.preheader.i252.i ], [ %inc31.i264.i, %if.end30.i261.i ]
+  store i32 %_mark.0.lcssa.i269.i, ptr %mark, align 8
   %106 = load ptr, ptr %arena.i220.i, align 8
-  %call34.i273.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i270.i, ptr noundef %106) #4
+  %call34.i273.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i271.i, ptr noundef %106) #4
   %tobool35.not.i274.i = icmp eq ptr %call34.i273.i, null
   br i1 %tobool35.not.i274.i, label %if.then36.i288.i, label %for.cond.preheader.i275.i
 
 for.cond.preheader.i275.i:                        ; preds = %while.end.i268.i
-  %cmp4246.i276.i = icmp sgt i64 %_n.0.lcssa.i270.i, 0
+  %cmp4246.i276.i = icmp sgt i64 %_n.0.lcssa.i271.i, 0
   br i1 %cmp4246.i276.i, label %for.body.lr.ph.i278.i, label %land.lhs.true81.i
 
 for.body.lr.ph.i278.i:                            ; preds = %for.cond.preheader.i275.i
@@ -31572,7 +31572,7 @@ for.body.lr.ph.i278.i:                            ; preds = %for.cond.preheader.
   br label %for.body.i280.i
 
 if.then36.i288.i:                                 ; preds = %while.end.i268.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i269.i) #4
+  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i270.i) #4
   store i32 1, ptr %error_indicator, align 8
   %call38.i289.i = tail call ptr @PyErr_NoMemory() #4
   br label %if.end97.i
@@ -31580,18 +31580,18 @@ if.then36.i288.i:                                 ; preds = %while.end.i268.i
 for.body.i280.i:                                  ; preds = %for.body.i280.i, %for.body.lr.ph.i278.i
   %conv48.i281.i = phi i64 [ 0, %for.body.lr.ph.i278.i ], [ %conv.i286.i, %for.body.i280.i ]
   %i.047.i282.i = phi i32 [ 0, %for.body.lr.ph.i278.i ], [ %inc47.i285.i, %for.body.i280.i ]
-  %arrayidx44.i283.i = getelementptr ptr, ptr %_children.0.lcssa.i269.i, i64 %conv48.i281.i
+  %arrayidx44.i283.i = getelementptr ptr, ptr %_children.0.lcssa.i270.i, i64 %conv48.i281.i
   %107 = load ptr, ptr %arrayidx44.i283.i, align 8
   %108 = load ptr, ptr %elements.i279.i, align 8
   %arrayidx46.i284.i = getelementptr ptr, ptr %108, i64 %conv48.i281.i
   store ptr %107, ptr %arrayidx46.i284.i, align 8
   %inc47.i285.i = add i32 %i.047.i282.i, 1
   %conv.i286.i = sext i32 %inc47.i285.i to i64
-  %cmp42.i287.i = icmp sgt i64 %_n.0.lcssa.i270.i, %conv.i286.i
+  %cmp42.i287.i = icmp sgt i64 %_n.0.lcssa.i271.i, %conv.i286.i
   br i1 %cmp42.i287.i, label %for.body.i280.i, label %land.lhs.true81.i, !llvm.loop !135
 
 land.lhs.true81.i:                                ; preds = %for.body.i280.i, %for.cond.preheader.i275.i
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i269.i) #4
+  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i270.i) #4
   %109 = load i32, ptr %level, align 8
   %dec49.i245.i = add i32 %109, -1
   store i32 %dec49.i245.i, ptr %level, align 8
@@ -33017,9 +33017,9 @@ if.end30:                                         ; preds = %if.end29, %while.bo
   br i1 %tobool18.not, label %while.end, label %while.body, !llvm.loop !140
 
 while.end:                                        ; preds = %if.end30, %while.cond.preheader
+  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   %_children.0.lcssa = phi ptr [ %call, %while.cond.preheader ], [ %_children.1, %if.end30 ]
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
-  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
   %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
@@ -33446,9 +33446,9 @@ if.end30:                                         ; preds = %if.end29, %while.bo
   br i1 %tobool18.not, label %while.end, label %while.body, !llvm.loop !144
 
 while.end:                                        ; preds = %if.end30, %while.cond.preheader
+  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   %_children.0.lcssa = phi ptr [ %call, %while.cond.preheader ], [ %_children.1, %if.end30 ]
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
-  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
   %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
@@ -33764,9 +33764,9 @@ if.end30:                                         ; preds = %if.end29, %while.bo
   br i1 %tobool18.not, label %while.end, label %while.body, !llvm.loop !148
 
 while.end:                                        ; preds = %if.end30, %while.cond.preheader
+  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   %_children.0.lcssa = phi ptr [ %call, %while.cond.preheader ], [ %_children.1, %if.end30 ]
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
-  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
   %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
@@ -33941,9 +33941,9 @@ if.end30:                                         ; preds = %if.end29, %while.bo
   br i1 %tobool18.not, label %while.end, label %while.body, !llvm.loop !150
 
 while.end:                                        ; preds = %if.end30, %while.cond.preheader
+  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   %_children.0.lcssa = phi ptr [ %call, %while.cond.preheader ], [ %_children.1, %if.end30 ]
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
-  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
   %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
@@ -34217,9 +34217,9 @@ if.end30.i:                                       ; preds = %if.end29.i, %while.
   br i1 %tobool18.not.i, label %while.end.i, label %while.body.i, !llvm.loop !154
 
 while.end.i:                                      ; preds = %if.end30.i, %while.cond.preheader.i
+  %_mark.0.lcssa.i = phi i32 [ %4, %while.cond.preheader.i ], [ %6, %if.end30.i ]
   %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %_children.1.i, %if.end30.i ]
   %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %inc31.i, %if.end30.i ]
-  %_mark.0.lcssa.i = phi i32 [ %4, %while.cond.preheader.i ], [ %6, %if.end30.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %7 = load ptr, ptr %arena.i, align 8
@@ -34483,18 +34483,18 @@ if.end30.i94:                                     ; preds = %if.end29.i127, %whi
   br i1 %tobool18.not.i100, label %while.end.i101, label %while.body.i88, !llvm.loop !158
 
 while.end.i101:                                   ; preds = %if.end30.i94, %while.cond.preheader.i85
-  %_children.0.lcssa.i102 = phi ptr [ %call.i81, %while.cond.preheader.i85 ], [ %_children.1.i95, %if.end30.i94 ]
-  %_n.0.lcssa.i103 = phi i64 [ 0, %while.cond.preheader.i85 ], [ %inc31.i97, %if.end30.i94 ]
-  %_mark.0.lcssa.i104 = phi i32 [ %23, %while.cond.preheader.i85 ], [ %25, %if.end30.i94 ]
-  store i32 %_mark.0.lcssa.i104, ptr %mark, align 8
+  %_mark.0.lcssa.i102 = phi i32 [ %23, %while.cond.preheader.i85 ], [ %25, %if.end30.i94 ]
+  %_children.0.lcssa.i103 = phi ptr [ %call.i81, %while.cond.preheader.i85 ], [ %_children.1.i95, %if.end30.i94 ]
+  %_n.0.lcssa.i104 = phi i64 [ 0, %while.cond.preheader.i85 ], [ %inc31.i97, %if.end30.i94 ]
+  store i32 %_mark.0.lcssa.i102, ptr %mark, align 8
   %arena.i105 = getelementptr inbounds i8, ptr %p, i64 32
   %26 = load ptr, ptr %arena.i105, align 8
-  %call34.i106 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i103, ptr noundef %26) #4
+  %call34.i106 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.lcssa.i104, ptr noundef %26) #4
   %tobool35.not.i107 = icmp eq ptr %call34.i106, null
   br i1 %tobool35.not.i107, label %if.then36.i121, label %for.cond.preheader.i108
 
 for.cond.preheader.i108:                          ; preds = %while.end.i101
-  %cmp4246.i109 = icmp sgt i64 %_n.0.lcssa.i103, 0
+  %cmp4246.i109 = icmp sgt i64 %_n.0.lcssa.i104, 0
   br i1 %cmp4246.i109, label %for.body.lr.ph.i111, label %land.lhs.true43
 
 for.body.lr.ph.i111:                              ; preds = %for.cond.preheader.i108
@@ -34502,20 +34502,20 @@ for.body.lr.ph.i111:                              ; preds = %for.cond.preheader.
   br label %for.body.i113
 
 if.then36.i121:                                   ; preds = %while.end.i101
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i102) #4
+  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i103) #4
   br label %_loop0_46_rule.exit.thread.sink.split
 
 for.body.i113:                                    ; preds = %for.body.i113, %for.body.lr.ph.i111
   %conv48.i114 = phi i64 [ 0, %for.body.lr.ph.i111 ], [ %conv.i119, %for.body.i113 ]
   %i.047.i115 = phi i32 [ 0, %for.body.lr.ph.i111 ], [ %inc47.i118, %for.body.i113 ]
-  %arrayidx44.i116 = getelementptr ptr, ptr %_children.0.lcssa.i102, i64 %conv48.i114
+  %arrayidx44.i116 = getelementptr ptr, ptr %_children.0.lcssa.i103, i64 %conv48.i114
   %27 = load ptr, ptr %arrayidx44.i116, align 8
   %28 = load ptr, ptr %elements.i112, align 8
   %arrayidx46.i117 = getelementptr ptr, ptr %28, i64 %conv48.i114
   store ptr %27, ptr %arrayidx46.i117, align 8
   %inc47.i118 = add i32 %i.047.i115, 1
   %conv.i119 = sext i32 %inc47.i118 to i64
-  %cmp42.i120 = icmp sgt i64 %_n.0.lcssa.i103, %conv.i119
+  %cmp42.i120 = icmp sgt i64 %_n.0.lcssa.i104, %conv.i119
   br i1 %cmp42.i120, label %for.body.i113, label %land.lhs.true43, !llvm.loop !159
 
 _loop0_46_rule.exit.thread.sink.split:            ; preds = %if.end3.i79, %if.then36.i121, %if.then24.i129
@@ -34524,7 +34524,7 @@ _loop0_46_rule.exit.thread.sink.split:            ; preds = %if.end3.i79, %if.th
   br label %if.end63.sink.split
 
 land.lhs.true43:                                  ; preds = %for.body.i113, %for.cond.preheader.i108
-  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i102) #4
+  tail call void @PyMem_Free(ptr noundef nonnull %_children.0.lcssa.i103) #4
   %29 = load i32, ptr %level, align 8
   %cmp.i136 = icmp eq i32 %29, 6001
   br i1 %cmp.i136, label %if.then.i200, label %if.end.i137
@@ -35459,9 +35459,9 @@ if.end30.i:                                       ; preds = %if.end29.i, %while.
   br i1 %tobool18.not.i, label %while.end.i, label %while.body.i, !llvm.loop !162
 
 while.end.i:                                      ; preds = %if.end30.i, %while.cond.preheader.i
+  %_mark.0.lcssa.i = phi i32 [ %43, %while.cond.preheader.i ], [ %45, %if.end30.i ]
   %_children.0.lcssa.i = phi ptr [ %call.i68, %while.cond.preheader.i ], [ %_children.1.i, %if.end30.i ]
   %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %inc31.i, %if.end30.i ]
-  %_mark.0.lcssa.i = phi i32 [ %43, %while.cond.preheader.i ], [ %45, %if.end30.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %46 = load ptr, ptr %arena.i, align 8
@@ -36191,9 +36191,9 @@ if.end30:                                         ; preds = %if.end29, %while.bo
   br i1 %tobool18.not, label %while.end, label %while.body, !llvm.loop !166
 
 while.end:                                        ; preds = %if.end30, %while.cond.preheader
+  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   %_children.0.lcssa = phi ptr [ %call, %while.cond.preheader ], [ %_children.1, %if.end30 ]
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
-  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
   %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
@@ -36510,9 +36510,9 @@ if.end30:                                         ; preds = %if.end29, %while.bo
   br i1 %tobool18.not, label %while.end, label %while.body, !llvm.loop !170
 
 while.end:                                        ; preds = %if.end30, %while.cond.preheader
+  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   %_children.0.lcssa = phi ptr [ %call, %while.cond.preheader ], [ %_children.1, %if.end30 ]
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
-  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
   %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
@@ -37983,31 +37983,31 @@ land.rhs.i:                                       ; preds = %if.end40.i
 
 if.end28.i:                                       ; preds = %land.rhs.i.preheader, %land.rhs.i
   %call19.i21 = phi ptr [ %call19.i, %land.rhs.i ], [ %call19.i16, %land.rhs.i.preheader ]
-  %_children_capacity.045.i20 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
-  %_n.046.i19 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
-  %_children.047.i18 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i, %land.rhs.i.preheader ]
-  %cmp29.i = icmp eq i64 %_n.046.i19, %_children_capacity.045.i20
+  %_children.046.i20 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i, %land.rhs.i.preheader ]
+  %_children_capacity.047.i19 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
+  %_n.048.i18 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
+  %cmp29.i = icmp eq i64 %_n.048.i18, %_children_capacity.047.i19
   br i1 %cmp29.i, label %if.then30.i, label %if.end40.i
 
 if.then30.i:                                      ; preds = %if.end28.i
-  %mul31.i = shl i64 %_children_capacity.045.i20, 4
-  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18, i64 noundef %mul31.i) #4
+  %mul31.i = shl i64 %_children_capacity.047.i19, 4
+  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.046.i20, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
   br i1 %tobool33.not.i, label %if.then34.i, label %if.end39.i
 
 if.then34.i:                                      ; preds = %if.then30.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18) #4
+  tail call void @PyMem_Free(ptr noundef %_children.046.i20) #4
   br label %_loop0_54_rule.exit.thread.sink.split
 
 if.end39.i:                                       ; preds = %if.then30.i
-  %mul.i = shl i64 %_children_capacity.045.i20, 1
+  %mul.i = shl i64 %_children_capacity.047.i19, 1
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end39.i, %if.end28.i
-  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.045.i20, %if.end28.i ]
-  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.047.i18, %if.end28.i ]
-  %inc41.i = add i64 %_n.046.i19, 1
-  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.046.i19
+  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.046.i20, %if.end28.i ]
+  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.047.i19, %if.end28.i ]
+  %inc41.i = add i64 %_n.048.i18, 1
+  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.048.i18
   store ptr %call19.i21, ptr %arrayidx.i, align 8
   %7 = load i32, ptr %mark, align 8
   %call17.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -38015,9 +38015,9 @@ if.end40.i:                                       ; preds = %if.end39.i, %if.end
   br i1 %tobool18.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !172
 
 while.end.i:                                      ; preds = %land.rhs.i, %if.end40.i, %land.rhs.i.preheader, %while.cond.preheader.i
-  %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
-  %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.lcssa.i = phi i32 [ %5, %while.cond.preheader.i ], [ %5, %land.rhs.i.preheader ], [ %7, %if.end40.i ], [ %7, %land.rhs.i ]
+  %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
+  %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %8 = load ptr, ptr %arena.i, align 8
@@ -38152,31 +38152,31 @@ land.rhs.i:                                       ; preds = %if.end40.i
 
 if.end28.i:                                       ; preds = %land.rhs.i.preheader, %land.rhs.i
   %call19.i21 = phi ptr [ %call19.i, %land.rhs.i ], [ %call19.i16, %land.rhs.i.preheader ]
-  %_children_capacity.045.i20 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
-  %_n.046.i19 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
-  %_children.047.i18 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i, %land.rhs.i.preheader ]
-  %cmp29.i = icmp eq i64 %_n.046.i19, %_children_capacity.045.i20
+  %_children.046.i20 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i, %land.rhs.i.preheader ]
+  %_children_capacity.047.i19 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
+  %_n.048.i18 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
+  %cmp29.i = icmp eq i64 %_n.048.i18, %_children_capacity.047.i19
   br i1 %cmp29.i, label %if.then30.i, label %if.end40.i
 
 if.then30.i:                                      ; preds = %if.end28.i
-  %mul31.i = shl i64 %_children_capacity.045.i20, 4
-  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18, i64 noundef %mul31.i) #4
+  %mul31.i = shl i64 %_children_capacity.047.i19, 4
+  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.046.i20, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
   br i1 %tobool33.not.i, label %if.then34.i, label %if.end39.i
 
 if.then34.i:                                      ; preds = %if.then30.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18) #4
+  tail call void @PyMem_Free(ptr noundef %_children.046.i20) #4
   br label %_loop0_56_rule.exit.thread.sink.split
 
 if.end39.i:                                       ; preds = %if.then30.i
-  %mul.i = shl i64 %_children_capacity.045.i20, 1
+  %mul.i = shl i64 %_children_capacity.047.i19, 1
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end39.i, %if.end28.i
-  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.045.i20, %if.end28.i ]
-  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.047.i18, %if.end28.i ]
-  %inc41.i = add i64 %_n.046.i19, 1
-  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.046.i19
+  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.046.i20, %if.end28.i ]
+  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.047.i19, %if.end28.i ]
+  %inc41.i = add i64 %_n.048.i18, 1
+  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.048.i18
   store ptr %call19.i21, ptr %arrayidx.i, align 8
   %7 = load i32, ptr %mark, align 8
   %call17.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -38184,9 +38184,9 @@ if.end40.i:                                       ; preds = %if.end39.i, %if.end
   br i1 %tobool18.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !174
 
 while.end.i:                                      ; preds = %land.rhs.i, %if.end40.i, %land.rhs.i.preheader, %while.cond.preheader.i
-  %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
-  %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.lcssa.i = phi i32 [ %5, %while.cond.preheader.i ], [ %5, %land.rhs.i.preheader ], [ %7, %if.end40.i ], [ %7, %land.rhs.i ]
+  %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
+  %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %8 = load ptr, ptr %arena.i, align 8
@@ -38323,31 +38323,31 @@ land.rhs.i:                                       ; preds = %if.end40.i
 
 if.end28.i:                                       ; preds = %land.rhs.i.preheader, %land.rhs.i
   %call19.i21 = phi ptr [ %call19.i, %land.rhs.i ], [ %call19.i16, %land.rhs.i.preheader ]
-  %_children_capacity.045.i20 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
-  %_n.046.i19 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
-  %_children.047.i18 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i, %land.rhs.i.preheader ]
-  %cmp29.i = icmp eq i64 %_n.046.i19, %_children_capacity.045.i20
+  %_children.046.i20 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i, %land.rhs.i.preheader ]
+  %_children_capacity.047.i19 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
+  %_n.048.i18 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
+  %cmp29.i = icmp eq i64 %_n.048.i18, %_children_capacity.047.i19
   br i1 %cmp29.i, label %if.then30.i, label %if.end40.i
 
 if.then30.i:                                      ; preds = %if.end28.i
-  %mul31.i = shl i64 %_children_capacity.045.i20, 4
-  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18, i64 noundef %mul31.i) #4
+  %mul31.i = shl i64 %_children_capacity.047.i19, 4
+  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.046.i20, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
   br i1 %tobool33.not.i, label %if.then34.i, label %if.end39.i
 
 if.then34.i:                                      ; preds = %if.then30.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18) #4
+  tail call void @PyMem_Free(ptr noundef %_children.046.i20) #4
   br label %_loop0_58_rule.exit.thread.sink.split
 
 if.end39.i:                                       ; preds = %if.then30.i
-  %mul.i = shl i64 %_children_capacity.045.i20, 1
+  %mul.i = shl i64 %_children_capacity.047.i19, 1
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end39.i, %if.end28.i
-  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.045.i20, %if.end28.i ]
-  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.047.i18, %if.end28.i ]
-  %inc41.i = add i64 %_n.046.i19, 1
-  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.046.i19
+  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.046.i20, %if.end28.i ]
+  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.047.i19, %if.end28.i ]
+  %inc41.i = add i64 %_n.048.i18, 1
+  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.048.i18
   store ptr %call19.i21, ptr %arrayidx.i, align 8
   %7 = load i32, ptr %mark, align 8
   %call17.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -38355,9 +38355,9 @@ if.end40.i:                                       ; preds = %if.end39.i, %if.end
   br i1 %tobool18.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !176
 
 while.end.i:                                      ; preds = %land.rhs.i, %if.end40.i, %land.rhs.i.preheader, %while.cond.preheader.i
-  %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
-  %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.lcssa.i = phi i32 [ %5, %while.cond.preheader.i ], [ %5, %land.rhs.i.preheader ], [ %7, %if.end40.i ], [ %7, %land.rhs.i ]
+  %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
+  %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %8 = load ptr, ptr %arena.i, align 8
@@ -38523,31 +38523,31 @@ land.rhs.i.i:                                     ; preds = %if.end40.i.i
 
 if.end28.i.i:                                     ; preds = %land.rhs.i.preheader.i, %land.rhs.i.i
   %call19.i21.i = phi ptr [ %call19.i.i, %land.rhs.i.i ], [ %call19.i16.i, %land.rhs.i.preheader.i ]
-  %_children_capacity.045.i20.i = phi i64 [ %_children_capacity.1.i.i, %land.rhs.i.i ], [ 1, %land.rhs.i.preheader.i ]
-  %_n.046.i19.i = phi i64 [ %inc41.i.i, %land.rhs.i.i ], [ 0, %land.rhs.i.preheader.i ]
-  %_children.047.i18.i = phi ptr [ %_children.1.i.i, %land.rhs.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ]
-  %cmp29.i.i = icmp eq i64 %_n.046.i19.i, %_children_capacity.045.i20.i
+  %_children.046.i20.i = phi ptr [ %_children.1.i.i, %land.rhs.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ]
+  %_children_capacity.047.i19.i = phi i64 [ %_children_capacity.1.i.i, %land.rhs.i.i ], [ 1, %land.rhs.i.preheader.i ]
+  %_n.048.i18.i = phi i64 [ %inc41.i.i, %land.rhs.i.i ], [ 0, %land.rhs.i.preheader.i ]
+  %cmp29.i.i = icmp eq i64 %_n.048.i18.i, %_children_capacity.047.i19.i
   br i1 %cmp29.i.i, label %if.then30.i.i, label %if.end40.i.i
 
 if.then30.i.i:                                    ; preds = %if.end28.i.i
-  %mul31.i.i = shl i64 %_children_capacity.045.i20.i, 4
-  %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i, i64 noundef %mul31.i.i) #4
+  %mul31.i.i = shl i64 %_children_capacity.047.i19.i, 4
+  %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.046.i20.i, i64 noundef %mul31.i.i) #4
   %tobool33.not.i.i = icmp eq ptr %call32.i.i, null
   br i1 %tobool33.not.i.i, label %if.then34.i.i, label %if.end39.i.i
 
 if.then34.i.i:                                    ; preds = %if.then30.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i) #4
+  tail call void @PyMem_Free(ptr noundef %_children.046.i20.i) #4
   br label %_loop0_206_rule.exit.thread.sink.split.i
 
 if.end39.i.i:                                     ; preds = %if.then30.i.i
-  %mul.i.i = shl i64 %_children_capacity.045.i20.i, 1
+  %mul.i.i = shl i64 %_children_capacity.047.i19.i, 1
   br label %if.end40.i.i
 
 if.end40.i.i:                                     ; preds = %if.end39.i.i, %if.end28.i.i
-  %_children_capacity.1.i.i = phi i64 [ %mul.i.i, %if.end39.i.i ], [ %_children_capacity.045.i20.i, %if.end28.i.i ]
-  %_children.1.i.i = phi ptr [ %call32.i.i, %if.end39.i.i ], [ %_children.047.i18.i, %if.end28.i.i ]
-  %inc41.i.i = add i64 %_n.046.i19.i, 1
-  %arrayidx.i.i = getelementptr ptr, ptr %_children.1.i.i, i64 %_n.046.i19.i
+  %_children.1.i.i = phi ptr [ %call32.i.i, %if.end39.i.i ], [ %_children.046.i20.i, %if.end28.i.i ]
+  %_children_capacity.1.i.i = phi i64 [ %mul.i.i, %if.end39.i.i ], [ %_children_capacity.047.i19.i, %if.end28.i.i ]
+  %inc41.i.i = add i64 %_n.048.i18.i, 1
+  %arrayidx.i.i = getelementptr ptr, ptr %_children.1.i.i, i64 %_n.048.i18.i
   store ptr %call19.i21.i, ptr %arrayidx.i.i, align 8
   %10 = load i32, ptr %mark, align 8
   %call17.i.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -38555,9 +38555,9 @@ if.end40.i.i:                                     ; preds = %if.end39.i.i, %if.e
   br i1 %tobool18.not.i.i, label %while.end.i.i, label %land.rhs.i.i, !llvm.loop !178
 
 while.end.i.i:                                    ; preds = %if.end40.i.i, %land.rhs.i.i, %land.rhs.i.preheader.i, %while.cond.preheader.i.i
-  %_n.0.lcssa.i.i = phi i64 [ 0, %while.cond.preheader.i.i ], [ 0, %land.rhs.i.preheader.i ], [ %inc41.i.i, %land.rhs.i.i ], [ %inc41.i.i, %if.end40.i.i ]
-  %_children.0.lcssa.i.i = phi ptr [ %call.i.i, %while.cond.preheader.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ], [ %_children.1.i.i, %land.rhs.i.i ], [ %_children.1.i.i, %if.end40.i.i ]
   %_mark.0.lcssa.i.i = phi i32 [ %8, %while.cond.preheader.i.i ], [ %8, %land.rhs.i.preheader.i ], [ %10, %land.rhs.i.i ], [ %10, %if.end40.i.i ]
+  %_children.0.lcssa.i.i = phi ptr [ %call.i.i, %while.cond.preheader.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ], [ %_children.1.i.i, %land.rhs.i.i ], [ %_children.1.i.i, %if.end40.i.i ]
+  %_n.0.lcssa.i.i = phi i64 [ 0, %while.cond.preheader.i.i ], [ 0, %land.rhs.i.preheader.i ], [ %inc41.i.i, %land.rhs.i.i ], [ %inc41.i.i, %if.end40.i.i ]
   store i32 %_mark.0.lcssa.i.i, ptr %mark, align 8
   %arena.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena.i.i, align 8
@@ -38780,31 +38780,31 @@ land.rhs.i:                                       ; preds = %if.end40.i
 
 if.end28.i:                                       ; preds = %land.rhs.i.preheader, %land.rhs.i
   %call19.i21 = phi ptr [ %call19.i, %land.rhs.i ], [ %call19.i16, %land.rhs.i.preheader ]
-  %_children_capacity.045.i20 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
-  %_n.046.i19 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
-  %_children.047.i18 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i, %land.rhs.i.preheader ]
-  %cmp29.i = icmp eq i64 %_n.046.i19, %_children_capacity.045.i20
+  %_children.046.i20 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i, %land.rhs.i.preheader ]
+  %_children_capacity.047.i19 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
+  %_n.048.i18 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
+  %cmp29.i = icmp eq i64 %_n.048.i18, %_children_capacity.047.i19
   br i1 %cmp29.i, label %if.then30.i, label %if.end40.i
 
 if.then30.i:                                      ; preds = %if.end28.i
-  %mul31.i = shl i64 %_children_capacity.045.i20, 4
-  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18, i64 noundef %mul31.i) #4
+  %mul31.i = shl i64 %_children_capacity.047.i19, 4
+  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.046.i20, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
   br i1 %tobool33.not.i, label %if.then34.i, label %if.end39.i
 
 if.then34.i:                                      ; preds = %if.then30.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18) #4
+  tail call void @PyMem_Free(ptr noundef %_children.046.i20) #4
   br label %_loop0_212_rule.exit.thread.sink.split
 
 if.end39.i:                                       ; preds = %if.then30.i
-  %mul.i = shl i64 %_children_capacity.045.i20, 1
+  %mul.i = shl i64 %_children_capacity.047.i19, 1
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end39.i, %if.end28.i
-  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.045.i20, %if.end28.i ]
-  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.047.i18, %if.end28.i ]
-  %inc41.i = add i64 %_n.046.i19, 1
-  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.046.i19
+  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.046.i20, %if.end28.i ]
+  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.047.i19, %if.end28.i ]
+  %inc41.i = add i64 %_n.048.i18, 1
+  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.048.i18
   store ptr %call19.i21, ptr %arrayidx.i, align 8
   %7 = load i32, ptr %mark, align 8
   %call17.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -38812,9 +38812,9 @@ if.end40.i:                                       ; preds = %if.end39.i, %if.end
   br i1 %tobool18.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !180
 
 while.end.i:                                      ; preds = %land.rhs.i, %if.end40.i, %land.rhs.i.preheader, %while.cond.preheader.i
-  %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
-  %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.lcssa.i = phi i32 [ %5, %while.cond.preheader.i ], [ %5, %land.rhs.i.preheader ], [ %7, %if.end40.i ], [ %7, %land.rhs.i ]
+  %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
+  %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %8 = load ptr, ptr %arena.i, align 8
@@ -39161,10 +39161,10 @@ if.end10.i:                                       ; preds = %if.end3.i
   br i1 %tobool12.not.i, label %while.cond.i, label %_loop1_82_rule.exit.thread
 
 while.cond.i:                                     ; preds = %if.end10.i, %if.end30.i
+  %_mark.0.i = phi i32 [ %14, %if.end30.i ], [ %10, %if.end10.i ]
   %_children.0.i = phi ptr [ %_children.1.i, %if.end30.i ], [ %call.i, %if.end10.i ]
   %_children_capacity.0.i = phi i64 [ %_children_capacity.1.i, %if.end30.i ], [ 1, %if.end10.i ]
   %_n.0.i = phi i64 [ %inc31.i, %if.end30.i ], [ 0, %if.end10.i ]
-  %_mark.0.i = phi i32 [ %14, %if.end30.i ], [ %10, %if.end10.i ]
   %12 = load i32, ptr %level, align 8
   %inc.i.i = add i32 %12, 1
   store i32 %inc.i.i, ptr %level, align 8
@@ -39789,31 +39789,31 @@ land.rhs.i:                                       ; preds = %if.end40.i
 
 if.end28.i:                                       ; preds = %land.rhs.i.preheader, %land.rhs.i
   %call19.i21 = phi ptr [ %call19.i, %land.rhs.i ], [ %call19.i16, %land.rhs.i.preheader ]
-  %_children_capacity.045.i20 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
-  %_n.046.i19 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
-  %_children.047.i18 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i, %land.rhs.i.preheader ]
-  %cmp29.i = icmp eq i64 %_n.046.i19, %_children_capacity.045.i20
+  %_children.046.i20 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i, %land.rhs.i.preheader ]
+  %_children_capacity.047.i19 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
+  %_n.048.i18 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
+  %cmp29.i = icmp eq i64 %_n.048.i18, %_children_capacity.047.i19
   br i1 %cmp29.i, label %if.then30.i, label %if.end40.i
 
 if.then30.i:                                      ; preds = %if.end28.i
-  %mul31.i = shl i64 %_children_capacity.045.i20, 4
-  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18, i64 noundef %mul31.i) #4
+  %mul31.i = shl i64 %_children_capacity.047.i19, 4
+  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.046.i20, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
   br i1 %tobool33.not.i, label %if.then34.i, label %if.end39.i
 
 if.then34.i:                                      ; preds = %if.then30.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18) #4
+  tail call void @PyMem_Free(ptr noundef %_children.046.i20) #4
   br label %_loop0_208_rule.exit.thread.sink.split
 
 if.end39.i:                                       ; preds = %if.then30.i
-  %mul.i = shl i64 %_children_capacity.045.i20, 1
+  %mul.i = shl i64 %_children_capacity.047.i19, 1
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end39.i, %if.end28.i
-  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.045.i20, %if.end28.i ]
-  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.047.i18, %if.end28.i ]
-  %inc41.i = add i64 %_n.046.i19, 1
-  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.046.i19
+  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.046.i20, %if.end28.i ]
+  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.047.i19, %if.end28.i ]
+  %inc41.i = add i64 %_n.048.i18, 1
+  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.048.i18
   store ptr %call19.i21, ptr %arrayidx.i, align 8
   %7 = load i32, ptr %mark, align 8
   %call17.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -39821,9 +39821,9 @@ if.end40.i:                                       ; preds = %if.end39.i, %if.end
   br i1 %tobool18.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !184
 
 while.end.i:                                      ; preds = %land.rhs.i, %if.end40.i, %land.rhs.i.preheader, %while.cond.preheader.i
-  %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
-  %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.lcssa.i = phi i32 [ %5, %while.cond.preheader.i ], [ %5, %land.rhs.i.preheader ], [ %7, %if.end40.i ], [ %7, %land.rhs.i ]
+  %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
+  %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %8 = load ptr, ptr %arena.i, align 8
@@ -40620,9 +40620,9 @@ if.end30:                                         ; preds = %if.end29, %while.bo
   br i1 %tobool18.not, label %while.end, label %while.body, !llvm.loop !190
 
 while.end:                                        ; preds = %if.end30, %while.cond.preheader
+  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   %_children.0.lcssa = phi ptr [ %call, %while.cond.preheader ], [ %_children.1, %if.end30 ]
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
-  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
   %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
@@ -40936,9 +40936,9 @@ if.end30:                                         ; preds = %if.end29, %while.bo
   br i1 %tobool18.not, label %while.end, label %while.body, !llvm.loop !194
 
 while.end:                                        ; preds = %if.end30, %while.cond.preheader
+  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   %_children.0.lcssa = phi ptr [ %call, %while.cond.preheader ], [ %_children.1, %if.end30 ]
   %_n.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %inc31, %if.end30 ]
-  %_mark.0.lcssa = phi i32 [ %2, %while.cond.preheader ], [ %4, %if.end30 ]
   store i32 %_mark.0.lcssa, ptr %mark, align 8
   %arena = getelementptr inbounds i8, ptr %p, i64 32
   %5 = load ptr, ptr %arena, align 8
@@ -43437,27 +43437,27 @@ land.rhs.i:                                       ; preds = %if.end40.i
 
 if.end28.i:                                       ; preds = %land.rhs.i.preheader, %land.rhs.i
   %call19.i39 = phi ptr [ %call19.i, %land.rhs.i ], [ %call19.i34, %land.rhs.i.preheader ]
-  %_children_capacity.0.i1938 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
-  %_n.0.i2037 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
-  %_children.0.i2136 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i, %land.rhs.i.preheader ]
-  %cmp29.i = icmp eq i64 %_n.0.i2037, %_children_capacity.0.i1938
+  %_children.0.i2038 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i, %land.rhs.i.preheader ]
+  %_children_capacity.0.i2137 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
+  %_n.0.i2236 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
+  %cmp29.i = icmp eq i64 %_n.0.i2236, %_children_capacity.0.i2137
   br i1 %cmp29.i, label %if.then30.i, label %if.end40.i
 
 if.then30.i:                                      ; preds = %if.end28.i
-  %mul31.i = shl i64 %_n.0.i2037, 4
-  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i2136, i64 noundef %mul31.i) #4
+  %mul31.i = shl i64 %_n.0.i2236, 4
+  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i2038, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
   br i1 %tobool33.not.i, label %if.end15.sink.split.sink.split.sink.split, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then30.i
-  %mul.i = shl i64 %_n.0.i2037, 1
+  %mul.i = shl i64 %_n.0.i2236, 1
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end39.i, %if.end28.i
-  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.0.i1938, %if.end28.i ]
-  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.0.i2136, %if.end28.i ]
-  %inc41.i = add i64 %_n.0.i2037, 1
-  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.0.i2037
+  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.0.i2038, %if.end28.i ]
+  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.0.i2137, %if.end28.i ]
+  %inc41.i = add i64 %_n.0.i2236, 1
+  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.0.i2236
   store ptr %call19.i39, ptr %arrayidx.i, align 8
   %7 = load i32, ptr %mark, align 8
   %call17.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -43465,9 +43465,9 @@ if.end40.i:                                       ; preds = %if.end39.i, %if.end
   br i1 %tobool18.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !198
 
 while.end.i:                                      ; preds = %land.rhs.i, %if.end40.i, %land.rhs.i.preheader, %while.cond.i.preheader
-  %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
-  %_children.0.i.lcssa = phi ptr [ %call.i, %while.cond.i.preheader ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.i.lcssa = phi i32 [ %5, %while.cond.i.preheader ], [ %5, %land.rhs.i.preheader ], [ %7, %if.end40.i ], [ %7, %land.rhs.i ]
+  %_children.0.i.lcssa = phi ptr [ %call.i, %while.cond.i.preheader ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
+  %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %8 = load ptr, ptr %arena.i, align 8
@@ -43505,7 +43505,7 @@ if.then13:                                        ; preds = %for.body.i, %for.co
   br label %return
 
 if.end15.sink.split.sink.split.sink.split:        ; preds = %if.then30.i, %while.end.i
-  %_children.0.i.lcssa.sink = phi ptr [ %_children.0.i.lcssa, %while.end.i ], [ %_children.0.i2136, %if.then30.i ]
+  %_children.0.i.lcssa.sink = phi ptr [ %_children.0.i.lcssa, %while.end.i ], [ %_children.0.i2038, %if.then30.i ]
   tail call void @PyMem_Free(ptr noundef %_children.0.i.lcssa.sink) #4
   br label %if.end15.sink.split.sink.split
 
@@ -43892,27 +43892,27 @@ land.rhs.i:                                       ; preds = %if.end40.i
 
 if.end28.i:                                       ; preds = %land.rhs.i.preheader, %land.rhs.i
   %call19.i86 = phi ptr [ %call19.i, %land.rhs.i ], [ %call19.i81, %land.rhs.i.preheader ]
-  %_children_capacity.0.i5485 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
-  %_n.0.i5584 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
-  %_children.0.i5683 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i39, %land.rhs.i.preheader ]
-  %cmp29.i = icmp eq i64 %_n.0.i5584, %_children_capacity.0.i5485
+  %_children.0.i5585 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i39, %land.rhs.i.preheader ]
+  %_children_capacity.0.i5684 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
+  %_n.0.i5783 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
+  %cmp29.i = icmp eq i64 %_n.0.i5783, %_children_capacity.0.i5684
   br i1 %cmp29.i, label %if.then30.i, label %if.end40.i
 
 if.then30.i:                                      ; preds = %if.end28.i
-  %mul31.i = shl i64 %_n.0.i5584, 4
-  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i5683, i64 noundef %mul31.i) #4
+  %mul31.i = shl i64 %_n.0.i5783, 4
+  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i5585, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
   br i1 %tobool33.not.i, label %if.end15.i.sink.split.sink.split.sink.split, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then30.i
-  %mul.i = shl i64 %_n.0.i5584, 1
+  %mul.i = shl i64 %_n.0.i5783, 1
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end39.i, %if.end28.i
-  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.0.i5485, %if.end28.i ]
-  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.0.i5683, %if.end28.i ]
-  %inc41.i = add i64 %_n.0.i5584, 1
-  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.0.i5584
+  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.0.i5585, %if.end28.i ]
+  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.0.i5684, %if.end28.i ]
+  %inc41.i = add i64 %_n.0.i5783, 1
+  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.0.i5783
   store ptr %call19.i86, ptr %arrayidx.i, align 8
   %16 = load i32, ptr %mark, align 8
   %call17.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 18) #4
@@ -43920,9 +43920,9 @@ if.end40.i:                                       ; preds = %if.end39.i, %if.end
   br i1 %tobool18.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !200
 
 while.end.i:                                      ; preds = %land.rhs.i, %if.end40.i, %land.rhs.i.preheader, %while.cond.i.preheader
-  %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
-  %_children.0.i.lcssa = phi ptr [ %call.i39, %while.cond.i.preheader ], [ %call.i39, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.i.lcssa = phi i32 [ %14, %while.cond.i.preheader ], [ %14, %land.rhs.i.preheader ], [ %16, %if.end40.i ], [ %16, %land.rhs.i ]
+  %_children.0.i.lcssa = phi ptr [ %call.i39, %while.cond.i.preheader ], [ %call.i39, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
+  %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %17 = load ptr, ptr %arena.i, align 8
@@ -43952,7 +43952,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp52.i, label %for.body.i, label %_gather_65_rule.exit, !llvm.loop !201
 
 if.end15.i.sink.split.sink.split.sink.split:      ; preds = %if.then30.i, %while.end.i
-  %_children.0.i.lcssa.sink = phi ptr [ %_children.0.i.lcssa, %while.end.i ], [ %_children.0.i5683, %if.then30.i ]
+  %_children.0.i.lcssa.sink = phi ptr [ %_children.0.i.lcssa, %while.end.i ], [ %_children.0.i5585, %if.then30.i ]
   tail call void @PyMem_Free(ptr noundef %_children.0.i.lcssa.sink) #4
   br label %if.end15.i.sink.split.sink.split
 
@@ -46972,27 +46972,27 @@ land.rhs.i:                                       ; preds = %if.end40.i
 
 if.end28.i:                                       ; preds = %land.rhs.i.preheader, %land.rhs.i
   %call19.i58 = phi ptr [ %call19.i, %land.rhs.i ], [ %call19.i53, %land.rhs.i.preheader ]
-  %_children_capacity.0.i3457 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
-  %_n.0.i3556 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
-  %_children.0.i3655 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i19, %land.rhs.i.preheader ]
-  %cmp29.i = icmp eq i64 %_n.0.i3556, %_children_capacity.0.i3457
+  %_children.0.i3557 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i19, %land.rhs.i.preheader ]
+  %_children_capacity.0.i3656 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
+  %_n.0.i3755 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
+  %cmp29.i = icmp eq i64 %_n.0.i3755, %_children_capacity.0.i3656
   br i1 %cmp29.i, label %if.then30.i, label %if.end40.i
 
 if.then30.i:                                      ; preds = %if.end28.i
-  %mul31.i = shl i64 %_n.0.i3556, 4
-  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i3655, i64 noundef %mul31.i) #4
+  %mul31.i = shl i64 %_n.0.i3755, 4
+  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i3557, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
   br i1 %tobool33.not.i, label %if.end15.i.sink.split.sink.split.sink.split, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then30.i
-  %mul.i = shl i64 %_n.0.i3556, 1
+  %mul.i = shl i64 %_n.0.i3755, 1
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end39.i, %if.end28.i
-  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.0.i3457, %if.end28.i ]
-  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.0.i3655, %if.end28.i ]
-  %inc41.i = add i64 %_n.0.i3556, 1
-  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.0.i3556
+  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.0.i3557, %if.end28.i ]
+  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.0.i3656, %if.end28.i ]
+  %inc41.i = add i64 %_n.0.i3755, 1
+  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.0.i3755
   store ptr %call19.i58, ptr %arrayidx.i, align 8
   %8 = load i32, ptr %mark, align 8
   %call17.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -47000,9 +47000,9 @@ if.end40.i:                                       ; preds = %if.end39.i, %if.end
   br i1 %tobool18.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !202
 
 while.end.i:                                      ; preds = %land.rhs.i, %if.end40.i, %land.rhs.i.preheader, %while.cond.i.preheader
-  %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
-  %_children.0.i.lcssa = phi ptr [ %call.i19, %while.cond.i.preheader ], [ %call.i19, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.i.lcssa = phi i32 [ %6, %while.cond.i.preheader ], [ %6, %land.rhs.i.preheader ], [ %8, %if.end40.i ], [ %8, %land.rhs.i ]
+  %_children.0.i.lcssa = phi ptr [ %call.i19, %while.cond.i.preheader ], [ %call.i19, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
+  %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %9 = load ptr, ptr %arena.i, align 8
@@ -47032,7 +47032,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp52.i, label %for.body.i, label %_gather_73_rule.exit, !llvm.loop !203
 
 if.end15.i.sink.split.sink.split.sink.split:      ; preds = %if.then30.i, %while.end.i
-  %_children.0.i.lcssa.sink = phi ptr [ %_children.0.i.lcssa, %while.end.i ], [ %_children.0.i3655, %if.then30.i ]
+  %_children.0.i.lcssa.sink = phi ptr [ %_children.0.i.lcssa, %while.end.i ], [ %_children.0.i3557, %if.then30.i ]
   tail call void @PyMem_Free(ptr noundef %_children.0.i.lcssa.sink) #4
   br label %if.end15.i.sink.split.sink.split
 
@@ -47676,27 +47676,27 @@ land.rhs.i:                                       ; preds = %if.end40.i
 
 if.end28.i:                                       ; preds = %land.rhs.i.preheader, %land.rhs.i
   %call19.i58 = phi ptr [ %call19.i, %land.rhs.i ], [ %call19.i53, %land.rhs.i.preheader ]
-  %_children_capacity.0.i3457 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
-  %_n.0.i3556 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
-  %_children.0.i3655 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i19, %land.rhs.i.preheader ]
-  %cmp29.i = icmp eq i64 %_n.0.i3556, %_children_capacity.0.i3457
+  %_children.0.i3557 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i19, %land.rhs.i.preheader ]
+  %_children_capacity.0.i3656 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
+  %_n.0.i3755 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
+  %cmp29.i = icmp eq i64 %_n.0.i3755, %_children_capacity.0.i3656
   br i1 %cmp29.i, label %if.then30.i, label %if.end40.i
 
 if.then30.i:                                      ; preds = %if.end28.i
-  %mul31.i = shl i64 %_n.0.i3556, 4
-  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i3655, i64 noundef %mul31.i) #4
+  %mul31.i = shl i64 %_n.0.i3755, 4
+  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i3557, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
   br i1 %tobool33.not.i, label %if.end15.i.sink.split.sink.split.sink.split, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then30.i
-  %mul.i = shl i64 %_n.0.i3556, 1
+  %mul.i = shl i64 %_n.0.i3755, 1
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end39.i, %if.end28.i
-  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.0.i3457, %if.end28.i ]
-  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.0.i3655, %if.end28.i ]
-  %inc41.i = add i64 %_n.0.i3556, 1
-  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.0.i3556
+  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.0.i3557, %if.end28.i ]
+  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.0.i3656, %if.end28.i ]
+  %inc41.i = add i64 %_n.0.i3755, 1
+  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.0.i3755
   store ptr %call19.i58, ptr %arrayidx.i, align 8
   %8 = load i32, ptr %mark, align 8
   %call17.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -47704,9 +47704,9 @@ if.end40.i:                                       ; preds = %if.end39.i, %if.end
   br i1 %tobool18.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !204
 
 while.end.i:                                      ; preds = %land.rhs.i, %if.end40.i, %land.rhs.i.preheader, %while.cond.i.preheader
-  %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
-  %_children.0.i.lcssa = phi ptr [ %call.i19, %while.cond.i.preheader ], [ %call.i19, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.i.lcssa = phi i32 [ %6, %while.cond.i.preheader ], [ %6, %land.rhs.i.preheader ], [ %8, %if.end40.i ], [ %8, %land.rhs.i ]
+  %_children.0.i.lcssa = phi ptr [ %call.i19, %while.cond.i.preheader ], [ %call.i19, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
+  %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %9 = load ptr, ptr %arena.i, align 8
@@ -47736,7 +47736,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp52.i, label %for.body.i, label %_gather_78_rule.exit, !llvm.loop !205
 
 if.end15.i.sink.split.sink.split.sink.split:      ; preds = %if.then30.i, %while.end.i
-  %_children.0.i.lcssa.sink = phi ptr [ %_children.0.i.lcssa, %while.end.i ], [ %_children.0.i3655, %if.then30.i ]
+  %_children.0.i.lcssa.sink = phi ptr [ %_children.0.i.lcssa, %while.end.i ], [ %_children.0.i3557, %if.then30.i ]
   tail call void @PyMem_Free(ptr noundef %_children.0.i.lcssa.sink) #4
   br label %if.end15.i.sink.split.sink.split
 
@@ -48124,10 +48124,10 @@ while.cond.preheader:                             ; preds = %if.end10
   br i1 %tobool18.not66, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond.preheader, %if.end40
-  %_mark.070 = phi i32 [ %9, %if.end40 ], [ %2, %while.cond.preheader ]
-  %_children.069 = phi ptr [ %_children.1, %if.end40 ], [ %call, %while.cond.preheader ]
-  %_n.068 = phi i64 [ %inc41, %if.end40 ], [ 0, %while.cond.preheader ]
-  %_children_capacity.067 = phi i64 [ %_children_capacity.1, %if.end40 ], [ 1, %while.cond.preheader ]
+  %_n.070 = phi i64 [ %inc41, %if.end40 ], [ 0, %while.cond.preheader ]
+  %_children_capacity.069 = phi i64 [ %_children_capacity.1, %if.end40 ], [ 1, %while.cond.preheader ]
+  %_children.068 = phi ptr [ %_children.1, %if.end40 ], [ %call, %while.cond.preheader ]
+  %_mark.067 = phi i32 [ %9, %if.end40 ], [ %2, %while.cond.preheader ]
   %4 = load i32, ptr %level, align 8
   %inc.i = add i32 %4, 1
   store i32 %inc.i, ptr %level, align 8
@@ -48165,30 +48165,30 @@ if.end28:                                         ; preds = %if.end3.i, %if.end1
   %8 = load i32, ptr %level, align 8
   %dec26.i45 = add i32 %8, -1
   store i32 %dec26.i45, ptr %level, align 8
-  %cmp29 = icmp eq i64 %_n.068, %_children_capacity.067
+  %cmp29 = icmp eq i64 %_n.070, %_children_capacity.069
   br i1 %cmp29, label %if.then30, label %if.end40
 
 if.then30:                                        ; preds = %if.end28
-  %mul31 = shl i64 %_n.068, 4
-  %call32 = tail call ptr @PyMem_Realloc(ptr noundef %_children.069, i64 noundef %mul31) #4
+  %mul31 = shl i64 %_n.070, 4
+  %call32 = tail call ptr @PyMem_Realloc(ptr noundef %_children.068, i64 noundef %mul31) #4
   %tobool33.not = icmp eq ptr %call32, null
   br i1 %tobool33.not, label %if.then34, label %if.end39
 
 if.then34:                                        ; preds = %if.then30
-  tail call void @PyMem_Free(ptr noundef %_children.069) #4
+  tail call void @PyMem_Free(ptr noundef %_children.068) #4
   store i32 1, ptr %error_indicator, align 8
   %call36 = tail call ptr @PyErr_NoMemory() #4
   br label %return
 
 if.end39:                                         ; preds = %if.then30
-  %mul = shl i64 %_n.068, 1
+  %mul = shl i64 %_n.070, 1
   br label %if.end40
 
 if.end40:                                         ; preds = %if.end39, %if.end28
-  %_children_capacity.1 = phi i64 [ %mul, %if.end39 ], [ %_children_capacity.067, %if.end28 ]
-  %_children.1 = phi ptr [ %call32, %if.end39 ], [ %_children.069, %if.end28 ]
-  %inc41 = add i64 %_n.068, 1
-  %arrayidx = getelementptr ptr, ptr %_children.1, i64 %_n.068
+  %_children.1 = phi ptr [ %call32, %if.end39 ], [ %_children.068, %if.end28 ]
+  %_children_capacity.1 = phi i64 [ %mul, %if.end39 ], [ %_children_capacity.069, %if.end28 ]
+  %inc41 = add i64 %_n.070, 1
+  %arrayidx = getelementptr ptr, ptr %_children.1, i64 %_n.070
   store ptr %_res.0.i.ph, ptr %arrayidx, align 8
   %9 = load i32, ptr %mark, align 8
   %call17 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -48202,18 +48202,18 @@ while.end.sink.split:                             ; preds = %if.end19.i, %if.end
   br label %while.end
 
 while.end:                                        ; preds = %if.end40, %while.end.sink.split, %while.cond.preheader
-  %_n.062 = phi i64 [ 0, %while.cond.preheader ], [ %_n.068, %while.end.sink.split ], [ %inc41, %if.end40 ]
-  %_children.057 = phi ptr [ %call, %while.cond.preheader ], [ %_children.069, %while.end.sink.split ], [ %_children.1, %if.end40 ]
-  %_mark.052 = phi i32 [ %2, %while.cond.preheader ], [ %_mark.070, %while.end.sink.split ], [ %9, %if.end40 ]
-  store i32 %_mark.052, ptr %mark, align 8
+  %_mark.062 = phi i32 [ %2, %while.cond.preheader ], [ %_mark.067, %while.end.sink.split ], [ %9, %if.end40 ]
+  %_children.057 = phi ptr [ %call, %while.cond.preheader ], [ %_children.068, %while.end.sink.split ], [ %_children.1, %if.end40 ]
+  %_n.052 = phi i64 [ 0, %while.cond.preheader ], [ %_n.070, %while.end.sink.split ], [ %inc41, %if.end40 ]
+  store i32 %_mark.062, ptr %mark, align 8
   %arena = getelementptr inbounds i8, ptr %p, i64 32
   %11 = load ptr, ptr %arena, align 8
-  %call44 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.062, ptr noundef %11) #4
+  %call44 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.052, ptr noundef %11) #4
   %tobool45.not = icmp eq ptr %call44, null
   br i1 %tobool45.not, label %if.then46, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %while.end
-  %cmp5273 = icmp sgt i64 %_n.062, 0
+  %cmp5273 = icmp sgt i64 %_n.052, 0
   br i1 %cmp5273, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
@@ -48236,7 +48236,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store ptr %12, ptr %arrayidx56, align 8
   %inc57 = add i32 %i.074, 1
   %conv = sext i32 %inc57 to i64
-  %cmp52 = icmp sgt i64 %_n.062, %conv
+  %cmp52 = icmp sgt i64 %_n.052, %conv
   br i1 %cmp52, label %for.body, label %for.end, !llvm.loop !207
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
@@ -49750,31 +49750,31 @@ land.rhs.i.i.i:                                   ; preds = %if.end40.i.i.i
 
 if.end28.i.i.i:                                   ; preds = %land.rhs.i.preheader.i.i, %land.rhs.i.i.i
   %call19.i21.i.i = phi ptr [ %call19.i.i.i, %land.rhs.i.i.i ], [ %call19.i16.i.i, %land.rhs.i.preheader.i.i ]
-  %_children_capacity.045.i20.i.i = phi i64 [ %_children_capacity.1.i.i.i, %land.rhs.i.i.i ], [ 1, %land.rhs.i.preheader.i.i ]
-  %_n.046.i19.i.i = phi i64 [ %inc41.i.i.i, %land.rhs.i.i.i ], [ 0, %land.rhs.i.preheader.i.i ]
-  %_children.047.i18.i.i = phi ptr [ %_children.1.i.i.i, %land.rhs.i.i.i ], [ %call.i.i.i, %land.rhs.i.preheader.i.i ]
-  %cmp29.i.i.i = icmp eq i64 %_n.046.i19.i.i, %_children_capacity.045.i20.i.i
+  %_children.046.i20.i.i = phi ptr [ %_children.1.i.i.i, %land.rhs.i.i.i ], [ %call.i.i.i, %land.rhs.i.preheader.i.i ]
+  %_children_capacity.047.i19.i.i = phi i64 [ %_children_capacity.1.i.i.i, %land.rhs.i.i.i ], [ 1, %land.rhs.i.preheader.i.i ]
+  %_n.048.i18.i.i = phi i64 [ %inc41.i.i.i, %land.rhs.i.i.i ], [ 0, %land.rhs.i.preheader.i.i ]
+  %cmp29.i.i.i = icmp eq i64 %_n.048.i18.i.i, %_children_capacity.047.i19.i.i
   br i1 %cmp29.i.i.i, label %if.then30.i.i.i, label %if.end40.i.i.i
 
 if.then30.i.i.i:                                  ; preds = %if.end28.i.i.i
-  %mul31.i.i.i = shl i64 %_children_capacity.045.i20.i.i, 4
-  %call32.i.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i.i, i64 noundef %mul31.i.i.i) #4
+  %mul31.i.i.i = shl i64 %_children_capacity.047.i19.i.i, 4
+  %call32.i.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.046.i20.i.i, i64 noundef %mul31.i.i.i) #4
   %tobool33.not.i.i.i = icmp eq ptr %call32.i.i.i, null
   br i1 %tobool33.not.i.i.i, label %if.then34.i.i.i, label %if.end39.i.i.i
 
 if.then34.i.i.i:                                  ; preds = %if.then30.i.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i.i) #4
+  tail call void @PyMem_Free(ptr noundef %_children.046.i20.i.i) #4
   br label %_loop0_204_rule.exit.thread.sink.split.i.i
 
 if.end39.i.i.i:                                   ; preds = %if.then30.i.i.i
-  %mul.i.i.i = shl i64 %_children_capacity.045.i20.i.i, 1
+  %mul.i.i.i = shl i64 %_children_capacity.047.i19.i.i, 1
   br label %if.end40.i.i.i
 
 if.end40.i.i.i:                                   ; preds = %if.end39.i.i.i, %if.end28.i.i.i
-  %_children_capacity.1.i.i.i = phi i64 [ %mul.i.i.i, %if.end39.i.i.i ], [ %_children_capacity.045.i20.i.i, %if.end28.i.i.i ]
-  %_children.1.i.i.i = phi ptr [ %call32.i.i.i, %if.end39.i.i.i ], [ %_children.047.i18.i.i, %if.end28.i.i.i ]
-  %inc41.i.i.i = add i64 %_n.046.i19.i.i, 1
-  %arrayidx.i.i.i = getelementptr ptr, ptr %_children.1.i.i.i, i64 %_n.046.i19.i.i
+  %_children.1.i.i.i = phi ptr [ %call32.i.i.i, %if.end39.i.i.i ], [ %_children.046.i20.i.i, %if.end28.i.i.i ]
+  %_children_capacity.1.i.i.i = phi i64 [ %mul.i.i.i, %if.end39.i.i.i ], [ %_children_capacity.047.i19.i.i, %if.end28.i.i.i ]
+  %inc41.i.i.i = add i64 %_n.048.i18.i.i, 1
+  %arrayidx.i.i.i = getelementptr ptr, ptr %_children.1.i.i.i, i64 %_n.048.i18.i.i
   store ptr %call19.i21.i.i, ptr %arrayidx.i.i.i, align 8
   %11 = load i32, ptr %mark, align 8
   %call17.i.i.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -49782,9 +49782,9 @@ if.end40.i.i.i:                                   ; preds = %if.end39.i.i.i, %if
   br i1 %tobool18.not.i.i.i, label %while.end.i.i.i, label %land.rhs.i.i.i, !llvm.loop !208
 
 while.end.i.i.i:                                  ; preds = %if.end40.i.i.i, %land.rhs.i.i.i, %land.rhs.i.preheader.i.i, %while.cond.preheader.i.i.i
-  %_n.0.lcssa.i.i.i = phi i64 [ 0, %while.cond.preheader.i.i.i ], [ 0, %land.rhs.i.preheader.i.i ], [ %inc41.i.i.i, %land.rhs.i.i.i ], [ %inc41.i.i.i, %if.end40.i.i.i ]
-  %_children.0.lcssa.i.i.i = phi ptr [ %call.i.i.i, %while.cond.preheader.i.i.i ], [ %call.i.i.i, %land.rhs.i.preheader.i.i ], [ %_children.1.i.i.i, %land.rhs.i.i.i ], [ %_children.1.i.i.i, %if.end40.i.i.i ]
   %_mark.0.lcssa.i.i.i = phi i32 [ %9, %while.cond.preheader.i.i.i ], [ %9, %land.rhs.i.preheader.i.i ], [ %11, %land.rhs.i.i.i ], [ %11, %if.end40.i.i.i ]
+  %_children.0.lcssa.i.i.i = phi ptr [ %call.i.i.i, %while.cond.preheader.i.i.i ], [ %call.i.i.i, %land.rhs.i.preheader.i.i ], [ %_children.1.i.i.i, %land.rhs.i.i.i ], [ %_children.1.i.i.i, %if.end40.i.i.i ]
+  %_n.0.lcssa.i.i.i = phi i64 [ 0, %while.cond.preheader.i.i.i ], [ 0, %land.rhs.i.preheader.i.i ], [ %inc41.i.i.i, %land.rhs.i.i.i ], [ %inc41.i.i.i, %if.end40.i.i.i ]
   store i32 %_mark.0.lcssa.i.i.i, ptr %mark, align 8
   %arena.i.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %12 = load ptr, ptr %arena.i.i.i, align 8
@@ -50032,31 +50032,31 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end40.i.i.i.i
 
 if.end28.i.i.i.i:                                 ; preds = %land.rhs.i.preheader.i.i.i, %land.rhs.i.i.i.i
   %call19.i21.i.i.i = phi ptr [ %call19.i.i.i.i, %land.rhs.i.i.i.i ], [ %call19.i16.i.i.i, %land.rhs.i.preheader.i.i.i ]
-  %_children_capacity.045.i20.i.i.i = phi i64 [ %_children_capacity.1.i.i.i.i, %land.rhs.i.i.i.i ], [ 1, %land.rhs.i.preheader.i.i.i ]
-  %_n.046.i19.i.i.i = phi i64 [ %inc41.i.i.i.i, %land.rhs.i.i.i.i ], [ 0, %land.rhs.i.preheader.i.i.i ]
-  %_children.047.i18.i.i.i = phi ptr [ %_children.1.i.i.i.i, %land.rhs.i.i.i.i ], [ %call.i.i.i.i, %land.rhs.i.preheader.i.i.i ]
-  %cmp29.i.i.i.i = icmp eq i64 %_n.046.i19.i.i.i, %_children_capacity.045.i20.i.i.i
+  %_children.046.i20.i.i.i = phi ptr [ %_children.1.i.i.i.i, %land.rhs.i.i.i.i ], [ %call.i.i.i.i, %land.rhs.i.preheader.i.i.i ]
+  %_children_capacity.047.i19.i.i.i = phi i64 [ %_children_capacity.1.i.i.i.i, %land.rhs.i.i.i.i ], [ 1, %land.rhs.i.preheader.i.i.i ]
+  %_n.048.i18.i.i.i = phi i64 [ %inc41.i.i.i.i, %land.rhs.i.i.i.i ], [ 0, %land.rhs.i.preheader.i.i.i ]
+  %cmp29.i.i.i.i = icmp eq i64 %_n.048.i18.i.i.i, %_children_capacity.047.i19.i.i.i
   br i1 %cmp29.i.i.i.i, label %if.then30.i.i.i.i, label %if.end40.i.i.i.i
 
 if.then30.i.i.i.i:                                ; preds = %if.end28.i.i.i.i
-  %mul31.i.i.i.i = shl i64 %_children_capacity.045.i20.i.i.i, 4
-  %call32.i.i.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i.i.i, i64 noundef %mul31.i.i.i.i) #4
+  %mul31.i.i.i.i = shl i64 %_children_capacity.047.i19.i.i.i, 4
+  %call32.i.i.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.046.i20.i.i.i, i64 noundef %mul31.i.i.i.i) #4
   %tobool33.not.i.i.i.i = icmp eq ptr %call32.i.i.i.i, null
   br i1 %tobool33.not.i.i.i.i, label %if.then34.i.i.i.i, label %if.end39.i.i.i.i
 
 if.then34.i.i.i.i:                                ; preds = %if.then30.i.i.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i.i.i) #4
+  tail call void @PyMem_Free(ptr noundef %_children.046.i20.i.i.i) #4
   br label %_loop0_30_rule.exit.thread.sink.split.i.i.i
 
 if.end39.i.i.i.i:                                 ; preds = %if.then30.i.i.i.i
-  %mul.i.i.i.i = shl i64 %_children_capacity.045.i20.i.i.i, 1
+  %mul.i.i.i.i = shl i64 %_children_capacity.047.i19.i.i.i, 1
   br label %if.end40.i.i.i.i
 
 if.end40.i.i.i.i:                                 ; preds = %if.end39.i.i.i.i, %if.end28.i.i.i.i
-  %_children_capacity.1.i.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end39.i.i.i.i ], [ %_children_capacity.045.i20.i.i.i, %if.end28.i.i.i.i ]
-  %_children.1.i.i.i.i = phi ptr [ %call32.i.i.i.i, %if.end39.i.i.i.i ], [ %_children.047.i18.i.i.i, %if.end28.i.i.i.i ]
-  %inc41.i.i.i.i = add i64 %_n.046.i19.i.i.i, 1
-  %arrayidx.i.i.i.i = getelementptr ptr, ptr %_children.1.i.i.i.i, i64 %_n.046.i19.i.i.i
+  %_children.1.i.i.i.i = phi ptr [ %call32.i.i.i.i, %if.end39.i.i.i.i ], [ %_children.046.i20.i.i.i, %if.end28.i.i.i.i ]
+  %_children_capacity.1.i.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end39.i.i.i.i ], [ %_children_capacity.047.i19.i.i.i, %if.end28.i.i.i.i ]
+  %inc41.i.i.i.i = add i64 %_n.048.i18.i.i.i, 1
+  %arrayidx.i.i.i.i = getelementptr ptr, ptr %_children.1.i.i.i.i, i64 %_n.048.i18.i.i.i
   store ptr %call19.i21.i.i.i, ptr %arrayidx.i.i.i.i, align 8
   %34 = load i32, ptr %mark, align 8
   %call17.i.i.i.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -50064,9 +50064,9 @@ if.end40.i.i.i.i:                                 ; preds = %if.end39.i.i.i.i, %
   br i1 %tobool18.not.i.i.i.i, label %while.end.i.i.i.i, label %land.rhs.i.i.i.i, !llvm.loop !210
 
 while.end.i.i.i.i:                                ; preds = %if.end40.i.i.i.i, %land.rhs.i.i.i.i, %land.rhs.i.preheader.i.i.i, %while.cond.preheader.i.i.i.i
-  %_n.0.lcssa.i.i.i.i = phi i64 [ 0, %while.cond.preheader.i.i.i.i ], [ 0, %land.rhs.i.preheader.i.i.i ], [ %inc41.i.i.i.i, %land.rhs.i.i.i.i ], [ %inc41.i.i.i.i, %if.end40.i.i.i.i ]
-  %_children.0.lcssa.i.i.i.i = phi ptr [ %call.i.i.i.i, %while.cond.preheader.i.i.i.i ], [ %call.i.i.i.i, %land.rhs.i.preheader.i.i.i ], [ %_children.1.i.i.i.i, %land.rhs.i.i.i.i ], [ %_children.1.i.i.i.i, %if.end40.i.i.i.i ]
   %_mark.0.lcssa.i.i.i.i = phi i32 [ %32, %while.cond.preheader.i.i.i.i ], [ %32, %land.rhs.i.preheader.i.i.i ], [ %34, %land.rhs.i.i.i.i ], [ %34, %if.end40.i.i.i.i ]
+  %_children.0.lcssa.i.i.i.i = phi ptr [ %call.i.i.i.i, %while.cond.preheader.i.i.i.i ], [ %call.i.i.i.i, %land.rhs.i.preheader.i.i.i ], [ %_children.1.i.i.i.i, %land.rhs.i.i.i.i ], [ %_children.1.i.i.i.i, %if.end40.i.i.i.i ]
+  %_n.0.lcssa.i.i.i.i = phi i64 [ 0, %while.cond.preheader.i.i.i.i ], [ 0, %land.rhs.i.preheader.i.i.i ], [ %inc41.i.i.i.i, %land.rhs.i.i.i.i ], [ %inc41.i.i.i.i, %if.end40.i.i.i.i ]
   store i32 %_mark.0.lcssa.i.i.i.i, ptr %mark, align 8
   %arena.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %35 = load ptr, ptr %arena.i.i.i.i, align 8
@@ -51002,31 +51002,31 @@ land.rhs.i.i:                                     ; preds = %if.end40.i.i
 
 if.end28.i.i:                                     ; preds = %land.rhs.i.preheader.i, %land.rhs.i.i
   %call19.i21.i = phi ptr [ %call19.i.i, %land.rhs.i.i ], [ %call19.i16.i, %land.rhs.i.preheader.i ]
-  %_children_capacity.045.i20.i = phi i64 [ %_children_capacity.1.i.i, %land.rhs.i.i ], [ 1, %land.rhs.i.preheader.i ]
-  %_n.046.i19.i = phi i64 [ %inc41.i.i, %land.rhs.i.i ], [ 0, %land.rhs.i.preheader.i ]
-  %_children.047.i18.i = phi ptr [ %_children.1.i.i, %land.rhs.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ]
-  %cmp29.i.i = icmp eq i64 %_n.046.i19.i, %_children_capacity.045.i20.i
+  %_children.046.i20.i = phi ptr [ %_children.1.i.i, %land.rhs.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ]
+  %_children_capacity.047.i19.i = phi i64 [ %_children_capacity.1.i.i, %land.rhs.i.i ], [ 1, %land.rhs.i.preheader.i ]
+  %_n.048.i18.i = phi i64 [ %inc41.i.i, %land.rhs.i.i ], [ 0, %land.rhs.i.preheader.i ]
+  %cmp29.i.i = icmp eq i64 %_n.048.i18.i, %_children_capacity.047.i19.i
   br i1 %cmp29.i.i, label %if.then30.i.i, label %if.end40.i.i
 
 if.then30.i.i:                                    ; preds = %if.end28.i.i
-  %mul31.i.i = shl i64 %_children_capacity.045.i20.i, 4
-  %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i, i64 noundef %mul31.i.i) #4
+  %mul31.i.i = shl i64 %_children_capacity.047.i19.i, 4
+  %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.046.i20.i, i64 noundef %mul31.i.i) #4
   %tobool33.not.i.i = icmp eq ptr %call32.i.i, null
   br i1 %tobool33.not.i.i, label %if.then34.i.i, label %if.end39.i.i
 
 if.then34.i.i:                                    ; preds = %if.then30.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i) #4
+  tail call void @PyMem_Free(ptr noundef %_children.046.i20.i) #4
   br label %_loop0_19_rule.exit.thread.sink.split.i
 
 if.end39.i.i:                                     ; preds = %if.then30.i.i
-  %mul.i.i = shl i64 %_children_capacity.045.i20.i, 1
+  %mul.i.i = shl i64 %_children_capacity.047.i19.i, 1
   br label %if.end40.i.i
 
 if.end40.i.i:                                     ; preds = %if.end39.i.i, %if.end28.i.i
-  %_children_capacity.1.i.i = phi i64 [ %mul.i.i, %if.end39.i.i ], [ %_children_capacity.045.i20.i, %if.end28.i.i ]
-  %_children.1.i.i = phi ptr [ %call32.i.i, %if.end39.i.i ], [ %_children.047.i18.i, %if.end28.i.i ]
-  %inc41.i.i = add i64 %_n.046.i19.i, 1
-  %arrayidx.i.i = getelementptr ptr, ptr %_children.1.i.i, i64 %_n.046.i19.i
+  %_children.1.i.i = phi ptr [ %call32.i.i, %if.end39.i.i ], [ %_children.046.i20.i, %if.end28.i.i ]
+  %_children_capacity.1.i.i = phi i64 [ %mul.i.i, %if.end39.i.i ], [ %_children_capacity.047.i19.i, %if.end28.i.i ]
+  %inc41.i.i = add i64 %_n.048.i18.i, 1
+  %arrayidx.i.i = getelementptr ptr, ptr %_children.1.i.i, i64 %_n.048.i18.i
   store ptr %call19.i21.i, ptr %arrayidx.i.i, align 8
   %14 = load i32, ptr %mark, align 8
   %call17.i.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -51034,9 +51034,9 @@ if.end40.i.i:                                     ; preds = %if.end39.i.i, %if.e
   br i1 %tobool18.not.i.i, label %while.end.i.i, label %land.rhs.i.i, !llvm.loop !212
 
 while.end.i.i:                                    ; preds = %if.end40.i.i, %land.rhs.i.i, %land.rhs.i.preheader.i, %while.cond.preheader.i.i
-  %_n.0.lcssa.i.i = phi i64 [ 0, %while.cond.preheader.i.i ], [ 0, %land.rhs.i.preheader.i ], [ %inc41.i.i, %land.rhs.i.i ], [ %inc41.i.i, %if.end40.i.i ]
-  %_children.0.lcssa.i.i = phi ptr [ %call.i.i, %while.cond.preheader.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ], [ %_children.1.i.i, %land.rhs.i.i ], [ %_children.1.i.i, %if.end40.i.i ]
   %_mark.0.lcssa.i.i = phi i32 [ %12, %while.cond.preheader.i.i ], [ %12, %land.rhs.i.preheader.i ], [ %14, %land.rhs.i.i ], [ %14, %if.end40.i.i ]
+  %_children.0.lcssa.i.i = phi ptr [ %call.i.i, %while.cond.preheader.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ], [ %_children.1.i.i, %land.rhs.i.i ], [ %_children.1.i.i, %if.end40.i.i ]
+  %_n.0.lcssa.i.i = phi i64 [ 0, %while.cond.preheader.i.i ], [ 0, %land.rhs.i.preheader.i ], [ %inc41.i.i, %land.rhs.i.i ], [ %inc41.i.i, %if.end40.i.i ]
   store i32 %_mark.0.lcssa.i.i, ptr %mark, align 8
   %arena.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %15 = load ptr, ptr %arena.i.i, align 8
@@ -51272,31 +51272,31 @@ land.rhs.i.i:                                     ; preds = %if.end40.i.i
 
 if.end28.i.i:                                     ; preds = %land.rhs.i.preheader.i, %land.rhs.i.i
   %call19.i21.i = phi ptr [ %call19.i.i, %land.rhs.i.i ], [ %call19.i16.i, %land.rhs.i.preheader.i ]
-  %_children_capacity.045.i20.i = phi i64 [ %_children_capacity.1.i.i, %land.rhs.i.i ], [ 1, %land.rhs.i.preheader.i ]
-  %_n.046.i19.i = phi i64 [ %inc41.i.i, %land.rhs.i.i ], [ 0, %land.rhs.i.preheader.i ]
-  %_children.047.i18.i = phi ptr [ %_children.1.i.i, %land.rhs.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ]
-  %cmp29.i.i = icmp eq i64 %_n.046.i19.i, %_children_capacity.045.i20.i
+  %_children.046.i20.i = phi ptr [ %_children.1.i.i, %land.rhs.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ]
+  %_children_capacity.047.i19.i = phi i64 [ %_children_capacity.1.i.i, %land.rhs.i.i ], [ 1, %land.rhs.i.preheader.i ]
+  %_n.048.i18.i = phi i64 [ %inc41.i.i, %land.rhs.i.i ], [ 0, %land.rhs.i.preheader.i ]
+  %cmp29.i.i = icmp eq i64 %_n.048.i18.i, %_children_capacity.047.i19.i
   br i1 %cmp29.i.i, label %if.then30.i.i, label %if.end40.i.i
 
 if.then30.i.i:                                    ; preds = %if.end28.i.i
-  %mul31.i.i = shl i64 %_children_capacity.045.i20.i, 4
-  %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i, i64 noundef %mul31.i.i) #4
+  %mul31.i.i = shl i64 %_children_capacity.047.i19.i, 4
+  %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.046.i20.i, i64 noundef %mul31.i.i) #4
   %tobool33.not.i.i = icmp eq ptr %call32.i.i, null
   br i1 %tobool33.not.i.i, label %if.then34.i.i, label %if.end39.i.i
 
 if.then34.i.i:                                    ; preds = %if.then30.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i) #4
+  tail call void @PyMem_Free(ptr noundef %_children.046.i20.i) #4
   br label %_loop0_21_rule.exit.thread.sink.split.i
 
 if.end39.i.i:                                     ; preds = %if.then30.i.i
-  %mul.i.i = shl i64 %_children_capacity.045.i20.i, 1
+  %mul.i.i = shl i64 %_children_capacity.047.i19.i, 1
   br label %if.end40.i.i
 
 if.end40.i.i:                                     ; preds = %if.end39.i.i, %if.end28.i.i
-  %_children_capacity.1.i.i = phi i64 [ %mul.i.i, %if.end39.i.i ], [ %_children_capacity.045.i20.i, %if.end28.i.i ]
-  %_children.1.i.i = phi ptr [ %call32.i.i, %if.end39.i.i ], [ %_children.047.i18.i, %if.end28.i.i ]
-  %inc41.i.i = add i64 %_n.046.i19.i, 1
-  %arrayidx.i.i = getelementptr ptr, ptr %_children.1.i.i, i64 %_n.046.i19.i
+  %_children.1.i.i = phi ptr [ %call32.i.i, %if.end39.i.i ], [ %_children.046.i20.i, %if.end28.i.i ]
+  %_children_capacity.1.i.i = phi i64 [ %mul.i.i, %if.end39.i.i ], [ %_children_capacity.047.i19.i, %if.end28.i.i ]
+  %inc41.i.i = add i64 %_n.048.i18.i, 1
+  %arrayidx.i.i = getelementptr ptr, ptr %_children.1.i.i, i64 %_n.048.i18.i
   store ptr %call19.i21.i, ptr %arrayidx.i.i, align 8
   %14 = load i32, ptr %mark, align 8
   %call17.i.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -51304,9 +51304,9 @@ if.end40.i.i:                                     ; preds = %if.end39.i.i, %if.e
   br i1 %tobool18.not.i.i, label %while.end.i.i, label %land.rhs.i.i, !llvm.loop !214
 
 while.end.i.i:                                    ; preds = %if.end40.i.i, %land.rhs.i.i, %land.rhs.i.preheader.i, %while.cond.preheader.i.i
-  %_n.0.lcssa.i.i = phi i64 [ 0, %while.cond.preheader.i.i ], [ 0, %land.rhs.i.preheader.i ], [ %inc41.i.i, %land.rhs.i.i ], [ %inc41.i.i, %if.end40.i.i ]
-  %_children.0.lcssa.i.i = phi ptr [ %call.i.i, %while.cond.preheader.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ], [ %_children.1.i.i, %land.rhs.i.i ], [ %_children.1.i.i, %if.end40.i.i ]
   %_mark.0.lcssa.i.i = phi i32 [ %12, %while.cond.preheader.i.i ], [ %12, %land.rhs.i.preheader.i ], [ %14, %land.rhs.i.i ], [ %14, %if.end40.i.i ]
+  %_children.0.lcssa.i.i = phi ptr [ %call.i.i, %while.cond.preheader.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ], [ %_children.1.i.i, %land.rhs.i.i ], [ %_children.1.i.i, %if.end40.i.i ]
+  %_n.0.lcssa.i.i = phi i64 [ 0, %while.cond.preheader.i.i ], [ 0, %land.rhs.i.preheader.i ], [ %inc41.i.i, %land.rhs.i.i ], [ %inc41.i.i, %if.end40.i.i ]
   store i32 %_mark.0.lcssa.i.i, ptr %mark, align 8
   %arena.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %15 = load ptr, ptr %arena.i.i, align 8
@@ -51538,10 +51538,10 @@ if.end10:                                         ; preds = %if.end3
   br i1 %tobool12.not, label %while.cond, label %return
 
 while.cond:                                       ; preds = %if.end10, %if.end30
+  %_mark.0 = phi i32 [ %6, %if.end30 ], [ %2, %if.end10 ]
   %_children.0 = phi ptr [ %_children.1, %if.end30 ], [ %call, %if.end10 ]
   %_children_capacity.0 = phi i64 [ %_children_capacity.1, %if.end30 ], [ 1, %if.end10 ]
   %_n.0 = phi i64 [ %inc31, %if.end30 ], [ 0, %if.end10 ]
-  %_mark.0 = phi i32 [ %6, %if.end30 ], [ %2, %if.end10 ]
   %4 = load i32, ptr %level, align 8
   %inc.i = add i32 %4, 1
   store i32 %inc.i, ptr %level, align 8
@@ -52348,9 +52348,9 @@ if.end30.i:                                       ; preds = %if.end29.i, %while.
   br i1 %tobool18.not.i, label %while.end.i, label %while.body.i, !llvm.loop !218
 
 while.end.i:                                      ; preds = %if.end30.i, %while.cond.preheader.i
+  %_mark.0.lcssa.i = phi i32 [ %11, %while.cond.preheader.i ], [ %13, %if.end30.i ]
   %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %_children.1.i, %if.end30.i ]
   %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %inc31.i, %if.end30.i ]
-  %_mark.0.lcssa.i = phi i32 [ %11, %while.cond.preheader.i ], [ %13, %if.end30.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %14 = load ptr, ptr %arena.i, align 8
@@ -52891,10 +52891,10 @@ if.end10:                                         ; preds = %if.end3
   br i1 %tobool12.not, label %while.cond, label %return
 
 while.cond:                                       ; preds = %if.end10, %if.end30
+  %_mark.0 = phi i32 [ %6, %if.end30 ], [ %2, %if.end10 ]
   %_children.0 = phi ptr [ %_children.1, %if.end30 ], [ %call, %if.end10 ]
   %_children_capacity.0 = phi i64 [ %_children_capacity.1, %if.end30 ], [ 1, %if.end10 ]
   %_n.0 = phi i64 [ %inc31, %if.end30 ], [ 0, %if.end10 ]
-  %_mark.0 = phi i32 [ %6, %if.end30 ], [ %2, %if.end10 ]
   %4 = load i32, ptr %level, align 8
   %inc.i = add i32 %4, 1
   store i32 %inc.i, ptr %level, align 8
@@ -53048,10 +53048,10 @@ if.end10:                                         ; preds = %if.end3
   br i1 %tobool12.not, label %while.cond, label %return
 
 while.cond:                                       ; preds = %if.end10, %if.end30
+  %_mark.0 = phi i32 [ %6, %if.end30 ], [ %2, %if.end10 ]
   %_children.0 = phi ptr [ %_children.1, %if.end30 ], [ %call, %if.end10 ]
   %_children_capacity.0 = phi i64 [ %_children_capacity.1, %if.end30 ], [ 1, %if.end10 ]
   %_n.0 = phi i64 [ %inc31, %if.end30 ], [ 0, %if.end10 ]
-  %_mark.0 = phi i32 [ %6, %if.end30 ], [ %2, %if.end10 ]
   %4 = load i32, ptr %level, align 8
   %inc.i = add i32 %4, 1
   store i32 %inc.i, ptr %level, align 8
@@ -53313,10 +53313,10 @@ if.end10.i:                                       ; preds = %if.end3.i
   br i1 %tobool12.not.i, label %while.cond.i, label %_loop0_24_rule.exit.thread
 
 while.cond.i:                                     ; preds = %if.end10.i, %if.end30.i
+  %_mark.0.i = phi i32 [ %17, %if.end30.i ], [ %10, %if.end10.i ]
   %_children.0.i = phi ptr [ %_children.1.i, %if.end30.i ], [ %call.i, %if.end10.i ]
   %_children_capacity.0.i = phi i64 [ %_children_capacity.1.i, %if.end30.i ], [ 1, %if.end10.i ]
   %_n.0.i = phi i64 [ %inc31.i, %if.end30.i ], [ 0, %if.end10.i ]
-  %_mark.0.i = phi i32 [ %17, %if.end30.i ], [ %10, %if.end10.i ]
   %12 = load i32, ptr %level, align 8
   %inc.i.i = add i32 %12, 1
   store i32 %inc.i.i, ptr %level, align 8
@@ -53513,10 +53513,10 @@ if.end10.i60:                                     ; preds = %if.end3.i56
   br i1 %tobool12.not.i61, label %while.cond.i62, label %_loop1_25_rule.exit.thread
 
 while.cond.i62:                                   ; preds = %if.end10.i60, %if.end30.i86
-  %_children.0.i63 = phi ptr [ %_children.1.i87, %if.end30.i86 ], [ %call.i58, %if.end10.i60 ]
-  %_children_capacity.0.i64 = phi i64 [ %_children_capacity.1.i88, %if.end30.i86 ], [ 1, %if.end10.i60 ]
-  %_n.0.i65 = phi i64 [ %inc31.i89, %if.end30.i86 ], [ 0, %if.end10.i60 ]
-  %_mark.0.i66 = phi i32 [ %38, %if.end30.i86 ], [ %31, %if.end10.i60 ]
+  %_mark.0.i63 = phi i32 [ %38, %if.end30.i86 ], [ %31, %if.end10.i60 ]
+  %_children.0.i64 = phi ptr [ %_children.1.i87, %if.end30.i86 ], [ %call.i58, %if.end10.i60 ]
+  %_children_capacity.0.i65 = phi i64 [ %_children_capacity.1.i88, %if.end30.i86 ], [ 1, %if.end10.i60 ]
+  %_n.0.i66 = phi i64 [ %inc31.i89, %if.end30.i86 ], [ 0, %if.end10.i60 ]
   %33 = load i32, ptr %level, align 8
   %inc.i.i67 = add i32 %33, 1
   store i32 %inc.i.i67, ptr %level, align 8
@@ -53554,30 +53554,30 @@ while.body.i82:                                   ; preds = %if.end19.i.i101, %i
   %37 = load i32, ptr %level, align 8
   %dec27.i.i84 = add i32 %37, -1
   store i32 %dec27.i.i84, ptr %level, align 8
-  %cmp19.i85 = icmp eq i64 %_n.0.i65, %_children_capacity.0.i64
+  %cmp19.i85 = icmp eq i64 %_n.0.i66, %_children_capacity.0.i65
   br i1 %cmp19.i85, label %if.then20.i91, label %if.end30.i86
 
 if.then20.i91:                                    ; preds = %while.body.i82
-  %mul21.i92 = shl i64 %_children_capacity.0.i64, 4
-  %call22.i93 = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i63, i64 noundef %mul21.i92) #4
+  %mul21.i92 = shl i64 %_children_capacity.0.i65, 4
+  %call22.i93 = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i64, i64 noundef %mul21.i92) #4
   %tobool23.not.i94 = icmp eq ptr %call22.i93, null
   br i1 %tobool23.not.i94, label %if.then24.i97, label %if.end29.i95
 
 if.then24.i97:                                    ; preds = %if.then20.i91
-  tail call void @PyMem_Free(ptr noundef %_children.0.i63) #4
+  tail call void @PyMem_Free(ptr noundef %_children.0.i64) #4
   store i32 1, ptr %error_indicator, align 8
   %call26.i98 = tail call ptr @PyErr_NoMemory() #4
   br label %_loop1_25_rule.exit.thread
 
 if.end29.i95:                                     ; preds = %if.then20.i91
-  %mul.i96 = shl i64 %_children_capacity.0.i64, 1
+  %mul.i96 = shl i64 %_children_capacity.0.i65, 1
   br label %if.end30.i86
 
 if.end30.i86:                                     ; preds = %if.end29.i95, %while.body.i82
-  %_children.1.i87 = phi ptr [ %call22.i93, %if.end29.i95 ], [ %_children.0.i63, %while.body.i82 ]
-  %_children_capacity.1.i88 = phi i64 [ %mul.i96, %if.end29.i95 ], [ %_children_capacity.0.i64, %while.body.i82 ]
-  %inc31.i89 = add i64 %_n.0.i65, 1
-  %arrayidx.i90 = getelementptr ptr, ptr %_children.1.i87, i64 %_n.0.i65
+  %_children.1.i87 = phi ptr [ %call22.i93, %if.end29.i95 ], [ %_children.0.i64, %while.body.i82 ]
+  %_children_capacity.1.i88 = phi i64 [ %mul.i96, %if.end29.i95 ], [ %_children_capacity.0.i65, %while.body.i82 ]
+  %inc31.i89 = add i64 %_n.0.i66, 1
+  %arrayidx.i90 = getelementptr ptr, ptr %_children.1.i87, i64 %_n.0.i66
   store ptr %retval.0.i.i83, ptr %arrayidx.i90, align 8
   %38 = load i32, ptr %mark, align 8
   br label %while.cond.i62, !llvm.loop !226
@@ -53586,8 +53586,8 @@ while.end.i71:                                    ; preds = %if.end19.i.i101, %i
   %39 = load i32, ptr %level, align 8
   %dec27.i40.i = add i32 %39, -1
   store i32 %dec27.i40.i, ptr %level, align 8
-  store i32 %_mark.0.i66, ptr %mark, align 8
-  %cmp34.i = icmp eq i64 %_n.0.i65, 0
+  store i32 %_mark.0.i63, ptr %mark, align 8
+  %cmp34.i = icmp eq i64 %_n.0.i66, 0
   br i1 %cmp34.i, label %if.then37.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %while.end.i71
@@ -53596,18 +53596,18 @@ lor.lhs.false.i:                                  ; preds = %while.end.i71
   br i1 %tobool36.not.i, label %if.end40.i, label %if.then37.i
 
 if.then37.i:                                      ; preds = %lor.lhs.false.i, %while.end.i71
-  tail call void @PyMem_Free(ptr noundef %_children.0.i63) #4
+  tail call void @PyMem_Free(ptr noundef %_children.0.i64) #4
   br label %_loop1_25_rule.exit.thread
 
 if.end40.i:                                       ; preds = %lor.lhs.false.i
   %arena.i72 = getelementptr inbounds i8, ptr %p, i64 32
   %41 = load ptr, ptr %arena.i72, align 8
-  %call41.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i65, ptr noundef %41) #4
+  %call41.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i66, ptr noundef %41) #4
   %tobool42.not.i = icmp eq ptr %call41.i, null
   br i1 %tobool42.not.i, label %if.then43.i, label %for.cond.preheader.i73
 
 for.cond.preheader.i73:                           ; preds = %if.end40.i
-  %cmp4952.i = icmp sgt i64 %_n.0.i65, 0
+  %cmp4952.i = icmp sgt i64 %_n.0.i66, 0
   br i1 %cmp4952.i, label %for.body.lr.ph.i75, label %land.lhs.true76
 
 for.body.lr.ph.i75:                               ; preds = %for.cond.preheader.i73
@@ -53615,7 +53615,7 @@ for.body.lr.ph.i75:                               ; preds = %for.cond.preheader.
   br label %for.body.i77
 
 if.then43.i:                                      ; preds = %if.end40.i
-  tail call void @PyMem_Free(ptr noundef %_children.0.i63) #4
+  tail call void @PyMem_Free(ptr noundef %_children.0.i64) #4
   store i32 1, ptr %error_indicator, align 8
   %call45.i = tail call ptr @PyErr_NoMemory() #4
   br label %_loop1_25_rule.exit.thread
@@ -53623,14 +53623,14 @@ if.then43.i:                                      ; preds = %if.end40.i
 for.body.i77:                                     ; preds = %for.body.i77, %for.body.lr.ph.i75
   %conv54.i = phi i64 [ 0, %for.body.lr.ph.i75 ], [ %conv.i78, %for.body.i77 ]
   %i.053.i = phi i32 [ 0, %for.body.lr.ph.i75 ], [ %inc54.i, %for.body.i77 ]
-  %arrayidx51.i = getelementptr ptr, ptr %_children.0.i63, i64 %conv54.i
+  %arrayidx51.i = getelementptr ptr, ptr %_children.0.i64, i64 %conv54.i
   %42 = load ptr, ptr %arrayidx51.i, align 8
   %43 = load ptr, ptr %elements.i76, align 8
   %arrayidx53.i = getelementptr ptr, ptr %43, i64 %conv54.i
   store ptr %42, ptr %arrayidx53.i, align 8
   %inc54.i = add i32 %i.053.i, 1
   %conv.i78 = sext i32 %inc54.i to i64
-  %cmp49.i = icmp sgt i64 %_n.0.i65, %conv.i78
+  %cmp49.i = icmp sgt i64 %_n.0.i66, %conv.i78
   br i1 %cmp49.i, label %for.body.i77, label %land.lhs.true76, !llvm.loop !227
 
 _loop1_25_rule.exit.thread:                       ; preds = %if.then24.i97, %if.then37.i, %if.then43.i, %if.then5.i105, %if.end.i52, %if.end10.i60
@@ -53640,7 +53640,7 @@ _loop1_25_rule.exit.thread:                       ; preds = %if.then24.i97, %if.
   br label %if.end110
 
 land.lhs.true76:                                  ; preds = %for.body.i77, %for.cond.preheader.i73
-  tail call void @PyMem_Free(ptr noundef %_children.0.i63) #4
+  tail call void @PyMem_Free(ptr noundef %_children.0.i64) #4
   %45 = load i32, ptr %level, align 8
   %dec56.i = add i32 %45, -1
   store i32 %dec56.i, ptr %level, align 8
@@ -54275,31 +54275,31 @@ land.rhs.i.i:                                     ; preds = %if.end40.i.i
 
 if.end28.i.i:                                     ; preds = %land.rhs.i.preheader.i, %land.rhs.i.i
   %call19.i21.i = phi ptr [ %call19.i.i, %land.rhs.i.i ], [ %call19.i16.i, %land.rhs.i.preheader.i ]
-  %_children_capacity.045.i20.i = phi i64 [ %_children_capacity.1.i.i, %land.rhs.i.i ], [ 1, %land.rhs.i.preheader.i ]
-  %_n.046.i19.i = phi i64 [ %inc41.i.i, %land.rhs.i.i ], [ 0, %land.rhs.i.preheader.i ]
-  %_children.047.i18.i = phi ptr [ %_children.1.i.i, %land.rhs.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ]
-  %cmp29.i.i = icmp eq i64 %_n.046.i19.i, %_children_capacity.045.i20.i
+  %_children.046.i20.i = phi ptr [ %_children.1.i.i, %land.rhs.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ]
+  %_children_capacity.047.i19.i = phi i64 [ %_children_capacity.1.i.i, %land.rhs.i.i ], [ 1, %land.rhs.i.preheader.i ]
+  %_n.048.i18.i = phi i64 [ %inc41.i.i, %land.rhs.i.i ], [ 0, %land.rhs.i.preheader.i ]
+  %cmp29.i.i = icmp eq i64 %_n.048.i18.i, %_children_capacity.047.i19.i
   br i1 %cmp29.i.i, label %if.then30.i.i, label %if.end40.i.i
 
 if.then30.i.i:                                    ; preds = %if.end28.i.i
-  %mul31.i.i = shl i64 %_children_capacity.045.i20.i, 4
-  %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18.i, i64 noundef %mul31.i.i) #4
+  %mul31.i.i = shl i64 %_children_capacity.047.i19.i, 4
+  %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.046.i20.i, i64 noundef %mul31.i.i) #4
   %tobool33.not.i.i = icmp eq ptr %call32.i.i, null
   br i1 %tobool33.not.i.i, label %if.then34.i.i, label %if.end39.i.i
 
 if.then34.i.i:                                    ; preds = %if.then30.i.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18.i) #4
+  tail call void @PyMem_Free(ptr noundef %_children.046.i20.i) #4
   br label %_loop0_27_rule.exit.thread.sink.split.i
 
 if.end39.i.i:                                     ; preds = %if.then30.i.i
-  %mul.i.i = shl i64 %_children_capacity.045.i20.i, 1
+  %mul.i.i = shl i64 %_children_capacity.047.i19.i, 1
   br label %if.end40.i.i
 
 if.end40.i.i:                                     ; preds = %if.end39.i.i, %if.end28.i.i
-  %_children_capacity.1.i.i = phi i64 [ %mul.i.i, %if.end39.i.i ], [ %_children_capacity.045.i20.i, %if.end28.i.i ]
-  %_children.1.i.i = phi ptr [ %call32.i.i, %if.end39.i.i ], [ %_children.047.i18.i, %if.end28.i.i ]
-  %inc41.i.i = add i64 %_n.046.i19.i, 1
-  %arrayidx.i.i = getelementptr ptr, ptr %_children.1.i.i, i64 %_n.046.i19.i
+  %_children.1.i.i = phi ptr [ %call32.i.i, %if.end39.i.i ], [ %_children.046.i20.i, %if.end28.i.i ]
+  %_children_capacity.1.i.i = phi i64 [ %mul.i.i, %if.end39.i.i ], [ %_children_capacity.047.i19.i, %if.end28.i.i ]
+  %inc41.i.i = add i64 %_n.048.i18.i, 1
+  %arrayidx.i.i = getelementptr ptr, ptr %_children.1.i.i, i64 %_n.048.i18.i
   store ptr %call19.i21.i, ptr %arrayidx.i.i, align 8
   %8 = load i32, ptr %mark, align 8
   %call17.i.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -54307,9 +54307,9 @@ if.end40.i.i:                                     ; preds = %if.end39.i.i, %if.e
   br i1 %tobool18.not.i.i, label %while.end.i.i, label %land.rhs.i.i, !llvm.loop !228
 
 while.end.i.i:                                    ; preds = %if.end40.i.i, %land.rhs.i.i, %land.rhs.i.preheader.i, %while.cond.preheader.i.i
-  %_n.0.lcssa.i.i = phi i64 [ 0, %while.cond.preheader.i.i ], [ 0, %land.rhs.i.preheader.i ], [ %inc41.i.i, %land.rhs.i.i ], [ %inc41.i.i, %if.end40.i.i ]
-  %_children.0.lcssa.i.i = phi ptr [ %call.i.i, %while.cond.preheader.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ], [ %_children.1.i.i, %land.rhs.i.i ], [ %_children.1.i.i, %if.end40.i.i ]
   %_mark.0.lcssa.i.i = phi i32 [ %6, %while.cond.preheader.i.i ], [ %6, %land.rhs.i.preheader.i ], [ %8, %land.rhs.i.i ], [ %8, %if.end40.i.i ]
+  %_children.0.lcssa.i.i = phi ptr [ %call.i.i, %while.cond.preheader.i.i ], [ %call.i.i, %land.rhs.i.preheader.i ], [ %_children.1.i.i, %land.rhs.i.i ], [ %_children.1.i.i, %if.end40.i.i ]
+  %_n.0.lcssa.i.i = phi i64 [ 0, %while.cond.preheader.i.i ], [ 0, %land.rhs.i.preheader.i ], [ %inc41.i.i, %land.rhs.i.i ], [ %inc41.i.i, %if.end40.i.i ]
   store i32 %_mark.0.lcssa.i.i, ptr %mark, align 8
   %arena.i.i = getelementptr inbounds i8, ptr %p, i64 32
   %9 = load ptr, ptr %arena.i.i, align 8
@@ -54693,27 +54693,27 @@ land.rhs.i:                                       ; preds = %if.end40.i
 
 if.end28.i:                                       ; preds = %land.rhs.i.preheader, %land.rhs.i
   %call19.i60 = phi ptr [ %call19.i, %land.rhs.i ], [ %call19.i55, %land.rhs.i.preheader ]
-  %_children_capacity.0.i3959 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
-  %_n.0.i4058 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
-  %_children.0.i4157 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i24, %land.rhs.i.preheader ]
-  %cmp29.i = icmp eq i64 %_n.0.i4058, %_children_capacity.0.i3959
+  %_children.0.i4059 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i24, %land.rhs.i.preheader ]
+  %_children_capacity.0.i4158 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
+  %_n.0.i4257 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
+  %cmp29.i = icmp eq i64 %_n.0.i4257, %_children_capacity.0.i4158
   br i1 %cmp29.i, label %if.then30.i, label %if.end40.i
 
 if.then30.i:                                      ; preds = %if.end28.i
-  %mul31.i = shl i64 %_n.0.i4058, 4
-  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i4157, i64 noundef %mul31.i) #4
+  %mul31.i = shl i64 %_n.0.i4257, 4
+  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i4059, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
   br i1 %tobool33.not.i, label %if.end15.i.sink.split.sink.split.sink.split, label %if.end39.i
 
 if.end39.i:                                       ; preds = %if.then30.i
-  %mul.i = shl i64 %_n.0.i4058, 1
+  %mul.i = shl i64 %_n.0.i4257, 1
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end39.i, %if.end28.i
-  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.0.i3959, %if.end28.i ]
-  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.0.i4157, %if.end28.i ]
-  %inc41.i = add i64 %_n.0.i4058, 1
-  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.0.i4058
+  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.0.i4059, %if.end28.i ]
+  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.0.i4158, %if.end28.i ]
+  %inc41.i = add i64 %_n.0.i4257, 1
+  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.0.i4257
   store ptr %call19.i60, ptr %arrayidx.i, align 8
   %9 = load i32, ptr %mark, align 8
   %call17.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -54721,9 +54721,9 @@ if.end40.i:                                       ; preds = %if.end39.i, %if.end
   br i1 %tobool18.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !230
 
 while.end.i:                                      ; preds = %land.rhs.i, %if.end40.i, %land.rhs.i.preheader, %while.cond.i.preheader
-  %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
-  %_children.0.i.lcssa = phi ptr [ %call.i24, %while.cond.i.preheader ], [ %call.i24, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.i.lcssa = phi i32 [ %7, %while.cond.i.preheader ], [ %7, %land.rhs.i.preheader ], [ %9, %if.end40.i ], [ %9, %land.rhs.i ]
+  %_children.0.i.lcssa = phi ptr [ %call.i24, %while.cond.i.preheader ], [ %call.i24, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
+  %_n.0.i.lcssa = phi i64 [ 0, %while.cond.i.preheader ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
   store i32 %_mark.0.i.lcssa, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %10 = load ptr, ptr %arena.i, align 8
@@ -54753,7 +54753,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp52.i, label %for.body.i, label %_gather_139_rule.exit, !llvm.loop !231
 
 if.end15.i.sink.split.sink.split.sink.split:      ; preds = %if.then30.i, %while.end.i
-  %_children.0.i.lcssa.sink = phi ptr [ %_children.0.i.lcssa, %while.end.i ], [ %_children.0.i4157, %if.then30.i ]
+  %_children.0.i.lcssa.sink = phi ptr [ %_children.0.i.lcssa, %while.end.i ], [ %_children.0.i4059, %if.then30.i ]
   tail call void @PyMem_Free(ptr noundef %_children.0.i.lcssa.sink) #4
   br label %if.end15.i.sink.split.sink.split
 
@@ -55415,31 +55415,31 @@ land.rhs.i:                                       ; preds = %if.end40.i
 
 if.end28.i:                                       ; preds = %land.rhs.i.preheader, %land.rhs.i
   %call19.i21 = phi ptr [ %call19.i, %land.rhs.i ], [ %call19.i16, %land.rhs.i.preheader ]
-  %_children_capacity.045.i20 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
-  %_n.046.i19 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
-  %_children.047.i18 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i, %land.rhs.i.preheader ]
-  %cmp29.i = icmp eq i64 %_n.046.i19, %_children_capacity.045.i20
+  %_children.046.i20 = phi ptr [ %_children.1.i, %land.rhs.i ], [ %call.i, %land.rhs.i.preheader ]
+  %_children_capacity.047.i19 = phi i64 [ %_children_capacity.1.i, %land.rhs.i ], [ 1, %land.rhs.i.preheader ]
+  %_n.048.i18 = phi i64 [ %inc41.i, %land.rhs.i ], [ 0, %land.rhs.i.preheader ]
+  %cmp29.i = icmp eq i64 %_n.048.i18, %_children_capacity.047.i19
   br i1 %cmp29.i, label %if.then30.i, label %if.end40.i
 
 if.then30.i:                                      ; preds = %if.end28.i
-  %mul31.i = shl i64 %_children_capacity.045.i20, 4
-  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.047.i18, i64 noundef %mul31.i) #4
+  %mul31.i = shl i64 %_children_capacity.047.i19, 4
+  %call32.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.046.i20, i64 noundef %mul31.i) #4
   %tobool33.not.i = icmp eq ptr %call32.i, null
   br i1 %tobool33.not.i, label %if.then34.i, label %if.end39.i
 
 if.then34.i:                                      ; preds = %if.then30.i
-  tail call void @PyMem_Free(ptr noundef %_children.047.i18) #4
+  tail call void @PyMem_Free(ptr noundef %_children.046.i20) #4
   br label %_loop0_148_rule.exit.thread.sink.split
 
 if.end39.i:                                       ; preds = %if.then30.i
-  %mul.i = shl i64 %_children_capacity.045.i20, 1
+  %mul.i = shl i64 %_children_capacity.047.i19, 1
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.end39.i, %if.end28.i
-  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.045.i20, %if.end28.i ]
-  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.047.i18, %if.end28.i ]
-  %inc41.i = add i64 %_n.046.i19, 1
-  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.046.i19
+  %_children.1.i = phi ptr [ %call32.i, %if.end39.i ], [ %_children.046.i20, %if.end28.i ]
+  %_children_capacity.1.i = phi i64 [ %mul.i, %if.end39.i ], [ %_children_capacity.047.i19, %if.end28.i ]
+  %inc41.i = add i64 %_n.048.i18, 1
+  %arrayidx.i = getelementptr ptr, ptr %_children.1.i, i64 %_n.048.i18
   store ptr %call19.i21, ptr %arrayidx.i, align 8
   %7 = load i32, ptr %mark, align 8
   %call17.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
@@ -55447,9 +55447,9 @@ if.end40.i:                                       ; preds = %if.end39.i, %if.end
   br i1 %tobool18.not.i, label %while.end.i, label %land.rhs.i, !llvm.loop !232
 
 while.end.i:                                      ; preds = %land.rhs.i, %if.end40.i, %land.rhs.i.preheader, %while.cond.preheader.i
-  %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
-  %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
   %_mark.0.lcssa.i = phi i32 [ %5, %while.cond.preheader.i ], [ %5, %land.rhs.i.preheader ], [ %7, %if.end40.i ], [ %7, %land.rhs.i ]
+  %_children.0.lcssa.i = phi ptr [ %call.i, %while.cond.preheader.i ], [ %call.i, %land.rhs.i.preheader ], [ %_children.1.i, %if.end40.i ], [ %_children.1.i, %land.rhs.i ]
+  %_n.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ 0, %land.rhs.i.preheader ], [ %inc41.i, %if.end40.i ], [ %inc41.i, %land.rhs.i ]
   store i32 %_mark.0.lcssa.i, ptr %mark, align 8
   %arena.i = getelementptr inbounds i8, ptr %p, i64 32
   %8 = load ptr, ptr %arena.i, align 8

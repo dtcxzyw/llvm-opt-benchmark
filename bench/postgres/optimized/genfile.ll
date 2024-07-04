@@ -98,11 +98,11 @@ define dso_local i64 @pg_read_file(ptr nocapture noundef %0) local_unnamed_addr 
   br label %.thread
 
 .thread:                                          ; preds = %12, %27, %26
-  %.01523 = phi i64 [ %18, %27 ], [ %18, %26 ], [ 0, %12 ]
-  %.01722 = phi i64 [ %20, %27 ], [ %20, %26 ], [ -1, %12 ]
-  %.016 = phi i1 [ %30, %27 ], [ false, %26 ], [ false, %12 ]
+  %.01623 = phi i64 [ %20, %27 ], [ %20, %26 ], [ -1, %12 ]
+  %.01722 = phi i64 [ %18, %27 ], [ %18, %26 ], [ 0, %12 ]
+  %.015 = phi i1 [ %30, %27 ], [ false, %26 ], [ false, %12 ]
   %31 = tail call fastcc ptr @convert_and_check_filename(ptr noundef %5)
-  %32 = tail call fastcc ptr @read_binary_file(ptr noundef %31, i64 noundef %.01523, i64 noundef %.01722, i1 noundef zeroext %.016)
+  %32 = tail call fastcc ptr @read_binary_file(ptr noundef %31, i64 noundef %.01722, i64 noundef %.01623, i1 noundef zeroext %.015)
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %40, label %33
 
@@ -640,7 +640,7 @@ define dso_local noundef i64 @pg_ls_dir(ptr noundef %0) local_unnamed_addr #0 {
   br label %22
 
 22:                                               ; preds = %18, %14
-  %.020 = phi i1 [ false, %14 ], [ %21, %18 ]
+  %.021 = phi i1 [ false, %14 ], [ %21, %18 ]
   %23 = getelementptr i8, ptr %0, i64 72
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
@@ -653,8 +653,8 @@ define dso_local noundef i64 @pg_ls_dir(ptr noundef %0) local_unnamed_addr #0 {
   br label %30
 
 30:                                               ; preds = %22, %26, %1
-  %.021 = phi i1 [ false, %22 ], [ %29, %26 ], [ false, %1 ]
-  %.1 = phi i1 [ %.020, %22 ], [ %.020, %26 ], [ false, %1 ]
+  %.1 = phi i1 [ %.021, %22 ], [ %.021, %26 ], [ false, %1 ]
+  %.020 = phi i1 [ false, %22 ], [ %29, %26 ], [ false, %1 ]
   tail call void @InitMaterializedSRF(ptr noundef nonnull %0, i32 noundef 1) #8
   %31 = tail call ptr @AllocateDir(ptr noundef %10) #8
   %.not = icmp eq ptr %31, null
@@ -675,7 +675,7 @@ define dso_local noundef i64 @pg_ls_dir(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %36
   %38 = getelementptr inbounds i8, ptr %5, i64 40
   %39 = getelementptr inbounds i8, ptr %5, i64 48
-  br i1 %.021, label %.backedge.us, label %sub_0
+  br i1 %.020, label %.backedge.us, label %sub_0
 
 .backedge.us:                                     ; preds = %.lr.ph, %.backedge.us
   %40 = phi ptr [ %46, %.backedge.us ], [ %37, %.lr.ph ]

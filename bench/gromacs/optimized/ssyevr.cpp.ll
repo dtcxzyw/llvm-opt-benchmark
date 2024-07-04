@@ -49,7 +49,7 @@ define void @ssyevr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %51 = mul nsw i32 %50, 26
   store i32 %51, ptr %23, align 4
   %52 = icmp sgt i32 %50, 0
-  %.0284 = select i1 %52, i32 %51, i32 1
+  %.0281 = select i1 %52, i32 %51, i32 1
   %53 = mul nuw nsw i32 %50, 10
   %.0 = select i1 %52, i32 %53, i32 1
   store i32 0, ptr %20, align 4
@@ -185,7 +185,7 @@ define void @ssyevr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 95:                                               ; preds = %91, %92
   %96 = load i32, ptr %17, align 4
-  %97 = icmp sge i32 %96, %.0284
+  %97 = icmp sge i32 %96, %.0281
   %or.cond5 = select i1 %97, i1 true, i1 %49
   br i1 %or.cond5, label %99, label %98
 
@@ -205,7 +205,7 @@ define void @ssyevr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .thread:                                          ; preds = %99
   %103 = mul nuw nsw i32 %64, 33
-  %104 = tail call i32 @llvm.smax.i32(i32 %103, i32 %.0284)
+  %104 = tail call i32 @llvm.smax.i32(i32 %103, i32 %.0281)
   %105 = uitofp nneg i32 %104 to float
   store float %105, ptr %16, align 4
   store i32 %.0, ptr %18, align 4
@@ -423,15 +423,15 @@ define void @ssyevr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph349:                                        ; preds = %.lr.ph349.preheader, %.lr.ph349
   %indvars.iv = phi i64 [ %185, %.lr.ph349.preheader ], [ %indvars.iv.next, %.lr.ph349 ]
-  %.0280348 = phi i32 [ 0, %.lr.ph349.preheader ], [ %.1, %.lr.ph349 ]
-  %.0282346 = phi float [ %187, %.lr.ph349.preheader ], [ %.1283, %.lr.ph349 ]
+  %.0282348 = phi i32 [ 0, %.lr.ph349.preheader ], [ %.1, %.lr.ph349 ]
+  %.0284346 = phi float [ %187, %.lr.ph349.preheader ], [ %.1285, %.lr.ph349 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %189 = getelementptr float, ptr %12, i64 %indvars.iv
   %190 = load float, ptr %189, align 4
-  %191 = fcmp olt float %190, %.0282346
-  %.1283 = select i1 %191, float %190, float %.0282346
+  %191 = fcmp olt float %190, %.0284346
+  %.1285 = select i1 %191, float %190, float %.0284346
   %192 = trunc nsw i64 %indvars.iv.next to i32
-  %.1 = select i1 %191, i32 %192, i32 %.0280348
+  %.1 = select i1 %191, i32 %192, i32 %.0282348
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph349, !llvm.loop !7
 
@@ -448,7 +448,7 @@ define void @ssyevr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %gep354 = getelementptr i32, ptr %invariant.gep351, i64 %185
   %197 = load i32, ptr %gep354, align 4
   store i32 %197, ptr %gep352, align 4
-  store float %.1283, ptr %186, align 4
+  store float %.1285, ptr %186, align 4
   store i32 %195, ptr %gep354, align 4
   %198 = mul nsw i32 %.1, %36
   %199 = sext i32 %198 to i64

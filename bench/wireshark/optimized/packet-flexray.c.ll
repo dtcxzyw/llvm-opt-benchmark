@@ -464,7 +464,7 @@ define internal i32 @dissect_flexray(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %44
 
 44:                                               ; preds = %42, %34
-  %.0 = phi i32 [ 0, %42 ], [ 1, %34 ]
+  %.093 = phi i32 [ 0, %42 ], [ 1, %34 ]
   %45 = call i32 @tvb_captured_length(ptr noundef %0) #8
   %46 = load i32, ptr @hf_flexray_frame_header, align 4
   %47 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %46, ptr noundef %0, i32 noundef 2, i32 noundef -1, i32 noundef 0) #8
@@ -492,7 +492,7 @@ define internal i32 @dissect_flexray(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %66
 
 66:                                               ; preds = %64, %44
-  %.1 = phi i32 [ %.0, %44 ], [ 0, %64 ]
+  %.1 = phi i32 [ %.093, %44 ], [ 0, %64 ]
   %67 = load i32, ptr @hf_flexray_fid, align 4
   %68 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %49, i32 noundef %67, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %10) #8
   %69 = load ptr, ptr %15, align 8
@@ -507,7 +507,7 @@ define internal i32 @dissect_flexray(ptr noundef %0, ptr noundef %1, ptr noundef
   %77 = icmp sgt i32 %75, %76
   %78 = icmp slt i32 %75, %76
   %79 = call i32 @llvm.smax.i32(i32 %75, i32 0)
-  %.093 = select i1 %78, i32 %79, i32 %76
+  %.0 = select i1 %78, i32 %79, i32 %76
   %80 = load i32, ptr @hf_flexray_hcrc, align 4
   %81 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %80, ptr noundef %0, i32 noundef 4, i32 noundef 3, i32 noundef 0) #8
   %82 = load i32, ptr @hf_flexray_cc, align 4
@@ -531,7 +531,7 @@ define internal i32 @dissect_flexray(ptr noundef %0, ptr noundef %1, ptr noundef
 91:                                               ; preds = %89, %87
   %.3 = phi i32 [ 0, %89 ], [ %spec.select, %87 ]
   %92 = icmp ne ptr %0, null
-  %93 = icmp sgt i32 %.093, 0
+  %93 = icmp sgt i32 %.0, 0
   %or.cond3 = and i1 %92, %93
   br i1 %or.cond3, label %94, label %104
 
@@ -539,14 +539,14 @@ define internal i32 @dissect_flexray(ptr noundef %0, ptr noundef %1, ptr noundef
   %95 = load ptr, ptr %15, align 8
   %96 = getelementptr inbounds i8, ptr %1, i64 408
   %97 = load ptr, ptr %96, align 8
-  %98 = call ptr @tvb_bytes_to_str_punct(ptr noundef %97, ptr noundef nonnull %0, i32 noundef 7, i32 noundef %.093, i8 noundef signext 32) #8
+  %98 = call ptr @tvb_bytes_to_str_punct(ptr noundef %97, ptr noundef nonnull %0, i32 noundef 7, i32 noundef %.0, i8 noundef signext 32) #8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %95, i32 noundef 25, ptr noundef nonnull @.str.91, ptr noundef %98) #8
   br label %104
 
 99:                                               ; preds = %66
   %100 = load ptr, ptr %15, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %100, i32 noundef 25, ptr noundef nonnull @.str.92) #8
-  %101 = icmp ne i32 %.093, 0
+  %101 = icmp ne i32 %.0, 0
   %or.cond5 = and i1 %77, %101
   br i1 %or.cond5, label %102, label %104
 
@@ -597,11 +597,11 @@ define internal i32 @dissect_flexray(ptr noundef %0, ptr noundef %1, ptr noundef
 
 proto_item_set_hidden.exit:                       ; preds = %104, %122, %125
   %129 = call i32 @flexray_set_source_and_destination_columns(ptr noundef nonnull %1, ptr noundef nonnull %13)
-  %130 = icmp sgt i32 %.093, 0
+  %130 = icmp sgt i32 %.0, 0
   br i1 %130, label %131, label %144
 
 131:                                              ; preds = %proto_item_set_hidden.exit
-  %132 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 7, i32 noundef %.093) #8
+  %132 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 7, i32 noundef %.0) #8
   %.not100 = icmp eq i32 %.4, 0
   br i1 %.not100, label %136, label %133
 

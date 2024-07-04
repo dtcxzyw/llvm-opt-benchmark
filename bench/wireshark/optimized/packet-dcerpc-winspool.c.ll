@@ -1108,23 +1108,23 @@ define hidden i32 @iremotewinspool_dissect_struct_winspool_NOTIFY_REPLY_CONTAINE
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #3
   %29 = load i32, ptr @ett_iremotewinspool_winspool_NOTIFY_REPLY_CONTAINER, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #3
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_iremotewinspool_winspool_NOTIFY_REPLY_CONTAINER_pInfo, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_NOTIFY_REPLY_CONTAINER_pInfo_, i32 noundef 2, ptr noundef nonnull @.str.510, i32 noundef %32) #3
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #3
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_NOTIFY_REPLY_CONTAINER_pInfo_, i32 noundef 2, ptr noundef nonnull @.str.510, i32 noundef %32) #3
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #3
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -1193,23 +1193,23 @@ define hidden i32 @iremotewinspool_dissect_struct_winspool_NOTIFY_OPTIONS_CONTAI
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #3
   %29 = load i32, ptr @ett_iremotewinspool_winspool_NOTIFY_OPTIONS_CONTAINER, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #3
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_iremotewinspool_winspool_NOTIFY_OPTIONS_CONTAINER_pOptions, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_NOTIFY_OPTIONS_CONTAINER_pOptions_, i32 noundef 2, ptr noundef nonnull @.str.511, i32 noundef %32) #3
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #3
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_NOTIFY_OPTIONS_CONTAINER_pOptions_, i32 noundef 2, ptr noundef nonnull @.str.511, i32 noundef %32) #3
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #3
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -1276,39 +1276,39 @@ define hidden i32 @iremotewinspool_dissect_struct_winspool_PrintPropertyValue(pt
   %or.cond = or i1 %.not32, %.not
   %16 = and i32 %1, -8
   %17 = add i32 %16, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %17
+  %.030 = select i1 %or.cond, i32 %1, i32 %17
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %22, label %18
 
 18:                                               ; preds = %8
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #3
   %20 = load i32, ptr @ett_iremotewinspool_winspool_PrintPropertyValue, align 4
   %21 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %20) #3
   br label %22
 
 22:                                               ; preds = %18, %8
-  %.030 = phi ptr [ %19, %18 ], [ null, %8 ]
-  %.029 = phi ptr [ %21, %18 ], [ null, %8 ]
+  %.029 = phi ptr [ %19, %18 ], [ null, %8 ]
+  %.0 = phi ptr [ %21, %18 ], [ null, %8 ]
   %23 = load i32, ptr @hf_iremotewinspool_winspool_PrintPropertyValue_PropertyType, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   store i32 0, ptr %12, align 4
-  %24 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %12) #3
+  %24 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %12) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %25 = load i32, ptr @hf_iremotewinspool_winspool_PrintPropertyValue_value, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store ptr null, ptr %10, align 8
-  %.not.i.i = icmp eq ptr %.029, null
+  %.not.i.i = icmp eq ptr %.0, null
   br i1 %.not.i.i, label %29, label %26
 
 26:                                               ; preds = %22
   %27 = load i32, ptr @ett_iremotewinspool_winspool_PrintPropertyValueUnion, align 4
-  %28 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.029, ptr noundef %0, i32 noundef %24, i32 noundef -1, i32 noundef %27, ptr noundef nonnull %10, ptr noundef nonnull @.str.512) #3
+  %28 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %24, i32 noundef -1, i32 noundef %27, ptr noundef nonnull %10, ptr noundef nonnull @.str.512) #3
   br label %29
 
 29:                                               ; preds = %26, %22
-  %.071.i.i = phi ptr [ %28, %26 ], [ null, %22 ]
-  %30 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.071.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef nonnull %11) #3
+  %.0.i.i = phi ptr [ %28, %26 ], [ null, %22 ]
+  %30 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef nonnull %11) #3
   %31 = load i32, ptr %13, align 4
   %.not73.i.i = icmp ne i32 %31, 0
   %32 = and i32 %30, 7
@@ -1316,7 +1316,7 @@ define hidden i32 @iremotewinspool_dissect_struct_winspool_PrintPropertyValue(pt
   %or.cond.i.i = select i1 %.not73.i.i, i1 true, i1 %.not74.i.i
   %33 = and i32 %30, -8
   %34 = add i32 %33, 8
-  %.0.i.i = select i1 %or.cond.i.i, i32 %30, i32 %34
+  %.071.i.i = select i1 %or.cond.i.i, i32 %30, i32 %34
   %35 = load i32, ptr %11, align 4
   switch i32 %35, label %iremotewinspool_dissect_element_winspool_PrintPropertyValue_value.exit [
     i32 1, label %36
@@ -1332,30 +1332,30 @@ define hidden i32 @iremotewinspool_dissect_struct_winspool_PrintPropertyValue(pt
 
 36:                                               ; preds = %29
   %37 = load i32, ptr @hf_iremotewinspool_winspool_PrintPropertyValueUnion_propertyString, align 4
-  %38 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.071.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_PrintPropertyValueUnion_propertyString_, i32 noundef 2, ptr noundef nonnull @.str.513, i32 noundef %37) #3
+  %38 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.071.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_PrintPropertyValueUnion_propertyString_, i32 noundef 2, ptr noundef nonnull @.str.513, i32 noundef %37) #3
   br label %iremotewinspool_dissect_element_winspool_PrintPropertyValue_value.exit
 
 39:                                               ; preds = %29
   %40 = load i32, ptr @hf_iremotewinspool_winspool_PrintPropertyValueUnion_propertyInt32, align 4
-  %41 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.071.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #3
+  %41 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.071.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #3
   br label %iremotewinspool_dissect_element_winspool_PrintPropertyValue_value.exit
 
 42:                                               ; preds = %29
   %43 = load i32, ptr @hf_iremotewinspool_winspool_PrintPropertyValueUnion_propertyInt64, align 4
-  %44 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.071.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, ptr noundef null) #3
+  %44 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.071.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, ptr noundef null) #3
   br label %iremotewinspool_dissect_element_winspool_PrintPropertyValue_value.exit
 
 45:                                               ; preds = %29
   %46 = load i32, ptr @hf_iremotewinspool_winspool_PrintPropertyValueUnion_propertyByte, align 4
-  %47 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.071.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #3
+  %47 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.071.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #3
   br label %iremotewinspool_dissect_element_winspool_PrintPropertyValue_value.exit
 
 48:                                               ; preds = %29
-  %49 = call i32 @dissect_ndr_byte_array(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.071.i.i, ptr noundef nonnull %4, ptr noundef %5) #3
+  %49 = call i32 @dissect_ndr_byte_array(ptr noundef %0, i32 noundef %.071.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5) #3
   br label %iremotewinspool_dissect_element_winspool_PrintPropertyValue_value.exit
 
 50:                                               ; preds = %29
-  %51 = call i32 @dissect_DEVMODE_CTR(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.071.i.i, ptr noundef nonnull %4, ptr noundef %5) #3
+  %51 = call i32 @dissect_DEVMODE_CTR(ptr noundef %0, i32 noundef %.071.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5) #3
   br label %iremotewinspool_dissect_element_winspool_PrintPropertyValue_value.exit
 
 52:                                               ; preds = %29
@@ -1365,37 +1365,37 @@ define hidden i32 @iremotewinspool_dissect_struct_winspool_PrintPropertyValue(pt
 
 53:                                               ; preds = %52
   %54 = load i32, ptr @hf_iremotewinspool_sec_desc_buf_len, align 4
-  %55 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.071.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, ptr noundef nonnull %9) #3
+  %55 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.071.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, ptr noundef nonnull %9) #3
   %56 = load i32, ptr %9, align 4
-  %57 = call i32 @dissect_nt_sec_desc(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.071.i.i, ptr noundef %5, i32 noundef 1, i32 noundef %56, ptr noundef nonnull @spoolss_printer_access_mask_info) #3
+  %57 = call i32 @dissect_nt_sec_desc(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef %5, i32 noundef 1, i32 noundef %56, ptr noundef nonnull @spoolss_printer_access_mask_info) #3
   %58 = load i32, ptr %9, align 4
   %59 = add i32 %58, %55
   br label %iremotewinspool_dissect_element_winspool_PrintPropertyValueUnion_propertySDContainer.exit.i.i
 
 iremotewinspool_dissect_element_winspool_PrintPropertyValueUnion_propertySDContainer.exit.i.i: ; preds = %53, %52
-  %.0.i.i.i.i = phi i32 [ %59, %53 ], [ %.0.i.i, %52 ]
+  %.0.i.i.i.i = phi i32 [ %59, %53 ], [ %.071.i.i, %52 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br label %iremotewinspool_dissect_element_winspool_PrintPropertyValue_value.exit
 
 60:                                               ; preds = %29
   %61 = load i32, ptr @hf_iremotewinspool_winspool_PrintPropertyValueUnion_propertyReplyContainer, align 4
-  %62 = call i32 @iremotewinspool_dissect_struct_winspool_NOTIFY_REPLY_CONTAINER(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.071.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %61, i32 poison)
+  %62 = call i32 @iremotewinspool_dissect_struct_winspool_NOTIFY_REPLY_CONTAINER(ptr noundef %0, i32 noundef %.071.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %61, i32 poison)
   br label %iremotewinspool_dissect_element_winspool_PrintPropertyValue_value.exit
 
 63:                                               ; preds = %29
   %64 = load i32, ptr @hf_iremotewinspool_winspool_PrintPropertyValueUnion_propertyOptionsContainer, align 4
-  %65 = call i32 @iremotewinspool_dissect_struct_winspool_NOTIFY_OPTIONS_CONTAINER(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.071.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, i32 poison)
+  %65 = call i32 @iremotewinspool_dissect_struct_winspool_NOTIFY_OPTIONS_CONTAINER(ptr noundef %0, i32 noundef %.071.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, i32 poison)
   br label %iremotewinspool_dissect_element_winspool_PrintPropertyValue_value.exit
 
 iremotewinspool_dissect_element_winspool_PrintPropertyValue_value.exit: ; preds = %29, %36, %39, %42, %45, %48, %50, %iremotewinspool_dissect_element_winspool_PrintPropertyValueUnion_propertySDContainer.exit.i.i, %60, %63
-  %.1.i.i = phi i32 [ %.0.i.i, %29 ], [ %65, %63 ], [ %62, %60 ], [ %.0.i.i.i.i, %iremotewinspool_dissect_element_winspool_PrintPropertyValueUnion_propertySDContainer.exit.i.i ], [ %51, %50 ], [ %49, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ]
+  %.1.i.i = phi i32 [ %.071.i.i, %29 ], [ %65, %63 ], [ %62, %60 ], [ %.0.i.i.i.i, %iremotewinspool_dissect_element_winspool_PrintPropertyValueUnion_propertySDContainer.exit.i.i ], [ %51, %50 ], [ %49, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %39 ], [ %38, %36 ]
   %66 = load ptr, ptr %10, align 8
   %67 = sub i32 %.1.i.i, %24
   call void @proto_item_set_len(ptr noundef %66, i32 noundef %67) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  %68 = sub i32 %.1.i.i, %.0
-  call void @proto_item_set_len(ptr noundef %.030, i32 noundef %68) #3
+  %68 = sub i32 %.1.i.i, %.030
+  call void @proto_item_set_len(ptr noundef %.029, i32 noundef %68) #3
   %69 = getelementptr inbounds i8, ptr %4, i64 72
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 96
@@ -1432,25 +1432,25 @@ define hidden i32 @iremotewinspool_dissect_struct_winspool_PrintNamedProperty(pt
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #3
   %16 = load i32, ptr @ett_iremotewinspool_winspool_PrintNamedProperty, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #3
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_iremotewinspool_winspool_PrintNamedProperty_propertyName, align 4
-  %20 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_PrintNamedProperty_propertyName_, i32 noundef 2, ptr noundef nonnull @.str.515, i32 noundef %19) #3
+  %20 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_PrintNamedProperty_propertyName_, i32 noundef 2, ptr noundef nonnull @.str.515, i32 noundef %19) #3
   %21 = load i32, ptr @hf_iremotewinspool_winspool_PrintNamedProperty_propertyValue, align 4
-  %22 = tail call i32 @iremotewinspool_dissect_struct_winspool_PrintPropertyValue(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #3
+  %22 = tail call i32 @iremotewinspool_dissect_struct_winspool_PrintPropertyValue(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #3
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -1513,25 +1513,25 @@ define hidden i32 @iremotewinspool_dissect_struct_winspool_PrintPropertiesCollec
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #3
   %29 = load i32, ptr @ett_iremotewinspool_winspool_PrintPropertiesCollection, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #3
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_iremotewinspool_winspool_PrintPropertiesCollection_numberOfProperties, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #3
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #3
   %34 = load i32, ptr @hf_iremotewinspool_winspool_PrintPropertiesCollection_propertiesCollection, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_PrintPropertiesCollection_propertiesCollection_, i32 noundef 2, ptr noundef nonnull @.str.516, i32 noundef %34) #3
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #3
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @iremotewinspool_dissect_element_winspool_PrintPropertiesCollection_propertiesCollection_, i32 noundef 2, ptr noundef nonnull @.str.516, i32 noundef %34) #3
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #3
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8

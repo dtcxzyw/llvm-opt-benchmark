@@ -1035,9 +1035,9 @@ define i32 @opal_graph_get_adjacent_vertices(ptr noundef readnone %0, ptr nocapt
   %13 = load volatile i64, ptr %12, align 8
   %14 = trunc i64 %13 to i32
   %15 = getelementptr inbounds i8, ptr %11, i64 32
-  %.01214 = load volatile ptr, ptr %15, align 8
+  %.014 = load volatile ptr, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %11, i64 16
-  %.not1315 = icmp eq ptr %.01214, %16
+  %.not1315 = icmp eq ptr %.014, %16
   br i1 %.not1315, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
@@ -1048,11 +1048,11 @@ define i32 @opal_graph_get_adjacent_vertices(ptr noundef readnone %0, ptr nocapt
   br label %20
 
 20:                                               ; preds = %.lr.ph, %opal_value_array_append_item.exit
-  %.01216 = phi ptr [ %.01214, %.lr.ph ], [ %.012, %opal_value_array_append_item.exit ]
-  %21 = getelementptr inbounds i8, ptr %.01216, i64 48
+  %.016 = phi ptr [ %.014, %.lr.ph ], [ %.0, %opal_value_array_append_item.exit ]
+  %21 = getelementptr inbounds i8, ptr %.016, i64 48
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %.01216, i64 56
+  %23 = getelementptr inbounds i8, ptr %.016, i64 56
   %24 = load i32, ptr %23, align 8
   store i32 %24, ptr %.8..8..8..sroa_idx, align 8
   %25 = load i64, ptr %17, align 8
@@ -1070,16 +1070,16 @@ define i32 @opal_graph_get_adjacent_vertices(ptr noundef readnone %0, ptr nocapt
   br label %opal_value_array_append_item.exit
 
 opal_value_array_append_item.exit:                ; preds = %20, %28
-  %33 = getelementptr inbounds i8, ptr %.01216, i64 16
-  %.012 = load volatile ptr, ptr %33, align 8
+  %33 = getelementptr inbounds i8, ptr %.016, i64 16
+  %.0 = load volatile ptr, ptr %33, align 8
   %34 = load ptr, ptr %10, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 16
-  %.not13 = icmp eq ptr %.012, %35
+  %.not13 = icmp eq ptr %.0, %35
   br i1 %.not13, label %.loopexit, label %20, !llvm.loop !16
 
 .loopexit:                                        ; preds = %opal_value_array_append_item.exit, %7, %3
-  %.0 = phi i32 [ 0, %3 ], [ %14, %7 ], [ %14, %opal_value_array_append_item.exit ]
-  ret i32 %.0
+  %.012 = phi i32 [ 0, %3 ], [ %14, %7 ], [ %14, %opal_value_array_append_item.exit ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1201,7 +1201,7 @@ opal_value_array_get_item.exit:                   ; preds = %39, %.lr.ph
   br label %.loopexit
 
 .loopexit:                                        ; preds = %37, %opal_value_array_reserve.exit, %48
-  %.024 = phi i32 [ %51, %48 ], [ 2147483647, %opal_value_array_reserve.exit ], [ 2147483647, %37 ]
+  %.023 = phi i32 [ %51, %48 ], [ 2147483647, %opal_value_array_reserve.exit ], [ 2147483647, %37 ]
   %52 = getelementptr inbounds i8, ptr %11, i64 8
   %53 = load i8, ptr @opal_uses_threads, align 1
   %54 = trunc i8 %53 to i1
@@ -1246,8 +1246,8 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %63
   br label %71
 
 71:                                               ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %6, %3
-  %.023 = phi i32 [ 2147483647, %3 ], [ 2147483647, %6 ], [ %.024, %opal_thread_add_fetch_32.exit ], [ %.024, %opal_obj_run_destructors.exit ]
-  ret i32 %.023
+  %.024 = phi i32 [ 2147483647, %3 ], [ 2147483647, %6 ], [ %.023, %opal_thread_add_fetch_32.exit ], [ %.023, %opal_obj_run_destructors.exit ]
+  ret i32 %.024
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1267,8 +1267,8 @@ define i32 @opal_graph_dijkstra(ptr noundef readonly %0, ptr noundef readonly %1
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 32
   %15 = getelementptr inbounds i8, ptr %13, i64 16
-  %.05058 = load volatile ptr, ptr %14, align 8
-  %.not5659 = icmp eq ptr %.05058, %15
+  %.04958 = load volatile ptr, ptr %14, align 8
+  %.not5659 = icmp eq ptr %.04958, %15
   br i1 %.not5659, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %6
@@ -1277,8 +1277,8 @@ define i32 @opal_graph_dijkstra(ptr noundef readonly %0, ptr noundef readonly %1
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %6 ]
-  %.05061 = phi ptr [ %.050, %.lr.ph ], [ %.05058, %6 ]
-  %16 = getelementptr inbounds i8, ptr %.05061, i64 40
+  %.04961 = phi ptr [ %.049, %.lr.ph ], [ %.04958, %6 ]
+  %16 = getelementptr inbounds i8, ptr %.04961, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds %struct.vertex_distance_from_t, ptr %11, i64 %indvars.iv
   store ptr %17, ptr %18, align 8
@@ -1287,9 +1287,9 @@ define i32 @opal_graph_dijkstra(ptr noundef readonly %0, ptr noundef readonly %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = getelementptr inbounds i8, ptr %18, i64 8
   store i32 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.05061, i64 16
-  %.050 = load volatile ptr, ptr %22, align 8
-  %.not56 = icmp eq ptr %.050, %15
+  %22 = getelementptr inbounds i8, ptr %.04961, i64 16
+  %.049 = load volatile ptr, ptr %22, align 8
+  %.not56 = icmp eq ptr %.049, %15
   br i1 %.not56, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -1318,8 +1318,8 @@ define i32 @opal_graph_dijkstra(ptr noundef readonly %0, ptr noundef readonly %1
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %._crit_edge65
   %indvars.iv83 = phi i64 [ %24, %.lr.ph69.preheader ], [ %indvars.iv.next84, %._crit_edge65 ]
   %indvars.iv81 = phi i64 [ %26, %.lr.ph69.preheader ], [ %indvars.iv.next82, %._crit_edge65 ]
-  %.05166 = phi ptr [ %11, %.lr.ph69.preheader ], [ %32, %._crit_edge65 ]
-  %32 = getelementptr inbounds i8, ptr %.05166, i64 16
+  %.05066 = phi ptr [ %11, %.lr.ph69.preheader ], [ %32, %._crit_edge65 ]
+  %32 = getelementptr inbounds i8, ptr %.05066, i64 16
   %indvars.iv.next84 = add nsw i64 %indvars.iv83, -1
   %33 = icmp ugt i64 %indvars.iv83, 1
   br i1 %33, label %.lr.ph64, label %._crit_edge65.thread
@@ -1329,8 +1329,8 @@ define i32 @opal_graph_dijkstra(ptr noundef readonly %0, ptr noundef readonly %1
   br label %.preheader
 
 .lr.ph64:                                         ; preds = %.lr.ph69
-  %34 = getelementptr inbounds i8, ptr %.05166, i64 8
-  %.pre = load ptr, ptr %.05166, align 8
+  %34 = getelementptr inbounds i8, ptr %.05066, i64 8
+  %.pre = load ptr, ptr %.05066, align 8
   %35 = getelementptr inbounds i8, ptr %.pre, i64 40
   %36 = getelementptr inbounds i8, ptr %.pre, i64 48
   br label %37
@@ -1431,8 +1431,8 @@ opal_value_array_append_item.exit:                ; preds = %67, %71
   br label %77
 
 77:                                               ; preds = %3, %._crit_edge72
-  %.0 = phi i32 [ %27, %._crit_edge72 ], [ 0, %3 ]
-  ret i32 %.0
+  %.051 = phi i32 [ %27, %._crit_edge72 ], [ 0, %3 ]
+  ret i32 %.051
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

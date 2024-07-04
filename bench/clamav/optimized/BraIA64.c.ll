@@ -33,8 +33,8 @@ define i64 @IA64_Convert(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %
 
 20:                                               ; preds = %8, %.loopexit
   %indvars.iv82 = phi i64 [ 5, %8 ], [ %indvars.iv.next83, %.loopexit ]
-  %.06174 = phi i32 [ 0, %8 ], [ %65, %.loopexit ]
-  %21 = shl nuw nsw i32 1, %.06174
+  %.06074 = phi i32 [ 0, %8 ], [ %65, %.loopexit ]
+  %21 = shl nuw nsw i32 1, %.06074
   %22 = and i32 %21, %15
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %.loopexit, label %24
@@ -106,7 +106,7 @@ define i64 @IA64_Convert(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %
   br i1 %exitcond81.not, label %.loopexit, label %60
 
 .loopexit:                                        ; preds = %60, %34, %20
-  %65 = add nuw nsw i32 %.06174, 1
+  %65 = add nuw nsw i32 %.06074, 1
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 41
   %exitcond85.not = icmp eq i32 %65, 3
   br i1 %exitcond85.not, label %66, label %20
@@ -117,8 +117,8 @@ define i64 @IA64_Convert(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %
   br i1 %.not, label %.loopexit67, label %8
 
 .loopexit67:                                      ; preds = %66, %4
-  %.060 = phi i64 [ 0, %4 ], [ %67, %66 ]
-  ret i64 %.060
+  %.062 = phi i64 [ 0, %4 ], [ %67, %66 ]
+  ret i64 %.062
 }
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

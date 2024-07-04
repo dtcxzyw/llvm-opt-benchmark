@@ -319,8 +319,8 @@ initialize_brin_buildstate.exit:                  ; preds = %83, %102
   br label %123
 
 123:                                              ; preds = %120, %112
-  %.0.i62 = phi ptr [ %122, %120 ], [ @SnapshotAnyData, %112 ]
-  %124 = call i64 @table_parallelscan_estimate(ptr noundef %0, ptr noundef %.0.i62) #10
+  %.0105.i = phi ptr [ %122, %120 ], [ @SnapshotAnyData, %112 ]
+  %124 = call i64 @table_parallelscan_estimate(ptr noundef %0, ptr noundef %.0105.i) #10
   %125 = call i64 @add_size(i64 noundef 64, i64 noundef %124) #10
   %126 = getelementptr inbounds i8, ptr %118, i64 56
   %127 = load i64, ptr %126, align 8
@@ -362,8 +362,8 @@ initialize_brin_buildstate.exit:                  ; preds = %83, %102
   %157 = call i64 @add_size(i64 noundef %156, i64 noundef 1) #10
   store i64 %157, ptr %136, align 8
   %158 = load ptr, ptr @debug_query_string, align 8
-  %.not.i63 = icmp eq ptr %158, null
-  br i1 %.not.i63, label %169, label %159
+  %.not.i62 = icmp eq ptr %158, null
+  br i1 %.not.i62, label %169, label %159
 
 159:                                              ; preds = %123
   %160 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %158) #12
@@ -381,7 +381,7 @@ initialize_brin_buildstate.exit:                  ; preds = %83, %102
   br label %169
 
 169:                                              ; preds = %159, %123
-  %.0105.i = phi i64 [ %163, %159 ], [ 1, %123 ]
+  %.0.i63 = phi i64 [ %163, %159 ], [ 1, %123 ]
   call void @InitializeParallelDSM(ptr noundef nonnull %118) #10
   %170 = getelementptr inbounds i8, ptr %118, i64 72
   %171 = load ptr, ptr %170, align 8
@@ -389,14 +389,14 @@ initialize_brin_buildstate.exit:                  ; preds = %83, %102
   br i1 %172, label %173, label %177
 
 173:                                              ; preds = %169
-  %174 = load i32, ptr %.0.i62, align 8
+  %174 = load i32, ptr %.0105.i, align 8
   switch i32 %174, label %176 [
     i32 0, label %175
     i32 5, label %175
   ]
 
 175:                                              ; preds = %173, %173
-  call void @UnregisterSnapshot(ptr noundef nonnull %.0.i62) #10
+  call void @UnregisterSnapshot(ptr noundef nonnull %.0105.i) #10
   br label %176
 
 176:                                              ; preds = %175, %173
@@ -430,7 +430,7 @@ initialize_brin_buildstate.exit:                  ; preds = %83, %102
   %192 = getelementptr inbounds i8, ptr %180, i64 36
   %193 = getelementptr i8, ptr %180, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %192, i8 0, i64 20, i1 false)
-  call void @table_parallelscan_initialize(ptr noundef %0, ptr noundef %193, ptr noundef %.0.i62) #10
+  call void @table_parallelscan_initialize(ptr noundef %0, ptr noundef %193, ptr noundef %.0105.i) #10
   %194 = load ptr, ptr %178, align 8
   %195 = call ptr @shm_toc_allocate(ptr noundef %194, i64 noundef %131) #10
   %196 = load ptr, ptr %170, align 8
@@ -445,9 +445,9 @@ initialize_brin_buildstate.exit:                  ; preds = %83, %102
 
 200:                                              ; preds = %177
   %201 = load ptr, ptr %178, align 8
-  %202 = call ptr @shm_toc_allocate(ptr noundef %201, i64 noundef %.0105.i) #10
+  %202 = call ptr @shm_toc_allocate(ptr noundef %201, i64 noundef %.0.i63) #10
   %203 = load ptr, ptr @debug_query_string, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %202, ptr align 1 %203, i64 %.0105.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %202, ptr align 1 %203, i64 %.0.i63, i1 false)
   %204 = load ptr, ptr %178, align 8
   call void @shm_toc_insert(ptr noundef %204, i64 noundef -5764607523034234877, ptr noundef %202) #10
   br label %205
@@ -479,7 +479,7 @@ initialize_brin_buildstate.exit:                  ; preds = %83, %102
   %223 = getelementptr inbounds i8, ptr %117, i64 24
   store ptr %195, ptr %223, align 8
   %224 = getelementptr inbounds i8, ptr %117, i64 32
-  store ptr %.0.i62, ptr %224, align 8
+  store ptr %.0105.i, ptr %224, align 8
   %225 = getelementptr inbounds i8, ptr %117, i64 40
   store ptr %210, ptr %225, align 8
   %226 = getelementptr inbounds i8, ptr %117, i64 48
@@ -1443,13 +1443,13 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bringetbitmap(ptr nocap
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0176212 = phi ptr [ %60, %.lr.ph.preheader ], [ %70, %.lr.ph ]
+  %.0170211 = phi ptr [ %60, %.lr.ph.preheader ], [ %70, %.lr.ph ]
   %61 = getelementptr ptr, ptr %48, i64 %indvars.iv
-  store ptr %.0176212, ptr %61, align 8
+  store ptr %.0170211, ptr %61, align 8
   %62 = load i32, ptr %41, align 8
   %63 = sext i32 %62 to i64
   %64 = shl nsw i64 %63, 3
-  %65 = getelementptr i8, ptr %.0176212, i64 %64
+  %65 = getelementptr i8, ptr %.0170211, i64 %64
   %66 = getelementptr ptr, ptr %53, i64 %indvars.iv
   store ptr %65, ptr %66, align 8
   %67 = load i32, ptr %41, align 8
@@ -1541,10 +1541,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bringetbitmap(ptr nocap
   br label %117
 
 117:                                              ; preds = %.lr.ph239, %.thread196
-  %.0165236 = phi i32 [ 0, %.lr.ph239 ], [ %234, %.thread196 ]
-  %.0166235 = phi i32 [ 0, %.lr.ph239 ], [ %.2, %.thread196 ]
-  %.0168234 = phi ptr [ %110, %.lr.ph239 ], [ %.1169201, %.thread196 ]
-  %.0174233 = phi ptr [ null, %.lr.ph239 ], [ %.1175192200, %.thread196 ]
+  %.0171237 = phi ptr [ null, %.lr.ph239 ], [ %.1172192200, %.thread196 ]
+  %.0173236 = phi ptr [ %110, %.lr.ph239 ], [ %.1174201, %.thread196 ]
+  %.0175235 = phi i32 [ 0, %.lr.ph239 ], [ %.2177, %.thread196 ]
+  %.0178233 = phi i32 [ 0, %.lr.ph239 ], [ %234, %.thread196 ]
   %118 = load volatile i32, ptr @InterruptPending, align 4
   %.not185 = icmp eq i32 %118, 0
   br i1 %.not185, label %120, label %119
@@ -1556,16 +1556,16 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bringetbitmap(ptr nocap
 120:                                              ; preds = %117, %119
   call void @MemoryContextReset(ptr noundef %112) #10
   %121 = load ptr, ptr %114, align 8
-  %122 = call ptr @brinGetTupleForHeapBlock(ptr noundef %121, i32 noundef %.0165236, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1) #10
+  %122 = call ptr @brinGetTupleForHeapBlock(ptr noundef %121, i32 noundef %.0178233, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1) #10
   %.not186.not = icmp eq ptr %122, null
   br i1 %.not186.not, label %.preheader206, label %123
 
 123:                                              ; preds = %120
   %124 = load i64, ptr %6, align 8
-  %125 = call ptr @brin_copy_tuple(ptr noundef nonnull %122, i64 noundef %124, ptr noundef %.0174233, ptr noundef nonnull %4) #10
+  %125 = call ptr @brin_copy_tuple(ptr noundef nonnull %122, i64 noundef %124, ptr noundef %.0171237, ptr noundef nonnull %4) #10
   %126 = load i32, ptr %3, align 4
   call void @LockBuffer(i32 noundef %126, i32 noundef 0) #10
-  %127 = call ptr @brin_deform_tuple(ptr noundef %12, ptr noundef %125, ptr noundef %.0168234) #10
+  %127 = call ptr @brin_deform_tuple(ptr noundef %12, ptr noundef %125, ptr noundef %.0173236) #10
   %128 = load i8, ptr %127, align 8
   %129 = trunc i8 %128 to i1
   br i1 %129, label %.preheader206, label %.preheader208
@@ -1583,9 +1583,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bringetbitmap(ptr nocap
 
 134:                                              ; preds = %.lr.ph223, %221
   %135 = phi i32 [ %131, %.lr.ph223 ], [ %222, %221 ]
-  %.0167222 = phi i32 [ 1, %.lr.ph223 ], [ %223, %221 ]
-  %.0171221 = phi i8 [ 1, %.lr.ph223 ], [ %.3, %221 ]
-  %136 = add i32 %.0167222, -1
+  %.0165222 = phi i32 [ 1, %.lr.ph223 ], [ %223, %221 ]
+  %.0167221 = phi i8 [ 1, %.lr.ph223 ], [ %.3, %221 ]
+  %136 = add i32 %.0165222, -1
   %137 = sext i32 %136 to i64
   %138 = getelementptr i32, ptr %54, i64 %137
   %139 = load i32, ptr %138, align 4
@@ -1729,69 +1729,69 @@ check_null_keys.exit.thread:                      ; preds = %155, %check_null_ke
   br i1 %.not202, label %.thread196, label %208
 
 .loopexit:                                        ; preds = %.preheader, %197
-  %.2173 = phi i8 [ %207, %197 ], [ %.0171221, %.preheader ]
-  %220 = trunc nuw i8 %.2173 to i1
+  %.2 = phi i8 [ %207, %197 ], [ %.0167221, %.preheader ]
+  %220 = trunc nuw i8 %.2 to i1
   br i1 %220, label %.loopexit._crit_edge, label %.thread
 
 .loopexit._crit_edge:                             ; preds = %208, %.loopexit
-  %.2173259 = phi i8 [ %.2173, %.loopexit ], [ 1, %208 ]
+  %.2259 = phi i8 [ %.2, %.loopexit ], [ 1, %208 ]
   %.pre254 = load ptr, ptr %31, align 8
   %.pre255 = load i32, ptr %.pre254, align 8
   br label %221
 
 221:                                              ; preds = %.loopexit._crit_edge, %check_null_keys.exit.thread, %141
   %222 = phi i32 [ %135, %141 ], [ %.pre255, %.loopexit._crit_edge ], [ %135, %check_null_keys.exit.thread ]
-  %.3 = phi i8 [ %.0171221, %141 ], [ %.2173259, %.loopexit._crit_edge ], [ %.0171221, %check_null_keys.exit.thread ]
-  %223 = add i32 %.0167222, 1
+  %.3 = phi i8 [ %.0167221, %141 ], [ %.2259, %.loopexit._crit_edge ], [ %.0167221, %check_null_keys.exit.thread ]
+  %223 = add i32 %.0165222, 1
   %.not187 = icmp sgt i32 %223, %222
   br i1 %.not187, label %.thread, label %134, !llvm.loop !15
 
 .thread:                                          ; preds = %221, %.loopexit
-  %.4 = phi i8 [ %.3, %221 ], [ %.2173, %.loopexit ]
+  %.4 = phi i8 [ %.3, %221 ], [ %.2, %.loopexit ]
   %224 = trunc nuw i8 %.4 to i1
   br i1 %224, label %.preheader206, label %.thread196
 
 .preheader206:                                    ; preds = %.preheader208, %120, %123, %.thread
-  %.1169264 = phi ptr [ %127, %.thread ], [ %127, %.preheader208 ], [ %.0168234, %120 ], [ %127, %123 ]
-  %.1175192263 = phi ptr [ %125, %.thread ], [ %125, %.preheader208 ], [ %.0174233, %120 ], [ %125, %123 ]
+  %.1174264 = phi ptr [ %127, %.thread ], [ %127, %.preheader208 ], [ %.0173236, %120 ], [ %127, %123 ]
+  %.1172192263 = phi ptr [ %125, %.thread ], [ %125, %.preheader208 ], [ %.0171237, %120 ], [ %125, %123 ]
   %225 = load i32, ptr %10, align 8
-  %226 = add i32 %225, %.0165236
+  %226 = add i32 %225, %.0178233
   %.227 = call i32 @llvm.umin.i32(i32 %30, i32 %226)
   %227 = add i32 %.227, -1
-  %.not189228 = icmp ugt i32 %.0165236, %227
+  %.not189228 = icmp ugt i32 %.0178233, %227
   br i1 %.not189228, label %.thread196, label %.lr.ph231
 
 .lr.ph231:                                        ; preds = %.preheader206, %.lr.ph231
-  %.0230 = phi i32 [ %229, %.lr.ph231 ], [ %.0165236, %.preheader206 ]
-  %.1229 = phi i32 [ %228, %.lr.ph231 ], [ %.0166235, %.preheader206 ]
+  %.0230 = phi i32 [ %229, %.lr.ph231 ], [ %.0178233, %.preheader206 ]
+  %.1176229 = phi i32 [ %228, %.lr.ph231 ], [ %.0175235, %.preheader206 ]
   store ptr %113, ptr @CurrentMemoryContext, align 8
   call void @tbm_add_page(ptr noundef %1, i32 noundef %.0230) #10
-  %228 = add i32 %.1229, 1
+  %228 = add i32 %.1176229, 1
   store ptr %112, ptr @CurrentMemoryContext, align 8
   %229 = add i32 %.0230, 1
   %230 = load i32, ptr %10, align 8
-  %231 = add i32 %230, %.0165236
+  %231 = add i32 %230, %.0178233
   %. = call i32 @llvm.umin.i32(i32 %30, i32 %231)
   %232 = add i32 %., -1
   %.not189 = icmp ugt i32 %229, %232
   br i1 %.not189, label %.thread196, label %.lr.ph231, !llvm.loop !16
 
 .thread196:                                       ; preds = %185, %check_null_keys.exit, %145, %.lr.ph231, %212, %.preheader206, %.thread
-  %.1169201 = phi ptr [ %127, %.thread ], [ %.1169264, %.preheader206 ], [ %127, %212 ], [ %.1169264, %.lr.ph231 ], [ %127, %145 ], [ %127, %check_null_keys.exit ], [ %127, %185 ]
-  %.1175192200 = phi ptr [ %125, %.thread ], [ %.1175192263, %.preheader206 ], [ %125, %212 ], [ %.1175192263, %.lr.ph231 ], [ %125, %145 ], [ %125, %check_null_keys.exit ], [ %125, %185 ]
-  %.2 = phi i32 [ %.0166235, %.thread ], [ %.0166235, %.preheader206 ], [ %.0166235, %212 ], [ %228, %.lr.ph231 ], [ %.0166235, %145 ], [ %.0166235, %check_null_keys.exit ], [ %.0166235, %185 ]
+  %.1174201 = phi ptr [ %127, %.thread ], [ %.1174264, %.preheader206 ], [ %127, %212 ], [ %.1174264, %.lr.ph231 ], [ %127, %145 ], [ %127, %check_null_keys.exit ], [ %127, %185 ]
+  %.1172192200 = phi ptr [ %125, %.thread ], [ %.1172192263, %.preheader206 ], [ %125, %212 ], [ %.1172192263, %.lr.ph231 ], [ %125, %145 ], [ %125, %check_null_keys.exit ], [ %125, %185 ]
+  %.2177 = phi i32 [ %.0175235, %.thread ], [ %.0175235, %.preheader206 ], [ %.0175235, %212 ], [ %228, %.lr.ph231 ], [ %.0175235, %145 ], [ %.0175235, %check_null_keys.exit ], [ %.0175235, %185 ]
   %233 = load i32, ptr %10, align 8
-  %234 = add i32 %233, %.0165236
+  %234 = add i32 %233, %.0178233
   %235 = icmp ult i32 %234, %30
   br i1 %235, label %117, label %._crit_edge240.loopexit, !llvm.loop !17
 
 ._crit_edge240.loopexit:                          ; preds = %.thread196
-  %236 = mul i32 %.2, 10
+  %236 = mul i32 %.2177, 10
   %237 = sext i32 %236 to i64
   br label %._crit_edge240
 
 ._crit_edge240:                                   ; preds = %._crit_edge240.loopexit, %._crit_edge216
-  %.0166.lcssa = phi i64 [ 0, %._crit_edge216 ], [ %237, %._crit_edge240.loopexit ]
+  %.0175.lcssa = phi i64 [ 0, %._crit_edge216 ], [ %237, %._crit_edge240.loopexit ]
   store ptr %113, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextDelete(ptr noundef %112) #10
   %238 = load i32, ptr %3, align 4
@@ -1803,7 +1803,7 @@ check_null_keys.exit.thread:                      ; preds = %155, %check_null_ke
   br label %240
 
 240:                                              ; preds = %239, %._crit_edge240
-  ret i64 %.0166.lcssa
+  ret i64 %.0175.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2273,10 +2273,10 @@ define internal fastcc void @brinsummarize(ptr noundef %0, ptr noundef %1, i32 n
   br label %144
 
 .thread:                                          ; preds = %6, %17
-  %.03853 = phi i32 [ %20, %17 ], [ 0, %6 ]
-  %.04052 = phi i32 [ %22, %17 ], [ %15, %6 ]
+  %.053 = phi i32 [ %20, %17 ], [ 0, %6 ]
+  %.03852 = phi i32 [ %22, %17 ], [ %15, %6 ]
   store i32 0, ptr %12, align 4
-  %25 = icmp ult i32 %.03853, %.04052
+  %25 = icmp ult i32 %.053, %.03852
   br i1 %25, label %.lr.ph, label %.thread70
 
 .thread70:                                        ; preds = %.thread
@@ -2290,15 +2290,15 @@ define internal fastcc void @brinsummarize(ptr noundef %0, ptr noundef %1, i32 n
   br label %27
 
 27:                                               ; preds = %.lr.ph, %137
-  %.059 = phi ptr [ null, %.lr.ph ], [ %.2, %137 ]
-  %.13958 = phi i32 [ %.03853, %.lr.ph ], [ %139, %137 ]
+  %.159 = phi i32 [ %.053, %.lr.ph ], [ %139, %137 ]
+  %.03958 = phi ptr [ null, %.lr.ph ], [ %.2, %137 ]
   %.04157 = phi ptr [ null, %.lr.ph ], [ %.243, %137 ]
   br i1 %3, label %32, label %28
 
 28:                                               ; preds = %27
   %29 = load i32, ptr %11, align 4
-  %30 = add i32 %29, %.13958
-  %31 = icmp ugt i32 %30, %.04052
+  %30 = add i32 %29, %.159
+  %31 = icmp ugt i32 %30, %.03852
   br i1 %31, label %._crit_edge, label %32
 
 32:                                               ; preds = %27, %28
@@ -2311,12 +2311,12 @@ define internal fastcc void @brinsummarize(ptr noundef %0, ptr noundef %1, i32 n
   br label %35
 
 35:                                               ; preds = %32, %34
-  %36 = call ptr @brinGetTupleForHeapBlock(ptr noundef %14, i32 noundef %.13958, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef null, i32 noundef 1) #10
+  %36 = call ptr @brinGetTupleForHeapBlock(ptr noundef %14, i32 noundef %.159, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef null, i32 noundef 1) #10
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %131
 
 38:                                               ; preds = %35
-  %39 = icmp eq ptr %.059, null
+  %39 = icmp eq ptr %.04157, null
   br i1 %39, label %40, label %62
 
 40:                                               ; preds = %38
@@ -2358,51 +2358,51 @@ define internal fastcc void @brinsummarize(ptr noundef %0, ptr noundef %1, i32 n
   br label %62
 
 62:                                               ; preds = %40, %38
-  %.142 = phi ptr [ %61, %40 ], [ %.04157, %38 ]
-  %.1 = phi ptr [ %42, %40 ], [ %.059, %38 ]
+  %.142 = phi ptr [ %42, %40 ], [ %.04157, %38 ]
+  %.140 = phi ptr [ %61, %40 ], [ %.03958, %38 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i32 0, ptr %7, align 4
-  %63 = getelementptr inbounds i8, ptr %.1, i64 48
+  %63 = getelementptr inbounds i8, ptr %.142, i64 48
   %64 = load ptr, ptr %63, align 8
-  %65 = call ptr @brin_form_placeholder_tuple(ptr noundef %64, i32 noundef %.13958, ptr noundef nonnull %8) #10
-  %66 = load ptr, ptr %.1, align 8
-  %67 = getelementptr inbounds i8, ptr %.1, i64 28
+  %65 = call ptr @brin_form_placeholder_tuple(ptr noundef %64, i32 noundef %.159, ptr noundef nonnull %8) #10
+  %66 = load ptr, ptr %.142, align 8
+  %67 = getelementptr inbounds i8, ptr %.142, i64 28
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %.1, i64 40
+  %69 = getelementptr inbounds i8, ptr %.142, i64 40
   %70 = load ptr, ptr %69, align 8
   %71 = load i64, ptr %8, align 8
-  %72 = call zeroext i16 @brin_doinsert(ptr noundef %66, i32 noundef %68, ptr noundef %70, ptr noundef nonnull %7, i32 noundef %.13958, ptr noundef %65, i64 noundef %71) #10
+  %72 = call zeroext i16 @brin_doinsert(ptr noundef %66, i32 noundef %68, ptr noundef %70, ptr noundef nonnull %7, i32 noundef %.159, ptr noundef %65, i64 noundef %71) #10
   store i16 %72, ptr %9, align 2
   %73 = load i32, ptr %67, align 4
-  %74 = add i32 %73, %.13958
-  %75 = icmp ugt i32 %74, %.04052
+  %74 = add i32 %73, %.159
+  %75 = icmp ugt i32 %74, %.03852
   br i1 %75, label %76, label %84
 
 76:                                               ; preds = %62
   %77 = call i32 @RelationGetNumberOfBlocksInFork(ptr noundef %1, i32 noundef 0) #10
-  %78 = sub i32 %77, %.13958
+  %78 = sub i32 %77, %.159
   %79 = load i32, ptr %67, align 4
   %80 = icmp ult i32 %78, %79
   br i1 %80, label %81, label %84
 
 81:                                               ; preds = %76
   %82 = call i32 @RelationGetNumberOfBlocksInFork(ptr noundef %1, i32 noundef 0) #10
-  %83 = sub i32 %82, %.13958
+  %83 = sub i32 %82, %.159
   br label %84
 
 84:                                               ; preds = %81, %76, %62
   %.044.i = phi i32 [ %83, %81 ], [ %79, %76 ], [ %73, %62 ]
-  %85 = getelementptr inbounds i8, ptr %.1, i64 32
-  store i32 %.13958, ptr %85, align 8
-  %86 = load ptr, ptr %.1, align 8
+  %85 = getelementptr inbounds i8, ptr %.142, i64 32
+  store i32 %.159, ptr %85, align 8
+  %86 = load ptr, ptr %.142, align 8
   %87 = load ptr, ptr %26, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 280
   %89 = load ptr, ptr %88, align 8
-  %90 = call double %89(ptr noundef %1, ptr noundef %86, ptr noundef %.142, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef %.13958, i32 noundef %.044.i, ptr noundef nonnull @brinbuildCallback, ptr noundef nonnull %.1, ptr noundef null) #10
-  %91 = getelementptr inbounds i8, ptr %.1, i64 56
+  %90 = call double %89(ptr noundef %1, ptr noundef %86, ptr noundef %.140, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef %.159, i32 noundef %.044.i, ptr noundef nonnull @brinbuildCallback, ptr noundef nonnull %.142, ptr noundef null) #10
+  %91 = getelementptr inbounds i8, ptr %.142, i64 56
   br label %92
 
 92:                                               ; preds = %118, %84
@@ -2418,26 +2418,26 @@ define internal fastcc void @brinsummarize(ptr noundef %0, ptr noundef %1, i32 n
 95:                                               ; preds = %94, %92
   %96 = load ptr, ptr %63, align 8
   %97 = load ptr, ptr %91, align 8
-  %98 = call ptr @brin_form_tuple(ptr noundef %96, i32 noundef %.13958, ptr noundef %97, ptr noundef nonnull %10) #10
+  %98 = call ptr @brin_form_tuple(ptr noundef %96, i32 noundef %.159, ptr noundef %97, ptr noundef nonnull %10) #10
   %99 = load i32, ptr %7, align 4
   %100 = load i64, ptr %8, align 8
   %101 = load i64, ptr %10, align 8
   %102 = call zeroext i1 @brin_can_do_samepage_update(i32 noundef %99, i64 noundef %100, i64 noundef %101) #10
-  %103 = load ptr, ptr %.1, align 8
+  %103 = load ptr, ptr %.142, align 8
   %104 = load i32, ptr %67, align 4
   %105 = load ptr, ptr %69, align 8
   %106 = load i32, ptr %7, align 4
   %107 = load i16, ptr %9, align 2
   %108 = load i64, ptr %8, align 8
   %109 = load i64, ptr %10, align 8
-  %110 = call zeroext i1 @brin_doupdate(ptr noundef %103, i32 noundef %104, ptr noundef %105, i32 noundef %.13958, i32 noundef %106, i16 noundef zeroext %107, ptr noundef %.0.i, i64 noundef %108, ptr noundef %98, i64 noundef %109, i1 noundef zeroext %102) #10
+  %110 = call zeroext i1 @brin_doupdate(ptr noundef %103, i32 noundef %104, ptr noundef %105, i32 noundef %.159, i32 noundef %106, i16 noundef zeroext %107, ptr noundef %.0.i, i64 noundef %108, ptr noundef %98, i64 noundef %109, i1 noundef zeroext %102) #10
   call void @brin_free_tuple(ptr noundef %.0.i) #10
   call void @brin_free_tuple(ptr noundef %98) #10
   br i1 %110, label %summarize_range.exit, label %111
 
 111:                                              ; preds = %95
   %112 = load ptr, ptr %69, align 8
-  %113 = call ptr @brinGetTupleForHeapBlock(ptr noundef %112, i32 noundef %.13958, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef 1) #10
+  %113 = call ptr @brinGetTupleForHeapBlock(ptr noundef %112, i32 noundef %.159, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef 1) #10
   %114 = icmp eq ptr %113, null
   br i1 %114, label %115, label %118
 
@@ -2492,15 +2492,15 @@ summarize_range.exit:                             ; preds = %95
 
 137:                                              ; preds = %135, %128, %summarize_range.exit
   %.243 = phi ptr [ %.142, %128 ], [ %.142, %summarize_range.exit ], [ %.04157, %135 ]
-  %.2 = phi ptr [ %.1, %128 ], [ %.1, %summarize_range.exit ], [ %.059, %135 ]
+  %.2 = phi ptr [ %.140, %128 ], [ %.140, %summarize_range.exit ], [ %.03958, %135 ]
   %138 = load i32, ptr %11, align 4
-  %139 = add i32 %138, %.13958
-  %140 = icmp ult i32 %139, %.04052
+  %139 = add i32 %138, %.159
+  %140 = icmp ult i32 %139, %.03852
   br i1 %140, label %27, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %137, %28
   %.041.lcssa.ph = phi ptr [ %.243, %137 ], [ %.04157, %28 ]
-  %.0.lcssa.ph = phi ptr [ %.2, %137 ], [ %.059, %28 ]
+  %.039.lcssa.ph = phi ptr [ %.2, %137 ], [ %.03958, %28 ]
   %.pre = load i32, ptr %12, align 4
   %.not54 = icmp eq i32 %.pre, 0
   br i1 %.not54, label %142, label %141
@@ -2511,12 +2511,12 @@ summarize_range.exit:                             ; preds = %95
 
 142:                                              ; preds = %141, %._crit_edge
   call void @brinRevmapTerminate(ptr noundef %14) #10
-  %.not = icmp eq ptr %.0.lcssa.ph, null
+  %.not = icmp eq ptr %.041.lcssa.ph, null
   br i1 %.not, label %144, label %143
 
 143:                                              ; preds = %142
-  call fastcc void @terminate_brin_buildstate(ptr noundef nonnull %.0.lcssa.ph)
-  call void @pfree(ptr noundef %.041.lcssa.ph) #10
+  call fastcc void @terminate_brin_buildstate(ptr noundef nonnull %.041.lcssa.ph)
+  call void @pfree(ptr noundef %.039.lcssa.ph) #10
   br label %144
 
 144:                                              ; preds = %.thread70, %143, %142, %24

@@ -654,8 +654,8 @@ define internal fastcc void @dump_one_proc(ptr noundef %0, ptr nocapture noundef
   br label %40
 
 40:                                               ; preds = %33, %36, %27, %29
-  %.0231 = phi ptr [ %20, %29 ], [ %20, %27 ], [ %34, %36 ], [ %34, %33 ]
-  %41 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 28, i64 1, ptr %.0231)
+  %.0224 = phi ptr [ %20, %29 ], [ %20, %27 ], [ %34, %36 ], [ %34, %33 ]
+  %41 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 28, i64 1, ptr %.0224)
   store i32 0, ptr %4, align 16
   %42 = getelementptr inbounds i8, ptr %4, i64 4
   %43 = getelementptr inbounds i8, ptr %4, i64 8
@@ -695,7 +695,7 @@ dump_one_cpuid.exit:                              ; preds = %56
   %57 = load i32, ptr %42, align 4
   %58 = load i32, ptr %43, align 8
   %59 = load i32, ptr %44, align 4
-  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 0, i32 noundef %57, i32 noundef %58, i32 noundef %59) #14
+  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 0, i32 noundef %57, i32 noundef %58, i32 noundef %59) #14
   %61 = load i32, ptr %4, align 16
   %62 = load i32, ptr %43, align 8
   %63 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %61, i32 %62) #14, !srcloc !9
@@ -706,7 +706,7 @@ dump_one_cpuid.exit:                              ; preds = %56
   store i32 %65, ptr %43, align 8
   store i32 %66, ptr %44, align 4
   %67 = load i32, ptr %42, align 4
-  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %64, i32 noundef %67, i32 noundef %65, i32 noundef %66) #14
+  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %64, i32 noundef %67, i32 noundef %65, i32 noundef %66) #14
   %69 = load i32, ptr %42, align 4
   %70 = icmp ne i32 %69, 1752462657
   %71 = load i32, ptr %43, align 8
@@ -741,7 +741,7 @@ dump_one_cpuid.exit:                              ; preds = %56
   %81 = load i32, ptr %42, align 4
   %82 = load i32, ptr %43, align 8
   %83 = load i32, ptr %44, align 4
-  %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 1, i32 noundef %81, i32 noundef %82, i32 noundef %83) #14
+  %84 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 1, i32 noundef %81, i32 noundef %82, i32 noundef %83) #14
   %85 = load i32, ptr %4, align 16
   %86 = load i32, ptr %43, align 8
   %87 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %85, i32 %86) #14, !srcloc !9
@@ -752,7 +752,7 @@ dump_one_cpuid.exit:                              ; preds = %56
   store i32 %89, ptr %43, align 8
   store i32 %90, ptr %44, align 4
   %91 = load i32, ptr %42, align 4
-  %92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %88, i32 noundef %91, i32 noundef %89, i32 noundef %90) #14
+  %92 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %88, i32 noundef %91, i32 noundef %89, i32 noundef %90) #14
   %93 = load i32, ptr %43, align 8
   %94 = and i32 %93, 2097152
   %.not243 = icmp ne i32 %94, 0
@@ -782,7 +782,7 @@ dump_one_cpuid.exit:                              ; preds = %56
   %101 = load i32, ptr %42, align 4
   %102 = load i32, ptr %43, align 8
   %103 = load i32, ptr %44, align 4
-  %104 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 2, i32 noundef %101, i32 noundef %102, i32 noundef %103) #14
+  %104 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 2, i32 noundef %101, i32 noundef %102, i32 noundef %103) #14
   %105 = load i32, ptr %4, align 16
   %106 = load i32, ptr %43, align 8
   %107 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %105, i32 %106) #14, !srcloc !9
@@ -793,7 +793,7 @@ dump_one_cpuid.exit:                              ; preds = %56
   store i32 %109, ptr %43, align 8
   store i32 %110, ptr %44, align 4
   %111 = load i32, ptr %42, align 4
-  %112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %108, i32 noundef %111, i32 noundef %109, i32 noundef %110) #14
+  %112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %108, i32 noundef %111, i32 noundef %109, i32 noundef %110) #14
   %113 = icmp ugt i32 %46, 2
   br i1 %113, label %114, label %.thread683
 
@@ -820,7 +820,7 @@ dump_one_cpuid.exit:                              ; preds = %56
   %120 = load i32, ptr %42, align 4
   %121 = load i32, ptr %43, align 8
   %122 = load i32, ptr %44, align 4
-  %123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 3, i32 noundef %120, i32 noundef %121, i32 noundef %122) #14
+  %123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 3, i32 noundef %120, i32 noundef %121, i32 noundef %122) #14
   %124 = load i32, ptr %4, align 16
   %125 = load i32, ptr %43, align 8
   %126 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %124, i32 %125) #14, !srcloc !9
@@ -831,14 +831,14 @@ dump_one_cpuid.exit:                              ; preds = %56
   store i32 %128, ptr %43, align 8
   store i32 %129, ptr %44, align 4
   %130 = load i32, ptr %42, align 4
-  %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %127, i32 noundef %130, i32 noundef %128, i32 noundef %129) #14
+  %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %127, i32 noundef %130, i32 noundef %128, i32 noundef %129) #14
   %.not742 = icmp eq i32 %46, 3
   br i1 %.not742, label %.thread683, label %.preheader793
 
 .preheader793:                                    ; preds = %119, %154
-  %.0224794 = phi i32 [ %155, %154 ], [ 0, %119 ]
+  %.0230794 = phi i32 [ %155, %154 ], [ 0, %119 ]
   store i32 4, ptr %4, align 16
-  store i32 %.0224794, ptr %43, align 8
+  store i32 %.0230794, ptr %43, align 8
   br label %132
 
 132:                                              ; preds = %138, %.preheader793
@@ -864,7 +864,7 @@ dump_one_cpuid.exit283:                           ; preds = %138
   %140 = load i32, ptr %42, align 4
   %141 = load i32, ptr %43, align 8
   %142 = load i32, ptr %44, align 4
-  %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %139, i32 noundef %140, i32 noundef %141, i32 noundef %142) #14
+  %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %139, i32 noundef %140, i32 noundef %141, i32 noundef %142) #14
   %144 = load i32, ptr %4, align 16
   %145 = load i32, ptr %43, align 8
   %146 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %144, i32 %145) #14, !srcloc !9
@@ -875,23 +875,23 @@ dump_one_cpuid.exit283:                           ; preds = %138
   store i32 %148, ptr %43, align 8
   store i32 %149, ptr %44, align 4
   %150 = load i32, ptr %42, align 4
-  %151 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %147, i32 noundef %150, i32 noundef %148, i32 noundef %149) #14
+  %151 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %147, i32 noundef %150, i32 noundef %148, i32 noundef %149) #14
   %152 = load i32, ptr %4, align 16
   %153 = and i32 %152, 31
   %.not244 = icmp eq i32 %153, 0
   br i1 %.not244, label %156, label %154
 
 154:                                              ; preds = %dump_one_cpuid.exit283
-  %155 = add nuw nsw i32 %.0224794, 1
+  %155 = add nuw nsw i32 %.0230794, 1
   %exitcond.not = icmp eq i32 %155, 256
   br i1 %exitcond.not, label %.thread, label %.preheader793, !llvm.loop !11
 
 156:                                              ; preds = %dump_one_cpuid.exit283
-  %157 = icmp eq i32 %.0224794, 256
+  %157 = icmp eq i32 %.0230794, 256
   br i1 %157, label %.thread, label %159
 
 .thread:                                          ; preds = %154, %156
-  %158 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0231)
+  %158 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0224)
   br label %159
 
 159:                                              ; preds = %156, %.thread
@@ -921,7 +921,7 @@ dump_one_cpuid.exit283:                           ; preds = %138
   %167 = load i32, ptr %42, align 4
   %168 = load i32, ptr %43, align 8
   %169 = load i32, ptr %44, align 4
-  %170 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 5, i32 noundef %167, i32 noundef %168, i32 noundef %169) #14
+  %170 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 5, i32 noundef %167, i32 noundef %168, i32 noundef %169) #14
   %171 = load i32, ptr %4, align 16
   %172 = load i32, ptr %43, align 8
   %173 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %171, i32 %172) #14, !srcloc !9
@@ -932,7 +932,7 @@ dump_one_cpuid.exit283:                           ; preds = %138
   store i32 %175, ptr %43, align 8
   store i32 %176, ptr %44, align 4
   %177 = load i32, ptr %42, align 4
-  %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %174, i32 noundef %177, i32 noundef %175, i32 noundef %176) #14
+  %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %174, i32 noundef %177, i32 noundef %175, i32 noundef %176) #14
   %.not744 = icmp eq i32 %46, 5
   br i1 %.not744, label %.thread683, label %179
 
@@ -959,7 +959,7 @@ dump_one_cpuid.exit283:                           ; preds = %138
   %185 = load i32, ptr %42, align 4
   %186 = load i32, ptr %43, align 8
   %187 = load i32, ptr %44, align 4
-  %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 6, i32 noundef %185, i32 noundef %186, i32 noundef %187) #14
+  %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 6, i32 noundef %185, i32 noundef %186, i32 noundef %187) #14
   %189 = load i32, ptr %4, align 16
   %190 = load i32, ptr %43, align 8
   %191 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %189, i32 %190) #14, !srcloc !9
@@ -970,7 +970,7 @@ dump_one_cpuid.exit283:                           ; preds = %138
   store i32 %193, ptr %43, align 8
   store i32 %194, ptr %44, align 4
   %195 = load i32, ptr %42, align 4
-  %196 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %192, i32 noundef %195, i32 noundef %193, i32 noundef %194) #14
+  %196 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %192, i32 noundef %195, i32 noundef %193, i32 noundef %194) #14
   %197 = icmp ugt i32 %46, 6
   br i1 %197, label %198, label %.thread683
 
@@ -1002,7 +1002,7 @@ dump_one_cpuid.exit298:                           ; preds = %205
   %207 = load i32, ptr %42, align 4
   %208 = load i32, ptr %43, align 8
   %209 = load i32, ptr %44, align 4
-  %210 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %206, i32 noundef %207, i32 noundef %208, i32 noundef %209) #14
+  %210 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %206, i32 noundef %207, i32 noundef %208, i32 noundef %209) #14
   %211 = load i32, ptr %4, align 16
   %212 = load i32, ptr %43, align 8
   %213 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %211, i32 %212) #14, !srcloc !9
@@ -1013,7 +1013,7 @@ dump_one_cpuid.exit298:                           ; preds = %205
   store i32 %215, ptr %43, align 8
   store i32 %216, ptr %44, align 4
   %217 = load i32, ptr %42, align 4
-  %218 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %214, i32 noundef %217, i32 noundef %215, i32 noundef %216) #14
+  %218 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %214, i32 noundef %217, i32 noundef %215, i32 noundef %216) #14
   %219 = load i32, ptr %44, align 4
   %220 = load i32, ptr %42, align 4
   %221 = load i32, ptr %4, align 16
@@ -1027,9 +1027,9 @@ dump_one_cpuid.exit298:                           ; preds = %205
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %dump_one_cpuid.exit303
-  %.1795 = phi i32 [ %244, %dump_one_cpuid.exit303 ], [ 1, %.lr.ph.preheader ]
+  %.1231795 = phi i32 [ %244, %dump_one_cpuid.exit303 ], [ 1, %.lr.ph.preheader ]
   store i32 7, ptr %4, align 16
-  store i32 %.1795, ptr %43, align 8
+  store i32 %.1231795, ptr %43, align 8
   br label %224
 
 224:                                              ; preds = %230, %.lr.ph
@@ -1055,7 +1055,7 @@ dump_one_cpuid.exit303:                           ; preds = %230
   %232 = load i32, ptr %42, align 4
   %233 = load i32, ptr %43, align 8
   %234 = load i32, ptr %44, align 4
-  %235 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %231, i32 noundef %232, i32 noundef %233, i32 noundef %234) #14
+  %235 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %231, i32 noundef %232, i32 noundef %233, i32 noundef %234) #14
   %236 = load i32, ptr %4, align 16
   %237 = load i32, ptr %43, align 8
   %238 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %236, i32 %237) #14, !srcloc !9
@@ -1066,8 +1066,8 @@ dump_one_cpuid.exit303:                           ; preds = %230
   store i32 %240, ptr %43, align 8
   store i32 %241, ptr %44, align 4
   %242 = load i32, ptr %42, align 4
-  %243 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %239, i32 noundef %242, i32 noundef %240, i32 noundef %241) #14
-  %244 = add nuw nsw i32 %.1795, 1
+  %243 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %239, i32 noundef %242, i32 noundef %240, i32 noundef %241) #14
+  %244 = add nuw nsw i32 %.1231795, 1
   %exitcond813.not = icmp eq i32 %244, %223
   br i1 %exitcond813.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
@@ -1076,7 +1076,7 @@ dump_one_cpuid.exit303:                           ; preds = %230
   br i1 %245, label %246, label %._crit_edge.thread
 
 246:                                              ; preds = %._crit_edge
-  %247 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.43, i32 noundef %221) #14
+  %247 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.43, i32 noundef %221) #14
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %dump_one_cpuid.exit298, %._crit_edge, %246
@@ -1106,7 +1106,7 @@ dump_one_cpuid.exit303:                           ; preds = %230
   %255 = load i32, ptr %42, align 4
   %256 = load i32, ptr %43, align 8
   %257 = load i32, ptr %44, align 4
-  %258 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 9, i32 noundef %255, i32 noundef %256, i32 noundef %257) #14
+  %258 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 9, i32 noundef %255, i32 noundef %256, i32 noundef %257) #14
   %259 = load i32, ptr %4, align 16
   %260 = load i32, ptr %43, align 8
   %261 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %259, i32 %260) #14, !srcloc !9
@@ -1117,7 +1117,7 @@ dump_one_cpuid.exit303:                           ; preds = %230
   store i32 %263, ptr %43, align 8
   store i32 %264, ptr %44, align 4
   %265 = load i32, ptr %42, align 4
-  %266 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %262, i32 noundef %265, i32 noundef %263, i32 noundef %264) #14
+  %266 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %262, i32 noundef %265, i32 noundef %263, i32 noundef %264) #14
   %.not748 = icmp eq i32 %46, 9
   br i1 %.not748, label %.thread683, label %267
 
@@ -1144,7 +1144,7 @@ dump_one_cpuid.exit303:                           ; preds = %230
   %273 = load i32, ptr %42, align 4
   %274 = load i32, ptr %43, align 8
   %275 = load i32, ptr %44, align 4
-  %276 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 10, i32 noundef %273, i32 noundef %274, i32 noundef %275) #14
+  %276 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 10, i32 noundef %273, i32 noundef %274, i32 noundef %275) #14
   %277 = load i32, ptr %4, align 16
   %278 = load i32, ptr %43, align 8
   %279 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %277, i32 %278) #14, !srcloc !9
@@ -1155,7 +1155,7 @@ dump_one_cpuid.exit303:                           ; preds = %230
   store i32 %281, ptr %43, align 8
   store i32 %282, ptr %44, align 4
   %283 = load i32, ptr %42, align 4
-  %284 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %280, i32 noundef %283, i32 noundef %281, i32 noundef %282) #14
+  %284 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %280, i32 noundef %283, i32 noundef %281, i32 noundef %282) #14
   %285 = icmp ugt i32 %46, 10
   %or.cond7 = select i1 %.not243, i1 %285, i1 false
   br i1 %or.cond7, label %.preheader792, label %317
@@ -1189,7 +1189,7 @@ dump_one_cpuid.exit318:                           ; preds = %292
   %294 = load i32, ptr %42, align 4
   %295 = load i32, ptr %43, align 8
   %296 = load i32, ptr %44, align 4
-  %297 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %293, i32 noundef %294, i32 noundef %295, i32 noundef %296) #14
+  %297 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %293, i32 noundef %294, i32 noundef %295, i32 noundef %296) #14
   %298 = load i32, ptr %4, align 16
   %299 = load i32, ptr %43, align 8
   %300 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %298, i32 %299) #14, !srcloc !9
@@ -1200,7 +1200,7 @@ dump_one_cpuid.exit318:                           ; preds = %292
   store i32 %302, ptr %43, align 8
   store i32 %303, ptr %44, align 4
   %304 = load i32, ptr %42, align 4
-  %305 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %301, i32 noundef %304, i32 noundef %302, i32 noundef %303) #14
+  %305 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %301, i32 noundef %304, i32 noundef %302, i32 noundef %303) #14
   br i1 %or.cond5.not, label %309, label %306
 
 306:                                              ; preds = %dump_one_cpuid.exit318
@@ -1225,7 +1225,7 @@ dump_one_cpuid.exit318:                           ; preds = %292
   br i1 %315, label %.thread828, label %317
 
 .thread828:                                       ; preds = %312, %314
-  %316 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0231)
+  %316 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0224)
   br label %317
 
 317:                                              ; preds = %314, %.thread828, %272
@@ -1260,7 +1260,7 @@ dump_one_cpuid.exit323:                           ; preds = %326
   %328 = load i32, ptr %42, align 4
   %329 = load i32, ptr %43, align 8
   %330 = load i32, ptr %44, align 4
-  %331 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %327, i32 noundef %328, i32 noundef %329, i32 noundef %330) #14
+  %331 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %327, i32 noundef %328, i32 noundef %329, i32 noundef %330) #14
   %332 = load i32, ptr %4, align 16
   %333 = load i32, ptr %43, align 8
   %334 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %332, i32 %333) #14, !srcloc !9
@@ -1271,7 +1271,7 @@ dump_one_cpuid.exit323:                           ; preds = %326
   store i32 %336, ptr %43, align 8
   store i32 %337, ptr %44, align 4
   %338 = load i32, ptr %42, align 4
-  %339 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %335, i32 noundef %338, i32 noundef %336, i32 noundef %337) #14
+  %339 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %335, i32 noundef %338, i32 noundef %336, i32 noundef %337) #14
   %340 = load i32, ptr %4, align 16
   %341 = load i32, ptr %44, align 4
   store i32 13, ptr %4, align 16
@@ -1301,7 +1301,7 @@ dump_one_cpuid.exit328:                           ; preds = %348
   %350 = load i32, ptr %42, align 4
   %351 = load i32, ptr %43, align 8
   %352 = load i32, ptr %44, align 4
-  %353 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %349, i32 noundef %350, i32 noundef %351, i32 noundef %352) #14
+  %353 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %349, i32 noundef %350, i32 noundef %351, i32 noundef %352) #14
   %354 = load i32, ptr %4, align 16
   %355 = load i32, ptr %43, align 8
   %356 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %354, i32 %355) #14, !srcloc !9
@@ -1312,7 +1312,7 @@ dump_one_cpuid.exit328:                           ; preds = %348
   store i32 %358, ptr %43, align 8
   store i32 %359, ptr %44, align 4
   %360 = load i32, ptr %42, align 4
-  %361 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %357, i32 noundef %360, i32 noundef %358, i32 noundef %359) #14
+  %361 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %357, i32 noundef %360, i32 noundef %358, i32 noundef %359) #14
   %362 = load i32, ptr %43, align 8
   %363 = load i32, ptr %44, align 4
   %364 = or i32 %362, %340
@@ -1357,7 +1357,7 @@ dump_one_cpuid.exit333:                           ; preds = %376
   %378 = load i32, ptr %42, align 4
   %379 = load i32, ptr %43, align 8
   %380 = load i32, ptr %44, align 4
-  %381 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %377, i32 noundef %378, i32 noundef %379, i32 noundef %380) #14
+  %381 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %377, i32 noundef %378, i32 noundef %379, i32 noundef %380) #14
   %382 = load i32, ptr %4, align 16
   %383 = load i32, ptr %43, align 8
   %384 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %382, i32 %383) #14, !srcloc !9
@@ -1368,7 +1368,7 @@ dump_one_cpuid.exit333:                           ; preds = %376
   store i32 %386, ptr %43, align 8
   store i32 %387, ptr %44, align 4
   %388 = load i32, ptr %42, align 4
-  %389 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %385, i32 noundef %388, i32 noundef %386, i32 noundef %387) #14
+  %389 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %385, i32 noundef %388, i32 noundef %386, i32 noundef %387) #14
   br label %390
 
 390:                                              ; preds = %366, %dump_one_cpuid.exit333
@@ -1412,7 +1412,7 @@ dump_one_cpuid.exit338:                           ; preds = %403
   %405 = load i32, ptr %42, align 4
   %406 = load i32, ptr %43, align 8
   %407 = load i32, ptr %44, align 4
-  %408 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %404, i32 noundef %405, i32 noundef %406, i32 noundef %407) #14
+  %408 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %404, i32 noundef %405, i32 noundef %406, i32 noundef %407) #14
   %409 = load i32, ptr %4, align 16
   %410 = load i32, ptr %43, align 8
   %411 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %409, i32 %410) #14, !srcloc !9
@@ -1423,7 +1423,7 @@ dump_one_cpuid.exit338:                           ; preds = %403
   store i32 %413, ptr %43, align 8
   store i32 %414, ptr %44, align 4
   %415 = load i32, ptr %42, align 4
-  %416 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %412, i32 noundef %415, i32 noundef %413, i32 noundef %414) #14
+  %416 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %412, i32 noundef %415, i32 noundef %413, i32 noundef %414) #14
   br label %417
 
 417:                                              ; preds = %392, %dump_one_cpuid.exit338
@@ -1463,7 +1463,7 @@ dump_one_cpuid.exit343:                           ; preds = %428
   %430 = load i32, ptr %42, align 4
   %431 = load i32, ptr %43, align 8
   %432 = load i32, ptr %44, align 4
-  %433 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %429, i32 noundef %430, i32 noundef %431, i32 noundef %432) #14
+  %433 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %429, i32 noundef %430, i32 noundef %431, i32 noundef %432) #14
   %434 = load i32, ptr %4, align 16
   %435 = load i32, ptr %43, align 8
   %436 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %434, i32 %435) #14, !srcloc !9
@@ -1474,7 +1474,7 @@ dump_one_cpuid.exit343:                           ; preds = %428
   store i32 %438, ptr %43, align 8
   store i32 %439, ptr %44, align 4
   %440 = load i32, ptr %42, align 4
-  %441 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %437, i32 noundef %440, i32 noundef %438, i32 noundef %439) #14
+  %441 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %437, i32 noundef %440, i32 noundef %438, i32 noundef %439) #14
   store i32 15, ptr %4, align 16
   store i32 1, ptr %43, align 8
   br label %442
@@ -1502,7 +1502,7 @@ dump_one_cpuid.exit343:                           ; preds = %428
   %451 = load i32, ptr %42, align 4
   %452 = load i32, ptr %43, align 8
   %453 = load i32, ptr %44, align 4
-  %454 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %450, i32 noundef %451, i32 noundef %452, i32 noundef %453) #14
+  %454 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %450, i32 noundef %451, i32 noundef %452, i32 noundef %453) #14
   %455 = load i32, ptr %4, align 16
   %456 = load i32, ptr %43, align 8
   %457 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %455, i32 %456) #14, !srcloc !9
@@ -1513,7 +1513,7 @@ dump_one_cpuid.exit343:                           ; preds = %428
   store i32 %459, ptr %43, align 8
   store i32 %460, ptr %44, align 4
   %461 = load i32, ptr %42, align 4
-  %462 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %458, i32 noundef %461, i32 noundef %459, i32 noundef %460) #14
+  %462 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %458, i32 noundef %461, i32 noundef %459, i32 noundef %460) #14
   %.not750 = icmp eq i32 %46, 15
   br i1 %.not750, label %.thread683, label %463
 
@@ -1545,7 +1545,7 @@ dump_one_cpuid.exit353:                           ; preds = %470
   %472 = load i32, ptr %42, align 4
   %473 = load i32, ptr %43, align 8
   %474 = load i32, ptr %44, align 4
-  %475 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %471, i32 noundef %472, i32 noundef %473, i32 noundef %474) #14
+  %475 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %471, i32 noundef %472, i32 noundef %473, i32 noundef %474) #14
   %476 = load i32, ptr %4, align 16
   %477 = load i32, ptr %43, align 8
   %478 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %476, i32 %477) #14, !srcloc !9
@@ -1556,7 +1556,7 @@ dump_one_cpuid.exit353:                           ; preds = %470
   store i32 %480, ptr %43, align 8
   store i32 %481, ptr %44, align 4
   %482 = load i32, ptr %42, align 4
-  %483 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %479, i32 noundef %482, i32 noundef %480, i32 noundef %481) #14
+  %483 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %479, i32 noundef %482, i32 noundef %480, i32 noundef %481) #14
   store i32 16, ptr %4, align 16
   store i32 1, ptr %43, align 8
   br label %484
@@ -1584,7 +1584,7 @@ dump_one_cpuid.exit358:                           ; preds = %490
   %492 = load i32, ptr %42, align 4
   %493 = load i32, ptr %43, align 8
   %494 = load i32, ptr %44, align 4
-  %495 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %491, i32 noundef %492, i32 noundef %493, i32 noundef %494) #14
+  %495 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %491, i32 noundef %492, i32 noundef %493, i32 noundef %494) #14
   %496 = load i32, ptr %4, align 16
   %497 = load i32, ptr %43, align 8
   %498 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %496, i32 %497) #14, !srcloc !9
@@ -1595,7 +1595,7 @@ dump_one_cpuid.exit358:                           ; preds = %490
   store i32 %500, ptr %43, align 8
   store i32 %501, ptr %44, align 4
   %502 = load i32, ptr %42, align 4
-  %503 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %499, i32 noundef %502, i32 noundef %500, i32 noundef %501) #14
+  %503 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %499, i32 noundef %502, i32 noundef %500, i32 noundef %501) #14
   store i32 16, ptr %4, align 16
   store i32 2, ptr %43, align 8
   br label %504
@@ -1623,7 +1623,7 @@ dump_one_cpuid.exit363:                           ; preds = %510
   %512 = load i32, ptr %42, align 4
   %513 = load i32, ptr %43, align 8
   %514 = load i32, ptr %44, align 4
-  %515 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %511, i32 noundef %512, i32 noundef %513, i32 noundef %514) #14
+  %515 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %511, i32 noundef %512, i32 noundef %513, i32 noundef %514) #14
   %516 = load i32, ptr %4, align 16
   %517 = load i32, ptr %43, align 8
   %518 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %516, i32 %517) #14, !srcloc !9
@@ -1634,7 +1634,7 @@ dump_one_cpuid.exit363:                           ; preds = %510
   store i32 %520, ptr %43, align 8
   store i32 %521, ptr %44, align 4
   %522 = load i32, ptr %42, align 4
-  %523 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %519, i32 noundef %522, i32 noundef %520, i32 noundef %521) #14
+  %523 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %519, i32 noundef %522, i32 noundef %520, i32 noundef %521) #14
   store i32 16, ptr %4, align 16
   store i32 3, ptr %43, align 8
   br label %524
@@ -1662,7 +1662,7 @@ dump_one_cpuid.exit363:                           ; preds = %510
   %533 = load i32, ptr %42, align 4
   %534 = load i32, ptr %43, align 8
   %535 = load i32, ptr %44, align 4
-  %536 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %532, i32 noundef %533, i32 noundef %534, i32 noundef %535) #14
+  %536 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %532, i32 noundef %533, i32 noundef %534, i32 noundef %535) #14
   %537 = load i32, ptr %4, align 16
   %538 = load i32, ptr %43, align 8
   %539 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %537, i32 %538) #14, !srcloc !9
@@ -1673,7 +1673,7 @@ dump_one_cpuid.exit363:                           ; preds = %510
   store i32 %541, ptr %43, align 8
   store i32 %542, ptr %44, align 4
   %543 = load i32, ptr %42, align 4
-  %544 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %540, i32 noundef %543, i32 noundef %541, i32 noundef %542) #14
+  %544 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %540, i32 noundef %543, i32 noundef %541, i32 noundef %542) #14
   %545 = and i32 %220, 4
   %546 = icmp ne i32 %545, 0
   %547 = icmp ugt i32 %46, 17
@@ -1708,7 +1708,7 @@ dump_one_cpuid.exit373:                           ; preds = %555
   %557 = load i32, ptr %42, align 4
   %558 = load i32, ptr %43, align 8
   %559 = load i32, ptr %44, align 4
-  %560 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %556, i32 noundef %557, i32 noundef %558, i32 noundef %559) #14
+  %560 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %556, i32 noundef %557, i32 noundef %558, i32 noundef %559) #14
   %561 = load i32, ptr %4, align 16
   %562 = load i32, ptr %43, align 8
   %563 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %561, i32 %562) #14, !srcloc !9
@@ -1719,7 +1719,7 @@ dump_one_cpuid.exit373:                           ; preds = %555
   store i32 %565, ptr %43, align 8
   store i32 %566, ptr %44, align 4
   %567 = load i32, ptr %42, align 4
-  %568 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %564, i32 noundef %567, i32 noundef %565, i32 noundef %566) #14
+  %568 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %564, i32 noundef %567, i32 noundef %565, i32 noundef %566) #14
   store i32 18, ptr %4, align 16
   store i32 1, ptr %43, align 8
   br label %569
@@ -1747,7 +1747,7 @@ dump_one_cpuid.exit378:                           ; preds = %575
   %577 = load i32, ptr %42, align 4
   %578 = load i32, ptr %43, align 8
   %579 = load i32, ptr %44, align 4
-  %580 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %576, i32 noundef %577, i32 noundef %578, i32 noundef %579) #14
+  %580 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %576, i32 noundef %577, i32 noundef %578, i32 noundef %579) #14
   %581 = load i32, ptr %4, align 16
   %582 = load i32, ptr %43, align 8
   %583 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %581, i32 %582) #14, !srcloc !9
@@ -1758,7 +1758,7 @@ dump_one_cpuid.exit378:                           ; preds = %575
   store i32 %585, ptr %43, align 8
   store i32 %586, ptr %44, align 4
   %587 = load i32, ptr %42, align 4
-  %588 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %584, i32 noundef %587, i32 noundef %585, i32 noundef %586) #14
+  %588 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %584, i32 noundef %587, i32 noundef %585, i32 noundef %586) #14
   br label %589
 
 589:                                              ; preds = %dump_one_cpuid.exit378, %612
@@ -1790,7 +1790,7 @@ dump_one_cpuid.exit383:                           ; preds = %596
   %598 = load i32, ptr %42, align 4
   %599 = load i32, ptr %43, align 8
   %600 = load i32, ptr %44, align 4
-  %601 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %597, i32 noundef %598, i32 noundef %599, i32 noundef %600) #14
+  %601 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %597, i32 noundef %598, i32 noundef %599, i32 noundef %600) #14
   %602 = load i32, ptr %4, align 16
   %603 = load i32, ptr %43, align 8
   %604 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %602, i32 %603) #14, !srcloc !9
@@ -1801,7 +1801,7 @@ dump_one_cpuid.exit383:                           ; preds = %596
   store i32 %606, ptr %43, align 8
   store i32 %607, ptr %44, align 4
   %608 = load i32, ptr %42, align 4
-  %609 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %605, i32 noundef %608, i32 noundef %606, i32 noundef %607) #14
+  %609 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %605, i32 noundef %608, i32 noundef %606, i32 noundef %607) #14
   %610 = load i32, ptr %4, align 16
   %611 = and i32 %610, 15
   %.not254 = icmp eq i32 %611, 0
@@ -1817,7 +1817,7 @@ dump_one_cpuid.exit383:                           ; preds = %596
   br i1 %615, label %.thread830, label %617
 
 .thread830:                                       ; preds = %612, %614
-  %616 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0231)
+  %616 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0224)
   br label %617
 
 617:                                              ; preds = %614, %.thread830, %531
@@ -1852,7 +1852,7 @@ dump_one_cpuid.exit388:                           ; preds = %626
   %628 = load i32, ptr %42, align 4
   %629 = load i32, ptr %43, align 8
   %630 = load i32, ptr %44, align 4
-  %631 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %627, i32 noundef %628, i32 noundef %629, i32 noundef %630) #14
+  %631 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %627, i32 noundef %628, i32 noundef %629, i32 noundef %630) #14
   %632 = load i32, ptr %4, align 16
   %633 = load i32, ptr %43, align 8
   %634 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %632, i32 %633) #14, !srcloc !9
@@ -1863,7 +1863,7 @@ dump_one_cpuid.exit388:                           ; preds = %626
   store i32 %636, ptr %43, align 8
   store i32 %637, ptr %44, align 4
   %638 = load i32, ptr %42, align 4
-  %639 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %635, i32 noundef %638, i32 noundef %636, i32 noundef %637) #14
+  %639 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %635, i32 noundef %638, i32 noundef %636, i32 noundef %637) #14
   store i32 20, ptr %4, align 16
   store i32 1, ptr %43, align 8
   br label %640
@@ -1891,7 +1891,7 @@ dump_one_cpuid.exit388:                           ; preds = %626
   %649 = load i32, ptr %42, align 4
   %650 = load i32, ptr %43, align 8
   %651 = load i32, ptr %44, align 4
-  %652 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %648, i32 noundef %649, i32 noundef %650, i32 noundef %651) #14
+  %652 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %648, i32 noundef %649, i32 noundef %650, i32 noundef %651) #14
   %653 = load i32, ptr %4, align 16
   %654 = load i32, ptr %43, align 8
   %655 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %653, i32 %654) #14, !srcloc !9
@@ -1902,7 +1902,7 @@ dump_one_cpuid.exit388:                           ; preds = %626
   store i32 %657, ptr %43, align 8
   store i32 %658, ptr %44, align 4
   %659 = load i32, ptr %42, align 4
-  %660 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %656, i32 noundef %659, i32 noundef %657, i32 noundef %658) #14
+  %660 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %656, i32 noundef %659, i32 noundef %657, i32 noundef %658) #14
   %.not751 = icmp eq i32 %46, 20
   br i1 %.not751, label %.thread683, label %661
 
@@ -1929,7 +1929,7 @@ dump_one_cpuid.exit388:                           ; preds = %626
   %667 = load i32, ptr %42, align 4
   %668 = load i32, ptr %43, align 8
   %669 = load i32, ptr %44, align 4
-  %670 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 21, i32 noundef %667, i32 noundef %668, i32 noundef %669) #14
+  %670 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 21, i32 noundef %667, i32 noundef %668, i32 noundef %669) #14
   %671 = load i32, ptr %4, align 16
   %672 = load i32, ptr %43, align 8
   %673 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %671, i32 %672) #14, !srcloc !9
@@ -1940,7 +1940,7 @@ dump_one_cpuid.exit388:                           ; preds = %626
   store i32 %675, ptr %43, align 8
   store i32 %676, ptr %44, align 4
   %677 = load i32, ptr %42, align 4
-  %678 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %674, i32 noundef %677, i32 noundef %675, i32 noundef %676) #14
+  %678 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %674, i32 noundef %677, i32 noundef %675, i32 noundef %676) #14
   %679 = icmp ugt i32 %46, 21
   br i1 %679, label %680, label %.thread683
 
@@ -1967,7 +1967,7 @@ dump_one_cpuid.exit388:                           ; preds = %626
   %686 = load i32, ptr %42, align 4
   %687 = load i32, ptr %43, align 8
   %688 = load i32, ptr %44, align 4
-  %689 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 22, i32 noundef %686, i32 noundef %687, i32 noundef %688) #14
+  %689 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 22, i32 noundef %686, i32 noundef %687, i32 noundef %688) #14
   %690 = load i32, ptr %4, align 16
   %691 = load i32, ptr %43, align 8
   %692 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %690, i32 %691) #14, !srcloc !9
@@ -1978,7 +1978,7 @@ dump_one_cpuid.exit388:                           ; preds = %626
   store i32 %694, ptr %43, align 8
   store i32 %695, ptr %44, align 4
   %696 = load i32, ptr %42, align 4
-  %697 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %693, i32 noundef %696, i32 noundef %694, i32 noundef %695) #14
+  %697 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %693, i32 noundef %696, i32 noundef %694, i32 noundef %695) #14
   %.not754 = icmp eq i32 %46, 22
   br i1 %.not754, label %.thread683, label %698
 
@@ -2010,7 +2010,7 @@ dump_one_cpuid.exit408:                           ; preds = %705
   %707 = load i32, ptr %42, align 4
   %708 = load i32, ptr %43, align 8
   %709 = load i32, ptr %44, align 4
-  %710 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %706, i32 noundef %707, i32 noundef %708, i32 noundef %709) #14
+  %710 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %706, i32 noundef %707, i32 noundef %708, i32 noundef %709) #14
   %711 = load i32, ptr %4, align 16
   %712 = load i32, ptr %43, align 8
   %713 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %711, i32 %712) #14, !srcloc !9
@@ -2021,7 +2021,7 @@ dump_one_cpuid.exit408:                           ; preds = %705
   store i32 %715, ptr %43, align 8
   store i32 %716, ptr %44, align 4
   %717 = load i32, ptr %42, align 4
-  %718 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %714, i32 noundef %717, i32 noundef %715, i32 noundef %716) #14
+  %718 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %714, i32 noundef %717, i32 noundef %715, i32 noundef %716) #14
   %719 = load i32, ptr %4, align 16
   %720 = icmp ugt i32 %719, 2
   br i1 %720, label %.preheader790.preheader, label %748
@@ -2061,7 +2061,7 @@ dump_one_cpuid.exit413:                           ; preds = %729
   %731 = load i32, ptr %42, align 4
   %732 = load i32, ptr %43, align 8
   %733 = load i32, ptr %44, align 4
-  %734 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %730, i32 noundef %731, i32 noundef %732, i32 noundef %733) #14
+  %734 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %730, i32 noundef %731, i32 noundef %732, i32 noundef %733) #14
   %735 = load i32, ptr %4, align 16
   %736 = load i32, ptr %43, align 8
   %737 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %735, i32 %736) #14, !srcloc !9
@@ -2072,7 +2072,7 @@ dump_one_cpuid.exit413:                           ; preds = %729
   store i32 %739, ptr %43, align 8
   store i32 %740, ptr %44, align 4
   %741 = load i32, ptr %42, align 4
-  %742 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %738, i32 noundef %741, i32 noundef %739, i32 noundef %740) #14
+  %742 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %738, i32 noundef %741, i32 noundef %739, i32 noundef %740) #14
   %743 = add nuw nsw i32 %.6800, 1
   %exitcond819.not = icmp eq i32 %743, %722
   br i1 %exitcond819.not, label %744, label %.preheader790, !llvm.loop !17
@@ -2082,7 +2082,7 @@ dump_one_cpuid.exit413:                           ; preds = %729
   br i1 %745, label %746, label %748
 
 746:                                              ; preds = %744
-  %747 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.44, i32 noundef %719) #14
+  %747 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.44, i32 noundef %719) #14
   br label %748
 
 748:                                              ; preds = %dump_one_cpuid.exit408, %746, %744
@@ -2117,7 +2117,7 @@ dump_one_cpuid.exit418:                           ; preds = %757
   %759 = load i32, ptr %42, align 4
   %760 = load i32, ptr %43, align 8
   %761 = load i32, ptr %44, align 4
-  %762 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %758, i32 noundef %759, i32 noundef %760, i32 noundef %761) #14
+  %762 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %758, i32 noundef %759, i32 noundef %760, i32 noundef %761) #14
   %763 = load i32, ptr %4, align 16
   %764 = load i32, ptr %43, align 8
   %765 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %763, i32 %764) #14, !srcloc !9
@@ -2128,7 +2128,7 @@ dump_one_cpuid.exit418:                           ; preds = %757
   store i32 %767, ptr %43, align 8
   store i32 %768, ptr %44, align 4
   %769 = load i32, ptr %42, align 4
-  %770 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %766, i32 noundef %769, i32 noundef %767, i32 noundef %768) #14
+  %770 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %766, i32 noundef %769, i32 noundef %767, i32 noundef %768) #14
   %771 = load i32, ptr %4, align 16
   %.not810 = icmp eq i32 %771, 0
   br i1 %.not810, label %._crit_edge803.thread, label %.lr.ph802.preheader
@@ -2169,7 +2169,7 @@ dump_one_cpuid.exit423:                           ; preds = %780
   %782 = load i32, ptr %42, align 4
   %783 = load i32, ptr %43, align 8
   %784 = load i32, ptr %44, align 4
-  %785 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %781, i32 noundef %782, i32 noundef %783, i32 noundef %784) #14
+  %785 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %781, i32 noundef %782, i32 noundef %783, i32 noundef %784) #14
   %786 = load i32, ptr %4, align 16
   %787 = load i32, ptr %43, align 8
   %788 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %786, i32 %787) #14, !srcloc !9
@@ -2180,7 +2180,7 @@ dump_one_cpuid.exit423:                           ; preds = %780
   store i32 %790, ptr %43, align 8
   store i32 %791, ptr %44, align 4
   %792 = load i32, ptr %42, align 4
-  %793 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %789, i32 noundef %792, i32 noundef %790, i32 noundef %791) #14
+  %793 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %789, i32 noundef %792, i32 noundef %790, i32 noundef %791) #14
   %794 = add nuw nsw i32 %.7801, 1
   %exitcond821.not = icmp eq i32 %794, %773
   br i1 %exitcond821.not, label %._crit_edge803, label %.lr.ph802, !llvm.loop !18
@@ -2190,7 +2190,7 @@ dump_one_cpuid.exit423:                           ; preds = %780
   br i1 %795, label %796, label %._crit_edge803.thread
 
 796:                                              ; preds = %._crit_edge803
-  %797 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.43, i32 noundef %771) #14
+  %797 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.43, i32 noundef %771) #14
   br label %._crit_edge803.thread
 
 ._crit_edge803.thread:                            ; preds = %dump_one_cpuid.exit418, %._crit_edge803, %796
@@ -2220,7 +2220,7 @@ dump_one_cpuid.exit423:                           ; preds = %780
   %804 = load i32, ptr %42, align 4
   %805 = load i32, ptr %43, align 8
   %806 = load i32, ptr %44, align 4
-  %807 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 25, i32 noundef %804, i32 noundef %805, i32 noundef %806) #14
+  %807 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef 25, i32 noundef %804, i32 noundef %805, i32 noundef %806) #14
   %808 = load i32, ptr %4, align 16
   %809 = load i32, ptr %43, align 8
   %810 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %808, i32 %809) #14, !srcloc !9
@@ -2231,7 +2231,7 @@ dump_one_cpuid.exit423:                           ; preds = %780
   store i32 %812, ptr %43, align 8
   store i32 %813, ptr %44, align 4
   %814 = load i32, ptr %42, align 4
-  %815 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %811, i32 noundef %814, i32 noundef %812, i32 noundef %813) #14
+  %815 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %811, i32 noundef %814, i32 noundef %812, i32 noundef %813) #14
   %816 = icmp ugt i32 %46, 25
   br i1 %816, label %817, label %.thread683
 
@@ -2263,7 +2263,7 @@ dump_one_cpuid.exit423:                           ; preds = %780
   %827 = load i32, ptr %42, align 4
   %828 = load i32, ptr %43, align 8
   %829 = load i32, ptr %44, align 4
-  %830 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %826, i32 noundef %827, i32 noundef %828, i32 noundef %829) #14
+  %830 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %826, i32 noundef %827, i32 noundef %828, i32 noundef %829) #14
   %831 = load i32, ptr %4, align 16
   %832 = load i32, ptr %43, align 8
   %833 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %831, i32 %832) #14, !srcloc !9
@@ -2274,7 +2274,7 @@ dump_one_cpuid.exit423:                           ; preds = %780
   store i32 %835, ptr %43, align 8
   store i32 %836, ptr %44, align 4
   %837 = load i32, ptr %42, align 4
-  %838 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %834, i32 noundef %837, i32 noundef %835, i32 noundef %836) #14
+  %838 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %834, i32 noundef %837, i32 noundef %835, i32 noundef %836) #14
   %839 = and i32 %219, 262144
   %840 = icmp ne i32 %839, 0
   %841 = icmp ne i32 %46, 26
@@ -2310,7 +2310,7 @@ dump_one_cpuid.exit438:                           ; preds = %848
   %850 = load i32, ptr %42, align 4
   %851 = load i32, ptr %43, align 8
   %852 = load i32, ptr %44, align 4
-  %853 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %849, i32 noundef %850, i32 noundef %851, i32 noundef %852) #14
+  %853 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %849, i32 noundef %850, i32 noundef %851, i32 noundef %852) #14
   %854 = load i32, ptr %4, align 16
   %855 = load i32, ptr %43, align 8
   %856 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %854, i32 %855) #14, !srcloc !9
@@ -2321,7 +2321,7 @@ dump_one_cpuid.exit438:                           ; preds = %848
   store i32 %858, ptr %43, align 8
   store i32 %859, ptr %44, align 4
   %860 = load i32, ptr %42, align 4
-  %861 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %857, i32 noundef %860, i32 noundef %858, i32 noundef %859) #14
+  %861 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %857, i32 noundef %860, i32 noundef %858, i32 noundef %859) #14
   %862 = load i32, ptr %4, align 16
   %863 = and i32 %862, 4095
   %.not255 = icmp eq i32 %863, 0
@@ -2337,7 +2337,7 @@ dump_one_cpuid.exit438:                           ; preds = %848
   br i1 %867, label %.thread833, label %869
 
 .thread833:                                       ; preds = %864, %866
-  %868 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0231)
+  %868 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0224)
   br label %869
 
 869:                                              ; preds = %866, %.thread833, %825
@@ -2372,7 +2372,7 @@ dump_one_cpuid.exit438:                           ; preds = %848
   %881 = load i32, ptr %42, align 4
   %882 = load i32, ptr %43, align 8
   %883 = load i32, ptr %44, align 4
-  %884 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %880, i32 noundef %881, i32 noundef %882, i32 noundef %883) #14
+  %884 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %880, i32 noundef %881, i32 noundef %882, i32 noundef %883) #14
   %885 = load i32, ptr %4, align 16
   %886 = load i32, ptr %43, align 8
   %887 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %885, i32 %886) #14, !srcloc !9
@@ -2383,7 +2383,7 @@ dump_one_cpuid.exit438:                           ; preds = %848
   store i32 %889, ptr %43, align 8
   store i32 %890, ptr %44, align 4
   %891 = load i32, ptr %42, align 4
-  %892 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %888, i32 noundef %891, i32 noundef %889, i32 noundef %890) #14
+  %892 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %888, i32 noundef %891, i32 noundef %889, i32 noundef %890) #14
   %.not757 = icmp eq i32 %46, 28
   br i1 %.not757, label %.thread683, label %893
 
@@ -2415,7 +2415,7 @@ dump_one_cpuid.exit448:                           ; preds = %900
   %902 = load i32, ptr %42, align 4
   %903 = load i32, ptr %43, align 8
   %904 = load i32, ptr %44, align 4
-  %905 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %901, i32 noundef %902, i32 noundef %903, i32 noundef %904) #14
+  %905 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %901, i32 noundef %902, i32 noundef %903, i32 noundef %904) #14
   %906 = load i32, ptr %4, align 16
   %907 = load i32, ptr %43, align 8
   %908 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %906, i32 %907) #14, !srcloc !9
@@ -2426,7 +2426,7 @@ dump_one_cpuid.exit448:                           ; preds = %900
   store i32 %910, ptr %43, align 8
   store i32 %911, ptr %44, align 4
   %912 = load i32, ptr %42, align 4
-  %913 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %909, i32 noundef %912, i32 noundef %910, i32 noundef %911) #14
+  %913 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %909, i32 noundef %912, i32 noundef %910, i32 noundef %911) #14
   store i32 29, ptr %4, align 16
   store i32 1, ptr %43, align 8
   br label %914
@@ -2454,7 +2454,7 @@ dump_one_cpuid.exit448:                           ; preds = %900
   %923 = load i32, ptr %42, align 4
   %924 = load i32, ptr %43, align 8
   %925 = load i32, ptr %44, align 4
-  %926 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %922, i32 noundef %923, i32 noundef %924, i32 noundef %925) #14
+  %926 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %922, i32 noundef %923, i32 noundef %924, i32 noundef %925) #14
   %927 = load i32, ptr %4, align 16
   %928 = load i32, ptr %43, align 8
   %929 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %927, i32 %928) #14, !srcloc !9
@@ -2465,7 +2465,7 @@ dump_one_cpuid.exit448:                           ; preds = %900
   store i32 %931, ptr %43, align 8
   store i32 %932, ptr %44, align 4
   %933 = load i32, ptr %42, align 4
-  %934 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %930, i32 noundef %933, i32 noundef %931, i32 noundef %932) #14
+  %934 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %930, i32 noundef %933, i32 noundef %931, i32 noundef %932) #14
   %935 = icmp ugt i32 %46, 29
   br i1 %935, label %936, label %.thread683
 
@@ -2497,7 +2497,7 @@ dump_one_cpuid.exit448:                           ; preds = %900
   %946 = load i32, ptr %42, align 4
   %947 = load i32, ptr %43, align 8
   %948 = load i32, ptr %44, align 4
-  %949 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %945, i32 noundef %946, i32 noundef %947, i32 noundef %948) #14
+  %949 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %945, i32 noundef %946, i32 noundef %947, i32 noundef %948) #14
   %950 = load i32, ptr %4, align 16
   %951 = load i32, ptr %43, align 8
   %952 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %950, i32 %951) #14, !srcloc !9
@@ -2508,7 +2508,7 @@ dump_one_cpuid.exit448:                           ; preds = %900
   store i32 %954, ptr %43, align 8
   store i32 %955, ptr %44, align 4
   %956 = load i32, ptr %42, align 4
-  %957 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %953, i32 noundef %956, i32 noundef %954, i32 noundef %955) #14
+  %957 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %953, i32 noundef %956, i32 noundef %954, i32 noundef %955) #14
   %.not758 = icmp eq i32 %46, 30
   br i1 %.not758, label %.thread683, label %.preheader788
 
@@ -2541,7 +2541,7 @@ dump_one_cpuid.exit463:                           ; preds = %964
   %966 = load i32, ptr %42, align 4
   %967 = load i32, ptr %43, align 8
   %968 = load i32, ptr %44, align 4
-  %969 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %965, i32 noundef %966, i32 noundef %967, i32 noundef %968) #14
+  %969 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %965, i32 noundef %966, i32 noundef %967, i32 noundef %968) #14
   %970 = load i32, ptr %4, align 16
   %971 = load i32, ptr %43, align 8
   %972 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %970, i32 %971) #14, !srcloc !9
@@ -2552,7 +2552,7 @@ dump_one_cpuid.exit463:                           ; preds = %964
   store i32 %974, ptr %43, align 8
   store i32 %975, ptr %44, align 4
   %976 = load i32, ptr %42, align 4
-  %977 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %973, i32 noundef %976, i32 noundef %974, i32 noundef %975) #14
+  %977 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %973, i32 noundef %976, i32 noundef %974, i32 noundef %975) #14
   %978 = load i32, ptr %43, align 8
   %979 = and i32 %978, 65280
   %.not256 = icmp eq i32 %979, 0
@@ -2568,7 +2568,7 @@ dump_one_cpuid.exit463:                           ; preds = %964
   br i1 %983, label %.thread835, label %985
 
 .thread835:                                       ; preds = %980, %982
-  %984 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0231)
+  %984 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0224)
   br label %985
 
 985:                                              ; preds = %982, %.thread835
@@ -2603,7 +2603,7 @@ dump_one_cpuid.exit463:                           ; preds = %964
   %997 = load i32, ptr %42, align 4
   %998 = load i32, ptr %43, align 8
   %999 = load i32, ptr %44, align 4
-  %1000 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %996, i32 noundef %997, i32 noundef %998, i32 noundef %999) #14
+  %1000 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %996, i32 noundef %997, i32 noundef %998, i32 noundef %999) #14
   %1001 = load i32, ptr %4, align 16
   %1002 = load i32, ptr %43, align 8
   %1003 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1001, i32 %1002) #14, !srcloc !9
@@ -2614,7 +2614,7 @@ dump_one_cpuid.exit463:                           ; preds = %964
   store i32 %1005, ptr %43, align 8
   store i32 %1006, ptr %44, align 4
   %1007 = load i32, ptr %42, align 4
-  %1008 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1004, i32 noundef %1007, i32 noundef %1005, i32 noundef %1006) #14
+  %1008 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1004, i32 noundef %1007, i32 noundef %1005, i32 noundef %1006) #14
   %1009 = icmp ugt i32 %46, 33
   br i1 %1009, label %1010, label %.thread683
 
@@ -2654,7 +2654,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   %1019 = load i32, ptr %42, align 4
   %1020 = load i32, ptr %43, align 8
   %1021 = load i32, ptr %44, align 4
-  %1022 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483648, i32 noundef %1019, i32 noundef %1020, i32 noundef %1021) #14
+  %1022 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483648, i32 noundef %1019, i32 noundef %1020, i32 noundef %1021) #14
   %1023 = load i32, ptr %4, align 16
   %1024 = load i32, ptr %43, align 8
   %1025 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1023, i32 %1024) #14, !srcloc !9
@@ -2665,7 +2665,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   store i32 %1027, ptr %43, align 8
   store i32 %1028, ptr %44, align 4
   %1029 = load i32, ptr %42, align 4
-  %1030 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1026, i32 noundef %1029, i32 noundef %1027, i32 noundef %1028) #14
+  %1030 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1026, i32 noundef %1029, i32 noundef %1027, i32 noundef %1028) #14
   %1031 = icmp ugt i32 %50, -2147483648
   br i1 %1031, label %1032, label %.thread736
 
@@ -2692,7 +2692,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   %1038 = load i32, ptr %42, align 4
   %1039 = load i32, ptr %43, align 8
   %1040 = load i32, ptr %44, align 4
-  %1041 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483647, i32 noundef %1038, i32 noundef %1039, i32 noundef %1040) #14
+  %1041 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483647, i32 noundef %1038, i32 noundef %1039, i32 noundef %1040) #14
   %1042 = load i32, ptr %4, align 16
   %1043 = load i32, ptr %43, align 8
   %1044 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1042, i32 %1043) #14, !srcloc !9
@@ -2703,7 +2703,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   store i32 %1046, ptr %43, align 8
   store i32 %1047, ptr %44, align 4
   %1048 = load i32, ptr %42, align 4
-  %1049 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1045, i32 noundef %1048, i32 noundef %1046, i32 noundef %1047) #14
+  %1049 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1045, i32 noundef %1048, i32 noundef %1046, i32 noundef %1047) #14
   %1050 = load i32, ptr %43, align 8
   %1051 = and i32 %1050, 4194304
   %.not257 = icmp ne i32 %1051, 0
@@ -2733,7 +2733,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   %1058 = load i32, ptr %42, align 4
   %1059 = load i32, ptr %43, align 8
   %1060 = load i32, ptr %44, align 4
-  %1061 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483646, i32 noundef %1058, i32 noundef %1059, i32 noundef %1060) #14
+  %1061 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483646, i32 noundef %1058, i32 noundef %1059, i32 noundef %1060) #14
   %1062 = load i32, ptr %4, align 16
   %1063 = load i32, ptr %43, align 8
   %1064 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1062, i32 %1063) #14, !srcloc !9
@@ -2744,7 +2744,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   store i32 %1066, ptr %43, align 8
   store i32 %1067, ptr %44, align 4
   %1068 = load i32, ptr %42, align 4
-  %1069 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1065, i32 noundef %1068, i32 noundef %1066, i32 noundef %1067) #14
+  %1069 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1065, i32 noundef %1068, i32 noundef %1066, i32 noundef %1067) #14
   %1070 = icmp ugt i32 %50, -2147483646
   br i1 %1070, label %1071, label %.thread736
 
@@ -2771,7 +2771,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   %1077 = load i32, ptr %42, align 4
   %1078 = load i32, ptr %43, align 8
   %1079 = load i32, ptr %44, align 4
-  %1080 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483645, i32 noundef %1077, i32 noundef %1078, i32 noundef %1079) #14
+  %1080 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483645, i32 noundef %1077, i32 noundef %1078, i32 noundef %1079) #14
   %1081 = load i32, ptr %4, align 16
   %1082 = load i32, ptr %43, align 8
   %1083 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1081, i32 %1082) #14, !srcloc !9
@@ -2782,7 +2782,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   store i32 %1085, ptr %43, align 8
   store i32 %1086, ptr %44, align 4
   %1087 = load i32, ptr %42, align 4
-  %1088 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1084, i32 noundef %1087, i32 noundef %1085, i32 noundef %1086) #14
+  %1088 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1084, i32 noundef %1087, i32 noundef %1085, i32 noundef %1086) #14
   %.not764 = icmp eq i32 %50, -2147483645
   br i1 %.not764, label %.thread736, label %1089
 
@@ -2809,7 +2809,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   %1095 = load i32, ptr %42, align 4
   %1096 = load i32, ptr %43, align 8
   %1097 = load i32, ptr %44, align 4
-  %1098 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483644, i32 noundef %1095, i32 noundef %1096, i32 noundef %1097) #14
+  %1098 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483644, i32 noundef %1095, i32 noundef %1096, i32 noundef %1097) #14
   %1099 = load i32, ptr %4, align 16
   %1100 = load i32, ptr %43, align 8
   %1101 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1099, i32 %1100) #14, !srcloc !9
@@ -2820,7 +2820,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   store i32 %1103, ptr %43, align 8
   store i32 %1104, ptr %44, align 4
   %1105 = load i32, ptr %42, align 4
-  %1106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1102, i32 noundef %1105, i32 noundef %1103, i32 noundef %1104) #14
+  %1106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1102, i32 noundef %1105, i32 noundef %1103, i32 noundef %1104) #14
   %1107 = icmp ugt i32 %50, -2147483644
   br i1 %1107, label %1108, label %.thread736
 
@@ -2847,7 +2847,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   %1114 = load i32, ptr %42, align 4
   %1115 = load i32, ptr %43, align 8
   %1116 = load i32, ptr %44, align 4
-  %1117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483643, i32 noundef %1114, i32 noundef %1115, i32 noundef %1116) #14
+  %1117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483643, i32 noundef %1114, i32 noundef %1115, i32 noundef %1116) #14
   %1118 = load i32, ptr %4, align 16
   %1119 = load i32, ptr %43, align 8
   %1120 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1118, i32 %1119) #14, !srcloc !9
@@ -2858,7 +2858,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   store i32 %1122, ptr %43, align 8
   store i32 %1123, ptr %44, align 4
   %1124 = load i32, ptr %42, align 4
-  %1125 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1121, i32 noundef %1124, i32 noundef %1122, i32 noundef %1123) #14
+  %1125 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1121, i32 noundef %1124, i32 noundef %1122, i32 noundef %1123) #14
   %.not767 = icmp eq i32 %50, -2147483643
   br i1 %.not767, label %.thread736, label %1126
 
@@ -2885,7 +2885,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   %1132 = load i32, ptr %42, align 4
   %1133 = load i32, ptr %43, align 8
   %1134 = load i32, ptr %44, align 4
-  %1135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483642, i32 noundef %1132, i32 noundef %1133, i32 noundef %1134) #14
+  %1135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483642, i32 noundef %1132, i32 noundef %1133, i32 noundef %1134) #14
   %1136 = load i32, ptr %4, align 16
   %1137 = load i32, ptr %43, align 8
   %1138 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1136, i32 %1137) #14, !srcloc !9
@@ -2896,7 +2896,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   store i32 %1140, ptr %43, align 8
   store i32 %1141, ptr %44, align 4
   %1142 = load i32, ptr %42, align 4
-  %1143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1139, i32 noundef %1142, i32 noundef %1140, i32 noundef %1141) #14
+  %1143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1139, i32 noundef %1142, i32 noundef %1140, i32 noundef %1141) #14
   %1144 = icmp ugt i32 %50, -2147483642
   br i1 %1144, label %1145, label %.thread736
 
@@ -2923,7 +2923,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   %1151 = load i32, ptr %42, align 4
   %1152 = load i32, ptr %43, align 8
   %1153 = load i32, ptr %44, align 4
-  %1154 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483641, i32 noundef %1151, i32 noundef %1152, i32 noundef %1153) #14
+  %1154 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483641, i32 noundef %1151, i32 noundef %1152, i32 noundef %1153) #14
   %1155 = load i32, ptr %4, align 16
   %1156 = load i32, ptr %43, align 8
   %1157 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1155, i32 %1156) #14, !srcloc !9
@@ -2934,7 +2934,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   store i32 %1159, ptr %43, align 8
   store i32 %1160, ptr %44, align 4
   %1161 = load i32, ptr %42, align 4
-  %1162 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1158, i32 noundef %1161, i32 noundef %1159, i32 noundef %1160) #14
+  %1162 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1158, i32 noundef %1161, i32 noundef %1159, i32 noundef %1160) #14
   %.not770 = icmp eq i32 %50, -2147483641
   br i1 %.not770, label %.thread736, label %1163
 
@@ -2961,7 +2961,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   %1169 = load i32, ptr %42, align 4
   %1170 = load i32, ptr %43, align 8
   %1171 = load i32, ptr %44, align 4
-  %1172 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483640, i32 noundef %1169, i32 noundef %1170, i32 noundef %1171) #14
+  %1172 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483640, i32 noundef %1169, i32 noundef %1170, i32 noundef %1171) #14
   %1173 = load i32, ptr %4, align 16
   %1174 = load i32, ptr %43, align 8
   %1175 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1173, i32 %1174) #14, !srcloc !9
@@ -2972,7 +2972,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   store i32 %1177, ptr %43, align 8
   store i32 %1178, ptr %44, align 4
   %1179 = load i32, ptr %42, align 4
-  %1180 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1176, i32 noundef %1179, i32 noundef %1177, i32 noundef %1178) #14
+  %1180 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1176, i32 noundef %1179, i32 noundef %1177, i32 noundef %1178) #14
   %1181 = icmp ugt i32 %50, -2147483639
   br i1 %1181, label %1182, label %.thread736
 
@@ -2999,7 +2999,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   %1188 = load i32, ptr %42, align 4
   %1189 = load i32, ptr %43, align 8
   %1190 = load i32, ptr %44, align 4
-  %1191 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483638, i32 noundef %1188, i32 noundef %1189, i32 noundef %1190) #14
+  %1191 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483638, i32 noundef %1188, i32 noundef %1189, i32 noundef %1190) #14
   %1192 = load i32, ptr %4, align 16
   %1193 = load i32, ptr %43, align 8
   %1194 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1192, i32 %1193) #14, !srcloc !9
@@ -3010,7 +3010,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   store i32 %1196, ptr %43, align 8
   store i32 %1197, ptr %44, align 4
   %1198 = load i32, ptr %42, align 4
-  %1199 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1195, i32 noundef %1198, i32 noundef %1196, i32 noundef %1197) #14
+  %1199 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1195, i32 noundef %1198, i32 noundef %1196, i32 noundef %1197) #14
   %1200 = icmp ugt i32 %50, -2147483624
   br i1 %1200, label %1201, label %.thread736
 
@@ -3037,7 +3037,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   %1207 = load i32, ptr %42, align 4
   %1208 = load i32, ptr %43, align 8
   %1209 = load i32, ptr %44, align 4
-  %1210 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483623, i32 noundef %1207, i32 noundef %1208, i32 noundef %1209) #14
+  %1210 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483623, i32 noundef %1207, i32 noundef %1208, i32 noundef %1209) #14
   %1211 = load i32, ptr %4, align 16
   %1212 = load i32, ptr %43, align 8
   %1213 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1211, i32 %1212) #14, !srcloc !9
@@ -3048,7 +3048,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   store i32 %1215, ptr %43, align 8
   store i32 %1216, ptr %44, align 4
   %1217 = load i32, ptr %42, align 4
-  %1218 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1214, i32 noundef %1217, i32 noundef %1215, i32 noundef %1216) #14
+  %1218 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1214, i32 noundef %1217, i32 noundef %1215, i32 noundef %1216) #14
   %.not774 = icmp eq i32 %50, -2147483623
   br i1 %.not774, label %.thread736, label %1219
 
@@ -3075,7 +3075,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   %1225 = load i32, ptr %42, align 4
   %1226 = load i32, ptr %43, align 8
   %1227 = load i32, ptr %44, align 4
-  %1228 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483622, i32 noundef %1225, i32 noundef %1226, i32 noundef %1227) #14
+  %1228 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483622, i32 noundef %1225, i32 noundef %1226, i32 noundef %1227) #14
   %1229 = load i32, ptr %4, align 16
   %1230 = load i32, ptr %43, align 8
   %1231 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1229, i32 %1230) #14, !srcloc !9
@@ -3086,7 +3086,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   store i32 %1233, ptr %43, align 8
   store i32 %1234, ptr %44, align 4
   %1235 = load i32, ptr %42, align 4
-  %1236 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1232, i32 noundef %1235, i32 noundef %1233, i32 noundef %1234) #14
+  %1236 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1232, i32 noundef %1235, i32 noundef %1233, i32 noundef %1234) #14
   %1237 = icmp ugt i32 %50, -2147483622
   br i1 %1237, label %1238, label %.thread736
 
@@ -3113,7 +3113,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   %1244 = load i32, ptr %42, align 4
   %1245 = load i32, ptr %43, align 8
   %1246 = load i32, ptr %44, align 4
-  %1247 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483621, i32 noundef %1244, i32 noundef %1245, i32 noundef %1246) #14
+  %1247 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483621, i32 noundef %1244, i32 noundef %1245, i32 noundef %1246) #14
   %1248 = load i32, ptr %4, align 16
   %1249 = load i32, ptr %43, align 8
   %1250 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1248, i32 %1249) #14, !srcloc !9
@@ -3124,7 +3124,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   store i32 %1252, ptr %43, align 8
   store i32 %1253, ptr %44, align 4
   %1254 = load i32, ptr %42, align 4
-  %1255 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1251, i32 noundef %1254, i32 noundef %1252, i32 noundef %1253) #14
+  %1255 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1251, i32 noundef %1254, i32 noundef %1252, i32 noundef %1253) #14
   %.not777 = icmp eq i32 %50, -2147483621
   br i1 %.not777, label %.thread736, label %1256
 
@@ -3151,7 +3151,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   %1262 = load i32, ptr %42, align 4
   %1263 = load i32, ptr %43, align 8
   %1264 = load i32, ptr %44, align 4
-  %1265 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483620, i32 noundef %1262, i32 noundef %1263, i32 noundef %1264) #14
+  %1265 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483620, i32 noundef %1262, i32 noundef %1263, i32 noundef %1264) #14
   %1266 = load i32, ptr %4, align 16
   %1267 = load i32, ptr %43, align 8
   %1268 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1266, i32 %1267) #14, !srcloc !9
@@ -3162,7 +3162,7 @@ dump_one_cpuid.exit473:                           ; preds = %1018
   store i32 %1270, ptr %43, align 8
   store i32 %1271, ptr %44, align 4
   %1272 = load i32, ptr %42, align 4
-  %1273 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1269, i32 noundef %1272, i32 noundef %1270, i32 noundef %1271) #14
+  %1273 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1269, i32 noundef %1272, i32 noundef %1270, i32 noundef %1271) #14
   %1274 = icmp ugt i32 %50, -2147483620
   br i1 %1274, label %.preheader787, label %.thread736
 
@@ -3195,7 +3195,7 @@ dump_one_cpuid.exit543:                           ; preds = %1281
   %1283 = load i32, ptr %42, align 4
   %1284 = load i32, ptr %43, align 8
   %1285 = load i32, ptr %44, align 4
-  %1286 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1282, i32 noundef %1283, i32 noundef %1284, i32 noundef %1285) #14
+  %1286 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1282, i32 noundef %1283, i32 noundef %1284, i32 noundef %1285) #14
   %1287 = load i32, ptr %4, align 16
   %1288 = load i32, ptr %43, align 8
   %1289 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1287, i32 %1288) #14, !srcloc !9
@@ -3206,7 +3206,7 @@ dump_one_cpuid.exit543:                           ; preds = %1281
   store i32 %1291, ptr %43, align 8
   store i32 %1292, ptr %44, align 4
   %1293 = load i32, ptr %42, align 4
-  %1294 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1290, i32 noundef %1293, i32 noundef %1291, i32 noundef %1292) #14
+  %1294 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1290, i32 noundef %1293, i32 noundef %1291, i32 noundef %1292) #14
   %1295 = load i32, ptr %4, align 16
   %1296 = and i32 %1295, 31
   %.not258 = icmp eq i32 %1296, 0
@@ -3222,7 +3222,7 @@ dump_one_cpuid.exit543:                           ; preds = %1281
   br i1 %1300, label %.thread837, label %1302
 
 .thread837:                                       ; preds = %1297, %1299
-  %1301 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0231)
+  %1301 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0224)
   br label %1302
 
 1302:                                             ; preds = %1299, %.thread837
@@ -3253,7 +3253,7 @@ dump_one_cpuid.exit548:                           ; preds = %1308
   %1309 = load i32, ptr %42, align 4
   %1310 = load i32, ptr %43, align 8
   %1311 = load i32, ptr %44, align 4
-  %1312 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483618, i32 noundef %1309, i32 noundef %1310, i32 noundef %1311) #14
+  %1312 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483618, i32 noundef %1309, i32 noundef %1310, i32 noundef %1311) #14
   %1313 = load i32, ptr %4, align 16
   %1314 = load i32, ptr %43, align 8
   %1315 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1313, i32 %1314) #14, !srcloc !9
@@ -3264,7 +3264,7 @@ dump_one_cpuid.exit548:                           ; preds = %1308
   store i32 %1317, ptr %43, align 8
   store i32 %1318, ptr %44, align 4
   %1319 = load i32, ptr %42, align 4
-  %1320 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1316, i32 noundef %1319, i32 noundef %1317, i32 noundef %1318) #14
+  %1320 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1316, i32 noundef %1319, i32 noundef %1317, i32 noundef %1318) #14
   br label %1321
 
 1321:                                             ; preds = %dump_one_cpuid.exit548, %1302
@@ -3294,7 +3294,7 @@ dump_one_cpuid.exit548:                           ; preds = %1308
   %1329 = load i32, ptr %42, align 4
   %1330 = load i32, ptr %43, align 8
   %1331 = load i32, ptr %44, align 4
-  %1332 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483617, i32 noundef %1329, i32 noundef %1330, i32 noundef %1331) #14
+  %1332 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483617, i32 noundef %1329, i32 noundef %1330, i32 noundef %1331) #14
   %1333 = load i32, ptr %4, align 16
   %1334 = load i32, ptr %43, align 8
   %1335 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1333, i32 %1334) #14, !srcloc !9
@@ -3305,7 +3305,7 @@ dump_one_cpuid.exit548:                           ; preds = %1308
   store i32 %1337, ptr %43, align 8
   store i32 %1338, ptr %44, align 4
   %1339 = load i32, ptr %42, align 4
-  %1340 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1336, i32 noundef %1339, i32 noundef %1337, i32 noundef %1338) #14
+  %1340 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1336, i32 noundef %1339, i32 noundef %1337, i32 noundef %1338) #14
   %.not781 = icmp eq i32 %50, -2147483617
   br i1 %.not781, label %.thread736, label %1341
 
@@ -3337,7 +3337,7 @@ dump_one_cpuid.exit558:                           ; preds = %1348
   %1350 = load i32, ptr %42, align 4
   %1351 = load i32, ptr %43, align 8
   %1352 = load i32, ptr %44, align 4
-  %1353 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1349, i32 noundef %1350, i32 noundef %1351, i32 noundef %1352) #14
+  %1353 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1349, i32 noundef %1350, i32 noundef %1351, i32 noundef %1352) #14
   %1354 = load i32, ptr %4, align 16
   %1355 = load i32, ptr %43, align 8
   %1356 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1354, i32 %1355) #14, !srcloc !9
@@ -3348,7 +3348,7 @@ dump_one_cpuid.exit558:                           ; preds = %1348
   store i32 %1358, ptr %43, align 8
   store i32 %1359, ptr %44, align 4
   %1360 = load i32, ptr %42, align 4
-  %1361 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1357, i32 noundef %1360, i32 noundef %1358, i32 noundef %1359) #14
+  %1361 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1357, i32 noundef %1360, i32 noundef %1358, i32 noundef %1359) #14
   store i32 -2147483616, ptr %4, align 16
   store i32 1, ptr %43, align 8
   br label %1362
@@ -3376,7 +3376,7 @@ dump_one_cpuid.exit558:                           ; preds = %1348
   %1371 = load i32, ptr %42, align 4
   %1372 = load i32, ptr %43, align 8
   %1373 = load i32, ptr %44, align 4
-  %1374 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1370, i32 noundef %1371, i32 noundef %1372, i32 noundef %1373) #14
+  %1374 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1370, i32 noundef %1371, i32 noundef %1372, i32 noundef %1373) #14
   %1375 = load i32, ptr %4, align 16
   %1376 = load i32, ptr %43, align 8
   %1377 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1375, i32 %1376) #14, !srcloc !9
@@ -3387,7 +3387,7 @@ dump_one_cpuid.exit558:                           ; preds = %1348
   store i32 %1379, ptr %43, align 8
   store i32 %1380, ptr %44, align 4
   %1381 = load i32, ptr %42, align 4
-  %1382 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1378, i32 noundef %1381, i32 noundef %1379, i32 noundef %1380) #14
+  %1382 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1378, i32 noundef %1381, i32 noundef %1379, i32 noundef %1380) #14
   %1383 = icmp ugt i32 %50, -2147483616
   br i1 %1383, label %1384, label %.thread736
 
@@ -3414,7 +3414,7 @@ dump_one_cpuid.exit558:                           ; preds = %1348
   %1390 = load i32, ptr %42, align 4
   %1391 = load i32, ptr %43, align 8
   %1392 = load i32, ptr %44, align 4
-  %1393 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483615, i32 noundef %1390, i32 noundef %1391, i32 noundef %1392) #14
+  %1393 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483615, i32 noundef %1390, i32 noundef %1391, i32 noundef %1392) #14
   %1394 = load i32, ptr %4, align 16
   %1395 = load i32, ptr %43, align 8
   %1396 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1394, i32 %1395) #14, !srcloc !9
@@ -3425,7 +3425,7 @@ dump_one_cpuid.exit558:                           ; preds = %1348
   store i32 %1398, ptr %43, align 8
   store i32 %1399, ptr %44, align 4
   %1400 = load i32, ptr %42, align 4
-  %1401 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1397, i32 noundef %1400, i32 noundef %1398, i32 noundef %1399) #14
+  %1401 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1397, i32 noundef %1400, i32 noundef %1398, i32 noundef %1399) #14
   %.not783 = icmp eq i32 %50, -2147483615
   br i1 %.not783, label %.thread736, label %1402
 
@@ -3452,7 +3452,7 @@ dump_one_cpuid.exit558:                           ; preds = %1348
   %1408 = load i32, ptr %42, align 4
   %1409 = load i32, ptr %43, align 8
   %1410 = load i32, ptr %44, align 4
-  %1411 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483614, i32 noundef %1408, i32 noundef %1409, i32 noundef %1410) #14
+  %1411 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483614, i32 noundef %1408, i32 noundef %1409, i32 noundef %1410) #14
   %1412 = load i32, ptr %4, align 16
   %1413 = load i32, ptr %43, align 8
   %1414 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1412, i32 %1413) #14, !srcloc !9
@@ -3463,7 +3463,7 @@ dump_one_cpuid.exit558:                           ; preds = %1348
   store i32 %1416, ptr %43, align 8
   store i32 %1417, ptr %44, align 4
   %1418 = load i32, ptr %42, align 4
-  %1419 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1415, i32 noundef %1418, i32 noundef %1416, i32 noundef %1417) #14
+  %1419 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1415, i32 noundef %1418, i32 noundef %1416, i32 noundef %1417) #14
   %1420 = icmp ugt i32 %50, -2147483614
   br i1 %1420, label %1421, label %.thread736
 
@@ -3490,7 +3490,7 @@ dump_one_cpuid.exit558:                           ; preds = %1348
   %1427 = load i32, ptr %42, align 4
   %1428 = load i32, ptr %43, align 8
   %1429 = load i32, ptr %44, align 4
-  %1430 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483613, i32 noundef %1427, i32 noundef %1428, i32 noundef %1429) #14
+  %1430 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 1, i32 noundef -2147483613, i32 noundef %1427, i32 noundef %1428, i32 noundef %1429) #14
   %1431 = load i32, ptr %4, align 16
   %1432 = load i32, ptr %43, align 8
   %1433 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1431, i32 %1432) #14, !srcloc !9
@@ -3501,7 +3501,7 @@ dump_one_cpuid.exit558:                           ; preds = %1348
   store i32 %1435, ptr %43, align 8
   store i32 %1436, ptr %44, align 4
   %1437 = load i32, ptr %42, align 4
-  %1438 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1434, i32 noundef %1437, i32 noundef %1435, i32 noundef %1436) #14
+  %1438 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1434, i32 noundef %1437, i32 noundef %1435, i32 noundef %1436) #14
   %1439 = icmp ugt i32 %50, -2147483611
   br i1 %1439, label %.preheader, label %.thread736
 
@@ -3534,7 +3534,7 @@ dump_one_cpuid.exit583:                           ; preds = %1446
   %1448 = load i32, ptr %42, align 4
   %1449 = load i32, ptr %43, align 8
   %1450 = load i32, ptr %44, align 4
-  %1451 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1447, i32 noundef %1448, i32 noundef %1449, i32 noundef %1450) #14
+  %1451 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.48, i32 noundef 5, i32 noundef %1447, i32 noundef %1448, i32 noundef %1449, i32 noundef %1450) #14
   %1452 = load i32, ptr %4, align 16
   %1453 = load i32, ptr %43, align 8
   %1454 = call { i32, i64, i32, i32 } asm "mov %rbx,$2\0A\09cpuid\0A\09xchg $2,%rbx\0A\09movl ${2:k},$1\0A\09", "={ax},=*m,=&r,={cx},=&{dx},0,3,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, i32 %1452, i32 %1453) #14, !srcloc !9
@@ -3545,7 +3545,7 @@ dump_one_cpuid.exit583:                           ; preds = %1446
   store i32 %1456, ptr %43, align 8
   store i32 %1457, ptr %44, align 4
   %1458 = load i32, ptr %42, align 4
-  %1459 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0231, ptr noundef nonnull @.str.49, i32 noundef %1455, i32 noundef %1458, i32 noundef %1456, i32 noundef %1457) #14
+  %1459 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0224, ptr noundef nonnull @.str.49, i32 noundef %1455, i32 noundef %1458, i32 noundef %1456, i32 noundef %1457) #14
   %1460 = load i32, ptr %42, align 4
   %1461 = and i32 %1460, 65535
   %.not259 = icmp eq i32 %1461, 0
@@ -3561,7 +3561,7 @@ dump_one_cpuid.exit583:                           ; preds = %1446
   br i1 %1465, label %.thread839, label %1467
 
 .thread839:                                       ; preds = %1462, %1464
-  %1466 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0231)
+  %1466 = call i64 @fwrite(ptr nonnull @.str.42, i64 21, i64 1, ptr %.0224)
   br label %1467
 
 1467:                                             ; preds = %1464, %.thread839
@@ -3585,7 +3585,7 @@ dump_one_cpuid.exit583:                           ; preds = %1446
   br i1 %.not, label %1475, label %1473
 
 1473:                                             ; preds = %.thread736
-  %1474 = call i32 @fclose(ptr noundef %.0231)
+  %1474 = call i32 @fclose(ptr noundef %.0224)
   br label %1475
 
 1475:                                             ; preds = %.thread736, %1473, %21, %13

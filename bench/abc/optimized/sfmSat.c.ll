@@ -996,8 +996,8 @@ Abc_Clock.exit261:                                ; preds = %495, %500
   br label %.loopexit
 
 .loopexit:                                        ; preds = %228, %442, %.critedge20, %Abc_Clock.exit261
-  %.0 = phi i32 [ %497, %Abc_Clock.exit261 ], [ 0, %.critedge20 ], [ 0, %442 ], [ 0, %228 ]
-  ret i32 %.0
+  %.0164 = phi i32 [ %497, %Abc_Clock.exit261 ], [ 0, %.critedge20 ], [ 0, %442 ], [ 0, %228 ]
+  ret i32 %.0164
 }
 
 declare void @sat_solver_restart(ptr noundef) local_unnamed_addr #1
@@ -1985,7 +1985,7 @@ Vec_IntPush.exit116:                              ; preds = %.Vec_IntGrow.exit10
   %.val105 = phi ptr [ %.val105.pre, %.lr.ph.preheader ], [ %.val103, %Vec_IntPush.exit123 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %Vec_IntPush.exit123 ]
   %142 = phi ptr [ %139, %.lr.ph.preheader ], [ %193, %Vec_IntPush.exit123 ]
-  %.079127 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %Vec_IntPush.exit123 ]
+  %.080127 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %Vec_IntPush.exit123 ]
   %143 = getelementptr i8, ptr %142, i64 8
   %.val96 = load ptr, ptr %143, align 8
   %144 = getelementptr inbounds i32, ptr %.val96, i64 %indvars.iv
@@ -2074,7 +2074,7 @@ Vec_IntPush.exit123:                              ; preds = %.Vec_IntGrow.exit10
   %190 = trunc nuw nsw i64 %indvars.iv to i32
   %191 = shl nuw i32 1, %190
   %192 = select i1 %.not124, i32 %191, i32 0
-  %.1 = or i32 %192, %.079127
+  %.1 = or i32 %192, %.080127
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %193 = load ptr, ptr %18, align 8
   %194 = getelementptr i8, ptr %193, i64 4
@@ -2084,12 +2084,12 @@ Vec_IntPush.exit123:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %196, label %.lr.ph, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %Vec_IntPush.exit123, %Vec_IntPush.exit116
-  %.079.lcssa = phi i32 [ 0, %Vec_IntPush.exit116 ], [ %.1, %Vec_IntPush.exit123 ]
+  %.080.lcssa = phi i32 [ 0, %Vec_IntPush.exit116 ], [ %.1, %Vec_IntPush.exit123 ]
   %197 = xor i1 %62, true
   %198 = zext i1 %197 to i64
   %199 = getelementptr inbounds i64, ptr %1, i64 %198
   %200 = load i64, ptr %199, align 8
-  %201 = zext nneg i32 %.079.lcssa to i64
+  %201 = zext nneg i32 %.080.lcssa to i64
   %202 = shl nuw i64 1, %201
   %203 = and i64 %200, %202
   %.not = icmp eq i64 %203, 0
@@ -2128,7 +2128,7 @@ Vec_IntPush.exit123:                              ; preds = %.Vec_IntGrow.exit10
   %219 = getelementptr inbounds i32, ptr %.val95, i64 %indvars.iv138
   %220 = load i32, ptr %219, align 4
   %221 = load ptr, ptr %16, align 8
-  %222 = mul nsw i32 %.val89130, %.079.lcssa
+  %222 = mul nsw i32 %.val89130, %.080.lcssa
   %223 = trunc nuw nsw i64 %indvars.iv138 to i32
   %224 = add nsw i32 %222, %223
   %225 = load ptr, ptr %4, align 8
@@ -2174,7 +2174,7 @@ Vec_IntPush.exit123:                              ; preds = %.Vec_IntGrow.exit10
   %250 = getelementptr inbounds i32, ptr %.val94, i64 %indvars.iv141
   %251 = load i32, ptr %250, align 4
   %252 = load ptr, ptr %16, align 8
-  %253 = mul nsw i32 %.val86134, %.079.lcssa
+  %253 = mul nsw i32 %.val86134, %.080.lcssa
   %254 = trunc nuw nsw i64 %indvars.iv141 to i32
   %255 = add nsw i32 %253, %254
   %256 = getelementptr i8, ptr %252, i64 8

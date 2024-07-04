@@ -289,8 +289,8 @@ for.end53:                                        ; preds = %if.end48
   br label %err
 
 err:                                              ; preds = %if.end3, %for.end53, %if.then2, %if.then
-  %itavs.0 = phi ptr [ null, %if.then ], [ null, %if.then2 ], [ %call7, %for.end53 ], [ null, %if.end3 ]
   %req.addr.0 = phi ptr [ %req, %if.then ], [ %req, %if.then2 ], [ null, %for.end53 ], [ %req, %if.end3 ]
+  %itavs.0 = phi ptr [ null, %if.then ], [ null, %if.then2 ], [ %call7, %for.end53 ], [ null, %if.end3 ]
   call void @OPENSSL_sk_free(ptr noundef %itavs.0) #4
   call void @OSSL_CMP_ITAV_free(ptr noundef %req.addr.0) #4
   br label %return

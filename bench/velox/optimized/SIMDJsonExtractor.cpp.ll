@@ -872,8 +872,8 @@ if.end.i39:                                       ; preds = %if.end.i365
 if.end.i588:                                      ; preds = %if.end.i39, %if.end32.i
   %36 = phi i32 [ %83, %if.end32.i ], [ %35, %if.end.i39 ]
   %37 = phi i32 [ %82, %if.end32.i ], [ %34, %if.end.i39 ]
-  %dst.addr.i587.0461 = phi ptr [ %dst.addr.i587.2, %if.end32.i ], [ %31, %if.end.i39 ]
-  %src.addr.i.0460 = phi ptr [ %src.addr.i.3, %if.end32.i ], [ %incdec.ptr.i404, %if.end.i39 ]
+  %src.addr.i.0461 = phi ptr [ %src.addr.i.3, %if.end32.i ], [ %incdec.ptr.i404, %if.end.i39 ]
+  %dst.addr.i587.0460 = phi ptr [ %dst.addr.i587.2, %if.end32.i ], [ %31, %if.end.i39 ]
   %sub.i631 = add i32 %36, -1
   %and.i632 = and i32 %sub.i631, %37
   %cmp.i633.not = icmp eq i32 %and.i632, 0
@@ -883,15 +883,15 @@ if.then4.i:                                       ; preds = %if.end.i588
   %38 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %37, i1 true)
   %add.i590 = add nuw nsw i32 %38, 1
   %idxprom.i591 = zext nneg i32 %add.i590 to i64
-  %arrayidx.i592 = getelementptr inbounds i8, ptr %src.addr.i.0460, i64 %idxprom.i591
+  %arrayidx.i592 = getelementptr inbounds i8, ptr %src.addr.i.0461, i64 %idxprom.i591
   %39 = load i8, ptr %arrayidx.i592, align 1, !noalias !31
   %cmp.i594 = icmp eq i8 %39, 117
   br i1 %cmp.i594, label %if.then6.i596, label %if.else.i595
 
 if.then6.i596:                                    ; preds = %if.then4.i
   %idx.ext7.i = zext nneg i32 %38 to i64
-  %add.ptr8.i = getelementptr inbounds i8, ptr %src.addr.i.0460, i64 %idx.ext7.i
-  %add.ptr10.i = getelementptr inbounds i8, ptr %dst.addr.i587.0461, i64 %idx.ext7.i
+  %add.ptr8.i = getelementptr inbounds i8, ptr %src.addr.i.0461, i64 %idx.ext7.i
+  %add.ptr10.i = getelementptr inbounds i8, ptr %dst.addr.i587.0460, i64 %idx.ext7.i
   %add.ptr.i639 = getelementptr inbounds i8, ptr %add.ptr8.i, i64 2
   %40 = load i8, ptr %add.ptr.i639, align 1
   %conv.i = zext i8 %40 to i64
@@ -1059,22 +1059,22 @@ if.else.i595:                                     ; preds = %if.then4.i
 
 if.end19.i:                                       ; preds = %if.else.i595
   %idxprom20.i = zext nneg i32 %38 to i64
-  %arrayidx21.i = getelementptr inbounds i8, ptr %dst.addr.i587.0461, i64 %idxprom20.i
+  %arrayidx21.i = getelementptr inbounds i8, ptr %dst.addr.i587.0460, i64 %idxprom20.i
   store i8 %79, ptr %arrayidx21.i, align 1, !noalias !31
   %add22.i = add nuw nsw i32 %38, 2
   %idx.ext23.i = zext nneg i32 %add22.i to i64
-  %add.ptr24.i = getelementptr inbounds i8, ptr %src.addr.i.0460, i64 %idx.ext23.i
-  %add.ptr27.i = getelementptr inbounds i8, ptr %dst.addr.i587.0461, i64 %idxprom.i591
+  %add.ptr24.i = getelementptr inbounds i8, ptr %src.addr.i.0461, i64 %idx.ext23.i
+  %add.ptr27.i = getelementptr inbounds i8, ptr %dst.addr.i587.0460, i64 %idxprom.i591
   br label %if.end32.i
 
 if.else29.i:                                      ; preds = %if.end.i588
-  %add.ptr30.i = getelementptr inbounds i8, ptr %src.addr.i.0460, i64 32
-  %add.ptr31.i = getelementptr inbounds i8, ptr %dst.addr.i587.0461, i64 32
+  %add.ptr30.i = getelementptr inbounds i8, ptr %src.addr.i.0461, i64 32
+  %add.ptr31.i = getelementptr inbounds i8, ptr %dst.addr.i587.0460, i64 32
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPh.exit.thread429, %if.end19.i, %if.else29.i
-  %src.addr.i.3 = phi ptr [ %add.ptr24.i, %if.end19.i ], [ %add.ptr30.i, %if.else29.i ], [ %src.addr.i.1, %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPh.exit.thread429 ]
   %dst.addr.i587.2 = phi ptr [ %add.ptr27.i, %if.end19.i ], [ %add.ptr31.i, %if.else29.i ], [ %add.ptr17.i432, %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPh.exit.thread429 ]
+  %src.addr.i.3 = phi ptr [ %add.ptr24.i, %if.end19.i ], [ %add.ptr30.i, %if.else29.i ], [ %src.addr.i.1, %_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKhPPh.exit.thread429 ]
   %80 = load <4 x i64>, ptr %src.addr.i.3, align 1
   store <4 x i64> %80, ptr %dst.addr.i587.2, align 1
   %81 = bitcast <4 x i64> %80 to <32 x i8>

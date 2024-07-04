@@ -174,14 +174,14 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
   br i1 %.not65, label %.thread95, label %.thread99
 
 .thread99:                                        ; preds = %64, %62, %66
-  %.041102 = phi i32 [ %67, %66 ], [ -18, %62 ], [ %59, %64 ]
+  %.042102 = phi i32 [ %67, %66 ], [ -18, %62 ], [ %59, %64 ]
   %68 = phi ptr [ %.pr94.pre, %66 ], [ %60, %62 ], [ %60, %64 ]
   call void @PMIx_Value_free(ptr noundef nonnull %68, i64 noundef 1) #9
   store ptr null, ptr %12, align 8
   br label %.thread95
 
 .thread95:                                        ; preds = %.thread, %.thread99, %66
-  %.04198 = phi i32 [ %.041102, %.thread99 ], [ %67, %66 ], [ -46, %.thread ]
+  %.04298 = phi i32 [ %.042102, %.thread99 ], [ %67, %66 ], [ -46, %.thread ]
   store ptr null, ptr %16, align 8
   %69 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %15, i32 noundef %37) #9
   %70 = getelementptr inbounds i8, ptr %15, i64 256
@@ -209,18 +209,18 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
   br i1 %.not67, label %82, label %.thread109
 
 .thread109:                                       ; preds = %77, %75, %79
-  %.042112 = phi i32 [ %80, %79 ], [ -18, %75 ], [ %72, %77 ]
+  %.041112 = phi i32 [ %80, %79 ], [ -18, %75 ], [ %72, %77 ]
   %81 = phi ptr [ %.pr104.pre, %79 ], [ %73, %75 ], [ %73, %77 ]
   call void @PMIx_Value_free(ptr noundef nonnull %81, i64 noundef 1) #9
   store ptr null, ptr %16, align 8
   br label %82
 
 82:                                               ; preds = %79, %.thread109
-  %.042108 = phi i32 [ %80, %79 ], [ %.042112, %.thread109 ]
+  %.041108 = phi i32 [ %80, %79 ], [ %.041112, %.thread109 ]
   %83 = icmp eq i32 %.04088, 0
-  %84 = icmp eq i32 %.04198, 0
+  %84 = icmp eq i32 %.04298, 0
   %or.cond = select i1 %83, i1 %84, i1 false
-  %85 = icmp eq i32 %.042108, 0
+  %85 = icmp eq i32 %.041108, 0
   %or.cond3 = select i1 %or.cond, i1 %85, i1 false
   br i1 %or.cond3, label %86, label %.thread113
 
@@ -501,36 +501,36 @@ opal_hwloc_base_topology_set_flags.exit.thread:   ; preds = %190, %194, %opal_hw
 
 .preheaderthread-pre-split.i:                     ; preds = %opal_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge, %opal_hwloc_base_get_obj_by_type.exit.thread.i.thread
   %.pr.i = phi ptr [ null, %opal_hwloc_base_get_obj_by_type.exit.thread.i.thread ], [ %.pr.i.pre, %opal_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge ]
-  %.117.lcssa.i148 = phi i32 [ %.01637.i, %opal_hwloc_base_get_obj_by_type.exit.thread.i.thread ], [ %.117.lcssa.i, %opal_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge ]
-  %203 = add nsw i32 %.01936.i, -1
+  %.116.lcssa.i148 = phi i32 [ %.01537.i, %opal_hwloc_base_get_obj_by_type.exit.thread.i.thread ], [ %.116.lcssa.i, %opal_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge ]
+  %203 = add nsw i32 %.01836.i, -1
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %200, %.preheaderthread-pre-split.i
   %.pr.i160 = phi ptr [ %.pr.i, %.preheaderthread-pre-split.i ], [ %201, %200 ]
-  %.01538.i = phi i32 [ 4, %.preheaderthread-pre-split.i ], [ 5, %200 ]
-  %.01637.i = phi i32 [ %.117.lcssa.i148, %.preheaderthread-pre-split.i ], [ 4096, %200 ]
-  %.01936.i = phi i32 [ %203, %.preheaderthread-pre-split.i ], [ 2, %200 ]
+  %.01438.i = phi i32 [ 4, %.preheaderthread-pre-split.i ], [ 5, %200 ]
+  %.01537.i = phi i32 [ %.116.lcssa.i148, %.preheaderthread-pre-split.i ], [ 4096, %200 ]
+  %.01836.i = phi i32 [ %203, %.preheaderthread-pre-split.i ], [ 2, %200 ]
   %204 = icmp eq ptr %.pr.i160, null
   br i1 %204, label %opal_hwloc_base_get_obj_by_type.exit.thread.i.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %218
   %205 = phi ptr [ %220, %218 ], [ %.pr.i160, %.preheader.i ]
   %.129.i = phi i1 [ %.2.i, %218 ], [ false, %.preheader.i ]
-  %.01428.i = phi i32 [ %219, %218 ], [ 0, %.preheader.i ]
-  %.11727.i = phi i32 [ %.218.i, %218 ], [ %.01637.i, %.preheader.i ]
-  %206 = call i32 @hwloc_get_type_depth(ptr noundef nonnull %205, i32 noundef %.01538.i) #9
+  %.11628.i = phi i32 [ %.217.i, %218 ], [ %.01537.i, %.preheader.i ]
+  %.01927.i = phi i32 [ %219, %218 ], [ 0, %.preheader.i ]
+  %206 = call i32 @hwloc_get_type_depth(ptr noundef nonnull %205, i32 noundef %.01438.i) #9
   %switch.i.i.i = icmp ugt i32 %206, -3
   br i1 %switch.i.i.i, label %opal_hwloc_base_get_obj_by_type.exit.thread.i, label %opal_hwloc_base_get_obj_by_type.exit.i
 
 opal_hwloc_base_get_obj_by_type.exit.i:           ; preds = %.lr.ph.i
-  %207 = call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %205, i32 noundef %206, i32 noundef %.01428.i) #10
+  %207 = call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %205, i32 noundef %206, i32 noundef %.01927.i) #10
   %208 = icmp eq ptr %207, null
   br i1 %208, label %opal_hwloc_base_get_obj_by_type.exit.thread.i, label %211
 
 opal_hwloc_base_get_obj_by_type.exit.thread.i:    ; preds = %218, %opal_hwloc_base_get_obj_by_type.exit.i, %.lr.ph.i
-  %.117.lcssa.i = phi i32 [ %.11727.i, %.lr.ph.i ], [ %.218.i, %218 ], [ %.11727.i, %opal_hwloc_base_get_obj_by_type.exit.i ]
+  %.116.lcssa.i = phi i32 [ %.11628.i, %.lr.ph.i ], [ %.217.i, %218 ], [ %.11628.i, %opal_hwloc_base_get_obj_by_type.exit.i ]
   %.1.lcssa.i = phi i1 [ %.129.i, %.lr.ph.i ], [ %.2.i, %218 ], [ %.129.i, %opal_hwloc_base_get_obj_by_type.exit.i ]
-  %209 = icmp ult i32 %.01936.i, 2
+  %209 = icmp ult i32 %.01836.i, 2
   %.not23.i = select i1 %209, i1 true, i1 %.1.lcssa.i
   br i1 %.not23.i, label %.split41.us.i, label %opal_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_edge, !llvm.loop !6
 
@@ -539,7 +539,7 @@ opal_hwloc_base_get_obj_by_type.exit.thread.i..preheaderthread-pre-split.i_crit_
   br label %.preheaderthread-pre-split.i
 
 opal_hwloc_base_get_obj_by_type.exit.thread.i.thread: ; preds = %.preheader.i
-  %210 = icmp ult i32 %.01936.i, 2
+  %210 = icmp ult i32 %.01836.i, 2
   br i1 %210, label %fill_cache_line_size.exit, label %.preheaderthread-pre-split.i, !llvm.loop !6
 
 211:                                              ; preds = %opal_hwloc_base_get_obj_by_type.exit.i
@@ -552,16 +552,16 @@ opal_hwloc_base_get_obj_by_type.exit.thread.i.thread: ; preds = %.preheader.i
   %215 = getelementptr inbounds i8, ptr %213, i64 12
   %216 = load i32, ptr %215, align 4
   %.not24.i = icmp ne i32 %216, 0
-  %217 = icmp ugt i32 %.11727.i, %216
+  %217 = icmp ugt i32 %.11628.i, %216
   %or.cond.i = select i1 %.not24.i, i1 %217, i1 false
-  %spec.select.i = select i1 %or.cond.i, i32 %216, i32 %.11727.i
+  %spec.select.i = select i1 %or.cond.i, i32 %216, i32 %.11628.i
   %spec.select25.i = select i1 %or.cond.i, i1 true, i1 %.129.i
   br label %218
 
 218:                                              ; preds = %214, %211
-  %.218.i = phi i32 [ %.11727.i, %211 ], [ %spec.select.i, %214 ]
+  %.217.i = phi i32 [ %.11628.i, %211 ], [ %spec.select.i, %214 ]
   %.2.i = phi i1 [ %.129.i, %211 ], [ %spec.select25.i, %214 ]
-  %219 = add nuw nsw i32 %.01428.i, 1
+  %219 = add nuw nsw i32 %.01927.i, 1
   %220 = load ptr, ptr @opal_hwloc_topology, align 8
   %221 = icmp eq ptr %220, null
   br i1 %221, label %opal_hwloc_base_get_obj_by_type.exit.thread.i, label %.lr.ph.i
@@ -570,7 +570,7 @@ opal_hwloc_base_get_obj_by_type.exit.thread.i.thread: ; preds = %.preheader.i
   br i1 %.1.lcssa.i, label %222, label %fill_cache_line_size.exit
 
 222:                                              ; preds = %.split41.us.i
-  store i32 %.117.lcssa.i, ptr @opal_cache_line_size, align 4
+  store i32 %.116.lcssa.i, ptr @opal_cache_line_size, align 4
   br label %fill_cache_line_size.exit
 
 fill_cache_line_size.exit:                        ; preds = %opal_hwloc_base_get_obj_by_type.exit.thread.i.thread, %.split41.us.i, %222
@@ -967,8 +967,8 @@ define internal fastcc ptr @df_search(ptr noundef %0, ptr nocapture noundef read
   br label %.split
 
 .split.us:                                        ; preds = %14, %24
-  %.055.us = phi ptr [ %spec.select.us, %24 ], [ null, %14 ]
   %.054.us = phi ptr [ %.0.i.us, %24 ], [ null, %14 ]
+  %.053.us = phi ptr [ %spec.select.us, %24 ], [ null, %14 ]
   %.not.i.us = icmp eq ptr %.054.us, null
   br i1 %.not.i.us, label %22, label %16
 
@@ -996,13 +996,13 @@ hwloc_get_next_obj_by_depth.exit.us:              ; preds = %22, %19
   %25 = getelementptr inbounds i8, ptr %.0.i.us, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, %3
-  %spec.select.us = select i1 %27, ptr %.0.i.us, ptr %.055.us
+  %spec.select.us = select i1 %27, ptr %.0.i.us, ptr %.053.us
   br label %.split.us, !llvm.loop !10
 
 .split:                                           ; preds = %15, %42
   %28 = phi i32 [ %44, %42 ], [ 0, %15 ]
-  %.055 = phi ptr [ %spec.select, %42 ], [ null, %15 ]
   %.054 = phi ptr [ %.0.i, %42 ], [ null, %15 ]
+  %.053 = phi ptr [ %spec.select, %42 ], [ null, %15 ]
   %.not.i = icmp eq ptr %.054, null
   br i1 %.not.i, label %29, label %31
 
@@ -1041,7 +1041,7 @@ hwloc_get_next_obj_by_depth.exit:                 ; preds = %29, %34
   %43 = phi i32 [ %.pre, %41 ], [ %39, %37 ]
   %44 = phi i32 [ %39, %41 ], [ %28, %37 ]
   %45 = icmp eq i32 %43, %3
-  %spec.select = select i1 %45, ptr %.0.i, ptr %.055
+  %spec.select = select i1 %45, ptr %.0.i, ptr %.053
   br label %.split, !llvm.loop !10
 
 46:                                               ; preds = %8
@@ -1123,9 +1123,9 @@ hwloc_get_nbobjs_inside_cpuset_by_depth.exit:     ; preds = %78, %70
   br label %81
 
 81:                                               ; preds = %.preheader, %hwloc_get_next_obj_inside_cpuset_by_depth.exit
-  %.1 = phi ptr [ %.019.i, %hwloc_get_next_obj_inside_cpuset_by_depth.exit ], [ null, %.preheader ]
+  %.155 = phi ptr [ %.019.i, %hwloc_get_next_obj_inside_cpuset_by_depth.exit ], [ null, %.preheader ]
   %.0 = phi i32 [ %98, %hwloc_get_next_obj_inside_cpuset_by_depth.exit ], [ 0, %.preheader ]
-  %.not.i.i = icmp eq ptr %.1, null
+  %.not.i.i = icmp eq ptr %.155, null
   br i1 %.not.i.i, label %82, label %84
 
 82:                                               ; preds = %81
@@ -1133,13 +1133,13 @@ hwloc_get_nbobjs_inside_cpuset_by_depth.exit:     ; preds = %78, %70
   br label %hwloc_get_next_obj_by_depth.exit.i
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %.1, i64 48
+  %85 = getelementptr inbounds i8, ptr %.155, i64 48
   %86 = load i32, ptr %85, align 8
   %.not7.i.i = icmp eq i32 %86, %7
   br i1 %.not7.i.i, label %87, label %.loopexit
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %.1, i64 56
+  %88 = getelementptr inbounds i8, ptr %.155, i64 56
   %89 = load ptr, ptr %88, align 8
   br label %hwloc_get_next_obj_by_depth.exit.i
 
@@ -1181,8 +1181,8 @@ hwloc_get_next_obj_inside_cpuset_by_depth.exit:   ; preds = %93
   br label %hwloc_get_next_obj_by_depth.exit.thread
 
 hwloc_get_next_obj_by_depth.exit.thread:          ; preds = %hwloc_get_next_obj_by_depth.exit, %31, %hwloc_get_next_obj_by_depth.exit.us, %16, %6, %8, %.loopexit, %99, %12
-  %.052 = phi ptr [ %13, %12 ], [ %.019.i, %99 ], [ null, %.loopexit ], [ null, %6 ], [ null, %8 ], [ %.055.us, %16 ], [ %.055.us, %hwloc_get_next_obj_by_depth.exit.us ], [ %.055, %31 ], [ %.055, %hwloc_get_next_obj_by_depth.exit ]
-  ret ptr %.052
+  %.056 = phi ptr [ %13, %12 ], [ %.019.i, %99 ], [ null, %.loopexit ], [ null, %6 ], [ null, %8 ], [ %.053.us, %16 ], [ %.053.us, %hwloc_get_next_obj_by_depth.exit.us ], [ %.053, %31 ], [ %.053, %hwloc_get_next_obj_by_depth.exit ]
+  ret ptr %.056
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1296,7 +1296,7 @@ define zeroext i16 @opal_hwloc_compute_relative_locality(ptr noundef %0, ptr nou
 .lr.ph91:                                         ; preds = %5, %.loopexit
   %11 = phi ptr [ %90, %.loopexit ], [ %10, %5 ]
   %.05290 = phi i64 [ %88, %.loopexit ], [ 0, %5 ]
-  %.05489 = phi i16 [ %.1, %.loopexit ], [ 15, %5 ]
+  %.05389 = phi i16 [ %.1, %.loopexit ], [ 15, %5 ]
   %12 = getelementptr inbounds ptr, ptr %6, i64 %.05290
   %13 = getelementptr inbounds i8, ptr %11, i64 2
   %14 = tail call i32 @hwloc_bitmap_list_sscanf(ptr noundef %8, ptr noundef nonnull %13) #9
@@ -1350,7 +1350,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %38, label %39, label %sub_062
 
 39:                                               ; preds = %.tail
-  %40 = or i16 %.05489, 16
+  %40 = or i16 %.05389, 16
   br label %.loopexit
 
 sub_062:                                          ; preds = %.tail
@@ -1371,7 +1371,7 @@ sub_163:                                          ; preds = %sub_062
   br i1 %47, label %48, label %sub_066
 
 48:                                               ; preds = %.tail61
-  %49 = or i16 %.05489, 32
+  %49 = or i16 %.05389, 32
   br label %.loopexit
 
 sub_066:                                          ; preds = %.tail61
@@ -1386,7 +1386,7 @@ sub_066:                                          ; preds = %.tail61
   br i1 %53, label %54, label %.tail69.thread
 
 54:                                               ; preds = %.tail65
-  %55 = or i16 %.05489, 64
+  %55 = or i16 %.05389, 64
   br label %.loopexit
 
 .tail69.thread:                                   ; preds = %.tail65
@@ -1396,7 +1396,7 @@ sub_066:                                          ; preds = %.tail61
   br i1 %58, label %59, label %sub_175
 
 59:                                               ; preds = %.tail69.thread
-  %60 = or i16 %.05489, 128
+  %60 = or i16 %.05389, 128
   br label %.loopexit
 
 sub_175:                                          ; preds = %.tail69.thread
@@ -1412,7 +1412,7 @@ sub_175:                                          ; preds = %.tail69.thread
   br i1 %66, label %67, label %sub_078
 
 67:                                               ; preds = %.tail73
-  %68 = or i16 %.05489, 256
+  %68 = or i16 %.05389, 256
   br label %.loopexit
 
 sub_078:                                          ; preds = %.tail73
@@ -1433,7 +1433,7 @@ sub_179:                                          ; preds = %sub_078
   br i1 %75, label %76, label %sub_082
 
 76:                                               ; preds = %.tail77
-  %77 = or i16 %.05489, 512
+  %77 = or i16 %.05389, 512
   br label %.loopexit
 
 sub_082:                                          ; preds = %.tail77
@@ -1454,7 +1454,7 @@ sub_183:                                          ; preds = %sub_082
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %.tail81
-  %86 = or i16 %.05489, 1024
+  %86 = or i16 %.05389, 1024
   br label %.loopexit
 
 87:                                               ; preds = %.tail81
@@ -1462,7 +1462,7 @@ sub_183:                                          ; preds = %sub_082
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %.lr.ph91, %39, %54, %67, %85, %87, %76, %59, %48, %25
-  %.1 = phi i16 [ %40, %39 ], [ %49, %48 ], [ %55, %54 ], [ %60, %59 ], [ %68, %67 ], [ %77, %76 ], [ %86, %85 ], [ %.05489, %87 ], [ %.05489, %25 ], [ %.05489, %.lr.ph91 ], [ %.05489, %17 ]
+  %.1 = phi i16 [ %40, %39 ], [ %49, %48 ], [ %55, %54 ], [ %60, %59 ], [ %68, %67 ], [ %77, %76 ], [ %86, %85 ], [ %.05389, %87 ], [ %.05389, %25 ], [ %.05389, %.lr.ph91 ], [ %.05389, %17 ]
   %88 = add i64 %.05290, 1
   %89 = getelementptr inbounds ptr, ptr %6, i64 %88
   %90 = load ptr, ptr %89, align 8
@@ -1470,7 +1470,7 @@ sub_183:                                          ; preds = %sub_082
   br i1 %.not, label %._crit_edge, label %.lr.ph91, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.loopexit, %5
-  %.054.lcssa = phi i16 [ 15, %5 ], [ %.1, %.loopexit ]
+  %.053.lcssa = phi i16 [ 15, %5 ], [ %.1, %.loopexit ]
   tail call void @opal_argv_free(ptr noundef nonnull %6) #9
   tail call void @opal_argv_free(ptr noundef %7) #9
   tail call void @hwloc_bitmap_free(ptr noundef %8) #9
@@ -1478,8 +1478,8 @@ sub_183:                                          ; preds = %sub_082
   br label %91
 
 91:                                               ; preds = %2, %._crit_edge
-  %.053 = phi i16 [ %.054.lcssa, %._crit_edge ], [ 15, %2 ]
-  ret i16 %.053
+  %.054 = phi i16 [ %.053.lcssa, %._crit_edge ], [ 15, %2 ]
+  ret i16 %.054
 }
 
 declare noalias ptr @hwloc_bitmap_alloc() local_unnamed_addr #1

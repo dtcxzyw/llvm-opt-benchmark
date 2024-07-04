@@ -142,8 +142,8 @@ define dso_local noundef i64 @macaddr_in(ptr nocapture noundef readonly %0) loca
   br label %69
 
 69:                                               ; preds = %46, %44, %30, %28, %49
-  %.0 = phi i64 [ %68, %49 ], [ 0, %28 ], [ 0, %30 ], [ 0, %44 ], [ 0, %46 ]
-  ret i64 %.0
+  %.052 = phi i64 [ %68, %49 ], [ 0, %28 ], [ 0, %30 ], [ 0, %44 ], [ 0, %46 ]
+  ret i64 %.052
 }
 
 ; Function Attrs: nofree nounwind

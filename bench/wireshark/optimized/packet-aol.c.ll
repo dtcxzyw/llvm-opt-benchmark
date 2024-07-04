@@ -268,13 +268,13 @@ define internal i32 @dissect_aol_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %27
 
 27:                                               ; preds = %21, %4
-  %.089 = phi i16 [ %26, %21 ], [ %13, %4 ]
-  %.0 = phi i32 [ 7, %21 ], [ 5, %4 ]
-  %.not = icmp eq i16 %.089, 0
+  %.089 = phi i32 [ 7, %21 ], [ 5, %4 ]
+  %.088 = phi i16 [ %26, %21 ], [ %13, %4 ]
+  %.not = icmp eq i16 %.088, 0
   br i1 %.not, label %.thread, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0) #2
+  %29 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.089) #2
   %30 = and i8 %29, 63
   %31 = load ptr, ptr %6, align 8
   %32 = zext nneg i8 %30 to i32
@@ -283,9 +283,9 @@ define internal i32 @dissect_aol_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   %34 = tail call ptr @val_to_str_const(i32 noundef %32, ptr noundef nonnull @aol_p3_types, ptr noundef nonnull @.str.94) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.93, ptr noundef %34) #2
   %35 = load i32, ptr @hf_aol_type, align 4
-  %36 = tail call ptr @proto_tree_add_uint(ptr noundef %12, i32 noundef %35, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef %32) #2
-  %37 = add nuw nsw i32 %.0, 1
-  %38 = add i16 %.089, -1
+  %36 = tail call ptr @proto_tree_add_uint(ptr noundef %12, i32 noundef %35, ptr noundef %0, i32 noundef %.089, i32 noundef 1, i32 noundef %32) #2
+  %37 = add nuw nsw i32 %.089, 1
+  %38 = add i16 %.088, -1
   %39 = icmp eq i8 %30, 35
   %.not98 = icmp eq i16 %38, 0
   br i1 %.not98, label %.thread, label %40
@@ -308,75 +308,75 @@ define internal i32 @dissect_aol_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   %51 = tail call ptr @proto_item_add_subtree(ptr noundef %49, i32 noundef %50) #2
   %52 = load i32, ptr @hf_aol_platform, align 4
   %53 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %52, ptr noundef %0, i32 noundef %37, i32 noundef 1, i32 noundef 0) #2
-  %54 = add nuw nsw i32 %.0, 2
+  %54 = add nuw nsw i32 %.089, 2
   %55 = load i32, ptr @hf_aol_version, align 4
   %56 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %55, ptr noundef %0, i32 noundef %54, i32 noundef 1, i32 noundef 0) #2
-  %57 = add nuw nsw i32 %.0, 3
+  %57 = add nuw nsw i32 %.089, 3
   %58 = load i32, ptr @hf_aol_subversion, align 4
   %59 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %58, ptr noundef %0, i32 noundef %57, i32 noundef 1, i32 noundef 0) #2
-  %60 = add nuw nsw i32 %.0, 4
+  %60 = add nuw nsw i32 %.089, 4
   %61 = load i32, ptr @hf_aol_unused, align 4
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %61, ptr noundef %0, i32 noundef %60, i32 noundef 1, i32 noundef 0) #2
-  %63 = add nuw nsw i32 %.0, 5
+  %63 = add nuw nsw i32 %.089, 5
   %64 = load i32, ptr @hf_aol_machine_mem, align 4
   %65 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %64, ptr noundef %0, i32 noundef %63, i32 noundef 1, i32 noundef 0) #2
-  %66 = add nuw nsw i32 %.0, 6
+  %66 = add nuw nsw i32 %.089, 6
   %67 = load i32, ptr @hf_aol_app_mem, align 4
   %68 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %67, ptr noundef %0, i32 noundef %66, i32 noundef 1, i32 noundef 0) #2
-  %69 = add nuw nsw i32 %.0, 7
+  %69 = add nuw nsw i32 %.089, 7
   %70 = load i32, ptr @hf_aol_pc_type, align 4
   %71 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %70, ptr noundef %0, i32 noundef %69, i32 noundef 2, i32 noundef -2147483648) #2
-  %72 = add nuw nsw i32 %.0, 9
+  %72 = add nuw nsw i32 %.089, 9
   %73 = load i32, ptr @hf_aol_rel_month, align 4
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %73, ptr noundef %0, i32 noundef %72, i32 noundef 1, i32 noundef 0) #2
-  %75 = add nuw nsw i32 %.0, 10
+  %75 = add nuw nsw i32 %.089, 10
   %76 = load i32, ptr @hf_aol_rel_day, align 4
   %77 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %76, ptr noundef %0, i32 noundef %75, i32 noundef 1, i32 noundef 0) #2
-  %78 = add nuw nsw i32 %.0, 11
+  %78 = add nuw nsw i32 %.089, 11
   %79 = load i32, ptr @hf_aol_cust_class, align 4
   %80 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %79, ptr noundef %0, i32 noundef %78, i32 noundef 2, i32 noundef -2147483648) #2
-  %81 = add nuw nsw i32 %.0, 13
+  %81 = add nuw nsw i32 %.089, 13
   %82 = load i32, ptr @hf_aol_udo_timestamp, align 4
   %83 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %82, ptr noundef %0, i32 noundef %81, i32 noundef 4, i32 noundef -2147483648) #2
-  %84 = add nuw nsw i32 %.0, 17
+  %84 = add nuw nsw i32 %.089, 17
   %85 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %84) #2
   %86 = load i32, ptr @hf_aol_dos_ver, align 4
   %87 = zext i16 %85 to i32
   %88 = lshr i32 %87, 8
   %89 = and i32 %87, 255
   %90 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %51, i32 noundef %86, ptr noundef %0, i32 noundef %84, i32 noundef 2, i32 noundef %87, ptr noundef nonnull @.str.96, i32 noundef %88, i32 noundef %89) #2
-  %91 = add nuw nsw i32 %.0, 19
+  %91 = add nuw nsw i32 %.089, 19
   %92 = load i32, ptr @hf_aol_sess_flags, align 4
   %93 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %92, ptr noundef %0, i32 noundef %91, i32 noundef 2, i32 noundef -2147483648) #2
-  %94 = add nuw nsw i32 %.0, 21
+  %94 = add nuw nsw i32 %.089, 21
   %95 = load i32, ptr @hf_aol_video_type, align 4
   %96 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %95, ptr noundef %0, i32 noundef %94, i32 noundef 1, i32 noundef 0) #2
-  %97 = add nuw nsw i32 %.0, 22
+  %97 = add nuw nsw i32 %.089, 22
   %98 = load i32, ptr @hf_aol_cpu_type, align 4
   %99 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %98, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 0) #2
-  %100 = add nuw nsw i32 %.0, 23
+  %100 = add nuw nsw i32 %.089, 23
   %101 = load i32, ptr @hf_aol_media_type, align 4
   %102 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %101, ptr noundef %0, i32 noundef %100, i32 noundef 4, i32 noundef -2147483648) #2
-  %103 = add nuw nsw i32 %.0, 27
+  %103 = add nuw nsw i32 %.089, 27
   %104 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %103) #2
   %105 = load i32, ptr @hf_aol_win_ver, align 4
   %106 = zext i16 %104 to i32
   %107 = lshr i32 %106, 8
   %108 = and i32 %106, 255
   %109 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %51, i32 noundef %105, ptr noundef %0, i32 noundef %103, i32 noundef 2, i32 noundef %87, ptr noundef nonnull @.str.96, i32 noundef %107, i32 noundef %108) #2
-  %110 = add nuw nsw i32 %.0, 31
+  %110 = add nuw nsw i32 %.089, 31
   %111 = load i32, ptr @hf_aol_wmem_mode, align 4
   %112 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %111, ptr noundef %0, i32 noundef %110, i32 noundef 1, i32 noundef 0) #2
-  %113 = or disjoint i32 %.0, 32
+  %113 = or disjoint i32 %.089, 32
   %114 = load i32, ptr @hf_aol_horiz_res, align 4
   %115 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %114, ptr noundef %0, i32 noundef %113, i32 noundef 2, i32 noundef -2147483648) #2
-  %116 = add nuw nsw i32 %.0, 34
+  %116 = add nuw nsw i32 %.089, 34
   %117 = load i32, ptr @hf_aol_vert_res, align 4
   %118 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %117, ptr noundef %0, i32 noundef %116, i32 noundef 2, i32 noundef -2147483648) #2
-  %119 = add nuw nsw i32 %.0, 36
+  %119 = add nuw nsw i32 %.089, 36
   %120 = load i32, ptr @hf_aol_num_colors, align 4
   %121 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %120, ptr noundef %0, i32 noundef %119, i32 noundef 2, i32 noundef -2147483648) #2
-  %122 = add nuw nsw i32 %.0, 38
+  %122 = add nuw nsw i32 %.089, 38
   %123 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %122) #2
   %124 = icmp slt i32 %123, 14
   br i1 %124, label %125, label %dissect_aol_init.exit
@@ -389,7 +389,7 @@ define internal i32 @dissect_aol_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
 128:                                              ; preds = %125
   %129 = load i32, ptr @hf_aol_filler, align 4
   %130 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %129, ptr noundef %0, i32 noundef %122, i32 noundef 1, i32 noundef 0) #2
-  %131 = add nuw nsw i32 %.0, 39
+  %131 = add nuw nsw i32 %.089, 39
   br label %132
 
 132:                                              ; preds = %128, %125
@@ -419,32 +419,32 @@ define internal i32 @dissect_aol_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %148, i32 noundef 25, ptr noundef nonnull @.str.95, ptr noundef %149) #2
   %150 = load ptr, ptr %5, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.95, ptr noundef %150) #2
-  %151 = add nuw nsw i32 %.0, 3
-  %152 = add i16 %.089, -3
+  %151 = add nuw nsw i32 %.089, 3
+  %152 = add i16 %.088, -3
   %.not100 = icmp eq i16 %152, 0
   br i1 %.not100, label %dissect_aol_init.exit, label %.thread105
 
 .thread105:                                       ; preds = %142, %143
-  %.2110 = phi i32 [ %151, %143 ], [ %37, %142 ]
-  %.291109 = phi i16 [ %152, %143 ], [ 1, %142 ]
-  %153 = zext i16 %.291109 to i32
+  %.2110 = phi i16 [ %152, %143 ], [ 1, %142 ]
+  %.291109 = phi i32 [ %151, %143 ], [ %37, %142 ]
+  %153 = zext i16 %.2110 to i32
   %154 = load i32, ptr @hf_aol_data, align 4
-  %155 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %154, ptr noundef %0, i32 noundef %.2110, i32 noundef %153, i32 noundef 0) #2
-  %156 = add nuw nsw i32 %.2110, %153
+  %155 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %154, ptr noundef %0, i32 noundef %.291109, i32 noundef %153, i32 noundef 0) #2
+  %156 = add nuw nsw i32 %.291109, %153
   br label %dissect_aol_init.exit
 
 dissect_aol_init.exit:                            ; preds = %143, %132, %45, %.thread105
-  %.392 = phi i16 [ %.291109, %.thread105 ], [ %38, %45 ], [ %38, %132 ], [ 0, %143 ]
-  %.3 = phi i32 [ %156, %.thread105 ], [ %122, %45 ], [ %141, %132 ], [ %151, %143 ]
-  %157 = zext i16 %.392 to i32
+  %.392 = phi i32 [ %156, %.thread105 ], [ %141, %132 ], [ %122, %45 ], [ %151, %143 ]
+  %.3 = phi i16 [ %.2110, %.thread105 ], [ %38, %132 ], [ %38, %45 ], [ 0, %143 ]
+  %157 = zext i16 %.3 to i32
   %158 = add nuw nsw i32 %37, %157
-  %159 = icmp ult i32 %.3, %158
+  %159 = icmp ult i32 %.392, %158
   br i1 %159, label %160, label %.thread
 
 160:                                              ; preds = %dissect_aol_init.exit
   %161 = load i32, ptr @hf_aol_udata, align 4
-  %162 = sub nsw i32 %158, %.3
-  %163 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %161, ptr noundef %0, i32 noundef %.3, i32 noundef %162, i32 noundef 0) #2
+  %162 = sub nsw i32 %158, %.392
+  %163 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %161, ptr noundef %0, i32 noundef %.392, i32 noundef %162, i32 noundef 0) #2
   br label %.thread
 
 164:                                              ; preds = %40
@@ -452,7 +452,7 @@ dissect_aol_init.exit:                            ; preds = %143, %132, %45, %.t
   br label %.thread
 
 .thread:                                          ; preds = %27, %164, %160, %dissect_aol_init.exit, %28
-  %.4 = phi i32 [ %158, %160 ], [ %.3, %dissect_aol_init.exit ], [ %37, %164 ], [ %37, %28 ], [ %.0, %27 ]
+  %.4 = phi i32 [ %158, %160 ], [ %.392, %dissect_aol_init.exit ], [ %37, %164 ], [ %37, %28 ], [ %.089, %27 ]
   %166 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4) #2
   %167 = icmp sgt i32 %166, 0
   br i1 %167, label %168, label %171

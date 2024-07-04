@@ -949,12 +949,12 @@ define internal i32 @dissect_edonkey_udp(ptr noundef %0, ptr noundef %1, ptr nou
 
 42:                                               ; preds = %39
   %43 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2) #7
-  %.045.i = tail call i32 @llvm.smin.i32(i32 %43, i32 %37)
-  %44 = icmp slt i32 %.045.i, 1
+  %.044.i = tail call i32 @llvm.smin.i32(i32 %43, i32 %37)
+  %44 = icmp slt i32 %.044.i, 1
   br i1 %44, label %dissect_emule_udp_message.exit, label %45
 
 45:                                               ; preds = %42
-  %46 = add nuw i32 %.045.i, 2
+  %46 = add nuw i32 %.044.i, 2
   switch i8 %20, label %84 [
     i8 -112, label %47
     i8 -111, label %67
@@ -986,13 +986,13 @@ dissect_edonkey_file_status.exit.i:               ; preds = %58, %51
   br label %62
 
 62:                                               ; preds = %dissect_edonkey_file_status.exit.i, %47
-  %.044.i = phi i32 [ %61, %dissect_edonkey_file_status.exit.i ], [ 18, %47 ]
-  %63 = icmp eq i32 %.045.i, %.044.i
+  %.045.i = phi i32 [ %61, %dissect_edonkey_file_status.exit.i ], [ 18, %47 ]
+  %63 = icmp eq i32 %.044.i, %.045.i
   br i1 %63, label %64, label %dissect_emule_udp_message.exit
 
 64:                                               ; preds = %62
   %65 = load i32, ptr @hf_emule_source_count, align 4
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %65, ptr noundef %0, i32 noundef %.045.i, i32 noundef 2, i32 noundef -2147483648) #7
+  %66 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %65, ptr noundef %0, i32 noundef %.044.i, i32 noundef 2, i32 noundef -2147483648) #7
   br label %dissect_emule_udp_message.exit
 
 67:                                               ; preds = %45
@@ -1026,7 +1026,7 @@ dissect_edonkey_file_status.exit50.i:             ; preds = %76, %69
   br label %dissect_emule_udp_message.exit
 
 84:                                               ; preds = %45
-  %85 = tail call fastcc i32 @dissect_edonkey_udp_message(i8 noundef zeroext %20, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.045.i, ptr noundef %31)
+  %85 = tail call fastcc i32 @dissect_edonkey_udp_message(i8 noundef zeroext %20, ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.044.i, ptr noundef %31)
   br label %dissect_emule_udp_message.exit
 
 86:                                               ; preds = %39, %39
@@ -1051,14 +1051,14 @@ dissect_edonkey_file_status.exit50.i:             ; preds = %76, %69
   br label %dissect_emule_udp_message.exit
 
 dissect_emule_udp_message.exit:                   ; preds = %94, %90, %84, %80, %64, %62, %42, %40, %86, %39, %27
-  %.085 = phi i32 [ 2, %39 ], [ %87, %86 ], [ %41, %40 ], [ 2, %27 ], [ 2, %42 ], [ %85, %84 ], [ %83, %80 ], [ %46, %64 ], [ %.044.i, %62 ], [ %93, %90 ], [ 2, %94 ]
-  %97 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.085) #7
+  %.083 = phi i32 [ 2, %39 ], [ %87, %86 ], [ %41, %40 ], [ 2, %27 ], [ 2, %42 ], [ %85, %84 ], [ %83, %80 ], [ %46, %64 ], [ %.045.i, %62 ], [ %93, %90 ], [ 2, %94 ]
+  %97 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.083) #7
   %98 = icmp sgt i32 %97, 0
   br i1 %98, label %99, label %102
 
 99:                                               ; preds = %dissect_emule_udp_message.exit
   %100 = load i32, ptr @hf_edonkey_unparsed_data_length, align 4
-  %101 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %100, ptr noundef %0, i32 noundef %.085, i32 noundef %97, i32 noundef %97, ptr noundef nonnull @.str.408, i32 noundef %97) #7
+  %101 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %100, ptr noundef %0, i32 noundef %.083, i32 noundef %97, i32 noundef %97, ptr noundef nonnull @.str.408, i32 noundef %97) #7
   br label %102
 
 102:                                              ; preds = %dissect_emule_udp_message.exit, %99, %19
@@ -1066,8 +1066,8 @@ dissect_emule_udp_message.exit:                   ; preds = %94, %90, %84, %80, 
   br label %104
 
 104:                                              ; preds = %6, %4, %102
-  %.0 = phi i32 [ %103, %102 ], [ 0, %4 ], [ 0, %6 ]
-  ret i32 %.0
+  %.085 = phi i32 [ %103, %102 ], [ 0, %4 ], [ 0, %6 ]
+  ret i32 %.085
 }
 
 declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -1586,9 +1586,9 @@ define internal void @dissect_emule_tcp_message(i8 noundef zeroext %0, ptr nound
 
 .lr.ph.i.i:                                       ; preds = %25, %.lr.ph.i.i
   %.04551.i.i = phi i32 [ %42, %.lr.ph.i.i ], [ %33, %25 ]
-  %.04850.i.i = phi i32 [ %35, %.lr.ph.i.i ], [ 0, %25 ]
+  %.04650.i.i = phi i32 [ %35, %.lr.ph.i.i ], [ 0, %25 ]
   %34 = load i32, ptr @ett_edonkey_listitem, align 4
-  %35 = add nuw nsw i32 %.04850.i.i, 1
+  %35 = add nuw nsw i32 %.04650.i.i, 1
   %36 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %5, ptr noundef %1, i32 noundef %.04551.i.i, i32 noundef 1, i32 noundef %34, ptr noundef nonnull %7, ptr noundef nonnull @.str.411, ptr noundef nonnull @.str.451, i32 noundef %35, i32 noundef %30) #7
   %37 = load i32, ptr @hf_edonkey_ip, align 4
   %38 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %1, i32 noundef %.04551.i.i, i32 noundef 4, i32 noundef 0) #7
@@ -2077,9 +2077,9 @@ define internal fastcc noundef i32 @dissect_edonkey_address_list(ptr noundef %0,
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.04551.i = phi i32 [ %18, %.lr.ph.i ], [ %9, %3 ]
-  %.04850.i = phi i32 [ %11, %.lr.ph.i ], [ 0, %3 ]
+  %.04650.i = phi i32 [ %11, %.lr.ph.i ], [ 0, %3 ]
   %10 = load i32, ptr @ett_edonkey_listitem, align 4
-  %11 = add nuw nsw i32 %.04850.i, 1
+  %11 = add nuw nsw i32 %.04650.i, 1
   %12 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.04551.i, i32 noundef 1, i32 noundef %10, ptr noundef nonnull %4, ptr noundef nonnull @.str.411, ptr noundef nonnull @.str.451, i32 noundef %11, i32 noundef %6) #7
   %13 = load i32, ptr @hf_edonkey_ip, align 4
   %14 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %.04551.i, i32 noundef 4, i32 noundef 0) #7
@@ -2318,9 +2318,9 @@ define internal fastcc noundef i32 @dissect_edonkey_hash_list(ptr noundef %0, i3
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.04551.i = phi i32 [ %18, %.lr.ph.i ], [ %12, %3 ]
-  %.04850.i = phi i32 [ %14, %.lr.ph.i ], [ 0, %3 ]
+  %.04650.i = phi i32 [ %14, %.lr.ph.i ], [ 0, %3 ]
   %13 = load i32, ptr @ett_edonkey_listitem, align 4
-  %14 = add nuw nsw i32 %.04850.i, 1
+  %14 = add nuw nsw i32 %.04650.i, 1
   %15 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.04551.i, i32 noundef 1, i32 noundef %13, ptr noundef nonnull %4, ptr noundef nonnull @.str.411, ptr noundef nonnull @.str.43, i32 noundef %14, i32 noundef %9) #7
   %16 = load i32, ptr @hf_edonkey_hash, align 4
   %17 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %16, ptr noundef %0, i32 noundef %.04551.i, i32 noundef 16, i32 noundef 0) #7
@@ -2374,9 +2374,9 @@ define internal fastcc i32 @dissect_edonkey_list(ptr noundef %0, ptr noundef %1,
 
 .lr.ph:                                           ; preds = %17, %.lr.ph
   %.04551 = phi i32 [ %24, %.lr.ph ], [ %20, %17 ]
-  %.04850 = phi i32 [ %22, %.lr.ph ], [ 0, %17 ]
+  %.04650 = phi i32 [ %22, %.lr.ph ], [ 0, %17 ]
   %21 = load i32, ptr @ett_edonkey_listitem, align 4
-  %22 = add nuw i32 %.04850, 1
+  %22 = add nuw i32 %.04650, 1
   %23 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %.04551, i32 noundef 1, i32 noundef %21, ptr noundef nonnull %8, ptr noundef nonnull @.str.411, ptr noundef %5, i32 noundef %22, i32 noundef %.047) #7
   %24 = call i32 %6(ptr noundef %0, ptr noundef %1, i32 noundef %.04551, ptr noundef %23) #7
   %25 = load ptr, ptr %8, align 8
@@ -2419,12 +2419,12 @@ define internal i32 @dissect_edonkey_metatag(ptr noundef %0, ptr nocapture readn
   br label %18
 
 18:                                               ; preds = %11, %7
-  %.0319 = phi i8 [ %10, %7 ], [ %15, %11 ]
-  %.0318 = phi i16 [ 1, %7 ], [ %13, %11 ]
-  %.0317 = phi i8 [ %8, %7 ], [ %5, %11 ]
+  %.0319 = phi i8 [ %8, %7 ], [ %5, %11 ]
+  %.0318 = phi i8 [ %10, %7 ], [ %15, %11 ]
+  %.0317 = phi i16 [ 1, %7 ], [ %13, %11 ]
   %.0 = phi i32 [ 2, %7 ], [ %17, %11 ]
   %19 = add i32 %.0, %2
-  switch i8 %.0317, label %297 [
+  switch i8 %.0319, label %297 [
     i8 1, label %20
     i8 2, label %47
     i8 3, label %80
@@ -2448,20 +2448,20 @@ define internal i32 @dissect_edonkey_metatag(ptr noundef %0, ptr nocapture readn
   br i1 %28, label %29, label %._crit_edge353
 
 ._crit_edge353:                                   ; preds = %20
-  %.pre358 = zext i16 %.0318 to i32
+  %.pre358 = zext i16 %.0317 to i32
   br label %34
 
 29:                                               ; preds = %20
   %30 = load i32, ptr @hf_edonkey_metatag_namesize, align 4
   %31 = add i32 %2, 1
-  %32 = zext i16 %.0318 to i32
+  %32 = zext i16 %.0317 to i32
   %33 = tail call ptr @proto_tree_add_uint(ptr noundef %25, i32 noundef %30, ptr noundef %0, i32 noundef %31, i32 noundef 2, i32 noundef %32) #7
   br label %34
 
 34:                                               ; preds = %._crit_edge353, %29
   %.pre-phi359 = phi i32 [ %.pre358, %._crit_edge353 ], [ %32, %29 ]
   %35 = sub i32 %19, %.pre-phi359
-  %36 = zext i8 %.0319 to i32
+  %36 = zext i8 %.0318 to i32
   %37 = tail call ptr @try_val_to_str(i32 noundef %36, ptr noundef nonnull @edonkey_special_tags) #7
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %42
@@ -2496,20 +2496,20 @@ edonkey_tree_add_metatag_name.exit:               ; preds = %39, %42
   br i1 %58, label %59, label %._crit_edge352
 
 ._crit_edge352:                                   ; preds = %47
-  %.pre360 = zext i16 %.0318 to i32
+  %.pre360 = zext i16 %.0317 to i32
   br label %64
 
 59:                                               ; preds = %47
   %60 = load i32, ptr @hf_edonkey_metatag_namesize, align 4
   %61 = add i32 %2, 1
-  %62 = zext i16 %.0318 to i32
+  %62 = zext i16 %.0317 to i32
   %63 = tail call ptr @proto_tree_add_uint(ptr noundef %55, i32 noundef %60, ptr noundef %0, i32 noundef %61, i32 noundef 2, i32 noundef %62) #7
   br label %64
 
 64:                                               ; preds = %._crit_edge352, %59
   %.pre-phi361 = phi i32 [ %.pre360, %._crit_edge352 ], [ %62, %59 ]
   %65 = sub i32 %19, %.pre-phi361
-  %66 = zext i8 %.0319 to i32
+  %66 = zext i8 %.0318 to i32
   %67 = tail call ptr @try_val_to_str(i32 noundef %66, ptr noundef nonnull @edonkey_special_tags) #7
   %68 = icmp eq ptr %67, null
   br i1 %68, label %69, label %72
@@ -2544,20 +2544,20 @@ edonkey_tree_add_metatag_name.exit323:            ; preds = %69, %72
   br i1 %88, label %89, label %._crit_edge351
 
 ._crit_edge351:                                   ; preds = %80
-  %.pre362 = zext i16 %.0318 to i32
+  %.pre362 = zext i16 %.0317 to i32
   br label %94
 
 89:                                               ; preds = %80
   %90 = load i32, ptr @hf_edonkey_metatag_namesize, align 4
   %91 = add i32 %2, 1
-  %92 = zext i16 %.0318 to i32
+  %92 = zext i16 %.0317 to i32
   %93 = tail call ptr @proto_tree_add_uint(ptr noundef %85, i32 noundef %90, ptr noundef %0, i32 noundef %91, i32 noundef 2, i32 noundef %92) #7
   br label %94
 
 94:                                               ; preds = %._crit_edge351, %89
   %.pre-phi363 = phi i32 [ %.pre362, %._crit_edge351 ], [ %92, %89 ]
   %95 = sub i32 %19, %.pre-phi363
-  %96 = zext i8 %.0319 to i32
+  %96 = zext i8 %.0318 to i32
   %97 = tail call ptr @try_val_to_str(i32 noundef %96, ptr noundef nonnull @edonkey_special_tags) #7
   %98 = icmp eq ptr %97, null
   br i1 %98, label %99, label %102
@@ -2585,7 +2585,7 @@ edonkey_tree_add_metatag_name.exit325:            ; preds = %99, %102
   br i1 %111, label %edonkey_metatag_name_get_type.exit.thread, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %107
-  %112 = zext i16 %.0318 to i64
+  %112 = zext i16 %.0317 to i64
   br label %113
 
 113:                                              ; preds = %117, %.preheader.i.i
@@ -2610,7 +2610,7 @@ lookup_str_index.exit.i:                          ; preds = %113
   br label %edonkey_metatag_name_get_type.exit
 
 edonkey_metatag_name_get_type.exit:               ; preds = %edonkey_tree_add_metatag_name.exit325, %lookup_str_index.exit.i
-  %.0.i326 = phi i8 [ %123, %lookup_str_index.exit.i ], [ %.0319, %edonkey_tree_add_metatag_name.exit325 ]
+  %.0.i326 = phi i8 [ %123, %lookup_str_index.exit.i ], [ %.0318, %edonkey_tree_add_metatag_name.exit325 ]
   switch i8 %.0.i326, label %edonkey_metatag_name_get_type.exit.thread [
     i8 16, label %124
     i8 -111, label %127
@@ -2643,20 +2643,20 @@ edonkey_metatag_name_get_type.exit.thread:        ; preds = %117, %107, %edonkey
   br i1 %140, label %141, label %._crit_edge350
 
 ._crit_edge350:                                   ; preds = %132
-  %.pre364 = zext i16 %.0318 to i32
+  %.pre364 = zext i16 %.0317 to i32
   br label %146
 
 141:                                              ; preds = %132
   %142 = load i32, ptr @hf_edonkey_metatag_namesize, align 4
   %143 = add i32 %2, 1
-  %144 = zext i16 %.0318 to i32
+  %144 = zext i16 %.0317 to i32
   %145 = tail call ptr @proto_tree_add_uint(ptr noundef %137, i32 noundef %142, ptr noundef %0, i32 noundef %143, i32 noundef 2, i32 noundef %144) #7
   br label %146
 
 146:                                              ; preds = %._crit_edge350, %141
   %.pre-phi365 = phi i32 [ %.pre364, %._crit_edge350 ], [ %144, %141 ]
   %147 = sub i32 %19, %.pre-phi365
-  %148 = zext i8 %.0319 to i32
+  %148 = zext i8 %.0318 to i32
   %149 = tail call ptr @try_val_to_str(i32 noundef %148, ptr noundef nonnull @edonkey_special_tags) #7
   %150 = icmp eq ptr %149, null
   br i1 %150, label %151, label %154
@@ -2683,20 +2683,20 @@ edonkey_metatag_name_get_type.exit.thread:        ; preds = %117, %107, %edonkey
   br i1 %165, label %166, label %._crit_edge349
 
 ._crit_edge349:                                   ; preds = %157
-  %.pre366 = zext i16 %.0318 to i32
+  %.pre366 = zext i16 %.0317 to i32
   br label %171
 
 166:                                              ; preds = %157
   %167 = load i32, ptr @hf_edonkey_metatag_namesize, align 4
   %168 = add i32 %2, 1
-  %169 = zext i16 %.0318 to i32
+  %169 = zext i16 %.0317 to i32
   %170 = tail call ptr @proto_tree_add_uint(ptr noundef %162, i32 noundef %167, ptr noundef %0, i32 noundef %168, i32 noundef 2, i32 noundef %169) #7
   br label %171
 
 171:                                              ; preds = %._crit_edge349, %166
   %.pre-phi367 = phi i32 [ %.pre366, %._crit_edge349 ], [ %169, %166 ]
   %172 = sub i32 %19, %.pre-phi367
-  %173 = zext i8 %.0319 to i32
+  %173 = zext i8 %.0318 to i32
   %174 = tail call ptr @try_val_to_str(i32 noundef %173, ptr noundef nonnull @edonkey_special_tags) #7
   %175 = icmp eq ptr %174, null
   br i1 %175, label %176, label %179
@@ -2728,20 +2728,20 @@ edonkey_tree_add_metatag_name.exit330:            ; preds = %176, %179
   br i1 %192, label %193, label %._crit_edge348
 
 ._crit_edge348:                                   ; preds = %184
-  %.pre368 = zext i16 %.0318 to i32
+  %.pre368 = zext i16 %.0317 to i32
   br label %198
 
 193:                                              ; preds = %184
   %194 = load i32, ptr @hf_edonkey_metatag_namesize, align 4
   %195 = add i32 %2, 1
-  %196 = zext i16 %.0318 to i32
+  %196 = zext i16 %.0317 to i32
   %197 = tail call ptr @proto_tree_add_uint(ptr noundef %189, i32 noundef %194, ptr noundef %0, i32 noundef %195, i32 noundef 2, i32 noundef %196) #7
   br label %198
 
 198:                                              ; preds = %._crit_edge348, %193
   %.pre-phi369 = phi i32 [ %.pre368, %._crit_edge348 ], [ %196, %193 ]
   %199 = sub i32 %19, %.pre-phi369
-  %200 = zext i8 %.0319 to i32
+  %200 = zext i8 %.0318 to i32
   %201 = tail call ptr @try_val_to_str(i32 noundef %200, ptr noundef nonnull @edonkey_special_tags) #7
   %202 = icmp eq ptr %201, null
   br i1 %202, label %203, label %206
@@ -2773,20 +2773,20 @@ edonkey_tree_add_metatag_name.exit332:            ; preds = %203, %206
   br i1 %219, label %220, label %._crit_edge347
 
 ._crit_edge347:                                   ; preds = %211
-  %.pre370 = zext i16 %.0318 to i32
+  %.pre370 = zext i16 %.0317 to i32
   br label %225
 
 220:                                              ; preds = %211
   %221 = load i32, ptr @hf_edonkey_metatag_namesize, align 4
   %222 = add i32 %2, 1
-  %223 = zext i16 %.0318 to i32
+  %223 = zext i16 %.0317 to i32
   %224 = tail call ptr @proto_tree_add_uint(ptr noundef %216, i32 noundef %221, ptr noundef %0, i32 noundef %222, i32 noundef 2, i32 noundef %223) #7
   br label %225
 
 225:                                              ; preds = %._crit_edge347, %220
   %.pre-phi371 = phi i32 [ %.pre370, %._crit_edge347 ], [ %223, %220 ]
   %226 = sub i32 %19, %.pre-phi371
-  %227 = zext i8 %.0319 to i32
+  %227 = zext i8 %.0318 to i32
   %228 = tail call ptr @try_val_to_str(i32 noundef %227, ptr noundef nonnull @edonkey_special_tags) #7
   %229 = icmp eq ptr %228, null
   br i1 %229, label %230, label %233
@@ -2822,20 +2822,20 @@ edonkey_tree_add_metatag_name.exit334:            ; preds = %230, %233
   br i1 %249, label %250, label %._crit_edge346
 
 ._crit_edge346:                                   ; preds = %238
-  %.pre372 = zext i16 %.0318 to i32
+  %.pre372 = zext i16 %.0317 to i32
   br label %255
 
 250:                                              ; preds = %238
   %251 = load i32, ptr @hf_edonkey_metatag_namesize, align 4
   %252 = add i32 %2, 1
-  %253 = zext i16 %.0318 to i32
+  %253 = zext i16 %.0317 to i32
   %254 = tail call ptr @proto_tree_add_uint(ptr noundef %246, i32 noundef %251, ptr noundef %0, i32 noundef %252, i32 noundef 2, i32 noundef %253) #7
   br label %255
 
 255:                                              ; preds = %._crit_edge346, %250
   %.pre-phi373 = phi i32 [ %.pre372, %._crit_edge346 ], [ %253, %250 ]
   %256 = sub i32 %19, %.pre-phi373
-  %257 = zext i8 %.0319 to i32
+  %257 = zext i8 %.0318 to i32
   %258 = tail call ptr @try_val_to_str(i32 noundef %257, ptr noundef nonnull @edonkey_special_tags) #7
   %259 = icmp eq ptr %258, null
   br i1 %259, label %260, label %263
@@ -2869,20 +2869,20 @@ edonkey_tree_add_metatag_name.exit336:            ; preds = %260, %263
   br i1 %278, label %279, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %268
-  %.pre374 = zext i16 %.0318 to i32
+  %.pre374 = zext i16 %.0317 to i32
   br label %284
 
 279:                                              ; preds = %268
   %280 = load i32, ptr @hf_edonkey_metatag_namesize, align 4
   %281 = add i32 %2, 1
-  %282 = zext i16 %.0318 to i32
+  %282 = zext i16 %.0317 to i32
   %283 = tail call ptr @proto_tree_add_uint(ptr noundef %275, i32 noundef %280, ptr noundef %0, i32 noundef %281, i32 noundef 2, i32 noundef %282) #7
   br label %284
 
 284:                                              ; preds = %._crit_edge, %279
   %.pre-phi375 = phi i32 [ %.pre374, %._crit_edge ], [ %282, %279 ]
   %285 = sub i32 %19, %.pre-phi375
-  %286 = zext i8 %.0319 to i32
+  %286 = zext i8 %.0318 to i32
   %287 = tail call ptr @try_val_to_str(i32 noundef %286, ptr noundef nonnull @edonkey_special_tags) #7
   %288 = icmp eq ptr %287, null
   br i1 %288, label %289, label %292
@@ -2903,39 +2903,39 @@ edonkey_tree_add_metatag_name.exit338:            ; preds = %289, %292
   br label %edonkey_tree_add_metatag_name.exit328
 
 297:                                              ; preds = %18
-  %298 = add nsw i8 %.0317, -17
+  %298 = add nsw i8 %.0319, -17
   %or.cond = icmp ult i8 %298, 16
   br i1 %or.cond, label %299, label %329
 
 299:                                              ; preds = %297
-  %300 = zext nneg i8 %.0317 to i32
+  %300 = zext nneg i8 %.0319 to i32
   %301 = add nuw nsw i32 %300, 65520
   %302 = and i32 %301, 65535
-  %303 = add nuw nsw i32 %302, %.0
+  %303 = add nuw nsw i32 %.0, %302
   %304 = load i32, ptr @hf_edonkey_metatag, align 4
   %305 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %304, ptr noundef %0, i32 noundef %2, i32 noundef %303, i32 noundef 0) #7
   %306 = load i32, ptr @ett_edonkey_metatag, align 4
   %307 = tail call ptr @proto_item_add_subtree(ptr noundef %305, i32 noundef %306) #7
   %308 = load i32, ptr @hf_edonkey_metatag_type, align 4
   %309 = tail call ptr @proto_tree_add_uint(ptr noundef %307, i32 noundef %308, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef %6) #7
-  %310 = icmp eq i8 %.0317, %5
+  %310 = icmp eq i8 %.0319, %5
   br i1 %310, label %311, label %._crit_edge355
 
 ._crit_edge355:                                   ; preds = %299
-  %.pre = zext i16 %.0318 to i32
+  %.pre = zext i16 %.0317 to i32
   br label %316
 
 311:                                              ; preds = %299
   %312 = load i32, ptr @hf_edonkey_metatag_namesize, align 4
   %313 = add i32 %2, 1
-  %314 = zext i16 %.0318 to i32
+  %314 = zext i16 %.0317 to i32
   %315 = tail call ptr @proto_tree_add_uint(ptr noundef %307, i32 noundef %312, ptr noundef %0, i32 noundef %313, i32 noundef 2, i32 noundef %314) #7
   br label %316
 
 316:                                              ; preds = %._crit_edge355, %311
   %.pre-phi = phi i32 [ %.pre, %._crit_edge355 ], [ %314, %311 ]
   %317 = sub i32 %19, %.pre-phi
-  %318 = zext i8 %.0319 to i32
+  %318 = zext i8 %.0318 to i32
   %319 = tail call ptr @try_val_to_str(i32 noundef %318, ptr noundef nonnull @edonkey_special_tags) #7
   %320 = icmp eq ptr %319, null
   br i1 %320, label %321, label %324
@@ -2962,24 +2962,24 @@ edonkey_tree_add_metatag_name.exit340:            ; preds = %321, %324
   %333 = tail call ptr @proto_item_add_subtree(ptr noundef %331, i32 noundef %332) #7
   %334 = load i32, ptr @hf_edonkey_metatag_type, align 4
   %335 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %333, i32 noundef %334, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef %6, ptr noundef nonnull @.str.412, i32 noundef %6) #7
-  %336 = icmp eq i8 %.0317, %5
+  %336 = icmp eq i8 %.0319, %5
   br i1 %336, label %337, label %._crit_edge354
 
 ._crit_edge354:                                   ; preds = %329
-  %.pre356 = zext i16 %.0318 to i32
+  %.pre356 = zext i16 %.0317 to i32
   br label %342
 
 337:                                              ; preds = %329
   %338 = load i32, ptr @hf_edonkey_metatag_namesize, align 4
   %339 = add i32 %2, 1
-  %340 = zext i16 %.0318 to i32
+  %340 = zext i16 %.0317 to i32
   %341 = tail call ptr @proto_tree_add_uint(ptr noundef %333, i32 noundef %338, ptr noundef %0, i32 noundef %339, i32 noundef 2, i32 noundef %340) #7
   br label %342
 
 342:                                              ; preds = %._crit_edge354, %337
   %.pre-phi357 = phi i32 [ %.pre356, %._crit_edge354 ], [ %340, %337 ]
   %343 = sub i32 %19, %.pre-phi357
-  %344 = zext i8 %.0319 to i32
+  %344 = zext i8 %.0318 to i32
   %345 = tail call ptr @try_val_to_str(i32 noundef %344, ptr noundef nonnull @edonkey_special_tags) #7
   %346 = icmp eq ptr %345, null
   br i1 %346, label %347, label %350
@@ -3110,12 +3110,12 @@ declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_edonkey_udp_message(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef 2) #7
-  %.0187 = tail call i32 @llvm.smin.i32(i32 %6, i32 %3)
-  %7 = icmp slt i32 %.0187, 1
+  %.0186 = tail call i32 @llvm.smin.i32(i32 %6, i32 %3)
+  %7 = icmp slt i32 %.0186, 1
   br i1 %7, label %136, label %8
 
 8:                                                ; preds = %5
-  %9 = add nuw i32 %.0187, 2
+  %9 = add nuw i32 %.0186, 2
   switch i8 %0, label %133 [
     i8 -100, label %10
     i8 -98, label %17
@@ -3162,7 +3162,7 @@ define internal fastcc i32 @dissect_edonkey_udp_message(i8 noundef zeroext %0, p
   br label %136
 
 20:                                               ; preds = %8
-  %.not = icmp eq i32 %.0187, 1
+  %.not = icmp eq i32 %.0186, 1
   br i1 %.not, label %136, label %21
 
 21:                                               ; preds = %20
@@ -3333,7 +3333,7 @@ define internal fastcc i32 @dissect_edonkey_udp_message(i8 noundef zeroext %0, p
 
 133:                                              ; preds = %8
   %134 = load i32, ptr @hf_edonkey_message_data, align 4
-  %135 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %134, ptr noundef %1, i32 noundef 2, i32 noundef %.0187, i32 noundef 0) #7
+  %135 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %134, ptr noundef %1, i32 noundef 2, i32 noundef %.0186, i32 noundef 0) #7
   br label %136
 
 136:                                              ; preds = %10, %17, %37, %39, %41, %43, %46, %50, %64, %77, %79, %84, %93, %97, %103, %106, %109, %112, %115, %122, %125, %130, %133, %21, %24, %20, %34, %30, %61, %53, %5
@@ -3352,8 +3352,8 @@ define internal fastcc i32 @dissect_kademlia_udp_message(i8 noundef zeroext %0, 
   %13 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %3) #7
   %14 = icmp slt i32 %4, 0
   %15 = tail call i32 @llvm.smin.i32(i32 %13, i32 %4)
-  %.0291 = select i1 %14, i32 %13, i32 %15
-  %16 = icmp slt i32 %.0291, 1
+  %.0292 = select i1 %14, i32 %13, i32 %15
+  %16 = icmp slt i32 %.0292, 1
   br i1 %16, label %255, label %17
 
 17:                                               ; preds = %6
@@ -3376,7 +3376,7 @@ define internal fastcc i32 @dissect_kademlia_udp_message(i8 noundef zeroext %0, 
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
-  %27 = add nuw i32 %.0291, %3
+  %27 = add nuw i32 %.0292, %3
   switch i8 %0, label %255 [
     i8 0, label %28
     i8 16, label %28
@@ -3570,15 +3570,15 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
 
 125:                                              ; preds = %118, %125
   %indvars.iv358 = phi i64 [ %indvars.iv356, %118 ], [ %indvars.iv.next359, %125 ]
-  %.0298337 = phi i32 [ %124, %118 ], [ %spec.select378, %125 ]
-  %.0300336 = phi i32 [ 128, %118 ], [ %128, %125 ]
-  %.not306 = icmp slt i32 %.0298337, %.0300336
+  %.0293338 = phi i32 [ %124, %118 ], [ %spec.select378, %125 ]
+  %.0295337 = phi i32 [ 128, %118 ], [ %128, %125 ]
+  %.not306 = icmp slt i32 %.0293338, %.0295337
   %spec.select377 = select i1 %.not306, i8 48, i8 49
-  %126 = select i1 %.not306, i32 0, i32 %.0300336
-  %spec.select378 = sub i32 %.0298337, %126
+  %126 = select i1 %.not306, i32 0, i32 %.0295337
+  %spec.select378 = sub i32 %.0293338, %126
   %127 = getelementptr [129 x i8], ptr %12, i64 0, i64 %indvars.iv358
   store i8 %spec.select377, ptr %127, align 1
-  %128 = sdiv i32 %.0300336, 2
+  %128 = sdiv i32 %.0295337, 2
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %exitcond363.not = icmp eq i64 %indvars.iv.next359, %indvars.iv364
   br i1 %exitcond363.not, label %129, label %125, !llvm.loop !15
@@ -3661,9 +3661,9 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
 
 .lr.ph.i:                                         ; preds = %168, %.lr.ph.i
   %.04551.i = phi i32 [ %179, %.lr.ph.i ], [ %174, %168 ]
-  %.04850.i = phi i32 [ %176, %.lr.ph.i ], [ 0, %168 ]
+  %.04650.i = phi i32 [ %176, %.lr.ph.i ], [ 0, %168 ]
   %175 = load i32, ptr @ett_edonkey_listitem, align 4
-  %176 = add nuw nsw i32 %.04850.i, 1
+  %176 = add nuw nsw i32 %.04650.i, 1
   %177 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %5, ptr noundef %1, i32 noundef %.04551.i, i32 noundef 1, i32 noundef %175, ptr noundef nonnull %9, ptr noundef nonnull @.str.411, ptr noundef nonnull @.str.548, i32 noundef %176, i32 noundef %171) #7
   %178 = call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %.04551.i, ptr noundef %177, ptr noundef nonnull @hf_kademlia_hash)
   %179 = call fastcc i32 @dissect_edonkey_list(ptr noundef %1, ptr noundef %2, i32 noundef %178, ptr noundef %177, i32 noundef 1, ptr noundef nonnull @.str.550, ptr noundef nonnull @dissect_kademlia_tag) #8
@@ -3694,9 +3694,9 @@ dissect_edonkey_list.exit:                        ; preds = %.lr.ph.i, %168
 
 .lr.ph.i310:                                      ; preds = %183, %.lr.ph.i310
   %.04551.i311 = phi i32 [ %195, %.lr.ph.i310 ], [ %190, %183 ]
-  %.04850.i312 = phi i32 [ %192, %.lr.ph.i310 ], [ 0, %183 ]
+  %.04650.i312 = phi i32 [ %192, %.lr.ph.i310 ], [ 0, %183 ]
   %191 = load i32, ptr @ett_edonkey_listitem, align 4
-  %192 = add nuw nsw i32 %.04850.i312, 1
+  %192 = add nuw nsw i32 %.04650.i312, 1
   %193 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %5, ptr noundef %1, i32 noundef %.04551.i311, i32 noundef 1, i32 noundef %191, ptr noundef nonnull %8, ptr noundef nonnull @.str.411, ptr noundef nonnull @.str.548, i32 noundef %192, i32 noundef %187) #7
   %194 = call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %.04551.i311, ptr noundef %193, ptr noundef nonnull @hf_kademlia_hash)
   %195 = call fastcc i32 @dissect_edonkey_list(ptr noundef %1, ptr noundef %2, i32 noundef %194, ptr noundef %193, i32 noundef 1, ptr noundef nonnull @.str.550, ptr noundef nonnull @dissect_kademlia_tag) #8
@@ -3726,9 +3726,9 @@ dissect_edonkey_list.exit315:                     ; preds = %.lr.ph.i310, %183
 
 .lr.ph.i317:                                      ; preds = %199, %.lr.ph.i317
   %.04551.i318 = phi i32 [ %210, %.lr.ph.i317 ], [ %205, %199 ]
-  %.04850.i319 = phi i32 [ %207, %.lr.ph.i317 ], [ 0, %199 ]
+  %.04650.i319 = phi i32 [ %207, %.lr.ph.i317 ], [ 0, %199 ]
   %206 = load i32, ptr @ett_edonkey_listitem, align 4
-  %207 = add nuw nsw i32 %.04850.i319, 1
+  %207 = add nuw nsw i32 %.04650.i319, 1
   %208 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %5, ptr noundef %1, i32 noundef %.04551.i318, i32 noundef 1, i32 noundef %206, ptr noundef nonnull %7, ptr noundef nonnull @.str.411, ptr noundef nonnull @.str.549, i32 noundef %207, i32 noundef %202) #7
   %209 = call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %.04551.i318, ptr noundef %208, ptr noundef nonnull @hf_kademlia_file_id)
   %210 = call fastcc i32 @dissect_edonkey_list(ptr noundef %1, ptr noundef %2, i32 noundef %209, ptr noundef %208, i32 noundef 1, ptr noundef nonnull @.str.550, ptr noundef nonnull @dissect_kademlia_tag) #8

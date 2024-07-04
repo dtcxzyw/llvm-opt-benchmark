@@ -2088,8 +2088,8 @@ define zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 
   br label %90
 
 33:                                               ; preds = %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12
-  %.074 = phi ptr [ @ett_nas_5gs_updp_elem, %30 ], [ @ett_nas_5gs_sm_elem, %29 ], [ @ett_nas_5gs_mm_elem, %28 ], [ @ett_nas_5gs_common_elem, %27 ], [ @ett_gmr1_ie_rr, %26 ], [ @ett_gmr1_ie_common, %25 ], [ @ett_bssgp_elem, %24 ], [ @ett_sgsap_elem, %23 ], [ @ett_nas_eps_esm_elem, %22 ], [ @ett_nas_eps_emm_elem, %21 ], [ @ett_nas_eps_common_elem, %20 ], [ @ett_gsm_bssmap_le_elem, %19 ], [ @ett_gsm_bsslap_elem, %18 ], [ @ett_gsm_gm_elem, %17 ], [ @ett_gsm_common_elem, %16 ], [ @ett_gsm_rr_elem, %15 ], [ @ett_gsm_rp_elem, %14 ], [ @ett_gsm_dtap_elem, %13 ], [ @ett_gsm_bssmap_elem, %12 ]
-  %.072 = phi ptr [ @nas_5gs_updp_elem_fcn, %30 ], [ @nas_5gs_sm_elem_fcn, %29 ], [ @nas_5gs_mm_elem_fcn, %28 ], [ @nas_5gs_common_elem_fcn, %27 ], [ @gmr1_ie_rr_func, %26 ], [ @gmr1_ie_common_func, %25 ], [ @bssgp_elem_fcn, %24 ], [ @sgsap_elem_fcn, %23 ], [ @esm_elem_fcn, %22 ], [ @emm_elem_fcn, %21 ], [ @nas_eps_common_elem_fcn, %20 ], [ @bssmap_le_elem_fcn, %19 ], [ @bsslap_elem_fcn, %18 ], [ @gm_elem_fcn, %17 ], [ @common_elem_fcn, %16 ], [ @rr_elem_fcn, %15 ], [ @rp_elem_fcn, %14 ], [ @dtap_elem_fcn, %13 ], [ @bssmap_elem_fcn, %12 ]
+  %.072 = phi ptr [ @ett_nas_5gs_updp_elem, %30 ], [ @ett_nas_5gs_sm_elem, %29 ], [ @ett_nas_5gs_mm_elem, %28 ], [ @ett_nas_5gs_common_elem, %27 ], [ @ett_gmr1_ie_rr, %26 ], [ @ett_gmr1_ie_common, %25 ], [ @ett_bssgp_elem, %24 ], [ @ett_sgsap_elem, %23 ], [ @ett_nas_eps_esm_elem, %22 ], [ @ett_nas_eps_emm_elem, %21 ], [ @ett_nas_eps_common_elem, %20 ], [ @ett_gsm_bssmap_le_elem, %19 ], [ @ett_gsm_bsslap_elem, %18 ], [ @ett_gsm_gm_elem, %17 ], [ @ett_gsm_common_elem, %16 ], [ @ett_gsm_rr_elem, %15 ], [ @ett_gsm_rp_elem, %14 ], [ @ett_gsm_dtap_elem, %13 ], [ @ett_gsm_bssmap_elem, %12 ]
+  %.0 = phi ptr [ @nas_5gs_updp_elem_fcn, %30 ], [ @nas_5gs_sm_elem_fcn, %29 ], [ @nas_5gs_mm_elem_fcn, %28 ], [ @nas_5gs_common_elem_fcn, %27 ], [ @gmr1_ie_rr_func, %26 ], [ @gmr1_ie_common_func, %25 ], [ @bssgp_elem_fcn, %24 ], [ @sgsap_elem_fcn, %23 ], [ @esm_elem_fcn, %22 ], [ @emm_elem_fcn, %21 ], [ @nas_eps_common_elem_fcn, %20 ], [ @bssmap_le_elem_fcn, %19 ], [ @bsslap_elem_fcn, %18 ], [ @gm_elem_fcn, %17 ], [ @common_elem_fcn, %16 ], [ @rr_elem_fcn, %15 ], [ @rp_elem_fcn, %14 ], [ @dtap_elem_fcn, %13 ], [ @bssmap_elem_fcn, %12 ]
   %34 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #6
   %35 = zext i8 %34 to i32
   %36 = icmp eq i8 %34, %3
@@ -2122,7 +2122,7 @@ define zeroext i16 @elem_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 
 
 53:                                               ; preds = %37
   %54 = sext i32 %5 to i64
-  %55 = getelementptr i32, ptr %.074, i64 %54
+  %55 = getelementptr i32, ptr %.072, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = icmp eq ptr %8, null
   br i1 %57, label %61, label %58
@@ -2160,7 +2160,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not, label %88, label %70
 
 70:                                               ; preds = %switch.lookup
-  %71 = getelementptr ptr, ptr %.072, i64 %54
+  %71 = getelementptr ptr, ptr %.0, i64 %54
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %74, label %78
@@ -2194,8 +2194,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %90
 
 90:                                               ; preds = %33, %88, %50, %31
-  %.0 = phi i16 [ 0, %31 ], [ 0, %50 ], [ %89, %88 ], [ 0, %33 ]
-  ret i16 %.0
+  %.074 = phi i16 [ 0, %31 ], [ 0, %50 ], [ %89, %88 ], [ 0, %33 ]
+  ret i16 %.074
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -2314,8 +2314,8 @@ define hidden zeroext i16 @elem_telv(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %101
 
 33:                                               ; preds = %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12
-  %.082 = phi ptr [ @ett_nas_5gs_updp_elem, %30 ], [ @ett_nas_5gs_sm_elem, %29 ], [ @ett_nas_5gs_mm_elem, %28 ], [ @ett_nas_5gs_common_elem, %27 ], [ @ett_gmr1_ie_rr, %26 ], [ @ett_gmr1_ie_common, %25 ], [ @ett_bssgp_elem, %24 ], [ @ett_sgsap_elem, %23 ], [ @ett_nas_eps_esm_elem, %22 ], [ @ett_nas_eps_emm_elem, %21 ], [ @ett_nas_eps_common_elem, %20 ], [ @ett_gsm_bssmap_le_elem, %19 ], [ @ett_gsm_bsslap_elem, %18 ], [ @ett_gsm_gm_elem, %17 ], [ @ett_gsm_common_elem, %16 ], [ @ett_gsm_rr_elem, %15 ], [ @ett_gsm_rp_elem, %14 ], [ @ett_gsm_dtap_elem, %13 ], [ @ett_gsm_bssmap_elem, %12 ]
-  %.080 = phi ptr [ @nas_5gs_updp_elem_fcn, %30 ], [ @nas_5gs_sm_elem_fcn, %29 ], [ @nas_5gs_mm_elem_fcn, %28 ], [ @nas_5gs_common_elem_fcn, %27 ], [ @gmr1_ie_rr_func, %26 ], [ @gmr1_ie_common_func, %25 ], [ @bssgp_elem_fcn, %24 ], [ @sgsap_elem_fcn, %23 ], [ @esm_elem_fcn, %22 ], [ @emm_elem_fcn, %21 ], [ @nas_eps_common_elem_fcn, %20 ], [ @bssmap_le_elem_fcn, %19 ], [ @bsslap_elem_fcn, %18 ], [ @gm_elem_fcn, %17 ], [ @common_elem_fcn, %16 ], [ @rr_elem_fcn, %15 ], [ @rp_elem_fcn, %14 ], [ @dtap_elem_fcn, %13 ], [ @bssmap_elem_fcn, %12 ]
+  %.080 = phi ptr [ @ett_nas_5gs_updp_elem, %30 ], [ @ett_nas_5gs_sm_elem, %29 ], [ @ett_nas_5gs_mm_elem, %28 ], [ @ett_nas_5gs_common_elem, %27 ], [ @ett_gmr1_ie_rr, %26 ], [ @ett_gmr1_ie_common, %25 ], [ @ett_bssgp_elem, %24 ], [ @ett_sgsap_elem, %23 ], [ @ett_nas_eps_esm_elem, %22 ], [ @ett_nas_eps_emm_elem, %21 ], [ @ett_nas_eps_common_elem, %20 ], [ @ett_gsm_bssmap_le_elem, %19 ], [ @ett_gsm_bsslap_elem, %18 ], [ @ett_gsm_gm_elem, %17 ], [ @ett_gsm_common_elem, %16 ], [ @ett_gsm_rr_elem, %15 ], [ @ett_gsm_rp_elem, %14 ], [ @ett_gsm_dtap_elem, %13 ], [ @ett_gsm_bssmap_elem, %12 ]
+  %.0 = phi ptr [ @nas_5gs_updp_elem_fcn, %30 ], [ @nas_5gs_sm_elem_fcn, %29 ], [ @nas_5gs_mm_elem_fcn, %28 ], [ @nas_5gs_common_elem_fcn, %27 ], [ @gmr1_ie_rr_func, %26 ], [ @gmr1_ie_common_func, %25 ], [ @bssgp_elem_fcn, %24 ], [ @sgsap_elem_fcn, %23 ], [ @esm_elem_fcn, %22 ], [ @emm_elem_fcn, %21 ], [ @nas_eps_common_elem_fcn, %20 ], [ @bssmap_le_elem_fcn, %19 ], [ @bsslap_elem_fcn, %18 ], [ @gm_elem_fcn, %17 ], [ @common_elem_fcn, %16 ], [ @rr_elem_fcn, %15 ], [ @rp_elem_fcn, %14 ], [ @dtap_elem_fcn, %13 ], [ @bssmap_elem_fcn, %12 ]
   %34 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #6
   %35 = zext i8 %34 to i32
   %36 = icmp eq i8 %34, %3
@@ -2337,13 +2337,13 @@ define hidden zeroext i16 @elem_telv(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %46
 
 46:                                               ; preds = %43, %41
-  %.083 = phi i32 [ 2, %41 ], [ 1, %43 ]
-  %.081 = phi i16 [ %42, %41 ], [ %45, %43 ]
+  %.083 = phi i16 [ %42, %41 ], [ %45, %43 ]
+  %.082 = phi i32 [ 2, %41 ], [ 1, %43 ]
   %47 = call ptr @try_val_to_str_ext(i32 noundef %5, ptr noundef nonnull %11) #6
   %48 = icmp eq ptr %47, null
-  %49 = zext i16 %.081 to i32
-  %50 = add nuw nsw i32 %.083, 1
-  %51 = add nuw nsw i32 %50, %49
+  %49 = zext i16 %.083 to i32
+  %50 = add nuw nsw i32 %49, 1
+  %51 = add nuw nsw i32 %50, %.082
   br i1 %48, label %52, label %60
 
 52:                                               ; preds = %46
@@ -2363,7 +2363,7 @@ define hidden zeroext i16 @elem_telv(ptr noundef %0, ptr noundef %1, ptr noundef
 
 60:                                               ; preds = %46
   %61 = sext i32 %5 to i64
-  %62 = getelementptr i32, ptr %.082, i64 %61
+  %62 = getelementptr i32, ptr %.080, i64 %61
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq ptr %8, null
   br i1 %64, label %68, label %65
@@ -2398,19 +2398,19 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %75 = load i32, ptr @hf_gsm_a_l_ext, align 4
   %76 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %75, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #6
   %77 = load i32, ptr @hf_gsm_a_length, align 4
-  %78 = call ptr @proto_tree_add_uint(ptr noundef %70, i32 noundef %77, ptr noundef %0, i32 noundef %38, i32 noundef %.083, i32 noundef %49) #6
-  %.not = icmp eq i16 %.081, 0
+  %78 = call ptr @proto_tree_add_uint(ptr noundef %70, i32 noundef %77, ptr noundef %0, i32 noundef %38, i32 noundef %.082, i32 noundef %49) #6
+  %.not = icmp eq i16 %.083, 0
   br i1 %.not, label %97, label %79
 
 79:                                               ; preds = %switch.lookup
-  %80 = getelementptr ptr, ptr %.080, i64 %61
+  %80 = getelementptr ptr, ptr %.0, i64 %61
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %79
   %84 = load i32, ptr @hf_gsm_a_element_value, align 4
-  %85 = add i32 %.083, %38
+  %85 = add i32 %.082, %38
   %86 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %84, ptr noundef %0, i32 noundef %85, i32 noundef %49, i32 noundef 0) #6
   br label %97
 
@@ -2420,7 +2420,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %90 = call noalias ptr @wmem_alloc(ptr noundef %89, i64 noundef 1024) #6
   store i8 0, ptr %90, align 1
   %91 = load ptr, ptr %80, align 8
-  %92 = add i32 %.083, %38
+  %92 = add i32 %.082, %38
   %93 = call zeroext i16 %91(ptr noundef %0, ptr noundef %70, ptr noundef %2, i32 noundef %92, i32 noundef %49, ptr noundef nonnull %90, i32 noundef 1024) #6
   %94 = load i8, ptr %90, align 1
   %.not90 = icmp eq i8 %94, 0
@@ -2432,15 +2432,15 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %97
 
 97:                                               ; preds = %83, %95, %87, %switch.lookup
-  %.084 = phi i16 [ %.081, %83 ], [ %93, %95 ], [ %93, %87 ], [ 0, %switch.lookup ]
-  %98 = trunc nuw nsw i32 %.083 to i16
+  %.081 = phi i16 [ %.083, %83 ], [ %93, %95 ], [ %93, %87 ], [ 0, %switch.lookup ]
+  %98 = trunc nuw nsw i32 %.082 to i16
   %99 = add nuw nsw i16 %98, 1
-  %100 = add i16 %99, %.084
+  %100 = add i16 %99, %.081
   br label %101
 
 101:                                              ; preds = %33, %97, %57, %31
-  %.0 = phi i16 [ 0, %31 ], [ 0, %57 ], [ %100, %97 ], [ 0, %33 ]
-  ret i16 %.0
+  %.084 = phi i16 [ 0, %31 ], [ 0, %57 ], [ %100, %97 ], [ 0, %33 ]
+  ret i16 %.084
 }
 
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -2552,8 +2552,8 @@ define hidden zeroext i16 @elem_tlv_e(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %89
 
 33:                                               ; preds = %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12
-  %.069 = phi ptr [ @ett_nas_5gs_updp_elem, %30 ], [ @ett_nas_5gs_sm_elem, %29 ], [ @ett_nas_5gs_mm_elem, %28 ], [ @ett_nas_5gs_common_elem, %27 ], [ @ett_gmr1_ie_rr, %26 ], [ @ett_gmr1_ie_common, %25 ], [ @ett_bssgp_elem, %24 ], [ @ett_sgsap_elem, %23 ], [ @ett_nas_eps_esm_elem, %22 ], [ @ett_nas_eps_emm_elem, %21 ], [ @ett_nas_eps_common_elem, %20 ], [ @ett_gsm_bssmap_le_elem, %19 ], [ @ett_gsm_bsslap_elem, %18 ], [ @ett_gsm_gm_elem, %17 ], [ @ett_gsm_common_elem, %16 ], [ @ett_gsm_rr_elem, %15 ], [ @ett_gsm_rp_elem, %14 ], [ @ett_gsm_dtap_elem, %13 ], [ @ett_gsm_bssmap_elem, %12 ]
-  %.067 = phi ptr [ @nas_5gs_updp_elem_fcn, %30 ], [ @nas_5gs_sm_elem_fcn, %29 ], [ @nas_5gs_mm_elem_fcn, %28 ], [ @nas_5gs_common_elem_fcn, %27 ], [ @gmr1_ie_rr_func, %26 ], [ @gmr1_ie_common_func, %25 ], [ @bssgp_elem_fcn, %24 ], [ @sgsap_elem_fcn, %23 ], [ @esm_elem_fcn, %22 ], [ @emm_elem_fcn, %21 ], [ @nas_eps_common_elem_fcn, %20 ], [ @bssmap_le_elem_fcn, %19 ], [ @bsslap_elem_fcn, %18 ], [ @gm_elem_fcn, %17 ], [ @common_elem_fcn, %16 ], [ @rr_elem_fcn, %15 ], [ @rp_elem_fcn, %14 ], [ @dtap_elem_fcn, %13 ], [ @bssmap_elem_fcn, %12 ]
+  %.067 = phi ptr [ @ett_nas_5gs_updp_elem, %30 ], [ @ett_nas_5gs_sm_elem, %29 ], [ @ett_nas_5gs_mm_elem, %28 ], [ @ett_nas_5gs_common_elem, %27 ], [ @ett_gmr1_ie_rr, %26 ], [ @ett_gmr1_ie_common, %25 ], [ @ett_bssgp_elem, %24 ], [ @ett_sgsap_elem, %23 ], [ @ett_nas_eps_esm_elem, %22 ], [ @ett_nas_eps_emm_elem, %21 ], [ @ett_nas_eps_common_elem, %20 ], [ @ett_gsm_bssmap_le_elem, %19 ], [ @ett_gsm_bsslap_elem, %18 ], [ @ett_gsm_gm_elem, %17 ], [ @ett_gsm_common_elem, %16 ], [ @ett_gsm_rr_elem, %15 ], [ @ett_gsm_rp_elem, %14 ], [ @ett_gsm_dtap_elem, %13 ], [ @ett_gsm_bssmap_elem, %12 ]
+  %.0 = phi ptr [ @nas_5gs_updp_elem_fcn, %30 ], [ @nas_5gs_sm_elem_fcn, %29 ], [ @nas_5gs_mm_elem_fcn, %28 ], [ @nas_5gs_common_elem_fcn, %27 ], [ @gmr1_ie_rr_func, %26 ], [ @gmr1_ie_common_func, %25 ], [ @bssgp_elem_fcn, %24 ], [ @sgsap_elem_fcn, %23 ], [ @esm_elem_fcn, %22 ], [ @emm_elem_fcn, %21 ], [ @nas_eps_common_elem_fcn, %20 ], [ @bssmap_le_elem_fcn, %19 ], [ @bsslap_elem_fcn, %18 ], [ @gm_elem_fcn, %17 ], [ @common_elem_fcn, %16 ], [ @rr_elem_fcn, %15 ], [ @rp_elem_fcn, %14 ], [ @dtap_elem_fcn, %13 ], [ @bssmap_elem_fcn, %12 ]
   %34 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #6
   %35 = zext i8 %34 to i32
   %36 = icmp eq i8 %34, %3
@@ -2585,7 +2585,7 @@ define hidden zeroext i16 @elem_tlv_e(ptr noundef %0, ptr noundef %1, ptr nounde
 
 52:                                               ; preds = %37
   %53 = sext i32 %5 to i64
-  %54 = getelementptr i32, ptr %.069, i64 %53
+  %54 = getelementptr i32, ptr %.067, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq ptr %8, null
   br i1 %56, label %60, label %57
@@ -2623,7 +2623,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not, label %87, label %69
 
 69:                                               ; preds = %switch.lookup
-  %70 = getelementptr ptr, ptr %.067, i64 %53
+  %70 = getelementptr ptr, ptr %.0, i64 %53
   %71 = load ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, null
   br i1 %72, label %73, label %77
@@ -2657,8 +2657,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %89
 
 89:                                               ; preds = %33, %87, %49, %31
-  %.0 = phi i16 [ 0, %31 ], [ 0, %49 ], [ %88, %87 ], [ 0, %33 ]
-  ret i16 %.0
+  %.069 = phi i16 [ 0, %31 ], [ 0, %49 ], [ %88, %87 ], [ 0, %33 ]
+  ret i16 %.069
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2768,8 +2768,8 @@ define zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 n
   br label %82
 
 32:                                               ; preds = %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11
-  %.056 = phi ptr [ @ett_nas_5gs_updp_elem, %29 ], [ @ett_nas_5gs_sm_elem, %28 ], [ @ett_nas_5gs_mm_elem, %27 ], [ @ett_nas_5gs_common_elem, %26 ], [ @ett_gmr1_ie_rr, %25 ], [ @ett_gmr1_ie_common, %24 ], [ @ett_bssgp_elem, %23 ], [ @ett_sgsap_elem, %22 ], [ @ett_nas_eps_esm_elem, %21 ], [ @ett_nas_eps_emm_elem, %20 ], [ @ett_nas_eps_common_elem, %19 ], [ @ett_gsm_bssmap_le_elem, %18 ], [ @ett_gsm_bsslap_elem, %17 ], [ @ett_gsm_gm_elem, %16 ], [ @ett_gsm_common_elem, %15 ], [ @ett_gsm_rr_elem, %14 ], [ @ett_gsm_rp_elem, %13 ], [ @ett_gsm_dtap_elem, %12 ], [ @ett_gsm_bssmap_elem, %11 ]
-  %.054 = phi ptr [ @nas_5gs_updp_elem_fcn, %29 ], [ @nas_5gs_sm_elem_fcn, %28 ], [ @nas_5gs_mm_elem_fcn, %27 ], [ @nas_5gs_common_elem_fcn, %26 ], [ @gmr1_ie_rr_func, %25 ], [ @gmr1_ie_common_func, %24 ], [ @bssgp_elem_fcn, %23 ], [ @sgsap_elem_fcn, %22 ], [ @esm_elem_fcn, %21 ], [ @emm_elem_fcn, %20 ], [ @nas_eps_common_elem_fcn, %19 ], [ @bssmap_le_elem_fcn, %18 ], [ @bsslap_elem_fcn, %17 ], [ @gm_elem_fcn, %16 ], [ @common_elem_fcn, %15 ], [ @rr_elem_fcn, %14 ], [ @rp_elem_fcn, %13 ], [ @dtap_elem_fcn, %12 ], [ @bssmap_elem_fcn, %11 ]
+  %.054 = phi ptr [ @ett_nas_5gs_updp_elem, %29 ], [ @ett_nas_5gs_sm_elem, %28 ], [ @ett_nas_5gs_mm_elem, %27 ], [ @ett_nas_5gs_common_elem, %26 ], [ @ett_gmr1_ie_rr, %25 ], [ @ett_gmr1_ie_common, %24 ], [ @ett_bssgp_elem, %23 ], [ @ett_sgsap_elem, %22 ], [ @ett_nas_eps_esm_elem, %21 ], [ @ett_nas_eps_emm_elem, %20 ], [ @ett_nas_eps_common_elem, %19 ], [ @ett_gsm_bssmap_le_elem, %18 ], [ @ett_gsm_bsslap_elem, %17 ], [ @ett_gsm_gm_elem, %16 ], [ @ett_gsm_common_elem, %15 ], [ @ett_gsm_rr_elem, %14 ], [ @ett_gsm_rp_elem, %13 ], [ @ett_gsm_dtap_elem, %12 ], [ @ett_gsm_bssmap_elem, %11 ]
+  %.0 = phi ptr [ @nas_5gs_updp_elem_fcn, %29 ], [ @nas_5gs_sm_elem_fcn, %28 ], [ @nas_5gs_mm_elem_fcn, %27 ], [ @nas_5gs_common_elem_fcn, %26 ], [ @gmr1_ie_rr_func, %25 ], [ @gmr1_ie_common_func, %24 ], [ @bssgp_elem_fcn, %23 ], [ @sgsap_elem_fcn, %22 ], [ @esm_elem_fcn, %21 ], [ @emm_elem_fcn, %20 ], [ @nas_eps_common_elem_fcn, %19 ], [ @bssmap_le_elem_fcn, %18 ], [ @bsslap_elem_fcn, %17 ], [ @gm_elem_fcn, %16 ], [ @common_elem_fcn, %15 ], [ @rr_elem_fcn, %14 ], [ @rp_elem_fcn, %13 ], [ @dtap_elem_fcn, %12 ], [ @bssmap_elem_fcn, %11 ]
   %33 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #6
   %34 = zext i8 %33 to i32
   %35 = icmp eq i8 %33, %3
@@ -2797,7 +2797,7 @@ define zeroext i16 @elem_tv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 n
 
 47:                                               ; preds = %36
   %48 = sext i32 %5 to i64
-  %49 = getelementptr i32, ptr %.056, i64 %48
+  %49 = getelementptr i32, ptr %.054, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq ptr %7, null
   br i1 %51, label %55, label %52
@@ -2829,7 +2829,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.0.i = load i32, ptr %switch.load, align 4
   %61 = call ptr @proto_tree_add_uint(ptr noundef %57, i32 noundef %.0.i, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %34) #6
-  %62 = getelementptr ptr, ptr %.054, i64 %48
+  %62 = getelementptr ptr, ptr %.0, i64 %48
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %65, label %68
@@ -2865,8 +2865,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %82
 
 82:                                               ; preds = %32, %78, %44, %30
-  %.0 = phi i16 [ 0, %30 ], [ 0, %44 ], [ %79, %78 ], [ 0, %32 ]
-  ret i16 %.0
+  %.056 = phi i16 [ 0, %30 ], [ 0, %44 ], [ %79, %78 ], [ 0, %32 ]
+  ret i16 %.056
 }
 
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -2980,8 +2980,8 @@ define zeroext i16 @elem_tv_short(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %82
 
 32:                                               ; preds = %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11
-  %.056 = phi ptr [ @ett_nas_5gs_updp_elem, %29 ], [ @ett_nas_5gs_sm_elem, %28 ], [ @ett_nas_5gs_mm_elem, %27 ], [ @ett_nas_5gs_common_elem, %26 ], [ @ett_gmr1_ie_rr, %25 ], [ @ett_gmr1_ie_common, %24 ], [ @ett_bssgp_elem, %23 ], [ @ett_sgsap_elem, %22 ], [ @ett_nas_eps_esm_elem, %21 ], [ @ett_nas_eps_emm_elem, %20 ], [ @ett_nas_eps_common_elem, %19 ], [ @ett_gsm_bssmap_le_elem, %18 ], [ @ett_gsm_bsslap_elem, %17 ], [ @ett_gsm_gm_elem, %16 ], [ @ett_gsm_common_elem, %15 ], [ @ett_gsm_rr_elem, %14 ], [ @ett_gsm_rp_elem, %13 ], [ @ett_gsm_dtap_elem, %12 ], [ @ett_gsm_bssmap_elem, %11 ]
-  %.054 = phi ptr [ @nas_5gs_updp_elem_fcn, %29 ], [ @nas_5gs_sm_elem_fcn, %28 ], [ @nas_5gs_mm_elem_fcn, %27 ], [ @nas_5gs_common_elem_fcn, %26 ], [ @gmr1_ie_rr_func, %25 ], [ @gmr1_ie_common_func, %24 ], [ @bssgp_elem_fcn, %23 ], [ @sgsap_elem_fcn, %22 ], [ @esm_elem_fcn, %21 ], [ @emm_elem_fcn, %20 ], [ @nas_eps_common_elem_fcn, %19 ], [ @bssmap_le_elem_fcn, %18 ], [ @bsslap_elem_fcn, %17 ], [ @gm_elem_fcn, %16 ], [ @common_elem_fcn, %15 ], [ @rr_elem_fcn, %14 ], [ @rp_elem_fcn, %13 ], [ @dtap_elem_fcn, %12 ], [ @bssmap_elem_fcn, %11 ]
+  %.054 = phi ptr [ @ett_nas_5gs_updp_elem, %29 ], [ @ett_nas_5gs_sm_elem, %28 ], [ @ett_nas_5gs_mm_elem, %27 ], [ @ett_nas_5gs_common_elem, %26 ], [ @ett_gmr1_ie_rr, %25 ], [ @ett_gmr1_ie_common, %24 ], [ @ett_bssgp_elem, %23 ], [ @ett_sgsap_elem, %22 ], [ @ett_nas_eps_esm_elem, %21 ], [ @ett_nas_eps_emm_elem, %20 ], [ @ett_nas_eps_common_elem, %19 ], [ @ett_gsm_bssmap_le_elem, %18 ], [ @ett_gsm_bsslap_elem, %17 ], [ @ett_gsm_gm_elem, %16 ], [ @ett_gsm_common_elem, %15 ], [ @ett_gsm_rr_elem, %14 ], [ @ett_gsm_rp_elem, %13 ], [ @ett_gsm_dtap_elem, %12 ], [ @ett_gsm_bssmap_elem, %11 ]
+  %.0 = phi ptr [ @nas_5gs_updp_elem_fcn, %29 ], [ @nas_5gs_sm_elem_fcn, %28 ], [ @nas_5gs_mm_elem_fcn, %27 ], [ @nas_5gs_common_elem_fcn, %26 ], [ @gmr1_ie_rr_func, %25 ], [ @gmr1_ie_common_func, %24 ], [ @bssgp_elem_fcn, %23 ], [ @sgsap_elem_fcn, %22 ], [ @esm_elem_fcn, %21 ], [ @emm_elem_fcn, %20 ], [ @nas_eps_common_elem_fcn, %19 ], [ @bssmap_le_elem_fcn, %18 ], [ @bsslap_elem_fcn, %17 ], [ @gm_elem_fcn, %16 ], [ @common_elem_fcn, %15 ], [ @rr_elem_fcn, %14 ], [ @rp_elem_fcn, %13 ], [ @dtap_elem_fcn, %12 ], [ @bssmap_elem_fcn, %11 ]
   %33 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #6
   %34 = zext i8 %33 to i32
   %35 = and i32 %34, 240
@@ -3012,7 +3012,7 @@ define zeroext i16 @elem_tv_short(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 50:                                               ; preds = %39
   %51 = sext i32 %5 to i64
-  %52 = getelementptr i32, ptr %.056, i64 %51
+  %52 = getelementptr i32, ptr %.054, i64 %51
   %53 = load i32, ptr %52, align 4
   %54 = icmp eq ptr %7, null
   br i1 %54, label %58, label %55
@@ -3029,7 +3029,7 @@ define zeroext i16 @elem_tv_short(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %61 = load i32, ptr @hf_gsm_a_common_elem_id_f0, align 4
   %62 = lshr i32 %34, 4
   %63 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %60, i32 noundef %61, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef %34, ptr noundef nonnull @.str.66, i32 noundef %62) #6
-  %64 = getelementptr ptr, ptr %.054, i64 %51
+  %64 = getelementptr ptr, ptr %.0, i64 %51
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %70
@@ -3063,8 +3063,8 @@ define zeroext i16 @elem_tv_short(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %82
 
 82:                                               ; preds = %32, %79, %47, %30
-  %.0 = phi i16 [ 0, %30 ], [ 0, %47 ], [ %.055, %79 ], [ 0, %32 ]
-  ret i16 %.0
+  %.056 = phi i16 [ 0, %30 ], [ 0, %47 ], [ %.055, %79 ], [ 0, %32 ]
+  ret i16 %.056
 }
 
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
@@ -3327,8 +3327,8 @@ define zeroext i16 @elem_lv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   br label %80
 
 32:                                               ; preds = %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11
-  %.059 = phi ptr [ @ett_nas_5gs_updp_elem, %29 ], [ @ett_nas_5gs_sm_elem, %28 ], [ @ett_nas_5gs_mm_elem, %27 ], [ @ett_nas_5gs_common_elem, %26 ], [ @ett_gmr1_ie_rr, %25 ], [ @ett_gmr1_ie_common, %24 ], [ @ett_bssgp_elem, %23 ], [ @ett_sgsap_elem, %22 ], [ @ett_nas_eps_esm_elem, %21 ], [ @ett_nas_eps_emm_elem, %20 ], [ @ett_nas_eps_common_elem, %19 ], [ @ett_gsm_bssmap_le_elem, %18 ], [ @ett_gsm_bsslap_elem, %17 ], [ @ett_gsm_gm_elem, %16 ], [ @ett_gsm_common_elem, %15 ], [ @ett_gsm_rr_elem, %14 ], [ @ett_gsm_rp_elem, %13 ], [ @ett_gsm_dtap_elem, %12 ], [ @ett_gsm_bssmap_elem, %11 ]
-  %.057 = phi ptr [ @nas_5gs_updp_elem_fcn, %29 ], [ @nas_5gs_sm_elem_fcn, %28 ], [ @nas_5gs_mm_elem_fcn, %27 ], [ @nas_5gs_common_elem_fcn, %26 ], [ @gmr1_ie_rr_func, %25 ], [ @gmr1_ie_common_func, %24 ], [ @bssgp_elem_fcn, %23 ], [ @sgsap_elem_fcn, %22 ], [ @esm_elem_fcn, %21 ], [ @emm_elem_fcn, %20 ], [ @nas_eps_common_elem_fcn, %19 ], [ @bssmap_le_elem_fcn, %18 ], [ @bsslap_elem_fcn, %17 ], [ @gm_elem_fcn, %16 ], [ @common_elem_fcn, %15 ], [ @rr_elem_fcn, %14 ], [ @rp_elem_fcn, %13 ], [ @dtap_elem_fcn, %12 ], [ @bssmap_elem_fcn, %11 ]
+  %.057 = phi ptr [ @ett_nas_5gs_updp_elem, %29 ], [ @ett_nas_5gs_sm_elem, %28 ], [ @ett_nas_5gs_mm_elem, %27 ], [ @ett_nas_5gs_common_elem, %26 ], [ @ett_gmr1_ie_rr, %25 ], [ @ett_gmr1_ie_common, %24 ], [ @ett_bssgp_elem, %23 ], [ @ett_sgsap_elem, %22 ], [ @ett_nas_eps_esm_elem, %21 ], [ @ett_nas_eps_emm_elem, %20 ], [ @ett_nas_eps_common_elem, %19 ], [ @ett_gsm_bssmap_le_elem, %18 ], [ @ett_gsm_bsslap_elem, %17 ], [ @ett_gsm_gm_elem, %16 ], [ @ett_gsm_common_elem, %15 ], [ @ett_gsm_rr_elem, %14 ], [ @ett_gsm_rp_elem, %13 ], [ @ett_gsm_dtap_elem, %12 ], [ @ett_gsm_bssmap_elem, %11 ]
+  %.0 = phi ptr [ @nas_5gs_updp_elem_fcn, %29 ], [ @nas_5gs_sm_elem_fcn, %28 ], [ @nas_5gs_mm_elem_fcn, %27 ], [ @nas_5gs_common_elem_fcn, %26 ], [ @gmr1_ie_rr_func, %25 ], [ @gmr1_ie_common_func, %24 ], [ @bssgp_elem_fcn, %23 ], [ @sgsap_elem_fcn, %22 ], [ @esm_elem_fcn, %21 ], [ @emm_elem_fcn, %20 ], [ @nas_eps_common_elem_fcn, %19 ], [ @bssmap_le_elem_fcn, %18 ], [ @bsslap_elem_fcn, %17 ], [ @gm_elem_fcn, %16 ], [ @common_elem_fcn, %15 ], [ @rr_elem_fcn, %14 ], [ @rp_elem_fcn, %13 ], [ @dtap_elem_fcn, %12 ], [ @bssmap_elem_fcn, %11 ]
   %33 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #6
   %34 = call ptr @try_val_to_str_ext(i32 noundef %4, ptr noundef nonnull %10) #6
   %35 = icmp eq ptr %34, null
@@ -3353,7 +3353,7 @@ define zeroext i16 @elem_lv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
 
 46:                                               ; preds = %32
   %47 = sext i32 %4 to i64
-  %48 = getelementptr i32, ptr %.059, i64 %47
+  %48 = getelementptr i32, ptr %.057, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq ptr %7, null
   br i1 %50, label %54, label %51
@@ -3373,7 +3373,7 @@ define zeroext i16 @elem_lv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   br i1 %.not, label %78, label %59
 
 59:                                               ; preds = %54
-  %60 = getelementptr ptr, ptr %.057, i64 %47
+  %60 = getelementptr ptr, ptr %.0, i64 %47
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %68
@@ -3408,8 +3408,8 @@ define zeroext i16 @elem_lv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   br label %80
 
 80:                                               ; preds = %78, %43, %30
-  %.0 = phi i16 [ 0, %30 ], [ 0, %43 ], [ %79, %78 ]
-  ret i16 %.0
+  %.059 = phi i16 [ 0, %30 ], [ 0, %43 ], [ %79, %78 ]
+  ret i16 %.059
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3519,8 +3519,8 @@ define hidden zeroext i16 @elem_lv_e(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %79
 
 32:                                               ; preds = %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11
-  %.059 = phi ptr [ @ett_nas_5gs_updp_elem, %29 ], [ @ett_nas_5gs_sm_elem, %28 ], [ @ett_nas_5gs_mm_elem, %27 ], [ @ett_nas_5gs_common_elem, %26 ], [ @ett_gmr1_ie_rr, %25 ], [ @ett_gmr1_ie_common, %24 ], [ @ett_bssgp_elem, %23 ], [ @ett_sgsap_elem, %22 ], [ @ett_nas_eps_esm_elem, %21 ], [ @ett_nas_eps_emm_elem, %20 ], [ @ett_nas_eps_common_elem, %19 ], [ @ett_gsm_bssmap_le_elem, %18 ], [ @ett_gsm_bsslap_elem, %17 ], [ @ett_gsm_gm_elem, %16 ], [ @ett_gsm_common_elem, %15 ], [ @ett_gsm_rr_elem, %14 ], [ @ett_gsm_rp_elem, %13 ], [ @ett_gsm_dtap_elem, %12 ], [ @ett_gsm_bssmap_elem, %11 ]
-  %.057 = phi ptr [ @nas_5gs_updp_elem_fcn, %29 ], [ @nas_5gs_sm_elem_fcn, %28 ], [ @nas_5gs_mm_elem_fcn, %27 ], [ @nas_5gs_common_elem_fcn, %26 ], [ @gmr1_ie_rr_func, %25 ], [ @gmr1_ie_common_func, %24 ], [ @bssgp_elem_fcn, %23 ], [ @sgsap_elem_fcn, %22 ], [ @esm_elem_fcn, %21 ], [ @emm_elem_fcn, %20 ], [ @nas_eps_common_elem_fcn, %19 ], [ @bssmap_le_elem_fcn, %18 ], [ @bsslap_elem_fcn, %17 ], [ @gm_elem_fcn, %16 ], [ @common_elem_fcn, %15 ], [ @rr_elem_fcn, %14 ], [ @rp_elem_fcn, %13 ], [ @dtap_elem_fcn, %12 ], [ @bssmap_elem_fcn, %11 ]
+  %.057 = phi ptr [ @ett_nas_5gs_updp_elem, %29 ], [ @ett_nas_5gs_sm_elem, %28 ], [ @ett_nas_5gs_mm_elem, %27 ], [ @ett_nas_5gs_common_elem, %26 ], [ @ett_gmr1_ie_rr, %25 ], [ @ett_gmr1_ie_common, %24 ], [ @ett_bssgp_elem, %23 ], [ @ett_sgsap_elem, %22 ], [ @ett_nas_eps_esm_elem, %21 ], [ @ett_nas_eps_emm_elem, %20 ], [ @ett_nas_eps_common_elem, %19 ], [ @ett_gsm_bssmap_le_elem, %18 ], [ @ett_gsm_bsslap_elem, %17 ], [ @ett_gsm_gm_elem, %16 ], [ @ett_gsm_common_elem, %15 ], [ @ett_gsm_rr_elem, %14 ], [ @ett_gsm_rp_elem, %13 ], [ @ett_gsm_dtap_elem, %12 ], [ @ett_gsm_bssmap_elem, %11 ]
+  %.0 = phi ptr [ @nas_5gs_updp_elem_fcn, %29 ], [ @nas_5gs_sm_elem_fcn, %28 ], [ @nas_5gs_mm_elem_fcn, %27 ], [ @nas_5gs_common_elem_fcn, %26 ], [ @gmr1_ie_rr_func, %25 ], [ @gmr1_ie_common_func, %24 ], [ @bssgp_elem_fcn, %23 ], [ @sgsap_elem_fcn, %22 ], [ @esm_elem_fcn, %21 ], [ @emm_elem_fcn, %20 ], [ @nas_eps_common_elem_fcn, %19 ], [ @bssmap_le_elem_fcn, %18 ], [ @bsslap_elem_fcn, %17 ], [ @gm_elem_fcn, %16 ], [ @common_elem_fcn, %15 ], [ @rr_elem_fcn, %14 ], [ @rp_elem_fcn, %13 ], [ @dtap_elem_fcn, %12 ], [ @bssmap_elem_fcn, %11 ]
   %33 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %5) #6
   %34 = call ptr @try_val_to_str_ext(i32 noundef %4, ptr noundef nonnull %10) #6
   %35 = icmp eq ptr %34, null
@@ -3545,7 +3545,7 @@ define hidden zeroext i16 @elem_lv_e(ptr noundef %0, ptr noundef %1, ptr noundef
 
 46:                                               ; preds = %32
   %47 = sext i32 %4 to i64
-  %48 = getelementptr i32, ptr %.059, i64 %47
+  %48 = getelementptr i32, ptr %.057, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq ptr %7, null
   br i1 %50, label %54, label %51
@@ -3565,7 +3565,7 @@ define hidden zeroext i16 @elem_lv_e(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not, label %77, label %59
 
 59:                                               ; preds = %54
-  %60 = getelementptr ptr, ptr %.057, i64 %47
+  %60 = getelementptr ptr, ptr %.0, i64 %47
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %67
@@ -3599,8 +3599,8 @@ define hidden zeroext i16 @elem_lv_e(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %79
 
 79:                                               ; preds = %77, %43, %30
-  %.0 = phi i16 [ 0, %30 ], [ 0, %43 ], [ %78, %77 ]
-  ret i16 %.0
+  %.059 = phi i16 [ 0, %30 ], [ 0, %43 ], [ %78, %77 ]
+  ret i16 %.059
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3710,15 +3710,15 @@ define zeroext i16 @elem_v(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br label %62
 
 31:                                               ; preds = %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10
-  %.040 = phi ptr [ @ett_nas_5gs_updp_elem, %28 ], [ @ett_nas_5gs_sm_elem, %27 ], [ @ett_nas_5gs_mm_elem, %26 ], [ @ett_nas_5gs_common_elem, %25 ], [ @ett_gmr1_ie_rr, %24 ], [ @ett_gmr1_ie_common, %23 ], [ @ett_bssgp_elem, %22 ], [ @ett_sgsap_elem, %21 ], [ @ett_nas_eps_esm_elem, %20 ], [ @ett_nas_eps_emm_elem, %19 ], [ @ett_nas_eps_common_elem, %18 ], [ @ett_gsm_bssmap_le_elem, %17 ], [ @ett_gsm_bsslap_elem, %16 ], [ @ett_gsm_gm_elem, %15 ], [ @ett_gsm_common_elem, %14 ], [ @ett_gsm_rr_elem, %13 ], [ @ett_gsm_rp_elem, %12 ], [ @ett_gsm_dtap_elem, %11 ], [ @ett_gsm_bssmap_elem, %10 ]
-  %.038 = phi ptr [ @nas_5gs_updp_elem_fcn, %28 ], [ @nas_5gs_sm_elem_fcn, %27 ], [ @nas_5gs_mm_elem_fcn, %26 ], [ @nas_5gs_common_elem_fcn, %25 ], [ @gmr1_ie_rr_func, %24 ], [ @gmr1_ie_common_func, %23 ], [ @bssgp_elem_fcn, %22 ], [ @sgsap_elem_fcn, %21 ], [ @esm_elem_fcn, %20 ], [ @emm_elem_fcn, %19 ], [ @nas_eps_common_elem_fcn, %18 ], [ @bssmap_le_elem_fcn, %17 ], [ @bsslap_elem_fcn, %16 ], [ @gm_elem_fcn, %15 ], [ @common_elem_fcn, %14 ], [ @rr_elem_fcn, %13 ], [ @rp_elem_fcn, %12 ], [ @dtap_elem_fcn, %11 ], [ @bssmap_elem_fcn, %10 ]
+  %.038 = phi ptr [ @ett_nas_5gs_updp_elem, %28 ], [ @ett_nas_5gs_sm_elem, %27 ], [ @ett_nas_5gs_mm_elem, %26 ], [ @ett_nas_5gs_common_elem, %25 ], [ @ett_gmr1_ie_rr, %24 ], [ @ett_gmr1_ie_common, %23 ], [ @ett_bssgp_elem, %22 ], [ @ett_sgsap_elem, %21 ], [ @ett_nas_eps_esm_elem, %20 ], [ @ett_nas_eps_emm_elem, %19 ], [ @ett_nas_eps_common_elem, %18 ], [ @ett_gsm_bssmap_le_elem, %17 ], [ @ett_gsm_bsslap_elem, %16 ], [ @ett_gsm_gm_elem, %15 ], [ @ett_gsm_common_elem, %14 ], [ @ett_gsm_rr_elem, %13 ], [ @ett_gsm_rp_elem, %12 ], [ @ett_gsm_dtap_elem, %11 ], [ @ett_gsm_bssmap_elem, %10 ]
+  %.0 = phi ptr [ @nas_5gs_updp_elem_fcn, %28 ], [ @nas_5gs_sm_elem_fcn, %27 ], [ @nas_5gs_mm_elem_fcn, %26 ], [ @nas_5gs_common_elem_fcn, %25 ], [ @gmr1_ie_rr_func, %24 ], [ @gmr1_ie_common_func, %23 ], [ @bssgp_elem_fcn, %22 ], [ @sgsap_elem_fcn, %21 ], [ @esm_elem_fcn, %20 ], [ @emm_elem_fcn, %19 ], [ @nas_eps_common_elem_fcn, %18 ], [ @bssmap_le_elem_fcn, %17 ], [ @bsslap_elem_fcn, %16 ], [ @gm_elem_fcn, %15 ], [ @common_elem_fcn, %14 ], [ @rr_elem_fcn, %13 ], [ @rp_elem_fcn, %12 ], [ @dtap_elem_fcn, %11 ], [ @bssmap_elem_fcn, %10 ]
   %32 = call ptr @try_val_to_str_ext(i32 noundef %4, ptr noundef nonnull %9) #6
   %33 = icmp eq ptr %32, null
   br i1 %33, label %39, label %34
 
 34:                                               ; preds = %31
   %35 = sext i32 %4 to i64
-  %36 = getelementptr ptr, ptr %.038, i64 %35
+  %36 = getelementptr ptr, ptr %.0, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %41
@@ -3728,7 +3728,7 @@ define zeroext i16 @elem_v(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br label %62
 
 41:                                               ; preds = %34
-  %42 = getelementptr i32, ptr %.040, i64 %35
+  %42 = getelementptr i32, ptr %.038, i64 %35
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq ptr %6, null
   br i1 %44, label %48, label %45
@@ -3764,8 +3764,8 @@ define zeroext i16 @elem_v(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br label %62
 
 62:                                               ; preds = %39, %59, %29
-  %.0 = phi i16 [ 0, %29 ], [ 1, %39 ], [ %55, %59 ]
-  ret i16 %.0
+  %.039 = phi i16 [ 0, %29 ], [ 1, %39 ], [ %55, %59 ]
+  ret i16 %.039
 }
 
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
@@ -3877,8 +3877,8 @@ define noundef zeroext i16 @elem_v_short(ptr noundef %0, ptr noundef %1, ptr nou
   br label %61
 
 31:                                               ; preds = %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10
-  %.044 = phi ptr [ @nas_5gs_updp_elem_fcn, %28 ], [ @nas_5gs_sm_elem_fcn, %27 ], [ @nas_5gs_mm_elem_fcn, %26 ], [ @nas_5gs_common_elem_fcn, %25 ], [ @gmr1_ie_rr_func, %24 ], [ @gmr1_ie_common_func, %23 ], [ @bssgp_elem_fcn, %22 ], [ @sgsap_elem_fcn, %21 ], [ @esm_elem_fcn, %20 ], [ @emm_elem_fcn, %19 ], [ @nas_eps_common_elem_fcn, %18 ], [ @bssmap_le_elem_fcn, %17 ], [ @bsslap_elem_fcn, %16 ], [ @gm_elem_fcn, %15 ], [ @common_elem_fcn, %14 ], [ @rr_elem_fcn, %13 ], [ @rp_elem_fcn, %12 ], [ @dtap_elem_fcn, %11 ], [ @bssmap_elem_fcn, %10 ]
   %.043 = phi ptr [ @ett_nas_5gs_updp_elem, %28 ], [ @ett_nas_5gs_sm_elem, %27 ], [ @ett_nas_5gs_mm_elem, %26 ], [ @ett_nas_5gs_common_elem, %25 ], [ @ett_gmr1_ie_rr, %24 ], [ @ett_gmr1_ie_common, %23 ], [ @ett_bssgp_elem, %22 ], [ @ett_sgsap_elem, %21 ], [ @ett_nas_eps_esm_elem, %20 ], [ @ett_nas_eps_emm_elem, %19 ], [ @ett_nas_eps_common_elem, %18 ], [ @ett_gsm_bssmap_le_elem, %17 ], [ @ett_gsm_bsslap_elem, %16 ], [ @ett_gsm_gm_elem, %15 ], [ @ett_gsm_common_elem, %14 ], [ @ett_gsm_rr_elem, %13 ], [ @ett_gsm_rp_elem, %12 ], [ @ett_gsm_dtap_elem, %11 ], [ @ett_gsm_bssmap_elem, %10 ]
+  %.0 = phi ptr [ @nas_5gs_updp_elem_fcn, %28 ], [ @nas_5gs_sm_elem_fcn, %27 ], [ @nas_5gs_mm_elem_fcn, %26 ], [ @nas_5gs_common_elem_fcn, %25 ], [ @gmr1_ie_rr_func, %24 ], [ @gmr1_ie_common_func, %23 ], [ @bssgp_elem_fcn, %22 ], [ @sgsap_elem_fcn, %21 ], [ @esm_elem_fcn, %20 ], [ @emm_elem_fcn, %19 ], [ @nas_eps_common_elem_fcn, %18 ], [ @bssmap_le_elem_fcn, %17 ], [ @bsslap_elem_fcn, %16 ], [ @gm_elem_fcn, %15 ], [ @common_elem_fcn, %14 ], [ @rr_elem_fcn, %13 ], [ @rp_elem_fcn, %12 ], [ @dtap_elem_fcn, %11 ], [ @bssmap_elem_fcn, %10 ]
   %32 = call ptr @try_val_to_str_ext(i32 noundef %4, ptr noundef nonnull %9) #6
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %36
@@ -3896,7 +3896,7 @@ define noundef zeroext i16 @elem_v_short(ptr noundef %0, ptr noundef %1, ptr nou
   %42 = load ptr, ptr %41, align 8
   %43 = call noalias ptr @wmem_alloc(ptr noundef %42, i64 noundef 1024) #6
   store i8 0, ptr %43, align 1
-  %44 = getelementptr ptr, ptr %.044, i64 %37
+  %44 = getelementptr ptr, ptr %.0, i64 %37
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %53
@@ -4412,10 +4412,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %73
 
 73:                                               ; preds = %switch.hole_check, %7, %switch.lookup
-  %.01327 = phi i32 [ %64, %7 ], [ %72, %switch.lookup ], [ %64, %switch.hole_check ]
+  %.01326 = phi i32 [ %64, %7 ], [ %72, %switch.lookup ], [ %64, %switch.hole_check ]
   %74 = add i32 %4, %3
   %75 = shl i32 %74, 3
-  %76 = sub i32 %75, %.01327
+  %76 = sub i32 %75, %.01326
   %77 = icmp slt i32 %76, 1
   br i1 %77, label %78, label %82
 
@@ -4429,8 +4429,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 82:                                               ; preds = %73
   %83 = load i32, ptr @hf_gsm_a_rsupport, align 4
-  %84 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %1, i32 noundef %83, ptr noundef %0, i32 noundef %.01327, i32 noundef 1, ptr noundef nonnull %9, i32 noundef 0) #6
-  %85 = add i32 %.01327, 1
+  %84 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %1, i32 noundef %83, ptr noundef %0, i32 noundef %.01326, i32 noundef 1, ptr noundef nonnull %9, i32 noundef 0) #6
+  %85 = add i32 %.01326, 1
   %86 = load i64, ptr %9, align 8
   %87 = icmp eq i64 %86, 1
   br i1 %87, label %88, label %92
@@ -4438,12 +4438,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
 88:                                               ; preds = %82
   %89 = load i32, ptr @hf_gsm_a_r_capabilities, align 4
   %90 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %89, ptr noundef %0, i32 noundef %85, i32 noundef 3, i32 noundef 0) #6
-  %91 = add i32 %.01327, 4
+  %91 = add i32 %.01326, 4
   br label %92
 
 92:                                               ; preds = %88, %82
-  %.11328 = phi i32 [ %91, %88 ], [ %85, %82 ]
-  %93 = sub i32 %75, %.11328
+  %.11327 = phi i32 [ %91, %88 ], [ %85, %82 ]
+  %93 = sub i32 %75, %.11327
   %94 = icmp slt i32 %93, 1
   br i1 %94, label %95, label %99
 
@@ -4457,8 +4457,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 99:                                               ; preds = %92
   %100 = load i32, ptr @hf_gsm_a_multislot_capabilities, align 4
-  %101 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %1, i32 noundef %100, ptr noundef %0, i32 noundef %.11328, i32 noundef 1, ptr noundef nonnull %10, i32 noundef 0) #6
-  %102 = add i32 %.11328, 1
+  %101 = call ptr @proto_tree_add_bits_ret_val(ptr noundef %1, i32 noundef %100, ptr noundef %0, i32 noundef %.11327, i32 noundef 1, ptr noundef nonnull %10, i32 noundef 0) #6
+  %102 = add i32 %.11327, 1
   %103 = load i64, ptr %10, align 8
   %104 = icmp eq i64 %103, 1
   br i1 %104, label %105, label %109
@@ -4466,7 +4466,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 105:                                              ; preds = %99
   %106 = load i32, ptr @hf_gsm_a_multislot_class, align 4
   %107 = call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %106, ptr noundef %0, i32 noundef %102, i32 noundef 5, i32 noundef 0) #6
-  %108 = add i32 %.11328, 6
+  %108 = add i32 %.11327, 6
   br label %109
 
 109:                                              ; preds = %105, %99
@@ -5701,8 +5701,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %888
 
 888:                                              ; preds = %881, %885, %869, %867, %859, %857, %849, %847, %839, %837, %829, %827, %819, %817, %809, %807, %794, %799, %797, %779, %784, %782, %769, %767, %754, %759, %757, %739, %744, %742, %729, %727, %719, %717, %709, %707, %699, %697, %689, %687, %679, %677, %669, %667, %652, %650, %635, %633, %625, %623, %596, %594, %586, %584, %571, %576, %574, %554, %552, %534, %532, %519, %524, %522, %504, %509, %507, %494, %492, %461, %459, %444, %442, %424, %422, %414, %412, %404, %402, %387, %385, %370, %368, %341, %339, %331, %329, %321, %319, %311, %309, %294, %292, %277, %275, %257, %255, %204, %202, %187, %185, %154, %152, %134, %132, %124, %122, %114, %112, %97, %95, %80, %78
-  %.01325 = trunc i32 %4 to i16
-  ret i16 %.01325
+  %.01328 = trunc i32 %4 to i16
+  ret i16 %.01328
 }
 
 declare ptr @proto_tree_add_bits_ret_val(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0

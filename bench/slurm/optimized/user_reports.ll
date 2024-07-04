@@ -769,8 +769,8 @@ _merge_user_report.exit:                          ; preds = %.outer._crit_edge.i
   br label %334
 
 334:                                              ; preds = %333, %332, %.lr.ph.i63
-  %.110.i = phi ptr [ %.0913.i, %.lr.ph.i63 ], [ %329, %333 ], [ %.0913.i, %332 ]
-  %.1.i64 = phi ptr [ %.014.i, %.lr.ph.i63 ], [ %.014.i, %333 ], [ %329, %332 ]
+  %.110.i = phi ptr [ %.0913.i, %.lr.ph.i63 ], [ %.0913.i, %333 ], [ %329, %332 ]
+  %.1.i64 = phi ptr [ %.014.i, %.lr.ph.i63 ], [ %329, %333 ], [ %.014.i, %332 ]
   %335 = call ptr @list_next(ptr noundef %327) #10
   %.not.i65 = icmp eq ptr %335, null
   br i1 %.not.i65, label %_set_usage_column_width.exit, label %.lr.ph.i63, !llvm.loop !11
@@ -779,7 +779,7 @@ _set_usage_column_width.exit:                     ; preds = %334, %325
   %.09.lcssa.i = phi ptr [ null, %325 ], [ %.110.i, %334 ]
   %.0.lcssa.i = phi ptr [ null, %325 ], [ %.1.i64, %334 ]
   call void @list_iterator_destroy(ptr noundef %327) #10
-  call void @sreport_set_usage_column_width(ptr noundef %.0.lcssa.i, ptr noundef %.09.lcssa.i, ptr noundef nonnull %257) #10
+  call void @sreport_set_usage_column_width(ptr noundef %.09.lcssa.i, ptr noundef %.0.lcssa.i, ptr noundef nonnull %257) #10
   %336 = load ptr, ptr @print_fields_list, align 8
   call void @print_fields_header(ptr noundef %336) #10
   %337 = load ptr, ptr @tres_list, align 8

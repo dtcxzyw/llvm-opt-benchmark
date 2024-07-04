@@ -164,8 +164,8 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
   br label %.thread126
 
 .thread126:                                       ; preds = %42, %45
-  %.0104 = phi i32 [ %48, %45 ], [ %43, %42 ]
-  %49 = icmp eq i32 %.0104, 40
+  %.0100 = phi i32 [ %48, %45 ], [ %43, %42 ]
+  %49 = icmp eq i32 %.0100, 40
   br label %51
 
 50:                                               ; preds = %35
@@ -267,7 +267,7 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
 
 102:                                              ; preds = %.preheader136, %.backedge132
   %103 = phi i32 [ %.pre133, %.backedge132 ], [ %96, %.preheader136 ]
-  %.0100 = phi ptr [ %.0100.be, %.backedge132 ], [ %92, %.preheader136 ]
+  %.0104 = phi ptr [ %.0104.be, %.backedge132 ], [ %92, %.preheader136 ]
   switch i32 %103, label %.critedge122 [
     i32 31, label %104
     i32 40, label %.backedge132
@@ -285,9 +285,9 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
 
 .backedge132:                                     ; preds = %102, %102, %102, %102, %102, %102, %104
   %.sink = phi i64 [ 8, %104 ], [ 56, %102 ], [ 56, %102 ], [ 56, %102 ], [ 56, %102 ], [ 56, %102 ], [ 56, %102 ]
-  %105 = getelementptr inbounds i8, ptr %.0100, i64 %.sink
-  %.0100.be = load ptr, ptr %105, align 8
-  %.pre133 = load i32, ptr %.0100.be, align 8
+  %105 = getelementptr inbounds i8, ptr %.0104, i64 %.sink
+  %.0104.be = load ptr, ptr %105, align 8
+  %.pre133 = load i32, ptr %.0104.be, align 8
   br label %102
 
 .critedge122:                                     ; preds = %102
@@ -324,7 +324,7 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
 
 121:                                              ; preds = %.preheader, %.backedge
   %122 = phi i32 [ %.pre134, %.backedge ], [ %115, %.preheader ]
-  %.098 = phi ptr [ %.098.be, %.backedge ], [ %112, %.preheader ]
+  %.0106 = phi ptr [ %.0106.be, %.backedge ], [ %112, %.preheader ]
   switch i32 %122, label %.critedge124 [
     i32 31, label %123
     i32 40, label %.backedge
@@ -342,9 +342,9 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
 
 .backedge:                                        ; preds = %121, %121, %121, %121, %121, %121, %123
   %.sink135 = phi i64 [ 8, %123 ], [ 56, %121 ], [ 56, %121 ], [ 56, %121 ], [ 56, %121 ], [ 56, %121 ], [ 56, %121 ]
-  %124 = getelementptr inbounds i8, ptr %.098, i64 %.sink135
-  %.098.be = load ptr, ptr %124, align 8
-  %.pre134 = load i32, ptr %.098.be, align 8
+  %124 = getelementptr inbounds i8, ptr %.0106, i64 %.sink135
+  %.0106.be = load ptr, ptr %124, align 8
+  %.pre134 = load i32, ptr %.0106.be, align 8
   br label %121
 
 .critedge124:                                     ; preds = %121
@@ -399,8 +399,8 @@ cast_is_allowed.exit.thread129:                   ; preds = %130, %cast_is_allow
   br label %cast_is_allowed.exit.thread
 
 cast_is_allowed.exit.thread:                      ; preds = %.thread.i, %141, %cast_is_allowed.exit, %.loopexit, %33, %29, %cast_is_allowed.exit.thread129, %66, %30
-  %.0101 = phi i1 [ false, %30 ], [ true, %66 ], [ true, %cast_is_allowed.exit.thread129 ], [ false, %29 ], [ true, %33 ], [ false, %.loopexit ], [ false, %cast_is_allowed.exit ], [ false, %141 ], [ false, %.thread.i ]
-  ret i1 %.0101
+  %.097 = phi i1 [ false, %30 ], [ true, %66 ], [ true, %cast_is_allowed.exit.thread129 ], [ false, %29 ], [ true, %33 ], [ false, %.loopexit ], [ false, %cast_is_allowed.exit ], [ false, %141 ], [ false, %.thread.i ]
+  ret i1 %.097
 }
 
 ; Function Attrs: nounwind uwtable
@@ -494,8 +494,8 @@ define dso_local zeroext i1 @may_cast(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.loopexit57
 
 .loopexit57:                                      ; preds = %28, %28, %24, %24, %5, %.critedge
-  %.049 = phi i32 [ %34, %.critedge ], [ 19, %5 ], [ 20, %24 ], [ 20, %24 ], [ 21, %28 ], [ 21, %28 ]
-  store i32 %.049, ptr %16, align 8
+  %.050 = phi i32 [ %34, %.critedge ], [ 19, %5 ], [ 20, %24 ], [ 20, %24 ], [ 21, %28 ], [ 21, %28 ]
+  store i32 %.050, ptr %16, align 8
   %35 = getelementptr inbounds i8, ptr %11, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, %19
@@ -550,21 +550,21 @@ define dso_local zeroext i1 @may_cast(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %45, %41, %41, %.loopexit57, %.critedge56
-  %.050 = phi i32 [ %51, %.critedge56 ], [ 19, %.loopexit57 ], [ 20, %41 ], [ 20, %41 ], [ 21, %45 ], [ 21, %45 ]
+  %.049 = phi i32 [ %51, %.critedge56 ], [ 19, %.loopexit57 ], [ 20, %41 ], [ 20, %41 ], [ 21, %45 ], [ 21, %45 ]
   %52 = getelementptr inbounds i8, ptr %6, i64 44
-  store i32 %.050, ptr %52, align 4
+  store i32 %.049, ptr %52, align 4
   %53 = icmp eq ptr %18, %11
   br i1 %53, label %cast_is_allowed.exit, label %54
 
 54:                                               ; preds = %.loopexit
-  %55 = icmp eq i32 %.049, -1
-  %56 = icmp eq i32 %.050, -1
+  %55 = icmp eq i32 %.050, -1
+  %56 = icmp eq i32 %.049, -1
   %or.cond.i = select i1 %55, i1 true, i1 %56
   br i1 %or.cond.i, label %.thread.i, label %57
 
 57:                                               ; preds = %54
-  %58 = sext i32 %.049 to i64
-  %59 = sext i32 %.050 to i64
+  %58 = sext i32 %.050 to i64
+  %59 = sext i32 %.049 to i64
   %60 = getelementptr inbounds [23 x [23 x ptr]], ptr @cast_rules, i64 0, i64 %58, i64 %59
   %61 = load ptr, ptr %60, align 8
   %.not.i = icmp eq ptr %61, null
@@ -731,7 +731,7 @@ type_flatten.exit85:                              ; preds = %20
   br label %.loopexit86
 
 .loopexit86:                                      ; preds = %51, %51, %47, %47, %39, %.critedge
-  %.071 = phi i64 [ %58, %.critedge ], [ 19, %39 ], [ 20, %47 ], [ 20, %47 ], [ 21, %51 ], [ 21, %51 ]
+  %.070 = phi i64 [ %58, %.critedge ], [ 19, %39 ], [ 20, %47 ], [ 20, %47 ], [ 21, %51 ], [ 21, %51 ]
   %59 = getelementptr inbounds i8, ptr %22, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, %42
@@ -787,8 +787,8 @@ type_flatten.exit85:                              ; preds = %20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %69, %69, %65, %65, %.loopexit86, %.critedge81
-  %.072 = phi i64 [ %76, %.critedge81 ], [ 19, %.loopexit86 ], [ 20, %65 ], [ 20, %65 ], [ 21, %69 ], [ 21, %69 ]
-  %77 = getelementptr inbounds [23 x [23 x ptr]], ptr @cast_function, i64 0, i64 %.072, i64 %.071
+  %.069 = phi i64 [ %76, %.critedge81 ], [ 19, %.loopexit86 ], [ 20, %65 ], [ 20, %65 ], [ 21, %69 ], [ 21, %69 ]
+  %77 = getelementptr inbounds [23 x [23 x ptr]], ptr @cast_function, i64 0, i64 %.069, i64 %.070
   %78 = load ptr, ptr %77, align 8
   %.not = icmp eq ptr %78, null
   br i1 %.not, label %84, label %79
@@ -999,13 +999,13 @@ type_flatten.exit:                                ; preds = %4
   br label %35
 
 35:                                               ; preds = %31, %28
-  %.050 = phi i32 [ %34, %31 ], [ %29, %28 ]
-  %36 = icmp eq i32 %.050, 40
+  %.051 = phi i32 [ %34, %31 ], [ %29, %28 ]
+  %36 = icmp eq i32 %.051, 40
   br label %37
 
 37:                                               ; preds = %26, %35
-  %.048 = phi i1 [ %36, %35 ], [ false, %26 ]
-  tail call void @cast_no_check(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, i1 noundef zeroext %.048)
+  %.052 = phi i1 [ %36, %35 ], [ false, %26 ]
+  tail call void @cast_no_check(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %27, i1 noundef zeroext %.052)
   br label %87
 
 .critedge:                                        ; preds = %type_flatten.exit, %20
@@ -1056,13 +1056,13 @@ type_flatten.exit:                                ; preds = %4
   br label %68
 
 68:                                               ; preds = %64, %61
-  %.052 = phi i32 [ %67, %64 ], [ %62, %61 ]
-  %69 = icmp eq i32 %.052, 40
+  %.049 = phi i32 [ %67, %64 ], [ %62, %61 ]
+  %69 = icmp eq i32 %.049, 40
   br label %70
 
 70:                                               ; preds = %60, %68
-  %.053 = phi i1 [ %69, %68 ], [ false, %60 ]
-  tail call void @cast_no_check(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %54, i1 noundef zeroext %.053)
+  %.050 = phi i1 [ %69, %68 ], [ false, %60 ]
+  tail call void @cast_no_check(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %54, i1 noundef zeroext %.050)
   br label %87
 
 .critedge2:                                       ; preds = %46, %49
@@ -1089,13 +1089,13 @@ type_flatten.exit:                                ; preds = %4
   br label %84
 
 84:                                               ; preds = %80, %77
-  %.049 = phi i32 [ %83, %80 ], [ %78, %77 ]
-  %85 = icmp eq i32 %.049, 40
+  %.047 = phi i32 [ %83, %80 ], [ %78, %77 ]
+  %85 = icmp eq i32 %.047, 40
   br label %86
 
 86:                                               ; preds = %72, %84
-  %.051 = phi i1 [ %85, %84 ], [ false, %72 ]
-  tail call void @cast_no_check(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %75, i1 noundef zeroext %.051)
+  %.048 = phi i1 [ %85, %84 ], [ false, %72 ]
+  tail call void @cast_no_check(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %75, i1 noundef zeroext %.048)
   br label %87
 
 87:                                               ; preds = %86, %.critedge2, %70, %37
@@ -1127,14 +1127,14 @@ define dso_local ptr @type_infer_len_from_actual_type(ptr noundef %0, ptr nounde
 
 thread-pre-split:                                 ; preds = %6, %8, %9, %10
   %.sink = phi i64 [ 56, %8 ], [ 56, %9 ], [ 56, %10 ], [ 8, %6 ]
-  %5 = getelementptr inbounds i8, ptr %.093, i64 %.sink
-  %.093.ph = load ptr, ptr %5, align 8
-  %.pr = load i32, ptr %.093.ph, align 8
+  %5 = getelementptr inbounds i8, ptr %.096, i64 %.sink
+  %.096.ph = load ptr, ptr %5, align 8
+  %.pr = load i32, ptr %.096.ph, align 8
   br label %6
 
 6:                                                ; preds = %thread-pre-split, %3
   %7 = phi i32 [ %.pr, %thread-pre-split ], [ %4, %3 ]
-  %.093 = phi ptr [ %.093.ph, %thread-pre-split ], [ %0, %3 ]
+  %.096 = phi ptr [ %.096.ph, %thread-pre-split ], [ %0, %3 ]
   switch i32 %7, label %.critedge [
     i32 31, label %thread-pre-split
     i32 40, label %8
@@ -1167,8 +1167,8 @@ thread-pre-split:                                 ; preds = %6, %8, %9, %10
   br label %.critedge111
 
 .critedge111:                                     ; preds = %11, %13
-  %.0100 = phi i32 [ %16, %13 ], [ %4, %11 ]
-  %17 = icmp eq i32 %.0100, 40
+  %.0101 = phi i32 [ %16, %13 ], [ %4, %11 ]
+  %17 = icmp eq i32 %.0101, 40
   br i1 %17, label %18, label %.critedge111.thread
 
 18:                                               ; preds = %.critedge111
@@ -1177,8 +1177,8 @@ thread-pre-split:                                 ; preds = %6, %8, %9, %10
   br label %.critedge111.thread
 
 .critedge111.thread:                              ; preds = %2, %18, %.critedge111
-  %.098119 = phi i1 [ true, %18 ], [ false, %.critedge111 ], [ false, %2 ]
-  %.091 = phi ptr [ %20, %18 ], [ %0, %.critedge111 ], [ null, %2 ]
+  %.0102119 = phi i1 [ true, %18 ], [ false, %.critedge111 ], [ false, %2 ]
+  %.089 = phi ptr [ %20, %18 ], [ %0, %.critedge111 ], [ null, %2 ]
   %.not108 = icmp eq ptr %1, null
   br i1 %.not108, label %27, label %21
 
@@ -1193,20 +1193,20 @@ thread-pre-split:                                 ; preds = %6, %8, %9, %10
   br label %27
 
 27:                                               ; preds = %21, %.critedge111.thread, %24
-  %.0 = phi ptr [ %26, %24 ], [ null, %.critedge111.thread ], [ %1, %21 ]
-  %28 = tail call ptr @type_get_indexed_type(ptr noundef %.091) #10
-  %29 = tail call ptr @type_get_indexed_type(ptr noundef %.0) #10
+  %.091 = phi ptr [ %26, %24 ], [ null, %.critedge111.thread ], [ %1, %21 ]
+  %28 = tail call ptr @type_get_indexed_type(ptr noundef %.089) #10
+  %29 = tail call ptr @type_get_indexed_type(ptr noundef %.091) #10
   %.not109 = icmp eq ptr %28, null
   br i1 %.not109, label %.loopexit, label %.preheader123
 
 thread-pre-split120:                              ; preds = %.preheader123, %32, %33, %34
   %.sink133 = phi i64 [ 56, %32 ], [ 56, %33 ], [ 56, %34 ], [ 8, %.preheader123 ]
   %30 = getelementptr inbounds i8, ptr %.in, i64 %.sink133
-  %.096.ph = load ptr, ptr %30, align 8
+  %.0103.ph = load ptr, ptr %30, align 8
   br label %.preheader123
 
 .preheader123:                                    ; preds = %27, %thread-pre-split120
-  %.in = phi ptr [ %.096.ph, %thread-pre-split120 ], [ %28, %27 ]
+  %.in = phi ptr [ %.0103.ph, %thread-pre-split120 ], [ %28, %27 ]
   %31 = load i32, ptr %.in, align 8
   switch i32 %31, label %.critedge113 [
     i32 31, label %thread-pre-split120
@@ -1234,8 +1234,8 @@ thread-pre-split120:                              ; preds = %.preheader123, %32,
   br label %.critedge113
 
 .critedge113:                                     ; preds = %.preheader123, %.loopexit
-  %.089 = phi ptr [ %35, %.loopexit ], [ %28, %.preheader123 ]
-  %36 = load i32, ptr %.091, align 8
+  %.0 = phi ptr [ %35, %.loopexit ], [ %28, %.preheader123 ]
+  %36 = load i32, ptr %.089, align 8
   switch i32 %36, label %99 [
     i32 23, label %37
     i32 33, label %42
@@ -1246,8 +1246,8 @@ thread-pre-split120:                              ; preds = %.preheader123, %32,
   ]
 
 37:                                               ; preds = %.critedge113
-  %38 = tail call ptr @type_get_ptr(ptr noundef %.089) #10
-  br i1 %.098119, label %39, label %.critedge
+  %38 = tail call ptr @type_get_ptr(ptr noundef %.0) #10
+  br i1 %.0102119, label %39, label %.critedge
 
 39:                                               ; preds = %37
   %40 = load i32, ptr %38, align 8
@@ -1255,10 +1255,10 @@ thread-pre-split120:                              ; preds = %.preheader123, %32,
   br i1 %41, label %.critedge, label %.critedge.sink.split
 
 42:                                               ; preds = %.critedge113
-  %43 = getelementptr inbounds i8, ptr %.091, i64 64
+  %43 = getelementptr inbounds i8, ptr %.089, i64 64
   %44 = load i32, ptr %43, align 8
-  %45 = tail call ptr @type_get_array(ptr noundef %.089, i32 noundef %44) #10
-  br i1 %.098119, label %46, label %.critedge
+  %45 = tail call ptr @type_get_array(ptr noundef %.0, i32 noundef %44) #10
+  br i1 %.0102119, label %46, label %.critedge
 
 46:                                               ; preds = %42
   %47 = load i32, ptr %45, align 8
@@ -1266,7 +1266,7 @@ thread-pre-split120:                              ; preds = %.preheader123, %32,
   br i1 %48, label %.critedge, label %.critedge.sink.split
 
 .preheader:                                       ; preds = %.critedge113, %61
-  %.0.i = phi ptr [ %.1.i, %61 ], [ %.0, %.critedge113 ]
+  %.0.i = phi ptr [ %.1.i, %61 ], [ %.091, %.critedge113 ]
   %49 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = load i32, ptr %50, align 8
@@ -1300,8 +1300,8 @@ thread-pre-split120:                              ; preds = %.preheader123, %32,
 type_flatten.exit:                                ; preds = %.preheader
   %62 = getelementptr inbounds i8, ptr %50, i64 64
   %63 = load i32, ptr %62, align 8
-  %64 = tail call ptr @type_get_array(ptr noundef %.089, i32 noundef %63) #10
-  br i1 %.098119, label %65, label %.critedge
+  %64 = tail call ptr @type_get_array(ptr noundef %.0, i32 noundef %63) #10
+  br i1 %.0102119, label %65, label %.critedge
 
 65:                                               ; preds = %type_flatten.exit
   %66 = load i32, ptr %64, align 8
@@ -1309,7 +1309,7 @@ type_flatten.exit:                                ; preds = %.preheader
   br i1 %67, label %.critedge, label %.critedge.sink.split
 
 .preheader122:                                    ; preds = %.critedge113, %80
-  %.0.i114 = phi ptr [ %.1.i116, %80 ], [ %.0, %.critedge113 ]
+  %.0.i114 = phi ptr [ %.1.i116, %80 ], [ %.091, %.critedge113 ]
   %68 = getelementptr inbounds i8, ptr %.0.i114, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = load i32, ptr %69, align 8
@@ -1343,8 +1343,8 @@ type_flatten.exit:                                ; preds = %.preheader
 type_flatten.exit117:                             ; preds = %.preheader122
   %81 = getelementptr inbounds i8, ptr %69, i64 64
   %82 = load i32, ptr %81, align 8
-  %83 = tail call ptr @type_get_vector(ptr noundef %.089, i32 noundef %82) #10
-  br i1 %.098119, label %84, label %.critedge
+  %83 = tail call ptr @type_get_vector(ptr noundef %.0, i32 noundef %82) #10
+  br i1 %.0102119, label %84, label %.critedge
 
 84:                                               ; preds = %type_flatten.exit117
   %85 = load i32, ptr %83, align 8
@@ -1352,8 +1352,8 @@ type_flatten.exit117:                             ; preds = %.preheader122
   br i1 %86, label %.critedge, label %.critedge.sink.split
 
 87:                                               ; preds = %.critedge113
-  %88 = tail call ptr @type_get_subarray(ptr noundef %.089) #10
-  br i1 %.098119, label %89, label %.critedge
+  %88 = tail call ptr @type_get_subarray(ptr noundef %.0) #10
+  br i1 %.0102119, label %89, label %.critedge
 
 89:                                               ; preds = %87
   %90 = load i32, ptr %88, align 8
@@ -1361,10 +1361,10 @@ type_flatten.exit117:                             ; preds = %.preheader122
   br i1 %91, label %.critedge, label %.critedge.sink.split
 
 92:                                               ; preds = %.critedge113
-  %93 = getelementptr inbounds i8, ptr %.091, i64 64
+  %93 = getelementptr inbounds i8, ptr %.089, i64 64
   %94 = load i32, ptr %93, align 8
-  %95 = tail call ptr @type_get_vector(ptr noundef %.089, i32 noundef %94) #10
-  br i1 %.098119, label %96, label %.critedge
+  %95 = tail call ptr @type_get_vector(ptr noundef %.0, i32 noundef %94) #10
+  br i1 %.0102119, label %96, label %.critedge
 
 96:                                               ; preds = %92
   %97 = load i32, ptr %95, align 8
@@ -1381,8 +1381,8 @@ type_flatten.exit117:                             ; preds = %.preheader122
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %.critedge.sink.split, %96, %92, %89, %87, %84, %type_flatten.exit117, %65, %type_flatten.exit, %46, %42, %39, %37
-  %.092 = phi ptr [ %38, %39 ], [ %38, %37 ], [ %45, %46 ], [ %45, %42 ], [ %64, %65 ], [ %64, %type_flatten.exit ], [ %83, %84 ], [ %83, %type_flatten.exit117 ], [ %88, %89 ], [ %88, %87 ], [ %95, %96 ], [ %95, %92 ], [ %100, %.critedge.sink.split ], [ %0, %6 ]
-  ret ptr %.092
+  %.090 = phi ptr [ %38, %39 ], [ %38, %37 ], [ %45, %46 ], [ %45, %42 ], [ %64, %65 ], [ %64, %type_flatten.exit ], [ %83, %84 ], [ %83, %type_flatten.exit117 ], [ %88, %89 ], [ %88, %87 ], [ %95, %96 ], [ %95, %92 ], [ %100, %.critedge.sink.split ], [ %0, %6 ]
+  ret ptr %.090
 }
 
 declare ptr @type_get_indexed_type(ptr noundef) local_unnamed_addr #2
@@ -1726,7 +1726,7 @@ type_flatten.exit:                                ; preds = %5
 
 29:                                               ; preds = %.preheader, %.backedge
   %30 = phi i32 [ %.pre, %.backedge ], [ %23, %.preheader ]
-  %.055 = phi ptr [ %.055.be, %.backedge ], [ %19, %.preheader ]
+  %.056 = phi ptr [ %.056.be, %.backedge ], [ %19, %.preheader ]
   switch i32 %30, label %.critedge [
     i32 31, label %31
     i32 40, label %.backedge
@@ -1744,9 +1744,9 @@ type_flatten.exit:                                ; preds = %5
 
 .backedge:                                        ; preds = %29, %29, %29, %29, %29, %29, %31
   %.sink = phi i64 [ 8, %31 ], [ 56, %29 ], [ 56, %29 ], [ 56, %29 ], [ 56, %29 ], [ 56, %29 ], [ 56, %29 ]
-  %32 = getelementptr inbounds i8, ptr %.055, i64 %.sink
-  %.055.be = load ptr, ptr %32, align 8
-  %.pre = load i32, ptr %.055.be, align 8
+  %32 = getelementptr inbounds i8, ptr %.056, i64 %.sink
+  %.056.be = load ptr, ptr %32, align 8
+  %.pre = load i32, ptr %.056.be, align 8
   br label %29
 
 .critedge:                                        ; preds = %29
@@ -1756,7 +1756,7 @@ type_flatten.exit:                                ; preds = %5
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %29, %25, %25, %type_flatten.exit, %.critedge
-  %.056 = phi i32 [ %35, %.critedge ], [ 19, %type_flatten.exit ], [ 20, %25 ], [ 20, %25 ], [ 21, %29 ], [ 21, %29 ]
+  %.055 = phi i32 [ %35, %.critedge ], [ 19, %type_flatten.exit ], [ 20, %25 ], [ 20, %25 ], [ 21, %29 ], [ 21, %29 ]
   %36 = getelementptr inbounds i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 16
@@ -1765,7 +1765,7 @@ type_flatten.exit:                                ; preds = %5
   %41 = icmp eq i16 %40, 14
   store ptr %7, ptr %4, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 %.056, ptr %42, align 4
+  store i32 %.055, ptr %42, align 4
   %43 = getelementptr inbounds i8, ptr %0, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 8
@@ -1780,13 +1780,13 @@ type_flatten.exit:                                ; preds = %5
   %50 = getelementptr inbounds i8, ptr %0, i64 40
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, -1
-  %53 = icmp eq i32 %.056, -1
+  %53 = icmp eq i32 %.055, -1
   %or.cond.i = select i1 %52, i1 true, i1 %53
   br i1 %or.cond.i, label %cast_is_allowed.exit, label %54
 
 54:                                               ; preds = %49
   %55 = sext i32 %51 to i64
-  %56 = sext i32 %.056 to i64
+  %56 = sext i32 %.055 to i64
   %57 = getelementptr inbounds [23 x [23 x ptr]], ptr @cast_rules, i64 0, i64 %55, i64 %56
   %58 = load ptr, ptr %57, align 8
   %.not.i = icmp eq ptr %58, null
@@ -1839,13 +1839,13 @@ cast_is_allowed.exit:                             ; preds = %49, %54, %59
   %82 = getelementptr inbounds i8, ptr %0, i64 40
   %83 = load i32, ptr %82, align 8
   %84 = icmp eq i32 %83, -1
-  %85 = icmp eq i32 %.056, -1
+  %85 = icmp eq i32 %.055, -1
   %or.cond.i73 = select i1 %84, i1 true, i1 %85
   br i1 %or.cond.i73, label %cast_is_allowed.exit77, label %86
 
 86:                                               ; preds = %81
   %87 = sext i32 %83 to i64
-  %88 = sext i32 %.056 to i64
+  %88 = sext i32 %.055 to i64
   %89 = getelementptr inbounds [23 x [23 x ptr]], ptr @cast_rules, i64 0, i64 %87, i64 %88
   %90 = load ptr, ptr %89, align 8
   %.not.i74 = icmp eq ptr %90, null
@@ -1870,8 +1870,8 @@ cast_is_allowed.exit.thread.sink.split:           ; preds = %cast_is_allowed.exi
   br label %cast_is_allowed.exit.thread
 
 cast_is_allowed.exit.thread:                      ; preds = %cast_is_allowed.exit.thread.sink.split, %48, %cast_is_allowed.exit77, %cast_is_allowed.exit
-  %.057 = phi i1 [ %.0.i67, %cast_is_allowed.exit ], [ %brmerge.demorgan, %cast_is_allowed.exit77 ], [ true, %48 ], [ false, %cast_is_allowed.exit.thread.sink.split ]
-  ret i1 %.057
+  %.054 = phi i1 [ %.0.i67, %cast_is_allowed.exit ], [ %brmerge.demorgan, %cast_is_allowed.exit77 ], [ true, %48 ], [ false, %cast_is_allowed.exit.thread.sink.split ]
+  ret i1 %.054
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1903,8 +1903,8 @@ define internal zeroext i1 @rule_widen_narrow(ptr nocapture noundef readonly %0,
   br label %22
 
 22:                                               ; preds = %18, %14
-  %.045 = phi i32 [ %21, %18 ], [ %16, %14 ]
-  %23 = add i32 %.045, -13
+  %.046 = phi i32 [ %21, %18 ], [ %16, %14 ]
+  %23 = add i32 %.046, -13
   %24 = icmp ult i32 %23, 5
   %25 = tail call zeroext i1 @expr_is_simple(ptr noundef %12, i1 noundef zeroext %24) #10
   %brmerge = or i1 %25, %2
@@ -2016,8 +2016,8 @@ type_flatten.exit:                                ; preds = %.preheader
   br label %82
 
 82:                                               ; preds = %58, %22, %56, %42, %53, %3, %type_flatten.exit, %46, %26
-  %.046 = phi i1 [ false, %26 ], [ false, %46 ], [ false, %type_flatten.exit ], [ true, %3 ], [ %25, %22 ], [ false, %53 ], [ false, %42 ], [ true, %56 ], [ %.not, %58 ]
-  ret i1 %.046
+  %.045 = phi i1 [ false, %26 ], [ false, %46 ], [ false, %type_flatten.exit ], [ true, %3 ], [ %25, %22 ], [ false, %53 ], [ false, %42 ], [ true, %56 ], [ %.not, %58 ]
+  ret i1 %.045
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2097,8 +2097,8 @@ define internal zeroext i1 @rule_int_to_ptr(ptr nocapture noundef readonly %0, i
   br label %report_cast_error.exit
 
 report_cast_error.exit:                           ; preds = %22, %25, %28
-  %.024.i = phi ptr [ %30, %28 ], [ null, %22 ], [ %.val28, %25 ]
-  %31 = tail call ptr @type_to_error_string(ptr noundef %.024.i) #10
+  %.025.i = phi ptr [ %30, %28 ], [ null, %22 ], [ %.val28, %25 ]
+  %31 = tail call ptr @type_to_error_string(ptr noundef %.025.i) #10
   %32 = load i64, ptr %14, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %32, ptr noundef nonnull @.str.13, ptr noundef %23, ptr noundef %24, ptr noundef %31) #10
   br label %77
@@ -2179,8 +2179,8 @@ report_cast_error.exit:                           ; preds = %22, %25, %28
   br label %report_cast_error.exit35
 
 report_cast_error.exit35:                         ; preds = %66, %69, %72
-  %.024.i34 = phi ptr [ %74, %72 ], [ null, %66 ], [ %.val30, %69 ]
-  %75 = tail call ptr @type_to_error_string(ptr noundef %.024.i34) #10
+  %.025.i34 = phi ptr [ %74, %72 ], [ null, %66 ], [ %.val30, %69 ]
+  %75 = tail call ptr @type_to_error_string(ptr noundef %.025.i34) #10
   %76 = load i64, ptr %58, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %76, ptr noundef nonnull @.str.13, ptr noundef %67, ptr noundef %68, ptr noundef %75) #10
   br label %77
@@ -2288,8 +2288,8 @@ define internal zeroext i1 @rule_int_to_enum(ptr nocapture noundef readonly %0, 
   br label %report_cast_error.exit
 
 report_cast_error.exit:                           ; preds = %18, %21, %24
-  %.024.i = phi ptr [ %26, %24 ], [ null, %18 ], [ %.val26, %21 ]
-  %27 = tail call ptr @type_to_error_string(ptr noundef %.024.i) #10
+  %.025.i = phi ptr [ %26, %24 ], [ null, %18 ], [ %.val26, %21 ]
+  %27 = tail call ptr @type_to_error_string(ptr noundef %.025.i) #10
   %28 = load i64, ptr %10, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %28, ptr noundef nonnull @.str.13, ptr noundef %19, ptr noundef %20, ptr noundef %27) #10
   br label %64
@@ -2469,8 +2469,8 @@ define internal noundef zeroext i1 @rule_ptr_to_ptr(ptr nocapture noundef readon
   br label %report_cast_error.exit
 
 report_cast_error.exit:                           ; preds = %23, %26, %29
-  %.024.i = phi ptr [ %31, %29 ], [ null, %23 ], [ %.val12, %26 ]
-  %32 = tail call ptr @type_to_error_string(ptr noundef %.024.i) #10
+  %.025.i = phi ptr [ %31, %29 ], [ null, %23 ], [ %.val12, %26 ]
+  %32 = tail call ptr @type_to_error_string(ptr noundef %.025.i) #10
   %33 = load i64, ptr %15, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %33, ptr noundef nonnull @.str.13, ptr noundef %24, ptr noundef %25, ptr noundef %32) #10
   br label %35
@@ -2608,8 +2608,8 @@ define internal zeroext i1 @rule_ptr_to_infer(ptr noundef %0, i1 noundef zeroext
   br label %report_cast_error.exit
 
 report_cast_error.exit:                           ; preds = %8, %13, %16
-  %.025.i = phi ptr [ %18, %16 ], [ null, %8 ], [ %12, %13 ]
-  %19 = tail call ptr @type_quoted_error_string(ptr noundef %.025.i) #10
+  %.024.i = phi ptr [ %18, %16 ], [ null, %8 ], [ %12, %13 ]
+  %19 = tail call ptr @type_quoted_error_string(ptr noundef %.024.i) #10
   %20 = tail call ptr @type_quoted_error_string(ptr noundef %.val71) #10
   %21 = load i64, ptr %11, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %21, ptr noundef nonnull @.str.14, ptr noundef %19, ptr noundef %20) #10
@@ -3027,8 +3027,8 @@ type_flatten.exit72:                              ; preds = %type_flatten.exit, 
   br label %report_cast_error.exit
 
 report_cast_error.exit:                           ; preds = %69, %73, %76
-  %.025.i = phi ptr [ %78, %76 ], [ null, %69 ], [ %72, %73 ]
-  %79 = tail call ptr @type_quoted_error_string(ptr noundef %.025.i) #10
+  %.024.i = phi ptr [ %78, %76 ], [ null, %69 ], [ %72, %73 ]
+  %79 = tail call ptr @type_quoted_error_string(ptr noundef %.024.i) #10
   %80 = tail call ptr @type_quoted_error_string(ptr noundef %.val64) #10
   %81 = load i64, ptr %71, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %81, ptr noundef nonnull @.str.14, ptr noundef %79, ptr noundef %80) #10
@@ -3075,8 +3075,8 @@ report_cast_error.exit:                           ; preds = %69, %73, %76
   br label %report_cast_error.exit75
 
 report_cast_error.exit75:                         ; preds = %97, %101, %104
-  %.025.i74 = phi ptr [ %106, %104 ], [ null, %97 ], [ %100, %101 ]
-  %107 = tail call ptr @type_quoted_error_string(ptr noundef %.025.i74) #10
+  %.024.i74 = phi ptr [ %106, %104 ], [ null, %97 ], [ %100, %101 ]
+  %107 = tail call ptr @type_quoted_error_string(ptr noundef %.024.i74) #10
   %108 = tail call ptr @type_quoted_error_string(ptr noundef %.val66) #10
   %109 = load i64, ptr %99, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %109, ptr noundef nonnull @.str.14, ptr noundef %107, ptr noundef %108) #10
@@ -3134,15 +3134,15 @@ report_cast_error.exit75:                         ; preds = %97, %101, %104
   br label %report_cast_error.exit78
 
 report_cast_error.exit78:                         ; preds = %130, %133, %136
-  %.024.i = phi ptr [ %138, %136 ], [ null, %130 ], [ %.val68, %133 ]
-  %139 = tail call ptr @type_to_error_string(ptr noundef %.024.i) #10
+  %.025.i = phi ptr [ %138, %136 ], [ null, %130 ], [ %.val68, %133 ]
+  %139 = tail call ptr @type_to_error_string(ptr noundef %.025.i) #10
   %140 = load i64, ptr %122, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %140, ptr noundef nonnull @.str.13, ptr noundef %131, ptr noundef %132, ptr noundef %139) #10
   br label %141
 
 141:                                              ; preds = %60, %118, %62, %49, %type_flatten.exit72, %report_cast_error.exit78, %110, %report_cast_error.exit75, %82, %report_cast_error.exit
-  %.059 = phi i1 [ false, %82 ], [ false, %report_cast_error.exit ], [ false, %110 ], [ false, %report_cast_error.exit75 ], [ false, %report_cast_error.exit78 ], [ true, %type_flatten.exit72 ], [ %61, %60 ], [ true, %49 ], [ false, %62 ], [ true, %118 ]
-  ret i1 %.059
+  %.057 = phi i1 [ false, %82 ], [ false, %report_cast_error.exit ], [ false, %110 ], [ false, %report_cast_error.exit75 ], [ false, %report_cast_error.exit78 ], [ true, %type_flatten.exit72 ], [ %61, %60 ], [ true, %49 ], [ false, %62 ], [ true, %118 ]
+  ret i1 %.057
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3237,7 +3237,7 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
 
 52:                                               ; preds = %.preheader, %.backedge
   %53 = phi i32 [ %.pre90, %.backedge ], [ %46, %.preheader ]
-  %.072 = phi ptr [ %.072.be, %.backedge ], [ %42, %.preheader ]
+  %.073 = phi ptr [ %.073.be, %.backedge ], [ %42, %.preheader ]
   switch i32 %53, label %.loopexit.sink.split [
     i32 31, label %54
     i32 40, label %.backedge
@@ -3255,9 +3255,9 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
 
 .backedge:                                        ; preds = %52, %52, %52, %52, %52, %52, %54
   %.sink = phi i64 [ 8, %54 ], [ 56, %52 ], [ 56, %52 ], [ 56, %52 ], [ 56, %52 ], [ 56, %52 ], [ 56, %52 ]
-  %55 = getelementptr inbounds i8, ptr %.072, i64 %.sink
-  %.072.be = load ptr, ptr %55, align 8
-  %.pre90 = load i32, ptr %.072.be, align 8
+  %55 = getelementptr inbounds i8, ptr %.073, i64 %.sink
+  %.073.be = load ptr, ptr %55, align 8
+  %.pre90 = load i32, ptr %.073.be, align 8
   br label %52
 
 56:                                               ; preds = %18
@@ -3292,7 +3292,7 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
 
 73:                                               ; preds = %.preheader98, %.backedge89
   %74 = phi i32 [ %.pre, %.backedge89 ], [ %67, %.preheader98 ]
-  %.077 = phi ptr [ %.077.be, %.backedge89 ], [ %63, %.preheader98 ]
+  %.075 = phi ptr [ %.075.be, %.backedge89 ], [ %63, %.preheader98 ]
   switch i32 %74, label %.loopexit.sink.split [
     i32 31, label %75
     i32 40, label %.backedge89
@@ -3310,9 +3310,9 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
 
 .backedge89:                                      ; preds = %73, %73, %73, %73, %73, %73, %75
   %.sink91 = phi i64 [ 8, %75 ], [ 56, %73 ], [ 56, %73 ], [ 56, %73 ], [ 56, %73 ], [ 56, %73 ], [ 56, %73 ]
-  %76 = getelementptr inbounds i8, ptr %.077, i64 %.sink91
-  %.077.be = load ptr, ptr %76, align 8
-  %.pre = load i32, ptr %.077.be, align 8
+  %76 = getelementptr inbounds i8, ptr %.075, i64 %.sink91
+  %.075.be = load ptr, ptr %76, align 8
+  %.pre = load i32, ptr %.075.be, align 8
   br label %73
 
 .loopexit.sink.split:                             ; preds = %73, %52
@@ -3324,10 +3324,10 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
   br label %.loopexit
 
 .loopexit:                                        ; preds = %73, %73, %52, %52, %.loopexit.sink.split, %56, %69, %69, %.critedge2, %48, %48
-  %.076.sink = phi i32 [ 19, %.critedge2 ], [ 20, %48 ], [ 20, %48 ], [ 19, %56 ], [ 20, %69 ], [ 20, %69 ], [ %79, %.loopexit.sink.split ], [ 21, %52 ], [ 21, %52 ], [ 21, %73 ], [ 21, %73 ]
+  %.074.sink = phi i32 [ 19, %.critedge2 ], [ 20, %48 ], [ 20, %48 ], [ 19, %56 ], [ 20, %69 ], [ 20, %69 ], [ %79, %.loopexit.sink.split ], [ 21, %52 ], [ 21, %52 ], [ 21, %73 ], [ 21, %73 ]
   %80 = phi ptr [ %40, %.critedge2 ], [ %40, %48 ], [ %40, %48 ], [ %61, %56 ], [ %61, %69 ], [ %61, %69 ], [ %.ph, %.loopexit.sink.split ], [ %40, %52 ], [ %40, %52 ], [ %61, %73 ], [ %61, %73 ]
   %81 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 %.076.sink, ptr %81, align 8
+  store i32 %.074.sink, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %80, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3337,13 +3337,13 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
 
 87:                                               ; preds = %.loopexit
   %88 = load i32, ptr %19, align 4
-  %89 = icmp eq i32 %.076.sink, -1
+  %89 = icmp eq i32 %.074.sink, -1
   %90 = icmp eq i32 %88, -1
   %or.cond.i = select i1 %89, i1 true, i1 %90
   br i1 %or.cond.i, label %.thread.i, label %91
 
 91:                                               ; preds = %87
-  %92 = sext i32 %.076.sink to i64
+  %92 = sext i32 %.074.sink to i64
   %93 = sext i32 %88 to i64
   %94 = getelementptr inbounds [23 x [23 x ptr]], ptr @cast_rules, i64 0, i64 %92, i64 %93
   %95 = load ptr, ptr %94, align 8
@@ -3370,8 +3370,8 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
   br label %cast_is_allowed.exit
 
 cast_is_allowed.exit:                             ; preds = %105, %96, %.thread.i, %.loopexit, %14, %8, %15, %9
-  %.074 = phi i1 [ false, %9 ], [ false, %15 ], [ false, %8 ], [ false, %14 ], [ %106, %105 ], [ true, %.loopexit ], [ false, %96 ], [ false, %.thread.i ]
-  ret i1 %.074
+  %.072 = phi i1 [ false, %9 ], [ false, %15 ], [ false, %8 ], [ false, %14 ], [ %106, %105 ], [ true, %.loopexit ], [ false, %96 ], [ false, %.thread.i ]
+  ret i1 %.072
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3445,9 +3445,9 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
   br label %.loopexit110
 
 .loopexit110:                                     ; preds = %26, %26, %22, %22, %10, %.critedge
-  %.086 = phi i32 [ %32, %.critedge ], [ 19, %10 ], [ 20, %22 ], [ 20, %22 ], [ 21, %26 ], [ 21, %26 ]
+  %.087 = phi i32 [ %32, %.critedge ], [ 19, %10 ], [ 20, %22 ], [ 20, %22 ], [ 21, %26 ], [ 21, %26 ]
   %33 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 %.086, ptr %33, align 8
+  store i32 %.087, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %7, i64 56
   %35 = load ptr, ptr %34, align 8
   store ptr %35, ptr %6, align 8
@@ -3475,7 +3475,7 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
 
 46:                                               ; preds = %.preheader, %.backedge
   %47 = phi i32 [ %.pre115, %.backedge ], [ %40, %.preheader ]
-  %.091 = phi ptr [ %.091.be, %.backedge ], [ %37, %.preheader ]
+  %.089 = phi ptr [ %.089.be, %.backedge ], [ %37, %.preheader ]
   switch i32 %47, label %.critedge102 [
     i32 31, label %48
     i32 40, label %.backedge
@@ -3493,9 +3493,9 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
 
 .backedge:                                        ; preds = %46, %46, %46, %46, %46, %46, %48
   %.sink116 = phi i64 [ 8, %48 ], [ 56, %46 ], [ 56, %46 ], [ 56, %46 ], [ 56, %46 ], [ 56, %46 ], [ 56, %46 ]
-  %49 = getelementptr inbounds i8, ptr %.091, i64 %.sink116
-  %.091.be = load ptr, ptr %49, align 8
-  %.pre115 = load i32, ptr %.091.be, align 8
+  %49 = getelementptr inbounds i8, ptr %.089, i64 %.sink116
+  %.089.be = load ptr, ptr %49, align 8
+  %.pre115 = load i32, ptr %.089.be, align 8
   br label %46
 
 .critedge102:                                     ; preds = %46
@@ -3505,22 +3505,22 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %46, %46, %42, %42, %.loopexit110, %.critedge102
-  %.090 = phi i32 [ %52, %.critedge102 ], [ 19, %.loopexit110 ], [ 20, %42 ], [ 20, %42 ], [ 21, %46 ], [ 21, %46 ]
+  %.088 = phi i32 [ %52, %.critedge102 ], [ 19, %.loopexit110 ], [ 20, %42 ], [ 20, %42 ], [ 21, %46 ], [ 21, %46 ]
   %53 = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 %.090, ptr %53, align 4
+  store i32 %.088, ptr %53, align 4
   %54 = load ptr, ptr %15, align 8
   %55 = icmp eq ptr %54, %35
   br i1 %55, label %cast_is_allowed.exit, label %56
 
 56:                                               ; preds = %.loopexit
-  %57 = icmp eq i32 %.086, -1
-  %58 = icmp eq i32 %.090, -1
+  %57 = icmp eq i32 %.087, -1
+  %58 = icmp eq i32 %.088, -1
   %or.cond.i = select i1 %57, i1 true, i1 %58
   br i1 %or.cond.i, label %.thread.i, label %59
 
 59:                                               ; preds = %56
-  %60 = sext i32 %.086 to i64
-  %61 = sext i32 %.090 to i64
+  %60 = sext i32 %.087 to i64
+  %61 = sext i32 %.088 to i64
   %62 = getelementptr inbounds [23 x [23 x ptr]], ptr @cast_rules, i64 0, i64 %60, i64 %61
   %63 = load ptr, ptr %62, align 8
   %.not.i = icmp eq ptr %63, null
@@ -3603,7 +3603,7 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
 
 104:                                              ; preds = %.preheader119, %.backedge113
   %105 = phi i32 [ %.pre, %.backedge113 ], [ %98, %.preheader119 ]
-  %.089 = phi ptr [ %.089.be, %.backedge113 ], [ %94, %.preheader119 ]
+  %.092 = phi ptr [ %.092.be, %.backedge113 ], [ %94, %.preheader119 ]
   switch i32 %105, label %.critedge104 [
     i32 31, label %106
     i32 40, label %.backedge113
@@ -3621,9 +3621,9 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
 
 .backedge113:                                     ; preds = %104, %104, %104, %104, %104, %104, %106
   %.sink117 = phi i64 [ 8, %106 ], [ 56, %104 ], [ 56, %104 ], [ 56, %104 ], [ 56, %104 ], [ 56, %104 ], [ 56, %104 ]
-  %107 = getelementptr inbounds i8, ptr %.089, i64 %.sink117
-  %.089.be = load ptr, ptr %107, align 8
-  %.pre = load i32, ptr %.089.be, align 8
+  %107 = getelementptr inbounds i8, ptr %.092, i64 %.sink117
+  %.092.be = load ptr, ptr %107, align 8
+  %.pre = load i32, ptr %.092.be, align 8
   br label %104
 
 .critedge104:                                     ; preds = %104
@@ -3677,8 +3677,8 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
   br label %cast_is_allowed.exit
 
 cast_is_allowed.exit:                             ; preds = %134, %125, %.thread.i108, %.loopexit112, %72, %64, %.thread.i, %.loopexit, %83, %77, %84, %78
-  %.087 = phi i1 [ false, %78 ], [ false, %84 ], [ false, %77 ], [ false, %83 ], [ %73, %72 ], [ true, %.loopexit ], [ false, %64 ], [ false, %.thread.i ], [ %135, %134 ], [ true, %.loopexit112 ], [ false, %125 ], [ false, %.thread.i108 ]
-  ret i1 %.087
+  %.086 = phi i1 [ false, %78 ], [ false, %84 ], [ false, %77 ], [ false, %83 ], [ %73, %72 ], [ true, %.loopexit ], [ false, %64 ], [ false, %.thread.i ], [ %135, %134 ], [ true, %.loopexit112 ], [ false, %125 ], [ false, %.thread.i108 ]
+  ret i1 %.086
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3718,8 +3718,8 @@ define internal zeroext i1 @rule_vec_to_vec(ptr noundef %0, i1 noundef zeroext %
   br label %report_cast_error.exit
 
 report_cast_error.exit:                           ; preds = %13, %18, %21
-  %.025.i = phi ptr [ %23, %21 ], [ null, %13 ], [ %17, %18 ]
-  %24 = tail call ptr @type_quoted_error_string(ptr noundef %.025.i) #10
+  %.024.i = phi ptr [ %23, %21 ], [ null, %13 ], [ %17, %18 ]
+  %24 = tail call ptr @type_quoted_error_string(ptr noundef %.024.i) #10
   %25 = tail call ptr @type_quoted_error_string(ptr noundef %.val73) #10
   %26 = load i64, ptr %16, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %26, ptr noundef nonnull @.str.14, ptr noundef %24, ptr noundef %25) #10
@@ -3756,7 +3756,7 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
 
 43:                                               ; preds = %.preheader80, %.backedge77
   %44 = phi i32 [ %.pre, %.backedge77 ], [ %37, %.preheader80 ]
-  %.064 = phi ptr [ %.064.be, %.backedge77 ], [ %33, %.preheader80 ]
+  %.065 = phi ptr [ %.065.be, %.backedge77 ], [ %33, %.preheader80 ]
   switch i32 %44, label %48 [
     i32 31, label %45
     i32 40, label %.backedge77
@@ -3774,9 +3774,9 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
 
 .backedge77:                                      ; preds = %43, %43, %43, %43, %43, %43, %45
   %.sink = phi i64 [ 8, %45 ], [ 56, %43 ], [ 56, %43 ], [ 56, %43 ], [ 56, %43 ], [ 56, %43 ], [ 56, %43 ]
-  %46 = getelementptr inbounds i8, ptr %.064, i64 %.sink
-  %.064.be = load ptr, ptr %46, align 8
-  %.pre = load i32, ptr %.064.be, align 8
+  %46 = getelementptr inbounds i8, ptr %.065, i64 %.sink
+  %.065.be = load ptr, ptr %46, align 8
+  %.pre = load i32, ptr %.065.be, align 8
   br label %43
 
 .thread:                                          ; preds = %43, %43, %27, %39, %39
@@ -3855,21 +3855,21 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   br label %.loopexit
 
 .loopexit:                                        ; preds = %68, %68, %64, %64, %57, %.critedge72
-  %.061 = phi i32 [ %74, %.critedge72 ], [ 19, %57 ], [ 20, %64 ], [ 20, %64 ], [ 21, %68 ], [ 21, %68 ]
+  %.062 = phi i32 [ %74, %.critedge72 ], [ 19, %57 ], [ 20, %64 ], [ 20, %64 ], [ 21, %68 ], [ 21, %68 ]
   %75 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 %.061, ptr %75, align 8
+  store i32 %.062, ptr %75, align 8
   %76 = load ptr, ptr %58, align 8
   %77 = icmp eq ptr %76, %31
   br i1 %77, label %cast_is_allowed.exit, label %78
 
 78:                                               ; preds = %.loopexit
-  %79 = icmp eq i32 %.061, -1
+  %79 = icmp eq i32 %.062, -1
   %80 = icmp eq i32 %.06676, -1
   %or.cond.i = select i1 %79, i1 true, i1 %80
   br i1 %or.cond.i, label %.thread.i, label %81
 
 81:                                               ; preds = %78
-  %82 = sext i32 %.061 to i64
+  %82 = sext i32 %.062 to i64
   %83 = sext i32 %.06676 to i64
   %84 = getelementptr inbounds [23 x [23 x ptr]], ptr @cast_rules, i64 0, i64 %82, i64 %83
   %85 = load ptr, ptr %84, align 8
@@ -3897,8 +3897,8 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   br label %cast_is_allowed.exit
 
 cast_is_allowed.exit:                             ; preds = %96, %86, %.thread.i, %.loopexit, %48, %report_cast_error.exit, %12
-  %.062 = phi i1 [ false, %12 ], [ false, %report_cast_error.exit ], [ true, %48 ], [ %97, %96 ], [ true, %.loopexit ], [ false, %86 ], [ false, %.thread.i ]
-  ret i1 %.062
+  %.061 = phi i1 [ false, %12 ], [ false, %report_cast_error.exit ], [ true, %48 ], [ %97, %96 ], [ true, %.loopexit ], [ false, %86 ], [ false, %.thread.i ]
+  ret i1 %.061
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3938,8 +3938,8 @@ define internal zeroext i1 @rule_vec_to_arr(ptr noundef %0, i1 noundef zeroext %
   br label %report_cast_error.exit
 
 report_cast_error.exit:                           ; preds = %13, %18, %21
-  %.025.i = phi ptr [ %23, %21 ], [ null, %13 ], [ %17, %18 ]
-  %24 = tail call ptr @type_quoted_error_string(ptr noundef %.025.i) #10
+  %.024.i = phi ptr [ %23, %21 ], [ null, %13 ], [ %17, %18 ]
+  %24 = tail call ptr @type_quoted_error_string(ptr noundef %.024.i) #10
   %25 = tail call ptr @type_quoted_error_string(ptr noundef %.val44) #10
   %26 = load i64, ptr %16, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %26, ptr noundef nonnull @.str.14, ptr noundef %24, ptr noundef %25) #10
@@ -4236,8 +4236,8 @@ define internal noundef zeroext i1 @rule_bits_to_int(ptr nocapture noundef reado
   br label %report_cast_error.exit
 
 report_cast_error.exit:                           ; preds = %31, %36, %39
-  %.025.i = phi ptr [ %41, %39 ], [ null, %31 ], [ %35, %36 ]
-  %42 = tail call ptr @type_quoted_error_string(ptr noundef %.025.i) #10
+  %.024.i = phi ptr [ %41, %39 ], [ null, %31 ], [ %35, %36 ]
+  %42 = tail call ptr @type_quoted_error_string(ptr noundef %.024.i) #10
   %43 = tail call ptr @type_quoted_error_string(ptr noundef %.val36) #10
   %44 = load i64, ptr %34, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %44, ptr noundef nonnull @.str.14, ptr noundef %42, ptr noundef %43) #10
@@ -4285,15 +4285,15 @@ report_cast_error.exit:                           ; preds = %31, %36, %39
   br label %report_cast_error.exit40
 
 report_cast_error.exit40:                         ; preds = %57, %60, %63
-  %.024.i = phi ptr [ %65, %63 ], [ null, %57 ], [ %.val38, %60 ]
-  %66 = tail call ptr @type_to_error_string(ptr noundef %.024.i) #10
+  %.025.i = phi ptr [ %65, %63 ], [ null, %57 ], [ %.val38, %60 ]
+  %66 = tail call ptr @type_to_error_string(ptr noundef %.025.i) #10
   %67 = load i64, ptr %49, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %67, ptr noundef nonnull @.str.13, ptr noundef %58, ptr noundef %59, ptr noundef %66) #10
   br label %68
 
 68:                                               ; preds = %45, %report_cast_error.exit40, %report_cast_error.exit, %30, %3
-  %.029 = phi i1 [ false, %3 ], [ false, %30 ], [ false, %report_cast_error.exit ], [ false, %report_cast_error.exit40 ], [ %1, %45 ]
-  ret i1 %.029
+  %.028 = phi i1 [ false, %3 ], [ false, %30 ], [ false, %report_cast_error.exit ], [ false, %report_cast_error.exit40 ], [ %1, %45 ]
+  ret i1 %.028
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4342,8 +4342,8 @@ define internal noundef zeroext i1 @rule_bits_to_arr(ptr nocapture noundef reado
   br label %report_cast_error.exit
 
 report_cast_error.exit:                           ; preds = %18, %23, %26
-  %.025.i = phi ptr [ %28, %26 ], [ null, %18 ], [ %22, %23 ]
-  %29 = tail call ptr @type_quoted_error_string(ptr noundef %.025.i) #10
+  %.024.i = phi ptr [ %28, %26 ], [ null, %18 ], [ %22, %23 ]
+  %29 = tail call ptr @type_quoted_error_string(ptr noundef %.024.i) #10
   %30 = tail call ptr @type_quoted_error_string(ptr noundef %.val23) #10
   %31 = load i64, ptr %21, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %31, ptr noundef nonnull @.str.14, ptr noundef %29, ptr noundef %30) #10
@@ -4391,8 +4391,8 @@ report_cast_error.exit:                           ; preds = %18, %23, %26
   br label %report_cast_error.exit27
 
 report_cast_error.exit27:                         ; preds = %44, %47, %50
-  %.024.i = phi ptr [ %52, %50 ], [ null, %44 ], [ %.val25, %47 ]
-  %53 = tail call ptr @type_to_error_string(ptr noundef %.024.i) #10
+  %.025.i = phi ptr [ %52, %50 ], [ null, %44 ], [ %.val25, %47 ]
+  %53 = tail call ptr @type_to_error_string(ptr noundef %.025.i) #10
   %54 = load i64, ptr %36, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %54, ptr noundef nonnull @.str.13, ptr noundef %45, ptr noundef %46, ptr noundef %53) #10
   br label %55
@@ -4608,8 +4608,8 @@ define internal zeroext i1 @rule_arr_to_vec(ptr noundef %0, i1 noundef zeroext %
   br label %report_cast_error.exit
 
 report_cast_error.exit:                           ; preds = %13, %18, %21
-  %.025.i = phi ptr [ %23, %21 ], [ null, %13 ], [ %17, %18 ]
-  %24 = tail call ptr @type_quoted_error_string(ptr noundef %.025.i) #10
+  %.024.i = phi ptr [ %23, %21 ], [ null, %13 ], [ %17, %18 ]
+  %24 = tail call ptr @type_quoted_error_string(ptr noundef %.024.i) #10
   %25 = tail call ptr @type_quoted_error_string(ptr noundef %.val77) #10
   %26 = load i64, ptr %16, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %26, ptr noundef nonnull @.str.14, ptr noundef %24, ptr noundef %25) #10
@@ -4678,7 +4678,7 @@ type_flatten.exit:                                ; preds = %30
 
 55:                                               ; preds = %.preheader95, %.backedge88
   %56 = phi i32 [ %.pre, %.backedge88 ], [ %49, %.preheader95 ]
-  %.066 = phi ptr [ %.066.be, %.backedge88 ], [ %45, %.preheader95 ]
+  %.065 = phi ptr [ %.065.be, %.backedge88 ], [ %45, %.preheader95 ]
   switch i32 %56, label %59 [
     i32 31, label %57
     i32 40, label %.backedge88
@@ -4696,9 +4696,9 @@ type_flatten.exit:                                ; preds = %30
 
 .backedge88:                                      ; preds = %55, %55, %55, %55, %55, %55, %57
   %.sink = phi i64 [ 8, %57 ], [ 56, %55 ], [ 56, %55 ], [ 56, %55 ], [ 56, %55 ], [ 56, %55 ], [ 56, %55 ]
-  %58 = getelementptr inbounds i8, ptr %.066, i64 %.sink
-  %.066.be = load ptr, ptr %58, align 8
-  %.pre = load i32, ptr %.066.be, align 8
+  %58 = getelementptr inbounds i8, ptr %.065, i64 %.sink
+  %.065.be = load ptr, ptr %58, align 8
+  %.pre = load i32, ptr %.065.be, align 8
   br label %55
 
 59:                                               ; preds = %55
@@ -4742,8 +4742,8 @@ type_flatten.exit:                                ; preds = %30
   br label %report_cast_error.exit82
 
 report_cast_error.exit82:                         ; preds = %63, %68, %71
-  %.025.i81 = phi ptr [ %73, %71 ], [ null, %63 ], [ %67, %68 ]
-  %74 = tail call ptr @type_quoted_error_string(ptr noundef %.025.i81) #10
+  %.024.i81 = phi ptr [ %73, %71 ], [ null, %63 ], [ %67, %68 ]
+  %74 = tail call ptr @type_quoted_error_string(ptr noundef %.024.i81) #10
   %75 = tail call ptr @type_quoted_error_string(ptr noundef %.val79) #10
   %76 = load i64, ptr %66, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %76, ptr noundef nonnull @.str.14, ptr noundef %74, ptr noundef %75) #10
@@ -4807,9 +4807,9 @@ report_cast_error.exit82:                         ; preds = %63, %68, %71
   br label %.loopexit
 
 .loopexit:                                        ; preds = %89, %89, %85, %85, %.thread, %.critedge76
-  %.063 = phi i32 [ %95, %.critedge76 ], [ 19, %.thread ], [ 20, %85 ], [ 20, %85 ], [ 21, %89 ], [ 21, %89 ]
+  %.067 = phi i32 [ %95, %.critedge76 ], [ 19, %.thread ], [ 20, %85 ], [ 20, %85 ], [ 21, %89 ], [ 21, %89 ]
   %96 = getelementptr inbounds i8, ptr %0, i64 40
-  store i32 %.063, ptr %96, align 8
+  store i32 %.067, ptr %96, align 8
   %97 = load ptr, ptr %78, align 8
   %98 = load ptr, ptr %8, align 8
   %99 = icmp eq ptr %97, %98
@@ -4818,13 +4818,13 @@ report_cast_error.exit82:                         ; preds = %63, %68, %71
 100:                                              ; preds = %.loopexit
   %101 = getelementptr inbounds i8, ptr %0, i64 44
   %102 = load i32, ptr %101, align 4
-  %103 = icmp eq i32 %.063, -1
+  %103 = icmp eq i32 %.067, -1
   %104 = icmp eq i32 %102, -1
   %or.cond.i = select i1 %103, i1 true, i1 %104
   br i1 %or.cond.i, label %.thread.i, label %105
 
 105:                                              ; preds = %100
-  %106 = sext i32 %.063 to i64
+  %106 = sext i32 %.067 to i64
   %107 = sext i32 %102 to i64
   %108 = getelementptr inbounds [23 x [23 x ptr]], ptr @cast_rules, i64 0, i64 %106, i64 %107
   %109 = load ptr, ptr %108, align 8
@@ -4852,8 +4852,8 @@ report_cast_error.exit82:                         ; preds = %63, %68, %71
   br label %cast_is_allowed.exit
 
 cast_is_allowed.exit:                             ; preds = %120, %110, %.thread.i, %.loopexit, %report_cast_error.exit82, %.thread86, %report_cast_error.exit, %12
-  %.064 = phi i1 [ false, %12 ], [ false, %report_cast_error.exit ], [ false, %.thread86 ], [ false, %report_cast_error.exit82 ], [ %121, %120 ], [ true, %.loopexit ], [ false, %110 ], [ false, %.thread.i ]
-  ret i1 %.064
+  %.063 = phi i1 [ false, %12 ], [ false, %report_cast_error.exit ], [ false, %.thread86 ], [ false, %report_cast_error.exit82 ], [ %121, %120 ], [ true, %.loopexit ], [ false, %110 ], [ false, %.thread.i ]
+  ret i1 %.063
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4946,8 +4946,8 @@ define internal zeroext i1 @rule_struct_to_struct(ptr nocapture noundef readonly
   br label %report_cast_error.exit
 
 report_cast_error.exit:                           ; preds = %9, %14, %17
-  %.025.i = phi ptr [ %19, %17 ], [ null, %9 ], [ %13, %14 ]
-  %20 = tail call ptr @type_quoted_error_string(ptr noundef %.025.i) #10
+  %.024.i = phi ptr [ %19, %17 ], [ null, %9 ], [ %13, %14 ]
+  %20 = tail call ptr @type_quoted_error_string(ptr noundef %.024.i) #10
   %21 = tail call ptr @type_quoted_error_string(ptr noundef %.val10) #10
   %22 = load i64, ptr %12, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %22, ptr noundef nonnull @.str.14, ptr noundef %20, ptr noundef %21) #10
@@ -5344,10 +5344,10 @@ define internal noundef zeroext i1 @rule_ulist_to_struct(ptr nocapture noundef r
 
 30:                                               ; preds = %21, %25
   %31 = phi ptr [ %28, %25 ], [ %24, %21 ]
-  %.044 = phi i32 [ %29, %25 ], [ 0, %21 ]
+  %.045 = phi i32 [ %29, %25 ], [ 0, %21 ]
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   %33 = load i64, ptr %32, align 8
-  tail call void (i64, ptr, ...) @sema_error_at(i64 %33, ptr noundef nonnull @.str.31, ptr noundef %31, i32 noundef %.044, i32 noundef %10) #10
+  tail call void (i64, ptr, ...) @sema_error_at(i64 %33, ptr noundef nonnull @.str.31, ptr noundef %31, i32 noundef %.045, i32 noundef %10) #10
   br label %.thread
 
 34:                                               ; preds = %18
@@ -5380,8 +5380,8 @@ define internal noundef zeroext i1 @rule_ulist_to_struct(ptr nocapture noundef r
   br i1 %or.cond.not, label %.lr.ph, label %.thread, !llvm.loop !12
 
 .thread:                                          ; preds = %.lr.ph, %37, %3, %.thread58, %34, %.thread55, %8, %30
-  %.046 = phi i1 [ false, %30 ], [ true, %8 ], [ false, %.thread55 ], [ false, %34 ], [ false, %.thread58 ], [ true, %3 ], [ true, %37 ], [ %46, %.lr.ph ]
-  ret i1 %.046
+  %.044 = phi i1 [ false, %30 ], [ true, %8 ], [ false, %.thread55 ], [ false, %34 ], [ false, %.thread58 ], [ true, %3 ], [ true, %37 ], [ %46, %.lr.ph ]
+  ret i1 %.044
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7358,8 +7358,8 @@ type_flatten.exit74:                              ; preds = %22
   br label %44
 
 44:                                               ; preds = %40, %type_flatten.exit74
-  %.064 = phi i32 [ %43, %40 ], [ %38, %type_flatten.exit74 ]
-  %45 = add i32 %.064, -13
+  %.065 = phi i32 [ %43, %40 ], [ %38, %type_flatten.exit74 ]
+  %45 = add i32 %.065, -13
   %46 = icmp ult i32 %45, 5
   br i1 %46, label %47, label %79
 
@@ -7482,8 +7482,8 @@ type_flatten.exit74:                              ; preds = %22
   br label %200
 
 .thread76:                                        ; preds = %85, %.thread
-  %.065 = phi i32 [ %83, %.thread ], [ %88, %85 ]
-  %107 = add i32 %.065, -13
+  %.064 = phi i32 [ %83, %.thread ], [ %88, %85 ]
+  %107 = add i32 %.064, -13
   %108 = icmp ult i32 %107, 5
   br i1 %108, label %109, label %123
 
@@ -8363,8 +8363,8 @@ type_flatten.exit:                                ; preds = %32
   br label %75
 
 75:                                               ; preds = %71, %68
-  %.047 = phi i32 [ %74, %71 ], [ %69, %68 ]
-  %76 = icmp eq i32 %.047, 40
+  %.048 = phi i32 [ %74, %71 ], [ %69, %68 ]
+  %76 = icmp eq i32 %.048, 40
   br i1 %76, label %77, label %.critedge
 
 77:                                               ; preds = %75
@@ -8377,8 +8377,8 @@ type_flatten.exit:                                ; preds = %32
   br label %.critedge
 
 .critedge:                                        ; preds = %75, %77, %.thread, %80
-  %.048 = phi ptr [ %81, %80 ], [ %6, %.thread ], [ %6, %77 ], [ %6, %75 ]
-  store ptr %.048, ptr %1, align 8
+  %.047 = phi ptr [ %81, %80 ], [ %6, %.thread ], [ %6, %77 ], [ %6, %75 ]
+  store ptr %.047, ptr %1, align 8
   tail call void @cast_int_to_int(ptr poison, ptr noundef nonnull %1, ptr noundef %2)
   ret void
 }
@@ -8702,8 +8702,8 @@ define internal fastcc void @report_cast_error(ptr nocapture readonly %.8.val, p
   br label %20
 
 20:                                               ; preds = %14, %11, %17
-  %.024 = phi ptr [ %19, %17 ], [ null, %11 ], [ %.24.val, %14 ]
-  %21 = tail call ptr @type_to_error_string(ptr noundef %.024) #10
+  %.025 = phi ptr [ %19, %17 ], [ null, %11 ], [ %.24.val, %14 ]
+  %21 = tail call ptr @type_to_error_string(ptr noundef %.025) #10
   %22 = load i64, ptr %2, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %22, ptr noundef nonnull @.str.13, ptr noundef %12, ptr noundef %13, ptr noundef %21) #10
   br label %34
@@ -8722,8 +8722,8 @@ define internal fastcc void @report_cast_error(ptr nocapture readonly %.8.val, p
   br label %30
 
 30:                                               ; preds = %24, %23, %27
-  %.025 = phi ptr [ %29, %27 ], [ null, %23 ], [ %3, %24 ]
-  %31 = tail call ptr @type_quoted_error_string(ptr noundef %.025) #10
+  %.024 = phi ptr [ %29, %27 ], [ null, %23 ], [ %3, %24 ]
+  %31 = tail call ptr @type_quoted_error_string(ptr noundef %.024) #10
   %32 = tail call ptr @type_quoted_error_string(ptr noundef %.24.val) #10
   %33 = load i64, ptr %2, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %33, ptr noundef nonnull @.str.14, ptr noundef %31, ptr noundef %32) #10
@@ -8812,8 +8812,8 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %2
-  %.053 = phi ptr [ %0, %2 ], [ %.053.be, %.backedge.backedge ]
-  %3 = getelementptr inbounds i8, ptr %.053, i64 16
+  %.051 = phi ptr [ %0, %2 ], [ %.051.be, %.backedge.backedge ]
+  %3 = getelementptr inbounds i8, ptr %.051, i64 16
   %4 = load i16, ptr %3, align 8
   %trunc = trunc i16 %4 to i8
   switch i8 %trunc, label %.loopexit [
@@ -8832,8 +8832,8 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   ]
 
 5:                                                ; preds = %.backedge, %.backedge
-  %6 = getelementptr inbounds i8, ptr %.053, i64 24
-  %7 = getelementptr inbounds i8, ptr %.053, i64 32
+  %6 = getelementptr inbounds i8, ptr %.051, i64 24
+  %7 = getelementptr inbounds i8, ptr %.051, i64 32
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %28 [
     i8 0, label %9
@@ -8883,7 +8883,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   br i1 %.not63, label %16, label %.loopexit72
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %.053, i64 28
+  %17 = getelementptr inbounds i8, ptr %.051, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = load ptr, ptr @expr_arena, align 8
   %20 = zext i32 %18 to i64
@@ -8906,7 +8906,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   unreachable
 
 29:                                               ; preds = %.backedge
-  %30 = getelementptr inbounds i8, ptr %.053, i64 24
+  %30 = getelementptr inbounds i8, ptr %.051, i64 24
   %31 = load i8, ptr %30, align 8
   switch i8 %31, label %37 [
     i8 0, label %32
@@ -8923,7 +8923,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   %34 = load ptr, ptr @type_cint, align 8
   %35 = tail call i32 @type_size(ptr noundef %34) #10
   %36 = icmp ult i32 %33, %35
-  %.053. = select i1 %36, ptr %.053, ptr null
+  %.051. = select i1 %36, ptr %.051, ptr null
   br label %.loopexit72
 
 37:                                               ; preds = %29
@@ -8931,7 +8931,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   unreachable
 
 38:                                               ; preds = %.backedge
-  %39 = getelementptr inbounds i8, ptr %.053, i64 24
+  %39 = getelementptr inbounds i8, ptr %.051, i64 24
   %40 = load ptr, ptr %39, align 8
   %.not61 = icmp eq ptr %40, null
   br i1 %.not61, label %.backedge.backedge, label %41
@@ -8950,17 +8950,17 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %44, %41, %38, %16, %22, %61, %74, %119, %122, %125, %132
-  %.053.be = phi ptr [ %134, %132 ], [ %127, %125 ], [ %124, %122 ], [ %121, %119 ], [ %79, %74 ], [ %66, %61 ], [ %26, %22 ], [ %21, %16 ], [ %48, %44 ], [ null, %41 ], [ null, %38 ]
+  %.051.be = phi ptr [ %134, %132 ], [ %127, %125 ], [ %124, %122 ], [ %121, %119 ], [ %79, %74 ], [ %66, %61 ], [ %26, %22 ], [ %21, %16 ], [ %48, %44 ], [ null, %41 ], [ null, %38 ]
   br label %.backedge
 
 49:                                               ; preds = %.backedge
-  %50 = getelementptr inbounds i8, ptr %.053, i64 28
+  %50 = getelementptr inbounds i8, ptr %.051, i64 28
   %51 = load i32, ptr %50, align 4
   %.not59 = icmp eq i32 %51, 0
   br i1 %.not59, label %52, label %55
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %.053, i64 24
+  %53 = getelementptr inbounds i8, ptr %.051, i64 24
   %54 = load i32, ptr %53, align 8
   br label %55
 
@@ -8974,7 +8974,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   br i1 %.not60, label %61, label %.loopexit72
 
 61:                                               ; preds = %55
-  %62 = getelementptr inbounds i8, ptr %.053, i64 32
+  %62 = getelementptr inbounds i8, ptr %.051, i64 32
   %63 = load i32, ptr %62, align 8
   %64 = load ptr, ptr @expr_arena, align 8
   %65 = zext i32 %63 to i64
@@ -8982,7 +8982,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   br label %.backedge.backedge
 
 67:                                               ; preds = %.backedge
-  %68 = getelementptr inbounds i8, ptr %.053, i64 24
+  %68 = getelementptr inbounds i8, ptr %.051, i64 24
   %69 = load i8, ptr %68, align 8
   switch i8 %69, label %.loopexit [
     i8 19, label %70
@@ -8991,13 +8991,13 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
 
 70:                                               ; preds = %67, %67
   %71 = tail call i32 @type_size(ptr noundef %1) #10
-  %72 = load ptr, ptr %.053, align 8
+  %72 = load ptr, ptr %.051, align 8
   %73 = tail call i32 @type_size(ptr noundef %72) #10
   %.not = icmp ult i32 %71, %73
   br i1 %.not, label %74, label %.loopexit72
 
 74:                                               ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %.053, i64 28
+  %75 = getelementptr inbounds i8, ptr %.051, i64 28
   %76 = load i32, ptr %75, align 4
   %77 = load ptr, ptr @expr_arena, align 8
   %78 = zext i32 %76 to i64
@@ -9016,10 +9016,10 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   br label %87
 
 87:                                               ; preds = %83, %80
-  %.051 = phi i32 [ %86, %83 ], [ %81, %80 ]
-  %88 = add i32 %.051, -3
+  %.053 = phi i32 [ %86, %83 ], [ %81, %80 ]
+  %88 = add i32 %.053, -3
   %89 = icmp ult i32 %88, 10
-  %90 = getelementptr inbounds i8, ptr %.053, i64 24
+  %90 = getelementptr inbounds i8, ptr %.051, i64 24
   br i1 %89, label %.preheader, label %.preheader109
 
 .preheader:                                       ; preds = %87, %103
@@ -9056,7 +9056,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
 
 type_flatten.exit:                                ; preds = %.preheader
   %104 = tail call zeroext i1 @expr_const_will_overflow(ptr noundef nonnull %90, i32 noundef %93) #10
-  %.053.64 = select i1 %104, ptr %.053, ptr null
+  %.051.64 = select i1 %104, ptr %.051, ptr null
   br label %.loopexit72
 
 .preheader109:                                    ; preds = %87, %117
@@ -9093,26 +9093,26 @@ type_flatten.exit:                                ; preds = %.preheader
 
 type_flatten.exit69:                              ; preds = %.preheader109
   %118 = tail call zeroext i1 @expr_const_float_fits_type(ptr noundef nonnull %90, i32 noundef %107) #10
-  %..053 = select i1 %118, ptr null, ptr %.053
+  %..051 = select i1 %118, ptr null, ptr %.051
   br label %.loopexit72
 
 119:                                              ; preds = %.backedge
-  %120 = getelementptr inbounds i8, ptr %.053, i64 24
+  %120 = getelementptr inbounds i8, ptr %.051, i64 24
   %121 = load ptr, ptr %120, align 8
   br label %.backedge.backedge
 
 122:                                              ; preds = %.backedge, %.backedge
-  %123 = getelementptr inbounds i8, ptr %.053, i64 24
+  %123 = getelementptr inbounds i8, ptr %.051, i64 24
   %124 = load ptr, ptr %123, align 8
   br label %.backedge.backedge
 
 125:                                              ; preds = %.backedge
-  %126 = getelementptr inbounds i8, ptr %.053, i64 24
+  %126 = getelementptr inbounds i8, ptr %.051, i64 24
   %127 = load ptr, ptr %126, align 8
   br label %.backedge.backedge
 
 128:                                              ; preds = %.backedge
-  %129 = getelementptr inbounds i8, ptr %.053, i64 32
+  %129 = getelementptr inbounds i8, ptr %.051, i64 32
   %130 = load i8, ptr %129, align 8
   switch i8 %130, label %.loopexit [
     i8 0, label %131
@@ -9131,20 +9131,20 @@ type_flatten.exit69:                              ; preds = %.preheader109
   unreachable
 
 132:                                              ; preds = %128, %128, %128, %128, %128
-  %133 = getelementptr inbounds i8, ptr %.053, i64 24
+  %133 = getelementptr inbounds i8, ptr %.051, i64 24
   %134 = load ptr, ptr %133, align 8
   br label %.backedge.backedge
 
 .loopexit:                                        ; preds = %.backedge, %128, %67, %29, %29, %29, %29, %29, %29
-  %135 = load ptr, ptr %.053, align 8
+  %135 = load ptr, ptr %.051, align 8
   %136 = tail call i32 @type_size(ptr noundef %135) #10
   %137 = tail call i32 @type_size(ptr noundef %1) #10
   %138 = icmp ugt i32 %136, %137
-  %.053.65 = select i1 %138, ptr %.053, ptr null
+  %.051.65 = select i1 %138, ptr %.051, ptr null
   br label %.loopexit72
 
 .loopexit72:                                      ; preds = %70, %55, %10, %.loopexit, %type_flatten.exit69, %type_flatten.exit, %32
-  %.052 = phi ptr [ %.053., %32 ], [ %.053.64, %type_flatten.exit ], [ %..053, %type_flatten.exit69 ], [ %.053.65, %.loopexit ], [ null, %70 ], [ %60, %55 ], [ %15, %10 ]
+  %.052 = phi ptr [ %.051., %32 ], [ %.051.64, %type_flatten.exit ], [ %..051, %type_flatten.exit69 ], [ %.051.65, %.loopexit ], [ null, %70 ], [ %60, %55 ], [ %15, %10 ]
   ret ptr %.052
 }
 
@@ -9420,8 +9420,8 @@ type_flatten.exit81:                              ; preds = %63
   br label %95
 
 95:                                               ; preds = %91, %88
-  %.060 = phi i32 [ %94, %91 ], [ %89, %88 ]
-  %96 = icmp eq i32 %.060, 40
+  %.062 = phi i32 [ %94, %91 ], [ %89, %88 ]
+  %96 = icmp eq i32 %.062, 40
   br label %97
 
 97:                                               ; preds = %.critedge, %95

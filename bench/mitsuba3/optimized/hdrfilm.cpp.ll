@@ -2512,14 +2512,14 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
   br label %125
 
 125:                                              ; preds = %.lr.ph, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EPKc.exit
-  %.074204 = phi i64 [ 0, %.lr.ph ], [ %235, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EPKc.exit ]
+  %.075204 = phi i64 [ 0, %.lr.ph ], [ %235, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EPKc.exit ]
   %126 = load ptr, ptr %0, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 40
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 16
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds %"struct.mitsuba::Struct::Field", ptr %130, i64 %.074204
-  switch i64 %.074204, label %230 [
+  %131 = getelementptr inbounds %"struct.mitsuba::Struct::Field", ptr %130, i64 %.075204
+  switch i64 %.075204, label %230 [
     i64 0, label %139
     i64 1, label %186
     i64 2, label %208
@@ -2616,12 +2616,12 @@ _ZNSt3__16vectorINS_4pairIdNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorI
   br label %151
 
 151:                                              ; preds = %.split.loop.exit.split-lp187, %.split.loop.exit186
-  %.075 = phi ptr [ %114, %.split.loop.exit186 ], [ %112, %.split.loop.exit.split-lp187 ]
+  %.074 = phi ptr [ %114, %.split.loop.exit186 ], [ %112, %.split.loop.exit.split-lp187 ]
   %lpad.phi191 = phi { ptr, i32 } [ %lpad.split.loop.exit189, %.split.loop.exit186 ], [ %lpad.split.loop.exit.split-lp190, %.split.loop.exit.split-lp187 ]
   br label %152
 
 152:                                              ; preds = %151, %152
-  %153 = phi ptr [ %.075, %151 ], [ %154, %152 ]
+  %153 = phi ptr [ %.074, %151 ], [ %154, %152 ]
   %154 = getelementptr inbounds i8, ptr %153, i64 -32
   %155 = getelementptr inbounds i8, ptr %153, i64 -24
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %155) #25
@@ -2884,12 +2884,12 @@ _ZNSt3__16vectorINS_4pairIdNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorI
 230:                                              ; preds = %.thread152.thread, %.thread157.thread, %125
   %231 = load ptr, ptr %26, align 8
   %232 = getelementptr %"class.std::__1::basic_string", ptr %231, i64 %118
-  %233 = getelementptr %"class.std::__1::basic_string", ptr %232, i64 %.074204
+  %233 = getelementptr %"class.std::__1::basic_string", ptr %232, i64 %.075204
   %234 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %131, ptr noundef nonnull align 8 dereferenceable(24) %233)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EPKc.exit unwind label %.loopexit180
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EPKc.exit: ; preds = %_ZNSt3__16vectorINS_4pairIdNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEENS5_IS8_EEEaSB8ne190000ESt16initializer_listIS8_E.exit126, %_ZNSt3__16vectorINS_4pairIdNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEENS5_IS8_EEEaSB8ne190000ESt16initializer_listIS8_E.exit119, %_ZNSt3__16vectorINS_4pairIdNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEENS5_IS8_EEEaSB8ne190000ESt16initializer_listIS8_E.exit113, %_ZNSt3__16vectorINS_4pairIdNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEENS5_IS8_EEEaSB8ne190000ESt16initializer_listIS8_E.exit, %.invoke, %230
-  %235 = add nuw nsw i64 %.074204, 1
+  %235 = add nuw nsw i64 %.075204, 1
   %exitcond.not = icmp eq i64 %235, %122
   br i1 %exitcond.not, label %.loopexit179, label %125, !llvm.loop !19
 

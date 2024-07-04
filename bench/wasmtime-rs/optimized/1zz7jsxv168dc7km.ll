@@ -6560,19 +6560,19 @@ _ZN16wasmtime_runtime3sys4unix6unwind15using_libunwind17hcb5b491c9f3c8a19E.exit:
   ret void
 
 .lr.ph:                                           ; preds = %13, %33
-  %.01624 = phi ptr [ %35, %33 ], [ %2, %13 ]
-  %.0.copyload = load i32, ptr %.01624, align 1
+  %.01524 = phi ptr [ %35, %33 ], [ %2, %13 ]
+  %.0.copyload = load i32, ptr %.01524, align 1
   %31 = zext i32 %.0.copyload to i64
-  %.not = icmp eq ptr %.01624, %2
+  %.not = icmp eq ptr %.01524, %2
   br i1 %.not, label %33, label %32
 
 32:                                               ; preds = %.lr.ph
-  invoke void @__register_frame(ptr noundef nonnull %.01624)
+  invoke void @__register_frame(ptr noundef nonnull %.01524)
           to label %37 unwind label %.loopexit23
 
 33:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha79e9066144a1a44E.exit21", %.lr.ph
   %34 = add nuw nsw i64 %31, 4
-  %35 = getelementptr inbounds i8, ptr %.01624, i64 %34
+  %35 = getelementptr inbounds i8, ptr %.01524, i64 %34
   %36 = icmp ult ptr %35, %15
   br i1 %36, label %.lr.ph, label %.loopexit
 
@@ -6594,7 +6594,7 @@ _ZN16wasmtime_runtime3sys4unix6unwind15using_libunwind17hcb5b491c9f3c8a19E.exit:
   %42 = phi i64 [ %.pre.i19, %.noexc20 ], [ %38, %37 ]
   %43 = load ptr, ptr %6, align 8, !alias.scope !626, !nonnull !4, !noundef !4
   %44 = getelementptr inbounds ptr, ptr %43, i64 %42
-  store ptr %.01624, ptr %44, align 8
+  store ptr %.01524, ptr %44, align 8
   %45 = load i64, ptr %7, align 8, !alias.scope !626, !noundef !4
   %46 = add i64 %45, 1
   store i64 %46, ptr %7, align 8, !alias.scope !626

@@ -156,8 +156,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_fcvt_w_qP1
   br label %45
 
 45:                                               ; preds = %39, %33
-  %.028 = phi i32 [ %44, %39 ], [ %18, %33 ]
-  %46 = icmp sgt i32 %.028, 4
+  %.027 = phi i32 [ %44, %39 ], [ %18, %33 ]
+  %46 = icmp sgt i32 %.027, 4
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %45
@@ -173,7 +173,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_fcvt_w_qP1
   unreachable
 
 52:                                               ; preds = %45
-  %53 = trunc i32 %.028 to i8
+  %53 = trunc i32 %.027 to i8
   %54 = tail call i64 @f128_to_i32(i64 %.sroa.04.0.copyload, i64 %.sroa.2.0.copyload, i8 noundef zeroext %53, i1 noundef zeroext true)
   %55 = lshr i64 %1, 7
   %56 = and i64 %55, 31
@@ -309,8 +309,8 @@ define noundef i64 @_Z19fast_rv64i_fcvt_w_qP11processor_t6insn_tm(ptr nocapture 
   br label %45
 
 45:                                               ; preds = %39, %33
-  %.028 = phi i32 [ %44, %39 ], [ %18, %33 ]
-  %46 = icmp sgt i32 %.028, 4
+  %.027 = phi i32 [ %44, %39 ], [ %18, %33 ]
+  %46 = icmp sgt i32 %.027, 4
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %45
@@ -326,7 +326,7 @@ define noundef i64 @_Z19fast_rv64i_fcvt_w_qP11processor_t6insn_tm(ptr nocapture 
   unreachable
 
 52:                                               ; preds = %45
-  %53 = trunc i32 %.028 to i8
+  %53 = trunc i32 %.027 to i8
   %54 = tail call i64 @f128_to_i32(i64 %.sroa.04.0.copyload, i64 %.sroa.2.0.copyload, i8 noundef zeroext %53, i1 noundef zeroext true)
   %55 = lshr i64 %1, 7
   %56 = and i64 %55, 31
@@ -778,8 +778,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_fcvt_w_qP1
   br label %26
 
 26:                                               ; preds = %20, %13
-  %.030 = phi i32 [ %25, %20 ], [ %18, %13 ]
-  %27 = icmp sgt i32 %.030, 4
+  %.031 = phi i32 [ %25, %20 ], [ %18, %13 ]
+  %27 = icmp sgt i32 %.031, 4
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %26
@@ -795,7 +795,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_fcvt_w_qP1
   unreachable
 
 33:                                               ; preds = %26
-  %34 = trunc i32 %.030 to i8
+  %34 = trunc i32 %.031 to i8
   store i8 %34, ptr @softfloat_roundingMode, align 1
   %35 = getelementptr inbounds i8, ptr %0, i64 376
   %36 = lshr i64 %1, 15
@@ -815,8 +815,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_fcvt_w_qP1
   br label %45
 
 45:                                               ; preds = %39, %33
-  %.031 = phi i32 [ %44, %39 ], [ %18, %33 ]
-  %46 = icmp sgt i32 %.031, 4
+  %.029 = phi i32 [ %44, %39 ], [ %18, %33 ]
+  %46 = icmp sgt i32 %.029, 4
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %45
@@ -832,7 +832,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_fcvt_w_qP1
   unreachable
 
 52:                                               ; preds = %45
-  %53 = trunc i32 %.031 to i8
+  %53 = trunc i32 %.029 to i8
   %54 = tail call i64 @f128_to_i32(i64 %.sroa.05.0.copyload, i64 %.sroa.2.0.copyload, i8 noundef zeroext %53, i1 noundef zeroext true)
   %55 = lshr i64 %1, 7
   %56 = and i64 %55, 31
@@ -926,8 +926,8 @@ define noundef i64 @_Z19fast_rv64e_fcvt_w_qP11processor_t6insn_tm(ptr nocapture 
   br label %26
 
 26:                                               ; preds = %20, %13
-  %.030 = phi i32 [ %25, %20 ], [ %18, %13 ]
-  %27 = icmp sgt i32 %.030, 4
+  %.031 = phi i32 [ %25, %20 ], [ %18, %13 ]
+  %27 = icmp sgt i32 %.031, 4
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %26
@@ -943,7 +943,7 @@ define noundef i64 @_Z19fast_rv64e_fcvt_w_qP11processor_t6insn_tm(ptr nocapture 
   unreachable
 
 33:                                               ; preds = %26
-  %34 = trunc i32 %.030 to i8
+  %34 = trunc i32 %.031 to i8
   store i8 %34, ptr @softfloat_roundingMode, align 1
   %35 = getelementptr inbounds i8, ptr %0, i64 376
   %36 = lshr i64 %1, 15
@@ -963,8 +963,8 @@ define noundef i64 @_Z19fast_rv64e_fcvt_w_qP11processor_t6insn_tm(ptr nocapture 
   br label %45
 
 45:                                               ; preds = %39, %33
-  %.031 = phi i32 [ %44, %39 ], [ %18, %33 ]
-  %46 = icmp sgt i32 %.031, 4
+  %.029 = phi i32 [ %44, %39 ], [ %18, %33 ]
+  %46 = icmp sgt i32 %.029, 4
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %45
@@ -980,7 +980,7 @@ define noundef i64 @_Z19fast_rv64e_fcvt_w_qP11processor_t6insn_tm(ptr nocapture 
   unreachable
 
 52:                                               ; preds = %45
-  %53 = trunc i32 %.031 to i8
+  %53 = trunc i32 %.029 to i8
   %54 = tail call i64 @f128_to_i32(i64 %.sroa.05.0.copyload, i64 %.sroa.2.0.copyload, i8 noundef zeroext %53, i1 noundef zeroext true)
   %55 = lshr i64 %1, 7
   %56 = and i64 %55, 31

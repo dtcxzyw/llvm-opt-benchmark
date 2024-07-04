@@ -2605,12 +2605,12 @@ define internal i32 @php_sqlite3_callback_compare(ptr nocapture noundef readonly
   br label %47
 
 47:                                               ; preds = %36, %44, %9
-  %.0 = phi ptr [ %37, %44 ], [ %32, %9 ], [ %37, %36 ]
+  %.0138 = phi ptr [ %37, %44 ], [ %32, %9 ], [ %37, %36 ]
   %48 = getelementptr inbounds i8, ptr %0, i64 40
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 32
   %51 = load ptr, ptr %50, align 8
-  call void @zend_call_known_function(ptr noundef nonnull %.0, ptr noundef %49, ptr noundef %51, ptr noundef nonnull %7, i32 noundef 2, ptr noundef nonnull %6, ptr noundef null) #17
+  call void @zend_call_known_function(ptr noundef nonnull %.0138, ptr noundef %49, ptr noundef %51, ptr noundef nonnull %7, i32 noundef 2, ptr noundef nonnull %6, ptr noundef null) #17
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #17
   call void @zval_ptr_dtor(ptr noundef nonnull %20) #17
   %52 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
@@ -2633,13 +2633,13 @@ define internal i32 @php_sqlite3_callback_compare(ptr nocapture noundef readonly
   br label %60
 
 60:                                               ; preds = %47, %56, %57
-  %.0139 = phi i32 [ 0, %56 ], [ %59, %57 ], [ 0, %47 ]
+  %.0 = phi i32 [ 0, %56 ], [ %59, %57 ], [ 0, %47 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #17
   br label %61
 
 61:                                               ; preds = %5, %60
-  %.0138 = phi i32 [ %.0139, %60 ], [ 0, %5 ]
-  ret i32 %.0138
+  %.0139 = phi i32 [ %.0, %60 ], [ 0, %5 ]
+  ret i32 %.0139
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2848,11 +2848,11 @@ define hidden void @zim_SQLite3_setAuthorizer(ptr noundef %0, ptr nocapture noun
 
 22:                                               ; preds = %11, %20
   %23 = phi ptr [ %21, %20 ], [ null, %11 ]
-  %.085.ph = phi ptr [ %13, %20 ], [ null, %11 ]
-  %.084.ph = phi i32 [ %., %20 ], [ 0, %11 ]
-  %.083.ph = phi i32 [ 1, %20 ], [ 0, %11 ]
+  %.084.ph = phi i32 [ 1, %20 ], [ 0, %11 ]
+  %.083.ph = phi ptr [ %13, %20 ], [ null, %11 ]
+  %.082.ph = phi i32 [ %., %20 ], [ 0, %11 ]
   %.0.ph = phi i32 [ %.104, %20 ], [ 1, %11 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.083.ph, ptr noundef %23, i32 noundef %.084.ph, ptr noundef %.085.ph) #17
+  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.084.ph, ptr noundef %23, i32 noundef %.082.ph, ptr noundef %.083.ph) #17
   br label %91
 
 24:                                               ; preds = %18, %17
@@ -3524,11 +3524,11 @@ define hidden void @zim_SQLite3Stmt_getSQL(ptr noundef %0, ptr nocapture noundef
   br i1 %cond.fr205, label %.thread216, label %19
 
 19:                                               ; preds = %16, %.thread222
-  %.0191231 = phi i32 [ 0, %.thread222 ], [ 1, %16 ]
-  %.0192230 = phi ptr [ null, %.thread222 ], [ %17, %16 ]
-  %.0193229 = phi i32 [ 0, %.thread222 ], [ 2, %16 ]
-  %.0194228 = phi i32 [ 1, %.thread222 ], [ 9, %16 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0194228, i32 noundef %.0191231, ptr noundef null, i32 noundef %.0193229, ptr noundef %.0192230) #17
+  %.0191231 = phi i32 [ 1, %.thread222 ], [ 9, %16 ]
+  %.0192230 = phi i32 [ 0, %.thread222 ], [ 2, %16 ]
+  %.0193229 = phi ptr [ null, %.thread222 ], [ %17, %16 ]
+  %.0194228 = phi i32 [ 0, %.thread222 ], [ 1, %16 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0191231, i32 noundef %.0194228, ptr noundef null, i32 noundef %.0192230, ptr noundef %.0193229) #17
   br label %66
 
 .thread216:                                       ; preds = %16, %.thread232, %10
@@ -3656,15 +3656,15 @@ define internal fastcc range(i32 -1, 1) i32 @php_sqlite3_bind_params(ptr nocaptu
   br label %16
 
 16:                                               ; preds = %.lr.ph, %160
-  %.0125165 = phi ptr [ %14, %.lr.ph ], [ %161, %160 ]
-  %.0127164 = phi i32 [ %6, %.lr.ph ], [ %162, %160 ]
-  %17 = getelementptr inbounds i8, ptr %.0125165, i64 8
+  %.0124165 = phi ptr [ %14, %.lr.ph ], [ %161, %160 ]
+  %.0125164 = phi i32 [ %6, %.lr.ph ], [ %162, %160 ]
+  %17 = getelementptr inbounds i8, ptr %.0124165, i64 8
   %18 = load i8, ptr %17, align 8
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %160, label %20
 
 20:                                               ; preds = %16
-  %21 = load ptr, ptr %.0125165, align 8
+  %21 = load ptr, ptr %.0124165, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 24
   %23 = getelementptr inbounds i8, ptr %21, i64 32
   %24 = load i8, ptr %23, align 8
@@ -3677,8 +3677,8 @@ define internal fastcc range(i32 -1, 1) i32 @php_sqlite3_bind_params(ptr nocaptu
   br label %29
 
 29:                                               ; preds = %20, %26
-  %.0124 = phi ptr [ %28, %26 ], [ %22, %20 ]
-  %30 = getelementptr inbounds i8, ptr %.0124, i64 8
+  %.0123 = phi ptr [ %28, %26 ], [ %22, %20 ]
+  %30 = getelementptr inbounds i8, ptr %.0123, i64 8
   %31 = load i8, ptr %30, align 8
   %32 = icmp eq i8 %31, 1
   br i1 %32, label %33, label %41
@@ -3709,11 +3709,11 @@ define internal fastcc range(i32 -1, 1) i32 @php_sqlite3_bind_params(ptr nocaptu
   ]
 
 44:                                               ; preds = %41
-  tail call void @convert_to_long(ptr noundef nonnull %.0124) #17
+  tail call void @convert_to_long(ptr noundef nonnull %.0123) #17
   %45 = load ptr, ptr %0, align 8
   %46 = load i64, ptr %21, align 8
   %47 = trunc i64 %46 to i32
-  %48 = load i64, ptr %.0124, align 8
+  %48 = load i64, ptr %.0123, align 8
   %49 = tail call i32 @sqlite3_bind_int64(ptr noundef %45, i32 noundef %47, i64 noundef %48) #17
   %.not151 = icmp eq i32 %49, 0
   br i1 %.not151, label %160, label %50
@@ -3725,11 +3725,11 @@ define internal fastcc range(i32 -1, 1) i32 @php_sqlite3_bind_params(ptr nocaptu
   br label %160
 
 53:                                               ; preds = %41
-  tail call void @convert_to_double(ptr noundef nonnull %.0124) #17
+  tail call void @convert_to_double(ptr noundef nonnull %.0123) #17
   %54 = load ptr, ptr %0, align 8
   %55 = load i64, ptr %21, align 8
   %56 = trunc i64 %55 to i32
-  %57 = load double, ptr %.0124, align 8
+  %57 = load double, ptr %.0123, align 8
   %58 = tail call i32 @sqlite3_bind_double(ptr noundef %54, i32 noundef %56, double noundef %57) #17
   %.not150 = icmp eq i32 %58, 0
   br i1 %.not150, label %160, label %59
@@ -3749,7 +3749,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_sqlite3_bind_params(ptr nocaptu
 63:                                               ; preds = %62
   %64 = tail call i32 @php_file_le_stream() #17
   %65 = tail call i32 @php_file_le_pstream() #17
-  %66 = tail call ptr @zend_fetch_resource2_ex(ptr noundef nonnull %.0124, ptr noundef nonnull @.str.58, i32 noundef %64, i32 noundef %65) #17
+  %66 = tail call ptr @zend_fetch_resource2_ex(ptr noundef nonnull %.0123, ptr noundef nonnull @.str.58, i32 noundef %64, i32 noundef %65) #17
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %71
 
@@ -3764,7 +3764,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_sqlite3_bind_params(ptr nocaptu
   br label %83
 
 73:                                               ; preds = %62
-  %74 = load ptr, ptr %.0124, align 8
+  %74 = load ptr, ptr %.0123, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 4
   %76 = load i32, ptr %75, align 4
   %77 = and i32 %76, 64
@@ -3778,41 +3778,41 @@ define internal fastcc range(i32 -1, 1) i32 @php_sqlite3_bind_params(ptr nocaptu
   br label %.thread
 
 81:                                               ; preds = %62
-  %82 = tail call ptr @zval_get_string_func(ptr noundef nonnull %.0124) #17
+  %82 = tail call ptr @zval_get_string_func(ptr noundef nonnull %.0123) #17
   br label %83
 
 83:                                               ; preds = %81, %71
-  %.0123 = phi ptr [ %72, %71 ], [ %82, %81 ]
-  %.not146 = icmp eq ptr %.0123, null
+  %.0 = phi ptr [ %72, %71 ], [ %82, %81 ]
+  %.not146 = icmp eq ptr %.0, null
   br i1 %.not146, label %105, label %.thread
 
 .thread:                                          ; preds = %73, %78, %83
-  %.0123155 = phi ptr [ %.0123, %83 ], [ %74, %78 ], [ %74, %73 ]
+  %.0155 = phi ptr [ %.0, %83 ], [ %74, %78 ], [ %74, %73 ]
   %84 = load ptr, ptr %0, align 8
   %85 = load i64, ptr %21, align 8
   %86 = trunc i64 %85 to i32
-  %87 = getelementptr inbounds i8, ptr %.0123155, i64 24
-  %88 = getelementptr inbounds i8, ptr %.0123155, i64 16
+  %87 = getelementptr inbounds i8, ptr %.0155, i64 24
+  %88 = getelementptr inbounds i8, ptr %.0155, i64 16
   %89 = load i64, ptr %88, align 8
   %90 = trunc i64 %89 to i32
   %91 = tail call i32 @sqlite3_bind_blob(ptr noundef %84, i32 noundef %86, ptr noundef nonnull %87, i32 noundef %90, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #17
-  %92 = getelementptr inbounds i8, ptr %.0123155, i64 4
+  %92 = getelementptr inbounds i8, ptr %.0155, i64 4
   %93 = load i32, ptr %92, align 4
   %94 = and i32 %93, 64
   %.not148 = icmp eq i32 %94, 0
   br i1 %.not148, label %95, label %101
 
 95:                                               ; preds = %.thread
-  %96 = load i32, ptr %.0123155, align 4
+  %96 = load i32, ptr %.0155, align 4
   %97 = icmp ne i32 %96, 0
   tail call void @llvm.assume(i1 %97)
   %98 = add i32 %96, -1
-  store i32 %98, ptr %.0123155, align 4
+  store i32 %98, ptr %.0155, align 4
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %100, label %101
 
 100:                                              ; preds = %95
-  tail call void @_efree(ptr noundef nonnull %.0123155) #17
+  tail call void @_efree(ptr noundef nonnull %.0155) #17
   br label %101
 
 101:                                              ; preds = %95, %100, %.thread
@@ -3844,7 +3844,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_sqlite3_bind_params(ptr nocaptu
   br i1 %114, label %115, label %123
 
 115:                                              ; preds = %113
-  %116 = load ptr, ptr %.0124, align 8
+  %116 = load ptr, ptr %.0123, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 4
   %118 = load i32, ptr %117, align 4
   %119 = and i32 %118, 64
@@ -3858,17 +3858,17 @@ define internal fastcc range(i32 -1, 1) i32 @php_sqlite3_bind_params(ptr nocaptu
   br label %.thread156
 
 123:                                              ; preds = %113
-  %124 = tail call ptr @zval_try_get_string_func(ptr noundef nonnull %.0124) #17
+  %124 = tail call ptr @zval_try_get_string_func(ptr noundef nonnull %.0123) #17
   %.not141 = icmp eq ptr %124, null
   br i1 %.not141, label %.loopexit, label %.thread156
 
 .thread156:                                       ; preds = %120, %115, %123
-  %.0159 = phi ptr [ %124, %123 ], [ %116, %115 ], [ %116, %120 ]
+  %.0127159 = phi ptr [ %124, %123 ], [ %116, %115 ], [ %116, %120 ]
   %125 = load ptr, ptr %0, align 8
   %126 = load i64, ptr %21, align 8
   %127 = trunc i64 %126 to i32
-  %128 = getelementptr inbounds i8, ptr %.0159, i64 24
-  %129 = getelementptr inbounds i8, ptr %.0159, i64 16
+  %128 = getelementptr inbounds i8, ptr %.0127159, i64 24
+  %129 = getelementptr inbounds i8, ptr %.0127159, i64 16
   %130 = load i64, ptr %129, align 8
   %131 = trunc i64 %130 to i32
   %132 = tail call i32 @sqlite3_bind_text(ptr noundef %125, i32 noundef %127, ptr noundef nonnull %128, i32 noundef %131, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #17
@@ -3882,18 +3882,18 @@ define internal fastcc range(i32 -1, 1) i32 @php_sqlite3_bind_params(ptr nocaptu
   br label %136
 
 136:                                              ; preds = %133, %.thread156
-  %137 = getelementptr inbounds i8, ptr %.0159, i64 4
+  %137 = getelementptr inbounds i8, ptr %.0127159, i64 4
   %138 = load i32, ptr %137, align 4
   %139 = and i32 %138, 64
   %.not143 = icmp eq i32 %139, 0
   br i1 %.not143, label %140, label %160
 
 140:                                              ; preds = %136
-  %141 = load i32, ptr %.0159, align 4
+  %141 = load i32, ptr %.0127159, align 4
   %142 = icmp ne i32 %141, 0
   tail call void @llvm.assume(i1 %142)
   %143 = add i32 %141, -1
-  store i32 %143, ptr %.0159, align 4
+  store i32 %143, ptr %.0127159, align 4
   %144 = icmp eq i32 %143, 0
   br i1 %144, label %145, label %160
 
@@ -3903,11 +3903,11 @@ define internal fastcc range(i32 -1, 1) i32 @php_sqlite3_bind_params(ptr nocaptu
   br i1 %.not144, label %148, label %147
 
 147:                                              ; preds = %145
-  tail call void @free(ptr noundef nonnull %.0159) #17
+  tail call void @free(ptr noundef nonnull %.0127159) #17
   br label %160
 
 148:                                              ; preds = %145
-  tail call void @_efree(ptr noundef nonnull %.0159) #17
+  tail call void @_efree(ptr noundef nonnull %.0127159) #17
   br label %160
 
 149:                                              ; preds = %41
@@ -3931,8 +3931,8 @@ define internal fastcc range(i32 -1, 1) i32 @php_sqlite3_bind_params(ptr nocaptu
   br label %.loopexit
 
 160:                                              ; preds = %50, %44, %59, %53, %105, %110, %101, %102, %140, %148, %147, %136, %154, %149, %33, %38, %16
-  %161 = getelementptr inbounds i8, ptr %.0125165, i64 %12
-  %162 = add i32 %.0127164, -1
+  %161 = getelementptr inbounds i8, ptr %.0124165, i64 %12
+  %162 = add i32 %.0125164, -1
   %.not138 = icmp eq i32 %162, 0
   br i1 %.not138, label %.loopexit, label %16
 
@@ -4021,11 +4021,11 @@ define internal fastcc void @sqlite3stmt_bind(ptr noundef %0, ptr nocapture noun
   br i1 %.fr, label %.thread171, label %.thread160
 
 .thread160:                                       ; preds = %24, %14, %34
-  %.0128170 = phi i32 [ 3, %34 ], [ 1, %24 ], [ 0, %14 ]
-  %.0129169 = phi i32 [ 9, %34 ], [ 9, %24 ], [ 1, %14 ]
-  %.0130168 = phi ptr [ %29, %34 ], [ %16, %24 ], [ null, %14 ]
-  %.0131167 = phi i32 [ 0, %34 ], [ 28, %24 ], [ 0, %14 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0129169, i32 noundef %.0128170, ptr noundef null, i32 noundef %.0131167, ptr noundef %.0130168) #17
+  %.0127170 = phi i32 [ 9, %34 ], [ 9, %24 ], [ 1, %14 ]
+  %.0128169 = phi i32 [ 0, %34 ], [ 28, %24 ], [ 0, %14 ]
+  %.0129168 = phi ptr [ %29, %34 ], [ %16, %24 ], [ null, %14 ]
+  %.0130167 = phi i32 [ 3, %34 ], [ 1, %24 ], [ 0, %14 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0127170, i32 noundef %.0130167, ptr noundef null, i32 noundef %.0128169, ptr noundef %.0129168) #17
   br label %158
 
 .thread171:                                       ; preds = %34, %.thread147, %.critedge
@@ -4114,7 +4114,7 @@ switch.lookup:                                    ; preds = %62
   br label %71
 
 71:                                               ; preds = %69, %66
-  %.0187.i = phi ptr [ %68, %66 ], [ %70, %69 ]
+  %.0.i = phi ptr [ %68, %66 ], [ %70, %69 ]
   %72 = load ptr, ptr %17, align 8
   %.not195.i = icmp eq ptr %72, null
   br i1 %.not195.i, label %thread-pre-split.i, label %73
@@ -4210,13 +4210,13 @@ thread-pre-split.i:                               ; preds = %71
   br label %148
 
 120:                                              ; preds = %105
-  %121 = call i32 @zend_hash_index_del(ptr noundef %.0187.i, i64 noundef %106) #17
+  %121 = call i32 @zend_hash_index_del(ptr noundef %.0.i, i64 noundef %106) #17
   %122 = load ptr, ptr %17, align 8
   %.not199.i = icmp eq ptr %122, null
   br i1 %.not199.i, label %135, label %123
 
 123:                                              ; preds = %120
-  %124 = getelementptr inbounds i8, ptr %.0187.i, i64 4
+  %124 = getelementptr inbounds i8, ptr %.0.i, i64 4
   %125 = load i32, ptr %124, align 4
   %126 = and i32 %125, 128
   %.not201.i = icmp eq i32 %126, 0
@@ -4236,12 +4236,12 @@ thread-pre-split.i:                               ; preds = %71
   store ptr %132, ptr %4, align 8
   %133 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 13, ptr %133, align 8
-  %134 = call ptr @zend_hash_update(ptr noundef nonnull %.0187.i, ptr noundef nonnull %122, ptr noundef nonnull %4) #17
+  %134 = call ptr @zend_hash_update(ptr noundef nonnull %.0.i, ptr noundef nonnull %122, ptr noundef nonnull %4) #17
   br label %154
 
 135:                                              ; preds = %120
   %136 = load i64, ptr %5, align 8
-  %137 = getelementptr inbounds i8, ptr %.0187.i, i64 4
+  %137 = getelementptr inbounds i8, ptr %.0.i, i64 4
   %138 = load i32, ptr %137, align 4
   %139 = and i32 %138, 128
   %.not200.i = icmp eq i32 %139, 0
@@ -4261,7 +4261,7 @@ thread-pre-split.i:                               ; preds = %71
   store ptr %145, ptr %3, align 8
   %146 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 13, ptr %146, align 8
-  %147 = call ptr @zend_hash_index_update(ptr noundef nonnull %.0187.i, i64 noundef %136, ptr noundef nonnull %3) #17
+  %147 = call ptr @zend_hash_index_update(ptr noundef nonnull %.0.i, i64 noundef %136, ptr noundef nonnull %3) #17
   br label %154
 
 148:                                              ; preds = %110, %119, %114, %108
@@ -4596,10 +4596,10 @@ define hidden void @zim_SQLite3Result_columnName(ptr noundef %0, ptr nocapture n
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %15, %.thread143
-  %.0122150 = phi i32 [ 0, %.thread143 ], [ 1, %15 ]
-  %.0123149 = phi i32 [ 1, %.thread143 ], [ 9, %15 ]
-  %.0124148 = phi ptr [ null, %.thread143 ], [ %10, %15 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0123149, i32 noundef %.0122150, ptr noundef null, i32 noundef 0, ptr noundef %.0124148) #17
+  %.0122150 = phi i32 [ 1, %.thread143 ], [ 9, %15 ]
+  %.0124149 = phi ptr [ null, %.thread143 ], [ %10, %15 ]
+  %.0125148 = phi i32 [ 0, %.thread143 ], [ 1, %15 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0122150, i32 noundef %.0125148, ptr noundef null, i32 noundef 0, ptr noundef %.0124149) #17
   br label %47
 
 18:                                               ; preds = %15, %.thread138
@@ -4695,9 +4695,9 @@ define hidden void @zim_SQLite3Result_columnType(ptr noundef %0, ptr nocapture n
 
 17:                                               ; preds = %15, %.thread89
   %.06496 = phi i32 [ 1, %.thread89 ], [ 9, %15 ]
-  %.06595 = phi i32 [ 0, %.thread89 ], [ 1, %15 ]
-  %.06794 = phi ptr [ null, %.thread89 ], [ %10, %15 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.06496, i32 noundef %.06595, ptr noundef null, i32 noundef 0, ptr noundef %.06794) #17
+  %.06695 = phi ptr [ null, %.thread89 ], [ %10, %15 ]
+  %.06794 = phi i32 [ 0, %.thread89 ], [ 1, %15 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.06496, i32 noundef %.06794, ptr noundef null, i32 noundef 0, ptr noundef %.06695) #17
   br label %40
 
 .thread97:                                        ; preds = %15, %.thread79
@@ -4788,10 +4788,10 @@ define hidden void @zim_SQLite3Result_fetchArray(ptr noundef %0, ptr nocapture n
   br i1 %21, label %.thread244, label %22
 
 22:                                               ; preds = %20, %.thread249
-  %.0216256 = phi i32 [ 1, %.thread249 ], [ 9, %20 ]
-  %.0219255 = phi ptr [ null, %.thread249 ], [ %15, %20 ]
-  %.0220254 = phi i32 [ 0, %.thread249 ], [ 1, %20 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0216256, i32 noundef %.0220254, ptr noundef null, i32 noundef 0, ptr noundef %.0219255) #17
+  %.0215256 = phi i32 [ 1, %.thread249 ], [ 9, %20 ]
+  %.0217255 = phi ptr [ null, %.thread249 ], [ %15, %20 ]
+  %.0218254 = phi i32 [ 0, %.thread249 ], [ 1, %20 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0215256, i32 noundef %.0218254, ptr noundef null, i32 noundef 0, ptr noundef %.0217255) #17
   br label %.loopexit
 
 .thread244:                                       ; preds = %20, %.thread, %12
@@ -8098,7 +8098,7 @@ define internal fastcc void @sqlite3_do_callback(ptr nocapture noundef readonly 
   br label %12
 
 12:                                               ; preds = %9, %5
-  %.0194 = phi ptr [ %11, %9 ], [ null, %5 ]
+  %.0198 = phi ptr [ %11, %9 ], [ null, %5 ]
   br i1 %7, label %13, label %31
 
 13:                                               ; preds = %12
@@ -8106,20 +8106,20 @@ define internal fastcc void @sqlite3_do_callback(ptr nocapture noundef readonly 
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load i8, ptr %15, align 8
   %17 = icmp eq i8 %16, 0
-  %18 = getelementptr inbounds i8, ptr %.0194, i64 8
+  %18 = getelementptr inbounds i8, ptr %.0198, i64 8
   br i1 %17, label %.thread226, label %20
 
 .thread226:                                       ; preds = %13
   store i32 1, ptr %15, align 8
   %19 = load ptr, ptr %14, align 8
-  store ptr %19, ptr %.0194, align 8
+  store ptr %19, ptr %.0198, align 8
   store i32 1, ptr %18, align 8
   br label %26
 
 20:                                               ; preds = %13
   %.pre = load i32, ptr %15, align 8
   %21 = load ptr, ptr %14, align 8
-  store ptr %21, ptr %.0194, align 8
+  store ptr %21, ptr %.0198, align 8
   store i32 %.pre, ptr %18, align 8
   %22 = and i32 %.pre, 65280
   %.not203 = icmp eq i32 %22, 0
@@ -8132,16 +8132,16 @@ define internal fastcc void @sqlite3_do_callback(ptr nocapture noundef readonly 
   br label %26
 
 26:                                               ; preds = %.thread226, %23, %20
-  %27 = getelementptr inbounds i8, ptr %.0194, i64 16
+  %27 = getelementptr inbounds i8, ptr %.0198, i64 16
   %28 = getelementptr inbounds i8, ptr %14, i64 16
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %.0194, i64 24
+  %30 = getelementptr inbounds i8, ptr %.0198, i64 24
   store i32 4, ptr %30, align 8
   br label %31
 
 31:                                               ; preds = %26, %12
-  %.0198 = phi ptr [ %14, %26 ], [ null, %12 ]
+  %.0194 = phi ptr [ %14, %26 ], [ null, %12 ]
   %.not219 = icmp eq i32 %1, 0
   br i1 %.not219, label %._crit_edge, label %.lr.ph.preheader
 
@@ -8164,7 +8164,7 @@ define internal fastcc void @sqlite3_do_callback(ptr nocapture noundef readonly 
   ]
 
 38:                                               ; preds = %.lr.ph
-  %39 = getelementptr inbounds %struct._zval_struct, ptr %.0194, i64 %37
+  %39 = getelementptr inbounds %struct._zval_struct, ptr %.0198, i64 %37
   %40 = load ptr, ptr %32, align 8
   %41 = tail call i64 @sqlite3_value_int64(ptr noundef %40) #17
   store i64 %41, ptr %39, align 8
@@ -8173,7 +8173,7 @@ define internal fastcc void @sqlite3_do_callback(ptr nocapture noundef readonly 
   br label %66
 
 43:                                               ; preds = %.lr.ph
-  %44 = getelementptr inbounds %struct._zval_struct, ptr %.0194, i64 %37
+  %44 = getelementptr inbounds %struct._zval_struct, ptr %.0198, i64 %37
   %45 = load ptr, ptr %32, align 8
   %46 = tail call double @sqlite3_value_double(ptr noundef %45) #17
   store double %46, ptr %44, align 8
@@ -8182,12 +8182,12 @@ define internal fastcc void @sqlite3_do_callback(ptr nocapture noundef readonly 
   br label %66
 
 48:                                               ; preds = %.lr.ph
-  %49 = getelementptr inbounds %struct._zval_struct, ptr %.0194, i64 %37, i32 1
+  %49 = getelementptr inbounds %struct._zval_struct, ptr %.0198, i64 %37, i32 1
   store i32 1, ptr %49, align 8
   br label %66
 
 50:                                               ; preds = %.lr.ph
-  %51 = getelementptr inbounds %struct._zval_struct, ptr %.0194, i64 %37
+  %51 = getelementptr inbounds %struct._zval_struct, ptr %.0198, i64 %37
   %52 = load ptr, ptr %32, align 8
   %53 = tail call ptr @sqlite3_value_text(ptr noundef %52) #17
   %54 = load ptr, ptr %32, align 8
@@ -8249,12 +8249,12 @@ define internal fastcc void @sqlite3_do_callback(ptr nocapture noundef readonly 
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds i8, ptr %0, i64 16
   %86 = load ptr, ptr %85, align 8
-  call void @zend_call_known_function(ptr noundef nonnull %.0193, ptr noundef %84, ptr noundef %86, ptr noundef nonnull %6, i32 noundef %8, ptr noundef %.0194, ptr noundef null) #17
+  call void @zend_call_known_function(ptr noundef nonnull %.0193, ptr noundef %84, ptr noundef %86, ptr noundef nonnull %6, i32 noundef %8, ptr noundef %.0198, ptr noundef null) #17
   br i1 %7, label %87, label %89
 
 87:                                               ; preds = %82
-  call void @zval_ptr_dtor(ptr noundef %.0194) #17
-  %88 = getelementptr inbounds i8, ptr %.0194, i64 16
+  call void @zval_ptr_dtor(ptr noundef %.0198) #17
+  %88 = getelementptr inbounds i8, ptr %.0198, i64 16
   call void @zval_ptr_dtor(ptr noundef nonnull %88) #17
   br label %89
 
@@ -8271,7 +8271,7 @@ define internal fastcc void @sqlite3_do_callback(ptr nocapture noundef readonly 
 
 .lr.ph217:                                        ; preds = %.lr.ph217.preheader, %.lr.ph217
   %indvars.iv221 = phi i64 [ %91, %.lr.ph217.preheader ], [ %indvars.iv.next222, %.lr.ph217 ]
-  %92 = getelementptr inbounds %struct._zval_struct, ptr %.0194, i64 %indvars.iv221
+  %92 = getelementptr inbounds %struct._zval_struct, ptr %.0198, i64 %indvars.iv221
   call void @zval_ptr_dtor(ptr noundef %92) #17
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next222 to i32
@@ -8279,7 +8279,7 @@ define internal fastcc void @sqlite3_do_callback(ptr nocapture noundef readonly 
   br i1 %exitcond224.not, label %._crit_edge218, label %.lr.ph217
 
 ._crit_edge218:                                   ; preds = %.lr.ph217, %.preheader
-  call void @_efree(ptr noundef %.0194) #17
+  call void @_efree(ptr noundef %.0198) #17
   br label %93
 
 93:                                               ; preds = %._crit_edge218, %89
@@ -8371,39 +8371,39 @@ define internal fastcc void @sqlite3_do_callback(ptr nocapture noundef readonly 
   br label %130
 
 130:                                              ; preds = %111, %98, %100, %101, %120, %128, %127, %.thread, %129
-  %.not210 = icmp eq ptr %.0198, null
+  %.not210 = icmp eq ptr %.0194, null
   br i1 %.not210, label %147, label %131
 
 131:                                              ; preds = %130
-  %132 = getelementptr inbounds i8, ptr %.0198, i64 8
+  %132 = getelementptr inbounds i8, ptr %.0194, i64 8
   %133 = load i8, ptr %132, align 8
   %134 = icmp eq i8 %133, 0
   br i1 %134, label %147, label %135
 
 135:                                              ; preds = %131
-  call void @zval_ptr_dtor(ptr noundef nonnull %.0198) #17
+  call void @zval_ptr_dtor(ptr noundef nonnull %.0194) #17
   br label %147
 
 136:                                              ; preds = %93
-  %.not211 = icmp eq ptr %.0198, null
+  %.not211 = icmp eq ptr %.0194, null
   br i1 %.not211, label %142, label %137
 
 137:                                              ; preds = %136
-  %138 = getelementptr inbounds i8, ptr %.0198, i64 8
+  %138 = getelementptr inbounds i8, ptr %.0194, i64 8
   %139 = load i8, ptr %138, align 8
   %140 = icmp eq i8 %139, 0
   br i1 %140, label %142, label %141
 
 141:                                              ; preds = %137
-  call void @zval_ptr_dtor(ptr noundef nonnull %.0198) #17
+  call void @zval_ptr_dtor(ptr noundef nonnull %.0194) #17
   br label %142
 
 142:                                              ; preds = %136, %137, %141
   %143 = load ptr, ptr %6, align 8
   %144 = getelementptr inbounds i8, ptr %6, i64 8
   %145 = load i32, ptr %144, align 8
-  store ptr %143, ptr %.0198, align 8
-  %146 = getelementptr inbounds i8, ptr %.0198, i64 8
+  store ptr %143, ptr %.0194, align 8
+  %146 = getelementptr inbounds i8, ptr %.0194, i64 8
   store i32 %145, ptr %146, align 8
   store i32 0, ptr %144, align 8
   br label %147
@@ -8534,13 +8534,13 @@ define internal i64 @php_sqlite3_stream_read(ptr nocapture noundef %0, ptr nound
   br label %16
 
 16:                                               ; preds = %11, %3
-  %.015 = phi i64 [ %12, %11 ], [ %2, %3 ]
-  %.not17 = icmp eq i64 %.015, 0
+  %.0 = phi i64 [ %12, %11 ], [ %2, %3 ]
+  %.not17 = icmp eq i64 %.0, 0
   br i1 %.not17, label %26, label %17
 
 17:                                               ; preds = %16
   %18 = load ptr, ptr %5, align 8
-  %19 = trunc i64 %.015 to i32
+  %19 = trunc i64 %.0 to i32
   %20 = load i64, ptr %6, align 8
   %21 = trunc i64 %20 to i32
   %22 = tail call i32 @sqlite3_blob_read(ptr noundef %18, ptr noundef %1, i32 noundef %19, i32 noundef %21) #17
@@ -8549,13 +8549,13 @@ define internal i64 @php_sqlite3_stream_read(ptr nocapture noundef %0, ptr nound
 
 23:                                               ; preds = %17
   %24 = load i64, ptr %6, align 8
-  %25 = add i64 %24, %.015
+  %25 = add i64 %24, %.0
   store i64 %25, ptr %6, align 8
   br label %26
 
 26:                                               ; preds = %16, %23, %17
-  %.0 = phi i64 [ -1, %17 ], [ %.015, %23 ], [ 0, %16 ]
-  ret i64 %.0
+  %.015 = phi i64 [ -1, %17 ], [ %.0, %23 ], [ 0, %16 ]
+  ret i64 %.015
 }
 
 ; Function Attrs: nounwind uwtable

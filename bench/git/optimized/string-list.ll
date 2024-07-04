@@ -52,11 +52,11 @@ entry:
   br i1 %cmp313.i.i, label %while.body.i.i, label %do.body.i
 
 while.body.i.i:                                   ; preds = %entry, %if.end13.i.i
-  %left.015.i.i = phi i32 [ %left.1.i.i, %if.end13.i.i ], [ -1, %entry ]
-  %right.014.i.i = phi i32 [ %right.1.i.i, %if.end13.i.i ], [ %conv.i.i, %entry ]
-  %sub.i.i = sub nsw i32 %right.014.i.i, %left.015.i.i
+  %right.015.i.i = phi i32 [ %right.1.i.i, %if.end13.i.i ], [ %conv.i.i, %entry ]
+  %left.014.i.i = phi i32 [ %left.1.i.i, %if.end13.i.i ], [ -1, %entry ]
+  %sub.i.i = sub nsw i32 %right.015.i.i, %left.014.i.i
   %div.i.i = sdiv i32 %sub.i.i, 2
-  %add5.i.i = add nsw i32 %div.i.i, %left.015.i.i
+  %add5.i.i = add nsw i32 %div.i.i, %left.014.i.i
   %2 = load ptr, ptr %list, align 8
   %idxprom.i.i = sext i32 %add5.i.i to i64
   %arrayidx.i.i = getelementptr inbounds %struct.string_list_item, ptr %2, i64 %idxprom.i.i
@@ -70,8 +70,8 @@ if.else.i.i:                                      ; preds = %while.body.i.i
   br i1 %cmp9.not.i.i, label %if.then.i, label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %if.else.i.i, %while.body.i.i
-  %right.1.i.i = phi i32 [ %add5.i.i, %while.body.i.i ], [ %right.014.i.i, %if.else.i.i ]
-  %left.1.i.i = phi i32 [ %left.015.i.i, %while.body.i.i ], [ %add5.i.i, %if.else.i.i ]
+  %left.1.i.i = phi i32 [ %left.014.i.i, %while.body.i.i ], [ %add5.i.i, %if.else.i.i ]
+  %right.1.i.i = phi i32 [ %add5.i.i, %while.body.i.i ], [ %right.015.i.i, %if.else.i.i ]
   %add.i.i = add nsw i32 %left.1.i.i, 1
   %cmp3.i.i = icmp slt i32 %add.i.i, %right.1.i.i
   br i1 %cmp3.i.i, label %while.body.i.i, label %do.body.loopexit.i, !llvm.loop !5
@@ -185,11 +185,11 @@ entry:
   br i1 %cmp313.i, label %while.body.i, label %if.end16
 
 while.body.i:                                     ; preds = %entry, %if.end13.i
-  %left.015.i = phi i32 [ %left.1.i, %if.end13.i ], [ -1, %entry ]
-  %right.014.i = phi i32 [ %right.1.i, %if.end13.i ], [ %conv.i, %entry ]
-  %sub.i = sub nsw i32 %right.014.i, %left.015.i
+  %right.015.i = phi i32 [ %right.1.i, %if.end13.i ], [ %conv.i, %entry ]
+  %left.014.i = phi i32 [ %left.1.i, %if.end13.i ], [ -1, %entry ]
+  %sub.i = sub nsw i32 %right.015.i, %left.014.i
   %div.i = sdiv i32 %sub.i, 2
-  %add5.i = add nsw i32 %div.i, %left.015.i
+  %add5.i = add nsw i32 %div.i, %left.014.i
   %2 = load ptr, ptr %list, align 8
   %idxprom.i = sext i32 %add5.i to i64
   %arrayidx.i = getelementptr inbounds %struct.string_list_item, ptr %2, i64 %idxprom.i
@@ -203,8 +203,8 @@ if.else.i:                                        ; preds = %while.body.i
   br i1 %cmp9.not.i, label %if.then, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.else.i, %while.body.i
-  %right.1.i = phi i32 [ %add5.i, %while.body.i ], [ %right.014.i, %if.else.i ]
-  %left.1.i = phi i32 [ %left.015.i, %while.body.i ], [ %add5.i, %if.else.i ]
+  %left.1.i = phi i32 [ %left.014.i, %while.body.i ], [ %add5.i, %if.else.i ]
+  %right.1.i = phi i32 [ %add5.i, %while.body.i ], [ %right.015.i, %if.else.i ]
   %add.i = add nsw i32 %left.1.i, 1
   %cmp3.i = icmp slt i32 %add.i, %right.1.i
   br i1 %cmp3.i, label %while.body.i, label %if.end16, !llvm.loop !5
@@ -279,11 +279,11 @@ entry:
   br i1 %cmp313.i, label %while.body.i, label %get_entry_index.exit
 
 while.body.i:                                     ; preds = %entry, %if.end13.i
-  %left.015.i = phi i32 [ %left.1.i, %if.end13.i ], [ -1, %entry ]
-  %right.014.i = phi i32 [ %right.1.i, %if.end13.i ], [ %conv.i, %entry ]
-  %sub.i = sub nsw i32 %right.014.i, %left.015.i
+  %right.015.i = phi i32 [ %right.1.i, %if.end13.i ], [ %conv.i, %entry ]
+  %left.014.i = phi i32 [ %left.1.i, %if.end13.i ], [ -1, %entry ]
+  %sub.i = sub nsw i32 %right.015.i, %left.014.i
   %div.i = sdiv i32 %sub.i, 2
-  %add5.i = add nsw i32 %div.i, %left.015.i
+  %add5.i = add nsw i32 %div.i, %left.014.i
   %2 = load ptr, ptr %list, align 8
   %idxprom.i = sext i32 %add5.i to i64
   %arrayidx.i = getelementptr inbounds %struct.string_list_item, ptr %2, i64 %idxprom.i
@@ -297,8 +297,8 @@ if.else.i:                                        ; preds = %while.body.i
   br i1 %cmp9.not.i, label %get_entry_index.exit, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.else.i, %while.body.i
-  %right.1.i = phi i32 [ %add5.i, %while.body.i ], [ %right.014.i, %if.else.i ]
-  %left.1.i = phi i32 [ %left.015.i, %while.body.i ], [ %add5.i, %if.else.i ]
+  %left.1.i = phi i32 [ %left.014.i, %while.body.i ], [ %add5.i, %if.else.i ]
+  %right.1.i = phi i32 [ %add5.i, %while.body.i ], [ %right.015.i, %if.else.i ]
   %add.i = add nsw i32 %left.1.i, 1
   %cmp3.i = icmp slt i32 %add.i, %right.1.i
   br i1 %cmp3.i, label %while.body.i, label %get_entry_index.exit, !llvm.loop !5
@@ -322,11 +322,11 @@ entry:
   br i1 %cmp313.i, label %while.body.i, label %.loopexit
 
 while.body.i:                                     ; preds = %entry, %if.end13.i
-  %left.015.i = phi i32 [ %left.1.i, %if.end13.i ], [ -1, %entry ]
-  %right.014.i = phi i32 [ %right.1.i, %if.end13.i ], [ %conv.i, %entry ]
-  %sub.i = sub nsw i32 %right.014.i, %left.015.i
+  %right.015.i = phi i32 [ %right.1.i, %if.end13.i ], [ %conv.i, %entry ]
+  %left.014.i = phi i32 [ %left.1.i, %if.end13.i ], [ -1, %entry ]
+  %sub.i = sub nsw i32 %right.015.i, %left.014.i
   %div.i = sdiv i32 %sub.i, 2
-  %add5.i = add nsw i32 %div.i, %left.015.i
+  %add5.i = add nsw i32 %div.i, %left.014.i
   %2 = load ptr, ptr %list, align 8
   %idxprom.i = sext i32 %add5.i to i64
   %arrayidx.i = getelementptr inbounds %struct.string_list_item, ptr %2, i64 %idxprom.i
@@ -340,8 +340,8 @@ if.else.i:                                        ; preds = %while.body.i
   br i1 %cmp9.not.i, label %get_entry_index.exit, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.else.i, %while.body.i
-  %right.1.i = phi i32 [ %add5.i, %while.body.i ], [ %right.014.i, %if.else.i ]
-  %left.1.i = phi i32 [ %left.015.i, %while.body.i ], [ %add5.i, %if.else.i ]
+  %left.1.i = phi i32 [ %left.014.i, %while.body.i ], [ %add5.i, %if.else.i ]
+  %right.1.i = phi i32 [ %add5.i, %while.body.i ], [ %right.015.i, %if.else.i ]
   %add.i = add nsw i32 %left.1.i, 1
   %cmp3.i = icmp slt i32 %add.i, %right.1.i
   br i1 %cmp3.i, label %while.body.i, label %.loopexit, !llvm.loop !5
@@ -371,11 +371,11 @@ entry:
   br i1 %cmp313.i, label %while.body.i, label %return
 
 while.body.i:                                     ; preds = %entry, %if.end13.i
-  %left.015.i = phi i32 [ %left.1.i, %if.end13.i ], [ -1, %entry ]
-  %right.014.i = phi i32 [ %right.1.i, %if.end13.i ], [ %conv.i, %entry ]
-  %sub.i = sub nsw i32 %right.014.i, %left.015.i
+  %right.015.i = phi i32 [ %right.1.i, %if.end13.i ], [ %conv.i, %entry ]
+  %left.014.i = phi i32 [ %left.1.i, %if.end13.i ], [ -1, %entry ]
+  %sub.i = sub nsw i32 %right.015.i, %left.014.i
   %div.i = sdiv i32 %sub.i, 2
-  %add5.i = add nsw i32 %div.i, %left.015.i
+  %add5.i = add nsw i32 %div.i, %left.014.i
   %2 = load ptr, ptr %list, align 8
   %idxprom.i = sext i32 %add5.i to i64
   %arrayidx.i = getelementptr inbounds %struct.string_list_item, ptr %2, i64 %idxprom.i
@@ -389,8 +389,8 @@ if.else.i:                                        ; preds = %while.body.i
   br i1 %cmp9.not.i, label %if.end, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.else.i, %while.body.i
-  %right.1.i = phi i32 [ %add5.i, %while.body.i ], [ %right.014.i, %if.else.i ]
-  %left.1.i = phi i32 [ %left.015.i, %while.body.i ], [ %add5.i, %if.else.i ]
+  %left.1.i = phi i32 [ %left.014.i, %while.body.i ], [ %add5.i, %if.else.i ]
+  %right.1.i = phi i32 [ %add5.i, %while.body.i ], [ %right.015.i, %if.else.i ]
   %add.i = add nsw i32 %left.1.i, 1
   %cmp3.i = icmp slt i32 %add.i, %right.1.i
   br i1 %cmp3.i, label %while.body.i, label %return, !llvm.loop !5
@@ -424,9 +424,9 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %indvars.iv25 = phi i64 [ %indvars.iv.next26, %for.inc.us ], [ 1, %for.body.lr.ph ]
-  %dst.020.us = phi i32 [ %dst.1.us, %for.inc.us ], [ 1, %for.body.lr.ph ]
+  %dst.021.us = phi i32 [ %dst.1.us, %for.inc.us ], [ 1, %for.body.lr.ph ]
   %2 = load ptr, ptr %list, align 8
-  %3 = sext i32 %dst.020.us to i64
+  %3 = sext i32 %dst.021.us to i64
   %4 = getelementptr %struct.string_list_item, ptr %2, i64 %3
   %arrayidx.us = getelementptr i8, ptr %4, i64 -16
   %5 = load ptr, ptr %arrayidx.us, align 8
@@ -438,7 +438,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 if.else.us:                                       ; preds = %for.body.us
   %7 = load ptr, ptr %list, align 8
-  %inc.us = add nsw i32 %dst.020.us, 1
+  %inc.us = add nsw i32 %dst.021.us, 1
   %arrayidx27.us = getelementptr inbounds %struct.string_list_item, ptr %7, i64 %3
   %arrayidx30.us = getelementptr inbounds %struct.string_list_item, ptr %7, i64 %indvars.iv25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx27.us, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx30.us, i64 16, i1 false)
@@ -458,7 +458,7 @@ if.then14.us:                                     ; preds = %if.then12.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then12.us, %if.then14.us, %if.else.us
-  %dst.1.us = phi i32 [ %inc.us, %if.else.us ], [ %dst.020.us, %if.then14.us ], [ %dst.020.us, %if.then12.us ]
+  %dst.1.us = phi i32 [ %inc.us, %if.else.us ], [ %dst.021.us, %if.then14.us ], [ %dst.021.us, %if.then12.us ]
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %10 = load i64, ptr %nr, align 8
   %cmp5.us = icmp ugt i64 %10, %indvars.iv.next26
@@ -466,9 +466,9 @@ for.inc.us:                                       ; preds = %if.then12.us, %if.t
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 1, %for.body.lr.ph ]
-  %dst.020 = phi i32 [ %dst.1, %for.inc ], [ 1, %for.body.lr.ph ]
+  %dst.021 = phi i32 [ %dst.1, %for.inc ], [ 1, %for.body.lr.ph ]
   %11 = load ptr, ptr %list, align 8
-  %12 = sext i32 %dst.020 to i64
+  %12 = sext i32 %dst.021 to i64
   %13 = getelementptr %struct.string_list_item, ptr %11, i64 %12
   %arrayidx = getelementptr i8, ptr %13, i64 -16
   %14 = load ptr, ptr %arrayidx, align 8
@@ -500,14 +500,14 @@ if.end:                                           ; preds = %if.then14, %if.then
 
 if.else:                                          ; preds = %for.body
   %20 = load ptr, ptr %list, align 8
-  %inc = add nsw i32 %dst.020, 1
+  %inc = add nsw i32 %dst.021, 1
   %arrayidx27 = getelementptr inbounds %struct.string_list_item, ptr %20, i64 %12
   %arrayidx30 = getelementptr inbounds %struct.string_list_item, ptr %20, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx27, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx30, i64 16, i1 false)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else, %if.end
-  %dst.1 = phi i32 [ %inc, %if.else ], [ %dst.020, %if.end ]
+  %dst.1 = phi i32 [ %inc, %if.else ], [ %dst.021, %if.end ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i64, ptr %nr, align 8
   %cmp5 = icmp ugt i64 %21, %indvars.iv.next

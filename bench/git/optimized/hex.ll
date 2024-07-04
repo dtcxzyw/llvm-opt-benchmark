@@ -25,9 +25,9 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %if.end.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end.i ], [ 0, %entry ]
-  %hex.addr.06.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %hex, %entry ]
-  %hash.addr.05.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %sha1, %entry ]
-  %3 = load i8, ptr %hex.addr.06.i, align 1
+  %hash.addr.06.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %sha1, %entry ]
+  %hex.addr.05.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %hex, %entry ]
+  %3 = load i8, ptr %hex.addr.05.i, align 1
   %idxprom.i.i.i = zext i8 %3 to i64
   %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i.i.i
   %4 = load i8, ptr %arrayidx.i.i.i, align 1
@@ -37,7 +37,7 @@ for.body.i:                                       ; preds = %entry, %if.end.i
 
 cond.false.i.i:                                   ; preds = %for.body.i
   %shl.i.i = shl nuw nsw i32 %conv.i.i.i, 4
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr %hex.addr.06.i, i64 1
+  %arrayidx1.i.i = getelementptr inbounds i8, ptr %hex.addr.05.i, i64 1
   %5 = load i8, ptr %arrayidx1.i.i, align 1
   %idxprom.i4.i.i = zext i8 %5 to i64
   %arrayidx.i5.i.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i4.i.i
@@ -53,9 +53,9 @@ hex2chr.exit.i:                                   ; preds = %cond.false.i.i, %fo
 
 if.end.i:                                         ; preds = %hex2chr.exit.i
   %conv4.i = trunc i32 %cond.i.i to i8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %hash.addr.05.i, i64 1
-  store i8 %conv4.i, ptr %hash.addr.05.i, align 1
-  %add.ptr.i = getelementptr inbounds i8, ptr %hex.addr.06.i, i64 2
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %hash.addr.06.i, i64 1
+  store i8 %conv4.i, ptr %hash.addr.06.i, align 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %hex.addr.05.i, i64 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %7 = load i64, ptr %rawsz.i, align 8
   %cmp.i = icmp ugt i64 %7, %indvars.iv.next.i
@@ -76,9 +76,9 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %if.end.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end.i ], [ 0, %entry ]
-  %hex.addr.06.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %hex, %entry ]
-  %hash.addr.05.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %oid, %entry ]
-  %1 = load i8, ptr %hex.addr.06.i, align 1
+  %hash.addr.06.i = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %oid, %entry ]
+  %hex.addr.05.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %hex, %entry ]
+  %1 = load i8, ptr %hex.addr.05.i, align 1
   %idxprom.i.i.i = zext i8 %1 to i64
   %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i.i.i
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
@@ -88,7 +88,7 @@ for.body.i:                                       ; preds = %entry, %if.end.i
 
 cond.false.i.i:                                   ; preds = %for.body.i
   %shl.i.i = shl nuw nsw i32 %conv.i.i.i, 4
-  %arrayidx1.i.i = getelementptr inbounds i8, ptr %hex.addr.06.i, i64 1
+  %arrayidx1.i.i = getelementptr inbounds i8, ptr %hex.addr.05.i, i64 1
   %3 = load i8, ptr %arrayidx1.i.i, align 1
   %idxprom.i4.i.i = zext i8 %3 to i64
   %arrayidx.i5.i.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i4.i.i
@@ -104,9 +104,9 @@ hex2chr.exit.i:                                   ; preds = %cond.false.i.i, %fo
 
 if.end.i:                                         ; preds = %hex2chr.exit.i
   %conv4.i = trunc i32 %cond.i.i to i8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %hash.addr.05.i, i64 1
-  store i8 %conv4.i, ptr %hash.addr.05.i, align 1
-  %add.ptr.i = getelementptr inbounds i8, ptr %hex.addr.06.i, i64 2
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %hash.addr.06.i, i64 1
+  store i8 %conv4.i, ptr %hash.addr.06.i, align 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %hex.addr.05.i, i64 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %5 = load i64, ptr %rawsz.i, align 8
   %cmp.i = icmp ugt i64 %5, %indvars.iv.next.i
@@ -141,9 +141,9 @@ for.body:                                         ; preds = %entry, %for.inc
 
 for.body.i.i:                                     ; preds = %for.body, %if.end.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %if.end.i.i ], [ 0, %for.body ]
-  %hex.addr.06.i.i = phi ptr [ %add.ptr.i.i, %if.end.i.i ], [ %hex, %for.body ]
-  %hash.addr.05.i.i = phi ptr [ %incdec.ptr.i.i, %if.end.i.i ], [ %oid, %for.body ]
-  %1 = load i8, ptr %hex.addr.06.i.i, align 1
+  %hash.addr.06.i.i = phi ptr [ %incdec.ptr.i.i, %if.end.i.i ], [ %oid, %for.body ]
+  %hex.addr.05.i.i = phi ptr [ %add.ptr.i.i, %if.end.i.i ], [ %hex, %for.body ]
+  %1 = load i8, ptr %hex.addr.05.i.i, align 1
   %idxprom.i.i.i.i = zext i8 %1 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i.i.i.i
   %2 = load i8, ptr %arrayidx.i.i.i.i, align 1
@@ -153,7 +153,7 @@ for.body.i.i:                                     ; preds = %for.body, %if.end.i
 
 cond.false.i.i.i:                                 ; preds = %for.body.i.i
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i.i, 4
-  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %hex.addr.06.i.i, i64 1
+  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %hex.addr.05.i.i, i64 1
   %3 = load i8, ptr %arrayidx1.i.i.i, align 1
   %idxprom.i4.i.i.i = zext i8 %3 to i64
   %arrayidx.i5.i.i.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i4.i.i.i
@@ -169,9 +169,9 @@ hex2chr.exit.i.i:                                 ; preds = %cond.false.i.i.i, %
 
 if.end.i.i:                                       ; preds = %hex2chr.exit.i.i
   %conv4.i.i = trunc i32 %cond.i.i.i to i8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %hash.addr.05.i.i, i64 1
-  store i8 %conv4.i.i, ptr %hash.addr.05.i.i, align 1
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %hex.addr.06.i.i, i64 2
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %hash.addr.06.i.i, i64 1
+  store i8 %conv4.i.i, ptr %hash.addr.06.i.i, align 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %hex.addr.05.i.i, i64 2
   %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.i, %0
   br i1 %exitcond.not, label %get_oid_hex_algop.exit.thread, label %for.body.i.i, !llvm.loop !5
@@ -204,9 +204,9 @@ entry:
 
 for.body.i.i:                                     ; preds = %entry, %if.end.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %if.end.i.i ], [ 0, %entry ]
-  %hex.addr.06.i.i = phi ptr [ %add.ptr.i.i, %if.end.i.i ], [ %hex, %entry ]
-  %hash.addr.05.i.i = phi ptr [ %incdec.ptr.i.i, %if.end.i.i ], [ %oid, %entry ]
-  %3 = load i8, ptr %hex.addr.06.i.i, align 1
+  %hash.addr.06.i.i = phi ptr [ %incdec.ptr.i.i, %if.end.i.i ], [ %oid, %entry ]
+  %hex.addr.05.i.i = phi ptr [ %add.ptr.i.i, %if.end.i.i ], [ %hex, %entry ]
+  %3 = load i8, ptr %hex.addr.05.i.i, align 1
   %idxprom.i.i.i.i = zext i8 %3 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i.i.i.i
   %4 = load i8, ptr %arrayidx.i.i.i.i, align 1
@@ -216,7 +216,7 @@ for.body.i.i:                                     ; preds = %entry, %if.end.i.i
 
 cond.false.i.i.i:                                 ; preds = %for.body.i.i
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i.i, 4
-  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %hex.addr.06.i.i, i64 1
+  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %hex.addr.05.i.i, i64 1
   %5 = load i8, ptr %arrayidx1.i.i.i, align 1
   %idxprom.i4.i.i.i = zext i8 %5 to i64
   %arrayidx.i5.i.i.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i4.i.i.i
@@ -232,9 +232,9 @@ hex2chr.exit.i.i:                                 ; preds = %cond.false.i.i.i, %
 
 if.end.i.i:                                       ; preds = %hex2chr.exit.i.i
   %conv4.i.i = trunc i32 %cond.i.i.i to i8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %hash.addr.05.i.i, i64 1
-  store i8 %conv4.i.i, ptr %hash.addr.05.i.i, align 1
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %hex.addr.06.i.i, i64 2
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %hash.addr.06.i.i, i64 1
+  store i8 %conv4.i.i, ptr %hash.addr.06.i.i, align 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %hex.addr.05.i.i, i64 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %7 = load i64, ptr %rawsz.i.i, align 8
   %cmp.i.i = icmp ugt i64 %7, %indvars.iv.next.i.i
@@ -264,9 +264,9 @@ entry:
 
 for.body.i.i:                                     ; preds = %entry, %if.end.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %if.end.i.i ], [ 0, %entry ]
-  %hex.addr.06.i.i = phi ptr [ %add.ptr.i.i, %if.end.i.i ], [ %hex, %entry ]
-  %hash.addr.05.i.i = phi ptr [ %incdec.ptr.i.i, %if.end.i.i ], [ %oid, %entry ]
-  %1 = load i8, ptr %hex.addr.06.i.i, align 1
+  %hash.addr.06.i.i = phi ptr [ %incdec.ptr.i.i, %if.end.i.i ], [ %oid, %entry ]
+  %hex.addr.05.i.i = phi ptr [ %add.ptr.i.i, %if.end.i.i ], [ %hex, %entry ]
+  %1 = load i8, ptr %hex.addr.05.i.i, align 1
   %idxprom.i.i.i.i = zext i8 %1 to i64
   %arrayidx.i.i.i.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i.i.i.i
   %2 = load i8, ptr %arrayidx.i.i.i.i, align 1
@@ -276,7 +276,7 @@ for.body.i.i:                                     ; preds = %entry, %if.end.i.i
 
 cond.false.i.i.i:                                 ; preds = %for.body.i.i
   %shl.i.i.i = shl nuw nsw i32 %conv.i.i.i.i, 4
-  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %hex.addr.06.i.i, i64 1
+  %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %hex.addr.05.i.i, i64 1
   %3 = load i8, ptr %arrayidx1.i.i.i, align 1
   %idxprom.i4.i.i.i = zext i8 %3 to i64
   %arrayidx.i5.i.i.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i4.i.i.i
@@ -292,9 +292,9 @@ hex2chr.exit.i.i:                                 ; preds = %cond.false.i.i.i, %
 
 if.end.i.i:                                       ; preds = %hex2chr.exit.i.i
   %conv4.i.i = trunc i32 %cond.i.i.i to i8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %hash.addr.05.i.i, i64 1
-  store i8 %conv4.i.i, ptr %hash.addr.05.i.i, align 1
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %hex.addr.06.i.i, i64 2
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %hash.addr.06.i.i, i64 1
+  store i8 %conv4.i.i, ptr %hash.addr.06.i.i, align 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %hex.addr.05.i.i, i64 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %5 = load i64, ptr %rawsz.i.i, align 8
   %cmp.i.i = icmp ugt i64 %5, %indvars.iv.next.i.i
@@ -338,9 +338,9 @@ get_oid_hex_any.exit.thread7:                     ; preds = %for.body.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i, %if.end.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %if.end.i.i.i ], [ 0, %for.body.i ]
-  %hex.addr.06.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.end.i.i.i ], [ %hex, %for.body.i ]
-  %hash.addr.05.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i.i ], [ %oid, %for.body.i ]
-  %1 = load i8, ptr %hex.addr.06.i.i.i, align 1
+  %hash.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i.i ], [ %oid, %for.body.i ]
+  %hex.addr.05.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.end.i.i.i ], [ %hex, %for.body.i ]
+  %1 = load i8, ptr %hex.addr.05.i.i.i, align 1
   %idxprom.i.i.i.i.i = zext i8 %1 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i.i.i.i.i
   %2 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
@@ -350,7 +350,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i, %if.end
 
 cond.false.i.i.i.i:                               ; preds = %for.body.i.i.i
   %shl.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i.i, 4
-  %arrayidx1.i.i.i.i = getelementptr inbounds i8, ptr %hex.addr.06.i.i.i, i64 1
+  %arrayidx1.i.i.i.i = getelementptr inbounds i8, ptr %hex.addr.05.i.i.i, i64 1
   %3 = load i8, ptr %arrayidx1.i.i.i.i, align 1
   %idxprom.i4.i.i.i.i = zext i8 %3 to i64
   %arrayidx.i5.i.i.i.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i4.i.i.i.i
@@ -366,9 +366,9 @@ hex2chr.exit.i.i.i:                               ; preds = %cond.false.i.i.i.i,
 
 if.end.i.i.i:                                     ; preds = %hex2chr.exit.i.i.i
   %conv4.i.i.i = trunc i32 %cond.i.i.i.i to i8
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %hash.addr.05.i.i.i, i64 1
-  store i8 %conv4.i.i.i, ptr %hash.addr.05.i.i.i, align 1
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %hex.addr.06.i.i.i, i64 2
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %hash.addr.06.i.i.i, i64 1
+  store i8 %conv4.i.i.i, ptr %hash.addr.06.i.i.i, align 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %hex.addr.05.i.i.i, i64 2
   %indvars.iv.next.i.i.i = add nuw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i.i, %0
   br i1 %exitcond.not.i, label %get_oid_hex_any.exit, label %for.body.i.i.i, !llvm.loop !5
@@ -409,9 +409,9 @@ entry:
 
 for.body.i.i.i:                                   ; preds = %entry, %if.end.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %if.end.i.i.i ], [ 0, %entry ]
-  %hex.addr.06.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.end.i.i.i ], [ %hex, %entry ]
-  %hash.addr.05.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i.i ], [ %oid, %entry ]
-  %3 = load i8, ptr %hex.addr.06.i.i.i, align 1
+  %hash.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i.i ], [ %oid, %entry ]
+  %hex.addr.05.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.end.i.i.i ], [ %hex, %entry ]
+  %3 = load i8, ptr %hex.addr.05.i.i.i, align 1
   %idxprom.i.i.i.i.i = zext i8 %3 to i64
   %arrayidx.i.i.i.i.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i.i.i.i.i
   %4 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
@@ -421,7 +421,7 @@ for.body.i.i.i:                                   ; preds = %entry, %if.end.i.i.
 
 cond.false.i.i.i.i:                               ; preds = %for.body.i.i.i
   %shl.i.i.i.i = shl nuw nsw i32 %conv.i.i.i.i.i, 4
-  %arrayidx1.i.i.i.i = getelementptr inbounds i8, ptr %hex.addr.06.i.i.i, i64 1
+  %arrayidx1.i.i.i.i = getelementptr inbounds i8, ptr %hex.addr.05.i.i.i, i64 1
   %5 = load i8, ptr %arrayidx1.i.i.i.i, align 1
   %idxprom.i4.i.i.i.i = zext i8 %5 to i64
   %arrayidx.i5.i.i.i.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i4.i.i.i.i
@@ -437,9 +437,9 @@ hex2chr.exit.i.i.i:                               ; preds = %cond.false.i.i.i.i,
 
 if.end.i.i.i:                                     ; preds = %hex2chr.exit.i.i.i
   %conv4.i.i.i = trunc i32 %cond.i.i.i.i to i8
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %hash.addr.05.i.i.i, i64 1
-  store i8 %conv4.i.i.i, ptr %hash.addr.05.i.i.i, align 1
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %hex.addr.06.i.i.i, i64 2
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %hash.addr.06.i.i.i, i64 1
+  store i8 %conv4.i.i.i, ptr %hash.addr.06.i.i.i, align 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %hex.addr.05.i.i.i, i64 2
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %7 = load i64, ptr %rawsz.i.i.i, align 8
   %cmp.i.i.i = icmp ugt i64 %7, %indvars.iv.next.i.i.i

@@ -158,19 +158,19 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %16, label %.lr.ph1357, label %._crit_edge
 
 .lr.ph1357:                                       ; preds = %.lr.ph, %98
-  %.02535221356 = phi ptr [ %.1254, %98 ], [ null, %.lr.ph ]
-  %.02515231355 = phi ptr [ %.1252, %98 ], [ null, %.lr.ph ]
-  %.02495241354 = phi ptr [ %.1250, %98 ], [ null, %.lr.ph ]
-  %.02475251353 = phi ptr [ %.1248, %98 ], [ null, %.lr.ph ]
-  %.02455261352 = phi ptr [ %.1246, %98 ], [ null, %.lr.ph ]
-  %.02435271351 = phi ptr [ %.1244, %98 ], [ null, %.lr.ph ]
-  %.02415281350 = phi ptr [ %.1242, %98 ], [ null, %.lr.ph ]
-  %.02395291349 = phi ptr [ %.1240, %98 ], [ null, %.lr.ph ]
-  %.02375301348 = phi ptr [ %.1238, %98 ], [ null, %.lr.ph ]
-  %.02355311347 = phi ptr [ %.1236, %98 ], [ null, %.lr.ph ]
-  %.02335321346 = phi ptr [ %.1234, %98 ], [ null, %.lr.ph ]
-  %.02315331345 = phi ptr [ %.1232, %98 ], [ null, %.lr.ph ]
-  %.02295341344 = phi ptr [ %.1230, %98 ], [ null, %.lr.ph ]
+  %.02425221356 = phi ptr [ %.1243, %98 ], [ null, %.lr.ph ]
+  %.02405231355 = phi ptr [ %.1241, %98 ], [ null, %.lr.ph ]
+  %.02385241354 = phi ptr [ %.1239, %98 ], [ null, %.lr.ph ]
+  %.02365251353 = phi ptr [ %.1237, %98 ], [ null, %.lr.ph ]
+  %.02345261352 = phi ptr [ %.1235, %98 ], [ null, %.lr.ph ]
+  %.02325271351 = phi ptr [ %.1233, %98 ], [ null, %.lr.ph ]
+  %.02305281350 = phi ptr [ %.1231, %98 ], [ null, %.lr.ph ]
+  %.02285291349 = phi ptr [ %.1229, %98 ], [ null, %.lr.ph ]
+  %.02265301348 = phi ptr [ %.1227, %98 ], [ null, %.lr.ph ]
+  %.02245311347 = phi ptr [ %.1225, %98 ], [ null, %.lr.ph ]
+  %.02225321346 = phi ptr [ %.1223, %98 ], [ null, %.lr.ph ]
+  %.02205331345 = phi ptr [ %.1221, %98 ], [ null, %.lr.ph ]
+  %.02195341344 = phi ptr [ %.1, %98 ], [ null, %.lr.ph ]
   %indvars.iv1343 = phi i64 [ %indvars.iv.next, %98 ], [ 0, %.lr.ph ]
   %17 = load ptr, ptr %14, align 8
   %18 = getelementptr %union.ListCell, ptr %17, i64 %indvars.iv1343
@@ -182,7 +182,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph1357
-  %.not295 = icmp eq ptr %.02535221356, null
+  %.not295 = icmp eq ptr %.02425221356, null
   br i1 %.not295, label %98, label %25
 
 25:                                               ; preds = %24
@@ -209,7 +209,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %33
-  %.not294 = icmp eq ptr %.02515231355, null
+  %.not294 = icmp eq ptr %.02405231355, null
   br i1 %.not294, label %98, label %37
 
 37:                                               ; preds = %36
@@ -222,7 +222,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %38
-  %.not293 = icmp eq ptr %.02495241354, null
+  %.not293 = icmp eq ptr %.02385241354, null
   br i1 %.not293, label %98, label %42
 
 42:                                               ; preds = %41
@@ -235,7 +235,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %43
-  %.not292 = icmp eq ptr %.02475251353, null
+  %.not292 = icmp eq ptr %.02365251353, null
   br i1 %.not292, label %98, label %47
 
 47:                                               ; preds = %46
@@ -248,7 +248,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %48
-  %.not291 = icmp eq ptr %.02455261352, null
+  %.not291 = icmp eq ptr %.02345261352, null
   br i1 %.not291, label %98, label %52
 
 52:                                               ; preds = %51
@@ -261,7 +261,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %53
-  %.not290 = icmp eq ptr %.02435271351, null
+  %.not290 = icmp eq ptr %.02325271351, null
   br i1 %.not290, label %98, label %57
 
 57:                                               ; preds = %56
@@ -274,7 +274,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %58
-  %.not289 = icmp eq ptr %.02415281350, null
+  %.not289 = icmp eq ptr %.02305281350, null
   br i1 %.not289, label %98, label %62
 
 62:                                               ; preds = %61
@@ -287,7 +287,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %63
-  %.not288 = icmp eq ptr %.02395291349, null
+  %.not288 = icmp eq ptr %.02285291349, null
   br i1 %.not288, label %98, label %67
 
 67:                                               ; preds = %66
@@ -300,7 +300,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %68
-  %.not287 = icmp eq ptr %.02375301348, null
+  %.not287 = icmp eq ptr %.02265301348, null
   br i1 %.not287, label %98, label %72
 
 72:                                               ; preds = %71
@@ -313,7 +313,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %73
-  %.not286 = icmp eq ptr %.02355311347, null
+  %.not286 = icmp eq ptr %.02245311347, null
   br i1 %.not286, label %98, label %77
 
 77:                                               ; preds = %76
@@ -326,7 +326,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %80, label %81, label %83
 
 81:                                               ; preds = %78
-  %.not285 = icmp eq ptr %.02335321346, null
+  %.not285 = icmp eq ptr %.02225321346, null
   br i1 %.not285, label %98, label %82
 
 82:                                               ; preds = %81
@@ -339,7 +339,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %83
-  %.not284 = icmp eq ptr %.02315331345, null
+  %.not284 = icmp eq ptr %.02205331345, null
   br i1 %.not284, label %98, label %87
 
 87:                                               ; preds = %86
@@ -352,7 +352,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %88
-  %.not283 = icmp eq ptr %.02295341344, null
+  %.not283 = icmp eq ptr %.02195341344, null
   br i1 %.not283, label %98, label %92
 
 92:                                               ; preds = %91
@@ -369,19 +369,19 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   unreachable
 
 98:                                               ; preds = %91, %86, %81, %76, %71, %66, %61, %56, %51, %46, %41, %36, %24, %31, %29
-  %.1254 = phi ptr [ %.02535221356, %31 ], [ %.02535221356, %29 ], [ %19, %24 ], [ %.02535221356, %36 ], [ %.02535221356, %41 ], [ %.02535221356, %46 ], [ %.02535221356, %51 ], [ %.02535221356, %56 ], [ %.02535221356, %61 ], [ %.02535221356, %66 ], [ %.02535221356, %71 ], [ %.02535221356, %76 ], [ %.02535221356, %81 ], [ %.02535221356, %86 ], [ %.02535221356, %91 ]
-  %.1252 = phi ptr [ %.02515231355, %31 ], [ %.02515231355, %29 ], [ %.02515231355, %24 ], [ %19, %36 ], [ %.02515231355, %41 ], [ %.02515231355, %46 ], [ %.02515231355, %51 ], [ %.02515231355, %56 ], [ %.02515231355, %61 ], [ %.02515231355, %66 ], [ %.02515231355, %71 ], [ %.02515231355, %76 ], [ %.02515231355, %81 ], [ %.02515231355, %86 ], [ %.02515231355, %91 ]
-  %.1250 = phi ptr [ %.02495241354, %31 ], [ %.02495241354, %29 ], [ %.02495241354, %24 ], [ %.02495241354, %36 ], [ %19, %41 ], [ %.02495241354, %46 ], [ %.02495241354, %51 ], [ %.02495241354, %56 ], [ %.02495241354, %61 ], [ %.02495241354, %66 ], [ %.02495241354, %71 ], [ %.02495241354, %76 ], [ %.02495241354, %81 ], [ %.02495241354, %86 ], [ %.02495241354, %91 ]
-  %.1248 = phi ptr [ %.02475251353, %31 ], [ %.02475251353, %29 ], [ %.02475251353, %24 ], [ %.02475251353, %36 ], [ %.02475251353, %41 ], [ %19, %46 ], [ %.02475251353, %51 ], [ %.02475251353, %56 ], [ %.02475251353, %61 ], [ %.02475251353, %66 ], [ %.02475251353, %71 ], [ %.02475251353, %76 ], [ %.02475251353, %81 ], [ %.02475251353, %86 ], [ %.02475251353, %91 ]
-  %.1246 = phi ptr [ %.02455261352, %31 ], [ %.02455261352, %29 ], [ %.02455261352, %24 ], [ %.02455261352, %36 ], [ %.02455261352, %41 ], [ %.02455261352, %46 ], [ %19, %51 ], [ %.02455261352, %56 ], [ %.02455261352, %61 ], [ %.02455261352, %66 ], [ %.02455261352, %71 ], [ %.02455261352, %76 ], [ %.02455261352, %81 ], [ %.02455261352, %86 ], [ %.02455261352, %91 ]
-  %.1244 = phi ptr [ %.02435271351, %31 ], [ %.02435271351, %29 ], [ %.02435271351, %24 ], [ %.02435271351, %36 ], [ %.02435271351, %41 ], [ %.02435271351, %46 ], [ %.02435271351, %51 ], [ %19, %56 ], [ %.02435271351, %61 ], [ %.02435271351, %66 ], [ %.02435271351, %71 ], [ %.02435271351, %76 ], [ %.02435271351, %81 ], [ %.02435271351, %86 ], [ %.02435271351, %91 ]
-  %.1242 = phi ptr [ %.02415281350, %31 ], [ %.02415281350, %29 ], [ %.02415281350, %24 ], [ %.02415281350, %36 ], [ %.02415281350, %41 ], [ %.02415281350, %46 ], [ %.02415281350, %51 ], [ %.02415281350, %56 ], [ %19, %61 ], [ %.02415281350, %66 ], [ %.02415281350, %71 ], [ %.02415281350, %76 ], [ %.02415281350, %81 ], [ %.02415281350, %86 ], [ %.02415281350, %91 ]
-  %.1240 = phi ptr [ %.02395291349, %31 ], [ %.02395291349, %29 ], [ %.02395291349, %24 ], [ %.02395291349, %36 ], [ %.02395291349, %41 ], [ %.02395291349, %46 ], [ %.02395291349, %51 ], [ %.02395291349, %56 ], [ %.02395291349, %61 ], [ %19, %66 ], [ %.02395291349, %71 ], [ %.02395291349, %76 ], [ %.02395291349, %81 ], [ %.02395291349, %86 ], [ %.02395291349, %91 ]
-  %.1238 = phi ptr [ %.02375301348, %31 ], [ %.02375301348, %29 ], [ %.02375301348, %24 ], [ %.02375301348, %36 ], [ %.02375301348, %41 ], [ %.02375301348, %46 ], [ %.02375301348, %51 ], [ %.02375301348, %56 ], [ %.02375301348, %61 ], [ %.02375301348, %66 ], [ %19, %71 ], [ %.02375301348, %76 ], [ %.02375301348, %81 ], [ %.02375301348, %86 ], [ %.02375301348, %91 ]
-  %.1236 = phi ptr [ %.02355311347, %31 ], [ %.02355311347, %29 ], [ %.02355311347, %24 ], [ %.02355311347, %36 ], [ %.02355311347, %41 ], [ %.02355311347, %46 ], [ %.02355311347, %51 ], [ %.02355311347, %56 ], [ %.02355311347, %61 ], [ %.02355311347, %66 ], [ %.02355311347, %71 ], [ %19, %76 ], [ %.02355311347, %81 ], [ %.02355311347, %86 ], [ %.02355311347, %91 ]
-  %.1234 = phi ptr [ %.02335321346, %31 ], [ %.02335321346, %29 ], [ %.02335321346, %24 ], [ %.02335321346, %36 ], [ %.02335321346, %41 ], [ %.02335321346, %46 ], [ %.02335321346, %51 ], [ %.02335321346, %56 ], [ %.02335321346, %61 ], [ %.02335321346, %66 ], [ %.02335321346, %71 ], [ %.02335321346, %76 ], [ %19, %81 ], [ %.02335321346, %86 ], [ %.02335321346, %91 ]
-  %.1232 = phi ptr [ %.02315331345, %31 ], [ %.02315331345, %29 ], [ %.02315331345, %24 ], [ %.02315331345, %36 ], [ %.02315331345, %41 ], [ %.02315331345, %46 ], [ %.02315331345, %51 ], [ %.02315331345, %56 ], [ %.02315331345, %61 ], [ %.02315331345, %66 ], [ %.02315331345, %71 ], [ %.02315331345, %76 ], [ %.02315331345, %81 ], [ %19, %86 ], [ %.02315331345, %91 ]
-  %.1230 = phi ptr [ %.02295341344, %31 ], [ %.02295341344, %29 ], [ %.02295341344, %24 ], [ %.02295341344, %36 ], [ %.02295341344, %41 ], [ %.02295341344, %46 ], [ %.02295341344, %51 ], [ %.02295341344, %56 ], [ %.02295341344, %61 ], [ %.02295341344, %66 ], [ %.02295341344, %71 ], [ %.02295341344, %76 ], [ %.02295341344, %81 ], [ %.02295341344, %86 ], [ %19, %91 ]
+  %.1243 = phi ptr [ %.02425221356, %31 ], [ %.02425221356, %29 ], [ %19, %24 ], [ %.02425221356, %36 ], [ %.02425221356, %41 ], [ %.02425221356, %46 ], [ %.02425221356, %51 ], [ %.02425221356, %56 ], [ %.02425221356, %61 ], [ %.02425221356, %66 ], [ %.02425221356, %71 ], [ %.02425221356, %76 ], [ %.02425221356, %81 ], [ %.02425221356, %86 ], [ %.02425221356, %91 ]
+  %.1241 = phi ptr [ %.02405231355, %31 ], [ %.02405231355, %29 ], [ %.02405231355, %24 ], [ %19, %36 ], [ %.02405231355, %41 ], [ %.02405231355, %46 ], [ %.02405231355, %51 ], [ %.02405231355, %56 ], [ %.02405231355, %61 ], [ %.02405231355, %66 ], [ %.02405231355, %71 ], [ %.02405231355, %76 ], [ %.02405231355, %81 ], [ %.02405231355, %86 ], [ %.02405231355, %91 ]
+  %.1239 = phi ptr [ %.02385241354, %31 ], [ %.02385241354, %29 ], [ %.02385241354, %24 ], [ %.02385241354, %36 ], [ %19, %41 ], [ %.02385241354, %46 ], [ %.02385241354, %51 ], [ %.02385241354, %56 ], [ %.02385241354, %61 ], [ %.02385241354, %66 ], [ %.02385241354, %71 ], [ %.02385241354, %76 ], [ %.02385241354, %81 ], [ %.02385241354, %86 ], [ %.02385241354, %91 ]
+  %.1237 = phi ptr [ %.02365251353, %31 ], [ %.02365251353, %29 ], [ %.02365251353, %24 ], [ %.02365251353, %36 ], [ %.02365251353, %41 ], [ %19, %46 ], [ %.02365251353, %51 ], [ %.02365251353, %56 ], [ %.02365251353, %61 ], [ %.02365251353, %66 ], [ %.02365251353, %71 ], [ %.02365251353, %76 ], [ %.02365251353, %81 ], [ %.02365251353, %86 ], [ %.02365251353, %91 ]
+  %.1235 = phi ptr [ %.02345261352, %31 ], [ %.02345261352, %29 ], [ %.02345261352, %24 ], [ %.02345261352, %36 ], [ %.02345261352, %41 ], [ %.02345261352, %46 ], [ %19, %51 ], [ %.02345261352, %56 ], [ %.02345261352, %61 ], [ %.02345261352, %66 ], [ %.02345261352, %71 ], [ %.02345261352, %76 ], [ %.02345261352, %81 ], [ %.02345261352, %86 ], [ %.02345261352, %91 ]
+  %.1233 = phi ptr [ %.02325271351, %31 ], [ %.02325271351, %29 ], [ %.02325271351, %24 ], [ %.02325271351, %36 ], [ %.02325271351, %41 ], [ %.02325271351, %46 ], [ %.02325271351, %51 ], [ %19, %56 ], [ %.02325271351, %61 ], [ %.02325271351, %66 ], [ %.02325271351, %71 ], [ %.02325271351, %76 ], [ %.02325271351, %81 ], [ %.02325271351, %86 ], [ %.02325271351, %91 ]
+  %.1231 = phi ptr [ %.02305281350, %31 ], [ %.02305281350, %29 ], [ %.02305281350, %24 ], [ %.02305281350, %36 ], [ %.02305281350, %41 ], [ %.02305281350, %46 ], [ %.02305281350, %51 ], [ %.02305281350, %56 ], [ %19, %61 ], [ %.02305281350, %66 ], [ %.02305281350, %71 ], [ %.02305281350, %76 ], [ %.02305281350, %81 ], [ %.02305281350, %86 ], [ %.02305281350, %91 ]
+  %.1229 = phi ptr [ %.02285291349, %31 ], [ %.02285291349, %29 ], [ %.02285291349, %24 ], [ %.02285291349, %36 ], [ %.02285291349, %41 ], [ %.02285291349, %46 ], [ %.02285291349, %51 ], [ %.02285291349, %56 ], [ %.02285291349, %61 ], [ %19, %66 ], [ %.02285291349, %71 ], [ %.02285291349, %76 ], [ %.02285291349, %81 ], [ %.02285291349, %86 ], [ %.02285291349, %91 ]
+  %.1227 = phi ptr [ %.02265301348, %31 ], [ %.02265301348, %29 ], [ %.02265301348, %24 ], [ %.02265301348, %36 ], [ %.02265301348, %41 ], [ %.02265301348, %46 ], [ %.02265301348, %51 ], [ %.02265301348, %56 ], [ %.02265301348, %61 ], [ %.02265301348, %66 ], [ %19, %71 ], [ %.02265301348, %76 ], [ %.02265301348, %81 ], [ %.02265301348, %86 ], [ %.02265301348, %91 ]
+  %.1225 = phi ptr [ %.02245311347, %31 ], [ %.02245311347, %29 ], [ %.02245311347, %24 ], [ %.02245311347, %36 ], [ %.02245311347, %41 ], [ %.02245311347, %46 ], [ %.02245311347, %51 ], [ %.02245311347, %56 ], [ %.02245311347, %61 ], [ %.02245311347, %66 ], [ %.02245311347, %71 ], [ %19, %76 ], [ %.02245311347, %81 ], [ %.02245311347, %86 ], [ %.02245311347, %91 ]
+  %.1223 = phi ptr [ %.02225321346, %31 ], [ %.02225321346, %29 ], [ %.02225321346, %24 ], [ %.02225321346, %36 ], [ %.02225321346, %41 ], [ %.02225321346, %46 ], [ %.02225321346, %51 ], [ %.02225321346, %56 ], [ %.02225321346, %61 ], [ %.02225321346, %66 ], [ %.02225321346, %71 ], [ %.02225321346, %76 ], [ %19, %81 ], [ %.02225321346, %86 ], [ %.02225321346, %91 ]
+  %.1221 = phi ptr [ %.02205331345, %31 ], [ %.02205331345, %29 ], [ %.02205331345, %24 ], [ %.02205331345, %36 ], [ %.02205331345, %41 ], [ %.02205331345, %46 ], [ %.02205331345, %51 ], [ %.02205331345, %56 ], [ %.02205331345, %61 ], [ %.02205331345, %66 ], [ %.02205331345, %71 ], [ %.02205331345, %76 ], [ %.02205331345, %81 ], [ %19, %86 ], [ %.02205331345, %91 ]
+  %.1 = phi ptr [ %.02195341344, %31 ], [ %.02195341344, %29 ], [ %.02195341344, %24 ], [ %.02195341344, %36 ], [ %.02195341344, %41 ], [ %.02195341344, %46 ], [ %.02195341344, %51 ], [ %.02195341344, %56 ], [ %.02195341344, %61 ], [ %.02195341344, %66 ], [ %.02195341344, %71 ], [ %.02195341344, %76 ], [ %.02195341344, %81 ], [ %.02195341344, %86 ], [ %19, %91 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv1343, 1
   %99 = load i32, ptr %13, align 4
   %100 = sext i32 %99 to i64
@@ -389,24 +389,24 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %101, label %.lr.ph1357, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %98, %.lr.ph
-  %.0229534.lcssa = phi ptr [ null, %.lr.ph ], [ %.1230, %98 ]
-  %.0231533.lcssa = phi ptr [ null, %.lr.ph ], [ %.1232, %98 ]
-  %.0233532.lcssa = phi ptr [ null, %.lr.ph ], [ %.1234, %98 ]
-  %.0235531.lcssa = phi ptr [ null, %.lr.ph ], [ %.1236, %98 ]
-  %.0237530.lcssa = phi ptr [ null, %.lr.ph ], [ %.1238, %98 ]
-  %.0239529.lcssa = phi ptr [ null, %.lr.ph ], [ %.1240, %98 ]
-  %.0241528.lcssa = phi ptr [ null, %.lr.ph ], [ %.1242, %98 ]
-  %.0243527.lcssa = phi ptr [ null, %.lr.ph ], [ %.1244, %98 ]
-  %.0245526.lcssa = phi ptr [ null, %.lr.ph ], [ %.1246, %98 ]
-  %.0247525.lcssa = phi ptr [ null, %.lr.ph ], [ %.1248, %98 ]
-  %.0249524.lcssa = phi ptr [ null, %.lr.ph ], [ %.1250, %98 ]
-  %.0251523.lcssa = phi ptr [ null, %.lr.ph ], [ %.1252, %98 ]
-  %.0253522.lcssa = phi ptr [ null, %.lr.ph ], [ %.1254, %98 ]
-  %.not263 = icmp eq ptr %.0253522.lcssa, null
+  %.0219534.lcssa = phi ptr [ null, %.lr.ph ], [ %.1, %98 ]
+  %.0220533.lcssa = phi ptr [ null, %.lr.ph ], [ %.1221, %98 ]
+  %.0222532.lcssa = phi ptr [ null, %.lr.ph ], [ %.1223, %98 ]
+  %.0224531.lcssa = phi ptr [ null, %.lr.ph ], [ %.1225, %98 ]
+  %.0226530.lcssa = phi ptr [ null, %.lr.ph ], [ %.1227, %98 ]
+  %.0228529.lcssa = phi ptr [ null, %.lr.ph ], [ %.1229, %98 ]
+  %.0230528.lcssa = phi ptr [ null, %.lr.ph ], [ %.1231, %98 ]
+  %.0232527.lcssa = phi ptr [ null, %.lr.ph ], [ %.1233, %98 ]
+  %.0234526.lcssa = phi ptr [ null, %.lr.ph ], [ %.1235, %98 ]
+  %.0236525.lcssa = phi ptr [ null, %.lr.ph ], [ %.1237, %98 ]
+  %.0238524.lcssa = phi ptr [ null, %.lr.ph ], [ %.1239, %98 ]
+  %.0240523.lcssa = phi ptr [ null, %.lr.ph ], [ %.1241, %98 ]
+  %.0242522.lcssa = phi ptr [ null, %.lr.ph ], [ %.1243, %98 ]
+  %.not263 = icmp eq ptr %.0242522.lcssa, null
   br i1 %.not263, label %108, label %102
 
 102:                                              ; preds = %._crit_edge
-  %103 = getelementptr inbounds i8, ptr %.0253522.lcssa, i64 24
+  %103 = getelementptr inbounds i8, ptr %.0242522.lcssa, i64 24
   %104 = load ptr, ptr %103, align 8
   %.not264 = icmp eq ptr %104, null
   br i1 %.not264, label %108, label %105
@@ -418,11 +418,11 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
 
 108:                                              ; preds = %105, %102, %._crit_edge
   %.0215 = phi ptr [ %107, %105 ], [ null, %102 ], [ null, %._crit_edge ]
-  %.not265 = icmp eq ptr %.0251523.lcssa, null
+  %.not265 = icmp eq ptr %.0240523.lcssa, null
   br i1 %.not265, label %115, label %109
 
 109:                                              ; preds = %108
-  %110 = getelementptr inbounds i8, ptr %.0251523.lcssa, i64 24
+  %110 = getelementptr inbounds i8, ptr %.0240523.lcssa, i64 24
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 4
   %113 = load i8, ptr %112, align 4
@@ -431,11 +431,11 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
 
 115:                                              ; preds = %109, %108
   %.0216 = phi i8 [ %114, %109 ], [ 0, %108 ]
-  %.not266 = icmp eq ptr %.0249524.lcssa, null
+  %.not266 = icmp eq ptr %.0238524.lcssa, null
   br i1 %.not266, label %122, label %116
 
 116:                                              ; preds = %115
-  %117 = getelementptr inbounds i8, ptr %.0249524.lcssa, i64 24
+  %117 = getelementptr inbounds i8, ptr %.0238524.lcssa, i64 24
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 4
   %120 = load i8, ptr %119, align 4
@@ -444,11 +444,11 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
 
 122:                                              ; preds = %116, %115
   %.0217 = phi i8 [ %121, %116 ], [ 1, %115 ]
-  %.not267 = icmp eq ptr %.0247525.lcssa, null
+  %.not267 = icmp eq ptr %.0236525.lcssa, null
   br i1 %.not267, label %129, label %123
 
 123:                                              ; preds = %122
-  %124 = getelementptr inbounds i8, ptr %.0247525.lcssa, i64 24
+  %124 = getelementptr inbounds i8, ptr %.0236525.lcssa, i64 24
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds i8, ptr %125, i64 4
   %127 = load i8, ptr %126, align 4
@@ -457,11 +457,11 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
 
 129:                                              ; preds = %123, %122
   %.0218 = phi i8 [ %128, %123 ], [ 0, %122 ]
-  %.not268 = icmp eq ptr %.0245526.lcssa, null
+  %.not268 = icmp eq ptr %.0234526.lcssa, null
   br i1 %.not268, label %136, label %130
 
 130:                                              ; preds = %129
-  %131 = getelementptr inbounds i8, ptr %.0245526.lcssa, i64 24
+  %131 = getelementptr inbounds i8, ptr %.0234526.lcssa, i64 24
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds i8, ptr %132, i64 4
   %134 = load i8, ptr %133, align 4
@@ -469,12 +469,12 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   br label %136
 
 136:                                              ; preds = %130, %129
-  %.0219 = phi i8 [ %135, %130 ], [ 0, %129 ]
-  %.not269 = icmp eq ptr %.0243527.lcssa, null
+  %.0255 = phi i8 [ %135, %130 ], [ 0, %129 ]
+  %.not269 = icmp eq ptr %.0232527.lcssa, null
   br i1 %.not269, label %143, label %137
 
 137:                                              ; preds = %136
-  %138 = getelementptr inbounds i8, ptr %.0243527.lcssa, i64 24
+  %138 = getelementptr inbounds i8, ptr %.0232527.lcssa, i64 24
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 4
   %141 = load i8, ptr %140, align 4
@@ -482,12 +482,12 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   br label %143
 
 143:                                              ; preds = %137, %136
-  %.1 = phi i8 [ %142, %137 ], [ %spec.select, %136 ]
-  %.not270 = icmp eq ptr %.0241528.lcssa, null
+  %.1254 = phi i8 [ %142, %137 ], [ %spec.select, %136 ]
+  %.not270 = icmp eq ptr %.0230528.lcssa, null
   br i1 %.not270, label %150, label %144
 
 144:                                              ; preds = %143
-  %145 = getelementptr inbounds i8, ptr %.0241528.lcssa, i64 24
+  %145 = getelementptr inbounds i8, ptr %.0230528.lcssa, i64 24
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr inbounds i8, ptr %146, i64 4
   %148 = load i8, ptr %147, align 4
@@ -495,12 +495,12 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   br label %150
 
 150:                                              ; preds = %144, %143
-  %.0221 = phi i8 [ %149, %144 ], [ 0, %143 ]
-  %.not271 = icmp eq ptr %.0239529.lcssa, null
+  %.0252 = phi i8 [ %149, %144 ], [ 0, %143 ]
+  %.not271 = icmp eq ptr %.0228529.lcssa, null
   br i1 %.not271, label %161, label %151
 
 151:                                              ; preds = %150
-  %152 = getelementptr inbounds i8, ptr %.0239529.lcssa, i64 24
+  %152 = getelementptr inbounds i8, ptr %.0228529.lcssa, i64 24
   %153 = load ptr, ptr %152, align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 4
   %155 = load i32, ptr %154, align 4
@@ -516,54 +516,54 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   unreachable
 
 161:                                              ; preds = %151, %150
-  %.0223 = phi i32 [ %155, %151 ], [ -1, %150 ]
-  %.not272 = icmp eq ptr %.0237530.lcssa, null
+  %.0250 = phi i32 [ %155, %151 ], [ -1, %150 ]
+  %.not272 = icmp eq ptr %.0226530.lcssa, null
   br i1 %.not272, label %165, label %162
 
 162:                                              ; preds = %161
-  %163 = getelementptr inbounds i8, ptr %.0237530.lcssa, i64 24
+  %163 = getelementptr inbounds i8, ptr %.0226530.lcssa, i64 24
   %164 = load ptr, ptr %163, align 8
   br label %165
 
 165:                                              ; preds = %162, %161
-  %.0224 = phi ptr [ %164, %162 ], [ null, %161 ]
-  %.not273 = icmp eq ptr %.0235531.lcssa, null
+  %.0249 = phi ptr [ %164, %162 ], [ null, %161 ]
+  %.not273 = icmp eq ptr %.0224531.lcssa, null
   br i1 %.not273, label %169, label %166
 
 166:                                              ; preds = %165
-  %167 = getelementptr inbounds i8, ptr %.0235531.lcssa, i64 24
+  %167 = getelementptr inbounds i8, ptr %.0224531.lcssa, i64 24
   %168 = load ptr, ptr %167, align 8
   br label %169
 
 169:                                              ; preds = %166, %165
-  %.0225 = phi ptr [ %168, %166 ], [ null, %165 ]
-  %.not274 = icmp eq ptr %.0233532.lcssa, null
+  %.0248 = phi ptr [ %168, %166 ], [ null, %165 ]
+  %.not274 = icmp eq ptr %.0222532.lcssa, null
   br i1 %.not274, label %173, label %170
 
 170:                                              ; preds = %169
-  %171 = getelementptr inbounds i8, ptr %.0233532.lcssa, i64 24
+  %171 = getelementptr inbounds i8, ptr %.0222532.lcssa, i64 24
   %172 = load ptr, ptr %171, align 8
   br label %173
 
 173:                                              ; preds = %170, %169
-  %.0226 = phi ptr [ %172, %170 ], [ null, %169 ]
-  %.not275 = icmp eq ptr %.0231533.lcssa, null
+  %.0247 = phi ptr [ %172, %170 ], [ null, %169 ]
+  %.not275 = icmp eq ptr %.0220533.lcssa, null
   br i1 %.not275, label %179, label %174
 
 174:                                              ; preds = %173
-  %175 = getelementptr inbounds i8, ptr %.0231533.lcssa, i64 24
+  %175 = getelementptr inbounds i8, ptr %.0220533.lcssa, i64 24
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 8
   %178 = load ptr, ptr %177, align 8
   br label %179
 
 179:                                              ; preds = %174, %173
-  %.0227 = phi ptr [ %178, %174 ], [ null, %173 ]
-  %.not276 = icmp eq ptr %.0229534.lcssa, null
+  %.0246 = phi ptr [ %178, %174 ], [ null, %173 ]
+  %.not276 = icmp eq ptr %.0219534.lcssa, null
   br i1 %.not276, label %.thread907, label %180
 
 180:                                              ; preds = %179
-  %181 = getelementptr inbounds i8, ptr %.0229534.lcssa, i64 24
+  %181 = getelementptr inbounds i8, ptr %.0219534.lcssa, i64 24
   %182 = load ptr, ptr %181, align 8
   %183 = getelementptr inbounds i8, ptr %182, i64 4
   %184 = load i8, ptr %183, align 4
@@ -571,19 +571,19 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   br label %.thread907
 
 .thread907:                                       ; preds = %2, %180, %179
-  %.0227933 = phi ptr [ %.0227, %180 ], [ %.0227, %179 ], [ null, %2 ]
-  %.0225879895932 = phi ptr [ %.0225, %180 ], [ %.0225, %179 ], [ null, %2 ]
-  %.0223825841878896931 = phi i32 [ %.0223, %180 ], [ %.0223, %179 ], [ -1, %2 ]
-  %.1771787824842877897930 = phi i8 [ %.1, %180 ], [ %.1, %179 ], [ %spec.select, %2 ]
+  %.0246933 = phi ptr [ %.0246, %180 ], [ %.0246, %179 ], [ null, %2 ]
+  %.0248879895932 = phi ptr [ %.0248, %180 ], [ %.0248, %179 ], [ null, %2 ]
+  %.0250825841878896931 = phi i32 [ %.0250, %180 ], [ %.0250, %179 ], [ -1, %2 ]
+  %.1254771787824842877897930 = phi i8 [ %.1254, %180 ], [ %.1254, %179 ], [ %spec.select, %2 ]
   %.0218717733770788823843876898929 = phi i8 [ %.0218, %180 ], [ %.0218, %179 ], [ 0, %2 ]
   %.0216663679716734769789822844875899928 = phi i8 [ %.0216, %180 ], [ %.0216, %179 ], [ 0, %2 ]
   %.0215636652689707742762795817848872901927 = phi ptr [ %.0215, %180 ], [ %.0215, %179 ], [ null, %2 ]
   %.0217690706743761796816849871902926 = phi i8 [ %.0217, %180 ], [ %.0217, %179 ], [ 1, %2 ]
-  %.0219744760797815850870903925 = phi i8 [ %.0219, %180 ], [ %.0219, %179 ], [ 0, %2 ]
-  %.0221798814851869904924 = phi i8 [ %.0221, %180 ], [ %.0221, %179 ], [ 0, %2 ]
-  %.0224852868905923 = phi ptr [ %.0224, %180 ], [ %.0224, %179 ], [ null, %2 ]
-  %.0226906922 = phi ptr [ %.0226, %180 ], [ %.0226, %179 ], [ null, %2 ]
-  %.0222 = phi i8 [ %185, %180 ], [ 0, %179 ], [ 0, %2 ]
+  %.0255744760797815850870903925 = phi i8 [ %.0255, %180 ], [ %.0255, %179 ], [ 0, %2 ]
+  %.0252798814851869904924 = phi i8 [ %.0252, %180 ], [ %.0252, %179 ], [ 0, %2 ]
+  %.0249852868905923 = phi ptr [ %.0249, %180 ], [ %.0249, %179 ], [ null, %2 ]
+  %.0247906922 = phi ptr [ %.0247, %180 ], [ %.0247, %179 ], [ null, %2 ]
+  %.0251 = phi i8 [ %185, %180 ], [ 0, %179 ], [ 0, %2 ]
   %186 = tail call zeroext i1 @superuser_arg(i32 noundef %8) #10
   br i1 %186, label %228, label %187
 
@@ -614,7 +614,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   unreachable
 
 201:                                              ; preds = %194
-  %202 = trunc nuw i8 %.0219744760797815850870903925 to i1
+  %202 = trunc nuw i8 %.0255744760797815850870903925 to i1
   br i1 %202, label %203, label %210
 
 203:                                              ; preds = %201
@@ -631,7 +631,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   unreachable
 
 210:                                              ; preds = %203, %201
-  %211 = trunc nuw i8 %.0221798814851869904924 to i1
+  %211 = trunc nuw i8 %.0252798814851869904924 to i1
   br i1 %211, label %212, label %219
 
 212:                                              ; preds = %210
@@ -648,7 +648,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   unreachable
 
 219:                                              ; preds = %212, %210
-  %220 = trunc nuw i8 %.0222 to i1
+  %220 = trunc nuw i8 %.0251 to i1
   br i1 %220, label %221, label %228
 
 221:                                              ; preds = %219
@@ -699,16 +699,16 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   unreachable
 
 249:                                              ; preds = %238
-  %.not278 = icmp eq ptr %.0227933, null
+  %.not278 = icmp eq ptr %.0246933, null
   br i1 %.not278, label %253, label %250
 
 250:                                              ; preds = %249
-  %251 = ptrtoint ptr %.0227933 to i64
+  %251 = ptrtoint ptr %.0246933 to i64
   %252 = tail call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @timestamptz_in, i32 noundef 0, i64 noundef %251, i64 noundef 0, i64 noundef -1) #10
   br label %253
 
 253:                                              ; preds = %249, %250
-  %.0228 = phi i64 [ %252, %250 ], [ 0, %249 ]
+  %.0245 = phi i64 [ %252, %250 ], [ 0, %249 ]
   %254 = load ptr, ptr @check_password_hook, align 8
   %255 = icmp ne ptr %254, null
   %256 = icmp ne ptr %.0215636652689707742762795817848872901927, null
@@ -718,7 +718,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
 257:                                              ; preds = %253
   %258 = load ptr, ptr %229, align 8
   %259 = tail call i32 @get_password_type(ptr noundef nonnull %.0215636652689707742762795817848872901927) #10
-  tail call void %254(ptr noundef %258, ptr noundef nonnull %.0215636652689707742762795817848872901927, i32 noundef %259, i64 noundef %.0228, i1 noundef zeroext %.not278) #10
+  tail call void %254(ptr noundef %258, ptr noundef nonnull %.0215636652689707742762795817848872901927, i32 noundef %259, i64 noundef %.0245, i1 noundef zeroext %.not278) #10
   br label %260
 
 260:                                              ; preds = %257, %253
@@ -736,16 +736,16 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   %269 = zext nneg i8 %.0218717733770788823843876898929 to i64
   %270 = getelementptr inbounds i8, ptr %3, i64 32
   store i64 %269, ptr %270, align 16
-  %271 = zext nneg i8 %.0219744760797815850870903925 to i64
+  %271 = zext nneg i8 %.0255744760797815850870903925 to i64
   %272 = getelementptr inbounds i8, ptr %3, i64 40
   store i64 %271, ptr %272, align 8
-  %273 = zext nneg i8 %.1771787824842877897930 to i64
+  %273 = zext nneg i8 %.1254771787824842877897930 to i64
   %274 = getelementptr inbounds i8, ptr %3, i64 48
   store i64 %273, ptr %274, align 16
-  %275 = zext nneg i8 %.0221798814851869904924 to i64
+  %275 = zext nneg i8 %.0252798814851869904924 to i64
   %276 = getelementptr inbounds i8, ptr %3, i64 56
   store i64 %275, ptr %276, align 8
-  %277 = sext i32 %.0223825841878896931 to i64
+  %277 = sext i32 %.0250825841878896931 to i64
   %278 = getelementptr inbounds i8, ptr %3, i64 72
   store i64 %277, ptr %278, align 8
   br i1 %256, label %279, label %299
@@ -793,11 +793,11 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
 
 301:                                              ; preds = %290, %292, %299
   %302 = getelementptr inbounds i8, ptr %3, i64 88
-  store i64 %.0228, ptr %302, align 8
+  store i64 %.0245, ptr %302, align 8
   %303 = getelementptr inbounds i8, ptr %4, i64 11
   %304 = zext i1 %.not278 to i8
   store i8 %304, ptr %303, align 1
-  %305 = zext nneg i8 %.0222 to i64
+  %305 = zext nneg i8 %.0251 to i64
   %306 = getelementptr inbounds i8, ptr %3, i64 64
   store i64 %305, ptr %306, align 16
   %307 = load i8, ptr @IsBinaryUpgrade, align 1
@@ -831,10 +831,10 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   store i64 %319, ptr %3, align 16
   %320 = call ptr @heap_form_tuple(ptr noundef %241, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   call void @CatalogTupleInsert(ptr noundef nonnull %239, ptr noundef %320) #10
-  %321 = icmp ne ptr %.0224852868905923, null
-  %322 = icmp ne ptr %.0226906922, null
+  %321 = icmp ne ptr %.0249852868905923, null
+  %322 = icmp ne ptr %.0247906922, null
   %or.cond3 = select i1 %321, i1 true, i1 %322
-  %323 = icmp ne ptr %.0225879895932, null
+  %323 = icmp ne ptr %.0248879895932, null
   %or.cond5 = select i1 %or.cond3, i1 true, i1 %323
   br i1 %or.cond5, label %327, label %.thread306
 
@@ -872,13 +872,13 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
   store ptr %337, ptr %338, align 8
   %339 = getelementptr inbounds i8, ptr %332, i64 16
   store i32 -1, ptr %339, align 8
-  %340 = getelementptr inbounds i8, ptr %.0224852868905923, i64 4
+  %340 = getelementptr inbounds i8, ptr %.0249852868905923, i64 4
   %341 = load i32, ptr %340, align 4
   %.not281562 = icmp sgt i32 %341, 0
   br i1 %.not281562, label %.lr.ph565, label %.loopexit
 
 .lr.ph565:                                        ; preds = %331
-  %342 = getelementptr inbounds i8, ptr %.0224852868905923, i64 16
+  %342 = getelementptr inbounds i8, ptr %.0249852868905923, i64 16
   br label %343
 
 343:                                              ; preds = %.lr.ph565, %343
@@ -941,12 +941,12 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
 
 375:                                              ; preds = %360, %373, %.loopexit
   %376 = load ptr, ptr %229, align 8
-  %377 = getelementptr inbounds i8, ptr %.0225879895932, i64 4
-  %.not.i = icmp eq ptr %.0225879895932, null
+  %377 = getelementptr inbounds i8, ptr %.0248879895932, i64 4
+  %.not.i = icmp eq ptr %.0248879895932, null
   br i1 %.not.i, label %roleSpecsToIds.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %375
-  %378 = getelementptr inbounds i8, ptr %.0225879895932, i64 16
+  %378 = getelementptr inbounds i8, ptr %.0248879895932, i64 16
   %379 = load i32, ptr %377, align 4
   %380 = icmp sgt i32 %379, 0
   br i1 %380, label %.lr.ph21.i, label %roleSpecsToIds.exit
@@ -967,16 +967,16 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr nocapture noundef readonly 
 
 roleSpecsToIds.exit:                              ; preds = %.lr.ph21.i, %375, %.lr.ph.i
   %.0.lcssa.i = phi ptr [ null, %375 ], [ null, %.lr.ph.i ], [ %385, %.lr.ph21.i ]
-  call fastcc void @AddRoleMems(i32 noundef %8, ptr noundef %376, i32 noundef %.0, ptr noundef %.0225879895932, ptr noundef %.0.lcssa.i, i32 noundef 0, ptr noundef nonnull %5)
+  call fastcc void @AddRoleMems(i32 noundef %8, ptr noundef %376, i32 noundef %.0, ptr noundef %.0248879895932, ptr noundef %.0.lcssa.i, i32 noundef 0, ptr noundef nonnull %5)
   store i32 1, ptr %5, align 4
   store i8 1, ptr %358, align 4
   %389 = load ptr, ptr %229, align 8
-  %390 = getelementptr inbounds i8, ptr %.0226906922, i64 4
-  %.not.i296 = icmp eq ptr %.0226906922, null
+  %390 = getelementptr inbounds i8, ptr %.0247906922, i64 4
+  %.not.i296 = icmp eq ptr %.0247906922, null
   br i1 %.not.i296, label %roleSpecsToIds.exit303, label %.lr.ph.i297
 
 .lr.ph.i297:                                      ; preds = %roleSpecsToIds.exit
-  %391 = getelementptr inbounds i8, ptr %.0226906922, i64 16
+  %391 = getelementptr inbounds i8, ptr %.0247906922, i64 16
   %392 = load i32, ptr %390, align 4
   %393 = icmp sgt i32 %392, 0
   br i1 %393, label %.lr.ph21.i299, label %roleSpecsToIds.exit303
@@ -997,7 +997,7 @@ roleSpecsToIds.exit:                              ; preds = %.lr.ph21.i, %375, %
 
 roleSpecsToIds.exit303:                           ; preds = %.lr.ph21.i299, %roleSpecsToIds.exit, %.lr.ph.i297
   %.0.lcssa.i298 = phi ptr [ null, %roleSpecsToIds.exit ], [ null, %.lr.ph.i297 ], [ %398, %.lr.ph21.i299 ]
-  call fastcc void @AddRoleMems(i32 noundef %8, ptr noundef %389, i32 noundef %.0, ptr noundef %.0226906922, ptr noundef %.0.lcssa.i298, i32 noundef 0, ptr noundef nonnull %5)
+  call fastcc void @AddRoleMems(i32 noundef %8, ptr noundef %389, i32 noundef %.0, ptr noundef %.0247906922, ptr noundef %.0.lcssa.i298, i32 noundef 0, ptr noundef nonnull %5)
   %402 = load ptr, ptr @object_access_hook, align 8
   %.not282 = icmp eq ptr %402, null
   br i1 %.not282, label %404, label %403
@@ -1480,7 +1480,7 @@ plan_member_revoke.exit:                          ; preds = %plan_member_revoke.
   br label %189
 
 189:                                              ; preds = %186, %180, %171
-  %.0126 = phi i1 [ true, %186 ], [ false, %180 ], [ false, %171 ]
+  %.0 = phi i1 [ true, %186 ], [ false, %180 ], [ false, %171 ]
   %190 = and i32 %178, 2
   %.not150 = icmp eq i32 %190, 0
   br i1 %.not150, label %200, label %191
@@ -1502,7 +1502,7 @@ plan_member_revoke.exit:                          ; preds = %plan_member_revoke.
   br label %200
 
 200:                                              ; preds = %197, %191, %189
-  %.1 = phi i1 [ true, %197 ], [ %.0126, %191 ], [ %.0126, %189 ]
+  %.1 = phi i1 [ true, %197 ], [ %.0, %191 ], [ %.0, %189 ]
   %201 = and i32 %178, 4
   %.not152 = icmp eq i32 %201, 0
   br i1 %.not152, label %210, label %202
@@ -1694,17 +1694,17 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br label %.lr.ph852
 
 .lr.ph852:                                        ; preds = %.lr.ph852.preheader, %84
-  %.0206411851 = phi ptr [ %.1207, %84 ], [ null, %.lr.ph852.preheader ]
-  %.0204412850 = phi ptr [ %.1205, %84 ], [ null, %.lr.ph852.preheader ]
-  %.0202413849 = phi ptr [ %.1203, %84 ], [ null, %.lr.ph852.preheader ]
-  %.0200414848 = phi ptr [ %.1201, %84 ], [ null, %.lr.ph852.preheader ]
-  %.0198415847 = phi ptr [ %.1199, %84 ], [ null, %.lr.ph852.preheader ]
-  %.0196416846 = phi ptr [ %.1197, %84 ], [ null, %.lr.ph852.preheader ]
-  %.0194417845 = phi ptr [ %.1195, %84 ], [ null, %.lr.ph852.preheader ]
-  %.0192418844 = phi ptr [ %.1193, %84 ], [ null, %.lr.ph852.preheader ]
-  %.0190419843 = phi ptr [ %.1191, %84 ], [ null, %.lr.ph852.preheader ]
-  %.0188420842 = phi ptr [ %.1189, %84 ], [ null, %.lr.ph852.preheader ]
-  %.0187421841 = phi ptr [ %.1, %84 ], [ null, %.lr.ph852.preheader ]
+  %.0201411851 = phi ptr [ %.1202, %84 ], [ null, %.lr.ph852.preheader ]
+  %.0199412850 = phi ptr [ %.1200, %84 ], [ null, %.lr.ph852.preheader ]
+  %.0197413849 = phi ptr [ %.1198, %84 ], [ null, %.lr.ph852.preheader ]
+  %.0195414848 = phi ptr [ %.1196, %84 ], [ null, %.lr.ph852.preheader ]
+  %.0193415847 = phi ptr [ %.1194, %84 ], [ null, %.lr.ph852.preheader ]
+  %.0191416846 = phi ptr [ %.1192, %84 ], [ null, %.lr.ph852.preheader ]
+  %.0189417845 = phi ptr [ %.1190, %84 ], [ null, %.lr.ph852.preheader ]
+  %.0187418844 = phi ptr [ %.1188, %84 ], [ null, %.lr.ph852.preheader ]
+  %.0185419843 = phi ptr [ %.1186, %84 ], [ null, %.lr.ph852.preheader ]
+  %.0183420842 = phi ptr [ %.1184, %84 ], [ null, %.lr.ph852.preheader ]
+  %.0421841 = phi ptr [ %.1, %84 ], [ null, %.lr.ph852.preheader ]
   %indvars.iv840 = phi i64 [ %indvars.iv.next, %84 ], [ 0, %.lr.ph852.preheader ]
   %19 = getelementptr %union.ListCell, ptr %18, i64 %indvars.iv840
   %20 = load ptr, ptr %19, align 8
@@ -1715,7 +1715,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %.lr.ph852
-  %.not242 = icmp eq ptr %.0187421841, null
+  %.not242 = icmp eq ptr %.0201411851, null
   br i1 %.not242, label %84, label %26
 
 26:                                               ; preds = %25
@@ -1728,7 +1728,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %27
-  %.not241 = icmp eq ptr %.0188420842, null
+  %.not241 = icmp eq ptr %.0199412850, null
   br i1 %.not241, label %84, label %31
 
 31:                                               ; preds = %30
@@ -1741,7 +1741,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %32
-  %.not240 = icmp eq ptr %.0206411851, null
+  %.not240 = icmp eq ptr %.0197413849, null
   br i1 %.not240, label %84, label %36
 
 36:                                               ; preds = %35
@@ -1754,7 +1754,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %37
-  %.not239 = icmp eq ptr %.0204412850, null
+  %.not239 = icmp eq ptr %.0195414848, null
   br i1 %.not239, label %84, label %41
 
 41:                                               ; preds = %40
@@ -1767,7 +1767,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %42
-  %.not238 = icmp eq ptr %.0202413849, null
+  %.not238 = icmp eq ptr %.0193415847, null
   br i1 %.not238, label %84, label %46
 
 46:                                               ; preds = %45
@@ -1780,7 +1780,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %47
-  %.not237 = icmp eq ptr %.0200414848, null
+  %.not237 = icmp eq ptr %.0191416846, null
   br i1 %.not237, label %84, label %51
 
 51:                                               ; preds = %50
@@ -1793,7 +1793,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %52
-  %.not236 = icmp eq ptr %.0198415847, null
+  %.not236 = icmp eq ptr %.0189417845, null
   br i1 %.not236, label %84, label %56
 
 56:                                               ; preds = %55
@@ -1806,7 +1806,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %57
-  %.not235 = icmp eq ptr %.0196416846, null
+  %.not235 = icmp eq ptr %.0187418844, null
   br i1 %.not235, label %84, label %61
 
 61:                                               ; preds = %60
@@ -1824,7 +1824,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %.not231, label %69, label %67
 
 67:                                               ; preds = %65
-  %.not234 = icmp eq ptr %.0194417845, null
+  %.not234 = icmp eq ptr %.0185419843, null
   br i1 %.not234, label %84, label %68
 
 68:                                               ; preds = %67
@@ -1837,7 +1837,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %69
-  %.not233 = icmp eq ptr %.0192418844, null
+  %.not233 = icmp eq ptr %.0183420842, null
   br i1 %.not233, label %84, label %73
 
 73:                                               ; preds = %72
@@ -1850,7 +1850,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %74
-  %.not232 = icmp eq ptr %.0190419843, null
+  %.not232 = icmp eq ptr %.0421841, null
   br i1 %.not232, label %84, label %78
 
 78:                                               ; preds = %77
@@ -1867,38 +1867,38 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   unreachable
 
 84:                                               ; preds = %77, %72, %67, %60, %55, %50, %45, %40, %35, %30, %25
-  %.1207 = phi ptr [ %.0206411851, %25 ], [ %.0206411851, %30 ], [ %20, %35 ], [ %.0206411851, %40 ], [ %.0206411851, %45 ], [ %.0206411851, %50 ], [ %.0206411851, %55 ], [ %.0206411851, %60 ], [ %.0206411851, %67 ], [ %.0206411851, %72 ], [ %.0206411851, %77 ]
-  %.1205 = phi ptr [ %.0204412850, %25 ], [ %.0204412850, %30 ], [ %.0204412850, %35 ], [ %20, %40 ], [ %.0204412850, %45 ], [ %.0204412850, %50 ], [ %.0204412850, %55 ], [ %.0204412850, %60 ], [ %.0204412850, %67 ], [ %.0204412850, %72 ], [ %.0204412850, %77 ]
-  %.1203 = phi ptr [ %.0202413849, %25 ], [ %.0202413849, %30 ], [ %.0202413849, %35 ], [ %.0202413849, %40 ], [ %20, %45 ], [ %.0202413849, %50 ], [ %.0202413849, %55 ], [ %.0202413849, %60 ], [ %.0202413849, %67 ], [ %.0202413849, %72 ], [ %.0202413849, %77 ]
-  %.1201 = phi ptr [ %.0200414848, %25 ], [ %.0200414848, %30 ], [ %.0200414848, %35 ], [ %.0200414848, %40 ], [ %.0200414848, %45 ], [ %20, %50 ], [ %.0200414848, %55 ], [ %.0200414848, %60 ], [ %.0200414848, %67 ], [ %.0200414848, %72 ], [ %.0200414848, %77 ]
-  %.1199 = phi ptr [ %.0198415847, %25 ], [ %.0198415847, %30 ], [ %.0198415847, %35 ], [ %.0198415847, %40 ], [ %.0198415847, %45 ], [ %.0198415847, %50 ], [ %20, %55 ], [ %.0198415847, %60 ], [ %.0198415847, %67 ], [ %.0198415847, %72 ], [ %.0198415847, %77 ]
-  %.1197 = phi ptr [ %.0196416846, %25 ], [ %.0196416846, %30 ], [ %.0196416846, %35 ], [ %.0196416846, %40 ], [ %.0196416846, %45 ], [ %.0196416846, %50 ], [ %.0196416846, %55 ], [ %20, %60 ], [ %.0196416846, %67 ], [ %.0196416846, %72 ], [ %.0196416846, %77 ]
-  %.1195 = phi ptr [ %.0194417845, %25 ], [ %.0194417845, %30 ], [ %.0194417845, %35 ], [ %.0194417845, %40 ], [ %.0194417845, %45 ], [ %.0194417845, %50 ], [ %.0194417845, %55 ], [ %.0194417845, %60 ], [ %20, %67 ], [ %.0194417845, %72 ], [ %.0194417845, %77 ]
-  %.1193 = phi ptr [ %.0192418844, %25 ], [ %.0192418844, %30 ], [ %.0192418844, %35 ], [ %.0192418844, %40 ], [ %.0192418844, %45 ], [ %.0192418844, %50 ], [ %.0192418844, %55 ], [ %.0192418844, %60 ], [ %.0192418844, %67 ], [ %20, %72 ], [ %.0192418844, %77 ]
-  %.1191 = phi ptr [ %.0190419843, %25 ], [ %.0190419843, %30 ], [ %.0190419843, %35 ], [ %.0190419843, %40 ], [ %.0190419843, %45 ], [ %.0190419843, %50 ], [ %.0190419843, %55 ], [ %.0190419843, %60 ], [ %.0190419843, %67 ], [ %.0190419843, %72 ], [ %20, %77 ]
-  %.1189 = phi ptr [ %.0188420842, %25 ], [ %20, %30 ], [ %.0188420842, %35 ], [ %.0188420842, %40 ], [ %.0188420842, %45 ], [ %.0188420842, %50 ], [ %.0188420842, %55 ], [ %.0188420842, %60 ], [ %.0188420842, %67 ], [ %.0188420842, %72 ], [ %.0188420842, %77 ]
-  %.1 = phi ptr [ %20, %25 ], [ %.0187421841, %30 ], [ %.0187421841, %35 ], [ %.0187421841, %40 ], [ %.0187421841, %45 ], [ %.0187421841, %50 ], [ %.0187421841, %55 ], [ %.0187421841, %60 ], [ %.0187421841, %67 ], [ %.0187421841, %72 ], [ %.0187421841, %77 ]
+  %.1202 = phi ptr [ %20, %25 ], [ %.0201411851, %30 ], [ %.0201411851, %35 ], [ %.0201411851, %40 ], [ %.0201411851, %45 ], [ %.0201411851, %50 ], [ %.0201411851, %55 ], [ %.0201411851, %60 ], [ %.0201411851, %67 ], [ %.0201411851, %72 ], [ %.0201411851, %77 ]
+  %.1200 = phi ptr [ %.0199412850, %25 ], [ %20, %30 ], [ %.0199412850, %35 ], [ %.0199412850, %40 ], [ %.0199412850, %45 ], [ %.0199412850, %50 ], [ %.0199412850, %55 ], [ %.0199412850, %60 ], [ %.0199412850, %67 ], [ %.0199412850, %72 ], [ %.0199412850, %77 ]
+  %.1198 = phi ptr [ %.0197413849, %25 ], [ %.0197413849, %30 ], [ %20, %35 ], [ %.0197413849, %40 ], [ %.0197413849, %45 ], [ %.0197413849, %50 ], [ %.0197413849, %55 ], [ %.0197413849, %60 ], [ %.0197413849, %67 ], [ %.0197413849, %72 ], [ %.0197413849, %77 ]
+  %.1196 = phi ptr [ %.0195414848, %25 ], [ %.0195414848, %30 ], [ %.0195414848, %35 ], [ %20, %40 ], [ %.0195414848, %45 ], [ %.0195414848, %50 ], [ %.0195414848, %55 ], [ %.0195414848, %60 ], [ %.0195414848, %67 ], [ %.0195414848, %72 ], [ %.0195414848, %77 ]
+  %.1194 = phi ptr [ %.0193415847, %25 ], [ %.0193415847, %30 ], [ %.0193415847, %35 ], [ %.0193415847, %40 ], [ %20, %45 ], [ %.0193415847, %50 ], [ %.0193415847, %55 ], [ %.0193415847, %60 ], [ %.0193415847, %67 ], [ %.0193415847, %72 ], [ %.0193415847, %77 ]
+  %.1192 = phi ptr [ %.0191416846, %25 ], [ %.0191416846, %30 ], [ %.0191416846, %35 ], [ %.0191416846, %40 ], [ %.0191416846, %45 ], [ %20, %50 ], [ %.0191416846, %55 ], [ %.0191416846, %60 ], [ %.0191416846, %67 ], [ %.0191416846, %72 ], [ %.0191416846, %77 ]
+  %.1190 = phi ptr [ %.0189417845, %25 ], [ %.0189417845, %30 ], [ %.0189417845, %35 ], [ %.0189417845, %40 ], [ %.0189417845, %45 ], [ %.0189417845, %50 ], [ %20, %55 ], [ %.0189417845, %60 ], [ %.0189417845, %67 ], [ %.0189417845, %72 ], [ %.0189417845, %77 ]
+  %.1188 = phi ptr [ %.0187418844, %25 ], [ %.0187418844, %30 ], [ %.0187418844, %35 ], [ %.0187418844, %40 ], [ %.0187418844, %45 ], [ %.0187418844, %50 ], [ %.0187418844, %55 ], [ %20, %60 ], [ %.0187418844, %67 ], [ %.0187418844, %72 ], [ %.0187418844, %77 ]
+  %.1186 = phi ptr [ %.0185419843, %25 ], [ %.0185419843, %30 ], [ %.0185419843, %35 ], [ %.0185419843, %40 ], [ %.0185419843, %45 ], [ %.0185419843, %50 ], [ %.0185419843, %55 ], [ %.0185419843, %60 ], [ %20, %67 ], [ %.0185419843, %72 ], [ %.0185419843, %77 ]
+  %.1184 = phi ptr [ %.0183420842, %25 ], [ %.0183420842, %30 ], [ %.0183420842, %35 ], [ %.0183420842, %40 ], [ %.0183420842, %45 ], [ %.0183420842, %50 ], [ %.0183420842, %55 ], [ %.0183420842, %60 ], [ %.0183420842, %67 ], [ %20, %72 ], [ %.0183420842, %77 ]
+  %.1 = phi ptr [ %.0421841, %25 ], [ %.0421841, %30 ], [ %.0421841, %35 ], [ %.0421841, %40 ], [ %.0421841, %45 ], [ %.0421841, %50 ], [ %.0421841, %55 ], [ %.0421841, %60 ], [ %.0421841, %67 ], [ %.0421841, %72 ], [ %20, %77 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv840, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph852
 
 ._crit_edge:                                      ; preds = %84, %.lr.ph
-  %.0187421.lcssa = phi ptr [ null, %.lr.ph ], [ %.1, %84 ]
-  %.0188420.lcssa = phi ptr [ null, %.lr.ph ], [ %.1189, %84 ]
-  %.0190419.lcssa = phi ptr [ null, %.lr.ph ], [ %.1191, %84 ]
-  %.0192418.lcssa = phi ptr [ null, %.lr.ph ], [ %.1193, %84 ]
-  %.0194417.lcssa = phi ptr [ null, %.lr.ph ], [ %.1195, %84 ]
-  %.0196416.lcssa = phi ptr [ null, %.lr.ph ], [ %.1197, %84 ]
-  %.0198415.lcssa = phi ptr [ null, %.lr.ph ], [ %.1199, %84 ]
-  %.0200414.lcssa = phi ptr [ null, %.lr.ph ], [ %.1201, %84 ]
-  %.0202413.lcssa = phi ptr [ null, %.lr.ph ], [ %.1203, %84 ]
-  %.0204412.lcssa = phi ptr [ null, %.lr.ph ], [ %.1205, %84 ]
-  %.0206411.lcssa = phi ptr [ null, %.lr.ph ], [ %.1207, %84 ]
-  %.not216 = icmp eq ptr %.0187421.lcssa, null
+  %.0421.lcssa = phi ptr [ null, %.lr.ph ], [ %.1, %84 ]
+  %.0183420.lcssa = phi ptr [ null, %.lr.ph ], [ %.1184, %84 ]
+  %.0185419.lcssa = phi ptr [ null, %.lr.ph ], [ %.1186, %84 ]
+  %.0187418.lcssa = phi ptr [ null, %.lr.ph ], [ %.1188, %84 ]
+  %.0189417.lcssa = phi ptr [ null, %.lr.ph ], [ %.1190, %84 ]
+  %.0191416.lcssa = phi ptr [ null, %.lr.ph ], [ %.1192, %84 ]
+  %.0193415.lcssa = phi ptr [ null, %.lr.ph ], [ %.1194, %84 ]
+  %.0195414.lcssa = phi ptr [ null, %.lr.ph ], [ %.1196, %84 ]
+  %.0197413.lcssa = phi ptr [ null, %.lr.ph ], [ %.1198, %84 ]
+  %.0199412.lcssa = phi ptr [ null, %.lr.ph ], [ %.1200, %84 ]
+  %.0201411.lcssa = phi ptr [ null, %.lr.ph ], [ %.1202, %84 ]
+  %.not216 = icmp eq ptr %.0201411.lcssa, null
   br i1 %.not216, label %91, label %85
 
 85:                                               ; preds = %._crit_edge
-  %86 = getelementptr inbounds i8, ptr %.0187421.lcssa, i64 24
+  %86 = getelementptr inbounds i8, ptr %.0201411.lcssa, i64 24
   %87 = load ptr, ptr %86, align 8
   %.not217 = icmp eq ptr %87, null
   br i1 %.not217, label %91, label %88
@@ -1909,13 +1909,13 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br label %91
 
 91:                                               ; preds = %88, %85, %._crit_edge
-  %.0187.lcssa481 = phi ptr [ %.0187421.lcssa, %88 ], [ %.0187421.lcssa, %85 ], [ null, %._crit_edge ]
-  %.0183 = phi ptr [ %90, %88 ], [ null, %85 ], [ null, %._crit_edge ]
-  %.not692 = icmp ne ptr %.0196416.lcssa, null
+  %.0201.lcssa471 = phi ptr [ %.0201411.lcssa, %88 ], [ %.0201411.lcssa, %85 ], [ null, %._crit_edge ]
+  %.0206 = phi ptr [ %90, %88 ], [ null, %85 ], [ null, %._crit_edge ]
+  %.not692 = icmp ne ptr %.0187418.lcssa, null
   br i1 %.not692, label %92, label %102
 
 92:                                               ; preds = %91
-  %93 = getelementptr inbounds i8, ptr %.0196416.lcssa, i64 24
+  %93 = getelementptr inbounds i8, ptr %.0187418.lcssa, i64 24
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 4
   %96 = load i32, ptr %95, align 4
@@ -1931,12 +1931,12 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   unreachable
 
 102:                                              ; preds = %92, %91
-  %.0184 = phi i32 [ %96, %92 ], [ -1, %91 ]
-  %.not693 = icmp eq ptr %.0192418.lcssa, null
+  %.0205 = phi i32 [ %96, %92 ], [ -1, %91 ]
+  %.not693 = icmp eq ptr %.0183420.lcssa, null
   br i1 %.not693, label %.thread508, label %103
 
 103:                                              ; preds = %102
-  %104 = getelementptr inbounds i8, ptr %.0192418.lcssa, i64 24
+  %104 = getelementptr inbounds i8, ptr %.0183420.lcssa, i64 24
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8
@@ -1944,20 +1944,20 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
 
 .thread508:                                       ; preds = %2, %103, %102
   %108 = phi i1 [ true, %103 ], [ false, %102 ], [ false, %2 ]
-  %.0184533 = phi i32 [ %.0184, %103 ], [ %.0184, %102 ], [ -1, %2 ]
+  %.0205533 = phi i32 [ %.0205, %103 ], [ %.0205, %102 ], [ -1, %2 ]
   %.not216482496532 = phi i1 [ %.not216, %103 ], [ %.not216, %102 ], [ true, %2 ]
-  %.0187.lcssa481497531 = phi ptr [ %.0187.lcssa481, %103 ], [ %.0187.lcssa481, %102 ], [ null, %2 ]
-  %.0188.lcssa480498530 = phi ptr [ %.0188420.lcssa, %103 ], [ %.0188420.lcssa, %102 ], [ null, %2 ]
-  %.0190.lcssa479499529 = phi ptr [ %.0190419.lcssa, %103 ], [ %.0190419.lcssa, %102 ], [ null, %2 ]
-  %.0194.lcssa477501528 = phi ptr [ %.0194417.lcssa, %103 ], [ %.0194417.lcssa, %102 ], [ null, %2 ]
-  %.0198.lcssa475502527 = phi ptr [ %.0198415.lcssa, %103 ], [ %.0198415.lcssa, %102 ], [ null, %2 ]
-  %.0200.lcssa474503526 = phi ptr [ %.0200414.lcssa, %103 ], [ %.0200414.lcssa, %102 ], [ null, %2 ]
-  %.0202.lcssa473504525 = phi ptr [ %.0202413.lcssa, %103 ], [ %.0202413.lcssa, %102 ], [ null, %2 ]
-  %.0204.lcssa472505524 = phi ptr [ %.0204412.lcssa, %103 ], [ %.0204412.lcssa, %102 ], [ null, %2 ]
-  %.0206.lcssa471506523 = phi ptr [ %.0206411.lcssa, %103 ], [ %.0206411.lcssa, %102 ], [ null, %2 ]
-  %.0183507522 = phi ptr [ %.0183, %103 ], [ %.0183, %102 ], [ null, %2 ]
+  %.0.lcssa481497531 = phi ptr [ %.0421.lcssa, %103 ], [ %.0421.lcssa, %102 ], [ null, %2 ]
+  %.0185.lcssa479499530 = phi ptr [ %.0185419.lcssa, %103 ], [ %.0185419.lcssa, %102 ], [ null, %2 ]
+  %.0189.lcssa477500529 = phi ptr [ %.0189417.lcssa, %103 ], [ %.0189417.lcssa, %102 ], [ null, %2 ]
+  %.0191.lcssa476501528 = phi ptr [ %.0191416.lcssa, %103 ], [ %.0191416.lcssa, %102 ], [ null, %2 ]
+  %.0193.lcssa475502527 = phi ptr [ %.0193415.lcssa, %103 ], [ %.0193415.lcssa, %102 ], [ null, %2 ]
+  %.0195.lcssa474503526 = phi ptr [ %.0195414.lcssa, %103 ], [ %.0195414.lcssa, %102 ], [ null, %2 ]
+  %.0197.lcssa473504525 = phi ptr [ %.0197413.lcssa, %103 ], [ %.0197413.lcssa, %102 ], [ null, %2 ]
+  %.0199.lcssa472505524 = phi ptr [ %.0199412.lcssa, %103 ], [ %.0199412.lcssa, %102 ], [ null, %2 ]
+  %.0201.lcssa471506523 = phi ptr [ %.0201.lcssa471, %103 ], [ %.0201.lcssa471, %102 ], [ null, %2 ]
+  %.0206507522 = phi ptr [ %.0206, %103 ], [ %.0206, %102 ], [ null, %2 ]
   %109 = phi i1 [ %.not692, %103 ], [ %.not692, %102 ], [ false, %2 ]
-  %.0185 = phi ptr [ %107, %103 ], [ null, %102 ], [ null, %2 ]
+  %.0204 = phi ptr [ %107, %103 ], [ null, %102 ], [ null, %2 ]
   %110 = tail call ptr @table_open(i32 noundef 1260, i32 noundef 3) #10
   %111 = getelementptr inbounds i8, ptr %110, i64 64
   %112 = load ptr, ptr %111, align 8
@@ -1992,7 +1992,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
 
 134:                                              ; preds = %125, %.thread508
   %135 = tail call zeroext i1 @superuser() #10
-  %136 = icmp eq ptr %.0188.lcssa480498530, null
+  %136 = icmp eq ptr %.0199.lcssa472505524, null
   %or.cond.not = select i1 %135, i1 true, i1 %136
   br i1 %or.cond.not, label %142, label %137
 
@@ -2016,18 +2016,18 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %147, label %166, label %148
 
 148:                                              ; preds = %145, %142
-  %149 = icmp ne ptr %.0206.lcssa471506523, null
-  %150 = icmp ne ptr %.0204.lcssa472505524, null
+  %149 = icmp ne ptr %.0197.lcssa473504525, null
+  %150 = icmp ne ptr %.0195.lcssa474503526, null
   %or.cond3 = select i1 %149, i1 true, i1 %150
-  %151 = icmp ne ptr %.0202.lcssa473504525, null
+  %151 = icmp ne ptr %.0193.lcssa475502527, null
   %or.cond5 = select i1 %or.cond3, i1 true, i1 %151
-  %152 = icmp ne ptr %.0200.lcssa474503526, null
+  %152 = icmp ne ptr %.0191.lcssa476501528, null
   %or.cond7 = select i1 %or.cond5, i1 true, i1 %152
   %or.cond9 = or i1 %or.cond7, %109
   %or.cond11 = or i1 %or.cond9, %108
-  %153 = icmp ne ptr %.0198.lcssa475502527, null
+  %153 = icmp ne ptr %.0189.lcssa477500529, null
   %or.cond13 = select i1 %or.cond11, i1 true, i1 %153
-  %154 = icmp ne ptr %.0190.lcssa479499529, null
+  %154 = icmp ne ptr %.0.lcssa481497531, null
   %or.cond15 = select i1 %or.cond13, i1 true, i1 %154
   br i1 %or.cond15, label %155, label %160
 
@@ -2059,7 +2059,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %167, label %192, label %168
 
 168:                                              ; preds = %166
-  %.not219 = icmp eq ptr %.0202.lcssa473504525, null
+  %.not219 = icmp eq ptr %.0193.lcssa475502527, null
   br i1 %.not219, label %176, label %169
 
 169:                                              ; preds = %168
@@ -2076,7 +2076,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   unreachable
 
 176:                                              ; preds = %169, %168
-  %.not220 = icmp eq ptr %.0198.lcssa475502527, null
+  %.not220 = icmp eq ptr %.0189.lcssa477500529, null
   br i1 %.not220, label %184, label %177
 
 177:                                              ; preds = %176
@@ -2093,7 +2093,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   unreachable
 
 184:                                              ; preds = %177, %176
-  %.not221 = icmp eq ptr %.0190.lcssa479499529, null
+  %.not221 = icmp eq ptr %.0.lcssa481497531, null
   br i1 %.not221, label %192, label %185
 
 185:                                              ; preds = %184
@@ -2110,7 +2110,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   unreachable
 
 192:                                              ; preds = %166, %185, %184, %160
-  %.not222 = icmp eq ptr %.0194.lcssa477501528, null
+  %.not222 = icmp eq ptr %.0185.lcssa479499530, null
   br i1 %.not222, label %200, label %193
 
 193:                                              ; preds = %192
@@ -2130,7 +2130,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %108, label %201, label %204
 
 201:                                              ; preds = %200
-  %202 = ptrtoint ptr %.0185 to i64
+  %202 = ptrtoint ptr %.0204 to i64
   %203 = tail call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @timestamptz_in, i32 noundef 0, i64 noundef %202, i64 noundef 0, i64 noundef -1) #10
   store i8 0, ptr %6, align 1
   br label %206
@@ -2140,25 +2140,25 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br label %206
 
 206:                                              ; preds = %204, %201
-  %.0186 = phi i64 [ %203, %201 ], [ %205, %204 ]
+  %.0203 = phi i64 [ %203, %201 ], [ %205, %204 ]
   %207 = load ptr, ptr @check_password_hook, align 8
   %208 = icmp ne ptr %207, null
-  %209 = icmp ne ptr %.0183507522, null
+  %209 = icmp ne ptr %.0206507522, null
   %or.cond17 = select i1 %208, i1 %209, i1 false
   br i1 %or.cond17, label %210, label %214
 
 210:                                              ; preds = %206
-  %211 = call i32 @get_password_type(ptr noundef nonnull %.0183507522) #10
+  %211 = call i32 @get_password_type(ptr noundef nonnull %.0206507522) #10
   %212 = load i8, ptr %6, align 1
   %213 = trunc i8 %212 to i1
-  call void %207(ptr noundef %122, ptr noundef nonnull %.0183507522, i32 noundef %211, i64 noundef %.0186, i1 noundef zeroext %213) #10
+  call void %207(ptr noundef %122, ptr noundef nonnull %.0206507522, i32 noundef %211, i64 noundef %.0203, i1 noundef zeroext %213) #10
   br label %214
 
 214:                                              ; preds = %210, %206
   br i1 %136, label %231, label %215
 
 215:                                              ; preds = %214
-  %216 = getelementptr inbounds i8, ptr %.0188.lcssa480498530, i64 24
+  %216 = getelementptr inbounds i8, ptr %.0199.lcssa472505524, i64 24
   %217 = load ptr, ptr %216, align 8
   %218 = getelementptr inbounds i8, ptr %217, i64 4
   %219 = load i8, ptr %218, align 4
@@ -2186,11 +2186,11 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br label %231
 
 231:                                              ; preds = %227, %214
-  %.not224 = icmp eq ptr %.0206.lcssa471506523, null
+  %.not224 = icmp eq ptr %.0197.lcssa473504525, null
   br i1 %.not224, label %241, label %232
 
 232:                                              ; preds = %231
-  %233 = getelementptr inbounds i8, ptr %.0206.lcssa471506523, i64 24
+  %233 = getelementptr inbounds i8, ptr %.0197.lcssa473504525, i64 24
   %234 = load ptr, ptr %233, align 8
   %235 = getelementptr inbounds i8, ptr %234, i64 4
   %236 = load i8, ptr %235, align 4
@@ -2203,11 +2203,11 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br label %241
 
 241:                                              ; preds = %232, %231
-  %.not225 = icmp eq ptr %.0204.lcssa472505524, null
+  %.not225 = icmp eq ptr %.0195.lcssa474503526, null
   br i1 %.not225, label %251, label %242
 
 242:                                              ; preds = %241
-  %243 = getelementptr inbounds i8, ptr %.0204.lcssa472505524, i64 24
+  %243 = getelementptr inbounds i8, ptr %.0195.lcssa474503526, i64 24
   %244 = load ptr, ptr %243, align 8
   %245 = getelementptr inbounds i8, ptr %244, i64 4
   %246 = load i8, ptr %245, align 4
@@ -2220,11 +2220,11 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br label %251
 
 251:                                              ; preds = %242, %241
-  %.not226 = icmp eq ptr %.0202.lcssa473504525, null
+  %.not226 = icmp eq ptr %.0193.lcssa475502527, null
   br i1 %.not226, label %261, label %252
 
 252:                                              ; preds = %251
-  %253 = getelementptr inbounds i8, ptr %.0202.lcssa473504525, i64 24
+  %253 = getelementptr inbounds i8, ptr %.0193.lcssa475502527, i64 24
   %254 = load ptr, ptr %253, align 8
   %255 = getelementptr inbounds i8, ptr %254, i64 4
   %256 = load i8, ptr %255, align 4
@@ -2237,11 +2237,11 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br label %261
 
 261:                                              ; preds = %252, %251
-  %.not227 = icmp eq ptr %.0200.lcssa474503526, null
+  %.not227 = icmp eq ptr %.0191.lcssa476501528, null
   br i1 %.not227, label %271, label %262
 
 262:                                              ; preds = %261
-  %263 = getelementptr inbounds i8, ptr %.0200.lcssa474503526, i64 24
+  %263 = getelementptr inbounds i8, ptr %.0191.lcssa476501528, i64 24
   %264 = load ptr, ptr %263, align 8
   %265 = getelementptr inbounds i8, ptr %264, i64 4
   %266 = load i8, ptr %265, align 4
@@ -2254,11 +2254,11 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br label %271
 
 271:                                              ; preds = %262, %261
-  %.not228 = icmp eq ptr %.0198.lcssa475502527, null
+  %.not228 = icmp eq ptr %.0189.lcssa477500529, null
   br i1 %.not228, label %281, label %272
 
 272:                                              ; preds = %271
-  %273 = getelementptr inbounds i8, ptr %.0198.lcssa475502527, i64 24
+  %273 = getelementptr inbounds i8, ptr %.0189.lcssa477500529, i64 24
   %274 = load ptr, ptr %273, align 8
   %275 = getelementptr inbounds i8, ptr %274, i64 4
   %276 = load i8, ptr %275, align 4
@@ -2274,7 +2274,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %109, label %282, label %286
 
 282:                                              ; preds = %281
-  %283 = sext i32 %.0184533 to i64
+  %283 = sext i32 %.0205533 to i64
   %284 = getelementptr inbounds i8, ptr %3, i64 72
   store i64 %283, ptr %284, align 8
   %285 = getelementptr inbounds i8, ptr %5, i64 9
@@ -2286,12 +2286,12 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
 
 287:                                              ; preds = %286
   store ptr null, ptr %8, align 8
-  %288 = load i8, ptr %.0183507522, align 1
+  %288 = load i8, ptr %.0206507522, align 1
   %289 = icmp eq i8 %288, 0
   br i1 %289, label %293, label %290
 
 290:                                              ; preds = %287
-  %291 = call i32 @plain_crypt_verify(ptr noundef %122, ptr noundef nonnull %.0183507522, ptr noundef nonnull @.str, ptr noundef nonnull %8) #10
+  %291 = call i32 @plain_crypt_verify(ptr noundef %122, ptr noundef nonnull %.0206507522, ptr noundef nonnull @.str, ptr noundef nonnull %8) #10
   %292 = icmp eq i32 %291, 0
   br i1 %292, label %293, label %299
 
@@ -2311,7 +2311,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
 
 299:                                              ; preds = %290
   %300 = load i32, ptr @Password_encryption, align 4
-  %301 = call ptr @encrypt_password(i32 noundef %300, ptr noundef %122, ptr noundef nonnull %.0183507522) #10
+  %301 = call ptr @encrypt_password(i32 noundef %300, ptr noundef %122, ptr noundef nonnull %.0206507522) #10
   %302 = call ptr @cstring_to_text(ptr noundef %301) #10
   %303 = ptrtoint ptr %302 to i64
   %304 = getelementptr inbounds i8, ptr %3, i64 80
@@ -2327,7 +2327,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %.not216482496532, label %315, label %308
 
 308:                                              ; preds = %307
-  %309 = getelementptr inbounds i8, ptr %.0187.lcssa481497531, i64 24
+  %309 = getelementptr inbounds i8, ptr %.0201.lcssa471506523, i64 24
   %310 = load ptr, ptr %309, align 8
   %311 = icmp eq ptr %310, null
   br i1 %311, label %312, label %315
@@ -2341,18 +2341,18 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
 
 315:                                              ; preds = %312, %308, %307
   %316 = getelementptr inbounds i8, ptr %3, i64 88
-  store i64 %.0186, ptr %316, align 8
+  store i64 %.0203, ptr %316, align 8
   %317 = load i8, ptr %6, align 1
   %318 = getelementptr inbounds i8, ptr %4, i64 11
   %319 = and i8 %317, 1
   store i8 %319, ptr %318, align 1
   %320 = getelementptr inbounds i8, ptr %5, i64 11
   store i8 1, ptr %320, align 1
-  %.not229 = icmp eq ptr %.0190.lcssa479499529, null
+  %.not229 = icmp eq ptr %.0.lcssa481497531, null
   br i1 %.not229, label %330, label %321
 
 321:                                              ; preds = %315
-  %322 = getelementptr inbounds i8, ptr %.0190.lcssa479499529, i64 24
+  %322 = getelementptr inbounds i8, ptr %.0.lcssa481497531, i64 24
   %323 = load ptr, ptr %322, align 8
   %324 = getelementptr inbounds i8, ptr %323, i64 4
   %325 = load i8, ptr %324, align 4
@@ -2389,7 +2389,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %.not222, label %370, label %339
 
 339:                                              ; preds = %335
-  %340 = getelementptr inbounds i8, ptr %.0194.lcssa477501528, i64 24
+  %340 = getelementptr inbounds i8, ptr %.0185.lcssa479499530, i64 24
   %341 = load ptr, ptr %340, align 8
   call void @CommandCounterIncrement() #10
   %342 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2890,22 +2890,22 @@ define dso_local void @DropRole(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %21, label %.lr.ph204, label %._crit_edge120
 
 ._crit_edge120:                                   ; preds = %130, %.lr.ph119
-  %.067117.lcssa = phi ptr [ null, %.lr.ph119 ], [ %.168, %130 ]
-  %.not76 = icmp eq ptr %.067117.lcssa, null
+  %.0116.lcssa = phi ptr [ null, %.lr.ph119 ], [ %.1, %130 ]
+  %.not76 = icmp eq ptr %.0116.lcssa, null
   br i1 %.not76, label %._crit_edge126, label %.lr.ph125
 
 .lr.ph125:                                        ; preds = %._crit_edge120
-  %22 = getelementptr inbounds i8, ptr %.067117.lcssa, i64 4
-  %23 = getelementptr inbounds i8, ptr %.067117.lcssa, i64 16
+  %22 = getelementptr inbounds i8, ptr %.0116.lcssa, i64 4
+  %23 = getelementptr inbounds i8, ptr %.0116.lcssa, i64 16
   %24 = load i32, ptr %22, align 4
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph133, label %._crit_edge126
 
 .lr.ph204:                                        ; preds = %.lr.ph119, %130
-  %.sroa.451.0116203 = phi i32 [ %131, %130 ], [ 0, %.lr.ph119 ]
-  %.067117202 = phi ptr [ %.168, %130 ], [ null, %.lr.ph119 ]
+  %.0116203 = phi ptr [ %.1, %130 ], [ null, %.lr.ph119 ]
+  %.sroa.451.0117202 = phi i32 [ %131, %130 ], [ 0, %.lr.ph119 ]
   %26 = load ptr, ptr %18, align 8
-  %27 = sext i32 %.sroa.451.0116203 to i64
+  %27 = sext i32 %.sroa.451.0117202 to i64
   %28 = getelementptr %union.ListCell, ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 4
@@ -3093,12 +3093,12 @@ define dso_local void @DropRole(ptr nocapture noundef readonly %0) local_unnamed
 ._crit_edge115:                                   ; preds = %.lr.ph114, %._crit_edge
   call void @systable_endscan(ptr noundef %117) #10
   call void @CommandCounterIncrement() #10
-  %129 = call ptr @list_append_unique_oid(ptr noundef %.067117202, i32 noundef %59) #10
+  %129 = call ptr @list_append_unique_oid(ptr noundef %.0116203, i32 noundef %59) #10
   br label %130
 
 130:                                              ; preds = %48, %50, %._crit_edge115
-  %.168 = phi ptr [ %129, %._crit_edge115 ], [ %.067117202, %50 ], [ %.067117202, %48 ]
-  %131 = add nuw i32 %.sroa.451.0116203, 1
+  %.1 = phi ptr [ %129, %._crit_edge115 ], [ %.0116203, %50 ], [ %.0116203, %48 ]
+  %131 = add nuw i32 %.sroa.451.0117202, 1
   %132 = load i32, ptr %17, align 4
   %133 = icmp slt i32 %131, %132
   br i1 %133, label %.lr.ph204, label %._crit_edge120
@@ -3597,7 +3597,7 @@ define dso_local void @GrantRole(ptr noundef %0, ptr nocapture noundef readonly 
   br label %64
 
 64:                                               ; preds = %._crit_edge, %62
-  %.0 = phi i32 [ %63, %62 ], [ 0, %._crit_edge ]
+  %.052 = phi i32 [ %63, %62 ], [ 0, %._crit_edge ]
   %65 = getelementptr inbounds i8, ptr %1, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 4
@@ -3676,12 +3676,12 @@ roleSpecsToIds.exit:                              ; preds = %.lr.ph21.i, %64, %.
   br i1 %105, label %107, label %108
 
 107:                                              ; preds = %100
-  call fastcc void @AddRoleMems(i32 noundef %4, ptr noundef nonnull %92, i32 noundef %101, ptr noundef %106, ptr noundef %.0.lcssa.i, i32 noundef %.0, ptr noundef nonnull %3)
+  call fastcc void @AddRoleMems(i32 noundef %4, ptr noundef nonnull %92, i32 noundef %101, ptr noundef %106, ptr noundef %.0.lcssa.i, i32 noundef %.052, ptr noundef nonnull %3)
   br label %110
 
 108:                                              ; preds = %100
   %109 = load i32, ptr %85, align 8
-  call fastcc void @DelRoleMems(i32 noundef %4, ptr noundef nonnull %92, i32 noundef %101, ptr noundef %106, ptr noundef %.0.lcssa.i, i32 noundef %.0, ptr noundef nonnull %3, i32 noundef %109)
+  call fastcc void @DelRoleMems(i32 noundef %4, ptr noundef nonnull %92, i32 noundef %101, ptr noundef %106, ptr noundef %.0.lcssa.i, i32 noundef %.052, ptr noundef nonnull %3, i32 noundef %109)
   br label %110
 
 110:                                              ; preds = %107, %108
@@ -3909,7 +3909,7 @@ define dso_local noundef zeroext i1 @check_createrole_self_grant(ptr nocapture n
 
 .lr.ph34:                                         ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.lr.ph ]
-  %.0202633 = phi i32 [ %32, %31 ], [ 0, %.lr.ph ]
+  %.0192633 = phi i32 [ %32, %31 ], [ 0, %.lr.ph ]
   %19 = load ptr, ptr %16, align 8
   %20 = getelementptr %union.ListCell, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
@@ -3935,7 +3935,7 @@ define dso_local noundef zeroext i1 @check_createrole_self_grant(ptr nocapture n
 
 31:                                               ; preds = %24, %.lr.ph34
   %.sink = phi i32 [ 4, %.lr.ph34 ], [ 2, %24 ]
-  %32 = or i32 %.0202633, %.sink
+  %32 = or i32 %.0192633, %.sink
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %15, align 4
   %34 = sext i32 %33 to i64
@@ -3943,12 +3943,12 @@ define dso_local noundef zeroext i1 @check_createrole_self_grant(ptr nocapture n
   br i1 %35, label %.lr.ph34, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %31, %.lr.ph, %13
-  %.020.lcssa = phi i32 [ 0, %13 ], [ 0, %.lr.ph ], [ %32, %31 ]
+  %.019.lcssa = phi i32 [ 0, %13 ], [ 0, %.lr.ph ], [ %32, %31 ]
   call void @pfree(ptr noundef %6) #10
   %36 = load ptr, ptr %4, align 8
   call void @list_free(ptr noundef %36) #10
   %37 = call ptr @guc_malloc(i32 noundef 15, i64 noundef 4) #10
-  store i32 %.020.lcssa, ptr %37, align 4
+  store i32 %.019.lcssa, ptr %37, align 4
   store ptr %37, ptr %1, align 8
   br label %38
 

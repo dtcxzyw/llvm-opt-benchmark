@@ -441,8 +441,8 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br label %76
 
 76:                                               ; preds = %1, %53
-  %.0 = phi i32 [ 0, %53 ], [ -1, %1 ]
-  ret i32 %.0
+  %.048 = phi i32 [ 0, %53 ], [ -1, %1 ]
+  ret i32 %.048
 }
 
 declare i32 @mca_common_ompio_initialize_print_queue(ptr noundef) local_unnamed_addr #1

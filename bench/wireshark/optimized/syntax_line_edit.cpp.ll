@@ -3353,7 +3353,7 @@ define noundef zeroext i1 @_ZN14SyntaxLineEdit15isComplexFilterERK7QString(ptr n
   br label %15
 
 10:                                               ; preds = %15
-  %11 = add i32 %.01729, 1
+  %11 = add i32 %.01629, 1
   %12 = sext i32 %11 to i64
   %13 = load i64, ptr %5, align 8
   %14 = icmp sgt i64 %13, %12
@@ -3361,7 +3361,7 @@ define noundef zeroext i1 @_ZN14SyntaxLineEdit15isComplexFilterERK7QString(ptr n
 
 15:                                               ; preds = %.lr.ph, %10
   %16 = phi i64 [ 0, %.lr.ph ], [ %12, %10 ]
-  %.01729 = phi i32 [ 0, %.lr.ph ], [ %11, %10 ]
+  %.01629 = phi i32 [ 0, %.lr.ph ], [ %11, %10 ]
   %17 = load ptr, ptr %9, align 8
   %18 = getelementptr i16, ptr %17, i64 %16
   %19 = load i16, ptr %18, align 2

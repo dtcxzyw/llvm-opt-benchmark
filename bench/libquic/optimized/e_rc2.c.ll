@@ -156,21 +156,21 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %out.addr.016 = phi ptr [ %out, %while.body.lr.ph ], [ %add.ptr1, %while.body ]
-  %inl.addr.015 = phi i64 [ %inl, %while.body.lr.ph ], [ %sub, %while.body ]
-  %in.addr.014 = phi ptr [ %in, %while.body.lr.ph ], [ %add.ptr, %while.body ]
+  %inl.addr.016 = phi i64 [ %inl, %while.body.lr.ph ], [ %sub, %while.body ]
+  %in.addr.015 = phi ptr [ %in, %while.body.lr.ph ], [ %add.ptr, %while.body ]
+  %out.addr.014 = phi ptr [ %out, %while.body.lr.ph ], [ %add.ptr1, %while.body ]
   %1 = load i32, ptr %encrypt, align 4
-  tail call fastcc void @RC2_cbc_encrypt(ptr noundef %in.addr.014, ptr noundef %out.addr.016, i64 noundef 65536, ptr noundef nonnull %ks, ptr noundef nonnull %iv, i32 noundef %1)
-  %sub = add i64 %inl.addr.015, -65536
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.014, i64 65536
-  %add.ptr1 = getelementptr inbounds i8, ptr %out.addr.016, i64 65536
+  tail call fastcc void @RC2_cbc_encrypt(ptr noundef %in.addr.015, ptr noundef %out.addr.014, i64 noundef 65536, ptr noundef nonnull %ks, ptr noundef nonnull %iv, i32 noundef %1)
+  %sub = add i64 %inl.addr.016, -65536
+  %add.ptr = getelementptr inbounds i8, ptr %in.addr.015, i64 65536
+  %add.ptr1 = getelementptr inbounds i8, ptr %out.addr.014, i64 65536
   %cmp = icmp ugt i64 %sub, 65535
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %while.body, %entry
+  %out.addr.0.lcssa = phi ptr [ %out, %entry ], [ %add.ptr1, %while.body ]
   %in.addr.0.lcssa = phi ptr [ %in, %entry ], [ %add.ptr, %while.body ]
   %inl.addr.0.lcssa = phi i64 [ %inl, %entry ], [ %sub, %while.body ]
-  %out.addr.0.lcssa = phi ptr [ %out, %entry ], [ %add.ptr1, %while.body ]
   %tobool.not = icmp eq i64 %inl.addr.0.lcssa, 0
   br i1 %tobool.not, label %if.end, label %if.then
 

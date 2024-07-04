@@ -589,16 +589,16 @@ _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit.preheader: ; preds = %._crit_edge
 
 _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit:         ; preds = %.lr.ph293, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit
   %indvars.iv342 = phi i64 [ 0, %.lr.ph293 ], [ %indvars.iv.next343, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit ]
-  %.0122292 = phi float [ 0.000000e+00, %.lr.ph293 ], [ %221, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit ]
+  %.0132291 = phi float [ 0.000000e+00, %.lr.ph293 ], [ %221, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit ]
   %219 = getelementptr inbounds %struct.t_atom, ptr %218, i64 %indvars.iv342
   %220 = load float, ptr %219, align 4
-  %221 = fadd float %.0122292, %220
+  %221 = fadd float %.0132291, %220
   %indvars.iv.next343 = add nuw nsw i64 %indvars.iv342, 1
   %exitcond346.not = icmp eq i64 %indvars.iv.next343, %wide.trip.count345
   br i1 %exitcond346.not, label %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit._crit_edge, label %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit, !llvm.loop !7
 
 _ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit._crit_edge: ; preds = %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit.preheader
-  %.0122.lcssa = phi float [ 0.000000e+00, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit.preheader ], [ %221, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit ]
+  %.0132.lcssa = phi float [ 0.000000e+00, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit.preheader ], [ %221, %_ZL13gmx_snew_implIPfEvPKcS2_iRPT_m.exit ]
   %222 = load ptr, ptr %56, align 8
   %223 = invoke noundef ptr @_Z6ftp2fniiPK8t_filenm(i32 noundef 3, i32 noundef 9, ptr noundef nonnull %57)
           to label %224 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -649,14 +649,14 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit138:       ; preds = %227, %230
 
 246:                                              ; preds = %440, %_ZNSt10filesystem7__cxx114pathD2Ev.exit138
   %indvars.iv385 = phi i64 [ %indvars.iv.next386, %440 ], [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit138 ]
-  %.0133 = phi float [ %280, %440 ], [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit138 ]
-  %.0130 = phi i32 [ %.1131, %440 ], [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit138 ]
-  %247 = sext i32 %.0130 to i64
+  %.0131 = phi float [ %280, %440 ], [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit138 ]
+  %.0128 = phi i32 [ %.1129, %440 ], [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit138 ]
+  %247 = sext i32 %.0128 to i64
   %.not = icmp slt i64 %indvars.iv385, %247
   br i1 %.not, label %.preheader274.preheader, label %248
 
 248:                                              ; preds = %246
-  %249 = add nsw i32 %.0130, 100
+  %249 = add nsw i32 %.0128, 100
   br i1 %233, label %.lr.ph296, label %.preheader274.preheader
 
 .lr.ph296:                                        ; preds = %248
@@ -683,7 +683,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit138:       ; preds = %227, %230
   br label %.body
 
 .preheader274.preheader:                          ; preds = %255, %246, %248
-  %.1131 = phi i32 [ %.0130, %246 ], [ %249, %248 ], [ %249, %255 ]
+  %.1129 = phi i32 [ %.0128, %246 ], [ %249, %248 ], [ %249, %255 ]
   %258 = load float, ptr %234, align 4
   %259 = load float, ptr %236, align 4
   %260 = load float, ptr %238, align 4
@@ -706,7 +706,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit138:       ; preds = %227, %230
   %277 = call float @llvm.fmuladd.f32(float %267, float %262, float %276)
   %278 = call noundef float @llvm.fmuladd.f32(float %274, float %277, float %273)
   %279 = fdiv float 1.000000e+00, %278
-  %280 = fadd float %.0133, %279
+  %280 = fadd float %.0131, %279
   br label %.preheader274
 
 .preheader276:                                    ; preds = %292
@@ -784,7 +784,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit138:       ; preds = %227, %230
 
 316:                                              ; preds = %.lr.ph309, %316
   %indvars.iv367 = phi i64 [ 0, %.lr.ph309 ], [ %indvars.iv.next368, %316 ]
-  %.0121308 = phi float [ 0.000000e+00, %.lr.ph309 ], [ %338, %316 ]
+  %.0133307 = phi float [ 0.000000e+00, %.lr.ph309 ], [ %338, %316 ]
   %.sroa.16233.0306 = phi float [ 0.000000e+00, %.lr.ph309 ], [ %328, %316 ]
   %.sroa.0.2305 = phi float [ 0.000000e+00, %.lr.ph309 ], [ %331, %316 ]
   %.sroa.8.2304 = phi float [ 0.000000e+00, %.lr.ph309 ], [ %334, %316 ]
@@ -810,7 +810,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit138:       ; preds = %227, %230
   %335 = getelementptr inbounds [3 x float], ptr %314, i64 %318, i64 2
   %336 = load float, ptr %335, align 4
   %337 = call float @llvm.fmuladd.f32(float %320, float %336, float %.sroa.16.2303)
-  %338 = fadd float %.0121308, %320
+  %338 = fadd float %.0133307, %320
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 1
   %exitcond371.not = icmp eq i64 %indvars.iv.next368, %wide.trip.count370
   br i1 %exitcond371.not, label %._crit_edge310, label %316, !llvm.loop !12
@@ -820,9 +820,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit138:       ; preds = %227, %230
   %.sroa.8.2.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %334, %316 ]
   %.sroa.0.2.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %331, %316 ]
   %.sroa.16233.0.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %328, %316 ]
-  %.0121.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %338, %316 ]
+  %.0133.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %338, %316 ]
   %339 = phi <2 x float> [ zeroinitializer, %.preheader ], [ %325, %316 ]
-  %340 = fdiv float 1.000000e+00, %.0121.lcssa
+  %340 = fdiv float 1.000000e+00, %.0133.lcssa
   %341 = fmul float %.sroa.0.2.lcssa, %340
   %342 = fmul float %.sroa.8.2.lcssa, %340
   %343 = fmul float %.sroa.16.2.lcssa, %340
@@ -970,7 +970,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit138:       ; preds = %227, %230
   %447 = uitofp nneg i32 %442 to float
   %448 = fdiv float %446, %447
   %449 = uitofp nneg i32 %443 to float
-  %450 = fdiv float %.0122.lcssa, %449
+  %450 = fdiv float %.0132.lcssa, %449
   %451 = fpext float %450 to double
   %452 = fmul double %451, 0x3A6071F778ED6AAF
   %453 = fdiv double %452, 0x3A53CE9A36F23C11

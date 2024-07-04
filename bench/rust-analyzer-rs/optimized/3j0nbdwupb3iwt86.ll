@@ -6218,9 +6218,9 @@ default.unreachable:                              ; preds = %100
   br label %115
 
 115:                                              ; preds = %109, %104
-  %.sroa.0136.0.ph = phi i64 [ 0, %104 ], [ %spec.select, %109 ]
-  %.sroa.9137.1.ph = phi ptr [ %108, %104 ], [ %111, %109 ]
   %.sroa.12.1.ph = phi ptr [ %106, %104 ], [ %111, %109 ]
+  %.sroa.9137.1.ph = phi ptr [ %108, %104 ], [ %111, %109 ]
+  %.sroa.0136.0.ph = phi i64 [ 0, %104 ], [ %spec.select, %109 ]
   store i64 %.sroa.0136.0.ph, ptr %16, align 8
   store ptr %.sroa.9137.1.ph, ptr %.sroa.9137.0..sroa_idx, align 8
   store ptr %.sroa.12.1.ph, ptr %.sroa.12.0..sroa_idx, align 8
@@ -6312,8 +6312,8 @@ default.unreachable:                              ; preds = %100
   br label %"_ZN2tt6buffer18Cursor$LT$Span$GT$4bump17hedc913a18557dfd2E.exit"
 
 "_ZN2tt6buffer18Cursor$LT$Span$GT$4bump17hedc913a18557dfd2E.exit": ; preds = %148, %"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17h8764604a5ccb747cE.llvm.6887668541773461223.exit.thread.i65", %145
-  %.sroa.6140.0 = phi i64 [ %150, %148 ], [ %.sroa.7126.0251, %"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17h8764604a5ccb747cE.llvm.6887668541773461223.exit.thread.i65" ], [ %.sroa.7126.0251, %145 ]
   %.sroa.9141.0 = phi i64 [ %152, %148 ], [ %144, %"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17h8764604a5ccb747cE.llvm.6887668541773461223.exit.thread.i65" ], [ %.sroa.9131.0250, %145 ]
+  %.sroa.6140.0 = phi i64 [ %150, %148 ], [ %.sroa.7126.0251, %"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17h8764604a5ccb747cE.llvm.6887668541773461223.exit.thread.i65" ], [ %.sroa.7126.0251, %145 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   %153 = icmp eq i64 %.sroa.6140.0, %.sroa.8.0.lcssa
   %154 = icmp eq i64 %.sroa.9141.0, %.sroa.11.0.lcssa
@@ -7527,10 +7527,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit362: ; preds = %.loopexit426
   br label %"_ZN62_$LT$mbe..expander..Fragment$u20$as$u20$core..clone..Clone$GT$5clone17h0fdd318eabe47977E.exit"
 
 "_ZN62_$LT$mbe..expander..Fragment$u20$as$u20$core..clone..Clone$GT$5clone17h0fdd318eabe47977E.exit": ; preds = %138, %139
+  %.sroa.32.0 = phi i8 [ %.sroa.32.8.copyload, %139 ], [ undef, %138 ]
   %.sroa.10378.0 = phi i64 [ %.sroa.10378.8.copyload, %139 ], [ undef, %138 ]
   %.sroa.7377.0 = phi ptr [ %.sroa.7377.8.copyload, %139 ], [ undef, %138 ]
   %.sroa.0376.0 = phi i64 [ 1, %139 ], [ 0, %138 ]
-  %.sroa.32.0 = phi i8 [ %.sroa.32.8.copyload, %139 ], [ undef, %138 ]
   %144 = phi <4 x i32> [ %141, %139 ], [ undef, %138 ]
   %145 = phi <4 x i32> [ %142, %139 ], [ undef, %138 ]
   %146 = phi <2 x i32> [ %143, %139 ], [ undef, %138 ]
@@ -7568,7 +7568,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit362: ; preds = %.loopexit426
   %158 = load i8, ptr %157, align 8, !range !2046, !noalias !2059, !noundef !30
   %159 = tail call noundef i32 @_ZN10hir_expand7hygiene10apply_mark17h9bd2492c892bd478E(ptr noundef nonnull align 1 %148, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %150, i32 noundef %151, i32 noundef %154, i8 noundef %158), !range !183, !noalias !2059
   store i32 %159, ptr %4, align 4, !alias.scope !2057, !noalias !2054
-  %.0336 = getelementptr inbounds i8, ptr %.0333431, i64 8
+  %.0335 = getelementptr inbounds i8, ptr %.0333431, i64 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.049)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.049, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false)
@@ -7576,7 +7576,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit362: ; preds = %.loopexit426
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.049.20..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false)
   %160 = getelementptr inbounds i8, ptr %.0333431, i64 64
   %161 = load i8, ptr %160, align 4, !range !72, !noundef !30
-  %162 = tail call { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2a00670adacc7f31E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.0336)
+  %162 = tail call { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2a00670adacc7f31E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.0335)
   %163 = extractvalue { ptr, i64 } %162, 0
   %164 = extractvalue { ptr, i64 } %162, 1
   %165 = getelementptr inbounds i8, ptr %23, i64 16
@@ -7607,10 +7607,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit362: ; preds = %.loopexit426
   unreachable
 
 171:                                              ; preds = %147, %169
-  %.0337 = phi ptr [ @_ZN3mbe8expander8Fragment4Path17h8a66584aca326036E, %169 ], [ @_ZN3mbe8expander8Fragment4Expr17h33526e653241931bE, %147 ]
+  %.0336 = phi ptr [ @_ZN3mbe8expander8Fragment4Path17h8a66584aca326036E, %169 ], [ @_ZN3mbe8expander8Fragment4Expr17h33526e653241931bE, %147 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(64) %23, i64 64, i1 false)
-  call void %.0337(ptr noalias nocapture noundef nonnull sret({ i64, [8 x i64] }) align 8 dereferenceable(72) %22, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %21), !callees !2060
+  call void %.0336(ptr noalias nocapture noundef nonnull sret({ i64, [8 x i64] }) align 8 dereferenceable(72) %22, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %21), !callees !2060
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %22, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %22)
@@ -7728,18 +7728,18 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit362: ; preds = %.loopexit426
   br label %188
 
 188:                                              ; preds = %123, %123, %123, %123, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit", %178, %187, %177, %176
-  %.sroa.9.sroa.0.sroa.0.0 = phi i32 [ 2, %187 ], [ %.sroa.0163.0.extract.trunc, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ 8, %178 ], [ 1, %177 ], [ 2, %176 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ]
-  %.sroa.9.sroa.8.0 = phi i8 [ 4, %187 ], [ 3, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ 1, %178 ], [ 4, %177 ], [ 4, %176 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ]
-  %.sroa.9.sroa.0.sroa.8.sroa.0.0 = phi i32 [ undef, %187 ], [ %.sroa.0163.4.extract.trunc, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ 0, %178 ], [ 59, %177 ], [ undef, %176 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ]
-  %.sroa.9.sroa.0.sroa.8.sroa.9.0 = phi i8 [ 0, %187 ], [ %.sroa.5179.0.copyload, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ %.sroa.4118.0.copyload, %178 ], [ 0, %177 ], [ 0, %176 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ]
-  %.sroa.053.0 = phi i64 [ 1, %187 ], [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ 1, %178 ], [ 1, %177 ], [ 1, %176 ], [ 0, %123 ], [ 0, %123 ], [ 0, %123 ], [ 0, %123 ]
   %.sroa.9.sroa.0.sroa.8.sroa.8.sroa.0.0 = phi i64 [ 25, %187 ], [ 2, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ 0, %178 ], [ %.sroa.0109.0.copyload, %177 ], [ 25, %176 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ]
   %.sroa.9.sroa.0.sroa.9.sroa.0.0 = phi i32 [ %135, %187 ], [ %.sroa.7182.0.copyload, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ %.sroa.6120.0.copyload, %178 ], [ undef, %177 ], [ %135, %176 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ]
   %.sroa.9.sroa.0.sroa.9.sroa.8.sroa.8.0 = phi i8 [ %.sroa.5250.0.copyload, %187 ], [ %.sroa.5179.0.copyload, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ %.sroa.4118.0.copyload, %178 ], [ undef, %177 ], [ %.sroa.4152.sroa.4.0.copyload, %176 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ]
   %.sroa.9.sroa.0.sroa.9.sroa.8.sroa.10.0 = phi i32 [ undef, %187 ], [ %.sroa.7182.0.copyload, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ %.sroa.6120.0.copyload, %178 ], [ undef, %177 ], [ undef, %176 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ]
+  %.sroa.9.sroa.0.sroa.8.sroa.9.0 = phi i8 [ 0, %187 ], [ %.sroa.5179.0.copyload, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ %.sroa.4118.0.copyload, %178 ], [ 0, %177 ], [ 0, %176 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ]
+  %.sroa.9.sroa.0.sroa.8.sroa.0.0 = phi i32 [ undef, %187 ], [ %.sroa.0163.4.extract.trunc, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ 0, %178 ], [ 59, %177 ], [ undef, %176 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ]
   %.sroa.9.sroa.0.sroa.8.sroa.10.sroa.0.0 = phi i24 [ 0, %187 ], [ %.sroa.6181.sroa.0.0.copyload, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ %.sroa.5119.sroa.0.0.copyload, %178 ], [ undef, %177 ], [ 0, %176 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ]
+  %.sroa.9.sroa.0.sroa.0.0 = phi i32 [ 2, %187 ], [ %.sroa.0163.0.extract.trunc, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ 8, %178 ], [ 1, %177 ], [ 2, %176 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ]
   %.sroa.9.sroa.0.sroa.9.sroa.8.sroa.9.sroa.0.0 = phi i24 [ %.sroa.6251.sroa.0.0.copyload, %187 ], [ %.sroa.6181.sroa.0.0.copyload, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ %.sroa.5119.sroa.0.0.copyload, %178 ], [ undef, %177 ], [ %.sroa.4152.sroa.5.sroa.0.0.copyload, %176 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ]
+  %.sroa.9.sroa.8.0 = phi i8 [ 4, %187 ], [ 3, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ 1, %178 ], [ 4, %177 ], [ 4, %176 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ]
   %.sroa.9.sroa.0.sroa.8.sroa.8.sroa.8.sroa.0.0 = phi ptr [ @anon.0d52bb7e2938037535f5374aa04ebbbc.58, %187 ], [ %.sroa.0178.sroa.0.0.copyload, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ %.sroa.0117.sroa.0.0.copyload, %178 ], [ %.sroa.4110.sroa.0.0.copyload, %177 ], [ @anon.0d52bb7e2938037535f5374aa04ebbbc.57, %176 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ]
+  %.sroa.053.0 = phi i64 [ 1, %187 ], [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ 1, %178 ], [ 1, %177 ], [ 1, %176 ], [ 0, %123 ], [ 0, %123 ], [ 0, %123 ], [ 0, %123 ]
   %.sroa.9.sroa.0.sroa.8.sroa.8.sroa.8.sroa.8.0 = phi i32 [ 9, %187 ], [ %.sroa.0178.sroa.5.0.copyload, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ %.sroa.0117.sroa.4.0.copyload, %178 ], [ %.sroa.4110.sroa.4.0.copyload, %177 ], [ 7, %176 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ]
   %.sroa.9.sroa.0.sroa.9.sroa.8.sroa.0.sroa.0.0 = phi ptr [ %.sroa.4249.sroa.0.0.copyload, %187 ], [ %.sroa.0178.sroa.0.0.copyload, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ %.sroa.0117.sroa.0.0.copyload, %178 ], [ undef, %177 ], [ %.sroa.4152.sroa.0.sroa.0.0.copyload, %176 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ]
   %.sroa.9.sroa.0.sroa.9.sroa.8.sroa.0.sroa.8.0 = phi i32 [ %.sroa.4249.sroa.4.0.copyload, %187 ], [ %.sroa.0178.sroa.5.0.copyload, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ %.sroa.0117.sroa.4.0.copyload, %178 ], [ undef, %177 ], [ %.sroa.4152.sroa.0.sroa.4.0.copyload, %176 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ], [ undef, %123 ]
@@ -8189,10 +8189,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit362: ; preds = %.loopexit426
   br label %"_ZN62_$LT$mbe..expander..Fragment$u20$as$u20$core..clone..Clone$GT$5clone17h0fdd318eabe47977E.exit"
 
 "_ZN62_$LT$mbe..expander..Fragment$u20$as$u20$core..clone..Clone$GT$5clone17h0fdd318eabe47977E.exit": ; preds = %125, %126
+  %.sroa.32.0 = phi i8 [ %.sroa.32.8.copyload, %126 ], [ undef, %125 ]
   %.sroa.10378.0 = phi i64 [ %.sroa.10378.8.copyload, %126 ], [ undef, %125 ]
   %.sroa.7377.0 = phi ptr [ %.sroa.7377.8.copyload, %126 ], [ undef, %125 ]
   %.sroa.0376.0 = phi i64 [ 1, %126 ], [ 0, %125 ]
-  %.sroa.32.0 = phi i8 [ %.sroa.32.8.copyload, %126 ], [ undef, %125 ]
   %131 = phi <4 x i32> [ %128, %126 ], [ undef, %125 ]
   %132 = phi <4 x i32> [ %129, %126 ], [ undef, %125 ]
   %133 = phi <2 x i32> [ %130, %126 ], [ undef, %125 ]
@@ -8215,7 +8215,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit362: ; preds = %.loopexit426
   br label %164
 
 134:                                              ; preds = %91
-  %.0336 = getelementptr inbounds i8, ptr %.0333431, i64 8
+  %.0335 = getelementptr inbounds i8, ptr %.0333431, i64 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.049)
   %135 = getelementptr inbounds i8, ptr %.0333431, i64 64
@@ -8223,7 +8223,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit362: ; preds = %.loopexit426
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.049, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false)
   %.sroa.049.20..sroa_idx = getelementptr inbounds i8, ptr %.sroa.049, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.049.20..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false)
-  %137 = tail call { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2a00670adacc7f31E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.0336)
+  %137 = tail call { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h2a00670adacc7f31E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.0335)
   %138 = extractvalue { ptr, i64 } %137, 0
   %139 = extractvalue { ptr, i64 } %137, 1
   %140 = getelementptr inbounds i8, ptr %22, i64 16
@@ -8254,10 +8254,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit362: ; preds = %.loopexit426
   unreachable
 
 146:                                              ; preds = %134, %144
-  %.0337 = phi ptr [ @_ZN3mbe8expander8Fragment4Path17h8a66584aca326036E, %144 ], [ @_ZN3mbe8expander8Fragment4Expr17h33526e653241931bE, %134 ]
+  %.0336 = phi ptr [ @_ZN3mbe8expander8Fragment4Path17h8a66584aca326036E, %144 ], [ @_ZN3mbe8expander8Fragment4Expr17h33526e653241931bE, %134 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull align 8 dereferenceable(64) %22, i64 64, i1 false)
-  call void %.0337(ptr noalias nocapture noundef nonnull sret({ i64, [8 x i64] }) align 8 dereferenceable(72) %21, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %20), !callees !2060
+  call void %.0336(ptr noalias nocapture noundef nonnull sret({ i64, [8 x i64] }) align 8 dereferenceable(72) %21, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %20), !callees !2060
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %21, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %21)
@@ -8377,18 +8377,18 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit362: ; preds = %.loopexit426
   br label %163
 
 163:                                              ; preds = %122, %122, %122, %122, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit", %153, %162, %152, %151
-  %.sroa.9.sroa.0.sroa.0.0 = phi i32 [ 2, %162 ], [ %.sroa.0163.0.extract.trunc, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ 8, %153 ], [ 1, %152 ], [ 2, %151 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ]
-  %.sroa.9.sroa.8.0 = phi i8 [ 4, %162 ], [ 3, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ 1, %153 ], [ 4, %152 ], [ 4, %151 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ]
-  %.sroa.9.sroa.0.sroa.8.sroa.0.0 = phi i32 [ undef, %162 ], [ %.sroa.0163.4.extract.trunc, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ 0, %153 ], [ 59, %152 ], [ undef, %151 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ]
-  %.sroa.9.sroa.0.sroa.8.sroa.9.0 = phi i8 [ 0, %162 ], [ %.sroa.5179.0.copyload, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ %.sroa.4118.0.copyload, %153 ], [ 0, %152 ], [ 0, %151 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ]
-  %.sroa.053.0 = phi i64 [ 1, %162 ], [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ 1, %153 ], [ 1, %152 ], [ 1, %151 ], [ 0, %122 ], [ 0, %122 ], [ 0, %122 ], [ 0, %122 ]
   %.sroa.9.sroa.0.sroa.8.sroa.8.sroa.0.0 = phi i64 [ 25, %162 ], [ 2, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ 0, %153 ], [ %.sroa.0109.0.copyload, %152 ], [ 25, %151 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ]
   %.sroa.9.sroa.0.sroa.9.sroa.0.0 = phi i32 [ %.sroa.0248.0.copyload, %162 ], [ %.sroa.7182.0.copyload, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ %.sroa.6120.0.copyload, %153 ], [ undef, %152 ], [ %.sroa.0151.0.copyload, %151 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ]
   %.sroa.9.sroa.0.sroa.9.sroa.8.sroa.8.0 = phi i8 [ %.sroa.5250.0.copyload, %162 ], [ %.sroa.5179.0.copyload, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ %.sroa.4118.0.copyload, %153 ], [ undef, %152 ], [ %.sroa.4152.sroa.4.0.copyload, %151 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ]
   %.sroa.9.sroa.0.sroa.9.sroa.8.sroa.10.0 = phi i32 [ undef, %162 ], [ %.sroa.7182.0.copyload, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ %.sroa.6120.0.copyload, %153 ], [ undef, %152 ], [ undef, %151 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ]
+  %.sroa.9.sroa.0.sroa.8.sroa.9.0 = phi i8 [ 0, %162 ], [ %.sroa.5179.0.copyload, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ %.sroa.4118.0.copyload, %153 ], [ 0, %152 ], [ 0, %151 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ]
+  %.sroa.9.sroa.0.sroa.8.sroa.0.0 = phi i32 [ undef, %162 ], [ %.sroa.0163.4.extract.trunc, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ 0, %153 ], [ 59, %152 ], [ undef, %151 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ]
   %.sroa.9.sroa.0.sroa.8.sroa.10.sroa.0.0 = phi i24 [ 0, %162 ], [ %.sroa.6181.sroa.0.0.copyload, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ %.sroa.5119.sroa.0.0.copyload, %153 ], [ undef, %152 ], [ 0, %151 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ]
+  %.sroa.9.sroa.0.sroa.0.0 = phi i32 [ 2, %162 ], [ %.sroa.0163.0.extract.trunc, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ 8, %153 ], [ 1, %152 ], [ 2, %151 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ]
   %.sroa.9.sroa.0.sroa.9.sroa.8.sroa.9.sroa.0.0 = phi i24 [ %.sroa.6251.sroa.0.0.copyload, %162 ], [ %.sroa.6181.sroa.0.0.copyload, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ %.sroa.5119.sroa.0.0.copyload, %153 ], [ undef, %152 ], [ %.sroa.4152.sroa.5.sroa.0.0.copyload, %151 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ]
+  %.sroa.9.sroa.8.0 = phi i8 [ 4, %162 ], [ 3, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ 1, %153 ], [ 4, %152 ], [ 4, %151 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ]
   %.sroa.9.sroa.0.sroa.8.sroa.8.sroa.8.sroa.0.0 = phi ptr [ @anon.0d52bb7e2938037535f5374aa04ebbbc.58, %162 ], [ %.sroa.0178.sroa.0.0.copyload, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ %.sroa.0117.sroa.0.0.copyload, %153 ], [ %.sroa.4110.sroa.0.0.copyload, %152 ], [ @anon.0d52bb7e2938037535f5374aa04ebbbc.57, %151 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ]
+  %.sroa.053.0 = phi i64 [ 1, %162 ], [ 1, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ 1, %153 ], [ 1, %152 ], [ 1, %151 ], [ 0, %122 ], [ 0, %122 ], [ 0, %122 ], [ 0, %122 ]
   %.sroa.9.sroa.0.sroa.8.sroa.8.sroa.8.sroa.8.0 = phi i32 [ 9, %162 ], [ %.sroa.0178.sroa.5.0.copyload, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ %.sroa.0117.sroa.4.0.copyload, %153 ], [ %.sroa.4110.sroa.4.0.copyload, %152 ], [ 7, %151 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ]
   %.sroa.9.sroa.0.sroa.9.sroa.8.sroa.0.sroa.0.0 = phi ptr [ %.sroa.4249.sroa.0.0.copyload, %162 ], [ %.sroa.0178.sroa.0.0.copyload, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ %.sroa.0117.sroa.0.0.copyload, %153 ], [ undef, %152 ], [ %.sroa.4152.sroa.0.sroa.0.0.copyload, %151 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ]
   %.sroa.9.sroa.0.sroa.9.sroa.8.sroa.0.sroa.8.0 = phi i32 [ %.sroa.4249.sroa.4.0.copyload, %162 ], [ %.sroa.0178.sroa.5.0.copyload, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hbbc5b693da31aaa7E.exit" ], [ %.sroa.0117.sroa.4.0.copyload, %153 ], [ undef, %152 ], [ %.sroa.4152.sroa.0.sroa.4.0.copyload, %151 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ], [ undef, %122 ]

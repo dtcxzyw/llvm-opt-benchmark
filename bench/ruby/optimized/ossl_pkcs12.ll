@@ -128,7 +128,7 @@ define internal i64 @ossl_pkcs12_s_create(i32 noundef %0, ptr noundef %1, i64 %2
   unreachable
 
 40:                                               ; preds = %33, %25
-  %.0 = phi i32 [ 0, %25 ], [ %35, %33 ]
+  %.023 = phi i32 [ 0, %25 ], [ %35, %33 ]
   %41 = load i64, ptr %10, align 8
   %42 = icmp eq i64 %41, 4
   br i1 %42, label %50, label %43
@@ -146,7 +146,7 @@ define internal i64 @ossl_pkcs12_s_create(i32 noundef %0, ptr noundef %1, i64 %2
   unreachable
 
 50:                                               ; preds = %43, %40
-  %.023 = phi i32 [ 0, %40 ], [ %45, %43 ]
+  %.022 = phi i32 [ 0, %40 ], [ %45, %43 ]
   %51 = load i64, ptr %11, align 8
   %52 = icmp eq i64 %51, 4
   br i1 %52, label %60, label %53
@@ -170,7 +170,7 @@ rb_num2int_inline.exit:                           ; preds = %55, %57
   br label %60
 
 60:                                               ; preds = %rb_num2int_inline.exit, %50
-  %.022 = phi i32 [ 0, %50 ], [ %59, %rb_num2int_inline.exit ]
+  %.021 = phi i32 [ 0, %50 ], [ %59, %rb_num2int_inline.exit ]
   %61 = load i64, ptr %12, align 8
   %62 = icmp eq i64 %61, 4
   br i1 %62, label %70, label %63
@@ -194,7 +194,7 @@ rb_num2int_inline.exit29:                         ; preds = %65, %67
   br label %70
 
 70:                                               ; preds = %rb_num2int_inline.exit29, %60
-  %.021 = phi i32 [ 0, %60 ], [ %69, %rb_num2int_inline.exit29 ]
+  %.020 = phi i32 [ 0, %60 ], [ %69, %rb_num2int_inline.exit29 ]
   %71 = load i64, ptr %13, align 8
   %72 = icmp eq i64 %71, 4
   br i1 %72, label %80, label %73
@@ -218,7 +218,7 @@ rb_num2int_inline.exit32:                         ; preds = %75, %77
   br label %80
 
 80:                                               ; preds = %rb_num2int_inline.exit32, %70
-  %.020 = phi i32 [ 0, %70 ], [ %79, %rb_num2int_inline.exit32 ]
+  %.0 = phi i32 [ 0, %70 ], [ %79, %rb_num2int_inline.exit32 ]
   %81 = load i64, ptr @cPKCS12, align 8
   %82 = call i64 @rb_data_typed_object_wrap(i64 noundef %81, ptr noundef null, ptr noundef nonnull @ossl_pkcs12_type) #3
   %83 = load i64, ptr %8, align 8
@@ -231,7 +231,7 @@ rb_num2int_inline.exit32:                         ; preds = %75, %77
 
 87:                                               ; preds = %80, %85
   %88 = phi ptr [ %86, %85 ], [ null, %80 ]
-  %89 = call ptr @PKCS12_create(ptr noundef %20, ptr noundef %26, ptr noundef %28, ptr noundef %30, ptr noundef %88, i32 noundef %.0, i32 noundef %.023, i32 noundef %.022, i32 noundef %.021, i32 noundef %.020) #3
+  %89 = call ptr @PKCS12_create(ptr noundef %20, ptr noundef %26, ptr noundef %28, ptr noundef %30, ptr noundef %88, i32 noundef %.023, i32 noundef %.022, i32 noundef %.021, i32 noundef %.020, i32 noundef %.0) #3
   call void @OPENSSL_sk_pop_free(ptr noundef %88, ptr noundef nonnull @X509_free) #3
   %.not = icmp eq ptr %89, null
   br i1 %.not, label %90, label %92

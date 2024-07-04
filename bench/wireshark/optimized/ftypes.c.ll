@@ -2241,7 +2241,7 @@ fvalue_length2.exit:                              ; preds = %11, %12
   br i1 %21, label %44, label %22
 
 22:                                               ; preds = %19, %fvalue_length2.exit
-  %.032.i = phi i64 [ %20, %19 ], [ %16, %fvalue_length2.exit ]
+  %.031.i = phi i64 [ %20, %19 ], [ %16, %fvalue_length2.exit ]
   switch i32 %17, label %43 [
     i32 3, label %23
     i32 1, label %26
@@ -2249,14 +2249,14 @@ fvalue_length2.exit:                              ; preds = %11, %12
   ]
 
 23:                                               ; preds = %22
-  %24 = sub nsw i64 %.0.i, %.032.i
+  %24 = sub nsw i64 %.0.i, %.031.i
   %25 = icmp slt i64 %24, 1
   br i1 %25, label %44, label %compute_drnode.exit
 
 26:                                               ; preds = %22
   %27 = tail call i32 @drange_node_get_length(ptr noundef %0) #9
   %28 = sext i32 %27 to i64
-  %29 = add nsw i64 %.032.i, %28
+  %29 = add nsw i64 %.031.i, %28
   %sext40.i = shl nuw i64 %.0.i, 32
   %30 = ashr exact i64 %sext40.i, 32
   %31 = icmp sgt i64 %29, %30
@@ -2270,7 +2270,7 @@ fvalue_length2.exit:                              ; preds = %11, %12
 
 36:                                               ; preds = %32
   %37 = add nsw i64 %.0.i, %34
-  %38 = icmp slt i64 %37, %.032.i
+  %38 = icmp slt i64 %37, %.031.i
   br i1 %38, label %44, label %41
 
 39:                                               ; preds = %32
@@ -2280,8 +2280,8 @@ fvalue_length2.exit:                              ; preds = %11, %12
   br i1 %.not.i10, label %41, label %44
 
 41:                                               ; preds = %39, %36
-  %.030.i = phi i64 [ %37, %36 ], [ %34, %39 ]
-  %reass.sub = sub nsw i64 %.030.i, %.032.i
+  %.0.i11 = phi i64 [ %37, %36 ], [ %34, %39 ]
+  %reass.sub = sub nsw i64 %.0.i11, %.031.i
   %42 = add nsw i64 %reass.sub, 1
   br label %compute_drnode.exit
 
@@ -2294,14 +2294,14 @@ fvalue_length2.exit:                              ; preds = %11, %12
   br label %52
 
 compute_drnode.exit:                              ; preds = %41, %26, %23
-  %.031.i = phi i64 [ %24, %23 ], [ %28, %26 ], [ %42, %41 ]
+  %.030.i = phi i64 [ %24, %23 ], [ %28, %26 ], [ %42, %41 ]
   %45 = load ptr, ptr %7, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 184
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = trunc i64 %.032.i to i32
-  %51 = trunc i64 %.031.i to i32
+  %50 = trunc i64 %.031.i to i32
+  %51 = trunc i64 %.030.i to i32
   tail call void %47(ptr noundef nonnull %7, ptr noundef %49, i32 noundef %50, i32 noundef %51) #9
   br label %52
 

@@ -266,29 +266,29 @@ define internal fastcc range(i32 0, 2) i32 @dissect_kingfisher(ptr noundef %0, p
 
 .lr.ph.i:                                         ; preds = %33, %48
   %.025.i = phi i16 [ %.2.i, %48 ], [ 0, %33 ]
-  %.02024.i = phi i32 [ %49, %48 ], [ 1, %33 ]
-  %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02024.i) #2
+  %.01824.i = phi i32 [ %49, %48 ], [ 1, %33 ]
+  %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.01824.i) #2
   %40 = zext i8 %39 to i16
   br label %41
 
 41:                                               ; preds = %41, %.lr.ph.i
   %.123.i = phi i16 [ %.025.i, %.lr.ph.i ], [ %.2.i, %41 ]
-  %.01722.i = phi i16 [ %40, %.lr.ph.i ], [ %.118.i, %41 ]
-  %.01921.i = phi i32 [ 0, %.lr.ph.i ], [ %47, %41 ]
+  %.01722.i = phi i32 [ 0, %.lr.ph.i ], [ %47, %41 ]
+  %.01921.i = phi i16 [ %40, %.lr.ph.i ], [ %.120.i, %41 ]
   %42 = shl i16 %.123.i, 1
-  %43 = lshr i16 %.01722.i, 7
+  %43 = lshr i16 %.01921.i, 7
   %44 = and i16 %43, 1
   %45 = or disjoint i16 %44, %42
   %46 = xor i16 %45, 4129
   %.not27.i = icmp slt i16 %.123.i, 0
   %.2.i = select i1 %.not27.i, i16 %46, i16 %45
-  %.118.i = shl i16 %.01722.i, 1
-  %47 = add nuw nsw i32 %.01921.i, 1
+  %.120.i = shl i16 %.01921.i, 1
+  %47 = add nuw nsw i32 %.01722.i, 1
   %exitcond.not.i = icmp eq i32 %47, 8
   br i1 %exitcond.not.i, label %48, label %41, !llvm.loop !4
 
 48:                                               ; preds = %41
-  %49 = add nuw nsw i32 %.02024.i, 1
+  %49 = add nuw nsw i32 %.01824.i, 1
   %exitcond26.not.i = icmp eq i32 %49, %37
   br i1 %exitcond26.not.i, label %kingfisher_checksum.exit, label %.lr.ph.i, !llvm.loop !6
 
@@ -328,9 +328,9 @@ kingfisher_checksum.exit:                         ; preds = %48, %33
 
 74:                                               ; preds = %61, %51
   %75 = phi i32 [ 11, %61 ], [ 8, %51 ]
-  %.sroa.8.0 = phi i32 [ %69, %61 ], [ %58, %51 ]
-  %.sroa.14.0 = phi i32 [ %65, %61 ], [ %56, %51 ]
   %.sroa.20.0 = phi i32 [ %73, %61 ], [ %60, %51 ]
+  %.sroa.14.0 = phi i32 [ %65, %61 ], [ %56, %51 ]
+  %.sroa.8.0 = phi i32 [ %69, %61 ], [ %58, %51 ]
   %76 = tail call ptr @val_to_str_const(i32 noundef %24, ptr noundef nonnull @function_code_vals, ptr noundef nonnull @.str.98) #2
   %77 = getelementptr inbounds i8, ptr %1, i64 8
   %78 = load ptr, ptr %77, align 8

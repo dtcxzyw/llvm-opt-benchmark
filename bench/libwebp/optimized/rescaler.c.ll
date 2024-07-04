@@ -137,28 +137,28 @@ define hidden void @WebPRescalerImportRowShrink_C(ptr nocapture noundef readonly
 
 .lr.ph49:                                         ; preds = %.preheader, %._crit_edge
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %._crit_edge ], [ %indvars.iv57, %.preheader ]
-  %.03248 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %.preheader ]
-  %.03347 = phi i32 [ %40, %._crit_edge ], [ 0, %.preheader ]
-  %.03645 = phi i32 [ %.137.lcssa, %._crit_edge ], [ %indvars62, %.preheader ]
+  %.03148 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %.preheader ]
+  %.03247 = phi i32 [ %40, %._crit_edge ], [ 0, %.preheader ]
+  %.03545 = phi i32 [ %.136.lcssa, %._crit_edge ], [ %indvars62, %.preheader ]
   %16 = load i32, ptr %9, align 4
-  %17 = add nsw i32 %16, %.03248
+  %17 = add nsw i32 %16, %.03148
   %18 = icmp sgt i32 %17, 0
   %.pre = load i32, ptr %10, align 8
   br i1 %18, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph49
-  %19 = sext i32 %.03645 to i64
+  %19 = sext i32 %.03545 to i64
   br label %20
 
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ %19, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %.141 = phi i32 [ %17, %.lr.ph ], [ %21, %20 ]
-  %.13440 = phi i32 [ %.03347, %.lr.ph ], [ %25, %20 ]
+  %.13340 = phi i32 [ %.03247, %.lr.ph ], [ %25, %20 ]
   %21 = sub nsw i32 %.141, %.pre
   %22 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
-  %25 = add i32 %.13440, %24
+  %25 = add i32 %.13340, %24
   %indvars.iv.next = add nsw i64 %indvars.iv, %13
   %26 = icmp sgt i32 %21, 0
   br i1 %26, label %20, label %._crit_edge.loopexit, !llvm.loop !6
@@ -168,13 +168,13 @@ define hidden void @WebPRescalerImportRowShrink_C(ptr nocapture noundef readonly
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph49
-  %.137.lcssa = phi i32 [ %.03645, %.lr.ph49 ], [ %27, %._crit_edge.loopexit ]
-  %.134.lcssa = phi i32 [ %.03347, %.lr.ph49 ], [ %25, %._crit_edge.loopexit ]
+  %.136.lcssa = phi i32 [ %.03545, %.lr.ph49 ], [ %27, %._crit_edge.loopexit ]
+  %.133.lcssa = phi i32 [ %.03247, %.lr.ph49 ], [ %25, %._crit_edge.loopexit ]
   %.1.lcssa = phi i32 [ %17, %.lr.ph49 ], [ %21, %._crit_edge.loopexit ]
-  %.031.lcssa = phi i32 [ 0, %.lr.ph49 ], [ %24, %._crit_edge.loopexit ]
-  %28 = mul i32 %.031.lcssa, %.1.lcssa
+  %.0.lcssa = phi i32 [ 0, %.lr.ph49 ], [ %24, %._crit_edge.loopexit ]
+  %28 = mul i32 %.0.lcssa, %.1.lcssa
   %29 = sub i32 0, %28
-  %30 = mul i32 %.pre, %.134.lcssa
+  %30 = mul i32 %.pre, %.133.lcssa
   %31 = add i32 %30, %28
   %32 = load ptr, ptr %11, align 8
   %33 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv59

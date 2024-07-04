@@ -598,7 +598,7 @@ define dso_local i64 @enum_range_bounds(ptr nocapture noundef readonly %0) local
   br label %9
 
 9:                                                ; preds = %1, %5
-  %.0 = phi i32 [ %8, %5 ], [ 0, %1 ]
+  %.08 = phi i32 [ %8, %5 ], [ 0, %1 ]
   %10 = getelementptr i8, ptr %0, i64 56
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
@@ -611,7 +611,7 @@ define dso_local i64 @enum_range_bounds(ptr nocapture noundef readonly %0) local
   br label %17
 
 17:                                               ; preds = %9, %13
-  %.08 = phi i32 [ %16, %13 ], [ 0, %9 ]
+  %.0 = phi i32 [ %16, %13 ], [ 0, %9 ]
   %18 = load ptr, ptr %0, align 8
   %19 = tail call i32 @get_fn_expr_argtype(ptr noundef %18, i32 noundef 0) #7
   %20 = icmp eq i32 %19, 0
@@ -626,7 +626,7 @@ define dso_local i64 @enum_range_bounds(ptr nocapture noundef readonly %0) local
   unreachable
 
 25:                                               ; preds = %17
-  %26 = tail call fastcc ptr @enum_range_internal(i32 noundef %19, i32 noundef %.0, i32 noundef %.08)
+  %26 = tail call fastcc ptr @enum_range_internal(i32 noundef %19, i32 noundef %.08, i32 noundef %.0)
   %27 = ptrtoint ptr %26 to i64
   ret i64 %27
 }
@@ -652,10 +652,10 @@ define internal fastcc ptr @enum_range_internal(i32 noundef %0, i32 noundef %1, 
 
 .lr.ph:                                           ; preds = %.split.us, %34
   %12 = phi ptr [ %35, %34 ], [ %11, %.split.us ]
-  %.0.us54 = phi ptr [ %.2.us, %34 ], [ %9, %.split.us ]
-  %.031.us53 = phi i8 [ %.132.us, %34 ], [ %10, %.split.us ]
-  %.033.us52 = phi i32 [ %.134.us, %34 ], [ 0, %.split.us ]
-  %.036.us51 = phi i32 [ %.238.us, %34 ], [ 64, %.split.us ]
+  %.0.us54 = phi i8 [ %.1.us, %34 ], [ %10, %.split.us ]
+  %.031.us53 = phi i32 [ %.132.us, %34 ], [ 0, %.split.us ]
+  %.033.us52 = phi i32 [ %.235.us, %34 ], [ 64, %.split.us ]
+  %.036.us51 = phi ptr [ %.238.us, %34 ], [ %9, %.split.us ]
   %13 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 22
@@ -663,48 +663,48 @@ define internal fastcc ptr @enum_range_internal(i32 noundef %0, i32 noundef %1, 
   %17 = zext i8 %16 to i64
   %18 = getelementptr i8, ptr %14, i64 %17
   %19 = load i32, ptr %18, align 4
-  %20 = trunc nuw i8 %.031.us53 to i1
+  %20 = trunc nuw i8 %.0.us54 to i1
   %21 = icmp ne i32 %19, %1
   %or.cond.not.us = select i1 %20, i1 true, i1 %21
-  %.132.us = select i1 %or.cond.not.us, i8 %.031.us53, i8 1
-  %22 = trunc nuw i8 %.132.us to i1
+  %.1.us = select i1 %or.cond.not.us, i8 %.0.us54, i8 1
+  %22 = trunc nuw i8 %.1.us to i1
   br i1 %22, label %23, label %34
 
 23:                                               ; preds = %.lr.ph
   call fastcc void @check_safe_enum_use(ptr nonnull %14)
-  %.not42.us = icmp slt i32 %.033.us52, %.036.us51
+  %.not42.us = icmp slt i32 %.031.us53, %.033.us52
   br i1 %.not42.us, label %29, label %24
 
 24:                                               ; preds = %23
-  %25 = shl i32 %.036.us51, 1
+  %25 = shl i32 %.033.us52, 1
   %26 = sext i32 %25 to i64
   %27 = shl nsw i64 %26, 3
-  %28 = call ptr @repalloc(ptr noundef %.0.us54, i64 noundef %27) #7
+  %28 = call ptr @repalloc(ptr noundef %.036.us51, i64 noundef %27) #7
   br label %29
 
 29:                                               ; preds = %24, %23
-  %.137.us = phi i32 [ %25, %24 ], [ %.036.us51, %23 ]
-  %.1.us = phi ptr [ %28, %24 ], [ %.0.us54, %23 ]
+  %.137.us = phi ptr [ %28, %24 ], [ %.036.us51, %23 ]
+  %.134.us = phi i32 [ %25, %24 ], [ %.033.us52, %23 ]
   %30 = zext i32 %19 to i64
-  %31 = add i32 %.033.us52, 1
-  %32 = sext i32 %.033.us52 to i64
-  %33 = getelementptr i64, ptr %.1.us, i64 %32
+  %31 = add i32 %.031.us53, 1
+  %32 = sext i32 %.031.us53 to i64
+  %33 = getelementptr i64, ptr %.137.us, i64 %32
   store i64 %30, ptr %33, align 8
   br label %34
 
 34:                                               ; preds = %29, %.lr.ph
-  %.238.us = phi i32 [ %.137.us, %29 ], [ %.036.us51, %.lr.ph ]
-  %.134.us = phi i32 [ %31, %29 ], [ %.033.us52, %.lr.ph ]
-  %.2.us = phi ptr [ %.1.us, %29 ], [ %.0.us54, %.lr.ph ]
+  %.238.us = phi ptr [ %.137.us, %29 ], [ %.036.us51, %.lr.ph ]
+  %.235.us = phi i32 [ %.134.us, %29 ], [ %.033.us52, %.lr.ph ]
+  %.132.us = phi i32 [ %31, %29 ], [ %.031.us53, %.lr.ph ]
   %35 = call ptr @systable_getnext_ordered(ptr noundef %8, i32 noundef 1) #7
   %.not41.us = icmp eq ptr %35, null
   br i1 %.not41.us, label %.split48.us, label %.lr.ph
 
 .split:                                           ; preds = %3, %59
-  %.036 = phi i32 [ %.238, %59 ], [ 64, %3 ]
-  %.033 = phi i32 [ %.134, %59 ], [ 0, %3 ]
-  %.031 = phi i8 [ %.132, %59 ], [ %10, %3 ]
-  %.0 = phi ptr [ %.2, %59 ], [ %9, %3 ]
+  %.036 = phi ptr [ %.238, %59 ], [ %9, %3 ]
+  %.033 = phi i32 [ %.235, %59 ], [ 64, %3 ]
+  %.031 = phi i32 [ %.132, %59 ], [ 0, %3 ]
+  %.0 = phi i8 [ %.1, %59 ], [ %10, %3 ]
   %36 = call ptr @systable_getnext_ordered(ptr noundef %8, i32 noundef 1) #7
   %.not41 = icmp eq ptr %36, null
   br i1 %.not41, label %.split48.us, label %37
@@ -717,50 +717,50 @@ define internal fastcc ptr @enum_range_internal(i32 noundef %0, i32 noundef %1, 
   %42 = zext i8 %41 to i64
   %43 = getelementptr i8, ptr %39, i64 %42
   %44 = load i32, ptr %43, align 4
-  %45 = trunc nuw i8 %.031 to i1
+  %45 = trunc nuw i8 %.0 to i1
   %46 = icmp ne i32 %44, %1
   %or.cond.not = select i1 %45, i1 true, i1 %46
-  %.132 = select i1 %or.cond.not, i8 %.031, i8 1
-  %47 = trunc nuw i8 %.132 to i1
+  %.1 = select i1 %or.cond.not, i8 %.0, i8 1
+  %47 = trunc nuw i8 %.1 to i1
   br i1 %47, label %48, label %59
 
 48:                                               ; preds = %37
   call fastcc void @check_safe_enum_use(ptr nonnull %39)
-  %.not42 = icmp slt i32 %.033, %.036
+  %.not42 = icmp slt i32 %.031, %.033
   br i1 %.not42, label %54, label %49
 
 49:                                               ; preds = %48
-  %50 = shl i32 %.036, 1
+  %50 = shl i32 %.033, 1
   %51 = sext i32 %50 to i64
   %52 = shl nsw i64 %51, 3
-  %53 = call ptr @repalloc(ptr noundef %.0, i64 noundef %52) #7
+  %53 = call ptr @repalloc(ptr noundef %.036, i64 noundef %52) #7
   br label %54
 
 54:                                               ; preds = %49, %48
-  %.137 = phi i32 [ %50, %49 ], [ %.036, %48 ]
-  %.1 = phi ptr [ %53, %49 ], [ %.0, %48 ]
+  %.137 = phi ptr [ %53, %49 ], [ %.036, %48 ]
+  %.134 = phi i32 [ %50, %49 ], [ %.033, %48 ]
   %55 = zext i32 %44 to i64
-  %56 = add i32 %.033, 1
-  %57 = sext i32 %.033 to i64
-  %58 = getelementptr i64, ptr %.1, i64 %57
+  %56 = add i32 %.031, 1
+  %57 = sext i32 %.031 to i64
+  %58 = getelementptr i64, ptr %.137, i64 %57
   store i64 %55, ptr %58, align 8
   br label %59
 
 59:                                               ; preds = %54, %37
-  %.238 = phi i32 [ %.137, %54 ], [ %.036, %37 ]
-  %.134 = phi i32 [ %56, %54 ], [ %.033, %37 ]
-  %.2 = phi ptr [ %.1, %54 ], [ %.0, %37 ]
+  %.238 = phi ptr [ %.137, %54 ], [ %.036, %37 ]
+  %.235 = phi i32 [ %.134, %54 ], [ %.033, %37 ]
+  %.132 = phi i32 [ %56, %54 ], [ %.031, %37 ]
   %60 = icmp eq i32 %44, %2
   br i1 %60, label %.split48.us, label %.split, !llvm.loop !5
 
 .split48.us:                                      ; preds = %.split, %59, %34, %.split.us
-  %.us-phi = phi i32 [ 0, %.split.us ], [ %.134.us, %34 ], [ %.033, %.split ], [ %.134, %59 ]
-  %.us-phi49 = phi ptr [ %9, %.split.us ], [ %.2.us, %34 ], [ %.0, %.split ], [ %.2, %59 ]
+  %.us-phi = phi ptr [ %9, %.split.us ], [ %.238.us, %34 ], [ %.036, %.split ], [ %.238, %59 ]
+  %.us-phi49 = phi i32 [ 0, %.split.us ], [ %.132.us, %34 ], [ %.031, %.split ], [ %.132, %59 ]
   call void @systable_endscan_ordered(ptr noundef %8) #7
   call void @index_close(ptr noundef %7, i32 noundef 1) #7
   call void @table_close(ptr noundef %6, i32 noundef 1) #7
-  %61 = call ptr @construct_array(ptr noundef %.us-phi49, i32 noundef %.us-phi, i32 noundef %0, i32 noundef 4, i1 noundef zeroext true, i8 noundef signext 105) #7
-  call void @pfree(ptr noundef %.us-phi49) #7
+  %61 = call ptr @construct_array(ptr noundef %.us-phi, i32 noundef %.us-phi49, i32 noundef %0, i32 noundef 4, i1 noundef zeroext true, i8 noundef signext 105) #7
+  call void @pfree(ptr noundef %.us-phi) #7
   ret ptr %61
 }
 

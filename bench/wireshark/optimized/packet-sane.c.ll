@@ -1978,7 +1978,7 @@ dissect_sane_word.exit94.i.i:                     ; preds = %441
 .lr.ph134.i.i:                                    ; preds = %dissect_sane_word.exit94.i.i, %tvb_read_sane_string.exit.i.i
   %450 = phi i32 [ %466, %tvb_read_sane_string.exit.i.i ], [ %448, %dissect_sane_word.exit94.i.i ]
   %451 = phi i32 [ %467, %tvb_read_sane_string.exit.i.i ], [ %447, %dissect_sane_word.exit94.i.i ]
-  %.081133.i.i = phi i32 [ %476, %tvb_read_sane_string.exit.i.i ], [ 0, %dissect_sane_word.exit94.i.i ]
+  %.082133.i.i = phi i32 [ %476, %tvb_read_sane_string.exit.i.i ], [ 0, %dissect_sane_word.exit94.i.i ]
   %452 = load i32, ptr @hf_sane_option_possible_string_value, align 4
   %.val.i30.i = load ptr, ptr %287, align 8
   %453 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %451) #4
@@ -2023,7 +2023,7 @@ tvb_read_sane_string.exit.i.i:                    ; preds = %.lr.ph134.i.i.tvb_r
   %473 = tail call ptr @proto_tree_add_item(ptr noundef %471, i32 noundef %472, ptr noundef %0, i32 noundef %451, i32 noundef 4, i32 noundef 0) #4
   %474 = add i32 %.0.i102.i.i, -4
   %475 = tail call ptr @proto_tree_add_item(ptr noundef %471, i32 noundef %452, ptr noundef %0, i32 noundef %.pre-phi94, i32 noundef %474, i32 noundef 0) #4
-  %476 = add nuw nsw i32 %.081133.i.i, 1
+  %476 = add nuw nsw i32 %.082133.i.i, 1
   %exitcond138.not.i.i = icmp eq i32 %476, %446
   br i1 %exitcond138.not.i.i, label %.loopexit.i.i, label %.lr.ph134.i.i, !llvm.loop !17
 
@@ -2050,7 +2050,7 @@ dissect_sane_word.exit95.i.i:                     ; preds = %477
 486:                                              ; preds = %append_option_value.exit.i.i, %.lr.ph.i.i
   %487 = phi i32 [ %484, %.lr.ph.i.i ], [ %497, %append_option_value.exit.i.i ]
   %488 = phi i32 [ %483, %.lr.ph.i.i ], [ %498, %append_option_value.exit.i.i ]
-  %.082132.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %514, %append_option_value.exit.i.i ]
+  %.081132.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %514, %append_option_value.exit.i.i ]
   %489 = load i32, ptr @hf_sane_option_possible_word_value, align 4
   %490 = tail call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %489, ptr noundef %0, i32 noundef %488, i32 noundef 4, i32 noundef 0) #4
   %491 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %488) #4
@@ -2110,7 +2110,7 @@ dissect_sane_word.exit96.i.i:                     ; preds = %493, %486
   br label %append_option_value.exit.i.i
 
 append_option_value.exit.i.i:                     ; preds = %509, %508, %506, %502, %500, %dissect_sane_word.exit96.i.i
-  %514 = add nuw nsw i32 %.082132.i.i, 1
+  %514 = add nuw nsw i32 %.081132.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %514, %482
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %486, !llvm.loop !18
 

@@ -605,34 +605,34 @@ _knl_numa_bits_cnt.exit104:                       ; preds = %127
   br i1 %.not2739.i, label %.critedge.i, label %.lr.ph.i106
 
 .lr.ph.i106:                                      ; preds = %142, %.loopexit36.i
-  %.040.i = phi ptr [ %166, %.loopexit36.i ], [ %144, %142 ]
-  %145 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.040.i, i32 noundef 61) #17
+  %.02340.i = phi ptr [ %166, %.loopexit36.i ], [ %144, %142 ]
+  %145 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.02340.i, i32 noundef 61) #17
   %.not28.i = icmp eq ptr %145, null
   br i1 %.not28.i, label %_knl_numa_token.exit.i, label %146
 
 146:                                              ; preds = %.lr.ph.i106
   store i8 0, ptr %145, align 1
-  %147 = call i32 @xstrcasecmp(ptr noundef nonnull %.040.i, ptr noundef nonnull @.str.62) #15
+  %147 = call i32 @xstrcasecmp(ptr noundef nonnull %.02340.i, ptr noundef nonnull @.str.62) #15
   %.not.i.i = icmp eq i32 %147, 0
   br i1 %.not.i.i, label %select.unfold.i, label %148
 
 148:                                              ; preds = %146
-  %149 = call i32 @xstrcasecmp(ptr noundef nonnull %.040.i, ptr noundef nonnull @.str.68) #15
+  %149 = call i32 @xstrcasecmp(ptr noundef nonnull %.02340.i, ptr noundef nonnull @.str.68) #15
   %.not10.i.i = icmp eq i32 %149, 0
   br i1 %.not10.i.i, label %select.unfold.i, label %150
 
 150:                                              ; preds = %148
-  %151 = call i32 @xstrcasecmp(ptr noundef nonnull %.040.i, ptr noundef nonnull @.str.70) #15
+  %151 = call i32 @xstrcasecmp(ptr noundef nonnull %.02340.i, ptr noundef nonnull @.str.70) #15
   %.not11.i.i = icmp eq i32 %151, 0
   br i1 %.not11.i.i, label %select.unfold.i, label %152
 
 152:                                              ; preds = %150
-  %153 = call i32 @xstrcasecmp(ptr noundef nonnull %.040.i, ptr noundef nonnull @.str.64) #15
+  %153 = call i32 @xstrcasecmp(ptr noundef nonnull %.02340.i, ptr noundef nonnull @.str.64) #15
   %.not12.i.i = icmp eq i32 %153, 0
   br i1 %.not12.i.i, label %select.unfold.i, label %154
 
 154:                                              ; preds = %152
-  %155 = call i32 @xstrcasecmp(ptr noundef nonnull %.040.i, ptr noundef nonnull @.str.66) #15
+  %155 = call i32 @xstrcasecmp(ptr noundef nonnull %.02340.i, ptr noundef nonnull @.str.66) #15
   %.not13.i.i = icmp eq i32 %155, 0
   br i1 %.not13.i.i, label %select.unfold.i, label %_knl_numa_token.exit.i
 
@@ -1363,24 +1363,24 @@ define internal noalias noundef ptr @_ume_agent(ptr nocapture readnone %0) #0 {
 
 11:                                               ; preds = %33, %1
   %12 = phi ptr [ %10, %1 ], [ %26, %33 ]
-  %.034 = phi i32 [ 0, %1 ], [ %16, %33 ]
-  %.032 = phi i32 [ 0, %1 ], [ %.2, %33 ]
-  %.031 = phi i32 [ 0, %1 ], [ %35, %33 ]
-  %13 = sext i32 %.034 to i64
+  %.039 = phi i32 [ 0, %1 ], [ %35, %33 ]
+  %.033 = phi i32 [ 0, %1 ], [ %16, %33 ]
+  %.031 = phi i32 [ 0, %1 ], [ %.2, %33 ]
+  %13 = sext i32 %.033 to i64
   br label %14
 
 14:                                               ; preds = %31, %11
   %15 = phi ptr [ %26, %31 ], [ %12, %11 ]
-  %indvars.iv56 = phi i32 [ %indvars.iv.next57, %31 ], [ %.034, %11 ]
+  %indvars.iv56 = phi i32 [ %indvars.iv.next57, %31 ], [ %.033, %11 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ %13, %11 ]
-  %.039 = phi i32 [ %32, %31 ], [ 0, %11 ]
-  %.133 = phi i32 [ %.2, %31 ], [ %.032, %11 ]
+  %.038 = phi i32 [ %32, %31 ], [ 0, %11 ]
+  %.132 = phi i32 [ %.2, %31 ], [ %.031, %11 ]
   %16 = trunc nsw i64 %indvars.iv to i32
-  %17 = icmp eq i32 %.133, %16
+  %17 = icmp eq i32 %.132, %16
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %14
-  %19 = add nsw i32 %.133, 64
+  %19 = add nsw i32 %.132, 64
   %20 = sext i32 %19 to i64
   %21 = shl nsw i64 %20, 2
   %22 = call ptr @slurm_xrecalloc(ptr noundef nonnull %3, i64 noundef 1, i64 noundef %21, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.41, i32 noundef 747, ptr noundef nonnull @__func__._ume_agent) #15
@@ -1388,9 +1388,9 @@ define internal noalias noundef ptr @_ume_agent(ptr nocapture readnone %0) #0 {
   br label %23
 
 23:                                               ; preds = %18, %14
-  %.2 = phi i32 [ %19, %18 ], [ %.133, %14 ]
+  %.2 = phi i32 [ %19, %18 ], [ %.132, %14 ]
   %24 = load ptr, ptr @mc_path, align 8
-  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef %9, ptr noundef nonnull @.str.136, ptr noundef %24, i32 noundef %.031, i32 noundef %.039) #15
+  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef %9, ptr noundef nonnull @.str.136, ptr noundef %24, i32 noundef %.039, i32 noundef %.038) #15
   %26 = load ptr, ptr %5, align 8
   %27 = call i32 (ptr, i32, ...) @open(ptr noundef %26, i32 noundef 0) #15
   %28 = load ptr, ptr %3, align 8
@@ -1401,13 +1401,13 @@ define internal noalias noundef ptr @_ume_agent(ptr nocapture readnone %0) #0 {
 
 31:                                               ; preds = %23
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %32 = add nuw nsw i32 %.039, 1
+  %32 = add nuw nsw i32 %.038, 1
   %indvars.iv.next57 = add i32 %indvars.iv56, 1
   br label %14
 
 33:                                               ; preds = %23
-  %34 = icmp eq i32 %.039, 0
-  %35 = add nuw nsw i32 %.031, 1
+  %34 = icmp eq i32 %.038, 0
+  %35 = add nuw nsw i32 %.039, 1
   br i1 %34, label %36, label %11
 
 36:                                               ; preds = %33
@@ -1426,12 +1426,12 @@ define internal noalias noundef ptr @_ume_agent(ptr nocapture readnone %0) #0 {
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.thread
-  %.03646.us = phi i32 [ %.138.us, %.thread ], [ -1, %.preheader.us.preheader ]
+  %.03546.us = phi i32 [ %.137.us, %.thread ], [ -1, %.preheader.us.preheader ]
   br label %54
 
 40:                                               ; preds = %._crit_edge.us
-  %41 = icmp slt i32 %.03646.us, %.138.us
-  %42 = icmp ne i32 %.03646.us, -1
+  %41 = icmp slt i32 %.03546.us, %.137.us
+  %42 = icmp ne i32 %.03546.us, -1
   %or.cond.us = and i1 %42, %41
   br i1 %or.cond.us, label %43, label %.thread
 
@@ -1458,7 +1458,7 @@ define internal noalias noundef ptr @_ume_agent(ptr nocapture readnone %0) #0 {
 
 54:                                               ; preds = %.preheader.us, %68
   %indvars.iv53 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next54, %68 ]
-  %.03743.us = phi i32 [ 0, %.preheader.us ], [ %.138.us, %68 ]
+  %.03643.us = phi i32 [ 0, %.preheader.us ], [ %.137.us, %68 ]
   %55 = load ptr, ptr %3, align 8
   %56 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv53
   %57 = load i32, ptr %56, align 4
@@ -1474,11 +1474,11 @@ define internal noalias noundef ptr @_ume_agent(ptr nocapture readnone %0) #0 {
   %65 = getelementptr inbounds [8 x i8], ptr %4, i64 0, i64 %62
   store i8 0, ptr %65, align 1
   %66 = call i32 @atoi(ptr nocapture noundef nonnull %4) #17
-  %67 = add nsw i32 %66, %.03743.us
+  %67 = add nsw i32 %66, %.03643.us
   br label %68
 
 68:                                               ; preds = %64, %54
-  %.138.us = phi i32 [ %.03743.us, %54 ], [ %67, %64 ]
+  %.137.us = phi i32 [ %.03643.us, %54 ], [ %67, %64 ]
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %54, !llvm.loop !19

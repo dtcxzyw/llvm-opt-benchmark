@@ -562,7 +562,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr nocapture 
 
 14:                                               ; preds = %12, %9
   %15 = phi ptr [ @.str.178, %9 ], [ @.str.179, %12 ]
-  %.0122 = phi i32 [ 5, %9 ], [ 10, %12 ]
+  %.0124 = phi i32 [ 5, %9 ], [ 10, %12 ]
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.177, ptr noundef nonnull %15, i32 noundef %11) #3
@@ -593,11 +593,11 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr nocapture 
   br i1 %or.cond, label %56, label %37
 
 37:                                               ; preds = %28
-  %.not135 = icmp ugt i32 %7, %.0122
+  %.not135 = icmp ugt i32 %7, %.0124
   br i1 %.not135, label %38, label %129
 
 38:                                               ; preds = %37
-  %39 = add nuw nsw i32 %.0122, 1
+  %39 = add nuw nsw i32 %.0124, 1
   %40 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef 48, i32 noundef 1) #3
   %.not136 = icmp eq i8 %40, 0
   %41 = select i1 %.not136, i32 1, i32 5
@@ -611,7 +611,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr nocapture 
   br i1 %.not136, label %.thread, label %49
 
 49:                                               ; preds = %38
-  %50 = add nuw nsw i32 %.0122, 5
+  %50 = add nuw nsw i32 %.0124, 5
   %51 = icmp ult i32 %7, %50
   br i1 %51, label %129, label %52
 
@@ -625,11 +625,11 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr nocapture 
   br i1 %35, label %57, label %.thread
 
 57:                                               ; preds = %56
-  %.not139 = icmp ugt i32 %7, %.0122
+  %.not139 = icmp ugt i32 %7, %.0124
   br i1 %.not139, label %58, label %129
 
 58:                                               ; preds = %57
-  %59 = add nuw nsw i32 %.0122, 1
+  %59 = add nuw nsw i32 %.0124, 1
   %60 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #3
   %61 = load i32, ptr @hf_component_count, align 4
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %61, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #3
@@ -650,9 +650,9 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr nocapture 
   br i1 %.not140, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %93
-  %.2125148.us = phi i32 [ %94, %93 ], [ 7, %.lr.ph ]
-  %.0127147.us = phi i32 [ %95, %93 ], [ 0, %.lr.ph ]
-  %69 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2125148.us) #3
+  %.2148.us = phi i32 [ %94, %93 ], [ 7, %.lr.ph ]
+  %.0123147.us = phi i32 [ %95, %93 ], [ 0, %.lr.ph ]
+  %69 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2148.us) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %70 = call i32 @tvb_reported_length(ptr noundef %69) #3
   %71 = icmp slt i32 %70, %68
@@ -671,7 +671,7 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr nocapture 
   %.0.i.us = phi i32 [ 6, %74 ], [ 2, %72 ]
   %77 = call zeroext i8 @tvb_get_guint8(ptr noundef %69, i32 noundef 0) #3
   %78 = zext i8 %77 to i32
-  %79 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %21, ptr noundef %69, i32 noundef 0, i32 noundef %.0.i.us, i32 noundef %.0127147.us, ptr noundef nonnull %5, ptr noundef nonnull @.str.181, i32 noundef %.0127147.us, i32 noundef %78) #3
+  %79 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %21, ptr noundef %69, i32 noundef 0, i32 noundef %.0.i.us, i32 noundef %.0123147.us, ptr noundef nonnull %5, ptr noundef nonnull @.str.181, i32 noundef %.0123147.us, i32 noundef %78) #3
   %80 = load ptr, ptr %5, align 8
   %81 = load i32, ptr @hf_component_tag, align 4
   %82 = call ptr @proto_tree_add_item(ptr noundef %80, i32 noundef %81, ptr noundef %69, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
@@ -690,17 +690,17 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr nocapture 
   br label %93
 
 93:                                               ; preds = %89, %76
-  %.034.i.ph.us = phi i32 [ 2, %76 ], [ 6, %89 ]
+  %.035.i.ph.us = phi i32 [ 2, %76 ], [ 6, %89 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %94 = add i32 %.034.i.ph.us, %.2125148.us
-  %95 = add nuw nsw i32 %.0127147.us, 1
+  %94 = add i32 %.035.i.ph.us, %.2148.us
+  %95 = add nuw nsw i32 %.0123147.us, 1
   %exitcond157.not = icmp eq i32 %95, %63
   br i1 %exitcond157.not, label %.thread, label %.lr.ph.split.us, !llvm.loop !4
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %99
-  %.2125148 = phi i32 [ %106, %99 ], [ 7, %.lr.ph ]
-  %.0127147 = phi i32 [ %107, %99 ], [ 0, %.lr.ph ]
-  %96 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2125148) #3
+  %.2148 = phi i32 [ %106, %99 ], [ 7, %.lr.ph ]
+  %.0123147 = phi i32 [ %107, %99 ], [ 0, %.lr.ph ]
+  %96 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2148) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %97 = call i32 @tvb_reported_length(ptr noundef %96) #3
   %98 = icmp slt i32 %97, %68
@@ -709,44 +709,44 @@ define internal i32 @dissect_scte35_splice_insert(ptr noundef %0, ptr nocapture 
 99:                                               ; preds = %.lr.ph.split
   %100 = call zeroext i8 @tvb_get_guint8(ptr noundef %96, i32 noundef 0) #3
   %101 = zext i8 %100 to i32
-  %102 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %21, ptr noundef %96, i32 noundef 0, i32 noundef 1, i32 noundef %.0127147, ptr noundef nonnull %5, ptr noundef nonnull @.str.181, i32 noundef %.0127147, i32 noundef %101) #3
+  %102 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %21, ptr noundef %96, i32 noundef 0, i32 noundef 1, i32 noundef %.0123147, ptr noundef nonnull %5, ptr noundef nonnull @.str.181, i32 noundef %.0123147, i32 noundef %101) #3
   %103 = load ptr, ptr %5, align 8
   %104 = load i32, ptr @hf_component_tag, align 4
   %105 = call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %104, ptr noundef %96, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %106 = add nuw nsw i32 %.2125148, 1
-  %107 = add nuw nsw i32 %.0127147, 1
+  %106 = add nuw nsw i32 %.2148, 1
+  %107 = add nuw nsw i32 %.0123147, 1
   %exitcond.not = icmp eq i32 %107, %63
   br i1 %exitcond.not, label %.thread, label %.lr.ph.split, !llvm.loop !4
 
 dissect_component.exit:                           ; preds = %.lr.ph.split, %.lr.ph.split.us, %74
-  %.us-phi = phi i32 [ %.2125148.us, %74 ], [ %.2125148.us, %.lr.ph.split.us ], [ %.2125148, %.lr.ph.split ]
+  %.us-phi = phi i32 [ %.2148.us, %74 ], [ %.2148.us, %.lr.ph.split.us ], [ %.2148, %.lr.ph.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %129
 
 .thread:                                          ; preds = %99, %93, %.preheader, %52, %38, %56
-  %.3126 = phi i32 [ 6, %56 ], [ 7, %38 ], [ 11, %52 ], [ 7, %.preheader ], [ %94, %93 ], [ %106, %99 ]
-  %.3 = phi i32 [ %.0122, %56 ], [ %39, %38 ], [ %50, %52 ], [ %66, %.preheader ], [ %66, %93 ], [ %66, %99 ]
+  %.3127 = phi i32 [ %.0124, %56 ], [ %39, %38 ], [ %50, %52 ], [ %66, %.preheader ], [ %66, %93 ], [ %66, %99 ]
+  %.3 = phi i32 [ 6, %56 ], [ 7, %38 ], [ 11, %52 ], [ 7, %.preheader ], [ %94, %93 ], [ %106, %99 ]
   %.not141 = icmp eq i8 %32, 0
   br i1 %.not141, label %119, label %108
 
 108:                                              ; preds = %.thread
-  %109 = add nuw nsw i32 %.3, 5
+  %109 = add nuw nsw i32 %.3127, 5
   %110 = icmp slt i32 %7, %109
   br i1 %110, label %129, label %111
 
 111:                                              ; preds = %108
   %112 = load i32, ptr @hf_break_duration_auto_return, align 4
-  %113 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %112, ptr noundef %0, i32 noundef %.3126, i32 noundef 1, i32 noundef 0) #3
+  %113 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %112, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef 0) #3
   %114 = load i32, ptr @hf_break_duration_reserved, align 4
-  %115 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %114, ptr noundef %0, i32 noundef %.3126, i32 noundef 1, i32 noundef 0) #3
+  %115 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %114, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef 0) #3
   %116 = load i32, ptr @hf_break_duration_duration, align 4
-  %117 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %116, ptr noundef %0, i32 noundef %.3126, i32 noundef 5, i32 noundef 0) #3
-  %118 = add i32 %.3126, 5
+  %117 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %116, ptr noundef %0, i32 noundef %.3, i32 noundef 5, i32 noundef 0) #3
+  %118 = add i32 %.3, 5
   br label %119
 
 119:                                              ; preds = %111, %.thread
-  %.4 = phi i32 [ %118, %111 ], [ %.3126, %.thread ]
+  %.4 = phi i32 [ %118, %111 ], [ %.3, %.thread ]
   %120 = load i32, ptr @hf_unique_program_id, align 4
   %121 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %120, ptr noundef %0, i32 noundef %.4, i32 noundef 2, i32 noundef 0) #3
   %122 = add i32 %.4, 2
@@ -759,7 +759,7 @@ dissect_component.exit:                           ; preds = %.lr.ph.split, %.lr.
   br label %129
 
 129:                                              ; preds = %dissect_component.exit, %14, %119, %108, %58, %57, %49, %37, %12, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 6, %37 ], [ 6, %49 ], [ 6, %57 ], [ 7, %58 ], [ %.us-phi, %dissect_component.exit ], [ %.3126, %108 ], [ 5, %14 ], [ %128, %119 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 6, %37 ], [ 6, %49 ], [ 6, %57 ], [ 7, %58 ], [ %.us-phi, %dissect_component.exit ], [ %.3, %108 ], [ 5, %14 ], [ %128, %119 ]
   ret i32 %.0
 }
 
@@ -816,10 +816,10 @@ define internal noundef i32 @dissect_scte35_splice_schedule(ptr noundef %0, ptr 
   br label %.lr.ph171
 
 .lr.ph171:                                        ; preds = %.lr.ph171.preheader, %100
-  %.0144170 = phi i32 [ %.2, %100 ], [ %22, %.lr.ph171.preheader ]
-  %.0148169 = phi i32 [ %109, %100 ], [ 1, %.lr.ph171.preheader ]
-  %.0152168 = phi i32 [ %110, %100 ], [ 0, %.lr.ph171.preheader ]
-  %23 = shl i32 %.0148169, 3
+  %.0145170 = phi i32 [ %109, %100 ], [ 1, %.lr.ph171.preheader ]
+  %.0149169 = phi i32 [ %110, %100 ], [ 0, %.lr.ph171.preheader ]
+  %.0151168 = phi i32 [ %.2153, %100 ], [ %22, %.lr.ph171.preheader ]
+  %23 = shl i32 %.0145170, 3
   %24 = add i32 %23, 32
   %25 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %24, i32 noundef 1) #3
   %.not164 = icmp eq i8 %25, 0
@@ -834,7 +834,7 @@ define internal noundef i32 @dissect_scte35_splice_schedule(ptr noundef %0, ptr 
   br i1 %.not184, label %.thread161, label %36
 
 .thread161:                                       ; preds = %26
-  %31 = add i32 %.0148169, 6
+  %31 = add i32 %.0145170, 6
   %32 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %31) #3
   %33 = zext i8 %32 to i32
   %34 = mul nuw nsw i32 %33, 5
@@ -845,32 +845,32 @@ define internal noundef i32 @dissect_scte35_splice_schedule(ptr noundef %0, ptr 
   %spec.select.ph = phi i32 [ 5, %.lr.ph171 ], [ 10, %26 ]
   %.ph185 = phi i8 [ 0, %.lr.ph171 ], [ %30, %26 ]
   %37 = add nuw nsw i32 %spec.select.ph, 4
-  %.1146189 = select i1 %.not164, i32 %37, i32 %spec.select.ph
+  %.1189 = select i1 %.not164, i32 %37, i32 %spec.select.ph
   br label %38
 
 38:                                               ; preds = %.thread161, %36
-  %.1146190 = phi i32 [ %.1146189, %36 ], [ 10, %.thread161 ]
+  %.1190 = phi i32 [ %.1189, %36 ], [ 10, %.thread161 ]
   %39 = phi i8 [ %.ph185, %36 ], [ %30, %.thread161 ]
   %40 = phi i1 [ %.not164, %36 ], [ false, %.thread161 ]
   %41 = phi i32 [ 0, %36 ], [ %35, %.thread161 ]
-  %.2147 = add nuw nsw i32 %41, %.1146190
+  %.2 = add nuw nsw i32 %41, %.1190
   %42 = icmp ne i8 %39, 0
   %or.cond7 = select i1 %.not164, i1 %42, i1 false
-  %43 = add nuw nsw i32 %.2147, 5
-  %.3 = select i1 %or.cond7, i32 %43, i32 %.2147
-  %44 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %19, ptr noundef %0, i32 noundef %.0148169, i32 noundef %.3, i32 noundef %.0152168, ptr noundef nonnull %5, ptr noundef nonnull @.str.183, i32 noundef %.0152168) #3
+  %43 = add nuw nsw i32 %.2, 5
+  %.3 = select i1 %or.cond7, i32 %43, i32 %.2
+  %44 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %19, ptr noundef %0, i32 noundef %.0145170, i32 noundef %.3, i32 noundef %.0149169, ptr noundef nonnull %5, ptr noundef nonnull @.str.183, i32 noundef %.0149169) #3
   %45 = load i32, ptr @hf_splice_event_id, align 4
-  %46 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %45, ptr noundef %0, i32 noundef %.0148169, i32 noundef 4, i32 noundef 0) #3
-  %47 = add i32 %.0148169, 4
+  %46 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %45, ptr noundef %0, i32 noundef %.0145170, i32 noundef 4, i32 noundef 0) #3
+  %47 = add i32 %.0145170, 4
   %48 = load i32, ptr @hf_splice_event_cancel_indicator, align 4
   %49 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %48, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0) #3
   %50 = load i32, ptr @hf_splice_reserved0, align 4
   %51 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %50, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0) #3
-  %52 = add i32 %.0148169, 5
+  %52 = add i32 %.0145170, 5
   br i1 %.not164, label %53, label %100
 
 53:                                               ; preds = %38
-  %54 = add i32 %.0144170, 5
+  %54 = add i32 %.0151168, 5
   %55 = icmp slt i32 %7, %54
   br i1 %55, label %.loopexit165, label %56
 
@@ -879,7 +879,7 @@ define internal noundef i32 @dissect_scte35_splice_schedule(ptr noundef %0, ptr 
   %58 = or disjoint i32 %57, 2
   %59 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %58, i32 noundef 1) #3
   call void @proto_tree_add_bitmask_list(ptr noundef %19, ptr noundef %0, i32 noundef %52, i32 noundef 1, ptr noundef nonnull @dissect_scte35_splice_schedule.splice_event_flags, i32 noundef 0) #3
-  %60 = add i32 %.0148169, 6
+  %60 = add i32 %.0145170, 6
   %61 = select i1 %40, i32 4, i32 1
   %62 = add i32 %61, %54
   %63 = icmp slt i32 %7, %62
@@ -891,14 +891,14 @@ define internal noundef i32 @dissect_scte35_splice_schedule(ptr noundef %0, ptr 
 65:                                               ; preds = %64
   %66 = load i32, ptr @hf_splice_utc_splice_time, align 4
   %67 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %66, ptr noundef %0, i32 noundef %60, i32 noundef 4, i32 noundef 0) #3
-  %68 = add i32 %.0148169, 10
+  %68 = add i32 %.0145170, 10
   br label %.loopexit
 
 69:                                               ; preds = %64
   %70 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %60) #3
   %71 = load i32, ptr @hf_splice_component_count, align 4
   %72 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %71, ptr noundef %0, i32 noundef %60, i32 noundef 1, i32 noundef 0) #3
-  %73 = add i32 %.0148169, 7
+  %73 = add i32 %.0145170, 7
   %74 = zext i8 %70 to i32
   %75 = mul nuw nsw i32 %74, 5
   %76 = add i32 %75, %62
@@ -910,61 +910,61 @@ define internal noundef i32 @dissect_scte35_splice_schedule(ptr noundef %0, ptr 
   br i1 %.not182, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.1149167 = phi i32 [ %87, %.lr.ph ], [ %73, %.preheader ]
-  %.0153166 = phi i32 [ %88, %.lr.ph ], [ 0, %.preheader ]
+  %.1146167 = phi i32 [ %87, %.lr.ph ], [ %73, %.preheader ]
+  %.0150166 = phi i32 [ %88, %.lr.ph ], [ 0, %.preheader ]
   %78 = load ptr, ptr %5, align 8
-  %79 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %78, ptr noundef %0, i32 noundef %.1149167, i32 noundef 5, i32 noundef %.0153166, ptr noundef nonnull %6, ptr noundef nonnull @.str.184, i32 noundef %.0153166) #3
+  %79 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %78, ptr noundef %0, i32 noundef %.1146167, i32 noundef 5, i32 noundef %.0150166, ptr noundef nonnull %6, ptr noundef nonnull @.str.184, i32 noundef %.0150166) #3
   %80 = load ptr, ptr %6, align 8
   %81 = load i32, ptr @hf_splice_component_tag, align 4
-  %82 = call ptr @proto_tree_add_item(ptr noundef %80, i32 noundef %81, ptr noundef %0, i32 noundef %.1149167, i32 noundef 1, i32 noundef 0) #3
-  %83 = add i32 %.1149167, 1
+  %82 = call ptr @proto_tree_add_item(ptr noundef %80, i32 noundef %81, ptr noundef %0, i32 noundef %.1146167, i32 noundef 1, i32 noundef 0) #3
+  %83 = add i32 %.1146167, 1
   %84 = load ptr, ptr %6, align 8
   %85 = load i32, ptr @hf_splice_component_utc_splice_time, align 4
   %86 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %85, ptr noundef %0, i32 noundef %83, i32 noundef 4, i32 noundef 0) #3
-  %87 = add i32 %.1149167, 5
-  %88 = add nuw nsw i32 %.0153166, 1
+  %87 = add i32 %.1146167, 5
+  %88 = add nuw nsw i32 %.0150166, 1
   %exitcond.not = icmp eq i32 %88, %74
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %65
-  %.2150 = phi i32 [ %68, %65 ], [ %73, %.preheader ], [ %87, %.lr.ph ]
-  %.1 = phi i32 [ %62, %65 ], [ %76, %.preheader ], [ %76, %.lr.ph ]
+  %.1152 = phi i32 [ %62, %65 ], [ %76, %.preheader ], [ %76, %.lr.ph ]
+  %.2147 = phi i32 [ %68, %65 ], [ %73, %.preheader ], [ %87, %.lr.ph ]
   %.not160 = icmp eq i8 %59, 0
   br i1 %.not160, label %100, label %89
 
 89:                                               ; preds = %.loopexit
-  %90 = add i32 %.1, 5
+  %90 = add i32 %.1152, 5
   %91 = icmp slt i32 %7, %90
   br i1 %91, label %.loopexit165, label %92
 
 92:                                               ; preds = %89
   %93 = load i32, ptr @hf_splice_break_duration_auto_return, align 4
-  %94 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %93, ptr noundef %0, i32 noundef %.2150, i32 noundef 1, i32 noundef 0) #3
+  %94 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %93, ptr noundef %0, i32 noundef %.2147, i32 noundef 1, i32 noundef 0) #3
   %95 = load i32, ptr @hf_splice_break_duration_reserved, align 4
-  %96 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %95, ptr noundef %0, i32 noundef %.2150, i32 noundef 1, i32 noundef 0) #3
+  %96 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %95, ptr noundef %0, i32 noundef %.2147, i32 noundef 1, i32 noundef 0) #3
   %97 = load i32, ptr @hf_splice_break_duration_duration, align 4
-  %98 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %97, ptr noundef %0, i32 noundef %.2150, i32 noundef 5, i32 noundef 0) #3
-  %99 = add i32 %.2150, 5
+  %98 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %97, ptr noundef %0, i32 noundef %.2147, i32 noundef 5, i32 noundef 0) #3
+  %99 = add i32 %.2147, 5
   br label %100
 
 100:                                              ; preds = %.loopexit, %92, %38
-  %.3151 = phi i32 [ %52, %38 ], [ %99, %92 ], [ %.2150, %.loopexit ]
-  %.2 = phi i32 [ %.0144170, %38 ], [ %90, %92 ], [ %.1, %.loopexit ]
+  %.2153 = phi i32 [ %.0151168, %38 ], [ %90, %92 ], [ %.1152, %.loopexit ]
+  %.3148 = phi i32 [ %52, %38 ], [ %99, %92 ], [ %.2147, %.loopexit ]
   %101 = load i32, ptr @hf_splice_unique_program_id, align 4
-  %102 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %101, ptr noundef %0, i32 noundef %.3151, i32 noundef 2, i32 noundef 0) #3
-  %103 = add i32 %.3151, 2
+  %102 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %101, ptr noundef %0, i32 noundef %.3148, i32 noundef 2, i32 noundef 0) #3
+  %103 = add i32 %.3148, 2
   %104 = load i32, ptr @hf_splice_avail_num, align 4
   %105 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %104, ptr noundef %0, i32 noundef %103, i32 noundef 1, i32 noundef 0) #3
-  %106 = add i32 %.3151, 3
+  %106 = add i32 %.3148, 3
   %107 = load i32, ptr @hf_splice_avails_expected, align 4
   %108 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %107, ptr noundef %0, i32 noundef %106, i32 noundef 1, i32 noundef 0) #3
-  %109 = add i32 %.3151, 4
-  %110 = add nuw nsw i32 %.0152168, 1
+  %109 = add i32 %.3148, 4
+  %110 = add nuw nsw i32 %.0149169, 1
   %exitcond183.not = icmp eq i32 %110, %11
   br i1 %exitcond183.not, label %.loopexit165, label %.lr.ph171, !llvm.loop !7
 
 .loopexit165:                                     ; preds = %53, %56, %69, %89, %100, %13, %9, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 1, %13 ], [ %52, %53 ], [ %60, %56 ], [ %73, %69 ], [ %.2150, %89 ], [ %109, %100 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 1, %13 ], [ %52, %53 ], [ %60, %56 ], [ %73, %69 ], [ %.2147, %89 ], [ %109, %100 ]
   ret i32 %.0
 }
 
@@ -1058,10 +1058,10 @@ define internal range(i32 0, 69655) i32 @dissect_scte35_splice_info(ptr noundef 
   br i1 %.not118, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27, %175
-  %.0102117 = phi i32 [ %177, %175 ], [ %51, %27 ]
-  %.0105116 = phi i16 [ %178, %175 ], [ 0, %27 ]
-  %53 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0102117) #3
-  %54 = zext i16 %.0105116 to i32
+  %.0117 = phi i32 [ %177, %175 ], [ %51, %27 ]
+  %.0104116 = phi i16 [ %178, %175 ], [ 0, %27 ]
+  %53 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0117) #3
+  %54 = zext i16 %.0104116 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %55 = call zeroext i8 @tvb_get_guint8(ptr noundef %53, i32 noundef 0) #3
   %56 = call zeroext i8 @tvb_get_guint8(ptr noundef %53, i32 noundef 1) #3
@@ -1255,8 +1255,8 @@ dissect_scte35_splice_descriptor.exit:            ; preds = %.lr.ph, %162
 
 175:                                              ; preds = %dissect_scte35_splice_descriptor.exit.thread112, %dissect_scte35_splice_descriptor.exit
   %176 = phi i32 [ %.ph, %dissect_scte35_splice_descriptor.exit.thread112 ], [ %spec.select.i, %dissect_scte35_splice_descriptor.exit ]
-  %177 = add i32 %176, %.0102117
-  %178 = add i16 %.0105116, 1
+  %177 = add i32 %176, %.0117
+  %178 = add i16 %.0104116, 1
   %179 = icmp slt i32 %177, %52
   br i1 %179, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
@@ -1270,18 +1270,18 @@ dissect_scte35_splice_descriptor.exit:            ; preds = %.lr.ph, %162
   br label %184
 
 184:                                              ; preds = %180, %._crit_edge
-  %.0103 = phi i32 [ %183, %180 ], [ %52, %._crit_edge ]
+  %.0102 = phi i32 [ %183, %180 ], [ %52, %._crit_edge ]
   %185 = load i32, ptr @hf_crc32, align 4
-  %186 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %185, ptr noundef %0, i32 noundef %.0103, i32 noundef 4, i32 noundef 0) #3
-  %187 = add nuw nsw i32 %.0103, 4
+  %186 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %185, ptr noundef %0, i32 noundef %.0102, i32 noundef 4, i32 noundef 0) #3
+  %187 = add nuw nsw i32 %.0102, 4
   %188 = load ptr, ptr @scte35_cmd_dissector_table, align 8
   %189 = zext i8 %12 to i32
   %190 = call i32 @dissector_try_uint_new(ptr noundef %188, i32 noundef %189, ptr noundef %48, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef null) #3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %dissect_scte35_splice_descriptor.exit, %dissect_scte35_splice_descriptor.exit.thread, %24, %18, %9, %4, %184
-  %.0 = phi i32 [ %187, %184 ], [ 0, %4 ], [ 0, %9 ], [ 0, %18 ], [ 0, %24 ], [ %51, %dissect_scte35_splice_descriptor.exit.thread ], [ %51, %dissect_scte35_splice_descriptor.exit ]
-  ret i32 %.0
+  %.0103 = phi i32 [ %187, %184 ], [ 0, %4 ], [ 0, %9 ], [ 0, %18 ], [ 0, %24 ], [ %51, %dissect_scte35_splice_descriptor.exit.thread ], [ %51, %dissect_scte35_splice_descriptor.exit ]
+  ret i32 %.0103
 }
 
 ; Function Attrs: nounwind uwtable

@@ -60,9 +60,9 @@ if.then12:                                        ; preds = %sw.bb5
   br label %sw.bb18
 
 sw.bb18:                                          ; preds = %if.then, %if.then12
+  %c.addr.0 = phi i32 [ %and, %if.then ], [ %or, %if.then12 ]
   %i.0 = phi i32 [ %0, %if.then ], [ %inc, %if.then12 ]
   %illegal.0 = phi i8 [ 0, %if.then ], [ %xor, %if.then12 ]
-  %c.addr.0 = phi i32 [ %and, %if.then ], [ %or, %if.then12 ]
   %inc19 = add nsw i32 %i.0, 1
   %idxprom20 = sext i32 %i.0 to i64
   %arrayidx21 = getelementptr inbounds i8, ptr %s, i64 %idxprom20
@@ -82,9 +82,9 @@ sw.bb46:                                          ; preds = %if.then
   br label %return
 
 sw.epilog:                                        ; preds = %if.then, %sw.bb18
+  %c.addr.1 = phi i32 [ %and, %if.then ], [ %or25, %sw.bb18 ]
   %i.1 = phi i32 [ %0, %if.then ], [ %inc19, %sw.bb18 ]
   %illegal.1 = phi i8 [ 0, %if.then ], [ %or30, %sw.bb18 ]
-  %c.addr.1 = phi i32 [ %and, %if.then ], [ %or25, %sw.bb18 ]
   %inc33 = add nsw i32 %i.1, 1
   %idxprom34 = sext i32 %i.1 to i64
   %arrayidx35 = getelementptr inbounds i8, ptr %s, i64 %idxprom34
@@ -100,16 +100,16 @@ sw.epilog:                                        ; preds = %if.then, %sw.bb18
   br i1 %10, label %lor.lhs.false, label %if.then59
 
 lor.lhs.false:                                    ; preds = %if.then, %sw.epilog
-  %c.addr.262 = phi i32 [ %or39, %sw.epilog ], [ %and, %if.then ]
-  %i.261 = phi i32 [ %inc33, %sw.epilog ], [ %0, %if.then ]
+  %i.262 = phi i32 [ %inc33, %sw.epilog ], [ %0, %if.then ]
+  %c.addr.261 = phi i32 [ %or39, %sw.epilog ], [ %and, %if.then ]
   %idxprom51 = zext i8 %2 to i64
   %arrayidx52 = getelementptr inbounds [4 x i32], ptr @_ZN8base_icuL13utf8_minLegalE, i64 0, i64 %idxprom51
   %11 = load i32, ptr %arrayidx52, align 4
-  %cmp53 = icmp slt i32 %c.addr.262, %11
+  %cmp53 = icmp slt i32 %c.addr.261, %11
   br i1 %cmp53, label %if.then59, label %lor.lhs.false54
 
 lor.lhs.false54:                                  ; preds = %lor.lhs.false
-  %and55 = and i32 %c.addr.262, -2048
+  %and55 = and i32 %c.addr.261, -2048
   %cmp56 = icmp eq i32 %and55, 55296
   %cmp58 = icmp ne i8 %strict, -2
   %or.cond = and i1 %cmp58, %cmp56
@@ -161,18 +161,18 @@ if.then70:                                        ; preds = %while.end
 
 if.else78:                                        ; preds = %lor.lhs.false54
   %cmp80 = icmp sgt i8 %strict, 0
-  %cmp82 = icmp sgt i32 %c.addr.262, 64975
+  %cmp82 = icmp sgt i32 %c.addr.261, 64975
   %or.cond1 = and i1 %cmp80, %cmp82
   br i1 %or.cond1, label %land.lhs.true83, label %if.end116
 
 land.lhs.true83:                                  ; preds = %if.else78
-  %cmp84 = icmp ult i32 %c.addr.262, 65008
+  %cmp84 = icmp ult i32 %c.addr.261, 65008
   br i1 %cmp84, label %if.end116.sink.split, label %lor.lhs.false85
 
 lor.lhs.false85:                                  ; preds = %land.lhs.true83
-  %and86 = and i32 %c.addr.262, 65534
+  %and86 = and i32 %c.addr.261, 65534
   %cmp87 = icmp eq i32 %and86, 65534
-  %cmp89 = icmp ult i32 %c.addr.262, 1114112
+  %cmp89 = icmp ult i32 %c.addr.261, 1114112
   %or.cond2 = and i1 %cmp89, %cmp87
   br i1 %or.cond2, label %if.end116.sink.split, label %if.end116
 
@@ -206,14 +206,14 @@ if.then110:                                       ; preds = %while.end107
 
 if.end116.sink.split:                             ; preds = %lor.lhs.false85, %land.lhs.true83, %if.then70, %if.then110
   %idxprom112.sink = phi i64 [ %idxprom112, %if.then110 ], [ %idxprom74, %if.then70 ], [ %idxprom51, %land.lhs.true83 ], [ %idxprom51, %lor.lhs.false85 ]
-  %i.5.ph = phi i32 [ %i.4.lcssa, %if.then110 ], [ %i.3.lcssa, %if.then70 ], [ %i.261, %land.lhs.true83 ], [ %i.261, %lor.lhs.false85 ]
+  %i.5.ph = phi i32 [ %i.4.lcssa, %if.then110 ], [ %i.3.lcssa, %if.then70 ], [ %i.262, %land.lhs.true83 ], [ %i.262, %lor.lhs.false85 ]
   %arrayidx113 = getelementptr inbounds [6 x i32], ptr @_ZN8base_icuL15utf8_errorValueE, i64 0, i64 %idxprom112.sink
   %24 = load i32, ptr %arrayidx113, align 4
   br label %if.end116
 
 if.end116:                                        ; preds = %if.end116.sink.split, %while.end107, %while.end, %lor.lhs.false85, %if.else78
-  %i.5 = phi i32 [ %i.261, %lor.lhs.false85 ], [ %i.261, %if.else78 ], [ %i.3.lcssa, %while.end ], [ %i.4.lcssa, %while.end107 ], [ %i.5.ph, %if.end116.sink.split ]
-  %c.addr.3 = phi i32 [ %c.addr.262, %lor.lhs.false85 ], [ %c.addr.262, %if.else78 ], [ -1, %while.end ], [ -1, %while.end107 ], [ %24, %if.end116.sink.split ]
+  %c.addr.3 = phi i32 [ %c.addr.261, %lor.lhs.false85 ], [ %c.addr.261, %if.else78 ], [ -1, %while.end ], [ -1, %while.end107 ], [ %24, %if.end116.sink.split ]
+  %i.5 = phi i32 [ %i.262, %lor.lhs.false85 ], [ %i.262, %if.else78 ], [ %i.3.lcssa, %while.end ], [ %i.4.lcssa, %while.end107 ], [ %i.5.ph, %if.end116.sink.split ]
   store i32 %i.5, ptr %pi, align 4
   br label %return
 

@@ -1160,8 +1160,8 @@ define dso_local void @_Z13combine_factsRSt6vectorIP4FactSaIS1_EERKS_IPKS0_SaIS6
 
 7:                                                ; preds = %.lr.ph16, %.loopexit
   %8 = phi ptr [ %5, %.lr.ph16 ], [ %36, %.loopexit ]
-  %.015 = phi i64 [ 0, %.lr.ph16 ], [ %34, %.loopexit ]
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %.015
+  %.01315 = phi i64 [ 0, %.lr.ph16 ], [ %34, %.loopexit ]
+  %9 = getelementptr inbounds ptr, ptr %8, i64 %.01315
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %6, align 8
   %12 = load ptr, ptr %0, align 8
@@ -1169,7 +1169,7 @@ define dso_local void @_Z13combine_factsRSt6vectorIP4FactSaIS1_EERKS_IPKS0_SaIS6
   br i1 %.not17, label %.loopexit, label %.lr.ph
 
 13:                                               ; preds = %.lr.ph
-  %14 = add nuw i64 %.01314, 1
+  %14 = add nuw i64 %.014, 1
   %15 = load ptr, ptr %6, align 8
   %16 = load ptr, ptr %0, align 8
   %17 = ptrtoint ptr %15 to i64
@@ -1181,8 +1181,8 @@ define dso_local void @_Z13combine_factsRSt6vectorIP4FactSaIS1_EERKS_IPKS0_SaIS6
 
 .lr.ph:                                           ; preds = %7, %13
   %22 = phi ptr [ %16, %13 ], [ %12, %7 ]
-  %.01314 = phi i64 [ %14, %13 ], [ 0, %7 ]
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %.01314
+  %.014 = phi i64 [ %14, %13 ], [ 0, %7 ]
+  %23 = getelementptr inbounds ptr, ptr %22, i64 %.014
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 88
@@ -1198,7 +1198,7 @@ define dso_local void @_Z13combine_factsRSt6vectorIP4FactSaIS1_EERKS_IPKS0_SaIS6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %7, %29
-  %34 = add nuw i64 %.015, 1
+  %34 = add nuw i64 %.01315, 1
   %35 = load ptr, ptr %3, align 8
   %36 = load ptr, ptr %1, align 8
   %37 = ptrtoint ptr %35 to i64

@@ -71,12 +71,12 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
   br i1 %14, label %.lr.ph233, label %._crit_edge
 
 .lr.ph233:                                        ; preds = %.lr.ph, %101
-  %.0111150232 = phi ptr [ %.1112, %101 ], [ null, %.lr.ph ]
-  %.0109151231 = phi ptr [ %.1110, %101 ], [ null, %.lr.ph ]
-  %.0107152230 = phi ptr [ %.1108, %101 ], [ null, %.lr.ph ]
-  %.0105153229 = phi ptr [ %.1106, %101 ], [ null, %.lr.ph ]
-  %.098155228 = phi ptr [ %.199, %101 ], [ null, %.lr.ph ]
-  %.096156227 = phi ptr [ %.197, %101 ], [ null, %.lr.ph ]
+  %.0112150232 = phi ptr [ %.1113, %101 ], [ null, %.lr.ph ]
+  %.0110151231 = phi ptr [ %.1111, %101 ], [ null, %.lr.ph ]
+  %.0106152230 = phi ptr [ %.1107, %101 ], [ null, %.lr.ph ]
+  %.0104153229 = phi ptr [ %.1105, %101 ], [ null, %.lr.ph ]
+  %.0102154228 = phi ptr [ %.1103, %101 ], [ null, %.lr.ph ]
+  %.0100155227 = phi ptr [ %.1101, %101 ], [ null, %.lr.ph ]
   %.094157226 = phi ptr [ %.195, %101 ], [ null, %.lr.ph ]
   %.092158225 = phi i1 [ %.193, %101 ], [ false, %.lr.ph ]
   %.0159224 = phi i1 [ %.1, %101 ], [ false, %.lr.ph ]
@@ -229,12 +229,12 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
   br label %101
 
 101:                                              ; preds = %92, %89, %86, %83, %22, %46, %56, %66, %76, %97, %95, %81, %71, %61, %51, %34
-  %.1112 = phi ptr [ %.0111150232, %22 ], [ %.0111150232, %34 ], [ %.0111150232, %46 ], [ %.0111150232, %51 ], [ %57, %56 ], [ %.0111150232, %61 ], [ %.0111150232, %66 ], [ %.0111150232, %71 ], [ %.0111150232, %76 ], [ %.0111150232, %81 ], [ %.0111150232, %97 ], [ %.0111150232, %95 ], [ %.0111150232, %83 ], [ %.0111150232, %86 ], [ %.0111150232, %89 ], [ %.0111150232, %92 ]
-  %.1110 = phi ptr [ %.0109151231, %22 ], [ %.0109151231, %34 ], [ %.0109151231, %46 ], [ %.0109151231, %51 ], [ %.0109151231, %56 ], [ %62, %61 ], [ %.0109151231, %66 ], [ %.0109151231, %71 ], [ %.0109151231, %76 ], [ %.0109151231, %81 ], [ %.0109151231, %97 ], [ %.0109151231, %95 ], [ %.0109151231, %83 ], [ %.0109151231, %86 ], [ %.0109151231, %89 ], [ %.0109151231, %92 ]
-  %.1108 = phi ptr [ %.0107152230, %22 ], [ %.0107152230, %34 ], [ %.0107152230, %46 ], [ %.0107152230, %51 ], [ %.0107152230, %56 ], [ %.0107152230, %61 ], [ %67, %66 ], [ %.0107152230, %71 ], [ %.0107152230, %76 ], [ %.0107152230, %81 ], [ %.0107152230, %97 ], [ %.0107152230, %95 ], [ %.0107152230, %83 ], [ %.0107152230, %86 ], [ %.0107152230, %89 ], [ %.0107152230, %92 ]
-  %.1106 = phi ptr [ %.0105153229, %22 ], [ %.0105153229, %34 ], [ %.0105153229, %46 ], [ %.0105153229, %51 ], [ %.0105153229, %56 ], [ %.0105153229, %61 ], [ %.0105153229, %66 ], [ %72, %71 ], [ %.0105153229, %76 ], [ %.0105153229, %81 ], [ %.0105153229, %97 ], [ %.0105153229, %95 ], [ %.0105153229, %83 ], [ %.0105153229, %86 ], [ %.0105153229, %89 ], [ %.0105153229, %92 ]
-  %.199 = phi ptr [ %.098155228, %22 ], [ %35, %34 ], [ %.098155228, %46 ], [ %.098155228, %51 ], [ %.098155228, %56 ], [ %.098155228, %61 ], [ %.098155228, %66 ], [ %.098155228, %71 ], [ %.098155228, %76 ], [ %.098155228, %81 ], [ %.098155228, %97 ], [ %.098155228, %95 ], [ %.098155228, %83 ], [ %.098155228, %86 ], [ %.098155228, %89 ], [ %.098155228, %92 ]
-  %.197 = phi ptr [ %23, %22 ], [ %.096156227, %34 ], [ %.096156227, %46 ], [ %.096156227, %51 ], [ %.096156227, %56 ], [ %.096156227, %61 ], [ %.096156227, %66 ], [ %.096156227, %71 ], [ %.096156227, %76 ], [ %.096156227, %81 ], [ %.096156227, %97 ], [ %.096156227, %95 ], [ %.096156227, %83 ], [ %.096156227, %86 ], [ %.096156227, %89 ], [ %.096156227, %92 ]
+  %.1113 = phi ptr [ %23, %22 ], [ %.0112150232, %34 ], [ %.0112150232, %46 ], [ %.0112150232, %51 ], [ %.0112150232, %56 ], [ %.0112150232, %61 ], [ %.0112150232, %66 ], [ %.0112150232, %71 ], [ %.0112150232, %76 ], [ %.0112150232, %81 ], [ %.0112150232, %97 ], [ %.0112150232, %95 ], [ %.0112150232, %83 ], [ %.0112150232, %86 ], [ %.0112150232, %89 ], [ %.0112150232, %92 ]
+  %.1111 = phi ptr [ %.0110151231, %22 ], [ %35, %34 ], [ %.0110151231, %46 ], [ %.0110151231, %51 ], [ %.0110151231, %56 ], [ %.0110151231, %61 ], [ %.0110151231, %66 ], [ %.0110151231, %71 ], [ %.0110151231, %76 ], [ %.0110151231, %81 ], [ %.0110151231, %97 ], [ %.0110151231, %95 ], [ %.0110151231, %83 ], [ %.0110151231, %86 ], [ %.0110151231, %89 ], [ %.0110151231, %92 ]
+  %.1107 = phi ptr [ %.0106152230, %22 ], [ %.0106152230, %34 ], [ %.0106152230, %46 ], [ %.0106152230, %51 ], [ %57, %56 ], [ %.0106152230, %61 ], [ %.0106152230, %66 ], [ %.0106152230, %71 ], [ %.0106152230, %76 ], [ %.0106152230, %81 ], [ %.0106152230, %97 ], [ %.0106152230, %95 ], [ %.0106152230, %83 ], [ %.0106152230, %86 ], [ %.0106152230, %89 ], [ %.0106152230, %92 ]
+  %.1105 = phi ptr [ %.0104153229, %22 ], [ %.0104153229, %34 ], [ %.0104153229, %46 ], [ %.0104153229, %51 ], [ %.0104153229, %56 ], [ %62, %61 ], [ %.0104153229, %66 ], [ %.0104153229, %71 ], [ %.0104153229, %76 ], [ %.0104153229, %81 ], [ %.0104153229, %97 ], [ %.0104153229, %95 ], [ %.0104153229, %83 ], [ %.0104153229, %86 ], [ %.0104153229, %89 ], [ %.0104153229, %92 ]
+  %.1103 = phi ptr [ %.0102154228, %22 ], [ %.0102154228, %34 ], [ %.0102154228, %46 ], [ %.0102154228, %51 ], [ %.0102154228, %56 ], [ %.0102154228, %61 ], [ %67, %66 ], [ %.0102154228, %71 ], [ %.0102154228, %76 ], [ %.0102154228, %81 ], [ %.0102154228, %97 ], [ %.0102154228, %95 ], [ %.0102154228, %83 ], [ %.0102154228, %86 ], [ %.0102154228, %89 ], [ %.0102154228, %92 ]
+  %.1101 = phi ptr [ %.0100155227, %22 ], [ %.0100155227, %34 ], [ %.0100155227, %46 ], [ %.0100155227, %51 ], [ %.0100155227, %56 ], [ %.0100155227, %61 ], [ %.0100155227, %66 ], [ %72, %71 ], [ %.0100155227, %76 ], [ %.0100155227, %81 ], [ %.0100155227, %97 ], [ %.0100155227, %95 ], [ %.0100155227, %83 ], [ %.0100155227, %86 ], [ %.0100155227, %89 ], [ %.0100155227, %92 ]
   %.195 = phi ptr [ %.094157226, %22 ], [ %.094157226, %34 ], [ %47, %46 ], [ %52, %51 ], [ %.094157226, %56 ], [ %.094157226, %61 ], [ %.094157226, %66 ], [ %.094157226, %71 ], [ %.094157226, %76 ], [ %.094157226, %81 ], [ %.094157226, %97 ], [ %.094157226, %95 ], [ %.094157226, %83 ], [ %.094157226, %86 ], [ %.094157226, %89 ], [ %.094157226, %92 ]
   %.193 = phi i1 [ %.092158225, %22 ], [ %.092158225, %34 ], [ %.092158225, %46 ], [ %.092158225, %51 ], [ %.092158225, %56 ], [ %.092158225, %61 ], [ %.092158225, %66 ], [ %.092158225, %71 ], [ %77, %76 ], [ %.092158225, %81 ], [ %.092158225, %97 ], [ %.092158225, %95 ], [ %.092158225, %83 ], [ %.092158225, %86 ], [ %.092158225, %89 ], [ %.092158225, %92 ]
   %.1 = phi i1 [ %.0159224, %22 ], [ %.0159224, %34 ], [ %.0159224, %46 ], [ %.0159224, %51 ], [ %.0159224, %56 ], [ %.0159224, %61 ], [ %.0159224, %66 ], [ %.0159224, %71 ], [ %.0159224, %76 ], [ %82, %81 ], [ %.0159224, %97 ], [ %.0159224, %95 ], [ true, %83 ], [ true, %86 ], [ true, %89 ], [ true, %92 ]
@@ -248,12 +248,12 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
   %.0159.lcssa = phi i1 [ false, %.lr.ph ], [ %.1, %101 ]
   %.092158.lcssa = phi i1 [ false, %.lr.ph ], [ %.193, %101 ]
   %.094157.lcssa = phi ptr [ null, %.lr.ph ], [ %.195, %101 ]
-  %.096156.lcssa = phi ptr [ null, %.lr.ph ], [ %.197, %101 ]
-  %.098155.lcssa = phi ptr [ null, %.lr.ph ], [ %.199, %101 ]
-  %.0105153.lcssa = phi ptr [ null, %.lr.ph ], [ %.1106, %101 ]
-  %.0107152.lcssa = phi ptr [ null, %.lr.ph ], [ %.1108, %101 ]
-  %.0109151.lcssa = phi ptr [ null, %.lr.ph ], [ %.1110, %101 ]
-  %.0111150.lcssa = phi ptr [ null, %.lr.ph ], [ %.1112, %101 ]
+  %.0100155.lcssa = phi ptr [ null, %.lr.ph ], [ %.1101, %101 ]
+  %.0102154.lcssa = phi ptr [ null, %.lr.ph ], [ %.1103, %101 ]
+  %.0104153.lcssa = phi ptr [ null, %.lr.ph ], [ %.1105, %101 ]
+  %.0106152.lcssa = phi ptr [ null, %.lr.ph ], [ %.1107, %101 ]
+  %.0110151.lcssa = phi ptr [ null, %.lr.ph ], [ %.1111, %101 ]
+  %.0112150.lcssa = phi ptr [ null, %.lr.ph ], [ %.1113, %101 ]
   %105 = icmp eq ptr %.094157.lcssa, null
   br i1 %105, label %._crit_edge.thread, label %109
 
@@ -266,26 +266,26 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
   unreachable
 
 109:                                              ; preds = %._crit_edge
-  %.not122 = icmp eq ptr %.096156.lcssa, null
+  %.not122 = icmp eq ptr %.0112150.lcssa, null
   br i1 %.not122, label %112, label %110
 
 110:                                              ; preds = %109
-  %111 = call i32 @typenameTypeId(ptr noundef null, ptr noundef nonnull %.096156.lcssa) #6
+  %111 = call i32 @typenameTypeId(ptr noundef null, ptr noundef nonnull %.0112150.lcssa) #6
   br label %112
 
 112:                                              ; preds = %110, %109
-  %.0104 = phi i32 [ %111, %110 ], [ 0, %109 ]
-  %.not123 = icmp eq ptr %.098155.lcssa, null
+  %.0109 = phi i32 [ %111, %110 ], [ 0, %109 ]
+  %.not123 = icmp eq ptr %.0110151.lcssa, null
   br i1 %.not123, label %115, label %113
 
 113:                                              ; preds = %112
-  %114 = call i32 @typenameTypeId(ptr noundef null, ptr noundef nonnull %.098155.lcssa) #6
+  %114 = call i32 @typenameTypeId(ptr noundef null, ptr noundef nonnull %.0110151.lcssa) #6
   br label %115
 
 115:                                              ; preds = %113, %112
-  %.0113 = phi i32 [ %114, %113 ], [ 0, %112 ]
-  %116 = icmp ne i32 %.0104, 0
-  %117 = icmp ne i32 %.0113, 0
+  %.0108 = phi i32 [ %114, %113 ], [ 0, %112 ]
+  %116 = icmp ne i32 %.0109, 0
+  %117 = icmp ne i32 %.0108, 0
   %or.cond = select i1 %116, i1 true, i1 %117
   br i1 %or.cond, label %122, label %118
 
@@ -314,12 +314,12 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
 
 129:                                              ; preds = %128
   %130 = call i32 @GetUserId() #6
-  %131 = call i32 @object_aclcheck(i32 noundef 1247, i32 noundef %.0104, i32 noundef %130, i64 noundef 256) #6
+  %131 = call i32 @object_aclcheck(i32 noundef 1247, i32 noundef %.0109, i32 noundef %130, i64 noundef 256) #6
   %.not124 = icmp eq i32 %131, 0
   br i1 %.not124, label %133, label %132
 
 132:                                              ; preds = %129
-  call void @aclcheck_error_type(i32 noundef %131, i32 noundef %.0104) #6
+  call void @aclcheck_error_type(i32 noundef %131, i32 noundef %.0109) #6
   br label %133
 
 133:                                              ; preds = %129, %132, %128
@@ -327,12 +327,12 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
 
 134:                                              ; preds = %133
   %135 = call i32 @GetUserId() #6
-  %136 = call i32 @object_aclcheck(i32 noundef 1247, i32 noundef %.0113, i32 noundef %135, i64 noundef 256) #6
+  %136 = call i32 @object_aclcheck(i32 noundef 1247, i32 noundef %.0108, i32 noundef %135, i64 noundef 256) #6
   %.not125 = icmp eq i32 %136, 0
   br i1 %.not125, label %138, label %137
 
 137:                                              ; preds = %134
-  call void @aclcheck_error_type(i32 noundef %136, i32 noundef %.0113) #6
+  call void @aclcheck_error_type(i32 noundef %136, i32 noundef %.0108) #6
   br label %138
 
 138:                                              ; preds = %134, %137, %133
@@ -340,14 +340,14 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
 
 139:                                              ; preds = %138
   %140 = getelementptr inbounds i8, ptr %4, i64 4
-  store i32 %.0113, ptr %140, align 4
+  store i32 %.0108, ptr %140, align 4
   br label %141
 
 141:                                              ; preds = %138, %139
-  %.0113.sink = phi i32 [ %.0104, %139 ], [ %.0113, %138 ]
-  %.0101 = phi i32 [ 2, %139 ], [ 1, %138 ]
-  store i32 %.0113.sink, ptr %4, align 4
-  %142 = call i32 @LookupFuncName(ptr noundef nonnull %.094157.lcssa, i32 noundef %.0101, ptr noundef nonnull %4, i1 noundef zeroext false) #6
+  %.0108.sink = phi i32 [ %.0109, %139 ], [ %.0108, %138 ]
+  %.097 = phi i32 [ 2, %139 ], [ 1, %138 ]
+  store i32 %.0108.sink, ptr %4, align 4
+  %142 = call i32 @LookupFuncName(ptr noundef nonnull %.094157.lcssa, i32 noundef %.097, ptr noundef nonnull %4, i1 noundef zeroext false) #6
   %143 = call i32 @GetUserId() #6
   %144 = call i32 @object_aclcheck(i32 noundef 1255, i32 noundef %142, i32 noundef %143, i64 noundef 128) #6
   %.not126 = icmp eq i32 %144, 0
@@ -370,26 +370,26 @@ define dso_local { i64, i32 } @DefineOperator(ptr noundef %0, ptr noundef readon
   br label %152
 
 152:                                              ; preds = %151, %147
-  %.not128 = icmp eq ptr %.0107152.lcssa, null
+  %.not128 = icmp eq ptr %.0102154.lcssa, null
   br i1 %.not128, label %155, label %153
 
 153:                                              ; preds = %152
-  %154 = call fastcc i32 @ValidateRestrictionEstimator(ptr noundef nonnull %.0107152.lcssa)
+  %154 = call fastcc i32 @ValidateRestrictionEstimator(ptr noundef nonnull %.0102154.lcssa)
   br label %155
 
 155:                                              ; preds = %152, %153
-  %.0103 = phi i32 [ %154, %153 ], [ 0, %152 ]
-  %.not129 = icmp eq ptr %.0105153.lcssa, null
+  %.099 = phi i32 [ %154, %153 ], [ 0, %152 ]
+  %.not129 = icmp eq ptr %.0100155.lcssa, null
   br i1 %.not129, label %158, label %156
 
 156:                                              ; preds = %155
-  %157 = call fastcc i32 @ValidateJoinEstimator(ptr noundef nonnull %.0105153.lcssa)
+  %157 = call fastcc i32 @ValidateJoinEstimator(ptr noundef nonnull %.0100155.lcssa)
   br label %158
 
 158:                                              ; preds = %155, %156
-  %.0102 = phi i32 [ %157, %156 ], [ 0, %155 ]
+  %.098 = phi i32 [ %157, %156 ], [ 0, %155 ]
   %159 = load ptr, ptr %3, align 8
-  %160 = call { i64, i32 } @OperatorCreate(ptr noundef %159, i32 noundef %5, i32 noundef %.0104, i32 noundef %.0113, i32 noundef %142, ptr noundef %.0111150.lcssa, ptr noundef %.0109151.lcssa, i32 noundef %.0103, i32 noundef %.0102, i1 noundef zeroext %.0159.lcssa, i1 noundef zeroext %.092158.lcssa) #6
+  %160 = call { i64, i32 } @OperatorCreate(ptr noundef %159, i32 noundef %5, i32 noundef %.0109, i32 noundef %.0108, i32 noundef %142, ptr noundef %.0106152.lcssa, ptr noundef %.0104153.lcssa, i32 noundef %.099, i32 noundef %.098, i1 noundef zeroext %.0159.lcssa, i1 noundef zeroext %.092158.lcssa) #6
   ret { i64, i32 } %160
 }
 
@@ -651,16 +651,16 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br i1 %26, label %.lr.ph235, label %._crit_edge
 
 .lr.ph235:                                        ; preds = %.lr.ph, %88
-  %.0130165234 = phi ptr [ %.1131, %88 ], [ null, %.lr.ph ]
-  %.0127166233 = phi ptr [ %.1128, %88 ], [ null, %.lr.ph ]
-  %.0124167232 = phi i8 [ %.1125, %88 ], [ 0, %.lr.ph ]
+  %.0129165234 = phi ptr [ %.1130, %88 ], [ null, %.lr.ph ]
+  %.0127166233 = phi i1 [ %.1128, %88 ], [ false, %.lr.ph ]
+  %.0124167232 = phi ptr [ %.1125, %88 ], [ null, %.lr.ph ]
   %.0122168231 = phi i1 [ %.1123, %88 ], [ false, %.lr.ph ]
-  %.0120169230 = phi i8 [ %.1121, %88 ], [ 0, %.lr.ph ]
-  %.0118170229 = phi i1 [ %.1119, %88 ], [ false, %.lr.ph ]
-  %.0116172228 = phi i1 [ %.1117, %88 ], [ false, %.lr.ph ]
-  %.0114173227 = phi ptr [ %.1115, %88 ], [ null, %.lr.ph ]
-  %.0110174226 = phi i1 [ %.1111, %88 ], [ false, %.lr.ph ]
-  %.0109175225 = phi ptr [ %.1, %88 ], [ null, %.lr.ph ]
+  %.0119169230 = phi ptr [ %.1120, %88 ], [ null, %.lr.ph ]
+  %.0116170229 = phi ptr [ %.1117, %88 ], [ null, %.lr.ph ]
+  %.0113171228 = phi i8 [ %.1114, %88 ], [ 0, %.lr.ph ]
+  %.0111172227 = phi i1 [ %.1112, %88 ], [ false, %.lr.ph ]
+  %.0109173226 = phi i8 [ %.1110, %88 ], [ 0, %.lr.ph ]
+  %.0108174225 = phi i1 [ %.1, %88 ], [ false, %.lr.ph ]
   %indvars.iv224 = phi i64 [ %indvars.iv.next, %88 ], [ 0, %.lr.ph ]
   %27 = load ptr, ptr %24, align 8
   %28 = getelementptr %union.ListCell, ptr %27, i64 %indvars.iv224
@@ -675,7 +675,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br label %35
 
 35:                                               ; preds = %.lr.ph235, %33
-  %.0113 = phi ptr [ %34, %33 ], [ null, %.lr.ph235 ]
+  %.0 = phi ptr [ %34, %33 ], [ null, %.lr.ph235 ]
   %36 = getelementptr inbounds i8, ptr %29, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(9) @.str.8) #7
@@ -765,16 +765,16 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   unreachable
 
 88:                                               ; preds = %40, %35, %46, %56, %62, %51
-  %.1131 = phi ptr [ %47, %46 ], [ %.0130165234, %51 ], [ %.0130165234, %56 ], [ %.0130165234, %62 ], [ %.0130165234, %35 ], [ %.0130165234, %40 ]
-  %.1128 = phi ptr [ %.0127166233, %46 ], [ %52, %51 ], [ %.0127166233, %56 ], [ %.0127166233, %62 ], [ %.0127166233, %35 ], [ %.0127166233, %40 ]
-  %.1125 = phi i8 [ %.0124167232, %46 ], [ %.0124167232, %51 ], [ %58, %56 ], [ %.0124167232, %62 ], [ %.0124167232, %35 ], [ %.0124167232, %40 ]
-  %.1123 = phi i1 [ %.0122168231, %46 ], [ %.0122168231, %51 ], [ true, %56 ], [ %.0122168231, %62 ], [ %.0122168231, %35 ], [ %.0122168231, %40 ]
-  %.1121 = phi i8 [ %.0120169230, %46 ], [ %.0120169230, %51 ], [ %.0120169230, %56 ], [ %64, %62 ], [ %.0120169230, %35 ], [ %.0120169230, %40 ]
-  %.1119 = phi i1 [ %.0118170229, %46 ], [ %.0118170229, %51 ], [ %.0118170229, %56 ], [ true, %62 ], [ %.0118170229, %35 ], [ %.0118170229, %40 ]
-  %.1117 = phi i1 [ %.0116172228, %46 ], [ %.0116172228, %51 ], [ %.0116172228, %56 ], [ %.0116172228, %62 ], [ %.0116172228, %35 ], [ true, %40 ]
-  %.1115 = phi ptr [ %.0114173227, %46 ], [ %.0114173227, %51 ], [ %.0114173227, %56 ], [ %.0114173227, %62 ], [ %.0114173227, %35 ], [ %.0113, %40 ]
-  %.1111 = phi i1 [ %.0110174226, %46 ], [ %.0110174226, %51 ], [ %.0110174226, %56 ], [ %.0110174226, %62 ], [ true, %35 ], [ %.0110174226, %40 ]
-  %.1 = phi ptr [ %.0109175225, %46 ], [ %.0109175225, %51 ], [ %.0109175225, %56 ], [ %.0109175225, %62 ], [ %.0113, %35 ], [ %.0109175225, %40 ]
+  %.1130 = phi ptr [ %.0129165234, %46 ], [ %.0129165234, %51 ], [ %.0129165234, %56 ], [ %.0129165234, %62 ], [ %.0, %35 ], [ %.0129165234, %40 ]
+  %.1128 = phi i1 [ %.0127166233, %46 ], [ %.0127166233, %51 ], [ %.0127166233, %56 ], [ %.0127166233, %62 ], [ true, %35 ], [ %.0127166233, %40 ]
+  %.1125 = phi ptr [ %.0124167232, %46 ], [ %.0124167232, %51 ], [ %.0124167232, %56 ], [ %.0124167232, %62 ], [ %.0124167232, %35 ], [ %.0, %40 ]
+  %.1123 = phi i1 [ %.0122168231, %46 ], [ %.0122168231, %51 ], [ %.0122168231, %56 ], [ %.0122168231, %62 ], [ %.0122168231, %35 ], [ true, %40 ]
+  %.1120 = phi ptr [ %47, %46 ], [ %.0119169230, %51 ], [ %.0119169230, %56 ], [ %.0119169230, %62 ], [ %.0119169230, %35 ], [ %.0119169230, %40 ]
+  %.1117 = phi ptr [ %.0116170229, %46 ], [ %52, %51 ], [ %.0116170229, %56 ], [ %.0116170229, %62 ], [ %.0116170229, %35 ], [ %.0116170229, %40 ]
+  %.1114 = phi i8 [ %.0113171228, %46 ], [ %.0113171228, %51 ], [ %58, %56 ], [ %.0113171228, %62 ], [ %.0113171228, %35 ], [ %.0113171228, %40 ]
+  %.1112 = phi i1 [ %.0111172227, %46 ], [ %.0111172227, %51 ], [ true, %56 ], [ %.0111172227, %62 ], [ %.0111172227, %35 ], [ %.0111172227, %40 ]
+  %.1110 = phi i8 [ %.0109173226, %46 ], [ %.0109173226, %51 ], [ %.0109173226, %56 ], [ %64, %62 ], [ %.0109173226, %35 ], [ %.0109173226, %40 ]
+  %.1 = phi i1 [ %.0108174225, %46 ], [ %.0108174225, %51 ], [ %.0108174225, %56 ], [ true, %62 ], [ %.0108174225, %35 ], [ %.0108174225, %40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv224, 1
   %89 = load i32, ptr %23, align 4
   %90 = sext i32 %89 to i64
@@ -782,16 +782,16 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br i1 %91, label %.lr.ph235, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %88, %.lr.ph, %14
-  %.0130.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ %.1131, %88 ]
-  %.0127.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ %.1128, %88 ]
-  %.0124.lcssa = phi i8 [ 0, %14 ], [ 0, %.lr.ph ], [ %.1125, %88 ]
+  %.0129.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ %.1130, %88 ]
+  %.0127.lcssa = phi i1 [ false, %14 ], [ false, %.lr.ph ], [ %.1128, %88 ]
+  %.0124.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ %.1125, %88 ]
   %.0122.lcssa = phi i1 [ false, %14 ], [ false, %.lr.ph ], [ %.1123, %88 ]
-  %.0120.lcssa = phi i8 [ 0, %14 ], [ 0, %.lr.ph ], [ %.1121, %88 ]
-  %.0118.lcssa = phi i1 [ false, %14 ], [ false, %.lr.ph ], [ %.1119, %88 ]
-  %.0116.lcssa = phi i1 [ false, %14 ], [ false, %.lr.ph ], [ %.1117, %88 ]
-  %.0114.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ %.1115, %88 ]
-  %.0110.lcssa = phi i1 [ false, %14 ], [ false, %.lr.ph ], [ %.1111, %88 ]
-  %.0109.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ %.1, %88 ]
+  %.0119.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ %.1120, %88 ]
+  %.0116.lcssa = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ %.1117, %88 ]
+  %.0113.lcssa = phi i8 [ 0, %14 ], [ 0, %.lr.ph ], [ %.1114, %88 ]
+  %.0111.lcssa = phi i1 [ false, %14 ], [ false, %.lr.ph ], [ %.1112, %88 ]
+  %.0109.lcssa = phi i8 [ 0, %14 ], [ 0, %.lr.ph ], [ %.1110, %88 ]
+  %.0108.lcssa = phi i1 [ false, %14 ], [ false, %.lr.ph ], [ %.1, %88 ]
   %92 = tail call i32 @GetUserId() #6
   %93 = tail call zeroext i1 @object_ownercheck(i32 noundef 2617, i32 noundef %7, i32 noundef %92) #6
   br i1 %93, label %96, label %94
@@ -802,25 +802,25 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br label %96
 
 96:                                               ; preds = %94, %._crit_edge
-  %.not140 = icmp eq ptr %.0109.lcssa, null
+  %.not140 = icmp eq ptr %.0129.lcssa, null
   br i1 %.not140, label %99, label %97
 
 97:                                               ; preds = %96
-  %98 = tail call fastcc i32 @ValidateRestrictionEstimator(ptr noundef nonnull %.0109.lcssa)
+  %98 = tail call fastcc i32 @ValidateRestrictionEstimator(ptr noundef nonnull %.0129.lcssa)
   br label %99
 
 99:                                               ; preds = %96, %97
-  %.0112 = phi i32 [ %98, %97 ], [ 0, %96 ]
-  %.not141 = icmp eq ptr %.0114.lcssa, null
+  %.0126 = phi i32 [ %98, %97 ], [ 0, %96 ]
+  %.not141 = icmp eq ptr %.0124.lcssa, null
   br i1 %.not141, label %102, label %100
 
 100:                                              ; preds = %99
-  %101 = tail call fastcc i32 @ValidateJoinEstimator(ptr noundef nonnull %.0114.lcssa)
+  %101 = tail call fastcc i32 @ValidateJoinEstimator(ptr noundef nonnull %.0124.lcssa)
   br label %102
 
 102:                                              ; preds = %99, %100
-  %.0132 = phi i32 [ %101, %100 ], [ 0, %99 ]
-  %.not142 = icmp eq ptr %.0130.lcssa, null
+  %.0121 = phi i32 [ %101, %100 ], [ 0, %99 ]
+  %.not142 = icmp eq ptr %.0119.lcssa, null
   br i1 %.not142, label %109, label %103
 
 103:                                              ; preds = %102
@@ -828,12 +828,12 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   %105 = load i32, ptr %104, align 4
   %106 = getelementptr inbounds i8, ptr %20, i64 80
   %107 = load i32, ptr %106, align 4
-  %108 = tail call fastcc i32 @ValidateOperatorReference(ptr noundef nonnull %.0130.lcssa, i32 noundef %105, i32 noundef %107)
+  %108 = tail call fastcc i32 @ValidateOperatorReference(ptr noundef nonnull %.0119.lcssa, i32 noundef %105, i32 noundef %107)
   br label %109
 
 109:                                              ; preds = %102, %103
-  %.0129 = phi i32 [ %108, %103 ], [ 0, %102 ]
-  %.not143 = icmp eq ptr %.0127.lcssa, null
+  %.0118 = phi i32 [ %108, %103 ], [ 0, %102 ]
+  %.not143 = icmp eq ptr %.0116.lcssa, null
   br i1 %.not143, label %122, label %110
 
 110:                                              ; preds = %109
@@ -841,7 +841,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   %112 = load i32, ptr %111, align 4
   %113 = getelementptr inbounds i8, ptr %20, i64 84
   %114 = load i32, ptr %113, align 4
-  %115 = tail call fastcc i32 @ValidateOperatorReference(ptr noundef nonnull %.0127.lcssa, i32 noundef %112, i32 noundef %114)
+  %115 = tail call fastcc i32 @ValidateOperatorReference(ptr noundef nonnull %.0116.lcssa, i32 noundef %112, i32 noundef %114)
   %116 = load i32, ptr %20, align 4
   %117 = icmp eq i32 %115, %116
   br i1 %117, label %118, label %122
@@ -855,15 +855,15 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   unreachable
 
 122:                                              ; preds = %109, %110
-  %.0126 = phi i32 [ %115, %110 ], [ 0, %109 ]
-  %123 = icmp ne i32 %.0129, 0
+  %.0115 = phi i32 [ %115, %110 ], [ 0, %109 ]
+  %123 = icmp ne i32 %.0118, 0
   br i1 %123, label %124, label %131
 
 124:                                              ; preds = %122
   %125 = getelementptr inbounds i8, ptr %20, i64 92
   %126 = load i32, ptr %125, align 4
   %.not144 = icmp eq i32 %126, 0
-  %.not145 = icmp eq i32 %.0129, %126
+  %.not145 = icmp eq i32 %.0118, %126
   %or.cond = select i1 %.not144, i1 true, i1 %.not145
   br i1 %or.cond, label %131, label %127
 
@@ -876,14 +876,14 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   unreachable
 
 131:                                              ; preds = %124, %122
-  %132 = icmp ne i32 %.0126, 0
+  %132 = icmp ne i32 %.0115, 0
   br i1 %132, label %133, label %140
 
 133:                                              ; preds = %131
   %134 = getelementptr inbounds i8, ptr %20, i64 96
   %135 = load i32, ptr %134, align 4
   %.not146 = icmp eq i32 %135, 0
-  %.not147 = icmp eq i32 %.0126, %135
+  %.not147 = icmp eq i32 %.0115, %135
   %or.cond149 = or i1 %.not146, %.not147
   br i1 %or.cond149, label %140, label %136
 
@@ -896,7 +896,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   unreachable
 
 140:                                              ; preds = %133, %131
-  br i1 %.0122.lcssa, label %141, label %151
+  br i1 %.0111.lcssa, label %141, label %151
 
 141:                                              ; preds = %140
   %142 = getelementptr inbounds i8, ptr %20, i64 77
@@ -905,7 +905,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br i1 %144, label %145, label %151
 
 145:                                              ; preds = %141
-  %146 = trunc nuw i8 %.0124.lcssa to i1
+  %146 = trunc nuw i8 %.0113.lcssa to i1
   br i1 %146, label %151, label %147
 
 147:                                              ; preds = %145
@@ -917,7 +917,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   unreachable
 
 151:                                              ; preds = %145, %141, %140
-  br i1 %.0118.lcssa, label %152, label %162
+  br i1 %.0108.lcssa, label %152, label %162
 
 152:                                              ; preds = %151
   %153 = getelementptr inbounds i8, ptr %20, i64 78
@@ -926,7 +926,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   br i1 %155, label %156, label %162
 
 156:                                              ; preds = %152
-  %157 = trunc nuw i8 %.0120.lcssa to i1
+  %157 = trunc nuw i8 %.0109.lcssa to i1
   br i1 %157, label %162, label %158
 
 158:                                              ; preds = %156
@@ -944,31 +944,31 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   %166 = load i32, ptr %165, align 4
   %167 = getelementptr inbounds i8, ptr %20, i64 88
   %168 = load i32, ptr %167, align 4
-  %169 = icmp ne i32 %.0112, 0
-  %170 = icmp ne i32 %.0132, 0
-  %171 = trunc nuw i8 %.0124.lcssa to i1
-  %172 = trunc nuw i8 %.0120.lcssa to i1
+  %169 = icmp ne i32 %.0126, 0
+  %170 = icmp ne i32 %.0121, 0
+  %171 = trunc nuw i8 %.0113.lcssa to i1
+  %172 = trunc nuw i8 %.0109.lcssa to i1
   tail call void @OperatorValidateParams(i32 noundef %164, i32 noundef %166, i32 noundef %168, i1 noundef zeroext %123, i1 noundef zeroext %132, i1 noundef zeroext %169, i1 noundef zeroext %170, i1 noundef zeroext %171, i1 noundef zeroext %172) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %2, i8 0, i64 120, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %4, i8 0, i64 15, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %3, i8 0, i64 15, i1 false)
-  br i1 %.0110.lcssa, label %173, label %177
+  br i1 %.0127.lcssa, label %173, label %177
 
 173:                                              ; preds = %162
   %174 = getelementptr inbounds i8, ptr %4, i64 13
   store i8 1, ptr %174, align 1
-  %175 = zext i32 %.0112 to i64
+  %175 = zext i32 %.0126 to i64
   %176 = getelementptr inbounds i8, ptr %2, i64 104
   store i64 %175, ptr %176, align 8
   br label %177
 
 177:                                              ; preds = %173, %162
-  br i1 %.0116.lcssa, label %178, label %182
+  br i1 %.0122.lcssa, label %178, label %182
 
 178:                                              ; preds = %177
   %179 = getelementptr inbounds i8, ptr %4, i64 14
   store i8 1, ptr %179, align 1
-  %180 = zext i32 %.0132 to i64
+  %180 = zext i32 %.0121 to i64
   %181 = getelementptr inbounds i8, ptr %2, i64 112
   store i64 %180, ptr %181, align 16
   br label %182
@@ -979,7 +979,7 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
 183:                                              ; preds = %182
   %184 = getelementptr inbounds i8, ptr %4, i64 10
   store i8 1, ptr %184, align 1
-  %185 = zext i32 %.0129 to i64
+  %185 = zext i32 %.0118 to i64
   %186 = getelementptr inbounds i8, ptr %2, i64 80
   store i64 %185, ptr %186, align 16
   br label %187
@@ -990,30 +990,30 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
 188:                                              ; preds = %187
   %189 = getelementptr inbounds i8, ptr %4, i64 11
   store i8 1, ptr %189, align 1
-  %190 = zext i32 %.0126 to i64
+  %190 = zext i32 %.0115 to i64
   %191 = getelementptr inbounds i8, ptr %2, i64 88
   store i64 %190, ptr %191, align 8
   br label %192
 
 192:                                              ; preds = %188, %187
-  br i1 %.0122.lcssa, label %193, label %197
+  br i1 %.0111.lcssa, label %193, label %197
 
 193:                                              ; preds = %192
   %194 = getelementptr inbounds i8, ptr %4, i64 5
   store i8 1, ptr %194, align 1
-  %.mask = and i8 %.0124.lcssa, 1
+  %.mask = and i8 %.0113.lcssa, 1
   %195 = zext nneg i8 %.mask to i64
   %196 = getelementptr inbounds i8, ptr %2, i64 40
   store i64 %195, ptr %196, align 8
   br label %197
 
 197:                                              ; preds = %193, %192
-  br i1 %.0118.lcssa, label %198, label %202
+  br i1 %.0108.lcssa, label %198, label %202
 
 198:                                              ; preds = %197
   %199 = getelementptr inbounds i8, ptr %4, i64 6
   store i8 1, ptr %199, align 1
-  %.mask152 = and i8 %.0120.lcssa, 1
+  %.mask152 = and i8 %.0109.lcssa, 1
   %200 = zext nneg i8 %.mask152 to i64
   %201 = getelementptr inbounds i8, ptr %2, i64 48
   store i64 %200, ptr %201, align 16
@@ -1026,12 +1026,12 @@ define dso_local { i64, i32 } @AlterOperator(ptr nocapture noundef readonly %0) 
   %206 = getelementptr inbounds i8, ptr %205, i64 4
   call void @CatalogTupleUpdate(ptr noundef %8, ptr noundef nonnull %206, ptr noundef %205) #6
   %207 = call { i64, i32 } @makeOperatorDependencies(ptr noundef %205, i1 noundef zeroext false, i1 noundef zeroext true) #6
-  %208 = or i32 %.0126, %.0129
+  %208 = or i32 %.0115, %.0118
   %or.cond.not = icmp eq i32 %208, 0
   br i1 %or.cond.not, label %210, label %209
 
 209:                                              ; preds = %202
-  call void @OperatorUpd(i32 noundef %7, i32 noundef %.0129, i32 noundef %.0126, i1 noundef zeroext false) #6
+  call void @OperatorUpd(i32 noundef %7, i32 noundef %.0118, i32 noundef %.0115, i1 noundef zeroext false) #6
   br label %210
 
 210:                                              ; preds = %209, %202

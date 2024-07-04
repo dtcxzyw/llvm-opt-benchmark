@@ -1675,15 +1675,15 @@ if.then48:                                        ; preds = %LZ4F_makeBlock.exit
 
 if.end54.sink.split:                              ; preds = %LZ4F_makeBlock.exit, %if.then48, %if.then29
   %add.sink = phi i64 [ %add, %if.then29 ], [ 0, %if.then48 ], [ 0, %LZ4F_makeBlock.exit ]
-  %lastBlockCompressed.0.ph = phi i32 [ 0, %if.then29 ], [ 1, %if.then48 ], [ 1, %LZ4F_makeBlock.exit ]
   %dstPtr.1.ph = phi ptr [ %dstPtr.0, %if.then29 ], [ %add.ptr43, %if.then48 ], [ %add.ptr43, %LZ4F_makeBlock.exit ]
+  %lastBlockCompressed.0.ph = phi i32 [ 0, %if.then29 ], [ 1, %if.then48 ], [ 1, %LZ4F_makeBlock.exit ]
   %srcPtr.0.ph = phi ptr [ %add.ptr, %if.then29 ], [ %add.ptr36, %if.then48 ], [ %add.ptr36, %LZ4F_makeBlock.exit ]
   store i64 %add.sink, ptr %tmpInSize, align 8
   br label %if.end54
 
 if.end54:                                         ; preds = %if.end54.sink.split, %if.end20
-  %lastBlockCompressed.0 = phi i32 [ 0, %if.end20 ], [ %lastBlockCompressed.0.ph, %if.end54.sink.split ]
   %dstPtr.1 = phi ptr [ %dstPtr.0, %if.end20 ], [ %dstPtr.1.ph, %if.end54.sink.split ]
+  %lastBlockCompressed.0 = phi i32 [ 0, %if.end20 ], [ %lastBlockCompressed.0.ph, %if.end54.sink.split ]
   %srcPtr.0 = phi ptr [ %srcBuffer, %if.end20 ], [ %srcPtr.0.ph, %if.end54.sink.split ]
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.rhs.cast230 = ptrtoint ptr %srcPtr.0 to i64
@@ -1785,8 +1785,8 @@ LZ4F_makeBlock.exit163:                           ; preds = %if.end.i133, %if.th
   br i1 %cmp55.not, label %while.end, label %while.body, !llvm.loop !6
 
 while.end:                                        ; preds = %LZ4F_makeBlock.exit163, %if.end54
-  %lastBlockCompressed.1.lcssa = phi i32 [ %lastBlockCompressed.0, %if.end54 ], [ 2, %LZ4F_makeBlock.exit163 ]
   %dstPtr.2.lcssa = phi ptr [ %dstPtr.1, %if.end54 ], [ %add.ptr64, %LZ4F_makeBlock.exit163 ]
+  %lastBlockCompressed.1.lcssa = phi i32 [ %lastBlockCompressed.0, %if.end54 ], [ 2, %LZ4F_makeBlock.exit163 ]
   %srcPtr.1.lcssa = phi ptr [ %srcPtr.0, %if.end54 ], [ %add.ptr65, %LZ4F_makeBlock.exit163 ]
   %sub.ptr.sub.lcssa = phi i64 [ %sub.ptr.sub231, %if.end54 ], [ %sub.ptr.sub, %LZ4F_makeBlock.exit163 ]
   %29 = load i32, ptr %preferencesPtr.sroa.gep.i, align 4
@@ -1880,8 +1880,8 @@ LZ4F_makeBlock.exit213:                           ; preds = %if.end.i183, %if.th
   br label %if.end82
 
 if.end82:                                         ; preds = %LZ4F_makeBlock.exit213, %while.end
-  %lastBlockCompressed.2 = phi i32 [ 2, %LZ4F_makeBlock.exit213 ], [ %lastBlockCompressed.1.lcssa, %while.end ]
   %dstPtr.3 = phi ptr [ %add.ptr81, %LZ4F_makeBlock.exit213 ], [ %dstPtr.2.lcssa, %while.end ]
+  %lastBlockCompressed.2 = phi i32 [ 2, %LZ4F_makeBlock.exit213 ], [ %lastBlockCompressed.1.lcssa, %while.end ]
   %srcPtr.2 = phi ptr [ %add.ptr, %LZ4F_makeBlock.exit213 ], [ %srcPtr.1.lcssa, %while.end ]
   %35 = load i32, ptr %blockMode, align 4
   %cmp86 = icmp eq i32 %35, 0
@@ -3139,8 +3139,8 @@ if.then428:                                       ; preds = %land.lhs.true422, %
   %or.cond = select i1 %tobool433, i1 %cmp435, i1 false
   %62 = getelementptr i8, ptr %.pre579.pre, i64 %.pre
   %add.ptr439 = getelementptr i8, ptr %62, i64 -65536
-  %63 = trunc i64 %.pre to i32
   %dict429.0 = select i1 %or.cond, ptr %add.ptr439, ptr %.pre579.pre
+  %63 = trunc i64 %.pre to i32
   %64 = load i64, ptr %tmpInTarget753, align 8
   %conv442 = trunc i64 %64 to i32
   %conv444 = trunc i64 %60 to i32
@@ -3323,8 +3323,8 @@ if.end521:                                        ; preds = %if.end482.if.end521
   %or.cond1 = select i1 %tobool527, i1 %cmp529, i1 false
   %89 = getelementptr i8, ptr %88, i64 %87
   %add.ptr533 = getelementptr i8, ptr %89, i64 -65536
-  %90 = trunc i64 %87 to i32
   %dict522.0 = select i1 %or.cond1, ptr %add.ptr533, ptr %88
+  %90 = trunc i64 %87 to i32
   %91 = load i64, ptr %tmpInTarget753, align 8
   %conv537 = trunc i64 %91 to i32
   %conv539 = trunc i64 %85 to i32

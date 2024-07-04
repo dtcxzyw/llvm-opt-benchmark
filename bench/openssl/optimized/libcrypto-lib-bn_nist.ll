@@ -734,8 +734,8 @@ if.then260:                                       ; preds = %if.else257
   br label %if.end272
 
 if.end272:                                        ; preds = %if.else257, %if.then260, %if.then250
-  %adjust.0 = phi ptr [ @bn_sub_words, %if.then250 ], [ %cond269, %if.then260 ], [ @bn_sub_words, %if.else257 ]
   %carry.0 = phi i32 [ %conv256, %if.then250 ], [ %conv267, %if.then260 ], [ 1, %if.else257 ]
+  %adjust.0 = phi ptr [ @bn_sub_words, %if.then250 ], [ %cond269, %if.then260 ], [ @bn_sub_words, %if.else257 ]
   %call274 = call i64 %adjust.0(ptr noundef nonnull %c_d, ptr noundef nonnull %r_d.0, ptr noundef nonnull @_nist_p_256, i32 noundef 4) #6, !callees !7
   %tobool275 = icmp ne i64 %call274, 0
   %tobool276 = icmp ne i32 %carry.0, 0
@@ -1062,8 +1062,8 @@ if.then317:                                       ; preds = %if.else314
   br label %if.end329
 
 if.end329:                                        ; preds = %if.else314, %if.then317, %if.then307
-  %adjust.0 = phi ptr [ @bn_sub_words, %if.then307 ], [ %cond326, %if.then317 ], [ @bn_sub_words, %if.else314 ]
   %carry.0 = phi i32 [ %conv313, %if.then307 ], [ %conv324, %if.then317 ], [ 1, %if.else314 ]
+  %adjust.0 = phi ptr [ @bn_sub_words, %if.then307 ], [ %cond326, %if.then317 ], [ @bn_sub_words, %if.else314 ]
   %call331 = call i64 %adjust.0(ptr noundef nonnull %c_d, ptr noundef nonnull %r_d.0, ptr noundef nonnull @_nist_p_384, i32 noundef 6) #6, !callees !7
   %tobool332 = icmp ne i64 %call331, 0
   %tobool333 = icmp ne i32 %carry.0, 0
@@ -1200,11 +1200,11 @@ for.end36:                                        ; preds = %for.body31.preheade
 
 for.body41:                                       ; preds = %for.end36, %for.body41
   %indvars.iv57 = phi i64 [ 0, %for.end36 ], [ %indvars.iv.next58, %for.body41 ]
-  %val.051 = phi i64 [ %11, %for.end36 ], [ %12, %for.body41 ]
+  %val.052 = phi i64 [ %11, %for.end36 ], [ %12, %for.body41 ]
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %arrayidx43 = getelementptr inbounds [9 x i64], ptr %t_d, i64 0, i64 %indvars.iv.next58
   %12 = load i64, ptr %arrayidx43, align 8
-  %or = tail call i64 @llvm.fshl.i64(i64 %12, i64 %val.051, i64 55)
+  %or = tail call i64 @llvm.fshl.i64(i64 %12, i64 %val.052, i64 55)
   %arrayidx45 = getelementptr inbounds [9 x i64], ptr %t_d, i64 0, i64 %indvars.iv57
   store i64 %or, ptr %arrayidx45, align 8
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 8

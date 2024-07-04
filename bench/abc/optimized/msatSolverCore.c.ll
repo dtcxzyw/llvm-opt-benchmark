@@ -251,12 +251,12 @@ Abc_Clock.exit:                                   ; preds = %4, %10
   br i1 %44, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %.loopexit, %Abc_Clock.exit54.us
-  %.04359.us = phi double [ %54, %Abc_Clock.exit54.us ], [ 1.000000e+02, %.loopexit ]
-  %.04458.us = phi double [ %55, %Abc_Clock.exit54.us ], [ %36, %.loopexit ]
+  %.04359.us = phi double [ %55, %Abc_Clock.exit54.us ], [ %36, %.loopexit ]
+  %.04458.us = phi double [ %54, %Abc_Clock.exit54.us ], [ 1.000000e+02, %.loopexit ]
   %48 = load i32, ptr %41, align 8
   %.not49.us = icmp eq i32 %48, 0
-  %.pre = fptosi double %.04359.us to i32
-  %.pre72 = fptosi double %.04458.us to i32
+  %.pre = fptosi double %.04458.us to i32
+  %.pre72 = fptosi double %.04359.us to i32
   br i1 %.not49.us, label %.split.us._crit_edge, label %49
 
 49:                                               ; preds = %.split.us
@@ -267,8 +267,8 @@ Abc_Clock.exit:                                   ; preds = %4, %10
 
 .split.us._crit_edge:                             ; preds = %.split.us, %49
   %53 = call i32 @Msat_SolverSearch(ptr noundef nonnull %0, i32 noundef %.pre, i32 noundef %.pre72, i32 noundef %2, ptr noundef nonnull %7) #8
-  %54 = fmul double %.04359.us, 1.500000e+00
-  %55 = fmul double %.04458.us, 1.100000e+00
+  %54 = fmul double %.04458.us, 1.500000e+00
+  %55 = fmul double %.04359.us, 1.100000e+00
   br i1 %43, label %56, label %62
 
 56:                                               ; preds = %.split.us._crit_edge
@@ -306,12 +306,12 @@ Abc_Clock.exit54.us:                              ; preds = %65, %62
   br i1 %43, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %.split.split.us._crit_edge
-  %.04359.us62 = phi double [ %79, %.split.split.us._crit_edge ], [ 1.000000e+02, %.split ]
-  %.04458.us63 = phi double [ %80, %.split.split.us._crit_edge ], [ %36, %.split ]
+  %.04359.us62 = phi double [ %80, %.split.split.us._crit_edge ], [ %36, %.split ]
+  %.04458.us63 = phi double [ %79, %.split.split.us._crit_edge ], [ 1.000000e+02, %.split ]
   %73 = load i32, ptr %41, align 8
   %.not49.us64 = icmp eq i32 %73, 0
-  %.pre74 = fptosi double %.04359.us62 to i32
-  %.pre76 = fptosi double %.04458.us63 to i32
+  %.pre74 = fptosi double %.04458.us63 to i32
+  %.pre76 = fptosi double %.04359.us62 to i32
   br i1 %.not49.us64, label %.split.split.us._crit_edge, label %74
 
 74:                                               ; preds = %.split.split.us
@@ -322,8 +322,8 @@ Abc_Clock.exit54.us:                              ; preds = %65, %62
 
 .split.split.us._crit_edge:                       ; preds = %.split.split.us, %74
   %78 = call i32 @Msat_SolverSearch(ptr noundef nonnull %0, i32 noundef %.pre74, i32 noundef %.pre76, i32 noundef %2, ptr noundef nonnull %7) #8
-  %79 = fmul double %.04359.us62, 1.500000e+00
-  %80 = fmul double %.04458.us63, 1.100000e+00
+  %79 = fmul double %.04458.us63, 1.500000e+00
+  %80 = fmul double %.04359.us62, 1.100000e+00
   %81 = load i64, ptr %37, align 8
   %82 = trunc i64 %81 to i32
   %83 = load i32, ptr %40, align 4
@@ -334,12 +334,12 @@ Abc_Clock.exit54.us:                              ; preds = %65, %62
   br i1 %or.cond66, label %.split.split.us, label %.split61.us, !llvm.loop !7
 
 .split.split:                                     ; preds = %.split, %.split.split._crit_edge
-  %.04359 = phi double [ %93, %.split.split._crit_edge ], [ 1.000000e+02, %.split ]
-  %.04458 = phi double [ %94, %.split.split._crit_edge ], [ %36, %.split ]
+  %.04359 = phi double [ %94, %.split.split._crit_edge ], [ %36, %.split ]
+  %.04458 = phi double [ %93, %.split.split._crit_edge ], [ 1.000000e+02, %.split ]
   %87 = load i32, ptr %41, align 8
   %.not49 = icmp eq i32 %87, 0
-  %.pre78 = fptosi double %.04359 to i32
-  %.pre80 = fptosi double %.04458 to i32
+  %.pre78 = fptosi double %.04458 to i32
+  %.pre80 = fptosi double %.04359 to i32
   br i1 %.not49, label %.split.split._crit_edge, label %88
 
 88:                                               ; preds = %.split.split
@@ -350,8 +350,8 @@ Abc_Clock.exit54.us:                              ; preds = %65, %62
 
 .split.split._crit_edge:                          ; preds = %.split.split, %88
   %92 = call i32 @Msat_SolverSearch(ptr noundef nonnull %0, i32 noundef %.pre78, i32 noundef %.pre80, i32 noundef %2, ptr noundef nonnull %7) #8
-  %93 = fmul double %.04359, 1.500000e+00
-  %94 = fmul double %.04458, 1.100000e+00
+  %93 = fmul double %.04458, 1.500000e+00
+  %94 = fmul double %.04359, 1.100000e+00
   %95 = icmp eq i32 %92, 0
   br i1 %95, label %.split.split, label %.split61.us, !llvm.loop !7
 
@@ -366,8 +366,8 @@ Abc_Clock.exit54.us:                              ; preds = %65, %62
   br label %100
 
 100:                                              ; preds = %.split61.us, %24
-  %.042 = phi i32 [ -1, %24 ], [ %.us-phi, %.split61.us ]
-  ret i32 %.042
+  %.045 = phi i32 [ -1, %24 ], [ %.us-phi, %.split61.us ]
+  ret i32 %.045
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

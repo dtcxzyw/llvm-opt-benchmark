@@ -12,17 +12,17 @@ entry:
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %entry
-  %first.addr.010.i = phi ptr [ @_ZN5eastlL17gPrimeNumberArrayE, %entry ], [ %first.addr.1.i, %while.body.i ]
-  %len.09.i = phi i64 [ 256, %entry ], [ %len.1.i, %while.body.i ]
-  %shr.i = lshr i64 %len.09.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %first.addr.010.i, i64 %shr.i
+  %len.010.i = phi i64 [ 256, %entry ], [ %len.1.i, %while.body.i ]
+  %first.addr.09.i = phi ptr [ @_ZN5eastlL17gPrimeNumberArrayE, %entry ], [ %first.addr.1.i, %while.body.i ]
+  %shr.i = lshr i64 %len.010.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %first.addr.09.i, i64 %shr.i
   %0 = load i32, ptr %add.ptr.i.i.i, align 4
   %cmp1.i = icmp ugt i32 %0, %nBucketCountHint
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %add.neg.i = xor i64 %shr.i, -1
-  %sub.i = add nsw i64 %len.09.i, %add.neg.i
+  %sub.i = add nsw i64 %len.010.i, %add.neg.i
+  %first.addr.1.i = select i1 %cmp1.i, ptr %first.addr.09.i, ptr %incdec.ptr.i
   %len.1.i = select i1 %cmp1.i, i64 %shr.i, i64 %sub.i
-  %first.addr.1.i = select i1 %cmp1.i, ptr %first.addr.010.i, ptr %incdec.ptr.i
   %cmp.i = icmp sgt i64 %len.1.i, 0
   br i1 %cmp.i, label %while.body.i, label %_ZN5eastl11upper_boundIPKjjEET_S3_S3_RKT0_.exit, !llvm.loop !5
 
@@ -38,17 +38,17 @@ entry:
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %entry
-  %first.addr.010.i = phi ptr [ @_ZN5eastlL17gPrimeNumberArrayE, %entry ], [ %first.addr.1.i, %while.body.i ]
-  %len.09.i = phi i64 [ 256, %entry ], [ %len.1.i, %while.body.i ]
-  %shr.i = lshr i64 %len.09.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %first.addr.010.i, i64 %shr.i
+  %len.010.i = phi i64 [ 256, %entry ], [ %len.1.i, %while.body.i ]
+  %first.addr.09.i = phi ptr [ @_ZN5eastlL17gPrimeNumberArrayE, %entry ], [ %first.addr.1.i, %while.body.i ]
+  %shr.i = lshr i64 %len.010.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %first.addr.09.i, i64 %shr.i
   %0 = load i32, ptr %add.ptr.i.i.i, align 4
   %cmp1.i = icmp ugt i32 %0, %nBucketCountHint
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %add.neg.i = xor i64 %shr.i, -1
-  %sub.i = add nsw i64 %len.09.i, %add.neg.i
+  %sub.i = add nsw i64 %len.010.i, %add.neg.i
+  %first.addr.1.i = select i1 %cmp1.i, ptr %first.addr.09.i, ptr %incdec.ptr.i
   %len.1.i = select i1 %cmp1.i, i64 %shr.i, i64 %sub.i
-  %first.addr.1.i = select i1 %cmp1.i, ptr %first.addr.010.i, ptr %incdec.ptr.i
   %cmp.i = icmp sgt i64 %len.1.i, 0
   br i1 %cmp.i, label %while.body.i, label %_ZN5eastl11upper_boundIPKjjEET_S3_S3_RKT0_.exit, !llvm.loop !5
 
@@ -74,17 +74,17 @@ entry:
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %entry
-  %first.addr.010.i = phi ptr [ @_ZN5eastlL17gPrimeNumberArrayE, %entry ], [ %first.addr.1.i, %while.body.i ]
-  %d.09.i = phi i64 [ 256, %entry ], [ %d.1.i, %while.body.i ]
-  %shr.i = lshr i64 %d.09.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %first.addr.010.i, i64 %shr.i
+  %d.010.i = phi i64 [ 256, %entry ], [ %d.1.i, %while.body.i ]
+  %first.addr.09.i = phi ptr [ @_ZN5eastlL17gPrimeNumberArrayE, %entry ], [ %first.addr.1.i, %while.body.i ]
+  %shr.i = lshr i64 %d.010.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %first.addr.09.i, i64 %shr.i
   %0 = load i32, ptr %add.ptr.i.i.i, align 4
   %cmp1.i = icmp ult i32 %0, %nBucketCountHint
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %add.neg.i = xor i64 %shr.i, -1
-  %sub.i = add nsw i64 %d.09.i, %add.neg.i
+  %sub.i = add nsw i64 %d.010.i, %add.neg.i
+  %first.addr.1.i = select i1 %cmp1.i, ptr %incdec.ptr.i, ptr %first.addr.09.i
   %d.1.i = select i1 %cmp1.i, i64 %sub.i, i64 %shr.i
-  %first.addr.1.i = select i1 %cmp1.i, ptr %incdec.ptr.i, ptr %first.addr.010.i
   %cmp.i = icmp sgt i64 %d.1.i, 0
   br i1 %cmp.i, label %while.body.i, label %_ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_.exit, !llvm.loop !7
 
@@ -110,17 +110,17 @@ entry:
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %entry
-  %first.addr.010.i = phi ptr [ @_ZN5eastlL17gPrimeNumberArrayE, %entry ], [ %first.addr.1.i, %while.body.i ]
-  %d.09.i = phi i64 [ 256, %entry ], [ %d.1.i, %while.body.i ]
-  %shr.i = lshr i64 %d.09.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %first.addr.010.i, i64 %shr.i
+  %d.010.i = phi i64 [ 256, %entry ], [ %d.1.i, %while.body.i ]
+  %first.addr.09.i = phi ptr [ @_ZN5eastlL17gPrimeNumberArrayE, %entry ], [ %first.addr.1.i, %while.body.i ]
+  %shr.i = lshr i64 %d.010.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %first.addr.09.i, i64 %shr.i
   %1 = load i32, ptr %add.ptr.i.i.i, align 4
   %cmp1.i = icmp ult i32 %1, %conv2
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %add.neg.i = xor i64 %shr.i, -1
-  %sub.i = add nsw i64 %d.09.i, %add.neg.i
+  %sub.i = add nsw i64 %d.010.i, %add.neg.i
+  %first.addr.1.i = select i1 %cmp1.i, ptr %incdec.ptr.i, ptr %first.addr.09.i
   %d.1.i = select i1 %cmp1.i, i64 %sub.i, i64 %shr.i
-  %first.addr.1.i = select i1 %cmp1.i, ptr %incdec.ptr.i, ptr %first.addr.010.i
   %cmp.i = icmp sgt i64 %d.1.i, 0
   br i1 %cmp.i, label %while.body.i, label %_ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_.exit, !llvm.loop !7
 
@@ -164,17 +164,17 @@ if.then7:                                         ; preds = %if.then
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %if.then7
-  %first.addr.010.i = phi ptr [ @_ZN5eastlL17gPrimeNumberArrayE, %if.then7 ], [ %first.addr.1.i, %while.body.i ]
-  %d.09.i = phi i64 [ 256, %if.then7 ], [ %d.1.i, %while.body.i ]
-  %shr.i = lshr i64 %d.09.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %first.addr.010.i, i64 %shr.i
+  %d.010.i = phi i64 [ 256, %if.then7 ], [ %d.1.i, %while.body.i ]
+  %first.addr.09.i = phi ptr [ @_ZN5eastlL17gPrimeNumberArrayE, %if.then7 ], [ %first.addr.1.i, %while.body.i ]
+  %shr.i = lshr i64 %d.010.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %first.addr.09.i, i64 %shr.i
   %3 = load i32, ptr %add.ptr.i.i.i, align 4
   %cmp1.i = icmp ult i32 %3, %conv9
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %add.neg.i = xor i64 %shr.i, -1
-  %sub.i = add nsw i64 %d.09.i, %add.neg.i
+  %sub.i = add nsw i64 %d.010.i, %add.neg.i
+  %first.addr.1.i = select i1 %cmp1.i, ptr %incdec.ptr.i, ptr %first.addr.09.i
   %d.1.i = select i1 %cmp1.i, i64 %sub.i, i64 %shr.i
-  %first.addr.1.i = select i1 %cmp1.i, ptr %incdec.ptr.i, ptr %first.addr.010.i
   %cmp.i8 = icmp sgt i64 %d.1.i, 0
   br i1 %cmp.i8, label %while.body.i, label %_ZN5eastl11lower_boundIPKjjEET_S3_S3_RKT0_.exit, !llvm.loop !7
 

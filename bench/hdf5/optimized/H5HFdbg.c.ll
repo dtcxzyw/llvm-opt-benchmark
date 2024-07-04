@@ -914,12 +914,12 @@ define internal noundef i32 @H5HF_dblock_debug_cb(ptr nocapture noundef readonly
   br i1 %or.cond61, label %51, label %16
 
 16:                                               ; preds = %2
-  %.048 = tail call i64 @llvm.usub.sat.i64(i64 %4, i64 %10)
+  %.049 = tail call i64 @llvm.usub.sat.i64(i64 %4, i64 %10)
   %17 = icmp ugt i64 %8, %14
   %reass.sub = sub i64 %8, %10
   %18 = add i64 %reass.sub, 1
-  %.049 = select i1 %17, i64 %12, i64 %18
-  %19 = sub i64 %.049, %.048
+  %.048 = select i1 %17, i64 %12, i64 %18
+  %19 = sub i64 %.048, %.049
   %20 = getelementptr inbounds i8, ptr %1, i64 40
   %21 = load i64, ptr %20, align 8
   %22 = trunc i64 %21 to i32
@@ -933,11 +933,11 @@ define internal noundef i32 @H5HF_dblock_debug_cb(ptr nocapture noundef readonly
   %30 = icmp slt i32 %29, 9
   %31 = add nsw i32 %29, -9
   %spec.select = select i1 %30, i32 0, i32 %31
-  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.93, i32 noundef %27, ptr noundef nonnull @.str.6, i32 noundef %spec.select, ptr noundef nonnull %3, i64 noundef %.048, i64 noundef %19) #8
+  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.93, i32 noundef %27, ptr noundef nonnull @.str.6, i32 noundef %spec.select, ptr noundef nonnull %3, i64 noundef %.049, i64 noundef %19) #8
   %33 = load i64, ptr %20, align 8
   %34 = add i64 %33, 1
   store i64 %34, ptr %20, align 8
-  %35 = icmp ult i64 %.048, %.049
+  %35 = icmp ult i64 %.049, %.048
   br i1 %35, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %16
@@ -945,7 +945,7 @@ define internal noundef i32 @H5HF_dblock_debug_cb(ptr nocapture noundef readonly
   br label %37
 
 37:                                               ; preds = %.lr.ph, %37
-  %.063 = phi i64 [ %.048, %.lr.ph ], [ %42, %37 ]
+  %.063 = phi i64 [ %.049, %.lr.ph ], [ %42, %37 ]
   %.04762 = phi i64 [ 0, %.lr.ph ], [ %spec.select60, %37 ]
   %38 = load ptr, ptr %36, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 %.063
@@ -955,7 +955,7 @@ define internal noundef i32 @H5HF_dblock_debug_cb(ptr nocapture noundef readonly
   %spec.select60 = add i64 %.04762, %41
   store i8 1, ptr %39, align 1
   %42 = add nuw i64 %.063, 1
-  %43 = icmp ult i64 %42, %.049
+  %43 = icmp ult i64 %42, %.048
   br i1 %43, label %37, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %37

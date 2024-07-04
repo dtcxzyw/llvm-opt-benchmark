@@ -395,8 +395,8 @@ define dso_local ptr @project_select_target(ptr nocapture noundef readonly %0, p
   unreachable
 
 project_select_default_target.exit:               ; preds = %.preheader, %.lr.ph.i, %._crit_edge.i
-  %.023 = phi ptr [ %14, %._crit_edge.i ], [ %11, %.lr.ph.i ], [ %18, %.preheader ]
-  ret ptr %.023
+  %.022 = phi ptr [ %14, %._crit_edge.i ], [ %11, %.lr.ph.i ], [ %18, %.preheader ]
+  ret ptr %.022
 }
 
 declare zeroext i1 @str_eq(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -652,14 +652,14 @@ define internal fastcc void @load_into_build_target(ptr noundef %0, ptr noundef 
 
 .lr.ph.us.outer.i:                                ; preds = %.loopexit.us.thread.i, %.lr.ph20.i
   %.ph.i = phi i64 [ %.pre.i, %.loopexit.us.thread.i ], [ %6, %.lr.ph20.i ]
-  %.01318.us.ph.i = phi i1 [ true, %.loopexit.us.thread.i ], [ false, %.lr.ph20.i ]
-  %.01417.us.ph.i = phi i64 [ %21, %.loopexit.us.thread.i ], [ 0, %.lr.ph20.i ]
+  %.01318.us.ph.i = phi i64 [ %21, %.loopexit.us.thread.i ], [ 0, %.lr.ph20.i ]
+  %.01417.us.ph.i = phi i1 [ true, %.loopexit.us.thread.i ], [ false, %.lr.ph20.i ]
   %9 = load ptr, ptr %8, align 8
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %.loopexit.us.i, %.lr.ph.us.outer.i
-  %.01417.us.i = phi i64 [ %19, %.loopexit.us.i ], [ %.01417.us.ph.i, %.lr.ph.us.outer.i ]
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %.01417.us.i
+  %.01318.us.i = phi i64 [ %19, %.loopexit.us.i ], [ %.01318.us.ph.i, %.lr.ph.us.outer.i ]
+  %10 = getelementptr inbounds ptr, ptr %9, i64 %.01318.us.i
   %11 = load ptr, ptr %10, align 8
   br label %14
 
@@ -677,19 +677,19 @@ define internal fastcc void @load_into_build_target(ptr noundef %0, ptr noundef 
   br i1 %18, label %.loopexit.us.i, label %12
 
 .loopexit.us.i:                                   ; preds = %14
-  %19 = add nuw i64 %.01417.us.i, 1
+  %19 = add nuw i64 %.01318.us.i, 1
   %20 = icmp ult i64 %19, %.ph.i
   br i1 %20, label %.lr.ph.us.i, label %._crit_edge21.i, !llvm.loop !13
 
 .loopexit.us.thread.i:                            ; preds = %12
   tail call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.199, ptr noundef %11, ptr noundef %1) #8
   %.pre.i = load i64, ptr %5, align 8
-  %21 = add nuw i64 %.01417.us.i, 1
+  %21 = add nuw i64 %.01318.us.i, 1
   %22 = icmp ult i64 %21, %.pre.i
   br i1 %22, label %.lr.ph.us.outer.i, label %.critedge22.i, !llvm.loop !13
 
 ._crit_edge21.i:                                  ; preds = %.loopexit.us.i
-  br i1 %.01318.us.ph.i, label %.critedge22.i, label %check_json_keys.exit
+  br i1 %.01417.us.ph.i, label %.critedge22.i, label %check_json_keys.exit
 
 .critedge22.i:                                    ; preds = %.loopexit.us.thread.i, %._crit_edge21.i
   %.b15.i = load i1, ptr @check_json_keys.failed_shown, align 1
@@ -704,14 +704,14 @@ define internal fastcc void @load_into_build_target(ptr noundef %0, ptr noundef 
 
 .lr.ph.us.outer.i365:                             ; preds = %.loopexit.us.thread.i373, %.lr.ph20.i364
   %.ph.i366 = phi i64 [ %.pre.i374, %.loopexit.us.thread.i373 ], [ %6, %.lr.ph20.i364 ]
-  %.01318.us.ph.i367 = phi i1 [ true, %.loopexit.us.thread.i373 ], [ false, %.lr.ph20.i364 ]
-  %.01417.us.ph.i368 = phi i64 [ %37, %.loopexit.us.thread.i373 ], [ 0, %.lr.ph20.i364 ]
+  %.01318.us.ph.i367 = phi i64 [ %37, %.loopexit.us.thread.i373 ], [ 0, %.lr.ph20.i364 ]
+  %.01417.us.ph.i368 = phi i1 [ true, %.loopexit.us.thread.i373 ], [ false, %.lr.ph20.i364 ]
   %25 = load ptr, ptr %24, align 8
   br label %.lr.ph.us.i369
 
 .lr.ph.us.i369:                                   ; preds = %.loopexit.us.i377, %.lr.ph.us.outer.i365
-  %.01417.us.i370 = phi i64 [ %35, %.loopexit.us.i377 ], [ %.01417.us.ph.i368, %.lr.ph.us.outer.i365 ]
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %.01417.us.i370
+  %.01318.us.i370 = phi i64 [ %35, %.loopexit.us.i377 ], [ %.01318.us.ph.i367, %.lr.ph.us.outer.i365 ]
+  %26 = getelementptr inbounds ptr, ptr %25, i64 %.01318.us.i370
   %27 = load ptr, ptr %26, align 8
   br label %30
 
@@ -729,19 +729,19 @@ define internal fastcc void @load_into_build_target(ptr noundef %0, ptr noundef 
   br i1 %34, label %.loopexit.us.i377, label %28
 
 .loopexit.us.i377:                                ; preds = %30
-  %35 = add nuw i64 %.01417.us.i370, 1
+  %35 = add nuw i64 %.01318.us.i370, 1
   %36 = icmp ult i64 %35, %.ph.i366
   br i1 %36, label %.lr.ph.us.i369, label %._crit_edge21.i378, !llvm.loop !13
 
 .loopexit.us.thread.i373:                         ; preds = %28
   tail call void (ptr, ...) @eprintf(ptr noundef nonnull @.str.199, ptr noundef %27, ptr noundef %1) #8
   %.pre.i374 = load i64, ptr %5, align 8
-  %37 = add nuw i64 %.01417.us.i370, 1
+  %37 = add nuw i64 %.01318.us.i370, 1
   %38 = icmp ult i64 %37, %.pre.i374
   br i1 %38, label %.lr.ph.us.outer.i365, label %.critedge22.i375, !llvm.loop !13
 
 ._crit_edge21.i378:                               ; preds = %.loopexit.us.i377
-  br i1 %.01318.us.ph.i367, label %.critedge22.i375, label %check_json_keys.exit
+  br i1 %.01417.us.ph.i368, label %.critedge22.i375, label %check_json_keys.exit
 
 .critedge22.i375:                                 ; preds = %.loopexit.us.thread.i373, %._crit_edge21.i378
   %.b15.i376 = load i1, ptr @check_json_keys.failed_shown, align 1
@@ -836,18 +836,18 @@ get_string.exit384:                               ; preds = %get_string.exit, %5
   br i1 %61, label %70, label %72
 
 70:                                               ; preds = %.thread543, %68, %69
-  %.0327545 = phi ptr [ null, %68 ], [ %60, %69 ], [ null, %.thread543 ]
+  %.0328545 = phi ptr [ null, %68 ], [ %60, %69 ], [ null, %.thread543 ]
   %71 = getelementptr inbounds i8, ptr %2, i64 288
   store ptr %58, ptr %71, align 8
   br label %72
 
 72:                                               ; preds = %70, %69
-  %.0327544 = phi ptr [ %.0327545, %70 ], [ %60, %69 ]
-  %.not353 = icmp eq ptr %.0327544, null
+  %.0328544 = phi ptr [ %.0328545, %70 ], [ %60, %69 ]
+  %.not353 = icmp eq ptr %.0328544, null
   br i1 %.not353, label %.thread546, label %73
 
 73:                                               ; preds = %72
-  %74 = getelementptr inbounds i8, ptr %.0327544, i64 -8
+  %74 = getelementptr inbounds i8, ptr %.0328544, i64 -8
   %75 = load i32, ptr %74, align 4
   %.not592 = icmp eq i32 %75, 0
   br i1 %.not592, label %.thread546, label %.lr.ph
@@ -859,7 +859,7 @@ get_string.exit384:                               ; preds = %get_string.exit, %5
 
 77:                                               ; preds = %.lr.ph, %104
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %104 ]
-  %78 = getelementptr inbounds ptr, ptr %.0327544, i64 %indvars.iv
+  %78 = getelementptr inbounds ptr, ptr %.0328544, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8
   %80 = load ptr, ptr %76, align 8
   %.not.i385 = icmp eq ptr %80, null
@@ -2211,8 +2211,8 @@ define internal fastcc ptr @get_valid_array(ptr noundef %0, ptr noundef %1, ptr 
 
 11:                                               ; preds = %.lr.ph, %42
   %12 = phi i64 [ 0, %.lr.ph ], [ %51, %42 ]
-  %.02838 = phi i32 [ 0, %.lr.ph ], [ %50, %42 ]
-  %.02937 = phi ptr [ null, %.lr.ph ], [ %45, %42 ]
+  %.02738 = phi i32 [ 0, %.lr.ph ], [ %50, %42 ]
+  %.02837 = phi ptr [ null, %.lr.ph ], [ %45, %42 ]
   %13 = load ptr, ptr %9, align 8
   %14 = getelementptr inbounds ptr, ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8
@@ -2225,7 +2225,7 @@ define internal fastcc ptr @get_valid_array(ptr noundef %0, ptr noundef %1, ptr 
   unreachable
 
 18:                                               ; preds = %11
-  %.not.i = icmp eq ptr %.02937, null
+  %.not.i = icmp eq ptr %.02837, null
   br i1 %.not.i, label %19, label %22
 
 19:                                               ; preds = %18
@@ -2235,8 +2235,8 @@ define internal fastcc ptr @get_valid_array(ptr noundef %0, ptr noundef %1, ptr 
   br label %24
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %.02937, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.02937, i64 -4
+  %23 = getelementptr inbounds i8, ptr %.02837, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.02837, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %24
 
@@ -2278,15 +2278,15 @@ define internal fastcc ptr @get_valid_array(ptr noundef %0, ptr noundef %1, ptr 
   %48 = zext i32 %43 to i64
   %49 = getelementptr inbounds ptr, ptr %45, i64 %48
   store ptr %47, ptr %49, align 8
-  %50 = add i32 %.02838, 1
+  %50 = add i32 %.02738, 1
   %51 = zext i32 %50 to i64
   %52 = load i64, ptr %7, align 8
   %53 = icmp ugt i64 %52, %51
   br i1 %53, label %11, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %42, %.preheader, %3
-  %.027 = phi ptr [ null, %3 ], [ null, %.preheader ], [ %45, %42 ]
-  ret ptr %.027
+  %.029 = phi ptr [ null, %3 ], [ null, %.preheader ], [ %45, %42 ]
+  ret ptr %.029
 }
 
 declare ptr @str_printf(ptr noundef, ...) local_unnamed_addr #1

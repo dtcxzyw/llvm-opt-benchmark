@@ -702,9 +702,9 @@ define range(i32 -1, 1) i32 @H5B2_find(ptr nocapture noundef readonly %0, ptr no
 
 89:                                               ; preds = %.lr.ph, %154
   %.1214 = phi ptr [ %spec.select, %.lr.ph ], [ %spec.select177, %154 ]
-  %.0144213 = phi i16 [ %82, %.lr.ph ], [ %157, %154 ]
-  %.0147212 = phi i32 [ 0, %.lr.ph ], [ %.1148, %154 ]
-  %90 = call ptr @H5B2__protect_internal(ptr noundef nonnull %14, ptr noundef %.1214, ptr noundef nonnull %6, i16 noundef zeroext %.0144213, i1 noundef zeroext false, i32 noundef 128) #6
+  %.0146213 = phi i32 [ 0, %.lr.ph ], [ %.1147, %154 ]
+  %.0148212 = phi i16 [ %82, %.lr.ph ], [ %157, %154 ]
+  %90 = call ptr @H5B2__protect_internal(ptr noundef nonnull %14, ptr noundef %.1214, ptr noundef nonnull %6, i16 noundef zeroext %.0148212, i1 noundef zeroext false, i32 noundef 128) #6
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %96
 
@@ -778,7 +778,7 @@ thread-pre-split:                                 ; preds = %126
   %131 = zext i32 %128 to i64
   %132 = getelementptr inbounds %struct.H5B2_node_ptr_t, ptr %130, i64 %131
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %132, i64 24, i1 false)
-  %.not171 = icmp eq i32 %.0147212, 3
+  %.not171 = icmp eq i32 %.0146213, 3
   br i1 %.not171, label %142, label %133
 
 133:                                              ; preds = %127
@@ -786,7 +786,7 @@ thread-pre-split:                                 ; preds = %126
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %133
-  %136 = and i32 %.0147212, -3
+  %136 = and i32 %.0146213, -3
   %or.cond = icmp eq i32 %136, 0
   %. = select i1 %or.cond, i32 2, i32 3
   br label %142
@@ -798,12 +798,12 @@ thread-pre-split:                                 ; preds = %126
   br i1 %140, label %141, label %142
 
 141:                                              ; preds = %137
-  %or.cond3.inv = icmp ugt i32 %.0147212, 1
+  %or.cond3.inv = icmp ugt i32 %.0146213, 1
   %.176 = select i1 %or.cond3.inv, i32 3, i32 1
   br label %142
 
 142:                                              ; preds = %137, %141, %135, %127
-  %.1148 = phi i32 [ 3, %127 ], [ %., %135 ], [ %.176, %141 ], [ 3, %137 ]
+  %.1147 = phi i32 [ 3, %127 ], [ %., %135 ], [ %.176, %141 ], [ 3, %137 ]
   %143 = load ptr, ptr %88, align 8
   %144 = load i64, ptr %6, align 8
   %145 = load i8, ptr %83, align 8
@@ -824,7 +824,7 @@ thread-pre-split:                                 ; preds = %126
   %156 = trunc i8 %155 to i1
   %spec.select177 = select i1 %156, ptr %90, ptr null
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  %157 = add i16 %.0144213, -1
+  %157 = add i16 %.0148212, -1
   %.not161 = icmp eq i16 %157, 0
   br i1 %.not161, label %._crit_edge, label %89
 
@@ -881,7 +881,7 @@ thread-pre-split:                                 ; preds = %126
   br label %.thread184
 
 ._crit_edge:                                      ; preds = %154, %80
-  %.0147.lcssa = phi i32 [ 0, %80 ], [ %.1148, %154 ]
+  %.0146.lcssa = phi i32 [ 0, %80 ], [ %.1147, %154 ]
   %.1.lcssa = phi ptr [ %spec.select, %80 ], [ %spec.select177, %154 ]
   %192 = call ptr @H5B2__protect_leaf(ptr noundef nonnull %14, ptr noundef %.1.lcssa, ptr noundef nonnull %6, i1 noundef zeroext false, i32 noundef 128) #6
   %193 = icmp eq ptr %192, null
@@ -993,13 +993,13 @@ thread-pre-split:                                 ; preds = %126
   br label %.thread184
 
 263:                                              ; preds = %240, %239
-  %.not166 = icmp eq i32 %.0147.lcssa, 3
+  %.not166 = icmp eq i32 %.0146.lcssa, 3
   br i1 %.not166, label %316, label %264
 
 264:                                              ; preds = %263
   %265 = load i32, ptr %8, align 4
   %266 = icmp eq i32 %265, 0
-  %267 = and i32 %.0147.lcssa, -3
+  %267 = and i32 %.0146.lcssa, -3
   %or.cond5 = icmp eq i32 %267, 0
   %or.cond178 = select i1 %266, i1 %or.cond5, i1 false
   br i1 %or.cond178, label %268, label %288
@@ -1042,7 +1042,7 @@ thread-pre-split:                                 ; preds = %126
   %291 = zext i16 %290 to i32
   %292 = add nsw i32 %291, -1
   %293 = icmp eq i32 %289, %292
-  %or.cond7 = icmp ult i32 %.0147.lcssa, 2
+  %or.cond7 = icmp ult i32 %.0146.lcssa, 2
   %or.cond179 = select i1 %293, i1 %or.cond7, i1 false
   br i1 %or.cond179, label %294, label %316
 
@@ -1116,8 +1116,8 @@ thread-pre-split:                                 ; preds = %126
   br label %.thread184
 
 .thread184:                                       ; preds = %326, %322, %302, %276, %260, %257, %238, %234, %218, %191, %187, %179, %176, %150, %114, %79, %75, %67, %60, %49, %45, %37, %30, %19, %328, %331, %327
-  %.1146 = phi i32 [ -1, %331 ], [ -1, %328 ], [ -1, %327 ], [ 0, %326 ], [ -1, %322 ], [ -1, %302 ], [ -1, %276 ], [ -1, %260 ], [ -1, %257 ], [ 0, %238 ], [ -1, %234 ], [ -1, %218 ], [ 0, %191 ], [ -1, %187 ], [ -1, %179 ], [ -1, %176 ], [ -1, %150 ], [ -1, %114 ], [ 0, %79 ], [ -1, %75 ], [ 0, %67 ], [ -1, %60 ], [ 0, %49 ], [ -1, %45 ], [ 0, %37 ], [ -1, %30 ], [ 0, %19 ]
-  ret i32 %.1146
+  %.1145 = phi i32 [ -1, %331 ], [ -1, %328 ], [ -1, %327 ], [ 0, %326 ], [ -1, %322 ], [ -1, %302 ], [ -1, %276 ], [ -1, %260 ], [ -1, %257 ], [ 0, %238 ], [ -1, %234 ], [ -1, %218 ], [ 0, %191 ], [ -1, %187 ], [ -1, %179 ], [ -1, %176 ], [ -1, %150 ], [ -1, %114 ], [ 0, %79 ], [ -1, %75 ], [ 0, %67 ], [ -1, %60 ], [ 0, %49 ], [ -1, %45 ], [ 0, %37 ], [ -1, %30 ], [ 0, %19 ]
+  ret i32 %.1145
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1191,9 +1191,9 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr nocapture noundef readonly %0, i32 n
 
 37:                                               ; preds = %.lr.ph155, %133
   %.1154 = phi i64 [ %.0, %.lr.ph155 ], [ %.2125191, %133 ]
-  %.195153 = phi ptr [ %spec.select, %.lr.ph155 ], [ %.6, %133 ]
-  %.099152 = phi i16 [ %30, %.lr.ph155 ], [ %134, %133 ]
-  %38 = call ptr @H5B2__protect_internal(ptr noundef %12, ptr noundef %.195153, ptr noundef nonnull %6, i16 noundef zeroext %.099152, i1 noundef zeroext false, i32 noundef 128) #6
+  %.096153 = phi i16 [ %30, %.lr.ph155 ], [ %134, %133 ]
+  %.198152 = phi ptr [ %spec.select, %.lr.ph155 ], [ %.6, %133 ]
+  %38 = call ptr @H5B2__protect_internal(ptr noundef %12, ptr noundef %.198152, ptr noundef nonnull %6, i16 noundef zeroext %.096153, i1 noundef zeroext false, i32 noundef 128) #6
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %44
 
@@ -1204,13 +1204,13 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr nocapture noundef readonly %0, i32 n
   br label %177
 
 44:                                               ; preds = %37
-  %.not107 = icmp eq ptr %.195153, null
-  %.not108 = icmp eq ptr %.195153, %12
+  %.not107 = icmp eq ptr %.198152, null
+  %.not108 = icmp eq ptr %.198152, %12
   %or.cond114 = or i1 %.not107, %.not108
   br i1 %or.cond114, label %52, label %45
 
 45:                                               ; preds = %44
-  %46 = call i32 @H5AC_unpin_entry(ptr noundef nonnull %.195153) #6
+  %46 = call i32 @H5AC_unpin_entry(ptr noundef nonnull %.198152) #6
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %48, label %52
 
@@ -1367,14 +1367,14 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr nocapture noundef readonly %0, i32 n
 133:                                              ; preds = %130, %.loopexit.thread, %.loopexit
   %.2125191 = phi i64 [ %.2125190, %130 ], [ %.2125190, %.loopexit.thread ], [ %.2125, %.loopexit ]
   %.6 = phi ptr [ %spec.select113, %130 ], [ %.4192, %.loopexit.thread ], [ %.4, %.loopexit ]
-  %134 = add i16 %.099152, -1
+  %134 = add i16 %.096153, -1
   %.not104 = icmp eq i16 %134, 0
   br i1 %.not104, label %._crit_edge, label %37
 
 ._crit_edge:                                      ; preds = %133, %28
-  %.195.lcssa = phi ptr [ %spec.select, %28 ], [ %.6, %133 ]
+  %.198.lcssa = phi ptr [ %spec.select, %28 ], [ %.6, %133 ]
   %.1.lcssa = phi i64 [ %.0, %28 ], [ %.2125191, %133 ]
-  %135 = call ptr @H5B2__protect_leaf(ptr noundef %12, ptr noundef %.195.lcssa, ptr noundef nonnull %6, i1 noundef zeroext false, i32 noundef 128) #6
+  %135 = call ptr @H5B2__protect_leaf(ptr noundef %12, ptr noundef %.198.lcssa, ptr noundef nonnull %6, i1 noundef zeroext false, i32 noundef 128) #6
   %136 = icmp eq ptr %135, null
   br i1 %136, label %137, label %141
 
@@ -1385,13 +1385,13 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr nocapture noundef readonly %0, i32 n
   br label %177
 
 141:                                              ; preds = %._crit_edge
-  %.not105 = icmp eq ptr %.195.lcssa, null
-  %.not106 = icmp eq ptr %.195.lcssa, %12
+  %.not105 = icmp eq ptr %.198.lcssa, null
+  %.not106 = icmp eq ptr %.198.lcssa, %12
   %or.cond115 = or i1 %.not105, %.not106
   br i1 %or.cond115, label %149, label %142
 
 142:                                              ; preds = %141
-  %143 = call i32 @H5AC_unpin_entry(ptr noundef nonnull %.195.lcssa) #6
+  %143 = call i32 @H5AC_unpin_entry(ptr noundef nonnull %.198.lcssa) #6
   %144 = icmp slt i32 %143, 0
   br i1 %144, label %145, label %149
 
@@ -1442,7 +1442,7 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr nocapture noundef readonly %0, i32 n
   br label %.thread
 
 177:                                              ; preds = %145, %137, %126, %48, %40
-  %.8 = phi ptr [ %.195153, %40 ], [ %.195153, %48 ], [ %.4192, %126 ], [ %.195.lcssa, %137 ], [ %.195.lcssa, %145 ]
+  %.8 = phi ptr [ %.198152, %40 ], [ %.198152, %48 ], [ %.4192, %126 ], [ %.198.lcssa, %137 ], [ %.198.lcssa, %145 ]
   %.not110 = icmp eq ptr %.8, null
   %.not111 = icmp eq ptr %.8, %12
   %or.cond = or i1 %.not110, %.not111
@@ -1460,8 +1460,8 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr nocapture noundef readonly %0, i32 n
   br label %.thread
 
 .thread:                                          ; preds = %103, %172, %173, %169, %166, %104, %100, %97, %71, %24, %17, %178, %181, %177
-  %.198 = phi i32 [ -1, %181 ], [ -1, %178 ], [ -1, %177 ], [ 0, %103 ], [ 0, %172 ], [ -1, %173 ], [ -1, %169 ], [ -1, %166 ], [ -1, %104 ], [ -1, %100 ], [ -1, %97 ], [ -1, %71 ], [ -1, %24 ], [ -1, %17 ]
-  ret i32 %.198
+  %.195 = phi i32 [ -1, %181 ], [ -1, %178 ], [ -1, %177 ], [ 0, %103 ], [ 0, %172 ], [ -1, %173 ], [ -1, %169 ], [ -1, %166 ], [ -1, %104 ], [ -1, %100 ], [ -1, %97 ], [ -1, %71 ], [ -1, %24 ], [ -1, %17 ]
+  ret i32 %.195
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1868,9 +1868,9 @@ define range(i32 -1, 1) i32 @H5B2_modify(ptr nocapture noundef readonly %0, ptr 
 
 33:                                               ; preds = %.lr.ph, %98
   %.1175 = phi ptr [ %spec.select, %.lr.ph ], [ %spec.select138, %98 ]
-  %.0119174 = phi i32 [ 0, %.lr.ph ], [ %.1120, %98 ]
-  %.0123173 = phi i16 [ %26, %.lr.ph ], [ %101, %98 ]
-  %34 = call ptr @H5B2__protect_internal(ptr noundef nonnull %15, ptr noundef %.1175, ptr noundef nonnull %5, i16 noundef zeroext %.0123173, i1 noundef zeroext false, i32 noundef 0) #6
+  %.0121174 = phi i16 [ %26, %.lr.ph ], [ %101, %98 ]
+  %.0122173 = phi i32 [ 0, %.lr.ph ], [ %.1123, %98 ]
+  %34 = call ptr @H5B2__protect_internal(ptr noundef nonnull %15, ptr noundef %.1175, ptr noundef nonnull %5, i16 noundef zeroext %.0121174, i1 noundef zeroext false, i32 noundef 0) #6
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %40
 
@@ -1944,7 +1944,7 @@ thread-pre-split:                                 ; preds = %70
   %75 = zext i32 %72 to i64
   %76 = getelementptr inbounds %struct.H5B2_node_ptr_t, ptr %74, i64 %75
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %76, i64 24, i1 false)
-  %.not134 = icmp eq i32 %.0119174, 3
+  %.not134 = icmp eq i32 %.0122173, 3
   br i1 %.not134, label %86, label %77
 
 77:                                               ; preds = %71
@@ -1952,7 +1952,7 @@ thread-pre-split:                                 ; preds = %70
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %77
-  %80 = and i32 %.0119174, -3
+  %80 = and i32 %.0122173, -3
   %or.cond = icmp eq i32 %80, 0
   %. = select i1 %or.cond, i32 2, i32 3
   br label %86
@@ -1964,12 +1964,12 @@ thread-pre-split:                                 ; preds = %70
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %81
-  %or.cond3.inv = icmp ugt i32 %.0119174, 1
+  %or.cond3.inv = icmp ugt i32 %.0122173, 1
   %.137 = select i1 %or.cond3.inv, i32 3, i32 1
   br label %86
 
 86:                                               ; preds = %81, %85, %79, %71
-  %.1120 = phi i32 [ 3, %71 ], [ %., %79 ], [ %.137, %85 ], [ 3, %81 ]
+  %.1123 = phi i32 [ 3, %71 ], [ %., %79 ], [ %.137, %85 ], [ 3, %81 ]
   %87 = load ptr, ptr %32, align 8
   %88 = load i64, ptr %5, align 8
   %89 = load i8, ptr %27, align 8
@@ -1990,7 +1990,7 @@ thread-pre-split:                                 ; preds = %70
   %100 = trunc i8 %99 to i1
   %spec.select138 = select i1 %100, ptr %34, ptr null
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
-  %101 = add i16 %.0123173, -1
+  %101 = add i16 %.0121174, -1
   %.not = icmp eq i16 %101, 0
   br i1 %.not, label %._crit_edge, label %33
 
@@ -2042,7 +2042,7 @@ thread-pre-split:                                 ; preds = %70
   br label %.thread145
 
 ._crit_edge:                                      ; preds = %98, %24
-  %.0119.lcssa = phi i32 [ 0, %24 ], [ %.1120, %98 ]
+  %.0122.lcssa = phi i32 [ 0, %24 ], [ %.1123, %98 ]
   %.1.lcssa = phi ptr [ %spec.select, %24 ], [ %spec.select138, %98 ]
   store i8 0, ptr %10, align 1
   %137 = call ptr @H5B2__protect_leaf(ptr noundef nonnull %15, ptr noundef %.1.lcssa, ptr noundef nonnull %5, i1 noundef zeroext false, i32 noundef 0) #6
@@ -2147,13 +2147,13 @@ thread-pre-split:                                 ; preds = %70
   br label %.thread145
 
 206:                                              ; preds = %183
-  %.not130 = icmp eq i32 %.0119.lcssa, 3
+  %.not130 = icmp eq i32 %.0122.lcssa, 3
   br i1 %.not130, label %261, label %207
 
 207:                                              ; preds = %206
   %208 = load i32, ptr %7, align 4
   %209 = icmp eq i32 %208, 0
-  %210 = and i32 %.0119.lcssa, -3
+  %210 = and i32 %.0122.lcssa, -3
   %or.cond5 = icmp eq i32 %210, 0
   %or.cond139 = select i1 %209, i1 %or.cond5, i1 false
   br i1 %or.cond139, label %211, label %232
@@ -2197,7 +2197,7 @@ thread-pre-split:                                 ; preds = %70
   %235 = zext i16 %234 to i32
   %236 = add nsw i32 %235, -1
   %237 = icmp eq i32 %233, %236
-  %or.cond7 = icmp ult i32 %.0119.lcssa, 2
+  %or.cond7 = icmp ult i32 %.0122.lcssa, 2
   %or.cond140 = select i1 %237, i1 %or.cond7, i1 false
   br i1 %or.cond140, label %238, label %261
 
@@ -2271,8 +2271,8 @@ thread-pre-split:                                 ; preds = %70
   br label %.thread145
 
 .thread145:                                       ; preds = %173, %125, %261, %270, %247, %220, %203, %200, %179, %163, %133, %122, %119, %94, %58, %20, %275, %278, %274
-  %.1122 = phi i32 [ -1, %278 ], [ -1, %275 ], [ -1, %274 ], [ -1, %173 ], [ 0, %125 ], [ 0, %261 ], [ -1, %270 ], [ -1, %247 ], [ -1, %220 ], [ -1, %203 ], [ -1, %200 ], [ -1, %179 ], [ -1, %163 ], [ -1, %133 ], [ -1, %122 ], [ -1, %119 ], [ -1, %94 ], [ -1, %58 ], [ -1, %20 ]
-  ret i32 %.1122
+  %.1120 = phi i32 [ -1, %278 ], [ -1, %275 ], [ -1, %274 ], [ -1, %173 ], [ 0, %125 ], [ 0, %261 ], [ -1, %270 ], [ -1, %247 ], [ -1, %220 ], [ -1, %203 ], [ -1, %200 ], [ -1, %179 ], [ -1, %163 ], [ -1, %133 ], [ -1, %122 ], [ -1, %119 ], [ -1, %94 ], [ -1, %58 ], [ -1, %20 ]
+  ret i32 %.1120
 }
 
 declare i64 @H5B2__hdr_fuse_decr(ptr noundef) local_unnamed_addr #1

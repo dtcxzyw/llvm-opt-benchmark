@@ -585,19 +585,19 @@ if.then60:                                        ; preds = %if.end53.us53, %if.
 
 if.then65:                                        ; preds = %if.then20, %if.then60, %if.then52, %if.then48, %if.then44, %if.then33, %if.then38, %digest_to_bn.exit.thread
   %.pre = phi ptr [ null, %digest_to_bn.exit.thread ], [ null, %if.then38 ], [ %.pre.pre, %if.then33 ], [ %.pre68, %if.then44 ], [ %.pre67, %if.then48 ], [ %.pre66, %if.then52 ], [ %.pre69, %if.then60 ], [ null, %if.then20 ]
-  %tmp.1.ph = phi ptr [ %call15, %digest_to_bn.exit.thread ], [ %call15, %if.then38 ], [ %call15, %if.then33 ], [ %call15, %if.then44 ], [ %call15, %if.then48 ], [ %call15, %if.then52 ], [ %call15, %if.then60 ], [ %tmp.0, %if.then20 ]
   %m.1.ph = phi ptr [ %call18, %digest_to_bn.exit.thread ], [ %call18, %if.then38 ], [ %call18, %if.then33 ], [ %call18, %if.then44 ], [ %call18, %if.then48 ], [ %call18, %if.then52 ], [ %call18, %if.then60 ], [ null, %if.then20 ]
+  %tmp.1.ph = phi ptr [ %call15, %digest_to_bn.exit.thread ], [ %call15, %if.then38 ], [ %call15, %if.then33 ], [ %call15, %if.then44 ], [ %call15, %if.then48 ], [ %call15, %if.then52 ], [ %call15, %if.then60 ], [ %tmp.0, %if.then20 ]
   tail call void @ECDSA_SIG_free(ptr noundef nonnull %call7) #4
   br label %if.end66
 
 if.end66:                                         ; preds = %if.end53, %if.end53.us, %if.end53.us.us, %if.end53.us53, %if.then65
   %11 = phi ptr [ %.pre, %if.then65 ], [ null, %if.end53.us53 ], [ %3, %if.end53.us.us ], [ %5, %if.end53.us ], [ null, %if.end53 ]
-  %m.141 = phi ptr [ %m.1.ph, %if.then65 ], [ %call18, %if.end53.us53 ], [ %call18, %if.end53.us.us ], [ %call18, %if.end53.us ], [ %call18, %if.end53 ]
-  %tmp.139 = phi ptr [ %tmp.1.ph, %if.then65 ], [ %call15, %if.end53.us53 ], [ %call15, %if.end53.us.us ], [ %call15, %if.end53.us ], [ %call15, %if.end53 ]
+  %tmp.141 = phi ptr [ %tmp.1.ph, %if.then65 ], [ %call15, %if.end53.us53 ], [ %call15, %if.end53.us.us ], [ %call15, %if.end53.us ], [ %call15, %if.end53 ]
+  %m.139 = phi ptr [ %m.1.ph, %if.then65 ], [ %call18, %if.end53.us53 ], [ %call18, %if.end53.us.us ], [ %call18, %if.end53.us ], [ %call18, %if.end53 ]
   %ret.0 = phi ptr [ null, %if.then65 ], [ %call7, %if.end53.us53 ], [ %call7, %if.end53.us.us ], [ %call7, %if.end53.us ], [ %call7, %if.end53 ]
   tail call void @BN_CTX_free(ptr noundef %call12) #4
-  tail call void @BN_clear_free(ptr noundef %m.141) #4
-  tail call void @BN_clear_free(ptr noundef %tmp.139) #4
+  tail call void @BN_clear_free(ptr noundef %m.139) #4
+  tail call void @BN_clear_free(ptr noundef %tmp.141) #4
   tail call void @BN_clear_free(ptr noundef %11) #4
   br label %return
 

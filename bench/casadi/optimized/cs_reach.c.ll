@@ -48,18 +48,18 @@ define i32 @cs_reach(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, pt
   br label %36
 
 .preheader:                                       ; preds = %46
-  %34 = icmp slt i32 %.143, %18
+  %34 = icmp slt i32 %.1, %18
   br i1 %34, label %.lr.ph50.preheader, label %.loopexit
 
 .lr.ph50.preheader:                               ; preds = %.preheader
-  %35 = sext i32 %.143 to i64
+  %35 = sext i32 %.1 to i64
   %wide.trip.count = sext i32 %18 to i64
   br label %.lr.ph50
 
 36:                                               ; preds = %.lr.ph, %46
   %37 = phi i32 [ %29, %.lr.ph ], [ %47, %46 ]
   %indvars.iv = phi i64 [ %33, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %.04247 = phi i32 [ %18, %.lr.ph ], [ %.143, %46 ]
+  %.048 = phi i32 [ %18, %.lr.ph ], [ %.1, %46 ]
   %38 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4
   %40 = sext i32 %39 to i64
@@ -69,13 +69,13 @@ define i32 @cs_reach(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, pt
   br i1 %43, label %46, label %44
 
 44:                                               ; preds = %36
-  %45 = tail call i32 @cs_dfs(i32 noundef %39, ptr noundef nonnull %0, i32 noundef %.04247, ptr noundef nonnull %3, ptr noundef nonnull %32, ptr noundef %4) #2
+  %45 = tail call i32 @cs_dfs(i32 noundef %39, ptr noundef nonnull %0, i32 noundef %.048, ptr noundef nonnull %3, ptr noundef nonnull %32, ptr noundef %4) #2
   %.pre = load i32, ptr %28, align 4
   br label %46
 
 46:                                               ; preds = %36, %44
   %47 = phi i32 [ %37, %36 ], [ %.pre, %44 ]
-  %.143 = phi i32 [ %.04247, %36 ], [ %45, %44 ]
+  %.1 = phi i32 [ %.048, %36 ], [ %45, %44 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
@@ -95,8 +95,8 @@ define i32 @cs_reach(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, pt
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph50, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph50, %16, %.preheader, %5, %6, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %6 ], [ -1, %5 ], [ %.143, %.preheader ], [ %18, %16 ], [ %.143, %.lr.ph50 ]
-  ret i32 %.0
+  %.043 = phi i32 [ -1, %11 ], [ -1, %6 ], [ -1, %5 ], [ %.1, %.preheader ], [ %18, %16 ], [ %.1, %.lr.ph50 ]
+  ret i32 %.043
 }
 
 declare i32 @cs_dfs(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

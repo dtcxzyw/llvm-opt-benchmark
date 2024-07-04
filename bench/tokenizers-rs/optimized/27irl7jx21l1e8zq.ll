@@ -753,13 +753,13 @@ _ZN10rayon_core8registry12WorkerThread4push17hc99cbdf21ea377b9E.exit: ; preds = 
   br label %89
 
 86:                                               ; preds = %.thread75, %82
-  %.sroa.10.080 = phi ptr [ %79, %.thread75 ], [ %.sroa.11.i.sroa.0.0.copyload, %82 ]
-  %.sroa.745.079 = phi ptr [ %78, %.thread75 ], [ %.sroa.8.0.copyload6.i, %82 ]
-  %87 = icmp ne ptr %.sroa.745.079, null
+  %.sroa.745.080 = phi ptr [ %78, %.thread75 ], [ %.sroa.8.0.copyload6.i, %82 ]
+  %.sroa.10.079 = phi ptr [ %79, %.thread75 ], [ %.sroa.11.i.sroa.0.0.copyload, %82 ]
+  %87 = icmp ne ptr %.sroa.745.080, null
   call void @llvm.assume(i1 %87)
-  %88 = icmp ne ptr %.sroa.10.080, null
+  %88 = icmp ne ptr %.sroa.10.079, null
   call void @llvm.assume(i1 %88)
-  invoke void @_ZN10rayon_core4join23join_recover_from_panic17hadac98e48ce98d4eE(ptr noundef nonnull align 128 %2, ptr noundef nonnull align 8 %17, ptr noundef nonnull align 1 %.sroa.745.079, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.10.080) #36
+  invoke void @_ZN10rayon_core4join23join_recover_from_panic17hadac98e48ce98d4eE(ptr noundef nonnull align 128 %2, ptr noundef nonnull align 8 %17, ptr noundef nonnull align 1 %.sroa.745.080, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.10.079) #36
           to label %140 unwind label %.thread
 
 .loopexit:                                        ; preds = %92, %105
@@ -9684,8 +9684,8 @@ _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit83: ; preds = %"_Z
   br label %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h90e0d5ad55d6bbabE.exit231.thread"
 
 "_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h90e0d5ad55d6bbabE.exit231.thread": ; preds = %256, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h90e0d5ad55d6bbabE.exit231", %_ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit83
-  %.sroa.723.i8.sroa.0.0 = phi i64 [ %316, %_ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit83 ], [ undef, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h90e0d5ad55d6bbabE.exit231" ], [ undef, %256 ]
   %.sroa.723.i8.sroa.8.0 = phi i32 [ %.0.i.i205, %_ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit83 ], [ undef, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h90e0d5ad55d6bbabE.exit231" ], [ undef, %256 ]
+  %.sroa.723.i8.sroa.0.0 = phi i64 [ %316, %_ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit83 ], [ undef, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h90e0d5ad55d6bbabE.exit231" ], [ undef, %256 ]
   %.sroa.019.0.i11 = phi i64 [ 1, %_ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit83 ], [ 0, %"_ZN89_$LT$aho_corasick..nfa..contiguous..NFA$u20$as$u20$aho_corasick..automaton..Automaton$GT$8is_match17h90e0d5ad55d6bbabE.exit231" ], [ 0, %256 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17), !noalias !1683
   %317 = getelementptr inbounds i8, ptr %2, i64 16
@@ -10105,9 +10105,9 @@ _ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit85: ; preds = %"_Z
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %_ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit85, %337
-  %.sroa.723.i8.sroa.0.1.ph.ph = phi i64 [ %497, %_ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit85 ], [ %.sroa.723.i8.sroa.0.0, %337 ]
-  %.sroa.723.i8.sroa.6.1.ph.ph = phi i64 [ %448, %_ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit85 ], [ %18, %337 ]
   %.sroa.723.i8.sroa.8.1.ph.ph = phi i32 [ %.0.i.i210, %_ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit85 ], [ %.sroa.723.i8.sroa.8.0, %337 ]
+  %.sroa.723.i8.sroa.6.1.ph.ph = phi i64 [ %448, %_ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit85 ], [ %18, %337 ]
+  %.sroa.723.i8.sroa.0.1.ph.ph = phi i64 [ %497, %_ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit85 ], [ %.sroa.723.i8.sroa.0.0, %337 ]
   %.037.i12.ph.ph = phi i32 [ %.1.i98, %_ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit85 ], [ %258, %337 ]
   %.sroa.019.1.i13.ph.ph = phi i64 [ 1, %_ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit85 ], [ %.sroa.019.0.i11, %337 ]
   %.0.i14.ph.ph = phi i64 [ %448, %_ZN12aho_corasick9automaton9get_match17h02d2b29fb9963aa2E.exit85 ], [ %339, %337 ]
@@ -18929,8 +18929,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys12thread_local4lazy21Lazy
   br label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hccc92ce91cb8864fE.llvm.1299376021755125212.exit"
 
 "_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hccc92ce91cb8864fE.llvm.1299376021755125212.exit": ; preds = %4, %5
-  %.sroa.0.0.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i, %4 ]
   %.sroa.3.0.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i, %4 ]
+  %.sroa.0.0.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i, %4 ]
   store i64 1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -18961,8 +18961,8 @@ define hidden { i64, i64 } @"_ZN3std4hash6random11RandomState3new4KEYS7__getit28
   br label %8
 
 8:                                                ; preds = %3, %4
-  %.sroa.0.0 = phi i64 [ %6, %4 ], [ %.sroa.5.0.copyload, %3 ]
   %.sroa.3.0 = phi i64 [ %7, %4 ], [ %.sroa.6.0.copyload, %3 ]
+  %.sroa.0.0 = phi i64 [ %6, %4 ], [ %.sroa.5.0.copyload, %3 ]
   %9 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
   ret { i64, i64 } %10

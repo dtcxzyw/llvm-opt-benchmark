@@ -964,8 +964,8 @@ define hidden i32 @dissect_lcaf(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 64:                                               ; preds = %.lr.ph175, %113
   %.082.i174 = phi i32 [ %58, %.lr.ph175 ], [ %.1.i, %113 ]
-  %.083.i173 = phi i32 [ %20, %.lr.ph175 ], [ %.184.i, %113 ]
-  %.085.i172 = phi i32 [ 1, %.lr.ph175 ], [ %114, %113 ]
+  %.083.i173 = phi i32 [ 1, %.lr.ph175 ], [ %114, %113 ]
+  %.084.i172 = phi i32 [ %20, %.lr.ph175 ], [ %.185.i, %113 ]
   %65 = call zeroext i16 @tvb_get_ntohs(ptr noundef %60, i32 noundef %.082.i174) #3
   %66 = load i32, ptr @hf_lisp_lcaf_afi_list_item, align 4
   %67 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %66, ptr noundef %60, i32 noundef %.082.i174, i32 noundef 6, i32 noundef 0) #3
@@ -988,10 +988,10 @@ define hidden i32 @dissect_lcaf(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %75 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %74, ptr noundef %60, i32 noundef %72, i32 noundef 4, i32 noundef 0) #3
   %76 = load ptr, ptr %63, align 8
   %77 = call ptr @tvb_address_to_str(ptr noundef %76, ptr noundef %60, i32 noundef 2, i32 noundef %72) #3
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef nonnull @.str.378, i32 noundef %.085.i172, ptr noundef %77) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef nonnull @.str.378, i32 noundef %.083.i173, ptr noundef %77) #3
   call void @proto_item_set_len(ptr noundef %67, i32 noundef 6) #3
   %78 = add i32 %.082.i174, 6
-  %79 = add nsw i32 %.083.i173, -6
+  %79 = add nsw i32 %.084.i172, -6
   br label %113
 
 80:                                               ; preds = %64
@@ -999,21 +999,21 @@ define hidden i32 @dissect_lcaf(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %82 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %81, ptr noundef %60, i32 noundef %72, i32 noundef 16, i32 noundef 0) #3
   %83 = load ptr, ptr %63, align 8
   %84 = call ptr @tvb_address_to_str(ptr noundef %83, ptr noundef %60, i32 noundef 3, i32 noundef %72) #3
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef nonnull @.str.379, i32 noundef %.085.i172, ptr noundef %84) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef nonnull @.str.379, i32 noundef %.083.i173, ptr noundef %84) #3
   call void @proto_item_set_len(ptr noundef %67, i32 noundef 18) #3
   %85 = add i32 %.082.i174, 18
-  %86 = add nsw i32 %.083.i173, -18
+  %86 = add nsw i32 %.084.i172, -18
   br label %113
 
 87:                                               ; preds = %64
   %88 = call ptr @get_addr_str(ptr noundef %60, ptr noundef %1, i32 noundef %72, i16 noundef zeroext 16387, ptr noundef nonnull %15)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef nonnull @.str.380, i32 noundef %.085.i172, ptr noundef %88) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef nonnull @.str.380, i32 noundef %.083.i173, ptr noundef %88) #3
   %89 = load i16, ptr %15, align 2
   %90 = zext i16 %89 to i32
   %91 = add nuw nsw i32 %90, 2
   call void @proto_item_set_len(ptr noundef %67, i32 noundef %91) #3
   %92 = call i32 @dissect_lcaf(ptr noundef %60, ptr noundef %1, ptr noundef %69, i32 noundef %72, ptr noundef %67)
-  %.neg.i = add i32 %.082.i174, %.083.i173
+  %.neg.i = add i32 %.082.i174, %.084.i172
   %93 = sub i32 %.neg.i, %92
   br label %113
 
@@ -1022,20 +1022,20 @@ define hidden i32 @dissect_lcaf(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %96 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %95, ptr noundef %60, i32 noundef %72, i32 noundef 6, i32 noundef 0) #3
   %97 = load ptr, ptr %63, align 8
   %98 = call ptr @tvb_address_to_str(ptr noundef %97, ptr noundef %60, i32 noundef 1, i32 noundef %72) #3
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef nonnull @.str.381, i32 noundef %.085.i172, ptr noundef %98) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef nonnull @.str.381, i32 noundef %.083.i173, ptr noundef %98) #3
   call void @proto_item_set_len(ptr noundef %67, i32 noundef 8) #3
   %99 = add i32 %.082.i174, 8
-  %100 = add nsw i32 %.083.i173, -8
+  %100 = add nsw i32 %.084.i172, -8
   br label %113
 
 101:                                              ; preds = %64
-  %102 = add nsw i32 %.083.i173, -2
+  %102 = add nsw i32 %.084.i172, -2
   %103 = call i32 @tvb_strsize(ptr noundef %60, i32 noundef %72) #3
   %104 = load i32, ptr @hf_lisp_lcaf_afi_list_dn, align 4
   %105 = load ptr, ptr %63, align 8
   %106 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %69, i32 noundef %104, ptr noundef %60, i32 noundef %72, i32 noundef %103, i32 noundef 0, ptr noundef %105, ptr noundef nonnull %16) #3
   %107 = load ptr, ptr %16, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef nonnull @.str.382, i32 noundef %.085.i172, ptr noundef %107) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef nonnull @.str.382, i32 noundef %.083.i173, ptr noundef %107) #3
   %108 = add i32 %103, %72
   %109 = sub i32 %102, %103
   br label %113
@@ -1046,10 +1046,10 @@ define hidden i32 @dissect_lcaf(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %dissect_lcaf_afi_list.exit
 
 113:                                              ; preds = %101, %94, %87, %80, %73
-  %.184.i = phi i32 [ %109, %101 ], [ %100, %94 ], [ %93, %87 ], [ %86, %80 ], [ %79, %73 ]
+  %.185.i = phi i32 [ %109, %101 ], [ %100, %94 ], [ %93, %87 ], [ %86, %80 ], [ %79, %73 ]
   %.1.i = phi i32 [ %108, %101 ], [ %99, %94 ], [ %92, %87 ], [ %85, %80 ], [ %78, %73 ]
-  %114 = add i32 %.085.i172, 1
-  %115 = icmp sgt i32 %.184.i, 0
+  %114 = add i32 %.083.i173, 1
+  %115 = icmp sgt i32 %.185.i, 0
   br i1 %115, label %64, label %dissect_lcaf_afi_list.exit, !llvm.loop !4
 
 dissect_lcaf_afi_list.exit:                       ; preds = %113, %62, %110

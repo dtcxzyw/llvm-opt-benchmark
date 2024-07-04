@@ -9,10 +9,10 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br i1 %.not, label %12, label %.preheader
 
 .preheader:                                       ; preds = %6, %.preheader
-  %.0150173 = phi i64 [ %8, %.preheader ], [ 0, %6 ]
-  %7 = getelementptr inbounds double, ptr %5, i64 %.0150173
+  %.0149173 = phi i64 [ %8, %.preheader ], [ 0, %6 ]
+  %7 = getelementptr inbounds double, ptr %5, i64 %.0149173
   store double -1.000000e+00, ptr %7, align 8
-  %8 = add nuw nsw i64 %.0150173, 1
+  %8 = add nuw nsw i64 %.0149173, 1
   %exitcond.not = icmp eq i64 %8, 20
   br i1 %exitcond.not, label %9, label %.preheader, !llvm.loop !4
 

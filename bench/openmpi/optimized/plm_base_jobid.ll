@@ -173,8 +173,8 @@ define noundef i32 @prte_plm_base_create_jobid(ptr noundef %0) local_unnamed_add
   br label %30
 
 30:                                               ; preds = %25, %29, %23, %15, %1, %.critedge
-  %.0 = phi i32 [ -2, %.critedge ], [ 0, %1 ], [ %22, %15 ], [ %22, %23 ], [ 0, %29 ], [ 0, %25 ]
-  ret i32 %.0
+  %.013 = phi i32 [ -2, %.critedge ], [ 0, %1 ], [ %22, %15 ], [ %22, %23 ], [ 0, %29 ], [ 0, %25 ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nofree nounwind

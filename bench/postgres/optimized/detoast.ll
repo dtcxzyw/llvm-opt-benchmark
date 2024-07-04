@@ -405,7 +405,7 @@ define dso_local noundef ptr @detoast_attr_slice(ptr noundef %0, i32 noundef %1,
   unreachable
 
 .lr.ph.split:                                     ; preds = %3, %tailrecurse
-  %.tr8496 = phi i32 [ %.059, %tailrecurse ], [ %2, %3 ]
+  %.tr8496 = phi i32 [ %.060, %tailrecurse ], [ %2, %3 ]
   %.tr95 = phi ptr [ %.sroa.0.0.copyload, %tailrecurse ], [ %0, %3 ]
   %8 = icmp slt i32 %.tr8496, 0
   br i1 %8, label %13, label %9
@@ -420,7 +420,7 @@ define dso_local noundef ptr @detoast_attr_slice(ptr noundef %0, i32 noundef %1,
 
 13:                                               ; preds = %9, %.lr.ph.split
   %.079 = phi i32 [ -1, %.lr.ph.split ], [ %spec.select81, %9 ]
-  %.059 = phi i32 [ %.tr8496, %.lr.ph.split ], [ %spec.select82, %9 ]
+  %.060 = phi i32 [ %.tr8496, %.lr.ph.split ], [ %spec.select82, %9 ]
   %14 = load i8, ptr %.tr95, align 1
   %15 = icmp eq i8 %14, 1
   br i1 %15, label %16, label %.loopexit
@@ -444,7 +444,7 @@ define dso_local noundef ptr @detoast_attr_slice(ptr noundef %0, i32 noundef %1,
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %.split
-  %24 = tail call fastcc ptr @toast_fetch_datum_slice(ptr noundef nonnull %.tr95, i32 noundef %1, i32 noundef %.059)
+  %24 = tail call fastcc ptr @toast_fetch_datum_slice(ptr noundef nonnull %.tr95, i32 noundef %1, i32 noundef %.060)
   br label %104
 
 25:                                               ; preds = %.split
@@ -460,8 +460,8 @@ define dso_local noundef ptr @detoast_attr_slice(ptr noundef %0, i32 noundef %1,
   br label %31
 
 31:                                               ; preds = %29, %27
-  %.060 = phi i32 [ %30, %29 ], [ %20, %27 ]
-  %32 = tail call fastcc ptr @toast_fetch_datum_slice(ptr noundef nonnull %.tr95, i32 noundef 0, i32 noundef %.060)
+  %.059 = phi i32 [ %30, %29 ], [ %20, %27 ]
+  %32 = tail call fastcc ptr @toast_fetch_datum_slice(ptr noundef nonnull %.tr95, i32 noundef 0, i32 noundef %.059)
   br label %.loopexit
 
 33:                                               ; preds = %25
@@ -594,17 +594,17 @@ toast_decompress_datum_slice.exit:                ; preds = %70, %68, %61, %59, 
   br label %87
 
 87:                                               ; preds = %83, %80
-  %.064 = phi i32 [ %82, %80 ], [ %86, %83 ]
   %88 = phi i64 [ 1, %80 ], [ 4, %83 ]
-  %.not73 = icmp sgt i32 %.064, %1
+  %.063 = phi i32 [ %82, %80 ], [ %86, %83 ]
+  %.not73 = icmp sgt i32 %.063, %1
   br i1 %.not73, label %89, label %94
 
 89:                                               ; preds = %87
-  %90 = icmp slt i32 %.059, 0
-  %91 = icmp sgt i32 %.079, %.064
+  %90 = icmp slt i32 %.060, 0
+  %91 = icmp sgt i32 %.079, %.063
   %or.cond = or i1 %90, %91
-  %92 = sub nsw i32 %.064, %1
-  %spec.select = select i1 %or.cond, i32 %92, i32 %.059
+  %92 = sub nsw i32 %.063, %1
+  %spec.select = select i1 %or.cond, i32 %92, i32 %.060
   %93 = zext nneg i32 %1 to i64
   br label %94
 

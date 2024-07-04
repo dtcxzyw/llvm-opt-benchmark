@@ -1689,14 +1689,14 @@ _ZN7QStringD2Ev.exit106:                          ; preds = %_ZN7QStringD2Ev.exi
   %76 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #25
-  %.043 = extractvalue { ptr, i32 } %76, 0
-  %.049 = extractvalue { ptr, i32 } %76, 1
+  %.047 = extractvalue { ptr, i32 } %76, 0
+  %.054 = extractvalue { ptr, i32 } %76, 1
   br label %343
 
 77:                                               ; preds = %.thread132, %.thread
   %.pn = phi { ptr, i32 } [ %74, %.thread ], [ %64, %.thread132 ]
-  %.043130 = extractvalue { ptr, i32 } %.pn, 0
-  %.049131 = extractvalue { ptr, i32 } %.pn, 1
+  %.047130 = extractvalue { ptr, i32 } %.pn, 0
+  %.054131 = extractvalue { ptr, i32 } %.pn, 1
   call void @__cxa_free_exception(ptr %61) #25
   br label %343
 
@@ -1736,14 +1736,14 @@ _ZN7QStringD2Ev.exit106:                          ; preds = %_ZN7QStringD2Ev.exi
   %89 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #25
-  %.144 = extractvalue { ptr, i32 } %89, 0
-  %.150 = extractvalue { ptr, i32 } %89, 1
+  %.148 = extractvalue { ptr, i32 } %89, 0
+  %.155 = extractvalue { ptr, i32 } %89, 1
   br label %343
 
 90:                                               ; preds = %.thread143, %.thread136
   %.pn215 = phi { ptr, i32 } [ %87, %.thread136 ], [ %85, %.thread143 ]
-  %.144141 = extractvalue { ptr, i32 } %.pn215, 0
-  %.150142 = extractvalue { ptr, i32 } %.pn215, 1
+  %.148141 = extractvalue { ptr, i32 } %.pn215, 0
+  %.155142 = extractvalue { ptr, i32 } %.pn215, 1
   call void @__cxa_free_exception(ptr %82) #25
   br label %343
 
@@ -1792,13 +1792,13 @@ _ZN7QStringD2Ev.exit106:                          ; preds = %_ZN7QStringD2Ev.exi
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #25
   %.2 = extractvalue { ptr, i32 } %106, 0
-  %.251 = extractvalue { ptr, i32 } %106, 1
+  %.256 = extractvalue { ptr, i32 } %106, 1
   br label %343
 
 107:                                              ; preds = %.thread154, %.thread147
   %.pn224 = phi { ptr, i32 } [ %104, %.thread147 ], [ %102, %.thread154 ]
   %.2152 = extractvalue { ptr, i32 } %.pn224, 0
-  %.251153 = extractvalue { ptr, i32 } %.pn224, 1
+  %.256153 = extractvalue { ptr, i32 } %.pn224, 1
   call void @__cxa_free_exception(ptr %98) #25
   br label %343
 
@@ -1831,13 +1831,13 @@ _ZN7QStringD2Ev.exit106:                          ; preds = %_ZN7QStringD2Ev.exi
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #25
   %.3 = extractvalue { ptr, i32 } %115, 0
-  %.352 = extractvalue { ptr, i32 } %115, 1
+  %.357 = extractvalue { ptr, i32 } %115, 1
   br label %343
 
 116:                                              ; preds = %.thread165, %.thread158
   %.pn226 = phi { ptr, i32 } [ %113, %.thread158 ], [ %111, %.thread165 ]
   %.3163 = extractvalue { ptr, i32 } %.pn226, 0
-  %.352164 = extractvalue { ptr, i32 } %.pn226, 1
+  %.357164 = extractvalue { ptr, i32 } %.pn226, 1
   call void @__cxa_free_exception(ptr %98) #25
   br label %343
 
@@ -2038,13 +2038,13 @@ _ZN7QStringD2Ev.exit106:                          ; preds = %_ZN7QStringD2Ev.exi
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #25
   %.4 = extractvalue { ptr, i32 } %204, 0
-  %.453 = extractvalue { ptr, i32 } %204, 1
+  %.458 = extractvalue { ptr, i32 } %204, 1
   br label %290
 
 205:                                              ; preds = %.thread176, %.thread169
   %.pn220 = phi { ptr, i32 } [ %202, %.thread169 ], [ %200, %.thread176 ]
   %.4174 = extractvalue { ptr, i32 } %.pn220, 0
-  %.453175 = extractvalue { ptr, i32 } %.pn220, 1
+  %.458175 = extractvalue { ptr, i32 } %.pn220, 1
   call void @__cxa_free_exception(ptr %197) #25
   br label %290
 
@@ -2085,13 +2085,13 @@ _ZN7QStringD2Ev.exit106:                          ; preds = %_ZN7QStringD2Ev.exi
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #25
   %.5 = extractvalue { ptr, i32 } %217, 0
-  %.554 = extractvalue { ptr, i32 } %217, 1
+  %.559 = extractvalue { ptr, i32 } %217, 1
   br label %290
 
 218:                                              ; preds = %.thread187, %.thread180
   %.pn222 = phi { ptr, i32 } [ %215, %.thread180 ], [ %213, %.thread187 ]
   %.5185 = extractvalue { ptr, i32 } %.pn222, 0
-  %.554186 = extractvalue { ptr, i32 } %.pn222, 1
+  %.559186 = extractvalue { ptr, i32 } %.pn222, 1
   call void @__cxa_free_exception(ptr %210) #25
   br label %290
 
@@ -2219,9 +2219,9 @@ _ZNSt4pairIN3e577Image2DE6QImageEC2ERKS3_.exit:   ; preds = %.noexc
 251:                                              ; preds = %.body, %245
   %.pn90 = phi { ptr, i32 } [ %246, %245 ], [ %.pn88, %.body ]
   %.7 = extractvalue { ptr, i32 } %.pn90, 0
-  %.756 = extractvalue { ptr, i32 } %.pn90, 1
+  %.761 = extractvalue { ptr, i32 } %.pn90, 1
   %252 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
-  %253 = icmp eq i32 %.756, %252
+  %253 = icmp eq i32 %.761, %252
   br i1 %253, label %254, label %290
 
 254:                                              ; preds = %251
@@ -2332,12 +2332,12 @@ _ZNSt4pairIN3e577Image2DE6QImageEC2ERKS3_.exit:   ; preds = %.noexc
 289:                                              ; preds = %286, %274, %288, %276, %271
   %.pn94.pn = phi { ptr, i32 } [ %.pn94200, %288 ], [ %287, %286 ], [ %.pn92194, %276 ], [ %275, %274 ], [ %272, %271 ]
   %.10 = extractvalue { ptr, i32 } %.pn94.pn, 0
-  %.1059 = extractvalue { ptr, i32 } %.pn94.pn, 1
+  %.1064 = extractvalue { ptr, i32 } %.pn94.pn, 1
   invoke void @__cxa_end_catch()
           to label %290 unwind label %348
 
 290:                                              ; preds = %216, %203, %289, %218, %205, %251, %189
-  %.1160 = phi i32 [ %.1059, %289 ], [ %.756, %251 ], [ %192, %189 ], [ %.554186, %218 ], [ %.554, %216 ], [ %.453175, %205 ], [ %.453, %203 ]
+  %.1165 = phi i32 [ %.1064, %289 ], [ %.761, %251 ], [ %192, %189 ], [ %.559186, %218 ], [ %.559, %216 ], [ %.458175, %205 ], [ %.458, %203 ]
   %.11 = phi ptr [ %.10, %289 ], [ %.7, %251 ], [ %191, %189 ], [ %.5185, %218 ], [ %.5, %216 ], [ %.4174, %205 ], [ %.4, %203 ]
   call void @_ZN3e576Data3DD2Ev(ptr noundef nonnull align 8 dereferenceable(808) %19) #25
   br label %343
@@ -2386,13 +2386,13 @@ _ZNSt4pairIN3e577Image2DE6QImageEC2ERKS3_.exit:   ; preds = %.noexc
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #25
   %.12 = extractvalue { ptr, i32 } %304, 0
-  %.1261 = extractvalue { ptr, i32 } %304, 1
+  %.1266 = extractvalue { ptr, i32 } %304, 1
   br label %343
 
 305:                                              ; preds = %.thread210, %.thread203
   %.pn218 = phi { ptr, i32 } [ %302, %.thread203 ], [ %300, %.thread210 ]
   %.12208 = extractvalue { ptr, i32 } %.pn218, 0
-  %.1261209 = extractvalue { ptr, i32 } %.pn218, 1
+  %.1266209 = extractvalue { ptr, i32 } %.pn218, 1
   call void @__cxa_free_exception(ptr %297) #25
   br label %343
 
@@ -2478,22 +2478,22 @@ _ZN3e576ReaderD2Ev.exit:                          ; preds = %306, %325, %338, %_
   ret void
 
 343:                                              ; preds = %303, %114, %105, %88, %75, %305, %116, %107, %90, %77, %290, %185, %70
-  %.1362 = phi i32 [ %.352164, %116 ], [ %.352, %114 ], [ %.251153, %107 ], [ %.251, %105 ], [ %73, %70 ], [ %.1160, %290 ], [ %188, %185 ], [ %.1261209, %305 ], [ %.1261, %303 ], [ %.150142, %90 ], [ %.150, %88 ], [ %.049131, %77 ], [ %.049, %75 ]
-  %.13 = phi ptr [ %.3163, %116 ], [ %.3, %114 ], [ %.2152, %107 ], [ %.2, %105 ], [ %72, %70 ], [ %.11, %290 ], [ %187, %185 ], [ %.12208, %305 ], [ %.12, %303 ], [ %.144141, %90 ], [ %.144, %88 ], [ %.043130, %77 ], [ %.043, %75 ]
+  %.1367 = phi i32 [ %.357164, %116 ], [ %.357, %114 ], [ %.256153, %107 ], [ %.256, %105 ], [ %73, %70 ], [ %.1165, %290 ], [ %188, %185 ], [ %.1266209, %305 ], [ %.1266, %303 ], [ %.155142, %90 ], [ %.155, %88 ], [ %.054131, %77 ], [ %.054, %75 ]
+  %.13 = phi ptr [ %.3163, %116 ], [ %.3, %114 ], [ %.2152, %107 ], [ %.2, %105 ], [ %72, %70 ], [ %.11, %290 ], [ %187, %185 ], [ %.12208, %305 ], [ %.12, %303 ], [ %.148141, %90 ], [ %.148, %88 ], [ %.047130, %77 ], [ %.047, %75 ]
   call void @_ZN3e576ReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #25
   br label %344
 
 344:                                              ; preds = %343, %66
-  %.1463 = phi i32 [ %.1362, %343 ], [ %69, %66 ]
+  %.1468 = phi i32 [ %.1367, %343 ], [ %69, %66 ]
   %.14 = phi ptr [ %.13, %343 ], [ %68, %66 ]
   call void @_ZN3e577E57RootD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %10) #25
   br label %345
 
 345:                                              ; preds = %344, %44
-  %.1564 = phi i32 [ %.1463, %344 ], [ %47, %44 ]
+  %.1569 = phi i32 [ %.1468, %344 ], [ %47, %44 ]
   %.15 = phi ptr [ %.14, %344 ], [ %46, %44 ]
   %346 = insertvalue { ptr, i32 } poison, ptr %.15, 0
-  %347 = insertvalue { ptr, i32 } %346, i32 %.1564, 1
+  %347 = insertvalue { ptr, i32 } %346, i32 %.1569, 1
   resume { ptr, i32 } %347
 
 348:                                              ; preds = %289
@@ -4558,14 +4558,14 @@ _ZN7QStringD2Ev.exit137:                          ; preds = %_ZN7QStringD2Ev.exi
   %125 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #25
-  %.089 = extractvalue { ptr, i32 } %125, 0
-  %.095 = extractvalue { ptr, i32 } %125, 1
+  %.090 = extractvalue { ptr, i32 } %125, 0
+  %.0102 = extractvalue { ptr, i32 } %125, 1
   br label %477
 
 126:                                              ; preds = %.thread197, %.thread
   %.pn = phi { ptr, i32 } [ %123, %.thread ], [ %109, %.thread197 ]
-  %.089195 = extractvalue { ptr, i32 } %.pn, 0
-  %.095196 = extractvalue { ptr, i32 } %.pn, 1
+  %.090195 = extractvalue { ptr, i32 } %.pn, 0
+  %.0102196 = extractvalue { ptr, i32 } %.pn, 1
   call void @__cxa_free_exception(ptr %106) #25
   br label %477
 
@@ -4799,25 +4799,25 @@ _ZN3vcg10QuaternionIfE10FromMatrixERKNS_8Matrix44IfEE.exit: ; preds = %156, %174
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0112239 = phi i64 [ %258, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0113238 = phi float [ %.1114, %.lr.ph ], [ 0x3810000000000000, %.lr.ph.preheader ]
-  %.0115237 = phi float [ %.1116, %.lr.ph ], [ 0x47EFFFFFE0000000, %.lr.ph.preheader ]
-  %254 = getelementptr inbounds %class.CVertexO, ptr %249, i64 %.0112239, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %.095239 = phi i64 [ %258, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.096238 = phi float [ %.197, %.lr.ph ], [ 0x3810000000000000, %.lr.ph.preheader ]
+  %.098237 = phi float [ %.199, %.lr.ph ], [ 0x47EFFFFFE0000000, %.lr.ph.preheader ]
+  %254 = getelementptr inbounds %class.CVertexO, ptr %249, i64 %.095239, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %255 = load float, ptr %254, align 4
-  %256 = fcmp olt float %255, %.0115237
-  %.1116 = select i1 %256, float %255, float %.0115237
-  %257 = fcmp ogt float %255, %.0113238
-  %.1114 = select i1 %257, float %255, float %.0113238
-  %258 = add nuw i64 %.0112239, 1
+  %256 = fcmp olt float %255, %.098237
+  %.199 = select i1 %256, float %255, float %.098237
+  %257 = fcmp ogt float %255, %.096238
+  %.197 = select i1 %257, float %255, float %.096238
+  %258 = add nuw i64 %.095239, 1
   %exitcond.not = icmp eq i64 %258, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader236
-  %.0115.lcssa = phi float [ 0x47EFFFFFE0000000, %.preheader236 ], [ %.1116, %.lr.ph ]
-  %.0113.lcssa = phi float [ 0x3810000000000000, %.preheader236 ], [ %.1114, %.lr.ph ]
-  %259 = fpext float %.0115.lcssa to double
+  %.098.lcssa = phi float [ 0x47EFFFFFE0000000, %.preheader236 ], [ %.199, %.lr.ph ]
+  %.096.lcssa = phi float [ 0x3810000000000000, %.preheader236 ], [ %.197, %.lr.ph ]
+  %259 = fpext float %.098.lcssa to double
   store double %259, ptr %75, align 8
-  %260 = fpext float %.0113.lcssa to double
+  %260 = fpext float %.096.lcssa to double
   store double %260, ptr %76, align 8
   store i8 1, ptr %94, align 8
   br label %261
@@ -4852,24 +4852,24 @@ _ZN3vcg10QuaternionIfE10FromMatrixERKNS_8Matrix44IfEE.exit: ; preds = %156, %174
   br label %274
 
 274:                                              ; preds = %.lr.ph242, %355
-  %.094241 = phi i64 [ 0, %.lr.ph242 ], [ %356, %355 ]
+  %.089241 = phi i64 [ 0, %.lr.ph242 ], [ %356, %355 ]
   %275 = load ptr, ptr %42, align 8
-  %276 = getelementptr inbounds %class.CVertexO, ptr %275, i64 %.094241, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %276 = getelementptr inbounds %class.CVertexO, ptr %275, i64 %.089241, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %277 = load float, ptr %276, align 4
   %278 = load ptr, ptr %18, align 8
-  %279 = getelementptr inbounds float, ptr %278, i64 %.094241
+  %279 = getelementptr inbounds float, ptr %278, i64 %.089241
   store float %277, ptr %279, align 4
   %280 = load ptr, ptr %42, align 8
-  %281 = getelementptr inbounds %class.CVertexO, ptr %280, i64 %.094241, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i64 1
+  %281 = getelementptr inbounds %class.CVertexO, ptr %280, i64 %.089241, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i64 1
   %282 = load float, ptr %281, align 4
   %283 = load ptr, ptr %265, align 8
-  %284 = getelementptr inbounds float, ptr %283, i64 %.094241
+  %284 = getelementptr inbounds float, ptr %283, i64 %.089241
   store float %282, ptr %284, align 4
   %285 = load ptr, ptr %42, align 8
-  %286 = getelementptr inbounds %class.CVertexO, ptr %285, i64 %.094241, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i64 2
+  %286 = getelementptr inbounds %class.CVertexO, ptr %285, i64 %.089241, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i64 2
   %287 = load float, ptr %286, align 4
   %288 = load ptr, ptr %266, align 8
-  %289 = getelementptr inbounds float, ptr %288, i64 %.094241
+  %289 = getelementptr inbounds float, ptr %288, i64 %.089241
   store float %287, ptr %289, align 4
   %290 = load ptr, ptr %267, align 8
   %.not.i144 = icmp ne ptr %290, null
@@ -4883,21 +4883,21 @@ _ZN3vcg10QuaternionIfE10FromMatrixERKNS_8Matrix44IfEE.exit: ; preds = %156, %174
 
 _ZNK3vcg3tri2io15E57Data3DPoints18areColorsAvailableEv.exit.thread: ; preds = %274
   %294 = load ptr, ptr %42, align 8
-  %295 = getelementptr inbounds %class.CVertexO, ptr %294, i64 %.094241, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %295 = getelementptr inbounds %class.CVertexO, ptr %294, i64 %.089241, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %296 = load i8, ptr %295, align 1
-  %297 = getelementptr inbounds i8, ptr %290, i64 %.094241
+  %297 = getelementptr inbounds i8, ptr %290, i64 %.089241
   store i8 %296, ptr %297, align 1
   %298 = load ptr, ptr %42, align 8
-  %299 = getelementptr inbounds %class.CVertexO, ptr %298, i64 %.094241, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i64 1
+  %299 = getelementptr inbounds %class.CVertexO, ptr %298, i64 %.089241, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i64 1
   %300 = load i8, ptr %299, align 1
   %301 = load ptr, ptr %268, align 8
-  %302 = getelementptr inbounds i8, ptr %301, i64 %.094241
+  %302 = getelementptr inbounds i8, ptr %301, i64 %.089241
   store i8 %300, ptr %302, align 1
   %303 = load ptr, ptr %42, align 8
-  %304 = getelementptr inbounds %class.CVertexO, ptr %303, i64 %.094241, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i64 2
+  %304 = getelementptr inbounds %class.CVertexO, ptr %303, i64 %.089241, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i64 2
   %305 = load i8, ptr %304, align 1
   %306 = load ptr, ptr %269, align 8
-  %307 = getelementptr inbounds i8, ptr %306, i64 %.094241
+  %307 = getelementptr inbounds i8, ptr %306, i64 %.089241
   store i8 %305, ptr %307, align 1
   br label %329
 
@@ -4963,21 +4963,21 @@ _ZNK3vcg3tri2io15E57Data3DPoints18areColorsAvailableEv.exit.thread: ; preds = %2
 
 _ZNK3vcg3tri2io15E57Data3DPoints19areNormalsAvailableEv.exit.thread: ; preds = %329
   %334 = load ptr, ptr %42, align 8
-  %335 = getelementptr inbounds %class.CVertexO, ptr %334, i64 %.094241, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %335 = getelementptr inbounds %class.CVertexO, ptr %334, i64 %.089241, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %336 = load float, ptr %335, align 4
-  %337 = getelementptr inbounds float, ptr %330, i64 %.094241
+  %337 = getelementptr inbounds float, ptr %330, i64 %.089241
   store float %336, ptr %337, align 4
   %338 = load ptr, ptr %42, align 8
-  %339 = getelementptr inbounds %class.CVertexO, ptr %338, i64 %.094241, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i64 1
+  %339 = getelementptr inbounds %class.CVertexO, ptr %338, i64 %.089241, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i64 1
   %340 = load float, ptr %339, align 4
   %341 = load ptr, ptr %271, align 8
-  %342 = getelementptr inbounds float, ptr %341, i64 %.094241
+  %342 = getelementptr inbounds float, ptr %341, i64 %.089241
   store float %340, ptr %342, align 4
   %343 = load ptr, ptr %42, align 8
-  %344 = getelementptr inbounds %class.CVertexO, ptr %343, i64 %.094241, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i64 2
+  %344 = getelementptr inbounds %class.CVertexO, ptr %343, i64 %.089241, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i64 2
   %345 = load float, ptr %344, align 4
   %346 = load ptr, ptr %272, align 8
-  %347 = getelementptr inbounds float, ptr %346, i64 %.094241
+  %347 = getelementptr inbounds float, ptr %346, i64 %.089241
   store float %345, ptr %347, align 4
   br label %348
 
@@ -4988,14 +4988,14 @@ _ZNK3vcg3tri2io15E57Data3DPoints19areNormalsAvailableEv.exit.thread: ; preds = %
 
 350:                                              ; preds = %348
   %351 = load ptr, ptr %42, align 8
-  %352 = getelementptr inbounds %class.CVertexO, ptr %351, i64 %.094241, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %352 = getelementptr inbounds %class.CVertexO, ptr %351, i64 %.089241, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %353 = load float, ptr %352, align 4
-  %354 = getelementptr inbounds float, ptr %349, i64 %.094241
+  %354 = getelementptr inbounds float, ptr %349, i64 %.089241
   store float %353, ptr %354, align 4
   br label %355
 
 355:                                              ; preds = %348, %350
-  %356 = add nuw i64 %.094241, 1
+  %356 = add nuw i64 %.089241, 1
   %exitcond247.not = icmp eq i64 %356, %umax246
   br i1 %exitcond247.not, label %._crit_edge243, label %274, !llvm.loop !75
 
@@ -5102,7 +5102,7 @@ _ZNK3vcg3tri2io15E57Data3DPoints19areNormalsAvailableEv.exit.thread: ; preds = %
 383:                                              ; preds = %360, %381, %382, %362, %357
   %.pn124.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn124.pn.pn.pn210, %382 ], [ %.pn124.pn, %381 ], [ %.pn122204, %362 ], [ %361, %360 ], [ %358, %357 ]
   %.6 = extractvalue { ptr, i32 } %.pn124.pn.pn.pn.pn, 0
-  %.6101 = extractvalue { ptr, i32 } %.pn124.pn.pn.pn.pn, 1
+  %.6108 = extractvalue { ptr, i32 } %.pn124.pn.pn.pn.pn, 1
   invoke void @__cxa_end_catch()
           to label %475 unwind label %483
 
@@ -5154,13 +5154,13 @@ _ZNK3vcg3tri2io15E57Data3DPoints19areNormalsAvailableEv.exit.thread: ; preds = %
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #25
   %.7 = extractvalue { ptr, i32 } %400, 0
-  %.7102 = extractvalue { ptr, i32 } %400, 1
+  %.7109 = extractvalue { ptr, i32 } %400, 1
   br label %475
 
 401:                                              ; preds = %.thread221, %.thread214
   %.pn231 = phi { ptr, i32 } [ %398, %.thread214 ], [ %392, %.thread221 ]
   %.7219 = extractvalue { ptr, i32 } %.pn231, 0
-  %.7102220 = extractvalue { ptr, i32 } %.pn231, 1
+  %.7109220 = extractvalue { ptr, i32 } %.pn231, 1
   call void @__cxa_free_exception(ptr %389) #25
   br label %475
 
@@ -5319,40 +5319,40 @@ _ZN3e576WriterD2Ev.exit:                          ; preds = %_ZN3e5722Compressed
   ret void
 
 475:                                              ; preds = %399, %401, %383, %394, %312
-  %.8103 = phi i32 [ %.7102220, %401 ], [ %.7102, %399 ], [ %397, %394 ], [ %.6101, %383 ], [ %315, %312 ]
+  %.8110 = phi i32 [ %.7109220, %401 ], [ %.7109, %399 ], [ %397, %394 ], [ %.6108, %383 ], [ %315, %312 ]
   %.8 = phi ptr [ %.7219, %401 ], [ %.7, %399 ], [ %396, %394 ], [ %.6, %383 ], [ %314, %312 ]
   call void @_ZN3e5722CompressedVectorWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #25
   br label %476
 
 476:                                              ; preds = %475, %308
-  %.9104 = phi i32 [ %.8103, %475 ], [ %311, %308 ]
+  %.9111 = phi i32 [ %.8110, %475 ], [ %311, %308 ]
   %.9 = phi ptr [ %.8, %475 ], [ %310, %308 ]
   call void @_ZN3vcg3tri2io15E57Data3DPointsD2Ev(ptr noundef nonnull align 8 dereferenceable(592) %18) #25
   br label %477
 
 477:                                              ; preds = %239, %476, %124, %126, %235, %119
-  %.11106 = phi i32 [ %122, %119 ], [ %238, %235 ], [ %.095196, %126 ], [ %.095, %124 ], [ %.9104, %476 ], [ %242, %239 ]
-  %.11 = phi ptr [ %121, %119 ], [ %237, %235 ], [ %.089195, %126 ], [ %.089, %124 ], [ %.9, %476 ], [ %241, %239 ]
+  %.11113 = phi i32 [ %122, %119 ], [ %238, %235 ], [ %.0102196, %126 ], [ %.0102, %124 ], [ %.9111, %476 ], [ %242, %239 ]
+  %.11 = phi ptr [ %121, %119 ], [ %237, %235 ], [ %.090195, %126 ], [ %.090, %124 ], [ %.9, %476 ], [ %241, %239 ]
   call void @_ZN3e576WriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #25
   br label %478
 
 478:                                              ; preds = %477, %115
-  %.12107 = phi i32 [ %.11106, %477 ], [ %118, %115 ]
+  %.12114 = phi i32 [ %.11113, %477 ], [ %118, %115 ]
   %.12 = phi ptr [ %.11, %477 ], [ %117, %115 ]
   call void @_ZN3e576Data3DD2Ev(ptr noundef nonnull align 8 dereferenceable(808) %11) #25
   br label %479
 
 479:                                              ; preds = %478, %111
-  %.13108 = phi i32 [ %.12107, %478 ], [ %114, %111 ]
+  %.13115 = phi i32 [ %.12114, %478 ], [ %114, %111 ]
   %.13 = phi ptr [ %.12, %478 ], [ %113, %111 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
   br label %480
 
 480:                                              ; preds = %479, %37
-  %.14109 = phi i32 [ %.13108, %479 ], [ %40, %37 ]
+  %.14116 = phi i32 [ %.13115, %479 ], [ %40, %37 ]
   %.14 = phi ptr [ %.13, %479 ], [ %39, %37 ]
   %481 = insertvalue { ptr, i32 } poison, ptr %.14, 0
-  %482 = insertvalue { ptr, i32 } %481, i32 %.14109, 1
+  %482 = insertvalue { ptr, i32 } %481, i32 %.14116, 1
   resume { ptr, i32 } %482
 
 483:                                              ; preds = %383

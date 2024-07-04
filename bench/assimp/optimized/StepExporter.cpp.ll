@@ -2116,7 +2116,7 @@ for.body466:                                      ; preds = %for.cond462.prehead
   %81 = phi ptr [ %189, %for.inc1141 ], [ %38, %for.cond462.preheader ]
   %indvars.iv735 = phi i64 [ %indvars.iv.next736, %for.inc1141 ], [ 0, %for.cond462.preheader ]
   %ind.3662 = phi i32 [ %ind.4.lcssa, %for.inc1141 ], [ %ind.0.lcssa, %for.cond462.preheader ]
-  %fColor.sroa.23.0658 = phi float [ %fColor.sroa.23.1.lcssa, %for.inc1141 ], [ 0x3FE99999A0000000, %for.cond462.preheader ]
+  %fColor.sroa.23.0652 = phi float [ %fColor.sroa.23.1.lcssa, %for.inc1141 ], [ 0x3FE99999A0000000, %for.cond462.preheader ]
   %82 = phi <2 x float> [ %190, %for.inc1141 ], [ <float 0x3FE99999A0000000, float 0x3FE99999A0000000>, %for.cond462.preheader ]
   %mMeshes469 = getelementptr inbounds i8, ptr %81, i64 24
   %83 = load ptr, ptr %mMeshes469, align 8
@@ -2138,7 +2138,7 @@ for.body476:                                      ; preds = %for.body476.lr.ph, 
   %86 = phi i32 [ %85, %for.body476.lr.ph ], [ %186, %for.inc1138 ]
   %indvars.iv732 = phi i64 [ 0, %for.body476.lr.ph ], [ %indvars.iv.next733, %for.inc1138 ]
   %ind.4637 = phi i32 [ %ind.3662, %for.body476.lr.ph ], [ %ind.5, %for.inc1138 ]
-  %fColor.sroa.23.1633 = phi float [ %fColor.sroa.23.0658, %for.body476.lr.ph ], [ %fColor.sroa.23.3, %for.inc1138 ]
+  %fColor.sroa.23.1627 = phi float [ %fColor.sroa.23.0652, %for.body476.lr.ph ], [ %fColor.sroa.23.3, %for.inc1138 ]
   %87 = phi <2 x float> [ %82, %for.body476.lr.ph ], [ %187, %for.inc1138 ]
   %88 = load ptr, ptr %mFaces478, align 8
   %arrayidx480 = getelementptr inbounds %struct.aiFace, ptr %88, i64 %indvars.iv732
@@ -2375,7 +2375,7 @@ if.then549:                                       ; preds = %invoke.cont542
   br label %if.end578
 
 if.end578:                                        ; preds = %if.then549, %invoke.cont542
-  %fColor.sroa.23.2 = phi float [ %div3.i, %if.then549 ], [ %fColor.sroa.23.1633, %invoke.cont542 ]
+  %fColor.sroa.23.2 = phi float [ %div3.i, %if.then549 ], [ %fColor.sroa.23.1627, %invoke.cont542 ]
   %152 = phi <2 x float> [ %151, %if.then549 ], [ %87, %invoke.cont542 ]
   %call582 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr43, ptr noundef nonnull @.str.15)
           to label %invoke.cont581 unwind label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -3193,7 +3193,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %for.inc1132
 
 for.inc1138:                                      ; preds = %for.body476, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %186 = phi i32 [ %86, %for.body476 ], [ %.pre739, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
-  %fColor.sroa.23.3 = phi float [ %fColor.sroa.23.1633, %for.body476 ], [ %fColor.sroa.23.2, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
+  %fColor.sroa.23.3 = phi float [ %fColor.sroa.23.1627, %for.body476 ], [ %fColor.sroa.23.2, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   %ind.5 = phi i32 [ %ind.4637, %for.body476 ], [ %add1137, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   %187 = phi <2 x float> [ %87, %for.body476 ], [ %152, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   %indvars.iv.next733 = add nuw nsw i64 %indvars.iv732, 1
@@ -3212,7 +3212,7 @@ for.inc1141.loopexit:                             ; preds = %for.inc1138
 
 for.inc1141:                                      ; preds = %for.inc1141.loopexit, %for.body466
   %189 = phi ptr [ %81, %for.body466 ], [ %.pre740, %for.inc1141.loopexit ]
-  %fColor.sroa.23.1.lcssa = phi float [ %fColor.sroa.23.0658, %for.body466 ], [ %fColor.sroa.23.3, %for.inc1141.loopexit ]
+  %fColor.sroa.23.1.lcssa = phi float [ %fColor.sroa.23.0652, %for.body466 ], [ %fColor.sroa.23.3, %for.inc1141.loopexit ]
   %ind.4.lcssa = phi i32 [ %ind.3662, %for.body466 ], [ %ind.5, %for.inc1141.loopexit ]
   %190 = phi <2 x float> [ %82, %for.body466 ], [ %187, %for.inc1141.loopexit ]
   %indvars.iv.next736 = add nuw nsw i64 %indvars.iv735, 1

@@ -121,8 +121,8 @@ setYInvert.exit:                                  ; preds = %4, %22
   br i1 %.not258, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %setYInvert.exit, %109
-  %.0132259 = phi ptr [ %110, %109 ], [ %33, %setYInvert.exit ]
-  %34 = getelementptr inbounds i8, ptr %.0132259, i64 16
+  %.0133259 = phi ptr [ %110, %109 ], [ %33, %setYInvert.exit ]
+  %34 = getelementptr inbounds i8, ptr %.0133259, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 162
   %37 = load i8, ptr %36, align 2
@@ -130,7 +130,7 @@ setYInvert.exit:                                  ; preds = %4, %22
   br i1 %38, label %109, label %39
 
 39:                                               ; preds = %.lr.ph
-  %40 = tail call ptr @agnameof(ptr noundef nonnull %.0132259) #18
+  %40 = tail call ptr @agnameof(ptr noundef nonnull %.0133259) #18
   %41 = tail call ptr @agcanonStr(ptr noundef %40) #18
   %42 = tail call i32 %15(ptr noundef %2, ptr noundef nonnull @.str.2) #18
   %43 = tail call i32 %15(ptr noundef %2, ptr noundef %41) #18
@@ -158,12 +158,12 @@ setYInvert.exit:                                  ; preds = %4, %22
 
 62:                                               ; preds = %39
   %63 = load ptr, ptr @N_label, align 8
-  %64 = tail call ptr @agxget(ptr noundef nonnull %.0132259, ptr noundef %63) #18
+  %64 = tail call ptr @agxget(ptr noundef nonnull %.0133259, ptr noundef %63) #18
   %65 = tail call ptr @agcanonStr(ptr noundef %64) #18
   br label %75
 
 66:                                               ; preds = %39
-  %67 = tail call ptr @agraphof(ptr noundef nonnull %.0132259) #18
+  %67 = tail call ptr @agraphof(ptr noundef nonnull %.0133259) #18
   %68 = load ptr, ptr %34, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 136
   %70 = load ptr, ptr %69, align 8
@@ -174,7 +174,7 @@ setYInvert.exit:                                  ; preds = %4, %22
   br label %75
 
 75:                                               ; preds = %66, %62
-  %.0130 = phi ptr [ %65, %62 ], [ %73, %66 ]
+  %.0129 = phi ptr [ %65, %62 ], [ %73, %66 ]
   %76 = load ptr, ptr %34, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 48
   %78 = load double, ptr %77, align 8
@@ -184,9 +184,9 @@ setYInvert.exit:                                  ; preds = %4, %22
   %81 = load double, ptr %80, align 8
   tail call fastcc void @printdouble(ptr noundef %15, ptr noundef %2, ptr noundef nonnull @.str.1, double noundef %81)
   %82 = tail call i32 %15(ptr noundef %2, ptr noundef nonnull @.str.1) #18
-  %83 = tail call i32 %15(ptr noundef %2, ptr noundef %.0130) #18
+  %83 = tail call i32 %15(ptr noundef %2, ptr noundef %.0129) #18
   %84 = load ptr, ptr @N_style, align 8
-  %85 = tail call ptr @late_nnstring(ptr noundef nonnull %.0132259, ptr noundef %84, ptr noundef nonnull @.str.3) #18
+  %85 = tail call ptr @late_nnstring(ptr noundef nonnull %.0133259, ptr noundef %84, ptr noundef nonnull @.str.3) #18
   %86 = tail call i32 %15(ptr noundef %2, ptr noundef nonnull @.str.1) #18
   %87 = tail call i32 %15(ptr noundef %2, ptr noundef %85) #18
   %88 = load ptr, ptr %34, align 8
@@ -196,30 +196,30 @@ setYInvert.exit:                                  ; preds = %4, %22
   %92 = tail call i32 %15(ptr noundef %2, ptr noundef nonnull @.str.1) #18
   %93 = tail call i32 %15(ptr noundef %2, ptr noundef %91) #18
   %94 = load ptr, ptr @N_color, align 8
-  %95 = tail call ptr @late_nnstring(ptr noundef nonnull %.0132259, ptr noundef %94, ptr noundef nonnull @.str.4) #18
+  %95 = tail call ptr @late_nnstring(ptr noundef nonnull %.0133259, ptr noundef %94, ptr noundef nonnull @.str.4) #18
   %96 = tail call i32 %15(ptr noundef %2, ptr noundef nonnull @.str.1) #18
   %97 = tail call i32 %15(ptr noundef %2, ptr noundef %95) #18
   %98 = load ptr, ptr @N_fillcolor, align 8
-  %99 = tail call ptr @late_nnstring(ptr noundef nonnull %.0132259, ptr noundef %98, ptr noundef nonnull @.str.5) #18
+  %99 = tail call ptr @late_nnstring(ptr noundef nonnull %.0133259, ptr noundef %98, ptr noundef nonnull @.str.5) #18
   %100 = load i8, ptr %99, align 1
   %101 = icmp eq i8 %100, 0
   br i1 %101, label %102, label %105
 
 102:                                              ; preds = %75
   %103 = load ptr, ptr @N_color, align 8
-  %104 = tail call ptr @late_nnstring(ptr noundef nonnull %.0132259, ptr noundef %103, ptr noundef nonnull @.str.6) #18
+  %104 = tail call ptr @late_nnstring(ptr noundef nonnull %.0133259, ptr noundef %103, ptr noundef nonnull @.str.6) #18
   br label %105
 
 105:                                              ; preds = %102, %75
-  %.0129 = phi ptr [ %104, %102 ], [ %99, %75 ]
+  %.0128 = phi ptr [ %104, %102 ], [ %99, %75 ]
   %106 = tail call i32 %15(ptr noundef %2, ptr noundef nonnull @.str.1) #18
-  %107 = tail call i32 %15(ptr noundef %2, ptr noundef %.0129) #18
+  %107 = tail call i32 %15(ptr noundef %2, ptr noundef %.0128) #18
   store i8 10, ptr @agputc.buf, align 1
   %108 = tail call i32 %15(ptr noundef %2, ptr noundef nonnull @agputc.buf) #18
   br label %109
 
 109:                                              ; preds = %.lr.ph, %105
-  %110 = tail call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.0132259) #18
+  %110 = tail call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.0133259) #18
   %.not = icmp eq ptr %110, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -253,22 +253,22 @@ setYInvert.exit:                                  ; preds = %4, %22
   br i1 %.not135270, label %._crit_edge274, label %.lr.ph273
 
 .lr.ph273:                                        ; preds = %127, %476
-  %.0133271 = phi ptr [ %486, %476 ], [ %128, %127 ]
+  %.0132271 = phi ptr [ %486, %476 ], [ %128, %127 ]
   br i1 %3, label %129, label %132
 
 129:                                              ; preds = %.lr.ph273
-  %130 = call ptr @agget(ptr noundef nonnull %.0133271, ptr noundef nonnull @.str.7) #18
+  %130 = call ptr @agget(ptr noundef nonnull %.0132271, ptr noundef nonnull @.str.7) #18
   %.not136 = icmp eq ptr %130, null
   %spec.store.select = select i1 %.not136, ptr @.str.5, ptr %130
-  %131 = call ptr @agget(ptr noundef nonnull %.0133271, ptr noundef nonnull @.str.8) #18
+  %131 = call ptr @agget(ptr noundef nonnull %.0132271, ptr noundef nonnull @.str.8) #18
   %.not137 = icmp eq ptr %131, null
   %spec.store.select1 = select i1 %.not137, ptr @.str.5, ptr %131
   br label %132
 
 132:                                              ; preds = %.lr.ph273, %129
   %.0131 = phi ptr [ %spec.store.select1, %129 ], [ @.str.5, %.lr.ph273 ]
-  %.0128 = phi ptr [ %spec.store.select, %129 ], [ @.str.5, %.lr.ph273 ]
-  %133 = getelementptr inbounds i8, ptr %.0133271, i64 16
+  %.0130 = phi ptr [ %spec.store.select, %129 ], [ @.str.5, %.lr.ph273 ]
+  %133 = getelementptr inbounds i8, ptr %.0132271, i64 16
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr inbounds i8, ptr %134, i64 16
   %136 = load ptr, ptr %135, align 8
@@ -298,11 +298,11 @@ setYInvert.exit:                                  ; preds = %4, %22
 ._crit_edge263:                                   ; preds = %140, %.preheader
   %.0127.lcssa = phi i64 [ 0, %.preheader ], [ %141, %140 ]
   %143 = call i32 %15(ptr noundef %2, ptr noundef nonnull @.str.9) #18
-  %144 = load i32, ptr %.0133271, align 8
+  %144 = load i32, ptr %.0132271, align 8
   %145 = and i32 %144, 3
   %146 = icmp eq i32 %145, 3
   %.idx = select i1 %146, i64 0, i64 64
-  %147 = getelementptr inbounds i8, ptr %.0133271, i64 %.idx
+  %147 = getelementptr inbounds i8, ptr %.0132271, i64 %.idx
   %148 = getelementptr inbounds i8, ptr %147, i64 56
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr inbounds i8, ptr %149, i64 16
@@ -331,22 +331,22 @@ setYInvert.exit:                                  ; preds = %4, %22
   %.0.i = phi ptr [ %161, %155 ], [ %165, %163 ]
   %167 = call i32 %15(ptr noundef %2, ptr noundef nonnull @.str.1) #18
   %168 = call i32 %15(ptr noundef %2, ptr noundef %.0.i) #18
-  %169 = load i8, ptr %.0128, align 1
+  %169 = load i8, ptr %.0130, align 1
   %.not13.i = icmp eq i8 %169, 0
   br i1 %.not13.i, label %writenodeandport.exit, label %170
 
 170:                                              ; preds = %166
-  %171 = call ptr @agcanonStr(ptr noundef nonnull %.0128) #18
+  %171 = call ptr @agcanonStr(ptr noundef nonnull %.0130) #18
   %172 = call i32 %15(ptr noundef %2, ptr noundef nonnull @.str.32) #18
   %173 = call i32 %15(ptr noundef %2, ptr noundef %171) #18
   br label %writenodeandport.exit
 
 writenodeandport.exit:                            ; preds = %166, %170
-  %174 = load i32, ptr %.0133271, align 8
+  %174 = load i32, ptr %.0132271, align 8
   %175 = and i32 %174, 3
   %176 = icmp eq i32 %175, 2
   %.idx139 = select i1 %176, i64 0, i64 -64
-  %177 = getelementptr inbounds i8, ptr %.0133271, i64 %.idx139
+  %177 = getelementptr inbounds i8, ptr %.0132271, i64 %.idx139
   %178 = getelementptr inbounds i8, ptr %177, i64 56
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr inbounds i8, ptr %179, i64 16
@@ -817,11 +817,11 @@ printdouble.exit:                                 ; preds = %agxbuse.exit.i156, 
   br i1 %.not140, label %476, label %361
 
 361:                                              ; preds = %.loopexit
-  %362 = load i32, ptr %.0133271, align 8
+  %362 = load i32, ptr %.0132271, align 8
   %363 = and i32 %362, 3
   %364 = icmp eq i32 %363, 3
   %.idx141 = select i1 %364, i64 0, i64 64
-  %365 = getelementptr inbounds i8, ptr %.0133271, i64 %.idx141
+  %365 = getelementptr inbounds i8, ptr %.0132271, i64 %.idx141
   %366 = getelementptr inbounds i8, ptr %365, i64 56
   %367 = load ptr, ptr %366, align 8
   %368 = call ptr @agraphof(ptr noundef %367) #18
@@ -1100,16 +1100,16 @@ printdouble.exit188:                              ; preds = %agxbuse.exit.i184, 
 
 476:                                              ; preds = %printdouble.exit188, %.loopexit
   %477 = load ptr, ptr @E_style, align 8
-  %478 = call ptr @late_nnstring(ptr noundef nonnull %.0133271, ptr noundef %477, ptr noundef nonnull @.str.3) #18
+  %478 = call ptr @late_nnstring(ptr noundef nonnull %.0132271, ptr noundef %477, ptr noundef nonnull @.str.3) #18
   %479 = call i32 %15(ptr noundef %2, ptr noundef nonnull @.str.1) #18
   %480 = call i32 %15(ptr noundef %2, ptr noundef %478) #18
   %481 = load ptr, ptr @E_color, align 8
-  %482 = call ptr @late_nnstring(ptr noundef nonnull %.0133271, ptr noundef %481, ptr noundef nonnull @.str.4) #18
+  %482 = call ptr @late_nnstring(ptr noundef nonnull %.0132271, ptr noundef %481, ptr noundef nonnull @.str.4) #18
   %483 = call i32 %15(ptr noundef %2, ptr noundef nonnull @.str.1) #18
   %484 = call i32 %15(ptr noundef %2, ptr noundef %482) #18
   store i8 10, ptr @agputc.buf, align 1
   %485 = call i32 %15(ptr noundef %2, ptr noundef nonnull @agputc.buf) #18
-  %486 = call ptr @agnxtout(ptr noundef %1, ptr noundef nonnull %.0133271) #18
+  %486 = call ptr @agnxtout(ptr noundef %1, ptr noundef nonnull %.0132271) #18
   %.not135 = icmp eq ptr %486, null
   br i1 %.not135, label %._crit_edge274, label %.lr.ph273
 
@@ -1337,9 +1337,9 @@ setYInvert.exit:                                  ; preds = %3, %12
   br label %58
 
 58:                                               ; preds = %54, %51
-  %.0189 = phi ptr [ %55, %54 ], [ null, %51 ]
-  %.0188 = phi ptr [ %56, %54 ], [ null, %51 ]
-  %.0187 = phi ptr [ %57, %54 ], [ null, %51 ]
+  %.0187 = phi ptr [ %55, %54 ], [ null, %51 ]
+  %.0186 = phi ptr [ %56, %54 ], [ null, %51 ]
+  %.0185 = phi ptr [ %57, %54 ], [ null, %51 ]
   %59 = tail call ptr @safe_dcl(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.5) #18
   %60 = tail call ptr @agfstnode(ptr noundef nonnull %0) #18
   %.not202535 = icmp eq ptr %60, null
@@ -1352,10 +1352,10 @@ setYInvert.exit:                                  ; preds = %3, %12
   br label %64
 
 64:                                               ; preds = %.lr.ph540, %.loopexit
-  %.0175538 = phi ptr [ %60, %.lr.ph540 ], [ %702, %.loopexit ]
-  %.0179537 = phi i8 [ 0, %.lr.ph540 ], [ %.5, %.loopexit ]
-  %.0181536 = phi i8 [ 0, %.lr.ph540 ], [ %.5186, %.loopexit ]
-  %65 = getelementptr inbounds i8, ptr %.0175538, i64 16
+  %.0177538 = phi i8 [ 0, %.lr.ph540 ], [ %.5, %.loopexit ]
+  %.0179537 = phi i8 [ 0, %.lr.ph540 ], [ %.5184, %.loopexit ]
+  %.0189536 = phi ptr [ %60, %.lr.ph540 ], [ %702, %.loopexit ]
+  %65 = getelementptr inbounds i8, ptr %.0189536, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 32
   %68 = load double, ptr %67, align 8
@@ -1538,8 +1538,8 @@ agxbclear.exit.thread.i231:                       ; preds = %agxbputc.exit.i228
 
 agxbsizeof.exit.i.i237:                           ; preds = %146, %agxbclear.exit.thread.i231, %118, %agxbclear.exit.thread.i
   %.sink = phi ptr [ %119, %118 ], [ %4, %agxbclear.exit.thread.i ], [ %147, %146 ], [ %4, %agxbclear.exit.thread.i231 ]
-  %148 = call i32 @agset(ptr noundef nonnull %.0175538, ptr noundef nonnull @.str.11, ptr noundef %.sink) #18
-  %149 = getelementptr inbounds i8, ptr %.0175538, i64 16
+  %148 = call i32 @agset(ptr noundef nonnull %.0189536, ptr noundef nonnull @.str.11, ptr noundef %.sink) #18
+  %149 = getelementptr inbounds i8, ptr %.0189536, i64 16
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds i8, ptr %150, i64 96
   %152 = load double, ptr %151, align 8
@@ -1602,7 +1602,7 @@ agxbclear.exit.thread.i247:                       ; preds = %agxbputc.exit.i244
 
 agxbuse.exit249:                                  ; preds = %agxbclear.exit.thread.i247, %171
   %173 = phi ptr [ %172, %171 ], [ %4, %agxbclear.exit.thread.i247 ]
-  %174 = call i32 @agxset(ptr noundef nonnull %.0175538, ptr noundef %154, ptr noundef %173) #18
+  %174 = call i32 @agxset(ptr noundef nonnull %.0189536, ptr noundef %154, ptr noundef %173) #18
   %175 = load ptr, ptr %149, align 8
   %176 = getelementptr inbounds i8, ptr %175, i64 104
   %177 = load double, ptr %176, align 8
@@ -1668,7 +1668,7 @@ agxbclear.exit.thread.i263:                       ; preds = %agxbputc.exit.i260
 
 agxbuse.exit265:                                  ; preds = %agxbclear.exit.thread.i263, %199
   %201 = phi ptr [ %200, %199 ], [ %4, %agxbclear.exit.thread.i263 ]
-  %202 = call i32 @agxset(ptr noundef nonnull %.0175538, ptr noundef %182, ptr noundef %201) #18
+  %202 = call i32 @agxset(ptr noundef nonnull %.0189536, ptr noundef %182, ptr noundef %201) #18
   %203 = load ptr, ptr %149, align 8
   %204 = getelementptr inbounds i8, ptr %203, i64 144
   %205 = load ptr, ptr %204, align 8
@@ -1748,7 +1748,7 @@ agxbclear.exit.thread.i279:                       ; preds = %agxbputc.exit.i276
 
 agxbuse.exit281:                                  ; preds = %agxbclear.exit.thread.i279, %232
   %234 = phi ptr [ %233, %232 ], [ %4, %agxbclear.exit.thread.i279 ]
-  %235 = call i32 @agset(ptr noundef nonnull %.0175538, ptr noundef nonnull @.str.15, ptr noundef %234) #18
+  %235 = call i32 @agset(ptr noundef nonnull %.0189536, ptr noundef nonnull @.str.15, ptr noundef %234) #18
   %.pre564 = load ptr, ptr %149, align 8
   br label %236
 
@@ -1764,7 +1764,7 @@ agxbuse.exit281:                                  ; preds = %agxbclear.exit.thre
 243:                                              ; preds = %236
   %244 = getelementptr inbounds i8, ptr %237, i64 24
   %245 = load ptr, ptr %244, align 8
-  call fastcc void @set_record_rects(ptr noundef nonnull %.0175538, ptr noundef %245, ptr noundef nonnull %4)
+  call fastcc void @set_record_rects(ptr noundef nonnull %.0189536, ptr noundef %245, ptr noundef nonnull %4)
   %.val.i.i = load i8, ptr %61, align 1
   switch i8 %.val.i.i, label %248 [
     i8 -1, label %agxblen.exit.thread.i
@@ -1849,7 +1849,7 @@ agxbclear.exit.thread.i295:                       ; preds = %agxbputc.exit.i292
 
 agxbuse.exit297:                                  ; preds = %agxbclear.exit.thread.i295, %267
   %269 = phi ptr [ %268, %267 ], [ %4, %agxbclear.exit.thread.i295 ]
-  %270 = call i32 @agset(ptr noundef nonnull %.0175538, ptr noundef nonnull @.str.12, ptr noundef %269) #18
+  %270 = call i32 @agset(ptr noundef nonnull %.0189536, ptr noundef nonnull @.str.12, ptr noundef %269) #18
   br label %380
 
 271:                                              ; preds = %236
@@ -1858,7 +1858,7 @@ agxbuse.exit297:                                  ; preds = %agxbclear.exit.thre
   br i1 %.not205, label %380, label %273
 
 273:                                              ; preds = %271
-  %274 = call zeroext i1 @isPolygon(ptr noundef nonnull %.0175538) #18
+  %274 = call zeroext i1 @isPolygon(ptr noundef nonnull %.0189536) #18
   br i1 %274, label %275, label %380
 
 275:                                              ; preds = %273
@@ -1871,7 +1871,7 @@ agxbuse.exit297:                                  ; preds = %agxbclear.exit.thre
   br i1 %281, label %282, label %.thread
 
 282:                                              ; preds = %275
-  %283 = call ptr @agget(ptr noundef nonnull %.0175538, ptr noundef nonnull @.str.27) #18
+  %283 = call ptr @agget(ptr noundef nonnull %.0189536, ptr noundef nonnull @.str.27) #18
   %.not206 = icmp eq ptr %283, null
   br i1 %.not206, label %.thread, label %284
 
@@ -2068,7 +2068,7 @@ agxbclear.exit.thread.i313:                       ; preds = %agxbputc.exit.i310
 
 agxbuse.exit315:                                  ; preds = %agxbclear.exit.thread.i313, %376
   %378 = phi ptr [ %377, %376 ], [ %4, %agxbclear.exit.thread.i313 ]
-  %379 = call i32 @agxset(ptr noundef nonnull %.0175538, ptr noundef %359, ptr noundef %378) #18
+  %379 = call i32 @agxset(ptr noundef nonnull %.0189536, ptr noundef %359, ptr noundef %378) #18
   br label %380
 
 380:                                              ; preds = %271, %273, %agxbuse.exit315, %agxbuse.exit297
@@ -2077,15 +2077,15 @@ agxbuse.exit315:                                  ; preds = %agxbclear.exit.thre
   br i1 %382, label %383, label %.loopexit
 
 383:                                              ; preds = %380
-  %384 = call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.0175538) #18
+  %384 = call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.0189536) #18
   %.not208527 = icmp eq ptr %384, null
   br i1 %.not208527, label %.loopexit, label %.lr.ph532
 
 .lr.ph532:                                        ; preds = %383, %700
-  %.0177530 = phi ptr [ %701, %700 ], [ %384, %383 ]
-  %.1180529 = phi i8 [ %.4, %700 ], [ %.0179537, %383 ]
-  %.1182528 = phi i8 [ %.4185, %700 ], [ %.0181536, %383 ]
-  %385 = getelementptr inbounds i8, ptr %.0177530, i64 16
+  %.1178530 = phi i8 [ %.4, %700 ], [ %.0177538, %383 ]
+  %.1180529 = phi i8 [ %.4183, %700 ], [ %.0179537, %383 ]
+  %.0188528 = phi ptr [ %701, %700 ], [ %384, %383 ]
+  %385 = getelementptr inbounds i8, ptr %.0188528, i64 16
   %386 = load ptr, ptr %385, align 8
   %387 = getelementptr inbounds i8, ptr %386, i64 152
   %388 = load i8, ptr %387, align 8
@@ -2106,8 +2106,8 @@ agxbuse.exit315:                                  ; preds = %agxbclear.exit.thre
 
 .lr.ph524:                                        ; preds = %.preheader, %._crit_edge
   %.0173523 = phi i64 [ %535, %._crit_edge ], [ 0, %.preheader ]
-  %.2522 = phi i8 [ %.3, %._crit_edge ], [ %.1180529, %.preheader ]
-  %.2183521 = phi i8 [ %.3184, %._crit_edge ], [ %.1182528, %.preheader ]
+  %.2522 = phi i8 [ %.3, %._crit_edge ], [ %.1178530, %.preheader ]
+  %.2181521 = phi i8 [ %.3182, %._crit_edge ], [ %.1180529, %.preheader ]
   %.not213 = icmp eq i64 %.0173523, 0
   br i1 %.not213, label %agxbputc.exit326, label %396
 
@@ -2287,7 +2287,7 @@ agxbputc.exit326:                                 ; preds = %425, %.thread459, %
 474:                                              ; preds = %472, %453
   %475 = phi ptr [ %.pre574, %472 ], [ %454, %453 ]
   %476 = phi ptr [ %.pre573, %472 ], [ %455, %453 ]
-  %.3184 = phi i8 [ 1, %472 ], [ %.2183521, %453 ]
+  %.3182 = phi i8 [ 1, %472 ], [ %.2181521, %453 ]
   %477 = getelementptr inbounds %struct.bezier, ptr %475, i64 %.0173523, i32 1
   %478 = load i64, ptr %477, align 8
   %.not545 = icmp eq i64 %478, 0
@@ -2430,8 +2430,8 @@ agxbputc.exit337:                                 ; preds = %508, %.thread470, %
   br i1 %538, label %.lr.ph524, label %._crit_edge525
 
 ._crit_edge525:                                   ; preds = %._crit_edge, %.preheader
-  %.2183.lcssa = phi i8 [ %.1182528, %.preheader ], [ %.3184, %._crit_edge ]
-  %.2.lcssa = phi i8 [ %.1180529, %.preheader ], [ %.3, %._crit_edge ]
+  %.2181.lcssa = phi i8 [ %.1180529, %.preheader ], [ %.3182, %._crit_edge ]
+  %.2.lcssa = phi i8 [ %.1178530, %.preheader ], [ %.3, %._crit_edge ]
   %.val.i.i.i338 = load i8, ptr %61, align 1
   %.not.i.i.i339 = icmp eq i8 %.val.i.i.i338, -1
   br i1 %.not.i.i.i339, label %agxbsizeof.exit.i.i341, label %agxbsizeof.exit.i.i341.thread
@@ -2544,7 +2544,7 @@ agxbclear.exit.thread.i351:                       ; preds = %agxbputc.exit.i348
 
 agxbuse.exit353:                                  ; preds = %agxbclear.exit.thread.i351, %573
   %575 = phi ptr [ %574, %573 ], [ %4, %agxbclear.exit.thread.i351 ]
-  %576 = call i32 @agset(ptr noundef nonnull %.0177530, ptr noundef nonnull @.str.11, ptr noundef %575) #18
+  %576 = call i32 @agset(ptr noundef nonnull %.0188528, ptr noundef nonnull @.str.11, ptr noundef %575) #18
   %577 = load ptr, ptr %385, align 8
   %578 = getelementptr inbounds i8, ptr %577, i64 120
   %579 = load ptr, ptr %578, align 8
@@ -2618,7 +2618,7 @@ agxbclear.exit.thread.i367:                       ; preds = %agxbputc.exit.i364
 
 agxbuse.exit369:                                  ; preds = %agxbclear.exit.thread.i367, %602
   %604 = phi ptr [ %603, %602 ], [ %4, %agxbclear.exit.thread.i367 ]
-  %605 = call i32 @agset(ptr noundef nonnull %.0177530, ptr noundef nonnull @.str.16, ptr noundef %604) #18
+  %605 = call i32 @agset(ptr noundef nonnull %.0188528, ptr noundef nonnull @.str.16, ptr noundef %604) #18
   %.pre579 = load ptr, ptr %385, align 8
   br label %606
 
@@ -2702,7 +2702,7 @@ agxbclear.exit.thread.i383:                       ; preds = %agxbputc.exit.i380
 
 agxbuse.exit385:                                  ; preds = %agxbclear.exit.thread.i383, %636
   %638 = phi ptr [ %637, %636 ], [ %4, %agxbclear.exit.thread.i383 ]
-  %639 = call i32 @agset(ptr noundef nonnull %.0177530, ptr noundef nonnull @.str.15, ptr noundef %638) #18
+  %639 = call i32 @agset(ptr noundef nonnull %.0188528, ptr noundef nonnull @.str.15, ptr noundef %638) #18
   %.pre580 = load ptr, ptr %385, align 8
   br label %640
 
@@ -2780,7 +2780,7 @@ agxbclear.exit.thread.i399:                       ; preds = %agxbputc.exit.i396
 
 agxbuse.exit401:                                  ; preds = %agxbclear.exit.thread.i399, %666
   %668 = phi ptr [ %667, %666 ], [ %4, %agxbclear.exit.thread.i399 ]
-  %669 = call i32 @agset(ptr noundef nonnull %.0177530, ptr noundef nonnull @.str.17, ptr noundef %668) #18
+  %669 = call i32 @agset(ptr noundef nonnull %.0188528, ptr noundef nonnull @.str.17, ptr noundef %668) #18
   %.pre581 = load ptr, ptr %385, align 8
   br label %670
 
@@ -2858,32 +2858,32 @@ agxbclear.exit.thread.i415:                       ; preds = %agxbputc.exit.i412
 
 agxbuse.exit417:                                  ; preds = %agxbclear.exit.thread.i415, %696
   %698 = phi ptr [ %697, %696 ], [ %4, %agxbclear.exit.thread.i415 ]
-  %699 = call i32 @agset(ptr noundef nonnull %.0177530, ptr noundef nonnull @.str.18, ptr noundef %698) #18
+  %699 = call i32 @agset(ptr noundef nonnull %.0188528, ptr noundef nonnull @.str.18, ptr noundef %698) #18
   br label %700
 
 700:                                              ; preds = %670, %agxbuse.exit417, %390, %.lr.ph532
-  %.4185 = phi i8 [ %.1182528, %.lr.ph532 ], [ %.1182528, %390 ], [ %.2183.lcssa, %agxbuse.exit417 ], [ %.2183.lcssa, %670 ]
-  %.4 = phi i8 [ %.1180529, %.lr.ph532 ], [ %.1180529, %390 ], [ %.2.lcssa, %agxbuse.exit417 ], [ %.2.lcssa, %670 ]
-  %701 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.0177530) #18
+  %.4183 = phi i8 [ %.1180529, %.lr.ph532 ], [ %.1180529, %390 ], [ %.2181.lcssa, %agxbuse.exit417 ], [ %.2181.lcssa, %670 ]
+  %.4 = phi i8 [ %.1178530, %.lr.ph532 ], [ %.1178530, %390 ], [ %.2.lcssa, %agxbuse.exit417 ], [ %.2.lcssa, %670 ]
+  %701 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.0188528) #18
   %.not208 = icmp eq ptr %701, null
   br i1 %.not208, label %.loopexit, label %.lr.ph532
 
 .loopexit:                                        ; preds = %700, %383, %380
-  %.5186 = phi i8 [ %.0181536, %380 ], [ %.0181536, %383 ], [ %.4185, %700 ]
-  %.5 = phi i8 [ %.0179537, %380 ], [ %.0179537, %383 ], [ %.4, %700 ]
-  %702 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0175538) #18
+  %.5184 = phi i8 [ %.0179537, %380 ], [ %.0179537, %383 ], [ %.4183, %700 ]
+  %.5 = phi i8 [ %.0177538, %380 ], [ %.0177538, %383 ], [ %.4, %700 ]
+  %702 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0189536) #18
   %.not202 = icmp eq ptr %702, null
   br i1 %.not202, label %._crit_edge541.loopexit, label %64
 
 ._crit_edge541.loopexit:                          ; preds = %.loopexit
   %703 = and i8 %.5, 1
-  %704 = and i8 %.5186, 1
+  %704 = and i8 %.5184, 1
   br label %._crit_edge541
 
 ._crit_edge541:                                   ; preds = %._crit_edge541.loopexit, %58
-  %.0181.lcssa = phi i8 [ 0, %58 ], [ %704, %._crit_edge541.loopexit ]
-  %.0179.lcssa = phi i8 [ 0, %58 ], [ %703, %._crit_edge541.loopexit ]
-  call fastcc void @rec_attach_bb(ptr noundef %0, ptr noundef %59, ptr noundef %.0189, ptr noundef %.0188, ptr noundef %.0187)
+  %.0179.lcssa = phi i8 [ 0, %58 ], [ %704, %._crit_edge541.loopexit ]
+  %.0177.lcssa = phi i8 [ 0, %58 ], [ %703, %._crit_edge541.loopexit ]
+  call fastcc void @rec_attach_bb(ptr noundef %0, ptr noundef %59, ptr noundef %.0187, ptr noundef %.0186, ptr noundef %.0185)
   %705 = getelementptr inbounds i8, ptr %4, i64 31
   %.val217 = load i8, ptr %705, align 1
   %706 = icmp eq i8 %.val217, -1
@@ -2904,8 +2904,8 @@ agxbfree.exit:                                    ; preds = %._crit_edge541, %70
   br label %710
 
 710:                                              ; preds = %709, %agxbfree.exit
-  store i8 %.0179.lcssa, ptr %1, align 1
-  store i8 %.0181.lcssa, ptr %2, align 1
+  store i8 %.0177.lcssa, ptr %1, align 1
+  store i8 %.0179.lcssa, ptr %2, align 1
   call void @gv_fixLocale(i32 noundef 0) #18
   ret void
 }

@@ -52,11 +52,11 @@ define i32 @mca_topo_base_cart_sub(ptr noundef %0, ptr nocapture noundef readonl
   %indvars.iv = phi i64 [ %21, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
   %.090130 = phi ptr [ %18, %.lr.ph.preheader ], [ %39, %37 ]
   %.093129 = phi ptr [ %20, %.lr.ph.preheader ], [ %38, %37 ]
-  %.099127 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1100, %37 ]
-  %.0101126 = phi i32 [ 1, %.lr.ph.preheader ], [ %.1102, %37 ]
-  %.0103125 = phi i32 [ 1, %.lr.ph.preheader ], [ %.1104, %37 ]
-  %.0105124 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1106, %37 ]
-  %.0107123 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1108, %37 ]
+  %.098127 = phi i32 [ 0, %.lr.ph.preheader ], [ %.199, %37 ]
+  %.0100126 = phi i32 [ 1, %.lr.ph.preheader ], [ %.1101, %37 ]
+  %.0102125 = phi i32 [ 1, %.lr.ph.preheader ], [ %.1103, %37 ]
+  %.0104124 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1105, %37 ]
+  %.0106123 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1107, %37 ]
   %22 = load i32, ptr %.093129, align 4
   %23 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
@@ -65,25 +65,25 @@ define i32 @mca_topo_base_cart_sub(ptr noundef %0, ptr nocapture noundef readonl
 
 26:                                               ; preds = %.lr.ph
   %27 = load i32, ptr %.090130, align 4
-  %28 = mul nsw i32 %27, %.0103125
-  %29 = add nsw i32 %28, %.0107123
-  %30 = mul nsw i32 %22, %.0103125
+  %28 = mul nsw i32 %27, %.0102125
+  %29 = add nsw i32 %28, %.0106123
+  %30 = mul nsw i32 %22, %.0102125
   br label %37
 
 31:                                               ; preds = %.lr.ph
-  %32 = add nsw i32 %.099127, 1
+  %32 = add nsw i32 %.098127, 1
   %33 = load i32, ptr %.090130, align 4
-  %34 = mul nsw i32 %33, %.0101126
-  %35 = add nsw i32 %34, %.0105124
-  %36 = mul nsw i32 %22, %.0101126
+  %34 = mul nsw i32 %33, %.0100126
+  %35 = add nsw i32 %34, %.0104124
+  %36 = mul nsw i32 %22, %.0100126
   br label %37
 
 37:                                               ; preds = %26, %31
-  %.1108 = phi i32 [ %29, %26 ], [ %.0107123, %31 ]
-  %.1106 = phi i32 [ %.0105124, %26 ], [ %35, %31 ]
-  %.1104 = phi i32 [ %30, %26 ], [ %.0103125, %31 ]
-  %.1102 = phi i32 [ %.0101126, %26 ], [ %36, %31 ]
-  %.1100 = phi i32 [ %.099127, %26 ], [ %32, %31 ]
+  %.1107 = phi i32 [ %29, %26 ], [ %.0106123, %31 ]
+  %.1105 = phi i32 [ %.0104124, %26 ], [ %35, %31 ]
+  %.1103 = phi i32 [ %30, %26 ], [ %.0102125, %31 ]
+  %.1101 = phi i32 [ %.0100126, %26 ], [ %36, %31 ]
+  %.199 = phi i32 [ %.098127, %26 ], [ %32, %31 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %38 = getelementptr inbounds i8, ptr %.093129, i64 -4
   %39 = getelementptr inbounds i8, ptr %.090130, i64 -4
@@ -91,20 +91,20 @@ define i32 @mca_topo_base_cart_sub(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %37
-  %41 = icmp eq i32 %.1100, 0
+  %41 = icmp eq i32 %.199, 0
   br i1 %41, label %._crit_edge.thread, label %43
 
 ._crit_edge.thread:                               ; preds = %3, %._crit_edge
-  %.0105.lcssa156 = phi i32 [ %.1106, %._crit_edge ], [ 0, %3 ]
+  %.0104.lcssa156 = phi i32 [ %.1105, %._crit_edge ], [ 0, %3 ]
   %42 = getelementptr i8, ptr %0, i64 220
   %.val = load i32, ptr %42, align 4
   br label %43
 
 43:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.099.lcssa157 = phi i32 [ 0, %._crit_edge.thread ], [ %.1100, %._crit_edge ]
-  %.0105.lcssa155 = phi i32 [ %.0105.lcssa156, %._crit_edge.thread ], [ %.1106, %._crit_edge ]
-  %.2109 = phi i32 [ %.val, %._crit_edge.thread ], [ %.1108, %._crit_edge ]
-  %44 = call i32 @ompi_comm_split(ptr noundef %0, i32 noundef %.2109, i32 noundef %.0105.lcssa155, ptr noundef nonnull %4, i1 noundef zeroext false) #4
+  %.098.lcssa157 = phi i32 [ 0, %._crit_edge.thread ], [ %.199, %._crit_edge ]
+  %.0104.lcssa155 = phi i32 [ %.0104.lcssa156, %._crit_edge.thread ], [ %.1105, %._crit_edge ]
+  %.2108 = phi i32 [ %.val, %._crit_edge.thread ], [ %.1107, %._crit_edge ]
+  %44 = call i32 @ompi_comm_split(ptr noundef %0, i32 noundef %.2108, i32 noundef %.0104.lcssa155, ptr noundef nonnull %4, i1 noundef zeroext false) #4
   %.not = icmp eq i32 %44, 0
   br i1 %.not, label %45, label %151
 
@@ -124,11 +124,11 @@ define i32 @mca_topo_base_cart_sub(ptr noundef %0, ptr nocapture noundef readonl
   br label %151
 
 52:                                               ; preds = %47
-  %53 = icmp sgt i32 %.099.lcssa157, 0
+  %53 = icmp sgt i32 %.098.lcssa157, 0
   br i1 %53, label %54, label %.loopexit122
 
 54:                                               ; preds = %52
-  %55 = zext nneg i32 %.099.lcssa157 to i64
+  %55 = zext nneg i32 %.098.lcssa157 to i64
   %56 = shl nuw nsw i64 %55, 2
   %57 = call noalias ptr @malloc(i64 noundef %56) #5
   %58 = load ptr, ptr %12, align 8
@@ -230,7 +230,7 @@ opal_obj_new.exit.thread:                         ; preds = %83
 
 opal_obj_new.exit.thread121:                      ; preds = %.lr.ph.i.i, %84
   %95 = getelementptr inbounds i8, ptr %79, i64 16
-  store i32 %.099.lcssa157, ptr %95, align 8
+  store i32 %.098.lcssa157, ptr %95, align 8
   %96 = getelementptr inbounds i8, ptr %79, i64 24
   store ptr %.092, ptr %96, align 8
   %97 = getelementptr inbounds i8, ptr %79, i64 32
@@ -238,7 +238,7 @@ opal_obj_new.exit.thread121:                      ; preds = %.lr.ph.i.i, %84
   br i1 %53, label %98, label %.loopexit
 
 98:                                               ; preds = %opal_obj_new.exit.thread121
-  %99 = zext nneg i32 %.099.lcssa157 to i64
+  %99 = zext nneg i32 %.098.lcssa157 to i64
   %100 = shl nuw nsw i64 %99, 2
   %101 = call noalias ptr @malloc(i64 noundef %100) #5
   %102 = getelementptr inbounds i8, ptr %79, i64 40
@@ -347,8 +347,8 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %117
   br label %151
 
 151:                                              ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %93, %94, %43, %149, %50
-  %.098 = phi i32 [ -2, %50 ], [ 0, %149 ], [ %44, %43 ], [ -2, %94 ], [ -2, %93 ], [ -2, %opal_thread_add_fetch_32.exit ], [ -2, %opal_obj_run_destructors.exit ]
-  ret i32 %.098
+  %.0109 = phi i32 [ -2, %50 ], [ 0, %149 ], [ %44, %43 ], [ -2, %94 ], [ -2, %93 ], [ -2, %opal_thread_add_fetch_32.exit ], [ -2, %opal_obj_run_destructors.exit ]
+  ret i32 %.0109
 }
 
 declare i32 @ompi_comm_split(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1

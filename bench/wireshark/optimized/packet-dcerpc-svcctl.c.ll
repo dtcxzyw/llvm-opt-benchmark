@@ -1199,27 +1199,27 @@ define hidden i32 @svcctl_dissect_struct_SERVICE_LOCK_STATUS(ptr noundef %0, i32
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_svcctl_SERVICE_LOCK_STATUS, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_svcctl_SERVICE_LOCK_STATUS_is_locked, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_svcctl_SERVICE_LOCK_STATUS_lock_owner, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_SERVICE_LOCK_STATUS_lock_owner_, i32 noundef 2, ptr noundef nonnull @.str.518, i32 noundef %34) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_SERVICE_LOCK_STATUS_lock_owner_, i32 noundef 2, ptr noundef nonnull @.str.518, i32 noundef %34) #4
   %36 = load i32, ptr @hf_svcctl_SERVICE_LOCK_STATUS_lock_duration, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #4
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #4
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -1357,41 +1357,41 @@ define hidden i32 @svcctl_dissect_struct_SERVICE_STATUS(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not62, %.not
   %14 = and i32 %1, -4
   %15 = add i32 %14, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %15
+  %.060 = select i1 %or.cond, i32 %1, i32 %15
   %.not63 = icmp eq ptr %3, null
   br i1 %.not63, label %20, label %16
 
 16:                                               ; preds = %8
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.060, i32 noundef -1, i32 noundef 0) #4
   %18 = load i32, ptr @ett_svcctl_SERVICE_STATUS, align 4
   %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #4
   br label %20
 
 20:                                               ; preds = %16, %8
-  %.060 = phi ptr [ %17, %16 ], [ null, %8 ]
-  %.059 = phi ptr [ %19, %16 ], [ null, %8 ]
+  %.059 = phi ptr [ %17, %16 ], [ null, %8 ]
+  %.0 = phi ptr [ %19, %16 ], [ null, %8 ]
   %21 = load i32, ptr @hf_svcctl_SERVICE_STATUS_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 0, ptr %10, align 4
-  %22 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %10) #4
+  %22 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.060, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %10) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %23 = load i32, ptr @hf_svcctl_SERVICE_STATUS_state, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %24 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %9) #4
+  %24 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %25 = load i32, ptr @hf_svcctl_SERVICE_STATUS_controls_accepted, align 4
-  %26 = call i32 @svcctl_dissect_bitmap_ControlsAccepted(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
+  %26 = call i32 @svcctl_dissect_bitmap_ControlsAccepted(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
   %27 = load i32, ptr @hf_svcctl_SERVICE_STATUS_win32_exit_code, align 4
-  %28 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #4
+  %28 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #4
   %29 = load i32, ptr @hf_svcctl_SERVICE_STATUS_service_exit_code, align 4
-  %30 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #4
+  %30 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #4
   %31 = load i32, ptr @hf_svcctl_SERVICE_STATUS_check_point, align 4
-  %32 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 noundef 0) #4
+  %32 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 noundef 0) #4
   %33 = load i32, ptr @hf_svcctl_SERVICE_STATUS_wait_hint, align 4
-  %34 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #4
-  %35 = sub i32 %34, %.0
-  call void @proto_item_set_len(ptr noundef %.060, i32 noundef %35) #4
+  %34 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #4
+  %35 = sub i32 %34, %.060
+  call void @proto_item_set_len(ptr noundef %.059, i32 noundef %35) #4
   %36 = getelementptr inbounds i8, ptr %4, i64 72
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
@@ -1455,48 +1455,48 @@ define hidden i32 @svcctl_dissect_struct_SERVICE_STATUS_PROCESS(ptr noundef %0, 
   %or.cond = or i1 %.not74, %.not
   %15 = and i32 %1, -4
   %16 = add i32 %15, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %16
+  %.072 = select i1 %or.cond, i32 %1, i32 %16
   %.not75 = icmp eq ptr %3, null
   br i1 %.not75, label %21, label %17
 
 17:                                               ; preds = %8
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.072, i32 noundef -1, i32 noundef 0) #4
   %19 = load i32, ptr @ett_svcctl_SERVICE_STATUS_PROCESS, align 4
   %20 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19) #4
   br label %21
 
 21:                                               ; preds = %17, %8
-  %.072 = phi ptr [ %18, %17 ], [ null, %8 ]
-  %.071 = phi ptr [ %20, %17 ], [ null, %8 ]
+  %.071 = phi ptr [ %18, %17 ], [ null, %8 ]
+  %.0 = phi ptr [ %20, %17 ], [ null, %8 ]
   %22 = load i32, ptr @hf_svcctl_SERVICE_STATUS_PROCESS_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store i32 0, ptr %11, align 4
-  %23 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.071, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %11) #4
+  %23 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.072, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %11) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %24 = load i32, ptr @hf_svcctl_SERVICE_STATUS_PROCESS_state, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 0, ptr %10, align 4
-  %25 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.071, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %10) #4
+  %25 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %10) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %26 = load i32, ptr @hf_svcctl_SERVICE_STATUS_PROCESS_controls_accepted, align 4
-  %27 = call i32 @svcctl_dissect_bitmap_ControlsAccepted(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.071, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, i32 poison)
+  %27 = call i32 @svcctl_dissect_bitmap_ControlsAccepted(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, i32 poison)
   %28 = load i32, ptr @hf_svcctl_SERVICE_STATUS_PROCESS_win32_exit_code, align 4
-  %29 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.071, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 noundef 0) #4
+  %29 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 noundef 0) #4
   %30 = load i32, ptr @hf_svcctl_SERVICE_STATUS_PROCESS_service_exit_code, align 4
-  %31 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.071, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, i32 noundef 0) #4
+  %31 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, i32 noundef 0) #4
   %32 = load i32, ptr @hf_svcctl_SERVICE_STATUS_PROCESS_check_point, align 4
-  %33 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.071, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_svcctl_SERVICE_STATUS_PROCESS_wait_hint, align 4
-  %35 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.071, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_svcctl_SERVICE_STATUS_PROCESS_process_id, align 4
-  %37 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.071, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
+  %37 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
   %38 = load i32, ptr @hf_svcctl_SERVICE_STATUS_PROCESS_service_flags, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %39 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.071, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, ptr noundef nonnull %9) #4
+  %39 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %40 = sub i32 %39, %.0
-  call void @proto_item_set_len(ptr noundef %.072, i32 noundef %40) #4
+  %40 = sub i32 %39, %.072
+  call void @proto_item_set_len(ptr noundef %.071, i32 noundef %40) #4
   %41 = getelementptr inbounds i8, ptr %4, i64 72
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 96
@@ -1559,27 +1559,27 @@ define hidden i32 @svcctl_dissect_struct_ENUM_SERVICE_STATUSW(ptr noundef %0, i3
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_svcctl_ENUM_SERVICE_STATUSW, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_svcctl_ENUM_SERVICE_STATUSW_service_name, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ENUM_SERVICE_STATUSW_service_name_, i32 noundef 2, ptr noundef nonnull @.str.520, i32 noundef %32) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ENUM_SERVICE_STATUSW_service_name_, i32 noundef 2, ptr noundef nonnull @.str.520, i32 noundef %32) #4
   %34 = load i32, ptr @hf_svcctl_ENUM_SERVICE_STATUSW_display_name, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ENUM_SERVICE_STATUSW_display_name_, i32 noundef 2, ptr noundef nonnull @.str.521, i32 noundef %34) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ENUM_SERVICE_STATUSW_display_name_, i32 noundef 2, ptr noundef nonnull @.str.521, i32 noundef %34) #4
   %36 = load i32, ptr @hf_svcctl_ENUM_SERVICE_STATUSW_status, align 4
-  %37 = tail call i32 @svcctl_dissect_struct_SERVICE_STATUS(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #4
+  %37 = tail call i32 @svcctl_dissect_struct_SERVICE_STATUS(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #4
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -1642,27 +1642,27 @@ define hidden i32 @svcctl_dissect_struct_ENUM_SERVICE_STATUSA(ptr noundef %0, i3
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_svcctl_ENUM_SERVICE_STATUSA, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_svcctl_ENUM_SERVICE_STATUSA_service_name, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ENUM_SERVICE_STATUSA_service_name_, i32 noundef 2, ptr noundef nonnull @.str.520, i32 noundef %32) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ENUM_SERVICE_STATUSA_service_name_, i32 noundef 2, ptr noundef nonnull @.str.520, i32 noundef %32) #4
   %34 = load i32, ptr @hf_svcctl_ENUM_SERVICE_STATUSA_display_name, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ENUM_SERVICE_STATUSA_display_name_, i32 noundef 2, ptr noundef nonnull @.str.521, i32 noundef %34) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ENUM_SERVICE_STATUSA_display_name_, i32 noundef 2, ptr noundef nonnull @.str.521, i32 noundef %34) #4
   %36 = load i32, ptr @hf_svcctl_ENUM_SERVICE_STATUSA_status, align 4
-  %37 = tail call i32 @svcctl_dissect_struct_SERVICE_STATUS(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #4
+  %37 = tail call i32 @svcctl_dissect_struct_SERVICE_STATUS(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #4
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -1910,48 +1910,48 @@ define hidden i32 @svcctl_dissect_struct_QUERY_SERVICE_CONFIG(ptr noundef %0, i3
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
+  %.080 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
   %.not86 = icmp eq ptr %3, null
   br i1 %.not86, label %34, label %30
 
 30:                                               ; preds = %29
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.080, i32 noundef -1, i32 noundef 0) #4
   %32 = load i32, ptr @ett_svcctl_QUERY_SERVICE_CONFIG, align 4
   %33 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32) #4
   br label %34
 
 34:                                               ; preds = %30, %29
-  %.080 = phi ptr [ %31, %30 ], [ null, %29 ]
-  %.079 = phi ptr [ %33, %30 ], [ null, %29 ]
+  %.079 = phi ptr [ %31, %30 ], [ null, %29 ]
+  %.0 = phi ptr [ %33, %30 ], [ null, %29 ]
   %35 = load i32, ptr @hf_svcctl_QUERY_SERVICE_CONFIG_service_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store i32 0, ptr %11, align 4
-  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %11) #4
+  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.080, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %11) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %37 = load i32, ptr @hf_svcctl_QUERY_SERVICE_CONFIG_start_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 0, ptr %10, align 4
-  %38 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef nonnull %10) #4
+  %38 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef nonnull %10) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %39 = load i32, ptr @hf_svcctl_QUERY_SERVICE_CONFIG_error_control, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %40 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef nonnull %9) #4
+  %40 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %41 = load i32, ptr @hf_svcctl_QUERY_SERVICE_CONFIG_executablepath, align 4
-  %42 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QUERY_SERVICE_CONFIG_executablepath_, i32 noundef 2, ptr noundef nonnull @.str.522, i32 noundef %41) #4
+  %42 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QUERY_SERVICE_CONFIG_executablepath_, i32 noundef 2, ptr noundef nonnull @.str.522, i32 noundef %41) #4
   %43 = load i32, ptr @hf_svcctl_QUERY_SERVICE_CONFIG_loadordergroup, align 4
-  %44 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QUERY_SERVICE_CONFIG_loadordergroup_, i32 noundef 2, ptr noundef nonnull @.str.523, i32 noundef %43) #4
+  %44 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QUERY_SERVICE_CONFIG_loadordergroup_, i32 noundef 2, ptr noundef nonnull @.str.523, i32 noundef %43) #4
   %45 = load i32, ptr @hf_svcctl_QUERY_SERVICE_CONFIG_tag_id, align 4
-  %46 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, i32 noundef 0) #4
+  %46 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, i32 noundef 0) #4
   %47 = load i32, ptr @hf_svcctl_QUERY_SERVICE_CONFIG_dependencies, align 4
-  %48 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QUERY_SERVICE_CONFIG_dependencies_, i32 noundef 2, ptr noundef nonnull @.str.524, i32 noundef %47) #4
+  %48 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QUERY_SERVICE_CONFIG_dependencies_, i32 noundef 2, ptr noundef nonnull @.str.524, i32 noundef %47) #4
   %49 = load i32, ptr @hf_svcctl_QUERY_SERVICE_CONFIG_startname, align 4
-  %50 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QUERY_SERVICE_CONFIG_startname_, i32 noundef 2, ptr noundef nonnull @.str.525, i32 noundef %49) #4
+  %50 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QUERY_SERVICE_CONFIG_startname_, i32 noundef 2, ptr noundef nonnull @.str.525, i32 noundef %49) #4
   %51 = load i32, ptr @hf_svcctl_QUERY_SERVICE_CONFIG_displayname, align 4
-  %52 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %50, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QUERY_SERVICE_CONFIG_displayname_, i32 noundef 2, ptr noundef nonnull @.str.526, i32 noundef %51) #4
-  %53 = sub i32 %52, %.0
-  call void @proto_item_set_len(ptr noundef %.080, i32 noundef %53) #4
+  %52 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %50, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_QUERY_SERVICE_CONFIG_displayname_, i32 noundef 2, ptr noundef nonnull @.str.526, i32 noundef %51) #4
+  %53 = sub i32 %52, %.080
+  call void @proto_item_set_len(ptr noundef %.079, i32 noundef %53) #4
   %54 = load ptr, ptr %12, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 96
   %56 = load i32, ptr %55, align 8
@@ -2014,23 +2014,23 @@ define hidden i32 @svcctl_dissect_struct_ArgumentString(ptr noundef %0, i32 noun
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_svcctl_svcctl_ArgumentString, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_svcctl_svcctl_ArgumentString_string, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ArgumentString_string_, i32 noundef 2, ptr noundef nonnull @.str.527, i32 noundef %32) #4
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ArgumentString_string_, i32 noundef 2, ptr noundef nonnull @.str.527, i32 noundef %32) #4
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #4
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -2093,23 +2093,23 @@ define hidden i32 @svcctl_dissect_struct_ArgumentStringA(ptr noundef %0, i32 nou
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_svcctl_svcctl_ArgumentStringA, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_svcctl_svcctl_ArgumentStringA_string, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ArgumentStringA_string_, i32 noundef 2, ptr noundef nonnull @.str.528, i32 noundef %32) #4
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @svcctl_dissect_element_ArgumentStringA_string_, i32 noundef 2, ptr noundef nonnull @.str.528, i32 noundef %32) #4
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #4
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -3157,28 +3157,28 @@ define internal i32 @svcctl_dissect_EnumServicesStatusW_response(ptr noundef %0,
   br label %65
 
 65:                                               ; preds = %62, %60, %57, %55
-  %.0.i = phi i32 [ %.07083, %55 ], [ %59, %57 ], [ %.07083, %60 ], [ %64, %62 ]
+  %.060.i = phi i32 [ %.07083, %55 ], [ %59, %57 ], [ %.07083, %60 ], [ %64, %62 ]
   br i1 %.not66.i, label %70, label %66
 
 66:                                               ; preds = %65
-  %67 = call ptr @proto_tree_add_item(ptr noundef nonnull %32, i32 noundef %52, ptr noundef %0, i32 noundef %.0.i, i32 noundef -1, i32 noundef 0) #4
+  %67 = call ptr @proto_tree_add_item(ptr noundef nonnull %32, i32 noundef %52, ptr noundef %0, i32 noundef %.060.i, i32 noundef -1, i32 noundef 0) #4
   %68 = load i32, ptr @ett_svcctl_ENUM_SERVICE_STATUSW, align 4
   %69 = call ptr @proto_item_add_subtree(ptr noundef %67, i32 noundef %68) #4
   br label %70
 
 70:                                               ; preds = %66, %65
-  %.060.i = phi ptr [ %67, %66 ], [ null, %65 ]
-  %.059.i = phi ptr [ %69, %66 ], [ null, %65 ]
+  %.059.i = phi ptr [ %67, %66 ], [ null, %65 ]
+  %.0.i = phi ptr [ %69, %66 ], [ null, %65 ]
   %71 = load i32, ptr @ett_svcctl_service_name, align 4
-  %72 = call ptr @proto_tree_add_subtree(ptr noundef %.059.i, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef %71, ptr noundef null, ptr noundef nonnull @.str.678) #4
+  %72 = call ptr @proto_tree_add_subtree(ptr noundef %.0.i, ptr noundef %0, i32 noundef %.060.i, i32 noundef 4, i32 noundef %71, ptr noundef null, ptr noundef nonnull @.str.678) #4
   %73 = load i32, ptr @hf_svcctl_service_referent_id, align 4
-  %74 = call i32 @PIDL_dissect_uint32_val(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %72, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %73, i32 noundef 0, ptr noundef nonnull %7) #4
+  %74 = call i32 @PIDL_dissect_uint32_val(ptr noundef %0, i32 noundef %.060.i, ptr noundef %2, ptr noundef %72, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %73, i32 noundef 0, ptr noundef nonnull %7) #4
   %75 = load i32, ptr %7, align 4
   %76 = add i32 %75, %34
   %77 = load i32, ptr @hf_svcctl_ENUM_SERVICE_STATUSW_service_name, align 4
   %78 = call i32 @dissect_null_term_wstring(ptr noundef %0, i32 noundef %76, ptr noundef %2, ptr noundef %72, ptr noundef %5, i32 noundef %77, i32 noundef 0) #4
   %79 = load i32, ptr @ett_svcctl_display_name, align 4
-  %80 = call ptr @proto_tree_add_subtree(ptr noundef %.059.i, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef %79, ptr noundef null, ptr noundef nonnull @.str.679) #4
+  %80 = call ptr @proto_tree_add_subtree(ptr noundef %.0.i, ptr noundef %0, i32 noundef %74, i32 noundef 4, i32 noundef %79, ptr noundef null, ptr noundef nonnull @.str.679) #4
   %81 = load i32, ptr @hf_svcctl_service_referent_id, align 4
   %82 = call i32 @PIDL_dissect_uint32_val(ptr noundef %0, i32 noundef %74, ptr noundef %2, ptr noundef %80, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %81, i32 noundef 0, ptr noundef nonnull %7) #4
   %83 = load i32, ptr %7, align 4
@@ -3186,9 +3186,9 @@ define internal i32 @svcctl_dissect_EnumServicesStatusW_response(ptr noundef %0,
   %85 = load i32, ptr @hf_svcctl_ENUM_SERVICE_STATUSW_display_name, align 4
   %86 = call i32 @dissect_null_term_wstring(ptr noundef %0, i32 noundef %84, ptr noundef %2, ptr noundef %80, ptr noundef %5, i32 noundef %85, i32 noundef 0) #4
   %87 = load i32, ptr @hf_svcctl_ENUM_SERVICE_STATUSW_status, align 4
-  %88 = call i32 @svcctl_dissect_struct_SERVICE_STATUS(ptr noundef %0, i32 noundef %82, ptr noundef %2, ptr noundef %.059.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %87, i32 poison)
-  %89 = sub i32 %88, %.0.i
-  call void @proto_item_set_len(ptr noundef %.060.i, i32 noundef %89) #4
+  %88 = call i32 @svcctl_dissect_struct_SERVICE_STATUS(ptr noundef %0, i32 noundef %82, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %87, i32 poison)
+  %89 = sub i32 %88, %.060.i
+  call void @proto_item_set_len(ptr noundef %.059.i, i32 noundef %89) #4
   %90 = load ptr, ptr %12, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 96
   %92 = load i32, ptr %91, align 8

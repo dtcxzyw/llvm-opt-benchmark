@@ -1277,8 +1277,8 @@ sw.default.i:                                     ; preds = %if.end.i67
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.default.i, %sw.bb17.i, %sw.bb16.i, %sw.bb15.i, %sw.bb7.i, %if.end.i67
-  %errtype.0.i = phi ptr [ %2, %sw.default.i ], [ %2, %sw.bb17.i ], [ %11, %sw.bb16.i ], [ %10, %sw.bb15.i ], [ %8, %sw.bb7.i ], [ %2, %if.end.i67 ]
   %msg.0.i = phi ptr [ @.str.21, %sw.default.i ], [ @.str.20, %sw.bb17.i ], [ @.str.19, %sw.bb16.i ], [ @.str.18, %sw.bb15.i ], [ @.str.17, %sw.bb7.i ], [ @.str.15, %if.end.i67 ]
+  %errtype.0.i = phi ptr [ %2, %sw.default.i ], [ %2, %sw.bb17.i ], [ %11, %sw.bb16.i ], [ %10, %sw.bb15.i ], [ %8, %sw.bb7.i ], [ %2, %if.end.i67 ]
   %inp18.i = getelementptr inbounds i8, ptr %1, i64 16
   %12 = load ptr, ptr %inp18.i, align 8
   %13 = load ptr, ptr %1, align 8
@@ -1708,8 +1708,8 @@ exit.thread:                                      ; preds = %if.then, %if.then15
   br label %if.end162
 
 exit:                                             ; preds = %if.end.i184, %if.then1.i187, %if.then58, %if.end20, %if.end156, %if.then8
-  %type.2 = phi i32 [ %call, %if.then8 ], [ %call, %if.end20 ], [ %call, %if.then58 ], [ %call, %if.then1.i187 ], [ %call, %if.end.i184 ], [ %type.1, %if.end156 ]
   %result.0 = phi ptr [ null, %if.then8 ], [ null, %if.end20 ], [ null, %if.then58 ], [ null, %if.then1.i187 ], [ null, %if.end.i184 ], [ %call157, %if.end156 ]
+  %type.2 = phi i32 [ %call, %if.then8 ], [ %call, %if.end20 ], [ %call, %if.then58 ], [ %call, %if.then1.i187 ], [ %call, %if.end.i184 ], [ %type.1, %if.end156 ]
   call void @_PyToken_Free(ptr noundef nonnull %token) #4
   %cmp158 = icmp eq i32 %type.2, 0
   br i1 %cmp158, label %if.then160, label %if.end162

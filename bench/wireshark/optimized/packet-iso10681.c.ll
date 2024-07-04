@@ -266,7 +266,7 @@ define internal i32 @dissect_iso10681_flexray(ptr noundef %0, ptr noundef %1, pt
   br label %32
 
 32:                                               ; preds = %26, %15
-  %.0151.i = phi ptr [ %25, %15 ], [ %28, %26 ]
+  %.0155.i = phi ptr [ %25, %15 ], [ %28, %26 ]
   %33 = load i32, ptr @proto_iso10681, align 4
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %35 = load i32, ptr @ett_iso10681, align 4
@@ -342,7 +342,7 @@ define internal i32 @dissect_iso10681_flexray(ptr noundef %0, ptr noundef %1, pt
 
 iso10681_seqnum.exit.i:                           ; preds = %77, %70
   %80 = phi i32 [ %.pre.i, %70 ], [ %78, %77 ]
-  %81 = getelementptr inbounds i8, ptr %.0151.i, i64 4
+  %81 = getelementptr inbounds i8, ptr %.0155.i, i64 4
   store i32 %80, ptr %81, align 4
   store i32 %80, ptr %64, align 4
   %82 = load i32, ptr %8, align 4
@@ -396,7 +396,7 @@ iso10681_seqnum.exit.i:                           ; preds = %77, %70
 iso10681_seqnum.exit182.i:                        ; preds = %108, %102
   %.0.i181.i = phi ptr [ %110, %108 ], [ %106, %102 ]
   %115 = load i32, ptr %.0.i181.i, align 4
-  %116 = getelementptr inbounds i8, ptr %.0151.i, i64 4
+  %116 = getelementptr inbounds i8, ptr %.0155.i, i64 4
   store i32 %115, ptr %116, align 4
   br label %117
 
@@ -442,7 +442,7 @@ iso10681_seqnum.exit182.i:                        ; preds = %108, %102
 iso10681_seqnum.exit184.i:                        ; preds = %137, %131
   %.0.i183.i = phi ptr [ %139, %137 ], [ %135, %131 ]
   %144 = load i32, ptr %.0.i183.i, align 4
-  %145 = getelementptr inbounds i8, ptr %.0151.i, i64 4
+  %145 = getelementptr inbounds i8, ptr %.0155.i, i64 4
   store i32 %144, ptr %145, align 4
   br label %146
 
@@ -493,8 +493,8 @@ iso10681_seqnum.exit184.i:                        ; preds = %137, %131
   br label %dissect_iso10681.exit
 
 169:                                              ; preds = %163, %146, %117, %88
+  %.0156.i = phi i32 [ 4, %163 ], [ 8, %146 ], [ 6, %117 ], [ 8, %88 ]
   %.not167.i = phi i1 [ true, %163 ], [ false, %146 ], [ false, %117 ], [ false, %88 ]
-  %.0150.i = phi i32 [ 4, %163 ], [ 8, %146 ], [ 6, %117 ], [ 8, %88 ]
   %170 = load i32, ptr %7, align 4
   %.not166.i = icmp eq i32 %170, 0
   br i1 %.not166.i, label %176, label %171
@@ -503,7 +503,7 @@ iso10681_seqnum.exit184.i:                        ; preds = %137, %131
   %172 = load ptr, ptr %20, align 8
   %173 = getelementptr inbounds i8, ptr %1, i64 408
   %174 = load ptr, ptr %173, align 8
-  %175 = call ptr @tvb_bytes_to_str_punct(ptr noundef %174, ptr noundef %0, i32 noundef %.0150.i, i32 noundef %170, i8 noundef signext 32) #5
+  %175 = call ptr @tvb_bytes_to_str_punct(ptr noundef %174, ptr noundef %0, i32 noundef %.0156.i, i32 noundef %170, i8 noundef signext 32) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %172, i32 noundef 25, ptr noundef nonnull @.str.98, ptr noundef %175) #5
   br label %176
 
@@ -513,7 +513,7 @@ iso10681_seqnum.exit184.i:                        ; preds = %137, %131
 177:                                              ; preds = %176
   %178 = load i32, ptr %6, align 4
   %179 = load ptr, ptr @iso10681_frame_table, align 8
-  %180 = getelementptr inbounds i8, ptr %.0151.i, i64 4
+  %180 = getelementptr inbounds i8, ptr %.0155.i, i64 4
   %181 = load i32, ptr %180, align 4
   %182 = zext i32 %181 to i64
   %183 = inttoptr i64 %182 to ptr
@@ -534,7 +534,7 @@ iso10681_seqnum.exit184.i:                        ; preds = %137, %131
   br label %193
 
 193:                                              ; preds = %189, %185
-  %.0152.i = phi i16 [ %192, %189 ], [ %186, %185 ]
+  %.0149.i = phi i16 [ %192, %189 ], [ %186, %185 ]
   %194 = getelementptr inbounds i8, ptr %1, i64 80
   %195 = load ptr, ptr %194, align 8
   %196 = getelementptr inbounds i8, ptr %195, i64 50
@@ -544,7 +544,7 @@ iso10681_seqnum.exit184.i:                        ; preds = %137, %131
   br i1 %.not169.i, label %199, label %214
 
 199:                                              ; preds = %193
-  %200 = icmp ult i16 %.0152.i, 16
+  %200 = icmp ult i16 %.0149.i, 16
   br i1 %200, label %202, label %201
 
 201:                                              ; preds = %199
@@ -553,7 +553,7 @@ iso10681_seqnum.exit184.i:                        ; preds = %137, %131
 
 202:                                              ; preds = %199
   %203 = getelementptr inbounds i8, ptr %184, i64 22
-  %204 = zext nneg i16 %.0152.i to i64
+  %204 = zext nneg i16 %.0149.i to i64
   %205 = getelementptr [16 x i8], ptr %203, i64 0, i64 %204
   %206 = load i8, ptr %205, align 1
   %207 = add i8 %206, 1
@@ -568,13 +568,13 @@ iso10681_seqnum.exit184.i:                        ; preds = %137, %131
 209:                                              ; preds = %202
   %210 = zext i8 %206 to i16
   %211 = shl nuw nsw i16 %210, 4
-  %212 = or disjoint i16 %211, %.0152.i
-  %213 = getelementptr inbounds i8, ptr %.0151.i, i64 8
+  %212 = or disjoint i16 %211, %.0149.i
+  %213 = getelementptr inbounds i8, ptr %.0155.i, i64 8
   store i16 %212, ptr %213, align 4
   br label %214
 
 214:                                              ; preds = %209, %193
-  %.1.i = phi i16 [ %.0152.i, %193 ], [ %212, %209 ]
+  %.1.i = phi i16 [ %.0149.i, %193 ], [ %212, %209 ]
   %215 = getelementptr inbounds i8, ptr %184, i64 12
   %216 = load i32, ptr %215, align 4
   %.not171.i = icmp eq i32 %216, 0
@@ -612,7 +612,7 @@ iso10681_seqnum.exit184.i:                        ; preds = %137, %131
   br i1 %.not173.i, label %242, label %236
 
 236:                                              ; preds = %230
-  %237 = getelementptr inbounds i8, ptr %.0151.i, i64 12
+  %237 = getelementptr inbounds i8, ptr %.0155.i, i64 12
   store i32 1, ptr %237, align 4
   %238 = getelementptr inbounds i8, ptr %184, i64 16
   store i32 1, ptr %238, align 4
@@ -623,18 +623,18 @@ iso10681_seqnum.exit184.i:                        ; preds = %137, %131
   br label %242
 
 242:                                              ; preds = %236, %230, %217
-  %.0149.i = phi i32 [ %220, %217 ], [ %241, %236 ], [ %220, %230 ]
+  %.0.i = phi i32 [ %220, %217 ], [ %241, %236 ], [ %220, %230 ]
   store i32 1, ptr %218, align 8
   %243 = load i32, ptr %180, align 4
-  %244 = getelementptr inbounds i8, ptr %.0151.i, i64 8
+  %244 = getelementptr inbounds i8, ptr %.0155.i, i64 8
   %245 = load i16, ptr %244, align 4
   %246 = zext i16 %245 to i32
-  %247 = getelementptr inbounds i8, ptr %.0151.i, i64 12
+  %247 = getelementptr inbounds i8, ptr %.0155.i, i64 12
   %248 = load i32, ptr %247, align 4
   %.not174.i = icmp eq i32 %248, 0
   %249 = zext i1 %.not174.i to i32
-  %250 = call ptr @fragment_add_seq_check(ptr noundef nonnull @iso10681_reassembly_table, ptr noundef %0, i32 noundef %.0150.i, ptr noundef nonnull %1, i32 noundef %243, ptr noundef null, i32 noundef %246, i32 noundef %.0149.i, i32 noundef %249) #5
-  %251 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.0150.i, ptr noundef nonnull %1, ptr noundef nonnull @.str.101, ptr noundef %250, ptr noundef nonnull @iso10681_frag_items, ptr noundef null, ptr noundef %36) #5
+  %250 = call ptr @fragment_add_seq_check(ptr noundef nonnull @iso10681_reassembly_table, ptr noundef %0, i32 noundef %.0156.i, ptr noundef nonnull %1, i32 noundef %243, ptr noundef null, i32 noundef %246, i32 noundef %.0.i, i32 noundef %249) #5
+  %251 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.0156.i, ptr noundef nonnull %1, ptr noundef nonnull @.str.101, ptr noundef %250, ptr noundef nonnull @iso10681_frag_items, ptr noundef null, ptr noundef %36) #5
   %.not175.i = icmp eq ptr %250, null
   br i1 %.not175.i, label %258, label %252
 
@@ -657,7 +657,7 @@ iso10681_seqnum.exit184.i:                        ; preds = %137, %131
 
 .thread.i:                                        ; preds = %258, %214
   %259 = load i32, ptr %7, align 4
-  %260 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0150.i, i32 noundef %259) #5
+  %260 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0156.i, i32 noundef %259) #5
   %.not178.i = icmp eq ptr %260, null
   br i1 %.not178.i, label %.thread187.i, label %.thread197.i
 
@@ -693,8 +693,8 @@ iso10681_seqnum.exit184.i:                        ; preds = %137, %131
   br i1 %.not180.i, label %278, label %.thread187.i
 
 278:                                              ; preds = %268, %.thread197.i
-  %.0155196200.i = phi ptr [ %260, %.thread197.i ], [ %251, %268 ]
-  %279 = call i32 @call_data_dissector(ptr noundef nonnull %.0155196200.i, ptr noundef nonnull %1, ptr noundef %2) #5
+  %.0153195200.i = phi ptr [ %260, %.thread197.i ], [ %251, %268 ]
+  %279 = call i32 @call_data_dissector(ptr noundef nonnull %.0153195200.i, ptr noundef nonnull %1, ptr noundef %2) #5
   br label %.thread187.i
 
 .thread187.i:                                     ; preds = %278, %268, %.thread.i, %177, %176
@@ -702,7 +702,7 @@ iso10681_seqnum.exit184.i:                        ; preds = %137, %131
   br label %dissect_iso10681.exit
 
 dissect_iso10681.exit:                            ; preds = %167, %.thread187.i
-  %.0.i = phi i32 [ 4, %167 ], [ %280, %.thread187.i ]
+  %.0151.i = phi i32 [ 4, %167 ], [ %280, %.thread187.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -712,7 +712,7 @@ dissect_iso10681.exit:                            ; preds = %167, %.thread187.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13)
-  ret i32 %.0.i
+  ret i32 %.0151.i
 }
 
 declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1

@@ -1310,8 +1310,8 @@ status_with_payload.exit.thread2.i129:            ; preds = %136, %134
   br i1 %.not9.i, label %.sink.split131, label %.lr.ph8.i
 
 .lr.ph8.i:                                        ; preds = %157, %._crit_edge.i
-  %.06.i = phi i32 [ %361, %._crit_edge.i ], [ 0, %157 ]
-  %215 = shl i32 %.06.i, 3
+  %.02146.i = phi i32 [ %361, %._crit_edge.i ], [ 0, %157 ]
+  %215 = shl i32 %.02146.i, 3
   %216 = add i32 %215, %211
   %217 = tail call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef %216, i32 noundef -2147483648) #4
   %218 = trunc i64 %217 to i32
@@ -1490,7 +1490,7 @@ status_with_payload.exit.thread2.i129:            ; preds = %136, %134
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %360, %.lr.ph8.i
-  %361 = add nuw i32 %.06.i, 1
+  %361 = add nuw i32 %.02146.i, 1
   %exitcond12.not.i = icmp eq i32 %361, %159
   br i1 %exitcond12.not.i, label %.sink.split131, label %.lr.ph8.i, !llvm.loop !6
 
@@ -2249,8 +2249,8 @@ define internal fastcc void @dissect_packet_leader(ptr noundef %0, ptr noundef %
   br label %79
 
 79:                                               ; preds = %.loopexit.i, %.lr.ph.i
-  %.02.i = phi i32 [ 0, %.lr.ph.i ], [ %152, %.loopexit.i ]
-  %80 = mul nuw nsw i32 %.02.i, 48
+  %.0852.i = phi i32 [ 0, %.lr.ph.i ], [ %152, %.loopexit.i ]
+  %80 = mul nuw nsw i32 %.0852.i, 48
   %81 = add i32 %80, %60
   %82 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %81) #4
   %83 = load i32, ptr @ett_gvsp_partinfo_leader, align 4
@@ -2346,17 +2346,17 @@ define internal fastcc void @dissect_packet_leader(ptr noundef %0, ptr noundef %
   br label %.loopexit.i
 
 146:                                              ; preds = %146, %.preheader.i
-  %.0851.i = phi i32 [ 0, %.preheader.i ], [ %151, %146 ]
+  %.01.i = phi i32 [ 0, %.preheader.i ], [ %151, %146 ]
   %147 = load i32, ptr @hf_gvsp_data_type_specific, align 4
-  %148 = shl nuw nsw i32 %.0851.i, 2
+  %148 = shl nuw nsw i32 %.01.i, 2
   %149 = add i32 %116, %148
   %150 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %147, ptr noundef %1, i32 noundef %149, i32 noundef 4, i32 noundef 0) #4
-  %151 = add nuw nsw i32 %.0851.i, 1
+  %151 = add nuw nsw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %151, 6
   br i1 %exitcond.not.i, label %.loopexit.i, label %146, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %146, %136, %117
-  %152 = add nuw nsw i32 %.02.i, 1
+  %152 = add nuw nsw i32 %.0852.i, 1
   %exitcond3.not.i = icmp eq i32 %152, %63
   br i1 %exitcond3.not.i, label %dissect_multi_part_leader.exit, label %79, !llvm.loop !8
 
@@ -2460,8 +2460,8 @@ define internal fastcc void @dissect_packet_trailer(ptr noundef %0, ptr noundef 
   br label %52
 
 52:                                               ; preds = %.loopexit.i, %.lr.ph.i
-  %.02.i = phi i32 [ 0, %.lr.ph.i ], [ %73, %.loopexit.i ]
-  %53 = shl i32 %.02.i, 4
+  %.0352.i = phi i32 [ 0, %.lr.ph.i ], [ %73, %.loopexit.i ]
+  %53 = shl i32 %.0352.i, 4
   %54 = add i32 %53, %43
   %55 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %54) #4
   %56 = load i32, ptr @ett_gvsp_partinfo_trailer, align 4
@@ -2491,7 +2491,7 @@ define internal fastcc void @dissect_packet_trailer(ptr noundef %0, ptr noundef 
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.preheader.i, %69
-  %73 = add nuw nsw i32 %.02.i, 1
+  %73 = add nuw nsw i32 %.0352.i, 1
   %exitcond.not.i = icmp eq i32 %73, %45
   br i1 %exitcond.not.i, label %dissect_multi_part_trailer.exit, label %52, !llvm.loop !9
 

@@ -484,21 +484,21 @@ for.end.i.i:                                      ; preds = %for.inc.i.i
   br i1 %cmp21.not5.i.i, label %_ZN6hermes12_GLOBAL__N_113runOnFunctionEPNS_8FunctionE.exit.i, label %for.body22.i.i
 
 for.body22.i.i:                                   ; preds = %for.end.i.i, %for.inc27.i.i
-  %changed.27.i.i = phi i1 [ %changed.3.i.i, %for.inc27.i.i ], [ %changed.1.i.i, %for.end.i.i ]
-  %__begin216.06.i.i = phi ptr [ %incdec.ptr28.i.i, %for.inc27.i.i ], [ %.pre.i.i, %for.end.i.i ]
-  %72 = load ptr, ptr %__begin216.06.i.i, align 8
+  %__begin216.07.i.i = phi ptr [ %incdec.ptr28.i.i, %for.inc27.i.i ], [ %.pre.i.i, %for.end.i.i ]
+  %changed.26.i.i = phi i1 [ %changed.3.i.i, %for.inc27.i.i ], [ %changed.1.i.i, %for.end.i.i ]
+  %72 = load ptr, ptr %__begin216.07.i.i, align 8
   %call24.i.i = call noundef zeroext i1 @_ZNK6hermes5Value8hasUsersEv(ptr noundef nonnull align 8 dereferenceable(40) %72) #10
   br i1 %call24.i.i, label %for.inc27.i.i, label %if.then25.i.i
 
 if.then25.i.i:                                    ; preds = %for.body22.i.i
-  %73 = load ptr, ptr %__begin216.06.i.i, align 8
+  %73 = load ptr, ptr %__begin216.07.i.i, align 8
   call void @_ZN6hermes5Value7destroyEPS0_(ptr noundef %73) #10
-  store ptr null, ptr %__begin216.06.i.i, align 8
+  store ptr null, ptr %__begin216.07.i.i, align 8
   br label %for.inc27.i.i
 
 for.inc27.i.i:                                    ; preds = %if.then25.i.i, %for.body22.i.i
-  %changed.3.i.i = phi i1 [ %changed.27.i.i, %for.body22.i.i ], [ true, %if.then25.i.i ]
-  %incdec.ptr28.i.i = getelementptr inbounds i8, ptr %__begin216.06.i.i, i64 8
+  %changed.3.i.i = phi i1 [ %changed.26.i.i, %for.body22.i.i ], [ true, %if.then25.i.i ]
+  %incdec.ptr28.i.i = getelementptr inbounds i8, ptr %__begin216.07.i.i, i64 8
   %cmp21.not.i.i = icmp eq ptr %incdec.ptr28.i.i, %add.ptr.i.i.i
   br i1 %cmp21.not.i.i, label %for.end29.i.i, label %for.body22.i.i
 

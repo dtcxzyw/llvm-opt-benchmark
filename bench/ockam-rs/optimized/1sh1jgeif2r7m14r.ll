@@ -782,8 +782,8 @@ define hidden void @_ZN4core5slice6rotate10ptr_rotate17ha6d4d67b10ed92f4E(i64 no
   br label %.outer
 
 .outer:                                           ; preds = %68, %15
-  %.0108.ph = phi i64 [ %spec.select, %68 ], [ %.099141, %15 ]
-  %.0104.ph = phi i64 [ %64, %68 ], [ %.099141, %15 ]
+  %.0106.ph = phi i64 [ %spec.select, %68 ], [ %.099141, %15 ]
+  %.0102.ph = phi i64 [ %64, %68 ], [ %.099141, %15 ]
   br label %59
 
 18:                                               ; preds = %13
@@ -903,8 +903,8 @@ _ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit121.loopexit: ; preds 
   br label %.loopexit127
 
 59:                                               ; preds = %.outer, %61
-  %.0104 = phi i64 [ %62, %61 ], [ %.0104.ph, %.outer ]
-  %60 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %17, i64 %.0104
+  %.0102 = phi i64 [ %62, %61 ], [ %.0102.ph, %.outer ]
+  %60 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %17, i64 %.0102
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
@@ -914,25 +914,25 @@ _ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit121.loopexit: ; preds 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  %.not115 = icmp ult i64 %.0104, %.0143
+  %.not115 = icmp ult i64 %.0102, %.0143
   br i1 %.not115, label %61, label %63
 
 61:                                               ; preds = %59
-  %62 = add i64 %.0104, %.099141
+  %62 = add i64 %.0102, %.099141
   br label %59
 
 63:                                               ; preds = %59
-  %64 = sub i64 %.0104, %.0143
+  %64 = sub i64 %.0102, %.0143
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %63
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
-  %67 = icmp ugt i64 %.0108.ph, 1
+  %67 = icmp ugt i64 %.0106.ph, 1
   br i1 %67, label %.lr.ph145, label %.loopexit127
 
 68:                                               ; preds = %63
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %64, i64 %.0108.ph)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %64, i64 %.0106.ph)
   br label %.outer
 
 .lr.ph145:                                        ; preds = %66, %78
@@ -943,8 +943,8 @@ _ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit121.loopexit: ; preds 
   br label %71
 
 71:                                               ; preds = %.backedge, %.lr.ph145
-  %.2106 = phi i64 [ %70, %.lr.ph145 ], [ %.2106.be, %.backedge ]
-  %72 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %17, i64 %.2106
+  %.2104 = phi i64 [ %70, %.lr.ph145 ], [ %.2104.be, %.backedge ]
+  %72 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %17, i64 %.2104
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
@@ -954,26 +954,26 @@ _ZN4core3ptr19swap_nonoverlapping17hc99def12a1a96ecfE.exit121.loopexit: ; preds 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  %.not116 = icmp ult i64 %.2106, %.0143
+  %.not116 = icmp ult i64 %.2104, %.0143
   br i1 %.not116, label %73, label %75
 
 73:                                               ; preds = %71
-  %74 = add i64 %.2106, %.099141
+  %74 = add i64 %.2104, %.099141
   br label %.backedge
 
 75:                                               ; preds = %71
-  %76 = sub i64 %.2106, %.0143
+  %76 = sub i64 %.2104, %.0143
   %77 = icmp eq i64 %76, %.sroa.080.0144
   br i1 %77, label %78, label %.backedge
 
 .backedge:                                        ; preds = %75, %73
-  %.2106.be = phi i64 [ %76, %75 ], [ %74, %73 ]
+  %.2104.be = phi i64 [ %76, %75 ], [ %74, %73 ]
   br label %71
 
 78:                                               ; preds = %75
   %79 = add nuw i64 %.sroa.080.0144, 1
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
-  %exitcond.not = icmp eq i64 %79, %.0108.ph
+  %exitcond.not = icmp eq i64 %79, %.0106.ph
   br i1 %exitcond.not, label %.loopexit127, label %.lr.ph145
 }
 

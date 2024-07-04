@@ -1494,8 +1494,8 @@ if.else33:                                        ; preds = %if.then22
   br i1 %cmp34, label %return, label %if.end38
 
 if.end38:                                         ; preds = %if.else33, %if.end29
-  %len.addr.0 = phi i64 [ %sub32, %if.end29 ], [ %len, %if.else33 ]
   %out.addr.0 = phi ptr [ %add.ptr31, %if.end29 ], [ %out, %if.else33 ]
+  %len.addr.0 = phi i64 [ %sub32, %if.end29 ], [ %len, %if.else33 ]
   %sub39 = add i64 %len.addr.0, -1
   %arrayidx40 = getelementptr inbounds i8, ptr %out.addr.0, i64 %sub39
   %5 = load i8, ptr %arrayidx40, align 1

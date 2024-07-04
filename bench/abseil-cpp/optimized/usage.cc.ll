@@ -3719,8 +3719,8 @@ cond.false.i.i.i.i:                               ; preds = %_ZNSt11char_traitsI
   br label %invoke.cont16.i.i.i
 
 invoke.cont16.i.i.i:                              ; preds = %do.cond.i.i.i.i.i.i, %cond.false.i.i.i.i, %if.end9.i.i.i
-  %retval.sroa.3.0.i.i.i.i = phi ptr [ %9, %cond.false.i.i.i.i ], [ null, %if.end9.i.i.i ], [ null, %do.cond.i.i.i.i.i.i ]
   %retval.sroa.0.0.i.i.i.i = phi i64 [ %.sroa.speculated.i.i.i.i.i, %cond.false.i.i.i.i ], [ 0, %if.end9.i.i.i ], [ 0, %do.cond.i.i.i.i.i.i ]
+  %retval.sroa.3.0.i.i.i.i = phi ptr [ %9, %cond.false.i.i.i.i ], [ null, %if.end9.i.i.i ], [ null, %do.cond.i.i.i.i.i.i ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18.i.i.i) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i.i)
   %call.i7.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %retval.sroa.0.0.i.i.i.i, ptr %retval.sroa.3.0.i.i.i.i) #19

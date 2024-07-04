@@ -692,8 +692,8 @@ define internal noundef i32 @IDAAhermiteGetY(ptr nocapture noundef readonly %0, 
   br label %112
 
 112:                                              ; preds = %107, %94
-  %.0164 = phi ptr [ %109, %107 ], [ null, %94 ]
-  %.0163 = phi ptr [ %111, %107 ], [ null, %94 ]
+  %.0163 = phi ptr [ %109, %107 ], [ null, %94 ]
+  %.0162 = phi ptr [ %111, %107 ], [ null, %94 ]
   %.not170 = icmp eq i32 %.1174.ph193, 0
   br i1 %.not170, label %.loopexit195, label %113
 
@@ -732,7 +732,7 @@ define internal noundef i32 @IDAAhermiteGetY(ptr nocapture noundef readonly %0, 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %134 ]
   %135 = getelementptr inbounds ptr, ptr %128, i64 %indvars.iv
   %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds ptr, ptr %.0164, i64 %indvars.iv
+  %137 = getelementptr inbounds ptr, ptr %.0163, i64 %indvars.iv
   %138 = load ptr, ptr %137, align 8
   %139 = load ptr, ptr %132, align 8
   %140 = getelementptr inbounds ptr, ptr %139, i64 %indvars.iv
@@ -740,7 +740,7 @@ define internal noundef i32 @IDAAhermiteGetY(ptr nocapture noundef readonly %0, 
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %136, double noundef -1.000000e+00, ptr noundef %138, ptr noundef %141) #9
   %142 = getelementptr inbounds ptr, ptr %130, i64 %indvars.iv
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds ptr, ptr %.0163, i64 %indvars.iv
+  %144 = getelementptr inbounds ptr, ptr %.0162, i64 %indvars.iv
   %145 = load ptr, ptr %144, align 8
   %146 = load ptr, ptr %133, align 8
   %147 = getelementptr inbounds ptr, ptr %146, i64 %indvars.iv
@@ -787,9 +787,9 @@ define internal noundef i32 @IDAAhermiteGetY(ptr nocapture noundef readonly %0, 
 
 172:                                              ; preds = %.lr.ph200, %172
   %indvars.iv210 = phi i64 [ 0, %.lr.ph200 ], [ %indvars.iv.next211, %172 ]
-  %173 = getelementptr inbounds ptr, ptr %.0164, i64 %indvars.iv210
+  %173 = getelementptr inbounds ptr, ptr %.0163, i64 %indvars.iv210
   %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds ptr, ptr %.0163, i64 %indvars.iv210
+  %175 = getelementptr inbounds ptr, ptr %.0162, i64 %indvars.iv210
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv210
   %178 = load ptr, ptr %177, align 8
@@ -836,7 +836,7 @@ define internal noundef i32 @IDAAhermiteGetY(ptr nocapture noundef readonly %0, 
 
 203:                                              ; preds = %.lr.ph203, %203
   %indvars.iv215 = phi i64 [ 0, %.lr.ph203 ], [ %indvars.iv.next216, %203 ]
-  %204 = getelementptr inbounds ptr, ptr %.0163, i64 %indvars.iv215
+  %204 = getelementptr inbounds ptr, ptr %.0162, i64 %indvars.iv215
   %205 = load ptr, ptr %204, align 8
   %206 = load ptr, ptr %201, align 8
   %207 = getelementptr inbounds ptr, ptr %206, i64 %indvars.iv215
@@ -854,8 +854,8 @@ define internal noundef i32 @IDAAhermiteGetY(ptr nocapture noundef readonly %0, 
   br i1 %exitcond219.not, label %.loopexit, label %203, !llvm.loop !13
 
 .loopexit:                                        ; preds = %203, %83, %._crit_edge.i, %._crit_edge, %.thread
-  %.0 = phi i32 [ 0, %.thread ], [ 0, %._crit_edge ], [ -107, %._crit_edge.i ], [ 0, %83 ], [ 0, %203 ]
-  ret i32 %.0
+  %.0164 = phi i32 [ 0, %.thread ], [ 0, %._crit_edge ], [ -107, %._crit_edge.i ], [ 0, %83 ], [ 0, %203 ]
+  ret i32 %.0164
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1529,7 +1529,7 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr nocapture noundef
   %118 = icmp sgt i64 %116, %117
   %.neg = xor i64 %117, -1
   %119 = add i64 %115, %.neg
-  %.0194 = select i1 %118, i64 %119, i64 %107
+  %.0193 = select i1 %118, i64 %119, i64 %107
   %.not211 = icmp eq i32 %.1221.ph240, 0
   br i1 %.not211, label %.loopexit248, label %126
 
@@ -1552,7 +1552,7 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr nocapture noundef
   br i1 %.not212257, label %.loopexit248, label %.lr.ph259
 
 .lr.ph259:                                        ; preds = %.preheader251
-  %127 = getelementptr ptr, ptr %10, i64 %.0194
+  %127 = getelementptr ptr, ptr %10, i64 %.0193
   %128 = getelementptr i8, ptr %127, i64 -8
   %129 = getelementptr inbounds i8, ptr %8, i64 272
   %130 = getelementptr inbounds i8, ptr %8, i64 176
@@ -1564,9 +1564,9 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr nocapture noundef
   br label %160
 
 .preheader249:                                    ; preds = %.thread373, %126
-  %.0202377385 = phi i32 [ %113, %126 ], [ %124, %.thread373 ]
-  %.0194379383 = phi i64 [ %.0194, %126 ], [ %spec.select, %.thread373 ]
-  %.not213264 = icmp slt i32 %.0202377385, 0
+  %.0201377385 = phi i32 [ %113, %126 ], [ %124, %.thread373 ]
+  %.0193379383 = phi i64 [ %.0193, %126 ], [ %spec.select, %.thread373 ]
+  %.not213264 = icmp slt i32 %.0201377385, 0
   br i1 %.not213264, label %.loopexit248, label %.lr.ph266
 
 .lr.ph266:                                        ; preds = %.preheader249
@@ -1574,14 +1574,14 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr nocapture noundef
   %135 = getelementptr inbounds i8, ptr %8, i64 176
   %136 = icmp sgt i32 %.fr298, 0
   %137 = getelementptr inbounds i8, ptr %8, i64 224
-  %138 = add nuw i32 %.0202377385, 1
+  %138 = add nuw i32 %.0201377385, 1
   %wide.trip.count317 = zext i32 %138 to i64
   %wide.trip.count312 = zext nneg i32 %.fr298 to i64
   br label %139
 
 139:                                              ; preds = %.lr.ph266, %._crit_edge263
   %indvars.iv314 = phi i64 [ 0, %.lr.ph266 ], [ %indvars.iv.next315, %._crit_edge263 ]
-  %140 = sub nsw i64 %.0194379383, %indvars.iv314
+  %140 = sub nsw i64 %.0193379383, %indvars.iv314
   %141 = getelementptr inbounds ptr, ptr %10, i64 %140
   %142 = load ptr, ptr %141, align 8
   %143 = load double, ptr %142, align 8
@@ -1659,8 +1659,8 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr nocapture noundef
   br i1 %exitcond308.not, label %.loopexit250, label %160, !llvm.loop !23
 
 .loopexit250:                                     ; preds = %._crit_edge, %._crit_edge263
-  %.0202377384 = phi i32 [ %.0202377385, %._crit_edge263 ], [ %113, %._crit_edge ]
-  %.not214271 = icmp slt i32 %.0202377384, 1
+  %.0201377384 = phi i32 [ %.0201377385, %._crit_edge263 ], [ %113, %._crit_edge ]
+  %.not214271 = icmp slt i32 %.0201377384, 1
   br i1 %.not214271, label %.loopexit248, label %.preheader247.lr.ph
 
 .preheader247.lr.ph:                              ; preds = %.loopexit250
@@ -1668,8 +1668,8 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr nocapture noundef
   %181 = getelementptr inbounds i8, ptr %8, i64 176
   %182 = icmp sgt i32 %.fr298, 0
   %183 = getelementptr inbounds i8, ptr %8, i64 224
-  %184 = zext nneg i32 %.0202377384 to i64
-  %185 = add nuw i32 %.0202377384, 1
+  %184 = zext nneg i32 %.0201377384 to i64
+  %185 = add nuw i32 %.0201377384, 1
   %wide.trip.count338 = zext i32 %185 to i64
   br i1 %182, label %.preheader247.us.preheader, label %.preheader247
 
@@ -1752,9 +1752,9 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr nocapture noundef
   br i1 %exitcond326.not, label %.loopexit248, label %.preheader247, !llvm.loop !26
 
 .loopexit248:                                     ; preds = %.split, %.split.us.us, %.preheader249, %.preheader251, %.thread373, %.loopexit250, %106
-  %.0202378 = phi i32 [ %124, %.thread373 ], [ %.0202377384, %.loopexit250 ], [ %113, %106 ], [ %.0202377385, %.preheader249 ], [ %113, %.preheader251 ], [ %.0202377384, %.split.us.us ], [ %.0202377384, %.split ]
+  %.0201378 = phi i32 [ %124, %.thread373 ], [ %.0201377384, %.loopexit250 ], [ %113, %106 ], [ %.0201377385, %.preheader249 ], [ %113, %.preheader251 ], [ %.0201377384, %.split.us.us ], [ %.0201377384, %.split ]
   %219 = getelementptr inbounds i8, ptr %8, i64 176
-  %220 = sext i32 %.0202378 to i64
+  %220 = sext i32 %.0201378 to i64
   %221 = getelementptr inbounds [6 x ptr], ptr %219, i64 0, i64 %220
   %222 = load ptr, ptr %221, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %222, ptr noundef %2) #9
@@ -1768,13 +1768,13 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr nocapture noundef
   br label %230
 
 .preheader245:                                    ; preds = %230, %.loopexit248
-  %226 = icmp sgt i32 %.0202378, 0
+  %226 = icmp sgt i32 %.0201378, 0
   br i1 %226, label %.lr.ph281, label %._crit_edge282
 
 .lr.ph281:                                        ; preds = %.preheader245
   %227 = getelementptr inbounds i8, ptr %8, i64 272
   %228 = getelementptr inbounds i8, ptr %8, i64 224
-  %229 = zext nneg i32 %.0202378 to i64
+  %229 = zext nneg i32 %.0201378 to i64
   %wide.trip.count348 = zext nneg i32 %.fr298 to i64
   br label %237
 
@@ -1831,13 +1831,13 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr nocapture noundef
   br label %.lr.ph285
 
 .preheader:                                       ; preds = %.lr.ph285, %._crit_edge282
-  %.not215290 = icmp slt i32 %.0202378, 1
+  %.not215290 = icmp slt i32 %.0201378, 1
   br i1 %.not215290, label %.loopexit, label %.lr.ph294
 
 .lr.ph294:                                        ; preds = %.preheader
   %251 = getelementptr inbounds i8, ptr %8, i64 272
   %252 = getelementptr inbounds i8, ptr %8, i64 224
-  %253 = add nuw i32 %.0202378, 1
+  %253 = add nuw i32 %.0201378, 1
   %wide.trip.count366 = zext i32 %253 to i64
   %wide.trip.count361 = zext nneg i32 %.fr298 to i64
   br label %256
@@ -1890,8 +1890,8 @@ define internal range(i32 -107, 1) i32 @IDAApolynomialGetY(ptr nocapture noundef
   br i1 %exitcond367.not, label %.loopexit, label %256, !llvm.loop !32
 
 .loopexit:                                        ; preds = %._crit_edge289, %83, %._crit_edge.i, %.preheader, %.thread
-  %.0193 = phi i32 [ 0, %.thread ], [ 0, %.preheader ], [ -107, %._crit_edge.i ], [ 0, %83 ], [ 0, %._crit_edge289 ]
-  ret i32 %.0193
+  %.0202 = phi i32 [ 0, %.thread ], [ 0, %.preheader ], [ -107, %._crit_edge.i ], [ 0, %83 ], [ 0, %._crit_edge289 ]
+  ret i32 %.0202
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3962,8 +3962,8 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br label %35
 
 35:                                               ; preds = %.lr.ph, %62
-  %.0134182 = phi ptr [ %.fr244, %.lr.ph ], [ %64, %62 ]
-  %36 = getelementptr inbounds i8, ptr %.0134182, i64 16
+  %.0132182 = phi ptr [ %.fr244, %.lr.ph ], [ %64, %62 ]
+  %36 = getelementptr inbounds i8, ptr %.0132182, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 1184
   %39 = load double, ptr %38, align 8
@@ -3979,7 +3979,7 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %43, %35
-  %48 = load i32, ptr %.0134182, align 8
+  %48 = load i32, ptr %.0132182, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -104, ptr noundef nonnull @.str, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.15, i32 noundef %48) #9
   br label %.critedge164
 
@@ -3990,18 +3990,18 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br i1 %52, label %55, label %53
 
 53:                                               ; preds = %49
-  %54 = load i32, ptr %.0134182, align 8
+  %54 = load i32, ptr %.0132182, align 8
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, ptr noundef nonnull @.str, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.32, i32 noundef %54) #9
   br label %.critedge164
 
 55:                                               ; preds = %49
-  %56 = getelementptr inbounds i8, ptr %.0134182, i64 24
+  %56 = getelementptr inbounds i8, ptr %.0132182, i64 24
   %57 = load i32, ptr %56, align 8
   %.not160 = icmp eq i32 %57, 0
   br i1 %.not160, label %58, label %61
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %.0134182, i64 28
+  %59 = getelementptr inbounds i8, ptr %.0132182, i64 28
   %60 = load i32, ptr %59, align 4
   %.not161 = icmp eq i32 %60, 0
   br i1 %.not161, label %62, label %61
@@ -4011,7 +4011,7 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br label %62
 
 62:                                               ; preds = %61, %58
-  %63 = getelementptr inbounds i8, ptr %.0134182, i64 128
+  %63 = getelementptr inbounds i8, ptr %.0132182, i64 128
   %64 = load ptr, ptr %63, align 8
   %.not149 = icmp eq ptr %64, null
   br i1 %.not149, label %._crit_edge, label %35, !llvm.loop !48
@@ -4086,15 +4086,15 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br label %.critedge164
 
 102:                                              ; preds = %99, %80
-  %.0130 = phi double [ %100, %99 ], [ %1, %80 ]
+  %.0139 = phi double [ %100, %99 ], [ %1, %80 ]
   %103 = getelementptr inbounds i8, ptr %14, i64 64
   %104 = load ptr, ptr %103, align 8
   %.not152183 = icmp eq ptr %.fr244, null
   br i1 %.not152183, label %.critedge.us, label %.split
 
 .critedge.us:                                     ; preds = %102, %.critedge.us
-  %.0138.us = phi ptr [ %106, %.critedge.us ], [ %104, %102 ]
-  %105 = getelementptr inbounds i8, ptr %.0138.us, i64 592
+  %.0136.us = phi ptr [ %106, %.critedge.us ], [ %104, %102 ]
+  %105 = getelementptr inbounds i8, ptr %.0136.us, i64 592
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %106, null
   br i1 %107, label %.loopexit, label %.critedge.us
@@ -4104,17 +4104,17 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br i1 %108, label %.lr.ph186.us, label %.lr.ph186
 
 .lr.ph186.us:                                     ; preds = %.split, %..critedge_crit_edge.split.us203
-  %.0138.us197 = phi ptr [ %125, %..critedge_crit_edge.split.us203 ], [ %104, %.split ]
-  %109 = load double, ptr %.0138.us197, align 8
-  %110 = fsub double %.0130, %109
+  %.0136.us197 = phi ptr [ %125, %..critedge_crit_edge.split.us203 ], [ %104, %.split ]
+  %109 = load double, ptr %.0136.us197, align 8
+  %110 = fsub double %.0139, %109
   %111 = fmul double %110, %76
   %.fr = freeze double %111
   %112 = fcmp ult double %.fr, 0.000000e+00
   br i1 %112, label %.lr.ph186.split.split.us.us, label %.lr.ph186.split.split.us202
 
 .lr.ph186.split.split.us202:                      ; preds = %.lr.ph186.us, %121
-  %.1135184.us198 = phi ptr [ %123, %121 ], [ %.fr244, %.lr.ph186.us ]
-  %113 = getelementptr inbounds i8, ptr %.1135184.us198, i64 16
+  %.1133184.us198 = phi ptr [ %123, %121 ], [ %.fr244, %.lr.ph186.us ]
+  %113 = getelementptr inbounds i8, ptr %.1133184.us198, i64 16
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 1184
   %116 = load double, ptr %115, align 8
@@ -4126,20 +4126,20 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br i1 %or.cond243, label %.loopexit, label %121
 
 121:                                              ; preds = %.lr.ph186.split.split.us202
-  %122 = getelementptr inbounds i8, ptr %.1135184.us198, i64 128
+  %122 = getelementptr inbounds i8, ptr %.1133184.us198, i64 128
   %123 = load ptr, ptr %122, align 8
   %.not152.us199 = icmp eq ptr %123, null
   br i1 %.not152.us199, label %..critedge_crit_edge.split.us203, label %.lr.ph186.split.split.us202, !llvm.loop !49
 
 ..critedge_crit_edge.split.us203:                 ; preds = %121, %134
-  %124 = getelementptr inbounds i8, ptr %.0138.us197, i64 592
+  %124 = getelementptr inbounds i8, ptr %.0136.us197, i64 592
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %125, null
   br i1 %126, label %.loopexit, label %.lr.ph186.us
 
 .lr.ph186.split.split.us.us:                      ; preds = %.lr.ph186.us, %134
-  %.1135184.us187.us = phi ptr [ %136, %134 ], [ %.fr244, %.lr.ph186.us ]
-  %127 = getelementptr inbounds i8, ptr %.1135184.us187.us, i64 16
+  %.1133184.us187.us = phi ptr [ %136, %134 ], [ %.fr244, %.lr.ph186.us ]
+  %127 = getelementptr inbounds i8, ptr %.1133184.us187.us, i64 16
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 1184
   %130 = load double, ptr %129, align 8
@@ -4149,19 +4149,19 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br i1 %133, label %.loopexit, label %134
 
 134:                                              ; preds = %.lr.ph186.split.split.us.us
-  %135 = getelementptr inbounds i8, ptr %.1135184.us187.us, i64 128
+  %135 = getelementptr inbounds i8, ptr %.1133184.us187.us, i64 128
   %136 = load ptr, ptr %135, align 8
   %.not152.us188.us = icmp eq ptr %136, null
   br i1 %.not152.us188.us, label %..critedge_crit_edge.split.us203, label %.lr.ph186.split.split.us.us, !llvm.loop !49
 
 .lr.ph186:                                        ; preds = %.split, %..critedge_crit_edge.split.us
-  %.0138 = phi ptr [ %150, %..critedge_crit_edge.split.us ], [ %104, %.split ]
-  %137 = load double, ptr %.0138, align 8
+  %.0136 = phi ptr [ %150, %..critedge_crit_edge.split.us ], [ %104, %.split ]
+  %137 = load double, ptr %.0136, align 8
   br label %138
 
 138:                                              ; preds = %146, %.lr.ph186
-  %.1135184.us = phi ptr [ %.fr244, %.lr.ph186 ], [ %148, %146 ]
-  %139 = getelementptr inbounds i8, ptr %.1135184.us, i64 16
+  %.1133184.us = phi ptr [ %.fr244, %.lr.ph186 ], [ %148, %146 ]
+  %139 = getelementptr inbounds i8, ptr %.1133184.us, i64 16
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 1184
   %142 = load double, ptr %141, align 8
@@ -4171,19 +4171,19 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br i1 %145, label %.loopexit, label %146
 
 146:                                              ; preds = %138
-  %147 = getelementptr inbounds i8, ptr %.1135184.us, i64 128
+  %147 = getelementptr inbounds i8, ptr %.1133184.us, i64 128
   %148 = load ptr, ptr %147, align 8
   %.not152.us = icmp eq ptr %148, null
   br i1 %.not152.us, label %..critedge_crit_edge.split.us, label %138, !llvm.loop !49
 
 ..critedge_crit_edge.split.us:                    ; preds = %146
-  %149 = getelementptr inbounds i8, ptr %.0138, i64 592
+  %149 = getelementptr inbounds i8, ptr %.0136, i64 592
   %150 = load ptr, ptr %149, align 8
   %151 = icmp eq ptr %150, null
   br i1 %151, label %.loopexit, label %.lr.ph186
 
 .loopexit:                                        ; preds = %..critedge_crit_edge.split.us, %138, %..critedge_crit_edge.split.us203, %.lr.ph186.split.split.us202, %.lr.ph186.split.split.us.us, %.critedge.us
-  %.0138178 = phi ptr [ %.0138.us, %.critedge.us ], [ %.0138.us197, %.lr.ph186.split.split.us.us ], [ %.0138.us197, %.lr.ph186.split.split.us202 ], [ %.0138.us197, %..critedge_crit_edge.split.us203 ], [ %.0138, %138 ], [ %.0138, %..critedge_crit_edge.split.us ]
+  %.0136178 = phi ptr [ %.0136.us, %.critedge.us ], [ %.0136.us197, %.lr.ph186.split.split.us.us ], [ %.0136.us197, %.lr.ph186.split.split.us202 ], [ %.0136.us197, %..critedge_crit_edge.split.us203 ], [ %.0136, %138 ], [ %.0136, %..critedge_crit_edge.split.us ]
   %152 = getelementptr inbounds i8, ptr %14, i64 72
   %153 = icmp eq i32 %2, 2
   %154 = getelementptr inbounds i8, ptr %14, i64 48
@@ -4191,14 +4191,14 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
 
 .split222.us:                                     ; preds = %.loopexit
   %155 = load ptr, ptr %152, align 8
-  %.not154.us.us = icmp eq ptr %.0138178, %155
+  %.not154.us.us = icmp eq ptr %.0136178, %155
   br i1 %153, label %.split222.us.split.us, label %.split222.us.split.split.us
 
 .split222.us.split.us:                            ; preds = %.split222.us
   br i1 %.not154.us.us, label %158, label %156
 
 156:                                              ; preds = %.split222.us.split.us
-  %157 = tail call fastcc i32 @IDAAdataStore(ptr noundef nonnull %0, ptr noundef %.0138178)
+  %157 = tail call fastcc i32 @IDAAdataStore(ptr noundef nonnull %0, ptr noundef %.0136178)
   %.not155.us.us = icmp eq i32 %157, 0
   br i1 %.not155.us.us, label %158, label %.critedge164
 
@@ -4209,7 +4209,7 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br i1 %.not154.us.us, label %161, label %159
 
 159:                                              ; preds = %.split222.us.split.split.us
-  %160 = tail call fastcc i32 @IDAAdataStore(ptr noundef nonnull %0, ptr noundef %.0138178)
+  %160 = tail call fastcc i32 @IDAAdataStore(ptr noundef nonnull %0, ptr noundef %.0136178)
   %.not155.us.us234 = icmp eq i32 %160, 0
   br i1 %.not155.us.us234, label %161, label %.critedge164
 
@@ -4217,13 +4217,13 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br label %.critedge164
 
 .split222:                                        ; preds = %.loopexit, %206
-  %.1139 = phi ptr [ %208, %206 ], [ %.0138178, %.loopexit ]
+  %.1137 = phi ptr [ %208, %206 ], [ %.0136178, %.loopexit ]
   %162 = load ptr, ptr %152, align 8
-  %.not154 = icmp eq ptr %.1139, %162
+  %.not154 = icmp eq ptr %.1137, %162
   br i1 %.not154, label %.lr.ph214.preheader, label %163
 
 163:                                              ; preds = %.split222
-  %164 = call fastcc i32 @IDAAdataStore(ptr noundef nonnull %0, ptr noundef %.1139)
+  %164 = call fastcc i32 @IDAAdataStore(ptr noundef nonnull %0, ptr noundef %.1137)
   %.not155 = icmp eq i32 %164, 0
   br i1 %.not155, label %.lr.ph214.preheader, label %.critedge164
 
@@ -4231,17 +4231,17 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br label %.lr.ph214
 
 .lr.ph214:                                        ; preds = %.lr.ph214.preheader, %194
-  %.2136212 = phi ptr [ %196, %194 ], [ %.fr244, %.lr.ph214.preheader ]
-  %165 = getelementptr inbounds i8, ptr %.2136212, i64 16
+  %.2134212 = phi ptr [ %196, %194 ], [ %.fr244, %.lr.ph214.preheader ]
+  %165 = getelementptr inbounds i8, ptr %.2134212, i64 16
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 1184
   %168 = load double, ptr %167, align 8
-  %169 = load double, ptr %.1139, align 8
+  %169 = load double, ptr %.1137, align 8
   %170 = fcmp oeq double %168, %169
   br i1 %170, label %171, label %175
 
 171:                                              ; preds = %.lr.ph214
-  %172 = fsub double %.0130, %169
+  %172 = fsub double %.0139, %169
   %173 = fmul double %172, %76
   %174 = fcmp olt double %173, 0.000000e+00
   br i1 %174, label %.thread263, label %175
@@ -4255,36 +4255,36 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br i1 %179, label %.thread263, label %180
 
 180:                                              ; preds = %175
-  store ptr %.2136212, ptr %154, align 8
+  store ptr %.2134212, ptr %154, align 8
   %181 = load ptr, ptr %165, align 8
-  %182 = load double, ptr %.1139, align 8
+  %182 = load double, ptr %.1137, align 8
   %183 = call i32 @IDASetStopTime(ptr noundef %181, double noundef %182) #9
   %184 = load ptr, ptr %165, align 8
-  %185 = getelementptr inbounds i8, ptr %.2136212, i64 112
+  %185 = getelementptr inbounds i8, ptr %.2134212, i64 112
   %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %.2136212, i64 120
+  %187 = getelementptr inbounds i8, ptr %.2134212, i64 120
   %188 = load ptr, ptr %187, align 8
-  %189 = call i32 @IDASolve(ptr noundef %184, double noundef %.0130, ptr noundef nonnull %4, ptr noundef %186, ptr noundef %188, i32 noundef %2) #9
+  %189 = call i32 @IDASolve(ptr noundef %184, double noundef %.0139, ptr noundef nonnull %4, ptr noundef %186, ptr noundef %188, i32 noundef %2) #9
   %190 = load double, ptr %4, align 8
-  %191 = getelementptr inbounds i8, ptr %.2136212, i64 104
+  %191 = getelementptr inbounds i8, ptr %.2134212, i64 104
   store double %190, ptr %191, align 8
   %192 = icmp slt i32 %189, 0
   br i1 %192, label %.thread, label %194
 
 .thread263:                                       ; preds = %171, %175
-  %193 = getelementptr inbounds i8, ptr %.2136212, i64 104
+  %193 = getelementptr inbounds i8, ptr %.2134212, i64 104
   store double %168, ptr %193, align 8
   br label %194
 
 194:                                              ; preds = %180, %.thread263
   %.3 = phi i32 [ %189, %180 ], [ 0, %.thread263 ]
-  %195 = getelementptr inbounds i8, ptr %.2136212, i64 128
+  %195 = getelementptr inbounds i8, ptr %.2134212, i64 128
   %196 = load ptr, ptr %195, align 8
   %.not156 = icmp eq ptr %196, null
   br i1 %.not156, label %._crit_edge215, label %.lr.ph214, !llvm.loop !50
 
 .thread:                                          ; preds = %180
-  %197 = load i32, ptr %.2136212, align 8
+  %197 = load i32, ptr %.2134212, align 8
   call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef %189, ptr noundef nonnull @.str, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.33, i32 noundef %197) #9
   br label %.critedge164
 
@@ -4292,28 +4292,28 @@ define i32 @IDASolveB(ptr noundef %0, double noundef %1, i32 noundef %2) local_u
   br i1 %153, label %.critedge164, label %.lr.ph219
 
 .lr.ph219:                                        ; preds = %._crit_edge215, %203
-  %.3137218 = phi ptr [ %205, %203 ], [ %.fr244, %._crit_edge215 ]
-  %198 = getelementptr inbounds i8, ptr %.3137218, i64 104
+  %.3135218 = phi ptr [ %205, %203 ], [ %.fr244, %._crit_edge215 ]
+  %198 = getelementptr inbounds i8, ptr %.3135218, i64 104
   %199 = load double, ptr %198, align 8
-  %200 = fsub double %199, %.0130
+  %200 = fsub double %199, %.0139
   %201 = fmul double %200, %76
   %202 = fcmp ogt double %201, 0.000000e+00
   br i1 %202, label %206, label %203
 
 203:                                              ; preds = %.lr.ph219
-  %204 = getelementptr inbounds i8, ptr %.3137218, i64 128
+  %204 = getelementptr inbounds i8, ptr %.3135218, i64 128
   %205 = load ptr, ptr %204, align 8
   %.not158.not = icmp eq ptr %205, null
   br i1 %.not158.not, label %.critedge164, label %.lr.ph219, !llvm.loop !51
 
 206:                                              ; preds = %.lr.ph219
-  %207 = getelementptr inbounds i8, ptr %.1139, i64 592
+  %207 = getelementptr inbounds i8, ptr %.1137, i64 592
   %208 = load ptr, ptr %207, align 8
   br label %.split222
 
 .critedge164:                                     ; preds = %._crit_edge215, %163, %203, %161, %158, %159, %156, %.thread, %101, %74, %70, %53, %47, %24, %18, %11, %6
-  %.0129 = phi i32 [ -20, %6 ], [ -101, %11 ], [ -103, %18 ], [ -102, %24 ], [ -104, %47 ], [ -22, %53 ], [ -22, %74 ], [ %189, %.thread ], [ -22, %101 ], [ -22, %70 ], [ 0, %161 ], [ %157, %156 ], [ 0, %158 ], [ %160, %159 ], [ %.3, %203 ], [ %.3, %._crit_edge215 ], [ %164, %163 ]
-  ret i32 %.0129
+  %.0138 = phi i32 [ -20, %6 ], [ -101, %11 ], [ -103, %18 ], [ -102, %24 ], [ -104, %47 ], [ -22, %53 ], [ -22, %74 ], [ %189, %.thread ], [ -22, %101 ], [ -22, %70 ], [ 0, %161 ], [ %157, %156 ], [ 0, %158 ], [ %160, %159 ], [ %.3, %203 ], [ %.3, %._crit_edge215 ], [ %164, %163 ]
+  ret i32 %.0138
 }
 
 declare double @SUNRabs(double noundef) local_unnamed_addr #1
@@ -4690,7 +4690,7 @@ IDAAckpntGet.exit:                                ; preds = %204, %42, %39
 
 226:                                              ; preds = %232, %218
   %227 = phi double [ %.pre, %218 ], [ %240, %232 ]
-  %.034 = phi i64 [ 1, %218 ], [ %239, %232 ]
+  %.0 = phi i64 [ 1, %218 ], [ %239, %232 ]
   %228 = load ptr, ptr %224, align 8
   %229 = load ptr, ptr %225, align 8
   %230 = call i32 @IDASolve(ptr noundef %0, double noundef %227, ptr noundef nonnull %3, ptr noundef %228, ptr noundef %229, i32 noundef 2) #9
@@ -4699,13 +4699,13 @@ IDAAckpntGet.exit:                                ; preds = %204, %42, %39
 
 232:                                              ; preds = %226
   %233 = load double, ptr %3, align 8
-  %234 = getelementptr inbounds ptr, ptr %7, i64 %.034
+  %234 = getelementptr inbounds ptr, ptr %7, i64 %.0
   %235 = load ptr, ptr %234, align 8
   store double %233, ptr %235, align 8
   %236 = load ptr, ptr %208, align 8
   %237 = load ptr, ptr %234, align 8
   %238 = call i32 %236(ptr noundef %0, ptr noundef %237) #9
-  %239 = add nuw nsw i64 %.034, 1
+  %239 = add nuw nsw i64 %.0, 1
   %240 = load double, ptr %223, align 8
   %241 = load double, ptr %3, align 8
   %242 = fsub double %240, %241
@@ -4724,8 +4724,8 @@ IDAAckpntGet.exit:                                ; preds = %204, %42, %39
   br label %IDAAckpntGet.exit.thread
 
 IDAAckpntGet.exit.thread:                         ; preds = %226, %42, %31, %24, %11, %246
-  %.0 = phi i32 [ 0, %246 ], [ -105, %11 ], [ -105, %24 ], [ -105, %31 ], [ -105, %42 ], [ -106, %226 ]
-  ret i32 %.0
+  %.034 = phi i32 [ 0, %246 ], [ -105, %11 ], [ -105, %24 ], [ -105, %31 ], [ -105, %42 ], [ -106, %226 ]
+  ret i32 %.034
 }
 
 declare i32 @IDASetStopTime(ptr noundef, double noundef) local_unnamed_addr #1
@@ -4828,14 +4828,14 @@ define i32 @IDAGetQuadB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noun
 
 .lr.ph:                                           ; preds = %.lr.ph, %19
   %.sink = phi ptr [ %23, %.lr.ph ], [ %20, %19 ]
-  %.026 = load ptr, ptr %.sink, align 8, !nonnull !44, !noundef !44
-  %21 = load i32, ptr %.026, align 8
+  %.025 = load ptr, ptr %.sink, align 8, !nonnull !44, !noundef !44
+  %21 = load i32, ptr %.025, align 8
   %22 = icmp eq i32 %21, %1
-  %23 = getelementptr inbounds i8, ptr %.026, i64 128
+  %23 = getelementptr inbounds i8, ptr %.025, i64 128
   br i1 %22, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %24 = getelementptr inbounds i8, ptr %.026, i64 16
+  %24 = getelementptr inbounds i8, ptr %.025, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = call i32 @IDAGetNumSteps(ptr noundef %25, ptr noundef nonnull %5) #9
   %.not31 = icmp eq i32 %26, 0
@@ -4851,7 +4851,7 @@ define i32 @IDAGetQuadB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noun
   %32 = getelementptr inbounds i8, ptr %31, i64 720
   %33 = load ptr, ptr %32, align 8
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef %33, ptr noundef %3) #9
-  %34 = getelementptr inbounds i8, ptr %.026, i64 104
+  %34 = getelementptr inbounds i8, ptr %.025, i64 104
   %35 = load double, ptr %34, align 8
   store double %35, ptr %2, align 8
   br label %38
@@ -4861,8 +4861,8 @@ define i32 @IDAGetQuadB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noun
   br label %38
 
 38:                                               ; preds = %30, %36, %._crit_edge, %18, %12, %7
-  %.025 = phi i32 [ -20, %7 ], [ -101, %12 ], [ -22, %18 ], [ %26, %._crit_edge ], [ 0, %30 ], [ %37, %36 ]
-  ret i32 %.025
+  %.026 = phi i32 [ -20, %7 ], [ -101, %12 ], [ -22, %18 ], [ %26, %._crit_edge ], [ 0, %30 ], [ %37, %36 ]
+  ret i32 %.026
 }
 
 declare i32 @IDAGetNumSteps(ptr noundef, ptr noundef) local_unnamed_addr #1

@@ -31,25 +31,25 @@ define void @dlaset_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph78:                                         ; preds = %.preheader68, %._crit_edge
   %17 = phi i32 [ %26, %._crit_edge ], [ %11, %.preheader68 ]
-  %.05677 = phi i32 [ %27, %._crit_edge ], [ 1, %.preheader68 ]
+  %.077 = phi i32 [ %27, %._crit_edge ], [ 1, %.preheader68 ]
   %18 = load i32, ptr %1, align 4
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph76.preheader, label %._crit_edge
 
 .lr.ph76.preheader:                               ; preds = %.lr.ph78
-  %smin = tail call i32 @llvm.smin.i32(i32 %18, i32 %.05677)
+  %smin = tail call i32 @llvm.smin.i32(i32 %18, i32 %.077)
   %.pre92 = load double, ptr %3, align 8
   br label %.lr.ph76
 
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
-  %.075 = phi i32 [ %25, %.lr.ph76 ], [ 0, %.lr.ph76.preheader ]
+  %.05675 = phi i32 [ %25, %.lr.ph76 ], [ 0, %.lr.ph76.preheader ]
   %20 = load i32, ptr %6, align 4
-  %21 = mul nsw i32 %20, %.05677
-  %22 = add nsw i32 %21, %.075
+  %21 = mul nsw i32 %20, %.077
+  %22 = add nsw i32 %21, %.05675
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds double, ptr %5, i64 %23
   store double %.pre92, ptr %24, align 8
-  %25 = add nuw nsw i32 %.075, 1
+  %25 = add nuw nsw i32 %.05675, 1
   %exitcond90.not = icmp eq i32 %25, %smin
   br i1 %exitcond90.not, label %._crit_edge.loopexit, label %.lr.ph76, !llvm.loop !4
 
@@ -59,7 +59,7 @@ define void @dlaset_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph78
   %26 = phi i32 [ %.pre93, %._crit_edge.loopexit ], [ %17, %.lr.ph78 ]
-  %27 = add nuw nsw i32 %.05677, 1
+  %27 = add nuw nsw i32 %.077, 1
   %28 = icmp slt i32 %27, %26
   br i1 %28, label %.lr.ph78, label %.loopexit, !llvm.loop !6
 
@@ -77,8 +77,8 @@ define void @dlaset_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph74:                                         ; preds = %29, %.loopexit70
   %34 = phi i32 [ %33, %.loopexit70 ], [ %30, %29 ]
-  %.15773 = phi i32 [ %35, %.loopexit70 ], [ 0, %29 ]
-  %35 = add nuw nsw i32 %.15773, 1
+  %.173 = phi i32 [ %35, %.loopexit70 ], [ 0, %29 ]
+  %35 = add nuw nsw i32 %.173, 1
   %36 = icmp slt i32 %35, %34
   br i1 %36, label %.lr.ph.preheader, label %.loopexit70
 
@@ -87,14 +87,14 @@ define void @dlaset_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.172 = phi i32 [ %42, %.lr.ph ], [ %35, %.lr.ph.preheader ]
+  %.15772 = phi i32 [ %42, %.lr.ph ], [ %35, %.lr.ph.preheader ]
   %37 = load i32, ptr %6, align 4
-  %38 = mul nsw i32 %37, %.15773
-  %39 = add nsw i32 %38, %.172
+  %38 = mul nsw i32 %37, %.173
+  %39 = add nsw i32 %38, %.15772
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds double, ptr %5, i64 %40
   store double %.pre, ptr %41, align 8
-  %42 = add nuw nsw i32 %.172, 1
+  %42 = add nuw nsw i32 %.15772, 1
   %43 = load i32, ptr %1, align 4
   %44 = icmp slt i32 %42, %43
   br i1 %44, label %.lr.ph, label %.loopexit70, !llvm.loop !8
@@ -102,7 +102,7 @@ define void @dlaset_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge81
   %45 = phi i32 [ %56, %._crit_edge81 ], [ %13, %.preheader.lr.ph ]
   %46 = phi i32 [ %57, %._crit_edge81 ], [ %15, %.preheader.lr.ph ]
-  %.25882 = phi i32 [ %58, %._crit_edge81 ], [ 0, %.preheader.lr.ph ]
+  %.282 = phi i32 [ %58, %._crit_edge81 ], [ 0, %.preheader.lr.ph ]
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.lr.ph80.preheader, label %._crit_edge81
 
@@ -111,14 +111,14 @@ define void @dlaset_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %.lr.ph80
 
 .lr.ph80:                                         ; preds = %.lr.ph80.preheader, %.lr.ph80
-  %.279 = phi i32 [ %53, %.lr.ph80 ], [ 0, %.lr.ph80.preheader ]
+  %.25879 = phi i32 [ %53, %.lr.ph80 ], [ 0, %.lr.ph80.preheader ]
   %48 = load i32, ptr %6, align 4
-  %49 = mul nsw i32 %48, %.25882
-  %50 = add nsw i32 %49, %.279
+  %49 = mul nsw i32 %48, %.282
+  %50 = add nsw i32 %49, %.25879
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds double, ptr %5, i64 %51
   store double %.pre94, ptr %52, align 8
-  %53 = add nuw nsw i32 %.279, 1
+  %53 = add nuw nsw i32 %.25879, 1
   %54 = load i32, ptr %1, align 4
   %55 = icmp slt i32 %53, %54
   br i1 %55, label %.lr.ph80, label %._crit_edge81.loopexit, !llvm.loop !9
@@ -130,7 +130,7 @@ define void @dlaset_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 ._crit_edge81:                                    ; preds = %._crit_edge81.loopexit, %.preheader
   %56 = phi i32 [ %.pre95, %._crit_edge81.loopexit ], [ %45, %.preheader ]
   %57 = phi i32 [ %54, %._crit_edge81.loopexit ], [ %46, %.preheader ]
-  %58 = add nuw nsw i32 %.25882, 1
+  %58 = add nuw nsw i32 %.282, 1
   %59 = icmp slt i32 %58, %56
   br i1 %59, label %.preheader, label %.loopexit, !llvm.loop !10
 

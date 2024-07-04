@@ -147,12 +147,12 @@ define hidden void @_ZN7nanogui7TextureC2ERKNSt7__cxx1112basic_stringIcSt11char_
   br label %36
 
 34:                                               ; preds = %28, %29
-  %.09 = phi i1 [ false, %29 ], [ true, %28 ]
+  %.0 = phi i1 [ false, %29 ], [ true, %28 ]
   %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #5
-  br i1 %.09, label %36, label %_ZNSt10unique_ptrIA_hPFvPvEED2Ev.exit22
+  br i1 %.0, label %36, label %_ZNSt10unique_ptrIA_hPFvPvEED2Ev.exit22
 
 36:                                               ; preds = %.thread30, %.thread, %34
   %.pn.pn29 = phi { ptr, i32 } [ %32, %.thread ], [ %35, %34 ], [ %33, %.thread30 ]

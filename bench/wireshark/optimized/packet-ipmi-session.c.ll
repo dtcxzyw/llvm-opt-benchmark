@@ -162,7 +162,7 @@ define internal i32 @dissect_ipmi_session(ptr noundef %0, ptr noundef %1, ptr no
   br label %30
 
 30:                                               ; preds = %23, %7
-  %.0120135164 = phi i32 [ %11, %7 ], [ %24, %23 ]
+  %.0119135164 = phi i32 [ %11, %7 ], [ %24, %23 ]
   %.0118137163 = phi i8 [ %9, %7 ], [ 0, %23 ]
   %.0117139160 = phi i32 [ %.169, %7 ], [ %.171, %23 ]
   %.0116141158 = phi i32 [ %.0116.ph, %7 ], [ %.0116, %23 ]
@@ -174,7 +174,7 @@ define internal i32 @dissect_ipmi_session(ptr noundef %0, ptr noundef %1, ptr no
 31:                                               ; preds = %30
   %32 = load i32, ptr @proto_ipmi_session, align 4
   %33 = select i1 %6, ptr @.str.59, ptr @.str.60
-  %34 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %32, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.58, ptr noundef nonnull %33, i32 noundef %.0120135164) #2
+  %34 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %32, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.58, ptr noundef nonnull %33, i32 noundef %.0119135164) #2
   %35 = load i32, ptr @ett_ipmi_session, align 4
   %36 = tail call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35) #2
   %37 = load i32, ptr @hf_ipmi_session_authtype, align 4
@@ -237,7 +237,7 @@ define internal i32 @dissect_ipmi_session(ptr noundef %0, ptr noundef %1, ptr no
   br label %79
 
 79:                                               ; preds = %57, %75, %30
-  %.0119 = phi ptr [ %36, %57 ], [ %36, %75 ], [ null, %30 ]
+  %.0120 = phi ptr [ %36, %57 ], [ %36, %75 ], [ null, %30 ]
   %.2 = phi i32 [ %66, %57 ], [ %78, %75 ], [ 0, %30 ]
   %80 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0117139160, i32 noundef %.0116141158, i32 noundef -1) #2
   br i1 %.0145154, label %83, label %81
@@ -272,7 +272,7 @@ define internal i32 @dissect_ipmi_session(ptr noundef %0, ptr noundef %1, ptr no
 
 96:                                               ; preds = %92
   %97 = load i32, ptr @hf_ipmi_session_trailer, align 4
-  %98 = tail call ptr @proto_tree_add_item(ptr noundef %.0119, i32 noundef %97, ptr noundef %0, i32 noundef %93, i32 noundef -1, i32 noundef 0) #2
+  %98 = tail call ptr @proto_tree_add_item(ptr noundef %.0120, i32 noundef %97, ptr noundef %0, i32 noundef %93, i32 noundef -1, i32 noundef 0) #2
   br label %99
 
 99:                                               ; preds = %92, %96, %91

@@ -10780,8 +10780,8 @@ if.else:                                          ; preds = %entry, %if.end.i71
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i71, %if.else
-  %hasType.0 = phi i1 [ true, %if.else ], [ false, %if.end.i71 ]
   %hasValue.0 = phi i1 [ false, %if.else ], [ true, %if.end.i71 ]
+  %hasType.0 = phi i1 [ true, %if.else ], [ false, %if.end.i71 ]
   %_specifiers = getelementptr inbounds i8, ptr %node, i64 48
   %Next.i.i.i.i = getelementptr inbounds i8, ptr %node, i64 56
   %__begin2.sroa.0.020 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -10790,8 +10790,8 @@ if.end:                                           ; preds = %if.end.i71, %if.els
 
 for.body:                                         ; preds = %if.end, %for.inc
   %__begin2.sroa.0.024 = phi ptr [ %__begin2.sroa.0.0, %for.inc ], [ %__begin2.sroa.0.020, %if.end ]
-  %hasValue.123 = phi i1 [ %hasValue.2, %for.inc ], [ %hasValue.0, %if.end ]
-  %hasType.122 = phi i1 [ %hasType.2, %for.inc ], [ %hasType.0, %if.end ]
+  %hasType.123 = phi i1 [ %hasType.2, %for.inc ], [ %hasType.0, %if.end ]
+  %hasValue.122 = phi i1 [ %hasValue.2, %for.inc ], [ %hasValue.0, %if.end ]
   %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.024, i64 16
   %3 = load i32, ptr %kind_.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp ne i32 %3, 81
@@ -10817,16 +10817,16 @@ if.else18:                                        ; preds = %if.then11, %if.end.
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end.i, %for.body, %if.else18
-  %hasType.2 = phi i1 [ true, %if.else18 ], [ %hasType.122, %for.body ], [ %hasType.122, %if.end.i ]
-  %hasValue.2 = phi i1 [ %hasValue.123, %if.else18 ], [ %hasValue.123, %for.body ], [ true, %if.end.i ]
+  %hasValue.2 = phi i1 [ %hasValue.122, %if.else18 ], [ %hasValue.122, %for.body ], [ true, %if.end.i ]
+  %hasType.2 = phi i1 [ true, %if.else18 ], [ %hasType.123, %for.body ], [ %hasType.123, %if.end.i ]
   %Next.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.024, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i15.not = icmp eq ptr %__begin2.sroa.0.0, %_specifiers
   br i1 %cmp.i15.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %if.end
-  %hasType.1.lcssa = phi i1 [ %hasType.0, %if.end ], [ %hasType.2, %for.inc ]
   %hasValue.1.lcssa = phi i1 [ %hasValue.0, %if.end ], [ %hasValue.2, %for.inc ]
+  %hasType.1.lcssa = phi i1 [ %hasType.0, %if.end ], [ %hasType.2, %for.inc ]
   br i1 %hasValue.1.lcssa, label %if.then23, label %if.end26
 
 if.then23:                                        ; preds = %for.end

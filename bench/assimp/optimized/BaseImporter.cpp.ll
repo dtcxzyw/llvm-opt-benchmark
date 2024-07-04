@@ -1447,8 +1447,8 @@ if.end:                                           ; preds = %invoke.cont
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.end
-  %s2.addr.0.i = phi ptr [ %call11, %if.end ], [ %incdec.ptr2.i, %do.body.i ]
   %s1.addr.0.i = phi ptr [ %add.ptr10, %if.end ], [ %incdec.ptr.i, %do.body.i ]
+  %s2.addr.0.i = phi ptr [ %call11, %if.end ], [ %incdec.ptr2.i, %do.body.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %s1.addr.0.i, i64 1
   %2 = load i8, ptr %s1.addr.0.i, align 1
   %conv.i = zext i8 %2 to i32
@@ -1904,30 +1904,30 @@ for.body.lr.ph:                                   ; preds = %invoke.cont15
   ]
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
-  %magic.038.us = phi ptr [ %add.ptr.us, %for.body.us ], [ %_magic, %for.body.lr.ph ]
-  %i.037.us = phi i32 [ %inc.us, %for.body.us ], [ 0, %for.body.lr.ph ]
-  %magic_u16.0.copyload.us = load i16, ptr %magic.038.us, align 1
+  %i.038.us = phi i32 [ %inc.us, %for.body.us ], [ 0, %for.body.lr.ph ]
+  %magic.037.us = phi ptr [ %add.ptr.us, %for.body.us ], [ %_magic, %for.body.lr.ph ]
+  %magic_u16.0.copyload.us = load i16, ptr %magic.037.us, align 1
   %cmp25.us = icmp eq i16 %magic_u16.0.copyload.us, %6
   %tOut.addr.sroa.0.0.insert.insert.i.i.us = call i16 @llvm.bswap.i16(i16 %magic_u16.0.copyload.us)
   %cmp31.us = icmp eq i16 %tOut.addr.sroa.0.0.insert.insert.i.i.us, %6
   %or.cond.us = or i1 %cmp25.us, %cmp31.us
-  %add.ptr.us = getelementptr inbounds i8, ptr %magic.038.us, i64 %conv10
-  %inc.us = add i32 %i.037.us, 1
+  %add.ptr.us = getelementptr inbounds i8, ptr %magic.037.us, i64 %conv10
+  %inc.us = add i32 %i.038.us, 1
   %conv19.us = zext i32 %inc.us to i64
   %cmp20.us = icmp uge i64 %conv19.us, %num
   %or.cond67.not = select i1 %or.cond.us, i1 true, i1 %cmp20.us
   br i1 %or.cond67.not, label %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i20, label %for.body.us, !llvm.loop !21
 
 for.body.us44:                                    ; preds = %for.body.lr.ph, %for.body.us44
-  %magic.038.us45 = phi ptr [ %add.ptr.us48, %for.body.us44 ], [ %_magic, %for.body.lr.ph ]
-  %i.037.us46 = phi i32 [ %inc.us49, %for.body.us44 ], [ 0, %for.body.lr.ph ]
-  %magic_u32.0.copyload.us = load i32, ptr %magic.038.us45, align 1
+  %i.038.us45 = phi i32 [ %inc.us49, %for.body.us44 ], [ 0, %for.body.lr.ph ]
+  %magic.037.us46 = phi ptr [ %add.ptr.us48, %for.body.us44 ], [ %_magic, %for.body.lr.ph ]
+  %magic_u32.0.copyload.us = load i32, ptr %magic.037.us46, align 1
   %cmp37.us = icmp eq i32 %5, %magic_u32.0.copyload.us
   %tOut.addr.sroa.0.0.insert.insert.i.i18.us = call i32 @llvm.bswap.i32(i32 %magic_u32.0.copyload.us)
   %cmp42.us = icmp eq i32 %5, %tOut.addr.sroa.0.0.insert.insert.i.i18.us
   %or.cond35.us = or i1 %cmp37.us, %cmp42.us
-  %add.ptr.us48 = getelementptr inbounds i8, ptr %magic.038.us45, i64 %conv10
-  %inc.us49 = add i32 %i.037.us46, 1
+  %add.ptr.us48 = getelementptr inbounds i8, ptr %magic.037.us46, i64 %conv10
+  %inc.us49 = add i32 %i.038.us45, 1
   %conv19.us50 = zext i32 %inc.us49 to i64
   %cmp20.us51 = icmp uge i64 %conv19.us50, %num
   %or.cond68.not = select i1 %or.cond35.us, i1 true, i1 %cmp20.us51
@@ -1959,12 +1959,12 @@ _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit: ; preds =
   br label %eh.resume
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %magic.038 = phi ptr [ %add.ptr, %for.body ], [ %_magic, %for.body.lr.ph ]
-  %i.037 = phi i32 [ %inc, %for.body ], [ 0, %for.body.lr.ph ]
-  %bcmp = call i32 @bcmp(ptr %magic.038, ptr nonnull %0, i64 %conv10)
+  %i.038 = phi i32 [ %inc, %for.body ], [ 0, %for.body.lr.ph ]
+  %magic.037 = phi ptr [ %add.ptr, %for.body ], [ %_magic, %for.body.lr.ph ]
+  %bcmp = call i32 @bcmp(ptr %magic.037, ptr nonnull %0, i64 %conv10)
   %tobool49.not = icmp eq i32 %bcmp, 0
-  %add.ptr = getelementptr inbounds i8, ptr %magic.038, i64 %conv10
-  %inc = add i32 %i.037, 1
+  %add.ptr = getelementptr inbounds i8, ptr %magic.037, i64 %conv10
+  %inc = add i32 %i.038, 1
   %conv19 = zext i32 %inc to i64
   %cmp20 = icmp uge i64 %conv19, %num
   %or.cond69.not = select i1 %tobool49.not, i1 true, i1 %cmp20

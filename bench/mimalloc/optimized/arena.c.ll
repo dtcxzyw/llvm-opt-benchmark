@@ -702,9 +702,9 @@ for.body:                                         ; preds = %for.cond.preheader
   br label %for.body12
 
 for.body12:                                       ; preds = %for.body, %for.inc
-  %max_purge_count.012 = phi i64 [ %cond, %for.body ], [ %max_purge_count.1, %for.inc ]
-  %i.011 = phi i64 [ 0, %for.body ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr inbounds [112 x ptr], ptr @mi_arenas, i64 0, i64 %i.011
+  %i.012 = phi i64 [ 0, %for.body ], [ %inc, %for.inc ]
+  %max_purge_count.011 = phi i64 [ %cond, %for.body ], [ %max_purge_count.1, %for.inc ]
+  %arrayidx = getelementptr inbounds [112 x ptr], ptr @mi_arenas, i64 0, i64 %i.012
   %3 = load atomic i64, ptr %arrayidx acquire, align 8
   %cmp14.not = icmp eq i64 %3, 0
   br i1 %cmp14.not, label %for.inc, label %if.then15
@@ -926,16 +926,16 @@ mi_arena_try_purge.exit:                          ; preds = %for.end.i
   br i1 %any_purged.3.i, label %if.then18, label %for.inc
 
 if.then18:                                        ; preds = %if.then49.i, %mi_arena_try_purge.exit
-  %cmp19 = icmp ult i64 %max_purge_count.012, 2
+  %cmp19 = icmp ult i64 %max_purge_count.011, 2
   br i1 %cmp19, label %for.inc24, label %if.end21
 
 if.end21:                                         ; preds = %if.then18
-  %dec = add i64 %max_purge_count.012, -1
+  %dec = add i64 %max_purge_count.011, -1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end7.i, %if.end.i, %if.then15, %lor.lhs.false.i, %if.then49.i, %for.body12, %if.end21, %mi_arena_try_purge.exit
-  %max_purge_count.1 = phi i64 [ %dec, %if.end21 ], [ %max_purge_count.012, %mi_arena_try_purge.exit ], [ %max_purge_count.012, %for.body12 ], [ %max_purge_count.012, %if.then49.i ], [ %max_purge_count.012, %lor.lhs.false.i ], [ %max_purge_count.012, %if.then15 ], [ %max_purge_count.012, %if.end.i ], [ %max_purge_count.012, %if.end7.i ]
-  %inc = add nuw i64 %i.011, 1
+  %max_purge_count.1 = phi i64 [ %dec, %if.end21 ], [ %max_purge_count.011, %mi_arena_try_purge.exit ], [ %max_purge_count.011, %for.body12 ], [ %max_purge_count.011, %if.then49.i ], [ %max_purge_count.011, %lor.lhs.false.i ], [ %max_purge_count.011, %if.then15 ], [ %max_purge_count.011, %if.end.i ], [ %max_purge_count.011, %if.end7.i ]
+  %inc = add nuw i64 %i.012, 1
   %exitcond.not = icmp eq i64 %inc, %0
   br i1 %exitcond.not, label %for.inc24, label %for.body12, !llvm.loop !13
 
@@ -1351,18 +1351,18 @@ for.body.i:                                       ; preds = %if.end, %for.end.i
   br label %for.body3.i
 
 for.body3.i:                                      ; preds = %for.body3.i, %for.body.i
-  %inuse_count.12.i = phi i64 [ %inuse_count.05.i, %for.body.i ], [ %spec.select8.i, %for.body3.i ]
-  %bit.01.i = phi i64 [ 0, %for.body.i ], [ %inc7.i, %for.body3.i ]
-  %shl.i = shl nuw i64 1, %bit.01.i
+  %bit.02.i = phi i64 [ 0, %for.body.i ], [ %inc7.i, %for.body3.i ]
+  %inuse_count.11.i = phi i64 [ %inuse_count.05.i, %for.body.i ], [ %spec.select8.i, %for.body3.i ]
+  %shl.i = shl nuw i64 1, %bit.02.i
   %and.i = and i64 %shl.i, %6
   %cmp4.not.i = icmp ne i64 %and.i, 0
   %spec.select.i = select i1 %cmp4.not.i, i8 120, i8 46
   %inc.i = zext i1 %cmp4.not.i to i64
-  %spec.select8.i = add i64 %inuse_count.12.i, %inc.i
-  %sub.i = sub nuw nsw i64 63, %bit.01.i
+  %spec.select8.i = add i64 %inuse_count.11.i, %inc.i
+  %sub.i = sub nuw nsw i64 63, %bit.02.i
   %arrayidx6.i = getelementptr inbounds [65 x i8], ptr %buf.i, i64 0, i64 %sub.i
   store i8 %spec.select.i, ptr %arrayidx6.i, align 1
-  %inc7.i = add nuw nsw i64 %bit.01.i, 1
+  %inc7.i = add nuw nsw i64 %bit.02.i, 1
   %exitcond.not.i = icmp eq i64 %inc7.i, 64
   br i1 %exitcond.not.i, label %for.end.i, label %for.body3.i, !llvm.loop !23
 

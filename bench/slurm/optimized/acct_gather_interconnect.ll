@@ -317,7 +317,7 @@ define range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unnamed_addr 
 
 .lr.ph:                                           ; preds = %33, %51
   %indvars.iv = phi i64 [ %indvars.iv.next, %51 ], [ 0, %33 ]
-  %.050 = phi i32 [ %.1, %51 ], [ 0, %33 ]
+  %.02549 = phi i32 [ %.1, %51 ], [ 0, %33 ]
   %36 = load ptr, ptr @g_context, align 8
   %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
@@ -345,7 +345,7 @@ define range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unnamed_addr 
   br label %51
 
 51:                                               ; preds = %41, %44, %39, %.lr.ph
-  %.1 = phi i32 [ %.050, %39 ], [ %.050, %.lr.ph ], [ -1, %44 ], [ -1, %41 ]
+  %.1 = phi i32 [ %.02549, %39 ], [ %.02549, %.lr.ph ], [ -1, %44 ], [ -1, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr @g_context_num, align 4
   %53 = sext i32 %52 to i64
@@ -353,7 +353,7 @@ define range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unnamed_addr 
   br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %51, %33
-  %.0.lcssa = phi i32 [ 0, %33 ], [ %.1, %51 ]
+  %.025.lcssa = phi i32 [ 0, %33 ], [ %.1, %51 ]
   tail call void @slurm_xfree(ptr noundef nonnull @ops) #6
   tail call void @slurm_xfree(ptr noundef nonnull @g_context) #6
   store i32 -1, ptr @g_context_num, align 4
@@ -368,7 +368,7 @@ define range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unnamed_addr 
   unreachable
 
 58:                                               ; preds = %._crit_edge
-  ret i32 %.0.lcssa
+  ret i32 %.025.lcssa
 }
 
 ; Function Attrs: nounwind
@@ -614,8 +614,8 @@ define noundef i32 @acct_gather_interconnect_g_conf_options(ptr noundef %0, ptr 
 
 4:                                                ; preds = %2
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #6
-  %.not12 = icmp eq i32 %5, 0
-  br i1 %.not12, label %.preheader, label %8
+  %.not13 = icmp eq i32 %5, 0
+  br i1 %.not13, label %.preheader, label %8
 
 .preheader:                                       ; preds = %4
   %6 = load i32, ptr @g_context_num, align 4
@@ -623,7 +623,7 @@ define noundef i32 @acct_gather_interconnect_g_conf_options(ptr noundef %0, ptr 
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %.pre17 = load ptr, ptr @g_context, align 8
+  %.pre18 = load ptr, ptr @g_context, align 8
   br label %.lr.ph
 
 8:                                                ; preds = %4
@@ -634,12 +634,12 @@ define noundef i32 @acct_gather_interconnect_g_conf_options(ptr noundef %0, ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %10 = phi i32 [ %6, %.lr.ph.preheader ], [ %19, %18 ]
-  %11 = phi ptr [ %.pre17, %.lr.ph.preheader ], [ %20, %18 ]
+  %11 = phi ptr [ %.pre18, %.lr.ph.preheader ], [ %20, %18 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
   %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
-  %.not14 = icmp eq ptr %13, null
-  br i1 %.not14, label %18, label %14
+  %.not15 = icmp eq ptr %13, null
+  br i1 %.not15, label %18, label %14
 
 14:                                               ; preds = %.lr.ph
   %15 = load ptr, ptr @ops, align 8
@@ -647,11 +647,11 @@ define noundef i32 @acct_gather_interconnect_g_conf_options(ptr noundef %0, ptr 
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef %0, ptr noundef %1) #6
   %.pre = load ptr, ptr @g_context, align 8
-  %.pre18 = load i32, ptr @g_context_num, align 4
+  %.pre19 = load i32, ptr @g_context_num, align 4
   br label %18
 
 18:                                               ; preds = %.lr.ph, %14
-  %19 = phi i32 [ %10, %.lr.ph ], [ %.pre18, %14 ]
+  %19 = phi i32 [ %10, %.lr.ph ], [ %.pre19, %14 ]
   %20 = phi ptr [ %11, %.lr.ph ], [ %.pre, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = sext i32 %19 to i64
@@ -660,8 +660,8 @@ define noundef i32 @acct_gather_interconnect_g_conf_options(ptr noundef %0, ptr 
 
 ._crit_edge:                                      ; preds = %18, %.preheader
   %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #6
-  %.not13 = icmp eq i32 %23, 0
-  br i1 %.not13, label %26, label %24
+  %.not14 = icmp eq i32 %23, 0
+  br i1 %.not14, label %26, label %24
 
 24:                                               ; preds = %._crit_edge
   %25 = tail call ptr @__errno_location() #7
@@ -681,8 +681,8 @@ define noundef i32 @acct_gather_interconnect_g_conf_set(ptr noundef %0) local_un
 
 3:                                                ; preds = %1
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #6
-  %.not11 = icmp eq i32 %4, 0
-  br i1 %.not11, label %.preheader, label %7
+  %.not12 = icmp eq i32 %4, 0
+  br i1 %.not12, label %.preheader, label %7
 
 .preheader:                                       ; preds = %3
   %5 = load i32, ptr @g_context_num, align 4
@@ -690,7 +690,7 @@ define noundef i32 @acct_gather_interconnect_g_conf_set(ptr noundef %0) local_un
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %.pre16 = load ptr, ptr @g_context, align 8
+  %.pre17 = load ptr, ptr @g_context, align 8
   br label %.lr.ph
 
 7:                                                ; preds = %3
@@ -701,12 +701,12 @@ define noundef i32 @acct_gather_interconnect_g_conf_set(ptr noundef %0) local_un
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %9 = phi i32 [ %5, %.lr.ph.preheader ], [ %18, %17 ]
-  %10 = phi ptr [ %.pre16, %.lr.ph.preheader ], [ %19, %17 ]
+  %10 = phi ptr [ %.pre17, %.lr.ph.preheader ], [ %19, %17 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
   %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
-  %.not13 = icmp eq ptr %12, null
-  br i1 %.not13, label %17, label %13
+  %.not14 = icmp eq ptr %12, null
+  br i1 %.not14, label %17, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr @ops, align 8
@@ -714,11 +714,11 @@ define noundef i32 @acct_gather_interconnect_g_conf_set(ptr noundef %0) local_un
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef %0) #6
   %.pre = load ptr, ptr @g_context, align 8
-  %.pre17 = load i32, ptr @g_context_num, align 4
+  %.pre18 = load i32, ptr @g_context_num, align 4
   br label %17
 
 17:                                               ; preds = %.lr.ph, %13
-  %18 = phi i32 [ %9, %.lr.ph ], [ %.pre17, %13 ]
+  %18 = phi i32 [ %9, %.lr.ph ], [ %.pre18, %13 ]
   %19 = phi ptr [ %10, %.lr.ph ], [ %.pre, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = sext i32 %18 to i64
@@ -727,8 +727,8 @@ define noundef i32 @acct_gather_interconnect_g_conf_set(ptr noundef %0) local_un
 
 ._crit_edge:                                      ; preds = %17, %.preheader
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #6
-  %.not12 = icmp eq i32 %22, 0
-  br i1 %.not12, label %25, label %23
+  %.not13 = icmp eq i32 %22, 0
+  br i1 %.not13, label %25, label %23
 
 23:                                               ; preds = %._crit_edge
   %24 = tail call ptr @__errno_location() #7
@@ -748,8 +748,8 @@ define noundef i32 @acct_gather_interconnect_g_conf_values(ptr noundef %0) local
 
 3:                                                ; preds = %1
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @g_context_lock) #6
-  %.not11 = icmp eq i32 %4, 0
-  br i1 %.not11, label %.preheader, label %7
+  %.not12 = icmp eq i32 %4, 0
+  br i1 %.not12, label %.preheader, label %7
 
 .preheader:                                       ; preds = %3
   %5 = load i32, ptr @g_context_num, align 4
@@ -757,7 +757,7 @@ define noundef i32 @acct_gather_interconnect_g_conf_values(ptr noundef %0) local
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %.pre16 = load ptr, ptr @g_context, align 8
+  %.pre17 = load ptr, ptr @g_context, align 8
   br label %.lr.ph
 
 7:                                                ; preds = %3
@@ -768,12 +768,12 @@ define noundef i32 @acct_gather_interconnect_g_conf_values(ptr noundef %0) local
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %9 = phi i32 [ %5, %.lr.ph.preheader ], [ %18, %17 ]
-  %10 = phi ptr [ %.pre16, %.lr.ph.preheader ], [ %19, %17 ]
+  %10 = phi ptr [ %.pre17, %.lr.ph.preheader ], [ %19, %17 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
   %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
-  %.not13 = icmp eq ptr %12, null
-  br i1 %.not13, label %17, label %13
+  %.not14 = icmp eq ptr %12, null
+  br i1 %.not14, label %17, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr @ops, align 8
@@ -781,11 +781,11 @@ define noundef i32 @acct_gather_interconnect_g_conf_values(ptr noundef %0) local
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef %0) #6
   %.pre = load ptr, ptr @g_context, align 8
-  %.pre17 = load i32, ptr @g_context_num, align 4
+  %.pre18 = load i32, ptr @g_context_num, align 4
   br label %17
 
 17:                                               ; preds = %.lr.ph, %13
-  %18 = phi i32 [ %9, %.lr.ph ], [ %.pre17, %13 ]
+  %18 = phi i32 [ %9, %.lr.ph ], [ %.pre18, %13 ]
   %19 = phi ptr [ %10, %.lr.ph ], [ %.pre, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = sext i32 %18 to i64
@@ -794,8 +794,8 @@ define noundef i32 @acct_gather_interconnect_g_conf_values(ptr noundef %0) local
 
 ._crit_edge:                                      ; preds = %17, %.preheader
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #6
-  %.not12 = icmp eq i32 %22, 0
-  br i1 %.not12, label %25, label %23
+  %.not13 = icmp eq i32 %22, 0
+  br i1 %.not13, label %25, label %23
 
 23:                                               ; preds = %._crit_edge
   %24 = tail call ptr @__errno_location() #7

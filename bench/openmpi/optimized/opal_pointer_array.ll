@@ -301,10 +301,10 @@ define internal fastcc noundef zeroext i1 @grow_table(ptr nocapture noundef %0, 
   br i1 %.not47, label %11, label %53
 
 11:                                               ; preds = %10, %2
-  %.039 = phi i32 [ %9, %10 ], [ %7, %2 ]
+  %.0 = phi i32 [ %9, %10 ], [ %7, %2 ]
   %12 = getelementptr inbounds i8, ptr %0, i64 112
   %13 = load ptr, ptr %12, align 8
-  %14 = sext i32 %.039 to i64
+  %14 = sext i32 %.0 to i64
   %15 = shl nsw i64 %14, 3
   %16 = tail call ptr @realloc(ptr noundef %13, i64 noundef %15) #10
   %17 = icmp eq ptr %16, null
@@ -313,13 +313,13 @@ define internal fastcc noundef zeroext i1 @grow_table(ptr nocapture noundef %0, 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds i8, ptr %0, i64 88
   %20 = load i32, ptr %19, align 8
-  %21 = sub i32 %.039, %20
+  %21 = sub i32 %.0, %20
   %22 = getelementptr inbounds i8, ptr %0, i64 84
   %23 = load i32, ptr %22, align 4
   %24 = add nsw i32 %21, %23
   store i32 %24, ptr %22, align 4
   store ptr %16, ptr %12, align 8
-  %25 = icmp slt i32 %20, %.039
+  %25 = icmp slt i32 %20, %.0
   br i1 %25, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %18
@@ -387,12 +387,12 @@ define internal fastcc noundef zeroext i1 @grow_table(ptr nocapture noundef %0, 
   br i1 %exitcond58.not, label %.loopexit, label %.lr.ph52, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph52, %43, %._crit_edge
-  store i32 %.039, ptr %19, align 8
+  store i32 %.0, ptr %19, align 8
   br label %53
 
 53:                                               ; preds = %37, %11, %10, %.loopexit
-  %.0 = phi i1 [ true, %.loopexit ], [ false, %10 ], [ false, %11 ], [ false, %37 ]
-  ret i1 %.0
+  %.040 = phi i1 [ true, %.loopexit ], [ false, %10 ], [ false, %11 ], [ false, %37 ]
+  ret i1 %.040
 }
 
 ; Function Attrs: nounwind uwtable

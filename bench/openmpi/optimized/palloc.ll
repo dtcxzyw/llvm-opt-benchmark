@@ -201,15 +201,15 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %22
   br i1 %.not268623, label %._crit_edge, label %.lr.ph625
 
 .lr.ph625:                                        ; preds = %39, %.loopexit602
-  %.0215624 = phi ptr [ %56, %.loopexit602 ], [ %42, %39 ]
-  %43 = getelementptr inbounds i8, ptr %.0215624, i64 144
+  %.0213624 = phi ptr [ %56, %.loopexit602 ], [ %42, %39 ]
+  %43 = getelementptr inbounds i8, ptr %.0213624, i64 144
   %44 = load ptr, ptr %43, align 8
   %45 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(8) @.str.3) #17
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %.preheader, label %.loopexit602
 
 .preheader:                                       ; preds = %.lr.ph625
-  %47 = getelementptr inbounds i8, ptr %.0215624, i64 152
+  %47 = getelementptr inbounds i8, ptr %.0213624, i64 152
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %48, align 8
   %.not319621 = icmp eq ptr %49, null
@@ -217,9 +217,9 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %22
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %50 = phi ptr [ %54, %.lr.ph ], [ %49, %.preheader ]
-  %.0214622 = phi i64 [ %51, %.lr.ph ], [ 0, %.preheader ]
+  %.0212622 = phi i64 [ %51, %.lr.ph ], [ 0, %.preheader ]
   call void @pmix_expose_param(ptr noundef nonnull %50) #14
-  %51 = add i64 %.0214622, 1
+  %51 = add i64 %.0212622, 1
   %52 = load ptr, ptr %47, align 8
   %53 = getelementptr inbounds ptr, ptr %52, i64 %51
   %54 = load ptr, ptr %53, align 8
@@ -227,7 +227,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %22
   br i1 %.not319, label %.loopexit602, label %.lr.ph, !llvm.loop !7
 
 .loopexit602:                                     ; preds = %.lr.ph, %.preheader, %.lr.ph625
-  %55 = getelementptr inbounds i8, ptr %.0215624, i64 120
+  %55 = getelementptr inbounds i8, ptr %.0213624, i64 120
   %56 = load ptr, ptr %55, align 8
   %.not268 = icmp eq ptr %56, %40
   br i1 %.not268, label %._crit_edge, label %.lr.ph625, !llvm.loop !8
@@ -1502,7 +1502,7 @@ pmix_obj_run_destructors.exit521:                 ; preds = %.lr.ph.i518, %554
   br i1 %.not22.i, label %.thread589, label %.thread596
 
 .thread596:                                       ; preds = %548, %596, %592, %573, %568, %599
-  %.0211601 = phi i32 [ %484, %599 ], [ 0, %548 ], [ 0, %596 ], [ 0, %592 ], [ 0, %573 ], [ %538, %568 ]
+  %.0216600 = phi i32 [ %484, %599 ], [ 0, %548 ], [ 0, %596 ], [ 0, %592 ], [ 0, %573 ], [ %538, %568 ]
   %600 = call i32 @pthread_mutex_lock(ptr noundef nonnull %468) #14
   %601 = icmp eq i32 %600, 35
   br i1 %601, label %602, label %604
@@ -1557,13 +1557,13 @@ pmix_obj_run_destructors.exit527:                 ; preds = %.lr.ph.i524, %610
   br label %.thread589
 
 .thread589:                                       ; preds = %565, %567, %463, %452, %438, %385, %371, %348, %337, %323, %309, %293, %277, %263, %252, %238, %224, %209, %195, %621, %623, %604, %599
-  %.0211593 = phi i32 [ %.0211601, %621 ], [ %.0211601, %623 ], [ %.0211601, %604 ], [ %484, %599 ], [ 0, %567 ], [ 0, %565 ], [ %462, %463 ], [ %451, %452 ], [ %437, %438 ], [ %384, %385 ], [ %370, %371 ], [ %347, %348 ], [ %336, %337 ], [ %322, %323 ], [ %308, %309 ], [ %292, %293 ], [ %276, %277 ], [ %262, %263 ], [ %251, %252 ], [ %237, %238 ], [ %223, %224 ], [ %208, %209 ], [ %194, %195 ]
+  %.0216593 = phi i32 [ %.0216600, %621 ], [ %.0216600, %623 ], [ %.0216600, %604 ], [ %484, %599 ], [ 0, %567 ], [ 0, %565 ], [ %462, %463 ], [ %451, %452 ], [ %437, %438 ], [ %384, %385 ], [ %370, %371 ], [ %347, %348 ], [ %336, %337 ], [ %322, %323 ], [ %308, %309 ], [ %292, %293 ], [ %276, %277 ], [ %262, %263 ], [ %251, %252 ], [ %237, %238 ], [ %223, %224 ], [ %208, %209 ], [ %194, %195 ]
   %624 = call i32 @PMIx_tool_finalize() #14
   br label %625
 
 625:                                              ; preds = %2, %.thread589, %106, %97, %90, %83
-  %.0 = phi i32 [ %.0211593, %.thread589 ], [ -27, %83 ], [ -27, %90 ], [ -27, %97 ], [ -27, %106 ], [ -1, %2 ]
-  ret i32 %.0
+  %.0217 = phi i32 [ %.0216593, %.thread589 ], [ -27, %83 ], [ -27, %90 ], [ -27, %97 ], [ -27, %106 ], [ -1, %2 ]
+  ret i32 %.0217
 }
 
 ; Function Attrs: nounwind

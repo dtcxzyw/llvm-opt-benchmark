@@ -226,7 +226,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.lr.ph, %sw.epilog
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %sw.epilog ]
   %2 = phi ptr [ %1, %for.body.lr.ph ], [ %13, %sw.epilog ]
-  %prevai.040 = phi ptr [ null, %for.body.lr.ph ], [ %call6, %sw.epilog ]
+  %prevai.039 = phi ptr [ null, %for.body.lr.ph ], [ %call6, %sw.epilog ]
   %firstai.038 = phi ptr [ null, %for.body.lr.ph ], [ %spec.select, %sw.epilog ]
   %3 = load ptr, ptr %he, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
@@ -252,11 +252,11 @@ if.end9:                                          ; preds = %for.body
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr11, ptr align 1 %6, i64 %add, i1 false)
   %tobool14.not = icmp eq ptr %firstai.038, null
   %spec.select = select i1 %tobool14.not, ptr %call6, ptr %firstai.038
-  %tobool17.not = icmp eq ptr %prevai.040, null
+  %tobool17.not = icmp eq ptr %prevai.039, null
   br i1 %tobool17.not, label %if.end19, label %if.then18
 
 if.then18:                                        ; preds = %if.end9
-  %ai_next = getelementptr inbounds i8, ptr %prevai.040, i64 40
+  %ai_next = getelementptr inbounds i8, ptr %prevai.039, i64 40
   store ptr %call6, ptr %ai_next, align 8
   br label %if.end19
 

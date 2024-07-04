@@ -198,7 +198,7 @@ define dso_local void @ginNewScanKey(ptr nocapture noundef readonly %0) local_un
 
 39:                                               ; preds = %.lr.ph83, %98
   %indvars.iv94 = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next95, %98 ]
-  %.06581 = phi i1 [ false, %.lr.ph83 ], [ %.4, %98 ]
+  %.06482 = phi i1 [ false, %.lr.ph83 ], [ %.4, %98 ]
   %40 = getelementptr %struct.ScanKeyData, ptr %10, i64 %indvars.iv94
   store i32 0, ptr %3, align 4
   store ptr null, ptr %4, align 8
@@ -236,7 +236,7 @@ define dso_local void @ginNewScanKey(ptr nocapture noundef readonly %0) local_un
 60:                                               ; preds = %43, %59
   %61 = phi i32 [ %58, %43 ], [ 2, %59 ]
   %.not69 = icmp ne i32 %61, 0
-  %spec.select = select i1 %.not69, i1 true, i1 %.06581
+  %spec.select = select i1 %.not69, i1 true, i1 %.06482
   %62 = icmp eq i64 %56, 0
   %63 = load i32, ptr %3, align 4
   %64 = icmp slt i32 %63, 1
@@ -319,16 +319,16 @@ define dso_local void @ginNewScanKey(ptr nocapture noundef readonly %0) local_un
   br label %.loopexit75
 
 .loopexit75:                                      ; preds = %98, %.loopexit75.sink.split, %1
-  %.06578 = phi i1 [ false, %1 ], [ %.06581, %.loopexit75.sink.split ], [ %.4, %98 ]
+  %.06478 = phi i1 [ false, %1 ], [ %.06482, %.loopexit75.sink.split ], [ %.4, %98 ]
   %102 = load i32, ptr %24, align 8
   %.not90 = icmp eq i32 %102, 0
   br i1 %.not90, label %._crit_edge.thread, label %.lr.ph86
 
 .lr.ph86:                                         ; preds = %.loopexit75, %130
   %103 = phi i32 [ %131, %130 ], [ %102, %.loopexit75 ]
-  %.185 = phi i32 [ %132, %130 ], [ 0, %.loopexit75 ]
+  %.16685 = phi i32 [ %132, %130 ], [ 0, %.loopexit75 ]
   %104 = load ptr, ptr %23, align 8
-  %105 = sext i32 %.185 to i64
+  %105 = sext i32 %.16685 to i64
   %106 = getelementptr %struct.GinScanKeyData, ptr %104, i64 %105
   %107 = getelementptr inbounds i8, ptr %106, i64 132
   %108 = load i32, ptr %107, align 4
@@ -367,7 +367,7 @@ define dso_local void @ginNewScanKey(ptr nocapture noundef readonly %0) local_un
 
 130:                                              ; preds = %109, %117, %.lr.ph86
   %131 = phi i32 [ %103, %109 ], [ %.pre96, %117 ], [ %103, %.lr.ph86 ]
-  %132 = add nuw i32 %.185, 1
+  %132 = add nuw i32 %.16685, 1
   %133 = icmp ult i32 %132, %131
   br i1 %133, label %.lr.ph86, label %._crit_edge, !llvm.loop !9
 
@@ -425,7 +425,7 @@ define dso_local void @ginNewScanKey(ptr nocapture noundef readonly %0) local_un
   br label %162
 
 161:                                              ; preds = %._crit_edge.thread, %._crit_edge
-  br i1 %.06578, label %162, label %180
+  br i1 %.06478, label %162, label %180
 
 162:                                              ; preds = %.thread, %161
   %163 = load i8, ptr %29, align 8
@@ -869,8 +869,8 @@ define internal fastcc ptr @ginFillScanEntry(ptr noundef %0, i16 noundef zeroext
   br label %.loopexit59
 
 .loopexit59:                                      ; preds = %40, %70
-  %.0 = phi ptr [ %50, %70 ], [ %19, %40 ]
-  ret ptr %.0
+  %.057 = phi ptr [ %50, %70 ], [ %19, %40 ]
+  ret ptr %.057
 }
 
 declare i32 @ginCompareEntries(ptr noundef, i16 noundef zeroext, i64 noundef, i8 noundef signext, i64 noundef, i8 noundef signext) local_unnamed_addr #1

@@ -2405,24 +2405,24 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_13Rdf12analyzeFrameEi
   br i1 %30, label %.preheader131.split.us, label %.preheader131.split
 
 .preheader131.split.us:                           ; preds = %.preheader131, %158
-  %.073.us = phi i64 [ %159, %158 ], [ 0, %.preheader131 ]
+  %.074.us = phi i64 [ %159, %158 ], [ 0, %.preheader131 ]
   %105 = load ptr, ptr %95, align 8
   %106 = load ptr, ptr %9, align 8
   %107 = ptrtoint ptr %105 to i64
   %108 = ptrtoint ptr %106 to i64
   %109 = sub i64 %107, %108
   %110 = ashr exact i64 %109, 3
-  %111 = icmp ult i64 %.073.us, %110
+  %111 = icmp ult i64 %.074.us, %110
   br i1 %111, label %112, label %.split.us
 
 112:                                              ; preds = %.preheader131.split.us
-  %113 = trunc i64 %.073.us to i32
+  %113 = trunc i64 %.074.us to i32
   invoke void @_ZN3gmx18AnalysisDataHandle13selectDataSetEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %113)
           to label %114 unwind label %.loopexit.split-lp127.loopexit.split.us
 
 114:                                              ; preds = %112
   %115 = load ptr, ptr %9, align 8
-  %116 = getelementptr inbounds %"class.gmx::Selection", ptr %115, i64 %.073.us
+  %116 = getelementptr inbounds %"class.gmx::Selection", ptr %115, i64 %.074.us
   invoke void @_ZNK3gmx9SelectioncvNS_29AnalysisNeighborhoodPositionsEEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::AnalysisNeighborhoodPositions") align 8 %17, ptr noundef nonnull align 8 dereferenceable(8) %116)
           to label %117 unwind label %.loopexit.split-lp127.loopexit.split.us
 
@@ -2516,9 +2516,9 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %158
 
 158:                                              ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i102.us, %148, %135, %122
-  %159 = add i64 %.073.us, 1
+  %159 = add i64 %.074.us, 1
   %160 = load ptr, ptr %9, align 8
-  %161 = getelementptr inbounds %"class.gmx::Selection", ptr %160, i64 %.073.us
+  %161 = getelementptr inbounds %"class.gmx::Selection", ptr %160, i64 %.074.us
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds i8, ptr %162, i64 112
   %164 = load i32, ptr %163, align 8
@@ -2558,24 +2558,24 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit
 
 .preheader131.split:                              ; preds = %.preheader131, %.loopexit125
-  %.073 = phi i64 [ %319, %.loopexit125 ], [ 0, %.preheader131 ]
+  %.074 = phi i64 [ %319, %.loopexit125 ], [ 0, %.preheader131 ]
   %176 = load ptr, ptr %95, align 8
   %177 = load ptr, ptr %9, align 8
   %178 = ptrtoint ptr %176 to i64
   %179 = ptrtoint ptr %177 to i64
   %180 = sub i64 %178, %179
   %181 = ashr exact i64 %180, 3
-  %182 = icmp ult i64 %.073, %181
+  %182 = icmp ult i64 %.074, %181
   br i1 %182, label %183, label %.split.us
 
 183:                                              ; preds = %.preheader131.split
-  %184 = trunc i64 %.073 to i32
+  %184 = trunc i64 %.074 to i32
   invoke void @_ZN3gmx18AnalysisDataHandle13selectDataSetEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %184)
           to label %.preheader124 unwind label %.loopexit.split-lp127.loopexit.split
 
 .preheader124:                                    ; preds = %183
   %185 = load ptr, ptr %9, align 8
-  %186 = getelementptr inbounds %"class.gmx::Selection", ptr %185, i64 %.073
+  %186 = getelementptr inbounds %"class.gmx::Selection", ptr %185, i64 %.074
   %187 = load ptr, ptr %186, align 8
   %188 = getelementptr inbounds i8, ptr %187, i64 112
   %189 = load i32, ptr %188, align 8
@@ -2584,7 +2584,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 .lr.ph143:                                        ; preds = %.preheader124, %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit96
   %191 = phi ptr [ %312, %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit96 ], [ %185, %.preheader124 ]
-  %.074142 = phi i32 [ %311, %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit96 ], [ 0, %.preheader124 ]
+  %.073142 = phi i32 [ %311, %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit96 ], [ 0, %.preheader124 ]
   %192 = load ptr, ptr %26, align 8
   %193 = load ptr, ptr %28, align 8
   %.not6.i.i.i.i = icmp eq ptr %192, %193
@@ -2603,10 +2603,10 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 .loopexit123:                                     ; preds = %.loopexit123.loopexit, %.lr.ph143
   %195 = phi ptr [ %.pre, %.loopexit123.loopexit ], [ %191, %.lr.ph143 ]
-  %196 = getelementptr inbounds %"class.gmx::Selection", ptr %195, i64 %.073
+  %196 = getelementptr inbounds %"class.gmx::Selection", ptr %195, i64 %.074
   %197 = load ptr, ptr %196, align 8
   store ptr %197, ptr %14, align 8
-  store i32 %.074142, ptr %96, align 8
+  store i32 %.073142, ptr %96, align 8
   invoke void @_ZNK3gmx17SelectionPositioncvNS_29AnalysisNeighborhoodPositionsEEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::AnalysisNeighborhoodPositions") align 8 %13, ptr noundef nonnull align 8 dereferenceable(12) %14)
           to label %198 unwind label %.loopexit126
 
@@ -2757,8 +2757,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 .lr.ph140:                                        ; preds = %.preheader, %267
   %256 = phi ptr [ %268, %267 ], [ %204, %.preheader ]
   %257 = phi ptr [ %269, %267 ], [ %203, %.preheader ]
-  %.067139 = phi i64 [ %270, %267 ], [ 0, %.preheader ]
-  %258 = getelementptr inbounds float, ptr %256, i64 %.067139
+  %.065139 = phi i64 [ %270, %267 ], [ 0, %.preheader ]
+  %258 = getelementptr inbounds float, ptr %256, i64 %.065139
   %259 = load float, ptr %258, align 4
   %260 = load float, ptr %99, align 8
   %261 = fcmp ule float %259, %260
@@ -2784,7 +2784,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 267:                                              ; preds = %._crit_edge150, %.lr.ph140
   %268 = phi ptr [ %.pre152, %._crit_edge150 ], [ %256, %.lr.ph140 ]
   %269 = phi ptr [ %.pre151, %._crit_edge150 ], [ %257, %.lr.ph140 ]
-  %270 = add nuw i64 %.067139, 1
+  %270 = add nuw i64 %.065139, 1
   %271 = ptrtoint ptr %269 to i64
   %272 = ptrtoint ptr %268 to i64
   %273 = sub i64 %271, %272
@@ -2866,9 +2866,9 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit96
 
 _ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit96: ; preds = %._crit_edge141, %293, %306, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i95
-  %311 = add nuw nsw i32 %.074142, 1
+  %311 = add nuw nsw i32 %.073142, 1
   %312 = load ptr, ptr %9, align 8
-  %313 = getelementptr inbounds %"class.gmx::Selection", ptr %312, i64 %.073
+  %313 = getelementptr inbounds %"class.gmx::Selection", ptr %312, i64 %.074
   %314 = load ptr, ptr %313, align 8
   %315 = getelementptr inbounds i8, ptr %314, i64 112
   %316 = load i32, ptr %315, align 8
@@ -2877,7 +2877,7 @@ _ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit96: ; preds = %._crit_edge141, %
 
 .loopexit125:                                     ; preds = %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit96, %.preheader124
   %318 = phi i32 [ %189, %.preheader124 ], [ %316, %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit96 ]
-  %319 = add i64 %.073, 1
+  %319 = add i64 %.074, 1
   %320 = trunc i64 %319 to i32
   %321 = sitofp i32 %318 to float
   %322 = fmul float %64, %321
@@ -3143,7 +3143,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc89
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv129 = phi i64 [ %indvars.iv.next130, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %.035118.us = phi float [ %50, %.lr.ph.split.us ], [ 0.000000e+00, %.lr.ph ]
+  %.036117.us = phi float [ %50, %.lr.ph.split.us ], [ 0.000000e+00, %.lr.ph ]
   %42 = trunc nuw nsw i64 %indvars.iv129 to i32
   %43 = uitofp nneg i32 %42 to double
   %44 = fadd double %43, 5.000000e-01
@@ -3153,7 +3153,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc89
   %48 = fmul double %47, 0x400921FB54442D18
   %49 = fmul double %48, %47
   %50 = fptrunc double %49 to float
-  %51 = fsub float %50, %.035118.us
+  %51 = fsub float %50, %.036117.us
   %52 = fdiv float 1.000000e+00, %51
   %53 = getelementptr inbounds float, ptr %33, i64 %indvars.iv129
   store float %52, ptr %53, align 4
@@ -3163,7 +3163,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc89
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %.035118 = phi float [ %63, %.lr.ph.split ], [ 0.000000e+00, %.lr.ph ]
+  %.036117 = phi float [ %63, %.lr.ph.split ], [ 0.000000e+00, %.lr.ph ]
   %54 = trunc nuw nsw i64 %indvars.iv to i32
   %55 = uitofp nneg i32 %54 to double
   %56 = fadd double %55, 5.000000e-01
@@ -3174,7 +3174,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc89
   %61 = fmul double %60, %59
   %62 = fmul double %61, %59
   %63 = fptrunc double %62 to float
-  %64 = fsub float %63, %.035118
+  %64 = fsub float %63, %.036117
   %65 = fdiv float 1.000000e+00, %64
   %66 = getelementptr inbounds float, ptr %33, i64 %indvars.iv
   store float %65, ptr %66, align 4

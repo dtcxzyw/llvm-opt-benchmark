@@ -291,23 +291,23 @@ define dso_local noundef i64 @hex_encode(ptr noundef readonly %0, i64 noundef %1
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.011 = phi ptr [ %18, %.lr.ph ], [ %0, %3 ]
-  %.0910 = phi ptr [ %17, %.lr.ph ], [ %2, %3 ]
-  %6 = load i8, ptr %.011, align 1
+  %.011 = phi ptr [ %17, %.lr.ph ], [ %2, %3 ]
+  %.0910 = phi ptr [ %18, %.lr.ph ], [ %0, %3 ]
+  %6 = load i8, ptr %.0910, align 1
   %7 = lshr i8 %6, 4
   %8 = zext nneg i8 %7 to i64
   %9 = getelementptr [17 x i8], ptr @hextbl, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr i8, ptr %.0910, i64 1
-  store i8 %10, ptr %.0910, align 1
-  %12 = load i8, ptr %.011, align 1
+  %11 = getelementptr i8, ptr %.011, i64 1
+  store i8 %10, ptr %.011, align 1
+  %12 = load i8, ptr %.0910, align 1
   %13 = and i8 %12, 15
   %14 = zext nneg i8 %13 to i64
   %15 = getelementptr [17 x i8], ptr @hextbl, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1
-  %17 = getelementptr i8, ptr %.0910, i64 2
+  %17 = getelementptr i8, ptr %.011, i64 2
   store i8 %16, ptr %11, align 1
-  %18 = getelementptr i8, ptr %.011, i64 1
+  %18 = getelementptr i8, ptr %.0910, i64 1
   %exitcond.not = icmp eq ptr %18, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
@@ -329,12 +329,12 @@ define dso_local i64 @hex_decode_safe(ptr noundef %0, i64 noundef %1, ptr nounde
   br i1 %6, label %.lr.ph, label %.outer._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.outer
-  %.033.ph54 = phi ptr [ %41, %.outer ], [ %0, %4 ]
-  %.034.ph53 = phi ptr [ %44, %.outer ], [ %2, %4 ]
+  %.0.ph54 = phi ptr [ %44, %.outer ], [ %2, %4 ]
+  %.033.ph53 = phi ptr [ %41, %.outer ], [ %0, %4 ]
   br label %7
 
 7:                                                ; preds = %.lr.ph, %9
-  %.03351 = phi ptr [ %.033.ph54, %.lr.ph ], [ %10, %9 ]
+  %.03351 = phi ptr [ %.033.ph53, %.lr.ph ], [ %10, %9 ]
   %8 = load i8, ptr %.03351, align 1
   switch i8 %8, label %12 [
     i8 32, label %9
@@ -412,21 +412,21 @@ get_hex.exit39.thread:                            ; preds = %30, %get_hex.exit39
   %41 = getelementptr i8, ptr %.03351, i64 2
   %42 = shl i8 %16, 4
   %43 = or i8 %34, %42
-  %44 = getelementptr i8, ptr %.034.ph53, i64 1
-  store i8 %43, ptr %.034.ph53, align 1
+  %44 = getelementptr i8, ptr %.0.ph54, i64 1
+  store i8 %43, ptr %.0.ph54, align 1
   %45 = icmp ult ptr %41, %5
   br i1 %45, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !8
 
 .outer._crit_edge:                                ; preds = %.outer, %9, %4
-  %.034.ph.lcssa50 = phi ptr [ %2, %4 ], [ %.034.ph53, %9 ], [ %44, %.outer ]
-  %46 = ptrtoint ptr %.034.ph.lcssa50 to i64
+  %.0.ph.lcssa50 = phi ptr [ %2, %4 ], [ %.0.ph54, %9 ], [ %44, %.outer ]
+  %46 = ptrtoint ptr %.0.ph.lcssa50 to i64
   %47 = ptrtoint ptr %2 to i64
   %48 = sub i64 %46, %47
   br label %49
 
 49:                                               ; preds = %37, %get_hex.exit39.thread, %27, %25, %19, %get_hex.exit.thread, %.outer._crit_edge
-  %.0 = phi i64 [ %48, %.outer._crit_edge ], [ 0, %get_hex.exit.thread ], [ 0, %19 ], [ 0, %25 ], [ 0, %27 ], [ 0, %get_hex.exit39.thread ], [ 0, %37 ]
-  ret i64 %.0
+  %.034 = phi i64 [ %48, %.outer._crit_edge ], [ 0, %get_hex.exit.thread ], [ 0, %19 ], [ 0, %25 ], [ 0, %27 ], [ 0, %get_hex.exit39.thread ], [ 0, %37 ]
+  ret i64 %.034
 }
 
 declare zeroext i1 @errsave_start(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -479,16 +479,16 @@ define internal i64 @pg_base64_encode(ptr noundef readonly %0, i64 noundef %1, p
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %.048 = phi i32 [ %.1, %43 ], [ 0, %.lr.ph.preheader ]
   %.03547 = phi i32 [ %.136, %43 ], [ 2, %.lr.ph.preheader ]
-  %.03746 = phi ptr [ %.2, %43 ], [ %2, %.lr.ph.preheader ]
-  %.03945 = phi ptr [ %13, %43 ], [ %0, %.lr.ph.preheader ]
-  %.04044 = phi ptr [ %.141, %43 ], [ %6, %.lr.ph.preheader ]
-  %7 = load i8, ptr %.03945, align 1
+  %.03746 = phi ptr [ %13, %43 ], [ %0, %.lr.ph.preheader ]
+  %.03845 = phi ptr [ %.139, %43 ], [ %6, %.lr.ph.preheader ]
+  %.04044 = phi ptr [ %.2, %43 ], [ %2, %.lr.ph.preheader ]
+  %7 = load i8, ptr %.03746, align 1
   %8 = zext i8 %7 to i32
   %9 = shl nuw nsw i32 %.03547, 3
   %10 = shl nuw nsw i32 %8, %9
   %11 = or i32 %10, %.048
   %12 = add nsw i32 %.03547, -1
-  %13 = getelementptr i8, ptr %.03945, i64 1
+  %13 = getelementptr i8, ptr %.03746, i64 1
   %14 = icmp slt i32 %.03547, 1
   br i1 %14, label %15, label %39
 
@@ -498,46 +498,46 @@ define internal i64 @pg_base64_encode(ptr noundef readonly %0, i64 noundef %1, p
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr [65 x i8], ptr @_base64, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
-  %21 = getelementptr i8, ptr %.03746, i64 1
-  store i8 %20, ptr %.03746, align 1
+  %21 = getelementptr i8, ptr %.04044, i64 1
+  store i8 %20, ptr %.04044, align 1
   %22 = lshr i32 %11, 12
   %23 = and i32 %22, 63
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr [65 x i8], ptr @_base64, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1
-  %27 = getelementptr i8, ptr %.03746, i64 2
+  %27 = getelementptr i8, ptr %.04044, i64 2
   store i8 %26, ptr %21, align 1
   %28 = lshr i32 %11, 6
   %29 = and i32 %28, 63
   %30 = zext nneg i32 %29 to i64
   %31 = getelementptr [65 x i8], ptr @_base64, i64 0, i64 %30
   %32 = load i8, ptr %31, align 1
-  %33 = getelementptr i8, ptr %.03746, i64 3
+  %33 = getelementptr i8, ptr %.04044, i64 3
   store i8 %32, ptr %27, align 1
   %34 = and i32 %11, 63
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr [65 x i8], ptr @_base64, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
-  %38 = getelementptr i8, ptr %.03746, i64 4
+  %38 = getelementptr i8, ptr %.04044, i64 4
   store i8 %37, ptr %33, align 1
   br label %39
 
 39:                                               ; preds = %15, %.lr.ph
-  %.138 = phi ptr [ %38, %15 ], [ %.03746, %.lr.ph ]
+  %.141 = phi ptr [ %38, %15 ], [ %.04044, %.lr.ph ]
   %.136 = phi i32 [ 2, %15 ], [ %12, %.lr.ph ]
   %.1 = phi i32 [ 0, %15 ], [ %11, %.lr.ph ]
-  %.not43 = icmp ult ptr %.138, %.04044
+  %.not43 = icmp ult ptr %.141, %.03845
   br i1 %.not43, label %43, label %40
 
 40:                                               ; preds = %39
-  %41 = getelementptr i8, ptr %.138, i64 1
-  store i8 10, ptr %.138, align 1
-  %42 = getelementptr i8, ptr %.138, i64 77
+  %41 = getelementptr i8, ptr %.141, i64 1
+  store i8 10, ptr %.141, align 1
+  %42 = getelementptr i8, ptr %.141, i64 77
   br label %43
 
 43:                                               ; preds = %40, %39
-  %.141 = phi ptr [ %42, %40 ], [ %.04044, %39 ]
-  %.2 = phi ptr [ %41, %40 ], [ %.138, %39 ]
+  %.2 = phi ptr [ %41, %40 ], [ %.141, %39 ]
+  %.139 = phi ptr [ %42, %40 ], [ %.03845, %39 ]
   %exitcond.not = icmp eq ptr %13, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
@@ -597,14 +597,14 @@ define internal i64 @pg_base64_decode(ptr noundef %0, i64 noundef %1, ptr nounde
   %.0.ph96 = phi i32 [ %.270, %.outer ], [ 0, %3 ]
   %.052.ph95 = phi i32 [ %.153, %.outer ], [ 0, %3 ]
   %.054.ph94 = phi i32 [ %.155, %.outer ], [ 0, %3 ]
-  %.058.ph93 = phi ptr [ %7, %.outer ], [ %0, %3 ]
-  %.059.ph92 = phi ptr [ %.3, %.outer ], [ %2, %3 ]
+  %.058.ph93 = phi ptr [ %.3, %.outer ], [ %2, %3 ]
+  %.061.ph92 = phi ptr [ %7, %.outer ], [ %0, %3 ]
   br label %6
 
 6:                                                ; preds = %.lr.ph, %.backedge
-  %.05888 = phi ptr [ %.058.ph93, %.lr.ph ], [ %7, %.backedge ]
-  %7 = getelementptr i8, ptr %.05888, i64 1
-  %8 = load i8, ptr %.05888, align 1
+  %.06188 = phi ptr [ %.061.ph92, %.lr.ph ], [ %7, %.backedge ]
+  %7 = getelementptr i8, ptr %.06188, i64 1
+  %8 = load i8, ptr %.06188, align 1
   switch i8 %8, label %21 [
     i8 32, label %.backedge
     i8 13, label %.backedge
@@ -635,8 +635,8 @@ define internal i64 @pg_base64_decode(ptr noundef %0, i64 noundef %1, ptr nounde
   %13 = shl i32 %.054.ph94, 6
   %14 = lshr i32 %13, 16
   %15 = trunc i32 %14 to i8
-  %16 = getelementptr i8, ptr %.059.ph92, i64 1
-  store i8 %15, ptr %.059.ph92, align 1
+  %16 = getelementptr i8, ptr %.058.ph93, i64 1
+  store i8 %15, ptr %.058.ph93, align 1
   br label %44
 
 17:                                               ; preds = %11
@@ -664,8 +664,8 @@ define internal i64 @pg_base64_decode(ptr noundef %0, i64 noundef %1, ptr nounde
   %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %29)
   %30 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %31 = tail call i32 @pg_mblen(ptr noundef nonnull %.05888) #7
-  %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, i32 noundef %31, ptr noundef nonnull %.05888) #7
+  %31 = tail call i32 @pg_mblen(ptr noundef nonnull %.06188) #7
+  %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, i32 noundef %31, ptr noundef nonnull %.06188) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 357, ptr noundef nonnull @__func__.pg_base64_decode) #7
   unreachable
 
@@ -680,8 +680,8 @@ define internal i64 @pg_base64_decode(ptr noundef %0, i64 noundef %1, ptr nounde
 38:                                               ; preds = %33
   %39 = lshr i32 %35, 16
   %40 = trunc i32 %39 to i8
-  %41 = getelementptr i8, ptr %.059.ph92, i64 1
-  store i8 %40, ptr %.059.ph92, align 1
+  %41 = getelementptr i8, ptr %.058.ph93, i64 1
+  store i8 %40, ptr %.058.ph93, align 1
   %42 = icmp eq i32 %.0.ph96, 0
   %43 = icmp sgt i32 %.0.ph96, 1
   %or.cond13 = or i1 %42, %43
@@ -694,7 +694,7 @@ define internal i64 @pg_base64_decode(ptr noundef %0, i64 noundef %1, ptr nounde
   %47 = phi i32 [ %13, %.thread74 ], [ %35, %38 ]
   %48 = lshr i32 %47, 8
   %49 = trunc i32 %48 to i8
-  %50 = getelementptr i8, ptr %.059.ph92, i64 2
+  %50 = getelementptr i8, ptr %.058.ph93, i64 2
   store i8 %49, ptr %46, align 1
   br label %51
 
@@ -702,27 +702,27 @@ define internal i64 @pg_base64_decode(ptr noundef %0, i64 noundef %1, ptr nounde
   %52 = phi i1 [ %45, %44 ], [ false, %38 ]
   %.26977 = phi i32 [ %.26978, %44 ], [ %.0.ph96, %38 ]
   %53 = phi i32 [ %47, %44 ], [ %35, %38 ]
-  %.160 = phi ptr [ %50, %44 ], [ %41, %38 ]
+  %.159 = phi ptr [ %50, %44 ], [ %41, %38 ]
   %54 = icmp sgt i32 %.26977, 2
   %or.cond15 = or i1 %52, %54
   br i1 %or.cond15, label %55, label %.outer
 
 55:                                               ; preds = %51
   %56 = trunc i32 %53 to i8
-  %57 = getelementptr i8, ptr %.160, i64 1
-  store i8 %56, ptr %.160, align 1
+  %57 = getelementptr i8, ptr %.159, i64 1
+  store i8 %56, ptr %.159, align 1
   br label %.outer
 
 .outer:                                           ; preds = %.thread71, %55, %51, %33
   %.270 = phi i32 [ %.0.ph96, %33 ], [ %.26977, %55 ], [ %.26977, %51 ], [ 1, %.thread71 ]
-  %.3 = phi ptr [ %.059.ph92, %33 ], [ %57, %55 ], [ %.160, %51 ], [ %.059.ph92, %.thread71 ]
+  %.3 = phi ptr [ %.058.ph93, %33 ], [ %57, %55 ], [ %.159, %51 ], [ %.058.ph93, %.thread71 ]
   %.155 = phi i32 [ %35, %33 ], [ 0, %55 ], [ 0, %51 ], [ %12, %.thread71 ]
   %.153 = phi i32 [ %36, %33 ], [ 0, %55 ], [ 0, %51 ], [ 3, %.thread71 ]
   %58 = icmp ult ptr %7, %4
   br i1 %58, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !10
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge
-  %.059.ph.lcssa87 = phi ptr [ %.059.ph92, %.backedge ], [ %.3, %.outer ]
+  %.058.ph.lcssa87 = phi ptr [ %.058.ph93, %.backedge ], [ %.3, %.outer ]
   %.052.ph.lcssa85 = phi i32 [ %.052.ph95, %.backedge ], [ %.153, %.outer ]
   %.not = icmp eq i32 %.052.ph.lcssa85, 0
   br i1 %.not, label %.outer._crit_edge.thread, label %59
@@ -737,8 +737,8 @@ define internal i64 @pg_base64_decode(ptr noundef %0, i64 noundef %1, ptr nounde
   unreachable
 
 .outer._crit_edge.thread:                         ; preds = %3, %.outer._crit_edge
-  %.059.ph.lcssa87116 = phi ptr [ %.059.ph.lcssa87, %.outer._crit_edge ], [ %2, %3 ]
-  %64 = ptrtoint ptr %.059.ph.lcssa87116 to i64
+  %.058.ph.lcssa87116 = phi ptr [ %.058.ph.lcssa87, %.outer._crit_edge ], [ %2, %3 ]
+  %64 = ptrtoint ptr %.058.ph.lcssa87116 to i64
   %65 = ptrtoint ptr %2 to i64
   %66 = sub i64 %64, %65
   ret i64 %66
@@ -843,29 +843,29 @@ define internal i64 @esc_encode(ptr noundef readonly %0, i64 noundef %1, ptr noc
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %26
-  %.032 = phi ptr [ %28, %26 ], [ %0, %3 ]
-  %.02631 = phi i64 [ %27, %26 ], [ 0, %3 ]
-  %.02730 = phi ptr [ %.128, %26 ], [ %2, %3 ]
-  %6 = load i8, ptr %.032, align 1
+  %.032 = phi i64 [ %27, %26 ], [ 0, %3 ]
+  %.02631 = phi ptr [ %.127, %26 ], [ %2, %3 ]
+  %.02830 = phi ptr [ %28, %26 ], [ %0, %3 ]
+  %6 = load i8, ptr %.02830, align 1
   %or.cond = icmp sgt i8 %6, 0
   br i1 %or.cond, label %19, label %7
 
 7:                                                ; preds = %.lr.ph
-  store i8 92, ptr %.02730, align 1
+  store i8 92, ptr %.02631, align 1
   %8 = lshr i8 %6, 6
   %9 = or disjoint i8 %8, 48
-  %10 = getelementptr i8, ptr %.02730, i64 1
+  %10 = getelementptr i8, ptr %.02631, i64 1
   store i8 %9, ptr %10, align 1
   %11 = lshr i8 %6, 3
   %12 = and i8 %11, 7
   %13 = or disjoint i8 %12, 48
-  %14 = getelementptr i8, ptr %.02730, i64 2
+  %14 = getelementptr i8, ptr %.02631, i64 2
   store i8 %13, ptr %14, align 1
   %15 = and i8 %6, 7
   %16 = or disjoint i8 %15, 48
-  %17 = getelementptr i8, ptr %.02730, i64 3
+  %17 = getelementptr i8, ptr %.02631, i64 3
   store i8 %16, ptr %17, align 1
-  %18 = getelementptr i8, ptr %.02730, i64 4
+  %18 = getelementptr i8, ptr %.02631, i64 4
   br label %26
 
 19:                                               ; preds = %.lr.ph
@@ -873,28 +873,28 @@ define internal i64 @esc_encode(ptr noundef readonly %0, i64 noundef %1, ptr noc
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %19
-  store i8 92, ptr %.02730, align 1
-  %22 = getelementptr i8, ptr %.02730, i64 1
+  store i8 92, ptr %.02631, align 1
+  %22 = getelementptr i8, ptr %.02631, i64 1
   store i8 92, ptr %22, align 1
-  %23 = getelementptr i8, ptr %.02730, i64 2
+  %23 = getelementptr i8, ptr %.02631, i64 2
   br label %26
 
 24:                                               ; preds = %19
-  %25 = getelementptr i8, ptr %.02730, i64 1
-  store i8 %6, ptr %.02730, align 1
+  %25 = getelementptr i8, ptr %.02631, i64 1
+  store i8 %6, ptr %.02631, align 1
   br label %26
 
 26:                                               ; preds = %21, %24, %7
   %.sink = phi i64 [ 2, %21 ], [ 1, %24 ], [ 4, %7 ]
-  %.128 = phi ptr [ %23, %21 ], [ %25, %24 ], [ %18, %7 ]
-  %27 = add i64 %.02631, %.sink
-  %28 = getelementptr i8, ptr %.032, i64 1
+  %.127 = phi ptr [ %23, %21 ], [ %25, %24 ], [ %18, %7 ]
+  %27 = add i64 %.032, %.sink
+  %28 = getelementptr i8, ptr %.02830, i64 1
   %exitcond.not = icmp eq ptr %28, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %26, %3
-  %.026.lcssa = phi i64 [ 0, %3 ], [ %27, %26 ]
-  ret i64 %.026.lcssa
+  %.0.lcssa = phi i64 [ 0, %3 ], [ %27, %26 ]
+  ret i64 %.0.lcssa
 }
 
 ; Function Attrs: nounwind uwtable

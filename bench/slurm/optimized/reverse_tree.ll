@@ -106,7 +106,7 @@ geometric_series.exit.thread:                     ; preds = %23
 
 tailrecurse.loopexit.i:                           ; preds = %50
   %36 = add nuw nsw i32 %44, 1
-  %37 = add nsw i32 %.03755.i, 1
+  %37 = add nsw i32 %.03655.i, 1
   %38 = sdiv i32 %41, %2
   %39 = add nsw i32 %38, -1
   %40 = icmp eq i32 %37, %0
@@ -117,7 +117,7 @@ tailrecurse.loopexit.i:                           ; preds = %50
   %42 = phi i32 [ %38, %tailrecurse.loopexit.i ], [ %.ph73, %.preheader.i.preheader ]
   %43 = phi i32 [ %37, %tailrecurse.loopexit.i ], [ 1, %.preheader.i.preheader ]
   %44 = phi i32 [ %36, %tailrecurse.loopexit.i ], [ 1, %.preheader.i.preheader ]
-  %.tr4261.i = phi i32 [ %.03755.i, %tailrecurse.loopexit.i ], [ 0, %.preheader.i.preheader ]
+  %.tr4261.i = phi i32 [ %.03655.i, %tailrecurse.loopexit.i ], [ 0, %.preheader.i.preheader ]
   br label %47
 
 45:                                               ; preds = %50
@@ -127,20 +127,20 @@ tailrecurse.loopexit.i:                           ; preds = %50
 
 47:                                               ; preds = %45, %.preheader.i
   %.056.i = phi i32 [ 1, %.preheader.i ], [ %46, %45 ]
-  %.03755.i = phi i32 [ %43, %.preheader.i ], [ %48, %45 ]
-  %48 = add i32 %.03755.i, %42
+  %.03655.i = phi i32 [ %43, %.preheader.i ], [ %48, %45 ]
+  %48 = add i32 %.03655.i, %42
   %49 = icmp eq i32 %48, %0
   br i1 %49, label %search_tree.exit, label %50
 
 50:                                               ; preds = %47
-  %51 = icmp slt i32 %.03755.i, %0
+  %51 = icmp slt i32 %.03655.i, %0
   %52 = icmp sgt i32 %48, %0
   %or.cond.i = and i1 %51, %52
   br i1 %or.cond.i, label %tailrecurse.loopexit.i, label %45
 
 search_tree.exit:                                 ; preds = %tailrecurse.loopexit.i, %45, %47, %geometric_series.exit.thread, %geometric_series.exit, %.preheader.lr.ph.i
   %storemerge.sink.i = phi i32 [ 1, %geometric_series.exit ], [ 1, %.preheader.lr.ph.i ], [ 1, %geometric_series.exit.thread ], [ %44, %47 ], [ %44, %45 ], [ %36, %tailrecurse.loopexit.i ]
-  %.sink88.i = phi i32 [ 0, %geometric_series.exit ], [ -1, %.preheader.lr.ph.i ], [ 0, %geometric_series.exit.thread ], [ -1, %45 ], [ %.tr4261.i, %47 ], [ %.03755.i, %tailrecurse.loopexit.i ]
+  %.sink88.i = phi i32 [ 0, %geometric_series.exit ], [ -1, %.preheader.lr.ph.i ], [ 0, %geometric_series.exit.thread ], [ -1, %45 ], [ %.tr4261.i, %47 ], [ %.03655.i, %tailrecurse.loopexit.i ]
   %.sink.i = phi i32 [ %32, %geometric_series.exit ], [ -1, %.preheader.lr.ph.i ], [ %.07.lcssa.i, %geometric_series.exit.thread ], [ -1, %45 ], [ %41, %47 ], [ %39, %tailrecurse.loopexit.i ]
   store i32 %storemerge.sink.i, ptr %5, align 4
   %53 = add nsw i32 %.sink.i, %0

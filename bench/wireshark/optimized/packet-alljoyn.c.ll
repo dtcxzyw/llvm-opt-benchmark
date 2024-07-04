@@ -1285,11 +1285,11 @@ define internal fastcc i32 @dissect_AllJoyn_message(ptr noundef %0, ptr noundef 
   br label %23
 
 23:                                               ; preds = %.lr.ph, %handle_message_header_body.exit
-  %.046 = phi i32 [ %3, %.lr.ph ], [ %.0.i41, %handle_message_header_body.exit ]
+  %.03246 = phi i32 [ %3, %.lr.ph ], [ %.0.i41, %handle_message_header_body.exit ]
   br i1 %.not.not, label %24, label %59
 
 24:                                               ; preds = %23
-  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.046) #5
+  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.03246) #5
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %27, label %handle_message_connect.exit
 
@@ -1297,12 +1297,12 @@ define internal fastcc i32 @dissect_AllJoyn_message(ptr noundef %0, ptr noundef 
   %28 = load ptr, ptr %11, align 8
   call void @col_set_str(ptr noundef %28, i32 noundef 25, ptr noundef nonnull @.str.270) #5
   %29 = load i32, ptr @hf_alljoyn_connect_byte_value, align 4
-  %30 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %29, ptr noundef %0, i32 noundef %.046, i32 noundef 1, i32 noundef 0) #5
-  %31 = add nuw nsw i32 %.046, 1
+  %30 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %29, ptr noundef %0, i32 noundef %.03246, i32 noundef 1, i32 noundef 0) #5
+  %31 = add nuw nsw i32 %.03246, 1
   br label %handle_message_connect.exit
 
 handle_message_connect.exit:                      ; preds = %24, %27
-  %.0.i = phi i32 [ %31, %27 ], [ %.046, %24 ]
+  %.0.i = phi i32 [ %31, %27 ], [ %.03246, %24 ]
   %.not38 = icmp slt i32 %.0.i, %10
   br i1 %.not38, label %.preheader, label %handle_message_sasl.exit._crit_edge
 
@@ -1364,7 +1364,7 @@ handle_message_sasl.exit:                         ; preds = %32, %44, %47, %49, 
   br i1 %.not39, label %59, label %handle_message_sasl.exit._crit_edge
 
 59:                                               ; preds = %handle_message_sasl.exit, %23
-  %.1 = phi i32 [ %.046, %23 ], [ %.0.i40, %handle_message_sasl.exit ]
+  %.1 = phi i32 [ %.03246, %23 ], [ %.0.i40, %handle_message_sasl.exit ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   store i8 0, ptr %8, align 1
   %60 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #5
@@ -1693,7 +1693,7 @@ handle_message_header_body.exit:                  ; preds = %63, %75, %96, %101,
   %.0.i41 = phi i32 [ %67, %63 ], [ %76, %75 ], [ %106, %104 ], [ %103, %101 ], [ %218, %216 ], [ %98, %96 ], [ %.0.lcssa.i.i, %handle_message_body_parameters.exit.i ], [ %213, %219 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   %241 = icmp slt i32 %.0.i41, %10
-  %242 = icmp sgt i32 %.0.i41, %.046
+  %242 = icmp sgt i32 %.0.i41, %.03246
   %243 = and i1 %241, %242
   br i1 %243, label %23, label %handle_message_sasl.exit._crit_edge, !llvm.loop !14
 

@@ -736,7 +736,7 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
   br label %60
 
 60:                                               ; preds = %.sink.split, %42, %51
-  %.035 = phi i32 [ 0, %51 ], [ %49, %42 ], [ %59, %.sink.split ]
+  %.0 = phi i32 [ 0, %51 ], [ %49, %42 ], [ %59, %.sink.split ]
   call void @VP8Delete(ptr noundef nonnull %32) #10
   br label %79
 
@@ -776,7 +776,7 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
   br label %79
 
 79:                                               ; preds = %78, %60
-  %.2 = phi i32 [ %.1, %78 ], [ %.035, %60 ]
+  %.2 = phi i32 [ %.1, %78 ], [ %.0, %60 ]
   %.not50 = icmp eq i32 %.2, 0
   br i1 %.not50, label %82, label %80
 
@@ -803,8 +803,8 @@ WebPParseHeaders.exit:                            ; preds = %12, %16, %17
   br label %91
 
 91:                                               ; preds = %80, %88, %85, %82, %61, %31, %18, %WebPParseHeaders.exit
-  %.0 = phi i32 [ %.0..0..0..0..0..0.3.i, %WebPParseHeaders.exit ], [ 2, %18 ], [ 1, %31 ], [ 1, %61 ], [ %.2, %80 ], [ %90, %88 ], [ 0, %85 ], [ 0, %82 ]
-  ret i32 %.0
+  %.035 = phi i32 [ %.0..0..0..0..0..0.3.i, %WebPParseHeaders.exit ], [ 2, %18 ], [ 1, %31 ], [ 1, %61 ], [ %.2, %80 ], [ %90, %88 ], [ 0, %85 ], [ 0, %82 ]
+  ret i32 %.035
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1654,12 +1654,12 @@ define internal fastcc range(i32 0, 8) i32 @ParseOptionalChunks(ptr nocapture no
   br i1 %.not.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %27
-  %.03044.us = phi ptr [ %28, %27 ], [ %6, %.lr.ph ]
-  %.03242.us = phi i64 [ %29, %27 ], [ %7, %.lr.ph ]
-  %9 = getelementptr inbounds i8, ptr %.03044.us, i64 4
+  %.03043.us = phi i64 [ %29, %27 ], [ %7, %.lr.ph ]
+  %.03142.us = phi ptr [ %28, %27 ], [ %6, %.lr.ph ]
+  %9 = getelementptr inbounds i8, ptr %.03142.us, i64 4
   %.val.i.us = load i16, ptr %9, align 1
   %10 = zext i16 %.val.i.us to i32
-  %11 = getelementptr inbounds i8, ptr %.03044.us, i64 6
+  %11 = getelementptr inbounds i8, ptr %.03142.us, i64 6
   %.val3.i.us = load i16, ptr %11, align 1
   %12 = zext i16 %.val3.i.us to i32
   %13 = shl nuw i32 %12, 16
@@ -1670,48 +1670,48 @@ define internal fastcc range(i32 0, 8) i32 @ParseOptionalChunks(ptr nocapture no
 16:                                               ; preds = %.lr.ph.split.us
   %17 = add nuw i32 %14, 9
   %18 = and i32 %17, -2
-  %bcmp.us = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.03044.us, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
+  %bcmp.us = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.03142.us, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
   %.not36.us = icmp eq i32 %bcmp.us, 0
   br i1 %.not36.us, label %._crit_edge, label %19
 
 19:                                               ; preds = %16
-  %bcmp37.us = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.03044.us, ptr noundef nonnull dereferenceable(4) @.str.5, i64 4)
+  %bcmp37.us = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.03142.us, ptr noundef nonnull dereferenceable(4) @.str.5, i64 4)
   %.not38.us = icmp eq i32 %bcmp37.us, 0
   br i1 %.not38.us, label %._crit_edge, label %20
 
 20:                                               ; preds = %19
   %21 = zext i32 %18 to i64
-  %22 = icmp ult i64 %.03242.us, %21
+  %22 = icmp ult i64 %.03043.us, %21
   br i1 %22, label %._crit_edge, label %23
 
 23:                                               ; preds = %20
-  %bcmp39.us = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.03044.us, ptr noundef nonnull dereferenceable(4) @.str, i64 4)
+  %bcmp39.us = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.03142.us, ptr noundef nonnull dereferenceable(4) @.str, i64 4)
   %.not40.us = icmp eq i32 %bcmp39.us, 0
   br i1 %.not40.us, label %24, label %27
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %.03044.us, i64 8
+  %25 = getelementptr inbounds i8, ptr %.03142.us, i64 8
   store ptr %25, ptr %3, align 8
   %26 = zext i32 %14 to i64
   store i64 %26, ptr %4, align 8
   br label %27
 
 27:                                               ; preds = %24, %23
-  %28 = getelementptr inbounds i8, ptr %.03044.us, i64 %21
-  %29 = sub i64 %.03242.us, %21
+  %28 = getelementptr inbounds i8, ptr %.03142.us, i64 %21
+  %29 = sub i64 %.03043.us, %21
   store ptr %28, ptr %0, align 8
   store i64 %29, ptr %1, align 8
   %30 = icmp ult i64 %29, 8
   br i1 %30, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %53
-  %.03044 = phi ptr [ %54, %53 ], [ %6, %.lr.ph ]
-  %.03143 = phi i32 [ %41, %53 ], [ 22, %.lr.ph ]
-  %.03242 = phi i64 [ %55, %53 ], [ %7, %.lr.ph ]
-  %31 = getelementptr inbounds i8, ptr %.03044, i64 4
+  %.044 = phi i32 [ %41, %53 ], [ 22, %.lr.ph ]
+  %.03043 = phi i64 [ %55, %53 ], [ %7, %.lr.ph ]
+  %.03142 = phi ptr [ %54, %53 ], [ %6, %.lr.ph ]
+  %31 = getelementptr inbounds i8, ptr %.03142, i64 4
   %.val.i = load i16, ptr %31, align 1
   %32 = zext i16 %.val.i to i32
-  %33 = getelementptr inbounds i8, ptr %.03044, i64 6
+  %33 = getelementptr inbounds i8, ptr %.03142, i64 6
   %.val3.i = load i16, ptr %33, align 1
   %34 = zext i16 %.val3.i to i32
   %35 = shl nuw i32 %34, 16
@@ -1722,49 +1722,49 @@ define internal fastcc range(i32 0, 8) i32 @ParseOptionalChunks(ptr nocapture no
 38:                                               ; preds = %.lr.ph.split
   %39 = add nuw i32 %36, 9
   %40 = and i32 %39, -2
-  %41 = add i32 %40, %.03143
+  %41 = add i32 %40, %.044
   %42 = zext i32 %41 to i64
   %43 = icmp ugt i64 %42, %2
   br i1 %43, label %._crit_edge, label %44
 
 44:                                               ; preds = %38
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.03044, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.03142, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
   %.not36 = icmp eq i32 %bcmp, 0
   br i1 %.not36, label %._crit_edge, label %45
 
 45:                                               ; preds = %44
-  %bcmp37 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.03044, ptr noundef nonnull dereferenceable(4) @.str.5, i64 4)
+  %bcmp37 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.03142, ptr noundef nonnull dereferenceable(4) @.str.5, i64 4)
   %.not38 = icmp eq i32 %bcmp37, 0
   br i1 %.not38, label %._crit_edge, label %46
 
 46:                                               ; preds = %45
   %47 = zext i32 %40 to i64
-  %48 = icmp ult i64 %.03242, %47
+  %48 = icmp ult i64 %.03043, %47
   br i1 %48, label %._crit_edge, label %49
 
 49:                                               ; preds = %46
-  %bcmp39 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.03044, ptr noundef nonnull dereferenceable(4) @.str, i64 4)
+  %bcmp39 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.03142, ptr noundef nonnull dereferenceable(4) @.str, i64 4)
   %.not40 = icmp eq i32 %bcmp39, 0
   br i1 %.not40, label %50, label %53
 
 50:                                               ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %.03044, i64 8
+  %51 = getelementptr inbounds i8, ptr %.03142, i64 8
   store ptr %51, ptr %3, align 8
   %52 = zext i32 %36 to i64
   store i64 %52, ptr %4, align 8
   br label %53
 
 53:                                               ; preds = %50, %49
-  %54 = getelementptr inbounds i8, ptr %.03044, i64 %47
-  %55 = sub i64 %.03242, %47
+  %54 = getelementptr inbounds i8, ptr %.03142, i64 %47
+  %55 = sub i64 %.03043, %47
   store ptr %54, ptr %0, align 8
   store i64 %55, ptr %1, align 8
   %56 = icmp ult i64 %55, 8
   br i1 %56, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %53, %.lr.ph.split, %38, %45, %44, %46, %27, %.lr.ph.split.us, %19, %16, %20, %5
-  %.0 = phi i32 [ 7, %5 ], [ 7, %20 ], [ 0, %16 ], [ 0, %19 ], [ 3, %.lr.ph.split.us ], [ 7, %27 ], [ 7, %46 ], [ 0, %44 ], [ 0, %45 ], [ 3, %38 ], [ 3, %.lr.ph.split ], [ 7, %53 ]
-  ret i32 %.0
+  %.032 = phi i32 [ 7, %5 ], [ 7, %20 ], [ 0, %16 ], [ 0, %19 ], [ 3, %.lr.ph.split.us ], [ 7, %27 ], [ 7, %46 ], [ 0, %44 ], [ 0, %45 ], [ 3, %38 ], [ 3, %.lr.ph.split ], [ 7, %53 ]
+  ret i32 %.032
 }
 
 ; Function Attrs: nounwind uwtable

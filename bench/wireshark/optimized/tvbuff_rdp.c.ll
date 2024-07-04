@@ -63,12 +63,12 @@ define hidden ptr @rdp8_decompress(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %28
 
 28:                                               ; preds = %.lr.ph, %37
-  %.05059 = phi ptr [ %24, %.lr.ph ], [ %40, %37 ]
-  %.05158 = phi i32 [ %25, %.lr.ph ], [ %39, %37 ]
-  %.05257 = phi i32 [ 0, %.lr.ph ], [ %35, %37 ]
-  %.05356 = phi i16 [ 0, %.lr.ph ], [ %41, %37 ]
-  %29 = tail call i32 @tvb_get_guint32(ptr noundef %2, i32 noundef %.05158, i32 noundef -2147483648) #4
-  %30 = add i32 %.05158, 4
+  %.059 = phi ptr [ %24, %.lr.ph ], [ %40, %37 ]
+  %.05058 = phi i32 [ 0, %.lr.ph ], [ %35, %37 ]
+  %.05157 = phi i16 [ 0, %.lr.ph ], [ %41, %37 ]
+  %.05356 = phi i32 [ %25, %.lr.ph ], [ %39, %37 ]
+  %29 = tail call i32 @tvb_get_guint32(ptr noundef %2, i32 noundef %.05356, i32 noundef -2147483648) #4
+  %30 = add i32 %.05356, 4
   store i32 0, ptr %26, align 4
   %31 = tail call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %30, i32 noundef %29) #4
   %32 = tail call fastcc i32 @rdp8_decompress_segment(ptr noundef %0, ptr noundef %31)
@@ -77,16 +77,16 @@ define hidden ptr @rdp8_decompress(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 33:                                               ; preds = %28
   %34 = load i32, ptr %26, align 4
-  %35 = add i32 %34, %.05257
+  %35 = add i32 %34, %.05058
   %36 = icmp ugt i32 %35, %22
   br i1 %36, label %.loopexit, label %37
 
 37:                                               ; preds = %33
   %38 = zext i32 %34 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.05059, ptr nonnull align 4 %27, i64 %38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.059, ptr nonnull align 4 %27, i64 %38, i1 false)
   %39 = add i32 %29, %30
-  %40 = getelementptr i8, ptr %.05059, i64 %38
-  %41 = add nuw i16 %.05356, 1
+  %40 = getelementptr i8, ptr %.059, i64 %38
+  %41 = add nuw i16 %.05157, 1
   %exitcond.not = icmp eq i16 %41, %20
   br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !4
 
@@ -95,8 +95,8 @@ define hidden ptr @rdp8_decompress(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %28, %4, %7, %._crit_edge, %11
-  %.0 = phi ptr [ %42, %._crit_edge ], [ %18, %11 ], [ null, %7 ], [ %2, %4 ], [ null, %28 ], [ null, %33 ]
-  ret ptr %.0
+  %.052 = phi ptr [ %42, %._crit_edge ], [ %18, %11 ], [ null, %7 ], [ %2, %4 ], [ null, %28 ], [ null, %33 ]
+  ret ptr %.052
 }
 
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -624,12 +624,12 @@ bitstream_getbits.exit144.loopexit:               ; preds = %.lr.ph.i142
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %bitstream_getbits.exit151
   %223 = phi i32 [ %235, %bitstream_getbits.exit151 ], [ %.promoted248, %.lr.ph.preheader ]
   %.0278 = phi i8 [ %226, %bitstream_getbits.exit151 ], [ 2, %.lr.ph.preheader ]
-  %.072277 = phi i32 [ %225, %bitstream_getbits.exit151 ], [ 4, %.lr.ph.preheader ]
+  %.071277 = phi i32 [ %225, %bitstream_getbits.exit151 ], [ 4, %.lr.ph.preheader ]
   %224 = phi i32 [ %238, %bitstream_getbits.exit151 ], [ %.promoted241, %.lr.ph.preheader ]
   %.promoted240243276 = phi i32 [ %236, %bitstream_getbits.exit151 ], [ %.promoted242, %.lr.ph.preheader ]
   %.promoted239246275 = phi i32 [ %240, %bitstream_getbits.exit151 ], [ %.promoted245, %.lr.ph.preheader ]
   %.promoted238250274 = phi i32 [ %.promoted238249, %bitstream_getbits.exit151 ], [ %.promoted248, %.lr.ph.preheader ]
-  %225 = shl i32 %.072277, 1
+  %225 = shl i32 %.071277, 1
   %226 = add i8 %.0278, 1
   %227 = icmp eq i32 %224, 0
   br i1 %227, label %.split261, label %.preheader.i145
@@ -688,11 +688,11 @@ bitstream_getbits.exit151:                        ; preds = %bitstream_getbits.e
 
 .split:                                           ; preds = %.split.loopexit, %.preheader
   %.pr173252.lcssa = phi i32 [ %220, %.preheader ], [ 1, %.split.loopexit ]
-  %.072.lcssa = phi i32 [ 4, %.preheader ], [ %225, %.split.loopexit ]
+  %.071.lcssa = phi i32 [ 4, %.preheader ], [ %225, %.split.loopexit ]
   %.0.lcssa = phi i8 [ 2, %.preheader ], [ %226, %.split.loopexit ]
   store i32 %.pr173252.lcssa, ptr %4, align 4
   %242 = call fastcc i32 @bitstream_getbits(ptr noundef nonnull %3, i8 noundef zeroext %.0.lcssa, ptr noundef nonnull %4)
-  %243 = add i32 %242, %.072.lcssa
+  %243 = add i32 %242, %.071.lcssa
   %244 = load i32, ptr %4, align 4
   %.not101 = icmp eq i32 %244, 0
   br i1 %.not101, label %zgfx_write_literal.exit.thread, label %245
@@ -867,8 +867,8 @@ zgfx_write_literal.exit158:                       ; preds = %325
   br label %.critedgethread-pre-split, !llvm.loop !6
 
 zgfx_write_literal.exit.thread:                   ; preds = %218, %.split, %245, %317, %320, %.critedgethread-pre-split, %bitstream_getbits.exit115, %325, %.lr.ph.i142, %202, %173, %.lr.ph.i, %.split284, %.split264, %.split261, %.lr.ph.i135.preheader._crit_edge, %.lr.ph.i128.preheader._crit_edge, %146, %49, %zgfx_write_history_buffer_tvb.exit
-  %.071 = phi i32 [ 1, %zgfx_write_history_buffer_tvb.exit ], [ 0, %49 ], [ 0, %146 ], [ 0, %.lr.ph.i128.preheader._crit_edge ], [ 0, %.lr.ph.i135.preheader._crit_edge ], [ 0, %.split261 ], [ 0, %.split264 ], [ 1, %.split284 ], [ 0, %.lr.ph.i ], [ 0, %173 ], [ 0, %202 ], [ 0, %.lr.ph.i142 ], [ 0, %325 ], [ 0, %bitstream_getbits.exit115 ], [ 1, %.critedgethread-pre-split ], [ 0, %320 ], [ 0, %317 ], [ 0, %245 ], [ 0, %.split ], [ 0, %218 ]
-  ret i32 %.071
+  %.072 = phi i32 [ 1, %zgfx_write_history_buffer_tvb.exit ], [ 0, %49 ], [ 0, %146 ], [ 0, %.lr.ph.i128.preheader._crit_edge ], [ 0, %.lr.ph.i135.preheader._crit_edge ], [ 0, %.split261 ], [ 0, %.split264 ], [ 1, %.split284 ], [ 0, %.lr.ph.i ], [ 0, %173 ], [ 0, %202 ], [ 0, %.lr.ph.i142 ], [ 0, %325 ], [ 0, %bitstream_getbits.exit115 ], [ 1, %.critedgethread-pre-split ], [ 0, %320 ], [ 0, %317 ], [ 0, %245 ], [ 0, %.split ], [ 0, %218 ]
+  ret i32 %.072
 }
 
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1

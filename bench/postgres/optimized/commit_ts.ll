@@ -57,18 +57,18 @@ define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 nounde
   br label %17
 
 17:                                               ; preds = %10, %12
-  %.031 = phi i32 [ %16, %12 ], [ %0, %10 ]
+  %.030 = phi i32 [ %16, %12 ], [ %0, %10 ]
   %18 = sext i32 %1 to i64
   br label %19
 
 19:                                               ; preds = %67, %17
-  %.032 = phi i32 [ %0, %17 ], [ %70, %67 ]
-  %.030 = phi i32 [ 0, %17 ], [ %71, %67 ]
-  %20 = udiv i32 %.032, 819
-  %21 = urem i32 %.032, 819
+  %.032 = phi i32 [ 0, %17 ], [ %71, %67 ]
+  %.031 = phi i32 [ %0, %17 ], [ %70, %67 ]
+  %20 = udiv i32 %.031, 819
+  %21 = urem i32 %.031, 819
   %22 = zext nneg i32 %20 to i64
-  %23 = icmp slt i32 %.030, %1
-  %24 = sext i32 %.030 to i64
+  %23 = icmp slt i32 %.032, %1
+  %24 = sext i32 %.032 to i64
   br i1 %23, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %19
@@ -102,9 +102,9 @@ define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 nounde
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph49, %._crit_edge.loopexit.split.loop.exit, %19
-  %.0.lcssa = phi i32 [ %.030, %19 ], [ %32, %._crit_edge.loopexit.split.loop.exit ], [ %1, %.lr.ph49 ]
+  %.0.lcssa = phi i32 [ %.032, %19 ], [ %32, %._crit_edge.loopexit.split.loop.exit ], [ %1, %.lr.ph49 ]
   %.lcssa = phi i1 [ false, %19 ], [ %.lcssa43, %._crit_edge.loopexit.split.loop.exit ], [ false, %.lr.ph49 ]
-  %33 = sub i32 %.0.lcssa, %.030
+  %33 = sub i32 %.0.lcssa, %.032
   %34 = getelementptr i32, ptr %2, i64 %24
   %35 = load i16, ptr getelementptr inbounds (i8, ptr @CommitTsCtlData, i64 8), align 8
   %36 = zext i16 %35 to i64
@@ -114,7 +114,7 @@ define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 nounde
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr %union.LWLockPadded, ptr %40, i64 %37
   %42 = tail call zeroext i1 @LWLockAcquire(ptr noundef %41, i32 noundef 0) #8
-  %43 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @CommitTsCtlData, i64 noundef %22, i1 noundef zeroext true, i32 noundef %.032) #8
+  %43 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @CommitTsCtlData, i64 noundef %22, i1 noundef zeroext true, i32 noundef %.031) #8
   %44 = load ptr, ptr @CommitTsCtlData, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
@@ -183,13 +183,13 @@ SetXidCommitTsInPage.exit:                        ; preds = %.lr.ph.i, %._crit_e
   %79 = load ptr, ptr @TransamVariables, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 44
   %81 = load i32, ptr %80, align 4
-  %82 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %81, i32 noundef %.031) #8
+  %82 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %81, i32 noundef %.030) #8
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %72
   %84 = load ptr, ptr @TransamVariables, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 44
-  store i32 %.031, ptr %85, align 4
+  store i32 %.030, ptr %85, align 4
   br label %86
 
 86:                                               ; preds = %83, %72

@@ -110,7 +110,7 @@ define internal i32 @dissect_fw1(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %17
 
 17:                                               ; preds = %4, %14
-  %.079 = phi i32 [ %16, %14 ], [ 32, %4 ]
+  %.077 = phi i32 [ %16, %14 ], [ 32, %4 ]
   %18 = load i32, ptr @fw1_with_uuid, align 4
   %.not83 = icmp eq i32 %18, 0
   %spec.select = select i1 %.not83, i32 10, i32 6
@@ -162,7 +162,7 @@ define internal i32 @dissect_fw1(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %40 = select i1 %35, i32 105, i32 %39
   %41 = or i1 %36, %37
   %or.cond7 = or i1 %35, %41
-  %42 = select i1 %or.cond7, i32 %.079, i32 32
+  %42 = select i1 %or.cond7, i32 %.077, i32 32
   %43 = icmp eq i8 %12, 73
   %44 = icmp eq i8 %12, 111
   %45 = icmp eq i8 %12, 101
@@ -171,7 +171,7 @@ define internal i32 @dissect_fw1(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %48 = select i1 %43, i32 73, i32 %47
   %49 = or i1 %44, %45
   %or.cond13 = or i1 %43, %49
-  %50 = select i1 %or.cond13, i32 %.079, i32 32
+  %50 = select i1 %or.cond13, i32 %.077, i32 32
   br label %51
 
 51:                                               ; preds = %.lr.ph94, %58
@@ -221,9 +221,9 @@ define internal i32 @dissect_fw1(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %73
 
 73:                                               ; preds = %70, %68
-  %.076 = phi ptr [ %72, %70 ], [ %69, %68 ]
+  %.079 = phi ptr [ %72, %70 ], [ %69, %68 ]
   %74 = load i32, ptr @ett_fw1, align 4
-  %75 = tail call ptr @proto_item_add_subtree(ptr noundef %.076, i32 noundef %74) #5
+  %75 = tail call ptr @proto_item_add_subtree(ptr noundef %.079, i32 noundef %74) #5
   %76 = load i32, ptr @hf_fw1_direction, align 4
   %77 = tail call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %76, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
   %78 = load i32, ptr @fw1_iflist_with_chain, align 4

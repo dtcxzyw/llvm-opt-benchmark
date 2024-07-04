@@ -111,9 +111,9 @@ define internal fastcc noundef zeroext i1 @_ZL7addSpanR13rcHeightfieldiitthi(ptr
   br i1 %.not69, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %92
-  %.05671 = phi ptr [ %.1, %92 ], [ %43, %24 ]
-  %.05770 = phi ptr [ %.158, %92 ], [ null, %24 ]
-  %44 = load i32, ptr %.05671, align 8
+  %.071 = phi ptr [ %.1, %92 ], [ %43, %24 ]
+  %.05670 = phi ptr [ %.157, %92 ], [ null, %24 ]
+  %44 = load i32, ptr %.071, align 8
   %45 = and i32 %44, 8191
   %46 = load i32, ptr %26, align 8
   %47 = lshr i32 %46, 13
@@ -129,7 +129,7 @@ define internal fastcc noundef zeroext i1 @_ZL7addSpanR13rcHeightfieldiitthi(ptr
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %.05671, i64 8
+  %56 = getelementptr inbounds i8, ptr %.071, i64 8
   %57 = load ptr, ptr %56, align 8
   br label %92
 
@@ -141,7 +141,7 @@ define internal fastcc noundef zeroext i1 @_ZL7addSpanR13rcHeightfieldiitthi(ptr
   %61 = and i32 %46, -8192
   %62 = or disjoint i32 %61, %45
   store i32 %62, ptr %26, align 8
-  %.pre = load i32, ptr %.05671, align 8
+  %.pre = load i32, ptr %.071, align 8
   %.pre75 = lshr i32 %.pre, 13
   %.pre76 = and i32 %.pre75, 8191
   %.pre78 = lshr i32 %46, 13
@@ -161,7 +161,7 @@ define internal fastcc noundef zeroext i1 @_ZL7addSpanR13rcHeightfieldiitthi(ptr
   %69 = and i32 %64, -67100673
   %70 = or disjoint i32 %68, %69
   store i32 %70, ptr %26, align 8
-  %.pre74 = load i32, ptr %.05671, align 8
+  %.pre74 = load i32, ptr %.071, align 8
   %.pre86 = lshr i32 %.pre74, 13
   %.pre88 = and i32 %.pre86, 8191
   br label %71
@@ -187,16 +187,16 @@ define internal fastcc noundef zeroext i1 @_ZL7addSpanR13rcHeightfieldiitthi(ptr
   br label %83
 
 83:                                               ; preds = %76, %71
-  %84 = getelementptr inbounds i8, ptr %.05671, i64 8
+  %84 = getelementptr inbounds i8, ptr %.071, i64 8
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr %8, align 8
   store ptr %86, ptr %84, align 8
-  store ptr %.05671, ptr %8, align 8
-  %.not65 = icmp eq ptr %.05770, null
+  store ptr %.071, ptr %8, align 8
+  %.not65 = icmp eq ptr %.05670, null
   br i1 %.not65, label %89, label %87
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds i8, ptr %.05770, i64 8
+  %88 = getelementptr inbounds i8, ptr %.05670, i64 8
   store ptr %85, ptr %88, align 8
   br label %92
 
@@ -207,18 +207,18 @@ define internal fastcc noundef zeroext i1 @_ZL7addSpanR13rcHeightfieldiitthi(ptr
   br label %92
 
 92:                                               ; preds = %87, %89, %55
-  %.158 = phi ptr [ %.05671, %55 ], [ null, %89 ], [ %.05770, %87 ]
+  %.157 = phi ptr [ %.071, %55 ], [ null, %89 ], [ %.05670, %87 ]
   %.1 = phi ptr [ %57, %55 ], [ %85, %89 ], [ %85, %87 ]
   %.not = icmp eq ptr %.1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %92, %.lr.ph
-  %.057.lcssa = phi ptr [ %.158, %92 ], [ %.05770, %.lr.ph ]
-  %.not66 = icmp eq ptr %.057.lcssa, null
+  %.056.lcssa = phi ptr [ %.157, %92 ], [ %.05670, %.lr.ph ]
+  %.not66 = icmp eq ptr %.056.lcssa, null
   br i1 %.not66, label %._crit_edge.thread, label %93
 
 93:                                               ; preds = %._crit_edge
-  %94 = getelementptr inbounds i8, ptr %.057.lcssa, i64 8
+  %94 = getelementptr inbounds i8, ptr %.056.lcssa, i64 8
   %95 = load ptr, ptr %94, align 8
   store ptr %95, ptr %35, align 8
   br label %_ZL9allocSpanR13rcHeightfield.exit.sink.split
@@ -454,20 +454,20 @@ _ZL13overlapBoundsPKfS0_S0_S0_.exit:              ; preds = %69
   br label %105
 
 105:                                              ; preds = %.lr.ph183, %.loopexit
-  %.0100181 = phi i32 [ %90, %.lr.ph183 ], [ %179, %.loopexit ]
+  %.0106181 = phi i32 [ %90, %.lr.ph183 ], [ %179, %.loopexit ]
   %.0154180 = phi ptr [ %101, %.lr.ph183 ], [ %.2, %.loopexit ]
   %.0156179 = phi ptr [ %102, %.lr.ph183 ], [ %.0160177, %.loopexit ]
   %.0157178 = phi ptr [ %103, %.lr.ph183 ], [ %.2159, %.loopexit ]
   %.0160177 = phi ptr [ %12, %.lr.ph183 ], [ %.0156179, %.loopexit ]
   %106 = load float, ptr %73, align 4
-  %107 = sitofp i32 %.0100181 to float
+  %107 = sitofp i32 %.0106181 to float
   %108 = tail call float @llvm.fmuladd.f32(float %107, float %7, float %106)
   %109 = load i32, ptr %14, align 4
   %110 = fadd float %108, %7
   call fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef %.0160177, i32 noundef %109, ptr noundef %.0157178, ptr noundef nonnull %13, ptr noundef %.0156179, ptr noundef nonnull %14, float noundef %110, i32 noundef 2)
   %111 = load i32, ptr %13, align 4
   %112 = icmp slt i32 %111, 3
-  %113 = icmp slt i32 %.0100181, 0
+  %113 = icmp slt i32 %.0106181, 0
   %or.cond = or i1 %113, %112
   br i1 %or.cond, label %.loopexit, label %114
 
@@ -478,25 +478,25 @@ _ZL13overlapBoundsPKfS0_S0_S0_.exit:              ; preds = %69
 
 116:                                              ; preds = %114, %116
   %indvars.iv = phi i64 [ 1, %114 ], [ %indvars.iv.next, %116 ]
-  %.0103166 = phi float [ %115, %114 ], [ %.1104, %116 ]
-  %.0105165 = phi float [ %115, %114 ], [ %.1106, %116 ]
+  %.0102166 = phi float [ %115, %114 ], [ %.1103, %116 ]
+  %.0104165 = phi float [ %115, %114 ], [ %.1105, %116 ]
   %.idx = mul i64 %indvars.iv, 12
   %117 = getelementptr inbounds i8, ptr %.0157178, i64 %.idx
   %118 = load float, ptr %117, align 4
-  %119 = fcmp ogt float %.0105165, %118
-  %.1106 = select i1 %119, float %118, float %.0105165
-  %120 = fcmp olt float %.0103166, %118
-  %.1104 = select i1 %120, float %118, float %.0103166
+  %119 = fcmp ogt float %.0104165, %118
+  %.1105 = select i1 %119, float %118, float %.0104165
+  %120 = fcmp olt float %.0102166, %118
+  %.1103 = select i1 %120, float %118, float %.0102166
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %121, label %116, !llvm.loop !7
 
 121:                                              ; preds = %116
   %122 = load float, ptr %5, align 4
-  %123 = fsub float %.1106, %122
+  %123 = fsub float %.1105, %122
   %124 = fmul float %123, %8
   %125 = fptosi float %124 to i32
-  %126 = fsub float %.1104, %122
+  %126 = fsub float %.1103, %122
   %127 = fmul float %126, %8
   %128 = fptosi float %127 to i32
   %129 = icmp sgt i32 %128, -1
@@ -516,18 +516,18 @@ _ZL13overlapBoundsPKfS0_S0_S0_.exit:              ; preds = %69
   br label %134
 
 134:                                              ; preds = %.lr.ph, %177
-  %.0101174 = phi i32 [ %131, %.lr.ph ], [ %178, %177 ]
+  %.0100174 = phi i32 [ %131, %.lr.ph ], [ %178, %177 ]
   %.1155173 = phi ptr [ %.0154180, %.lr.ph ], [ %.1158172, %177 ]
   %.1158172 = phi ptr [ %.0157178, %.lr.ph ], [ %.1155173, %177 ]
   %135 = load float, ptr %5, align 4
-  %136 = sitofp i32 %.0101174 to float
+  %136 = sitofp i32 %.0100174 to float
   %137 = tail call float @llvm.fmuladd.f32(float %136, float %7, float %135)
   %138 = load i32, ptr %16, align 4
   %139 = fadd float %137, %7
   call fastcc void @_ZL10dividePolyPKfiPfPiS1_S2_f6rcAxis(ptr noundef %.1158172, i32 noundef %138, ptr noundef %.0160177, ptr noundef nonnull %15, ptr noundef %.1155173, ptr noundef nonnull %16, float noundef %139, i32 noundef 0)
   %140 = load i32, ptr %15, align 4
   %141 = icmp slt i32 %140, 3
-  %142 = icmp slt i32 %.0101174, 0
+  %142 = icmp slt i32 %.0100174, 0
   %or.cond3 = or i1 %142, %141
   br i1 %or.cond3, label %177, label %143
 
@@ -580,19 +580,19 @@ _ZL13overlapBoundsPKfS0_S0_S0_.exit:              ; preds = %69
   %173 = tail call i32 @llvm.smin.i32(i32 %171, i32 8191)
   %174 = select i1 %.not161, i32 %173, i32 %172
   %175 = trunc i32 %174 to i16
-  %176 = tail call fastcc noundef zeroext i1 @_ZL7addSpanR13rcHeightfieldiitthi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %.0101174, i32 noundef %.0100181, i16 noundef zeroext %168, i16 noundef zeroext %175, i8 noundef zeroext %3, i32 noundef %10)
+  %176 = tail call fastcc noundef zeroext i1 @_ZL7addSpanR13rcHeightfieldiitthi(ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %.0100174, i32 noundef %.0106181, i16 noundef zeroext %168, i16 noundef zeroext %175, i8 noundef zeroext %3, i32 noundef %10)
   br i1 %176, label %177, label %_ZL13overlapBoundsPKfS0_S0_S0_.exit.thread
 
 177:                                              ; preds = %160, %154, %134
-  %178 = add i32 %.0101174, 1
-  %exitcond194.not = icmp eq i32 %.0101174, %132
+  %178 = add i32 %.0100174, 1
+  %exitcond194.not = icmp eq i32 %.0100174, %132
   br i1 %exitcond194.not, label %.loopexit, label %134, !llvm.loop !9
 
 .loopexit:                                        ; preds = %177, %130, %121, %105
   %.2159 = phi ptr [ %.0157178, %105 ], [ %.0157178, %121 ], [ %.0157178, %130 ], [ %.1155173, %177 ]
   %.2 = phi ptr [ %.0154180, %105 ], [ %.0154180, %121 ], [ %.0154180, %130 ], [ %.1158172, %177 ]
-  %179 = add i32 %.0100181, 1
-  %exitcond195.not = icmp eq i32 %.0100181, %93
+  %179 = add i32 %.0106181, 1
+  %exitcond195.not = icmp eq i32 %.0106181, %93
   br i1 %exitcond195.not, label %_ZL13overlapBoundsPKfS0_S0_S0_.exit.thread, label %105, !llvm.loop !10
 
 _ZL13overlapBoundsPKfS0_S0_S0_.exit.thread:       ; preds = %.loopexit, %160, %76, %11, %54, %61, %65, %69, %_ZL13overlapBoundsPKfS0_S0_S0_.exit

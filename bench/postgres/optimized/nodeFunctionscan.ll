@@ -208,7 +208,7 @@ list_length.exit:                                 ; preds = %3, %8
 
 .lr.ph121:                                        ; preds = %.lr.ph121.preheader, %._crit_edge116
   %indvars.iv127 = phi i64 [ 0, %.lr.ph121.preheader ], [ %indvars.iv.next128, %._crit_edge116 ]
-  %.096118 = phi i16 [ 0, %.lr.ph121.preheader ], [ %.197.lcssa, %._crit_edge116 ]
+  %.092119 = phi i16 [ 0, %.lr.ph121.preheader ], [ %.1.lcssa, %._crit_edge116 ]
   %109 = load ptr, ptr %33, align 8
   %110 = getelementptr %struct.FunctionScanPerFuncState, ptr %109, i64 %indvars.iv127
   %111 = getelementptr inbounds i8, ptr %110, i64 8
@@ -219,38 +219,38 @@ list_length.exit:                                 ; preds = %3, %8
   br i1 %.not102111, label %._crit_edge116, label %.lr.ph115
 
 .lr.ph115:                                        ; preds = %.lr.ph121, %.lr.ph115
-  %.092113 = phi i32 [ %117, %.lr.ph115 ], [ 1, %.lr.ph121 ]
-  %.197112 = phi i16 [ %115, %.lr.ph115 ], [ %.096118, %.lr.ph121 ]
-  %115 = add i16 %.197112, 1
-  %116 = trunc i32 %.092113 to i16
+  %.0113 = phi i32 [ %117, %.lr.ph115 ], [ 1, %.lr.ph121 ]
+  %.1112 = phi i16 [ %115, %.lr.ph115 ], [ %.092119, %.lr.ph121 ]
+  %115 = add i16 %.1112, 1
+  %116 = trunc i32 %.0113 to i16
   call void @TupleDescCopyEntry(ptr noundef %107, i16 noundef signext %115, ptr noundef %112, i16 noundef signext %116) #5
-  %117 = add i32 %.092113, 1
+  %117 = add i32 %.0113, 1
   %.not102 = icmp sgt i32 %117, %114
   br i1 %.not102, label %._crit_edge116, label %.lr.ph115, !llvm.loop !5
 
 ._crit_edge116:                                   ; preds = %.lr.ph115, %.lr.ph121
-  %.197.lcssa = phi i16 [ %.096118, %.lr.ph121 ], [ %115, %.lr.ph115 ]
+  %.1.lcssa = phi i16 [ %.092119, %.lr.ph121 ], [ %115, %.lr.ph115 ]
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge122.loopexit, label %.lr.ph121, !llvm.loop !7
 
 ._crit_edge122.loopexit:                          ; preds = %._crit_edge116
-  %118 = add i16 %.197.lcssa, 1
+  %118 = add i16 %.1.lcssa, 1
   br label %._crit_edge122
 
 ._crit_edge122:                                   ; preds = %._crit_edge122.loopexit, %103
-  %.096.lcssa = phi i16 [ 1, %103 ], [ %118, %._crit_edge122.loopexit ]
+  %.092.lcssa = phi i16 [ 1, %103 ], [ %118, %._crit_edge122.loopexit ]
   %119 = load i8, ptr %17, align 8
   %120 = trunc i8 %119 to i1
   br i1 %120, label %121, label %122
 
 121:                                              ; preds = %._crit_edge122
-  call void @TupleDescInitEntry(ptr noundef %107, i16 noundef signext %.096.lcssa, ptr noundef null, i32 noundef 20, i32 noundef -1, i32 noundef 0) #5
+  call void @TupleDescInitEntry(ptr noundef %107, i16 noundef signext %.092.lcssa, ptr noundef null, i32 noundef 20, i32 noundef -1, i32 noundef 0) #5
   br label %122
 
 122:                                              ; preds = %._crit_edge122, %121, %96
-  %.0 = phi ptr [ %100, %96 ], [ %107, %121 ], [ %107, %._crit_edge122 ]
-  call void @ExecInitScanTupleSlot(ptr noundef %1, ptr noundef %12, ptr noundef %.0, ptr noundef nonnull @TTSOpsMinimalTuple) #5
+  %.098 = phi ptr [ %100, %96 ], [ %107, %121 ], [ %107, %._crit_edge122 ]
+  call void @ExecInitScanTupleSlot(ptr noundef %1, ptr noundef %12, ptr noundef %.098, ptr noundef nonnull @TTSOpsMinimalTuple) #5
   call void @ExecInitResultTypeTL(ptr noundef %12) #5
   call void @ExecAssignScanProjectionInfo(ptr noundef %12) #5
   %123 = getelementptr inbounds i8, ptr %0, i64 56
@@ -551,9 +551,9 @@ define internal ptr @FunctionNext(ptr nocapture noundef %0) #0 {
   br label %32
 
 32:                                               ; preds = %17, %11
-  %.081 = phi ptr [ %29, %17 ], [ %15, %11 ]
+  %.079 = phi ptr [ %29, %17 ], [ %15, %11 ]
   %33 = icmp eq i32 %5, 1
-  %34 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %.081, i1 noundef zeroext %33, i1 noundef zeroext false, ptr noundef %7) #5
+  %34 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %.079, i1 noundef zeroext %33, i1 noundef zeroext false, ptr noundef %7) #5
   br label %161
 
 35:                                               ; preds = %1
@@ -584,8 +584,8 @@ define internal ptr @FunctionNext(ptr nocapture noundef %0) #0 {
 
 52:                                               ; preds = %.lr.ph98, %.loopexit
   %indvars.iv104 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next105, %.loopexit ]
-  %.07997 = phi i1 [ true, %.lr.ph98 ], [ %.180, %.loopexit ]
-  %.08296 = phi i32 [ 0, %.lr.ph98 ], [ %.3, %.loopexit ]
+  %.08097 = phi i32 [ 0, %.lr.ph98 ], [ %.3, %.loopexit ]
+  %.08395 = phi i1 [ true, %.lr.ph98 ], [ %.184, %.loopexit ]
   %53 = load ptr, ptr %46, align 8
   %54 = getelementptr %struct.FunctionScanPerFuncState, ptr %53, i64 %indvars.iv104
   %55 = getelementptr inbounds i8, ptr %54, i64 24
@@ -666,15 +666,15 @@ define internal ptr @FunctionNext(ptr nocapture noundef %0) #0 {
 
 .lr.ph93:                                         ; preds = %98, %.lr.ph93
   %.07892 = phi i32 [ %108, %.lr.ph93 ], [ 0, %98 ]
-  %.18391 = phi i32 [ %107, %.lr.ph93 ], [ %.08296, %98 ]
+  %.18191 = phi i32 [ %107, %.lr.ph93 ], [ %.08097, %98 ]
   %102 = load ptr, ptr %50, align 8
-  %103 = sext i32 %.18391 to i64
+  %103 = sext i32 %.18191 to i64
   %104 = getelementptr i64, ptr %102, i64 %103
   store i64 0, ptr %104, align 8
   %105 = load ptr, ptr %51, align 8
   %106 = getelementptr i8, ptr %105, i64 %103
   store i8 1, ptr %106, align 1
-  %107 = add i32 %.18391, 1
+  %107 = add i32 %.18191, 1
   %108 = add nuw nsw i32 %.07892, 1
   %109 = load i32, ptr %99, align 8
   %110 = icmp slt i32 %108, %109
@@ -702,7 +702,7 @@ slot_getallattrs.exit:                            ; preds = %111, %119
 
 .lr.ph:                                           ; preds = %slot_getallattrs.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %slot_getallattrs.exit ]
-  %.289 = phi i32 [ %139, %.lr.ph ], [ %.08296, %slot_getallattrs.exit ]
+  %.289 = phi i32 [ %139, %.lr.ph ], [ %.08097, %slot_getallattrs.exit ]
   %123 = load ptr, ptr %85, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 24
   %125 = load ptr, ptr %124, align 8
@@ -729,8 +729,8 @@ slot_getallattrs.exit:                            ; preds = %111, %119
   br i1 %142, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph93, %slot_getallattrs.exit, %98
-  %.3 = phi i32 [ %.08296, %98 ], [ %.08296, %slot_getallattrs.exit ], [ %107, %.lr.ph93 ], [ %139, %.lr.ph ]
-  %.180 = phi i1 [ %.07997, %98 ], [ false, %slot_getallattrs.exit ], [ %.07997, %.lr.ph93 ], [ false, %.lr.ph ]
+  %.184 = phi i1 [ %.08395, %98 ], [ false, %slot_getallattrs.exit ], [ %.08395, %.lr.ph93 ], [ false, %.lr.ph ]
+  %.3 = phi i32 [ %.08097, %98 ], [ %.08097, %slot_getallattrs.exit ], [ %107, %.lr.ph93 ], [ %139, %.lr.ph ]
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %143 = load i32, ptr %43, align 8
   %144 = sext i32 %143 to i64
@@ -742,8 +742,8 @@ slot_getallattrs.exit:                            ; preds = %111, %119
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %35
-  %.082.lcssa = phi i64 [ 0, %35 ], [ %146, %._crit_edge.loopexit ]
-  %.079.lcssa = phi i1 [ true, %35 ], [ %.180, %._crit_edge.loopexit ]
+  %.083.lcssa = phi i1 [ true, %35 ], [ %.184, %._crit_edge.loopexit ]
+  %.080.lcssa = phi i64 [ 0, %35 ], [ %146, %._crit_edge.loopexit ]
   %147 = getelementptr inbounds i8, ptr %0, i64 228
   %148 = load i8, ptr %147, align 4
   %149 = trunc i8 %148 to i1
@@ -753,16 +753,16 @@ slot_getallattrs.exit:                            ; preds = %111, %119
   %151 = load i64, ptr %36, align 8
   %152 = getelementptr inbounds i8, ptr %7, i64 24
   %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr i64, ptr %153, i64 %.082.lcssa
+  %154 = getelementptr i64, ptr %153, i64 %.080.lcssa
   store i64 %151, ptr %154, align 8
   %155 = getelementptr inbounds i8, ptr %7, i64 32
   %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr i8, ptr %156, i64 %.082.lcssa
+  %157 = getelementptr i8, ptr %156, i64 %.080.lcssa
   store i8 0, ptr %157, align 1
   br label %158
 
 158:                                              ; preds = %150, %._crit_edge
-  br i1 %.079.lcssa, label %161, label %159
+  br i1 %.083.lcssa, label %161, label %159
 
 159:                                              ; preds = %158
   %160 = tail call ptr @ExecStoreVirtualTuple(ptr noundef %7) #5

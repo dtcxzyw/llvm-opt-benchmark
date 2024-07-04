@@ -506,12 +506,12 @@ define internal i32 @dissect_exportlist(ptr noundef %0, i32 noundef %1, ptr noun
   br label %12
 
 12:                                               ; preds = %7, %5
-  %.037 = phi ptr [ %11, %7 ], [ null, %5 ]
-  %.0 = phi ptr [ %9, %7 ], [ null, %5 ]
+  %.037 = phi ptr [ %9, %7 ], [ null, %5 ]
+  %.0 = phi ptr [ %11, %7 ], [ null, %5 ]
   %13 = load i32, ptr @hf_mount_exportlist_directory, align 4
-  %14 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %.037, i32 noundef %13, i32 noundef %1, ptr noundef nonnull %6) #3
+  %14 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %.0, i32 noundef %13, i32 noundef %1, ptr noundef nonnull %6) #3
   %15 = load i32, ptr @hf_mount_groups, align 4
-  %16 = call ptr @proto_tree_add_item(ptr noundef %.037, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef -1, i32 noundef 0) #3
+  %16 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef -1, i32 noundef 0) #3
   %17 = load i32, ptr @ett_mount_groups, align 4
   %18 = call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #3
   %19 = getelementptr inbounds i8, ptr %2, i64 408
@@ -536,7 +536,7 @@ define internal i32 @dissect_exportlist(ptr noundef %0, i32 noundef %1, ptr noun
 
 28:                                               ; preds = %27, %12
   %29 = call ptr @wmem_strbuf_finalize(ptr noundef %21) #3
-  %.not41 = icmp eq ptr %.0, null
+  %.not41 = icmp eq ptr %.037, null
   br i1 %.not41, label %39, label %30
 
 30:                                               ; preds = %28
@@ -547,9 +547,9 @@ define internal i32 @dissect_exportlist(ptr noundef %0, i32 noundef %1, ptr noun
   %35 = load ptr, ptr %19, align 8
   %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #4
   %37 = call ptr @format_text(ptr noundef %35, ptr noundef %29, i64 noundef %36) #3
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef nonnull %.0, ptr noundef nonnull @.str.187, ptr noundef %34, ptr noundef %37) #3
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef nonnull %.037, ptr noundef nonnull @.str.187, ptr noundef %34, ptr noundef %37) #3
   %38 = sub i32 %22, %1
-  call void @proto_item_set_len(ptr noundef nonnull %.0, i32 noundef %38) #3
+  call void @proto_item_set_len(ptr noundef nonnull %.037, i32 noundef %38) #3
   br label %39
 
 39:                                               ; preds = %30, %28

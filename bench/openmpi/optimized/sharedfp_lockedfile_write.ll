@@ -132,14 +132,14 @@ define i32 @mca_sharedfp_lockedfile_write_ordered(ptr noundef %0, ptr noundef %1
   br i1 %28, label %90, label %29
 
 29:                                               ; preds = %24, %14
-  %.056 = phi ptr [ %27, %24 ], [ null, %14 ]
+  %.057 = phi ptr [ %27, %24 ], [ null, %14 ]
   %30 = getelementptr inbounds i8, ptr %19, i64 328
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 144
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %31, i64 152
   %35 = load ptr, ptr %34, align 8
-  %36 = call i32 %33(ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, ptr noundef %.056, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, i32 noundef 0, ptr noundef nonnull %19, ptr noundef %35) #4
+  %36 = call i32 %33(ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, ptr noundef %.057, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, i32 noundef 0, ptr noundef nonnull %19, ptr noundef %35) #4
   %.not = icmp eq i32 %36, 0
   br i1 %.not, label %37, label %88
 
@@ -158,10 +158,10 @@ define i32 @mca_sharedfp_lockedfile_write_ordered(ptr noundef %0, ptr noundef %1
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %.05772.us = phi i64 [ %43, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %41 = getelementptr inbounds i64, ptr %.056, i64 %indvars.iv80
+  %.05672.us = phi i64 [ %43, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %41 = getelementptr inbounds i64, ptr %.057, i64 %indvars.iv80
   %42 = load i64, ptr %41, align 8
-  %43 = add nsw i64 %42, %.05772.us
+  %43 = add nsw i64 %42, %.05672.us
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
   br i1 %exitcond84.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !4
@@ -169,10 +169,10 @@ define i32 @mca_sharedfp_lockedfile_write_ordered(ptr noundef %0, ptr noundef %1
 .lr.ph.split:                                     ; preds = %.lr.ph, %50
   %44 = phi i32 [ %51, %50 ], [ 1, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 0, %.lr.ph ]
-  %.05772 = phi i64 [ %47, %50 ], [ 0, %.lr.ph ]
-  %45 = getelementptr inbounds i64, ptr %.056, i64 %indvars.iv
+  %.05672 = phi i64 [ %47, %50 ], [ 0, %.lr.ph ]
+  %45 = getelementptr inbounds i64, ptr %.057, i64 %indvars.iv
   %46 = load i64, ptr %45, align 8
-  %47 = add nsw i64 %46, %.05772
+  %47 = add nsw i64 %46, %.05672
   %.not68 = icmp eq i32 %44, 0
   br i1 %.not68, label %50, label %48
 
@@ -189,8 +189,8 @@ define i32 @mca_sharedfp_lockedfile_write_ordered(ptr noundef %0, ptr noundef %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %50, %.lr.ph.split.us, %.preheader
-  %.057.lcssa = phi i64 [ 0, %.preheader ], [ %43, %.lr.ph.split.us ], [ %47, %50 ]
-  %52 = trunc i64 %.057.lcssa to i32
+  %.056.lcssa = phi i64 [ 0, %.preheader ], [ %43, %.lr.ph.split.us ], [ %47, %50 ]
+  %52 = trunc i64 %.056.lcssa to i32
   %53 = call i32 @mca_sharedfp_lockedfile_request_position(ptr noundef nonnull %10, i32 noundef %52, ptr noundef nonnull %8) #4
   %.not64 = icmp eq i32 %53, 0
   br i1 %.not64, label %54, label %88
@@ -208,9 +208,9 @@ define i32 @mca_sharedfp_lockedfile_write_ordered(ptr noundef %0, ptr noundef %1
 
 59:                                               ; preds = %56, %54
   %60 = load i64, ptr %8, align 8
-  %61 = load i64, ptr %.056, align 8
+  %61 = load i64, ptr %.057, align 8
   %62 = add nsw i64 %61, %60
-  store i64 %62, ptr %.056, align 8
+  store i64 %62, ptr %.057, align 8
   %63 = icmp sgt i32 %.val71.val, 1
   br i1 %63, label %.lr.ph76.preheader, label %.loopexit
 
@@ -221,7 +221,7 @@ define i32 @mca_sharedfp_lockedfile_write_ordered(ptr noundef %0, ptr noundef %1
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
   %64 = phi i64 [ %62, %.lr.ph76.preheader ], [ %67, %.lr.ph76 ]
   %indvars.iv85 = phi i64 [ 1, %.lr.ph76.preheader ], [ %indvars.iv.next86, %.lr.ph76 ]
-  %65 = getelementptr inbounds i64, ptr %.056, i64 %indvars.iv85
+  %65 = getelementptr inbounds i64, ptr %.057, i64 %indvars.iv85
   %66 = load i64, ptr %65, align 8
   %67 = add nsw i64 %66, %64
   store i64 %67, ptr %65, align 8
@@ -237,7 +237,7 @@ define i32 @mca_sharedfp_lockedfile_write_ordered(ptr noundef %0, ptr noundef %1
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %70, i64 248
   %74 = load ptr, ptr %73, align 8
-  %75 = call i32 %72(ptr noundef %.056, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, i32 noundef 0, ptr noundef %68, ptr noundef %74) #4
+  %75 = call i32 %72(ptr noundef %.057, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull @ompi_mpi_long_long_int, i32 noundef 0, ptr noundef %68, ptr noundef %74) #4
   %.not66 = icmp eq i32 %75, 0
   br i1 %.not66, label %76, label %88
 
@@ -263,11 +263,11 @@ define i32 @mca_sharedfp_lockedfile_write_ordered(ptr noundef %0, ptr noundef %1
 
 88:                                               ; preds = %.loopexit, %._crit_edge, %29, %86
   %.055 = phi i32 [ %36, %29 ], [ %53, %._crit_edge ], [ %75, %.loopexit ], [ %87, %86 ]
-  %.not69 = icmp eq ptr %.056, null
+  %.not69 = icmp eq ptr %.057, null
   br i1 %.not69, label %90, label %89
 
 89:                                               ; preds = %88
-  call void @free(ptr noundef nonnull %.056) #4
+  call void @free(ptr noundef nonnull %.057) #4
   br label %90
 
 90:                                               ; preds = %88, %89, %24, %12

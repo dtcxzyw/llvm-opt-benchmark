@@ -1377,7 +1377,7 @@ Saig_SynchInitRegsTernary.exit:                   ; preds = %.lr.ph.us.i, %Vec_P
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %118
   %.04684 = phi i32 [ 0, %.preheader.lr.ph ], [ %120, %118 ]
-  %.04883 = phi i32 [ %.val79, %.preheader.lr.ph ], [ %.254.i, %118 ]
+  %.04983 = phi i32 [ %.val79, %.preheader.lr.ph ], [ %.254.i, %118 ]
   br label %62
 
 62:                                               ; preds = %.preheader, %114
@@ -1532,7 +1532,7 @@ Saig_SynchInitPisRandom.exit:                     ; preds = %._crit_edge.us.i, %
 Saig_SynchCountX.exit:                            ; preds = %._crit_edge.i, %.thread.i
   %.254.i = phi i32 [ %.0.lcssa.i, %._crit_edge.i ], [ %.253.i, %.thread.i ]
   %.23752.i = phi i32 [ -1, %._crit_edge.i ], [ %.23751.i, %.thread.i ]
-  %113 = icmp slt i32 %.254.i, %.04883
+  %113 = icmp slt i32 %.254.i, %.04983
   br i1 %113, label %116, label %114
 
 114:                                              ; preds = %Saig_SynchCountX.exit
@@ -1556,8 +1556,8 @@ Saig_SynchCountX.exit:                            ; preds = %._crit_edge.i, %.th
   br i1 %122, label %._crit_edge.thread, label %._crit_edge.thread96
 
 ._crit_edge.thread:                               ; preds = %116, %114, %._crit_edge
-  %.048.lcssa94 = phi i32 [ %.254.i, %._crit_edge ], [ %.04883, %114 ], [ %.04883, %116 ]
-  %124 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.048.lcssa94)
+  %.049.lcssa94 = phi i32 [ %.254.i, %._crit_edge ], [ %.04983, %114 ], [ %.04983, %116 ]
+  %124 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.049.lcssa94)
   %.not.i71 = icmp eq ptr %21, null
   br i1 %.not.i71, label %Vec_PtrFree.exit, label %125
 

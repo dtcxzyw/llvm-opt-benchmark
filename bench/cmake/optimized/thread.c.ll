@@ -188,8 +188,8 @@ uv__min_stack_size.exit:                          ; preds = %27, %36
   br label %38
 
 38:                                               ; preds = %uv__min_stack_size.exit, %uv__thread_stack_size.exit
-  %.019 = phi i64 [ %.0.i, %uv__thread_stack_size.exit ], [ %spec.select, %uv__min_stack_size.exit ]
-  %.not23 = icmp eq i64 %.019, 0
+  %.0 = phi i64 [ %.0.i, %uv__thread_stack_size.exit ], [ %spec.select, %uv__min_stack_size.exit ]
+  %.not23 = icmp eq i64 %.0, 0
   br i1 %.not23, label %.thread28, label %40
 
 .thread28:                                        ; preds = %38
@@ -206,7 +206,7 @@ uv__min_stack_size.exit:                          ; preds = %27, %36
   unreachable
 
 43:                                               ; preds = %40
-  %44 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %6, i64 noundef %.019) #10
+  %44 = call i32 @pthread_attr_setstacksize(ptr noundef nonnull %6, i64 noundef %.0) #10
   %.not25 = icmp eq i32 %44, 0
   br i1 %.not25, label %46, label %45
 

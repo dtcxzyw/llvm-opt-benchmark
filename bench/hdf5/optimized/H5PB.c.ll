@@ -945,15 +945,15 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   br label %67
 
 67:                                               ; preds = %.lr.ph, %186
-  %.0280370 = phi ptr [ %59, %.lr.ph ], [ %.2, %186 ]
-  %.0282368 = phi i64 [ 0, %.lr.ph ], [ %187, %186 ]
+  %.0279370 = phi ptr [ %59, %.lr.ph ], [ %.2, %186 ]
+  %.0281368 = phi i64 [ 0, %.lr.ph ], [ %187, %186 ]
   %68 = load i64, ptr %12, align 8
-  %69 = mul i64 %68, %.0282368
+  %69 = mul i64 %68, %.0281368
   %70 = load i64, ptr %6, align 8
   %71 = add i64 %69, %70
   store i64 %71, ptr %7, align 8
-  %72 = icmp eq ptr %.0280370, null
-  %73 = icmp ne i64 %.0282368, 0
+  %72 = icmp eq ptr %.0279370, null
+  %73 = icmp ne i64 %.0281368, 0
   %or.cond7 = and i1 %73, %72
   br i1 %or.cond7, label %74, label %77
 
@@ -963,7 +963,7 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   br label %77
 
 77:                                               ; preds = %74, %67
-  %.1 = phi ptr [ %76, %74 ], [ %.0280370, %67 ]
+  %.1 = phi ptr [ %76, %74 ], [ %.0279370, %67 ]
   %.not325 = icmp eq ptr %.1, null
   br i1 %.not325, label %186, label %78
 
@@ -981,7 +981,7 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   br i1 %85, label %86, label %184
 
 86:                                               ; preds = %82
-  %87 = icmp eq i64 %.0282368, 0
+  %87 = icmp eq i64 %.0281368, 0
   br i1 %87, label %88, label %132
 
 88:                                               ; preds = %86
@@ -1073,7 +1073,7 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   br label %184
 
 132:                                              ; preds = %88, %86
-  %133 = icmp eq i64 %.0282368, %64
+  %133 = icmp eq i64 %.0281368, %64
   %or.cond = and i1 %63, %133
   %134 = load i64, ptr %7, align 8
   %135 = icmp ult i64 %134, %48
@@ -1167,7 +1167,7 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   br label %184
 
 180:                                              ; preds = %132
-  %181 = mul i64 %136, %.0282368
+  %181 = mul i64 %136, %.0281368
   %182 = getelementptr inbounds i8, ptr %4, i64 %181
   %183 = load ptr, ptr %79, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %182, ptr align 1 %183, i64 %136, i1 false)
@@ -1179,7 +1179,7 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
 
 186:                                              ; preds = %77, %184
   %.2 = phi ptr [ %185, %184 ], [ null, %77 ]
-  %187 = add nuw i64 %.0282368, 1
+  %187 = add nuw i64 %.0281368, 1
   %188 = icmp ult i64 %187, %54
   br i1 %188, label %67, label %.loopexit
 
@@ -1189,10 +1189,10 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
 
 .lr.ph374:                                        ; preds = %.thread381, %189
   %190 = phi i1 [ false, %.thread381 ], [ true, %189 ]
-  %.0287347386 = phi i64 [ 1, %.thread381 ], [ %54, %189 ]
-  %.0348385 = phi i64 [ -1, %.thread381 ], [ %spec.store.select, %189 ]
+  %.0287347386 = phi i64 [ -1, %.thread381 ], [ %spec.store.select, %189 ]
+  %.0286348385 = phi i64 [ 1, %.thread381 ], [ %54, %189 ]
   %191 = load ptr, ptr %0, align 8
-  %192 = icmp eq i64 %.0287347386, 1
+  %192 = icmp eq i64 %.0286348385, 1
   %193 = getelementptr inbounds i8, ptr %9, i64 40
   %194 = getelementptr inbounds i8, ptr %9, i64 64
   %195 = getelementptr inbounds i8, ptr %9, i64 72
@@ -1207,11 +1207,11 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   br label %204
 
 204:                                              ; preds = %.lr.ph374, %390
-  %.1283373 = phi i64 [ 0, %.lr.ph374 ], [ %391, %390 ]
-  %.0284372 = phi i64 [ 0, %.lr.ph374 ], [ %.4, %390 ]
-  %205 = icmp eq i64 %.1283373, 0
+  %.1282373 = phi i64 [ 0, %.lr.ph374 ], [ %391, %390 ]
+  %.0283372 = phi i64 [ 0, %.lr.ph374 ], [ %.4, %390 ]
+  %205 = icmp eq i64 %.1282373, 0
   %206 = load i64, ptr %6, align 8
-  %207 = select i1 %205, i64 %206, i64 %.0348385
+  %207 = select i1 %205, i64 %206, i64 %.0287347386
   store i64 %207, ptr %7, align 8
   br i1 %192, label %209, label %208
 
@@ -1234,14 +1234,14 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   br i1 %.not321359, label %277, label %.thread360
 
 .thread349:                                       ; preds = %208
-  %217 = sub i64 %3, %.0284372
+  %217 = sub i64 %3, %.0283372
   %218 = load ptr, ptr %193, align 8
   %219 = call ptr @H5SL_search(ptr noundef %218, ptr noundef nonnull %7) #9
   %.not321351 = icmp eq ptr %219, null
   br i1 %.not321351, label %277, label %.thread354
 
 .thread360:                                       ; preds = %209, %.thread357
-  %.1285352362 = phi i64 [ %214, %.thread357 ], [ %3, %209 ]
+  %.1284352362 = phi i64 [ %214, %.thread357 ], [ %3, %209 ]
   %220 = phi ptr [ %216, %.thread357 ], [ %211, %209 ]
   %221 = getelementptr inbounds i8, ptr %220, i64 8
   %222 = load i64, ptr %221, align 8
@@ -1249,16 +1249,16 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   br label %.thread354
 
 .thread354:                                       ; preds = %.thread349, %.thread360
-  %.1285352356 = phi i64 [ %.1285352362, %.thread360 ], [ %217, %.thread349 ]
+  %.1284352356 = phi i64 [ %.1284352362, %.thread360 ], [ %217, %.thread349 ]
   %224 = phi ptr [ %220, %.thread360 ], [ %219, %.thread349 ]
   %225 = phi i64 [ %223, %.thread360 ], [ 0, %.thread349 ]
-  %226 = sub i64 %3, %.1285352356
+  %226 = sub i64 %3, %.1284352356
   %227 = select i1 %205, i64 0, i64 %226
-  %228 = add i64 %225, %.1285352356
+  %228 = add i64 %225, %.1284352356
   %229 = load i64, ptr %12, align 8
   %230 = icmp ugt i64 %228, %229
   %231 = sub i64 %229, %225
-  %spec.select = select i1 %230, i64 %231, i64 %.1285352356
+  %spec.select = select i1 %230, i64 %231, i64 %.1284352356
   %232 = getelementptr inbounds i8, ptr %4, i64 %227
   %233 = load ptr, ptr %224, align 8
   %234 = getelementptr inbounds i8, ptr %233, i64 %225
@@ -1352,7 +1352,7 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   br label %390
 
 277:                                              ; preds = %.thread357, %.thread349, %209
-  %.1285353 = phi i64 [ %217, %.thread349 ], [ %3, %209 ], [ %214, %.thread357 ]
+  %.1284353 = phi i64 [ %217, %.thread349 ], [ %3, %209 ], [ %214, %.thread357 ]
   %278 = load i64, ptr %12, align 8
   %279 = load ptr, ptr %193, align 8
   %280 = call i64 @H5SL_count(ptr noundef %279) #9
@@ -1441,13 +1441,13 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
   %333 = load i64, ptr %7, align 8
   %334 = sub i64 %2, %333
   %335 = select i1 %205, i64 %334, i64 0
-  %336 = sub i64 %3, %.1285353
+  %336 = sub i64 %3, %.1284353
   %337 = select i1 %205, i64 0, i64 %336
-  %338 = add i64 %335, %.1285353
+  %338 = add i64 %335, %.1284353
   %339 = load i64, ptr %12, align 8
   %340 = icmp ugt i64 %338, %339
   %341 = sub i64 %339, %335
-  %spec.select336 = select i1 %340, i64 %341, i64 %.1285353
+  %spec.select336 = select i1 %340, i64 %341, i64 %.1284353
   %342 = getelementptr inbounds i8, ptr %4, i64 %337
   %343 = getelementptr inbounds i8, ptr %302, i64 %335
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %342, ptr nonnull align 1 %343, i64 %spec.select336, i1 false)
@@ -1540,13 +1540,13 @@ define range(i32 -1, 1) i32 @H5PB_read(ptr noundef %0, i32 noundef %1, i64 nound
 
 390:                                              ; preds = %274, %271, %387, %384
   %.4 = phi i64 [ %spec.select, %271 ], [ %spec.select, %274 ], [ %spec.select336, %384 ], [ %spec.select336, %387 ]
-  %391 = add nuw i64 %.1283373, 1
-  %exitcond.not = icmp eq i64 %391, %.0287347386
+  %391 = add nuw i64 %.1282373, 1
+  %exitcond.not = icmp eq i64 %391, %.0286348385
   br i1 %exitcond.not, label %.loopexit, label %204
 
 .loopexit:                                        ; preds = %186, %78, %390, %56, %189, %14, %28, %293, %374, %346, %328, %318, %311, %304, %296, %287, %19
-  %.0281 = phi i32 [ -1, %19 ], [ -1, %287 ], [ -1, %296 ], [ 0, %293 ], [ -1, %304 ], [ -1, %311 ], [ -1, %318 ], [ -1, %328 ], [ -1, %346 ], [ -1, %374 ], [ 0, %28 ], [ 0, %14 ], [ 0, %189 ], [ 0, %56 ], [ 0, %390 ], [ 0, %78 ], [ 0, %186 ]
-  ret i32 %.0281
+  %.0280 = phi i32 [ -1, %19 ], [ -1, %287 ], [ -1, %296 ], [ 0, %293 ], [ -1, %304 ], [ -1, %311 ], [ -1, %318 ], [ -1, %328 ], [ -1, %346 ], [ -1, %374 ], [ 0, %28 ], [ 0, %14 ], [ 0, %189 ], [ 0, %56 ], [ 0, %390 ], [ 0, %78 ], [ 0, %186 ]
+  ret i32 %.0280
 }
 
 declare i32 @H5F__accum_read(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
@@ -1910,12 +1910,12 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
   br label %68
 
 68:                                               ; preds = %.lr.ph, %209
-  %.0333427 = phi i64 [ 0, %.lr.ph ], [ %210, %209 ]
+  %.0332427 = phi i64 [ 0, %.lr.ph ], [ %210, %209 ]
   %69 = load i64, ptr %11, align 8
-  %70 = mul i64 %69, %.0333427
+  %70 = mul i64 %69, %.0332427
   %71 = add i64 %70, %43
   store i64 %71, ptr %6, align 8
-  %72 = icmp ne i64 %.0333427, 0
+  %72 = icmp ne i64 %.0332427, 0
   %or.cond387 = or i1 %.not376, %72
   br i1 %or.cond387, label %118, label %73
 
@@ -2010,7 +2010,7 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
   br label %209
 
 118:                                              ; preds = %68
-  %119 = icmp ne i64 %.0333427, %reass.sub
+  %119 = icmp ne i64 %.0332427, %reass.sub
   %or.cond389.not435 = or i1 %62, %119
   %120 = add i64 %71, %69
   %.not377 = icmp eq i64 %120, %52
@@ -2194,7 +2194,7 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
   br label %209
 
 209:                                              ; preds = %115, %73, %166, %204, %122, %163
-  %210 = add nuw i64 %.0333427, 1
+  %210 = add nuw i64 %.0332427, 1
   %211 = icmp ult i64 %210, %56
   br i1 %211, label %68, label %.loopexit
 
@@ -2203,10 +2203,10 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
 
 .lr.ph430:                                        ; preds = %38, %45, %.thread400
   %212 = phi i64 [ %43, %.thread400 ], [ %43, %38 ], [ %50, %45 ]
-  %.0337397445 = phi i64 [ %56, %.thread400 ], [ 1, %38 ], [ 1, %45 ]
-  %.0329399444 = phi i64 [ %spec.store.select, %.thread400 ], [ -1, %38 ], [ -1, %45 ]
+  %.0337397445 = phi i64 [ %spec.store.select, %.thread400 ], [ -1, %38 ], [ -1, %45 ]
+  %.0336399444 = phi i64 [ %56, %.thread400 ], [ 1, %38 ], [ 1, %45 ]
   %213 = load ptr, ptr %0, align 8
-  %214 = icmp eq i64 %.0337397445, 1
+  %214 = icmp eq i64 %.0336399444, 1
   %215 = getelementptr inbounds i8, ptr %8, i64 40
   %216 = sub i64 %212, %2
   %217 = getelementptr inbounds i8, ptr %8, i64 64
@@ -2223,10 +2223,10 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
   br label %228
 
 228:                                              ; preds = %.lr.ph430, %454
-  %.1334429 = phi i64 [ 0, %.lr.ph430 ], [ %455, %454 ]
-  %.0335428 = phi i64 [ 0, %.lr.ph430 ], [ %.1336407, %454 ]
-  %229 = icmp eq i64 %.1334429, 0
-  %230 = select i1 %229, i64 %212, i64 %.0329399444
+  %.1333429 = phi i64 [ 0, %.lr.ph430 ], [ %455, %454 ]
+  %.0334428 = phi i64 [ 0, %.lr.ph430 ], [ %.1335407, %454 ]
+  %229 = icmp eq i64 %.1333429, 0
+  %230 = select i1 %229, i64 %212, i64 %.0337397445
   store i64 %230, ptr %6, align 8
   br i1 %214, label %232, label %231
 
@@ -2248,14 +2248,14 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
   br i1 %.not370414, label %296, label %.thread415
 
 .thread403:                                       ; preds = %231
-  %239 = sub i64 %3, %.0335428
+  %239 = sub i64 %3, %.0334428
   %240 = load ptr, ptr %215, align 8
   %241 = call ptr @H5SL_search(ptr noundef %240, ptr noundef nonnull %6) #9
   %.not370405 = icmp eq ptr %241, null
   br i1 %.not370405, label %296, label %.thread409
 
 .thread415:                                       ; preds = %232, %.thread412
-  %.1336406417 = phi i64 [ %236, %.thread412 ], [ %3, %232 ]
+  %.1335406417 = phi i64 [ %236, %.thread412 ], [ %3, %232 ]
   %242 = phi ptr [ %238, %.thread412 ], [ %234, %232 ]
   %243 = getelementptr inbounds i8, ptr %242, i64 8
   %244 = load i64, ptr %243, align 8
@@ -2263,15 +2263,15 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
   br label %.thread409
 
 .thread409:                                       ; preds = %.thread403, %.thread415
-  %.1336406411 = phi i64 [ %.1336406417, %.thread415 ], [ %239, %.thread403 ]
+  %.1335406411 = phi i64 [ %.1335406417, %.thread415 ], [ %239, %.thread403 ]
   %246 = phi ptr [ %242, %.thread415 ], [ %241, %.thread403 ]
   %247 = phi i64 [ %245, %.thread415 ], [ 0, %.thread403 ]
-  %248 = sub i64 %3, %.1336406411
+  %248 = sub i64 %3, %.1335406411
   %249 = select i1 %229, i64 0, i64 %248
   %250 = load ptr, ptr %246, align 8
   %251 = getelementptr inbounds i8, ptr %250, i64 %247
   %252 = getelementptr inbounds i8, ptr %4, i64 %249
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %251, ptr align 1 %252, i64 %.1336406411, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %251, ptr align 1 %252, i64 %.1335406411, i1 false)
   %253 = getelementptr inbounds i8, ptr %246, i64 20
   store i8 1, ptr %253, align 4
   %254 = load ptr, ptr %217, align 8
@@ -2363,7 +2363,7 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
   br label %454
 
 296:                                              ; preds = %.thread412, %.thread403, %232
-  %.1336408 = phi i64 [ %239, %.thread403 ], [ %3, %232 ], [ %236, %.thread412 ]
+  %.1335408 = phi i64 [ %239, %.thread403 ], [ %3, %232 ], [ %236, %.thread412 ]
   %297 = load i64, ptr %11, align 8
   %298 = load ptr, ptr %215, align 8
   %299 = call i64 @H5SL_count(ptr noundef %298) #9
@@ -2409,7 +2409,7 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
   %322 = load i64, ptr %6, align 8
   %323 = sub i64 %2, %322
   %324 = select i1 %229, i64 %323, i64 0
-  %325 = sub i64 %3, %.1336408
+  %325 = sub i64 %3, %.1335408
   %326 = select i1 %229, i64 0, i64 %325
   br label %354
 
@@ -2419,7 +2419,7 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
   %330 = load i64, ptr %6, align 8
   %331 = sub i64 %2, %330
   %332 = select i1 %229, i64 %331, i64 0
-  %333 = sub i64 %3, %.1336408
+  %333 = sub i64 %3, %.1335408
   %334 = select i1 %229, i64 0, i64 %333
   %.not373 = icmp eq ptr %329, null
   br i1 %.not373, label %354, label %335
@@ -2439,8 +2439,8 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
 343:                                              ; preds = %335
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %337, i8 0, i64 %332, i1 false)
   %344 = getelementptr inbounds i8, ptr %337, i64 %332
-  %345 = getelementptr inbounds i8, ptr %344, i64 %.1336408
-  %346 = add i64 %.1336408, %332
+  %345 = getelementptr inbounds i8, ptr %344, i64 %.1335408
+  %346 = add i64 %.1335408, %332
   %347 = sub i64 %297, %346
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %345, i8 0, i64 %347, i1 false)
   store ptr %337, ptr %329, align 8
@@ -2566,11 +2566,11 @@ define range(i32 -1, 1) i32 @H5PB_write(ptr noundef %0, i32 noundef %1, i64 noun
 418:                                              ; preds = %398, %415, %412, %348, %351
   %419 = phi i64 [ %334, %348 ], [ %334, %351 ], [ %355, %412 ], [ %355, %415 ], [ %355, %398 ]
   %420 = phi i64 [ %332, %348 ], [ %332, %351 ], [ %356, %412 ], [ %356, %415 ], [ %356, %398 ]
-  %.0331 = phi ptr [ %337, %348 ], [ %337, %351 ], [ %358, %412 ], [ %358, %415 ], [ %358, %398 ]
+  %.0330 = phi ptr [ %337, %348 ], [ %337, %351 ], [ %358, %412 ], [ %358, %415 ], [ %358, %398 ]
   %.1 = phi ptr [ %329, %348 ], [ %329, %351 ], [ %365, %412 ], [ %365, %415 ], [ %365, %398 ]
-  %421 = getelementptr inbounds i8, ptr %.0331, i64 %420
+  %421 = getelementptr inbounds i8, ptr %.0330, i64 %420
   %422 = getelementptr inbounds i8, ptr %4, i64 %419
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %421, ptr align 1 %422, i64 %.1336408, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %421, ptr align 1 %422, i64 %.1335408, i1 false)
   %423 = getelementptr inbounds i8, ptr %.1, i64 20
   store i8 1, ptr %423, align 4
   %424 = load ptr, ptr %215, align 8
@@ -2632,14 +2632,14 @@ H5PB__insert_entry.exit:                          ; preds = %440, %441
   br label %.loopexit
 
 454:                                              ; preds = %H5PB__insert_entry.exit, %293, %290
-  %.1336407 = phi i64 [ %.1336406411, %293 ], [ %.1336406411, %290 ], [ %.1336408, %H5PB__insert_entry.exit ]
-  %455 = add nuw i64 %.1334429, 1
-  %exitcond.not = icmp eq i64 %455, %.0337397445
+  %.1335407 = phi i64 [ %.1335406411, %293 ], [ %.1335406411, %290 ], [ %.1335408, %H5PB__insert_entry.exit ]
+  %455 = add nuw i64 %.1333429, 1
+  %exitcond.not = icmp eq i64 %455, %.0336399444
   br i1 %exitcond.not, label %.loopexit, label %228
 
 .loopexit:                                        ; preds = %209, %454, %.preheader, %.thread400, %13, %32, %312, %447, %407, %394, %384, %377, %367, %360, %339, %315, %306, %18
-  %.0332 = phi i32 [ -1, %18 ], [ -1, %306 ], [ -1, %315 ], [ 0, %312 ], [ -1, %339 ], [ -1, %447 ], [ -1, %360 ], [ -1, %367 ], [ -1, %377 ], [ -1, %384 ], [ -1, %407 ], [ -1, %394 ], [ 0, %32 ], [ 0, %13 ], [ 0, %.thread400 ], [ 0, %.preheader ], [ 0, %454 ], [ 0, %209 ]
-  ret i32 %.0332
+  %.0331 = phi i32 [ -1, %18 ], [ -1, %306 ], [ -1, %315 ], [ 0, %312 ], [ -1, %339 ], [ -1, %447 ], [ -1, %360 ], [ -1, %367 ], [ -1, %377 ], [ -1, %384 ], [ -1, %407 ], [ -1, %394 ], [ 0, %32 ], [ 0, %13 ], [ 0, %.thread400 ], [ 0, %.preheader ], [ 0, %454 ], [ 0, %209 ]
+  ret i32 %.0331
 }
 
 declare i32 @H5F__accum_write(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #5

@@ -33,10 +33,10 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   br label %.loopexit148
 
 .loopexit148:                                     ; preds = %.loopexit, %14
-  %.0115 = phi ptr [ %15, %14 ], [ %.6121, %.loopexit ]
-  %.0111 = phi i32 [ %17, %14 ], [ %.3114, %.loopexit ]
-  %.0109 = phi ptr [ %15, %14 ], [ %.2, %.loopexit ]
-  %.not134 = icmp ult ptr %.0109, %.0115
+  %.0114 = phi ptr [ %15, %14 ], [ %.2116, %.loopexit ]
+  %.0110 = phi ptr [ %15, %14 ], [ %.6, %.loopexit ]
+  %.0109 = phi i32 [ %17, %14 ], [ %.3, %.loopexit ]
+  %.not134 = icmp ult ptr %.0114, %.0110
   br i1 %.not134, label %33, label %22
 
 22:                                               ; preds = %.loopexit148
@@ -59,22 +59,22 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   br label %33
 
 33:                                               ; preds = %.loopexit148, %30
-  %.1116 = phi ptr [ %32, %30 ], [ %.0115, %.loopexit148 ]
-  %.1 = phi ptr [ %15, %30 ], [ %.0109, %.loopexit148 ]
-  %34 = load i8, ptr %.1, align 1
+  %.1115 = phi ptr [ %15, %30 ], [ %.0114, %.loopexit148 ]
+  %.1111 = phi ptr [ %32, %30 ], [ %.0110, %.loopexit148 ]
+  %34 = load i8, ptr %.1115, align 1
   %35 = zext i8 %34 to i32
   %36 = xor i32 %35, %19
-  %.2170 = getelementptr inbounds i8, ptr %.1, i64 1
+  %.2116170 = getelementptr inbounds i8, ptr %.1115, i64 1
   br label %37
 
 37:                                               ; preds = %33, %.loopexit
-  %.2174 = phi ptr [ %.2170, %33 ], [ %.2, %.loopexit ]
-  %.0110173 = phi i32 [ 1, %33 ], [ %116, %.loopexit ]
-  %.1112172 = phi i32 [ %.0111, %33 ], [ %.3114, %.loopexit ]
-  %.2117171 = phi ptr [ %.1116, %33 ], [ %.6121, %.loopexit ]
-  %38 = and i32 %.0110173, %36
+  %.2116174 = phi ptr [ %.2116170, %33 ], [ %.2116, %.loopexit ]
+  %.0108173 = phi i32 [ 1, %33 ], [ %116, %.loopexit ]
+  %.1172 = phi i32 [ %.0109, %33 ], [ %.3, %.loopexit ]
+  %.2112171 = phi ptr [ %.1111, %33 ], [ %.6, %.loopexit ]
+  %38 = and i32 %.0108173, %36
   %.not136 = icmp eq i32 %38, 0
-  %.not137 = icmp ult ptr %.2174, %.2117171
+  %.not137 = icmp ult ptr %.2116174, %.2112171
   br i1 %.not136, label %63, label %39
 
 39:                                               ; preds = %37
@@ -100,10 +100,10 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   br label %51
 
 51:                                               ; preds = %39, %48
-  %.3118 = phi ptr [ %50, %48 ], [ %.2117171, %39 ]
-  %.3 = phi ptr [ %15, %48 ], [ %.2174, %39 ]
-  %52 = load i8, ptr %.3, align 1
-  %53 = zext i32 %.1112172 to i64
+  %.3117 = phi ptr [ %15, %48 ], [ %.2116174, %39 ]
+  %.3113 = phi ptr [ %50, %48 ], [ %.2112171, %39 ]
+  %52 = load i8, ptr %.3117, align 1
+  %53 = zext i32 %.1172 to i64
   %54 = getelementptr inbounds i8, ptr %13, i64 %53
   store i8 %52, ptr %54, align 1
   %55 = load ptr, ptr %21, align 8
@@ -118,7 +118,7 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   br label %118
 
 60:                                               ; preds = %51
-  %61 = add nuw nsw i32 %.1112172, 1
+  %61 = add nuw nsw i32 %.1172, 1
   %62 = and i32 %61, 4095
   br label %.loopexit
 
@@ -145,12 +145,12 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   br label %75
 
 75:                                               ; preds = %63, %72
-  %.4119 = phi ptr [ %74, %72 ], [ %.2117171, %63 ]
-  %.4 = phi ptr [ %15, %72 ], [ %.2174, %63 ]
-  %76 = getelementptr inbounds i8, ptr %.4, i64 1
-  %77 = load i8, ptr %.4, align 1
+  %.4118 = phi ptr [ %15, %72 ], [ %.2116174, %63 ]
+  %.4 = phi ptr [ %74, %72 ], [ %.2112171, %63 ]
+  %76 = getelementptr inbounds i8, ptr %.4118, i64 1
+  %77 = load i8, ptr %.4118, align 1
   %78 = zext i8 %77 to i32
-  %.not138 = icmp ult ptr %76, %.4119
+  %.not138 = icmp ult ptr %76, %.4
   br i1 %.not138, label %90, label %79
 
 79:                                               ; preds = %75
@@ -173,9 +173,9 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   br label %90
 
 90:                                               ; preds = %75, %87
-  %.5120 = phi ptr [ %89, %87 ], [ %.4119, %75 ]
-  %.5 = phi ptr [ %15, %87 ], [ %76, %75 ]
-  %91 = load i8, ptr %.5, align 1
+  %.5119 = phi ptr [ %15, %87 ], [ %76, %75 ]
+  %.5 = phi ptr [ %89, %87 ], [ %.4, %75 ]
+  %91 = load i8, ptr %.5119, align 1
   %92 = zext i8 %91 to i32
   %93 = shl nuw nsw i32 %92, 4
   %94 = and i32 %93, 3840
@@ -187,11 +187,11 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
 98:                                               ; preds = %90, %110
   %99 = phi i32 [ %97, %90 ], [ %115, %110 ]
   %.0107169 = phi i32 [ %95, %90 ], [ %114, %110 ]
-  %.2113168 = phi i32 [ %.1112172, %90 ], [ %112, %110 ]
+  %.2168 = phi i32 [ %.1172, %90 ], [ %112, %110 ]
   %100 = zext nneg i32 %.0107169 to i64
   %101 = getelementptr inbounds i8, ptr %13, i64 %100
   %102 = load i8, ptr %101, align 1
-  %103 = zext i32 %.2113168 to i64
+  %103 = zext i32 %.2168 to i64
   %104 = getelementptr inbounds i8, ptr %13, i64 %103
   store i8 %102, ptr %104, align 1
   %105 = load ptr, ptr %21, align 8
@@ -206,7 +206,7 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   br label %118
 
 110:                                              ; preds = %98
-  %111 = add nuw nsw i32 %.2113168, 1
+  %111 = add nuw nsw i32 %.2168, 1
   %112 = and i32 %111, 4095
   %113 = add nuw nsw i32 %.0107169, 1
   %114 = and i32 %113, 4095
@@ -215,18 +215,18 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not139, label %.loopexit, label %98
 
 .loopexit:                                        ; preds = %110, %60
-  %.6121 = phi ptr [ %.3118, %60 ], [ %.5120, %110 ]
-  %.3114 = phi i32 [ %62, %60 ], [ %112, %110 ]
-  %.3.pn = phi ptr [ %.3, %60 ], [ %.5, %110 ]
-  %116 = shl i32 %.0110173, 1
-  %.2 = getelementptr inbounds i8, ptr %.3.pn, i64 1
-  %117 = and i32 %.0110173, 127
+  %.3117.pn = phi ptr [ %.3117, %60 ], [ %.5119, %110 ]
+  %.6 = phi ptr [ %.3113, %60 ], [ %.5, %110 ]
+  %.3 = phi i32 [ %62, %60 ], [ %112, %110 ]
+  %116 = shl i32 %.0108173, 1
+  %.2116 = getelementptr inbounds i8, ptr %.3117.pn, i64 1
+  %117 = and i32 %.0108173, 127
   %.not135 = icmp eq i32 %117, 0
   br i1 %.not135, label %.loopexit148, label %37
 
 118:                                              ; preds = %8, %5, %107, %83, %68, %57, %44, %26
-  %.0108 = phi i32 [ %29, %26 ], [ %47, %44 ], [ 4, %57 ], [ %71, %68 ], [ %86, %83 ], [ 4, %107 ], [ 1, %5 ], [ 6, %8 ]
-  ret i32 %.0108
+  %.0121 = phi i32 [ %29, %26 ], [ %47, %44 ], [ 4, %57 ], [ %71, %68 ], [ %86, %83 ], [ 4, %107 ], [ 1, %5 ], [ 6, %8 ]
+  ret i32 %.0121
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

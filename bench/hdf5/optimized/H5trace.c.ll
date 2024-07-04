@@ -8437,9 +8437,9 @@ define double @H5_trace(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2,
   br i1 %62, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %60, %.lr.ph
-  %.02938 = phi i64 [ %64, %.lr.ph ], [ 0, %60 ]
+  %.038 = phi i64 [ %64, %.lr.ph ], [ 0, %60 ]
   %63 = call i32 @H5RS_aputc(ptr noundef %40, i32 noundef 43) #9
-  %64 = add nuw nsw i64 %.02938, 1
+  %64 = add nuw nsw i64 %.038, 1
   %65 = load i32, ptr @H5_trace.current_depth, align 4
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %64, %66
@@ -8548,8 +8548,8 @@ define double @H5_trace(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2,
   br label %128
 
 128:                                              ; preds = %117, %3, %125, %26, %22
-  %.0 = phi double [ 0.000000e+00, %22 ], [ %127, %125 ], [ 0.000000e+00, %26 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %117 ]
-  ret double %.0
+  %.029 = phi double [ 0.000000e+00, %22 ], [ %127, %125 ], [ 0.000000e+00, %26 ], [ 0.000000e+00, %3 ], [ 0.000000e+00, %117 ]
+  ret double %.029
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

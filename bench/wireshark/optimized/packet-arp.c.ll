@@ -758,7 +758,7 @@ define internal i32 @dissect_arp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %87
 
 87:                                               ; preds = %83, %85, %77, %69
-  %.0344 = phi i32 [ %86, %85 ], [ 0, %83 ], [ 0, %77 ], [ 0, %69 ]
+  %.0 = phi i32 [ %86, %85 ], [ 0, %83 ], [ 0, %77 ], [ 0, %69 ]
   %88 = call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %57) #9
   %89 = load ptr, ptr %71, align 8
   %90 = call ptr @tvb_memdup(ptr noundef %89, ptr noundef %0, i32 noundef %56, i64 noundef 6) #9
@@ -799,7 +799,7 @@ define internal i32 @dissect_arp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %107
 
 107:                                              ; preds = %87, %94, %105, %102, %64, %60, %51
-  %.1 = phi i32 [ %106, %105 ], [ %.0344, %102 ], [ %.0344, %94 ], [ %.0344, %87 ], [ 0, %64 ], [ 0, %60 ], [ 0, %51 ]
+  %.1 = phi i32 [ %106, %105 ], [ %.0, %102 ], [ %.0, %94 ], [ %.0, %87 ], [ 0, %64 ], [ 0, %60 ], [ 0, %51 ]
   %108 = load i32, ptr %10, align 4
   %109 = add i32 %108, -1
   %or.cond18 = icmp ult i32 %109, 2
@@ -1507,8 +1507,8 @@ proto_item_set_generated.exit399:                 ; preds = %427, %424, %421, %p
   br label %494
 
 494:                                              ; preds = %492, %19
-  %.0 = phi i32 [ %21, %19 ], [ %493, %492 ]
-  ret i32 %.0
+  %.0347 = phi i32 [ %21, %19 ], [ %493, %492 ]
+  ret i32 %.0347
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1665,7 +1665,7 @@ atmarpnum_to_str.exit335:                         ; preds = %tvb_arpproaddr_to_s
   br label %atmarpsubaddr_to_str.exit337
 
 atmarpsubaddr_to_str.exit337:                     ; preds = %87, %84, %atmarpnum_to_str.exit335
-  %.0296 = phi ptr [ null, %atmarpnum_to_str.exit335 ], [ %89, %87 ], [ @.str, %84 ]
+  %.0 = phi ptr [ null, %atmarpnum_to_str.exit335 ], [ %89, %87 ], [ @.str, %84 ]
   %90 = load ptr, ptr %36, align 8
   %91 = zext i8 %23 to i64
   %92 = call ptr @tvb_memdup(ptr noundef %90, ptr noundef %0, i32 noundef %33, i64 noundef %91) #9
@@ -1804,9 +1804,9 @@ tvb_arpproaddr_to_str.exit342:                    ; preds = %atmarpsubaddr_to_st
 133:                                              ; preds = %122
   %134 = getelementptr inbounds i8, ptr %1, i64 8
   %135 = load ptr, ptr %134, align 8
-  %.not319 = icmp eq ptr %.0296, null
+  %.not319 = icmp eq ptr %.0, null
   %136 = select i1 %.not319, ptr @.str.299, ptr @.str.298
-  %137 = select i1 %.not319, ptr @.str.299, ptr %.0296
+  %137 = select i1 %.not319, ptr @.str.299, ptr %.0
   %.not320 = icmp eq ptr %.0295, null
   %138 = select i1 %.not320, ptr @.str.299, ptr @.str.298
   %139 = select i1 %.not320, ptr @.str.299, ptr %.0295
@@ -1979,9 +1979,9 @@ tvb_arpproaddr_to_str.exit342:                    ; preds = %atmarpsubaddr_to_st
   br label %228
 
 228:                                              ; preds = %226, %224
-  %.0 = phi ptr [ %225, %224 ], [ %227, %226 ]
+  %.0296 = phi ptr [ %225, %224 ], [ %227, %226 ]
   %229 = load i32, ptr @ett_arp, align 4
-  %230 = call ptr @proto_item_add_subtree(ptr noundef %.0, i32 noundef %229) #9
+  %230 = call ptr @proto_item_add_subtree(ptr noundef %.0296, i32 noundef %229) #9
   %231 = load i32, ptr @hf_arp_hard_type, align 4
   %232 = zext i16 %7 to i32
   %233 = call ptr @proto_tree_add_uint(ptr noundef %230, i32 noundef %231, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef %232) #9
@@ -2109,7 +2109,7 @@ dissect_atm_number.exit345:                       ; preds = %311, %307, %304, %3
 
 314:                                              ; preds = %dissect_atm_number.exit345
   %315 = load i32, ptr @hf_atmarp_dst_atm_subaddr, align 4
-  %316 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %230, i32 noundef %315, ptr noundef %0, i32 noundef %31, i32 noundef %32, ptr noundef null, ptr noundef nonnull @.str.323, ptr noundef %.0296) #9
+  %316 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %230, i32 noundef %315, ptr noundef %0, i32 noundef %31, i32 noundef %32, ptr noundef null, ptr noundef nonnull @.str.323, ptr noundef %.0) #9
   br label %317
 
 317:                                              ; preds = %314, %dissect_atm_number.exit345
@@ -2550,13 +2550,13 @@ tvb_arphrdaddr_to_str.exit203:                    ; preds = %138, %147, %149
   br label %211
 
 211:                                              ; preds = %202, %203, %154
-  %.0167 = phi ptr [ %165, %203 ], [ %165, %202 ], [ null, %154 ]
+  %.0169 = phi ptr [ %165, %203 ], [ %165, %202 ], [ null, %154 ]
   %212 = load i32, ptr @global_arp_detect_request_storm, align 4
   %.not182 = icmp eq i32 %212, 0
   br i1 %.not182, label %214, label %213
 
 213:                                              ; preds = %211
-  call fastcc void @check_for_storm_count(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0167)
+  call fastcc void @check_for_storm_count(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0169)
   br label %214
 
 214:                                              ; preds = %213, %211

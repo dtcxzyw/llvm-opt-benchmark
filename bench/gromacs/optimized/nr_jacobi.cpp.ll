@@ -41,7 +41,7 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nocapt
   br label %.preheader216
 
 .preheader216:                                    ; preds = %13, %135
-  %.0196240 = phi i32 [ 0, %13 ], [ %136, %135 ]
+  %.0191240 = phi i32 [ 0, %13 ], [ %136, %135 ]
   br label %.lr.ph
 
 .loopexit214:                                     ; preds = %14
@@ -52,17 +52,17 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nocapt
 .lr.ph:                                           ; preds = %.loopexit214, %.preheader216
   %indvars.iv251 = phi i64 [ 0, %.preheader216 ], [ %indvars.iv.next252, %.loopexit214 ]
   %indvars.iv245 = phi i64 [ 1, %.preheader216 ], [ %indvars.iv.next246, %.loopexit214 ]
-  %.0189225 = phi double [ 0.000000e+00, %.preheader216 ], [ %18, %.loopexit214 ]
+  %.0188225 = phi double [ 0.000000e+00, %.preheader216 ], [ %18, %.loopexit214 ]
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   br label %14
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv247 = phi i64 [ %indvars.iv245, %.lr.ph ], [ %indvars.iv.next248, %14 ]
-  %.1190223 = phi double [ %.0189225, %.lr.ph ], [ %18, %14 ]
+  %.1223 = phi double [ %.0188225, %.lr.ph ], [ %18, %14 ]
   %15 = getelementptr inbounds [4 x double], ptr %0, i64 %indvars.iv251, i64 %indvars.iv247
   %16 = load double, ptr %15, align 8
   %17 = tail call noundef double @llvm.fabs.f64(double %16)
-  %18 = fadd double %.1190223, %17
+  %18 = fadd double %.1223, %17
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
   %exitcond250.not = icmp eq i64 %indvars.iv.next248, 4
   br i1 %exitcond250.not, label %.loopexit214, label %14, !llvm.loop !9
@@ -72,11 +72,11 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nocapt
   br i1 %20, label %137, label %21
 
 21:                                               ; preds = %19
-  %22 = icmp ult i32 %.0196240, 4
+  %22 = icmp ult i32 %.0191240, 4
   %23 = fmul double %18, 2.000000e-01
   %24 = fmul double %23, 6.250000e-02
-  %.0195 = select i1 %22, double %24, double 0.000000e+00
-  %25 = icmp ugt i32 %.0196240, 4
+  %.0190 = select i1 %22, double %24, double 0.000000e+00
+  %25 = icmp ugt i32 %.0191240, 4
   br label %.lr.ph237
 
 .loopexit:                                        ; preds = %128
@@ -121,7 +121,7 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nocapt
   br label %128
 
 45:                                               ; preds = %38, %33, %28
-  %46 = fcmp ogt double %31, %.0195
+  %46 = fcmp ogt double %31, %.0190
   br i1 %46, label %47, label %128
 
 47:                                               ; preds = %45
@@ -154,14 +154,14 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nocapt
   br label %67
 
 67:                                               ; preds = %57, %65, %55
-  %.0191 = phi double [ %56, %55 ], [ %66, %65 ], [ %63, %57 ]
-  %68 = tail call double @llvm.fmuladd.f64(double %.0191, double %.0191, double 1.000000e+00)
+  %.0189 = phi double [ %56, %55 ], [ %66, %65 ], [ %63, %57 ]
+  %68 = tail call double @llvm.fmuladd.f64(double %.0189, double %.0189, double 1.000000e+00)
   %sqrt211 = tail call double @llvm.sqrt.f64(double %68)
   %69 = fdiv double 1.000000e+00, %sqrt211
-  %70 = fmul double %.0191, %69
+  %70 = fmul double %.0189, %69
   %71 = fadd double %69, 1.000000e+00
   %72 = fdiv double %70, %71
-  %73 = fmul double %.0191, %30
+  %73 = fmul double %.0189, %30
   %74 = load double, ptr %27, align 8
   %75 = fsub double %74, %73
   store double %75, ptr %27, align 8
@@ -292,7 +292,7 @@ define noundef range(i32 0, 2) i32 @_ZN9NR_Jacobi6jacobiEPA4_dPdS1_Pi(ptr nocapt
   br i1 %exitcond284.not, label %135, label %.preheader215, !llvm.loop !16
 
 135:                                              ; preds = %.preheader215
-  %136 = add nuw nsw i32 %.0196240, 1
+  %136 = add nuw nsw i32 %.0191240, 1
   %exitcond285.not = icmp eq i32 %136, 51
   br i1 %exitcond285.not, label %137, label %.preheader216, !llvm.loop !17
 

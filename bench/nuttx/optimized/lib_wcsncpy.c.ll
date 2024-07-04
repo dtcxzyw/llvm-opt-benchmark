@@ -9,25 +9,25 @@ define noundef ptr @wcsncpy(ptr noundef returned %0, ptr nocapture noundef reado
   br i1 %.not12, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %5
-  %.015 = phi ptr [ %7, %5 ], [ %0, %3 ]
-  %.0814 = phi i64 [ %8, %5 ], [ %2, %3 ]
-  %.0913 = phi ptr [ %6, %5 ], [ %1, %3 ]
-  %4 = load i32, ptr %.0913, align 4
+  %.015 = phi i64 [ %8, %5 ], [ %2, %3 ]
+  %.0814 = phi ptr [ %6, %5 ], [ %1, %3 ]
+  %.0913 = phi ptr [ %7, %5 ], [ %0, %3 ]
+  %4 = load i32, ptr %.0814, align 4
   %.not11 = icmp eq i32 %4, 0
   br i1 %.not11, label %.critedge, label %5
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %.0913, i64 4
-  %7 = getelementptr inbounds i8, ptr %.015, i64 4
-  store i32 %4, ptr %.015, align 4
-  %8 = add i64 %.0814, -1
+  %6 = getelementptr inbounds i8, ptr %.0814, i64 4
+  %7 = getelementptr inbounds i8, ptr %.0913, i64 4
+  store i32 %4, ptr %.0913, align 4
+  %8 = add i64 %.015, -1
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !6
 
 .critedge:                                        ; preds = %.lr.ph, %5, %3
-  %.08.lcssa = phi i64 [ 0, %3 ], [ 0, %5 ], [ %.0814, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %3 ], [ %7, %5 ], [ %.015, %.lr.ph ]
-  %9 = tail call ptr @wmemset(ptr noundef %.0.lcssa, i32 noundef 0, i64 noundef %.08.lcssa) #2
+  %.09.lcssa = phi ptr [ %0, %3 ], [ %7, %5 ], [ %.0913, %.lr.ph ]
+  %.0.lcssa = phi i64 [ 0, %3 ], [ 0, %5 ], [ %.015, %.lr.ph ]
+  %9 = tail call ptr @wmemset(ptr noundef %.09.lcssa, i32 noundef 0, i64 noundef %.0.lcssa) #2
   ret ptr %0
 }
 

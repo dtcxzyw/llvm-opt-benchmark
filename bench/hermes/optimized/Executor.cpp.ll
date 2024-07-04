@@ -1647,7 +1647,7 @@ _ZN6hermes5regex7ContextINS0_16UTF16RegexTraitsEE18matchesNCharICase8EPKNS0_20Ma
   br label %if.end367
 
 do.body352:                                       ; preds = %sw.bb342, %_ZN6hermes5regex7ContextINS0_16UTF16RegexTraitsEE18matchesNCharICase8EPKNS0_20MatchNCharICase8InsnERNS0_5StateIS2_EE.exit
-  %call354 = call i16 @_ZN6hermes5regex7ContextINS0_16UTF16RegexTraitsEE9backtrackERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEEPNS0_5StateIS2_EE(ptr noundef nonnull align 8 dereferenceable(188) %this, ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef %s)
+  %call354 = call i16 @_ZN6hermes5regex7ContextINS0_16UTF16RegexTraitsEE9backtrackERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEEPNS0_5StateIS2_EE(ptr noundef nonnull align 8 dereferenceable(188) %this, ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef nonnull %s)
   %btRes353.sroa.0.0.extract.trunc = trunc i16 %call354 to i8
   %cmp.i.i537 = icmp eq i8 %btRes353.sroa.0.0.extract.trunc, 0
   br i1 %cmp.i.i537, label %if.end360, label %cleanup930
@@ -1773,7 +1773,7 @@ if.then398:                                       ; preds = %_ZNK6hermes5regex6C
   br label %for.cond5.backedge
 
 do.body402:                                       ; preds = %if.else.thread
-  %call404 = call i16 @_ZN6hermes5regex7ContextINS0_16UTF16RegexTraitsEE9backtrackERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEEPNS0_5StateIS2_EE(ptr noundef nonnull align 8 dereferenceable(188) %this, ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef %s)
+  %call404 = call i16 @_ZN6hermes5regex7ContextINS0_16UTF16RegexTraitsEE9backtrackERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEEPNS0_5StateIS2_EE(ptr noundef nonnull align 8 dereferenceable(188) %this, ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef nonnull %s)
   %btRes403.sroa.0.0.extract.trunc = trunc i16 %call404 to i8
   %cmp.i.i570 = icmp eq i8 %btRes403.sroa.0.0.extract.trunc, 0
   br i1 %cmp.i.i570, label %if.end410, label %cleanup930
@@ -2108,24 +2108,24 @@ if.end590:                                        ; preds = %sw.bb574
   br i1 %tobool591.not, label %land.rhs.us, label %if.end590.split
 
 land.rhs.us:                                      ; preds = %if.end590, %if.end661.us
-  %cursor2.sroa.4.01207.us = phi ptr [ %add.ptr.i727.us, %if.end661.us ], [ %cond608, %if.end590 ]
-  %cursor1.sroa.3.01206.us = phi ptr [ %add.ptr.i720.us, %if.end661.us ], [ %cursor1.sroa.3.0.copyload, %if.end590 ]
-  %cmp.i710.us = icmp eq ptr %cursor2.sroa.4.01207.us, %cond.i706
+  %cursor1.sroa.3.01207.us = phi ptr [ %add.ptr.i720.us, %if.end661.us ], [ %cursor1.sroa.3.0.copyload, %if.end590 ]
+  %cursor2.sroa.4.01206.us = phi ptr [ %add.ptr.i727.us, %if.end661.us ], [ %cond608, %if.end590 ]
+  %cmp.i710.us = icmp eq ptr %cursor2.sroa.4.01206.us, %cond.i706
   br i1 %cmp.i710.us, label %if.end679, label %while.body.us
 
 while.body.us:                                    ; preds = %land.rhs.us
-  %cmp.i713.us = icmp eq ptr %cursor1.sroa.3.01206.us, %cursor1.sroa.13.0.copyload
+  %cmp.i713.us = icmp eq ptr %cursor1.sroa.3.01207.us, %cursor1.sroa.13.0.copyload
   br i1 %cmp.i713.us, label %do.body664, label %if.end661.us
 
 if.end661.us:                                     ; preds = %while.body.us
-  %245 = getelementptr i16, ptr %cursor1.sroa.3.01206.us, i64 %conv.i.i.i777
+  %245 = getelementptr i16, ptr %cursor1.sroa.3.01207.us, i64 %conv.i.i.i777
   %arrayidx.i.i717.us = getelementptr i8, ptr %245, i64 -2
   %246 = load i16, ptr %arrayidx.i.i717.us, align 2
-  %add.ptr.i720.us = getelementptr inbounds i16, ptr %cursor1.sroa.3.01206.us, i64 %idx.ext.i.i779
-  %247 = getelementptr i16, ptr %cursor2.sroa.4.01207.us, i64 %conv.i.i.i777
+  %add.ptr.i720.us = getelementptr inbounds i16, ptr %cursor1.sroa.3.01207.us, i64 %idx.ext.i.i779
+  %247 = getelementptr i16, ptr %cursor2.sroa.4.01206.us, i64 %conv.i.i.i777
   %arrayidx.i.i724.us = getelementptr i8, ptr %247, i64 -2
   %248 = load i16, ptr %arrayidx.i.i724.us, align 2
-  %add.ptr.i727.us = getelementptr inbounds i16, ptr %cursor2.sroa.4.01207.us, i64 %idx.ext.i.i779
+  %add.ptr.i727.us = getelementptr inbounds i16, ptr %cursor2.sroa.4.01206.us, i64 %idx.ext.i.i779
   %cmp623.us = icmp eq i16 %246, %248
   br i1 %cmp623.us, label %land.rhs.us, label %do.body664, !llvm.loop !9
 
@@ -2142,20 +2142,20 @@ land.rhs.us1208.preheader:                        ; preds = %if.end590.split
   br i1 %cmp.i710.us12111298, label %if.end679, label %while.body.us1212
 
 while.body.us1212:                                ; preds = %land.rhs.us1208.preheader, %land.rhs.us1208.backedge
-  %cursor1.sroa.3.01206.us12101300 = phi ptr [ %add.ptr.i734.us, %land.rhs.us1208.backedge ], [ %cursor1.sroa.3.0.copyload, %land.rhs.us1208.preheader ]
-  %cursor2.sroa.4.01207.us12091299 = phi ptr [ %add.ptr.i741.us, %land.rhs.us1208.backedge ], [ %cond608, %land.rhs.us1208.preheader ]
-  %cmp.i713.us1213 = icmp eq ptr %cursor1.sroa.3.01206.us12101300, %cursor1.sroa.13.0.copyload
+  %cursor2.sroa.4.01206.us12101300 = phi ptr [ %add.ptr.i741.us, %land.rhs.us1208.backedge ], [ %cond608, %land.rhs.us1208.preheader ]
+  %cursor1.sroa.3.01207.us12091299 = phi ptr [ %add.ptr.i734.us, %land.rhs.us1208.backedge ], [ %cursor1.sroa.3.0.copyload, %land.rhs.us1208.preheader ]
+  %cmp.i713.us1213 = icmp eq ptr %cursor1.sroa.3.01207.us12091299, %cursor1.sroa.13.0.copyload
   br i1 %cmp.i713.us1213, label %do.body664, label %if.else616.us1214
 
 if.else616.us1214:                                ; preds = %while.body.us1212
-  %250 = getelementptr i16, ptr %cursor1.sroa.3.01206.us12101300, i64 %conv.i.i.i777
+  %250 = getelementptr i16, ptr %cursor1.sroa.3.01207.us12091299, i64 %conv.i.i.i777
   %arrayidx.i.i731.us = getelementptr i8, ptr %250, i64 -2
   %251 = load i16, ptr %arrayidx.i.i731.us, align 2
-  %add.ptr.i734.us = getelementptr inbounds i16, ptr %cursor1.sroa.3.01206.us12101300, i64 %idx.ext.i.i779
-  %252 = getelementptr i16, ptr %cursor2.sroa.4.01207.us12091299, i64 %conv.i.i.i777
+  %add.ptr.i734.us = getelementptr inbounds i16, ptr %cursor1.sroa.3.01207.us12091299, i64 %idx.ext.i.i779
+  %252 = getelementptr i16, ptr %cursor2.sroa.4.01206.us12101300, i64 %conv.i.i.i777
   %arrayidx.i.i738.us = getelementptr i8, ptr %252, i64 -2
   %253 = load i16, ptr %arrayidx.i.i738.us, align 2
-  %add.ptr.i741.us = getelementptr inbounds i16, ptr %cursor2.sroa.4.01207.us12091299, i64 %idx.ext.i.i779
+  %add.ptr.i741.us = getelementptr inbounds i16, ptr %cursor2.sroa.4.01206.us12101300, i64 %idx.ext.i.i779
   %cmp632.us = icmp eq i16 %251, %253
   br i1 %cmp632.us, label %land.rhs.us1208.backedge, label %lor.rhs633.us
 
@@ -2202,14 +2202,14 @@ land.rhs.us1208.backedge:                         ; preds = %if.else616.us1214, 
   br i1 %cmp.i710.us1211, label %if.end679, label %while.body.us1212, !llvm.loop !9
 
 while.body:                                       ; preds = %land.rhs.preheader, %land.rhs.backedge
-  %cursor1.sroa.3.012061297 = phi ptr [ %cursor1.sroa.3.1, %land.rhs.backedge ], [ %cursor1.sroa.3.0.copyload, %land.rhs.preheader ]
-  %cursor2.sroa.4.012071296 = phi ptr [ %cursor2.sroa.4.1, %land.rhs.backedge ], [ %cond608, %land.rhs.preheader ]
-  %cmp.i713 = icmp eq ptr %cursor1.sroa.3.012061297, %cursor1.sroa.13.0.copyload
+  %cursor2.sroa.4.012061297 = phi ptr [ %cursor2.sroa.4.1, %land.rhs.backedge ], [ %cond608, %land.rhs.preheader ]
+  %cursor1.sroa.3.012071296 = phi ptr [ %cursor1.sroa.3.1, %land.rhs.backedge ], [ %cursor1.sroa.3.0.copyload, %land.rhs.preheader ]
+  %cmp.i713 = icmp eq ptr %cursor1.sroa.3.012071296, %cursor1.sroa.13.0.copyload
   br i1 %cmp.i713, label %do.body664, label %if.else616
 
 if.else616:                                       ; preds = %while.body
-  %.sink1.i.i766 = select i1 %tobool.i700, ptr %cursor1.sroa.2.0.copyload, ptr %cursor1.sroa.3.012061297
-  %.sroa.speculated = select i1 %tobool.i700, ptr %cursor1.sroa.3.012061297, ptr %cursor1.sroa.0.0.copyload
+  %.sink1.i.i766 = select i1 %tobool.i700, ptr %cursor1.sroa.2.0.copyload, ptr %cursor1.sroa.3.012071296
+  %.sroa.speculated = select i1 %tobool.i700, ptr %cursor1.sroa.3.012071296, ptr %cursor1.sroa.0.0.copyload
   %sub.ptr.lhs.cast3.i.i767 = ptrtoint ptr %.sink1.i.i766 to i64
   %sub.ptr.rhs.cast4.i.i768 = ptrtoint ptr %.sroa.speculated to i64
   %sub.ptr.sub5.i.i769 = sub i64 %sub.ptr.lhs.cast3.i.i767, %sub.ptr.rhs.cast4.i.i768
@@ -2218,7 +2218,7 @@ if.else616:                                       ; preds = %while.body
   br i1 %cmp.not.i770, label %if.end25.i776, label %if.then.i771
 
 if.then.i771:                                     ; preds = %if.else616
-  %cond.in.i773 = getelementptr inbounds i8, ptr %cursor1.sroa.3.012061297, i64 %cond.in.idx.i772
+  %cond.in.i773 = getelementptr inbounds i8, ptr %cursor1.sroa.3.012071296, i64 %cond.in.idx.i772
   %cond.i774 = load i16, ptr %cond.in.i773, align 2
   %conv.i775 = zext i16 %cond.i774 to i32
   %259 = and i32 %conv.i775, 64512
@@ -2226,7 +2226,7 @@ if.then.i771:                                     ; preds = %if.else616
   br i1 %260, label %land.lhs.true.i783, label %if.end25.i776
 
 land.lhs.true.i783:                               ; preds = %if.then.i771
-  %cond13.in.i785 = getelementptr inbounds i8, ptr %cursor1.sroa.3.012061297, i64 %cond13.in.v.i784
+  %cond13.in.i785 = getelementptr inbounds i8, ptr %cursor1.sroa.3.012071296, i64 %cond13.in.v.i784
   %cond13.i786 = load i16, ptr %cond13.in.i785, align 2
   %conv15.i787 = zext i16 %cond13.i786 to i32
   %261 = and i32 %conv15.i787, 64512
@@ -2240,7 +2240,7 @@ if.then17.i788:                                   ; preds = %land.lhs.true.i783
   br label %_ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit793
 
 if.end25.i776:                                    ; preds = %land.lhs.true.i783, %if.then.i771, %if.else616
-  %263 = getelementptr i16, ptr %cursor1.sroa.3.012061297, i64 %conv.i.i.i777
+  %263 = getelementptr i16, ptr %cursor1.sroa.3.012071296, i64 %conv.i.i.i777
   %arrayidx.i.i.i778 = getelementptr i8, ptr %263, i64 -2
   %264 = load i16, ptr %arrayidx.i.i.i778, align 2
   %conv27.i781 = zext i16 %264 to i32
@@ -2249,9 +2249,9 @@ if.end25.i776:                                    ; preds = %land.lhs.true.i783,
 _ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit793: ; preds = %if.then17.i788, %if.end25.i776
   %idx.ext.i.i779.pn = phi i64 [ %idx.ext.i.i779, %if.end25.i776 ], [ %cond13.in.v.i784, %if.then17.i788 ]
   %retval.0.i782 = phi i32 [ %conv27.i781, %if.end25.i776 ], [ %add2.i.i792, %if.then17.i788 ]
-  %cursor1.sroa.3.1 = getelementptr inbounds i16, ptr %cursor1.sroa.3.012061297, i64 %idx.ext.i.i779.pn
-  %.sink1.i.i800 = select i1 %tobool.i700, ptr %add.ptr603, ptr %cursor2.sroa.4.012071296
-  %.sroa.speculated1141 = select i1 %tobool.i700, ptr %cursor2.sroa.4.012071296, ptr %add.ptr599
+  %cursor1.sroa.3.1 = getelementptr inbounds i16, ptr %cursor1.sroa.3.012071296, i64 %idx.ext.i.i779.pn
+  %.sink1.i.i800 = select i1 %tobool.i700, ptr %add.ptr603, ptr %cursor2.sroa.4.012061297
+  %.sroa.speculated1141 = select i1 %tobool.i700, ptr %cursor2.sroa.4.012061297, ptr %add.ptr599
   %sub.ptr.lhs.cast3.i.i801 = ptrtoint ptr %.sink1.i.i800 to i64
   %sub.ptr.rhs.cast4.i.i802 = ptrtoint ptr %.sroa.speculated1141 to i64
   %sub.ptr.sub5.i.i803 = sub i64 %sub.ptr.lhs.cast3.i.i801, %sub.ptr.rhs.cast4.i.i802
@@ -2260,7 +2260,7 @@ _ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit793: ; pred
   br i1 %cmp.not.i804, label %if.end25.i810, label %if.then.i805
 
 if.then.i805:                                     ; preds = %_ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit793
-  %cond.in.i807 = getelementptr inbounds i8, ptr %cursor2.sroa.4.012071296, i64 %cond.in.idx.i772
+  %cond.in.i807 = getelementptr inbounds i8, ptr %cursor2.sroa.4.012061297, i64 %cond.in.idx.i772
   %cond.i808 = load i16, ptr %cond.in.i807, align 2
   %conv.i809 = zext i16 %cond.i808 to i32
   %266 = and i32 %conv.i809, 64512
@@ -2268,7 +2268,7 @@ if.then.i805:                                     ; preds = %_ZN6hermes5regex6Cu
   br i1 %267, label %land.lhs.true.i817, label %if.end25.i810
 
 land.lhs.true.i817:                               ; preds = %if.then.i805
-  %cond13.in.i819 = getelementptr inbounds i8, ptr %cursor2.sroa.4.012071296, i64 %cond13.in.v.i784
+  %cond13.in.i819 = getelementptr inbounds i8, ptr %cursor2.sroa.4.012061297, i64 %cond13.in.v.i784
   %cond13.i820 = load i16, ptr %cond13.in.i819, align 2
   %conv15.i821 = zext i16 %cond13.i820 to i32
   %268 = and i32 %conv15.i821, 64512
@@ -2282,7 +2282,7 @@ if.then17.i822:                                   ; preds = %land.lhs.true.i817
   br label %_ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit827
 
 if.end25.i810:                                    ; preds = %land.lhs.true.i817, %if.then.i805, %_ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit793
-  %270 = getelementptr i16, ptr %cursor2.sroa.4.012071296, i64 %conv.i.i.i777
+  %270 = getelementptr i16, ptr %cursor2.sroa.4.012061297, i64 %conv.i.i.i777
   %arrayidx.i.i.i812 = getelementptr i8, ptr %270, i64 -2
   %271 = load i16, ptr %arrayidx.i.i.i812, align 2
   %conv27.i815 = zext i16 %271 to i32
@@ -2291,7 +2291,7 @@ if.end25.i810:                                    ; preds = %land.lhs.true.i817,
 _ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit827: ; preds = %if.then17.i822, %if.end25.i810
   %idx.ext.i.i813.pn = phi i64 [ %idx.ext.i.i779, %if.end25.i810 ], [ %cond13.in.v.i784, %if.then17.i822 ]
   %retval.0.i816 = phi i32 [ %conv27.i815, %if.end25.i810 ], [ %add2.i.i826, %if.then17.i822 ]
-  %cursor2.sroa.4.1 = getelementptr inbounds i16, ptr %cursor2.sroa.4.012071296, i64 %idx.ext.i.i813.pn
+  %cursor2.sroa.4.1 = getelementptr inbounds i16, ptr %cursor2.sroa.4.012061297, i64 %idx.ext.i.i813.pn
   %cmp648 = icmp eq i32 %retval.0.i782, %retval.0.i816
   br i1 %cmp648, label %land.rhs.backedge, label %lor.rhs649
 
@@ -2349,7 +2349,7 @@ if.end672:                                        ; preds = %do.body664
   br i1 %tobool674.not, label %for.inc927, label %for.cond5.backedge
 
 if.end679:                                        ; preds = %land.rhs.backedge, %land.rhs.us1208.backedge, %land.rhs.us, %land.rhs.preheader, %land.rhs.us1208.preheader
-  %.us-phi = phi ptr [ %cursor1.sroa.3.0.copyload, %land.rhs.us1208.preheader ], [ %cursor1.sroa.3.0.copyload, %land.rhs.preheader ], [ %cursor1.sroa.3.01206.us, %land.rhs.us ], [ %add.ptr.i734.us, %land.rhs.us1208.backedge ], [ %cursor1.sroa.3.1, %land.rhs.backedge ]
+  %.us-phi = phi ptr [ %cursor1.sroa.3.0.copyload, %land.rhs.us1208.preheader ], [ %cursor1.sroa.3.0.copyload, %land.rhs.preheader ], [ %cursor1.sroa.3.01207.us, %land.rhs.us ], [ %add.ptr.i734.us, %land.rhs.us1208.backedge ], [ %cursor1.sroa.3.1, %land.rhs.backedge ]
   %277 = load i32, ptr %ip_, align 8
   %add682 = add i32 %277, 3
   store i32 %add682, ptr %ip_, align 8
@@ -3122,7 +3122,7 @@ if.end907:                                        ; preds = %sw.bb898
   br i1 %tobool909.not, label %do.body911, label %for.cond5.backedge
 
 do.body911:                                       ; preds = %if.end907
-  %call913 = call i16 @_ZN6hermes5regex7ContextINS0_16UTF16RegexTraitsEE9backtrackERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEEPNS0_5StateIS2_EE(ptr noundef nonnull align 8 dereferenceable(188) %this, ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef %s)
+  %call913 = call i16 @_ZN6hermes5regex7ContextINS0_16UTF16RegexTraitsEE9backtrackERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEEPNS0_5StateIS2_EE(ptr noundef nonnull align 8 dereferenceable(188) %this, ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef nonnull %s)
   %btRes912.sroa.0.0.extract.trunc = trunc i16 %call913 to i8
   %cmp.i.i1048 = icmp eq i8 %btRes912.sroa.0.0.extract.trunc, 0
   br i1 %cmp.i.i1048, label %if.end919, label %cleanup930
@@ -4850,7 +4850,7 @@ _ZN6hermes5regex7ContextINS0_16ASCIIRegexTraitsEE18matchesNCharICase8EPKNS0_20Ma
   br label %if.end376
 
 do.body361:                                       ; preds = %sw.bb351, %_ZN6hermes5regex7ContextINS0_16ASCIIRegexTraitsEE18matchesNCharICase8EPKNS0_20MatchNCharICase8InsnERNS0_5StateIS2_EE.exit
-  %call363 = call i16 @_ZN6hermes5regex7ContextINS0_16ASCIIRegexTraitsEE9backtrackERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEEPNS0_5StateIS2_EE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef %s)
+  %call363 = call i16 @_ZN6hermes5regex7ContextINS0_16ASCIIRegexTraitsEE9backtrackERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEEPNS0_5StateIS2_EE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef nonnull %s)
   %btRes362.sroa.0.0.extract.trunc = trunc i16 %call363 to i8
   %cmp.i.i433 = icmp eq i8 %btRes362.sroa.0.0.extract.trunc, 0
   br i1 %cmp.i.i433, label %if.end369, label %cleanup941
@@ -4975,7 +4975,7 @@ if.then407:                                       ; preds = %_ZNK6hermes5regex6C
   br label %for.cond5.backedge
 
 do.body411:                                       ; preds = %if.else.thread
-  %call413 = call i16 @_ZN6hermes5regex7ContextINS0_16ASCIIRegexTraitsEE9backtrackERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEEPNS0_5StateIS2_EE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef %s)
+  %call413 = call i16 @_ZN6hermes5regex7ContextINS0_16ASCIIRegexTraitsEE9backtrackERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEEPNS0_5StateIS2_EE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef nonnull %s)
   %btRes412.sroa.0.0.extract.trunc = trunc i16 %call413 to i8
   %cmp.i.i465 = icmp eq i8 %btRes412.sroa.0.0.extract.trunc, 0
   br i1 %cmp.i.i465, label %if.end419, label %cleanup941
@@ -5257,24 +5257,24 @@ if.end597:                                        ; preds = %sw.bb581
   br i1 %tobool598.not, label %land.rhs.us, label %if.end597.split
 
 land.rhs.us:                                      ; preds = %if.end597, %if.end672.us
-  %cursor2.sroa.2.0972.us = phi ptr [ %add.ptr.i589.us, %if.end672.us ], [ %cond615, %if.end597 ]
-  %cursor1.sroa.1.0971.us = phi ptr [ %add.ptr.i582.us, %if.end672.us ], [ %cursor1.sroa.1.0.copyload, %if.end597 ]
-  %cmp.i572.us = icmp eq ptr %cursor2.sroa.2.0972.us, %cond.i
+  %cursor1.sroa.1.0972.us = phi ptr [ %add.ptr.i582.us, %if.end672.us ], [ %cursor1.sroa.1.0.copyload, %if.end597 ]
+  %cursor2.sroa.2.0971.us = phi ptr [ %add.ptr.i589.us, %if.end672.us ], [ %cond615, %if.end597 ]
+  %cmp.i572.us = icmp eq ptr %cursor2.sroa.2.0971.us, %cond.i
   br i1 %cmp.i572.us, label %if.end690, label %while.body.us
 
 while.body.us:                                    ; preds = %land.rhs.us
-  %cmp.i575.us = icmp eq ptr %cursor1.sroa.1.0971.us, %cursor1.sroa.9.0.copyload
+  %cmp.i575.us = icmp eq ptr %cursor1.sroa.1.0972.us, %cursor1.sroa.9.0.copyload
   br i1 %cmp.i575.us, label %do.body675, label %if.end672.us
 
 if.end672.us:                                     ; preds = %while.body.us
-  %202 = getelementptr i8, ptr %cursor1.sroa.1.0971.us, i64 %conv.i.i.i612
+  %202 = getelementptr i8, ptr %cursor1.sroa.1.0972.us, i64 %conv.i.i.i612
   %arrayidx.i.i579.us = getelementptr i8, ptr %202, i64 -1
   %203 = load i8, ptr %arrayidx.i.i579.us, align 1
-  %add.ptr.i582.us = getelementptr inbounds i8, ptr %cursor1.sroa.1.0971.us, i64 %idx.ext.i.i615
-  %204 = getelementptr i8, ptr %cursor2.sroa.2.0972.us, i64 %conv.i.i.i612
+  %add.ptr.i582.us = getelementptr inbounds i8, ptr %cursor1.sroa.1.0972.us, i64 %idx.ext.i.i615
+  %204 = getelementptr i8, ptr %cursor2.sroa.2.0971.us, i64 %conv.i.i.i612
   %arrayidx.i.i586.us = getelementptr i8, ptr %204, i64 -1
   %205 = load i8, ptr %arrayidx.i.i586.us, align 1
-  %add.ptr.i589.us = getelementptr inbounds i8, ptr %cursor2.sroa.2.0972.us, i64 %idx.ext.i.i615
+  %add.ptr.i589.us = getelementptr inbounds i8, ptr %cursor2.sroa.2.0971.us, i64 %idx.ext.i.i615
   %cmp630.us = icmp eq i8 %203, %205
   br i1 %cmp630.us, label %land.rhs.us, label %do.body675, !llvm.loop !24
 
@@ -5291,20 +5291,20 @@ land.rhs.us973.preheader:                         ; preds = %if.end597.split
   br i1 %cmp.i572.us9761077, label %if.end690, label %while.body.us977
 
 while.body.us977:                                 ; preds = %land.rhs.us973.preheader, %land.rhs.us973.backedge
-  %cursor1.sroa.1.0971.us9751079 = phi ptr [ %add.ptr.i596.us, %land.rhs.us973.backedge ], [ %cursor1.sroa.1.0.copyload, %land.rhs.us973.preheader ]
-  %cursor2.sroa.2.0972.us9741078 = phi ptr [ %add.ptr.i603.us, %land.rhs.us973.backedge ], [ %cond615, %land.rhs.us973.preheader ]
-  %cmp.i575.us978 = icmp eq ptr %cursor1.sroa.1.0971.us9751079, %cursor1.sroa.9.0.copyload
+  %cursor2.sroa.2.0971.us9751079 = phi ptr [ %add.ptr.i603.us, %land.rhs.us973.backedge ], [ %cond615, %land.rhs.us973.preheader ]
+  %cursor1.sroa.1.0972.us9741078 = phi ptr [ %add.ptr.i596.us, %land.rhs.us973.backedge ], [ %cursor1.sroa.1.0.copyload, %land.rhs.us973.preheader ]
+  %cmp.i575.us978 = icmp eq ptr %cursor1.sroa.1.0972.us9741078, %cursor1.sroa.9.0.copyload
   br i1 %cmp.i575.us978, label %do.body675, label %if.else623.us979
 
 if.else623.us979:                                 ; preds = %while.body.us977
-  %207 = getelementptr i8, ptr %cursor1.sroa.1.0971.us9751079, i64 %conv.i.i.i612
+  %207 = getelementptr i8, ptr %cursor1.sroa.1.0972.us9741078, i64 %conv.i.i.i612
   %arrayidx.i.i593.us = getelementptr i8, ptr %207, i64 -1
   %208 = load i8, ptr %arrayidx.i.i593.us, align 1
-  %add.ptr.i596.us = getelementptr inbounds i8, ptr %cursor1.sroa.1.0971.us9751079, i64 %idx.ext.i.i615
-  %209 = getelementptr i8, ptr %cursor2.sroa.2.0972.us9741078, i64 %conv.i.i.i612
+  %add.ptr.i596.us = getelementptr inbounds i8, ptr %cursor1.sroa.1.0972.us9741078, i64 %idx.ext.i.i615
+  %209 = getelementptr i8, ptr %cursor2.sroa.2.0971.us9751079, i64 %conv.i.i.i612
   %arrayidx.i.i600.us = getelementptr i8, ptr %209, i64 -1
   %210 = load i8, ptr %arrayidx.i.i600.us, align 1
-  %add.ptr.i603.us = getelementptr inbounds i8, ptr %cursor2.sroa.2.0972.us9741078, i64 %idx.ext.i.i615
+  %add.ptr.i603.us = getelementptr inbounds i8, ptr %cursor2.sroa.2.0971.us9751079, i64 %idx.ext.i.i615
   %cmp639.us = icmp eq i8 %208, %210
   br i1 %cmp639.us, label %land.rhs.us973.backedge, label %lor.rhs640.us
 
@@ -5325,20 +5325,20 @@ land.rhs.us973.backedge:                          ; preds = %if.else623.us979, %
   br i1 %cmp.i572.us976, label %if.end690, label %while.body.us977, !llvm.loop !24
 
 while.body:                                       ; preds = %land.rhs.preheader, %land.rhs.backedge
-  %cursor1.sroa.1.09711076 = phi ptr [ %add.ptr.i.i616, %land.rhs.backedge ], [ %cursor1.sroa.1.0.copyload, %land.rhs.preheader ]
-  %cursor2.sroa.2.09721075 = phi ptr [ %add.ptr.i.i623, %land.rhs.backedge ], [ %cond615, %land.rhs.preheader ]
-  %cmp.i575 = icmp eq ptr %cursor1.sroa.1.09711076, %cursor1.sroa.9.0.copyload
+  %cursor2.sroa.2.09711076 = phi ptr [ %add.ptr.i.i623, %land.rhs.backedge ], [ %cond615, %land.rhs.preheader ]
+  %cursor1.sroa.1.09721075 = phi ptr [ %add.ptr.i.i616, %land.rhs.backedge ], [ %cursor1.sroa.1.0.copyload, %land.rhs.preheader ]
+  %cmp.i575 = icmp eq ptr %cursor1.sroa.1.09721075, %cursor1.sroa.9.0.copyload
   br i1 %cmp.i575, label %do.body675, label %if.else623
 
 if.else623:                                       ; preds = %while.body
-  %215 = getelementptr i8, ptr %cursor1.sroa.1.09711076, i64 %conv.i.i.i612
+  %215 = getelementptr i8, ptr %cursor1.sroa.1.09721075, i64 %conv.i.i.i612
   %arrayidx.i.i.i613 = getelementptr i8, ptr %215, i64 -1
   %216 = load i8, ptr %arrayidx.i.i.i613, align 1
-  %add.ptr.i.i616 = getelementptr inbounds i8, ptr %cursor1.sroa.1.09711076, i64 %idx.ext.i.i615
-  %217 = getelementptr i8, ptr %cursor2.sroa.2.09721075, i64 %conv.i.i.i612
+  %add.ptr.i.i616 = getelementptr inbounds i8, ptr %cursor1.sroa.1.09721075, i64 %idx.ext.i.i615
+  %217 = getelementptr i8, ptr %cursor2.sroa.2.09711076, i64 %conv.i.i.i612
   %arrayidx.i.i.i620 = getelementptr i8, ptr %217, i64 -1
   %218 = load i8, ptr %arrayidx.i.i.i620, align 1
-  %add.ptr.i.i623 = getelementptr inbounds i8, ptr %cursor2.sroa.2.09721075, i64 %idx.ext.i.i615
+  %add.ptr.i.i623 = getelementptr inbounds i8, ptr %cursor2.sroa.2.09711076, i64 %idx.ext.i.i615
   %cmp657 = icmp eq i8 %216, %218
   br i1 %cmp657, label %land.rhs.backedge, label %lor.rhs658
 
@@ -5372,7 +5372,7 @@ if.end683:                                        ; preds = %do.body675
   br i1 %tobool685.not, label %for.inc938, label %for.cond5.backedge
 
 if.end690:                                        ; preds = %land.rhs.backedge, %land.rhs.us973.backedge, %land.rhs.us, %land.rhs.preheader, %land.rhs.us973.preheader
-  %.us-phi = phi ptr [ %cursor1.sroa.1.0.copyload, %land.rhs.us973.preheader ], [ %cursor1.sroa.1.0.copyload, %land.rhs.preheader ], [ %cursor1.sroa.1.0971.us, %land.rhs.us ], [ %add.ptr.i596.us, %land.rhs.us973.backedge ], [ %add.ptr.i.i616, %land.rhs.backedge ]
+  %.us-phi = phi ptr [ %cursor1.sroa.1.0.copyload, %land.rhs.us973.preheader ], [ %cursor1.sroa.1.0.copyload, %land.rhs.preheader ], [ %cursor1.sroa.1.0972.us, %land.rhs.us ], [ %add.ptr.i596.us, %land.rhs.us973.backedge ], [ %add.ptr.i.i616, %land.rhs.backedge ]
   %add693 = add i32 %4, 3
   store i32 %add693, ptr %ip_, align 8
   store ptr %.us-phi, ptr %current_.i, align 8
@@ -6142,7 +6142,7 @@ if.end918:                                        ; preds = %sw.bb909
   br i1 %tobool920.not, label %do.body922, label %for.cond5.backedge
 
 do.body922:                                       ; preds = %if.end918
-  %call924 = call i16 @_ZN6hermes5regex7ContextINS0_16ASCIIRegexTraitsEE9backtrackERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEEPNS0_5StateIS2_EE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef %s)
+  %call924 = call i16 @_ZN6hermes5regex7ContextINS0_16ASCIIRegexTraitsEE9backtrackERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEEPNS0_5StateIS2_EE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(1552) %backtrackStack, ptr noundef nonnull %s)
   %btRes923.sroa.0.0.extract.trunc = trunc i16 %call924 to i8
   %cmp.i.i827 = icmp eq i8 %btRes923.sroa.0.0.extract.trunc, 0
   br i1 %cmp.i.i827, label %if.end930, label %cleanup941

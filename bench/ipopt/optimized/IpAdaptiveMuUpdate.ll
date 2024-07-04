@@ -5793,8 +5793,8 @@ _ZN5Ipopt16AdaptiveMuUpdate11min_ref_valEv.exit:  ; preds = %.lr.ph.i, %195
   br label %204
 
 204:                                              ; preds = %179, %_ZN5Ipopt16AdaptiveMuUpdate11min_ref_valEv.exit, %1
-  %.014 = phi double [ 0.000000e+00, %1 ], [ %.sroa.speculated.i88, %_ZN5Ipopt16AdaptiveMuUpdate11min_ref_valEv.exit ], [ %.sroa.speculated.i87, %179 ]
-  ret double %.014
+  %.022 = phi double [ 0.000000e+00, %1 ], [ %.sroa.speculated.i88, %_ZN5Ipopt16AdaptiveMuUpdate11min_ref_valEv.exit ], [ %.sroa.speculated.i87, %179 ]
+  ret double %.022
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6364,7 +6364,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180: ; preds = %_ZN5Ipopt8Smar
   %317 = icmp sgt i32 %118, 0
   %318 = uitofp nneg i32 %118 to double
   %319 = fdiv double %309, %318
-  %.069 = select i1 %317, double %319, double %309
+  %.055 = select i1 %317, double %319, double %309
   %320 = icmp sgt i32 %237, 0
   br i1 %320, label %321, label %397
 
@@ -6398,7 +6398,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180: ; preds = %_ZN5Ipopt8Smar
   %346 = icmp sgt i32 %118, 0
   %347 = uitofp nneg i32 %118 to double
   %348 = fdiv double %337, %347
-  %.170 = select i1 %346, double %348, double %337
+  %.156 = select i1 %346, double %348, double %337
   %349 = icmp sgt i32 %237, 0
   br i1 %349, label %350, label %397
 
@@ -6450,7 +6450,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180: ; preds = %_ZN5Ipopt8Smar
   %391 = uitofp nneg i32 %118 to double
   %sqrt = tail call double @llvm.sqrt.f64(double %391)
   %392 = fdiv double %381, %sqrt
-  %.271 = select i1 %390, double %392, double %381
+  %.257 = select i1 %390, double %392, double %381
   %393 = icmp sgt i32 %237, 0
   br i1 %393, label %394, label %397
 
@@ -6461,9 +6461,9 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180: ; preds = %_ZN5Ipopt8Smar
   br label %397
 
 397:                                              ; preds = %370, %394, %324, %350, %298, %321, %353, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180
-  %.073 = phi double [ 0.000000e+00, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180 ], [ %389, %394 ], [ %389, %370 ], [ %359, %353 ], [ %345, %350 ], [ %345, %324 ], [ %316, %321 ], [ %316, %298 ]
-  %.372 = phi double [ 0.000000e+00, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180 ], [ %.271, %394 ], [ %.271, %370 ], [ %364, %353 ], [ %.170, %350 ], [ %.170, %324 ], [ %.069, %321 ], [ %.069, %298 ]
-  %.068 = phi double [ 0.000000e+00, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180 ], [ %396, %394 ], [ %386, %370 ], [ %369, %353 ], [ %352, %350 ], [ %343, %324 ], [ %323, %321 ], [ %314, %298 ]
+  %.059 = phi double [ 0.000000e+00, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180 ], [ %389, %394 ], [ %389, %370 ], [ %359, %353 ], [ %345, %350 ], [ %345, %324 ], [ %316, %321 ], [ %316, %298 ]
+  %.358 = phi double [ 0.000000e+00, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180 ], [ %.257, %394 ], [ %.257, %370 ], [ %364, %353 ], [ %.156, %350 ], [ %.156, %324 ], [ %.055, %321 ], [ %.055, %298 ]
+  %.054 = phi double [ 0.000000e+00, %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180 ], [ %396, %394 ], [ %386, %370 ], [ %369, %353 ], [ %352, %350 ], [ %343, %324 ], [ %323, %321 ], [ %314, %298 ]
   %398 = getelementptr inbounds i8, ptr %0, i64 148
   %399 = load i32, ptr %398, align 4
   %.not = icmp eq i32 %399, 0
@@ -6484,48 +6484,48 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit180: ; preds = %_ZN5Ipopt8Smar
   ]
 
 408:                                              ; preds = %400
-  %409 = fneg double %.068
+  %409 = fneg double %.054
   %410 = tail call double @log(double noundef %406) #20
   %411 = fmul double %410, %409
   br label %417
 
 412:                                              ; preds = %400
-  %413 = fdiv double %.068, %406
+  %413 = fdiv double %.054, %406
   br label %417
 
 414:                                              ; preds = %400
   %415 = tail call noundef double @pow(double noundef %406, double noundef 3.000000e+00) #20
-  %416 = fdiv double %.068, %415
+  %416 = fdiv double %.054, %415
   br label %417
 
 417:                                              ; preds = %408, %412, %414, %400, %397
-  %.067 = phi double [ 0.000000e+00, %400 ], [ %416, %414 ], [ %413, %412 ], [ %411, %408 ], [ 0.000000e+00, %397 ]
+  %.053 = phi double [ 0.000000e+00, %400 ], [ %416, %414 ], [ %413, %412 ], [ %411, %408 ], [ 0.000000e+00, %397 ]
   %418 = getelementptr inbounds i8, ptr %0, i64 152
   %419 = load i32, ptr %418, align 8
   %cond = icmp eq i32 %419, 1
   br i1 %cond, label %420, label %425
 
 420:                                              ; preds = %417
-  %421 = fcmp olt double %.073, %.372
-  %.sroa.speculated.i = select i1 %421, double %.372, double %.073
-  %422 = fsub double %.sroa.speculated.i, %.068
+  %421 = fcmp olt double %.059, %.358
+  %.sroa.speculated.i = select i1 %421, double %.358, double %.059
+  %422 = fsub double %.sroa.speculated.i, %.054
   %423 = fcmp ogt double %422, 0.000000e+00
   %.sroa.speculated.i213 = select i1 %423, double %422, double 0.000000e+00
   %424 = tail call noundef double @pow(double noundef %.sroa.speculated.i213, double noundef 3.000000e+00) #20
   br label %425
 
 425:                                              ; preds = %417, %420
-  %.052 = phi double [ %424, %420 ], [ 0.000000e+00, %417 ]
-  %426 = fadd double %.073, %.372
-  %427 = fadd double %426, %.068
-  %428 = fadd double %427, %.067
-  %429 = fadd double %428, %.052
+  %.0 = phi double [ %424, %420 ], [ 0.000000e+00, %417 ]
+  %426 = fadd double %.059, %.358
+  %427 = fadd double %426, %.054
+  %428 = fadd double %427, %.053
+  %429 = fadd double %428, %.0
   %430 = getelementptr inbounds i8, ptr %0, i64 16
   %431 = load ptr, ptr %430, align 8
   %432 = load ptr, ptr %431, align 8
   %433 = getelementptr inbounds i8, ptr %432, i64 16
   %434 = load ptr, ptr %433, align 8
-  tail call void (ptr, i32, i32, ptr, ...) %434(ptr noundef nonnull align 8 dereferenceable(40) %431, i32 noundef 7, i32 noundef 4, ptr noundef nonnull @.str.76, double noundef %.372, double noundef %.073, double noundef %.068, double noundef %.067, double noundef %429)
+  tail call void (ptr, i32, i32, ptr, ...) %434(ptr noundef nonnull align 8 dereferenceable(40) %431, i32 noundef 7, i32 noundef 4, ptr noundef nonnull @.str.76, double noundef %.358, double noundef %.059, double noundef %.054, double noundef %.053, double noundef %429)
   ret double %429
 }
 

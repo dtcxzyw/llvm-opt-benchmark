@@ -3880,10 +3880,10 @@ define hidden void @_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap16drain_bump_chu
   resume { ptr, i32 } %lpad.phi
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %35
-  %.sroa.7.043 = phi i64 [ %20, %35 ], [ %19, %.lr.ph.preheader ]
-  %.sroa.022.042 = phi ptr [ %28, %35 ], [ %.sroa.4.0.copyload, %.lr.ph.preheader ]
-  %20 = add i64 %.sroa.7.043, -1
-  %21 = icmp eq ptr %.sroa.022.042, %18
+  %.sroa.022.043 = phi ptr [ %28, %35 ], [ %.sroa.4.0.copyload, %.lr.ph.preheader ]
+  %.sroa.7.042 = phi i64 [ %20, %35 ], [ %19, %.lr.ph.preheader ]
+  %20 = add i64 %.sroa.7.042, -1
+  %21 = icmp eq ptr %.sroa.022.043, %18
   br i1 %21, label %._crit_edge, label %27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %35
@@ -3918,9 +3918,9 @@ define hidden void @_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap16drain_bump_chu
   ret void
 
 27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds i8, ptr %.sroa.022.042, i64 8
-  %29 = load i64, ptr %.sroa.022.042, align 8, !noundef !4
-  store i64 0, ptr %.sroa.022.042, align 8
+  %28 = getelementptr inbounds i8, ptr %.sroa.022.043, i64 8
+  %29 = load i64, ptr %.sroa.022.043, align 8, !noundef !4
+  store i64 0, ptr %.sroa.022.043, align 8
   %30 = trunc i64 %29 to i32
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %33
@@ -3940,7 +3940,7 @@ define hidden void @_ZN16wasmtime_runtime2gc7enabled3drc7DrcHeap16drain_bump_chu
 
 35:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  store i64 0, ptr %.sroa.022.042, align 8
+  store i64 0, ptr %.sroa.022.043, align 8
   %36 = icmp eq i64 %20, 0
   br i1 %36, label %._crit_edge, label %.lr.ph
 

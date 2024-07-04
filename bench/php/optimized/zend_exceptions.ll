@@ -236,7 +236,7 @@ define void @zend_exception_set_previous(ptr noundef %0, ptr noundef %1) local_u
   br label %29
 
 29:                                               ; preds = %95, %26
-  %.048 = phi ptr [ %.sroa.0, %26 ], [ %83, %95 ]
+  %.0 = phi ptr [ %.sroa.0, %26 ], [ %83, %95 ]
   %.val53 = load ptr, ptr %10, align 8
   %30 = load ptr, ptr @zend_ce_exception, align 8
   %31 = icmp eq ptr %30, %.val53
@@ -261,9 +261,9 @@ i_get_exception_base.exit:                        ; preds = %29, %32
   br i1 %41, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %i_get_exception_base.exit, %i_get_exception_base.exit57
-  %.066 = phi ptr [ %68, %i_get_exception_base.exit57 ], [ %38, %i_get_exception_base.exit ]
-  %42 = load ptr, ptr %.066, align 8
-  %43 = load ptr, ptr %.048, align 8
+  %.04866 = phi ptr [ %68, %i_get_exception_base.exit57 ], [ %38, %i_get_exception_base.exit ]
+  %42 = load ptr, ptr %.04866, align 8
+  %43 = load ptr, ptr %.0, align 8
   %44 = icmp eq ptr %42, %43
   br i1 %44, label %45, label %57
 
@@ -303,7 +303,7 @@ i_get_exception_base.exit:                        ; preds = %29, %32
   %zend_ce_exception.val.i54 = load ptr, ptr @zend_ce_exception, align 8
   %zend_ce_error.val.i55 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i56 = select i1 %62, ptr %zend_ce_exception.val.i54, ptr %zend_ce_error.val.i55
-  %.pre = load ptr, ptr %.066, align 8
+  %.pre = load ptr, ptr %.04866, align 8
   br label %i_get_exception_base.exit57
 
 i_get_exception_base.exit57:                      ; preds = %57, %61
@@ -319,7 +319,7 @@ i_get_exception_base.exit57:                      ; preds = %57, %61
   br i1 %71, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %i_get_exception_base.exit57, %i_get_exception_base.exit
-  %72 = load ptr, ptr %.048, align 8
+  %72 = load ptr, ptr %.0, align 8
   %73 = getelementptr i8, ptr %72, i64 16
   %.val = load ptr, ptr %73, align 8
   %74 = load ptr, ptr @zend_ce_exception, align 8
@@ -331,7 +331,7 @@ i_get_exception_base.exit57:                      ; preds = %57, %61
   %zend_ce_exception.val.i58 = load ptr, ptr @zend_ce_exception, align 8
   %zend_ce_error.val.i59 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i60 = select i1 %77, ptr %zend_ce_exception.val.i58, ptr %zend_ce_error.val.i59
-  %.pre70 = load ptr, ptr %.048, align 8
+  %.pre70 = load ptr, ptr %.0, align 8
   br label %i_get_exception_base.exit61
 
 i_get_exception_base.exit61:                      ; preds = %._crit_edge, %76
@@ -347,7 +347,7 @@ i_get_exception_base.exit61:                      ; preds = %._crit_edge, %76
   br i1 %86, label %87, label %95
 
 87:                                               ; preds = %i_get_exception_base.exit61
-  %88 = load ptr, ptr %.048, align 8
+  %88 = load ptr, ptr %.0, align 8
   %89 = load ptr, ptr @zend_known_strings, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 184
   %91 = load ptr, ptr %90, align 8
@@ -926,7 +926,7 @@ i_get_exception_base.exit248:                     ; preds = %163, %167
   br label %181
 
 181:                                              ; preds = %177, %179
-  %.0178 = phi i64 [ %178, %177 ], [ %180, %179 ]
+  %.0 = phi i64 [ %178, %177 ], [ %180, %179 ]
   %.not204 = icmp eq ptr %164, null
   br i1 %.not204, label %.critedge220, label %182
 
@@ -935,7 +935,7 @@ i_get_exception_base.exit248:                     ; preds = %163, %167
   %184 = load i64, ptr %183, align 8
   %.not205 = icmp eq i64 %184, 0
   %spec.select = select i1 %.not205, ptr null, ptr %164
-  %185 = trunc i64 %.0178 to i32
+  %185 = trunc i64 %.0 to i32
   %186 = load ptr, ptr %141, align 8
   %187 = getelementptr inbounds i8, ptr %186, i64 8
   %188 = load ptr, ptr %187, align 8
@@ -964,8 +964,8 @@ i_get_exception_base.exit248:                     ; preds = %163, %167
   br label %211
 
 .critedge220:                                     ; preds = %139, %181
-  %.0178264 = phi i64 [ %.0178, %181 ], [ 0, %139 ]
-  %202 = trunc i64 %.0178264 to i32
+  %.0264 = phi i64 [ %.0, %181 ], [ 0, %139 ]
+  %202 = trunc i64 %.0264 to i32
   %203 = getelementptr inbounds i8, ptr %130, i64 16
   %204 = load ptr, ptr %203, align 8
   %205 = getelementptr inbounds i8, ptr %204, i64 8
@@ -2244,32 +2244,32 @@ define ptr @zend_trace_to_string(ptr nocapture noundef readonly %0, i1 noundef z
   br label %20
 
 20:                                               ; preds = %.lr.ph, %570
-  %.0122169 = phi i32 [ %10, %.lr.ph ], [ %571, %570 ]
-  %.0123168 = phi ptr [ %12, %.lr.ph ], [ %.1, %570 ]
-  %.0125167 = phi i32 [ 0, %.lr.ph ], [ %.1126, %570 ]
-  %.0129166 = phi i32 [ 0, %.lr.ph ], [ %.1130, %570 ]
+  %.0121169 = phi i32 [ %10, %.lr.ph ], [ %571, %570 ]
+  %.0122168 = phi ptr [ %12, %.lr.ph ], [ %.1, %570 ]
+  %.0124167 = phi i32 [ 0, %.lr.ph ], [ %.1125, %570 ]
+  %.0127166 = phi i32 [ 0, %.lr.ph ], [ %.1128, %570 ]
   %21 = load i32, ptr %8, align 8
   %22 = and i32 %21, 4
   %.not155 = icmp eq i32 %22, 0
   br i1 %.not155, label %27, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %.0123168, i64 16
-  %25 = zext i32 %.0125167 to i64
-  %26 = add i32 %.0125167, 1
+  %24 = getelementptr inbounds i8, ptr %.0122168, i64 16
+  %25 = zext i32 %.0124167 to i64
+  %26 = add i32 %.0124167, 1
   br label %31
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %.0123168, i64 32
-  %29 = getelementptr inbounds i8, ptr %.0123168, i64 16
+  %28 = getelementptr inbounds i8, ptr %.0122168, i64 32
+  %29 = getelementptr inbounds i8, ptr %.0122168, i64 16
   %30 = load i64, ptr %29, align 8
   br label %31
 
 31:                                               ; preds = %27, %23
-  %.0127 = phi i64 [ %25, %23 ], [ %30, %27 ]
-  %.1126 = phi i32 [ %26, %23 ], [ %.0125167, %27 ]
+  %.0126 = phi i64 [ %25, %23 ], [ %30, %27 ]
+  %.1125 = phi i32 [ %26, %23 ], [ %.0124167, %27 ]
   %.1 = phi ptr [ %24, %23 ], [ %28, %27 ]
-  %32 = getelementptr inbounds i8, ptr %.0123168, i64 8
+  %32 = getelementptr inbounds i8, ptr %.0122168, i64 8
   %33 = load i8, ptr %32, align 8
   switch i8 %33, label %34 [
     i8 0, label %570
@@ -2277,12 +2277,12 @@ define ptr @zend_trace_to_string(ptr nocapture noundef readonly %0, i1 noundef z
   ]
 
 34:                                               ; preds = %31
-  call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.5, i64 noundef %.0127) #15
+  call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.5, i64 noundef %.0126) #15
   br label %570
 
 35:                                               ; preds = %31
-  %36 = load ptr, ptr %.0123168, align 8
-  %37 = add i32 %.0129166, 1
+  %36 = load ptr, ptr %.0122168, align 8
+  %37 = add i32 %.0127166, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %38 = load ptr, ptr %7, align 8
@@ -2313,20 +2313,20 @@ define ptr @zend_trace_to_string(ptr nocapture noundef readonly %0, i1 noundef z
   %50 = load ptr, ptr %7, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 16
   store i64 %.1585.i, ptr %51, align 8
-  %52 = zext i32 %.0129166 to i64
+  %52 = zext i32 %.0127166 to i64
   store i8 0, ptr %14, align 1
   br label %53
 
 53:                                               ; preds = %53, %45
-  %.0568.i = phi i64 [ %52, %45 ], [ %58, %53 ]
-  %.0567.i = phi ptr [ %14, %45 ], [ %57, %53 ]
-  %54 = urem i64 %.0568.i, 10
+  %.0569.i = phi i64 [ %52, %45 ], [ %58, %53 ]
+  %.0568.i = phi ptr [ %14, %45 ], [ %57, %53 ]
+  %54 = urem i64 %.0569.i, 10
   %55 = trunc nuw nsw i64 %54 to i8
   %56 = or disjoint i8 %55, 48
-  %57 = getelementptr inbounds i8, ptr %.0567.i, i64 -1
+  %57 = getelementptr inbounds i8, ptr %.0568.i, i64 -1
   store i8 %56, ptr %57, align 1
-  %58 = udiv i64 %.0568.i, 10
-  %.not658.i = icmp ult i64 %.0568.i, 10
+  %58 = udiv i64 %.0569.i, 10
+  %.not658.i = icmp ult i64 %.0569.i, 10
   br i1 %.not658.i, label %59, label %53
 
 59:                                               ; preds = %53
@@ -2444,7 +2444,7 @@ define ptr @zend_trace_to_string(ptr nocapture noundef readonly %0, i1 noundef z
   br label %114
 
 114:                                              ; preds = %113, %111, %102
-  %.0570.i = phi i64 [ %112, %111 ], [ 0, %113 ], [ 0, %102 ]
+  %.0565.i = phi i64 [ %112, %111 ], [ 0, %113 ], [ 0, %102 ]
   %115 = load ptr, ptr %85, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 24
   %117 = getelementptr inbounds i8, ptr %115, i64 16
@@ -2497,28 +2497,28 @@ define ptr @zend_trace_to_string(ptr nocapture noundef readonly %0, i1 noundef z
   %140 = load ptr, ptr %7, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 16
   store i64 %133, ptr %141, align 8
-  %142 = icmp slt i64 %.0570.i, 0
+  %142 = icmp slt i64 %.0565.i, 0
   br i1 %142, label %143, label %153
 
 143:                                              ; preds = %136
-  %144 = sub i64 0, %.0570.i
+  %144 = sub i64 0, %.0565.i
   store i8 0, ptr %16, align 1
   br label %145
 
 145:                                              ; preds = %145, %143
-  %.0566.i = phi i64 [ %144, %143 ], [ %150, %145 ]
-  %.0561.i = phi ptr [ %16, %143 ], [ %149, %145 ]
-  %146 = urem i64 %.0566.i, 10
+  %.0567.i = phi i64 [ %144, %143 ], [ %150, %145 ]
+  %.0566.i = phi ptr [ %16, %143 ], [ %149, %145 ]
+  %146 = urem i64 %.0567.i, 10
   %147 = trunc nuw nsw i64 %146 to i8
   %148 = or disjoint i8 %147, 48
-  %149 = getelementptr inbounds i8, ptr %.0561.i, i64 -1
+  %149 = getelementptr inbounds i8, ptr %.0566.i, i64 -1
   store i8 %148, ptr %149, align 1
-  %150 = udiv i64 %.0566.i, 10
-  %.not673.i = icmp ult i64 %.0566.i, 10
+  %150 = udiv i64 %.0567.i, 10
+  %.not673.i = icmp ult i64 %.0567.i, 10
   br i1 %.not673.i, label %151, label %145
 
 151:                                              ; preds = %145
-  %152 = getelementptr inbounds i8, ptr %.0561.i, i64 -2
+  %152 = getelementptr inbounds i8, ptr %.0566.i, i64 -2
   store i8 45, ptr %152, align 1
   br label %.loopexit.i
 
@@ -2527,15 +2527,15 @@ define ptr @zend_trace_to_string(ptr nocapture noundef readonly %0, i1 noundef z
   br label %154
 
 154:                                              ; preds = %154, %153
-  %.0558.i = phi i64 [ %.0570.i, %153 ], [ %159, %154 ]
+  %.0560.i = phi i64 [ %.0565.i, %153 ], [ %159, %154 ]
   %.0.i = phi ptr [ %16, %153 ], [ %158, %154 ]
-  %155 = urem i64 %.0558.i, 10
+  %155 = urem i64 %.0560.i, 10
   %156 = trunc nuw nsw i64 %155 to i8
   %157 = or disjoint i8 %156, 48
   %158 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   store i8 %157, ptr %158, align 1
-  %159 = udiv i64 %.0558.i, 10
-  %.not672.i = icmp ult i64 %.0558.i, 10
+  %159 = udiv i64 %.0560.i, 10
+  %.not672.i = icmp ult i64 %.0560.i, 10
   br i1 %.not672.i, label %.loopexit.i, label %154
 
 .loopexit.i:                                      ; preds = %154, %151
@@ -2955,39 +2955,39 @@ define ptr @zend_trace_to_string(ptr nocapture noundef readonly %0, i1 noundef z
   br label %358
 
 358:                                              ; preds = %553, %.lr.ph.i
-  %.0559718.i = phi i32 [ %355, %.lr.ph.i ], [ %554, %553 ]
-  %.0560717.i = phi ptr [ %357, %.lr.ph.i ], [ %.1.i, %553 ]
-  %.0564715.i = phi ptr [ null, %.lr.ph.i ], [ %.1565.i, %553 ]
+  %.0558718.i = phi i32 [ %355, %.lr.ph.i ], [ %554, %553 ]
+  %.0559717.i = phi ptr [ %357, %.lr.ph.i ], [ %.1.i, %553 ]
+  %.0563715.i = phi ptr [ null, %.lr.ph.i ], [ %.1564.i, %553 ]
   %359 = load i32, ptr %353, align 8
   %360 = and i32 %359, 4
   %.not705.i = icmp eq i32 %360, 0
   br i1 %.not705.i, label %363, label %361
 
 361:                                              ; preds = %358
-  %362 = getelementptr inbounds i8, ptr %.0560717.i, i64 16
+  %362 = getelementptr inbounds i8, ptr %.0559717.i, i64 16
   br label %367
 
 363:                                              ; preds = %358
-  %364 = getelementptr inbounds i8, ptr %.0560717.i, i64 32
-  %365 = getelementptr inbounds i8, ptr %.0560717.i, i64 24
+  %364 = getelementptr inbounds i8, ptr %.0559717.i, i64 32
+  %365 = getelementptr inbounds i8, ptr %.0559717.i, i64 24
   %366 = load ptr, ptr %365, align 8
   br label %367
 
 367:                                              ; preds = %363, %361
-  %.1565.i = phi ptr [ %.0564715.i, %361 ], [ %366, %363 ]
+  %.1564.i = phi ptr [ %.0563715.i, %361 ], [ %366, %363 ]
   %.1.i = phi ptr [ %362, %361 ], [ %364, %363 ]
-  %368 = getelementptr inbounds i8, ptr %.0560717.i, i64 8
+  %368 = getelementptr inbounds i8, ptr %.0559717.i, i64 8
   %369 = load i8, ptr %368, align 8
   %370 = icmp eq i8 %369, 0
   br i1 %370, label %553, label %371
 
 371:                                              ; preds = %367
-  %.not706.i = icmp eq ptr %.1565.i, null
+  %.not706.i = icmp eq ptr %.1564.i, null
   br i1 %.not706.i, label %400, label %372
 
 372:                                              ; preds = %371
-  %373 = getelementptr inbounds i8, ptr %.1565.i, i64 24
-  %374 = getelementptr inbounds i8, ptr %.1565.i, i64 16
+  %373 = getelementptr inbounds i8, ptr %.1564.i, i64 24
+  %374 = getelementptr inbounds i8, ptr %.1564.i, i64 16
   %375 = load i64, ptr %374, align 8
   %376 = load ptr, ptr %7, align 8
   %.not707.i = icmp eq ptr %376, null
@@ -3050,7 +3050,7 @@ define ptr @zend_trace_to_string(ptr nocapture noundef readonly %0, i1 noundef z
   br i1 %402, label %403, label %406
 
 403:                                              ; preds = %400
-  %404 = load ptr, ptr %.0560717.i, align 8
+  %404 = load ptr, ptr %.0559717.i, align 8
   %405 = getelementptr inbounds i8, ptr %404, i64 8
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %404, i64 16
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 8
@@ -3058,13 +3058,13 @@ define ptr @zend_trace_to_string(ptr nocapture noundef readonly %0, i1 noundef z
 
 406:                                              ; preds = %403, %400
   %407 = phi i8 [ %.pre.i.i, %403 ], [ %401, %400 ]
-  %.0238.i.i = phi ptr [ %405, %403 ], [ %.0560717.i, %400 ]
+  %.0237.i.i = phi ptr [ %405, %403 ], [ %.0559717.i, %400 ]
   %408 = icmp ult i8 %407, 7
   br i1 %408, label %409, label %425
 
 409:                                              ; preds = %406
   %410 = load i64, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1616), align 8
-  call void @smart_str_append_scalar(ptr noundef nonnull %7, ptr noundef nonnull %.0238.i.i, i64 noundef %410) #15
+  call void @smart_str_append_scalar(ptr noundef nonnull %7, ptr noundef nonnull %.0237.i.i, i64 noundef %410) #15
   %411 = load ptr, ptr %7, align 8
   %.not292.i.i = icmp eq ptr %411, null
   br i1 %.not292.i.i, label %417, label %412
@@ -3135,7 +3135,7 @@ define ptr @zend_trace_to_string(ptr nocapture noundef readonly %0, i1 noundef z
   %439 = load ptr, ptr %7, align 8
   %440 = getelementptr inbounds i8, ptr %439, i64 16
   store i64 %.1246.i.i, ptr %440, align 8
-  %441 = load ptr, ptr %.0238.i.i, align 8
+  %441 = load ptr, ptr %.0237.i.i, align 8
   %442 = getelementptr inbounds i8, ptr %441, i64 8
   %443 = load i64, ptr %442, align 8
   %444 = icmp slt i64 %443, 0
@@ -3168,15 +3168,15 @@ define ptr @zend_trace_to_string(ptr nocapture noundef readonly %0, i1 noundef z
   br label %456
 
 456:                                              ; preds = %456, %455
-  %.0237.i.i = phi i64 [ %443, %455 ], [ %461, %456 ]
+  %.0238.i.i = phi i64 [ %443, %455 ], [ %461, %456 ]
   %.0.i.i = phi ptr [ %18, %455 ], [ %460, %456 ]
-  %457 = urem i64 %.0237.i.i, 10
+  %457 = urem i64 %.0238.i.i, 10
   %458 = trunc nuw nsw i64 %457 to i8
   %459 = or disjoint i8 %458, 48
   %460 = getelementptr inbounds i8, ptr %.0.i.i, i64 -1
   store i8 %459, ptr %460, align 1
-  %461 = udiv i64 %.0237.i.i, 10
-  %.not286.i.i = icmp ult i64 %.0237.i.i, 10
+  %461 = udiv i64 %.0238.i.i, 10
+  %.not286.i.i = icmp ult i64 %.0238.i.i, 10
   br i1 %.not286.i.i, label %.loopexit.i.i, label %456
 
 .loopexit.i.i:                                    ; preds = %456, %453
@@ -3268,7 +3268,7 @@ define ptr @zend_trace_to_string(ptr nocapture noundef readonly %0, i1 noundef z
   br label %_build_trace_args.exit.i
 
 501:                                              ; preds = %425
-  %502 = load ptr, ptr %.0238.i.i, align 8
+  %502 = load ptr, ptr %.0237.i.i, align 8
   %503 = getelementptr inbounds i8, ptr %502, i64 24
   %504 = load ptr, ptr %503, align 8
   %505 = getelementptr inbounds i8, ptr %504, i64 128
@@ -3372,7 +3372,7 @@ _build_trace_args.exit.i:                         ; preds = %552, %547, %537, %4
   br label %553
 
 553:                                              ; preds = %_build_trace_args.exit.i, %367
-  %554 = add i32 %.0559718.i, -1
+  %554 = add i32 %.0558718.i, -1
   %.not701.i = icmp eq i32 %554, 0
   br i1 %.not701.i, label %._crit_edge.i, label %358
 
@@ -3433,17 +3433,17 @@ _build_trace_string.exit:                         ; preds = %.thread.i, %563
   br label %570
 
 570:                                              ; preds = %31, %_build_trace_string.exit, %34
-  %.1130 = phi i32 [ %.0129166, %31 ], [ %.0129166, %34 ], [ %37, %_build_trace_string.exit ]
-  %571 = add i32 %.0122169, -1
+  %.1128 = phi i32 [ %.0127166, %31 ], [ %.0127166, %34 ], [ %37, %_build_trace_string.exit ]
+  %571 = add i32 %.0121169, -1
   %.not = icmp eq i32 %571, 0
   br i1 %.not, label %._crit_edge.loopexit, label %20
 
 ._crit_edge.loopexit:                             ; preds = %570
-  %572 = zext i32 %.1130 to i64
+  %572 = zext i32 %.1128 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.0129.lcssa = phi i64 [ 0, %2 ], [ %572, %._crit_edge.loopexit ]
+  %.0127.lcssa = phi i64 [ 0, %2 ], [ %572, %._crit_edge.loopexit ]
   %573 = load ptr, ptr %7, align 8
   %.not146 = icmp eq ptr %573, null
   br i1 %1, label %574, label %623
@@ -3481,15 +3481,15 @@ _build_trace_string.exit:                         ; preds = %.thread.i, %563
   br label %591
 
 591:                                              ; preds = %591, %582
-  %.0121 = phi i64 [ %.0129.lcssa, %582 ], [ %596, %591 ]
+  %.0123 = phi i64 [ %.0127.lcssa, %582 ], [ %596, %591 ]
   %.0 = phi ptr [ %590, %582 ], [ %595, %591 ]
-  %592 = urem i64 %.0121, 10
+  %592 = urem i64 %.0123, 10
   %593 = trunc nuw nsw i64 %592 to i8
   %594 = or disjoint i8 %593, 48
   %595 = getelementptr inbounds i8, ptr %.0, i64 -1
   store i8 %594, ptr %595, align 1
-  %596 = udiv i64 %.0121, 10
-  %.not148 = icmp ult i64 %.0121, 10
+  %596 = udiv i64 %.0123, 10
+  %.not148 = icmp ult i64 %.0123, 10
   br i1 %.not148, label %597, label %591
 
 597:                                              ; preds = %591
@@ -3730,9 +3730,9 @@ define hidden void @zim_Exception___toString(ptr nocapture noundef readonly %0, 
   br i1 %27, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %11, %234
-  %.0287351366 = phi ptr [ %.1288, %234 ], [ %12, %11 ]
-  %.0352365 = phi ptr [ %230, %234 ], [ %7, %11 ]
-  %28 = load ptr, ptr %.0352365, align 8
+  %.0288351366 = phi ptr [ %230, %234 ], [ %7, %11 ]
+  %.0287352365 = phi ptr [ %.1, %234 ], [ %12, %11 ]
+  %28 = load ptr, ptr %.0288351366, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr @zend_ce_throwable, align 8
@@ -3744,7 +3744,7 @@ define hidden void @zim_Exception___toString(ptr nocapture noundef readonly %0, 
   br i1 %34, label %..critedge2_crit_edge, label %.critedge
 
 ..critedge2_crit_edge:                            ; preds = %33
-  %.pre355 = load ptr, ptr %.0352365, align 8
+  %.pre355 = load ptr, ptr %.0288351366, align 8
   %.phi.trans.insert356 = getelementptr i8, ptr %.pre355, i64 16
   %.val326.pre = load ptr, ptr %.phi.trans.insert356, align 8
   br label %.critedge2
@@ -3761,7 +3761,7 @@ define hidden void @zim_Exception___toString(ptr nocapture noundef readonly %0, 
   %zend_ce_exception.val.i = load ptr, ptr @zend_ce_exception, align 8
   %zend_ce_error.val.i = load ptr, ptr @zend_ce_error, align 8
   %.pre.i = select i1 %39, ptr %zend_ce_exception.val.i, ptr %zend_ce_error.val.i
-  %.pre358 = load ptr, ptr %.0352365, align 8
+  %.pre358 = load ptr, ptr %.0288351366, align 8
   br label %i_get_exception_base.exit
 
 i_get_exception_base.exit:                        ; preds = %.critedge2, %38
@@ -3796,7 +3796,7 @@ i_get_exception_base.exit:                        ; preds = %.critedge2, %38
 
 59:                                               ; preds = %49, %54, %57
   %60 = phi ptr [ %58, %57 ], [ %50, %54 ], [ %50, %49 ]
-  %61 = load ptr, ptr %.0352365, align 8
+  %61 = load ptr, ptr %.0288351366, align 8
   %62 = getelementptr i8, ptr %61, i64 16
   %.val325 = load ptr, ptr %62, align 8
   %63 = load ptr, ptr @zend_ce_exception, align 8
@@ -3808,7 +3808,7 @@ i_get_exception_base.exit:                        ; preds = %.critedge2, %38
   %zend_ce_exception.val.i327 = load ptr, ptr @zend_ce_exception, align 8
   %zend_ce_error.val.i328 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i329 = select i1 %66, ptr %zend_ce_exception.val.i327, ptr %zend_ce_error.val.i328
-  %.pre359 = load ptr, ptr %.0352365, align 8
+  %.pre359 = load ptr, ptr %.0288351366, align 8
   br label %i_get_exception_base.exit330
 
 i_get_exception_base.exit330:                     ; preds = %59, %65
@@ -3842,7 +3842,7 @@ i_get_exception_base.exit330:                     ; preds = %59, %65
 
 85:                                               ; preds = %75, %80, %83
   %86 = phi ptr [ %84, %83 ], [ %76, %80 ], [ %76, %75 ]
-  %87 = load ptr, ptr %.0352365, align 8
+  %87 = load ptr, ptr %.0288351366, align 8
   %88 = getelementptr i8, ptr %87, i64 16
   %.val324 = load ptr, ptr %88, align 8
   %89 = load ptr, ptr @zend_ce_exception, align 8
@@ -3854,7 +3854,7 @@ i_get_exception_base.exit330:                     ; preds = %59, %65
   %zend_ce_exception.val.i331 = load ptr, ptr @zend_ce_exception, align 8
   %zend_ce_error.val.i332 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i333 = select i1 %92, ptr %zend_ce_exception.val.i331, ptr %zend_ce_error.val.i332
-  %.pre360 = load ptr, ptr %.0352365, align 8
+  %.pre360 = load ptr, ptr %.0288351366, align 8
   br label %i_get_exception_base.exit334
 
 i_get_exception_base.exit334:                     ; preds = %85, %91
@@ -3886,7 +3886,7 @@ i_get_exception_base.exit334:                     ; preds = %85, %91
   %.not299 = icmp eq i32 %109, 0
   %110 = select i1 %.not299, i32 262, i32 6
   store i32 %110, ptr %20, align 8
-  %111 = load ptr, ptr %.0352365, align 8
+  %111 = load ptr, ptr %.0288351366, align 8
   store ptr %111, ptr %21, align 8
   store ptr %3, ptr %22, align 8
   store i32 0, ptr %23, align 8
@@ -3903,7 +3903,7 @@ i_get_exception_base.exit334:                     ; preds = %85, %91
   br label %115
 
 115:                                              ; preds = %114, %106
-  %116 = load ptr, ptr %.0352365, align 8
+  %116 = load ptr, ptr %.0288351366, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 16
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr @zend_ce_type_error, align 8
@@ -3941,7 +3941,7 @@ i_get_exception_base.exit334:                     ; preds = %85, %91
   br label %137
 
 137:                                              ; preds = %126, %136, %131, %115, %123
-  %.0289 = phi ptr [ %60, %123 ], [ %60, %115 ], [ %127, %131 ], [ %127, %136 ], [ %127, %126 ]
+  %.0 = phi ptr [ %60, %123 ], [ %60, %115 ], [ %127, %131 ], [ %127, %136 ], [ %127, %126 ]
   %138 = load i8, ptr %26, align 8
   %139 = icmp eq i8 %138, 6
   br i1 %139, label %140, label %151
@@ -3983,30 +3983,30 @@ i_get_exception_base.exit334:                     ; preds = %85, %91
 
 158:                                              ; preds = %144, %148, %151
   %159 = phi ptr [ %152, %151 ], [ %141, %148 ], [ %141, %144 ]
-  %160 = load ptr, ptr %.0352365, align 8
+  %160 = load ptr, ptr %.0288351366, align 8
   %161 = getelementptr inbounds i8, ptr %160, i64 16
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds i8, ptr %162, i64 8
   %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds i8, ptr %.0289, i64 16
+  %165 = getelementptr inbounds i8, ptr %.0, i64 16
   %166 = load i64, ptr %165, align 8
   %.not305 = icmp eq i64 %166, 0
-  %167 = getelementptr inbounds i8, ptr %.0287351366, i64 16
+  %167 = getelementptr inbounds i8, ptr %.0287352365, i64 16
   %168 = load i64, ptr %167, align 8
   %.not306 = icmp eq i64 %168, 0
   %169 = select i1 %.not306, ptr @.str.13, ptr @.str.12
   br i1 %.not305, label %172, label %170
 
 170:                                              ; preds = %158
-  %171 = call ptr (i64, ptr, ...) @zend_strpprintf_unchecked(i64 noundef 0, ptr noundef nonnull @.str.11, ptr noundef %164, ptr noundef nonnull %.0289, ptr noundef %86, i64 noundef %107, ptr noundef nonnull %159, ptr noundef nonnull %169, ptr noundef %.0287351366) #15
+  %171 = call ptr (i64, ptr, ...) @zend_strpprintf_unchecked(i64 noundef 0, ptr noundef nonnull @.str.11, ptr noundef %164, ptr noundef nonnull %.0, ptr noundef %86, i64 noundef %107, ptr noundef nonnull %159, ptr noundef nonnull %169, ptr noundef %.0287352365) #15
   br label %174
 
 172:                                              ; preds = %158
-  %173 = call ptr (i64, ptr, ...) @zend_strpprintf_unchecked(i64 noundef 0, ptr noundef nonnull @.str.14, ptr noundef %164, ptr noundef %86, i64 noundef %107, ptr noundef nonnull %159, ptr noundef nonnull %169, ptr noundef %.0287351366) #15
+  %173 = call ptr (i64, ptr, ...) @zend_strpprintf_unchecked(i64 noundef 0, ptr noundef nonnull @.str.14, ptr noundef %164, ptr noundef %86, i64 noundef %107, ptr noundef nonnull %159, ptr noundef nonnull %169, ptr noundef %.0287352365) #15
   br label %174
 
 174:                                              ; preds = %172, %170
-  %.1288 = phi ptr [ %171, %170 ], [ %173, %172 ]
+  %.1 = phi ptr [ %171, %170 ], [ %173, %172 ]
   %175 = getelementptr inbounds i8, ptr %159, i64 4
   %176 = load i32, ptr %175, align 4
   %177 = and i32 %176, 64
@@ -4027,43 +4027,43 @@ i_get_exception_base.exit334:                     ; preds = %85, %91
   br label %184
 
 184:                                              ; preds = %178, %183, %174
-  %185 = getelementptr inbounds i8, ptr %.0287351366, i64 4
+  %185 = getelementptr inbounds i8, ptr %.0287352365, i64 4
   %186 = load i32, ptr %185, align 4
   %187 = and i32 %186, 64
   %.not309 = icmp eq i32 %187, 0
   br i1 %.not309, label %188, label %194
 
 188:                                              ; preds = %184
-  %189 = load i32, ptr %.0287351366, align 4
+  %189 = load i32, ptr %.0287352365, align 4
   %190 = icmp ne i32 %189, 0
   call void @llvm.assume(i1 %190)
   %191 = add i32 %189, -1
-  store i32 %191, ptr %.0287351366, align 4
+  store i32 %191, ptr %.0287352365, align 4
   %192 = icmp eq i32 %191, 0
   br i1 %192, label %193, label %194
 
 193:                                              ; preds = %188
-  call void @_efree(ptr noundef nonnull %.0287351366) #15
+  call void @_efree(ptr noundef nonnull %.0287352365) #15
   br label %194
 
 194:                                              ; preds = %188, %193, %184
-  %195 = getelementptr inbounds i8, ptr %.0289, i64 4
+  %195 = getelementptr inbounds i8, ptr %.0, i64 4
   %196 = load i32, ptr %195, align 4
   %197 = and i32 %196, 64
   %.not310 = icmp eq i32 %197, 0
   br i1 %.not310, label %198, label %204
 
 198:                                              ; preds = %194
-  %199 = load i32, ptr %.0289, align 4
+  %199 = load i32, ptr %.0, align 4
   %200 = icmp ne i32 %199, 0
   call void @llvm.assume(i1 %200)
   %201 = add i32 %199, -1
-  store i32 %201, ptr %.0289, align 4
+  store i32 %201, ptr %.0, align 4
   %202 = icmp eq i32 %201, 0
   br i1 %202, label %203, label %204
 
 203:                                              ; preds = %198
-  call void @_efree(ptr noundef nonnull %.0289) #15
+  call void @_efree(ptr noundef nonnull %.0) #15
   br label %204
 
 204:                                              ; preds = %198, %203, %194
@@ -4088,12 +4088,12 @@ i_get_exception_base.exit334:                     ; preds = %85, %91
 
 214:                                              ; preds = %208, %213, %204
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #15
-  %215 = load ptr, ptr %.0352365, align 8
+  %215 = load ptr, ptr %.0288351366, align 8
   %216 = getelementptr inbounds i8, ptr %215, i64 4
   %217 = load i32, ptr %216, align 4
   %218 = or i32 %217, 32
   store i32 %218, ptr %216, align 4
-  %219 = load ptr, ptr %.0352365, align 8
+  %219 = load ptr, ptr %.0288351366, align 8
   %220 = getelementptr i8, ptr %219, i64 16
   %.val323 = load ptr, ptr %220, align 8
   %221 = load ptr, ptr @zend_ce_exception, align 8
@@ -4105,7 +4105,7 @@ i_get_exception_base.exit334:                     ; preds = %85, %91
   %zend_ce_exception.val.i335 = load ptr, ptr @zend_ce_exception, align 8
   %zend_ce_error.val.i336 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i337 = select i1 %224, ptr %zend_ce_exception.val.i335, ptr %zend_ce_error.val.i336
-  %.pre361 = load ptr, ptr %.0352365, align 8
+  %.pre361 = load ptr, ptr %.0288351366, align 8
   br label %i_get_exception_base.exit338
 
 i_get_exception_base.exit338:                     ; preds = %214, %223
@@ -4133,7 +4133,7 @@ i_get_exception_base.exit338:                     ; preds = %214, %223
   br i1 %.not313.not, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %231, %33, %234, %i_get_exception_base.exit338, %11
-  %.2.ph = phi ptr [ %12, %11 ], [ %.0287351366, %33 ], [ %.1288, %234 ], [ %.1288, %231 ], [ %.1288, %i_get_exception_base.exit338 ]
+  %.2.ph = phi ptr [ %12, %11 ], [ %.0287352365, %33 ], [ %.1, %234 ], [ %.1, %231 ], [ %.1, %i_get_exception_base.exit338 ]
   %239 = load i32, ptr %14, align 4
   %240 = and i32 %239, 64
   %.not314 = icmp eq i32 %240, 0
@@ -4156,14 +4156,14 @@ i_get_exception_base.exit338:                     ; preds = %214, %223
   br label %247
 
 247:                                              ; preds = %.preheader, %i_get_exception_base.exit346
-  %.1353 = phi ptr [ %283, %i_get_exception_base.exit346 ], [ %7, %.preheader ]
-  %248 = getelementptr inbounds i8, ptr %.1353, i64 8
+  %.1289353 = phi ptr [ %283, %i_get_exception_base.exit346 ], [ %7, %.preheader ]
+  %248 = getelementptr inbounds i8, ptr %.1289353, i64 8
   %249 = load i8, ptr %248, align 8
   %250 = icmp eq i8 %249, 8
   br i1 %250, label %251, label %.critedge4
 
 251:                                              ; preds = %247
-  %252 = load ptr, ptr %.1353, align 8
+  %252 = load ptr, ptr %.1289353, align 8
   %253 = getelementptr i8, ptr %252, i64 16
   %.val322 = load ptr, ptr %253, align 8
   %254 = load ptr, ptr @zend_ce_exception, align 8
@@ -4183,7 +4183,7 @@ i_get_exception_base.exit342:                     ; preds = %251, %256
   br i1 %.not316, label %.critedge4, label %259
 
 259:                                              ; preds = %i_get_exception_base.exit342
-  %260 = load ptr, ptr %.1353, align 8
+  %260 = load ptr, ptr %.1289353, align 8
   %261 = getelementptr inbounds i8, ptr %260, i64 16
   %262 = load ptr, ptr %261, align 8
   %263 = icmp eq ptr %262, %258
@@ -4194,7 +4194,7 @@ i_get_exception_base.exit342:                     ; preds = %251, %256
   br i1 %265, label %..critedge6_crit_edge, label %.critedge4
 
 ..critedge6_crit_edge:                            ; preds = %264
-  %.pre362 = load ptr, ptr %.1353, align 8
+  %.pre362 = load ptr, ptr %.1289353, align 8
   br label %.critedge6
 
 .critedge6:                                       ; preds = %..critedge6_crit_edge, %259
@@ -4208,7 +4208,7 @@ i_get_exception_base.exit342:                     ; preds = %251, %256
 270:                                              ; preds = %.critedge6
   %271 = and i32 %268, -33
   store i32 %271, ptr %267, align 4
-  %272 = load ptr, ptr %.1353, align 8
+  %272 = load ptr, ptr %.1289353, align 8
   %273 = getelementptr i8, ptr %272, i64 16
   %.val321 = load ptr, ptr %273, align 8
   %274 = load ptr, ptr @zend_ce_exception, align 8
@@ -4220,7 +4220,7 @@ i_get_exception_base.exit342:                     ; preds = %251, %256
   %zend_ce_exception.val.i343 = load ptr, ptr @zend_ce_exception, align 8
   %zend_ce_error.val.i344 = load ptr, ptr @zend_ce_error, align 8
   %.pre.i345 = select i1 %277, ptr %zend_ce_exception.val.i343, ptr %zend_ce_error.val.i344
-  %.pre363 = load ptr, ptr %.1353, align 8
+  %.pre363 = load ptr, ptr %.1289353, align 8
   br label %i_get_exception_base.exit346
 
 i_get_exception_base.exit346:                     ; preds = %270, %276

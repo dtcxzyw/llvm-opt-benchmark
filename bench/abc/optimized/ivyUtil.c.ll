@@ -2292,17 +2292,17 @@ define i32 @Ivy_CutTruthPrint(ptr noundef %0, ptr nocapture noundef readonly %1,
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %.053 = phi i32 [ 0, %.lr.ph ], [ %12, %8 ]
+  %.04452 = phi i32 [ 0, %.lr.ph ], [ %12, %8 ]
   %9 = getelementptr inbounds [6 x i32], ptr %7, i64 0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 255
-  %12 = add nuw nsw i32 %11, %.053
+  %12 = add nuw nsw i32 %11, %.04452
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %8, %3
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %12, %8 ]
+  %.044.lcssa = phi i32 [ 0, %3 ], [ %12, %8 ]
   %13 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %14 = getelementptr inbounds i8, ptr %13, i64 4
   store i32 0, ptr %14, align 4
@@ -2319,7 +2319,7 @@ define i32 @Ivy_CutTruthPrint(ptr noundef %0, ptr nocapture noundef readonly %1,
 
 19:                                               ; preds = %.lr.ph61, %.critedge
   %indvars.iv70 = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next71, %.critedge ]
-  %.04358 = phi i32 [ 0, %.lr.ph61 ], [ %.144, %.critedge ]
+  %.04258 = phi i32 [ 0, %.lr.ph61 ], [ %.143, %.critedge ]
   %20 = getelementptr inbounds [6 x i32], ptr %17, i64 0, i64 %indvars.iv70
   %21 = load i32, ptr %20, align 4
   %22 = ashr i32 %21, 8
@@ -2359,11 +2359,11 @@ define i32 @Ivy_CutTruthPrint(ptr noundef %0, ptr nocapture noundef readonly %1,
   br i1 %.not51, label %35, label %28
 
 35:                                               ; preds = %32
-  %36 = add nsw i32 %.04358, 1
+  %36 = add nsw i32 %.04258, 1
   br label %.critedge
 
 .critedge:                                        ; preds = %28, %29, %19, %35
-  %.144 = phi i32 [ %36, %35 ], [ %.04358, %19 ], [ %.04358, %29 ], [ %.04358, %28 ]
+  %.143 = phi i32 [ %36, %35 ], [ %.04258, %19 ], [ %.04258, %29 ], [ %.04258, %28 ]
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %37 = load i16, ptr %4, align 4
   %38 = sext i16 %37 to i64
@@ -2371,9 +2371,9 @@ define i32 @Ivy_CutTruthPrint(ptr noundef %0, ptr nocapture noundef readonly %1,
   br i1 %39, label %19, label %._crit_edge62, !llvm.loop !31
 
 ._crit_edge62:                                    ; preds = %.critedge, %._crit_edge
-  %.043.lcssa = phi i32 [ 0, %._crit_edge ], [ %.144, %.critedge ]
-  %40 = icmp sgt i32 %.0.lcssa, %.043.lcssa
-  %41 = sub nsw i32 %.0.lcssa, %.043.lcssa
+  %.042.lcssa = phi i32 [ 0, %._crit_edge ], [ %.143, %.critedge ]
+  %40 = icmp sgt i32 %.044.lcssa, %.042.lcssa
+  %41 = sub nsw i32 %.044.lcssa, %.042.lcssa
   %42 = shl nsw i32 %41, 1
   %43 = select i1 %40, i32 %42, i32 0
   ret i32 %43

@@ -500,7 +500,7 @@ define internal fastcc i32 @ecjpake_kkp_read(ptr noundef %0, ptr noundef %1, i32
   br label %49
 
 49:                                               ; preds = %47, %45, %41, %39, %31, %29, %25
-  %.032.i = phi i32 [ %28, %25 ], [ %40, %39 ], [ %44, %41 ], [ %46, %45 ], [ -20352, %29 ], [ -20352, %31 ], [ %spec.select.i, %47 ]
+  %.0.i = phi i32 [ %28, %25 ], [ %40, %39 ], [ %44, %41 ], [ %46, %45 ], [ -20352, %29 ], [ -20352, %31 ], [ %spec.select.i, %47 ]
   call void @mbedtls_ecp_point_free(ptr noundef nonnull %9) #14
   call void @mbedtls_ecp_point_free(ptr noundef nonnull %10) #14
   call void @mbedtls_mpi_free(ptr noundef nonnull %11) #14
@@ -508,7 +508,7 @@ define internal fastcc i32 @ecjpake_kkp_read(ptr noundef %0, ptr noundef %1, i32
   br label %ecjpake_zkp_read.exit
 
 ecjpake_zkp_read.exit:                            ; preds = %22, %49
-  %.0.i = phi i32 [ %.032.i, %49 ], [ -20352, %22 ]
+  %.032.i = phi i32 [ %.0.i, %49 ], [ -20352, %22 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
@@ -516,7 +516,7 @@ ecjpake_zkp_read.exit:                            ; preds = %22, %49
   br label %50
 
 50:                                               ; preds = %15, %ecjpake_zkp_read.exit, %20, %8
-  %.017 = phi i32 [ -20352, %8 ], [ %19, %15 ], [ %.0.i, %ecjpake_zkp_read.exit ], [ -19584, %20 ]
+  %.017 = phi i32 [ -20352, %8 ], [ %19, %15 ], [ %.032.i, %ecjpake_zkp_read.exit ], [ -19584, %20 ]
   ret i32 %.017
 }
 
@@ -835,15 +835,15 @@ define hidden i32 @mbedtls_ecjpake_derive_secret(ptr noundef %0, ptr noundef %1,
   br label %38
 
 38:                                               ; preds = %35, %29, %27, %23, %17, %15
-  %.022 = phi i32 [ %16, %15 ], [ %22, %17 ], [ %26, %23 ], [ %28, %27 ], [ %34, %29 ], [ %37, %35 ]
+  %.0 = phi i32 [ %16, %15 ], [ %22, %17 ], [ %26, %23 ], [ %28, %27 ], [ %34, %29 ], [ %37, %35 ]
   call void @mbedtls_ecp_point_free(ptr noundef nonnull %7) #14
   call void @mbedtls_mpi_free(ptr noundef nonnull %8) #14
   call void @mbedtls_mpi_free(ptr noundef nonnull %9) #14
   br label %39
 
 39:                                               ; preds = %6, %38
-  %.0 = phi i32 [ %.022, %38 ], [ -20224, %6 ]
-  ret i32 %.0
+  %.022 = phi i32 [ %.0, %38 ], [ -20224, %6 ]
+  ret i32 %.022
 }
 
 declare zeroext i8 @mbedtls_md_get_size(ptr noundef) local_unnamed_addr #1
@@ -1294,8 +1294,8 @@ ecjpake_write_len_point.exit47.thread:            ; preds = %33, %18, %38
   %58 = ptrtoint ptr %56 to i64
   %59 = sub i64 %34, %58
   %60 = icmp slt i64 %59, 5
-  %or.cond87 = or i1 %57, %60
-  br i1 %or.cond87, label %ecjpake_write_len_point.exit50.thread, label %61
+  %or.cond86 = or i1 %57, %60
+  br i1 %or.cond86, label %ecjpake_write_len_point.exit50.thread, label %61
 
 61:                                               ; preds = %43
   %62 = getelementptr i8, ptr %55, i64 8
@@ -1380,8 +1380,8 @@ ecjpake_write_len_point.exit50.thread:            ; preds = %43, %61
   br label %112
 
 112:                                              ; preds = %ecjpake_write_len_point.exit50.thread, %ecjpake_write_len_point.exit47.thread, %ecjpake_write_len_point.exit, %99, %105, %109, %83, %66
-  %.0 = phi i32 [ -20224, %66 ], [ -20224, %83 ], [ %17, %ecjpake_write_len_point.exit ], [ %104, %99 ], [ %108, %105 ], [ %111, %109 ], [ %.0.i46.ph, %ecjpake_write_len_point.exit47.thread ], [ %.0.i49.ph, %ecjpake_write_len_point.exit50.thread ]
-  ret i32 %.0
+  %.031 = phi i32 [ -20224, %66 ], [ -20224, %83 ], [ %17, %ecjpake_write_len_point.exit ], [ %104, %99 ], [ %108, %105 ], [ %111, %109 ], [ %.0.i46.ph, %ecjpake_write_len_point.exit47.thread ], [ %.0.i49.ph, %ecjpake_write_len_point.exit50.thread ]
+  ret i32 %.031
 }
 
 declare i32 @mbedtls_ecp_point_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1

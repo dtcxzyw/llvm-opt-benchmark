@@ -995,9 +995,9 @@ select.unfold66:                                  ; preds = %60, %select.unfold
   br label %66
 
 66:                                               ; preds = %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit38", %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit34"
-  %.sroa.3.0.i.lcssa102.sink = phi i32 [ %.sroa.3.0.i, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit38" ], [ 1000000000, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit34" ]
+  %.sroa.3.0.i.lcssa100.sink = phi i32 [ %.sroa.3.0.i, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit38" ], [ 1000000000, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit34" ]
   %67 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.3.0.i.lcssa102.sink, ptr %67, align 8
+  store i32 %.sroa.3.0.i.lcssa100.sink, ptr %67, align 8
   ret void
 
 68:                                               ; preds = %.loopexit.i

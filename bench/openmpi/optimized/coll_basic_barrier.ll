@@ -38,9 +38,9 @@ define i32 @mca_coll_basic_barrier_intra_log(ptr noundef %0, ptr nocapture nound
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
-  %.04563 = phi i32 [ %22, %21 ], [ %13, %.lr.ph.preheader ]
-  %.04662 = phi i32 [ %23, %21 ], [ %15, %.lr.ph.preheader ]
-  %16 = or i32 %.04662, %.val60
+  %.063 = phi i32 [ %23, %21 ], [ %15, %.lr.ph.preheader ]
+  %.04562 = phi i32 [ %22, %21 ], [ %13, %.lr.ph.preheader ]
+  %16 = or i32 %.063, %.val60
   %17 = icmp slt i32 %16, %.val.val
   br i1 %17, label %18, label %21
 
@@ -51,8 +51,8 @@ define i32 @mca_coll_basic_barrier_intra_log(ptr noundef %0, ptr nocapture nound
   br i1 %.not59, label %21, label %.loopexit
 
 21:                                               ; preds = %.lr.ph, %18
-  %22 = add nsw i32 %.04563, -1
-  %23 = ashr i32 %.04662, 1
+  %22 = add nsw i32 %.04562, -1
+  %23 = ashr i32 %.063, 1
   %24 = icmp sgt i32 %22, %.0.i
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
@@ -85,9 +85,9 @@ define i32 @mca_coll_basic_barrier_intra_log(ptr noundef %0, ptr nocapture nound
   br label %.lr.ph68
 
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %43
-  %.166 = phi i32 [ %44, %43 ], [ %36, %.lr.ph68.preheader ]
-  %.14765 = phi i32 [ %45, %43 ], [ %37, %.lr.ph68.preheader ]
-  %38 = or i32 %.14765, %.val60
+  %.166 = phi i32 [ %45, %43 ], [ %37, %.lr.ph68.preheader ]
+  %.14665 = phi i32 [ %44, %43 ], [ %36, %.lr.ph68.preheader ]
+  %38 = or i32 %.166, %.val60
   %39 = icmp slt i32 %38, %.val.val
   br i1 %39, label %40, label %43
 
@@ -98,14 +98,14 @@ define i32 @mca_coll_basic_barrier_intra_log(ptr noundef %0, ptr nocapture nound
   br i1 %.not58, label %43, label %.loopexit
 
 43:                                               ; preds = %.lr.ph68, %40
-  %44 = add i32 %.166, 1
-  %45 = shl i32 %.14765, 1
+  %44 = add i32 %.14665, 1
+  %45 = shl i32 %.166, 1
   %exitcond.not = icmp eq i32 %44, %7
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph68, !llvm.loop !6
 
 .loopexit:                                        ; preds = %18, %40, %43, %35, %32, %26
-  %.0 = phi i32 [ %31, %26 ], [ %34, %32 ], [ 0, %35 ], [ %42, %40 ], [ 0, %43 ], [ %20, %18 ]
-  ret i32 %.0
+  %.047 = phi i32 [ %31, %26 ], [ %34, %32 ], [ 0, %35 ], [ %42, %40 ], [ 0, %43 ], [ %20, %18 ]
+  ret i32 %.047
 }
 
 ; Function Attrs: nounwind uwtable

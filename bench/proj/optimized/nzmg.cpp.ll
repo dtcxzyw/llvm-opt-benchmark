@@ -83,12 +83,12 @@ define internal { double, double } @_ZL14nzmg_e_inverse5PJ_XYP8PJconsts(double %
   br label %10
 
 8:                                                ; preds = %10
-  %9 = add nsw i32 %.039, -1
+  %9 = add nsw i32 %.03139, -1
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.thread, label %10, !llvm.loop !4
 
 10:                                               ; preds = %3, %8
-  %.039 = phi i32 [ 20, %3 ], [ %9, %8 ]
+  %.03139 = phi i32 [ 20, %3 ], [ %9, %8 ]
   %11 = phi <2 x double> [ %7, %3 ], [ %38, %8 ]
   %12 = extractelement <2 x double> %11, i64 0
   %13 = extractelement <2 x double> %11, i64 1
@@ -130,12 +130,12 @@ define internal { double, double } @_ZL14nzmg_e_inverse5PJ_XYP8PJconsts(double %
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.sroa.4.042 = phi double [ %46, %.preheader ], [ -1.300000e-03, %.preheader.preheader ]
-  %.03141 = phi i32 [ %47, %.preheader ], [ 8, %.preheader.preheader ]
-  %.03240 = phi ptr [ %44, %.preheader ], [ getelementptr inbounds (i8, ptr @_ZZL14nzmg_e_inverse5PJ_XYP8PJconstsE4tphi, i64 64), %.preheader.preheader ]
-  %44 = getelementptr inbounds i8, ptr %.03240, i64 -8
+  %.041 = phi ptr [ %44, %.preheader ], [ getelementptr inbounds (i8, ptr @_ZZL14nzmg_e_inverse5PJ_XYP8PJconstsE4tphi, i64 64), %.preheader.preheader ]
+  %.03240 = phi i32 [ %47, %.preheader ], [ 8, %.preheader.preheader ]
+  %44 = getelementptr inbounds i8, ptr %.041, i64 -8
   %45 = load double, ptr %44, align 8
   %46 = call double @llvm.fmuladd.f64(double %43, double %.sroa.4.042, double %45)
-  %47 = add nsw i32 %.03141, -1
+  %47 = add nsw i32 %.03240, -1
   %.not33 = icmp eq i32 %47, 0
   br i1 %.not33, label %48, label %.preheader, !llvm.loop !6
 
@@ -164,13 +164,13 @@ define internal { double, double } @_ZL14nzmg_e_forward5PJ_LPP8PJconsts(double %
   br label %8
 
 8:                                                ; preds = %3, %8
-  %.sroa.07.019 = phi double [ -3.400000e-04, %3 ], [ %11, %8 ]
-  %.018 = phi i32 [ 9, %3 ], [ %12, %8 ]
-  %.01617 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZL14nzmg_e_forward5PJ_LPP8PJconstsE4tpsi, i64 72), %3 ], [ %9, %8 ]
-  %9 = getelementptr inbounds i8, ptr %.01617, i64 -8
+  %.019 = phi i32 [ 9, %3 ], [ %12, %8 ]
+  %.01618 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZL14nzmg_e_forward5PJ_LPP8PJconstsE4tpsi, i64 72), %3 ], [ %9, %8 ]
+  %.sroa.07.017 = phi double [ -3.400000e-04, %3 ], [ %11, %8 ]
+  %9 = getelementptr inbounds i8, ptr %.01618, i64 -8
   %10 = load double, ptr %9, align 8
-  %11 = tail call double @llvm.fmuladd.f64(double %7, double %.sroa.07.019, double %10)
-  %12 = add nsw i32 %.018, -1
+  %11 = tail call double @llvm.fmuladd.f64(double %7, double %.sroa.07.017, double %10)
+  %12 = add nsw i32 %.019, -1
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %8, !llvm.loop !7
 

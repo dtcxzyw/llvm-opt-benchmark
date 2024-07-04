@@ -1052,10 +1052,10 @@ define internal fastcc noundef ptr @_ZL11setup_exactP8PJconsts(ptr noundef reado
 
 111:                                              ; preds = %111, %1
   %.019.i.idx = phi i64 [ 128, %1 ], [ %.019.i.add, %111 ]
-  %.01518.i = phi double [ 0.000000e+00, %1 ], [ %.01617.i, %111 ]
-  %.01617.i = phi double [ %110, %1 ], [ %115, %111 ]
-  %112 = fneg double %.01518.i
-  %113 = tail call double @llvm.fmuladd.f64(double %109, double %.01617.i, double %112)
+  %.01418.i = phi double [ 0.000000e+00, %1 ], [ %.01517.i, %111 ]
+  %.01517.i = phi double [ %110, %1 ], [ %115, %111 ]
+  %112 = fneg double %.01418.i
+  %113 = tail call double @llvm.fmuladd.f64(double %109, double %.01517.i, double %112)
   %.019.i.add = add nsw i64 %.019.i.idx, -8
   %.ptr = getelementptr inbounds i8, ptr %3, i64 %.019.i.add
   %114 = load double, ptr %.ptr, align 8
@@ -1176,10 +1176,10 @@ _ZL5clenSPKdiddddPdS1_.exit:                      ; preds = %31
 
 61:                                               ; preds = %61, %_ZL5clenSPKdiddddPdS1_.exit
   %.019.i.idx = phi i64 [ 80, %_ZL5clenSPKdiddddPdS1_.exit ], [ %.019.i.add, %61 ]
-  %.01518.i = phi double [ 0.000000e+00, %_ZL5clenSPKdiddddPdS1_.exit ], [ %.01617.i, %61 ]
-  %.01617.i = phi double [ %60, %_ZL5clenSPKdiddddPdS1_.exit ], [ %65, %61 ]
-  %62 = fneg double %.01518.i
-  %63 = tail call double @llvm.fmuladd.f64(double %59, double %.01617.i, double %62)
+  %.01418.i = phi double [ 0.000000e+00, %_ZL5clenSPKdiddddPdS1_.exit ], [ %.01517.i, %61 ]
+  %.01517.i = phi double [ %60, %_ZL5clenSPKdiddddPdS1_.exit ], [ %65, %61 ]
+  %62 = fneg double %.01418.i
+  %63 = tail call double @llvm.fmuladd.f64(double %59, double %.01517.i, double %62)
   %.019.i.add = add nsw i64 %.019.i.idx, -8
   %.ptr46 = getelementptr inbounds i8, ptr %5, i64 %.019.i.add
   %64 = load double, ptr %.ptr46, align 8
@@ -1218,10 +1218,10 @@ define internal { double, double } @_ZL11exact_e_fwd5PJ_LPP8PJconsts(double %0, 
 
 11:                                               ; preds = %11, %3
   %.019.i.idx = phi i64 [ 128, %3 ], [ %.019.i.add, %11 ]
-  %.01518.i = phi double [ 0.000000e+00, %3 ], [ %.01617.i, %11 ]
-  %.01617.i = phi double [ %10, %3 ], [ %15, %11 ]
-  %12 = fneg double %.01518.i
-  %13 = tail call double @llvm.fmuladd.f64(double %9, double %.01617.i, double %12)
+  %.01418.i = phi double [ 0.000000e+00, %3 ], [ %.01517.i, %11 ]
+  %.01517.i = phi double [ %10, %3 ], [ %15, %11 ]
+  %12 = fneg double %.01418.i
+  %13 = tail call double @llvm.fmuladd.f64(double %9, double %.01517.i, double %12)
   %.019.i.add = add nsw i64 %.019.i.idx, -8
   %.ptr = getelementptr inbounds i8, ptr %5, i64 %.019.i.add
   %14 = load double, ptr %.ptr, align 8

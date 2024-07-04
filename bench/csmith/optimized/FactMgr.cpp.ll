@@ -5299,9 +5299,9 @@ define dso_local noundef zeroext i1 @_ZN7FactMgr16merge_jump_factsERSt6vectorIPK
 
 7:                                                ; preds = %.lr.ph, %.thread
   %8 = phi ptr [ %5, %.lr.ph ], [ %40, %.thread ]
-  %.01629 = phi i64 [ 0, %.lr.ph ], [ %38, %.thread ]
-  %.01728 = phi i1 [ false, %.lr.ph ], [ %.1, %.thread ]
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %.01629
+  %.01629 = phi i1 [ false, %.lr.ph ], [ %.1, %.thread ]
+  %.01728 = phi i64 [ 0, %.lr.ph ], [ %38, %.thread ]
+  %9 = getelementptr inbounds ptr, ptr %8, i64 %.01728
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 120
@@ -5350,12 +5350,12 @@ define dso_local noundef zeroext i1 @_ZN7FactMgr16merge_jump_factsERSt6vectorIPK
 .thread23:                                        ; preds = %17, %36
   %.026 = phi ptr [ %.0, %36 ], [ %18, %17 ]
   %37 = tail call noundef zeroext i1 @_Z10merge_factRSt6vectorIPK4FactSaIS2_EES2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %.026)
-  %spec.select = select i1 %37, i1 true, i1 %.01728
+  %spec.select = select i1 %37, i1 true, i1 %.01629
   br label %.thread
 
 .thread:                                          ; preds = %20, %.thread23, %7, %36
-  %.1 = phi i1 [ %.01728, %7 ], [ %.01728, %36 ], [ %spec.select, %.thread23 ], [ %.01728, %20 ]
-  %38 = add nuw i64 %.01629, 1
+  %.1 = phi i1 [ %.01629, %7 ], [ %.01629, %36 ], [ %spec.select, %.thread23 ], [ %.01629, %20 ]
+  %38 = add nuw i64 %.01728, 1
   %39 = load ptr, ptr %3, align 8
   %40 = load ptr, ptr %0, align 8
   %41 = ptrtoint ptr %39 to i64
@@ -5366,8 +5366,8 @@ define dso_local noundef zeroext i1 @_ZN7FactMgr16merge_jump_factsERSt6vectorIPK
   br i1 %45, label %7, label %._crit_edge, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %.thread, %2
-  %.017.lcssa = phi i1 [ false, %2 ], [ %.1, %.thread ]
-  ret i1 %.017.lcssa
+  %.016.lcssa = phi i1 [ false, %2 ], [ %.1, %.thread ]
+  ret i1 %.016.lcssa
 }
 
 declare noundef ptr @_ZN11FactPointTo9make_factEPK8VariableS2_(ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -5731,8 +5731,8 @@ _ZNSt6vectorIP4FactSaIS1_EEaSERKS3_.exit:         ; preds = %._ZNSt6vectorIP4Fac
   br label %100
 
 100:                                              ; preds = %.lr.ph, %127
-  %.02537 = phi i64 [ 0, %.lr.ph ], [ %128, %127 ]
-  %101 = getelementptr inbounds ptr, ptr %.pr, i64 %.02537
+  %.02237 = phi i64 [ 0, %.lr.ph ], [ %128, %127 ]
+  %101 = getelementptr inbounds ptr, ptr %.pr, i64 %.02237
   %102 = load ptr, ptr %101, align 8
   %103 = load ptr, ptr %99, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 64
@@ -5779,7 +5779,7 @@ _ZNSt6vectorIP4FactSaIS1_EEaSERKS3_.exit:         ; preds = %._ZNSt6vectorIP4Fac
           to label %127 unwind label %.thread
 
 127:                                              ; preds = %122, %120
-  %128 = add nuw i64 %.02537, 1
+  %128 = add nuw i64 %.02237, 1
   %exitcond.not = icmp eq i64 %128, %umax
   br i1 %exitcond.not, label %thread-pre-split.thread, label %100, !llvm.loop !77
 
@@ -6482,8 +6482,8 @@ define dso_local void @_ZNK7FactMgr16sanity_check_mapEv(ptr noundef nonnull read
 
 14:                                               ; preds = %.lr.ph, %_ZNK8Variable10is_visibleEPK5Block.exit.thread
   %15 = phi ptr [ %10, %.lr.ph ], [ %40, %_ZNK8Variable10is_visibleEPK5Block.exit.thread ]
-  %.030 = phi i64 [ 0, %.lr.ph ], [ %38, %_ZNK8Variable10is_visibleEPK5Block.exit.thread ]
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %.030
+  %.01830 = phi i64 [ 0, %.lr.ph ], [ %38, %_ZNK8Variable10is_visibleEPK5Block.exit.thread ]
+  %16 = getelementptr inbounds ptr, ptr %15, i64 %.01830
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 120
@@ -6515,7 +6515,7 @@ _ZNK8Variable10is_visibleEPK5Block.exit:          ; preds = %14
   br label %_ZNK8Variable10is_visibleEPK5Block.exit.thread
 
 _ZNK8Variable10is_visibleEPK5Block.exit.thread:   ; preds = %14, %34, %_ZNK8Variable10is_visibleEPK5Block.exit, %31
-  %38 = add nuw i64 %.030, 1
+  %38 = add nuw i64 %.01830, 1
   %39 = load ptr, ptr %8, align 8
   %40 = load ptr, ptr %7, align 8
   %41 = ptrtoint ptr %39 to i64
@@ -6558,8 +6558,8 @@ _ZNK8Variable10is_visibleEPK5Block.exit.thread:   ; preds = %14, %34, %_ZNK8Vari
 
 59:                                               ; preds = %.lr.ph38, %_ZNK8Variable10is_visibleEPK5Block.exit19.thread
   %60 = phi ptr [ %55, %.lr.ph38 ], [ %83, %_ZNK8Variable10is_visibleEPK5Block.exit19.thread ]
-  %.01836 = phi i64 [ 0, %.lr.ph38 ], [ %81, %_ZNK8Variable10is_visibleEPK5Block.exit19.thread ]
-  %61 = getelementptr inbounds ptr, ptr %60, i64 %.01836
+  %.036 = phi i64 [ 0, %.lr.ph38 ], [ %81, %_ZNK8Variable10is_visibleEPK5Block.exit19.thread ]
+  %61 = getelementptr inbounds ptr, ptr %60, i64 %.036
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 120
@@ -6587,7 +6587,7 @@ _ZNK8Variable10is_visibleEPK5Block.exit19:        ; preds = %59
   br label %_ZNK8Variable10is_visibleEPK5Block.exit19.thread
 
 _ZNK8Variable10is_visibleEPK5Block.exit19.thread: ; preds = %59, %76, %_ZNK8Variable10is_visibleEPK5Block.exit19
-  %81 = add nuw i64 %.01836, 1
+  %81 = add nuw i64 %.036, 1
   %82 = load ptr, ptr %53, align 8
   %83 = load ptr, ptr %52, align 8
   %84 = ptrtoint ptr %82 to i64

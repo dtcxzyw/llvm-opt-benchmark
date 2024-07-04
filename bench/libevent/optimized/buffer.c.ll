@@ -2328,8 +2328,8 @@ entry:
   %cmp = icmp ugt ptr %0, %1
   %2 = and i1 %tobool4, %cmp
   %or.cond49 = select i1 %tobool, i1 %2, i1 false
-  %lock2_tmplock_.0 = select i1 %or.cond49, ptr %0, ptr %1
   %lock1_tmplock_.0 = select i1 %or.cond49, ptr %1, ptr %0
+  %lock2_tmplock_.0 = select i1 %or.cond49, ptr %0, ptr %1
   %tobool7.not = icmp eq ptr %lock1_tmplock_.0, null
   br i1 %tobool7.not, label %do.end10, label %if.then8
 
@@ -2932,8 +2932,8 @@ entry:
   %cmp = icmp ugt ptr %0, %1
   %2 = and i1 %tobool4, %cmp
   %or.cond49 = select i1 %tobool, i1 %2, i1 false
-  %lock2_tmplock_.0 = select i1 %or.cond49, ptr %0, ptr %1
   %lock1_tmplock_.0 = select i1 %or.cond49, ptr %1, ptr %0
+  %lock2_tmplock_.0 = select i1 %or.cond49, ptr %0, ptr %1
   %tobool7.not = icmp eq ptr %lock1_tmplock_.0, null
   br i1 %tobool7.not, label %do.end10, label %if.then8
 
@@ -3964,60 +3964,60 @@ if.end78:                                         ; preds = %if.then58, %if.end4
 land.rhs.preheader:                               ; preds = %if.end78.thread, %if.end78
   %last_with_datap141 = phi ptr [ %last_with_datap131, %if.end78.thread ], [ %last_with_datap, %if.end78 ]
   %size.addr.1138 = phi i64 [ %size.addr.0, %if.end78.thread ], [ %sub, %if.end78 ]
-  %chain.0137 = phi ptr [ %2, %if.end78.thread ], [ %tmp.0109, %if.end78 ]
-  %buffer.0136 = phi ptr [ %19, %if.end78.thread ], [ %add.ptr65, %if.end78 ]
-  %tmp.1133 = phi ptr [ %call70, %if.end78.thread ], [ %2, %if.end78 ]
+  %buffer.0137 = phi ptr [ %19, %if.end78.thread ], [ %add.ptr65, %if.end78 ]
+  %tmp.1134 = phi ptr [ %call70, %if.end78.thread ], [ %2, %if.end78 ]
+  %chain.0133 = phi ptr [ %2, %if.end78.thread ], [ %tmp.0109, %if.end78 ]
   %.in = load ptr, ptr %last_with_datap141, align 8
   %20 = load ptr, ptr %.in, align 8
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %if.end96
   %size.addr.2118 = phi i64 [ %size.addr.3, %if.end96 ], [ %size.addr.1138, %land.rhs.preheader ]
-  %chain.1117 = phi ptr [ %22, %if.end96 ], [ %chain.0137, %land.rhs.preheader ]
-  %removed_last_with_datap.0116 = phi i32 [ %removed_last_with_datap.1, %if.end96 ], [ 0, %land.rhs.preheader ]
-  %removed_last_with_data.0115 = phi i32 [ %spec.select, %if.end96 ], [ 0, %land.rhs.preheader ]
-  %buffer.1114 = phi ptr [ %buffer.2, %if.end96 ], [ %buffer.0136, %land.rhs.preheader ]
-  %off81 = getelementptr inbounds i8, ptr %chain.1117, i64 24
+  %removed_last_with_datap.0117 = phi i32 [ %removed_last_with_datap.1, %if.end96 ], [ 0, %land.rhs.preheader ]
+  %removed_last_with_data.0116 = phi i32 [ %spec.select, %if.end96 ], [ 0, %land.rhs.preheader ]
+  %buffer.1115 = phi ptr [ %buffer.2, %if.end96 ], [ %buffer.0137, %land.rhs.preheader ]
+  %chain.1114 = phi ptr [ %22, %if.end96 ], [ %chain.0133, %land.rhs.preheader ]
+  %off81 = getelementptr inbounds i8, ptr %chain.1114, i64 24
   %21 = load i64, ptr %off81, align 8
   %cmp82.not = icmp ult i64 %size.addr.2118, %21
   br i1 %cmp82.not, label %if.then108, label %for.body83
 
 for.body83:                                       ; preds = %land.rhs
-  %22 = load ptr, ptr %chain.1117, align 8
-  %buffer85 = getelementptr inbounds i8, ptr %chain.1117, i64 40
+  %22 = load ptr, ptr %chain.1114, align 8
+  %buffer85 = getelementptr inbounds i8, ptr %chain.1114, i64 40
   %23 = load ptr, ptr %buffer85, align 8
   %tobool86.not = icmp eq ptr %23, null
   br i1 %tobool86.not, label %if.end96, label %if.then87
 
 if.then87:                                        ; preds = %for.body83
-  %misalign89 = getelementptr inbounds i8, ptr %chain.1117, i64 16
+  %misalign89 = getelementptr inbounds i8, ptr %chain.1114, i64 16
   %24 = load i64, ptr %misalign89, align 8
   %add.ptr90 = getelementptr inbounds i8, ptr %23, i64 %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.1114, ptr nonnull align 1 %add.ptr90, i64 %21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.1115, ptr nonnull align 1 %add.ptr90, i64 %21, i1 false)
   %25 = load i64, ptr %off81, align 8
   %sub93 = sub i64 %size.addr.2118, %25
-  %add.ptr95 = getelementptr inbounds i8, ptr %buffer.1114, i64 %25
+  %add.ptr95 = getelementptr inbounds i8, ptr %buffer.1115, i64 %25
   br label %if.end96
 
 if.end96:                                         ; preds = %if.then87, %for.body83
-  %buffer.2 = phi ptr [ %add.ptr95, %if.then87 ], [ %buffer.1114, %for.body83 ]
+  %buffer.2 = phi ptr [ %add.ptr95, %if.then87 ], [ %buffer.1115, %for.body83 ]
   %size.addr.3 = phi i64 [ %sub93, %if.then87 ], [ %size.addr.2118, %for.body83 ]
-  %cmp97 = icmp eq ptr %chain.1117, %20
-  %spec.select = select i1 %cmp97, i32 1, i32 %removed_last_with_data.0115
+  %cmp97 = icmp eq ptr %chain.1114, %20
+  %spec.select = select i1 %cmp97, i32 1, i32 %removed_last_with_data.0116
   %26 = load ptr, ptr %last_with_datap141, align 8
-  %cmp102 = icmp eq ptr %chain.1117, %26
-  %removed_last_with_datap.1 = select i1 %cmp102, i32 1, i32 %removed_last_with_datap.0116
-  tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %chain.1117)
+  %cmp102 = icmp eq ptr %chain.1114, %26
+  %removed_last_with_datap.1 = select i1 %cmp102, i32 1, i32 %removed_last_with_datap.0117
+  tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %chain.1114)
   %cmp80.not = icmp eq ptr %22, null
   br i1 %cmp80.not, label %if.else116, label %land.rhs, !llvm.loop !27
 
 if.then108:                                       ; preds = %land.rhs
-  %buffer109 = getelementptr inbounds i8, ptr %chain.1117, i64 40
+  %buffer109 = getelementptr inbounds i8, ptr %chain.1114, i64 40
   %27 = load ptr, ptr %buffer109, align 8
-  %misalign110 = getelementptr inbounds i8, ptr %chain.1117, i64 16
+  %misalign110 = getelementptr inbounds i8, ptr %chain.1114, i64 16
   %28 = load i64, ptr %misalign110, align 8
   %add.ptr111 = getelementptr inbounds i8, ptr %27, i64 %28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.1114, ptr align 1 %add.ptr111, i64 %size.addr.2118, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buffer.1115, ptr align 1 %add.ptr111, i64 %size.addr.2118, i1 false)
   %29 = load i64, ptr %misalign110, align 8
   %add113 = add nsw i64 %29, %size.addr.2118
   store i64 %add113, ptr %misalign110, align 8
@@ -4028,25 +4028,25 @@ if.then108:                                       ; preds = %land.rhs
 
 if.else116:                                       ; preds = %if.end96, %if.end78
   %last_with_datap140 = phi ptr [ %last_with_datap, %if.end78 ], [ %last_with_datap141, %if.end96 ]
-  %tmp.1134 = phi ptr [ %2, %if.end78 ], [ %tmp.1133, %if.end96 ]
+  %tmp.1135 = phi ptr [ %2, %if.end78 ], [ %tmp.1134, %if.end96 ]
   %removed_last_with_data.0.lcssa = phi i32 [ 0, %if.end78 ], [ %spec.select, %if.end96 ]
   %removed_last_with_datap.0.lcssa = phi i32 [ 0, %if.end78 ], [ %removed_last_with_datap.1, %if.end96 ]
   %last = getelementptr inbounds i8, ptr %buf, i64 8
-  store ptr %tmp.1134, ptr %last, align 8
+  store ptr %tmp.1135, ptr %last, align 8
   br label %if.end117
 
 if.end117:                                        ; preds = %if.else116, %if.then108
   %last_with_datap139 = phi ptr [ %last_with_datap140, %if.else116 ], [ %last_with_datap141, %if.then108 ]
-  %tmp.1135 = phi ptr [ %tmp.1134, %if.else116 ], [ %tmp.1133, %if.then108 ]
-  %removed_last_with_data.0107 = phi i32 [ %removed_last_with_data.0.lcssa, %if.else116 ], [ %removed_last_with_data.0115, %if.then108 ]
-  %removed_last_with_datap.0105 = phi i32 [ %removed_last_with_datap.0.lcssa, %if.else116 ], [ %removed_last_with_datap.0116, %if.then108 ]
-  %chain.1103 = phi ptr [ null, %if.else116 ], [ %chain.1117, %if.then108 ]
-  store ptr %chain.1103, ptr %tmp.1135, align 8
-  %tobool119.not = icmp eq i32 %removed_last_with_data.0107, 0
+  %tmp.1136 = phi ptr [ %tmp.1135, %if.else116 ], [ %tmp.1134, %if.then108 ]
+  %chain.1108 = phi ptr [ null, %if.else116 ], [ %chain.1114, %if.then108 ]
+  %removed_last_with_data.0105 = phi i32 [ %removed_last_with_data.0.lcssa, %if.else116 ], [ %removed_last_with_data.0116, %if.then108 ]
+  %removed_last_with_datap.0103 = phi i32 [ %removed_last_with_datap.0.lcssa, %if.else116 ], [ %removed_last_with_datap.0117, %if.then108 ]
+  store ptr %chain.1108, ptr %tmp.1136, align 8
+  %tobool119.not = icmp eq i32 %removed_last_with_data.0105, 0
   br i1 %tobool119.not, label %if.else123, label %if.end142.sink.split
 
 if.else123:                                       ; preds = %if.end117
-  %tobool124.not = icmp eq i32 %removed_last_with_datap.0105, 0
+  %tobool124.not = icmp eq i32 %removed_last_with_datap.0103, 0
   br i1 %tobool124.not, label %if.end142, label %if.then125
 
 if.then125:                                       ; preds = %if.else123
@@ -4070,9 +4070,9 @@ if.end142.sink.split:                             ; preds = %land.lhs.true, %if.
   br label %if.end142
 
 if.end142:                                        ; preds = %if.end142.sink.split, %if.else123
-  %buffer143 = getelementptr inbounds i8, ptr %tmp.1135, i64 40
+  %buffer143 = getelementptr inbounds i8, ptr %tmp.1136, i64 40
   %34 = load ptr, ptr %buffer143, align 8
-  %misalign144 = getelementptr inbounds i8, ptr %tmp.1135, i64 16
+  %misalign144 = getelementptr inbounds i8, ptr %tmp.1136, i64 16
   %35 = load i64, ptr %misalign144, align 8
   %add.ptr145 = getelementptr inbounds i8, ptr %34, i64 %35
   br label %do.body147
@@ -4652,8 +4652,8 @@ sw.epilog:                                        ; preds = %for.end.i, %while.c
   br label %do.body62
 
 do.body62:                                        ; preds = %if.end.i113, %if.end.i85, %if.end.i43, %if.end.i, %sw.bb56, %sw.bb51, %sw.bb33, %sw.bb, %if.end22, %evbuffer_strchr.exit117, %evbuffer_strchr.exit89, %evbuffer_strchr.exit, %sw.bb28, %evbuffer_find_eol_char.exit, %sw.epilog
-  %tobool71.not = phi i1 [ true, %if.end22 ], [ true, %evbuffer_strchr.exit117 ], [ false, %sw.epilog ], [ true, %evbuffer_strchr.exit89 ], [ true, %evbuffer_strchr.exit ], [ true, %sw.bb28 ], [ true, %evbuffer_find_eol_char.exit ], [ true, %sw.bb ], [ true, %sw.bb33 ], [ true, %sw.bb51 ], [ true, %sw.bb56 ], [ true, %if.end.i ], [ true, %if.end.i43 ], [ true, %if.end.i85 ], [ true, %if.end.i113 ]
   %extra_drain.1 = phi i64 [ 0, %if.end22 ], [ 0, %evbuffer_strchr.exit117 ], [ %extra_drain.0, %sw.epilog ], [ 0, %evbuffer_strchr.exit89 ], [ 0, %evbuffer_strchr.exit ], [ 0, %sw.bb28 ], [ 0, %evbuffer_find_eol_char.exit ], [ 0, %sw.bb ], [ 0, %sw.bb33 ], [ 0, %sw.bb51 ], [ 0, %sw.bb56 ], [ 0, %if.end.i ], [ 0, %if.end.i43 ], [ 0, %if.end.i85 ], [ 0, %if.end.i113 ]
+  %tobool71.not = phi i1 [ true, %if.end22 ], [ true, %evbuffer_strchr.exit117 ], [ false, %sw.epilog ], [ true, %evbuffer_strchr.exit89 ], [ true, %evbuffer_strchr.exit ], [ true, %sw.bb28 ], [ true, %evbuffer_find_eol_char.exit ], [ true, %sw.bb ], [ true, %sw.bb33 ], [ true, %sw.bb51 ], [ true, %sw.bb56 ], [ true, %if.end.i ], [ true, %if.end.i43 ], [ true, %if.end.i85 ], [ true, %if.end.i113 ]
   %45 = load ptr, ptr %lock, align 8
   %tobool64.not = icmp eq ptr %45, null
   br i1 %tobool64.not, label %do.end70, label %if.then65
@@ -6397,8 +6397,8 @@ if.end10:                                         ; preds = %if.then8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end10, %if.then6
-  %offset_leftover.0 = phi i64 [ %rem, %if.end10 ], [ 0, %if.then6 ]
   %offset_rounded.0 = phi i64 [ %sub, %if.end10 ], [ 0, %if.then6 ]
+  %offset_leftover.0 = phi i64 [ %rem, %if.end10 ], [ 0, %if.then6 ]
   %add = add nsw i64 %offset_leftover.0, %2
   %call12 = tail call ptr @mmap64(ptr noundef null, i64 noundef %add, i32 noundef 1, i32 noundef 2, i32 noundef %1, i64 noundef %offset_rounded.0) #16
   %cmp13 = icmp eq ptr %call12, inttoptr (i64 -1 to ptr)

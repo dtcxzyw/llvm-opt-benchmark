@@ -77,30 +77,30 @@ define internal i32 @dissect_ipars(ptr noundef %0, ptr nocapture noundef readonl
   br label %20
 
 20:                                               ; preds = %13, %4
-  %.0130 = phi i32 [ 0, %4 ], [ %spec.select, %13 ]
-  %.0127 = phi i8 [ 0, %4 ], [ %17, %13 ]
-  %.0126 = phi i8 [ 0, %4 ], [ %15, %13 ]
-  %21 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0130) #4
+  %.0130 = phi i8 [ 0, %4 ], [ %17, %13 ]
+  %.0127 = phi i8 [ 0, %4 ], [ %15, %13 ]
+  %.0126 = phi i32 [ 0, %4 ], [ %spec.select, %13 ]
+  %21 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0126) #4
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %20
-  %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0130) #4
+  %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0126) #4
   br label %25
 
 25:                                               ; preds = %23, %20
-  %.1 = phi i8 [ %24, %23 ], [ %.0126, %20 ]
-  %26 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0130) #4
+  %.1 = phi i8 [ %24, %23 ], [ %.0127, %20 ]
+  %26 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0126) #4
   %27 = icmp sgt i32 %26, 1
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %25
-  %29 = or disjoint i32 %.0130, 1
+  %29 = or disjoint i32 %.0126, 1
   %30 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %28, %25
-  %.1128 = phi i8 [ %30, %28 ], [ %.0127, %25 ]
+  %.1131 = phi i8 [ %30, %28 ], [ %.0130, %25 ]
   switch i8 %.1, label %45 [
     i8 -125, label %32
     i8 67, label %32
@@ -108,24 +108,24 @@ define internal i32 @dissect_ipars(ptr noundef %0, ptr nocapture noundef readonl
   ]
 
 32:                                               ; preds = %31, %31, %31
-  %33 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0130) #4
+  %33 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0126) #4
   %34 = icmp sgt i32 %33, 2
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr %8, align 8
-  %37 = zext i8 %.1128 to i32
+  %37 = zext i8 %.1131 to i32
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %36, i32 noundef 25, ptr noundef nonnull @.str.3, i32 noundef %37) #4
   br label %81
 
 38:                                               ; preds = %32
-  %39 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0130) #4
+  %39 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0126) #4
   %40 = icmp sgt i32 %39, 1
   %41 = load ptr, ptr %8, align 8
   br i1 %40, label %42, label %44
 
 42:                                               ; preds = %38
-  %43 = zext i8 %.1128 to i32
+  %43 = zext i8 %.1131 to i32
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.4, i32 noundef %43) #4
   br label %81
 
@@ -135,7 +135,7 @@ define internal i32 @dissect_ipars(ptr noundef %0, ptr nocapture noundef readonl
 
 45:                                               ; preds = %31
   %46 = and i8 %.1, 63
-  %47 = and i8 %.1128, 63
+  %47 = and i8 %.1131, 63
   %48 = zext nneg i8 %47 to i32
   %49 = icmp eq i8 %47, 32
   br i1 %49, label %50, label %53
@@ -147,12 +147,12 @@ define internal i32 @dissect_ipars(ptr noundef %0, ptr nocapture noundef readonl
   br label %53
 
 53:                                               ; preds = %50, %45
-  %54 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0130) #4
+  %54 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0126) #4
   %55 = icmp sgt i32 %54, 2
   br i1 %55, label %56, label %61
 
 56:                                               ; preds = %53
-  %57 = add nuw nsw i32 %.0130, 2
+  %57 = add nuw nsw i32 %.0126, 2
   %58 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %57) #4
   %59 = and i8 %58, 63
   %60 = zext nneg i8 %59 to i32
@@ -160,12 +160,12 @@ define internal i32 @dissect_ipars(ptr noundef %0, ptr nocapture noundef readonl
 
 61:                                               ; preds = %56, %53
   %.0129 = phi i32 [ %60, %56 ], [ 0, %53 ]
-  %62 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0130) #4
+  %62 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0126) #4
   %63 = icmp sgt i32 %62, 3
   br i1 %63, label %64, label %.thread139
 
 64:                                               ; preds = %61
-  %65 = add nuw nsw i32 %.0130, 3
+  %65 = add nuw nsw i32 %.0126, 3
   %66 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %65) #4
   %67 = and i8 %66, 63
   %68 = icmp eq i32 %.0129, 31

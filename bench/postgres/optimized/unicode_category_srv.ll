@@ -77,8 +77,8 @@ define dso_local range(i32 0, 256) i32 @unicode_category(i32 noundef %0) local_u
 
 2:                                                ; preds = %1, %21
   %.017 = phi i32 [ 3301, %1 ], [ %.1, %21 ]
-  %.01316 = phi i32 [ 0, %1 ], [ %.114, %21 ]
-  %3 = add i32 %.017, %.01316
+  %.01216 = phi i32 [ 0, %1 ], [ %.113, %21 ]
+  %3 = add i32 %.017, %.01216
   %4 = sdiv i32 %3, 2
   %5 = sext i32 %4 to i64
   %6 = getelementptr [3302 x %struct.pg_category_range], ptr @unicode_categories, i64 0, i64 %5
@@ -107,14 +107,14 @@ define dso_local range(i32 0, 256) i32 @unicode_category(i32 noundef %0) local_u
   br label %.loopexit
 
 21:                                               ; preds = %15, %10
-  %.114 = phi i32 [ %11, %10 ], [ %.01316, %15 ]
+  %.113 = phi i32 [ %11, %10 ], [ %.01216, %15 ]
   %.1 = phi i32 [ %.017, %10 ], [ %16, %15 ]
-  %.not = icmp slt i32 %.1, %.114
+  %.not = icmp slt i32 %.1, %.113
   br i1 %.not, label %.loopexit, label %2, !llvm.loop !5
 
 .loopexit:                                        ; preds = %21, %17
-  %.012 = phi i32 [ %20, %17 ], [ 0, %21 ]
-  ret i32 %.012
+  %.014 = phi i32 [ %20, %17 ], [ 0, %21 ]
+  ret i32 %.014
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

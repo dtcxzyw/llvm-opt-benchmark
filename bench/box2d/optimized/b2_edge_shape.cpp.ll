@@ -140,8 +140,8 @@ entry:
   %div.i = fdiv float 1.000000e+00, %sqrt.i.i
   %mul.i = fmul float %sub3.i45, %div.i
   %mul2.i = fmul float %div.i, %fneg
-  %normal.sroa.0.0 = select i1 %cmp.i, float %sub3.i45, float %mul.i
   %normal.sroa.7.0 = select i1 %cmp.i, float %fneg, float %mul2.i
+  %normal.sroa.0.0 = select i1 %cmp.i, float %sub3.i45, float %mul.i
   %sub.i49 = fsub float %12, %6
   %sub3.i52 = fsub float %13, %7
   %mul3.i = fmul float %sub3.i52, %normal.sroa.7.0

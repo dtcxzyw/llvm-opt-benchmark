@@ -8530,15 +8530,15 @@ define hidden void @"_ZN97_$LT$actix_web..resource..Resource$LT$T$GT$$u20$as$u20
 
 .thread84:                                        ; preds = %74, %78, %85, %101, %.thread90
   %.pn3783 = phi { ptr, i32 } [ %64, %.thread90 ], [ %102, %101 ], [ %86, %85 ], [ %75, %78 ], [ %75, %74 ]
-  %.182 = phi i1 [ true, %.thread90 ], [ false, %101 ], [ false, %85 ], [ false, %78 ], [ false, %74 ]
-  %.13279 = phi i1 [ true, %.thread90 ], [ false, %101 ], [ true, %85 ], [ true, %78 ], [ true, %74 ]
+  %.12680 = phi i1 [ true, %.thread90 ], [ false, %101 ], [ true, %85 ], [ true, %78 ], [ true, %74 ]
+  %.12979 = phi i1 [ true, %.thread90 ], [ false, %101 ], [ false, %85 ], [ false, %78 ], [ false, %74 ]
   invoke void @"_ZN4core3ptr56drop_in_place$LT$actix_router..resource..ResourceDef$GT$17h74b01eda1e495ad6E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %16) #36
           to label %.thread98 unwind label %157
 
 .thread98:                                        ; preds = %.thread84, %.thread
   %.pn37.pn72 = phi { ptr, i32 } [ %25, %.thread ], [ %.pn3783, %.thread84 ]
-  %.01870 = phi i1 [ true, %.thread ], [ %.182, %.thread84 ]
-  %.03166 = phi i1 [ true, %.thread ], [ %.13279, %.thread84 ]
+  %.02568 = phi i1 [ true, %.thread ], [ %.12680, %.thread84 ]
+  %.02866 = phi i1 [ true, %.thread ], [ %.12979, %.thread84 ]
   %161 = load i64, ptr %17, align 8, !range !162, !alias.scope !1337, !noundef !9
   %162 = icmp eq i64 %161, -9223372036854775808
   br i1 %162, label %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$17h11745b67407002b9E.exit", label %163
@@ -8548,8 +8548,8 @@ define hidden void @"_ZN97_$LT$actix_web..resource..Resource$LT$T$GT$$u20$as$u20
           to label %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$17h11745b67407002b9E.exit" unwind label %157
 
 164:                                              ; preds = %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$17h11745b67407002b9E.exit.thread", %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$17h11745b67407002b9E.exit"
-  %.03165110 = phi i1 [ false, %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$17h11745b67407002b9E.exit.thread" ], [ %.03166, %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$17h11745b67407002b9E.exit" ]
-  %.01869109 = phi i1 [ false, %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$17h11745b67407002b9E.exit.thread" ], [ %.01870, %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$17h11745b67407002b9E.exit" ]
+  %.02865110 = phi i1 [ false, %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$17h11745b67407002b9E.exit.thread" ], [ %.02866, %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$17h11745b67407002b9E.exit" ]
+  %.02567109 = phi i1 [ false, %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$17h11745b67407002b9E.exit.thread" ], [ %.02568, %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$17h11745b67407002b9E.exit" ]
   %.pn37.pn71108 = phi { ptr, i32 } [ %24, %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$17h11745b67407002b9E.exit.thread" ], [ %.pn37.pn72, %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$17h11745b67407002b9E.exit" ]
   invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$actix_router..pattern..Patterns$GT$17hc9229aa1fa2cbcb5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) #36
           to label %166 unwind label %157
@@ -8565,10 +8565,10 @@ define hidden void @"_ZN97_$LT$actix_web..resource..Resource$LT$T$GT$$u20$as$u20
           to label %168 unwind label %157
 
 168:                                              ; preds = %166
-  br i1 %.01869109, label %170, label %169
+  br i1 %.02865110, label %170, label %169
 
 169:                                              ; preds = %170, %168
-  br i1 %.03165110, label %173, label %172
+  br i1 %.02567109, label %173, label %172
 
 170:                                              ; preds = %168
   %171 = getelementptr inbounds i8, ptr %0, i64 32
@@ -8585,7 +8585,7 @@ define hidden void @"_ZN97_$LT$actix_web..resource..Resource$LT$T$GT$$u20$as$u20
           to label %172 unwind label %157
 
 175:                                              ; preds = %172
-  br i1 %.01869109, label %178, label %176
+  br i1 %.02865110, label %178, label %176
 
 176:                                              ; preds = %178, %175
   %177 = getelementptr inbounds i8, ptr %0, i64 128
@@ -8767,10 +8767,10 @@ common.ret:                                       ; preds = %51, %38
   br label %51
 
 51:                                               ; preds = %52, %48
-  %.sroa.017.0 = phi i64 [ 3, %52 ], [ %.sroa.0.sroa.0.0.copyload, %48 ]
-  %.sroa.319.0 = phi ptr [ %.sroa.3.0.copyload, %52 ], [ %.sroa.0.sroa.10.0.copyload, %48 ]
-  %.sroa.4.0 = phi ptr [ %.sroa.5.0.copyload, %52 ], [ %.sroa.0.sroa.11.0.copyload, %48 ]
   %.sroa.523.0 = phi ptr [ undef, %52 ], [ %50, %48 ]
+  %.sroa.4.0 = phi ptr [ %.sroa.5.0.copyload, %52 ], [ %.sroa.0.sroa.11.0.copyload, %48 ]
+  %.sroa.319.0 = phi ptr [ %.sroa.3.0.copyload, %52 ], [ %.sroa.0.sroa.10.0.copyload, %48 ]
+  %.sroa.017.0 = phi i64 [ 3, %52 ], [ %.sroa.0.sroa.0.0.copyload, %48 ]
   store i64 %.sroa.017.0, ptr %0, align 8
   %.sroa.319.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.319.0, ptr %.sroa.319.0..sroa_idx, align 8

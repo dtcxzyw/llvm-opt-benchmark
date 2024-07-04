@@ -1259,8 +1259,8 @@ sw.bb:                                            ; preds = %entry
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.inc.i, %sw.bb
-  %sp.0.i = phi ptr [ %call2, %sw.bb ], [ %incdec.ptr.i, %for.inc.i ]
   %alen.0.i = phi i32 [ %call.i, %sw.bb ], [ %alen.1.i, %for.inc.i ]
+  %sp.0.i = phi ptr [ %call2, %sw.bb ], [ %incdec.ptr.i, %for.inc.i ]
   %0 = load i16, ptr %sp.0.i, align 2
   switch i16 %0, label %for.inc.i [
     i16 0, label %for.end.i
@@ -1934,19 +1934,19 @@ for.body135.lr.ph:                                ; preds = %if.else128
   br label %for.body135
 
 for.body135:                                      ; preds = %for.body135.lr.ph, %for.inc158
-  %i.2334 = phi i32 [ 0, %for.body135.lr.ph ], [ %inc159, %for.inc158 ]
-  %t.1333 = phi ptr [ null, %for.body135.lr.ph ], [ %t.2, %for.inc158 ]
+  %t.1334 = phi ptr [ null, %for.body135.lr.ph ], [ %t.2, %for.inc158 ]
+  %i.2333 = phi i32 [ 0, %for.body135.lr.ph ], [ %inc159, %for.inc158 ]
   %58 = load ptr, ptr %fData.i295, align 8
   %fData2.i = getelementptr inbounds i8, ptr %58, i64 40
   %59 = load i32, ptr %fRes142, align 4
   br i1 %cmp131, label %if.then137, label %if.else140
 
 if.then137:                                       ; preds = %for.body135
-  %call139 = call i32 @res_getTableItemByIndex_75(ptr noundef nonnull %fData2.i, i32 noundef %59, i32 noundef %i.2334, ptr noundef nonnull %key)
+  %call139 = call i32 @res_getTableItemByIndex_75(ptr noundef nonnull %fData2.i, i32 noundef %59, i32 noundef %i.2333, ptr noundef nonnull %key)
   br label %if.end144
 
 if.else140:                                       ; preds = %for.body135
-  %call143 = call i32 @res_getArrayItem_75(ptr noundef nonnull %fData2.i, i32 noundef %59, i32 noundef %i.2334)
+  %call143 = call i32 @res_getArrayItem_75(ptr noundef nonnull %fData2.i, i32 noundef %59, i32 noundef %i.2333)
   br label %if.end144
 
 if.end144:                                        ; preds = %if.else140, %if.then137
@@ -1972,8 +1972,8 @@ if.then150:                                       ; preds = %if.then147
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.inc.i.i, %if.then150
-  %sp.0.i.i = phi ptr [ %call1.i299, %if.then150 ], [ %incdec.ptr.i.i, %for.inc.i.i ]
   %alen.0.i.i = phi i32 [ %call.i.i300, %if.then150 ], [ %alen.1.i.i, %for.inc.i.i ]
+  %sp.0.i.i = phi ptr [ %call1.i299, %if.then150 ], [ %incdec.ptr.i.i, %for.inc.i.i ]
   %62 = load i16, ptr %sp.0.i.i, align 2
   switch i16 %62, label %for.inc.i.i [
     i16 0, label %for.end.i.i
@@ -2141,7 +2141,7 @@ _ZL13printOutAliasP5UFILEP15UResourceBundlejPKciS4_P10UErrorCode.exit: ; preds =
   br label %for.inc158
 
 if.else152:                                       ; preds = %if.then147
-  %call153 = call ptr @ures_getByIndex_75(ptr noundef nonnull %resource, i32 noundef %i.2334, ptr noundef %t.1333, ptr noundef nonnull %status)
+  %call153 = call ptr @ures_getByIndex_75(ptr noundef nonnull %resource, i32 noundef %i.2333, ptr noundef %t.1334, ptr noundef nonnull %status)
   call fastcc void @_ZL14printOutBundleP5UFILEP15UResourceBundleiPKcP10UErrorCode(ptr noundef %out, ptr noundef %call153, i32 noundef %add154, ptr noundef %pname, ptr noundef nonnull %status)
   br label %for.inc158
 
@@ -2153,8 +2153,8 @@ if.else156:                                       ; preds = %if.end144
   br label %for.inc158
 
 for.inc158:                                       ; preds = %if.else156, %if.else152, %_ZL13printOutAliasP5UFILEP15UResourceBundlejPKciS4_P10UErrorCode.exit
-  %t.2 = phi ptr [ %t.1333, %_ZL13printOutAliasP5UFILEP15UResourceBundlejPKciS4_P10UErrorCode.exit ], [ %call153, %if.else152 ], [ %t.1333, %if.else156 ]
-  %inc159 = add nuw nsw i32 %i.2334, 1
+  %t.2 = phi ptr [ %t.1334, %_ZL13printOutAliasP5UFILEP15UResourceBundlejPKciS4_P10UErrorCode.exit ], [ %call153, %if.else152 ], [ %t.1334, %if.else156 ]
+  %inc159 = add nuw nsw i32 %i.2333, 1
   %exitcond.not = icmp eq i32 %inc159, %call129
   br i1 %exitcond.not, label %if.end161, label %for.body135, !llvm.loop !12
 

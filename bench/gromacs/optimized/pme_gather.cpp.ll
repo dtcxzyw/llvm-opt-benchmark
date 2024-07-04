@@ -368,8 +368,8 @@ _ZNK10do_fsplineclILi5EEENSt9enable_ifIXooeqT_Li4EeqT_Li5EEN3gmx11BasicVectorIfE
 
 256:                                              ; preds = %256, %.lr.ph.us.us.i
   %indvars.iv.i77 = phi i64 [ %indvars.iv.next.i78, %256 ], [ 0, %.lr.ph.us.us.i ]
-  %.04760.us.us.i = phi float [ %264, %256 ], [ 0.000000e+00, %.lr.ph.us.us.i ]
-  %.04958.us.us.i = phi float [ %267, %256 ], [ 0.000000e+00, %.lr.ph.us.us.i ]
+  %.04659.us.us.i = phi float [ %267, %256 ], [ 0.000000e+00, %.lr.ph.us.us.i ]
+  %.04758.us.us.i = phi float [ %264, %256 ], [ 0.000000e+00, %.lr.ph.us.us.i ]
   %257 = trunc nuw nsw i64 %indvars.iv.i77 to i32
   %258 = add i32 %255, %257
   %259 = sext i32 %258 to i64
@@ -377,10 +377,10 @@ _ZNK10do_fsplineclILi5EEENSt9enable_ifIXooeqT_Li4EeqT_Li5EEN3gmx11BasicVectorIfE
   %261 = load float, ptr %260, align 4
   %262 = getelementptr inbounds float, ptr %234, i64 %indvars.iv.i77
   %263 = load float, ptr %262, align 4
-  %264 = tail call float @llvm.fmuladd.f32(float %263, float %261, float %.04760.us.us.i)
+  %264 = tail call float @llvm.fmuladd.f32(float %263, float %261, float %.04758.us.us.i)
   %265 = getelementptr inbounds float, ptr %237, i64 %indvars.iv.i77
   %266 = load float, ptr %265, align 4
-  %267 = tail call float @llvm.fmuladd.f32(float %266, float %261, float %.04958.us.us.i)
+  %267 = tail call float @llvm.fmuladd.f32(float %266, float %261, float %.04659.us.us.i)
   %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i77, 1
   %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, %wide.trip.count88.i
   br i1 %exitcond.not.i79, label %._crit_edge.us.us.i, label %256, !llvm.loop !19
@@ -488,7 +488,7 @@ define noundef float @_Z22gather_energy_bsplinesP9gmx_pme_tN3gmx8ArrayRefIKfEEP1
 
 .lr.ph76.split.us:                                ; preds = %.lr.ph76.split.us.preheader, %42
   %indvars.iv96 = phi i64 [ 0, %.lr.ph76.split.us.preheader ], [ %indvars.iv.next97, %42 ]
-  %.05874.us = phi float [ 0.000000e+00, %.lr.ph76.split.us.preheader ], [ %.1.us, %42 ]
+  %.05974.us = phi float [ 0.000000e+00, %.lr.ph76.split.us.preheader ], [ %.160.us, %42 ]
   %23 = getelementptr inbounds float, ptr %14, i64 %indvars.iv96
   %24 = load float, ptr %23, align 4
   %25 = fcmp une float %24, 0.000000e+00
@@ -514,14 +514,14 @@ define noundef float @_Z22gather_energy_bsplinesP9gmx_pme_tN3gmx8ArrayRefIKfEEP1
   br label %.lr.ph68.us.us
 
 42:                                               ; preds = %._crit_edge.split.us.us, %.lr.ph76.split.us
-  %.1.us = phi float [ %66, %._crit_edge.split.us.us ], [ %.05874.us, %.lr.ph76.split.us ]
+  %.160.us = phi float [ %66, %._crit_edge.split.us.us ], [ %.05974.us, %.lr.ph76.split.us ]
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
   br i1 %exitcond100.not, label %._crit_edge, label %.lr.ph76.split.us, !llvm.loop !23
 
 .lr.ph68.us.us:                                   ; preds = %._crit_edge69.split.us.us.us, %.lr.ph.us
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %._crit_edge69.split.us.us.us ], [ 0, %.lr.ph.us ]
-  %.05971.us.us = phi float [ %65, %._crit_edge69.split.us.us.us ], [ 0.000000e+00, %.lr.ph.us ]
+  %.05871.us.us = phi float [ %65, %._crit_edge69.split.us.us.us ], [ 0.000000e+00, %.lr.ph.us ]
   %43 = getelementptr inbounds float, ptr %35, i64 %indvars.iv91
   %44 = load float, ptr %43, align 4
   %45 = trunc i64 %indvars.iv91 to i32
@@ -532,7 +532,7 @@ define noundef float @_Z22gather_energy_bsplinesP9gmx_pme_tN3gmx8ArrayRefIKfEEP1
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.lr.ph68.us.us
   %indvars.iv86 = phi i64 [ %indvars.iv.next87, %._crit_edge.us.us.us ], [ 0, %.lr.ph68.us.us ]
-  %.16065.us.us.us = phi float [ %65, %._crit_edge.us.us.us ], [ %.05971.us.us, %.lr.ph68.us.us ]
+  %.165.us.us.us = phi float [ %65, %._crit_edge.us.us.us ], [ %.05871.us.us, %.lr.ph68.us.us ]
   %49 = trunc nuw nsw i64 %indvars.iv86 to i32
   %50 = add i32 %48, %49
   %51 = mul i32 %50, %41
@@ -544,7 +544,7 @@ define noundef float @_Z22gather_energy_bsplinesP9gmx_pme_tN3gmx8ArrayRefIKfEEP1
 
 56:                                               ; preds = %56, %.lr.ph.us.us.us
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %56 ], [ 0, %.lr.ph.us.us.us ]
-  %.263.us.us.us = phi float [ %65, %56 ], [ %.16065.us.us.us, %.lr.ph.us.us.us ]
+  %.263.us.us.us = phi float [ %65, %56 ], [ %.165.us.us.us, %.lr.ph.us.us.us ]
   %57 = trunc nuw nsw i64 %indvars.iv81 to i32
   %58 = add i32 %54, %57
   %59 = sext i32 %58 to i64
@@ -569,24 +569,24 @@ define noundef float @_Z22gather_energy_bsplinesP9gmx_pme_tN3gmx8ArrayRefIKfEEP1
   br i1 %exitcond95.not, label %._crit_edge.split.us.us, label %.lr.ph68.us.us, !llvm.loop !26
 
 ._crit_edge.split.us.us:                          ; preds = %._crit_edge69.split.us.us.us
-  %66 = tail call float @llvm.fmuladd.f32(float %65, float %24, float %.05874.us)
+  %66 = tail call float @llvm.fmuladd.f32(float %65, float %24, float %.05974.us)
   br label %42
 
 .lr.ph76.split:                                   ; preds = %.lr.ph76.split.preheader, %.lr.ph76.split
   %indvars.iv = phi i64 [ 0, %.lr.ph76.split.preheader ], [ %indvars.iv.next, %.lr.ph76.split ]
-  %.05874 = phi float [ 0.000000e+00, %.lr.ph76.split.preheader ], [ %.1, %.lr.ph76.split ]
+  %.05974 = phi float [ 0.000000e+00, %.lr.ph76.split.preheader ], [ %.160, %.lr.ph76.split ]
   %67 = getelementptr inbounds float, ptr %14, i64 %indvars.iv
   %68 = load float, ptr %67, align 4
   %69 = fcmp une float %68, 0.000000e+00
-  %70 = tail call float @llvm.fmuladd.f32(float %68, float 0.000000e+00, float %.05874)
-  %.1 = select i1 %69, float %70, float %.05874
+  %70 = tail call float @llvm.fmuladd.f32(float %68, float 0.000000e+00, float %.05974)
+  %.160 = select i1 %69, float %70, float %.05974
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph76.split, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph76.split, %42, %4
-  %.058.lcssa = phi float [ 0.000000e+00, %4 ], [ %.1.us, %42 ], [ %.1, %.lr.ph76.split ]
-  ret float %.058.lcssa
+  %.059.lcssa = phi float [ 0.000000e+00, %4 ], [ %.160.us, %42 ], [ %.160, %.lr.ph76.split ]
+  ret float %.059.lcssa
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)

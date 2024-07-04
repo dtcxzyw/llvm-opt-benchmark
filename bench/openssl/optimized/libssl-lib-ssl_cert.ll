@@ -1735,9 +1735,9 @@ if.end14:                                         ; preds = %if.end9
   br i1 %cmp1726, label %done, label %if.end20
 
 if.end20:                                         ; preds = %if.end14, %if.end50
-  %xn.028 = phi ptr [ %xn.1, %if.end50 ], [ null, %if.end14 ]
-  %ret.027 = phi ptr [ %ret.1, %if.end50 ], [ null, %if.end14 ]
-  %cmp21 = icmp eq ptr %ret.027, null
+  %ret.028 = phi ptr [ %ret.1, %if.end50 ], [ null, %if.end14 ]
+  %xn.027 = phi ptr [ %xn.1, %if.end50 ], [ null, %if.end14 ]
+  %cmp21 = icmp eq ptr %ret.028, null
   br i1 %cmp21, label %if.then23, label %if.end29
 
 if.then23:                                        ; preds = %if.end20
@@ -1752,7 +1752,7 @@ if.then27:                                        ; preds = %if.then23
   br label %err
 
 if.end29:                                         ; preds = %if.then23, %if.end20
-  %ret.1 = phi ptr [ %call24, %if.then23 ], [ %ret.027, %if.end20 ]
+  %ret.1 = phi ptr [ %call24, %if.then23 ], [ %ret.028, %if.end20 ]
   %0 = load ptr, ptr %x, align 8
   %call30 = call ptr @X509_get_subject_name(ptr noundef %0) #13
   %cmp31 = icmp eq ptr %call30, null
@@ -1785,8 +1785,8 @@ if.end50:                                         ; preds = %if.else, %if.then43
   br i1 %cmp17, label %done, label %if.end20
 
 err:                                              ; preds = %if.else, %if.end34, %if.end29, %if.end9, %if.then27, %if.then8, %if.then4, %if.then
+  %xn.2 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ null, %if.then8 ], [ null, %if.end9 ], [ %xn.027, %if.then27 ], [ %call35, %if.else ], [ null, %if.end34 ], [ null, %if.end29 ]
   %ret.2 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ null, %if.then8 ], [ null, %if.end9 ], [ null, %if.then27 ], [ %ret.1, %if.end29 ], [ %ret.1, %if.end34 ], [ %ret.1, %if.else ]
-  %xn.2 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ null, %if.then8 ], [ null, %if.end9 ], [ %xn.028, %if.then27 ], [ %call35, %if.else ], [ null, %if.end34 ], [ null, %if.end29 ]
   %prev_libctx.0 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ null, %if.then8 ], [ null, %if.end9 ], [ %call15, %if.then27 ], [ %call15, %if.end29 ], [ %call15, %if.end34 ], [ %call15, %if.else ]
   call void @X509_NAME_free(ptr noundef %xn.2) #13
   call void @OPENSSL_sk_pop_free(ptr noundef %ret.2, ptr noundef nonnull @X509_NAME_free) #13
@@ -2317,8 +2317,8 @@ if.then37:                                        ; preds = %if.end34
   br label %if.end40
 
 if.end40:                                         ; preds = %if.end34, %if.then37, %for.end
-  %untrusted.0 = phi ptr [ null, %for.end ], [ %9, %if.then37 ], [ null, %if.end34 ]
   %chain_store.1 = phi ptr [ %call, %for.end ], [ %chain_store.0, %if.then37 ], [ %chain_store.0, %if.end34 ]
+  %untrusted.0 = phi ptr [ null, %for.end ], [ %9, %if.then37 ], [ null, %if.end34 ]
   %10 = load ptr, ptr %cond7, align 8
   %propq = getelementptr inbounds i8, ptr %cond7, i64 1096
   %11 = load ptr, ptr %propq, align 8
@@ -2442,23 +2442,23 @@ for.end112:                                       ; preds = %for.cond97, %if.end
 
 err:                                              ; preds = %for.end112, %if.then108, %if.then69, %if.then48, %if.then43, %if.then
   %and119.pre-phi = phi i32 [ %and, %for.end112 ], [ %and, %if.then108 ], [ %and, %if.then69 ], [ %and, %if.then48 ], [ %and, %if.then43 ], [ %.pre, %if.then ]
-  %xs_ctx.0 = phi ptr [ %call41, %for.end112 ], [ %call41, %if.then108 ], [ %call41, %if.then69 ], [ %call41, %if.then48 ], [ null, %if.then43 ], [ null, %if.then ]
   %chain_store.2 = phi ptr [ %chain_store.1, %for.end112 ], [ %chain_store.1, %if.then108 ], [ %chain_store.1, %if.then69 ], [ %chain_store.1, %if.then48 ], [ %chain_store.1, %if.then43 ], [ null, %if.then ]
+  %xs_ctx.0 = phi ptr [ %call41, %for.end112 ], [ %call41, %if.then108 ], [ %call41, %if.then69 ], [ %call41, %if.then48 ], [ null, %if.then43 ], [ null, %if.then ]
   %rv.2 = phi i32 [ %spec.store.select, %for.end112 ], [ 0, %if.then108 ], [ 0, %if.then69 ], [ 0, %if.then48 ], [ 0, %if.then43 ], [ 0, %if.then ]
   %tobool120.not = icmp eq i32 %and119.pre-phi, 0
   br i1 %tobool120.not, label %if.end122, label %if.then121
 
 if.then121:                                       ; preds = %for.body, %if.then9, %for.end, %err
   %rv.286 = phi i32 [ %rv.2, %err ], [ 0, %for.end ], [ 0, %if.then9 ], [ 0, %for.body ]
-  %chain_store.285 = phi ptr [ %chain_store.2, %err ], [ %call, %for.end ], [ null, %if.then9 ], [ %call, %for.body ]
-  %xs_ctx.083 = phi ptr [ %xs_ctx.0, %err ], [ null, %for.end ], [ null, %if.then9 ], [ null, %for.body ]
-  tail call void @X509_STORE_free(ptr noundef %chain_store.285) #13
+  %xs_ctx.084 = phi ptr [ %xs_ctx.0, %err ], [ null, %for.end ], [ null, %if.then9 ], [ null, %for.body ]
+  %chain_store.283 = phi ptr [ %chain_store.2, %err ], [ %call, %for.end ], [ null, %if.then9 ], [ %call, %for.body ]
+  tail call void @X509_STORE_free(ptr noundef %chain_store.283) #13
   br label %if.end122
 
 if.end122:                                        ; preds = %if.then121, %err
   %rv.287 = phi i32 [ %rv.286, %if.then121 ], [ %rv.2, %err ]
-  %xs_ctx.084 = phi ptr [ %xs_ctx.083, %if.then121 ], [ %xs_ctx.0, %err ]
-  tail call void @X509_STORE_CTX_free(ptr noundef %xs_ctx.084) #13
+  %xs_ctx.085 = phi ptr [ %xs_ctx.084, %if.then121 ], [ %xs_ctx.0, %err ]
+  tail call void @X509_STORE_CTX_free(ptr noundef %xs_ctx.085) #13
   ret i32 %rv.287
 }
 

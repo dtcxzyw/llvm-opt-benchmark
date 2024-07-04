@@ -947,9 +947,9 @@ _ZN4bstr9ext_slice9ByteSlice9last_byte17h86d3fd2cca532341E.exit.thread: ; preds 
   unreachable
 
 38:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$bstr..ext_vec..DrainBytes$GT$17h9f5915e7c34c885eE.exit", %34
+  %.sroa.6.0 = phi i64 [ %35, %34 ], [ %.sroa.511.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$bstr..ext_vec..DrainBytes$GT$17h9f5915e7c34c885eE.exit" ]
   %.sroa.54.0 = phi ptr [ %36, %34 ], [ %.sroa.410.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$bstr..ext_vec..DrainBytes$GT$17h9f5915e7c34c885eE.exit" ]
   %.sroa.02.0 = phi i64 [ -9223372036854775808, %34 ], [ %.sroa.09.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$bstr..ext_vec..DrainBytes$GT$17h9f5915e7c34c885eE.exit" ]
-  %.sroa.6.0 = phi i64 [ %35, %34 ], [ %.sroa.511.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$bstr..ext_vec..DrainBytes$GT$17h9f5915e7c34c885eE.exit" ]
   store i64 %.sroa.02.0, ptr %0, align 8
   %.sroa.54.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.54.0, ptr %.sroa.54.0..sroa_idx, align 8
@@ -1080,9 +1080,9 @@ define void @_ZN7globset8pathutil13file_name_ext17hee621f33b21c3816E(ptr noalias
   unreachable
 
 35:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$bstr..ext_vec..DrainBytes$GT$17h9f5915e7c34c885eE.exit", %31
-  %.sroa.01.0 = phi i64 [ -9223372036854775808, %31 ], [ %.sroa.08.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$bstr..ext_vec..DrainBytes$GT$17h9f5915e7c34c885eE.exit" ]
-  %.sroa.53.0 = phi ptr [ %33, %31 ], [ %.sroa.4.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$bstr..ext_vec..DrainBytes$GT$17h9f5915e7c34c885eE.exit" ]
   %.sroa.6.0 = phi i64 [ %32, %31 ], [ %.sroa.59.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$bstr..ext_vec..DrainBytes$GT$17h9f5915e7c34c885eE.exit" ]
+  %.sroa.53.0 = phi ptr [ %33, %31 ], [ %.sroa.4.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$bstr..ext_vec..DrainBytes$GT$17h9f5915e7c34c885eE.exit" ]
+  %.sroa.01.0 = phi i64 [ -9223372036854775808, %31 ], [ %.sroa.08.0.copyload, %"_ZN4core3ptr46drop_in_place$LT$bstr..ext_vec..DrainBytes$GT$17h9f5915e7c34c885eE.exit" ]
   store i64 %.sroa.01.0, ptr %0, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.53.0, ptr %.sroa.53.0..sroa_idx, align 8

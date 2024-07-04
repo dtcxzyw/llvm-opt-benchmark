@@ -227,14 +227,14 @@ define internal range(i32 0, 9) i32 @dissect_fec(ptr noundef %0, ptr noundef %1,
   br label %11
 
 11:                                               ; preds = %8, %4
-  %.088 = phi i32 [ %10, %8 ], [ 0, %4 ]
+  %.0 = phi i32 [ %10, %8 ], [ 0, %4 ]
   %12 = load i32, ptr @proto_rmt_fec, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %14 = load i32, ptr @ett_main, align 4
   %15 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #2
   %16 = load i32, ptr @hf_encoding_id, align 4
-  %17 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.088) #2
-  %18 = icmp ugt i32 %.088, 127
+  %17 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.0) #2
+  %18 = icmp ugt i32 %.0, 127
   %19 = icmp ne ptr %7, null
   %or.cond = select i1 %18, i1 %19, i1 false
   br i1 %or.cond, label %20, label %25
@@ -247,7 +247,7 @@ define internal range(i32 0, 9) i32 @dissect_fec(ptr noundef %0, ptr noundef %1,
   br label %25
 
 25:                                               ; preds = %20, %11
-  %trunc = trunc nuw i32 %.088 to i8
+  %trunc = trunc nuw i32 %.0 to i8
   switch i8 %trunc, label %84 [
     i8 0, label %26
     i8 1, label %26
@@ -340,8 +340,8 @@ define internal range(i32 0, 9) i32 @dissect_fec(ptr noundef %0, ptr noundef %1,
   br label %84
 
 84:                                               ; preds = %71, %60, %48, %38, %26, %25
-  %.0 = phi i32 [ 0, %25 ], [ 8, %71 ], [ 4, %60 ], [ 4, %48 ], [ 8, %38 ], [ 4, %26 ]
-  ret i32 %.0
+  %.088 = phi i32 [ 0, %25 ], [ 8, %71 ], [ 4, %60 ], [ 4, %48 ], [ 8, %38 ], [ 4, %26 ]
+  ret i32 %.088
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

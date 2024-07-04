@@ -5183,8 +5183,8 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %invoke.cont ]
-  %has_bit_index.sroa.0.0102 = phi i32 [ undef, %for.body.lr.ph ], [ %has_bit_index.sroa.0.1, %invoke.cont ]
-  %inlined_string_index.sroa.0.0101 = phi i32 [ undef, %for.body.lr.ph ], [ %inlined_string_index.sroa.0.1, %invoke.cont ]
+  %inlined_string_index.sroa.0.0103 = phi i32 [ undef, %for.body.lr.ph ], [ %inlined_string_index.sroa.0.1, %invoke.cont ]
+  %has_bit_index.sroa.0.0100 = phi i32 [ undef, %for.body.lr.ph ], [ %has_bit_index.sroa.0.1, %invoke.cont ]
   %7 = load ptr, ptr %fields_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %7, i64 %indvars.iv
   br i1 %cmp.i, label %if.end, label %land.lhs.true
@@ -5269,7 +5269,7 @@ _ZNK6google8protobuf15FieldDescriptor5indexEv.exit27: ; preds = %_ZNK6google8pro
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.thread, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit27, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit, %for.body
-  %has_bit_index.sroa.0.1 = phi i32 [ %has_bit_index.sroa.0.0102, %for.body ], [ %21, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit27 ], [ %has_bit_index.sroa.0.0102, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit ], [ %has_bit_index.sroa.0.0102, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.thread ]
+  %has_bit_index.sroa.0.1 = phi i32 [ %has_bit_index.sroa.0.0100, %for.body ], [ %21, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit27 ], [ %has_bit_index.sroa.0.0100, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit ], [ %has_bit_index.sroa.0.0100, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.thread ]
   %has_bit_index.sroa.2.0 = phi i64 [ 0, %for.body ], [ 4294967296, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit27 ], [ 0, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit ], [ 0, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit.thread ]
   br i1 %cmp.i32, label %if.end29, label %land.lhs.true18
 
@@ -5355,7 +5355,7 @@ _ZNK6google8protobuf15FieldDescriptor5indexEv.exit75: ; preds = %if.then.i72, %_
 
 if.end29:                                         ; preds = %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit75, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit53, %if.end
   %inlined_string_index.sroa.2.0 = phi i64 [ 0, %if.end ], [ 4294967296, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit75 ], [ 0, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit53 ]
-  %inlined_string_index.sroa.0.1 = phi i32 [ %inlined_string_index.sroa.0.0101, %if.end ], [ %34, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit75 ], [ %inlined_string_index.sroa.0.0101, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit53 ]
+  %inlined_string_index.sroa.0.1 = phi i32 [ %inlined_string_index.sroa.0.0103, %if.end ], [ %34, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit75 ], [ %inlined_string_index.sroa.0.0103, %_ZNK6google8protobuf15FieldDescriptor5indexEv.exit53 ]
   %has_bit_index.sroa.0.0.insert.ext = zext i32 %has_bit_index.sroa.0.1 to i64
   %has_bit_index.sroa.0.0.insert.insert = or disjoint i64 %has_bit_index.sroa.2.0, %has_bit_index.sroa.0.0.insert.ext
   %inlined_string_index.sroa.0.0.insert.ext = zext i32 %inlined_string_index.sroa.0.1 to i64

@@ -1197,20 +1197,20 @@ invoke.cont19:                                    ; preds = %while.body
   br i1 %cmp.i468, label %while.cond.backedge, label %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit.thread
 
 while.cond.backedge:                              ; preds = %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit.thread, %for.inc89, %invoke.cont19
-  %some_valid.0.be = phi i8 [ 0, %invoke.cont19 ], [ %some_valid.1470, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit.thread ], [ %some_valid.2, %for.inc89 ]
+  %some_valid.0.be = phi i8 [ 0, %invoke.cont19 ], [ %some_valid.1469, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit.thread ], [ %some_valid.2, %for.inc89 ]
   br label %while.cond, !llvm.loop !10
 
 _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit.thread: ; preds = %invoke.cont19, %for.inc89
   %39 = phi ptr [ %160, %for.inc89 ], [ %38, %invoke.cont19 ]
-  %some_valid.1470 = phi i8 [ %some_valid.2, %for.inc89 ], [ 0, %invoke.cont19 ]
-  %i.0469 = phi i32 [ %inc90, %for.inc89 ], [ 0, %invoke.cont19 ]
+  %i.0470 = phi i32 [ %inc90, %for.inc89 ], [ 0, %invoke.cont19 ]
+  %some_valid.1469 = phi i8 [ %some_valid.2, %for.inc89 ], [ 0, %invoke.cont19 ]
   %arrayidx.i = getelementptr inbounds i8, ptr %39, i64 -4
   %40 = load i32, ptr %arrayidx.i, align 4
-  %cmp26378 = icmp ult i32 %i.0469, %40
+  %cmp26378 = icmp ult i32 %i.0470, %40
   br i1 %cmp26378, label %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit61, label %while.cond.backedge, !llvm.loop !10
 
 _ZNK6vectorIP9func_declLb0EjE4sizeEv.exit61:      ; preds = %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit.thread
-  %add379 = add i32 %i.0469, %and.i
+  %add379 = add i32 %i.0470, %and.i
   %rem = urem i32 %add379, %40
   %idxprom.i = zext i32 %rem to i64
   %arrayidx.i62 = getelementptr inbounds ptr, ptr %39, i64 %idxprom.i
@@ -2342,8 +2342,8 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br label %for.inc89
 
 for.inc89:                                        ; preds = %invoke.cont73, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit228, %invoke.cont43, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit61
-  %some_valid.2 = phi i8 [ %some_valid.1470, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit61 ], [ %some_valid.1470, %invoke.cont43 ], [ 1, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit228 ], [ %some_valid.1470, %invoke.cont73 ]
-  %inc90 = add i32 %i.0469, 1
+  %some_valid.2 = phi i8 [ %some_valid.1469, %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit61 ], [ %some_valid.1469, %invoke.cont43 ], [ 1, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit228 ], [ %some_valid.1469, %invoke.cont73 ]
+  %inc90 = add i32 %i.0470, 1
   %160 = load ptr, ptr %call20, align 8
   %cmp.i = icmp eq ptr %160, null
   br i1 %cmp.i, label %while.cond.backedge, label %_ZNK6vectorIP9func_declLb0EjE4sizeEv.exit.thread, !llvm.loop !28

@@ -256,8 +256,8 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %90
   br label %123
 
 123:                                              ; preds = %107, %111, %114, %109, %105
-  %.092 = phi i32 [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %122, %114 ], [ %112, %111 ]
-  switch i32 %.092, label %.loopexit.sink.split [
+  %.091 = phi i32 [ %106, %105 ], [ %108, %107 ], [ %110, %109 ], [ %122, %114 ], [ %112, %111 ]
+  switch i32 %.091, label %.loopexit.sink.split [
     i32 0, label %124
     i32 -43, label %.loopexit
   ]
@@ -375,14 +375,14 @@ pmix_obj_run_destructors.exit135:                 ; preds = %.lr.ph.i132, %._cri
   br label %pmix_obj_run_destructors.exit148
 
 .loopexit.sink.split:                             ; preds = %123, %pmix_obj_run_constructors.exit
-  %.lcssa.sink = phi i32 [ %99, %pmix_obj_run_constructors.exit ], [ %.092, %123 ]
+  %.lcssa.sink = phi i32 [ %99, %pmix_obj_run_constructors.exit ], [ %.091, %123 ]
   %.sink176 = phi i32 [ 115, %pmix_obj_run_constructors.exit ], [ 151, %123 ]
   %180 = call ptr @prte_strerror(i32 noundef %.lcssa.sink) #10
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %180, ptr noundef nonnull @.str.4, i32 noundef %.sink176) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %123, %pmix_obj_run_constructors.exit, %.loopexit.sink.split
-  %.193 = phi i32 [ %.lcssa.sink, %.loopexit.sink.split ], [ %.092, %123 ], [ %99, %pmix_obj_run_constructors.exit ]
+  %.192 = phi i32 [ %.lcssa.sink, %.loopexit.sink.split ], [ %.091, %123 ], [ %99, %pmix_obj_run_constructors.exit ]
   %181 = load volatile i64, ptr %78, align 8
   %182 = icmp eq i64 %181, 0
   br i1 %182, label %._crit_edge166, label %.lr.ph165
@@ -476,8 +476,8 @@ pmix_obj_run_destructors.exit142:                 ; preds = %.lr.ph.i139, %202
   br i1 %.not.i147, label %pmix_obj_run_destructors.exit148, label %.lr.ph.i145, !llvm.loop !6
 
 pmix_obj_run_destructors.exit148:                 ; preds = %.lr.ph.i145, %._crit_edge166, %41, %42, %47, %25, %27, %32, %8, %10, %15, %._crit_edge163
-  %.091 = phi i32 [ %179, %._crit_edge163 ], [ -46, %15 ], [ -46, %10 ], [ -46, %8 ], [ -46, %32 ], [ -46, %27 ], [ -46, %25 ], [ -46, %47 ], [ -46, %42 ], [ -46, %41 ], [ %.193, %._crit_edge166 ], [ %.193, %.lr.ph.i145 ]
-  ret i32 %.091
+  %.094 = phi i32 [ %179, %._crit_edge163 ], [ -46, %15 ], [ -46, %10 ], [ -46, %8 ], [ -46, %32 ], [ -46, %27 ], [ -46, %25 ], [ -46, %47 ], [ -46, %42 ], [ -46, %41 ], [ %.192, %._crit_edge166 ], [ %.192, %.lr.ph.i145 ]
+  ret i32 %.094
 }
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1

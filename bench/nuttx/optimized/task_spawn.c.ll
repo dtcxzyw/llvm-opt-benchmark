@@ -42,9 +42,9 @@ define i32 @task_spawn(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, 
   br label %26
 
 26:                                               ; preds = %24, %12
-  %.026.i = phi ptr [ %19, %12 ], [ null, %24 ]
-  %.025.i = phi i32 [ %20, %12 ], [ 2048, %24 ]
-  %.024.i = phi i32 [ %15, %12 ], [ %25, %24 ]
+  %.025.i = phi ptr [ %19, %12 ], [ null, %24 ]
+  %.024.i = phi i32 [ %20, %12 ], [ 2048, %24 ]
+  %.023.i = phi i32 [ %15, %12 ], [ %25, %24 ]
   %.not32.i = icmp eq ptr %5, null
   br i1 %.not32.i, label %27, label %29
 
@@ -61,7 +61,7 @@ define i32 @task_spawn(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds i8, ptr %31, i64 64
   store i16 0, ptr %34, align 16
-  %35 = call i32 @nxtask_init(ptr noundef nonnull %31, ptr noundef %0, i32 noundef %.024.i, ptr noundef %.026.i, i32 noundef %.025.i, ptr noundef %1, ptr noundef %4, ptr noundef %30, ptr noundef %11) #5
+  %35 = call i32 @nxtask_init(ptr noundef nonnull %31, ptr noundef %0, i32 noundef %.023.i, ptr noundef %.025.i, i32 noundef %.024.i, ptr noundef %1, ptr noundef %4, ptr noundef %30, ptr noundef %11) #5
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %37, label %38
 
@@ -95,12 +95,12 @@ nxtask_spawn_exec.exit:                           ; preds = %nxtask_spawn_create
   br label %47
 
 46:                                               ; preds = %21, %nxtask_spawn_create.exit.i, %29, %44, %37
-  %.023.i.ph = phi i32 [ %35, %37 ], [ %42, %44 ], [ -12, %29 ], [ %40, %nxtask_spawn_create.exit.i ], [ %22, %21 ]
+  %.026.i.ph = phi i32 [ %35, %37 ], [ %42, %44 ], [ -12, %29 ], [ %40, %nxtask_spawn_create.exit.i ], [ %22, %21 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %47
 
 47:                                               ; preds = %nxtask_spawn_exec.exit, %46
-  %48 = phi i32 [ %.023.i.ph, %46 ], [ %spec.select, %nxtask_spawn_exec.exit ]
+  %48 = phi i32 [ %.026.i.ph, %46 ], [ %spec.select, %nxtask_spawn_exec.exit ]
   ret i32 %48
 }
 

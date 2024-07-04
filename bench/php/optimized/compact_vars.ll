@@ -158,11 +158,11 @@ define hidden void @zend_optimizer_compact_vars(ptr nocapture noundef %0) local_
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0237261 = phi i32 [ %100, %.lr.ph ], [ %99, %.lr.ph.preheader ]
-  %100 = add i32 %.0237261, -1
+  %.0261 = phi i32 [ %100, %.lr.ph ], [ %99, %.lr.ph.preheader ]
+  %100 = add i32 %.0261, -1
   %101 = load i32, ptr %76, align 8
   %102 = lshr i32 %101, 4
-  %103 = add i32 %.0237261, -6
+  %103 = add i32 %.0261, -6
   %104 = add i32 %103, %102
   %105 = and i32 %104, 63
   %106 = zext nneg i32 %105 to i64
@@ -182,7 +182,7 @@ define hidden void @zend_optimizer_compact_vars(ptr nocapture noundef %0) local_
   br i1 %exitcond.not, label %.preheader259, label %36
 
 .preheader258:                                    ; preds = %.lr.ph266, %.preheader259
-  %.0235.lcssa = phi i32 [ 0, %.preheader259 ], [ %spec.select306, %.lr.ph266 ]
+  %.0236.lcssa = phi i32 [ 0, %.preheader259 ], [ %spec.select306, %.lr.ph266 ]
   %114 = load i32, ptr %4, align 8
   %115 = add i32 %114, %34
   %116 = icmp ult i32 %34, %115
@@ -194,7 +194,7 @@ define hidden void @zend_optimizer_compact_vars(ptr nocapture noundef %0) local_
 
 .lr.ph266:                                        ; preds = %.lr.ph266.preheader, %.lr.ph266
   %indvars.iv286 = phi i64 [ 0, %.lr.ph266.preheader ], [ %indvars.iv.next287, %.lr.ph266 ]
-  %.0235264 = phi i32 [ 0, %.lr.ph266.preheader ], [ %spec.select306, %.lr.ph266 ]
+  %.0236265 = phi i32 [ 0, %.lr.ph266.preheader ], [ %spec.select306, %.lr.ph266 ]
   %118 = lshr i64 %indvars.iv286, 6
   %119 = getelementptr inbounds i64, ptr %17, i64 %118
   %120 = load i64, ptr %119, align 8
@@ -202,9 +202,9 @@ define hidden void @zend_optimizer_compact_vars(ptr nocapture noundef %0) local_
   %122 = shl nuw i64 1, %121
   %123 = and i64 %120, %122
   %.not257 = icmp ne i64 %123, 0
-  %spec.select = select i1 %.not257, i32 %.0235264, i32 -1
+  %spec.select = select i1 %.not257, i32 %.0236265, i32 -1
   %124 = zext i1 %.not257 to i32
-  %spec.select306 = add i32 %.0235264, %124
+  %spec.select306 = add i32 %.0236265, %124
   %125 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv286
   store i32 %spec.select, ptr %125, align 4
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
@@ -213,7 +213,7 @@ define hidden void @zend_optimizer_compact_vars(ptr nocapture noundef %0) local_
 
 .lr.ph270:                                        ; preds = %.lr.ph270.preheader, %.lr.ph270
   %indvars.iv291 = phi i64 [ %117, %.lr.ph270.preheader ], [ %indvars.iv.next292, %.lr.ph270 ]
-  %.0238268 = phi i32 [ 0, %.lr.ph270.preheader ], [ %.1239, %.lr.ph270 ]
+  %.0235269 = phi i32 [ 0, %.lr.ph270.preheader ], [ %.1, %.lr.ph270 ]
   %126 = lshr i64 %indvars.iv291, 6
   %127 = and i64 %126, 67108863
   %128 = getelementptr inbounds i64, ptr %17, i64 %127
@@ -222,10 +222,10 @@ define hidden void @zend_optimizer_compact_vars(ptr nocapture noundef %0) local_
   %131 = shl nuw i64 1, %130
   %132 = and i64 %129, %131
   %.not256 = icmp ne i64 %132, 0
-  %133 = add i32 %.0238268, %.0235.lcssa
+  %133 = add i32 %.0235269, %.0236.lcssa
   %.sink = select i1 %.not256, i32 %133, i32 -1
   %134 = zext i1 %.not256 to i32
-  %.1239 = add i32 %.0238268, %134
+  %.1 = add i32 %.0235269, %134
   %135 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv291
   store i32 %.sink, ptr %135, align 4
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
@@ -234,7 +234,7 @@ define hidden void @zend_optimizer_compact_vars(ptr nocapture noundef %0) local_
   br i1 %137, label %.lr.ph270, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph270, %.preheader258
-  %.0238.lcssa = phi i32 [ 0, %.preheader258 ], [ %.1239, %.lr.ph270 ]
+  %.0235.lcssa = phi i32 [ 0, %.preheader258 ], [ %.1, %.lr.ph270 ]
   br i1 %11, label %138, label %139
 
 138:                                              ; preds = %._crit_edge
@@ -246,8 +246,8 @@ define hidden void @zend_optimizer_compact_vars(ptr nocapture noundef %0) local_
 139:                                              ; preds = %._crit_edge, %138
   %.pre303 = phi i32 [ %114, %._crit_edge ], [ %.pre303.pre, %138 ]
   %140 = phi i32 [ %34, %._crit_edge ], [ %.pre, %138 ]
-  %141 = icmp eq i32 %.0235.lcssa, %140
-  %142 = icmp eq i32 %.0238.lcssa, %.pre303
+  %141 = icmp eq i32 %.0236.lcssa, %140
+  %142 = icmp eq i32 %.0235.lcssa, %.pre303
   %or.cond = select i1 %141, i1 %142, i1 false
   br i1 %or.cond, label %143, label %144
 
@@ -255,9 +255,9 @@ define hidden void @zend_optimizer_compact_vars(ptr nocapture noundef %0) local_
   br i1 %23, label %.sink.split, label %250
 
 144:                                              ; preds = %139
-  %145 = icmp ule i32 %.0235.lcssa, %140
+  %145 = icmp ule i32 %.0236.lcssa, %140
   call void @llvm.assume(i1 %145)
-  %146 = icmp ule i32 %.0238.lcssa, %.pre303
+  %146 = icmp ule i32 %.0235.lcssa, %.pre303
   call void @llvm.assume(i1 %146)
   %147 = load i32, ptr %30, align 4
   %.not284 = icmp eq i32 %147, 0
@@ -343,11 +343,11 @@ define hidden void @zend_optimizer_compact_vars(ptr nocapture noundef %0) local_
 
 ._crit_edge275:                                   ; preds = %._crit_edge275.loopexit, %144
   %197 = phi i32 [ %.pre304, %._crit_edge275.loopexit ], [ %140, %144 ]
-  %.not = icmp eq i32 %.0235.lcssa, %197
+  %.not = icmp eq i32 %.0236.lcssa, %197
   br i1 %.not, label %249, label %198
 
 198:                                              ; preds = %._crit_edge275
-  %.not246 = icmp eq i32 %.0235.lcssa, 0
+  %.not246 = icmp eq i32 %.0236.lcssa, 0
   br i1 %.not246, label %.preheader, label %201
 
 .preheader:                                       ; preds = %198
@@ -359,7 +359,7 @@ define hidden void @zend_optimizer_compact_vars(ptr nocapture noundef %0) local_
   br label %230
 
 201:                                              ; preds = %198
-  %202 = zext i32 %.0235.lcssa to i64
+  %202 = zext i32 %.0236.lcssa to i64
   %203 = call noalias ptr @_safe_emalloc(i64 noundef 8, i64 noundef %202, i64 noundef 0) #6
   %204 = load i32, ptr %2, align 8
   %205 = icmp sgt i32 %204, 0
@@ -449,11 +449,11 @@ define hidden void @zend_optimizer_compact_vars(ptr nocapture noundef %0) local_
   %248 = load ptr, ptr %247, align 8
   call void @_efree(ptr noundef %248) #6
   store ptr %.sink307, ptr %247, align 8
-  store i32 %.0235.lcssa, ptr %2, align 8
+  store i32 %.0236.lcssa, ptr %2, align 8
   br label %249
 
 249:                                              ; preds = %._crit_edge279, %._crit_edge275
-  store i32 %.0238.lcssa, ptr %4, align 8
+  store i32 %.0235.lcssa, ptr %4, align 8
   br i1 %23, label %.sink.split, label %250
 
 .sink.split:                                      ; preds = %249, %143

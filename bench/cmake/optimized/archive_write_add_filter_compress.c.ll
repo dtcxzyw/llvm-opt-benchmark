@@ -95,10 +95,10 @@ define internal range(i32 -30, 1) i32 @archive_compressor_compress_open(ptr noca
   br label %20
 
 20:                                               ; preds = %12, %17, %16, %9
-  %.041 = phi i64 [ %19, %17 ], [ 65536, %16 ], [ 65536, %9 ], [ %14, %12 ]
+  %.0 = phi i64 [ %19, %17 ], [ 65536, %16 ], [ 65536, %9 ], [ %14, %12 ]
   %21 = getelementptr inbounds i8, ptr %4, i64 414080
-  store i64 %.041, ptr %21, align 8
-  %22 = tail call noalias ptr @malloc(i64 noundef %.041) #9
+  store i64 %.0, ptr %21, align 8
+  %22 = tail call noalias ptr @malloc(i64 noundef %.0) #9
   %23 = getelementptr inbounds i8, ptr %4, i64 414072
   store ptr %22, ptr %23, align 8
   %24 = icmp eq ptr %22, null
@@ -143,8 +143,8 @@ define internal range(i32 -30, 1) i32 @archive_compressor_compress_open(ptr noca
   br label %42
 
 42:                                               ; preds = %27, %25, %8
-  %.0 = phi i32 [ -30, %8 ], [ -30, %25 ], [ 0, %27 ]
-  ret i32 %.0
+  %.041 = phi i32 [ -30, %8 ], [ -30, %25 ], [ 0, %27 ]
+  ret i32 %.041
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
@@ -185,7 +185,7 @@ define internal i32 @archive_compressor_compress_write(ptr nocapture noundef rea
 
 .lr.ph:                                           ; preds = %7, %10
   %.0110 = phi ptr [ %11, %10 ], [ %1, %7 ]
-  %.077109 = phi i64 [ %15, %10 ], [ %2, %7 ]
+  %.076109 = phi i64 [ %15, %10 ], [ %2, %7 ]
   %16 = getelementptr inbounds i8, ptr %5, i64 414052
   %17 = getelementptr inbounds i8, ptr %5, i64 414056
   %18 = getelementptr inbounds i8, ptr %5, i64 36
@@ -198,7 +198,7 @@ define internal i32 @archive_compressor_compress_write(ptr nocapture noundef rea
   br label %25
 
 25:                                               ; preds = %.lr.ph, %.backedge
-  %.in = phi i64 [ %.077109, %.lr.ph ], [ %26, %.backedge ]
+  %.in = phi i64 [ %.076109, %.lr.ph ], [ %26, %.backedge ]
   %.199 = phi ptr [ %.0110, %.lr.ph ], [ %27, %.backedge ]
   %26 = add i64 %.in, -1
   %27 = getelementptr inbounds i8, ptr %.199, i64 1
@@ -241,8 +241,8 @@ define internal i32 @archive_compressor_compress_write(ptr nocapture noundef rea
   br label %49
 
 49:                                               ; preds = %61, %47
-  %.075 = phi i32 [ %36, %47 ], [ %spec.select, %61 ]
-  %50 = add i32 %.075, %.072.neg
+  %.074 = phi i32 [ %36, %47 ], [ %spec.select, %61 ]
+  %50 = add i32 %.074, %.072.neg
   %51 = icmp slt i32 %50, 0
   %52 = add nsw i32 %50, 69001
   %spec.select = select i1 %51, i32 %52, i32 %50
@@ -325,13 +325,13 @@ define internal i32 @archive_compressor_compress_write(ptr nocapture noundef rea
   br label %.thread111
 
 .thread111:                                       ; preds = %82, %87, %91, %83
-  %.074 = phi i32 [ %86, %83 ], [ %94, %91 ], [ 2147483647, %87 ], [ 2147483647, %82 ]
+  %.073 = phi i32 [ %86, %83 ], [ %94, %91 ], [ 2147483647, %87 ], [ 2147483647, %82 ]
   %95 = load i32, ptr %24, align 8
-  %96 = icmp sgt i32 %.074, %95
+  %96 = icmp sgt i32 %.073, %95
   br i1 %96, label %97, label %98
 
 97:                                               ; preds = %.thread111
-  store i32 %.074, ptr %24, align 8
+  store i32 %.073, ptr %24, align 8
   br label %.backedge
 
 98:                                               ; preds = %.thread111
@@ -343,8 +343,8 @@ define internal i32 @archive_compressor_compress_write(ptr nocapture noundef rea
   br i1 %.not94, label %.backedge, label %.loopexit95
 
 .loopexit95:                                      ; preds = %.loopexit, %98, %.backedge, %10, %3
-  %.073 = phi i32 [ 0, %3 ], [ 0, %10 ], [ %63, %.loopexit ], [ %99, %98 ], [ 0, %.backedge ]
-  ret i32 %.073
+  %.078 = phi i32 [ 0, %3 ], [ 0, %10 ], [ %63, %.loopexit ], [ %99, %98 ], [ 0, %.backedge ]
+  ret i32 %.078
 }
 
 ; Function Attrs: nounwind uwtable
@@ -527,15 +527,15 @@ output_byte.exit56:                               ; preds = %40, %56, %61
 
 64:                                               ; preds = %output_byte.exit56, %output_byte.exit
   %65 = phi i32 [ %.pre, %output_byte.exit56 ], [ %35, %output_byte.exit ]
-  %.050 = phi i32 [ %63, %output_byte.exit56 ], [ %37, %output_byte.exit ]
-  %.049 = phi i32 [ %62, %output_byte.exit56 ], [ %38, %output_byte.exit ]
+  %.050 = phi i32 [ %62, %output_byte.exit56 ], [ %38, %output_byte.exit ]
+  %.049 = phi i32 [ %63, %output_byte.exit56 ], [ %37, %output_byte.exit ]
   %66 = load i32, ptr %6, align 4
   %67 = add nsw i32 %66, %65
   store i32 %67, ptr %6, align 4
-  %68 = sext i32 %.050 to i64
+  %68 = sext i32 %.049 to i64
   %69 = getelementptr inbounds [9 x i8], ptr @rmask, i64 0, i64 %68
   %70 = load i8, ptr %69, align 1
-  %71 = trunc i32 %.049 to i8
+  %71 = trunc i32 %.050 to i8
   %72 = and i8 %70, %71
   store i8 %72, ptr %10, align 8
   %73 = shl nsw i32 %65, 3

@@ -11290,9 +11290,9 @@ define linkonce_odr noundef i64 @_ZN8QMapDataISt3mapI11QModelIndex7QStringSt4les
 
 .lr.ph.i.i:                                       ; preds = %42, %.lr.ph.i.preheader.i
   %.0 = phi i64 [ 0, %.lr.ph.i.preheader.i ], [ %.1, %42 ]
-  %.sroa.03.09.i.i = phi ptr [ %6, %.lr.ph.i.preheader.i ], [ %43, %42 ]
-  %.sroa.3.08.i.i = phi ptr [ %9, %.lr.ph.i.preheader.i ], [ %.sroa.3.1.i.i, %42 ]
-  %13 = getelementptr inbounds i8, ptr %.sroa.03.09.i.i, i64 32
+  %.sroa.3.09.i.i = phi ptr [ %9, %.lr.ph.i.preheader.i ], [ %.sroa.3.1.i.i, %42 ]
+  %.sroa.03.08.i.i = phi ptr [ %6, %.lr.ph.i.preheader.i ], [ %43, %42 ]
+  %13 = getelementptr inbounds i8, ptr %.sroa.03.08.i.i, i64 32
   %14 = load i32, ptr %2, align 8
   %15 = load i32, ptr %13, align 8
   %16 = icmp slt i32 %14, %15
@@ -11304,7 +11304,7 @@ define linkonce_odr noundef i64 @_ZN8QMapDataISt3mapI11QModelIndex7QStringSt4les
 
 19:                                               ; preds = %17
   %20 = load i32, ptr %10, align 4
-  %21 = getelementptr inbounds i8, ptr %.sroa.03.09.i.i, i64 36
+  %21 = getelementptr inbounds i8, ptr %.sroa.03.08.i.i, i64 36
   %22 = load i32, ptr %21, align 4
   %23 = icmp slt i32 %20, %22
   br i1 %23, label %39, label %24
@@ -11315,7 +11315,7 @@ define linkonce_odr noundef i64 @_ZN8QMapDataISt3mapI11QModelIndex7QStringSt4les
 
 26:                                               ; preds = %24
   %27 = load i64, ptr %11, align 8
-  %28 = getelementptr inbounds i8, ptr %.sroa.03.09.i.i, i64 40
+  %28 = getelementptr inbounds i8, ptr %.sroa.03.08.i.i, i64 40
   %29 = load i64, ptr %28, align 8
   %30 = icmp ult i64 %27, %29
   br i1 %30, label %39, label %31
@@ -11326,7 +11326,7 @@ define linkonce_odr noundef i64 @_ZN8QMapDataISt3mapI11QModelIndex7QStringSt4les
 
 _ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i.i.i.i: ; preds = %31
   %33 = load ptr, ptr %12, align 8
-  %34 = getelementptr inbounds i8, ptr %.sroa.03.09.i.i, i64 48
+  %34 = getelementptr inbounds i8, ptr %.sroa.03.08.i.i, i64 48
   %35 = load ptr, ptr %34, align 8
   %or.cond.not.i.i = icmp eq ptr %35, %33
   br i1 %or.cond.not.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapI11QModelIndex7QStringSt4lessIS4_ESaISt4pairIKS4_S5_EEEE21copyIfNotEquivalentToERKSC_RS9_EUlRKT_E_EclISt23_Rb_tree_const_iteratorISA_EEEbSH_.exit.i.i, label %39
@@ -11350,15 +11350,15 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapI11QModelIndex7QStringSt4lessI
 39:                                               ; preds = %.thread.i.i.i, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread6.thread.i.i.i.i, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.thread6.i.thread.i.i.i, %_ZNKSt4lessI11QModelIndexEclERKS0_S3_.exit.i.i.i.i, %26, %19, %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %8, ptr %4, align 8
-  %40 = call ptr @_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE17_M_insert_unique_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr %.sroa.3.08.i.i, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %40 = call ptr @_ZNSt8_Rb_treeI11QModelIndexSt4pairIKS0_7QStringESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE17_M_insert_unique_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr %.sroa.3.09.i.i, ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %41 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %40) #21
   br label %42
 
 42:                                               ; preds = %39, %_ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapI11QModelIndex7QStringSt4lessIS4_ESaISt4pairIKS4_S5_EEEE21copyIfNotEquivalentToERKSC_RS9_EUlRKT_E_EclISt23_Rb_tree_const_iteratorISA_EEEbSH_.exit.i.i
   %.1 = phi i64 [ %.0, %39 ], [ %38, %_ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapI11QModelIndex7QStringSt4lessIS4_ESaISt4pairIKS4_S5_EEEE21copyIfNotEquivalentToERKSC_RS9_EUlRKT_E_EclISt23_Rb_tree_const_iteratorISA_EEEbSH_.exit.i.i ]
-  %.sroa.3.1.i.i = phi ptr [ %41, %39 ], [ %.sroa.3.08.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapI11QModelIndex7QStringSt4lessIS4_ESaISt4pairIKS4_S5_EEEE21copyIfNotEquivalentToERKSC_RS9_EUlRKT_E_EclISt23_Rb_tree_const_iteratorISA_EEEbSH_.exit.i.i ]
-  %43 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.03.09.i.i) #21
+  %.sroa.3.1.i.i = phi ptr [ %41, %39 ], [ %.sroa.3.09.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN8QMapDataISt3mapI11QModelIndex7QStringSt4lessIS4_ESaISt4pairIKS4_S5_EEEE21copyIfNotEquivalentToERKSC_RS9_EUlRKT_E_EclISt23_Rb_tree_const_iteratorISA_EEEbSH_.exit.i.i ]
+  %43 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.03.08.i.i) #21
   %.not.i.i = icmp eq ptr %43, %7
   br i1 %.not.i.i, label %_ZSt14remove_copy_ifISt23_Rb_tree_const_iteratorISt4pairIK11QModelIndex7QStringEESt15insert_iteratorISt3mapIS2_S4_St4lessIS2_ESaIS5_EEEZN8QMapDataISC_E21copyIfNotEquivalentToERKSC_RS3_EUlRKT_E_ET0_SJ_SJ_SN_T1_.exit, label %.lr.ph.i.i, !llvm.loop !87
 
@@ -13275,14 +13275,14 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   br label %40
 
 40:                                               ; preds = %.lr.ph, %_ZN12QHashPrivate4SpanINS_4NodeIi11QModelIndexEEE8freeDataEv.exit
-  %.02233 = phi i64 [ 0, %.lr.ph ], [ %125, %_ZN12QHashPrivate4SpanINS_4NodeIi11QModelIndexEEE8freeDataEv.exit ]
-  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %15, i64 %.02233
+  %.02333 = phi i64 [ 0, %.lr.ph ], [ %125, %_ZN12QHashPrivate4SpanINS_4NodeIi11QModelIndexEEE8freeDataEv.exit ]
+  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %15, i64 %.02333
   %42 = getelementptr inbounds i8, ptr %41, i64 128
   br label %43
 
 43:                                               ; preds = %40, %120
-  %.02332 = phi i64 [ 0, %40 ], [ %121, %120 ]
-  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02332
+  %.02232 = phi i64 [ 0, %40 ], [ %121, %120 ]
+  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02232
   %45 = load i8, ptr %44, align 1
   %.not = icmp eq i8 %45, -1
   br i1 %.not, label %120, label %46
@@ -13418,7 +13418,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIi11QModelIndexEEE6insertEm.exit: ; preds = %._cr
   br label %120
 
 120:                                              ; preds = %43, %_ZN12QHashPrivate4SpanINS_4NodeIi11QModelIndexEEE6insertEm.exit
-  %121 = add nuw nsw i64 %.02332, 1
+  %121 = add nuw nsw i64 %.02232, 1
   %exitcond.not = icmp eq i64 %121, 128
   br i1 %exitcond.not, label %122, label %43, !llvm.loop !105
 
@@ -13433,7 +13433,7 @@ _ZN12QHashPrivate4SpanINS_4NodeIi11QModelIndexEEE6insertEm.exit: ; preds = %._cr
   br label %_ZN12QHashPrivate4SpanINS_4NodeIi11QModelIndexEEE8freeDataEv.exit
 
 _ZN12QHashPrivate4SpanINS_4NodeIi11QModelIndexEEE8freeDataEv.exit: ; preds = %122, %124
-  %125 = add nuw nsw i64 %.02233, 1
+  %125 = add nuw nsw i64 %.02333, 1
   %exitcond35.not = icmp eq i64 %125, %38
   br i1 %exitcond35.not, label %._crit_edge.thread, label %40, !llvm.loop !106
 
@@ -13715,16 +13715,16 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   br label %49
 
 49:                                               ; preds = %.lr.ph, %139
-  %.033 = phi i64 [ 0, %.lr.ph ], [ %140, %139 ]
+  %.02333 = phi i64 [ 0, %.lr.ph ], [ %140, %139 ]
   %50 = load ptr, ptr %48, align 8
-  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.033
+  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.02333
   %52 = getelementptr inbounds i8, ptr %51, i64 128
-  %53 = shl nuw i64 %.033, 7
+  %53 = shl nuw i64 %.02333, 7
   br label %54
 
 54:                                               ; preds = %49, %137
-  %.02331 = phi i64 [ 0, %49 ], [ %138, %137 ]
-  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.02331
+  %.031 = phi i64 [ 0, %49 ], [ %138, %137 ]
+  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.031
   %56 = load i8, ptr %55, align 1
   %.not30 = icmp eq i8 %56, -1
   br i1 %.not30, label %137, label %57
@@ -13785,7 +13785,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   br i1 %100, label %_ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit, label %.lr.ph.i, !llvm.loop !103
 
 101:                                              ; preds = %57
-  %102 = add nuw nsw i64 %.02331, %53
+  %102 = add nuw nsw i64 %.031, %53
   %.pre = load ptr, ptr %13, align 8
   br label %_ZNK12QHashPrivate4DataINS_4NodeIi11QModelIndexEEE4findERKi.exit
 
@@ -13865,12 +13865,12 @@ _ZN12QHashPrivate4SpanINS_4NodeIi11QModelIndexEEE6insertEm.exit: ; preds = %._cr
   br label %137
 
 137:                                              ; preds = %54, %_ZN12QHashPrivate4SpanINS_4NodeIi11QModelIndexEEE6insertEm.exit
-  %138 = add nuw nsw i64 %.02331, 1
+  %138 = add nuw nsw i64 %.031, 1
   %exitcond.not = icmp eq i64 %138, 128
   br i1 %exitcond.not, label %139, label %54, !llvm.loop !107
 
 139:                                              ; preds = %137
-  %140 = add nuw nsw i64 %.033, 1
+  %140 = add nuw nsw i64 %.02333, 1
   %exitcond35.not = icmp eq i64 %140, %47
   br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !108
 

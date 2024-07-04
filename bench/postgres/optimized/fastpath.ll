@@ -236,7 +236,7 @@ fetch_fp_info.exit:                               ; preds = %53
   br i1 %exitcond.not.i, label %.loopexit.i51, label %112, !llvm.loop !5
 
 .loopexit.i51:                                    ; preds = %112, %102
-  %.066.i = phi ptr [ null, %102 ], [ %111, %112 ]
+  %.065.i = phi ptr [ null, %102 ], [ %111, %112 ]
   %116 = call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 2) #12
   %117 = getelementptr inbounds i8, ptr %13, i64 20
   %118 = load i16, ptr %117, align 4
@@ -318,14 +318,14 @@ fetch_fp_info.exit:                               ; preds = %53
   br i1 %130, label %156, label %154
 
 154:                                              ; preds = %153
-  %155 = getelementptr i16, ptr %.066.i, i64 %indvars.iv97.i
+  %155 = getelementptr i16, ptr %.065.i, i64 %indvars.iv97.i
   br label %157
 
 156:                                              ; preds = %153
   br i1 %107, label %157, label %.thread.i
 
 157:                                              ; preds = %156, %154
-  %.064.in.i = phi ptr [ %155, %154 ], [ %.066.i, %156 ]
+  %.064.in.i = phi ptr [ %155, %154 ], [ %.065.i, %156 ]
   %.064.i = load i16, ptr %.064.in.i, align 2
   switch i16 %.064.i, label %186 [
     i16 0, label %.thread.i

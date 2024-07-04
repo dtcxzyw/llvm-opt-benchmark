@@ -181,37 +181,37 @@ define internal i32 @dissect_tdmop(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %60
 
 .loopexit124:                                     ; preds = %98
-  %59 = icmp slt i32 %.3115, %54
+  %59 = icmp slt i32 %.3119, %54
   br i1 %59, label %60, label %._crit_edge, !llvm.loop !4
 
 60:                                               ; preds = %.lr.ph, %.loopexit124
   %.0131 = phi i32 [ 0, %.lr.ph ], [ %.3, %.loopexit124 ]
-  %.0112130 = phi i32 [ 14, %.lr.ph ], [ %.3115, %.loopexit124 ]
-  %.0116129 = phi i32 [ 0, %.lr.ph ], [ %63, %.loopexit124 ]
+  %.0115130 = phi i32 [ 0, %.lr.ph ], [ %63, %.loopexit124 ]
+  %.0116129 = phi i32 [ 14, %.lr.ph ], [ %.3119, %.loopexit124 ]
   %61 = load i32, ptr @ett_tdmop_channel, align 4
-  %62 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %61, ptr noundef null, ptr noundef nonnull @.str.45, i32 noundef %.0116129) #3
-  %63 = add i32 %.0116129, 1
+  %62 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %61, ptr noundef null, ptr noundef nonnull @.str.45, i32 noundef %.0115130) #3
+  %63 = add i32 %.0115130, 1
   %64 = load i32, ptr @pref_tdmop_mask, align 4
   br i1 %.not122, label %71, label %65
 
 65:                                               ; preds = %60
-  %66 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0112130) #3
+  %66 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0116129) #3
   %67 = call i32 @llvm.fshl.i32(i32 %66, i32 %66, i32 16)
   %68 = load i32, ptr @hf_tdmop_Compression_mask, align 4
-  %69 = call ptr @proto_tree_add_uint(ptr noundef %62, i32 noundef %68, ptr noundef %0, i32 noundef %.0112130, i32 noundef 4, i32 noundef %67) #3
-  %70 = add i32 %.0112130, 4
+  %69 = call ptr @proto_tree_add_uint(ptr noundef %62, i32 noundef %68, ptr noundef %0, i32 noundef %.0116129, i32 noundef 4, i32 noundef %67) #3
+  %70 = add i32 %.0116129, 4
   br label %71
 
 71:                                               ; preds = %65, %60
-  %.0117 = phi i32 [ %67, %65 ], [ %64, %60 ]
-  %.1113 = phi i32 [ %70, %65 ], [ %.0112130, %60 ]
-  %72 = zext i32 %.0117 to i64
+  %.1117 = phi i32 [ %70, %65 ], [ %.0116129, %60 ]
+  %.0114 = phi i32 [ %67, %65 ], [ %64, %60 ]
+  %72 = zext i32 %.0114 to i64
   br label %73
 
 73:                                               ; preds = %71, %98
   %indvars.iv133 = phi i64 [ 0, %71 ], [ %indvars.iv.next134, %98 ]
   %.1128 = phi i32 [ %.0131, %71 ], [ %.3, %98 ]
-  %.2114127 = phi i32 [ %.1113, %71 ], [ %.3115, %98 ]
+  %.2118126 = phi i32 [ %.1117, %71 ], [ %.3119, %98 ]
   %74 = shl nuw nsw i64 1, %indvars.iv133
   %75 = and i64 %74, %72
   %.not123 = icmp eq i64 %75, 0
@@ -221,7 +221,7 @@ define internal i32 @dissect_tdmop(ptr noundef %0, ptr noundef %1, ptr noundef %
   %77 = load i32, ptr @ett_tdmop_channel, align 4
   %78 = trunc nuw nsw i64 %indvars.iv133 to i32
   %79 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %62, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %77, ptr noundef null, ptr noundef nonnull @.str.46, i32 noundef %78) #3
-  %80 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.2114127, i32 noundef 4) #3
+  %80 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.2118126, i32 noundef 4) #3
   %81 = load i32, ptr @pref_tdmop_d_channel, align 4
   %82 = zext i32 %81 to i64
   %83 = icmp eq i64 %indvars.iv133, %82
@@ -253,11 +253,11 @@ define internal i32 @dissect_tdmop(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .loopexit:                                        ; preds = %.preheader, %84, %95
   %.2 = phi i32 [ %.1128, %84 ], [ %.1128, %95 ], [ %85, %.preheader ]
-  %97 = add i32 %.2114127, 4
+  %97 = add i32 %.2118126, 4
   br label %98
 
 98:                                               ; preds = %73, %.loopexit
-  %.3115 = phi i32 [ %97, %.loopexit ], [ %.2114127, %73 ]
+  %.3119 = phi i32 [ %97, %.loopexit ], [ %.2118126, %73 ]
   %.3 = phi i32 [ %.2, %.loopexit ], [ %.1128, %73 ]
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next134, 32

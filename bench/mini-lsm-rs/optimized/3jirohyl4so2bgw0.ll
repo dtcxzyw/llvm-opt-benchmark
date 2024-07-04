@@ -5752,18 +5752,18 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
           to label %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$10do_execute17h1b0b5da758947673E.exit" unwind label %.thread91
 
 58:                                               ; preds = %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17h5211193dda37dfe6E.exit.thread.i", %.lr.ph.i
-  %.sroa.0.062.i = phi ptr [ %.val.i, %.lr.ph.i ], [ %59, %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17h5211193dda37dfe6E.exit.thread.i" ]
-  %59 = getelementptr inbounds i8, ptr %.sroa.0.062.i, i64 24
-  %60 = getelementptr inbounds i8, ptr %.sroa.0.062.i, i64 8
+  %.sroa.0.063.i = phi ptr [ %.val.i, %.lr.ph.i ], [ %59, %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17h5211193dda37dfe6E.exit.thread.i" ]
+  %59 = getelementptr inbounds i8, ptr %.sroa.0.063.i, i64 24
+  %60 = getelementptr inbounds i8, ptr %.sroa.0.063.i, i64 8
   %61 = load i64, ptr %60, align 8, !noalias !668, !noundef !5
-  %62 = getelementptr inbounds i8, ptr %.sroa.0.062.i, i64 16
+  %62 = getelementptr inbounds i8, ptr %.sroa.0.063.i, i64 16
   %63 = load i64, ptr %62, align 8, !noalias !668, !noundef !5
   %64 = load ptr, ptr %45, align 8, !noalias !668, !nonnull !5, !noundef !5
   %65 = load i64, ptr %46, align 8, !noalias !668, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !682)
   call void @llvm.experimental.noalias.scope.decl(metadata !685)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !687
-  store ptr %.sroa.0.062.i, ptr %6, align 8, !noalias !688
+  store ptr %.sroa.0.063.i, ptr %6, align 8, !noalias !688
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !692
   call void @llvm.experimental.noalias.scope.decl(metadata !695)
   %66 = load i32, ptr %47, align 8, !noalias !698, !noundef !5
@@ -5791,15 +5791,15 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
   store ptr %50, ptr %51, align 8, !alias.scope !695, !noalias !692
   store ptr %76, ptr %52, align 8, !alias.scope !695, !noalias !692
   %77 = invoke noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$22get_key_value_and_then17had161cc1325e6dc6E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5, i64 noundef %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
-          to label %.noexc16.i unwind label %.loopexit.i, !noalias !668
+          to label %.noexc17.i unwind label %.loopexit.i, !noalias !668
 
-.noexc16.i:                                       ; preds = %"_ZN4moka9sync_base10base_cache165_$LT$impl$u20$moka..sync_base..invalidator..GetOrRemoveEntry$LT$K$C$V$GT$$u20$for$u20$alloc..sync..Arc$LT$moka..sync_base..base_cache..Inner$LT$K$C$V$C$S$GT$$GT$$GT$15get_value_entry17hd33714e19441b5cdE.exit.i.i"
+.noexc17.i:                                       ; preds = %"_ZN4moka9sync_base10base_cache165_$LT$impl$u20$moka..sync_base..invalidator..GetOrRemoveEntry$LT$K$C$V$GT$$u20$for$u20$alloc..sync..Arc$LT$moka..sync_base..base_cache..Inner$LT$K$C$V$C$S$GT$$GT$$GT$15get_value_entry17hd33714e19441b5cdE.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !692
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !687
   %.not.not.i.i = icmp eq ptr %77, null
   br i1 %.not.not.i.i, label %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17h5211193dda37dfe6E.exit.thread.i", label %78
 
-78:                                               ; preds = %.noexc16.i
+78:                                               ; preds = %.noexc17.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !687
   store ptr %77, ptr %7, align 8, !noalias !687
   %79 = getelementptr inbounds i8, ptr %77, i64 16
@@ -5861,7 +5861,7 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
 
 99:                                               ; preds = %90
   %100 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 }, ptr %64, i64 %65
-  %101 = load ptr, ptr %.sroa.0.062.i, align 8, !alias.scope !685, !noalias !700, !nonnull !5, !noundef !5
+  %101 = load ptr, ptr %.sroa.0.063.i, align 8, !alias.scope !685, !noalias !700, !nonnull !5, !noundef !5
   %102 = getelementptr inbounds i8, ptr %101, i64 16
   %103 = getelementptr inbounds i8, ptr %77, i64 8
   %.not.i.i.i = icmp eq i64 %65, 0
@@ -5932,10 +5932,10 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
 130:                                              ; preds = %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17h5211193dda37dfe6E.exit.i"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !666
   store i64 %63, ptr %8, align 8, !noalias !666
-  %131 = invoke noundef ptr @"_ZN4moka9sync_base10base_cache165_$LT$impl$u20$moka..sync_base..invalidator..GetOrRemoveEntry$LT$K$C$V$GT$$u20$for$u20$alloc..sync..Arc$LT$moka..sync_base..base_cache..Inner$LT$K$C$V$C$S$GT$$GT$$GT$19remove_key_value_if17h3dfee8edc4cd1445E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.0.062.i, i64 noundef %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
+  %131 = invoke noundef ptr @"_ZN4moka9sync_base10base_cache165_$LT$impl$u20$moka..sync_base..invalidator..GetOrRemoveEntry$LT$K$C$V$GT$$u20$for$u20$alloc..sync..Arc$LT$moka..sync_base..base_cache..Inner$LT$K$C$V$C$S$GT$$GT$$GT$19remove_key_value_if17h3dfee8edc4cd1445E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.0.063.i, i64 noundef %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
           to label %133 unwind label %.loopexit.i, !noalias !668
 
-"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17h5211193dda37dfe6E.exit.thread.i": ; preds = %.thread.i, %133, %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17h5211193dda37dfe6E.exit.i", %.thread.i.i, %.noexc16.i
+"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17h5211193dda37dfe6E.exit.thread.i": ; preds = %.thread.i, %133, %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17h5211193dda37dfe6E.exit.i", %.thread.i.i, %.noexc17.i
   %132 = icmp eq ptr %59, %43
   br i1 %132, label %._crit_edge.i, label %58
 
@@ -5945,7 +5945,7 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
   br i1 %.not.not.i, label %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17h5211193dda37dfe6E.exit.thread.i", label %134
 
 134:                                              ; preds = %133
-  %.val15.i = load ptr, ptr %.sroa.0.062.i, align 8, !noalias !668, !nonnull !5, !noundef !5
+  %.val15.i = load ptr, ptr %.sroa.0.063.i, align 8, !noalias !668, !nonnull !5, !noundef !5
   %135 = atomicrmw add ptr %.val15.i, i64 1 monotonic, align 8, !noalias !668
   %136 = icmp slt i64 %135, 0
   br i1 %136, label %137, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha02ecb5abd029822E.exit.i"
@@ -5969,7 +5969,7 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
           to label %._crit_edge.i.i unwind label %142, !noalias !668
 
 ._crit_edge.i.i:                                  ; preds = %141
-  %.pre.i19.i = load i64, ptr %40, align 8, !alias.scope !743, !noalias !666
+  %.pre.i20.i = load i64, ptr %40, align 8, !alias.scope !743, !noalias !666
   br label %.thread.i
 
 142:                                              ; preds = %141
@@ -5985,7 +5985,7 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
   unreachable
 
 .thread.i:                                        ; preds = %._crit_edge.i.i, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha02ecb5abd029822E.exit.i"
-  %146 = phi i64 [ %.pre.i19.i, %._crit_edge.i.i ], [ %138, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha02ecb5abd029822E.exit.i" ]
+  %146 = phi i64 [ %.pre.i20.i, %._crit_edge.i.i ], [ %138, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha02ecb5abd029822E.exit.i" ]
   %147 = load ptr, ptr %39, align 8, !alias.scope !743, !noalias !666, !nonnull !5, !noundef !5
   %148 = getelementptr inbounds { ptr, ptr }, ptr %147, i64 %146
   store ptr %.val15.i, ptr %148, align 8, !noalias !668
@@ -6005,8 +6005,8 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
 
 154:                                              ; preds = %.body.i
   %155 = cmpxchg ptr %35, i8 1, i8 0 release monotonic, align 1, !noalias !747
-  %.sroa.18.0.in.i.i.i.i25.i = extractvalue { i8, i1 } %155, 1
-  br i1 %.sroa.18.0.in.i.i.i.i25.i, label %.thread, label %156
+  %.sroa.18.0.in.i.i.i.i26.i = extractvalue { i8, i1 } %155, 1
+  br i1 %.sroa.18.0.in.i.i.i.i26.i, label %.thread, label %156
 
 156:                                              ; preds = %154
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h4f1db2d09399a6dbE(ptr noundef nonnull align 1 %35, i1 noundef zeroext false)
@@ -7810,11 +7810,11 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN72_$LT$std..sys..unix..time..Times
   %13 = icmp ult i32 %10, %12
   %14 = icmp ne i32 %10, %12
   %.14 = zext i1 %14 to i8
-  %.07 = select i1 %13, i8 -1, i8 %.14
+  %.08 = select i1 %13, i8 -1, i8 %.14
   br label %.thread
 
 .thread:                                          ; preds = %2, %6, %8
-  %.0 = phi i8 [ %.07, %8 ], [ 1, %6 ], [ -1, %2 ]
+  %.0 = phi i8 [ %.08, %8 ], [ 1, %6 ], [ -1, %2 ]
   ret i8 %.0
 }
 
@@ -8377,7 +8377,7 @@ define hidden void @"_ZN8mini_lsm7compact56_$LT$impl$u20$mini_lsm..lsm_storage..
   br i1 %.not201, label %"_ZN127_$LT$mini_lsm..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$8is_valid17haa4fa5107f96f77bE.exit.thread", label %46
 
 .body94:                                          ; preds = %.loopexit, %.loopexit.split-lp, %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit104", %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit", %98, %66, %81, %77, %186, %190, %175, %204
-  %.151 = phi i8 [ 1, %204 ], [ 1, %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit104" ], [ 1, %175 ], [ 1, %190 ], [ 1, %186 ], [ 0, %77 ], [ 0, %81 ], [ 0, %66 ], [ 0, %98 ], [ 0, %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit" ], [ 1, %.loopexit.split-lp ], [ 1, %.loopexit ]
+  %.149 = phi i8 [ 1, %204 ], [ 1, %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit104" ], [ 1, %175 ], [ 1, %190 ], [ 1, %186 ], [ 0, %77 ], [ 0, %81 ], [ 0, %66 ], [ 0, %98 ], [ 0, %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit" ], [ 1, %.loopexit.split-lp ], [ 1, %.loopexit ]
   %.pn64 = phi { ptr, i32 } [ %200, %204 ], [ %165, %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit104" ], [ %176, %175 ], [ %187, %190 ], [ %187, %186 ], [ %78, %77 ], [ %78, %81 ], [ %67, %66 ], [ %92, %98 ], [ %53, %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit" ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   invoke void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$mini_lsm..table..SsTable$GT$$GT$$GT$17h27df61cc1bba22ddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #34
           to label %205 unwind label %96
@@ -8893,7 +8893,7 @@ _ZN8mini_lsm11lsm_storage15LsmStorageInner11path_of_sst17hbe545bbea351f1ecE.exit
           to label %.body94 unwind label %96
 
 205:                                              ; preds = %207, %.body94
-  %.6 = phi i8 [ %.151, %.body94 ], [ %.4, %207 ]
+  %.6 = phi i8 [ %.149, %.body94 ], [ %.4, %207 ]
   %.pn64.pn = phi { ptr, i32 } [ %.pn64, %.body94 ], [ %208, %207 ]
   %206 = load i64, ptr %19, align 8, !range !590, !noundef !5
   %.not67 = icmp eq i64 %206, -9223372036854775808
@@ -9029,7 +9029,7 @@ define hidden void @"_ZN8mini_lsm7compact56_$LT$impl$u20$mini_lsm..lsm_storage..
   br i1 %or.cond.i3.i, label %.invoke235, label %"_ZN127_$LT$mini_lsm..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$8is_valid17h48212661741861f1E.exit"
 
 .body93:                                          ; preds = %.loopexit, %.loopexit.split-lp, %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit103", %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit", %95, %63, %78, %74, %185, %189, %174, %203
-  %.151 = phi i8 [ 1, %203 ], [ 1, %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit103" ], [ 1, %174 ], [ 1, %189 ], [ 1, %185 ], [ 0, %74 ], [ 0, %78 ], [ 0, %63 ], [ 0, %95 ], [ 0, %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit" ], [ 1, %.loopexit.split-lp ], [ 1, %.loopexit ]
+  %.149 = phi i8 [ 1, %203 ], [ 1, %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit103" ], [ 1, %174 ], [ 1, %189 ], [ 1, %185 ], [ 0, %74 ], [ 0, %78 ], [ 0, %63 ], [ 0, %95 ], [ 0, %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit" ], [ 1, %.loopexit.split-lp ], [ 1, %.loopexit ]
   %.pn64 = phi { ptr, i32 } [ %199, %203 ], [ %164, %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit103" ], [ %175, %174 ], [ %186, %189 ], [ %186, %185 ], [ %75, %74 ], [ %75, %78 ], [ %64, %63 ], [ %89, %95 ], [ %50, %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit" ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   invoke void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$mini_lsm..table..SsTable$GT$$GT$$GT$17h27df61cc1bba22ddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #34
           to label %204 unwind label %93
@@ -9538,7 +9538,7 @@ _ZN8mini_lsm11lsm_storage15LsmStorageInner11path_of_sst17hbe545bbea351f1ecE.exit
           to label %.body93 unwind label %93
 
 204:                                              ; preds = %206, %.body93
-  %.6 = phi i8 [ %.151, %.body93 ], [ %.4, %206 ]
+  %.6 = phi i8 [ %.149, %.body93 ], [ %.4, %206 ]
   %.pn64.pn = phi { ptr, i32 } [ %.pn64, %.body93 ], [ %207, %206 ]
   %205 = load i64, ptr %19, align 8, !range !590, !noundef !5
   %.not67 = icmp eq i64 %205, -9223372036854775808
@@ -9665,7 +9665,7 @@ define hidden void @"_ZN8mini_lsm7compact56_$LT$impl$u20$mini_lsm..lsm_storage..
   br i1 %or.cond.i.i, label %.invoke296, label %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$8is_valid17h7c446ea03506871cE.exit"
 
 .body100:                                         ; preds = %.loopexit, %.loopexit.split-lp, %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit110", %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit", %92, %60, %75, %71, %201, %205, %190, %219
-  %.151 = phi i8 [ 1, %219 ], [ 1, %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit110" ], [ 1, %190 ], [ 1, %205 ], [ 1, %201 ], [ 0, %71 ], [ 0, %75 ], [ 0, %60 ], [ 0, %92 ], [ 0, %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit" ], [ 1, %.loopexit.split-lp ], [ 1, %.loopexit ]
+  %.149 = phi i8 [ 1, %219 ], [ 1, %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit110" ], [ 1, %190 ], [ 1, %205 ], [ 1, %201 ], [ 0, %71 ], [ 0, %75 ], [ 0, %60 ], [ 0, %92 ], [ 0, %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit" ], [ 1, %.loopexit.split-lp ], [ 1, %.loopexit ]
   %.pn64 = phi { ptr, i32 } [ %215, %219 ], [ %180, %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit110" ], [ %191, %190 ], [ %202, %205 ], [ %202, %201 ], [ %72, %71 ], [ %72, %75 ], [ %61, %60 ], [ %86, %92 ], [ %46, %"_ZN4core3ptr175drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$moka..sync..cache..Cache$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm..block..Block$GT$$GT$$GT$$GT$$GT$17h73d8d8372cf65da5E.exit" ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   invoke void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$mini_lsm..table..SsTable$GT$$GT$$GT$17h27df61cc1bba22ddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #34
           to label %220 unwind label %90
@@ -10192,7 +10192,7 @@ _ZN8mini_lsm11lsm_storage15LsmStorageInner11path_of_sst17hbe545bbea351f1ecE.exit
           to label %.body100 unwind label %90
 
 220:                                              ; preds = %222, %.body100
-  %.6 = phi i8 [ %.151, %.body100 ], [ %.4, %222 ]
+  %.6 = phi i8 [ %.149, %.body100 ], [ %.4, %222 ]
   %.pn64.pn = phi { ptr, i32 } [ %.pn64, %.body100 ], [ %223, %222 ]
   %221 = load i64, ptr %19, align 8, !range !590, !noundef !5
   %.not67 = icmp eq i64 %221, -9223372036854775808

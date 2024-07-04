@@ -2885,13 +2885,13 @@ Gia_ObjSibl.exit.thread:                          ; preds = %21, %16, %Gia_ObjSi
   br i1 %.not.i65, label %Vec_IntFree.exit66, label %Vec_IntFree.exit66.sink.split
 
 Vec_IntFree.exit66.sink.split:                    ; preds = %53, %48, %41
-  %.0.ph = phi i32 [ 0, %41 ], [ 0, %48 ], [ 1, %53 ]
+  %.036.ph = phi i32 [ 0, %41 ], [ 0, %48 ], [ 1, %53 ]
   tail call void @free(ptr noundef nonnull %10) #15
   br label %Vec_IntFree.exit66
 
 Vec_IntFree.exit66:                               ; preds = %Vec_IntFree.exit66.sink.split, %53
-  %.0 = phi i32 [ 1, %53 ], [ %.0.ph, %Vec_IntFree.exit66.sink.split ]
-  ret i32 %.0
+  %.036 = phi i32 [ 1, %53 ], [ %.036.ph, %Vec_IntFree.exit66.sink.split ]
+  ret i32 %.036
 }
 
 declare void @Gia_ManCreateRefs(ptr noundef) local_unnamed_addr #1

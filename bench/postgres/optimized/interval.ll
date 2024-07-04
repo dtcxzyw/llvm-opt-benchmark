@@ -42,8 +42,8 @@ define i32 @DecodeInterval(ptr nocapture noundef readonly %0, ptr nocapture noun
   store i32 17, ptr %3, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   store i32 0, ptr %5, align 4
-  %.0158201 = add i32 %2, -1
-  %10 = icmp sgt i32 %.0158201, -1
+  %.0157201 = add i32 %2, -1
+  %10 = icmp sgt i32 %.0157201, -1
   br i1 %10, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %6
@@ -52,14 +52,14 @@ define i32 @DecodeInterval(ptr nocapture noundef readonly %0, ptr nocapture noun
   %13 = getelementptr inbounds i8, ptr %4, i64 20
   %14 = getelementptr inbounds i8, ptr %4, i64 16
   %15 = getelementptr inbounds i8, ptr %4, i64 12
-  %16 = zext nneg i32 %.0158201 to i64
+  %16 = zext nneg i32 %.0157201 to i64
   br label %17
 
 17:                                               ; preds = %.lr.ph, %301
   %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %301 ]
-  %.0157205 = phi i1 [ false, %.lr.ph ], [ %.2, %301 ]
-  %.0160204 = phi i32 [ 8, %.lr.ph ], [ %.4, %301 ]
-  %.0163202 = phi i32 [ 0, %.lr.ph ], [ %.1164, %301 ]
+  %.0158205 = phi i32 [ 8, %.lr.ph ], [ %.4, %301 ]
+  %.0160203 = phi i32 [ 0, %.lr.ph ], [ %.1161, %301 ]
+  %.0162202 = phi i1 [ false, %.lr.ph ], [ %.2164, %301 ]
   %18 = getelementptr i32, ptr %1, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   switch i32 %19, label %.loopexit [
@@ -118,8 +118,8 @@ define i32 @DecodeInterval(ptr nocapture noundef readonly %0, ptr nocapture noun
   br label %296
 
 44:                                               ; preds = %24, %29, %17, %17
-  %45 = icmp eq i32 %.0160204, 8
-  %.1161 = select i1 %45, i32 18, i32 %.0160204
+  %45 = icmp eq i32 %.0158205, 8
+  %.1159 = select i1 %45, i32 18, i32 %.0158205
   %46 = tail call ptr @__errno_location() #15
   store i32 0, ptr %46, align 4
   %47 = getelementptr ptr, ptr %0, i64 %indvars.iv
@@ -195,7 +195,7 @@ define i32 @DecodeInterval(ptr nocapture noundef readonly %0, ptr nocapture noun
 
 86:                                               ; preds = %52, %84, %80
   %.0156 = phi double [ %85, %84 ], [ %75, %80 ], [ 0.000000e+00, %52 ]
-  switch i32 %.1161, label %.loopexit [
+  switch i32 %.1159, label %.loopexit [
     i32 30, label %87
     i32 29, label %96
     i32 18, label %106
@@ -344,7 +344,7 @@ AdjustFractSeconds.exit191:                       ; preds = %137, %142
   br label %AdjustFractSeconds.exit192
 
 AdjustFractSeconds.exit192:                       ; preds = %155, %160
-  %173 = and i32 %.0163202, 8
+  %173 = and i32 %.0160203, 8
   %174 = xor i32 %173, 8
   store i32 %174, ptr %8, align 4
   br label %296
@@ -386,7 +386,7 @@ AdjustFractSeconds.exit192:                       ; preds = %155, %160
   br label %AdjustFractDays.exit
 
 AdjustFractDays.exit:                             ; preds = %175, %181, %188
-  %201 = and i32 %.0163202, 8
+  %201 = and i32 %.0160203, 8
   %202 = xor i32 %201, 8
   store i32 %202, ptr %8, align 4
   br label %296
@@ -443,7 +443,7 @@ AdjustFractDays.exit193:                          ; preds = %.thread197, %203, %
   %237 = fadd double %234, %236
   %238 = fptosi double %237 to i32
   store i32 %238, ptr %14, align 8
-  %239 = and i32 %.0163202, 4
+  %239 = and i32 %.0160203, 4
   %240 = xor i32 %239, 4
   store i32 %240, ptr %8, align 4
   br label %296
@@ -462,7 +462,7 @@ AdjustFractDays.exit193:                          ; preds = %.thread197, %203, %
   %251 = fadd double %248, %250
   %252 = fptosi double %251 to i32
   store i32 %252, ptr %14, align 8
-  %253 = and i32 %.0163202, 4
+  %253 = and i32 %.0160203, 4
   %254 = xor i32 %253, 4
   store i32 %254, ptr %8, align 4
   br label %296
@@ -481,7 +481,7 @@ AdjustFractDays.exit193:                          ; preds = %.thread197, %203, %
   %265 = fadd double %262, %264
   %266 = fptosi double %265 to i32
   store i32 %266, ptr %14, align 8
-  %267 = and i32 %.0163202, 4
+  %267 = and i32 %.0160203, 4
   %268 = xor i32 %267, 4
   store i32 %268, ptr %8, align 4
   br label %296
@@ -500,7 +500,7 @@ AdjustFractDays.exit193:                          ; preds = %.thread197, %203, %
   %279 = fadd double %276, %278
   %280 = fptosi double %279 to i32
   store i32 %280, ptr %14, align 8
-  %281 = and i32 %.0163202, 4
+  %281 = and i32 %.0160203, 4
   %282 = xor i32 %281, 4
   store i32 %282, ptr %8, align 4
   br label %296
@@ -537,26 +537,26 @@ AdjustFractDays.exit193:                          ; preds = %.thread197, %203, %
 
 296:                                              ; preds = %._crit_edge208, %290, %292, %294, %87, %96, %AdjustFractSeconds.exit, %AdjustFractSeconds.exit191, %AdjustFractSeconds.exit192, %AdjustFractDays.exit, %AdjustFractDays.exit193, %229, %241, %255, %269, %118, %117, %43
   %297 = phi i32 [ 7182, %294 ], [ 0, %292 ], [ 0, %290 ], [ %282, %269 ], [ %268, %255 ], [ %254, %241 ], [ %240, %229 ], [ 2, %AdjustFractDays.exit193 ], [ %202, %AdjustFractDays.exit ], [ %174, %AdjustFractSeconds.exit192 ], [ 1024, %AdjustFractSeconds.exit191 ], [ 2048, %AdjustFractSeconds.exit ], [ 4096, %117 ], [ 28672, %118 ], [ 8192, %96 ], [ 16384, %87 ], [ 32, %43 ], [ %.pre, %._crit_edge208 ]
+  %.1163 = phi i1 [ %.0162202, %294 ], [ true, %292 ], [ %.0162202, %290 ], [ %.0162202, %269 ], [ %.0162202, %255 ], [ %.0162202, %241 ], [ %.0162202, %229 ], [ %.0162202, %AdjustFractDays.exit193 ], [ %.0162202, %AdjustFractDays.exit ], [ %.0162202, %AdjustFractSeconds.exit192 ], [ %.0162202, %AdjustFractSeconds.exit191 ], [ %.0162202, %AdjustFractSeconds.exit ], [ %.0162202, %117 ], [ %.0162202, %118 ], [ %.0162202, %96 ], [ %.0162202, %87 ], [ %.0162202, %43 ], [ %.0162202, %._crit_edge208 ]
   %.3 = phi i32 [ 0, %294 ], [ %293, %292 ], [ %291, %290 ], [ 28, %269 ], [ 27, %255 ], [ 26, %241 ], [ 25, %229 ], [ 23, %AdjustFractDays.exit193 ], [ 22, %AdjustFractDays.exit ], [ 21, %AdjustFractSeconds.exit192 ], [ 21, %AdjustFractSeconds.exit191 ], [ 19, %AdjustFractSeconds.exit ], [ 18, %117 ], [ 18, %118 ], [ 29, %96 ], [ 30, %87 ], [ 21, %43 ], [ 21, %._crit_edge208 ]
-  %.1 = phi i1 [ %.0157205, %294 ], [ true, %292 ], [ %.0157205, %290 ], [ %.0157205, %269 ], [ %.0157205, %255 ], [ %.0157205, %241 ], [ %.0157205, %229 ], [ %.0157205, %AdjustFractDays.exit193 ], [ %.0157205, %AdjustFractDays.exit ], [ %.0157205, %AdjustFractSeconds.exit192 ], [ %.0157205, %AdjustFractSeconds.exit191 ], [ %.0157205, %AdjustFractSeconds.exit ], [ %.0157205, %117 ], [ %.0157205, %118 ], [ %.0157205, %96 ], [ %.0157205, %87 ], [ %.0157205, %43 ], [ %.0157205, %._crit_edge208 ]
-  %298 = and i32 %297, %.0163202
+  %298 = and i32 %297, %.0160203
   %.not190 = icmp eq i32 %298, 0
   br i1 %.not190, label %299, label %.loopexit
 
 299:                                              ; preds = %296
-  %300 = or i32 %297, %.0163202
+  %300 = or i32 %297, %.0160203
   br label %301
 
 301:                                              ; preds = %283, %299
-  %.1164 = phi i32 [ %.0163202, %283 ], [ %300, %299 ]
+  %.2164 = phi i1 [ %.0162202, %283 ], [ %.1163, %299 ]
+  %.1161 = phi i32 [ %.0160203, %283 ], [ %300, %299 ]
   %.4 = phi i32 [ 8, %283 ], [ %.3, %299 ]
-  %.2 = phi i1 [ %.0157205, %283 ], [ %.1, %299 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %302 = icmp sgt i64 %indvars.iv, 0
   br i1 %302, label %17, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %301
-  %303 = icmp eq i32 %.1164, 0
+  %303 = icmp eq i32 %.1161, 0
   br i1 %303, label %.loopexit, label %304
 
 304:                                              ; preds = %._crit_edge
@@ -575,7 +575,7 @@ AdjustFractDays.exit193:                          ; preds = %.thread197, %203, %
   br label %312
 
 312:                                              ; preds = %304, %306
-  br i1 %.2, label %313, label %.loopexit
+  br i1 %.2164, label %313, label %.loopexit
 
 313:                                              ; preds = %312
   %314 = load i32, ptr %5, align 4
@@ -726,35 +726,35 @@ define void @EncodeInterval(ptr nocapture noundef readonly %0, i32 noundef %1, i
   br label %AppendSeconds.exit
 
 71:                                               ; preds = %.thread.thread, %.thread
-  %.0252348381 = phi i32 [ %47, %.thread.thread ], [ %15, %.thread ]
-  %.0251349380 = phi i32 [ %46, %.thread.thread ], [ %14, %.thread ]
-  %.0250350379 = phi i32 [ %45, %.thread.thread ], [ %12, %.thread ]
-  %.0249351378 = phi i32 [ %44, %.thread.thread ], [ %10, %.thread ]
-  %.0248352377 = phi i32 [ %43, %.thread.thread ], [ %8, %.thread ]
-  %.0247353376 = phi i32 [ %42, %.thread.thread ], [ %6, %.thread ]
+  %.0252348381 = phi i32 [ %42, %.thread.thread ], [ %6, %.thread ]
+  %.0251349380 = phi i32 [ %43, %.thread.thread ], [ %8, %.thread ]
+  %.0250350379 = phi i32 [ %44, %.thread.thread ], [ %10, %.thread ]
+  %.0249351378 = phi i32 [ %45, %.thread.thread ], [ %12, %.thread ]
+  %.0248352377 = phi i32 [ %46, %.thread.thread ], [ %14, %.thread ]
+  %.0247353376 = phi i32 [ %47, %.thread.thread ], [ %15, %.thread ]
   %.0246354375 = phi ptr [ %41, %.thread.thread ], [ %3, %.thread ]
   %.0355374 = phi i32 [ %48, %.thread.thread ], [ %1, %.thread ]
   br i1 %33, label %72, label %74
 
 72:                                               ; preds = %71
-  %73 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0246354375, ptr noundef nonnull @.str.2, i32 noundef %.0247353376, i32 noundef %.0248352377) #13
+  %73 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0246354375, ptr noundef nonnull @.str.2, i32 noundef %.0252348381, i32 noundef %.0251349380) #13
   br label %AppendSeconds.exit
 
 74:                                               ; preds = %71
   br i1 %34, label %75, label %79
 
 75:                                               ; preds = %74
-  %76 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0246354375, ptr noundef nonnull @.str.3, i32 noundef %.0249351378, i32 noundef %.0250350379, i32 noundef %.0251349380) #13
+  %76 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0246354375, ptr noundef nonnull @.str.3, i32 noundef %.0250350379, i32 noundef %.0249351378, i32 noundef %.0248352377) #13
   %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0246354375) #14
   %78 = getelementptr i8, ptr %.0246354375, i64 %77
-  tail call fastcc void @AppendSeconds(ptr noundef %78, i32 noundef %.0252348381, i32 noundef %.0355374, i1 noundef zeroext true)
+  tail call fastcc void @AppendSeconds(ptr noundef %78, i32 noundef %.0247353376, i32 noundef %.0355374, i1 noundef zeroext true)
   br label %AppendSeconds.exit
 
 79:                                               ; preds = %74
-  %80 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0246354375, ptr noundef nonnull @.str.4, i32 noundef %.0250350379, i32 noundef %.0251349380) #13
+  %80 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.0246354375, ptr noundef nonnull @.str.4, i32 noundef %.0249351378, i32 noundef %.0248352377) #13
   %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0246354375) #14
   %82 = getelementptr i8, ptr %.0246354375, i64 %81
-  tail call fastcc void @AppendSeconds(ptr noundef %82, i32 noundef %.0252348381, i32 noundef %.0355374, i1 noundef zeroext true)
+  tail call fastcc void @AppendSeconds(ptr noundef %82, i32 noundef %.0247353376, i32 noundef %.0355374, i1 noundef zeroext true)
   br label %AppendSeconds.exit
 
 83:                                               ; preds = %4
@@ -1343,7 +1343,7 @@ AdjustFractDays.exit.i:                           ; preds = %AdjustFractDays.exi
   %37 = phi ptr [ %36, %.outer.i ], [ %70, %AdjustFractDays.exit.i.backedge ]
   %38 = phi double [ %.lcssa177182.i, %.outer.i ], [ %69, %AdjustFractDays.exit.i.backedge ]
   %storemerge.i168.i = phi i32 [ %storemerge.i.lcssa171179.i, %.outer.i ], [ %storemerge.i.i, %AdjustFractDays.exit.i.backedge ]
-  %.074.i = phi i1 [ false, %.outer.i ], [ true, %AdjustFractDays.exit.i.backedge ]
+  %.0.i = phi i1 [ false, %.outer.i ], [ true, %AdjustFractDays.exit.i.backedge ]
   %39 = load i8, ptr %37, align 1
   switch i8 %39, label %42 [
     i8 0, label %DecodeISO8601Interval.exit.thread32
@@ -1542,7 +1542,7 @@ AdjustFractDays.exit.i:                           ; preds = %AdjustFractDays.exi
   %152 = call i64 @strspn(ptr noundef readonly %spec.select.i.i, ptr noundef nonnull @.str.28) #14
   %153 = and i64 %152, 4294967295
   %154 = icmp ne i64 %153, 8
-  %brmerge.i = or i1 %.074.i, %154
+  %brmerge.i = or i1 %.0.i, %154
   br i1 %brmerge.i, label %181, label %155
 
 155:                                              ; preds = %149
@@ -1589,7 +1589,7 @@ AdjustFractSeconds.exit97.i:                      ; preds = %167, %155
   br label %181
 
 181:                                              ; preds = %.loopexit137.i, %149
-  br i1 %.074.i, label %DecodeISO8601Interval.exit.thread38, label %182
+  br i1 %.0.i, label %DecodeISO8601Interval.exit.thread38, label %182
 
 182:                                              ; preds = %181
   %183 = load i32, ptr %14, align 4
@@ -1885,7 +1885,7 @@ AdjustFractDays.exit.i.backedge:                  ; preds = %327, %323, %310, %3
   %341 = call i64 @strspn(ptr noundef readonly %spec.select.i126.i, ptr noundef nonnull @.str.28) #14
   %342 = and i64 %341, 4294967295
   %343 = icmp ne i64 %342, 6
-  %brmerge95.i = or i1 %.074.i, %343
+  %brmerge95.i = or i1 %.0.i, %343
   br i1 %brmerge95.i, label %367, label %344
 
 344:                                              ; preds = %338
@@ -1926,7 +1926,7 @@ AdjustFractDays.exit.i.backedge:                  ; preds = %327, %323, %310, %3
   br label %367
 
 367:                                              ; preds = %.loopexit.i, %338
-  br i1 %.074.i, label %DecodeISO8601Interval.exit.thread, label %368
+  br i1 %.0.i, label %DecodeISO8601Interval.exit.thread, label %368
 
 368:                                              ; preds = %367
   %369 = load i32, ptr %17, align 8

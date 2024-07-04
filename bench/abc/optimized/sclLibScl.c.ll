@@ -321,7 +321,7 @@ Abc_UtilStrsav.exit99.i:                          ; preds = %104, %Vec_PtrPush.e
   br i1 %.not86.i, label %.preheader.i, label %71, !llvm.loop !4
 
 112:                                              ; preds = %._crit_edge141.i, %.lr.ph143.i
-  %.083142.i = phi i32 [ 0, %.lr.ph143.i ], [ %295, %._crit_edge141.i ]
+  %.084142.i = phi i32 [ 0, %.lr.ph143.i ], [ %295, %._crit_edge141.i ]
   %113 = tail call ptr @Mio_GateReadTruthP(ptr noundef nonnull %.0146.i) #17
   %114 = tail call noalias noundef dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #16
   %115 = getelementptr inbounds i8, ptr %114, i64 36
@@ -717,7 +717,7 @@ switch.lookup:                                    ; preds = %Vec_PtrPush.exit130
   br i1 %.not87.i, label %._crit_edge141.i, label %216, !llvm.loop !7
 
 ._crit_edge141.i:                                 ; preds = %289, %._crit_edge.i
-  %295 = add nuw nsw i32 %.083142.i, 1
+  %295 = add nuw nsw i32 %.084142.i, 1
   %296 = load i32, ptr %59, align 4
   %297 = icmp slt i32 %295, %296
   br i1 %297, label %112, label %._crit_edge144.i, !llvm.loop !8

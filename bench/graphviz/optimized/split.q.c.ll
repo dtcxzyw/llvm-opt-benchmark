@@ -98,8 +98,8 @@ GetBranches.exit:                                 ; preds = %19
 .lr.ph.i.i:                                       ; preds = %.loopexit.i.i, %.preheader.i.i
   %indvars.iv56.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next57.i.i, %.loopexit.i.i ]
   %indvars.iv50.i.i = phi i64 [ 1, %.preheader.i.i ], [ %indvars.iv.next51.i.i, %.loopexit.i.i ]
-  %.048.i.i = phi i32 [ 0, %.preheader.i.i ], [ %.2.i.i, %.loopexit.i.i ]
-  %.02646.i.i = phi i64 [ 0, %.preheader.i.i ], [ %.228.i.i, %.loopexit.i.i ]
+  %.02547.i.i = phi i64 [ 0, %.preheader.i.i ], [ %.2.i.i, %.loopexit.i.i ]
+  %.02746.i.i = phi i32 [ 0, %.preheader.i.i ], [ %.229.i.i, %.loopexit.i.i ]
   %.03045.i.i = phi i32 [ 0, %.preheader.i.i ], [ %.232.i.i, %.loopexit.i.i ]
   %42 = getelementptr inbounds [65 x %struct.Branch], ptr %10, i64 0, i64 %indvars.iv56.i.i
   %43 = getelementptr inbounds [65 x i64], ptr %5, i64 0, i64 %indvars.iv56.i.i
@@ -108,8 +108,8 @@ GetBranches.exit:                                 ; preds = %19
 
 45:                                               ; preds = %45, %.lr.ph.i.i
   %indvars.iv52.i.i = phi i64 [ %indvars.iv50.i.i, %.lr.ph.i.i ], [ %indvars.iv.next53.i.i, %45 ]
-  %.142.i.i = phi i32 [ %.048.i.i, %.lr.ph.i.i ], [ %.2.i.i, %45 ]
-  %.12740.i.i = phi i64 [ %.02646.i.i, %.lr.ph.i.i ], [ %.228.i.i, %45 ]
+  %.141.i.i = phi i64 [ %.02547.i.i, %.lr.ph.i.i ], [ %.2.i.i, %45 ]
+  %.12840.i.i = phi i32 [ %.02746.i.i, %.lr.ph.i.i ], [ %.229.i.i, %45 ]
   %.13139.i.i = phi i32 [ %.03045.i.i, %.lr.ph.i.i ], [ %.232.i.i, %45 ]
   %46 = getelementptr inbounds [65 x %struct.Branch], ptr %10, i64 0, i64 %indvars.iv52.i.i
   %47 = call { i64, i64 } @CombineRect(ptr noundef nonnull %42, ptr noundef nonnull %46) #6
@@ -123,17 +123,17 @@ GetBranches.exit:                                 ; preds = %19
   %53 = load i64, ptr %52, align 8
   %54 = add i64 %51, %53
   %55 = sub i64 %50, %54
-  %56 = icmp ugt i64 %55, %.12740.i.i
+  %56 = icmp ugt i64 %55, %.141.i.i
+  %.232.i.i = select i1 %56, i32 %44, i32 %.13139.i.i
   %57 = trunc nuw nsw i64 %indvars.iv52.i.i to i32
-  %.232.i.i = select i1 %56, i32 %57, i32 %.13139.i.i
-  %.228.i.i = call i64 @llvm.umax.i64(i64 %55, i64 %.12740.i.i)
-  %.2.i.i = select i1 %56, i32 %44, i32 %.142.i.i
+  %.229.i.i = select i1 %56, i32 %57, i32 %.12840.i.i
+  %.2.i.i = call i64 @llvm.umax.i64(i64 %55, i64 %.141.i.i)
   %indvars.iv.next53.i.i = add nuw nsw i64 %indvars.iv52.i.i, 1
   %exitcond55.not.i.i = icmp eq i64 %indvars.iv.next53.i.i, 65
   br i1 %exitcond55.not.i.i, label %.loopexit.i.i, label %45
 
 58:                                               ; preds = %.loopexit.i.i
-  %59 = sext i32 %.2.i.i to i64
+  %59 = sext i32 %.232.i.i to i64
   %60 = getelementptr inbounds [65 x i32], ptr %27, i64 0, i64 %59
   store i32 0, ptr %60, align 4
   %61 = getelementptr inbounds [65 x i32], ptr %36, i64 0, i64 %59
@@ -162,7 +162,7 @@ Classify.exit.i.i:                                ; preds = %66, %65
   %71 = load i32, ptr %28, align 4
   %72 = add nsw i32 %71, 1
   store i32 %72, ptr %28, align 4
-  %73 = sext i32 %.232.i.i to i64
+  %73 = sext i32 %.229.i.i to i64
   %74 = getelementptr inbounds [65 x i32], ptr %27, i64 0, i64 %73
   store i32 1, ptr %74, align 4
   %75 = getelementptr inbounds [65 x i32], ptr %36, i64 0, i64 %73
@@ -219,8 +219,8 @@ PickSeeds.exit.i:                                 ; preds = %80, %79
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %130 ], [ 0, %93 ]
   %.15690.i = phi i32 [ %.2.i, %130 ], [ %.05592.i, %93 ]
   %.15889.i = phi i32 [ %.259.i, %130 ], [ %.05791.i, %93 ]
-  %.06088.i = phi i1 [ %.161.i, %130 ], [ false, %93 ]
-  %.06287.i = phi i64 [ %.163.i, %130 ], [ 0, %93 ]
+  %.06187.i = phi i64 [ %.162.i, %130 ], [ 0, %93 ]
+  %.06386.i = phi i1 [ %.164.i, %130 ], [ false, %93 ]
   %100 = getelementptr inbounds [65 x i32], ptr %36, i64 0, i64 %indvars.iv.i
   %101 = load i32, ptr %100, align 4
   %.not71.i = icmp eq i32 %101, 0
@@ -249,13 +249,13 @@ PickSeeds.exit.i:                                 ; preds = %80, %79
   %117 = sub i64 %109, %115
   %.054.i = zext i1 %.not72.i to i32
   %.053.i = select i1 %.not72.i, i64 %117, i64 %116
-  %118 = icmp ule i64 %.053.i, %.06287.i
-  %or.cond74.not.i = select i1 %.06088.i, i1 %118, i1 false
+  %118 = icmp ule i64 %.053.i, %.06187.i
+  %or.cond74.not.i = select i1 %.06386.i, i1 %118, i1 false
   %119 = trunc nuw nsw i64 %indvars.iv.i to i32
   br i1 %or.cond74.not.i, label %120, label %130
 
 120:                                              ; preds = %102
-  %121 = icmp eq i64 %.053.i, %.06287.i
+  %121 = icmp eq i64 %.053.i, %.06187.i
   br i1 %121, label %122, label %130
 
 122:                                              ; preds = %120
@@ -271,8 +271,8 @@ PickSeeds.exit.i:                                 ; preds = %80, %79
   br label %130
 
 130:                                              ; preds = %122, %120, %102, %.preheader.i
-  %.163.i = phi i64 [ %.06287.i, %.preheader.i ], [ %.06287.i, %120 ], [ %.053.i, %102 ], [ %.06287.i, %122 ]
-  %.161.i = phi i1 [ %.06088.i, %.preheader.i ], [ true, %120 ], [ true, %102 ], [ true, %122 ]
+  %.164.i = phi i1 [ %.06386.i, %.preheader.i ], [ true, %120 ], [ true, %102 ], [ true, %122 ]
+  %.162.i = phi i64 [ %.06187.i, %.preheader.i ], [ %.06187.i, %120 ], [ %.053.i, %102 ], [ %.06187.i, %122 ]
   %.259.i = phi i32 [ %.15889.i, %.preheader.i ], [ %.15889.i, %120 ], [ %.054.i, %102 ], [ %spec.select.i, %122 ]
   %.2.i = phi i32 [ %.15690.i, %.preheader.i ], [ %.15690.i, %120 ], [ %119, %102 ], [ %spec.select75.i, %122 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

@@ -1259,18 +1259,18 @@ define i32 @Cof_ManCountRemoved(ptr nocapture noundef %0, ptr noundef %1, i32 no
 
 .lr.ph117:                                        ; preds = %3, %.critedge
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ %20, %3 ]
-  %.0116 = phi i32 [ %.1.lcssa, %.critedge ], [ 0, %3 ]
+  %.072115 = phi i32 [ %.1.lcssa, %.critedge ], [ 0, %3 ]
   %26 = load ptr, ptr %18, align 8
   %27 = getelementptr inbounds i32, ptr %26, i64 %indvars.iv
-  %.070109 = load i32, ptr %27, align 4
-  %.not110 = icmp eq i32 %.070109, 0
+  %.069109 = load i32, ptr %27, align 4
+  %.not110 = icmp eq i32 %.069109, 0
   br i1 %.not110, label %.critedge, label %.lr.ph113
 
 .lr.ph113:                                        ; preds = %.lr.ph117, %.critedge2
-  %.070112 = phi i32 [ %.070, %.critedge2 ], [ %.070109, %.lr.ph117 ]
-  %.1111 = phi i32 [ %.2.lcssa, %.critedge2 ], [ %.0116, %.lr.ph117 ]
+  %.069112 = phi i32 [ %.069, %.critedge2 ], [ %.069109, %.lr.ph117 ]
+  %.1111 = phi i32 [ %.2.lcssa, %.critedge2 ], [ %.072115, %.lr.ph117 ]
   %.val82 = load ptr, ptr %12, align 8
-  %28 = zext i32 %.070112 to i64
+  %28 = zext i32 %.069112 to i64
   %29 = getelementptr inbounds i32, ptr %.val82, i64 %28
   %30 = load i32, ptr %29, align 4
   %.not119 = icmp ult i32 %30, 256
@@ -1282,11 +1282,11 @@ define i32 @Cof_ManCountRemoved(ptr nocapture noundef %0, ptr noundef %1, i32 no
 
 32:                                               ; preds = %.lr.ph, %160
   %33 = phi i32 [ %30, %.lr.ph ], [ %162, %160 ]
-  %.2108 = phi i32 [ %.1111, %.lr.ph ], [ %.3, %160 ]
-  %.071107 = phi i32 [ 0, %.lr.ph ], [ %161, %160 ]
+  %.070108 = phi i32 [ 0, %.lr.ph ], [ %161, %160 ]
+  %.2107 = phi i32 [ %.1111, %.lr.ph ], [ %.3, %160 ]
   %34 = lshr i32 %33, 4
   %35 = and i32 %34, 15
-  %36 = add nuw nsw i32 %35, %.071107
+  %36 = add nuw nsw i32 %35, %.070108
   %37 = zext nneg i32 %36 to i64
   %38 = getelementptr inbounds [0 x %struct.Cof_Fan_t_], ptr %31, i64 0, i64 %37
   %39 = load i32, ptr %38, align 4
@@ -1353,7 +1353,7 @@ define i32 @Cof_ManCountRemoved(ptr nocapture noundef %0, ptr noundef %1, i32 no
 
 81:                                               ; preds = %73, %66
   %.val84 = phi i64 [ %.val83, %66 ], [ %.val102, %73 ]
-  %.069 = phi i32 [ %72, %66 ], [ %80, %73 ]
+  %.068 = phi i32 [ %72, %66 ], [ %80, %73 ]
   %82 = getelementptr i8, ptr %58, i64 8
   %.val86 = load i32, ptr %82, align 4
   %.not106 = icmp eq i32 %.val86, %.val89
@@ -1381,8 +1381,8 @@ define i32 @Cof_ManCountRemoved(ptr nocapture noundef %0, ptr noundef %1, i32 no
   br label %100
 
 100:                                              ; preds = %90, %83
-  %.068 = phi i32 [ %89, %83 ], [ %99, %90 ]
-  %101 = tail call i32 @Gia_ManHashAndTry(ptr noundef nonnull %59, i32 noundef %.069, i32 noundef %.068) #26
+  %.0 = phi i32 [ %89, %83 ], [ %99, %90 ]
+  %101 = tail call i32 @Gia_ManHashAndTry(ptr noundef nonnull %59, i32 noundef %.068, i32 noundef %.0) #26
   %102 = icmp eq i32 %101, -1
   br i1 %102, label %160, label %103
 
@@ -1509,12 +1509,12 @@ Cof_ObjLevel.exit:                                ; preds = %103, %._crit_edge.i
   %157 = load ptr, ptr %18, align 8
   %158 = getelementptr inbounds i32, ptr %157, i64 %148
   store i32 %156, ptr %158, align 4
-  %159 = add nsw i32 %.2108, 1
+  %159 = add nsw i32 %.2107, 1
   br label %160
 
 160:                                              ; preds = %100, %44, %32, %Cof_ObjLevel.exit
-  %.3 = phi i32 [ %.2108, %32 ], [ %.2108, %44 ], [ %.2108, %100 ], [ %159, %Cof_ObjLevel.exit ]
-  %161 = add nuw nsw i32 %.071107, 1
+  %.3 = phi i32 [ %.2107, %32 ], [ %.2107, %44 ], [ %.2107, %100 ], [ %159, %Cof_ObjLevel.exit ]
+  %161 = add nuw nsw i32 %.070108, 1
   %162 = load i32, ptr %29, align 4
   %163 = lshr i32 %162, 8
   %164 = icmp ult i32 %161, %163
@@ -1523,8 +1523,8 @@ Cof_ObjLevel.exit:                                ; preds = %103, %._crit_edge.i
 .critedge2:                                       ; preds = %160, %.lr.ph113
   %.2.lcssa = phi i32 [ %.1111, %.lr.ph113 ], [ %.3, %160 ]
   %165 = getelementptr inbounds i8, ptr %29, i64 16
-  %.070 = load i32, ptr %165, align 4
-  %.not = icmp eq i32 %.070, 0
+  %.069 = load i32, ptr %165, align 4
+  %.not = icmp eq i32 %.069, 0
   br i1 %.not, label %.critedge.loopexit, label %.lr.ph113, !llvm.loop !17
 
 .critedge.loopexit:                               ; preds = %.critedge2
@@ -1533,7 +1533,7 @@ Cof_ObjLevel.exit:                                ; preds = %103, %._crit_edge.i
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph117
   %166 = phi ptr [ %26, %.lr.ph117 ], [ %.pre, %.critedge.loopexit ]
-  %.1.lcssa = phi i32 [ %.0116, %.lr.ph117 ], [ %.2.lcssa, %.critedge.loopexit ]
+  %.1.lcssa = phi i32 [ %.072115, %.lr.ph117 ], [ %.2.lcssa, %.critedge.loopexit ]
   %167 = getelementptr inbounds i32, ptr %166, i64 %indvars.iv
   store i32 0, ptr %167, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -1543,8 +1543,8 @@ Cof_ObjLevel.exit:                                ; preds = %103, %._crit_edge.i
   br i1 %170, label %.lr.ph117, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.critedge, %3
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %.1.lcssa, %.critedge ]
-  ret i32 %.0.lcssa
+  %.072.lcssa = phi i32 [ 0, %3 ], [ %.1.lcssa, %.critedge ]
+  ret i32 %.072.lcssa
 }
 
 ; Function Attrs: nounwind uwtable

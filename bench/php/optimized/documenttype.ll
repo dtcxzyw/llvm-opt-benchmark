@@ -230,8 +230,8 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_internal_subset_read(ptr no
 12:                                               ; preds = %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %13 = getelementptr inbounds i8, ptr %11, i64 24
-  %.0142166 = load ptr, ptr %13, align 8
-  %.not157167 = icmp eq ptr %.0142166, null
+  %.0166 = load ptr, ptr %13, align 8
+  %.not157167 = icmp eq ptr %.0166, null
   br i1 %.not157167, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
@@ -239,13 +239,13 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_internal_subset_read(ptr no
   br label %15
 
 15:                                               ; preds = %.lr.ph, %36
-  %.0142168 = phi ptr [ %.0142166, %.lr.ph ], [ %.0142, %36 ]
+  %.0168 = phi ptr [ %.0166, %.lr.ph ], [ %.0, %36 ]
   %16 = call ptr @xmlAllocOutputBuffer(ptr noundef null) #9
   %.not163 = icmp eq ptr %16, null
   br i1 %.not163, label %36, label %17
 
 17:                                               ; preds = %15
-  call void @xmlNodeDumpOutput(ptr noundef nonnull %16, ptr noundef null, ptr noundef nonnull %.0142168, i32 noundef 0, i32 noundef 0, ptr noundef null) #9
+  call void @xmlNodeDumpOutput(ptr noundef nonnull %16, ptr noundef null, ptr noundef nonnull %.0168, i32 noundef 0, i32 noundef 0, ptr noundef null) #9
   %18 = call i32 @xmlOutputBufferFlush(ptr noundef nonnull %16) #9
   %19 = call ptr @xmlOutputBufferGetContent(ptr noundef nonnull %16) #9
   %20 = call i64 @xmlOutputBufferGetSize(ptr noundef nonnull %16) #9
@@ -262,8 +262,8 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_internal_subset_read(ptr no
   br i1 %.not165, label %28, label %27
 
 27:                                               ; preds = %17, %22
-  %.0143 = phi i64 [ %20, %17 ], [ %25, %22 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %3, i64 noundef %.0143) #9
+  %.0144 = phi i64 [ %20, %17 ], [ %25, %22 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %3, i64 noundef %.0144) #9
   %.pre = load ptr, ptr %3, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 16
   %.pre169 = load i64, ptr %.phi.trans.insert, align 8
@@ -272,7 +272,7 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_internal_subset_read(ptr no
 28:                                               ; preds = %27, %22
   %29 = phi i64 [ %.pre169, %27 ], [ %24, %22 ]
   %30 = phi ptr [ %.pre, %27 ], [ %21, %22 ]
-  %.1 = phi i64 [ %.0143, %27 ], [ %25, %22 ]
+  %.1 = phi i64 [ %.0144, %27 ], [ %25, %22 ]
   %31 = getelementptr inbounds i8, ptr %30, i64 24
   %32 = getelementptr inbounds i8, ptr %31, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr align 1 %19, i64 %20, i1 false)
@@ -283,9 +283,9 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_internal_subset_read(ptr no
   br label %36
 
 36:                                               ; preds = %28, %15
-  %37 = getelementptr inbounds i8, ptr %.0142168, i64 48
-  %.0142 = load ptr, ptr %37, align 8
-  %.not157 = icmp eq ptr %.0142, null
+  %37 = getelementptr inbounds i8, ptr %.0168, i64 48
+  %.0 = load ptr, ptr %37, align 8
+  %.not157 = icmp eq ptr %.0, null
   br i1 %.not157, label %._crit_edge, label %15
 
 ._crit_edge:                                      ; preds = %36
@@ -368,12 +368,12 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_internal_subset_read(ptr no
   br label %83
 
 83:                                               ; preds = %66, %79, %57
-  %.0 = phi ptr [ %60, %57 ], [ %69, %79 ], [ %69, %66 ]
+  %.0141 = phi ptr [ %60, %57 ], [ %69, %79 ], [ %69, %66 ]
   store i64 %48, ptr %45, align 8
   br label %84
 
 84:                                               ; preds = %83, %44, %38
-  %85 = phi ptr [ %.0, %83 ], [ %43, %44 ], [ null, %38 ]
+  %85 = phi ptr [ %.0141, %83 ], [ %43, %44 ], [ null, %38 ]
   store ptr null, ptr %3, align 8
   store ptr %85, ptr %1, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 4
@@ -391,8 +391,8 @@ define hidden range(i32 -1, 1) i32 @dom_documenttype_internal_subset_read(ptr no
   br label %92
 
 92:                                               ; preds = %._crit_edge.thread, %84, %6
-  %.0144 = phi i32 [ -1, %6 ], [ 0, %84 ], [ 0, %._crit_edge.thread ]
-  ret i32 %.0144
+  %.0142 = phi i32 [ -1, %6 ], [ 0, %84 ], [ 0, %._crit_edge.thread ]
+  ret i32 %.0142
 }
 
 declare ptr @xmlGetIntSubset(ptr noundef) local_unnamed_addr #1

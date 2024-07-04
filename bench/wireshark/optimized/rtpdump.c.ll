@@ -59,8 +59,8 @@ define hidden range(i32 -1, 2) i32 @rtpdump_open(ptr nocapture noundef %0, ptr n
   br label %23
 
 23:                                               ; preds = %g_string_append_c_inline.exit, %18
-  %.073 = phi i32 [ 0, %18 ], [ %.275, %g_string_append_c_inline.exit ]
-  %.072 = phi i32 [ 0, %18 ], [ %.1, %g_string_append_c_inline.exit ]
+  %.072 = phi i32 [ 0, %18 ], [ %.274, %g_string_append_c_inline.exit ]
+  %.0 = phi i32 [ 0, %18 ], [ %.1, %g_string_append_c_inline.exit ]
   %24 = load ptr, ptr %0, align 8
   %25 = call i32 @wtap_read_bytes(ptr noundef %24, ptr noundef nonnull %5, i32 noundef 1, ptr noundef %1, ptr noundef %2) #7
   %.not78 = icmp eq i32 %25, 0
@@ -98,12 +98,12 @@ define hidden range(i32 -1, 2) i32 @rtpdump_open(ptr nocapture noundef %0, ptr n
   br label %150
 
 42:                                               ; preds = %36, %33
-  %.174 = phi i32 [ 0, %33 ], [ 1, %36 ]
+  %.173 = phi i32 [ 0, %33 ], [ 1, %36 ]
   %43 = call ptr @g_string_truncate(ptr noundef nonnull %19, i64 noundef 0) #7
   br label %g_string_append_c_inline.exit
 
 44:                                               ; preds = %31
-  %.not80 = icmp eq i32 %.072, 0
+  %.not80 = icmp eq i32 %.0, 0
   br i1 %.not80, label %45, label %48
 
 45:                                               ; preds = %44
@@ -160,8 +160,8 @@ define hidden range(i32 -1, 2) i32 @rtpdump_open(ptr nocapture noundef %0, ptr n
   br label %150
 
 g_string_append_c_inline.exit:                    ; preds = %70, %64, %42
-  %.275 = phi i32 [ %.174, %42 ], [ %.073, %64 ], [ %.073, %70 ]
-  %.1 = phi i32 [ 1, %42 ], [ %.072, %64 ], [ %.072, %70 ]
+  %.274 = phi i32 [ %.173, %42 ], [ %.072, %64 ], [ %.072, %70 ]
+  %.1 = phi i32 [ 1, %42 ], [ %.0, %64 ], [ %.0, %70 ]
   %74 = load i8, ptr %5, align 1
   %.not81 = icmp eq i8 %74, 10
   br i1 %.not81, label %.loopexit.loopexit, label %23, !llvm.loop !4
@@ -171,7 +171,7 @@ g_string_append_c_inline.exit:                    ; preds = %70, %64, %42
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %48
-  %.3 = phi i32 [ %.073, %48 ], [ %.275, %.loopexit.loopexit ]
+  %.3 = phi i32 [ %.072, %48 ], [ %.274, %.loopexit.loopexit ]
   %.2 = phi i1 [ false, %48 ], [ %75, %.loopexit.loopexit ]
   %76 = call ptr @g_string_free(ptr noundef nonnull %19, i32 noundef 1) #7
   %77 = load i16, ptr %8, align 2
@@ -319,8 +319,8 @@ g_string_append_c_inline.exit:                    ; preds = %70, %64, %42
   br label %150
 
 150:                                              ; preds = %17, %140, %120, %112, %105, %95, %84, %79, %72, %51, %45, %39, %26, %13
-  %.0 = phi i32 [ -1, %79 ], [ 1, %140 ], [ %123, %120 ], [ %115, %112 ], [ %108, %105 ], [ %98, %95 ], [ %87, %84 ], [ -1, %39 ], [ -1, %51 ], [ -1, %45 ], [ 0, %72 ], [ %30, %26 ], [ %16, %13 ], [ 0, %17 ]
-  ret i32 %.0
+  %.075 = phi i32 [ -1, %79 ], [ 1, %140 ], [ %123, %120 ], [ %115, %112 ], [ %108, %105 ], [ %98, %95 ], [ %87, %84 ], [ -1, %39 ], [ -1, %51 ], [ -1, %45 ], [ 0, %72 ], [ %30, %26 ], [ %16, %13 ], [ 0, %17 ]
+  ret i32 %.075
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

@@ -2296,13 +2296,13 @@ invoke.cont5.lr.ph:                               ; preds = %invoke.cont
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %invoke.cont5.lr.ph, %for.inc188
-  %offsets.sroa.0.0913 = phi ptr [ null, %invoke.cont5.lr.ph ], [ %offsets.sroa.0.2, %for.inc188 ]
-  %offsets.sroa.6.0905 = phi ptr [ null, %invoke.cont5.lr.ph ], [ %offsets.sroa.6.2, %for.inc188 ]
-  %offsets.sroa.10.0897 = phi ptr [ null, %invoke.cont5.lr.ph ], [ %offsets.sroa.10.2, %for.inc188 ]
-  %it.sroa.0.0896 = phi ptr [ %add.ptr.i.i.ptr.ptr, %invoke.cont5.lr.ph ], [ %add.ptr.i510, %for.inc188 ]
-  %5 = load i32, ptr %it.sroa.0.0896, align 4
+  %offsets.sroa.0.0907 = phi ptr [ null, %invoke.cont5.lr.ph ], [ %offsets.sroa.0.2, %for.inc188 ]
+  %it.sroa.0.0900 = phi ptr [ %add.ptr.i.i.ptr.ptr, %invoke.cont5.lr.ph ], [ %add.ptr.i510, %for.inc188 ]
+  %offsets.sroa.10.0898 = phi ptr [ null, %invoke.cont5.lr.ph ], [ %offsets.sroa.10.2, %for.inc188 ]
+  %offsets.sroa.6.0896 = phi ptr [ null, %invoke.cont5.lr.ph ], [ %offsets.sroa.6.2, %for.inc188 ]
+  %5 = load i32, ptr %it.sroa.0.0900, align 4
   %idx.ext1.i.i = zext i32 %5 to i64
-  %add.ptr2.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0896, i64 %idx.ext1.i.i
+  %add.ptr2.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0900, i64 %idx.ext1.i.i
   %6 = load i32, ptr %add.ptr2.i.i, align 4
   %idx.ext.i.i.i.i = sext i32 %6 to i64
   %idx.neg.i.i.i.i = sub nsw i64 0, %idx.ext.i.i.i.i
@@ -2351,7 +2351,7 @@ lpad.loopexit.split-lp.loopexit:                  ; preds = %_ZNK10reflection5Fi
   br label %ehcleanup
 
 lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %if.then.i.i.i.i.i547, %if.then.i.i.i507, %if.else
-  %offsets.sroa.0.0872 = phi ptr [ %offsets.sroa.0.0.lcssa, %if.then.i.i.i.i.i547 ], [ %offsets.sroa.0.0913, %if.then.i.i.i507 ], [ %offsets.sroa.0.0.lcssa, %if.else ]
+  %offsets.sroa.0.0872 = phi ptr [ %offsets.sroa.0.0.lcssa, %if.then.i.i.i.i.i547 ], [ %offsets.sroa.0.0907, %if.then.i.i.i507 ], [ %offsets.sroa.0.0.lcssa, %if.else ]
   %lpad.loopexit.split-lp853 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -3192,17 +3192,17 @@ sw.epilog183:                                     ; preds = %_ZNK10reflection5Fi
   br i1 %tobool184.not, label %for.inc188, label %if.then185
 
 if.then185:                                       ; preds = %sw.epilog183
-  %cmp.not.i = icmp eq ptr %offsets.sroa.6.0905, %offsets.sroa.10.0897
+  %cmp.not.i = icmp eq ptr %offsets.sroa.6.0896, %offsets.sroa.10.0898
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then185
-  store i32 %offset.0, ptr %offsets.sroa.6.0905, align 4
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %offsets.sroa.6.0905, i64 4
+  store i32 %offset.0, ptr %offsets.sroa.6.0896, align 4
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %offsets.sroa.6.0896, i64 4
   br label %for.inc188
 
 if.else.i:                                        ; preds = %if.then185
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %offsets.sroa.6.0905 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %offsets.sroa.0.0913 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %offsets.sroa.10.0898 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %offsets.sroa.0.0907 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i498 = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775804
   br i1 %cmp.i.i.i498, label %if.then.i.i.i507, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
@@ -3237,17 +3237,17 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i5
   br i1 %cmp.i.i.i.i.i503, label %if.then.i.i.i.i.i506, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i
 
 if.then.i.i.i.i.i506:                             ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i, ptr align 4 %offsets.sroa.0.0913, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i, ptr align 4 %offsets.sroa.0.0907, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i
 
 _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i: ; preds = %if.then.i.i.i.i.i506, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i504 = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i504, i64 4
-  %tobool.not.i.i.i505 = icmp eq ptr %offsets.sroa.0.0913, null
+  %tobool.not.i.i.i505 = icmp eq ptr %offsets.sroa.0.0907, null
   br i1 %tobool.not.i.i.i505, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %offsets.sroa.0.0913) #22
+  tail call void @_ZdlPv(ptr noundef nonnull %offsets.sroa.0.0907) #22
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i
@@ -3255,10 +3255,10 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %for.inc188
 
 for.inc188:                                       ; preds = %_ZNK10reflection5Field6offsetEv.exit.i147, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i154, %_ZNK10reflection5Field6offsetEv.exit.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i, %invoke.cont11, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i121, %invoke.cont36, %invoke.cont13, %invoke.cont7, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %if.then.i, %sw.epilog183, %invoke.cont9
-  %offsets.sroa.10.2 = phi ptr [ %offsets.sroa.10.0897, %sw.epilog183 ], [ %offsets.sroa.10.0897, %invoke.cont9 ], [ %add.ptr19.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %offsets.sroa.10.0897, %if.then.i ], [ %offsets.sroa.10.0897, %invoke.cont7 ], [ %offsets.sroa.10.0897, %invoke.cont13 ], [ %offsets.sroa.10.0897, %invoke.cont36 ], [ %offsets.sroa.10.0897, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i121 ], [ %offsets.sroa.10.0897, %invoke.cont11 ], [ %offsets.sroa.10.0897, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i ], [ %offsets.sroa.10.0897, %_ZNK10reflection5Field6offsetEv.exit.i ], [ %offsets.sroa.10.0897, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i154 ], [ %offsets.sroa.10.0897, %_ZNK10reflection5Field6offsetEv.exit.i147 ]
-  %offsets.sroa.6.2 = phi ptr [ %offsets.sroa.6.0905, %sw.epilog183 ], [ %offsets.sroa.6.0905, %invoke.cont9 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ], [ %offsets.sroa.6.0905, %invoke.cont7 ], [ %offsets.sroa.6.0905, %invoke.cont13 ], [ %offsets.sroa.6.0905, %invoke.cont36 ], [ %offsets.sroa.6.0905, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i121 ], [ %offsets.sroa.6.0905, %invoke.cont11 ], [ %offsets.sroa.6.0905, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i ], [ %offsets.sroa.6.0905, %_ZNK10reflection5Field6offsetEv.exit.i ], [ %offsets.sroa.6.0905, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i154 ], [ %offsets.sroa.6.0905, %_ZNK10reflection5Field6offsetEv.exit.i147 ]
-  %offsets.sroa.0.2 = phi ptr [ %offsets.sroa.0.0913, %sw.epilog183 ], [ %offsets.sroa.0.0913, %invoke.cont9 ], [ %cond.i10.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %offsets.sroa.0.0913, %if.then.i ], [ %offsets.sroa.0.0913, %invoke.cont7 ], [ %offsets.sroa.0.0913, %invoke.cont13 ], [ %offsets.sroa.0.0913, %invoke.cont36 ], [ %offsets.sroa.0.0913, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i121 ], [ %offsets.sroa.0.0913, %invoke.cont11 ], [ %offsets.sroa.0.0913, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i ], [ %offsets.sroa.0.0913, %_ZNK10reflection5Field6offsetEv.exit.i ], [ %offsets.sroa.0.0913, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i154 ], [ %offsets.sroa.0.0913, %_ZNK10reflection5Field6offsetEv.exit.i147 ]
-  %add.ptr.i510 = getelementptr inbounds i8, ptr %it.sroa.0.0896, i64 4
+  %offsets.sroa.6.2 = phi ptr [ %offsets.sroa.6.0896, %sw.epilog183 ], [ %offsets.sroa.6.0896, %invoke.cont9 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ], [ %offsets.sroa.6.0896, %invoke.cont7 ], [ %offsets.sroa.6.0896, %invoke.cont13 ], [ %offsets.sroa.6.0896, %invoke.cont36 ], [ %offsets.sroa.6.0896, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i121 ], [ %offsets.sroa.6.0896, %invoke.cont11 ], [ %offsets.sroa.6.0896, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i ], [ %offsets.sroa.6.0896, %_ZNK10reflection5Field6offsetEv.exit.i ], [ %offsets.sroa.6.0896, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i154 ], [ %offsets.sroa.6.0896, %_ZNK10reflection5Field6offsetEv.exit.i147 ]
+  %offsets.sroa.10.2 = phi ptr [ %offsets.sroa.10.0898, %sw.epilog183 ], [ %offsets.sroa.10.0898, %invoke.cont9 ], [ %add.ptr19.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %offsets.sroa.10.0898, %if.then.i ], [ %offsets.sroa.10.0898, %invoke.cont7 ], [ %offsets.sroa.10.0898, %invoke.cont13 ], [ %offsets.sroa.10.0898, %invoke.cont36 ], [ %offsets.sroa.10.0898, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i121 ], [ %offsets.sroa.10.0898, %invoke.cont11 ], [ %offsets.sroa.10.0898, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i ], [ %offsets.sroa.10.0898, %_ZNK10reflection5Field6offsetEv.exit.i ], [ %offsets.sroa.10.0898, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i154 ], [ %offsets.sroa.10.0898, %_ZNK10reflection5Field6offsetEv.exit.i147 ]
+  %offsets.sroa.0.2 = phi ptr [ %offsets.sroa.0.0907, %sw.epilog183 ], [ %offsets.sroa.0.0907, %invoke.cont9 ], [ %cond.i10.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %offsets.sroa.0.0907, %if.then.i ], [ %offsets.sroa.0.0907, %invoke.cont7 ], [ %offsets.sroa.0.0907, %invoke.cont13 ], [ %offsets.sroa.0.0907, %invoke.cont36 ], [ %offsets.sroa.0.0907, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i121 ], [ %offsets.sroa.0.0907, %invoke.cont11 ], [ %offsets.sroa.0.0907, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i ], [ %offsets.sroa.0.0907, %_ZNK10reflection5Field6offsetEv.exit.i ], [ %offsets.sroa.0.0907, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i6.i154 ], [ %offsets.sroa.0.0907, %_ZNK10reflection5Field6offsetEv.exit.i147 ]
+  %add.ptr.i510 = getelementptr inbounds i8, ptr %it.sroa.0.0900, i64 4
   %124 = load i32, ptr %cond.i.i.i, align 4, !noalias !25
   %mul.i.i = shl i32 %124, 2
   %idx.ext.i.i = zext i32 %mul.i.i to i64
@@ -3786,7 +3786,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %cleanup, %if.then.i
   ret i32 %retval.sroa.0.0
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %if.then.i.i.i447, %lpad134, %if.then.i.i.i, %lpad88, %lpad130, %lpad85
-  %offsets.sroa.0.0867 = phi ptr [ %offsets.sroa.0.0913, %lpad130 ], [ %offsets.sroa.0.0913, %lpad85 ], [ %offsets.sroa.0.0913, %lpad88 ], [ %offsets.sroa.0.0913, %if.then.i.i.i ], [ %offsets.sroa.0.0913, %lpad134 ], [ %offsets.sroa.0.0913, %if.then.i.i.i447 ], [ %offsets.sroa.0.0.lcssa, %lpad.loopexit ], [ %offsets.sroa.0.0913, %lpad.loopexit.split-lp.loopexit ], [ %offsets.sroa.0.0872, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %offsets.sroa.0.0867 = phi ptr [ %offsets.sroa.0.0907, %lpad130 ], [ %offsets.sroa.0.0907, %lpad85 ], [ %offsets.sroa.0.0907, %lpad88 ], [ %offsets.sroa.0.0907, %if.then.i.i.i ], [ %offsets.sroa.0.0907, %lpad134 ], [ %offsets.sroa.0.0907, %if.then.i.i.i447 ], [ %offsets.sroa.0.0.lcssa, %lpad.loopexit ], [ %offsets.sroa.0.0907, %lpad.loopexit.split-lp.loopexit ], [ %offsets.sroa.0.0872, %lpad.loopexit.split-lp.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %99, %lpad130 ], [ %92, %lpad85 ], [ %lpad.loopexit.split-lp850, %lpad88 ], [ %lpad.phi851980, %if.then.i.i.i ], [ %lpad.loopexit.split-lp847, %lpad134 ], [ %lpad.phi848991, %if.then.i.i.i447 ], [ %lpad.loopexit844, %lpad.loopexit ], [ %lpad.loopexit852, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp853, %lpad.loopexit.split-lp.loopexit.split-lp ]
   %tobool.not.i.i.i756 = icmp eq ptr %offsets.sroa.0.0867, null
   br i1 %tobool.not.i.i.i756, label %_ZNSt6vectorIjSaIjEED2Ev.exit758, label %if.then.i.i.i757

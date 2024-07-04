@@ -5460,8 +5460,8 @@ for.body93.lr.ph.i:                               ; preds = %if.end89.i
   br label %for.body93.i
 
 for.body93.i:                                     ; preds = %for.inc280.i, %for.body93.lr.ph.i
-  %ActivePositionalArg.0991.i = phi ptr [ null, %for.body93.lr.ph.i ], [ %ActivePositionalArg.2.ph.i, %for.inc280.i ]
-  %DashDashFound.0988.i = phi i1 [ false, %for.body93.lr.ph.i ], [ %DashDashFound.1.ph.i, %for.inc280.i ]
+  %DashDashFound.0991.i = phi i1 [ false, %for.body93.lr.ph.i ], [ %DashDashFound.1.ph.i, %for.inc280.i ]
+  %ActivePositionalArg.0988.i = phi ptr [ null, %for.body93.lr.ph.i ], [ %ActivePositionalArg.2.ph.i, %for.inc280.i ]
   %i90.promoted.i = phi i32 [ %FirstArg.0.i, %for.body93.lr.ph.i ], [ %inc281.i, %for.inc280.i ]
   %ErrorParsing.3985.i = phi i1 [ %ErrorParsing.2.i, %for.body93.lr.ph.i ], [ %ErrorParsing.8.ph.i, %for.inc280.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %NearestHandlerString.i) #27
@@ -5476,22 +5476,22 @@ lor.lhs.false.i:                                  ; preds = %for.body93.i
   %arrayidx101.i = getelementptr i8, ptr %50, i64 1
   %52 = load i8, ptr %arrayidx101.i, align 1
   %cmp103.i = icmp eq i8 %52, 0
-  %brmerge.i = select i1 %cmp103.i, i1 true, i1 %DashDashFound.0988.i
+  %brmerge.i = select i1 %cmp103.i, i1 true, i1 %DashDashFound.0991.i
   br i1 %brmerge.i, label %if.then106.i, label %land.lhs.true147.i
 
 if.then106.i:                                     ; preds = %lor.lhs.false.i, %for.body93.i
-  %tobool107.not.i = icmp eq ptr %ActivePositionalArg.0991.i, null
+  %tobool107.not.i = icmp eq ptr %ActivePositionalArg.0988.i, null
   br i1 %tobool107.not.i, label %if.end113.i, label %cond.true.i509.split.i
 
 cond.true.i509.split.i:                           ; preds = %if.then106.i
   %call.i510.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #31
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %Dummy.i248.i)
   store i32 %i90.promoted.i, ptr %Dummy.i248.i, align 4
-  %ArgStr.i249.i = getelementptr inbounds i8, ptr %ActivePositionalArg.0991.i, i64 24
+  %ArgStr.i249.i = getelementptr inbounds i8, ptr %ActivePositionalArg.0988.i, i64 24
   %agg.tmp.sroa.0.0.copyload.i250.i = load ptr, ptr %ArgStr.i249.i, align 8
-  %agg.tmp.sroa.2.0.ArgStr.sroa_idx.i251.i = getelementptr inbounds i8, ptr %ActivePositionalArg.0991.i, i64 32
+  %agg.tmp.sroa.2.0.ArgStr.sroa_idx.i251.i = getelementptr inbounds i8, ptr %ActivePositionalArg.0988.i, i64 32
   %agg.tmp.sroa.2.0.copyload.i252.i = load i64, ptr %agg.tmp.sroa.2.0.ArgStr.sroa_idx.i251.i, align 8
-  %call.i253.i = call fastcc noundef zeroext i1 @_ZL13ProvideOptionPN4llvh2cl6OptionENS_9StringRefES3_iPKPKcRi(ptr noundef nonnull %ActivePositionalArg.0991.i, ptr %agg.tmp.sroa.0.0.copyload.i250.i, i64 %agg.tmp.sroa.2.0.copyload.i252.i, ptr nonnull %50, i64 %call.i510.i, i32 noundef 0, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %Dummy.i248.i)
+  %call.i253.i = call fastcc noundef zeroext i1 @_ZL13ProvideOptionPN4llvh2cl6OptionENS_9StringRefES3_iPKPKcRi(ptr noundef nonnull %ActivePositionalArg.0988.i, ptr %agg.tmp.sroa.0.0.copyload.i250.i, i64 %agg.tmp.sroa.2.0.copyload.i252.i, ptr nonnull %50, i64 %call.i510.i, i32 noundef 0, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %Dummy.i248.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %Dummy.i248.i)
   br label %for.inc280.i
 
@@ -5595,11 +5595,11 @@ land.lhs.true153.i:                               ; preds = %land.lhs.true147.i
   br i1 %cmp158.i, label %for.inc280.i, label %if.else162.i
 
 if.else162.i:                                     ; preds = %land.lhs.true153.i, %land.lhs.true147.i
-  %tobool163.not.i = icmp eq ptr %ActivePositionalArg.0991.i, null
+  %tobool163.not.i = icmp eq ptr %ActivePositionalArg.0988.i, null
   br i1 %tobool163.not.i, label %if.else189.i, label %land.lhs.true164.i
 
 land.lhs.true164.i:                               ; preds = %if.else162.i
-  %Misc.i.i = getelementptr inbounds i8, ptr %ActivePositionalArg.0991.i, i64 12
+  %Misc.i.i = getelementptr inbounds i8, ptr %ActivePositionalArg.0988.i, i64 12
   %bf.load.i.i = load i16, ptr %Misc.i.i, align 4
   %69 = and i16 %bf.load.i.i, 1024
   %tobool166.not.i = icmp eq i16 %69, 0
@@ -5699,11 +5699,11 @@ if.then183.i:                                     ; preds = %while.body.i, %lor.
 if.then183.split.i:                               ; preds = %if.then183.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %Dummy.i291.i)
   store i32 %78, ptr %Dummy.i291.i, align 4
-  %ArgStr.i292.i = getelementptr inbounds i8, ptr %ActivePositionalArg.0991.i, i64 24
+  %ArgStr.i292.i = getelementptr inbounds i8, ptr %ActivePositionalArg.0988.i, i64 24
   %agg.tmp.sroa.0.0.copyload.i293.i = load ptr, ptr %ArgStr.i292.i, align 8
-  %agg.tmp.sroa.2.0.ArgStr.sroa_idx.i294.i = getelementptr inbounds i8, ptr %ActivePositionalArg.0991.i, i64 32
+  %agg.tmp.sroa.2.0.ArgStr.sroa_idx.i294.i = getelementptr inbounds i8, ptr %ActivePositionalArg.0988.i, i64 32
   %agg.tmp.sroa.2.0.copyload.i295.i = load i64, ptr %agg.tmp.sroa.2.0.ArgStr.sroa_idx.i294.i, align 8
-  %call.i296.i = call fastcc noundef zeroext i1 @_ZL13ProvideOptionPN4llvh2cl6OptionENS_9StringRefES3_iPKPKcRi(ptr noundef nonnull %ActivePositionalArg.0991.i, ptr %agg.tmp.sroa.0.0.copyload.i293.i, i64 %agg.tmp.sroa.2.0.copyload.i295.i, ptr null, i64 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %Dummy.i291.i)
+  %call.i296.i = call fastcc noundef zeroext i1 @_ZL13ProvideOptionPN4llvh2cl6OptionENS_9StringRefES3_iPKPKcRi(ptr noundef nonnull %ActivePositionalArg.0988.i, ptr %agg.tmp.sroa.0.0.copyload.i293.i, i64 %agg.tmp.sroa.2.0.copyload.i295.i, ptr null, i64 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %Dummy.i291.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %Dummy.i291.i)
   br label %for.inc280.i
 
@@ -5711,11 +5711,11 @@ cond.true.i549.split.i:                           ; preds = %if.then183.i
   %call.i550.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %79) #31
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %Dummy.i297.i)
   store i32 %78, ptr %Dummy.i297.i, align 4
-  %ArgStr.i298.i = getelementptr inbounds i8, ptr %ActivePositionalArg.0991.i, i64 24
+  %ArgStr.i298.i = getelementptr inbounds i8, ptr %ActivePositionalArg.0988.i, i64 24
   %agg.tmp.sroa.0.0.copyload.i299.i = load ptr, ptr %ArgStr.i298.i, align 8
-  %agg.tmp.sroa.2.0.ArgStr.sroa_idx.i300.i = getelementptr inbounds i8, ptr %ActivePositionalArg.0991.i, i64 32
+  %agg.tmp.sroa.2.0.ArgStr.sroa_idx.i300.i = getelementptr inbounds i8, ptr %ActivePositionalArg.0988.i, i64 32
   %agg.tmp.sroa.2.0.copyload.i301.i = load i64, ptr %agg.tmp.sroa.2.0.ArgStr.sroa_idx.i300.i, align 8
-  %call.i302.i = call fastcc noundef zeroext i1 @_ZL13ProvideOptionPN4llvh2cl6OptionENS_9StringRefES3_iPKPKcRi(ptr noundef nonnull %ActivePositionalArg.0991.i, ptr %agg.tmp.sroa.0.0.copyload.i299.i, i64 %agg.tmp.sroa.2.0.copyload.i301.i, ptr nonnull %79, i64 %call.i550.i, i32 noundef 0, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %Dummy.i297.i)
+  %call.i302.i = call fastcc noundef zeroext i1 @_ZL13ProvideOptionPN4llvh2cl6OptionENS_9StringRefES3_iPKPKcRi(ptr noundef nonnull %ActivePositionalArg.0988.i, ptr %agg.tmp.sroa.0.0.copyload.i299.i, i64 %agg.tmp.sroa.2.0.copyload.i301.i, ptr nonnull %79, i64 %call.i550.i, i32 noundef 0, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %Dummy.i297.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %Dummy.i297.i)
   br label %for.inc280.i
 
@@ -6143,13 +6143,13 @@ _ZNK4llvh2cl6Option20getValueExpectedFlagEv.exit.i.i: ; preds = %cond.false.i.i.
 
 for.body17.i.i:                                   ; preds = %_ZNK4llvh2cl6Option20getValueExpectedFlagEv.exit.i.i, %for.inc.i384.i
   %Best.167.i.i = phi ptr [ %Best.2.i.i, %for.inc.i384.i ], [ %Best.072.i.i, %_ZNK4llvh2cl6Option20getValueExpectedFlagEv.exit.i.i ]
-  %BestDistance.166.i.i = phi i32 [ %BestDistance.2.i.i, %for.inc.i384.i ], [ %BestDistance.071.i.i, %_ZNK4llvh2cl6Option20getValueExpectedFlagEv.exit.i.i ]
-  %__begin2.065.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i384.i ], [ %123, %_ZNK4llvh2cl6Option20getValueExpectedFlagEv.exit.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Name.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__begin2.065.i.i, i64 16, i1 false)
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i362.i, ptr noundef nonnull align 8 dereferenceable(16) %__begin2.065.i.i, i64 16, i1 false)
-  %call18.i.i = call noundef i32 @_ZNK4llvh9StringRef13edit_distanceES0_bj(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i362.i, ptr %Flag.sroa.0.0.copyload.i.i, i64 %Flag.sroa.2.0.copyload.i.i, i1 noundef zeroext true, i32 noundef %BestDistance.166.i.i) #27
+  %__begin2.066.i.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i384.i ], [ %123, %_ZNK4llvh2cl6Option20getValueExpectedFlagEv.exit.i.i ]
+  %BestDistance.165.i.i = phi i32 [ %BestDistance.2.i.i, %for.inc.i384.i ], [ %BestDistance.071.i.i, %_ZNK4llvh2cl6Option20getValueExpectedFlagEv.exit.i.i ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Name.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__begin2.066.i.i, i64 16, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i362.i, ptr noundef nonnull align 8 dereferenceable(16) %__begin2.066.i.i, i64 16, i1 false)
+  %call18.i.i = call noundef i32 @_ZNK4llvh9StringRef13edit_distanceES0_bj(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i362.i, ptr %Flag.sroa.0.0.copyload.i.i, i64 %Flag.sroa.2.0.copyload.i.i, i1 noundef zeroext true, i32 noundef %BestDistance.165.i.i) #27
   %tobool19.not.i.i = icmp eq ptr %Best.167.i.i, null
-  %cmp20.i.i = icmp ult i32 %call18.i.i, %BestDistance.166.i.i
+  %cmp20.i.i = icmp ult i32 %call18.i.i, %BestDistance.165.i.i
   %or.cond.i.i = or i1 %tobool19.not.i.i, %cmp20.i.i
   br i1 %or.cond.i.i, label %if.then21.i.i, label %for.inc.i384.i
 
@@ -6199,9 +6199,9 @@ for.inc.sink.split.i.i:                           ; preds = %_ZN4llvhplERKNS_5Tw
   br label %for.inc.i384.i
 
 for.inc.i384.i:                                   ; preds = %for.inc.sink.split.i.i, %for.body17.i.i
-  %BestDistance.2.i.i = phi i32 [ %BestDistance.166.i.i, %for.body17.i.i ], [ %call18.i.i, %for.inc.sink.split.i.i ]
+  %BestDistance.2.i.i = phi i32 [ %BestDistance.165.i.i, %for.body17.i.i ], [ %call18.i.i, %for.inc.sink.split.i.i ]
   %Best.2.i.i = phi ptr [ %Best.167.i.i, %for.body17.i.i ], [ %114, %for.inc.sink.split.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.065.i.i, i64 16
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.066.i.i, i64 16
   %cmp16.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i383.i
   br i1 %cmp16.not.i.i, label %for.end.loopexit.i.i, label %for.body17.i.i
 
@@ -6524,8 +6524,8 @@ cleanup.i:                                        ; preds = %_ZN4llvh23SmallVect
 
 for.inc280.i:                                     ; preds = %_ZN4llvh9StringRefC2EPKc.exit581.i, %if.else269.i, %if.then265.i, %if.then259.i, %if.then4.i.i506.i, %if.then.i.i509.i, %_ZN4llvh11raw_ostreamlsEPKc.exit473.i, %cond.true.i549.split.i, %if.then183.split.i, %land.lhs.true153.i, %land.lhs.true124.i, %_ZN4llvh23SmallVectorTemplateBaseISt4pairINS_9StringRefEjELb1EE9push_backERKS3_.exit.i, %cond.true.i509.split.i
   %ErrorParsing.8.ph.i = phi i1 [ true, %_ZN4llvh11raw_ostreamlsEPKc.exit473.i ], [ true, %if.then.i.i509.i ], [ true, %if.then4.i.i506.i ], [ %ErrorParsing.3985.i, %cond.true.i549.split.i ], [ %ErrorParsing.3985.i, %if.then183.split.i ], [ %ErrorParsing.3985.i, %land.lhs.true153.i ], [ %ErrorParsing.3985.i, %cond.true.i509.split.i ], [ %ErrorParsing.3985.i, %land.lhs.true124.i ], [ %ErrorParsing.3985.i, %_ZN4llvh23SmallVectorTemplateBaseISt4pairINS_9StringRefEjELb1EE9push_backERKS3_.exit.i ], [ %162, %if.else269.i ], [ true, %if.then265.i ], [ %ErrorParsing.7.i, %if.then259.i ], [ %ErrorParsing.7.ph1076.i, %_ZN4llvh9StringRefC2EPKc.exit581.i ]
-  %DashDashFound.1.ph.i = phi i1 [ %DashDashFound.0988.i, %_ZN4llvh11raw_ostreamlsEPKc.exit473.i ], [ %DashDashFound.0988.i, %if.then.i.i509.i ], [ %DashDashFound.0988.i, %if.then4.i.i506.i ], [ false, %cond.true.i549.split.i ], [ false, %if.then183.split.i ], [ true, %land.lhs.true153.i ], [ %DashDashFound.0988.i, %cond.true.i509.split.i ], [ %DashDashFound.0988.i, %land.lhs.true124.i ], [ %DashDashFound.0988.i, %_ZN4llvh23SmallVectorTemplateBaseISt4pairINS_9StringRefEjELb1EE9push_backERKS3_.exit.i ], [ false, %if.else269.i ], [ false, %if.then265.i ], [ false, %if.then259.i ], [ %DashDashFound.0988.i, %_ZN4llvh9StringRefC2EPKc.exit581.i ]
-  %ActivePositionalArg.2.ph.i = phi ptr [ %ActivePositionalArg.0991.i, %_ZN4llvh11raw_ostreamlsEPKc.exit473.i ], [ %ActivePositionalArg.0991.i, %if.then.i.i509.i ], [ %ActivePositionalArg.0991.i, %if.then4.i.i506.i ], [ %ActivePositionalArg.0991.i, %cond.true.i549.split.i ], [ %ActivePositionalArg.0991.i, %if.then183.split.i ], [ %ActivePositionalArg.0991.i, %land.lhs.true153.i ], [ %ActivePositionalArg.0991.i, %cond.true.i509.split.i ], [ null, %land.lhs.true124.i ], [ null, %_ZN4llvh23SmallVectorTemplateBaseISt4pairINS_9StringRefEjELb1EE9push_backERKS3_.exit.i ], [ %ActivePositionalArg.0991.i, %if.else269.i ], [ %Handler.1.i, %if.then265.i ], [ %Handler.1.i, %if.then259.i ], [ %ActivePositionalArg.0991.i, %_ZN4llvh9StringRefC2EPKc.exit581.i ]
+  %ActivePositionalArg.2.ph.i = phi ptr [ %ActivePositionalArg.0988.i, %_ZN4llvh11raw_ostreamlsEPKc.exit473.i ], [ %ActivePositionalArg.0988.i, %if.then.i.i509.i ], [ %ActivePositionalArg.0988.i, %if.then4.i.i506.i ], [ %ActivePositionalArg.0988.i, %cond.true.i549.split.i ], [ %ActivePositionalArg.0988.i, %if.then183.split.i ], [ %ActivePositionalArg.0988.i, %land.lhs.true153.i ], [ %ActivePositionalArg.0988.i, %cond.true.i509.split.i ], [ null, %land.lhs.true124.i ], [ null, %_ZN4llvh23SmallVectorTemplateBaseISt4pairINS_9StringRefEjELb1EE9push_backERKS3_.exit.i ], [ %ActivePositionalArg.0988.i, %if.else269.i ], [ %Handler.1.i, %if.then265.i ], [ %Handler.1.i, %if.then259.i ], [ %ActivePositionalArg.0988.i, %_ZN4llvh9StringRefC2EPKc.exit581.i ]
+  %DashDashFound.1.ph.i = phi i1 [ %DashDashFound.0991.i, %_ZN4llvh11raw_ostreamlsEPKc.exit473.i ], [ %DashDashFound.0991.i, %if.then.i.i509.i ], [ %DashDashFound.0991.i, %if.then4.i.i506.i ], [ false, %cond.true.i549.split.i ], [ false, %if.then183.split.i ], [ true, %land.lhs.true153.i ], [ %DashDashFound.0991.i, %cond.true.i509.split.i ], [ %DashDashFound.0991.i, %land.lhs.true124.i ], [ %DashDashFound.0991.i, %_ZN4llvh23SmallVectorTemplateBaseISt4pairINS_9StringRefEjELb1EE9push_backERKS3_.exit.i ], [ false, %if.else269.i ], [ false, %if.then265.i ], [ false, %if.then259.i ], [ %DashDashFound.0991.i, %_ZN4llvh9StringRefC2EPKc.exit581.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %NearestHandlerString.i) #27
   %163 = load i32, ptr %i90.i, align 4
   %inc281.i = add nsw i32 %163, 1
@@ -6875,11 +6875,11 @@ if.then318.i:                                     ; preds = %if.else316.i
   br i1 %cmp325.not1016.i, label %if.end444.i, label %for.body326.i
 
 for.body326.i:                                    ; preds = %if.then318.i, %for.inc363.i
-  %NumPositionalRequired.31019.i = phi i32 [ %NumPositionalRequired.4.i, %for.inc363.i ], [ %NumPositionalRequired.2.i, %if.then318.i ]
-  %i321.01018.i = phi i64 [ %inc364.i, %for.inc363.i ], [ 0, %if.then318.i ]
-  %ValNo.01017.i = phi i32 [ %ValNo.2.lcssa.i, %for.inc363.i ], [ 0, %if.then318.i ]
+  %i321.01019.i = phi i64 [ %inc364.i, %for.inc363.i ], [ 0, %if.then318.i ]
+  %ValNo.01018.i = phi i32 [ %ValNo.2.lcssa.i, %for.inc363.i ], [ 0, %if.then318.i ]
+  %NumPositionalRequired.31017.i = phi i32 [ %NumPositionalRequired.4.i, %for.inc363.i ], [ %NumPositionalRequired.2.i, %if.then318.i ]
   %205 = load ptr, ptr %PositionalOpts30.i, align 8
-  %arrayidx.i674.i = getelementptr inbounds ptr, ptr %205, i64 %i321.01018.i
+  %arrayidx.i674.i = getelementptr inbounds ptr, ptr %205, i64 %i321.01019.i
   %206 = load ptr, ptr %arrayidx.i674.i, align 8
   %207 = getelementptr i8, ptr %206, i64 12
   %.val180.i = load i16, ptr %207, align 4
@@ -6888,7 +6888,7 @@ for.body326.i:                                    ; preds = %if.then318.i, %for.
   br i1 %spec.select.i744.i, label %if.then329.i, label %if.end338.i
 
 if.then329.i:                                     ; preds = %for.body326.i
-  %conv332.i = zext i32 %ValNo.01017.i to i64
+  %conv332.i = zext i32 %ValNo.01018.i to i64
   %208 = load ptr, ptr %PositionalVals.i, align 8
   %arrayidx.i730.i = getelementptr inbounds %"struct.std::pair.160", ptr %208, i64 %conv332.i
   %agg.tmp331.sroa.0.0.copyload.i = load ptr, ptr %arrayidx.i730.i, align 8
@@ -6904,10 +6904,10 @@ if.then329.i:                                     ; preds = %for.body326.i
   %agg.tmp.sroa.2.0.copyload.i749.i = load i64, ptr %agg.tmp.sroa.2.0.ArgStr.sroa_idx.i748.i, align 8
   %call.i750.i = call fastcc noundef zeroext i1 @_ZL13ProvideOptionPN4llvh2cl6OptionENS_9StringRefES3_iPKPKcRi(ptr noundef nonnull %206, ptr %agg.tmp.sroa.0.0.copyload.i747.i, i64 %agg.tmp.sroa.2.0.copyload.i749.i, ptr %agg.tmp331.sroa.0.0.copyload.i, i64 %agg.tmp331.sroa.2.0.copyload.i, i32 noundef 0, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %Dummy.i745.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %Dummy.i745.i)
-  %inc337.i = add i32 %ValNo.01017.i, 1
-  %dec.i = add i32 %NumPositionalRequired.31019.i, -1
+  %inc337.i = add i32 %ValNo.01018.i, 1
+  %dec.i = add i32 %NumPositionalRequired.31017.i, -1
   %.pre1048.i = load ptr, ptr %PositionalOpts30.i, align 8
-  %arrayidx.i662.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre1048.i, i64 %i321.01018.i
+  %arrayidx.i662.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre1048.i, i64 %i321.01019.i
   %.pre1049.i = load ptr, ptr %arrayidx.i662.phi.trans.insert.i, align 8
   %Occurrences.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre1049.i, i64 12
   %bf.load.i751.pre.i = load i16, ptr %Occurrences.i.phi.trans.insert.i, align 4
@@ -6915,8 +6915,8 @@ if.then329.i:                                     ; preds = %for.body326.i
 
 if.end338.i:                                      ; preds = %if.then329.i, %for.body326.i
   %bf.load.i751.i = phi i16 [ %bf.load.i751.pre.i, %if.then329.i ], [ %.val180.i, %for.body326.i ]
-  %ValNo.1.i = phi i32 [ %inc337.i, %if.then329.i ], [ %ValNo.01017.i, %for.body326.i ]
-  %NumPositionalRequired.4.i = phi i32 [ %dec.i, %if.then329.i ], [ %NumPositionalRequired.31019.i, %for.body326.i ]
+  %NumPositionalRequired.4.i = phi i32 [ %dec.i, %if.then329.i ], [ %NumPositionalRequired.31017.i, %for.body326.i ]
+  %ValNo.1.i = phi i32 [ %inc337.i, %if.then329.i ], [ %ValNo.01018.i, %for.body326.i ]
   %bf.clear.i752.i = and i16 %bf.load.i751.i, 7
   %cmp341.i = icmp eq i16 %bf.clear.i752.i, 2
   %sub1010.i = sub i32 %164, %ValNo.1.i
@@ -6927,7 +6927,7 @@ if.end338.i:                                      ; preds = %if.then329.i, %for.
 while.body348.i:                                  ; preds = %if.end338.i, %while.body348.i
   %ValNo.21013.i = phi i32 [ %inc361.i, %while.body348.i ], [ %ValNo.1.i, %if.end338.i ]
   %210 = load ptr, ptr %PositionalOpts30.i, align 8
-  %arrayidx.i656.i = getelementptr inbounds ptr, ptr %210, i64 %i321.01018.i
+  %arrayidx.i656.i = getelementptr inbounds ptr, ptr %210, i64 %i321.01019.i
   %211 = load ptr, ptr %arrayidx.i656.i, align 8
   %Occurrences.i754.i = getelementptr inbounds i8, ptr %211, i64 12
   %bf.load.i755.i = load i16, ptr %Occurrences.i754.i, align 4
@@ -6957,7 +6957,7 @@ while.body348.i:                                  ; preds = %if.end338.i, %while
 
 for.inc363.i:                                     ; preds = %while.body348.i, %if.end338.i
   %ValNo.2.lcssa.i = phi i32 [ %ValNo.1.i, %if.end338.i ], [ %inc361.i, %while.body348.i ]
-  %inc364.i = add nuw nsw i64 %i321.01018.i, 1
+  %inc364.i = add nuw nsw i64 %i321.01019.i, 1
   %cmp325.not.i = icmp eq i64 %inc364.i, %conv.i742.i
   br i1 %cmp325.not.i, label %if.end444.i, label %for.body326.i, !llvm.loop !117
 
@@ -7119,8 +7119,8 @@ for.cond450.loopexit.i:                           ; preds = %while.cond.i.i.i
 
 for.body452.i:                                    ; preds = %for.cond450.loopexit.i, %for.body452.lr.ph.i
   %235 = phi ptr [ %.pre1054.i, %for.body452.lr.ph.i ], [ %238, %for.cond450.loopexit.i ]
-  %ErrorParsing.151022.i = phi i1 [ %ErrorParsing.14.i, %for.body452.lr.ph.i ], [ %ErrorParsing.16.i, %for.cond450.loopexit.i ]
-  %__begin1.sroa.0.01021.i = phi ptr [ %retval.sroa.0.1.i.i, %for.body452.lr.ph.i ], [ %storemerge.i.i, %for.cond450.loopexit.i ]
+  %__begin1.sroa.0.01022.i = phi ptr [ %retval.sroa.0.1.i.i, %for.body452.lr.ph.i ], [ %storemerge.i.i, %for.cond450.loopexit.i ]
+  %ErrorParsing.151021.i = phi i1 [ %ErrorParsing.14.i, %for.body452.lr.ph.i ], [ %ErrorParsing.16.i, %for.cond450.loopexit.i ]
   %second455.i = getelementptr inbounds i8, ptr %235, i64 8
   %236 = load ptr, ptr %second455.i, align 8
   %Occurrences.i796.i = getelementptr inbounds i8, ptr %236, i64 12
@@ -7144,11 +7144,11 @@ if.then461.i:                                     ; preds = %sw.bb457.i
   br label %for.inc470.i
 
 for.inc470.i:                                     ; preds = %if.then461.i, %sw.bb457.i, %for.body452.i
-  %ErrorParsing.16.i = phi i1 [ true, %if.then461.i ], [ %ErrorParsing.151022.i, %sw.bb457.i ], [ %ErrorParsing.151022.i, %for.body452.i ]
+  %ErrorParsing.16.i = phi i1 [ true, %if.then461.i ], [ %ErrorParsing.151021.i, %sw.bb457.i ], [ %ErrorParsing.151021.i, %for.body452.i ]
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i.backedge, %for.inc470.i
-  %.pn.i.i = phi ptr [ %__begin1.sroa.0.01021.i, %for.inc470.i ], [ %storemerge.i.i, %while.cond.i.i.i.backedge ]
+  %.pn.i.i = phi ptr [ %__begin1.sroa.0.01022.i, %for.inc470.i ], [ %storemerge.i.i, %while.cond.i.i.i.backedge ]
   %storemerge.i.i = getelementptr inbounds i8, ptr %.pn.i.i, i64 8
   %238 = load ptr, ptr %storemerge.i.i, align 8
   %magicptr.i.i.i = ptrtoint ptr %238 to i64

@@ -49,8 +49,8 @@ define i16 @f16_rem(i16 %0, i16 %1) local_unnamed_addr #0 {
   br label %25
 
 25:                                               ; preds = %18, %21
-  %.088 = phi i64 [ %24, %21 ], [ %12, %18 ]
-  %.087 = phi i8 [ %23, %21 ], [ %11, %18 ]
+  %.095 = phi i8 [ %23, %21 ], [ %11, %18 ]
+  %.093 = phi i64 [ %24, %21 ], [ %12, %18 ]
   %.not109 = icmp eq i8 %6, 0
   br i1 %.not109, label %26, label %31
 
@@ -65,12 +65,12 @@ define i16 @f16_rem(i16 %0, i16 %1) local_unnamed_addr #0 {
   br label %31
 
 31:                                               ; preds = %27, %25
-  %.086 = phi i64 [ %7, %25 ], [ %30, %27 ]
+  %.088 = phi i64 [ %7, %25 ], [ %30, %27 ]
   %.0 = phi i8 [ %6, %25 ], [ %29, %27 ]
-  %32 = trunc i64 %.086 to i16
+  %32 = trunc i64 %.088 to i16
   %33 = or i16 %32, 1024
-  %34 = or i64 %.088, 1024
-  %35 = sub i8 %.0, %.087
+  %34 = or i64 %.093, 1024
+  %35 = sub i8 %.0, %.095
   %36 = icmp slt i8 %35, 1
   br i1 %36, label %37, label %49
 
@@ -80,7 +80,7 @@ define i16 @f16_rem(i16 %0, i16 %1) local_unnamed_addr #0 {
 
 39:                                               ; preds = %37
   %40 = shl i64 %34, 3
-  %.not111 = icmp eq i8 %.0, %.087
+  %.not111 = icmp eq i8 %.0, %.095
   br i1 %.not111, label %43, label %41
 
 41:                                               ; preds = %39
@@ -113,22 +113,22 @@ define i16 @f16_rem(i16 %0, i16 %1) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %49, %.lr.ph
   %60 = phi i64 [ %67, %.lr.ph ], [ %58, %49 ]
-  %.095121 = phi i8 [ %64, %.lr.ph ], [ %54, %49 ]
+  %.090121 = phi i8 [ %64, %.lr.ph ], [ %54, %49 ]
   %61 = mul i64 %60, %55
   %62 = trunc i64 %61 to i16
   %63 = sub i16 0, %62
-  %64 = add nsw i8 %.095121, -29
+  %64 = add nsw i8 %.090121, -29
   %65 = zext i16 %63 to i64
   %66 = mul nuw nsw i64 %52, %65
   %67 = lshr i64 %66, 16
-  %68 = icmp ult i8 %.095121, 29
+  %68 = icmp ult i8 %.090121, 29
   br i1 %68, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %49
-  %.095.lcssa = phi i8 [ %54, %49 ], [ %64, %.lr.ph ]
   %.091.lcssa = phi i16 [ %53, %49 ], [ %63, %.lr.ph ]
+  %.090.lcssa = phi i8 [ %54, %49 ], [ %64, %.lr.ph ]
   %.lcssa120 = phi i64 [ %58, %49 ], [ %67, %.lr.ph ]
-  %69 = sext i8 %.095.lcssa to i32
+  %69 = sext i8 %.090.lcssa to i32
   %70 = trunc nuw i64 %.lcssa120 to i32
   %71 = and i32 %69, 31
   %72 = xor i32 %71, 31
@@ -144,16 +144,16 @@ define i16 @f16_rem(i16 %0, i16 %1) local_unnamed_addr #0 {
   br label %82
 
 82:                                               ; preds = %41, %46, %43, %._crit_edge
-  %.093 = phi i64 [ 0, %41 ], [ 1, %46 ], [ 0, %43 ], [ %74, %._crit_edge ]
+  %.194 = phi i64 [ %40, %41 ], [ %40, %46 ], [ %40, %43 ], [ %55, %._crit_edge ]
   %.192 = phi i16 [ %42, %41 ], [ %48, %46 ], [ %44, %43 ], [ %81, %._crit_edge ]
-  %.1 = phi i64 [ %40, %41 ], [ %40, %46 ], [ %40, %43 ], [ %55, %._crit_edge ]
-  %83 = trunc i64 %.1 to i16
+  %.089 = phi i64 [ 0, %41 ], [ 1, %46 ], [ 0, %43 ], [ %74, %._crit_edge ]
+  %83 = trunc i64 %.194 to i16
   br label %84
 
 84:                                               ; preds = %84, %82
-  %.194 = phi i64 [ %.093, %82 ], [ %85, %84 ]
   %.2 = phi i16 [ %.192, %82 ], [ %86, %84 ]
-  %85 = add i64 %.194, 1
+  %.1 = phi i64 [ %.089, %82 ], [ %85, %84 ]
+  %85 = add i64 %.1, 1
   %86 = sub i16 %.2, %83
   %.not112 = icmp sgt i16 %86, -1
   br i1 %.not112, label %84, label %87, !llvm.loop !4
@@ -165,7 +165,7 @@ define i16 @f16_rem(i16 %0, i16 %1) local_unnamed_addr #0 {
 
 89:                                               ; preds = %87
   %.not114 = icmp eq i16 %88, 0
-  %90 = and i64 %.194, 1
+  %90 = and i64 %.1, 1
   %.not115.not = icmp eq i64 %90, 0
   %or.cond118 = select i1 %.not114, i1 %.not115.not, i1 false
   br i1 %or.cond118, label %91, label %92
@@ -178,7 +178,7 @@ define i16 @f16_rem(i16 %0, i16 %1) local_unnamed_addr #0 {
   %spec.select = tail call i16 @llvm.abs.i16(i16 %.3, i1 false)
   %93 = xor i16 %.3, %0
   %spec.select119 = icmp slt i16 %93, 0
-  %94 = sext i8 %.087 to i64
+  %94 = sext i8 %.095 to i64
   %95 = zext i16 %spec.select to i64
   %96 = tail call i16 @softfloat_normRoundPackToF16(i1 noundef zeroext %spec.select119, i64 noundef %94, i64 noundef %95) #3
   br label %101

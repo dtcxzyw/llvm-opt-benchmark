@@ -1232,8 +1232,8 @@ if.else73:                                        ; preds = %if.end65
   br label %if.end75
 
 if.end75:                                         ; preds = %if.else73, %if.end71
-  %call68.pn = phi ptr [ %call68, %if.end71 ], [ %epctx, %if.else73 ]
   %stctx.0 = phi ptr [ %call68, %if.end71 ], [ null, %if.else73 ]
+  %call68.pn = phi ptr [ %call68, %if.end71 ], [ %epctx, %if.else73 ]
   %streamid.addr.0 = phi i32 [ %streamid, %if.end71 ], [ 0, %if.else73 ]
   %ring.0 = getelementptr inbounds i8, ptr %call68.pn, i64 16
   %48 = load i64, ptr %ring.0, align 8
@@ -3218,13 +3218,13 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end65
   %4 = phi i32 [ %2, %for.body.lr.ph ], [ %19, %if.end65 ]
-  %edtla.055 = phi i32 [ 0, %for.body.lr.ph ], [ %edtla.3, %if.end65 ]
-  %i.054 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end65 ]
-  %left.053 = phi i32 [ %3, %for.body.lr.ph ], [ %left.147, %if.end65 ]
-  %shortpkt.052 = phi i8 [ 0, %for.body.lr.ph ], [ %spec.select35, %if.end65 ]
-  %reported.051 = phi i1 [ false, %for.body.lr.ph ], [ %spec.select34, %if.end65 ]
+  %i.055 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end65 ]
+  %shortpkt.054 = phi i8 [ 0, %for.body.lr.ph ], [ %spec.select35, %if.end65 ]
+  %reported.053 = phi i1 [ false, %for.body.lr.ph ], [ %spec.select34, %if.end65 ]
+  %left.052 = phi i32 [ %3, %for.body.lr.ph ], [ %left.145, %if.end65 ]
+  %edtla.051 = phi i32 [ 0, %for.body.lr.ph ], [ %edtla.3, %if.end65 ]
   %5 = load ptr, ptr %trbs, align 8
-  %idxprom = sext i32 %i.054 to i64
+  %idxprom = sext i32 %i.055 to i64
   %arrayidx = getelementptr %struct.XHCITRB, ptr %5, i64 %idxprom
   %control = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %6 = load i32, ptr %control, align 4
@@ -3249,34 +3249,34 @@ sw.bb4:                                           ; preds = %for.body, %for.body
   %status5 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %8 = load i32, ptr %status5, align 8
   %and6 = and i32 %8, 131071
-  %cmp7 = icmp ugt i32 %and6, %left.053
+  %cmp7 = icmp ugt i32 %and6, %left.052
   br i1 %cmp7, label %if.then8, label %if.end13
 
 if.then8:                                         ; preds = %sw.bb4
   %9 = load i32, ptr %status9, align 8
   %cmp10 = icmp eq i32 %9, 1
-  %spec.select = select i1 %cmp10, i8 1, i8 %shortpkt.052
+  %spec.select = select i1 %cmp10, i8 1, i8 %shortpkt.054
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then8, %sw.bb4
-  %shortpkt.1 = phi i8 [ %shortpkt.052, %sw.bb4 ], [ %spec.select, %if.then8 ]
-  %chunk.0 = phi i32 [ %and6, %sw.bb4 ], [ %left.053, %if.then8 ]
-  %sub = sub i32 %left.053, %chunk.0
-  %add = add i32 %chunk.0, %edtla.055
+  %shortpkt.1 = phi i8 [ %shortpkt.054, %sw.bb4 ], [ %spec.select, %if.then8 ]
+  %chunk.0 = phi i32 [ %and6, %sw.bb4 ], [ %left.052, %if.then8 ]
+  %sub = sub i32 %left.052, %chunk.0
+  %add = add i32 %chunk.0, %edtla.051
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end13, %sw.bb, %for.body
-  %shortpkt.2 = phi i8 [ %shortpkt.052, %for.body ], [ %shortpkt.1, %if.end13 ], [ %shortpkt.052, %sw.bb ]
-  %left.1 = phi i32 [ %left.053, %for.body ], [ %sub, %if.end13 ], [ %left.053, %sw.bb ]
-  %edtla.1 = phi i32 [ %edtla.055, %for.body ], [ %add, %if.end13 ], [ %edtla.055, %sw.bb ]
+  %edtla.1 = phi i32 [ %edtla.051, %for.body ], [ %add, %if.end13 ], [ %edtla.051, %sw.bb ]
+  %left.1 = phi i32 [ %left.052, %for.body ], [ %sub, %if.end13 ], [ %left.052, %sw.bb ]
+  %shortpkt.2 = phi i8 [ %shortpkt.054, %for.body ], [ %shortpkt.1, %if.end13 ], [ %shortpkt.054, %sw.bb ]
   %chunk.1 = phi i32 [ 0, %for.body ], [ %chunk.0, %if.end13 ], [ %spec.store.select, %sw.bb ]
-  br i1 %reported.051, label %if.end65, label %land.lhs.true
+  br i1 %reported.053, label %if.end65, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body, %sw.epilog
   %chunk.149 = phi i32 [ %chunk.1, %sw.epilog ], [ 0, %for.body ]
-  %edtla.148 = phi i32 [ %edtla.1, %sw.epilog ], [ %edtla.055, %for.body ]
-  %left.146 = phi i32 [ %left.1, %sw.epilog ], [ %left.053, %for.body ]
-  %shortpkt.244 = phi i8 [ %shortpkt.2, %sw.epilog ], [ 0, %for.body ]
+  %shortpkt.247 = phi i8 [ %shortpkt.2, %sw.epilog ], [ 0, %for.body ]
+  %left.144 = phi i32 [ %left.1, %sw.epilog ], [ %left.052, %for.body ]
+  %edtla.143 = phi i32 [ %edtla.1, %sw.epilog ], [ %edtla.051, %for.body ]
   %and16 = and i32 %6, 32
   %tobool17.not = icmp eq i32 %and16, 0
   br i1 %tobool17.not, label %lor.lhs.false, label %land.lhs.true.if.then28_crit_edge
@@ -3286,7 +3286,7 @@ land.lhs.true.if.then28_crit_edge:                ; preds = %land.lhs.true
   br label %if.then28
 
 lor.lhs.false:                                    ; preds = %land.lhs.true
-  %tobool18 = trunc nuw i8 %shortpkt.244 to i1
+  %tobool18 = trunc nuw i8 %shortpkt.247 to i1
   %and21 = and i32 %6, 4
   %tobool22.not = icmp ne i32 %and21, 0
   %or.cond33.not = and i1 %tobool22.not, %tobool18
@@ -3295,7 +3295,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true
 
 lor.lhs.false23:                                  ; preds = %lor.lhs.false
   %cmp25 = icmp ne i32 %.pre56, 1
-  %cmp27 = icmp eq i32 %left.146, 0
+  %cmp27 = icmp eq i32 %left.144, 0
   %or.cond = select i1 %cmp25, i1 %cmp27, i1 false
   br i1 %or.cond, label %if.then28, label %if.end65
 
@@ -3320,7 +3320,7 @@ if.then28:                                        ; preds = %land.lhs.true.if.th
   %15 = load i64, ptr %addr, align 8
   store i64 %15, ptr %ptr, align 8
   %cmp38 = icmp eq i32 %10, 1
-  %tobool41 = trunc nuw i8 %shortpkt.244 to i1
+  %tobool41 = trunc nuw i8 %shortpkt.247 to i1
   %cond = select i1 %tobool41, i32 13, i32 1
   %storemerge = select i1 %cmp38, i32 %cond, i32 %10
   store i32 %storemerge, ptr %ccode44, align 4
@@ -3332,12 +3332,12 @@ if.then51:                                        ; preds = %if.then28
   %17 = load i64, ptr %arrayidx, align 8
   store i64 %17, ptr %ptr, align 8
   store i32 4, ptr %flags, align 4
-  %and54 = and i32 %edtla.148, 16777215
+  %and54 = and i32 %edtla.143, 16777215
   store i32 %and54, ptr %length, align 8
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then51, %if.then28
-  %edtla.2 = phi i32 [ 0, %if.then51 ], [ %edtla.148, %if.then28 ]
+  %edtla.2 = phi i32 [ 0, %if.then51 ], [ %edtla.143, %if.then28 ]
   %shr58 = lshr i32 %14, 22
   call fastcc void @xhci_event(ptr noundef %1, ptr noundef nonnull %event, i32 noundef %shr58)
   %18 = load i32, ptr %status9, align 8
@@ -3352,15 +3352,15 @@ if.end56.if.end65_crit_edge:                      ; preds = %if.end56
 if.end65:                                         ; preds = %if.end56.if.end65_crit_edge, %lor.lhs.false23, %sw.epilog
   %19 = phi i32 [ %4, %sw.epilog ], [ %.pre58, %if.end56.if.end65_crit_edge ], [ %4, %lor.lhs.false23 ]
   %20 = phi i32 [ %6, %sw.epilog ], [ %.pre57, %if.end56.if.end65_crit_edge ], [ %6, %lor.lhs.false23 ]
-  %left.147 = phi i32 [ %left.1, %sw.epilog ], [ %left.146, %if.end56.if.end65_crit_edge ], [ %left.146, %lor.lhs.false23 ]
-  %shortpkt.245 = phi i8 [ %shortpkt.2, %sw.epilog ], [ %shortpkt.244, %if.end56.if.end65_crit_edge ], [ %shortpkt.244, %lor.lhs.false23 ]
+  %shortpkt.248 = phi i8 [ %shortpkt.2, %sw.epilog ], [ %shortpkt.247, %if.end56.if.end65_crit_edge ], [ %shortpkt.247, %lor.lhs.false23 ]
+  %left.145 = phi i32 [ %left.1, %sw.epilog ], [ %left.144, %if.end56.if.end65_crit_edge ], [ %left.144, %lor.lhs.false23 ]
+  %edtla.3 = phi i32 [ %edtla.1, %sw.epilog ], [ %edtla.2, %if.end56.if.end65_crit_edge ], [ %edtla.143, %lor.lhs.false23 ]
   %reported.2 = phi i1 [ true, %sw.epilog ], [ true, %if.end56.if.end65_crit_edge ], [ false, %lor.lhs.false23 ]
-  %edtla.3 = phi i32 [ %edtla.1, %sw.epilog ], [ %edtla.2, %if.end56.if.end65_crit_edge ], [ %edtla.148, %lor.lhs.false23 ]
   %21 = and i32 %20, 64512
   %cond1 = icmp ne i32 %21, 2048
   %spec.select34 = and i1 %cond1, %reported.2
-  %spec.select35 = select i1 %cond1, i8 %shortpkt.245, i8 0
-  %inc = add nuw i32 %i.054, 1
+  %spec.select35 = select i1 %cond1, i8 %shortpkt.248, i8 0
+  %inc = add nuw i32 %i.055, 1
   %cmp = icmp ult i32 %inc, %19
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !15
 

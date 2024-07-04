@@ -3961,9 +3961,9 @@ default.unreachable59:                            ; preds = %3
   unreachable
 
 7:                                                ; preds = %53, %55, %60
-  %.sroa.033.0 = phi i64 [ 2, %60 ], [ 0, %53 ], [ 1, %55 ]
-  %.sroa.4.0 = phi ptr [ %62, %60 ], [ %37, %53 ], [ %37, %55 ]
   %.sroa.7.0 = phi ptr [ undef, %60 ], [ @anon.4e3d9daafcce16016cc0c68d602f6e14.59, %53 ], [ @anon.4e3d9daafcce16016cc0c68d602f6e14.60, %55 ]
+  %.sroa.4.0 = phi ptr [ %62, %60 ], [ %37, %53 ], [ %37, %55 ]
+  %.sroa.033.0 = phi i64 [ 2, %60 ], [ 0, %53 ], [ 1, %55 ]
   store i64 %.sroa.033.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -5031,8 +5031,8 @@ default.unreachable152:                           ; preds = %3
   unreachable
 
 10:                                               ; preds = %65, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$std..time..SystemTime$GT$$C$std..io..error..Error$GT$$GT$17h03b93c172cb3d03aE.exit.i54", %77
-  %.sroa.1074.sroa.15.0136 = phi i64 [ undef, %77 ], [ %.sroa.1074.sroa.15.0.copyload, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$std..time..SystemTime$GT$$C$std..io..error..Error$GT$$GT$17h03b93c172cb3d03aE.exit.i54" ], [ %.sroa.1074.sroa.15.0.copyload, %65 ]
-  %.sroa.1074.sroa.12.0129 = phi i64 [ undef, %77 ], [ %.sroa.1074.sroa.12.0.copyload, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$std..time..SystemTime$GT$$C$std..io..error..Error$GT$$GT$17h03b93c172cb3d03aE.exit.i54" ], [ %.sroa.1074.sroa.12.0.copyload, %65 ]
+  %.sroa.1074.sroa.12.0135 = phi i64 [ undef, %77 ], [ %.sroa.1074.sroa.12.0.copyload, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$std..time..SystemTime$GT$$C$std..io..error..Error$GT$$GT$17h03b93c172cb3d03aE.exit.i54" ], [ %.sroa.1074.sroa.12.0.copyload, %65 ]
+  %.sroa.1074.sroa.15.0129 = phi i64 [ undef, %77 ], [ %.sroa.1074.sroa.15.0.copyload, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$std..time..SystemTime$GT$$C$std..io..error..Error$GT$$GT$17h03b93c172cb3d03aE.exit.i54" ], [ %.sroa.1074.sroa.15.0.copyload, %65 ]
   %.sroa.0104.0 = phi i64 [ %78, %77 ], [ %.16.val.sink.i140, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$std..time..SystemTime$GT$$C$std..io..error..Error$GT$$GT$17h03b93c172cb3d03aE.exit.i54" ], [ %.16.val.sink.i140, %65 ]
   %.sroa.3.0 = phi i32 [ 1000000001, %77 ], [ %.sroa.3.0.i, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$std..time..SystemTime$GT$$C$std..io..error..Error$GT$$GT$17h03b93c172cb3d03aE.exit.i54" ], [ %.sroa.3.0.i, %65 ]
   %.sroa.5106.0 = phi i64 [ undef, %77 ], [ %.0.val.sink.i145, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$std..time..SystemTime$GT$$C$std..io..error..Error$GT$$GT$17h03b93c172cb3d03aE.exit.i54" ], [ %.0.val.sink.i145, %65 ]
@@ -5054,9 +5054,9 @@ default.unreachable152:                           ; preds = %3
   %.sroa.9112.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   store <2 x i64> %11, ptr %.sroa.9112.0..sroa_idx, align 8
   %.sroa.11114.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
-  store i64 %.sroa.1074.sroa.15.0136, ptr %.sroa.11114.0..sroa_idx, align 8
+  store i64 %.sroa.1074.sroa.15.0129, ptr %.sroa.11114.0..sroa_idx, align 8
   %.sroa.12115.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
-  store i64 %.sroa.1074.sroa.12.0129, ptr %.sroa.12115.0..sroa_idx, align 8
+  store i64 %.sroa.1074.sroa.12.0135, ptr %.sroa.12115.0..sroa_idx, align 8
   %.sroa.13116.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
   store i8 %.sroa.13116.0, ptr %.sroa.13116.0..sroa_idx, align 8
   store i8 1, ptr %8, align 8

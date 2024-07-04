@@ -206,8 +206,8 @@ define internal i32 @dissect_distcc(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %48
 
 48:                                               ; preds = %45, %41
-  %.044.i = phi i32 [ %46, %45 ], [ %42, %41 ]
-  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %28, i32 noundef %.044.i) #4
+  %.0.i = phi i32 [ %46, %45 ], [ %42, %41 ]
+  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %28, i32 noundef %.0.i) #4
   %49 = load i32, ptr @distcc_desegment, align 4
   %.not.i = icmp eq i32 %49, 0
   br i1 %.not.i, label %63, label %50
@@ -239,11 +239,11 @@ define internal i32 @dissect_distcc(ptr noundef %0, ptr noundef %1, ptr noundef 
 63:                                               ; preds = %56, %52, %50, %48
   %64 = load i32, ptr @hf_distcc_argv, align 4
   %65 = load ptr, ptr %26, align 8
-  %66 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %.0, i32 noundef %64, ptr noundef %0, i32 noundef %28, i32 noundef %.044.i, i32 noundef 0, ptr noundef %65, ptr noundef nonnull %7) #4
+  %66 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %.0, i32 noundef %64, ptr noundef %0, i32 noundef %28, i32 noundef %.0.i, i32 noundef 0, ptr noundef %65, ptr noundef nonnull %7) #4
   %67 = load ptr, ptr %10, align 8
   %68 = load ptr, ptr %7, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %67, i32 noundef 25, ptr noundef nonnull @.str.43, ptr noundef %68) #4
-  %.not47.i = icmp eq i32 %.044.i, %42
+  %.not47.i = icmp eq i32 %.0.i, %42
   br i1 %.not47.i, label %dissect_distcc_argv.exit, label %69
 
 69:                                               ; preds = %63
@@ -251,7 +251,7 @@ define internal i32 @dissect_distcc(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %dissect_distcc_argv.exit
 
 dissect_distcc_argv.exit:                         ; preds = %59, %63, %69
-  %.0.i = add i32 %.044.i, %28
+  %.044.i = add i32 %.0.i, %28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %206
 
@@ -274,11 +274,11 @@ dissect_distcc_argv.exit:                         ; preds = %59, %63, %69
   br label %79
 
 79:                                               ; preds = %76, %72
-  %.043.i = phi i32 [ %77, %76 ], [ %73, %72 ]
-  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %28, i32 noundef %.043.i) #4
+  %.0.i72 = phi i32 [ %77, %76 ], [ %73, %72 ]
+  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %28, i32 noundef %.0.i72) #4
   %80 = load i32, ptr @distcc_desegment, align 4
-  %.not.i72 = icmp eq i32 %80, 0
-  br i1 %.not.i72, label %94, label %81
+  %.not.i73 = icmp eq i32 %80, 0
+  br i1 %.not.i73, label %94, label %81
 
 81:                                               ; preds = %79
   %82 = load i16, ptr %23, align 8
@@ -308,16 +308,16 @@ dissect_distcc_argv.exit:                         ; preds = %59, %63, %69
   %95 = load ptr, ptr %10, align 8
   call void @col_append_str(ptr noundef %95, i32 noundef 25, ptr noundef nonnull @.str.46) #4
   %96 = load i32, ptr @hf_distcc_doti_source, align 4
-  %97 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %96, ptr noundef %0, i32 noundef %28, i32 noundef %.043.i, i32 noundef 0) #4
-  %.not46.i73 = icmp eq i32 %.043.i, %73
-  br i1 %.not46.i73, label %dissect_distcc_doti.exit, label %98
+  %97 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %96, ptr noundef %0, i32 noundef %28, i32 noundef %.0.i72, i32 noundef 0) #4
+  %.not46.i74 = icmp eq i32 %.0.i72, %73
+  br i1 %.not46.i74, label %dissect_distcc_doti.exit, label %98
 
 98:                                               ; preds = %94
   %99 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %97, ptr noundef nonnull @ei_distcc_short_pdu, ptr noundef nonnull @.str.45) #4
   br label %dissect_distcc_doti.exit
 
 dissect_distcc_doti.exit:                         ; preds = %90, %94, %98
-  %.0.i74 = add i32 %.043.i, %28
+  %.043.i = add i32 %.0.i72, %28
   br label %206
 
 100:                                              ; preds = %71
@@ -366,8 +366,8 @@ dissect_distcc_doti.exit:                         ; preds = %90, %94, %98
   br label %120
 
 120:                                              ; preds = %117, %113
-  %.044.i76 = phi i32 [ %118, %117 ], [ %114, %113 ]
-  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %28, i32 noundef %.044.i76) #4
+  %.0.i76 = phi i32 [ %118, %117 ], [ %114, %113 ]
+  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %28, i32 noundef %.0.i76) #4
   %121 = load i32, ptr @distcc_desegment, align 4
   %.not.i77 = icmp eq i32 %121, 0
   br i1 %.not.i77, label %135, label %122
@@ -399,11 +399,11 @@ dissect_distcc_doti.exit:                         ; preds = %90, %94, %98
 135:                                              ; preds = %128, %124, %122, %120
   %136 = load i32, ptr @hf_distcc_serr, align 4
   %137 = load ptr, ptr %26, align 8
-  %138 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %.0, i32 noundef %136, ptr noundef %0, i32 noundef %28, i32 noundef %.044.i76, i32 noundef 0, ptr noundef %137, ptr noundef nonnull %6) #4
+  %138 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %.0, i32 noundef %136, ptr noundef %0, i32 noundef %28, i32 noundef %.0.i76, i32 noundef 0, ptr noundef %137, ptr noundef nonnull %6) #4
   %139 = load ptr, ptr %10, align 8
   %140 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %139, i32 noundef 25, ptr noundef nonnull @.str.53, ptr noundef %140) #4
-  %.not47.i79 = icmp eq i32 %.044.i76, %114
+  %.not47.i79 = icmp eq i32 %.0.i76, %114
   br i1 %.not47.i79, label %dissect_distcc_serr.exit, label %141
 
 141:                                              ; preds = %135
@@ -411,7 +411,7 @@ dissect_distcc_doti.exit:                         ; preds = %90, %94, %98
   br label %dissect_distcc_serr.exit
 
 dissect_distcc_serr.exit:                         ; preds = %131, %135, %141
-  %.0.i80 = add i32 %.044.i76, %28
+  %.044.i80 = add i32 %.0.i76, %28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %206
 
@@ -435,8 +435,8 @@ dissect_distcc_serr.exit:                         ; preds = %131, %135, %141
   br label %151
 
 151:                                              ; preds = %148, %144
-  %.044.i82 = phi i32 [ %149, %148 ], [ %145, %144 ]
-  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %28, i32 noundef %.044.i82) #4
+  %.0.i82 = phi i32 [ %149, %148 ], [ %145, %144 ]
+  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %28, i32 noundef %.0.i82) #4
   %152 = load i32, ptr @distcc_desegment, align 4
   %.not.i83 = icmp eq i32 %152, 0
   br i1 %.not.i83, label %166, label %153
@@ -468,11 +468,11 @@ dissect_distcc_serr.exit:                         ; preds = %131, %135, %141
 166:                                              ; preds = %159, %155, %153, %151
   %167 = load i32, ptr @hf_distcc_sout, align 4
   %168 = load ptr, ptr %26, align 8
-  %169 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %.0, i32 noundef %167, ptr noundef %0, i32 noundef %28, i32 noundef %.044.i82, i32 noundef 0, ptr noundef %168, ptr noundef nonnull %5) #4
+  %169 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %.0, i32 noundef %167, ptr noundef %0, i32 noundef %28, i32 noundef %.0.i82, i32 noundef 0, ptr noundef %168, ptr noundef nonnull %5) #4
   %170 = load ptr, ptr %10, align 8
   %171 = load ptr, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %170, i32 noundef 25, ptr noundef nonnull @.str.56, ptr noundef %171) #4
-  %.not47.i85 = icmp eq i32 %.044.i82, %145
+  %.not47.i85 = icmp eq i32 %.0.i82, %145
   br i1 %.not47.i85, label %dissect_distcc_sout.exit, label %172
 
 172:                                              ; preds = %166
@@ -480,7 +480,7 @@ dissect_distcc_serr.exit:                         ; preds = %131, %135, %141
   br label %dissect_distcc_sout.exit
 
 dissect_distcc_sout.exit:                         ; preds = %162, %166, %172
-  %.0.i86 = add i32 %.044.i82, %28
+  %.044.i86 = add i32 %.0.i82, %28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %206
 
@@ -503,8 +503,8 @@ dissect_distcc_sout.exit:                         ; preds = %162, %166, %172
   br label %182
 
 182:                                              ; preds = %179, %175
-  %.043.i88 = phi i32 [ %180, %179 ], [ %176, %175 ]
-  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %28, i32 noundef %.043.i88) #4
+  %.0.i88 = phi i32 [ %180, %179 ], [ %176, %175 ]
+  call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %28, i32 noundef %.0.i88) #4
   %183 = load i32, ptr @distcc_desegment, align 4
   %.not.i89 = icmp eq i32 %183, 0
   br i1 %.not.i89, label %197, label %184
@@ -537,8 +537,8 @@ dissect_distcc_sout.exit:                         ; preds = %162, %166, %172
   %198 = load ptr, ptr %10, align 8
   call void @col_append_str(ptr noundef %198, i32 noundef 25, ptr noundef nonnull @.str.59) #4
   %199 = load i32, ptr @hf_distcc_doto_object, align 4
-  %200 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %199, ptr noundef %0, i32 noundef %28, i32 noundef %.043.i88, i32 noundef 0) #4
-  %.not46.i91 = icmp eq i32 %.043.i88, %176
+  %200 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %199, ptr noundef %0, i32 noundef %28, i32 noundef %.0.i88, i32 noundef 0) #4
+  %.not46.i91 = icmp eq i32 %.0.i88, %176
   br i1 %.not46.i91, label %dissect_distcc_doto.exit, label %201
 
 201:                                              ; preds = %197
@@ -546,7 +546,7 @@ dissect_distcc_sout.exit:                         ; preds = %162, %166, %172
   br label %dissect_distcc_doto.exit
 
 dissect_distcc_doto.exit:                         ; preds = %193, %197, %201
-  %.0.i92 = add i32 %.043.i88, %28
+  %.043.i92 = add i32 %.0.i88, %28
   br label %206
 
 203:                                              ; preds = %174
@@ -555,7 +555,7 @@ dissect_distcc_doto.exit:                         ; preds = %193, %197, %201
   br label %.loopexit
 
 206:                                              ; preds = %35, %dissect_distcc_doti.exit, %107, %dissect_distcc_sout.exit, %dissect_distcc_doto.exit, %dissect_distcc_serr.exit, %101, %dissect_distcc_argv.exit, %29
-  %.1 = phi i32 [ %.0.i92, %dissect_distcc_doto.exit ], [ %.0.i86, %dissect_distcc_sout.exit ], [ %.0.i80, %dissect_distcc_serr.exit ], [ %28, %107 ], [ %28, %101 ], [ %.0.i74, %dissect_distcc_doti.exit ], [ %.0.i, %dissect_distcc_argv.exit ], [ %28, %35 ], [ %28, %29 ]
+  %.1 = phi i32 [ %.043.i92, %dissect_distcc_doto.exit ], [ %.044.i86, %dissect_distcc_sout.exit ], [ %.044.i80, %dissect_distcc_serr.exit ], [ %28, %107 ], [ %28, %101 ], [ %.043.i, %dissect_distcc_doti.exit ], [ %.044.i, %dissect_distcc_argv.exit ], [ %28, %35 ], [ %28, %29 ]
   %207 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %.1, i64 noundef 12) #4
   store i8 0, ptr %20, align 1
   %208 = add i32 %.1, 12

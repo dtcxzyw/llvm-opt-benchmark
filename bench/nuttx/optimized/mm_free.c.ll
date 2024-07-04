@@ -103,8 +103,8 @@ define void @mm_delayfree(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2)
   br label %53
 
 53:                                               ; preds = %51, %46
-  %.054 = phi i64 [ %47, %46 ], [ %25, %51 ]
   %.053 = phi ptr [ %37, %46 ], [ %30, %51 ]
+  %.0 = phi i64 [ %47, %46 ], [ %25, %51 ]
   %54 = load i64, ptr %23, align 8
   %55 = and i64 %54, 2
   %.not57 = icmp eq i64 %55, 0
@@ -133,7 +133,7 @@ define void @mm_delayfree(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2)
   br label %71
 
 71:                                               ; preds = %68, %56
-  %72 = add i64 %62, %.054
+  %72 = add i64 %62, %.0
   %73 = load i64, ptr %60, align 8
   %74 = and i64 %73, 3
   %75 = or i64 %74, %72
@@ -142,8 +142,8 @@ define void @mm_delayfree(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2)
   br label %76
 
 76:                                               ; preds = %71, %53
-  %.0 = phi ptr [ %59, %71 ], [ %22, %53 ]
-  tail call void @mm_addfreechunk(ptr noundef nonnull %0, ptr noundef nonnull %.0) #3
+  %.054 = phi ptr [ %59, %71 ], [ %22, %53 ]
+  tail call void @mm_addfreechunk(ptr noundef nonnull %0, ptr noundef nonnull %.054) #3
   tail call void @mm_unlock(ptr noundef nonnull %0) #3
   br label %add_delaylist.exit
 

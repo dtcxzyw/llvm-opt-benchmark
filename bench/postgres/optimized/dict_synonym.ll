@@ -36,8 +36,8 @@ define dso_local i64 @dsynonym_init(ptr nocapture noundef readonly %0) local_unn
 
 .lr.ph123:                                        ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %.lr.ph ]
-  %.058109122 = phi i8 [ %.159, %30 ], [ 0, %.lr.ph ]
-  %.055111120 = phi ptr [ %.1, %30 ], [ null, %.lr.ph ]
+  %.057109122 = phi ptr [ %.158, %30 ], [ null, %.lr.ph ]
+  %.055110121 = phi i8 [ %.156, %30 ], [ 0, %.lr.ph ]
   %10 = load ptr, ptr %7, align 8
   %11 = getelementptr %union.ListCell, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
@@ -72,8 +72,8 @@ define dso_local i64 @dsynonym_init(ptr nocapture noundef readonly %0) local_unn
   unreachable
 
 30:                                               ; preds = %17, %22
-  %.159 = phi i8 [ %.058109122, %17 ], [ %24, %22 ]
-  %.1 = phi ptr [ %18, %17 ], [ %.055111120, %22 ]
+  %.158 = phi ptr [ %18, %17 ], [ %.057109122, %22 ]
+  %.156 = phi i8 [ %.055110121, %17 ], [ %24, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %6, align 4
   %32 = sext i32 %31 to i64
@@ -81,7 +81,7 @@ define dso_local i64 @dsynonym_init(ptr nocapture noundef readonly %0) local_unn
   br i1 %33, label %.lr.ph123, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %30
-  %.not66 = icmp eq ptr %.1, null
+  %.not66 = icmp eq ptr %.158, null
   br i1 %.not66, label %._crit_edge.thread, label %37
 
 ._crit_edge.thread:                               ; preds = %.lr.ph, %1, %._crit_edge
@@ -93,7 +93,7 @@ define dso_local i64 @dsynonym_init(ptr nocapture noundef readonly %0) local_unn
   unreachable
 
 37:                                               ; preds = %._crit_edge
-  %38 = tail call ptr @get_tsearch_config_filename(ptr noundef nonnull %.1, ptr noundef nonnull @.str.5) #7
+  %38 = tail call ptr @get_tsearch_config_filename(ptr noundef nonnull %.158, ptr noundef nonnull @.str.5) #7
   %39 = call zeroext i1 @tsearch_readline_begin(ptr noundef nonnull %2, ptr noundef %38) #7
   br i1 %39, label %44, label %40
 
@@ -113,12 +113,12 @@ define dso_local i64 @dsynonym_init(ptr nocapture noundef readonly %0) local_unn
 
 .lr.ph144:                                        ; preds = %44
   %47 = getelementptr inbounds i8, ptr %45, i64 8
-  %48 = trunc nuw i8 %.159 to i1
+  %48 = trunc nuw i8 %.156 to i1
   br label %49
 
 49:                                               ; preds = %.lr.ph144, %findwrd.exit.thread
   %50 = phi ptr [ %46, %.lr.ph144 ], [ %121, %findwrd.exit.thread ]
-  %.056142 = phi i32 [ 0, %.lr.ph144 ], [ %.157, %findwrd.exit.thread ]
+  %.0142 = phi i32 [ 0, %.lr.ph144 ], [ %.1, %findwrd.exit.thread ]
   %51 = load i8, ptr %50, align 1
   %.not39.i = icmp eq i8 %51, 0
   br i1 %.not39.i, label %findwrd.exit.thread, label %.lr.ph.i
@@ -234,7 +234,7 @@ findwrd.exit89:                                   ; preds = %87, %84
   %storemerge36.i76 = phi ptr [ %.0.lcssa.i86, %84 ], [ %.1.lcssa.i85, %87 ]
   store i8 0, ptr %storemerge36.i76, align 1
   %88 = load i32, ptr %45, align 8
-  %.not70 = icmp slt i32 %.056142, %88
+  %.not70 = icmp slt i32 %.0142, %88
   br i1 %.not70, label %99, label %89
 
 89:                                               ; preds = %findwrd.exit89
@@ -261,7 +261,7 @@ findwrd.exit89:                                   ; preds = %87, %84
   br label %99
 
 99:                                               ; preds = %.sink.split, %findwrd.exit89
-  %100 = sext i32 %.056142 to i64
+  %100 = sext i32 %.0142 to i64
   br i1 %48, label %101, label %106
 
 101:                                              ; preds = %99
@@ -293,26 +293,26 @@ findwrd.exit89:                                   ; preds = %87, %84
   %118 = load ptr, ptr %47, align 8
   %119 = getelementptr %struct.Syn, ptr %118, i64 %100, i32 3
   store i16 %.193, ptr %119, align 4
-  %120 = add i32 %.056142, 1
+  %120 = add i32 %.0142, 1
   br label %findwrd.exit.thread
 
 findwrd.exit.thread:                              ; preds = %53, %.lr.ph128, %69, %65, %.critedge.i78, %49, %.critedge.i, %.critedge2.i, %111
-  %.157 = phi i32 [ %.056142, %.critedge2.i ], [ %120, %111 ], [ %.056142, %.critedge.i ], [ %.056142, %49 ], [ %.056142, %.critedge.i78 ], [ %.056142, %65 ], [ %.056142, %69 ], [ %.056142, %.lr.ph128 ], [ %.056142, %53 ]
+  %.1 = phi i32 [ %.0142, %.critedge2.i ], [ %120, %111 ], [ %.0142, %.critedge.i ], [ %.0142, %49 ], [ %.0142, %.critedge.i78 ], [ %.0142, %65 ], [ %.0142, %69 ], [ %.0142, %.lr.ph128 ], [ %.0142, %53 ]
   call void @pfree(ptr noundef nonnull %50) #7
   %121 = call ptr @tsearch_readline(ptr noundef nonnull %2) #7
   %.not67 = icmp eq ptr %121, null
   br i1 %.not67, label %._crit_edge145, label %49, !llvm.loop !8
 
 ._crit_edge145:                                   ; preds = %findwrd.exit.thread, %44
-  %.056.lcssa = phi i32 [ 0, %44 ], [ %.157, %findwrd.exit.thread ]
+  %.0.lcssa = phi i32 [ 0, %44 ], [ %.1, %findwrd.exit.thread ]
   call void @tsearch_readline_end(ptr noundef nonnull %2) #7
-  store i32 %.056.lcssa, ptr %45, align 8
+  store i32 %.0.lcssa, ptr %45, align 8
   %122 = getelementptr inbounds i8, ptr %45, i64 8
   %123 = load ptr, ptr %122, align 8
-  %124 = sext i32 %.056.lcssa to i64
+  %124 = sext i32 %.0.lcssa to i64
   call void @pg_qsort(ptr noundef %123, i64 noundef %124, i64 noundef 24, ptr noundef nonnull @compareSyn) #7
   %125 = getelementptr inbounds i8, ptr %45, i64 16
-  %126 = and i8 %.159, 1
+  %126 = and i8 %.156, 1
   store i8 %126, ptr %125, align 8
   %127 = ptrtoint ptr %45 to i64
   ret i64 %127

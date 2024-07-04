@@ -8951,9 +8951,9 @@ Vec_IntFindMax.exit.i:                            ; preds = %.lr.ph.i.i, %178
   %.012.i.i = phi i32 [ %179, %178 ], [ %spec.select.i.i, %.lr.ph.i.i ]
   %183 = add nsw i32 %.012.i.i, 1
   %.not.i.i.i = icmp sgt i32 %.012.i.i, -1
-  br i1 %.not.i.i.i, label %.lr.ph.i20.i, label %Vec_IntFill.exit.i
+  br i1 %.not.i.i.i, label %.lr.ph.i21.i, label %Vec_IntFill.exit.i
 
-.lr.ph.i20.i:                                     ; preds = %Vec_IntFindMax.exit.i
+.lr.ph.i21.i:                                     ; preds = %Vec_IntFindMax.exit.i
   %184 = zext nneg i32 %183 to i64
   %185 = shl nuw nsw i64 %184, 2
   %186 = tail call noalias ptr @malloc(i64 noundef %185) #16
@@ -8962,8 +8962,8 @@ Vec_IntFindMax.exit.i:                            ; preds = %.lr.ph.i.i, %178
   tail call void @llvm.memset.p0.i64(ptr align 4 %186, i8 -1, i64 %185, i1 false)
   br label %Vec_IntFill.exit.i
 
-Vec_IntFill.exit.i:                               ; preds = %.lr.ph.i20.i, %Vec_IntFindMax.exit.i
-  %.val19.i = phi ptr [ %186, %.lr.ph.i20.i ], [ null, %Vec_IntFindMax.exit.i ]
+Vec_IntFill.exit.i:                               ; preds = %.lr.ph.i21.i, %Vec_IntFindMax.exit.i
+  %.val20.i = phi ptr [ %186, %.lr.ph.i21.i ], [ null, %Vec_IntFindMax.exit.i ]
   store i32 %183, ptr %175, align 4
   br i1 %36, label %.lr.ph.i252, label %Vec_IntInvert.exit.thread
 
@@ -8980,7 +8980,7 @@ Vec_IntFill.exit.i:                               ; preds = %.lr.ph.i20.i, %Vec_
 
 191:                                              ; preds = %188
   %192 = sext i32 %190 to i64
-  %193 = getelementptr inbounds i32, ptr %.val19.i, i64 %192
+  %193 = getelementptr inbounds i32, ptr %.val20.i, i64 %192
   %194 = trunc nuw nsw i64 %indvars.iv.i253 to i32
   store i32 %194, ptr %193, align 4
   br label %195
@@ -9030,9 +9030,9 @@ Vec_IntFindMax.exit.i258:                         ; preds = %.lr.ph.i.i271, %199
   %.012.i.i259 = phi i32 [ %200, %199 ], [ %spec.select.i.i274, %.lr.ph.i.i271 ]
   %204 = add nsw i32 %.012.i.i259, 1
   %.not.i.i.i260 = icmp sgt i32 %.012.i.i259, -1
-  br i1 %.not.i.i.i260, label %.lr.ph.i20.i268, label %Vec_IntFill.exit.i261
+  br i1 %.not.i.i.i260, label %.lr.ph.i21.i268, label %Vec_IntFill.exit.i261
 
-.lr.ph.i20.i268:                                  ; preds = %Vec_IntFindMax.exit.i258
+.lr.ph.i21.i268:                                  ; preds = %Vec_IntFindMax.exit.i258
   %205 = zext nneg i32 %204 to i64
   %206 = shl nuw nsw i64 %205, 2
   %207 = tail call noalias ptr @malloc(i64 noundef %206) #16
@@ -9041,8 +9041,8 @@ Vec_IntFindMax.exit.i258:                         ; preds = %.lr.ph.i.i271, %199
   tail call void @llvm.memset.p0.i64(ptr align 4 %207, i8 -1, i64 %206, i1 false)
   br label %Vec_IntFill.exit.i261
 
-Vec_IntFill.exit.i261:                            ; preds = %.lr.ph.i20.i268, %Vec_IntFindMax.exit.i258
-  %.val19.i262 = phi ptr [ %207, %.lr.ph.i20.i268 ], [ null, %Vec_IntFindMax.exit.i258 ]
+Vec_IntFill.exit.i261:                            ; preds = %.lr.ph.i21.i268, %Vec_IntFindMax.exit.i258
+  %.val20.i262 = phi ptr [ %207, %.lr.ph.i21.i268 ], [ null, %Vec_IntFindMax.exit.i258 ]
   store i32 %204, ptr %196, align 4
   br i1 %48, label %.lr.ph.i263, label %Vec_IntInvert.exit277.thread
 
@@ -9059,7 +9059,7 @@ Vec_IntFill.exit.i261:                            ; preds = %.lr.ph.i20.i268, %V
 
 212:                                              ; preds = %209
   %213 = sext i32 %211 to i64
-  %214 = getelementptr inbounds i32, ptr %.val19.i262, i64 %213
+  %214 = getelementptr inbounds i32, ptr %.val20.i262, i64 %213
   %215 = trunc nuw nsw i64 %indvars.iv.i265 to i32
   store i32 %215, ptr %214, align 4
   br label %216
@@ -9084,19 +9084,19 @@ Vec_IntFree.exit279:                              ; preds = %Vec_IntInvert.exit2
   %217 = getelementptr i8, ptr %calloc.i280, i64 4
   %218 = getelementptr i8, ptr %calloc.i280, i64 8
   %219 = getelementptr i8, ptr %.0159, i64 4
-  %.val17.i281 = load i32, ptr %219, align 4
-  %220 = icmp eq i32 %.val17.i281, 0
+  %.val18.i281 = load i32, ptr %219, align 4
+  %220 = icmp eq i32 %.val18.i281, 0
   %.phi.trans.insert = getelementptr i8, ptr %.0159, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %220, label %Vec_IntInvert.exit301, label %221
 
 221:                                              ; preds = %Vec_IntFree.exit279
   %222 = load i32, ptr %.pre, align 4
-  %223 = icmp sgt i32 %.val17.i281, 1
+  %223 = icmp sgt i32 %.val18.i281, 1
   br i1 %223, label %.lr.ph.preheader.i.i293, label %Vec_IntFindMax.exit.i282
 
 .lr.ph.preheader.i.i293:                          ; preds = %221
-  %wide.trip.count.i.i294 = zext nneg i32 %.val17.i281 to i64
+  %wide.trip.count.i.i294 = zext nneg i32 %.val18.i281 to i64
   br label %.lr.ph.i.i295
 
 .lr.ph.i.i295:                                    ; preds = %.lr.ph.i.i295, %.lr.ph.preheader.i.i293
@@ -9113,9 +9113,9 @@ Vec_IntFindMax.exit.i282:                         ; preds = %.lr.ph.i.i295, %221
   %.012.i.i283 = phi i32 [ %222, %221 ], [ %spec.select.i.i298, %.lr.ph.i.i295 ]
   %226 = add nsw i32 %.012.i.i283, 1
   %.not.i.i.i284 = icmp sgt i32 %.012.i.i283, -1
-  br i1 %.not.i.i.i284, label %.lr.ph.i20.i292, label %Vec_IntFill.exit.i285
+  br i1 %.not.i.i.i284, label %.lr.ph.i21.i292, label %Vec_IntFill.exit.i285
 
-.lr.ph.i20.i292:                                  ; preds = %Vec_IntFindMax.exit.i282
+.lr.ph.i21.i292:                                  ; preds = %Vec_IntFindMax.exit.i282
   %227 = zext nneg i32 %226 to i64
   %228 = shl nuw nsw i64 %227, 2
   %229 = tail call noalias ptr @malloc(i64 noundef %228) #16
@@ -9124,14 +9124,14 @@ Vec_IntFindMax.exit.i282:                         ; preds = %.lr.ph.i.i295, %221
   tail call void @llvm.memset.p0.i64(ptr align 4 %229, i8 -1, i64 %228, i1 false)
   br label %Vec_IntFill.exit.i285
 
-Vec_IntFill.exit.i285:                            ; preds = %.lr.ph.i20.i292, %Vec_IntFindMax.exit.i282
-  %.val19.i286 = phi ptr [ %229, %.lr.ph.i20.i292 ], [ null, %Vec_IntFindMax.exit.i282 ]
+Vec_IntFill.exit.i285:                            ; preds = %.lr.ph.i21.i292, %Vec_IntFindMax.exit.i282
+  %.val20.i286 = phi ptr [ %229, %.lr.ph.i21.i292 ], [ null, %Vec_IntFindMax.exit.i282 ]
   store i32 %226, ptr %217, align 4
-  %230 = icmp sgt i32 %.val17.i281, 0
+  %230 = icmp sgt i32 %.val18.i281, 0
   br i1 %230, label %.lr.ph.i287, label %Vec_IntInvert.exit301.thread
 
 .lr.ph.i287:                                      ; preds = %Vec_IntFill.exit.i285
-  %231 = zext nneg i32 %.val17.i281 to i64
+  %231 = zext nneg i32 %.val18.i281 to i64
   br label %232
 
 232:                                              ; preds = %239, %.lr.ph.i287
@@ -9143,7 +9143,7 @@ Vec_IntFill.exit.i285:                            ; preds = %.lr.ph.i20.i292, %V
 
 235:                                              ; preds = %232
   %236 = sext i32 %234 to i64
-  %237 = getelementptr inbounds i32, ptr %.val19.i286, i64 %236
+  %237 = getelementptr inbounds i32, ptr %.val20.i286, i64 %236
   %238 = trunc nuw nsw i64 %indvars.iv.i289 to i32
   store i32 %238, ptr %237, align 4
   br label %239

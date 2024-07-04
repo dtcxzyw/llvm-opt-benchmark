@@ -17947,7 +17947,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %335
   br i1 %359, label %361, label %362
 
 360:                                              ; preds = %351, %361
-  %.sroa.15.2291 = phi ptr [ %340, %361 ], [ %.sroa.15.1332, %351 ]
+  %.sroa.15.2290 = phi ptr [ %340, %361 ], [ %.sroa.15.1332, %351 ]
   %.sroa.018.0 = phi i64 [ 26, %361 ], [ 27, %351 ]
   %.sroa.3.0 = phi i8 [ %.sroa.4.i142.sroa.0.0.copyload, %361 ], [ %.0.i149, %351 ]
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.14223)
@@ -17957,7 +17957,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %335
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.4.sroa.0, i64 23, i1 false)
   %.sroa.4.sroa.2.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.15.2291, ptr %.sroa.4.sroa.2.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sroa.15.2290, ptr %.sroa.4.sroa.2.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store ptr @anon.c76af8064ef2a30f6b22241a47dd282f.293, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
@@ -19112,25 +19112,25 @@ common.ret:                                       ; preds = %229, %214
 "_ZN4core3ptr103drop_in_place$LT$deltalake_aws..DynamoDbLockClient..get_latest_entries..$u7b$$u7b$closure$u7d$$u7d$$GT$17he53ad633c0e7065aE.exit": ; preds = %.thread73, %212
   %.sroa.032.084 = phi i64 [ %145, %.thread73 ], [ %.sroa.4.0.copyload.i, %212 ]
   %.sroa.934.083 = phi i64 [ %.sroa.566.0.i, %.thread73 ], [ %.sroa.679.0.copyload.i, %212 ]
-  %.sroa.833.sroa.7.082 = phi i64 [ %.sroa.464.i.sroa.7.0, %.thread73 ], [ %.sroa.578.i.sroa.7.0.copyload, %212 ]
+  %.sroa.833.sroa.0.082 = phi i64 [ %.sroa.464.i.sroa.0.0, %.thread73 ], [ %.sroa.578.i.sroa.0.0.copyload, %212 ]
   %.sroa.833.sroa.6.081 = phi ptr [ %.sroa.464.i.sroa.6.0, %.thread73 ], [ %.sroa.578.i.sroa.6.0.copyload, %212 ]
-  %.sroa.833.sroa.0.080 = phi i64 [ %.sroa.464.i.sroa.0.0, %.thread73 ], [ %.sroa.578.i.sroa.0.0.copyload, %212 ]
+  %.sroa.833.sroa.7.080 = phi i64 [ %.sroa.464.i.sroa.7.0, %.thread73 ], [ %.sroa.578.i.sroa.7.0.copyload, %212 ]
   %215 = icmp eq i64 %.sroa.032.084, 8
   br i1 %215, label %216, label %233
 
 216:                                              ; preds = %"_ZN4core3ptr103drop_in_place$LT$deltalake_aws..DynamoDbLockClient..get_latest_entries..$u7b$$u7b$closure$u7d$$u7d$$GT$17he53ad633c0e7065aE.exit"
   %217 = icmp ne ptr %.sroa.833.sroa.6.081, null
   call void @llvm.assume(i1 %217)
-  %218 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { [2 x i32], i32, [1 x i32] }, i64, i8, [7 x i8] }, ptr %.sroa.833.sroa.6.081, i64 %.sroa.833.sroa.7.082
+  %218 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { [2 x i32], i32, [1 x i32] }, i64, i8, [7 x i8] }, ptr %.sroa.833.sroa.6.081, i64 %.sroa.833.sroa.7.080
   store ptr %.sroa.833.sroa.6.081, ptr %12, align 8, !alias.scope !3468, !noalias !3471
   %219 = getelementptr inbounds i8, ptr %12, i64 16
-  store i64 %.sroa.833.sroa.0.080, ptr %219, align 8, !alias.scope !3468, !noalias !3471
+  store i64 %.sroa.833.sroa.0.082, ptr %219, align 8, !alias.scope !3468, !noalias !3471
   %220 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr %.sroa.833.sroa.6.081, ptr %220, align 8, !alias.scope !3468, !noalias !3471
   %221 = getelementptr inbounds i8, ptr %12, i64 24
   store ptr %218, ptr %221, align 8, !alias.scope !3468, !noalias !3471
   call void @llvm.experimental.noalias.scope.decl(metadata !3473)
-  %222 = icmp eq i64 %.sroa.833.sroa.7.082, 0
+  %222 = icmp eq i64 %.sroa.833.sroa.7.080, 0
   br i1 %222, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0869acf60ee3663E.exit", label %223
 
 223:                                              ; preds = %216
@@ -19169,11 +19169,11 @@ common.ret:                                       ; preds = %229, %214
   br label %229
 
 229:                                              ; preds = %233, %"_ZN4core3ptr86drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_aws..CommitEntry$GT$$GT$17h440dee469a83e884E.exit16"
-  %.sroa.052.0 = phi i64 [ %.sroa.0.0, %"_ZN4core3ptr86drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_aws..CommitEntry$GT$$GT$17h440dee469a83e884E.exit16" ], [ -9223372036854775807, %233 ]
-  %.sroa.3.0 = phi i64 [ %.sroa.12.sroa.0.0, %"_ZN4core3ptr86drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_aws..CommitEntry$GT$$GT$17h440dee469a83e884E.exit16" ], [ %.sroa.032.084, %233 ]
-  %.sroa.553.0 = phi i64 [ %.sroa.12.sroa.11.0, %"_ZN4core3ptr86drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_aws..CommitEntry$GT$$GT$17h440dee469a83e884E.exit16" ], [ %.sroa.833.sroa.0.080, %233 ]
   %.sroa.654.0 = phi ptr [ %.sroa.12.sroa.12.0, %"_ZN4core3ptr86drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_aws..CommitEntry$GT$$GT$17h440dee469a83e884E.exit16" ], [ %.sroa.833.sroa.6.081, %233 ]
-  %.sroa.755.0 = phi i64 [ %.sroa.12.sroa.13.0, %"_ZN4core3ptr86drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_aws..CommitEntry$GT$$GT$17h440dee469a83e884E.exit16" ], [ %.sroa.833.sroa.7.082, %233 ]
+  %.sroa.553.0 = phi i64 [ %.sroa.12.sroa.11.0, %"_ZN4core3ptr86drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_aws..CommitEntry$GT$$GT$17h440dee469a83e884E.exit16" ], [ %.sroa.833.sroa.0.082, %233 ]
+  %.sroa.3.0 = phi i64 [ %.sroa.12.sroa.0.0, %"_ZN4core3ptr86drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_aws..CommitEntry$GT$$GT$17h440dee469a83e884E.exit16" ], [ %.sroa.032.084, %233 ]
+  %.sroa.052.0 = phi i64 [ %.sroa.0.0, %"_ZN4core3ptr86drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_aws..CommitEntry$GT$$GT$17h440dee469a83e884E.exit16" ], [ -9223372036854775807, %233 ]
+  %.sroa.755.0 = phi i64 [ %.sroa.12.sroa.13.0, %"_ZN4core3ptr86drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_aws..CommitEntry$GT$$GT$17h440dee469a83e884E.exit16" ], [ %.sroa.833.sroa.7.080, %233 ]
   %230 = phi <2 x i64> [ %226, %"_ZN4core3ptr86drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$deltalake_aws..CommitEntry$GT$$GT$17h440dee469a83e884E.exit16" ], [ %234, %233 ]
   store i64 %.sroa.052.0, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -25471,17 +25471,17 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i.i.
   br label %722
 
 722:                                              ; preds = %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i.i.i.i, %702
-  %.061.i.i.i.i.i = phi i64 [ %719, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i.i.i.i ], [ 2, %702 ]
+  %.065.i.i.i.i.i = phi i64 [ %719, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i.i.i.i ], [ 2, %702 ]
   %.0.i.i.i.i.i = phi i64 [ %721, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i.i.i.i ], [ 3, %702 ]
   %723 = getelementptr inbounds i8, ptr %28, i64 24
   %724 = load ptr, ptr %723, align 8, !alias.scope !4224, !noalias !4225, !nonnull !46, !noundef !46
   %725 = getelementptr inbounds i8, ptr %28, i64 32
   %726 = load i64, ptr %725, align 8, !alias.scope !4224, !noalias !4225, !noundef !46
-  %727 = icmp ult i64 %.061.i.i.i.i.i, %726
+  %727 = icmp ult i64 %.065.i.i.i.i.i, %726
   br i1 %727, label %728, label %737
 
 728:                                              ; preds = %722
-  %729 = getelementptr inbounds i64, ptr %724, i64 %.061.i.i.i.i.i
+  %729 = getelementptr inbounds i64, ptr %724, i64 %.065.i.i.i.i.i
   %730 = load i64, ptr %729, align 8, !noalias !4228, !noundef !46
   %731 = icmp ne i64 %730, 0
   %732 = icmp ult i64 %.0.i.i.i.i.i, %726
@@ -25757,17 +25757,17 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i84.
   br label %835
 
 835:                                              ; preds = %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i84.i.i.i, %815
-  %.061.i.i85.i.i.i = phi i64 [ %832, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i84.i.i.i ], [ 2, %815 ]
+  %.065.i.i85.i.i.i = phi i64 [ %832, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i84.i.i.i ], [ 2, %815 ]
   %.0.i.i86.i.i.i = phi i64 [ %834, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i84.i.i.i ], [ 3, %815 ]
   %836 = getelementptr inbounds i8, ptr %23, i64 24
   %837 = load ptr, ptr %836, align 8, !alias.scope !4253, !noalias !4254, !nonnull !46, !noundef !46
   %838 = getelementptr inbounds i8, ptr %23, i64 32
   %839 = load i64, ptr %838, align 8, !alias.scope !4253, !noalias !4254, !noundef !46
-  %840 = icmp ult i64 %.061.i.i85.i.i.i, %839
+  %840 = icmp ult i64 %.065.i.i85.i.i.i, %839
   br i1 %840, label %841, label %851
 
 841:                                              ; preds = %835
-  %842 = getelementptr inbounds i64, ptr %837, i64 %.061.i.i85.i.i.i
+  %842 = getelementptr inbounds i64, ptr %837, i64 %.065.i.i85.i.i.i
   %843 = load i64, ptr %842, align 8, !noalias !4257, !noundef !46
   %844 = icmp ne i64 %843, 0
   %845 = icmp ult i64 %.0.i.i86.i.i.i, %839
@@ -25946,15 +25946,15 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i107
   br label %921
 
 921:                                              ; preds = %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i107.i.i.i, %901
-  %.061.i.i108.i.i.i = phi i64 [ %919, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i107.i.i.i ], [ 4, %901 ]
+  %.065.i.i108.i.i.i = phi i64 [ %919, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i107.i.i.i ], [ 4, %901 ]
   %.0.i.i109.i.i.i = phi i64 [ %920, %_ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i107.i.i.i ], [ 5, %901 ]
   %922 = load ptr, ptr %836, align 8, !alias.scope !4282, !noalias !4283, !nonnull !46, !noundef !46
   %923 = load i64, ptr %838, align 8, !alias.scope !4282, !noalias !4283, !noundef !46
-  %924 = icmp ult i64 %.061.i.i108.i.i.i, %923
+  %924 = icmp ult i64 %.065.i.i108.i.i.i, %923
   br i1 %924, label %925, label %934
 
 925:                                              ; preds = %921
-  %926 = getelementptr inbounds i64, ptr %922, i64 %.061.i.i108.i.i.i
+  %926 = getelementptr inbounds i64, ptr %922, i64 %.065.i.i108.i.i.i
   %927 = load i64, ptr %926, align 8, !noalias !4286, !noundef !46
   %928 = icmp ne i64 %927, 0
   %929 = icmp ult i64 %.0.i.i109.i.i.i, %923

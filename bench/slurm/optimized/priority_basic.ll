@@ -268,9 +268,9 @@ define void @priority_p_job_end(ptr nocapture noundef readonly %0) local_unnamed
 
 .loopexit:                                        ; preds = %49, %._crit_edge
   %53 = phi i32 [ %26, %._crit_edge ], [ %50, %49 ]
-  %.0.in58 = getelementptr inbounds i8, ptr %0, i64 72
-  %.059 = load ptr, ptr %.0.in58, align 8
-  %.not5060 = icmp eq ptr %.059, null
+  %.043.in58 = getelementptr inbounds i8, ptr %0, i64 72
+  %.04359 = load ptr, ptr %.043.in58, align 8
+  %.not5060 = icmp eq ptr %.04359, null
   br i1 %.not5060, label %._crit_edge62, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.loopexit
@@ -280,13 +280,13 @@ define void @priority_p_job_end(ptr nocapture noundef readonly %0) local_unnamed
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge57
   %56 = phi i32 [ %98, %._crit_edge57 ], [ %53, %.preheader.lr.ph ]
-  %.061 = phi ptr [ %.0, %._crit_edge57 ], [ %.059, %.preheader.lr.ph ]
+  %.04361 = phi ptr [ %.043, %._crit_edge57 ], [ %.04359, %.preheader.lr.ph ]
   %57 = icmp sgt i32 %56, 0
   br i1 %57, label %.lr.ph56, label %._crit_edge57
 
 .lr.ph56:                                         ; preds = %.preheader
-  %58 = getelementptr inbounds i8, ptr %.061, i64 312
-  %59 = getelementptr inbounds i8, ptr %.061, i64 8
+  %58 = getelementptr inbounds i8, ptr %.04361, i64 312
+  %59 = getelementptr inbounds i8, ptr %.04361, i64 8
   br label %60
 
 60:                                               ; preds = %.lr.ph56, %94
@@ -347,11 +347,11 @@ define void @priority_p_job_end(ptr nocapture noundef readonly %0) local_unnamed
 
 ._crit_edge57:                                    ; preds = %94, %.preheader
   %98 = phi i32 [ %56, %.preheader ], [ %95, %94 ]
-  %99 = getelementptr inbounds i8, ptr %.061, i64 312
+  %99 = getelementptr inbounds i8, ptr %.04361, i64 312
   %100 = load ptr, ptr %99, align 8
-  %.0.in = getelementptr inbounds i8, ptr %100, i64 72
-  %.0 = load ptr, ptr %.0.in, align 8
-  %.not50 = icmp eq ptr %.0, null
+  %.043.in = getelementptr inbounds i8, ptr %100, i64 72
+  %.043 = load ptr, ptr %.043.in, align 8
+  %.not50 = icmp eq ptr %.043, null
   br i1 %.not50, label %._crit_edge62, label %.preheader, !llvm.loop !10
 
 ._crit_edge62:                                    ; preds = %._crit_edge57, %.preheader.lr.ph, %.loopexit

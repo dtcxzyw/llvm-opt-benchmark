@@ -175,13 +175,13 @@ for.inc62:                                        ; preds = %for.end58, %for.bod
   br i1 %cmp38.not, label %for.cond71.preheader, label %for.body39
 
 for.body73:                                       ; preds = %for.cond71.preheader, %for.inc115
-  %__begin267.sroa.5.0102 = phi ptr [ null, %for.cond71.preheader ], [ %spec.select81, %for.inc115 ]
-  %__begin267.sroa.0.0101 = phi ptr [ %this, %for.cond71.preheader ], [ %63, %for.inc115 ]
-  %cmp76 = icmp eq ptr %__begin267.sroa.0.0101, %this
+  %__begin267.sroa.0.0102 = phi ptr [ %this, %for.cond71.preheader ], [ %63, %for.inc115 ]
+  %__begin267.sroa.5.0101 = phi ptr [ null, %for.cond71.preheader ], [ %spec.select81, %for.inc115 ]
+  %cmp76 = icmp eq ptr %__begin267.sroa.0.0102, %this
   br i1 %cmp76, label %for.inc115, label %if.end78
 
 if.end78:                                         ; preds = %for.body73
-  %m_parents.i43 = getelementptr inbounds i8, ptr %__begin267.sroa.0.0101, i64 48
+  %m_parents.i43 = getelementptr inbounds i8, ptr %__begin267.sroa.0.0102, i64 48
   %14 = load ptr, ptr %m_parents.i43, align 8
   %cmp.i.i.i45 = icmp eq ptr %14, null
   br i1 %cmp.i.i.i45, label %for.inc115, label %_ZNK3euf13enode_parents3endEv.exit50
@@ -410,9 +410,9 @@ for.inc112:                                       ; preds = %for.end108, %for.bo
   br i1 %cmp86.not, label %for.inc115, label %for.body87
 
 for.inc115:                                       ; preds = %for.inc112, %if.end78, %_ZNK3euf13enode_parents3endEv.exit50, %for.body73
-  %tobool.not.i65 = icmp eq ptr %__begin267.sroa.5.0102, null
-  %spec.select81 = select i1 %tobool.not.i65, ptr %__begin267.sroa.0.0101, ptr %__begin267.sroa.5.0102
-  %m_next.i68 = getelementptr inbounds i8, ptr %__begin267.sroa.0.0101, i64 56
+  %tobool.not.i65 = icmp eq ptr %__begin267.sroa.5.0101, null
+  %spec.select81 = select i1 %tobool.not.i65, ptr %__begin267.sroa.0.0102, ptr %__begin267.sroa.5.0101
+  %m_next.i68 = getelementptr inbounds i8, ptr %__begin267.sroa.0.0102, i64 56
   %63 = load ptr, ptr %m_next.i68, align 8
   %cmp.i.i40 = icmp ne ptr %spec.select81, %this
   %cmp4.i.i41 = icmp ne ptr %63, %this
@@ -752,14 +752,14 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %gen.012 = phi i32 [ %0, %entry ], [ %.sroa.speculated, %for.body ]
-  %__begin1.sroa.5.011 = phi ptr [ null, %entry ], [ %spec.select, %for.body ]
-  %__begin1.sroa.0.010 = phi ptr [ %this, %entry ], [ %2, %for.body ]
-  %m_generation.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010, i64 40
+  %__begin1.sroa.0.011 = phi ptr [ %this, %entry ], [ %2, %for.body ]
+  %__begin1.sroa.5.010 = phi ptr [ null, %entry ], [ %spec.select, %for.body ]
+  %m_generation.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.011, i64 40
   %1 = load i32, ptr %m_generation.i, align 8
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %gen.012, i32 %1)
-  %tobool.not.i = icmp eq ptr %__begin1.sroa.5.011, null
-  %spec.select = select i1 %tobool.not.i, ptr %__begin1.sroa.0.010, ptr %__begin1.sroa.5.011
-  %m_next.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.010, i64 56
+  %tobool.not.i = icmp eq ptr %__begin1.sroa.5.010, null
+  %spec.select = select i1 %tobool.not.i, ptr %__begin1.sroa.0.011, ptr %__begin1.sroa.5.010
+  %m_next.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.011, i64 56
   %2 = load ptr, ptr %m_next.i, align 8
   %cmp.i.i = icmp ne ptr %spec.select, %this
   %cmp4.i.i = icmp ne ptr %2, %this

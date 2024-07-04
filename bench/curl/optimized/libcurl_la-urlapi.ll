@@ -1214,11 +1214,11 @@ if.end304:                                        ; preds = %if.end301
   br label %return
 
 sw.epilog:                                        ; preds = %if.end10, %sw.bb66, %sw.bb63, %sw.bb25, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb11
-  %plusdecode.0 = phi i1 [ false, %sw.bb66 ], [ %13, %sw.bb63 ], [ false, %sw.bb25 ], [ false, %sw.bb14 ], [ false, %sw.bb13 ], [ false, %sw.bb12 ], [ false, %sw.bb11 ], [ false, %if.end10 ]
-  %depunyfy.0 = phi i1 [ false, %sw.bb66 ], [ false, %sw.bb63 ], [ false, %sw.bb25 ], [ %5, %sw.bb14 ], [ false, %sw.bb13 ], [ false, %sw.bb12 ], [ false, %sw.bb11 ], [ false, %if.end10 ]
-  %punycode.0 = phi i1 [ false, %sw.bb66 ], [ false, %sw.bb63 ], [ false, %sw.bb25 ], [ %3, %sw.bb14 ], [ false, %sw.bb13 ], [ false, %sw.bb12 ], [ false, %sw.bb11 ], [ false, %if.end10 ]
   %urldecode.0 = phi i8 [ %1, %sw.bb66 ], [ %1, %sw.bb63 ], [ %1, %sw.bb25 ], [ %1, %sw.bb14 ], [ %1, %sw.bb13 ], [ %1, %sw.bb12 ], [ %1, %sw.bb11 ], [ 0, %if.end10 ]
   %ifmissing.0 = phi i32 [ 17, %sw.bb66 ], [ 16, %sw.bb63 ], [ 18, %sw.bb25 ], [ 14, %sw.bb14 ], [ 13, %sw.bb13 ], [ 12, %sw.bb12 ], [ 11, %sw.bb11 ], [ 10, %if.end10 ]
+  %punycode.0 = phi i1 [ false, %sw.bb66 ], [ false, %sw.bb63 ], [ false, %sw.bb25 ], [ %3, %sw.bb14 ], [ false, %sw.bb13 ], [ false, %sw.bb12 ], [ false, %sw.bb11 ], [ false, %if.end10 ]
+  %depunyfy.0 = phi i1 [ false, %sw.bb66 ], [ false, %sw.bb63 ], [ false, %sw.bb25 ], [ %5, %sw.bb14 ], [ false, %sw.bb13 ], [ false, %sw.bb12 ], [ false, %sw.bb11 ], [ false, %if.end10 ]
+  %plusdecode.0 = phi i1 [ false, %sw.bb66 ], [ %13, %sw.bb63 ], [ false, %sw.bb25 ], [ false, %sw.bb14 ], [ false, %sw.bb13 ], [ false, %sw.bb12 ], [ false, %sw.bb11 ], [ false, %if.end10 ]
   %ptr.0.in = phi ptr [ %fragment, %sw.bb66 ], [ %query, %sw.bb63 ], [ %zoneid, %sw.bb25 ], [ %host, %sw.bb14 ], [ %options, %sw.bb13 ], [ %password, %sw.bb12 ], [ %user, %sw.bb11 ], [ %u, %if.end10 ]
   %ptr.0 = load ptr, ptr %ptr.0.in, align 8
   %tobool305.not = icmp eq ptr %ptr.0, null
@@ -1226,10 +1226,10 @@ sw.epilog:                                        ; preds = %if.end10, %sw.bb66,
 
 if.then306:                                       ; preds = %sw.bb59, %land.lhs.true49, %if.then36, %land.lhs.true41, %if.then44, %sw.epilog
   %ptr.0171 = phi ptr [ %ptr.0, %sw.epilog ], [ %portbuf, %if.then36 ], [ %6, %land.lhs.true41 ], [ %6, %if.then44 ], [ %6, %land.lhs.true49 ], [ %spec.select182, %sw.bb59 ]
-  %urldecode.0170 = phi i8 [ %urldecode.0, %sw.epilog ], [ 0, %if.then36 ], [ 0, %land.lhs.true41 ], [ 0, %if.then44 ], [ 0, %land.lhs.true49 ], [ %1, %sw.bb59 ]
-  %punycode.0169 = phi i1 [ %punycode.0, %sw.epilog ], [ false, %if.then36 ], [ false, %land.lhs.true41 ], [ false, %if.then44 ], [ false, %land.lhs.true49 ], [ false, %sw.bb59 ]
-  %depunyfy.0168 = phi i1 [ %depunyfy.0, %sw.epilog ], [ false, %if.then36 ], [ false, %land.lhs.true41 ], [ false, %if.then44 ], [ false, %land.lhs.true49 ], [ false, %sw.bb59 ]
-  %plusdecode.0167 = phi i1 [ %plusdecode.0, %sw.epilog ], [ false, %if.then36 ], [ false, %land.lhs.true41 ], [ false, %if.then44 ], [ false, %land.lhs.true49 ], [ false, %sw.bb59 ]
+  %plusdecode.0170 = phi i1 [ %plusdecode.0, %sw.epilog ], [ false, %if.then36 ], [ false, %land.lhs.true41 ], [ false, %if.then44 ], [ false, %land.lhs.true49 ], [ false, %sw.bb59 ]
+  %depunyfy.0169 = phi i1 [ %depunyfy.0, %sw.epilog ], [ false, %if.then36 ], [ false, %land.lhs.true41 ], [ false, %if.then44 ], [ false, %land.lhs.true49 ], [ false, %sw.bb59 ]
+  %punycode.0168 = phi i1 [ %punycode.0, %sw.epilog ], [ false, %if.then36 ], [ false, %land.lhs.true41 ], [ false, %if.then44 ], [ false, %land.lhs.true49 ], [ false, %sw.bb59 ]
+  %urldecode.0167 = phi i8 [ %urldecode.0, %sw.epilog ], [ 0, %if.then36 ], [ 0, %land.lhs.true41 ], [ 0, %if.then44 ], [ 0, %land.lhs.true49 ], [ %1, %sw.bb59 ]
   %call307 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %ptr.0171) #11
   %call308 = call ptr @Curl_memdup0(ptr noundef nonnull %ptr.0171, i64 noundef %call307) #10
   store ptr %call308, ptr %part, align 8
@@ -1238,7 +1238,7 @@ if.then306:                                       ; preds = %sw.bb59, %land.lhs.
 
 if.end311:                                        ; preds = %if.then306
   %cmp314183 = icmp ne i64 %call307, 0
-  %or.cond186 = and i1 %plusdecode.0167, %cmp314183
+  %or.cond186 = and i1 %plusdecode.0170, %cmp314183
   br i1 %or.cond186, label %for.body, label %if.end321
 
 for.body:                                         ; preds = %if.end311, %for.inc
@@ -1259,7 +1259,7 @@ for.inc:                                          ; preds = %for.body, %if.then3
   br i1 %exitcond.not, label %if.end321, label %for.body, !llvm.loop !8
 
 if.end321:                                        ; preds = %for.inc, %if.end311
-  %tobool322 = trunc i8 %urldecode.0170 to i1
+  %tobool322 = trunc i8 %urldecode.0167 to i1
   br i1 %tobool322, label %if.then323, label %if.end328
 
 if.then323:                                       ; preds = %if.end321
@@ -1302,7 +1302,7 @@ if.end337:                                        ; preds = %if.then330
   br label %return
 
 if.else339:                                       ; preds = %if.end328
-  br i1 %punycode.0169, label %if.then341, label %if.else355
+  br i1 %punycode.0168, label %if.then341, label %if.else355
 
 if.then341:                                       ; preds = %if.else339
   %host342 = getelementptr inbounds i8, ptr %u, i64 32
@@ -1330,7 +1330,7 @@ if.end353:                                        ; preds = %if.then344
   br label %return
 
 if.else355:                                       ; preds = %if.else339
-  br i1 %depunyfy.0168, label %if.then357, label %return
+  br i1 %depunyfy.0169, label %if.then357, label %return
 
 if.then357:                                       ; preds = %if.else355
   %host358 = getelementptr inbounds i8, ptr %u, i64 32
@@ -1838,18 +1838,18 @@ if.end158:                                        ; preds = %if.end151
   br label %return
 
 do.end163:                                        ; preds = %if.then91, %while.cond.preheader, %sw.bb136, %sw.bb125, %sw.bb123, %if.end121, %sw.bb108, %sw.bb102, %sw.bb100, %sw.bb98, %sw.bb96
-  %appendquery.0 = phi i8 [ 0, %sw.bb136 ], [ %36, %sw.bb125 ], [ 0, %sw.bb123 ], [ 0, %if.end121 ], [ 0, %sw.bb108 ], [ 0, %sw.bb102 ], [ 0, %sw.bb100 ], [ 0, %sw.bb98 ], [ 0, %sw.bb96 ], [ 0, %while.cond.preheader ], [ 0, %if.then91 ]
-  %urlskipslash.0 = phi i1 [ false, %sw.bb136 ], [ false, %sw.bb125 ], [ true, %sw.bb123 ], [ false, %if.end121 ], [ false, %sw.bb108 ], [ false, %sw.bb102 ], [ false, %sw.bb100 ], [ false, %sw.bb98 ], [ false, %sw.bb96 ], [ false, %while.cond.preheader ], [ false, %if.then91 ]
-  %plusencode.0 = phi i1 [ false, %sw.bb136 ], [ %tobool, %sw.bb125 ], [ false, %sw.bb123 ], [ false, %if.end121 ], [ false, %sw.bb108 ], [ false, %sw.bb102 ], [ false, %sw.bb100 ], [ false, %sw.bb98 ], [ false, %sw.bb96 ], [ false, %while.cond.preheader ], [ false, %if.then91 ]
-  %urlencode.0 = phi i1 [ %tobool, %sw.bb136 ], [ %tobool, %sw.bb125 ], [ %tobool, %sw.bb123 ], [ false, %if.end121 ], [ %tobool, %sw.bb108 ], [ %tobool, %sw.bb102 ], [ %tobool, %sw.bb100 ], [ %tobool, %sw.bb98 ], [ %tobool, %sw.bb96 ], [ false, %while.cond.preheader ], [ false, %if.then91 ]
-  %port.0 = phi i64 [ 0, %sw.bb136 ], [ 0, %sw.bb125 ], [ 0, %sw.bb123 ], [ %call111, %if.end121 ], [ 0, %sw.bb108 ], [ 0, %sw.bb102 ], [ 0, %sw.bb100 ], [ 0, %sw.bb98 ], [ 0, %sw.bb96 ], [ 0, %while.cond.preheader ], [ 0, %if.then91 ]
   %storep.1 = phi ptr [ %fragment137, %sw.bb136 ], [ %query135, %sw.bb125 ], [ %path124, %sw.bb123 ], [ %port122, %if.end121 ], [ %zoneid109, %sw.bb108 ], [ %host103, %sw.bb102 ], [ %options101, %sw.bb100 ], [ %password99, %sw.bb98 ], [ %user97, %sw.bb96 ], [ %u, %while.cond.preheader ], [ %u, %if.then91 ]
+  %port.0 = phi i64 [ 0, %sw.bb136 ], [ 0, %sw.bb125 ], [ 0, %sw.bb123 ], [ %call111, %if.end121 ], [ 0, %sw.bb108 ], [ 0, %sw.bb102 ], [ 0, %sw.bb100 ], [ 0, %sw.bb98 ], [ 0, %sw.bb96 ], [ 0, %while.cond.preheader ], [ 0, %if.then91 ]
+  %urlencode.0 = phi i1 [ %tobool, %sw.bb136 ], [ %tobool, %sw.bb125 ], [ %tobool, %sw.bb123 ], [ false, %if.end121 ], [ %tobool, %sw.bb108 ], [ %tobool, %sw.bb102 ], [ %tobool, %sw.bb100 ], [ %tobool, %sw.bb98 ], [ %tobool, %sw.bb96 ], [ false, %while.cond.preheader ], [ false, %if.then91 ]
+  %plusencode.0 = phi i1 [ false, %sw.bb136 ], [ %tobool, %sw.bb125 ], [ false, %sw.bb123 ], [ false, %if.end121 ], [ false, %sw.bb108 ], [ false, %sw.bb102 ], [ false, %sw.bb100 ], [ false, %sw.bb98 ], [ false, %sw.bb96 ], [ false, %while.cond.preheader ], [ false, %if.then91 ]
+  %leadingslash.0 = phi i1 [ false, %sw.bb136 ], [ false, %sw.bb125 ], [ true, %sw.bb123 ], [ false, %if.end121 ], [ false, %sw.bb108 ], [ false, %sw.bb102 ], [ false, %sw.bb100 ], [ false, %sw.bb98 ], [ false, %sw.bb96 ], [ false, %while.cond.preheader ], [ false, %if.then91 ]
+  %equalsencode.0 = phi i8 [ 0, %sw.bb136 ], [ %36, %sw.bb125 ], [ 0, %sw.bb123 ], [ 0, %if.end121 ], [ 0, %sw.bb108 ], [ 0, %sw.bb102 ], [ 0, %sw.bb100 ], [ 0, %sw.bb98 ], [ 0, %sw.bb96 ], [ 0, %while.cond.preheader ], [ 0, %if.then91 ]
   %mul = mul nuw nsw i64 %call, 3
   %add = add nuw nsw i64 %mul, 1
-  %conv165 = zext i1 %urlskipslash.0 to i64
+  %conv165 = zext i1 %leadingslash.0 to i64
   %add166 = add nuw nsw i64 %add, %conv165
   call void @Curl_dyn_init(ptr noundef nonnull %enc, i64 noundef %add166) #10
-  br i1 %urlskipslash.0, label %land.lhs.true169, label %if.end182
+  br i1 %leadingslash.0, label %land.lhs.true169, label %if.end182
 
 land.lhs.true169:                                 ; preds = %do.end163
   %42 = load i8, ptr %part, align 1
@@ -1875,7 +1875,7 @@ for.cond.preheader:                               ; preds = %if.end182
   br i1 %plusencode.0, label %for.cond.us, label %for.cond
 
 for.cond.us:                                      ; preds = %for.cond.preheader, %for.inc.us
-  %equalsencode.1.us = phi i8 [ %equalsencode.3.us, %for.inc.us ], [ %appendquery.0, %for.cond.preheader ]
+  %equalsencode.1.us = phi i8 [ %equalsencode.3.us, %for.inc.us ], [ %equalsencode.0, %for.cond.preheader ]
   %i.0.us = phi ptr [ %incdec.ptr286.us, %for.inc.us ], [ %part, %for.cond.preheader ]
   %43 = load i8, ptr %i.0.us, align 1
   switch i8 %43, label %if.else198.us [
@@ -1912,7 +1912,7 @@ land.lhs.true249.us:                              ; preds = %lor.lhs.false222.us
   br i1 %tobool250.us, label %if.then252.us, label %if.else268.us
 
 land.lhs.true242.us:                              ; preds = %lor.lhs.false222.us
-  br i1 %urlskipslash.0, label %if.then252.us, label %if.else268.us
+  br i1 %leadingslash.0, label %if.then252.us, label %if.else268.us
 
 if.else268.us:                                    ; preds = %land.lhs.true242.us, %land.lhs.true249.us, %lor.lhs.false222.us
   store i8 37, ptr %out, align 1
@@ -1945,7 +1945,7 @@ for.inc.us:                                       ; preds = %if.then252.us, %if.
   br label %for.cond.us, !llvm.loop !11
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.inc
-  %equalsencode.1 = phi i8 [ %equalsencode.3, %for.inc ], [ %appendquery.0, %for.cond.preheader ]
+  %equalsencode.1 = phi i8 [ %equalsencode.3, %for.inc ], [ %equalsencode.0, %for.cond.preheader ]
   %i.0 = phi ptr [ %incdec.ptr286, %for.inc ], [ %part, %for.cond.preheader ]
   %53 = load i8, ptr %i.0, align 1
   switch i8 %53, label %if.else198 [
@@ -1973,7 +1973,7 @@ lor.lhs.false222:                                 ; preds = %if.else198
   ]
 
 land.lhs.true242:                                 ; preds = %lor.lhs.false222
-  br i1 %urlskipslash.0, label %if.then252, label %if.else268
+  br i1 %leadingslash.0, label %if.then252, label %if.else268
 
 land.lhs.true249:                                 ; preds = %lor.lhs.false222
   %tobool250 = trunc i8 %equalsencode.1 to i1
@@ -2114,7 +2114,7 @@ if.end392:                                        ; preds = %while.cond297, %lan
 
 if.end394:                                        ; preds = %while.cond297, %for.cond, %for.cond.us
   %call395 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %enc) #10
-  %tobool396 = trunc i8 %appendquery.0 to i1
+  %tobool396 = trunc i8 %equalsencode.0 to i1
   %tobool399 = icmp ne ptr %call395, null
   %or.cond2 = select i1 %tobool396, i1 %tobool399, i1 false
   br i1 %or.cond2, label %if.then400, label %if.else433
@@ -2990,9 +2990,9 @@ if.then81:                                        ; preds = %if.else78
   br label %if.end85
 
 if.end85:                                         ; preds = %if.then55, %while.cond50.preheader, %if.then65, %if.else78, %if.then81, %if.then70, %while.end, %if.else56
+  %protsep.2 = phi ptr [ %add.ptr20, %if.else56 ], [ null, %while.end ], [ %protsep.0, %if.then65 ], [ %protsep.0, %if.then70 ], [ %protsep.0, %if.then81 ], [ %protsep.0, %if.else78 ], [ %add.ptr20, %while.cond50.preheader ], [ %protsep.1, %if.then55 ]
   %lnot = phi i1 [ true, %if.else56 ], [ true, %while.end ], [ false, %if.then65 ], [ true, %if.then70 ], [ true, %if.then81 ], [ true, %if.else78 ], [ true, %while.cond50.preheader ], [ true, %if.then55 ]
   %useurl.2 = phi ptr [ %useurl.1.lcssa, %if.else56 ], [ %useurl.1.lcssa, %while.end ], [ %arrayidx66, %if.then65 ], [ %relurl, %if.then70 ], [ %relurl, %if.then81 ], [ %relurl, %if.else78 ], [ %useurl.1.lcssa, %while.cond50.preheader ], [ %useurl.1.lcssa, %if.then55 ]
-  %protsep.2 = phi ptr [ %add.ptr20, %if.else56 ], [ null, %while.end ], [ %protsep.0, %if.then65 ], [ %protsep.0, %if.then70 ], [ %protsep.0, %if.then81 ], [ %protsep.0, %if.else78 ], [ %add.ptr20, %while.cond50.preheader ], [ %protsep.1, %if.then55 ]
   call void @Curl_dyn_init(ptr noundef nonnull %newest, i64 noundef 8000000) #10
   %call86 = call i32 @Curl_dyn_add(ptr noundef nonnull %newest, ptr noundef %base) #10
   %tobool87.not = icmp eq i32 %call86, 0
@@ -3302,8 +3302,8 @@ if.end4:                                          ; preds = %if.end
   br label %do.body
 
 do.body:                                          ; preds = %do.cond105, %if.end4
-  %outptr.0 = phi ptr [ %call1, %if.end4 ], [ %outptr.7, %do.cond105 ]
   %input.addr.0 = phi ptr [ %input, %if.end4 ], [ %input.addr.3, %do.cond105 ]
+  %outptr.0 = phi ptr [ %call1, %if.end4 ], [ %outptr.7, %do.cond105 ]
   %1 = load i8, ptr %input.addr.0, align 1
   switch i8 %1, label %do.body93.preheader [
     i8 46, label %if.then7.tail
@@ -3514,8 +3514,8 @@ while.body74:                                     ; preds = %while.cond71
 
 do.body93:                                        ; preds = %do.body93.preheader, %do.body93
   %64 = phi i8 [ %65, %do.body93 ], [ %1, %do.body93.preheader ]
-  %outptr.6 = phi ptr [ %incdec.ptr95, %do.body93 ], [ %outptr.0, %do.body93.preheader ]
   %input.addr.2 = phi ptr [ %incdec.ptr94, %do.body93 ], [ %input.addr.0, %do.body93.preheader ]
+  %outptr.6 = phi ptr [ %incdec.ptr95, %do.body93 ], [ %outptr.0, %do.body93.preheader ]
   %incdec.ptr94 = getelementptr inbounds i8, ptr %input.addr.2, i64 1
   %incdec.ptr95 = getelementptr inbounds i8, ptr %outptr.6, i64 1
   store i8 %64, ptr %outptr.6, align 1
@@ -3531,8 +3531,8 @@ do.end:                                           ; preds = %do.body93, %do.body
   br label %do.cond105
 
 do.cond105:                                       ; preds = %if.then40, %while.end, %if.then10, %if.then13, %do.end
-  %outptr.7 = phi ptr [ %incdec.ptr95, %do.end ], [ %outptr.0, %if.then40 ], [ %outptr.2, %while.end ], [ %outptr.0, %if.then10 ], [ %outptr.0, %if.then13 ]
   %input.addr.3 = phi ptr [ %incdec.ptr94, %do.end ], [ %add.ptr41, %if.then40 ], [ %add.ptr54, %while.end ], [ %add.ptr, %if.then10 ], [ %add.ptr14, %if.then13 ]
+  %outptr.7 = phi ptr [ %incdec.ptr95, %do.end ], [ %outptr.0, %if.then40 ], [ %outptr.2, %while.end ], [ %outptr.0, %if.then10 ], [ %outptr.0, %if.then13 ]
   %cmp106 = icmp ult ptr %input.addr.3, %arrayidx
   br i1 %cmp106, label %do.body, label %do.end108, !llvm.loop !19
 

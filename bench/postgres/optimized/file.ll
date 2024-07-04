@@ -335,8 +335,8 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
   br label %39
 
 39:                                               ; preds = %.lr.ph98, %113
-  %.06096 = phi i64 [ 0, %.lr.ph98 ], [ %49, %113 ]
-  %.06195 = phi i32 [ 0, %.lr.ph98 ], [ %.162.lcssa, %113 ]
+  %.06696 = phi i64 [ 0, %.lr.ph98 ], [ %49, %113 ]
+  %.06795 = phi i32 [ 0, %.lr.ph98 ], [ %.168.lcssa, %113 ]
   %40 = call i64 @read(i32 noundef %10, ptr noundef nonnull %6, i64 noundef 8192) #10
   %.not75 = icmp eq i64 %40, 8192
   br i1 %.not75, label %48, label %41
@@ -357,40 +357,40 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
   unreachable
 
 48:                                               ; preds = %39
-  %49 = add i64 %.06096, 8192
+  %49 = add i64 %.06696, 8192
   %50 = icmp eq i64 %49, %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %9, ptr noundef nonnull align 4096 dereferenceable(24) %6, i64 24, i1 false)
   br label %51
 
 51:                                               ; preds = %48, %110
-  %.16294 = phi i32 [ %.06195, %48 ], [ %112, %110 ]
-  %.06693 = phi ptr [ %34, %48 ], [ %.167.lcssa, %110 ]
-  %.06892 = phi ptr [ %36, %48 ], [ %111, %110 ]
+  %.06394 = phi ptr [ %36, %48 ], [ %111, %110 ]
+  %.06493 = phi ptr [ %34, %48 ], [ %.165.lcssa, %110 ]
+  %.16892 = phi i32 [ %.06795, %48 ], [ %112, %110 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4096 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(24) %9, i64 24, i1 false)
-  %52 = icmp eq ptr %.06892, %35
+  %52 = icmp eq ptr %.06394, %35
   %.not102.not105 = and i1 %50, %52
-  %53 = icmp ult ptr %.06693, %.06892
+  %53 = icmp ult ptr %.06493, %.06394
   br i1 %53, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %51, %64
-  %.06390 = phi i1 [ %.2, %64 ], [ true, %51 ]
-  %.06589 = phi ptr [ %70, %64 ], [ %37, %51 ]
-  %.16788 = phi ptr [ %69, %64 ], [ %.06693, %51 ]
-  %54 = load i8, ptr %.16788, align 1
+  %.06090 = phi i1 [ %.2, %64 ], [ true, %51 ]
+  %.06289 = phi ptr [ %70, %64 ], [ %37, %51 ]
+  %.16588 = phi ptr [ %69, %64 ], [ %.06493, %51 ]
+  %54 = load i8, ptr %.16588, align 1
   %55 = zext i8 %54 to i32
   br label %56
 
 56:                                               ; preds = %.lr.ph, %56
   %.087 = phi i32 [ 0, %.lr.ph ], [ %63, %56 ]
   %.05986 = phi i16 [ 0, %.lr.ph ], [ %.1, %56 ]
-  %.16485 = phi i1 [ %.06390, %.lr.ph ], [ %.2, %56 ]
+  %.16185 = phi i1 [ %.06090, %.lr.ph ], [ %.2, %56 ]
   %57 = shl nuw nsw i32 1, %.087
   %58 = and i32 %57, %55
   %.not79 = icmp eq i32 %58, 0
   %59 = shl nuw nsw i32 %.087, 1
   %60 = shl nuw nsw i32 1, %59
   %61 = trunc nuw i32 %60 to i16
-  %.2 = select i1 %.not79, i1 %.16485, i1 false
+  %.2 = select i1 %.not79, i1 %.16185, i1 false
   %62 = select i1 %.not79, i16 0, i16 %61
   %.1 = or i16 %62, %.05986
   %63 = add nuw nsw i32 %.087, 1
@@ -399,20 +399,20 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
 
 64:                                               ; preds = %56
   %65 = trunc i16 %.1 to i8
-  store i8 %65, ptr %.06589, align 1
+  store i8 %65, ptr %.06289, align 1
   %66 = lshr i16 %.1, 8
   %67 = trunc nuw i16 %66 to i8
-  %68 = getelementptr i8, ptr %.06589, i64 1
+  %68 = getelementptr i8, ptr %.06289, i64 1
   store i8 %67, ptr %68, align 1
-  %69 = getelementptr i8, ptr %.16788, i64 1
-  %70 = getelementptr i8, ptr %.06589, i64 2
-  %71 = icmp ult ptr %69, %.06892
+  %69 = getelementptr i8, ptr %.16588, i64 1
+  %70 = getelementptr i8, ptr %.06289, i64 2
+  %71 = icmp ult ptr %69, %.06394
   br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %64, %51
-  %.167.lcssa = phi ptr [ %.06693, %51 ], [ %69, %64 ]
-  %.063.lcssa = phi i1 [ true, %51 ], [ %.2, %64 ]
-  %brmerge.not = select i1 %.not102.not105, i1 %.063.lcssa, i1 false
+  %.165.lcssa = phi ptr [ %.06493, %51 ], [ %69, %64 ]
+  %.060.lcssa = phi i1 [ true, %51 ], [ %.2, %64 ]
+  %brmerge.not = select i1 %.not102.not105, i1 %.060.lcssa, i1 false
   br i1 %brmerge.not, label %113, label %72
 
 72:                                               ; preds = %._crit_edge
@@ -481,7 +481,7 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
 
 pg_checksum_page.exit:                            ; preds = %.preheader.i.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
-  %96 = xor i32 %95, %.16294
+  %96 = xor i32 %95, %.16892
   %97 = urem i32 %96, 65535
   %98 = trunc nuw i32 %97 to i16
   %99 = add nuw i16 %98, 1
@@ -511,13 +511,13 @@ pg_checksum_page.exit:                            ; preds = %.preheader.i.i
   unreachable
 
 110:                                              ; preds = %100
-  %111 = getelementptr i8, ptr %.06892, i64 4084
-  %112 = add i32 %.16294, 1
+  %111 = getelementptr i8, ptr %.06394, i64 4084
+  %112 = add i32 %.16892, 1
   %.not76 = icmp ugt ptr %111, %35
   br i1 %.not76, label %113, label %51, !llvm.loop !13
 
 113:                                              ; preds = %._crit_edge, %110
-  %.162.lcssa = phi i32 [ %.16294, %._crit_edge ], [ %112, %110 ]
+  %.168.lcssa = phi i32 [ %.16892, %._crit_edge ], [ %112, %110 ]
   %114 = icmp slt i64 %49, %32
   br i1 %114, label %39, label %._crit_edge99, !llvm.loop !14
 

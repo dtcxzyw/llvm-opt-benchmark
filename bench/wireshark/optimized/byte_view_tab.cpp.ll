@@ -1385,7 +1385,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZNK7QObject12findC
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %35
   %23 = phi i64 [ %37, %35 ], [ 0, %.lr.ph ]
-  %.02151.us = phi i32 [ %36, %35 ], [ 0, %.lr.ph ]
+  %.01952.us = phi i32 [ %36, %35 ], [ 0, %.lr.ph ]
   %24 = load ptr, ptr %22, align 8
   %25 = getelementptr ptr, ptr %24, i64 %23
   %26 = load ptr, ptr %25, align 8
@@ -1415,7 +1415,7 @@ _ZN14VariantPointerI6tvbuffE5asPtrE8QVariant.exit.us: ; preds = %27
           to label %._crit_edge unwind label %.split.us.loopexit.split-lp
 
 35:                                               ; preds = %_ZN14VariantPointerI6tvbuffE5asPtrE8QVariant.exit.us
-  %36 = add i32 %.02151.us, 1
+  %36 = add i32 %.01952.us, 1
   %37 = sext i32 %36 to i64
   %38 = load i64, ptr %19, align 8
   %39 = icmp sle i64 %38, %37
@@ -1444,7 +1444,7 @@ _ZN14VariantPointerI6tvbuffE5asPtrE8QVariant.exit.us: ; preds = %27
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %62
   %42 = phi i64 [ %64, %62 ], [ 0, %.lr.ph ]
-  %.02151 = phi i32 [ %63, %62 ], [ 0, %.lr.ph ]
+  %.01952 = phi i32 [ %63, %62 ], [ 0, %.lr.ph ]
   %43 = load ptr, ptr %22, align 8
   %44 = getelementptr ptr, ptr %43, i64 %42
   %45 = load ptr, ptr %44, align 8
@@ -1520,7 +1520,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i35:    ; preds = %.body
   br label %.split.us
 
 62:                                               ; preds = %_ZN14VariantPointerI6tvbuffE5asPtrE8QVariant.exit
-  %63 = add i32 %.02151, 1
+  %63 = add i32 %.01952, 1
   %64 = sext i32 %63 to i64
   %65 = load i64, ptr %19, align 8
   %66 = icmp sle i64 %65, %64

@@ -217,8 +217,8 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
   br label %90
 
 90:                                               ; preds = %67, %86
-  %.0186 = phi i32 [ %74, %86 ], [ %69, %67 ]
-  %91 = call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %.0186) #7
+  %.0185 = phi i32 [ %74, %86 ], [ %69, %67 ]
+  %91 = call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %.0185) #7
   br i1 %91, label %98, label %92
 
 92:                                               ; preds = %90
@@ -229,7 +229,7 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
 95:                                               ; preds = %92
   %96 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %97 = load i32, ptr @fileline, align 4
-  call void (i32, ptr, ...) @opal_output(i32 noundef %96, ptr noundef nonnull @.str.6, ptr noundef %18, i32 noundef %.0186, i32 noundef %97) #7
+  call void (i32, ptr, ...) @opal_output(i32 noundef %96, ptr noundef nonnull @.str.6, ptr noundef %18, i32 noundef %.0185, i32 noundef %97) #7
   br label %98
 
 98:                                               ; preds = %95, %92, %90
@@ -255,7 +255,7 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
 110:                                              ; preds = %98
   %111 = trunc i64 %101 to i32
   store i32 %111, ptr %55, align 4
-  store i32 %.0186, ptr %54, align 8
+  store i32 %.0185, ptr %54, align 8
   %112 = icmp eq i64 %101, 0
   br i1 %112, label %113, label %120
 
@@ -347,7 +347,7 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
   br label %397
 
 159:                                              ; preds = %142, %137
-  %.0182 = phi i64 [ %145, %142 ], [ %140, %137 ]
+  %.0181 = phi i64 [ %145, %142 ], [ %140, %137 ]
   %160 = load ptr, ptr %11, align 8
   call void @free(ptr noundef %160) #7
   store i64 -1, ptr %6, align 8
@@ -371,8 +371,8 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
   br label %397
 
 172:                                              ; preds = %159
-  store i32 %.0186, ptr %125, align 8
-  %173 = trunc nsw i64 %.0182 to i32
+  store i32 %.0185, ptr %125, align 8
+  %173 = trunc nsw i64 %.0181 to i32
   %174 = getelementptr inbounds i8, ptr %125, i64 4
   store i32 %173, ptr %174, align 4
   %175 = trunc i64 %163 to i32
@@ -400,7 +400,7 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
   br i1 %187, label %188, label %.lr.ph304
 
 .lr.ph304:                                        ; preds = %184
-  %.not211 = icmp eq i64 %.0182, 0
+  %.not211 = icmp eq i64 %.0181, 0
   br label %189
 
 188:                                              ; preds = %184
@@ -464,7 +464,7 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
   br label %397
 
 220:                                              ; preds = %208
-  store i32 %.0186, ptr %190, align 8
+  store i32 %.0185, ptr %190, align 8
   %221 = getelementptr inbounds i8, ptr %190, i64 4
   store i32 %173, ptr %221, align 4
   %222 = load i64, ptr %7, align 8
@@ -594,7 +594,7 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
 
 289:                                              ; preds = %279
   %290 = load ptr, ptr %3, align 8
-  %291 = call i32 @mca_coll_han_algorithm_name_to_id(i32 noundef %.0186, ptr noundef %290) #7
+  %291 = call i32 @mca_coll_han_algorithm_name_to_id(i32 noundef %.0185, ptr noundef %290) #7
   %292 = icmp slt i32 %291, 0
   br i1 %292, label %293, label %309
 
@@ -608,7 +608,7 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
 
 298:                                              ; preds = %293
   %299 = trunc i64 %295 to i32
-  %300 = call i32 @mca_coll_han_algorithm_id_is_valid(i32 noundef %.0186, i32 noundef %299) #7
+  %300 = call i32 @mca_coll_han_algorithm_id_is_valid(i32 noundef %.0185, i32 noundef %299) #7
   %.not210 = icmp eq i32 %300, 0
   br i1 %.not210, label %301, label %309
 
@@ -626,7 +626,7 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
   br label %397
 
 309:                                              ; preds = %289, %298
-  %.0184 = phi i32 [ %299, %298 ], [ %291, %289 ]
+  %.0183 = phi i32 [ %299, %298 ], [ %291, %289 ]
   %310 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %311 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 5, i32 noundef %310) #7
   br i1 %311, label %312, label %317
@@ -636,13 +636,13 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
   %314 = load ptr, ptr %2, align 8
   %315 = load i64, ptr %9, align 8
   %316 = load ptr, ptr %3, align 8
-  call void (i32, ptr, ...) @opal_output(i32 noundef %313, ptr noundef nonnull @.str.21, ptr noundef %314, i64 noundef %315, ptr noundef %316, i32 noundef %.0184) #7
+  call void (i32, ptr, ...) @opal_output(i32 noundef %313, ptr noundef nonnull @.str.21, ptr noundef %314, i64 noundef %315, ptr noundef %316, i32 noundef %.0183) #7
   br label %317
 
 317:                                              ; preds = %312, %309, %276, %274
-  %.1185 = phi i32 [ %.0184, %312 ], [ %.0184, %309 ], [ 0, %276 ], [ 0, %274 ]
+  %.1184 = phi i32 [ %.0183, %312 ], [ %.0183, %309 ], [ 0, %276 ], [ 0, %274 ]
   %318 = getelementptr inbounds %struct.msg_size_rule_s, ptr %236, i64 %indvars.iv
-  store i32 %.0186, ptr %318, align 8
+  store i32 %.0185, ptr %318, align 8
   %319 = getelementptr inbounds i8, ptr %318, i64 4
   store i32 %173, ptr %319, align 4
   %320 = load i64, ptr %7, align 8
@@ -655,7 +655,7 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
   %325 = getelementptr inbounds i8, ptr %318, i64 24
   store i32 %265, ptr %325, align 8
   %326 = getelementptr inbounds i8, ptr %318, i64 28
-  store i32 %.1185, ptr %326, align 4
+  store i32 %.1184, ptr %326, align 4
   %327 = add nsw i32 %.3301, 1
   %328 = call i32 @ompi_coll_base_file_peek_next_char_is(ptr noundef nonnull %27, ptr noundef nonnull @fileline, i32 noundef 91) #7
   %329 = icmp eq i32 %328, 1
@@ -883,7 +883,7 @@ define void @mca_coll_han_dump_dynamic_rules() local_unnamed_addr #0 {
 
 .lr.ph64:                                         ; preds = %.lr.ph64.preheader, %._crit_edge59
   %indvars.iv77 = phi i64 [ 0, %.lr.ph64.preheader ], [ %indvars.iv.next78, %._crit_edge59 ]
-  %.04562 = phi i32 [ 0, %.lr.ph64.preheader ], [ %.1.lcssa, %._crit_edge59 ]
+  %.04661 = phi i32 [ 0, %.lr.ph64.preheader ], [ %.1.lcssa, %._crit_edge59 ]
   %4 = getelementptr inbounds %struct.collective_rule_s, ptr %2, i64 %indvars.iv77
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 4
@@ -899,7 +899,7 @@ define void @mca_coll_han_dump_dynamic_rules() local_unnamed_addr #0 {
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %._crit_edge53
   %indvars.iv72 = phi i64 [ 0, %.lr.ph58.preheader ], [ %indvars.iv.next73, %._crit_edge53 ]
-  %.155 = phi i32 [ %.04562, %.lr.ph58.preheader ], [ %.2.lcssa, %._crit_edge53 ]
+  %.155 = phi i32 [ %.04661, %.lr.ph58.preheader ], [ %.2.lcssa, %._crit_edge53 ]
   %11 = getelementptr inbounds %struct.topologic_rule_s, ptr %9, i64 %indvars.iv72
   %12 = getelementptr inbounds i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
@@ -965,7 +965,7 @@ define void @mca_coll_han_dump_dynamic_rules() local_unnamed_addr #0 {
   br i1 %exitcond76.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !12
 
 ._crit_edge59:                                    ; preds = %._crit_edge53, %.lr.ph64
-  %.1.lcssa = phi i32 [ %.04562, %.lr.ph64 ], [ %.2.lcssa, %._crit_edge53 ]
+  %.1.lcssa = phi i32 [ %.04661, %.lr.ph64 ], [ %.2.lcssa, %._crit_edge53 ]
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
   br i1 %exitcond81.not, label %._crit_edge65, label %.lr.ph64, !llvm.loop !13

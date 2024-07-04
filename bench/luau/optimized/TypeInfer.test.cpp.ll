@@ -32236,9 +32236,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit44.i: 
 
 230:                                              ; preds = %236, %221
   %.pn.i.i.i = phi i64 [ %228, %221 ], [ %238, %236 ]
-  %.01519.i.i.i = phi i64 [ 0, %221 ], [ %237, %236 ]
-  %.01620.i.i.i = and i64 %.pn.i.i.i, %224
-  %231 = getelementptr inbounds %"struct.std::pair.597", ptr %229, i64 %.01620.i.i.i
+  %.019.i.i.i = phi i64 [ 0, %221 ], [ %237, %236 ]
+  %.01520.i.i.i = and i64 %.pn.i.i.i, %224
+  %231 = getelementptr inbounds %"struct.std::pair.597", ptr %229, i64 %.01520.i.i.i
   %232 = load ptr, ptr %231, align 8
   %233 = icmp eq ptr %232, %208
   br i1 %233, label %.loopexit.i, label %234
@@ -32248,15 +32248,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit44.i: 
   br i1 %235, label %.loopexit.i, label %236
 
 236:                                              ; preds = %234
-  %237 = add i64 %.01519.i.i.i, 1
-  %238 = add i64 %237, %.01620.i.i.i
+  %237 = add i64 %.019.i.i.i, 1
+  %238 = add i64 %237, %.01520.i.i.i
   %.not.i.i.i = icmp ugt i64 %237, %224
   br i1 %.not.i.i.i, label %.loopexit.i, label %230, !llvm.loop !426
 
 .loopexit.i:                                      ; preds = %236, %234, %230, %217, %211
-  %.0.i.i.i = phi ptr [ null, %211 ], [ null, %217 ], [ %231, %230 ], [ null, %234 ], [ null, %236 ]
-  %.not.i.i = icmp eq ptr %.0.i.i.i, null
-  %239 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
+  %.016.i.i.i = phi ptr [ null, %211 ], [ null, %217 ], [ %231, %230 ], [ null, %234 ], [ null, %236 ]
+  %.not.i.i = icmp eq ptr %.016.i.i.i, null
+  %239 = getelementptr inbounds i8, ptr %.016.i.i.i, i64 8
   %240 = select i1 %.not.i.i, ptr null, ptr %239
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %241 = load ptr, ptr %240, align 8
@@ -54021,9 +54021,9 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
 
 23:                                               ; preds = %29, %16
   %.pn.i.i = phi i64 [ %21, %16 ], [ %31, %29 ]
-  %.01519.i.i = phi i64 [ 0, %16 ], [ %30, %29 ]
-  %.01620.i.i = and i64 %.pn.i.i, %17
-  %24 = getelementptr inbounds %"struct.std::pair.653", ptr %22, i64 %.01620.i.i
+  %.019.i.i = phi i64 [ 0, %16 ], [ %30, %29 ]
+  %.01520.i.i = and i64 %.pn.i.i, %17
+  %24 = getelementptr inbounds %"struct.std::pair.653", ptr %22, i64 %.01520.i.i
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %13
   br i1 %26, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_St6vectorIS5_INS_8LocationES4_ESaIS8_EEES5_IKS4_SA_ENS0_16ItemInterfaceMapIS4_SA_EENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERSC_.exit, label %27
@@ -54033,8 +54033,8 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
   br i1 %28, label %.loopexit.i, label %29
 
 29:                                               ; preds = %27
-  %30 = add i64 %.01519.i.i, 1
-  %31 = add i64 %30, %.01620.i.i
+  %30 = add i64 %.019.i.i, 1
+  %31 = add i64 %30, %.01520.i.i
   %.not.i.i = icmp ugt i64 %30, %17
   br i1 %.not.i.i, label %.loopexit.i, label %23, !llvm.loop !785
 
@@ -54054,8 +54054,8 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_St6vectorIS5_INS_8Location
   %39 = load ptr, ptr %0, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8
-  %.01822.i6 = and i64 %38, %33
-  %42 = getelementptr inbounds %"struct.std::pair.653", ptr %39, i64 %.01822.i6
+  %.01722.i6 = and i64 %38, %33
+  %42 = getelementptr inbounds %"struct.std::pair.653", ptr %39, i64 %.01722.i6
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, %41
   br i1 %44, label %._crit_edge, label %.lr.ph.preheader
@@ -54077,14 +54077,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_St6vectorIS5_INS_8Location
   br i1 %48, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_St6vectorIS5_INS_8LocationES4_ESaIS8_EEES5_IKS4_SA_ENS0_16ItemInterfaceMapIS4_SA_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERSC_.exit, label %.lr.ph20
 
 .lr.ph20:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01721.i719 = phi i64 [ %49, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.01822.i818 = phi i64 [ %.01822.i, %.lr.ph ], [ %.01822.i6, %.lr.ph.preheader ]
-  %49 = add i64 %.01721.i719, 1
-  %50 = add i64 %49, %.01822.i818
+  %.021.i719 = phi i64 [ %49, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.01722.i818 = phi i64 [ %.01722.i, %.lr.ph ], [ %.01722.i6, %.lr.ph.preheader ]
+  %49 = add i64 %.021.i719, 1
+  %50 = add i64 %49, %.01722.i818
   %.not.i3 = icmp ule i64 %49, %33
   tail call void @llvm.assume(i1 %.not.i3)
-  %.01822.i = and i64 %50, %33
-  %51 = getelementptr inbounds %"struct.std::pair.653", ptr %39, i64 %.01822.i
+  %.01722.i = and i64 %50, %33
+  %51 = getelementptr inbounds %"struct.std::pair.653", ptr %39, i64 %.01722.i
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, %41
   br i1 %53, label %._crit_edge, label %.lr.ph
@@ -54274,8 +54274,8 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_St6vectorIS5_INS_8Location
   %25 = lshr i64 %24, 4
   %26 = lshr i64 %24, 9
   %27 = xor i64 %25, %26
-  %.01822.i16 = and i64 %27, %16
-  %28 = getelementptr inbounds %"struct.std::pair.653", ptr %.sroa.0.0, i64 %.01822.i16
+  %.01722.i16 = and i64 %27, %16
+  %28 = getelementptr inbounds %"struct.std::pair.653", ptr %.sroa.0.0, i64 %.01722.i16
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %7
   br i1 %30, label %._crit_edge, label %.lr.ph.preheader
@@ -54294,14 +54294,14 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_St6vectorIS5_INS_8Location
   br i1 %32, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_St6vectorIS5_INS_8LocationES4_ESaIS8_EEES5_IKS4_SA_ENS0_16ItemInterfaceMapIS4_SA_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERSC_.exit, label %.lr.ph47
 
 .lr.ph47:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01721.i1746 = phi i64 [ %33, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.01822.i1845 = phi i64 [ %.01822.i, %.lr.ph ], [ %.01822.i16, %.lr.ph.preheader ]
-  %33 = add i64 %.01721.i1746, 1
-  %34 = add i64 %33, %.01822.i1845
+  %.021.i1746 = phi i64 [ %33, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.01722.i1845 = phi i64 [ %.01722.i, %.lr.ph ], [ %.01722.i16, %.lr.ph.preheader ]
+  %33 = add i64 %.021.i1746, 1
+  %34 = add i64 %33, %.01722.i1845
   %.not.i11 = icmp ule i64 %33, %16
   tail call void @llvm.assume(i1 %.not.i11)
-  %.01822.i = and i64 %34, %16
-  %35 = getelementptr inbounds %"struct.std::pair.653", ptr %.sroa.0.0, i64 %.01822.i
+  %.01722.i = and i64 %34, %16
+  %35 = getelementptr inbounds %"struct.std::pair.653", ptr %.sroa.0.0, i64 %.01722.i
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, %7
   br i1 %37, label %._crit_edge, label %.lr.ph

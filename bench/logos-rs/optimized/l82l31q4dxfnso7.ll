@@ -2148,8 +2148,8 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$15merge_
           to label %73 unwind label %69
 
 67:                                               ; preds = %79, %.thread40, %78, %69
-  %.sroa.010.1 = phi i1 [ %70, %69 ], [ false, %.thread40 ], [ false, %78 ], [ false, %79 ]
   %.pn22 = phi { ptr, i32 } [ %71, %69 ], [ %.pn2043, %.thread40 ], [ %.pn, %78 ], [ %lpad.thr_comm.split-lp, %79 ]
+  %.sroa.010.1 = phi i1 [ %70, %69 ], [ false, %.thread40 ], [ false, %78 ], [ false, %79 ]
   %68 = load i64, ptr %18, align 8
   %.not24 = icmp eq i64 %68, -9223372036854775808
   %brmerge = or i1 %.sroa.010.1, %.not24
@@ -2246,8 +2246,8 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$15merge_
           to label %158 unwind label %.loopexit.split-lp
 
 107:                                              ; preds = %.loopexit, %.loopexit.split-lp, %154, %155
-  %.sroa.09.2 = phi i1 [ true, %155 ], [ true, %154 ], [ true, %.loopexit ], [ %.sroa.09.3.ph, %.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %lpad.thr_comm51, %155 ], [ %lpad.thr_comm.split-lp52, %154 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.sroa.09.2 = phi i1 [ true, %155 ], [ true, %154 ], [ true, %.loopexit ], [ %.sroa.09.3.ph, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$logos_codegen..graph..NodeId$GT$$GT$17h3d4d8f99168ace9aE"(ptr nonnull align 8 %13) #13
           to label %78 unwind label %156
 

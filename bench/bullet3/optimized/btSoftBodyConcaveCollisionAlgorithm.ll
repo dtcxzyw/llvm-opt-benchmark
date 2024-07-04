@@ -342,25 +342,25 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %tobool.not13.i, label %for.inc.i, label %while.body.i
 
 while.body.i:                                     ; preds = %for.body.i, %if.end8.i
-  %pc.015.i = phi ptr [ %9, %if.end8.i ], [ %8, %for.body.i ]
-  %pp.014.i = phi ptr [ %pc.1.i, %if.end8.i ], [ null, %for.body.i ]
-  %next.i = getelementptr inbounds i8, ptr %pc.015.i, i64 288
+  %pc.016.i = phi ptr [ %9, %if.end8.i ], [ %8, %for.body.i ]
+  %pp.015.i = phi ptr [ %pc.1.i, %if.end8.i ], [ null, %for.body.i ]
+  %next.i = getelementptr inbounds i8, ptr %pc.016.i, i64 288
   %9 = load ptr, ptr %next.i, align 8
-  %pclient.i = getelementptr inbounds i8, ptr %pc.015.i, i64 280
+  %pclient.i = getelementptr inbounds i8, ptr %pc.016.i, i64 280
   %10 = load ptr, ptr %pclient.i, align 8
   %cmp4.i = icmp eq ptr %10, %4
   br i1 %cmp4.i, label %if.then.i, label %if.end8.i
 
 if.then.i:                                        ; preds = %while.body.i
-  %tobool5.not.i = icmp eq ptr %pp.014.i, null
-  %next7.i = getelementptr inbounds i8, ptr %pp.014.i, i64 288
+  %tobool5.not.i = icmp eq ptr %pp.015.i, null
+  %next7.i = getelementptr inbounds i8, ptr %pp.015.i, i64 288
   %next7.sink.i = select i1 %tobool5.not.i, ptr %arrayidx.i.i7, ptr %next7.i
   store ptr %9, ptr %next7.sink.i, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %pc.015.i) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %pc.016.i) #12
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then.i, %while.body.i
-  %pc.1.i = phi ptr [ %pp.014.i, %if.then.i ], [ %pc.015.i, %while.body.i ]
+  %pc.1.i = phi ptr [ %pp.015.i, %if.then.i ], [ %pc.016.i, %while.body.i ]
   %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %for.inc.loopexit.i, label %while.body.i, !llvm.loop !5
 
@@ -574,25 +574,25 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %tobool.not13.i.i, label %for.inc.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %for.body.i.i, %if.end8.i.i
-  %pc.015.i.i = phi ptr [ %9, %if.end8.i.i ], [ %8, %for.body.i.i ]
-  %pp.014.i.i = phi ptr [ %pc.1.i.i, %if.end8.i.i ], [ null, %for.body.i.i ]
-  %next.i.i = getelementptr inbounds i8, ptr %pc.015.i.i, i64 288
+  %pc.016.i.i = phi ptr [ %9, %if.end8.i.i ], [ %8, %for.body.i.i ]
+  %pp.015.i.i = phi ptr [ %pc.1.i.i, %if.end8.i.i ], [ null, %for.body.i.i ]
+  %next.i.i = getelementptr inbounds i8, ptr %pc.016.i.i, i64 288
   %9 = load ptr, ptr %next.i.i, align 8
-  %pclient.i.i = getelementptr inbounds i8, ptr %pc.015.i.i, i64 280
+  %pclient.i.i = getelementptr inbounds i8, ptr %pc.016.i.i, i64 280
   %10 = load ptr, ptr %pclient.i.i, align 8
   %cmp4.i.i = icmp eq ptr %10, %4
   br i1 %cmp4.i.i, label %if.then.i.i, label %if.end8.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i
-  %tobool5.not.i.i = icmp eq ptr %pp.014.i.i, null
-  %next7.i.i = getelementptr inbounds i8, ptr %pp.014.i.i, i64 288
+  %tobool5.not.i.i = icmp eq ptr %pp.015.i.i, null
+  %next7.i.i = getelementptr inbounds i8, ptr %pp.015.i.i, i64 288
   %next7.sink.i.i = select i1 %tobool5.not.i.i, ptr %arrayidx.i.i7.i, ptr %next7.i.i
   store ptr %9, ptr %next7.sink.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %pc.015.i.i) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %pc.016.i.i) #12
   br label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.then.i.i, %while.body.i.i
-  %pc.1.i.i = phi ptr [ %pp.014.i.i, %if.then.i.i ], [ %pc.015.i.i, %while.body.i.i ]
+  %pc.1.i.i = phi ptr [ %pp.015.i.i, %if.then.i.i ], [ %pc.016.i.i, %while.body.i.i ]
   %tobool.not.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i, label %for.inc.loopexit.i.i, label %while.body.i.i, !llvm.loop !5
 
@@ -1816,25 +1816,25 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %tobool.not13.i.i, label %for.inc.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %for.body.i.i, %if.end8.i.i
-  %pc.015.i.i = phi ptr [ %9, %if.end8.i.i ], [ %8, %for.body.i.i ]
-  %pp.014.i.i = phi ptr [ %pc.1.i.i, %if.end8.i.i ], [ null, %for.body.i.i ]
-  %next.i.i = getelementptr inbounds i8, ptr %pc.015.i.i, i64 288
+  %pc.016.i.i = phi ptr [ %9, %if.end8.i.i ], [ %8, %for.body.i.i ]
+  %pp.015.i.i = phi ptr [ %pc.1.i.i, %if.end8.i.i ], [ null, %for.body.i.i ]
+  %next.i.i = getelementptr inbounds i8, ptr %pc.016.i.i, i64 288
   %9 = load ptr, ptr %next.i.i, align 8
-  %pclient.i.i = getelementptr inbounds i8, ptr %pc.015.i.i, i64 280
+  %pclient.i.i = getelementptr inbounds i8, ptr %pc.016.i.i, i64 280
   %10 = load ptr, ptr %pclient.i.i, align 8
   %cmp4.i.i = icmp eq ptr %10, %4
   br i1 %cmp4.i.i, label %if.then.i.i, label %if.end8.i.i
 
 if.then.i.i:                                      ; preds = %while.body.i.i
-  %tobool5.not.i.i = icmp eq ptr %pp.014.i.i, null
-  %next7.i.i = getelementptr inbounds i8, ptr %pp.014.i.i, i64 288
+  %tobool5.not.i.i = icmp eq ptr %pp.015.i.i, null
+  %next7.i.i = getelementptr inbounds i8, ptr %pp.015.i.i, i64 288
   %next7.sink.i.i = select i1 %tobool5.not.i.i, ptr %arrayidx.i.i7.i, ptr %next7.i.i
   store ptr %9, ptr %next7.sink.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %pc.015.i.i) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %pc.016.i.i) #12
   br label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.then.i.i, %while.body.i.i
-  %pc.1.i.i = phi ptr [ %pp.014.i.i, %if.then.i.i ], [ %pc.015.i.i, %while.body.i.i ]
+  %pc.1.i.i = phi ptr [ %pp.015.i.i, %if.then.i.i ], [ %pc.016.i.i, %while.body.i.i ]
   %tobool.not.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i, label %for.inc.loopexit.i.i, label %while.body.i.i, !llvm.loop !5
 

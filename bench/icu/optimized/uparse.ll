@@ -108,8 +108,8 @@ if.else:                                          ; preds = %lor.lhs.false7, %la
   br label %if.end17
 
 if.end17:                                         ; preds = %if.else, %if.then14
-  %file.0 = phi ptr [ %call15, %if.then14 ], [ %call16, %if.else ]
   %filename.addr.0 = phi i1 [ true, %if.then14 ], [ false, %if.else ]
+  %file.0 = phi ptr [ %call15, %if.then14 ], [ %call16, %if.else ]
   %cmp18 = icmp eq ptr %file.0, null
   br i1 %cmp18, label %if.then19, label %while.cond.preheader
 
@@ -514,8 +514,8 @@ for.cond.preheader:                               ; preds = %if.then8, %if.end6
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.preheader
-  %pFirst.addr.0 = phi ptr [ %pFirst, %for.cond.preheader ], [ null, %for.cond.backedge ]
   %s.addr.0 = phi ptr [ %s, %for.cond.preheader ], [ %2, %for.cond.backedge ]
+  %pFirst.addr.0 = phi ptr [ %pFirst, %for.cond.preheader ], [ null, %for.cond.backedge ]
   %destLength.0 = phi i32 [ 0, %for.cond.preheader ], [ %destLength.0.be, %for.cond.backedge ]
   br label %while.cond.i
 

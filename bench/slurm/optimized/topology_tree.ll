@@ -489,19 +489,19 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
 .preheader:                                       ; preds = %._crit_edge, %._crit_edge108
   %68 = phi i32 [ %105, %._crit_edge108 ], [ %63, %._crit_edge ]
   %69 = phi i32 [ %106, %._crit_edge108 ], [ %66, %._crit_edge ]
-  %.056112 = phi i32 [ %107, %._crit_edge108 ], [ 1, %._crit_edge ]
-  %.061111 = phi i32 [ %.162.lcssa, %._crit_edge108 ], [ %.fr126, %._crit_edge ]
+  %.060112 = phi i32 [ %.161.lcssa, %._crit_edge108 ], [ %.fr126, %._crit_edge ]
+  %.063111 = phi i32 [ %107, %._crit_edge108 ], [ 1, %._crit_edge ]
   %70 = icmp slt i32 %69, 1
   br i1 %70, label %._crit_edge108, label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %.preheader, %._crit_edge103.thread
-  %.162106 = phi i32 [ %.2, %._crit_edge103.thread ], [ %.061111, %.preheader ]
+  %.161106 = phi i32 [ %.2, %._crit_edge103.thread ], [ %.060112, %.preheader ]
   %71 = phi i32 [ %101, %._crit_edge103.thread ], [ 0, %.preheader ]
   %72 = load ptr, ptr @switch_record_table, align 8
   %73 = zext nneg i32 %71 to i64
   %74 = getelementptr inbounds %struct.switch_record_t, ptr %72, i64 %73
   %75 = load i32, ptr %74, align 8
-  %76 = icmp eq i32 %75, %.056112
+  %76 = icmp eq i32 %75, %.063111
   br i1 %76, label %77, label %._crit_edge103.thread
 
 77:                                               ; preds = %.lr.ph107
@@ -516,8 +516,8 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .lr.ph102:                                        ; preds = %.lr.ph102.preheader, %94
   %indvars.iv = phi i64 [ 0, %.lr.ph102.preheader ], [ %indvars.iv.next, %94 ]
-  %.05899 = phi i32 [ 0, %.lr.ph102.preheader ], [ %.1, %94 ]
-  %.05998 = phi i32 [ -1, %.lr.ph102.preheader ], [ %.160, %94 ]
+  %.056100 = phi i32 [ 0, %.lr.ph102.preheader ], [ %.1, %94 ]
+  %.05799 = phi i32 [ -1, %.lr.ph102.preheader ], [ %.158, %94 ]
   %80 = load ptr, ptr @switch_record_table, align 8
   %81 = getelementptr inbounds %struct.switch_record_t, ptr %80, i64 %73, i32 10
   %82 = load ptr, ptr %81, align 8
@@ -531,8 +531,8 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
 
 88:                                               ; preds = %.lr.ph102
   %89 = zext i16 %84 to i32
-  %90 = add nsw i32 %.05899, 1
-  %91 = icmp sgt i32 %.05899, 0
+  %90 = add nsw i32 %.056100, 1
+  %91 = icmp sgt i32 %.056100, 0
   br i1 %91, label %92, label %94
 
 92:                                               ; preds = %88
@@ -541,8 +541,8 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %94
 
 94:                                               ; preds = %88, %.lr.ph102, %92
-  %.160 = phi i32 [ %.05998, %92 ], [ %.05998, %.lr.ph102 ], [ %89, %88 ]
-  %.1 = phi i32 [ %90, %92 ], [ %.05899, %.lr.ph102 ], [ %90, %88 ]
+  %.158 = phi i32 [ %.05799, %92 ], [ %.05799, %.lr.ph102 ], [ %89, %88 ]
+  %.1 = phi i32 [ %90, %92 ], [ %.056100, %.lr.ph102 ], [ %90, %88 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge103, label %.lr.ph102, !llvm.loop !13
@@ -553,16 +553,16 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
 
 96:                                               ; preds = %._crit_edge103
   %97 = load ptr, ptr %10, align 8
-  %98 = sext i32 %.160 to i64
+  %98 = sext i32 %.158 to i64
   call void @slurm_bit_clear(ptr noundef %97, i64 noundef %98) #10
   %99 = load ptr, ptr %10, align 8
   call void @slurm_bit_set(ptr noundef %99, i64 noundef %73) #10
-  %.neg = add i32 %.162106, 1
+  %.neg = add i32 %.161106, 1
   %100 = sub i32 %.neg, %.1
   br label %._crit_edge103.thread
 
 ._crit_edge103.thread:                            ; preds = %77, %.lr.ph107, %96, %._crit_edge103
-  %.2 = phi i32 [ %100, %96 ], [ %.162106, %._crit_edge103 ], [ %.162106, %.lr.ph107 ], [ %.162106, %77 ]
+  %.2 = phi i32 [ %100, %96 ], [ %.161106, %._crit_edge103 ], [ %.161106, %.lr.ph107 ], [ %.161106, %77 ]
   %101 = add nuw nsw i32 %71, 1
   store i32 %101, ptr %7, align 4
   %102 = load i32, ptr @switch_record_cnt, align 4
@@ -578,15 +578,15 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
 ._crit_edge108:                                   ; preds = %._crit_edge108.loopexit, %.preheader
   %105 = phi i32 [ %68, %.preheader ], [ %.pre130, %._crit_edge108.loopexit ]
   %106 = phi i32 [ %69, %.preheader ], [ %102, %._crit_edge108.loopexit ]
-  %.162.lcssa = phi i32 [ %.061111, %.preheader ], [ %.2, %._crit_edge108.loopexit ]
-  %107 = add nuw nsw i32 %.056112, 1
-  %108 = icmp sge i32 %.056112, %105
-  %109 = icmp slt i32 %.162.lcssa, 2
+  %.161.lcssa = phi i32 [ %.060112, %.preheader ], [ %.2, %._crit_edge108.loopexit ]
+  %107 = add nuw nsw i32 %.063111, 1
+  %108 = icmp sge i32 %.063111, %105
+  %109 = icmp slt i32 %.161.lcssa, 2
   %or.cond = select i1 %108, i1 true, i1 %109
   br i1 %or.cond, label %._crit_edge113, label %.preheader, !llvm.loop !15
 
 ._crit_edge113:                                   ; preds = %._crit_edge108, %._crit_edge
-  %.061.lcssa = phi i32 [ %.fr126, %._crit_edge ], [ %.162.lcssa, %._crit_edge108 ]
+  %.060.lcssa = phi i32 [ %.fr126, %._crit_edge ], [ %.161.lcssa, %._crit_edge108 ]
   %110 = load ptr, ptr %10, align 8
   %111 = call i64 @slurm_bit_ffs(ptr noundef %110) #10
   %112 = trunc i64 %111 to i32
@@ -600,8 +600,8 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %117
 
 117:                                              ; preds = %._crit_edge113, %113
-  %.063 = phi i32 [ %116, %113 ], [ -2, %._crit_edge113 ]
-  %118 = icmp eq i32 %.061.lcssa, 1
+  %.059 = phi i32 [ %116, %113 ], [ -2, %._crit_edge113 ]
+  %118 = icmp eq i32 %.060.lcssa, 1
   br i1 %118, label %119, label %141
 
 119:                                              ; preds = %117
@@ -661,7 +661,7 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
   %145 = call i32 @slurm_hostlist_count(ptr noundef %0) #10
   store i32 0, ptr %2, align 4
   store i32 %112, ptr %7, align 4
-  %.not80115 = icmp slt i32 %.063, %112
+  %.not80115 = icmp slt i32 %.059, %112
   br i1 %.not80115, label %._crit_edge120, label %.lr.ph119
 
 .lr.ph119:                                        ; preds = %141, %209
@@ -688,7 +688,7 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
   %155 = phi ptr [ %168, %200 ], [ null, %150 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %200 ], [ 0, %150 ]
   %156 = phi ptr [ %201, %200 ], [ %152, %150 ]
-  %.031.i = phi i32 [ %.1.i, %200 ], [ 0, %150 ]
+  %.02330.i = phi i32 [ %.1.i, %200 ], [ 0, %150 ]
   %157 = getelementptr inbounds %struct.switch_record_t, ptr %156, i64 %148, i32 11
   %158 = load ptr, ptr %157, align 8
   %159 = getelementptr inbounds i16, ptr %158, i64 %indvars.iv.i
@@ -758,12 +758,12 @@ define i32 @topology_p_split_hostlist(ptr noundef %0, ptr noundef %1, ptr nounde
   %196 = load i32, ptr %2, align 4
   %197 = add nsw i32 %196, 1
   store i32 %197, ptr %2, align 4
-  %198 = add nsw i32 %169, %.031.i
+  %198 = add nsw i32 %169, %.02330.i
   %199 = icmp eq i32 %198, %.094116
   br i1 %199, label %._crit_edge.i, label %200
 
 200:                                              ; preds = %195, %167
-  %.1.i = phi i32 [ %.031.i, %167 ], [ %198, %195 ]
+  %.1.i = phi i32 [ %.02330.i, %167 ], [ %198, %195 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %201 = load ptr, ptr @switch_record_table, align 8
   %202 = getelementptr inbounds %struct.switch_record_t, ptr %201, i64 %148, i32 6
@@ -794,7 +794,7 @@ _subtree_split_hostlist.exit:                     ; preds = %150, %._crit_edge.i
   %.296 = phi i32 [ %.094116, %.lr.ph119 ], [ %.195, %_subtree_split_hostlist.exit ]
   %211 = add nsw i32 %210, 1
   store i32 %211, ptr %7, align 4
-  %.not80.not = icmp slt i32 %210, %.063
+  %.not80.not = icmp slt i32 %210, %.059
   br i1 %.not80.not, label %.lr.ph119, label %._crit_edge120, !llvm.loop !18
 
 ._crit_edge120:                                   ; preds = %209, %141
@@ -1249,23 +1249,23 @@ define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0,
 5:                                                ; preds = %3
   %6 = load i8, ptr %1, align 1
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %10, label %.preheader47
+  br i1 %7, label %10, label %.preheader48
 
-.preheader47:                                     ; preds = %5
+.preheader48:                                     ; preds = %5
   %8 = load i32, ptr %0, align 8
-  %.not56 = icmp eq i32 %8, 0
-  br i1 %.not56, label %._crit_edge.thread, label %.lr.ph
+  %.not57 = icmp eq i32 %8, 0
+  br i1 %.not57, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader47
+.lr.ph:                                           ; preds = %.preheader48
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   br label %28
 
 10:                                               ; preds = %5, %3
   %11 = load i32, ptr %0, align 8
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %14, label %.lr.ph55
+  br i1 %12, label %14, label %.lr.ph56
 
-.lr.ph55:                                         ; preds = %10
+.lr.ph56:                                         ; preds = %10
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   br label %16
 
@@ -1273,15 +1273,15 @@ define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0,
   %15 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.21) #10
   br label %.loopexit
 
-16:                                               ; preds = %.lr.ph55, %16
-  %indvars.iv64 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next65, %16 ]
+16:                                               ; preds = %.lr.ph56, %16
+  %indvars.iv65 = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next66, %16 ]
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds %struct.topo_info, ptr %17, i64 %indvars.iv64
+  %18 = getelementptr inbounds %struct.topo_info, ptr %17, i64 %indvars.iv65
   tail call void @_print_topo_record(ptr noundef %18, ptr noundef nonnull %2)
-  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %19 = load i32, ptr %0, align 8
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %indvars.iv.next65, %20
+  %21 = icmp ult i64 %indvars.iv.next66, %20
   br i1 %21, label %16, label %.loopexit, !llvm.loop !23
 
 22:                                               ; preds = %28
@@ -1289,13 +1289,13 @@ define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0,
   %23 = load i32, ptr %0, align 8
   %24 = zext i32 %23 to i64
   %25 = icmp ult i64 %indvars.iv.next, %24
-  br i1 %25, label %28, label %.preheader46, !llvm.loop !24
+  br i1 %25, label %28, label %.preheader47, !llvm.loop !24
 
-.preheader46:                                     ; preds = %22
+.preheader47:                                     ; preds = %22
   %26 = icmp eq i32 %23, 0
-  br i1 %26, label %._crit_edge.thread, label %.lr.ph53
+  br i1 %26, label %._crit_edge.thread, label %.lr.ph54
 
-.lr.ph53:                                         ; preds = %.preheader46
+.lr.ph54:                                         ; preds = %.preheader47
   %27 = getelementptr inbounds i8, ptr %0, i64 8
   br label %36
 
@@ -1305,8 +1305,8 @@ define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0,
   %30 = getelementptr inbounds %struct.topo_info, ptr %29, i64 %indvars.iv, i32 2
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 @slurm_xstrcmp(ptr noundef %31, ptr noundef nonnull %1) #10
-  %.not45 = icmp eq i32 %32, 0
-  br i1 %.not45, label %33, label %22
+  %.not46 = icmp eq i32 %32, 0
+  br i1 %.not46, label %33, label %22
 
 33:                                               ; preds = %28
   %34 = load ptr, ptr %9, align 8
@@ -1314,11 +1314,11 @@ define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0,
   tail call void @_print_topo_record(ptr noundef %35, ptr noundef nonnull %2)
   br label %.loopexit
 
-36:                                               ; preds = %.lr.ph53, %54
-  %indvars.iv61 = phi i64 [ 0, %.lr.ph53 ], [ %indvars.iv.next62, %54 ]
-  %.04151 = phi i32 [ 0, %.lr.ph53 ], [ %.142, %54 ]
+36:                                               ; preds = %.lr.ph54, %54
+  %indvars.iv62 = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next63, %54 ]
+  %.053 = phi i32 [ 0, %.lr.ph54 ], [ %.1, %54 ]
   %37 = load ptr, ptr %27, align 8
-  %38 = getelementptr inbounds %struct.topo_info, ptr %37, i64 %indvars.iv61, i32 3
+  %38 = getelementptr inbounds %struct.topo_info, ptr %37, i64 %indvars.iv62, i32 3
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %54, label %41
@@ -1344,25 +1344,25 @@ define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0,
   br i1 %.not, label %54, label %50
 
 50:                                               ; preds = %48
-  %51 = add nsw i32 %.04151, 1
+  %51 = add nsw i32 %.053, 1
   %52 = load ptr, ptr %27, align 8
-  %53 = getelementptr inbounds %struct.topo_info, ptr %52, i64 %indvars.iv61
+  %53 = getelementptr inbounds %struct.topo_info, ptr %52, i64 %indvars.iv62
   tail call void @_print_topo_record(ptr noundef %53, ptr noundef nonnull %2)
   br label %54
 
 54:                                               ; preds = %48, %36, %41, %50
-  %.142 = phi i32 [ %.04151, %36 ], [ %.04151, %41 ], [ %51, %50 ], [ %.04151, %48 ]
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
+  %.1 = phi i32 [ %.053, %36 ], [ %.053, %41 ], [ %51, %50 ], [ %.053, %48 ]
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %55 = load i32, ptr %0, align 8
   %56 = zext i32 %55 to i64
-  %57 = icmp ult i64 %indvars.iv.next62, %56
+  %57 = icmp ult i64 %indvars.iv.next63, %56
   br i1 %57, label %36, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %54
-  %58 = icmp eq i32 %.142, 0
+  %58 = icmp eq i32 %.1, 0
   br i1 %58, label %._crit_edge.thread, label %.loopexit
 
-._crit_edge.thread:                               ; preds = %.preheader47, %.preheader46, %._crit_edge
+._crit_edge.thread:                               ; preds = %.preheader48, %.preheader47, %._crit_edge
   %59 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.23, ptr noundef nonnull %1) #10
   br label %.loopexit
 

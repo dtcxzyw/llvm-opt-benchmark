@@ -55,14 +55,14 @@ define i32 @H5ES__list_iterate(ptr nocapture noundef readonly %0, i32 noundef %1
   br label %7
 
 7:                                                ; preds = %8, %4
-  %.0 = phi ptr [ %6, %4 ], [ %9, %8 ]
-  %.not = icmp eq ptr %.0, null
+  %.012 = phi ptr [ %6, %4 ], [ %9, %8 ]
+  %.not = icmp eq ptr %.012, null
   br i1 %.not, label %.loopexit, label %8
 
 8:                                                ; preds = %7
-  %.in14 = getelementptr inbounds i8, ptr %.0, i64 %.in14.v
+  %.in14 = getelementptr inbounds i8, ptr %.012, i64 %.in14.v
   %9 = load ptr, ptr %.in14, align 8
-  %10 = tail call i32 %2(ptr noundef nonnull %.0, ptr noundef %3) #4
+  %10 = tail call i32 %2(ptr noundef nonnull %.012, ptr noundef %3) #4
   %.not15 = icmp eq i32 %10, 0
   br i1 %.not15, label %7, label %11
 

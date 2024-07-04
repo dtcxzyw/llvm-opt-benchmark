@@ -2065,24 +2065,24 @@ if.end.lr.ph:                                     ; preds = %entry
 
 if.end:                                           ; preds = %if.end.lr.ph, %handle_control_message.exit
   %call145 = phi ptr [ %call141, %if.end.lr.ph ], [ %call1, %handle_control_message.exit ]
-  %buf.044 = phi ptr [ null, %if.end.lr.ph ], [ %buf.1, %handle_control_message.exit ]
-  %len.043 = phi i64 [ 0, %if.end.lr.ph ], [ %len.1, %handle_control_message.exit ]
+  %len.044 = phi i64 [ 0, %if.end.lr.ph ], [ %len.1, %handle_control_message.exit ]
+  %buf.043 = phi ptr [ null, %if.end.lr.ph ], [ %buf.1, %handle_control_message.exit ]
   %out_sg = getelementptr inbounds i8, ptr %call145, i64 48
   %0 = load ptr, ptr %out_sg, align 8
   %out_num = getelementptr inbounds i8, ptr %call145, i64 12
   %1 = load i32, ptr %out_num, align 4
   %call2 = call i64 @iov_size(ptr noundef %0, i32 noundef %1) #12
-  %cmp = icmp ugt i64 %call2, %len.043
+  %cmp = icmp ugt i64 %call2, %len.044
   br i1 %cmp, label %if.then3, label %if.else.i
 
 if.then3:                                         ; preds = %if.end
-  call void @g_free(ptr noundef %buf.044) #12
+  call void @g_free(ptr noundef %buf.043) #12
   %call4 = call noalias ptr @g_malloc(i64 noundef %call2) #16
   br label %if.else.i
 
 if.else.i:                                        ; preds = %if.end, %if.then3
-  %len.1 = phi i64 [ %call2, %if.then3 ], [ %len.043, %if.end ]
-  %buf.1 = phi ptr [ %call4, %if.then3 ], [ %buf.044, %if.end ]
+  %buf.1 = phi ptr [ %call4, %if.then3 ], [ %buf.043, %if.end ]
+  %len.1 = phi i64 [ %call2, %if.then3 ], [ %len.044, %if.end ]
   %2 = load i32, ptr %out_num, align 4
   %3 = load ptr, ptr %out_sg, align 8
   %call.i17 = call i64 @iov_to_buf_full(ptr noundef %3, i32 noundef %2, i64 noundef 0, ptr noundef %buf.1, i64 noundef %call2) #12

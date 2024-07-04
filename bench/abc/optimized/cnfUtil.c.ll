@@ -572,7 +572,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 .lr.ph:                                           ; preds = %49, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %49 ]
-  %.03858 = phi i32 [ %63, %.lr.ph ], [ %55, %49 ]
+  %.03758 = phi i32 [ %63, %.lr.ph ], [ %55, %49 ]
   %.val48 = load ptr, ptr %53, align 8
   %57 = getelementptr inbounds ptr, ptr %.val48, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8
@@ -580,7 +580,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %60 = and i64 %59, -2
   %61 = inttoptr i64 %60 to ptr
   %62 = tail call i32 @Aig_ManScanMapping_rec(ptr noundef %0, ptr noundef %61, ptr noundef %2)
-  %63 = add nsw i32 %62, %.03858
+  %63 = add nsw i32 %62, %.03758
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val47 = load i32, ptr %51, align 4
   %64 = sext i32 %.val47 to i64
@@ -588,7 +588,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %65, label %.lr.ph, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph, %49
-  %.038.lcssa = phi i32 [ %55, %49 ], [ %63, %.lr.ph ]
+  %.037.lcssa = phi i32 [ %55, %49 ], [ %63, %.lr.ph ]
   %66 = load ptr, ptr %53, align 8
   %.not.i = icmp eq ptr %66, null
   br i1 %.not.i, label %Vec_PtrFree.exit, label %67
@@ -656,7 +656,7 @@ Dar_ObjBestCut.exit:                              ; preds = %.lr.ph.i, %77, %70
 
 94:                                               ; preds = %.lr.ph62, %Aig_ManObj.exit
   %indvars.iv67 = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next68, %Aig_ManObj.exit ]
-  %.13960 = phi i32 [ %92, %.lr.ph62 ], [ %106, %Aig_ManObj.exit ]
+  %.13860 = phi i32 [ %92, %.lr.ph62 ], [ %106, %Aig_ManObj.exit ]
   %95 = load ptr, ptr %0, align 8
   %96 = getelementptr i8, ptr %95, i64 32
   %.val51 = load ptr, ptr %96, align 8
@@ -676,7 +676,7 @@ Dar_ObjBestCut.exit:                              ; preds = %.lr.ph.i, %77, %70
 Aig_ManObj.exit:                                  ; preds = %94, %97
   %104 = phi ptr [ %103, %97 ], [ null, %94 ]
   %105 = tail call i32 @Aig_ManScanMapping_rec(ptr noundef nonnull %0, ptr noundef %104, ptr noundef %2)
-  %106 = add nsw i32 %105, %.13960
+  %106 = add nsw i32 %105, %.13860
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %107 = load i32, ptr %81, align 4
   %108 = lshr i32 %107, 29
@@ -685,8 +685,8 @@ Aig_ManObj.exit:                                  ; preds = %94, %97
   br i1 %110, label %94, label %.critedge2, !llvm.loop !13
 
 .critedge2:                                       ; preds = %Aig_ManObj.exit, %Dar_ObjBestCut.exit, %11, %Vec_PtrFree.exit, %3
-  %.0 = phi i32 [ 0, %3 ], [ %.038.lcssa, %Vec_PtrFree.exit ], [ 0, %11 ], [ %92, %Dar_ObjBestCut.exit ], [ %106, %Aig_ManObj.exit ]
-  ret i32 %.0
+  %.039 = phi i32 [ 0, %3 ], [ %.037.lcssa, %Vec_PtrFree.exit ], [ 0, %11 ], [ %92, %Dar_ObjBestCut.exit ], [ %106, %Aig_ManObj.exit ]
+  ret i32 %.039
 }
 
 declare i32 @Aig_ObjCollectSuper(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -904,7 +904,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 .lr.ph:                                           ; preds = %52, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %52 ]
-  %.04773 = phi i32 [ %66, %.lr.ph ], [ %58, %52 ]
+  %.04673 = phi i32 [ %66, %.lr.ph ], [ %58, %52 ]
   %.val59 = load ptr, ptr %56, align 8
   %60 = getelementptr inbounds ptr, ptr %.val59, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8
@@ -912,7 +912,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %63 = and i64 %62, -2
   %64 = inttoptr i64 %63 to ptr
   %65 = tail call i32 @Cnf_ManScanMapping_rec(ptr noundef %0, ptr noundef %64, ptr noundef %2, i32 noundef %3)
-  %66 = add nsw i32 %65, %.04773
+  %66 = add nsw i32 %65, %.04673
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val57 = load i32, ptr %54, align 4
   %67 = sext i32 %.val57 to i64
@@ -920,7 +920,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %68, label %.lr.ph, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %.lr.ph, %52
-  %.047.lcssa = phi i32 [ %58, %52 ], [ %66, %.lr.ph ]
+  %.046.lcssa = phi i32 [ %58, %52 ], [ %66, %.lr.ph ]
   %69 = load ptr, ptr %56, align 8
   %.not.i = icmp eq ptr %69, null
   br i1 %.not.i, label %Vec_PtrFree.exit, label %70
@@ -949,7 +949,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %70
 
 .lr.ph77:                                         ; preds = %73, %90
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %90 ], [ 0, %73 ]
-  %.14875 = phi i32 [ %92, %90 ], [ %78, %73 ]
+  %.14775 = phi i32 [ %92, %90 ], [ %78, %73 ]
   %82 = load ptr, ptr %0, align 8
   %83 = getelementptr i8, ptr %82, i64 32
   %.val60 = load ptr, ptr %83, align 8
@@ -969,7 +969,7 @@ Aig_ManObj.exit:                                  ; preds = %.lr.ph77
 
 90:                                               ; preds = %Aig_ManObj.exit
   %91 = tail call i32 @Cnf_ManScanMapping_rec(ptr noundef nonnull %0, ptr noundef nonnull %89, ptr noundef %2, i32 noundef %3)
-  %92 = add nsw i32 %91, %.14875
+  %92 = add nsw i32 %91, %.14775
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %93 = load i8, ptr %75, align 8
   %94 = sext i8 %93 to i64
@@ -977,7 +977,7 @@ Aig_ManObj.exit:                                  ; preds = %.lr.ph77
   br i1 %95, label %.lr.ph77, label %.critedge3, !llvm.loop !17
 
 .critedge3:                                       ; preds = %90, %Aig_ManObj.exit, %.lr.ph77, %73, %Vec_PtrFree.exit
-  %.2 = phi i32 [ %.047.lcssa, %Vec_PtrFree.exit ], [ %78, %73 ], [ %92, %90 ], [ %.14875, %Aig_ManObj.exit ], [ %.14875, %.lr.ph77 ]
+  %.2 = phi i32 [ %.046.lcssa, %Vec_PtrFree.exit ], [ %78, %73 ], [ %92, %90 ], [ %.14775, %Aig_ManObj.exit ], [ %.14775, %.lr.ph77 ]
   %96 = icmp eq ptr %2, null
   %or.cond5 = or i1 %96, %16
   br i1 %or.cond5, label %129, label %97
@@ -1052,8 +1052,8 @@ Vec_PtrPush.exit68:                               ; preds = %.Vec_PtrGrow.exit11
   br label %129
 
 129:                                              ; preds = %12, %.critedge3, %Vec_PtrPush.exit68, %4
-  %.0 = phi i32 [ 0, %4 ], [ %.2, %Vec_PtrPush.exit68 ], [ %.2, %.critedge3 ], [ 0, %12 ]
-  ret i32 %.0
+  %.048 = phi i32 [ 0, %4 ], [ %.2, %Vec_PtrPush.exit68 ], [ %.2, %.critedge3 ], [ 0, %12 ]
+  ret i32 %.048
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2352,8 +2352,8 @@ Abc_Clock.exit76:                                 ; preds = %72, %75
   br label %119
 
 119:                                              ; preds = %Abc_Clock.exit, %118, %48
-  %.059 = phi i32 [ 1, %48 ], [ %.0, %118 ], [ -1, %Abc_Clock.exit ]
-  ret i32 %.059
+  %.060 = phi i32 [ 1, %48 ], [ %.0, %118 ], [ -1, %Abc_Clock.exit ]
+  ret i32 %.060
 }
 
 declare ptr @Cnf_DataWriteIntoSolver(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
@@ -2858,7 +2858,7 @@ define void @Cnf_SplitCnfFile(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   br label %17
 
 17:                                               ; preds = %14, %9
-  %.0 = phi i32 [ %16, %14 ], [ %3, %9 ]
+  %.021 = phi i32 [ %16, %14 ], [ %3, %9 ]
   %18 = icmp sgt i32 %1, 0
   br i1 %18, label %.lr.ph, label %._crit_edge
 
@@ -2867,10 +2867,10 @@ define void @Cnf_SplitCnfFile(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %Vec_IntFree.exit.us
-  %.02123.us = phi i32 [ %25, %Vec_IntFree.exit.us ], [ 0, %.lr.ph ]
-  %19 = call ptr @Cnf_GenRandLits(i32 noundef %2, i32 noundef %.0, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %8)
+  %.023.us = phi i32 [ %25, %Vec_IntFree.exit.us ], [ 0, %.lr.ph ]
+  %19 = call ptr @Cnf_GenRandLits(i32 noundef %2, i32 noundef %.021, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %8)
   %20 = call ptr @Cnf_DataDupCofArray(ptr noundef %12, ptr noundef %19) #22
-  %21 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.02123.us) #22
+  %21 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.023.us) #22
   call void @Cnf_DataWriteIntoFile(ptr noundef %20, ptr noundef nonnull %10, i32 noundef 0, ptr noundef null, ptr noundef null) #22
   call void @Cnf_DataFree(ptr noundef %20) #22
   %22 = getelementptr inbounds i8, ptr %19, i64 8
@@ -2884,15 +2884,15 @@ define void @Cnf_SplitCnfFile(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 
 Vec_IntFree.exit.us:                              ; preds = %24, %.lr.ph.split.us
   call void @free(ptr noundef nonnull %19) #22
-  %25 = add nuw nsw i32 %.02123.us, 1
+  %25 = add nuw nsw i32 %.023.us, 1
   %exitcond25.not = icmp eq i32 %25, %1
   br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !41
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %Vec_IntFree.exit
-  %.02123 = phi i32 [ %40, %Vec_IntFree.exit ], [ 0, %.lr.ph ]
-  %26 = call ptr @Cnf_GenRandLits(i32 noundef %2, i32 noundef %.0, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %8)
+  %.023 = phi i32 [ %40, %Vec_IntFree.exit ], [ 0, %.lr.ph ]
+  %26 = call ptr @Cnf_GenRandLits(i32 noundef %2, i32 noundef %.021, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %8)
   %27 = call ptr @Cnf_DataDupCofArray(ptr noundef %12, ptr noundef %26) #22
-  %28 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.02123) #22
+  %28 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.023) #22
   %29 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef nonnull %10) #22
   call void @Cnf_DataWriteIntoFile(ptr noundef %27, ptr noundef nonnull @.str.36, i32 noundef 0, ptr noundef null, ptr noundef null) #22
   %30 = call i32 @system(ptr noundef nonnull %11) #22
@@ -2919,7 +2919,7 @@ Vec_IntFree.exit.us:                              ; preds = %24, %.lr.ph.split.u
 
 Vec_IntFree.exit:                                 ; preds = %35, %39
   call void @free(ptr noundef nonnull %26) #22
-  %40 = add nuw nsw i32 %.02123, 1
+  %40 = add nuw nsw i32 %.023, 1
   %exitcond.not = icmp eq i32 %40, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !41
 

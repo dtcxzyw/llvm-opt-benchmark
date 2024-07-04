@@ -312,14 +312,14 @@ define i32 @kinDlsDenseDQJac(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br label %21
 
 21:                                               ; preds = %.lr.ph, %48
-  %.04448 = phi i64 [ 0, %.lr.ph ], [ %51, %48 ]
+  %.048 = phi i64 [ 0, %.lr.ph ], [ %51, %48 ]
   %22 = load ptr, ptr %16, align 8
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %.04448
+  %23 = getelementptr inbounds ptr, ptr %22, i64 %.048
   %24 = load ptr, ptr %23, align 8
   tail call void @N_VSetArrayPointer(ptr noundef %24, ptr noundef %6) #6
-  %25 = getelementptr inbounds double, ptr %11, i64 %.04448
+  %25 = getelementptr inbounds double, ptr %11, i64 %.048
   %26 = load double, ptr %25, align 8
-  %27 = getelementptr inbounds double, ptr %14, i64 %.04448
+  %27 = getelementptr inbounds double, ptr %14, i64 %.048
   %28 = load double, ptr %27, align 8
   %29 = fdiv double 1.000000e+00, %28
   %30 = fcmp oge double %26, 0.000000e+00
@@ -354,7 +354,7 @@ define i32 @kinDlsDenseDQJac(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %49 = fdiv double 1.000000e+00, %40
   %50 = fneg double %49
   tail call void @N_VLinearSum(double noundef %49, ptr noundef %5, double noundef %50, ptr noundef %2, ptr noundef %6) #6
-  %51 = add nuw nsw i64 %.04448, 1
+  %51 = add nuw nsw i64 %.048, 1
   %exitcond.not = icmp eq i64 %51, %0
   br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !4
 
@@ -400,17 +400,17 @@ define range(i32 -1, 1) i32 @kinDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge105, %.lr.ph109
-  %.088107 = phi i64 [ 1, %.lr.ph109 ], [ %96, %._crit_edge105 ]
-  %28 = add nsw i64 %.088107, -1
+  %.089107 = phi i64 [ 1, %.lr.ph109 ], [ %96, %._crit_edge105 ]
+  %28 = add nsw i64 %.089107, -1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %45
-  %.09097 = phi i64 [ %51, %45 ], [ %28, %.lr.ph.preheader ]
+  %.097 = phi i64 [ %51, %45 ], [ %28, %.lr.ph.preheader ]
   %29 = load double, ptr %22, align 8
-  %30 = getelementptr inbounds double, ptr %14, i64 %.09097
+  %30 = getelementptr inbounds double, ptr %14, i64 %.097
   %31 = load double, ptr %30, align 8
   %32 = tail call double @SUNRabs(double noundef %31) #6
-  %33 = getelementptr inbounds double, ptr %17, i64 %.09097
+  %33 = getelementptr inbounds double, ptr %17, i64 %.097
   %34 = load double, ptr %33, align 8
   %35 = tail call double @SUNRabs(double noundef %34) #6
   %36 = fdiv double 1.000000e+00, %35
@@ -431,11 +431,11 @@ define range(i32 -1, 1) i32 @kinDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64
 45:                                               ; preds = %41, %38
   %46 = phi double [ %40, %38 ], [ %44, %41 ]
   %47 = fmul double %29, %46
-  %48 = getelementptr inbounds double, ptr %18, i64 %.09097
+  %48 = getelementptr inbounds double, ptr %18, i64 %.097
   %49 = load double, ptr %48, align 8
   %50 = fadd double %49, %47
   store double %50, ptr %48, align 8
-  %51 = add nsw i64 %.09097, %20
+  %51 = add nsw i64 %.097, %20
   %52 = icmp slt i64 %51, %0
   br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
@@ -489,18 +489,18 @@ define range(i32 -1, 1) i32 @kinDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64
   br i1 %.not9698, label %._crit_edge102, label %.lr.ph101
 
 .lr.ph101:                                        ; preds = %78, %.lr.ph101
-  %.08999 = phi i64 [ %93, %.lr.ph101 ], [ %83, %78 ]
-  %85 = getelementptr inbounds double, ptr %13, i64 %.08999
+  %.08899 = phi i64 [ %93, %.lr.ph101 ], [ %83, %78 ]
+  %85 = getelementptr inbounds double, ptr %13, i64 %.08899
   %86 = load double, ptr %85, align 8
-  %87 = getelementptr inbounds double, ptr %12, i64 %.08999
+  %87 = getelementptr inbounds double, ptr %12, i64 %.08899
   %88 = load double, ptr %87, align 8
   %89 = fsub double %86, %88
   %90 = fmul double %81, %89
-  %91 = sub nsw i64 %.08999, %.1103
+  %91 = sub nsw i64 %.08899, %.1103
   %92 = getelementptr inbounds double, ptr %63, i64 %91
   store double %90, ptr %92, align 8
-  %93 = add nuw nsw i64 %.08999, 1
-  %.not96.not = icmp slt i64 %.08999, %.
+  %93 = add nuw nsw i64 %.08899, 1
+  %.not96.not = icmp slt i64 %.08899, %.
   br i1 %.not96.not, label %.lr.ph101, label %._crit_edge102, !llvm.loop !7
 
 ._crit_edge102:                                   ; preds = %.lr.ph101, %78
@@ -509,8 +509,8 @@ define range(i32 -1, 1) i32 @kinDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64
   br i1 %95, label %.lr.ph104, label %._crit_edge105, !llvm.loop !8
 
 ._crit_edge105:                                   ; preds = %._crit_edge102
-  %96 = add nuw i64 %.088107, 1
-  %exitcond.not = icmp eq i64 %.088107, %21
+  %96 = add nuw i64 %.089107, 1
+  %exitcond.not = icmp eq i64 %.089107, %21
   br i1 %exitcond.not, label %._crit_edge110, label %.lr.ph.preheader, !llvm.loop !9
 
 ._crit_edge110:                                   ; preds = %._crit_edge105, %9
@@ -521,8 +521,8 @@ define range(i32 -1, 1) i32 @kinDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge110
-  %.0 = phi i32 [ 0, %._crit_edge110 ], [ -1, %._crit_edge ]
-  ret i32 %.0
+  %.090 = phi i32 [ 0, %._crit_edge110 ], [ -1, %._crit_edge ]
+  ret i32 %.090
 }
 
 declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

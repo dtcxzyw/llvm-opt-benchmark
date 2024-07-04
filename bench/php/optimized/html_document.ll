@@ -2178,7 +2178,7 @@ define hidden void @zim_DOM_HTMLDocument_saveHTML(ptr nocapture noundef readonly
   br label %116
 
 53:                                               ; preds = %28, %44
-  %.0119 = phi ptr [ %45, %44 ], [ %29, %28 ]
+  %.0 = phi ptr [ %45, %44 ], [ %29, %28 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %54 = getelementptr inbounds i8, ptr %5, i64 48
   store ptr %4, ptr %54, align 8
@@ -2186,7 +2186,7 @@ define hidden void @zim_DOM_HTMLDocument_saveHTML(ptr nocapture noundef readonly
   store ptr @dom_write_output_smart_str, ptr %55, align 8
   %56 = getelementptr i8, ptr %29, i64 112
   %.val = load ptr, ptr %56, align 8
-  %57 = call fastcc i32 @dom_common_save(ptr noundef nonnull %5, ptr %.val, ptr noundef %.0119)
+  %57 = call fastcc i32 @dom_common_save(ptr noundef nonnull %5, ptr %.val, ptr noundef %.0)
   %58 = icmp eq i32 %57, 0
   call void @llvm.assume(i1 %58)
   %59 = load ptr, ptr %4, align 8
@@ -2268,12 +2268,12 @@ define hidden void @zim_DOM_HTMLDocument_saveHTML(ptr nocapture noundef readonly
   br label %105
 
 105:                                              ; preds = %88, %101, %79
-  %.0 = phi ptr [ %82, %79 ], [ %91, %101 ], [ %91, %88 ]
+  %.0118 = phi ptr [ %82, %79 ], [ %91, %101 ], [ %91, %88 ]
   store i64 %70, ptr %67, align 8
   br label %106
 
 106:                                              ; preds = %105, %66, %60
-  %107 = phi ptr [ %.0, %105 ], [ %65, %66 ], [ null, %60 ]
+  %107 = phi ptr [ %.0118, %105 ], [ %65, %66 ], [ null, %60 ]
   store ptr null, ptr %4, align 8
   br label %110
 
@@ -2282,9 +2282,9 @@ define hidden void @zim_DOM_HTMLDocument_saveHTML(ptr nocapture noundef readonly
   br label %110
 
 110:                                              ; preds = %108, %106
-  %.0118 = phi ptr [ %107, %106 ], [ %109, %108 ]
-  store ptr %.0118, ptr %1, align 8
-  %111 = getelementptr inbounds i8, ptr %.0118, i64 4
+  %.0119 = phi ptr [ %107, %106 ], [ %109, %108 ]
+  store ptr %.0119, ptr %1, align 8
+  %111 = getelementptr inbounds i8, ptr %.0119, i64 4
   %112 = load i32, ptr %111, align 4
   %113 = and i32 %112, 64
   %.not133 = icmp eq i32 %113, 0

@@ -2692,14 +2692,14 @@ for.body.preheader.i.lr.ph.i:                     ; preds = %for.body.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i.backedge, %for.body.preheader.i.lr.ph.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.lr.ph.i ], [ %indvars.iv.i.i.be, %for.body.i.i.backedge ]
-  %pollsize.048.i.i = phi i32 [ 0, %for.body.preheader.i.lr.ph.i ], [ %pollsize.048.i.i.be, %for.body.i.i.backedge ]
+  %pollsize.047.i.i = phi i32 [ 0, %for.body.preheader.i.lr.ph.i ], [ %pollsize.047.i.i.be, %for.body.i.i.backedge ]
   %arrayidx.i.i = getelementptr inbounds %struct.io_pump, ptr %io, i64 %indvars.iv.i.i
   %7 = load i32, ptr %arrayidx.i.i, align 8
   %cmp1.i.i = icmp slt i32 %7, 0
   br i1 %cmp1.i.i, label %for.inc.i.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i.i
-  %idxprom3.i.i = sext i32 %pollsize.048.i.i to i64
+  %idxprom3.i.i = sext i32 %pollsize.047.i.i to i64
   %arrayidx4.i.i = getelementptr inbounds %struct.pollfd, ptr %call1.i, i64 %idxprom3.i.i
   store i32 %7, ptr %arrayidx4.i.i, align 4
   %type.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
@@ -2707,20 +2707,20 @@ if.end.i.i:                                       ; preds = %for.body.i.i
   %conv.i.i = trunc i32 %8 to i16
   %events.i.i = getelementptr inbounds i8, ptr %arrayidx4.i.i, i64 4
   store i16 %conv.i.i, ptr %events.i.i, align 4
-  %inc.i.i = add nsw i32 %pollsize.048.i.i, 1
+  %inc.i.i = add nsw i32 %pollsize.047.i.i, 1
   %pfd10.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 32
   store ptr %arrayidx4.i.i, ptr %pfd10.i.i, align 8
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end.i.i, %for.body.i.i
-  %pollsize.1.i.i = phi i32 [ %pollsize.048.i.i, %for.body.i.i ], [ %inc.i.i, %if.end.i.i ]
+  %pollsize.1.i.i = phi i32 [ %pollsize.047.i.i, %for.body.i.i ], [ %inc.i.i, %if.end.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i.backedge
 
 for.body.i.i.backedge:                            ; preds = %for.inc110.i.i, %for.inc.i.i, %if.then17.i.i
   %indvars.iv.i.i.be = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %if.then17.i.i ], [ 0, %for.inc110.i.i ]
-  %pollsize.048.i.i.be = phi i32 [ %pollsize.1.i.i, %for.inc.i.i ], [ 0, %if.then17.i.i ], [ 0, %for.inc110.i.i ]
+  %pollsize.047.i.i.be = phi i32 [ %pollsize.1.i.i, %for.inc.i.i ], [ 0, %if.then17.i.i ], [ 0, %for.inc110.i.i ]
   br label %for.body.i.i, !llvm.loop !13
 
 for.end.i.i:                                      ; preds = %for.inc.i.i

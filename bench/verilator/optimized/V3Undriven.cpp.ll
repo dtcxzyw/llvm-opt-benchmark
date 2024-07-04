@@ -5330,21 +5330,21 @@ _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %25
 _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i:          ; preds = %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i
   %.024.i.i.i.i.i = phi i64 [ %57, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %31, %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader ]
   %.sroa.514.023.i.i.i.i.i = phi i32 [ %spec.select19.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %18, %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader ]
-  %.sroa.011.022.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %16, %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader ]
+  %.sroa.07.022.i.i.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %storemerge.i.i.i, %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader ]
   %.sroa.5.021.i.i.i.i.i = phi i32 [ %.sroa.5.1.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %35, %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader ]
-  %.sroa.07.020.i.i.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %storemerge.i.i.i, %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader ]
+  %.sroa.011.020.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %16, %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader ]
   %40 = add i32 %.sroa.514.023.i.i.i.i.i, -1
   %41 = icmp eq i32 %.sroa.514.023.i.i.i.i.i, 0
   %spec.select.idx.i.i.i.i.i = select i1 %41, i64 -8, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.011.022.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
+  %spec.select.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.011.020.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
   %spec.select19.i.i.i.i.i = select i1 %41, i32 63, i32 %40
   %42 = zext nneg i32 %spec.select19.i.i.i.i.i to i64
   %43 = shl nuw i64 1, %42
   %44 = add i32 %.sroa.5.021.i.i.i.i.i, -1
   %45 = icmp eq i32 %.sroa.5.021.i.i.i.i.i, 0
-  %.sroa.07.1.idx.i.i.i.i.i = select i1 %45, i64 -8, i64 0
-  %.sroa.07.1.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.07.020.i.i.i.i.i, i64 %.sroa.07.1.idx.i.i.i.i.i
   %.sroa.5.1.i.i.i.i.i = select i1 %45, i32 63, i32 %44
+  %.sroa.07.1.idx.i.i.i.i.i = select i1 %45, i64 -8, i64 0
+  %.sroa.07.1.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.07.022.i.i.i.i.i, i64 %.sroa.07.1.idx.i.i.i.i.i
   %46 = zext nneg i32 %.sroa.5.1.i.i.i.i.i to i64
   %47 = shl nuw i64 1, %46
   %48 = load i64, ptr %spec.select.i.i.i.i.i, align 8
@@ -5524,42 +5524,42 @@ _ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i:               ; preds = %129, %_ZNKSt6vector
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i
   %.019.i.i.i.i.i.i = phi i64 [ %149, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %131, %.lr.ph.i.i.i.i.i.preheader.i ]
   %.sroa.511.018.i.i.i.i.i.i = phi i32 [ %spec.select14.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.sroa.08.017.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.sroa.03.016.i.i.i.i.i.i = phi ptr [ %.sroa.03.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %130, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.sroa.5.015.i.i.i.i.i.i = phi i32 [ %.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %.sroa.03.017.i.i.i.i.i.i = phi ptr [ %.sroa.03.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %130, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %.sroa.5.016.i.i.i.i.i.i = phi i32 [ %.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %.sroa.08.015.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.i.preheader.i ]
   %132 = zext nneg i32 %.sroa.511.018.i.i.i.i.i.i to i64
   %133 = shl nuw i64 1, %132
-  %134 = load i64, ptr %.sroa.08.017.i.i.i.i.i.i, align 8
+  %134 = load i64, ptr %.sroa.08.015.i.i.i.i.i.i, align 8
   %135 = and i64 %134, %133
   %.not.i.i.i.i.i7.i = icmp eq i64 %135, 0
-  %136 = zext nneg i32 %.sroa.5.015.i.i.i.i.i.i to i64
+  %136 = zext nneg i32 %.sroa.5.016.i.i.i.i.i.i to i64
   %137 = shl nuw i64 1, %136
   br i1 %.not.i.i.i.i.i7.i, label %141, label %138
 
 138:                                              ; preds = %.lr.ph.i.i.i.i.i.i
-  %139 = load i64, ptr %.sroa.03.016.i.i.i.i.i.i, align 8
+  %139 = load i64, ptr %.sroa.03.017.i.i.i.i.i.i, align 8
   %140 = or i64 %139, %137
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 141:                                              ; preds = %.lr.ph.i.i.i.i.i.i
   %142 = xor i64 %137, -1
-  %143 = load i64, ptr %.sroa.03.016.i.i.i.i.i.i, align 8
+  %143 = load i64, ptr %.sroa.03.017.i.i.i.i.i.i, align 8
   %144 = and i64 %143, %142
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %141, %138
   %storemerge.i.i.i.i.i.i = phi i64 [ %144, %141 ], [ %140, %138 ]
-  store i64 %storemerge.i.i.i.i.i.i, ptr %.sroa.03.016.i.i.i.i.i.i, align 8
+  store i64 %storemerge.i.i.i.i.i.i, ptr %.sroa.03.017.i.i.i.i.i.i, align 8
   %145 = add i32 %.sroa.511.018.i.i.i.i.i.i, 1
   %146 = icmp eq i32 %.sroa.511.018.i.i.i.i.i.i, 63
   %spec.select.idx.i.i.i.i.i.i = select i1 %146, i64 8, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.08.017.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
+  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.08.015.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
   %spec.select14.i.i.i.i.i.i = select i1 %146, i32 0, i32 %145
-  %147 = add i32 %.sroa.5.015.i.i.i.i.i.i, 1
-  %148 = icmp eq i32 %.sroa.5.015.i.i.i.i.i.i, 63
+  %147 = add i32 %.sroa.5.016.i.i.i.i.i.i, 1
+  %148 = icmp eq i32 %.sroa.5.016.i.i.i.i.i.i, 63
   %.sroa.5.1.i.i.i.i.i.i = select i1 %148, i32 0, i32 %147
   %.sroa.03.1.idx.i.i.i.i.i.i = select i1 %148, i64 8, i64 0
-  %.sroa.03.1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.03.016.i.i.i.i.i.i, i64 %.sroa.03.1.idx.i.i.i.i.i.i
+  %.sroa.03.1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.03.017.i.i.i.i.i.i, i64 %.sroa.03.1.idx.i.i.i.i.i.i
   %149 = add nsw i64 %.019.i.i.i.i.i.i, -1
   %150 = icmp sgt i64 %.019.i.i.i.i.i.i, 1
   br i1 %150, label %.lr.ph.i.i.i.i.i.i, label %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit, !llvm.loop !89
@@ -5677,55 +5677,55 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67:  ; preds = %170, %_ZSt14__fill_
   %206 = icmp sgt i64 %205, 0
   br i1 %206, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88
-  %.024.i.i.i.i.i84 = phi i64 [ %224, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88 ], [ %205, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ]
-  %.sroa.516.023.i.i.i.i.i = phi i32 [ %spec.select19.i.i.i.i.i92, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88 ], [ %2, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ]
-  %.sroa.013.022.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i91, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88 ], [ %1, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ]
-  %.sroa.5.021.i.i.i.i.i85 = phi i32 [ %.sroa.5.1.i.i.i.i.i95, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88 ], [ %158, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ]
-  %.sroa.07.020.i.i.i.i.i86 = phi ptr [ %.sroa.07.1.i.i.i.i.i94, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88 ], [ %storemerge.i.i.i53, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87
+  %.024.i.i.i.i.i84 = phi i64 [ %224, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87 ], [ %205, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ]
+  %.sroa.516.023.i.i.i.i.i = phi i32 [ %spec.select19.i.i.i.i.i91, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87 ], [ %2, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ]
+  %.sroa.013.022.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i90, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87 ], [ %1, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ]
+  %.sroa.5.021.i.i.i.i.i85 = phi i32 [ %.sroa.5.1.i.i.i.i.i94, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87 ], [ %158, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ]
+  %.sroa.07.020.i.i.i.i.i = phi ptr [ %.sroa.07.1.i.i.i.i.i93, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87 ], [ %storemerge.i.i.i53, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ]
   %207 = zext nneg i32 %.sroa.516.023.i.i.i.i.i to i64
   %208 = shl nuw i64 1, %207
   %209 = zext nneg i32 %.sroa.5.021.i.i.i.i.i85 to i64
   %210 = shl nuw i64 1, %209
   %211 = load i64, ptr %.sroa.013.022.i.i.i.i.i, align 8
   %212 = and i64 %211, %208
-  %.not.i.i.i.i.i.i87 = icmp eq i64 %212, 0
-  br i1 %.not.i.i.i.i.i.i87, label %216, label %213
+  %.not.i.i.i.i.i.i86 = icmp eq i64 %212, 0
+  br i1 %.not.i.i.i.i.i.i86, label %216, label %213
 
 213:                                              ; preds = %.lr.ph.i.i.i.i.i
-  %214 = load i64, ptr %.sroa.07.020.i.i.i.i.i86, align 8
+  %214 = load i64, ptr %.sroa.07.020.i.i.i.i.i, align 8
   %215 = or i64 %214, %210
-  br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88
+  br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87
 
 216:                                              ; preds = %.lr.ph.i.i.i.i.i
   %217 = xor i64 %210, -1
-  %218 = load i64, ptr %.sroa.07.020.i.i.i.i.i86, align 8
+  %218 = load i64, ptr %.sroa.07.020.i.i.i.i.i, align 8
   %219 = and i64 %218, %217
-  br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88
+  br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87
 
-_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88:    ; preds = %216, %213
-  %storemerge.i.i.i.i.i89 = phi i64 [ %215, %213 ], [ %219, %216 ]
-  store i64 %storemerge.i.i.i.i.i89, ptr %.sroa.07.020.i.i.i.i.i86, align 8
+_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87:    ; preds = %216, %213
+  %storemerge.i.i.i.i.i88 = phi i64 [ %215, %213 ], [ %219, %216 ]
+  store i64 %storemerge.i.i.i.i.i88, ptr %.sroa.07.020.i.i.i.i.i, align 8
   %220 = add i32 %.sroa.516.023.i.i.i.i.i, 1
   %221 = icmp eq i32 %.sroa.516.023.i.i.i.i.i, 63
-  %spec.select.idx.i.i.i.i.i90 = select i1 %221, i64 8, i64 0
-  %spec.select.i.i.i.i.i91 = getelementptr inbounds i8, ptr %.sroa.013.022.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i90
-  %spec.select19.i.i.i.i.i92 = select i1 %221, i32 0, i32 %220
+  %spec.select.idx.i.i.i.i.i89 = select i1 %221, i64 8, i64 0
+  %spec.select.i.i.i.i.i90 = getelementptr inbounds i8, ptr %.sroa.013.022.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i89
+  %spec.select19.i.i.i.i.i91 = select i1 %221, i32 0, i32 %220
   %222 = add i32 %.sroa.5.021.i.i.i.i.i85, 1
   %223 = icmp eq i32 %.sroa.5.021.i.i.i.i.i85, 63
-  %.sroa.07.1.idx.i.i.i.i.i93 = select i1 %223, i64 8, i64 0
-  %.sroa.07.1.i.i.i.i.i94 = getelementptr inbounds i8, ptr %.sroa.07.020.i.i.i.i.i86, i64 %.sroa.07.1.idx.i.i.i.i.i93
-  %.sroa.5.1.i.i.i.i.i95 = select i1 %223, i32 0, i32 %222
+  %.sroa.07.1.idx.i.i.i.i.i92 = select i1 %223, i64 8, i64 0
+  %.sroa.07.1.i.i.i.i.i93 = getelementptr inbounds i8, ptr %.sroa.07.020.i.i.i.i.i, i64 %.sroa.07.1.idx.i.i.i.i.i92
+  %.sroa.5.1.i.i.i.i.i94 = select i1 %223, i32 0, i32 %222
   %224 = add nsw i64 %.024.i.i.i.i.i84, -1
   %225 = icmp sgt i64 %.024.i.i.i.i.i84, 1
   br i1 %225, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, !llvm.loop !90
 
-_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67
-  %.sroa.07.0.lcssa.i.i.i.i.i80 = phi ptr [ %storemerge.i.i.i53, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ], [ %.sroa.07.1.i.i.i.i.i94, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88 ]
-  %.sroa.5.0.lcssa.i.i.i.i.i81 = phi i32 [ %158, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ], [ %.sroa.5.1.i.i.i.i.i95, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i88 ]
+_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67
+  %.sroa.07.0.lcssa.i.i.i.i.i80 = phi ptr [ %storemerge.i.i.i53, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ], [ %.sroa.07.1.i.i.i.i.i93, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87 ]
+  %.sroa.5.0.lcssa.i.i.i.i.i81 = phi i32 [ %158, %_ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit67 ], [ %.sroa.5.1.i.i.i.i.i94, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i87 ]
   %226 = load ptr, ptr %0, align 8
-  %.not.i96 = icmp eq ptr %226, null
-  br i1 %.not.i96, label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit, label %227
+  %.not.i95 = icmp eq ptr %226, null
+  br i1 %.not.i95, label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit, label %227
 
 227:                                              ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
   %228 = load ptr, ptr %8, align 8
@@ -5743,8 +5743,8 @@ _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit
   %236 = getelementptr inbounds i64, ptr %126, i64 %235
   store ptr %236, ptr %8, align 8
   store ptr %126, ptr %0, align 8
-  %.sroa.3105.0..sroa_idx106 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 0, ptr %.sroa.3105.0..sroa_idx106, align 8
+  %.sroa.3104.0..sroa_idx105 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 0, ptr %.sroa.3104.0..sroa_idx105, align 8
   store ptr %.sroa.07.0.lcssa.i.i.i.i.i80, ptr %15, align 8
   br label %.sink.split
 
@@ -6674,15 +6674,15 @@ _ZNK7AstNode11prettyNameQB5cxx11Ev.exit105:       ; preds = %45
   br i1 %.not.i, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us
 
 _ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us:     ; preds = %.lr.ph.split.us, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us
-  %.081146.us.us = phi i32 [ %112, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ 0, %.lr.ph.split.us ]
-  %.082145.us.us = phi i1 [ %111, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ false, %.lr.ph.split.us ]
-  %.083144.us.us = phi i1 [ %109, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ false, %.lr.ph.split.us ]
-  %.084143.us.us = phi i1 [ %107, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ false, %.lr.ph.split.us ]
-  %.085.in142.us.us = phi i1 [ %104, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ false, %.lr.ph.split.us ]
-  %.086.in141.us.us = phi i1 [ %102, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ false, %.lr.ph.split.us ]
-  %.087140.us.us = phi i1 [ %103, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ true, %.lr.ph.split.us ]
-  %.088139.us.us = phi i1 [ %101, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ true, %.lr.ph.split.us ]
-  %79 = mul nsw i32 %.081146.us.us, 3
+  %.077146.us.us = phi i32 [ %112, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ 0, %.lr.ph.split.us ]
+  %.078145.us.us = phi i1 [ %111, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ false, %.lr.ph.split.us ]
+  %.079144.us.us = phi i1 [ %109, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ false, %.lr.ph.split.us ]
+  %.080143.us.us = phi i1 [ %107, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ false, %.lr.ph.split.us ]
+  %.081.in142.us.us = phi i1 [ %104, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ false, %.lr.ph.split.us ]
+  %.082.in141.us.us = phi i1 [ %102, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ false, %.lr.ph.split.us ]
+  %.083140.us.us = phi i1 [ %103, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ true, %.lr.ph.split.us ]
+  %.084139.us.us = phi i1 [ %101, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ true, %.lr.ph.split.us ]
+  %79 = mul nsw i32 %.077146.us.us, 3
   %80 = sext i32 %79 to i64
   %81 = sdiv i32 %79, 64
   %.sext.i.us.us = sext i32 %81 to i64
@@ -6710,29 +6710,29 @@ _ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us:     ; preds = %.lr.ph.split.us, %_
   %98 = load i64, ptr %storemerge.i.i.i.i.i.i111.us.us, align 8
   %99 = and i64 %98, %97
   %100 = icmp ne i64 %99, 0
-  %101 = and i1 %.088139.us.us, %89
-  %102 = or i1 %.086.in141.us.us, %89
-  %103 = and i1 %.087140.us.us, %100
-  %104 = or i1 %.085.in142.us.us, %100
+  %101 = and i1 %.084139.us.us, %89
+  %102 = or i1 %.082.in141.us.us, %89
+  %103 = and i1 %.083140.us.us, %100
+  %104 = or i1 %.081.in142.us.us, %100
   %105 = xor i1 %100, true
   %106 = and i1 %89, %105
-  %107 = or i1 %.084143.us.us, %106
+  %107 = or i1 %.080143.us.us, %106
   %not..us.us = xor i1 %89, true
   %108 = and i1 %100, %not..us.us
-  %109 = or i1 %.083144.us.us, %108
+  %109 = or i1 %.079144.us.us, %108
   %110 = and i1 %not..us.us, %105
-  %111 = or i1 %.082145.us.us, %110
-  %112 = add i32 %.081146.us.us, 1
+  %111 = or i1 %.078145.us.us, %110
+  %112 = add i32 %.077146.us.us, 1
   %113 = zext i32 %112 to i64
   %114 = icmp ugt i64 %78, %113
   br i1 %114, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us, label %._crit_edge, !llvm.loop !103
 
 _ZNK16UndrivenVarEntry8usedFlagEi.exit.us:        ; preds = %.lr.ph.split.us, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us
-  %.081146.us = phi i32 [ %131, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us ], [ 0, %.lr.ph.split.us ]
-  %.084143.us = phi i1 [ %130, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us ], [ false, %.lr.ph.split.us ]
-  %.085.in142.us = phi i1 [ %128, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us ], [ false, %.lr.ph.split.us ]
-  %.087140.us = phi i1 [ %127, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us ], [ true, %.lr.ph.split.us ]
-  %115 = mul nsw i32 %.081146.us, 3
+  %.077146.us = phi i32 [ %131, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us ], [ 0, %.lr.ph.split.us ]
+  %.080143.us = phi i1 [ %130, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us ], [ false, %.lr.ph.split.us ]
+  %.081.in142.us = phi i1 [ %128, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us ], [ false, %.lr.ph.split.us ]
+  %.083140.us = phi i1 [ %127, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us ], [ true, %.lr.ph.split.us ]
+  %115 = mul nsw i32 %.077146.us, 3
   %116 = add nsw i32 %115, 1
   %117 = sext i32 %116 to i64
   %118 = sdiv i32 %116, 64
@@ -6747,11 +6747,11 @@ _ZNK16UndrivenVarEntry8usedFlagEi.exit.us:        ; preds = %.lr.ph.split.us, %_
   %124 = load i64, ptr %storemerge.i.i.i.i.i.i111.us, align 8
   %125 = and i64 %124, %123
   %126 = icmp ne i64 %125, 0
-  %127 = and i1 %.087140.us, %126
-  %128 = or i1 %.085.in142.us, %126
+  %127 = and i1 %.083140.us, %126
+  %128 = or i1 %.081.in142.us, %126
   %129 = xor i1 %126, true
-  %130 = or i1 %.084143.us, %129
-  %131 = add i32 %.081146.us, 1
+  %130 = or i1 %.080143.us, %129
+  %131 = add i32 %.077146.us, 1
   %132 = zext i32 %131 to i64
   %133 = icmp ugt i64 %78, %132
   br i1 %133, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us, label %._crit_edge.thread, !llvm.loop !103
@@ -6760,11 +6760,11 @@ _ZNK16UndrivenVarEntry8usedFlagEi.exit.us:        ; preds = %.lr.ph.split.us, %_
   br i1 %.not.i, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166, label %._crit_edge.thread.thread
 
 _ZNK16UndrivenVarEntry8usedFlagEi.exit.us166:     ; preds = %.lr.ph.split, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166
-  %.081146.us159 = phi i32 [ %148, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166 ], [ 0, %.lr.ph.split ]
-  %.083144.us160 = phi i1 [ %147, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166 ], [ false, %.lr.ph.split ]
-  %.086.in141.us161 = phi i1 [ %146, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166 ], [ false, %.lr.ph.split ]
-  %.088139.us162 = phi i1 [ %145, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166 ], [ true, %.lr.ph.split ]
-  %134 = mul nsw i32 %.081146.us159, 3
+  %.077146.us159 = phi i32 [ %148, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166 ], [ 0, %.lr.ph.split ]
+  %.079144.us160 = phi i1 [ %147, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166 ], [ false, %.lr.ph.split ]
+  %.082.in141.us161 = phi i1 [ %146, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166 ], [ false, %.lr.ph.split ]
+  %.084139.us162 = phi i1 [ %145, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166 ], [ true, %.lr.ph.split ]
+  %134 = mul nsw i32 %.077146.us159, 3
   %135 = sext i32 %134 to i64
   %136 = sdiv i32 %134, 64
   %.sext.i.us163 = sext i32 %136 to i64
@@ -6778,53 +6778,53 @@ _ZNK16UndrivenVarEntry8usedFlagEi.exit.us166:     ; preds = %.lr.ph.split, %_ZNK
   %142 = load i64, ptr %storemerge.i.i.i.i.i.i.us165, align 8
   %143 = and i64 %142, %141
   %144 = icmp ne i64 %143, 0
-  %145 = and i1 %.088139.us162, %144
-  %146 = or i1 %.086.in141.us161, %144
+  %145 = and i1 %.084139.us162, %144
+  %146 = or i1 %.082.in141.us161, %144
   %not..us167 = xor i1 %144, true
-  %147 = or i1 %.083144.us160, %not..us167
-  %148 = add i32 %.081146.us159, 1
+  %147 = or i1 %.079144.us160, %not..us167
+  %148 = add i32 %.077146.us159, 1
   %149 = zext i32 %148 to i64
   %150 = icmp ugt i64 %78, %149
   br i1 %150, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166, label %._crit_edge, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us
-  %.088.lcssa = phi i1 [ %101, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ %145, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166 ]
-  %.087.lcssa = phi i1 [ %103, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ true, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166 ]
-  %.086.in.lcssa = phi i1 [ %102, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ %146, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166 ]
-  %.085.in.lcssa = phi i1 [ %104, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ true, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166 ]
-  %.084.lcssa = phi i1 [ %107, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ false, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166 ]
-  %.083.lcssa = phi i1 [ %109, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ %147, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166 ]
-  %.082.lcssa = phi i1 [ %111, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ false, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166 ]
-  br i1 %.088.lcssa, label %._crit_edge.thread, label %153
+  %.084.lcssa = phi i1 [ %101, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ %145, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166 ]
+  %.083.lcssa = phi i1 [ %103, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ true, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166 ]
+  %.082.in.lcssa = phi i1 [ %102, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ %146, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166 ]
+  %.081.in.lcssa = phi i1 [ %104, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ true, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166 ]
+  %.080.lcssa = phi i1 [ %107, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ false, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166 ]
+  %.079.lcssa = phi i1 [ %109, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ %147, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166 ]
+  %.078.lcssa = phi i1 [ %111, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us.us ], [ false, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us166 ]
+  br i1 %.084.lcssa, label %._crit_edge.thread, label %153
 
 ._crit_edge.thread.thread:                        ; preds = %.lr.ph.split, %58
-  %.085.in.lcssa219.ph = phi i1 [ %65, %58 ], [ true, %.lr.ph.split ]
-  %.086.in.lcssa217.ph = phi i1 [ %63, %58 ], [ true, %.lr.ph.split ]
+  %.081.in.lcssa219.ph = phi i1 [ %65, %58 ], [ true, %.lr.ph.split ]
+  %.082.in.lcssa217.ph = phi i1 [ %63, %58 ], [ true, %.lr.ph.split ]
   %151 = or i64 %61, 1
   store i64 %151, ptr %60, align 8
   br label %154
 
 ._crit_edge.thread:                               ; preds = %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us, %._crit_edge
-  %.082.lcssa225 = phi i1 [ %.082.lcssa, %._crit_edge ], [ false, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us ]
-  %.083.lcssa223 = phi i1 [ %.083.lcssa, %._crit_edge ], [ false, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us ]
-  %.084.lcssa221 = phi i1 [ %.084.lcssa, %._crit_edge ], [ %130, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us ]
-  %.085.in.lcssa219 = phi i1 [ %.085.in.lcssa, %._crit_edge ], [ %128, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us ]
-  %.086.in.lcssa217 = phi i1 [ %.086.in.lcssa, %._crit_edge ], [ true, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us ]
-  %.087.lcssa215 = phi i1 [ %.087.lcssa, %._crit_edge ], [ %127, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us ]
+  %.078.lcssa225 = phi i1 [ %.078.lcssa, %._crit_edge ], [ false, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us ]
+  %.079.lcssa223 = phi i1 [ %.079.lcssa, %._crit_edge ], [ false, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us ]
+  %.080.lcssa221 = phi i1 [ %.080.lcssa, %._crit_edge ], [ %130, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us ]
+  %.081.in.lcssa219 = phi i1 [ %.081.in.lcssa, %._crit_edge ], [ %128, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us ]
+  %.082.in.lcssa217 = phi i1 [ %.082.in.lcssa, %._crit_edge ], [ true, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us ]
+  %.083.lcssa215 = phi i1 [ %.083.lcssa, %._crit_edge ], [ %127, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.us ]
   %152 = or i64 %61, 1
   store i64 %152, ptr %60, align 8
-  br i1 %.087.lcssa215, label %154, label %158
+  br i1 %.083.lcssa215, label %154, label %158
 
 153:                                              ; preds = %._crit_edge
-  br i1 %.087.lcssa, label %154, label %158
+  br i1 %.083.lcssa, label %154, label %158
 
 154:                                              ; preds = %._crit_edge.thread.thread, %._crit_edge.thread, %153
-  %.088.lcssa212239 = phi i1 [ true, %._crit_edge.thread ], [ false, %153 ], [ true, %._crit_edge.thread.thread ]
-  %.086.in.lcssa216235 = phi i1 [ %.086.in.lcssa217, %._crit_edge.thread ], [ %.086.in.lcssa, %153 ], [ %.086.in.lcssa217.ph, %._crit_edge.thread.thread ]
-  %.085.in.lcssa218233 = phi i1 [ %.085.in.lcssa219, %._crit_edge.thread ], [ %.085.in.lcssa, %153 ], [ %.085.in.lcssa219.ph, %._crit_edge.thread.thread ]
-  %.084.lcssa220231 = phi i1 [ %.084.lcssa221, %._crit_edge.thread ], [ %.084.lcssa, %153 ], [ false, %._crit_edge.thread.thread ]
-  %.083.lcssa222229 = phi i1 [ %.083.lcssa223, %._crit_edge.thread ], [ %.083.lcssa, %153 ], [ false, %._crit_edge.thread.thread ]
-  %.082.lcssa224227 = phi i1 [ %.082.lcssa225, %._crit_edge.thread ], [ %.082.lcssa, %153 ], [ false, %._crit_edge.thread.thread ]
+  %.084.lcssa212239 = phi i1 [ true, %._crit_edge.thread ], [ false, %153 ], [ true, %._crit_edge.thread.thread ]
+  %.082.in.lcssa216235 = phi i1 [ %.082.in.lcssa217, %._crit_edge.thread ], [ %.082.in.lcssa, %153 ], [ %.082.in.lcssa217.ph, %._crit_edge.thread.thread ]
+  %.081.in.lcssa218233 = phi i1 [ %.081.in.lcssa219, %._crit_edge.thread ], [ %.081.in.lcssa, %153 ], [ %.081.in.lcssa219.ph, %._crit_edge.thread.thread ]
+  %.080.lcssa220231 = phi i1 [ %.080.lcssa221, %._crit_edge.thread ], [ %.080.lcssa, %153 ], [ false, %._crit_edge.thread.thread ]
+  %.079.lcssa222229 = phi i1 [ %.079.lcssa223, %._crit_edge.thread ], [ %.079.lcssa, %153 ], [ false, %._crit_edge.thread.thread ]
+  %.078.lcssa224227 = phi i1 [ %.078.lcssa225, %._crit_edge.thread ], [ %.078.lcssa, %153 ], [ false, %._crit_edge.thread.thread ]
   %155 = load ptr, ptr %59, align 8
   %156 = load i64, ptr %155, align 8
   %157 = or i64 %156, 2
@@ -6832,24 +6832,24 @@ _ZNK16UndrivenVarEntry8usedFlagEi.exit.us166:     ; preds = %.lr.ph.split, %_ZNK
   br label %158
 
 158:                                              ; preds = %._crit_edge.thread, %154, %153
-  %.088.lcssa212238 = phi i1 [ true, %._crit_edge.thread ], [ %.088.lcssa212239, %154 ], [ false, %153 ]
-  %.087.not = phi i1 [ true, %._crit_edge.thread ], [ false, %154 ], [ true, %153 ]
-  %.086.in.lcssa216234 = phi i1 [ %.086.in.lcssa217, %._crit_edge.thread ], [ %.086.in.lcssa216235, %154 ], [ %.086.in.lcssa, %153 ]
-  %.085.in.lcssa218232 = phi i1 [ %.085.in.lcssa219, %._crit_edge.thread ], [ %.085.in.lcssa218233, %154 ], [ %.085.in.lcssa, %153 ]
-  %.084.lcssa220230 = phi i1 [ %.084.lcssa221, %._crit_edge.thread ], [ %.084.lcssa220231, %154 ], [ %.084.lcssa, %153 ]
-  %.083.lcssa222228 = phi i1 [ %.083.lcssa223, %._crit_edge.thread ], [ %.083.lcssa222229, %154 ], [ %.083.lcssa, %153 ]
-  %.082.lcssa224226 = phi i1 [ %.082.lcssa225, %._crit_edge.thread ], [ %.082.lcssa224227, %154 ], [ %.082.lcssa, %153 ]
+  %.084.lcssa212238 = phi i1 [ true, %._crit_edge.thread ], [ %.084.lcssa212239, %154 ], [ false, %153 ]
+  %.083.not = phi i1 [ true, %._crit_edge.thread ], [ false, %154 ], [ true, %153 ]
+  %.082.in.lcssa216234 = phi i1 [ %.082.in.lcssa217, %._crit_edge.thread ], [ %.082.in.lcssa216235, %154 ], [ %.082.in.lcssa, %153 ]
+  %.081.in.lcssa218232 = phi i1 [ %.081.in.lcssa219, %._crit_edge.thread ], [ %.081.in.lcssa218233, %154 ], [ %.081.in.lcssa, %153 ]
+  %.080.lcssa220230 = phi i1 [ %.080.lcssa221, %._crit_edge.thread ], [ %.080.lcssa220231, %154 ], [ %.080.lcssa, %153 ]
+  %.079.lcssa222228 = phi i1 [ %.079.lcssa223, %._crit_edge.thread ], [ %.079.lcssa222229, %154 ], [ %.079.lcssa, %153 ]
+  %.078.lcssa224226 = phi i1 [ %.078.lcssa225, %._crit_edge.thread ], [ %.078.lcssa224227, %154 ], [ %.078.lcssa, %153 ]
   %.sroa.0.0.copyload.i.i116 = load i8, ptr %16, align 8
   %159 = icmp eq i8 %.sroa.0.0.copyload.i.i116, 17
   br i1 %159, label %248, label %160
 
 160:                                              ; preds = %158
-  %.088.not = xor i1 %.088.lcssa212238, true
-  %brmerge = or i1 %.087.not, %.088.not
+  %.084.not = xor i1 %.084.lcssa212238, true
+  %brmerge = or i1 %.083.not, %.084.not
   br i1 %brmerge, label %161, label %248
 
 161:                                              ; preds = %160
-  %brmerge97 = select i1 %.085.in.lcssa218232, i1 true, i1 %.086.in.lcssa216234
+  %brmerge97 = select i1 %.081.in.lcssa218232, i1 true, i1 %.082.in.lcssa216234
   br i1 %brmerge97, label %172, label %162
 
 162:                                              ; preds = %161
@@ -6874,7 +6874,7 @@ _ZNK16UndrivenVarEntry8usedFlagEi.exit.us166:     ; preds = %.lr.ph.split, %_ZNK
   br label %common.resume
 
 172:                                              ; preds = %161
-  %brmerge99 = select i1 %.087.not, i1 true, i1 %.086.in.lcssa216234
+  %brmerge99 = select i1 %.083.not, i1 true, i1 %.082.in.lcssa216234
   br i1 %brmerge99, label %183, label %173
 
 173:                                              ; preds = %172
@@ -6899,7 +6899,7 @@ _ZNK16UndrivenVarEntry8usedFlagEi.exit.us166:     ; preds = %.lr.ph.split, %_ZNK
   br label %common.resume
 
 183:                                              ; preds = %172
-  %brmerge101 = or i1 %.085.in.lcssa218232, %.088.not
+  %brmerge101 = or i1 %.081.in.lcssa218232, %.084.not
   br i1 %brmerge101, label %192, label %184
 
 184:                                              ; preds = %183
@@ -6920,7 +6920,7 @@ _ZNK16UndrivenVarEntry8usedFlagEi.exit.us166:     ; preds = %.lr.ph.split, %_ZNK
   br label %common.resume
 
 192:                                              ; preds = %183
-  br i1 %.082.lcssa224226, label %193, label %209
+  br i1 %.078.lcssa224226, label %193, label %209
 
 193:                                              ; preds = %192
   %194 = tail call noundef zeroext i1 @_ZN16UndrivenVarEntry11unusedMatchEP6AstVar(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %15)
@@ -6964,7 +6964,7 @@ _ZNK16UndrivenVarEntry8usedFlagEi.exit.us166:     ; preds = %.lr.ph.split, %_ZNK
 
 209:                                              ; preds = %204, %193, %192
   %.074 = phi i1 [ false, %193 ], [ true, %204 ], [ false, %192 ]
-  br i1 %.083.lcssa222228, label %210, label %226
+  br i1 %.079.lcssa222228, label %210, label %226
 
 210:                                              ; preds = %209
   %211 = call noundef zeroext i1 @_ZN16UndrivenVarEntry11unusedMatchEP6AstVar(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %15)
@@ -7008,7 +7008,7 @@ _ZNK16UndrivenVarEntry8usedFlagEi.exit.us166:     ; preds = %.lr.ph.split, %_ZNK
 
 226:                                              ; preds = %221, %210, %209
   %.1 = phi i1 [ %.074, %210 ], [ true, %221 ], [ %.074, %209 ]
-  br i1 %.084.lcssa220230, label %227, label %241
+  br i1 %.080.lcssa220230, label %227, label %241
 
 227:                                              ; preds = %226
   %228 = call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCodeb(i8 96, i1 noundef zeroext true)
@@ -7056,7 +7056,7 @@ _ZNK16UndrivenVarEntry8usedFlagEi.exit.us166:     ; preds = %.lr.ph.split, %_ZNK
   br label %245
 
 245:                                              ; preds = %242, %241
-  br i1 %.084.lcssa220230, label %.sink.split, label %248
+  br i1 %.080.lcssa220230, label %.sink.split, label %248
 
 .sink.split.sink.split:                           ; preds = %189, %180, %169, %55, %34
   %.sink263 = phi ptr [ %4, %34 ], [ %5, %55 ], [ %6, %169 ], [ %7, %180 ], [ %8, %189 ]
@@ -7179,10 +7179,10 @@ define linkonce_odr dso_local void @_ZN16UndrivenVarEntry8bitNamesB5cxx11ENS_13B
 
 36:                                               ; preds = %.lr.ph, %361
   %.0183 = phi i8 [ 0, %.lr.ph ], [ %.1, %361 ]
-  %.031182 = phi i32 [ 0, %.lr.ph ], [ %.132, %361 ]
-  %.042.in181 = phi i32 [ %33, %.lr.ph ], [ %.042184, %361 ]
-  %.042184 = add i32 %.042.in181, -1
-  %37 = icmp sgt i32 %.042184, -1
+  %.040.in182 = phi i32 [ %33, %.lr.ph ], [ %.040184, %361 ]
+  %.041181 = phi i32 [ 0, %.lr.ph ], [ %.142, %361 ]
+  %.040184 = add i32 %.040.in182, -1
+  %37 = icmp sgt i32 %.040184, -1
   br i1 %37, label %38, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit.thread
 
 38:                                               ; preds = %36
@@ -7200,7 +7200,7 @@ define linkonce_odr dso_local void @_ZN16UndrivenVarEntry8bitNamesB5cxx11ENS_13B
   br i1 %.not.i, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit.thread
 
 _ZNK16UndrivenVarEntry8usedFlagEi.exit:           ; preds = %39
-  %43 = mul nuw nsw i32 %.042184, 3
+  %43 = mul nuw nsw i32 %.040184, 3
   %44 = load ptr, ptr %20, align 8
   %45 = lshr i32 %43, 6
   %.sext.i = zext nneg i32 %45 to i64
@@ -7239,7 +7239,7 @@ _ZNK16UndrivenVarEntry10drivenFlagEi.exit:        ; preds = %52
   br i1 %.not.i59, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit63, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit63.thread
 
 _ZNK16UndrivenVarEntry8usedFlagEi.exit63:         ; preds = %62
-  %66 = mul nuw nsw i32 %.042184, 3
+  %66 = mul nuw nsw i32 %.040184, 3
   %67 = load ptr, ptr %20, align 8
   %68 = lshr i32 %66, 6
   %.sext.i60 = zext nneg i32 %68 to i64
@@ -7262,7 +7262,7 @@ _ZNK16UndrivenVarEntry8usedFlagEi.exit63.thread:  ; preds = %62
 
 _ZNK16UndrivenVarEntry8usedFlagEi.exit63.thread._ZNK16UndrivenVarEntry10drivenFlagEi.exit68_crit_edge: ; preds = %_ZNK16UndrivenVarEntry8usedFlagEi.exit63.thread
   %.pre = load ptr, ptr %20, align 8
-  %.pre187 = mul nuw nsw i32 %.042184, 3
+  %.pre187 = mul nuw nsw i32 %.040184, 3
   br label %_ZNK16UndrivenVarEntry10drivenFlagEi.exit68
 
 _ZNK16UndrivenVarEntry10drivenFlagEi.exit68:      ; preds = %_ZNK16UndrivenVarEntry8usedFlagEi.exit63.thread._ZNK16UndrivenVarEntry10drivenFlagEi.exit68_crit_edge, %_ZNK16UndrivenVarEntry8usedFlagEi.exit63
@@ -7288,7 +7288,7 @@ _ZNK16UndrivenVarEntry10drivenFlagEi.exit68:      ; preds = %_ZNK16UndrivenVarEn
   br i1 %.not.i69, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit73, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit.thread
 
 _ZNK16UndrivenVarEntry8usedFlagEi.exit73:         ; preds = %86
-  %90 = mul nuw nsw i32 %.042184, 3
+  %90 = mul nuw nsw i32 %.040184, 3
   %91 = load ptr, ptr %20, align 8
   %92 = lshr i32 %90, 6
   %.sext.i70 = zext nneg i32 %92 to i64
@@ -7318,7 +7318,7 @@ _ZNK16UndrivenVarEntry10drivenFlagEi.exit78:      ; preds = %_ZNK16UndrivenVarEn
 
 _ZNK16UndrivenVarEntry10drivenFlagEi.exit.thread: ; preds = %52, %_ZNK16UndrivenVarEntry10drivenFlagEi.exit78, %_ZNK16UndrivenVarEntry10drivenFlagEi.exit68, %_ZNK16UndrivenVarEntry10drivenFlagEi.exit
   %109 = trunc nuw i8 %.0183 to i1
-  %spec.select = select i1 %109, i32 %.031182, i32 %.042184
+  %spec.select = select i1 %109, i32 %.041181, i32 %.040184
   %spec.select54 = select i1 %109, i8 %.0183, i8 1
   br label %361
 
@@ -7360,7 +7360,7 @@ _ZNK6AstVar6basicpEv.exit:                        ; preds = %111
           to label %125 unwind label %.loopexit
 
 125:                                              ; preds = %123, %_ZNK6AstVar6basicpEv.exit
-  %126 = icmp eq i32 %.042.in181, %.031182
+  %126 = icmp eq i32 %.040.in182, %.041181
   %127 = getelementptr inbounds i8, ptr %121, i64 24
   %128 = load ptr, ptr %127, align 8
   %.not.i79 = icmp eq ptr %128, null
@@ -7424,7 +7424,7 @@ _ZNK13AstBasicDType2loEv.exit:                    ; preds = %148, %_ZNK8AstRange
           to label %.noexc81 unwind label %.loopexit
 
 .noexc81:                                         ; preds = %_ZNK13AstBasicDType2loEv.exit
-  %154 = add nsw i32 %153, %.031182
+  %154 = add nsw i32 %153, %.040.in182
   %155 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %154)
           to label %156 unwind label %157, !noalias !107
 
@@ -7565,7 +7565,7 @@ _ZNK13AstBasicDType2loEv.exit101:                 ; preds = %.thread, %_ZNK8AstR
           to label %.noexc102 unwind label %.loopexit
 
 .noexc102:                                        ; preds = %_ZNK13AstBasicDType2loEv.exit101
-  %212 = add nsw i32 %211, %.042.in181
+  %212 = add nsw i32 %211, %.040.in182
   %213 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %212)
           to label %214 unwind label %215, !noalias !110
 
@@ -7646,7 +7646,7 @@ _ZNK13AstBasicDType2loEv.exit119:                 ; preds = %239, %_ZNK8AstRange
           to label %.noexc120 unwind label %267
 
 .noexc120:                                        ; preds = %_ZNK13AstBasicDType2loEv.exit119
-  %245 = add nsw i32 %244, %.031182
+  %245 = add nsw i32 %244, %.041181
   %246 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %245)
           to label %247 unwind label %248, !noalias !113
 
@@ -7790,7 +7790,7 @@ _ZNK13AstBasicDType2loEv.exit139:                 ; preds = %_ZNK8AstRange9ascen
           to label %.noexc140 unwind label %.loopexit
 
 .noexc140:                                        ; preds = %_ZNK13AstBasicDType2loEv.exit139
-  %298 = add nsw i32 %297, %.031182
+  %298 = add nsw i32 %297, %.041181
   %299 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %298)
           to label %300 unwind label %301, !noalias !119
 
@@ -7871,7 +7871,7 @@ _ZNK13AstBasicDType2loEv.exit158:                 ; preds = %325, %_ZNK8AstRange
           to label %.noexc159 unwind label %353
 
 .noexc159:                                        ; preds = %_ZNK13AstBasicDType2loEv.exit158
-  %331 = add nsw i32 %330, %.042.in181
+  %331 = add nsw i32 %330, %.040.in182
   %332 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %331)
           to label %333 unwind label %334, !noalias !122
 
@@ -7958,9 +7958,9 @@ _ZNK13AstBasicDType2loEv.exit158:                 ; preds = %325, %_ZNK8AstRange
   br label %.body
 
 361:                                              ; preds = %_ZNK16UndrivenVarEntry10drivenFlagEi.exit.thread, %161, %350, %264, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.thread
-  %.132 = phi i32 [ %.031182, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.thread ], [ %spec.select, %_ZNK16UndrivenVarEntry10drivenFlagEi.exit.thread ], [ %.031182, %264 ], [ %.031182, %350 ], [ %.031182, %161 ]
+  %.142 = phi i32 [ %.041181, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.thread ], [ %spec.select, %_ZNK16UndrivenVarEntry10drivenFlagEi.exit.thread ], [ %.041181, %264 ], [ %.041181, %350 ], [ %.040.in182, %161 ]
   %.1 = phi i8 [ %.0183, %_ZNK16UndrivenVarEntry8usedFlagEi.exit.thread ], [ %spec.select54, %_ZNK16UndrivenVarEntry10drivenFlagEi.exit.thread ], [ 0, %264 ], [ 0, %350 ], [ 0, %161 ]
-  %362 = icmp ult i32 %.042184, -2147483647
+  %362 = icmp ult i32 %.040184, -2147483647
   br i1 %362, label %36, label %._crit_edge, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %361, %3

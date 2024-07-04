@@ -1681,26 +1681,26 @@ for.body.lr.ph.i:                                 ; preds = %determine_macros.ex
   br label %for.body.i34
 
 for.body.i34:                                     ; preds = %for.inc14.i, %for.body.lr.ph.i
-  %stack.addr.022.i = phi ptr [ %.pre50, %for.body.lr.ph.i ], [ %83, %for.inc14.i ]
-  %rem.addr.021.i = phi i32 [ %.pre, %for.body.lr.ph.i ], [ %rem.addr.1.lcssa.i, %for.inc14.i ]
-  %origin.i35 = getelementptr inbounds i8, ptr %stack.addr.022.i, i64 8
+  %rem.addr.022.i = phi i32 [ %.pre, %for.body.lr.ph.i ], [ %rem.addr.1.lcssa.i, %for.inc14.i ]
+  %stack.addr.021.i = phi ptr [ %.pre50, %for.body.lr.ph.i ], [ %83, %for.inc14.i ]
+  %origin.i35 = getelementptr inbounds i8, ptr %stack.addr.021.i, i64 8
   %68 = load ptr, ptr %origin.i35, align 8
   %tobool1.not.i = icmp eq ptr %68, null
   %spec.select.i36 = select i1 %tobool1.not.i, ptr @.str.11, ptr %68
-  %num_matches.i37 = getelementptr inbounds i8, ptr %stack.addr.022.i, i64 24
+  %num_matches.i37 = getelementptr inbounds i8, ptr %stack.addr.021.i, i64 24
   %69 = load i32, ptr %num_matches.i37, align 8
   %cmp616.not.i = icmp eq i32 %69, 0
   br i1 %cmp616.not.i, label %for.inc14.i, label %for.body8.lr.ph.i
 
 for.body8.lr.ph.i:                                ; preds = %for.body.i34
-  %attrs.i38 = getelementptr inbounds i8, ptr %stack.addr.022.i, i64 32
-  %originlen.i39 = getelementptr inbounds i8, ptr %stack.addr.022.i, i64 16
+  %attrs.i38 = getelementptr inbounds i8, ptr %stack.addr.021.i, i64 32
+  %originlen.i39 = getelementptr inbounds i8, ptr %stack.addr.021.i, i64 16
   %70 = zext i32 %69 to i64
   br label %for.body8.i
 
 for.body8.i:                                      ; preds = %for.inc.i43, %for.body8.lr.ph.i
   %indvars.iv.i40 = phi i64 [ %70, %for.body8.lr.ph.i ], [ %72, %for.inc.i43 ]
-  %rem.addr.118.i = phi i32 [ %rem.addr.021.i, %for.body8.lr.ph.i ], [ %rem.addr.2.i, %for.inc.i43 ]
+  %rem.addr.117.i = phi i32 [ %rem.addr.022.i, %for.body8.lr.ph.i ], [ %rem.addr.2.i, %for.inc.i43 ]
   %71 = load ptr, ptr %attrs.i38, align 8
   %72 = add nsw i64 %indvars.iv.i40, -1
   %arrayidx.i41 = getelementptr inbounds ptr, ptr %71, i64 %72
@@ -1756,19 +1756,19 @@ path_matches.exit.i:                              ; preds = %if.end12.i.i49, %if
   br i1 %tobool10.not.i, label %for.inc.i43, label %if.then11.i
 
 if.then11.i:                                      ; preds = %path_matches.exit.i
-  %call12.i = call fastcc i32 @fill_one(ptr noundef %.pre51, ptr noundef nonnull %73, i32 noundef %rem.addr.118.i)
+  %call12.i = call fastcc i32 @fill_one(ptr noundef %.pre51, ptr noundef nonnull %73, i32 noundef %rem.addr.117.i)
   br label %for.inc.i43
 
 for.inc.i43:                                      ; preds = %if.then11.i, %path_matches.exit.i, %land.end.i.i, %for.body8.i
-  %rem.addr.2.i = phi i32 [ %rem.addr.118.i, %for.body8.i ], [ %call12.i, %if.then11.i ], [ %rem.addr.118.i, %path_matches.exit.i ], [ %rem.addr.118.i, %land.end.i.i ]
+  %rem.addr.2.i = phi i32 [ %rem.addr.117.i, %for.body8.i ], [ %call12.i, %if.then11.i ], [ %rem.addr.117.i, %path_matches.exit.i ], [ %rem.addr.117.i, %land.end.i.i ]
   %cmp4.i = icmp ne i32 %rem.addr.2.i, 0
   %cmp6.wide.i = icmp ne i64 %72, 0
   %82 = and i1 %cmp6.wide.i, %cmp4.i
   br i1 %82, label %for.body8.i, label %for.inc14.i, !llvm.loop !25
 
 for.inc14.i:                                      ; preds = %for.inc.i43, %for.body.i34
-  %rem.addr.1.lcssa.i = phi i32 [ %rem.addr.021.i, %for.body.i34 ], [ %rem.addr.2.i, %for.inc.i43 ]
-  %83 = load ptr, ptr %stack.addr.022.i, align 8
+  %rem.addr.1.lcssa.i = phi i32 [ %rem.addr.022.i, %for.body.i34 ], [ %rem.addr.2.i, %for.inc.i43 ]
+  %83 = load ptr, ptr %stack.addr.021.i, align 8
   %cmp.i44 = icmp sgt i32 %rem.addr.1.lcssa.i, 0
   %tobool.i = icmp ne ptr %83, null
   %84 = select i1 %cmp.i44, i1 %tobool.i, i1 false
@@ -2817,14 +2817,14 @@ if.end41:                                         ; preds = %if.end36
   br i1 %tobool1.not8.i, label %read_attr_from_buf.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end41, %for.body.i
-  %sp.010.i = phi ptr [ %add.ptr.i, %for.body.i ], [ %call33, %if.end41 ]
-  %lineno.09.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.end41 ]
-  %call2.i = call ptr @strchrnul(ptr noundef nonnull %sp.010.i, i32 noundef 10) #20
+  %lineno.010.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.end41 ]
+  %sp.09.i = phi ptr [ %add.ptr.i, %for.body.i ], [ %call33, %if.end41 ]
+  %call2.i = call ptr @strchrnul(ptr noundef nonnull %sp.09.i, i32 noundef 10) #20
   %7 = load i8, ptr %call2.i, align 1
   %cmp.i = icmp eq i8 %7, 10
   store i8 0, ptr %call2.i, align 1
-  %inc.i = add nuw nsw i32 %lineno.09.i, 1
-  call fastcc void @handle_attr_line(ptr noundef %call.i25, ptr noundef nonnull %sp.010.i, ptr noundef %path, i32 noundef %inc.i, i32 noundef %flags)
+  %inc.i = add nuw nsw i32 %lineno.010.i, 1
+  call fastcc void @handle_attr_line(ptr noundef %call.i25, ptr noundef nonnull %sp.09.i, ptr noundef %path, i32 noundef %inc.i, i32 noundef %flags)
   %idx.ext.i = zext i1 %cmp.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %call2.i, i64 %idx.ext.i
   %8 = load i8, ptr %add.ptr.i, align 1
@@ -2873,14 +2873,14 @@ if.end8:                                          ; preds = %if.end3
   br i1 %tobool1.not8.i, label %return.sink.split, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end8, %for.body.i
-  %sp.010.i = phi ptr [ %add.ptr.i, %for.body.i ], [ %call5, %if.end8 ]
-  %lineno.09.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.end8 ]
-  %call2.i = call ptr @strchrnul(ptr noundef nonnull %sp.010.i, i32 noundef 10) #20
+  %lineno.010.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.end8 ]
+  %sp.09.i = phi ptr [ %add.ptr.i, %for.body.i ], [ %call5, %if.end8 ]
+  %call2.i = call ptr @strchrnul(ptr noundef nonnull %sp.09.i, i32 noundef 10) #20
   %4 = load i8, ptr %call2.i, align 1
   %cmp.i = icmp eq i8 %4, 10
   store i8 0, ptr %call2.i, align 1
-  %inc.i = add nuw nsw i32 %lineno.09.i, 1
-  call fastcc void @handle_attr_line(ptr noundef %call.i, ptr noundef nonnull %sp.010.i, ptr noundef %path, i32 noundef %inc.i, i32 noundef %flags)
+  %inc.i = add nuw nsw i32 %lineno.010.i, 1
+  call fastcc void @handle_attr_line(ptr noundef %call.i, ptr noundef nonnull %sp.09.i, ptr noundef %path, i32 noundef %inc.i, i32 noundef %flags)
   %idx.ext.i = zext i1 %cmp.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %call2.i, i64 %idx.ext.i
   %5 = load i8, ptr %add.ptr.i, align 1
@@ -2929,9 +2929,9 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %rem.addr.015 = phi i32 [ %rem, %for.body.lr.ph ], [ %rem.addr.1, %for.inc ]
-  %i.014 = phi i64 [ %0, %for.body.lr.ph ], [ %sub, %for.inc ]
-  %sub = add i64 %i.014, -1
+  %i.015 = phi i64 [ %0, %for.body.lr.ph ], [ %sub, %for.inc ]
+  %rem.addr.014 = phi i32 [ %rem, %for.body.lr.ph ], [ %rem.addr.1, %for.inc ]
+  %sub = add i64 %i.015, -1
   %arrayidx = getelementptr inbounds [0 x %struct.attr_state], ptr %state, i64 0, i64 %sub
   %2 = load ptr, ptr %arrayidx, align 8
   %3 = load i32, ptr %2, align 4
@@ -2945,7 +2945,7 @@ if.then:                                          ; preds = %for.body
   %setto = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %5 = load ptr, ptr %setto, align 8
   store ptr %5, ptr %value, align 8
-  %dec = add nsw i32 %rem.addr.015, -1
+  %dec = add nsw i32 %rem.addr.014, -1
   %6 = load i32, ptr %2, align 4
   %idxprom.i = sext i32 %6 to i64
   %arrayidx.i = getelementptr inbounds %struct.all_attrs_item, ptr %all_attrs, i64 %idxprom.i
@@ -2965,7 +2965,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then.i, %land.lhs.true.i, %if.then, %for.body
-  %rem.addr.1 = phi i32 [ %rem.addr.015, %for.body ], [ %call.i, %if.then.i ], [ %dec, %land.lhs.true.i ], [ %dec, %if.then ]
+  %rem.addr.1 = phi i32 [ %rem.addr.014, %for.body ], [ %call.i, %if.then.i ], [ %dec, %land.lhs.true.i ], [ %dec, %if.then ]
   %cmp = icmp sgt i32 %rem.addr.1, 0
   %cmp1 = icmp ne i64 %sub, 0
   %9 = and i1 %cmp, %cmp1

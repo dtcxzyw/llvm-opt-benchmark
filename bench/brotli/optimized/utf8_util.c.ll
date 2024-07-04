@@ -10,12 +10,12 @@ entry:
   br i1 %cmp9.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %BrotliParseAsUTF8.exit
-  %size_utf8.011 = phi i64 [ %spec.select, %BrotliParseAsUTF8.exit ], [ 0, %entry ]
-  %i.010 = phi i64 [ %add1, %BrotliParseAsUTF8.exit ], [ 0, %entry ]
-  %add = add i64 %i.010, %pos
+  %i.011 = phi i64 [ %add1, %BrotliParseAsUTF8.exit ], [ 0, %entry ]
+  %size_utf8.010 = phi i64 [ %spec.select, %BrotliParseAsUTF8.exit ], [ 0, %entry ]
+  %add = add i64 %i.011, %pos
   %and = and i64 %add, %mask
   %arrayidx = getelementptr inbounds i8, ptr %data, i64 %and
-  %sub = sub i64 %length, %i.010
+  %sub = sub i64 %length, %i.011
   %0 = load i8, ptr %arrayidx, align 1
   %conv.i = zext i8 %0 to i32
   %or.cond = icmp slt i8 %0, 1
@@ -135,10 +135,10 @@ if.end124.i:                                      ; preds = %if.then98.i, %land.
 BrotliParseAsUTF8.exit:                           ; preds = %while.body, %if.then21.i, %if.then53.i, %if.then98.i, %if.end124.i
   %symbol.0 = phi i32 [ %or.i, %if.then21.i ], [ %or127.i, %if.end124.i ], [ %or66.i, %if.then53.i ], [ %or116.i, %if.then98.i ], [ %conv.i, %while.body ]
   %retval.0.i = phi i64 [ 2, %if.then21.i ], [ 1, %if.end124.i ], [ 3, %if.then53.i ], [ 4, %if.then98.i ], [ 1, %while.body ]
-  %add1 = add i64 %retval.0.i, %i.010
+  %add1 = add i64 %retval.0.i, %i.011
   %cmp2 = icmp ult i32 %symbol.0, 1114112
   %add3 = select i1 %cmp2, i64 %retval.0.i, i64 0
-  %spec.select = add i64 %add3, %size_utf8.011
+  %spec.select = add i64 %add3, %size_utf8.010
   %cmp = icmp ult i64 %add1, %length
   br i1 %cmp, label %while.body, label %while.end.loopexit, !llvm.loop !4
 

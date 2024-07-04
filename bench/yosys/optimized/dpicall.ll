@@ -782,8 +782,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit134
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit134: ; preds = %351, %349, %306, %352, %284
-  %.0120 = phi ptr [ %283, %284 ], [ %305, %306 ], [ %354, %352 ], [ %345, %349 ], [ %345, %351 ]
-  ret ptr %.0120
+  %.0124 = phi ptr [ %283, %284 ], [ %305, %306 ], [ %354, %352 ], [ %345, %349 ], [ %345, %351 ]
+  ret ptr %.0124
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EED2Ev.exit: ; preds = %343, %340, %317, %299, %298
   %.pn128 = phi { ptr, i32 } [ %300, %299 ], [ %318, %317 ], [ %.pn, %298 ], [ %341, %340 ], [ %341, %343 ]

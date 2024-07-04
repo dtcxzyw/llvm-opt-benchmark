@@ -35,8 +35,8 @@ define double @dnrm2_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %34
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %34 ]
-  %.03950 = phi double [ 1.000000e+00, %.lr.ph.preheader ], [ %.1, %34 ]
-  %.04049 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %.141, %34 ]
+  %.051 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %.1, %34 ]
+  %.03850 = phi double [ 1.000000e+00, %.lr.ph.preheader ], [ %.139, %34 ]
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
   %19 = load double, ptr %gep, align 8
   %20 = tail call noundef double @llvm.fabs.f64(double %19)
@@ -47,36 +47,36 @@ define double @dnrm2_(ptr nocapture noundef readonly %0, ptr nocapture noundef r
   %23 = fcmp oge double %19, 0.000000e+00
   %24 = fneg double %19
   %25 = select i1 %23, double %19, double %24
-  %26 = fcmp olt double %.04049, %25
+  %26 = fcmp olt double %.051, %25
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %22
-  %28 = fdiv double %.04049, %25
+  %28 = fdiv double %.051, %25
   %29 = fmul double %28, %28
-  %30 = tail call double @llvm.fmuladd.f64(double %.03950, double %29, double 1.000000e+00)
+  %30 = tail call double @llvm.fmuladd.f64(double %.03850, double %29, double 1.000000e+00)
   br label %34
 
 31:                                               ; preds = %22
-  %32 = fdiv double %25, %.04049
-  %33 = tail call double @llvm.fmuladd.f64(double %32, double %32, double %.03950)
+  %32 = fdiv double %25, %.051
+  %33 = tail call double @llvm.fmuladd.f64(double %32, double %32, double %.03850)
   br label %34
 
 34:                                               ; preds = %.lr.ph, %31, %27
-  %.141 = phi double [ %25, %27 ], [ %.04049, %31 ], [ %.04049, %.lr.ph ]
-  %.1 = phi double [ %30, %27 ], [ %33, %31 ], [ %.03950, %.lr.ph ]
+  %.139 = phi double [ %30, %27 ], [ %33, %31 ], [ %.03850, %.lr.ph ]
+  %.1 = phi double [ %25, %27 ], [ %.051, %31 ], [ %.051, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %18
   %35 = trunc nuw i64 %indvars.iv.next to i32
   %.not = icmp slt i32 %17, %35
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %34
-  %36 = tail call double @sqrt(double noundef %.1) #3
-  %37 = fmul double %.141, %36
+  %36 = tail call double @sqrt(double noundef %.139) #3
+  %37 = fmul double %.1, %36
   br label %38
 
 38:                                               ; preds = %10, %3, %._crit_edge, %13
-  %.0 = phi double [ %14, %13 ], [ %37, %._crit_edge ], [ 0.000000e+00, %3 ], [ %11, %10 ]
-  ret double %.0
+  %.041 = phi double [ %14, %13 ], [ %37, %._crit_edge ], [ 0.000000e+00, %3 ], [ %11, %10 ]
+  ret double %.041
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

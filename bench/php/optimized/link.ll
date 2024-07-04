@@ -58,11 +58,11 @@ thread-pre-split:                                 ; preds = %14
   br i1 %.not146, label %24, label %23
 
 23:                                               ; preds = %7, %18, %14
-  %.0137.ph = phi ptr [ %9, %14 ], [ %9, %18 ], [ null, %7 ]
-  %.0136.ph = phi i32 [ 16, %14 ], [ 16, %18 ], [ 0, %7 ]
   %.0135.ph = phi i32 [ 1, %14 ], [ 1, %18 ], [ 0, %7 ]
-  %.0133.ph = phi i32 [ 9, %14 ], [ 9, %18 ], [ 1, %7 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0133.ph, i32 noundef %.0135.ph, ptr noundef null, i32 noundef %.0136.ph, ptr noundef %.0137.ph) #9
+  %.0134.ph = phi ptr [ %9, %14 ], [ %9, %18 ], [ null, %7 ]
+  %.0133.ph = phi i32 [ 16, %14 ], [ 16, %18 ], [ 0, %7 ]
+  %.0.ph = phi i32 [ 9, %14 ], [ 9, %18 ], [ 1, %7 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.0135.ph, ptr noundef null, i32 noundef %.0133.ph, ptr noundef %.0134.ph) #9
   br label %48
 
 24:                                               ; preds = %16, %18
@@ -185,11 +185,11 @@ thread-pre-split:                                 ; preds = %14
   br i1 %.not98, label %23, label %.thread116
 
 .thread116:                                       ; preds = %14, %18, %7
-  %.087.ph = phi ptr [ null, %7 ], [ %9, %18 ], [ %9, %14 ]
-  %.086.ph = phi i32 [ 0, %7 ], [ 16, %18 ], [ 16, %14 ]
   %.085.ph = phi i32 [ 0, %7 ], [ 1, %18 ], [ 1, %14 ]
-  %.083.ph = phi i32 [ 1, %7 ], [ 9, %18 ], [ 9, %14 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.083.ph, i32 noundef %.085.ph, ptr noundef null, i32 noundef %.086.ph, ptr noundef %.087.ph) #9
+  %.084.ph = phi ptr [ null, %7 ], [ %9, %18 ], [ %9, %14 ]
+  %.083.ph = phi i32 [ 0, %7 ], [ 16, %18 ], [ 16, %14 ]
+  %.082.ph = phi i32 [ 1, %7 ], [ 9, %18 ], [ 9, %14 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.082.ph, i32 noundef %.085.ph, ptr noundef null, i32 noundef %.083.ph, ptr noundef %.084.ph) #9
   br label %42
 
 23:                                               ; preds = %._crit_edge, %18
@@ -331,11 +331,11 @@ thread-pre-split168:                              ; preds = %33
   br i1 %.not154, label %43, label %42
 
 42:                                               ; preds = %10, %21, %17, %37, %33
-  %.0136.ph = phi i32 [ 2, %33 ], [ 2, %37 ], [ 1, %17 ], [ 1, %21 ], [ 0, %10 ]
-  %.0135.ph = phi ptr [ %28, %33 ], [ %28, %37 ], [ %12, %17 ], [ %12, %21 ], [ null, %10 ]
-  %.0134.ph = phi i32 [ 16, %33 ], [ 16, %37 ], [ 16, %17 ], [ 16, %21 ], [ 0, %10 ]
+  %.0134.ph = phi i32 [ 2, %33 ], [ 2, %37 ], [ 1, %17 ], [ 1, %21 ], [ 0, %10 ]
+  %.0133.ph = phi ptr [ %28, %33 ], [ %28, %37 ], [ %12, %17 ], [ %12, %21 ], [ null, %10 ]
+  %.0132.ph = phi i32 [ 16, %33 ], [ 16, %37 ], [ 16, %17 ], [ 16, %21 ], [ 0, %10 ]
   %.0.ph = phi i32 [ 9, %33 ], [ 9, %37 ], [ 9, %17 ], [ 9, %21 ], [ 1, %10 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.0136.ph, ptr noundef null, i32 noundef %.0134.ph, ptr noundef %.0135.ph) #9
+  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.0134.ph, ptr noundef null, i32 noundef %.0132.ph, ptr noundef %.0133.ph) #9
   br label %78
 
 43:                                               ; preds = %35, %37
@@ -521,11 +521,11 @@ thread-pre-split167:                              ; preds = %32
   br i1 %.not153, label %42, label %41
 
 41:                                               ; preds = %9, %20, %16, %36, %32
-  %.0134.ph = phi i32 [ 2, %32 ], [ 2, %36 ], [ 1, %16 ], [ 1, %20 ], [ 0, %9 ]
-  %.0133.ph = phi ptr [ %27, %32 ], [ %27, %36 ], [ %11, %16 ], [ %11, %20 ], [ null, %9 ]
-  %.0132.ph = phi i32 [ 16, %32 ], [ 16, %36 ], [ 16, %16 ], [ 16, %20 ], [ 0, %9 ]
+  %.0132.ph = phi i32 [ 2, %32 ], [ 2, %36 ], [ 1, %16 ], [ 1, %20 ], [ 0, %9 ]
+  %.0131.ph = phi ptr [ %27, %32 ], [ %27, %36 ], [ %11, %16 ], [ %11, %20 ], [ null, %9 ]
+  %.0130.ph = phi i32 [ 16, %32 ], [ 16, %36 ], [ 16, %16 ], [ 16, %20 ], [ 0, %9 ]
   %.0.ph = phi i32 [ 9, %32 ], [ 9, %36 ], [ 9, %16 ], [ 9, %20 ], [ 1, %9 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.0134.ph, ptr noundef null, i32 noundef %.0132.ph, ptr noundef %.0133.ph) #9
+  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.0132.ph, ptr noundef null, i32 noundef %.0130.ph, ptr noundef %.0131.ph) #9
   br label %73
 
 42:                                               ; preds = %34, %36

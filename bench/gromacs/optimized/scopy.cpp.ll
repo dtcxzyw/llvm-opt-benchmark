@@ -30,27 +30,27 @@ define void @scopy_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %16 = icmp slt i32 %8, 0
   %17 = sub nsw i32 1, %6
   %18 = mul nsw i32 %8, %17
-  %.066 = select i1 %16, i32 %18, i32 0
+  %.0 = select i1 %16, i32 %18, i32 0
   %19 = icmp slt i32 %7, 0
   %20 = mul nsw i32 %17, %7
   %.064 = select i1 %19, i32 %20, i32 0
-  %21 = sext i32 %.064 to i64
-  %22 = sext i32 %7 to i64
-  %23 = sext i32 %.066 to i64
-  %24 = sext i32 %8 to i64
+  %21 = sext i32 %.0 to i64
+  %22 = sext i32 %8 to i64
+  %23 = sext i32 %.064 to i64
+  %24 = sext i32 %7 to i64
   br label %.lr.ph78
 
 .lr.ph78:                                         ; preds = %.lr.ph78.preheader, %.lr.ph78
   %indvars.iv87 = phi i64 [ %23, %.lr.ph78.preheader ], [ %indvars.iv.next88, %.lr.ph78 ]
   %indvars.iv85 = phi i64 [ %21, %.lr.ph78.preheader ], [ %indvars.iv.next86, %.lr.ph78 ]
-  %.077 = phi i32 [ 0, %.lr.ph78.preheader ], [ %28, %.lr.ph78 ]
-  %25 = getelementptr inbounds float, ptr %1, i64 %indvars.iv85
+  %.06675 = phi i32 [ 0, %.lr.ph78.preheader ], [ %28, %.lr.ph78 ]
+  %25 = getelementptr inbounds float, ptr %1, i64 %indvars.iv87
   %26 = load float, ptr %25, align 4
-  %27 = getelementptr inbounds float, ptr %3, i64 %indvars.iv87
+  %27 = getelementptr inbounds float, ptr %3, i64 %indvars.iv85
   store float %26, ptr %27, align 4
-  %28 = add nuw nsw i32 %.077, 1
-  %indvars.iv.next86 = add nsw i64 %indvars.iv85, %22
+  %28 = add nuw nsw i32 %.06675, 1
   %indvars.iv.next88 = add nsw i64 %indvars.iv87, %24
+  %indvars.iv.next86 = add nsw i64 %indvars.iv85, %22
   %exitcond92.not = icmp eq i32 %28, %6
   br i1 %exitcond92.not, label %.loopexit, label %.lr.ph78, !llvm.loop !4
 
@@ -59,12 +59,12 @@ define void @scopy_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %.preheader71
-  %.1.lcssa = phi i32 [ 0, %.preheader71 ], [ %29, %.preheader.loopexit ]
-  %30 = icmp slt i32 %.1.lcssa, %6
+  %.167.lcssa = phi i32 [ 0, %.preheader71 ], [ %29, %.preheader.loopexit ]
+  %30 = icmp slt i32 %.167.lcssa, %6
   br i1 %30, label %.lr.ph74.preheader, label %.loopexit
 
 .lr.ph74.preheader:                               ; preds = %.preheader
-  %31 = zext nneg i32 %.1.lcssa to i64
+  %31 = zext nneg i32 %.167.lcssa to i64
   %wide.trip.count = zext i32 %6 to i64
   br label %.lr.ph74
 

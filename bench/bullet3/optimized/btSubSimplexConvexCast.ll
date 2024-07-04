@@ -279,8 +279,8 @@ land.rhs.lr.ph:                                   ; preds = %entry
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end101
   %lambda.0348 = phi float [ 0.000000e+00, %land.rhs.lr.ph ], [ %lambda.1, %if.end101 ]
   %maxIter.0347 = phi i32 [ %119, %land.rhs.lr.ph ], [ %dec, %if.end101 ]
-  %n.sroa.6.0340 = phi <2 x float> [ zeroinitializer, %land.rhs.lr.ph ], [ %n.sroa.6.1, %if.end101 ]
-  %n.sroa.0.0339 = phi <2 x float> [ zeroinitializer, %land.rhs.lr.ph ], [ %n.sroa.0.1, %if.end101 ]
+  %n.sroa.0.0340 = phi <2 x float> [ zeroinitializer, %land.rhs.lr.ph ], [ %n.sroa.0.1, %if.end101 ]
+  %n.sroa.6.0339 = phi <2 x float> [ zeroinitializer, %land.rhs.lr.ph ], [ %n.sroa.6.1, %if.end101 ]
   %136 = phi <4 x float> [ %125, %land.rhs.lr.ph ], [ %237, %if.end101 ]
   %137 = phi <2 x float> [ %5, %land.rhs.lr.ph ], [ %238, %if.end101 ]
   %dec = add nsw i32 %maxIter.0347, -1
@@ -444,8 +444,8 @@ if.else:                                          ; preds = %if.then76
   br label %if.end90
 
 if.end90:                                         ; preds = %if.else, %if.end
-  %n.sroa.0.1 = phi <2 x float> [ %n.sroa.0.0.copyload, %if.else ], [ %n.sroa.0.0339, %if.end ]
-  %n.sroa.6.1 = phi <2 x float> [ %n.sroa.6.0.copyload, %if.else ], [ %n.sroa.6.0340, %if.end ]
+  %n.sroa.6.1 = phi <2 x float> [ %n.sroa.6.0.copyload, %if.else ], [ %n.sroa.6.0339, %if.end ]
+  %n.sroa.0.1 = phi <2 x float> [ %n.sroa.0.0.copyload, %if.else ], [ %n.sroa.0.0340, %if.end ]
   %lambda.1 = phi float [ %sub, %if.else ], [ %lambda.0348, %if.end ]
   %237 = phi <4 x float> [ %236, %if.else ], [ %136, %if.end ]
   %238 = phi <2 x float> [ %220, %if.else ], [ %137, %if.end ]
@@ -479,8 +479,8 @@ if.end101:                                        ; preds = %if.end95, %if.then9
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !5
 
 while.end:                                        ; preds = %land.rhs, %if.end101, %entry
-  %n.sroa.0.0.lcssa = phi <2 x float> [ zeroinitializer, %entry ], [ %n.sroa.0.1, %if.end101 ], [ %n.sroa.0.0339, %land.rhs ]
-  %n.sroa.6.0.lcssa = phi <2 x float> [ zeroinitializer, %entry ], [ %n.sroa.6.1, %if.end101 ], [ %n.sroa.6.0340, %land.rhs ]
+  %n.sroa.6.0.lcssa = phi <2 x float> [ zeroinitializer, %entry ], [ %n.sroa.6.1, %if.end101 ], [ %n.sroa.6.0339, %land.rhs ]
+  %n.sroa.0.0.lcssa = phi <2 x float> [ zeroinitializer, %entry ], [ %n.sroa.0.1, %if.end101 ], [ %n.sroa.0.0340, %land.rhs ]
   %lambda.0.lcssa = phi float [ 0.000000e+00, %entry ], [ %lambda.1, %if.end101 ], [ %lambda.0348, %land.rhs ]
   %m_fraction = getelementptr inbounds i8, ptr %result, i64 168
   store float %lambda.0.lcssa, ptr %m_fraction, align 8

@@ -1700,10 +1700,10 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br label %.backedge
 
 961:                                              ; preds = %.lr.ph4186, %961
-  %.025734185 = phi i64 [ 0, %.lr.ph4186 ], [ %968, %961 ]
+  %.025784185 = phi i64 [ 0, %.lr.ph4186 ], [ %968, %961 ]
   %.14184 = phi ptr [ %.040134323, %.lr.ph4186 ], [ %965, %961 ]
   %962 = load ptr, ptr %916, align 8
-  %963 = getelementptr ptr, ptr %962, i64 %.025734185
+  %963 = getelementptr ptr, ptr %962, i64 %.025784185
   %964 = load ptr, ptr %963, align 8
   %965 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.14184, ptr %965, align 8
@@ -1711,16 +1711,16 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %964, ptr %966, align 8
   %967 = getelementptr inbounds i8, ptr %965, i64 16
   store i8 0, ptr %967, align 8
-  %968 = add nuw i64 %.025734185, 1
+  %968 = add nuw i64 %.025784185, 1
   %969 = load i64, ptr %914, align 8
   %970 = icmp ult i64 %968, %969
   br i1 %970, label %961, label %.backedge, !llvm.loop !11
 
 971:                                              ; preds = %.lr.ph4182, %971
-  %.025744181 = phi i64 [ 0, %.lr.ph4182 ], [ %978, %971 ]
+  %.025794181 = phi i64 [ 0, %.lr.ph4182 ], [ %978, %971 ]
   %.24180 = phi ptr [ %.040134323, %.lr.ph4182 ], [ %975, %971 ]
   %972 = load ptr, ptr %913, align 8
-  %973 = getelementptr ptr, ptr %972, i64 %.025744181
+  %973 = getelementptr ptr, ptr %972, i64 %.025794181
   %974 = load ptr, ptr %973, align 8
   %975 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.24180, ptr %975, align 8
@@ -1728,7 +1728,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %974, ptr %976, align 8
   %977 = getelementptr inbounds i8, ptr %975, i64 16
   store i8 0, ptr %977, align 8
-  %978 = add nuw i64 %.025744181, 1
+  %978 = add nuw i64 %.025794181, 1
   %979 = load i64, ptr %911, align 8
   %980 = icmp ult i64 %978, %979
   br i1 %980, label %971, label %.backedge, !llvm.loop !12
@@ -1752,10 +1752,10 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br label %990
 
 990:                                              ; preds = %.lr.ph4172, %990
-  %.025764170 = phi i64 [ 0, %.lr.ph4172 ], [ %997, %990 ]
+  %.025804170 = phi i64 [ 0, %.lr.ph4172 ], [ %997, %990 ]
   %.34169 = phi ptr [ %984, %.lr.ph4172 ], [ %994, %990 ]
   %991 = load ptr, ptr %989, align 8
-  %992 = getelementptr ptr, ptr %991, i64 %.025764170
+  %992 = getelementptr ptr, ptr %991, i64 %.025804170
   %993 = load ptr, ptr %992, align 8
   %994 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.34169, ptr %994, align 8
@@ -1763,7 +1763,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %993, ptr %995, align 8
   %996 = getelementptr inbounds i8, ptr %994, i64 16
   store i8 0, ptr %996, align 8
-  %997 = add nuw i64 %.025764170, 1
+  %997 = add nuw i64 %.025804170, 1
   %998 = load i64, ptr %987, align 8
   %999 = icmp ult i64 %997, %998
   br i1 %999, label %990, label %._crit_edge4173, !llvm.loop !13
@@ -1788,10 +1788,10 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br label %1008
 
 1008:                                             ; preds = %.lr.ph4178, %1008
-  %.025774176 = phi i64 [ 0, %.lr.ph4178 ], [ %1015, %1008 ]
+  %.025824176 = phi i64 [ 0, %.lr.ph4178 ], [ %1015, %1008 ]
   %.44175 = phi ptr [ %1002, %.lr.ph4178 ], [ %1012, %1008 ]
   %1009 = load ptr, ptr %1007, align 8
-  %1010 = getelementptr ptr, ptr %1009, i64 %.025774176
+  %1010 = getelementptr ptr, ptr %1009, i64 %.025824176
   %1011 = load ptr, ptr %1010, align 8
   %1012 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.44175, ptr %1012, align 8
@@ -1799,7 +1799,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %1011, ptr %1013, align 8
   %1014 = getelementptr inbounds i8, ptr %1012, i64 16
   store i8 0, ptr %1014, align 8
-  %1015 = add nuw i64 %.025774176, 1
+  %1015 = add nuw i64 %.025824176, 1
   %1016 = load i64, ptr %1005, align 8
   %1017 = icmp ult i64 %1015, %1016
   br i1 %1017, label %1008, label %.backedge, !llvm.loop !14
@@ -1918,10 +1918,10 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br label %1082
 
 1082:                                             ; preds = %.lr.ph4167, %1082
-  %.025784165 = phi i64 [ 0, %.lr.ph4167 ], [ %1089, %1082 ]
+  %.025834165 = phi i64 [ 0, %.lr.ph4167 ], [ %1089, %1082 ]
   %.54164 = phi ptr [ %1076, %.lr.ph4167 ], [ %1086, %1082 ]
   %1083 = load ptr, ptr %1081, align 8
-  %1084 = getelementptr ptr, ptr %1083, i64 %.025784165
+  %1084 = getelementptr ptr, ptr %1083, i64 %.025834165
   %1085 = load ptr, ptr %1084, align 8
   %1086 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.54164, ptr %1086, align 8
@@ -1929,7 +1929,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %1085, ptr %1087, align 8
   %1088 = getelementptr inbounds i8, ptr %1086, i64 16
   store i8 0, ptr %1088, align 8
-  %1089 = add nuw i64 %.025784165, 1
+  %1089 = add nuw i64 %.025834165, 1
   %1090 = load i64, ptr %1079, align 8
   %1091 = icmp ult i64 %1089, %1090
   br i1 %1091, label %1082, label %.backedge, !llvm.loop !15
@@ -2078,10 +2078,10 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br label %1173
 
 1173:                                             ; preds = %.lr.ph4161, %1173
-  %.025804159 = phi i64 [ 0, %.lr.ph4161 ], [ %1180, %1173 ]
+  %.025844159 = phi i64 [ 0, %.lr.ph4161 ], [ %1180, %1173 ]
   %.64158 = phi ptr [ %1167, %.lr.ph4161 ], [ %1177, %1173 ]
   %1174 = load ptr, ptr %1172, align 8
-  %1175 = getelementptr ptr, ptr %1174, i64 %.025804159
+  %1175 = getelementptr ptr, ptr %1174, i64 %.025844159
   %1176 = load ptr, ptr %1175, align 8
   %1177 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.64158, ptr %1177, align 8
@@ -2089,7 +2089,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %1176, ptr %1178, align 8
   %1179 = getelementptr inbounds i8, ptr %1177, i64 16
   store i8 0, ptr %1179, align 8
-  %1180 = add nuw i64 %.025804159, 1
+  %1180 = add nuw i64 %.025844159, 1
   %1181 = load i64, ptr %1170, align 8
   %1182 = icmp ult i64 %1180, %1181
   br i1 %1182, label %1173, label %._crit_edge4162, !llvm.loop !16
@@ -2125,10 +2125,10 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br label %1197
 
 1197:                                             ; preds = %.lr.ph4155, %1197
-  %.025814153 = phi i64 [ 0, %.lr.ph4155 ], [ %1204, %1197 ]
+  %.025894153 = phi i64 [ 0, %.lr.ph4155 ], [ %1204, %1197 ]
   %.74152 = phi ptr [ %1191, %.lr.ph4155 ], [ %1201, %1197 ]
   %1198 = load ptr, ptr %1196, align 8
-  %1199 = getelementptr ptr, ptr %1198, i64 %.025814153
+  %1199 = getelementptr ptr, ptr %1198, i64 %.025894153
   %1200 = load ptr, ptr %1199, align 8
   %1201 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.74152, ptr %1201, align 8
@@ -2136,7 +2136,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %1200, ptr %1202, align 8
   %1203 = getelementptr inbounds i8, ptr %1201, i64 16
   store i8 0, ptr %1203, align 8
-  %1204 = add nuw i64 %.025814153, 1
+  %1204 = add nuw i64 %.025894153, 1
   %1205 = load i64, ptr %1194, align 8
   %1206 = icmp ult i64 %1204, %1205
   br i1 %1206, label %1197, label %._crit_edge4156, !llvm.loop !17
@@ -2491,10 +2491,10 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br label %1402
 
 1402:                                             ; preds = %.lr.ph4149, %1402
-  %.025824147 = phi i64 [ 0, %.lr.ph4149 ], [ %1409, %1402 ]
+  %.025904147 = phi i64 [ 0, %.lr.ph4149 ], [ %1409, %1402 ]
   %.84146 = phi ptr [ %1396, %.lr.ph4149 ], [ %1406, %1402 ]
   %1403 = load ptr, ptr %1401, align 8
-  %1404 = getelementptr ptr, ptr %1403, i64 %.025824147
+  %1404 = getelementptr ptr, ptr %1403, i64 %.025904147
   %1405 = load ptr, ptr %1404, align 8
   %1406 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.84146, ptr %1406, align 8
@@ -2502,7 +2502,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %1405, ptr %1407, align 8
   %1408 = getelementptr inbounds i8, ptr %1406, i64 16
   store i8 0, ptr %1408, align 8
-  %1409 = add nuw i64 %.025824147, 1
+  %1409 = add nuw i64 %.025904147, 1
   %1410 = load i64, ptr %1399, align 8
   %1411 = icmp ult i64 %1409, %1410
   br i1 %1411, label %1402, label %._crit_edge4150, !llvm.loop !18
@@ -2621,10 +2621,10 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br label %.backedge
 
 1474:                                             ; preds = %.lr.ph4144, %1474
-  %.025834143 = phi i64 [ 0, %.lr.ph4144 ], [ %1481, %1474 ]
+  %.025914143 = phi i64 [ 0, %.lr.ph4144 ], [ %1481, %1474 ]
   %.94142 = phi ptr [ %.040134323, %.lr.ph4144 ], [ %1478, %1474 ]
   %1475 = load ptr, ptr %910, align 8
-  %1476 = getelementptr ptr, ptr %1475, i64 %.025834143
+  %1476 = getelementptr ptr, ptr %1475, i64 %.025914143
   %1477 = load ptr, ptr %1476, align 8
   %1478 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.94142, ptr %1478, align 8
@@ -2632,7 +2632,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %1477, ptr %1479, align 8
   %1480 = getelementptr inbounds i8, ptr %1478, i64 16
   store i8 0, ptr %1480, align 8
-  %1481 = add nuw i64 %.025834143, 1
+  %1481 = add nuw i64 %.025914143, 1
   %1482 = load i64, ptr %908, align 8
   %1483 = icmp ult i64 %1481, %1482
   br i1 %1483, label %1474, label %.backedge, !llvm.loop !19
@@ -2656,10 +2656,10 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br label %1493
 
 1493:                                             ; preds = %.lr.ph4139, %1493
-  %.025854137 = phi i64 [ 0, %.lr.ph4139 ], [ %1500, %1493 ]
+  %.025984137 = phi i64 [ 0, %.lr.ph4139 ], [ %1500, %1493 ]
   %.104136 = phi ptr [ %1487, %.lr.ph4139 ], [ %1497, %1493 ]
   %1494 = load ptr, ptr %1492, align 8
-  %1495 = getelementptr ptr, ptr %1494, i64 %.025854137
+  %1495 = getelementptr ptr, ptr %1494, i64 %.025984137
   %1496 = load ptr, ptr %1495, align 8
   %1497 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.104136, ptr %1497, align 8
@@ -2667,7 +2667,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %1496, ptr %1498, align 8
   %1499 = getelementptr inbounds i8, ptr %1497, i64 16
   store i8 0, ptr %1499, align 8
-  %1500 = add nuw i64 %.025854137, 1
+  %1500 = add nuw i64 %.025984137, 1
   %1501 = load i64, ptr %1490, align 8
   %1502 = icmp ult i64 %1500, %1501
   br i1 %1502, label %1493, label %._crit_edge4140, !llvm.loop !20
@@ -2929,10 +2929,10 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br label %.backedge
 
 1650:                                             ; preds = %.lr.ph4134, %1650
-  %.025864133 = phi i64 [ 0, %.lr.ph4134 ], [ %1657, %1650 ]
+  %.025994133 = phi i64 [ 0, %.lr.ph4134 ], [ %1657, %1650 ]
   %.114132 = phi ptr [ %.040134323, %.lr.ph4134 ], [ %1654, %1650 ]
   %1651 = load ptr, ptr %907, align 8
-  %1652 = getelementptr ptr, ptr %1651, i64 %.025864133
+  %1652 = getelementptr ptr, ptr %1651, i64 %.025994133
   %1653 = load ptr, ptr %1652, align 8
   %1654 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.114132, ptr %1654, align 8
@@ -2940,16 +2940,16 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %1653, ptr %1655, align 8
   %1656 = getelementptr inbounds i8, ptr %1654, i64 16
   store i8 0, ptr %1656, align 8
-  %1657 = add nuw i64 %.025864133, 1
+  %1657 = add nuw i64 %.025994133, 1
   %1658 = load i64, ptr %905, align 8
   %1659 = icmp ult i64 %1657, %1658
   br i1 %1659, label %1650, label %.backedge, !llvm.loop !21
 
 1660:                                             ; preds = %.lr.ph4130, %1660
-  %.025874129 = phi i64 [ 0, %.lr.ph4130 ], [ %1667, %1660 ]
+  %.026004129 = phi i64 [ 0, %.lr.ph4130 ], [ %1667, %1660 ]
   %.124128 = phi ptr [ %.040134323, %.lr.ph4130 ], [ %1664, %1660 ]
   %1661 = load ptr, ptr %904, align 8
-  %1662 = getelementptr ptr, ptr %1661, i64 %.025874129
+  %1662 = getelementptr ptr, ptr %1661, i64 %.026004129
   %1663 = load ptr, ptr %1662, align 8
   %1664 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.124128, ptr %1664, align 8
@@ -2957,16 +2957,16 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %1663, ptr %1665, align 8
   %1666 = getelementptr inbounds i8, ptr %1664, i64 16
   store i8 0, ptr %1666, align 8
-  %1667 = add nuw i64 %.025874129, 1
+  %1667 = add nuw i64 %.026004129, 1
   %1668 = load i64, ptr %902, align 8
   %1669 = icmp ult i64 %1667, %1668
   br i1 %1669, label %1660, label %.backedge, !llvm.loop !22
 
 1670:                                             ; preds = %.lr.ph4126, %1670
-  %.025894125 = phi i64 [ 0, %.lr.ph4126 ], [ %1677, %1670 ]
+  %.026014125 = phi i64 [ 0, %.lr.ph4126 ], [ %1677, %1670 ]
   %.134124 = phi ptr [ %.040134323, %.lr.ph4126 ], [ %1674, %1670 ]
   %1671 = load ptr, ptr %901, align 8
-  %1672 = getelementptr ptr, ptr %1671, i64 %.025894125
+  %1672 = getelementptr ptr, ptr %1671, i64 %.026014125
   %1673 = load ptr, ptr %1672, align 8
   %1674 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.134124, ptr %1674, align 8
@@ -2974,16 +2974,16 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %1673, ptr %1675, align 8
   %1676 = getelementptr inbounds i8, ptr %1674, i64 16
   store i8 0, ptr %1676, align 8
-  %1677 = add nuw i64 %.025894125, 1
+  %1677 = add nuw i64 %.026014125, 1
   %1678 = load i64, ptr %899, align 8
   %1679 = icmp ult i64 %1677, %1678
   br i1 %1679, label %1670, label %.backedge, !llvm.loop !23
 
 1680:                                             ; preds = %.lr.ph4122, %1680
-  %.025904121 = phi i64 [ 0, %.lr.ph4122 ], [ %1687, %1680 ]
+  %.026024121 = phi i64 [ 0, %.lr.ph4122 ], [ %1687, %1680 ]
   %.144120 = phi ptr [ %.040134323, %.lr.ph4122 ], [ %1684, %1680 ]
   %1681 = load ptr, ptr %898, align 8
-  %1682 = getelementptr ptr, ptr %1681, i64 %.025904121
+  %1682 = getelementptr ptr, ptr %1681, i64 %.026024121
   %1683 = load ptr, ptr %1682, align 8
   %1684 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.144120, ptr %1684, align 8
@@ -2991,16 +2991,16 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %1683, ptr %1685, align 8
   %1686 = getelementptr inbounds i8, ptr %1684, i64 16
   store i8 0, ptr %1686, align 8
-  %1687 = add nuw i64 %.025904121, 1
+  %1687 = add nuw i64 %.026024121, 1
   %1688 = load i64, ptr %896, align 8
   %1689 = icmp ult i64 %1687, %1688
   br i1 %1689, label %1680, label %.backedge, !llvm.loop !24
 
 1690:                                             ; preds = %.lr.ph4118, %1690
-  %.025914117 = phi i64 [ 0, %.lr.ph4118 ], [ %1697, %1690 ]
+  %.026104117 = phi i64 [ 0, %.lr.ph4118 ], [ %1697, %1690 ]
   %.154116 = phi ptr [ %.040134323, %.lr.ph4118 ], [ %1694, %1690 ]
   %1691 = load ptr, ptr %895, align 8
-  %1692 = getelementptr ptr, ptr %1691, i64 %.025914117
+  %1692 = getelementptr ptr, ptr %1691, i64 %.026104117
   %1693 = load ptr, ptr %1692, align 8
   %1694 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.154116, ptr %1694, align 8
@@ -3008,16 +3008,16 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %1693, ptr %1695, align 8
   %1696 = getelementptr inbounds i8, ptr %1694, i64 16
   store i8 0, ptr %1696, align 8
-  %1697 = add nuw i64 %.025914117, 1
+  %1697 = add nuw i64 %.026104117, 1
   %1698 = load i64, ptr %893, align 8
   %1699 = icmp ult i64 %1697, %1698
   br i1 %1699, label %1690, label %.backedge, !llvm.loop !25
 
 1700:                                             ; preds = %.lr.ph4114, %1700
-  %.025934113 = phi i64 [ 0, %.lr.ph4114 ], [ %1707, %1700 ]
+  %.026114113 = phi i64 [ 0, %.lr.ph4114 ], [ %1707, %1700 ]
   %.164112 = phi ptr [ %.040134323, %.lr.ph4114 ], [ %1704, %1700 ]
   %1701 = load ptr, ptr %892, align 8
-  %1702 = getelementptr ptr, ptr %1701, i64 %.025934113
+  %1702 = getelementptr ptr, ptr %1701, i64 %.026114113
   %1703 = load ptr, ptr %1702, align 8
   %1704 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.164112, ptr %1704, align 8
@@ -3025,7 +3025,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %1703, ptr %1705, align 8
   %1706 = getelementptr inbounds i8, ptr %1704, i64 16
   store i8 0, ptr %1706, align 8
-  %1707 = add nuw i64 %.025934113, 1
+  %1707 = add nuw i64 %.026114113, 1
   %1708 = load i64, ptr %890, align 8
   %1709 = icmp ult i64 %1707, %1708
   br i1 %1709, label %1700, label %.backedge, !llvm.loop !26
@@ -3150,10 +3150,10 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br label %1776
 
 1776:                                             ; preds = %.lr.ph4110, %1776
-  %.025944108 = phi i64 [ 0, %.lr.ph4110 ], [ %1783, %1776 ]
+  %.026124108 = phi i64 [ 0, %.lr.ph4110 ], [ %1783, %1776 ]
   %.174107 = phi ptr [ %1770, %.lr.ph4110 ], [ %1780, %1776 ]
   %1777 = load ptr, ptr %1775, align 8
-  %1778 = getelementptr ptr, ptr %1777, i64 %.025944108
+  %1778 = getelementptr ptr, ptr %1777, i64 %.026124108
   %1779 = load ptr, ptr %1778, align 8
   %1780 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.174107, ptr %1780, align 8
@@ -3161,7 +3161,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %1779, ptr %1781, align 8
   %1782 = getelementptr inbounds i8, ptr %1780, i64 16
   store i8 0, ptr %1782, align 8
-  %1783 = add nuw i64 %.025944108, 1
+  %1783 = add nuw i64 %.026124108, 1
   %1784 = load i64, ptr %1773, align 8
   %1785 = icmp ult i64 %1783, %1784
   br i1 %1785, label %1776, label %.backedge, !llvm.loop !27
@@ -3186,10 +3186,10 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br label %.backedge
 
 1797:                                             ; preds = %.lr.ph4099, %1797
-  %.025954098 = phi i64 [ 0, %.lr.ph4099 ], [ %1804, %1797 ]
+  %.026134098 = phi i64 [ 0, %.lr.ph4099 ], [ %1804, %1797 ]
   %.184097 = phi ptr [ %.040134323, %.lr.ph4099 ], [ %1801, %1797 ]
   %1798 = load ptr, ptr %889, align 8
-  %1799 = getelementptr ptr, ptr %1798, i64 %.025954098
+  %1799 = getelementptr ptr, ptr %1798, i64 %.026134098
   %1800 = load ptr, ptr %1799, align 8
   %1801 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.184097, ptr %1801, align 8
@@ -3197,7 +3197,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %1800, ptr %1802, align 8
   %1803 = getelementptr inbounds i8, ptr %1801, i64 16
   store i8 0, ptr %1803, align 8
-  %1804 = add nuw i64 %.025954098, 1
+  %1804 = add nuw i64 %.026134098, 1
   %1805 = load i64, ptr %887, align 8
   %1806 = icmp ult i64 %1804, %1805
   br i1 %1806, label %1797, label %._crit_edge4100, !llvm.loop !28
@@ -3222,10 +3222,10 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br label %1815
 
 1815:                                             ; preds = %.lr.ph4105, %1815
-  %.025964103 = phi i64 [ 0, %.lr.ph4105 ], [ %1822, %1815 ]
+  %.026164103 = phi i64 [ 0, %.lr.ph4105 ], [ %1822, %1815 ]
   %.194102 = phi ptr [ %1809, %.lr.ph4105 ], [ %1819, %1815 ]
   %1816 = load ptr, ptr %1814, align 8
-  %1817 = getelementptr ptr, ptr %1816, i64 %.025964103
+  %1817 = getelementptr ptr, ptr %1816, i64 %.026164103
   %1818 = load ptr, ptr %1817, align 8
   %1819 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.194102, ptr %1819, align 8
@@ -3233,16 +3233,16 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %1818, ptr %1820, align 8
   %1821 = getelementptr inbounds i8, ptr %1819, i64 16
   store i8 0, ptr %1821, align 8
-  %1822 = add nuw i64 %.025964103, 1
+  %1822 = add nuw i64 %.026164103, 1
   %1823 = load i64, ptr %1812, align 8
   %1824 = icmp ult i64 %1822, %1823
   br i1 %1824, label %1815, label %.backedge, !llvm.loop !29
 
 1825:                                             ; preds = %.lr.ph4088, %1825
-  %.025974087 = phi i64 [ 0, %.lr.ph4088 ], [ %1832, %1825 ]
+  %.026174087 = phi i64 [ 0, %.lr.ph4088 ], [ %1832, %1825 ]
   %.204086 = phi ptr [ %.040134323, %.lr.ph4088 ], [ %1829, %1825 ]
   %1826 = load ptr, ptr %886, align 8
-  %1827 = getelementptr ptr, ptr %1826, i64 %.025974087
+  %1827 = getelementptr ptr, ptr %1826, i64 %.026174087
   %1828 = load ptr, ptr %1827, align 8
   %1829 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.204086, ptr %1829, align 8
@@ -3250,7 +3250,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %1828, ptr %1830, align 8
   %1831 = getelementptr inbounds i8, ptr %1829, i64 16
   store i8 0, ptr %1831, align 8
-  %1832 = add nuw i64 %.025974087, 1
+  %1832 = add nuw i64 %.026174087, 1
   %1833 = load i64, ptr %884, align 8
   %1834 = icmp ult i64 %1832, %1833
   br i1 %1834, label %1825, label %._crit_edge4089, !llvm.loop !30
@@ -3275,10 +3275,10 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br label %1843
 
 1843:                                             ; preds = %.lr.ph4094, %1843
-  %.025984092 = phi i64 [ 0, %.lr.ph4094 ], [ %1850, %1843 ]
+  %.026184092 = phi i64 [ 0, %.lr.ph4094 ], [ %1850, %1843 ]
   %.214091 = phi ptr [ %1837, %.lr.ph4094 ], [ %1847, %1843 ]
   %1844 = load ptr, ptr %1842, align 8
-  %1845 = getelementptr ptr, ptr %1844, i64 %.025984092
+  %1845 = getelementptr ptr, ptr %1844, i64 %.026184092
   %1846 = load ptr, ptr %1845, align 8
   %1847 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.214091, ptr %1847, align 8
@@ -3286,7 +3286,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %1846, ptr %1848, align 8
   %1849 = getelementptr inbounds i8, ptr %1847, i64 16
   store i8 0, ptr %1849, align 8
-  %1850 = add nuw i64 %.025984092, 1
+  %1850 = add nuw i64 %.026184092, 1
   %1851 = load i64, ptr %1840, align 8
   %1852 = icmp ult i64 %1850, %1851
   br i1 %1852, label %1843, label %._crit_edge4095, !llvm.loop !31
@@ -3367,10 +3367,10 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br label %1900
 
 1890:                                             ; preds = %.lr.ph4069, %1890
-  %.026004068 = phi i64 [ 0, %.lr.ph4069 ], [ %1897, %1890 ]
+  %.026194068 = phi i64 [ 0, %.lr.ph4069 ], [ %1897, %1890 ]
   %.224067 = phi ptr [ %.040134323, %.lr.ph4069 ], [ %1894, %1890 ]
   %1891 = load ptr, ptr %883, align 8
-  %1892 = getelementptr ptr, ptr %1891, i64 %.026004068
+  %1892 = getelementptr ptr, ptr %1891, i64 %.026194068
   %1893 = load ptr, ptr %1892, align 8
   %1894 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.224067, ptr %1894, align 8
@@ -3378,16 +3378,16 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %1893, ptr %1895, align 8
   %1896 = getelementptr inbounds i8, ptr %1894, i64 16
   store i8 0, ptr %1896, align 8
-  %1897 = add nuw i64 %.026004068, 1
+  %1897 = add nuw i64 %.026194068, 1
   %1898 = load i64, ptr %881, align 8
   %1899 = icmp ult i64 %1897, %1898
   br i1 %1899, label %1890, label %.preheader4037, !llvm.loop !32
 
 1900:                                             ; preds = %.lr.ph4073, %1900
-  %.026014072 = phi i64 [ 0, %.lr.ph4073 ], [ %1907, %1900 ]
+  %.026204072 = phi i64 [ 0, %.lr.ph4073 ], [ %1907, %1900 ]
   %.234071 = phi ptr [ %.22.lcssa, %.lr.ph4073 ], [ %1904, %1900 ]
   %1901 = load ptr, ptr %1889, align 8
-  %1902 = getelementptr ptr, ptr %1901, i64 %.026014072
+  %1902 = getelementptr ptr, ptr %1901, i64 %.026204072
   %1903 = load ptr, ptr %1902, align 8
   %1904 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.234071, ptr %1904, align 8
@@ -3395,7 +3395,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %1903, ptr %1905, align 8
   %1906 = getelementptr inbounds i8, ptr %1904, i64 16
   store i8 0, ptr %1906, align 8
-  %1907 = add nuw i64 %.026014072, 1
+  %1907 = add nuw i64 %.026204072, 1
   %1908 = load i64, ptr %1887, align 8
   %1909 = icmp ult i64 %1907, %1908
   br i1 %1909, label %1900, label %._crit_edge4074, !llvm.loop !33
@@ -3431,10 +3431,10 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br label %1931
 
 1921:                                             ; preds = %.lr.ph4079, %1921
-  %.026024077 = phi i64 [ 0, %.lr.ph4079 ], [ %1928, %1921 ]
+  %.026214077 = phi i64 [ 0, %.lr.ph4079 ], [ %1928, %1921 ]
   %.244076 = phi ptr [ %1912, %.lr.ph4079 ], [ %1925, %1921 ]
   %1922 = load ptr, ptr %1917, align 8
-  %1923 = getelementptr ptr, ptr %1922, i64 %.026024077
+  %1923 = getelementptr ptr, ptr %1922, i64 %.026214077
   %1924 = load ptr, ptr %1923, align 8
   %1925 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.244076, ptr %1925, align 8
@@ -3442,16 +3442,16 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %1924, ptr %1926, align 8
   %1927 = getelementptr inbounds i8, ptr %1925, i64 16
   store i8 0, ptr %1927, align 8
-  %1928 = add nuw i64 %.026024077, 1
+  %1928 = add nuw i64 %.026214077, 1
   %1929 = load i64, ptr %1915, align 8
   %1930 = icmp ult i64 %1928, %1929
   br i1 %1930, label %1921, label %.preheader4036, !llvm.loop !34
 
 1931:                                             ; preds = %.lr.ph4083, %1931
-  %.026034082 = phi i64 [ 0, %.lr.ph4083 ], [ %1938, %1931 ]
+  %.026234082 = phi i64 [ 0, %.lr.ph4083 ], [ %1938, %1931 ]
   %.254081 = phi ptr [ %.24.lcssa, %.lr.ph4083 ], [ %1935, %1931 ]
   %1932 = load ptr, ptr %1920, align 8
-  %1933 = getelementptr ptr, ptr %1932, i64 %.026034082
+  %1933 = getelementptr ptr, ptr %1932, i64 %.026234082
   %1934 = load ptr, ptr %1933, align 8
   %1935 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.254081, ptr %1935, align 8
@@ -3459,7 +3459,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %1934, ptr %1936, align 8
   %1937 = getelementptr inbounds i8, ptr %1935, i64 16
   store i8 0, ptr %1937, align 8
-  %1938 = add nuw i64 %.026034082, 1
+  %1938 = add nuw i64 %.026234082, 1
   %1939 = load i64, ptr %1918, align 8
   %1940 = icmp ult i64 %1938, %1939
   br i1 %1940, label %1931, label %._crit_edge4084, !llvm.loop !35
@@ -3600,10 +3600,10 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br label %.backedge
 
 2015:                                             ; preds = %.lr.ph4064, %2015
-  %.026044063 = phi i64 [ 0, %.lr.ph4064 ], [ %2022, %2015 ]
+  %.026244063 = phi i64 [ 0, %.lr.ph4064 ], [ %2022, %2015 ]
   %.264062 = phi ptr [ %.040134323, %.lr.ph4064 ], [ %2019, %2015 ]
   %2016 = load ptr, ptr %880, align 8
-  %2017 = getelementptr ptr, ptr %2016, i64 %.026044063
+  %2017 = getelementptr ptr, ptr %2016, i64 %.026244063
   %2018 = load ptr, ptr %2017, align 8
   %2019 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.264062, ptr %2019, align 8
@@ -3611,7 +3611,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %2018, ptr %2020, align 8
   %2021 = getelementptr inbounds i8, ptr %2019, i64 16
   store i8 0, ptr %2021, align 8
-  %2022 = add nuw i64 %.026044063, 1
+  %2022 = add nuw i64 %.026244063, 1
   %2023 = load i64, ptr %878, align 8
   %2024 = icmp ult i64 %2022, %2023
   br i1 %2024, label %2015, label %._crit_edge4065, !llvm.loop !36
@@ -3686,10 +3686,10 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br label %.backedge
 
 2063:                                             ; preds = %.lr.ph4060, %2063
-  %.026054059 = phi i64 [ 0, %.lr.ph4060 ], [ %2070, %2063 ]
+  %.026264059 = phi i64 [ 0, %.lr.ph4060 ], [ %2070, %2063 ]
   %.274058 = phi ptr [ %.040134323, %.lr.ph4060 ], [ %2067, %2063 ]
   %2064 = load ptr, ptr %877, align 8
-  %2065 = getelementptr ptr, ptr %2064, i64 %.026054059
+  %2065 = getelementptr ptr, ptr %2064, i64 %.026264059
   %2066 = load ptr, ptr %2065, align 8
   %2067 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.274058, ptr %2067, align 8
@@ -3697,7 +3697,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %2066, ptr %2068, align 8
   %2069 = getelementptr inbounds i8, ptr %2067, i64 16
   store i8 0, ptr %2069, align 8
-  %2070 = add nuw i64 %.026054059, 1
+  %2070 = add nuw i64 %.026264059, 1
   %2071 = load i64, ptr %875, align 8
   %2072 = icmp ult i64 %2070, %2071
   br i1 %2072, label %2063, label %.backedge, !llvm.loop !37
@@ -3722,10 +3722,10 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br label %.backedge
 
 2084:                                             ; preds = %.lr.ph4056, %2084
-  %.026104055 = phi i64 [ 0, %.lr.ph4056 ], [ %2091, %2084 ]
+  %.026274055 = phi i64 [ 0, %.lr.ph4056 ], [ %2091, %2084 ]
   %.284054 = phi ptr [ %.040134323, %.lr.ph4056 ], [ %2088, %2084 ]
   %2085 = load ptr, ptr %874, align 8
-  %2086 = getelementptr ptr, ptr %2085, i64 %.026104055
+  %2086 = getelementptr ptr, ptr %2085, i64 %.026274055
   %2087 = load ptr, ptr %2086, align 8
   %2088 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.284054, ptr %2088, align 8
@@ -3733,7 +3733,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %2087, ptr %2089, align 8
   %2090 = getelementptr inbounds i8, ptr %2088, i64 16
   store i8 0, ptr %2090, align 8
-  %2091 = add nuw i64 %.026104055, 1
+  %2091 = add nuw i64 %.026274055, 1
   %2092 = load i64, ptr %872, align 8
   %2093 = icmp ult i64 %2091, %2092
   br i1 %2093, label %2084, label %.backedge, !llvm.loop !38
@@ -3785,10 +3785,10 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   br label %.backedge
 
 2121:                                             ; preds = %.lr.ph4052, %2121
-  %.026114051 = phi i64 [ 0, %.lr.ph4052 ], [ %2128, %2121 ]
+  %.026284051 = phi i64 [ 0, %.lr.ph4052 ], [ %2128, %2121 ]
   %.294050 = phi ptr [ %.040134323, %.lr.ph4052 ], [ %2125, %2121 ]
   %2122 = load ptr, ptr %871, align 8
-  %2123 = getelementptr ptr, ptr %2122, i64 %.026114051
+  %2123 = getelementptr ptr, ptr %2122, i64 %.026284051
   %2124 = load ptr, ptr %2123, align 8
   %2125 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
   store ptr %.294050, ptr %2125, align 8
@@ -3796,7 +3796,7 @@ define hidden i64 @pm_ast_new(ptr noundef readonly %0, ptr noundef %1, ptr nound
   store ptr %2124, ptr %2126, align 8
   %2127 = getelementptr inbounds i8, ptr %2125, i64 16
   store i8 0, ptr %2127, align 8
-  %2128 = add nuw i64 %.026114051, 1
+  %2128 = add nuw i64 %.026284051, 1
   %2129 = load i64, ptr %869, align 8
   %2130 = icmp ult i64 %2128, %2129
   br i1 %2130, label %2121, label %._crit_edge4053, !llvm.loop !39
@@ -4289,11 +4289,11 @@ pm_location_new.exit3092:                         ; preds = %2312, %2315
   br i1 %.not4389, label %._crit_edge4322, label %.lr.ph4321
 
 .lr.ph4321:                                       ; preds = %2320, %.lr.ph4321
-  %.026124319 = phi i64 [ %2334, %.lr.ph4321 ], [ 0, %2320 ]
+  %.026294319 = phi i64 [ %2334, %.lr.ph4321 ], [ 0, %2320 ]
   %2331 = load i64, ptr %838, align 16
   %2332 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %2333 = call i64 @rb_ary_push(i64 noundef %2331, i64 noundef %2332) #6
-  %2334 = add nuw i64 %.026124319, 1
+  %2334 = add nuw i64 %.026294319, 1
   %2335 = load i64, ptr %2327, align 8
   %2336 = icmp ult i64 %2334, %2335
   br i1 %2336, label %.lr.ph4321, label %._crit_edge4322, !llvm.loop !40
@@ -4350,11 +4350,11 @@ pm_location_new.exit3094:                         ; preds = %2350, %2353
   br i1 %.not4388, label %._crit_edge4318, label %.lr.ph4317
 
 .lr.ph4317:                                       ; preds = %2358, %.lr.ph4317
-  %.026134315 = phi i64 [ %2372, %.lr.ph4317 ], [ 0, %2358 ]
+  %.026304315 = phi i64 [ %2372, %.lr.ph4317 ], [ 0, %2358 ]
   %2369 = load i64, ptr %833, align 16
   %2370 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %2371 = call i64 @rb_ary_push(i64 noundef %2369, i64 noundef %2370) #6
-  %2372 = add nuw i64 %.026134315, 1
+  %2372 = add nuw i64 %.026304315, 1
   %2373 = load i64, ptr %2365, align 8
   %2374 = icmp ult i64 %2372, %2373
   br i1 %2374, label %.lr.ph4317, label %._crit_edge4318, !llvm.loop !41
@@ -4472,11 +4472,11 @@ pm_location_new.exit3100:                         ; preds = %2430, %2433
   br i1 %.not4386, label %._crit_edge4310, label %.lr.ph4309
 
 .lr.ph4309:                                       ; preds = %2438, %.lr.ph4309
-  %.026144307 = phi i64 [ %2447, %.lr.ph4309 ], [ 0, %2438 ]
+  %.026314307 = phi i64 [ %2447, %.lr.ph4309 ], [ 0, %2438 ]
   %2444 = load i64, ptr %826, align 16
   %2445 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %2446 = call i64 @rb_ary_push(i64 noundef %2444, i64 noundef %2445) #6
-  %2447 = add nuw i64 %.026144307, 1
+  %2447 = add nuw i64 %.026314307, 1
   %2448 = load i64, ptr %2440, align 8
   %2449 = icmp ult i64 %2447, %2448
   br i1 %2449, label %.lr.ph4309, label %._crit_edge4310, !llvm.loop !42
@@ -4493,11 +4493,11 @@ pm_location_new.exit3100:                         ; preds = %2430, %2433
   br i1 %.not4387, label %._crit_edge4314, label %.lr.ph4313
 
 .lr.ph4313:                                       ; preds = %._crit_edge4310, %.lr.ph4313
-  %.026154311 = phi i64 [ %2458, %.lr.ph4313 ], [ 0, %._crit_edge4310 ]
+  %.026324311 = phi i64 [ %2458, %.lr.ph4313 ], [ 0, %._crit_edge4310 ]
   %2455 = load i64, ptr %828, align 16
   %2456 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %2457 = call i64 @rb_ary_push(i64 noundef %2455, i64 noundef %2456) #6
-  %2458 = add nuw i64 %.026154311, 1
+  %2458 = add nuw i64 %.026324311, 1
   %2459 = load i64, ptr %2451, align 8
   %2460 = icmp ult i64 %2458, %2459
   br i1 %2460, label %.lr.ph4313, label %._crit_edge4314, !llvm.loop !43
@@ -5022,10 +5022,10 @@ pm_location_new.exit3128:                         ; preds = %2773, %2776
   br label %2787
 
 2787:                                             ; preds = %.lr.ph4305, %2787
-  %.026164303 = phi i64 [ 0, %.lr.ph4305 ], [ %2798, %2787 ]
+  %.026364303 = phi i64 [ 0, %.lr.ph4305 ], [ %2798, %2787 ]
   %2788 = load i64, ptr %797, align 8
   %2789 = load ptr, ptr %2786, align 8
-  %2790 = getelementptr i32, ptr %2789, i64 %.026164303
+  %2790 = getelementptr i32, ptr %2789, i64 %.026364303
   %2791 = load i32, ptr %2790, align 4
   %2792 = add i32 %2791, -1
   %2793 = zext i32 %2792 to i64
@@ -5033,7 +5033,7 @@ pm_location_new.exit3128:                         ; preds = %2773, %2776
   %2795 = load i64, ptr %2794, align 8
   %2796 = call i64 @rb_id2sym(i64 noundef %2795) #6
   %2797 = call i64 @rb_ary_push(i64 noundef %2788, i64 noundef %2796) #6
-  %2798 = add nuw i64 %.026164303, 1
+  %2798 = add nuw i64 %.026364303, 1
   %2799 = load i64, ptr %2782, align 8
   %2800 = icmp ult i64 %2798, %2799
   br i1 %2800, label %2787, label %._crit_edge4306, !llvm.loop !44
@@ -5267,11 +5267,11 @@ pm_location_new.exit3140:                         ; preds = %2927, %2930
   br i1 %.not4384, label %._crit_edge4302, label %.lr.ph4301
 
 .lr.ph4301:                                       ; preds = %2935, %.lr.ph4301
-  %.026174299 = phi i64 [ %2944, %.lr.ph4301 ], [ 0, %2935 ]
+  %.026374299 = phi i64 [ %2944, %.lr.ph4301 ], [ 0, %2935 ]
   %2941 = load i64, ptr %788, align 16
   %2942 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %2943 = call i64 @rb_ary_push(i64 noundef %2941, i64 noundef %2942) #6
-  %2944 = add nuw i64 %.026174299, 1
+  %2944 = add nuw i64 %.026374299, 1
   %2945 = load i64, ptr %2937, align 8
   %2946 = icmp ult i64 %2944, %2945
   br i1 %2946, label %.lr.ph4301, label %._crit_edge4302, !llvm.loop !45
@@ -6286,11 +6286,11 @@ pm_location_new.exit3194:                         ; preds = %3595, %3598
   br i1 %.not4383, label %._crit_edge4298, label %.lr.ph4297
 
 .lr.ph4297:                                       ; preds = %3603, %.lr.ph4297
-  %.026204295 = phi i64 [ %3612, %.lr.ph4297 ], [ 0, %3603 ]
+  %.026354295 = phi i64 [ %3612, %.lr.ph4297 ], [ 0, %3603 ]
   %3609 = load i64, ptr %731, align 16
   %3610 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %3611 = call i64 @rb_ary_push(i64 noundef %3609, i64 noundef %3610) #6
-  %3612 = add nuw i64 %.026204295, 1
+  %3612 = add nuw i64 %.026354295, 1
   %3613 = load i64, ptr %3605, align 8
   %3614 = icmp ult i64 %3612, %3613
   br i1 %3614, label %.lr.ph4297, label %._crit_edge4298, !llvm.loop !46
@@ -6402,11 +6402,11 @@ pm_location_new.exit3200:                         ; preds = %3663, %3666
   br i1 %.not4382, label %._crit_edge4294, label %.lr.ph4293
 
 .lr.ph4293:                                       ; preds = %3671, %.lr.ph4293
-  %.026234291 = phi i64 [ %3680, %.lr.ph4293 ], [ 0, %3671 ]
+  %.026344291 = phi i64 [ %3680, %.lr.ph4293 ], [ 0, %3671 ]
   %3677 = load i64, ptr %725, align 16
   %3678 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %3679 = call i64 @rb_ary_push(i64 noundef %3677, i64 noundef %3678) #6
-  %3680 = add nuw i64 %.026234291, 1
+  %3680 = add nuw i64 %.026344291, 1
   %3681 = load i64, ptr %3673, align 8
   %3682 = icmp ult i64 %3680, %3681
   br i1 %3682, label %.lr.ph4293, label %._crit_edge4294, !llvm.loop !47
@@ -6520,10 +6520,10 @@ pm_location_new.exit3206:                         ; preds = %3731, %3734
   br label %3745
 
 3745:                                             ; preds = %.lr.ph4289, %3745
-  %.026254287 = phi i64 [ 0, %.lr.ph4289 ], [ %3756, %3745 ]
+  %.026334287 = phi i64 [ 0, %.lr.ph4289 ], [ %3756, %3745 ]
   %3746 = load i64, ptr %715, align 8
   %3747 = load ptr, ptr %3744, align 8
-  %3748 = getelementptr i32, ptr %3747, i64 %.026254287
+  %3748 = getelementptr i32, ptr %3747, i64 %.026334287
   %3749 = load i32, ptr %3748, align 4
   %3750 = add i32 %3749, -1
   %3751 = zext i32 %3750 to i64
@@ -6531,7 +6531,7 @@ pm_location_new.exit3206:                         ; preds = %3731, %3734
   %3753 = load i64, ptr %3752, align 8
   %3754 = call i64 @rb_id2sym(i64 noundef %3753) #6
   %3755 = call i64 @rb_ary_push(i64 noundef %3746, i64 noundef %3754) #6
-  %3756 = add nuw i64 %.026254287, 1
+  %3756 = add nuw i64 %.026334287, 1
   %3757 = load i64, ptr %3740, align 8
   %3758 = icmp ult i64 %3756, %3757
   br i1 %3758, label %3745, label %._crit_edge4290, !llvm.loop !48
@@ -8149,10 +8149,10 @@ pm_location_new.exit3296:                         ; preds = %4779, %4782
   br label %4792
 
 4792:                                             ; preds = %.lr.ph4285, %4792
-  %.026274284 = phi i64 [ 0, %.lr.ph4285 ], [ %4803, %4792 ]
+  %.026254284 = phi i64 [ 0, %.lr.ph4285 ], [ %4803, %4792 ]
   %4793 = load i64, ptr %632, align 16
   %4794 = load ptr, ptr %4791, align 8
-  %4795 = getelementptr i32, ptr %4794, i64 %.026274284
+  %4795 = getelementptr i32, ptr %4794, i64 %.026254284
   %4796 = load i32, ptr %4795, align 4
   %4797 = add i32 %4796, -1
   %4798 = zext i32 %4797 to i64
@@ -8160,7 +8160,7 @@ pm_location_new.exit3296:                         ; preds = %4779, %4782
   %4800 = load i64, ptr %4799, align 8
   %4801 = call i64 @rb_id2sym(i64 noundef %4800) #6
   %4802 = call i64 @rb_ary_push(i64 noundef %4793, i64 noundef %4801) #6
-  %4803 = add nuw i64 %.026274284, 1
+  %4803 = add nuw i64 %.026254284, 1
   %4804 = load i64, ptr %4787, align 8
   %4805 = icmp ult i64 %4803, %4804
   br i1 %4805, label %4792, label %._crit_edge4286, !llvm.loop !49
@@ -8925,11 +8925,11 @@ pm_location_new.exit3342:                         ; preds = %5265, %5268
   br i1 %.not4379, label %._crit_edge4283, label %.lr.ph4282
 
 .lr.ph4282:                                       ; preds = %5273, %.lr.ph4282
-  %.026284280 = phi i64 [ %5283, %.lr.ph4282 ], [ 0, %5273 ]
+  %.026224280 = phi i64 [ %5283, %.lr.ph4282 ], [ 0, %5273 ]
   %5280 = load i64, ptr %601, align 8
   %5281 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %5282 = call i64 @rb_ary_push(i64 noundef %5280, i64 noundef %5281) #6
-  %5283 = add nuw i64 %.026284280, 1
+  %5283 = add nuw i64 %.026224280, 1
   %5284 = load i64, ptr %5276, align 8
   %5285 = icmp ult i64 %5283, %5284
   br i1 %5285, label %.lr.ph4282, label %._crit_edge4283, !llvm.loop !50
@@ -9960,11 +9960,11 @@ pm_location_new.exit3400:                         ; preds = %5926, %5929
   br i1 %.not4378, label %._crit_edge4279, label %.lr.ph4278
 
 .lr.ph4278:                                       ; preds = %pm_location_new.exit3400, %.lr.ph4278
-  %.026294277 = phi i64 [ %5938, %.lr.ph4278 ], [ 0, %pm_location_new.exit3400 ]
+  %.026154277 = phi i64 [ %5938, %.lr.ph4278 ], [ 0, %pm_location_new.exit3400 ]
   %5935 = load i64, ptr %552, align 16
   %5936 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %5937 = call i64 @rb_ary_push(i64 noundef %5935, i64 noundef %5936) #6
-  %5938 = add nuw i64 %.026294277, 1
+  %5938 = add nuw i64 %.026154277, 1
   %5939 = load i64, ptr %5931, align 8
   %5940 = icmp ult i64 %5938, %5939
   br i1 %5940, label %.lr.ph4278, label %._crit_edge4279, !llvm.loop !51
@@ -10045,11 +10045,11 @@ pm_location_new.exit3404:                         ; preds = %5971, %5974
   br i1 %.not4377, label %._crit_edge4276, label %.lr.ph4275
 
 .lr.ph4275:                                       ; preds = %5979, %.lr.ph4275
-  %.026304273 = phi i64 [ %5988, %.lr.ph4275 ], [ 0, %5979 ]
+  %.026144273 = phi i64 [ %5988, %.lr.ph4275 ], [ 0, %5979 ]
   %5985 = load i64, ptr %546, align 16
   %5986 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %5987 = call i64 @rb_ary_push(i64 noundef %5985, i64 noundef %5986) #6
-  %5988 = add nuw i64 %.026304273, 1
+  %5988 = add nuw i64 %.026144273, 1
   %5989 = load i64, ptr %5981, align 8
   %5990 = icmp ult i64 %5988, %5989
   br i1 %5990, label %.lr.ph4275, label %._crit_edge4276, !llvm.loop !52
@@ -11798,11 +11798,11 @@ pm_location_new.exit3499:                         ; preds = %7071, %7074
   br i1 %.not4376, label %._crit_edge4272, label %.lr.ph4271
 
 .lr.ph4271:                                       ; preds = %pm_location_new.exit3499, %.lr.ph4271
-  %.026314270 = phi i64 [ %7083, %.lr.ph4271 ], [ 0, %pm_location_new.exit3499 ]
+  %.026094270 = phi i64 [ %7083, %.lr.ph4271 ], [ 0, %pm_location_new.exit3499 ]
   %7080 = load i64, ptr %459, align 8
   %7081 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %7082 = call i64 @rb_ary_push(i64 noundef %7080, i64 noundef %7081) #6
-  %7083 = add nuw i64 %.026314270, 1
+  %7083 = add nuw i64 %.026094270, 1
   %7084 = load i64, ptr %7076, align 8
   %7085 = icmp ult i64 %7083, %7084
   br i1 %7085, label %.lr.ph4271, label %._crit_edge4272, !llvm.loop !55
@@ -11916,11 +11916,11 @@ pm_location_new.exit3505:                         ; preds = %7144, %7147
   br i1 %.not4375, label %._crit_edge4269, label %.lr.ph4268
 
 .lr.ph4268:                                       ; preds = %pm_location_new.exit3505, %.lr.ph4268
-  %.026324267 = phi i64 [ %7156, %.lr.ph4268 ], [ 0, %pm_location_new.exit3505 ]
+  %.026084267 = phi i64 [ %7156, %.lr.ph4268 ], [ 0, %pm_location_new.exit3505 ]
   %7153 = load i64, ptr %454, align 8
   %7154 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %7155 = call i64 @rb_ary_push(i64 noundef %7153, i64 noundef %7154) #6
-  %7156 = add nuw i64 %.026324267, 1
+  %7156 = add nuw i64 %.026084267, 1
   %7157 = load i64, ptr %7149, align 8
   %7158 = icmp ult i64 %7156, %7157
   br i1 %7158, label %.lr.ph4268, label %._crit_edge4269, !llvm.loop !56
@@ -12031,11 +12031,11 @@ pm_location_new.exit3511:                         ; preds = %7216, %7213, %7197
   br i1 %.not4374, label %._crit_edge4266, label %.lr.ph4265
 
 .lr.ph4265:                                       ; preds = %pm_location_new.exit3511, %.lr.ph4265
-  %.026334264 = phi i64 [ %7226, %.lr.ph4265 ], [ 0, %pm_location_new.exit3511 ]
+  %.026074264 = phi i64 [ %7226, %.lr.ph4265 ], [ 0, %pm_location_new.exit3511 ]
   %7223 = load i64, ptr %449, align 16
   %7224 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %7225 = call i64 @rb_ary_push(i64 noundef %7223, i64 noundef %7224) #6
-  %7226 = add nuw i64 %.026334264, 1
+  %7226 = add nuw i64 %.026074264, 1
   %7227 = load i64, ptr %7219, align 8
   %7228 = icmp ult i64 %7226, %7227
   br i1 %7228, label %.lr.ph4265, label %._crit_edge4266, !llvm.loop !57
@@ -12150,11 +12150,11 @@ pm_location_new.exit3517:                         ; preds = %7290, %7287, %7271
   br i1 %.not4373, label %._crit_edge4263, label %.lr.ph4262
 
 .lr.ph4262:                                       ; preds = %pm_location_new.exit3517, %.lr.ph4262
-  %.026344261 = phi i64 [ %7300, %.lr.ph4262 ], [ 0, %pm_location_new.exit3517 ]
+  %.026064261 = phi i64 [ %7300, %.lr.ph4262 ], [ 0, %pm_location_new.exit3517 ]
   %7297 = load i64, ptr %445, align 16
   %7298 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %7299 = call i64 @rb_ary_push(i64 noundef %7297, i64 noundef %7298) #6
-  %7300 = add nuw i64 %.026344261, 1
+  %7300 = add nuw i64 %.026064261, 1
   %7301 = load i64, ptr %7293, align 8
   %7302 = icmp ult i64 %7300, %7301
   br i1 %7302, label %.lr.ph4262, label %._crit_edge4263, !llvm.loop !58
@@ -12265,11 +12265,11 @@ pm_location_new.exit3523:                         ; preds = %7359, %7362
   br i1 %.not4372, label %._crit_edge4260, label %.lr.ph4259
 
 .lr.ph4259:                                       ; preds = %pm_location_new.exit3523, %.lr.ph4259
-  %.026354258 = phi i64 [ %7371, %.lr.ph4259 ], [ 0, %pm_location_new.exit3523 ]
+  %.026054258 = phi i64 [ %7371, %.lr.ph4259 ], [ 0, %pm_location_new.exit3523 ]
   %7368 = load i64, ptr %441, align 16
   %7369 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %7370 = call i64 @rb_ary_push(i64 noundef %7368, i64 noundef %7369) #6
-  %7371 = add nuw i64 %.026354258, 1
+  %7371 = add nuw i64 %.026054258, 1
   %7372 = load i64, ptr %7364, align 8
   %7373 = icmp ult i64 %7371, %7372
   br i1 %7373, label %.lr.ph4259, label %._crit_edge4260, !llvm.loop !59
@@ -12390,11 +12390,11 @@ pm_location_new.exit3529:                         ; preds = %7426, %7429
   br i1 %.not4371, label %._crit_edge4257, label %.lr.ph4256
 
 .lr.ph4256:                                       ; preds = %7434, %.lr.ph4256
-  %.026364254 = phi i64 [ %7448, %.lr.ph4256 ], [ 0, %7434 ]
+  %.026044254 = phi i64 [ %7448, %.lr.ph4256 ], [ 0, %7434 ]
   %7445 = load i64, ptr %437, align 16
   %7446 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %7447 = call i64 @rb_ary_push(i64 noundef %7445, i64 noundef %7446) #6
-  %7448 = add nuw i64 %.026364254, 1
+  %7448 = add nuw i64 %.026044254, 1
   %7449 = load i64, ptr %7441, align 8
   %7450 = icmp ult i64 %7448, %7449
   br i1 %7450, label %.lr.ph4256, label %._crit_edge4257, !llvm.loop !60
@@ -12568,10 +12568,10 @@ pm_location_new.exit3537:                         ; preds = %7541, %7544
   br label %7555
 
 7555:                                             ; preds = %.lr.ph4252, %7555
-  %.026374250 = phi i64 [ 0, %.lr.ph4252 ], [ %7566, %7555 ]
+  %.026034250 = phi i64 [ 0, %.lr.ph4252 ], [ %7566, %7555 ]
   %7556 = load i64, ptr %424, align 8
   %7557 = load ptr, ptr %7554, align 8
-  %7558 = getelementptr i32, ptr %7557, i64 %.026374250
+  %7558 = getelementptr i32, ptr %7557, i64 %.026034250
   %7559 = load i32, ptr %7558, align 4
   %7560 = add i32 %7559, -1
   %7561 = zext i32 %7560 to i64
@@ -12579,7 +12579,7 @@ pm_location_new.exit3537:                         ; preds = %7541, %7544
   %7563 = load i64, ptr %7562, align 8
   %7564 = call i64 @rb_id2sym(i64 noundef %7563) #6
   %7565 = call i64 @rb_ary_push(i64 noundef %7556, i64 noundef %7564) #6
-  %7566 = add nuw i64 %.026374250, 1
+  %7566 = add nuw i64 %.026034250, 1
   %7567 = load i64, ptr %7550, align 8
   %7568 = icmp ult i64 %7566, %7567
   br i1 %7568, label %7555, label %._crit_edge4253, !llvm.loop !61
@@ -13528,11 +13528,11 @@ pm_location_new.exit3589:                         ; preds = %8157, %8160
   br i1 %.not4369, label %._crit_edge4249, label %.lr.ph4248
 
 .lr.ph4248:                                       ; preds = %8165, %.lr.ph4248
-  %.026264246 = phi i64 [ %8174, %.lr.ph4248 ], [ 0, %8165 ]
+  %.025974246 = phi i64 [ %8174, %.lr.ph4248 ], [ 0, %8165 ]
   %8171 = load i64, ptr %377, align 16
   %8172 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %8173 = call i64 @rb_ary_push(i64 noundef %8171, i64 noundef %8172) #6
-  %8174 = add nuw i64 %.026264246, 1
+  %8174 = add nuw i64 %.025974246, 1
   %8175 = load i64, ptr %8167, align 8
   %8176 = icmp ult i64 %8174, %8175
   br i1 %8176, label %.lr.ph4248, label %._crit_edge4249, !llvm.loop !62
@@ -13621,10 +13621,10 @@ pm_location_new.exit3593:                         ; preds = %8212, %8215
   br label %8226
 
 8226:                                             ; preds = %.lr.ph4244, %8226
-  %.026244242 = phi i64 [ 0, %.lr.ph4244 ], [ %8237, %8226 ]
+  %.025964242 = phi i64 [ 0, %.lr.ph4244 ], [ %8237, %8226 ]
   %8227 = load i64, ptr %368, align 8
   %8228 = load ptr, ptr %8225, align 8
-  %8229 = getelementptr i32, ptr %8228, i64 %.026244242
+  %8229 = getelementptr i32, ptr %8228, i64 %.025964242
   %8230 = load i32, ptr %8229, align 4
   %8231 = add i32 %8230, -1
   %8232 = zext i32 %8231 to i64
@@ -13632,7 +13632,7 @@ pm_location_new.exit3593:                         ; preds = %8212, %8215
   %8234 = load i64, ptr %8233, align 8
   %8235 = call i64 @rb_id2sym(i64 noundef %8234) #6
   %8236 = call i64 @rb_ary_push(i64 noundef %8227, i64 noundef %8235) #6
-  %8237 = add nuw i64 %.026244242, 1
+  %8237 = add nuw i64 %.025964242, 1
   %8238 = load i64, ptr %8221, align 8
   %8239 = icmp ult i64 %8237, %8238
   br i1 %8239, label %8226, label %._crit_edge4245, !llvm.loop !63
@@ -13750,11 +13750,11 @@ pm_location_new.exit3599:                         ; preds = %8298, %8301
   br i1 %.not4366, label %._crit_edge4237, label %.lr.ph4236
 
 .lr.ph4236:                                       ; preds = %8306, %.lr.ph4236
-  %.026224234 = phi i64 [ %8314, %.lr.ph4236 ], [ 0, %8306 ]
+  %.025954234 = phi i64 [ %8314, %.lr.ph4236 ], [ 0, %8306 ]
   %8311 = load i64, ptr %362, align 8
   %8312 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %8313 = call i64 @rb_ary_push(i64 noundef %8311, i64 noundef %8312) #6
-  %8314 = add nuw i64 %.026224234, 1
+  %8314 = add nuw i64 %.025954234, 1
   %8315 = load i64, ptr %8307, align 8
   %8316 = icmp ult i64 %8314, %8315
   br i1 %8316, label %.lr.ph4236, label %._crit_edge4237, !llvm.loop !64
@@ -13771,11 +13771,11 @@ pm_location_new.exit3599:                         ; preds = %8298, %8301
   br i1 %.not4367, label %._crit_edge4241, label %.lr.ph4240
 
 .lr.ph4240:                                       ; preds = %._crit_edge4237, %.lr.ph4240
-  %.026214238 = phi i64 [ %8325, %.lr.ph4240 ], [ 0, %._crit_edge4237 ]
+  %.025944238 = phi i64 [ %8325, %.lr.ph4240 ], [ 0, %._crit_edge4237 ]
   %8322 = load i64, ptr %364, align 8
   %8323 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %8324 = call i64 @rb_ary_push(i64 noundef %8322, i64 noundef %8323) #6
-  %8325 = add nuw i64 %.026214238, 1
+  %8325 = add nuw i64 %.025944238, 1
   %8326 = load i64, ptr %8318, align 8
   %8327 = icmp ult i64 %8325, %8326
   br i1 %8327, label %.lr.ph4240, label %._crit_edge4241, !llvm.loop !65
@@ -13891,11 +13891,11 @@ pm_location_new.exit3605:                         ; preds = %8383, %8386
   br i1 %.not4364, label %._crit_edge4229, label %.lr.ph4228
 
 .lr.ph4228:                                       ; preds = %8391, %.lr.ph4228
-  %.026194226 = phi i64 [ %8399, %.lr.ph4228 ], [ 0, %8391 ]
+  %.025934226 = phi i64 [ %8399, %.lr.ph4228 ], [ 0, %8391 ]
   %8396 = load i64, ptr %354, align 8
   %8397 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %8398 = call i64 @rb_ary_push(i64 noundef %8396, i64 noundef %8397) #6
-  %8399 = add nuw i64 %.026194226, 1
+  %8399 = add nuw i64 %.025934226, 1
   %8400 = load i64, ptr %8392, align 8
   %8401 = icmp ult i64 %8399, %8400
   br i1 %8401, label %.lr.ph4228, label %._crit_edge4229, !llvm.loop !66
@@ -13912,11 +13912,11 @@ pm_location_new.exit3605:                         ; preds = %8383, %8386
   br i1 %.not4365, label %._crit_edge4233, label %.lr.ph4232
 
 .lr.ph4232:                                       ; preds = %._crit_edge4229, %.lr.ph4232
-  %.026184230 = phi i64 [ %8410, %.lr.ph4232 ], [ 0, %._crit_edge4229 ]
+  %.025924230 = phi i64 [ %8410, %.lr.ph4232 ], [ 0, %._crit_edge4229 ]
   %8407 = load i64, ptr %356, align 8
   %8408 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %8409 = call i64 @rb_ary_push(i64 noundef %8407, i64 noundef %8408) #6
-  %8410 = add nuw i64 %.026184230, 1
+  %8410 = add nuw i64 %.025924230, 1
   %8411 = load i64, ptr %8403, align 8
   %8412 = icmp ult i64 %8410, %8411
   br i1 %8412, label %.lr.ph4232, label %._crit_edge4233, !llvm.loop !67
@@ -14595,11 +14595,11 @@ pm_location_new.exit3643:                         ; preds = %8825, %8828
   br i1 %.not4360, label %._crit_edge4213, label %.lr.ph4212
 
 .lr.ph4212:                                       ; preds = %8833, %.lr.ph4212
-  %.026094210 = phi i64 [ %8841, %.lr.ph4212 ], [ 0, %8833 ]
+  %.025884210 = phi i64 [ %8841, %.lr.ph4212 ], [ 0, %8833 ]
   %8838 = load i64, ptr %320, align 8
   %8839 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %8840 = call i64 @rb_ary_push(i64 noundef %8838, i64 noundef %8839) #6
-  %8841 = add nuw i64 %.026094210, 1
+  %8841 = add nuw i64 %.025884210, 1
   %8842 = load i64, ptr %8834, align 8
   %8843 = icmp ult i64 %8841, %8842
   br i1 %8843, label %.lr.ph4212, label %._crit_edge4213, !llvm.loop !68
@@ -14614,11 +14614,11 @@ pm_location_new.exit3643:                         ; preds = %8825, %8828
   br i1 %.not4361, label %._crit_edge4217, label %.lr.ph4216
 
 .lr.ph4216:                                       ; preds = %._crit_edge4213, %.lr.ph4216
-  %.026084214 = phi i64 [ %8851, %.lr.ph4216 ], [ 0, %._crit_edge4213 ]
+  %.025874214 = phi i64 [ %8851, %.lr.ph4216 ], [ 0, %._crit_edge4213 ]
   %8848 = load i64, ptr %321, align 16
   %8849 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %8850 = call i64 @rb_ary_push(i64 noundef %8848, i64 noundef %8849) #6
-  %8851 = add nuw i64 %.026084214, 1
+  %8851 = add nuw i64 %.025874214, 1
   %8852 = load i64, ptr %8844, align 8
   %8853 = icmp ult i64 %8851, %8852
   br i1 %8853, label %.lr.ph4216, label %._crit_edge4217, !llvm.loop !69
@@ -14635,11 +14635,11 @@ pm_location_new.exit3643:                         ; preds = %8825, %8828
   br i1 %.not4362, label %._crit_edge4221, label %.lr.ph4220
 
 .lr.ph4220:                                       ; preds = %._crit_edge4217, %.lr.ph4220
-  %.026074218 = phi i64 [ %8862, %.lr.ph4220 ], [ 0, %._crit_edge4217 ]
+  %.025864218 = phi i64 [ %8862, %.lr.ph4220 ], [ 0, %._crit_edge4217 ]
   %8859 = load i64, ptr %323, align 16
   %8860 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %8861 = call i64 @rb_ary_push(i64 noundef %8859, i64 noundef %8860) #6
-  %8862 = add nuw i64 %.026074218, 1
+  %8862 = add nuw i64 %.025864218, 1
   %8863 = load i64, ptr %8855, align 8
   %8864 = icmp ult i64 %8862, %8863
   br i1 %8864, label %.lr.ph4220, label %._crit_edge4221, !llvm.loop !70
@@ -14654,11 +14654,11 @@ pm_location_new.exit3643:                         ; preds = %8825, %8828
   br i1 %.not4363, label %._crit_edge4225, label %.lr.ph4224
 
 .lr.ph4224:                                       ; preds = %._crit_edge4221, %.lr.ph4224
-  %.026064222 = phi i64 [ %8872, %.lr.ph4224 ], [ 0, %._crit_edge4221 ]
+  %.025854222 = phi i64 [ %8872, %.lr.ph4224 ], [ 0, %._crit_edge4221 ]
   %8869 = load i64, ptr %324, align 8
   %8870 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %8871 = call i64 @rb_ary_push(i64 noundef %8869, i64 noundef %8870) #6
-  %8872 = add nuw i64 %.026064222, 1
+  %8872 = add nuw i64 %.025854222, 1
   %8873 = load i64, ptr %8865, align 8
   %8874 = icmp ult i64 %8872, %8873
   br i1 %8874, label %.lr.ph4224, label %._crit_edge4225, !llvm.loop !71
@@ -15249,10 +15249,10 @@ pm_location_new.exit3679:                         ; preds = %9209, %9212
   br label %9223
 
 9223:                                             ; preds = %.lr.ph4208, %9223
-  %.025994206 = phi i64 [ 0, %.lr.ph4208 ], [ %9234, %9223 ]
+  %.025814206 = phi i64 [ 0, %.lr.ph4208 ], [ %9234, %9223 ]
   %9224 = load i64, ptr %295, align 8
   %9225 = load ptr, ptr %9222, align 8
-  %9226 = getelementptr i32, ptr %9225, i64 %.025994206
+  %9226 = getelementptr i32, ptr %9225, i64 %.025814206
   %9227 = load i32, ptr %9226, align 4
   %9228 = add i32 %9227, -1
   %9229 = zext i32 %9228 to i64
@@ -15260,7 +15260,7 @@ pm_location_new.exit3679:                         ; preds = %9209, %9212
   %9231 = load i64, ptr %9230, align 8
   %9232 = call i64 @rb_id2sym(i64 noundef %9231) #6
   %9233 = call i64 @rb_ary_push(i64 noundef %9224, i64 noundef %9232) #6
-  %9234 = add nuw i64 %.025994206, 1
+  %9234 = add nuw i64 %.025814206, 1
   %9235 = load i64, ptr %9218, align 8
   %9236 = icmp ult i64 %9234, %9235
   br i1 %9236, label %9223, label %._crit_edge4209, !llvm.loop !72
@@ -15816,11 +15816,11 @@ pm_location_new.exit3709:                         ; preds = %9578, %9581
   br i1 %.not4358, label %._crit_edge4205, label %.lr.ph4204
 
 .lr.ph4204:                                       ; preds = %pm_location_new.exit3709, %.lr.ph4204
-  %.025924203 = phi i64 [ %9590, %.lr.ph4204 ], [ 0, %pm_location_new.exit3709 ]
+  %.025774203 = phi i64 [ %9590, %.lr.ph4204 ], [ 0, %pm_location_new.exit3709 ]
   %9587 = load i64, ptr %264, align 16
   %9588 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %9589 = call i64 @rb_ary_push(i64 noundef %9587, i64 noundef %9588) #6
-  %9590 = add nuw i64 %.025924203, 1
+  %9590 = add nuw i64 %.025774203, 1
   %9591 = load i64, ptr %9583, align 8
   %9592 = icmp ult i64 %9590, %9591
   br i1 %9592, label %.lr.ph4204, label %._crit_edge4205, !llvm.loop !73
@@ -16167,10 +16167,10 @@ pm_location_new.exit3727:                         ; preds = %9792, %9795
   br label %9806
 
 9806:                                             ; preds = %.lr.ph4201, %9806
-  %.025884199 = phi i64 [ 0, %.lr.ph4201 ], [ %9817, %9806 ]
+  %.025764199 = phi i64 [ 0, %.lr.ph4201 ], [ %9817, %9806 ]
   %9807 = load i64, ptr %246, align 8
   %9808 = load ptr, ptr %9805, align 8
-  %9809 = getelementptr i32, ptr %9808, i64 %.025884199
+  %9809 = getelementptr i32, ptr %9808, i64 %.025764199
   %9810 = load i32, ptr %9809, align 4
   %9811 = add i32 %9810, -1
   %9812 = zext i32 %9811 to i64
@@ -16178,7 +16178,7 @@ pm_location_new.exit3727:                         ; preds = %9792, %9795
   %9814 = load i64, ptr %9813, align 8
   %9815 = call i64 @rb_id2sym(i64 noundef %9814) #6
   %9816 = call i64 @rb_ary_push(i64 noundef %9807, i64 noundef %9815) #6
-  %9817 = add nuw i64 %.025884199, 1
+  %9817 = add nuw i64 %.025764199, 1
   %9818 = load i64, ptr %9801, align 8
   %9819 = icmp ult i64 %9817, %9818
   br i1 %9819, label %9806, label %._crit_edge4202, !llvm.loop !74
@@ -16493,11 +16493,11 @@ pm_location_new.exit3745:                         ; preds = %9998, %10001
   br i1 %.not4356, label %._crit_edge4198, label %.lr.ph4197
 
 .lr.ph4197:                                       ; preds = %10006, %.lr.ph4197
-  %.025844195 = phi i64 [ %10014, %.lr.ph4197 ], [ 0, %10006 ]
+  %.025754195 = phi i64 [ %10014, %.lr.ph4197 ], [ 0, %10006 ]
   %10011 = load i64, ptr %237, align 8
   %10012 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %10013 = call i64 @rb_ary_push(i64 noundef %10011, i64 noundef %10012) #6
-  %10014 = add nuw i64 %.025844195, 1
+  %10014 = add nuw i64 %.025754195, 1
   %10015 = load i64, ptr %10007, align 8
   %10016 = icmp ult i64 %10014, %10015
   br i1 %10016, label %.lr.ph4197, label %._crit_edge4198, !llvm.loop !75
@@ -16996,11 +16996,11 @@ pm_location_new.exit3773:                         ; preds = %10323, %10326
   br i1 %.not4355, label %._crit_edge4194, label %.lr.ph4193
 
 .lr.ph4193:                                       ; preds = %10331, %.lr.ph4193
-  %.025794191 = phi i64 [ %10339, %.lr.ph4193 ], [ 0, %10331 ]
+  %.025744191 = phi i64 [ %10339, %.lr.ph4193 ], [ 0, %10331 ]
   %10336 = load i64, ptr %215, align 8
   %10337 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %10338 = call i64 @rb_ary_push(i64 noundef %10336, i64 noundef %10337) #6
-  %10339 = add nuw i64 %.025794191, 1
+  %10339 = add nuw i64 %.025744191, 1
   %10340 = load i64, ptr %10332, align 8
   %10341 = icmp ult i64 %10339, %10340
   br i1 %10341, label %.lr.ph4193, label %._crit_edge4194, !llvm.loop !76
@@ -17347,11 +17347,11 @@ pm_location_new.exit3793:                         ; preds = %10548, %10551
   br i1 %.not4354, label %._crit_edge4190, label %.lr.ph4189
 
 .lr.ph4189:                                       ; preds = %pm_location_new.exit3793, %.lr.ph4189
-  %.025754188 = phi i64 [ %10560, %.lr.ph4189 ], [ 0, %pm_location_new.exit3793 ]
+  %.025734188 = phi i64 [ %10560, %.lr.ph4189 ], [ 0, %pm_location_new.exit3793 ]
   %10557 = load i64, ptr %199, align 16
   %10558 = call i64 @rb_ary_pop(i64 noundef %179) #6
   %10559 = call i64 @rb_ary_push(i64 noundef %10557, i64 noundef %10558) #6
-  %10560 = add nuw i64 %.025754188, 1
+  %10560 = add nuw i64 %.025734188, 1
   %10561 = load i64, ptr %10553, align 8
   %10562 = icmp ult i64 %10560, %10561
   br i1 %10562, label %.lr.ph4189, label %._crit_edge4190, !llvm.loop !77

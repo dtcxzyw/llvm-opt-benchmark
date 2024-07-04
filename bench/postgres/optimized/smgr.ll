@@ -417,19 +417,19 @@ define dso_local void @smgrdosyncall(ptr noundef %0, i32 noundef %1) local_unnam
   br label %15
 
 15:                                               ; preds = %.lr.ph, %21
-  %.01719 = phi i32 [ 0, %.lr.ph ], [ %22, %21 ]
+  %.019 = phi i32 [ 0, %.lr.ph ], [ %22, %21 ]
   %16 = load ptr, ptr %6, align 8
-  %17 = tail call zeroext i1 %13(ptr noundef %16, i32 noundef %.01719) #11
+  %17 = tail call zeroext i1 %13(ptr noundef %16, i32 noundef %.019) #11
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %14, align 8
   %20 = load ptr, ptr %6, align 8
-  tail call void %19(ptr noundef %20, i32 noundef %.01719) #11
+  tail call void %19(ptr noundef %20, i32 noundef %.019) #11
   br label %21
 
 21:                                               ; preds = %15, %18
-  %22 = add nuw nsw i32 %.01719, 1
+  %22 = add nuw nsw i32 %.019, 1
   %exitcond.not = icmp eq i32 %22, 4
   br i1 %exitcond.not, label %23, label %15, !llvm.loop !10
 
@@ -482,10 +482,10 @@ define dso_local void @smgrdounlinkall(ptr noundef %0, i32 noundef %1, i1 nounde
   br label %18
 
 18:                                               ; preds = %.lr.ph, %18
-  %.03640 = phi i32 [ 0, %.lr.ph ], [ %20, %18 ]
+  %.040 = phi i32 [ 0, %.lr.ph ], [ %20, %18 ]
   %19 = load ptr, ptr %10, align 8
-  tail call void %17(ptr noundef %19, i32 noundef %.03640) #11
-  %20 = add nuw nsw i32 %.03640, 1
+  tail call void %17(ptr noundef %19, i32 noundef %.040) #11
+  %20 = add nuw nsw i32 %.040, 1
   %exitcond.not = icmp eq i32 %20, 4
   br i1 %exitcond.not, label %21, label %18, !llvm.loop !12
 
@@ -526,11 +526,11 @@ define dso_local void @smgrdounlinkall(ptr noundef %0, i32 noundef %1, i1 nounde
   br label %35
 
 35:                                               ; preds = %.lr.ph46, %35
-  %.13744 = phi i32 [ 0, %.lr.ph46 ], [ %38, %35 ]
+  %.144 = phi i32 [ 0, %.lr.ph46 ], [ %38, %35 ]
   %36 = load i64, ptr %33, align 4
   %37 = load i64, ptr %34, align 4
-  tail call void %32(i64 %36, i64 %37, i32 noundef %.13744, i1 noundef zeroext %2) #11
-  %38 = add nuw nsw i32 %.13744, 1
+  tail call void %32(i64 %36, i64 %37, i32 noundef %.144, i1 noundef zeroext %2) #11
+  %38 = add nuw nsw i32 %.144, 1
   %exitcond54.not = icmp eq i32 %38, 4
   br i1 %exitcond54.not, label %39, label %35, !llvm.loop !15
 

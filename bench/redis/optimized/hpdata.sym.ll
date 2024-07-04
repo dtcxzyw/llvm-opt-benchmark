@@ -73,10 +73,10 @@ if.end.i24:                                       ; preds = %if.then4.i, %if.the
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %15 = getelementptr i8, ptr %3, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  %.val244 = load i64, ptr %15, align 8
+  %.val243 = load i64, ptr %15, align 8
   %16 = getelementptr i8, ptr %9, i64 8
-  %.val245 = load i64, ptr %16, align 8
-  %cmp2.i = icmp ult i64 %.val244, %.val245
+  %.val244 = load i64, ptr %16, align 8
+  %cmp2.i = icmp ult i64 %.val243, %.val244
   br i1 %cmp2.i, label %if.then6.i64, label %if.else7.i61
 
 if.then6.i64:                                     ; preds = %if.end.i24
@@ -122,9 +122,9 @@ phn_merge.exit67:                                 ; preds = %phn_merge_ordered.e
   br i1 %cmp3.i.not, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %phn_merge.exit67, %if.end15.i
-  %tail.i.0263 = phi ptr [ %result.i.0, %if.end15.i ], [ %result.i54.0, %phn_merge.exit67 ]
-  %phn0.i.0262 = phi ptr [ %28, %if.end15.i ], [ %12, %phn_merge.exit67 ]
-  %23 = ptrtoint ptr %phn0.i.0262 to i64
+  %phn0.i.0263 = phi ptr [ %28, %if.end15.i ], [ %12, %phn_merge.exit67 ]
+  %tail.i.0262 = phi ptr [ %result.i.0, %if.end15.i ], [ %result.i54.0, %phn_merge.exit67 ]
+  %23 = ptrtoint ptr %phn0.i.0263 to i64
   %add.i114 = add i64 %23, 40
   %24 = inttoptr i64 %add.i114 to ptr
   %next.i47.i = getelementptr inbounds i8, ptr %24, i64 8
@@ -150,16 +150,16 @@ if.then12.i:                                      ; preds = %if.then9.i
 
 if.end13.i:                                       ; preds = %if.then12.i, %if.then9.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  %31 = getelementptr i8, ptr %phn0.i.0262, i64 8
+  %31 = getelementptr i8, ptr %phn0.i.0263, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   %phn0.i.0.val = load i64, ptr %31, align 8
   %32 = getelementptr i8, ptr %25, i64 8
-  %.val243 = load i64, ptr %32, align 8
-  %cmp2.i248 = icmp ult i64 %phn0.i.0.val, %.val243
+  %.val245 = load i64, ptr %32, align 8
+  %cmp2.i248 = icmp ult i64 %phn0.i.0.val, %.val245
   br i1 %cmp2.i248, label %if.then6.i, label %if.else7.i
 
 if.then6.i:                                       ; preds = %if.end13.i
-  store ptr %phn0.i.0262, ptr %27, align 8
+  store ptr %phn0.i.0263, ptr %27, align 8
   %lchild.i388 = getelementptr inbounds i8, ptr %24, i64 16
   %33 = load ptr, ptr %lchild.i388, align 8
   store ptr %33, ptr %next.i43.i, align 8
@@ -189,24 +189,24 @@ if.then.i375:                                     ; preds = %if.else7.i
   %37 = ptrtoint ptr %36 to i64
   %add.i20.i376 = add i64 %37, 40
   %38 = inttoptr i64 %add.i20.i376 to ptr
-  store ptr %phn0.i.0262, ptr %38, align 8
+  store ptr %phn0.i.0263, ptr %38, align 8
   br label %phn_merge_ordered.exit377
 
 phn_merge_ordered.exit377:                        ; preds = %if.then.i375, %if.else7.i
-  store ptr %phn0.i.0262, ptr %lchild.i, align 8
+  store ptr %phn0.i.0263, ptr %lchild.i, align 8
   br label %if.end15.i
 
 if.end15.i.thread:                                ; preds = %while.body.i
-  %39 = ptrtoint ptr %tail.i.0263 to i64
+  %39 = ptrtoint ptr %tail.i.0262 to i64
   %add.i111 = add i64 %39, 40
   %40 = inttoptr i64 %add.i111 to ptr
   %next1.i96.i = getelementptr inbounds i8, ptr %40, i64 8
-  store ptr %phn0.i.0262, ptr %next1.i96.i, align 8
+  store ptr %phn0.i.0263, ptr %next1.i96.i, align 8
   br label %while.end.i
 
 if.end15.i:                                       ; preds = %phn_merge_ordered.exit348, %phn_merge_ordered.exit377
-  %result.i.0 = phi ptr [ %phn0.i.0262, %phn_merge_ordered.exit348 ], [ %25, %phn_merge_ordered.exit377 ]
-  %41 = ptrtoint ptr %tail.i.0263 to i64
+  %result.i.0 = phi ptr [ %phn0.i.0263, %phn_merge_ordered.exit348 ], [ %25, %phn_merge_ordered.exit377 ]
+  %41 = ptrtoint ptr %tail.i.0262 to i64
   %add.i93 = add i64 %41, 40
   %42 = inttoptr i64 %add.i93 to ptr
   %next1.i101.i = getelementptr inbounds i8, ptr %42, i64 8
@@ -215,7 +215,7 @@ if.end15.i:                                       ; preds = %phn_merge_ordered.e
   br i1 %cmp6.i.not, label %while.end.i, label %while.body.i, !llvm.loop !5
 
 while.end.i:                                      ; preds = %if.end15.i, %if.end15.i.thread, %phn_merge.exit67
-  %tail.i.0.lcssa = phi ptr [ %result.i54.0, %phn_merge.exit67 ], [ %phn0.i.0262, %if.end15.i.thread ], [ %result.i.0, %if.end15.i ]
+  %tail.i.0.lcssa = phi ptr [ %result.i54.0, %phn_merge.exit67 ], [ %phn0.i.0263, %if.end15.i.thread ], [ %result.i.0, %if.end15.i ]
   %43 = ptrtoint ptr %result.i54.0 to i64
   %add.i132 = add i64 %43, 40
   %44 = inttoptr i64 %add.i132 to ptr
@@ -225,9 +225,9 @@ while.end.i:                                      ; preds = %if.end15.i, %if.end
   br i1 %cmp17.i.not, label %phn_merge_siblings.exit, label %while.body20.i
 
 while.body20.i:                                   ; preds = %while.end.i, %if.end27.i
-  %phn1.i.0 = phi ptr [ %63, %if.end27.i ], [ %45, %while.end.i ]
-  %phn0.i.2 = phi ptr [ %48, %if.end27.i ], [ %result.i54.0, %while.end.i ]
   %tail.i.2 = phi ptr [ %result.i36.0, %if.end27.i ], [ %tail.i.0.lcssa, %while.end.i ]
+  %phn0.i.2 = phi ptr [ %48, %if.end27.i ], [ %result.i54.0, %while.end.i ]
+  %phn1.i.0 = phi ptr [ %63, %if.end27.i ], [ %45, %while.end.i ]
   %46 = ptrtoint ptr %phn1.i.0 to i64
   %add.i129 = add i64 %46, 40
   %47 = inttoptr i64 %add.i129 to ptr
@@ -421,8 +421,8 @@ if.else.i:                                        ; preds = %entry
   %3 = getelementptr i8, ptr %phn, i64 8
   %phn.val = load i64, ptr %3, align 8
   %4 = getelementptr i8, ptr %2, i64 8
-  %.val113 = load i64, ptr %4, align 8
-  %cmp2.i = icmp ult i64 %phn.val, %.val113
+  %.val = load i64, ptr %4, align 8
+  %cmp2.i = icmp ult i64 %phn.val, %.val
   br i1 %cmp2.i, label %if.then5.i, label %if.end.i
 
 if.then5.i:                                       ; preds = %if.else.i
@@ -487,16 +487,16 @@ if.then24.i:                                      ; preds = %if.end21.i
   %sub.i = add i64 %22, -1
   %23 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %sub.i, i1 true)
   %24 = trunc nuw nsw i64 %23 to i32
-  %cmp27.i120 = icmp eq i64 %23, 0
-  br i1 %cmp27.i120, label %ph_insert.exit, label %for.body.i.preheader
+  %cmp27.i121 = icmp eq i64 %23, 0
+  br i1 %cmp27.i121, label %ph_insert.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then24.i
-  %.pre122 = load ptr, ptr %ph, align 8
+  %.pre123 = load ptr, ptr %ph, align 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %ph_try_aux_merge_pair.exit
-  %25 = phi ptr [ %48, %ph_try_aux_merge_pair.exit ], [ %.pre122, %for.body.i.preheader ]
-  %i.i.0121 = phi i32 [ %inc29.i, %ph_try_aux_merge_pair.exit ], [ 0, %for.body.i.preheader ]
+  %25 = phi ptr [ %48, %ph_try_aux_merge_pair.exit ], [ %.pre123, %for.body.i.preheader ]
+  %i.i.0122 = phi i32 [ %inc29.i, %ph_try_aux_merge_pair.exit ], [ 0, %for.body.i.preheader ]
   %26 = ptrtoint ptr %25 to i64
   %add.i82.i = add i64 %26, 40
   %27 = inttoptr i64 %add.i82.i to ptr
@@ -523,11 +523,11 @@ if.end5.i:                                        ; preds = %if.end.i69
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   %35 = getelementptr i8, ptr %28, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
-  %.val = load i64, ptr %35, align 8
+  %.val113 = load i64, ptr %35, align 8
   %36 = getelementptr i8, ptr %31, i64 8
-  %.val112 = load i64, ptr %36, align 8
-  %cmp2.i117 = icmp ult i64 %.val, %.val112
-  br i1 %cmp2.i117, label %if.then6.i.i, label %if.else7.i.i
+  %.val114 = load i64, ptr %36, align 8
+  %cmp2.i118 = icmp ult i64 %.val113, %.val114
+  br i1 %cmp2.i118, label %if.then6.i.i, label %if.else7.i.i
 
 if.then6.i.i:                                     ; preds = %if.end5.i
   store ptr %28, ptr %33, align 8
@@ -568,9 +568,9 @@ phn_merge_ordered.exit124.i:                      ; preds = %if.then.i122.i, %if
   br label %phn_merge.exit.i
 
 phn_merge.exit.i:                                 ; preds = %phn_merge_ordered.exit124.i, %phn_merge_ordered.exit.i
-  %.pre-phi123 = phi ptr [ %33, %phn_merge_ordered.exit124.i ], [ %30, %phn_merge_ordered.exit.i ]
+  %.pre-phi124 = phi ptr [ %33, %phn_merge_ordered.exit124.i ], [ %30, %phn_merge_ordered.exit.i ]
   %result.i.i.0 = phi ptr [ %31, %phn_merge_ordered.exit124.i ], [ %28, %phn_merge_ordered.exit.i ]
-  %next1.i44.i = getelementptr inbounds i8, ptr %.pre-phi123, i64 8
+  %next1.i44.i = getelementptr inbounds i8, ptr %.pre-phi124, i64 8
   store ptr %34, ptr %next1.i44.i, align 8
   %cmp8.i.not = icmp eq ptr %34, null
   br i1 %cmp8.i.not, label %ph_try_aux_merge_pair.exit, label %if.then9.i
@@ -590,8 +590,8 @@ ph_try_aux_merge_pair.exit:                       ; preds = %phn_merge.exit.i, %
   %next1.i.i = getelementptr inbounds i8, ptr %47, i64 8
   store ptr %result.i.i.0, ptr %next1.i.i, align 8
   %48 = load ptr, ptr %ph, align 8
-  store ptr %48, ptr %.pre-phi123, align 8
-  %inc29.i = add nuw nsw i32 %i.i.0121, 1
+  store ptr %48, ptr %.pre-phi124, align 8
+  %inc29.i = add nuw nsw i32 %i.i.0122, 1
   %cmp27.i = icmp uge i32 %inc29.i, %24
   %.not = or i1 %cmp8.i.not, %cmp27.i
   br i1 %.not, label %ph_insert.exit, label %for.body.i, !llvm.loop !7
@@ -655,10 +655,10 @@ if.end.i26:                                       ; preds = %if.then4.i, %if.the
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %15 = getelementptr i8, ptr %3, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  %.val442 = load i64, ptr %15, align 8
+  %.val438 = load i64, ptr %15, align 8
   %16 = getelementptr i8, ptr %9, i64 8
-  %.val443 = load i64, ptr %16, align 8
-  %cmp2.i = icmp ult i64 %.val442, %.val443
+  %.val439 = load i64, ptr %16, align 8
+  %cmp2.i = icmp ult i64 %.val438, %.val439
   br i1 %cmp2.i, label %if.then6.i66, label %if.else7.i63
 
 if.then6.i66:                                     ; preds = %if.end.i26
@@ -704,9 +704,9 @@ phn_merge.exit69:                                 ; preds = %phn_merge_ordered.e
   br i1 %cmp3.i.not, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %phn_merge.exit69, %if.end15.i
-  %tail.i.0476 = phi ptr [ %result.i.0, %if.end15.i ], [ %result.i56.0, %phn_merge.exit69 ]
-  %phn0.i.0475 = phi ptr [ %28, %if.end15.i ], [ %12, %phn_merge.exit69 ]
-  %23 = ptrtoint ptr %phn0.i.0475 to i64
+  %phn0.i.0476 = phi ptr [ %28, %if.end15.i ], [ %12, %phn_merge.exit69 ]
+  %tail.i.0475 = phi ptr [ %result.i.0, %if.end15.i ], [ %result.i56.0, %phn_merge.exit69 ]
+  %23 = ptrtoint ptr %phn0.i.0476 to i64
   %add.i116 = add i64 %23, 40
   %24 = inttoptr i64 %add.i116 to ptr
   %next.i47.i = getelementptr inbounds i8, ptr %24, i64 8
@@ -732,16 +732,16 @@ if.then12.i:                                      ; preds = %if.then9.i
 
 if.end13.i:                                       ; preds = %if.then12.i, %if.then9.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  %31 = getelementptr i8, ptr %phn0.i.0475, i64 8
+  %31 = getelementptr i8, ptr %phn0.i.0476, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   %phn0.i.0.val = load i64, ptr %31, align 8
   %32 = getelementptr i8, ptr %25, i64 8
-  %.val441 = load i64, ptr %32, align 8
-  %cmp2.i446 = icmp ult i64 %phn0.i.0.val, %.val441
+  %.val = load i64, ptr %32, align 8
+  %cmp2.i446 = icmp ult i64 %phn0.i.0.val, %.val
   br i1 %cmp2.i446, label %if.then6.i, label %if.else7.i
 
 if.then6.i:                                       ; preds = %if.end13.i
-  store ptr %phn0.i.0475, ptr %27, align 8
+  store ptr %phn0.i.0476, ptr %27, align 8
   %lchild.i391 = getelementptr inbounds i8, ptr %24, i64 16
   %33 = load ptr, ptr %lchild.i391, align 8
   store ptr %33, ptr %next.i43.i, align 8
@@ -771,24 +771,24 @@ if.then.i378:                                     ; preds = %if.else7.i
   %37 = ptrtoint ptr %36 to i64
   %add.i20.i379 = add i64 %37, 40
   %38 = inttoptr i64 %add.i20.i379 to ptr
-  store ptr %phn0.i.0475, ptr %38, align 8
+  store ptr %phn0.i.0476, ptr %38, align 8
   br label %phn_merge_ordered.exit380
 
 phn_merge_ordered.exit380:                        ; preds = %if.then.i378, %if.else7.i
-  store ptr %phn0.i.0475, ptr %lchild.i, align 8
+  store ptr %phn0.i.0476, ptr %lchild.i, align 8
   br label %if.end15.i
 
 if.end15.i.thread:                                ; preds = %while.body.i
-  %39 = ptrtoint ptr %tail.i.0476 to i64
+  %39 = ptrtoint ptr %tail.i.0475 to i64
   %add.i113 = add i64 %39, 40
   %40 = inttoptr i64 %add.i113 to ptr
   %next1.i96.i = getelementptr inbounds i8, ptr %40, i64 8
-  store ptr %phn0.i.0475, ptr %next1.i96.i, align 8
+  store ptr %phn0.i.0476, ptr %next1.i96.i, align 8
   br label %while.end.i
 
 if.end15.i:                                       ; preds = %phn_merge_ordered.exit351, %phn_merge_ordered.exit380
-  %result.i.0 = phi ptr [ %phn0.i.0475, %phn_merge_ordered.exit351 ], [ %25, %phn_merge_ordered.exit380 ]
-  %41 = ptrtoint ptr %tail.i.0476 to i64
+  %result.i.0 = phi ptr [ %phn0.i.0476, %phn_merge_ordered.exit351 ], [ %25, %phn_merge_ordered.exit380 ]
+  %41 = ptrtoint ptr %tail.i.0475 to i64
   %add.i95 = add i64 %41, 40
   %42 = inttoptr i64 %add.i95 to ptr
   %next1.i101.i = getelementptr inbounds i8, ptr %42, i64 8
@@ -797,7 +797,7 @@ if.end15.i:                                       ; preds = %phn_merge_ordered.e
   br i1 %cmp6.i.not, label %while.end.i, label %while.body.i, !llvm.loop !5
 
 while.end.i:                                      ; preds = %if.end15.i, %if.end15.i.thread, %phn_merge.exit69
-  %tail.i.0.lcssa = phi ptr [ %result.i56.0, %phn_merge.exit69 ], [ %phn0.i.0475, %if.end15.i.thread ], [ %result.i.0, %if.end15.i ]
+  %tail.i.0.lcssa = phi ptr [ %result.i56.0, %phn_merge.exit69 ], [ %phn0.i.0476, %if.end15.i.thread ], [ %result.i.0, %if.end15.i ]
   %43 = ptrtoint ptr %result.i56.0 to i64
   %add.i134 = add i64 %43, 40
   %44 = inttoptr i64 %add.i134 to ptr
@@ -807,9 +807,9 @@ while.end.i:                                      ; preds = %if.end15.i, %if.end
   br i1 %cmp17.i.not, label %phn_merge_siblings.exit, label %while.body20.i
 
 while.body20.i:                                   ; preds = %while.end.i, %if.end27.i
-  %phn1.i.0 = phi ptr [ %63, %if.end27.i ], [ %45, %while.end.i ]
-  %phn0.i.2 = phi ptr [ %48, %if.end27.i ], [ %result.i56.0, %while.end.i ]
   %tail.i.2 = phi ptr [ %result.i38.0, %if.end27.i ], [ %tail.i.0.lcssa, %while.end.i ]
+  %phn0.i.2 = phi ptr [ %48, %if.end27.i ], [ %result.i56.0, %while.end.i ]
+  %phn1.i.0 = phi ptr [ %63, %if.end27.i ], [ %45, %while.end.i ]
   %46 = ptrtoint ptr %phn1.i.0 to i64
   %add.i131 = add i64 %46, 40
   %47 = inttoptr i64 %add.i131 to ptr
@@ -1003,10 +1003,10 @@ if.end.i.i:                                       ; preds = %if.then4.i.i, %if.t
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, i8 0, i64 16, i1 false)
   %91 = getelementptr i8, ptr %82, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, i8 0, i64 16, i1 false)
-  %.val = load i64, ptr %91, align 8
+  %.val442 = load i64, ptr %91, align 8
   %92 = getelementptr i8, ptr %85, i64 8
-  %.val438 = load i64, ptr %92, align 8
-  %cmp2.i461 = icmp ult i64 %.val, %.val438
+  %.val443 = load i64, ptr %92, align 8
+  %cmp2.i461 = icmp ult i64 %.val442, %.val443
   br i1 %cmp2.i461, label %if.then6.i41.i, label %if.else7.i38.i
 
 if.then6.i41.i:                                   ; preds = %if.end.i.i
@@ -1084,8 +1084,8 @@ if.end13.i.i:                                     ; preds = %if.then12.i.i, %if.
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, i8 0, i64 16, i1 false)
   %phn0.i.i.0.val = load i64, ptr %107, align 8
   %108 = getelementptr i8, ptr %101, i64 8
-  %.val439 = load i64, ptr %108, align 8
-  %cmp2.i466 = icmp ult i64 %phn0.i.i.0.val, %.val439
+  %.val441 = load i64, ptr %108, align 8
+  %cmp2.i466 = icmp ult i64 %phn0.i.i.0.val, %.val441
   br i1 %cmp2.i466, label %if.then6.i.i, label %if.else7.i.i
 
 if.then6.i.i:                                     ; preds = %if.end13.i.i
@@ -1321,10 +1321,10 @@ if.end.i100:                                      ; preds = %if.then4.i, %if.the
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %19 = getelementptr i8, ptr %7, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %.val707 = load i64, ptr %19, align 8
+  %.val700 = load i64, ptr %19, align 8
   %20 = getelementptr i8, ptr %13, i64 8
-  %.val708 = load i64, ptr %20, align 8
-  %cmp2.i709 = icmp ult i64 %.val707, %.val708
+  %.val701 = load i64, ptr %20, align 8
+  %cmp2.i709 = icmp ult i64 %.val700, %.val701
   br i1 %cmp2.i709, label %if.then6.i143, label %if.else7.i140
 
 if.then6.i143:                                    ; preds = %if.end.i100
@@ -1370,9 +1370,9 @@ phn_merge.exit146:                                ; preds = %phn_merge_ordered.e
   br i1 %cmp3.i.not, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %phn_merge.exit146, %if.end15.i
-  %tail.i.0763 = phi ptr [ %result.i.0, %if.end15.i ], [ %result.i133.0, %phn_merge.exit146 ]
-  %phn0.i.0762 = phi ptr [ %32, %if.end15.i ], [ %16, %phn_merge.exit146 ]
-  %27 = ptrtoint ptr %phn0.i.0762 to i64
+  %phn0.i.0763 = phi ptr [ %32, %if.end15.i ], [ %16, %phn_merge.exit146 ]
+  %tail.i.0762 = phi ptr [ %result.i.0, %if.end15.i ], [ %result.i133.0, %phn_merge.exit146 ]
+  %27 = ptrtoint ptr %phn0.i.0763 to i64
   %add.i193 = add i64 %27, 40
   %28 = inttoptr i64 %add.i193 to ptr
   %next.i47.i = getelementptr inbounds i8, ptr %28, i64 8
@@ -1398,16 +1398,16 @@ if.then12.i:                                      ; preds = %if.then9.i
 
 if.end13.i:                                       ; preds = %if.then12.i, %if.then9.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
-  %35 = getelementptr i8, ptr %phn0.i.0762, i64 8
+  %35 = getelementptr i8, ptr %phn0.i.0763, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   %phn0.i.0.val = load i64, ptr %35, align 8
   %36 = getelementptr i8, ptr %29, i64 8
-  %.val706 = load i64, ptr %36, align 8
-  %cmp2.i712 = icmp ult i64 %phn0.i.0.val, %.val706
+  %.val = load i64, ptr %36, align 8
+  %cmp2.i712 = icmp ult i64 %phn0.i.0.val, %.val
   br i1 %cmp2.i712, label %if.then6.i, label %if.else7.i
 
 if.then6.i:                                       ; preds = %if.end13.i
-  store ptr %phn0.i.0762, ptr %31, align 8
+  store ptr %phn0.i.0763, ptr %31, align 8
   %lchild.i519 = getelementptr inbounds i8, ptr %28, i64 16
   %37 = load ptr, ptr %lchild.i519, align 8
   store ptr %37, ptr %next.i43.i, align 8
@@ -1437,24 +1437,24 @@ if.then.i506:                                     ; preds = %if.else7.i
   %41 = ptrtoint ptr %40 to i64
   %add.i20.i507 = add i64 %41, 40
   %42 = inttoptr i64 %add.i20.i507 to ptr
-  store ptr %phn0.i.0762, ptr %42, align 8
+  store ptr %phn0.i.0763, ptr %42, align 8
   br label %phn_merge_ordered.exit508
 
 phn_merge_ordered.exit508:                        ; preds = %if.then.i506, %if.else7.i
-  store ptr %phn0.i.0762, ptr %lchild.i, align 8
+  store ptr %phn0.i.0763, ptr %lchild.i, align 8
   br label %if.end15.i
 
 if.end15.i.thread:                                ; preds = %while.body.i
-  %43 = ptrtoint ptr %tail.i.0763 to i64
+  %43 = ptrtoint ptr %tail.i.0762 to i64
   %add.i190 = add i64 %43, 40
   %44 = inttoptr i64 %add.i190 to ptr
   %next1.i96.i = getelementptr inbounds i8, ptr %44, i64 8
-  store ptr %phn0.i.0762, ptr %next1.i96.i, align 8
+  store ptr %phn0.i.0763, ptr %next1.i96.i, align 8
   br label %while.end.i
 
 if.end15.i:                                       ; preds = %phn_merge_ordered.exit479, %phn_merge_ordered.exit508
-  %result.i.0 = phi ptr [ %phn0.i.0762, %phn_merge_ordered.exit479 ], [ %29, %phn_merge_ordered.exit508 ]
-  %45 = ptrtoint ptr %tail.i.0763 to i64
+  %result.i.0 = phi ptr [ %phn0.i.0763, %phn_merge_ordered.exit479 ], [ %29, %phn_merge_ordered.exit508 ]
+  %45 = ptrtoint ptr %tail.i.0762 to i64
   %add.i172 = add i64 %45, 40
   %46 = inttoptr i64 %add.i172 to ptr
   %next1.i101.i = getelementptr inbounds i8, ptr %46, i64 8
@@ -1463,7 +1463,7 @@ if.end15.i:                                       ; preds = %phn_merge_ordered.e
   br i1 %cmp6.i.not, label %while.end.i, label %while.body.i, !llvm.loop !5
 
 while.end.i:                                      ; preds = %if.end15.i, %if.end15.i.thread, %phn_merge.exit146
-  %tail.i.0.lcssa = phi ptr [ %result.i133.0, %phn_merge.exit146 ], [ %phn0.i.0762, %if.end15.i.thread ], [ %result.i.0, %if.end15.i ]
+  %tail.i.0.lcssa = phi ptr [ %result.i133.0, %phn_merge.exit146 ], [ %phn0.i.0763, %if.end15.i.thread ], [ %result.i.0, %if.end15.i ]
   %47 = ptrtoint ptr %result.i133.0 to i64
   %add.i211 = add i64 %47, 40
   %48 = inttoptr i64 %add.i211 to ptr
@@ -1473,9 +1473,9 @@ while.end.i:                                      ; preds = %if.end15.i, %if.end
   br i1 %cmp17.i.not, label %phn_merge_siblings.exit, label %while.body20.i
 
 while.body20.i:                                   ; preds = %while.end.i, %if.end27.i
-  %phn1.i.0 = phi ptr [ %67, %if.end27.i ], [ %49, %while.end.i ]
-  %phn0.i.2 = phi ptr [ %52, %if.end27.i ], [ %result.i133.0, %while.end.i ]
   %tail.i.2 = phi ptr [ %result.i115.0, %if.end27.i ], [ %tail.i.0.lcssa, %while.end.i ]
+  %phn0.i.2 = phi ptr [ %52, %if.end27.i ], [ %result.i133.0, %while.end.i ]
+  %phn1.i.0 = phi ptr [ %67, %if.end27.i ], [ %49, %while.end.i ]
   %50 = ptrtoint ptr %phn1.i.0 to i64
   %add.i208 = add i64 %50, 40
   %51 = inttoptr i64 %add.i208 to ptr
@@ -1562,10 +1562,10 @@ phn_merge_siblings.exit:                          ; preds = %phn_merge.exit128, 
 
 if.else4.i155:                                    ; preds = %phn_merge_siblings.exit
   %69 = getelementptr i8, ptr %68, i64 8
-  %.val705 = load i64, ptr %69, align 8
+  %.val702 = load i64, ptr %69, align 8
   %70 = getelementptr i8, ptr %phn0.i.3, i64 8
   %phn0.i.3.val = load i64, ptr %70, align 8
-  %cmp2.i722 = icmp ult i64 %.val705, %phn0.i.3.val
+  %cmp2.i722 = icmp ult i64 %.val702, %phn0.i.3.val
   br i1 %cmp2.i722, label %if.then6.i161, label %if.else7.i158
 
 if.then6.i161:                                    ; preds = %if.else4.i155
@@ -1660,10 +1660,10 @@ if.end.i.i:                                       ; preds = %if.then4.i.i, %if.t
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, i8 0, i64 16, i1 false)
   %94 = getelementptr i8, ptr %85, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, i8 0, i64 16, i1 false)
-  %.val702 = load i64, ptr %94, align 8
+  %.val704 = load i64, ptr %94, align 8
   %95 = getelementptr i8, ptr %88, i64 8
-  %.val703 = load i64, ptr %95, align 8
-  %cmp2.i727 = icmp ult i64 %.val702, %.val703
+  %.val705 = load i64, ptr %95, align 8
+  %cmp2.i727 = icmp ult i64 %.val704, %.val705
   br i1 %cmp2.i727, label %if.then6.i41.i, label %if.else7.i38.i
 
 if.then6.i41.i:                                   ; preds = %if.end.i.i
@@ -1741,8 +1741,8 @@ if.end13.i.i:                                     ; preds = %if.then12.i.i, %if.
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %106, i8 0, i64 16, i1 false)
   %phn0.i.i.0.val = load i64, ptr %110, align 8
   %111 = getelementptr i8, ptr %104, i64 8
-  %.val704 = load i64, ptr %111, align 8
-  %cmp2.i732 = icmp ult i64 %phn0.i.i.0.val, %.val704
+  %.val703 = load i64, ptr %111, align 8
+  %cmp2.i732 = icmp ult i64 %phn0.i.i.0.val, %.val703
   br i1 %cmp2.i732, label %if.then6.i.i, label %if.else7.i.i
 
 if.then6.i.i:                                     ; preds = %if.end13.i.i
@@ -1953,10 +1953,10 @@ if.end.i.i980:                                    ; preds = %if.then4.i.i1137, %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %151, i8 0, i64 16, i1 false)
   %158 = getelementptr i8, ptr %149, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %154, i8 0, i64 16, i1 false)
-  %.val = load i64, ptr %158, align 8
+  %.val707 = load i64, ptr %158, align 8
   %159 = getelementptr i8, ptr %152, i64 8
-  %.val700 = load i64, ptr %159, align 8
-  %cmp2.i742 = icmp ult i64 %.val, %.val700
+  %.val708 = load i64, ptr %159, align 8
+  %cmp2.i742 = icmp ult i64 %.val707, %.val708
   br i1 %cmp2.i742, label %if.then6.i41.i1123, label %if.else7.i38.i993
 
 if.then6.i41.i1123:                               ; preds = %if.end.i.i980
@@ -2034,8 +2034,8 @@ if.end13.i.i1075:                                 ; preds = %if.then12.i.i1119, 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %170, i8 0, i64 16, i1 false)
   %phn0.i.i959.0.val = load i64, ptr %174, align 8
   %175 = getelementptr i8, ptr %168, i64 8
-  %.val701 = load i64, ptr %175, align 8
-  %cmp2.i747 = icmp ult i64 %phn0.i.i959.0.val, %.val701
+  %.val706 = load i64, ptr %175, align 8
+  %cmp2.i747 = icmp ult i64 %phn0.i.i959.0.val, %.val706
   br i1 %cmp2.i747, label %if.then6.i.i1105, label %if.else7.i.i1088
 
 if.then6.i.i1105:                                 ; preds = %if.end13.i.i1075
@@ -2395,11 +2395,11 @@ if.end29.i.i:                                     ; preds = %while.body.i.i61
   br i1 %cmp13.i.i, label %while.body.i.i61, label %cond.true36.i.i, !llvm.loop !8
 
 cond.true36.i.i:                                  ; preds = %if.end29.i.i, %if.end.i.i
-  %group.i.1.lcssa.i = phi i64 [ %and.i.i, %if.end.i.i ], [ %4, %if.end29.i.i ]
   %group_ind.i.0.lcssa.i = phi i64 [ %div2.i69.i, %if.end.i.i ], [ %add19.i.i, %if.end29.i.i ]
+  %group.i.1.lcssa.i = phi i64 [ %and.i.i, %if.end.i.i ], [ %4, %if.end29.i.i ]
   %5 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %group.i.1.lcssa.i, i1 true)
   %mul.i.i = shl i64 %group_ind.i.0.lcssa.i, 6
-  %add42.i.i = or disjoint i64 %mul.i.i, %5
+  %add42.i.i = or disjoint i64 %5, %mul.i.i
   br label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %while.body.i.i61, %cond.true36.i.i
@@ -2631,11 +2631,11 @@ if.end29.i.i138:                                  ; preds = %while.body.i.i134
   br i1 %cmp13.i.i140, label %while.body.i.i134, label %do.end36, !llvm.loop !8
 
 do.end36:                                         ; preds = %if.end29.i.i138, %if.end.i.i119
-  %group.i.1.lcssa.i126 = phi i64 [ %and.i.i123, %if.end.i.i119 ], [ %46, %if.end29.i.i138 ]
-  %group_ind.i.0.lcssa.i127 = phi i64 [ %div2.i69.i120, %if.end.i.i119 ], [ %add19.i.i136, %if.end29.i.i138 ]
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %group.i.1.lcssa.i126, i1 true)
-  %mul.i.i128 = shl i64 %group_ind.i.0.lcssa.i127, 6
-  %add42.i.i129 = or disjoint i64 %mul.i.i128, %47
+  %group_ind.i.0.lcssa.i126 = phi i64 [ %div2.i69.i120, %if.end.i.i119 ], [ %add19.i.i136, %if.end29.i.i138 ]
+  %group.i.1.lcssa.i127 = phi i64 [ %and.i.i123, %if.end.i.i119 ], [ %46, %if.end29.i.i138 ]
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %group.i.1.lcssa.i127, i1 true)
+  %mul.i.i128 = shl i64 %group_ind.i.0.lcssa.i126, 6
+  %add42.i.i129 = or disjoint i64 %47, %mul.i.i128
   %sub.i.i132 = sub nsw i64 %add42.i.i129, %add42.i65.i117
   %cmp38 = icmp eq i64 %sub.i.i132, %len.1
   br i1 %cmp38, label %while.end45, label %if.end40
@@ -3090,11 +3090,11 @@ cond.true36.i.loopexit.i:                         ; preds = %if.end29.i.i
   br label %cond.true36.i.i
 
 cond.true36.i.i:                                  ; preds = %cond.true36.i.loopexit.i, %if.end.i.i
-  %group.i.1.lcssa.i = phi i64 [ %and.i.i, %if.end.i.i ], [ %xor31.i.i, %cond.true36.i.loopexit.i ]
   %group_ind.i.0.lcssa.i = phi i64 [ %div2.i69.i, %if.end.i.i ], [ %add19.i.i, %cond.true36.i.loopexit.i ]
+  %group.i.1.lcssa.i = phi i64 [ %and.i.i, %if.end.i.i ], [ %xor31.i.i, %cond.true36.i.loopexit.i ]
   %6 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %group.i.1.lcssa.i, i1 true)
   %mul.i.i = shl i64 %group_ind.i.0.lcssa.i, 6
-  %add42.i.i = or disjoint i64 %mul.i.i, %6
+  %add42.i.i = or disjoint i64 %6, %mul.i.i
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %add42.i.i, i64 512)
   br label %if.end3
 

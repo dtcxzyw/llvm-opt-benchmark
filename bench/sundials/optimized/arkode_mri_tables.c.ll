@@ -1857,18 +1857,18 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly %0, i32 nounde
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %.0115147 = phi double [ %8, %.lr.ph ], [ %19, %15 ]
+  %.0112147 = phi double [ %8, %.lr.ph ], [ %19, %15 ]
   %16 = getelementptr inbounds double, ptr %14, i64 %indvars.iv
   %17 = load double, ptr %16, align 8
   %18 = tail call double @llvm.fabs.f64(double %17)
-  %19 = fadd double %.0115147, %18
+  %19 = fadd double %.0112147, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %15
 
 ._crit_edge:                                      ; preds = %15, %4
-  %.0115.lcssa = phi double [ %8, %4 ], [ %19, %15 ]
-  %20 = fcmp ogt double %.0115.lcssa, 0x3D19000000000000
+  %.0112.lcssa = phi double [ %8, %4 ], [ %19, %15 ]
+  %20 = fcmp ogt double %.0112.lcssa, 0x3D19000000000000
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge
@@ -1899,7 +1899,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly %0, i32 nounde
   %29 = fadd double %25, -1.000000e+00
   %30 = tail call double @llvm.fabs.f64(double %29)
   %31 = fcmp ogt double %30, 0x3D19000000000000
-  %.0118247 = zext i1 %31 to i32
+  %.0115247 = zext i1 %31 to i32
   br label %._crit_edge165.thread
 
 .lr.ph158:                                        ; preds = %.preheader142
@@ -1918,7 +1918,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly %0, i32 nounde
   br i1 %38, label %.loopexit, label %28
 
 .loopexit141:                                     ; preds = %44, %39
-  %.2117.lcssa = phi double [ %.1116156, %39 ], [ %48, %44 ]
+  %.2114.lcssa = phi double [ %.1113157, %39 ], [ %48, %44 ]
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond208.not = icmp eq i64 %indvars.iv.next205, %wide.trip.count207
   br i1 %exitcond208.not, label %._crit_edge159, label %39
@@ -1926,7 +1926,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly %0, i32 nounde
 39:                                               ; preds = %.lr.ph158, %.loopexit141
   %indvars.iv204 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next205, %.loopexit141 ]
   %indvars.iv197 = phi i64 [ 1, %.lr.ph158 ], [ %indvars.iv.next198, %.loopexit141 ]
-  %.1116156 = phi double [ 0.000000e+00, %.lr.ph158 ], [ %.2117.lcssa, %.loopexit141 ]
+  %.1113157 = phi double [ 0.000000e+00, %.lr.ph158 ], [ %.2114.lcssa, %.loopexit141 ]
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %40 = icmp slt i64 %indvars.iv.next205, %22
   br i1 %40, label %.lr.ph154, label %.loopexit141
@@ -1939,24 +1939,24 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly %0, i32 nounde
 
 44:                                               ; preds = %.lr.ph154, %44
   %indvars.iv199 = phi i64 [ %indvars.iv197, %.lr.ph154 ], [ %indvars.iv.next200, %44 ]
-  %.2117152 = phi double [ %.1116156, %.lr.ph154 ], [ %48, %44 ]
+  %.2114152 = phi double [ %.1113157, %.lr.ph154 ], [ %48, %44 ]
   %45 = getelementptr inbounds double, ptr %43, i64 %indvars.iv199
   %46 = load double, ptr %45, align 8
   %47 = tail call double @llvm.fabs.f64(double %46)
-  %48 = fadd double %.2117152, %47
+  %48 = fadd double %.2114152, %47
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count207
   br i1 %exitcond203.not, label %.loopexit141, label %44
 
 ._crit_edge159:                                   ; preds = %.loopexit141
-  %49 = fcmp ogt double %.2117.lcssa, 0x3D19000000000000
+  %49 = fcmp ogt double %.2114.lcssa, 0x3D19000000000000
   br i1 %49, label %.loopexit, label %50
 
 50:                                               ; preds = %._crit_edge159
   %51 = fadd double %25, -1.000000e+00
   %52 = tail call double @llvm.fabs.f64(double %51)
   %53 = fcmp ogt double %52, 0x3D19000000000000
-  %.0118 = zext i1 %53 to i32
+  %.0115 = zext i1 %53 to i32
   br i1 %11, label %.lr.ph164, label %._crit_edge165.thread
 
 .lr.ph164:                                        ; preds = %50
@@ -1972,7 +1972,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly %0, i32 nounde
 
 61:                                               ; preds = %.lr.ph164, %61
   %indvars.iv209 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next210, %61 ]
-  %.1119162 = phi i32 [ %.0118, %.lr.ph164 ], [ %.2120, %61 ]
+  %.1116162 = phi i32 [ %.0115, %.lr.ph164 ], [ %.2117, %61 ]
   %62 = getelementptr inbounds double, ptr %58, i64 %indvars.iv209
   %63 = load double, ptr %62, align 8
   %64 = getelementptr inbounds double, ptr %60, i64 %indvars.iv209
@@ -1980,20 +1980,20 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly %0, i32 nounde
   %66 = fsub double %63, %65
   %67 = tail call double @llvm.fabs.f64(double %66)
   %68 = fcmp ogt double %67, 0x3D19000000000000
-  %.2120 = select i1 %68, i32 1, i32 %.1119162
+  %.2117 = select i1 %68, i32 1, i32 %.1116162
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %exitcond213.not = icmp eq i64 %indvars.iv.next210, %wide.trip.count212
   br i1 %exitcond213.not, label %._crit_edge165, label %61
 
 ._crit_edge165.thread:                            ; preds = %.thread, %50
-  %.1119.lcssa.ph = phi i32 [ %.0118247, %.thread ], [ %.0118, %50 ]
-  %.not135249 = icmp eq i32 %.1119.lcssa.ph, 0
+  %.1116.lcssa.ph = phi i32 [ %.0115247, %.thread ], [ %.0115, %50 ]
+  %.not135249 = icmp eq i32 %.1116.lcssa.ph, 0
   %69 = add nsw i32 %10, 1
   %70 = select i1 %.not135249, i32 %10, i32 %69
   br label %._crit_edge171
 
 ._crit_edge165:                                   ; preds = %61
-  %.not135 = icmp eq i32 %.2120, 0
+  %.not135 = icmp eq i32 %.2117, 0
   %71 = add nuw nsw i32 %10, 1
   %72 = select i1 %.not135, i32 %10, i32 %71
   br i1 %11, label %.preheader140.lr.ph, label %._crit_edge171
@@ -2006,19 +2006,19 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly %0, i32 nounde
 
 .preheader140:                                    ; preds = %.preheader140.lr.ph, %82
   %indvars.iv214 = phi i64 [ 0, %.preheader140.lr.ph ], [ %indvars.iv.next215, %82 ]
-  %.0111169 = phi i32 [ 0, %.preheader140.lr.ph ], [ %.2113, %82 ]
+  %.0110170 = phi i32 [ 0, %.preheader140.lr.ph ], [ %.2, %82 ]
   %75 = getelementptr inbounds ptr, ptr %74, i64 %indvars.iv214
   %76 = load ptr, ptr %75, align 8
   br label %77
 
 77:                                               ; preds = %.preheader140, %77
   %indvars.iv216 = phi i64 [ %indvars.iv214, %.preheader140 ], [ %indvars.iv.next217, %77 ]
-  %.1112168 = phi i32 [ %.0111169, %.preheader140 ], [ %.2113, %77 ]
+  %.1168 = phi i32 [ %.0110170, %.preheader140 ], [ %.2, %77 ]
   %78 = getelementptr inbounds double, ptr %76, i64 %indvars.iv216
   %79 = load double, ptr %78, align 8
   %80 = tail call double @llvm.fabs.f64(double %79)
   %81 = fcmp ogt double %80, 0x3D19000000000000
-  %.2113 = select i1 %81, i32 1, i32 %.1112168
+  %.2 = select i1 %81, i32 1, i32 %.1168
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %exitcond220.not = icmp eq i64 %indvars.iv.next217, %wide.trip.count222
   br i1 %exitcond220.not, label %82, label %77
@@ -2032,8 +2032,8 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly %0, i32 nounde
   %83 = phi i32 [ %72, %._crit_edge165 ], [ %70, %._crit_edge165.thread ], [ %72, %82 ]
   %84 = phi i32 [ %71, %._crit_edge165 ], [ %69, %._crit_edge165.thread ], [ %71, %82 ]
   %.not135250 = phi i1 [ %.not135, %._crit_edge165 ], [ %.not135249, %._crit_edge165.thread ], [ %.not135, %82 ]
-  %.0111.lcssa = phi i32 [ 0, %._crit_edge165 ], [ 0, %._crit_edge165.thread ], [ %.2113, %82 ]
-  %85 = tail call ptr @MRIStepCoupling_Alloc(i32 noundef 1, i32 noundef %83, i32 noundef %.0111.lcssa)
+  %.0110.lcssa = phi i32 [ 0, %._crit_edge165 ], [ 0, %._crit_edge165.thread ], [ %.2, %82 ]
+  %85 = tail call ptr @MRIStepCoupling_Alloc(i32 noundef 1, i32 noundef %83, i32 noundef %.0110.lcssa)
   %.not136 = icmp eq ptr %85, null
   br i1 %.not136, label %.loopexit, label %86
 
@@ -2077,10 +2077,10 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly %0, i32 nounde
   br label %107
 
 107:                                              ; preds = %101, %._crit_edge176
-  %108 = icmp eq i32 %.0111.lcssa, 0
-  %.0114.in.v = select i1 %108, i64 24, i64 32
-  %.0114.in = getelementptr inbounds i8, ptr %85, i64 %.0114.in.v
-  %.0114 = load ptr, ptr %.0114.in, align 8
+  %108 = icmp eq i32 %.0110.lcssa, 0
+  %.0111.in.v = select i1 %108, i64 24, i64 32
+  %.0111.in = getelementptr inbounds i8, ptr %85, i64 %.0111.in.v
+  %.0111 = load ptr, ptr %.0111.in, align 8
   %109 = icmp sgt i32 %83, 0
   br i1 %109, label %.preheader139.us.preheader, label %.preheader138
 
@@ -2094,7 +2094,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly %0, i32 nounde
 
 110:                                              ; preds = %.preheader139.us, %110
   %indvars.iv227 = phi i64 [ 0, %.preheader139.us ], [ %indvars.iv.next228, %110 ]
-  %111 = load ptr, ptr %.0114, align 8
+  %111 = load ptr, ptr %.0111, align 8
   %112 = getelementptr inbounds ptr, ptr %111, i64 %indvars.iv232
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds double, ptr %113, i64 %indvars.iv227
@@ -2139,7 +2139,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly %0, i32 nounde
   %127 = getelementptr inbounds double, ptr %126, i64 %indvars.iv237
   %128 = load double, ptr %127, align 8
   %129 = fsub double %124, %128
-  %130 = load ptr, ptr %.0114, align 8
+  %130 = load ptr, ptr %.0111, align 8
   %131 = getelementptr inbounds ptr, ptr %130, i64 %indvars.iv240
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds double, ptr %132, i64 %indvars.iv237
@@ -2183,7 +2183,7 @@ define noundef ptr @MRIStepCoupling_MIStoMRI(ptr noundef readonly %0, i32 nounde
   %154 = getelementptr inbounds double, ptr %153, i64 %indvars.iv243
   %155 = load double, ptr %154, align 8
   %156 = fsub double %148, %155
-  %157 = load ptr, ptr %.0114, align 8
+  %157 = load ptr, ptr %.0111, align 8
   %158 = getelementptr ptr, ptr %157, i64 %143
   %159 = getelementptr i8, ptr %158, i64 -8
   %160 = load ptr, ptr %159, align 8
@@ -4620,7 +4620,7 @@ define noundef ptr @MRIStepCoupling_Copy(ptr noundef readonly %0) local_unnamed_
   br i1 %.not76, label %.loopexit, label %9
 
 9:                                                ; preds = %7, %8
-  %.062 = phi i32 [ 1, %8 ], [ %spec.select, %7 ]
+  %.0 = phi i32 [ 1, %8 ], [ %spec.select, %7 ]
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not77 = icmp eq ptr %11, null
@@ -4630,7 +4630,7 @@ define noundef ptr @MRIStepCoupling_Copy(ptr noundef readonly %0) local_unnamed_
   %13 = load i32, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = tail call ptr @MRIStepCoupling_Alloc(i32 noundef %13, i32 noundef %15, i32 noundef %.062)
+  %16 = tail call ptr @MRIStepCoupling_Alloc(i32 noundef %13, i32 noundef %15, i32 noundef %.0)
   %.not78 = icmp eq ptr %16, null
   br i1 %.not78, label %.loopexit, label %17
 
@@ -4777,8 +4777,8 @@ define noundef ptr @MRIStepCoupling_Copy(ptr noundef readonly %0) local_unnamed_
   br i1 %exitcond134.not, label %.loopexit, label %.preheader82.us
 
 .loopexit:                                        ; preds = %._crit_edge99.split.us.us, %.preheader82.lr.ph, %.loopexit87, %12, %9, %8, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %8 ], [ null, %9 ], [ null, %12 ], [ %16, %.loopexit87 ], [ %16, %.preheader82.lr.ph ], [ %16, %._crit_edge99.split.us.us ]
-  ret ptr %.0
+  %.067 = phi ptr [ null, %1 ], [ null, %8 ], [ null, %9 ], [ null, %12 ], [ %16, %.loopexit87 ], [ %16, %.preheader82.lr.ph ], [ %16, %._crit_edge99.split.us.us ]
+  ret ptr %.067
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -5150,7 +5150,7 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr nocapture noundef
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %.02025 = phi double [ 0.000000e+00, %.lr.ph ], [ %21, %13 ]
+  %.01926 = phi double [ 0.000000e+00, %.lr.ph ], [ %21, %13 ]
   %14 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds ptr, ptr %15, i64 %10
@@ -5158,7 +5158,7 @@ define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr nocapture noundef
   %18 = getelementptr inbounds double, ptr %17, i64 %10
   %19 = load double, ptr %18, align 8
   %20 = tail call double @llvm.fabs.f64(double %19)
-  %21 = fadd double %.02025, %20
+  %21 = fadd double %.01926, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %13

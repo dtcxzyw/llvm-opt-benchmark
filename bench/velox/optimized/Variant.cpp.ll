@@ -13879,10 +13879,10 @@ _ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit284: ; preds = %
   br i1 %or.cond21.i.i, label %for.body.i.i, label %for.end.i.i
 
 for.body.i.i:                                     ; preds = %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit284, %for.inc.i.i
-  %__first1.sroa.0.023.i.i = phi ptr [ %call.i6.i.i, %for.inc.i.i ], [ %107, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit284 ]
-  %__first2.sroa.0.022.i.i = phi ptr [ %call.i7.i.i, %for.inc.i.i ], [ %108, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit284 ]
-  %_M_storage.i.i10.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.023.i.i, i64 32
-  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.022.i.i, i64 32
+  %__first2.sroa.0.023.i.i = phi ptr [ %call.i7.i.i, %for.inc.i.i ], [ %108, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit284 ]
+  %__first1.sroa.0.022.i.i = phi ptr [ %call.i6.i.i, %for.inc.i.i ], [ %107, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit284 ]
+  %_M_storage.i.i10.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.022.i.i, i64 32
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.023.i.i, i64 32
   %call4.i.i.i = tail call noundef zeroext i1 @_ZStltIKN8facebook5velox7variantES2_EbRKSt4pairIT_T0_ES9_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i)
   br i1 %call4.i.i.i, label %return, label %if.end.i.i286
 
@@ -13891,16 +13891,16 @@ if.end.i.i286:                                    ; preds = %for.body.i.i
   br i1 %call4.i5.i.i, label %return, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end.i.i286
-  %call.i6.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first1.sroa.0.023.i.i) #28
-  %call.i7.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first2.sroa.0.022.i.i) #28
+  %call.i6.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first1.sroa.0.022.i.i) #28
+  %call.i7.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first2.sroa.0.023.i.i) #28
   %cmp.i.i.i287 = icmp ne ptr %call.i6.i.i, %add.ptr.i1.i
   %cmp.i.i.i.i = icmp ne ptr %call.i7.i.i, %add.ptr.i.i
   %or.cond.i.i = select i1 %cmp.i.i.i287, i1 %cmp.i.i.i.i, i1 false
   br i1 %or.cond.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !175
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit284
-  %__first2.sroa.0.0.lcssa.i.i = phi ptr [ %108, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit284 ], [ %call.i7.i.i, %for.inc.i.i ]
   %__first1.sroa.0.0.lcssa.i.i = phi ptr [ %107, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit284 ], [ %call.i6.i.i, %for.inc.i.i ]
+  %__first2.sroa.0.0.lcssa.i.i = phi ptr [ %108, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit284 ], [ %call.i7.i.i, %for.inc.i.i ]
   %cmp.i8.i.i = icmp eq ptr %__first1.sroa.0.0.lcssa.i.i, %add.ptr.i1.i
   %cmp.i9.i.i = icmp ne ptr %__first2.sroa.0.0.lcssa.i.i, %add.ptr.i.i
   %spec.select.i.i = select i1 %cmp.i8.i.i, i1 %cmp.i9.i.i, i1 false
@@ -14125,10 +14125,10 @@ _ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit17: ; preds = %_
   br i1 %or.cond21.i.i, label %for.body.i.i, label %for.end.i.i
 
 for.body.i.i:                                     ; preds = %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit17, %for.inc.i.i
-  %__first1.sroa.0.023.i.i = phi ptr [ %call.i6.i.i, %for.inc.i.i ], [ %4, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit17 ]
-  %__first2.sroa.0.022.i.i = phi ptr [ %call.i7.i.i, %for.inc.i.i ], [ %5, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit17 ]
-  %_M_storage.i.i10.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.023.i.i, i64 32
-  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.022.i.i, i64 32
+  %__first2.sroa.0.023.i.i = phi ptr [ %call.i7.i.i, %for.inc.i.i ], [ %5, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit17 ]
+  %__first1.sroa.0.022.i.i = phi ptr [ %call.i6.i.i, %for.inc.i.i ], [ %4, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit17 ]
+  %_M_storage.i.i10.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.022.i.i, i64 32
+  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.023.i.i, i64 32
   %call4.i.i.i = tail call noundef zeroext i1 @_ZStltIKN8facebook5velox7variantES2_EbRKSt4pairIT_T0_ES9_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i10.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i)
   br i1 %call4.i.i.i, label %return, label %if.end.i.i
 
@@ -14137,16 +14137,16 @@ if.end.i.i:                                       ; preds = %for.body.i.i
   br i1 %call4.i5.i.i, label %return, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end.i.i
-  %call.i6.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first1.sroa.0.023.i.i) #28
-  %call.i7.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first2.sroa.0.022.i.i) #28
+  %call.i6.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first1.sroa.0.022.i.i) #28
+  %call.i7.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first2.sroa.0.023.i.i) #28
   %cmp.i.i.i = icmp ne ptr %call.i6.i.i, %add.ptr.i1.i
   %cmp.i.i.i.i = icmp ne ptr %call.i7.i.i, %add.ptr.i.i
   %or.cond.i.i = select i1 %cmp.i.i.i, i1 %cmp.i.i.i.i, i1 false
   br i1 %or.cond.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !175
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit17
-  %__first2.sroa.0.0.lcssa.i.i = phi ptr [ %5, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit17 ], [ %call.i7.i.i, %for.inc.i.i ]
   %__first1.sroa.0.0.lcssa.i.i = phi ptr [ %4, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit17 ], [ %call.i6.i.i, %for.inc.i.i ]
+  %__first2.sroa.0.0.lcssa.i.i = phi ptr [ %5, %_ZNK8facebook5velox7variant5valueILNS0_8TypeKindE31EEERKDav.exit17 ], [ %call.i7.i.i, %for.inc.i.i ]
   %cmp.i8.i.i = icmp eq ptr %__first1.sroa.0.0.lcssa.i.i, %add.ptr.i1.i
   %cmp.i9.i.i = icmp ne ptr %__first2.sroa.0.0.lcssa.i.i, %add.ptr.i.i
   %spec.select.i.i = select i1 %cmp.i8.i.i, i1 %cmp.i9.i.i, i1 false

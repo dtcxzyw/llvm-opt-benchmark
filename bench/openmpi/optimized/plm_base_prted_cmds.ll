@@ -594,8 +594,8 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %71
   br label %85
 
 85:                                               ; preds = %65, %84, %82, %.loopexit54, %16
-  %.0 = phi i32 [ %13, %16 ], [ %29, %.loopexit54 ], [ %57, %82 ], [ %57, %84 ], [ %57, %65 ]
-  ret i32 %.0
+  %.037 = phi i32 [ %13, %16 ], [ %29, %.loopexit54 ], [ %57, %82 ], [ %57, %84 ], [ %57, %65 ]
+  ret i32 %.037
 }
 
 ; Function Attrs: nounwind uwtable

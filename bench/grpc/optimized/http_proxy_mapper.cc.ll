@@ -3472,8 +3472,8 @@ if.end.i.i:                                       ; preds = %if.end.i
   br label %_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i
 
 _ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i: ; preds = %if.end.i.i, %if.then.i.i
-  %retval.sroa.0.0.i.i = phi i64 [ 0, %if.then.i.i ], [ %7, %if.end.i.i ]
   %retval.sroa.3.0.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %8, %if.end.i.i ]
+  %retval.sroa.0.0.i.i = phi i64 [ 0, %if.then.i.i ], [ %7, %if.end.i.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %retval.sroa.0.0.copyload.i.i
   %cmp7.i = icmp eq ptr %retval.sroa.3.0.i.i, %add.ptr.i
   br i1 %cmp7.i, label %if.then8.i, label %if.end10.i
@@ -3602,8 +3602,8 @@ if.end.i.i:                                       ; preds = %if.end.i
   br label %_ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i
 
 _ZN4absl12lts_2023080216strings_internal13MaxSplitsImplINS0_6ByCharEE4FindESt17basic_string_viewIcSt11char_traitsIcEEm.exit.i: ; preds = %if.end.i.i, %if.then.i.i
-  %retval.sroa.0.0.i.i = phi i64 [ 0, %if.then.i.i ], [ %5, %if.end.i.i ]
   %retval.sroa.3.0.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %6, %if.end.i.i ]
+  %retval.sroa.0.0.i.i = phi i64 [ 0, %if.then.i.i ], [ %5, %if.end.i.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.sroa.2.0.copyload.i.i, i64 %retval.sroa.0.0.copyload.i.i
   %cmp7.i = icmp eq ptr %retval.sroa.3.0.i.i, %add.ptr.i
   br i1 %cmp7.i, label %if.then8.i, label %if.end10.i

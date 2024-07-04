@@ -170,10 +170,10 @@ define internal i32 @dissect_pw_fr(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %37
 
 37:                                               ; preds = %35, %27, %33, %31
+  %.094 = phi i32 [ 0, %27 ], [ 0, %31 ], [ %34, %33 ], [ 0, %35 ]
+  %.093 = phi i32 [ %23, %27 ], [ %23, %31 ], [ %22, %33 ], [ %23, %35 ]
   %.1 = phi i32 [ %28, %27 ], [ %32, %31 ], [ %spec.select, %33 ], [ %spec.select108, %35 ]
-  %.093 = phi i32 [ 0, %27 ], [ 0, %31 ], [ %34, %33 ], [ 0, %35 ]
-  %.092 = phi i32 [ %23, %27 ], [ %23, %31 ], [ %22, %33 ], [ %23, %35 ]
-  %38 = icmp eq i32 %.092, 0
+  %38 = icmp eq i32 %.093, 0
   %39 = or i32 %.1, 32
   %spec.select109 = select i1 %38, i32 %39, i32 %.1
   %40 = getelementptr inbounds i8, ptr %1, i64 8
@@ -192,13 +192,13 @@ define internal i32 @dissect_pw_fr(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 46:                                               ; preds = %44, %37
   %47 = load ptr, ptr %40, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %47, i32 noundef 25, ptr noundef nonnull @.str.42, i32 noundef %.092) #2
-  %.not102 = icmp eq i32 %.093, 0
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %47, i32 noundef 25, ptr noundef nonnull @.str.42, i32 noundef %.093) #2
+  %.not102 = icmp eq i32 %.094, 0
   br i1 %.not102, label %50, label %48
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %40, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %49, i32 noundef 25, ptr noundef nonnull @.str.43, i32 noundef %.093) #2
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %49, i32 noundef 25, ptr noundef nonnull @.str.43, i32 noundef %.094) #2
   br label %50
 
 50:                                               ; preds = %48, %46
@@ -236,7 +236,7 @@ define internal i32 @dissect_pw_fr(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not104, label %77, label %75
 
 75:                                               ; preds = %61
-  %76 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %73, ptr noundef nonnull @ei_payload_size_invalid, ptr noundef nonnull @.str.45, i32 noundef %.092) #2
+  %76 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %73, ptr noundef nonnull @ei_payload_size_invalid, ptr noundef nonnull @.str.45, i32 noundef %.093) #2
   br label %77
 
 77:                                               ; preds = %75, %61
@@ -245,7 +245,7 @@ define internal i32 @dissect_pw_fr(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not105, label %82, label %79
 
 79:                                               ; preds = %77
-  %80 = add nuw nsw i32 %.092, 4
+  %80 = add nuw nsw i32 %.093, 4
   %81 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %73, ptr noundef nonnull @ei_payload_size_invalid, ptr noundef nonnull @.str.46, i32 noundef %80) #2
   br label %82
 
@@ -255,20 +255,20 @@ define internal i32 @dissect_pw_fr(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not106, label %87, label %84
 
 84:                                               ; preds = %82
-  %85 = add nuw nsw i32 %.092, 4
+  %85 = add nuw nsw i32 %.093, 4
   %86 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %73, ptr noundef nonnull @ei_payload_size_invalid, ptr noundef nonnull @.str.47, i32 noundef %85) #2
   br label %87
 
 87:                                               ; preds = %84, %82
   %88 = load i32, ptr @hf_cw_seq, align 4
   %89 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %88, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #2
-  %90 = icmp sgt i32 %.093, 0
+  %90 = icmp sgt i32 %.094, 0
   br i1 %90, label %91, label %95
 
 91:                                               ; preds = %87
   %92 = load i32, ptr @hf_cw_padding, align 4
-  %93 = add nuw nsw i32 %.092, 4
-  %94 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %92, ptr noundef %0, i32 noundef %93, i32 noundef %.093, i32 noundef 0) #2
+  %93 = add nuw nsw i32 %.093, 4
+  %94 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %92, ptr noundef %0, i32 noundef %93, i32 noundef %.094, i32 noundef 0) #2
   br label %95
 
 95:                                               ; preds = %91, %87
@@ -284,7 +284,7 @@ define internal i32 @dissect_pw_fr(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %38, label %104, label %100
 
 100:                                              ; preds = %99
-  %101 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 4, i32 noundef %.092) #2
+  %101 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 4, i32 noundef %.093) #2
   %102 = load ptr, ptr @fr_stripped_address_handle, align 8
   %103 = tail call i32 @call_dissector(ptr noundef %102, ptr noundef %101, ptr noundef nonnull %1, ptr noundef %2) #2
   br label %104

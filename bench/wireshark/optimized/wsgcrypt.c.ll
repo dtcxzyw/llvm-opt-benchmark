@@ -364,12 +364,12 @@ define i32 @hkdf_expand(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noun
   br label %20
 
 20:                                               ; preds = %.preheader, %35
-  %.04047 = phi i32 [ 0, %.preheader ], [ %51, %35 ]
+  %.047 = phi i32 [ 0, %.preheader ], [ %51, %35 ]
   %21 = load ptr, ptr %9, align 8
   call void @gcry_md_reset(ptr noundef %21) #4
   %22 = load ptr, ptr %9, align 8
   %23 = call i32 @gcry_md_setkey(ptr noundef %22, ptr noundef %1, i64 noundef %18) #4
-  %.not46 = icmp eq i32 %.04047, 0
+  %.not46 = icmp eq i32 %.047, 0
   br i1 %.not46, label %26, label %24
 
 24:                                               ; preds = %20
@@ -395,7 +395,7 @@ define i32 @hkdf_expand(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noun
 
 35:                                               ; preds = %34, %26
   %36 = phi i32 [ %.pre, %34 ], [ %30, %26 ]
-  %37 = udiv i32 %.04047, %10
+  %37 = udiv i32 %.047, %10
   %38 = trunc i32 %37 to i8
   %39 = add i8 %38, 1
   %40 = getelementptr inbounds i8, ptr %28, i64 16
@@ -407,13 +407,13 @@ define i32 @hkdf_expand(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noun
   %44 = load ptr, ptr %9, align 8
   %45 = call ptr @gcry_md_read(ptr noundef %44, i32 noundef %0) #4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr align 1 %45, i64 %14, i1 false)
-  %46 = zext i32 %.04047 to i64
+  %46 = zext i32 %.047 to i64
   %47 = getelementptr i8, ptr %5, i64 %46
-  %48 = sub i32 %6, %.04047
+  %48 = sub i32 %6, %.047
   %49 = call i32 @llvm.umin.i32(i32 %10, i32 %48)
   %50 = zext nneg i32 %49 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr nonnull align 16 %8, i64 %50, i1 false)
-  %51 = add i32 %.04047, %10
+  %51 = add i32 %.047, %10
   %52 = icmp ult i32 %51, %6
   br i1 %52, label %20, label %53, !llvm.loop !6
 
@@ -423,8 +423,8 @@ define i32 @hkdf_expand(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noun
   br label %55
 
 55:                                               ; preds = %16, %7, %11, %53
-  %.0 = phi i32 [ 0, %53 ], [ 45, %11 ], [ 45, %7 ], [ %17, %16 ]
-  ret i32 %.0
+  %.040 = phi i32 [ 0, %53 ], [ 45, %11 ], [ 45, %7 ], [ %17, %16 ]
+  ret i32 %.040
 }
 
 declare void @gcry_md_reset(ptr noundef) local_unnamed_addr #1

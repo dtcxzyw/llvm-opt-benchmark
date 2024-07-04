@@ -53,8 +53,8 @@ define i32 @mca_pml_cm_start(i64 noundef %0, ptr nocapture noundef %1) local_unn
   br label %15
 
 15:                                               ; preds = %.lr.ph, %ompi_request_complete.exit.thread
-  %.0128179 = phi i64 [ 0, %.lr.ph ], [ %371, %ompi_request_complete.exit.thread ]
-  %16 = getelementptr inbounds ptr, ptr %1, i64 %.0128179
+  %.0127179 = phi i64 [ 0, %.lr.ph ], [ %371, %ompi_request_complete.exit.thread ]
+  %16 = getelementptr inbounds ptr, ptr %1, i64 %.0127179
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 56
   %19 = load i32, ptr %18, align 8
@@ -587,7 +587,7 @@ opal_datatype_is_contiguous_memory_layout.exit:   ; preds = %opal_thread_add_fet
   br label %opal_datatype_is_contiguous_memory_layout.exit.thread
 
 opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_add_fetch_32.exit152, %222, %opal_datatype_is_contiguous_memory_layout.exit
-  %.0127 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit ], [ %spec.select, %222 ], [ 0, %opal_thread_add_fetch_32.exit152 ]
+  %.0130 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit ], [ %spec.select, %222 ], [ 0, %opal_thread_add_fetch_32.exit152 ]
   %227 = load ptr, ptr @ompi_mpi_local_convertor, align 8
   %228 = getelementptr inbounds i8, ptr %.0.i, i64 192
   %229 = getelementptr inbounds i8, ptr %227, i64 16
@@ -596,7 +596,7 @@ opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_ad
   store i32 %230, ptr %231, align 8
   %232 = getelementptr inbounds i8, ptr %227, i64 20
   %233 = load i32, ptr %232, align 4
-  %234 = or i32 %233, %.0127
+  %234 = or i32 %233, %.0130
   %235 = getelementptr inbounds i8, ptr %.0.i, i64 212
   store i32 %234, ptr %235, align 4
   %236 = getelementptr inbounds i8, ptr %227, i64 96
@@ -848,13 +848,13 @@ opal_thread_add_fetch_32.exit.i.i:                ; preds = %335, %332
   br i1 %.not, label %ompi_request_complete.exit.thread, label %ompi_request_complete.exit
 
 ompi_request_complete.exit.thread:                ; preds = %345, %342, %opal_thread_add_fetch_32.exit.i.i, %opal_thread_swap_ptr.exit.i, %318, %308, %311, %352, %15
-  %371 = add nuw i64 %.0128179, 1
+  %371 = add nuw i64 %.0127179, 1
   %exitcond.not = icmp eq i64 %371, %0
   br i1 %exitcond.not, label %ompi_request_complete.exit, label %15, !llvm.loop !9
 
 ompi_request_complete.exit:                       ; preds = %352, %22, %ompi_request_complete.exit.thread, %280, %.critedge, %2
-  %.0130 = phi i32 [ 0, %2 ], [ %306, %.critedge ], [ 1, %280 ], [ 0, %ompi_request_complete.exit.thread ], [ -101, %22 ], [ %370, %352 ]
-  ret i32 %.0130
+  %.0129 = phi i32 [ 0, %2 ], [ %306, %.critedge ], [ 1, %280 ], [ 0, %ompi_request_complete.exit.thread ], [ -101, %22 ], [ %370, %352 ]
+  ret i32 %.0129
 }
 
 declare ptr @mca_pml_base_bsend_request_alloc_buf(i64 noundef) local_unnamed_addr #1

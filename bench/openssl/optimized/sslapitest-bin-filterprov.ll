@@ -83,8 +83,8 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc53
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc53 ], [ 0, %entry ]
-  %name.038 = phi ptr [ %add.ptr, %for.inc53 ], [ %call1, %entry ]
-  %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %name.038, i32 58)
+  %name.039 = phi ptr [ %add.ptr, %for.inc53 ], [ %call1, %entry ]
+  %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %name.039, i32 58)
   %cmp10.not.not = icmp eq ptr %strchr, null
   br i1 %cmp10.not.not, label %if.end12, label %if.then11
 
@@ -93,7 +93,7 @@ if.then11:                                        ; preds = %for.body
   br label %if.end12
 
 if.end12:                                         ; preds = %for.body, %if.then11
-  %call13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.038) #7
+  %call13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.039) #7
   %2 = load ptr, ptr %call2, align 8
   %cmp15.not36 = icmp eq ptr %2, null
   br i1 %cmp15.not36, label %err, label %for.body16
@@ -101,7 +101,7 @@ if.end12:                                         ; preds = %for.body, %if.then1
 for.body16:                                       ; preds = %if.end12, %for.inc
   %3 = phi ptr [ %6, %for.inc ], [ %2, %if.end12 ]
   %algs.037 = phi ptr [ %incdec.ptr, %for.inc ], [ %call2, %if.end12 ]
-  %call18 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %name.038) #7
+  %call18 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %name.039) #7
   %cmp19 = icmp eq ptr %call18, null
   br i1 %cmp19, label %for.inc, label %if.end21
 

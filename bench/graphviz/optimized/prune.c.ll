@@ -284,20 +284,20 @@ addnode.exit:                                     ; preds = %gv_strdup.exit.i80,
   br label %118
 
 118:                                              ; preds = %.lr.ph133.us, %.loopexit.us
-  %.058131.us = phi i64 [ 0, %.lr.ph133.us ], [ %172, %.loopexit.us ]
+  %.059131.us = phi i64 [ 0, %.lr.ph133.us ], [ %172, %.loopexit.us ]
   %119 = load i32, ptr @verbose, align 4
   %120 = icmp eq i32 %119, 1
   br i1 %120, label %121, label %126
 
 121:                                              ; preds = %118
   %122 = load ptr, ptr @stderr, align 8
-  %123 = getelementptr inbounds ptr, ptr %.val73.ph237, i64 %.058131.us
+  %123 = getelementptr inbounds ptr, ptr %.val73.ph237, i64 %.059131.us
   %124 = load ptr, ptr %123, align 8
   %125 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.5, ptr noundef %124) #16
   br label %126
 
 126:                                              ; preds = %121, %118
-  %127 = getelementptr inbounds ptr, ptr %.val73.ph237, i64 %.058131.us
+  %127 = getelementptr inbounds ptr, ptr %.val73.ph237, i64 %.059131.us
   %128 = load ptr, ptr %127, align 8
   %129 = call ptr @agnode(ptr noundef nonnull %115, ptr noundef %128, i32 noundef 0) #15
   %130 = icmp eq ptr %129, null
@@ -363,8 +363,8 @@ addnode.exit:                                     ; preds = %gv_strdup.exit.i80,
   br i1 %.not, label %.loopexit.us, label %.lr.ph130.us
 
 .lr.ph130.us:                                     ; preds = %._crit_edge.us, %165
-  %.059128.us = phi i64 [ %167, %165 ], [ 0, %._crit_edge.us ]
-  %162 = getelementptr inbounds %struct.strattr_t, ptr %.val77.ph, i64 %.059128.us
+  %.058128.us = phi i64 [ %167, %165 ], [ 0, %._crit_edge.us ]
+  %162 = getelementptr inbounds %struct.strattr_t, ptr %.val77.ph, i64 %.058128.us
   %.sroa.0.0.copyload.i.us = load ptr, ptr %162, align 8
   %163 = call ptr @agattr(ptr noundef nonnull %115, i32 noundef 1, ptr noundef %.sroa.0.0.copyload.i.us, ptr noundef nonnull @.str.8) #15
   %164 = icmp eq ptr %163, null
@@ -374,7 +374,7 @@ addnode.exit:                                     ; preds = %gv_strdup.exit.i80,
   %.sroa.2.0..sroa_idx.i.us = getelementptr inbounds i8, ptr %162, i64 8
   %.sroa.2.0.copyload.i93.us = load ptr, ptr %.sroa.2.0..sroa_idx.i.us, align 8
   %166 = call i32 @agxset(ptr noundef nonnull %129, ptr noundef nonnull %163, ptr noundef %.sroa.2.0.copyload.i93.us) #15
-  %167 = add nuw i64 %.059128.us, 1
+  %167 = add nuw i64 %.058128.us, 1
   %exitcond.not = icmp eq i64 %167, %.val76
   br i1 %exitcond.not, label %.loopexit.us, label %.lr.ph130.us
 
@@ -385,7 +385,7 @@ addnode.exit:                                     ; preds = %gv_strdup.exit.i80,
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %165, %._crit_edge.us, %168
-  %172 = add nuw i64 %.058131.us, 1
+  %172 = add nuw i64 %.059131.us, 1
   %exitcond173.not = icmp eq i64 %172, %.val.fr
   br i1 %exitcond173.not, label %._crit_edge134.us, label %118
 
@@ -509,13 +509,13 @@ define internal fastcc range(i32 0, 2) i32 @remove_child(ptr noundef %0, ptr nou
   br i1 %.not3438, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %39
-  %.02939 = phi ptr [ %17, %39 ], [ %16, %15 ]
-  %17 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02939) #15
-  %18 = load i32, ptr %.02939, align 8
+  %.039 = phi ptr [ %17, %39 ], [ %16, %15 ]
+  %17 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.039) #15
+  %18 = load i32, ptr %.039, align 8
   %19 = and i32 %18, 3
   %20 = icmp eq i32 %19, 2
-  %21 = getelementptr inbounds i8, ptr %.02939, i64 -64
-  %22 = select i1 %20, ptr %.02939, ptr %21
+  %21 = getelementptr inbounds i8, ptr %.039, i64 -64
+  %22 = select i1 %20, ptr %.039, ptr %21
   %23 = getelementptr inbounds i8, ptr %22, i64 56
   %24 = load ptr, ptr %23, align 8
   %.not35 = icmp eq ptr %24, %1
@@ -530,14 +530,14 @@ define internal fastcc range(i32 0, 2) i32 @remove_child(ptr noundef %0, ptr nou
   %28 = load ptr, ptr @stderr, align 8
   %29 = tail call ptr @agnameof(ptr noundef %24) #15
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.7, ptr noundef %29) #16
-  %.pre = load i32, ptr %.02939, align 8
+  %.pre = load i32, ptr %.039, align 8
   %.pre40 = and i32 %.pre, 3
   br label %31
 
 31:                                               ; preds = %27, %25
   %.pre-phi = phi i32 [ %.pre40, %27 ], [ %19, %25 ]
   %32 = icmp eq i32 %.pre-phi, 2
-  %33 = select i1 %32, ptr %.02939, ptr %21
+  %33 = select i1 %32, ptr %.039, ptr %21
   %34 = getelementptr inbounds i8, ptr %33, i64 56
   %35 = load ptr, ptr %34, align 8
   %36 = tail call fastcc i32 @remove_child(ptr noundef %0, ptr noundef %35)
@@ -545,7 +545,7 @@ define internal fastcc range(i32 0, 2) i32 @remove_child(ptr noundef %0, ptr nou
   br i1 %.not37, label %37, label %39
 
 37:                                               ; preds = %31
-  %38 = tail call i32 @agdeledge(ptr noundef %0, ptr noundef nonnull %.02939) #15
+  %38 = tail call i32 @agdeledge(ptr noundef %0, ptr noundef nonnull %.039) #15
   br label %39
 
 39:                                               ; preds = %.lr.ph, %37, %31
@@ -557,8 +557,8 @@ define internal fastcc range(i32 0, 2) i32 @remove_child(ptr noundef %0, ptr nou
   br label %41
 
 41:                                               ; preds = %2, %._crit_edge, %12
-  %.0 = phi i32 [ 0, %12 ], [ 1, %._crit_edge ], [ 0, %2 ]
-  ret i32 %.0
+  %.029 = phi i32 [ 0, %12 ], [ 1, %._crit_edge ], [ 0, %2 ]
+  ret i32 %.029
 }
 
 declare i32 @agdelete(ptr noundef, ptr noundef) local_unnamed_addr #7

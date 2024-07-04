@@ -242,14 +242,14 @@ define internal fastcc i32 @block_cipher_df(ptr noundef %0, ptr nocapture nounde
   br label %29
 
 29:                                               ; preds = %35, %28
-  %.052 = phi ptr [ %4, %28 ], [ %36, %35 ]
+  %.051 = phi ptr [ %4, %28 ], [ %36, %35 ]
   %.0 = phi i64 [ %25, %28 ], [ %37, %35 ]
   %.not63 = icmp eq i64 %.0, 0
   br i1 %.not63, label %39, label %.preheader
 
 .preheader:                                       ; preds = %29, %.preheader
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.preheader ], [ 0, %29 ]
-  %30 = getelementptr inbounds i8, ptr %.052, i64 %indvars.iv75
+  %30 = getelementptr inbounds i8, ptr %.051, i64 %indvars.iv75
   %31 = load i8, ptr %30, align 1
   %32 = getelementptr inbounds [16 x i8], ptr %7, i64 0, i64 %indvars.iv75
   %33 = load i8, ptr %32, align 1
@@ -260,7 +260,7 @@ define internal fastcc i32 @block_cipher_df(ptr noundef %0, ptr nocapture nounde
   br i1 %exitcond78.not, label %35, label %.preheader, !llvm.loop !9
 
 35:                                               ; preds = %.preheader
-  %36 = getelementptr inbounds i8, ptr %.052, i64 16
+  %36 = getelementptr inbounds i8, ptr %.051, i64 16
   %37 = call i64 @llvm.usub.sat.i64(i64 %.0, i64 16)
   %38 = call i32 @mbedtls_aes_crypt_ecb(ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %7) #13
   %.not64 = icmp eq i32 %38, 0
@@ -287,26 +287,26 @@ define internal fastcc i32 @block_cipher_df(ptr noundef %0, ptr nocapture nounde
 
 48:                                               ; preds = %46, %50
   %.172 = phi i32 [ 0, %46 ], [ %52, %50 ]
-  %.15371 = phi ptr [ %0, %46 ], [ %51, %50 ]
+  %.15271 = phi ptr [ %0, %46 ], [ %51, %50 ]
   %49 = call i32 @mbedtls_aes_crypt_ecb(ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %47, ptr noundef nonnull %47) #13
   %.not62 = icmp eq i32 %49, 0
   br i1 %.not62, label %50, label %.loopexit
 
 50:                                               ; preds = %48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.15371, ptr noundef nonnull align 16 dereferenceable(16) %47, i64 16, i1 false)
-  %51 = getelementptr inbounds i8, ptr %.15371, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.15271, ptr noundef nonnull align 16 dereferenceable(16) %47, i64 16, i1 false)
+  %51 = getelementptr inbounds i8, ptr %.15271, i64 16
   %52 = add nuw nsw i32 %.172, 16
   %53 = icmp ult i32 %.172, 32
   br i1 %53, label %48, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %35, %50, %48, %44, %24
-  %.151 = phi i32 [ %26, %24 ], [ %45, %44 ], [ 0, %50 ], [ %49, %48 ], [ %38, %35 ]
+  %.150 = phi i32 [ %26, %24 ], [ %45, %44 ], [ 0, %50 ], [ %49, %48 ], [ %38, %35 ]
   call void @mbedtls_aes_free(ptr noundef nonnull %8) #13
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 416) #13
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 48) #13
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef 32) #13
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 16) #13
-  %.not65 = icmp eq i32 %.151, 0
+  %.not65 = icmp eq i32 %.150, 0
   br i1 %.not65, label %55, label %54
 
 54:                                               ; preds = %.loopexit
@@ -314,8 +314,8 @@ define internal fastcc i32 @block_cipher_df(ptr noundef %0, ptr nocapture nounde
   br label %55
 
 55:                                               ; preds = %.loopexit, %54, %3
-  %.046 = phi i32 [ -56, %3 ], [ %.151, %54 ], [ 0, %.loopexit ]
-  ret i32 %.046
+  %.053 = phi i32 [ -56, %3 ], [ %.150, %54 ], [ 0, %.loopexit ]
+  ret i32 %.053
 }
 
 ; Function Attrs: nounwind uwtable
@@ -630,7 +630,7 @@ ctr_drbg_update_internal.exit:                    ; preds = %45
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %56
   %.03480 = phi ptr [ %1, %.preheader.lr.ph ], [ %58, %56 ]
-  %.03579 = phi i64 [ %2, %.preheader.lr.ph ], [ %59, %56 ]
+  %.03779 = phi i64 [ %2, %.preheader.lr.ph ], [ %59, %56 ]
   br label %49
 
 49:                                               ; preds = %.preheader, %50
@@ -653,10 +653,10 @@ ctr_drbg_update_internal.exit:                    ; preds = %45
   br i1 %.not52, label %56, label %.loopexit
 
 56:                                               ; preds = %54
-  %57 = call i64 @llvm.umin.i64(i64 %.03579, i64 16)
+  %57 = call i64 @llvm.umin.i64(i64 %.03779, i64 16)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03480, ptr nonnull align 16 %9, i64 %57, i1 false)
   %58 = getelementptr inbounds i8, ptr %.03480, i64 %57
-  %59 = sub i64 %.03579, %57
+  %59 = sub i64 %.03779, %57
   %.not49 = icmp eq i64 %59, 0
   br i1 %.not49, label %._crit_edge, label %.preheader, !llvm.loop !14
 
@@ -730,13 +730,13 @@ ctr_drbg_update_internal.exit67.thread:           ; preds = %66, %77
   br label %.loopexit
 
 .loopexit:                                        ; preds = %54, %ctr_drbg_update_internal.exit67.thread, %ctr_drbg_update_internal.exit.thread, %25, %79
-  %.036 = phi i32 [ %26, %25 ], [ 0, %79 ], [ %.0.i.ph, %ctr_drbg_update_internal.exit.thread ], [ %.0.i61.ph, %ctr_drbg_update_internal.exit67.thread ], [ %55, %54 ]
+  %.035 = phi i32 [ %26, %25 ], [ 0, %79 ], [ %.0.i.ph, %ctr_drbg_update_internal.exit.thread ], [ %.0.i61.ph, %ctr_drbg_update_internal.exit67.thread ], [ %55, %54 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %8, i64 noundef 48) #13
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16) #13
   br label %83
 
 83:                                               ; preds = %22, %11, %5, %.loopexit
-  %.0 = phi i32 [ %.036, %.loopexit ], [ -54, %5 ], [ -56, %11 ], [ %23, %22 ]
+  %.0 = phi i32 [ %.035, %.loopexit ], [ -54, %5 ], [ -56, %11 ], [ %23, %22 ]
   ret i32 %.0
 }
 

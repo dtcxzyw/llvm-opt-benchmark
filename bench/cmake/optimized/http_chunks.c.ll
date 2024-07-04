@@ -128,8 +128,8 @@ define internal fastcc i32 @httpchunk_readwrite(ptr noundef %0, ptr noundef %1, 
   br label %24
 
 24:                                               ; preds = %22, %20
-  %.0148 = phi i32 [ %21, %20 ], [ %23, %22 ]
-  %.not170 = icmp eq i32 %.0148, 0
+  %.0147 = phi i32 [ %21, %20 ], [ %23, %22 ]
+  %.not170 = icmp eq i32 %.0147, 0
   br i1 %.not170, label %27, label %25
 
 25:                                               ; preds = %24
@@ -152,8 +152,8 @@ define internal fastcc i32 @httpchunk_readwrite(ptr noundef %0, ptr noundef %1, 
   br label %33
 
 33:                                               ; preds = %.lr.ph, %154
-  %.0149220 = phi ptr [ %3, %.lr.ph ], [ %.2151, %154 ]
-  %.0152219 = phi i64 [ %4, %.lr.ph ], [ %.2154, %154 ]
+  %.0149221 = phi i64 [ %4, %.lr.ph ], [ %.2151, %154 ]
+  %.0152219 = phi ptr [ %3, %.lr.ph ], [ %.2154, %154 ]
   %34 = load i32, ptr %8, align 8
   switch i32 %34, label %154 [
     i32 0, label %35
@@ -169,7 +169,7 @@ define internal fastcc i32 @httpchunk_readwrite(ptr noundef %0, ptr noundef %1, 
   ]
 
 35:                                               ; preds = %33
-  %36 = load i8, ptr %.0149220, align 1
+  %36 = load i8, ptr %.0152219, align 1
   %.fr223 = freeze i8 %36
   %37 = add i8 %.fr223, -48
   %or.cond = icmp ult i8 %37, 10
@@ -208,8 +208,8 @@ switch.early.test:                                ; preds = %35
   %44 = zext nneg i8 %39 to i64
   %45 = getelementptr inbounds [17 x i8], ptr %32, i64 0, i64 %44
   store i8 %.fr223, ptr %45, align 1
-  %46 = getelementptr inbounds i8, ptr %.0149220, i64 1
-  %47 = add i64 %.0152219, -1
+  %46 = getelementptr inbounds i8, ptr %.0152219, i64 1
+  %47 = add i64 %.0149221, -1
   br label %154
 
 48:                                               ; preds = %switch.early.test
@@ -243,7 +243,7 @@ switch.early.test:                                ; preds = %35
   br label %154
 
 59:                                               ; preds = %33
-  %60 = load i8, ptr %.0149220, align 1
+  %60 = load i8, ptr %.0152219, align 1
   %61 = icmp eq i8 %60, 10
   br i1 %61, label %.sink.split, label %64
 
@@ -255,13 +255,13 @@ switch.early.test:                                ; preds = %35
   br label %64
 
 64:                                               ; preds = %.sink.split, %59
-  %65 = getelementptr inbounds i8, ptr %.0149220, i64 1
-  %66 = add i64 %.0152219, -1
+  %65 = getelementptr inbounds i8, ptr %.0152219, i64 1
+  %66 = add i64 %.0149221, -1
   br label %154
 
 67:                                               ; preds = %33
   %68 = load i64, ptr %1, align 8
-  %69 = icmp slt i64 %68, %.0152219
+  %69 = icmp slt i64 %68, %.0149221
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %67
@@ -269,7 +269,7 @@ switch.early.test:                                ; preds = %35
   br label %72
 
 72:                                               ; preds = %70, %67
-  %.0147 = phi i64 [ %71, %70 ], [ %.0152219, %67 ]
+  %.0 = phi i64 [ %71, %70 ], [ %.0149221, %67 ]
   %73 = load i64, ptr %12, align 2
   %74 = and i64 %73, 34359738368
   %.not181 = icmp eq i64 %74, 0
@@ -285,11 +285,11 @@ switch.early.test:                                ; preds = %35
   br i1 %.not178, label %81, label %79
 
 79:                                               ; preds = %78
-  %80 = call i32 @Curl_cwriter_write(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %.0149220, i64 noundef %.0147) #3
+  %80 = call i32 @Curl_cwriter_write(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %.0152219, i64 noundef %.0) #3
   br label %83
 
 81:                                               ; preds = %78
-  %82 = call i32 @Curl_client_write(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %.0149220, i64 noundef %.0147) #3
+  %82 = call i32 @Curl_client_write(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %.0152219, i64 noundef %.0) #3
   br label %83
 
 83:                                               ; preds = %81, %79
@@ -304,14 +304,14 @@ switch.early.test:                                ; preds = %35
 
 85:                                               ; preds = %83, %75, %72
   %86 = load i64, ptr %5, align 8
-  %87 = add i64 %86, %.0147
+  %87 = add i64 %86, %.0
   store i64 %87, ptr %5, align 8
   %88 = load i64, ptr %1, align 8
-  %89 = sub i64 %88, %.0147
+  %89 = sub i64 %88, %.0
   store i64 %89, ptr %1, align 8
-  %90 = getelementptr inbounds i8, ptr %.0149220, i64 %.0147
-  %91 = sub i64 %.0152219, %.0147
-  %92 = icmp eq i64 %88, %.0147
+  %90 = getelementptr inbounds i8, ptr %.0152219, i64 %.0
+  %91 = sub i64 %.0149221, %.0
+  %92 = icmp eq i64 %88, %.0
   br i1 %92, label %93, label %154
 
 93:                                               ; preds = %85
@@ -319,7 +319,7 @@ switch.early.test:                                ; preds = %35
   br label %154
 
 94:                                               ; preds = %33
-  %95 = load i8, ptr %.0149220, align 1
+  %95 = load i8, ptr %.0152219, align 1
   switch i8 %95, label %102 [
     i8 10, label %96
     i8 13, label %103
@@ -344,12 +344,12 @@ switch.early.test:                                ; preds = %35
   br label %.loopexit
 
 103:                                              ; preds = %94, %96
-  %104 = getelementptr inbounds i8, ptr %.0149220, i64 1
-  %105 = add i64 %.0152219, -1
+  %104 = getelementptr inbounds i8, ptr %.0152219, i64 1
+  %105 = add i64 %.0149221, -1
   br label %154
 
 106:                                              ; preds = %33
-  %107 = load i8, ptr %.0149220, align 1
+  %107 = load i8, ptr %.0152219, align 1
   switch i8 %107, label %129 [
     i8 13, label %108
     i8 10, label %108
@@ -402,7 +402,7 @@ switch.early.test:                                ; preds = %35
 125:                                              ; preds = %123, %113
   call void @Curl_dyn_reset(ptr noundef nonnull %28) #3
   store i32 6, ptr %8, align 8
-  %126 = load i8, ptr %.0149220, align 1
+  %126 = load i8, ptr %.0152219, align 1
   %127 = icmp eq i8 %126, 10
   br i1 %127, label %154, label %132
 
@@ -411,7 +411,7 @@ switch.early.test:                                ; preds = %35
   br label %154
 
 129:                                              ; preds = %106
-  %130 = call i32 @Curl_dyn_addn(ptr noundef nonnull %28, ptr noundef nonnull %.0149220, i64 noundef 1) #3
+  %130 = call i32 @Curl_dyn_addn(ptr noundef nonnull %28, ptr noundef nonnull %.0152219, i64 noundef 1) #3
   %.not174 = icmp eq i32 %130, 0
   br i1 %.not174, label %132, label %131
 
@@ -421,19 +421,19 @@ switch.early.test:                                ; preds = %35
   br label %.loopexit
 
 132:                                              ; preds = %129, %125
-  %133 = getelementptr inbounds i8, ptr %.0149220, i64 1
-  %134 = add i64 %.0152219, -1
+  %133 = getelementptr inbounds i8, ptr %.0152219, i64 1
+  %134 = add i64 %.0149221, -1
   br label %154
 
 135:                                              ; preds = %33
-  %136 = load i8, ptr %.0149220, align 1
+  %136 = load i8, ptr %.0152219, align 1
   %137 = icmp eq i8 %136, 10
   br i1 %137, label %138, label %141
 
 138:                                              ; preds = %135
   store i32 7, ptr %8, align 8
-  %139 = getelementptr inbounds i8, ptr %.0149220, i64 1
-  %140 = add i64 %.0152219, -1
+  %139 = getelementptr inbounds i8, ptr %.0152219, i64 1
+  %140 = add i64 %.0149221, -1
   br label %154
 
 141:                                              ; preds = %135
@@ -442,7 +442,7 @@ switch.early.test:                                ; preds = %35
   br label %.loopexit
 
 142:                                              ; preds = %33
-  %143 = load i8, ptr %.0149220, align 1
+  %143 = load i8, ptr %.0152219, align 1
   switch i8 %143, label %144 [
     i8 13, label %145
     i8 10, label %145
@@ -454,20 +454,20 @@ switch.early.test:                                ; preds = %35
 
 145:                                              ; preds = %142, %142
   %146 = icmp eq i8 %143, 13
+  %.1153.idx = zext i1 %146 to i64
+  %.1153 = getelementptr inbounds i8, ptr %.0152219, i64 %.1153.idx
   %147 = sext i1 %146 to i64
-  %.1153 = add i64 %.0152219, %147
-  %.1150.idx = zext i1 %146 to i64
-  %.1150 = getelementptr inbounds i8, ptr %.0149220, i64 %.1150.idx
+  %.1150 = add i64 %.0149221, %147
   store i32 4, ptr %8, align 8
   br label %154
 
 148:                                              ; preds = %33
-  %149 = load i8, ptr %.0149220, align 1
+  %149 = load i8, ptr %.0152219, align 1
   %150 = icmp eq i8 %149, 10
   br i1 %150, label %151, label %153
 
 151:                                              ; preds = %148
-  %152 = add i64 %.0152219, -1
+  %152 = add i64 %.0149221, -1
   store i64 %152, ptr %1, align 8
   store i32 8, ptr %8, align 8
   br label %.loopexit
@@ -478,17 +478,17 @@ switch.early.test:                                ; preds = %35
   br label %.loopexit
 
 154:                                              ; preds = %125, %85, %93, %42, %58, %145, %144, %138, %132, %128, %103, %64, %33
-  %.2154 = phi i64 [ %.0152219, %33 ], [ %.0152219, %144 ], [ %.1153, %145 ], [ %140, %138 ], [ %.0152219, %125 ], [ %134, %132 ], [ %.0152219, %128 ], [ %105, %103 ], [ %91, %93 ], [ %91, %85 ], [ %66, %64 ], [ %47, %42 ], [ %.0152219, %58 ]
-  %.2151 = phi ptr [ %.0149220, %33 ], [ %.0149220, %144 ], [ %.1150, %145 ], [ %139, %138 ], [ %.0149220, %125 ], [ %133, %132 ], [ %.0149220, %128 ], [ %104, %103 ], [ %90, %93 ], [ %90, %85 ], [ %65, %64 ], [ %46, %42 ], [ %.0149220, %58 ]
-  %.not171 = icmp eq i64 %.2154, 0
+  %.2154 = phi ptr [ %.0152219, %33 ], [ %.0152219, %144 ], [ %.1153, %145 ], [ %139, %138 ], [ %.0152219, %125 ], [ %133, %132 ], [ %.0152219, %128 ], [ %104, %103 ], [ %90, %93 ], [ %90, %85 ], [ %65, %64 ], [ %46, %42 ], [ %.0152219, %58 ]
+  %.2151 = phi i64 [ %.0149221, %33 ], [ %.0149221, %144 ], [ %.1150, %145 ], [ %140, %138 ], [ %.0149221, %125 ], [ %134, %132 ], [ %.0149221, %128 ], [ %105, %103 ], [ %91, %93 ], [ %91, %85 ], [ %66, %64 ], [ %47, %42 ], [ %.0149221, %58 ]
+  %.not171 = icmp eq i64 %.2151, 0
   br i1 %.not171, label %.loopexit.loopexit, label %33, !llvm.loop !5
 
 .loopexit.loopexit:                               ; preds = %154, %33
   br label %.loopexit
 
 .loopexit:                                        ; preds = %33, %.loopexit.loopexit, %27, %6, %153, %151, %141, %131, %124, %112, %102, %84, %57, %51, %41, %25, %10
-  %.0 = phi i32 [ 56, %10 ], [ 0, %151 ], [ 56, %153 ], [ 56, %141 ], [ %111, %112 ], [ %.2, %124 ], [ %130, %131 ], [ 56, %102 ], [ %.1, %84 ], [ 56, %41 ], [ 56, %51 ], [ 56, %57 ], [ %.0148, %25 ], [ 0, %6 ], [ 0, %27 ], [ 0, %.loopexit.loopexit ], [ 56, %33 ]
-  ret i32 %.0
+  %.0148 = phi i32 [ 56, %10 ], [ 0, %151 ], [ 56, %153 ], [ 56, %141 ], [ %111, %112 ], [ %.2, %124 ], [ %130, %131 ], [ 56, %102 ], [ %.1, %84 ], [ 56, %41 ], [ 56, %51 ], [ 56, %57 ], [ %.0147, %25 ], [ 0, %6 ], [ 0, %27 ], [ 0, %.loopexit.loopexit ], [ 56, %33 ]
+  ret i32 %.0148
 }
 
 ; Function Attrs: nounwind uwtable

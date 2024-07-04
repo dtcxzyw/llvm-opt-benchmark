@@ -255,8 +255,8 @@ for.inc:                                          ; preds = %if.end15, %if.end43
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !6
 
 err:                                              ; preds = %if.else, %if.then8, %crldp_from_section.exit.thread, %if.then42, %if.then35, %if.then31, %if.then25, %if.then
-  %gen.2 = phi ptr [ null, %if.then ], [ %call19, %if.then25 ], [ null, %if.then35 ], [ null, %if.then42 ], [ %call19, %if.then31 ], [ null, %crldp_from_section.exit.thread ], [ null, %if.then8 ], [ null, %if.else ]
   %gens.2 = phi ptr [ null, %if.then ], [ null, %if.then25 ], [ %call23, %if.then35 ], [ %call23, %if.then42 ], [ %call23, %if.then31 ], [ null, %crldp_from_section.exit.thread ], [ null, %if.then8 ], [ null, %if.else ]
+  %gen.2 = phi ptr [ null, %if.then ], [ %call19, %if.then25 ], [ null, %if.then35 ], [ null, %if.then42 ], [ %call19, %if.then31 ], [ null, %crldp_from_section.exit.thread ], [ null, %if.then8 ], [ null, %if.else ]
   tail call void @GENERAL_NAME_free(ptr noundef %gen.2) #4
   tail call void @GENERAL_NAMES_free(ptr noundef %gens.2) #4
   tail call void @OPENSSL_sk_pop_free(ptr noundef %call3, ptr noundef nonnull @DIST_POINT_free) #4
@@ -965,8 +965,8 @@ if.end23:                                         ; preds = %lor.lhs.false
   br i1 %tobool28.not, label %if.end33, label %err.sink.split
 
 if.end33:                                         ; preds = %if.end23, %if.then
-  %rnm.0 = phi ptr [ null, %if.then ], [ %3, %if.end23 ]
   %fnm.0 = phi ptr [ %call1, %if.then ], [ null, %if.end23 ]
+  %rnm.0 = phi ptr [ null, %if.then ], [ %3, %if.end23 ]
   %5 = load ptr, ptr %pdp, align 8
   %tobool34.not = icmp eq ptr %5, null
   br i1 %tobool34.not, label %if.end36, label %err.sink.split
@@ -998,16 +998,16 @@ if.else44:                                        ; preds = %if.end40
 err.sink.split:                                   ; preds = %if.end33, %if.end23
   %.sink26 = phi i32 [ 102, %if.end23 ], [ 109, %if.end33 ]
   %.sink = phi i32 [ 161, %if.end23 ], [ 160, %if.end33 ]
-  %rnm.1.ph = phi ptr [ %3, %if.end23 ], [ %rnm.0, %if.end33 ]
   %fnm.1.ph = phi ptr [ null, %if.end23 ], [ %fnm.0, %if.end33 ]
+  %rnm.1.ph = phi ptr [ %3, %if.end23 ], [ %rnm.0, %if.end33 ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.4, i32 noundef %.sink26, ptr noundef nonnull @__func__.set_dist_point_name) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef %.sink, ptr noundef null) #4
   br label %err
 
 err:                                              ; preds = %err.sink.split, %if.end36, %if.end15, %lor.lhs.false, %if.then
-  %rnm.1 = phi ptr [ %rnm.0, %if.end36 ], [ null, %if.then ], [ %3, %lor.lhs.false ], [ %3, %if.end15 ], [ %rnm.1.ph, %err.sink.split ]
   %fnm.1 = phi ptr [ %fnm.0, %if.end36 ], [ null, %if.then ], [ null, %lor.lhs.false ], [ null, %if.end15 ], [ %fnm.1.ph, %err.sink.split ]
+  %rnm.1 = phi ptr [ %rnm.0, %if.end36 ], [ null, %if.then ], [ %3, %lor.lhs.false ], [ %3, %if.end15 ], [ %rnm.1.ph, %err.sink.split ]
   tail call void @OPENSSL_sk_pop_free(ptr noundef %fnm.1, ptr noundef nonnull @GENERAL_NAME_free) #4
   tail call void @OPENSSL_sk_pop_free(ptr noundef %rnm.1, ptr noundef nonnull @X509_NAME_ENTRY_free) #4
   br label %return

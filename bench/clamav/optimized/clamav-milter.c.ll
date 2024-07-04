@@ -243,7 +243,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %64
 
 64:                                               ; preds = %61, %57
-  %.078 = phi ptr [ %63, %61 ], [ null, %57 ]
+  %.084 = phi ptr [ %63, %61 ], [ null, %57 ]
   %65 = load ptr, ptr @opts, align 8
   %66 = tail call ptr @optget(ptr noundef %65, ptr noundef nonnull @.str.19) #13
   %67 = getelementptr inbounds i8, ptr %66, i64 32
@@ -449,8 +449,8 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %173
 
 173:                                              ; preds = %170, %156
-  %.083 = phi i32 [ %172, %170 ], [ %162, %156 ]
-  %174 = call i32 @chown(ptr noundef nonnull %.282, i32 noundef -1, i32 noundef %.083) #13
+  %.078 = phi i32 [ %172, %170 ], [ %162, %156 ]
+  %174 = call i32 @chown(ptr noundef nonnull %.282, i32 noundef -1, i32 noundef %.078) #13
   %.not115 = icmp eq i32 %174, 0
   br i1 %.not115, label %178, label %175
 
@@ -462,16 +462,16 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %437
 
 178:                                              ; preds = %173, %147
-  %.not116 = icmp eq ptr %.078, null
+  %.not116 = icmp eq ptr %.084, null
   br i1 %.not116, label %193, label %179
 
 179:                                              ; preds = %178
-  %180 = call ptr @getpwnam(ptr noundef nonnull %.078)
+  %180 = call ptr @getpwnam(ptr noundef nonnull %.084)
   %181 = icmp eq ptr %180, null
   br i1 %181, label %182, label %185
 
 182:                                              ; preds = %179
-  %183 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.41, ptr noundef nonnull %.078) #13
+  %183 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.41, ptr noundef nonnull %.084) #13
   call void @logg_close() #13
   %184 = load ptr, ptr @opts, align 8
   call void @optfree(ptr noundef %184) #13
@@ -528,8 +528,8 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %216
 
 216:                                              ; preds = %198, %214
-  %.084 = phi i32 [ %204, %198 ], [ %215, %214 ]
-  %217 = and i32 %.084, 438
+  %.079 = phi i32 [ %204, %198 ], [ %215, %214 ]
+  %217 = and i32 %.079, 438
   %218 = call i32 @chmod(ptr noundef nonnull %.282, i32 noundef %217) #13
   %.not120 = icmp eq i32 %218, 0
   br i1 %.not120, label %226, label %219
@@ -758,7 +758,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 344:                                              ; preds = %335
   %345 = load ptr, ptr @logg_file, align 8
-  %346 = call i32 @daemonize_parent_wait(ptr noundef %.078, ptr noundef %345) #13
+  %346 = call i32 @daemonize_parent_wait(ptr noundef %.084, ptr noundef %345) #13
   %347 = icmp eq i32 %346, -1
   br i1 %347, label %348, label %351
 
@@ -901,7 +901,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 427:                                              ; preds = %412, %.critedge155, %385
   %428 = load ptr, ptr @logg_file, align 8
-  %429 = call i32 @drop_privileges(ptr noundef %.078, ptr noundef %428) #13
+  %429 = call i32 @drop_privileges(ptr noundef %.084, ptr noundef %428) #13
   %.not141 = icmp eq i32 %429, 0
   br i1 %.not141, label %432, label %430
 

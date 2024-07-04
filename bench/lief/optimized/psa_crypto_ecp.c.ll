@@ -36,17 +36,17 @@ define hidden i32 @mbedtls_psa_ecp_load_representation(i16 noundef zeroext %0, i
   br label %18
 
 18:                                               ; preds = %16, %9, %5
-  %.041 = phi i64 [ %17, %16 ], [ %3, %9 ], [ %3, %5 ]
+  %.0 = phi i64 [ %17, %16 ], [ %3, %9 ], [ %3, %5 ]
   br i1 %.not, label %22, label %19
 
 19:                                               ; preds = %18
   %20 = add i64 %1, 7
   %21 = lshr i64 %20, 3
-  %.not55 = icmp eq i64 %.041, %21
+  %.not55 = icmp eq i64 %.0, %21
   br i1 %.not55, label %24, label %52
 
 22:                                               ; preds = %18
-  %23 = shl i64 %.041, 3
+  %23 = shl i64 %.0, 3
   br label %24
 
 24:                                               ; preds = %19, %22
@@ -106,8 +106,8 @@ define hidden i32 @mbedtls_psa_ecp_load_representation(i16 noundef zeroext %0, i
   br label %52
 
 52:                                               ; preds = %50, %51, %24, %19, %13
-  %.0 = phi i32 [ -135, %13 ], [ -135, %19 ], [ -141, %24 ], [ %.1.ph, %51 ], [ 0, %50 ]
-  ret i32 %.0
+  %.042 = phi i32 [ -135, %13 ], [ -135, %19 ], [ -141, %24 ], [ %.1.ph, %51 ], [ 0, %50 ]
+  ret i32 %.042
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
@@ -502,17 +502,17 @@ define hidden i32 @mbedtls_psa_ecdsa_verify_hash(ptr nocapture noundef readonly 
   br label %39
 
 39:                                               ; preds = %17, %32, %26, %24, %37
-  %.016 = phi i32 [ %25, %24 ], [ %28, %26 ], [ %36, %32 ], [ %38, %37 ], [ -19968, %17 ]
+  %.0 = phi i32 [ %25, %24 ], [ %28, %26 ], [ %36, %32 ], [ %38, %37 ], [ -19968, %17 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %10) #6
   call void @mbedtls_mpi_free(ptr noundef nonnull %11) #6
   call void @mbedtls_ecp_keypair_free(ptr noundef nonnull %18) #6
   call void @free(ptr noundef nonnull %18) #6
-  %40 = call i32 @mbedtls_to_psa_error(i32 noundef %.016) #6
+  %40 = call i32 @mbedtls_to_psa_error(i32 noundef %.0) #6
   br label %41
 
 41:                                               ; preds = %8, %39
-  %.0 = phi i32 [ %40, %39 ], [ %16, %8 ]
-  ret i32 %.0
+  %.016 = phi i32 [ %40, %39 ], [ %16, %8 ]
+  ret i32 %.016
 }
 
 declare i32 @mbedtls_mpi_read_binary(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2

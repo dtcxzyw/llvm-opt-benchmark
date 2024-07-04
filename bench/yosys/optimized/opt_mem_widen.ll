@@ -334,8 +334,8 @@ _ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit: ; preds = %._crit_edge411,
 
 62:                                               ; preds = %.lr.ph410, %_ZNSt6vectorIN5Yosys3MemESaIS1_EED2Ev.exit
   %.071409 = phi i32 [ 0, %.lr.ph410 ], [ %.172.lcssa431, %_ZNSt6vectorIN5Yosys3MemESaIS1_EED2Ev.exit ]
-  %.sroa.0251.0408 = phi ptr [ %22, %.lr.ph410 ], [ %71, %_ZNSt6vectorIN5Yosys3MemESaIS1_EED2Ev.exit ]
-  %63 = load ptr, ptr %.sroa.0251.0408, align 8
+  %.sroa.0251.0405 = phi ptr [ %22, %.lr.ph410 ], [ %71, %_ZNSt6vectorIN5Yosys3MemESaIS1_EED2Ev.exit ]
+  %63 = load ptr, ptr %.sroa.0251.0405, align 8
   invoke void @_ZN5Yosys3Mem21get_selected_memoriesEPNS_5RTLIL6ModuleE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.56") align 8 %6, ptr noundef %63)
           to label %64 unwind label %72
 
@@ -377,7 +377,7 @@ _ZSt8_DestroyIPN5Yosys3MemES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %64, %_ZSt8_Dest
   br label %_ZNSt6vectorIN5Yosys3MemESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5Yosys3MemESaIS1_EED2Ev.exit:       ; preds = %_ZSt8_DestroyIPN5Yosys3MemES1_EvT_S3_RSaIT0_E.exit.i, %70
-  %71 = getelementptr inbounds i8, ptr %.sroa.0251.0408, i64 8
+  %71 = getelementptr inbounds i8, ptr %.sroa.0251.0405, i64 8
   %.not259 = icmp eq ptr %71, %24
   br i1 %.not259, label %._crit_edge411.loopexit, label %62
 
@@ -388,10 +388,10 @@ _ZNSt6vectorIN5Yosys3MemESaIS1_EED2Ev.exit:       ; preds = %_ZSt8_DestroyIPN5Yo
 
 74:                                               ; preds = %.lr.ph398, %_ZN5Yosys5RTLIL5ConstD2Ev.exit141
   %.172396 = phi i32 [ %.071409, %.lr.ph398 ], [ %.273, %_ZN5Yosys5RTLIL5ConstD2Ev.exit141 ]
-  %.sroa.0247.0394 = phi ptr [ %65, %.lr.ph398 ], [ %373, %_ZN5Yosys5RTLIL5ConstD2Ev.exit141 ]
-  %75 = getelementptr inbounds i8, ptr %.sroa.0247.0394, i64 128
+  %.sroa.0247.0391 = phi ptr [ %65, %.lr.ph398 ], [ %373, %_ZN5Yosys5RTLIL5ConstD2Ev.exit141 ]
+  %75 = getelementptr inbounds i8, ptr %.sroa.0247.0391, i64 128
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %.sroa.0247.0394, i64 136
+  %77 = getelementptr inbounds i8, ptr %.sroa.0247.0391, i64 136
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %76, %78
   br i1 %79, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit141, label %80
@@ -412,9 +412,9 @@ _ZNSt6vectorIN5Yosys3MemESaIS1_EED2Ev.exit:       ; preds = %_ZSt8_DestroyIPN5Yo
   br i1 %.not261, label %87, label %83
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds i8, ptr %.sroa.0247.0394, i64 152
+  %88 = getelementptr inbounds i8, ptr %.sroa.0247.0391, i64 152
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %.sroa.0247.0394, i64 160
+  %90 = getelementptr inbounds i8, ptr %.sroa.0247.0391, i64 160
   %91 = load ptr, ptr %90, align 8
   %.not262378 = icmp eq ptr %89, %91
   br i1 %.not262378, label %._crit_edge, label %.lr.ph
@@ -435,7 +435,7 @@ _ZNSt6vectorIN5Yosys3MemESaIS1_EED2Ev.exit:       ; preds = %_ZSt8_DestroyIPN5Yo
   br i1 %95, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit141, label %96
 
 96:                                               ; preds = %._crit_edge
-  %97 = getelementptr inbounds i8, ptr %.sroa.0247.0394, i64 64
+  %97 = getelementptr inbounds i8, ptr %.sroa.0247.0391, i64 64
   %98 = invoke noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4) %97)
           to label %99 unwind label %125
 
@@ -450,15 +450,15 @@ _ZNSt6vectorIN5Yosys3MemESaIS1_EED2Ev.exit:       ; preds = %_ZSt8_DestroyIPN5Yo
 
 103:                                              ; preds = %101
   %104 = add nsw i32 %.172396, 1
-  %105 = getelementptr inbounds i8, ptr %.sroa.0247.0394, i64 104
+  %105 = getelementptr inbounds i8, ptr %.sroa.0247.0391, i64 104
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %.sroa.0247.0394, i64 112
+  %107 = getelementptr inbounds i8, ptr %.sroa.0247.0391, i64 112
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %106, %108
   br i1 %109, label %130, label %110
 
 110:                                              ; preds = %103
-  invoke void @_ZNK5Yosys3Mem13get_init_dataEv(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::RTLIL::Const") align 8 %7, ptr noundef nonnull align 8 dereferenceable(176) %.sroa.0247.0394)
+  invoke void @_ZNK5Yosys3Mem13get_init_dataEv(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::RTLIL::Const") align 8 %7, ptr noundef nonnull align 8 dereferenceable(176) %.sroa.0247.0391)
           to label %111 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 111:                                              ; preds = %110
@@ -501,7 +501,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; 
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %122, %124
-  invoke void @_ZN5Yosys3Mem11clear_initsEv(ptr noundef nonnull align 8 dereferenceable(176) %.sroa.0247.0394)
+  invoke void @_ZN5Yosys3Mem11clear_initsEv(ptr noundef nonnull align 8 dereferenceable(176) %.sroa.0247.0391)
           to label %130 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 125:                                              ; preds = %101, %99, %96
@@ -550,15 +550,15 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit:                   ; preds = %122, %124
   %.sroa.3.4 = phi ptr [ null, %103 ], [ %.sroa.3.2, %_ZN5Yosys5RTLIL5ConstD2Ev.exit ]
   %.sroa.12.2 = phi ptr [ null, %103 ], [ %123, %_ZN5Yosys5RTLIL5ConstD2Ev.exit ]
   %.sroa.0232.0 = phi i32 [ 0, %103 ], [ %112, %_ZN5Yosys5RTLIL5ConstD2Ev.exit ]
-  %131 = getelementptr inbounds i8, ptr %.sroa.0247.0394, i64 88
+  %131 = getelementptr inbounds i8, ptr %.sroa.0247.0391, i64 88
   %132 = load i32, ptr %131, align 8
   %133 = shl i32 %132, %.276.lcssa
   store i32 %133, ptr %131, align 8
-  %134 = getelementptr inbounds i8, ptr %.sroa.0247.0394, i64 96
+  %134 = getelementptr inbounds i8, ptr %.sroa.0247.0391, i64 96
   %135 = load i32, ptr %134, align 8
   %136 = ashr i32 %135, %.276.lcssa
   store i32 %136, ptr %134, align 8
-  %137 = getelementptr inbounds i8, ptr %.sroa.0247.0394, i64 92
+  %137 = getelementptr inbounds i8, ptr %.sroa.0247.0391, i64 92
   %138 = load i32, ptr %137, align 4
   %139 = ashr i32 %138, %.276.lcssa
   store i32 %139, ptr %137, align 4
@@ -899,7 +899,7 @@ _ZSt4copyIPN5Yosys5RTLIL5StateES3_ET0_T_S5_S4_.exit.i206: ; preds = %243, %242
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit105:                ; preds = %252, %256
   %257 = load ptr, ptr %107, align 8
-  %258 = getelementptr inbounds i8, ptr %.sroa.0247.0394, i64 120
+  %258 = getelementptr inbounds i8, ptr %.sroa.0247.0391, i64 120
   %259 = load ptr, ptr %258, align 8
   %.not.i = icmp eq ptr %257, %259
   br i1 %.not.i, label %263, label %260
@@ -1314,7 +1314,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit139:              ; preds = %_ZSt8_DestroyIPN5Yo
   br i1 %.not265, label %._crit_edge389, label %.lr.ph388
 
 ._crit_edge389:                                   ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit139, %._crit_edge384
-  invoke void @_ZN5Yosys3Mem4emitEv(ptr noundef nonnull align 8 dereferenceable(176) %.sroa.0247.0394)
+  invoke void @_ZN5Yosys3Mem4emitEv(ptr noundef nonnull align 8 dereferenceable(176) %.sroa.0247.0391)
           to label %371 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 371:                                              ; preds = %._crit_edge389
@@ -1327,7 +1327,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit139:              ; preds = %_ZSt8_DestroyIPN5Yo
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit141:                ; preds = %372, %371, %._crit_edge, %74
   %.273 = phi i32 [ %.172396, %74 ], [ %.172396, %._crit_edge ], [ %104, %371 ], [ %104, %372 ]
-  %373 = getelementptr inbounds i8, ptr %.sroa.0247.0394, i64 176
+  %373 = getelementptr inbounds i8, ptr %.sroa.0247.0391, i64 176
   %.not260 = icmp eq ptr %373, %66
   br i1 %.not260, label %._crit_edge399, label %74
 

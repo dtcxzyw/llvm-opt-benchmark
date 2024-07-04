@@ -388,16 +388,16 @@ define i32 @cli_determine_fmap_type(ptr noundef %0, ptr noundef readonly %1, i32
   br label %17
 
 17:                                               ; preds = %16, %15
-  %.0146.in = phi i64 [ %spec.select, %15 ], [ %spec.select202, %16 ]
-  %.0146 = trunc nuw nsw i64 %.0146.in to i32
+  %.0167.in = phi i64 [ %spec.select, %15 ], [ %spec.select202, %16 ]
+  %.0167 = trunc nuw nsw i64 %.0167.in to i32
   %18 = getelementptr inbounds i8, ptr %0, i64 104
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call ptr %19(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %.0146.in, i32 noundef 0) #10
+  %20 = tail call ptr %19(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %.0167.in, i32 noundef 0) #10
   %.not190 = icmp eq ptr %20, null
   br i1 %.not190, label %cli_compare_ftm_partition.exit.thread, label %21
 
 21:                                               ; preds = %17
-  %22 = call i32 @cli_memcpy(ptr noundef nonnull %4, ptr noundef nonnull %20, i64 noundef %.0146.in) #10
+  %22 = call i32 @cli_memcpy(ptr noundef nonnull %4, ptr noundef nonnull %20, i64 noundef %.0167.in) #10
   %.not191 = icmp eq i32 %22, 0
   br i1 %.not191, label %24, label %23
 
@@ -423,7 +423,7 @@ define i32 @cli_determine_fmap_type(ptr noundef %0, ptr noundef readonly %1, i32
   %31 = zext i16 %30 to i32
   %32 = add i32 %28, %31
   %33 = zext i32 %32 to i64
-  %.not13.i = icmp ult i64 %.0146.in, %33
+  %.not13.i = icmp ult i64 %.0167.in, %33
   br i1 %.not13.i, label %44, label %34
 
 34:                                               ; preds = %.lr.ph.i
@@ -468,7 +468,7 @@ define i32 @cli_determine_fmap_type(ptr noundef %0, ptr noundef readonly %1, i32
   %52 = zext i16 %51 to i32
   %53 = add i32 %49, %52
   %54 = zext i32 %53 to i64
-  %.not15.i = icmp ult i64 %.0146.in, %54
+  %.not15.i = icmp ult i64 %.0167.in, %54
   br i1 %.not15.i, label %65, label %55
 
 55:                                               ; preds = %.lr.ph.i208
@@ -495,7 +495,7 @@ define i32 @cli_determine_fmap_type(ptr noundef %0, ptr noundef readonly %1, i32
   br i1 %.not.i211, label %._crit_edge.i212, label %.lr.ph.i208
 
 ._crit_edge.i212:                                 ; preds = %65, %46
-  %67 = call i32 @cli_texttype(ptr noundef nonnull %20, i32 noundef %.0146) #10
+  %67 = call i32 @cli_texttype(ptr noundef nonnull %20, i32 noundef %.0167) #10
   br label %cli_compare_ftm_file.exit
 
 cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i212
@@ -504,7 +504,7 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
   br i1 %68, label %69, label %73
 
 69:                                               ; preds = %cli_compare_ftm_file.exit
-  %70 = call i32 @is_tar(ptr noundef nonnull %20, i32 noundef %.0146) #10
+  %70 = call i32 @is_tar(ptr noundef nonnull %20, i32 noundef %.0167) #10
   switch i32 %70, label %cli_compare_ftm_partition.exit.thread224 [
     i32 1, label %71
     i32 2, label %72
@@ -520,7 +520,7 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
 
 73:                                               ; preds = %cli_compare_ftm_file.exit
   %74 = icmp eq i32 %.014.i, 517
-  %75 = icmp ugt i64 %.0146.in, 70
+  %75 = icmp ugt i64 %.0167.in, 70
   %or.cond = and i1 %75, %74
   br i1 %or.cond, label %76, label %131
 
@@ -530,26 +530,26 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
   br label %78
 
 78:                                               ; preds = %76, %129
-  %.0147248 = phi i32 [ 0, %76 ], [ %.3219, %129 ]
-  %.0149247 = phi i32 [ 0, %76 ], [ %130, %129 ]
-  %.0150246 = phi i32 [ 0, %76 ], [ %.1151217, %129 ]
-  %.0152245 = phi i32 [ %.0146, %76 ], [ %.2154, %129 ]
-  %.0155244 = phi ptr [ %20, %76 ], [ %.2157, %129 ]
-  %.0158243 = phi i64 [ %.0146.in, %76 ], [ %.1159, %129 ]
-  %.0160242 = phi i32 [ %.0146, %76 ], [ %.1161, %129 ]
-  %.0162241 = phi ptr [ %20, %76 ], [ %.1163, %129 ]
-  %79 = sext i32 %.0152245 to i64
-  %80 = call ptr @cli_memstr(ptr noundef %.0155244, i64 noundef %79, ptr noundef nonnull %6, i64 noundef 4) #10
+  %.0146248 = phi i32 [ 0, %76 ], [ %.3219, %129 ]
+  %.0148247 = phi i32 [ 0, %76 ], [ %130, %129 ]
+  %.0149246 = phi i32 [ 0, %76 ], [ %.1150217, %129 ]
+  %.0151245 = phi i32 [ %.0167, %76 ], [ %.2153, %129 ]
+  %.0154244 = phi ptr [ %20, %76 ], [ %.2156, %129 ]
+  %.0157243 = phi i64 [ %.0167.in, %76 ], [ %.1158, %129 ]
+  %.0159242 = phi i32 [ %.0167, %76 ], [ %.1160, %129 ]
+  %.0161241 = phi ptr [ %20, %76 ], [ %.1162, %129 ]
+  %79 = sext i32 %.0151245 to i64
+  %80 = call ptr @cli_memstr(ptr noundef %.0154244, i64 noundef %79, ptr noundef nonnull %6, i64 noundef 4) #10
   %.not192 = icmp eq ptr %80, null
   br i1 %.not192, label %115, label %81
 
 81:                                               ; preds = %78
   %82 = getelementptr inbounds i8, ptr %80, i64 30
   %83 = ptrtoint ptr %82 to i64
-  %84 = ptrtoint ptr %.0162241 to i64
+  %84 = ptrtoint ptr %.0161241 to i64
   %.neg = sub i64 %84, %83
   %85 = trunc i64 %.neg to i32
-  %86 = add i32 %.0160242, %85
+  %86 = add i32 %.0159242, %85
   %87 = icmp sgt i32 %86, 22
   br i1 %87, label %.preheader, label %115
 
@@ -557,7 +557,7 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
   %indvars.iv = phi i64 [ %indvars.iv.next, %101 ], [ 0, %81 ]
   %88 = phi ptr [ %103, %101 ], [ @.str.3, %81 ]
   %89 = phi ptr [ %102, %101 ], [ @ooxml_detect, %81 ]
-  %.1240 = phi i32 [ %.2, %101 ], [ %.0147248, %81 ]
+  %.1240 = phi i32 [ %.2, %101 ], [ %.0146248, %81 ]
   %90 = getelementptr inbounds i8, ptr %89, i64 8
   %91 = load i64, ptr %90, align 8
   %bcmp = call i32 @bcmp(ptr nonnull %82, ptr nonnull %88, i64 %91)
@@ -604,8 +604,8 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
   br i1 %exitcond, label %104, label %.preheader
 
 104:                                              ; preds = %101
-  %105 = add nsw i32 %.0150246, 1
-  %106 = icmp sgt i32 %.0150246, 1
+  %105 = add nsw i32 %.0149246, 1
+  %106 = icmp sgt i32 %.0149246, 1
   br i1 %106, label %107, label %129
 
 107:                                              ; preds = %104
@@ -646,12 +646,12 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
 
 115:                                              ; preds = %78, %81
   %116 = load i64, ptr %77, align 8
-  %117 = sub i64 %116, %.0158243
+  %117 = sub i64 %116, %.0157243
   %118 = icmp ugt i64 %117, 30
   br i1 %118, label %119, label %cli_compare_ftm_partition.exit.thread
 
 119:                                              ; preds = %115
-  %120 = add i64 %.0158243, -53
+  %120 = add i64 %.0157243, -53
   %121 = sub i64 %116, %120
   %spec.select203 = call i64 @llvm.umin.i64(i64 %121, i64 1028)
   %122 = load ptr, ptr %18, align 8
@@ -669,14 +669,14 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
   br label %129
 
 129:                                              ; preds = %104, %126
-  %.3219 = phi i32 [ %.0147248, %126 ], [ %.2, %104 ]
-  %.1151217 = phi i32 [ %.0150246, %126 ], [ %105, %104 ]
-  %.1163 = phi ptr [ %123, %126 ], [ %.0162241, %104 ]
-  %.1161 = phi i32 [ %127, %126 ], [ %.0160242, %104 ]
-  %.1159 = phi i64 [ %128, %126 ], [ %.0158243, %104 ]
-  %.2157 = phi ptr [ %123, %126 ], [ %82, %104 ]
-  %.2154 = phi i32 [ %127, %126 ], [ %86, %104 ]
-  %130 = add nuw nsw i32 %.0149247, 1
+  %.3219 = phi i32 [ %.0146248, %126 ], [ %.2, %104 ]
+  %.1150217 = phi i32 [ %.0149246, %126 ], [ %105, %104 ]
+  %.1162 = phi ptr [ %123, %126 ], [ %.0161241, %104 ]
+  %.1160 = phi i32 [ %127, %126 ], [ %.0159242, %104 ]
+  %.1158 = phi i64 [ %128, %126 ], [ %.0157243, %104 ]
+  %.2156 = phi ptr [ %123, %126 ], [ %82, %104 ]
+  %.2153 = phi i32 [ %127, %126 ], [ %86, %104 ]
+  %130 = add nuw nsw i32 %.0148247, 1
   %exitcond256.not = icmp eq i32 %130, 32
   br i1 %exitcond256.not, label %cli_compare_ftm_partition.exit.thread, label %78
 
@@ -687,7 +687,7 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
 133:                                              ; preds = %131
   %134 = getelementptr inbounds i8, ptr %0, i64 88
   %135 = load i64, ptr %134, align 8
-  %136 = call i32 @cli_mbr_check(ptr noundef nonnull %20, i64 noundef %.0146.in, i64 noundef %135) #10
+  %136 = call i32 @cli_mbr_check(ptr noundef nonnull %20, i64 noundef %.0167.in, i64 noundef %135) #10
   switch i32 %136, label %138 [
     i32 574, label %137
     i32 0, label %cli_compare_ftm_partition.exit.thread
@@ -702,13 +702,13 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
   br label %cli_compare_ftm_partition.exit.thread224
 
 cli_compare_ftm_partition.exit:                   ; preds = %40, %131
-  %.0164 = phi i32 [ %.014.i, %131 ], [ %43, %40 ]
-  %139 = add i32 %.0164, -500
+  %.0163 = phi i32 [ %.014.i, %131 ], [ %43, %40 ]
+  %139 = add i32 %.0163, -500
   %or.cond3 = icmp ult i32 %139, 5
   br i1 %or.cond3, label %cli_compare_ftm_partition.exit.thread224, label %cli_compare_ftm_partition.exit.thread
 
 cli_compare_ftm_partition.exit.thread224:         ; preds = %138, %69, %cli_compare_ftm_partition.exit
-  %.0164227 = phi i32 [ %.0164, %cli_compare_ftm_partition.exit ], [ 504, %69 ], [ 504, %138 ]
+  %.0163227 = phi i32 [ %.0163, %cli_compare_ftm_partition.exit ], [ 504, %69 ], [ 504, %138 ]
   %140 = getelementptr inbounds i8, ptr %1, i64 96
   %141 = load ptr, ptr %140, align 8
   %142 = load ptr, ptr %141, align 8
@@ -729,7 +729,7 @@ cli_compare_ftm_partition.exit.thread224:         ; preds = %138, %69, %cli_comp
 151:                                              ; preds = %143
   %152 = load ptr, ptr %140, align 8
   %153 = load ptr, ptr %152, align 8
-  %154 = call i32 @cli_ac_scanbuff(ptr noundef nonnull %20, i32 noundef %.0146, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %153, ptr noundef nonnull %5, i32 noundef 0, i32 noundef %.0164227, ptr noundef null, i32 noundef 2, ptr noundef null) #10
+  %154 = call i32 @cli_ac_scanbuff(ptr noundef nonnull %20, i32 noundef %.0167, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %153, ptr noundef nonnull %5, i32 noundef 0, i32 noundef %.0163227, ptr noundef null, i32 noundef 2, ptr noundef null) #10
   %.fr = freeze i32 %154
   call void @cli_ac_freedata(ptr noundef nonnull %5) #10
   %155 = icmp ult i32 %.fr, 500
@@ -747,22 +747,22 @@ cli_compare_ftm_partition.exit.thread224:         ; preds = %138, %69, %cli_comp
   br i1 %.not198, label %161, label %cli_compare_ftm_partition.exit.thread
 
 161:                                              ; preds = %156
-  %162 = call ptr @cli_utf16toascii(ptr noundef nonnull %20, i32 noundef %.0146) #10
+  %162 = call ptr @cli_utf16toascii(ptr noundef nonnull %20, i32 noundef %.0167) #10
   %.not199 = icmp eq ptr %162, null
   br i1 %.not199, label %169, label %163
 
 163:                                              ; preds = %161
-  %164 = lshr i32 %.0146, 1
+  %164 = lshr i32 %.0167, 1
   %165 = load ptr, ptr %140, align 8
   %166 = load ptr, ptr %165, align 8
   %167 = call i32 @cli_ac_scanbuff(ptr noundef nonnull %162, i32 noundef %164, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %166, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 500, ptr noundef null, i32 noundef 2, ptr noundef null) #10
   call void @free(ptr noundef nonnull %162) #10
   %168 = icmp eq i32 %167, 560
-  %spec.select204 = select i1 %168, i32 539, i32 %.0164227
+  %spec.select204 = select i1 %168, i32 539, i32 %.0163227
   br label %169
 
 169:                                              ; preds = %163, %161
-  %.1165 = phi i32 [ %.0164227, %161 ], [ %spec.select204, %163 ]
+  %.1164 = phi i32 [ %.0163227, %161 ], [ %spec.select204, %163 ]
   call void @cli_ac_freedata(ptr noundef nonnull %5) #10
   %170 = getelementptr inbounds i8, ptr %1, i64 168
   %171 = load ptr, ptr %170, align 8
@@ -770,12 +770,12 @@ cli_compare_ftm_partition.exit.thread224:         ; preds = %138, %69, %cli_comp
   %173 = load i32, ptr %172, align 4
   %174 = and i32 %173, 2
   %175 = icmp ne i32 %174, 0
-  %176 = icmp ne i32 %.1165, 539
+  %176 = icmp ne i32 %.1164, 539
   %or.cond17 = and i1 %176, %175
   br i1 %or.cond17, label %177, label %cli_compare_ftm_partition.exit.thread
 
 177:                                              ; preds = %169
-  %178 = call ptr @encoding_detect_bom(ptr noundef nonnull %20, i64 noundef %.0146.in) #10
+  %178 = call ptr @encoding_detect_bom(ptr noundef nonnull %20, i64 noundef %.0167.in) #10
   %.not200 = icmp eq ptr %178, null
   br i1 %.not200, label %cli_compare_ftm_partition.exit.thread, label %179
 
@@ -783,7 +783,7 @@ cli_compare_ftm_partition.exit.thread224:         ; preds = %138, %69, %cli_comp
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2058) %7, i8 0, i64 2058, i1 false)
   store ptr %20, ptr %8, align 8
   %180 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 %.0146.in, ptr %180, align 8
+  store i64 %.0167.in, ptr %180, align 8
   %181 = getelementptr inbounds i8, ptr %8, i64 16
   store i64 0, ptr %181, align 8
   store ptr %7, ptr %9, align 8
@@ -824,12 +824,12 @@ cli_compare_ftm_partition.exit.thread224:         ; preds = %138, %69, %cli_comp
   br label %203
 
 203:                                              ; preds = %196, %202, %193
-  %.2166 = phi i32 [ 560, %202 ], [ %.1165, %196 ], [ %.1165, %193 ]
+  %.2165 = phi i32 [ 560, %202 ], [ %.1164, %196 ], [ %.1164, %193 ]
   call void @cli_ac_freedata(ptr noundef nonnull %5) #10
   br label %cli_compare_ftm_partition.exit.thread
 
 cli_compare_ftm_partition.exit.thread:            ; preds = %129, %115, %._crit_edge.i, %107, %108, %108, %114, %151, %cli_compare_ftm_partition.exit, %169, %179, %203, %177, %188, %156, %143, %cli_compare_ftm_partition.exit.thread224, %133, %17, %137, %125, %113, %112, %111, %110, %100, %99, %98, %97, %96, %72, %71, %23, %10
-  %.0 = phi i32 [ 505, %23 ], [ 510, %72 ], [ 511, %71 ], [ %95, %100 ], [ 551, %99 ], [ 546, %98 ], [ 547, %97 ], [ 548, %96 ], [ 551, %113 ], [ 546, %112 ], [ 547, %111 ], [ 548, %110 ], [ 505, %125 ], [ 574, %137 ], [ 505, %10 ], [ 505, %17 ], [ 559, %133 ], [ %.0164227, %cli_compare_ftm_partition.exit.thread224 ], [ %.0164227, %143 ], [ %.0164227, %156 ], [ %.1165, %188 ], [ %.2166, %203 ], [ %.1165, %179 ], [ %.1165, %177 ], [ %.1165, %169 ], [ %.0164, %cli_compare_ftm_partition.exit ], [ %.fr, %151 ], [ 557, %._crit_edge.i ], [ 517, %108 ], [ 517, %107 ], [ 517, %108 ], [ 517, %114 ], [ 517, %115 ], [ 517, %129 ]
+  %.0 = phi i32 [ 505, %23 ], [ 510, %72 ], [ 511, %71 ], [ %95, %100 ], [ 551, %99 ], [ 546, %98 ], [ 547, %97 ], [ 548, %96 ], [ 551, %113 ], [ 546, %112 ], [ 547, %111 ], [ 548, %110 ], [ 505, %125 ], [ 574, %137 ], [ 505, %10 ], [ 505, %17 ], [ 559, %133 ], [ %.0163227, %cli_compare_ftm_partition.exit.thread224 ], [ %.0163227, %143 ], [ %.0163227, %156 ], [ %.1164, %188 ], [ %.2165, %203 ], [ %.1164, %179 ], [ %.1164, %177 ], [ %.1164, %169 ], [ %.0163, %cli_compare_ftm_partition.exit ], [ %.fr, %151 ], [ 557, %._crit_edge.i ], [ 517, %108 ], [ 517, %107 ], [ 517, %108 ], [ 517, %114 ], [ 517, %115 ], [ 517, %129 ]
   ret i32 %.0
 }
 

@@ -5222,8 +5222,8 @@ _ZNK7QObject10disconnectEPKcPKS_S1_.exit:         ; preds = %31
           to label %59 unwind label %28
 
 59:                                               ; preds = %53, %55, %44, %47
-  %.021 = phi i32 [ %48, %47 ], [ 0, %44 ], [ 2147483647, %55 ], [ %52, %53 ]
-  invoke void @_ZN13QIntValidator9setBottomEi(ptr noundef nonnull align 8 dereferenceable(24) %38, i32 noundef %.021)
+  %.020 = phi i32 [ %48, %47 ], [ 0, %44 ], [ 2147483647, %55 ], [ %52, %53 ]
+  invoke void @_ZN13QIntValidator9setBottomEi(ptr noundef nonnull align 8 dereferenceable(24) %38, i32 noundef %.020)
           to label %._crit_edge55 unwind label %28
 
 ._crit_edge55:                                    ; preds = %59
@@ -5292,8 +5292,8 @@ _ZNK7QObject10disconnectEPKcPKS_S1_.exit:         ; preds = %31
           to label %90 unwind label %28
 
 90:                                               ; preds = %84, %86, %77, %80
-  %.020 = phi i32 [ %81, %80 ], [ 0, %77 ], [ 2147483647, %86 ], [ %83, %84 ]
-  invoke void @_ZN13QIntValidator6setTopEi(ptr noundef nonnull align 8 dereferenceable(24) %38, i32 noundef %.020)
+  %.019 = phi i32 [ %81, %80 ], [ 0, %77 ], [ 2147483647, %86 ], [ %83, %84 ]
+  invoke void @_ZN13QIntValidator6setTopEi(ptr noundef nonnull align 8 dereferenceable(24) %38, i32 noundef %.019)
           to label %.invoke unwind label %28
 
 91:                                               ; preds = %_ZNK7QObject10disconnectEPKcPKS_S1_.exit

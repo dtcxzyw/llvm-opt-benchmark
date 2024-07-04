@@ -339,9 +339,9 @@ define hidden range(i32 0, 2) i32 @setup_enabled_and_disabled_protocols() local_
 
 .lr.ph.i:                                         ; preds = %0, %.loopexit.i
   %.040.i = phi i8 [ %.3.i, %.loopexit.i ], [ undef, %0 ]
-  %.02739.i = phi i32 [ %.330.i, %.loopexit.i ], [ 1, %0 ]
-  %.03238.i = phi ptr [ %19, %.loopexit.i ], [ %1, %0 ]
-  %2 = load ptr, ptr %.03238.i, align 8
+  %.02839.i = phi ptr [ %19, %.loopexit.i ], [ %1, %0 ]
+  %.02938.i = phi i32 [ %.332.i, %.loopexit.i ], [ 1, %0 ]
+  %2 = load ptr, ptr %.02839.i, align 8
   %3 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 44) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %.preheader.i
@@ -356,16 +356,16 @@ define hidden range(i32 0, 2) i32 @setup_enabled_and_disabled_protocols() local_
   br label %.loopexit.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %14
-  %.031.i = phi ptr [ %17, %14 ], [ %3, %.lr.ph.i ]
-  %.128.i = phi i32 [ %.229.i, %14 ], [ %.02739.i, %.lr.ph.i ]
+  %.130.i = phi i32 [ %.231.i, %14 ], [ %.02938.i, %.lr.ph.i ]
+  %.027.i = phi ptr [ %17, %14 ], [ %3, %.lr.ph.i ]
   %.026.i = phi ptr [ %16, %14 ], [ %2, %.lr.ph.i ]
   %.1.i = phi i8 [ %.2.i, %14 ], [ %.040.i, %.lr.ph.i ]
-  %.not34.i = icmp eq ptr %.031.i, null
+  %.not34.i = icmp eq ptr %.027.i, null
   br i1 %.not34.i, label %10, label %8
 
 8:                                                ; preds = %.preheader.i
-  %9 = load i8, ptr %.031.i, align 1
-  store i8 0, ptr %.031.i, align 1
+  %9 = load i8, ptr %.027.i, align 1
+  store i8 0, ptr %.027.i, align 1
   br label %10
 
 10:                                               ; preds = %8, %.preheader.i
@@ -379,36 +379,36 @@ define hidden range(i32 0, 2) i32 @setup_enabled_and_disabled_protocols() local_
   br label %13
 
 13:                                               ; preds = %12, %10
-  %.229.i = phi i32 [ %.128.i, %10 ], [ 0, %12 ]
+  %.231.i = phi i32 [ %.130.i, %10 ], [ 0, %12 ]
   br i1 %.not34.i, label %.loopexit.i, label %14
 
 14:                                               ; preds = %13
-  store i8 %.2.i, ptr %.031.i, align 1
+  store i8 %.2.i, ptr %.027.i, align 1
   %15 = icmp eq i8 %.2.i, 44
   %.idx.i = zext i1 %15 to i64
-  %16 = getelementptr i8, ptr %.031.i, i64 %.idx.i
+  %16 = getelementptr i8, ptr %.027.i, i64 %.idx.i
   %17 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 44) #6
   br label %.preheader.i
 
 .loopexit.i:                                      ; preds = %13, %7, %5
-  %.330.i = phi i32 [ %.02739.i, %5 ], [ 0, %7 ], [ %.229.i, %13 ]
+  %.332.i = phi i32 [ %.02938.i, %5 ], [ 0, %7 ], [ %.231.i, %13 ]
   %.3.i = phi i8 [ %.040.i, %5 ], [ %.040.i, %7 ], [ %.2.i, %13 ]
-  %18 = getelementptr inbounds i8, ptr %.03238.i, i64 8
+  %18 = getelementptr inbounds i8, ptr %.02839.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %process_enable_disable_list.exit, label %.lr.ph.i, !llvm.loop !7
 
 process_enable_disable_list.exit:                 ; preds = %.loopexit.i, %0
-  %.027.lcssa.i = phi i32 [ 1, %0 ], [ %.330.i, %.loopexit.i ]
+  %.029.lcssa.i = phi i32 [ 1, %0 ], [ %.332.i, %.loopexit.i ]
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 8), align 8
   %.not37.i5 = icmp eq ptr %20, null
   br i1 %.not37.i5, label %process_enable_disable_list.exit26, label %.lr.ph.i6
 
 .lr.ph.i6:                                        ; preds = %process_enable_disable_list.exit, %.loopexit.i20
   %.040.i7 = phi i8 [ %.3.i22, %.loopexit.i20 ], [ undef, %process_enable_disable_list.exit ]
-  %.02739.i8 = phi i32 [ %.330.i21, %.loopexit.i20 ], [ 1, %process_enable_disable_list.exit ]
-  %.03238.i9 = phi ptr [ %38, %.loopexit.i20 ], [ %20, %process_enable_disable_list.exit ]
-  %21 = load ptr, ptr %.03238.i9, align 8
+  %.02839.i8 = phi ptr [ %38, %.loopexit.i20 ], [ %20, %process_enable_disable_list.exit ]
+  %.02938.i9 = phi i32 [ %.332.i21, %.loopexit.i20 ], [ 1, %process_enable_disable_list.exit ]
+  %21 = load ptr, ptr %.02839.i8, align 8
   %22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %21, i32 noundef 44) #6
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %.preheader.i10
@@ -423,16 +423,16 @@ process_enable_disable_list.exit:                 ; preds = %.loopexit.i, %0
   br label %.loopexit.i20
 
 .preheader.i10:                                   ; preds = %.lr.ph.i6, %33
-  %.031.i11 = phi ptr [ %36, %33 ], [ %22, %.lr.ph.i6 ]
-  %.128.i12 = phi i32 [ %.229.i18, %33 ], [ %.02739.i8, %.lr.ph.i6 ]
+  %.130.i11 = phi i32 [ %.231.i18, %33 ], [ %.02938.i9, %.lr.ph.i6 ]
+  %.027.i12 = phi ptr [ %36, %33 ], [ %22, %.lr.ph.i6 ]
   %.026.i13 = phi ptr [ %35, %33 ], [ %21, %.lr.ph.i6 ]
   %.1.i14 = phi i8 [ %.2.i16, %33 ], [ %.040.i7, %.lr.ph.i6 ]
-  %.not34.i15 = icmp eq ptr %.031.i11, null
+  %.not34.i15 = icmp eq ptr %.027.i12, null
   br i1 %.not34.i15, label %29, label %27
 
 27:                                               ; preds = %.preheader.i10
-  %28 = load i8, ptr %.031.i11, align 1
-  store i8 0, ptr %.031.i11, align 1
+  %28 = load i8, ptr %.027.i12, align 1
+  store i8 0, ptr %.027.i12, align 1
   br label %29
 
 29:                                               ; preds = %27, %.preheader.i10
@@ -446,36 +446,36 @@ process_enable_disable_list.exit:                 ; preds = %.loopexit.i, %0
   br label %32
 
 32:                                               ; preds = %31, %29
-  %.229.i18 = phi i32 [ %.128.i12, %29 ], [ 0, %31 ]
+  %.231.i18 = phi i32 [ %.130.i11, %29 ], [ 0, %31 ]
   br i1 %.not34.i15, label %.loopexit.i20, label %33
 
 33:                                               ; preds = %32
-  store i8 %.2.i16, ptr %.031.i11, align 1
+  store i8 %.2.i16, ptr %.027.i12, align 1
   %34 = icmp eq i8 %.2.i16, 44
   %.idx.i19 = zext i1 %34 to i64
-  %35 = getelementptr i8, ptr %.031.i11, i64 %.idx.i19
+  %35 = getelementptr i8, ptr %.027.i12, i64 %.idx.i19
   %36 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %35, i32 noundef 44) #6
   br label %.preheader.i10
 
 .loopexit.i20:                                    ; preds = %32, %26, %24
-  %.330.i21 = phi i32 [ %.02739.i8, %24 ], [ 0, %26 ], [ %.229.i18, %32 ]
+  %.332.i21 = phi i32 [ %.02938.i9, %24 ], [ 0, %26 ], [ %.231.i18, %32 ]
   %.3.i22 = phi i8 [ %.040.i7, %24 ], [ %.040.i7, %26 ], [ %.2.i16, %32 ]
-  %37 = getelementptr inbounds i8, ptr %.03238.i9, i64 8
+  %37 = getelementptr inbounds i8, ptr %.02839.i8, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not.i23 = icmp eq ptr %38, null
   br i1 %.not.i23, label %process_enable_disable_list.exit26, label %.lr.ph.i6, !llvm.loop !7
 
 process_enable_disable_list.exit26:               ; preds = %.loopexit.i20, %process_enable_disable_list.exit
-  %.027.lcssa.i24 = phi i32 [ 1, %process_enable_disable_list.exit ], [ %.330.i21, %.loopexit.i20 ]
+  %.029.lcssa.i24 = phi i32 [ 1, %process_enable_disable_list.exit ], [ %.332.i21, %.loopexit.i20 ]
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 24), align 8
   %.not37.i27 = icmp eq ptr %39, null
   br i1 %.not37.i27, label %process_enable_disable_list.exit48, label %.lr.ph.i28
 
 .lr.ph.i28:                                       ; preds = %process_enable_disable_list.exit26, %.loopexit.i42
   %.040.i29 = phi i8 [ %.3.i44, %.loopexit.i42 ], [ undef, %process_enable_disable_list.exit26 ]
-  %.02739.i30 = phi i32 [ %.330.i43, %.loopexit.i42 ], [ 1, %process_enable_disable_list.exit26 ]
-  %.03238.i31 = phi ptr [ %57, %.loopexit.i42 ], [ %39, %process_enable_disable_list.exit26 ]
-  %40 = load ptr, ptr %.03238.i31, align 8
+  %.02839.i30 = phi ptr [ %57, %.loopexit.i42 ], [ %39, %process_enable_disable_list.exit26 ]
+  %.02938.i31 = phi i32 [ %.332.i43, %.loopexit.i42 ], [ 1, %process_enable_disable_list.exit26 ]
+  %40 = load ptr, ptr %.02839.i30, align 8
   %41 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %40, i32 noundef 44) #6
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %.preheader.i32
@@ -490,16 +490,16 @@ process_enable_disable_list.exit26:               ; preds = %.loopexit.i20, %pro
   br label %.loopexit.i42
 
 .preheader.i32:                                   ; preds = %.lr.ph.i28, %52
-  %.031.i33 = phi ptr [ %55, %52 ], [ %41, %.lr.ph.i28 ]
-  %.128.i34 = phi i32 [ %.229.i40, %52 ], [ %.02739.i30, %.lr.ph.i28 ]
+  %.130.i33 = phi i32 [ %.231.i40, %52 ], [ %.02938.i31, %.lr.ph.i28 ]
+  %.027.i34 = phi ptr [ %55, %52 ], [ %41, %.lr.ph.i28 ]
   %.026.i35 = phi ptr [ %54, %52 ], [ %40, %.lr.ph.i28 ]
   %.1.i36 = phi i8 [ %.2.i38, %52 ], [ %.040.i29, %.lr.ph.i28 ]
-  %.not34.i37 = icmp eq ptr %.031.i33, null
+  %.not34.i37 = icmp eq ptr %.027.i34, null
   br i1 %.not34.i37, label %48, label %46
 
 46:                                               ; preds = %.preheader.i32
-  %47 = load i8, ptr %.031.i33, align 1
-  store i8 0, ptr %.031.i33, align 1
+  %47 = load i8, ptr %.027.i34, align 1
+  store i8 0, ptr %.027.i34, align 1
   br label %48
 
 48:                                               ; preds = %46, %.preheader.i32
@@ -513,36 +513,36 @@ process_enable_disable_list.exit26:               ; preds = %.loopexit.i20, %pro
   br label %51
 
 51:                                               ; preds = %50, %48
-  %.229.i40 = phi i32 [ %.128.i34, %48 ], [ 0, %50 ]
+  %.231.i40 = phi i32 [ %.130.i33, %48 ], [ 0, %50 ]
   br i1 %.not34.i37, label %.loopexit.i42, label %52
 
 52:                                               ; preds = %51
-  store i8 %.2.i38, ptr %.031.i33, align 1
+  store i8 %.2.i38, ptr %.027.i34, align 1
   %53 = icmp eq i8 %.2.i38, 44
   %.idx.i41 = zext i1 %53 to i64
-  %54 = getelementptr i8, ptr %.031.i33, i64 %.idx.i41
+  %54 = getelementptr i8, ptr %.027.i34, i64 %.idx.i41
   %55 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %54, i32 noundef 44) #6
   br label %.preheader.i32
 
 .loopexit.i42:                                    ; preds = %51, %45, %43
-  %.330.i43 = phi i32 [ %.02739.i30, %43 ], [ 0, %45 ], [ %.229.i40, %51 ]
+  %.332.i43 = phi i32 [ %.02938.i31, %43 ], [ 0, %45 ], [ %.231.i40, %51 ]
   %.3.i44 = phi i8 [ %.040.i29, %43 ], [ %.040.i29, %45 ], [ %.2.i38, %51 ]
-  %56 = getelementptr inbounds i8, ptr %.03238.i31, i64 8
+  %56 = getelementptr inbounds i8, ptr %.02839.i30, i64 8
   %57 = load ptr, ptr %56, align 8
   %.not.i45 = icmp eq ptr %57, null
   br i1 %.not.i45, label %process_enable_disable_list.exit48, label %.lr.ph.i28, !llvm.loop !7
 
 process_enable_disable_list.exit48:               ; preds = %.loopexit.i42, %process_enable_disable_list.exit26
-  %.027.lcssa.i46 = phi i32 [ 1, %process_enable_disable_list.exit26 ], [ %.330.i43, %.loopexit.i42 ]
+  %.029.lcssa.i46 = phi i32 [ 1, %process_enable_disable_list.exit26 ], [ %.332.i43, %.loopexit.i42 ]
   %58 = load ptr, ptr getelementptr inbounds (i8, ptr @global_dissect_options, i64 32), align 8
   %.not37.i49 = icmp eq ptr %58, null
   br i1 %.not37.i49, label %process_enable_disable_list.exit70, label %.lr.ph.i50
 
 .lr.ph.i50:                                       ; preds = %process_enable_disable_list.exit48, %.loopexit.i64
   %.040.i51 = phi i8 [ %.3.i66, %.loopexit.i64 ], [ undef, %process_enable_disable_list.exit48 ]
-  %.02739.i52 = phi i32 [ %.330.i65, %.loopexit.i64 ], [ 1, %process_enable_disable_list.exit48 ]
-  %.03238.i53 = phi ptr [ %76, %.loopexit.i64 ], [ %58, %process_enable_disable_list.exit48 ]
-  %59 = load ptr, ptr %.03238.i53, align 8
+  %.02839.i52 = phi ptr [ %76, %.loopexit.i64 ], [ %58, %process_enable_disable_list.exit48 ]
+  %.02938.i53 = phi i32 [ %.332.i65, %.loopexit.i64 ], [ 1, %process_enable_disable_list.exit48 ]
+  %59 = load ptr, ptr %.02839.i52, align 8
   %60 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %59, i32 noundef 44) #6
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %.preheader.i54
@@ -557,16 +557,16 @@ process_enable_disable_list.exit48:               ; preds = %.loopexit.i42, %pro
   br label %.loopexit.i64
 
 .preheader.i54:                                   ; preds = %.lr.ph.i50, %71
-  %.031.i55 = phi ptr [ %74, %71 ], [ %60, %.lr.ph.i50 ]
-  %.128.i56 = phi i32 [ %.229.i62, %71 ], [ %.02739.i52, %.lr.ph.i50 ]
+  %.130.i55 = phi i32 [ %.231.i62, %71 ], [ %.02938.i53, %.lr.ph.i50 ]
+  %.027.i56 = phi ptr [ %74, %71 ], [ %60, %.lr.ph.i50 ]
   %.026.i57 = phi ptr [ %73, %71 ], [ %59, %.lr.ph.i50 ]
   %.1.i58 = phi i8 [ %.2.i60, %71 ], [ %.040.i51, %.lr.ph.i50 ]
-  %.not34.i59 = icmp eq ptr %.031.i55, null
+  %.not34.i59 = icmp eq ptr %.027.i56, null
   br i1 %.not34.i59, label %67, label %65
 
 65:                                               ; preds = %.preheader.i54
-  %66 = load i8, ptr %.031.i55, align 1
-  store i8 0, ptr %.031.i55, align 1
+  %66 = load i8, ptr %.027.i56, align 1
+  store i8 0, ptr %.027.i56, align 1
   br label %67
 
 67:                                               ; preds = %65, %.preheader.i54
@@ -580,30 +580,30 @@ process_enable_disable_list.exit48:               ; preds = %.loopexit.i42, %pro
   br label %70
 
 70:                                               ; preds = %69, %67
-  %.229.i62 = phi i32 [ %.128.i56, %67 ], [ 0, %69 ]
+  %.231.i62 = phi i32 [ %.130.i55, %67 ], [ 0, %69 ]
   br i1 %.not34.i59, label %.loopexit.i64, label %71
 
 71:                                               ; preds = %70
-  store i8 %.2.i60, ptr %.031.i55, align 1
+  store i8 %.2.i60, ptr %.027.i56, align 1
   %72 = icmp eq i8 %.2.i60, 44
   %.idx.i63 = zext i1 %72 to i64
-  %73 = getelementptr i8, ptr %.031.i55, i64 %.idx.i63
+  %73 = getelementptr i8, ptr %.027.i56, i64 %.idx.i63
   %74 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %73, i32 noundef 44) #6
   br label %.preheader.i54
 
 .loopexit.i64:                                    ; preds = %70, %64, %62
-  %.330.i65 = phi i32 [ %.02739.i52, %62 ], [ 0, %64 ], [ %.229.i62, %70 ]
+  %.332.i65 = phi i32 [ %.02938.i53, %62 ], [ 0, %64 ], [ %.231.i62, %70 ]
   %.3.i66 = phi i8 [ %.040.i51, %62 ], [ %.040.i51, %64 ], [ %.2.i60, %70 ]
-  %75 = getelementptr inbounds i8, ptr %.03238.i53, i64 8
+  %75 = getelementptr inbounds i8, ptr %.02839.i52, i64 8
   %76 = load ptr, ptr %75, align 8
   %.not.i67 = icmp eq ptr %76, null
   br i1 %.not.i67, label %process_enable_disable_list.exit70, label %.lr.ph.i50, !llvm.loop !7
 
 process_enable_disable_list.exit70:               ; preds = %.loopexit.i64, %process_enable_disable_list.exit48
-  %.027.lcssa.i68 = phi i32 [ 1, %process_enable_disable_list.exit48 ], [ %.330.i65, %.loopexit.i64 ]
-  %77 = and i32 %.027.lcssa.i24, %.027.lcssa.i
-  %78 = and i32 %77, %.027.lcssa.i46
-  %79 = and i32 %78, %.027.lcssa.i68
+  %.029.lcssa.i68 = phi i32 [ 1, %process_enable_disable_list.exit48 ], [ %.332.i65, %.loopexit.i64 ]
+  %77 = and i32 %.029.lcssa.i24, %.029.lcssa.i
+  %78 = and i32 %77, %.029.lcssa.i46
+  %79 = and i32 %78, %.029.lcssa.i68
   ret i32 %79
 }
 

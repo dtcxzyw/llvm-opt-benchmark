@@ -709,18 +709,18 @@ do_range_limit.exit.i:                            ; preds = %149, %146
   %169 = phi i64 [ %182, %.lr.ph.i ], [ %137, %.lr.ph.i.preheader ]
   %170 = icmp eq i64 %168, 1
   %171 = add nsw i64 %168, -1
+  %.040.i = select i1 %170, i64 12, i64 %171
   %172 = sext i1 %170 to i64
-  %.040.i = add nsw i64 %154, %172
-  %.039.i = select i1 %170, i64 12, i64 %171
-  %.040.fr.i = freeze i64 %.040.i
-  %173 = and i64 %.040.fr.i, 3
+  %.039.i = add nsw i64 %154, %172
+  %.039.fr.i = freeze i64 %.039.i
+  %173 = and i64 %.039.fr.i, 3
   %174 = icmp eq i64 %173, 0
   br i1 %174, label %175, label %.thread50.i
 
 175:                                              ; preds = %.lr.ph
-  %176 = srem i64 %.040.fr.i, 100
+  %176 = srem i64 %.039.fr.i, 100
   %.not48.i = icmp ne i64 %176, 0
-  %177 = srem i64 %.040.fr.i, 400
+  %177 = srem i64 %.039.fr.i, 400
   %178 = icmp eq i64 %177, 0
   %or.cond54.i = or i1 %.not48.i, %178
   %spec.select.i = select i1 %or.cond54.i, ptr @days_in_month_leap, ptr @days_in_month
@@ -728,7 +728,7 @@ do_range_limit.exit.i:                            ; preds = %149, %146
 
 .thread50.i:                                      ; preds = %175, %.lr.ph
   %179 = phi ptr [ @days_in_month, %.lr.ph ], [ %spec.select.i, %175 ]
-  %.in.i = getelementptr inbounds [13 x i32], ptr %179, i64 0, i64 %.039.i
+  %.in.i = getelementptr inbounds [13 x i32], ptr %179, i64 0, i64 %.040.i
   %180 = load i32, ptr %.in.i, align 4
   %181 = sext i32 %180 to i64
   %182 = add nsw i64 %169, %181

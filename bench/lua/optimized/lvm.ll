@@ -1354,7 +1354,7 @@ land.rhs85.preheader:                             ; preds = %cond.end
 
 land.rhs85:                                       ; preds = %land.rhs85.preheader, %if.end148
   %indvars.iv = phi i64 [ 1, %land.rhs85.preheader ], [ %indvars.iv.next, %if.end148 ]
-  %tl.088 = phi i64 [ %cond, %land.rhs85.preheader ], [ %add, %if.end148 ]
+  %tl.089 = phi i64 [ %cond, %land.rhs85.preheader ], [ %add, %if.end148 ]
   %idx.neg = sub nsw i64 0, %indvars.iv
   %add.ptr86 = getelementptr inbounds %union.StackValue, ptr %0, i64 %idx.neg
   %add.ptr87 = getelementptr inbounds i8, ptr %add.ptr86, i64 -16
@@ -1388,7 +1388,7 @@ cond.false129:                                    ; preds = %for.body
 
 cond.end136:                                      ; preds = %cond.false129, %cond.true121
   %cond137 = phi i64 [ %conv128, %cond.true121 ], [ %21, %cond.false129 ]
-  %sub = sub i64 9223372036854775807, %tl.088
+  %sub = sub i64 9223372036854775807, %tl.089
   %cmp138.not = icmp ult i64 %cond137, %sub
   br i1 %cmp138.not, label %if.end148, label %if.then143
 
@@ -1401,7 +1401,7 @@ if.then143:                                       ; preds = %cond.end136
   unreachable
 
 if.end148:                                        ; preds = %cond.end136
-  %add = add i64 %cond137, %tl.088
+  %add = add i64 %cond137, %tl.089
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %16
   br i1 %exitcond.not, label %for.end, label %land.rhs85, !llvm.loop !8
@@ -1411,8 +1411,8 @@ for.end.loopexit.split.loop.exit:                 ; preds = %land.rhs85
   br label %for.end
 
 for.end:                                          ; preds = %if.end148, %for.end.loopexit.split.loop.exit, %cond.end
-  %tl.0.lcssa = phi i64 [ %cond, %cond.end ], [ %tl.088, %for.end.loopexit.split.loop.exit ], [ %add, %if.end148 ]
   %n.0.lcssa = phi i32 [ 1, %cond.end ], [ %22, %for.end.loopexit.split.loop.exit ], [ %total.addr.0, %if.end148 ]
+  %tl.0.lcssa = phi i64 [ %cond, %cond.end ], [ %tl.089, %for.end.loopexit.split.loop.exit ], [ %add, %if.end148 ]
   %cmp149 = icmp ult i64 %tl.0.lcssa, 41
   br i1 %cmp149, label %if.then151, label %if.else153
 

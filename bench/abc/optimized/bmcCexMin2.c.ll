@@ -932,11 +932,11 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
 
 .lr.ph269.split.us:                               ; preds = %.lr.ph269, %45
   %.val221.us314 = phi i32 [ %.val221.us, %45 ], [ %.val221266, %.lr.ph269 ]
-  %.0161267.us = phi i32 [ %46, %45 ], [ 0, %.lr.ph269 ]
+  %.0267.us = phi i32 [ %46, %45 ], [ 0, %.lr.ph269 ]
   %.val202.us = load ptr, ptr %15, align 8
   %19 = getelementptr i8, ptr %.val202.us, i64 4
   %.val202.val.us = load i32, ptr %19, align 4
-  %20 = sub i32 %.0161267.us, %.val221.us314
+  %20 = sub i32 %.0267.us, %.val221.us314
   %21 = add i32 %20, %.val202.val.us
   %.val212.us = load ptr, ptr %16, align 8
   %22 = getelementptr i8, ptr %.val202.us, i64 8
@@ -976,17 +976,17 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
 
 45:                                               ; preds = %42, %27
   %.val221.us = phi i32 [ %.val221.us.pre, %42 ], [ %.val221.us314, %27 ]
-  %46 = add nuw nsw i32 %.0161267.us, 1
+  %46 = add nuw nsw i32 %.0267.us, 1
   %47 = icmp slt i32 %46, %.val221.us
   br i1 %47, label %.lr.ph269.split.us, label %.critedge, !llvm.loop !14
 
 .lr.ph269.split:                                  ; preds = %.lr.ph269, %80
   %.val221268 = phi i32 [ %.val221, %80 ], [ %.val221266, %.lr.ph269 ]
-  %.0161267 = phi i32 [ %81, %80 ], [ 0, %.lr.ph269 ]
+  %.0267 = phi i32 [ %81, %80 ], [ 0, %.lr.ph269 ]
   %.val202 = load ptr, ptr %15, align 8
   %48 = getelementptr i8, ptr %.val202, i64 4
   %.val202.val = load i32, ptr %48, align 4
-  %49 = sub i32 %.0161267, %.val221268
+  %49 = sub i32 %.0267, %.val221268
   %50 = add i32 %49, %.val202.val
   %.val212 = load ptr, ptr %16, align 8
   %51 = getelementptr i8, ptr %.val202, i64 8
@@ -1031,7 +1031,7 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
   br label %80
 
 80:                                               ; preds = %78, %57
-  %81 = add nuw nsw i32 %.0161267, 1
+  %81 = add nuw nsw i32 %.0267, 1
   %.val221 = load i32, ptr %9, align 8
   %82 = icmp slt i32 %81, %.val221
   br i1 %82, label %.lr.ph269.split, label %.critedge, !llvm.loop !14
@@ -1098,13 +1098,13 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
   br label %121
 
 121:                                              ; preds = %.lr.ph300, %.critedge12
-  %.0299 = phi i32 [ %2, %.lr.ph300 ], [ %325, %.critedge12 ]
+  %.0161299 = phi i32 [ %2, %.lr.ph300 ], [ %325, %.critedge12 ]
   %.val226 = load ptr, ptr %113, align 8
   %122 = load ptr, ptr %114, align 8
   %123 = load i32, ptr %115, align 4
   %124 = getelementptr i8, ptr %122, i64 8
   %.val4.i232 = load ptr, ptr %124, align 8
-  %125 = mul nsw i32 %123, %.0299
+  %125 = mul nsw i32 %123, %.0161299
   %126 = sext i32 %125 to i64
   %127 = getelementptr inbounds i32, ptr %.val4.i232, i64 %126
   %128 = load i32, ptr %127, align 4
@@ -1142,7 +1142,7 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
   %140 = load i32, ptr %115, align 4
   %141 = getelementptr i8, ptr %139, i64 8
   %.val4.i234 = load ptr, ptr %141, align 8
-  %142 = mul nsw i32 %140, %.0299
+  %142 = mul nsw i32 %140, %.0161299
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds i32, ptr %.val4.i234, i64 %143
   %145 = ashr i32 %137, 4
@@ -1185,7 +1185,7 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
   %167 = ptrtoint ptr %164 to i64
   %168 = getelementptr i8, ptr %165, i64 8
   %.val4.i236 = load ptr, ptr %168, align 8
-  %169 = mul nsw i32 %166, %.0299
+  %169 = mul nsw i32 %166, %.0161299
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds i32, ptr %.val4.i236, i64 %170
   %172 = ashr i32 %162, 4
@@ -1216,7 +1216,7 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
   %190 = trunc i64 %189 to i32
   %191 = getelementptr i8, ptr %185, i64 8
   %.val4.i238 = load ptr, ptr %191, align 8
-  %192 = mul nsw i32 %186, %.0299
+  %192 = mul nsw i32 %186, %.0161299
   %193 = sext i32 %192 to i64
   %194 = getelementptr inbounds i32, ptr %.val4.i238, i64 %193
   %195 = ashr i32 %190, 4
@@ -1240,7 +1240,7 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
   %209 = trunc i64 %208 to i32
   %210 = getelementptr i8, ptr %204, i64 8
   %.val4.i240 = load ptr, ptr %210, align 8
-  %211 = mul nsw i32 %205, %.0299
+  %211 = mul nsw i32 %205, %.0161299
   %212 = sext i32 %211 to i64
   %213 = getelementptr inbounds i32, ptr %.val4.i240, i64 %212
   %214 = ashr i32 %209, 4
@@ -1308,7 +1308,7 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
   %244 = trunc i64 %243 to i32
   %245 = getelementptr i8, ptr %238, i64 8
   %.val4.i242 = load ptr, ptr %245, align 8
-  %246 = mul nsw i32 %239, %.0299
+  %246 = mul nsw i32 %239, %.0161299
   %247 = sext i32 %246 to i64
   %248 = getelementptr inbounds i32, ptr %.val4.i242, i64 %247
   %249 = ashr i32 %244, 4
@@ -1414,7 +1414,7 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
 
 .critedge10:                                      ; preds = %.lr.ph290, %284, %.critedge8
   %300 = load i32, ptr %111, align 4
-  %301 = icmp eq i32 %.0299, %300
+  %301 = icmp eq i32 %.0161299, %300
   br i1 %301, label %.critedge10._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %.critedge10
@@ -1466,8 +1466,8 @@ define ptr @Gia_ManCreateUnate(ptr noundef %0, ptr nocapture noundef readonly %1
 
 .critedge12:                                      ; preds = %.critedge12.loopexit, %.preheader
   %324 = phi i32 [ %.pre, %.critedge12.loopexit ], [ %300, %.preheader ]
-  %325 = add nsw i32 %.0299, 1
-  %.not172.not = icmp slt i32 %.0299, %324
+  %325 = add nsw i32 %.0161299, 1
+  %.not172.not = icmp slt i32 %.0161299, %324
   br i1 %.not172.not, label %121, label %.critedge10._crit_edge, !llvm.loop !21
 
 .critedge10._crit_edge:                           ; preds = %.critedge12, %.critedge10, %.critedge

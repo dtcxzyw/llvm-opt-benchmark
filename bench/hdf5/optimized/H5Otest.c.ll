@@ -1040,7 +1040,7 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
 
 .lr.ph:                                           ; preds = %21, %114
   %.068111 = phi ptr [ %116, %114 ], [ %23, %21 ]
-  %.069110 = phi i32 [ %115, %114 ], [ 0, %21 ]
+  %.071110 = phi i32 [ %115, %114 ], [ 0, %21 ]
   %26 = load ptr, ptr %.068111, align 8
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, %1
@@ -1144,7 +1144,7 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
   %.065 = phi i32 [ %.0103, %.loopexit100 ], [ 0, %29 ], [ 0, %62 ], [ 0, %84 ]
   %89 = add i64 %.067, %50
   %90 = add i64 %89, %.066
-  store i32 %.069110, ptr %3, align 8
+  store i32 %.071110, ptr %3, align 8
   %91 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %1, ptr %91, align 4
   %92 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1183,14 +1183,14 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
   br label %.thread84
 
 114:                                              ; preds = %.lr.ph
-  %115 = add i32 %.069110, 1
+  %115 = add i32 %.071110, 1
   %116 = getelementptr inbounds i8, ptr %.068111, i64 48
   %117 = zext i32 %115 to i64
   %118 = icmp ugt i64 %25, %117
   br i1 %118, label %.lr.ph, label %.thread84
 
 .thread84:                                        ; preds = %114, %21, %110, %105
-  %.07189 = phi i32 [ -1, %110 ], [ 0, %105 ], [ 0, %21 ], [ 0, %114 ]
+  %.06990 = phi i32 [ -1, %110 ], [ 0, %105 ], [ 0, %21 ], [ 0, %114 ]
   %119 = call i32 @H5O_unprotect(ptr noundef nonnull %5, ptr noundef nonnull %19, i32 noundef 0) #2
   %120 = icmp slt i32 %119, 0
   br i1 %120, label %121, label %.thread93
@@ -1208,7 +1208,7 @@ define range(i32 -1, 1) i32 @H5O__msg_move_to_new_chunk_test(i64 noundef %0, i32
   br label %.thread93
 
 .thread93:                                        ; preds = %.thread84, %121, %125
-  %.196 = phi i32 [ -1, %125 ], [ %.07189, %.thread84 ], [ -1, %121 ]
+  %.196 = phi i32 [ -1, %125 ], [ %.06990, %.thread84 ], [ -1, %121 ]
   %129 = call i32 @H5CX_pop(i1 noundef zeroext false) #2
   %130 = icmp slt i32 %129, 0
   br i1 %130, label %131, label %.thread98

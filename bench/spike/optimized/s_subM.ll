@@ -22,8 +22,8 @@ define void @softfloat_subM(i8 noundef zeroext %0, ptr nocapture noundef readonl
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %12 = phi i32 [ %8, %.lr.ph.preheader ], [ %20, %.lr.ph ]
   %13 = phi i32 [ %7, %.lr.ph.preheader ], [ %18, %.lr.ph ]
-  %.01720 = phi i32 [ 0, %.lr.ph.preheader ], [ %16, %.lr.ph ]
-  %.not = icmp eq i32 %.01720, 0
+  %.021 = phi i32 [ 0, %.lr.ph.preheader ], [ %16, %.lr.ph ]
+  %.not = icmp eq i32 %.021, 0
   %14 = icmp ule i32 %13, %12
   %15 = icmp ult i32 %13, %12
   %.in = select i1 %.not, i1 %15, i1 %14

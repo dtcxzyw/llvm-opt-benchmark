@@ -255,7 +255,7 @@ if.end75.thread:                                  ; preds = %if.end67
   br i1 %cmp76126, label %if.then85, label %do.body.preheader
 
 do.body104.preheader:                             ; preds = %if.end75, %if.end94
-  %passwd.05153.ph = phi ptr [ %call78, %if.end94 ], [ null, %if.end75 ]
+  %passwd_malloc.05153.ph = phi ptr [ %call78, %if.end94 ], [ null, %if.end75 ]
   br label %do.body104
 
 if.then85:                                        ; preds = %if.end75.thread
@@ -277,7 +277,7 @@ if.end94:                                         ; preds = %if.end75
   br label %do.body104.preheader
 
 do.body.preheader:                                ; preds = %if.end75.thread, %if.end93
-  %passwd.05154.ph = phi ptr [ %call78135, %if.end93 ], [ null, %if.end75.thread ]
+  %passwd_malloc.05154.ph = phi ptr [ %call78135, %if.end93 ], [ null, %if.end75.thread ]
   %passwds.2.ph = phi ptr [ @passwd_main.passwds_static, %if.end93 ], [ %passwds.0, %if.end75.thread ]
   %.pre = load ptr, ptr %passwds.2.ph, align 8
   br label %do.body
@@ -297,12 +297,12 @@ do.cond:                                          ; preds = %do.body
   br i1 %cmp102.not, label %end, label %do.body, !llvm.loop !7
 
 do.body104:                                       ; preds = %do.body104.preheader, %if.end127
-  %call107 = call i32 @BIO_gets(ptr noundef nonnull %call71, ptr noundef %passwd.05153.ph, i32 noundef 257) #8
+  %call107 = call i32 @BIO_gets(ptr noundef nonnull %call71, ptr noundef %passwd_malloc.05153.ph, i32 noundef 257) #8
   %cmp108 = icmp sgt i32 %call107, 0
   br i1 %cmp108, label %if.then110, label %end
 
 if.then110:                                       ; preds = %do.body104
-  %call111 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %passwd.05153.ph, i32 noundef 10) #9
+  %call111 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %passwd_malloc.05153.ph, i32 noundef 10) #9
   %cmp112.not = icmp eq ptr %call111, null
   br i1 %cmp112.not, label %do.body116, label %if.then114
 
@@ -323,7 +323,7 @@ land.rhs:                                         ; preds = %do.body116
 if.end127:                                        ; preds = %do.body116, %land.rhs, %if.then114
   %r.0.not = phi i1 [ false, %if.then114 ], [ %cmp119, %land.rhs ], [ %cmp119, %do.body116 ]
   %6 = load ptr, ptr @bio_out, align 8
-  %call128 = call fastcc i32 @do_passwd(i32 noundef %passed_salt.0, ptr noundef nonnull %salt, ptr noundef nonnull %salt_malloc, ptr noundef %passwd.05153.ph, ptr noundef %6, i32 noundef %quiet.0, i32 noundef %table.0, i32 noundef %reverse.0, i32 noundef %spec.store.select)
+  %call128 = call fastcc i32 @do_passwd(i32 noundef %passed_salt.0, ptr noundef nonnull %salt, ptr noundef nonnull %salt_malloc, ptr noundef %passwd_malloc.05153.ph, ptr noundef %6, i32 noundef %quiet.0, i32 noundef %table.0, i32 noundef %reverse.0, i32 noundef %spec.store.select)
   %tobool129.not = icmp eq i32 %call128, 0
   %brmerge = or i1 %r.0.not, %tobool129.not
   br i1 %brmerge, label %end.loopexit57.split.loop.exit92, label %do.body104
@@ -337,9 +337,9 @@ end.loopexit59:                                   ; preds = %sw.bb37, %sw.bb43
   br label %end
 
 end:                                              ; preds = %do.cond, %do.body, %do.body104, %end.loopexit57.split.loop.exit92, %end.loopexit59, %if.then85, %if.then70, %if.end55, %if.then65, %sw.bb3, %opthelp
-  %passwd_malloc.1 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.then65 ], [ null, %if.then70 ], [ %call78135, %if.then85 ], [ null, %if.end55 ], [ null, %end.loopexit59 ], [ %passwd.05153.ph, %end.loopexit57.split.loop.exit92 ], [ %passwd.05153.ph, %do.body104 ], [ %passwd.05154.ph, %do.body ], [ %passwd.05154.ph, %do.cond ]
-  %ret.0 = phi i32 [ 1, %opthelp ], [ 0, %sw.bb3 ], [ 1, %if.then65 ], [ 1, %if.then70 ], [ 1, %if.then85 ], [ 1, %if.end55 ], [ 1, %end.loopexit59 ], [ %.mux.le, %end.loopexit57.split.loop.exit92 ], [ 0, %do.body104 ], [ 0, %do.cond ], [ 1, %do.body ]
+  %passwd_malloc.1 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.then65 ], [ null, %if.then70 ], [ %call78135, %if.then85 ], [ null, %if.end55 ], [ null, %end.loopexit59 ], [ %passwd_malloc.05153.ph, %end.loopexit57.split.loop.exit92 ], [ %passwd_malloc.05153.ph, %do.body104 ], [ %passwd_malloc.05154.ph, %do.body ], [ %passwd_malloc.05154.ph, %do.cond ]
   %in.1 = phi ptr [ null, %opthelp ], [ null, %sw.bb3 ], [ null, %if.then65 ], [ null, %if.then70 ], [ null, %if.then85 ], [ null, %if.end55 ], [ null, %end.loopexit59 ], [ %call71, %end.loopexit57.split.loop.exit92 ], [ %call71, %do.body104 ], [ null, %do.body ], [ null, %do.cond ]
+  %ret.0 = phi i32 [ 1, %opthelp ], [ 0, %sw.bb3 ], [ 1, %if.then65 ], [ 1, %if.then70 ], [ 1, %if.then85 ], [ 1, %if.end55 ], [ 1, %end.loopexit59 ], [ %.mux.le, %end.loopexit57.split.loop.exit92 ], [ 0, %do.body104 ], [ 0, %do.cond ], [ 1, %do.body ]
   %7 = load ptr, ptr %salt_malloc, align 8
   call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str.50, i32 noundef 299) #8
   call void @CRYPTO_free(ptr noundef %passwd_malloc.1, ptr noundef nonnull @.str.50, i32 noundef 300) #8
@@ -518,8 +518,8 @@ sw.bb3.i:                                         ; preds = %if.then56
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.bb3.i, %sw.bb.i
-  %sha.0.i = phi ptr [ %call4.i, %sw.bb3.i ], [ %call2.i, %sw.bb.i ]
   %buf_size.0.i = phi i64 [ 64, %sw.bb3.i ], [ 32, %sw.bb.i ]
+  %sha.0.i = phi ptr [ %call4.i, %sw.bb3.i ], [ %call2.i, %sw.bb.i ]
   %call5.i = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(8) @shacrypt.rounds_prefix, i64 noundef 7) #9
   %cmp6.not.i = icmp eq i32 %call5.i, 0
   br i1 %cmp6.not.i, label %if.then8.i, label %if.end28.i
@@ -543,9 +543,9 @@ if.else.i:                                        ; preds = %if.then14.i
   br label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.else.i, %if.then14.i, %sw.epilog.i
+  %salt.addr.0.i = phi ptr [ %15, %sw.epilog.i ], [ %add.ptr15.i, %if.then14.i ], [ %add.ptr15.i, %if.else.i ]
   %rounds.1.i = phi i32 [ 5000, %sw.epilog.i ], [ 999999999, %if.then14.i ], [ %spec.select.i, %if.else.i ]
   %rounds_custom.0.i = phi i64 [ 3, %sw.epilog.i ], [ 20, %if.then14.i ], [ 20, %if.else.i ]
-  %salt.addr.0.i = phi ptr [ %15, %sw.epilog.i ], [ %add.ptr15.i, %if.then14.i ], [ %add.ptr15.i, %if.else.i ]
   %call29.i = call i64 @OPENSSL_strlcpy(ptr noundef nonnull %ascii_magic.i, ptr noundef nonnull %cond59, i64 noundef 2) #8
   %call31.i = call i64 @OPENSSL_strlcpy(ptr noundef nonnull %ascii_salt.i, ptr noundef %salt.addr.0.i, i64 noundef 17) #8
   %call33.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %ascii_salt.i) #9
@@ -1833,8 +1833,8 @@ sw.epilog1075.i:                                  ; preds = %while.body1066.i, %
   br label %shacrypt.exit
 
 err.i:                                            ; preds = %for.body.i, %while.body.i, %for.body128.i, %for.body166.i, %if.end252.i, %if.end235.i, %if.then230.i, %if.then222.i, %if.end203.i, %for.body199.i, %for.end259.i, %if.end179.i, %for.end174.i, %for.end153.i, %if.end139.i, %for.end134.i, %if.end120.i, %while.end.i, %for.end.i, %lor.lhs.false85.i, %lor.lhs.false82.i, %lor.lhs.false78.i, %lor.lhs.false75.i, %lor.lhs.false72.i, %if.end68.i, %lor.lhs.false63.i, %lor.lhs.false60.i, %lor.lhs.false.i, %if.end54.i, %if.end44.i
-  %md2.0.i = phi ptr [ null, %if.end44.i ], [ null, %if.end54.i ], [ null, %if.end68.i ], [ %call69.i, %if.end139.i ], [ %call69.i, %if.end179.i ], [ null, %for.end259.i ], [ %call69.i, %for.end174.i ], [ %call69.i, %for.end153.i ], [ %call69.i, %for.end134.i ], [ %call69.i, %if.end120.i ], [ %call69.i, %while.end.i ], [ %call69.i, %for.end.i ], [ %call69.i, %lor.lhs.false85.i ], [ %call69.i, %lor.lhs.false82.i ], [ %call69.i, %lor.lhs.false78.i ], [ %call69.i, %lor.lhs.false75.i ], [ %call69.i, %lor.lhs.false72.i ], [ null, %lor.lhs.false63.i ], [ null, %lor.lhs.false60.i ], [ null, %lor.lhs.false.i ], [ %call69.i, %for.body199.i ], [ %call69.i, %if.end203.i ], [ %call69.i, %if.then222.i ], [ %call69.i, %if.then230.i ], [ %call69.i, %if.end235.i ], [ %call69.i, %if.end252.i ], [ %call69.i, %for.body166.i ], [ %call69.i, %for.body128.i ], [ %call69.i, %while.body.i ], [ %call69.i, %for.body.i ]
   %md.0.i = phi ptr [ null, %if.end44.i ], [ null, %if.end54.i ], [ %call55.i, %if.end68.i ], [ %call55.i, %if.end139.i ], [ %call55.i, %if.end179.i ], [ null, %for.end259.i ], [ %call55.i, %for.end174.i ], [ %call55.i, %for.end153.i ], [ %call55.i, %for.end134.i ], [ %call55.i, %if.end120.i ], [ %call55.i, %while.end.i ], [ %call55.i, %for.end.i ], [ %call55.i, %lor.lhs.false85.i ], [ %call55.i, %lor.lhs.false82.i ], [ %call55.i, %lor.lhs.false78.i ], [ %call55.i, %lor.lhs.false75.i ], [ %call55.i, %lor.lhs.false72.i ], [ %call55.i, %lor.lhs.false63.i ], [ %call55.i, %lor.lhs.false60.i ], [ %call55.i, %lor.lhs.false.i ], [ %call55.i, %for.body199.i ], [ %call55.i, %if.end203.i ], [ %call55.i, %if.then222.i ], [ %call55.i, %if.then230.i ], [ %call55.i, %if.end235.i ], [ %call55.i, %if.end252.i ], [ %call55.i, %for.body166.i ], [ %call55.i, %for.body128.i ], [ %call55.i, %while.body.i ], [ %call55.i, %for.body.i ]
+  %md2.0.i = phi ptr [ null, %if.end44.i ], [ null, %if.end54.i ], [ null, %if.end68.i ], [ %call69.i, %if.end139.i ], [ %call69.i, %if.end179.i ], [ null, %for.end259.i ], [ %call69.i, %for.end174.i ], [ %call69.i, %for.end153.i ], [ %call69.i, %for.end134.i ], [ %call69.i, %if.end120.i ], [ %call69.i, %while.end.i ], [ %call69.i, %for.end.i ], [ %call69.i, %lor.lhs.false85.i ], [ %call69.i, %lor.lhs.false82.i ], [ %call69.i, %lor.lhs.false78.i ], [ %call69.i, %lor.lhs.false75.i ], [ %call69.i, %lor.lhs.false72.i ], [ null, %lor.lhs.false63.i ], [ null, %lor.lhs.false60.i ], [ null, %lor.lhs.false.i ], [ %call69.i, %for.body199.i ], [ %call69.i, %if.end203.i ], [ %call69.i, %if.then222.i ], [ %call69.i, %if.then230.i ], [ %call69.i, %if.end235.i ], [ %call69.i, %if.end252.i ], [ %call69.i, %for.body166.i ], [ %call69.i, %for.body128.i ], [ %call69.i, %while.body.i ], [ %call69.i, %for.body.i ]
   %p_bytes.0.i = phi ptr [ null, %if.end44.i ], [ null, %if.end54.i ], [ null, %if.end68.i ], [ null, %if.end139.i ], [ %call140.i, %if.end179.i ], [ null, %for.end259.i ], [ %call140.i, %for.end174.i ], [ %call140.i, %for.end153.i ], [ null, %for.end134.i ], [ null, %if.end120.i ], [ null, %while.end.i ], [ null, %for.end.i ], [ null, %lor.lhs.false85.i ], [ null, %lor.lhs.false82.i ], [ null, %lor.lhs.false78.i ], [ null, %lor.lhs.false75.i ], [ null, %lor.lhs.false72.i ], [ null, %lor.lhs.false63.i ], [ null, %lor.lhs.false60.i ], [ null, %lor.lhs.false.i ], [ %call140.i, %for.body199.i ], [ %call140.i, %if.end203.i ], [ %call140.i, %if.then222.i ], [ %call140.i, %if.then230.i ], [ %call140.i, %if.end235.i ], [ %call140.i, %if.end252.i ], [ %call140.i, %for.body166.i ], [ null, %for.body128.i ], [ null, %while.body.i ], [ null, %for.body.i ]
   %s_bytes.0.i = phi ptr [ null, %if.end44.i ], [ null, %if.end54.i ], [ null, %if.end68.i ], [ null, %if.end139.i ], [ null, %if.end179.i ], [ null, %for.end259.i ], [ null, %for.end174.i ], [ null, %for.end153.i ], [ null, %for.end134.i ], [ null, %if.end120.i ], [ null, %while.end.i ], [ null, %for.end.i ], [ null, %lor.lhs.false85.i ], [ null, %lor.lhs.false82.i ], [ null, %lor.lhs.false78.i ], [ null, %lor.lhs.false75.i ], [ null, %lor.lhs.false72.i ], [ null, %lor.lhs.false63.i ], [ null, %lor.lhs.false60.i ], [ null, %lor.lhs.false.i ], [ %call180.i, %for.body199.i ], [ %call180.i, %if.end203.i ], [ %call180.i, %if.then222.i ], [ %call180.i, %if.then230.i ], [ %call180.i, %if.end235.i ], [ %call180.i, %if.end252.i ], [ null, %for.body166.i ], [ null, %for.body128.i ], [ null, %while.body.i ], [ null, %for.body.i ]
   call void @EVP_MD_CTX_free(ptr noundef %md2.0.i) #8

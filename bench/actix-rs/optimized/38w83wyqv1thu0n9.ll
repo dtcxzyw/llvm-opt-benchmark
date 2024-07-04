@@ -7411,8 +7411,8 @@ switch.lookup:                                    ; preds = %32
 
 62:                                               ; preds = %63, %58
   %.pre = phi i64 [ %27, %58 ], [ %.pre.pre, %63 ]
-  %.sroa.012.0 = phi i64 [ -9223372036854775808, %58 ], [ %.sroa.012.0.copyload, %63 ]
   %.sroa.513.0 = phi i8 [ %60, %58 ], [ %.sroa.513.0.copyload, %63 ]
+  %.sroa.012.0 = phi i64 [ -9223372036854775808, %58 ], [ %.sroa.012.0.copyload, %63 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.5.sroa.4, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7, i64 15, i1 false)
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %.sroa.7)
   br label %49

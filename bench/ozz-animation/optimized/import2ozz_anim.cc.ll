@@ -1198,7 +1198,7 @@ _ZN3ozz3log6LoggerlsIA22_cEERSoRKT_.exit.i.i:     ; preds = %378
 
 420:                                              ; preds = %489, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %489 ]
-  %.064192.i.i = phi i1 [ false, %.lr.ph.i.i ], [ %.165.i.i, %489 ]
+  %.064191.i.i = phi i1 [ false, %.lr.ph.i.i ], [ %.165.i.i, %489 ]
   %421 = load ptr, ptr %396, align 8
   %422 = getelementptr inbounds ptr, ptr %421, i64 %indvars.iv.i.i
   %423 = load ptr, ptr %422, align 8
@@ -1384,7 +1384,7 @@ _ZN3ozz3log6LoggerlsIA45_cEERSoRKT_.exit.i.i:     ; preds = %472
   br label %.loopexit.split-lp166.i.i
 
 489:                                              ; preds = %480, %.thread.i.i, %425
-  %.165.i.i = phi i1 [ true, %480 ], [ %.064192.i.i, %425 ], [ true, %.thread.i.i ]
+  %.165.i.i = phi i1 [ true, %480 ], [ %.064191.i.i, %425 ], [ true, %.thread.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %490 = load i64, ptr %395, align 8
   %sext.i.i = shl i64 %490, 32
@@ -1488,8 +1488,8 @@ _ZN3ozz3log6LoggerlsIA30_cEERSoRKT_.exit.i.i:     ; preds = %511
   br label %.lr.ph.i.i.i
 
 .preheader.i.i.i81:                               ; preds = %.lr.ph.i.i.i, %520
-  %.038.lcssa.i.i.i = phi i64 [ 0, %520 ], [ %555, %.lr.ph.i.i.i ]
-  %.037.lcssa.i.i.i = phi i64 [ 0, %520 ], [ %546, %.lr.ph.i.i.i ]
+  %.043.lcssa.i.i.i = phi i64 [ 0, %520 ], [ %555, %.lr.ph.i.i.i ]
+  %.041.lcssa.i.i.i = phi i64 [ 0, %520 ], [ %546, %.lr.ph.i.i.i ]
   %.036.lcssa.i.i.i = phi i64 [ 0, %520 ], [ %537, %.lr.ph.i.i.i ]
   %.not20.i.i.i = icmp eq ptr %.val77.i.i, %.val.i.i
   br i1 %.not20.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph15.preheader.i.i.i
@@ -1504,10 +1504,10 @@ _ZN3ozz3log6LoggerlsIA30_cEERSoRKT_.exit.i.i:     ; preds = %511
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %.0368.i.i.i = phi i64 [ %537, %.lr.ph.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i ]
-  %.0377.i.i.i = phi i64 [ %546, %.lr.ph.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i ]
-  %.0386.i.i.i = phi i64 [ %555, %.lr.ph.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i ]
-  %.0395.i.i.i = phi i64 [ %556, %.lr.ph.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i ]
-  %529 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %.val78.i.i, i64 %.0395.i.i.i
+  %.0417.i.i.i = phi i64 [ %546, %.lr.ph.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i ]
+  %.0426.i.i.i = phi i64 [ %556, %.lr.ph.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i ]
+  %.0435.i.i.i = phi i64 [ %555, %.lr.ph.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i ]
+  %529 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %.val78.i.i, i64 %.0426.i.i.i
   %530 = getelementptr inbounds i8, ptr %529, i64 8
   %531 = load ptr, ptr %530, align 8
   %532 = load ptr, ptr %529, align 8
@@ -1524,7 +1524,7 @@ _ZN3ozz3log6LoggerlsIA30_cEERSoRKT_.exit.i.i:     ; preds = %511
   %543 = ptrtoint ptr %541 to i64
   %544 = sub i64 %542, %543
   %545 = sdiv exact i64 %544, 20
-  %546 = add i64 %545, %.0377.i.i.i
+  %546 = add i64 %545, %.0417.i.i.i
   %547 = getelementptr inbounds i8, ptr %529, i64 48
   %548 = getelementptr inbounds i8, ptr %529, i64 56
   %549 = load ptr, ptr %548, align 8
@@ -1533,17 +1533,17 @@ _ZN3ozz3log6LoggerlsIA30_cEERSoRKT_.exit.i.i:     ; preds = %511
   %552 = ptrtoint ptr %550 to i64
   %553 = sub i64 %551, %552
   %554 = ashr exact i64 %553, 4
-  %555 = add i64 %554, %.0386.i.i.i
-  %556 = add nuw i64 %.0395.i.i.i, 1
+  %555 = add i64 %554, %.0435.i.i.i
+  %556 = add nuw i64 %.0426.i.i.i, 1
   %exitcond.not.i.i.i80 = icmp eq i64 %556, %umax.i.i.i
   br i1 %exitcond.not.i.i.i80, label %.preheader.i.i.i81, label %.lr.ph.i.i.i, !llvm.loop !17
 
 .lr.ph15.i.i.i:                                   ; preds = %.lr.ph15.i.i.i, %.lr.ph15.preheader.i.i.i
-  %.04014.i.i.i = phi i64 [ %584, %.lr.ph15.i.i.i ], [ 0, %.lr.ph15.preheader.i.i.i ]
-  %.04113.i.i.i = phi i64 [ %583, %.lr.ph15.i.i.i ], [ 0, %.lr.ph15.preheader.i.i.i ]
-  %.04212.i.i.i = phi i64 [ %574, %.lr.ph15.i.i.i ], [ 0, %.lr.ph15.preheader.i.i.i ]
-  %.04311.i.i.i = phi i64 [ %565, %.lr.ph15.i.i.i ], [ 0, %.lr.ph15.preheader.i.i.i ]
-  %557 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %.val.i.i, i64 %.04014.i.i.i
+  %.03714.i.i.i = phi i64 [ %584, %.lr.ph15.i.i.i ], [ 0, %.lr.ph15.preheader.i.i.i ]
+  %.03813.i.i.i = phi i64 [ %583, %.lr.ph15.i.i.i ], [ 0, %.lr.ph15.preheader.i.i.i ]
+  %.03912.i.i.i = phi i64 [ %574, %.lr.ph15.i.i.i ], [ 0, %.lr.ph15.preheader.i.i.i ]
+  %.04011.i.i.i = phi i64 [ %565, %.lr.ph15.i.i.i ], [ 0, %.lr.ph15.preheader.i.i.i ]
+  %557 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %.val.i.i, i64 %.03714.i.i.i
   %558 = getelementptr inbounds i8, ptr %557, i64 8
   %559 = load ptr, ptr %558, align 8
   %560 = load ptr, ptr %557, align 8
@@ -1551,7 +1551,7 @@ _ZN3ozz3log6LoggerlsIA30_cEERSoRKT_.exit.i.i:     ; preds = %511
   %562 = ptrtoint ptr %560 to i64
   %563 = sub i64 %561, %562
   %564 = ashr exact i64 %563, 4
-  %565 = add i64 %564, %.04311.i.i.i
+  %565 = add i64 %564, %.04011.i.i.i
   %566 = getelementptr inbounds i8, ptr %557, i64 24
   %567 = getelementptr inbounds i8, ptr %557, i64 32
   %568 = load ptr, ptr %567, align 8
@@ -1560,7 +1560,7 @@ _ZN3ozz3log6LoggerlsIA30_cEERSoRKT_.exit.i.i:     ; preds = %511
   %571 = ptrtoint ptr %569 to i64
   %572 = sub i64 %570, %571
   %573 = sdiv exact i64 %572, 20
-  %574 = add i64 %573, %.04212.i.i.i
+  %574 = add i64 %573, %.03912.i.i.i
   %575 = getelementptr inbounds i8, ptr %557, i64 48
   %576 = getelementptr inbounds i8, ptr %557, i64 56
   %577 = load ptr, ptr %576, align 8
@@ -1569,8 +1569,8 @@ _ZN3ozz3log6LoggerlsIA30_cEERSoRKT_.exit.i.i:     ; preds = %511
   %580 = ptrtoint ptr %578 to i64
   %581 = sub i64 %579, %580
   %582 = ashr exact i64 %581, 4
-  %583 = add i64 %582, %.04113.i.i.i
-  %584 = add nuw i64 %.04014.i.i.i, 1
+  %583 = add i64 %582, %.03813.i.i.i
+  %584 = add nuw i64 %.03714.i.i.i, 1
   %exitcond27.not.i.i.i = icmp eq i64 %584, %umax26.i.i.i
   br i1 %exitcond27.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph15.i.i.i, !llvm.loop !18
 
@@ -1581,20 +1581,20 @@ _ZN3ozz3log6LoggerlsIA30_cEERSoRKT_.exit.i.i:     ; preds = %511
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %.preheader.i.i.i81
-  %.043.lcssa.i.i.i = phi float [ 0.000000e+00, %.preheader.i.i.i81 ], [ %585, %._crit_edge.loopexit.i.i.i ]
-  %.042.lcssa.i.i.i = phi float [ 0.000000e+00, %.preheader.i.i.i81 ], [ %586, %._crit_edge.loopexit.i.i.i ]
-  %.041.lcssa.i.i.i = phi float [ 0.000000e+00, %.preheader.i.i.i81 ], [ %587, %._crit_edge.loopexit.i.i.i ]
+  %.040.lcssa.i.i.i = phi float [ 0.000000e+00, %.preheader.i.i.i81 ], [ %585, %._crit_edge.loopexit.i.i.i ]
+  %.039.lcssa.i.i.i = phi float [ 0.000000e+00, %.preheader.i.i.i81 ], [ %586, %._crit_edge.loopexit.i.i.i ]
+  %.038.lcssa.i.i.i = phi float [ 0.000000e+00, %.preheader.i.i.i81 ], [ %587, %._crit_edge.loopexit.i.i.i ]
   %.not.i.i.i82 = icmp eq i64 %.036.lcssa.i.i.i, 0
   %588 = uitofp i64 %.036.lcssa.i.i.i to float
-  %589 = fdiv float %.043.lcssa.i.i.i, %588
+  %589 = fdiv float %.040.lcssa.i.i.i, %588
   %590 = select i1 %.not.i.i.i82, float 0.000000e+00, float %589
-  %.not44.i.i.i = icmp eq i64 %.037.lcssa.i.i.i, 0
-  %591 = uitofp i64 %.037.lcssa.i.i.i to float
-  %592 = fdiv float %.042.lcssa.i.i.i, %591
+  %.not44.i.i.i = icmp eq i64 %.041.lcssa.i.i.i, 0
+  %591 = uitofp i64 %.041.lcssa.i.i.i to float
+  %592 = fdiv float %.039.lcssa.i.i.i, %591
   %593 = select i1 %.not44.i.i.i, float 0.000000e+00, float %592
-  %.not45.i.i.i = icmp eq i64 %.038.lcssa.i.i.i, 0
-  %594 = uitofp i64 %.038.lcssa.i.i.i to float
-  %595 = fdiv float %.041.lcssa.i.i.i, %594
+  %.not45.i.i.i = icmp eq i64 %.043.lcssa.i.i.i, 0
+  %594 = uitofp i64 %.043.lcssa.i.i.i to float
+  %595 = fdiv float %.038.lcssa.i.i.i, %594
   %596 = select i1 %.not45.i.i.i, float 0.000000e+00, float %595
   invoke void @_ZN3ozz3log4LogVC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %9)
           to label %.noexc.i.i unwind label %516
@@ -2435,9 +2435,9 @@ _ZNSt10unique_ptrIN3ozz9animation9AnimationENS0_7DeleterIS2_EEED2Ev.exit.i.i: ; 
 
 _ZN3ozz3log6LoggerlsIA35_cEERSoRKT_.exit114.i.i:  ; preds = %931
   %934 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %933, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %.thread205.i.i unwind label %939
+          to label %.thread204.i.i unwind label %939
 
-.thread205.i.i:                                   ; preds = %_ZN3ozz3log6LoggerlsIA35_cEERSoRKT_.exit114.i.i
+.thread204.i.i:                                   ; preds = %_ZN3ozz3log6LoggerlsIA35_cEERSoRKT_.exit114.i.i
   call void @_ZN3ozz3log6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(9) %30) #18
   br label %_ZNSt10unique_ptrIN3ozz9animation9AnimationENS0_7DeleterIS2_EEED2Ev.exit133.i.i
 
@@ -2753,8 +2753,8 @@ _ZN3ozz3log6LoggerlsIA49_cEERSoRKT_.exit.i.i:     ; preds = %1043
   call void @__clang_call_terminate(ptr %1060) #20
   unreachable
 
-_ZNSt10unique_ptrIN3ozz9animation9AnimationENS0_7DeleterIS2_EEED2Ev.exit133.i.i: ; preds = %.noexc.i132.i.i, %1052, %.thread205.i.i
-  %.5208.i.i = phi i1 [ false, %.thread205.i.i ], [ %961, %1052 ], [ %961, %.noexc.i132.i.i ]
+_ZNSt10unique_ptrIN3ozz9animation9AnimationENS0_7DeleterIS2_EEED2Ev.exit133.i.i: ; preds = %.noexc.i132.i.i, %1052, %.thread204.i.i
+  %.5207.i.i = phi i1 [ false, %.thread204.i.i ], [ %961, %1052 ], [ %961, %.noexc.i132.i.i ]
   store ptr null, ptr %26, align 8
   br label %1062
 
@@ -2764,7 +2764,7 @@ _ZNSt10unique_ptrIN3ozz9animation9AnimationENS0_7DeleterIS2_EEED2Ev.exit133.i.i:
   br label %_ZN3ozz9animation7offline18AnimationOptimizerD2Ev.exit
 
 1062:                                             ; preds = %_ZNSt10unique_ptrIN3ozz9animation9AnimationENS0_7DeleterIS2_EEED2Ev.exit133.i.i, %_ZN3ozz9animation7offline12RawAnimationD2Ev.exit108.i.i, %_ZN3ozz9animation7offline18AnimationOptimizerD2Ev.exit.i.i
-  %.6.i.i = phi i1 [ %.5208.i.i, %_ZNSt10unique_ptrIN3ozz9animation9AnimationENS0_7DeleterIS2_EEED2Ev.exit133.i.i ], [ false, %_ZN3ozz9animation7offline12RawAnimationD2Ev.exit108.i.i ], [ false, %_ZN3ozz9animation7offline18AnimationOptimizerD2Ev.exit.i.i ]
+  %.6.i.i = phi i1 [ %.5207.i.i, %_ZNSt10unique_ptrIN3ozz9animation9AnimationENS0_7DeleterIS2_EEED2Ev.exit133.i.i ], [ false, %_ZN3ozz9animation7offline12RawAnimationD2Ev.exit108.i.i ], [ false, %_ZN3ozz9animation7offline18AnimationOptimizerD2Ev.exit.i.i ]
   %1063 = load ptr, ptr %276, align 8
   %1064 = icmp eq ptr %1063, %301
   br i1 %1064, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.thread.i.i.i144.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_localEv.exit.i.i.i134.i.i

@@ -14635,12 +14635,12 @@ invoke.cont76:                                    ; preds = %if.then75
   br i1 %cmp803373.not, label %cond.true122, label %for.body81
 
 for.body81:                                       ; preds = %invoke.cont76, %for.inc
-  %last_start.03379 = phi i32 [ %last_start.1, %for.inc ], [ 0, %invoke.cont76 ]
-  %i.03378 = phi i32 [ %add, %for.inc ], [ 0, %invoke.cont76 ]
+  %i.03379 = phi i32 [ %add, %for.inc ], [ 0, %invoke.cont76 ]
+  %last_start.03378 = phi i32 [ %last_start.1, %for.inc ], [ 0, %invoke.cont76 ]
   %factors.sroa.0.13377 = phi ptr [ %factors.sroa.0.4, %for.inc ], [ null, %invoke.cont76 ]
   %factors.sroa.9.13376 = phi ptr [ %factors.sroa.9.3, %for.inc ], [ null, %invoke.cont76 ]
   %factors.sroa.17.13375 = phi ptr [ %factors.sroa.17.3, %for.inc ], [ null, %invoke.cont76 ]
-  %add = add nuw i32 %i.03378, 1
+  %add = add nuw i32 %i.03379, 1
   %cmp82.not = icmp eq i32 %add, %cond.i.i
   br i1 %cmp82.not, label %if.then104, label %lor.rhs83
 
@@ -14704,7 +14704,7 @@ invoke.cont86:                                    ; preds = %if.else.i.i.i, %if.
 call2.i.i.i.noexc315:                             ; preds = %invoke.cont86
   %cmp.i.i296 = icmp eq i32 %call2.i.i.i316, 2
   %inc.i.i297 = zext i1 %cmp.i.i296 to i32
-  %spec.select.i.i298 = add nuw nsw i32 %i.03378, %inc.i.i297
+  %spec.select.i.i298 = add nuw nsw i32 %i.03379, %inc.i.i297
   %d_children.i.i299 = getelementptr inbounds i8, ptr %32, i64 16
   %idxprom.i.i300 = sext i32 %spec.select.i.i298 to i64
   %arrayidx.i.i301 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i299, i64 0, i64 %idxprom.i.i300
@@ -14795,7 +14795,7 @@ cleanup.done100:                                  ; preds = %if.then13.i.i336, %
   br i1 %cmp.i319.not, label %for.inc, label %if.then104
 
 if.then104:                                       ; preds = %for.body81, %cleanup.done100
-  %sub = sub i32 %i.03378, %last_start.03379
+  %sub = sub i32 %i.03379, %last_start.03378
   %add105 = add i32 %sub, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !121)
   %41 = load ptr, ptr %v, align 8, !noalias !121
@@ -14811,7 +14811,7 @@ if.then104:                                       ; preds = %for.body81, %cleanu
 call2.i.i.i.noexc364:                             ; preds = %if.then104
   %cmp.i.i345 = icmp eq i32 %call2.i.i.i365, 2
   %inc.i.i346 = zext i1 %cmp.i.i345 to i32
-  %spec.select.i.i347 = add nuw nsw i32 %i.03378, %inc.i.i346
+  %spec.select.i.i347 = add nuw nsw i32 %i.03379, %inc.i.i346
   %d_children.i.i348 = getelementptr inbounds i8, ptr %41, i64 16
   %idxprom.i.i349 = sext i32 %spec.select.i.i347 to i64
   %arrayidx.i.i350 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i348, i64 0, i64 %idxprom.i.i349
@@ -15007,7 +15007,7 @@ for.inc:                                          ; preds = %_ZNSt6vectorIjSaIjE
   %factors.sroa.17.3 = phi ptr [ %factors.sroa.17.13375, %cleanup.done100 ], [ %factors.sroa.17.13375, %if.then.i387 ], [ %add.ptr19.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
   %factors.sroa.9.3 = phi ptr [ %factors.sroa.9.13376, %cleanup.done100 ], [ %incdec.ptr.i388, %if.then.i387 ], [ %incdec.ptr.i.i394, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
   %factors.sroa.0.4 = phi ptr [ %factors.sroa.0.13377, %cleanup.done100 ], [ %factors.sroa.0.13377, %if.then.i387 ], [ %cond.i10.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
-  %last_start.1 = phi i32 [ %last_start.03379, %cleanup.done100 ], [ %add, %if.then.i387 ], [ %add, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
+  %last_start.1 = phi i32 [ %last_start.03378, %cleanup.done100 ], [ %add, %if.then.i387 ], [ %add, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ]
   %exitcond.not = icmp eq i32 %add, %cond.i.i
   br i1 %exitcond.not, label %cond.true122, label %for.body81, !llvm.loop !124
 

@@ -300,8 +300,8 @@ dom_doc_from_context_node.exit:                   ; preds = %4, %4, %7
   br label %.loopexit54
 
 .loopexit54:                                      ; preds = %.loopexit, %.preheader, %dom_doc_from_context_node.exit, %.loopexit53
-  %.0 = phi ptr [ null, %.loopexit53 ], [ null, %dom_doc_from_context_node.exit ], [ %10, %.preheader ], [ %10, %.loopexit ]
-  ret ptr %.0
+  %.044 = phi ptr [ null, %.loopexit53 ], [ null, %dom_doc_from_context_node.exit ], [ %10, %.preheader ], [ %10, %.loopexit ]
+  ret ptr %.044
 }
 
 declare ptr @xmlNewDocFragment(ptr noundef) local_unnamed_addr #1
@@ -502,8 +502,8 @@ dom_doc_from_context_node.exit:                   ; preds = %6, %6, %9
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %46, %dom_doc_from_context_node.exit, %4, %42, %38, %36, %28
-  %.0 = phi i32 [ -1, %28 ], [ -1, %36 ], [ -1, %38 ], [ -1, %42 ], [ -1, %4 ], [ 0, %dom_doc_from_context_node.exit ], [ 0, %46 ]
-  ret i32 %.0
+  %.032 = phi i32 [ -1, %28 ], [ -1, %36 ], [ -1, %38 ], [ -1, %42 ], [ -1, %4 ], [ 0, %dom_doc_from_context_node.exit ], [ 0, %46 ]
+  ret i32 %.032
 }
 
 declare void @dom_reconcile_ns_list(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

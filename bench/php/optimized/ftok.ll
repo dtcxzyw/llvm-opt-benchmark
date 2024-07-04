@@ -102,11 +102,11 @@ thread-pre-split:                                 ; preds = %14
   br label %33
 
 .thread165:                                       ; preds = %31, %14, %18, %7
-  %.0121178 = phi i32 [ 9, %14 ], [ 9, %18 ], [ 1, %7 ], [ 9, %31 ]
-  %.0125177 = phi i32 [ 16, %14 ], [ 16, %18 ], [ 0, %7 ], [ 4, %31 ]
-  %.0126176 = phi ptr [ %9, %14 ], [ %9, %18 ], [ null, %7 ], [ %26, %31 ]
-  %.0127175 = phi i32 [ 1, %14 ], [ 1, %18 ], [ 0, %7 ], [ 2, %31 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0121178, i32 noundef %.0127175, ptr noundef null, i32 noundef %.0125177, ptr noundef %.0126176) #6
+  %.0120178 = phi i32 [ 9, %14 ], [ 9, %18 ], [ 1, %7 ], [ 9, %31 ]
+  %.0121177 = phi i32 [ 16, %14 ], [ 16, %18 ], [ 0, %7 ], [ 4, %31 ]
+  %.0122176 = phi ptr [ %9, %14 ], [ %9, %18 ], [ null, %7 ], [ %26, %31 ]
+  %.0123175 = phi i32 [ 1, %14 ], [ 1, %18 ], [ 0, %7 ], [ 2, %31 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0120178, i32 noundef %.0123175, ptr noundef null, i32 noundef %.0121177, ptr noundef %.0122176) #6
   br label %62
 
 33:                                               ; preds = %._crit_edge187, %.thread160

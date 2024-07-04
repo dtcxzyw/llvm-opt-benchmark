@@ -267,7 +267,7 @@ define noundef zeroext i1 @_ZN4pkpy4REPL5inputENSt7__cxx1112basic_stringIcSt11ch
   br label %26
 
 26:                                               ; preds = %._crit_edge, %2
-  %.017 = phi i32 [ 4, %._crit_edge ], [ 2, %2 ]
+  %.018 = phi i32 [ 4, %._crit_edge ], [ 2, %2 ]
   %27 = getelementptr inbounds i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8
   %29 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #7
@@ -277,7 +277,7 @@ define noundef zeroext i1 @_ZN4pkpy4REPL5inputENSt7__cxx1112basic_stringIcSt11ch
 30:                                               ; preds = %26
   %31 = extractvalue { i64, ptr } %29, 1
   %32 = extractvalue { i64, ptr } %29, 0
-  %33 = invoke noundef ptr @_ZN4pkpy2VM4execESt17basic_string_viewIcSt11char_traitsIcEENS_3StrENS_11CompileModeEPNS_8PyObjectE(ptr noundef nonnull align 8 dereferenceable(264913) %28, i64 %32, ptr %31, ptr noundef nonnull %3, i32 noundef %.017, ptr noundef null)
+  %33 = invoke noundef ptr @_ZN4pkpy2VM4execESt17basic_string_viewIcSt11char_traitsIcEENS_3StrENS_11CompileModeEPNS_8PyObjectE(ptr noundef nonnull align 8 dereferenceable(264913) %28, i64 %32, ptr %31, ptr noundef nonnull %3, i32 noundef %.018, ptr noundef null)
           to label %34 unwind label %37
 
 34:                                               ; preds = %30
@@ -298,14 +298,14 @@ define noundef zeroext i1 @_ZN4pkpy4REPL5inputENSt7__cxx1112basic_stringIcSt11ch
 
 39:                                               ; preds = %37, %35
   %.pn = phi { ptr, i32 } [ %38, %37 ], [ %36, %35 ]
-  %.013 = extractvalue { ptr, i32 } %.pn, 1
+  %.012 = extractvalue { ptr, i32 } %.pn, 1
   %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4pkpy13NeedMoreLinesE) #7
-  %41 = icmp eq i32 %.013, %40
+  %41 = icmp eq i32 %.012, %40
   br i1 %41, label %42, label %53
 
 42:                                               ; preds = %39
-  %.015 = extractvalue { ptr, i32 } %.pn, 0
-  %43 = call ptr @__cxa_begin_catch(ptr %.015) #7
+  %.013 = extractvalue { ptr, i32 } %.pn, 0
+  %43 = call ptr @__cxa_begin_catch(ptr %.013) #7
   %.sroa.0.0.copyload = load i8, ptr %43, align 1
   %44 = getelementptr inbounds i8, ptr %0, i64 8
   %45 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -329,8 +329,8 @@ define noundef zeroext i1 @_ZN4pkpy4REPL5inputENSt7__cxx1112basic_stringIcSt11ch
           to label %53 unwind label %54
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %48, %34
-  %.1 = phi i1 [ false, %34 ], [ true, %48 ], [ true, %5 ], [ true, %.lr.ph ]
-  ret i1 %.1
+  %.117 = phi i1 [ false, %34 ], [ true, %48 ], [ true, %5 ], [ true, %.lr.ph ]
+  ret i1 %.117
 
 53:                                               ; preds = %51, %39
   %.merged = phi { ptr, i32 } [ %52, %51 ], [ %.pn, %39 ]

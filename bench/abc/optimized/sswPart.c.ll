@@ -716,8 +716,8 @@ Abc_Clock.exit115:                                ; preds = %164, %167
   br label %177
 
 177:                                              ; preds = %Vec_VecFree.exit, %Abc_Clock.exit115, %17
-  %.0 = phi ptr [ null, %17 ], [ %147, %Abc_Clock.exit115 ], [ %147, %Vec_VecFree.exit ]
-  ret ptr %.0
+  %.086 = phi ptr [ null, %17 ], [ %147, %Abc_Clock.exit115 ], [ %147, %Vec_VecFree.exit ]
+  ret ptr %.086
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1399,8 +1399,8 @@ Abc_Clock.exit152:                                ; preds = %251, %254
   br label %264
 
 264:                                              ; preds = %Vec_VecFree.exit, %Abc_Clock.exit152, %16
-  %.0 = phi ptr [ null, %16 ], [ %234, %Abc_Clock.exit152 ], [ %234, %Vec_VecFree.exit ]
-  ret ptr %.0
+  %.096 = phi ptr [ null, %16 ], [ %234, %Abc_Clock.exit152 ], [ %234, %Vec_VecFree.exit ]
+  ret ptr %.096
 }
 
 declare ptr @Gia_ManFromAigSimple(ptr noundef) local_unnamed_addr #1

@@ -141,8 +141,8 @@ if.end16:                                         ; preds = %if.end11
   br label %done
 
 done:                                             ; preds = %if.end16, %if.end11, %if.end6, %if.end, %entry
-  %gm_group.0 = phi ptr [ %call12, %if.end11 ], [ null, %if.end6 ], [ null, %if.end ], [ null, %entry ], [ %call12, %if.end16 ]
   %testresult.0 = phi i32 [ 0, %if.end11 ], [ 0, %if.end6 ], [ 0, %if.end ], [ 0, %entry ], [ %call18, %if.end16 ]
+  %gm_group.0 = phi ptr [ %call12, %if.end11 ], [ null, %if.end6 ], [ null, %if.end ], [ null, %entry ], [ %call12, %if.end16 ]
   tail call void @EC_GROUP_free(ptr noundef %call) #3
   tail call void @EC_GROUP_free(ptr noundef %gm_group.0) #3
   ret i32 %testresult.0
@@ -180,8 +180,8 @@ if.end11:                                         ; preds = %if.end6
   br label %done
 
 done:                                             ; preds = %if.end11, %if.end6, %if.end, %entry
-  %gm_group.0 = phi ptr [ %call7, %if.end6 ], [ null, %if.end ], [ null, %entry ], [ %call7, %if.end11 ]
   %testresult.0 = phi i32 [ 0, %if.end6 ], [ 0, %if.end ], [ 0, %entry ], [ %spec.select, %if.end11 ]
+  %gm_group.0 = phi ptr [ %call7, %if.end6 ], [ null, %if.end ], [ null, %entry ], [ %call7, %if.end11 ]
   tail call void @EC_GROUP_free(ptr noundef %call) #3
   tail call void @EC_GROUP_free(ptr noundef %gm_group.0) #3
   ret i32 %testresult.0
@@ -484,8 +484,8 @@ lor.lhs.false89:                                  ; preds = %lor.lhs.false84
   br label %done
 
 done:                                             ; preds = %if.end50, %lor.lhs.false89, %if.end74, %lor.lhs.false78, %lor.lhs.false84, %if.end62, %lor.lhs.false68, %if.end58, %if.end45, %if.end22, %lor.lhs.false26, %lor.lhs.false32, %lor.lhs.false38, %if.end, %lor.lhs.false9, %lor.lhs.false15, %entry, %lor.lhs.false
-  %pt.0 = phi ptr [ %call23, %lor.lhs.false84 ], [ %call23, %lor.lhs.false78 ], [ %call23, %if.end74 ], [ %call23, %lor.lhs.false68 ], [ %call23, %if.end62 ], [ %call23, %if.end58 ], [ %call23, %if.end45 ], [ %call23, %lor.lhs.false38 ], [ %call23, %lor.lhs.false32 ], [ %call23, %lor.lhs.false26 ], [ %call23, %if.end22 ], [ null, %lor.lhs.false15 ], [ null, %lor.lhs.false9 ], [ null, %if.end ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call23, %lor.lhs.false89 ], [ %call23, %if.end50 ]
   %key.0 = phi ptr [ %call6, %lor.lhs.false84 ], [ %call6, %lor.lhs.false78 ], [ %call6, %if.end74 ], [ %call6, %lor.lhs.false68 ], [ %call6, %if.end62 ], [ %call6, %if.end58 ], [ %call6, %if.end45 ], [ %call6, %lor.lhs.false38 ], [ %call6, %lor.lhs.false32 ], [ %call6, %lor.lhs.false26 ], [ %call6, %if.end22 ], [ %call6, %lor.lhs.false15 ], [ %call6, %lor.lhs.false9 ], [ %call6, %if.end ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call6, %lor.lhs.false89 ], [ %call6, %if.end50 ]
+  %pt.0 = phi ptr [ %call23, %lor.lhs.false84 ], [ %call23, %lor.lhs.false78 ], [ %call23, %if.end74 ], [ %call23, %lor.lhs.false68 ], [ %call23, %if.end62 ], [ %call23, %if.end58 ], [ %call23, %if.end45 ], [ %call23, %lor.lhs.false38 ], [ %call23, %lor.lhs.false32 ], [ %call23, %lor.lhs.false26 ], [ %call23, %if.end22 ], [ null, %lor.lhs.false15 ], [ null, %lor.lhs.false9 ], [ null, %if.end ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call23, %lor.lhs.false89 ], [ %call23, %if.end50 ]
   %ctext.0 = phi ptr [ %call46, %lor.lhs.false84 ], [ %call46, %lor.lhs.false78 ], [ %call46, %if.end74 ], [ %call46, %lor.lhs.false68 ], [ %call46, %if.end62 ], [ %call46, %if.end58 ], [ %call46, %if.end45 ], [ null, %lor.lhs.false38 ], [ null, %lor.lhs.false32 ], [ null, %lor.lhs.false26 ], [ null, %if.end22 ], [ null, %lor.lhs.false15 ], [ null, %lor.lhs.false9 ], [ null, %if.end ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call46, %lor.lhs.false89 ], [ %call46, %if.end50 ]
   %recovered.0 = phi ptr [ %call75, %lor.lhs.false84 ], [ %call75, %lor.lhs.false78 ], [ %call75, %if.end74 ], [ null, %lor.lhs.false68 ], [ null, %if.end62 ], [ null, %if.end58 ], [ null, %if.end45 ], [ null, %lor.lhs.false38 ], [ null, %lor.lhs.false32 ], [ null, %lor.lhs.false26 ], [ null, %if.end22 ], [ null, %lor.lhs.false15 ], [ null, %lor.lhs.false9 ], [ null, %if.end ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call75, %lor.lhs.false89 ], [ null, %if.end50 ]
   %rc.0 = phi i32 [ 0, %lor.lhs.false84 ], [ 0, %lor.lhs.false78 ], [ 0, %if.end74 ], [ 0, %lor.lhs.false68 ], [ 0, %if.end62 ], [ 0, %if.end58 ], [ 0, %if.end45 ], [ 0, %lor.lhs.false38 ], [ 0, %lor.lhs.false32 ], [ 0, %lor.lhs.false26 ], [ 0, %if.end22 ], [ 0, %lor.lhs.false15 ], [ 0, %lor.lhs.false9 ], [ 0, %if.end ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %lor.lhs.false89 ], [ 0, %if.end50 ]

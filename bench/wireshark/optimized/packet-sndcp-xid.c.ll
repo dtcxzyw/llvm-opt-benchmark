@@ -467,13 +467,13 @@ define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr no
   %87 = zext nneg i8 %10 to i64
   %88 = getelementptr [32 x i8], ptr @dcomp_entity_algo_id, i64 0, i64 %87
   %89 = getelementptr [32 x i8], ptr @pcomp_entity_algo_id, i64 0, i64 %87
-  %.0155.in = select i1 %.not164, ptr %89, ptr %88
-  %.0155 = load i8, ptr %.0155.in, align 1
+  %.0156.in = select i1 %.not164, ptr %89, ptr %88
+  %.0156 = load i8, ptr %.0156.in, align 1
   %90 = zext i8 %12 to i32
   %91 = add nuw nsw i32 %90, 2
   %92 = load i32, ptr @ett_sndcp_comp_field, align 4
   %93 = zext nneg i8 %10 to i32
-  %94 = and i8 %.0155, 31
+  %94 = and i8 %.0156, 31
   %95 = zext nneg i8 %94 to i32
   %96 = tail call ptr @val_to_str(i32 noundef %95, ptr noundef nonnull %.1, ptr noundef nonnull @.str.119) #2
   %97 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %91, i32 noundef %92, ptr noundef null, ptr noundef nonnull @.str.120, i32 noundef %93, ptr noundef %96) #2
@@ -489,11 +489,11 @@ define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr no
   br i1 %.not164, label %109, label %107
 
 107:                                              ; preds = %86
-  %108 = icmp ugt i8 %.0155, 1
+  %108 = icmp ugt i8 %.0156, 1
   br i1 %108, label %.loopexit, label %111
 
 109:                                              ; preds = %86
-  %110 = icmp ugt i8 %.0155, 2
+  %110 = icmp ugt i8 %.0156, 2
   br i1 %110, label %.loopexit, label %111
 
 111:                                              ; preds = %109, %107
@@ -501,7 +501,7 @@ define internal fastcc void @parse_compression_parameters(ptr noundef %0, ptr no
   br i1 %.not185, label %.critedge2, label %.lr.ph
 
 .lr.ph:                                           ; preds = %111
-  %112 = zext nneg i8 %.0155 to i64
+  %112 = zext nneg i8 %.0156 to i64
   %113 = getelementptr %struct.algo_parameters_t, ptr %.1154, i64 %112, i32 1
   %114 = load ptr, ptr %113, align 8
   br label %115

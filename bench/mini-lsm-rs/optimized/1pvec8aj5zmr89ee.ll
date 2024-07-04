@@ -7864,7 +7864,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN4moka3cht3map16bucket_ar
   br label %5
 
 5:                                                ; preds = %22, %0
-  %.sroa.7.0 = phi i64 [ undef, %0 ], [ %.013, %22 ]
+  %.sroa.7.0 = phi i64 [ undef, %0 ], [ %.012, %22 ]
   %6 = phi i1 [ true, %0 ], [ false, %22 ]
   %7 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h31bf14352078a3c9E.llvm.8540189446595550310(ptr noundef nonnull %.0.val, i8 noundef 2)
           to label %8 unwind label %32
@@ -7923,8 +7923,8 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN4moka3cht3map16bucket_ar
   br label %.noexc
 
 .noexc:                                           ; preds = %10, %18
-  %.013 = phi i64 [ %19, %18 ], [ %.sroa.7.0, %10 ]
-  %20 = tail call { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17hea9d2275a25bb5e5E.llvm.8540189446595550310(ptr noundef nonnull %.0.val, i64 noundef 0, i64 noundef %.013, i8 noundef 3, i8 noundef 0)
+  %.012 = phi i64 [ %19, %18 ], [ %.sroa.7.0, %10 ]
+  %20 = tail call { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17hea9d2275a25bb5e5E.llvm.8540189446595550310(ptr noundef nonnull %.0.val, i64 noundef 0, i64 noundef %.012, i8 noundef 3, i8 noundef 0)
   %21 = extractvalue { i64, i64 } %20, 0
   %switch.i2.i = icmp eq i64 %21, 0
   br i1 %switch.i2.i, label %.thread16, label %22
@@ -7938,7 +7938,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN4moka3cht3map16bucket_ar
   br label %.thread16
 
 .thread16:                                        ; preds = %.noexc, %.thread16.split.loop.exit34
-  %spec.select.i.i21 = phi i64 [ %23, %.thread16.split.loop.exit34 ], [ %.013, %.noexc ]
+  %spec.select.i.i21 = phi i64 [ %23, %.thread16.split.loop.exit34 ], [ %.012, %.noexc ]
   %24 = and i64 %spec.select.i.i21, -8
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %26, label %.thread
@@ -8006,7 +8006,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN4moka3cht3map16bucket_ar
   br label %5
 
 5:                                                ; preds = %22, %0
-  %.sroa.7.0 = phi i64 [ undef, %0 ], [ %.013, %22 ]
+  %.sroa.7.0 = phi i64 [ undef, %0 ], [ %.012, %22 ]
   %6 = phi i1 [ true, %0 ], [ false, %22 ]
   %7 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h31bf14352078a3c9E.llvm.8540189446595550310(ptr noundef nonnull %.0.val, i8 noundef 2)
           to label %8 unwind label %32
@@ -8065,8 +8065,8 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN4moka3cht3map16bucket_ar
   br label %.noexc
 
 .noexc:                                           ; preds = %10, %18
-  %.013 = phi i64 [ %19, %18 ], [ %.sroa.7.0, %10 ]
-  %20 = tail call { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17hea9d2275a25bb5e5E.llvm.8540189446595550310(ptr noundef nonnull %.0.val, i64 noundef 0, i64 noundef %.013, i8 noundef 3, i8 noundef 0)
+  %.012 = phi i64 [ %19, %18 ], [ %.sroa.7.0, %10 ]
+  %20 = tail call { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17hea9d2275a25bb5e5E.llvm.8540189446595550310(ptr noundef nonnull %.0.val, i64 noundef 0, i64 noundef %.012, i8 noundef 3, i8 noundef 0)
   %21 = extractvalue { i64, i64 } %20, 0
   %switch.i2.i = icmp eq i64 %21, 0
   br i1 %switch.i2.i, label %.thread16, label %22
@@ -8080,7 +8080,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN4moka3cht3map16bucket_ar
   br label %.thread16
 
 .thread16:                                        ; preds = %.noexc, %.thread16.split.loop.exit34
-  %spec.select.i.i21 = phi i64 [ %23, %.thread16.split.loop.exit34 ], [ %.013, %.noexc ]
+  %spec.select.i.i21 = phi i64 [ %23, %.thread16.split.loop.exit34 ], [ %.012, %.noexc ]
   %24 = and i64 %spec.select.i.i21, -8
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %26, label %.thread
@@ -8148,7 +8148,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN4moka3cht3map16bucket_ar
   br label %5
 
 5:                                                ; preds = %22, %0
-  %.sroa.7.0 = phi i64 [ undef, %0 ], [ %.013, %22 ]
+  %.sroa.7.0 = phi i64 [ undef, %0 ], [ %.012, %22 ]
   %6 = phi i1 [ true, %0 ], [ false, %22 ]
   %7 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h31bf14352078a3c9E.llvm.8540189446595550310(ptr noundef nonnull %.0.val, i8 noundef 2)
           to label %8 unwind label %32
@@ -8207,8 +8207,8 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN4moka3cht3map16bucket_ar
   br label %.noexc
 
 .noexc:                                           ; preds = %10, %18
-  %.013 = phi i64 [ %19, %18 ], [ %.sroa.7.0, %10 ]
-  %20 = tail call { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17hea9d2275a25bb5e5E.llvm.8540189446595550310(ptr noundef nonnull %.0.val, i64 noundef 0, i64 noundef %.013, i8 noundef 3, i8 noundef 0)
+  %.012 = phi i64 [ %19, %18 ], [ %.sroa.7.0, %10 ]
+  %20 = tail call { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17hea9d2275a25bb5e5E.llvm.8540189446595550310(ptr noundef nonnull %.0.val, i64 noundef 0, i64 noundef %.012, i8 noundef 3, i8 noundef 0)
   %21 = extractvalue { i64, i64 } %20, 0
   %switch.i2.i = icmp eq i64 %21, 0
   br i1 %switch.i2.i, label %.thread16, label %22
@@ -8222,7 +8222,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN4moka3cht3map16bucket_ar
   br label %.thread16
 
 .thread16:                                        ; preds = %.noexc, %.thread16.split.loop.exit34
-  %spec.select.i.i21 = phi i64 [ %23, %.thread16.split.loop.exit34 ], [ %.013, %.noexc ]
+  %spec.select.i.i21 = phi i64 [ %23, %.thread16.split.loop.exit34 ], [ %.012, %.noexc ]
   %24 = and i64 %spec.select.i.i21, -8
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %26, label %.thread
@@ -11323,18 +11323,18 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
           to label %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$10do_execute17hea2eab2f23064e9eE.exit" unwind label %.thread91
 
 58:                                               ; preds = %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17he63b0d22a240a349E.exit.thread.i", %.lr.ph.i
-  %.sroa.0.062.i = phi ptr [ %.val13.i, %.lr.ph.i ], [ %59, %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17he63b0d22a240a349E.exit.thread.i" ]
-  %59 = getelementptr inbounds i8, ptr %.sroa.0.062.i, i64 24
-  %60 = getelementptr inbounds i8, ptr %.sroa.0.062.i, i64 8
+  %.sroa.0.063.i = phi ptr [ %.val13.i, %.lr.ph.i ], [ %59, %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17he63b0d22a240a349E.exit.thread.i" ]
+  %59 = getelementptr inbounds i8, ptr %.sroa.0.063.i, i64 24
+  %60 = getelementptr inbounds i8, ptr %.sroa.0.063.i, i64 8
   %61 = load i64, ptr %60, align 8, !noalias !1537, !noundef !9
-  %62 = getelementptr inbounds i8, ptr %.sroa.0.062.i, i64 16
+  %62 = getelementptr inbounds i8, ptr %.sroa.0.063.i, i64 16
   %63 = load i64, ptr %62, align 8, !noalias !1537, !noundef !9
   %64 = load ptr, ptr %45, align 8, !noalias !1537, !nonnull !9, !noundef !9
   %65 = load i64, ptr %46, align 8, !noalias !1537, !noundef !9
   call void @llvm.experimental.noalias.scope.decl(metadata !1550)
   call void @llvm.experimental.noalias.scope.decl(metadata !1553)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !1555
-  store ptr %.sroa.0.062.i, ptr %6, align 8, !noalias !1556
+  store ptr %.sroa.0.063.i, ptr %6, align 8, !noalias !1556
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1560
   call void @llvm.experimental.noalias.scope.decl(metadata !1563)
   %66 = load i32, ptr %47, align 8, !noalias !1566, !noundef !9
@@ -11362,15 +11362,15 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
   store ptr %50, ptr %51, align 8, !alias.scope !1563, !noalias !1560
   store ptr %76, ptr %52, align 8, !alias.scope !1563, !noalias !1560
   %77 = invoke noundef ptr @"_ZN4moka3cht3map16bucket_array_ref31BucketArrayRef$LT$K$C$V$C$S$GT$22get_key_value_and_then17h4f2c22b8748ac620E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5, i64 noundef %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
-          to label %.noexc16.i unwind label %.loopexit.i, !noalias !1537
+          to label %.noexc17.i unwind label %.loopexit.i, !noalias !1537
 
-.noexc16.i:                                       ; preds = %"_ZN4moka9sync_base10base_cache165_$LT$impl$u20$moka..sync_base..invalidator..GetOrRemoveEntry$LT$K$C$V$GT$$u20$for$u20$alloc..sync..Arc$LT$moka..sync_base..base_cache..Inner$LT$K$C$V$C$S$GT$$GT$$GT$15get_value_entry17h979fc4bcd3a07132E.exit.i.i"
+.noexc17.i:                                       ; preds = %"_ZN4moka9sync_base10base_cache165_$LT$impl$u20$moka..sync_base..invalidator..GetOrRemoveEntry$LT$K$C$V$GT$$u20$for$u20$alloc..sync..Arc$LT$moka..sync_base..base_cache..Inner$LT$K$C$V$C$S$GT$$GT$$GT$15get_value_entry17h979fc4bcd3a07132E.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1560
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1555
   %.not.not.i.i = icmp eq ptr %77, null
   br i1 %.not.not.i.i, label %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17he63b0d22a240a349E.exit.thread.i", label %78
 
-78:                                               ; preds = %.noexc16.i
+78:                                               ; preds = %.noexc17.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !1555
   store ptr %77, ptr %7, align 8, !noalias !1555
   %79 = getelementptr inbounds i8, ptr %77, i64 16
@@ -11432,7 +11432,7 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
 
 99:                                               ; preds = %90
   %100 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 }, ptr %64, i64 %65
-  %101 = load ptr, ptr %.sroa.0.062.i, align 8, !alias.scope !1553, !noalias !1568, !nonnull !9, !noundef !9
+  %101 = load ptr, ptr %.sroa.0.063.i, align 8, !alias.scope !1553, !noalias !1568, !nonnull !9, !noundef !9
   %102 = getelementptr inbounds i8, ptr %101, i64 16
   %103 = getelementptr inbounds i8, ptr %77, i64 8
   %.not.i.i.i = icmp eq i64 %65, 0
@@ -11502,10 +11502,10 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
 127:                                              ; preds = %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17he63b0d22a240a349E.exit.i"
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !1535
   store i64 %63, ptr %8, align 8, !noalias !1535
-  %128 = invoke noundef ptr @"_ZN4moka9sync_base10base_cache165_$LT$impl$u20$moka..sync_base..invalidator..GetOrRemoveEntry$LT$K$C$V$GT$$u20$for$u20$alloc..sync..Arc$LT$moka..sync_base..base_cache..Inner$LT$K$C$V$C$S$GT$$GT$$GT$19remove_key_value_if17hda15ec2a529a2d56E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.0.062.i, i64 noundef %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
+  %128 = invoke noundef ptr @"_ZN4moka9sync_base10base_cache165_$LT$impl$u20$moka..sync_base..invalidator..GetOrRemoveEntry$LT$K$C$V$GT$$u20$for$u20$alloc..sync..Arc$LT$moka..sync_base..base_cache..Inner$LT$K$C$V$C$S$GT$$GT$$GT$19remove_key_value_if17hda15ec2a529a2d56E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.0.063.i, i64 noundef %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
           to label %130 unwind label %.loopexit.i, !noalias !1537
 
-"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17he63b0d22a240a349E.exit.thread.i": ; preds = %.thread.i, %130, %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17he63b0d22a240a349E.exit.i", %.thread.i.i, %.noexc16.i
+"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17he63b0d22a240a349E.exit.thread.i": ; preds = %.thread.i, %130, %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17he63b0d22a240a349E.exit.i", %.thread.i.i, %.noexc17.i
   %129 = icmp eq ptr %59, %43
   br i1 %129, label %._crit_edge.i, label %58
 
@@ -11515,7 +11515,7 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
   br i1 %.not.not.i, label %"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$5apply17he63b0d22a240a349E.exit.thread.i", label %131
 
 131:                                              ; preds = %130
-  %.val.i = load ptr, ptr %.sroa.0.062.i, align 8, !noalias !1537, !nonnull !9, !noundef !9
+  %.val.i = load ptr, ptr %.sroa.0.063.i, align 8, !noalias !1537, !nonnull !9, !noundef !9
   %132 = atomicrmw add ptr %.val.i, i64 1 monotonic, align 8, !noalias !1537
   %133 = icmp slt i64 %132, 0
   br i1 %133, label %134, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hbffa00eb73853504E.exit.i"
@@ -11539,7 +11539,7 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
           to label %._crit_edge.i.i unwind label %139, !noalias !1537
 
 ._crit_edge.i.i:                                  ; preds = %138
-  %.pre.i19.i = load i64, ptr %40, align 8, !alias.scope !1606, !noalias !1535
+  %.pre.i20.i = load i64, ptr %40, align 8, !alias.scope !1606, !noalias !1535
   br label %.thread.i
 
 139:                                              ; preds = %138
@@ -11555,7 +11555,7 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
   unreachable
 
 .thread.i:                                        ; preds = %._crit_edge.i.i, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hbffa00eb73853504E.exit.i"
-  %143 = phi i64 [ %.pre.i19.i, %._crit_edge.i.i ], [ %135, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hbffa00eb73853504E.exit.i" ]
+  %143 = phi i64 [ %.pre.i20.i, %._crit_edge.i.i ], [ %135, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hbffa00eb73853504E.exit.i" ]
   %144 = load ptr, ptr %39, align 8, !alias.scope !1606, !noalias !1535, !nonnull !9, !noundef !9
   %145 = getelementptr inbounds { ptr, ptr }, ptr %144, i64 %143
   store ptr %.val.i, ptr %145, align 8, !noalias !1537
@@ -11575,8 +11575,8 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
 
 151:                                              ; preds = %.body.i
   %152 = cmpxchg ptr %35, i8 1, i8 0 release monotonic, align 1, !noalias !1610
-  %.sroa.18.0.in.i.i.i.i25.i = extractvalue { i8, i1 } %152, 1
-  br i1 %.sroa.18.0.in.i.i.i.i25.i, label %.thread, label %153
+  %.sroa.18.0.in.i.i.i.i26.i = extractvalue { i8, i1 } %152, 1
+  br i1 %.sroa.18.0.in.i.i.i.i26.i, label %.thread, label %153
 
 153:                                              ; preds = %151
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h4f1db2d09399a6dbE(ptr noundef nonnull align 1 %35, i1 noundef zeroext false)

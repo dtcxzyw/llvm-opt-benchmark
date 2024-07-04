@@ -2611,10 +2611,10 @@ wtap_encap_name.exit:                             ; preds = %22, %27, %28, %29
   br label %41
 
 41:                                               ; preds = %70, %36
-  %.040 = phi i32 [ 0, %36 ], [ %.039, %70 ]
-  %.039.in = phi i32 [ %39, %36 ], [ %.039, %70 ]
-  %.039 = add i32 %.039.in, 1048576
-  %42 = icmp slt i32 %.039, 1
+  %.040 = phi i32 [ 0, %36 ], [ %.0, %70 ]
+  %.0.in = phi i32 [ %39, %36 ], [ %.0, %70 ]
+  %.0 = add i32 %.0.in, 1048576
+  %42 = icmp slt i32 %.0, 1
   br i1 %42, label %43, label %57
 
 43:                                               ; preds = %41
@@ -2651,14 +2651,14 @@ wtap_encap_name.exit48:                           ; preds = %43, %48, %49, %50
   br label %78
 
 57:                                               ; preds = %41
-  %58 = zext nneg i32 %.039 to i64
+  %58 = zext nneg i32 %.0 to i64
   call void @ws_buffer_assure_space(ptr noundef %3, i64 noundef %58) #18
   %59 = load ptr, ptr %3, align 8
   %60 = load i64, ptr %40, align 8
   %61 = getelementptr i8, ptr %59, i64 %60
   %62 = zext nneg i32 %.040 to i64
   %63 = getelementptr i8, ptr %61, i64 %62
-  %64 = sub nsw i32 %.039, %.040
+  %64 = sub nsw i32 %.0, %.040
   %65 = call i32 @file_read(ptr noundef %63, i32 noundef %64, ptr noundef %1) #18
   %66 = icmp slt i32 %65, 0
   br i1 %66, label %67, label %70
@@ -2672,7 +2672,7 @@ wtap_encap_name.exit48:                           ; preds = %43, %48, %49, %50
 
 70:                                               ; preds = %57
   %71 = add nuw i32 %65, %.040
-  %.not = icmp eq i32 %71, %.039
+  %.not = icmp eq i32 %71, %.0
   br i1 %.not, label %41, label %72
 
 72:                                               ; preds = %70
@@ -2690,8 +2690,8 @@ wtap_encap_name.exit48:                           ; preds = %43, %48, %49, %50
   br label %78
 
 78:                                               ; preds = %wtap_file_size.exit, %72, %67, %wtap_encap_name.exit48, %wtap_encap_name.exit
-  %.0 = phi i32 [ 0, %wtap_encap_name.exit ], [ 0, %wtap_encap_name.exit48 ], [ 0, %67 ], [ 1, %72 ], [ 0, %wtap_file_size.exit ]
-  ret i32 %.0
+  %.039 = phi i32 [ 0, %wtap_encap_name.exit ], [ 0, %wtap_encap_name.exit48 ], [ 0, %67 ], [ 1, %72 ], [ 0, %wtap_file_size.exit ]
+  ret i32 %.039
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2743,15 +2743,15 @@ define void @wtap_buffer_append_epdu_tag(ptr noundef %0, i16 noundef zeroext %1,
   br label %16
 
 16:                                               ; preds = %4, %8
-  %.030 = phi i16 [ %.mask, %8 ], [ 0, %4 ]
-  %.029 = phi i64 [ %15, %8 ], [ 4, %4 ]
-  %.0 = phi i16 [ %3, %8 ], [ 0, %4 ]
-  tail call void @ws_buffer_assure_space(ptr noundef %0, i64 noundef %.029) #18
+  %.030 = phi i16 [ %3, %8 ], [ 0, %4 ]
+  %.029 = phi i16 [ %.mask, %8 ], [ 0, %4 ]
+  %.0 = phi i64 [ %15, %8 ], [ 4, %4 ]
+  tail call void @ws_buffer_assure_space(ptr noundef %0, i64 noundef %.0) #18
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = getelementptr i8, ptr %17, i64 %19
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %20, i8 0, i64 %.029, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %20, i8 0, i64 %.0, i1 false)
   %21 = lshr i16 %1, 8
   %22 = trunc nuw i16 %21 to i8
   store i8 %22, ptr %20, align 1
@@ -2759,25 +2759,25 @@ define void @wtap_buffer_append_epdu_tag(ptr noundef %0, i16 noundef zeroext %1,
   %24 = getelementptr i8, ptr %20, i64 1
   store i8 %23, ptr %24, align 1
   %25 = getelementptr i8, ptr %20, i64 2
-  %26 = add i16 %.0, %.030
+  %26 = add i16 %.029, %.030
   %27 = lshr i16 %26, 8
   %28 = trunc nuw i16 %27 to i8
   store i8 %28, ptr %25, align 1
   %29 = trunc i16 %26 to i8
   %30 = getelementptr i8, ptr %20, i64 3
   store i8 %29, ptr %30, align 1
-  %.not = icmp eq i16 %.0, 0
+  %.not = icmp eq i16 %.030, 0
   br i1 %.not, label %34, label %31
 
 31:                                               ; preds = %16
   %32 = getelementptr i8, ptr %20, i64 4
-  %33 = zext i16 %.0 to i64
+  %33 = zext i16 %.030 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr align 1 %2, i64 %33, i1 false)
   br label %34
 
 34:                                               ; preds = %31, %16
   %35 = load i64, ptr %18, align 8
-  %36 = add i64 %35, %.029
+  %36 = add i64 %35, %.0
   store i64 %36, ptr %18, align 8
   ret void
 }
@@ -2843,15 +2843,15 @@ define void @wtap_buffer_append_epdu_string(ptr noundef %0, i16 noundef zeroext 
   br label %16
 
 16:                                               ; preds = %8, %3
-  %.030.i = phi i16 [ %.mask.i, %8 ], [ 0, %3 ]
-  %.029.i = phi i64 [ %15, %8 ], [ 4, %3 ]
-  %.0.i = phi i16 [ %9, %8 ], [ 0, %3 ]
-  tail call void @ws_buffer_assure_space(ptr noundef %0, i64 noundef %.029.i) #18
+  %.030.i = phi i16 [ %9, %8 ], [ 0, %3 ]
+  %.029.i = phi i16 [ %.mask.i, %8 ], [ 0, %3 ]
+  %.0.i = phi i64 [ %15, %8 ], [ 4, %3 ]
+  tail call void @ws_buffer_assure_space(ptr noundef %0, i64 noundef %.0.i) #18
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = getelementptr i8, ptr %17, i64 %19
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %20, i8 0, i64 %.029.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %20, i8 0, i64 %.0.i, i1 false)
   %21 = lshr i16 %1, 8
   %22 = trunc nuw i16 %21 to i8
   store i8 %22, ptr %20, align 1
@@ -2859,25 +2859,25 @@ define void @wtap_buffer_append_epdu_string(ptr noundef %0, i16 noundef zeroext 
   %24 = getelementptr i8, ptr %20, i64 1
   store i8 %23, ptr %24, align 1
   %25 = getelementptr i8, ptr %20, i64 2
-  %26 = add i16 %.0.i, %.030.i
+  %26 = add i16 %.029.i, %.030.i
   %27 = lshr i16 %26, 8
   %28 = trunc nuw i16 %27 to i8
   store i8 %28, ptr %25, align 1
   %29 = trunc i16 %26 to i8
   %30 = getelementptr i8, ptr %20, i64 3
   store i8 %29, ptr %30, align 1
-  %.not.i = icmp eq i16 %.0.i, 0
+  %.not.i = icmp eq i16 %.030.i, 0
   br i1 %.not.i, label %wtap_buffer_append_epdu_tag.exit, label %31
 
 31:                                               ; preds = %16
   %32 = getelementptr i8, ptr %20, i64 4
-  %33 = zext i16 %.0.i to i64
+  %33 = zext i16 %.030.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr readonly align 1 %2, i64 %33, i1 false)
   br label %wtap_buffer_append_epdu_tag.exit
 
 wtap_buffer_append_epdu_tag.exit:                 ; preds = %16, %31
   %34 = load i64, ptr %18, align 8
-  %35 = add i64 %34, %.029.i
+  %35 = add i64 %34, %.0.i
   store i64 %35, ptr %18, align 8
   ret void
 }

@@ -70,7 +70,7 @@ define noalias ptr @findHintOutputs(ptr nocapture noundef readonly %0) local_unn
 6:                                                ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %.val18 = phi ptr [ %.val14, %.lr.ph ], [ %.val, %42 ]
-  %.01216 = phi i32 [ 0, %.lr.ph ], [ %.1, %42 ]
+  %.01117 = phi i32 [ 0, %.lr.ph ], [ %.1, %42 ]
   %7 = getelementptr i8, ptr %.val18, i64 8
   %.val13.val = load ptr, ptr %7, align 8
   %8 = getelementptr inbounds ptr, ptr %.val13.val, i64 %indvars.iv
@@ -143,11 +143,11 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %39 = getelementptr inbounds i32, ptr %36, i64 %38
   %40 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %40, ptr %39, align 4
-  %41 = add nsw i32 %.01216, 1
+  %41 = add nsw i32 %.01117, 1
   br label %42
 
 42:                                               ; preds = %6, %Vec_IntPush.exit
-  %.1 = phi i32 [ %41, %Vec_IntPush.exit ], [ %.01216, %6 ]
+  %.1 = phi i32 [ %41, %Vec_IntPush.exit ], [ %.01117, %6 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load ptr, ptr %2, align 8
   %43 = getelementptr i8, ptr %.val, i64 4
@@ -162,8 +162,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %1
-  %.012.lcssa = phi ptr [ null, %1 ], [ %47, %.critedge.loopexit ]
-  ret ptr %.012.lcssa
+  %.011.lcssa = phi ptr [ null, %1 ], [ %47, %.critedge.loopexit ]
+  ret ptr %.011.lcssa
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -369,7 +369,7 @@ define noundef ptr @createMonotoneTester(ptr nocapture noundef readonly %0, ptr 
   br i1 %48, label %.critedge, label %.critedge2, !llvm.loop !11
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
-  %.0203.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %45, %.critedge ]
+  %.0205.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %45, %.critedge ]
   %49 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %13) #15
   %50 = getelementptr i8, ptr %10, i64 4
   %.val233 = load i32, ptr %50, align 4
@@ -469,7 +469,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 .critedge4:                                       ; preds = %Vec_PtrPush.exit, %Vec_PtrAlloc.exit
   %.0204.lcssa = phi i32 [ 1, %Vec_PtrAlloc.exit ], [ %61, %Vec_PtrPush.exit ]
-  %92 = add nuw nsw i32 %.0204.lcssa, %.0203.lcssa
+  %92 = add nuw nsw i32 %.0204.lcssa, %.0205.lcssa
   %93 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %92)
   %94 = load ptr, ptr %11, align 8
   %95 = getelementptr i8, ptr %94, i64 4
@@ -605,7 +605,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
 
 167:                                              ; preds = %.lr.ph329, %190
   %indvars.iv362 = phi i64 [ 0, %.lr.ph329 ], [ %indvars.iv.next363, %190 ]
-  %.0206327 = phi ptr [ %.val240, %.lr.ph329 ], [ %205, %190 ]
+  %.0328 = phi ptr [ %.val240, %.lr.ph329 ], [ %205, %190 ]
   %.val235 = load ptr, ptr %164, align 8
   %168 = getelementptr inbounds i32, ptr %.val235, i64 %indvars.iv362
   %169 = load i32, ptr %168, align 4
@@ -655,7 +655,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   %202 = inttoptr i64 %201 to ptr
   %203 = tail call ptr @Aig_And(ptr noundef nonnull %13, ptr noundef %199, ptr noundef %202) #15
   %204 = tail call ptr @Aig_Or(ptr noundef nonnull %13, ptr noundef %196, ptr noundef %203) #15
-  %205 = tail call ptr @Aig_And(ptr noundef nonnull %13, ptr noundef %.0206327, ptr noundef %204) #15
+  %205 = tail call ptr @Aig_And(ptr noundef nonnull %13, ptr noundef %.0328, ptr noundef %204) #15
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %.val231 = load i32, ptr %162, align 4
   %206 = sext i32 %.val231 to i64
@@ -663,12 +663,12 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   br i1 %207, label %167, label %.critedge8, !llvm.loop !14
 
 .critedge8:                                       ; preds = %190, %.preheader
-  %.0206.lcssa = phi ptr [ %.val240, %.preheader ], [ %205, %190 ]
-  %208 = tail call ptr @Aig_And(ptr noundef nonnull %13, ptr noundef %160, ptr noundef %.0206.lcssa) #15
+  %.0.lcssa = phi ptr [ %.val240, %.preheader ], [ %205, %190 ]
+  %208 = tail call ptr @Aig_And(ptr noundef nonnull %13, ptr noundef %160, ptr noundef %.0.lcssa) #15
   br label %209
 
 209:                                              ; preds = %.critedge8, %158
-  %.0208 = phi ptr [ %208, %.critedge8 ], [ %160, %158 ]
+  %.0201 = phi ptr [ %208, %.critedge8 ], [ %160, %158 ]
   %.val230 = load i32, ptr %50, align 4
   %210 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %211 = add i32 %.val230, -1
@@ -863,7 +863,7 @@ Vec_IntFind.exit288:                              ; preds = %289, %293, %Vec_Int
   %294 = ashr exact i64 %sext, 29
   %295 = getelementptr inbounds i8, ptr %.val223, i64 %294
   %296 = load ptr, ptr %295, align 8
-  %297 = tail call ptr @Aig_And(ptr noundef nonnull %13, ptr noundef %.0208, ptr noundef %296) #15
+  %297 = tail call ptr @Aig_And(ptr noundef nonnull %13, ptr noundef %.0201, ptr noundef %296) #15
   %298 = ptrtoint ptr %297 to i64
   %299 = xor i64 %298, 1
   %300 = inttoptr i64 %299 to ptr
@@ -1039,8 +1039,8 @@ Aig_ObjChild0Copy.exit304:                        ; preds = %.lr.ph338, %364
   br label %.critedge12
 
 .critedge12:                                      ; preds = %.critedge12.loopexit, %.critedge10.preheader
-  %.0205.lcssa = phi i32 [ 0, %.critedge10.preheader ], [ %indvars371.le, %.critedge12.loopexit ]
-  store i32 %.0205.lcssa, ptr %3, align 4
+  %.0203.lcssa = phi i32 [ 0, %.critedge10.preheader ], [ %indvars371.le, %.critedge12.loopexit ]
+  store i32 %.0203.lcssa, ptr %3, align 4
   %.val217 = load i32, ptr %220, align 4
   %377 = icmp sgt i32 %.val217, 0
   br i1 %377, label %.lr.ph343, label %.critedge14.preheader
@@ -1051,7 +1051,7 @@ Aig_ObjChild0Copy.exit304:                        ; preds = %.lr.ph338, %364
   br label %379
 
 .critedge14.preheader:                            ; preds = %379, %.critedge12
-  %.0207.lcssa = phi i32 [ 0, %.critedge12 ], [ %.val217, %379 ]
+  %.0202.lcssa = phi i32 [ 0, %.critedge12 ], [ %.val217, %379 ]
   %.val244345 = load i32, ptr %27, align 8
   %378 = icmp sgt i32 %.val244345, 0
   br i1 %378, label %.lr.ph347, label %.critedge16
@@ -1125,9 +1125,9 @@ Aig_ObjChild0Copy.exit306:                        ; preds = %.lr.ph347, %392
   br label %.critedge18
 
 .critedge18:                                      ; preds = %.critedge18.loopexit, %.critedge16
-  %.0202.lcssa = phi i32 [ 1, %.critedge16 ], [ %410, %.critedge18.loopexit ]
-  %411 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.0205.lcssa, i32 noundef %.0207.lcssa)
-  %412 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.0202.lcssa)
+  %.0206.lcssa = phi i32 [ 1, %.critedge16 ], [ %410, %.critedge18.loopexit ]
+  %411 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.0203.lcssa, i32 noundef %.0202.lcssa)
+  %412 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.0206.lcssa)
   tail call void @Aig_ManSetRegNum(ptr noundef nonnull %13, i32 noundef %92) #15
   %413 = tail call i32 @Aig_ManCleanup(ptr noundef nonnull %13) #15
   %414 = getelementptr i8, ptr %13, i64 112

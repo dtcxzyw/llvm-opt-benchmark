@@ -1859,8 +1859,8 @@ if.then:                                          ; preds = %entry
   unreachable
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end45
-  %n.addr.037 = phi i64 [ %n, %while.body.lr.ph ], [ %sub, %if.end45 ]
-  %dstp.036 = phi ptr [ %dst, %while.body.lr.ph ], [ %add.ptr, %if.end45 ]
+  %dstp.037 = phi ptr [ %dst, %while.body.lr.ph ], [ %add.ptr, %if.end45 ]
+  %n.addr.036 = phi i64 [ %n, %while.body.lr.ph ], [ %sub, %if.end45 ]
   %1 = load i64, ptr %count.i, align 8, !noalias !39
   %cmp.not.i = icmp eq i64 %1, 0
   br i1 %cmp.not.i, label %if.then.i, label %grpc_slice_buffer_take_first.exit
@@ -1886,14 +1886,14 @@ grpc_slice_buffer_take_first.exit:                ; preds = %while.body
   store i64 %sub.i, ptr %length, align 8, !noalias !39
   %conv = and i64 %4, 255
   %cond = select i1 %tobool.not.i, i64 %conv, i64 %4
-  %cmp5 = icmp ugt i64 %cond, %n.addr.037
+  %cmp5 = icmp ugt i64 %cond, %n.addr.036
   br i1 %cmp5, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %grpc_slice_buffer_take_first.exit
   %6 = load ptr, ptr %bytes36, align 8
   %cond15 = select i1 %tobool.not.i, ptr %bytes39, ptr %6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dstp.036, ptr align 1 %cond15, i64 %n.addr.037, i1 false)
-  call void @grpc_slice_sub_no_ref(ptr nonnull sret(%struct.grpc_slice) align 8 %agg.tmp, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %slice, i64 noundef %n.addr.037, i64 noundef %cond)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dstp.037, ptr align 1 %cond15, i64 %n.addr.036, i1 false)
+  call void @grpc_slice_sub_no_ref(ptr nonnull sret(%struct.grpc_slice) align 8 %agg.tmp, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %slice, i64 noundef %n.addr.036, i64 noundef %cond)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp18.sroa.6)
   %agg.tmp18.sroa.0.0.copyload33 = load ptr, ptr %agg.tmp, align 8
   %agg.tmp18.sroa.5.0.copyload34 = load i64, ptr %agg.tmp18.sroa.5.0.agg.tmp.sroa_idx, align 8
@@ -1919,13 +1919,13 @@ if.then6:                                         ; preds = %grpc_slice_buffer_t
   br label %while.end
 
 if.else:                                          ; preds = %grpc_slice_buffer_take_first.exit
-  %cmp17 = icmp eq i64 %cond, %n.addr.037
+  %cmp17 = icmp eq i64 %cond, %n.addr.036
   %10 = load ptr, ptr %bytes36, align 8
   %cond29 = select i1 %tobool.not.i, ptr %bytes39, ptr %10
   br i1 %cmp17, label %if.then18, label %if.else31
 
 if.then18:                                        ; preds = %if.else
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dstp.036, ptr align 1 %cond29, i64 %n.addr.037, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dstp.037, ptr align 1 %cond29, i64 %n.addr.036, i1 false)
   %11 = load ptr, ptr %slice, align 8
   %cmp.i = icmp ugt ptr %11, inttoptr (i64 1 to ptr)
   br i1 %cmp.i, label %if.then.i26, label %while.end
@@ -1942,9 +1942,9 @@ if.then.i.i:                                      ; preds = %if.then.i26
   br label %while.end
 
 if.else31:                                        ; preds = %if.else
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dstp.036, ptr align 1 %cond29, i64 %cond, i1 false)
-  %add.ptr = getelementptr inbounds i8, ptr %dstp.036, i64 %cond
-  %sub = sub i64 %n.addr.037, %cond
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dstp.037, ptr align 1 %cond29, i64 %cond, i1 false)
+  %add.ptr = getelementptr inbounds i8, ptr %dstp.037, i64 %cond
+  %sub = sub i64 %n.addr.036, %cond
   %14 = load ptr, ptr %slice, align 8
   %cmp.i27 = icmp ugt ptr %14, inttoptr (i64 1 to ptr)
   br i1 %cmp.i27, label %if.then.i28, label %if.end45
@@ -1997,31 +1997,31 @@ if.then:                                          ; preds = %entry
   unreachable
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end16
-  %n.addr.018 = phi i64 [ %n, %for.body.lr.ph ], [ %sub, %if.end16 ]
-  %i.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end16 ]
-  %dstp.016 = phi ptr [ %dst, %for.body.lr.ph ], [ %add.ptr, %if.end16 ]
+  %i.018 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end16 ]
+  %dstp.017 = phi ptr [ %dst, %for.body.lr.ph ], [ %add.ptr, %if.end16 ]
+  %n.addr.016 = phi i64 [ %n, %for.body.lr.ph ], [ %sub, %if.end16 ]
   %2 = load ptr, ptr %slices, align 8
-  %arrayidx = getelementptr inbounds %struct.grpc_slice, ptr %2, i64 %i.017
+  %arrayidx = getelementptr inbounds %struct.grpc_slice, ptr %2, i64 %i.018
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %slice, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, i64 32, i1 false)
   %3 = load ptr, ptr %slice, align 8
   %tobool.not = icmp eq ptr %3, null
   %4 = load i64, ptr %data, align 8
   %conv = and i64 %4, 255
   %cond = select i1 %tobool.not, i64 %conv, i64 %4
-  %cmp5.not = icmp ult i64 %cond, %n.addr.018
+  %cmp5.not = icmp ult i64 %cond, %n.addr.016
   %5 = load ptr, ptr %bytes21, align 8
   %cond27 = select i1 %tobool.not, ptr %bytes24, ptr %5
   br i1 %cmp5.not, label %if.end16, label %if.then6
 
 if.then6:                                         ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dstp.016, ptr align 1 %cond27, i64 %n.addr.018, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dstp.017, ptr align 1 %cond27, i64 %n.addr.016, i1 false)
   br label %for.end
 
 if.end16:                                         ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dstp.016, ptr align 1 %cond27, i64 %cond, i1 false)
-  %add.ptr = getelementptr inbounds i8, ptr %dstp.016, i64 %cond
-  %sub = sub i64 %n.addr.018, %cond
-  %inc = add nuw i64 %i.017, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dstp.017, ptr align 1 %cond27, i64 %cond, i1 false)
+  %add.ptr = getelementptr inbounds i8, ptr %dstp.017, i64 %cond
+  %sub = sub i64 %n.addr.016, %cond
+  %inc = add nuw i64 %i.018, 1
   %6 = load i64, ptr %count, align 8
   %cmp1 = icmp ult i64 %inc, %6
   br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !43

@@ -105,7 +105,7 @@ define dso_local zeroext i1 @do_copy(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %23, label %.preheader127.i, label %.loopexit128.i
 
 .preheader127.i:                                  ; preds = %21, %37
-  %.085133.i = phi i32 [ %.1.i, %37 ], [ 1, %21 ]
+  %.0133.i = phi i32 [ %.1.i, %37 ], [ 1, %21 ]
   %.187132.i = phi ptr [ %30, %37 ], [ %.086.i, %21 ]
   %24 = load ptr, ptr %8, align 8
   %25 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.40, ptr noundef %24, ptr noundef nonnull @.str.26) #10
@@ -129,15 +129,15 @@ define dso_local zeroext i1 @do_copy(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 33:                                               ; preds = %31
-  %34 = add nuw i32 %.085133.i, 1
+  %34 = add nuw i32 %.0133.i, 1
   br label %37
 
 35:                                               ; preds = %31
-  %36 = add nsw i32 %.085133.i, -1
+  %36 = add nsw i32 %.0133.i, -1
   br label %37
 
 37:                                               ; preds = %35, %33, %31
-  %.1.i = phi i32 [ %34, %33 ], [ %36, %35 ], [ %.085133.i, %31 ]
+  %.1.i = phi i32 [ %34, %33 ], [ %36, %35 ], [ %.0133.i, %31 ]
   %38 = icmp sgt i32 %.1.i, 0
   br i1 %38, label %.preheader127.i, label %.loopexit128.i, !llvm.loop !5
 
@@ -835,10 +835,10 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef %1, i1 nou
   br i1 %32, label %.loopexit, label %.thread67
 
 .preheader:                                       ; preds = %.preheader.preheader, %73
-  %.04872 = phi i8 [ %.250, %73 ], [ 0, %.preheader.preheader ]
-  %.05171 = phi i1 [ %.152, %73 ], [ true, %.preheader.preheader ]
-  %.05370 = phi i32 [ %.255, %73 ], [ 0, %.preheader.preheader ]
-  %brmerge.not = and i1 %.not58.not, %.05171
+  %.04872 = phi i1 [ %.149, %73 ], [ true, %.preheader.preheader ]
+  %.05071 = phi i32 [ %.252, %73 ], [ 0, %.preheader.preheader ]
+  %.05370 = phi i8 [ %.255, %73 ], [ 0, %.preheader.preheader ]
+  %brmerge.not = and i1 %.not58.not, %.04872
   br i1 %brmerge.not, label %33, label %39
 
 33:                                               ; preds = %.preheader
@@ -851,9 +851,9 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef %1, i1 nou
 
 39:                                               ; preds = %.preheader, %33
   store volatile i32 1, ptr @sigint_interrupt_enabled, align 4
-  %40 = sext i32 %.05370 to i64
+  %40 = sext i32 %.05071 to i64
   %41 = getelementptr [8192 x i8], ptr %5, i64 0, i64 %40
-  %42 = sub i32 8192, %.05370
+  %42 = sub i32 8192, %.05071
   %43 = call ptr @fgets(ptr noundef %41, i32 noundef %42, ptr noundef %1)
   store volatile i32 0, ptr @sigint_interrupt_enabled, align 4
   %.not59 = icmp eq ptr %43, null
@@ -862,7 +862,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef %1, i1 nou
 44:                                               ; preds = %39
   %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #11
   %46 = trunc i64 %45 to i32
-  %47 = add i32 %.05370, %46
+  %47 = add i32 %.05071, %46
   %48 = add i32 %47, -1
   %49 = sext i32 %48 to i64
   %50 = getelementptr [8192 x i8], ptr %5, i64 0, i64 %49
@@ -871,7 +871,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef %1, i1 nou
   br i1 %52, label %53, label %66
 
 53:                                               ; preds = %44
-  br i1 %.05171, label %54, label %60
+  br i1 %.04872, label %54, label %60
 
 54:                                               ; preds = %53
   switch i32 %46, label %60 [
@@ -893,7 +893,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef %1, i1 nou
   br label %60
 
 60:                                               ; preds = %55, %54, %57, %59, %53
-  %.149 = phi i8 [ 1, %59 ], [ %.04872, %57 ], [ %.04872, %53 ], [ %.04872, %54 ], [ %.04872, %55 ]
+  %.154 = phi i8 [ 1, %59 ], [ %.05370, %57 ], [ %.05370, %53 ], [ %.05370, %54 ], [ %.05370, %55 ]
   %61 = load ptr, ptr getelementptr inbounds (i8, ptr @pset, i64 304), align 8
   %62 = icmp eq ptr %61, %1
   br i1 %62, label %63, label %66
@@ -905,23 +905,23 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef %1, i1 nou
   br label %66
 
 66:                                               ; preds = %44, %60, %63, %39
-  %.154 = phi i32 [ %.05370, %39 ], [ %47, %63 ], [ %47, %60 ], [ %47, %44 ]
-  %.152 = phi i1 [ %.05171, %39 ], [ true, %63 ], [ true, %60 ], [ false, %44 ]
-  %.250 = phi i8 [ 1, %39 ], [ %.149, %63 ], [ %.149, %60 ], [ %.04872, %44 ]
-  %67 = icmp sgt i32 %.154, 8186
-  %68 = trunc nuw i8 %.250 to i1
-  %69 = icmp sgt i32 %.154, 0
+  %.255 = phi i8 [ 1, %39 ], [ %.154, %63 ], [ %.154, %60 ], [ %.05370, %44 ]
+  %.151 = phi i32 [ %.05071, %39 ], [ %47, %63 ], [ %47, %60 ], [ %47, %44 ]
+  %.149 = phi i1 [ %.04872, %39 ], [ true, %63 ], [ true, %60 ], [ false, %44 ]
+  %67 = icmp sgt i32 %.151, 8186
+  %68 = trunc nuw i8 %.255 to i1
+  %69 = icmp sgt i32 %.151, 0
   %or.cond = and i1 %69, %68
   %or.cond65 = select i1 %67, i1 true, i1 %or.cond
   br i1 %or.cond65, label %70, label %73
 
 70:                                               ; preds = %66
-  %71 = call i32 @PQputCopyData(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %.154) #10
+  %71 = call i32 @PQputCopyData(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %.151) #10
   %72 = icmp slt i32 %71, 1
   br i1 %72, label %.loopexit, label %73
 
 73:                                               ; preds = %70, %66
-  %.255 = phi i32 [ %.154, %66 ], [ 0, %70 ]
+  %.252 = phi i32 [ %.151, %66 ], [ 0, %70 ]
   br i1 %68, label %.loopexit, label %.preheader, !llvm.loop !7
 
 .loopexit:                                        ; preds = %70, %73, %30, %.thread67

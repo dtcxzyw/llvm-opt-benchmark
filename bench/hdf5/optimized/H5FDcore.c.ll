@@ -1571,13 +1571,13 @@ define internal range(i32 -1, 1) i32 @H5FD__core_write(ptr nocapture noundef %0,
   br label %140
 
 51:                                               ; preds = %44, %35
-  %.060 = phi ptr [ %38, %35 ], [ %45, %44 ]
+  %.059 = phi ptr [ %38, %35 ], [ %45, %44 ]
   %52 = load i64, ptr %22, align 8
-  %53 = getelementptr inbounds i8, ptr %.060, i64 %52
+  %53 = getelementptr inbounds i8, ptr %.059, i64 %52
   %54 = sub i64 %spec.select, %52
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %53, i8 0, i64 %54, i1 false)
   %55 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr %.060, ptr %55, align 8
+  store ptr %.059, ptr %55, align 8
   store i64 %spec.select, ptr %22, align 8
   br label %56
 
@@ -1624,10 +1624,10 @@ define internal range(i32 -1, 1) i32 @H5FD__core_write(ptr nocapture noundef %0,
   br label %78
 
 78:                                               ; preds = %72, %67
-  %.0.i = phi i64 [ %61, %67 ], [ %spec.select.i, %72 ]
+  %.053.i = phi i64 [ %61, %67 ], [ %spec.select.i, %72 ]
   %79 = add nuw i64 %68, 1
   store i64 %79, ptr %8, align 8
-  %80 = add i64 %.0.i, 2
+  %80 = add i64 %.053.i, 2
   store i64 %80, ptr %9, align 8
   %81 = call ptr @H5SL_less(ptr noundef nonnull %59, ptr noundef nonnull %8) #18
   %82 = load ptr, ptr %58, align 8
@@ -1643,11 +1643,11 @@ define internal range(i32 -1, 1) i32 @H5FD__core_write(ptr nocapture noundef %0,
 87:                                               ; preds = %84
   %88 = getelementptr inbounds i8, ptr %83, i64 8
   %89 = load i64, ptr %88, align 8
-  %spec.select70.i = call i64 @llvm.umax.i64(i64 %.0.i, i64 %89)
+  %spec.select70.i = call i64 @llvm.umax.i64(i64 %.053.i, i64 %89)
   br label %90
 
 90:                                               ; preds = %87, %84, %78
-  %.1.i = phi i64 [ %.0.i, %84 ], [ %.0.i, %78 ], [ %spec.select70.i, %87 ]
+  %.154.i = phi i64 [ %.053.i, %84 ], [ %.053.i, %78 ], [ %spec.select70.i, %87 ]
   %.not66.i = icmp eq ptr %81, null
   br i1 %.not66.i, label %97, label %91
 
@@ -1665,12 +1665,12 @@ define internal range(i32 -1, 1) i32 @H5FD__core_write(ptr nocapture noundef %0,
 
 97:                                               ; preds = %95, %91, %90
   %98 = phi i64 [ %96, %95 ], [ %68, %91 ], [ %68, %90 ]
-  %.052.i = phi i1 [ false, %95 ], [ true, %91 ], [ true, %90 ]
+  %.051.i = phi i1 [ false, %95 ], [ true, %91 ], [ true, %90 ]
   br i1 %.not65.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %97, %101
-  %.05373.i = phi ptr [ %spec.select71.i, %101 ], [ %83, %97 ]
-  %99 = load i64, ptr %.05373.i, align 8
+  %.05273.i = phi ptr [ %spec.select71.i, %101 ], [ %83, %97 ]
+  %99 = load i64, ptr %.05273.i, align 8
   %100 = icmp ugt i64 %99, %98
   br i1 %100, label %101, label %.critedge.i
 
@@ -1680,7 +1680,7 @@ define internal range(i32 -1, 1) i32 @H5FD__core_write(ptr nocapture noundef %0,
   %103 = load ptr, ptr %58, align 8
   %104 = call ptr @H5SL_less(ptr noundef %103, ptr noundef nonnull %10) #18
   %105 = load ptr, ptr %58, align 8
-  %106 = call ptr @H5SL_remove(ptr noundef %105, ptr noundef nonnull %.05373.i) #18
+  %106 = call ptr @H5SL_remove(ptr noundef %105, ptr noundef nonnull %.05273.i) #18
   %107 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5FD_core_region_t_reg_free_list, ptr noundef %106) #18
   %.not69.i = icmp eq ptr %104, null
   %spec.select71.i = select i1 %.not69.i, ptr %107, ptr %104
@@ -1688,7 +1688,7 @@ define internal range(i32 -1, 1) i32 @H5FD__core_write(ptr nocapture noundef %0,
   br i1 %.not68.i, label %.critedge.i, label %.lr.ph.i
 
 .critedge.i:                                      ; preds = %101, %.lr.ph.i, %97
-  br i1 %.052.i, label %108, label %122
+  br i1 %.051.i, label %108, label %122
 
 108:                                              ; preds = %.critedge.i
   %109 = load ptr, ptr %58, align 8
@@ -1701,7 +1701,7 @@ define internal range(i32 -1, 1) i32 @H5FD__core_write(ptr nocapture noundef %0,
   %114 = load i64, ptr %7, align 8
   store i64 %114, ptr %113, align 8
   %115 = getelementptr inbounds i8, ptr %113, i64 8
-  store i64 %.1.i, ptr %115, align 8
+  store i64 %.154.i, ptr %115, align 8
   %116 = load ptr, ptr %58, align 8
   %117 = call i32 @H5SL_insert(ptr noundef %116, ptr noundef nonnull %113, ptr noundef nonnull %113) #18
   %118 = icmp slt i32 %117, 0
@@ -1710,18 +1710,18 @@ define internal range(i32 -1, 1) i32 @H5FD__core_write(ptr nocapture noundef %0,
 119:                                              ; preds = %108
   %120 = getelementptr inbounds i8, ptr %110, i64 8
   %121 = load i64, ptr %120, align 8
-  %.1..i = call i64 @llvm.umax.i64(i64 %121, i64 %.1.i)
-  store i64 %.1..i, ptr %120, align 8
+  %.154..i = call i64 @llvm.umax.i64(i64 %121, i64 %.154.i)
+  store i64 %.154..i, ptr %120, align 8
   br label %H5FD__core_add_dirty_region.exit.thread
 
 122:                                              ; preds = %.critedge.i
   %123 = getelementptr inbounds i8, ptr %81, i64 8
   %124 = load i64, ptr %123, align 8
-  %125 = icmp ult i64 %124, %.1.i
+  %125 = icmp ult i64 %124, %.154.i
   br i1 %125, label %126, label %H5FD__core_add_dirty_region.exit.thread
 
 126:                                              ; preds = %122
-  store i64 %.1.i, ptr %123, align 8
+  store i64 %.154.i, ptr %123, align 8
   br label %H5FD__core_add_dirty_region.exit.thread
 
 H5FD__core_add_dirty_region.exit.thread:          ; preds = %112, %119, %126, %122
@@ -1735,7 +1735,7 @@ H5FD__core_add_dirty_region.exit.thread:          ; preds = %112, %119, %126, %1
   %128 = load i64, ptr @H5E_SLIST_g, align 8
   %129 = load i64, ptr @H5E_CANTINSERT_g, align 8
   %130 = load i64, ptr %7, align 8
-  %131 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.H5FD__core_add_dirty_region, i32 noundef 290, i64 noundef %128, i64 noundef %129, ptr noundef nonnull @.str.46, i64 noundef %130, i64 noundef %.1.i) #18
+  %131 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.H5FD__core_add_dirty_region, i32 noundef 290, i64 noundef %128, i64 noundef %129, ptr noundef nonnull @.str.46, i64 noundef %130, i64 noundef %.154.i) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -1755,8 +1755,8 @@ H5FD__core_add_dirty_region.exit.thread:          ; preds = %112, %119, %126, %1
   br label %140
 
 140:                                              ; preds = %135, %127, %47, %40, %17
-  %.0 = phi i32 [ -1, %17 ], [ -1, %40 ], [ -1, %127 ], [ 0, %135 ], [ -1, %47 ]
-  ret i32 %.0
+  %.060 = phi i32 [ -1, %17 ], [ -1, %40 ], [ -1, %127 ], [ 0, %135 ], [ -1, %47 ]
+  ret i32 %.060
 }
 
 ; Function Attrs: nounwind uwtable

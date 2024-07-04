@@ -1002,8 +1002,8 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %2 = phi ptr [ %9, %for.inc ], [ %1, %entry ]
   %i.024 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
-  %retval.sroa.4.023 = phi i64 [ %retval.sroa.4.1, %for.inc ], [ 9223372036854775807, %entry ]
-  %retval.sroa.0.022 = phi i64 [ %retval.sroa.0.1, %for.inc ], [ 0, %entry ]
+  %retval.sroa.0.023 = phi i64 [ %retval.sroa.0.1, %for.inc ], [ 0, %entry ]
+  %retval.sroa.4.022 = phi i64 [ %retval.sroa.4.1, %for.inc ], [ 9223372036854775807, %entry ]
   %add.ptr.i = getelementptr inbounds %"struct.net::QuicMultipathSentPacketManager::PathSentPacketManagerInfo", ptr %2, i64 %i.024
   %3 = load ptr, ptr %add.ptr.i, align 8
   %cmp5 = icmp eq ptr %3, null
@@ -1022,7 +1022,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %call13 = tail call { i64, i64 } %5(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 %now.coerce, ptr noundef nonnull %path_id)
   %6 = extractvalue { i64, i64 } %call13, 1
   %cmp.i = icmp ne i64 %6, 9223372036854775807
-  %cmp.i10 = icmp slt i64 %6, %retval.sroa.4.023
+  %cmp.i10 = icmp slt i64 %6, %retval.sroa.4.022
   %or.cond = select i1 %cmp.i, i1 %cmp.i10, i1 false
   br i1 %or.cond, label %if.then18, label %for.inc
 
@@ -1033,8 +1033,8 @@ if.then18:                                        ; preds = %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.then18, %for.body, %lor.lhs.false
-  %retval.sroa.0.1 = phi i64 [ %retval.sroa.0.022, %for.body ], [ %retval.sroa.0.022, %if.end ], [ %7, %if.then18 ], [ %retval.sroa.0.022, %lor.lhs.false ]
-  %retval.sroa.4.1 = phi i64 [ %retval.sroa.4.023, %for.body ], [ %retval.sroa.4.023, %if.end ], [ %6, %if.then18 ], [ %retval.sroa.4.023, %lor.lhs.false ]
+  %retval.sroa.4.1 = phi i64 [ %retval.sroa.4.022, %for.body ], [ %retval.sroa.4.022, %if.end ], [ %6, %if.then18 ], [ %retval.sroa.4.022, %lor.lhs.false ]
+  %retval.sroa.0.1 = phi i64 [ %retval.sroa.0.023, %for.body ], [ %retval.sroa.0.023, %if.end ], [ %7, %if.then18 ], [ %retval.sroa.0.023, %lor.lhs.false ]
   %inc = add nuw i64 %i.024, 1
   %8 = load ptr, ptr %_M_finish.i, align 8
   %9 = load ptr, ptr %path_managers_info_, align 8
@@ -1046,8 +1046,8 @@ for.inc:                                          ; preds = %if.end, %if.then18,
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %entry
-  %retval.sroa.0.0.lcssa = phi i64 [ 0, %entry ], [ %retval.sroa.0.1, %for.inc ]
   %retval.sroa.4.0.lcssa = phi i64 [ 9223372036854775807, %entry ], [ %retval.sroa.4.1, %for.inc ]
+  %retval.sroa.0.0.lcssa = phi i64 [ 0, %entry ], [ %retval.sroa.0.1, %for.inc ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.lcssa, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.4.0.lcssa, 1
   ret { i64, i64 } %.fca.1.insert

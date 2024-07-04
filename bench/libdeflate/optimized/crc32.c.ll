@@ -238,39 +238,39 @@ while.body:                                       ; preds = %if.then14, %while.b
   %v2.0319 = phi <2 x i64> [ %xor.i.i498, %while.body ], [ %5, %if.then14 ]
   %v1.0318 = phi <2 x i64> [ %xor.i.i507, %while.body ], [ %4, %if.then14 ]
   %v0.0317 = phi <2 x i64> [ %xor.i.i516, %while.body ], [ %xor.i194, %if.then14 ]
-  %p.pn316 = phi ptr [ %p.addr.0321, %while.body ], [ %p, %if.then14 ]
-  %len.addr.0315 = phi i64 [ %sub, %while.body ], [ %len, %if.then14 ]
+  %len.addr.0316 = phi i64 [ %sub, %while.body ], [ %len, %if.then14 ]
+  %p.pn315 = phi ptr [ %p.addr.0321, %while.body ], [ %p, %if.then14 ]
   %7 = load <2 x i64>, ptr %p.addr.0321, align 1
   %8 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.0317, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
   %xor.i4.i515 = xor <2 x i64> %8, %7
   %9 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v0.0317, <2 x i64> <i64 poison, i64 496309207>, i8 17)
   %xor.i.i516 = xor <2 x i64> %xor.i4.i515, %9
-  %add.ptr26 = getelementptr inbounds i8, ptr %p.pn316, i64 80
+  %add.ptr26 = getelementptr inbounds i8, ptr %p.pn315, i64 80
   %10 = load <2 x i64>, ptr %add.ptr26, align 1
   %11 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v1.0318, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
   %xor.i4.i506 = xor <2 x i64> %11, %10
   %12 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v1.0318, <2 x i64> <i64 poison, i64 496309207>, i8 17)
   %xor.i.i507 = xor <2 x i64> %xor.i4.i506, %12
-  %add.ptr29 = getelementptr inbounds i8, ptr %p.pn316, i64 96
+  %add.ptr29 = getelementptr inbounds i8, ptr %p.pn315, i64 96
   %13 = load <2 x i64>, ptr %add.ptr29, align 1
   %14 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v2.0319, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
   %xor.i4.i497 = xor <2 x i64> %14, %13
   %15 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v2.0319, <2 x i64> <i64 poison, i64 496309207>, i8 17)
   %xor.i.i498 = xor <2 x i64> %xor.i4.i497, %15
-  %add.ptr32 = getelementptr inbounds i8, ptr %p.pn316, i64 112
+  %add.ptr32 = getelementptr inbounds i8, ptr %p.pn315, i64 112
   %16 = load <2 x i64>, ptr %add.ptr32, align 1
   %17 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v3.0320, <2 x i64> <i64 2402626965, i64 poison>, i8 0)
   %xor.i4.i488 = xor <2 x i64> %17, %16
   %18 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %v3.0320, <2 x i64> <i64 poison, i64 496309207>, i8 17)
   %xor.i.i489 = xor <2 x i64> %xor.i4.i488, %18
-  %sub = add nsw i64 %len.addr.0315, -64
+  %sub = add nsw i64 %len.addr.0316, -64
   %p.addr.0 = getelementptr inbounds i8, ptr %p.addr.0321, i64 64
   %cmp22 = icmp ugt i64 %sub, 127
   br i1 %cmp22, label %while.body, label %while.end
 
 while.end:                                        ; preds = %while.body, %if.then14
-  %len.addr.0.lcssa = phi i64 [ %len, %if.then14 ], [ %sub, %while.body ]
   %p.pn.lcssa = phi ptr [ %p, %if.then14 ], [ %p.addr.0321, %while.body ]
+  %len.addr.0.lcssa = phi i64 [ %len, %if.then14 ], [ %sub, %while.body ]
   %v0.0.lcssa = phi <2 x i64> [ %xor.i194, %if.then14 ], [ %xor.i.i516, %while.body ]
   %v1.0.lcssa = phi <2 x i64> [ %4, %if.then14 ], [ %xor.i.i507, %while.body ]
   %v2.0.lcssa = phi <2 x i64> [ %5, %if.then14 ], [ %xor.i.i498, %while.body ]
@@ -382,8 +382,8 @@ if.then76:                                        ; preds = %if.else68
   br label %if.end80
 
 if.end80:                                         ; preds = %if.then76, %if.else68
-  %len.addr.1 = phi i64 [ %sub79, %if.then76 ], [ %len, %if.else68 ]
   %p.addr.2 = phi ptr [ %add.ptr.i543, %if.then76 ], [ %add.ptr74, %if.else68 ]
+  %len.addr.1 = phi i64 [ %sub79, %if.then76 ], [ %len, %if.else68 ]
   %v0.2 = phi <2 x i64> [ %xor.i.i.i547, %if.then76 ], [ %xor.i191, %if.else68 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %p.addr.2, i64 16
   %56 = load <2 x i64>, ptr %p.addr.2, align 16
@@ -567,8 +567,8 @@ if.then134:                                       ; preds = %if.end130
   br label %if.end138
 
 if.end138:                                        ; preds = %if.end130, %if.then134, %if.then50, %if.end46, %if.then56, %if.then61, %if.else
-  %len.addr.3 = phi i64 [ %len.addr.0.lcssa, %if.then50 ], [ %len.addr.0.lcssa, %if.end46 ], [ %len, %if.then61 ], [ %len, %if.then56 ], [ %len, %if.else ], [ %sub103, %if.then134 ], [ %sub103, %if.end130 ]
   %p.addr.3 = phi ptr [ %add.ptr53, %if.then50 ], [ %p.addr.1, %if.end46 ], [ %add.ptr64, %if.then61 ], [ %add.ptr59, %if.then56 ], [ %add.ptr, %if.else ], [ %incdec.ptr135, %if.then134 ], [ %vp.2, %if.end130 ]
+  %len.addr.3 = phi i64 [ %len.addr.0.lcssa, %if.then50 ], [ %len.addr.0.lcssa, %if.end46 ], [ %len, %if.then61 ], [ %len, %if.then56 ], [ %len, %if.else ], [ %sub103, %if.then134 ], [ %sub103, %if.end130 ]
   %v0.7 = phi <2 x i64> [ %xor.i.i435, %if.then50 ], [ %xor.i.i444, %if.end46 ], [ %xor.i.i417, %if.then61 ], [ %xor.i.i426, %if.then56 ], [ %xor.i194, %if.else ], [ %xor.i.i, %if.then134 ], [ %xor.i.i228, %if.end130 ]
   %and139 = and i64 %len.addr.3, 15
   %tobool140.not = icmp eq i64 %and139, 0
@@ -815,9 +815,9 @@ crc32_slice1.exit196:                             ; preds = %for.body.i185
   br label %if.end76
 
 if.end76:                                         ; preds = %crc32_slice1.exit196, %if.else68
+  %crc.addr.0 = phi i32 [ %xor4.i194, %crc32_slice1.exit196 ], [ %crc, %if.else68 ]
   %p.addr.2 = phi ptr [ %add.ptr74, %crc32_slice1.exit196 ], [ %p, %if.else68 ]
   %len.addr.1 = phi i64 [ %sub75, %crc32_slice1.exit196 ], [ %len, %if.else68 ]
-  %crc.addr.0 = phi i32 [ %xor4.i194, %crc32_slice1.exit196 ], [ %crc, %if.else68 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %p.addr.2, i64 16
   %45 = load <2 x i64>, ptr %p.addr.2, align 16
   %vecinit3.i245 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %crc.addr.0, i64 0

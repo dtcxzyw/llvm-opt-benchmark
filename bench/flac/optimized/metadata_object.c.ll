@@ -2970,8 +2970,8 @@ if.then:                                          ; preds = %FLAC__metadata_obje
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %FLAC__metadata_object_vorbiscomment_entry_matches.exit, %if.then
-  %matching.1 = phi i32 [ %inc, %if.then ], [ %matching.016, %FLAC__metadata_object_vorbiscomment_entry_matches.exit ], [ %matching.016, %for.body ]
   %ok.1 = phi i32 [ %call.i11, %if.then ], [ 1, %FLAC__metadata_object_vorbiscomment_entry_matches.exit ], [ 1, %for.body ]
+  %matching.1 = phi i32 [ %inc, %if.then ], [ %matching.016, %FLAC__metadata_object_vorbiscomment_entry_matches.exit ], [ %matching.016, %for.body ]
   %tobool = icmp ne i32 %ok.1, 0
   %cmp = icmp ugt i64 %indvars.iv, 1
   %14 = and i1 %tobool, %cmp

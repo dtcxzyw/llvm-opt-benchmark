@@ -2917,7 +2917,7 @@ dissect_homeplug_av_st_iotecha_status_standard.exit.i.i.i: ; preds = %237, %235
   br i1 %.not28.i.i.i.i, label %check_tvb_length.exit, label %.lr.ph.i.i50.i.i
 
 .lr.ph.i.i50.i.i:                                 ; preds = %.preheader.i.i49.i.i, %310
-  %.02327.i.i.i.i = phi i16 [ %311, %310 ], [ 0, %.preheader.i.i49.i.i ]
+  %.027.i.i.i.i = phi i16 [ %311, %310 ], [ 0, %.preheader.i.i49.i.i ]
   %285 = tail call ptr @ptvcursor_tvbuff(ptr noundef %14) #5
   %286 = tail call i32 @ptvcursor_current_offset(ptr noundef %14) #5
   %287 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %285, i32 noundef %286) #5
@@ -2964,7 +2964,7 @@ dissect_homeplug_av_st_iotecha_status_standard.exit.i.i.i: ; preds = %237, %235
   br label %310
 
 310:                                              ; preds = %309, %.lr.ph.i.i50.i.i
-  %311 = add nuw nsw i16 %.02327.i.i.i.i, 1
+  %311 = add nuw nsw i16 %.027.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i16 %311, %284
   br i1 %exitcond.not.i.i.i.i, label %check_tvb_length.exit, label %.lr.ph.i.i50.i.i, !llvm.loop !8
 

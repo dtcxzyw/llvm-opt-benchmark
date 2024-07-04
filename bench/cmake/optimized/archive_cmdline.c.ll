@@ -13,15 +13,15 @@ define dso_local noundef i32 @__archive_cmdline_parse(ptr nocapture noundef %0, 
   br label %5
 
 5:                                                ; preds = %5, %2
-  %.026.i = phi ptr [ %1, %2 ], [ %7, %5 ]
-  %6 = load i8, ptr %.026.i, align 1
+  %.0.i = phi ptr [ %1, %2 ], [ %7, %5 ]
+  %6 = load i8, ptr %.0.i, align 1
   %cond.i = icmp eq i8 %6, 32
-  %7 = getelementptr inbounds i8, ptr %.026.i, i64 1
+  %7 = getelementptr inbounds i8, ptr %.0.i, i64 1
   br i1 %cond.i, label %5, label %.critedge.i, !llvm.loop !5
 
 .critedge.i:                                      ; preds = %5, %28
   %8 = phi i8 [ %.pr.i, %28 ], [ %6, %5 ]
-  %.1.i = phi ptr [ %29, %28 ], [ %.026.i, %5 ]
+  %.1.i = phi ptr [ %29, %28 ], [ %.0.i, %5 ]
   switch i8 %8, label %.sink.split.i [
     i8 0, label %get_argument.exit
     i8 32, label %get_argument.exit
@@ -155,15 +155,15 @@ get_argument.exit:                                ; preds = %.critedge.i, %.crit
   br label %71
 
 71:                                               ; preds = %71, %70
-  %.026.i32 = phi ptr [ %.020, %70 ], [ %73, %71 ]
-  %72 = load i8, ptr %.026.i32, align 1
+  %.0.i32 = phi ptr [ %.020, %70 ], [ %73, %71 ]
+  %72 = load i8, ptr %.0.i32, align 1
   %cond.i33 = icmp eq i8 %72, 32
-  %73 = getelementptr inbounds i8, ptr %.026.i32, i64 1
+  %73 = getelementptr inbounds i8, ptr %.0.i32, i64 1
   br i1 %cond.i33, label %71, label %.critedge.i34, !llvm.loop !5
 
 .critedge.i34:                                    ; preds = %71, %94
   %74 = phi i8 [ %.pr.i41, %94 ], [ %72, %71 ]
-  %.1.i35 = phi ptr [ %95, %94 ], [ %.026.i32, %71 ]
+  %.1.i35 = phi ptr [ %95, %94 ], [ %.0.i32, %71 ]
   switch i8 %74, label %.sink.split.i49 [
     i8 0, label %get_argument.exit55
     i8 32, label %get_argument.exit55

@@ -122,12 +122,12 @@ define dso_local void @_ZN5vcpkg25get_all_commands_metadataEv(ptr dead_on_unwind
   br label %37
 
 4:                                                ; preds = %1, %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit
-  %.0.idx65 = phi i64 [ 0, %1 ], [ %.0.add, %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit ]
+  %.017.idx65 = phi i64 [ 0, %1 ], [ %.017.add, %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit ]
   %5 = phi ptr [ null, %1 ], [ %33, %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit ]
   %6 = phi ptr [ null, %1 ], [ %32, %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit ]
   %7 = phi ptr [ null, %1 ], [ %31, %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit ]
-  %.0.ptr = getelementptr inbounds i8, ptr @_ZN5vcpkgL22basic_commands_storageE, i64 %.0.idx65
-  %8 = load ptr, ptr %.0.ptr, align 16
+  %.017.ptr = getelementptr inbounds i8, ptr @_ZN5vcpkgL22basic_commands_storageE, i64 %.017.idx65
+  %8 = load ptr, ptr %.017.ptr, align 16
   %.not.i.i = icmp eq ptr %5, %6
   br i1 %.not.i.i, label %10, label %9
 
@@ -196,8 +196,8 @@ _ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit: ; preds = 
   %32 = phi ptr [ %30, %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %6, %9 ]
   %.pn = phi ptr [ %28, %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %5, %9 ]
   %33 = getelementptr inbounds i8, ptr %.pn, i64 8
-  %.0.add = add nuw nsw i64 %.0.idx65, 16
-  %.not = icmp eq i64 %.0.add, 128
+  %.017.add = add nuw nsw i64 %.017.idx65, 16
+  %.not = icmp eq i64 %.017.add, 128
   br i1 %.not, label %.preheader49, label %4
 
 .loopexit:                                        ; preds = %84
@@ -329,12 +329,12 @@ _ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit32: ; preds 
   br i1 %.not19, label %.preheader, label %37
 
 67:                                               ; preds = %.preheader, %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit43
-  %.017.idx91 = phi i64 [ 0, %.preheader ], [ %.017.add, %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit43 ]
+  %.0.idx91 = phi i64 [ 0, %.preheader ], [ %.0.add, %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit43 ]
   %68 = phi ptr [ %66, %.preheader ], [ %96, %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit43 ]
   %69 = phi ptr [ %65, %.preheader ], [ %95, %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit43 ]
   %70 = phi ptr [ %64, %.preheader ], [ %94, %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit43 ]
-  %.017.ptr = getelementptr inbounds i8, ptr @_ZN5vcpkgL24triplet_commands_storageE, i64 %.017.idx91
-  %71 = load ptr, ptr %.017.ptr, align 16
+  %.0.ptr = getelementptr inbounds i8, ptr @_ZN5vcpkgL24triplet_commands_storageE, i64 %.0.idx91
+  %71 = load ptr, ptr %.0.ptr, align 16
   %.not.i.i33 = icmp eq ptr %68, %69
   br i1 %.not.i.i33, label %73, label %72
 
@@ -403,8 +403,8 @@ _ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit43: ; preds 
   %95 = phi ptr [ %93, %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i40 ], [ %69, %72 ]
   %.pn93 = phi ptr [ %91, %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i40 ], [ %68, %72 ]
   %96 = getelementptr inbounds i8, ptr %.pn93, i64 8
-  %.017.add = add nuw nsw i64 %.017.idx91, 16
-  %.not20 = icmp eq i64 %.017.add, 192
+  %.0.add = add nuw nsw i64 %.0.idx91, 16
+  %.not20 = icmp eq i64 %.0.add, 192
   br i1 %.not20, label %97, label %67
 
 97:                                               ; preds = %_ZNSt6vectorIPKN5vcpkg15CommandMetadataESaIS3_EE9push_backEOS3_.exit43

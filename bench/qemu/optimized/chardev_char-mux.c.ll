@@ -426,7 +426,7 @@ if.then:                                          ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %ret.025 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %for.inc ]
+  %ret.024 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %for.inc ]
   %1 = load i32, ptr %linestart, align 4
   %tobool3.not = icmp eq i32 %1, 0
   br i1 %tobool3.not, label %if.end23, label %if.then4
@@ -463,7 +463,7 @@ if.end:                                           ; preds = %if.then7, %if.then4
 if.end23:                                         ; preds = %if.end, %for.body
   %add.ptr = getelementptr i8, ptr %buf, i64 %indvars.iv
   %call25 = call i32 @qemu_chr_fe_write(ptr noundef nonnull %chr16, ptr noundef %add.ptr, i32 noundef 1) #10
-  %add = add i32 %call25, %ret.025
+  %add = add i32 %call25, %ret.024
   %4 = load i8, ptr %add.ptr, align 1
   %cmp27 = icmp eq i8 %4, 10
   br i1 %cmp27, label %if.then29, label %for.inc

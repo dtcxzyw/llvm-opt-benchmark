@@ -469,31 +469,31 @@ define noalias noundef ptr @OSQPVectorf_subvector_byrows(ptr nocapture noundef r
   br label %7
 
 7:                                                ; preds = %.lr.ph, %7
-  %.02030 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %7 ]
-  %.02229 = phi i64 [ 0, %.lr.ph ], [ %11, %7 ]
-  %8 = getelementptr inbounds i64, ptr %6, i64 %.02229
+  %.01930 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %7 ]
+  %.02129 = phi i64 [ 0, %.lr.ph ], [ %11, %7 ]
+  %8 = getelementptr inbounds i64, ptr %6, i64 %.02129
   %9 = load i64, ptr %8, align 8
   %.not26 = icmp ne i64 %9, 0
   %10 = zext i1 %.not26 to i64
-  %spec.select = add nuw nsw i64 %.02030, %10
-  %11 = add nuw nsw i64 %.02229, 1
+  %spec.select = add nuw nsw i64 %.01930, %10
+  %11 = add nuw nsw i64 %.02129, 1
   %exitcond.not = icmp eq i64 %11, %4
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %7, %2
-  %.020.lcssa = phi i64 [ 0, %2 ], [ %spec.select, %7 ]
+  %.019.lcssa = phi i64 [ 0, %2 ], [ %spec.select, %7 ]
   %12 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %OSQPVectorf_malloc.exit.thread, label %13
 
 13:                                               ; preds = %._crit_edge
   %14 = getelementptr inbounds i8, ptr %12, i64 8
-  store i64 %.020.lcssa, ptr %14, align 8
-  %.not11.i = icmp eq i64 %.020.lcssa, 0
+  store i64 %.019.lcssa, ptr %14, align 8
+  %.not11.i = icmp eq i64 %.019.lcssa, 0
   br i1 %.not11.i, label %19, label %15
 
 15:                                               ; preds = %13
-  %16 = shl i64 %.020.lcssa, 3
+  %16 = shl i64 %.019.lcssa, 3
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #18
   store ptr %17, ptr %12, align 8
   %.not12.i = icmp eq ptr %17, null
@@ -517,15 +517,15 @@ OSQPVectorf_malloc.exit:                          ; preds = %15, %19
 
 .lr.ph33:                                         ; preds = %.lr.ph33.preheader, %30
   %.032 = phi i64 [ %.1, %30 ], [ 0, %.lr.ph33.preheader ]
-  %.12331 = phi i64 [ %31, %30 ], [ 0, %.lr.ph33.preheader ]
-  %22 = getelementptr inbounds i64, ptr %21, i64 %.12331
+  %.12231 = phi i64 [ %31, %30 ], [ 0, %.lr.ph33.preheader ]
+  %22 = getelementptr inbounds i64, ptr %21, i64 %.12231
   %23 = load i64, ptr %22, align 8
   %.not25 = icmp eq i64 %23, 0
   br i1 %.not25, label %30, label %24
 
 24:                                               ; preds = %.lr.ph33
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds double, ptr %25, i64 %.12331
+  %26 = getelementptr inbounds double, ptr %25, i64 %.12231
   %27 = load double, ptr %26, align 8
   %28 = getelementptr inbounds double, ptr %20, i64 %.032
   store double %27, ptr %28, align 8
@@ -534,13 +534,13 @@ OSQPVectorf_malloc.exit:                          ; preds = %15, %19
 
 30:                                               ; preds = %.lr.ph33, %24
   %.1 = phi i64 [ %29, %24 ], [ %.032, %.lr.ph33 ]
-  %31 = add nuw nsw i64 %.12331, 1
+  %31 = add nuw nsw i64 %.12231, 1
   %32 = icmp slt i64 %31, %4
   br i1 %32, label %.lr.ph33, label %OSQPVectorf_malloc.exit.thread, !llvm.loop !11
 
 OSQPVectorf_malloc.exit.thread:                   ; preds = %30, %OSQPVectorf_malloc.exit, %._crit_edge, %18
-  %.019 = phi ptr [ null, %18 ], [ null, %._crit_edge ], [ %12, %OSQPVectorf_malloc.exit ], [ %12, %30 ]
-  ret ptr %.019
+  %.023 = phi ptr [ null, %18 ], [ null, %._crit_edge ], [ %12, %OSQPVectorf_malloc.exit ], [ %12, %30 ]
+  ret ptr %.023
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1039,22 +1039,22 @@ define double @OSQPVectorf_norm_inf(ptr nocapture noundef readonly %0) local_unn
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.019 = phi i64 [ %12, %.lr.ph ], [ 0, %1 ]
-  %.01418 = phi double [ %.1, %.lr.ph ], [ 0.000000e+00, %1 ]
-  %6 = getelementptr inbounds double, ptr %4, i64 %.019
+  %.019 = phi double [ %.1, %.lr.ph ], [ 0.000000e+00, %1 ]
+  %.01418 = phi i64 [ %12, %.lr.ph ], [ 0, %1 ]
+  %6 = getelementptr inbounds double, ptr %4, i64 %.01418
   %7 = load double, ptr %6, align 8
   %8 = fcmp olt double %7, 0.000000e+00
   %9 = fneg double %7
   %10 = select i1 %8, double %9, double %7
-  %11 = fcmp ogt double %10, %.01418
-  %.1 = select i1 %11, double %10, double %.01418
-  %12 = add nuw nsw i64 %.019, 1
+  %11 = fcmp ogt double %10, %.019
+  %.1 = select i1 %11, double %10, double %.019
+  %12 = add nuw nsw i64 %.01418, 1
   %exitcond.not = icmp eq i64 %12, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.014.lcssa = phi double [ 0.000000e+00, %1 ], [ %.1, %.lr.ph ]
-  ret double %.014.lcssa
+  %.0.lcssa = phi double [ 0.000000e+00, %1 ], [ %.1, %.lr.ph ]
+  ret double %.0.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -1267,22 +1267,22 @@ define range(i64 0, 2) i64 @OSQPVectorf_all_leq(ptr nocapture noundef readonly %
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 8:                                                ; preds = %.lr.ph
-  %9 = add nuw nsw i64 %.01011, 1
+  %9 = add nuw nsw i64 %.011, 1
   %exitcond.not = icmp eq i64 %9, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 .lr.ph:                                           ; preds = %2, %8
-  %.01011 = phi i64 [ %9, %8 ], [ 0, %2 ]
-  %10 = getelementptr inbounds double, ptr %5, i64 %.01011
+  %.011 = phi i64 [ %9, %8 ], [ 0, %2 ]
+  %10 = getelementptr inbounds double, ptr %5, i64 %.011
   %11 = load double, ptr %10, align 8
-  %12 = getelementptr inbounds double, ptr %6, i64 %.01011
+  %12 = getelementptr inbounds double, ptr %6, i64 %.011
   %13 = load double, ptr %12, align 8
   %14 = fcmp ogt double %11, %13
   br i1 %14, label %._crit_edge, label %8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8, %2
-  %.0 = phi i64 [ 1, %2 ], [ 1, %8 ], [ 0, %.lr.ph ]
-  ret i64 %.0
+  %.010 = phi i64 [ 1, %2 ], [ 1, %8 ], [ 0, %.lr.ph ]
+  ret i64 %.010
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1393,38 +1393,38 @@ define range(i64 0, 2) i64 @OSQPVectorf_in_reccone(ptr nocapture noundef readonl
   br label %14
 
 14:                                               ; preds = %.lr.ph, %30
-  %.01920 = phi i64 [ 0, %.lr.ph ], [ %31, %30 ]
-  %15 = getelementptr inbounds double, ptr %10, i64 %.01920
+  %.020 = phi i64 [ 0, %.lr.ph ], [ %31, %30 ]
+  %15 = getelementptr inbounds double, ptr %10, i64 %.020
   %16 = load double, ptr %15, align 8
   %17 = fcmp olt double %16, %3
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds double, ptr %8, i64 %.01920
+  %19 = getelementptr inbounds double, ptr %8, i64 %.020
   %20 = load double, ptr %19, align 8
   %21 = fcmp ogt double %20, %4
   br i1 %21, label %._crit_edge, label %22
 
 22:                                               ; preds = %18, %14
-  %23 = getelementptr inbounds double, ptr %9, i64 %.01920
+  %23 = getelementptr inbounds double, ptr %9, i64 %.020
   %24 = load double, ptr %23, align 8
   %25 = fcmp ogt double %24, %12
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds double, ptr %8, i64 %.01920
+  %27 = getelementptr inbounds double, ptr %8, i64 %.020
   %28 = load double, ptr %27, align 8
   %29 = fcmp olt double %28, %13
   br i1 %29, label %._crit_edge, label %30
 
 30:                                               ; preds = %22, %26
-  %31 = add nuw nsw i64 %.01920, 1
+  %31 = add nuw nsw i64 %.020, 1
   %exitcond.not = icmp eq i64 %31, %7
   br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %26, %18, %30, %5
-  %.0 = phi i64 [ 1, %5 ], [ 1, %30 ], [ 0, %18 ], [ 0, %26 ]
-  ret i64 %.0
+  %.019 = phi i64 [ 1, %5 ], [ 1, %30 ], [ 0, %18 ], [ 0, %26 ]
+  ret i64 %.019
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -1570,14 +1570,14 @@ define range(i64 0, 2) i64 @OSQPVectorf_ew_bounds_type(ptr nocapture noundef rea
   br label %13
 
 13:                                               ; preds = %.lr.ph, %13
-  %.032 = phi i64 [ 0, %.lr.ph ], [ %26, %13 ]
-  %.03031 = phi i1 [ false, %.lr.ph ], [ %25, %13 ]
-  %14 = getelementptr inbounds i64, ptr %8, i64 %.032
+  %.033 = phi i1 [ false, %.lr.ph ], [ %25, %13 ]
+  %.03031 = phi i64 [ 0, %.lr.ph ], [ %26, %13 ]
+  %14 = getelementptr inbounds i64, ptr %8, i64 %.03031
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds double, ptr %9, i64 %.032
+  %16 = getelementptr inbounds double, ptr %9, i64 %.03031
   %17 = load double, ptr %16, align 8
   %18 = fcmp olt double %17, %12
-  %19 = getelementptr inbounds double, ptr %10, i64 %.032
+  %19 = getelementptr inbounds double, ptr %10, i64 %.03031
   %20 = load double, ptr %19, align 8
   %21 = fcmp ogt double %20, %4
   %or.cond = select i1 %18, i1 %21, i1 false
@@ -1587,8 +1587,8 @@ define range(i64 0, 2) i64 @OSQPVectorf_ew_bounds_type(ptr nocapture noundef rea
   %.sink = select i1 %or.cond, i64 -1, i64 %.
   store i64 %.sink, ptr %14, align 8
   %24 = icmp ne i64 %.sink, %15
-  %25 = select i1 %.03031, i1 true, i1 %24
-  %26 = add nuw nsw i64 %.032, 1
+  %25 = select i1 %.033, i1 true, i1 %24
+  %26 = add nuw nsw i64 %.03031, 1
   %exitcond.not = icmp eq i64 %26, %7
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %13, !llvm.loop !45
 
@@ -1597,8 +1597,8 @@ define range(i64 0, 2) i64 @OSQPVectorf_ew_bounds_type(ptr nocapture noundef rea
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
-  %.030.lcssa = phi i64 [ 0, %5 ], [ %27, %._crit_edge.loopexit ]
-  ret i64 %.030.lcssa
+  %.0.lcssa = phi i64 [ 0, %5 ], [ %27, %._crit_edge.loopexit ]
+  ret i64 %.0.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

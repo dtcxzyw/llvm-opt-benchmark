@@ -246,7 +246,7 @@ H5VM_log2_gen.exit:                               ; preds = %42, %48, %54, %60, 
 124:                                              ; preds = %._crit_edge, %102
   %125 = phi i64 [ %.pre184, %._crit_edge ], [ %.pre185, %102 ]
   %126 = phi i64 [ %.pre183, %._crit_edge ], [ %103, %102 ]
-  %.0151 = phi i64 [ %106, %._crit_edge ], [ 0, %102 ]
+  %.0150 = phi i64 [ %106, %._crit_edge ], [ 0, %102 ]
   %127 = add i64 %125, %126
   %128 = icmp ugt i64 %.old, %127
   br i1 %128, label %129, label %140
@@ -255,7 +255,7 @@ H5VM_log2_gen.exit:                               ; preds = %42, %48, %54, %60, 
   %130 = sub i64 %.old, %127
   %131 = load ptr, ptr %13, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 %125
-  %133 = getelementptr inbounds i8, ptr %132, i64 %.0151
+  %133 = getelementptr inbounds i8, ptr %132, i64 %.0150
   %134 = tail call i32 @H5FD_read(ptr noundef %6, i32 noundef %1, i64 noundef %127, i64 noundef %130, ptr noundef %133) #6
   %135 = icmp slt i32 %134, 0
   br i1 %135, label %136, label %140
@@ -367,8 +367,8 @@ H5VM_log2_gen.exit:                               ; preds = %42, %48, %54, %60, 
   br label %199
 
 199:                                              ; preds = %158, %162, %173, %187, %140, %144, %192, %195, %154, %147, %136, %120, %94
-  %.0150 = phi i32 [ -1, %94 ], [ -1, %120 ], [ -1, %136 ], [ 0, %140 ], [ -1, %147 ], [ 0, %144 ], [ -1, %154 ], [ 0, %162 ], [ 0, %173 ], [ 0, %187 ], [ 0, %158 ], [ -1, %195 ], [ 0, %192 ]
-  ret i32 %.0150
+  %.0151 = phi i32 [ -1, %94 ], [ -1, %120 ], [ -1, %136 ], [ 0, %140 ], [ -1, %147 ], [ 0, %144 ], [ -1, %154 ], [ 0, %162 ], [ 0, %173 ], [ 0, %187 ], [ 0, %158 ], [ -1, %195 ], [ 0, %192 ]
+  ret i32 %.0151
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

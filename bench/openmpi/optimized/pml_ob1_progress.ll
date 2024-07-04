@@ -700,7 +700,7 @@ opal_convertor_set_position.exit:                 ; preds = %294, %293, %283, %2
   br label %313
 
 310:                                              ; preds = %mca_pml_ob1_send_request_start_btl.exit.thread, %mca_pml_ob1_send_request_start_btl.exit
-  %311 = add nuw nsw i32 %.02550, 1
+  %311 = add nuw nsw i32 %.02750, 1
   %.val = load i64, ptr %298, align 8
   %312 = trunc i64 %.val to i32
   %.not29 = icmp slt i32 %311, %312
@@ -708,7 +708,7 @@ opal_convertor_set_position.exit:                 ; preds = %294, %293, %283, %2
 
 313:                                              ; preds = %.lr.ph, %310
   %.val51 = phi i64 [ %.val48, %.lr.ph ], [ %.val, %310 ]
-  %.02550 = phi i32 [ 0, %.lr.ph ], [ %311, %310 ]
+  %.02750 = phi i32 [ 0, %.lr.ph ], [ %311, %310 ]
   %314 = icmp eq i64 %.val51, 1
   br i1 %314, label %315, label %317
 
@@ -890,8 +890,8 @@ opal_convertor_need_buffers.exit.thread69.i:      ; preds = %opal_convertor_need
   br label %mca_pml_ob1_send_request_start_btl.exit
 
 mca_pml_ob1_send_request_start_btl.exit:          ; preds = %331, %333, %335, %341, %343, %350, %394, %397, %399
-  %.055.i = phi i32 [ %398, %397 ], [ %342, %341 ], [ %344, %343 ], [ %336, %335 ], [ %334, %333 ], [ %332, %331 ], [ %351, %350 ], [ %400, %399 ], [ %395, %394 ]
-  %401 = icmp eq i32 %.055.i, 0
+  %.056.i = phi i32 [ %398, %397 ], [ %342, %341 ], [ %344, %343 ], [ %336, %335 ], [ %334, %333 ], [ %332, %331 ], [ %351, %350 ], [ %400, %399 ], [ %395, %394 ]
+  %401 = icmp eq i32 %.056.i, 0
   br i1 %401, label %402, label %310
 
 402:                                              ; preds = %mca_pml_ob1_send_request_start_btl.exit

@@ -631,10 +631,10 @@ define hidden ptr @parseString(ptr noundef %0, ptr noundef %1, ptr nocapture nou
   br label %32
 
 32:                                               ; preds = %14, %24, %21, %9
-  %.043 = phi i32 [ %8, %9 ], [ %8, %14 ], [ %23, %21 ], [ %8, %24 ]
-  %.0 = phi ptr [ %11, %9 ], [ %16, %14 ], [ %22, %21 ], [ %26, %24 ]
-  store i32 %.043, ptr %3, align 4
-  ret ptr %.0
+  %.043 = phi ptr [ %11, %9 ], [ %16, %14 ], [ %22, %21 ], [ %26, %24 ]
+  %.0 = phi i32 [ %8, %9 ], [ %8, %14 ], [ %23, %21 ], [ %8, %24 ]
+  store i32 %.0, ptr %3, align 4
+  ret ptr %.043
 }
 
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -711,10 +711,10 @@ define hidden ptr @parseString_ret_string_and_length(ptr noundef %0, ptr noundef
   br label %38
 
 38:                                               ; preds = %20, %30, %27, %15
-  %.050 = phi i32 [ %10, %15 ], [ %10, %20 ], [ %29, %27 ], [ %10, %30 ]
-  %.0 = phi ptr [ %17, %15 ], [ %22, %20 ], [ %28, %27 ], [ %32, %30 ]
-  store i32 %.050, ptr %3, align 4
-  ret ptr %.0
+  %.050 = phi ptr [ %17, %15 ], [ %22, %20 ], [ %28, %27 ], [ %32, %30 ]
+  %.0 = phi i32 [ %10, %15 ], [ %10, %20 ], [ %29, %27 ], [ %10, %30 ]
+  store i32 %.0, ptr %3, align 4
+  ret ptr %.050
 }
 
 declare ptr @proto_tree_add_item_ret_string_and_length(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -881,10 +881,10 @@ define hidden ptr @parseByteString(ptr noundef %0, ptr noundef %1, ptr nocapture
   br label %32
 
 32:                                               ; preds = %14, %24, %21, %9
-  %.043 = phi i32 [ %8, %9 ], [ %8, %14 ], [ %23, %21 ], [ %8, %24 ]
-  %.0 = phi ptr [ %11, %9 ], [ %16, %14 ], [ %22, %21 ], [ %26, %24 ]
-  store i32 %.043, ptr %3, align 4
-  ret ptr %.0
+  %.043 = phi ptr [ %11, %9 ], [ %16, %14 ], [ %22, %21 ], [ %26, %24 ]
+  %.0 = phi i32 [ %8, %9 ], [ %8, %14 ], [ %23, %21 ], [ %8, %24 ]
+  store i32 %.0, ptr %3, align 4
+  ret ptr %.043
 }
 
 ; Function Attrs: nounwind uwtable

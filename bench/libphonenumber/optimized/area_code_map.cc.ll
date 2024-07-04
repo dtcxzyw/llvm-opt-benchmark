@@ -153,7 +153,7 @@ define dso_local noundef ptr @_ZNK4i18n12phonenumbers11AreaCodeMap6LookupERKNS0_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %70
   %indvars.iv = phi i64 [ %29, %.lr.ph.preheader ], [ %indvars.iv.next, %70 ]
-  %.02556 = phi i32 [ %28, %.lr.ph.preheader ], [ %.0.i37, %70 ]
+  %.02256 = phi i32 [ %28, %.lr.ph.preheader ], [ %.0.i37, %70 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %30 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv.next
   %31 = load i32, ptr %30, align 4
@@ -229,12 +229,12 @@ define dso_local noundef ptr @_ZNK4i18n12phonenumbers11AreaCodeMap6LookupERKNS0_
 
 48:                                               ; preds = %40, %33
   %49 = load i64, ptr %4, align 8
-  %.not22.i = icmp slt i32 %.02556, 0
+  %.not22.i = icmp slt i32 %.02256, 0
   br i1 %.not22.i, label %_ZNK4i18n12phonenumbers11AreaCodeMap12BinarySearchEiil.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %48, %56
   %.01624.i = phi i32 [ %.117.i, %56 ], [ 0, %48 ]
-  %.01823.i = phi i32 [ %.119.i, %56 ], [ %.02556, %48 ]
+  %.01823.i = phi i32 [ %.119.i, %56 ], [ %.02256, %48 ]
   %50 = add nsw i32 %.01823.i, %.01624.i
   %51 = sdiv i32 %50, 2
   %52 = load ptr, ptr %9, align 8

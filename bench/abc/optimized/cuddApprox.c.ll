@@ -649,11 +649,11 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %390
 
 158:                                              ; preds = %153, %147, %133, %128, %122, %110
-  %.0259.i = phi double [ %117, %110 ], [ %117, %122 ], [ %117, %128 ], [ %142, %133 ], [ %142, %147 ], [ %142, %153 ]
-  %.2256.i = phi i32 [ 1, %110 ], [ 1, %122 ], [ %130, %128 ], [ 1, %133 ], [ 1, %147 ], [ %155, %153 ]
-  %.0252.i = phi i32 [ 2, %110 ], [ 2, %122 ], [ 2, %128 ], [ 1, %133 ], [ 1, %147 ], [ 1, %153 ]
-  %.0250.i = phi double [ %121, %110 ], [ %121, %122 ], [ %121, %128 ], [ %146, %133 ], [ %146, %147 ], [ %146, %153 ]
-  %159 = fmul double %.0259.i, %.0250.i
+  %.0254.i = phi double [ %121, %110 ], [ %121, %122 ], [ %121, %128 ], [ %146, %133 ], [ %146, %147 ], [ %146, %153 ]
+  %.0252.i = phi double [ %117, %110 ], [ %117, %122 ], [ %117, %128 ], [ %142, %133 ], [ %142, %147 ], [ %142, %153 ]
+  %.2249.i = phi i32 [ 1, %110 ], [ 1, %122 ], [ %130, %128 ], [ 1, %133 ], [ 1, %147 ], [ %155, %153 ]
+  %.0.i = phi i32 [ 2, %110 ], [ 2, %122 ], [ 2, %128 ], [ 1, %133 ], [ 1, %147 ], [ 1, %153 ]
+  %159 = fmul double %.0254.i, %.0252.i
   br label %269
 
 160:                                              ; preds = %93
@@ -746,11 +746,11 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %390
 
 220:                                              ; preds = %215, %212, %198, %193, %187, %174
-  %.1260.i = phi double [ %182, %174 ], [ %182, %187 ], [ %182, %193 ], [ %207, %198 ], [ %207, %212 ], [ %207, %215 ]
+  %.1255.i = phi double [ %186, %174 ], [ %186, %187 ], [ %186, %193 ], [ %211, %198 ], [ %211, %212 ], [ %211, %215 ]
+  %.1253.i = phi double [ %182, %174 ], [ %182, %187 ], [ %182, %193 ], [ %207, %198 ], [ %207, %212 ], [ %207, %215 ]
   %.5.i = phi i32 [ 1, %174 ], [ 1, %187 ], [ %195, %193 ], [ 1, %198 ], [ 1, %212 ], [ %217, %215 ]
-  %.1253.i = phi i32 [ 1, %174 ], [ 1, %187 ], [ 1, %193 ], [ 2, %198 ], [ 2, %212 ], [ 2, %215 ]
-  %.1251.i = phi double [ %186, %174 ], [ %186, %187 ], [ %186, %193 ], [ %211, %198 ], [ %211, %212 ], [ %211, %215 ]
-  %221 = fmul double %.1260.i, %.1251.i
+  %.1.i = phi i32 [ 1, %174 ], [ 1, %187 ], [ 1, %193 ], [ 2, %198 ], [ 2, %212 ], [ 2, %215 ]
+  %221 = fmul double %.1255.i, %.1253.i
   br label %269
 
 222:                                              ; preds = %160
@@ -786,8 +786,8 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %246
 
 246:                                              ; preds = %245, %236, %227
+  %.0258.i = phi ptr [ null, %245 ], [ %229, %227 ], [ %238, %236 ]
   %.2.i = phi i32 [ 3, %245 ], [ 4, %227 ], [ 5, %236 ]
-  %.0247.i = phi ptr [ null, %245 ], [ %229, %227 ], [ %238, %236 ]
   %247 = load ptr, ptr %6, align 8
   %248 = load double, ptr %247, align 8
   %249 = getelementptr inbounds i8, ptr %247, i64 8
@@ -796,13 +796,13 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %252 = fmul double %251, %250
   %253 = extractelement <2 x double> %99, i64 0
   %254 = call double @llvm.fmuladd.f64(double %248, double %253, double %252)
-  %255 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef nonnull %73, ptr noundef %.0247.i, ptr noundef nonnull %23, ptr noundef nonnull %41)
-  %.not285.i = icmp eq ptr %.0247.i, null
+  %255 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef nonnull %73, ptr noundef %.0258.i, ptr noundef nonnull %23, ptr noundef nonnull %41)
+  %.not285.i = icmp eq ptr %.0258.i, null
   br i1 %.not285.i, label %269, label %256
 
 256:                                              ; preds = %246
   %257 = load ptr, ptr %65, align 8
-  %258 = ptrtoint ptr %.0247.i to i64
+  %258 = ptrtoint ptr %.0258.i to i64
   %259 = and i64 %258, -2
   %260 = inttoptr i64 %259 to ptr
   %261 = call i32 @st__lookup(ptr noundef %257, ptr noundef %260, ptr noundef nonnull %9) #10
@@ -817,15 +817,15 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %266 = fmul double %251, %265
   %267 = call double @llvm.fmuladd.f64(double %.sink318.i, double %253, double %266)
   %.pn.i = fmul double %267, 5.000000e-01
-  %.0248.i = fsub double %254, %.pn.i
+  %.0256.i = fsub double %254, %.pn.i
   %268 = add nsw i32 %255, -1
   br label %269
 
 269:                                              ; preds = %256, %246, %220, %158
-  %.6.i = phi i32 [ %.2256.i, %158 ], [ %.5.i, %220 ], [ %268, %256 ], [ %255, %246 ]
-  %.3.i = phi i32 [ %.0252.i, %158 ], [ %.1253.i, %220 ], [ %.2.i, %256 ], [ %.2.i, %246 ]
-  %.1249.i = phi double [ %159, %158 ], [ %221, %220 ], [ %.0248.i, %256 ], [ %254, %246 ]
-  %.1.i = phi ptr [ null, %158 ], [ null, %220 ], [ %.0247.i, %256 ], [ null, %246 ]
+  %.1259.i = phi ptr [ null, %158 ], [ null, %220 ], [ %.0258.i, %256 ], [ null, %246 ]
+  %.1257.i = phi double [ %159, %158 ], [ %221, %220 ], [ %.0256.i, %256 ], [ %254, %246 ]
+  %.6.i = phi i32 [ %.2249.i, %158 ], [ %.5.i, %220 ], [ %268, %256 ], [ %255, %246 ]
+  %.3.i = phi i32 [ %.0.i, %158 ], [ %.1.i, %220 ], [ %.2.i, %256 ], [ %.2.i, %246 ]
   %270 = load i32, ptr %73, align 8
   %271 = icmp eq i32 %270, 2147483647
   br i1 %271, label %277, label %272
@@ -844,7 +844,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %280 = sitofp i32 %.6.i to double
   %281 = load i32, ptr %33, align 8
   %282 = sitofp i32 %281 to double
-  %283 = insertelement <2 x double> poison, double %.1249.i, i64 0
+  %283 = insertelement <2 x double> poison, double %.1257.i, i64 0
   %284 = insertelement <2 x double> %283, double %280, i64 1
   %285 = insertelement <2 x double> poison, double %279, i64 0
   %286 = insertelement <2 x double> %285, double %282, i64 1
@@ -865,7 +865,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %298 = sub nsw i32 %297, %.6.i
   store i32 %298, ptr %33, align 8
   %299 = load double, ptr %67, align 8
-  %300 = fsub double %299, %.1249.i
+  %300 = fsub double %299, %.1257.i
   store double %300, ptr %67, align 8
   switch i32 %.3.i, label %301 [
     i32 3, label %.thread.i
@@ -882,7 +882,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %.thread290.i
 
 301:                                              ; preds = %293
-  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %73, ptr noundef %.1.i, ptr noundef nonnull %23, ptr noundef nonnull %41)
+  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %73, ptr noundef %.1259.i, ptr noundef nonnull %23, ptr noundef nonnull %41)
   br label %.thread290.thread312.i
 
 .thread290.thread.i:                              ; preds = %277
@@ -990,7 +990,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %or.cond5.i, label %363, label %.backedge.i
 
 363:                                              ; preds = %.thread290.thread312.i
-  %364 = ptrtoint ptr %.1.i to i64
+  %364 = ptrtoint ptr %.1259.i to i64
   %365 = and i64 %364, -2
   %366 = inttoptr i64 %365 to ptr
   %367 = load i32, ptr %366, align 8
@@ -1421,11 +1421,11 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %419
 
 178:                                              ; preds = %173, %167, %153, %148, %142, %130
-  %.0271.i = phi double [ %137, %130 ], [ %137, %142 ], [ %137, %148 ], [ %162, %153 ], [ %162, %167 ], [ %162, %173 ]
-  %.2268.i = phi i32 [ 1, %130 ], [ 1, %142 ], [ %150, %148 ], [ 1, %153 ], [ 1, %167 ], [ %175, %173 ]
-  %.0264.i = phi i32 [ 2, %130 ], [ 2, %142 ], [ 2, %148 ], [ 1, %153 ], [ 1, %167 ], [ 1, %173 ]
-  %.0262.i = phi double [ %141, %130 ], [ %141, %142 ], [ %141, %148 ], [ %166, %153 ], [ %166, %167 ], [ %166, %173 ]
-  %179 = fmul double %.0271.i, %.0262.i
+  %.0266.i = phi double [ %141, %130 ], [ %141, %142 ], [ %141, %148 ], [ %166, %153 ], [ %166, %167 ], [ %166, %173 ]
+  %.0264.i = phi double [ %137, %130 ], [ %137, %142 ], [ %137, %148 ], [ %162, %153 ], [ %162, %167 ], [ %162, %173 ]
+  %.2261.i = phi i32 [ 1, %130 ], [ 1, %142 ], [ %150, %148 ], [ 1, %153 ], [ 1, %167 ], [ %175, %173 ]
+  %.0.i = phi i32 [ 2, %130 ], [ 2, %142 ], [ 2, %148 ], [ 1, %153 ], [ 1, %167 ], [ 1, %173 ]
+  %179 = fmul double %.0266.i, %.0264.i
   br label %289
 
 180:                                              ; preds = %113
@@ -1518,11 +1518,11 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %419
 
 240:                                              ; preds = %235, %232, %218, %213, %207, %194
-  %.1272.i = phi double [ %202, %194 ], [ %202, %207 ], [ %202, %213 ], [ %227, %218 ], [ %227, %232 ], [ %227, %235 ]
+  %.1267.i = phi double [ %206, %194 ], [ %206, %207 ], [ %206, %213 ], [ %231, %218 ], [ %231, %232 ], [ %231, %235 ]
+  %.1265.i = phi double [ %202, %194 ], [ %202, %207 ], [ %202, %213 ], [ %227, %218 ], [ %227, %232 ], [ %227, %235 ]
   %.5.i = phi i32 [ 1, %194 ], [ 1, %207 ], [ %215, %213 ], [ 1, %218 ], [ 1, %232 ], [ %237, %235 ]
-  %.1265.i = phi i32 [ 1, %194 ], [ 1, %207 ], [ 1, %213 ], [ 2, %218 ], [ 2, %232 ], [ 2, %235 ]
-  %.1263.i = phi double [ %206, %194 ], [ %206, %207 ], [ %206, %213 ], [ %231, %218 ], [ %231, %232 ], [ %231, %235 ]
-  %241 = fmul double %.1272.i, %.1263.i
+  %.1.i = phi i32 [ 1, %194 ], [ 1, %207 ], [ 1, %213 ], [ 2, %218 ], [ 2, %232 ], [ 2, %235 ]
+  %241 = fmul double %.1267.i, %.1265.i
   br label %289
 
 242:                                              ; preds = %180
@@ -1558,8 +1558,8 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %266
 
 266:                                              ; preds = %265, %256, %247
+  %.0270.i = phi ptr [ null, %265 ], [ %249, %247 ], [ %258, %256 ]
   %.2.i = phi i32 [ 3, %265 ], [ 4, %247 ], [ 5, %256 ]
-  %.0259.i = phi ptr [ null, %265 ], [ %249, %247 ], [ %258, %256 ]
   %267 = load ptr, ptr %8, align 8
   %268 = load double, ptr %267, align 8
   %269 = getelementptr inbounds i8, ptr %267, i64 8
@@ -1568,13 +1568,13 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %272 = fmul double %271, %270
   %273 = extractelement <2 x double> %119, i64 0
   %274 = call double @llvm.fmuladd.f64(double %268, double %273, double %272)
-  %275 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef nonnull %90, ptr noundef %.0259.i, ptr noundef nonnull %25, ptr noundef nonnull %58)
-  %.not298.i = icmp eq ptr %.0259.i, null
+  %275 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef nonnull %90, ptr noundef %.0270.i, ptr noundef nonnull %25, ptr noundef nonnull %58)
+  %.not298.i = icmp eq ptr %.0270.i, null
   br i1 %.not298.i, label %289, label %276
 
 276:                                              ; preds = %266
   %277 = load ptr, ptr %82, align 8
-  %278 = ptrtoint ptr %.0259.i to i64
+  %278 = ptrtoint ptr %.0270.i to i64
   %279 = and i64 %278, -2
   %280 = inttoptr i64 %279 to ptr
   %281 = call i32 @st__lookup(ptr noundef %277, ptr noundef %280, ptr noundef nonnull %11) #10
@@ -1589,15 +1589,15 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %286 = fmul double %271, %285
   %287 = call double @llvm.fmuladd.f64(double %.sink331.i, double %273, double %286)
   %.pn.i = fmul double %287, 5.000000e-01
-  %.0260.i = fsub double %274, %.pn.i
+  %.0268.i = fsub double %274, %.pn.i
   %288 = add nsw i32 %275, -1
   br label %289
 
 289:                                              ; preds = %276, %266, %240, %178
-  %.6.i = phi i32 [ %.2268.i, %178 ], [ %.5.i, %240 ], [ %288, %276 ], [ %275, %266 ]
-  %.3.i = phi i32 [ %.0264.i, %178 ], [ %.1265.i, %240 ], [ %.2.i, %276 ], [ %.2.i, %266 ]
-  %.1261.i = phi double [ %179, %178 ], [ %241, %240 ], [ %.0260.i, %276 ], [ %274, %266 ]
-  %.1.i = phi ptr [ null, %178 ], [ null, %240 ], [ %.0259.i, %276 ], [ null, %266 ]
+  %.1271.i = phi ptr [ null, %178 ], [ null, %240 ], [ %.0270.i, %276 ], [ null, %266 ]
+  %.1269.i = phi double [ %179, %178 ], [ %241, %240 ], [ %.0268.i, %276 ], [ %274, %266 ]
+  %.6.i = phi i32 [ %.2261.i, %178 ], [ %.5.i, %240 ], [ %288, %276 ], [ %275, %266 ]
+  %.3.i = phi i32 [ %.0.i, %178 ], [ %.1.i, %240 ], [ %.2.i, %276 ], [ %.2.i, %266 ]
   %290 = load i32, ptr %90, align 8
   %291 = icmp eq i32 %290, 2147483647
   br i1 %291, label %297, label %292
@@ -1616,7 +1616,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %300 = sitofp i32 %.6.i to double
   %301 = load i32, ptr %50, align 8
   %302 = sitofp i32 %301 to double
-  %303 = insertelement <2 x double> poison, double %.1261.i, i64 0
+  %303 = insertelement <2 x double> poison, double %.1269.i, i64 0
   %304 = insertelement <2 x double> %303, double %300, i64 1
   %305 = insertelement <2 x double> poison, double %299, i64 0
   %306 = insertelement <2 x double> %305, double %302, i64 1
@@ -1637,7 +1637,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %318 = sub nsw i32 %317, %.6.i
   store i32 %318, ptr %50, align 8
   %319 = load double, ptr %84, align 8
-  %320 = fsub double %319, %.1261.i
+  %320 = fsub double %319, %.1269.i
   store double %320, ptr %84, align 8
   switch i32 %.3.i, label %.thread303.thread325.i [
     i32 3, label %.thread.i
@@ -1654,7 +1654,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %.thread303.i
 
 .thread303.thread325.i:                           ; preds = %313
-  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %90, ptr noundef %.1.i, ptr noundef nonnull %25, ptr noundef nonnull %58)
+  call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %90, ptr noundef %.1271.i, ptr noundef nonnull %25, ptr noundef nonnull %58)
   br label %381
 
 .thread303.thread.i:                              ; preds = %297
@@ -1763,7 +1763,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %or.cond5.i, label %384, label %.backedge.i
 
 384:                                              ; preds = %381
-  %385 = ptrtoint ptr %.1.i to i64
+  %385 = ptrtoint ptr %.1271.i to i64
   %386 = and i64 %385, -2
   %387 = inttoptr i64 %386 to ptr
   %388 = load i32, ptr %387, align 8
@@ -2023,8 +2023,8 @@ define internal fastcc noundef ptr @gatherInfo(ptr nocapture noundef %0, ptr nou
   br label %50
 
 50:                                               ; preds = %45, %43, %34, %30, %24, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %24 ], [ null, %30 ], [ null, %34 ], [ null, %43 ], [ %5, %45 ]
-  ret ptr %.0
+  %.055 = phi ptr [ null, %7 ], [ null, %24 ], [ null, %30 ], [ null, %34 ], [ null, %43 ], [ %5, %45 ]
+  ret ptr %.055
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
@@ -2335,9 +2335,9 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   br label %179
 
 .thread157:                                       ; preds = %77, %79, %.thread
-  %.0129 = phi ptr [ %76, %.thread ], [ %80, %79 ], [ %54, %77 ]
-  %.0127 = phi ptr [ %59, %.thread ], [ %54, %79 ], [ %53, %77 ]
-  %83 = ptrtoint ptr %.0127 to i64
+  %.0129 = phi ptr [ %59, %.thread ], [ %54, %79 ], [ %53, %77 ]
+  %.0127 = phi ptr [ %76, %.thread ], [ %80, %79 ], [ %54, %77 ]
+  %83 = ptrtoint ptr %.0129 to i64
   %84 = and i64 %83, -2
   %85 = inttoptr i64 %84 to ptr
   %86 = getelementptr inbounds i8, ptr %85, i64 4
@@ -2480,7 +2480,7 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
 .thread159:                                       ; preds = %161, %163, %.thread158
   %.pre-phi169 = phi ptr [ %133, %161 ], [ %143, %163 ], [ %.pre168, %.thread158 ]
   %.pre-phi163 = phi ptr [ %133, %161 ], [ %133, %163 ], [ %.pre162, %.thread158 ]
-  %.1130 = phi ptr [ %128, %161 ], [ %165, %163 ], [ %160, %.thread158 ]
+  %.1 = phi ptr [ %128, %161 ], [ %165, %163 ], [ %160, %.thread158 ]
   %168 = getelementptr inbounds i8, ptr %.pre-phi163, i64 4
   %169 = load i32, ptr %168, align 4
   %170 = add i32 %169, -1
@@ -2494,16 +2494,16 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
 
 175:                                              ; preds = %.thread159
   %176 = getelementptr inbounds i8, ptr %174, i64 24
-  store ptr %.1130, ptr %176, align 8
+  store ptr %.1, ptr %176, align 8
   br label %179
 
 177:                                              ; preds = %.thread159
   %178 = getelementptr inbounds i8, ptr %174, i64 32
-  store ptr %.1130, ptr %178, align 8
+  store ptr %.1, ptr %178, align 8
   br label %179
 
 179:                                              ; preds = %175, %177, %127, %89, %44, %31, %28, %3, %167, %156, %139, %122, %116, %115, %.thread157, %82, %72, %41, %39, %37
-  %.0 = phi ptr [ %38, %37 ], [ %40, %39 ], [ %43, %41 ], [ null, %72 ], [ %.0129, %.thread157 ], [ null, %82 ], [ null, %115 ], [ %119, %116 ], [ null, %139 ], [ null, %156 ], [ null, %167 ], [ null, %122 ], [ %1, %3 ], [ %30, %28 ], [ %33, %31 ], [ null, %44 ], [ null, %89 ], [ null, %127 ], [ %.1130, %177 ], [ %.1130, %175 ]
+  %.0 = phi ptr [ %38, %37 ], [ %40, %39 ], [ %43, %41 ], [ null, %72 ], [ %.0127, %.thread157 ], [ null, %82 ], [ null, %115 ], [ %119, %116 ], [ null, %139 ], [ null, %156 ], [ null, %167 ], [ null, %122 ], [ %1, %3 ], [ %30, %28 ], [ %33, %31 ], [ null, %44 ], [ null, %89 ], [ null, %127 ], [ %.1, %177 ], [ %.1, %175 ]
   ret ptr %.0
 }
 
@@ -2627,8 +2627,8 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
   br label %76
 
 76:                                               ; preds = %69, %71
-  %.062 = phi ptr [ %75, %71 ], [ %1, %69 ]
-  %.061 = phi ptr [ %73, %71 ], [ %1, %69 ]
+  %.064 = phi ptr [ %73, %71 ], [ %1, %69 ]
+  %.063 = phi ptr [ %75, %71 ], [ %1, %69 ]
   %.not76 = icmp ugt i32 %70, %62
   br i1 %.not76, label %90, label %77
 
@@ -2651,17 +2651,17 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
   br label %90
 
 90:                                               ; preds = %76, %77, %83
-  %.064 = phi ptr [ %89, %83 ], [ %81, %77 ], [ %2, %76 ]
-  %.063 = phi ptr [ %86, %83 ], [ %79, %77 ], [ %2, %76 ]
-  %91 = call fastcc i32 @BAapplyBias(ptr noundef nonnull %0, ptr noundef %.061, ptr noundef %.063, ptr noundef nonnull %3, ptr noundef %4)
+  %.062 = phi ptr [ %86, %83 ], [ %79, %77 ], [ %2, %76 ]
+  %.061 = phi ptr [ %89, %83 ], [ %81, %77 ], [ %2, %76 ]
+  %91 = call fastcc i32 @BAapplyBias(ptr noundef nonnull %0, ptr noundef %.064, ptr noundef %.062, ptr noundef nonnull %3, ptr noundef %4)
   %92 = icmp eq i32 %91, 3
   br i1 %92, label %117, label %93
 
 93:                                               ; preds = %90
-  %94 = ptrtoint ptr %.062 to i64
+  %94 = ptrtoint ptr %.063 to i64
   %95 = and i64 %94, -2
   %96 = inttoptr i64 %95 to ptr
-  %97 = call fastcc i32 @BAapplyBias(ptr noundef nonnull %0, ptr noundef %96, ptr noundef %.064, ptr noundef nonnull %3, ptr noundef %4)
+  %97 = call fastcc i32 @BAapplyBias(ptr noundef nonnull %0, ptr noundef %96, ptr noundef %.061, ptr noundef nonnull %3, ptr noundef %4)
   %98 = icmp eq i32 %97, 3
   br i1 %98, label %117, label %99
 

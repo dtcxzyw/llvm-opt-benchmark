@@ -656,8 +656,8 @@ rb_num2ulong_inline.exit:                         ; preds = %15, %17
   br label %20
 
 20:                                               ; preds = %rb_num2ulong_inline.exit, %3
-  %.024 = phi ptr [ %19, %rb_num2ulong_inline.exit ], [ null, %3 ]
   %.1 = phi i64 [ %spec.select, %rb_num2ulong_inline.exit ], [ 0, %3 ]
+  %.023 = phi ptr [ %19, %rb_num2ulong_inline.exit ], [ null, %3 ]
   %21 = icmp sgt i32 %0, 1
   br i1 %21, label %22, label %get_freefunc.exit
 
@@ -676,7 +676,7 @@ rb_num2ulong_inline.exit:                         ; preds = %15, %17
   br label %rb_num2long_inline.exit
 
 rb_num2long_inline.exit:                          ; preds = %27, %25
-  %.022 = phi i64 [ %26, %25 ], [ %28, %27 ]
+  %.0 = phi i64 [ %26, %25 ], [ %28, %27 ]
   %.not38 = icmp eq i32 %0, 2
   br i1 %.not38, label %get_freefunc.exit, label %29
 
@@ -712,9 +712,9 @@ rb_num2ulong_inline.exit.i:                       ; preds = %39, %37
   br label %get_freefunc.exit
 
 get_freefunc.exit:                                ; preds = %20, %rb_num2ulong_inline.exit.i, %32, %rb_num2long_inline.exit
-  %.02237 = phi i64 [ %.022, %rb_num2long_inline.exit ], [ %.022, %32 ], [ %.022, %rb_num2ulong_inline.exit.i ], [ 0, %20 ]
-  %.023 = phi ptr [ null, %rb_num2long_inline.exit ], [ null, %32 ], [ %41, %rb_num2ulong_inline.exit.i ], [ null, %20 ]
-  %.not28 = icmp eq ptr %.024, null
+  %.037 = phi i64 [ %.0, %rb_num2long_inline.exit ], [ %.0, %32 ], [ %.0, %rb_num2ulong_inline.exit.i ], [ 0, %20 ]
+  %.022 = phi ptr [ null, %rb_num2long_inline.exit ], [ null, %32 ], [ %41, %rb_num2ulong_inline.exit.i ], [ null, %20 ]
+  %.not28 = icmp eq ptr %.023, null
   br i1 %.not28, label %64, label %42
 
 42:                                               ; preds = %get_freefunc.exit
@@ -761,11 +761,11 @@ rb_obj_write.exit:                                ; preds = %49, %55
   br label %rb_obj_write.exit35
 
 rb_obj_write.exit35:                              ; preds = %rb_obj_write.exit, %61
-  store ptr %.024, ptr %43, align 8
+  store ptr %.023, ptr %43, align 8
   %62 = getelementptr inbounds i8, ptr %43, i64 8
-  store i64 %.02237, ptr %62, align 8
+  store i64 %.037, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %43, i64 16
-  store ptr %.023, ptr %63, align 8
+  store ptr %.022, ptr %63, align 8
   br label %64
 
 64:                                               ; preds = %rb_obj_write.exit35, %get_freefunc.exit
@@ -1586,10 +1586,10 @@ rb_num2ulong_inline.exit41:                       ; preds = %65, %67
   br label %rb_fiddle_ptr2cptr.exit
 
 rb_fiddle_ptr2cptr.exit:                          ; preds = %59, %56, %rb_num2ulong_inline.exit41, %48
-  %.028 = phi ptr [ %49, %48 ], [ %69, %rb_num2ulong_inline.exit41 ], [ %58, %56 ], [ null, %59 ]
+  %.0 = phi ptr [ %49, %48 ], [ %69, %rb_num2ulong_inline.exit41 ], [ %58, %56 ], [ null, %59 ]
   %70 = load ptr, ptr %7, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 %.0.i32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %71, ptr align 1 %.028, i64 %.0.i35, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %71, ptr align 1 %.0, i64 %.0.i35, i1 false)
   br label %73
 
 72:                                               ; preds = %11
@@ -1597,9 +1597,9 @@ rb_fiddle_ptr2cptr.exit:                          ; preds = %59, %56, %rb_num2ul
   unreachable
 
 73:                                               ; preds = %rb_fiddle_ptr2cptr.exit, %rb_num2ulong_inline.exit
-  %.029.in = phi ptr [ %6, %rb_fiddle_ptr2cptr.exit ], [ %5, %rb_num2ulong_inline.exit ]
-  %.029 = load i64, ptr %.029.in, align 8
-  ret i64 %.029
+  %.028.in = phi ptr [ %6, %rb_fiddle_ptr2cptr.exit ], [ %5, %rb_num2ulong_inline.exit ]
+  %.028 = load i64, ptr %.028.in, align 8
+  ret i64 %.028
 }
 
 ; Function Attrs: nounwind uwtable

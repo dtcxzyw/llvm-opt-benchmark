@@ -130,8 +130,8 @@ if.else:                                          ; preds = %if.then4
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end, %land.lhs.true, %if.then11, %if.else
-  %recno.0 = phi i32 [ -1, %if.then11 ], [ %conv7, %if.else ], [ 0, %land.lhs.true ], [ 0, %if.end ]
   %timestamp.0 = phi i64 [ %call13, %if.then11 ], [ 0, %if.else ], [ 0, %land.lhs.true ], [ 0, %if.end ]
+  %recno.0 = phi i32 [ -1, %if.then11 ], [ %conv7, %if.else ], [ 0, %land.lhs.true ], [ 0, %if.end ]
   %selector.0 = phi i32 [ 2, %if.then11 ], [ 1, %if.else ], [ 0, %land.lhs.true ], [ 0, %if.end ]
   %complete_reflogs = getelementptr inbounds i8, ptr %info, i64 24
   %call17 = tail call ptr @string_list_lookup(ptr noundef nonnull %complete_reflogs, ptr noundef %call1) #11
@@ -728,11 +728,11 @@ entry:
   br i1 %cmp20.not, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %best.023 = phi ptr [ %best.1, %for.inc ], [ null, %entry ]
-  %i.022 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
-  %best_commit.021 = phi ptr [ %best_commit.1, %for.inc ], [ null, %entry ]
+  %i.023 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
+  %best_commit.022 = phi ptr [ %best_commit.1, %for.inc ], [ null, %entry ]
+  %best.021 = phi ptr [ %best.1, %for.inc ], [ null, %entry ]
   %1 = load ptr, ptr %walk, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %i.022
+  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %i.023
   %2 = load ptr, ptr %arrayidx, align 8
   %.pr.i = load i32, ptr %2, align 8
   %cmp6.i = icmp sgt i32 %.pr.i, -1
@@ -768,7 +768,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
   br i1 %cmp.i, label %for.body.i, label %for.inc, !llvm.loop !9
 
 if.end:                                           ; preds = %land.lhs.true.i
-  %tobool1.not = icmp eq ptr %best.023, null
+  %tobool1.not = icmp eq ptr %best.021, null
   br i1 %tobool1.not, label %if.then5, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
@@ -779,8 +779,8 @@ lor.lhs.false:                                    ; preds = %if.end
   %idxprom.i14 = sext i32 %.val to i64
   %timestamp.i = getelementptr inbounds %struct.reflog_info, ptr %.val12.val, i64 %idxprom.i14, i32 3
   %10 = load i64, ptr %timestamp.i, align 8
-  %best.0.val = load i32, ptr %best.023, align 8
-  %11 = getelementptr i8, ptr %best.023, i64 8
+  %best.0.val = load i32, ptr %best.021, align 8
+  %11 = getelementptr i8, ptr %best.021, i64 8
   %best.0.val13 = load ptr, ptr %11, align 8
   %12 = getelementptr i8, ptr %best.0.val13, i64 16
   %best.0.val13.val = load ptr, ptr %12, align 8
@@ -794,9 +794,9 @@ if.then5:                                         ; preds = %lor.lhs.false, %if.
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.i, %for.body, %lor.lhs.false, %if.then5
-  %best_commit.1 = phi ptr [ %call.i, %if.then5 ], [ %best_commit.021, %lor.lhs.false ], [ %best_commit.021, %for.body ], [ %best_commit.021, %for.inc.i ]
-  %best.1 = phi ptr [ %2, %if.then5 ], [ %best.023, %lor.lhs.false ], [ %best.023, %for.body ], [ %best.023, %for.inc.i ]
-  %inc = add nuw i64 %i.022, 1
+  %best.1 = phi ptr [ %2, %if.then5 ], [ %best.021, %lor.lhs.false ], [ %best.021, %for.body ], [ %best.021, %for.inc.i ]
+  %best_commit.1 = phi ptr [ %call.i, %if.then5 ], [ %best_commit.022, %lor.lhs.false ], [ %best_commit.022, %for.body ], [ %best_commit.022, %for.inc.i ]
+  %inc = add nuw i64 %i.023, 1
   %14 = load i64, ptr %nr, align 8
   %cmp = icmp ult i64 %inc, %14
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !10

@@ -2579,8 +2579,8 @@ if.then.i151:                                     ; preds = %for.end.i.i148
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorESt10unique_ptrINS5_8compiler11SCCAnalyzerINSA_3cpp18MessageSCCAnalyzer13DepsGeneratorEE8NodeDataESt14default_deleteISG_EEEENS1_6HashEqIS8_vE4HashENSM_2EqESaISt4pairIKS8_SJ_EEE16try_emplace_implIRSQ_JEEESP_INS1_12raw_hash_setISK_SN_SO_SS_E8iteratorEbEOT_DpOT0_.exit: ; preds = %for.body.i.i137, %if.then.i151
   %71 = phi ptr [ %.pre20.i155, %if.then.i151 ], [ %63, %for.body.i.i137 ]
-  %retval.sroa.0.0.i15.i157 = phi i64 [ %call38.i.i, %if.then.i151 ], [ %and.i.i.i141, %for.body.i.i137 ]
-  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %71, i64 %retval.sroa.0.0.i15.i157, i32 0, i32 1
+  %retval.sroa.0.0.i14.i157 = phi i64 [ %call38.i.i, %if.then.i151 ], [ %and.i.i.i141, %for.body.i.i137 ]
+  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %71, i64 %retval.sroa.0.0.i14.i157, i32 0, i32 1
   %72 = load ptr, ptr %second.i.i, align 8
   store ptr %call55, ptr %72, align 8
   %cmp63 = icmp eq ptr %51, %descriptor

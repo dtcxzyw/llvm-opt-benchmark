@@ -149,7 +149,7 @@ define internal range(i32 -1, -2147483648) i32 @H5D__none_idx_iterate(ptr nocapt
 
 .lr.ph30.split.us:                                ; preds = %.lr.ph30, %._crit_edge.us
   %19 = phi ptr [ %33, %._crit_edge.us ], [ %6, %.lr.ph30 ]
-  %.02228.us = phi i32 [ %45, %._crit_edge.us ], [ 0, %.lr.ph30 ]
+  %.02328.us = phi i32 [ %45, %._crit_edge.us ], [ 0, %.lr.ph30 ]
   %20 = getelementptr inbounds i8, ptr %19, i64 960
   %21 = call i64 @H5VM_array_offset_pre(i32 noundef %12, ptr noundef nonnull %20, ptr noundef nonnull %4) #8
   %22 = load ptr, ptr %15, align 8
@@ -172,8 +172,8 @@ define internal range(i32 -1, -2147483648) i32 @H5D__none_idx_iterate(ptr nocapt
   br label %35
 
 35:                                               ; preds = %.lr.ph.us, %42
-  %.02326.us = phi i32 [ %17, %.lr.ph.us ], [ %43, %42 ]
-  %36 = zext nneg i32 %.02326.us to i64
+  %.02226.us = phi i32 [ %17, %.lr.ph.us ], [ %43, %42 ]
+  %36 = zext nneg i32 %.02226.us to i64
   %37 = getelementptr inbounds [33 x i64], ptr %4, i64 0, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = add i64 %38, 1
@@ -185,12 +185,12 @@ define internal range(i32 -1, -2147483648) i32 @H5D__none_idx_iterate(ptr nocapt
 
 42:                                               ; preds = %35
   store i64 0, ptr %37, align 8
-  %43 = add nsw i32 %.02326.us, -1
-  %44 = icmp sgt i32 %.02326.us, 0
+  %43 = add nsw i32 %.02226.us, -1
+  %44 = icmp sgt i32 %.02226.us, 0
   br i1 %44, label %35, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %35, %42
-  %45 = add i32 %.02228.us, 1
+  %45 = add i32 %.02328.us, 1
   %46 = zext i32 %45 to i64
   %47 = getelementptr inbounds i8, ptr %33, i64 152
   %48 = load i64, ptr %47, align 8
@@ -201,7 +201,7 @@ define internal range(i32 -1, -2147483648) i32 @H5D__none_idx_iterate(ptr nocapt
 
 .lr.ph30.split:                                   ; preds = %.lr.ph30, %69
   %52 = phi ptr [ %72, %69 ], [ %6, %.lr.ph30 ]
-  %.02228 = phi i32 [ %70, %69 ], [ 0, %.lr.ph30 ]
+  %.02328 = phi i32 [ %70, %69 ], [ 0, %.lr.ph30 ]
   %53 = getelementptr inbounds i8, ptr %52, i64 960
   %54 = call i64 @H5VM_array_offset_pre(i32 noundef %12, ptr noundef nonnull %53, ptr noundef nonnull %4) #8
   %55 = load ptr, ptr %15, align 8
@@ -225,7 +225,7 @@ define internal range(i32 -1, -2147483648) i32 @H5D__none_idx_iterate(ptr nocapt
   br label %.loopexit
 
 69:                                               ; preds = %.lr.ph30.split
-  %70 = add i32 %.02228, 1
+  %70 = add i32 %.02328, 1
   %71 = zext i32 %70 to i64
   %72 = load ptr, ptr %5, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 152

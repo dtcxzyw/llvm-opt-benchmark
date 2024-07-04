@@ -3559,16 +3559,16 @@ if.end33:                                         ; preds = %if.else20, %if.end3
 if.then35:                                        ; preds = %if.end33.thread184, %if.end33
   %conv.i196 = phi i8 [ %conv.i190, %if.end33.thread184 ], [ %conv.i, %if.end33 ]
   %settings195 = phi ptr [ %settings188, %if.end33.thread184 ], [ %settings, %if.end33 ]
-  %leftLimit.0194 = phi ptr [ null, %if.end33.thread184 ], [ %add.ptr, %if.end33 ]
-  %equalPrefixLength.2193 = phi i32 [ %12, %if.end33.thread184 ], [ %equalPrefixLength.2, %if.end33 ]
-  %rightLimit.0192 = phi ptr [ null, %if.end33.thread184 ], [ %add.ptr14, %if.end33 ]
-  %cmp36.not = icmp eq i32 %equalPrefixLength.2193, %leftLength
+  %equalPrefixLength.2194 = phi i32 [ %12, %if.end33.thread184 ], [ %equalPrefixLength.2, %if.end33 ]
+  %rightLimit.0193 = phi ptr [ null, %if.end33.thread184 ], [ %add.ptr14, %if.end33 ]
+  %leftLimit.0192 = phi ptr [ null, %if.end33.thread184 ], [ %add.ptr, %if.end33 ]
+  %cmp36.not = icmp eq i32 %equalPrefixLength.2194, %leftLength
   br i1 %cmp36.not, label %lor.lhs.false42, label %land.lhs.true37
 
 land.lhs.true37:                                  ; preds = %if.then35
   %data = getelementptr inbounds i8, ptr %this, i64 8
   %22 = load ptr, ptr %data, align 8
-  %idxprom38 = zext i32 %equalPrefixLength.2193 to i64
+  %idxprom38 = zext i32 %equalPrefixLength.2194 to i64
   %arrayidx39 = getelementptr inbounds i16, ptr %left, i64 %idxprom38
   %23 = load i16, ptr %arrayidx39, align 2
   %conv40 = zext i16 %23 to i32
@@ -3577,13 +3577,13 @@ land.lhs.true37:                                  ; preds = %if.then35
   br i1 %tobool.not, label %lor.lhs.false42, label %if.then51
 
 lor.lhs.false42:                                  ; preds = %land.lhs.true37, %if.then35
-  %cmp43.not = icmp eq i32 %equalPrefixLength.2193, %rightLength
+  %cmp43.not = icmp eq i32 %equalPrefixLength.2194, %rightLength
   br i1 %cmp43.not, label %if.end63, label %land.lhs.true44
 
 land.lhs.true44:                                  ; preds = %lor.lhs.false42
   %data45 = getelementptr inbounds i8, ptr %this, i64 8
   %24 = load ptr, ptr %data45, align 8
-  %idxprom46 = zext i32 %equalPrefixLength.2193 to i64
+  %idxprom46 = zext i32 %equalPrefixLength.2194 to i64
   %arrayidx47 = getelementptr inbounds i16, ptr %right, i64 %idxprom46
   %25 = load i16, ptr %arrayidx47, align 2
   %conv48 = zext i16 %25 to i32
@@ -3620,9 +3620,9 @@ if.end63.loopexit.split.loop.exit:                ; preds = %land.rhs
 if.end63:                                         ; preds = %while.cond52, %if.end63.loopexit.split.loop.exit, %if.end33.thread, %lor.lhs.false42, %land.lhs.true44, %if.end33
   %conv.i183 = phi i8 [ %conv.i196, %land.lhs.true44 ], [ %conv.i196, %lor.lhs.false42 ], [ %conv.i, %if.end33 ], [ %conv.i178, %if.end33.thread ], [ %conv.i196, %if.end63.loopexit.split.loop.exit ], [ %conv.i196, %while.cond52 ]
   %settings182 = phi ptr [ %settings195, %land.lhs.true44 ], [ %settings195, %lor.lhs.false42 ], [ %settings, %if.end33 ], [ %settings176, %if.end33.thread ], [ %settings195, %if.end63.loopexit.split.loop.exit ], [ %settings195, %while.cond52 ]
-  %leftLimit.0181 = phi ptr [ %leftLimit.0194, %land.lhs.true44 ], [ %leftLimit.0194, %lor.lhs.false42 ], [ %add.ptr, %if.end33 ], [ null, %if.end33.thread ], [ %leftLimit.0194, %if.end63.loopexit.split.loop.exit ], [ %leftLimit.0194, %while.cond52 ]
-  %rightLimit.0180 = phi ptr [ %rightLimit.0192, %land.lhs.true44 ], [ %rightLimit.0192, %lor.lhs.false42 ], [ %add.ptr14, %if.end33 ], [ null, %if.end33.thread ], [ %rightLimit.0192, %if.end63.loopexit.split.loop.exit ], [ %rightLimit.0192, %while.cond52 ]
-  %equalPrefixLength.4 = phi i32 [ %equalPrefixLength.2193, %land.lhs.true44 ], [ %rightLength, %lor.lhs.false42 ], [ 0, %if.end33 ], [ 0, %if.end33.thread ], [ %indvars.le, %if.end63.loopexit.split.loop.exit ], [ 0, %while.cond52 ]
+  %rightLimit.0181 = phi ptr [ %rightLimit.0193, %land.lhs.true44 ], [ %rightLimit.0193, %lor.lhs.false42 ], [ %add.ptr14, %if.end33 ], [ null, %if.end33.thread ], [ %rightLimit.0193, %if.end63.loopexit.split.loop.exit ], [ %rightLimit.0193, %while.cond52 ]
+  %leftLimit.0180 = phi ptr [ %leftLimit.0192, %land.lhs.true44 ], [ %leftLimit.0192, %lor.lhs.false42 ], [ %add.ptr, %if.end33 ], [ null, %if.end33.thread ], [ %leftLimit.0192, %if.end63.loopexit.split.loop.exit ], [ %leftLimit.0192, %while.cond52 ]
+  %equalPrefixLength.4 = phi i32 [ %equalPrefixLength.2194, %land.lhs.true44 ], [ %rightLength, %lor.lhs.false42 ], [ 0, %if.end33 ], [ 0, %if.end33.thread ], [ %indvars.le, %if.end63.loopexit.split.loop.exit ], [ 0, %while.cond52 ]
   %29 = load ptr, ptr %settings182, align 8
   %fastLatinOptions65 = getelementptr inbounds i8, ptr %29, i64 80
   %30 = load i32, ptr %fastLatinOptions65, align 8
@@ -3724,7 +3724,7 @@ invoke.cont:                                      ; preds = %if.then107
   %pos.i = getelementptr inbounds i8, ptr %leftIter, i64 400
   store ptr %add.ptr114, ptr %pos.i, align 8
   %limit.i = getelementptr inbounds i8, ptr %leftIter, i64 408
-  store ptr %leftLimit.0181, ptr %limit.i, align 8
+  store ptr %leftLimit.0180, ptr %limit.i, align 8
   %add.ptr117 = getelementptr inbounds i16, ptr %right, i64 %idx.ext113
   %trie.i.i105 = getelementptr inbounds i8, ptr %rightIter, i64 8
   store ptr %39, ptr %trie.i.i105, align 8
@@ -3753,7 +3753,7 @@ invoke.cont:                                      ; preds = %if.then107
   %pos.i117 = getelementptr inbounds i8, ptr %rightIter, i64 400
   store ptr %add.ptr117, ptr %pos.i117, align 8
   %limit.i118 = getelementptr inbounds i8, ptr %rightIter, i64 408
-  store ptr %rightLimit.0180, ptr %limit.i118, align 8
+  store ptr %rightLimit.0181, ptr %limit.i118, align 8
   %call121 = invoke noundef i32 @_ZN6icu_7516CollationCompare21compareUpToQuaternaryERNS_17CollationIteratorES2_RKNS_17CollationSettingsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %leftIter, ptr noundef nonnull align 8 dereferenceable(389) %rightIter, ptr noundef nonnull align 8 dereferenceable(852) %35, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont120 unwind label %lpad119
 
@@ -3796,7 +3796,7 @@ invoke.cont132:                                   ; preds = %if.then107
   %pos.i.i = getelementptr inbounds i8, ptr %leftIter123, i64 400
   store ptr %add.ptr114, ptr %pos.i.i, align 8
   %limit.i.i = getelementptr inbounds i8, ptr %leftIter123, i64 408
-  store ptr %leftLimit.0181, ptr %limit.i.i, align 8
+  store ptr %leftLimit.0180, ptr %limit.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525FCDUTF16CollationIteratorE, i64 16), ptr %leftIter123, align 8
   %rawStart.i = getelementptr inbounds i8, ptr %leftIter123, i64 416
   store ptr %left, ptr %rawStart.i, align 8
@@ -3805,7 +3805,7 @@ invoke.cont132:                                   ; preds = %if.then107
   %segmentLimit.i = getelementptr inbounds i8, ptr %leftIter123, i64 432
   store ptr null, ptr %segmentLimit.i, align 8
   %rawLimit.i = getelementptr inbounds i8, ptr %leftIter123, i64 440
-  store ptr %leftLimit.0181, ptr %rawLimit.i, align 8
+  store ptr %leftLimit.0180, ptr %rawLimit.i, align 8
   %nfcImpl.i = getelementptr inbounds i8, ptr %leftIter123, i64 448
   %nfcImpl2.i = getelementptr inbounds i8, ptr %38, i64 48
   %41 = load ptr, ptr %nfcImpl2.i, align 8
@@ -3843,7 +3843,7 @@ invoke.cont132:                                   ; preds = %if.then107
   %pos.i.i131 = getelementptr inbounds i8, ptr %rightIter127, i64 400
   store ptr %add.ptr130, ptr %pos.i.i131, align 8
   %limit.i.i132 = getelementptr inbounds i8, ptr %rightIter127, i64 408
-  store ptr %rightLimit.0180, ptr %limit.i.i132, align 8
+  store ptr %rightLimit.0181, ptr %limit.i.i132, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525FCDUTF16CollationIteratorE, i64 16), ptr %rightIter127, align 8
   %rawStart.i133 = getelementptr inbounds i8, ptr %rightIter127, i64 416
   store ptr %right, ptr %rawStart.i133, align 8
@@ -3852,7 +3852,7 @@ invoke.cont132:                                   ; preds = %if.then107
   %segmentLimit.i135 = getelementptr inbounds i8, ptr %rightIter127, i64 432
   store ptr null, ptr %segmentLimit.i135, align 8
   %rawLimit.i136 = getelementptr inbounds i8, ptr %rightIter127, i64 440
-  store ptr %rightLimit.0180, ptr %rawLimit.i136, align 8
+  store ptr %rightLimit.0181, ptr %rawLimit.i136, align 8
   %nfcImpl.i137 = getelementptr inbounds i8, ptr %rightIter127, i64 448
   store ptr %41, ptr %nfcImpl.i137, align 8
   %normalized.i139 = getelementptr inbounds i8, ptr %rightIter127, i64 456
@@ -3912,7 +3912,7 @@ invoke.cont164:                                   ; preds = %if.end150
   %s.i = getelementptr inbounds i8, ptr %leftIter161, i64 32
   store ptr %add.ptr154, ptr %s.i, align 8
   %limit.i146 = getelementptr inbounds i8, ptr %leftIter161, i64 40
-  store ptr %leftLimit.0181, ptr %limit.i146, align 8
+  store ptr %leftLimit.0180, ptr %limit.i146, align 8
   %index.i.i147 = getelementptr inbounds i8, ptr %rightIter162, i64 24
   store i32 -1, ptr %index.i.i147, align 8
   %length.i.i148 = getelementptr inbounds i8, ptr %rightIter162, i64 28
@@ -3921,7 +3921,7 @@ invoke.cont164:                                   ; preds = %if.end150
   %s.i149 = getelementptr inbounds i8, ptr %rightIter162, i64 32
   store ptr %add.ptr156, ptr %s.i149, align 8
   %limit.i150 = getelementptr inbounds i8, ptr %rightIter162, i64 40
-  store ptr %rightLimit.0180, ptr %limit.i150, align 8
+  store ptr %rightLimit.0181, ptr %limit.i150, align 8
   %call167 = invoke fastcc noundef i32 @_ZN6icu_7512_GLOBAL__N_114compareNFDIterERKNS_15Normalizer2ImplERNS0_11NFDIteratorES5_(ptr noundef nonnull align 8 dereferenceable(80) %47, ptr noundef nonnull align 8 dereferenceable(32) %leftIter161, ptr noundef nonnull align 8 dereferenceable(32) %rightIter162)
           to label %invoke.cont166 unwind label %lpad165
 
@@ -3937,8 +3937,8 @@ lpad165:                                          ; preds = %invoke.cont164
   br label %eh.resume
 
 if.else170:                                       ; preds = %if.end150
-  call fastcc void @_ZN6icu_7512_GLOBAL__N_119FCDUTF16NFDIteratorC2ERKNS_15Normalizer2ImplEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(112) %leftIter171, ptr noundef nonnull align 8 dereferenceable(80) %47, ptr noundef %add.ptr154, ptr noundef %leftLimit.0181)
-  invoke fastcc void @_ZN6icu_7512_GLOBAL__N_119FCDUTF16NFDIteratorC2ERKNS_15Normalizer2ImplEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(112) %rightIter172, ptr noundef nonnull align 8 dereferenceable(80) %47, ptr noundef %add.ptr156, ptr noundef %rightLimit.0180)
+  call fastcc void @_ZN6icu_7512_GLOBAL__N_119FCDUTF16NFDIteratorC2ERKNS_15Normalizer2ImplEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(112) %leftIter171, ptr noundef nonnull align 8 dereferenceable(80) %47, ptr noundef %add.ptr154, ptr noundef %leftLimit.0180)
+  invoke fastcc void @_ZN6icu_7512_GLOBAL__N_119FCDUTF16NFDIteratorC2ERKNS_15Normalizer2ImplEPKDsS6_(ptr noundef nonnull align 8 dereferenceable(112) %rightIter172, ptr noundef nonnull align 8 dereferenceable(80) %47, ptr noundef %add.ptr156, ptr noundef %rightLimit.0181)
           to label %invoke.cont174 unwind label %lpad173
 
 invoke.cont174:                                   ; preds = %if.else170

@@ -801,8 +801,8 @@ opal_pointer_array_get_item.exit:                 ; preds = %51, %57
   br label %69
 
 69:                                               ; preds = %85, %.lr.ph.i
-  %.01821.i = phi i32 [ 0, %.lr.ph.i ], [ %86, %85 ]
-  %70 = add i32 %.01821.i, %66
+  %.021.i = phi i32 [ 0, %.lr.ph.i ], [ %86, %85 ]
+  %70 = add i32 %.021.i, %66
   %71 = urem i32 %70, %.val.i
   %.val20.i = load ptr, ptr %68, align 8
   %72 = zext nneg i32 %71 to i64
@@ -810,8 +810,8 @@ opal_pointer_array_get_item.exit:                 ; preds = %51, %57
   %74 = load ptr, ptr %73, align 8
   %75 = ptrtoint ptr %74 to i64
   %76 = and i64 %75, 1
-  %.not.i61 = icmp eq i64 %76, 0
-  br i1 %.not.i61, label %77, label %79
+  %.not.i60 = icmp eq i64 %76, 0
+  br i1 %.not.i60, label %77, label %79
 
 77:                                               ; preds = %69
   %78 = icmp eq ptr %74, %0
@@ -828,7 +828,7 @@ opal_pointer_array_get_item.exit:                 ; preds = %51, %57
   br i1 %84, label %ompi_group_proc_lookup_rank.exit, label %85
 
 85:                                               ; preds = %79, %77
-  %86 = add nuw nsw i32 %.01821.i, 1
+  %86 = add nuw nsw i32 %.021.i, 1
   %exitcond.not.i = icmp eq i32 %86, %.val.i
   br i1 %exitcond.not.i, label %ompi_group_proc_lookup_rank.exit.thread.loopexit, label %69, !llvm.loop !7
 
@@ -852,31 +852,31 @@ ompi_group_proc_lookup_rank.exit:                 ; preds = %77, %79
 90:                                               ; preds = %ompi_group_proc_lookup_rank.exit.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %91 = getelementptr i8, ptr %89, i64 16
-  %.val.i62 = load i32, ptr %91, align 8
-  %92 = icmp eq i32 %.val.i62, 0
-  br i1 %92, label %thread-pre-split.thread85, label %93
+  %.val.i61 = load i32, ptr %91, align 8
+  %92 = icmp eq i32 %.val.i61, 0
+  br i1 %92, label %thread-pre-split.thread84, label %93
 
 93:                                               ; preds = %90
   %94 = load i32, ptr %42, align 4
-  %95 = icmp sgt i32 %.val.i62, 0
-  br i1 %95, label %.lr.ph.i64, label %thread-pre-split.thread85
+  %95 = icmp sgt i32 %.val.i61, 0
+  br i1 %95, label %.lr.ph.i63, label %thread-pre-split.thread84
 
-.lr.ph.i64:                                       ; preds = %93
+.lr.ph.i63:                                       ; preds = %93
   %96 = getelementptr i8, ptr %89, i64 32
   br label %97
 
-97:                                               ; preds = %113, %.lr.ph.i64
-  %.01821.i65 = phi i32 [ 0, %.lr.ph.i64 ], [ %114, %113 ]
-  %98 = add i32 %.01821.i65, %94
-  %99 = urem i32 %98, %.val.i62
-  %.val20.i66 = load ptr, ptr %96, align 8
+97:                                               ; preds = %113, %.lr.ph.i63
+  %.021.i64 = phi i32 [ 0, %.lr.ph.i63 ], [ %114, %113 ]
+  %98 = add i32 %.021.i64, %94
+  %99 = urem i32 %98, %.val.i61
+  %.val20.i65 = load ptr, ptr %96, align 8
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds ptr, ptr %.val20.i66, i64 %100
+  %101 = getelementptr inbounds ptr, ptr %.val20.i65, i64 %100
   %102 = load ptr, ptr %101, align 8
   %103 = ptrtoint ptr %102 to i64
   %104 = and i64 %103, 1
-  %.not.i67 = icmp eq i64 %104, 0
-  br i1 %.not.i67, label %105, label %107
+  %.not.i66 = icmp eq i64 %104, 0
+  br i1 %.not.i66, label %105, label %107
 
 105:                                              ; preds = %97
   %106 = icmp eq ptr %102, %0
@@ -886,18 +886,18 @@ ompi_group_proc_lookup_rank.exit:                 ; preds = %77, %79
   %108 = lshr i64 %103, 1
   %109 = and i64 %108, 32767
   %110 = and i64 %103, -65536
-  %.sroa.0.0.insert.insert.i.i68 = or disjoint i64 %109, %110
-  store i64 %.sroa.0.0.insert.insert.i.i68, ptr %4, align 8
+  %.sroa.0.0.insert.insert.i.i67 = or disjoint i64 %109, %110
+  store i64 %.sroa.0.0.insert.insert.i.i67, ptr %4, align 8
   %111 = call i32 @ompi_rte_compare_name_fields(i8 noundef zeroext 15, ptr noundef nonnull %41, ptr noundef nonnull %4) #13
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %thread-pre-split, label %113
 
 113:                                              ; preds = %107, %105
-  %114 = add nuw nsw i32 %.01821.i65, 1
-  %exitcond.not.i69 = icmp eq i32 %114, %.val.i62
-  br i1 %exitcond.not.i69, label %thread-pre-split.thread85, label %97, !llvm.loop !7
+  %114 = add nuw nsw i32 %.021.i64, 1
+  %exitcond.not.i68 = icmp eq i32 %114, %.val.i61
+  br i1 %exitcond.not.i68, label %thread-pre-split.thread84, label %97, !llvm.loop !7
 
-thread-pre-split.thread85:                        ; preds = %113, %90, %93
+thread-pre-split.thread84:                        ; preds = %113, %90, %93
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   store i32 -2, ptr %6, align 4
   br label %opal_pointer_array_get_item.exit.thread
@@ -908,29 +908,29 @@ thread-pre-split:                                 ; preds = %107, %105
 
 .thread:                                          ; preds = %thread-pre-split, %ompi_group_proc_lookup_rank.exit
   %storemerge = phi i32 [ %71, %ompi_group_proc_lookup_rank.exit ], [ %99, %thread-pre-split ]
-  %.04477 = phi i1 [ false, %ompi_group_proc_lookup_rank.exit ], [ %.not58, %thread-pre-split ]
+  %.076 = phi i1 [ false, %ompi_group_proc_lookup_rank.exit ], [ %.not58, %thread-pre-split ]
   store i32 %storemerge, ptr %6, align 4
-  %115 = call i32 @ompi_comm_set_rank_failed(ptr noundef nonnull %55, i32 noundef %storemerge, i1 noundef zeroext %.04477) #13
+  %115 = call i32 @ompi_comm_set_rank_failed(ptr noundef nonnull %55, i32 noundef %storemerge, i1 noundef zeroext %.076) #13
   %116 = load ptr, ptr %7, align 8
   %117 = icmp eq ptr %116, null
   br i1 %117, label %118, label %opal_pointer_array_get_item.exit.thread
 
 118:                                              ; preds = %.thread
   %119 = getelementptr inbounds i8, ptr %55, i64 256
-  %.in = select i1 %.04477, ptr %119, ptr %61
+  %.in = select i1 %.076, ptr %119, ptr %61
   %120 = load ptr, ptr %.in, align 8
   %121 = call i32 @ompi_group_incl(ptr noundef %120, i32 noundef 1, ptr noundef nonnull %6, ptr noundef nonnull %7) #13
   %.not59 = icmp eq i32 %121, 0
   br i1 %.not59, label %opal_pointer_array_get_item.exit.thread, label %.loopexit
 
-opal_pointer_array_get_item.exit.thread:          ; preds = %ompi_group_proc_lookup_rank.exit.thread, %thread-pre-split.thread85, %43, %.thread, %118, %opal_pointer_array_get_item.exit
+opal_pointer_array_get_item.exit.thread:          ; preds = %ompi_group_proc_lookup_rank.exit.thread, %thread-pre-split.thread84, %43, %.thread, %118, %opal_pointer_array_get_item.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %opal_pointer_array_get_item.exit.thread
-  %.pre84 = load ptr, ptr %7, align 8
-  %122 = icmp eq ptr %.pre84, null
+  %.pre83 = load ptr, ptr %7, align 8
+  %122 = icmp eq ptr %.pre83, null
   br i1 %122, label %._crit_edge.thread, label %123
 
 123:                                              ; preds = %._crit_edge
@@ -961,8 +961,8 @@ opal_pointer_array_get_item.exit.thread:          ; preds = %ompi_group_proc_loo
   br label %opal_thread_add_fetch_32.exit
 
 opal_thread_add_fetch_32.exit:                    ; preds = %133, %136
-  %.0.i71 = phi i32 [ %135, %133 ], [ %139, %136 ]
-  %140 = icmp eq i32 %.0.i71, 0
+  %.0.i70 = phi i32 [ %135, %133 ], [ %139, %136 ]
+  %140 = icmp eq i32 %.0.i70, 0
   br i1 %140, label %141, label %._crit_edge.thread
 
 141:                                              ; preds = %opal_thread_add_fetch_32.exit
@@ -971,18 +971,18 @@ opal_thread_add_fetch_32.exit:                    ; preds = %133, %136
   %144 = load ptr, ptr %143, align 8
   %145 = load ptr, ptr %144, align 8
   %.not6.i = icmp eq ptr %145, null
-  br i1 %.not6.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i72
+  br i1 %.not6.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i71
 
-.lr.ph.i72:                                       ; preds = %141, %.lr.ph.i72
-  %146 = phi ptr [ %148, %.lr.ph.i72 ], [ %145, %141 ]
-  %.07.i = phi ptr [ %147, %.lr.ph.i72 ], [ %144, %141 ]
+.lr.ph.i71:                                       ; preds = %141, %.lr.ph.i71
+  %146 = phi ptr [ %148, %.lr.ph.i71 ], [ %145, %141 ]
+  %.07.i = phi ptr [ %147, %.lr.ph.i71 ], [ %144, %141 ]
   call void %146(ptr noundef nonnull %125) #13
   %147 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %148 = load ptr, ptr %147, align 8
-  %.not.i73 = icmp eq ptr %148, null
-  br i1 %.not.i73, label %opal_obj_run_destructors.exit, label %.lr.ph.i72, !llvm.loop !6
+  %.not.i72 = icmp eq ptr %148, null
+  br i1 %.not.i72, label %opal_obj_run_destructors.exit, label %.lr.ph.i71, !llvm.loop !6
 
-opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i72, %141
+opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i71, %141
   call void @free(ptr noundef %125) #13
   br label %._crit_edge.thread
 
@@ -1019,10 +1019,10 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i72, %141
   %164 = call i32 @opal_pmix_convert_jobid(ptr noundef nonnull %10, i32 noundef %163) #13
   %165 = getelementptr inbounds i8, ptr %0, i64 44
   %166 = load i32, ptr %165, align 4
-  %cond98 = icmp eq i32 %166, -1
-  %.sink92 = select i1 %cond98, i32 -4, i32 %166
+  %cond97 = icmp eq i32 %166, -1
+  %.sink91 = select i1 %cond97, i32 -4, i32 %166
   %167 = getelementptr inbounds i8, ptr %10, i64 256
-  store i32 %.sink92, ptr %167, align 4
+  store i32 %.sink91, ptr %167, align 4
   call void @PMIx_Info_construct(ptr noundef nonnull %11) #13
   %168 = call i32 @PMIx_Info_load(ptr noundef nonnull %11, ptr noundef nonnull @.str.12, ptr noundef nonnull %10, i16 noundef zeroext 22) #13
   %169 = call i32 @PMIx_Notify_event(i32 noundef -200, ptr noundef nonnull %9, i8 noundef zeroext 2, ptr noundef nonnull %11, i64 noundef 1, ptr noundef null, ptr noundef nonnull %8) #13
@@ -1041,8 +1041,8 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i72, %141
   br label %.loopexit
 
 .loopexit:                                        ; preds = %118, %123, %172, %155, %15
-  %.0 = phi i32 [ 0, %15 ], [ %127, %123 ], [ 0, %172 ], [ 0, %155 ], [ %121, %118 ]
-  ret i32 %.0
+  %.046 = phi i32 [ 0, %15 ], [ %127, %123 ], [ 0, %172 ], [ 0, %155 ], [ %121, %118 ]
+  ret i32 %.046
 }
 
 declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_unnamed_addr #3
@@ -1215,8 +1215,8 @@ define internal noundef ptr @ompi_errhandler_event_cb(i32 %0, i32 %1, ptr nounde
   %23 = load ptr, ptr %19, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 256
   %25 = load i32, ptr %24, align 4
-  %cond31 = icmp eq i32 %25, -4
-  %spec.select = select i1 %cond31, i32 -1, i32 %25
+  %cond32 = icmp eq i32 %25, -4
+  %spec.select = select i1 %cond32, i32 -1, i32 %25
   store i32 %spec.select, ptr %14, align 4
   %26 = load i64, ptr %5, align 8
   %27 = call ptr @ompi_proc_for_name(i64 %26) #13

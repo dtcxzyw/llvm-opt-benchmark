@@ -885,14 +885,14 @@ define ptr @cl_sign_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noc
 
 34:                                               ; preds = %31, %26
   %35 = phi i32 [ %33, %31 ], [ %.pre, %26 ]
-  %.032 = phi ptr [ %29, %31 ], [ %13, %26 ]
+  %.0 = phi ptr [ %29, %31 ], [ %13, %26 ]
   store i32 %35, ptr %3, align 4
   call void @EVP_MD_CTX_free(ptr noundef nonnull %9) #11
   br label %36
 
 36:                                               ; preds = %8, %5, %34, %30, %25, %22, %17, %14
-  %.0 = phi ptr [ %.032, %34 ], [ null, %30 ], [ null, %25 ], [ null, %22 ], [ null, %17 ], [ null, %14 ], [ null, %5 ], [ null, %8 ]
-  ret ptr %.0
+  %.032 = phi ptr [ %.0, %34 ], [ null, %30 ], [ null, %25 ], [ null, %22 ], [ null, %17 ], [ null, %14 ], [ null, %5 ], [ null, %8 ]
+  ret ptr %.032
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
@@ -1227,14 +1227,14 @@ cl_load_crl.exit:                                 ; preds = %18
   br label %81
 
 29:                                               ; preds = %25, %10
-  %.071 = phi ptr [ %14, %25 ], [ null, %10 ]
-  %.070 = phi ptr [ %24, %25 ], [ null, %10 ]
+  %.070 = phi ptr [ %14, %25 ], [ null, %10 ]
+  %.069 = phi ptr [ %24, %25 ], [ null, %10 ]
   %30 = load ptr, ptr %0, align 8
   %.not85112 = icmp eq ptr %30, null
   br i1 %.not85112, label %._crit_edge, label %.lr.ph
 
 31:                                               ; preds = %.lr.ph
-  %32 = add i64 %.069113, 1
+  %32 = add i64 %.0113, 1
   %33 = getelementptr inbounds ptr, ptr %0, i64 %32
   %34 = load ptr, ptr %33, align 8
   %.not85 = icmp eq ptr %34, null
@@ -1242,26 +1242,26 @@ cl_load_crl.exit:                                 ; preds = %18
 
 .lr.ph:                                           ; preds = %29, %31
   %35 = phi ptr [ %34, %31 ], [ %30, %29 ]
-  %.069113 = phi i64 [ %32, %31 ], [ 0, %29 ]
+  %.0113 = phi i64 [ %32, %31 ], [ 0, %29 ]
   %36 = tail call i32 @X509_LOOKUP_ctrl(ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %35, i64 noundef 1, ptr noundef null) #11
   %.not100 = icmp eq i32 %36, 0
   br i1 %.not100, label %37, label %31
 
 37:                                               ; preds = %.lr.ph
   tail call void @X509_STORE_free(ptr noundef nonnull %4) #11
-  %.not101 = icmp eq ptr %.071, null
+  %.not101 = icmp eq ptr %.070, null
   br i1 %.not101, label %39, label %38
 
 38:                                               ; preds = %37
-  tail call void @X509_CRL_free(ptr noundef nonnull %.071) #11
+  tail call void @X509_CRL_free(ptr noundef nonnull %.070) #11
   br label %39
 
 39:                                               ; preds = %38, %37
-  %.not102 = icmp eq ptr %.070, null
+  %.not102 = icmp eq ptr %.069, null
   br i1 %.not102, label %81, label %40
 
 40:                                               ; preds = %39
-  tail call void @X509_VERIFY_PARAM_free(ptr noundef nonnull %.070) #11
+  tail call void @X509_VERIFY_PARAM_free(ptr noundef nonnull %.069) #11
   br label %81
 
 ._crit_edge:                                      ; preds = %31, %29
@@ -1272,19 +1272,19 @@ cl_load_crl.exit:                                 ; preds = %18
 
 43:                                               ; preds = %._crit_edge
   tail call void @X509_STORE_free(ptr noundef nonnull %4) #11
-  %.not87 = icmp eq ptr %.071, null
+  %.not87 = icmp eq ptr %.070, null
   br i1 %.not87, label %45, label %44
 
 44:                                               ; preds = %43
-  tail call void @X509_CRL_free(ptr noundef nonnull %.071) #11
+  tail call void @X509_CRL_free(ptr noundef nonnull %.070) #11
   br label %45
 
 45:                                               ; preds = %44, %43
-  %.not88 = icmp eq ptr %.070, null
+  %.not88 = icmp eq ptr %.069, null
   br i1 %.not88, label %81, label %46
 
 46:                                               ; preds = %45
-  tail call void @X509_VERIFY_PARAM_free(ptr noundef nonnull %.070) #11
+  tail call void @X509_VERIFY_PARAM_free(ptr noundef nonnull %.069) #11
   br label %81
 
 47:                                               ; preds = %._crit_edge
@@ -1295,19 +1295,19 @@ cl_load_crl.exit:                                 ; preds = %18
 
 50:                                               ; preds = %47
   tail call void @X509_STORE_free(ptr noundef nonnull %4) #11
-  %.not90 = icmp eq ptr %.071, null
+  %.not90 = icmp eq ptr %.070, null
   br i1 %.not90, label %52, label %51
 
 51:                                               ; preds = %50
-  tail call void @X509_CRL_free(ptr noundef nonnull %.071) #11
+  tail call void @X509_CRL_free(ptr noundef nonnull %.070) #11
   br label %52
 
 52:                                               ; preds = %51, %50
-  %.not91 = icmp eq ptr %.070, null
+  %.not91 = icmp eq ptr %.069, null
   br i1 %.not91, label %81, label %53
 
 53:                                               ; preds = %52
-  tail call void @X509_VERIFY_PARAM_free(ptr noundef nonnull %.070) #11
+  tail call void @X509_VERIFY_PARAM_free(ptr noundef nonnull %.069) #11
   br label %81
 
 54:                                               ; preds = %47
@@ -1335,25 +1335,25 @@ cl_load_cert.exit:                                ; preds = %57
 cl_load_cert.exit.thread:                         ; preds = %54, %cl_load_cert.exit.thread109, %cl_load_cert.exit
   tail call void @X509_STORE_CTX_free(ptr noundef nonnull %49) #11
   tail call void @X509_STORE_free(ptr noundef nonnull %4) #11
-  %.not93 = icmp eq ptr %.071, null
+  %.not93 = icmp eq ptr %.070, null
   br i1 %.not93, label %64, label %63
 
 63:                                               ; preds = %cl_load_cert.exit.thread
-  tail call void @X509_CRL_free(ptr noundef nonnull %.071) #11
+  tail call void @X509_CRL_free(ptr noundef nonnull %.070) #11
   br label %64
 
 64:                                               ; preds = %63, %cl_load_cert.exit.thread
-  %.not94 = icmp eq ptr %.070, null
+  %.not94 = icmp eq ptr %.069, null
   br i1 %.not94, label %81, label %65
 
 65:                                               ; preds = %64
-  tail call void @X509_VERIFY_PARAM_free(ptr noundef nonnull %.070) #11
+  tail call void @X509_VERIFY_PARAM_free(ptr noundef nonnull %.069) #11
   br label %81
 
 66:                                               ; preds = %cl_load_cert.exit
   %67 = tail call i32 @X509_STORE_CTX_init(ptr noundef nonnull %49, ptr noundef nonnull %4, ptr noundef nonnull %61, ptr noundef null) #11
   %.not95 = icmp eq i32 %67, 0
-  %.not96 = icmp eq ptr %.071, null
+  %.not96 = icmp eq ptr %.070, null
   br i1 %.not95, label %68, label %73
 
 68:                                               ; preds = %66
@@ -1362,15 +1362,15 @@ cl_load_cert.exit.thread:                         ; preds = %54, %cl_load_cert.e
   br i1 %.not96, label %70, label %69
 
 69:                                               ; preds = %68
-  tail call void @X509_CRL_free(ptr noundef nonnull %.071) #11
+  tail call void @X509_CRL_free(ptr noundef nonnull %.070) #11
   br label %70
 
 70:                                               ; preds = %69, %68
-  %.not97 = icmp eq ptr %.070, null
+  %.not97 = icmp eq ptr %.069, null
   br i1 %.not97, label %72, label %71
 
 71:                                               ; preds = %70
-  tail call void @X509_VERIFY_PARAM_free(ptr noundef nonnull %.070) #11
+  tail call void @X509_VERIFY_PARAM_free(ptr noundef nonnull %.069) #11
   br label %72
 
 72:                                               ; preds = %71, %70
@@ -1383,15 +1383,15 @@ cl_load_cert.exit.thread:                         ; preds = %54, %cl_load_cert.e
   br i1 %.not96, label %76, label %75
 
 75:                                               ; preds = %73
-  tail call void @X509_CRL_free(ptr noundef nonnull %.071) #11
+  tail call void @X509_CRL_free(ptr noundef nonnull %.070) #11
   br label %76
 
 76:                                               ; preds = %75, %73
-  %.not99 = icmp eq ptr %.070, null
+  %.not99 = icmp eq ptr %.069, null
   br i1 %.not99, label %78, label %77
 
 77:                                               ; preds = %76
-  tail call void @X509_VERIFY_PARAM_free(ptr noundef nonnull %.070) #11
+  tail call void @X509_VERIFY_PARAM_free(ptr noundef nonnull %.069) #11
   br label %78
 
 78:                                               ; preds = %77, %76
@@ -1402,8 +1402,8 @@ cl_load_cert.exit.thread:                         ; preds = %54, %cl_load_cert.e
   br label %81
 
 81:                                               ; preds = %64, %65, %52, %53, %45, %46, %39, %40, %3, %78, %72, %28, %22, %9
-  %.0 = phi i32 [ %80, %78 ], [ -1, %72 ], [ -1, %28 ], [ -1, %22 ], [ -1, %9 ], [ -1, %3 ], [ -1, %40 ], [ -1, %39 ], [ -1, %46 ], [ -1, %45 ], [ -1, %53 ], [ -1, %52 ], [ -1, %65 ], [ -1, %64 ]
-  ret i32 %.0
+  %.071 = phi i32 [ %80, %78 ], [ -1, %72 ], [ -1, %28 ], [ -1, %22 ], [ -1, %9 ], [ -1, %3 ], [ -1, %40 ], [ -1, %39 ], [ -1, %46 ], [ -1, %45 ], [ -1, %53 ], [ -1, %52 ], [ -1, %65 ], [ -1, %64 ]
+  ret i32 %.071
 }
 
 declare ptr @X509_STORE_new() local_unnamed_addr #2

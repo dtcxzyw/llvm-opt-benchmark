@@ -471,8 +471,8 @@ invoke.cont198:                                   ; preds = %invoke.cont84, %if.
   %118 = shufflevector <2 x float> %117, <2 x float> poison, <2 x i32> zeroinitializer
   %119 = fmul <2 x float> %107, %118
   %mul3.i.i239 = fmul float %sub5.i225, %div.i.i236
-  %localBitangent.sroa.0.0 = select i1 %or.cond.i234, <2 x float> %107, <2 x float> %119
   %localBitangent.sroa.15.0 = select i1 %or.cond.i234, float %sub5.i225, float %mul3.i.i239
+  %localBitangent.sroa.0.0 = select i1 %or.cond.i234, <2 x float> %107, <2 x float> %119
   %localTangent.sroa.0.0.vec.extract = extractelement <2 x float> %localTangent.sroa.0.0, i64 0
   %120 = tail call float @llvm.fabs.f32(float %localTangent.sroa.0.0.vec.extract)
   %cmp.i = fcmp ueq float %120, 0x7FF0000000000000
@@ -569,10 +569,10 @@ if.end.i.i280:                                    ; preds = %invoke.cont247
   br label %if.end253
 
 if.end253:                                        ; preds = %if.end.i.i280, %invoke.cont247, %if.end.i.i258, %invoke.cont239, %lor.end226.thr_comm, %lor.end226
-  %localBitangent.sroa.0.2 = phi <2 x float> [ %localBitangent.sroa.0.0, %lor.end226 ], [ %localBitangent.sroa.0.0, %lor.end226.thr_comm ], [ %localBitangent.sroa.0.0, %invoke.cont239 ], [ %localBitangent.sroa.0.0, %if.end.i.i258 ], [ %152, %invoke.cont247 ], [ %161, %if.end.i.i280 ]
-  %localBitangent.sroa.15.2 = phi float [ %localBitangent.sroa.15.0, %lor.end226 ], [ %localBitangent.sroa.15.0, %lor.end226.thr_comm ], [ %localBitangent.sroa.15.0, %invoke.cont239 ], [ %localBitangent.sroa.15.0, %if.end.i.i258 ], [ %154, %invoke.cont247 ], [ %mul3.i.i284, %if.end.i.i280 ]
   %localTangent.sroa.0.2 = phi <2 x float> [ %localTangent.sroa.0.0, %lor.end226 ], [ %localTangent.sroa.0.0, %lor.end226.thr_comm ], [ %135, %invoke.cont239 ], [ %144, %if.end.i.i258 ], [ %localTangent.sroa.0.0, %invoke.cont247 ], [ %localTangent.sroa.0.0, %if.end.i.i280 ]
   %localTangent.sroa.19.2 = phi float [ %localTangent.sroa.19.0, %lor.end226 ], [ %localTangent.sroa.19.0, %lor.end226.thr_comm ], [ %137, %invoke.cont239 ], [ %mul3.i.i262, %if.end.i.i258 ], [ %localTangent.sroa.19.0, %invoke.cont247 ], [ %localTangent.sroa.19.0, %if.end.i.i280 ]
+  %localBitangent.sroa.15.2 = phi float [ %localBitangent.sroa.15.0, %lor.end226 ], [ %localBitangent.sroa.15.0, %lor.end226.thr_comm ], [ %localBitangent.sroa.15.0, %invoke.cont239 ], [ %localBitangent.sroa.15.0, %if.end.i.i258 ], [ %154, %invoke.cont247 ], [ %mul3.i.i284, %if.end.i.i280 ]
+  %localBitangent.sroa.0.2 = phi <2 x float> [ %localBitangent.sroa.0.0, %lor.end226 ], [ %localBitangent.sroa.0.0, %lor.end226.thr_comm ], [ %localBitangent.sroa.0.0, %invoke.cont239 ], [ %localBitangent.sroa.0.0, %if.end.i.i258 ], [ %152, %invoke.cont247 ], [ %161, %if.end.i.i280 ]
   %arrayidx255 = getelementptr inbounds %class.aiVector3t, ptr %call22, i64 %idxprom166
   store <2 x float> %localTangent.sroa.0.2, ptr %arrayidx255, align 4
   %localTangent.sroa.19.0.arrayidx255.sroa_idx = getelementptr inbounds i8, ptr %arrayidx255, i64 8
@@ -1353,29 +1353,29 @@ for.body.preheader:                               ; preds = %if.end3
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %data.addr.053 = phi ptr [ %add.ptr19, %for.body ], [ %data, %for.body.preheader ]
-  %hash.addr.052 = phi i32 [ %add21, %for.body ], [ %hash, %for.body.preheader ]
-  %len.addr.151 = phi i32 [ %dec, %for.body ], [ %shr, %for.body.preheader ]
-  %0 = load i16, ptr %data.addr.053, align 1
+  %hash.addr.053 = phi i32 [ %add21, %for.body ], [ %hash, %for.body.preheader ]
+  %len.addr.152 = phi i32 [ %dec, %for.body ], [ %shr, %for.body.preheader ]
+  %data.addr.051 = phi ptr [ %add.ptr19, %for.body ], [ %data, %for.body.preheader ]
+  %0 = load i16, ptr %data.addr.051, align 1
   %1 = zext i16 %0 to i32
-  %add8 = add i32 %hash.addr.052, %1
-  %add.ptr = getelementptr inbounds i8, ptr %data.addr.053, i64 2
+  %add8 = add i32 %hash.addr.053, %1
+  %add.ptr = getelementptr inbounds i8, ptr %data.addr.051, i64 2
   %2 = load i16, ptr %add.ptr, align 1
   %3 = zext i16 %2 to i32
   %4 = shl nuw nsw i32 %3, 11
   %shl17 = shl i32 %add8, 16
   %5 = xor i32 %shl17, %4
   %xor18 = xor i32 %5, %add8
-  %add.ptr19 = getelementptr inbounds i8, ptr %data.addr.053, i64 4
+  %add.ptr19 = getelementptr inbounds i8, ptr %data.addr.051, i64 4
   %shr20 = lshr i32 %xor18, 11
   %add21 = add i32 %shr20, %xor18
-  %dec = add nsw i32 %len.addr.151, -1
+  %dec = add nsw i32 %len.addr.152, -1
   %cmp4.not = icmp eq i32 %dec, 0
   br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.body, %if.end3
-  %hash.addr.0.lcssa = phi i32 [ %hash, %if.end3 ], [ %add21, %for.body ]
   %data.addr.0.lcssa = phi ptr [ %data, %if.end3 ], [ %add.ptr19, %for.body ]
+  %hash.addr.0.lcssa = phi i32 [ %hash, %if.end3 ], [ %add21, %for.body ]
   switch i32 %and, label %default.unreachable [
     i32 3, label %sw.bb
     i32 2, label %sw.bb37

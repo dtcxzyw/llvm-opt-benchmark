@@ -20,19 +20,19 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind uwtable
 define ptr @mca_fcoll_base_component_lookup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %.078 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_fcoll_base_framework, i64 112), align 8
-  %.not9 = icmp eq ptr %.078, getelementptr inbounds (i8, ptr @ompi_fcoll_base_framework, i64 96)
+  %.08 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_fcoll_base_framework, i64 112), align 8
+  %.not9 = icmp eq ptr %.08, getelementptr inbounds (i8, ptr @ompi_fcoll_base_framework, i64 96)
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 2:                                                ; preds = %.lr.ph
-  %3 = getelementptr inbounds i8, ptr %.0710, i64 16
-  %.07 = load volatile ptr, ptr %3, align 8
-  %.not = icmp eq ptr %.07, getelementptr inbounds (i8, ptr @ompi_fcoll_base_framework, i64 96)
+  %3 = getelementptr inbounds i8, ptr %.010, i64 16
+  %.0 = load volatile ptr, ptr %3, align 8
+  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @ompi_fcoll_base_framework, i64 96)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %1, %2
-  %.0710 = phi ptr [ %.07, %2 ], [ %.078, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.0710, i64 40
+  %.010 = phi ptr [ %.0, %2 ], [ %.08, %1 ]
+  %4 = getelementptr inbounds i8, ptr %.010, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 84
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #2
@@ -40,8 +40,8 @@ define ptr @mca_fcoll_base_component_lookup(ptr nocapture noundef readonly %0) l
   br i1 %8, label %._crit_edge, label %2
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %2 ], [ %5, %.lr.ph ]
-  ret ptr %.0
+  %.07 = phi ptr [ null, %1 ], [ null, %2 ], [ %5, %.lr.ph ]
+  ret ptr %.07
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

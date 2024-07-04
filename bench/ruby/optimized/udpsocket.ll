@@ -328,8 +328,8 @@ define internal i64 @udp_send_internal(i64 noundef %0) #0 {
   %4 = load ptr, ptr %3, align 8
   tail call void @rb_io_check_closed(ptr noundef %4) #4
   %5 = load ptr, ptr %2, align 8
-  %.01620 = load ptr, ptr %5, align 8
-  %.not21 = icmp eq ptr %.01620, null
+  %.020 = load ptr, ptr %5, align 8
+  %.not21 = icmp eq ptr %.020, null
   br i1 %.not21, label %rb_ll2num_inline.exit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %1
@@ -340,9 +340,9 @@ define internal i64 @udp_send_internal(i64 noundef %0) #0 {
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %30
-  %.01622 = phi ptr [ %.01620, %.preheader.lr.ph ], [ %.016, %30 ]
-  %10 = getelementptr inbounds i8, ptr %.01622, i64 24
-  %11 = getelementptr inbounds i8, ptr %.01622, i64 16
+  %.022 = phi ptr [ %.020, %.preheader.lr.ph ], [ %.0, %30 ]
+  %10 = getelementptr inbounds i8, ptr %.022, i64 24
+  %11 = getelementptr inbounds i8, ptr %.022, i64 16
   br label %12
 
 12:                                               ; preds = %.preheader, %25
@@ -378,14 +378,14 @@ define internal i64 @udp_send_internal(i64 noundef %0) #0 {
   br i1 %.not18, label %30, label %12
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %.01622, i64 40
-  %.016 = load ptr, ptr %31, align 8
-  %.not = icmp eq ptr %.016, null
+  %31 = getelementptr inbounds i8, ptr %.022, i64 40
+  %.0 = load ptr, ptr %31, align 8
+  %.not = icmp eq ptr %.0, null
   br i1 %.not, label %rb_ll2num_inline.exit, label %.preheader, !llvm.loop !9
 
 rb_ll2num_inline.exit:                            ; preds = %30, %1, %23, %20
-  %.0 = phi i64 [ %22, %20 ], [ %24, %23 ], [ 0, %1 ], [ 0, %30 ]
-  ret i64 %.0
+  %.016 = phi i64 [ %22, %20 ], [ %24, %23 ], [ 0, %1 ], [ 0, %30 ]
+  ret i64 %.016
 }
 
 declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #1

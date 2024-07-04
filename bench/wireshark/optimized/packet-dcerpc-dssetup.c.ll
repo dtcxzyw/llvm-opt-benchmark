@@ -254,36 +254,36 @@ define hidden i32 @dssetup_dissect_struct_DsRolePrimaryDomInfoBasic(ptr noundef 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.062 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not68 = icmp eq ptr %3, null
   br i1 %.not68, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.062, i32 noundef -1, i32 noundef 0) #4
   %30 = load i32, ptr @ett_dssetup_dssetup_DsRolePrimaryDomInfoBasic, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #4
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.062 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.061 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.061 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_role, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %34 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #4
+  %34 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.062, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %35 = load i32, ptr @hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_flags, align 4
-  %36 = call i32 @dssetup_dissect_bitmap_DsRoleFlags(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @dssetup_dissect_bitmap_DsRoleFlags(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   %37 = load i32, ptr @hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_domain, align 4
-  %38 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_domain_, i32 noundef 2, ptr noundef nonnull @.str.62, i32 noundef %37) #4
+  %38 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_domain_, i32 noundef 2, ptr noundef nonnull @.str.62, i32 noundef %37) #4
   %39 = load i32, ptr @hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_dns_domain, align 4
-  %40 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_dns_domain_, i32 noundef 2, ptr noundef nonnull @.str.64, i32 noundef %39) #4
+  %40 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_dns_domain_, i32 noundef 2, ptr noundef nonnull @.str.64, i32 noundef %39) #4
   %41 = load i32, ptr @hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_forest, align 4
-  %42 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_forest_, i32 noundef 2, ptr noundef nonnull @.str.65, i32 noundef %41) #4
+  %42 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @dssetup_dissect_element_DsRolePrimaryDomInfoBasic_forest_, i32 noundef 2, ptr noundef nonnull @.str.65, i32 noundef %41) #4
   %43 = load i32, ptr @hf_dssetup_dssetup_DsRolePrimaryDomInfoBasic_domain_guid, align 4
-  %44 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, ptr noundef null) #4
-  %45 = sub i32 %44, %.0
-  call void @proto_item_set_len(ptr noundef %.062, i32 noundef %45) #4
+  %44 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, ptr noundef null) #4
+  %45 = sub i32 %44, %.062
+  call void @proto_item_set_len(ptr noundef %.061, i32 noundef %45) #4
   %46 = load ptr, ptr %10, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 96
   %48 = load i32, ptr %47, align 8
@@ -376,31 +376,31 @@ define hidden i32 @dssetup_dissect_struct_DsRoleUpgradeStatus(ptr noundef %0, i3
   %or.cond = or i1 %.not32, %.not
   %14 = and i32 %1, -4
   %15 = add i32 %14, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %15
+  %.030 = select i1 %or.cond, i32 %1, i32 %15
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %20, label %16
 
 16:                                               ; preds = %8
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #4
   %18 = load i32, ptr @ett_dssetup_dssetup_DsRoleUpgradeStatus, align 4
   %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #4
   br label %20
 
 20:                                               ; preds = %16, %8
-  %.030 = phi ptr [ %17, %16 ], [ null, %8 ]
-  %.029 = phi ptr [ %19, %16 ], [ null, %8 ]
+  %.029 = phi ptr [ %17, %16 ], [ null, %8 ]
+  %.0 = phi ptr [ %19, %16 ], [ null, %8 ]
   %21 = load i32, ptr @hf_dssetup_dssetup_DsRoleUpgradeStatus_upgrading, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 0, ptr %10, align 4
-  %22 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %10) #4
+  %22 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %10) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %23 = load i32, ptr @hf_dssetup_dssetup_DsRoleUpgradeStatus_previous_role, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %24 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %9) #4
+  %24 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %25 = sub i32 %24, %.0
-  call void @proto_item_set_len(ptr noundef %.030, i32 noundef %25) #4
+  %25 = sub i32 %24, %.030
+  call void @proto_item_set_len(ptr noundef %.029, i32 noundef %25) #4
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 96
@@ -488,26 +488,26 @@ define hidden i32 @dssetup_dissect_struct_DsRoleOpStatus(ptr noundef %0, i32 nou
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.032 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #4
   %30 = load i32, ptr @ett_dssetup_dssetup_DsRoleOpStatus, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #4
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.032 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.031 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.031 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_dssetup_dssetup_DsRoleOpStatus_status, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %34 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #4
+  %34 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %35 = sub i32 %34, %.0
-  call void @proto_item_set_len(ptr noundef %.032, i32 noundef %35) #4
+  %35 = sub i32 %34, %.032
+  call void @proto_item_set_len(ptr noundef %.031, i32 noundef %35) #4
   %36 = load ptr, ptr %10, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 96
   %38 = load i32, ptr %37, align 8
@@ -974,8 +974,8 @@ define internal i32 @dssetup_dissect_element_DsRoleGetPrimaryDomainInformation_i
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.039.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.039.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #4
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #4
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -1010,7 +1010,7 @@ define internal i32 @dssetup_dissect_element_DsRoleGetPrimaryDomainInformation_i
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.039.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   switch i32 %33, label %dssetup_dissect_DsRoleInfo.exit [
     i32 1, label %34
@@ -1020,21 +1020,21 @@ define internal i32 @dssetup_dissect_element_DsRoleGetPrimaryDomainInformation_i
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_dssetup_dssetup_DsRoleInfo_basic, align 4
-  %36 = call i32 @dssetup_dissect_struct_DsRolePrimaryDomInfoBasic(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.039.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @dssetup_dissect_struct_DsRolePrimaryDomInfoBasic(ptr noundef %0, i32 noundef %.039.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %dssetup_dissect_DsRoleInfo.exit
 
 37:                                               ; preds = %32
   %38 = load i32, ptr @hf_dssetup_dssetup_DsRoleInfo_upgrade, align 4
-  %39 = call i32 @dssetup_dissect_struct_DsRoleUpgradeStatus(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.039.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
+  %39 = call i32 @dssetup_dissect_struct_DsRoleUpgradeStatus(ptr noundef %0, i32 noundef %.039.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
   br label %dssetup_dissect_DsRoleInfo.exit
 
 40:                                               ; preds = %32
   %41 = load i32, ptr @hf_dssetup_dssetup_DsRoleInfo_opstatus, align 4
-  %42 = call i32 @dssetup_dissect_struct_DsRoleOpStatus(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.039.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 poison)
+  %42 = call i32 @dssetup_dissect_struct_DsRoleOpStatus(ptr noundef %0, i32 noundef %.039.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 poison)
   br label %dssetup_dissect_DsRoleInfo.exit
 
 dssetup_dissect_DsRoleInfo.exit:                  ; preds = %32, %34, %37, %40
-  %.1.i = phi i32 [ %.0.i, %32 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
+  %.1.i = phi i32 [ %.039.i, %32 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
   %43 = load ptr, ptr %7, align 8
   %44 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %43, i32 noundef %44) #4

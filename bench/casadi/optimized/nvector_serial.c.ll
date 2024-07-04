@@ -1364,16 +1364,16 @@ define double @N_VMinQuotient_Serial(ptr nocapture noundef readonly %0, ptr noca
 
 .lr.ph:                                           ; preds = %2, %20
   %.030 = phi double [ %.1, %20 ], [ 0x7FEFFFFFFFFFFFFF, %2 ]
-  %.02329 = phi i32 [ %.124, %20 ], [ 1, %2 ]
-  %.02528 = phi i64 [ %21, %20 ], [ 0, %2 ]
-  %11 = getelementptr inbounds double, ptr %9, i64 %.02528
+  %.02329 = phi i64 [ %21, %20 ], [ 0, %2 ]
+  %.02428 = phi i32 [ %.125, %20 ], [ 1, %2 ]
+  %11 = getelementptr inbounds double, ptr %9, i64 %.02329
   %12 = load double, ptr %11, align 8
   %13 = fcmp oeq double %12, 0.000000e+00
   br i1 %13, label %20, label %14
 
 14:                                               ; preds = %.lr.ph
-  %.not = icmp eq i32 %.02329, 0
-  %15 = getelementptr inbounds double, ptr %6, i64 %.02528
+  %.not = icmp eq i32 %.02428, 0
+  %15 = getelementptr inbounds double, ptr %6, i64 %.02329
   %16 = load double, ptr %15, align 8
   %17 = fdiv double %16, %12
   br i1 %.not, label %18, label %20
@@ -1384,9 +1384,9 @@ define double @N_VMinQuotient_Serial(ptr nocapture noundef readonly %0, ptr noca
   br label %20
 
 20:                                               ; preds = %14, %18, %.lr.ph
-  %.124 = phi i32 [ %.02329, %.lr.ph ], [ 0, %18 ], [ 0, %14 ]
+  %.125 = phi i32 [ %.02428, %.lr.ph ], [ 0, %18 ], [ 0, %14 ]
   %.1 = phi double [ %.030, %.lr.ph ], [ %.0., %18 ], [ %17, %14 ]
-  %21 = add nuw nsw i64 %.02528, 1
+  %21 = add nuw nsw i64 %.02329, 1
   %exitcond.not = icmp eq i64 %21, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 

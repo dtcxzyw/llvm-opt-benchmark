@@ -2930,8 +2930,8 @@ ensure_tree_item.exit697:                         ; preds = %1067, %1069, %1075
   br label %1107
 
 1107:                                             ; preds = %1104, %1094
-  %.0566 = phi ptr [ %1097, %1094 ], [ %1106, %1104 ]
-  %.not654 = icmp eq ptr %.0566, null
+  %.0567 = phi ptr [ %1097, %1094 ], [ %1106, %1104 ]
+  %.not654 = icmp eq ptr %.0567, null
   br i1 %.not654, label %proto_item_set_generated.exit707, label %1108
 
 1108:                                             ; preds = %1107
@@ -2955,7 +2955,7 @@ ensure_tree_item.exit697:                         ; preds = %1067, %1069, %1075
 ensure_tree_item.exit699:                         ; preds = %1108, %1109, %1115
   %.0..0..0..0.220 = load volatile ptr, ptr %11, align 8
   %1117 = load i32, ptr @hf_frame_color_filter_name, align 4
-  %1118 = load ptr, ptr %.0566, align 8
+  %1118 = load ptr, ptr %.0567, align 8
   %1119 = call ptr @proto_tree_add_string(ptr noundef %.0..0..0..0.220, i32 noundef %1117, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %1118) #5
   %.not.i700 = icmp eq ptr %1119, null
   br i1 %.not.i700, label %proto_item_set_generated.exit702, label %1120
@@ -2994,7 +2994,7 @@ proto_item_set_generated.exit702:                 ; preds = %ensure_tree_item.ex
 ensure_tree_item.exit704:                         ; preds = %proto_item_set_generated.exit702, %1127, %1133
   %.0..0..0..0.222 = load volatile ptr, ptr %11, align 8
   %1135 = load i32, ptr @hf_frame_color_filter_text, align 4
-  %1136 = getelementptr inbounds i8, ptr %.0566, i64 8
+  %1136 = getelementptr inbounds i8, ptr %.0567, i64 8
   %1137 = load ptr, ptr %1136, align 8
   %1138 = call ptr @proto_tree_add_string(ptr noundef %.0..0..0..0.222, i32 noundef %1135, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %1137) #5
   %.not.i705 = icmp eq ptr %1138, null

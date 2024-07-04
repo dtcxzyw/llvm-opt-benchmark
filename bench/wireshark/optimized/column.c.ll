@@ -432,12 +432,12 @@ col_format_to_string.exit.i.preheader:            ; preds = %10, %6, %2
   br label %.thread53
 
 .thread53:                                        ; preds = %._crit_edge, %27, %47, %45
-  %.04057 = phi i64 [ %36, %47 ], [ %36, %45 ], [ 0, %27 ], [ 0, %._crit_edge ]
-  %.0425156 = phi ptr [ %30, %47 ], [ %30, %45 ], [ %30, %27 ], [ null, %._crit_edge ]
-  %.039 = phi i8 [ %52, %47 ], [ 1, %45 ], [ 1, %27 ], [ 1, %._crit_edge ]
+  %.03957 = phi i64 [ %36, %47 ], [ %36, %45 ], [ 0, %27 ], [ 0, %._crit_edge ]
+  %.0415156 = phi ptr [ %30, %47 ], [ %30, %45 ], [ %30, %27 ], [ null, %._crit_edge ]
+  %.038 = phi i8 [ %52, %47 ], [ 1, %45 ], [ 1, %27 ], [ 1, %._crit_edge ]
   tail call void @g_free(ptr noundef %16) #13
   tail call void @g_ptr_array_unref(ptr noundef nonnull %14) #13
-  %53 = trunc i64 %.04057 to i32
+  %53 = trunc i64 %.03957 to i32
   br label %60
 
 col_format_to_string.exit.i:                      ; preds = %col_format_to_string.exit.i.preheader, %58
@@ -458,23 +458,23 @@ get_column_format_from_str.exit:                  ; preds = %col_format_to_strin
   br label %60
 
 60:                                               ; preds = %get_column_format_from_str.exit, %.thread53
-  %.044 = phi i32 [ 4, %.thread53 ], [ %59, %get_column_format_from_str.exit ]
-  %.143 = phi ptr [ %.0425156, %.thread53 ], [ null, %get_column_format_from_str.exit ]
-  %.141 = phi i32 [ %53, %.thread53 ], [ 0, %get_column_format_from_str.exit ]
-  %.1 = phi i8 [ %.039, %.thread53 ], [ 1, %get_column_format_from_str.exit ]
+  %.043 = phi i32 [ 4, %.thread53 ], [ %59, %get_column_format_from_str.exit ]
+  %.142 = phi ptr [ %.0415156, %.thread53 ], [ null, %get_column_format_from_str.exit ]
+  %.140 = phi i32 [ %53, %.thread53 ], [ 0, %get_column_format_from_str.exit ]
+  %.1 = phi i8 [ %.038, %.thread53 ], [ 1, %get_column_format_from_str.exit ]
   %61 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.044, ptr %61, align 8
+  store i32 %.043, ptr %61, align 8
   %62 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.143, ptr %62, align 8
+  store ptr %.142, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %.141, ptr %63, align 8
+  store i32 %.140, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 29
   store i8 %.1, ptr %64, align 1
   br label %get_column_format_from_str.exit.thread
 
 get_column_format_from_str.exit.thread:           ; preds = %58, %60, %44
-  %.038 = phi i32 [ 0, %44 ], [ 1, %60 ], [ 0, %58 ]
-  ret i32 %.038
+  %.044 = phi i32 [ 0, %44 ], [ 1, %60 ], [ 0, %58 ]
+  ret i32 %.044
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -1241,7 +1241,7 @@ define ptr @get_column_tooltip(i32 noundef %0) local_unnamed_addr #1 {
 
 19:                                               ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
-  %.02432 = phi i32 [ 1, %.lr.ph ], [ %.1, %58 ]
+  %.02332 = phi i32 [ 1, %.lr.ph ], [ %.1, %58 ]
   %20 = getelementptr ptr, ptr %15, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %.not29 = icmp eq ptr %21, null
@@ -1305,7 +1305,7 @@ define ptr @get_column_tooltip(i32 noundef %0) local_unnamed_addr #1 {
 get_custom_field_tooltip.exit:                    ; preds = %30, %33, %39, %50, %52
   %.0.i = phi ptr [ %32, %30 ], [ %34, %33 ], [ %43, %39 ], [ %51, %50 ], [ %53, %52 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %.not31 = icmp eq i32 %.02432, 0
+  %.not31 = icmp eq i32 %.02332, 0
   br i1 %.not31, label %54, label %56
 
 54:                                               ; preds = %get_custom_field_tooltip.exit
@@ -1318,7 +1318,7 @@ get_custom_field_tooltip.exit:                    ; preds = %30, %33, %39, %50, 
   br label %58
 
 58:                                               ; preds = %19, %22, %56
-  %.1 = phi i32 [ 0, %56 ], [ %.02432, %22 ], [ %.02432, %19 ]
+  %.1 = phi i32 [ 0, %56 ], [ %.02332, %22 ], [ %.02332, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = call i32 @g_strv_length(ptr noundef nonnull %15) #13
   %60 = zext i32 %59 to i64
@@ -1331,8 +1331,8 @@ get_custom_field_tooltip.exit:                    ; preds = %30, %33, %39, %50, 
   br label %63
 
 63:                                               ; preds = %1, %._crit_edge, %9
-  %.0 = phi ptr [ %11, %9 ], [ %62, %._crit_edge ], [ null, %1 ]
-  ret ptr %.0
+  %.024 = phi ptr [ %11, %9 ], [ %62, %._crit_edge ], [ null, %1 ]
+  ret ptr %.024
 }
 
 declare ptr @g_regex_split_simple(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -1620,14 +1620,14 @@ get_column_format_matches.exit:                   ; preds = %63, %.sink.split.i
   br label %._crit_edge86
 
 ._crit_edge86:                                    ; preds = %._crit_edge86.loopexit, %1
-  %.072.lcssa = phi i64 [ 0, %1 ], [ %100, %._crit_edge86.loopexit ]
+  %.073.lcssa = phi i64 [ 0, %1 ], [ %100, %._crit_edge86.loopexit ]
   %101 = getelementptr inbounds i8, ptr %0, i64 40
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr ptr, ptr %102, i64 %.072.lcssa
+  %103 = getelementptr ptr, ptr %102, i64 %.073.lcssa
   store ptr null, ptr %103, align 8
   %104 = getelementptr inbounds i8, ptr %0, i64 48
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr ptr, ptr %105, i64 %.072.lcssa
+  %106 = getelementptr ptr, ptr %105, i64 %.073.lcssa
   store ptr null, ptr %106, align 8
   %107 = load i32, ptr %3, align 8
   %108 = icmp sgt i32 %107, 0

@@ -14304,36 +14304,36 @@ while.body.lr.ph:                                 ; preds = %entry
   br i1 %cmp25, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %sw.epilog.us
-  %p.039.us = phi ptr [ %p.1.us, %sw.epilog.us ], [ %str.coerce0, %while.body.lr.ph ]
-  %last.038.us = phi ptr [ %last.1.us, %sw.epilog.us ], [ %str.coerce0, %while.body.lr.ph ]
-  %0 = load i8, ptr %p.039.us, align 1
+  %last.039.us = phi ptr [ %last.1.us, %sw.epilog.us ], [ %str.coerce0, %while.body.lr.ph ]
+  %p.038.us = phi ptr [ %p.1.us, %sw.epilog.us ], [ %str.coerce0, %while.body.lr.ph ]
+  %0 = load i8, ptr %p.038.us, align 1
   switch i8 %0, label %sw.default.us [
     i8 37, label %sw.bb.us
     i8 43, label %sw.bb24.us
   ]
 
 sw.bb24.us:                                       ; preds = %while.body.us
-  %sub.ptr.lhs.cast27.us = ptrtoint ptr %p.039.us to i64
-  %sub.ptr.rhs.cast28.us = ptrtoint ptr %last.038.us to i64
+  %sub.ptr.lhs.cast27.us = ptrtoint ptr %p.038.us to i64
+  %sub.ptr.rhs.cast28.us = ptrtoint ptr %last.039.us to i64
   %sub.ptr.sub29.us = sub i64 %sub.ptr.lhs.cast27.us, %sub.ptr.rhs.cast28.us
-  %call30.us = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef %last.038.us, i64 noundef %sub.ptr.sub29.us)
+  %call30.us = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef %last.039.us, i64 noundef %sub.ptr.sub29.us)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %out, i8 noundef signext 32)
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %p.039.us, i64 1
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %p.038.us, i64 1
   br label %sw.epilog.us
 
 sw.bb.us:                                         ; preds = %while.body.us
-  %sub.ptr.rhs.cast.i.i.us = ptrtoint ptr %p.039.us to i64
+  %sub.ptr.rhs.cast.i.i.us = ptrtoint ptr %p.038.us to i64
   %sub.ptr.sub.i.i.us = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i.us
   %cmp6.us = icmp slt i64 %sub.ptr.sub.i.i.us, 3
   br i1 %cmp6.us, label %return, label %if.end.us
 
 if.end.us:                                        ; preds = %sw.bb.us
-  %arrayidx.us = getelementptr inbounds i8, ptr %p.039.us, i64 1
+  %arrayidx.us = getelementptr inbounds i8, ptr %p.038.us, i64 1
   %1 = load i8, ptr %arrayidx.us, align 1
   %conv8.us = zext i8 %1 to i64
   %arrayidx.i.i.us = getelementptr inbounds [256 x i8], ptr @_ZN5folly6detail8hexTableE, i64 0, i64 %conv8.us
   %2 = load i8, ptr %arrayidx.i.i.us, align 1
-  %arrayidx10.us = getelementptr inbounds i8, ptr %p.039.us, i64 2
+  %arrayidx10.us = getelementptr inbounds i8, ptr %p.038.us, i64 2
   %3 = load i8, ptr %arrayidx10.us, align 1
   %conv11.us = zext i8 %3 to i64
   %arrayidx.i.i29.us = getelementptr inbounds [256 x i8], ptr @_ZN5folly6detail8hexTableE, i64 0, i64 %conv11.us
@@ -14344,45 +14344,45 @@ if.end.us:                                        ; preds = %sw.bb.us
   br i1 %5, label %return, label %if.end19.us
 
 if.end19.us:                                      ; preds = %if.end.us
-  %sub.ptr.rhs.cast.us = ptrtoint ptr %last.038.us to i64
+  %sub.ptr.rhs.cast.us = ptrtoint ptr %last.039.us to i64
   %sub.ptr.sub.us = sub i64 %sub.ptr.rhs.cast.i.i.us, %sub.ptr.rhs.cast.us
-  %call20.us = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef %last.038.us, i64 noundef %sub.ptr.sub.us)
+  %call20.us = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef %last.039.us, i64 noundef %sub.ptr.sub.us)
   %shl.us = shl i8 %2, 4
   %or.us = or i8 %4, %shl.us
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %out, i8 noundef signext %or.us)
-  %add.ptr.us = getelementptr inbounds i8, ptr %p.039.us, i64 3
+  %add.ptr.us = getelementptr inbounds i8, ptr %p.038.us, i64 3
   br label %sw.epilog.us
 
 sw.default.us:                                    ; preds = %while.body.us
-  %incdec.ptr32.us = getelementptr inbounds i8, ptr %p.039.us, i64 1
+  %incdec.ptr32.us = getelementptr inbounds i8, ptr %p.038.us, i64 1
   br label %sw.epilog.us
 
 sw.epilog.us:                                     ; preds = %sw.default.us, %if.end19.us, %sw.bb24.us
-  %last.1.us = phi ptr [ %last.038.us, %sw.default.us ], [ %incdec.ptr.us, %sw.bb24.us ], [ %add.ptr.us, %if.end19.us ]
   %p.1.us = phi ptr [ %incdec.ptr32.us, %sw.default.us ], [ %incdec.ptr.us, %sw.bb24.us ], [ %add.ptr.us, %if.end19.us ]
+  %last.1.us = phi ptr [ %last.039.us, %sw.default.us ], [ %incdec.ptr.us, %sw.bb24.us ], [ %add.ptr.us, %if.end19.us ]
   %cmp.not.us = icmp eq ptr %p.1.us, %str.coerce1
   br i1 %cmp.not.us, label %while.end, label %while.body.us, !llvm.loop !182
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
-  %p.039 = phi ptr [ %p.1, %sw.epilog ], [ %str.coerce0, %while.body.lr.ph ]
-  %last.038 = phi ptr [ %last.1, %sw.epilog ], [ %str.coerce0, %while.body.lr.ph ]
-  %6 = load i8, ptr %p.039, align 1
+  %last.039 = phi ptr [ %last.1, %sw.epilog ], [ %str.coerce0, %while.body.lr.ph ]
+  %p.038 = phi ptr [ %p.1, %sw.epilog ], [ %str.coerce0, %while.body.lr.ph ]
+  %6 = load i8, ptr %p.038, align 1
   %cond = icmp eq i8 %6, 37
   br i1 %cond, label %sw.bb, label %sw.default
 
 sw.bb:                                            ; preds = %while.body
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %p.039 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %p.038 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i.i
   %cmp6 = icmp slt i64 %sub.ptr.sub.i.i, 3
   br i1 %cmp6, label %return, label %if.end
 
 if.end:                                           ; preds = %sw.bb
-  %arrayidx = getelementptr inbounds i8, ptr %p.039, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %p.038, i64 1
   %7 = load i8, ptr %arrayidx, align 1
   %conv8 = zext i8 %7 to i64
   %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr @_ZN5folly6detail8hexTableE, i64 0, i64 %conv8
   %8 = load i8, ptr %arrayidx.i.i, align 1
-  %arrayidx10 = getelementptr inbounds i8, ptr %p.039, i64 2
+  %arrayidx10 = getelementptr inbounds i8, ptr %p.038, i64 2
   %9 = load i8, ptr %arrayidx10, align 1
   %conv11 = zext i8 %9 to i64
   %arrayidx.i.i29 = getelementptr inbounds [256 x i8], ptr @_ZN5folly6detail8hexTableE, i64 0, i64 %conv11
@@ -14393,22 +14393,22 @@ if.end:                                           ; preds = %sw.bb
   br i1 %11, label %return, label %if.end19
 
 if.end19:                                         ; preds = %if.end
-  %sub.ptr.rhs.cast = ptrtoint ptr %last.038 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %last.039 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.rhs.cast.i.i, %sub.ptr.rhs.cast
-  %call20 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef %last.038, i64 noundef %sub.ptr.sub)
+  %call20 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %out, ptr noundef %last.039, i64 noundef %sub.ptr.sub)
   %shl = shl i8 %8, 4
   %or = or i8 %10, %shl
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %out, i8 noundef signext %or)
-  %add.ptr = getelementptr inbounds i8, ptr %p.039, i64 3
+  %add.ptr = getelementptr inbounds i8, ptr %p.038, i64 3
   br label %sw.epilog
 
 sw.default:                                       ; preds = %while.body
-  %incdec.ptr32 = getelementptr inbounds i8, ptr %p.039, i64 1
+  %incdec.ptr32 = getelementptr inbounds i8, ptr %p.038, i64 1
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %if.end19
-  %last.1 = phi ptr [ %last.038, %sw.default ], [ %add.ptr, %if.end19 ]
   %p.1 = phi ptr [ %incdec.ptr32, %sw.default ], [ %add.ptr, %if.end19 ]
+  %last.1 = phi ptr [ %last.039, %sw.default ], [ %add.ptr, %if.end19 ]
   %cmp.not = icmp eq ptr %p.1, %str.coerce1
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !182
 

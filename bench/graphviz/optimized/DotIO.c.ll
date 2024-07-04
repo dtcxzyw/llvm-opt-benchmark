@@ -85,23 +85,23 @@ define void @attach_edge_colors(ptr noundef %0, i32 noundef %1, ptr nocapture no
 
 14:                                               ; preds = %.lr.ph51, %._crit_edge
   %.049 = phi i32 [ 0, %.lr.ph51 ], [ %.1.lcssa, %._crit_edge ]
-  %.02648 = phi ptr [ %9, %.lr.ph51 ], [ %107, %._crit_edge ]
-  %15 = getelementptr inbounds i8, ptr %.02648, i64 16
+  %.02548 = phi ptr [ %9, %.lr.ph51 ], [ %107, %._crit_edge ]
+  %15 = getelementptr inbounds i8, ptr %.02548, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8
-  %19 = call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.02648) #18
+  %19 = call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.02548) #18
   %.not2944 = icmp eq ptr %19, null
   br i1 %.not2944, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14, %105
   %.146 = phi i32 [ %.2, %105 ], [ %.049, %14 ]
-  %.02545 = phi ptr [ %106, %105 ], [ %19, %14 ]
-  %20 = load i32, ptr %.02545, align 8
+  %.02645 = phi ptr [ %106, %105 ], [ %19, %14 ]
+  %20 = load i32, ptr %.02645, align 8
   %21 = and i32 %20, 3
   %22 = icmp eq i32 %21, 2
   %.idx = select i1 %22, i64 0, i64 -64
-  %23 = getelementptr inbounds i8, ptr %.02545, i64 %.idx
+  %23 = getelementptr inbounds i8, ptr %.02645, i64 %.idx
   %24 = getelementptr inbounds i8, ptr %23, i64 56
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 16
@@ -281,19 +281,19 @@ agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
 
 agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %100
   %102 = phi ptr [ %101, %100 ], [ %4, %agxbclear.exit.thread.i ]
-  %103 = call i32 @agxset(ptr noundef nonnull %.02545, ptr noundef %.024, ptr noundef %102) #18
+  %103 = call i32 @agxset(ptr noundef nonnull %.02645, ptr noundef %.024, ptr noundef %102) #18
   %104 = add nsw i32 %.146, 1
   br label %105
 
 105:                                              ; preds = %.lr.ph, %agxbuse.exit
   %.2 = phi i32 [ %.146, %.lr.ph ], [ %104, %agxbuse.exit ]
-  %106 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02545) #18
+  %106 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02645) #18
   %.not29 = icmp eq ptr %106, null
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %105, %14
   %.1.lcssa = phi i32 [ %.049, %14 ], [ %.2, %105 ]
-  %107 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.02648) #18
+  %107 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.02548) #18
   %.not28 = icmp eq ptr %107, null
   br i1 %.not28, label %._crit_edge52, label %14
 
@@ -356,22 +356,22 @@ define ptr @SparseMatrix_import_dot(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 .lr.ph:                                           ; preds = %16, %.lr.ph
   %.0138180 = phi ptr [ %22, %.lr.ph ], [ %17, %16 ]
-  %.0145179 = phi i32 [ %18, %.lr.ph ], [ 0, %16 ]
-  %18 = add nuw nsw i32 %.0145179, 1
+  %.0144179 = phi i32 [ %18, %.lr.ph ], [ 0, %16 ]
+  %18 = add nuw nsw i32 %.0144179, 1
   %19 = getelementptr inbounds i8, ptr %.0138180, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 16
-  store i32 %.0145179, ptr %21, align 8
+  store i32 %.0144179, ptr %21, align 8
   %22 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.0138180) #18
   %.not161 = icmp eq ptr %22, null
   br i1 %.not161, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
-  %.0145.lcssa = phi i32 [ 0, %16 ], [ %18, %.lr.ph ]
+  %.0144.lcssa = phi i32 [ 0, %16 ], [ %18, %.lr.ph ]
   br i1 %.not160, label %23, label %32
 
 23:                                               ; preds = %._crit_edge
-  %24 = tail call ptr @SparseMatrix_new(i32 noundef %.0145.lcssa, i32 noundef %.0145.lcssa, i32 noundef %12, i32 noundef 1, i32 noundef 1) #18
+  %24 = tail call ptr @SparseMatrix_new(i32 noundef %.0144.lcssa, i32 noundef %.0144.lcssa, i32 noundef %12, i32 noundef 1, i32 noundef 1) #18
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   store i32 %12, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %24, i64 24
@@ -406,7 +406,7 @@ define ptr @SparseMatrix_import_dot(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 .lr.ph192.split.us:                               ; preds = %.lr.ph192, %._crit_edge186.split.us.us
   %.1139190.us = phi ptr [ %47, %._crit_edge186.split.us.us ], [ %39, %.lr.ph192 ]
-  %.1146189.us = phi i32 [ %.2147.lcssa.us, %._crit_edge186.split.us.us ], [ 0, %.lr.ph192 ]
+  %.1145189.us = phi i32 [ %.2146.lcssa.us, %._crit_edge186.split.us.us ], [ 0, %.lr.ph192 ]
   %40 = getelementptr inbounds i8, ptr %.1139190.us, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 16
@@ -416,7 +416,7 @@ define ptr @SparseMatrix_import_dot(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %.not172181.us, label %._crit_edge186.split.us.us, label %.lr.ph185.us.preheader
 
 .lr.ph185.us.preheader:                           ; preds = %.lr.ph192.split.us
-  %45 = sext i32 %.1146189.us to i64
+  %45 = sext i32 %.1145189.us to i64
   br label %.lr.ph185.us
 
 ._crit_edge186.split.us.us.loopexit:              ; preds = %.lr.ph185.us
@@ -424,21 +424,21 @@ define ptr @SparseMatrix_import_dot(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %._crit_edge186.split.us.us
 
 ._crit_edge186.split.us.us:                       ; preds = %._crit_edge186.split.us.us.loopexit, %.lr.ph192.split.us
-  %.2147.lcssa.us = phi i32 [ %.1146189.us, %.lr.ph192.split.us ], [ %46, %._crit_edge186.split.us.us.loopexit ]
+  %.2146.lcssa.us = phi i32 [ %.1145189.us, %.lr.ph192.split.us ], [ %46, %._crit_edge186.split.us.us.loopexit ]
   %47 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.1139190.us) #18
   %.not162.us = icmp eq ptr %47, null
   br i1 %.not162.us, label %._crit_edge193, label %.lr.ph192.split.us
 
 .lr.ph185.us:                                     ; preds = %.lr.ph185.us.preheader, %.lr.ph185.us
   %indvars.iv206 = phi i64 [ %45, %.lr.ph185.us.preheader ], [ %indvars.iv.next207, %.lr.ph185.us ]
-  %.0144183.us.us = phi ptr [ %44, %.lr.ph185.us.preheader ], [ %61, %.lr.ph185.us ]
+  %.0147182.us.us = phi ptr [ %44, %.lr.ph185.us.preheader ], [ %61, %.lr.ph185.us ]
   %48 = getelementptr inbounds i32, ptr %.0143, i64 %indvars.iv206
   store i32 %43, ptr %48, align 4
-  %49 = load i32, ptr %.0144183.us.us, align 8
+  %49 = load i32, ptr %.0147182.us.us, align 8
   %50 = and i32 %49, 3
   %51 = icmp eq i32 %50, 2
   %.idx.us.us = select i1 %51, i64 0, i64 -64
-  %52 = getelementptr inbounds i8, ptr %.0144183.us.us, i64 %.idx.us.us
+  %52 = getelementptr inbounds i8, ptr %.0147182.us.us, i64 %.idx.us.us
   %53 = getelementptr inbounds i8, ptr %52, i64 56
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 16
@@ -451,13 +451,13 @@ define ptr @SparseMatrix_import_dot(ptr noundef %0, i32 noundef %1, ptr noundef 
   %60 = getelementptr inbounds double, ptr %.0141, i64 %indvars.iv206
   store double 1.000000e+00, ptr %60, align 8
   %indvars.iv.next207 = add nsw i64 %indvars.iv206, 1
-  %61 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.0144183.us.us) #18
+  %61 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.0147182.us.us) #18
   %.not172.us.us = icmp eq ptr %61, null
   br i1 %.not172.us.us, label %._crit_edge186.split.us.us.loopexit, label %.lr.ph185.us
 
 .lr.ph192.split:                                  ; preds = %.lr.ph192, %._crit_edge186.split
   %.1139190 = phi ptr [ %88, %._crit_edge186.split ], [ %39, %.lr.ph192 ]
-  %.1146189 = phi i32 [ %.2147.lcssa, %._crit_edge186.split ], [ 0, %.lr.ph192 ]
+  %.1145189 = phi i32 [ %.2146.lcssa, %._crit_edge186.split ], [ 0, %.lr.ph192 ]
   %62 = getelementptr inbounds i8, ptr %.1139190, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 16
@@ -467,19 +467,19 @@ define ptr @SparseMatrix_import_dot(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %.not172181, label %._crit_edge186.split, label %.lr.ph185.preheader
 
 .lr.ph185.preheader:                              ; preds = %.lr.ph192.split
-  %67 = sext i32 %.1146189 to i64
+  %67 = sext i32 %.1145189 to i64
   br label %.lr.ph185
 
 .lr.ph185:                                        ; preds = %.lr.ph185.preheader, %83
   %indvars.iv = phi i64 [ %67, %.lr.ph185.preheader ], [ %indvars.iv.next, %83 ]
-  %.0144183 = phi ptr [ %66, %.lr.ph185.preheader ], [ %86, %83 ]
+  %.0147182 = phi ptr [ %66, %.lr.ph185.preheader ], [ %86, %83 ]
   %68 = getelementptr inbounds i32, ptr %.0143, i64 %indvars.iv
   store i32 %65, ptr %68, align 4
-  %69 = load i32, ptr %.0144183, align 8
+  %69 = load i32, ptr %.0147182, align 8
   %70 = and i32 %69, 3
   %71 = icmp eq i32 %70, 2
   %.idx = select i1 %71, i64 0, i64 -64
-  %72 = getelementptr inbounds i8, ptr %.0144183, i64 %.idx
+  %72 = getelementptr inbounds i8, ptr %.0147182, i64 %.idx
   %73 = getelementptr inbounds i8, ptr %72, i64 56
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 16
@@ -488,7 +488,7 @@ define ptr @SparseMatrix_import_dot(ptr noundef %0, i32 noundef %1, ptr noundef 
   %78 = load i32, ptr %77, align 8
   %79 = getelementptr inbounds i32, ptr %.0142, i64 %indvars.iv
   store i32 %78, ptr %79, align 4
-  %80 = call ptr @agxget(ptr noundef nonnull %.0144183, ptr noundef nonnull %.fr) #18
+  %80 = call ptr @agxget(ptr noundef nonnull %.0147182, ptr noundef nonnull %.fr) #18
   %81 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %80, ptr noundef nonnull @.str.4, ptr noundef nonnull %5) #18
   %.not174 = icmp eq i32 %81, 1
   br i1 %.not174, label %.lr.ph185._crit_edge, label %82
@@ -506,7 +506,7 @@ define ptr @SparseMatrix_import_dot(ptr noundef %0, i32 noundef %1, ptr noundef 
   %85 = getelementptr inbounds double, ptr %.0141, i64 %indvars.iv
   store double %84, ptr %85, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %86 = call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.0144183) #18
+  %86 = call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.0147182) #18
   %.not172 = icmp eq ptr %86, null
   br i1 %.not172, label %._crit_edge186.split.loopexit, label %.lr.ph185
 
@@ -515,7 +515,7 @@ define ptr @SparseMatrix_import_dot(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %._crit_edge186.split
 
 ._crit_edge186.split:                             ; preds = %._crit_edge186.split.loopexit, %.lr.ph192.split
-  %.2147.lcssa = phi i32 [ %.1146189, %.lr.ph192.split ], [ %87, %._crit_edge186.split.loopexit ]
+  %.2146.lcssa = phi i32 [ %.1145189, %.lr.ph192.split ], [ %87, %._crit_edge186.split.loopexit ]
   %88 = call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.1139190) #18
   %.not162 = icmp eq ptr %88, null
   br i1 %.not162, label %._crit_edge193, label %.lr.ph192.split
@@ -810,13 +810,13 @@ define range(i32 0, 2) i32 @Import_dot_splines(ptr noundef %0, ptr nocapture nou
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.02840 = phi i32 [ %7, %.lr.ph ], [ 0, %4 ]
-  %.02939 = phi ptr [ %11, %.lr.ph ], [ %6, %4 ]
+  %.03039 = phi ptr [ %11, %.lr.ph ], [ %6, %4 ]
   %7 = add i32 %.02840, 1
-  %8 = getelementptr inbounds i8, ptr %.02939, i64 16
+  %8 = getelementptr inbounds i8, ptr %.03039, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   store i32 %.02840, ptr %10, align 8
-  %11 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.02939) #18
+  %11 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.03039) #18
   %.not34 = icmp eq ptr %11, null
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
@@ -835,28 +835,28 @@ define range(i32 0, 2) i32 @Import_dot_splines(ptr noundef %0, ptr nocapture nou
 
 .lr.ph51:                                         ; preds = %13, %._crit_edge46
   %.149 = phi i32 [ %.2.lcssa, %._crit_edge46 ], [ 0, %13 ]
-  %.13048 = phi ptr [ %25, %._crit_edge46 ], [ %16, %13 ]
-  %17 = tail call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %.13048) #18
+  %.13148 = phi ptr [ %25, %._crit_edge46 ], [ %16, %13 ]
+  %17 = tail call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %.13148) #18
   %.not3741 = icmp eq ptr %17, null
   br i1 %.not3741, label %._crit_edge46, label %.lr.ph45
 
 .lr.ph45:                                         ; preds = %.lr.ph51, %.lr.ph45
   %.243 = phi i32 [ %23, %.lr.ph45 ], [ %.149, %.lr.ph51 ]
-  %.03142 = phi ptr [ %24, %.lr.ph45 ], [ %17, %.lr.ph51 ]
-  %18 = tail call ptr @agxget(ptr noundef nonnull %.03142, ptr noundef nonnull %12) #18
+  %.02942 = phi ptr [ %24, %.lr.ph45 ], [ %17, %.lr.ph51 ]
+  %18 = tail call ptr @agxget(ptr noundef nonnull %.02942, ptr noundef nonnull %12) #18
   %19 = tail call noalias ptr @strdup(ptr noundef %18) #18
   %20 = load ptr, ptr %2, align 8
   %21 = zext i32 %.243 to i64
   %22 = getelementptr inbounds ptr, ptr %20, i64 %21
   store ptr %19, ptr %22, align 8
   %23 = add i32 %.243, 1
-  %24 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.03142) #18
+  %24 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.02942) #18
   %.not37 = icmp eq ptr %24, null
   br i1 %.not37, label %._crit_edge46, label %.lr.ph45
 
 ._crit_edge46:                                    ; preds = %.lr.ph45, %.lr.ph51
   %.2.lcssa = phi i32 [ %.149, %.lr.ph51 ], [ %23, %.lr.ph45 ]
-  %25 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.13048) #18
+  %25 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.13148) #18
   %.not36 = icmp eq ptr %25, null
   br i1 %.not36, label %.loopexit, label %.lr.ph51
 
@@ -1120,8 +1120,8 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
 
 41:                                               ; preds = %15, %40, %39, %38, %37, %36, %33, %30, %29, %28, %27, %26
   %42 = phi i1 [ true, %40 ], [ false, %39 ], [ true, %38 ], [ true, %37 ], [ true, %36 ], [ true, %33 ], [ true, %30 ], [ true, %29 ], [ true, %28 ], [ true, %27 ], [ true, %26 ], [ true, %15 ]
-  %.0280 = phi ptr [ @palette_pastel, %40 ], [ null, %39 ], [ @palette_adam, %38 ], [ @palette_adam_blend, %37 ], [ @palette_primary, %36 ], [ @palette_sequential_singlehue_red_lighter, %33 ], [ @palette_sequential_singlehue_red, %30 ], [ @palette_pastel, %29 ], [ @palette_grey, %28 ], [ @palette_grey_to_red, %27 ], [ @palette_white_to_red, %26 ], [ @palette_blue_to_yellow, %15 ]
-  %.0279 = phi i32 [ 1001, %40 ], [ 1001, %39 ], [ 11, %38 ], [ 1001, %37 ], [ 1001, %36 ], [ 1001, %33 ], [ 1001, %30 ], [ 1001, %29 ], [ 1001, %28 ], [ 1001, %27 ], [ 1001, %26 ], [ 1001, %15 ]
+  %.0276 = phi ptr [ @palette_pastel, %40 ], [ null, %39 ], [ @palette_adam, %38 ], [ @palette_adam_blend, %37 ], [ @palette_primary, %36 ], [ @palette_sequential_singlehue_red_lighter, %33 ], [ @palette_sequential_singlehue_red, %30 ], [ @palette_pastel, %29 ], [ @palette_grey, %28 ], [ @palette_grey_to_red, %27 ], [ @palette_white_to_red, %26 ], [ @palette_blue_to_yellow, %15 ]
+  %.0275 = phi i32 [ 1001, %40 ], [ 1001, %39 ], [ 11, %38 ], [ 1001, %37 ], [ 1001, %36 ], [ 1001, %33 ], [ 1001, %30 ], [ 1001, %29 ], [ 1001, %28 ], [ 1001, %27 ], [ 1001, %26 ], [ 1001, %15 ]
   %.not303 = icmp eq ptr %0, null
   br i1 %.not303, label %505, label %43
 
@@ -1134,14 +1134,14 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not304364, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %43, %.lr.ph
-  %.0275366 = phi ptr [ %51, %.lr.ph ], [ %46, %43 ]
-  %.0289365 = phi i32 [ %47, %.lr.ph ], [ 0, %43 ]
-  %47 = add nuw nsw i32 %.0289365, 1
-  %48 = getelementptr inbounds i8, ptr %.0275366, i64 16
+  %.0284366 = phi i32 [ %47, %.lr.ph ], [ 0, %43 ]
+  %.0290365 = phi ptr [ %51, %.lr.ph ], [ %46, %43 ]
+  %47 = add nuw nsw i32 %.0284366, 1
+  %48 = getelementptr inbounds i8, ptr %.0290365, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 16
-  store i32 %.0289365, ptr %50, align 8
-  %51 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0275366) #18
+  store i32 %.0284366, ptr %50, align 8
+  %51 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0290365) #18
   %.not304 = icmp eq ptr %51, null
   br i1 %.not304, label %._crit_edge, label %.lr.ph
 
@@ -1162,30 +1162,30 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
   br label %60
 
 60:                                               ; preds = %.lr.ph377, %._crit_edge372
-  %.1276375 = phi ptr [ %59, %.lr.ph377 ], [ %102, %._crit_edge372 ]
-  %.1290374 = phi i32 [ 0, %.lr.ph377 ], [ %.2291.lcssa, %._crit_edge372 ]
-  %61 = getelementptr inbounds i8, ptr %.1276375, i64 16
+  %.1285375 = phi i32 [ 0, %.lr.ph377 ], [ %.2286.lcssa, %._crit_edge372 ]
+  %.1291374 = phi ptr [ %59, %.lr.ph377 ], [ %102, %._crit_edge372 ]
+  %61 = getelementptr inbounds i8, ptr %.1291374, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 16
   %64 = load i32, ptr %63, align 8
-  %65 = call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.1276375) #18
+  %65 = call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.1291374) #18
   %.not327367 = icmp eq ptr %65, null
   br i1 %.not327367, label %._crit_edge372, label %.lr.ph371
 
 .lr.ph371:                                        ; preds = %60
-  %66 = sext i32 %.1290374 to i64
+  %66 = sext i32 %.1285375 to i64
   br i1 %.not328, label %.lr.ph371.split.us, label %.lr.ph371.split
 
 .lr.ph371.split.us:                               ; preds = %.lr.ph371, %.lr.ph371.split.us
   %indvars.iv431 = phi i64 [ %indvars.iv.next432, %.lr.ph371.split.us ], [ %66, %.lr.ph371 ]
-  %.0277369.us = phi ptr [ %80, %.lr.ph371.split.us ], [ %65, %.lr.ph371 ]
+  %.0289368.us = phi ptr [ %80, %.lr.ph371.split.us ], [ %65, %.lr.ph371 ]
   %67 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv431
   store i32 %64, ptr %67, align 4
-  %68 = load i32, ptr %.0277369.us, align 8
+  %68 = load i32, ptr %.0289368.us, align 8
   %69 = and i32 %68, 3
   %70 = icmp eq i32 %69, 2
   %.idx.us = select i1 %70, i64 0, i64 -64
-  %71 = getelementptr inbounds i8, ptr %.0277369.us, i64 %.idx.us
+  %71 = getelementptr inbounds i8, ptr %.0289368.us, i64 %.idx.us
   %72 = getelementptr inbounds i8, ptr %71, i64 56
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 16
@@ -1198,20 +1198,20 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
   %79 = getelementptr inbounds double, ptr %55, i64 %indvars.iv431
   store double 1.000000e+00, ptr %79, align 8
   %indvars.iv.next432 = add nsw i64 %indvars.iv431, 1
-  %80 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.0277369.us) #18
+  %80 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.0289368.us) #18
   %.not327.us = icmp eq ptr %80, null
   br i1 %.not327.us, label %._crit_edge372.loopexit, label %.lr.ph371.split.us
 
 .lr.ph371.split:                                  ; preds = %.lr.ph371, %96
   %indvars.iv = phi i64 [ %indvars.iv.next, %96 ], [ %66, %.lr.ph371 ]
-  %.0277369 = phi ptr [ %99, %96 ], [ %65, %.lr.ph371 ]
+  %.0289368 = phi ptr [ %99, %96 ], [ %65, %.lr.ph371 ]
   %81 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv
   store i32 %64, ptr %81, align 4
-  %82 = load i32, ptr %.0277369, align 8
+  %82 = load i32, ptr %.0289368, align 8
   %83 = and i32 %82, 3
   %84 = icmp eq i32 %83, 2
   %.idx = select i1 %84, i64 0, i64 -64
-  %85 = getelementptr inbounds i8, ptr %.0277369, i64 %.idx
+  %85 = getelementptr inbounds i8, ptr %.0289368, i64 %.idx
   %86 = getelementptr inbounds i8, ptr %85, i64 56
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 16
@@ -1220,7 +1220,7 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
   %91 = load i32, ptr %90, align 8
   %92 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv
   store i32 %91, ptr %92, align 4
-  %93 = call ptr @agxget(ptr noundef nonnull %.0277369, ptr noundef nonnull %56) #18
+  %93 = call ptr @agxget(ptr noundef nonnull %.0289368, ptr noundef nonnull %56) #18
   %94 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %93, ptr noundef nonnull @.str.4, ptr noundef nonnull %18) #18
   %.not329 = icmp eq i32 %94, 1
   br i1 %.not329, label %.lr.ph371.split._crit_edge, label %95
@@ -1238,7 +1238,7 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
   %98 = getelementptr inbounds double, ptr %55, i64 %indvars.iv
   store double %97, ptr %98, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %99 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.0277369) #18
+  %99 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.0289368) #18
   %.not327 = icmp eq ptr %99, null
   br i1 %.not327, label %._crit_edge372.loopexit428, label %.lr.ph371.split
 
@@ -1251,8 +1251,8 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
   br label %._crit_edge372
 
 ._crit_edge372:                                   ; preds = %._crit_edge372.loopexit428, %._crit_edge372.loopexit, %60
-  %.2291.lcssa = phi i32 [ %.1290374, %60 ], [ %100, %._crit_edge372.loopexit ], [ %101, %._crit_edge372.loopexit428 ]
-  %102 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.1276375) #18
+  %.2286.lcssa = phi i32 [ %.1285375, %60 ], [ %100, %._crit_edge372.loopexit ], [ %101, %._crit_edge372.loopexit428 ]
+  %102 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.1291374) #18
   %.not305 = icmp eq ptr %102, null
   br i1 %.not305, label %._crit_edge378, label %60
 
@@ -1287,8 +1287,8 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not325379, label %.loopexit362, label %.lr.ph382
 
 .lr.ph382:                                        ; preds = %112, %128
-  %.2380 = phi ptr [ %129, %128 ], [ %114, %112 ]
-  %115 = getelementptr inbounds i8, ptr %.2380, i64 16
+  %.2292380 = phi ptr [ %129, %128 ], [ %114, %112 ]
+  %115 = getelementptr inbounds i8, ptr %.2292380, i64 16
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 16
   %118 = load i32, ptr %117, align 8
@@ -1301,7 +1301,7 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
 
 123:                                              ; preds = %.lr.ph382
   %124 = load ptr, ptr @stderr, align 8
-  %125 = call ptr @agnameof(ptr noundef nonnull %.2380) #18
+  %125 = call ptr @agnameof(ptr noundef nonnull %.2292380) #18
   %126 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %124, ptr noundef nonnull @.str.18, ptr noundef %125) #21
   br label %128
 
@@ -1310,7 +1310,7 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
   br label %128
 
 128:                                              ; preds = %123, %127
-  %129 = call ptr @agnxtnode(ptr noundef nonnull %.0274384, ptr noundef nonnull %.2380) #18
+  %129 = call ptr @agnxtnode(ptr noundef nonnull %.0274384, ptr noundef nonnull %.2292380) #18
   %.not325 = icmp eq ptr %129, null
   br i1 %.not325, label %.loopexit362, label %.lr.ph382
 
@@ -1327,8 +1327,8 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not310391, label %._crit_edge395, label %.lr.ph394
 
 .lr.ph394:                                        ; preds = %._crit_edge389, %142
-  %.3392 = phi ptr [ %143, %142 ], [ %131, %._crit_edge389 ]
-  %132 = getelementptr inbounds i8, ptr %.3392, i64 16
+  %.3293392 = phi ptr [ %143, %142 ], [ %131, %._crit_edge389 ]
+  %132 = getelementptr inbounds i8, ptr %.3293392, i64 16
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 16
   %135 = load i32, ptr %134, align 8
@@ -1344,7 +1344,7 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
   br label %142
 
 142:                                              ; preds = %.lr.ph394, %141
-  %143 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.3392) #18
+  %143 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.3293392) #18
   %.not310 = icmp eq ptr %143, null
   br i1 %.not310, label %._crit_edge395, label %.lr.ph394
 
@@ -1362,14 +1362,14 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not308396, label %.loopexit, label %.lr.ph401
 
 .lr.ph401:                                        ; preds = %145, %154
-  %.4399 = phi ptr [ %162, %154 ], [ %146, %145 ]
-  %.0281398 = phi i1 [ false, %154 ], [ true, %145 ]
-  %.0284397 = phi i32 [ %.1285, %154 ], [ 0, %145 ]
-  %147 = getelementptr inbounds i8, ptr %.4399, i64 16
+  %.0277399 = phi i1 [ false, %154 ], [ true, %145 ]
+  %.0280398 = phi i32 [ %.1281, %154 ], [ 0, %145 ]
+  %.4397 = phi ptr [ %162, %154 ], [ %146, %145 ]
+  %147 = getelementptr inbounds i8, ptr %.4397, i64 16
   %148 = load ptr, ptr %147, align 8
   %149 = getelementptr inbounds i8, ptr %148, i64 16
   %150 = load i32, ptr %149, align 8
-  %151 = call ptr @agxget(ptr noundef nonnull %.4399, ptr noundef nonnull %57) #18
+  %151 = call ptr @agxget(ptr noundef nonnull %.4397, ptr noundef nonnull %57) #18
   %152 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %151, ptr noundef nonnull @.str.19, ptr noundef nonnull %16) #18
   %153 = icmp sgt i32 %152, 0
   br i1 %153, label %154, label %.loopexit361
@@ -1383,14 +1383,14 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
   %159 = load i32, ptr %17, align 4
   %160 = call i32 @llvm.smax.i32(i32 %159, i32 %155)
   store i32 %160, ptr %17, align 4
-  %161 = call i32 @llvm.smin.i32(i32 %.0284397, i32 %155)
-  %.1285 = select i1 %.0281398, i32 %155, i32 %161
-  %162 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.4399) #18
+  %161 = call i32 @llvm.smin.i32(i32 %.0280398, i32 %155)
+  %.1281 = select i1 %.0277399, i32 %155, i32 %161
+  %162 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.4397) #18
   %.not308 = icmp eq ptr %162, null
   br i1 %.not308, label %.loopexit, label %.lr.ph401
 
 .loopexit:                                        ; preds = %154, %145, %._crit_edge395
-  %.2286 = phi i32 [ 1, %._crit_edge395 ], [ 0, %145 ], [ %.1285, %154 ]
+  %.2 = phi i32 [ 1, %._crit_edge395 ], [ 0, %145 ], [ %.1281, %154 ]
   %163 = load i32, ptr %17, align 4
   br label %194
 
@@ -1399,7 +1399,7 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
   br label %.loopexit361
 
 .loopexit361:                                     ; preds = %.lr.ph401, %.thread359
-  %.0278 = phi ptr [ %164, %.thread359 ], [ %57, %.lr.ph401 ]
+  %.0288 = phi ptr [ %164, %.thread359 ], [ %57, %.lr.ph401 ]
   switch i32 %13, label %167 [
     i32 1, label %165
     i32 0, label %166
@@ -1454,7 +1454,7 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
   %183 = getelementptr inbounds i32, ptr %181, i64 %182
   %184 = load i32, ptr %183, align 4
   %185 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %19, i64 noundef 100, ptr noundef nonnull @.str.19, i32 noundef %184) #18
-  %186 = call i32 @agxset(ptr noundef nonnull %.5408, ptr noundef %.0278, ptr noundef nonnull %19) #18
+  %186 = call i32 @agxset(ptr noundef nonnull %.5408, ptr noundef %.0288, ptr noundef nonnull %19) #18
   %187 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.5408) #18
   %.not312 = icmp eq ptr %187, null
   br i1 %.not312, label %._crit_edge411, label %.lr.ph410
@@ -1472,21 +1472,21 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
   br label %194
 
 194:                                              ; preds = %.loopexit, %._crit_edge411, %190
-  %.0283357 = phi i1 [ true, %190 ], [ true, %._crit_edge411 ], [ false, %.loopexit ]
-  %.0288 = phi i32 [ %188, %190 ], [ %188, %._crit_edge411 ], [ %163, %.loopexit ]
-  %.3287 = phi i32 [ 1, %190 ], [ 1, %._crit_edge411 ], [ %.2286, %.loopexit ]
+  %.0279357 = phi i1 [ true, %190 ], [ true, %._crit_edge411 ], [ false, %.loopexit ]
+  %.0282 = phi i32 [ %188, %190 ], [ %188, %._crit_edge411 ], [ %163, %.loopexit ]
+  %.3 = phi i32 [ 1, %190 ], [ 1, %._crit_edge411 ], [ %.2, %.loopexit ]
   %195 = mul nsw i32 %44, %2
   %196 = sext i32 %195 to i64
   %197 = call fastcc ptr @gv_calloc(i64 noundef %196, i64 noundef 8)
   store ptr %197, ptr %4, align 8
   %.not330 = xor i1 %42, true
   %198 = icmp eq ptr %58, null
-  %or.cond.not = select i1 %.0283357, i1 true, i1 %198
+  %or.cond.not = select i1 %.0279357, i1 true, i1 %198
   %or.cond = select i1 %.not330, i1 %or.cond.not, i1 false
   br i1 %or.cond, label %205, label %199
 
 199:                                              ; preds = %194
-  %200 = add nsw i32 %.0288, 1
+  %200 = add nsw i32 %.0282, 1
   %201 = sext i32 %200 to i64
   %202 = call fastcc ptr @gv_calloc(i64 noundef %201, i64 noundef 4)
   store ptr %202, ptr %7, align 8
@@ -1512,9 +1512,9 @@ define ptr @Import_coord_clusters_from_dot(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not412, label %._crit_edge418, label %.lr.ph417
 
 .lr.ph417:                                        ; preds = %206
-  %210 = sub nsw i32 %.0288, %.3287
-  %211 = icmp slt i32 %210, %.0279
-  %212 = add nsw i32 %.0279, -1
+  %210 = sub nsw i32 %.0282, %.3
+  %211 = icmp slt i32 %210, %.0275
+  %212 = add nsw i32 %.0275, -1
   %213 = call i32 @llvm.smax.i32(i32 %210, i32 1)
   %214 = getelementptr inbounds i8, ptr %22, i64 8
   %215 = getelementptr inbounds i8, ptr %22, i64 16
@@ -1640,7 +1640,7 @@ sub_2:                                            ; preds = %sub_1
   %282 = load ptr, ptr %6, align 8
   %283 = getelementptr inbounds i32, ptr %282, i64 %280
   %284 = load i32, ptr %283, align 4
-  %285 = sub nsw i32 %284, %.3287
+  %285 = sub nsw i32 %284, %.3
   br i1 %211, label %286, label %289
 
 286:                                              ; preds = %277
@@ -1649,17 +1649,17 @@ sub_2:                                            ; preds = %sub_1
   br label %291
 
 289:                                              ; preds = %277
-  %290 = srem i32 %285, %.0279
+  %290 = srem i32 %285, %.0275
   br label %291
 
 291:                                              ; preds = %289, %286
-  %.0293 = phi i32 [ %288, %286 ], [ %290, %289 ]
+  %.0283 = phi i32 [ %288, %286 ], [ %290, %289 ]
   br i1 %42, label %292, label %320
 
 292:                                              ; preds = %291
-  %293 = mul nsw i32 %.0293, 3
+  %293 = mul nsw i32 %.0283, 3
   %294 = sext i32 %293 to i64
-  %295 = getelementptr inbounds float, ptr %.0280, i64 %294
+  %295 = getelementptr inbounds float, ptr %.0276, i64 %294
   %296 = load float, ptr %295, align 4
   %297 = load ptr, ptr %7, align 8
   %298 = sext i32 %284 to i64
@@ -1667,7 +1667,7 @@ sub_2:                                            ; preds = %sub_1
   store float %296, ptr %299, align 4
   %300 = add nsw i32 %293, 1
   %301 = sext i32 %300 to i64
-  %302 = getelementptr inbounds float, ptr %.0280, i64 %301
+  %302 = getelementptr inbounds float, ptr %.0276, i64 %301
   %303 = load float, ptr %302, align 4
   %304 = load ptr, ptr %8, align 8
   %305 = load ptr, ptr %6, align 8
@@ -1678,7 +1678,7 @@ sub_2:                                            ; preds = %sub_1
   store float %303, ptr %309, align 4
   %310 = add nsw i32 %293, 2
   %311 = sext i32 %310 to i64
-  %312 = getelementptr inbounds float, ptr %.0280, i64 %311
+  %312 = getelementptr inbounds float, ptr %.0276, i64 %311
   %313 = load float, ptr %312, align 4
   %314 = load ptr, ptr %9, align 8
   %315 = load ptr, ptr %6, align 8
@@ -1730,7 +1730,7 @@ sub_2:                                            ; preds = %sub_1
 
 350:                                              ; preds = %325, %321, %320
   %351 = call ptr @agget(ptr noundef nonnull %.6413, ptr noundef nonnull @.str.14) #18
-  br i1 %.0283357, label %471, label %352
+  br i1 %.0279357, label %471, label %352
 
 352:                                              ; preds = %350
   %353 = call ptr @agget(ptr noundef nonnull %.6413, ptr noundef nonnull @.str.17) #18
@@ -2083,12 +2083,12 @@ define void @attached_clustering(ptr noundef %0, i32 noundef %1, i32 noundef %2)
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
   %.090 = phi ptr [ %17, %.lr.ph ], [ %12, %9 ]
-  %.07289 = phi i32 [ %13, %.lr.ph ], [ 0, %9 ]
-  %13 = add nuw nsw i32 %.07289, 1
+  %.07089 = phi i32 [ %13, %.lr.ph ], [ 0, %9 ]
+  %13 = add nuw nsw i32 %.07089, 1
   %14 = getelementptr inbounds i8, ptr %.090, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 16
-  store i32 %.07289, ptr %16, align 8
+  store i32 %.07089, ptr %16, align 8
   %17 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.090) #18
   %.not79 = icmp eq ptr %17, null
   br i1 %.not79, label %._crit_edge, label %.lr.ph
@@ -2111,7 +2111,7 @@ define void @attached_clustering(ptr noundef %0, i32 noundef %1, i32 noundef %2)
 
 .lr.ph101.split.us:                               ; preds = %.lr.ph101, %._crit_edge96.split.us.us
   %.199.us = phi ptr [ %32, %._crit_edge96.split.us.us ], [ %24, %.lr.ph101 ]
-  %.17398.us = phi i32 [ %.274.lcssa.us, %._crit_edge96.split.us.us ], [ 0, %.lr.ph101 ]
+  %.17198.us = phi i32 [ %.272.lcssa.us, %._crit_edge96.split.us.us ], [ 0, %.lr.ph101 ]
   %25 = getelementptr inbounds i8, ptr %.199.us, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 16
@@ -2121,7 +2121,7 @@ define void @attached_clustering(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br i1 %.not8491.us, label %._crit_edge96.split.us.us, label %.lr.ph95.us.preheader
 
 .lr.ph95.us.preheader:                            ; preds = %.lr.ph101.split.us
-  %30 = sext i32 %.17398.us to i64
+  %30 = sext i32 %.17198.us to i64
   br label %.lr.ph95.us
 
 ._crit_edge96.split.us.us.loopexit:               ; preds = %.lr.ph95.us
@@ -2129,21 +2129,21 @@ define void @attached_clustering(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br label %._crit_edge96.split.us.us
 
 ._crit_edge96.split.us.us:                        ; preds = %._crit_edge96.split.us.us.loopexit, %.lr.ph101.split.us
-  %.274.lcssa.us = phi i32 [ %.17398.us, %.lr.ph101.split.us ], [ %31, %._crit_edge96.split.us.us.loopexit ]
+  %.272.lcssa.us = phi i32 [ %.17198.us, %.lr.ph101.split.us ], [ %31, %._crit_edge96.split.us.us.loopexit ]
   %32 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.199.us) #18
   %.not80.us = icmp eq ptr %32, null
   br i1 %.not80.us, label %._crit_edge102, label %.lr.ph101.split.us
 
 .lr.ph95.us:                                      ; preds = %.lr.ph95.us.preheader, %.lr.ph95.us
   %indvars.iv113 = phi i64 [ %30, %.lr.ph95.us.preheader ], [ %indvars.iv.next114, %.lr.ph95.us ]
-  %.07093.us.us = phi ptr [ %29, %.lr.ph95.us.preheader ], [ %46, %.lr.ph95.us ]
+  %.07492.us.us = phi ptr [ %29, %.lr.ph95.us.preheader ], [ %46, %.lr.ph95.us ]
   %33 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv113
   store i32 %28, ptr %33, align 4
-  %34 = load i32, ptr %.07093.us.us, align 8
+  %34 = load i32, ptr %.07492.us.us, align 8
   %35 = and i32 %34, 3
   %36 = icmp eq i32 %35, 2
   %.idx.us.us = select i1 %36, i64 0, i64 -64
-  %37 = getelementptr inbounds i8, ptr %.07093.us.us, i64 %.idx.us.us
+  %37 = getelementptr inbounds i8, ptr %.07492.us.us, i64 %.idx.us.us
   %38 = getelementptr inbounds i8, ptr %37, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 16
@@ -2156,13 +2156,13 @@ define void @attached_clustering(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %45 = getelementptr inbounds double, ptr %21, i64 %indvars.iv113
   store double 1.000000e+00, ptr %45, align 8
   %indvars.iv.next114 = add nsw i64 %indvars.iv113, 1
-  %46 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.07093.us.us) #18
+  %46 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.07492.us.us) #18
   %.not84.us.us = icmp eq ptr %46, null
   br i1 %.not84.us.us, label %._crit_edge96.split.us.us.loopexit, label %.lr.ph95.us
 
 .lr.ph101.split:                                  ; preds = %.lr.ph101, %._crit_edge96.split
   %.199 = phi ptr [ %73, %._crit_edge96.split ], [ %24, %.lr.ph101 ]
-  %.17398 = phi i32 [ %.274.lcssa, %._crit_edge96.split ], [ 0, %.lr.ph101 ]
+  %.17198 = phi i32 [ %.272.lcssa, %._crit_edge96.split ], [ 0, %.lr.ph101 ]
   %47 = getelementptr inbounds i8, ptr %.199, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 16
@@ -2172,19 +2172,19 @@ define void @attached_clustering(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br i1 %.not8491, label %._crit_edge96.split, label %.lr.ph95.preheader
 
 .lr.ph95.preheader:                               ; preds = %.lr.ph101.split
-  %52 = sext i32 %.17398 to i64
+  %52 = sext i32 %.17198 to i64
   br label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %68
   %indvars.iv = phi i64 [ %52, %.lr.ph95.preheader ], [ %indvars.iv.next, %68 ]
-  %.07093 = phi ptr [ %51, %.lr.ph95.preheader ], [ %71, %68 ]
+  %.07492 = phi ptr [ %51, %.lr.ph95.preheader ], [ %71, %68 ]
   %53 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv
   store i32 %50, ptr %53, align 4
-  %54 = load i32, ptr %.07093, align 8
+  %54 = load i32, ptr %.07492, align 8
   %55 = and i32 %54, 3
   %56 = icmp eq i32 %55, 2
   %.idx = select i1 %56, i64 0, i64 -64
-  %57 = getelementptr inbounds i8, ptr %.07093, i64 %.idx
+  %57 = getelementptr inbounds i8, ptr %.07492, i64 %.idx
   %58 = getelementptr inbounds i8, ptr %57, i64 56
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 16
@@ -2193,7 +2193,7 @@ define void @attached_clustering(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %63 = load i32, ptr %62, align 8
   %64 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
   store i32 %63, ptr %64, align 4
-  %65 = call ptr @agxget(ptr noundef nonnull %.07093, ptr noundef nonnull %.fr) #18
+  %65 = call ptr @agxget(ptr noundef nonnull %.07492, ptr noundef nonnull %.fr) #18
   %66 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %65, ptr noundef nonnull @.str.4, ptr noundef nonnull %5) #18
   %.not86 = icmp eq i32 %66, 1
   br i1 %.not86, label %.lr.ph95._crit_edge, label %67
@@ -2211,7 +2211,7 @@ define void @attached_clustering(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   %70 = getelementptr inbounds double, ptr %21, i64 %indvars.iv
   store double %69, ptr %70, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %71 = call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.07093) #18
+  %71 = call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.07492) #18
   %.not84 = icmp eq ptr %71, null
   br i1 %.not84, label %._crit_edge96.split.loopexit, label %.lr.ph95
 
@@ -2220,7 +2220,7 @@ define void @attached_clustering(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br label %._crit_edge96.split
 
 ._crit_edge96.split:                              ; preds = %._crit_edge96.split.loopexit, %.lr.ph101.split
-  %.274.lcssa = phi i32 [ %.17398, %.lr.ph101.split ], [ %72, %._crit_edge96.split.loopexit ]
+  %.272.lcssa = phi i32 [ %.17198, %.lr.ph101.split ], [ %72, %._crit_edge96.split.loopexit ]
   %73 = call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.199) #18
   %.not80 = icmp eq ptr %73, null
   br i1 %.not80, label %._crit_edge102, label %.lr.ph101.split
@@ -2238,7 +2238,7 @@ define void @attached_clustering(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   br label %79
 
 79:                                               ; preds = %77, %._crit_edge102
-  %.071 = phi ptr [ %23, %._crit_edge102 ], [ %78, %77 ]
+  %.073 = phi ptr [ %23, %._crit_edge102 ], [ %78, %77 ]
   switch i32 %2, label %82 [
     i32 1, label %80
     i32 0, label %81
@@ -2356,7 +2356,7 @@ agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i
 
 agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %119
   %121 = phi ptr [ %120, %119 ], [ %8, %agxbclear.exit.thread.i ]
-  %122 = call i32 @agxset(ptr noundef nonnull %.2108, ptr noundef %.071, ptr noundef %121) #18
+  %122 = call i32 @agxset(ptr noundef nonnull %.2108, ptr noundef %.073, ptr noundef %121) #18
   %.val87 = load i8, ptr %92, align 1
   %123 = icmp eq i8 %.val87, -1
   br i1 %123, label %124, label %agxbfree.exit

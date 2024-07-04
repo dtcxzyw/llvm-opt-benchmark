@@ -7144,13 +7144,13 @@ _ZN6vectorIN3opt15model_based_opt3varELb1EjE5resetEv.exit: ; preds = %if.end, %_
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %_ZN6vectorIN3opt15model_based_opt3varELb1EjE5resetEv.exit
-  %j.0.ph = phi i32 [ 0, %_ZN6vectorIN3opt15model_based_opt3varELb1EjE5resetEv.exit ], [ %j.0.ph.be, %while.cond.outer.backedge ]
   %i.0.ph = phi i32 [ 0, %_ZN6vectorIN3opt15model_based_opt3varELb1EjE5resetEv.exit ], [ %i.0.ph.be, %while.cond.outer.backedge ]
-  %idxprom.i97 = zext i32 %j.0.ph to i64
+  %j.0.ph = phi i32 [ 0, %_ZN6vectorIN3opt15model_based_opt3varELb1EjE5resetEv.exit ], [ %j.0.ph.be, %while.cond.outer.backedge ]
+  %idxprom.i95 = zext i32 %i.0.ph to i64
   br label %while.cond
 
-while.cond:                                       ; preds = %while.cond.outer, %if.then71
-  %i.0 = phi i32 [ %inc76, %if.then71 ], [ %i.0.ph, %while.cond.outer ]
+while.cond:                                       ; preds = %while.cond.outer, %if.end94
+  %j.0 = phi i32 [ %inc95, %if.end94 ], [ %j.0.ph, %while.cond.outer ]
   %8 = load ptr, ptr %arrayidx.i55, align 8
   %cmp.i = icmp eq ptr %8, null
   br i1 %cmp.i, label %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit, label %if.end.i
@@ -7162,7 +7162,7 @@ if.end.i:                                         ; preds = %while.cond
 
 _ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit: ; preds = %while.cond, %if.end.i
   %retval.0.i = phi i32 [ %9, %if.end.i ], [ 0, %while.cond ]
-  %cmp = icmp ult i32 %i.0, %retval.0.i
+  %cmp = icmp ult i32 %i.0.ph, %retval.0.i
   %.pre = load ptr, ptr %arrayidx.i57, align 8
   br i1 %cmp, label %while.body, label %lor.rhs
 
@@ -7177,7 +7177,7 @@ if.end.i60:                                       ; preds = %lor.rhs
 
 _ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit63: ; preds = %lor.rhs, %if.end.i60
   %retval.0.i62 = phi i32 [ %10, %if.end.i60 ], [ 0, %lor.rhs ]
-  %cmp8 = icmp ult i32 %j.0.ph, %retval.0.i62
+  %cmp8 = icmp ult i32 %j.0, %retval.0.i62
   br i1 %cmp8, label %while.body, label %while.end
 
 while.body:                                       ; preds = %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit, %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit63
@@ -7191,7 +7191,7 @@ if.end.i65:                                       ; preds = %while.body
 
 _ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit68: ; preds = %while.body, %if.end.i65
   %retval.0.i67 = phi i32 [ %11, %if.end.i65 ], [ 0, %while.body ]
-  %cmp11 = icmp eq i32 %j.0.ph, %retval.0.i67
+  %cmp11 = icmp eq i32 %j.0, %retval.0.i67
   br i1 %cmp11, label %if.then12, label %if.end18
 
 if.then12:                                        ; preds = %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit68
@@ -7204,13 +7204,13 @@ if.end.i70:                                       ; preds = %if.then12
 
 _ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit73: ; preds = %if.then12, %if.end.i70
   %retval.0.i72 = phi i32 [ %12, %if.end.i70 ], [ 0, %if.then12 ]
-  %idx.ext = zext i32 %i.0 to i64
+  %idx.ext = zext i32 %i.0.ph to i64
   %add.ptr = getelementptr inbounds %"struct.opt::model_based_opt::var", ptr %8, i64 %idx.ext
-  %cmp3.not.i = icmp eq i32 %retval.0.i72, %i.0
+  %cmp3.not.i = icmp eq i32 %retval.0.i72, %i.0.ph
   br i1 %cmp3.not.i, label %while.end, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit73
-  %sub = sub i32 %retval.0.i72, %i.0
+  %sub = sub i32 %retval.0.i72, %i.0.ph
   %wide.trip.count.i = zext i32 %sub to i64
   br label %for.body.i
 
@@ -7232,11 +7232,11 @@ if.end.i76:                                       ; preds = %if.end18
 
 _ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit79: ; preds = %if.end18, %if.end.i76
   %retval.0.i78 = phi i32 [ %13, %if.end.i76 ], [ 0, %if.end18 ]
-  %cmp21 = icmp eq i32 %i.0, %retval.0.i78
+  %cmp21 = icmp eq i32 %i.0.ph, %retval.0.i78
   br i1 %cmp21, label %for.cond.preheader, label %if.end40
 
 for.cond.preheader:                               ; preds = %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit79
-  %14 = zext i32 %j.0.ph to i64
+  %14 = zext i32 %j.0 to i64
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.inc
@@ -7351,9 +7351,9 @@ for.inc:                                          ; preds = %_ZN8rationalmLERKS_
   br label %for.cond, !llvm.loop !25
 
 if.end40:                                         ; preds = %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit79
-  %idxprom.i95 = zext i32 %i.0 to i64
   %arrayidx.i96 = getelementptr inbounds %"struct.opt::model_based_opt::var", ptr %8, i64 %idxprom.i95
   %37 = load i32, ptr %arrayidx.i96, align 8
+  %idxprom.i97 = zext i32 %j.0 to i64
   %arrayidx.i98 = getelementptr inbounds %"struct.opt::model_based_opt::var", ptr %.pre, i64 %idxprom.i97
   %38 = load i32, ptr %arrayidx.i98, align 8
   %cmp47 = icmp eq i32 %37, %38
@@ -7399,7 +7399,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %invoke.c
   unreachable
 
 _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
-  %inc61 = add i32 %i.0, 1
+  %inc62 = add i32 %j.0, 1
   %48 = load ptr, ptr %m_new_vars, align 8
   %cmp.i.i109 = icmp eq ptr %48, null
   br i1 %cmp.i.i109, label %_ZN6vectorIN3opt15model_based_opt3varELb1EjE4backEv.exit114, label %if.end.i.i110
@@ -7449,9 +7449,9 @@ _ZN6vectorIN3opt15model_based_opt3varELb1EjE8pop_backEv.exit: ; preds = %.noexc.
   store i32 %dec.i, ptr %arrayidx.i117, align 4
   br label %while.cond.outer.backedge
 
-while.cond.outer.backedge:                        ; preds = %_ZN8rationalmLERKS_.exit143, %_ZN6vectorIjLb0EjE9push_backERKj.exit162, %_ZN6vectorIN3opt15model_based_opt3varELb1EjE8pop_backEv.exit, %_ZN6vectorIN3opt15model_based_opt3varELb1EjE4backEv.exit114
-  %i.0.ph.be = phi i32 [ %inc61, %_ZN6vectorIN3opt15model_based_opt3varELb1EjE4backEv.exit114 ], [ %inc61, %_ZN6vectorIN3opt15model_based_opt3varELb1EjE8pop_backEv.exit ], [ %i.0, %_ZN6vectorIjLb0EjE9push_backERKj.exit162 ], [ %i.0, %_ZN8rationalmLERKS_.exit143 ]
-  %j.0.ph.be = add i32 %j.0.ph, 1
+while.cond.outer.backedge:                        ; preds = %_ZN6vectorIN3opt15model_based_opt3varELb1EjE8pop_backEv.exit, %_ZN6vectorIN3opt15model_based_opt3varELb1EjE4backEv.exit114, %if.then71
+  %j.0.ph.be = phi i32 [ %j.0, %if.then71 ], [ %inc62, %_ZN6vectorIN3opt15model_based_opt3varELb1EjE4backEv.exit114 ], [ %inc62, %_ZN6vectorIN3opt15model_based_opt3varELb1EjE8pop_backEv.exit ]
+  %i.0.ph.be = add i32 %i.0.ph, 1
   br label %while.cond.outer, !llvm.loop !26
 
 lpad:                                             ; preds = %invoke.cont
@@ -7465,8 +7465,7 @@ if.else:                                          ; preds = %if.end40
 
 if.then71:                                        ; preds = %if.else
   %call75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6vectorIN3opt15model_based_opt3varELb1EjE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %m_new_vars, ptr noundef nonnull align 8 dereferenceable(40) %arrayidx.i96)
-  %inc76 = add i32 %i.0, 1
-  br label %while.cond, !llvm.loop !26
+  br label %while.cond.outer.backedge
 
 if.else77:                                        ; preds = %if.else
   %call81 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6vectorIN3opt15model_based_opt3varELb1EjE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %m_new_vars, ptr noundef nonnull align 8 dereferenceable(40) %arrayidx.i98)
@@ -7515,7 +7514,7 @@ if.else.i.i134:                                   ; preds = %land.lhs.true.i.i13
   br label %_ZN8rationalmLERKS_.exit143
 
 _ZN8rationalmLERKS_.exit143:                      ; preds = %if.then.i.i142, %if.else.i.i134
-  br i1 %cmp86.not, label %while.cond.outer.backedge, label %if.then87
+  br i1 %cmp86.not, label %if.end94, label %if.then87
 
 if.then87:                                        ; preds = %_ZN8rationalmLERKS_.exit143
   %71 = load ptr, ptr %arrayidx.i57, align 8
@@ -7554,7 +7553,11 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit162:         ; preds = %lor.lhs.false.i149,
   %80 = load i32, ptr %arrayidx10.i156, align 4
   %inc.i157 = add i32 %80, 1
   store i32 %inc.i157, ptr %arrayidx10.i156, align 4
-  br label %while.cond.outer.backedge
+  br label %if.end94
+
+if.end94:                                         ; preds = %_ZN6vectorIjLb0EjE9push_backERKj.exit162, %_ZN8rationalmLERKS_.exit143
+  %inc95 = add i32 %j.0, 1
+  br label %while.cond, !llvm.loop !26
 
 while.end:                                        ; preds = %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit63, %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit84, %for.body.i, %_ZNK6vectorIN3opt15model_based_opt3varELb1EjE4sizeEv.exit73
   %m_coeff99 = getelementptr inbounds i8, ptr %arrayidx.i57, i64 8

@@ -3944,22 +3944,22 @@ _ZN4pkpy7py_castIiEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %89
   br i1 %101, label %_ZSt7advanceIPdlEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPddET_S1_S1_RKT0_.exit
 
 _ZSt7advanceIPdlEvRT_T0_.exit.i.i:                ; preds = %102, %_ZSt7advanceIPdlEvRT_T0_.exit.i.i
-  %.017.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPdlEvRT_T0_.exit.i.i ], [ %30, %102 ]
-  %.01116.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPdlEvRT_T0_.exit.i.i ], [ %100, %102 ]
-  %111 = lshr i64 %.01116.i.i, 1
-  %112 = getelementptr inbounds double, ptr %.017.i.i, i64 %111
+  %.017.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIPdlEvRT_T0_.exit.i.i ], [ %100, %102 ]
+  %.01116.i.i = phi ptr [ %.112.i.i, %_ZSt7advanceIPdlEvRT_T0_.exit.i.i ], [ %30, %102 ]
+  %111 = lshr i64 %.017.i.i, 1
+  %112 = getelementptr inbounds double, ptr %.01116.i.i, i64 %111
   %113 = load double, ptr %112, align 8
   %114 = fcmp olt double %113, %110
   %115 = getelementptr inbounds i8, ptr %112, i64 8
   %116 = xor i64 %111, -1
-  %117 = add nsw i64 %.01116.i.i, %116
-  %.112.i.i = select i1 %114, i64 %117, i64 %111
-  %.1.i.i = select i1 %114, ptr %115, ptr %.017.i.i
-  %118 = icmp sgt i64 %.112.i.i, 0
+  %117 = add nsw i64 %.017.i.i, %116
+  %.112.i.i = select i1 %114, ptr %115, ptr %.01116.i.i
+  %.1.i.i = select i1 %114, i64 %117, i64 %111
+  %118 = icmp sgt i64 %.1.i.i, 0
   br i1 %118, label %_ZSt7advanceIPdlEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPddET_S1_S1_RKT0_.exit.loopexit, !llvm.loop !28
 
 _ZSt11lower_boundIPddET_S1_S1_RKT0_.exit.loopexit: ; preds = %_ZSt7advanceIPdlEvRT_T0_.exit.i.i
-  %.pre = ptrtoint ptr %.1.i.i to i64
+  %.pre = ptrtoint ptr %.112.i.i to i64
   br label %_ZSt11lower_boundIPddET_S1_S1_RKT0_.exit
 
 _ZSt11lower_boundIPddET_S1_S1_RKT0_.exit:         ; preds = %_ZSt11lower_boundIPddET_S1_S1_RKT0_.exit.loopexit, %102
@@ -4871,41 +4871,41 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   br i1 %5, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %17
-  %.02230.i = phi i32 [ %18, %17 ], [ %4, %2 ]
-  %.02329.i = phi i32 [ %19, %17 ], [ 1, %2 ]
-  %6 = icmp ult i32 %.02230.i, 100
+  %.030.i = phi i32 [ %19, %17 ], [ 1, %2 ]
+  %.02329.i = phi i32 [ %18, %17 ], [ %4, %2 ]
+  %6 = icmp ult i32 %.02329.i, 100
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = add i32 %.02329.i, 1
+  %8 = add i32 %.030.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = icmp ult i32 %.02230.i, 1000
+  %10 = icmp ult i32 %.02329.i, 1000
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = add i32 %.02329.i, 2
+  %12 = add i32 %.030.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 13:                                               ; preds = %9
-  %14 = icmp ult i32 %.02230.i, 10000
+  %14 = icmp ult i32 %.02329.i, 10000
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = add i32 %.02329.i, 3
+  %16 = add i32 %.030.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 17:                                               ; preds = %13
-  %18 = udiv i32 %.02230.i, 10000
-  %19 = add i32 %.02329.i, 4
-  %20 = icmp ult i32 %.02230.i, 100000
+  %18 = udiv i32 %.02329.i, 10000
+  %19 = add i32 %.030.i, 4
+  %20 = icmp ult i32 %.02329.i, 100000
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !33
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.022.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
-  %21 = add i32 %.0.i, %.lobit
+  %21 = add i32 %.022.i, %.lobit
   %22 = zext i32 %21 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   %23 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -4936,7 +4936,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br i1 %29, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %28
-  %30 = add i32 %.0.i, -1
+  %30 = add i32 %.022.i, -1
   br label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %.lr.ph.i12, %.lr.ph.preheader.i

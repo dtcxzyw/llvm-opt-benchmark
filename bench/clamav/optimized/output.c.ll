@@ -98,16 +98,16 @@ define i32 @mdprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
 13:                                               ; preds = %.lr.ph, %70
   %14 = phi i32 [ %.promoted94, %.lr.ph ], [ %71, %70 ]
   %15 = phi ptr [ %.promoted93, %.lr.ph ], [ %72, %70 ]
-  %.05792 = phi i64 [ 0, %.lr.ph ], [ %74, %70 ]
-  %.05891 = phi i64 [ 1, %.lr.ph ], [ %.159, %70 ]
+  %.05692 = phi i64 [ 0, %.lr.ph ], [ %74, %70 ]
+  %.05791 = phi i64 [ 1, %.lr.ph ], [ %.158, %70 ]
   %16 = phi i32 [ %.promoted, %.lr.ph ], [ %73, %70 ]
-  %17 = getelementptr inbounds i8, ptr %1, i64 %.05792
+  %17 = getelementptr inbounds i8, ptr %1, i64 %.05692
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 37
   br i1 %19, label %20, label %70
 
 20:                                               ; preds = %13
-  %21 = add nuw i64 %.05792, 1
+  %21 = add nuw i64 %.05692, 1
   %22 = getelementptr inbounds i8, ptr %1, i64 %21
   %23 = load i8, ptr %22, align 1
   switch i8 %23, label %60 [
@@ -142,7 +142,7 @@ define i32 @mdprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
 
 37:                                               ; preds = %32
   %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #15
-  %39 = add i64 %38, %.05891
+  %39 = add i64 %38, %.05791
   br label %70
 
 40:                                               ; preds = %20
@@ -162,7 +162,7 @@ define i32 @mdprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
 46:                                               ; preds = %44, %42
   %47 = phi i32 [ %14, %44 ], [ %43, %42 ]
   %48 = phi ptr [ %45, %44 ], [ %15, %42 ]
-  %49 = add i64 %.05891, 25
+  %49 = add i64 %.05791, 25
   br label %70
 
 50:                                               ; preds = %20
@@ -182,7 +182,7 @@ define i32 @mdprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
 56:                                               ; preds = %54, %52
   %57 = phi ptr [ %55, %54 ], [ %15, %52 ]
   %58 = phi i32 [ %16, %54 ], [ %53, %52 ]
-  %59 = add i64 %.05891, 20
+  %59 = add i64 %.05791, 20
   br label %70
 
 60:                                               ; preds = %20
@@ -202,57 +202,57 @@ define i32 @mdprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
 66:                                               ; preds = %64, %62
   %67 = phi ptr [ %65, %64 ], [ %15, %62 ]
   %68 = phi i32 [ %16, %64 ], [ %63, %62 ]
-  %69 = add i64 %.05891, 10
+  %69 = add i64 %.05791, 10
   br label %70
 
 70:                                               ; preds = %13, %32, %37, %66, %56, %46
   %71 = phi i32 [ %14, %66 ], [ %14, %56 ], [ %47, %46 ], [ %14, %37 ], [ %14, %32 ], [ %14, %13 ]
   %72 = phi ptr [ %67, %66 ], [ %57, %56 ], [ %48, %46 ], [ %33, %37 ], [ %33, %32 ], [ %15, %13 ]
   %73 = phi i32 [ %68, %66 ], [ %58, %56 ], [ %16, %46 ], [ %34, %37 ], [ %34, %32 ], [ %16, %13 ]
-  %.159 = phi i64 [ %69, %66 ], [ %59, %56 ], [ %49, %46 ], [ %39, %37 ], [ %.05891, %32 ], [ %.05891, %13 ]
-  %.1 = phi i64 [ %21, %66 ], [ %21, %56 ], [ %21, %46 ], [ %21, %37 ], [ %21, %32 ], [ %.05792, %13 ]
+  %.158 = phi i64 [ %69, %66 ], [ %59, %56 ], [ %49, %46 ], [ %39, %37 ], [ %.05791, %32 ], [ %.05791, %13 ]
+  %.1 = phi i64 [ %21, %66 ], [ %21, %56 ], [ %21, %46 ], [ %21, %37 ], [ %21, %32 ], [ %.05692, %13 ]
   %74 = add i64 %.1, 1
   %75 = icmp ult i64 %74, %8
   br i1 %75, label %13, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %70, %2
-  %.058.lcssa = phi i64 [ 1, %2 ], [ %.159, %70 ]
+  %.057.lcssa = phi i64 [ 1, %2 ], [ %.158, %70 ]
   call void @llvm.va_end.p0(ptr nonnull %3)
-  %76 = add i64 %.058.lcssa, %7
+  %76 = add i64 %.057.lcssa, %7
   %77 = icmp ult i64 %76, 513
   br i1 %77, label %80, label %78
 
 78:                                               ; preds = %._crit_edge
   %79 = call noalias ptr @malloc(i64 noundef %76) #16
   %.not = icmp eq ptr %79, null
-  %. = select i1 %.not, ptr %4, ptr %79
-  %.87 = select i1 %.not, i64 512, i64 %76
+  %.87 = select i1 %.not, ptr %4, ptr %79
+  %.88 = select i1 %.not, i64 512, i64 %76
   br label %80
 
 80:                                               ; preds = %78, %._crit_edge
-  %.066 = phi ptr [ %4, %._crit_edge ], [ %., %78 ]
-  %.060 = phi i64 [ 512, %._crit_edge ], [ %.87, %78 ]
-  %.056 = phi ptr [ null, %._crit_edge ], [ %79, %78 ]
+  %.068 = phi ptr [ null, %._crit_edge ], [ %79, %78 ]
+  %.065 = phi ptr [ %4, %._crit_edge ], [ %.87, %78 ]
+  %.059 = phi i64 [ 512, %._crit_edge ], [ %.88, %78 ]
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %81 = call i32 @vsnprintf(ptr noundef nonnull %.066, i64 noundef %.060, ptr noundef %1, ptr noundef nonnull %3) #17
+  %81 = call i32 @vsnprintf(ptr noundef nonnull %.065, i64 noundef %.059, ptr noundef %1, ptr noundef nonnull %3) #17
   call void @llvm.va_end.p0(ptr nonnull %3)
-  %82 = add i64 %.060, -1
-  %83 = getelementptr inbounds i8, ptr %.066, i64 %82
+  %82 = add i64 %.059, -1
+  %83 = getelementptr inbounds i8, ptr %.065, i64 %82
   store i8 0, ptr %83, align 1
   %84 = icmp slt i32 %81, 0
   br i1 %84, label %85, label %88
 
 85:                                               ; preds = %80
-  %86 = icmp ugt i64 %.060, 512
+  %86 = icmp ugt i64 %.059, 512
   br i1 %86, label %87, label %136
 
 87:                                               ; preds = %85
-  call void @free(ptr noundef %.056) #17
+  call void @free(ptr noundef %.068) #17
   br label %136
 
 88:                                               ; preds = %80
   %89 = zext nneg i32 %81 to i64
-  %.not83 = icmp ugt i64 %.060, %89
+  %.not83 = icmp ugt i64 %.059, %89
   %90 = trunc i64 %82 to i32
   %spec.select = select i1 %.not83, i32 %81, i32 %90
   %91 = call i32 @pthread_mutex_lock(ptr noundef nonnull @mdprintf_mutex) #17
@@ -272,9 +272,9 @@ define i32 @mdprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
   br label %102
 
 102:                                              ; preds = %.lr.ph99, %128
-  %.06397 = phi i32 [ %spec.select, %.lr.ph99 ], [ %.164, %128 ]
-  %.16796 = phi ptr [ %.066, %.lr.ph99 ], [ %.268, %128 ]
-  %103 = call i64 @send(i32 noundef %0, ptr noundef %.16796, i64 noundef %93, i32 noundef 0) #17
+  %.06297 = phi i32 [ %spec.select, %.lr.ph99 ], [ %.163, %128 ]
+  %.16696 = phi ptr [ %.065, %.lr.ph99 ], [ %.267, %128 ]
+  %103 = call i64 @send(i32 noundef %0, ptr noundef %.16696, i64 noundef %93, i32 noundef 0) #17
   %104 = trunc i64 %103 to i32
   %105 = icmp slt i32 %104, 0
   br i1 %105, label %106, label %124
@@ -318,31 +318,31 @@ define i32 @mdprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
   br i1 %.not85, label %.critedge._crit_edge.loopexit, label %128
 
 124:                                              ; preds = %102
-  %125 = sub nsw i32 %.06397, %104
+  %125 = sub nsw i32 %.06297, %104
   %126 = and i64 %103, 2147483647
-  %127 = getelementptr inbounds i8, ptr %.16796, i64 %126
+  %127 = getelementptr inbounds i8, ptr %.16696, i64 %126
   br label %128
 
 128:                                              ; preds = %.critedge.thread, %.critedge, %124
-  %.268 = phi ptr [ %.16796, %.critedge ], [ %127, %124 ], [ %.16796, %.critedge.thread ]
-  %.164 = phi i32 [ %.06397, %.critedge ], [ %125, %124 ], [ %.06397, %.critedge.thread ]
-  %.162 = phi i32 [ %117, %.critedge ], [ %104, %124 ], [ %117, %.critedge.thread ]
-  %129 = icmp sgt i32 %.164, 0
+  %.267 = phi ptr [ %.16696, %.critedge ], [ %127, %124 ], [ %.16696, %.critedge.thread ]
+  %.163 = phi i32 [ %.06297, %.critedge ], [ %125, %124 ], [ %.06297, %.critedge.thread ]
+  %.161 = phi i32 [ %117, %.critedge ], [ %104, %124 ], [ %117, %.critedge.thread ]
+  %129 = icmp sgt i32 %.163, 0
   br i1 %129, label %102, label %.critedge._crit_edge.loopexit
 
 .critedge._crit_edge.loopexit:                    ; preds = %.critedge, %106, %128
-  %.2.ph = phi i32 [ %.162, %128 ], [ %104, %106 ], [ -1, %.critedge ]
+  %.2.ph = phi i32 [ %.161, %128 ], [ %104, %106 ], [ -1, %.critedge ]
   %130 = icmp sgt i32 %.2.ph, -1
   br label %.critedge._crit_edge
 
 .critedge._crit_edge:                             ; preds = %.critedge._crit_edge.loopexit, %88
   %.2 = phi i1 [ true, %88 ], [ %130, %.critedge._crit_edge.loopexit ]
   %131 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @mdprintf_mutex) #17
-  %132 = icmp ugt i64 %.060, 512
+  %132 = icmp ugt i64 %.059, 512
   br i1 %132, label %133, label %134
 
 133:                                              ; preds = %.critedge._crit_edge
-  call void @free(ptr noundef %.056) #17
+  call void @free(ptr noundef %.068) #17
   br label %134
 
 134:                                              ; preds = %133, %.critedge._crit_edge
@@ -459,16 +459,16 @@ define range(i32 -1, 1) i32 @logg(i32 noundef %0, ptr nocapture noundef readonly
 25:                                               ; preds = %.lr.ph, %82
   %26 = phi i32 [ %.promoted113, %.lr.ph ], [ %83, %82 ]
   %27 = phi ptr [ %.promoted112, %.lr.ph ], [ %84, %82 ]
-  %.080111 = phi i64 [ 0, %.lr.ph ], [ %86, %82 ]
-  %.081110 = phi i64 [ 1, %.lr.ph ], [ %.182, %82 ]
+  %.079111 = phi i64 [ 0, %.lr.ph ], [ %86, %82 ]
+  %.080110 = phi i64 [ 1, %.lr.ph ], [ %.181, %82 ]
   %28 = phi i32 [ %.promoted, %.lr.ph ], [ %85, %82 ]
-  %29 = getelementptr inbounds i8, ptr %1, i64 %.080111
+  %29 = getelementptr inbounds i8, ptr %1, i64 %.079111
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 37
   br i1 %31, label %32, label %82
 
 32:                                               ; preds = %25
-  %33 = add nuw i64 %.080111, 1
+  %33 = add nuw i64 %.079111, 1
   %34 = getelementptr inbounds i8, ptr %1, i64 %33
   %35 = load i8, ptr %34, align 1
   switch i8 %35, label %72 [
@@ -503,7 +503,7 @@ define range(i32 -1, 1) i32 @logg(i32 noundef %0, ptr nocapture noundef readonly
 
 49:                                               ; preds = %44
   %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #15
-  %51 = add i64 %50, %.081110
+  %51 = add i64 %50, %.080110
   br label %82
 
 52:                                               ; preds = %32
@@ -523,7 +523,7 @@ define range(i32 -1, 1) i32 @logg(i32 noundef %0, ptr nocapture noundef readonly
 58:                                               ; preds = %56, %54
   %59 = phi i32 [ %26, %56 ], [ %55, %54 ]
   %60 = phi ptr [ %57, %56 ], [ %27, %54 ]
-  %61 = add i64 %.081110, 25
+  %61 = add i64 %.080110, 25
   br label %82
 
 62:                                               ; preds = %32
@@ -543,7 +543,7 @@ define range(i32 -1, 1) i32 @logg(i32 noundef %0, ptr nocapture noundef readonly
 68:                                               ; preds = %66, %64
   %69 = phi ptr [ %67, %66 ], [ %27, %64 ]
   %70 = phi i32 [ %28, %66 ], [ %65, %64 ]
-  %71 = add i64 %.081110, 20
+  %71 = add i64 %.080110, 20
   br label %82
 
 72:                                               ; preds = %32
@@ -563,42 +563,42 @@ define range(i32 -1, 1) i32 @logg(i32 noundef %0, ptr nocapture noundef readonly
 78:                                               ; preds = %76, %74
   %79 = phi ptr [ %77, %76 ], [ %27, %74 ]
   %80 = phi i32 [ %28, %76 ], [ %75, %74 ]
-  %81 = add i64 %.081110, 10
+  %81 = add i64 %.080110, 10
   br label %82
 
 82:                                               ; preds = %25, %44, %49, %78, %68, %58
   %83 = phi i32 [ %26, %78 ], [ %26, %68 ], [ %59, %58 ], [ %26, %49 ], [ %26, %44 ], [ %26, %25 ]
   %84 = phi ptr [ %79, %78 ], [ %69, %68 ], [ %60, %58 ], [ %45, %49 ], [ %45, %44 ], [ %27, %25 ]
   %85 = phi i32 [ %80, %78 ], [ %70, %68 ], [ %28, %58 ], [ %46, %49 ], [ %46, %44 ], [ %28, %25 ]
-  %.182 = phi i64 [ %81, %78 ], [ %71, %68 ], [ %61, %58 ], [ %51, %49 ], [ %.081110, %44 ], [ %.081110, %25 ]
-  %.1 = phi i64 [ %33, %78 ], [ %33, %68 ], [ %33, %58 ], [ %33, %49 ], [ %33, %44 ], [ %.080111, %25 ]
+  %.181 = phi i64 [ %81, %78 ], [ %71, %68 ], [ %61, %58 ], [ %51, %49 ], [ %.080110, %44 ], [ %.080110, %25 ]
+  %.1 = phi i64 [ %33, %78 ], [ %33, %68 ], [ %33, %58 ], [ %33, %49 ], [ %33, %44 ], [ %.079111, %25 ]
   %86 = add i64 %.1, 1
   %87 = icmp ult i64 %86, %20
   br i1 %87, label %25, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %82, %18
-  %.081.lcssa = phi i64 [ 1, %18 ], [ %.182, %82 ]
+  %.080.lcssa = phi i64 [ 1, %18 ], [ %.181, %82 ]
   call void @llvm.va_end.p0(ptr nonnull %6)
-  %88 = add i64 %.081.lcssa, %19
+  %88 = add i64 %.080.lcssa, %19
   %89 = icmp ult i64 %88, 1026
   br i1 %89, label %92, label %90
 
 90:                                               ; preds = %._crit_edge
   %91 = call noalias ptr @malloc(i64 noundef %88) #16
   %.not = icmp eq ptr %91, null
-  %. = select i1 %.not, ptr %7, ptr %91
-  %.106 = select i1 %.not, i64 1025, i64 %88
+  %.106 = select i1 %.not, ptr %7, ptr %91
+  %.107 = select i1 %.not, i64 1025, i64 %88
   br label %92
 
 92:                                               ; preds = %90, %._crit_edge
-  %.085 = phi ptr [ %7, %._crit_edge ], [ %., %90 ]
-  %.084 = phi i64 [ 1025, %._crit_edge ], [ %.106, %90 ]
-  %.083 = phi ptr [ null, %._crit_edge ], [ %91, %90 ]
+  %.084 = phi ptr [ null, %._crit_edge ], [ %91, %90 ]
+  %.083 = phi ptr [ %7, %._crit_edge ], [ %.106, %90 ]
+  %.082 = phi i64 [ 1025, %._crit_edge ], [ %.107, %90 ]
   call void @llvm.va_start.p0(ptr nonnull %6)
-  %93 = call i32 @vsnprintf(ptr noundef nonnull %.085, i64 noundef %.084, ptr noundef %1, ptr noundef nonnull %6) #17
+  %93 = call i32 @vsnprintf(ptr noundef nonnull %.083, i64 noundef %.082, ptr noundef %1, ptr noundef nonnull %6) #17
   call void @llvm.va_end.p0(ptr nonnull %6)
-  %94 = add i64 %.084, -1
-  %95 = getelementptr inbounds i8, ptr %.085, i64 %94
+  %94 = add i64 %.082, -1
+  %95 = getelementptr inbounds i8, ptr %.083, i64 %94
   store i8 0, ptr %95, align 1
   %96 = call i32 @pthread_mutex_lock(ptr noundef nonnull @logg_mutex) #17
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
@@ -733,7 +733,7 @@ logg_open.exit:                                   ; preds = %rename_logg.exit.i,
   %159 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @logg_mutex) #17
   %160 = load ptr, ptr @logg_file, align 8
   %161 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %160)
-  %162 = icmp ugt i64 %.084, 1025
+  %162 = icmp ugt i64 %.082, 1025
   br i1 %162, label %.sink.split117, label %228
 
 163:                                              ; preds = %152
@@ -764,7 +764,7 @@ logg_open.exit:                                   ; preds = %rename_logg.exit.i,
   %176 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @logg_mutex) #17
   %177 = load ptr, ptr @logg_file, align 8
   %178 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %177)
-  %179 = icmp ugt i64 %.084, 1025
+  %179 = icmp ugt i64 %.082, 1025
   br i1 %179, label %.sink.split117, label %228
 
 thread-pre-split:                                 ; preds = %165, %174, %163
@@ -817,13 +817,13 @@ thread-pre-split:                                 ; preds = %165, %174, %163
 
 .thread108:                                       ; preds = %199, %185
   %.sink = phi ptr [ %181, %185 ], [ %.pre, %199 ]
-  %fputs99 = call i32 @fputs(ptr nonnull %.085, ptr %.sink)
+  %fputs99 = call i32 @fputs(ptr nonnull %.083, ptr %.sink)
   br i1 %.not97, label %.critedge, label %204
 
 .critedge.sink.split:                             ; preds = %197, %196
   %.str.5.sink = phi ptr [ @.str.5, %196 ], [ @.str.6, %197 ]
   %200 = load ptr, ptr @logg_fp, align 8
-  %201 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %200, ptr noundef nonnull %.str.5.sink, ptr noundef nonnull %.085) #17
+  %201 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %200, ptr noundef nonnull %.str.5.sink, ptr noundef nonnull %.083) #17
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %197, %.thread108
@@ -850,11 +850,11 @@ thread-pre-split:                                 ; preds = %165, %174, %163
   %214 = add i64 %213, -1
   %215 = getelementptr inbounds [32 x i8], ptr %11, i64 0, i64 %214
   store i8 0, ptr %215, align 1
-  call void (i32, ptr, ...) @mprintf(i32 noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %11, ptr noundef nonnull %.085)
+  call void (i32, ptr, ...) @mprintf(i32 noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %11, ptr noundef nonnull %.083)
   br label %217
 
 216:                                              ; preds = %208
-  call void (i32, ptr, ...) @mprintf(i32 noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull %.085)
+  call void (i32, ptr, ...) @mprintf(i32 noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull %.083)
   br label %217
 
 217:                                              ; preds = %216, %210, %204
@@ -863,7 +863,7 @@ thread-pre-split:                                 ; preds = %165, %174, %163
   br i1 %.not103, label %225, label %219
 
 219:                                              ; preds = %217
-  %220 = call i32 @cli_chomp(ptr noundef nonnull %.085) #17
+  %220 = call i32 @cli_chomp(ptr noundef nonnull %.083) #17
   switch i32 %0, label %223 [
     i32 5, label %.sink.split
     i32 4, label %221
@@ -877,27 +877,27 @@ thread-pre-split:                                 ; preds = %165, %174, %163
 223:                                              ; preds = %219
   %224 = and i32 %0, -2
   %or.cond15 = icmp eq i32 %224, 2
-  %.118 = select i1 %or.cond15, i32 7, i32 6
+  %. = select i1 %or.cond15, i32 7, i32 6
   br label %.sink.split
 
 .sink.split:                                      ; preds = %223, %221, %219
-  %.sink116 = phi i32 [ 3, %219 ], [ 4, %221 ], [ %.118, %223 ]
-  call void (i32, ptr, ...) @syslog(i32 noundef %.sink116, ptr noundef nonnull @.str.7, ptr noundef nonnull %.085) #17
+  %.sink116 = phi i32 [ 3, %219 ], [ 4, %221 ], [ %., %223 ]
+  call void (i32, ptr, ...) @syslog(i32 noundef %.sink116, ptr noundef nonnull @.str.7, ptr noundef nonnull %.083) #17
   br label %225
 
 225:                                              ; preds = %.sink.split, %221, %217
   %226 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @logg_mutex) #17
-  %227 = icmp ugt i64 %.084, 1025
+  %227 = icmp ugt i64 %.082, 1025
   br i1 %227, label %.sink.split117, label %228
 
 .sink.split117:                                   ; preds = %225, %175, %158
-  %.079.ph = phi i32 [ -1, %158 ], [ -1, %175 ], [ 0, %225 ]
-  call void @free(ptr noundef %.083) #17
+  %.085.ph = phi i32 [ -1, %158 ], [ -1, %175 ], [ 0, %225 ]
+  call void @free(ptr noundef %.084) #17
   br label %228
 
 228:                                              ; preds = %.sink.split117, %225, %175, %158, %2, %15
-  %.079 = phi i32 [ 0, %15 ], [ 0, %2 ], [ -1, %158 ], [ -1, %175 ], [ 0, %225 ], [ %.079.ph, %.sink.split117 ]
-  ret i32 %.079
+  %.085 = phi i32 [ 0, %15 ], [ 0, %2 ], [ -1, %158 ], [ -1, %175 ], [ 0, %225 ], [ %.085.ph, %.sink.split117 ]
+  ret i32 %.085
 }
 
 ; Function Attrs: nounwind
@@ -957,16 +957,16 @@ define void @mprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
 14:                                               ; preds = %.lr.ph, %71
   %15 = phi i32 [ %.promoted73, %.lr.ph ], [ %72, %71 ]
   %16 = phi ptr [ %.promoted72, %.lr.ph ], [ %73, %71 ]
-  %.04171 = phi i64 [ 0, %.lr.ph ], [ %75, %71 ]
-  %.04370 = phi i64 [ 1, %.lr.ph ], [ %.144, %71 ]
+  %.071 = phi i64 [ 0, %.lr.ph ], [ %75, %71 ]
+  %.04170 = phi i64 [ 1, %.lr.ph ], [ %.142, %71 ]
   %17 = phi i32 [ %.promoted, %.lr.ph ], [ %74, %71 ]
-  %18 = getelementptr inbounds i8, ptr %1, i64 %.04171
+  %18 = getelementptr inbounds i8, ptr %1, i64 %.071
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 37
   br i1 %20, label %21, label %71
 
 21:                                               ; preds = %14
-  %22 = add nuw i64 %.04171, 1
+  %22 = add nuw i64 %.071, 1
   %23 = getelementptr inbounds i8, ptr %1, i64 %22
   %24 = load i8, ptr %23, align 1
   switch i8 %24, label %61 [
@@ -1001,7 +1001,7 @@ define void @mprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
 
 38:                                               ; preds = %33
   %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #15
-  %40 = add i64 %39, %.04370
+  %40 = add i64 %39, %.04170
   br label %71
 
 41:                                               ; preds = %21
@@ -1021,7 +1021,7 @@ define void @mprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
 47:                                               ; preds = %45, %43
   %48 = phi i32 [ %15, %45 ], [ %44, %43 ]
   %49 = phi ptr [ %46, %45 ], [ %16, %43 ]
-  %50 = add i64 %.04370, 25
+  %50 = add i64 %.04170, 25
   br label %71
 
 51:                                               ; preds = %21
@@ -1041,7 +1041,7 @@ define void @mprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
 57:                                               ; preds = %55, %53
   %58 = phi ptr [ %56, %55 ], [ %16, %53 ]
   %59 = phi i32 [ %17, %55 ], [ %54, %53 ]
-  %60 = add i64 %.04370, 20
+  %60 = add i64 %.04170, 20
   br label %71
 
 61:                                               ; preds = %21
@@ -1061,23 +1061,23 @@ define void @mprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
 67:                                               ; preds = %65, %63
   %68 = phi ptr [ %66, %65 ], [ %16, %63 ]
   %69 = phi i32 [ %17, %65 ], [ %64, %63 ]
-  %70 = add i64 %.04370, 10
+  %70 = add i64 %.04170, 10
   br label %71
 
 71:                                               ; preds = %14, %33, %38, %67, %57, %47
   %72 = phi i32 [ %15, %67 ], [ %15, %57 ], [ %48, %47 ], [ %15, %38 ], [ %15, %33 ], [ %15, %14 ]
   %73 = phi ptr [ %68, %67 ], [ %58, %57 ], [ %49, %47 ], [ %34, %38 ], [ %34, %33 ], [ %16, %14 ]
   %74 = phi i32 [ %69, %67 ], [ %59, %57 ], [ %17, %47 ], [ %35, %38 ], [ %35, %33 ], [ %17, %14 ]
-  %.144 = phi i64 [ %70, %67 ], [ %60, %57 ], [ %50, %47 ], [ %40, %38 ], [ %.04370, %33 ], [ %.04370, %14 ]
-  %.142 = phi i64 [ %22, %67 ], [ %22, %57 ], [ %22, %47 ], [ %22, %38 ], [ %22, %33 ], [ %.04171, %14 ]
-  %75 = add i64 %.142, 1
+  %.142 = phi i64 [ %70, %67 ], [ %60, %57 ], [ %50, %47 ], [ %40, %38 ], [ %.04170, %33 ], [ %.04170, %14 ]
+  %.1 = phi i64 [ %22, %67 ], [ %22, %57 ], [ %22, %47 ], [ %22, %38 ], [ %22, %33 ], [ %.071, %14 ]
+  %75 = add i64 %.1, 1
   %76 = icmp ult i64 %75, %9
   br i1 %76, label %14, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %71, %6
-  %.043.lcssa = phi i64 [ 1, %6 ], [ %.144, %71 ]
+  %.041.lcssa = phi i64 [ 1, %6 ], [ %.142, %71 ]
   call void @llvm.va_end.p0(ptr nonnull %3)
-  %77 = add i64 %.043.lcssa, %8
+  %77 = add i64 %.041.lcssa, %8
   %78 = icmp ult i64 %77, 513
   br i1 %78, label %81, label %79
 
@@ -1089,14 +1089,14 @@ define void @mprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
   br label %81
 
 81:                                               ; preds = %79, %._crit_edge
-  %.047 = phi ptr [ null, %._crit_edge ], [ %80, %79 ]
-  %.046 = phi ptr [ %4, %._crit_edge ], [ %.67, %79 ]
-  %.045 = phi i64 [ 512, %._crit_edge ], [ %.68, %79 ]
+  %.045 = phi ptr [ null, %._crit_edge ], [ %80, %79 ]
+  %.044 = phi ptr [ %4, %._crit_edge ], [ %.67, %79 ]
+  %.043 = phi i64 [ 512, %._crit_edge ], [ %.68, %79 ]
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %82 = call i32 @vsnprintf(ptr noundef nonnull %.046, i64 noundef %.045, ptr noundef %1, ptr noundef nonnull %3) #17
+  %82 = call i32 @vsnprintf(ptr noundef nonnull %.044, i64 noundef %.043, ptr noundef %1, ptr noundef nonnull %3) #17
   call void @llvm.va_end.p0(ptr nonnull %3)
-  %83 = add i64 %.045, -1
-  %84 = getelementptr inbounds i8, ptr %.046, i64 %83
+  %83 = add i64 %.043, -1
+  %84 = getelementptr inbounds i8, ptr %.044, i64 %83
   store i8 0, ptr %84, align 1
   %85 = icmp eq i32 %0, 5
   br i1 %85, label %86, label %90
@@ -1106,7 +1106,7 @@ define void @mprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
   %.not65 = icmp eq i16 %87, 0
   %88 = load ptr, ptr @stderr, align 8
   %spec.select = select i1 %.not65, ptr %88, ptr %7
-  %89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %spec.select, ptr noundef nonnull @.str.5, ptr noundef nonnull %.046) #17
+  %89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %spec.select, ptr noundef nonnull @.str.5, ptr noundef nonnull %.044) #17
   br label %104
 
 90:                                               ; preds = %81
@@ -1131,7 +1131,7 @@ define void @mprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
   %.not64 = icmp eq i16 %96, 0
   %97 = load ptr, ptr @stderr, align 8
   %spec.select69 = select i1 %.not64, ptr %97, ptr %7
-  %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %spec.select69, ptr noundef nonnull @.str.6, ptr noundef nonnull %.046) #17
+  %98 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %spec.select69, ptr noundef nonnull @.str.6, ptr noundef nonnull %.044) #17
   br label %104
 
 99:                                               ; preds = %92
@@ -1140,15 +1140,15 @@ define void @mprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
   br i1 %.not61, label %104, label %101
 
 101:                                              ; preds = %99
-  %fputs62 = call i32 @fputs(ptr nonnull %.046, ptr %7)
+  %fputs62 = call i32 @fputs(ptr nonnull %.044, ptr %7)
   br label %104
 
 102:                                              ; preds = %92
-  %fputs60 = call i32 @fputs(ptr nonnull %.046, ptr %7)
+  %fputs60 = call i32 @fputs(ptr nonnull %.044, ptr %7)
   br label %104
 
 103:                                              ; preds = %92
-  %fputs = call i32 @fputs(ptr nonnull %.046, ptr %7)
+  %fputs = call i32 @fputs(ptr nonnull %.044, ptr %7)
   br label %104
 
 104:                                              ; preds = %90, %101, %99, %103, %102, %93, %95, %86
@@ -1162,11 +1162,11 @@ define void @mprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
   br label %109
 
 109:                                              ; preds = %107, %104
-  %110 = icmp ugt i64 %.045, 512
+  %110 = icmp ugt i64 %.043, 512
   br i1 %110, label %111, label %112
 
 111:                                              ; preds = %109
-  call void @free(ptr noundef %.047) #17
+  call void @free(ptr noundef %.045) #17
   br label %112
 
 112:                                              ; preds = %2, %111, %109

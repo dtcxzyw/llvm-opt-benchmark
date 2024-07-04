@@ -5924,11 +5924,11 @@ _ZN11wasi_common5sched4Poll23earliest_clock_deadline17h57f423e063c6bd4aE.exit.i:
   %126 = extractvalue { i64, i32 } %122, 1
   %127 = extractvalue { i64, i32 } %122, 0
   %128 = icmp eq i32 %126, 1000000000
-  %129 = zext i64 %127 to i128
-  %130 = udiv i32 %126, 1000000
-  %131 = mul nuw nsw i128 %129, 1000
+  %129 = udiv i32 %126, 1000000
+  %130 = zext i64 %127 to i128
+  %131 = mul nuw nsw i128 %130, 1000
   %132 = select i1 %128, i128 0, i128 %131
-  %133 = select i1 %128, i32 0, i32 %130
+  %133 = select i1 %128, i32 0, i32 %129
   %134 = zext nneg i32 %133 to i128
   %135 = add nuw nsw i128 %132, %134
   %136 = icmp ult i128 %135, 2147483647
@@ -6420,8 +6420,8 @@ _ZN11wasi_common5sched4Poll23earliest_clock_deadline17h57f423e063c6bd4aE.exit.i:
   %270 = extractvalue { ptr, i32, i32 } %269, 0
   %.not.i.i.i.i = icmp sgt ptr %270, inttoptr (i64 -4096 to ptr)
   %271 = icmp slt ptr %270, null
-  %.014.i.i.i.i = and i1 %.not.i.i.i.i, %271
-  br i1 %.014.i.i.i.i, label %276, label %272
+  %.0.i.i.i.i = and i1 %.not.i.i.i.i, %271
+  br i1 %.0.i.i.i.i, label %276, label %272
 
 272:                                              ; preds = %265
   %.not94.i = icmp eq ptr %270, null

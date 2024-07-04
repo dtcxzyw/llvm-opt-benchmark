@@ -995,7 +995,7 @@ define range(i32 0, 2) i32 @Abc_NtkAppend(ptr noundef %0, ptr noundef %1, i32 no
 .lr.ph:                                           ; preds = %14, %29
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %14 ]
   %.val101143 = phi ptr [ %.val101, %29 ], [ %.val101139, %14 ]
-  %.080141 = phi i32 [ %.181, %29 ], [ 0, %14 ]
+  %.079142 = phi i32 [ %.1, %29 ], [ 0, %14 ]
   %18 = getelementptr i8, ptr %.val101143, i64 8
   %.val102.val = load ptr, ptr %18, align 8
   %19 = getelementptr inbounds ptr, ptr %.val102.val, i64 %indvars.iv
@@ -1011,11 +1011,11 @@ define range(i32 0, 2) i32 @Abc_NtkAppend(ptr noundef %0, ptr noundef %1, i32 no
 26:                                               ; preds = %.lr.ph
   %27 = tail call ptr @Abc_NtkDupObj(ptr noundef %0, ptr noundef nonnull %20, i32 noundef 1) #11
   store ptr %27, ptr %24, align 8
-  %28 = add nsw i32 %.080141, 1
+  %28 = add nsw i32 %.079142, 1
   br label %29
 
 29:                                               ; preds = %.lr.ph, %26
-  %.181 = phi i32 [ %28, %26 ], [ %.080141, %.lr.ph ]
+  %.1 = phi i32 [ %28, %26 ], [ %.079142, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val101 = load ptr, ptr %15, align 8
   %30 = getelementptr i8, ptr %.val101, i64 4
@@ -1025,11 +1025,11 @@ define range(i32 0, 2) i32 @Abc_NtkAppend(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %32, label %.lr.ph, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %29
-  %.not87 = icmp eq i32 %.181, 0
+  %.not87 = icmp eq i32 %.1, 0
   br i1 %.not87, label %.critedge.thread, label %33
 
 33:                                               ; preds = %.critedge
-  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.181)
+  %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.1)
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %14, %33, %.critedge

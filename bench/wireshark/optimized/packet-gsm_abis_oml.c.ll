@@ -1339,8 +1339,8 @@ dissect_oml_manuf.exit:                           ; preds = %56, %60
   br label %62
 
 62:                                               ; preds = %44, %dissect_oml_manuf.exit, %41, %36, %39
-  %.051 = phi i32 [ 4, %39 ], [ 4, %36 ], [ 4, %41 ], [ %.0.i, %dissect_oml_manuf.exit ], [ %45, %44 ]
-  ret i32 %.051
+  %.0 = phi i32 [ 4, %39 ], [ 4, %36 ], [ 4, %41 ], [ %.0.i, %dissect_oml_manuf.exit ], [ %45, %44 ]
+  ret i32 %.0
 }
 
 declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -1562,13 +1562,13 @@ find_tlv_tag.exit:                                ; preds = %19, %.thread.i
   br label %.loopexit362
 
 49:                                               ; preds = %find_tlv_tag.exit, %41, %32, %28, %27, %23
-  %.0355 = phi i32 [ 2, %41 ], [ 3, %32 ], [ 2, %28 ], [ 1, %27 ], [ 1, %23 ], [ 1, %find_tlv_tag.exit ]
-  %.0354 = phi i32 [ 1, %41 ], [ 2, %32 ], [ 1, %28 ], [ 0, %27 ], [ 0, %23 ], [ 0, %find_tlv_tag.exit ]
   %.0353 = phi i32 [ %45, %41 ], [ %40, %32 ], [ %31, %28 ], [ 1, %27 ], [ %26, %23 ], [ 0, %find_tlv_tag.exit ]
+  %.0352 = phi i32 [ 1, %41 ], [ 2, %32 ], [ 1, %28 ], [ 0, %27 ], [ 0, %23 ], [ 0, %find_tlv_tag.exit ]
+  %.0351 = phi i32 [ 2, %41 ], [ 3, %32 ], [ 2, %28 ], [ 1, %27 ], [ 1, %23 ], [ 1, %find_tlv_tag.exit ]
   %50 = load i32, ptr @hf_oml_fom_attr_len, align 4
   %51 = add i32 %.0349374, 1
-  %52 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %50, ptr noundef %0, i32 noundef %51, i32 noundef %.0354, i32 noundef %.0353) #5
-  %53 = add i32 %.0355, %.0349374
+  %52 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %50, ptr noundef %0, i32 noundef %51, i32 noundef %.0352, i32 noundef %.0353) #5
+  %53 = add i32 %.0351, %.0349374
   %54 = icmp eq i32 %.0353, 0
   br i1 %54, label %.backedge, label %55
 
@@ -1621,11 +1621,11 @@ find_tlv_tag.exit:                                ; preds = %19, %.thread.i
   br label %dissect_ipacc_test_rep.exit
 
 .lr.ph371:                                        ; preds = %55, %.lr.ph371
-  %.0351370 = phi i32 [ %76, %.lr.ph371 ], [ 0, %55 ]
+  %.0355370 = phi i32 [ %76, %.lr.ph371 ], [ 0, %55 ]
   %73 = load i32, ptr @hf_attr_arfcn, align 4
-  %74 = add i32 %.0351370, %53
+  %74 = add i32 %.0355370, %53
   %75 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %73, ptr noundef %0, i32 noundef %74, i32 noundef 2, i32 noundef 0) #5
-  %76 = add nuw nsw i32 %.0351370, 2
+  %76 = add nuw nsw i32 %.0355370, 2
   %77 = icmp ult i32 %76, %.0353
   br i1 %77, label %.lr.ph371, label %dissect_ipacc_test_rep.exit, !llvm.loop !4
 
@@ -2129,7 +2129,7 @@ dissect_ipacc_test_rep.exit:                      ; preds = %.lr.ph369, %ipacc_t
   br i1 %exitcond389.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %260, %261, %264, %267, %270, %273, %276, %283, %303, %306, %309, %312, %315, %324, %345, %354, %384, %399, %dissect_ipacc_test_rep.exit
-  %408 = add i32 %.0353, %53
+  %408 = add i32 %53, %.0353
   br label %.backedge
 
 .backedge:                                        ; preds = %.loopexit, %49

@@ -51,8 +51,8 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
 
 .lr.ph.i:                                         ; preds = %1, %.backedge.i
   %.0141.i = phi ptr [ %.0.be.i, %.backedge.i ], [ %5, %1 ]
-  %.0105140.i = phi ptr [ %.0105.be.i, %.backedge.i ], [ %8, %1 ]
-  %.0106139.i = phi i32 [ %.0106.be.i, %.backedge.i ], [ %11, %1 ]
+  %.0105140.i = phi i32 [ %.0105.be.i, %.backedge.i ], [ %11, %1 ]
+  %.0106139.i = phi ptr [ %.0106.be.i, %.backedge.i ], [ %8, %1 ]
   %20 = load i8, ptr %.0141.i, align 1
   %21 = zext i8 %20 to i32
   %.not.i = icmp sgt i8 %20, -1
@@ -66,25 +66,25 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
   br i1 %.not, label %25, label %euc_jis_20042shift_jis_2004.exit
 
 25:                                               ; preds = %24
-  tail call void @report_invalid_encoding(i32 noundef 5, ptr noundef nonnull %.0141.i, i32 noundef %.0106139.i) #5
+  tail call void @report_invalid_encoding(i32 noundef 5, ptr noundef nonnull %.0141.i, i32 noundef %.0105140.i) #5
   unreachable
 
 26:                                               ; preds = %22
-  %27 = getelementptr i8, ptr %.0105140.i, i64 1
-  store i8 %20, ptr %.0105140.i, align 1
+  %27 = getelementptr i8, ptr %.0106139.i, i64 1
+  store i8 %20, ptr %.0106139.i, align 1
   %28 = getelementptr i8, ptr %.0141.i, i64 1
-  %29 = add nsw i32 %.0106139.i, -1
+  %29 = add nsw i32 %.0105140.i, -1
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %113, %26
-  %.0106.be.i = phi i32 [ %116, %113 ], [ %29, %26 ]
-  %.0105.be.i = phi ptr [ %.3.i, %113 ], [ %27, %26 ]
+  %.0106.be.i = phi ptr [ %.3.i, %113 ], [ %27, %26 ]
+  %.0105.be.i = phi i32 [ %116, %113 ], [ %29, %26 ]
   %.0.be.i = phi ptr [ %115, %113 ], [ %28, %26 ]
-  %30 = icmp sgt i32 %.0106.be.i, 0
+  %30 = icmp sgt i32 %.0105.be.i, 0
   br i1 %30, label %.lr.ph.i, label %euc_jis_20042shift_jis_2004.exit, !llvm.loop !4
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = tail call i32 @pg_encoding_verifymbchar(i32 noundef 5, ptr noundef nonnull %.0141.i, i32 noundef %.0106139.i) #4
+  %32 = tail call i32 @pg_encoding_verifymbchar(i32 noundef 5, ptr noundef nonnull %.0141.i, i32 noundef %.0105140.i) #4
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %34, label %36
 
@@ -92,7 +92,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
   br i1 %.not, label %35, label %euc_jis_20042shift_jis_2004.exit
 
 35:                                               ; preds = %34
-  tail call void @report_invalid_encoding(i32 noundef 5, ptr noundef nonnull %.0141.i, i32 noundef %.0106139.i) #5
+  tail call void @report_invalid_encoding(i32 noundef 5, ptr noundef nonnull %.0141.i, i32 noundef %.0105140.i) #5
   unreachable
 
 36:                                               ; preds = %31
@@ -104,8 +104,8 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
 39:                                               ; preds = %36
   %40 = getelementptr i8, ptr %.0141.i, i64 1
   %41 = load i8, ptr %40, align 1
-  %42 = getelementptr i8, ptr %.0105140.i, i64 1
-  store i8 %41, ptr %.0105140.i, align 1
+  %42 = getelementptr i8, ptr %.0106139.i, i64 1
+  store i8 %41, ptr %.0106139.i, align 1
   br label %113
 
 43:                                               ; preds = %36
@@ -155,18 +155,18 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
   br i1 %.not, label %64, label %67
 
 64:                                               ; preds = %63
-  tail call void @report_invalid_encoding(i32 noundef 5, ptr noundef nonnull %.0141.i, i32 noundef %.0106139.i) #5
+  tail call void @report_invalid_encoding(i32 noundef 5, ptr noundef nonnull %.0141.i, i32 noundef %.0105140.i) #5
   unreachable
 
 .sink.split.i:                                    ; preds = %60, %52
   %.sink185.i = phi i32 [ %62, %60 ], [ %57, %52 ]
   %65 = trunc i32 %.sink185.i to i8
-  %66 = getelementptr i8, ptr %.0105140.i, i64 1
-  store i8 %65, ptr %.0105140.i, align 1
+  %66 = getelementptr i8, ptr %.0106139.i, i64 1
+  store i8 %65, ptr %.0106139.i, align 1
   br label %67
 
 67:                                               ; preds = %.sink.split.i, %63
-  %.1.i = phi ptr [ %.0105140.i, %63 ], [ %66, %.sink.split.i ]
+  %.1.i = phi ptr [ %.0106139.i, %63 ], [ %66, %.sink.split.i ]
   %68 = and i32 %49, 1
   %.not116.i = icmp eq i32 %68, 0
   br i1 %.not116.i, label %81, label %69
@@ -197,7 +197,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
   br i1 %.not, label %80, label %euc_jis_20042shift_jis_2004.exit
 
 80:                                               ; preds = %79
-  tail call void @report_invalid_encoding(i32 noundef 5, ptr noundef nonnull %.0141.i, i32 noundef %.0106139.i) #5
+  tail call void @report_invalid_encoding(i32 noundef 5, ptr noundef nonnull %.0141.i, i32 noundef %.0105140.i) #5
   unreachable
 
 81:                                               ; preds = %67
@@ -225,16 +225,16 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
   br i1 %.not, label %92, label %euc_jis_20042shift_jis_2004.exit
 
 92:                                               ; preds = %91
-  tail call void @report_invalid_encoding(i32 noundef 5, ptr noundef nonnull %.0141.i, i32 noundef %.0106139.i) #5
+  tail call void @report_invalid_encoding(i32 noundef 5, ptr noundef nonnull %.0141.i, i32 noundef %.0105140.i) #5
   unreachable
 
 93:                                               ; preds = %89, %85
   %.sink.i = phi i32 [ 97, %85 ], [ 225, %89 ]
   %94 = add nuw nsw i32 %.sink.i, %21
-  %.2.i = getelementptr i8, ptr %.0105140.i, i64 1
+  %.2.i = getelementptr i8, ptr %.0106139.i, i64 1
   %storemerge.in.i = lshr i32 %94, 1
   %storemerge.i = trunc nuw i32 %storemerge.in.i to i8
-  store i8 %storemerge.i, ptr %.0105140.i, align 1
+  store i8 %storemerge.i, ptr %.0106139.i, align 1
   %95 = and i32 %21, 1
   %.not115.i = icmp eq i32 %95, 0
   br i1 %.not115.i, label %108, label %96
@@ -246,7 +246,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
 
 98:                                               ; preds = %96
   %99 = add i8 %87, -97
-  %100 = getelementptr i8, ptr %.0105140.i, i64 2
+  %100 = getelementptr i8, ptr %.0106139.i, i64 2
   store i8 %99, ptr %.2.i, align 1
   br label %113
 
@@ -257,7 +257,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
 
 103:                                              ; preds = %101
   %104 = add nsw i8 %87, -96
-  %105 = getelementptr i8, ptr %.0105140.i, i64 2
+  %105 = getelementptr i8, ptr %.0106139.i, i64 2
   store i8 %104, ptr %.2.i, align 1
   br label %113
 
@@ -265,12 +265,12 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
   br i1 %.not, label %107, label %euc_jis_20042shift_jis_2004.exit
 
 107:                                              ; preds = %106
-  tail call void @report_invalid_encoding(i32 noundef 5, ptr noundef nonnull %.0141.i, i32 noundef %.0106139.i) #5
+  tail call void @report_invalid_encoding(i32 noundef 5, ptr noundef nonnull %.0141.i, i32 noundef %.0105140.i) #5
   unreachable
 
 108:                                              ; preds = %93
   %109 = add i8 %87, -2
-  %110 = getelementptr i8, ptr %.0105140.i, i64 2
+  %110 = getelementptr i8, ptr %.0106139.i, i64 2
   store i8 %109, ptr %.2.i, align 1
   br label %113
 
@@ -278,19 +278,19 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
   br i1 %.not, label %112, label %euc_jis_20042shift_jis_2004.exit
 
 112:                                              ; preds = %111
-  tail call void @report_invalid_encoding(i32 noundef 5, ptr noundef nonnull %.0141.i, i32 noundef %.0106139.i) #5
+  tail call void @report_invalid_encoding(i32 noundef 5, ptr noundef nonnull %.0141.i, i32 noundef %.0105140.i) #5
   unreachable
 
 113:                                              ; preds = %108, %103, %98, %81, %76, %71, %39
   %.3.i = phi ptr [ %42, %39 ], [ %73, %71 ], [ %78, %76 ], [ %83, %81 ], [ %100, %98 ], [ %105, %103 ], [ %110, %108 ]
   %114 = zext nneg i32 %32 to i64
   %115 = getelementptr i8, ptr %.0141.i, i64 %114
-  %116 = sub nsw i32 %.0106139.i, %32
+  %116 = sub nsw i32 %.0105140.i, %32
   br label %.backedge.i
 
 euc_jis_20042shift_jis_2004.exit:                 ; preds = %.backedge.i, %1, %24, %34, %79, %91, %106, %111
   %.0124.i = phi ptr [ %.0141.i, %34 ], [ %.0141.i, %79 ], [ %.0141.i, %106 ], [ %.0141.i, %91 ], [ %.0141.i, %111 ], [ %.0141.i, %24 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
-  %.4.i = phi ptr [ %.0105140.i, %34 ], [ %.1.i, %79 ], [ %.2.i, %106 ], [ %.0105140.i, %91 ], [ %.0105140.i, %111 ], [ %.0105140.i, %24 ], [ %8, %1 ], [ %.0105.be.i, %.backedge.i ]
+  %.4.i = phi ptr [ %.0106139.i, %34 ], [ %.1.i, %79 ], [ %.2.i, %106 ], [ %.0106139.i, %91 ], [ %.0106139.i, %111 ], [ %.0106139.i, %24 ], [ %8, %1 ], [ %.0106.be.i, %.backedge.i ]
   store i8 0, ptr %.4.i, align 1
   %117 = ptrtoint ptr %.0124.i to i64
   %118 = sub i64 %117, %4
@@ -326,10 +326,10 @@ define range(i64 -2147483648, 2147483648) i64 @shift_jis_2004_to_euc_jis_2004(pt
   br i1 %19, label %.lr.ph.i, label %shift_jis_20042euc_jis_2004.exit
 
 .lr.ph.i:                                         ; preds = %1, %.backedge.i
-  %.0197.i = phi ptr [ %.0.be.i, %.backedge.i ], [ %5, %1 ]
-  %.091195.i = phi ptr [ %.091.be.i, %.backedge.i ], [ %8, %1 ]
-  %.095191.i = phi i32 [ %.095.be.i, %.backedge.i ], [ %11, %1 ]
-  %20 = load i8, ptr %.0197.i, align 1
+  %.093197.i = phi ptr [ %.093.be.i, %.backedge.i ], [ %5, %1 ]
+  %.094193.i = phi i32 [ %.094.be.i, %.backedge.i ], [ %11, %1 ]
+  %.095191.i = phi ptr [ %.095.be.i, %.backedge.i ], [ %8, %1 ]
+  %20 = load i8, ptr %.093197.i, align 1
   %21 = zext i8 %20 to i32
   %.not.i = icmp sgt i8 %20, -1
   br i1 %.not.i, label %22, label %31
@@ -342,33 +342,33 @@ define range(i64 -2147483648, 2147483648) i64 @shift_jis_2004_to_euc_jis_2004(pt
   br i1 %.not, label %25, label %shift_jis_20042euc_jis_2004.exit
 
 25:                                               ; preds = %24
-  tail call void @report_invalid_encoding(i32 noundef 41, ptr noundef nonnull %.0197.i, i32 noundef %.095191.i) #5
+  tail call void @report_invalid_encoding(i32 noundef 41, ptr noundef nonnull %.093197.i, i32 noundef %.094193.i) #5
   unreachable
 
 26:                                               ; preds = %22
-  %27 = getelementptr i8, ptr %.091195.i, i64 1
-  store i8 %20, ptr %.091195.i, align 1
-  %28 = getelementptr i8, ptr %.0197.i, i64 1
-  %29 = add nsw i32 %.095191.i, -1
+  %27 = getelementptr i8, ptr %.095191.i, i64 1
+  store i8 %20, ptr %.095191.i, align 1
+  %28 = getelementptr i8, ptr %.093197.i, i64 1
+  %29 = add nsw i32 %.094193.i, -1
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %131, %26
-  %.095.be.i = phi i32 [ %134, %131 ], [ %29, %26 ]
-  %.091.be.i = phi ptr [ %.2.i, %131 ], [ %27, %26 ]
-  %.0.be.i = phi ptr [ %133, %131 ], [ %28, %26 ]
-  %30 = icmp sgt i32 %.095.be.i, 0
+  %.095.be.i = phi ptr [ %.2.i, %131 ], [ %27, %26 ]
+  %.094.be.i = phi i32 [ %134, %131 ], [ %29, %26 ]
+  %.093.be.i = phi ptr [ %133, %131 ], [ %28, %26 ]
+  %30 = icmp sgt i32 %.094.be.i, 0
   br i1 %30, label %.lr.ph.i, label %shift_jis_20042euc_jis_2004.exit, !llvm.loop !6
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = tail call i32 @pg_encoding_verifymbchar(i32 noundef 41, ptr noundef nonnull %.0197.i, i32 noundef %.095191.i) #4
-  %or.cond103.i = icmp ugt i32 %32, %.095191.i
+  %32 = tail call i32 @pg_encoding_verifymbchar(i32 noundef 41, ptr noundef nonnull %.093197.i, i32 noundef %.094193.i) #4
+  %or.cond103.i = icmp ugt i32 %32, %.094193.i
   br i1 %or.cond103.i, label %33, label %35
 
 33:                                               ; preds = %31
   br i1 %.not, label %34, label %shift_jis_20042euc_jis_2004.exit
 
 34:                                               ; preds = %33
-  tail call void @report_invalid_encoding(i32 noundef 41, ptr noundef nonnull %.0197.i, i32 noundef %.095191.i) #5
+  tail call void @report_invalid_encoding(i32 noundef 41, ptr noundef nonnull %.093197.i, i32 noundef %.094193.i) #5
   unreachable
 
 35:                                               ; preds = %31
@@ -379,9 +379,9 @@ define range(i64 -2147483648, 2147483648) i64 @shift_jis_2004_to_euc_jis_2004(pt
   br i1 %or.cond3.i, label %38, label %41
 
 38:                                               ; preds = %35
-  %39 = getelementptr i8, ptr %.091195.i, i64 1
-  store i8 -114, ptr %.091195.i, align 1
-  %40 = getelementptr i8, ptr %.091195.i, i64 2
+  %39 = getelementptr i8, ptr %.095191.i, i64 1
+  store i8 -114, ptr %.095191.i, align 1
+  %40 = getelementptr i8, ptr %.095191.i, i64 2
   store i8 %20, ptr %39, align 1
   br label %131
 
@@ -390,7 +390,7 @@ define range(i64 -2147483648, 2147483648) i64 @shift_jis_2004_to_euc_jis_2004(pt
   br i1 %42, label %43, label %131
 
 43:                                               ; preds = %41
-  %44 = getelementptr i8, ptr %.0197.i, i64 1
+  %44 = getelementptr i8, ptr %.093197.i, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
   %47 = icmp ne i8 %20, -128
@@ -428,7 +428,7 @@ get_ten.exit.thread.i:                            ; preds = %get_ten.exit.i, %54
   br i1 %.not, label %58, label %shift_jis_20042euc_jis_2004.exit
 
 58:                                               ; preds = %get_ten.exit.thread.i
-  tail call void @report_invalid_encoding(i32 noundef 41, ptr noundef nonnull %.0197.i, i32 noundef %.095191.i) #5
+  tail call void @report_invalid_encoding(i32 noundef 41, ptr noundef nonnull %.093197.i, i32 noundef %.094193.i) #5
   unreachable
 
 59:                                               ; preds = %get_ten.exit.i, %get_ten.exit.thread133.i
@@ -474,7 +474,7 @@ get_ten.exit110.thread.i:                         ; preds = %get_ten.exit110.i, 
   br i1 %.not, label %74, label %shift_jis_20042euc_jis_2004.exit
 
 74:                                               ; preds = %get_ten.exit110.thread.i
-  tail call void @report_invalid_encoding(i32 noundef 41, ptr noundef nonnull %.0197.i, i32 noundef %.095191.i) #5
+  tail call void @report_invalid_encoding(i32 noundef 41, ptr noundef nonnull %.093197.i, i32 noundef %.094193.i) #5
   unreachable
 
 75:                                               ; preds = %get_ten.exit110.i, %get_ten.exit110.thread141.i
@@ -520,7 +520,7 @@ get_ten.exit117.thread.i:                         ; preds = %get_ten.exit117.i, 
   br i1 %.not, label %90, label %shift_jis_20042euc_jis_2004.exit
 
 90:                                               ; preds = %get_ten.exit117.thread.i
-  tail call void @report_invalid_encoding(i32 noundef 41, ptr noundef nonnull %.0197.i, i32 noundef %.095191.i) #5
+  tail call void @report_invalid_encoding(i32 noundef 41, ptr noundef nonnull %.093197.i, i32 noundef %.094193.i) #5
   unreachable
 
 91:                                               ; preds = %get_ten.exit117.i, %get_ten.exit117.thread149.i
@@ -584,7 +584,7 @@ get_ten.exit124.thread.i:                         ; preds = %get_ten.exit124.i, 
   br i1 %.not, label %112, label %shift_jis_20042euc_jis_2004.exit
 
 112:                                              ; preds = %get_ten.exit124.thread.i
-  tail call void @report_invalid_encoding(i32 noundef 41, ptr noundef nonnull %.0197.i, i32 noundef %.095191.i) #5
+  tail call void @report_invalid_encoding(i32 noundef 41, ptr noundef nonnull %.093197.i, i32 noundef %.094193.i) #5
   unreachable
 
 113:                                              ; preds = %get_ten.exit124.i, %get_ten.exit124.thread157.i
@@ -605,42 +605,42 @@ get_ten.exit124.thread.i:                         ; preds = %get_ten.exit124.i, 
   br i1 %.not, label %121, label %shift_jis_20042euc_jis_2004.exit
 
 121:                                              ; preds = %120
-  tail call void @report_invalid_encoding(i32 noundef 41, ptr noundef nonnull %.0197.i, i32 noundef %.095191.i) #5
+  tail call void @report_invalid_encoding(i32 noundef 41, ptr noundef nonnull %.093197.i, i32 noundef %.094193.i) #5
   unreachable
 
 122:                                              ; preds = %116, %113, %99, %97, %95, %93
-  %.094.ph.i = phi i32 [ 15, %113 ], [ %119, %116 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ]
-  %.093.ph.i = phi i32 [ %.0.i123161.i, %113 ], [ %.0.i123161.i, %116 ], [ %.0.i116153.i, %93 ], [ %.0.i116153.i, %95 ], [ %.0.i116153.i, %97 ], [ %.0.i116153.i, %99 ]
-  %123 = getelementptr i8, ptr %.091195.i, i64 1
-  store i8 -113, ptr %.091195.i, align 1
+  %.092.ph.i = phi i32 [ 15, %113 ], [ %119, %116 ], [ %94, %93 ], [ %96, %95 ], [ %98, %97 ], [ %100, %99 ]
+  %.091.ph.i = phi i32 [ %.0.i123161.i, %113 ], [ %.0.i123161.i, %116 ], [ %.0.i116153.i, %93 ], [ %.0.i116153.i, %95 ], [ %.0.i116153.i, %97 ], [ %.0.i116153.i, %99 ]
+  %123 = getelementptr i8, ptr %.095191.i, i64 1
+  store i8 -113, ptr %.095191.i, align 1
   br label %124
 
 124:                                              ; preds = %122, %75, %59
-  %.093166.i = phi i32 [ %.093.ph.i, %122 ], [ %.0.i137.i, %59 ], [ %.0.i109145.i, %75 ]
-  %.094164.i = phi i32 [ %.094.ph.i, %122 ], [ %62, %59 ], [ %78, %75 ]
-  %.1.i = phi ptr [ %123, %122 ], [ %.091195.i, %59 ], [ %.091195.i, %75 ]
-  %125 = trunc i32 %.094164.i to i8
+  %.091166.i = phi i32 [ %.091.ph.i, %122 ], [ %.0.i137.i, %59 ], [ %.0.i109145.i, %75 ]
+  %.092164.i = phi i32 [ %.092.ph.i, %122 ], [ %62, %59 ], [ %78, %75 ]
+  %.1.i = phi ptr [ %123, %122 ], [ %.095191.i, %59 ], [ %.095191.i, %75 ]
+  %125 = trunc i32 %.092164.i to i8
   %126 = add i8 %125, -96
   %127 = getelementptr i8, ptr %.1.i, i64 1
   store i8 %126, ptr %.1.i, align 1
-  %128 = trunc i32 %.093166.i to i8
+  %128 = trunc i32 %.091166.i to i8
   %129 = add i8 %128, -96
   %130 = getelementptr i8, ptr %.1.i, i64 2
   store i8 %129, ptr %127, align 1
   br label %131
 
 131:                                              ; preds = %124, %41, %38
-  %.2.i = phi ptr [ %40, %38 ], [ %130, %124 ], [ %.091195.i, %41 ]
+  %.2.i = phi ptr [ %40, %38 ], [ %130, %124 ], [ %.095191.i, %41 ]
   %132 = zext nneg i32 %32 to i64
-  %133 = getelementptr i8, ptr %.0197.i, i64 %132
-  %134 = sub nsw i32 %.095191.i, %32
+  %133 = getelementptr i8, ptr %.093197.i, i64 %132
+  %134 = sub nsw i32 %.094193.i, %32
   br label %.backedge.i
 
 shift_jis_20042euc_jis_2004.exit:                 ; preds = %.backedge.i, %1, %24, %33, %get_ten.exit.thread.i, %get_ten.exit110.thread.i, %get_ten.exit117.thread.i, %get_ten.exit124.thread.i, %120
-  %.091183.i = phi ptr [ %.091195.i, %120 ], [ %.091195.i, %get_ten.exit124.thread.i ], [ %.091195.i, %get_ten.exit117.thread.i ], [ %.091195.i, %get_ten.exit110.thread.i ], [ %.091195.i, %get_ten.exit.thread.i ], [ %.091195.i, %33 ], [ %.091195.i, %24 ], [ %8, %1 ], [ %.091.be.i, %.backedge.i ]
-  %.0175.i = phi ptr [ %.0197.i, %120 ], [ %.0197.i, %get_ten.exit124.thread.i ], [ %.0197.i, %get_ten.exit117.thread.i ], [ %.0197.i, %get_ten.exit110.thread.i ], [ %.0197.i, %get_ten.exit.thread.i ], [ %.0197.i, %33 ], [ %.0197.i, %24 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
-  store i8 0, ptr %.091183.i, align 1
-  %135 = ptrtoint ptr %.0175.i to i64
+  %.095190.i = phi ptr [ %.095191.i, %120 ], [ %.095191.i, %get_ten.exit124.thread.i ], [ %.095191.i, %get_ten.exit117.thread.i ], [ %.095191.i, %get_ten.exit110.thread.i ], [ %.095191.i, %get_ten.exit.thread.i ], [ %.095191.i, %33 ], [ %.095191.i, %24 ], [ %8, %1 ], [ %.095.be.i, %.backedge.i ]
+  %.093175.i = phi ptr [ %.093197.i, %120 ], [ %.093197.i, %get_ten.exit124.thread.i ], [ %.093197.i, %get_ten.exit117.thread.i ], [ %.093197.i, %get_ten.exit110.thread.i ], [ %.093197.i, %get_ten.exit.thread.i ], [ %.093197.i, %33 ], [ %.093197.i, %24 ], [ %5, %1 ], [ %.093.be.i, %.backedge.i ]
+  store i8 0, ptr %.095190.i, align 1
+  %135 = ptrtoint ptr %.093175.i to i64
   %136 = sub i64 %135, %4
   %sext = shl i64 %136, 32
   %137 = ashr exact i64 %sext, 32

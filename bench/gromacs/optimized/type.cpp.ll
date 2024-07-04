@@ -3656,7 +3656,7 @@ define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr nocapture noundef
 
 13:                                               ; preds = %.lr.ph58, %.loopexit
   %indvars.iv68 = phi i64 [ 0, %.lr.ph58 ], [ %indvars.iv.next69, %.loopexit ]
-  %.03657 = phi ptr [ %2, %.lr.ph58 ], [ %.1, %.loopexit ]
+  %.03557 = phi ptr [ %2, %.lr.ph58 ], [ %.1, %.loopexit ]
   %14 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv68
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 32
@@ -3667,7 +3667,7 @@ define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr nocapture noundef
 18:                                               ; preds = %13
   %19 = getelementptr inbounds i8, ptr %15, i64 16
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %.03657, i64 16
+  %21 = getelementptr inbounds i8, ptr %.03557, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %20, %22
   br i1 %23, label %.preheader47, label %.loopexit
@@ -3679,7 +3679,7 @@ define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr nocapture noundef
 .lr.ph:                                           ; preds = %.preheader47
   %25 = getelementptr inbounds i8, ptr %15, i64 24
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %.03657, i64 24
+  %27 = getelementptr inbounds i8, ptr %.03557, i64 24
   %28 = load ptr, ptr %27, align 8
   %wide.trip.count = zext nneg i32 %20 to i64
   br label %30
@@ -3707,7 +3707,7 @@ define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr nocapture noundef
   br i1 %.not45, label %29, label %.loopexit
 
 .loopexit:                                        ; preds = %30, %35, %29, %.preheader47, %13, %18
-  %.1 = phi ptr [ %.03657, %18 ], [ %.03657, %13 ], [ %15, %.preheader47 ], [ %.03657, %30 ], [ %.03657, %35 ], [ %15, %29 ]
+  %.1 = phi ptr [ %.03557, %18 ], [ %.03557, %13 ], [ %15, %.preheader47 ], [ %.03557, %30 ], [ %.03557, %35 ], [ %15, %29 ]
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
   br i1 %exitcond72.not, label %._crit_edge, label %13, !llvm.loop !133
@@ -3757,20 +3757,20 @@ define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr nocapture noundef
   br label %.critedge
 
 .critedge:                                        ; preds = %43, %._crit_edge.thread, %.preheader, %48
-  %.036.lcssa8284 = phi ptr [ %.1, %.preheader ], [ %.1, %48 ], [ %2, %._crit_edge.thread ], [ %.1, %43 ]
+  %.035.lcssa8284 = phi ptr [ %.1, %.preheader ], [ %.1, %48 ], [ %2, %._crit_edge.thread ], [ %.1, %43 ]
   %57 = phi ptr [ %40, %.preheader ], [ %.pre, %48 ], [ %41, %._crit_edge.thread ], [ %40, %43 ]
   %58 = getelementptr inbounds i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
   tail call void @free(ptr noundef %59) #5
   %60 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %60) #5
-  store ptr %.036.lcssa8284, ptr %0, align 8
+  store ptr %.035.lcssa8284, ptr %0, align 8
   %.pre78 = load ptr, ptr @tmpi_global, align 8
   br label %63
 
 61:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.036.lcssa81 = phi ptr [ %2, %._crit_edge.thread ], [ %.1, %._crit_edge ]
-  %62 = getelementptr inbounds i8, ptr %.036.lcssa81, i64 32
+  %.035.lcssa81 = phi ptr [ %2, %._crit_edge.thread ], [ %.1, %._crit_edge ]
+  %62 = getelementptr inbounds i8, ptr %.035.lcssa81, i64 32
   store i32 1, ptr %62, align 8
   br label %63
 

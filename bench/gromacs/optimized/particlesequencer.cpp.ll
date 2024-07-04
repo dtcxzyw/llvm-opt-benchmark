@@ -281,14 +281,14 @@ _ZNK5nblib10StrongTypeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_21
 
 71:                                               ; preds = %70, %61
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %70 ], [ %62, %61 ]
-  %.220 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   %72 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #15
-  %73 = icmp eq i32 %.220, %72
+  %73 = icmp eq i32 %.2, %72
   br i1 %73, label %74, label %110
 
 74:                                               ; preds = %71
-  %.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %75 = call ptr @__cxa_begin_catch(ptr %.2) #15
+  %.220 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %75 = call ptr @__cxa_begin_catch(ptr %.220) #15
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %_ZNK5nblib10StrongTypeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_21MoleculeNameParameterEE5valueEv.exit unwind label %82
 

@@ -130,24 +130,24 @@ if.then:                                          ; preds = %entry
   br label %return
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %out.addr.023 = phi ptr [ %out, %while.body.lr.ph ], [ %add.ptr5, %while.body ]
-  %len.addr.022 = phi i64 [ %len, %while.body.lr.ph ], [ %sub, %while.body ]
-  %in.addr.021 = phi ptr [ %in, %while.body.lr.ph ], [ %add.ptr, %while.body ]
+  %len.addr.023 = phi i64 [ %len, %while.body.lr.ph ], [ %sub, %while.body ]
+  %in.addr.022 = phi ptr [ %in, %while.body.lr.ph ], [ %add.ptr, %while.body ]
+  %out.addr.021 = phi ptr [ %out, %while.body.lr.ph ], [ %add.ptr5, %while.body ]
   %bf.load = load i8, ptr %enc, align 4
   %bf.lshr = lshr i8 %bf.load, 1
   %bf.clear = and i8 %bf.lshr, 1
   %bf.cast = zext nneg i8 %bf.clear to i32
-  tail call void @DES_ncbc_encrypt(ptr noundef %in.addr.021, ptr noundef %out.addr.023, i64 noundef 1073741824, ptr noundef nonnull %dks, ptr noundef nonnull %iv3, i32 noundef %bf.cast) #6
-  %sub = add i64 %len.addr.022, -1073741824
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.021, i64 1073741824
-  %add.ptr5 = getelementptr inbounds i8, ptr %out.addr.023, i64 1073741824
+  tail call void @DES_ncbc_encrypt(ptr noundef %in.addr.022, ptr noundef %out.addr.021, i64 noundef 1073741824, ptr noundef nonnull %dks, ptr noundef nonnull %iv3, i32 noundef %bf.cast) #6
+  %sub = add i64 %len.addr.023, -1073741824
+  %add.ptr = getelementptr inbounds i8, ptr %in.addr.022, i64 1073741824
+  %add.ptr5 = getelementptr inbounds i8, ptr %out.addr.021, i64 1073741824
   %cmp2 = icmp ugt i64 %sub, 1073741823
   br i1 %cmp2, label %while.body, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
+  %out.addr.0.lcssa = phi ptr [ %out, %while.cond.preheader ], [ %add.ptr5, %while.body ]
   %in.addr.0.lcssa = phi ptr [ %in, %while.cond.preheader ], [ %add.ptr, %while.body ]
   %len.addr.0.lcssa = phi i64 [ %len, %while.cond.preheader ], [ %sub, %while.body ]
-  %out.addr.0.lcssa = phi ptr [ %out, %while.cond.preheader ], [ %add.ptr5, %while.body ]
   %cmp6.not = icmp eq i64 %len.addr.0.lcssa, 0
   br i1 %cmp6.not, label %return, label %if.then7
 
@@ -183,20 +183,20 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %out.addr.016 = phi ptr [ %out, %while.body.lr.ph ], [ %add.ptr2, %while.body ]
-  %len.addr.015 = phi i64 [ %len, %while.body.lr.ph ], [ %sub, %while.body ]
-  %in.addr.014 = phi ptr [ %in, %while.body.lr.ph ], [ %add.ptr, %while.body ]
-  call void @DES_ofb64_encrypt(ptr noundef %in.addr.014, ptr noundef %out.addr.016, i64 noundef 1073741824, ptr noundef nonnull %dks, ptr noundef nonnull %iv, ptr noundef nonnull %num) #6
-  %sub = add i64 %len.addr.015, -1073741824
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.014, i64 1073741824
-  %add.ptr2 = getelementptr inbounds i8, ptr %out.addr.016, i64 1073741824
+  %len.addr.016 = phi i64 [ %len, %while.body.lr.ph ], [ %sub, %while.body ]
+  %in.addr.015 = phi ptr [ %in, %while.body.lr.ph ], [ %add.ptr, %while.body ]
+  %out.addr.014 = phi ptr [ %out, %while.body.lr.ph ], [ %add.ptr2, %while.body ]
+  call void @DES_ofb64_encrypt(ptr noundef %in.addr.015, ptr noundef %out.addr.014, i64 noundef 1073741824, ptr noundef nonnull %dks, ptr noundef nonnull %iv, ptr noundef nonnull %num) #6
+  %sub = add i64 %len.addr.016, -1073741824
+  %add.ptr = getelementptr inbounds i8, ptr %in.addr.015, i64 1073741824
+  %add.ptr2 = getelementptr inbounds i8, ptr %out.addr.014, i64 1073741824
   %cmp = icmp ugt i64 %sub, 1073741823
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %entry
+  %out.addr.0.lcssa = phi ptr [ %out, %entry ], [ %add.ptr2, %while.body ]
   %in.addr.0.lcssa = phi ptr [ %in, %entry ], [ %add.ptr, %while.body ]
   %len.addr.0.lcssa = phi i64 [ %len, %entry ], [ %sub, %while.body ]
-  %out.addr.0.lcssa = phi ptr [ %out, %entry ], [ %add.ptr2, %while.body ]
   %cmp3.not = icmp eq i64 %len.addr.0.lcssa, 0
   br i1 %cmp3.not, label %if.end, label %if.then
 
@@ -231,19 +231,19 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %out.addr.024 = phi ptr [ %out, %while.body.lr.ph ], [ %add.ptr4, %while.body ]
-  %chunk.123 = phi i64 [ %spec.select, %while.body.lr.ph ], [ %spec.select19, %while.body ]
-  %len.addr.022 = phi i64 [ %len, %while.body.lr.ph ], [ %sub, %while.body ]
-  %in.addr.021 = phi ptr [ %in, %while.body.lr.ph ], [ %add.ptr, %while.body ]
+  %chunk.124 = phi i64 [ %spec.select, %while.body.lr.ph ], [ %spec.select19, %while.body ]
+  %len.addr.023 = phi i64 [ %len, %while.body.lr.ph ], [ %sub, %while.body ]
+  %in.addr.022 = phi ptr [ %in, %while.body.lr.ph ], [ %add.ptr, %while.body ]
+  %out.addr.021 = phi ptr [ %out, %while.body.lr.ph ], [ %add.ptr4, %while.body ]
   %bf.load = load i8, ptr %enc, align 4
   %bf.lshr = lshr i8 %bf.load, 1
   %bf.clear = and i8 %bf.lshr, 1
   %bf.cast = zext nneg i8 %bf.clear to i32
-  call void @DES_cfb64_encrypt(ptr noundef %in.addr.021, ptr noundef %out.addr.024, i64 noundef %chunk.123, ptr noundef nonnull %dks, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %bf.cast) #6
-  %sub = sub i64 %len.addr.022, %chunk.123
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.021, i64 %chunk.123
-  %add.ptr4 = getelementptr inbounds i8, ptr %out.addr.024, i64 %chunk.123
-  %spec.select19 = call i64 @llvm.umin.i64(i64 %sub, i64 %chunk.123)
+  call void @DES_cfb64_encrypt(ptr noundef %in.addr.022, ptr noundef %out.addr.021, i64 noundef %chunk.124, ptr noundef nonnull %dks, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %bf.cast) #6
+  %sub = sub i64 %len.addr.023, %chunk.124
+  %add.ptr = getelementptr inbounds i8, ptr %in.addr.022, i64 %chunk.124
+  %add.ptr4 = getelementptr inbounds i8, ptr %out.addr.021, i64 %chunk.124
+  %spec.select19 = call i64 @llvm.umin.i64(i64 %sub, i64 %chunk.124)
   %cmp2.not = icmp eq i64 %sub, 0
   br i1 %cmp2.not, label %while.end.loopexit, label %while.body, !llvm.loop !8
 
@@ -276,22 +276,22 @@ for.cond.preheader.lr.ph:                         ; preds = %entry
   br label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %for.cond.preheader.lr.ph, %for.end
-  %out.addr.033 = phi ptr [ %out, %for.cond.preheader.lr.ph ], [ %add.ptr24, %for.end ]
-  %chunk.132 = phi i64 [ %spec.select, %for.cond.preheader.lr.ph ], [ %spec.select26, %for.end ]
-  %inl.addr.031 = phi i64 [ %inl, %for.cond.preheader.lr.ph ], [ %sub23, %for.end ]
-  %in.addr.030 = phi ptr [ %in, %for.cond.preheader.lr.ph ], [ %add.ptr, %for.end ]
-  %cmp227.not = icmp eq i64 %chunk.132, 0
+  %chunk.133 = phi i64 [ %spec.select, %for.cond.preheader.lr.ph ], [ %spec.select26, %for.end ]
+  %inl.addr.032 = phi i64 [ %inl, %for.cond.preheader.lr.ph ], [ %sub23, %for.end ]
+  %in.addr.031 = phi ptr [ %in, %for.cond.preheader.lr.ph ], [ %add.ptr, %for.end ]
+  %out.addr.030 = phi ptr [ %out, %for.cond.preheader.lr.ph ], [ %add.ptr24, %for.end ]
+  %cmp227.not = icmp eq i64 %chunk.133, 0
   br i1 %cmp227.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %mul = shl nuw nsw i64 %chunk.132, 3
+  %mul = shl nuw nsw i64 %chunk.133, 3
   %umax = call i64 @llvm.umax.i64(i64 %mul, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %n.028 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
   %div25 = lshr i64 %n.028, 3
-  %arrayidx = getelementptr inbounds i8, ptr %in.addr.030, i64 %div25
+  %arrayidx = getelementptr inbounds i8, ptr %in.addr.031, i64 %div25
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i32
   %1 = trunc i64 %n.028 to i32
@@ -307,7 +307,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %bf.clear = and i8 %bf.lshr, 1
   %bf.cast = zext nneg i8 %bf.clear to i32
   call void @DES_cfb_encrypt(ptr noundef nonnull %c, ptr noundef nonnull %d, i32 noundef 1, i64 noundef 1, ptr noundef nonnull %dks, ptr noundef nonnull %iv, i32 noundef %bf.cast) #6
-  %arrayidx9 = getelementptr inbounds i8, ptr %out.addr.033, i64 %div25
+  %arrayidx9 = getelementptr inbounds i8, ptr %out.addr.030, i64 %div25
   %3 = load i8, ptr %arrayidx9, align 1
   %conv10 = zext i8 %3 to i32
   %not = ashr i32 -129, %2
@@ -324,10 +324,10 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  %sub23 = sub i64 %inl.addr.031, %chunk.132
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.030, i64 %chunk.132
-  %add.ptr24 = getelementptr inbounds i8, ptr %out.addr.033, i64 %chunk.132
-  %spec.select26 = call i64 @llvm.umin.i64(i64 %sub23, i64 %chunk.132)
+  %sub23 = sub i64 %inl.addr.032, %chunk.133
+  %add.ptr = getelementptr inbounds i8, ptr %in.addr.031, i64 %chunk.133
+  %add.ptr24 = getelementptr inbounds i8, ptr %out.addr.030, i64 %chunk.133
+  %spec.select26 = call i64 @llvm.umin.i64(i64 %sub23, i64 %chunk.133)
   %tobool.not = icmp eq i64 %sub23, 0
   br i1 %tobool.not, label %while.end, label %for.cond.preheader, !llvm.loop !10
 
@@ -350,24 +350,24 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %out.addr.016 = phi ptr [ %out, %while.body.lr.ph ], [ %add.ptr1, %while.body ]
-  %inl.addr.015 = phi i64 [ %inl, %while.body.lr.ph ], [ %sub, %while.body ]
-  %in.addr.014 = phi ptr [ %in, %while.body.lr.ph ], [ %add.ptr, %while.body ]
+  %inl.addr.016 = phi i64 [ %inl, %while.body.lr.ph ], [ %sub, %while.body ]
+  %in.addr.015 = phi ptr [ %in, %while.body.lr.ph ], [ %add.ptr, %while.body ]
+  %out.addr.014 = phi ptr [ %out, %while.body.lr.ph ], [ %add.ptr1, %while.body ]
   %bf.load = load i8, ptr %enc, align 4
   %bf.lshr = lshr i8 %bf.load, 1
   %bf.clear = and i8 %bf.lshr, 1
   %bf.cast = zext nneg i8 %bf.clear to i32
-  tail call void @DES_cfb_encrypt(ptr noundef %in.addr.014, ptr noundef %out.addr.016, i32 noundef 8, i64 noundef 1073741824, ptr noundef nonnull %dks, ptr noundef nonnull %iv, i32 noundef %bf.cast) #6
-  %sub = add i64 %inl.addr.015, -1073741824
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.014, i64 1073741824
-  %add.ptr1 = getelementptr inbounds i8, ptr %out.addr.016, i64 1073741824
+  tail call void @DES_cfb_encrypt(ptr noundef %in.addr.015, ptr noundef %out.addr.014, i32 noundef 8, i64 noundef 1073741824, ptr noundef nonnull %dks, ptr noundef nonnull %iv, i32 noundef %bf.cast) #6
+  %sub = add i64 %inl.addr.016, -1073741824
+  %add.ptr = getelementptr inbounds i8, ptr %in.addr.015, i64 1073741824
+  %add.ptr1 = getelementptr inbounds i8, ptr %out.addr.014, i64 1073741824
   %cmp = icmp ugt i64 %sub, 1073741823
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %while.body, %entry
+  %out.addr.0.lcssa = phi ptr [ %out, %entry ], [ %add.ptr1, %while.body ]
   %in.addr.0.lcssa = phi ptr [ %in, %entry ], [ %add.ptr, %while.body ]
   %inl.addr.0.lcssa = phi i64 [ %inl, %entry ], [ %sub, %while.body ]
-  %out.addr.0.lcssa = phi ptr [ %out, %entry ], [ %add.ptr1, %while.body ]
   %cmp2.not = icmp eq i64 %inl.addr.0.lcssa, 0
   br i1 %cmp2.not, label %if.end, label %if.then
 

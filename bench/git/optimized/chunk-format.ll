@@ -153,7 +153,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %6 = phi ptr [ %.pre, %for.body.lr.ph ], [ %12, %for.body ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %cur_offset.059 = phi i64 [ %add1, %for.body.lr.ph ], [ %add10, %for.body ]
+  %cur_offset.060 = phi i64 [ %add1, %for.body.lr.ph ], [ %add10, %for.body ]
   %7 = load ptr, ptr %cf, align 8
   %arrayidx = getelementptr inbounds %struct.chunk_info, ptr %6, i64 %indvars.iv
   %8 = load i32, ptr %arrayidx, align 8
@@ -164,14 +164,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data.addr.i)
   %10 = load ptr, ptr %cf, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.addr.i39)
-  %11 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %cur_offset.059) #12, !srcloc !6
+  %11 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %cur_offset.060) #12, !srcloc !6
   store i64 %11, ptr %data.addr.i39, align 8
   call void @hashwrite(ptr noundef %10, ptr noundef nonnull %data.addr.i39, i32 noundef 8) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.addr.i39)
   %12 = load ptr, ptr %chunks, align 8
   %size = getelementptr inbounds %struct.chunk_info, ptr %12, i64 %indvars.iv, i32 1
   %13 = load i64, ptr %size, align 8
-  %add10 = add i64 %13, %cur_offset.059
+  %add10 = add i64 %13, %cur_offset.060
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i64, ptr %chunks_nr, align 8
   %cmp = icmp ugt i64 %14, %indvars.iv.next

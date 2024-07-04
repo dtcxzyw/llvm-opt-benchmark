@@ -3153,9 +3153,9 @@ for.body.i9:                                      ; preds = %for.inc.i13, %if.en
   %cutoffs.sroa.0.0311.i = phi ptr [ null, %if.end ], [ %cutoffs.sroa.0.3.i, %for.inc.i13 ]
   %cutoffs.sroa.16.0310.i = phi ptr [ null, %if.end ], [ %cutoffs.sroa.16.2.i, %for.inc.i13 ]
   %cutoffs.sroa.32.0309.i = phi ptr [ null, %if.end ], [ %cutoffs.sroa.32.2.i, %for.inc.i13 ]
-  %expected.sroa.0.0308.i = phi ptr [ null, %if.end ], [ %expected.sroa.0.3.i, %for.inc.i13 ]
+  %expected.sroa.18.0308.i = phi ptr [ null, %if.end ], [ %expected.sroa.18.2.i, %for.inc.i13 ]
   %expected.sroa.9.0307.i = phi ptr [ null, %if.end ], [ %expected.sroa.9.2.i, %for.inc.i13 ]
-  %expected.sroa.18.0306.i = phi ptr [ null, %if.end ], [ %expected.sroa.18.2.i, %for.inc.i13 ]
+  %expected.sroa.0.0306.i = phi ptr [ null, %if.end ], [ %expected.sroa.0.3.i, %for.inc.i13 ]
   %conv4.i = uitofp nneg i32 %i.0313.i to double
   %mul.i10 = fmul double %conv4.i, 1.000000e-02
   %94 = load double, ptr %add.ptr.i, align 8
@@ -3196,7 +3196,7 @@ lpad.loopexit.split-lp.i17.loopexit:              ; preds = %cond.true.i.i.i.i52
   br label %ehcleanup199.i
 
 lpad.loopexit.split-lp.i17.loopexit.split-lp:     ; preds = %if.then.i.i.i.i, %if.then.i.i.i.i.i, %if.then.i.i.i.i66.i, %if.then.i.i.i.i102.i
-  %expected.sroa.0.1.ph.i.ph319 = phi ptr [ %expected.sroa.0.0308.i, %if.then.i.i.i.i ], [ %expected.sroa.0.0308.i, %if.then.i.i.i.i.i ], [ %expected.sroa.0.0.lcssa.i, %if.then.i.i.i.i66.i ], [ %expected.sroa.0.0.lcssa.i, %if.then.i.i.i.i102.i ]
+  %expected.sroa.0.1.ph.i.ph319 = phi ptr [ %expected.sroa.0.0306.i, %if.then.i.i.i.i ], [ %expected.sroa.0.0306.i, %if.then.i.i.i.i.i ], [ %expected.sroa.0.0.lcssa.i, %if.then.i.i.i.i66.i ], [ %expected.sroa.0.0.lcssa.i, %if.then.i.i.i.i102.i ]
   %cutoffs.sroa.0.1.ph281.i.ph320 = phi ptr [ %cutoffs.sroa.0.0311.i, %if.then.i.i.i.i ], [ %cutoffs.sroa.0.2.i, %if.then.i.i.i.i.i ], [ %cutoffs.sroa.0.0.lcssa.i, %if.then.i.i.i.i66.i ], [ %cutoffs.sroa.0.4.i, %if.then.i.i.i.i102.i ]
   %lpad.loopexit.split-lp322 = landingpad { ptr, i32 }
           cleanup
@@ -3276,7 +3276,7 @@ invoke.cont15.i78:                                ; preds = %_ZNSt6vectorIdSaIdE
   %conv16.i = sitofp i32 %add.i to double
   %mul17.i = fmul double %conv16.i, 1.000000e-02
   %mul19.i = fmul double %mul17.i, 1.000000e+04
-  %cmp.not.i.i.i80 = icmp eq ptr %expected.sroa.9.0307.i, %expected.sroa.18.0306.i
+  %cmp.not.i.i.i80 = icmp eq ptr %expected.sroa.9.0307.i, %expected.sroa.18.0308.i
   br i1 %cmp.not.i.i.i80, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont15.i78
@@ -3285,8 +3285,8 @@ if.then.i.i.i:                                    ; preds = %invoke.cont15.i78
   br label %for.inc.i13
 
 if.else.i.i.i:                                    ; preds = %invoke.cont15.i78
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %expected.sroa.9.0307.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %expected.sroa.0.0308.i to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %expected.sroa.18.0308.i to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %expected.sroa.0.0306.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i.i
@@ -3321,17 +3321,17 @@ _ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i.i.i: ; preds = %cond.true.i.
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i.i, ptr align 8 %expected.sroa.0.0308.i, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i.i, ptr align 8 %expected.sroa.0.0306.i, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i.i
 
 _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %expected.sroa.0.0308.i, null
+  %tobool.not.i.i.i.i.i = icmp eq ptr %expected.sroa.0.0306.i, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i, label %if.then.i18.i.i.i.i
 
 if.then.i18.i.i.i.i:                              ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %expected.sroa.0.0308.i) #32
+  call void @_ZdlPv(ptr noundef nonnull %expected.sroa.0.0306.i) #32
   br label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i: ; preds = %if.then.i18.i.i.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i.i
@@ -3339,9 +3339,9 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS
   br label %for.inc.i13
 
 for.inc.i13:                                      ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i, %if.then.i.i.i, %if.then.i
-  %expected.sroa.18.2.i = phi ptr [ %expected.sroa.18.0306.i, %if.then.i ], [ %add.ptr19.i.i.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i ], [ %expected.sroa.18.0306.i, %if.then.i.i.i ]
+  %expected.sroa.0.3.i = phi ptr [ %expected.sroa.0.0306.i, %if.then.i ], [ %cond.i10.i.i.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i ], [ %expected.sroa.0.0306.i, %if.then.i.i.i ]
   %expected.sroa.9.2.i = phi ptr [ %expected.sroa.9.0307.i, %if.then.i ], [ %incdec.ptr.i.i.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i ], [ %incdec.ptr.i.i32.i, %if.then.i.i.i ]
-  %expected.sroa.0.3.i = phi ptr [ %expected.sroa.0.0308.i, %if.then.i ], [ %cond.i10.i.i.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i ], [ %expected.sroa.0.0308.i, %if.then.i.i.i ]
+  %expected.sroa.18.2.i = phi ptr [ %expected.sroa.18.0308.i, %if.then.i ], [ %add.ptr19.i.i.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i ], [ %expected.sroa.18.0308.i, %if.then.i.i.i ]
   %cutoffs.sroa.32.2.i = phi ptr [ %cutoffs.sroa.32.0309.i, %if.then.i ], [ %cutoffs.sroa.32.1.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i ], [ %cutoffs.sroa.32.1.i, %if.then.i.i.i ]
   %cutoffs.sroa.16.2.i = phi ptr [ %cutoffs.sroa.16.0310.i, %if.then.i ], [ %cutoffs.sroa.16.1.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i ], [ %cutoffs.sroa.16.1.i, %if.then.i.i.i ]
   %cutoffs.sroa.0.3.i = phi ptr [ %cutoffs.sroa.0.0311.i, %if.then.i ], [ %cutoffs.sroa.0.2.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i.i ], [ %cutoffs.sroa.0.2.i, %if.then.i.i.i ]
@@ -3352,9 +3352,9 @@ for.inc.i13:                                      ; preds = %_ZNSt6vectorIdSaIdE
 
 for.end.i15:                                      ; preds = %for.inc.i13, %if.end.i75
   %i.0.lcssa.i = phi i32 [ %i.0313.i, %if.end.i75 ], [ 100, %for.inc.i13 ]
-  %expected.sroa.18.0.lcssa.i = phi ptr [ %expected.sroa.18.0306.i, %if.end.i75 ], [ %expected.sroa.18.2.i, %for.inc.i13 ]
+  %expected.sroa.0.0.lcssa.i = phi ptr [ %expected.sroa.0.0306.i, %if.end.i75 ], [ %expected.sroa.0.3.i, %for.inc.i13 ]
   %expected.sroa.9.0.lcssa.i = phi ptr [ %expected.sroa.9.0307.i, %if.end.i75 ], [ %expected.sroa.9.2.i, %for.inc.i13 ]
-  %expected.sroa.0.0.lcssa.i = phi ptr [ %expected.sroa.0.0308.i, %if.end.i75 ], [ %expected.sroa.0.3.i, %for.inc.i13 ]
+  %expected.sroa.18.0.lcssa.i = phi ptr [ %expected.sroa.18.0308.i, %if.end.i75 ], [ %expected.sroa.18.2.i, %for.inc.i13 ]
   %cutoffs.sroa.32.0.lcssa.i = phi ptr [ %cutoffs.sroa.32.0309.i, %if.end.i75 ], [ %cutoffs.sroa.32.2.i, %for.inc.i13 ]
   %cutoffs.sroa.16.0.lcssa.i = phi ptr [ %cutoffs.sroa.16.0310.i, %if.end.i75 ], [ %cutoffs.sroa.16.2.i, %for.inc.i13 ]
   %cutoffs.sroa.0.0.lcssa.i = phi ptr [ %cutoffs.sroa.0.0311.i, %if.end.i75 ], [ %cutoffs.sroa.0.3.i, %for.inc.i13 ]
@@ -3433,7 +3433,7 @@ if.then.i.i74.i:                                  ; preds = %invoke.cont24.i16
   br label %invoke.cont32.i
 
 if.else.i.i76.i:                                  ; preds = %invoke.cont24.i16
-  %sub.ptr.lhs.cast.i.i.i.i.i77.i = ptrtoint ptr %expected.sroa.18.0.lcssa.i to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i77.i = ptrtoint ptr %expected.sroa.9.0.lcssa.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i78.i = ptrtoint ptr %expected.sroa.0.0.lcssa.i to i64
   %sub.ptr.sub.i.i.i.i.i79.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i77.i, %sub.ptr.rhs.cast.i.i.i.i.i78.i
   %cmp.i.i.i.i80.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i79.i, 9223372036854775800
@@ -3483,8 +3483,8 @@ if.then.i18.i.i.i98.i:                            ; preds = %_ZNSt6vectorIdSaIdE
   br label %invoke.cont32.i
 
 invoke.cont32.i:                                  ; preds = %if.then.i18.i.i.i98.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i94.i, %if.then.i.i74.i
-  %expected.sroa.9.3.i = phi ptr [ %incdec.ptr.i.i75.i, %if.then.i.i74.i ], [ %incdec.ptr.i.i.i96.i, %if.then.i18.i.i.i98.i ], [ %incdec.ptr.i.i.i96.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i94.i ]
   %expected.sroa.0.4.i = phi ptr [ %expected.sroa.0.0.lcssa.i, %if.then.i.i74.i ], [ %cond.i10.i.i.i91.i, %if.then.i18.i.i.i98.i ], [ %cond.i10.i.i.i91.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i94.i ]
+  %expected.sroa.9.3.i = phi ptr [ %incdec.ptr.i.i75.i, %if.then.i.i74.i ], [ %incdec.ptr.i.i.i96.i, %if.then.i18.i.i.i98.i ], [ %incdec.ptr.i.i.i96.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i94.i ]
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %cutoffs.sroa.16.3.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %cutoffs.sroa.0.4.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -3967,10 +3967,10 @@ for.end102.i:                                     ; preds = %invoke.cont96.i
 
 for.body.i.i:                                     ; preds = %for.end102.i, %for.body.i.i
   %chi_square.017.i.i = phi double [ %chi_square.1.i.i, %for.body.i.i ], [ 0.000000e+00, %for.end102.i ]
-  %it.sroa.0.016.i.i = phi ptr [ %incdec.ptr.i.i162.i, %for.body.i.i ], [ %counts.sroa.0.0.i, %for.end102.i ]
-  %eit.sroa.0.015.i.i = phi ptr [ %incdec.ptr.i5.i.i, %for.body.i.i ], [ %expected.sroa.0.4.i, %for.end102.i ]
-  %164 = load double, ptr %eit.sroa.0.015.i.i, align 8
-  %165 = load i32, ptr %it.sroa.0.016.i.i, align 4
+  %eit.sroa.0.016.i.i = phi ptr [ %incdec.ptr.i5.i.i, %for.body.i.i ], [ %expected.sroa.0.4.i, %for.end102.i ]
+  %it.sroa.0.015.i.i = phi ptr [ %incdec.ptr.i.i162.i, %for.body.i.i ], [ %counts.sroa.0.0.i, %for.end102.i ]
+  %164 = load double, ptr %eit.sroa.0.016.i.i, align 8
+  %165 = load i32, ptr %it.sroa.0.015.i.i, align 4
   %conv.i161.i = sitofp i32 %165 to double
   %sub.i.i53 = fsub double %conv.i161.i, %164
   %cmp9.i.i = fcmp une double %sub.i.i53, 0.000000e+00
@@ -3978,8 +3978,8 @@ for.body.i.i:                                     ; preds = %for.end102.i, %for.
   %div.i.i55 = fdiv double %mul.i.i54, %164
   %add.i.i56 = fadd double %chi_square.017.i.i, %div.i.i55
   %chi_square.1.i.i = select i1 %cmp9.i.i, double %add.i.i56, double %chi_square.017.i.i
-  %incdec.ptr.i.i162.i = getelementptr inbounds i8, ptr %it.sroa.0.016.i.i, i64 4
-  %incdec.ptr.i5.i.i = getelementptr inbounds i8, ptr %eit.sroa.0.015.i.i, i64 8
+  %incdec.ptr.i.i162.i = getelementptr inbounds i8, ptr %it.sroa.0.015.i.i, i64 4
+  %incdec.ptr.i5.i.i = getelementptr inbounds i8, ptr %eit.sroa.0.016.i.i, i64 8
   %cmp.i.i163.i = icmp ne ptr %incdec.ptr.i.i162.i, %retval.0.i.i.i.i.i.i.i.i
   %cmp.i4.i.i = icmp ne ptr %incdec.ptr.i5.i.i, %expected.sroa.9.3.i
   %or.cond.i.i = select i1 %cmp.i.i163.i, i1 %cmp.i4.i.i, i1 false
@@ -4175,7 +4175,7 @@ if.then.i.i.i221.i:                               ; preds = %ehcleanup198.i
   br label %ehcleanup199.i
 
 ehcleanup199.i:                                   ; preds = %lpad70.i.loopexit, %lpad70.i.loopexit.split-lp, %lpad.loopexit.split-lp.i17.loopexit, %lpad.loopexit.split-lp.i17.loopexit.split-lp, %if.then.i.i.i221.i, %ehcleanup198.i, %ehcleanup61.i21, %lpad.loopexit280.i
-  %expected.sroa.0.5.i = phi ptr [ %expected.sroa.0.4.i, %ehcleanup61.i21 ], [ %expected.sroa.0.4.i, %ehcleanup198.i ], [ %expected.sroa.0.4.i, %if.then.i.i.i221.i ], [ %expected.sroa.0.0308.i, %lpad.loopexit280.i ], [ %expected.sroa.0.1.ph.i.ph, %lpad.loopexit.split-lp.i17.loopexit ], [ %expected.sroa.0.1.ph.i.ph319, %lpad.loopexit.split-lp.i17.loopexit.split-lp ], [ %expected.sroa.0.4.i, %lpad70.i.loopexit ], [ %expected.sroa.0.4.i, %lpad70.i.loopexit.split-lp ]
+  %expected.sroa.0.5.i = phi ptr [ %expected.sroa.0.4.i, %ehcleanup61.i21 ], [ %expected.sroa.0.4.i, %ehcleanup198.i ], [ %expected.sroa.0.4.i, %if.then.i.i.i221.i ], [ %expected.sroa.0.0306.i, %lpad.loopexit280.i ], [ %expected.sroa.0.1.ph.i.ph, %lpad.loopexit.split-lp.i17.loopexit ], [ %expected.sroa.0.1.ph.i.ph319, %lpad.loopexit.split-lp.i17.loopexit.split-lp ], [ %expected.sroa.0.4.i, %lpad70.i.loopexit ], [ %expected.sroa.0.4.i, %lpad70.i.loopexit.split-lp ]
   %cutoffs.sroa.0.5.i = phi ptr [ %cutoffs.sroa.0.4.i, %ehcleanup61.i21 ], [ %cutoffs.sroa.0.4.i, %ehcleanup198.i ], [ %cutoffs.sroa.0.4.i, %if.then.i.i.i221.i ], [ %cutoffs.sroa.0.1.ph.i, %lpad.loopexit280.i ], [ %cutoffs.sroa.0.1.ph281.i.ph, %lpad.loopexit.split-lp.i17.loopexit ], [ %cutoffs.sroa.0.1.ph281.i.ph320, %lpad.loopexit.split-lp.i17.loopexit.split-lp ], [ %cutoffs.sroa.0.4.i, %lpad70.i.loopexit ], [ %cutoffs.sroa.0.4.i, %lpad70.i.loopexit.split-lp ]
   %.pn23.pn.i = phi { ptr, i32 } [ %.pn.pn.i22, %ehcleanup61.i21 ], [ %.pn23.i, %ehcleanup198.i ], [ %.pn23.i, %if.then.i.i.i221.i ], [ %lpad.loopexit282.i, %lpad.loopexit280.i ], [ %lpad.loopexit321, %lpad.loopexit.split-lp.i17.loopexit ], [ %lpad.loopexit.split-lp322, %lpad.loopexit.split-lp.i17.loopexit.split-lp ], [ %lpad.loopexit324, %lpad70.i.loopexit ], [ %lpad.loopexit.split-lp325, %lpad70.i.loopexit.split-lp ]
   %tobool.not.i.i.i223.i = icmp eq ptr %expected.sroa.0.5.i, null
@@ -27647,9 +27647,9 @@ for.body:                                         ; preds = %entry, %for.inc85
   %__begin0.0.idx991 = phi i64 [ 0, %entry ], [ %__begin0.0.add, %for.inc85 ]
   %d.sroa.40.0990 = phi i1 [ undef, %entry ], [ %d.sroa.40.3, %for.inc85 ]
   %d.sroa.25.0989 = phi float [ undef, %entry ], [ %d.sroa.25.3, %for.inc85 ]
-  %d.sroa.23.0988 = phi float [ undef, %entry ], [ %d.sroa.23.3, %for.inc85 ]
+  %d.sroa.4.0988 = phi float [ undef, %entry ], [ %d.sroa.4.3, %for.inc85 ]
   %d.sroa.11.0987 = phi float [ undef, %entry ], [ %d.sroa.11.3, %for.inc85 ]
-  %d.sroa.4.0986 = phi float [ undef, %entry ], [ %d.sroa.4.3, %for.inc85 ]
+  %d.sroa.23.0986 = phi float [ undef, %entry ], [ %d.sroa.23.3, %for.inc85 ]
   %__begin0.0.ptr = getelementptr inbounds i8, ptr %kSmallValues, i64 %__begin0.0.idx991
   %0 = load float, ptr %__begin0.0.ptr, align 4
   %cmp.i352 = fcmp oeq float %0, 0.000000e+00
@@ -27664,9 +27664,9 @@ for.body16:                                       ; preds = %for.body, %for.inc8
   %__begin09.0.idx985 = phi i64 [ 0, %for.body ], [ %__begin09.0.add, %for.inc83 ]
   %d.sroa.40.1984 = phi i1 [ %d.sroa.40.0990, %for.body ], [ %d.sroa.40.3, %for.inc83 ]
   %d.sroa.25.1983 = phi float [ %d.sroa.25.0989, %for.body ], [ %d.sroa.25.3, %for.inc83 ]
-  %d.sroa.23.1982 = phi float [ %d.sroa.23.0988, %for.body ], [ %d.sroa.23.3, %for.inc83 ]
+  %d.sroa.4.1982 = phi float [ %d.sroa.4.0988, %for.body ], [ %d.sroa.4.3, %for.inc83 ]
   %d.sroa.11.1981 = phi float [ %d.sroa.11.0987, %for.body ], [ %d.sroa.11.3, %for.inc83 ]
-  %d.sroa.4.1980 = phi float [ %d.sroa.4.0986, %for.body ], [ %d.sroa.4.3, %for.inc83 ]
+  %d.sroa.23.1980 = phi float [ %d.sroa.23.0986, %for.body ], [ %d.sroa.23.3, %for.inc83 ]
   %__begin09.0.ptr = getelementptr inbounds i8, ptr %kSmallValues, i64 %__begin09.0.idx985
   %3 = load float, ptr %__begin09.0.ptr, align 4
   store i32 0, ptr %zeros, align 4
@@ -27758,9 +27758,9 @@ if.end82.i:                                       ; preds = %if.end66.i
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.end82.i, %if.then75.i, %if.then55.i, %if.then44.i, %if.then14.i, %if.then.i354
-  %d.sroa.4.2 = phi float [ %d.sroa.4.1980, %if.then.i354 ], [ %alpha.sink.i, %if.end82.i ], [ %alpha.sink.i, %if.then75.i ], [ %alpha.sink.i, %if.then55.i ], [ %div.i, %if.then44.i ], [ %alpha.sink.i, %if.then14.i ]
+  %d.sroa.23.2 = phi float [ %d.sroa.23.1980, %if.then.i354 ], [ %call.i.i353, %if.end82.i ], [ %call.i.i353, %if.then75.i ], [ %d.sroa.23.1980, %if.then55.i ], [ %d.sroa.23.1980, %if.then44.i ], [ %d.sroa.23.1980, %if.then14.i ]
   %d.sroa.11.2 = phi float [ %d.sroa.11.1981, %if.then.i354 ], [ %4, %if.end82.i ], [ %4, %if.then75.i ], [ %4, %if.then55.i ], [ %div37.i, %if.then44.i ], [ %4, %if.then14.i ]
-  %d.sroa.23.2 = phi float [ %d.sroa.23.1982, %if.then.i354 ], [ %call.i.i353, %if.end82.i ], [ %call.i.i353, %if.then75.i ], [ %d.sroa.23.1982, %if.then55.i ], [ %d.sroa.23.1982, %if.then44.i ], [ %d.sroa.23.1982, %if.then14.i ]
+  %d.sroa.4.2 = phi float [ %d.sroa.4.1982, %if.then.i354 ], [ %alpha.sink.i, %if.end82.i ], [ %alpha.sink.i, %if.then75.i ], [ %alpha.sink.i, %if.then55.i ], [ %div.i, %if.then44.i ], [ %alpha.sink.i, %if.then14.i ]
   %d.sroa.25.2 = phi float [ %d.sroa.25.1983, %if.then.i354 ], [ %call.i14.i, %if.end82.i ], [ %div78.i, %if.then75.i ], [ %d.sroa.25.1983, %if.then55.i ], [ %d.sroa.25.1983, %if.then44.i ], [ %d.sroa.25.1983, %if.then14.i ]
   %d.sroa.31.0 = phi i32 [ 3, %if.then.i354 ], [ 2, %if.end82.i ], [ 1, %if.then75.i ], [ 4, %if.then55.i ], [ 3, %if.then44.i ], [ 3, %if.then14.i ]
   %d.sroa.40.2 = phi i1 [ %d.sroa.40.1984, %if.then.i354 ], [ %cmp4.i, %if.end82.i ], [ %cmp4.i, %if.then75.i ], [ %cmp4.i, %if.then55.i ], [ %cmp4.i, %if.then44.i ], [ %cmp4.i, %if.then14.i ]
@@ -27774,9 +27774,9 @@ return.sink.split.i:                              ; preds = %if.end82.i, %if.the
 _ZN4absl17beta_distributionIfE10param_typeC2Eff.exit: ; preds = %if.then32.i, %return.sink.split.i
   %d.sroa.16.0.d.sroa.16.0.d.sroa.16.16.891 = phi float [ %d.sroa.16.0.d.sroa.16.0.d.sroa.16.0.d.sroa.16.16.891.pre, %return.sink.split.i ], [ %d.sroa.16.0.d.sroa.16.0.d.sroa.16.16.8911114, %if.then32.i ]
   %d.sroa.28.0.d.sroa.28.0.d.sroa.28.28. = phi float [ %d.sroa.28.0.d.sroa.28.0.d.sroa.28.0.d.sroa.28.28..pre, %return.sink.split.i ], [ %d.sroa.28.0.d.sroa.28.0.d.sroa.28.28.1111, %if.then32.i ]
-  %d.sroa.4.3 = phi float [ %d.sroa.4.2, %return.sink.split.i ], [ %div.i, %if.then32.i ]
+  %d.sroa.23.3 = phi float [ %d.sroa.23.2, %return.sink.split.i ], [ %d.sroa.23.1980, %if.then32.i ]
   %d.sroa.11.3 = phi float [ %d.sroa.11.2, %return.sink.split.i ], [ %div37.i, %if.then32.i ]
-  %d.sroa.23.3 = phi float [ %d.sroa.23.2, %return.sink.split.i ], [ %d.sroa.23.1982, %if.then32.i ]
+  %d.sroa.4.3 = phi float [ %d.sroa.4.2, %return.sink.split.i ], [ %div.i, %if.then32.i ]
   %d.sroa.25.3 = phi float [ %d.sroa.25.2, %return.sink.split.i ], [ %d.sroa.25.1983, %if.then32.i ]
   %d.sroa.31.1 = phi i32 [ %d.sroa.31.0, %return.sink.split.i ], [ 0, %if.then32.i ]
   %d.sroa.40.3 = phi i1 [ %d.sroa.40.2, %return.sink.split.i ], [ %cmp4.i, %if.then32.i ]
@@ -30449,9 +30449,9 @@ for.body:                                         ; preds = %entry, %for.inc84
   %__begin0.0.idx997 = phi i64 [ 0, %entry ], [ %__begin0.0.add, %for.inc84 ]
   %d.sroa.42.0996 = phi i1 [ undef, %entry ], [ %d.sroa.42.3, %for.inc84 ]
   %d.sroa.27.0995 = phi double [ undef, %entry ], [ %d.sroa.27.3, %for.inc84 ]
-  %d.sroa.25.0994 = phi double [ undef, %entry ], [ %d.sroa.25.3, %for.inc84 ]
+  %d.sroa.4.0994 = phi double [ undef, %entry ], [ %d.sroa.4.3, %for.inc84 ]
   %d.sroa.12.0993 = phi double [ undef, %entry ], [ %d.sroa.12.3, %for.inc84 ]
-  %d.sroa.4.0992 = phi double [ undef, %entry ], [ %d.sroa.4.3, %for.inc84 ]
+  %d.sroa.25.0992 = phi double [ undef, %entry ], [ %d.sroa.25.3, %for.inc84 ]
   %__begin0.0.ptr = getelementptr inbounds i8, ptr %kSmallValues, i64 %__begin0.0.idx997
   %0 = load double, ptr %__begin0.0.ptr, align 8
   %cmp.i350 = fcmp oeq double %0, 0.000000e+00
@@ -30466,9 +30466,9 @@ for.body16:                                       ; preds = %for.body, %for.inc8
   %__begin09.0.idx991 = phi i64 [ 0, %for.body ], [ %__begin09.0.add, %for.inc82 ]
   %d.sroa.42.1990 = phi i1 [ %d.sroa.42.0996, %for.body ], [ %d.sroa.42.3, %for.inc82 ]
   %d.sroa.27.1989 = phi double [ %d.sroa.27.0995, %for.body ], [ %d.sroa.27.3, %for.inc82 ]
-  %d.sroa.25.1988 = phi double [ %d.sroa.25.0994, %for.body ], [ %d.sroa.25.3, %for.inc82 ]
+  %d.sroa.4.1988 = phi double [ %d.sroa.4.0994, %for.body ], [ %d.sroa.4.3, %for.inc82 ]
   %d.sroa.12.1987 = phi double [ %d.sroa.12.0993, %for.body ], [ %d.sroa.12.3, %for.inc82 ]
-  %d.sroa.4.1986 = phi double [ %d.sroa.4.0992, %for.body ], [ %d.sroa.4.3, %for.inc82 ]
+  %d.sroa.25.1986 = phi double [ %d.sroa.25.0992, %for.body ], [ %d.sroa.25.3, %for.inc82 ]
   %__begin09.0.ptr = getelementptr inbounds i8, ptr %kSmallValues, i64 %__begin09.0.idx991
   %3 = load double, ptr %__begin09.0.ptr, align 8
   store i32 0, ptr %zeros, align 4
@@ -30552,9 +30552,9 @@ if.end80.i:                                       ; preds = %if.end64.i
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.end80.i, %if.then73.i, %if.then53.i, %if.then42.i, %if.then14.i, %if.then.i351
-  %d.sroa.4.2 = phi double [ %d.sroa.4.1986, %if.then.i351 ], [ %alpha.sink.i, %if.end80.i ], [ %alpha.sink.i, %if.then73.i ], [ %alpha.sink.i, %if.then53.i ], [ %div.i, %if.then42.i ], [ %alpha.sink.i, %if.then14.i ]
+  %d.sroa.25.2 = phi double [ %d.sroa.25.1986, %if.then.i351 ], [ %call70.i, %if.end80.i ], [ %call70.i, %if.then73.i ], [ %d.sroa.25.1986, %if.then53.i ], [ %d.sroa.25.1986, %if.then42.i ], [ %d.sroa.25.1986, %if.then14.i ]
   %d.sroa.12.2 = phi double [ %d.sroa.12.1987, %if.then.i351 ], [ %4, %if.end80.i ], [ %4, %if.then73.i ], [ %4, %if.then53.i ], [ %div35.i, %if.then42.i ], [ %4, %if.then14.i ]
-  %d.sroa.25.2 = phi double [ %d.sroa.25.1988, %if.then.i351 ], [ %call70.i, %if.end80.i ], [ %call70.i, %if.then73.i ], [ %d.sroa.25.1988, %if.then53.i ], [ %d.sroa.25.1988, %if.then42.i ], [ %d.sroa.25.1988, %if.then14.i ]
+  %d.sroa.4.2 = phi double [ %d.sroa.4.1988, %if.then.i351 ], [ %alpha.sink.i, %if.end80.i ], [ %alpha.sink.i, %if.then73.i ], [ %alpha.sink.i, %if.then53.i ], [ %div.i, %if.then42.i ], [ %alpha.sink.i, %if.then14.i ]
   %d.sroa.27.2 = phi double [ %d.sroa.27.1989, %if.then.i351 ], [ %call92.i, %if.end80.i ], [ %div76.i, %if.then73.i ], [ %d.sroa.27.1989, %if.then53.i ], [ %d.sroa.27.1989, %if.then42.i ], [ %d.sroa.27.1989, %if.then14.i ]
   %d.sroa.33.0 = phi i32 [ 3, %if.then.i351 ], [ 2, %if.end80.i ], [ 1, %if.then73.i ], [ 4, %if.then53.i ], [ 3, %if.then42.i ], [ 3, %if.then14.i ]
   %d.sroa.42.2 = phi i1 [ %d.sroa.42.1990, %if.then.i351 ], [ %cmp4.i, %if.end80.i ], [ %cmp4.i, %if.then73.i ], [ %cmp4.i, %if.then53.i ], [ %cmp4.i, %if.then42.i ], [ %cmp4.i, %if.then14.i ]
@@ -30568,9 +30568,9 @@ return.sink.split.i:                              ; preds = %if.end80.i, %if.the
 _ZN4absl17beta_distributionIdE10param_typeC2Edd.exit: ; preds = %if.then30.i, %return.sink.split.i
   %d.sroa.18.0.d.sroa.18.0.d.sroa.18.32.891 = phi double [ %d.sroa.18.0.d.sroa.18.0.d.sroa.18.0.d.sroa.18.32.891.pre, %return.sink.split.i ], [ %d.sroa.18.0.d.sroa.18.0.d.sroa.18.32.8911126, %if.then30.i ]
   %d.sroa.30.0.d.sroa.30.0.d.sroa.30.56. = phi double [ %d.sroa.30.0.d.sroa.30.0.d.sroa.30.0.d.sroa.30.56..pre, %return.sink.split.i ], [ %d.sroa.30.0.d.sroa.30.0.d.sroa.30.56.1123, %if.then30.i ]
-  %d.sroa.4.3 = phi double [ %d.sroa.4.2, %return.sink.split.i ], [ %div.i, %if.then30.i ]
+  %d.sroa.25.3 = phi double [ %d.sroa.25.2, %return.sink.split.i ], [ %d.sroa.25.1986, %if.then30.i ]
   %d.sroa.12.3 = phi double [ %d.sroa.12.2, %return.sink.split.i ], [ %div35.i, %if.then30.i ]
-  %d.sroa.25.3 = phi double [ %d.sroa.25.2, %return.sink.split.i ], [ %d.sroa.25.1988, %if.then30.i ]
+  %d.sroa.4.3 = phi double [ %d.sroa.4.2, %return.sink.split.i ], [ %div.i, %if.then30.i ]
   %d.sroa.27.3 = phi double [ %d.sroa.27.2, %return.sink.split.i ], [ %d.sroa.27.1989, %if.then30.i ]
   %d.sroa.33.1 = phi i32 [ %d.sroa.33.0, %return.sink.split.i ], [ 0, %if.then30.i ]
   %d.sroa.42.3 = phi i1 [ %d.sroa.42.2, %return.sink.split.i ], [ %cmp4.i, %if.then30.i ]

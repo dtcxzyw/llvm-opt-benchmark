@@ -2673,8 +2673,8 @@ lpad37:                                           ; preds = %invoke.cont29
 
 catch.dispatch:                                   ; preds = %lpad13.loopexit, %lpad13.loopexit.split-lp, %lpad37, %lpad17
   %.pn = phi { ptr, i32 } [ %19, %lpad37 ], [ %18, %lpad17 ], [ %lpad.loopexit, %lpad13.loopexit ], [ %lpad.loopexit.split-lp, %lpad13.loopexit.split-lp ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7Iex_3_27BaseExcE) #23
   %matches = icmp eq i32 %ehselector.slot.0, %20
   %21 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0) #23
@@ -3354,8 +3354,8 @@ lpad34:                                           ; preds = %invoke.cont26
 
 catch.dispatch:                                   ; preds = %lpad15.loopexit, %lpad15.loopexit.split-lp, %lpad34
   %.pn = phi { ptr, i32 } [ %17, %lpad34 ], [ %lpad.loopexit, %lpad15.loopexit ], [ %lpad.loopexit.split-lp, %lpad15.loopexit.split-lp ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %18 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7Iex_3_27BaseExcE) #23
   %matches = icmp eq i32 %ehselector.slot.0, %18
   %19 = tail call ptr @__cxa_begin_catch(ptr %exn.slot.0) #23

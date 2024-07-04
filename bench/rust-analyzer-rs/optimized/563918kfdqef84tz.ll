@@ -1493,9 +1493,9 @@ default.unreachable:                              ; preds = %101
   br label %116
 
 116:                                              ; preds = %110, %105
-  %.sroa.0136.0.ph = phi i64 [ 0, %105 ], [ %spec.select, %110 ]
-  %.sroa.9137.1.ph = phi ptr [ %109, %105 ], [ %112, %110 ]
   %.sroa.12.1.ph = phi ptr [ %107, %105 ], [ %112, %110 ]
+  %.sroa.9137.1.ph = phi ptr [ %109, %105 ], [ %112, %110 ]
+  %.sroa.0136.0.ph = phi i64 [ 0, %105 ], [ %spec.select, %110 ]
   store i64 %.sroa.0136.0.ph, ptr %16, align 8
   store ptr %.sroa.9137.1.ph, ptr %.sroa.9137.0..sroa_idx, align 8
   store ptr %.sroa.12.1.ph, ptr %.sroa.12.0..sroa_idx, align 8
@@ -1587,8 +1587,8 @@ default.unreachable:                              ; preds = %101
   br label %"_ZN2tt6buffer18Cursor$LT$Span$GT$4bump17h3ef521eae6a8502fE.exit"
 
 "_ZN2tt6buffer18Cursor$LT$Span$GT$4bump17h3ef521eae6a8502fE.exit": ; preds = %149, %"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17hff9437bc47c2e1aaE.llvm.4854586973698006518.exit.thread.i65", %146
-  %.sroa.6140.0 = phi i64 [ %151, %149 ], [ %.sroa.7126.0251, %"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17hff9437bc47c2e1aaE.llvm.4854586973698006518.exit.thread.i65" ], [ %.sroa.7126.0251, %146 ]
   %.sroa.9141.0 = phi i64 [ %153, %149 ], [ %145, %"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17hff9437bc47c2e1aaE.llvm.4854586973698006518.exit.thread.i65" ], [ %.sroa.9131.0250, %146 ]
+  %.sroa.6140.0 = phi i64 [ %151, %149 ], [ %.sroa.7126.0251, %"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17hff9437bc47c2e1aaE.llvm.4854586973698006518.exit.thread.i65" ], [ %.sroa.7126.0251, %146 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   %154 = icmp eq i64 %.sroa.6140.0, %.sroa.8.0.lcssa
   %155 = icmp eq i64 %.sroa.9141.0, %.sroa.11.0.lcssa

@@ -334,8 +334,8 @@ define i32 @proctrack_p_signal(i64 noundef %0, i32 noundef %1) local_unnamed_add
   br label %74
 
 74:                                               ; preds = %._crit_edge.thread, %._crit_edge, %6, %9, %72, %11
-  %.0 = phi i32 [ %12, %11 ], [ %73, %72 ], [ 0, %9 ], [ 0, %6 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ]
-  ret i32 %.0
+  %.021 = phi i32 [ %12, %11 ], [ %73, %72 ], [ 0, %9 ], [ 0, %6 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ]
+  ret i32 %.021
 }
 
 declare i32 @cgroup_g_step_get_pids(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -396,7 +396,7 @@ define range(i32 -1, 1) i32 @proctrack_p_wait(i64 noundef %0) local_unnamed_addr
 
 .lr.ph:                                           ; preds = %5, %28
   %11 = phi i32 [ %35, %28 ], [ %8, %5 ]
-  %.01822 = phi i32 [ %spec.select, %28 ], [ 1, %5 ]
+  %.01722 = phi i32 [ %spec.select, %28 ], [ 1, %5 ]
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %13, label %18
 
@@ -423,10 +423,10 @@ define range(i32 -1, 1) i32 @proctrack_p_wait(i64 noundef %0) local_unnamed_addr
 
 28:                                               ; preds = %18
   %29 = call i32 @proctrack_p_signal(i64 noundef %0, i32 noundef 9)
-  %30 = call i32 @sleep(i32 noundef %.01822) #7
-  %31 = icmp slt i32 %.01822, 32
+  %30 = call i32 @sleep(i32 noundef %.01722) #7
+  %31 = icmp slt i32 %.01722, 32
   %32 = zext i1 %31 to i32
-  %spec.select = shl nsw i32 %.01822, %32
+  %spec.select = shl nsw i32 %.01722, %32
   call void @slurm_xfree(ptr noundef nonnull %2) #7
   %33 = call i32 @cgroup_g_step_get_pids(ptr noundef nonnull %2, ptr noundef nonnull %3) #7
   %34 = icmp eq i32 %33, 0
@@ -440,8 +440,8 @@ define range(i32 -1, 1) i32 @proctrack_p_wait(i64 noundef %0) local_unnamed_addr
   br label %38
 
 38:                                               ; preds = %1, %.loopexit
-  %.017 = phi i32 [ 0, %.loopexit ], [ -1, %1 ]
-  ret i32 %.017
+  %.018 = phi i32 [ 0, %.loopexit ], [ -1, %1 ]
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind

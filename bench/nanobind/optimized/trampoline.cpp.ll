@@ -170,13 +170,13 @@ define void @_ZN8nanobind6detail16trampoline_enterEPPvmPKcbPNS0_6ticketE(ptr noc
   br label %._crit_edge116.i
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = add nuw i64 %.088106.i, 1
+  %8 = add nuw i64 %.087106.i, 1
   %exitcond.not.i = icmp eq i64 %8, %1
   br i1 %exitcond.not.i, label %.lr.ph111.preheader.i, label %.lr.ph.i, !llvm.loop !7
 
 .lr.ph.i:                                         ; preds = %5, %7
-  %.088106.i = phi i64 [ %8, %7 ], [ 0, %5 ]
-  %9 = shl i64 %.088106.i, 1
+  %.087106.i = phi i64 [ %8, %7 ], [ 0, %5 ]
+  %9 = shl i64 %.087106.i, 1
   %10 = or disjoint i64 %9, 1
   %11 = getelementptr inbounds ptr, ptr %0, i64 %10
   %12 = load ptr, ptr %11, align 8
@@ -211,13 +211,13 @@ define void @_ZN8nanobind6detail16trampoline_enterEPPvmPKcbPNS0_6ticketE(ptr noc
   br label %.lr.ph111.i
 
 25:                                               ; preds = %.lr.ph111.i
-  %26 = add nuw i64 %.086109.i, 1
+  %26 = add nuw i64 %.085109.i, 1
   %exitcond125.not.i = icmp eq i64 %26, %1
   br i1 %exitcond125.not.i, label %.lr.ph115.i, label %.lr.ph111.i, !llvm.loop !8
 
 .lr.ph111.i:                                      ; preds = %25, %.lr.ph111.preheader.i
-  %.086109.i = phi i64 [ %26, %25 ], [ 0, %.lr.ph111.preheader.i ]
-  %27 = shl i64 %.086109.i, 1
+  %.085109.i = phi i64 [ %26, %25 ], [ 0, %.lr.ph111.preheader.i ]
+  %27 = shl i64 %.085109.i, 1
   %28 = or disjoint i64 %27, 1
   %29 = getelementptr inbounds ptr, ptr %0, i64 %28
   %30 = load ptr, ptr %29, align 8
@@ -247,8 +247,8 @@ define void @_ZN8nanobind6detail16trampoline_enterEPPvmPKcbPNS0_6ticketE(ptr noc
   br label %_ZN8nanobind6detailL25trampoline_enter_internalEPPvmPKcbPNS0_6ticketE.exit
 
 .lr.ph115.i:                                      ; preds = %25, %48
-  %.087114.i = phi i64 [ %49, %48 ], [ 0, %25 ]
-  %40 = shl i64 %.087114.i, 1
+  %.088114.i = phi i64 [ %49, %48 ], [ 0, %25 ]
+  %40 = shl i64 %.088114.i, 1
   %41 = or disjoint i64 %40, 1
   %42 = getelementptr inbounds ptr, ptr %0, i64 %41
   %43 = load ptr, ptr %42, align 8
@@ -262,14 +262,14 @@ define void @_ZN8nanobind6detail16trampoline_enterEPPvmPKcbPNS0_6ticketE(ptr noc
   br i1 %47, label %._crit_edge116.i, label %48
 
 48:                                               ; preds = %45, %.lr.ph115.i
-  %49 = add nuw i64 %.087114.i, 1
+  %49 = add nuw i64 %.088114.i, 1
   %exitcond126.not.i = icmp eq i64 %49, %1
   br i1 %exitcond126.not.i, label %._crit_edge116.thread.i, label %.lr.ph115.i, !llvm.loop !9
 
 ._crit_edge116.i:                                 ; preds = %45, %.preheader.thread.i
   %50 = phi i32 [ %6, %.preheader.thread.i ], [ %24, %45 ]
-  %.087.lcssa.i = phi i64 [ 0, %.preheader.thread.i ], [ %.087114.i, %45 ]
-  %51 = icmp eq i64 %.087.lcssa.i, %1
+  %.088.lcssa.i = phi i64 [ 0, %.preheader.thread.i ], [ %.088114.i, %45 ]
+  %51 = icmp eq i64 %.088.lcssa.i, %1
   br i1 %51, label %._crit_edge116.thread.i, label %52
 
 52:                                               ; preds = %._crit_edge116.i
@@ -333,7 +333,7 @@ _ZL10_Py_DECREFP7_object.exit102.i:               ; preds = %78, %75
   %79 = load i64, ptr @_Py_NoneStruct, align 8
   %80 = add nsw i64 %79, 1
   store i64 %80, ptr @_Py_NoneStruct, align 8
-  %81 = shl i64 %.087.lcssa.i, 1
+  %81 = shl i64 %.088.lcssa.i, 1
   %82 = or disjoint i64 %81, 1
   %83 = getelementptr inbounds ptr, ptr %0, i64 %82
   store ptr %2, ptr %83, align 8
@@ -343,7 +343,7 @@ _ZL10_Py_DECREFP7_object.exit102.i:               ; preds = %78, %75
   br label %95
 
 86:                                               ; preds = %71
-  %87 = shl i64 %.087.lcssa.i, 1
+  %87 = shl i64 %.088.lcssa.i, 1
   %88 = or disjoint i64 %87, 1
   %89 = getelementptr inbounds ptr, ptr %0, i64 %88
   store ptr %2, ptr %89, align 8

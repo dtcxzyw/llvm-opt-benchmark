@@ -1810,12 +1810,12 @@ _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i
 .preheader:                                       ; preds = %_ZSt3maxIfET_St16initializer_listIS0_E.exit, %60
   %indvars.iv36 = phi i64 [ 0, %_ZSt3maxIfET_St16initializer_listIS0_E.exit ], [ %indvars.iv.next37, %60 ]
   %indvars.iv34 = phi i64 [ 1, %_ZSt3maxIfET_St16initializer_listIS0_E.exit ], [ %indvars.iv.next35, %60 ]
-  %.030 = phi float [ 0.000000e+00, %_ZSt3maxIfET_St16initializer_listIS0_E.exit ], [ %.2, %60 ]
+  %.02329 = phi float [ 0.000000e+00, %_ZSt3maxIfET_St16initializer_listIS0_E.exit ], [ %.2, %60 ]
   br label %39
 
 39:                                               ; preds = %.preheader, %59
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %59 ]
-  %.128 = phi float [ %.030, %.preheader ], [ %.2, %59 ]
+  %.127 = phi float [ %.02329, %.preheader ], [ %.2, %59 ]
   %40 = getelementptr inbounds [3 x [3 x float]], ptr %31, i64 0, i64 %indvars.iv36, i64 %indvars.iv
   %41 = load float, ptr %40, align 4
   %42 = fpext float %41 to double
@@ -1834,13 +1834,13 @@ _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i
   %53 = fmul double %52, %51
   %54 = fpext float %46 to double
   %55 = fdiv double %53, %54
-  %56 = fpext float %.128 to double
+  %56 = fpext float %.127 to double
   %57 = fadd double %55, %56
   %58 = fptrunc double %57 to float
   br label %59
 
 59:                                               ; preds = %39, %48
-  %.2 = phi float [ %58, %48 ], [ %.128, %39 ]
+  %.2 = phi float [ %58, %48 ], [ %.127, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv34
   br i1 %exitcond.not, label %60, label %39, !llvm.loop !18

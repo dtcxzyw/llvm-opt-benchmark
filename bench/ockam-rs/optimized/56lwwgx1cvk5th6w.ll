@@ -3059,15 +3059,15 @@ define hidden void @"_ZN201_$LT$elliptic_curve..public_key..PublicKey$LT$C$GT$$u
   br i1 %28, label %29, label %65
 
 29:                                               ; preds = %25, %.thread51
-  %.sroa.8.061 = phi i64 [ %.fca.1.extract, %.thread51 ], [ %.sroa.8.0.copyload, %25 ]
-  %.sroa.619.056 = phi ptr [ %.fca.0.extract, %.thread51 ], [ %.sroa.619.0.copyload, %25 ]
-  %30 = icmp ne ptr %.sroa.619.056, null
+  %.sroa.619.058 = phi ptr [ %.fca.0.extract, %.thread51 ], [ %.sroa.619.0.copyload, %25 ]
+  %.sroa.8.057 = phi i64 [ %.fca.1.extract, %.thread51 ], [ %.sroa.8.0.copyload, %25 ]
+  %30 = icmp ne ptr %.sroa.619.058, null
   tail call void @llvm.assume(i1 %30)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.10)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %10), !noalias !450
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9), !noalias !450
-  call void @"_ZN4sec15point24EncodedPoint$LT$Size$GT$10from_bytes17h676582423d32aca3E"(ptr noalias nocapture noundef nonnull sret({ i8, [71 x i8] }) align 8 dereferenceable(72) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.619.056, i64 noundef %.sroa.8.061), !noalias !454
+  call void @"_ZN4sec15point24EncodedPoint$LT$Size$GT$10from_bytes17h676582423d32aca3E"(ptr noalias nocapture noundef nonnull sret({ i8, [71 x i8] }) align 8 dereferenceable(72) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.619.058, i64 noundef %.sroa.8.057), !noalias !454
   %31 = load i8, ptr %9, align 8, !range !455, !alias.scope !456, !noalias !459, !noundef !4
   %trunc.i.i = trunc nuw i8 %31 to i1
   br i1 %trunc.i.i, label %"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread", label %32

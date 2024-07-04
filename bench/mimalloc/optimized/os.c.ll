@@ -1448,16 +1448,16 @@ while.body.lr.ph:                                 ; preds = %if.end6
   br i1 %cmp21, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %if.end36.us
-  %page.050.us = phi i64 [ %inc.us, %if.end36.us ], [ 0, %while.body.lr.ph ]
-  %all_zero.049.us = phi i8 [ %spec.select.us, %if.end36.us ], [ 1, %while.body.lr.ph ]
+  %all_zero.050.us = phi i8 [ %spec.select.us, %if.end36.us ], [ 1, %while.body.lr.ph ]
+  %page.049.us = phi i64 [ %inc.us, %if.end36.us ], [ 0, %while.body.lr.ph ]
   store i8 0, ptr %is_zero, align 1
-  %mul.us = shl i64 %page.050.us, 30
+  %mul.us = shl i64 %page.049.us, 30
   %add.ptr.us = getelementptr inbounds i8, ptr %7, i64 %mul.us
   store ptr null, ptr %p, align 8
   %call9.us = call i32 @_mi_prim_alloc_huge_os_pages(ptr noundef nonnull %add.ptr.us, i64 noundef 1073741824, i32 noundef %numa_node, ptr noundef nonnull %is_zero, ptr noundef nonnull %p) #7
   %8 = load i8, ptr %is_zero, align 1
   %tobool.us = trunc i8 %8 to i1
-  %spec.select.us = select i1 %tobool.us, i8 %all_zero.049.us, i8 0
+  %spec.select.us = select i1 %tobool.us, i8 %all_zero.050.us, i8 0
   %cmp12.not.us = icmp eq i32 %call9.us, 0
   br i1 %cmp12.not.us, label %if.end14.us, label %if.then13
 
@@ -1467,11 +1467,11 @@ if.end14.us:                                      ; preds = %while.body.us
   br i1 %cmp15.not.us, label %if.end20.us, label %if.then16
 
 if.end20.us:                                      ; preds = %if.end14.us
-  %inc.us = add nuw i64 %page.050.us, 1
+  %inc.us = add nuw i64 %page.049.us, 1
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef 1073741824) #7
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 noundef 1073741824) #7
   %call23.us = call i64 @_mi_clock_end(i64 noundef %call7) #7
-  %add.us = add i64 %page.050.us, 2
+  %add.us = add i64 %page.049.us, 2
   %div.us = udiv i64 %call23.us, %add.us
   %mul26.us = mul i64 %div.us, %pages
   %cmp28.us = icmp sgt i64 %mul26.us, %mul27
@@ -1484,16 +1484,16 @@ if.end36.us:                                      ; preds = %if.end20.us
   br i1 %exitcond91.not, label %while.end, label %while.body.us, !llvm.loop !7
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end20
-  %page.050 = phi i64 [ %inc, %if.end20 ], [ 0, %while.body.lr.ph ]
-  %all_zero.049 = phi i8 [ %spec.select, %if.end20 ], [ 1, %while.body.lr.ph ]
+  %all_zero.050 = phi i8 [ %spec.select, %if.end20 ], [ 1, %while.body.lr.ph ]
+  %page.049 = phi i64 [ %inc, %if.end20 ], [ 0, %while.body.lr.ph ]
   store i8 0, ptr %is_zero, align 1
-  %mul = shl i64 %page.050, 30
+  %mul = shl i64 %page.049, 30
   %add.ptr = getelementptr inbounds i8, ptr %7, i64 %mul
   store ptr null, ptr %p, align 8
   %call9 = call i32 @_mi_prim_alloc_huge_os_pages(ptr noundef nonnull %add.ptr, i64 noundef 1073741824, i32 noundef %numa_node, ptr noundef nonnull %is_zero, ptr noundef nonnull %p) #7
   %10 = load i8, ptr %is_zero, align 1
   %tobool = trunc i8 %10 to i1
-  %spec.select = select i1 %tobool, i8 %all_zero.049, i8 0
+  %spec.select = select i1 %tobool, i8 %all_zero.050, i8 0
   %cmp12.not = icmp eq i32 %call9, 0
   br i1 %cmp12.not, label %if.end14, label %if.then13
 
@@ -1501,7 +1501,7 @@ if.then13:                                        ; preds = %while.body, %while.
   %.us-phi = phi ptr [ %add.ptr.us, %while.body.us ], [ %add.ptr, %while.body ]
   %.us-phi52 = phi i32 [ %call9.us, %while.body.us ], [ %call9, %while.body ]
   %.us-phi53 = phi i8 [ %spec.select.us, %while.body.us ], [ %spec.select, %while.body ]
-  %.us-phi54 = phi i64 [ %page.050.us, %while.body.us ], [ %page.050, %while.body ]
+  %.us-phi54 = phi i64 [ %page.049.us, %while.body.us ], [ %page.049, %while.body ]
   call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.2, i32 noundef %.us-phi52, i32 noundef %.us-phi52, ptr noundef nonnull %.us-phi, i64 noundef 1073741824) #7
   br label %while.end
 
@@ -1514,7 +1514,7 @@ if.then16:                                        ; preds = %if.end14, %if.end14
   %.us-phi55 = phi ptr [ %9, %if.end14.us ], [ %11, %if.end14 ]
   %.us-phi56 = phi ptr [ %add.ptr.us, %if.end14.us ], [ %add.ptr, %if.end14 ]
   %.us-phi57 = phi i8 [ %spec.select.us, %if.end14.us ], [ %spec.select, %if.end14 ]
-  %.us-phi58 = phi i64 [ %page.050.us, %if.end14.us ], [ %page.050, %if.end14 ]
+  %.us-phi58 = phi i64 [ %page.049.us, %if.end14.us ], [ %page.049, %if.end14 ]
   %cmp17.not = icmp eq ptr %.us-phi55, null
   br i1 %cmp17.not, label %while.end, label %if.then18
 
@@ -1539,7 +1539,7 @@ if.end4.i:                                        ; preds = %if.then3.i, %if.end
   br label %while.end
 
 if.end20:                                         ; preds = %if.end14
-  %inc = add nuw i64 %page.050, 1
+  %inc = add nuw i64 %page.049, 1
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 96), i64 noundef 1073741824) #7
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds (i8, ptr @_mi_stats_main, i64 64), i64 noundef 1073741824) #7
   %exitcond.not = icmp eq i64 %inc, %pages
@@ -1550,8 +1550,8 @@ if.then34:                                        ; preds = %if.end20.us
   br label %while.end
 
 while.end:                                        ; preds = %if.end20, %if.end36.us, %if.end6, %if.end4.i, %if.then18, %if.then16, %if.then34, %if.then13
-  %all_zero.2 = phi i8 [ %.us-phi53, %if.then13 ], [ %.us-phi57, %if.then16 ], [ %spec.select.us, %if.then34 ], [ %.us-phi57, %if.then18 ], [ %.us-phi57, %if.end4.i ], [ 1, %if.end6 ], [ %spec.select.us, %if.end36.us ], [ %spec.select, %if.end20 ]
   %page.1 = phi i64 [ %.us-phi54, %if.then13 ], [ %.us-phi58, %if.then16 ], [ %inc.us, %if.then34 ], [ %.us-phi58, %if.then18 ], [ %.us-phi58, %if.end4.i ], [ 0, %if.end6 ], [ %pages, %if.end36.us ], [ %pages, %if.end20 ]
+  %all_zero.2 = phi i8 [ %.us-phi53, %if.then13 ], [ %.us-phi57, %if.then16 ], [ %spec.select.us, %if.then34 ], [ %.us-phi57, %if.then18 ], [ %.us-phi57, %if.end4.i ], [ 1, %if.end6 ], [ %spec.select.us, %if.end36.us ], [ %spec.select, %if.end20 ]
   br i1 %cmp1.not, label %if.end39, label %if.then38
 
 if.then38:                                        ; preds = %while.end

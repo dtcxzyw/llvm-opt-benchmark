@@ -1021,8 +1021,8 @@ define range(i64 -2147483648, 2147483648) i64 @mca_pml_ob1_rdma_cuda_btls(ptr no
 
 14:                                               ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %.03543 = phi i32 [ 0, %.lr.ph ], [ %.1, %.thread ]
-  %.03642 = phi double [ 0.000000e+00, %.lr.ph ], [ %.137, %.thread ]
+  %.03443 = phi i32 [ 0, %.lr.ph ], [ %.1, %.thread ]
+  %.03542 = phi double [ 0.000000e+00, %.lr.ph ], [ %.136, %.thread ]
   %15 = load i64, ptr %5, align 8
   %16 = icmp ugt i64 %15, %indvars.iv
   br i1 %16, label %17, label %mca_bml_base_btl_array_get_index.exit
@@ -1055,7 +1055,7 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %14, %17
   br i1 %31, label %.thread, label %32
 
 32:                                               ; preds = %27
-  %33 = sext i32 %.03543 to i64
+  %33 = sext i32 %.03443 to i64
   %34 = getelementptr inbounds %struct.mca_pml_ob1_com_btl_t, ptr %3, i64 %33
   store ptr %.0.i, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 8
@@ -1063,13 +1063,13 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %14, %17
   %36 = getelementptr inbounds i8, ptr %.0.i, i64 4
   %37 = load float, ptr %36, align 4
   %38 = fpext float %37 to double
-  %39 = fadd double %.03642, %38
-  %40 = add nsw i32 %.03543, 1
+  %39 = fadd double %.03542, %38
+  %40 = add nsw i32 %.03443, 1
   br label %.thread
 
 .thread:                                          ; preds = %22, %mca_bml_base_btl_array_get_index.exit, %32, %27
-  %.137 = phi double [ %.03642, %27 ], [ %39, %32 ], [ %.03642, %mca_bml_base_btl_array_get_index.exit ], [ %.03642, %22 ]
-  %.1 = phi i32 [ %.03543, %27 ], [ %40, %32 ], [ %.03543, %mca_bml_base_btl_array_get_index.exit ], [ %.03543, %22 ]
+  %.136 = phi double [ %.03542, %27 ], [ %39, %32 ], [ %.03542, %mca_bml_base_btl_array_get_index.exit ], [ %.03542, %22 ]
+  %.1 = phi i32 [ %.03443, %27 ], [ %40, %32 ], [ %.03443, %mca_bml_base_btl_array_get_index.exit ], [ %.03443, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = icmp ult i64 %indvars.iv.next, %13
   %42 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 224), align 16
@@ -1084,7 +1084,7 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %14, %17
 46:                                               ; preds = %._crit_edge
   %47 = load i32, ptr @opal_leave_pinned, align 4
   %48 = icmp eq i32 %47, 0
-  %49 = fcmp olt double %.137, 5.000000e-01
+  %49 = fcmp olt double %.136, 5.000000e-01
   %or.cond = select i1 %48, i1 %49, i1 false
   br i1 %or.cond, label %mca_pml_ob1_calc_weighted_length.exit, label %50
 
@@ -1110,10 +1110,10 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %14, %17
 
 58:                                               ; preds = %77, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %77 ]
-  %.02832.i = phi i64 [ %2, %.lr.ph.i ], [ %.129.i, %77 ]
+  %.02733.i = phi i64 [ %2, %.lr.ph.i ], [ %.128.i, %77 ]
   %59 = getelementptr inbounds %struct.mca_pml_ob1_com_btl_t, ptr %3, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8
-  %.not.i = icmp eq i64 %.02832.i, 0
+  %.not.i = icmp eq i64 %.02733.i, 0
   br i1 %.not.i, label %77, label %61
 
 61:                                               ; preds = %58
@@ -1121,26 +1121,26 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %14, %17
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 8
   %65 = load i64, ptr %64, align 8
-  %66 = icmp ugt i64 %.02832.i, %65
+  %66 = icmp ugt i64 %.02733.i, %65
   br i1 %66, label %67, label %74
 
 67:                                               ; preds = %61
   %68 = getelementptr inbounds i8, ptr %60, i64 4
   %69 = load float, ptr %68, align 4
   %70 = fpext float %69 to double
-  %71 = fdiv double %70, %.137
+  %71 = fdiv double %70, %.136
   %72 = fmul double %71, %57
   %73 = fptoui double %72 to i64
   br label %74
 
 74:                                               ; preds = %67, %61
-  %75 = phi i64 [ %73, %67 ], [ %.02832.i, %61 ]
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %75, i64 %.02832.i)
-  %76 = sub i64 %.02832.i, %spec.select.i
+  %75 = phi i64 [ %73, %67 ], [ %.02733.i, %61 ]
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %75, i64 %.02733.i)
+  %76 = sub i64 %.02733.i, %spec.select.i
   br label %77
 
 77:                                               ; preds = %74, %58
-  %.129.i = phi i64 [ %76, %74 ], [ 0, %58 ]
+  %.128.i = phi i64 [ %76, %74 ], [ 0, %58 ]
   %.1.i = phi i64 [ %spec.select.i, %74 ], [ 0, %58 ]
   %78 = getelementptr inbounds i8, ptr %59, i64 16
   store i64 %.1.i, ptr %78, align 8
@@ -1149,16 +1149,16 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %14, %17
   br i1 %exitcond.not.i, label %._crit_edge.i, label %58, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %77, %54
-  %.028.lcssa.i = phi i64 [ %2, %54 ], [ %.129.i, %77 ]
+  %.027.lcssa.i = phi i64 [ %2, %54 ], [ %.128.i, %77 ]
   %79 = getelementptr inbounds i8, ptr %3, i64 16
   %80 = load i64, ptr %79, align 8
-  %81 = add i64 %80, %.028.lcssa.i
+  %81 = add i64 %80, %.027.lcssa.i
   store i64 %81, ptr %79, align 8
   br label %mca_pml_ob1_calc_weighted_length.exit
 
 mca_pml_ob1_calc_weighted_length.exit:            ; preds = %.preheader, %._crit_edge.i, %52, %._crit_edge, %46, %4
-  %.033 = phi i64 [ 0, %4 ], [ 0, %46 ], [ 0, %._crit_edge ], [ 1, %52 ], [ %55, %._crit_edge.i ], [ 0, %.preheader ]
-  ret i64 %.033
+  %.037 = phi i64 [ 0, %4 ], [ 0, %46 ], [ 0, %._crit_edge ], [ 1, %52 ], [ %55, %._crit_edge.i ], [ 0, %.preheader ]
+  ret i64 %.037
 }
 
 declare i32 @mca_pml_ob1_send_request_start_rdma(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -1295,7 +1295,7 @@ define void @mca_pml_ob1_accelerator_add_ipc_support(ptr noundef readonly %0, i3
   br label %7
 
 7:                                                ; preds = %5, %4
-  %.0 = phi i32 [ %6, %5 ], [ 0, %4 ]
+  %.016 = phi i32 [ %6, %5 ], [ 0, %4 ]
   %8 = getelementptr inbounds i8, ptr %2, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 136
@@ -1319,7 +1319,7 @@ define void @mca_pml_ob1_accelerator_add_ipc_support(ptr noundef readonly %0, i3
   br i1 %21, label %22, label %37
 
 22:                                               ; preds = %16
-  %23 = tail call i32 @opal_output_get_verbosity(i32 noundef %.0) #10
+  %23 = tail call i32 @opal_output_get_verbosity(i32 noundef %.016) #10
   %24 = icmp sgt i32 %23, 4
   br i1 %24, label %25, label %32
 

@@ -8,12 +8,12 @@ define void @uuid_create(ptr noundef %0, ptr noundef writeonly %1) local_unnamed
   br label %.outer.split.i
 
 .outer.split.i:                                   ; preds = %.outer.i, %2
-  %.011.ph16.i = phi ptr [ %0, %2 ], [ %10, %.outer.i ]
+  %.0.ph16.i = phi ptr [ %0, %2 ], [ %10, %.outer.i ]
   %.012.ph15.i = phi i64 [ 16, %2 ], [ %11, %.outer.i ]
   br label %3
 
 3:                                                ; preds = %6, %.outer.split.i
-  %4 = tail call i64 @getrandom(ptr noundef %.011.ph16.i, i64 noundef %.012.ph15.i, i32 noundef 0) #2
+  %4 = tail call i64 @getrandom(ptr noundef %.0.ph16.i, i64 noundef %.012.ph15.i, i32 noundef 0) #2
   %5 = icmp slt i64 %4, 0
   br i1 %5, label %6, label %.outer.i
 
@@ -24,7 +24,7 @@ define void @uuid_create(ptr noundef %0, ptr noundef writeonly %1) local_unnamed
   br i1 %9, label %3, label %uuid_getrandom.exit, !llvm.loop !6
 
 .outer.i:                                         ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %.011.ph16.i, i64 %4
+  %10 = getelementptr inbounds i8, ptr %.0.ph16.i, i64 %4
   %11 = sub i64 %.012.ph15.i, %4
   %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %.critedge, label %.outer.split.i, !llvm.loop !6
@@ -35,12 +35,12 @@ uuid_getrandom.exit:                              ; preds = %6
   br i1 %.not28, label %.critedge, label %.outer.split.i19
 
 .outer.split.i19:                                 ; preds = %uuid_getrandom.exit, %.outer.i22
-  %.011.ph16.i20 = phi ptr [ %20, %.outer.i22 ], [ %0, %uuid_getrandom.exit ]
+  %.0.ph16.i20 = phi ptr [ %20, %.outer.i22 ], [ %0, %uuid_getrandom.exit ]
   %.012.ph15.i21 = phi i64 [ %21, %.outer.i22 ], [ 16, %uuid_getrandom.exit ]
   br label %13
 
 13:                                               ; preds = %16, %.outer.split.i19
-  %14 = tail call i64 @getrandom(ptr noundef %.011.ph16.i20, i64 noundef %.012.ph15.i21, i32 noundef 2) #2
+  %14 = tail call i64 @getrandom(ptr noundef %.0.ph16.i20, i64 noundef %.012.ph15.i21, i32 noundef 2) #2
   %15 = icmp slt i64 %14, 0
   br i1 %15, label %16, label %.outer.i22
 
@@ -51,7 +51,7 @@ uuid_getrandom.exit:                              ; preds = %6
   br i1 %19, label %13, label %uuid_getrandom.exit25, !llvm.loop !6
 
 .outer.i22:                                       ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %.011.ph16.i20, i64 %14
+  %20 = getelementptr inbounds i8, ptr %.0.ph16.i20, i64 %14
   %21 = sub i64 %.012.ph15.i21, %14
   %.not.i23 = icmp eq i64 %21, 0
   br i1 %.not.i23, label %.critedge, label %.outer.split.i19, !llvm.loop !6
@@ -65,10 +65,10 @@ uuid_getrandom.exit25:                            ; preds = %16
   %23 = tail call i32 @rand() #2
   %24 = sext i32 %23 to i64
   store i64 %24, ptr %0, align 8
-  %.016.ptr.c = getelementptr inbounds i8, ptr %0, i64 8
+  %.0.ptr.c = getelementptr inbounds i8, ptr %0, i64 8
   %25 = tail call i32 @rand() #2
   %26 = sext i32 %25 to i64
-  store i64 %26, ptr %.016.ptr.c, align 8
+  store i64 %26, ptr %.0.ptr.c, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.outer.i, %.outer.i22, %.preheader, %uuid_getrandom.exit, %uuid_getrandom.exit25

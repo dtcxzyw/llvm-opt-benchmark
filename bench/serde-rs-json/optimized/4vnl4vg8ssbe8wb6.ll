@@ -1224,8 +1224,8 @@ define noalias noundef nonnull align 8 ptr @_ZN10serde_json5error10make_error17h
   br i1 %22, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h37edd6da2056eb06E.exit.i", label %.lr.ph.i.i
 
 .loopexit.i.i.i:                                  ; preds = %82, %80, %78
-  %.016.neg.i.i.i.i = phi i64 [ -1, %78 ], [ %..i.i.i.i, %82 ], [ -2, %80 ]
-  %23 = add i64 %.016.neg.i.i.i.i, %.fr101.i.i1216.i.i
+  %.015.neg.i.i.i.i = phi i64 [ -1, %78 ], [ %..i.i.i.i, %82 ], [ -2, %80 ]
+  %23 = add i64 %.015.neg.i.i.i.i, %.fr101.i.i1216.i.i
   %.fr101.i.i.i.i = freeze i64 %23
   %24 = icmp ne i8 %.in.i.i, 1
   %25 = icmp eq i64 %.fr101.i.i.i.i, 0

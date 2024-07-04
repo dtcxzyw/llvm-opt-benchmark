@@ -9587,7 +9587,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i77:    ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN7QStringD2Ev.exit79
 
 _ZN7QStringD2Ev.exit67:                           ; preds = %115, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i65, %_ZN10QByteArrayD2Ev.exit, %52, %86
-  %.0 = phi i1 [ false, %86 ], [ false, %52 ], [ true, %_ZN10QByteArrayD2Ev.exit ], [ true, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i65 ], [ true, %115 ]
+  %.011 = phi i1 [ false, %86 ], [ false, %52 ], [ true, %_ZN10QByteArrayD2Ev.exit ], [ true, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i65 ], [ true, %115 ]
   %135 = load ptr, ptr %8, align 8
   %.not.i.i.i80 = icmp eq ptr %135, null
   br i1 %.not.i.i.i80, label %_ZN10QByteArrayD2Ev.exit83, label %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i81
@@ -9603,7 +9603,7 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i81:     ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN10QByteArrayD2Ev.exit83
 
 _ZN10QByteArrayD2Ev.exit83:                       ; preds = %_ZN7QStringD2Ev.exit67, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i81, %137
-  ret i1 %.0
+  ret i1 %.011
 
 _ZN7QStringD2Ev.exit79:                           ; preds = %133, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i77, %_ZN7QStringD2Ev.exit71, %78
   %.pn17 = phi { ptr, i32 } [ %79, %78 ], [ %.pn15, %_ZN7QStringD2Ev.exit71 ], [ %.pn15, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i77 ], [ %.pn15, %133 ]

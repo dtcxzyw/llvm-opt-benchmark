@@ -2197,14 +2197,14 @@ opal_datatype_span.exit:                          ; preds = %435, %440
   br i1 %456, label %488, label %457
 
 457:                                              ; preds = %410, %opal_datatype_span.exit
-  %.0221 = phi ptr [ %455, %opal_datatype_span.exit ], [ %1, %410 ]
+  %.0 = phi ptr [ %455, %opal_datatype_span.exit ], [ %1, %410 ]
   %458 = getelementptr inbounds i8, ptr %416, i64 328
   %459 = load ptr, ptr %458, align 8
   %460 = getelementptr inbounds i8, ptr %459, i64 176
   %461 = load ptr, ptr %460, align 8
   %462 = getelementptr inbounds i8, ptr %459, i64 184
   %463 = load ptr, ptr %462, align 8
-  %464 = tail call i32 %461(ptr noundef %0, ptr noundef %.0221, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %433, ptr noundef nonnull %416, ptr noundef %463) #4
+  %464 = tail call i32 %461(ptr noundef %0, ptr noundef %.0, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %433, ptr noundef nonnull %416, ptr noundef %463) #4
   %.not225 = icmp eq i32 %464, 0
   br i1 %.not225, label %467, label %465
 
@@ -2212,7 +2212,7 @@ opal_datatype_span.exit:                          ; preds = %435, %440
   br i1 %or.cond, label %482, label %466
 
 466:                                              ; preds = %465
-  tail call void @free(ptr noundef %.0221) #4
+  tail call void @free(ptr noundef %.0) #4
   br label %482
 
 467:                                              ; preds = %457
@@ -2229,17 +2229,17 @@ opal_datatype_span.exit:                          ; preds = %435, %440
   br i1 %.not224, label %478, label %476
 
 476:                                              ; preds = %469
-  %477 = tail call i32 %473(ptr noundef %.0221, ptr noundef null, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %432, ptr noundef %422, ptr noundef %475) #4
-  tail call void @free(ptr noundef %.0221) #4
+  %477 = tail call i32 %473(ptr noundef %.0, ptr noundef null, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %432, ptr noundef %422, ptr noundef %475) #4
+  tail call void @free(ptr noundef %.0) #4
   br label %480
 
 478:                                              ; preds = %469
-  %479 = tail call i32 %473(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %.0221, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %432, ptr noundef %422, ptr noundef %475) #4
+  %479 = tail call i32 %473(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %.0, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %432, ptr noundef %422, ptr noundef %475) #4
   br label %480
 
 480:                                              ; preds = %478, %476
-  %.0220 = phi i32 [ %477, %476 ], [ %479, %478 ]
-  %.not227 = icmp eq i32 %.0220, 0
+  %.0221 = phi i32 [ %477, %476 ], [ %479, %478 ]
+  %.not227 = icmp eq i32 %.0221, 0
   br i1 %.not227, label %481, label %488
 
 481:                                              ; preds = %480, %467
@@ -2254,8 +2254,8 @@ opal_datatype_span.exit:                          ; preds = %435, %440
   br label %488
 
 488:                                              ; preds = %480, %opal_datatype_span.exit, %482, %481, %404, %349
-  %.0 = phi i32 [ %355, %349 ], [ %409, %404 ], [ %487, %482 ], [ 0, %481 ], [ -1, %opal_datatype_span.exit ], [ %.0220, %480 ]
-  ret i32 %.0
+  %.0220 = phi i32 [ %355, %349 ], [ %409, %404 ], [ %487, %482 ], [ 0, %481 ], [ -1, %opal_datatype_span.exit ], [ %.0221, %480 ]
+  ret i32 %.0220
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2280,8 +2280,8 @@ define noundef i32 @mca_coll_han_reduce_reproducible_decision(ptr noundef %0, pt
 13:                                               ; preds = %6
   %14 = getelementptr inbounds i8, ptr %12, i64 112
   %15 = load ptr, ptr %14, align 8
-  %.not24 = icmp eq ptr %15, null
-  br i1 %.not24, label %26, label %16
+  %.not25 = icmp eq ptr %15, null
+  br i1 %.not25, label %26, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %12, i64 112
@@ -2325,10 +2325,10 @@ define noundef i32 @mca_coll_han_reduce_reproducible_decision(ptr noundef %0, pt
 
 38:                                               ; preds = %16, %19, %22, %34
   %.sink = phi ptr [ %37, %34 ], [ %12, %22 ], [ %12, %19 ], [ %12, %16 ]
-  %.sink39 = phi ptr [ %35, %34 ], [ %17, %22 ], [ %17, %19 ], [ %17, %16 ]
+  %.sink40 = phi ptr [ %35, %34 ], [ %17, %22 ], [ %17, %19 ], [ %17, %16 ]
   %39 = getelementptr inbounds i8, ptr %1, i64 784
   store ptr %.sink, ptr %39, align 8
-  %40 = load ptr, ptr %.sink39, align 8
+  %40 = load ptr, ptr %.sink40, align 8
   %41 = getelementptr inbounds i8, ptr %1, i64 776
   store ptr %40, ptr %41, align 8
   ret i32 0

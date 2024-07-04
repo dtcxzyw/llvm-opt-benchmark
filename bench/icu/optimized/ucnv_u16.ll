@@ -183,10 +183,10 @@ if.then27:                                        ; preds = %if.end23.thread, %i
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.then27
+  %source.0 = phi ptr [ %2, %if.then27 ], [ %incdec.ptr, %do.cond ]
   %length.0 = phi i32 [ %conv, %if.then27 ], [ %dec, %do.cond ]
   %count.0 = phi i32 [ %conv25, %if.then27 ], [ %inc, %do.cond ]
   %sourceIndex.0 = phi i32 [ 0, %if.then27 ], [ %inc30, %do.cond ]
-  %source.0 = phi ptr [ %2, %if.then27 ], [ %incdec.ptr, %do.cond ]
   %incdec.ptr = getelementptr inbounds i8, ptr %source.0, i64 1
   %16 = load i8, ptr %source.0, align 1
   %inc = add i32 %count.0, 1
@@ -337,13 +337,13 @@ do.end:                                           ; preds = %do.end.loopexit, %i
 
 if.end113:                                        ; preds = %do.end, %if.end23
   %toULength24271 = phi ptr [ %toULength24270, %do.end ], [ %toULength24, %if.end23 ]
+  %source.2 = phi ptr [ %incdec.ptr, %do.end ], [ %2, %if.end23 ]
   %target.2 = phi ptr [ %target.1, %do.end ], [ %5, %if.end23 ]
   %offsets.4 = phi ptr [ %offsets.3, %do.end ], [ %7, %if.end23 ]
   %targetCapacity.2 = phi i32 [ %targetCapacity.1, %do.end ], [ %conv15, %if.end23 ]
   %length.1 = phi i32 [ %dec258, %do.end ], [ %conv, %if.end23 ]
   %sourceIndex.1 = phi i32 [ %inc30261, %do.end ], [ 0, %if.end23 ]
   %c.3 = phi i16 [ %c.2, %do.end ], [ 0, %if.end23 ]
-  %source.2 = phi ptr [ %incdec.ptr, %do.end ], [ %2, %if.end23 ]
   %mul = shl i32 %targetCapacity.2, 1
   %cmp114 = icmp ugt i32 %mul, %length.1
   %and116 = and i32 %length.1, -2
@@ -361,9 +361,9 @@ if.then122:                                       ; preds = %if.end113
   br i1 %cmp125, label %do.body127, label %do.body173
 
 do.body127:                                       ; preds = %if.then122, %do.cond168
+  %source.3 = phi ptr [ %source.4, %do.cond168 ], [ %source.2, %if.then122 ]
   %target.3 = phi ptr [ %target.4, %do.cond168 ], [ %target.2, %if.then122 ]
   %count.3 = phi i32 [ %dec169, %do.cond168 ], [ %shr, %if.then122 ]
-  %source.3 = phi ptr [ %source.4, %do.cond168 ], [ %source.2, %if.then122 ]
   %27 = load i8, ptr %source.3, align 1
   %conv130 = zext i8 %27 to i16
   %shl131 = shl nuw i16 %conv130, 8
@@ -411,19 +411,19 @@ if.then160:                                       ; preds = %land.lhs.true148
   br label %do.cond168
 
 do.cond168:                                       ; preds = %if.then140, %if.then160
+  %source.4 = phi ptr [ %add.ptr161, %if.then160 ], [ %add.ptr136, %if.then140 ]
   %target.4 = phi ptr [ %incdec.ptr164, %if.then160 ], [ %incdec.ptr141, %if.then140 ]
   %count.4 = phi i32 [ %dec162, %if.then160 ], [ %count.3, %if.then140 ]
-  %source.4 = phi ptr [ %add.ptr161, %if.then160 ], [ %add.ptr136, %if.then140 ]
   %dec169 = add i32 %count.4, -1
   %cmp170.not = icmp eq i32 %dec169, 0
   br i1 %cmp170.not, label %if.end279, label %do.body127, !llvm.loop !6
 
 do.body173:                                       ; preds = %if.then122, %do.cond218
+  %source.5 = phi ptr [ %source.6, %do.cond218 ], [ %source.2, %if.then122 ]
   %target.5 = phi ptr [ %target.6, %do.cond218 ], [ %target.2, %if.then122 ]
   %offsets.5 = phi ptr [ %incdec.ptr188, %do.cond218 ], [ %offsets.4, %if.then122 ]
   %count.5 = phi i32 [ %dec219, %do.cond218 ], [ %shr, %if.then122 ]
   %sourceIndex.2 = phi i32 [ %add, %do.cond218 ], [ %sourceIndex.1, %if.then122 ]
-  %source.5 = phi ptr [ %source.6, %do.cond218 ], [ %source.2, %if.then122 ]
   %32 = load i8, ptr %source.5, align 1
   %conv176 = zext i8 %32 to i16
   %shl177 = shl nuw i16 %conv176, 8
@@ -476,9 +476,9 @@ do.cond218:                                       ; preds = %if.then186, %if.the
   %.sink304 = phi i64 [ 4, %if.then186 ], [ 8, %if.then207 ]
   %offsets.5.sink = phi ptr [ %offsets.5, %if.then186 ], [ %incdec.ptr212, %if.then207 ]
   %.sink = phi i32 [ 2, %if.then186 ], [ 4, %if.then207 ]
+  %source.6 = phi ptr [ %add.ptr182, %if.then186 ], [ %add.ptr208, %if.then207 ]
   %target.6 = phi ptr [ %incdec.ptr187, %if.then186 ], [ %incdec.ptr211, %if.then207 ]
   %count.6 = phi i32 [ %count.5, %if.then186 ], [ %dec209, %if.then207 ]
-  %source.6 = phi ptr [ %add.ptr182, %if.then186 ], [ %add.ptr208, %if.then207 ]
   %incdec.ptr188 = getelementptr inbounds i8, ptr %offsets.5, i64 %.sink304
   store i32 %sourceIndex.2, ptr %offsets.5.sink, align 4
   %add = add i32 %sourceIndex.2, %.sink
@@ -487,36 +487,36 @@ do.cond218:                                       ; preds = %if.then186, %if.the
   br i1 %cmp220.not, label %if.end279, label %do.body173, !llvm.loop !7
 
 if.end222:                                        ; preds = %if.else189, %if.else142
+  %source.7 = phi ptr [ %add.ptr136, %if.else142 ], [ %add.ptr182, %if.else189 ]
   %target.7 = phi ptr [ %target.3, %if.else142 ], [ %target.5, %if.else189 ]
   %offsets.7 = phi ptr [ null, %if.else142 ], [ %offsets.5, %if.else189 ]
   %count.7 = phi i32 [ %count.3, %if.else142 ], [ %count.5, %if.else189 ]
   %sourceIndex.4 = phi i32 [ %sourceIndex.1, %if.else142 ], [ %sourceIndex.2, %if.else189 ]
   %c.4 = phi i16 [ %or134, %if.else142 ], [ %or180, %if.else189 ]
-  %source.7 = phi ptr [ %add.ptr136, %if.else142 ], [ %add.ptr182, %if.else189 ]
   %cmp223 = icmp eq i32 %count.7, 0
   br i1 %cmp223, label %if.end279, label %if.else225
 
 if.else225:                                       ; preds = %land.lhs.true195, %land.lhs.true148, %if.end222
-  %source.7189 = phi ptr [ %source.7, %if.end222 ], [ %add.ptr136, %land.lhs.true148 ], [ %add.ptr182, %land.lhs.true195 ]
-  %c.4188 = phi i16 [ %c.4, %if.end222 ], [ %or134, %land.lhs.true148 ], [ %or180, %land.lhs.true195 ]
-  %sourceIndex.4187 = phi i32 [ %sourceIndex.4, %if.end222 ], [ %sourceIndex.1, %land.lhs.true148 ], [ %sourceIndex.2, %land.lhs.true195 ]
-  %count.7186 = phi i32 [ %count.7, %if.end222 ], [ %count.3, %land.lhs.true148 ], [ %count.5, %land.lhs.true195 ]
-  %offsets.7185 = phi ptr [ %offsets.7, %if.end222 ], [ null, %land.lhs.true148 ], [ %offsets.5, %land.lhs.true195 ]
-  %target.7184 = phi ptr [ %target.7, %if.end222 ], [ %target.3, %land.lhs.true148 ], [ %target.5, %land.lhs.true195 ]
-  %sub226 = shl i32 %count.7186, 1
+  %c.4189 = phi i16 [ %c.4, %if.end222 ], [ %or134, %land.lhs.true148 ], [ %or180, %land.lhs.true195 ]
+  %sourceIndex.4188 = phi i32 [ %sourceIndex.4, %if.end222 ], [ %sourceIndex.1, %land.lhs.true148 ], [ %sourceIndex.2, %land.lhs.true195 ]
+  %count.7187 = phi i32 [ %count.7, %if.end222 ], [ %count.3, %land.lhs.true148 ], [ %count.5, %land.lhs.true195 ]
+  %offsets.7186 = phi ptr [ %offsets.7, %if.end222 ], [ null, %land.lhs.true148 ], [ %offsets.5, %land.lhs.true195 ]
+  %target.7185 = phi ptr [ %target.7, %if.end222 ], [ %target.3, %land.lhs.true148 ], [ %target.5, %land.lhs.true195 ]
+  %source.7184 = phi ptr [ %source.7, %if.end222 ], [ %add.ptr136, %land.lhs.true148 ], [ %add.ptr182, %land.lhs.true195 ]
+  %sub226 = shl i32 %count.7187, 1
   %mul227 = add i32 %sub123, -2
   %add228 = add i32 %mul227, %sub226
-  %add229 = add i32 %count.7186, %sub124
+  %add229 = add i32 %count.7187, %sub124
   br label %if.end231
 
 if.end231:                                        ; preds = %if.else225, %if.end113
-  %target.8 = phi ptr [ %target.7184, %if.else225 ], [ %target.2, %if.end113 ]
-  %offsets.8 = phi ptr [ %offsets.7185, %if.else225 ], [ %offsets.4, %if.end113 ]
+  %source.8 = phi ptr [ %source.7184, %if.else225 ], [ %source.2, %if.end113 ]
+  %target.8 = phi ptr [ %target.7185, %if.else225 ], [ %target.2, %if.end113 ]
+  %offsets.8 = phi ptr [ %offsets.7186, %if.else225 ], [ %offsets.4, %if.end113 ]
   %targetCapacity.3 = phi i32 [ %add229, %if.else225 ], [ %targetCapacity.2, %if.end113 ]
   %length.2 = phi i32 [ %add228, %if.else225 ], [ %length.1, %if.end113 ]
-  %sourceIndex.5 = phi i32 [ %sourceIndex.4187, %if.else225 ], [ %sourceIndex.1, %if.end113 ]
-  %c.5 = phi i16 [ %c.4188, %if.else225 ], [ %c.3, %if.end113 ]
-  %source.8 = phi ptr [ %source.7189, %if.else225 ], [ %source.2, %if.end113 ]
+  %sourceIndex.5 = phi i32 [ %sourceIndex.4188, %if.else225 ], [ %sourceIndex.1, %if.end113 ]
+  %c.5 = phi i16 [ %c.4189, %if.else225 ], [ %c.3, %if.end113 ]
   %cmp233.not = icmp eq i16 %c.5, 0
   br i1 %cmp233.not, label %if.end279, label %if.then234
 
@@ -573,19 +573,19 @@ if.end268:                                        ; preds = %if.then266, %if.the
 
 if.end279.sink.split:                             ; preds = %if.then234, %if.then249, %if.end268
   %.sink305 = phi i32 [ 15, %if.end268 ], [ 12, %if.then249 ], [ 12, %if.then234 ]
+  %source.9.ph = phi ptr [ %add.ptr262, %if.end268 ], [ %source.8, %if.then249 ], [ %source.8, %if.then234 ]
   %target.9.ph = phi ptr [ %incdec.ptr264, %if.end268 ], [ %target.8, %if.then249 ], [ %target.8, %if.then234 ]
   %offsets.10.ph = phi ptr [ %offsets.9, %if.end268 ], [ %offsets.8, %if.then249 ], [ %offsets.8, %if.then234 ]
   %length.3.ph = phi i32 [ %sub263, %if.end268 ], [ 1, %if.then249 ], [ %length.2, %if.then234 ]
-  %source.9.ph = phi ptr [ %add.ptr262, %if.end268 ], [ %source.8, %if.then249 ], [ %source.8, %if.then234 ]
   store i32 %.sink305, ptr %pErrorCode, align 4
   br label %if.end279
 
 if.end279:                                        ; preds = %do.cond218, %do.cond168, %if.end279.sink.split, %if.end222, %if.then247, %if.end231
   %targetCapacity.3198 = phi i32 [ %targetCapacity.3, %if.then247 ], [ %targetCapacity.3, %if.end231 ], [ %sub124, %if.end222 ], [ %targetCapacity.3, %if.end279.sink.split ], [ %sub124, %do.cond168 ], [ %sub124, %do.cond218 ]
+  %source.9 = phi ptr [ %source.8, %if.then247 ], [ %source.8, %if.end231 ], [ %source.7, %if.end222 ], [ %source.9.ph, %if.end279.sink.split ], [ %source.4, %do.cond168 ], [ %source.6, %do.cond218 ]
   %target.9 = phi ptr [ %target.8, %if.then247 ], [ %target.8, %if.end231 ], [ %target.7, %if.end222 ], [ %target.9.ph, %if.end279.sink.split ], [ %target.4, %do.cond168 ], [ %target.6, %do.cond218 ]
   %offsets.10 = phi ptr [ %offsets.8, %if.then247 ], [ %offsets.8, %if.end231 ], [ %offsets.7, %if.end222 ], [ %offsets.10.ph, %if.end279.sink.split ], [ null, %do.cond168 ], [ %incdec.ptr188, %do.cond218 ]
   %length.3 = phi i32 [ %length.2, %if.then247 ], [ %length.2, %if.end231 ], [ %sub123, %if.end222 ], [ %length.3.ph, %if.end279.sink.split ], [ %sub123, %do.cond168 ], [ %sub123, %do.cond218 ]
-  %source.9 = phi ptr [ %source.8, %if.then247 ], [ %source.8, %if.end231 ], [ %source.7, %if.end222 ], [ %source.9.ph, %if.end279.sink.split ], [ %source.4, %do.cond168 ], [ %source.6, %do.cond218 ]
   %41 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %41, 1
   %cmp281 = icmp ne i32 %length.3, 0
@@ -1159,8 +1159,8 @@ if.then51:                                        ; preds = %if.then15, %if.then
   br label %if.end62
 
 if.end62:                                         ; preds = %if.end49, %if.end49.thread46, %if.then51, %if.end10
-  %c.1 = phi i32 [ 65535, %if.then51 ], [ %sub, %if.end49 ], [ %or, %if.end10 ], [ 65535, %if.end49.thread46 ]
   %s.2 = phi ptr [ %add.ptr, %if.then51 ], [ %add.ptr19, %if.end49 ], [ %add.ptr, %if.end10 ], [ %incdec.ptr44, %if.end49.thread46 ]
+  %c.1 = phi i32 [ 65535, %if.then51 ], [ %sub, %if.end49 ], [ %or, %if.end10 ], [ 65535, %if.end49.thread46 ]
   store ptr %s.2, ptr %source, align 8
   br label %return
 
@@ -1206,20 +1206,20 @@ land.rhs.lr.ph.lr.ph:                             ; preds = %entry
   br label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %land.rhs.lr.ph.lr.ph, %if.end59
-  %source.0.ph114 = phi ptr [ %1, %land.rhs.lr.ph.lr.ph ], [ %source.2, %if.end59 ]
-  %offsetDelta.0.ph113 = phi i32 [ 0, %land.rhs.lr.ph.lr.ph ], [ %offsetDelta.1, %if.end59 ]
-  %state.0.ph112 = phi i32 [ %4, %land.rhs.lr.ph.lr.ph ], [ %state.2, %if.end59 ]
+  %offsetDelta.0.ph114 = phi i32 [ 0, %land.rhs.lr.ph.lr.ph ], [ %offsetDelta.1, %if.end59 ]
+  %state.0.ph113 = phi i32 [ %4, %land.rhs.lr.ph.lr.ph ], [ %state.2, %if.end59 ]
+  %source.0.ph112 = phi ptr [ %1, %land.rhs.lr.ph.lr.ph ], [ %source.2, %if.end59 ]
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %sw.epilog
-  %source.094 = phi ptr [ %source.0.ph114, %land.rhs.lr.ph ], [ %source.3, %sw.epilog ]
-  %state.093 = phi i32 [ %state.0.ph112, %land.rhs.lr.ph ], [ %state.3, %sw.epilog ]
+  %state.094 = phi i32 [ %state.0.ph113, %land.rhs.lr.ph ], [ %state.3, %sw.epilog ]
+  %source.093 = phi ptr [ %source.0.ph112, %land.rhs.lr.ph ], [ %source.3, %sw.epilog ]
   %6 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp sgt i32 %6, 0
   br i1 %cmp.i, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  switch i32 %state.093, label %sw.epilog [
+  switch i32 %state.094, label %sw.epilog [
     i32 0, label %sw.bb
     i32 1, label %sw.bb4
     i32 8, label %sw.bb61
@@ -1227,14 +1227,14 @@ while.body:                                       ; preds = %land.rhs
   ]
 
 sw.bb:                                            ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %source.094, i64 1
-  %7 = load i8, ptr %source.094, align 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %source.093, i64 1
+  %7 = load i8, ptr %source.093, align 1
   store i8 %7, ptr %toUBytes, align 1
   store i8 1, ptr %toULength, align 8
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %while.body
-  %8 = load i8, ptr %source.094, align 1
+  %8 = load i8, ptr %source.093, align 1
   %9 = load i8, ptr %toUBytes, align 1
   %cmp7 = icmp eq i8 %9, -2
   %cmp9 = icmp eq i8 %8, -1
@@ -1265,7 +1265,7 @@ if.end32:                                         ; preds = %if.else12
 
 if.then34:                                        ; preds = %if.then, %if.end32
   %state.182 = phi i32 [ 8, %if.then ], [ 9, %if.end32 ]
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %source.094, i64 1
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %source.093, i64 1
   store i8 0, ptr %toULength, align 8
   %10 = load ptr, ptr %source1, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %incdec.ptr35 to i64
@@ -1282,7 +1282,7 @@ if.else39:                                        ; preds = %if.else25
 
 if.then41:                                        ; preds = %if.else25, %if.else39
   %12 = load ptr, ptr %source1, align 8
-  %cmp43.not = icmp eq ptr %source.094, %12
+  %cmp43.not = icmp eq ptr %source.093, %12
   br i1 %cmp43.not, label %if.end47, label %if.then44
 
 if.then44:                                        ; preds = %if.then41
@@ -1290,7 +1290,7 @@ if.then44:                                        ; preds = %if.then41
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then44, %if.then41
-  %source.1 = phi ptr [ %12, %if.then44 ], [ %source.094, %if.then41 ]
+  %source.1 = phi ptr [ %12, %if.then44 ], [ %source.093, %if.then41 ]
   %cmp.i76 = icmp eq ptr %.val71, @_UTF16LEData_75
   %.69 = select i1 %cmp.i76, i32 9, i32 8
   br label %if.end59
@@ -1301,42 +1301,42 @@ if.else52:                                        ; preds = %if.else39, %if.end3
   %arrayidx54 = getelementptr inbounds i8, ptr %0, i64 66
   store i8 %13, ptr %arrayidx54, align 1
   store i8 2, ptr %toULength, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %source.094, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %source.093, i64 1
   store ptr %add.ptr, ptr %source1, align 8
   store i32 %state.18185, ptr %mode, align 4
   store i32 18, ptr %pErrorCode, align 4
   br label %return
 
 if.end59:                                         ; preds = %if.end47, %if.then34
-  %state.2 = phi i32 [ %state.182, %if.then34 ], [ %.69, %if.end47 ]
-  %offsetDelta.1 = phi i32 [ %conv38, %if.then34 ], [ %offsetDelta.0.ph113, %if.end47 ]
   %source.2 = phi ptr [ %incdec.ptr35, %if.then34 ], [ %source.1, %if.end47 ]
+  %state.2 = phi i32 [ %state.182, %if.then34 ], [ %.69, %if.end47 ]
+  %offsetDelta.1 = phi i32 [ %conv38, %if.then34 ], [ %offsetDelta.0.ph114, %if.end47 ]
   store i32 %state.2, ptr %mode, align 4
   %cmp92 = icmp ult ptr %source.2, %2
   br i1 %cmp92, label %land.rhs.lr.ph, label %while.end, !llvm.loop !11
 
 sw.bb61:                                          ; preds = %while.body
-  store ptr %source.094, ptr %source1, align 8
+  store ptr %source.093, ptr %source1, align 8
   tail call void @_ZL28_UTF16BEToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef %pArgs, ptr noundef nonnull %pErrorCode)
   %14 = load ptr, ptr %source1, align 8
   br label %sw.epilog
 
 sw.bb64:                                          ; preds = %while.body
-  store ptr %source.094, ptr %source1, align 8
+  store ptr %source.093, ptr %source1, align 8
   tail call void @_ZL28_UTF16LEToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef %pArgs, ptr noundef nonnull %pErrorCode)
   %15 = load ptr, ptr %source1, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %while.body, %sw.bb64, %sw.bb61, %sw.bb
-  %state.3 = phi i32 [ %state.093, %while.body ], [ 9, %sw.bb64 ], [ 8, %sw.bb61 ], [ 1, %sw.bb ]
-  %source.3 = phi ptr [ %source.094, %while.body ], [ %15, %sw.bb64 ], [ %14, %sw.bb61 ], [ %incdec.ptr, %sw.bb ]
+  %source.3 = phi ptr [ %source.093, %while.body ], [ %15, %sw.bb64 ], [ %14, %sw.bb61 ], [ %incdec.ptr, %sw.bb ]
+  %state.3 = phi i32 [ %state.094, %while.body ], [ 9, %sw.bb64 ], [ 8, %sw.bb61 ], [ 1, %sw.bb ]
   %cmp = icmp ult ptr %source.3, %2
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %if.end59, %land.rhs, %sw.epilog
-  %offsetDelta.0.ph.lcssa = phi i32 [ %offsetDelta.0.ph113, %sw.epilog ], [ %offsetDelta.0.ph113, %land.rhs ], [ %offsetDelta.1, %if.end59 ]
-  %state.0.lcssa = phi i32 [ %state.093, %land.rhs ], [ %state.3, %sw.epilog ], [ %state.2, %if.end59 ]
-  %source.0.lcssa = phi ptr [ %source.094, %land.rhs ], [ %source.3, %sw.epilog ], [ %source.2, %if.end59 ]
+  %offsetDelta.0.ph.lcssa = phi i32 [ %offsetDelta.0.ph114, %sw.epilog ], [ %offsetDelta.0.ph114, %land.rhs ], [ %offsetDelta.1, %if.end59 ]
+  %source.0.lcssa = phi ptr [ %source.093, %land.rhs ], [ %source.3, %sw.epilog ], [ %source.2, %if.end59 ]
+  %state.0.lcssa = phi i32 [ %state.094, %land.rhs ], [ %state.3, %sw.epilog ], [ %state.2, %if.end59 ]
   %cmp67 = icmp ne ptr %3, null
   %cmp69 = icmp ne i32 %offsetDelta.0.ph.lcssa, 0
   %or.cond2 = select i1 %cmp67, i1 %cmp69, i1 false
@@ -1357,10 +1357,10 @@ while.body74:                                     ; preds = %if.then70, %while.b
   br i1 %cmp73, label %while.body74, label %if.end78, !llvm.loop !12
 
 if.end78:                                         ; preds = %while.body74, %entry, %if.then70, %while.end
-  %source.0.lcssa137 = phi ptr [ %source.0.lcssa, %if.then70 ], [ %source.0.lcssa, %while.end ], [ %1, %entry ], [ %source.0.lcssa, %while.body74 ]
-  %state.0.lcssa136 = phi i32 [ %state.0.lcssa, %if.then70 ], [ %state.0.lcssa, %while.end ], [ %4, %entry ], [ %state.0.lcssa, %while.body74 ]
-  store ptr %source.0.lcssa137, ptr %source1, align 8
-  %cmp80 = icmp eq ptr %source.0.lcssa137, %2
+  %state.0.lcssa137 = phi i32 [ %state.0.lcssa, %if.then70 ], [ %state.0.lcssa, %while.end ], [ %4, %entry ], [ %state.0.lcssa, %while.body74 ]
+  %source.0.lcssa136 = phi ptr [ %source.0.lcssa, %if.then70 ], [ %source.0.lcssa, %while.end ], [ %1, %entry ], [ %source.0.lcssa, %while.body74 ]
+  store ptr %source.0.lcssa136, ptr %source1, align 8
+  %cmp80 = icmp eq ptr %source.0.lcssa136, %2
   br i1 %cmp80, label %land.lhs.true81, label %if.end89
 
 land.lhs.true81:                                  ; preds = %if.end78
@@ -1370,7 +1370,7 @@ land.lhs.true81:                                  ; preds = %if.end78
   br i1 %tobool82.not, label %if.end89, label %if.then83
 
 if.then83:                                        ; preds = %land.lhs.true81
-  switch i32 %state.0.lcssa136, label %if.end89 [
+  switch i32 %state.0.lcssa137, label %if.end89 [
     i32 9, label %sw.bb86
     i32 8, label %sw.bb85
   ]
@@ -1384,7 +1384,7 @@ sw.bb86:                                          ; preds = %if.then83
   br label %if.end89
 
 if.end89:                                         ; preds = %sw.bb85, %sw.bb86, %if.then83, %land.lhs.true81, %if.end78
-  store i32 %state.0.lcssa136, ptr %mode, align 4
+  store i32 %state.0.lcssa137, ptr %mode, align 4
   br label %return
 
 return:                                           ; preds = %if.end89, %if.else52
@@ -1480,10 +1480,10 @@ if.then28:                                        ; preds = %if.end24.thread, %i
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.then28
+  %source.0 = phi ptr [ %2, %if.then28 ], [ %incdec.ptr, %do.cond ]
   %length.0 = phi i32 [ %conv, %if.then28 ], [ %dec, %do.cond ]
   %count.0 = phi i32 [ %conv26, %if.then28 ], [ %inc, %do.cond ]
   %sourceIndex.0 = phi i32 [ 0, %if.then28 ], [ %inc31, %do.cond ]
-  %source.0 = phi ptr [ %2, %if.then28 ], [ %incdec.ptr, %do.cond ]
   %incdec.ptr = getelementptr inbounds i8, ptr %source.0, i64 1
   %16 = load i8, ptr %source.0, align 1
   %inc = add i32 %count.0, 1
@@ -1629,13 +1629,13 @@ do.end:                                           ; preds = %do.end.loopexit, %i
 
 if.end114:                                        ; preds = %do.end, %if.end24
   %toULength25270 = phi ptr [ %toULength25269, %do.end ], [ %toULength25, %if.end24 ]
+  %source.2 = phi ptr [ %incdec.ptr, %do.end ], [ %2, %if.end24 ]
   %target.2 = phi ptr [ %target.1, %do.end ], [ %5, %if.end24 ]
   %offsets.4 = phi ptr [ %offsets.3, %do.end ], [ %7, %if.end24 ]
   %targetCapacity.2 = phi i32 [ %targetCapacity.1, %do.end ], [ %conv16, %if.end24 ]
   %length.1 = phi i32 [ %dec258, %do.end ], [ %conv, %if.end24 ]
   %sourceIndex.1 = phi i32 [ %inc31261, %do.end ], [ 0, %if.end24 ]
   %c.3 = phi i16 [ %c.2, %do.end ], [ 0, %if.end24 ]
-  %source.2 = phi ptr [ %incdec.ptr, %do.end ], [ %2, %if.end24 ]
   %mul = shl i32 %targetCapacity.2, 1
   %cmp115 = icmp ugt i32 %mul, %length.1
   %and117 = and i32 %length.1, -2
@@ -1653,9 +1653,9 @@ if.then123:                                       ; preds = %if.end114
   br i1 %cmp126, label %do.body128, label %do.body174
 
 do.body128:                                       ; preds = %if.then123, %do.cond169
+  %source.3 = phi ptr [ %source.4, %do.cond169 ], [ %source.2, %if.then123 ]
   %target.3 = phi ptr [ %target.4, %do.cond169 ], [ %target.2, %if.then123 ]
   %count.3 = phi i32 [ %dec170, %do.cond169 ], [ %shr, %if.then123 ]
-  %source.3 = phi ptr [ %source.4, %do.cond169 ], [ %source.2, %if.then123 ]
   %arrayidx129 = getelementptr inbounds i8, ptr %source.3, i64 1
   %26 = load i8, ptr %arrayidx129, align 1
   %conv131 = zext i8 %26 to i16
@@ -1703,19 +1703,19 @@ if.then161:                                       ; preds = %land.lhs.true149
   br label %do.cond169
 
 do.cond169:                                       ; preds = %if.then141, %if.then161
+  %source.4 = phi ptr [ %add.ptr162, %if.then161 ], [ %add.ptr137, %if.then141 ]
   %target.4 = phi ptr [ %incdec.ptr165, %if.then161 ], [ %incdec.ptr142, %if.then141 ]
   %count.4 = phi i32 [ %dec163, %if.then161 ], [ %count.3, %if.then141 ]
-  %source.4 = phi ptr [ %add.ptr162, %if.then161 ], [ %add.ptr137, %if.then141 ]
   %dec170 = add i32 %count.4, -1
   %cmp171.not = icmp eq i32 %dec170, 0
   br i1 %cmp171.not, label %if.end280, label %do.body128, !llvm.loop !14
 
 do.body174:                                       ; preds = %if.then123, %do.cond219
+  %source.5 = phi ptr [ %source.6, %do.cond219 ], [ %source.2, %if.then123 ]
   %target.5 = phi ptr [ %target.6, %do.cond219 ], [ %target.2, %if.then123 ]
   %offsets.5 = phi ptr [ %incdec.ptr189, %do.cond219 ], [ %offsets.4, %if.then123 ]
   %count.5 = phi i32 [ %dec220, %do.cond219 ], [ %shr, %if.then123 ]
   %sourceIndex.2 = phi i32 [ %add, %do.cond219 ], [ %sourceIndex.1, %if.then123 ]
-  %source.5 = phi ptr [ %source.6, %do.cond219 ], [ %source.2, %if.then123 ]
   %arrayidx175 = getelementptr inbounds i8, ptr %source.5, i64 1
   %31 = load i8, ptr %arrayidx175, align 1
   %conv177 = zext i8 %31 to i16
@@ -1768,9 +1768,9 @@ do.cond219:                                       ; preds = %if.then187, %if.the
   %.sink303 = phi i64 [ 4, %if.then187 ], [ 8, %if.then208 ]
   %offsets.5.sink = phi ptr [ %offsets.5, %if.then187 ], [ %incdec.ptr213, %if.then208 ]
   %.sink = phi i32 [ 2, %if.then187 ], [ 4, %if.then208 ]
+  %source.6 = phi ptr [ %add.ptr183, %if.then187 ], [ %add.ptr209, %if.then208 ]
   %target.6 = phi ptr [ %incdec.ptr188, %if.then187 ], [ %incdec.ptr212, %if.then208 ]
   %count.6 = phi i32 [ %count.5, %if.then187 ], [ %dec210, %if.then208 ]
-  %source.6 = phi ptr [ %add.ptr183, %if.then187 ], [ %add.ptr209, %if.then208 ]
   %incdec.ptr189 = getelementptr inbounds i8, ptr %offsets.5, i64 %.sink303
   store i32 %sourceIndex.2, ptr %offsets.5.sink, align 4
   %add = add i32 %sourceIndex.2, %.sink
@@ -1779,36 +1779,36 @@ do.cond219:                                       ; preds = %if.then187, %if.the
   br i1 %cmp221.not, label %if.end280, label %do.body174, !llvm.loop !15
 
 if.end223:                                        ; preds = %if.else190, %if.else143
+  %source.7 = phi ptr [ %add.ptr137, %if.else143 ], [ %add.ptr183, %if.else190 ]
   %target.7 = phi ptr [ %target.3, %if.else143 ], [ %target.5, %if.else190 ]
   %offsets.7 = phi ptr [ null, %if.else143 ], [ %offsets.5, %if.else190 ]
   %count.7 = phi i32 [ %count.3, %if.else143 ], [ %count.5, %if.else190 ]
   %sourceIndex.4 = phi i32 [ %sourceIndex.1, %if.else143 ], [ %sourceIndex.2, %if.else190 ]
   %c.4 = phi i16 [ %or135, %if.else143 ], [ %or181, %if.else190 ]
-  %source.7 = phi ptr [ %add.ptr137, %if.else143 ], [ %add.ptr183, %if.else190 ]
   %cmp224 = icmp eq i32 %count.7, 0
   br i1 %cmp224, label %if.end280, label %if.else226
 
 if.else226:                                       ; preds = %land.lhs.true196, %land.lhs.true149, %if.end223
-  %source.7189 = phi ptr [ %source.7, %if.end223 ], [ %add.ptr137, %land.lhs.true149 ], [ %add.ptr183, %land.lhs.true196 ]
-  %c.4188 = phi i16 [ %c.4, %if.end223 ], [ %or135, %land.lhs.true149 ], [ %or181, %land.lhs.true196 ]
-  %sourceIndex.4187 = phi i32 [ %sourceIndex.4, %if.end223 ], [ %sourceIndex.1, %land.lhs.true149 ], [ %sourceIndex.2, %land.lhs.true196 ]
-  %count.7186 = phi i32 [ %count.7, %if.end223 ], [ %count.3, %land.lhs.true149 ], [ %count.5, %land.lhs.true196 ]
-  %offsets.7185 = phi ptr [ %offsets.7, %if.end223 ], [ null, %land.lhs.true149 ], [ %offsets.5, %land.lhs.true196 ]
-  %target.7184 = phi ptr [ %target.7, %if.end223 ], [ %target.3, %land.lhs.true149 ], [ %target.5, %land.lhs.true196 ]
-  %sub227 = shl i32 %count.7186, 1
+  %c.4189 = phi i16 [ %c.4, %if.end223 ], [ %or135, %land.lhs.true149 ], [ %or181, %land.lhs.true196 ]
+  %sourceIndex.4188 = phi i32 [ %sourceIndex.4, %if.end223 ], [ %sourceIndex.1, %land.lhs.true149 ], [ %sourceIndex.2, %land.lhs.true196 ]
+  %count.7187 = phi i32 [ %count.7, %if.end223 ], [ %count.3, %land.lhs.true149 ], [ %count.5, %land.lhs.true196 ]
+  %offsets.7186 = phi ptr [ %offsets.7, %if.end223 ], [ null, %land.lhs.true149 ], [ %offsets.5, %land.lhs.true196 ]
+  %target.7185 = phi ptr [ %target.7, %if.end223 ], [ %target.3, %land.lhs.true149 ], [ %target.5, %land.lhs.true196 ]
+  %source.7184 = phi ptr [ %source.7, %if.end223 ], [ %add.ptr137, %land.lhs.true149 ], [ %add.ptr183, %land.lhs.true196 ]
+  %sub227 = shl i32 %count.7187, 1
   %mul228 = add i32 %sub124, -2
   %add229 = add i32 %mul228, %sub227
-  %add230 = add i32 %count.7186, %sub125
+  %add230 = add i32 %count.7187, %sub125
   br label %if.end232
 
 if.end232:                                        ; preds = %if.else226, %if.end114
-  %target.8 = phi ptr [ %target.7184, %if.else226 ], [ %target.2, %if.end114 ]
-  %offsets.8 = phi ptr [ %offsets.7185, %if.else226 ], [ %offsets.4, %if.end114 ]
+  %source.8 = phi ptr [ %source.7184, %if.else226 ], [ %source.2, %if.end114 ]
+  %target.8 = phi ptr [ %target.7185, %if.else226 ], [ %target.2, %if.end114 ]
+  %offsets.8 = phi ptr [ %offsets.7186, %if.else226 ], [ %offsets.4, %if.end114 ]
   %targetCapacity.3 = phi i32 [ %add230, %if.else226 ], [ %targetCapacity.2, %if.end114 ]
   %length.2 = phi i32 [ %add229, %if.else226 ], [ %length.1, %if.end114 ]
-  %sourceIndex.5 = phi i32 [ %sourceIndex.4187, %if.else226 ], [ %sourceIndex.1, %if.end114 ]
-  %c.5 = phi i16 [ %c.4188, %if.else226 ], [ %c.3, %if.end114 ]
-  %source.8 = phi ptr [ %source.7189, %if.else226 ], [ %source.2, %if.end114 ]
+  %sourceIndex.5 = phi i32 [ %sourceIndex.4188, %if.else226 ], [ %sourceIndex.1, %if.end114 ]
+  %c.5 = phi i16 [ %c.4189, %if.else226 ], [ %c.3, %if.end114 ]
   %cmp234.not = icmp eq i16 %c.5, 0
   br i1 %cmp234.not, label %if.end280, label %if.then235
 
@@ -1865,19 +1865,19 @@ if.end269:                                        ; preds = %if.then267, %if.the
 
 if.end280.sink.split:                             ; preds = %if.then235, %if.then250, %if.end269
   %.sink304 = phi i32 [ 15, %if.end269 ], [ 12, %if.then250 ], [ 12, %if.then235 ]
+  %source.9.ph = phi ptr [ %add.ptr263, %if.end269 ], [ %source.8, %if.then250 ], [ %source.8, %if.then235 ]
   %target.9.ph = phi ptr [ %incdec.ptr265, %if.end269 ], [ %target.8, %if.then250 ], [ %target.8, %if.then235 ]
   %offsets.10.ph = phi ptr [ %offsets.9, %if.end269 ], [ %offsets.8, %if.then250 ], [ %offsets.8, %if.then235 ]
   %length.3.ph = phi i32 [ %sub264, %if.end269 ], [ 1, %if.then250 ], [ %length.2, %if.then235 ]
-  %source.9.ph = phi ptr [ %add.ptr263, %if.end269 ], [ %source.8, %if.then250 ], [ %source.8, %if.then235 ]
   store i32 %.sink304, ptr %pErrorCode, align 4
   br label %if.end280
 
 if.end280:                                        ; preds = %do.cond219, %do.cond169, %if.end280.sink.split, %if.end223, %if.then248, %if.end232
   %targetCapacity.3198 = phi i32 [ %targetCapacity.3, %if.then248 ], [ %targetCapacity.3, %if.end232 ], [ %sub125, %if.end223 ], [ %targetCapacity.3, %if.end280.sink.split ], [ %sub125, %do.cond169 ], [ %sub125, %do.cond219 ]
+  %source.9 = phi ptr [ %source.8, %if.then248 ], [ %source.8, %if.end232 ], [ %source.7, %if.end223 ], [ %source.9.ph, %if.end280.sink.split ], [ %source.4, %do.cond169 ], [ %source.6, %do.cond219 ]
   %target.9 = phi ptr [ %target.8, %if.then248 ], [ %target.8, %if.end232 ], [ %target.7, %if.end223 ], [ %target.9.ph, %if.end280.sink.split ], [ %target.4, %do.cond169 ], [ %target.6, %do.cond219 ]
   %offsets.10 = phi ptr [ %offsets.8, %if.then248 ], [ %offsets.8, %if.end232 ], [ %offsets.7, %if.end223 ], [ %offsets.10.ph, %if.end280.sink.split ], [ null, %do.cond169 ], [ %incdec.ptr189, %do.cond219 ]
   %length.3 = phi i32 [ %length.2, %if.then248 ], [ %length.2, %if.end232 ], [ %sub124, %if.end223 ], [ %length.3.ph, %if.end280.sink.split ], [ %sub124, %do.cond169 ], [ %sub124, %do.cond219 ]
-  %source.9 = phi ptr [ %source.8, %if.then248 ], [ %source.8, %if.end232 ], [ %source.7, %if.end223 ], [ %source.9.ph, %if.end280.sink.split ], [ %source.4, %do.cond169 ], [ %source.6, %do.cond219 ]
   %40 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %40, 1
   %cmp282 = icmp ne i32 %length.3, 0
@@ -2516,8 +2516,8 @@ if.then51:                                        ; preds = %if.then15, %if.then
   br label %if.end62
 
 if.end62:                                         ; preds = %if.end49, %if.end49.thread46, %if.then51, %if.end10
-  %c.1 = phi i32 [ 65535, %if.then51 ], [ %sub, %if.end49 ], [ %or, %if.end10 ], [ 65535, %if.end49.thread46 ]
   %s.2 = phi ptr [ %add.ptr, %if.then51 ], [ %add.ptr19, %if.end49 ], [ %add.ptr, %if.end10 ], [ %incdec.ptr44, %if.end49.thread46 ]
+  %c.1 = phi i32 [ 65535, %if.then51 ], [ %sub, %if.end49 ], [ %or, %if.end10 ], [ 65535, %if.end49.thread46 ]
   store ptr %s.2, ptr %source, align 8
   br label %return
 
@@ -2718,8 +2718,8 @@ if.then51.i:                                      ; preds = %if.then21.i, %if.th
   br label %if.end62.i
 
 if.end62.i:                                       ; preds = %if.then51.i, %if.end49.i, %if.end49.thread46.i, %if.end10.i
-  %c.1.i = phi i32 [ 65535, %if.then51.i ], [ %sub.i, %if.end49.i ], [ %or.i, %if.end10.i ], [ 65535, %if.end49.thread46.i ]
   %s.2.i = phi ptr [ %add.ptr.i, %if.then51.i ], [ %add.ptr19.i, %if.end49.i ], [ %add.ptr.i, %if.end10.i ], [ %incdec.ptr44.i, %if.end49.thread46.i ]
+  %c.1.i = phi i32 [ 65535, %if.then51.i ], [ %sub.i, %if.end49.i ], [ %or.i, %if.end10.i ], [ 65535, %if.end49.thread46.i ]
   store ptr %s.2.i, ptr %source.i, align 8
   br label %return
 
@@ -2828,13 +2828,13 @@ if.then51.i28:                                    ; preds = %if.then21.i35, %if.
   br label %if.end62.i23
 
 if.end62.i23:                                     ; preds = %if.then51.i28, %if.end49.i37, %if.end49.thread46.i54, %if.end10.i17
-  %c.1.i24 = phi i32 [ 65535, %if.then51.i28 ], [ %sub.i42, %if.end49.i37 ], [ %or.i21, %if.end10.i17 ], [ 65535, %if.end49.thread46.i54 ]
-  %s.2.i25 = phi ptr [ %add.ptr.i14, %if.then51.i28 ], [ %add.ptr19.i33, %if.end49.i37 ], [ %add.ptr.i14, %if.end10.i17 ], [ %incdec.ptr44.i51, %if.end49.thread46.i54 ]
-  store ptr %s.2.i25, ptr %source.i8, align 8
+  %s.2.i24 = phi ptr [ %add.ptr.i14, %if.then51.i28 ], [ %add.ptr19.i33, %if.end49.i37 ], [ %add.ptr.i14, %if.end10.i17 ], [ %incdec.ptr44.i51, %if.end49.thread46.i54 ]
+  %c.1.i25 = phi i32 [ 65535, %if.then51.i28 ], [ %sub.i42, %if.end49.i37 ], [ %or.i21, %if.end10.i17 ], [ 65535, %if.end49.thread46.i54 ]
+  store ptr %s.2.i24, ptr %source.i8, align 8
   br label %return
 
 return:                                           ; preds = %if.end62.i23, %if.then6.i55, %if.then3.i11, %if.end62.i, %if.then6.i, %if.then3.i, %entry
-  %retval.0 = phi i32 [ -9, %entry ], [ 65535, %if.then3.i ], [ 65535, %if.then6.i ], [ %c.1.i, %if.end62.i ], [ 65535, %if.then3.i11 ], [ 65535, %if.then6.i55 ], [ %c.1.i24, %if.end62.i23 ]
+  %retval.0 = phi i32 [ -9, %entry ], [ 65535, %if.then3.i ], [ 65535, %if.then6.i ], [ %c.1.i, %if.end62.i ], [ 65535, %if.then3.i11 ], [ 65535, %if.then6.i55 ], [ %c.1.i25, %if.end62.i23 ]
   ret i32 %retval.0
 }
 

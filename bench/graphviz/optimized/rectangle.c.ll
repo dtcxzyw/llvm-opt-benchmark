@@ -28,12 +28,12 @@ define i64 @RectArea(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
 
 .preheader:                                       ; preds = %1, %18
   %6 = phi i1 [ false, %18 ], [ true, %1 ]
-  %.01418 = phi i64 [ 1, %18 ], [ 0, %1 ]
-  %.01517 = phi i64 [ %19, %18 ], [ 1, %1 ]
-  %7 = or disjoint i64 %.01418, 2
+  %.018 = phi i64 [ 1, %18 ], [ 0, %1 ]
+  %.01417 = phi i64 [ %19, %18 ], [ 1, %1 ]
+  %7 = or disjoint i64 %.018, 2
   %8 = getelementptr inbounds [4 x i32], ptr %0, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds [4 x i32], ptr %0, i64 0, i64 %.01418
+  %10 = getelementptr inbounds [4 x i32], ptr %0, i64 0, i64 %.018
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %9, %11
   br i1 %12, label %.loopexit, label %13
@@ -41,7 +41,7 @@ define i64 @RectArea(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
 13:                                               ; preds = %.preheader
   %14 = sub nsw i32 %9, %11
   %15 = zext i32 %14 to i64
-  %mul = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %.01517)
+  %mul = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %.01417)
   %mul.ov = extractvalue { i64, i1 } %mul, 1
   br i1 %mul.ov, label %16, label %18
 
@@ -51,12 +51,12 @@ define i64 @RectArea(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   unreachable
 
 18:                                               ; preds = %13
-  %19 = mul i64 %.01517, %15
+  %19 = mul i64 %.01417, %15
   br i1 %6, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %18, %.preheader, %1
-  %.0 = phi i64 [ 0, %1 ], [ %19, %18 ], [ 0, %.preheader ]
-  ret i64 %.0
+  %.015 = phi i64 [ 0, %1 ], [ %19, %18 ], [ 0, %.preheader ]
+  ret i64 %.015
 }
 
 declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
@@ -128,9 +128,9 @@ define noundef zeroext i1 @Overlap(ptr nocapture noundef readonly %0, ptr nocapt
 
 3:                                                ; preds = %10, %2
   %.not.not = phi i1 [ false, %2 ], [ true, %10 ]
-  %.01112 = phi i64 [ 0, %2 ], [ 1, %10 ]
-  %4 = or disjoint i64 %.01112, 2
-  %5 = getelementptr inbounds [4 x i32], ptr %0, i64 0, i64 %.01112
+  %.012 = phi i64 [ 0, %2 ], [ 1, %10 ]
+  %4 = or disjoint i64 %.012, 2
+  %5 = getelementptr inbounds [4 x i32], ptr %0, i64 0, i64 %.012
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds [4 x i32], ptr %1, i64 0, i64 %4
   %8 = load i32, ptr %7, align 4
@@ -138,7 +138,7 @@ define noundef zeroext i1 @Overlap(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %9, label %.split.loop.exit13, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds [4 x i32], ptr %1, i64 0, i64 %.01112
+  %11 = getelementptr inbounds [4 x i32], ptr %1, i64 0, i64 %.012
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds [4 x i32], ptr %0, i64 0, i64 %4
   %14 = load i32, ptr %13, align 4

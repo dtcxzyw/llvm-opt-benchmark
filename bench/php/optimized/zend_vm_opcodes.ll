@@ -266,8 +266,8 @@ define zeroext i8 @zend_get_opcode_id(ptr nocapture noundef readonly %0, i64 nou
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %9, %.split.loop.exit13
-  %.0 = phi i8 [ %10, %.split.loop.exit13 ], [ -47, %9 ]
-  ret i8 %.0
+  %.08 = phi i8 [ %10, %.split.loop.exit13 ], [ -47, %9 ]
+  ret i8 %.08
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

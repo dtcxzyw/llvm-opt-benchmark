@@ -28,7 +28,7 @@ define noundef ptr @Dsd_TreeGetPrimeFunction(ptr noundef %0, ptr nocapture nound
 
 19:                                               ; preds = %.lr.ph119, %._crit_edge
   %indvars.iv130 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next131, %._crit_edge ]
-  %.099116 = phi i32 [ 0, %.lr.ph119 ], [ %.1100.lcssa, %._crit_edge ]
+  %.098117 = phi i32 [ 0, %.lr.ph119 ], [ %.1.lcssa, %._crit_edge ]
   %20 = load ptr, ptr %16, align 8
   %21 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv130
   %22 = load i32, ptr %21, align 4
@@ -44,7 +44,7 @@ define noundef ptr @Dsd_TreeGetPrimeFunction(ptr noundef %0, ptr nocapture nound
   br i1 %.not110113, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %19
-  %28 = sext i32 %.099116 to i64
+  %28 = sext i32 %.098117 to i64
   %29 = trunc nuw nsw i64 %indvars.iv130 to i32
   br label %.lr.ph
 
@@ -71,7 +71,7 @@ define noundef ptr @Dsd_TreeGetPrimeFunction(ptr noundef %0, ptr nocapture nound
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %19
-  %.1100.lcssa = phi i32 [ %.099116, %19 ], [ %37, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i32 [ %.098117, %19 ], [ %37, %._crit_edge.loopexit ]
   %38 = getelementptr inbounds i8, ptr %26, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
@@ -262,8 +262,8 @@ define internal fastcc ptr @Extra_dsdRemap(ptr noundef %0, ptr noundef %1, ptr n
   br label %37
 
 37:                                               ; preds = %tailrecurse.i, %.lr.ph.i
-  %.tr4749.i = phi ptr [ %28, %.lr.ph.i ], [ %.036..037.i, %tailrecurse.i ]
-  %.tr4648.i = phi ptr [ %1, %.lr.ph.i ], [ %.038..035.i, %tailrecurse.i ]
+  %.tr4749.i = phi ptr [ %28, %.lr.ph.i ], [ %.0..035.i, %tailrecurse.i ]
+  %.tr4648.i = phi ptr [ %1, %.lr.ph.i ], [ %.036..037.i, %tailrecurse.i ]
   %38 = ptrtoint ptr %.tr4648.i to i64
   %39 = and i64 %38, -2
   %40 = inttoptr i64 %39 to ptr
@@ -303,8 +303,8 @@ define internal fastcc ptr @Extra_dsdRemap(ptr noundef %0, ptr noundef %1, ptr n
   br label %66
 
 66:                                               ; preds = %64, %56, %37
-  %.038.i = phi ptr [ %63, %56 ], [ %65, %64 ], [ %.tr4648.i, %37 ]
-  %.035.i = phi ptr [ %59, %56 ], [ %55, %64 ], [ %.tr4648.i, %37 ]
+  %.037.i = phi ptr [ %59, %56 ], [ %55, %64 ], [ %.tr4648.i, %37 ]
+  %.036.i = phi ptr [ %63, %56 ], [ %65, %64 ], [ %.tr4648.i, %37 ]
   %.not44.i = icmp sgt i32 %51, %47
   br i1 %.not44.i, label %tailrecurse.i, label %67
 
@@ -330,16 +330,16 @@ define internal fastcc ptr @Extra_dsdRemap(ptr noundef %0, ptr noundef %1, ptr n
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %79, %71, %66
-  %.037.i = phi ptr [ %74, %71 ], [ %70, %79 ], [ %.tr4749.i, %66 ]
-  %.036.i = phi ptr [ %78, %71 ], [ %80, %79 ], [ %.tr4749.i, %66 ]
-  %81 = icmp eq ptr %.037.i, %36
-  %.038..035.i = select i1 %81, ptr %.038.i, ptr %.035.i
+  %.035.i = phi ptr [ %74, %71 ], [ %70, %79 ], [ %.tr4749.i, %66 ]
+  %.0.i = phi ptr [ %78, %71 ], [ %80, %79 ], [ %.tr4749.i, %66 ]
+  %81 = icmp eq ptr %.035.i, %36
   %.036..037.i = select i1 %81, ptr %.036.i, ptr %.037.i
-  %82 = icmp eq ptr %30, %.036..037.i
+  %.0..035.i = select i1 %81, ptr %.0.i, ptr %.035.i
+  %82 = icmp eq ptr %30, %.0..035.i
   br i1 %82, label %Extra_bddNodePointedByCube.exit, label %37
 
 Extra_bddNodePointedByCube.exit:                  ; preds = %tailrecurse.i, %21
-  %.tr46.lcssa.i = phi ptr [ %1, %21 ], [ %.038..035.i, %tailrecurse.i ]
+  %.tr46.lcssa.i = phi ptr [ %1, %21 ], [ %.036..037.i, %tailrecurse.i ]
   %83 = getelementptr inbounds ptr, ptr %6, i64 %26
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %30, %84
@@ -354,8 +354,8 @@ Extra_bddNodePointedByCube.exit:                  ; preds = %tailrecurse.i, %21
   br label %91
 
 91:                                               ; preds = %tailrecurse.i56, %.lr.ph.i47
-  %.tr4749.i48 = phi ptr [ %84, %.lr.ph.i47 ], [ %.036..037.i60, %tailrecurse.i56 ]
-  %.tr4648.i49 = phi ptr [ %1, %.lr.ph.i47 ], [ %.038..035.i59, %tailrecurse.i56 ]
+  %.tr4749.i48 = phi ptr [ %84, %.lr.ph.i47 ], [ %.0..035.i60, %tailrecurse.i56 ]
+  %.tr4648.i49 = phi ptr [ %1, %.lr.ph.i47 ], [ %.036..037.i59, %tailrecurse.i56 ]
   %92 = ptrtoint ptr %.tr4648.i49 to i64
   %93 = and i64 %92, -2
   %94 = inttoptr i64 %93 to ptr
@@ -395,8 +395,8 @@ Extra_bddNodePointedByCube.exit:                  ; preds = %tailrecurse.i, %21
   br label %120
 
 120:                                              ; preds = %118, %110, %91
-  %.038.i52 = phi ptr [ %117, %110 ], [ %119, %118 ], [ %.tr4648.i49, %91 ]
-  %.035.i53 = phi ptr [ %113, %110 ], [ %109, %118 ], [ %.tr4648.i49, %91 ]
+  %.037.i52 = phi ptr [ %113, %110 ], [ %109, %118 ], [ %.tr4648.i49, %91 ]
+  %.036.i53 = phi ptr [ %117, %110 ], [ %119, %118 ], [ %.tr4648.i49, %91 ]
   %.not44.i54 = icmp sgt i32 %105, %101
   br i1 %.not44.i54, label %tailrecurse.i56, label %121
 
@@ -422,16 +422,16 @@ Extra_bddNodePointedByCube.exit:                  ; preds = %tailrecurse.i, %21
   br label %tailrecurse.i56
 
 tailrecurse.i56:                                  ; preds = %133, %125, %120
-  %.037.i57 = phi ptr [ %128, %125 ], [ %124, %133 ], [ %.tr4749.i48, %120 ]
-  %.036.i58 = phi ptr [ %132, %125 ], [ %134, %133 ], [ %.tr4749.i48, %120 ]
-  %135 = icmp eq ptr %.037.i57, %90
-  %.038..035.i59 = select i1 %135, ptr %.038.i52, ptr %.035.i53
-  %.036..037.i60 = select i1 %135, ptr %.036.i58, ptr %.037.i57
-  %136 = icmp eq ptr %30, %.036..037.i60
+  %.035.i57 = phi ptr [ %128, %125 ], [ %124, %133 ], [ %.tr4749.i48, %120 ]
+  %.0.i58 = phi ptr [ %132, %125 ], [ %134, %133 ], [ %.tr4749.i48, %120 ]
+  %135 = icmp eq ptr %.035.i57, %90
+  %.036..037.i59 = select i1 %135, ptr %.036.i53, ptr %.037.i52
+  %.0..035.i60 = select i1 %135, ptr %.0.i58, ptr %.035.i57
+  %136 = icmp eq ptr %30, %.0..035.i60
   br i1 %136, label %Extra_bddNodePointedByCube.exit62, label %91
 
 Extra_bddNodePointedByCube.exit62:                ; preds = %tailrecurse.i56, %Extra_bddNodePointedByCube.exit
-  %.tr46.lcssa.i61 = phi ptr [ %1, %Extra_bddNodePointedByCube.exit ], [ %.038..035.i59, %tailrecurse.i56 ]
+  %.tr46.lcssa.i61 = phi ptr [ %1, %Extra_bddNodePointedByCube.exit ], [ %.036..037.i59, %tailrecurse.i56 ]
   %137 = call fastcc ptr @Extra_dsdRemap(ptr noundef %0, ptr noundef %.tr46.lcssa.i, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   call void @Cudd_Ref(ptr noundef %137) #5
   %138 = call fastcc ptr @Extra_dsdRemap(ptr noundef %0, ptr noundef %.tr46.lcssa.i61, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)

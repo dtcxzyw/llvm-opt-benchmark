@@ -1149,15 +1149,15 @@ define internal fastcc noundef i64 @io_buffer_hexdump(i64 noundef returned %0, i
   br label %.lr.ph46.split.us
 
 .lr.ph46.split.us:                                ; preds = %.lr.ph46.split.us.preheader, %._crit_edge.us
-  %.044.us = phi i64 [ %38, %._crit_edge.us ], [ %4, %.lr.ph46.split.us.preheader ]
+  %.03544.us = phi i64 [ %38, %._crit_edge.us ], [ %4, %.lr.ph46.split.us.preheader ]
   %.03643.us = phi ptr [ @.str.120, %._crit_edge.us ], [ %12, %.lr.ph46.split.us.preheader ]
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %8, i8 0, i64 %1, i1 false)
-  %13 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull %.03643.us, i64 noundef %.044.us) #20
+  %13 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull %.03643.us, i64 noundef %.03544.us) #20
   br label %14
 
 14:                                               ; preds = %.lr.ph46.split.us, %35
-  %.03541.us = phi i64 [ 0, %.lr.ph46.split.us ], [ %36, %35 ]
-  %15 = add i64 %.03541.us, %.044.us
+  %.041.us = phi i64 [ 0, %.lr.ph46.split.us ], [ %36, %35 ]
+  %15 = add i64 %.041.us, %.03544.us
   %16 = icmp ult i64 %15, %3
   br i1 %16, label %19, label %17
 
@@ -1187,19 +1187,19 @@ define internal fastcc noundef i64 @io_buffer_hexdump(i64 noundef returned %0, i
 
 32:                                               ; preds = %24, %31
   %.sink = phi i8 [ 46, %31 ], [ %21, %24 ]
-  %33 = getelementptr i8, ptr %8, i64 %.03541.us
+  %33 = getelementptr i8, ptr %8, i64 %.041.us
   store i8 %.sink, ptr %33, align 1
   %34 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.121, i32 noundef %22) #20
   br label %35
 
 35:                                               ; preds = %32, %17
-  %36 = add nuw i64 %.03541.us, 1
+  %36 = add nuw i64 %.041.us, 1
   %exitcond.not = icmp eq i64 %36, %1
   br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !10
 
 ._crit_edge.us:                                   ; preds = %35
   %37 = call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.123, ptr noundef nonnull %8) #20
-  %38 = add i64 %.044.us, %1
+  %38 = add i64 %.03544.us, %1
   %39 = icmp ult i64 %38, %3
   br i1 %39, label %.lr.ph46.split.us, label %._crit_edge47, !llvm.loop !12
 
@@ -4290,7 +4290,7 @@ rb_io_buffer_get_bytes_for_writing.exit:          ; preds = %io_buffer_validate.
   br label %74
 
 74:                                               ; preds = %83, %rb_io_buffer_get_bytes_for_writing.exit
-  %.051 = phi i64 [ 0, %rb_io_buffer_get_bytes_for_writing.exit ], [ %87, %83 ]
+  %.050 = phi i64 [ 0, %rb_io_buffer_get_bytes_for_writing.exit ], [ %87, %83 ]
   %75 = load i64, ptr %11, align 8
   %76 = and i64 %75, 8192
   %.not.i60 = icmp eq i64 %76, 0
@@ -4307,15 +4307,15 @@ rb_io_buffer_get_bytes_for_writing.exit:          ; preds = %io_buffer_validate.
 
 rb_array_len.exit62:                              ; preds = %77, %80
   %.0.i61 = phi i64 [ %79, %77 ], [ %81, %80 ]
-  %82 = icmp slt i64 %.051, %.0.i61
+  %82 = icmp slt i64 %.050, %.0.i61
   br i1 %82, label %83, label %88
 
 83:                                               ; preds = %rb_array_len.exit62
-  %84 = tail call i64 @rb_ary_entry(i64 noundef %1, i64 noundef %.051) #26
-  %85 = tail call i64 @rb_ary_entry(i64 noundef %3, i64 noundef %.051) #26
+  %84 = tail call i64 @rb_ary_entry(i64 noundef %1, i64 noundef %.050) #26
+  %85 = tail call i64 @rb_ary_entry(i64 noundef %3, i64 noundef %.050) #26
   %86 = tail call i64 @rb_sym2id(i64 noundef %84) #20
   call fastcc void @rb_io_buffer_set_value(ptr noundef %69, i64 noundef %storemerge.i.i, i64 noundef %86, ptr noundef nonnull %5, i64 noundef %85)
-  %87 = add nuw nsw i64 %.051, 1
+  %87 = add nuw nsw i64 %.050, 1
   br label %74, !llvm.loop !18
 
 88:                                               ; preds = %rb_array_len.exit62

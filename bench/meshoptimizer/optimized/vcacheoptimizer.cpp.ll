@@ -166,10 +166,10 @@ while.body:                                       ; preds = %for.end38, %if.end2
   %cache.0172 = phi ptr [ %cache_holder, %for.end38 ], [ %cache_new.0171, %if.end204 ]
   %cache_new.0171 = phi ptr [ %add.ptr40, %for.end38 ], [ %cache.0172, %if.end204 ]
   %cache_count.0170 = phi i64 [ 0, %for.end38 ], [ %cond, %if.end204 ]
-  %current_triangle.0169 = phi i32 [ 0, %for.end38 ], [ %current_triangle.1, %if.end204 ]
-  %output_triangle.0168 = phi i32 [ 0, %for.end38 ], [ %inc69, %if.end204 ]
+  %output_triangle.0169 = phi i32 [ 0, %for.end38 ], [ %inc69, %if.end204 ]
+  %current_triangle.0168 = phi i32 [ 0, %for.end38 ], [ %current_triangle.1, %if.end204 ]
   %input_cursor.0167 = phi i32 [ 1, %for.end38 ], [ %input_cursor.3, %if.end204 ]
-  %mul43 = mul i32 %current_triangle.0169, 3
+  %mul43 = mul i32 %current_triangle.0168, 3
   %idxprom45 = zext i32 %mul43 to i64
   %arrayidx46 = getelementptr inbounds i32, ptr %indices.addr.0, i64 %idxprom45
   %19 = load i32, ptr %arrayidx46, align 4
@@ -181,7 +181,7 @@ while.body:                                       ; preds = %for.end38, %if.end2
   %idxprom55 = zext i32 %add54 to i64
   %arrayidx56 = getelementptr inbounds i32, ptr %indices.addr.0, i64 %idxprom55
   %21 = load i32, ptr %arrayidx56, align 4
-  %mul57 = mul i32 %output_triangle.0168, 3
+  %mul57 = mul i32 %output_triangle.0169, 3
   %idxprom59 = zext i32 %mul57 to i64
   %arrayidx60 = getelementptr inbounds i32, ptr %destination, i64 %idxprom59
   store i32 %19, ptr %arrayidx60, align 4
@@ -193,8 +193,8 @@ while.body:                                       ; preds = %for.end38, %if.end2
   %idxprom67 = zext i32 %add66 to i64
   %arrayidx68 = getelementptr inbounds i32, ptr %destination, i64 %idxprom67
   store i32 %21, ptr %arrayidx68, align 4
-  %inc69 = add i32 %output_triangle.0168, 1
-  %idxprom70 = zext i32 %current_triangle.0169 to i64
+  %inc69 = add i32 %output_triangle.0169, 1
+  %idxprom70 = zext i32 %current_triangle.0168 to i64
   %arrayidx71 = getelementptr inbounds i8, ptr %call.i119, i64 %idxprom70
   store i8 1, ptr %arrayidx71, align 1
   %arrayidx73 = getelementptr inbounds float, ptr %call.i134, i64 %idxprom70
@@ -208,11 +208,11 @@ while.body:                                       ; preds = %for.end38, %if.end2
   br i1 %cmp82150.not, label %for.end96, label %for.body83
 
 for.body83:                                       ; preds = %while.body, %for.body83
-  %cache_write.0152 = phi i64 [ %add93, %for.body83 ], [ 3, %while.body ]
-  %i80.0151 = phi i64 [ %inc95, %for.body83 ], [ 0, %while.body ]
-  %arrayidx84 = getelementptr inbounds i32, ptr %cache.0172, i64 %i80.0151
+  %i80.0152 = phi i64 [ %inc95, %for.body83 ], [ 0, %while.body ]
+  %cache_write.0151 = phi i64 [ %add93, %for.body83 ], [ 3, %while.body ]
+  %arrayidx84 = getelementptr inbounds i32, ptr %cache.0172, i64 %i80.0152
   %22 = load i32, ptr %arrayidx84, align 4
-  %arrayidx85 = getelementptr inbounds i32, ptr %cache_new.0171, i64 %cache_write.0152
+  %arrayidx85 = getelementptr inbounds i32, ptr %cache_new.0171, i64 %cache_write.0151
   store i32 %22, ptr %arrayidx85, align 4
   %cmp86 = icmp ne i32 %22, %19
   %cmp87 = icmp ne i32 %22, %20
@@ -220,8 +220,8 @@ for.body83:                                       ; preds = %while.body, %for.bo
   %cmp89 = icmp ne i32 %22, %21
   %and91114 = and i1 %cmp89, %and113
   %conv92 = zext i1 %and91114 to i64
-  %add93 = add i64 %cache_write.0152, %conv92
-  %inc95 = add nuw nsw i64 %i80.0151, 1
+  %add93 = add i64 %cache_write.0151, %conv92
+  %inc95 = add nuw nsw i64 %i80.0152, 1
   %exitcond175.not = icmp eq i64 %inc95, %cache_count.0170
   br i1 %exitcond175.not, label %for.end96, label %for.body83, !llvm.loop !8
 
@@ -257,7 +257,7 @@ for.body119:                                      ; preds = %for.body102, %for.i
   %i116.0154 = phi i64 [ %inc130, %for.inc129 ], [ 0, %for.body102 ]
   %arrayidx120 = getelementptr inbounds i32, ptr %add.ptr111, i64 %i116.0154
   %29 = load i32, ptr %arrayidx120, align 4
-  %cmp121 = icmp eq i32 %29, %current_triangle.0169
+  %cmp121 = icmp eq i32 %29, %current_triangle.0168
   br i1 %cmp121, label %if.then122, label %for.inc129
 
 if.then122:                                       ; preds = %for.body119
@@ -706,14 +706,14 @@ invoke.cont14:                                    ; preds = %invoke.cont12
   br label %while.body
 
 while.body:                                       ; preds = %invoke.cont14, %if.end114
-  %current_vertex.0140 = phi i32 [ 0, %invoke.cont14 ], [ %current_vertex.1, %if.end114 ]
+  %output_triangle.0140 = phi i32 [ 0, %invoke.cont14 ], [ %output_triangle.1.lcssa, %if.end114 ]
   %timestamp.0139 = phi i32 [ %add, %invoke.cont14 ], [ %timestamp.1.lcssa, %if.end114 ]
-  %output_triangle.0138 = phi i32 [ 0, %invoke.cont14 ], [ %output_triangle.1.lcssa, %if.end114 ]
+  %current_vertex.0138 = phi i32 [ 0, %invoke.cont14 ], [ %current_vertex.1, %if.end114 ]
   %input_cursor.0137 = phi i32 [ 1, %invoke.cont14 ], [ %input_cursor.3, %if.end114 ]
   %dead_end_top.0136 = phi i32 [ 0, %invoke.cont14 ], [ %dead_end_top.5, %if.end114 ]
   %idx.ext = zext i32 %dead_end_top.0136 to i64
   %add.ptr = getelementptr inbounds i32, ptr %call.i99, i64 %idx.ext
-  %idxprom = zext i32 %current_vertex.0140 to i64
+  %idxprom = zext i32 %current_vertex.0138 to i64
   %arrayidx18 = getelementptr inbounds i32, ptr %12, i64 %idxprom
   %13 = load i32, ptr %arrayidx18, align 4
   %idx.ext19 = zext i32 %13 to i64
@@ -726,11 +726,11 @@ while.body:                                       ; preds = %invoke.cont14, %if.
   br i1 %cmp26.not126, label %for.end, label %for.body
 
 for.body:                                         ; preds = %while.body, %for.inc
-  %timestamp.1130 = phi i32 [ %timestamp.5, %for.inc ], [ %timestamp.0139, %while.body ]
-  %output_triangle.1129 = phi i32 [ %output_triangle.2, %for.inc ], [ %output_triangle.0138, %while.body ]
-  %it.0128 = phi ptr [ %incdec.ptr, %for.inc ], [ %add.ptr20, %while.body ]
+  %it.0130 = phi ptr [ %incdec.ptr, %for.inc ], [ %add.ptr20, %while.body ]
+  %output_triangle.1129 = phi i32 [ %output_triangle.2, %for.inc ], [ %output_triangle.0140, %while.body ]
+  %timestamp.1128 = phi i32 [ %timestamp.5, %for.inc ], [ %timestamp.0139, %while.body ]
   %dead_end_top.1127 = phi i32 [ %dead_end_top.2, %for.inc ], [ %dead_end_top.0136, %while.body ]
-  %15 = load i32, ptr %it.0128, align 4
+  %15 = load i32, ptr %it.0130, align 4
   %idxprom27 = zext i32 %15 to i64
   %arrayidx28 = getelementptr inbounds i8, ptr %call.i104, i64 %idxprom27
   %16 = load i8, ptr %arrayidx28, align 1
@@ -792,17 +792,17 @@ if.then29:                                        ; preds = %for.body
   store i32 %dec71, ptr %arrayidx70, align 4
   %arrayidx73 = getelementptr inbounds i32, ptr %call.i91, i64 %idxprom64
   %23 = load i32, ptr %arrayidx73, align 4
-  %sub = sub i32 %timestamp.1130, %23
+  %sub = sub i32 %timestamp.1128, %23
   %cmp74 = icmp ugt i32 %sub, %cache_size
   br i1 %cmp74, label %if.then75, label %if.end79
 
 if.then75:                                        ; preds = %if.then29
-  %inc76 = add i32 %timestamp.1130, 1
-  store i32 %timestamp.1130, ptr %arrayidx73, align 4
+  %inc76 = add i32 %timestamp.1128, 1
+  store i32 %timestamp.1128, ptr %arrayidx73, align 4
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then75, %if.then29
-  %timestamp.2 = phi i32 [ %inc76, %if.then75 ], [ %timestamp.1130, %if.then29 ]
+  %timestamp.2 = phi i32 [ %inc76, %if.then75 ], [ %timestamp.1128, %if.then29 ]
   %arrayidx81 = getelementptr inbounds i32, ptr %call.i91, i64 %idxprom66
   %24 = load i32, ptr %arrayidx81, align 4
   %sub82 = sub i32 %timestamp.2, %24
@@ -834,9 +834,9 @@ if.end97:                                         ; preds = %if.then93, %if.end8
 
 for.inc:                                          ; preds = %for.body, %if.end97
   %dead_end_top.2 = phi i32 [ %add63, %if.end97 ], [ %dead_end_top.1127, %for.body ]
+  %timestamp.5 = phi i32 [ %timestamp.4, %if.end97 ], [ %timestamp.1128, %for.body ]
   %output_triangle.2 = phi i32 [ %inc, %if.end97 ], [ %output_triangle.1129, %for.body ]
-  %timestamp.5 = phi i32 [ %timestamp.4, %if.end97 ], [ %timestamp.1130, %for.body ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %it.0128, i64 4
+  %incdec.ptr = getelementptr inbounds i8, ptr %it.0130, i64 4
   %cmp26.not = icmp eq ptr %incdec.ptr, %add.ptr25
   br i1 %cmp26.not, label %for.end.loopexit, label %for.body, !llvm.loop !20
 
@@ -847,17 +847,17 @@ for.end.loopexit:                                 ; preds = %for.inc
 for.end:                                          ; preds = %for.end.loopexit, %while.body
   %idx.ext102.pre-phi = phi i64 [ %.pre144, %for.end.loopexit ], [ %idx.ext, %while.body ]
   %dead_end_top.1.lcssa = phi i32 [ %dead_end_top.2, %for.end.loopexit ], [ %dead_end_top.0136, %while.body ]
-  %output_triangle.1.lcssa = phi i32 [ %output_triangle.2, %for.end.loopexit ], [ %output_triangle.0138, %while.body ]
   %timestamp.1.lcssa = phi i32 [ %timestamp.5, %for.end.loopexit ], [ %timestamp.0139, %while.body ]
+  %output_triangle.1.lcssa = phi i32 [ %output_triangle.2, %for.end.loopexit ], [ %output_triangle.0140, %while.body ]
   %add.ptr103 = getelementptr inbounds i32, ptr %call.i99, i64 %idx.ext102.pre-phi
   %cmp.not13.i = icmp eq i32 %dead_end_top.0136, %dead_end_top.1.lcssa
   br i1 %cmp.not13.i, label %if.then109, label %for.body.i
 
 for.body.i:                                       ; preds = %for.end, %for.inc.i
-  %best_candidate.016.i = phi i32 [ %best_candidate.1.i, %for.inc.i ], [ -1, %for.end ]
-  %next_candidate.015.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %add.ptr, %for.end ]
-  %best_priority.014.i = phi i32 [ %best_priority.1.i, %for.inc.i ], [ -1, %for.end ]
-  %26 = load i32, ptr %next_candidate.015.i, align 4
+  %next_candidate.016.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %add.ptr, %for.end ]
+  %best_priority.015.i = phi i32 [ %best_priority.1.i, %for.inc.i ], [ -1, %for.end ]
+  %best_candidate.014.i = phi i32 [ %best_candidate.1.i, %for.inc.i ], [ -1, %for.end ]
+  %26 = load i32, ptr %next_candidate.016.i, align 4
   %idxprom.i = zext i32 %26 to i64
   %arrayidx.i105 = getelementptr inbounds i32, ptr %call.i83, i64 %idxprom.i
   %27 = load i32, ptr %arrayidx.i105, align 4
@@ -873,15 +873,15 @@ if.then.i:                                        ; preds = %for.body.i
   %cmp6.not.i = icmp ugt i32 %sub.i, %cache_size
   %sub10.i = sub i32 %timestamp.1.lcssa, %28
   %spec.select.i = select i1 %cmp6.not.i, i32 0, i32 %sub10.i
-  %cmp11.i = icmp sgt i32 %spec.select.i, %best_priority.014.i
-  %spec.select11.i = tail call i32 @llvm.smax.i32(i32 %spec.select.i, i32 %best_priority.014.i)
-  %spec.select12.i = select i1 %cmp11.i, i32 %26, i32 %best_candidate.016.i
+  %cmp11.i = icmp sgt i32 %spec.select.i, %best_priority.015.i
+  %spec.select11.i = select i1 %cmp11.i, i32 %26, i32 %best_candidate.014.i
+  %spec.select12.i = tail call i32 @llvm.smax.i32(i32 %spec.select.i, i32 %best_priority.015.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
-  %best_priority.1.i = phi i32 [ %best_priority.014.i, %for.body.i ], [ %spec.select11.i, %if.then.i ]
-  %best_candidate.1.i = phi i32 [ %best_candidate.016.i, %for.body.i ], [ %spec.select12.i, %if.then.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %next_candidate.015.i, i64 4
+  %best_candidate.1.i = phi i32 [ %best_candidate.014.i, %for.body.i ], [ %spec.select11.i, %if.then.i ]
+  %best_priority.1.i = phi i32 [ %best_priority.015.i, %for.body.i ], [ %spec.select12.i, %if.then.i ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %next_candidate.016.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr103
   br i1 %cmp.not.i, label %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit, label %for.body.i, !llvm.loop !21
 

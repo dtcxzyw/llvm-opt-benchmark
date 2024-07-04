@@ -1923,8 +1923,8 @@ land.lhs.true47:                                  ; preds = %land.lhs.true39
 
 land.lhs.true57:                                  ; preds = %land.lhs.true21, %land.lhs.true47
   %12 = phi i32 [ %inc, %land.lhs.true21 ], [ %inc44, %land.lhs.true47 ]
-  %__t.0 = phi i8 [ %and23, %land.lhs.true21 ], [ %sub53, %land.lhs.true47 ]
   %c.0 = phi i32 [ %and10, %land.lhs.true21 ], [ %or, %land.lhs.true47 ]
+  %__t.0 = phi i8 [ %and23, %land.lhs.true21 ], [ %sub53, %land.lhs.true47 ]
   %shl58 = shl nuw nsw i32 %c.0, 6
   %conv59 = zext nneg i8 %__t.0 to i32
   %or60 = or disjoint i32 %shl58, %conv59

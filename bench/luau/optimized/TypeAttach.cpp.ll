@@ -4026,7 +4026,7 @@ _ZN4Luau22TypeRehydrationVisitor9rehydrateEPKNS_11TypePackVarE.exit: ; preds = %
   br label %150
 
 150:                                              ; preds = %_ZN4Luau22TypeRehydrationVisitor9rehydrateEPKNS_11TypePackVarE.exit, %._crit_edge140
-  %.065 = phi ptr [ null, %._crit_edge140 ], [ %149, %_ZN4Luau22TypeRehydrationVisitor9rehydrateEPKNS_11TypePackVarE.exit ]
+  %.066 = phi ptr [ null, %._crit_edge140 ], [ %149, %_ZN4Luau22TypeRehydrationVisitor9rehydrateEPKNS_11TypePackVarE.exit ]
   %151 = getelementptr inbounds i8, ptr %1, i64 152
   %152 = getelementptr inbounds i8, ptr %1, i64 160
   %153 = load ptr, ptr %152, align 8
@@ -4050,10 +4050,10 @@ _ZN4Luau22TypeRehydrationVisitor9rehydrateEPKNS_11TypePackVarE.exit: ; preds = %
   br i1 %.not127141, label %._crit_edge146, label %.lr.ph145
 
 .lr.ph145:                                        ; preds = %163, %175
-  %.066143 = phi i64 [ %166, %175 ], [ 0, %163 ]
+  %.065143 = phi i64 [ %166, %175 ], [ 0, %163 ]
   %.sroa.099.0142 = phi ptr [ %177, %175 ], [ %164, %163 ]
-  %166 = add i64 %.066143, 1
-  %167 = getelementptr inbounds %"class.std::optional.237", ptr %162, i64 %.066143
+  %166 = add i64 %.065143, 1
+  %167 = getelementptr inbounds %"class.std::optional.237", ptr %162, i64 %.065143
   %168 = getelementptr inbounds i8, ptr %.sroa.099.0142, i64 48
   %169 = load i8, ptr %168, align 8
   %170 = trunc i8 %169 to i1
@@ -4183,7 +4183,7 @@ _ZN4Luau22TypeRehydrationVisitor9rehydrateEPKNS_11TypePackVarE.exit85: ; preds =
   %.sroa.331.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 8
   store i64 %112, ptr %.sroa.331.0..sroa_idx, align 8
   %228 = getelementptr inbounds i8, ptr %20, i64 16
-  store ptr %.065, ptr %228, align 8
+  store ptr %.066, ptr %228, align 8
   store ptr %190, ptr %21, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
   store i64 %188, ptr %.sroa.3.0..sroa_idx, align 8
@@ -5995,7 +5995,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   br label %104
 
 _ZN4Luau22TypeRehydrationOptionsD2Ev.exit:        ; preds = %81, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i, %35
-  %.018 = phi ptr [ null, %35 ], [ %68, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i ], [ %68, %81 ]
+  %.021 = phi ptr [ null, %35 ], [ %68, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i ], [ %68, %81 ]
   %88 = invoke { ptr, i64 } @_ZN4Luau12TypeAttacher11typeAstPackEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %34)
           to label %89 unwind label %102
 
@@ -6008,7 +6008,7 @@ _ZN4Luau22TypeRehydrationOptionsD2Ev.exit:        ; preds = %81, %_ZNSt10_Hashta
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 112
   store i64 %91, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 120
-  store ptr %.018, ptr %.sroa.3.0..sroa_idx, align 8
+  store ptr %.021, ptr %.sroa.3.0..sroa_idx, align 8
   br i1 %93, label %_ZNSt8optionalIN4Luau11AstTypeListEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit, label %94
 
 94:                                               ; preds = %89

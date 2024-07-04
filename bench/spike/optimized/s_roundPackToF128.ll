@@ -31,7 +31,7 @@ define { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext %0, i64 nounde
   br label %18
 
 18:                                               ; preds = %12, %5
-  %.078 = phi i8 [ %17, %12 ], [ %10, %5 ]
+  %.080 = phi i8 [ %17, %12 ], [ %10, %5 ]
   %19 = trunc i64 %1 to i32
   %20 = icmp ugt i32 %19, 32764
   br i1 %20, label %21, label %60
@@ -45,7 +45,7 @@ define { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext %0, i64 nounde
   %25 = icmp ne i8 %24, 0
   %26 = icmp eq i64 %1, -1
   %or.cond4.not95 = and i1 %26, %25
-  %27 = trunc nuw i8 %.078 to i1
+  %27 = trunc nuw i8 %.080 to i1
   %28 = icmp ugt i64 %2, 562949953421310
   %or.cond89.not = and i1 %28, %27
   %or.cond92 = select i1 %or.cond4.not95, i1 %or.cond89.not, i1 false
@@ -97,7 +97,7 @@ softfloat_lt128.exit:                             ; preds = %29, %23
   br i1 %49, label %50, label %60
 
 50:                                               ; preds = %46
-  %51 = trunc nuw i8 %.078 to i1
+  %51 = trunc nuw i8 %.080 to i1
   br i1 %51, label %52, label %60
 
 52:                                               ; preds = %50, %44
@@ -121,7 +121,7 @@ softfloat_lt128.exit:                             ; preds = %29, %23
   br label %86
 
 60:                                               ; preds = %39, %37, %50, %46, %18
-  %.179 = phi i8 [ %43, %39 ], [ %38, %37 ], [ %.078, %50 ], [ %.078, %46 ], [ %.078, %18 ]
+  %.181 = phi i8 [ %43, %39 ], [ %38, %37 ], [ %.080, %50 ], [ %.080, %46 ], [ %.080, %18 ]
   %.077 = phi i64 [ %.sroa.019.0.copyload, %39 ], [ %.sroa.019.0.copyload, %37 ], [ %4, %50 ], [ %4, %46 ], [ %4, %18 ]
   %.075 = phi i64 [ %.sroa.220.0.copyload, %39 ], [ %.sroa.220.0.copyload, %37 ], [ -1, %50 ], [ %3, %46 ], [ %3, %18 ]
   %.073 = phi i64 [ %.sroa.3.0.copyload, %39 ], [ %.sroa.3.0.copyload, %37 ], [ 562949953421311, %50 ], [ %2, %46 ], [ %2, %18 ]
@@ -141,7 +141,7 @@ softfloat_lt128.exit:                             ; preds = %29, %23
   br label %81
 
 67:                                               ; preds = %61, %60
-  %68 = trunc nuw i8 %.179 to i1
+  %68 = trunc nuw i8 %.181 to i1
   br i1 %68, label %69, label %79
 
 69:                                               ; preds = %67
@@ -174,10 +174,10 @@ softfloat_lt128.exit:                             ; preds = %29, %23
   br label %86
 
 86:                                               ; preds = %56, %58, %81
-  %.081 = phi i64 [ %.176, %81 ], [ 0, %56 ], [ -1, %58 ]
-  %.080 = phi i64 [ %85, %81 ], [ %57, %56 ], [ %59, %58 ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.081, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.080, 1
+  %.079 = phi i64 [ %85, %81 ], [ %57, %56 ], [ %59, %58 ]
+  %.078 = phi i64 [ %.176, %81 ], [ 0, %56 ], [ -1, %58 ]
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.078, 0
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.079, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

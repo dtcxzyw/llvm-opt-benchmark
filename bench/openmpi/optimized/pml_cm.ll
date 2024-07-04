@@ -339,7 +339,7 @@ opal_datatype_is_contiguous_memory_layout.exit:   ; preds = %opal_thread_add_fet
   br label %opal_datatype_is_contiguous_memory_layout.exit.thread
 
 opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_add_fetch_32.exit54, %45, %opal_datatype_is_contiguous_memory_layout.exit
-  %.048 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit ], [ %spec.select, %45 ], [ 0, %opal_thread_add_fetch_32.exit54 ]
+  %.0 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit ], [ %spec.select, %45 ], [ 0, %opal_thread_add_fetch_32.exit54 ]
   %50 = load ptr, ptr @ompi_mpi_local_convertor, align 8
   %51 = getelementptr inbounds i8, ptr %8, i64 192
   %52 = getelementptr inbounds i8, ptr %50, i64 16
@@ -348,7 +348,7 @@ opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_ad
   store i32 %53, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %50, i64 20
   %56 = load i32, ptr %55, align 4
-  %57 = or i32 %56, %.048
+  %57 = or i32 %56, %.0
   %58 = getelementptr inbounds i8, ptr %8, i64 212
   store i32 %57, ptr %58, align 4
   %59 = getelementptr inbounds i8, ptr %50, i64 96
@@ -1003,7 +1003,7 @@ opal_datatype_is_contiguous_memory_layout.exit:   ; preds = %opal_thread_add_fet
   br label %opal_datatype_is_contiguous_memory_layout.exit.thread
 
 opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_add_fetch_32.exit183, %53, %opal_datatype_is_contiguous_memory_layout.exit
-  %.0153 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit ], [ %spec.select, %53 ], [ 0, %opal_thread_add_fetch_32.exit183 ]
+  %.0 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit ], [ %spec.select, %53 ], [ 0, %opal_thread_add_fetch_32.exit183 ]
   %58 = load ptr, ptr @ompi_mpi_local_convertor, align 8
   %59 = getelementptr inbounds i8, ptr %13, i64 192
   %60 = getelementptr inbounds i8, ptr %58, i64 16
@@ -1012,7 +1012,7 @@ opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_ad
   store i32 %61, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %58, i64 20
   %64 = load i32, ptr %63, align 4
-  %65 = or i32 %64, %.0153
+  %65 = or i32 %64, %.0
   %66 = getelementptr inbounds i8, ptr %13, i64 212
   store i32 %65, ptr %66, align 4
   %67 = getelementptr inbounds i8, ptr %58, i64 96
@@ -1311,8 +1311,8 @@ opal_datatype_is_contiguous_memory_layout.exit202: ; preds = %195
   br label %opal_datatype_is_contiguous_memory_layout.exit202.thread
 
 opal_datatype_is_contiguous_memory_layout.exit202.thread: ; preds = %195, %209, %opal_datatype_is_contiguous_memory_layout.exit202
-  %.1154 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit202 ], [ %spec.select175, %209 ], [ 0, %195 ]
-  %214 = or i32 %.1154, %201
+  %.1 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit202 ], [ %spec.select175, %209 ], [ 0, %195 ]
+  %214 = or i32 %.1, %201
   store i32 %214, ptr %202, align 4
   br label %225
 
@@ -1369,8 +1369,8 @@ ompi_request_complete.exit.sink.split:            ; preds = %225, %158, %155, %o
   br label %ompi_request_complete.exit
 
 ompi_request_complete.exit:                       ; preds = %ompi_request_complete.exit.sink.split, %.critedge, %100, %225
-  %.2 = phi i32 [ %241, %225 ], [ %120, %.critedge ], [ 1, %100 ], [ 0, %ompi_request_complete.exit.sink.split ]
-  ret i32 %.2
+  %.2154 = phi i32 [ %241, %225 ], [ %120, %.critedge ], [ 1, %100 ], [ 0, %ompi_request_complete.exit.sink.split ]
+  ret i32 %.2154
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
@@ -1474,7 +1474,7 @@ opal_datatype_is_contiguous_memory_layout.exit:   ; preds = %opal_thread_add_fet
   br label %opal_datatype_is_contiguous_memory_layout.exit.thread
 
 opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_add_fetch_32.exit91, %54, %opal_datatype_is_contiguous_memory_layout.exit
-  %.058 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit ], [ %spec.select, %54 ], [ 0, %opal_thread_add_fetch_32.exit91 ]
+  %.0 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit ], [ %spec.select, %54 ], [ 0, %opal_thread_add_fetch_32.exit91 ]
   %59 = load ptr, ptr @ompi_mpi_local_convertor, align 8
   %60 = getelementptr inbounds i8, ptr %15, i64 192
   %61 = getelementptr inbounds i8, ptr %59, i64 16
@@ -1483,7 +1483,7 @@ opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_ad
   store i32 %62, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %59, i64 20
   %65 = load i32, ptr %64, align 4
-  %66 = or i32 %65, %.058
+  %66 = or i32 %65, %.0
   %67 = getelementptr inbounds i8, ptr %15, i64 212
   store i32 %66, ptr %67, align 4
   %68 = getelementptr inbounds i8, ptr %59, i64 96
@@ -1681,7 +1681,7 @@ opal_thread_add_fetch_32.exit.i.i:                ; preds = %149, %146
   br label %245
 
 ompi_request_complete.exit:                       ; preds = %.critedge, %101
-  %.160 = phi i32 [ %121, %.critedge ], [ 1, %101 ]
+  %.159 = phi i32 [ %121, %.critedge ], [ 1, %101 ]
   %166 = load ptr, ptr %48, align 8
   %167 = getelementptr i8, ptr %166, i64 16
   %.val84 = load i16, ptr %167, align 8
@@ -2041,8 +2041,8 @@ opal_datatype_is_contiguous_memory_layout.exit123.thread: ; preds = %ompi_comm_p
   br i1 %.not.i127, label %opal_free_list_return.exit, label %.lr.ph.i125, !llvm.loop !4
 
 opal_free_list_return.exit:                       ; preds = %.lr.ph.i125, %331, %opal_free_list_return_mt.exit.sink.split.i, %241, %233, %231, %opal_lifo_push_atomic.exit.i.i, %245
-  %.0 = phi i32 [ 0, %245 ], [ %.160, %opal_lifo_push_atomic.exit.i.i ], [ %.160, %231 ], [ %.160, %233 ], [ %.160, %241 ], [ %.160, %opal_free_list_return_mt.exit.sink.split.i ], [ %336, %331 ], [ %336, %.lr.ph.i125 ]
-  ret i32 %.0
+  %.061 = phi i32 [ 0, %245 ], [ %.159, %opal_lifo_push_atomic.exit.i.i ], [ %.159, %231 ], [ %.159, %233 ], [ %.159, %241 ], [ %.159, %opal_free_list_return_mt.exit.sink.split.i ], [ %336, %331 ], [ %336, %.lr.ph.i125 ]
+  ret i32 %.061
 }
 
 ; Function Attrs: alwaysinline nounwind uwtable
@@ -2218,7 +2218,7 @@ opal_datatype_is_contiguous_memory_layout.exit:   ; preds = %opal_thread_add_fet
   br label %opal_datatype_is_contiguous_memory_layout.exit.thread
 
 opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_add_fetch_32.exit53, %46, %opal_datatype_is_contiguous_memory_layout.exit
-  %.047 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit ], [ %spec.select, %46 ], [ 0, %opal_thread_add_fetch_32.exit53 ]
+  %.0 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit ], [ %spec.select, %46 ], [ 0, %opal_thread_add_fetch_32.exit53 ]
   %51 = load ptr, ptr @ompi_mpi_local_convertor, align 8
   %52 = getelementptr inbounds i8, ptr %9, i64 192
   %53 = getelementptr inbounds i8, ptr %51, i64 16
@@ -2227,7 +2227,7 @@ opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_ad
   store i32 %54, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %51, i64 20
   %57 = load i32, ptr %56, align 4
-  %58 = or i32 %57, %.047
+  %58 = or i32 %57, %.0
   %59 = getelementptr inbounds i8, ptr %9, i64 212
   store i32 %58, ptr %59, align 4
   %60 = getelementptr inbounds i8, ptr %51, i64 96
@@ -2352,7 +2352,7 @@ opal_datatype_is_contiguous_memory_layout.exit:   ; preds = %opal_thread_add_fet
   br label %opal_datatype_is_contiguous_memory_layout.exit.thread
 
 opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_add_fetch_32.exit45, %47, %opal_datatype_is_contiguous_memory_layout.exit
-  %.031 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit ], [ %spec.select, %47 ], [ 0, %opal_thread_add_fetch_32.exit45 ]
+  %.0 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit ], [ %spec.select, %47 ], [ 0, %opal_thread_add_fetch_32.exit45 ]
   %52 = load ptr, ptr @ompi_mpi_local_convertor, align 8
   %53 = getelementptr inbounds i8, ptr %10, i64 192
   %54 = getelementptr inbounds i8, ptr %52, i64 16
@@ -2361,7 +2361,7 @@ opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_ad
   store i32 %55, ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %52, i64 20
   %58 = load i32, ptr %57, align 4
-  %59 = or i32 %58, %.031
+  %59 = or i32 %58, %.0
   %60 = getelementptr inbounds i8, ptr %10, i64 212
   store i32 %59, ptr %60, align 4
   %61 = getelementptr inbounds i8, ptr %52, i64 96
@@ -2622,8 +2622,8 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %160, %150
   br label %opal_free_list_return.exit
 
 opal_free_list_return.exit:                       ; preds = %opal_free_list_return_mt.exit.sink.split.i, %160, %152, %150, %opal_lifo_push_atomic.exit.i.i, %175
-  %.0 = phi i32 [ %176, %175 ], [ %71, %opal_lifo_push_atomic.exit.i.i ], [ %71, %150 ], [ %71, %152 ], [ %71, %160 ], [ %71, %opal_free_list_return_mt.exit.sink.split.i ]
-  ret i32 %.0
+  %.031 = phi i32 [ %176, %175 ], [ %71, %opal_lifo_push_atomic.exit.i.i ], [ %71, %150 ], [ %71, %152 ], [ %71, %160 ], [ %71, %opal_free_list_return_mt.exit.sink.split.i ]
+  ret i32 %.031
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

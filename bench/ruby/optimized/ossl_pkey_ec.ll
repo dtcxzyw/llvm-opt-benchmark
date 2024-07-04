@@ -1045,9 +1045,9 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %50, %RB_SYMBOL_P.ex
   unreachable
 
 74:                                               ; preds = %69, %RB_SYMBOL_P.exit.thread
-  %.027 = phi ptr [ @EC_GROUP_new_curve_GFp, %RB_SYMBOL_P.exit.thread ], [ @EC_GROUP_new_curve_GF2m, %69 ]
+  %.0 = phi ptr [ @EC_GROUP_new_curve_GFp, %RB_SYMBOL_P.exit.thread ], [ @EC_GROUP_new_curve_GF2m, %69 ]
   %75 = call ptr @ossl_bn_ctx_get() #6
-  %76 = call ptr %.027(ptr noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %75) #6, !callees !8
+  %76 = call ptr %.0(ptr noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %75) #6, !callees !8
   %77 = icmp eq ptr %76, null
   br i1 %77, label %78, label %83
 
@@ -1693,10 +1693,10 @@ RSTRING_PTR.exit:                                 ; preds = %47, %53
   unreachable
 
 60:                                               ; preds = %36, %RSTRING_PTR.exit, %28
-  %.021 = phi ptr [ %29, %28 ], [ %39, %36 ], [ %44, %RSTRING_PTR.exit ]
+  %.0 = phi ptr [ %29, %28 ], [ %39, %36 ], [ %44, %RSTRING_PTR.exit ]
   %61 = inttoptr i64 %2 to ptr
   %62 = getelementptr inbounds i8, ptr %61, i64 32
-  store ptr %.021, ptr %62, align 8
+  store ptr %.0, ptr %62, align 8
   %63 = load i64, ptr @id_i_group, align 8
   %64 = load i64, ptr %4, align 8
   %65 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %63, i64 noundef %64) #6
@@ -2228,9 +2228,9 @@ define internal noundef i64 @ossl_ec_point_mul(i32 noundef %0, ptr noundef %1, i
   br label %44
 
 44:                                               ; preds = %42, %.critedge
-  %.032 = phi ptr [ null, %.critedge ], [ %43, %42 ]
+  %.0 = phi ptr [ null, %.critedge ], [ %43, %42 ]
   %45 = call ptr @ossl_bn_ctx_get() #6
-  %46 = call i32 @EC_POINT_mul(ptr noundef nonnull %15, ptr noundef nonnull %23, ptr noundef %.032, ptr noundef nonnull %10, ptr noundef %39, ptr noundef %45) #6
+  %46 = call i32 @EC_POINT_mul(ptr noundef nonnull %15, ptr noundef nonnull %23, ptr noundef %.0, ptr noundef nonnull %10, ptr noundef %39, ptr noundef %45) #6
   %.not = icmp eq i32 %46, 1
   br i1 %.not, label %51, label %47
 

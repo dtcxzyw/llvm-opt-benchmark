@@ -1078,12 +1078,12 @@ define internal void @densmatr_mixTwoQubitDepolarisingLocal.omp_outlined(ptr noa
 
 32:                                               ; preds = %.lr.ph, %76
   %33 = phi i64 [ %26, %.lr.ph ], [ %77, %76 ]
-  %.099109 = phi i64 [ %27, %.lr.ph ], [ %78, %76 ]
+  %.0100109 = phi i64 [ %27, %.lr.ph ], [ %78, %76 ]
   %34 = load i64, ptr %28, align 8
   %35 = load i32, ptr %29, align 8
   %36 = sext i32 %35 to i64
   %37 = mul nsw i64 %34, %36
-  %38 = add nsw i64 %37, %.099109
+  %38 = add nsw i64 %37, %.0100109
   %39 = load i64, ptr %4, align 8
   %40 = and i64 %38, %39
   %41 = icmp eq i64 %40, 0
@@ -1098,12 +1098,12 @@ define internal void @densmatr_mixTwoQubitDepolarisingLocal.omp_outlined(ptr noa
   br i1 %or.cond, label %47, label %76
 
 47:                                               ; preds = %42
-  %48 = or i64 %39, %.099109
+  %48 = or i64 %39, %.0100109
   %49 = load ptr, ptr %30, align 8
-  %50 = getelementptr inbounds double, ptr %49, i64 %.099109
+  %50 = getelementptr inbounds double, ptr %49, i64 %.0100109
   %51 = load double, ptr %50, align 8
   %52 = load ptr, ptr %31, align 8
-  %53 = getelementptr inbounds double, ptr %52, i64 %.099109
+  %53 = getelementptr inbounds double, ptr %52, i64 %.0100109
   %54 = load double, ptr %53, align 8
   %55 = load double, ptr %6, align 8
   %56 = getelementptr inbounds double, ptr %49, i64 %48
@@ -1111,7 +1111,7 @@ define internal void @densmatr_mixTwoQubitDepolarisingLocal.omp_outlined(ptr noa
   %58 = call double @llvm.fmuladd.f64(double %55, double %57, double %51)
   store double %58, ptr %50, align 8
   %59 = load ptr, ptr %31, align 8
-  %60 = getelementptr inbounds double, ptr %59, i64 %.099109
+  %60 = getelementptr inbounds double, ptr %59, i64 %.0100109
   %61 = load double, ptr %60, align 8
   %62 = load double, ptr %6, align 8
   %63 = getelementptr inbounds double, ptr %59, i64 %48
@@ -1135,8 +1135,8 @@ define internal void @densmatr_mixTwoQubitDepolarisingLocal.omp_outlined(ptr noa
 
 76:                                               ; preds = %42, %47, %32
   %77 = phi i64 [ %33, %42 ], [ %.pre, %47 ], [ %33, %32 ]
-  %78 = add nsw i64 %.099109, 1
-  %.not.not = icmp slt i64 %.099109, %77
+  %78 = add nsw i64 %.0100109, 1
+  %.not.not = icmp slt i64 %.0100109, %77
   br i1 %.not.not, label %32, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %76, %23
@@ -1172,12 +1172,12 @@ define internal void @densmatr_mixTwoQubitDepolarisingLocal.omp_outlined(ptr noa
 
 91:                                               ; preds = %.lr.ph113, %135
   %92 = phi i64 [ %85, %.lr.ph113 ], [ %136, %135 ]
-  %.0100111 = phi i64 [ %86, %.lr.ph113 ], [ %137, %135 ]
+  %.099111 = phi i64 [ %86, %.lr.ph113 ], [ %137, %135 ]
   %93 = load i64, ptr %87, align 8
   %94 = load i32, ptr %88, align 8
   %95 = sext i32 %94 to i64
   %96 = mul nsw i64 %93, %95
-  %97 = add nsw i64 %96, %.0100111
+  %97 = add nsw i64 %96, %.099111
   %98 = load i64, ptr %5, align 8
   %99 = and i64 %97, %98
   %100 = icmp eq i64 %99, 0
@@ -1192,12 +1192,12 @@ define internal void @densmatr_mixTwoQubitDepolarisingLocal.omp_outlined(ptr noa
   br i1 %or.cond106, label %106, label %135
 
 106:                                              ; preds = %101
-  %107 = or i64 %98, %.0100111
+  %107 = or i64 %98, %.099111
   %108 = load ptr, ptr %89, align 8
-  %109 = getelementptr inbounds double, ptr %108, i64 %.0100111
+  %109 = getelementptr inbounds double, ptr %108, i64 %.099111
   %110 = load double, ptr %109, align 8
   %111 = load ptr, ptr %90, align 8
-  %112 = getelementptr inbounds double, ptr %111, i64 %.0100111
+  %112 = getelementptr inbounds double, ptr %111, i64 %.099111
   %113 = load double, ptr %112, align 8
   %114 = load double, ptr %6, align 8
   %115 = getelementptr inbounds double, ptr %108, i64 %107
@@ -1205,7 +1205,7 @@ define internal void @densmatr_mixTwoQubitDepolarisingLocal.omp_outlined(ptr noa
   %117 = call double @llvm.fmuladd.f64(double %114, double %116, double %110)
   store double %117, ptr %109, align 8
   %118 = load ptr, ptr %90, align 8
-  %119 = getelementptr inbounds double, ptr %118, i64 %.0100111
+  %119 = getelementptr inbounds double, ptr %118, i64 %.099111
   %120 = load double, ptr %119, align 8
   %121 = load double, ptr %6, align 8
   %122 = getelementptr inbounds double, ptr %118, i64 %107
@@ -1229,8 +1229,8 @@ define internal void @densmatr_mixTwoQubitDepolarisingLocal.omp_outlined(ptr noa
 
 135:                                              ; preds = %101, %106, %91
   %136 = phi i64 [ %92, %101 ], [ %.pre121, %106 ], [ %92, %91 ]
-  %137 = add nsw i64 %.0100111, 1
-  %.not104.not = icmp slt i64 %.0100111, %136
+  %137 = add nsw i64 %.099111, 1
+  %.not104.not = icmp slt i64 %.099111, %136
   br i1 %.not104.not, label %91, label %._crit_edge114
 
 ._crit_edge114:                                   ; preds = %135, %82
@@ -3739,9 +3739,9 @@ define internal void @statevec_applySubDiagonalOp.omp_outlined(ptr noalias nocap
   br i1 %.not44, label %._crit_edge48, label %.lr.ph47
 
 .lr.ph47:                                         ; preds = %18, %._crit_edge
-  %.04145 = phi i64 [ %62, %._crit_edge ], [ %22, %18 ]
+  %.04045 = phi i64 [ %62, %._crit_edge ], [ %22, %18 ]
   %23 = load i64, ptr %3, align 8
-  %24 = or i64 %23, %.04145
+  %24 = or i64 %23, %.04045
   %25 = load i32, ptr %4, align 4
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph, label %._crit_edge
@@ -3781,10 +3781,10 @@ define internal void @statevec_applySubDiagonalOp.omp_outlined(ptr noalias nocap
   %47 = sitofp i32 %46 to double
   %48 = fmul double %45, %47
   %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds double, ptr %49, i64 %.04145
+  %50 = getelementptr inbounds double, ptr %49, i64 %.04045
   %51 = load double, ptr %50, align 8
   %52 = load ptr, ptr %10, align 8
-  %53 = getelementptr inbounds double, ptr %52, i64 %.04145
+  %53 = getelementptr inbounds double, ptr %52, i64 %.04045
   %54 = load double, ptr %53, align 8
   %55 = fneg double %54
   %56 = fmul double %48, %55
@@ -3793,11 +3793,11 @@ define internal void @statevec_applySubDiagonalOp.omp_outlined(ptr noalias nocap
   %58 = fmul double %42, %54
   %59 = call double @llvm.fmuladd.f64(double %51, double %48, double %58)
   %60 = load ptr, ptr %10, align 8
-  %61 = getelementptr inbounds double, ptr %60, i64 %.04145
+  %61 = getelementptr inbounds double, ptr %60, i64 %.04045
   store double %59, ptr %61, align 8
-  %62 = add nsw i64 %.04145, 1
+  %62 = add nsw i64 %.04045, 1
   %63 = load i64, ptr %13, align 8
-  %.not.not = icmp slt i64 %.04145, %63
+  %.not.not = icmp slt i64 %.04045, %63
   br i1 %.not.not, label %.lr.ph47, label %._crit_edge48
 
 ._crit_edge48:                                    ; preds = %._crit_edge, %18
@@ -3921,9 +3921,9 @@ define internal void @agnostic_initDiagonalOpFromPauliHamil.omp_outlined(ptr noa
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %._crit_edge46
-  %.03849 = phi i64 [ %58, %._crit_edge46 ], [ %21, %17 ]
+  %.03549 = phi i64 [ %58, %._crit_edge46 ], [ %21, %17 ]
   %22 = load i64, ptr %3, align 8
-  %23 = add nsw i64 %22, %.03849
+  %23 = add nsw i64 %22, %.03549
   %24 = load i32, ptr %4, align 4
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.preheader.lr.ph, label %._crit_edge46
@@ -3953,7 +3953,7 @@ define internal void @agnostic_initDiagonalOpFromPauliHamil.omp_outlined(ptr noa
 
 33:                                               ; preds = %.preheader.us, %44
   %indvars.iv53 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next54, %44 ]
-  %.03543.us = phi i32 [ 0, %.preheader.us ], [ %.1.us, %44 ]
+  %.03643.us = phi i32 [ 0, %.preheader.us ], [ %.1.us, %44 ]
   %34 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv53
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 3
@@ -3968,12 +3968,12 @@ define internal void @agnostic_initDiagonalOpFromPauliHamil.omp_outlined(ptr noa
   br i1 %.not40.us, label %44, label %42
 
 42:                                               ; preds = %37
-  %.not41.us = icmp eq i32 %.03543.us, 0
+  %.not41.us = icmp eq i32 %.03643.us, 0
   %43 = zext i1 %.not41.us to i32
   br label %44
 
 44:                                               ; preds = %42, %37, %33
-  %.1.us = phi i32 [ %43, %42 ], [ %.03543.us, %37 ], [ %.03543.us, %33 ]
+  %.1.us = phi i32 [ %43, %42 ], [ %.03643.us, %37 ], [ %.03643.us, %33 ]
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %30
   br i1 %exitcond57.not, label %._crit_edge.us, label %33
@@ -4002,14 +4002,14 @@ define internal void @agnostic_initDiagonalOpFromPauliHamil.omp_outlined(ptr noa
 ._crit_edge46:                                    ; preds = %.preheader, %._crit_edge.us, %.lr.ph
   %.0.lcssa = phi double [ 0.000000e+00, %.lr.ph ], [ %50, %._crit_edge.us ], [ %53, %.preheader ]
   %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds double, ptr %54, i64 %.03849
+  %55 = getelementptr inbounds double, ptr %54, i64 %.03549
   store double %.0.lcssa, ptr %55, align 8
   %56 = load ptr, ptr %9, align 8
-  %57 = getelementptr inbounds double, ptr %56, i64 %.03849
+  %57 = getelementptr inbounds double, ptr %56, i64 %.03549
   store double 0.000000e+00, ptr %57, align 8
-  %58 = add nsw i64 %.03849, 1
+  %58 = add nsw i64 %.03549, 1
   %59 = load i64, ptr %12, align 8
-  %.not.not = icmp slt i64 %.03849, %59
+  %.not.not = icmp slt i64 %.03549, %59
   br i1 %.not.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge46, %17
@@ -5172,7 +5172,7 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
 
 .preheader82:                                     ; preds = %.preheader82.lr.ph, %.loopexit
   %33 = phi i64 [ %29, %.preheader82.lr.ph ], [ %118, %.loopexit ]
-  %.07199 = phi i64 [ %30, %.preheader82.lr.ph ], [ %119, %.loopexit ]
+  %.06899 = phi i64 [ %30, %.preheader82.lr.ph ], [ %119, %.loopexit ]
   %34 = load i32, ptr %3, align 4
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %.lr.ph.preheader, label %._crit_edge
@@ -5183,7 +5183,7 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.084 = phi i64 [ %.07199, %.lr.ph.preheader ], [ %43, %.lr.ph ]
+  %.084 = phi i64 [ %.06899, %.lr.ph.preheader ], [ %43, %.lr.ph ]
   %36 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4
   %38 = zext nneg i32 %37 to i64
@@ -5197,7 +5197,7 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader82
-  %.0.lcssa = phi i64 [ %.07199, %.preheader82 ], [ %43, %.lr.ph ]
+  %.0.lcssa = phi i64 [ %.06899, %.preheader82 ], [ %43, %.lr.ph ]
   %44 = load i64, ptr %7, align 8
   %.not78 = icmp eq i64 %44, 0
   br i1 %.not78, label %49, label %45
@@ -5349,8 +5349,8 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
 
 .loopexit:                                        ; preds = %49, %.loopexit.loopexit, %.preheader81, %45
   %118 = phi i64 [ %.pre, %.loopexit.loopexit ], [ %33, %.preheader81 ], [ %33, %45 ], [ %33, %49 ]
-  %119 = add nsw i64 %.07199, 1
-  %.not.not = icmp slt i64 %.07199, %118
+  %119 = add nsw i64 %.06899, 1
+  %.not.not = icmp slt i64 %.06899, %118
   br i1 %.not.not, label %.preheader82, label %._crit_edge100
 
 ._crit_edge100:                                   ; preds = %.loopexit, %26
@@ -9198,12 +9198,12 @@ define internal void @densmatr_calcProbOfAllOutcomesLocal.omp_outlined.8(ptr noa
   br i1 %.not32, label %._crit_edge36, label %.lr.ph35
 
 .lr.ph35:                                         ; preds = %17, %._crit_edge
-  %.02933 = phi i64 [ %47, %._crit_edge ], [ %21, %17 ]
+  %.02833 = phi i64 [ %47, %._crit_edge ], [ %21, %17 ]
   %22 = load i64, ptr %3, align 8
-  %23 = add nsw i64 %22, %.02933
+  %23 = add nsw i64 %22, %.02833
   %24 = load i64, ptr %4, align 8
   %25 = load i64, ptr %5, align 8
-  %26 = mul nsw i64 %25, %.02933
+  %26 = mul nsw i64 %25, %.02833
   %27 = load i32, ptr %6, align 4
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph, label %._crit_edge
@@ -9215,7 +9215,7 @@ define internal void @densmatr_calcProbOfAllOutcomesLocal.omp_outlined.8(ptr noa
 
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %.02830 = phi i64 [ 0, %.lr.ph ], [ %39, %30 ]
+  %.02930 = phi i64 [ 0, %.lr.ph ], [ %39, %30 ]
   %31 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %33 = zext i32 %32 to i64
@@ -9225,23 +9225,23 @@ define internal void @densmatr_calcProbOfAllOutcomesLocal.omp_outlined.8(ptr noa
   %sext = shl i64 %36, 32
   %37 = ashr exact i64 %sext, 32
   %38 = shl i64 %37, %indvars.iv
-  %39 = add nsw i64 %38, %.02830
+  %39 = add nsw i64 %38, %.02930
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %30
 
 ._crit_edge:                                      ; preds = %30, %.lr.ph35
-  %.028.lcssa = phi i64 [ 0, %.lr.ph35 ], [ %39, %30 ]
+  %.029.lcssa = phi i64 [ 0, %.lr.ph35 ], [ %39, %30 ]
   %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr inbounds double, ptr %40, i64 %.028.lcssa
+  %41 = getelementptr inbounds double, ptr %40, i64 %.029.lcssa
   %42 = load ptr, ptr %9, align 8
   %43 = getelementptr double, ptr %42, i64 %24
   %44 = getelementptr double, ptr %43, i64 %26
   %45 = load double, ptr %44, align 8
   %46 = atomicrmw fadd ptr %41, double %45 monotonic, align 8
-  %47 = add nsw i64 %.02933, 1
+  %47 = add nsw i64 %.02833, 1
   %48 = load i64, ptr %12, align 8
-  %.not.not = icmp slt i64 %.02933, %48
+  %.not.not = icmp slt i64 %.02833, %48
   br i1 %.not.not, label %.lr.ph35, label %._crit_edge36
 
 ._crit_edge36:                                    ; preds = %._crit_edge, %17
@@ -10854,12 +10854,12 @@ define internal void @statevec_applyPhaseFuncOverrides.omp_outlined(ptr noalias 
   br i1 %.not96, label %._crit_edge100, label %.lr.ph99
 
 .lr.ph99:                                         ; preds = %23, %.loopexit
-  %.07097 = phi i64 [ %117, %.loopexit ], [ %27, %23 ]
+  %.06697 = phi i64 [ %117, %.loopexit ], [ %27, %23 ]
   %28 = load i32, ptr %3, align 4
   %29 = sext i32 %28 to i64
   %30 = load i64, ptr %2, align 8
   %31 = mul nsw i64 %30, %29
-  %32 = add nsw i64 %31, %.07097
+  %32 = add nsw i64 %31, %.06697
   %33 = load i32, ptr %4, align 4
   switch i32 %33, label %.loopexit79 [
     i32 0, label %.preheader78
@@ -11005,10 +11005,10 @@ define internal void @statevec_applyPhaseFuncOverrides.omp_outlined(ptr noalias 
   %102 = call double @cos(double noundef %spec.select) #3
   %103 = call double @sin(double noundef %spec.select) #3
   %104 = load ptr, ptr %14, align 8
-  %105 = getelementptr inbounds double, ptr %104, i64 %.07097
+  %105 = getelementptr inbounds double, ptr %104, i64 %.06697
   %106 = load double, ptr %105, align 8
   %107 = load ptr, ptr %15, align 8
-  %108 = getelementptr inbounds double, ptr %107, i64 %.07097
+  %108 = getelementptr inbounds double, ptr %107, i64 %.06697
   %109 = load double, ptr %108, align 8
   %110 = fneg double %109
   %111 = fmul double %103, %110
@@ -11017,11 +11017,11 @@ define internal void @statevec_applyPhaseFuncOverrides.omp_outlined(ptr noalias 
   %113 = fmul double %102, %109
   %114 = call double @llvm.fmuladd.f64(double %106, double %103, double %113)
   %115 = load ptr, ptr %15, align 8
-  %116 = getelementptr inbounds double, ptr %115, i64 %.07097
+  %116 = getelementptr inbounds double, ptr %115, i64 %.06697
   store double %114, ptr %116, align 8
-  %117 = add nsw i64 %.07097, 1
+  %117 = add nsw i64 %.06697, 1
   %118 = load i64, ptr %18, align 8
-  %.not.not = icmp slt i64 %.07097, %118
+  %.not.not = icmp slt i64 %.06697, %118
   br i1 %.not.not, label %.lr.ph99, label %._crit_edge100
 
 ._crit_edge100:                                   ; preds = %.loopexit, %23
@@ -11107,12 +11107,12 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   br i1 %.not144, label %._crit_edge148, label %.lr.ph147
 
 .lr.ph147:                                        ; preds = %25, %.loopexit105
-  %.086145 = phi i64 [ %159, %.loopexit105 ], [ %29, %25 ]
+  %.082145 = phi i64 [ %159, %.loopexit105 ], [ %29, %25 ]
   %30 = load i32, ptr %3, align 4
   %31 = sext i32 %30 to i64
   %32 = load i64, ptr %2, align 8
   %33 = mul nsw i64 %32, %31
-  %34 = add nsw i64 %33, %.086145
+  %34 = add nsw i64 %33, %.082145
   %35 = load i32, ptr %4, align 4
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %.lr.ph122, label %.preheader106.thread
@@ -11300,9 +11300,9 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   br label %.preheader
 
 .critedge:                                        ; preds = %104, %.preheader106.thread, %.preheader102.lr.ph
-  %.084.lcssa108 = phi i64 [ 0, %.preheader102.lr.ph ], [ 0, %.preheader106.thread ], [ %indvars.iv189, %104 ]
+  %.085.lcssa108 = phi i64 [ 0, %.preheader102.lr.ph ], [ 0, %.preheader106.thread ], [ %indvars.iv189, %104 ]
   %110 = load ptr, ptr %10, align 8
-  %111 = and i64 %.084.lcssa108, 4294967295
+  %111 = and i64 %.085.lcssa108, 4294967295
   %112 = getelementptr inbounds double, ptr %110, i64 %111
   %113 = load double, ptr %112, align 8
   br label %.loopexit105
@@ -11312,7 +11312,7 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %115 = phi ptr [ %.pre, %.preheader.preheader ], [ %139, %.critedge100 ]
   %indvars.iv197 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next198, %.critedge100 ]
   %.4141 = phi i32 [ 0, %.preheader.preheader ], [ %.5.lcssa, %.critedge100 ]
-  %.091140 = phi double [ 0.000000e+00, %.preheader.preheader ], [ %.192.lcssa, %.critedge100 ]
+  %.090140 = phi double [ 0.000000e+00, %.preheader.preheader ], [ %.191.lcssa, %.critedge100 ]
   %116 = getelementptr inbounds i32, ptr %115, i64 %indvars.iv197
   %117 = load i32, ptr %116, align 4
   %118 = icmp sgt i32 %117, 0
@@ -11327,8 +11327,8 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
 
 123:                                              ; preds = %.lr.ph, %123
   %indvars.iv194 = phi i64 [ %122, %.lr.ph ], [ %indvars.iv.next195, %123 ]
-  %.085137 = phi i32 [ 0, %.lr.ph ], [ %132, %123 ]
-  %.192135 = phi double [ %.091140, %.lr.ph ], [ %131, %123 ]
+  %.086137 = phi i32 [ 0, %.lr.ph ], [ %132, %123 ]
+  %.191135 = phi double [ %.090140, %.lr.ph ], [ %131, %123 ]
   %124 = load ptr, ptr %12, align 8
   %125 = getelementptr inbounds double, ptr %124, i64 %indvars.iv194
   %126 = load double, ptr %125, align 8
@@ -11336,9 +11336,9 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %128 = getelementptr inbounds double, ptr %127, i64 %indvars.iv194
   %129 = load double, ptr %128, align 8
   %130 = call double @pow(double noundef %121, double noundef %129) #3
-  %131 = call double @llvm.fmuladd.f64(double %126, double %130, double %.192135)
+  %131 = call double @llvm.fmuladd.f64(double %126, double %130, double %.191135)
   %indvars.iv.next195 = add nsw i64 %indvars.iv194, 1
-  %132 = add nuw nsw i32 %.085137, 1
+  %132 = add nuw nsw i32 %.086137, 1
   %133 = load ptr, ptr %11, align 8
   %134 = getelementptr inbounds i32, ptr %133, i64 %indvars.iv197
   %135 = load i32, ptr %134, align 4
@@ -11353,7 +11353,7 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
 .critedge100:                                     ; preds = %.critedge100.loopexit, %.preheader
   %138 = phi i32 [ %114, %.preheader ], [ %.pre200, %.critedge100.loopexit ]
   %139 = phi ptr [ %115, %.preheader ], [ %133, %.critedge100.loopexit ]
-  %.192.lcssa = phi double [ %.091140, %.preheader ], [ %131, %.critedge100.loopexit ]
+  %.191.lcssa = phi double [ %.090140, %.preheader ], [ %131, %.critedge100.loopexit ]
   %.5.lcssa = phi i32 [ %.4141, %.preheader ], [ %137, %.critedge100.loopexit ]
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %140 = sext i32 %138 to i64
@@ -11361,18 +11361,18 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   br i1 %141, label %.preheader, label %.loopexit105
 
 .loopexit105:                                     ; preds = %.critedge100, %.preheader106.thread, %.critedge100.preheader.loopexit, %.critedge
-  %.293 = phi double [ %113, %.critedge ], [ 0.000000e+00, %.critedge100.preheader.loopexit ], [ 0.000000e+00, %.preheader106.thread ], [ %.192.lcssa, %.critedge100 ]
+  %.292 = phi double [ %113, %.critedge ], [ 0.000000e+00, %.critedge100.preheader.loopexit ], [ 0.000000e+00, %.preheader106.thread ], [ %.191.lcssa, %.critedge100 ]
   %142 = load i32, ptr %14, align 4
   %.not99 = icmp eq i32 %142, 0
-  %143 = fneg double %.293
-  %spec.select = select i1 %.not99, double %.293, double %143
+  %143 = fneg double %.292
+  %spec.select = select i1 %.not99, double %.292, double %143
   %144 = call double @cos(double noundef %spec.select) #3
   %145 = call double @sin(double noundef %spec.select) #3
   %146 = load ptr, ptr %15, align 8
-  %147 = getelementptr inbounds double, ptr %146, i64 %.086145
+  %147 = getelementptr inbounds double, ptr %146, i64 %.082145
   %148 = load double, ptr %147, align 8
   %149 = load ptr, ptr %16, align 8
-  %150 = getelementptr inbounds double, ptr %149, i64 %.086145
+  %150 = getelementptr inbounds double, ptr %149, i64 %.082145
   %151 = load double, ptr %150, align 8
   %152 = fneg double %151
   %153 = fmul double %145, %152
@@ -11381,11 +11381,11 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %155 = fmul double %144, %151
   %156 = call double @llvm.fmuladd.f64(double %148, double %145, double %155)
   %157 = load ptr, ptr %16, align 8
-  %158 = getelementptr inbounds double, ptr %157, i64 %.086145
+  %158 = getelementptr inbounds double, ptr %157, i64 %.082145
   store double %156, ptr %158, align 8
-  %159 = add nsw i64 %.086145, 1
+  %159 = add nsw i64 %.082145, 1
   %160 = load i64, ptr %20, align 8
-  %.not.not = icmp slt i64 %.086145, %160
+  %.not.not = icmp slt i64 %.082145, %160
   br i1 %.not.not, label %.lr.ph147, label %._crit_edge148
 
 ._crit_edge148:                                   ; preds = %.loopexit105, %25
@@ -11466,12 +11466,12 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   br i1 %.not236, label %._crit_edge240, label %.lr.ph239
 
 .lr.ph239:                                        ; preds = %24, %232
-  %.0141237 = phi i64 [ %250, %232 ], [ %28, %24 ]
+  %.0134237 = phi i64 [ %250, %232 ], [ %28, %24 ]
   %29 = load i32, ptr %3, align 4
   %30 = sext i32 %29 to i64
   %31 = load i64, ptr %2, align 8
   %32 = mul nsw i64 %31, %30
-  %33 = add nsw i64 %32, %.0141237
+  %33 = add nsw i64 %32, %.0134237
   %34 = load i32, ptr %4, align 4
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %.lr.ph199, label %.preheader183.thread
@@ -11529,7 +11529,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 
 52:                                               ; preds = %.lr.ph199, %.loopexit
   %indvars.iv268 = phi i64 [ 0, %.lr.ph199 ], [ %indvars.iv.next269, %.loopexit ]
-  %.0137196 = phi i32 [ 0, %.lr.ph199 ], [ %.3140, %.loopexit ]
+  %.0138196 = phi i32 [ 0, %.lr.ph199 ], [ %.3141, %.loopexit ]
   %53 = getelementptr inbounds [100 x i64], ptr %17, i64 0, i64 %indvars.iv268
   store i64 0, ptr %53, align 8
   switch i32 %36, label %.loopexit [
@@ -11545,7 +11545,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   br i1 %57, label %.lr.ph, label %87
 
 .lr.ph:                                           ; preds = %.preheader172
-  %58 = sext i32 %.0137196 to i64
+  %58 = sext i32 %.0138196 to i64
   %wide.trip.count = zext nneg i32 %56 to i64
   br label %74
 
@@ -11556,7 +11556,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   br i1 %61, label %.lr.ph192, label %.loopexit
 
 .lr.ph192:                                        ; preds = %.preheader171
-  %62 = sext i32 %.0137196 to i64
+  %62 = sext i32 %.0138196 to i64
   %wide.trip.count266 = zext nneg i32 %60 to i64
   br label %63
 
@@ -11599,16 +11599,16 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   br i1 %exitcond.not, label %._crit_edge, label %74
 
 ._crit_edge:                                      ; preds = %74
-  %85 = add i32 %.0137196, %55
+  %85 = add i32 %.0138196, %55
   %86 = add i32 %85, -1
   store i64 %84, ptr %53, align 8
   br label %87
 
 87:                                               ; preds = %._crit_edge, %.preheader172
   %88 = phi i64 [ %84, %._crit_edge ], [ 0, %.preheader172 ]
-  %.2139.lcssa = phi i32 [ %86, %._crit_edge ], [ %.0137196, %.preheader172 ]
-  %89 = add nsw i32 %.2139.lcssa, 1
-  %90 = sext i32 %.2139.lcssa to i64
+  %.2140.lcssa = phi i32 [ %86, %._crit_edge ], [ %.0138196, %.preheader172 ]
+  %89 = add nsw i32 %.2140.lcssa, 1
+  %90 = sext i32 %.2140.lcssa to i64
   %91 = getelementptr inbounds i32, ptr %38, i64 %90
   %92 = load i32, ptr %91, align 4
   %93 = zext i32 %92 to i64
@@ -11626,25 +11626,25 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   br label %.loopexit.sink.split
 
 ..loopexit_crit_edge:                             ; preds = %63
-  %102 = add i32 %.0137196, %60
+  %102 = add i32 %.0138196, %60
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %99, %..loopexit_crit_edge
   %.lcssa317.sink = phi i64 [ %73, %..loopexit_crit_edge ], [ %101, %99 ]
-  %.3140.ph = phi i32 [ %102, %..loopexit_crit_edge ], [ %89, %99 ]
+  %.3141.ph = phi i32 [ %102, %..loopexit_crit_edge ], [ %89, %99 ]
   store i64 %.lcssa317.sink, ptr %53, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.sink.split, %.preheader171, %52, %87
-  %.3140 = phi i32 [ %89, %87 ], [ %.0137196, %52 ], [ %.0137196, %.preheader171 ], [ %.3140.ph, %.loopexit.sink.split ]
+  %.3141 = phi i32 [ %89, %87 ], [ %.0138196, %52 ], [ %.0138196, %.preheader171 ], [ %.3141.ph, %.loopexit.sink.split ]
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
   %exitcond272.not = icmp eq i64 %indvars.iv.next269, %wide.trip.count271
   br i1 %exitcond272.not, label %.preheader183, label %52
 
 .critedge:                                        ; preds = %46, %.preheader183.thread, %.preheader.lr.ph
-  %.0136.lcssa185 = phi i64 [ 0, %.preheader.lr.ph ], [ 0, %.preheader183.thread ], [ %indvars.iv278, %46 ]
+  %.0137.lcssa185 = phi i64 [ 0, %.preheader.lr.ph ], [ 0, %.preheader183.thread ], [ %indvars.iv278, %46 ]
   %103 = load ptr, ptr %10, align 8
-  %104 = and i64 %.0136.lcssa185, 4294967295
+  %104 = and i64 %.0137.lcssa185, 4294967295
   %105 = getelementptr inbounds double, ptr %103, i64 %104
   %106 = load double, ptr %105, align 8
   br label %232
@@ -11712,33 +11712,33 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 
 114:                                              ; preds = %.lr.ph228, %114
   %indvars.iv297 = phi i64 [ 0, %.lr.ph228 ], [ %indvars.iv.next298, %114 ]
-  %.0145226 = phi double [ 0.000000e+00, %.lr.ph228 ], [ %120, %114 ]
+  %.0149226 = phi double [ 0.000000e+00, %.lr.ph228 ], [ %120, %114 ]
   %115 = getelementptr inbounds [100 x i64], ptr %17, i64 0, i64 %indvars.iv297
   %116 = load i64, ptr %115, align 8
   %117 = sitofp i64 %116 to double
   %gep231 = getelementptr inbounds double, ptr %invariant.gep230, i64 %indvars.iv297
   %118 = load double, ptr %gep231, align 8
   %119 = fsub double %117, %118
-  %120 = call double @llvm.fmuladd.f64(double %119, double %119, double %.0145226)
+  %120 = call double @llvm.fmuladd.f64(double %119, double %119, double %.0149226)
   %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
   %exitcond301.not = icmp eq i64 %indvars.iv.next298, %wide.trip.count300
   br i1 %exitcond301.not, label %.loopexit174, label %114
 
 .lr.ph234:                                        ; preds = %.lr.ph234.preheader, %.lr.ph234
   %indvars.iv302 = phi i64 [ 0, %.lr.ph234.preheader ], [ %indvars.iv.next303, %.lr.ph234 ]
-  %.1146232 = phi double [ 0.000000e+00, %.lr.ph234.preheader ], [ %125, %.lr.ph234 ]
+  %.1150232 = phi double [ 0.000000e+00, %.lr.ph234.preheader ], [ %125, %.lr.ph234 ]
   %121 = getelementptr inbounds [100 x i64], ptr %17, i64 0, i64 %indvars.iv302
   %122 = load i64, ptr %121, align 8
   %123 = mul nsw i64 %122, %122
   %124 = uitofp nneg i64 %123 to double
-  %125 = fadd double %.1146232, %124
+  %125 = fadd double %.1150232, %124
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
   %exitcond306.not = icmp eq i64 %indvars.iv.next303, %wide.trip.count305
   br i1 %exitcond306.not, label %.loopexit174, label %.lr.ph234
 
 .loopexit174:                                     ; preds = %114, %.lr.ph234, %.preheader175, %.preheader173
-  %.2147 = phi double [ 0.000000e+00, %.preheader173 ], [ 0.000000e+00, %.preheader175 ], [ %125, %.lr.ph234 ], [ %120, %114 ]
-  %126 = call double @sqrt(double noundef %.2147) #3
+  %.2151 = phi double [ 0.000000e+00, %.preheader173 ], [ 0.000000e+00, %.preheader175 ], [ %125, %.lr.ph234 ], [ %120, %114 ]
+  %126 = call double @sqrt(double noundef %.2151) #3
   %127 = load i32, ptr %11, align 4
   switch i32 %127, label %.fold.split [
     i32 0, label %232
@@ -11845,7 +11845,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 
 173:                                              ; preds = %.lr.ph216, %173
   %indvars.iv289 = phi i64 [ 0, %.lr.ph216 ], [ %indvars.iv.next290, %173 ]
-  %.0149214 = phi double [ 0.000000e+00, %.lr.ph216 ], [ %184, %173 ]
+  %.0143214 = phi double [ 0.000000e+00, %.lr.ph216 ], [ %184, %173 ]
   %174 = getelementptr inbounds [100 x i64], ptr %17, i64 0, i64 %indvars.iv289
   %175 = load i64, ptr %174, align 16
   %176 = or disjoint i64 %indvars.iv289, 1
@@ -11857,14 +11857,14 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %gep219 = getelementptr inbounds double, ptr %invariant.gep218, i64 %181
   %182 = load double, ptr %gep219, align 8
   %183 = fsub double %180, %182
-  %184 = call double @llvm.fmuladd.f64(double %183, double %183, double %.0149214)
+  %184 = call double @llvm.fmuladd.f64(double %183, double %183, double %.0143214)
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 2
   %185 = icmp ult i64 %indvars.iv.next290, %112
   br i1 %185, label %173, label %.loopexit178
 
 186:                                              ; preds = %.lr.ph212, %186
   %indvars.iv286 = phi i64 [ 0, %.lr.ph212 ], [ %indvars.iv.next287, %186 ]
-  %.1150210 = phi double [ 0.000000e+00, %.lr.ph212 ], [ %199, %186 ]
+  %.1144210 = phi double [ 0.000000e+00, %.lr.ph212 ], [ %199, %186 ]
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 2
   %187 = getelementptr inbounds double, ptr %109, i64 %indvars.iv.next287
   %188 = load double, ptr %187, align 8
@@ -11879,13 +11879,13 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %196 = load double, ptr %gep, align 8
   %197 = fsub double %195, %196
   %198 = fmul double %188, %197
-  %199 = call double @llvm.fmuladd.f64(double %198, double %197, double %.1150210)
+  %199 = call double @llvm.fmuladd.f64(double %198, double %197, double %.1144210)
   %200 = icmp ult i64 %indvars.iv.next287, %110
   br i1 %200, label %186, label %.loopexit178
 
 .lr.ph208:                                        ; preds = %.lr.ph208.preheader, %.lr.ph208
   %indvars.iv283 = phi i64 [ 0, %.lr.ph208.preheader ], [ %indvars.iv.next284, %.lr.ph208 ]
-  %.2151206 = phi double [ 0.000000e+00, %.lr.ph208.preheader ], [ %209, %.lr.ph208 ]
+  %.2145206 = phi double [ 0.000000e+00, %.lr.ph208.preheader ], [ %209, %.lr.ph208 ]
   %201 = or disjoint i64 %indvars.iv283, 1
   %202 = getelementptr inbounds [100 x i64], ptr %17, i64 0, i64 %201
   %203 = load i64, ptr %202, align 8
@@ -11894,16 +11894,16 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %206 = sub nsw i64 %203, %205
   %207 = mul nsw i64 %206, %206
   %208 = uitofp nneg i64 %207 to double
-  %209 = fadd double %.2151206, %208
+  %209 = fadd double %.2145206, %208
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 2
   %210 = icmp ult i64 %indvars.iv.next284, %108
   br i1 %210, label %.lr.ph208, label %.loopexit178
 
 .loopexit178:                                     ; preds = %.lr.ph208, %186, %173, %.preheader181
-  %.3152 = phi double [ 0.000000e+00, %.preheader181 ], [ %184, %173 ], [ %199, %186 ], [ %209, %.lr.ph208 ]
-  %211 = fcmp olt double %.3152, 0.000000e+00
-  %.4153 = select i1 %211, double 0.000000e+00, double %.3152
-  %sqrt = call double @llvm.sqrt.f64(double %.4153)
+  %.3146 = phi double [ 0.000000e+00, %.preheader181 ], [ %184, %173 ], [ %199, %186 ], [ %209, %.lr.ph208 ]
+  %211 = fcmp olt double %.3146, 0.000000e+00
+  %.4147 = select i1 %211, double 0.000000e+00, double %.3146
+  %sqrt = call double @llvm.sqrt.f64(double %.4147)
   switch i32 %107, label %.fold.split169 [
     i32 9, label %232
     i32 11, label %212
@@ -11958,18 +11958,18 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   br label %232
 
 232:                                              ; preds = %.critedge.thread.loopexit, %.thread, %228, %.loopexit178, %.fold.split169, %214, %217, %167, %170, %._crit_edge224, %.fold.split168, %155, %158, %142, %145, %.loopexit174, %.fold.split, %130, %133, %135, %219, %160, %.critedge
-  %.0143 = phi double [ %106, %.critedge ], [ %138, %135 ], [ %163, %160 ], [ %222, %219 ], [ %126, %.loopexit174 ], [ %132, %130 ], [ %134, %133 ], [ 0.000000e+00, %.fold.split ], [ %144, %142 ], [ %147, %145 ], [ %.0148.lcssa, %._crit_edge224 ], [ %157, %155 ], [ %159, %158 ], [ 0.000000e+00, %.fold.split168 ], [ %169, %167 ], [ %172, %170 ], [ 0.000000e+00, %.critedge.thread.loopexit ], [ %sqrt, %.loopexit178 ], [ %216, %214 ], [ %218, %217 ], [ 0.000000e+00, %.fold.split169 ], [ %227, %.thread ], [ %231, %228 ]
+  %.0152 = phi double [ %106, %.critedge ], [ %138, %135 ], [ %163, %160 ], [ %222, %219 ], [ %126, %.loopexit174 ], [ %132, %130 ], [ %134, %133 ], [ 0.000000e+00, %.fold.split ], [ %144, %142 ], [ %147, %145 ], [ %.0148.lcssa, %._crit_edge224 ], [ %157, %155 ], [ %159, %158 ], [ 0.000000e+00, %.fold.split168 ], [ %169, %167 ], [ %172, %170 ], [ 0.000000e+00, %.critedge.thread.loopexit ], [ %sqrt, %.loopexit178 ], [ %216, %214 ], [ %218, %217 ], [ 0.000000e+00, %.fold.split169 ], [ %227, %.thread ], [ %231, %228 ]
   %233 = load i32, ptr %13, align 4
   %.not167 = icmp eq i32 %233, 0
-  %234 = fneg double %.0143
-  %spec.select = select i1 %.not167, double %.0143, double %234
+  %234 = fneg double %.0152
+  %spec.select = select i1 %.not167, double %.0152, double %234
   %235 = call double @cos(double noundef %spec.select) #3
   %236 = call double @sin(double noundef %spec.select) #3
   %237 = load ptr, ptr %14, align 8
-  %238 = getelementptr inbounds double, ptr %237, i64 %.0141237
+  %238 = getelementptr inbounds double, ptr %237, i64 %.0134237
   %239 = load double, ptr %238, align 8
   %240 = load ptr, ptr %15, align 8
-  %241 = getelementptr inbounds double, ptr %240, i64 %.0141237
+  %241 = getelementptr inbounds double, ptr %240, i64 %.0134237
   %242 = load double, ptr %241, align 8
   %243 = fneg double %242
   %244 = fmul double %236, %243
@@ -11978,11 +11978,11 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %246 = fmul double %235, %242
   %247 = call double @llvm.fmuladd.f64(double %239, double %236, double %246)
   %248 = load ptr, ptr %15, align 8
-  %249 = getelementptr inbounds double, ptr %248, i64 %.0141237
+  %249 = getelementptr inbounds double, ptr %248, i64 %.0134237
   store double %247, ptr %249, align 8
-  %250 = add nsw i64 %.0141237, 1
+  %250 = add nsw i64 %.0134237, 1
   %251 = load i64, ptr %19, align 8
-  %.not.not = icmp slt i64 %.0141237, %251
+  %.not.not = icmp slt i64 %.0134237, %251
   br i1 %.not.not, label %.lr.ph239, label %._crit_edge240
 
 ._crit_edge240:                                   ; preds = %232, %24
@@ -12081,9 +12081,9 @@ define internal void @densmatr_setQuregToPauliHamil.omp_outlined(ptr noalias noc
   br i1 %.not78, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19, %._crit_edge74
-  %.06079 = phi i64 [ %80, %._crit_edge74 ], [ %23, %19 ]
+  %.05779 = phi i64 [ %80, %._crit_edge74 ], [ %23, %19 ]
   %24 = load i64, ptr %3, align 8
-  %25 = add nsw i64 %24, %.06079
+  %25 = add nsw i64 %24, %.05779
   %26 = load i32, ptr %4, align 4
   %27 = zext i32 %26 to i64
   %notmask = shl nsw i64 -1, %27
@@ -12103,24 +12103,24 @@ define internal void @densmatr_setQuregToPauliHamil.omp_outlined(ptr noalias noc
   br i1 %35, label %.lr.ph.us, label %.lr.ph73.split
 
 .lr.ph.us:                                        ; preds = %.lr.ph73, %._crit_edge.us
-  %.05771.us = phi i64 [ %70, %._crit_edge.us ], [ 0, %.lr.ph73 ]
-  %.05970.us = phi double [ %67, %._crit_edge.us ], [ 0.000000e+00, %.lr.ph73 ]
-  %.06169.us = phi double [ %69, %._crit_edge.us ], [ 0.000000e+00, %.lr.ph73 ]
-  %38 = mul nuw nsw i64 %.05771.us, %34
+  %.05871.us = phi i64 [ %70, %._crit_edge.us ], [ 0, %.lr.ph73 ]
+  %.06270.us = phi double [ %69, %._crit_edge.us ], [ 0.000000e+00, %.lr.ph73 ]
+  %.06369.us = phi double [ %67, %._crit_edge.us ], [ 0.000000e+00, %.lr.ph73 ]
+  %38 = mul nuw nsw i64 %.05871.us, %34
   br label %39
 
 39:                                               ; preds = %.lr.ph.us, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %39 ]
-  %.05866.us = phi i64 [ %38, %.lr.ph.us ], [ %45, %39 ]
-  %.06265.us = phi i32 [ 1, %.lr.ph.us ], [ %60, %39 ]
-  %.06364.us = phi i32 [ 0, %.lr.ph.us ], [ %63, %39 ]
+  %.05966.us = phi i64 [ %38, %.lr.ph.us ], [ %45, %39 ]
+  %.06065.us = phi i32 [ 0, %.lr.ph.us ], [ %63, %39 ]
+  %.06164.us = phi i32 [ 1, %.lr.ph.us ], [ %60, %39 ]
   %40 = lshr i64 %29, %indvars.iv
   %41 = trunc i64 %40 to i32
   %42 = lshr i64 %30, %indvars.iv
   %43 = trunc i64 %42 to i32
   %44 = and i32 %43, 1
-  %45 = add nuw nsw i64 %.05866.us, 1
-  %46 = getelementptr inbounds i32, ptr %36, i64 %.05866.us
+  %45 = add nuw nsw i64 %.05966.us, 1
+  %46 = getelementptr inbounds i32, ptr %36, i64 %.05966.us
   %47 = load i32, ptr %46, align 4
   %48 = shl i32 %47, 2
   %49 = shl i32 %41, 1
@@ -12132,51 +12132,51 @@ define internal void @densmatr_setQuregToPauliHamil.omp_outlined(ptr noalias noc
   %55 = load i32, ptr %54, align 4
   %56 = getelementptr inbounds [16 x i32], ptr %8, i64 0, i64 %53
   %57 = load i32, ptr %56, align 4
-  %58 = mul nsw i32 %55, %.06265.us
-  %59 = mul nsw i32 %57, %.06364.us
+  %58 = mul nsw i32 %55, %.06164.us
+  %59 = mul nsw i32 %57, %.06065.us
   %60 = sub nsw i32 %58, %59
-  %61 = mul nsw i32 %55, %.06364.us
-  %62 = mul nsw i32 %57, %.06265.us
+  %61 = mul nsw i32 %55, %.06065.us
+  %62 = mul nsw i32 %57, %.06164.us
   %63 = add nsw i32 %62, %61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next, %27
   br i1 %exitcond87.not, label %._crit_edge.us, label %39
 
 ._crit_edge.us:                                   ; preds = %39
-  %64 = getelementptr inbounds double, ptr %37, i64 %.05771.us
+  %64 = getelementptr inbounds double, ptr %37, i64 %.05871.us
   %65 = load double, ptr %64, align 8
   %66 = sitofp i32 %60 to double
-  %67 = call double @llvm.fmuladd.f64(double %65, double %66, double %.05970.us)
+  %67 = call double @llvm.fmuladd.f64(double %65, double %66, double %.06369.us)
   %68 = sitofp i32 %63 to double
-  %69 = call double @llvm.fmuladd.f64(double %65, double %68, double %.06169.us)
-  %70 = add nuw nsw i64 %.05771.us, 1
+  %69 = call double @llvm.fmuladd.f64(double %65, double %68, double %.06270.us)
+  %70 = add nuw nsw i64 %.05871.us, 1
   %exitcond88.not = icmp eq i64 %70, %32
   br i1 %exitcond88.not, label %._crit_edge74, label %.lr.ph.us
 
 .lr.ph73.split:                                   ; preds = %.lr.ph73, %.lr.ph73.split
-  %.05771 = phi i64 [ %75, %.lr.ph73.split ], [ 0, %.lr.ph73 ]
-  %.05970 = phi double [ %73, %.lr.ph73.split ], [ 0.000000e+00, %.lr.ph73 ]
-  %.06169 = phi double [ %74, %.lr.ph73.split ], [ 0.000000e+00, %.lr.ph73 ]
-  %71 = getelementptr inbounds double, ptr %37, i64 %.05771
+  %.05871 = phi i64 [ %75, %.lr.ph73.split ], [ 0, %.lr.ph73 ]
+  %.06270 = phi double [ %74, %.lr.ph73.split ], [ 0.000000e+00, %.lr.ph73 ]
+  %.06369 = phi double [ %73, %.lr.ph73.split ], [ 0.000000e+00, %.lr.ph73 ]
+  %71 = getelementptr inbounds double, ptr %37, i64 %.05871
   %72 = load double, ptr %71, align 8
-  %73 = fadd double %72, %.05970
-  %74 = call double @llvm.fmuladd.f64(double %72, double 0.000000e+00, double %.06169)
-  %75 = add nuw nsw i64 %.05771, 1
+  %73 = fadd double %72, %.06369
+  %74 = call double @llvm.fmuladd.f64(double %72, double 0.000000e+00, double %.06270)
+  %75 = add nuw nsw i64 %.05871, 1
   %exitcond.not = icmp eq i64 %75, %32
   br i1 %exitcond.not, label %._crit_edge74, label %.lr.ph73.split
 
 ._crit_edge74:                                    ; preds = %.lr.ph73.split, %._crit_edge.us, %.lr.ph
-  %.061.lcssa = phi double [ 0.000000e+00, %.lr.ph ], [ %69, %._crit_edge.us ], [ %74, %.lr.ph73.split ]
-  %.059.lcssa = phi double [ 0.000000e+00, %.lr.ph ], [ %67, %._crit_edge.us ], [ %73, %.lr.ph73.split ]
+  %.063.lcssa = phi double [ 0.000000e+00, %.lr.ph ], [ %67, %._crit_edge.us ], [ %73, %.lr.ph73.split ]
+  %.062.lcssa = phi double [ 0.000000e+00, %.lr.ph ], [ %69, %._crit_edge.us ], [ %74, %.lr.ph73.split ]
   %76 = load ptr, ptr %10, align 8
-  %77 = getelementptr inbounds double, ptr %76, i64 %.06079
-  store double %.059.lcssa, ptr %77, align 8
+  %77 = getelementptr inbounds double, ptr %76, i64 %.05779
+  store double %.063.lcssa, ptr %77, align 8
   %78 = load ptr, ptr %11, align 8
-  %79 = getelementptr inbounds double, ptr %78, i64 %.06079
-  store double %.061.lcssa, ptr %79, align 8
-  %80 = add nsw i64 %.06079, 1
+  %79 = getelementptr inbounds double, ptr %78, i64 %.05779
+  store double %.062.lcssa, ptr %79, align 8
+  %80 = add nsw i64 %.05779, 1
   %81 = load i64, ptr %14, align 8
-  %.not.not = icmp slt i64 %.06079, %81
+  %.not.not = icmp slt i64 %.05779, %81
   br i1 %.not.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge74, %19

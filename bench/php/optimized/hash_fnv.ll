@@ -30,11 +30,11 @@ define void @PHP_FNV132Update(ptr nocapture noundef %0, ptr noundef readonly %1,
   br i1 %6, label %.lr.ph22.i, label %fnv_32_buf.exit
 
 .lr.ph22.i:                                       ; preds = %3, %.lr.ph22.i
-  %.021.i = phi i32 [ %11, %.lr.ph22.i ], [ %4, %3 ]
-  %.01420.i = phi ptr [ %8, %.lr.ph22.i ], [ %1, %3 ]
-  %7 = mul i32 %.021.i, 16777619
-  %8 = getelementptr inbounds i8, ptr %.01420.i, i64 1
-  %9 = load i8, ptr %.01420.i, align 1
+  %.021.i = phi ptr [ %8, %.lr.ph22.i ], [ %1, %3 ]
+  %.01420.i = phi i32 [ %11, %.lr.ph22.i ], [ %4, %3 ]
+  %7 = mul i32 %.01420.i, 16777619
+  %8 = getelementptr inbounds i8, ptr %.021.i, i64 1
+  %9 = load i8, ptr %.021.i, align 1
   %10 = zext i8 %9 to i32
   %11 = xor i32 %7, %10
   %12 = icmp ult ptr %8, %5
@@ -79,12 +79,12 @@ define void @PHP_FNV1a32Update(ptr nocapture noundef %0, ptr noundef readonly %1
   br i1 %6, label %.lr.ph.i, label %fnv_32_buf.exit
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.119.i = phi i32 [ %11, %.lr.ph.i ], [ %4, %3 ]
-  %.11518.i = phi ptr [ %7, %.lr.ph.i ], [ %1, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.11518.i, i64 1
-  %8 = load i8, ptr %.11518.i, align 1
+  %.119.i = phi ptr [ %7, %.lr.ph.i ], [ %1, %3 ]
+  %.11518.i = phi i32 [ %11, %.lr.ph.i ], [ %4, %3 ]
+  %7 = getelementptr inbounds i8, ptr %.119.i, i64 1
+  %8 = load i8, ptr %.119.i, align 1
   %9 = zext i8 %8 to i32
-  %10 = xor i32 %.119.i, %9
+  %10 = xor i32 %.11518.i, %9
   %11 = mul i32 %10, 16777619
   %12 = icmp ult ptr %7, %5
   br i1 %12, label %.lr.ph.i, label %fnv_32_buf.exit
@@ -109,11 +109,11 @@ define void @PHP_FNV164Update(ptr nocapture noundef %0, ptr noundef readonly %1,
   br i1 %6, label %.lr.ph22.i, label %fnv_64_buf.exit
 
 .lr.ph22.i:                                       ; preds = %3, %.lr.ph22.i
-  %.021.i = phi i64 [ %11, %.lr.ph22.i ], [ %4, %3 ]
-  %.01420.i = phi ptr [ %8, %.lr.ph22.i ], [ %1, %3 ]
-  %7 = mul i64 %.021.i, 1099511628211
-  %8 = getelementptr inbounds i8, ptr %.01420.i, i64 1
-  %9 = load i8, ptr %.01420.i, align 1
+  %.021.i = phi ptr [ %8, %.lr.ph22.i ], [ %1, %3 ]
+  %.01420.i = phi i64 [ %11, %.lr.ph22.i ], [ %4, %3 ]
+  %7 = mul i64 %.01420.i, 1099511628211
+  %8 = getelementptr inbounds i8, ptr %.021.i, i64 1
+  %9 = load i8, ptr %.021.i, align 1
   %10 = zext i8 %9 to i64
   %11 = xor i64 %7, %10
   %12 = icmp ult ptr %8, %5
@@ -152,12 +152,12 @@ define void @PHP_FNV1a64Update(ptr nocapture noundef %0, ptr noundef readonly %1
   br i1 %6, label %.lr.ph.i, label %fnv_64_buf.exit
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.119.i = phi i64 [ %11, %.lr.ph.i ], [ %4, %3 ]
-  %.11518.i = phi ptr [ %7, %.lr.ph.i ], [ %1, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.11518.i, i64 1
-  %8 = load i8, ptr %.11518.i, align 1
+  %.119.i = phi ptr [ %7, %.lr.ph.i ], [ %1, %3 ]
+  %.11518.i = phi i64 [ %11, %.lr.ph.i ], [ %4, %3 ]
+  %7 = getelementptr inbounds i8, ptr %.119.i, i64 1
+  %8 = load i8, ptr %.119.i, align 1
   %9 = zext i8 %8 to i64
-  %10 = xor i64 %.119.i, %9
+  %10 = xor i64 %.11518.i, %9
   %11 = mul i64 %10, 1099511628211
   %12 = icmp ult ptr %7, %5
   br i1 %12, label %.lr.ph.i, label %fnv_64_buf.exit

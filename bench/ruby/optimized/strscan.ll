@@ -2005,8 +2005,8 @@ extract_range.exit:                               ; preds = %RSTRING_PTR.exit.i,
   br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !43
 
 .loopexit:                                        ; preds = %extract_range.exit, %11, %8
-  %.020 = phi i64 [ 4, %8 ], [ %15, %11 ], [ %15, %extract_range.exit ]
-  ret i64 %.020
+  %.021 = phi i64 [ 4, %8 ], [ %15, %11 ], [ %15, %extract_range.exit ]
+  ret i64 %.021
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2035,18 +2035,18 @@ define internal i64 @strscan_values_at(i32 noundef %0, ptr nocapture noundef rea
   br i1 %16, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
-  %.01213 = phi i64 [ %21, %.lr.ph ], [ 0, %13 ]
-  %17 = getelementptr inbounds i64, ptr %1, i64 %.01213
+  %.013 = phi i64 [ %21, %.lr.ph ], [ 0, %13 ]
+  %17 = getelementptr inbounds i64, ptr %1, i64 %.013
   %18 = load i64, ptr %17, align 8
   %19 = tail call i64 @strscan_aref(i64 noundef %2, i64 noundef %18)
   %20 = tail call i64 @rb_ary_push(i64 noundef %15, i64 noundef %19) #7
-  %21 = add nuw nsw i64 %.01213, 1
+  %21 = add nuw nsw i64 %.013, 1
   %exitcond.not = icmp eq i64 %21, %14
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %10
-  %.0 = phi i64 [ 4, %10 ], [ %15, %13 ], [ %15, %.lr.ph ]
-  ret i64 %.0
+  %.012 = phi i64 [ 4, %10 ], [ %15, %13 ], [ %15, %.lr.ph ]
+  ret i64 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2220,8 +2220,8 @@ RSTRING_PTR.exit19.i:                             ; preds = %30, %29
   br label %inspect2.exit
 
 inspect2.exit:                                    ; preds = %RSTRING_PTR.exit.i, %RSTRING_PTR.exit19.i
-  %.012.i = phi i64 [ %27, %RSTRING_PTR.exit.i ], [ %31, %RSTRING_PTR.exit19.i ]
-  %32 = tail call i64 @rb_str_dump(i64 noundef %.012.i) #7
+  %.0.i = phi i64 [ %27, %RSTRING_PTR.exit.i ], [ %31, %RSTRING_PTR.exit19.i ]
+  %32 = tail call i64 @rb_str_dump(i64 noundef %.0.i) #7
   %33 = tail call i64 @rb_obj_class(i64 noundef %0) #7
   %34 = load i64, ptr %10, align 8
   %35 = load i64, ptr %3, align 8
@@ -2316,19 +2316,19 @@ RSTRING_PTR.exit19.i36:                           ; preds = %77, %76
   br label %80
 
 80:                                               ; preds = %RSTRING_PTR.exit19.i36, %RSTRING_PTR.exit.i40
-  %.012.i38 = phi i64 [ %74, %RSTRING_PTR.exit.i40 ], [ %79, %RSTRING_PTR.exit19.i36 ]
-  %81 = tail call i64 @rb_str_dump(i64 noundef %.012.i38) #7
+  %.0.i38 = phi i64 [ %74, %RSTRING_PTR.exit.i40 ], [ %79, %RSTRING_PTR.exit19.i36 ]
+  %81 = tail call i64 @rb_str_dump(i64 noundef %.0.i38) #7
   br label %inspect2.exit42
 
 inspect2.exit42:                                  ; preds = %63, %80
-  %.0.i33 = phi i64 [ %64, %63 ], [ %81, %80 ]
+  %.012.i33 = phi i64 [ %64, %63 ], [ %81, %80 ]
   %82 = tail call i64 @rb_obj_class(i64 noundef %0) #7
   %83 = load i64, ptr %10, align 8
   %84 = load i64, ptr %3, align 8
   %85 = inttoptr i64 %84 to ptr
   %86 = getelementptr inbounds i8, ptr %85, i64 16
   %87 = load i64, ptr %86, align 8
-  %88 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.76, i64 noundef %82, i64 noundef %83, i64 noundef %87, i64 noundef %59, i64 noundef %.0.i33) #7
+  %88 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.76, i64 noundef %82, i64 noundef %83, i64 noundef %87, i64 noundef %59, i64 noundef %.012.i33) #7
   br label %89
 
 89:                                               ; preds = %inspect2.exit42, %inspect2.exit, %15, %6

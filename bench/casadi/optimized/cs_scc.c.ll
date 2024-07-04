@@ -59,7 +59,7 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %36 ]
-  %.0110124 = phi i32 [ %8, %.lr.ph.preheader ], [ %.1111, %36 ]
+  %.0125 = phi i32 [ %8, %.lr.ph.preheader ], [ %.1, %36 ]
   %30 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
   %32 = icmp slt i32 %31, 0
@@ -67,11 +67,11 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
 
 33:                                               ; preds = %.lr.ph
   %34 = trunc nuw nsw i64 %indvars.iv to i32
-  %35 = tail call i32 @cs_dfs(i32 noundef %34, ptr noundef nonnull %0, i32 noundef %.0110124, ptr noundef nonnull %15, ptr noundef nonnull %23, ptr noundef null) #2
+  %35 = tail call i32 @cs_dfs(i32 noundef %34, ptr noundef nonnull %0, i32 noundef %.0125, ptr noundef nonnull %15, ptr noundef nonnull %23, ptr noundef null) #2
   br label %36
 
 36:                                               ; preds = %.lr.ph, %33
-  %.1111 = phi i32 [ %.0110124, %.lr.ph ], [ %35, %33 ]
+  %.1 = phi i32 [ %.0125, %.lr.ph ], [ %35, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader123, label %.lr.ph, !llvm.loop !4
@@ -95,8 +95,8 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph131:                                        ; preds = %.lr.ph131.preheader, %51
   %indvars.iv156 = phi i64 [ 0, %.lr.ph131.preheader ], [ %indvars.iv.next157, %51 ]
-  %.0108129 = phi i32 [ %8, %.lr.ph131.preheader ], [ %.1109, %51 ]
-  %.2112128 = phi i32 [ %8, %.lr.ph131.preheader ], [ %.3, %51 ]
+  %.2130 = phi i32 [ %8, %.lr.ph131.preheader ], [ %.3, %51 ]
+  %.0102129 = phi i32 [ %8, %.lr.ph131.preheader ], [ %.1103, %51 ]
   %40 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv156
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
@@ -106,16 +106,16 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %45, label %51, label %46
 
 46:                                               ; preds = %.lr.ph131
-  %47 = add nsw i32 %.0108129, -1
-  %48 = sext i32 %.0108129 to i64
+  %47 = add nsw i32 %.0102129, -1
+  %48 = sext i32 %.0102129 to i64
   %49 = getelementptr inbounds i32, ptr %26, i64 %48
-  store i32 %.2112128, ptr %49, align 4
-  %50 = tail call i32 @cs_dfs(i32 noundef %41, ptr noundef nonnull %12, i32 noundef %.2112128, ptr noundef %24, ptr noundef nonnull %23, ptr noundef null) #2
+  store i32 %.2130, ptr %49, align 4
+  %50 = tail call i32 @cs_dfs(i32 noundef %41, ptr noundef nonnull %12, i32 noundef %.2130, ptr noundef %24, ptr noundef nonnull %23, ptr noundef null) #2
   br label %51
 
 51:                                               ; preds = %.lr.ph131, %46
-  %.3 = phi i32 [ %.2112128, %.lr.ph131 ], [ %50, %46 ]
-  %.1109 = phi i32 [ %.0108129, %.lr.ph131 ], [ %47, %46 ]
+  %.1103 = phi i32 [ %.0102129, %.lr.ph131 ], [ %47, %46 ]
+  %.3 = phi i32 [ %.2130, %.lr.ph131 ], [ %50, %46 ]
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count159
   br i1 %exitcond160.not, label %._crit_edge, label %.lr.ph131, !llvm.loop !7
@@ -126,14 +126,14 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
   br label %.lr.ph135.preheader
 
 ._crit_edge:                                      ; preds = %51
-  %.pre183 = sext i32 %.1109 to i64
+  %.pre183 = sext i32 %.1103 to i64
   %53 = getelementptr inbounds i32, ptr %26, i64 %.pre183
   store i32 0, ptr %53, align 4
-  %.not119132 = icmp sgt i32 %.1109, %8
+  %.not119132 = icmp sgt i32 %.1103, %8
   br i1 %.not119132, label %._crit_edge136, label %.lr.ph135.preheader
 
 .lr.ph135.preheader:                              ; preds = %._crit_edge.thread, %._crit_edge
-  %.0108.lcssa188 = phi i32 [ %8, %._crit_edge.thread ], [ %.1109, %._crit_edge ]
+  %.0102.lcssa188 = phi i32 [ %8, %._crit_edge.thread ], [ %.1103, %._crit_edge ]
   %.pre-phi187 = phi i64 [ %22, %._crit_edge.thread ], [ %.pre183, %._crit_edge ]
   %54 = add i32 %8, 1
   br label %.lr.ph135
@@ -151,8 +151,8 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond164.not, label %._crit_edge136, label %.lr.ph135, !llvm.loop !8
 
 ._crit_edge136:                                   ; preds = %.lr.ph135, %._crit_edge
-  %.0108.lcssa189 = phi i32 [ %.1109, %._crit_edge ], [ %.0108.lcssa188, %.lr.ph135 ]
-  %59 = sub nsw i32 %8, %.0108.lcssa189
+  %.0102.lcssa189 = phi i32 [ %.1103, %._crit_edge ], [ %.0102.lcssa188, %.lr.ph135 ]
+  %59 = sub nsw i32 %8, %.0102.lcssa189
   %60 = getelementptr inbounds i8, ptr %11, i64 32
   store i32 %59, ptr %60, align 8
   %61 = icmp sgt i32 %59, 0
@@ -174,7 +174,7 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph146.preheader:                              ; preds = %.preheader121
   %63 = add i32 %8, 1
-  %64 = sub i32 %63, %.0108.lcssa189
+  %64 = sub i32 %63, %.0102.lcssa189
   %wide.trip.count176 = zext i32 %64 to i64
   br label %.lr.ph146
 
@@ -244,8 +244,8 @@ define ptr @cs_scc(ptr noundef %0) local_unnamed_addr #0 {
   br label %91
 
 91:                                               ; preds = %1, %2, %._crit_edge149, %19
-  %.0 = phi ptr [ %90, %._crit_edge149 ], [ %20, %19 ], [ null, %2 ], [ null, %1 ]
-  ret ptr %.0
+  %.0112 = phi ptr [ %90, %._crit_edge149 ], [ %20, %19 ], [ null, %2 ], [ null, %1 ]
+  ret ptr %.0112
 }
 
 declare ptr @cs_dalloc(i32 noundef, i32 noundef) local_unnamed_addr #1

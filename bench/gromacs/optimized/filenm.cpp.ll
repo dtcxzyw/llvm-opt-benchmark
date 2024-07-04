@@ -509,9 +509,9 @@ define noundef zeroext i1 @_Z21hasSuffixFromNoAppendSt17basic_string_viewIcSt11c
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %8, %.lr.ph.i.i.i
   %.033.i.i.i = phi i64 [ %0, %.lr.ph.i.i.i ], [ %11, %8 ]
-  %.02132.i.i.i = phi ptr [ %1, %.lr.ph.i.i.i ], [ %9, %8 ]
+  %.02032.i.i.i = phi ptr [ %1, %.lr.ph.i.i.i ], [ %9, %8 ]
   %5 = add i64 %.033.i.i.i, -4
-  %6 = tail call ptr @memchr(ptr noundef %.02132.i.i.i, i32 noundef 46, i64 noundef %5) #13
+  %6 = tail call ptr @memchr(ptr noundef %.02032.i.i.i, i32 noundef 46, i64 noundef %5) #13
   %.not26.i.i.i = icmp eq ptr %6, null
   br i1 %.not26.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
@@ -668,9 +668,9 @@ define noundef i32 @_Z26add_suffix_to_output_namesP8t_filenmiPKc(ptr nocapture n
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %42, %.lr.ph.i.i.i
   %.033.i.i.i = phi i64 [ %35, %.lr.ph.i.i.i ], [ %45, %42 ]
-  %.02132.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i ], [ %43, %42 ]
+  %.02032.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i ], [ %43, %42 ]
   %39 = add i64 %.033.i.i.i, -4
-  %40 = call ptr @memchr(ptr noundef %.02132.i.i.i, i32 noundef 46, i64 noundef %39) #13
+  %40 = call ptr @memchr(ptr noundef %.02032.i.i.i, i32 noundef 46, i64 noundef %39) #13
   %.not26.i.i.i = icmp eq ptr %40, null
   br i1 %.not26.i.i.i, label %.loopexit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 

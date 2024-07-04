@@ -137,8 +137,8 @@ for.body61.preheader:                             ; preds = %for.body49
   br label %for.body61
 
 for.cond71.preheader:                             ; preds = %for.body61, %for.body49
-  %mm_sum50.0.lcssa = phi <2 x i64> [ zeroinitializer, %for.body49 ], [ %add.i187, %for.body61 ]
   %residual_sample.5.lcssa = phi i32 [ %residual_sample.486, %for.body49 ], [ %and56, %for.body61 ]
+  %mm_sum50.0.lcssa = phi <2 x i64> [ zeroinitializer, %for.body49 ], [ %add.i187, %for.body61 ]
   %cmp7275 = icmp ult i32 %residual_sample.5.lcssa, %and57
   br i1 %cmp7275, label %for.body74.preheader, label %for.cond85.preheader
 
@@ -149,13 +149,13 @@ for.body74.preheader:                             ; preds = %for.cond71.preheade
 
 for.body61:                                       ; preds = %for.body61.preheader, %for.body61
   %indvars.iv = phi i64 [ %18, %for.body61.preheader ], [ %indvars.iv.next, %for.body61 ]
-  %mm_sum50.072 = phi <2 x i64> [ zeroinitializer, %for.body61.preheader ], [ %add.i187, %for.body61 ]
+  %mm_sum50.073 = phi <2 x i64> [ zeroinitializer, %for.body61.preheader ], [ %add.i187, %for.body61 ]
   %arrayidx64 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv
   %21 = load i32, ptr %arrayidx64, align 4
   %vecinit3.i149 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %21, i64 0
   %elt.abs.i135 = tail call <4 x i32> @llvm.abs.v4i32(<4 x i32> %vecinit3.i149, i1 false)
   %22 = bitcast <4 x i32> %elt.abs.i135 to <2 x i64>
-  %add.i187 = add <2 x i64> %mm_sum50.072, %22
+  %add.i187 = add <2 x i64> %mm_sum50.073, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond71.preheader, label %for.body61, !llvm.loop !9
@@ -165,8 +165,8 @@ for.cond85.preheader.loopexit:                    ; preds = %for.body74
   br label %for.cond85.preheader
 
 for.cond85.preheader:                             ; preds = %for.cond85.preheader.loopexit, %for.cond71.preheader
-  %mm_sum50.1.lcssa = phi <2 x i64> [ %mm_sum50.0.lcssa, %for.cond71.preheader ], [ %add.i184, %for.cond85.preheader.loopexit ]
   %residual_sample.6.lcssa = phi i32 [ %residual_sample.5.lcssa, %for.cond71.preheader ], [ %23, %for.cond85.preheader.loopexit ]
+  %mm_sum50.1.lcssa = phi <2 x i64> [ %mm_sum50.0.lcssa, %for.cond71.preheader ], [ %add.i184, %for.cond85.preheader.loopexit ]
   %cmp8680 = icmp ult i32 %residual_sample.6.lcssa, %add54
   br i1 %cmp8680, label %for.body88.preheader, label %for.end97
 
@@ -176,7 +176,7 @@ for.body88.preheader:                             ; preds = %for.cond85.preheade
 
 for.body74:                                       ; preds = %for.body74.preheader, %for.body74
   %indvars.iv117 = phi i64 [ %19, %for.body74.preheader ], [ %indvars.iv.next118, %for.body74 ]
-  %mm_sum50.176 = phi <2 x i64> [ %mm_sum50.0.lcssa, %for.body74.preheader ], [ %add.i184, %for.body74 ]
+  %mm_sum50.177 = phi <2 x i64> [ %mm_sum50.0.lcssa, %for.body74.preheader ], [ %add.i184, %for.body74 ]
   %add.ptr77 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv117
   %25 = load i64, ptr %add.ptr77, align 1
   %vecinit1.i191 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %25, i64 0
@@ -184,27 +184,27 @@ for.body74:                                       ; preds = %for.body74.preheade
   %elt.abs.i133 = tail call <4 x i32> @llvm.abs.v4i32(<4 x i32> %26, i1 false)
   %permil80 = shufflevector <4 x i32> %elt.abs.i133, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   %27 = bitcast <4 x i32> %permil80 to <2 x i64>
-  %add.i184 = add <2 x i64> %mm_sum50.176, %27
+  %add.i184 = add <2 x i64> %mm_sum50.177, %27
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 2
   %cmp72 = icmp ult i64 %indvars.iv.next118, %20
   br i1 %cmp72, label %for.body74, label %for.cond85.preheader.loopexit, !llvm.loop !10
 
 for.body88:                                       ; preds = %for.body88.preheader, %for.body88
   %indvars.iv120 = phi i64 [ %24, %for.body88.preheader ], [ %indvars.iv.next121, %for.body88 ]
-  %mm_sum50.281 = phi <2 x i64> [ %mm_sum50.1.lcssa, %for.body88.preheader ], [ %add.i181, %for.body88 ]
+  %mm_sum50.282 = phi <2 x i64> [ %mm_sum50.1.lcssa, %for.body88.preheader ], [ %add.i181, %for.body88 ]
   %arrayidx91 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv120
   %28 = load i32, ptr %arrayidx91, align 4
   %vecinit3.i = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %28, i64 0
   %elt.abs.i = tail call <4 x i32> @llvm.abs.v4i32(<4 x i32> %vecinit3.i, i1 false)
   %29 = bitcast <4 x i32> %elt.abs.i to <2 x i64>
-  %add.i181 = add <2 x i64> %mm_sum50.281, %29
+  %add.i181 = add <2 x i64> %mm_sum50.282, %29
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next121, %17
   br i1 %exitcond125.not, label %for.end97, label %for.body88, !llvm.loop !11
 
 for.end97:                                        ; preds = %for.body88, %for.cond85.preheader
-  %mm_sum50.2.lcssa = phi <2 x i64> [ %mm_sum50.1.lcssa, %for.cond85.preheader ], [ %add.i181, %for.body88 ]
   %residual_sample.7.lcssa = phi i32 [ %residual_sample.6.lcssa, %for.cond85.preheader ], [ %indvars.iv122, %for.body88 ]
+  %mm_sum50.2.lcssa = phi <2 x i64> [ %mm_sum50.1.lcssa, %for.cond85.preheader ], [ %add.i181, %for.body88 ]
   %cast98 = shufflevector <2 x i64> %mm_sum50.2.lcssa, <2 x i64> poison, <2 x i32> <i32 1, i32 poison>
   %add.i178 = add <2 x i64> %mm_sum50.2.lcssa, %cast98
   %add.ptr101 = getelementptr inbounds i64, ptr %abs_residual_partition_sums, i64 %indvars.iv126

@@ -363,23 +363,23 @@ select.unfold:                                    ; preds = %"_ZN4core3str4iter2
   br i1 %104, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i:                           ; preds = %117, %109
-  %.sroa.025.047.i.i.i.i.i.i = phi i64 [ %105, %109 ], [ 0, %117 ]
-  %.16546.i.i.i.i.i.i = phi i8 [ %.2.i.i.i.i.i.i, %109 ], [ %.06448.i.i.i.i.i.i, %117 ]
-  %105 = add nuw nsw i64 %.sroa.025.047.i.i.i.i.i.i, 1
-  %106 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %.sroa.025.047.i.i.i.i.i.i
+  %.16547.i.i.i.i.i.i = phi i8 [ %.2.i.i.i.i.i.i, %109 ], [ %.06448.i.i.i.i.i.i, %117 ]
+  %.sroa.025.046.i.i.i.i.i.i = phi i64 [ %105, %109 ], [ 0, %117 ]
+  %105 = add nuw nsw i64 %.sroa.025.046.i.i.i.i.i.i, 1
+  %106 = getelementptr inbounds [4 x i16], ptr %5, i64 0, i64 %.sroa.025.046.i.i.i.i.i.i
   %107 = load i16, ptr %106, align 2, !noalias !52, !noundef !4
   %108 = icmp eq i16 %107, 0
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %110, %.preheader.i.i.i.i.i.i
-  %.2.i.i.i.i.i.i = phi i8 [ %.16546.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i ], [ %116, %110 ]
+  %.2.i.i.i.i.i.i = phi i8 [ %.16547.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i ], [ %116, %110 ]
   %exitcond64.not.i.i.i.i.i.i = icmp eq i64 %105, 4
   br i1 %exitcond64.not.i.i.i.i.i.i, label %101, label %.preheader.i.i.i.i.i.i
 
 110:                                              ; preds = %.preheader.i.i.i.i.i.i
-  %111 = shl nuw nsw i64 %.sroa.025.047.i.i.i.i.i.i, 4
+  %111 = shl nuw nsw i64 %.sroa.025.046.i.i.i.i.i.i, 4
   %112 = add nuw nsw i64 %111, %.06249.i.i.i.i.i.i
-  %113 = trunc nuw i8 %.16546.i.i.i.i.i.i to i1
+  %113 = trunc nuw i8 %.16547.i.i.i.i.i.i to i1
   %114 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17h91ac9146f96aab19E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %6, i64 noundef %112, i16 noundef %107, i1 noundef zeroext %113), !noalias !39
   %115 = or i1 %114, %113
   %116 = zext i1 %115 to i8

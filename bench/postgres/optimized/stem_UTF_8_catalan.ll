@@ -842,7 +842,7 @@ r_standard_suffix.exit:                           ; preds = %87, %92, %96, %95, 
   br label %118
 
 118:                                              ; preds = %161, %114
-  %119 = phi i32 [ %.pre81, %161 ], [ %115, %114 ]
+  %119 = phi i32 [ %.pre80, %161 ], [ %115, %114 ]
   %120 = phi i32 [ %.pre, %161 ], [ %116, %114 ]
   store i32 %120, ptr %117, align 4
   %121 = add i32 %120, 1
@@ -855,8 +855,8 @@ r_standard_suffix.exit:                           ; preds = %87, %92, %96, %95, 
   %125 = getelementptr i8, ptr %123, i64 %124
   %126 = load i8, ptr %125, align 1
   %127 = zext i8 %126 to i32
-  %.mask.i72 = and i32 %127, 224
-  %.not49.i = icmp eq i32 %.mask.i72, 160
+  %.mask.i71 = and i32 %127, 224
+  %.not49.i = icmp eq i32 %.mask.i71, 160
   br i1 %.not49.i, label %128, label %.thread55.i
 
 128:                                              ; preds = %122
@@ -936,7 +936,7 @@ r_standard_suffix.exit:                           ; preds = %87, %92, %96, %95, 
 
 161:                                              ; preds = %160, %151, %148, %145, %142, %139, %136, %134
   %.pre = load i32, ptr %8, align 8
-  %.pre81 = load i32, ptr %2, align 4
+  %.pre80 = load i32, ptr %2, align 4
   br label %118
 
 162:                                              ; preds = %154, %132

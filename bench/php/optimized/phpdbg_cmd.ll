@@ -1769,9 +1769,9 @@ tailrecurse:                                      ; preds = %91
 
 .lr.ph269:                                        ; preds = %.lr.ph, %.thread206
   %9 = phi ptr [ %40, %.thread206 ], [ %8, %.lr.ph ]
-  %.0182221268 = phi ptr [ %39, %.thread206 ], [ %.tr275, %.lr.ph ]
+  %.0181221268 = phi ptr [ %39, %.thread206 ], [ %.tr275, %.lr.ph ]
   %.0179222267 = phi i64 [ %.2, %.thread206 ], [ 0, %.lr.ph ]
-  %10 = getelementptr inbounds i8, ptr %.0182221268, i64 40
+  %10 = getelementptr inbounds i8, ptr %.0181221268, i64 40
   %11 = load ptr, ptr %10, align 8
   %.not191 = icmp eq ptr %11, null
   br i1 %.not191, label %.critedge, label %12
@@ -1782,20 +1782,20 @@ tailrecurse:                                      ; preds = %91
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %.0182221268, i64 8
+  %16 = getelementptr inbounds i8, ptr %.0181221268, i64 8
   %17 = load i64, ptr %16, align 8
   %.not192 = icmp ult i64 %17, %13
   br i1 %.not192, label %.thread206, label %.thread
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %.0182221268, i64 32
+  %19 = getelementptr inbounds i8, ptr %.0181221268, i64 32
   %20 = load i8, ptr %19, align 8
   %.not193 = icmp eq i8 %20, 0
   %.pre243 = load ptr, ptr %7, align 8
   br i1 %.not193, label %.thread203, label %23
 
 .thread:                                          ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %.0182221268, i64 32
+  %21 = getelementptr inbounds i8, ptr %.0181221268, i64 32
   %22 = load i8, ptr %21, align 8
   %.not193200 = icmp eq i8 %22, 0
   %.pre = load ptr, ptr %7, align 8
@@ -1818,14 +1818,14 @@ tailrecurse:                                      ; preds = %91
   br i1 %30, label %31, label %.critedge
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %.0182221268, i64 8
+  %32 = getelementptr inbounds i8, ptr %.0181221268, i64 8
   %33 = load i64, ptr %32, align 8
   %.not194 = icmp eq i64 %13, %33
   br i1 %.not194, label %.thread208, label %36
 
 .thread208:                                       ; preds = %31
   %34 = getelementptr inbounds [3 x ptr], ptr %4, i64 0, i64 %.0179222267
-  store ptr %.0182221268, ptr %34, align 8
+  store ptr %.0181221268, ptr %34, align 8
   %35 = add nuw nsw i64 %.0179222267, 1
   br label %.critedge
 
@@ -1834,13 +1834,13 @@ tailrecurse:                                      ; preds = %91
 
 .thread206.sink.split:                            ; preds = %36, %23
   %37 = getelementptr inbounds [3 x ptr], ptr %4, i64 0, i64 %.0179222267
-  store ptr %.0182221268, ptr %37, align 8
+  store ptr %.0181221268, ptr %37, align 8
   %38 = add i64 %.0179222267, 1
   br label %.thread206
 
 .thread206:                                       ; preds = %.thread206.sink.split, %36, %23, %.thread203, %15
   %.2 = phi i64 [ %.0179222267, %23 ], [ %.0179222267, %.thread203 ], [ %.0179222267, %15 ], [ %.0179222267, %36 ], [ %38, %.thread206.sink.split ]
-  %39 = getelementptr inbounds i8, ptr %.0182221268, i64 80
+  %39 = getelementptr inbounds i8, ptr %.0181221268, i64 80
   %40 = load ptr, ptr %39, align 8
   %.not190 = icmp eq ptr %40, null
   br i1 %.not190, label %.critedge, label %.lr.ph269
@@ -1948,8 +1948,8 @@ tailrecurse:                                      ; preds = %91
   br i1 %93, label %tailrecurse, label %.loopexit
 
 .loopexit:                                        ; preds = %51, %91, %42, %47, %._crit_edge
-  %.0181 = phi ptr [ null, %._crit_edge ], [ null, %47 ], [ %.tr209.lcssa, %42 ], [ %54, %91 ], [ %54, %51 ]
-  ret ptr %.0181
+  %.0182 = phi ptr [ null, %._crit_edge ], [ null, %47 ], [ %.tr209.lcssa, %42 ], [ %54, %91 ], [ %54, %51 ]
+  ret ptr %.0182
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

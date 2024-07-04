@@ -439,7 +439,7 @@ _set_int_cg_ns.exit:                              ; preds = %47, %49
   unreachable
 
 .preheader.i.i:                                   ; preds = %93, %103
-  %.01830.i.i = phi i32 [ %104, %103 ], [ 0, %93 ]
+  %.030.i.i = phi i32 [ %104, %103 ], [ 0, %93 ]
   %97 = call i32 @stat(ptr noundef %68, ptr noundef nonnull %2) #15
   %98 = icmp slt i32 %97, 0
   br i1 %98, label %99, label %108
@@ -451,7 +451,7 @@ _set_int_cg_ns.exit:                              ; preds = %47, %49
   br i1 %102, label %103, label %106
 
 103:                                              ; preds = %99
-  %104 = add nuw nsw i32 %.01830.i.i, 1
+  %104 = add nuw nsw i32 %.030.i.i, 1
   %105 = call i32 @usleep(i32 noundef 10000) #15
   %exitcond.not.i.i = icmp eq i32 %104, 100
   br i1 %exitcond.not.i.i, label %.thread.i.i, label %.preheader.i.i, !llvm.loop !6
@@ -462,11 +462,11 @@ _set_int_cg_ns.exit:                              ; preds = %47, %49
   unreachable
 
 108:                                              ; preds = %.preheader.i.i
-  %109 = icmp ugt i32 %.01830.i.i, 1
+  %109 = icmp ugt i32 %.030.i.i, 1
   br i1 %109, label %.thread.i.i, label %117
 
 .thread.i.i:                                      ; preds = %103, %108
-  %.01829.i.i = phi i32 [ %.01830.i.i, %108 ], [ 100, %103 ]
+  %.029.i.i = phi i32 [ %.030.i.i, %108 ], [ 100, %103 ]
   %110 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %111 = and i64 %110, 36028797018963968
   %.not22.i.i = icmp eq i64 %111, 0
@@ -478,7 +478,7 @@ _set_int_cg_ns.exit:                              ; preds = %47, %49
   br i1 %114, label %115, label %117
 
 115:                                              ; preds = %112
-  %116 = mul nuw nsw i32 %.01829.i.i, 10
+  %116 = mul nuw nsw i32 %.029.i.i, 10
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.105, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._init_new_scope_dbus, i32 noundef %116) #15
   br label %117
 
@@ -573,14 +573,14 @@ _init_new_scope_dbus.exit.i:                      ; preds = %136
 151:                                              ; preds = %150, %147, %144
   %152 = load ptr, ptr @stepd_scope_path, align 8
   %153 = call i32 @mkdir(ptr noundef %152, i32 noundef 493) #15
-  %.not.i5.i = icmp eq i32 %153, 0
-  br i1 %.not.i5.i, label %159, label %154
+  %.not.i4.i = icmp eq i32 %153, 0
+  br i1 %.not.i4.i, label %159, label %154
 
 154:                                              ; preds = %151
   %155 = tail call ptr @__errno_location() #17
   %156 = load i32, ptr %155, align 4
-  %.not4.i6.i = icmp eq i32 %156, 17
-  br i1 %.not4.i6.i, label %159, label %157
+  %.not4.i5.i = icmp eq i32 %156, 17
+  br i1 %.not4.i5.i, label %159, label %157
 
 157:                                              ; preds = %154
   %158 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.100, ptr noundef %152) #15
@@ -589,8 +589,8 @@ _init_new_scope_dbus.exit.i:                      ; preds = %136
 159:                                              ; preds = %154, %151
   %160 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %161 = and i64 %160, 36028797018963968
-  %.not5.i8.i = icmp eq i64 %161, 0
-  br i1 %.not5.i8.i, label %169, label %162
+  %.not5.i7.i = icmp eq i64 %161, 0
+  br i1 %.not5.i7.i, label %169, label %162
 
 162:                                              ; preds = %159
   %163 = call i32 @get_log_level() #15

@@ -58,7 +58,7 @@ define i32 @hm_addhash_str(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   br label %24
 
 18:                                               ; preds = %12, %16, %15
-  %.015 = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %12 ]
+  %.0 = phi i32 [ 2, %16 ], [ 1, %15 ], [ 0, %12 ]
   %sext = shl i64 %13, 32
   %19 = ashr exact i64 %sext, 32
   %20 = call i32 @cli_hex2str_to(ptr noundef nonnull %1, ptr noundef nonnull %5, i64 noundef %19) #7
@@ -70,12 +70,12 @@ define i32 @hm_addhash_str(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   br label %24
 
 22:                                               ; preds = %18
-  %23 = call i32 @hm_addhash_bin(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %.015, i32 noundef %2, ptr noundef %3)
+  %23 = call i32 @hm_addhash_bin(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %.0, i32 noundef %2, ptr noundef %3)
   br label %24
 
 24:                                               ; preds = %22, %21, %17, %11, %8
-  %.0 = phi i32 [ 3, %11 ], [ 3, %17 ], [ 3, %21 ], [ %23, %22 ], [ 2, %8 ]
-  ret i32 %.0
+  %.015 = phi i32 [ 3, %11 ], [ 3, %17 ], [ 3, %21 ], [ %23, %22 ], [ 2, %8 ]
+  ret i32 %.015
 }
 
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
@@ -151,18 +151,18 @@ define i32 @hm_addhash_bin(ptr noundef %0, ptr nocapture noundef readonly %1, i3
   br label %38
 
 38:                                               ; preds = %32, %26, %35
-  %.056 = phi ptr [ %34, %32 ], [ %24, %26 ], [ %37, %35 ]
-  %39 = getelementptr inbounds i8, ptr %.056, i64 16
+  %.0 = phi ptr [ %34, %32 ], [ %24, %26 ], [ %37, %35 ]
+  %39 = getelementptr inbounds i8, ptr %.0, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = add i32 %40, 1
   store i32 %41, ptr %39, align 8
   %42 = getelementptr inbounds i8, ptr %0, i64 408
   %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %.056, align 8
+  %44 = load ptr, ptr %.0, align 8
   %45 = mul i32 %41, %9
   %46 = zext i32 %45 to i64
   %47 = call ptr @mpool_realloc2(ptr noundef %43, ptr noundef %44, i64 noundef %46) #7
-  store ptr %47, ptr %.056, align 8
+  store ptr %47, ptr %.0, align 8
   %.not67 = icmp eq ptr %47, null
   br i1 %.not67, label %48, label %53
 
@@ -171,7 +171,7 @@ define i32 @hm_addhash_bin(ptr noundef %0, ptr nocapture noundef readonly %1, i3
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.6, i32 noundef %49) #7
   store i32 0, ptr %39, align 8
   %50 = load ptr, ptr %42, align 8
-  %51 = getelementptr inbounds i8, ptr %.056, i64 8
+  %51 = getelementptr inbounds i8, ptr %.0, i64 8
   %52 = load ptr, ptr %51, align 8
   call void @mpool_free(ptr noundef %50, ptr noundef %52) #7
   store ptr null, ptr %51, align 8
@@ -179,7 +179,7 @@ define i32 @hm_addhash_bin(ptr noundef %0, ptr nocapture noundef readonly %1, i3
 
 53:                                               ; preds = %38
   %54 = load ptr, ptr %42, align 8
-  %55 = getelementptr inbounds i8, ptr %.056, i64 8
+  %55 = getelementptr inbounds i8, ptr %.0, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = load i32, ptr %39, align 8
   %58 = zext i32 %57 to i64
@@ -194,13 +194,13 @@ define i32 @hm_addhash_bin(ptr noundef %0, ptr nocapture noundef readonly %1, i3
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.7, i32 noundef %62) #7
   store i32 0, ptr %39, align 8
   %63 = load ptr, ptr %42, align 8
-  %64 = load ptr, ptr %.056, align 8
+  %64 = load ptr, ptr %.0, align 8
   call void @mpool_free(ptr noundef %63, ptr noundef %64) #7
-  store ptr null, ptr %.056, align 8
+  store ptr null, ptr %.0, align 8
   br label %78
 
 65:                                               ; preds = %53
-  %66 = load ptr, ptr %.056, align 8
+  %66 = load ptr, ptr %.0, align 8
   %67 = load i32, ptr %39, align 8
   %68 = add i32 %67, -1
   %69 = mul i32 %68, %9
@@ -217,8 +217,8 @@ define i32 @hm_addhash_bin(ptr noundef %0, ptr nocapture noundef readonly %1, i3
   br label %78
 
 78:                                               ; preds = %15, %65, %61, %48, %30, %25
-  %.0 = phi i32 [ 0, %65 ], [ 20, %61 ], [ 20, %48 ], [ %29, %30 ], [ 20, %25 ], [ %18, %15 ]
-  ret i32 %.0
+  %.056 = phi i32 [ 0, %65 ], [ 20, %61 ], [ 20, %48 ], [ %29, %30 ], [ 20, %25 ], [ %18, %15 ]
+  ret i32 %.056
 }
 
 declare i32 @cli_htu32_init(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
@@ -562,9 +562,9 @@ define range(i32 0, 2) i32 @cli_hm_scan(ptr noundef readonly %0, i32 noundef %1,
   br label %35
 
 35:                                               ; preds = %56, %24
-  %.02444.i = phi i64 [ 0, %24 ], [ %.1.i, %56 ]
-  %.02543.i = phi i64 [ %28, %24 ], [ %.126.i, %56 ]
-  %36 = add nuw nsw i64 %.02543.i, %.02444.i
+  %.044.i = phi i64 [ %28, %24 ], [ %.1.i, %56 ]
+  %.02443.i = phi i64 [ 0, %24 ], [ %.125.i, %56 ]
+  %36 = add nuw nsw i64 %.02443.i, %.044.i
   %37 = lshr i64 %36, 1
   %38 = mul nuw i64 %37, %30
   %39 = getelementptr inbounds i8, ptr %29, i64 %38
@@ -611,9 +611,9 @@ hm_cmp.exit.thread.i:                             ; preds = %hm_cmp.exit.i, %41
   br label %hm_scan.exit
 
 56:                                               ; preds = %.thread.i, %46
-  %.126.i = phi i64 [ %47, %46 ], [ %.02543.i, %.thread.i ]
-  %.1.i = phi i64 [ %.02444.i, %46 ], [ %49, %.thread.i ]
-  %.not33.i = icmp ugt i64 %.1.i, %.126.i
+  %.125.i = phi i64 [ %.02443.i, %46 ], [ %49, %.thread.i ]
+  %.1.i = phi i64 [ %47, %46 ], [ %.044.i, %.thread.i ]
+  %.not33.i = icmp ugt i64 %.125.i, %.1.i
   br i1 %.not33.i, label %hm_scan.exit, label %35
 
 hm_scan.exit:                                     ; preds = %56, %hm_cmp.exit.thread.i, %51, %50, %21, %18, %16, %5, %10
@@ -651,9 +651,9 @@ define range(i32 0, 2) i32 @cli_hm_scan_wild(ptr noundef readonly %0, ptr nounde
   br label %24
 
 24:                                               ; preds = %45, %13
-  %.02444.i = phi i64 [ 0, %13 ], [ %.1.i, %45 ]
-  %.02543.i = phi i64 [ %17, %13 ], [ %.126.i, %45 ]
-  %25 = add nuw nsw i64 %.02543.i, %.02444.i
+  %.044.i = phi i64 [ %17, %13 ], [ %.1.i, %45 ]
+  %.02443.i = phi i64 [ 0, %13 ], [ %.125.i, %45 ]
+  %25 = add nuw nsw i64 %.02443.i, %.044.i
   %26 = lshr i64 %25, 1
   %27 = mul nuw i64 %26, %19
   %28 = getelementptr inbounds i8, ptr %18, i64 %27
@@ -700,9 +700,9 @@ hm_cmp.exit.thread.i:                             ; preds = %hm_cmp.exit.i, %30
   br label %hm_scan.exit
 
 45:                                               ; preds = %.thread.i, %35
-  %.126.i = phi i64 [ %36, %35 ], [ %.02543.i, %.thread.i ]
-  %.1.i = phi i64 [ %.02444.i, %35 ], [ %38, %.thread.i ]
-  %.not33.i = icmp ugt i64 %.1.i, %.126.i
+  %.125.i = phi i64 [ %.02443.i, %35 ], [ %38, %.thread.i ]
+  %.1.i = phi i64 [ %36, %35 ], [ %.044.i, %.thread.i ]
+  %.not33.i = icmp ugt i64 %.125.i, %.1.i
   br i1 %.not33.i, label %hm_scan.exit, label %24
 
 hm_scan.exit:                                     ; preds = %45, %hm_cmp.exit.thread.i, %40, %39, %4, %7

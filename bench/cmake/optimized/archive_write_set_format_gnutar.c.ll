@@ -139,7 +139,7 @@ define internal range(i32 -2147483648, 1) i32 @archive_write_gnutar_header(ptr n
   br label %16
 
 16:                                               ; preds = %13, %._crit_edge, %2
-  %.0141 = phi ptr [ %8, %2 ], [ %.pre, %._crit_edge ], [ %14, %13 ]
+  %.0137 = phi ptr [ %8, %2 ], [ %.pre, %._crit_edge ], [ %14, %13 ]
   %17 = tail call ptr @archive_entry_hardlink(ptr noundef %1) #11
   %.not158 = icmp eq ptr %17, null
   br i1 %.not158, label %18, label %23
@@ -207,7 +207,7 @@ define internal range(i32 -2147483648, 1) i32 @archive_write_gnutar_header(ptr n
 47:                                               ; preds = %27, %29, %31, %42, %24
   %48 = getelementptr inbounds i8, ptr %6, i64 32
   %49 = getelementptr inbounds i8, ptr %6, i64 40
-  %50 = call i32 @_archive_entry_pathname_l(ptr noundef %1, ptr noundef nonnull %48, ptr noundef nonnull %49, ptr noundef %.0141) #11
+  %50 = call i32 @_archive_entry_pathname_l(ptr noundef %1, ptr noundef nonnull %48, ptr noundef nonnull %49, ptr noundef %.0137) #11
   %.not163 = icmp eq i32 %50, 0
   br i1 %.not163, label %59, label %51
 
@@ -223,15 +223,15 @@ define internal range(i32 -2147483648, 1) i32 @archive_write_gnutar_header(ptr n
 
 56:                                               ; preds = %51
   %57 = call ptr @archive_entry_pathname(ptr noundef %1) #11
-  %58 = call ptr @archive_string_conversion_charset_name(ptr noundef %.0141) #11
+  %58 = call ptr @archive_string_conversion_charset_name(ptr noundef %.0137) #11
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.7, ptr noundef %57, ptr noundef %58) #11
   br label %59
 
 59:                                               ; preds = %56, %47
-  %.0137 = phi i32 [ -20, %56 ], [ 0, %47 ]
+  %.0139 = phi i32 [ -20, %56 ], [ 0, %47 ]
   %60 = getelementptr inbounds i8, ptr %6, i64 48
   %61 = getelementptr inbounds i8, ptr %6, i64 56
-  %62 = call i32 @_archive_entry_uname_l(ptr noundef %1, ptr noundef nonnull %60, ptr noundef nonnull %61, ptr noundef %.0141) #11
+  %62 = call i32 @_archive_entry_uname_l(ptr noundef %1, ptr noundef nonnull %60, ptr noundef nonnull %61, ptr noundef %.0137) #11
   %.not164 = icmp eq i32 %62, 0
   br i1 %.not164, label %71, label %63
 
@@ -247,15 +247,15 @@ define internal range(i32 -2147483648, 1) i32 @archive_write_gnutar_header(ptr n
 
 68:                                               ; preds = %63
   %69 = call ptr @archive_entry_uname(ptr noundef %1) #11
-  %70 = call ptr @archive_string_conversion_charset_name(ptr noundef %.0141) #11
+  %70 = call ptr @archive_string_conversion_charset_name(ptr noundef %.0137) #11
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.9, ptr noundef %69, ptr noundef %70) #11
   br label %71
 
 71:                                               ; preds = %68, %59
-  %.1138 = phi i32 [ -20, %68 ], [ %.0137, %59 ]
+  %.1140 = phi i32 [ -20, %68 ], [ %.0139, %59 ]
   %72 = getelementptr inbounds i8, ptr %6, i64 64
   %73 = getelementptr inbounds i8, ptr %6, i64 72
-  %74 = call i32 @_archive_entry_gname_l(ptr noundef %1, ptr noundef nonnull %72, ptr noundef nonnull %73, ptr noundef %.0141) #11
+  %74 = call i32 @_archive_entry_gname_l(ptr noundef %1, ptr noundef nonnull %72, ptr noundef nonnull %73, ptr noundef %.0137) #11
   %.not165 = icmp eq i32 %74, 0
   br i1 %.not165, label %83, label %75
 
@@ -271,15 +271,15 @@ define internal range(i32 -2147483648, 1) i32 @archive_write_gnutar_header(ptr n
 
 80:                                               ; preds = %75
   %81 = call ptr @archive_entry_gname(ptr noundef %1) #11
-  %82 = call ptr @archive_string_conversion_charset_name(ptr noundef %.0141) #11
+  %82 = call ptr @archive_string_conversion_charset_name(ptr noundef %.0137) #11
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.11, ptr noundef %81, ptr noundef %82) #11
   br label %83
 
 83:                                               ; preds = %80, %71
-  %.2139 = phi i32 [ -20, %80 ], [ %.1138, %71 ]
+  %.2141 = phi i32 [ -20, %80 ], [ %.1140, %71 ]
   %84 = getelementptr inbounds i8, ptr %6, i64 16
   %85 = getelementptr inbounds i8, ptr %6, i64 24
-  %86 = call i32 @_archive_entry_hardlink_l(ptr noundef %1, ptr noundef nonnull %84, ptr noundef nonnull %85, ptr noundef %.0141) #11
+  %86 = call i32 @_archive_entry_hardlink_l(ptr noundef %1, ptr noundef nonnull %84, ptr noundef nonnull %85, ptr noundef %.0137) #11
   %.not166 = icmp eq i32 %86, 0
   br i1 %.not166, label %95, label %87
 
@@ -295,18 +295,18 @@ define internal range(i32 -2147483648, 1) i32 @archive_write_gnutar_header(ptr n
 
 92:                                               ; preds = %87
   %93 = call ptr @archive_entry_hardlink(ptr noundef %1) #11
-  %94 = call ptr @archive_string_conversion_charset_name(ptr noundef %.0141) #11
+  %94 = call ptr @archive_string_conversion_charset_name(ptr noundef %.0137) #11
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.13, ptr noundef %93, ptr noundef %94) #11
   br label %95
 
 95:                                               ; preds = %92, %83
-  %.3 = phi i32 [ -20, %92 ], [ %.2139, %83 ]
+  %.3 = phi i32 [ -20, %92 ], [ %.2141, %83 ]
   %96 = load i64, ptr %85, align 8
   %97 = icmp eq i64 %96, 0
   br i1 %97, label %98, label %108
 
 98:                                               ; preds = %95
-  %99 = call i32 @_archive_entry_symlink_l(ptr noundef %1, ptr noundef nonnull %84, ptr noundef nonnull %85, ptr noundef %.0141) #11
+  %99 = call i32 @_archive_entry_symlink_l(ptr noundef %1, ptr noundef nonnull %84, ptr noundef nonnull %85, ptr noundef %.0137) #11
   %.not167 = icmp eq i32 %99, 0
   br i1 %.not167, label %thread-pre-split, label %100
 
@@ -322,7 +322,7 @@ define internal range(i32 -2147483648, 1) i32 @archive_write_gnutar_header(ptr n
 
 105:                                              ; preds = %100
   %106 = call ptr @archive_entry_hardlink(ptr noundef %1) #11
-  %107 = call ptr @archive_string_conversion_charset_name(ptr noundef %.0141) #11
+  %107 = call ptr @archive_string_conversion_charset_name(ptr noundef %.0137) #11
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.13, ptr noundef %106, ptr noundef %107) #11
   br label %thread-pre-split
 
@@ -431,8 +431,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %157
 
 157:                                              ; preds = %switch.lookup, %148
-  %.0140 = phi i32 [ 49, %148 ], [ %switch.load, %switch.lookup ]
-  %158 = call fastcc i32 @archive_format_gnutar_header(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %1, i32 noundef %.0140)
+  %.0138 = phi i32 [ 49, %148 ], [ %switch.load, %switch.lookup ]
+  %158 = call fastcc i32 @archive_format_gnutar_header(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %1, i32 noundef %.0138)
   %159 = icmp slt i32 %158, -20
   br i1 %159, label %168, label %160
 
@@ -474,8 +474,8 @@ define internal i64 @archive_write_gnutar_data(ptr noundef %0, ptr noundef %1, i
   store i64 %9, ptr %5, align 8
   %.not = icmp eq i32 %7, 0
   %10 = sext i32 %7 to i64
-  %.0 = select i1 %.not, i64 %spec.select, i64 %10
-  ret i64 %.0
+  %.012 = select i1 %.not, i64 %spec.select, i64 %10
+  ret i64 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -592,10 +592,10 @@ define internal fastcc range(i32 -25, 1) i32 @archive_format_gnutar_header(ptr n
   br label %16
 
 16:                                               ; preds = %11, %8
-  %.080 = phi i64 [ %10, %8 ], [ %15, %11 ]
-  %.079 = phi ptr [ %9, %8 ], [ %13, %11 ]
-  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %.080, i64 100)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %.079, i64 %spec.store.select, i1 false)
+  %.079 = phi i64 [ %10, %8 ], [ %15, %11 ]
+  %.0 = phi ptr [ %9, %8 ], [ %13, %11 ]
+  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %.079, i64 100)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %.0, i64 %spec.store.select, i1 false)
   %17 = getelementptr inbounds i8, ptr %6, i64 24
   %18 = load i64, ptr %17, align 8
   %.not = icmp eq i64 %18, 0
@@ -625,13 +625,13 @@ define internal fastcc range(i32 -25, 1) i32 @archive_format_gnutar_header(ptr n
   br label %32
 
 32:                                               ; preds = %27, %24
-  %.181 = phi i64 [ %26, %24 ], [ %31, %27 ]
+  %.180 = phi i64 [ %26, %24 ], [ %31, %27 ]
   %.1 = phi ptr [ %25, %24 ], [ %29, %27 ]
-  %.not89 = icmp eq i64 %.181, 0
+  %.not89 = icmp eq i64 %.180, 0
   br i1 %.not89, label %35, label %33
 
 33:                                               ; preds = %32
-  %spec.store.select5 = tail call i64 @llvm.umin.i64(i64 %.181, i64 32)
+  %spec.store.select5 = tail call i64 @llvm.umin.i64(i64 %.180, i64 32)
   %34 = getelementptr inbounds i8, ptr %1, i64 265
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %.1, i64 %spec.store.select5, i1 false)
   br label %35
@@ -652,15 +652,15 @@ define internal fastcc range(i32 -25, 1) i32 @archive_format_gnutar_header(ptr n
   br label %44
 
 44:                                               ; preds = %39, %36
-  %.282 = phi i64 [ %38, %36 ], [ %43, %39 ]
+  %.281 = phi i64 [ %38, %36 ], [ %43, %39 ]
   %.2 = phi ptr [ %37, %36 ], [ %41, %39 ]
-  %.not90 = icmp eq i64 %.282, 0
+  %.not90 = icmp eq i64 %.281, 0
   br i1 %.not90, label %49, label %45
 
 45:                                               ; preds = %44
   %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2) #12
   %47 = icmp ugt i64 %46, 32
-  %spec.select = select i1 %47, i64 32, i64 %.282
+  %spec.select = select i1 %47, i64 32, i64 %.281
   %48 = getelementptr inbounds i8, ptr %1, i64 297
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr align 1 %.2, i64 %spec.select, i1 false)
   br label %49
@@ -750,7 +750,7 @@ format_256.exit.i:                                ; preds = %.lr.ph.i11.i
   br label %format_number.exit.thread
 
 format_number.exit.thread:                        ; preds = %._crit_edge.i.i, %format_256.exit.i, %82
-  %.083 = phi i32 [ -25, %82 ], [ 0, %format_256.exit.i ], [ 0, %._crit_edge.i.i ]
+  %.082 = phi i32 [ -25, %82 ], [ 0, %format_256.exit.i ], [ 0, %._crit_edge.i.i ]
   %84 = tail call i64 @archive_entry_gid(ptr noundef %2) #11
   %85 = icmp slt i64 %84, 2097152
   br i1 %85, label %86, label %96
@@ -806,7 +806,7 @@ format_256.exit.i100:                             ; preds = %.lr.ph.i11.i96
   br label %format_number.exit109.thread
 
 format_number.exit109.thread:                     ; preds = %._crit_edge.i.i107, %format_256.exit.i100, %104
-  %.184 = phi i32 [ -25, %104 ], [ %.083, %format_256.exit.i100 ], [ %.083, %._crit_edge.i.i107 ]
+  %.183 = phi i32 [ -25, %104 ], [ %.082, %format_256.exit.i100 ], [ %.082, %._crit_edge.i.i107 ]
   %106 = tail call i64 @archive_entry_size(ptr noundef %2) #11
   %107 = icmp slt i64 %106, 8589934592
   br i1 %107, label %108, label %118
@@ -861,7 +861,7 @@ format_256.exit.i114:                             ; preds = %.lr.ph.i11.i110
   br label %format_number.exit123.thread
 
 format_number.exit123.thread:                     ; preds = %._crit_edge.i.i121, %format_256.exit.i114, %126
-  %.285 = phi i32 [ -25, %126 ], [ %.184, %format_256.exit.i114 ], [ %.184, %._crit_edge.i.i121 ]
+  %.284 = phi i32 [ -25, %126 ], [ %.183, %format_256.exit.i114 ], [ %.183, %._crit_edge.i.i121 ]
   %127 = tail call i64 @archive_entry_mtime(ptr noundef %2) #11
   %spec.store.select.i = tail call i64 @llvm.smax.i64(i64 %127, i64 0)
   %128 = getelementptr inbounds i8, ptr %1, i64 147
@@ -929,7 +929,7 @@ format_octal.exit144.thread:                      ; preds = %._crit_edge.i139
   br label %format_octal.exit144
 
 format_octal.exit144:                             ; preds = %._crit_edge.i139, %format_octal.exit144.thread
-  %.386 = phi i32 [ -25, %format_octal.exit144.thread ], [ %.285, %._crit_edge.i139 ]
+  %.385 = phi i32 [ -25, %format_octal.exit144.thread ], [ %.284, %._crit_edge.i139 ]
   %153 = tail call i64 @archive_entry_rdevminor(ptr noundef %2) #11
   %spec.store.select.i145 = tail call i64 @llvm.smax.i64(i64 %153, i64 0)
   %154 = getelementptr inbounds i8, ptr %1, i64 343
@@ -959,7 +959,7 @@ format_octal.exit155.thread:                      ; preds = %._crit_edge.i150
   br label %format_octal.exit155
 
 format_octal.exit155:                             ; preds = %._crit_edge.i150, %format_octal.exit155.thread, %139
-  %.4 = phi i32 [ -25, %format_octal.exit155.thread ], [ %.285, %139 ], [ %.386, %._crit_edge.i150 ]
+  %.4 = phi i32 [ -25, %format_octal.exit155.thread ], [ %.284, %139 ], [ %.385, %._crit_edge.i150 ]
   %163 = trunc nuw nsw i32 %3 to i8
   %164 = getelementptr inbounds i8, ptr %1, i64 156
   store i8 %163, ptr %164, align 1
@@ -967,11 +967,11 @@ format_octal.exit155:                             ; preds = %._crit_edge.i150, %
 
 165:                                              ; preds = %format_octal.exit155, %165
   %indvars.iv = phi i64 [ 0, %format_octal.exit155 ], [ %indvars.iv.next, %165 ]
-  %.0191 = phi i32 [ 0, %format_octal.exit155 ], [ %169, %165 ]
+  %.087190 = phi i32 [ 0, %format_octal.exit155 ], [ %169, %165 ]
   %166 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
   %167 = load i8, ptr %166, align 1
   %168 = zext i8 %167 to i32
-  %169 = add i32 %.0191, %168
+  %169 = add i32 %.087190, %168
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
   br i1 %exitcond.not, label %170, label %165, !llvm.loop !8

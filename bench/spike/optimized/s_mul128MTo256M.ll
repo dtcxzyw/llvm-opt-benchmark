@@ -47,12 +47,12 @@ define void @softfloat_mul128MTo256M(ptr nocapture noundef readonly %0, ptr noca
 
 37:                                               ; preds = %37, %3
   %store_forwarded = phi i32 [ %35, %3 ], [ %86, %37 ]
-  %.077.idx = phi i64 [ 0, %3 ], [ %.077.add, %37 ]
-  %.076 = phi ptr [ %1, %3 ], [ %38, %37 ]
-  %.077.ptr = getelementptr inbounds i8, ptr %2, i64 %.077.idx
-  %38 = getelementptr inbounds i8, ptr %.076, i64 4
-  %.077.add = add nuw nsw i64 %.077.idx, 4
-  %.ptr = getelementptr inbounds i8, ptr %2, i64 %.077.add
+  %.077 = phi ptr [ %1, %3 ], [ %38, %37 ]
+  %.076.idx = phi i64 [ 0, %3 ], [ %.076.add, %37 ]
+  %.076.ptr = getelementptr inbounds i8, ptr %2, i64 %.076.idx
+  %38 = getelementptr inbounds i8, ptr %.077, i64 4
+  %.076.add = add nuw nsw i64 %.076.idx, 4
+  %.ptr = getelementptr inbounds i8, ptr %2, i64 %.076.add
   %39 = load i32, ptr %38, align 4
   %40 = load i32, ptr %0, align 4
   %41 = zext i32 %40 to i64
@@ -68,7 +68,7 @@ define void @softfloat_mul128MTo256M(ptr nocapture noundef readonly %0, ptr noca
   %50 = mul nuw i64 %49, %42
   %51 = lshr i64 %43, 32
   %52 = add nuw i64 %50, %51
-  %53 = getelementptr inbounds i8, ptr %.077.ptr, i64 8
+  %53 = getelementptr inbounds i8, ptr %.076.ptr, i64 8
   %54 = load i32, ptr %53, align 4
   %55 = trunc i64 %52 to i32
   %56 = zext i1 %47 to i32
@@ -83,7 +83,7 @@ define void @softfloat_mul128MTo256M(ptr nocapture noundef readonly %0, ptr noca
   %62 = mul nuw i64 %61, %42
   %63 = lshr i64 %52, 32
   %64 = add nuw i64 %62, %63
-  %65 = getelementptr inbounds i8, ptr %.077.ptr, i64 12
+  %65 = getelementptr inbounds i8, ptr %.076.ptr, i64 12
   %66 = load i32, ptr %65, align 4
   %67 = trunc i64 %64 to i32
   %68 = add i32 %66, %67
@@ -98,7 +98,7 @@ define void @softfloat_mul128MTo256M(ptr nocapture noundef readonly %0, ptr noca
   %74 = mul nuw i64 %73, %42
   %75 = lshr i64 %64, 32
   %76 = add nuw i64 %74, %75
-  %77 = getelementptr inbounds i8, ptr %.077.ptr, i64 16
+  %77 = getelementptr inbounds i8, ptr %.076.ptr, i64 16
   %78 = trunc i64 %76 to i32
   %79 = add i32 %store_forwarded, %78
   %80 = zext i1 %.1.in to i32
@@ -111,9 +111,9 @@ define void @softfloat_mul128MTo256M(ptr nocapture noundef readonly %0, ptr noca
   %84 = zext i1 %.2.in to i64
   %85 = add nuw nsw i64 %83, %84
   %86 = trunc nuw i64 %85 to i32
-  %87 = getelementptr inbounds i8, ptr %.077.ptr, i64 20
+  %87 = getelementptr inbounds i8, ptr %.076.ptr, i64 20
   store i32 %86, ptr %87, align 4
-  %.not87 = icmp eq i64 %.077.add, 12
+  %.not87 = icmp eq i64 %.076.add, 12
   br i1 %.not87, label %88, label %37, !llvm.loop !4
 
 88:                                               ; preds = %37

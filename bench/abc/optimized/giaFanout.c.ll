@@ -815,7 +815,7 @@ Vec_IntFill.exit:                                 ; preds = %30, %Vec_IntAlloc.e
   %40 = phi i32 [ %33, %.lr.ph ], [ %61, %Vec_IntFillExtra.exit ]
   %41 = phi i32 [ %.val, %.lr.ph ], [ %62, %Vec_IntFillExtra.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_IntFillExtra.exit ]
-  %.01935 = phi i32 [ %.val, %.lr.ph ], [ %.1, %Vec_IntFillExtra.exit ]
+  %.036 = phi i32 [ %.val, %.lr.ph ], [ %.1, %Vec_IntFillExtra.exit ]
   %.val20 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %.val20, null
   br i1 %.not, label %.critedge, label %42
@@ -830,11 +830,11 @@ Vec_IntFill.exit:                                 ; preds = %30, %Vec_IntAlloc.e
 46:                                               ; preds = %42
   %.val21 = load ptr, ptr %34, align 8
   %47 = getelementptr inbounds i32, ptr %.val21, i64 %indvars.iv
-  store i32 %.01935, ptr %47, align 4
+  store i32 %.036, ptr %47, align 4
   %.val22 = load ptr, ptr %38, align 8
   %48 = getelementptr inbounds i32, ptr %.val22, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4
-  %50 = add nsw i32 %49, %.01935
+  %50 = add nsw i32 %49, %.036
   %.not.i24 = icmp slt i32 %41, %50
   br i1 %.not.i24, label %51, label %Vec_IntFillExtra.exit
 
@@ -874,7 +874,7 @@ Vec_IntGrow.exit.sink.split.i:                    ; preds = %51
 Vec_IntFillExtra.exit:                            ; preds = %._crit_edge.i, %46, %42
   %61 = phi i32 [ %40, %42 ], [ %40, %46 ], [ %56, %._crit_edge.i ]
   %62 = phi i32 [ %41, %42 ], [ %41, %46 ], [ %50, %._crit_edge.i ]
-  %.1 = phi i32 [ %.01935, %42 ], [ %50, %46 ], [ %50, %._crit_edge.i ]
+  %.1 = phi i32 [ %.036, %42 ], [ %50, %46 ], [ %50, %._crit_edge.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = load i32, ptr %3, align 8
   %64 = sext i32 %63 to i64

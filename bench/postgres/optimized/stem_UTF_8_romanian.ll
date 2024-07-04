@@ -807,8 +807,8 @@ r_verb_suffix.exit:                               ; preds = %.sink.split.i74, %2
   br label %255
 
 255:                                              ; preds = %280, %252
-  %256 = phi i32 [ %.pre104, %280 ], [ %253, %252 ]
-  %257 = phi i32 [ %.pre103, %280 ], [ %254, %252 ]
+  %256 = phi i32 [ %.pre103, %280 ], [ %253, %252 ]
+  %257 = phi i32 [ %.pre102, %280 ], [ %254, %252 ]
   store i32 %257, ptr %4, align 4
   %.not.i81 = icmp slt i32 %257, %256
   br i1 %.not.i81, label %258, label %.thread40.i
@@ -838,11 +838,11 @@ r_verb_suffix.exit:                               ; preds = %.sink.split.i74, %2
   switch i32 %264, label %280 [
     i32 1, label %267
     i32 2, label %270
-    i32 3, label %._crit_edge.i83
+    i32 3, label %._crit_edge.i82
   ]
 
-._crit_edge.i83:                                  ; preds = %265
-  %.pre.i84 = load i32, ptr %5, align 4
+._crit_edge.i82:                                  ; preds = %265
+  %.pre.i83 = load i32, ptr %5, align 4
   br label %273
 
 267:                                              ; preds = %265
@@ -855,9 +855,9 @@ r_verb_suffix.exit:                               ; preds = %.sink.split.i74, %2
   %272 = icmp slt i32 %271, 0
   br i1 %272, label %r_vowel_suffix.exit, label %280
 
-273:                                              ; preds = %._crit_edge.i83, %.thread40.i
-  %274 = phi i32 [ %256, %.thread40.i ], [ %.pre.i84, %._crit_edge.i83 ]
-  %275 = phi i32 [ %257, %.thread40.i ], [ %266, %._crit_edge.i83 ]
+273:                                              ; preds = %._crit_edge.i82, %.thread40.i
+  %274 = phi i32 [ %256, %.thread40.i ], [ %.pre.i83, %._crit_edge.i82 ]
+  %275 = phi i32 [ %257, %.thread40.i ], [ %266, %._crit_edge.i82 ]
   %276 = load ptr, ptr %0, align 8
   %277 = tail call i32 @skip_utf8(ptr noundef %276, i32 noundef %275, i32 noundef %274, i32 noundef 1) #2
   %278 = icmp slt i32 %277, 0
@@ -868,8 +868,8 @@ r_verb_suffix.exit:                               ; preds = %.sink.split.i74, %2
   br label %280
 
 280:                                              ; preds = %279, %270, %267, %265
-  %.pre103 = load i32, ptr %2, align 8
-  %.pre104 = load i32, ptr %5, align 4
+  %.pre102 = load i32, ptr %2, align 8
+  %.pre103 = load i32, ptr %5, align 4
   br label %255
 
 281:                                              ; preds = %273, %263

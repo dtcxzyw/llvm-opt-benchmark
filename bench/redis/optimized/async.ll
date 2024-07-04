@@ -3694,9 +3694,9 @@ if.end92:                                         ; preds = %if.then82, %if.else
   br label %while.cond64
 
 while.cond95:                                     ; preds = %while.cond95.outer, %while.body99
+  %it.sroa.5.0 = phi i1 [ false, %while.body99 ], [ %it.sroa.5.0.ph, %while.cond95.outer ]
   %it.sroa.8.0 = phi ptr [ %139, %while.body99 ], [ %it.sroa.8.0.ph, %while.cond95.outer ]
   %it.sroa.2.0 = phi i32 [ %it.sroa.2.2, %while.body99 ], [ %it.sroa.2.0.ph, %while.cond95.outer ]
-  %it.sroa.5.0 = phi i1 [ false, %while.body99 ], [ %it.sroa.5.0.ph, %while.cond95.outer ]
   br i1 %it.sroa.5.0, label %if.then.i125, label %if.end10.i
 
 if.then.i125:                                     ; preds = %if.end10.i, %while.cond95
@@ -3736,9 +3736,9 @@ if.then104:                                       ; preds = %while.body99
   br label %while.cond95.outer
 
 while.cond95.outer:                               ; preds = %if.end53, %if.then104
+  %it.sroa.5.0.ph = phi i1 [ false, %if.then104 ], [ true, %if.end53 ]
   %it.sroa.8.0.ph = phi ptr [ %139, %if.then104 ], [ null, %if.end53 ]
   %it.sroa.2.0.ph = phi i32 [ %it.sroa.2.2, %if.then104 ], [ -1, %if.end53 ]
-  %it.sroa.5.0.ph = phi i1 [ false, %if.then104 ], [ true, %if.end53 ]
   %cmp108.not = phi i1 [ true, %if.then104 ], [ false, %if.end53 ]
   br label %while.cond95
 

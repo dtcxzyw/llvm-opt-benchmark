@@ -153,22 +153,22 @@ define internal i32 @dissect_bmc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not15.i, label %._crit_edge8.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %32, %._crit_edge.i
-  %.07.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ %43, %32 ]
-  %.0846.i = phi i8 [ %.185.lcssa.i, %._crit_edge.i ], [ 1, %32 ]
-  %.0875.i = phi i32 [ %60, %._crit_edge.i ], [ 0, %32 ]
-  %.not931.i = icmp ugt i8 %.0846.i, %35
+  %.07.i = phi i8 [ %.1.lcssa.i, %._crit_edge.i ], [ 1, %32 ]
+  %.0856.i = phi i32 [ %.186.lcssa.i, %._crit_edge.i ], [ %43, %32 ]
+  %.0885.i = phi i32 [ %60, %._crit_edge.i ], [ 0, %32 ]
+  %.not931.i = icmp ugt i8 %.07.i, %35
   br i1 %.not931.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %58
-  %.13.i = phi i32 [ %.2.i, %58 ], [ %.07.i, %.preheader.i ]
-  %.1852.i = phi i8 [ %59, %58 ], [ %.0846.i, %.preheader.i ]
-  %46 = zext i8 %.1852.i to i32
-  %47 = call zeroext i8 @tvb_get_guint8(ptr noundef %18, i32 noundef %.13.i) #3
+  %.13.i = phi i8 [ %59, %58 ], [ %.07.i, %.preheader.i ]
+  %.1862.i = phi i32 [ %.2.i, %58 ], [ %.0856.i, %.preheader.i ]
+  %46 = zext i8 %.13.i to i32
+  %47 = call zeroext i8 @tvb_get_guint8(ptr noundef %18, i32 noundef %.1862.i) #3
   %48 = load i32, ptr @hf_bmc_message_description_type, align 4
   %49 = zext i8 %47 to i32
   %50 = call ptr @val_to_str_const(i32 noundef %49, ptr noundef nonnull @message_description_type_vals, ptr noundef nonnull @.str.45) #3
-  %51 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %45, i32 noundef %48, ptr noundef %18, i32 noundef %.13.i, i32 noundef 1, i32 noundef %49, ptr noundef nonnull @.str.44, i32 noundef %46, ptr noundef %50, i32 noundef %49) #3
-  %52 = add i32 %.13.i, 1
+  %51 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %45, i32 noundef %48, ptr noundef %18, i32 noundef %.1862.i, i32 noundef 1, i32 noundef %49, ptr noundef nonnull @.str.44, i32 noundef %46, ptr noundef %50, i32 noundef %49) #3
+  %52 = add i32 %.1862.i, 1
   %53 = and i8 %47, -5
   switch i8 %53, label %58 [
     i8 1, label %.sink.split.i
@@ -184,36 +184,36 @@ define internal i32 @dissect_bmc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.sink.i = phi i32 [ 2, %54 ], [ 3, %.lr.ph.i ]
   %55 = load i32, ptr %hf_bmc_message_id.sink.i, align 4
   %56 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %55, ptr noundef %18, i32 noundef %52, i32 noundef %.sink20.i, i32 noundef 0) #3
-  %57 = add i32 %.sink.i, %.13.i
+  %57 = add i32 %.sink.i, %.1862.i
   br label %58
 
 58:                                               ; preds = %.sink.split.i, %.lr.ph.i
   %.2.i = phi i32 [ %52, %.lr.ph.i ], [ %57, %.sink.split.i ]
-  %59 = add i8 %.1852.i, 1
+  %59 = add i8 %.13.i, 1
   %.not93.i = icmp ugt i8 %59, %35
   br i1 %.not93.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %58, %.preheader.i
-  %.185.lcssa.i = phi i8 [ %.0846.i, %.preheader.i ], [ %59, %58 ]
-  %.1.lcssa.i = phi i32 [ %.07.i, %.preheader.i ], [ %.2.i, %58 ]
-  %60 = add nuw nsw i32 %.0875.i, 1
+  %.186.lcssa.i = phi i32 [ %.0856.i, %.preheader.i ], [ %.2.i, %58 ]
+  %.1.lcssa.i = phi i8 [ %.07.i, %.preheader.i ], [ %59, %58 ]
+  %60 = add nuw nsw i32 %.0885.i, 1
   %61 = icmp ult i32 %60, %41
   br i1 %61, label %.preheader.i, label %._crit_edge8.i, !llvm.loop !6
 
 ._crit_edge8.i:                                   ; preds = %._crit_edge.i, %32
-  %.0.lcssa.i = phi i32 [ %43, %32 ], [ %.1.lcssa.i, %._crit_edge.i ]
+  %.085.lcssa.i = phi i32 [ %43, %32 ], [ %.186.lcssa.i, %._crit_edge.i ]
   %62 = load ptr, ptr %5, align 8
-  %63 = sub i32 %.0.lcssa.i, %43
+  %63 = sub i32 %.085.lcssa.i, %43
   call void @proto_item_set_len(ptr noundef %62, i32 noundef %63) #3
-  %64 = call i32 @tvb_reported_length_remaining(ptr noundef %18, i32 noundef %.0.lcssa.i) #3
+  %64 = call i32 @tvb_reported_length_remaining(ptr noundef %18, i32 noundef %.085.lcssa.i) #3
   %.not91.i = icmp eq i32 %64, 0
   br i1 %.not91.i, label %dissect_bmc_schedule_message.exit, label %65
 
 65:                                               ; preds = %._crit_edge8.i
-  %66 = call zeroext i8 @tvb_get_guint8(ptr noundef %18, i32 noundef %.0.lcssa.i) #3
+  %66 = call zeroext i8 @tvb_get_guint8(ptr noundef %18, i32 noundef %.085.lcssa.i) #3
   %67 = load i32, ptr @hf_bmc_future_extension_bitmap, align 4
-  %68 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %67, ptr noundef %18, i32 noundef %.0.lcssa.i, i32 noundef 1, i32 noundef 0) #3
-  %69 = add i32 %.0.lcssa.i, 1
+  %68 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %67, ptr noundef %18, i32 noundef %.085.lcssa.i, i32 noundef 1, i32 noundef 0) #3
+  %69 = add i32 %.085.lcssa.i, 1
   %70 = and i8 %66, 1
   %.not92.i = icmp eq i8 %70, 0
   br i1 %.not92.i, label %dissect_bmc_schedule_message.exit, label %71
@@ -222,25 +222,25 @@ define internal i32 @dissect_bmc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %72 = call zeroext i8 @tvb_get_guint8(ptr noundef %18, i32 noundef %69) #3
   %73 = load i32, ptr @hf_bmc_length_of_serial_number_list, align 4
   %74 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %73, ptr noundef %18, i32 noundef %69, i32 noundef 1, i32 noundef 0) #3
-  %75 = add i32 %.0.lcssa.i, 2
+  %75 = add i32 %.085.lcssa.i, 2
   %.not16.i = icmp eq i8 %72, 0
   br i1 %.not16.i, label %dissect_bmc_schedule_message.exit, label %.lr.ph13.i
 
 .lr.ph13.i:                                       ; preds = %71, %.lr.ph13.i
-  %.311.i = phi i32 [ %81, %.lr.ph13.i ], [ %75, %71 ]
-  %.08610.i = phi i8 [ %82, %.lr.ph13.i ], [ 0, %71 ]
+  %.08411.i = phi i8 [ %82, %.lr.ph13.i ], [ 0, %71 ]
+  %.310.i = phi i32 [ %81, %.lr.ph13.i ], [ %75, %71 ]
   %76 = load i32, ptr @hf_bmc_serial_number, align 4
-  %77 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %76, ptr noundef %18, i32 noundef %.311.i, i32 noundef 2, i32 noundef 0) #3
-  %78 = add i32 %.311.i, 2
+  %77 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %76, ptr noundef %18, i32 noundef %.310.i, i32 noundef 2, i32 noundef 0) #3
+  %78 = add i32 %.310.i, 2
   %79 = load i32, ptr @hf_bmc_ctch_bs_index, align 4
   %80 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %79, ptr noundef %18, i32 noundef %78, i32 noundef 1, i32 noundef 0) #3
-  %81 = add i32 %.311.i, 3
-  %82 = add nuw i8 %.08610.i, 1
+  %81 = add i32 %.310.i, 3
+  %82 = add nuw i8 %.08411.i, 1
   %exitcond.not.i = icmp eq i8 %82, %72
   br i1 %exitcond.not.i, label %dissect_bmc_schedule_message.exit, label %.lr.ph13.i, !llvm.loop !7
 
 dissect_bmc_schedule_message.exit:                ; preds = %.lr.ph13.i, %._crit_edge8.i, %65, %71
-  %.4.i = phi i32 [ %69, %65 ], [ %.0.lcssa.i, %._crit_edge8.i ], [ %75, %71 ], [ %81, %.lr.ph13.i ]
+  %.4.i = phi i32 [ %69, %65 ], [ %.085.lcssa.i, %._crit_edge8.i ], [ %75, %71 ], [ %81, %.lr.ph13.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %90
 

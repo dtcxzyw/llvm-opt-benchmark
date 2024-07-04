@@ -1646,7 +1646,7 @@ define internal void @_ZNK5faiss18PolysemousTraining28optimize_reproduce_distanc
 
 .preheader:                                       ; preds = %44, %._crit_edge
   %53 = phi i32 [ %91, %._crit_edge ], [ %51, %44 ]
-  %.040130 = phi i32 [ %92, %._crit_edge ], [ 0, %44 ]
+  %.041130 = phi i32 [ %92, %._crit_edge ], [ 0, %44 ]
   %.sroa.072.1129 = phi ptr [ %.sroa.072.2.lcssa, %._crit_edge ], [ null, %44 ]
   %.sroa.11.1128 = phi ptr [ %.sroa.11.2.lcssa, %._crit_edge ], [ null, %44 ]
   %.sroa.676.1127 = phi ptr [ %.sroa.676.2.lcssa, %._crit_edge ], [ null, %44 ]
@@ -1654,15 +1654,15 @@ define internal void @_ZNK5faiss18PolysemousTraining28optimize_reproduce_distanc
   br i1 %54, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit
-  %.041124 = phi i32 [ %88, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ], [ 0, %.preheader ]
+  %.040124 = phi i32 [ %88, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ], [ 0, %.preheader ]
   %.sroa.072.2123 = phi ptr [ %.sroa.072.3, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ], [ %.sroa.072.1129, %.preheader ]
   %.sroa.11.2122 = phi ptr [ %.sroa.11.3, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ], [ %.sroa.11.1128, %.preheader ]
   %.sroa.676.2121 = phi ptr [ %.sroa.676.3, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ], [ %.sroa.676.1127, %.preheader ]
   %55 = load i32, ptr %4, align 4
-  %56 = mul nsw i32 %55, %.040130
+  %56 = mul nsw i32 %55, %.041130
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds float, ptr %50, i64 %57
-  %59 = mul nsw i32 %55, %.041124
+  %59 = mul nsw i32 %55, %.040124
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds float, ptr %50, i64 %60
   %62 = sext i32 %55 to i64
@@ -1737,7 +1737,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %_ZNSt6vectorIdSaIdE
   %.sroa.11.3 = phi ptr [ %87, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i ], [ %.sroa.11.2122, %66 ]
   %.sroa.072.3 = phi ptr [ %81, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i ], [ %.sroa.072.2123, %66 ]
   %.sroa.676.3 = getelementptr inbounds i8, ptr %.pn79, i64 8
-  %88 = add nuw nsw i32 %.041124, 1
+  %88 = add nuw nsw i32 %.040124, 1
   %89 = load i32, ptr %3, align 4
   %90 = icmp slt i32 %88, %89
   br i1 %90, label %.lr.ph, label %._crit_edge, !llvm.loop !18
@@ -1747,7 +1747,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %_ZNSt6vectorIdSaIdE
   %.sroa.676.2.lcssa = phi ptr [ %.sroa.676.1127, %.preheader ], [ %.sroa.676.3, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ]
   %.sroa.11.2.lcssa = phi ptr [ %.sroa.11.1128, %.preheader ], [ %.sroa.11.3, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ]
   %.sroa.072.2.lcssa = phi ptr [ %.sroa.072.1129, %.preheader ], [ %.sroa.072.3, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ]
-  %92 = add nuw nsw i32 %.040130, 1
+  %92 = add nuw nsw i32 %.041130, 1
   %93 = icmp slt i32 %92, %91
   br i1 %93, label %.preheader, label %._crit_edge131, !llvm.loop !19
 
@@ -1846,11 +1846,11 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 128:                                              ; preds = %128, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %128 ]
   %.038.i.i = phi double [ 0.000000e+00, %.lr.ph.i.i ], [ %131, %128 ]
-  %.03137.i.i = phi double [ 0.000000e+00, %.lr.ph.i.i ], [ %132, %128 ]
+  %.03236.i.i = phi double [ 0.000000e+00, %.lr.ph.i.i ], [ %132, %128 ]
   %129 = getelementptr inbounds double, ptr %.sroa.072.1.lcssa, i64 %indvars.iv.i.i
   %130 = load double, ptr %129, align 8
   %131 = fadd double %.038.i.i, %130
-  %132 = call double @llvm.fmuladd.f64(double %130, double %130, double %.03137.i.i)
+  %132 = call double @llvm.fmuladd.f64(double %130, double %130, double %.03236.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %128, !llvm.loop !21
@@ -3085,7 +3085,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit110:            ; preds = %_ZNSt6vectorIjSaIjE
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %83, %82, %_ZNSt6vectorIfSaIfEE6resizeEm.exit110
   %.sroa.0197.5 = phi ptr [ %.sroa.0197.4, %_ZNSt6vectorIfSaIfEE6resizeEm.exit110 ], [ %59, %82 ], [ %59, %83 ]
   %.sroa.0185.5 = phi ptr [ %.sroa.0185.4, %_ZNSt6vectorIfSaIfEE6resizeEm.exit110 ], [ %.sroa.0185.2, %82 ], [ %.sroa.0185.2, %83 ]
-  %.083 = phi i64 [ %85, %_ZNSt6vectorIfSaIfEE6resizeEm.exit110 ], [ %71, %82 ], [ %71, %83 ]
+  %.084 = phi i64 [ %85, %_ZNSt6vectorIfSaIfEE6resizeEm.exit110 ], [ %71, %82 ], [ %71, %83 ]
   %.082 = phi i64 [ %85, %_ZNSt6vectorIfSaIfEE6resizeEm.exit110 ], [ %70, %82 ], [ %70, %83 ]
   %110 = invoke noundef double @_ZN5faiss12getmillisecsEv()
           to label %111 unwind label %.loopexit.split-lp.loopexit
@@ -3097,7 +3097,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %83, %82, %_ZNSt6vec
 113:                                              ; preds = %111
   %114 = load i32, ptr %7, align 4
   %115 = trunc i64 %.082 to i32
-  %116 = trunc i64 %.083 to i32
+  %116 = trunc i64 %.084 to i32
   %117 = getelementptr inbounds i32, ptr %.sroa.0197.5, i64 %.082
   %118 = getelementptr inbounds i8, ptr %112, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %118, i8 0, i64 24, i1 false)
@@ -3157,7 +3157,7 @@ _ZN5faiss13RankingScore2C2EiiiPKjS2_PKf.exit:     ; preds = %_ZNSt6vectorIfSaIfE
 140:                                              ; preds = %138
   %141 = fsub double %139, %110
   %142 = trunc nsw i64 %indvars.iv282 to i32
-  %143 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %142, i64 noundef %.082, i64 noundef %.083, double noundef %141)
+  %143 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %142, i64 noundef %.082, i64 noundef %.084, double noundef %141)
   br label %144
 
 144:                                              ; preds = %140, %_ZN5faiss13RankingScore2C2EiiiPKjS2_PKf.exit
@@ -3858,16 +3858,16 @@ _ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_Dest
   br label %.lr.ph40.i
 
 .lr.ph40.i:                                       ; preds = %._crit_edge.i, %.lr.ph40.preheader.i
-  %.02638.i = phi double [ %141, %._crit_edge.i ], [ 0.000000e+00, %.lr.ph40.preheader.i ]
-  %.02737.i = phi i64 [ %142, %._crit_edge.i ], [ 0, %.lr.ph40.preheader.i ]
-  %.02836.i = phi i64 [ %.1.lcssa48.i, %._crit_edge.i ], [ 0, %.lr.ph40.preheader.i ]
-  %123 = getelementptr inbounds i32, ptr %118, i64 %.02737.i
+  %.02638.i = phi i64 [ %142, %._crit_edge.i ], [ 0, %.lr.ph40.preheader.i ]
+  %.02737.i = phi i64 [ %.1.lcssa48.i, %._crit_edge.i ], [ 0, %.lr.ph40.preheader.i ]
+  %.02836.i = phi double [ %141, %._crit_edge.i ], [ 0.000000e+00, %.lr.ph40.preheader.i ]
+  %123 = getelementptr inbounds i32, ptr %118, i64 %.02638.i
   %124 = load i32, ptr %123, align 4
-  %125 = icmp ult i64 %.02836.i, %116
+  %125 = icmp ult i64 %.02737.i, %116
   br i1 %125, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph40.i, %128
-  %.129.i = phi i64 [ %129, %128 ], [ %.02836.i, %.lr.ph40.i ]
+  %.129.i = phi i64 [ %129, %128 ], [ %.02737.i, %.lr.ph40.i ]
   %126 = getelementptr inbounds i32, ptr %112, i64 %.129.i
   %127 = load i32, ptr %126, align 4
   %.not.i50 = icmp slt i32 %124, %127
@@ -3879,7 +3879,7 @@ _ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_Dest
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !40
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %.lr.ph40.i
-  %.1.lcssa.i = phi i64 [ %.02836.i, %.lr.ph40.i ], [ %.129.i, %.lr.ph.i ]
+  %.1.lcssa.i = phi i64 [ %.02737.i, %.lr.ph40.i ], [ %.129.i, %.lr.ph.i ]
   %130 = icmp ult i64 %.1.lcssa.i, %116
   br i1 %130, label %.lr.ph34.i, label %._crit_edge.i
 
@@ -3903,13 +3903,13 @@ _ZSt8_DestroyIPSt6vectorIiSaIiEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt8_Dest
   %138 = add nsw i32 %124, 1
   %139 = sitofp i32 %138 to double
   %140 = fdiv double 1.000000e+00, %139
-  %141 = tail call double @llvm.fmuladd.f64(double %140, double %.025.lcssa.i, double %.02638.i)
-  %142 = add nuw i64 %.02737.i, 1
+  %141 = tail call double @llvm.fmuladd.f64(double %140, double %.025.lcssa.i, double %.02836.i)
+  %142 = add nuw i64 %.02638.i, 1
   %exitcond46.not.i = icmp eq i64 %142, %umax.i
   br i1 %exitcond46.not.i, label %_ZN5faiss13RankingScore220accum_gt_weight_diffERKSt6vectorIiSaIiEES5_.exit, label %.lr.ph40.i, !llvm.loop !42
 
 _ZN5faiss13RankingScore220accum_gt_weight_diffERKSt6vectorIiSaIiEES5_.exit: ; preds = %._crit_edge.i, %107
-  %.026.lcssa.i = phi double [ 0.000000e+00, %107 ], [ %141, %._crit_edge.i ]
+  %.028.lcssa.i = phi double [ 0.000000e+00, %107 ], [ %141, %._crit_edge.i ]
   %143 = mul nsw i32 %108, %106
   %144 = trunc nuw nsw i64 %indvars.iv144 to i32
   %145 = add nsw i32 %143, %144
@@ -3917,7 +3917,7 @@ _ZN5faiss13RankingScore220accum_gt_weight_diffERKSt6vectorIiSaIiEES5_.exit: ; pr
   %147 = getelementptr inbounds float, ptr %28, i64 %146
   %148 = load float, ptr %147, align 4
   %149 = fpext float %148 to double
-  %150 = fadd double %.026.lcssa.i, %149
+  %150 = fadd double %.028.lcssa.i, %149
   %151 = fptrunc double %150 to float
   store float %151, ptr %147, align 4
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
@@ -4008,7 +4008,7 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE12compute_cost
 .lr.ph34.us.i:                                    ; preds = %._crit_edge35.split.us.us.i, %.lr.ph34.us.preheader.i
   %indvars.iv49.i = phi i64 [ 0, %.lr.ph34.us.preheader.i ], [ %indvars.iv.next50.i, %._crit_edge35.split.us.us.i ]
   %.041.us.i = phi double [ 0.000000e+00, %.lr.ph34.us.preheader.i ], [ %.3.us.us.i, %._crit_edge35.split.us.us.i ]
-  %.02140.us.i = phi ptr [ %7, %.lr.ph34.us.preheader.i ], [ %scevgep, %._crit_edge35.split.us.us.i ]
+  %.02339.us.i = phi ptr [ %7, %.lr.ph34.us.preheader.i ], [ %scevgep, %._crit_edge35.split.us.us.i ]
   %9 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv49.i
   %10 = load i32, ptr %9, align 4
   br label %.lr.ph.us.us.i
@@ -4016,7 +4016,7 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE12compute_cost
 .lr.ph.us.us.i:                                   ; preds = %._crit_edge.us.us.i, %.lr.ph34.us.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %._crit_edge.us.us.i ], [ 0, %.lr.ph34.us.i ]
   %.132.us.us.i = phi double [ %.3.us.us.i, %._crit_edge.us.us.i ], [ %.041.us.i, %.lr.ph34.us.i ]
-  %.12231.us.us.i = phi ptr [ %scevgep, %._crit_edge.us.us.i ], [ %.02140.us.i, %.lr.ph34.us.i ]
+  %.12430.us.us.i = phi ptr [ %scevgep, %._crit_edge.us.us.i ], [ %.02339.us.i, %.lr.ph34.us.i ]
   %11 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv44.i
   %12 = load i32, ptr %11, align 4
   %13 = xor i32 %12, %10
@@ -4027,7 +4027,7 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE12compute_cost
 16:                                               ; preds = %27, %.lr.ph.us.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %27 ], [ 0, %.lr.ph.us.us.i ]
   %.228.us.us.i = phi double [ %.3.us.us.i, %27 ], [ %.132.us.us.i, %.lr.ph.us.us.i ]
-  %.22326.us.us.i = phi ptr [ %28, %27 ], [ %.12231.us.us.i, %.lr.ph.us.us.i ]
+  %.22526.us.us.i = phi ptr [ %28, %27 ], [ %.12430.us.us.i, %.lr.ph.us.us.i ]
   %17 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
   %18 = load i32, ptr %17, align 4
   %19 = xor i32 %18, %10
@@ -4037,20 +4037,20 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE12compute_cost
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %16
-  %24 = load float, ptr %.22326.us.us.i, align 4
+  %24 = load float, ptr %.22526.us.us.i, align 4
   %25 = fpext float %24 to double
   %26 = fadd double %.228.us.us.i, %25
   br label %27
 
 27:                                               ; preds = %23, %16
   %.3.us.us.i = phi double [ %26, %23 ], [ %.228.us.us.i, %16 ]
-  %28 = getelementptr inbounds i8, ptr %.22326.us.us.i, i64 4
+  %28 = getelementptr inbounds i8, ptr %.22526.us.us.i, i64 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count52.i
   br i1 %exitcond.not.i, label %._crit_edge.us.us.i, label %16, !llvm.loop !46
 
 ._crit_edge.us.us.i:                              ; preds = %27
-  %scevgep = getelementptr i8, ptr %.12231.us.us.i, i64 %8
+  %scevgep = getelementptr i8, ptr %.12430.us.us.i, i64 %8
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count52.i
   br i1 %exitcond48.not.i, label %._crit_edge35.split.us.us.i, label %.lr.ph.us.us.i, !llvm.loop !47
@@ -5053,8 +5053,8 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE14compute_upda
 
 12:                                               ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
-  %.041 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %59 ]
   %.02239 = phi ptr [ %9, %.lr.ph ], [ %62, %59 ]
+  %.02338 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %59 ]
   %13 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i64 %indvars.iv, %10
@@ -5066,7 +5066,7 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE14compute_upda
   %21 = getelementptr inbounds i32, ptr %1, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = tail call noundef double @_ZNK5faiss14Score3ComputerIfdE14update_i_crossEPKiiiiiPKf(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %spec.select, i32 noundef %spec.select37, i32 noundef %14, i32 noundef %22, ptr noundef %.02239)
-  %24 = fadd double %.041, %23
+  %24 = fadd double %.02338, %23
   %.not = icmp eq i32 %22, %14
   %.pre = load i32, ptr %5, align 4
   br i1 %.not, label %59, label %25
@@ -5084,8 +5084,8 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE14compute_upda
 
 .lr.ph47.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph47.split.us.preheader.i
   %indvars.iv51.i = phi i64 [ 0, %.lr.ph47.split.us.preheader.i ], [ %indvars.iv.next52.i, %..loopexit_crit_edge.us.i ]
-  %.046.us.i = phi double [ 0.000000e+00, %.lr.ph47.split.us.preheader.i ], [ %.4.us.i, %..loopexit_crit_edge.us.i ]
-  %.03345.us.i = phi ptr [ %.02239, %.lr.ph47.split.us.preheader.i ], [ %57, %..loopexit_crit_edge.us.i ]
+  %.03445.us.i = phi ptr [ %.02239, %.lr.ph47.split.us.preheader.i ], [ %57, %..loopexit_crit_edge.us.i ]
+  %.03544.us.i = phi double [ 0.000000e+00, %.lr.ph47.split.us.preheader.i ], [ %.4.us.i, %..loopexit_crit_edge.us.i ]
   %.not.us.i = icmp eq i64 %indvars.iv51.i, %10
   %.not38.us.i = icmp eq i64 %indvars.iv51.i, %11
   %or.cond.us.i = or i1 %.not.us.i, %.not38.us.i
@@ -5103,7 +5103,7 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE14compute_upda
 
 38:                                               ; preds = %56, %.lr.ph.us.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i, %56 ]
-  %.143.us.i = phi double [ %.046.us.i, %.lr.ph.us.i ], [ %.3.us.i, %56 ]
+  %.142.us.i = phi double [ %.03544.us.i, %.lr.ph.us.i ], [ %.3.us.i, %56 ]
   %.not39.us.i = icmp eq i64 %indvars.iv.i, %10
   %.not40.us.i = icmp eq i64 %indvars.iv.i, %11
   %or.cond41.us.i = or i1 %.not39.us.i, %.not40.us.i
@@ -5112,18 +5112,18 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE14compute_upda
 39:                                               ; preds = %38
   %40 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds float, ptr %.03345.us.i, i64 %indvars.iv.i
+  %42 = getelementptr inbounds float, ptr %.03445.us.i, i64 %indvars.iv.i
   %43 = load float, ptr %42, align 4
   %44 = sext i32 %41 to i64
   %45 = fpext float %43 to double
-  %46 = fadd double %.143.us.i, %45
+  %46 = fadd double %.142.us.i, %45
   %47 = insertelement <2 x i64> poison, i64 %44, i64 0
   %48 = shufflevector <2 x i64> %47, <2 x i64> poison, <2 x i32> zeroinitializer
   %49 = xor <2 x i64> %48, %29
   %50 = tail call range(i64 0, 65) <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %49)
   %51 = icmp ult <2 x i64> %37, %50
   %52 = extractelement <2 x i1> %51, i64 1
-  %.2.us.i = select i1 %52, double %46, double %.143.us.i
+  %.2.us.i = select i1 %52, double %46, double %.142.us.i
   %53 = extractelement <2 x i1> %51, i64 0
   br i1 %53, label %54, label %56
 
@@ -5132,21 +5132,21 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE14compute_upda
   br label %56
 
 56:                                               ; preds = %54, %39, %38
-  %.3.us.i = phi double [ %55, %54 ], [ %.2.us.i, %39 ], [ %.143.us.i, %38 ]
+  %.3.us.i = phi double [ %55, %54 ], [ %.2.us.i, %39 ], [ %.142.us.i, %38 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %30
   br i1 %exitcond.not.i, label %..loopexit_crit_edge.us.i, label %38, !llvm.loop !61
 
 ..loopexit_crit_edge.us.i:                        ; preds = %56, %.lr.ph47.split.us.i
-  %.4.us.i = phi double [ %.046.us.i, %.lr.ph47.split.us.i ], [ %.3.us.i, %56 ]
-  %57 = getelementptr inbounds float, ptr %.03345.us.i, i64 %30
+  %.4.us.i = phi double [ %.03544.us.i, %.lr.ph47.split.us.i ], [ %.3.us.i, %56 ]
+  %57 = getelementptr inbounds float, ptr %.03445.us.i, i64 %30
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %30
   br i1 %exitcond55.not.i, label %_ZNK5faiss14Score3ComputerIfdE14update_i_planeEPKiiiiiPKf.exit, label %.lr.ph47.split.us.i, !llvm.loop !62
 
 _ZNK5faiss14Score3ComputerIfdE14update_i_planeEPKiiiiiPKf.exit: ; preds = %..loopexit_crit_edge.us.i, %25
-  %.0.lcssa.i = phi double [ 0.000000e+00, %25 ], [ %.4.us.i, %..loopexit_crit_edge.us.i ]
-  %58 = fadd double %24, %.0.lcssa.i
+  %.035.lcssa.i = phi double [ 0.000000e+00, %25 ], [ %.4.us.i, %..loopexit_crit_edge.us.i ]
+  %58 = fadd double %24, %.035.lcssa.i
   br label %59
 
 59:                                               ; preds = %_ZNK5faiss14Score3ComputerIfdE14update_i_planeEPKiiiiiPKf.exit, %12
@@ -5160,8 +5160,8 @@ _ZNK5faiss14Score3ComputerIfdE14update_i_planeEPKiiiiiPKf.exit: ; preds = %..loo
   br i1 %64, label %12, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %59, %4
-  %.0.lcssa = phi double [ 0.000000e+00, %4 ], [ %.1, %59 ]
-  ret double %.0.lcssa
+  %.023.lcssa = phi double [ 0.000000e+00, %4 ], [ %.1, %59 ]
+  ret double %.023.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5199,8 +5199,8 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE14update_i_cro
 
 33:                                               ; preds = %.lr.ph, %88
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %88 ]
-  %.057 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %88 ]
   %.04655 = phi ptr [ %6, %.lr.ph ], [ %89, %88 ]
+  %.04754 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %88 ]
   %34 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i64 %indvars.iv, %30
@@ -5227,7 +5227,7 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE14update_i_cro
   %56 = icmp ult i64 %55, %22
   %57 = fsub double %.0.i, %46
   %.1.i = select i1 %56, double %57, double %.0.i
-  %58 = fadd double %.057, %.1.i
+  %58 = fadd double %.04754, %.1.i
   %59 = getelementptr inbounds float, ptr %.04655, i64 %14
   %60 = load float, ptr %59, align 4
   %61 = icmp ult i64 %53, %25
@@ -5243,7 +5243,7 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE14update_i_cro
 
 .lr.ph.i:                                         ; preds = %33, %86
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %86 ], [ 0, %33 ]
-  %.025.i = phi double [ %.2.i, %86 ], [ 0.000000e+00, %33 ]
+  %.02324.i = phi double [ %.2.i, %86 ], [ 0.000000e+00, %33 ]
   %67 = icmp eq i64 %indvars.iv.i, %30
   %68 = icmp eq i64 %indvars.iv.i, %29
   %or.cond.i = or i1 %67, %68
@@ -5255,7 +5255,7 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE14update_i_cro
   %72 = getelementptr inbounds float, ptr %.04655, i64 %indvars.iv.i
   %73 = load float, ptr %72, align 4
   %74 = fpext float %73 to double
-  %75 = fadd double %.025.i, %74
+  %75 = fadd double %.02324.i, %74
   %76 = insertelement <2 x i32> poison, i32 %71, i64 0
   %77 = shufflevector <2 x i32> %76, <2 x i32> poison, <2 x i32> zeroinitializer
   %78 = xor <2 x i32> %77, %32
@@ -5263,7 +5263,7 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE14update_i_cro
   %80 = tail call range(i64 0, 65) <2 x i64> @llvm.ctpop.v2i64(<2 x i64> %79)
   %81 = icmp ult <2 x i64> %52, %80
   %82 = extractelement <2 x i1> %81, i64 1
-  %.1.i53 = select i1 %82, double %75, double %.025.i
+  %.1.i53 = select i1 %82, double %75, double %.02324.i
   %83 = extractelement <2 x i1> %81, i64 0
   br i1 %83, label %84, label %86
 
@@ -5272,7 +5272,7 @@ define linkonce_odr noundef double @_ZNK5faiss14Score3ComputerIfdE14update_i_cro
   br label %86
 
 86:                                               ; preds = %84, %69, %.lr.ph.i
-  %.2.i = phi double [ %.025.i, %.lr.ph.i ], [ %85, %84 ], [ %.1.i53, %69 ]
+  %.2.i = phi double [ %.02324.i, %.lr.ph.i ], [ %85, %84 ], [ %.1.i53, %69 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZNK5faiss14Score3ComputerIfdE13update_j_lineEPKiiiiiiiPKf.exit, label %.lr.ph.i, !llvm.loop !64
@@ -5289,8 +5289,8 @@ _ZNK5faiss14Score3ComputerIfdE13update_j_lineEPKiiiiiiiPKf.exit: ; preds = %86
   br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %88, %7
-  %.0.lcssa = phi double [ 0.000000e+00, %7 ], [ %.1, %88 ]
-  ret double %.0.lcssa
+  %.047.lcssa = phi double [ 0.000000e+00, %7 ], [ %.1, %88 ]
+  ret double %.047.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable

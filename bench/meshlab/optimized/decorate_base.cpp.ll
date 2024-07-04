@@ -6588,13 +6588,13 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN9QtPrivate8RefCo
   br label %74
 
 74:                                               ; preds = %.preheader, %144
-  %.074 = phi float [ %108, %144 ], [ 0.000000e+00, %.preheader ]
-  %75 = fcmp olt float %.074, %70
+  %.068 = phi float [ %108, %144 ], [ 0.000000e+00, %.preheader ]
+  %75 = fcmp olt float %.068, %70
   br i1 %75, label %76, label %145
 
 76:                                               ; preds = %74
   %77 = load float, ptr %36, align 8
-  %78 = fdiv float %.074, %70
+  %78 = fdiv float %.068, %70
   %79 = load float, ptr %34, align 4
   %80 = fsub float %79, %77
   %81 = call float @llvm.fmuladd.f32(float %78, float %80, float %77)
@@ -6640,7 +6640,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfET_S7_S7_
   %106 = fcmp olt float %105, 5.000000e-01
   %.sroa.speculated = select i1 %106, float %105, float 5.000000e-01
   %107 = fmul float %78, 0x3FE6666660000000
-  %108 = fadd float %.074, 1.000000e+00
+  %108 = fadd float %.068, 1.000000e+00
   %109 = fdiv float %108, %70
   %110 = fmul float %109, 0x3FE6666660000000
   br i1 %88, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElEvRT_T0_.exit.i.i.i.i87, label %119
@@ -12388,8 +12388,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i667: ; preds = %_ZN9QtPrivate8RefCo
   br label %1157
 
 _ZN7QStringD2Ev.exit672:                          ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i667, %_ZN9QtPrivate8RefCount5derefEv.exit.i668, %789, %_ZN7QStringD2Ev.exit660
-  %.sroa.0792.0 = phi float [ %.sroa.0791.0.vec.extract, %_ZN7QStringD2Ev.exit660 ], [ %781, %789 ], [ %781, %_ZN9QtPrivate8RefCount5derefEv.exit.i668 ], [ %781, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i667 ]
   %.sroa.4793.0 = phi float [ %.sroa.0791.4.vec.extract, %_ZN7QStringD2Ev.exit660 ], [ %788, %789 ], [ %788, %_ZN9QtPrivate8RefCount5derefEv.exit.i668 ], [ %788, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i667 ]
+  %.sroa.0792.0 = phi float [ %.sroa.0791.0.vec.extract, %_ZN7QStringD2Ev.exit660 ], [ %781, %789 ], [ %781, %_ZN9QtPrivate8RefCount5derefEv.exit.i668 ], [ %781, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i667 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !255)
   %805 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.97, i32 noundef 45), !noalias !255
   store ptr %805, ptr %17, align 8, !alias.scope !255

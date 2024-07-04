@@ -1245,7 +1245,7 @@ define hidden void @_ZN4stdx13to_snake_case17h30f59952f9ea95abE(ptr noalias noca
   br label %.outer
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %137
-  %.041100 = phi i1 [ %.142, %137 ], [ false, %.lr.ph.preheader ]
+  %.042100 = phi i1 [ %.1, %137 ], [ false, %.lr.ph.preheader ]
   %.sroa.0.099 = phi ptr [ %.sroa.0.4.ph80, %137 ], [ %31, %.lr.ph.preheader ]
   %50 = getelementptr inbounds i8, ptr %.sroa.0.099, i64 1
   %51 = load i8, ptr %.sroa.0.099, align 1, !noalias !174, !noundef !12
@@ -1374,11 +1374,11 @@ define hidden void @_ZN4stdx13to_snake_case17h30f59952f9ea95abE(ptr noalias noca
 
 108:                                              ; preds = %106
   %.not = xor i1 %107, true
-  %brmerge = or i1 %.041100, %.not
+  %brmerge = or i1 %.042100, %.not
   br i1 %brmerge, label %.critedge50.thread83.thread, label %109
 
 .critedge:                                        ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17h6e9e80736e236803E.exit.thread"
-  br i1 %.041100, label %.critedge50.thread, label %109
+  br i1 %.042100, label %.critedge50.thread, label %109
 
 109:                                              ; preds = %108, %.critedge
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
@@ -1431,7 +1431,7 @@ define hidden void @_ZN4stdx13to_snake_case17h30f59952f9ea95abE(ptr noalias noca
           to label %.critedge50.thread unwind label %139
 
 .critedge50.thread:                               ; preds = %.critedge, %.critedge50.thread83.thread, %.critedge50.thread83, %.critedge50
-  %.142 = phi i1 [ true, %.critedge50 ], [ false, %.critedge50.thread83 ], [ %125, %.critedge50.thread83.thread ], [ true, %.critedge ]
+  %.1 = phi i1 [ true, %.critedge50 ], [ false, %.critedge50.thread83 ], [ %125, %.critedge50.thread83.thread ], [ true, %.critedge ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5), !noalias !187
   invoke void @_ZN4core7unicode12unicode_data11conversions8to_upper17h3d15e8f6bc4279a0E(ptr noalias nocapture noundef nonnull sret([3 x i32]) align 4 dereferenceable(12) %5, i32 noundef %.sroa.4.0.i.ph81)
           to label %switch.lookup unwind label %139
@@ -1668,7 +1668,7 @@ define hidden void @_ZN4stdx13to_snake_case17h34d72628df4af1caE(ptr noalias noca
   br label %.outer
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %137
-  %.041100 = phi i1 [ %.142, %137 ], [ false, %.lr.ph.preheader ]
+  %.042100 = phi i1 [ %.1, %137 ], [ false, %.lr.ph.preheader ]
   %.sroa.0.099 = phi ptr [ %.sroa.0.4.ph80, %137 ], [ %31, %.lr.ph.preheader ]
   %50 = getelementptr inbounds i8, ptr %.sroa.0.099, i64 1
   %51 = load i8, ptr %.sroa.0.099, align 1, !noalias !221, !noundef !12
@@ -1797,11 +1797,11 @@ define hidden void @_ZN4stdx13to_snake_case17h34d72628df4af1caE(ptr noalias noca
 
 108:                                              ; preds = %106
   %.not = xor i1 %107, true
-  %brmerge = or i1 %.041100, %.not
+  %brmerge = or i1 %.042100, %.not
   br i1 %brmerge, label %.critedge50.thread83.thread, label %109
 
 .critedge:                                        ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17h6e9e80736e236803E.exit.thread"
-  br i1 %.041100, label %.critedge50.thread, label %109
+  br i1 %.042100, label %.critedge50.thread, label %109
 
 109:                                              ; preds = %108, %.critedge
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
@@ -1854,7 +1854,7 @@ define hidden void @_ZN4stdx13to_snake_case17h34d72628df4af1caE(ptr noalias noca
           to label %.critedge50.thread unwind label %139
 
 .critedge50.thread:                               ; preds = %.critedge, %.critedge50.thread83.thread, %.critedge50.thread83, %.critedge50
-  %.142 = phi i1 [ true, %.critedge50 ], [ false, %.critedge50.thread83 ], [ %125, %.critedge50.thread83.thread ], [ true, %.critedge ]
+  %.1 = phi i1 [ true, %.critedge50 ], [ false, %.critedge50.thread83 ], [ %125, %.critedge50.thread83.thread ], [ true, %.critedge ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5), !noalias !234
   invoke void @_ZN4core7unicode12unicode_data11conversions8to_lower17hbf523ba439237d7bE(ptr noalias nocapture noundef nonnull sret([3 x i32]) align 4 dereferenceable(12) %5, i32 noundef %.sroa.4.0.i.ph81)
           to label %switch.lookup unwind label %139

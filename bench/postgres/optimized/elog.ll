@@ -5052,7 +5052,7 @@ define dso_local noundef zeroext i1 @check_log_destination(ptr nocapture noundef
 
 .lr.ph38:                                         ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %.lr.ph ]
-  %.0243037 = phi i32 [ %38, %37 ], [ 0, %.lr.ph ]
+  %.0233037 = phi i32 [ %38, %37 ], [ 0, %.lr.ph ]
   %19 = load ptr, ptr %16, align 8
   %20 = getelementptr %union.ListCell, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
@@ -5088,7 +5088,7 @@ define dso_local noundef zeroext i1 @check_log_destination(ptr nocapture noundef
 
 37:                                               ; preds = %30, %27, %24, %.lr.ph38
   %.sink = phi i32 [ 1, %.lr.ph38 ], [ 8, %24 ], [ 16, %27 ], [ 2, %30 ]
-  %38 = or i32 %.0243037, %.sink
+  %38 = or i32 %.0233037, %.sink
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = load i32, ptr %15, align 4
   %40 = sext i32 %39 to i64
@@ -5096,12 +5096,12 @@ define dso_local noundef zeroext i1 @check_log_destination(ptr nocapture noundef
   br i1 %41, label %.lr.ph38, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %37, %.lr.ph, %13
-  %.024.lcssa = phi i32 [ 0, %13 ], [ 0, %.lr.ph ], [ %38, %37 ]
+  %.023.lcssa = phi i32 [ 0, %13 ], [ 0, %.lr.ph ], [ %38, %37 ]
   call void @pfree(ptr noundef %6) #28
   %42 = load ptr, ptr %4, align 8
   call void @list_free(ptr noundef %42) #28
   %43 = call ptr @guc_malloc(i32 noundef 21, i64 noundef 4) #28
-  store i32 %.024.lcssa, ptr %43, align 4
+  store i32 %.023.lcssa, ptr %43, align 4
   store ptr %43, ptr %1, align 8
   br label %44
 
@@ -5483,16 +5483,16 @@ thread-pre-split:                                 ; preds = %.critedge.i
   br label %59
 
 59:                                               ; preds = %58, %55
-  %.089 = phi ptr [ @.str.22, %58 ], [ %53, %55 ]
+  %.091 = phi ptr [ @.str.22, %58 ], [ %53, %55 ]
   %.not180 = icmp eq i32 %.2220, 0
   br i1 %.not180, label %61, label %60
 
 60:                                               ; preds = %59
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %.089) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %.091) #28
   br label %267
 
 61:                                               ; preds = %59
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %.089) #28
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %.091) #28
   br label %267
 
 62:                                               ; preds = %50
@@ -5598,16 +5598,16 @@ get_backend_type_for_log.exit:                    ; preds = %65, %72, %75
   br label %105
 
 105:                                              ; preds = %104, %101
-  %.091 = phi ptr [ @.str.22, %104 ], [ %99, %101 ]
+  %.089 = phi ptr [ @.str.22, %104 ], [ %99, %101 ]
   %.not173 = icmp eq i32 %.2220, 0
   br i1 %.not173, label %107, label %106
 
 106:                                              ; preds = %105
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %.091) #28
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.23, i32 noundef %.2220, ptr noundef nonnull %.089) #28
   br label %267
 
 107:                                              ; preds = %105
-  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %.091) #28
+  call void @appendStringInfoString(ptr noundef %0, ptr noundef nonnull %.089) #28
   br label %267
 
 108:                                              ; preds = %95

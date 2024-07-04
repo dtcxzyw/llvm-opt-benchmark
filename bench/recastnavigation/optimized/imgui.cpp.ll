@@ -1703,9 +1703,9 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %6, %22
   %44 = fsub float %3, %2
   %45 = fdiv float %43, %44
   %46 = fcmp olt float %45, 0.000000e+00
-  %.0 = select i1 %46, float 0.000000e+00, float %45
-  %47 = fcmp ogt float %.0, 1.000000e+00
-  %.1 = select i1 %47, float 1.000000e+00, float %.0
+  %.064 = select i1 %46, float 0.000000e+00, float %45
+  %47 = fcmp ogt float %.064, 1.000000e+00
+  %.1 = select i1 %47, float 1.000000e+00, float %.064
   %48 = sitofp i32 %41 to float
   %49 = fmul float %.1, %48
   %50 = fptosi float %49 to i32
@@ -1844,12 +1844,12 @@ _ZL11buttonLogicjb.exit:                          ; preds = %80, %84
 
 106:                                              ; preds = %.thread, %90, %91
   %.not91 = phi i1 [ false, %90 ], [ true, %91 ], [ false, %.thread ]
-  %.064.ph = phi i32 [ %50, %90 ], [ %105, %91 ], [ %50, %.thread ]
+  %.063.ph = phi i32 [ %50, %90 ], [ %105, %91 ], [ %50, %.thread ]
   %107 = icmp ugt i32 %40, 4999
   br i1 %107, label %_ZL20addGfxCmdRoundedRectfffffj.exit70, label %108
 
 108:                                              ; preds = %106
-  %109 = add nsw i32 %.064.ph, %14
+  %109 = add nsw i32 %.063.ph, %14
   br label %_ZL20addGfxCmdRoundedRectfffffj.exit70.sink.split
 
 110:                                              ; preds = %_ZL11buttonLogicjb.exit
@@ -1864,7 +1864,7 @@ _ZL11buttonLogicjb.exit:                          ; preds = %80, %84
 _ZL20addGfxCmdRoundedRectfffffj.exit70.sink.split: ; preds = %108, %112
   %.sink108 = phi i32 [ %113, %112 ], [ %109, %108 ]
   %spec.select86.sink = phi i32 [ %spec.select86, %112 ], [ -1, %108 ]
-  %.06384.ph = phi i1 [ false, %112 ], [ %.not91, %108 ]
+  %.084.ph = phi i1 [ false, %112 ], [ %.not91, %108 ]
   %114 = sitofp i32 %.sink108 to float
   %115 = add nuw nsw i32 %40, 1
   store i32 %115, ptr @_ZL17g_gfxCmdQueueSize, align 4
@@ -1890,7 +1890,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit70.sink.split: ; preds = %108, %112
   br label %_ZL20addGfxCmdRoundedRectfffffj.exit70
 
 _ZL20addGfxCmdRoundedRectfffffj.exit70:           ; preds = %_ZL20addGfxCmdRoundedRectfffffj.exit70.sink.split, %110, %106
-  %.06384 = phi i1 [ %.not91, %106 ], [ false, %110 ], [ %.06384.ph, %_ZL20addGfxCmdRoundedRectfffffj.exit70.sink.split ]
+  %.084 = phi i1 [ %.not91, %106 ], [ false, %110 ], [ %.084.ph, %_ZL20addGfxCmdRoundedRectfffffj.exit70.sink.split ]
   %128 = tail call float @log10f(float noundef %4) #15
   %129 = tail call float @llvm.ceil.f32(float %128)
   %130 = fptosi float %129 to i32
@@ -2078,7 +2078,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit74.sink.split:      ; preds = %_ZL13addGfxCmdTexti
   br label %_ZL13addGfxCmdTextiiiPKcj.exit74
 
 _ZL13addGfxCmdTextiiiPKcj.exit74:                 ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit74.sink.split, %137, %186, %_ZL13addGfxCmdTextiiiPKcj.exit77, %_ZL13addGfxCmdTextiiiPKcj.exit
-  %236 = or i1 %.1.i, %.06384
+  %236 = or i1 %.1.i, %.084
   ret i1 %236
 }
 

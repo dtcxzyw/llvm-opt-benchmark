@@ -959,9 +959,9 @@ if.end42:                                         ; preds = %if.then33
   br label %if.end45
 
 if.end45:                                         ; preds = %if.end42, %if.end23
-  %mergeNext.0 = phi i1 [ %cmp43, %if.end42 ], [ false, %if.end23 ]
-  %nextBytes.0 = phi i64 [ %15, %if.end42 ], [ undef, %if.end23 ]
   %nextAddr.0 = phi i64 [ %13, %if.end42 ], [ undef, %if.end23 ]
+  %nextBytes.0 = phi i64 [ %15, %if.end42 ], [ undef, %if.end23 ]
+  %mergeNext.0 = phi i1 [ %cmp43, %if.end42 ], [ false, %if.end23 ]
   %brmerge = or i1 %mergePrev.0, %mergeNext.0
   br i1 %brmerge, label %if.end48, label %if.end77
 
@@ -999,7 +999,7 @@ if.then53:                                        ; preds = %if.then50
   %23 = load i64, ptr %_M_node_count.i.i.i.i, align 8
   %dec.i.i.i.i31 = add i64 %23, -1
   store i64 %dec.i.i.i.i31, ptr %_M_node_count.i.i.i.i, align 8
-  %sub54 = add i64 %nextAddr.0, %nextBytes.0
+  %sub54 = add i64 %nextBytes.0, %nextAddr.0
   %add55 = sub i64 %sub54, %19
   store i64 %add55, ptr %newFreeSize, align 8
   br label %if.end56

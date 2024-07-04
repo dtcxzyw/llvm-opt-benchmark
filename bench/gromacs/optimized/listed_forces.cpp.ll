@@ -2297,8 +2297,8 @@ define internal void @_ZL16calcBondedForcesRK22InteractionDefinitionsP18bonded_t
   %.sroa.087.1 = phi ptr [ %57, %55 ], [ %73, %77 ]
   %.sroa.489.1 = phi ptr [ %.sroa.489.0.copyload, %55 ], [ %78, %77 ]
   %.sroa.088.1 = phi ptr [ %.sroa.088.0.copyload, %55 ], [ %76, %77 ]
-  %.058 = phi ptr [ %58, %55 ], [ %74, %77 ]
-  %.057 = phi ptr [ %56, %55 ], [ %70, %77 ]
+  %.059 = phi ptr [ %58, %55 ], [ %74, %77 ]
+  %.058 = phi ptr [ %56, %55 ], [ %70, %77 ]
   %80 = ptrtoint ptr %.sroa.489.1 to i64
   %81 = ptrtoint ptr %.sroa.088.1 to i64
   %82 = sub i64 %80, %81
@@ -2382,7 +2382,7 @@ define internal void @_ZL16calcBondedForcesRK22InteractionDefinitionsP18bonded_t
   %.val = load i32, ptr %104, align 8
   %142 = getelementptr i8, ptr %103, i64 104
   %.val60 = load ptr, ptr %142, align 8
-  %143 = invoke fastcc noundef float @_ZN12_GLOBAL__N_113calc_one_bondEiiRK22InteractionDefinitionsN3gmx8ArrayRefIKiEEiRK12WorkDivisionPA3_KfPA4_fPA3_fPK10t_forcerecPK5t_pbcP17gmx_grppairener_tP6t_nrnbNS4_ISA_EENS4_IfEESR_SR_NS4_IKbEENS4_IKtEEiP8t_fcdataRKNS3_12StepWorkloadEPi(i32 noundef %.092, i32 noundef %95, ptr noundef nonnull align 8 dereferenceable(2736) %6, ptr %86, ptr %100, i32 noundef %102, i32 %.val, ptr %.val60, ptr noundef %105, ptr noundef %53, ptr noundef %.057, ptr noundef %106, ptr noundef %107, ptr noundef nonnull %.058, ptr noundef %108, ptr noundef nonnull byval(%"class.gmx::ArrayRef.105") align 8 %25, ptr noundef nonnull byval(%"class.gmx::ArrayRef.261") align 8 %26, ptr %115, ptr %120, ptr %121, ptr %126, ptr %127, ptr %132, ptr %133, ptr %138, i32 noundef %139, ptr noundef %140, ptr noundef nonnull align 1 dereferenceable(20) %18, ptr noundef %141)
+  %143 = invoke fastcc noundef float @_ZN12_GLOBAL__N_113calc_one_bondEiiRK22InteractionDefinitionsN3gmx8ArrayRefIKiEEiRK12WorkDivisionPA3_KfPA4_fPA3_fPK10t_forcerecPK5t_pbcP17gmx_grppairener_tP6t_nrnbNS4_ISA_EENS4_IfEESR_SR_NS4_IKbEENS4_IKtEEiP8t_fcdataRKNS3_12StepWorkloadEPi(i32 noundef %.092, i32 noundef %95, ptr noundef nonnull align 8 dereferenceable(2736) %6, ptr %86, ptr %100, i32 noundef %102, i32 %.val, ptr %.val60, ptr noundef %105, ptr noundef %53, ptr noundef %.058, ptr noundef %106, ptr noundef %107, ptr noundef nonnull %.059, ptr noundef %108, ptr noundef nonnull byval(%"class.gmx::ArrayRef.105") align 8 %25, ptr noundef nonnull byval(%"class.gmx::ArrayRef.261") align 8 %26, ptr %115, ptr %120, ptr %121, ptr %126, ptr %127, ptr %132, ptr %133, ptr %138, i32 noundef %139, ptr noundef %140, ptr noundef nonnull align 1 dereferenceable(20) %18, ptr noundef %141)
           to label %144 unwind label %.loopexit
 
 144:                                              ; preds = %96

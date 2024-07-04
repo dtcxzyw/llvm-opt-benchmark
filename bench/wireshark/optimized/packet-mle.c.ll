@@ -904,7 +904,7 @@ proto_item_set_generated.exit:                    ; preds = %82, %79, %76, %74, 
 
 .lr.ph772.preheader:                              ; preds = %170, %171
   %173 = phi i32 [ %.pre796, %171 ], [ %160, %170 ]
-  %.0655 = phi i16 [ %172, %171 ], [ 0, %170 ]
+  %.0668 = phi i16 [ %172, %171 ], [ 0, %170 ]
   %174 = load i32, ptr @hf_mle_tlv_source_addr, align 4
   %.0..0..0..0.437 = load volatile ptr, ptr %5, align 8
   %175 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %174, ptr noundef %.0..0..0..0.437, i32 noundef %173, i32 noundef %142, i32 noundef 0) #8
@@ -947,7 +947,7 @@ proto_item_set_generated.exit:                    ; preds = %82, %79, %76, %74, 
   %192 = load ptr, ptr %1, align 8
   %193 = load ptr, ptr %134, align 8
   %194 = load i32, ptr %193, align 8
-  %195 = call ptr @ieee802154_addr_update(ptr noundef nonnull @ieee802154_map, i16 noundef zeroext %.0655, i16 noundef zeroext %190, i64 noundef %191, ptr noundef %192, i32 noundef %194) #8
+  %195 = call ptr @ieee802154_addr_update(ptr noundef nonnull @ieee802154_map, i16 noundef zeroext %.0668, i16 noundef zeroext %190, i64 noundef %191, ptr noundef %192, i32 noundef %194) #8
   br label %196
 
 196:                                              ; preds = %._crit_edge773, %189, %163
@@ -1174,7 +1174,7 @@ proto_item_set_generated.exit:                    ; preds = %82, %79, %76, %74, 
   br label %.loopexit731
 
 .lr.ph768:                                        ; preds = %305, %306
-  %.0656726.ph = phi i32 [ %.sext730, %306 ], [ 1, %305 ]
+  %.0666726.ph = phi i32 [ %.sext730, %306 ], [ 1, %305 ]
   %308 = add nuw nsw i8 %288, 1
   %309 = zext nneg i8 %308 to i32
   %310 = add nuw nsw i32 %309, 2
@@ -1183,7 +1183,7 @@ proto_item_set_generated.exit:                    ; preds = %82, %79, %76, %74, 
 
 311:                                              ; preds = %.lr.ph768, %311
   %312 = phi i32 [ %.pre795, %.lr.ph768 ], [ %335, %311 ]
-  %.1657766 = phi i32 [ %.0656726.ph, %.lr.ph768 ], [ %336, %311 ]
+  %.1667766 = phi i32 [ %.0666726.ph, %.lr.ph768 ], [ %336, %311 ]
   %313 = load i32, ptr @hf_mle_tlv_neighbor, align 4
   %.0..0..0..0.459 = load volatile ptr, ptr %5, align 8
   %314 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %313, ptr noundef %.0..0..0..0.459, i32 noundef %312, i32 noundef %310, i32 noundef 0) #8
@@ -1216,7 +1216,7 @@ proto_item_set_generated.exit:                    ; preds = %82, %79, %76, %74, 
   %334 = load i32, ptr %8, align 4
   %335 = add i32 %334, %309
   store i32 %335, ptr %8, align 4
-  %336 = add nsw i32 %.1657766, -1
+  %336 = add nsw i32 %.1667766, -1
   %.not714 = icmp eq i32 %336, 0
   br i1 %.not714, label %.loopexit731, label %311, !llvm.loop !6
 
@@ -1305,29 +1305,29 @@ proto_item_set_generated.exit:                    ; preds = %82, %79, %76, %74, 
   br label %383
 
 383:                                              ; preds = %377, %393
-  %.0658760 = phi i32 [ 0, %377 ], [ %394, %393 ]
-  %.0662759 = phi i8 [ 0, %377 ], [ %spec.select722, %393 ]
+  %.0658760 = phi i8 [ 0, %377 ], [ %spec.select722, %393 ]
+  %.0662759 = phi i32 [ 0, %377 ], [ %394, %393 ]
   %.0..0..0..0.474 = load volatile ptr, ptr %5, align 8
   %384 = load i32, ptr %8, align 4
-  %385 = add i32 %384, %.0658760
+  %385 = add i32 %384, %.0662759
   %386 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0..0..0..0.474, i32 noundef %385) #8
   %387 = zext i8 %386 to i32
   br label %388
 
 388:                                              ; preds = %383, %388
-  %.0660758 = phi i32 [ 0, %383 ], [ %392, %388 ]
-  %.1663757 = phi i8 [ %.0662759, %383 ], [ %spec.select722, %388 ]
-  %389 = shl nuw nsw i32 1, %.0660758
+  %.1659758 = phi i8 [ %.0658760, %383 ], [ %spec.select722, %388 ]
+  %.0660757 = phi i32 [ 0, %383 ], [ %392, %388 ]
+  %389 = shl nuw nsw i32 1, %.0660757
   %390 = and i32 %389, %387
   %.not712 = icmp ne i32 %390, 0
   %391 = zext i1 %.not712 to i8
-  %spec.select722 = add i8 %.1663757, %391
-  %392 = add nuw nsw i32 %.0660758, 1
+  %spec.select722 = add i8 %.1659758, %391
+  %392 = add nuw nsw i32 %.0660757, 1
   %exitcond789.not = icmp eq i32 %392, 8
   br i1 %exitcond789.not, label %393, label %388, !llvm.loop !7
 
 393:                                              ; preds = %388
-  %394 = add nuw nsw i32 %.0658760, 1
+  %394 = add nuw nsw i32 %.0662759, 1
   %exitcond790.not = icmp eq i32 %394, 8
   br i1 %exitcond790.not, label %395, label %383, !llvm.loop !8
 
@@ -1365,35 +1365,35 @@ proto_item_set_generated.exit:                    ; preds = %82, %79, %76, %74, 
 
 .preheader:                                       ; preds = %.preheader732, %.loopexit
   %412 = phi i32 [ %435, %.loopexit ], [ %402, %.preheader732 ]
-  %.1659764 = phi i32 [ %436, %.loopexit ], [ 0, %.preheader732 ]
-  %.0666763 = phi i64 [ %.1667, %.loopexit ], [ %397, %.preheader732 ]
+  %.0656764 = phi i64 [ %.1657, %.loopexit ], [ %397, %.preheader732 ]
+  %.1663763 = phi i32 [ %436, %.loopexit ], [ 0, %.preheader732 ]
   br label %413
 
 413:                                              ; preds = %.preheader, %418
-  %.1661762 = phi i32 [ 0, %.preheader ], [ %420, %418 ]
-  %.0668761 = phi i64 [ -9223372036854775808, %.preheader ], [ %419, %418 ]
-  %414 = and i64 %.0668761, %.0666763
+  %.0655762 = phi i64 [ -9223372036854775808, %.preheader ], [ %419, %418 ]
+  %.1661761 = phi i32 [ 0, %.preheader ], [ %420, %418 ]
+  %414 = and i64 %.0655762, %.0656764
   %.not711 = icmp eq i64 %414, 0
   br i1 %.not711, label %418, label %415
 
 415:                                              ; preds = %413
-  %416 = xor i64 %.0668761, -1
-  %417 = and i64 %.0666763, %416
+  %416 = xor i64 %.0655762, -1
+  %417 = and i64 %.0656764, %416
   br label %.loopexit
 
 418:                                              ; preds = %413
-  %419 = lshr i64 %.0668761, 1
-  %420 = add nuw nsw i32 %.1661762, 1
+  %419 = lshr i64 %.0655762, 1
+  %420 = add nuw nsw i32 %.1661761, 1
   %exitcond791 = icmp eq i32 %420, 63
   br i1 %exitcond791, label %.loopexit, label %413, !llvm.loop !9
 
 .loopexit:                                        ; preds = %418, %415
-  %.1661740 = phi i32 [ %.1661762, %415 ], [ 63, %418 ]
-  %.1667 = phi i64 [ %417, %415 ], [ %.0666763, %418 ]
+  %.1661741 = phi i32 [ %.1661761, %415 ], [ 63, %418 ]
+  %.1657 = phi i64 [ %417, %415 ], [ %.0656764, %418 ]
   %421 = load i32, ptr @hf_mle_tlv_route64_entry, align 4
   %.0..0..0..0.478 = load volatile ptr, ptr %5, align 8
   %422 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %421, ptr noundef %.0..0..0..0.478, i32 noundef %412, i32 noundef 1, i32 noundef 0) #8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %422, ptr noundef nonnull @.str.324, i32 noundef %.1661740) #8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %422, ptr noundef nonnull @.str.324, i32 noundef %.1661741) #8
   %423 = load i32, ptr @ett_mle_router, align 4
   %424 = call ptr @proto_item_add_subtree(ptr noundef %422, i32 noundef %423) #8
   %425 = load i32, ptr @hf_mle_tlv_route64_nbr_out, align 4
@@ -1411,7 +1411,7 @@ proto_item_set_generated.exit:                    ; preds = %82, %79, %76, %74, 
   %434 = load i32, ptr %8, align 4
   %435 = add i32 %434, 1
   store i32 %435, ptr %8, align 4
-  %436 = add nuw nsw i32 %.1659764, 1
+  %436 = add nuw nsw i32 %.1663763, 1
   %exitcond792.not = icmp eq i32 %436, %403
   br i1 %exitcond792.not, label %.loopexit731, label %.preheader, !llvm.loop !10
 
@@ -1794,16 +1794,16 @@ proto_item_set_generated.exit:                    ; preds = %82, %79, %76, %74, 
   br label %.loopexit731
 
 .lr.ph747:                                        ; preds = %.preheader737, %.lr.ph747
-  %.0649746 = phi i32 [ %638, %.lr.ph747 ], [ %160, %.preheader737 ]
-  %.0650745 = phi i32 [ %639, %.lr.ph747 ], [ %142, %.preheader737 ]
-  %.0651744 = phi i8 [ %640, %.lr.ph747 ], [ 0, %.preheader737 ]
+  %.0646746 = phi i32 [ %638, %.lr.ph747 ], [ %160, %.preheader737 ]
+  %.0647745 = phi i32 [ %639, %.lr.ph747 ], [ %142, %.preheader737 ]
+  %.0648744 = phi i8 [ %640, %.lr.ph747 ], [ 0, %.preheader737 ]
   %.0..0..0..0.519 = load volatile ptr, ptr %5, align 8
-  %637 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0..0..0..0.519, i32 noundef %.0649746) #8
+  %637 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0..0..0..0.519, i32 noundef %.0646746) #8
   %.not697 = icmp sgt i8 %637, -1
   %. = select i1 %.not697, i32 17, i32 9
-  %638 = add i32 %., %.0649746
-  %639 = sub nsw i32 %.0650745, %.
-  %640 = add i8 %.0651744, 1
+  %638 = add i32 %., %.0646746
+  %639 = sub nsw i32 %.0647745, %.
+  %640 = add i8 %.0648744, 1
   %641 = icmp sgt i32 %639, 0
   br i1 %641, label %.lr.ph747, label %._crit_edge, !llvm.loop !12
 
@@ -1834,7 +1834,7 @@ proto_item_set_generated.exit:                    ; preds = %82, %79, %76, %74, 
 
 .lr.ph750:                                        ; preds = %.lr.ph750.preheader, %676
   %649 = phi i32 [ %storemerge696, %676 ], [ %.pre793, %.lr.ph750.preheader ]
-  %.0652749 = phi i8 [ %677, %676 ], [ 0, %.lr.ph750.preheader ]
+  %.0649749 = phi i8 [ %677, %676 ], [ 0, %.lr.ph750.preheader ]
   %650 = load i32, ptr @hf_mle_tlv_addr_reg_entry, align 4
   %.0..0..0..0.521 = load volatile ptr, ptr %5, align 8
   %651 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %650, ptr noundef %.0..0..0..0.521, i32 noundef %649, i32 noundef 1, i32 noundef 0) #8
@@ -1879,8 +1879,8 @@ proto_item_set_generated.exit:                    ; preds = %82, %79, %76, %74, 
 676:                                              ; preds = %659, %669
   %storemerge696 = phi i32 [ %675, %669 ], [ %668, %659 ]
   store i32 %storemerge696, ptr %8, align 4
-  %677 = add nuw i8 %.0652749, 1
-  %exitcond.not = icmp eq i8 %.0652749, %.0651744
+  %677 = add nuw i8 %.0649749, 1
+  %exitcond.not = icmp eq i8 %.0649749, %.0648744
   br i1 %exitcond.not, label %.loopexit731, label %.lr.ph750, !llvm.loop !13
 
 678:                                              ; preds = %136
@@ -2469,7 +2469,7 @@ define internal ptr @dissect_mle_decrypt(ptr noundef %0, i32 noundef %1, ptr nou
   br label %27
 
 27:                                               ; preds = %23, %25
-  %.096 = phi i32 [ %26, %25 ], [ %19, %23 ]
+  %.094 = phi i32 [ %26, %25 ], [ %19, %23 ]
   %28 = load i32, ptr %13, align 8
   %.not104 = icmp eq i32 %28, 0
   br i1 %.not104, label %36, label %29
@@ -2504,7 +2504,7 @@ define internal ptr @dissect_mle_decrypt(ptr noundef %0, i32 noundef %1, ptr nou
   %47 = load i32, ptr %13, align 8
   %48 = and i32 %47, 4
   %49 = icmp ne i32 %48, 0
-  %50 = icmp ne i32 %.096, 0
+  %50 = icmp ne i32 %.094, 0
   %or.cond = select i1 %49, i1 %50, i1 false
   br i1 %or.cond, label %53, label %65
 
@@ -2515,11 +2515,11 @@ define internal ptr @dissect_mle_decrypt(ptr noundef %0, i32 noundef %1, ptr nou
 53:                                               ; preds = %40
   %54 = getelementptr inbounds i8, ptr %2, i64 408
   %55 = load ptr, ptr %54, align 8
-  %56 = sext i32 %.096 to i64
+  %56 = sext i32 %.094 to i64
   %57 = call ptr @tvb_memdup(ptr noundef %55, ptr noundef %0, i32 noundef %1, i64 noundef %56) #8
   %58 = load ptr, ptr %4, align 8
   %59 = load ptr, ptr %11, align 8
-  %60 = call i32 @ccm_ctr_encrypt(ptr noundef %58, ptr noundef nonnull %6, ptr noundef %59, ptr noundef %57, i32 noundef %.096) #8
+  %60 = call i32 @ccm_ctr_encrypt(ptr noundef %58, ptr noundef nonnull %6, ptr noundef %59, ptr noundef %57, i32 noundef %.094) #8
   %.not108 = icmp eq i32 %60, 0
   br i1 %.not108, label %61, label %63
 
@@ -2528,7 +2528,7 @@ define internal ptr @dissect_mle_decrypt(ptr noundef %0, i32 noundef %1, ptr nou
   br label %115
 
 63:                                               ; preds = %53
-  %64 = call ptr @tvb_new_real_data(ptr noundef %57, i32 noundef %.096, i32 noundef %19) #8
+  %64 = call ptr @tvb_new_real_data(ptr noundef %57, i32 noundef %.094, i32 noundef %19) #8
   call void @tvb_set_child_real_data_tvbuff(ptr noundef %0, ptr noundef %64) #8
   call void @add_new_data_source(ptr noundef nonnull %2, ptr noundef %64, ptr noundef nonnull @.str.328) #8
   br label %74
@@ -2548,11 +2548,11 @@ define internal ptr @dissect_mle_decrypt(ptr noundef %0, i32 noundef %1, ptr nou
   br label %115
 
 72:                                               ; preds = %66, %65
-  %73 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %1, i32 noundef %.096, i32 noundef %19) #8
+  %73 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %1, i32 noundef %.094, i32 noundef %19) #8
   br label %74
 
 74:                                               ; preds = %72, %63
-  %.095 = phi ptr [ %64, %63 ], [ %73, %72 ]
+  %.097 = phi ptr [ %64, %63 ], [ %73, %72 ]
   %75 = getelementptr inbounds i8, ptr %4, i64 40
   %76 = load ptr, ptr %75, align 8
   store i32 0, ptr %76, align 4
@@ -2598,14 +2598,14 @@ define internal ptr @dissect_mle_decrypt(ptr noundef %0, i32 noundef %1, ptr nou
   %102 = load i32, ptr %13, align 8
   %103 = and i32 %102, 4
   %.not110 = icmp eq i32 %103, 0
-  %spec.select = select i1 %.not110, i32 0, i32 %.096
-  %104 = select i1 %.not110, i32 %.096, i32 0
+  %spec.select = select i1 %.not110, i32 0, i32 %.094
+  %104 = select i1 %.not110, i32 %.094, i32 0
   %spec.select113 = add i32 %101, %104
   %105 = load i32, ptr %43, align 4
   %106 = trunc i32 %102 to i8
   call void @ccm_init_block(ptr noundef nonnull %6, i32 noundef 1, i32 noundef %17, i64 noundef %42, i32 noundef %105, i8 noundef zeroext %106, i32 noundef %spec.select, ptr noundef null) #8
   %107 = load ptr, ptr %4, align 8
-  %108 = call ptr @tvb_get_ptr(ptr noundef %.095, i32 noundef 0, i32 noundef %spec.select) #8
+  %108 = call ptr @tvb_get_ptr(ptr noundef %.097, i32 noundef 0, i32 noundef %spec.select) #8
   %109 = call i32 @ccm_cbc_mac(ptr noundef %107, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %spec.select113, ptr noundef %108, i32 noundef %spec.select, ptr noundef nonnull %7) #8
   %.not111 = icmp eq i32 %109, 0
   br i1 %.not111, label %.sink.split, label %110
@@ -2626,10 +2626,10 @@ define internal ptr @dissect_mle_decrypt(ptr noundef %0, i32 noundef %1, ptr nou
 115:                                              ; preds = %74, %110, %.sink.split, %70, %61, %51, %21
   %.sink117 = phi ptr [ %71, %70 ], [ %62, %61 ], [ %52, %51 ], [ %22, %21 ], [ %9, %.sink.split ], [ %9, %110 ], [ %9, %74 ]
   %.sink = phi i32 [ 6, %70 ], [ 6, %61 ], [ 4, %51 ], [ 3, %21 ], [ %17, %.sink.split ], [ %17, %110 ], [ %17, %74 ]
-  %.094 = phi ptr [ null, %70 ], [ null, %61 ], [ null, %51 ], [ null, %21 ], [ %.095, %.sink.split ], [ %.095, %110 ], [ %.095, %74 ]
+  %.098 = phi ptr [ null, %70 ], [ null, %61 ], [ null, %51 ], [ null, %21 ], [ %.097, %.sink.split ], [ %.097, %110 ], [ %.097, %74 ]
   %116 = load ptr, ptr %.sink117, align 8
   store i32 %.sink, ptr %116, align 4
-  ret ptr %.094
+  ret ptr %.098
 }
 
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

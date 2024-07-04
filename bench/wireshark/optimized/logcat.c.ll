@@ -169,13 +169,13 @@ define internal fastcc range(i32 -2, 3) i32 @detect_version(ptr noundef %0, ptr 
   br i1 %.not63, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %20, %get_priority.exit.thread.us
-  %.05282.us = phi i16 [ %.narrow, %get_priority.exit.thread.us ], [ 4, %20 ]
-  %.05581.us = phi i32 [ %51, %get_priority.exit.thread.us ], [ 1, %20 ]
-  %28 = icmp eq i32 %.05581.us, 1
+  %.05382.us = phi i32 [ %51, %get_priority.exit.thread.us ], [ 1, %20 ]
+  %.05581.us = phi i16 [ %.narrow, %get_priority.exit.thread.us ], [ 4, %20 ]
+  %28 = icmp eq i32 %.05382.us, 1
   %.narrow = select i1 %28, i16 %25, i16 %narrow
   %.89 = select i1 %28, ptr %24, ptr %23
-  %29 = zext i16 %.05282.us to i32
-  %30 = zext i16 %.05282.us to i64
+  %29 = zext i16 %.05581.us to i32
+  %30 = zext i16 %.05581.us to i64
   %31 = getelementptr i8, ptr %22, i64 %30
   %32 = zext nneg i16 %.narrow to i32
   %33 = sub nsw i32 %32, %29
@@ -211,7 +211,7 @@ define internal fastcc range(i32 -2, 3) i32 @detect_version(ptr noundef %0, ptr 
   br i1 %or.cond.us, label %.split86.us, label %get_priority.exit.thread.us
 
 get_priority.exit.thread.us:                      ; preds = %41, %38, %35
-  %51 = add nuw nsw i32 %.05581.us, 1
+  %51 = add nuw nsw i32 %.05382.us, 1
   %exitcond97.not = icmp eq i32 %51, 3
   br i1 %exitcond97.not, label %.split88.us, label %.split.us, !llvm.loop !6
 
@@ -223,14 +223,14 @@ get_priority.exit.thread.us:                      ; preds = %41, %38, %35
   br label %56
 
 56:                                               ; preds = %.split, %get_priority.exit.thread
-  %.05282 = phi i16 [ 4, %.split ], [ %.1, %get_priority.exit.thread ]
-  %.05581 = phi i32 [ 1, %.split ], [ %78, %get_priority.exit.thread ]
-  %57 = icmp eq i32 %.05581, 1
+  %.05382 = phi i32 [ 1, %.split ], [ %78, %get_priority.exit.thread ]
+  %.05581 = phi i16 [ 4, %.split ], [ %.1, %get_priority.exit.thread ]
+  %57 = icmp eq i32 %.05382, 1
   br i1 %57, label %58, label %get_priority.exit.thread
 
 58:                                               ; preds = %56
-  %59 = zext i16 %.05282 to i32
-  %60 = zext i16 %.05282 to i64
+  %59 = zext i16 %.05581 to i32
+  %60 = zext i16 %.05581 to i64
   %61 = getelementptr i8, ptr %22, i64 %60
   %62 = sub nsw i32 %52, %59
   %63 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef %61, i32 noundef %62, ptr noundef %1, ptr noundef %2) #9
@@ -269,13 +269,13 @@ get_priority.exit.thread.us:                      ; preds = %41, %38, %35
   br i1 %or.cond, label %.split86.us, label %get_priority.exit.thread
 
 .split86.us:                                      ; preds = %71, %41
-  %.us-phi = phi i32 [ %.05581.us, %41 ], [ 1, %71 ]
+  %.us-phi = phi i32 [ %.05382.us, %41 ], [ 1, %71 ]
   call void @g_free(ptr noundef %22) #9
   br label %79
 
 get_priority.exit.thread:                         ; preds = %56, %65, %71, %68
-  %.1 = phi i16 [ %25, %68 ], [ %25, %71 ], [ %25, %65 ], [ %.05282, %56 ]
-  %78 = add nuw nsw i32 %.05581, 1
+  %.1 = phi i16 [ %25, %68 ], [ %25, %71 ], [ %25, %65 ], [ %.05581, %56 ]
+  %78 = add nuw nsw i32 %.05382, 1
   %exitcond.not = icmp eq i32 %78, 3
   br i1 %exitcond.not, label %.split88.us, label %56, !llvm.loop !6
 

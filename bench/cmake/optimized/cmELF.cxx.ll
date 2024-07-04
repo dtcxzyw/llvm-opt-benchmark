@@ -1810,7 +1810,7 @@ _ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEEixERS5_.exit: ; pre
 
 88:                                               ; preds = %78, %104
   %.053 = phi i1 [ false, %78 ], [ %.1, %104 ]
-  %.02952 = phi i64 [ %79, %78 ], [ %101, %104 ]
+  %.02852 = phi i64 [ %79, %78 ], [ %101, %104 ]
   %89 = load ptr, ptr %81, align 8
   %90 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi3getERc(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 1 dereferenceable(1) %6)
   %91 = load ptr, ptr %90, align 8
@@ -1827,7 +1827,7 @@ _ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEEixERS5_.exit: ; pre
   br i1 %99, label %.critedge, label %100
 
 100:                                              ; preds = %96
-  %101 = add i64 %.02952, 1
+  %101 = add i64 %.02852, 1
   br i1 %98, label %102, label %104
 
 102:                                              ; preds = %100
@@ -1840,7 +1840,7 @@ _ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEEixERS5_.exit: ; pre
   br i1 %.not34, label %.critedge, label %88, !llvm.loop !11
 
 .critedge:                                        ; preds = %88, %104, %96
-  %.029.lcssa = phi i64 [ %.02952, %88 ], [ %80, %104 ], [ %.02952, %96 ]
+  %.028.lcssa = phi i64 [ %.02852, %88 ], [ %80, %104 ], [ %.02852, %96 ]
   %105 = load ptr, ptr %81, align 8
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr i8, ptr %106, i64 -24
@@ -1864,7 +1864,7 @@ _ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEEixERS5_.exit: ; pre
   %120 = zext i32 %119 to i64
   %121 = add nuw nsw i64 %120, %79
   store i64 %121, ptr %32, align 8
-  %122 = sub i64 %.029.lcssa, %79
+  %122 = sub i64 %.028.lcssa, %79
   store i64 %122, ptr %33, align 8
   %123 = load ptr, ptr %59, align 8
   %124 = ptrtoint ptr %.sroa.038.051 to i64
@@ -1881,8 +1881,8 @@ _ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEEixERS5_.exit: ; pre
   br i1 %.not48, label %.loopexit, label %64, !llvm.loop !12
 
 .loopexit:                                        ; preds = %129, %57, %18, %_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEEixERS5_.exit, %118, %111, %72, %51
-  %.028 = phi ptr [ null, %51 ], [ null, %72 ], [ null, %111 ], [ %31, %118 ], [ null, %_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEEixERS5_.exit ], [ %spec.select, %18 ], [ null, %57 ], [ null, %129 ]
-  ret ptr %.028
+  %.029 = phi ptr [ null, %51 ], [ null, %72 ], [ null, %111 ], [ %31, %118 ], [ null, %_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEEixERS5_.exit ], [ %spec.select, %18 ], [ null, %57 ], [ null, %129 ]
+  ret ptr %.029
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3862,7 +3862,7 @@ _ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEEixERS5_.exit: ; pre
 
 86:                                               ; preds = %79, %102
   %.053 = phi i1 [ false, %79 ], [ %.1, %102 ]
-  %.02952 = phi i64 [ %70, %79 ], [ %99, %102 ]
+  %.02852 = phi i64 [ %70, %79 ], [ %99, %102 ]
   %87 = load ptr, ptr %80, align 8
   %88 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi3getERc(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 1 dereferenceable(1) %6)
   %89 = load ptr, ptr %88, align 8
@@ -3879,7 +3879,7 @@ _ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEEixERS5_.exit: ; pre
   br i1 %97, label %.critedge, label %98
 
 98:                                               ; preds = %94
-  %99 = add i64 %.02952, 1
+  %99 = add i64 %.02852, 1
   br i1 %96, label %100, label %102
 
 100:                                              ; preds = %98
@@ -3892,7 +3892,7 @@ _ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEEixERS5_.exit: ; pre
   br i1 %.not34, label %.critedge, label %86, !llvm.loop !24
 
 .critedge:                                        ; preds = %86, %102, %94
-  %.029.lcssa = phi i64 [ %.02952, %86 ], [ %72, %102 ], [ %.02952, %94 ]
+  %.028.lcssa = phi i64 [ %.02852, %86 ], [ %72, %102 ], [ %.02852, %94 ]
   %103 = load ptr, ptr %80, align 8
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr i8, ptr %104, i64 -24
@@ -3915,7 +3915,7 @@ _ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEEixERS5_.exit: ; pre
   %117 = load i64, ptr %82, align 8
   %118 = add i64 %117, %70
   store i64 %118, ptr %32, align 8
-  %119 = sub i64 %.029.lcssa, %70
+  %119 = sub i64 %.028.lcssa, %70
   store i64 %119, ptr %33, align 8
   %120 = load ptr, ptr %59, align 8
   %121 = ptrtoint ptr %.sroa.038.051 to i64
@@ -3932,8 +3932,8 @@ _ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEEixERS5_.exit: ; pre
   br i1 %.not48, label %.loopexit, label %65, !llvm.loop !25
 
 .loopexit:                                        ; preds = %126, %57, %18, %_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEEixERS5_.exit, %116, %109, %73, %51
-  %.028 = phi ptr [ null, %51 ], [ null, %73 ], [ null, %109 ], [ %31, %116 ], [ null, %_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEEixERS5_.exit ], [ %spec.select, %18 ], [ null, %57 ], [ null, %126 ]
-  ret ptr %.028
+  %.029 = phi ptr [ null, %51 ], [ null, %73 ], [ null, %109 ], [ %31, %116 ], [ null, %_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEEixERS5_.exit ], [ %spec.select, %18 ], [ null, %57 ], [ null, %126 ]
+  ret ptr %.029
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

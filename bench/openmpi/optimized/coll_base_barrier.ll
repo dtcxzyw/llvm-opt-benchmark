@@ -86,8 +86,8 @@ define i32 @ompi_coll_base_barrier_intra_doublering(ptr noundef %0, ptr nocaptur
   br label %34
 
 34:                                               ; preds = %31, %.thread, %14, %17, %21, %25, %2
-  %.0 = phi i32 [ 0, %2 ], [ %16, %14 ], [ %19, %17 ], [ %23, %21 ], [ %27, %25 ], [ %29, %.thread ], [ %33, %31 ]
-  ret i32 %.0
+  %.031 = phi i32 [ 0, %2 ], [ %16, %14 ], [ %19, %17 ], [ %23, %21 ], [ %27, %25 ], [ %29, %.thread ], [ %33, %31 ]
+  ret i32 %.031
 }
 
 ; Function Attrs: nounwind uwtable
@@ -558,20 +558,20 @@ define i32 @ompi_coll_base_barrier_intra_basic_linear(ptr noundef %0, ptr nocapt
   br i1 %20, label %.lr.ph74, label %.thread
 
 30:                                               ; preds = %.lr.ph74
-  %31 = add nuw nsw i32 %.173, 1
+  %31 = add nuw nsw i32 %.14773, 1
   %exitcond89.not = icmp eq i32 %31, %.val.val
   br i1 %exitcond89.not, label %.thread, label %.lr.ph74, !llvm.loop !8
 
 .lr.ph74:                                         ; preds = %.preheader69, %30
-  %.173 = phi i32 [ %31, %30 ], [ 1, %.preheader69 ]
+  %.14773 = phi i32 [ %31, %30 ], [ 1, %.preheader69 ]
   %32 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 96), align 8
-  %33 = tail call i32 %32(ptr noundef null, i64 noundef 0, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %.173, i32 noundef -16, i32 noundef 4, ptr noundef %0) #4
+  %33 = tail call i32 %32(ptr noundef null, i64 noundef 0, ptr noundef nonnull @ompi_mpi_byte, i32 noundef %.14773, i32 noundef -16, i32 noundef 4, ptr noundef %0) #4
   %.not59 = icmp eq i32 %33, 0
   br i1 %.not59, label %30, label %.thread
 
 .loopexit71:                                      ; preds = %.lr.ph, %._crit_edge
-  %.046 = phi i32 [ %29, %._crit_edge ], [ %24, %.lr.ph ]
-  %34 = icmp eq i32 %.046, 18
+  %.045 = phi i32 [ %29, %._crit_edge ], [ %24, %.lr.ph ]
+  %34 = icmp eq i32 %.045, 18
   br i1 %34, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.loopexit71
@@ -603,8 +603,8 @@ define i32 @ompi_coll_base_barrier_intra_basic_linear(ptr noundef %0, ptr nocapt
   br i1 %exitcond88.not, label %.loopexit, label %.lr.ph78, !llvm.loop !9
 
 .loopexit:                                        ; preds = %42, %39, %.loopexit71
-  %.147 = phi i32 [ %.046, %.loopexit71 ], [ 18, %42 ], [ %41, %39 ]
-  %.147.fr = freeze i32 %.147
+  %.1 = phi i32 [ %.045, %.loopexit71 ], [ 18, %42 ], [ %41, %39 ]
+  %.1.fr = freeze i32 %.1
   %43 = icmp sgt i32 %.val.val, 0
   br i1 %43, label %.lr.ph.preheader.i, label %ompi_coll_base_free_reqs.exit
 
@@ -653,8 +653,8 @@ ompi_request_cancel.exit.i:                       ; preds = %52, %49
   br i1 %exitcond.not.i, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i, !llvm.loop !10
 
 ompi_coll_base_free_reqs.exit:                    ; preds = %60, %.loopexit
-  %61 = icmp eq i32 %.147.fr, 76
-  %spec.select = select i1 %61, i32 75, i32 %.147.fr
+  %61 = icmp eq i32 %.1.fr, 76
+  %spec.select = select i1 %61, i32 75, i32 %.1.fr
   br label %.thread
 
 .thread:                                          ; preds = %30, %.lr.ph74, %ompi_coll_base_free_reqs.exit, %.preheader, %.preheader69, %12, %15, %9, %2

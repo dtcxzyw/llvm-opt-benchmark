@@ -46,8 +46,8 @@ define dso_local noundef ptr @step_ctx_create_timeout(ptr noundef %0, i32 nounde
   br label %17
 
 17:                                               ; preds = %15, %13
-  %.038 = phi i32 [ %14, %13 ], [ %16, %15 ]
-  %18 = icmp slt i32 %.038, 0
+  %.037 = phi i32 [ %14, %13 ], [ %16, %15 ]
+  %18 = icmp slt i32 %.037, 0
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17
@@ -147,10 +147,10 @@ define dso_local noundef ptr @step_ctx_create_timeout(ptr noundef %0, i32 nounde
   br label %64
 
 64:                                               ; preds = %59, %62, %.loopexit
-  %.039 = phi i32 [ %32, %.loopexit ], [ 2021, %62 ], [ 2021, %59 ]
+  %.038 = phi i32 [ %32, %.loopexit ], [ 2021, %62 ], [ 2021, %59 ]
   %65 = load i32, ptr %5, align 4
   %66 = call i32 @close(i32 noundef %65) #8
-  store i32 %.039, ptr %27, align 4
+  store i32 %.038, ptr %27, align 4
   br label %97
 
 67:                                               ; preds = %21

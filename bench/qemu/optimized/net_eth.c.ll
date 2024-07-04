@@ -331,8 +331,8 @@ if.end39:                                         ; preds = %if.then35
 if.end46:                                         ; preds = %if.end39, %if.end19
   %22 = phi i64 [ %add30, %if.end19 ], [ %add40, %if.end39 ]
   %cmp111 = phi i1 [ true, %if.end19 ], [ false, %if.end39 ]
-  %ip_p.0 = phi i8 [ %14, %if.end19 ], [ %19, %if.end39 ]
   %fragment.0.in.in = phi ptr [ %fragment26, %if.end19 ], [ %fragment41, %if.end39 ]
+  %ip_p.0 = phi i8 [ %14, %if.end19 ], [ %19, %if.end39 ]
   %fragment.0.in = load i8, ptr %fragment.0.in.in, align 1
   %tobool47 = trunc i8 %fragment.0.in to i1
   br i1 %tobool47, label %sw.epilog, label %if.end49
@@ -673,14 +673,14 @@ if.then38:                                        ; preds = %if.end22
   br i1 %tobool.i.not, label %while.body.us.i, label %while.body.i
 
 while.body.us.i:                                  ; preds = %if.then38, %if.end34.us.i
-  %bytes_left.05.us.i = phi i64 [ %sub36.us.i, %if.end34.us.i ], [ %sub.i58, %if.then38 ]
-  %opt_offset.04.us.i = phi i64 [ %add35.us.i, %if.end34.us.i ], [ %add2.i, %if.then38 ]
+  %opt_offset.05.us.i = phi i64 [ %add35.us.i, %if.end34.us.i ], [ %add2.i, %if.then38 ]
+  %bytes_left.04.us.i = phi i64 [ %sub36.us.i, %if.end34.us.i ], [ %sub.i58, %if.then38 ]
   %call.us.i = call i64 @iov_size(ptr noundef %pkt, i32 noundef 0) #8
-  %cmp4.us.i = icmp ult i64 %call.us.i, %opt_offset.04.us.i
+  %cmp4.us.i = icmp ult i64 %call.us.i, %opt_offset.05.us.i
   br i1 %cmp4.us.i, label %_eth_get_rss_ex_src_addr.exit, label %if.end.us.i
 
 if.end.us.i:                                      ; preds = %while.body.us.i
-  %call.i.us.i = call i64 @iov_to_buf_full(ptr noundef %pkt, i32 noundef 0, i64 noundef %opt_offset.04.us.i, ptr noundef nonnull %opthdr.i, i64 noundef 2) #8
+  %call.i.us.i = call i64 @iov_to_buf_full(ptr noundef %pkt, i32 noundef 0, i64 noundef %opt_offset.05.us.i, ptr noundef nonnull %opthdr.i, i64 noundef 2) #8
   %cmp7.not.us.i = icmp eq i64 %call.i.us.i, 2
   br i1 %cmp7.not.us.i, label %if.end10.us.i, label %_eth_get_rss_ex_src_addr.exit
 
@@ -691,7 +691,7 @@ if.end10.us.i:                                    ; preds = %if.end.us.i
   %conv14.us.i = zext i8 %19 to i64
   %add15.us.i = add nuw nsw i64 %conv14.us.i, 2
   %cond.us.i = select i1 %cmp12.us.i, i64 1, i64 %add15.us.i
-  %cmp16.us.i = icmp ugt i64 %cond.us.i, %bytes_left.05.us.i
+  %cmp16.us.i = icmp ugt i64 %cond.us.i, %bytes_left.04.us.i
   br i1 %cmp16.us.i, label %_eth_get_rss_ex_src_addr.exit, label %if.end19.us.i
 
 if.end19.us.i:                                    ; preds = %if.end10.us.i
@@ -699,29 +699,29 @@ if.end19.us.i:                                    ; preds = %if.end10.us.i
   br i1 %cmp22.us.i, label %if.then24.i, label %if.end34.us.i
 
 if.end34.us.i:                                    ; preds = %if.end19.us.i
-  %add35.us.i = add i64 %cond.us.i, %opt_offset.04.us.i
-  %sub36.us.i = sub i64 %bytes_left.05.us.i, %cond.us.i
+  %add35.us.i = add i64 %cond.us.i, %opt_offset.05.us.i
+  %sub36.us.i = sub i64 %bytes_left.04.us.i, %cond.us.i
   %cmp.us.i = icmp ugt i64 %sub36.us.i, 2
   br i1 %cmp.us.i, label %while.body.us.i, label %_eth_get_rss_ex_src_addr.exit, !llvm.loop !5
 
 while.body.i:                                     ; preds = %if.then38, %if.end34.i
-  %bytes_left.05.i = phi i64 [ %sub36.i, %if.end34.i ], [ %sub.i58, %if.then38 ]
-  %opt_offset.04.i = phi i64 [ %add35.i, %if.end34.i ], [ %add2.i, %if.then38 ]
+  %opt_offset.05.i = phi i64 [ %add35.i, %if.end34.i ], [ %add2.i, %if.then38 ]
+  %bytes_left.04.i = phi i64 [ %sub36.i, %if.end34.i ], [ %sub.i58, %if.then38 ]
   %call.i61 = call i64 @iov_size(ptr noundef %pkt, i32 noundef %pkt_frags) #8
-  %cmp4.i = icmp ult i64 %call.i61, %opt_offset.04.i
+  %cmp4.i = icmp ult i64 %call.i61, %opt_offset.05.i
   br i1 %cmp4.i, label %_eth_get_rss_ex_src_addr.exit, label %if.end.i62
 
 if.end.i62:                                       ; preds = %while.body.i
   %20 = load i64, ptr %iov_len.i46, align 8
-  %cmp.not.i.i63 = icmp ult i64 %20, %opt_offset.04.i
-  %sub.i.i64 = sub i64 %20, %opt_offset.04.i
+  %cmp.not.i.i63 = icmp ult i64 %20, %opt_offset.05.i
+  %sub.i.i64 = sub i64 %20, %opt_offset.05.i
   %cmp5.not.i.i65 = icmp ult i64 %sub.i.i64, 2
   %or.cond13.i.i66 = or i1 %cmp.not.i.i63, %cmp5.not.i.i65
   br i1 %or.cond13.i.i66, label %iov_to_buf.exit.i70, label %iov_to_buf.exit.thread.i
 
 iov_to_buf.exit.thread.i:                         ; preds = %if.end.i62
   %21 = load ptr, ptr %pkt, align 8
-  %add.ptr.i.i67 = getelementptr i8, ptr %21, i64 %opt_offset.04.i
+  %add.ptr.i.i67 = getelementptr i8, ptr %21, i64 %opt_offset.05.i
   %22 = load i16, ptr %add.ptr.i.i67, align 1
   store i16 %22, ptr %opthdr.i, align 2
   %23 = trunc i16 %22 to i8
@@ -730,7 +730,7 @@ iov_to_buf.exit.thread.i:                         ; preds = %if.end.i62
   br label %if.end10.i
 
 iov_to_buf.exit.i70:                              ; preds = %if.end.i62
-  %call.i.i71 = call i64 @iov_to_buf_full(ptr noundef nonnull %pkt, i32 noundef %pkt_frags, i64 noundef %opt_offset.04.i, ptr noundef nonnull %opthdr.i, i64 noundef 2) #8
+  %call.i.i71 = call i64 @iov_to_buf_full(ptr noundef nonnull %pkt, i32 noundef %pkt_frags, i64 noundef %opt_offset.05.i, ptr noundef nonnull %opthdr.i, i64 noundef 2) #8
   %cmp7.not.i = icmp eq i64 %call.i.i71, 2
   br i1 %cmp7.not.i, label %iov_to_buf.exit.if.end10_crit_edge.i, label %_eth_get_rss_ex_src_addr.exit
 
@@ -746,7 +746,7 @@ if.end10.i:                                       ; preds = %iov_to_buf.exit.if.
   %conv14.i = zext i8 %26 to i64
   %add15.i = add nuw nsw i64 %conv14.i, 2
   %cond.i = select i1 %cmp12.i, i64 1, i64 %add15.i
-  %cmp16.i = icmp ugt i64 %cond.i, %bytes_left.05.i
+  %cmp16.i = icmp ugt i64 %cond.i, %bytes_left.04.i
   br i1 %cmp16.i, label %_eth_get_rss_ex_src_addr.exit, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.end10.i
@@ -755,7 +755,7 @@ if.end19.i:                                       ; preds = %if.end10.i
 
 if.then24.i:                                      ; preds = %if.end19.i, %if.end19.us.i
   %.us-phi6.i = phi i64 [ %call.us.i, %if.end19.us.i ], [ %call.i61, %if.end19.i ]
-  %.us-phi7.i = phi i64 [ %opt_offset.04.us.i, %if.end19.us.i ], [ %opt_offset.04.i, %if.end19.i ]
+  %.us-phi7.i = phi i64 [ %opt_offset.05.us.i, %if.end19.us.i ], [ %opt_offset.05.i, %if.end19.i ]
   %add25.i = add i64 %.us-phi7.i, 2
   %cmp26.i = icmp ult i64 %.us-phi6.i, %add25.i
   br i1 %cmp26.i, label %_eth_get_rss_ex_src_addr.exit, label %if.end29.i
@@ -783,8 +783,8 @@ if.else.i16.i:                                    ; preds = %land.lhs.true1.i19.
   br label %_eth_get_rss_ex_src_addr.exit
 
 if.end34.i:                                       ; preds = %if.end19.i
-  %add35.i = add i64 %cond.i, %opt_offset.04.i
-  %sub36.i = sub i64 %bytes_left.05.i, %cond.i
+  %add35.i = add i64 %cond.i, %opt_offset.05.i
+  %sub36.i = sub i64 %bytes_left.04.i, %cond.i
   %cmp.i68 = icmp ugt i64 %sub36.i, 2
   br i1 %cmp.i68, label %while.body.i, label %_eth_get_rss_ex_src_addr.exit, !llvm.loop !5
 

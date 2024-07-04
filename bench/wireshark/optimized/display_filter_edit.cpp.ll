@@ -6284,16 +6284,16 @@ _Z12qobject_castIP9QComboBoxET_P7QObject.exit:    ; preds = %174
   br label %181
 
 181:                                              ; preds = %.preheader297, %_ZN7QStringD2Ev.exit153
-  %.058 = phi i32 [ %201, %_ZN7QStringD2Ev.exit153 ], [ 0, %.preheader297 ]
+  %.060 = phi i32 [ %201, %_ZN7QStringD2Ev.exit153 ], [ 0, %.preheader297 ]
   %182 = invoke noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %179)
           to label %183 unwind label %.loopexit298
 
 183:                                              ; preds = %181
-  %184 = icmp slt i32 %.058, %182
+  %184 = icmp slt i32 %.060, %182
   br i1 %184, label %185, label %.loopexit303
 
 185:                                              ; preds = %183
-  invoke void @_ZNK9QComboBox8itemTextEi(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %18, ptr noundef nonnull align 8 dereferenceable(40) %179, i32 noundef %.058)
+  invoke void @_ZNK9QComboBox8itemTextEi(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %18, ptr noundef nonnull align 8 dereferenceable(40) %179, i32 noundef %.060)
           to label %186 unwind label %.loopexit298
 
 186:                                              ; preds = %185
@@ -6351,7 +6351,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i151:   ; preds = %_ZN5QListI7QStringE
   br label %_ZN7QStringD2Ev.exit153
 
 _ZN7QStringD2Ev.exit153:                          ; preds = %_ZN5QListI7QStringElsERKS0_.exit, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i151, %199
-  %201 = add nuw nsw i32 %.058, 1
+  %201 = add nuw nsw i32 %.060, 1
   br label %181, !llvm.loop !82
 
 .loopexit303:                                     ; preds = %183, %_Z12qobject_castIP9QComboBoxET_P7QObject.exit
@@ -6633,12 +6633,12 @@ _ZN10QByteArrayD2Ev.exit170.thread:               ; preds = %_ZN10QByteArrayD2Ev
   br label %310
 
 310:                                              ; preds = %.preheader288, %_ZN7QStringD2Ev.exit213
-  %.060 = phi i32 [ %375, %_ZN7QStringD2Ev.exit213 ], [ %302, %.preheader288 ]
-  %.not71 = icmp eq i32 %.060, -1
+  %.048 = phi i32 [ %375, %_ZN7QStringD2Ev.exit213 ], [ %302, %.preheader288 ]
+  %.not71 = icmp eq i32 %.048, -1
   br i1 %.not71, label %380, label %311
 
 311:                                              ; preds = %310
-  %312 = invoke ptr @find_protocol_by_id(i32 noundef %.060)
+  %312 = invoke ptr @find_protocol_by_id(i32 noundef %.048)
           to label %313 unwind label %.loopexit.split-lp.loopexit
 
 313:                                              ; preds = %311
@@ -6665,7 +6665,7 @@ _ZN10QByteArrayD2Ev.exit170.thread:               ; preds = %_ZN10QByteArrayD2Ev
   br label %.body
 
 316:                                              ; preds = %315
-  %317 = invoke ptr @proto_get_protocol_filter_name(i32 noundef %.060)
+  %317 = invoke ptr @proto_get_protocol_filter_name(i32 noundef %.048)
           to label %318 unwind label %.loopexit.split-lp.loopexit
 
 318:                                              ; preds = %316
@@ -6709,16 +6709,16 @@ _ZN5QListI7QStringElsERKS0_.exit182:              ; preds = %320
   %.not.i.i185 = icmp eq ptr %329, null
   %spec.select.i.i186 = select i1 %.not.i.i185, ptr @_ZN10QByteArray6_emptyE, ptr %329
   %330 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i.i186) #23
-  %331 = invoke ptr @proto_get_first_protocol_field(i32 noundef %.060, ptr noundef nonnull %31)
+  %331 = invoke ptr @proto_get_first_protocol_field(i32 noundef %.048, ptr noundef nonnull %31)
           to label %.preheader282 unwind label %.loopexit.split-lp284
 
 .preheader282:                                    ; preds = %328, %_ZN7QStringD2Ev.exit197
-  %.047 = phi ptr [ %361, %_ZN7QStringD2Ev.exit197 ], [ %331, %328 ]
-  %.not73 = icmp eq ptr %.047, null
+  %.046 = phi ptr [ %361, %_ZN7QStringD2Ev.exit197 ], [ %331, %328 ]
+  %.not73 = icmp eq ptr %.046, null
   br i1 %.not73, label %362, label %332
 
 332:                                              ; preds = %.preheader282
-  %333 = getelementptr inbounds i8, ptr %.047, i64 60
+  %333 = getelementptr inbounds i8, ptr %.046, i64 60
   %334 = load i32, ptr %333, align 4
   %.not74 = icmp eq i32 %334, -1
   br i1 %.not74, label %337, label %_ZN7QStringD2Ev.exit197
@@ -6739,7 +6739,7 @@ _ZN5QListI7QStringElsERKS0_.exit182:              ; preds = %320
   br label %_ZN7QStringD2Ev.exit201
 
 337:                                              ; preds = %332
-  %338 = getelementptr inbounds i8, ptr %.047, i64 8
+  %338 = getelementptr inbounds i8, ptr %.046, i64 8
   %339 = load ptr, ptr %338, align 8
   %340 = invoke i32 @g_ascii_strncasecmp(ptr noundef nonnull %spec.select.i.i186, ptr noundef %339, i64 noundef %330)
           to label %341 unwind label %.loopexit283
@@ -6811,7 +6811,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i199:   ; preds = %355
   br label %_ZN7QStringD2Ev.exit201
 
 _ZN7QStringD2Ev.exit197:                          ; preds = %353, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i195, %_ZN5QListI7QStringElsEOS0_.exit, %341, %342, %332
-  %361 = invoke ptr @proto_get_next_protocol_field(i32 noundef %.060, ptr noundef nonnull %31)
+  %361 = invoke ptr @proto_get_next_protocol_field(i32 noundef %.048, ptr noundef nonnull %31)
           to label %.preheader282 unwind label %.loopexit283, !llvm.loop !87
 
 362:                                              ; preds = %.preheader282

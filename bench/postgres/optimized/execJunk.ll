@@ -25,7 +25,7 @@ define dso_local noundef ptr @ExecInitJunkFilter(ptr noundef %0, ptr noundef %1)
   br label %7
 
 7:                                                ; preds = %5, %4
-  %.0 = phi ptr [ %1, %4 ], [ %6, %5 ]
+  %.029 = phi ptr [ %1, %4 ], [ %6, %5 ]
   %8 = load i32, ptr %3, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %.thread
@@ -47,7 +47,7 @@ define dso_local noundef ptr @ExecInitJunkFilter(ptr noundef %0, ptr noundef %1)
 .lr.ph42:                                         ; preds = %.lr.ph, %31
   %18 = phi i32 [ %32, %31 ], [ %16, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.lr.ph ]
-  %.0293741 = phi i16 [ %.1, %31 ], [ 0, %.lr.ph ]
+  %.0273741 = phi i16 [ %.1, %31 ], [ 0, %.lr.ph ]
   %19 = load ptr, ptr %15, align 8
   %20 = getelementptr %union.ListCell, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
@@ -59,23 +59,23 @@ define dso_local noundef ptr @ExecInitJunkFilter(ptr noundef %0, ptr noundef %1)
 25:                                               ; preds = %.lr.ph42
   %26 = getelementptr inbounds i8, ptr %21, i64 16
   %27 = load i16, ptr %26, align 8
-  %28 = sext i16 %.0293741 to i64
+  %28 = sext i16 %.0273741 to i64
   %29 = getelementptr i16, ptr %13, i64 %28
   store i16 %27, ptr %29, align 2
-  %30 = add i16 %.0293741, 1
+  %30 = add i16 %.0273741, 1
   %.pre = load i32, ptr %14, align 4
   br label %31
 
 31:                                               ; preds = %.lr.ph42, %25
   %32 = phi i32 [ %18, %.lr.ph42 ], [ %.pre, %25 ]
-  %.1 = phi i16 [ %.0293741, %.lr.ph42 ], [ %30, %25 ]
+  %.1 = phi i16 [ %.0273741, %.lr.ph42 ], [ %30, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
   br i1 %34, label %.lr.ph42, label %.thread
 
 .thread:                                          ; preds = %31, %10, %.lr.ph, %7
-  %.027 = phi ptr [ null, %7 ], [ %13, %.lr.ph ], [ %13, %10 ], [ %13, %31 ]
+  %.028 = phi ptr [ null, %7 ], [ %13, %.lr.ph ], [ %13, %10 ], [ %13, %31 ]
   %35 = tail call noundef ptr @palloc0(i64 noundef 40) #4
   store i32 369, ptr %35, align 4
   %36 = getelementptr inbounds i8, ptr %35, i64 8
@@ -83,9 +83,9 @@ define dso_local noundef ptr @ExecInitJunkFilter(ptr noundef %0, ptr noundef %1)
   %37 = getelementptr inbounds i8, ptr %35, i64 16
   store ptr %3, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %35, i64 24
-  store ptr %.027, ptr %38, align 8
+  store ptr %.028, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %35, i64 32
-  store ptr %.0, ptr %39, align 8
+  store ptr %.029, ptr %39, align 8
   ret ptr %35
 }
 
@@ -111,7 +111,7 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
   br label %7
 
 7:                                                ; preds = %5, %4
-  %.0 = phi ptr [ %2, %4 ], [ %6, %5 ]
+  %.030 = phi ptr [ %2, %4 ], [ %6, %5 ]
   %8 = load i32, ptr %1, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %.loopexit
@@ -138,7 +138,7 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
 
 21:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %.02934 = phi ptr [ %17, %.lr.ph ], [ %.2, %38 ]
+  %.02834 = phi ptr [ %17, %.lr.ph ], [ %.2, %38 ]
   %22 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %18, i64 0, i64 %indvars.iv, i32 17
   %23 = load i8, ptr %22, align 1
   %24 = trunc i8 %23 to i1
@@ -152,7 +152,7 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
   br label %27
 
 27:                                               ; preds = %.preheader, %27
-  %.1 = phi ptr [ %..i, %27 ], [ %.02934, %.preheader ]
+  %.1 = phi ptr [ %..i, %27 ], [ %.02834, %.preheader ]
   %28 = load ptr, ptr %.1, align 8
   %29 = getelementptr i8, ptr %.1, i64 8
   %30 = icmp ult ptr %29, %26
@@ -170,13 +170,13 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
   br label %38
 
 38:                                               ; preds = %21, %34
-  %.2 = phi ptr [ %.02934, %21 ], [ %..i, %34 ]
+  %.2 = phi ptr [ %.02834, %21 ], [ %..i, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !5
 
 .loopexit:                                        ; preds = %38, %7
-  %.030 = phi ptr [ null, %7 ], [ %13, %38 ]
+  %.029 = phi ptr [ null, %7 ], [ %13, %38 ]
   %39 = tail call noundef ptr @palloc0(i64 noundef 40) #4
   store i32 369, ptr %39, align 4
   %40 = getelementptr inbounds i8, ptr %39, i64 8
@@ -184,9 +184,9 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
   %41 = getelementptr inbounds i8, ptr %39, i64 16
   store ptr %1, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %39, i64 24
-  store ptr %.030, ptr %42, align 8
+  store ptr %.029, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %39, i64 32
-  store ptr %.0, ptr %43, align 8
+  store ptr %.030, ptr %43, align 8
   ret ptr %39
 }
 
@@ -242,8 +242,8 @@ define dso_local signext i16 @ExecFindJunkAttribute(ptr nocapture noundef readon
   br i1 %exitcond.not.i, label %ExecFindJunkAttributeInTlist.exit, label %10
 
 ExecFindJunkAttributeInTlist.exit:                ; preds = %24, %2, %.lr.ph.i, %.split.i
-  %.0.i = phi i16 [ %23, %.split.i ], [ 0, %.lr.ph.i ], [ 0, %2 ], [ 0, %24 ]
-  ret i16 %.0.i
+  %.011.i = phi i16 [ %23, %.split.i ], [ 0, %.lr.ph.i ], [ 0, %2 ], [ 0, %24 ]
+  ret i16 %.011.i
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
@@ -294,8 +294,8 @@ define dso_local signext i16 @ExecFindJunkAttributeInTlist(ptr noundef readonly 
   br i1 %exitcond.not, label %.thread, label %8
 
 .thread:                                          ; preds = %22, %2, %.lr.ph, %.split
-  %.0 = phi i16 [ %21, %.split ], [ 0, %.lr.ph ], [ 0, %2 ], [ 0, %22 ]
-  ret i16 %.0
+  %.011 = phi i16 [ %21, %.split ], [ 0, %.lr.ph ], [ 0, %2 ], [ 0, %22 ]
+  ret i16 %.011
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

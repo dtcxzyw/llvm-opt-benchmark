@@ -11397,9 +11397,9 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8Identi
   %.val2.i.i.i.i = phi ptr [ %.val2.pre.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i ], [ %this.val6.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %.val1.i.i.i.i = phi ptr [ %.val1.pre.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i ], [ %this.val7.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %retval.sroa.3.0.i9.i.i.i.i = phi i8 [ 1, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i ], [ 0, %for.body.i.i.i.i.i ]
-  %retval.sroa.0.0.i8.i.i.i.i = phi i64 [ %target.sroa.0.0.i.i.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i ], [ %and.i.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %add.ptr.i4.i.i.i.i = getelementptr inbounds i8, ptr %.val1.i.i.i.i, i64 %retval.sroa.0.0.i8.i.i.i.i
-  %add.ptr3.i.i.i.i.i = getelementptr inbounds %"class.absl::container_internal::Tracked", ptr %.val2.i.i.i.i, i64 %retval.sroa.0.0.i8.i.i.i.i
+  %retval.sroa.0.0.i7.i.i.i.i = phi i64 [ %target.sroa.0.0.i.i.i.i.i.i, %_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_16PolicyENS2_8IdentityESt8equal_toIiENS2_12CheckedAllocINS0_7TrackedIiEELi6EEEE10emplace_atIJRiEEEvmDpOT_.exit.i.i.i.i ], [ %and.i.i.i.i.i.i, %for.body.i.i.i.i.i ]
+  %add.ptr.i4.i.i.i.i = getelementptr inbounds i8, ptr %.val1.i.i.i.i, i64 %retval.sroa.0.0.i7.i.i.i.i
+  %add.ptr3.i.i.i.i.i = getelementptr inbounds %"class.absl::container_internal::Tracked", ptr %.val2.i.i.i.i, i64 %retval.sroa.0.0.i7.i.i.i.i
   store ptr %add.ptr.i4.i.i.i.i, ptr %agg.result, align 8, !alias.scope !306
   %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr3.i.i.i.i.i, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx.i.i.i.i, align 8, !alias.scope !306

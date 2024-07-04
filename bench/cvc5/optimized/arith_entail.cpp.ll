@@ -4322,10 +4322,10 @@ invoke.cont523:                                   ; preds = %lor.rhs.i1716, %if.
   br i1 %cmp.i1731.not3924, label %cond.true706.thread, label %for.body531
 
 for.body531:                                      ; preds = %invoke.cont523, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2197
-  %helpsCancelCount.03927 = phi i32 [ %helpsCancelCount.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2197 ], [ 0, %invoke.cont523 ]
+  %__begin7.sroa.0.03927 = phi ptr [ %call.i2198, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2197 ], [ %295, %invoke.cont523 ]
   %addsObligationCount.03926 = phi i32 [ %addsObligationCount.3.fr, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2197 ], [ 0, %invoke.cont523 ]
-  %__begin7.sroa.0.03925 = phi ptr [ %call.i2198, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2197 ], [ %295, %invoke.cont523 ]
-  %_M_storage.i.i1732 = getelementptr inbounds i8, ptr %__begin7.sroa.0.03925, i64 32
+  %helpsCancelCount.03925 = phi i32 [ %helpsCancelCount.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2197 ], [ 0, %invoke.cont523 ]
+  %_M_storage.i.i1732 = getelementptr inbounds i8, ptr %__begin7.sroa.0.03927, i64 32
   %296 = load ptr, ptr %_M_storage.i.i1732, align 8
   %bf.load.i.i1733 = load i64, ptr %296, align 8
   %bf.lshr.i.i1734 = lshr i64 %bf.load.i.i1733, 40
@@ -4353,7 +4353,7 @@ if.then13.i.i1739:                                ; preds = %if.else.i.i1737
           to label %invoke.cont534 unwind label %lpad522.loopexit
 
 invoke.cont534:                                   ; preds = %if.else.i.i1737, %if.then.i.i1741, %if.then13.i.i1739
-  %second535 = getelementptr inbounds i8, ptr %__begin7.sroa.0.03925, i64 40
+  %second535 = getelementptr inbounds i8, ptr %__begin7.sroa.0.03927, i64 40
   %298 = load ptr, ptr %second535, align 8
   %bf.load.i.i1748 = load i64, ptr %298, align 8
   %bf.lshr.i.i1749 = lshr i64 %bf.load.i.i1748, 40
@@ -4878,7 +4878,7 @@ if.else657:                                       ; preds = %invoke.cont647, %in
   br i1 %cmp658.not, label %if.end691, label %if.then659
 
 if.then659:                                       ; preds = %if.else657
-  %inc = add i32 %helpsCancelCount.03927, 1
+  %inc = add i32 %helpsCancelCount.03925, 1
   %349 = load ptr, ptr %c638, align 8
   %350 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i2083 = icmp eq i8 %350, 0
@@ -5125,8 +5125,8 @@ terminate.lpad.i.i2159:                           ; preds = %ehcleanup689
   unreachable
 
 if.end691:                                        ; preds = %_ZN4cvc58internal8RationalD2Ev.exit2152, %if.else657, %if.then654
+  %helpsCancelCount.1 = phi i32 [ %helpsCancelCount.03925, %if.then654 ], [ %helpsCancelCount.03925, %if.else657 ], [ %inc, %_ZN4cvc58internal8RationalD2Ev.exit2152 ]
   %addsObligationCount.2 = phi i32 [ %add, %if.then654 ], [ %addsObligationCount.03926, %if.else657 ], [ %spec.select, %_ZN4cvc58internal8RationalD2Ev.exit2152 ]
-  %helpsCancelCount.1 = phi i32 [ %helpsCancelCount.03927, %if.then654 ], [ %helpsCancelCount.03927, %if.else657 ], [ %inc, %_ZN4cvc58internal8RationalD2Ev.exit2152 ]
   %384 = load ptr, ptr %c638, align 8
   %bf.load.i.i2162 = load i64, ptr %384, align 8
   %385 = and i64 %bf.load.i.i2162, 1152920405095219200
@@ -5165,8 +5165,8 @@ if.else693:                                       ; preds = %cond.end627, %_ZNSt
   br label %if.end697
 
 if.end697:                                        ; preds = %if.then13.i.i2171, %if.then.i.i2164, %if.end691, %if.else693
+  %helpsCancelCount.2 = phi i32 [ %helpsCancelCount.03925, %if.else693 ], [ %helpsCancelCount.1, %if.end691 ], [ %helpsCancelCount.1, %if.then.i.i2164 ], [ %helpsCancelCount.1, %if.then13.i.i2171 ]
   %addsObligationCount.3 = phi i32 [ %add696, %if.else693 ], [ %addsObligationCount.2, %if.end691 ], [ %addsObligationCount.2, %if.then.i.i2164 ], [ %addsObligationCount.2, %if.then13.i.i2171 ]
-  %helpsCancelCount.2 = phi i32 [ %helpsCancelCount.03927, %if.else693 ], [ %helpsCancelCount.1, %if.end691 ], [ %helpsCancelCount.1, %if.then.i.i2164 ], [ %helpsCancelCount.1, %if.then13.i.i2171 ]
   %addsObligationCount.3.fr = freeze i32 %addsObligationCount.3
   %bf.load.i.i2174 = load i64, ptr %ci.sroa.0.8, align 8
   %388 = and i64 %bf.load.i.i2174, 1152920405095219200
@@ -5220,7 +5220,7 @@ terminate.lpad.i2196:                             ; preds = %if.then13.i.i2195
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2197: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2185, %if.then.i.i2188, %if.then13.i.i2195
-  %call.i2198 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin7.sroa.0.03925) #23
+  %call.i2198 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin7.sroa.0.03927) #23
   %cmp.i1731.not = icmp eq ptr %call.i2198, %add.ptr.i.i1730
   br i1 %cmp.i1731.not, label %cond.true706, label %for.body531
 

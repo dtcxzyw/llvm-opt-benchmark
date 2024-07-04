@@ -279,7 +279,7 @@ define void @_ZN15wiggle_generate8wasmtime11link_module17hb869d6407f4936e6E(ptr 
   br label %113
 
 113:                                              ; preds = %131, %112
-  %.064 = phi i64 [ 0, %112 ], [ %132, %131 ]
+  %.062 = phi i64 [ 0, %112 ], [ %132, %131 ]
   invoke void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfb40df0c0c1485e2E"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %41, ptr nonnull align 8 %43)
           to label %117 unwind label %115
 
@@ -304,7 +304,7 @@ define void @_ZN15wiggle_generate8wasmtime11link_module17hb869d6407f4936e6E(ptr 
 
 121:                                              ; preds = %117
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %41, i64 32, i1 false)
-  %.not73 = icmp eq i64 %.064, 0
+  %.not73 = icmp eq i64 %.062, 0
   br i1 %.not73, label %127, label %128
 
 122:                                              ; preds = %123, %114
@@ -341,7 +341,7 @@ define void @_ZN15wiggle_generate8wasmtime11link_module17hb869d6407f4936e6E(ptr 
           to label %114 unwind label %133
 
 131:                                              ; preds = %127
-  %132 = add i64 %.064, 1
+  %132 = add i64 %.062, 1
   invoke void @"_ZN4core3ptr80drop_in_place$LT$quote..__private..RepInterp$LT$proc_macro2..TokenStream$GT$$GT$17h75d055c7a8283fc6E"(ptr nonnull align 8 %42)
           to label %113 unwind label %115
 
@@ -367,7 +367,7 @@ define void @_ZN15wiggle_generate8wasmtime11link_module17hb869d6407f4936e6E(ptr 
   br label %139
 
 139:                                              ; preds = %315, %138
-  %.065 = phi i64 [ 0, %138 ], [ %316, %315 ]
+  %.063 = phi i64 [ 0, %138 ], [ %316, %315 ]
   invoke void @"_ZN96_$LT$hashbrown..set..IntoIter$LT$K$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1b4b7806e0117a04E"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %36, ptr nonnull align 8 %38)
           to label %143 unwind label %141
 
@@ -392,7 +392,7 @@ define void @_ZN15wiggle_generate8wasmtime11link_module17hb869d6407f4936e6E(ptr 
 
 147:                                              ; preds = %143
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false)
-  %.not67 = icmp eq i64 %.065, 0
+  %.not67 = icmp eq i64 %.063, 0
   br i1 %.not67, label %311, label %312
 
 148:                                              ; preds = %149, %140
@@ -979,7 +979,7 @@ define void @_ZN15wiggle_generate8wasmtime11link_module17hb869d6407f4936e6E(ptr 
           to label %140 unwind label %133
 
 315:                                              ; preds = %311
-  %316 = add i64 %.065, 1
+  %316 = add i64 %.063, 1
   invoke void @"_ZN4core3ptr74drop_in_place$LT$quote..__private..RepInterp$LT$proc_macro2..Ident$GT$$GT$17ha8ae34e0c4f40a4aE"(ptr nonnull align 8 %37)
           to label %139 unwind label %141
 

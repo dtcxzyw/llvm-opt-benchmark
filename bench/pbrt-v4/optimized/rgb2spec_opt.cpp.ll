@@ -460,15 +460,15 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %X.058 = phi double [ 0.000000e+00, %entry ], [ %add, %for.body ]
+  %Z.058 = phi double [ 0.000000e+00, %entry ], [ %add14, %for.body ]
   %Y.057 = phi double [ 0.000000e+00, %entry ], [ %add8, %for.body ]
-  %Z.056 = phi double [ 0.000000e+00, %entry ], [ %add14, %for.body ]
+  %X.056 = phi double [ 0.000000e+00, %entry ], [ %add, %for.body ]
   %arrayidx = getelementptr inbounds double, ptr %p, i64 %indvars.iv
   %3 = load double, ptr %arrayidx, align 8
   %arrayidx2 = getelementptr inbounds [3 x double], ptr @rgb_to_xyz, i64 0, i64 %indvars.iv
   %4 = load double, ptr %arrayidx2, align 8
   %mul = fmul double %3, %4
-  %add = fadd double %X.058, %mul
+  %add = fadd double %X.056, %mul
   %arrayidx6 = getelementptr inbounds [3 x double], ptr getelementptr inbounds (i8, ptr @rgb_to_xyz, i64 24), i64 0, i64 %indvars.iv
   %5 = load double, ptr %arrayidx6, align 8
   %mul7 = fmul double %3, %5
@@ -476,7 +476,7 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx12 = getelementptr inbounds [3 x double], ptr getelementptr inbounds (i8, ptr @rgb_to_xyz, i64 48), i64 0, i64 %indvars.iv
   %6 = load double, ptr %arrayidx12, align 8
   %mul13 = fmul double %3, %6
-  %add14 = fadd double %Z.056, %mul13
+  %add14 = fadd double %Z.058, %mul13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
@@ -1349,7 +1349,7 @@ for.end40.i:                                      ; preds = %for.body27.i42, %fo
 
 for.body34:                                       ; preds = %for.end40.i, %for.body34
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body34 ], [ 0, %for.end40.i ]
-  %r.049 = phi double [ %add, %for.body34 ], [ 0.000000e+00, %for.end40.i ]
+  %r.048 = phi double [ %add, %for.body34 ], [ 0.000000e+00, %for.end40.i ]
   %arrayidx35 = getelementptr inbounds [3 x double], ptr %x, i64 0, i64 %indvars.iv
   %45 = load double, ptr %arrayidx35, align 8
   %arrayidx37 = getelementptr inbounds double, ptr %coeffs, i64 %indvars.iv
@@ -1359,7 +1359,7 @@ for.body34:                                       ; preds = %for.end40.i, %for.b
   %arrayidx39 = getelementptr inbounds [3 x double], ptr %residual, i64 0, i64 %indvars.iv
   %47 = load double, ptr %arrayidx39, align 8
   %mul = fmul double %47, %47
-  %add = fadd double %r.049, %mul
+  %add = fadd double %r.048, %mul
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond55.not, label %for.end, label %for.body34, !llvm.loop !26

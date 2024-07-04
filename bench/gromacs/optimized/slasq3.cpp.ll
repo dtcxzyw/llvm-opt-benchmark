@@ -179,10 +179,10 @@ define void @slasq3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %115
 
 115:                                              ; preds = %108, %95
-  %.0 = phi float [ %107, %95 ], [ %114, %108 ]
+  %.0308 = phi float [ %107, %95 ], [ %114, %108 ]
   %116 = load float, ptr %79, align 4
   %117 = load float, ptr %84, align 4
-  %118 = fadd float %.0, %117
+  %118 = fadd float %.0308, %117
   %119 = fadd float %116, %118
   %120 = fdiv float %116, %119
   %121 = load float, ptr %78, align 4

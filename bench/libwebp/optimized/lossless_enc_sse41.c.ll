@@ -277,10 +277,10 @@ define internal void @CollectColorBlueTransforms_SSE41(ptr noundef %0, i32 nound
 71:                                               ; preds = %.lr.ph, %71
   %indvars.iv134 = phi i64 [ 4, %.lr.ph ], [ %indvars.iv.next135, %71 ]
   %indvars.iv = phi i64 [ 8, %.lr.ph ], [ %indvars.iv.next, %71 ]
-  %.0121.in130 = phi <8 x i16> [ %70, %.lr.ph ], [ %104, %71 ]
+  %.0122.in129 = phi <8 x i16> [ %70, %.lr.ph ], [ %104, %71 ]
   %72 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv134
   %73 = load <2 x i64>, ptr %72, align 1
-  %74 = bitcast <8 x i16> %.0121.in130 to <16 x i8>
+  %74 = bitcast <8 x i16> %.0122.in129 to <16 x i8>
   %75 = extractelement <16 x i8> %74, i64 0
   %76 = zext i8 %75 to i64
   %77 = getelementptr inbounds i32, ptr %6, i64 %76
@@ -449,10 +449,10 @@ define internal void @CollectColorRedTransforms_SSE41(ptr noundef %0, i32 nounde
 53:                                               ; preds = %.lr.ph, %53
   %indvars.iv95 = phi i64 [ 4, %.lr.ph ], [ %indvars.iv.next96, %53 ]
   %indvars.iv = phi i64 [ 8, %.lr.ph ], [ %indvars.iv.next, %53 ]
-  %.083.in91 = phi <8 x i16> [ %52, %.lr.ph ], [ %80, %53 ]
+  %.084.in90 = phi <8 x i16> [ %52, %.lr.ph ], [ %80, %53 ]
   %54 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv95
   %55 = load <8 x i16>, ptr %54, align 1
-  %56 = bitcast <8 x i16> %.083.in91 to <16 x i8>
+  %56 = bitcast <8 x i16> %.084.in90 to <16 x i8>
   %57 = extractelement <16 x i8> %56, i64 2
   %58 = zext i8 %57 to i64
   %59 = getelementptr inbounds i32, ptr %5, i64 %58

@@ -266,11 +266,11 @@ define internal i32 @stream_decode(ptr noundef %0, ptr noundef %1, ptr noalias n
   br label %93
 
 93:                                               ; preds = %92, %93
-  %.0127164 = phi i64 [ 0, %92 ], [ %96, %93 ]
-  %94 = getelementptr inbounds [5 x %struct.lzma_filter], ptr %10, i64 0, i64 %.0127164, i32 1
+  %.0164 = phi i64 [ 0, %92 ], [ %96, %93 ]
+  %94 = getelementptr inbounds [5 x %struct.lzma_filter], ptr %10, i64 0, i64 %.0164, i32 1
   %95 = load ptr, ptr %94, align 8
   call void @lzma_free(ptr noundef %95, ptr noundef %1) #9
-  %96 = add nuw nsw i64 %.0127164, 1
+  %96 = add nuw nsw i64 %.0164, 1
   %exitcond169.not = icmp eq i64 %96, 4
   br i1 %exitcond169.not, label %97, label %93, !llvm.loop !5
 
@@ -414,8 +414,8 @@ stream_decoder_reset.exit.thread:                 ; preds = %151
   br label %34
 
 stream_decoder_reset.exit:                        ; preds = %45, %151, %34, %130, %128, %124, %115, %111, %109, %103, %99, %97, %80, %72, %58, %55, %53, %36, %40, %42, %._crit_edge, %149, %135, %121
-  %.0 = phi i32 [ %138, %135 ], [ 9, %149 ], [ %123, %121 ], [ 0, %._crit_edge ], [ %spec.select, %42 ], [ %41, %40 ], [ 2, %45 ], [ 5, %151 ], [ 11, %34 ], [ 1, %130 ], [ %129, %128 ], [ 9, %124 ], [ 0, %115 ], [ %113, %111 ], [ 0, %109 ], [ %107, %103 ], [ %102, %99 ], [ %.0126, %97 ], [ %81, %80 ], [ 0, %72 ], [ 0, %58 ], [ 4, %55 ], [ 3, %53 ], [ 0, %36 ]
-  ret i32 %.0
+  %.0127 = phi i32 [ %138, %135 ], [ 9, %149 ], [ %123, %121 ], [ 0, %._crit_edge ], [ %spec.select, %42 ], [ %41, %40 ], [ 2, %45 ], [ 5, %151 ], [ 11, %34 ], [ 1, %130 ], [ %129, %128 ], [ 9, %124 ], [ 0, %115 ], [ %113, %111 ], [ 0, %109 ], [ %107, %103 ], [ %102, %99 ], [ %.0126, %97 ], [ %81, %80 ], [ 0, %72 ], [ 0, %58 ], [ 4, %55 ], [ 3, %53 ], [ 0, %36 ]
+  ret i32 %.0127
 }
 
 ; Function Attrs: nounwind uwtable

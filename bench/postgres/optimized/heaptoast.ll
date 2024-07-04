@@ -727,13 +727,13 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   br label %40
 
 40:                                               ; preds = %6, %36, %37
-  %.080 = phi i32 [ 2, %36 ], [ 3, %37 ], [ 1, %6 ]
+  %.083 = phi i32 [ 2, %36 ], [ 3, %37 ], [ 1, %6 ]
   call void @init_toast_snapshot(ptr noundef nonnull %10) #6
   %41 = load ptr, ptr %7, align 8
   %42 = sext i32 %18 to i64
   %43 = getelementptr ptr, ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8
-  %45 = call ptr @systable_beginscan_ordered(ptr noundef nonnull %0, ptr noundef %44, ptr noundef nonnull %10, i32 noundef %.080, ptr noundef nonnull %8) #6
+  %45 = call ptr @systable_beginscan_ordered(ptr noundef nonnull %0, ptr noundef %44, ptr noundef nonnull %10, i32 noundef %.083, ptr noundef nonnull %8) #6
   %46 = call ptr @systable_getnext_ordered(ptr noundef %45, i32 noundef 1) #6
   %.not110 = icmp eq ptr %46, null
   br i1 %.not110, label %._crit_edge, label %.lr.ph
@@ -748,7 +748,7 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
 
 52:                                               ; preds = %.lr.ph, %106
   %53 = phi ptr [ %46, %.lr.ph ], [ %121, %106 ]
-  %.083111 = phi i32 [ %22, %.lr.ph ], [ %120, %106 ]
+  %.082111 = phi i32 [ %22, %.lr.ph ], [ %120, %106 ]
   %54 = call fastcc i64 @fastgetattr(ptr noundef nonnull %53, i32 noundef 2, ptr noundef %13, ptr noundef nonnull %11)
   %55 = trunc i64 %54 to i32
   %56 = call fastcc i64 @fastgetattr(ptr noundef nonnull %53, i32 noundef 3, ptr noundef %13, ptr noundef nonnull %11)
@@ -787,8 +787,8 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
 
 77:                                               ; preds = %68, %62
   %78 = phi i64 [ 4, %62 ], [ 1, %68 ]
-  %.081 = phi i32 [ %65, %62 ], [ %70, %68 ]
-  %.not94 = icmp eq i32 %.083111, %55
+  %.080 = phi i32 [ %65, %62 ], [ %70, %68 ]
+  %.not94 = icmp eq i32 %.082111, %55
   br i1 %.not94, label %86, label %79
 
 79:                                               ; preds = %77
@@ -798,12 +798,12 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   %82 = getelementptr inbounds i8, ptr %0, i64 56
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 4
-  %85 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %55, i32 noundef %.083111, i32 noundef %1, ptr noundef nonnull %84) #6
+  %85 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %55, i32 noundef %.082111, i32 noundef %1, ptr noundef nonnull %84) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 744, ptr noundef nonnull @__func__.heap_fetch_toast_slice) #6
   unreachable
 
 86:                                               ; preds = %77
-  %87 = icmp sgt i32 %.083111, %28
+  %87 = icmp sgt i32 %.082111, %28
   br i1 %87, label %88, label %95
 
 88:                                               ; preds = %86
@@ -813,14 +813,14 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   %91 = getelementptr inbounds i8, ptr %0, i64 56
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 4
-  %94 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %.083111, i32 noundef %22, i32 noundef %28, i32 noundef %1, ptr noundef nonnull %93) #6
+  %94 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %.082111, i32 noundef %22, i32 noundef %28, i32 noundef %1, ptr noundef nonnull %93) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 751, ptr noundef nonnull @__func__.heap_fetch_toast_slice) #6
   unreachable
 
 95:                                               ; preds = %86
-  %96 = icmp slt i32 %.083111, %17
+  %96 = icmp slt i32 %.082111, %17
   %97 = select i1 %96, i32 1996, i32 %51
-  %.not95 = icmp eq i32 %.081, %97
+  %.not95 = icmp eq i32 %.080, %97
   br i1 %.not95, label %106, label %98
 
 98:                                               ; preds = %95
@@ -831,15 +831,15 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   %102 = getelementptr inbounds i8, ptr %0, i64 56
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 4
-  %105 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %.081, i32 noundef %97, i32 noundef %.083111, i32 noundef %99, i32 noundef %1, ptr noundef nonnull %104) #6
+  %105 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %.080, i32 noundef %97, i32 noundef %.082111, i32 noundef %99, i32 noundef %1, ptr noundef nonnull %104) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 760, ptr noundef nonnull @__func__.heap_fetch_toast_slice) #6
   unreachable
 
 106:                                              ; preds = %95
-  %107 = add nsw i32 %.081, -1
-  %108 = icmp eq i32 %.083111, %22
+  %107 = add nsw i32 %.080, -1
+  %108 = icmp eq i32 %.082111, %22
   %.079 = select i1 %108, i32 %47, i32 0
-  %109 = icmp eq i32 %.083111, %28
+  %109 = icmp eq i32 %.082111, %28
   %.0 = select i1 %109, i32 %48, i32 %107
   %110 = getelementptr inbounds i8, ptr %57, i64 %78
   %sext99 = shl i64 %54, 32
@@ -854,15 +854,15 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   %118 = add nsw i32 %reass.sub, 1
   %119 = sext i32 %118 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %116, ptr align 1 %117, i64 %119, i1 false)
-  %120 = add i32 %.083111, 1
+  %120 = add i32 %.082111, 1
   %121 = call ptr @systable_getnext_ordered(ptr noundef %45, i32 noundef 1) #6
   %.not = icmp eq ptr %121, null
   br i1 %.not, label %._crit_edge, label %52, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %106, %40
-  %.083.lcssa = phi i32 [ %22, %40 ], [ %120, %106 ]
+  %.082.lcssa = phi i32 [ %22, %40 ], [ %120, %106 ]
   %122 = add i32 %28, 1
-  %.not92 = icmp eq i32 %.083.lcssa, %122
+  %.not92 = icmp eq i32 %.082.lcssa, %122
   br i1 %.not92, label %130, label %123
 
 123:                                              ; preds = %._crit_edge
@@ -872,7 +872,7 @@ define dso_local void @heap_fetch_toast_slice(ptr noundef %0, i32 noundef %1, i3
   %126 = getelementptr inbounds i8, ptr %0, i64 56
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds i8, ptr %127, i64 4
-  %129 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %.083.lcssa, i32 noundef %1, ptr noundef nonnull %128) #6
+  %129 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %.082.lcssa, i32 noundef %1, ptr noundef nonnull %128) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 788, ptr noundef nonnull @__func__.heap_fetch_toast_slice) #6
   unreachable
 

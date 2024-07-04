@@ -177,11 +177,11 @@ define internal i32 @dissect_xip_serval(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not6163.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %33, %47
-  %.065.i = phi i32 [ %70, %47 ], [ 4, %33 ]
-  %.05664.i = phi i8 [ %71, %47 ], [ %40, %33 ]
-  %41 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.065.i) #3
+  %.065.i = phi i8 [ %71, %47 ], [ %40, %33 ]
+  %.05664.i = phi i32 [ %70, %47 ], [ 4, %33 ]
+  %41 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.05664.i) #3
   %42 = and i8 %41, -16
-  %43 = or disjoint i32 %.065.i, 1
+  %43 = or disjoint i32 %.05664.i, 1
   %44 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %43) #3
   %cond.i.i = icmp eq i8 %42, 0
   br i1 %cond.i.i, label %47, label %display_xip_serval_ext.exit.thread.i
@@ -194,33 +194,33 @@ display_xip_serval_ext.exit.thread.i:             ; preds = %.lr.ph.i
 47:                                               ; preds = %.lr.ph.i
   %48 = load i32, ptr @hf_xip_serval_cext, align 4
   %49 = zext i8 %44 to i32
-  %50 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %48, ptr noundef %0, i32 noundef %.065.i, i32 noundef %49, i32 noundef 0) #3
+  %50 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %48, ptr noundef %0, i32 noundef %.05664.i, i32 noundef %49, i32 noundef 0) #3
   %51 = load i32, ptr @ett_xip_serval_cext, align 4
   %52 = call ptr @proto_item_add_subtree(ptr noundef %50, i32 noundef %51) #3
   %53 = load i32, ptr @hf_xip_serval_ext_type, align 4
-  %54 = call ptr @proto_tree_add_uint(ptr noundef %52, i32 noundef %53, ptr noundef %0, i32 noundef %.065.i, i32 noundef 1, i32 noundef 0) #3
+  %54 = call ptr @proto_tree_add_uint(ptr noundef %52, i32 noundef %53, ptr noundef %0, i32 noundef %.05664.i, i32 noundef 1, i32 noundef 0) #3
   %55 = load i32, ptr @hf_xip_serval_ext_length, align 4
   %56 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %55, ptr noundef %0, i32 noundef %43, i32 noundef 1, i32 noundef 0) #3
-  %57 = or disjoint i32 %.065.i, 2
+  %57 = or disjoint i32 %.05664.i, 2
   %58 = load i32, ptr @hf_xip_serval_cext_flags, align 4
   %59 = load i32, ptr @ett_xip_serval_cext_flags, align 4
   %60 = call ptr @proto_tree_add_bitmask(ptr noundef %52, ptr noundef %0, i32 noundef %57, i32 noundef %58, i32 noundef %59, ptr noundef nonnull @xip_serval_cext_flags, i32 noundef 0) #3
-  %61 = add nuw nsw i32 %.065.i, 4
+  %61 = add nuw nsw i32 %.05664.i, 4
   %62 = load i32, ptr @hf_xip_serval_cext_verno, align 4
   %63 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %62, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef 0) #3
-  %64 = add nuw nsw i32 %.065.i, 8
+  %64 = add nuw nsw i32 %.05664.i, 8
   %65 = load i32, ptr @hf_xip_serval_cext_ackno, align 4
   %66 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %65, ptr noundef %0, i32 noundef %64, i32 noundef 4, i32 noundef 0) #3
-  %67 = add nuw nsw i32 %.065.i, 12
+  %67 = add nuw nsw i32 %.05664.i, 12
   %68 = load i32, ptr @hf_xip_serval_cext_nonce, align 4
   %69 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %68, ptr noundef %0, i32 noundef %67, i32 noundef 8, i32 noundef 0) #3
-  %70 = add nuw nsw i32 %.065.i, 20
-  %71 = add i8 %.05664.i, -20
+  %70 = add nuw nsw i32 %.05664.i, 20
+  %71 = add i8 %.065.i, -20
   %.not61.i = icmp eq i8 %71, 0
   br i1 %.not61.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %47, %33
-  %.0.lcssa.i = phi i32 [ 4, %33 ], [ %70, %47 ]
+  %.056.lcssa.i = phi i32 [ 4, %33 ], [ %70, %47 ]
   switch i8 %28, label %display_xip_serval.exit [
     i8 0, label %72
     i8 6, label %75
@@ -228,23 +228,23 @@ display_xip_serval_ext.exit.thread.i:             ; preds = %.lr.ph.i
   ]
 
 72:                                               ; preds = %._crit_edge.i
-  %73 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0.lcssa.i) #3
+  %73 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.056.lcssa.i) #3
   %74 = call i32 @call_data_dissector(ptr noundef %73, ptr noundef %1, ptr noundef %2) #3
   br label %display_xip_serval.exit
 
 75:                                               ; preds = %._crit_edge.i
-  %76 = add i32 %.0.lcssa.i, 12
+  %76 = add i32 %.056.lcssa.i, 12
   %77 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %76) #3
   %78 = lshr i8 %77, 2
   %79 = and i8 %78, 60
   %80 = zext nneg i8 %79 to i32
-  %81 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef %80) #3
+  %81 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.056.lcssa.i, i32 noundef %80) #3
   %82 = load ptr, ptr @tcp_handle, align 8
   %83 = call i32 @call_dissector(ptr noundef %82, ptr noundef %81, ptr noundef %1, ptr noundef %2) #3
   br label %display_xip_serval.exit
 
 84:                                               ; preds = %._crit_edge.i
-  %85 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef 8) #3
+  %85 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.056.lcssa.i, i32 noundef 8) #3
   %86 = load ptr, ptr @udp_handle, align 8
   %87 = call i32 @call_dissector(ptr noundef %86, ptr noundef %85, ptr noundef %1, ptr noundef %2) #3
   br label %display_xip_serval.exit

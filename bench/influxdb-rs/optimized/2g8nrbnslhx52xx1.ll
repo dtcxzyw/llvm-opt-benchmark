@@ -11843,11 +11843,11 @@ select.unfold423.cont.i.i.i:                      ; preds = %select.unfold423.in
   %.sroa.6332.0.copyload.i.i.i = load i64, ptr %320, align 8, !alias.scope !1628, !noalias !1649
   %692 = icmp ugt i64 %.sroa.6332.0.copyload.i.i.i, 4
   %.sink4.i.i182.i.i.i = select i1 %692, i64 %.sroa.4329.0.copyload.i.i.i, i64 %.sroa.6332.0.copyload.i.i.i
-  %spec.select488.i.i.i = select i1 %692, i64 %.sroa.6332.0.copyload.i.i.i, i64 0
-  %spec.select489.i.i.i = select i1 %692, i64 0, i64 %.sroa.4329.0.copyload.i.i.i
+  %spec.select488.i.i.i = select i1 %692, i64 0, i64 %.sroa.4329.0.copyload.i.i.i
+  %spec.select489.i.i.i = select i1 %692, i64 %.sroa.6332.0.copyload.i.i.i, i64 0
   store i64 %.sroa.0327.0.copyload.i.i.i, ptr %96, align 8, !noalias !1648
-  store i64 %spec.select489.i.i.i, ptr %.sroa.0324.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !1648
-  store i64 %spec.select488.i.i.i, ptr %.sroa.0324.sroa.6.0..sroa_idx.i.i.i, align 8, !noalias !1648
+  store i64 %spec.select488.i.i.i, ptr %.sroa.0324.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !1648
+  store i64 %spec.select489.i.i.i, ptr %.sroa.0324.sroa.6.0..sroa_idx.i.i.i, align 8, !noalias !1648
   store i64 0, ptr %.sroa.4325.0..sroa_idx.i.i.i, align 8, !noalias !1648
   store i64 %.sink4.i.i182.i.i.i, ptr %.sroa.5326.0..sroa_idx.i.i.i, align 8, !noalias !1648
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0339.i.i.i)

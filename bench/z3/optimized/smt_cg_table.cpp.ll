@@ -657,23 +657,23 @@ if.end.i.i35:                                     ; preds = %for.end22
   br i1 %cmp4.not5.i.i, label %if.end18.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i35, %for.inc.i.i
-  %overhead.07.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i35 ]
-  %curr.06.i.i = phi ptr [ %incdec.ptr.i.i39, %for.inc.i.i ], [ %31, %if.end.i.i35 ]
-  %33 = load ptr, ptr %curr.06.i.i, align 8
+  %curr.07.i.i = phi ptr [ %incdec.ptr.i.i39, %for.inc.i.i ], [ %31, %if.end.i.i35 ]
+  %overhead.06.i.i = phi i32 [ %overhead.1.i.i, %for.inc.i.i ], [ 0, %if.end.i.i35 ]
+  %33 = load ptr, ptr %curr.07.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %33, null
   br i1 %cmp.i.i.i, label %if.else.i.i, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %for.body.i.i
-  store ptr null, ptr %curr.06.i.i, align 8
+  store ptr null, ptr %curr.07.i.i, align 8
   br label %for.inc.i.i
 
 if.else.i.i:                                      ; preds = %for.body.i.i
-  %inc.i.i = add i32 %overhead.07.i.i, 1
+  %inc.i.i = add i32 %overhead.06.i.i, 1
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.else.i.i, %if.then5.i.i
-  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.07.i.i, %if.then5.i.i ]
-  %incdec.ptr.i.i39 = getelementptr inbounds i8, ptr %curr.06.i.i, i64 16
+  %overhead.1.i.i = phi i32 [ %inc.i.i, %if.else.i.i ], [ %overhead.06.i.i, %if.then5.i.i ]
+  %incdec.ptr.i.i39 = getelementptr inbounds i8, ptr %curr.07.i.i, i64 16
   %cmp4.not.i.i = icmp eq ptr %incdec.ptr.i.i39, %add.ptr.i.i38
   br i1 %cmp4.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !8
 
@@ -2558,8 +2558,8 @@ do.body.preheader:                                ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %if.end14
-  %prev.0 = phi ptr [ %c.0, %if.end14 ], [ null, %do.body.preheader ]
   %c.0 = phi ptr [ %32, %if.end14 ], [ %add.ptr, %do.body.preheader ]
+  %prev.0 = phi ptr [ %c.0, %if.end14 ], [ null, %do.body.preheader ]
   %m_data = getelementptr inbounds i8, ptr %c.0, i64 8
   %13 = load ptr, ptr %m_data, align 8
   %14 = load ptr, ptr %d, align 8
@@ -2699,8 +2699,8 @@ do.body.preheader:                                ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %if.end14
-  %prev.0 = phi ptr [ %c.0, %if.end14 ], [ null, %do.body.preheader ]
   %c.0 = phi ptr [ %35, %if.end14 ], [ %add.ptr, %do.body.preheader ]
+  %prev.0 = phi ptr [ %c.0, %if.end14 ], [ null, %do.body.preheader ]
   %m_data = getelementptr inbounds i8, ptr %c.0, i64 8
   %15 = load ptr, ptr %m_data, align 8
   %16 = load ptr, ptr %d, align 8
@@ -2812,8 +2812,8 @@ do.body.preheader:                                ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %if.end14
-  %prev.0 = phi ptr [ %c.0, %if.end14 ], [ null, %do.body.preheader ]
   %c.0 = phi ptr [ %26, %if.end14 ], [ %add.ptr, %do.body.preheader ]
+  %prev.0 = phi ptr [ %c.0, %if.end14 ], [ null, %do.body.preheader ]
   %m_data = getelementptr inbounds i8, ptr %c.0, i64 8
   %5 = load ptr, ptr %m_data, align 8
   %6 = load ptr, ptr %d, align 8
@@ -3493,17 +3493,17 @@ _ZN10chashtableIPN3smt5enodeENS0_8cg_table13cg_unary_hashENS3_11cg_unary_eqEE11a
   br i1 %cmp.not26.i, label %_ZN10chashtableIPN3smt5enodeENS0_8cg_table13cg_unary_hashENS3_11cg_unary_eqEE10copy_tableEPNS6_4cellEjjS8_jjRj.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN10chashtableIPN3smt5enodeENS0_8cg_table13cg_unary_hashENS3_11cg_unary_eqEE11alloc_tableEj.exit, %for.inc.i
-  %target_cellar.028.i = phi ptr [ %target_cellar.3.i, %for.inc.i ], [ %add.ptr3.i, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table13cg_unary_hashENS3_11cg_unary_eqEE11alloc_tableEj.exit ]
-  %source_it.027.i = phi ptr [ %incdec.ptr22.i, %for.inc.i ], [ %2, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table13cg_unary_hashENS3_11cg_unary_eqEE11alloc_tableEj.exit ]
-  %4 = load ptr, ptr %source_it.027.i, align 8
+  %source_it.028.i = phi ptr [ %incdec.ptr22.i, %for.inc.i ], [ %2, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table13cg_unary_hashENS3_11cg_unary_eqEE11alloc_tableEj.exit ]
+  %target_cellar.027.i = phi ptr [ %target_cellar.3.i, %for.inc.i ], [ %add.ptr3.i, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table13cg_unary_hashENS3_11cg_unary_eqEE11alloc_tableEj.exit ]
+  %4 = load ptr, ptr %source_it.028.i, align 8
   %5 = ptrtoint ptr %4 to i64
   %and.i.i = and i64 %5, 7
   %cmp.i.i = icmp eq i64 %and.i.i, 1
   br i1 %cmp.i.i, label %for.inc.i, label %do.body.i
 
 do.body.i:                                        ; preds = %for.body.i, %if.end18.i
-  %list_it.0.i = phi ptr [ %15, %if.end18.i ], [ %source_it.027.i, %for.body.i ]
-  %target_cellar.1.i = phi ptr [ %target_cellar.2.i, %if.end18.i ], [ %target_cellar.028.i, %for.body.i ]
+  %target_cellar.1.i = phi ptr [ %target_cellar.2.i, %if.end18.i ], [ %target_cellar.027.i, %for.body.i ]
+  %list_it.0.i = phi ptr [ %15, %if.end18.i ], [ %source_it.028.i, %for.body.i ]
   %m_data.i = getelementptr inbounds i8, ptr %list_it.0.i, i64 8
   %6 = load ptr, ptr %m_data.i, align 8
   %m_args.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 112
@@ -3551,8 +3551,8 @@ if.end18.i:                                       ; preds = %if.end.i, %if.then1
   br i1 %cmp20.not.i, label %for.inc.i, label %do.body.i, !llvm.loop !53
 
 for.inc.i:                                        ; preds = %if.end18.i, %for.body.i
-  %target_cellar.3.i = phi ptr [ %target_cellar.028.i, %for.body.i ], [ %target_cellar.2.i, %if.end18.i ]
-  %incdec.ptr22.i = getelementptr inbounds i8, ptr %source_it.027.i, i64 16
+  %target_cellar.3.i = phi ptr [ %target_cellar.027.i, %for.body.i ], [ %target_cellar.2.i, %if.end18.i ]
+  %incdec.ptr22.i = getelementptr inbounds i8, ptr %source_it.028.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr22.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN10chashtableIPN3smt5enodeENS0_8cg_table13cg_unary_hashENS3_11cg_unary_eqEE10copy_tableEPNS6_4cellEjjS8_jjRj.exit, label %for.body.i, !llvm.loop !54
 
@@ -3637,17 +3637,17 @@ _ZN10chashtableIPN3smt5enodeENS0_8cg_table14cg_binary_hashENS3_12cg_binary_eqEE1
   br i1 %cmp.not26.i, label %_ZN10chashtableIPN3smt5enodeENS0_8cg_table14cg_binary_hashENS3_12cg_binary_eqEE10copy_tableEPNS6_4cellEjjS8_jjRj.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN10chashtableIPN3smt5enodeENS0_8cg_table14cg_binary_hashENS3_12cg_binary_eqEE11alloc_tableEj.exit, %for.inc.i
-  %target_cellar.028.i = phi ptr [ %target_cellar.3.i, %for.inc.i ], [ %add.ptr3.i, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table14cg_binary_hashENS3_12cg_binary_eqEE11alloc_tableEj.exit ]
-  %source_it.027.i = phi ptr [ %incdec.ptr22.i, %for.inc.i ], [ %2, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table14cg_binary_hashENS3_12cg_binary_eqEE11alloc_tableEj.exit ]
-  %4 = load ptr, ptr %source_it.027.i, align 8
+  %source_it.028.i = phi ptr [ %incdec.ptr22.i, %for.inc.i ], [ %2, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table14cg_binary_hashENS3_12cg_binary_eqEE11alloc_tableEj.exit ]
+  %target_cellar.027.i = phi ptr [ %target_cellar.3.i, %for.inc.i ], [ %add.ptr3.i, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table14cg_binary_hashENS3_12cg_binary_eqEE11alloc_tableEj.exit ]
+  %4 = load ptr, ptr %source_it.028.i, align 8
   %5 = ptrtoint ptr %4 to i64
   %and.i.i = and i64 %5, 7
   %cmp.i.i = icmp eq i64 %and.i.i, 1
   br i1 %cmp.i.i, label %for.inc.i, label %do.body.i
 
 do.body.i:                                        ; preds = %for.body.i, %if.end18.i
-  %list_it.0.i = phi ptr [ %19, %if.end18.i ], [ %source_it.027.i, %for.body.i ]
-  %target_cellar.1.i = phi ptr [ %target_cellar.2.i, %if.end18.i ], [ %target_cellar.028.i, %for.body.i ]
+  %target_cellar.1.i = phi ptr [ %target_cellar.2.i, %if.end18.i ], [ %target_cellar.027.i, %for.body.i ]
+  %list_it.0.i = phi ptr [ %19, %if.end18.i ], [ %source_it.028.i, %for.body.i ]
   %m_data.i = getelementptr inbounds i8, ptr %list_it.0.i, i64 8
   %6 = load ptr, ptr %m_data.i, align 8
   %m_args.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 112
@@ -3711,8 +3711,8 @@ if.end18.i:                                       ; preds = %if.end.i, %if.then1
   br i1 %cmp20.not.i, label %for.inc.i, label %do.body.i, !llvm.loop !56
 
 for.inc.i:                                        ; preds = %if.end18.i, %for.body.i
-  %target_cellar.3.i = phi ptr [ %target_cellar.028.i, %for.body.i ], [ %target_cellar.2.i, %if.end18.i ]
-  %incdec.ptr22.i = getelementptr inbounds i8, ptr %source_it.027.i, i64 16
+  %target_cellar.3.i = phi ptr [ %target_cellar.027.i, %for.body.i ], [ %target_cellar.2.i, %if.end18.i ]
+  %incdec.ptr22.i = getelementptr inbounds i8, ptr %source_it.028.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr22.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN10chashtableIPN3smt5enodeENS0_8cg_table14cg_binary_hashENS3_12cg_binary_eqEE10copy_tableEPNS6_4cellEjjS8_jjRj.exit, label %for.body.i, !llvm.loop !57
 
@@ -3838,17 +3838,17 @@ entry:
   br i1 %cmp.not26, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %target_cellar.028 = phi ptr [ %target_cellar.3, %for.inc ], [ %add.ptr3, %entry ]
-  %source_it.027 = phi ptr [ %incdec.ptr22, %for.inc ], [ %source, %entry ]
-  %0 = load ptr, ptr %source_it.027, align 8
+  %source_it.028 = phi ptr [ %incdec.ptr22, %for.inc ], [ %source, %entry ]
+  %target_cellar.027 = phi ptr [ %target_cellar.3, %for.inc ], [ %add.ptr3, %entry ]
+  %0 = load ptr, ptr %source_it.028, align 8
   %1 = ptrtoint ptr %0 to i64
   %and.i = and i64 %1, 7
   %cmp.i = icmp eq i64 %and.i, 1
   br i1 %cmp.i, label %for.inc, label %do.body
 
 do.body:                                          ; preds = %for.body, %if.end18
-  %list_it.0 = phi ptr [ %17, %if.end18 ], [ %source_it.027, %for.body ]
-  %target_cellar.1 = phi ptr [ %target_cellar.2, %if.end18 ], [ %target_cellar.028, %for.body ]
+  %target_cellar.1 = phi ptr [ %target_cellar.2, %if.end18 ], [ %target_cellar.027, %for.body ]
+  %list_it.0 = phi ptr [ %17, %if.end18 ], [ %source_it.028, %for.body ]
   %m_data = getelementptr inbounds i8, ptr %list_it.0, i64 8
   %2 = load ptr, ptr %m_data, align 8
   %m_args.i.i.i = getelementptr inbounds i8, ptr %2, i64 112
@@ -3926,8 +3926,8 @@ if.end18:                                         ; preds = %if.end, %if.then10
   br i1 %cmp20.not, label %for.inc, label %do.body, !llvm.loop !60
 
 for.inc:                                          ; preds = %if.end18, %for.body
-  %target_cellar.3 = phi ptr [ %target_cellar.028, %for.body ], [ %target_cellar.2, %if.end18 ]
-  %incdec.ptr22 = getelementptr inbounds i8, ptr %source_it.027, i64 16
+  %target_cellar.3 = phi ptr [ %target_cellar.027, %for.body ], [ %target_cellar.2, %if.end18 ]
+  %incdec.ptr22 = getelementptr inbounds i8, ptr %source_it.028, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr22, %add.ptr
   br i1 %cmp.not, label %return, label %for.body, !llvm.loop !61
 
@@ -3981,17 +3981,17 @@ _ZN10chashtableIPN3smt5enodeENS0_8cg_table7cg_hashENS3_5cg_eqEE11alloc_tableEj.e
   br i1 %cmp.not26.i, label %_ZN10chashtableIPN3smt5enodeENS0_8cg_table7cg_hashENS3_5cg_eqEE10copy_tableEPNS6_4cellEjjS8_jjRj.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN10chashtableIPN3smt5enodeENS0_8cg_table7cg_hashENS3_5cg_eqEE11alloc_tableEj.exit, %for.inc.i
-  %target_cellar.028.i = phi ptr [ %target_cellar.3.i, %for.inc.i ], [ %add.ptr3.i, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table7cg_hashENS3_5cg_eqEE11alloc_tableEj.exit ]
-  %source_it.027.i = phi ptr [ %incdec.ptr22.i, %for.inc.i ], [ %2, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table7cg_hashENS3_5cg_eqEE11alloc_tableEj.exit ]
-  %4 = load ptr, ptr %source_it.027.i, align 8
+  %source_it.028.i = phi ptr [ %incdec.ptr22.i, %for.inc.i ], [ %2, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table7cg_hashENS3_5cg_eqEE11alloc_tableEj.exit ]
+  %target_cellar.027.i = phi ptr [ %target_cellar.3.i, %for.inc.i ], [ %add.ptr3.i, %_ZN10chashtableIPN3smt5enodeENS0_8cg_table7cg_hashENS3_5cg_eqEE11alloc_tableEj.exit ]
+  %4 = load ptr, ptr %source_it.028.i, align 8
   %5 = ptrtoint ptr %4 to i64
   %and.i.i = and i64 %5, 7
   %cmp.i.i = icmp eq i64 %and.i.i, 1
   br i1 %cmp.i.i, label %for.inc.i, label %do.body.i
 
 do.body.i:                                        ; preds = %for.body.i, %if.end18.i
-  %list_it.0.i = phi ptr [ %11, %if.end18.i ], [ %source_it.027.i, %for.body.i ]
-  %target_cellar.1.i = phi ptr [ %target_cellar.2.i, %if.end18.i ], [ %target_cellar.028.i, %for.body.i ]
+  %target_cellar.1.i = phi ptr [ %target_cellar.2.i, %if.end18.i ], [ %target_cellar.027.i, %for.body.i ]
+  %list_it.0.i = phi ptr [ %11, %if.end18.i ], [ %source_it.028.i, %for.body.i ]
   %m_data.i = getelementptr inbounds i8, ptr %list_it.0.i, i64 8
   %6 = load ptr, ptr %m_data.i, align 8
   %call.i.i10 = tail call noundef i32 @_ZNK3smt8cg_table7cg_hashclEPNS_5enodeE(ptr nonnull align 1 poison, ptr noundef %6)
@@ -4033,8 +4033,8 @@ if.end18.i:                                       ; preds = %if.end.i, %if.then1
   br i1 %cmp20.not.i, label %for.inc.i, label %do.body.i, !llvm.loop !62
 
 for.inc.i:                                        ; preds = %if.end18.i, %for.body.i
-  %target_cellar.3.i = phi ptr [ %target_cellar.028.i, %for.body.i ], [ %target_cellar.2.i, %if.end18.i ]
-  %incdec.ptr22.i = getelementptr inbounds i8, ptr %source_it.027.i, i64 16
+  %target_cellar.3.i = phi ptr [ %target_cellar.027.i, %for.body.i ], [ %target_cellar.2.i, %if.end18.i ]
+  %incdec.ptr22.i = getelementptr inbounds i8, ptr %source_it.028.i, i64 16
   %cmp.not.i = icmp eq ptr %incdec.ptr22.i, %add.ptr.i
   br i1 %cmp.not.i, label %_ZN10chashtableIPN3smt5enodeENS0_8cg_table7cg_hashENS3_5cg_eqEE10copy_tableEPNS6_4cellEjjS8_jjRj.exit, label %for.body.i, !llvm.loop !63
 

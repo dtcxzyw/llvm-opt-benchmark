@@ -506,8 +506,8 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %5, %Kit_DsdNtkObj.e
   br label %.loopexit
 
 .loopexit:                                        ; preds = %140, %.lr.ph.split.us, %86, %63, %167, %161, %90, %67, %39, %30, %Kit_DsdNtkObj.exit.thread
-  %.0 = phi ptr [ %25, %Kit_DsdNtkObj.exit.thread ], [ %38, %30 ], [ %52, %39 ], [ %75, %67 ], [ %107, %90 ], [ %166, %161 ], [ %183, %167 ], [ null, %63 ], [ null, %86 ], [ null, %.lr.ph.split.us ], [ null, %140 ]
-  ret ptr %.0
+  %.095 = phi ptr [ %25, %Kit_DsdNtkObj.exit.thread ], [ %38, %30 ], [ %52, %39 ], [ %75, %67 ], [ %107, %90 ], [ %166, %161 ], [ %183, %167 ], [ null, %63 ], [ null, %86 ], [ null, %.lr.ph.split.us ], [ null, %140 ]
+  ret ptr %.095
 }
 
 declare ptr @If_ManCreateXor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

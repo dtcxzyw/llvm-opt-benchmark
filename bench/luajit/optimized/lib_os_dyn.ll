@@ -196,8 +196,8 @@ if.else:                                          ; preds = %cond.end
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %stm.0 = phi ptr [ %call7, %if.then ], [ %call8, %if.else ]
   %s.0 = phi ptr [ %incdec.ptr, %if.then ], [ %call, %if.else ]
+  %stm.0 = phi ptr [ %call7, %if.then ], [ %call8, %if.else ]
   %cmp9 = icmp eq ptr %stm.0, null
   br i1 %cmp9, label %if.then11, label %sub_0
 

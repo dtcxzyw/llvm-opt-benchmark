@@ -362,8 +362,8 @@ define dso_local zeroext i1 @datum_image_eq(i64 noundef %0, i64 noundef %1, i1 n
   unreachable
 
 45:                                               ; preds = %5, %39, %32, %33, %9, %15, %34
-  %.0 = phi i1 [ false, %34 ], [ %6, %5 ], [ %13, %9 ], [ %30, %33 ], [ %30, %32 ], [ %41, %39 ], [ false, %15 ]
-  ret i1 %.0
+  %.039 = phi i1 [ false, %34 ], [ %6, %5 ], [ %13, %9 ], [ %30, %33 ], [ %30, %32 ], [ %41, %39 ], [ false, %15 ]
+  ret i1 %.039
 }
 
 declare i64 @toast_raw_datum_size(i64 noundef) local_unnamed_addr #2

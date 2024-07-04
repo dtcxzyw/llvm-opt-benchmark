@@ -1333,11 +1333,11 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %1 = phi i32 [ %0, %for.body.lr.ph ], [ %21, %for.inc ]
-  %copy.0361 = phi i32 [ 0, %for.body.lr.ph ], [ %copy.1, %for.inc ]
-  %replace.0360 = phi i32 [ 0, %for.body.lr.ph ], [ %replace.1, %for.inc ]
+  %password.0361 = phi ptr [ null, %for.body.lr.ph ], [ %password.1, %for.inc ]
+  %username.0360 = phi ptr [ null, %for.body.lr.ph ], [ %username.1, %for.inc ]
   %j.0359 = phi i32 [ 6, %for.body.lr.ph ], [ %inc68, %for.inc ]
-  %username.0358 = phi ptr [ null, %for.body.lr.ph ], [ %username.1, %for.inc ]
-  %password.0357 = phi ptr [ null, %for.body.lr.ph ], [ %password.1, %for.inc ]
+  %replace.0358 = phi i32 [ 0, %for.body.lr.ph ], [ %replace.1, %for.inc ]
+  %copy.0357 = phi i32 [ 0, %for.body.lr.ph ], [ %copy.1, %for.inc ]
   %2 = xor i32 %j.0359, -1
   %sub2 = add i32 %1, %2
   %3 = load ptr, ptr %argv, align 8
@@ -1465,7 +1465,7 @@ if.else63:                                        ; preds = %if.else45
 for.inc.sink.split:                               ; preds = %if.then17, %if.end34
   %.sink479 = phi i32 [ 2, %if.end34 ], [ 1, %if.then17 ]
   %.sink = phi ptr [ %10, %if.end34 ], [ %3, %if.then17 ]
-  %username.1.ph = phi ptr [ %9, %if.end34 ], [ %username.0358, %if.then17 ]
+  %username.1.ph = phi ptr [ %9, %if.end34 ], [ %username.0360, %if.then17 ]
   %inc = add nsw i32 %j.0359, %.sink479
   %idxprom21 = sext i32 %inc to i64
   %arrayidx22 = getelementptr inbounds ptr, ptr %.sink, i64 %idxprom21
@@ -1476,21 +1476,21 @@ for.inc.sink.split:                               ; preds = %if.then17, %if.end3
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %if.else, %for.body
-  %password.1 = phi ptr [ %password.0357, %for.body ], [ %password.0357, %if.else ], [ %20, %for.inc.sink.split ]
-  %username.1 = phi ptr [ %username.0358, %for.body ], [ %username.0358, %if.else ], [ %username.1.ph, %for.inc.sink.split ]
+  %copy.1 = phi i32 [ 1, %for.body ], [ %copy.0357, %if.else ], [ %copy.0357, %for.inc.sink.split ]
+  %replace.1 = phi i32 [ %replace.0358, %for.body ], [ 1, %if.else ], [ %replace.0358, %for.inc.sink.split ]
   %j.1 = phi i32 [ %j.0359, %for.body ], [ %j.0359, %if.else ], [ %inc, %for.inc.sink.split ]
-  %replace.1 = phi i32 [ %replace.0360, %for.body ], [ 1, %if.else ], [ %replace.0360, %for.inc.sink.split ]
-  %copy.1 = phi i32 [ 1, %for.body ], [ %copy.0361, %if.else ], [ %copy.0361, %for.inc.sink.split ]
+  %username.1 = phi ptr [ %username.0360, %for.body ], [ %username.0360, %if.else ], [ %username.1.ph, %for.inc.sink.split ]
+  %password.1 = phi ptr [ %password.0361, %for.body ], [ %password.0361, %if.else ], [ %20, %for.inc.sink.split ]
   %inc68 = add nsw i32 %j.1, 1
   %21 = load i32, ptr %argc, align 8
   %cmp = icmp slt i32 %inc68, %21
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc, %entry, %if.end59
-  %password.0348 = phi ptr [ %password.0357, %if.end59 ], [ null, %entry ], [ %password.1, %for.inc ]
-  %username.0344 = phi ptr [ %username.0358, %if.end59 ], [ null, %entry ], [ %username.1, %for.inc ]
-  %replace.0337 = phi i32 [ %replace.0360, %if.end59 ], [ 0, %entry ], [ %replace.1, %for.inc ]
-  %copy.0333 = phi i32 [ %copy.0361, %if.end59 ], [ 0, %entry ], [ %copy.1, %for.inc ]
+  %copy.0348 = phi i32 [ %copy.0357, %if.end59 ], [ 0, %entry ], [ %copy.1, %for.inc ]
+  %replace.0344 = phi i32 [ %replace.0358, %if.end59 ], [ 0, %entry ], [ %replace.1, %for.inc ]
+  %username.0337 = phi ptr [ %username.0360, %if.end59 ], [ null, %entry ], [ %username.1, %for.inc ]
+  %password.0333 = phi ptr [ %password.0361, %if.end59 ], [ null, %entry ], [ %password.1, %for.inc ]
   %first_key.0 = phi i32 [ %add, %if.end59 ], [ 3, %entry ], [ 3, %for.inc ]
   %num_keys.0 = phi i32 [ %sub2, %if.end59 ], [ 1, %entry ], [ 1, %for.inc ]
   %argv69 = getelementptr inbounds i8, ptr %c, i64 96
@@ -1534,14 +1534,14 @@ for.body89.lr.ph:                                 ; preds = %if.end81
 
 for.body89:                                       ; preds = %for.body89.lr.ph, %for.inc108
   %indvars.iv = phi i64 [ 0, %for.body89.lr.ph ], [ %indvars.iv.next, %for.inc108 ]
-  %oi.0366 = phi i32 [ 0, %for.body89.lr.ph ], [ %oi.1, %for.inc108 ]
+  %oi.0367 = phi i32 [ 0, %for.body89.lr.ph ], [ %oi.1, %for.inc108 ]
   %28 = load ptr, ptr %db, align 8
   %29 = load ptr, ptr %argv69, align 8
   %30 = add nsw i64 %indvars.iv, %27
   %arrayidx93 = getelementptr inbounds ptr, ptr %29, i64 %30
   %31 = load ptr, ptr %arrayidx93, align 8
   %call94 = call ptr @lookupKeyRead(ptr noundef %28, ptr noundef %31) #16
-  %idxprom95 = sext i32 %oi.0366 to i64
+  %idxprom95 = sext i32 %oi.0367 to i64
   %arrayidx96 = getelementptr inbounds ptr, ptr %call82, i64 %idxprom95
   store ptr %call94, ptr %arrayidx96, align 8
   %cmp97.not = icmp eq ptr %call94, null
@@ -1553,11 +1553,11 @@ if.then99:                                        ; preds = %for.body89
   %33 = load ptr, ptr %arrayidx103, align 8
   %arrayidx105 = getelementptr inbounds ptr, ptr %call85, i64 %idxprom95
   store ptr %33, ptr %arrayidx105, align 8
-  %inc106 = add nsw i32 %oi.0366, 1
+  %inc106 = add nsw i32 %oi.0367, 1
   br label %for.inc108
 
 for.inc108:                                       ; preds = %for.body89, %if.then99
-  %oi.1 = phi i32 [ %inc106, %if.then99 ], [ %oi.0366, %for.body89 ]
+  %oi.1 = phi i32 [ %inc106, %if.then99 ], [ %oi.0367, %for.body89 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end110, label %for.body89, !llvm.loop !12
@@ -1567,25 +1567,25 @@ for.end110:                                       ; preds = %for.inc108
   br i1 %cmp111, label %if.then113, label %try_again.preheader
 
 try_again.preheader:                              ; preds = %for.end110
-  %tobool126 = icmp ne ptr %password.0348, null
-  %tobool128.not = icmp eq ptr %username.0344, null
+  %tobool126 = icmp ne ptr %password.0333, null
+  %tobool128.not = icmp eq ptr %username.0337, null
   %conv129 = select i1 %tobool128.not, i64 2, i64 3
-  %arrayidx.i189 = getelementptr inbounds i8, ptr %username.0344, i64 -1
-  %add.ptr14.i193 = getelementptr inbounds i8, ptr %username.0344, i64 -17
-  %add.ptr10.i196 = getelementptr inbounds i8, ptr %username.0344, i64 -9
-  %add.ptr6.i199 = getelementptr inbounds i8, ptr %username.0344, i64 -5
-  %add.ptr.i202 = getelementptr inbounds i8, ptr %username.0344, i64 -3
-  %arrayidx.i208 = getelementptr inbounds i8, ptr %password.0348, i64 -1
-  %add.ptr14.i212 = getelementptr inbounds i8, ptr %password.0348, i64 -17
-  %add.ptr10.i215 = getelementptr inbounds i8, ptr %password.0348, i64 -9
-  %add.ptr6.i218 = getelementptr inbounds i8, ptr %password.0348, i64 -5
-  %add.ptr.i221 = getelementptr inbounds i8, ptr %password.0348, i64 -3
+  %arrayidx.i189 = getelementptr inbounds i8, ptr %username.0337, i64 -1
+  %add.ptr14.i193 = getelementptr inbounds i8, ptr %username.0337, i64 -17
+  %add.ptr10.i196 = getelementptr inbounds i8, ptr %username.0337, i64 -9
+  %add.ptr6.i199 = getelementptr inbounds i8, ptr %username.0337, i64 -5
+  %add.ptr.i202 = getelementptr inbounds i8, ptr %username.0337, i64 -3
+  %arrayidx.i208 = getelementptr inbounds i8, ptr %password.0333, i64 -1
+  %add.ptr14.i212 = getelementptr inbounds i8, ptr %password.0333, i64 -17
+  %add.ptr10.i215 = getelementptr inbounds i8, ptr %password.0333, i64 -9
+  %add.ptr6.i218 = getelementptr inbounds i8, ptr %password.0333, i64 -5
+  %add.ptr.i221 = getelementptr inbounds i8, ptr %password.0333, i64 -3
   %db216 = getelementptr inbounds i8, ptr %c, i64 32
-  %tobool243.not = icmp eq i32 %replace.0337, 0
+  %tobool243.not = icmp eq i32 %replace.0344, 0
   %cond244 = select i1 %tobool243.not, i64 4, i64 5
   %io = getelementptr inbounds i8, ptr %payload, i64 72
   %io372 = getelementptr inbounds i8, ptr %cmd, i64 72
-  %tobool409.not = icmp eq i32 %copy.0333, 0
+  %tobool409.not = icmp eq i32 %copy.0348, 0
   br label %try_again
 
 if.then113:                                       ; preds = %if.end81, %for.end110
@@ -1681,7 +1681,7 @@ sw.bb13.i192:                                     ; preds = %if.then147
 
 sdslen.exit207:                                   ; preds = %if.then147, %sw.bb.i204, %sw.bb3.i201, %sw.bb5.i198, %sw.bb9.i195, %sw.bb13.i192
   %retval.0.i194 = phi i64 [ %42, %sw.bb13.i192 ], [ %conv12.i197, %sw.bb9.i195 ], [ %conv8.i200, %sw.bb5.i198 ], [ %conv4.i203, %sw.bb3.i201 ], [ %conv2.i206, %sw.bb.i204 ], [ 0, %if.then147 ]
-  %call149 = call i64 @rioWriteBulkString(ptr noundef nonnull %cmd, ptr noundef nonnull %username.0344, i64 noundef %retval.0.i194) #16
+  %call149 = call i64 @rioWriteBulkString(ptr noundef nonnull %cmd, ptr noundef nonnull %username.0337, i64 noundef %retval.0.i194) #16
   %tobool150.not = icmp eq i64 %call149, 0
   br i1 %tobool150.not, label %cond.false158, label %if.end160
 
@@ -1728,7 +1728,7 @@ sw.bb13.i211:                                     ; preds = %if.end160
 
 sdslen.exit226:                                   ; preds = %if.end160, %sw.bb.i223, %sw.bb3.i220, %sw.bb5.i217, %sw.bb9.i214, %sw.bb13.i211
   %retval.0.i213 = phi i64 [ %47, %sw.bb13.i211 ], [ %conv12.i216, %sw.bb9.i214 ], [ %conv8.i219, %sw.bb5.i217 ], [ %conv4.i222, %sw.bb3.i220 ], [ %conv2.i225, %sw.bb.i223 ], [ 0, %if.end160 ]
-  %call162 = call i64 @rioWriteBulkString(ptr noundef nonnull %cmd, ptr noundef nonnull %password.0348, i64 noundef %retval.0.i213) #16
+  %call162 = call i64 @rioWriteBulkString(ptr noundef nonnull %cmd, ptr noundef nonnull %password.0333, i64 noundef %retval.0.i213) #16
   %tobool163.not = icmp eq i64 %call162, 0
   br i1 %tobool163.not, label %cond.false171, label %if.end173
 
@@ -3218,9 +3218,9 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
+  %n.0 = phi ptr [ null, %entry ], [ %n.1, %for.inc ]
   %num_masters.0 = phi i32 [ 0, %entry ], [ %num_masters.1, %for.inc ]
   %start.0 = phi i32 [ -1, %entry ], [ %start.1, %for.inc ]
-  %n.0 = phi ptr [ null, %entry ], [ %n.1, %for.inc ]
   %i.0 = phi i32 [ 0, %entry ], [ %inc15, %for.inc ]
   %cmp1 = icmp eq ptr %n.0, null
   %cmp2 = icmp eq i32 %i.0, 16384
@@ -3254,9 +3254,9 @@ for.inc.sink.split:                               ; preds = %if.then, %if.end12
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %lor.lhs.false
+  %n.1 = phi ptr [ %n.0, %lor.lhs.false ], [ %call13, %for.inc.sink.split ]
   %num_masters.1 = phi i32 [ %num_masters.0, %lor.lhs.false ], [ %num_masters.1.ph, %for.inc.sink.split ]
   %start.1 = phi i32 [ %start.0, %lor.lhs.false ], [ %i.0, %for.inc.sink.split ]
-  %n.1 = phi ptr [ %n.0, %lor.lhs.false ], [ %call13, %for.inc.sink.split ]
   %inc15 = add nuw nsw i32 %i.0, 1
   br label %for.body, !llvm.loop !20
 
@@ -3362,12 +3362,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv183 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next184, %for.end ]
   %n.0172 = phi ptr [ null, %for.body.lr.ph ], [ %n.1.lcssa, %for.end ]
   %firstkey.0171 = phi ptr [ null, %for.body.lr.ph ], [ %firstkey.1.lcssa, %for.end ]
-  %multiple_keys.0170 = phi i32 [ 0, %for.body.lr.ph ], [ %multiple_keys.1.lcssa, %for.end ]
-  %slot.0168 = phi i32 [ 0, %for.body.lr.ph ], [ %slot.1.lcssa, %for.end ]
+  %existing_keys.0170 = phi i32 [ 0, %for.body.lr.ph ], [ %existing_keys.1.lcssa, %for.end ]
+  %missing_keys.0169 = phi i32 [ 0, %for.body.lr.ph ], [ %missing_keys.1.lcssa, %for.end ]
+  %importing_slot.0168 = phi i32 [ 0, %for.body.lr.ph ], [ %importing_slot.1.lcssa, %for.end ]
   %migrating_slot.0167 = phi i32 [ 0, %for.body.lr.ph ], [ %migrating_slot.1.lcssa, %for.end ]
-  %importing_slot.0166 = phi i32 [ 0, %for.body.lr.ph ], [ %importing_slot.1.lcssa, %for.end ]
-  %missing_keys.0165 = phi i32 [ 0, %for.body.lr.ph ], [ %missing_keys.1.lcssa, %for.end ]
-  %existing_keys.0164 = phi i32 [ 0, %for.body.lr.ph ], [ %existing_keys.1.lcssa, %for.end ]
+  %slot.0166 = phi i32 [ 0, %for.body.lr.ph ], [ %slot.1.lcssa, %for.end ]
+  %multiple_keys.0164 = phi i32 [ 0, %for.body.lr.ph ], [ %multiple_keys.1.lcssa, %for.end ]
   %4 = load ptr, ptr %ms.0194, align 8
   %arrayidx = getelementptr inbounds %struct.multiCmd, ptr %4, i64 %indvars.iv183
   %cmd22 = getelementptr inbounds i8, ptr %arrayidx, i64 16
@@ -3388,14 +3388,14 @@ for.body34.preheader:                             ; preds = %for.body
 
 for.body34:                                       ; preds = %for.body34.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body34.preheader ], [ %indvars.iv.next, %for.inc ]
-  %n.1155 = phi ptr [ %n.0172, %for.body34.preheader ], [ %n.2, %for.inc ]
-  %firstkey.1154 = phi ptr [ %firstkey.0171, %for.body34.preheader ], [ %firstkey.2, %for.inc ]
-  %multiple_keys.1153 = phi i32 [ %multiple_keys.0170, %for.body34.preheader ], [ %multiple_keys.2, %for.inc ]
-  %slot.1151 = phi i32 [ %slot.0168, %for.body34.preheader ], [ %slot.2, %for.inc ]
-  %migrating_slot.1150 = phi i32 [ %migrating_slot.0167, %for.body34.preheader ], [ %migrating_slot.2, %for.inc ]
-  %importing_slot.1149 = phi i32 [ %importing_slot.0166, %for.body34.preheader ], [ %importing_slot.2, %for.inc ]
-  %missing_keys.1148 = phi i32 [ %missing_keys.0165, %for.body34.preheader ], [ %missing_keys.2, %for.inc ]
-  %existing_keys.1147 = phi i32 [ %existing_keys.0164, %for.body34.preheader ], [ %existing_keys.2, %for.inc ]
+  %n.1154 = phi ptr [ %n.0172, %for.body34.preheader ], [ %n.2, %for.inc ]
+  %firstkey.1153 = phi ptr [ %firstkey.0171, %for.body34.preheader ], [ %firstkey.2, %for.inc ]
+  %existing_keys.1152 = phi i32 [ %existing_keys.0170, %for.body34.preheader ], [ %existing_keys.2, %for.inc ]
+  %missing_keys.1151 = phi i32 [ %missing_keys.0169, %for.body34.preheader ], [ %missing_keys.2, %for.inc ]
+  %importing_slot.1150 = phi i32 [ %importing_slot.0168, %for.body34.preheader ], [ %importing_slot.2, %for.inc ]
+  %migrating_slot.1149 = phi i32 [ %migrating_slot.0167, %for.body34.preheader ], [ %migrating_slot.2, %for.inc ]
+  %slot.1148 = phi i32 [ %slot.0166, %for.body34.preheader ], [ %slot.2, %for.inc ]
+  %multiple_keys.1147 = phi i32 [ %multiple_keys.0164, %for.body34.preheader ], [ %multiple_keys.2, %for.inc ]
   %arrayidx36 = getelementptr inbounds %struct.keyReference, ptr %8, i64 %indvars.iv
   %9 = load i32, ptr %arrayidx36, align 4
   %idxprom37 = sext i32 %9 to i64
@@ -3525,7 +3525,7 @@ keyHashSlot.exit:                                 ; preds = %if.then5.i, %if.the
   %retval.0.in.in.i = phi i16 [ %call.i, %if.then5.i ], [ %call28.i, %if.then27.i ], [ %call34.i, %if.end31.i ]
   %retval.0.in.i = and i16 %retval.0.in.in.i, 16383
   %retval.0.i93 = zext nneg i16 %retval.0.in.i to i32
-  %cmp42 = icmp eq ptr %firstkey.1154, null
+  %cmp42 = icmp eq ptr %firstkey.1153, null
   br i1 %cmp42, label %if.then44, label %if.else66
 
 if.then44:                                        ; preds = %keyHashSlot.exit
@@ -3553,11 +3553,11 @@ land.lhs.true:                                    ; preds = %if.end52
 if.else59:                                        ; preds = %land.lhs.true, %if.end52
   %call60 = call ptr @getImportingSlotSource(i32 noundef %retval.0.i93) #16
   %cmp61.not = icmp eq ptr %call60, null
-  %spec.select = select i1 %cmp61.not, i32 %importing_slot.1149, i32 1
+  %spec.select = select i1 %cmp61.not, i32 %importing_slot.1150, i32 1
   br label %if.end82
 
 if.else66:                                        ; preds = %keyHashSlot.exit
-  %cmp67.not = icmp eq i32 %slot.1151, %retval.0.i93
+  %cmp67.not = icmp eq i32 %slot.1148, %retval.0.i93
   br i1 %cmp67.not, label %if.end73, label %if.then69
 
 if.then69:                                        ; preds = %if.else66
@@ -3569,24 +3569,24 @@ if.then71:                                        ; preds = %if.then69
   br label %return
 
 if.end73:                                         ; preds = %if.else66
-  %tobool74 = icmp eq i32 %importing_slot.1149, 0
-  %tobool76 = icmp ne i32 %multiple_keys.1153, 0
+  %tobool74 = icmp eq i32 %importing_slot.1150, 0
+  %tobool76 = icmp ne i32 %multiple_keys.1147, 0
   %or.cond = select i1 %tobool74, i1 true, i1 %tobool76
   br i1 %or.cond, label %if.end82, label %land.lhs.true77
 
 land.lhs.true77:                                  ; preds = %if.end73
-  %call78 = call i32 @equalStringObjects(ptr noundef nonnull %firstkey.1154, ptr noundef %10) #16
+  %call78 = call i32 @equalStringObjects(ptr noundef nonnull %firstkey.1153, ptr noundef %10) #16
   %tobool79.not = icmp eq i32 %call78, 0
   %spec.select90 = zext i1 %tobool79.not to i32
   br label %if.end82
 
 if.end82:                                         ; preds = %land.lhs.true77, %if.else59, %land.lhs.true, %if.end73
-  %importing_slot.2 = phi i32 [ %importing_slot.1149, %if.end73 ], [ %importing_slot.1149, %land.lhs.true ], [ %spec.select, %if.else59 ], [ 1, %land.lhs.true77 ]
-  %migrating_slot.2 = phi i32 [ %migrating_slot.1150, %if.end73 ], [ 1, %land.lhs.true ], [ %migrating_slot.1150, %if.else59 ], [ %migrating_slot.1150, %land.lhs.true77 ]
-  %slot.2 = phi i32 [ %slot.1151, %if.end73 ], [ %retval.0.i93, %land.lhs.true ], [ %retval.0.i93, %if.else59 ], [ %slot.1151, %land.lhs.true77 ]
-  %multiple_keys.2 = phi i32 [ %multiple_keys.1153, %if.end73 ], [ %multiple_keys.1153, %land.lhs.true ], [ %multiple_keys.1153, %if.else59 ], [ %spec.select90, %land.lhs.true77 ]
-  %firstkey.2 = phi ptr [ %firstkey.1154, %if.end73 ], [ %10, %land.lhs.true ], [ %10, %if.else59 ], [ %firstkey.1154, %land.lhs.true77 ]
-  %n.2 = phi ptr [ %n.1155, %if.end73 ], [ %call45, %land.lhs.true ], [ %call45, %if.else59 ], [ %n.1155, %land.lhs.true77 ]
+  %multiple_keys.2 = phi i32 [ %multiple_keys.1147, %if.end73 ], [ %multiple_keys.1147, %land.lhs.true ], [ %multiple_keys.1147, %if.else59 ], [ %spec.select90, %land.lhs.true77 ]
+  %slot.2 = phi i32 [ %slot.1148, %if.end73 ], [ %retval.0.i93, %land.lhs.true ], [ %retval.0.i93, %if.else59 ], [ %slot.1148, %land.lhs.true77 ]
+  %migrating_slot.2 = phi i32 [ %migrating_slot.1149, %if.end73 ], [ 1, %land.lhs.true ], [ %migrating_slot.1149, %if.else59 ], [ %migrating_slot.1149, %land.lhs.true77 ]
+  %importing_slot.2 = phi i32 [ %importing_slot.1150, %if.end73 ], [ %importing_slot.1150, %land.lhs.true ], [ %spec.select, %if.else59 ], [ 1, %land.lhs.true77 ]
+  %firstkey.2 = phi ptr [ %firstkey.1153, %if.end73 ], [ %10, %land.lhs.true ], [ %10, %if.else59 ], [ %firstkey.1153, %land.lhs.true77 ]
+  %n.2 = phi ptr [ %n.1154, %if.end73 ], [ %call45, %land.lhs.true ], [ %call45, %if.else59 ], [ %n.1154, %land.lhs.true77 ]
   %tobool84 = icmp eq i32 %migrating_slot.2, 0
   %tobool86 = icmp eq i32 %importing_slot.2, 0
   %or.cond1.not88 = select i1 %tobool84, i1 %tobool86, i1 false
@@ -3600,27 +3600,27 @@ if.then89:                                        ; preds = %if.end82
   br i1 %cmp92, label %if.then94, label %if.else95
 
 if.then94:                                        ; preds = %if.then89
-  %inc = add nsw i32 %missing_keys.1148, 1
+  %inc = add nsw i32 %missing_keys.1151, 1
   br label %for.inc
 
 if.else95:                                        ; preds = %if.then89
-  %inc96 = add nsw i32 %existing_keys.1147, 1
+  %inc96 = add nsw i32 %existing_keys.1152, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end82, %if.else95, %if.then94
-  %existing_keys.2 = phi i32 [ %existing_keys.1147, %if.end82 ], [ %existing_keys.1147, %if.then94 ], [ %inc96, %if.else95 ]
-  %missing_keys.2 = phi i32 [ %missing_keys.1148, %if.end82 ], [ %inc, %if.then94 ], [ %missing_keys.1148, %if.else95 ]
+  %missing_keys.2 = phi i32 [ %missing_keys.1151, %if.end82 ], [ %inc, %if.then94 ], [ %missing_keys.1151, %if.else95 ]
+  %existing_keys.2 = phi i32 [ %existing_keys.1152, %if.end82 ], [ %existing_keys.1152, %if.then94 ], [ %inc96, %if.else95 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body34, !llvm.loop !21
 
 for.end:                                          ; preds = %for.inc, %for.body
-  %existing_keys.1.lcssa = phi i32 [ %existing_keys.0164, %for.body ], [ %existing_keys.2, %for.inc ]
-  %missing_keys.1.lcssa = phi i32 [ %missing_keys.0165, %for.body ], [ %missing_keys.2, %for.inc ]
-  %importing_slot.1.lcssa = phi i32 [ %importing_slot.0166, %for.body ], [ %importing_slot.2, %for.inc ]
+  %multiple_keys.1.lcssa = phi i32 [ %multiple_keys.0164, %for.body ], [ %multiple_keys.2, %for.inc ]
+  %slot.1.lcssa = phi i32 [ %slot.0166, %for.body ], [ %slot.2, %for.inc ]
   %migrating_slot.1.lcssa = phi i32 [ %migrating_slot.0167, %for.body ], [ %migrating_slot.2, %for.inc ]
-  %slot.1.lcssa = phi i32 [ %slot.0168, %for.body ], [ %slot.2, %for.inc ]
-  %multiple_keys.1.lcssa = phi i32 [ %multiple_keys.0170, %for.body ], [ %multiple_keys.2, %for.inc ]
+  %importing_slot.1.lcssa = phi i32 [ %importing_slot.0168, %for.body ], [ %importing_slot.2, %for.inc ]
+  %missing_keys.1.lcssa = phi i32 [ %missing_keys.0169, %for.body ], [ %missing_keys.2, %for.inc ]
+  %existing_keys.1.lcssa = phi i32 [ %existing_keys.0170, %for.body ], [ %existing_keys.2, %for.inc ]
   %firstkey.1.lcssa = phi ptr [ %firstkey.0171, %for.body ], [ %firstkey.2, %for.inc ]
   %n.1.lcssa = phi ptr [ %n.0172, %for.body ], [ %n.2, %for.inc ]
   call void @getKeysFreeResult(ptr noundef nonnull %result) #16

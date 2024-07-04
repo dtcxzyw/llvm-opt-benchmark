@@ -1098,47 +1098,47 @@ define noundef i32 @MPL_gavl_tree_delete_range(ptr nocapture noundef %0, ptr nou
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %23, %.lr.ph.i
-  %.02437.i = phi ptr [ %.125.i, %23 ], [ %6, %.lr.ph.i ]
-  %.02636.i = phi ptr [ %.127.i, %23 ], [ null, %.lr.ph.i ]
-  %9 = getelementptr inbounds i8, ptr %.02437.i, i64 32
+  %.037.i = phi ptr [ %.1.i, %23 ], [ %6, %.lr.ph.i ]
+  %.02436.i = phi ptr [ %.125.i, %23 ], [ null, %.lr.ph.i ]
+  %9 = getelementptr inbounds i8, ptr %.037.i, i64 32
   %10 = load i64, ptr %9, align 8
   %.not.i.i = icmp ugt i64 %7, %10
   br i1 %.not.i.i, label %11, label %21
 
 11:                                               ; preds = %.lr.ph.split.i
-  %12 = getelementptr inbounds i8, ptr %.02437.i, i64 40
+  %12 = getelementptr inbounds i8, ptr %.037.i, i64 40
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, %10
   %.not9.i.i = icmp ugt i64 %14, %4
   br i1 %.not9.i.i, label %MPLI_gavl_intersect_cmp_func.exit.i, label %21
 
 MPLI_gavl_intersect_cmp_func.exit.i:              ; preds = %11
-  %.not29.i = icmp eq ptr %.02636.i, null
-  %15 = load ptr, ptr %.02437.i, align 8
-  %..02636.i = select i1 %.not29.i, ptr %5, ptr %.02636.i
-  store ptr %15, ptr %..02636.i, align 8
+  %.not29.i = icmp eq ptr %.02436.i, null
+  %15 = load ptr, ptr %.037.i, align 8
+  %..02436.i = select i1 %.not29.i, ptr %5, ptr %.02436.i
+  store ptr %15, ptr %..02436.i, align 8
   %16 = load ptr, ptr %8, align 8
   %.not30.i = icmp eq ptr %16, null
   br i1 %.not30.i, label %20, label %17
 
 17:                                               ; preds = %MPLI_gavl_intersect_cmp_func.exit.i
-  %18 = getelementptr inbounds i8, ptr %.02437.i, i64 48
+  %18 = getelementptr inbounds i8, ptr %.037.i, i64 48
   %19 = load ptr, ptr %18, align 8
   tail call void %16(ptr noundef %19) #7
   br label %20
 
 20:                                               ; preds = %17, %MPLI_gavl_intersect_cmp_func.exit.i
-  tail call void @free(ptr noundef nonnull %.02437.i) #7
+  tail call void @free(ptr noundef nonnull %.037.i) #7
   br label %23
 
 21:                                               ; preds = %11, %.lr.ph.split.i
-  %22 = load ptr, ptr %.02437.i, align 8
+  %22 = load ptr, ptr %.037.i, align 8
   br label %23
 
 23:                                               ; preds = %21, %20
-  %.127.i = phi ptr [ %.02636.i, %20 ], [ %.02437.i, %21 ]
-  %.125.i = phi ptr [ %15, %20 ], [ %22, %21 ]
-  %.not.i = icmp eq ptr %.125.i, null
+  %.125.i = phi ptr [ %.02436.i, %20 ], [ %.037.i, %21 ]
+  %.1.i = phi ptr [ %15, %20 ], [ %22, %21 ]
+  %.not.i = icmp eq ptr %.1.i, null
   br i1 %.not.i, label %gavl_tree_delete_removed_nodes.exit, label %.lr.ph.split.i, !llvm.loop !8
 
 gavl_tree_delete_removed_nodes.exit:              ; preds = %23, %3
@@ -1159,40 +1159,40 @@ define noundef i32 @MPL_gavl_tree_delete_start_addr(ptr nocapture noundef %0, pt
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %17, %.lr.ph.i
-  %.02437.us.i = phi ptr [ %.125.us.i, %17 ], [ %5, %.lr.ph.i ]
-  %.02636.us.i = phi ptr [ %.127.us.i, %17 ], [ null, %.lr.ph.i ]
-  %7 = getelementptr i8, ptr %.02437.us.i, i64 32
-  %.024.val.us.i = load i64, ptr %7, align 8
-  %8 = icmp eq i64 %.024.val.us.i, %3
+  %.037.us.i = phi ptr [ %.1.us.i, %17 ], [ %5, %.lr.ph.i ]
+  %.02436.us.i = phi ptr [ %.125.us.i, %17 ], [ null, %.lr.ph.i ]
+  %7 = getelementptr i8, ptr %.037.us.i, i64 32
+  %.0.val.us.i = load i64, ptr %7, align 8
+  %8 = icmp eq i64 %.0.val.us.i, %3
   br i1 %8, label %MPLI_gavl_intersect_cmp_func.exit.us.i, label %9
 
 9:                                                ; preds = %.lr.ph.split.us.i
-  %10 = load ptr, ptr %.02437.us.i, align 8
+  %10 = load ptr, ptr %.037.us.i, align 8
   br label %17
 
 MPLI_gavl_intersect_cmp_func.exit.us.i:           ; preds = %.lr.ph.split.us.i
-  %.not29.us.i = icmp eq ptr %.02636.us.i, null
-  %11 = load ptr, ptr %.02437.us.i, align 8
-  %..02636.us.i = select i1 %.not29.us.i, ptr %4, ptr %.02636.us.i
-  store ptr %11, ptr %..02636.us.i, align 8
+  %.not29.us.i = icmp eq ptr %.02436.us.i, null
+  %11 = load ptr, ptr %.037.us.i, align 8
+  %..02436.us.i = select i1 %.not29.us.i, ptr %4, ptr %.02436.us.i
+  store ptr %11, ptr %..02436.us.i, align 8
   %12 = load ptr, ptr %6, align 8
   %.not30.us.i = icmp eq ptr %12, null
   br i1 %.not30.us.i, label %16, label %13
 
 13:                                               ; preds = %MPLI_gavl_intersect_cmp_func.exit.us.i
-  %14 = getelementptr inbounds i8, ptr %.02437.us.i, i64 48
+  %14 = getelementptr inbounds i8, ptr %.037.us.i, i64 48
   %15 = load ptr, ptr %14, align 8
   tail call void %12(ptr noundef %15) #7
   br label %16
 
 16:                                               ; preds = %13, %MPLI_gavl_intersect_cmp_func.exit.us.i
-  tail call void @free(ptr noundef nonnull %.02437.us.i) #7
+  tail call void @free(ptr noundef nonnull %.037.us.i) #7
   br label %17
 
 17:                                               ; preds = %16, %9
-  %.127.us.i = phi ptr [ %.02636.us.i, %16 ], [ %.02437.us.i, %9 ]
-  %.125.us.i = phi ptr [ %11, %16 ], [ %10, %9 ]
-  %.not.us.i = icmp eq ptr %.125.us.i, null
+  %.125.us.i = phi ptr [ %.02436.us.i, %16 ], [ %.037.us.i, %9 ]
+  %.1.us.i = phi ptr [ %11, %16 ], [ %10, %9 ]
+  %.not.us.i = icmp eq ptr %.1.us.i, null
   br i1 %.not.us.i, label %gavl_tree_delete_removed_nodes.exit, label %.lr.ph.split.us.i, !llvm.loop !8
 
 gavl_tree_delete_removed_nodes.exit:              ; preds = %17, %2

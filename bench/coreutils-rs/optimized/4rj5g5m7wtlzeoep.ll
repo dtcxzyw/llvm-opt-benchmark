@@ -310,9 +310,9 @@ define void @_ZN7uu_head5parse14parse_obsolete17h8068d6f114ceb656E(ptr noalias n
   br label %143
 
 143:                                              ; preds = %142, %141, %140, %139, %138, %137, %136, %132
-  %.131.i = phi i1 [ %.030.i, %132 ], [ %.030.i, %142 ], [ %.030.i, %141 ], [ %.030.i, %140 ], [ %.030.i, %139 ], [ %.030.i, %138 ], [ false, %137 ], [ true, %136 ]
+  %.131.i = phi i1 [ %.030.i, %132 ], [ %.030.i, %142 ], [ %.030.i, %141 ], [ %.030.i, %140 ], [ %.030.i, %139 ], [ true, %138 ], [ %.030.i, %137 ], [ %.030.i, %136 ]
   %.129.i = phi i1 [ %.028.i, %132 ], [ %.028.i, %142 ], [ %.028.i, %141 ], [ %.028.i, %140 ], [ %.028.i, %139 ], [ %.028.i, %138 ], [ true, %137 ], [ false, %136 ]
-  %.1.i = phi i1 [ %.027.i, %132 ], [ %.027.i, %142 ], [ %.027.i, %141 ], [ %.027.i, %140 ], [ %.027.i, %139 ], [ true, %138 ], [ %.027.i, %137 ], [ %.027.i, %136 ]
+  %.1.i = phi i1 [ %.027.i, %132 ], [ %.027.i, %142 ], [ %.027.i, %141 ], [ %.027.i, %140 ], [ %.027.i, %139 ], [ %.027.i, %138 ], [ false, %137 ], [ true, %136 ]
   %.sroa.9.1.i = phi i64 [ %.sroa.9.0.i, %132 ], [ 1048576, %142 ], [ 1024, %141 ], [ 512, %140 ], [ 1, %139 ], [ %.sroa.9.0.i, %138 ], [ %.sroa.9.0.i, %137 ], [ %.sroa.9.0.i, %136 ]
   %.sroa.0.1.i = phi i64 [ %.sroa.0.0.i30, %132 ], [ 1, %142 ], [ 1, %141 ], [ 1, %140 ], [ 1, %139 ], [ %.sroa.0.0.i30, %138 ], [ %.sroa.0.0.i30, %137 ], [ %.sroa.0.0.i30, %136 ]
   %144 = icmp eq ptr %133, %26
@@ -384,7 +384,7 @@ define void @_ZN7uu_head5parse14parse_obsolete17h8068d6f114ceb656E(ptr noalias n
   store ptr inttoptr (i64 8 to ptr), ptr %184, align 8, !noalias !32
   %185 = getelementptr inbounds i8, ptr %23, i64 16
   store i64 0, ptr %185, align 8, !noalias !32
-  br i1 %.131.i, label %187, label %186
+  br i1 %.1.i, label %187, label %186
 
 186:                                              ; preds = %199, %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread.i"
   br i1 %.129.i, label %206, label %205
@@ -440,7 +440,7 @@ define void @_ZN7uu_head5parse14parse_obsolete17h8068d6f114ceb656E(ptr noalias n
   br label %186
 
 205:                                              ; preds = %216, %186
-  br i1 %.1.i, label %224, label %222
+  br i1 %.131.i, label %224, label %222
 
 206:                                              ; preds = %186
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !32
@@ -906,8 +906,8 @@ define hidden void @_ZN7uu_head5parse9parse_num17h1eee6712adfff103E(ptr noalias 
 
 57:                                               ; preds = %.critedge, %48
   %.0 = phi i8 [ 0, %48 ], [ %spec.select, %.critedge ]
-  %.sroa.03.0 = phi ptr [ %9, %48 ], [ %76, %.critedge ]
   %.sroa.6.0 = phi i64 [ %10, %48 ], [ %77, %.critedge ]
+  %.sroa.03.0 = phi ptr [ %9, %48 ], [ %76, %.critedge ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !142
   tail call void @llvm.experimental.noalias.scope.decl(metadata !145)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !148

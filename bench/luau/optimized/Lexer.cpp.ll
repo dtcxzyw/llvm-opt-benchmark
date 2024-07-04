@@ -2642,9 +2642,9 @@ _ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit.i: ; preds = %._crit_edge
 
 30:                                               ; preds = %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.thread.i, %_ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit.i
   %.07.lcssa.i.pn.i = phi i64 [ %.07.lcssa.i.i, %_ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit.i ], [ %44, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.thread.i ]
-  %.01724.i = phi i64 [ 0, %_ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit.i ], [ %43, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.thread.i ]
-  %.01825.i = and i64 %.07.lcssa.i.pn.i, %13
-  %31 = getelementptr inbounds %"struct.Luau::AstNameTable::Entry", ptr %24, i64 %.01825.i
+  %.024.i = phi i64 [ 0, %_ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit.i ], [ %43, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.thread.i ]
+  %.01725.i = and i64 %.07.lcssa.i.pn.i, %13
+  %31 = getelementptr inbounds %"struct.Luau::AstNameTable::Entry", ptr %24, i64 %.01725.i
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, %26
@@ -2674,8 +2674,8 @@ _ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.i: ; preds = %_ZN
   br i1 %42, label %_ZN4Luau6detail14DenseHashTableINS_12AstNameTable5EntryES3_S3_NS0_16ItemInterfaceSetIS3_EENS2_9EntryHashESt8equal_toIS3_EE13insert_unsafeERKS3_.exit, label %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.thread.i
 
 _ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.thread.i: ; preds = %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.i, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit.thread.i
-  %43 = add i64 %.01724.i, 1
-  %44 = add i64 %43, %.01825.i
+  %43 = add i64 %.024.i, 1
+  %44 = add i64 %43, %.01725.i
   %.not.i3 = icmp ule i64 %43, %13
   tail call void @llvm.assume(i1 %.not.i3)
   br label %30
@@ -6126,37 +6126,37 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
   br i1 %.not155, label %._crit_edge153, label %.lr.ph152
 
 .lr.ph152:                                        ; preds = %6, %.backedge
-  %.0102150 = phi i64 [ %.0102.be, %.backedge ], [ 0, %6 ]
-  %.0105149 = phi i64 [ %.0105.be, %.backedge ], [ 0, %6 ]
-  %8 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0105149)
+  %.0106150 = phi i64 [ %.0106.be, %.backedge ], [ 0, %6 ]
+  %.0107149 = phi i64 [ %.0107.be, %.backedge ], [ 0, %6 ]
+  %8 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0106150)
   %9 = load i8, ptr %8, align 1
   %.not = icmp eq i8 %9, 92
   br i1 %.not, label %17, label %10
 
 10:                                               ; preds = %.lr.ph152
-  %11 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0105149)
+  %11 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0106150)
   %12 = load i8, ptr %11, align 1
-  %13 = add i64 %.0102150, 1
-  %14 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0102150)
+  %13 = add i64 %.0107149, 1
+  %14 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0107149)
   store i8 %12, ptr %14, align 1
-  %15 = add nuw i64 %.0105149, 1
+  %15 = add nuw i64 %.0106150, 1
   br label %.backedge
 
 .backedge:                                        ; preds = %.lr.ph, %25, %58, %152, %28, %_ZN4LuauL8unescapeEc.exit, %._crit_edge.thread, %32, %.preheader122, %10
-  %.0105.be = phi i64 [ %15, %10 ], [ %.3.lcssa165, %._crit_edge.thread ], [ %23, %_ZN4LuauL8unescapeEc.exit ], [ %153, %152 ], [ %38, %58 ], [ %23, %28 ], [ %23, %25 ], [ %spec.select, %32 ], [ %23, %.preheader122 ], [ %.1106135, %.lr.ph ]
-  %.0102.be = phi i64 [ %13, %10 ], [ %177, %._crit_edge.thread ], [ %187, %_ZN4LuauL8unescapeEc.exit ], [ %154, %152 ], [ %60, %58 ], [ %29, %28 ], [ %26, %25 ], [ %29, %32 ], [ %.0102150, %.preheader122 ], [ %.0102150, %.lr.ph ]
-  %16 = icmp ult i64 %.0105.be, %7
+  %.0107.be = phi i64 [ %13, %10 ], [ %177, %._crit_edge.thread ], [ %187, %_ZN4LuauL8unescapeEc.exit ], [ %154, %152 ], [ %60, %58 ], [ %29, %28 ], [ %26, %25 ], [ %29, %32 ], [ %.0107149, %.preheader122 ], [ %.0107149, %.lr.ph ]
+  %.0106.be = phi i64 [ %15, %10 ], [ %.3.lcssa165, %._crit_edge.thread ], [ %23, %_ZN4LuauL8unescapeEc.exit ], [ %153, %152 ], [ %38, %58 ], [ %23, %28 ], [ %23, %25 ], [ %spec.select, %32 ], [ %23, %.preheader122 ], [ %.1135, %.lr.ph ]
+  %16 = icmp ult i64 %.0106.be, %7
   br i1 %16, label %.lr.ph152, label %._crit_edge153, !llvm.loop !32
 
 17:                                               ; preds = %.lr.ph152
-  %18 = add nuw i64 %.0105149, 1
+  %18 = add nuw i64 %.0106150, 1
   %19 = icmp eq i64 %18, %7
   br i1 %19, label %_ZN4LuauL6toUtf8EPcj.exit, label %20
 
 20:                                               ; preds = %17
   %21 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %18)
   %22 = load i8, ptr %21, align 1
-  %23 = add i64 %.0105149, 2
+  %23 = add i64 %.0106150, 2
   switch i8 %22, label %155 [
     i8 10, label %25
     i8 13, label %28
@@ -6171,14 +6171,14 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
   br i1 %24, label %.lr.ph, label %.backedge
 
 25:                                               ; preds = %20
-  %26 = add i64 %.0102150, 1
-  %27 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0102150)
+  %26 = add i64 %.0107149, 1
+  %27 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0107149)
   store i8 10, ptr %27, align 1
   br label %.backedge
 
 28:                                               ; preds = %20
-  %29 = add i64 %.0102150, 1
-  %30 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0102150)
+  %29 = add i64 %.0107149, 1
+  %30 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0107149)
   store i8 10, ptr %30, align 1
   %31 = icmp ult i64 %23, %7
   br i1 %31, label %32, label %.backedge
@@ -6187,19 +6187,19 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
   %33 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %23)
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 10
-  %36 = add i64 %.0105149, 3
+  %36 = add i64 %.0106150, 3
   %spec.select = select i1 %35, i64 %36, i64 %23
   br label %.backedge
 
 37:                                               ; preds = %20
-  %38 = add i64 %.0105149, 4
+  %38 = add i64 %.0106150, 4
   %39 = icmp ugt i64 %38, %7
   br i1 %39, label %_ZN4LuauL6toUtf8EPcj.exit, label %.preheader121
 
 .preheader121:                                    ; preds = %37, %51
   %40 = phi i1 [ false, %51 ], [ true, %37 ]
   %indvars.iv = phi i64 [ 1, %51 ], [ 0, %37 ]
-  %.0108138 = phi i32 [ %57, %51 ], [ 0, %37 ]
+  %.0105138 = phi i32 [ %57, %51 ], [ 0, %37 ]
   %41 = add i64 %23, %indvars.iv
   %42 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %41)
   %43 = load i8, ptr %42, align 1
@@ -6213,7 +6213,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
   br i1 %50, label %51, label %_ZN4LuauL6toUtf8EPcj.exit
 
 51:                                               ; preds = %.preheader121
-  %52 = shl i32 %.0108138, 4
+  %52 = shl i32 %.0105138, 4
   %53 = or i8 %43, 32
   %54 = zext i8 %53 to i32
   %55 = add nsw i32 %54, -87
@@ -6223,14 +6223,14 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
 
 58:                                               ; preds = %51
   %59 = trunc i32 %57 to i8
-  %60 = add i64 %.0102150, 1
-  %61 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0102150)
+  %60 = add i64 %.0107149, 1
+  %61 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0107149)
   store i8 %59, ptr %61, align 1
   br label %.backedge
 
 .lr.ph:                                           ; preds = %.preheader122, %64
-  %.1106135 = phi i64 [ %65, %64 ], [ %23, %.preheader122 ]
-  %62 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.1106135)
+  %.1135 = phi i64 [ %65, %64 ], [ %23, %.preheader122 ]
+  %62 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.1135)
   %63 = load i8, ptr %62, align 1
   switch i8 %63, label %.backedge [
     i8 32, label %64
@@ -6242,12 +6242,12 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
   ]
 
 64:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %65 = add i64 %.1106135, 1
+  %65 = add i64 %.1135, 1
   %exitcond158.not = icmp eq i64 %65, %7
   br i1 %exitcond158.not, label %._crit_edge153, label %.lr.ph, !llvm.loop !34
 
 66:                                               ; preds = %20
-  %67 = add i64 %.0105149, 5
+  %67 = add i64 %.0106150, 5
   %68 = icmp ugt i64 %67, %7
   br i1 %68, label %_ZN4LuauL6toUtf8EPcj.exit, label %69
 
@@ -6258,15 +6258,15 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
   br i1 %.not116, label %72, label %_ZN4LuauL6toUtf8EPcj.exit
 
 72:                                               ; preds = %69
-  %73 = add i64 %.0105149, 3
+  %73 = add i64 %.0106150, 3
   %74 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %73)
   %75 = load i8, ptr %74, align 1
   %76 = icmp eq i8 %75, 125
   br i1 %76, label %_ZN4LuauL6toUtf8EPcj.exit, label %.preheader123
 
 .preheader123:                                    ; preds = %72, %90
-  %.0103134 = phi i32 [ %96, %90 ], [ 0, %72 ]
-  %.0104133 = phi i32 [ %94, %90 ], [ 0, %72 ]
+  %.0102134 = phi i32 [ %96, %90 ], [ 0, %72 ]
+  %.0103133 = phi i32 [ %94, %90 ], [ 0, %72 ]
   %.2132 = phi i64 [ %95, %90 ], [ %73, %72 ]
   %77 = icmp eq i64 %.2132, %7
   br i1 %77, label %_ZN4LuauL6toUtf8EPcj.exit, label %78
@@ -6288,18 +6288,18 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
   br i1 %89, label %90, label %_ZN4LuauL6toUtf8EPcj.exit
 
 90:                                               ; preds = %82
-  %91 = shl i32 %.0104133, 4
+  %91 = shl i32 %.0103133, 4
   %92 = add nsw i32 %86, -87
   %93 = select i1 %85, i32 %84, i32 %92
   %94 = add i32 %93, %91
   %95 = add i64 %.2132, 1
-  %96 = add nuw nsw i32 %.0103134, 1
+  %96 = add nuw nsw i32 %.0102134, 1
   %exitcond.not = icmp eq i32 %96, 16
   br i1 %exitcond.not, label %97, label %.preheader123, !llvm.loop !35
 
 97:                                               ; preds = %78, %90
   %.2.lcssa = phi i64 [ %.2132, %78 ], [ %95, %90 ]
-  %.0104.lcssa = phi i32 [ %.0104133, %78 ], [ %94, %90 ]
+  %.0103.lcssa = phi i32 [ %.0103133, %78 ], [ %94, %90 ]
   %98 = icmp eq i64 %.2.lcssa, %7
   br i1 %98, label %_ZN4LuauL6toUtf8EPcj.exit, label %99
 
@@ -6310,25 +6310,25 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
   br i1 %.not117, label %102, label %_ZN4LuauL6toUtf8EPcj.exit
 
 102:                                              ; preds = %99
-  %103 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0102150)
-  %104 = icmp ult i32 %.0104.lcssa, 128
+  %103 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0107149)
+  %104 = icmp ult i32 %.0103.lcssa, 128
   br i1 %104, label %105, label %107
 
 105:                                              ; preds = %102
-  %106 = trunc nuw nsw i32 %.0104.lcssa to i8
+  %106 = trunc nuw nsw i32 %.0103.lcssa to i8
   store i8 %106, ptr %103, align 1
   br label %152
 
 107:                                              ; preds = %102
-  %108 = icmp ult i32 %.0104.lcssa, 2048
+  %108 = icmp ult i32 %.0103.lcssa, 2048
   br i1 %108, label %109, label %117
 
 109:                                              ; preds = %107
-  %110 = lshr i32 %.0104.lcssa, 6
+  %110 = lshr i32 %.0103.lcssa, 6
   %111 = trunc nuw i32 %110 to i8
   %112 = or disjoint i8 %111, -64
   store i8 %112, ptr %103, align 1
-  %113 = trunc i32 %.0104.lcssa to i8
+  %113 = trunc i32 %.0103.lcssa to i8
   %114 = and i8 %113, 63
   %115 = or disjoint i8 %114, -128
   %116 = getelementptr inbounds i8, ptr %103, i64 1
@@ -6336,21 +6336,21 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
   br label %152
 
 117:                                              ; preds = %107
-  %118 = icmp ult i32 %.0104.lcssa, 65536
+  %118 = icmp ult i32 %.0103.lcssa, 65536
   br i1 %118, label %119, label %132
 
 119:                                              ; preds = %117
-  %120 = lshr i32 %.0104.lcssa, 12
+  %120 = lshr i32 %.0103.lcssa, 12
   %121 = trunc nuw i32 %120 to i8
   %122 = or disjoint i8 %121, -32
   store i8 %122, ptr %103, align 1
-  %123 = lshr i32 %.0104.lcssa, 6
+  %123 = lshr i32 %.0103.lcssa, 6
   %124 = trunc i32 %123 to i8
   %125 = and i8 %124, 63
   %126 = or disjoint i8 %125, -128
   %127 = getelementptr inbounds i8, ptr %103, i64 1
   store i8 %126, ptr %127, align 1
-  %128 = trunc i32 %.0104.lcssa to i8
+  %128 = trunc i32 %.0103.lcssa to i8
   %129 = and i8 %128, 63
   %130 = or disjoint i8 %129, -128
   %131 = getelementptr inbounds i8, ptr %103, i64 2
@@ -6358,27 +6358,27 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
   br label %152
 
 132:                                              ; preds = %117
-  %133 = icmp ult i32 %.0104.lcssa, 1114112
+  %133 = icmp ult i32 %.0103.lcssa, 1114112
   br i1 %133, label %134, label %_ZN4LuauL6toUtf8EPcj.exit
 
 134:                                              ; preds = %132
-  %135 = lshr i32 %.0104.lcssa, 18
+  %135 = lshr i32 %.0103.lcssa, 18
   %136 = trunc nuw i32 %135 to i8
   %137 = or disjoint i8 %136, -16
   store i8 %137, ptr %103, align 1
-  %138 = lshr i32 %.0104.lcssa, 12
+  %138 = lshr i32 %.0103.lcssa, 12
   %139 = trunc i32 %138 to i8
   %140 = and i8 %139, 63
   %141 = or disjoint i8 %140, -128
   %142 = getelementptr inbounds i8, ptr %103, i64 1
   store i8 %141, ptr %142, align 1
-  %143 = lshr i32 %.0104.lcssa, 6
+  %143 = lshr i32 %.0103.lcssa, 6
   %144 = trunc i32 %143 to i8
   %145 = and i8 %144, 63
   %146 = or disjoint i8 %145, -128
   %147 = getelementptr inbounds i8, ptr %103, i64 2
   store i8 %146, ptr %147, align 1
-  %148 = trunc i32 %.0104.lcssa to i8
+  %148 = trunc i32 %.0103.lcssa to i8
   %149 = and i8 %148, 63
   %150 = or disjoint i8 %149, -128
   %151 = getelementptr inbounds i8, ptr %103, i64 3
@@ -6388,7 +6388,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
 152:                                              ; preds = %105, %109, %119, %134
   %.0.i.ph = phi i64 [ 4, %134 ], [ 3, %119 ], [ 2, %109 ], [ 1, %105 ]
   %153 = add i64 %.2.lcssa, 1
-  %154 = add i64 %.0.i.ph, %.0102150
+  %154 = add i64 %.0.i.ph, %.0107149
   br label %.backedge
 
 155:                                              ; preds = %20
@@ -6434,8 +6434,8 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
   %.0100.lcssa166 = phi i32 [ %.0100.lcssa, %._crit_edge ], [ %157, %.preheader ]
   %.3.lcssa165 = phi i64 [ %.3.lcssa, %._crit_edge ], [ %7, %.preheader ]
   %176 = trunc nuw i32 %.0100.lcssa166 to i8
-  %177 = add i64 %.0102150, 1
-  %178 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0102150)
+  %177 = add i64 %.0107149, 1
+  %178 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0107149)
   store i8 %176, ptr %178, align 1
   br label %.backedge
 
@@ -6473,14 +6473,14 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer17fixupQuotedStringERNSt7__cx
 
 _ZN4LuauL8unescapeEc.exit:                        ; preds = %179, %180, %181, %182, %183, %184, %185, %186
   %.0.i118 = phi i8 [ %22, %186 ], [ 11, %185 ], [ 9, %184 ], [ 13, %183 ], [ 10, %182 ], [ 12, %181 ], [ 8, %180 ], [ 7, %179 ]
-  %187 = add i64 %.0102150, 1
-  %188 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0102150)
+  %187 = add i64 %.0107149, 1
+  %188 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0107149)
   store i8 %.0.i118, ptr %188, align 1
   br label %.backedge
 
 ._crit_edge153:                                   ; preds = %.backedge, %64, %6
-  %.0102.lcssa = phi i64 [ 0, %6 ], [ %.0102150, %64 ], [ %.0102.be, %.backedge ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0102.lcssa)
+  %.0107.lcssa = phi i64 [ 0, %6 ], [ %.0107149, %64 ], [ %.0107.be, %.backedge ]
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0107.lcssa)
   br label %_ZN4LuauL6toUtf8EPcj.exit
 
 _ZN4LuauL6toUtf8EPcj.exit:                        ; preds = %132, %._crit_edge, %97, %99, %72, %69, %66, %37, %20, %17, %82, %.preheader123, %.preheader121, %1, %3, %._crit_edge153
@@ -6739,9 +6739,9 @@ _ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit: ; preds = %_ZNKSt8equal_
 
 29:                                               ; preds = %_ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.thread
   %.07.lcssa.i.pn = phi i64 [ %.07.lcssa.i, %_ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit ], [ %40, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.thread ]
-  %.01523 = phi i64 [ 0, %_ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit ], [ %39, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.thread ]
-  %.01624 = and i64 %.07.lcssa.i.pn, %18
-  %30 = getelementptr inbounds %"struct.Luau::AstNameTable::Entry", ptr %26, i64 %.01624
+  %.023 = phi i64 [ 0, %_ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit ], [ %39, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.thread ]
+  %.01524 = and i64 %.07.lcssa.i.pn, %18
+  %30 = getelementptr inbounds %"struct.Luau::AstNameTable::Entry", ptr %26, i64 %.01524
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %32, %9
@@ -6764,14 +6764,14 @@ _ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21: ; preds = %_ZNKS
   br i1 %38, label %.loopexit, label %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.thread
 
 _ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.thread: ; preds = %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit19.thread, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21
-  %39 = add i64 %.01523, 1
-  %40 = add i64 %39, %.01624
+  %39 = add i64 %.023, 1
+  %40 = add i64 %39, %.01524
   %.not = icmp ugt i64 %39, %18
   br i1 %.not, label %.loopexit, label %29, !llvm.loop !38
 
 .loopexit:                                        ; preds = %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.thread, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit19, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit ], [ null, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.thread ], [ null, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21 ], [ %30, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit19 ]
-  ret ptr %.0
+  %.016 = phi ptr [ null, %2 ], [ null, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit ], [ null, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.thread ], [ null, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21 ], [ %30, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit19 ]
+  ret ptr %.016
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6865,9 +6865,9 @@ _ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit.i.preheader: ; preds = %.
 
 _ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit.i: ; preds = %_ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit.i.preheader, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.thread.i
   %.07.lcssa.i.pn.i = phi i64 [ %42, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.thread.i ], [ %.07.lcssa.i.pn.i.ph, %_ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit.i.preheader ]
-  %.01724.i = phi i64 [ %41, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.thread.i ], [ 0, %_ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit.i.preheader ]
-  %.01825.i = and i64 %.07.lcssa.i.pn.i, %13
-  %32 = getelementptr inbounds %"struct.Luau::AstNameTable::Entry", ptr %.sroa.0.0, i64 %.01825.i
+  %.024.i = phi i64 [ %41, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.thread.i ], [ 0, %_ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit.i.preheader ]
+  %.01725.i = and i64 %.07.lcssa.i.pn.i, %13
+  %32 = getelementptr inbounds %"struct.Luau::AstNameTable::Entry", ptr %.sroa.0.0, i64 %.01725.i
   %33 = getelementptr inbounds i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, %.sroa.17.24.copyload
@@ -6890,8 +6890,8 @@ _ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.i: ; preds = %_ZN
   br i1 %40, label %_ZN4Luau6detail14DenseHashTableINS_12AstNameTable5EntryES3_S3_NS0_16ItemInterfaceSetIS3_EENS2_9EntryHashESt8equal_toIS3_EE13insert_unsafeERKS3_.exit, label %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.thread.i
 
 _ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.thread.i: ; preds = %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit21.i, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit.thread.i
-  %41 = add i64 %.01724.i, 1
-  %42 = add i64 %41, %.01825.i
+  %41 = add i64 %.024.i, 1
+  %42 = add i64 %41, %.01725.i
   %.not.i13 = icmp ule i64 %41, %13
   tail call void @llvm.assume(i1 %.not.i13)
   br label %_ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit.i

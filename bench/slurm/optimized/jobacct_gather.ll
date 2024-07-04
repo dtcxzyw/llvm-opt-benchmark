@@ -487,7 +487,7 @@ define ptr @jobacctinfo_create(ptr noundef %0) #0 {
   br label %10
 
 10:                                               ; preds = %8, %6
-  %.010 = phi ptr [ %0, %6 ], [ %3, %8 ]
+  %.0 = phi ptr [ %0, %6 ], [ %3, %8 ]
   %11 = getelementptr inbounds i8, ptr %7, i64 264
   store i32 -1, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 8
@@ -502,14 +502,14 @@ define ptr @jobacctinfo_create(ptr noundef %0) #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2, ptr noundef nonnull align 4 dereferenceable(28) @__const._jobacctinfo_2_stats_tres_usage.locks, i64 28, i1 false)
   call void @assoc_mgr_lock(ptr noundef nonnull %2) #10
   %16 = load i32, ptr @g_tres_count, align 4
-  call fastcc void @_init_tres_usage(ptr noundef %7, ptr noundef nonnull %.010, i32 noundef %16)
+  call fastcc void @_init_tres_usage(ptr noundef %7, ptr noundef nonnull %.0, i32 noundef %16)
   call void @assoc_mgr_unlock(ptr noundef nonnull %2) #10
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2)
   br label %17
 
 17:                                               ; preds = %1, %10
-  %.0 = phi ptr [ %7, %10 ], [ null, %1 ]
-  ret ptr %.0
+  %.010 = phi ptr [ %7, %10 ], [ null, %1 ]
+  ret ptr %.010
 }
 
 ; Function Attrs: nounwind uwtable
@@ -754,7 +754,7 @@ define i32 @jobacct_gather_fini() local_unnamed_addr #0 {
   br label %38
 
 38:                                               ; preds = %4, %35
-  %.0 = phi i32 [ %37, %35 ], [ 0, %4 ]
+  %.021 = phi i32 [ %37, %35 ], [ 0, %4 ]
   %39 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @init_run_mutex) #10
   %.not41 = icmp eq i32 %39, 0
   br i1 %.not41, label %42, label %40
@@ -789,7 +789,7 @@ define i32 @jobacct_gather_fini() local_unnamed_addr #0 {
   unreachable
 
 50:                                               ; preds = %46
-  ret i32 %.0
+  ret i32 %.021
 }
 
 ; Function Attrs: nounwind
@@ -1243,7 +1243,7 @@ _jobacct_shutdown_test.exit:                      ; preds = %13
   br label %24
 
 24:                                               ; preds = %22, %20
-  %.010.i = phi ptr [ %1, %20 ], [ %6, %22 ]
+  %.0.i = phi ptr [ %1, %20 ], [ %6, %22 ]
   %25 = getelementptr inbounds i8, ptr %21, i64 264
   store i32 -1, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %21, i64 8
@@ -1258,13 +1258,13 @@ _jobacct_shutdown_test.exit:                      ; preds = %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, ptr noundef nonnull align 4 dereferenceable(28) @__const._jobacctinfo_2_stats_tres_usage.locks, i64 28, i1 false)
   call void @assoc_mgr_lock(ptr noundef nonnull %5) #10
   %30 = load i32, ptr @g_tres_count, align 4
-  call fastcc void @_init_tres_usage(ptr noundef %21, ptr noundef nonnull %.010.i, i32 noundef %30)
+  call fastcc void @_init_tres_usage(ptr noundef %21, ptr noundef nonnull %.0.i, i32 noundef %30)
   call void @assoc_mgr_unlock(ptr noundef nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5)
   br label %jobacctinfo_create.exit
 
 jobacctinfo_create.exit:                          ; preds = %17, %24
-  %.0.i = phi ptr [ %21, %24 ], [ null, %17 ]
+  %.010.i = phi ptr [ %21, %24 ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %31 = call i32 @pthread_mutex_lock(ptr noundef nonnull @task_list_lock) #10
   %.not = icmp eq i32 %31, 0
@@ -1294,8 +1294,8 @@ jobacctinfo_create.exit:                          ; preds = %17, %24
   br label %60
 
 42:                                               ; preds = %38
-  store i32 %0, ptr %.0.i, align 8
-  %43 = getelementptr inbounds i8, ptr %.0.i, i64 248
+  store i32 %0, ptr %.010.i, align 8
+  %43 = getelementptr inbounds i8, ptr %.010.i, i64 248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %44 = call i32 @get_log_level() #10
   %45 = icmp sgt i32 %44, 5
@@ -1312,7 +1312,7 @@ jobacctinfo_create.exit:                          ; preds = %17, %24
   %51 = load ptr, ptr getelementptr inbounds (i8, ptr @ops, i64 16), align 8
   %52 = call i32 %51(i32 noundef %0, ptr noundef nonnull %1) #10
   %53 = load ptr, ptr @task_list, align 8
-  call void @list_push(ptr noundef %53, ptr noundef nonnull %.0.i) #10
+  call void @list_push(ptr noundef %53, ptr noundef nonnull %.010.i) #10
   %54 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @task_list_lock) #10
   %.not26 = icmp eq i32 %54, 0
   br i1 %.not26, label %57, label %55
@@ -1344,8 +1344,8 @@ jobacctinfo_create.exit:                          ; preds = %17, %24
 
 64:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %.0.i, ptr %4, align 8
-  call fastcc void @_free_tres_usage(ptr noundef %.0.i)
+  store ptr %.010.i, ptr %4, align 8
+  call fastcc void @_free_tres_usage(ptr noundef %.010.i)
   call void @slurm_xfree(ptr noundef nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %65
@@ -1786,7 +1786,7 @@ _jobacct_shutdown_test.exit:                      ; preds = %8
   br label %38
 
 38:                                               ; preds = %.split30.us.thread, %18, %.split30.us, %37, %34, %.split32.us, %30
-  %.016 = phi ptr [ %.us-phi, %30 ], [ %.us-phi, %.split32.us ], [ null, %37 ], [ null, %34 ], [ null, %.split30.us ], [ null, %18 ], [ null, %.split30.us.thread ]
+  %.0 = phi ptr [ %.us-phi, %30 ], [ %.us-phi, %.split32.us ], [ null, %37 ], [ null, %34 ], [ null, %.split30.us ], [ null, %18 ], [ null, %.split30.us.thread ]
   %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @task_list_lock) #10
   %.not27 = icmp eq i32 %39, 0
   br i1 %.not27, label %42, label %40
@@ -1798,8 +1798,8 @@ _jobacct_shutdown_test.exit:                      ; preds = %8
   unreachable
 
 42:                                               ; preds = %38, %_jobacct_shutdown_test.exit, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %_jobacct_shutdown_test.exit ], [ %.016, %38 ]
-  ret ptr %.0
+  %.016 = phi ptr [ null, %1 ], [ null, %_jobacct_shutdown_test.exit ], [ %.0, %38 ]
+  ret ptr %.016
 }
 
 declare ptr @list_remove(ptr noundef) local_unnamed_addr #4

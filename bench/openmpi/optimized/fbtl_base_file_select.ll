@@ -92,8 +92,8 @@ define i32 @mca_fbtl_base_file_select(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %26
-  %.056103 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_fbtl_base_framework, i64 112), align 8
-  %.not72104 = icmp eq ptr %.056103, getelementptr inbounds (i8, ptr @ompi_fbtl_base_framework, i64 96)
+  %.055103 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_fbtl_base_framework, i64 112), align 8
+  %.not72104 = icmp eq ptr %.055103, getelementptr inbounds (i8, ptr @ompi_fbtl_base_framework, i64 96)
   br i1 %.not72104, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %opal_obj_run_constructors.exit
@@ -103,10 +103,10 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %26
   br label %36
 
 36:                                               ; preds = %.lr.ph, %103
-  %.056107 = phi ptr [ %.056103, %.lr.ph ], [ %.056, %103 ]
-  %.054106 = phi ptr [ null, %.lr.ph ], [ %.2, %103 ]
+  %.055107 = phi ptr [ %.055103, %.lr.ph ], [ %.055, %103 ]
+  %.053106 = phi ptr [ null, %.lr.ph ], [ %.2, %103 ]
   %.057105 = phi i32 [ -1, %.lr.ph ], [ %.259, %103 ]
-  %37 = getelementptr inbounds i8, ptr %.056107, i64 40
+  %37 = getelementptr inbounds i8, ptr %.055107, i64 40
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_fbtl_base_framework, i64 76), align 4
   %40 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %39) #6
@@ -170,7 +170,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %26
   %72 = load i32, ptr %3, align 4
   %73 = icmp sgt i32 %72, %.057105
   %spec.select = call i32 @llvm.smax.i32(i32 %72, i32 %.057105)
-  %spec.select75 = select i1 %73, ptr %38, ptr %.054106
+  %spec.select75 = select i1 %73, ptr %38, ptr %.053106
   %74 = load i64, ptr getelementptr inbounds (i8, ptr @queried_module_t_class, i64 56), align 8
   %75 = call noalias ptr @malloc(i64 noundef %74) #7
   %76 = load i32, ptr @opal_class_init_epoch, align 4
@@ -242,10 +242,10 @@ opal_obj_new.exit.thread97:                       ; preds = %.lr.ph.i.i, %80
 
 103:                                              ; preds = %49, %52, %63, %60, %opal_obj_new.exit.thread97
   %.259 = phi i32 [ %.057105, %52 ], [ %.057105, %49 ], [ %.057105, %63 ], [ %.057105, %60 ], [ %spec.select, %opal_obj_new.exit.thread97 ]
-  %.2 = phi ptr [ %.054106, %52 ], [ %.054106, %49 ], [ %.054106, %63 ], [ %.054106, %60 ], [ %spec.select75, %opal_obj_new.exit.thread97 ]
-  %104 = getelementptr inbounds i8, ptr %.056107, i64 16
-  %.056 = load volatile ptr, ptr %104, align 8
-  %.not72 = icmp eq ptr %.056, getelementptr inbounds (i8, ptr @ompi_fbtl_base_framework, i64 96)
+  %.2 = phi ptr [ %.053106, %52 ], [ %.053106, %49 ], [ %.053106, %63 ], [ %.053106, %60 ], [ %spec.select75, %opal_obj_new.exit.thread97 ]
+  %104 = getelementptr inbounds i8, ptr %.055107, i64 16
+  %.055 = load volatile ptr, ptr %104, align 8
+  %.not72 = icmp eq ptr %.055, getelementptr inbounds (i8, ptr @ompi_fbtl_base_framework, i64 96)
   br i1 %.not72, label %._crit_edge, label %36, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %103
@@ -408,8 +408,8 @@ opal_obj_run_destructors.exit91:                  ; preds = %.lr.ph.i88, %160
   br i1 %.not.i95, label %opal_obj_run_destructors.exit, label %.lr.ph.i93, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i78, %.lr.ph.i93, %.lr.ph.i82, %176, %._crit_edge.thread, %opal_obj_new.exit.thread, %17
-  %.053 = phi i32 [ %21, %17 ], [ -2, %opal_obj_new.exit.thread ], [ -1, %._crit_edge.thread ], [ %.0.lcssa, %176 ], [ -1, %.lr.ph.i82 ], [ %.0.lcssa, %.lr.ph.i93 ], [ -2, %.lr.ph.i78 ]
-  ret i32 %.053
+  %.056 = phi i32 [ %21, %17 ], [ -2, %opal_obj_new.exit.thread ], [ -1, %._crit_edge.thread ], [ %.0.lcssa, %176 ], [ -1, %.lr.ph.i82 ], [ %.0.lcssa, %.lr.ph.i93 ], [ -2, %.lr.ph.i78 ]
+  ret i32 %.056
 }
 
 declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_unnamed_addr #1

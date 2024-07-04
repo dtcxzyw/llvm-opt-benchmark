@@ -428,12 +428,12 @@ _ZN12_GLOBAL__N_114PathEqOrSubDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %35
 
 35:                                               ; preds = %30, %25, %_ZN12_GLOBAL__N_114PathEqOrSubDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit26
-  %.023.in = phi i1 [ %18, %_ZN12_GLOBAL__N_114PathEqOrSubDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit26 ], [ %27, %25 ], [ %18, %30 ]
-  %.022.in = phi i1 [ %22, %_ZN12_GLOBAL__N_114PathEqOrSubDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit26 ], [ %29, %25 ], [ %22, %30 ]
-  %.021.in = phi i1 [ %13, %_ZN12_GLOBAL__N_114PathEqOrSubDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit26 ], [ %13, %25 ], [ %34, %30 ]
+  %.023.in = phi i1 [ %13, %_ZN12_GLOBAL__N_114PathEqOrSubDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit26 ], [ %13, %25 ], [ %34, %30 ]
+  %.022.in = phi i1 [ %18, %_ZN12_GLOBAL__N_114PathEqOrSubDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit26 ], [ %27, %25 ], [ %18, %30 ]
+  %.021.in = phi i1 [ %22, %_ZN12_GLOBAL__N_114PathEqOrSubDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit26 ], [ %29, %25 ], [ %22, %30 ]
   %.0.in = phi i1 [ %9, %_ZN12_GLOBAL__N_114PathEqOrSubDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit26 ], [ %9, %25 ], [ %32, %30 ]
-  %36 = and i1 %.021.in, %.0.in
-  %37 = and i1 %.023.in, %.022.in
+  %36 = and i1 %.023.in, %.0.in
+  %37 = and i1 %.022.in, %.021.in
   %or.cond = or i1 %37, %36
   br i1 %or.cond, label %38, label %39
 
@@ -1325,8 +1325,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit, %24
-  %.01421 = phi ptr [ %25, %24 ], [ %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
-  %14 = load i8, ptr %.01421, align 1
+  %.021 = phi ptr [ %25, %24 ], [ %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit ]
+  %14 = load i8, ptr %.021, align 1
   switch i8 %14, label %22 [
     i8 34, label %15
     i8 36, label %.invoke
@@ -1374,7 +1374,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %24 unwind label %.loopexit
 
 24:                                               ; preds = %.invoke, %22
-  %25 = getelementptr inbounds i8, ptr %.01421, i64 1
+  %25 = getelementptr inbounds i8, ptr %.021, i64 1
   %.not = icmp eq ptr %25, %13
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

@@ -105,8 +105,8 @@ define dso_local ptr @llvm_emit_ashr_fixed(ptr noundef %0, ptr noundef %1, i32 n
   br label %15
 
 15:                                               ; preds = %3, %5
-  %.0 = phi ptr [ %14, %5 ], [ %1, %3 ]
-  ret ptr %.0
+  %.015 = phi ptr [ %14, %5 ], [ %1, %3 ]
+  ret ptr %.015
 }
 
 ; Function Attrs: nounwind uwtable

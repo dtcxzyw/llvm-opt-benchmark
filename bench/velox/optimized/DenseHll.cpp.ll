@@ -894,13 +894,13 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %baselineCount.036 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select, %for.body ]
-  %i.035 = phi i32 [ 0, %for.body.lr.ph ], [ %inc3, %for.body ]
-  %shr.i = lshr i32 %i.035, 1
+  %i.036 = phi i32 [ 0, %for.body.lr.ph ], [ %inc3, %for.body ]
+  %baselineCount.035 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select, %for.body ]
+  %shr.i = lshr i32 %i.036, 1
   %idxprom.i = zext nneg i32 %shr.i to i64
   %arrayidx.i = getelementptr inbounds i8, ptr %hll.val, i64 %idxprom.i
   %2 = load i8, ptr %arrayidx.i, align 1
-  %index.tr.i.i = trunc i32 %i.035 to i8
+  %index.tr.i.i = trunc i32 %i.036 to i8
   %3 = shl i8 %index.tr.i.i, 2
   %4 = and i8 %3, 4
   %conv.i.i = xor i8 %4, 4
@@ -908,8 +908,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %and.i = and i8 %shr3.i, 15
   %cmp2 = icmp eq i8 %and.i, 0
   %inc = zext i1 %cmp2 to i32
-  %spec.select = add nuw nsw i32 %baselineCount.036, %inc
-  %inc3 = add nuw nsw i32 %i.035, 1
+  %spec.select = add nuw nsw i32 %baselineCount.035, %inc
+  %inc3 = add nuw nsw i32 %i.036, 1
   %exitcond.not = icmp eq i32 %inc3, %smax
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !10
 
@@ -1085,9 +1085,9 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end9.i.i, %if.end.i
-  %low.03.i.i = phi i32 [ 0, %if.end.i ], [ %low.1.i.i, %if.end9.i.i ]
-  %high.02.i.i = phi i32 [ %conv.i.i26, %if.end.i ], [ %high.1.i.i, %if.end9.i.i ]
-  %add.i.i = add i32 %high.02.i.i, %low.03.i.i
+  %high.03.i.i = phi i32 [ %conv.i.i26, %if.end.i ], [ %high.1.i.i, %if.end9.i.i ]
+  %low.02.i.i = phi i32 [ 0, %if.end.i ], [ %low.1.i.i, %if.end9.i.i ]
+  %add.i.i = add i32 %low.02.i.i, %high.03.i.i
   %shr.i.i27 = lshr i32 %add.i.i, 1
   %conv1.i.i = zext nneg i32 %shr.i.i27 to i64
   %add.ptr.i.i.i = getelementptr inbounds double, ptr %21, i64 %conv1.i.i
@@ -1108,8 +1108,8 @@ if.then6.i.i:                                     ; preds = %if.else.i.i
   br label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %if.then6.i.i, %if.then.i.i30
-  %high.1.i.i = phi i32 [ %high.02.i.i, %if.then.i.i30 ], [ %sub7.i.i, %if.then6.i.i ]
-  %low.1.i.i = phi i32 [ %add4.i.i, %if.then.i.i30 ], [ %low.03.i.i, %if.then6.i.i ]
+  %low.1.i.i = phi i32 [ %add4.i.i, %if.then.i.i30 ], [ %low.02.i.i, %if.then6.i.i ]
+  %high.1.i.i = phi i32 [ %high.03.i.i, %if.then.i.i30 ], [ %sub7.i.i, %if.then6.i.i ]
   %cmp.not.i.i = icmp ugt i32 %low.1.i.i, %high.1.i.i
   br i1 %cmp.not.i.i, label %if.else.i, label %while.body.i.i, !llvm.loop !12
 
@@ -1905,24 +1905,24 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.end ]
   %3 = phi ptr [ %2, %for.body.lr.ph ], [ %60, %for.end ]
   %baselineCount.0141 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select, %for.end ]
-  %bucket.0140 = phi i32 [ 0, %for.body.lr.ph ], [ %6, %for.end ]
+  %bucket.0139 = phi i32 [ 0, %for.body.lr.ph ], [ %6, %for.end ]
   %add.ptr2.i = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
   %4 = load i8, ptr %add.ptr2.i, align 1
   %arrayidx = getelementptr inbounds i8, ptr %otherDeltas, i64 %indvars.iv
   %5 = load i8, ptr %arrayidx, align 1
   %conv9 = sext i8 %4 to i32
   %conv11 = sext i8 %5 to i32
-  %6 = add i32 %bucket.0140, 2
+  %6 = add i32 %bucket.0139, 2
   br label %for.body8
 
 for.body8:                                        ; preds = %for.body, %_ZN8facebook5velox6common3hll8DenseHll14updateOverflowEiia.exit
   %baselineCount.1134 = phi i32 [ %baselineCount.0141, %for.body ], [ %spec.select, %_ZN8facebook5velox6common3hll8DenseHll14updateOverflowEiia.exit ]
-  %bucket.1133 = phi i32 [ %bucket.0140, %for.body ], [ %inc58, %_ZN8facebook5velox6common3hll8DenseHll14updateOverflowEiia.exit ]
-  %shift.0132 = phi i32 [ 4, %for.body ], [ %sub59, %_ZN8facebook5velox6common3hll8DenseHll14updateOverflowEiia.exit ]
-  %newSlot.0131 = phi i8 [ 0, %for.body ], [ %or, %_ZN8facebook5velox6common3hll8DenseHll14updateOverflowEiia.exit ]
-  %shr = ashr i32 %conv9, %shift.0132
+  %shift.0133 = phi i32 [ 4, %for.body ], [ %sub59, %_ZN8facebook5velox6common3hll8DenseHll14updateOverflowEiia.exit ]
+  %newSlot.0132 = phi i8 [ 0, %for.body ], [ %or, %_ZN8facebook5velox6common3hll8DenseHll14updateOverflowEiia.exit ]
+  %bucket.1131 = phi i32 [ %bucket.0139, %for.body ], [ %inc58, %_ZN8facebook5velox6common3hll8DenseHll14updateOverflowEiia.exit ]
+  %shr = ashr i32 %conv9, %shift.0133
   %conv10 = and i32 %shr, 15
-  %shr12 = ashr i32 %conv11, %shift.0132
+  %shr12 = ashr i32 %conv11, %shift.0133
   %conv14 = and i32 %shr12, 15
   %7 = load i8, ptr %baseline_, align 1
   %8 = trunc nuw nsw i32 %conv10 to i8
@@ -1947,7 +1947,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %add.ptr2.i.i = getelementptr inbounds i16, ptr %11, i64 %indvars.iv.i
   %12 = load i16, ptr %add.ptr2.i.i, align 2
   %conv3.i = zext i16 %12 to i32
-  %cmp4.i = icmp eq i32 %bucket.1133, %conv3.i
+  %cmp4.i = icmp eq i32 %bucket.1131, %conv3.i
   br i1 %cmp4.i, label %_ZNK8facebook5velox6common3hll8DenseHll17findOverflowEntryEi.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -1989,7 +1989,7 @@ for.body.i27:                                     ; preds = %if.then39, %for.con
   %arrayidx.i = getelementptr inbounds i16, ptr %otherOverflowBuckets, i64 %indvars.iv.i28
   %16 = load i16, ptr %arrayidx.i, align 2
   %conv.i29 = zext i16 %16 to i32
-  %cmp1.i = icmp eq i32 %bucket.1133, %conv.i29
+  %cmp1.i = icmp eq i32 %bucket.1131, %conv.i29
   br i1 %cmp1.i, label %if.then.i, label %for.cond.i
 
 if.then.i:                                        ; preds = %for.body.i27
@@ -2316,7 +2316,7 @@ if.then.i.i12.i.i:                                ; preds = %if.then5.i9.i.i
 
 _ZN8facebook5velox6common3hll8DenseHll11addOverflowEia.exit.i: ; preds = %if.then.i.i12.i.i, %if.then5.i9.i.i, %if.else.i7.i.i, %_ZNSt6vectorIaN8facebook5velox12StlAllocatorIaEEE17_M_default_appendEm.exit
   %conv10.pre-phi.i.i = phi i64 [ %.pre20.i.i, %_ZNSt6vectorIaN8facebook5velox12StlAllocatorIaEEE17_M_default_appendEm.exit ], [ %conv4.pre-phi.i.i, %if.else.i7.i.i ], [ %conv4.pre-phi.i.i, %if.then5.i9.i.i ], [ %conv4.pre-phi.i.i, %if.then.i.i12.i.i ]
-  %conv7.i.i = trunc i32 %bucket.1133 to i16
+  %conv7.i.i = trunc i32 %bucket.1131 to i16
   %45 = load ptr, ptr %add.ptr.i.i, align 8
   %add.ptr2.i.i.i = getelementptr inbounds i16, ptr %45, i64 %conv10.pre-phi.i.i
   store i16 %conv7.i.i, ptr %add.ptr2.i.i.i, align 2
@@ -2358,10 +2358,10 @@ if.then12.i:                                      ; preds = %if.else10.i
 
 _ZN8facebook5velox6common3hll8DenseHll14updateOverflowEiia.exit: ; preds = %if.then3.i, %_ZN8facebook5velox6common3hll8DenseHll11addOverflowEia.exit.i, %if.else10.i, %if.then12.i
   %delta.addr.0.i = phi i8 [ %sub, %if.then12.i ], [ %sub, %if.else10.i ], [ 15, %_ZN8facebook5velox6common3hll8DenseHll11addOverflowEia.exit.i ], [ 15, %if.then3.i ]
-  %shl = shl i8 %newSlot.0131, 4
+  %shl = shl i8 %newSlot.0132, 4
   %or = or i8 %delta.addr.0.i, %shl
-  %inc58 = add i32 %bucket.1133, 1
-  %sub59 = add nsw i32 %shift.0132, -4
+  %inc58 = add i32 %bucket.1131, 1
+  %sub59 = add nsw i32 %shift.0133, -4
   %exitcond.not = icmp eq i32 %inc58, %6
   br i1 %exitcond.not, label %for.end, label %for.body8, !llvm.loop !35
 

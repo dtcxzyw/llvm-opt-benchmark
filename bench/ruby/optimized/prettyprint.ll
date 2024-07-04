@@ -828,7 +828,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 148:                                              ; preds = %.lr.ph9034, %148
   %149 = phi i64 [ 0, %.lr.ph9034 ], [ %156, %148 ]
-  %.085399032 = phi i32 [ 0, %.lr.ph9034 ], [ %155, %148 ]
+  %.085409032 = phi i32 [ 0, %.lr.ph9034 ], [ %155, %148 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -840,7 +840,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %154 = load ptr, ptr %153, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %154, ptr noundef nonnull %3)
   store i64 %.pre9184, ptr %3, align 8
-  %155 = add i32 %.085399032, 1
+  %155 = add i32 %.085409032, 1
   %156 = zext i32 %155 to i64
   %157 = icmp ugt i64 %145, %156
   br i1 %157, label %148, label %._crit_edge9035, !llvm.loop !10
@@ -885,7 +885,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 171:                                              ; preds = %.lr.ph9038, %171
   %172 = phi i64 [ 0, %.lr.ph9038 ], [ %179, %171 ]
-  %.085409036 = phi i32 [ 0, %.lr.ph9038 ], [ %178, %171 ]
+  %.085429036 = phi i32 [ 0, %.lr.ph9038 ], [ %178, %171 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -897,7 +897,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %177 = load ptr, ptr %176, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %177, ptr noundef nonnull %3)
   store i64 %.pre9185, ptr %3, align 8
-  %178 = add i32 %.085409036, 1
+  %178 = add i32 %.085429036, 1
   %179 = zext i32 %178 to i64
   %180 = icmp ugt i64 %168, %179
   br i1 %180, label %171, label %._crit_edge9039, !llvm.loop !11
@@ -1300,8 +1300,8 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 333:                                              ; preds = %.lr.ph9030, %336
   %334 = phi i64 [ 0, %.lr.ph9030 ], [ %346, %336 ]
-  %.085429028 = phi i32 [ 0, %.lr.ph9030 ], [ %345, %336 ]
-  %.not8842 = icmp eq i32 %.085429028, 0
+  %.085469028 = phi i32 [ 0, %.lr.ph9030 ], [ %345, %336 ]
+  %.not8842 = icmp eq i32 %.085469028, 0
   br i1 %.not8842, label %336, label %335
 
 335:                                              ; preds = %333
@@ -1318,7 +1318,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %343 = trunc i64 %342 to i32
   %344 = load ptr, ptr %340, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.277, i32 noundef %343, ptr noundef %344) #3
-  %345 = add i32 %.085429028, 1
+  %345 = add i32 %.085469028, 1
   %346 = zext i32 %345 to i64
   %347 = load i64, ptr %329, align 8
   %348 = icmp ugt i64 %347, %346
@@ -1528,7 +1528,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 427:                                              ; preds = %.lr.ph9026, %427
   %428 = phi i64 [ 0, %.lr.ph9026 ], [ %435, %427 ]
-  %.085459024 = phi i32 [ 0, %.lr.ph9026 ], [ %434, %427 ]
+  %.085489024 = phi i32 [ 0, %.lr.ph9026 ], [ %434, %427 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -1540,7 +1540,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %433 = load ptr, ptr %432, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %433, ptr noundef nonnull %3)
   store i64 %.pre9183, ptr %3, align 8
-  %434 = add i32 %.085459024, 1
+  %434 = add i32 %.085489024, 1
   %435 = zext i32 %434 to i64
   %436 = icmp ugt i64 %424, %435
   br i1 %436, label %427, label %._crit_edge9027, !llvm.loop !13
@@ -1660,13 +1660,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 483:                                              ; preds = %482, %477
   %484 = phi i16 [ %.pre9180, %482 ], [ %480, %477 ]
-  %.08546 = phi i8 [ 1, %482 ], [ 0, %477 ]
+  %.08549 = phi i8 [ 1, %482 ], [ 0, %477 ]
   %485 = and i16 %484, 2
   %.not8838 = icmp eq i16 %485, 0
   br i1 %.not8838, label %490, label %486
 
 486:                                              ; preds = %483
-  %487 = trunc nuw i8 %.08546 to i1
+  %487 = trunc nuw i8 %.08549 to i1
   br i1 %487, label %488, label %489
 
 488:                                              ; preds = %486
@@ -1680,13 +1680,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 490:                                              ; preds = %489, %483
   %491 = phi i16 [ %.pre9181, %489 ], [ %484, %483 ]
-  %.18547 = phi i8 [ 1, %489 ], [ %.08546, %483 ]
+  %.18550 = phi i8 [ 1, %489 ], [ %.08549, %483 ]
   %492 = and i16 %491, 4
   %.not8839 = icmp eq i16 %492, 0
   br i1 %.not8839, label %497, label %493
 
 493:                                              ; preds = %490
-  %494 = trunc nuw i8 %.18547 to i1
+  %494 = trunc nuw i8 %.18550 to i1
   br i1 %494, label %495, label %496
 
 495:                                              ; preds = %493
@@ -1700,7 +1700,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 497:                                              ; preds = %496, %490
   %498 = phi i16 [ %.pre9182, %496 ], [ %491, %490 ]
-  %.2 = phi i8 [ 1, %496 ], [ %.18547, %490 ]
+  %.2 = phi i8 [ 1, %496 ], [ %.18550, %490 ]
   %499 = and i16 %498, 8
   %.not8840 = icmp eq i16 %499, 0
   %500 = trunc nuw i8 %.2 to i1
@@ -1860,13 +1860,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 558:                                              ; preds = %557, %552
   %559 = phi i16 [ %.pre9177, %557 ], [ %555, %552 ]
-  %.08548 = phi i8 [ 1, %557 ], [ 0, %552 ]
+  %.08555 = phi i8 [ 1, %557 ], [ 0, %552 ]
   %560 = and i16 %559, 2
   %.not8834 = icmp eq i16 %560, 0
   br i1 %.not8834, label %565, label %561
 
 561:                                              ; preds = %558
-  %562 = trunc nuw i8 %.08548 to i1
+  %562 = trunc nuw i8 %.08555 to i1
   br i1 %562, label %563, label %564
 
 563:                                              ; preds = %561
@@ -1880,13 +1880,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 565:                                              ; preds = %564, %558
   %566 = phi i16 [ %.pre9178, %564 ], [ %559, %558 ]
-  %.18549 = phi i8 [ 1, %564 ], [ %.08548, %558 ]
+  %.18556 = phi i8 [ 1, %564 ], [ %.08555, %558 ]
   %567 = and i16 %566, 4
   %.not8835 = icmp eq i16 %567, 0
   br i1 %.not8835, label %572, label %568
 
 568:                                              ; preds = %565
-  %569 = trunc nuw i8 %.18549 to i1
+  %569 = trunc nuw i8 %.18556 to i1
   br i1 %569, label %570, label %571
 
 570:                                              ; preds = %568
@@ -1900,10 +1900,10 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 572:                                              ; preds = %571, %565
   %573 = phi i16 [ %.pre9179, %571 ], [ %566, %565 ]
-  %.28550 = phi i8 [ 1, %571 ], [ %.18549, %565 ]
+  %.28557 = phi i8 [ 1, %571 ], [ %.18556, %565 ]
   %574 = and i16 %573, 8
   %.not8836 = icmp eq i16 %574, 0
-  %575 = trunc nuw i8 %.28550 to i1
+  %575 = trunc nuw i8 %.28557 to i1
   br i1 %.not8836, label %578, label %576
 
 576:                                              ; preds = %572
@@ -2122,13 +2122,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 660:                                              ; preds = %659, %654
   %661 = phi i16 [ %.pre9174, %659 ], [ %657, %654 ]
-  %.08552 = phi i8 [ 1, %659 ], [ 0, %654 ]
+  %.08562 = phi i8 [ 1, %659 ], [ 0, %654 ]
   %662 = and i16 %661, 2
   %.not8830 = icmp eq i16 %662, 0
   br i1 %.not8830, label %667, label %663
 
 663:                                              ; preds = %660
-  %664 = trunc nuw i8 %.08552 to i1
+  %664 = trunc nuw i8 %.08562 to i1
   br i1 %664, label %665, label %666
 
 665:                                              ; preds = %663
@@ -2142,13 +2142,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 667:                                              ; preds = %666, %660
   %668 = phi i16 [ %.pre9175, %666 ], [ %661, %660 ]
-  %.18553 = phi i8 [ 1, %666 ], [ %.08552, %660 ]
+  %.18563 = phi i8 [ 1, %666 ], [ %.08562, %660 ]
   %669 = and i16 %668, 4
   %.not8831 = icmp eq i16 %669, 0
   br i1 %.not8831, label %674, label %670
 
 670:                                              ; preds = %667
-  %671 = trunc nuw i8 %.18553 to i1
+  %671 = trunc nuw i8 %.18563 to i1
   br i1 %671, label %672, label %673
 
 672:                                              ; preds = %670
@@ -2162,10 +2162,10 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 674:                                              ; preds = %673, %667
   %675 = phi i16 [ %.pre9176, %673 ], [ %668, %667 ]
-  %.28554 = phi i8 [ 1, %673 ], [ %.18553, %667 ]
+  %.28564 = phi i8 [ 1, %673 ], [ %.18563, %667 ]
   %676 = and i16 %675, 8
   %.not8832 = icmp eq i16 %676, 0
-  %677 = trunc nuw i8 %.28554 to i1
+  %677 = trunc nuw i8 %.28564 to i1
   br i1 %.not8832, label %680, label %678
 
 678:                                              ; preds = %674
@@ -2329,13 +2329,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 737:                                              ; preds = %736, %731
   %738 = phi i16 [ %.pre9171, %736 ], [ %734, %731 ]
-  %.08557 = phi i8 [ 1, %736 ], [ 0, %731 ]
+  %.08567 = phi i8 [ 1, %736 ], [ 0, %731 ]
   %739 = and i16 %738, 2
   %.not8826 = icmp eq i16 %739, 0
   br i1 %.not8826, label %744, label %740
 
 740:                                              ; preds = %737
-  %741 = trunc nuw i8 %.08557 to i1
+  %741 = trunc nuw i8 %.08567 to i1
   br i1 %741, label %742, label %743
 
 742:                                              ; preds = %740
@@ -2349,13 +2349,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 744:                                              ; preds = %743, %737
   %745 = phi i16 [ %.pre9172, %743 ], [ %738, %737 ]
-  %.18558 = phi i8 [ 1, %743 ], [ %.08557, %737 ]
+  %.18568 = phi i8 [ 1, %743 ], [ %.08567, %737 ]
   %746 = and i16 %745, 4
   %.not8827 = icmp eq i16 %746, 0
   br i1 %.not8827, label %751, label %747
 
 747:                                              ; preds = %744
-  %748 = trunc nuw i8 %.18558 to i1
+  %748 = trunc nuw i8 %.18568 to i1
   br i1 %748, label %749, label %750
 
 749:                                              ; preds = %747
@@ -2369,10 +2369,10 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 751:                                              ; preds = %750, %744
   %752 = phi i16 [ %.pre9173, %750 ], [ %745, %744 ]
-  %.28559 = phi i8 [ 1, %750 ], [ %.18558, %744 ]
+  %.28569 = phi i8 [ 1, %750 ], [ %.18568, %744 ]
   %753 = and i16 %752, 8
   %.not8828 = icmp eq i16 %753, 0
-  %754 = trunc nuw i8 %.28559 to i1
+  %754 = trunc nuw i8 %.28569 to i1
   br i1 %.not8828, label %757, label %755
 
 755:                                              ; preds = %751
@@ -2529,13 +2529,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 812:                                              ; preds = %811, %806
   %813 = phi i16 [ %.pre9168, %811 ], [ %809, %806 ]
-  %.08561 = phi i8 [ 1, %811 ], [ 0, %806 ]
+  %.08571 = phi i8 [ 1, %811 ], [ 0, %806 ]
   %814 = and i16 %813, 2
   %.not8822 = icmp eq i16 %814, 0
   br i1 %.not8822, label %819, label %815
 
 815:                                              ; preds = %812
-  %816 = trunc nuw i8 %.08561 to i1
+  %816 = trunc nuw i8 %.08571 to i1
   br i1 %816, label %817, label %818
 
 817:                                              ; preds = %815
@@ -2549,13 +2549,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 819:                                              ; preds = %818, %812
   %820 = phi i16 [ %.pre9169, %818 ], [ %813, %812 ]
-  %.18562 = phi i8 [ 1, %818 ], [ %.08561, %812 ]
+  %.18572 = phi i8 [ 1, %818 ], [ %.08571, %812 ]
   %821 = and i16 %820, 4
   %.not8823 = icmp eq i16 %821, 0
   br i1 %.not8823, label %826, label %822
 
 822:                                              ; preds = %819
-  %823 = trunc nuw i8 %.18562 to i1
+  %823 = trunc nuw i8 %.18572 to i1
   br i1 %823, label %824, label %825
 
 824:                                              ; preds = %822
@@ -2569,10 +2569,10 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 826:                                              ; preds = %825, %819
   %827 = phi i16 [ %.pre9170, %825 ], [ %820, %819 ]
-  %.28563 = phi i8 [ 1, %825 ], [ %.18562, %819 ]
+  %.28573 = phi i8 [ 1, %825 ], [ %.18572, %819 ]
   %828 = and i16 %827, 8
   %.not8824 = icmp eq i16 %828, 0
-  %829 = trunc nuw i8 %.28563 to i1
+  %829 = trunc nuw i8 %.28573 to i1
   br i1 %.not8824, label %832, label %830
 
 830:                                              ; preds = %826
@@ -2727,7 +2727,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 884:                                              ; preds = %.lr.ph9022, %884
   %885 = phi i64 [ 0, %.lr.ph9022 ], [ %892, %884 ]
-  %.085659020 = phi i32 [ 0, %.lr.ph9022 ], [ %891, %884 ]
+  %.085759020 = phi i32 [ 0, %.lr.ph9022 ], [ %891, %884 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -2739,7 +2739,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %890 = load ptr, ptr %889, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %890, ptr noundef nonnull %3)
   store i64 %.pre9167, ptr %3, align 8
-  %891 = add i32 %.085659020, 1
+  %891 = add i32 %.085759020, 1
   %892 = zext i32 %891 to i64
   %893 = icmp ugt i64 %881, %892
   br i1 %893, label %884, label %._crit_edge9023, !llvm.loop !14
@@ -2841,7 +2841,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 931:                                              ; preds = %.lr.ph9018, %931
   %932 = phi i64 [ 0, %.lr.ph9018 ], [ %939, %931 ]
-  %.085679016 = phi i32 [ 0, %.lr.ph9018 ], [ %938, %931 ]
+  %.085769016 = phi i32 [ 0, %.lr.ph9018 ], [ %938, %931 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -2853,7 +2853,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %937 = load ptr, ptr %936, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %937, ptr noundef nonnull %3)
   store i64 %.pre9166, ptr %3, align 8
-  %938 = add i32 %.085679016, 1
+  %938 = add i32 %.085769016, 1
   %939 = zext i32 %938 to i64
   %940 = icmp ugt i64 %928, %939
   br i1 %940, label %931, label %._crit_edge9019, !llvm.loop !15
@@ -2931,8 +2931,8 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 969:                                              ; preds = %.lr.ph9014, %972
   %970 = phi i64 [ 0, %.lr.ph9014 ], [ %982, %972 ]
-  %.085689012 = phi i32 [ 0, %.lr.ph9014 ], [ %981, %972 ]
-  %.not8820 = icmp eq i32 %.085689012, 0
+  %.085779012 = phi i32 [ 0, %.lr.ph9014 ], [ %981, %972 ]
+  %.not8820 = icmp eq i32 %.085779012, 0
   br i1 %.not8820, label %972, label %971
 
 971:                                              ; preds = %969
@@ -2949,7 +2949,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %979 = trunc i64 %978 to i32
   %980 = load ptr, ptr %976, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.277, i32 noundef %979, ptr noundef %980) #3
-  %981 = add i32 %.085689012, 1
+  %981 = add i32 %.085779012, 1
   %982 = zext i32 %981 to i64
   %983 = load i64, ptr %965, align 8
   %984 = icmp ugt i64 %983, %982
@@ -3953,8 +3953,8 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1365:                                             ; preds = %.lr.ph9010, %1368
   %1366 = phi i64 [ 0, %.lr.ph9010 ], [ %1378, %1368 ]
-  %.085699008 = phi i32 [ 0, %.lr.ph9010 ], [ %1377, %1368 ]
-  %.not8819 = icmp eq i32 %.085699008, 0
+  %.085799008 = phi i32 [ 0, %.lr.ph9010 ], [ %1377, %1368 ]
+  %.not8819 = icmp eq i32 %.085799008, 0
   br i1 %.not8819, label %1368, label %1367
 
 1367:                                             ; preds = %1365
@@ -3971,7 +3971,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1375 = trunc i64 %1374 to i32
   %1376 = load ptr, ptr %1372, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.277, i32 noundef %1375, ptr noundef %1376) #3
-  %1377 = add i32 %.085699008, 1
+  %1377 = add i32 %.085799008, 1
   %1378 = zext i32 %1377 to i64
   %1379 = load i64, ptr %1361, align 8
   %1380 = icmp ugt i64 %1379, %1378
@@ -4477,7 +4477,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1591:                                             ; preds = %.lr.ph9006, %1591
   %1592 = phi i64 [ 0, %.lr.ph9006 ], [ %1599, %1591 ]
-  %.085709004 = phi i32 [ 0, %.lr.ph9006 ], [ %1598, %1591 ]
+  %.085829004 = phi i32 [ 0, %.lr.ph9006 ], [ %1598, %1591 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -4489,7 +4489,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1597 = load ptr, ptr %1596, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1597, ptr noundef nonnull %3)
   store i64 %.pre9165, ptr %3, align 8
-  %1598 = add i32 %.085709004, 1
+  %1598 = add i32 %.085829004, 1
   %1599 = zext i32 %1598 to i64
   %1600 = icmp ugt i64 %1588, %1599
   br i1 %1600, label %1591, label %._crit_edge9007, !llvm.loop !18
@@ -5087,7 +5087,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1831:                                             ; preds = %.lr.ph9002, %1831
   %1832 = phi i64 [ 0, %.lr.ph9002 ], [ %1839, %1831 ]
-  %.085729000 = phi i32 [ 0, %.lr.ph9002 ], [ %1838, %1831 ]
+  %.085869000 = phi i32 [ 0, %.lr.ph9002 ], [ %1838, %1831 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -5099,7 +5099,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1837 = load ptr, ptr %1836, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1837, ptr noundef nonnull %3)
   store i64 %.pre9164, ptr %3, align 8
-  %1838 = add i32 %.085729000, 1
+  %1838 = add i32 %.085869000, 1
   %1839 = zext i32 %1838 to i64
   %1840 = icmp ugt i64 %1828, %1839
   br i1 %1840, label %1831, label %._crit_edge9003, !llvm.loop !19
@@ -5165,7 +5165,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 1863:                                             ; preds = %.lr.ph8998, %1863
   %1864 = phi i64 [ 0, %.lr.ph8998 ], [ %1871, %1863 ]
-  %.085738996 = phi i32 [ 0, %.lr.ph8998 ], [ %1870, %1863 ]
+  %.085878996 = phi i32 [ 0, %.lr.ph8998 ], [ %1870, %1863 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -5177,7 +5177,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %1869 = load ptr, ptr %1868, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1869, ptr noundef nonnull %3)
   store i64 %.pre9163, ptr %3, align 8
-  %1870 = add i32 %.085738996, 1
+  %1870 = add i32 %.085878996, 1
   %1871 = zext i32 %1870 to i64
   %1872 = icmp ugt i64 %1860, %1871
   br i1 %1872, label %1863, label %._crit_edge8999, !llvm.loop !20
@@ -5529,13 +5529,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2009:                                             ; preds = %2008, %2003
   %2010 = phi i16 [ %.pre9160, %2008 ], [ %2006, %2003 ]
-  %.08575 = phi i8 [ 1, %2008 ], [ 0, %2003 ]
+  %.08592 = phi i8 [ 1, %2008 ], [ 0, %2003 ]
   %2011 = and i16 %2010, 2
   %.not8815 = icmp eq i16 %2011, 0
   br i1 %.not8815, label %2016, label %2012
 
 2012:                                             ; preds = %2009
-  %2013 = trunc nuw i8 %.08575 to i1
+  %2013 = trunc nuw i8 %.08592 to i1
   br i1 %2013, label %2014, label %2015
 
 2014:                                             ; preds = %2012
@@ -5549,13 +5549,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2016:                                             ; preds = %2015, %2009
   %2017 = phi i16 [ %.pre9161, %2015 ], [ %2010, %2009 ]
-  %.18576 = phi i8 [ 1, %2015 ], [ %.08575, %2009 ]
+  %.18593 = phi i8 [ 1, %2015 ], [ %.08592, %2009 ]
   %2018 = and i16 %2017, 4
   %.not8816 = icmp eq i16 %2018, 0
   br i1 %.not8816, label %2023, label %2019
 
 2019:                                             ; preds = %2016
-  %2020 = trunc nuw i8 %.18576 to i1
+  %2020 = trunc nuw i8 %.18593 to i1
   br i1 %2020, label %2021, label %2022
 
 2021:                                             ; preds = %2019
@@ -5569,10 +5569,10 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2023:                                             ; preds = %2022, %2016
   %2024 = phi i16 [ %.pre9162, %2022 ], [ %2017, %2016 ]
-  %.28577 = phi i8 [ 1, %2022 ], [ %.18576, %2016 ]
+  %.28594 = phi i8 [ 1, %2022 ], [ %.18593, %2016 ]
   %2025 = and i16 %2024, 8
   %.not8817 = icmp eq i16 %2025, 0
-  %2026 = trunc nuw i8 %.28577 to i1
+  %2026 = trunc nuw i8 %.28594 to i1
   br i1 %.not8817, label %2029, label %2027
 
 2027:                                             ; preds = %2023
@@ -5761,13 +5761,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2098:                                             ; preds = %2097, %2092
   %2099 = phi i16 [ %.pre9157, %2097 ], [ %2095, %2092 ]
-  %.08579 = phi i8 [ 1, %2097 ], [ 0, %2092 ]
+  %.08597 = phi i8 [ 1, %2097 ], [ 0, %2092 ]
   %2100 = and i16 %2099, 2
   %.not8811 = icmp eq i16 %2100, 0
   br i1 %.not8811, label %2105, label %2101
 
 2101:                                             ; preds = %2098
-  %2102 = trunc nuw i8 %.08579 to i1
+  %2102 = trunc nuw i8 %.08597 to i1
   br i1 %2102, label %2103, label %2104
 
 2103:                                             ; preds = %2101
@@ -5781,13 +5781,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2105:                                             ; preds = %2104, %2098
   %2106 = phi i16 [ %.pre9158, %2104 ], [ %2099, %2098 ]
-  %.18580 = phi i8 [ 1, %2104 ], [ %.08579, %2098 ]
+  %.18598 = phi i8 [ 1, %2104 ], [ %.08597, %2098 ]
   %2107 = and i16 %2106, 4
   %.not8812 = icmp eq i16 %2107, 0
   br i1 %.not8812, label %2112, label %2108
 
 2108:                                             ; preds = %2105
-  %2109 = trunc nuw i8 %.18580 to i1
+  %2109 = trunc nuw i8 %.18598 to i1
   br i1 %2109, label %2110, label %2111
 
 2110:                                             ; preds = %2108
@@ -5801,10 +5801,10 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2112:                                             ; preds = %2111, %2105
   %2113 = phi i16 [ %.pre9159, %2111 ], [ %2106, %2105 ]
-  %.28581 = phi i8 [ 1, %2111 ], [ %.18580, %2105 ]
+  %.28599 = phi i8 [ 1, %2111 ], [ %.18598, %2105 ]
   %2114 = and i16 %2113, 8
   %.not8813 = icmp eq i16 %2114, 0
-  %2115 = trunc nuw i8 %.28581 to i1
+  %2115 = trunc nuw i8 %.28599 to i1
   br i1 %.not8813, label %2118, label %2116
 
 2116:                                             ; preds = %2112
@@ -6000,13 +6000,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2189:                                             ; preds = %2188, %2183
   %2190 = phi i16 [ %.pre9154, %2188 ], [ %2186, %2183 ]
-  %.08583 = phi i8 [ 1, %2188 ], [ 0, %2183 ]
+  %.08602 = phi i8 [ 1, %2188 ], [ 0, %2183 ]
   %2191 = and i16 %2190, 2
   %.not8807 = icmp eq i16 %2191, 0
   br i1 %.not8807, label %2196, label %2192
 
 2192:                                             ; preds = %2189
-  %2193 = trunc nuw i8 %.08583 to i1
+  %2193 = trunc nuw i8 %.08602 to i1
   br i1 %2193, label %2194, label %2195
 
 2194:                                             ; preds = %2192
@@ -6020,13 +6020,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2196:                                             ; preds = %2195, %2189
   %2197 = phi i16 [ %.pre9155, %2195 ], [ %2190, %2189 ]
-  %.18584 = phi i8 [ 1, %2195 ], [ %.08583, %2189 ]
+  %.18603 = phi i8 [ 1, %2195 ], [ %.08602, %2189 ]
   %2198 = and i16 %2197, 4
   %.not8808 = icmp eq i16 %2198, 0
   br i1 %.not8808, label %2203, label %2199
 
 2199:                                             ; preds = %2196
-  %2200 = trunc nuw i8 %.18584 to i1
+  %2200 = trunc nuw i8 %.18603 to i1
   br i1 %2200, label %2201, label %2202
 
 2201:                                             ; preds = %2199
@@ -6040,10 +6040,10 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2203:                                             ; preds = %2202, %2196
   %2204 = phi i16 [ %.pre9156, %2202 ], [ %2197, %2196 ]
-  %.28585 = phi i8 [ 1, %2202 ], [ %.18584, %2196 ]
+  %.28604 = phi i8 [ 1, %2202 ], [ %.18603, %2196 ]
   %2205 = and i16 %2204, 8
   %.not8809 = icmp eq i16 %2205, 0
-  %2206 = trunc nuw i8 %.28585 to i1
+  %2206 = trunc nuw i8 %.28604 to i1
   br i1 %.not8809, label %2209, label %2207
 
 2207:                                             ; preds = %2203
@@ -6232,13 +6232,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2278:                                             ; preds = %2277, %2272
   %2279 = phi i16 [ %.pre9151, %2277 ], [ %2275, %2272 ]
-  %.08587 = phi i8 [ 1, %2277 ], [ 0, %2272 ]
+  %.08606 = phi i8 [ 1, %2277 ], [ 0, %2272 ]
   %2280 = and i16 %2279, 2
   %.not8803 = icmp eq i16 %2280, 0
   br i1 %.not8803, label %2285, label %2281
 
 2281:                                             ; preds = %2278
-  %2282 = trunc nuw i8 %.08587 to i1
+  %2282 = trunc nuw i8 %.08606 to i1
   br i1 %2282, label %2283, label %2284
 
 2283:                                             ; preds = %2281
@@ -6252,13 +6252,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2285:                                             ; preds = %2284, %2278
   %2286 = phi i16 [ %.pre9152, %2284 ], [ %2279, %2278 ]
-  %.18588 = phi i8 [ 1, %2284 ], [ %.08587, %2278 ]
+  %.18607 = phi i8 [ 1, %2284 ], [ %.08606, %2278 ]
   %2287 = and i16 %2286, 4
   %.not8804 = icmp eq i16 %2287, 0
   br i1 %.not8804, label %2292, label %2288
 
 2288:                                             ; preds = %2285
-  %2289 = trunc nuw i8 %.18588 to i1
+  %2289 = trunc nuw i8 %.18607 to i1
   br i1 %2289, label %2290, label %2291
 
 2290:                                             ; preds = %2288
@@ -6272,10 +6272,10 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2292:                                             ; preds = %2291, %2285
   %2293 = phi i16 [ %.pre9153, %2291 ], [ %2286, %2285 ]
-  %.28589 = phi i8 [ 1, %2291 ], [ %.18588, %2285 ]
+  %.28608 = phi i8 [ 1, %2291 ], [ %.18607, %2285 ]
   %2294 = and i16 %2293, 8
   %.not8805 = icmp eq i16 %2294, 0
-  %2295 = trunc nuw i8 %.28589 to i1
+  %2295 = trunc nuw i8 %.28608 to i1
   br i1 %.not8805, label %2298, label %2296
 
 2296:                                             ; preds = %2292
@@ -6642,13 +6642,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2433:                                             ; preds = %2432, %2427
   %2434 = phi i16 [ %.pre9148, %2432 ], [ %2430, %2427 ]
-  %.08591 = phi i8 [ 1, %2432 ], [ 0, %2427 ]
+  %.08610 = phi i8 [ 1, %2432 ], [ 0, %2427 ]
   %2435 = and i16 %2434, 2
   %.not8799 = icmp eq i16 %2435, 0
   br i1 %.not8799, label %2440, label %2436
 
 2436:                                             ; preds = %2433
-  %2437 = trunc nuw i8 %.08591 to i1
+  %2437 = trunc nuw i8 %.08610 to i1
   br i1 %2437, label %2438, label %2439
 
 2438:                                             ; preds = %2436
@@ -6662,13 +6662,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2440:                                             ; preds = %2439, %2433
   %2441 = phi i16 [ %.pre9149, %2439 ], [ %2434, %2433 ]
-  %.18592 = phi i8 [ 1, %2439 ], [ %.08591, %2433 ]
+  %.18611 = phi i8 [ 1, %2439 ], [ %.08610, %2433 ]
   %2442 = and i16 %2441, 4
   %.not8800 = icmp eq i16 %2442, 0
   br i1 %.not8800, label %2447, label %2443
 
 2443:                                             ; preds = %2440
-  %2444 = trunc nuw i8 %.18592 to i1
+  %2444 = trunc nuw i8 %.18611 to i1
   br i1 %2444, label %2445, label %2446
 
 2445:                                             ; preds = %2443
@@ -6682,10 +6682,10 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2447:                                             ; preds = %2446, %2440
   %2448 = phi i16 [ %.pre9150, %2446 ], [ %2441, %2440 ]
-  %.28593 = phi i8 [ 1, %2446 ], [ %.18592, %2440 ]
+  %.28612 = phi i8 [ 1, %2446 ], [ %.18611, %2440 ]
   %2449 = and i16 %2448, 8
   %.not8801 = icmp eq i16 %2449, 0
-  %2450 = trunc nuw i8 %.28593 to i1
+  %2450 = trunc nuw i8 %.28612 to i1
   br i1 %.not8801, label %2453, label %2451
 
 2451:                                             ; preds = %2447
@@ -6736,13 +6736,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2463:                                             ; preds = %2462, %2457
   %2464 = phi i16 [ %.pre9137, %2462 ], [ %2460, %2457 ]
-  %.08595 = phi i8 [ 1, %2462 ], [ 0, %2457 ]
+  %.08614 = phi i8 [ 1, %2462 ], [ 0, %2457 ]
   %2465 = and i16 %2464, 2
   %.not8788 = icmp eq i16 %2465, 0
   br i1 %.not8788, label %2470, label %2466
 
 2466:                                             ; preds = %2463
-  %2467 = trunc nuw i8 %.08595 to i1
+  %2467 = trunc nuw i8 %.08614 to i1
   br i1 %2467, label %2468, label %2469
 
 2468:                                             ; preds = %2466
@@ -6756,13 +6756,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2470:                                             ; preds = %2469, %2463
   %2471 = phi i16 [ %.pre9138, %2469 ], [ %2464, %2463 ]
-  %.18596 = phi i8 [ 1, %2469 ], [ %.08595, %2463 ]
+  %.18615 = phi i8 [ 1, %2469 ], [ %.08614, %2463 ]
   %2472 = and i16 %2471, 4
   %.not8789 = icmp eq i16 %2472, 0
   br i1 %.not8789, label %2477, label %2473
 
 2473:                                             ; preds = %2470
-  %2474 = trunc nuw i8 %.18596 to i1
+  %2474 = trunc nuw i8 %.18615 to i1
   br i1 %2474, label %2475, label %2476
 
 2475:                                             ; preds = %2473
@@ -6776,13 +6776,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2477:                                             ; preds = %2476, %2470
   %2478 = phi i16 [ %.pre9139, %2476 ], [ %2471, %2470 ]
-  %.28597 = phi i8 [ 1, %2476 ], [ %.18596, %2470 ]
+  %.28616 = phi i8 [ 1, %2476 ], [ %.18615, %2470 ]
   %2479 = and i16 %2478, 8
   %.not8790 = icmp eq i16 %2479, 0
   br i1 %.not8790, label %2484, label %2480
 
 2480:                                             ; preds = %2477
-  %2481 = trunc nuw i8 %.28597 to i1
+  %2481 = trunc nuw i8 %.28616 to i1
   br i1 %2481, label %2482, label %2483
 
 2482:                                             ; preds = %2480
@@ -6796,13 +6796,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2484:                                             ; preds = %2483, %2477
   %2485 = phi i16 [ %.pre9140, %2483 ], [ %2478, %2477 ]
-  %.38598 = phi i8 [ 1, %2483 ], [ %.28597, %2477 ]
+  %.38617 = phi i8 [ 1, %2483 ], [ %.28616, %2477 ]
   %2486 = and i16 %2485, 16
   %.not8791 = icmp eq i16 %2486, 0
   br i1 %.not8791, label %2491, label %2487
 
 2487:                                             ; preds = %2484
-  %2488 = trunc nuw i8 %.38598 to i1
+  %2488 = trunc nuw i8 %.38617 to i1
   br i1 %2488, label %2489, label %2490
 
 2489:                                             ; preds = %2487
@@ -6816,13 +6816,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2491:                                             ; preds = %2490, %2484
   %2492 = phi i16 [ %.pre9141, %2490 ], [ %2485, %2484 ]
-  %.4 = phi i8 [ 1, %2490 ], [ %.38598, %2484 ]
+  %.48618 = phi i8 [ 1, %2490 ], [ %.38617, %2484 ]
   %2493 = and i16 %2492, 32
   %.not8792 = icmp eq i16 %2493, 0
   br i1 %.not8792, label %2498, label %2494
 
 2494:                                             ; preds = %2491
-  %2495 = trunc nuw i8 %.4 to i1
+  %2495 = trunc nuw i8 %.48618 to i1
   br i1 %2495, label %2496, label %2497
 
 2496:                                             ; preds = %2494
@@ -6836,13 +6836,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2498:                                             ; preds = %2497, %2491
   %2499 = phi i16 [ %.pre9142, %2497 ], [ %2492, %2491 ]
-  %.5 = phi i8 [ 1, %2497 ], [ %.4, %2491 ]
+  %.58619 = phi i8 [ 1, %2497 ], [ %.48618, %2491 ]
   %2500 = and i16 %2499, 64
   %.not8793 = icmp eq i16 %2500, 0
   br i1 %.not8793, label %2505, label %2501
 
 2501:                                             ; preds = %2498
-  %2502 = trunc nuw i8 %.5 to i1
+  %2502 = trunc nuw i8 %.58619 to i1
   br i1 %2502, label %2503, label %2504
 
 2503:                                             ; preds = %2501
@@ -6856,13 +6856,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2505:                                             ; preds = %2504, %2498
   %2506 = phi i16 [ %.pre9143, %2504 ], [ %2499, %2498 ]
-  %.6 = phi i8 [ 1, %2504 ], [ %.5, %2498 ]
+  %.68620 = phi i8 [ 1, %2504 ], [ %.58619, %2498 ]
   %2507 = and i16 %2506, 128
   %.not8794 = icmp eq i16 %2507, 0
   br i1 %.not8794, label %2512, label %2508
 
 2508:                                             ; preds = %2505
-  %2509 = trunc nuw i8 %.6 to i1
+  %2509 = trunc nuw i8 %.68620 to i1
   br i1 %2509, label %2510, label %2511
 
 2510:                                             ; preds = %2508
@@ -6876,13 +6876,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2512:                                             ; preds = %2511, %2505
   %2513 = phi i16 [ %.pre9144, %2511 ], [ %2506, %2505 ]
-  %.7 = phi i8 [ 1, %2511 ], [ %.6, %2505 ]
+  %.78621 = phi i8 [ 1, %2511 ], [ %.68620, %2505 ]
   %2514 = and i16 %2513, 256
   %.not8795 = icmp eq i16 %2514, 0
   br i1 %.not8795, label %2519, label %2515
 
 2515:                                             ; preds = %2512
-  %2516 = trunc nuw i8 %.7 to i1
+  %2516 = trunc nuw i8 %.78621 to i1
   br i1 %2516, label %2517, label %2518
 
 2517:                                             ; preds = %2515
@@ -6896,13 +6896,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2519:                                             ; preds = %2518, %2512
   %2520 = phi i16 [ %.pre9145, %2518 ], [ %2513, %2512 ]
-  %.8 = phi i8 [ 1, %2518 ], [ %.7, %2512 ]
+  %.88622 = phi i8 [ 1, %2518 ], [ %.78621, %2512 ]
   %2521 = and i16 %2520, 512
   %.not8796 = icmp eq i16 %2521, 0
   br i1 %.not8796, label %2526, label %2522
 
 2522:                                             ; preds = %2519
-  %2523 = trunc nuw i8 %.8 to i1
+  %2523 = trunc nuw i8 %.88622 to i1
   br i1 %2523, label %2524, label %2525
 
 2524:                                             ; preds = %2522
@@ -6916,10 +6916,10 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2526:                                             ; preds = %2525, %2519
   %2527 = phi i16 [ %.pre9146, %2525 ], [ %2520, %2519 ]
-  %.9 = phi i8 [ 1, %2525 ], [ %.8, %2519 ]
+  %.98623 = phi i8 [ 1, %2525 ], [ %.88622, %2519 ]
   %2528 = and i16 %2527, 1024
   %.not8797 = icmp eq i16 %2528, 0
-  %2529 = trunc nuw i8 %.9 to i1
+  %2529 = trunc nuw i8 %.98623 to i1
   br i1 %.not8797, label %2532, label %2530
 
 2530:                                             ; preds = %2526
@@ -6973,7 +6973,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2547:                                             ; preds = %.lr.ph8994, %2547
   %2548 = phi i64 [ 0, %.lr.ph8994 ], [ %2555, %2547 ]
-  %.085998992 = phi i32 [ 0, %.lr.ph8994 ], [ %2554, %2547 ]
+  %.086258992 = phi i32 [ 0, %.lr.ph8994 ], [ %2554, %2547 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -6985,7 +6985,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %2553 = load ptr, ptr %2552, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2553, ptr noundef nonnull %3)
   store i64 %.pre9147, ptr %3, align 8
-  %2554 = add i32 %.085998992, 1
+  %2554 = add i32 %.086258992, 1
   %2555 = zext i32 %2554 to i64
   %2556 = icmp ugt i64 %2544, %2555
   br i1 %2556, label %2547, label %._crit_edge8995, !llvm.loop !21
@@ -7027,13 +7027,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2570:                                             ; preds = %2569, %2564
   %2571 = phi i16 [ %.pre9126, %2569 ], [ %2567, %2564 ]
-  %.08600 = phi i8 [ 1, %2569 ], [ 0, %2564 ]
+  %.08626 = phi i8 [ 1, %2569 ], [ 0, %2564 ]
   %2572 = and i16 %2571, 2
   %.not8777 = icmp eq i16 %2572, 0
   br i1 %.not8777, label %2577, label %2573
 
 2573:                                             ; preds = %2570
-  %2574 = trunc nuw i8 %.08600 to i1
+  %2574 = trunc nuw i8 %.08626 to i1
   br i1 %2574, label %2575, label %2576
 
 2575:                                             ; preds = %2573
@@ -7047,13 +7047,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2577:                                             ; preds = %2576, %2570
   %2578 = phi i16 [ %.pre9127, %2576 ], [ %2571, %2570 ]
-  %.18601 = phi i8 [ 1, %2576 ], [ %.08600, %2570 ]
+  %.18627 = phi i8 [ 1, %2576 ], [ %.08626, %2570 ]
   %2579 = and i16 %2578, 4
   %.not8778 = icmp eq i16 %2579, 0
   br i1 %.not8778, label %2584, label %2580
 
 2580:                                             ; preds = %2577
-  %2581 = trunc nuw i8 %.18601 to i1
+  %2581 = trunc nuw i8 %.18627 to i1
   br i1 %2581, label %2582, label %2583
 
 2582:                                             ; preds = %2580
@@ -7067,13 +7067,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2584:                                             ; preds = %2583, %2577
   %2585 = phi i16 [ %.pre9128, %2583 ], [ %2578, %2577 ]
-  %.28602 = phi i8 [ 1, %2583 ], [ %.18601, %2577 ]
+  %.28628 = phi i8 [ 1, %2583 ], [ %.18627, %2577 ]
   %2586 = and i16 %2585, 8
   %.not8779 = icmp eq i16 %2586, 0
   br i1 %.not8779, label %2591, label %2587
 
 2587:                                             ; preds = %2584
-  %2588 = trunc nuw i8 %.28602 to i1
+  %2588 = trunc nuw i8 %.28628 to i1
   br i1 %2588, label %2589, label %2590
 
 2589:                                             ; preds = %2587
@@ -7087,13 +7087,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2591:                                             ; preds = %2590, %2584
   %2592 = phi i16 [ %.pre9129, %2590 ], [ %2585, %2584 ]
-  %.38603 = phi i8 [ 1, %2590 ], [ %.28602, %2584 ]
+  %.38629 = phi i8 [ 1, %2590 ], [ %.28628, %2584 ]
   %2593 = and i16 %2592, 16
   %.not8780 = icmp eq i16 %2593, 0
   br i1 %.not8780, label %2598, label %2594
 
 2594:                                             ; preds = %2591
-  %2595 = trunc nuw i8 %.38603 to i1
+  %2595 = trunc nuw i8 %.38629 to i1
   br i1 %2595, label %2596, label %2597
 
 2596:                                             ; preds = %2594
@@ -7107,13 +7107,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2598:                                             ; preds = %2597, %2591
   %2599 = phi i16 [ %.pre9130, %2597 ], [ %2592, %2591 ]
-  %.48604 = phi i8 [ 1, %2597 ], [ %.38603, %2591 ]
+  %.48630 = phi i8 [ 1, %2597 ], [ %.38629, %2591 ]
   %2600 = and i16 %2599, 32
   %.not8781 = icmp eq i16 %2600, 0
   br i1 %.not8781, label %2605, label %2601
 
 2601:                                             ; preds = %2598
-  %2602 = trunc nuw i8 %.48604 to i1
+  %2602 = trunc nuw i8 %.48630 to i1
   br i1 %2602, label %2603, label %2604
 
 2603:                                             ; preds = %2601
@@ -7127,13 +7127,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2605:                                             ; preds = %2604, %2598
   %2606 = phi i16 [ %.pre9131, %2604 ], [ %2599, %2598 ]
-  %.58605 = phi i8 [ 1, %2604 ], [ %.48604, %2598 ]
+  %.58631 = phi i8 [ 1, %2604 ], [ %.48630, %2598 ]
   %2607 = and i16 %2606, 64
   %.not8782 = icmp eq i16 %2607, 0
   br i1 %.not8782, label %2612, label %2608
 
 2608:                                             ; preds = %2605
-  %2609 = trunc nuw i8 %.58605 to i1
+  %2609 = trunc nuw i8 %.58631 to i1
   br i1 %2609, label %2610, label %2611
 
 2610:                                             ; preds = %2608
@@ -7147,13 +7147,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2612:                                             ; preds = %2611, %2605
   %2613 = phi i16 [ %.pre9132, %2611 ], [ %2606, %2605 ]
-  %.68606 = phi i8 [ 1, %2611 ], [ %.58605, %2605 ]
+  %.68632 = phi i8 [ 1, %2611 ], [ %.58631, %2605 ]
   %2614 = and i16 %2613, 128
   %.not8783 = icmp eq i16 %2614, 0
   br i1 %.not8783, label %2619, label %2615
 
 2615:                                             ; preds = %2612
-  %2616 = trunc nuw i8 %.68606 to i1
+  %2616 = trunc nuw i8 %.68632 to i1
   br i1 %2616, label %2617, label %2618
 
 2617:                                             ; preds = %2615
@@ -7167,13 +7167,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2619:                                             ; preds = %2618, %2612
   %2620 = phi i16 [ %.pre9133, %2618 ], [ %2613, %2612 ]
-  %.78607 = phi i8 [ 1, %2618 ], [ %.68606, %2612 ]
+  %.78633 = phi i8 [ 1, %2618 ], [ %.68632, %2612 ]
   %2621 = and i16 %2620, 256
   %.not8784 = icmp eq i16 %2621, 0
   br i1 %.not8784, label %2626, label %2622
 
 2622:                                             ; preds = %2619
-  %2623 = trunc nuw i8 %.78607 to i1
+  %2623 = trunc nuw i8 %.78633 to i1
   br i1 %2623, label %2624, label %2625
 
 2624:                                             ; preds = %2622
@@ -7187,13 +7187,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2626:                                             ; preds = %2625, %2619
   %2627 = phi i16 [ %.pre9134, %2625 ], [ %2620, %2619 ]
-  %.88608 = phi i8 [ 1, %2625 ], [ %.78607, %2619 ]
+  %.88634 = phi i8 [ 1, %2625 ], [ %.78633, %2619 ]
   %2628 = and i16 %2627, 512
   %.not8785 = icmp eq i16 %2628, 0
   br i1 %.not8785, label %2633, label %2629
 
 2629:                                             ; preds = %2626
-  %2630 = trunc nuw i8 %.88608 to i1
+  %2630 = trunc nuw i8 %.88634 to i1
   br i1 %2630, label %2631, label %2632
 
 2631:                                             ; preds = %2629
@@ -7207,10 +7207,10 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2633:                                             ; preds = %2632, %2626
   %2634 = phi i16 [ %.pre9135, %2632 ], [ %2627, %2626 ]
-  %.98609 = phi i8 [ 1, %2632 ], [ %.88608, %2626 ]
+  %.98635 = phi i8 [ 1, %2632 ], [ %.88634, %2626 ]
   %2635 = and i16 %2634, 1024
   %.not8786 = icmp eq i16 %2635, 0
-  %2636 = trunc nuw i8 %.98609 to i1
+  %2636 = trunc nuw i8 %.98635 to i1
   br i1 %.not8786, label %2639, label %2637
 
 2637:                                             ; preds = %2633
@@ -7264,7 +7264,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2654:                                             ; preds = %.lr.ph8990, %2654
   %2655 = phi i64 [ 0, %.lr.ph8990 ], [ %2662, %2654 ]
-  %.086118988 = phi i32 [ 0, %.lr.ph8990 ], [ %2661, %2654 ]
+  %.086378988 = phi i32 [ 0, %.lr.ph8990 ], [ %2661, %2654 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -7276,7 +7276,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %2660 = load ptr, ptr %2659, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2660, ptr noundef nonnull %3)
   store i64 %.pre9136, ptr %3, align 8
-  %2661 = add i32 %.086118988, 1
+  %2661 = add i32 %.086378988, 1
   %2662 = zext i32 %2661 to i64
   %2663 = icmp ugt i64 %2651, %2662
   br i1 %2663, label %2654, label %._crit_edge8991, !llvm.loop !22
@@ -7346,7 +7346,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2690:                                             ; preds = %.lr.ph8986, %2690
   %2691 = phi i64 [ 0, %.lr.ph8986 ], [ %2698, %2690 ]
-  %.086128984 = phi i32 [ 0, %.lr.ph8986 ], [ %2697, %2690 ]
+  %.086388984 = phi i32 [ 0, %.lr.ph8986 ], [ %2697, %2690 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -7358,7 +7358,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %2696 = load ptr, ptr %2695, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2696, ptr noundef nonnull %3)
   store i64 %.pre9125, ptr %3, align 8
-  %2697 = add i32 %.086128984, 1
+  %2697 = add i32 %.086388984, 1
   %2698 = zext i32 %2697 to i64
   %2699 = icmp ugt i64 %2687, %2698
   br i1 %2699, label %2690, label %._crit_edge8987, !llvm.loop !23
@@ -7437,7 +7437,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2730:                                             ; preds = %.lr.ph8982, %2730
   %2731 = phi i64 [ 0, %.lr.ph8982 ], [ %2738, %2730 ]
-  %.086148980 = phi i32 [ 0, %.lr.ph8982 ], [ %2737, %2730 ]
+  %.086398980 = phi i32 [ 0, %.lr.ph8982 ], [ %2737, %2730 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -7449,7 +7449,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %2736 = load ptr, ptr %2735, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2736, ptr noundef nonnull %3)
   store i64 %.pre9124, ptr %3, align 8
-  %2737 = add i32 %.086148980, 1
+  %2737 = add i32 %.086398980, 1
   %2738 = zext i32 %2737 to i64
   %2739 = icmp ugt i64 %2727, %2738
   br i1 %2739, label %2730, label %._crit_edge8983, !llvm.loop !24
@@ -7516,7 +7516,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2765:                                             ; preds = %.lr.ph8978, %2765
   %2766 = phi i64 [ 0, %.lr.ph8978 ], [ %2773, %2765 ]
-  %.086158976 = phi i32 [ 0, %.lr.ph8978 ], [ %2772, %2765 ]
+  %.086408976 = phi i32 [ 0, %.lr.ph8978 ], [ %2772, %2765 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -7528,7 +7528,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %2771 = load ptr, ptr %2770, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2771, ptr noundef nonnull %3)
   store i64 %.pre9123, ptr %3, align 8
-  %2772 = add i32 %.086158976, 1
+  %2772 = add i32 %.086408976, 1
   %2773 = zext i32 %2772 to i64
   %2774 = icmp ugt i64 %2762, %2773
   br i1 %2774, label %2765, label %._crit_edge8979, !llvm.loop !25
@@ -7597,7 +7597,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2796:                                             ; preds = %.lr.ph8975, %2796
   %2797 = phi i64 [ 0, %.lr.ph8975 ], [ %2804, %2796 ]
-  %.086178973 = phi i32 [ 0, %.lr.ph8975 ], [ %2803, %2796 ]
+  %.086428973 = phi i32 [ 0, %.lr.ph8975 ], [ %2803, %2796 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -7609,7 +7609,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %2802 = load ptr, ptr %2801, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2802, ptr noundef nonnull %3)
   store i64 %.pre9122, ptr %3, align 8
-  %2803 = add i32 %.086178973, 1
+  %2803 = add i32 %.086428973, 1
   %2804 = zext i32 %2803 to i64
   %2805 = icmp ugt i64 %2793, %2804
   br i1 %2805, label %2796, label %common.ret9201, !llvm.loop !26
@@ -7718,8 +7718,8 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 2845:                                             ; preds = %.lr.ph8971, %2848
   %2846 = phi i64 [ 0, %.lr.ph8971 ], [ %2858, %2848 ]
-  %.086228969 = phi i32 [ 0, %.lr.ph8971 ], [ %2857, %2848 ]
-  %.not8773 = icmp eq i32 %.086228969, 0
+  %.086458969 = phi i32 [ 0, %.lr.ph8971 ], [ %2857, %2848 ]
+  %.not8773 = icmp eq i32 %.086458969, 0
   br i1 %.not8773, label %2848, label %2847
 
 2847:                                             ; preds = %2845
@@ -7736,7 +7736,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %2855 = trunc i64 %2854 to i32
   %2856 = load ptr, ptr %2852, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.277, i32 noundef %2855, ptr noundef %2856) #3
-  %2857 = add i32 %.086228969, 1
+  %2857 = add i32 %.086458969, 1
   %2858 = zext i32 %2857 to i64
   %2859 = load i64, ptr %2841, align 8
   %2860 = icmp ugt i64 %2859, %2858
@@ -8122,13 +8122,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3009:                                             ; preds = %3008, %3003
   %3010 = phi i16 [ %.pre9112, %3008 ], [ %3006, %3003 ]
-  %.08623 = phi i8 [ 1, %3008 ], [ 0, %3003 ]
+  %.08647 = phi i8 [ 1, %3008 ], [ 0, %3003 ]
   %3011 = and i16 %3010, 2
   %.not8763 = icmp eq i16 %3011, 0
   br i1 %.not8763, label %3016, label %3012
 
 3012:                                             ; preds = %3009
-  %3013 = trunc nuw i8 %.08623 to i1
+  %3013 = trunc nuw i8 %.08647 to i1
   br i1 %3013, label %3014, label %3015
 
 3014:                                             ; preds = %3012
@@ -8142,13 +8142,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3016:                                             ; preds = %3015, %3009
   %3017 = phi i16 [ %.pre9113, %3015 ], [ %3010, %3009 ]
-  %.18624 = phi i8 [ 1, %3015 ], [ %.08623, %3009 ]
+  %.18648 = phi i8 [ 1, %3015 ], [ %.08647, %3009 ]
   %3018 = and i16 %3017, 4
   %.not8764 = icmp eq i16 %3018, 0
   br i1 %.not8764, label %3023, label %3019
 
 3019:                                             ; preds = %3016
-  %3020 = trunc nuw i8 %.18624 to i1
+  %3020 = trunc nuw i8 %.18648 to i1
   br i1 %3020, label %3021, label %3022
 
 3021:                                             ; preds = %3019
@@ -8162,13 +8162,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3023:                                             ; preds = %3022, %3016
   %3024 = phi i16 [ %.pre9114, %3022 ], [ %3017, %3016 ]
-  %.28625 = phi i8 [ 1, %3022 ], [ %.18624, %3016 ]
+  %.28649 = phi i8 [ 1, %3022 ], [ %.18648, %3016 ]
   %3025 = and i16 %3024, 8
   %.not8765 = icmp eq i16 %3025, 0
   br i1 %.not8765, label %3030, label %3026
 
 3026:                                             ; preds = %3023
-  %3027 = trunc nuw i8 %.28625 to i1
+  %3027 = trunc nuw i8 %.28649 to i1
   br i1 %3027, label %3028, label %3029
 
 3028:                                             ; preds = %3026
@@ -8182,13 +8182,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3030:                                             ; preds = %3029, %3023
   %3031 = phi i16 [ %.pre9115, %3029 ], [ %3024, %3023 ]
-  %.38626 = phi i8 [ 1, %3029 ], [ %.28625, %3023 ]
+  %.38650 = phi i8 [ 1, %3029 ], [ %.28649, %3023 ]
   %3032 = and i16 %3031, 16
   %.not8766 = icmp eq i16 %3032, 0
   br i1 %.not8766, label %3037, label %3033
 
 3033:                                             ; preds = %3030
-  %3034 = trunc nuw i8 %.38626 to i1
+  %3034 = trunc nuw i8 %.38650 to i1
   br i1 %3034, label %3035, label %3036
 
 3035:                                             ; preds = %3033
@@ -8202,13 +8202,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3037:                                             ; preds = %3036, %3030
   %3038 = phi i16 [ %.pre9116, %3036 ], [ %3031, %3030 ]
-  %.48627 = phi i8 [ 1, %3036 ], [ %.38626, %3030 ]
+  %.48651 = phi i8 [ 1, %3036 ], [ %.38650, %3030 ]
   %3039 = and i16 %3038, 32
   %.not8767 = icmp eq i16 %3039, 0
   br i1 %.not8767, label %3044, label %3040
 
 3040:                                             ; preds = %3037
-  %3041 = trunc nuw i8 %.48627 to i1
+  %3041 = trunc nuw i8 %.48651 to i1
   br i1 %3041, label %3042, label %3043
 
 3042:                                             ; preds = %3040
@@ -8222,13 +8222,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3044:                                             ; preds = %3043, %3037
   %3045 = phi i16 [ %.pre9117, %3043 ], [ %3038, %3037 ]
-  %.58628 = phi i8 [ 1, %3043 ], [ %.48627, %3037 ]
+  %.58652 = phi i8 [ 1, %3043 ], [ %.48651, %3037 ]
   %3046 = and i16 %3045, 64
   %.not8768 = icmp eq i16 %3046, 0
   br i1 %.not8768, label %3051, label %3047
 
 3047:                                             ; preds = %3044
-  %3048 = trunc nuw i8 %.58628 to i1
+  %3048 = trunc nuw i8 %.58652 to i1
   br i1 %3048, label %3049, label %3050
 
 3049:                                             ; preds = %3047
@@ -8242,13 +8242,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3051:                                             ; preds = %3050, %3044
   %3052 = phi i16 [ %.pre9118, %3050 ], [ %3045, %3044 ]
-  %.68629 = phi i8 [ 1, %3050 ], [ %.58628, %3044 ]
+  %.68653 = phi i8 [ 1, %3050 ], [ %.58652, %3044 ]
   %3053 = and i16 %3052, 128
   %.not8769 = icmp eq i16 %3053, 0
   br i1 %.not8769, label %3058, label %3054
 
 3054:                                             ; preds = %3051
-  %3055 = trunc nuw i8 %.68629 to i1
+  %3055 = trunc nuw i8 %.68653 to i1
   br i1 %3055, label %3056, label %3057
 
 3056:                                             ; preds = %3054
@@ -8262,13 +8262,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3058:                                             ; preds = %3057, %3051
   %3059 = phi i16 [ %.pre9119, %3057 ], [ %3052, %3051 ]
-  %.78630 = phi i8 [ 1, %3057 ], [ %.68629, %3051 ]
+  %.78654 = phi i8 [ 1, %3057 ], [ %.68653, %3051 ]
   %3060 = and i16 %3059, 256
   %.not8770 = icmp eq i16 %3060, 0
   br i1 %.not8770, label %3065, label %3061
 
 3061:                                             ; preds = %3058
-  %3062 = trunc nuw i8 %.78630 to i1
+  %3062 = trunc nuw i8 %.78654 to i1
   br i1 %3062, label %3063, label %3064
 
 3063:                                             ; preds = %3061
@@ -8282,13 +8282,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3065:                                             ; preds = %3064, %3058
   %3066 = phi i16 [ %.pre9120, %3064 ], [ %3059, %3058 ]
-  %.88631 = phi i8 [ 1, %3064 ], [ %.78630, %3058 ]
+  %.88655 = phi i8 [ 1, %3064 ], [ %.78654, %3058 ]
   %3067 = and i16 %3066, 512
   %.not8771 = icmp eq i16 %3067, 0
   br i1 %.not8771, label %3072, label %3068
 
 3068:                                             ; preds = %3065
-  %3069 = trunc nuw i8 %.88631 to i1
+  %3069 = trunc nuw i8 %.88655 to i1
   br i1 %3069, label %3070, label %3071
 
 3070:                                             ; preds = %3068
@@ -8302,10 +8302,10 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3072:                                             ; preds = %3071, %3065
   %3073 = phi i16 [ %.pre9121, %3071 ], [ %3066, %3065 ]
-  %.98632 = phi i8 [ 1, %3071 ], [ %.88631, %3065 ]
+  %.98656 = phi i8 [ 1, %3071 ], [ %.88655, %3065 ]
   %3074 = and i16 %3073, 1024
   %.not8772 = icmp eq i16 %3074, 0
-  %3075 = trunc nuw i8 %.98632 to i1
+  %3075 = trunc nuw i8 %.98656 to i1
   br i1 %.not8772, label %3078, label %3076
 
 3076:                                             ; preds = %3072
@@ -8494,7 +8494,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3145:                                             ; preds = %.lr.ph8968, %3145
   %3146 = phi i64 [ 0, %.lr.ph8968 ], [ %3153, %3145 ]
-  %.086348966 = phi i32 [ 0, %.lr.ph8968 ], [ %3152, %3145 ]
+  %.086598966 = phi i32 [ 0, %.lr.ph8968 ], [ %3152, %3145 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -8506,7 +8506,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3151 = load ptr, ptr %3150, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3151, ptr noundef nonnull %3)
   store i64 %.pre9111, ptr %3, align 8
-  %3152 = add i32 %.086348966, 1
+  %3152 = add i32 %.086598966, 1
   %3153 = zext i32 %3152 to i64
   %3154 = icmp ugt i64 %3142, %3153
   br i1 %3154, label %3145, label %common.ret9201, !llvm.loop !28
@@ -8538,8 +8538,8 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3163:                                             ; preds = %.lr.ph8964, %3166
   %3164 = phi i64 [ 0, %.lr.ph8964 ], [ %3176, %3166 ]
-  %.086358962 = phi i32 [ 0, %.lr.ph8964 ], [ %3175, %3166 ]
-  %.not8761 = icmp eq i32 %.086358962, 0
+  %.086618962 = phi i32 [ 0, %.lr.ph8964 ], [ %3175, %3166 ]
+  %.not8761 = icmp eq i32 %.086618962, 0
   br i1 %.not8761, label %3166, label %3165
 
 3165:                                             ; preds = %3163
@@ -8556,7 +8556,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3173 = trunc i64 %3172 to i32
   %3174 = load ptr, ptr %3170, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.277, i32 noundef %3173, ptr noundef %3174) #3
-  %3175 = add i32 %.086358962, 1
+  %3175 = add i32 %.086618962, 1
   %3176 = zext i32 %3175 to i64
   %3177 = load i64, ptr %3159, align 8
   %3178 = icmp ugt i64 %3177, %3176
@@ -8655,7 +8655,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3213:                                             ; preds = %.lr.ph8956, %3213
   %3214 = phi i64 [ 0, %.lr.ph8956 ], [ %3221, %3213 ]
-  %.086368954 = phi i32 [ 0, %.lr.ph8956 ], [ %3220, %3213 ]
+  %.086628954 = phi i32 [ 0, %.lr.ph8956 ], [ %3220, %3213 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -8667,7 +8667,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3219 = load ptr, ptr %3218, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3219, ptr noundef nonnull %3)
   store i64 %.pre9109, ptr %3, align 8
-  %3220 = add i32 %.086368954, 1
+  %3220 = add i32 %.086628954, 1
   %3221 = zext i32 %3220 to i64
   %3222 = icmp ugt i64 %3210, %3221
   br i1 %3222, label %3213, label %._crit_edge8957, !llvm.loop !30
@@ -8712,7 +8712,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3236:                                             ; preds = %.lr.ph8960, %3236
   %3237 = phi i64 [ 0, %.lr.ph8960 ], [ %3244, %3236 ]
-  %.086378958 = phi i32 [ 0, %.lr.ph8960 ], [ %3243, %3236 ]
+  %.086638958 = phi i32 [ 0, %.lr.ph8960 ], [ %3243, %3236 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -8724,7 +8724,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3242 = load ptr, ptr %3241, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3242, ptr noundef nonnull %3)
   store i64 %.pre9110, ptr %3, align 8
-  %3243 = add i32 %.086378958, 1
+  %3243 = add i32 %.086638958, 1
   %3244 = zext i32 %3243 to i64
   %3245 = icmp ugt i64 %3233, %3244
   br i1 %3245, label %3236, label %._crit_edge8961, !llvm.loop !31
@@ -8803,7 +8803,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3276:                                             ; preds = %.lr.ph8948, %3276
   %3277 = phi i64 [ 0, %.lr.ph8948 ], [ %3284, %3276 ]
-  %.086388946 = phi i32 [ 0, %.lr.ph8948 ], [ %3283, %3276 ]
+  %.086658946 = phi i32 [ 0, %.lr.ph8948 ], [ %3283, %3276 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -8815,7 +8815,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3282 = load ptr, ptr %3281, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3282, ptr noundef nonnull %3)
   store i64 %.pre9107, ptr %3, align 8
-  %3283 = add i32 %.086388946, 1
+  %3283 = add i32 %.086658946, 1
   %3284 = zext i32 %3283 to i64
   %3285 = icmp ugt i64 %3273, %3284
   br i1 %3285, label %3276, label %._crit_edge8949, !llvm.loop !32
@@ -8860,7 +8860,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3299:                                             ; preds = %.lr.ph8952, %3299
   %3300 = phi i64 [ 0, %.lr.ph8952 ], [ %3307, %3299 ]
-  %.086398950 = phi i32 [ 0, %.lr.ph8952 ], [ %3306, %3299 ]
+  %.086668950 = phi i32 [ 0, %.lr.ph8952 ], [ %3306, %3299 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -8872,7 +8872,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3305 = load ptr, ptr %3304, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3305, ptr noundef nonnull %3)
   store i64 %.pre9108, ptr %3, align 8
-  %3306 = add i32 %.086398950, 1
+  %3306 = add i32 %.086668950, 1
   %3307 = zext i32 %3306 to i64
   %3308 = icmp ugt i64 %3296, %3307
   br i1 %3308, label %3299, label %._crit_edge8953, !llvm.loop !33
@@ -9255,7 +9255,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3454:                                             ; preds = %.lr.ph8932, %3454
   %3455 = phi i64 [ 0, %.lr.ph8932 ], [ %3462, %3454 ]
-  %.086458930 = phi i32 [ 0, %.lr.ph8932 ], [ %3461, %3454 ]
+  %.086608930 = phi i32 [ 0, %.lr.ph8932 ], [ %3461, %3454 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -9267,7 +9267,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3460 = load ptr, ptr %3459, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3460, ptr noundef nonnull %3)
   store i64 %.pre9103, ptr %3, align 8
-  %3461 = add i32 %.086458930, 1
+  %3461 = add i32 %.086608930, 1
   %3462 = zext i32 %3461 to i64
   %3463 = icmp ugt i64 %3451, %3462
   br i1 %3463, label %3454, label %._crit_edge8933, !llvm.loop !34
@@ -9290,7 +9290,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3469:                                             ; preds = %.lr.ph8936, %3469
   %3470 = phi i64 [ 0, %.lr.ph8936 ], [ %3477, %3469 ]
-  %.086468934 = phi i32 [ 0, %.lr.ph8936 ], [ %3476, %3469 ]
+  %.086588934 = phi i32 [ 0, %.lr.ph8936 ], [ %3476, %3469 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -9302,7 +9302,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3475 = load ptr, ptr %3474, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3475, ptr noundef nonnull %3)
   store i64 %.pre9104, ptr %3, align 8
-  %3476 = add i32 %.086468934, 1
+  %3476 = add i32 %.086588934, 1
   %3477 = zext i32 %3476 to i64
   %3478 = icmp ugt i64 %3466, %3477
   br i1 %3478, label %3469, label %._crit_edge8937, !llvm.loop !35
@@ -9347,7 +9347,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3492:                                             ; preds = %.lr.ph8940, %3492
   %3493 = phi i64 [ 0, %.lr.ph8940 ], [ %3500, %3492 ]
-  %.086488938 = phi i32 [ 0, %.lr.ph8940 ], [ %3499, %3492 ]
+  %.086468938 = phi i32 [ 0, %.lr.ph8940 ], [ %3499, %3492 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -9359,7 +9359,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3498 = load ptr, ptr %3497, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3498, ptr noundef nonnull %3)
   store i64 %.pre9105, ptr %3, align 8
-  %3499 = add i32 %.086488938, 1
+  %3499 = add i32 %.086468938, 1
   %3500 = zext i32 %3499 to i64
   %3501 = icmp ugt i64 %3489, %3500
   br i1 %3501, label %3492, label %._crit_edge8941, !llvm.loop !36
@@ -9382,7 +9382,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3507:                                             ; preds = %.lr.ph8944, %3507
   %3508 = phi i64 [ 0, %.lr.ph8944 ], [ %3515, %3507 ]
-  %.086498942 = phi i32 [ 0, %.lr.ph8944 ], [ %3514, %3507 ]
+  %.086448942 = phi i32 [ 0, %.lr.ph8944 ], [ %3514, %3507 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -9394,7 +9394,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3513 = load ptr, ptr %3512, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3513, ptr noundef nonnull %3)
   store i64 %.pre9106, ptr %3, align 8
-  %3514 = add i32 %.086498942, 1
+  %3514 = add i32 %.086448942, 1
   %3515 = zext i32 %3514 to i64
   %3516 = icmp ugt i64 %3504, %3515
   br i1 %3516, label %3507, label %._crit_edge8945, !llvm.loop !37
@@ -9752,8 +9752,8 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3662:                                             ; preds = %.lr.ph8928, %3665
   %3663 = phi i64 [ 0, %.lr.ph8928 ], [ %3675, %3665 ]
-  %.086508926 = phi i32 [ 0, %.lr.ph8928 ], [ %3674, %3665 ]
-  %.not8758 = icmp eq i32 %.086508926, 0
+  %.086018926 = phi i32 [ 0, %.lr.ph8928 ], [ %3674, %3665 ]
+  %.not8758 = icmp eq i32 %.086018926, 0
   br i1 %.not8758, label %3665, label %3664
 
 3664:                                             ; preds = %3662
@@ -9770,7 +9770,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3672 = trunc i64 %3671 to i32
   %3673 = load ptr, ptr %3669, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.277, i32 noundef %3672, ptr noundef %3673) #3
-  %3674 = add i32 %.086508926, 1
+  %3674 = add i32 %.086018926, 1
   %3675 = zext i32 %3674 to i64
   %3676 = load i64, ptr %3658, align 8
   %3677 = icmp ugt i64 %3676, %3675
@@ -9917,13 +9917,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3724:                                             ; preds = %3723, %3718
   %3725 = phi i16 [ %.pre9093, %3723 ], [ %3721, %3718 ]
-  %.08652 = phi i8 [ 1, %3723 ], [ 0, %3718 ]
+  %.08588 = phi i8 [ 1, %3723 ], [ 0, %3718 ]
   %3726 = and i16 %3725, 2
   %.not8747 = icmp eq i16 %3726, 0
   br i1 %.not8747, label %3731, label %3727
 
 3727:                                             ; preds = %3724
-  %3728 = trunc nuw i8 %.08652 to i1
+  %3728 = trunc nuw i8 %.08588 to i1
   br i1 %3728, label %3729, label %3730
 
 3729:                                             ; preds = %3727
@@ -9937,13 +9937,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3731:                                             ; preds = %3730, %3724
   %3732 = phi i16 [ %.pre9094, %3730 ], [ %3725, %3724 ]
-  %.18653 = phi i8 [ 1, %3730 ], [ %.08652, %3724 ]
+  %.18589 = phi i8 [ 1, %3730 ], [ %.08588, %3724 ]
   %3733 = and i16 %3732, 4
   %.not8748 = icmp eq i16 %3733, 0
   br i1 %.not8748, label %3738, label %3734
 
 3734:                                             ; preds = %3731
-  %3735 = trunc nuw i8 %.18653 to i1
+  %3735 = trunc nuw i8 %.18589 to i1
   br i1 %3735, label %3736, label %3737
 
 3736:                                             ; preds = %3734
@@ -9957,13 +9957,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3738:                                             ; preds = %3737, %3731
   %3739 = phi i16 [ %.pre9095, %3737 ], [ %3732, %3731 ]
-  %.28654 = phi i8 [ 1, %3737 ], [ %.18653, %3731 ]
+  %.28590 = phi i8 [ 1, %3737 ], [ %.18589, %3731 ]
   %3740 = and i16 %3739, 8
   %.not8749 = icmp eq i16 %3740, 0
   br i1 %.not8749, label %3745, label %3741
 
 3741:                                             ; preds = %3738
-  %3742 = trunc nuw i8 %.28654 to i1
+  %3742 = trunc nuw i8 %.28590 to i1
   br i1 %3742, label %3743, label %3744
 
 3743:                                             ; preds = %3741
@@ -9977,13 +9977,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3745:                                             ; preds = %3744, %3738
   %3746 = phi i16 [ %.pre9096, %3744 ], [ %3739, %3738 ]
-  %.38655 = phi i8 [ 1, %3744 ], [ %.28654, %3738 ]
+  %.38591 = phi i8 [ 1, %3744 ], [ %.28590, %3738 ]
   %3747 = and i16 %3746, 16
   %.not8750 = icmp eq i16 %3747, 0
   br i1 %.not8750, label %3752, label %3748
 
 3748:                                             ; preds = %3745
-  %3749 = trunc nuw i8 %.38655 to i1
+  %3749 = trunc nuw i8 %.38591 to i1
   br i1 %3749, label %3750, label %3751
 
 3750:                                             ; preds = %3748
@@ -9997,13 +9997,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3752:                                             ; preds = %3751, %3745
   %3753 = phi i16 [ %.pre9097, %3751 ], [ %3746, %3745 ]
-  %.48656 = phi i8 [ 1, %3751 ], [ %.38655, %3745 ]
+  %.4 = phi i8 [ 1, %3751 ], [ %.38591, %3745 ]
   %3754 = and i16 %3753, 32
   %.not8751 = icmp eq i16 %3754, 0
   br i1 %.not8751, label %3759, label %3755
 
 3755:                                             ; preds = %3752
-  %3756 = trunc nuw i8 %.48656 to i1
+  %3756 = trunc nuw i8 %.4 to i1
   br i1 %3756, label %3757, label %3758
 
 3757:                                             ; preds = %3755
@@ -10017,13 +10017,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3759:                                             ; preds = %3758, %3752
   %3760 = phi i16 [ %.pre9098, %3758 ], [ %3753, %3752 ]
-  %.58657 = phi i8 [ 1, %3758 ], [ %.48656, %3752 ]
+  %.5 = phi i8 [ 1, %3758 ], [ %.4, %3752 ]
   %3761 = and i16 %3760, 64
   %.not8752 = icmp eq i16 %3761, 0
   br i1 %.not8752, label %3766, label %3762
 
 3762:                                             ; preds = %3759
-  %3763 = trunc nuw i8 %.58657 to i1
+  %3763 = trunc nuw i8 %.5 to i1
   br i1 %3763, label %3764, label %3765
 
 3764:                                             ; preds = %3762
@@ -10037,13 +10037,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3766:                                             ; preds = %3765, %3759
   %3767 = phi i16 [ %.pre9099, %3765 ], [ %3760, %3759 ]
-  %.68658 = phi i8 [ 1, %3765 ], [ %.58657, %3759 ]
+  %.6 = phi i8 [ 1, %3765 ], [ %.5, %3759 ]
   %3768 = and i16 %3767, 128
   %.not8753 = icmp eq i16 %3768, 0
   br i1 %.not8753, label %3773, label %3769
 
 3769:                                             ; preds = %3766
-  %3770 = trunc nuw i8 %.68658 to i1
+  %3770 = trunc nuw i8 %.6 to i1
   br i1 %3770, label %3771, label %3772
 
 3771:                                             ; preds = %3769
@@ -10057,13 +10057,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3773:                                             ; preds = %3772, %3766
   %3774 = phi i16 [ %.pre9100, %3772 ], [ %3767, %3766 ]
-  %.78659 = phi i8 [ 1, %3772 ], [ %.68658, %3766 ]
+  %.7 = phi i8 [ 1, %3772 ], [ %.6, %3766 ]
   %3775 = and i16 %3774, 256
   %.not8754 = icmp eq i16 %3775, 0
   br i1 %.not8754, label %3780, label %3776
 
 3776:                                             ; preds = %3773
-  %3777 = trunc nuw i8 %.78659 to i1
+  %3777 = trunc nuw i8 %.7 to i1
   br i1 %3777, label %3778, label %3779
 
 3778:                                             ; preds = %3776
@@ -10077,13 +10077,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3780:                                             ; preds = %3779, %3773
   %3781 = phi i16 [ %.pre9101, %3779 ], [ %3774, %3773 ]
-  %.88660 = phi i8 [ 1, %3779 ], [ %.78659, %3773 ]
+  %.8 = phi i8 [ 1, %3779 ], [ %.7, %3773 ]
   %3782 = and i16 %3781, 512
   %.not8755 = icmp eq i16 %3782, 0
   br i1 %.not8755, label %3787, label %3783
 
 3783:                                             ; preds = %3780
-  %3784 = trunc nuw i8 %.88660 to i1
+  %3784 = trunc nuw i8 %.8 to i1
   br i1 %3784, label %3785, label %3786
 
 3785:                                             ; preds = %3783
@@ -10097,10 +10097,10 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3787:                                             ; preds = %3786, %3780
   %3788 = phi i16 [ %.pre9102, %3786 ], [ %3781, %3780 ]
-  %.98661 = phi i8 [ 1, %3786 ], [ %.88660, %3780 ]
+  %.9 = phi i8 [ 1, %3786 ], [ %.8, %3780 ]
   %3789 = and i16 %3788, 1024
   %.not8756 = icmp eq i16 %3789, 0
-  %3790 = trunc nuw i8 %.98661 to i1
+  %3790 = trunc nuw i8 %.9 to i1
   br i1 %.not8756, label %3793, label %3791
 
 3791:                                             ; preds = %3787
@@ -10330,7 +10330,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3874:                                             ; preds = %.lr.ph8924, %3874
   %3875 = phi i64 [ 0, %.lr.ph8924 ], [ %3882, %3874 ]
-  %.086658922 = phi i32 [ 0, %.lr.ph8924 ], [ %3881, %3874 ]
+  %.085818922 = phi i32 [ 0, %.lr.ph8924 ], [ %3881, %3874 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -10342,7 +10342,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3880 = load ptr, ptr %3879, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3880, ptr noundef nonnull %3)
   store i64 %.pre9092, ptr %3, align 8
-  %3881 = add i32 %.086658922, 1
+  %3881 = add i32 %.085818922, 1
   %3882 = zext i32 %3881 to i64
   %3883 = icmp ugt i64 %3871, %3882
   br i1 %3883, label %3874, label %._crit_edge8925, !llvm.loop !39
@@ -10597,8 +10597,8 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 3978:                                             ; preds = %.lr.ph8920, %3981
   %3979 = phi i64 [ 0, %.lr.ph8920 ], [ %3991, %3981 ]
-  %.086678918 = phi i32 [ 0, %.lr.ph8920 ], [ %3990, %3981 ]
-  %.not8742 = icmp eq i32 %.086678918, 0
+  %.085788918 = phi i32 [ 0, %.lr.ph8920 ], [ %3990, %3981 ]
+  %.not8742 = icmp eq i32 %.085788918, 0
   br i1 %.not8742, label %3981, label %3980
 
 3980:                                             ; preds = %3978
@@ -10615,7 +10615,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %3988 = trunc i64 %3987 to i32
   %3989 = load ptr, ptr %3985, align 8
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.277, i32 noundef %3988, ptr noundef %3989) #3
-  %3990 = add i32 %.086678918, 1
+  %3990 = add i32 %.085788918, 1
   %3991 = zext i32 %3990 to i64
   %3992 = load i64, ptr %3974, align 8
   %3993 = icmp ugt i64 %3992, %3991
@@ -10790,7 +10790,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 4058:                                             ; preds = %.lr.ph8917, %4058
   %4059 = phi i64 [ 0, %.lr.ph8917 ], [ %4066, %4058 ]
-  %.086478915 = phi i32 [ 0, %.lr.ph8917 ], [ %4065, %4058 ]
+  %.085668915 = phi i32 [ 0, %.lr.ph8917 ], [ %4065, %4058 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.20, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -10802,7 +10802,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %4064 = load ptr, ptr %4063, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %4064, ptr noundef nonnull %3)
   store i64 %.pre9091, ptr %3, align 8
-  %4065 = add i32 %.086478915, 1
+  %4065 = add i32 %.085668915, 1
   %4066 = zext i32 %4065 to i64
   %4067 = icmp ugt i64 %4055, %4066
   br i1 %4067, label %4058, label %common.ret9201, !llvm.loop !41
@@ -10827,13 +10827,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 4074:                                             ; preds = %4073, %4068
   %4075 = phi i16 [ %.pre9089, %4073 ], [ %4071, %4068 ]
-  %.08642 = phi i8 [ 1, %4073 ], [ 0, %4068 ]
+  %.08559 = phi i8 [ 1, %4073 ], [ 0, %4068 ]
   %4076 = and i16 %4075, 2
   %.not8740 = icmp eq i16 %4076, 0
   br i1 %.not8740, label %4081, label %4077
 
 4077:                                             ; preds = %4074
-  %4078 = trunc nuw i8 %.08642 to i1
+  %4078 = trunc nuw i8 %.08559 to i1
   br i1 %4078, label %4079, label %4080
 
 4079:                                             ; preds = %4077
@@ -10847,10 +10847,10 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 4081:                                             ; preds = %4080, %4074
   %4082 = phi i16 [ %.pre9090, %4080 ], [ %4075, %4074 ]
-  %.18643 = phi i8 [ 1, %4080 ], [ %.08642, %4074 ]
+  %.18560 = phi i8 [ 1, %4080 ], [ %.08559, %4074 ]
   %4083 = and i16 %4082, 4
   %.not8741 = icmp eq i16 %4083, 0
-  %4084 = trunc nuw i8 %.18643 to i1
+  %4084 = trunc nuw i8 %.18560 to i1
   br i1 %.not8741, label %4087, label %4085
 
 4085:                                             ; preds = %4081
@@ -11083,13 +11083,13 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 4178:                                             ; preds = %4177, %4172
   %4179 = phi i16 [ %.pre9087, %4177 ], [ %4175, %4172 ]
-  %.08619 = phi i8 [ 1, %4177 ], [ 0, %4172 ]
+  %.08552 = phi i8 [ 1, %4177 ], [ 0, %4172 ]
   %4180 = and i16 %4179, 2
   %.not8737 = icmp eq i16 %4180, 0
   br i1 %.not8737, label %4185, label %4181
 
 4181:                                             ; preds = %4178
-  %4182 = trunc nuw i8 %.08619 to i1
+  %4182 = trunc nuw i8 %.08552 to i1
   br i1 %4182, label %4183, label %4184
 
 4183:                                             ; preds = %4181
@@ -11103,10 +11103,10 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 4185:                                             ; preds = %4184, %4178
   %4186 = phi i16 [ %.pre9088, %4184 ], [ %4179, %4178 ]
-  %.18620 = phi i8 [ 1, %4184 ], [ %.08619, %4178 ]
+  %.18553 = phi i8 [ 1, %4184 ], [ %.08552, %4178 ]
   %4187 = and i16 %4186, 4
   %.not8738 = icmp eq i16 %4187, 0
-  %4188 = trunc nuw i8 %.18620 to i1
+  %4188 = trunc nuw i8 %.18553 to i1
   br i1 %.not8738, label %4191, label %4189
 
 4189:                                             ; preds = %4185
@@ -11246,7 +11246,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 4242:                                             ; preds = %.lr.ph8913, %4242
   %4243 = phi i64 [ 0, %.lr.ph8913 ], [ %4250, %4242 ]
-  %.086138911 = phi i32 [ 0, %.lr.ph8913 ], [ %4249, %4242 ]
+  %.085518911 = phi i32 [ 0, %.lr.ph8913 ], [ %4249, %4242 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -11258,7 +11258,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %4248 = load ptr, ptr %4247, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %4248, ptr noundef nonnull %3)
   store i64 %.pre9086, ptr %3, align 8
-  %4249 = add i32 %.086138911, 1
+  %4249 = add i32 %.085518911, 1
   %4250 = zext i32 %4249 to i64
   %4251 = icmp ugt i64 %4239, %4250
   br i1 %4251, label %4242, label %._crit_edge8914, !llvm.loop !42
@@ -11534,7 +11534,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
 
 4360:                                             ; preds = %.lr.ph, %4360
   %4361 = phi i64 [ 0, %.lr.ph ], [ %4368, %4360 ]
-  %.085668910 = phi i32 [ 0, %.lr.ph ], [ %4367, %4360 ]
+  %.085438910 = phi i32 [ 0, %.lr.ph ], [ %4367, %4360 ]
   tail call void @pm_buffer_append_string(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, i64 noundef 4) #3
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #3
@@ -11546,7 +11546,7 @@ common.ret9201:                                   ; preds = %4479, %4480, %4409,
   %4366 = load ptr, ptr %4365, align 8
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %4366, ptr noundef nonnull %3)
   store i64 %.pre9085, ptr %3, align 8
-  %4367 = add i32 %.085668910, 1
+  %4367 = add i32 %.085438910, 1
   %4368 = zext i32 %4367 to i64
   %4369 = icmp ugt i64 %4357, %4368
   br i1 %4369, label %4360, label %._crit_edge, !llvm.loop !43

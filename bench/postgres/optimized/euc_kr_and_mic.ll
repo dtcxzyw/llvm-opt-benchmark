@@ -144,8 +144,8 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_kr(ptr nocapture nound
 
 .lr.ph.i:                                         ; preds = %1, %.backedge.i
   %.048.i = phi ptr [ %.0.be.i, %.backedge.i ], [ %5, %1 ]
-  %.03247.i = phi ptr [ %.032.be.i, %.backedge.i ], [ %8, %1 ]
-  %.03346.i = phi i32 [ %.033.be.i, %.backedge.i ], [ %11, %1 ]
+  %.03247.i = phi i32 [ %.032.be.i, %.backedge.i ], [ %11, %1 ]
+  %.03346.i = phi ptr [ %.033.be.i, %.backedge.i ], [ %8, %1 ]
   %20 = load i8, ptr %.048.i, align 1
   %.not.i = icmp sgt i8 %20, -1
   br i1 %.not.i, label %21, label %30
@@ -158,25 +158,25 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_kr(ptr nocapture nound
   br i1 %.not, label %24, label %mic2euc_kr.exit
 
 24:                                               ; preds = %23
-  tail call void @report_invalid_encoding(i32 noundef 7, ptr noundef nonnull %.048.i, i32 noundef %.03346.i) #5
+  tail call void @report_invalid_encoding(i32 noundef 7, ptr noundef nonnull %.048.i, i32 noundef %.03247.i) #5
   unreachable
 
 25:                                               ; preds = %21
-  %26 = getelementptr i8, ptr %.03247.i, i64 1
-  store i8 %20, ptr %.03247.i, align 1
+  %26 = getelementptr i8, ptr %.03346.i, i64 1
+  store i8 %20, ptr %.03346.i, align 1
   %27 = getelementptr i8, ptr %.048.i, i64 1
-  %28 = add nsw i32 %.03346.i, -1
+  %28 = add nsw i32 %.03247.i, -1
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %37, %25
-  %.033.be.i = phi i32 [ %46, %37 ], [ %28, %25 ]
-  %.032.be.i = phi ptr [ %43, %37 ], [ %26, %25 ]
+  %.033.be.i = phi ptr [ %43, %37 ], [ %26, %25 ]
+  %.032.be.i = phi i32 [ %46, %37 ], [ %28, %25 ]
   %.0.be.i = phi ptr [ %45, %37 ], [ %27, %25 ]
-  %29 = icmp sgt i32 %.033.be.i, 0
+  %29 = icmp sgt i32 %.032.be.i, 0
   br i1 %29, label %.lr.ph.i, label %mic2euc_kr.exit, !llvm.loop !6
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = tail call i32 @pg_encoding_verifymbchar(i32 noundef 7, ptr noundef nonnull %.048.i, i32 noundef %.03346.i) #4
+  %31 = tail call i32 @pg_encoding_verifymbchar(i32 noundef 7, ptr noundef nonnull %.048.i, i32 noundef %.03247.i) #4
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %35
 
@@ -184,7 +184,7 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_kr(ptr nocapture nound
   br i1 %.not, label %34, label %mic2euc_kr.exit
 
 34:                                               ; preds = %33
-  tail call void @report_invalid_encoding(i32 noundef 7, ptr noundef nonnull %.048.i, i32 noundef %.03346.i) #5
+  tail call void @report_invalid_encoding(i32 noundef 7, ptr noundef nonnull %.048.i, i32 noundef %.03247.i) #5
   unreachable
 
 35:                                               ; preds = %30
@@ -194,28 +194,28 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_kr(ptr nocapture nound
 37:                                               ; preds = %35
   %38 = getelementptr i8, ptr %.048.i, i64 1
   %39 = load i8, ptr %38, align 1
-  %40 = getelementptr i8, ptr %.03247.i, i64 1
-  store i8 %39, ptr %.03247.i, align 1
+  %40 = getelementptr i8, ptr %.03346.i, i64 1
+  store i8 %39, ptr %.03346.i, align 1
   %41 = getelementptr i8, ptr %.048.i, i64 2
   %42 = load i8, ptr %41, align 1
-  %43 = getelementptr i8, ptr %.03247.i, i64 2
+  %43 = getelementptr i8, ptr %.03346.i, i64 2
   store i8 %42, ptr %40, align 1
   %44 = zext nneg i32 %31 to i64
   %45 = getelementptr i8, ptr %.048.i, i64 %44
-  %46 = sub nsw i32 %.03346.i, %31
+  %46 = sub nsw i32 %.03247.i, %31
   br label %.backedge.i
 
 47:                                               ; preds = %35
   br i1 %.not, label %48, label %mic2euc_kr.exit
 
 48:                                               ; preds = %47
-  tail call void @report_untranslatable_char(i32 noundef 7, i32 noundef 3, ptr noundef nonnull %.048.i, i32 noundef %.03346.i) #5
+  tail call void @report_untranslatable_char(i32 noundef 7, i32 noundef 3, ptr noundef nonnull %.048.i, i32 noundef %.03247.i) #5
   unreachable
 
 mic2euc_kr.exit:                                  ; preds = %.backedge.i, %1, %23, %33, %47
-  %.03242.i = phi ptr [ %.03247.i, %47 ], [ %.03247.i, %33 ], [ %.03247.i, %23 ], [ %8, %1 ], [ %.032.be.i, %.backedge.i ]
+  %.03345.i = phi ptr [ %.03346.i, %47 ], [ %.03346.i, %33 ], [ %.03346.i, %23 ], [ %8, %1 ], [ %.033.be.i, %.backedge.i ]
   %.038.i = phi ptr [ %.048.i, %47 ], [ %.048.i, %33 ], [ %.048.i, %23 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
-  store i8 0, ptr %.03242.i, align 1
+  store i8 0, ptr %.03345.i, align 1
   %49 = ptrtoint ptr %.038.i to i64
   %50 = sub i64 %49, %4
   %sext = shl i64 %50, 32

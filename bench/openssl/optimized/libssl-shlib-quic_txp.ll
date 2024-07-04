@@ -736,7 +736,7 @@ txp_determine_archetype.exit:                     ; preds = %for.body.i, %for.en
 
 for.body6:                                        ; preds = %txp_determine_archetype.exit, %for.inc44
   %indvars.iv677 = phi i64 [ 0, %txp_determine_archetype.exit ], [ %indvars.iv.next678, %for.inc44 ]
-  %need_padding.0551 = phi i32 [ 0, %txp_determine_archetype.exit ], [ %need_padding.2, %for.inc44 ]
+  %need_padding.0554 = phi i32 [ 0, %txp_determine_archetype.exit ], [ %need_padding.2, %for.inc44 ]
   %conn_close_enc_level.0550 = phi i32 [ 4, %txp_determine_archetype.exit ], [ %conn_close_enc_level.2360, %for.inc44 ]
   %cmp7.not = icmp eq i64 %indvars.iv677, 0
   br i1 %cmp7.not, label %cond.end.thread, label %cond.end
@@ -1673,12 +1673,12 @@ for.body.lr.ph.i102:                              ; preds = %if.end166.i
   br label %for.body.i107
 
 for.body.i107:                                    ; preds = %for.inc.i, %for.body.lr.ph.i102
-  %done_pre_token.0257.i = phi i32 [ 0, %for.body.lr.ph.i102 ], [ %done_pre_token.2.i, %for.inc.i ]
-  %cfq_item.0256.i = phi ptr [ %call168.i, %for.body.lr.ph.i102 ], [ %call227.i, %for.inc.i ]
+  %cfq_item.0257.i = phi ptr [ %call168.i, %for.body.lr.ph.i102 ], [ %call227.i, %for.inc.i ]
+  %done_pre_token.0256.i = phi i32 [ 0, %for.body.lr.ph.i102 ], [ %done_pre_token.2.i, %for.inc.i ]
   %101 = phi i32 [ %have_ack_eliciting.promoted.i, %for.body.lr.ph.i102 ], [ %118, %for.inc.i ]
-  %call171.i = call i64 @ossl_quic_cfq_item_get_frame_type(ptr noundef nonnull %cfq_item.0256.i) #10
-  %call172.i = call ptr @ossl_quic_cfq_item_get_encoded(ptr noundef nonnull %cfq_item.0256.i) #10
-  %call173.i = call i64 @ossl_quic_cfq_item_get_encoded_len(ptr noundef nonnull %cfq_item.0256.i) #10
+  %call171.i = call i64 @ossl_quic_cfq_item_get_frame_type(ptr noundef nonnull %cfq_item.0257.i) #10
+  %call172.i = call ptr @ossl_quic_cfq_item_get_encoded(ptr noundef nonnull %cfq_item.0257.i) #10
+  %call173.i = call i64 @ossl_quic_cfq_item_get_encoded_len(ptr noundef nonnull %cfq_item.0257.i) #10
   switch i64 %call171.i, label %sw.default.i [
     i64 24, label %sw.bb.i
     i64 25, label %sw.bb180.i
@@ -1696,7 +1696,7 @@ sw.bb187.i:                                       ; preds = %for.body.i107
   br i1 %100, label %for.inc.i, label %if.end193.i
 
 if.end193.i:                                      ; preds = %sw.bb187.i
-  %tobool194.not.i = icmp eq i32 %done_pre_token.0257.i, 0
+  %tobool194.not.i = icmp eq i32 %done_pre_token.0256.i, 0
   br i1 %tobool194.not.i, label %if.then195.i, label %sw.epilog.i
 
 if.then195.i:                                     ; preds = %if.end193.i
@@ -1714,7 +1714,7 @@ sw.default.i:                                     ; preds = %for.body.i107
   br i1 %97, label %for.inc.i, label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.default.i, %if.end207.i, %if.then195.i, %if.end193.i, %sw.bb180.i, %sw.bb.i
-  %done_pre_token.1.i = phi i32 [ %done_pre_token.0257.i, %sw.default.i ], [ %done_pre_token.0257.i, %if.end207.i ], [ 1, %if.end193.i ], [ %done_pre_token.0257.i, %sw.bb180.i ], [ %done_pre_token.0257.i, %sw.bb.i ], [ %call196.i, %if.then195.i ]
+  %done_pre_token.1.i = phi i32 [ %done_pre_token.0256.i, %sw.default.i ], [ %done_pre_token.0256.i, %if.end207.i ], [ 1, %if.end193.i ], [ %done_pre_token.0256.i, %sw.bb180.i ], [ %done_pre_token.0256.i, %sw.bb.i ], [ %call196.i, %if.then195.i ]
   %102 = load i64, ptr %max_ppl3.i.i, align 8
   %bf.load.i185.i = load i8, ptr %reserve_allowed.i.i, align 4
   %bf.clear.i186.i = and i8 %bf.load.i185.i, 1
@@ -1796,7 +1796,7 @@ if.end12.i.i:                                     ; preds = %if.end8.i.i.i, %if.
   br label %if.end222.i
 
 if.end222.i:                                      ; preds = %if.end12.i.i, %if.end218.i
-  call void @ossl_quic_txpim_pkt_add_cfq_item(ptr noundef nonnull %call13.i, ptr noundef nonnull %cfq_item.0256.i) #10
+  call void @ossl_quic_txpim_pkt_add_cfq_item(ptr noundef nonnull %call13.i, ptr noundef nonnull %cfq_item.0257.i) #10
   switch i64 %call171.i, label %if.then225.i [
     i64 0, label %for.inc.i
     i64 2, label %for.inc.i
@@ -1813,8 +1813,8 @@ if.then225.i:                                     ; preds = %if.end222.i
 
 for.inc.i:                                        ; preds = %if.then225.i, %if.end222.i, %if.end222.i, %if.end222.i, %if.end222.i, %if.end222.i, %sw.default.i, %sw.bb201.i, %sw.bb187.i, %sw.bb180.i, %sw.bb.i
   %118 = phi i32 [ 1, %if.then225.i ], [ %101, %sw.default.i ], [ %101, %sw.bb201.i ], [ %101, %sw.bb187.i ], [ %101, %sw.bb180.i ], [ %101, %sw.bb.i ], [ %101, %if.end222.i ], [ %101, %if.end222.i ], [ %101, %if.end222.i ], [ %101, %if.end222.i ], [ %101, %if.end222.i ]
-  %done_pre_token.2.i = phi i32 [ %done_pre_token.1.i, %if.then225.i ], [ %done_pre_token.0257.i, %sw.default.i ], [ %done_pre_token.0257.i, %sw.bb201.i ], [ %done_pre_token.0257.i, %sw.bb187.i ], [ %done_pre_token.0257.i, %sw.bb180.i ], [ %done_pre_token.0257.i, %sw.bb.i ], [ %done_pre_token.1.i, %if.end222.i ], [ %done_pre_token.1.i, %if.end222.i ], [ %done_pre_token.1.i, %if.end222.i ], [ %done_pre_token.1.i, %if.end222.i ], [ %done_pre_token.1.i, %if.end222.i ]
-  %call227.i = call ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef nonnull %cfq_item.0256.i, i32 noundef %retval.0.i.i86) #10
+  %done_pre_token.2.i = phi i32 [ %done_pre_token.1.i, %if.then225.i ], [ %done_pre_token.0256.i, %sw.default.i ], [ %done_pre_token.0256.i, %sw.bb201.i ], [ %done_pre_token.0256.i, %sw.bb187.i ], [ %done_pre_token.0256.i, %sw.bb180.i ], [ %done_pre_token.0256.i, %sw.bb.i ], [ %done_pre_token.1.i, %if.end222.i ], [ %done_pre_token.1.i, %if.end222.i ], [ %done_pre_token.1.i, %if.end222.i ], [ %done_pre_token.1.i, %if.end222.i ], [ %done_pre_token.1.i, %if.end222.i ]
+  %call227.i = call ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef nonnull %cfq_item.0257.i, i32 noundef %retval.0.i.i86) #10
   %cmp169.not.i = icmp eq ptr %call227.i, null
   br i1 %cmp169.not.i, label %for.end.i110, label %for.body.i107, !llvm.loop !9
 
@@ -3031,7 +3031,7 @@ if.end28:                                         ; preds = %if.then296.i, %if.e
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %can_be_non_inflight.i)
   %258 = load i32, ptr %force_pad.i, align 8
   %tobool31.not = icmp eq i32 %258, 0
-  %spec.select = select i1 %tobool31.not, i32 %need_padding.0551, i32 1
+  %spec.select = select i1 %tobool31.not, i32 %need_padding.0554, i32 1
   %259 = load i64, ptr %bytes_appended.i.i, align 16
   %add = add i64 %259, %cond352
   %260 = load i64, ptr %pkt_overhead.i.i, align 8
@@ -3041,13 +3041,13 @@ if.end28:                                         ; preds = %if.then296.i, %if.e
 
 for.inc44:                                        ; preds = %txp_should_try_staging.exit, %if.end28
   %conn_close_enc_level.2360 = phi i32 [ %spec.select407, %if.end28 ], [ %conn_close_enc_level.2, %txp_should_try_staging.exit ]
-  %need_padding.2 = phi i32 [ %spec.select, %if.end28 ], [ %need_padding.0551, %txp_should_try_staging.exit ]
+  %need_padding.2 = phi i32 [ %spec.select, %if.end28 ], [ %need_padding.0554, %txp_should_try_staging.exit ]
   %indvars.iv.next678 = add nuw nsw i64 %indvars.iv677, 1
   %exitcond681.not = icmp eq i64 %indvars.iv.next678, 4
   br i1 %exitcond681.not, label %for.end46, label %for.body6, !llvm.loop !14
 
 for.end46:                                        ; preds = %if.then14.i.i, %if.end.i, %if.end27.i.i, %for.inc44, %txp_determine_ppl_from_pl.exit.thread.i.i
-  %need_padding.0522 = phi i32 [ %need_padding.0551, %txp_determine_ppl_from_pl.exit.thread.i.i ], [ %need_padding.2, %for.inc44 ], [ %need_padding.0551, %if.end27.i.i ], [ %need_padding.0551, %if.end.i ], [ %need_padding.0551, %if.then14.i.i ]
+  %need_padding.0522 = phi i32 [ %need_padding.0554, %txp_determine_ppl_from_pl.exit.thread.i.i ], [ %need_padding.2, %for.inc44 ], [ %need_padding.0554, %if.end27.i.i ], [ %need_padding.0554, %if.end.i ], [ %need_padding.0554, %if.then14.i.i ]
   %h_valid48 = getelementptr inbounds i8, ptr %pkt, i64 128
   %261 = load i32, ptr %h_valid48, align 16
   %tobool49 = icmp eq i32 %261, 0
@@ -3238,7 +3238,7 @@ if.end132:                                        ; preds = %if.end127.thread, %
 
 for.body136:                                      ; preds = %if.end132, %for.inc192
   %indvars.iv686 = phi i64 [ 0, %if.end132 ], [ %indvars.iv.next687, %for.inc192 ]
-  %pkts_done.0559 = phi i64 [ 0, %if.end132 ], [ %pkts_done.1, %for.inc192 ]
+  %pkts_done.0560 = phi i64 [ 0, %if.end132 ], [ %pkts_done.1, %for.inc192 ]
   %arrayidx138 = getelementptr inbounds [4 x %struct.txp_pkt], ptr %pkt, i64 0, i64 %indvars.iv686
   %h_valid139 = getelementptr inbounds i8, ptr %arrayidx138, i64 128
   %282 = load i32, ptr %h_valid139, align 16
@@ -3642,17 +3642,17 @@ if.end187:                                        ; preds = %txp_pkt_commit.exit
 
 if.end190:                                        ; preds = %lor.end, %land.end
   store ptr null, ptr %tpkt2.i, align 8
-  %inc191 = add i64 %pkts_done.0559, 1
+  %inc191 = add i64 %pkts_done.0560, 1
   br label %for.inc192
 
 for.inc192:                                       ; preds = %if.end142, %for.body136, %if.end190
-  %pkts_done.1 = phi i64 [ %pkts_done.0559, %if.end142 ], [ %inc191, %if.end190 ], [ %pkts_done.0559, %for.body136 ]
+  %pkts_done.1 = phi i64 [ %pkts_done.0560, %if.end142 ], [ %inc191, %if.end190 ], [ %pkts_done.0560, %for.body136 ]
   %indvars.iv.next687 = add nuw nsw i64 %indvars.iv686, 1
   %exitcond689.not = icmp eq i64 %indvars.iv.next687, 4
   br i1 %exitcond689.not, label %out, label %for.body136, !llvm.loop !18
 
 out:                                              ; preds = %for.inc192, %if.end.i.i160, %if.then23.i, %if.end25.i, %if.end16.i, %if.end4.i, %if.then114, %if.end187, %if.end187.thread402, %if.end187.thread, %txp_generate_for_el.exit.thread, %if.end127
-  %pkts_done.2 = phi i64 [ %pkts_done.0559, %if.end187 ], [ 0, %if.end127 ], [ 0, %txp_generate_for_el.exit.thread ], [ %pkts_done.0559, %if.end187.thread ], [ %pkts_done.0559, %if.end187.thread402 ], [ 0, %if.then114 ], [ 0, %if.end4.i ], [ 0, %if.end16.i ], [ 0, %if.end25.i ], [ 0, %if.then23.i ], [ 0, %if.end.i.i160 ], [ %pkts_done.1, %for.inc192 ]
+  %pkts_done.2 = phi i64 [ %pkts_done.0560, %if.end187 ], [ 0, %if.end127 ], [ 0, %txp_generate_for_el.exit.thread ], [ %pkts_done.0560, %if.end187.thread ], [ %pkts_done.0560, %if.end187.thread402 ], [ 0, %if.then114 ], [ 0, %if.end4.i ], [ 0, %if.end16.i ], [ 0, %if.end25.i ], [ 0, %if.then23.i ], [ 0, %if.end.i.i160 ], [ %pkts_done.1, %for.inc192 ]
   %res.0 = phi i32 [ 0, %if.end187 ], [ 1, %if.end127 ], [ 0, %txp_generate_for_el.exit.thread ], [ 0, %if.end187.thread ], [ 0, %if.end187.thread402 ], [ 0, %if.then114 ], [ 0, %if.end4.i ], [ 0, %if.end16.i ], [ 0, %if.end25.i ], [ 0, %if.then23.i ], [ 0, %if.end.i.i160 ], [ 1, %for.inc192 ]
   %339 = load ptr, ptr %qtx, align 8
   call void @ossl_qtx_finish_dgram(ptr noundef %339) #10

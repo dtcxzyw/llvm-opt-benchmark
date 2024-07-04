@@ -413,16 +413,16 @@ transpose32a.exit.preheader:                      ; preds = %61, %transpose32a.e
   br label %68
 
 68:                                               ; preds = %transpose32a.exit.preheader, %68
-  %.054 = phi i32 [ %67, %transpose32a.exit.preheader ], [ %75, %68 ]
-  %.14053 = phi i32 [ 0, %transpose32a.exit.preheader ], [ %74, %68 ]
-  %69 = and i32 %.054, 15
+  %.154 = phi i32 [ 0, %transpose32a.exit.preheader ], [ %74, %68 ]
+  %.04353 = phi i32 [ %67, %transpose32a.exit.preheader ], [ %75, %68 ]
+  %69 = and i32 %.04353, 15
   %70 = zext nneg i32 %69 to i64
   %71 = getelementptr inbounds i32, ptr %3, i64 %70
   %72 = load i32, ptr %71, align 4
   %73 = add nsw i32 %72, 1
   store i32 %73, ptr %71, align 4
-  %74 = add nuw nsw i32 %.14053, 1
-  %75 = lshr i32 %.054, 4
+  %74 = add nuw nsw i32 %.154, 1
+  %75 = lshr i32 %.04353, 4
   %exitcond74.not = icmp eq i32 %74, 8
   br i1 %exitcond74.not, label %transpose32a.exit, label %68, !llvm.loop !12
 
@@ -441,20 +441,20 @@ transpose32a.exit:                                ; preds = %68
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %.preheader ], [ 0, %.preheader.preheader ]
-  %.160 = phi i32 [ %.2, %.preheader ], [ 0, %.preheader.preheader ]
+  %.14459 = phi i32 [ %.245, %.preheader ], [ 0, %.preheader.preheader ]
   %77 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv84
   %78 = load i32, ptr %77, align 4
   %.not = icmp eq i32 %78, 0
   %79 = trunc nuw nsw i64 %indvars.iv84 to i32
   %80 = shl nuw nsw i32 1, %79
   %81 = select i1 %.not, i32 0, i32 %80
-  %.2 = or i32 %81, %.160
+  %.245 = or i32 %81, %.14459
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next85, 16
   br i1 %exitcond87.not, label %82, label %.preheader, !llvm.loop !15
 
 82:                                               ; preds = %.preheader
-  ret i32 %.2
+  ret i32 %.245
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -509,20 +509,20 @@ define i32 @Fra_ClausProcessClausesCut2(ptr nocapture noundef readonly %0, ptr n
   br label %.preheader39
 
 .preheader39:                                     ; preds = %.preheader40, %._crit_edge45
-  %.03346 = phi i32 [ 0, %.preheader40 ], [ %40, %._crit_edge45 ]
+  %.03246 = phi i32 [ 0, %.preheader40 ], [ %40, %._crit_edge45 ]
   %24 = load i32, ptr %11, align 4
   %.not51 = icmp ult i32 %24, 536870912
   br i1 %.not51, label %._crit_edge45, label %.lr.ph44
 
 .lr.ph44:                                         ; preds = %.preheader39
   %25 = lshr i32 %24, 29
-  %26 = shl nuw i32 1, %.03346
+  %26 = shl nuw i32 1, %.03246
   %wide.trip.count56 = zext nneg i32 %25 to i64
   br label %27
 
 27:                                               ; preds = %.lr.ph44, %27
   %indvars.iv53 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next54, %27 ]
-  %.03642 = phi i32 [ 0, %.lr.ph44 ], [ %.137, %27 ]
+  %.03442 = phi i32 [ 0, %.lr.ph44 ], [ %.135, %27 ]
   %28 = getelementptr inbounds [16 x ptr], ptr %5, i64 0, i64 %indvars.iv53
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv59
@@ -532,19 +532,19 @@ define i32 @Fra_ClausProcessClausesCut2(ptr nocapture noundef readonly %0, ptr n
   %33 = trunc nuw nsw i64 %indvars.iv53 to i32
   %34 = shl nuw nsw i32 1, %33
   %35 = select i1 %.not38, i32 0, i32 %34
-  %.137 = or i32 %35, %.03642
+  %.135 = or i32 %35, %.03442
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
   br i1 %exitcond57.not, label %._crit_edge45, label %27, !llvm.loop !17
 
 ._crit_edge45:                                    ; preds = %27, %.preheader39
-  %.036.lcssa = phi i32 [ 0, %.preheader39 ], [ %.137, %27 ]
-  %36 = sext i32 %.036.lcssa to i64
+  %.034.lcssa = phi i32 [ 0, %.preheader39 ], [ %.135, %27 ]
+  %36 = sext i32 %.034.lcssa to i64
   %37 = getelementptr inbounds i32, ptr %3, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = add nsw i32 %38, 1
   store i32 %39, ptr %37, align 4
-  %40 = add nuw nsw i32 %.03346, 1
+  %40 = add nuw nsw i32 %.03246, 1
   %exitcond58.not = icmp eq i32 %40, 32
   br i1 %exitcond58.not, label %41, label %.preheader39, !llvm.loop !18
 
@@ -558,20 +558,20 @@ define i32 @Fra_ClausProcessClausesCut2(ptr nocapture noundef readonly %0, ptr n
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %.preheader ], [ 0, %.preheader.preheader ]
-  %.049 = phi i32 [ %.1, %.preheader ], [ 0, %.preheader.preheader ]
+  %.03648 = phi i32 [ %.137, %.preheader ], [ 0, %.preheader.preheader ]
   %42 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv64
   %43 = load i32, ptr %42, align 4
   %.not = icmp eq i32 %43, 0
   %44 = trunc nuw nsw i64 %indvars.iv64 to i32
   %45 = shl nuw nsw i32 1, %44
   %46 = select i1 %.not, i32 0, i32 %45
-  %.1 = or i32 %46, %.049
+  %.137 = or i32 %46, %.03648
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, 16
   br i1 %exitcond67.not, label %47, label %.preheader, !llvm.loop !20
 
 47:                                               ; preds = %.preheader
-  ret i32 %.1
+  ret i32 %.137
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -726,14 +726,14 @@ transpose32a.exit.preheader:                      ; preds = %70, %transpose32a.e
 
 77:                                               ; preds = %transpose32a.exit.preheader, %77
   %.079 = phi i32 [ %76, %transpose32a.exit.preheader ], [ %84, %77 ]
-  %.15878 = phi i32 [ 0, %transpose32a.exit.preheader ], [ %83, %77 ]
+  %.15378 = phi i32 [ 0, %transpose32a.exit.preheader ], [ %83, %77 ]
   %78 = and i32 %.079, 15
   %79 = zext nneg i32 %78 to i64
   %80 = getelementptr inbounds i32, ptr %3, i64 %79
   %81 = load i32, ptr %80, align 4
   %82 = add nsw i32 %81, 1
   store i32 %82, ptr %80, align 4
-  %83 = add nuw nsw i32 %.15878, 1
+  %83 = add nuw nsw i32 %.15378, 1
   %84 = lshr i32 %.079, 4
   %exitcond107.not = icmp eq i32 %83, 8
   br i1 %exitcond107.not, label %transpose32a.exit, label %77, !llvm.loop !24
@@ -753,19 +753,19 @@ transpose32a.exit:                                ; preds = %77
   br label %.preheader61
 
 .preheader61:                                     ; preds = %.preheader62, %._crit_edge70
-  %.25672 = phi i32 [ 0, %.preheader62 ], [ %102, %._crit_edge70 ]
+  %.272 = phi i32 [ 0, %.preheader62 ], [ %102, %._crit_edge70 ]
   %86 = load i8, ptr %12, align 1
   %87 = icmp sgt i8 %86, 0
   br i1 %87, label %.lr.ph69, label %._crit_edge70
 
 .lr.ph69:                                         ; preds = %.preheader61
   %wide.trip.count90 = zext nneg i8 %86 to i64
-  %88 = shl nuw i32 1, %.25672
+  %88 = shl nuw i32 1, %.272
   br label %89
 
 89:                                               ; preds = %.lr.ph69, %89
   %indvars.iv87 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next88, %89 ]
-  %.05068 = phi i32 [ 0, %.lr.ph69 ], [ %.1, %89 ]
+  %.05767 = phi i32 [ 0, %.lr.ph69 ], [ %.158, %89 ]
   %90 = getelementptr inbounds [16 x ptr], ptr %6, i64 0, i64 %indvars.iv87
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds i32, ptr %91, i64 %indvars.iv93
@@ -775,19 +775,19 @@ transpose32a.exit:                                ; preds = %77
   %95 = trunc nuw nsw i64 %indvars.iv87 to i32
   %96 = shl nuw i32 1, %95
   %97 = select i1 %.not, i32 0, i32 %96
-  %.1 = or i32 %97, %.05068
+  %.158 = or i32 %97, %.05767
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
   br i1 %exitcond91.not, label %._crit_edge70, label %89, !llvm.loop !27
 
 ._crit_edge70:                                    ; preds = %89, %.preheader61
-  %.050.lcssa = phi i32 [ 0, %.preheader61 ], [ %.1, %89 ]
-  %98 = sext i32 %.050.lcssa to i64
+  %.057.lcssa = phi i32 [ 0, %.preheader61 ], [ %.158, %89 ]
+  %98 = sext i32 %.057.lcssa to i64
   %99 = getelementptr inbounds i32, ptr %3, i64 %98
   %100 = load i32, ptr %99, align 4
   %101 = add nsw i32 %100, 1
   store i32 %101, ptr %99, align 4
-  %102 = add nuw nsw i32 %.25672, 1
+  %102 = add nuw nsw i32 %.272, 1
   %exitcond92.not = icmp eq i32 %102, 32
   br i1 %exitcond92.not, label %103, label %.preheader61, !llvm.loop !28
 
@@ -3234,16 +3234,16 @@ transpose32a.exit.preheader.i:                    ; preds = %187, %transpose32a.
   br label %194
 
 194:                                              ; preds = %194, %transpose32a.exit.preheader.i
-  %.054.i = phi i32 [ %193, %transpose32a.exit.preheader.i ], [ %201, %194 ]
-  %.14053.i = phi i32 [ 0, %transpose32a.exit.preheader.i ], [ %200, %194 ]
-  %195 = and i32 %.054.i, 15
+  %.154.i = phi i32 [ 0, %transpose32a.exit.preheader.i ], [ %200, %194 ]
+  %.04353.i = phi i32 [ %193, %transpose32a.exit.preheader.i ], [ %201, %194 ]
+  %195 = and i32 %.04353.i, 15
   %196 = zext nneg i32 %195 to i64
   %197 = getelementptr inbounds i32, ptr %19, i64 %196
   %198 = load i32, ptr %197, align 4
   %199 = add nsw i32 %198, 1
   store i32 %199, ptr %197, align 4
-  %200 = add nuw nsw i32 %.14053.i, 1
-  %201 = lshr i32 %.054.i, 4
+  %200 = add nuw nsw i32 %.154.i, 1
+  %201 = lshr i32 %.04353.i, 4
   %exitcond74.not.i = icmp eq i32 %200, 8
   br i1 %exitcond74.not.i, label %transpose32a.exit.i, label %194, !llvm.loop !12
 
@@ -3262,14 +3262,14 @@ transpose32a.exit.i:                              ; preds = %194
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
   %indvars.iv84.i = phi i64 [ %indvars.iv.next85.i, %.preheader.i ], [ 0, %.preheader.i.preheader ]
-  %.160.i = phi i32 [ %.2.i, %.preheader.i ], [ 0, %.preheader.i.preheader ]
+  %.14459.i = phi i32 [ %.245.i, %.preheader.i ], [ 0, %.preheader.i.preheader ]
   %203 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv84.i
   %204 = load i32, ptr %203, align 4
   %.not.i = icmp eq i32 %204, 0
   %205 = trunc nuw nsw i64 %indvars.iv84.i to i32
   %206 = shl nuw nsw i32 1, %205
   %207 = select i1 %.not.i, i32 0, i32 %206
-  %.2.i = or i32 %207, %.160.i
+  %.245.i = or i32 %207, %.14459.i
   %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i, 1
   %exitcond87.not.i = icmp eq i64 %indvars.iv.next85.i, 16
   br i1 %exitcond87.not.i, label %Fra_ClausProcessClausesCut.exit, label %.preheader.i, !llvm.loop !15
@@ -3277,7 +3277,7 @@ transpose32a.exit.i:                              ; preds = %194
 Fra_ClausProcessClausesCut.exit:                  ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11)
-  %208 = and i32 %.2.i, 65535
+  %208 = and i32 %.245.i, 65535
   %209 = and i32 %136, -65536
   %210 = or disjoint i32 %209, %208
   store i32 %210, ptr %135, align 4
@@ -3587,16 +3587,16 @@ transpose32a.exit.preheader.i188:                 ; preds = %346, %transpose32a.
   br label %353
 
 353:                                              ; preds = %353, %transpose32a.exit.preheader.i188
-  %.054.i190 = phi i32 [ %352, %transpose32a.exit.preheader.i188 ], [ %360, %353 ]
-  %.14053.i191 = phi i32 [ 0, %transpose32a.exit.preheader.i188 ], [ %359, %353 ]
-  %354 = and i32 %.054.i190, 15
+  %.154.i190 = phi i32 [ 0, %transpose32a.exit.preheader.i188 ], [ %359, %353 ]
+  %.04353.i191 = phi i32 [ %352, %transpose32a.exit.preheader.i188 ], [ %360, %353 ]
+  %354 = and i32 %.04353.i191, 15
   %355 = zext nneg i32 %354 to i64
   %356 = getelementptr inbounds i32, ptr %19, i64 %355
   %357 = load i32, ptr %356, align 4
   %358 = add nsw i32 %357, 1
   store i32 %358, ptr %356, align 4
-  %359 = add nuw nsw i32 %.14053.i191, 1
-  %360 = lshr i32 %.054.i190, 4
+  %359 = add nuw nsw i32 %.154.i190, 1
+  %360 = lshr i32 %.04353.i191, 4
   %exitcond74.not.i192 = icmp eq i32 %359, 8
   br i1 %exitcond74.not.i192, label %transpose32a.exit.i193, label %353, !llvm.loop !12
 
@@ -3615,14 +3615,14 @@ transpose32a.exit.i193:                           ; preds = %353
 
 .preheader.i159:                                  ; preds = %.preheader.i159.preheader, %.preheader.i159
   %indvars.iv84.i160 = phi i64 [ %indvars.iv.next85.i164, %.preheader.i159 ], [ 0, %.preheader.i159.preheader ]
-  %.160.i161 = phi i32 [ %.2.i163, %.preheader.i159 ], [ 0, %.preheader.i159.preheader ]
+  %.14459.i161 = phi i32 [ %.245.i163, %.preheader.i159 ], [ 0, %.preheader.i159.preheader ]
   %362 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv84.i160
   %363 = load i32, ptr %362, align 4
   %.not.i162 = icmp eq i32 %363, 0
   %364 = trunc nuw nsw i64 %indvars.iv84.i160 to i32
   %365 = shl nuw nsw i32 1, %364
   %366 = select i1 %.not.i162, i32 0, i32 %365
-  %.2.i163 = or i32 %366, %.160.i161
+  %.245.i163 = or i32 %366, %.14459.i161
   %indvars.iv.next85.i164 = add nuw nsw i64 %indvars.iv84.i160, 1
   %exitcond87.not.i165 = icmp eq i64 %indvars.iv.next85.i164, 16
   br i1 %exitcond87.not.i165, label %Fra_ClausProcessClausesCut.exit198, label %.preheader.i159, !llvm.loop !15
@@ -3632,7 +3632,7 @@ Fra_ClausProcessClausesCut.exit198:               ; preds = %.preheader.i159
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
   %367 = and i32 %294, 65535
   %368 = xor i32 %367, -1
-  %369 = and i32 %.2.i163, %368
+  %369 = and i32 %.245.i163, %368
   %370 = and i32 %294, -65536
   store i32 %370, ptr %293, align 4
   %371 = icmp eq i32 %369, 0
@@ -6114,12 +6114,12 @@ define void @Fra_ClausWriteIndClauses(ptr nocapture noundef readonly %0) local_u
 .lr.ph68:                                         ; preds = %._crit_edge, %._crit_edge62
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %._crit_edge62 ], [ 0, %._crit_edge ]
   %33 = phi ptr [ %80, %._crit_edge62 ], [ %30, %._crit_edge ]
-  %.04665 = phi i32 [ %36, %._crit_edge62 ], [ 0, %._crit_edge ]
+  %.04565 = phi i32 [ %36, %._crit_edge62 ], [ 0, %._crit_edge ]
   %34 = getelementptr i8, ptr %33, i64 8
   %.val50 = load ptr, ptr %34, align 8
   %35 = getelementptr inbounds i32, ptr %.val50, i64 %indvars.iv74
   %36 = load i32, ptr %35, align 4
-  %37 = sext i32 %.04665 to i64
+  %37 = sext i32 %.04565 to i64
   %38 = getelementptr inbounds i32, ptr %.val51, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = ashr i32 %39, 1
@@ -6141,7 +6141,7 @@ define void @Fra_ClausWriteIndClauses(ptr nocapture noundef readonly %0) local_u
   %54 = zext nneg i32 %52 to i64
   %55 = xor i64 %53, %54
   %56 = inttoptr i64 %55 to ptr
-  %.057 = add nsw i32 %.04665, 1
+  %.057 = add nsw i32 %.04565, 1
   %57 = icmp slt i32 %.057, %36
   br i1 %57, label %.lr.ph61.preheader, label %._crit_edge62
 
@@ -6151,7 +6151,7 @@ define void @Fra_ClausWriteIndClauses(ptr nocapture noundef readonly %0) local_u
 
 .lr.ph61:                                         ; preds = %.lr.ph61.preheader, %.lr.ph61
   %indvars.iv70 = phi i64 [ %58, %.lr.ph61.preheader ], [ %indvars.iv.next71, %.lr.ph61 ]
-  %.04558 = phi ptr [ %56, %.lr.ph61.preheader ], [ %78, %.lr.ph61 ]
+  %.04658 = phi ptr [ %56, %.lr.ph61.preheader ], [ %78, %.lr.ph61 ]
   %59 = getelementptr inbounds i32, ptr %.val51, i64 %indvars.iv70
   %60 = load i32, ptr %59, align 4
   %61 = ashr i32 %60, 1
@@ -6173,15 +6173,15 @@ define void @Fra_ClausWriteIndClauses(ptr nocapture noundef readonly %0) local_u
   %75 = zext nneg i32 %73 to i64
   %76 = xor i64 %74, %75
   %77 = inttoptr i64 %76 to ptr
-  %78 = tail call ptr @Aig_Or(ptr noundef %25, ptr noundef %.04558, ptr noundef %77) #22
+  %78 = tail call ptr @Aig_Or(ptr noundef %25, ptr noundef %.04658, ptr noundef %77) #22
   %indvars.iv.next71 = add nsw i64 %indvars.iv70, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next71 to i32
   %exitcond73.not = icmp eq i32 %36, %lftr.wideiv
   br i1 %exitcond73.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !84
 
 ._crit_edge62:                                    ; preds = %.lr.ph61, %.lr.ph68
-  %.045.lcssa = phi ptr [ %56, %.lr.ph68 ], [ %78, %.lr.ph61 ]
-  %79 = tail call ptr @Aig_ObjCreateCo(ptr noundef %25, ptr noundef %.045.lcssa) #22
+  %.046.lcssa = phi ptr [ %56, %.lr.ph68 ], [ %78, %.lr.ph61 ]
+  %79 = tail call ptr @Aig_ObjCreateCo(ptr noundef %25, ptr noundef %.046.lcssa) #22
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %80 = load ptr, ptr %29, align 8
   %81 = getelementptr i8, ptr %80, i64 4
@@ -6423,14 +6423,14 @@ Abc_Clock.exit:                                   ; preds = %1, %7
 .lr.ph82:                                         ; preds = %._crit_edge, %108
   %indvars.iv94 = phi i64 [ %indvars.iv.next95, %108 ], [ 0, %._crit_edge ]
   %61 = phi ptr [ %109, %108 ], [ %58, %._crit_edge ]
-  %.05980 = phi i32 [ %64, %108 ], [ 0, %._crit_edge ]
+  %.06179 = phi i32 [ %64, %108 ], [ 0, %._crit_edge ]
   %62 = getelementptr i8, ptr %61, i64 8
   %.val67 = load ptr, ptr %62, align 8
   %63 = getelementptr inbounds i32, ptr %.val67, i64 %indvars.iv94
   %64 = load i32, ptr %63, align 4
-  %65 = sext i32 %.05980 to i64
+  %65 = sext i32 %.06179 to i64
   %66 = getelementptr inbounds i32, ptr %.val68, i64 %65
-  %67 = sub nsw i32 %64, %.05980
+  %67 = sub nsw i32 %64, %.06179
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3)
   %68 = icmp sgt i32 %67, 0
   %69 = load i32, ptr %42, align 4
@@ -6536,7 +6536,7 @@ Fra_ClausEstimateCoverageOne.exit:                ; preds = %.lr.ph30.split.i, %
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %.critedge ], [ 0, %.critedge.preheader ]
-  %.084 = phi i32 [ %134, %.critedge ], [ 0, %.critedge.preheader ]
+  %.06283 = phi i32 [ %134, %.critedge ], [ 0, %.critedge.preheader ]
   %113 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv97
   %114 = load i32, ptr %113, align 4
   %115 = and i32 %114, 1431655765
@@ -6557,7 +6557,7 @@ Fra_ClausEstimateCoverageOne.exit:                ; preds = %.lr.ph30.split.i, %
   %130 = add nuw nsw i32 %129, %127
   %131 = and i32 %130, 31
   %132 = lshr i32 %130, 16
-  %133 = add nuw nsw i32 %132, %.084
+  %133 = add nuw nsw i32 %132, %.06283
   %134 = add nuw nsw i32 %133, %131
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, 2048

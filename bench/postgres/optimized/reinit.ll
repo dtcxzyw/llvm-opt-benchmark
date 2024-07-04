@@ -615,7 +615,7 @@ parse_filename_for_nontemp_relation.exit44:       ; preds = %166
 
 228:                                              ; preds = %226, %212
   %229 = phi i8 [ %213, %212 ], [ %.pr.i27, %226 ]
-  %.034.i22 = phi i32 [ 0, %212 ], [ %227, %226 ]
+  %.0.i22 = phi i32 [ 0, %212 ], [ %227, %226 ]
   %.not46.i23 = icmp eq i8 %229, 0
   br i1 %.not46.i23, label %parse_filename_for_nontemp_relation.exit29, label %parse_filename_for_nontemp_relation.exit29.thread
 
@@ -634,7 +634,7 @@ parse_filename_for_nontemp_relation.exit29:       ; preds = %228
 
 233:                                              ; preds = %parse_filename_for_nontemp_relation.exit29
   %234 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %15, i64 noundef 2048, ptr noundef nonnull @.str.10, ptr noundef nonnull %18, ptr noundef nonnull %189) #9
-  %235 = icmp eq i32 %.034.i22, 0
+  %235 = icmp eq i32 %.0.i22, 0
   br i1 %235, label %236, label %238
 
 236:                                              ; preds = %233
@@ -642,7 +642,7 @@ parse_filename_for_nontemp_relation.exit29:       ; preds = %228
   br label %240
 
 238:                                              ; preds = %233
-  %239 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %16, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef nonnull %18, i32 noundef %230, i32 noundef %.034.i22) #9
+  %239 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %16, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef nonnull %18, i32 noundef %230, i32 noundef %.0.i22) #9
   br label %240
 
 240:                                              ; preds = %238, %236
@@ -753,7 +753,7 @@ parse_filename_for_nontemp_relation.exit29:       ; preds = %228
 
 289:                                              ; preds = %287, %273
   %290 = phi i8 [ %274, %273 ], [ %.pr.i, %287 ]
-  %.034.i = phi i32 [ 0, %273 ], [ %288, %287 ]
+  %.0.i = phi i32 [ 0, %273 ], [ %288, %287 ]
   %.not46.i = icmp eq i8 %290, 0
   br i1 %.not46.i, label %parse_filename_for_nontemp_relation.exit, label %parse_filename_for_nontemp_relation.exit.thread
 
@@ -771,7 +771,7 @@ parse_filename_for_nontemp_relation.exit:         ; preds = %289
   br i1 %293, label %294, label %.backedge.i
 
 294:                                              ; preds = %parse_filename_for_nontemp_relation.exit
-  %295 = icmp eq i32 %.034.i, 0
+  %295 = icmp eq i32 %.0.i, 0
   br i1 %295, label %296, label %298
 
 296:                                              ; preds = %294
@@ -779,7 +779,7 @@ parse_filename_for_nontemp_relation.exit:         ; preds = %289
   br label %300
 
 298:                                              ; preds = %294
-  %299 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %17, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef nonnull %18, i32 noundef %291, i32 noundef %.034.i) #9
+  %299 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %17, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef nonnull %18, i32 noundef %291, i32 noundef %.0.i) #9
   br label %300
 
 300:                                              ; preds = %298, %296
@@ -914,7 +914,7 @@ define dso_local noundef zeroext i1 @parse_filename_for_nontemp_relation(ptr nou
 
 45:                                               ; preds = %29, %43
   %46 = phi i8 [ %30, %29 ], [ %.pr, %43 ]
-  %.034 = phi i32 [ 0, %29 ], [ %44, %43 ]
+  %.0 = phi i32 [ 0, %29 ], [ %44, %43 ]
   %.not46 = icmp eq i8 %46, 0
   br i1 %.not46, label %47, label %50
 
@@ -923,12 +923,12 @@ define dso_local noundef zeroext i1 @parse_filename_for_nontemp_relation(ptr nou
   store i32 %48, ptr %1, align 4
   %49 = load i32, ptr %5, align 4
   store i32 %49, ptr %2, align 4
-  store i32 %.034, ptr %3, align 4
+  store i32 %.0, ptr %3, align 4
   br label %50
 
 50:                                               ; preds = %45, %35, %38, %31, %21, %9, %13, %4, %47
-  %.0 = phi i1 [ true, %47 ], [ false, %4 ], [ false, %13 ], [ false, %9 ], [ false, %21 ], [ false, %31 ], [ false, %38 ], [ false, %35 ], [ false, %45 ]
-  ret i1 %.0
+  %.034 = phi i1 [ true, %47 ], [ false, %4 ], [ false, %13 ], [ false, %9 ], [ false, %21 ], [ false, %31 ], [ false, %38 ], [ false, %35 ], [ false, %45 ]
+  ret i1 %.034
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)

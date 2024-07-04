@@ -547,8 +547,8 @@ bytes_to_dfilter_repr.exit:                       ; preds = %15, %21
   br label %28
 
 28:                                               ; preds = %26, %24, %bytes_to_dfilter_repr.exit, %13
-  %.0 = phi ptr [ %14, %13 ], [ %18, %bytes_to_dfilter_repr.exit ], [ %25, %24 ], [ %27, %26 ]
-  ret ptr %.0
+  %.010 = phi ptr [ %14, %13 ], [ %18, %bytes_to_dfilter_repr.exit ], [ %25, %24 ], [ %27, %26 ]
+  ret ptr %.010
 }
 
 ; Function Attrs: nounwind uwtable

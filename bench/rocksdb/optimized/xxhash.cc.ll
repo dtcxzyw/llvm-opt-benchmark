@@ -1378,9 +1378,9 @@ for.body26.preheader.i:                           ; preds = %for.end.i
 
 for.body26.i:                                     ; preds = %for.body26.i, %for.body26.preheader.i
   %indvars.iv68.i = phi i64 [ 8, %for.body26.preheader.i ], [ %indvars.iv.next69.i, %for.body26.i ]
-  %acc.163.i = phi i64 [ %xor.i5.i.i52, %for.body26.preheader.i ], [ %29, %for.body26.i ]
-  %acc_end.062.i = phi i64 [ %xor.i.i42.i, %for.body26.preheader.i ], [ %add35.i, %for.body26.i ]
-  %29 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %acc.163.i) #33, !srcloc !15
+  %acc_end.063.i = phi i64 [ %xor.i.i42.i, %for.body26.preheader.i ], [ %add35.i, %for.body26.i ]
+  %acc.162.i = phi i64 [ %xor.i5.i.i52, %for.body26.preheader.i ], [ %29, %for.body26.i ]
+  %29 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %acc.162.i) #33, !srcloc !15
   %30 = shl nuw nsw i64 %indvars.iv68.i, 4
   %add.ptr29.i53 = getelementptr inbounds i8, ptr %input, i64 %30
   %31 = getelementptr i8, ptr %secret, i64 %30
@@ -1401,15 +1401,15 @@ for.body26.i:                                     ; preds = %for.body26.i, %for.
   %shr.i.i.i51.i = lshr i128 %mul.i.i.i50.i, 64
   %xor1.i.i52.i = xor i128 %shr.i.i.i51.i, %mul.i.i.i50.i
   %xor.i.i53.i = trunc i128 %xor1.i.i52.i to i64
-  %add35.i = add i64 %acc_end.062.i, %xor.i.i53.i
+  %add35.i = add i64 %acc_end.063.i, %xor.i.i53.i
   %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
   %exitcond73.not.i = icmp eq i64 %indvars.iv.next69.i, %wide.trip.count.i
   br i1 %exitcond73.not.i, label %_ZL21XXH3_len_129to240_64bPKhmS0_mm.exit, label %for.body26.i, !llvm.loop !16
 
 _ZL21XXH3_len_129to240_64bPKhmS0_mm.exit:         ; preds = %for.body26.i, %for.end.i
-  %acc_end.0.lcssa.i = phi i64 [ %xor.i.i42.i, %for.end.i ], [ %add35.i, %for.body26.i ]
   %acc.1.lcssa.i = phi i64 [ %xor.i5.i.i52, %for.end.i ], [ %29, %for.body26.i ]
-  %add39.i = add i64 %acc.1.lcssa.i, %acc_end.0.lcssa.i
+  %acc_end.0.lcssa.i = phi i64 [ %xor.i.i42.i, %for.end.i ], [ %add35.i, %for.body26.i ]
+  %add39.i = add i64 %acc_end.0.lcssa.i, %acc.1.lcssa.i
   %shr.i.i54.i = lshr i64 %add39.i, 37
   %xor.i.i55.i = xor i64 %shr.i.i54.i, %add39.i
   %mul.i56.i = mul i64 %xor.i.i55.i, 1609587791953885689
@@ -2722,15 +2722,15 @@ while.body.lr.ph:                                 ; preds = %_ZL22XXH3_accumulat
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit136
   %acc.promoted.i121 = phi <8 x i64> [ %add.i.i, %while.body.lr.ph ], [ %add.i.i139, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit136 ]
-  %input.addr.14 = phi ptr [ %add.ptr68, %while.body.lr.ph ], [ %add.ptr77, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit136 ]
-  %nbStripes.03 = phi i64 [ %sub69, %while.body.lr.ph ], [ %sub79, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit136 ]
+  %nbStripes.04 = phi i64 [ %sub69, %while.body.lr.ph ], [ %sub79, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit136 ]
+  %input.addr.13 = phi ptr [ %add.ptr68, %while.body.lr.ph ], [ %add.ptr77, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit136 ]
   br i1 %cmp5.not.i117, label %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit136, label %for.body.i122
 
 for.body.i122:                                    ; preds = %while.body, %for.body.i122
   %add.i.i7.i123 = phi <8 x i64> [ %add.i.i.i133, %for.body.i122 ], [ %acc.promoted.i121, %while.body ]
   %n.06.i124 = phi i64 [ %inc.i134, %for.body.i122 ], [ 0, %while.body ]
   %mul.i125 = shl i64 %n.06.i124, 6
-  %add.ptr.i126 = getelementptr inbounds i8, ptr %input.addr.14, i64 %mul.i125
+  %add.ptr.i126 = getelementptr inbounds i8, ptr %input.addr.13, i64 %mul.i125
   %add.ptr1.i127 = getelementptr inbounds i8, ptr %add.ptr.i126, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i127, i32 0, i32 3, i32 1)
   %mul2.i128 = shl i64 %n.06.i124, 3
@@ -2763,15 +2763,15 @@ _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit136:     ; preds = %for.body.i122, %whi
   %73 = mul <8 x i64> %70, <i64 -7046029290881679360, i64 -7046029290881679360, i64 -7046029290881679360, i64 -7046029290881679360, i64 -7046029290881679360, i64 -7046029290881679360, i64 -7046029290881679360, i64 -7046029290881679360>
   %add.i.i139 = add <8 x i64> %72, %73
   store <8 x i64> %add.i.i139, ptr %state, align 64
-  %add.ptr77 = getelementptr inbounds i8, ptr %input.addr.14, i64 %mul
-  %sub79 = sub i64 %nbStripes.03, %36
+  %add.ptr77 = getelementptr inbounds i8, ptr %input.addr.13, i64 %mul
+  %sub79 = sub i64 %nbStripes.04, %36
   %cmp71.not = icmp ult i64 %sub79, %36
   br i1 %cmp71.not, label %while.end, label %while.body, !llvm.loop !22
 
 while.end:                                        ; preds = %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit136, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit
   %acc.promoted.i144 = phi <8 x i64> [ %add.i.i, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit ], [ %add.i.i139, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit136 ]
-  %nbStripes.0.lcssa = phi i64 [ %sub69, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit ], [ %sub79, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit136 ]
   %input.addr.1.lcssa = phi ptr [ %add.ptr68, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit ], [ %add.ptr77, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit136 ]
+  %nbStripes.0.lcssa = phi i64 [ %sub69, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit ], [ %sub79, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit136 ]
   %cmp5.not.i140 = icmp eq i64 %nbStripes.0.lcssa, 0
   br i1 %cmp5.not.i140, label %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit159, label %for.body.i145
 

@@ -3250,8 +3250,8 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else.i, %if.then12.i
-  %r.0.i = phi float [ %2, %if.then12.i ], [ %3, %if.else.i ]
   %theta.0.i = phi float [ %mul.i, %if.then12.i ], [ %sub.i, %if.else.i ]
+  %r.0.i = phi float [ %2, %if.then12.i ], [ %3, %if.else.i ]
   %call.i.i = tail call noundef float @cosf(float noundef %theta.0.i) #28
   %call.i19.i = tail call noundef float @sinf(float noundef %theta.0.i) #28
   %mul.i.i22.i = fmul float %r.0.i, %call.i.i
@@ -4239,8 +4239,8 @@ ehcleanup81.thread:                               ; preds = %lpad.i, %lpad61
   br label %ehcleanup132
 
 ehcleanup81:                                      ; preds = %ehcleanup, %lpad.i49, %lpad64
-  %cleanup.isactive.1 = phi i1 [ %42, %ehcleanup ], [ false, %lpad.i49 ], [ false, %lpad64 ]
   %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.element66, %ehcleanup ], [ %arrayinit.element, %lpad.i49 ], [ %arrayinit.element, %lpad64 ]
+  %cleanup.isactive.1 = phi i1 [ %42, %ehcleanup ], [ false, %lpad.i49 ], [ false, %lpad64 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %33, %lpad.i49 ], [ %38, %lpad64 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp63) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp60) #28
@@ -11029,8 +11029,8 @@ for.cond302.preheader.lr.ph:                      ; preds = %for.cond293.prehead
 for.cond302.preheader:                            ; preds = %for.cond302.preheader.lr.ph, %for.inc322
   %retval.sroa.0.0.copyload.i174302 = phi i64 [ %retval.sroa.0.0.copyload.i174281, %for.cond302.preheader.lr.ph ], [ %retval.sroa.0.0.copyload.i174, %for.inc322 ]
   %69 = phi i32 [ %68, %for.cond302.preheader.lr.ph ], [ %.pre-phi, %for.inc322 ]
-  %sumY.0286 = phi float [ 0.000000e+00, %for.cond302.preheader.lr.ph ], [ %sumY.1.lcssa, %for.inc322 ]
-  %y292.0285 = phi i32 [ 0, %for.cond302.preheader.lr.ph ], [ %inc323, %for.inc322 ]
+  %y292.0286 = phi i32 [ 0, %for.cond302.preheader.lr.ph ], [ %inc323, %for.inc322 ]
+  %sumY.0285 = phi float [ 0.000000e+00, %for.cond302.preheader.lr.ph ], [ %sumY.1.lcssa, %for.inc322 ]
   %ref.tmp303.sroa.0.0.extract.trunc275 = trunc i64 %retval.sroa.0.0.copyload.i174302 to i32
   %cmp308276 = icmp sgt i32 %ref.tmp303.sroa.0.0.extract.trunc275, 0
   br i1 %cmp308276, label %invoke.cont313, label %for.inc322
@@ -11041,7 +11041,7 @@ invoke.cont313:                                   ; preds = %for.cond302.prehead
   %70 = phi i32 [ %ref.tmp303.sroa.0.0.extract.trunc, %invoke.cont317 ], [ %69, %for.cond302.preheader ]
   %ref.tmp303.sroa.0.0.extract.trunc280 = phi i32 [ %ref.tmp303.sroa.0.0.extract.trunc, %invoke.cont317 ], [ %ref.tmp303.sroa.0.0.extract.trunc275, %for.cond302.preheader ]
   %x301.0278 = phi i32 [ %inc320, %invoke.cont317 ], [ 0, %for.cond302.preheader ]
-  %sumY.1277 = phi float [ %add, %invoke.cont317 ], [ %sumY.0286, %for.cond302.preheader ]
+  %sumY.1277 = phi float [ %add, %invoke.cont317 ], [ %sumY.0285, %for.cond302.preheader ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %r.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %wrapMode.i.sroa.0)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %wrapMode.i.sroa.4)
@@ -11055,7 +11055,7 @@ for.body.i200:                                    ; preds = %invoke.cont313, %fo
   %p.i.sroa.0.4 = phi i32 [ %x301.0278, %invoke.cont313 ], [ %p.i.sroa.0.6, %for.inc.i ]
   %cmp.i.i201 = phi i1 [ true, %invoke.cont313 ], [ false, %for.inc.i ]
   %indvars.iv.i202.sroa.phi = phi ptr [ %wrapMode.i.sroa.0, %invoke.cont313 ], [ %wrapMode.i.sroa.4, %for.inc.i ]
-  %.sroa.speculated = select i1 %cmp.i.i201, i32 %p.i.sroa.0.4, i32 %y292.0285
+  %.sroa.speculated = select i1 %cmp.i.i201, i32 %p.i.sroa.0.4, i32 %y292.0286
   %cmp73.i = icmp sgt i32 %.sroa.speculated, -1
   %.sroa.speculated113.i = select i1 %cmp.i.i201, i32 %ref.tmp303.sroa.0.0.extract.trunc280, i32 %resolution.sroa.9.0.extract.trunc.i
   %cmp76.i = icmp slt i32 %.sroa.speculated, %.sroa.speculated113.i
@@ -11107,7 +11107,7 @@ call.i.noexc184:                                  ; preds = %if.end78.i
   br label %invoke.cont317
 
 if.end.i:                                         ; preds = %for.inc.sink.split.i, %for.inc.i
-  %p.i.sroa.13.5.ph = phi i32 [ %y292.0285, %for.inc.i ], [ %cond.i.sink.i, %for.inc.sink.split.i ]
+  %p.i.sroa.13.5.ph = phi i32 [ %y292.0286, %for.inc.i ], [ %cond.i.sink.i, %for.inc.sink.split.i ]
   %p.i.sroa.0.7.ph = phi i32 [ %p.i.sroa.0.6, %for.inc.i ], [ %p.i.sroa.0.4, %for.inc.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %wrapMode.i.sroa.0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %wrapMode.i.sroa.4)
@@ -11244,8 +11244,8 @@ for.inc322.loopexit:                              ; preds = %invoke.cont317
 for.inc322:                                       ; preds = %for.inc322.loopexit, %for.cond302.preheader
   %.pre-phi = phi i32 [ %.pre, %for.inc322.loopexit ], [ %ref.tmp303.sroa.0.0.extract.trunc275, %for.cond302.preheader ]
   %retval.sroa.0.0.copyload.i174 = phi i64 [ %retval.sroa.0.0.copyload.i174305, %for.inc322.loopexit ], [ %retval.sroa.0.0.copyload.i174302, %for.cond302.preheader ]
-  %sumY.1.lcssa = phi float [ %add, %for.inc322.loopexit ], [ %sumY.0286, %for.cond302.preheader ]
-  %inc323 = add nuw nsw i32 %y292.0285, 1
+  %sumY.1.lcssa = phi float [ %add, %for.inc322.loopexit ], [ %sumY.0285, %for.cond302.preheader ]
+  %inc323 = add nuw nsw i32 %y292.0286, 1
   %ref.tmp294.sroa.1.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i174, 32
   %ref.tmp294.sroa.1.0.extract.trunc = trunc nuw i64 %ref.tmp294.sroa.1.0.extract.shift to i32
   %cmp299 = icmp slt i32 %inc323, %ref.tmp294.sroa.1.0.extract.trunc
@@ -14357,8 +14357,8 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   br label %if.end21.i.i
 
 if.end21.i.i:                                     ; preds = %if.else.i.i, %if.then12.i.i
-  %r.0.i.i = phi float [ %25, %if.then12.i.i ], [ %26, %if.else.i.i ]
   %theta.0.i.i = phi float [ %mul.i.i24, %if.then12.i.i ], [ %sub.i.i23, %if.else.i.i ]
+  %r.0.i.i = phi float [ %25, %if.then12.i.i ], [ %26, %if.else.i.i ]
   %call.i.i.i = call noundef float @cosf(float noundef %theta.0.i.i) #28
   %call.i19.i.i = call noundef float @sinf(float noundef %theta.0.i.i) #28
   %mul.i.i22.i.i = fmul float %r.0.i.i, %call.i.i.i
@@ -14413,12 +14413,12 @@ if.else.i.i38:                                    ; preds = %if.end.i.i36
   br label %if.end21.i.i42
 
 if.end21.i.i42:                                   ; preds = %if.else.i.i38, %if.then12.i.i63
-  %r.0.i.i43 = phi float [ %35, %if.then12.i.i63 ], [ %36, %if.else.i.i38 ]
-  %theta.0.i.i44 = phi float [ %mul.i.i65, %if.then12.i.i63 ], [ %sub.i.i41, %if.else.i.i38 ]
-  %call.i.i.i45 = call noundef float @cosf(float noundef %theta.0.i.i44) #28
-  %call.i19.i.i46 = call noundef float @sinf(float noundef %theta.0.i.i44) #28
-  %mul.i.i22.i.i47 = fmul float %r.0.i.i43, %call.i.i.i45
-  %mul2.i.i.i.i48 = fmul float %r.0.i.i43, %call.i19.i.i46
+  %theta.0.i.i43 = phi float [ %mul.i.i65, %if.then12.i.i63 ], [ %sub.i.i41, %if.else.i.i38 ]
+  %r.0.i.i44 = phi float [ %35, %if.then12.i.i63 ], [ %36, %if.else.i.i38 ]
+  %call.i.i.i45 = call noundef float @cosf(float noundef %theta.0.i.i43) #28
+  %call.i19.i.i46 = call noundef float @sinf(float noundef %theta.0.i.i43) #28
+  %mul.i.i22.i.i47 = fmul float %r.0.i.i44, %call.i.i.i45
+  %mul2.i.i.i.i48 = fmul float %r.0.i.i44, %call.i19.i.i46
   %retval.sroa.0.0.vec.insert.i.i24.i.i49 = insertelement <2 x float> poison, float %mul.i.i22.i.i47, i64 0
   %retval.sroa.0.4.vec.insert.i.i25.i.i50 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i24.i.i49, float %mul2.i.i.i.i48, i64 1
   br label %invoke.cont45
@@ -14473,12 +14473,12 @@ if.else.i.i78:                                    ; preds = %if.end.i.i76
   br label %if.end21.i.i82
 
 if.end21.i.i82:                                   ; preds = %if.else.i.i78, %if.then12.i.i103
-  %r.0.i.i83 = phi float [ %45, %if.then12.i.i103 ], [ %46, %if.else.i.i78 ]
-  %theta.0.i.i84 = phi float [ %mul.i.i105, %if.then12.i.i103 ], [ %sub.i.i81, %if.else.i.i78 ]
-  %call.i.i.i85 = call noundef float @cosf(float noundef %theta.0.i.i84) #28
-  %call.i19.i.i86 = call noundef float @sinf(float noundef %theta.0.i.i84) #28
-  %mul.i.i22.i.i87 = fmul float %r.0.i.i83, %call.i.i.i85
-  %mul2.i.i.i.i88 = fmul float %r.0.i.i83, %call.i19.i.i86
+  %theta.0.i.i83 = phi float [ %mul.i.i105, %if.then12.i.i103 ], [ %sub.i.i81, %if.else.i.i78 ]
+  %r.0.i.i84 = phi float [ %45, %if.then12.i.i103 ], [ %46, %if.else.i.i78 ]
+  %call.i.i.i85 = call noundef float @cosf(float noundef %theta.0.i.i83) #28
+  %call.i19.i.i86 = call noundef float @sinf(float noundef %theta.0.i.i83) #28
+  %mul.i.i22.i.i87 = fmul float %r.0.i.i84, %call.i.i.i85
+  %mul2.i.i.i.i88 = fmul float %r.0.i.i84, %call.i19.i.i86
   %retval.sroa.0.0.vec.insert.i.i24.i.i89 = insertelement <2 x float> poison, float %mul.i.i22.i.i87, i64 0
   %retval.sroa.0.4.vec.insert.i.i25.i.i90 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i24.i.i89, float %mul2.i.i.i.i88, i64 1
   br label %invoke.cont60
@@ -16203,8 +16203,8 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else.i, %if.then12.i
-  %r.0.i = phi float [ %2, %if.then12.i ], [ %3, %if.else.i ]
   %theta.0.i = phi float [ %mul.i9, %if.then12.i ], [ %sub.i7, %if.else.i ]
+  %r.0.i = phi float [ %2, %if.then12.i ], [ %3, %if.else.i ]
   %call.i.i8 = tail call noundef float @cosf(float noundef %theta.0.i) #28
   %call.i19.i = tail call noundef float @sinf(float noundef %theta.0.i) #28
   %mul.i.i22.i = fmul float %r.0.i, %call.i.i8
@@ -17786,8 +17786,8 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else.i, %if.then12.i
-  %r.0.i = phi float [ %2, %if.then12.i ], [ %3, %if.else.i ]
   %theta.0.i = phi float [ %mul.i, %if.then12.i ], [ %sub.i, %if.else.i ]
+  %r.0.i = phi float [ %2, %if.then12.i ], [ %3, %if.else.i ]
   %call.i.i = call noundef float @cosf(float noundef %theta.0.i) #28
   %call.i19.i = call noundef float @sinf(float noundef %theta.0.i) #28
   %mul.i.i22.i = fmul float %r.0.i, %call.i.i
@@ -19282,8 +19282,8 @@ ehcleanup267.thread:                              ; preds = %lpad.i222, %lpad225
   br label %ehcleanup322
 
 ehcleanup267:                                     ; preds = %ehcleanup265, %lpad.i230, %lpad229
-  %cleanup.isactive235.1 = phi i1 [ %188, %ehcleanup265 ], [ false, %lpad.i230 ], [ false, %lpad229 ]
   %arrayinit.endOfInit223.0 = phi ptr [ %arrayinit.element231, %ehcleanup265 ], [ %arrayinit.element227, %lpad.i230 ], [ %arrayinit.element227, %lpad229 ]
+  %cleanup.isactive235.1 = phi i1 [ %188, %ehcleanup265 ], [ false, %lpad.i230 ], [ false, %lpad229 ]
   %.pn21.pn.pn = phi { ptr, i32 } [ %.pn21.pn, %ehcleanup265 ], [ %114, %lpad.i230 ], [ %183, %lpad229 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp228) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp224) #28
@@ -21421,8 +21421,8 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else.i, %if.then12.i
-  %r.0.i = phi float [ %28, %if.then12.i ], [ %29, %if.else.i ]
   %theta.0.i = phi float [ %mul.i19, %if.then12.i ], [ %sub.i16, %if.else.i ]
+  %r.0.i = phi float [ %28, %if.then12.i ], [ %29, %if.else.i ]
   %call.i.i17 = call noundef float @cosf(float noundef %theta.0.i) #28
   %call.i19.i = call noundef float @sinf(float noundef %theta.0.i) #28
   %mul.i.i22.i = fmul float %r.0.i, %call.i.i17
@@ -37050,8 +37050,8 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else.i, %if.then12.i
-  %r.0.i = phi float [ %2, %if.then12.i ], [ %3, %if.else.i ]
   %theta.0.i = phi float [ %mul.i, %if.then12.i ], [ %sub.i, %if.else.i ]
+  %r.0.i = phi float [ %2, %if.then12.i ], [ %3, %if.else.i ]
   %call.i.i = tail call noundef float @cosf(float noundef %theta.0.i) #28
   %call.i19.i = tail call noundef float @sinf(float noundef %theta.0.i) #28
   %mul.i.i22.i = fmul float %r.0.i, %call.i.i
@@ -37733,8 +37733,8 @@ cond.true:                                        ; preds = %if.end342
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end342, %cond.true
-  %uv.sroa.0.0 = phi <2 x float> [ %188, %cond.true ], [ zeroinitializer, %if.end342 ]
   %uv.sroa.6.0 = phi <2 x float> [ %190, %cond.true ], [ <float 1.000000e+00, float 0.000000e+00>, %if.end342 ]
+  %uv.sroa.0.0 = phi <2 x float> [ %188, %cond.true ], [ zeroinitializer, %if.end342 ]
   %uv.sroa.10.0 = phi <2 x float> [ %192, %cond.true ], [ <float 1.000000e+00, float 1.000000e+00>, %if.end342 ]
   %193 = shufflevector <2 x float> %call186.fca.0.extract, <2 x float> poison, <2 x i32> zeroinitializer
   %194 = fmul <2 x float> %193, %uv.sroa.0.0
@@ -40233,8 +40233,8 @@ if.then121:                                       ; preds = %if.then118
   br label %return
 
 if.end123:                                        ; preds = %if.then118, %if.end115
-  %tShapeHit.sroa.0.0 = phi float [ %t0.sroa.0.0.vec.extract926, %if.end115 ], [ %t1.sroa.0.0.vec.extract914, %if.then118 ]
   %tShapeHit.sroa.8.0 = phi float [ %t0.sroa.0.4.vec.extract, %if.end115 ], [ %t1.sroa.0.4.vec.extract922, %if.then118 ]
+  %tShapeHit.sroa.0.0 = phi float [ %t0.sroa.0.0.vec.extract926, %if.end115 ], [ %t1.sroa.0.0.vec.extract914, %if.then118 ]
   %222 = load <4 x float>, ptr %oi, align 16
   %223 = shufflevector <4 x float> %222, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %agg.tmp126.sroa.0.sroa.4.0.copyload = load float, ptr %high2.i12.i, align 4
@@ -40242,7 +40242,7 @@ if.end123:                                        ; preds = %if.then118, %if.end
   %agg.tmp126.sroa.0.sroa.6.0.copyload = load float, ptr %high2.i41.i, align 4
   %add.i.i5.i = fadd float %agg.tmp126.sroa.0.sroa.5.0.copyload, %agg.tmp126.sroa.0.sroa.6.0.copyload
   %div.i.i6.i = fmul float %add.i.i5.i, 5.000000e-01
-  %add.i.i782 = fadd float %tShapeHit.sroa.0.0, %tShapeHit.sroa.8.0
+  %add.i.i782 = fadd float %tShapeHit.sroa.8.0, %tShapeHit.sroa.0.0
   %div.i.i783 = fmul float %add.i.i782, 5.000000e-01
   %224 = load <4 x float>, ptr %di, align 16
   %225 = shufflevector <4 x float> %224, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
@@ -43455,8 +43455,8 @@ if.then117:                                       ; preds = %if.then114
   br label %return
 
 if.end119:                                        ; preds = %if.then114, %if.end111
-  %tShapeHit.sroa.0.0 = phi float [ %t0.sroa.0.0.vec.extract904, %if.end111 ], [ %t1.sroa.0.0.vec.extract892, %if.then114 ]
   %tShapeHit.sroa.8.0 = phi float [ %t0.sroa.0.4.vec.extract, %if.end111 ], [ %t1.sroa.0.4.vec.extract900, %if.then114 ]
+  %tShapeHit.sroa.0.0 = phi float [ %t0.sroa.0.0.vec.extract904, %if.end111 ], [ %t1.sroa.0.0.vec.extract892, %if.then114 ]
   %204 = load <4 x float>, ptr %oi, align 16
   %205 = shufflevector <4 x float> %204, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %agg.tmp122.sroa.0.sroa.4.0.copyload = load float, ptr %high2.i399, align 4
@@ -43466,7 +43466,7 @@ if.end119:                                        ; preds = %if.then114, %if.end
   %agg.tmp122.sroa.0.sroa.6.0.copyload = load float, ptr %agg.tmp122.sroa.0.sroa.6.0.oi.sroa_idx, align 4
   %add.i.i5.i = fadd float %agg.tmp122.sroa.0.sroa.5.0.copyload, %agg.tmp122.sroa.0.sroa.6.0.copyload
   %div.i.i6.i = fmul float %add.i.i5.i, 5.000000e-01
-  %add.i.i785 = fadd float %tShapeHit.sroa.0.0, %tShapeHit.sroa.8.0
+  %add.i.i785 = fadd float %tShapeHit.sroa.8.0, %tShapeHit.sroa.0.0
   %div.i.i786 = fmul float %add.i.i785, 5.000000e-01
   %206 = load <4 x float>, ptr %di, align 16
   %207 = shufflevector <4 x float> %206, <4 x float> poison, <2 x i32> <i32 0, i32 poison>

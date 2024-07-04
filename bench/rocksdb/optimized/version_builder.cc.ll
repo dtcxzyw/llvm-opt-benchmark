@@ -13651,8 +13651,8 @@ entry:
   br label %while.body
 
 while.body:                                       ; preds = %if.end, %entry
-  %__last.sroa.0.0 = phi ptr [ %__last.coerce, %entry ], [ %__last.sroa.0.1, %if.end ]
   %__first.sroa.0.0 = phi ptr [ %__first.coerce, %entry ], [ %incdec.ptr.i17, %if.end ]
+  %__last.sroa.0.0 = phi ptr [ %__last.coerce, %entry ], [ %__last.sroa.0.1, %if.end ]
   br label %while.cond5
 
 while.cond5:                                      ; preds = %while.body9, %while.body
@@ -14198,30 +14198,30 @@ _ZNKSt3mapImN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataESt4lessImESaI
   br i1 %or.cond37, label %while.body, label %while.cond41.preheader
 
 while.cond41.preheader:                           ; preds = %if.end40, %entry, %_ZNKSt3mapImN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit
-  %mutable_it.sroa.0.0.lcssa = phi ptr [ %__y.addr.1.i.i.i, %_ZNKSt3mapImN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit ], [ %add.ptr.i.i.i, %entry ], [ %mutable_it.sroa.0.1, %if.end40 ]
   %base_it.sroa.0.0.lcssa = phi ptr [ %call, %_ZNKSt3mapImN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit ], [ %call, %entry ], [ %base_it.sroa.0.1, %if.end40 ]
+  %mutable_it.sroa.0.0.lcssa = phi ptr [ %__y.addr.1.i.i.i, %_ZNKSt3mapImN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit ], [ %add.ptr.i.i.i, %entry ], [ %mutable_it.sroa.0.1, %if.end40 ]
   %cmp.i10.not41 = icmp eq ptr %base_it.sroa.0.0.lcssa, %2
   br i1 %cmp.i10.not41, label %while.cond51.preheader, label %if.end48
 
 while.body:                                       ; preds = %_ZNKSt3mapImN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit, %if.end40
-  %base_it.sroa.0.039 = phi ptr [ %base_it.sroa.0.1, %if.end40 ], [ %call, %_ZNKSt3mapImN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit ]
-  %mutable_it.sroa.0.038 = phi ptr [ %mutable_it.sroa.0.1, %if.end40 ], [ %__y.addr.1.i.i.i, %_ZNKSt3mapImN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit ]
-  %5 = load ptr, ptr %base_it.sroa.0.039, align 8
+  %mutable_it.sroa.0.039 = phi ptr [ %mutable_it.sroa.0.1, %if.end40 ], [ %__y.addr.1.i.i.i, %_ZNKSt3mapImN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit ]
+  %base_it.sroa.0.038 = phi ptr [ %base_it.sroa.0.1, %if.end40 ], [ %call, %_ZNKSt3mapImN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit ]
+  %5 = load ptr, ptr %base_it.sroa.0.038, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 8
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %mutable_it.sroa.0.038, i64 32
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %mutable_it.sroa.0.039, i64 32
   %8 = load i64, ptr %_M_storage.i.i, align 8
   %cmp = icmp ult i64 %7, %8
   br i1 %cmp, label %if.end, label %if.else
 
 if.end:                                           ; preds = %while.body
-  call void @_ZN7rocksdb14VersionBuilder3Rep19AddBlobFileIfNeededIRKSt10shared_ptrINS_16BlobFileMetaDataEEEEvPNS_18VersionStorageInfoEOT_(ptr noundef %process_base.coerce, ptr noundef nonnull align 8 dereferenceable(16) %base_it.sroa.0.039)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %base_it.sroa.0.039, i64 16
+  call void @_ZN7rocksdb14VersionBuilder3Rep19AddBlobFileIfNeededIRKSt10shared_ptrINS_16BlobFileMetaDataEEEEvPNS_18VersionStorageInfoEOT_(ptr noundef %process_base.coerce, ptr noundef nonnull align 8 dereferenceable(16) %base_it.sroa.0.038)
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %base_it.sroa.0.038, i64 16
   br label %if.end40
 
 if.else:                                          ; preds = %while.body
   %cmp23 = icmp ult i64 %8, %7
-  %second = getelementptr inbounds i8, ptr %mutable_it.sroa.0.038, i64 40
+  %second = getelementptr inbounds i8, ptr %mutable_it.sroa.0.039, i64 40
   br i1 %cmp23, label %if.then24, label %if.else30
 
 if.then24:                                        ; preds = %if.else
@@ -14229,21 +14229,21 @@ if.then24:                                        ; preds = %if.else
   br i1 %call26, label %if.end28, label %while.end61
 
 if.end28:                                         ; preds = %if.then24
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %mutable_it.sroa.0.038) #24
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %mutable_it.sroa.0.039) #24
   br label %if.end40
 
 if.else30:                                        ; preds = %if.else
-  %call34 = call noundef zeroext i1 @_ZZNK7rocksdb14VersionBuilder3Rep15SaveBlobFilesToEPNS_18VersionStorageInfoEENKUlRKSt10shared_ptrINS_16BlobFileMetaDataEERKNS1_23MutableBlobFileMetaDataEE_clES8_SB_(ptr noundef nonnull align 8 dereferenceable(8) %process_both, ptr noundef nonnull align 8 dereferenceable(16) %base_it.sroa.0.039, ptr noundef nonnull align 8 dereferenceable(216) %second)
+  %call34 = call noundef zeroext i1 @_ZZNK7rocksdb14VersionBuilder3Rep15SaveBlobFilesToEPNS_18VersionStorageInfoEENKUlRKSt10shared_ptrINS_16BlobFileMetaDataEERKNS1_23MutableBlobFileMetaDataEE_clES8_SB_(ptr noundef nonnull align 8 dereferenceable(8) %process_both, ptr noundef nonnull align 8 dereferenceable(16) %base_it.sroa.0.038, ptr noundef nonnull align 8 dereferenceable(216) %second)
   br i1 %call34, label %if.end36, label %while.end61
 
 if.end36:                                         ; preds = %if.else30
-  %incdec.ptr.i8 = getelementptr inbounds i8, ptr %base_it.sroa.0.039, i64 16
-  %call.i9 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %mutable_it.sroa.0.038) #24
+  %incdec.ptr.i8 = getelementptr inbounds i8, ptr %base_it.sroa.0.038, i64 16
+  %call.i9 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %mutable_it.sroa.0.039) #24
   br label %if.end40
 
 if.end40:                                         ; preds = %if.end28, %if.end36, %if.end
-  %mutable_it.sroa.0.1 = phi ptr [ %mutable_it.sroa.0.038, %if.end ], [ %call.i, %if.end28 ], [ %call.i9, %if.end36 ]
-  %base_it.sroa.0.1 = phi ptr [ %incdec.ptr.i, %if.end ], [ %base_it.sroa.0.039, %if.end28 ], [ %incdec.ptr.i8, %if.end36 ]
+  %base_it.sroa.0.1 = phi ptr [ %incdec.ptr.i, %if.end ], [ %base_it.sroa.0.038, %if.end28 ], [ %incdec.ptr.i8, %if.end36 ]
+  %mutable_it.sroa.0.1 = phi ptr [ %mutable_it.sroa.0.039, %if.end ], [ %call.i, %if.end28 ], [ %call.i9, %if.end36 ]
   %cmp.i = icmp ne ptr %base_it.sroa.0.1, %2
   %cmp.i5 = icmp ne ptr %mutable_it.sroa.0.1, %add.ptr.i.i.i
   %or.cond = select i1 %cmp.i, i1 %cmp.i5, i1 false
@@ -16209,18 +16209,18 @@ _ZNKSt3mapImN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataESt4lessImESaI
   br i1 %or.cond60, label %while.body, label %while.cond41.preheader
 
 while.cond41.preheader:                           ; preds = %if.end40, %entry, %_ZNKSt3mapImN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit
-  %mutable_it.sroa.0.0.lcssa = phi ptr [ %__y.addr.1.i.i.i, %_ZNKSt3mapImN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit ], [ %add.ptr.i.i.i, %entry ], [ %mutable_it.sroa.0.1, %if.end40 ]
   %base_it.sroa.0.0.lcssa = phi ptr [ %call, %_ZNKSt3mapImN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit ], [ %call, %entry ], [ %base_it.sroa.0.1, %if.end40 ]
+  %mutable_it.sroa.0.0.lcssa = phi ptr [ %__y.addr.1.i.i.i, %_ZNKSt3mapImN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit ], [ %add.ptr.i.i.i, %entry ], [ %mutable_it.sroa.0.1, %if.end40 ]
   %cmp.i17.not64 = icmp eq ptr %base_it.sroa.0.0.lcssa, %2
   br i1 %cmp.i17.not64, label %while.cond51.preheader, label %while.body43
 
 while.body:                                       ; preds = %_ZNKSt3mapImN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit, %if.end40
-  %base_it.sroa.0.062 = phi ptr [ %base_it.sroa.0.1, %if.end40 ], [ %call, %_ZNKSt3mapImN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit ]
-  %mutable_it.sroa.0.061 = phi ptr [ %mutable_it.sroa.0.1, %if.end40 ], [ %__y.addr.1.i.i.i, %_ZNKSt3mapImN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit ]
-  %5 = load ptr, ptr %base_it.sroa.0.062, align 8
+  %mutable_it.sroa.0.062 = phi ptr [ %mutable_it.sroa.0.1, %if.end40 ], [ %__y.addr.1.i.i.i, %_ZNKSt3mapImN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit ]
+  %base_it.sroa.0.061 = phi ptr [ %base_it.sroa.0.1, %if.end40 ], [ %call, %_ZNKSt3mapImN7rocksdb14VersionBuilder3Rep23MutableBlobFileMetaDataESt4lessImESaISt4pairIKmS3_EEE11lower_boundERS7_.exit ]
+  %5 = load ptr, ptr %base_it.sroa.0.061, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 8
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %mutable_it.sroa.0.061, i64 32
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %mutable_it.sroa.0.062, i64 32
   %8 = load i64, ptr %_M_storage.i.i, align 8
   %cmp = icmp ult i64 %7, %8
   br i1 %cmp, label %if.then, label %if.else
@@ -16236,12 +16236,12 @@ _ZZNK7rocksdb14VersionBuilder3Rep26GetMinOldestBlobFileNumberEvENKUlRKSt10shared
   br label %while.end61
 
 if.end:                                           ; preds = %if.then
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %base_it.sroa.0.062, i64 16
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %base_it.sroa.0.061, i64 16
   br label %if.end40
 
 if.else:                                          ; preds = %while.body
   %cmp23 = icmp ult i64 %8, %7
-  %_M_element_count.i.i.i.i.i8 = getelementptr inbounds i8, ptr %mutable_it.sroa.0.061, i64 208
+  %_M_element_count.i.i.i.i.i8 = getelementptr inbounds i8, ptr %mutable_it.sroa.0.062, i64 208
   %10 = load i64, ptr %_M_element_count.i.i.i.i.i8, align 8
   %cmp.i.i.i.i9 = icmp eq i64 %10, 0
   br i1 %cmp23, label %if.then24, label %if.else30
@@ -16250,34 +16250,34 @@ if.then24:                                        ; preds = %if.else
   br i1 %cmp.i.i.i.i9, label %if.end28, label %_ZZNK7rocksdb14VersionBuilder3Rep26GetMinOldestBlobFileNumberEvENKUlRKNS1_23MutableBlobFileMetaDataEE_clES4_.exit
 
 _ZZNK7rocksdb14VersionBuilder3Rep26GetMinOldestBlobFileNumberEvENKUlRKNS1_23MutableBlobFileMetaDataEE_clES4_.exit: ; preds = %if.then24
-  %second = getelementptr inbounds i8, ptr %mutable_it.sroa.0.061, i64 40
+  %second = getelementptr inbounds i8, ptr %mutable_it.sroa.0.062, i64 40
   %11 = load ptr, ptr %second, align 8
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %process_mutable.coerce, align 8
   br label %while.end61
 
 if.end28:                                         ; preds = %if.then24
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %mutable_it.sroa.0.061) #24
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %mutable_it.sroa.0.062) #24
   br label %if.end40
 
 if.else30:                                        ; preds = %if.else
   br i1 %cmp.i.i.i.i9, label %if.end36, label %_ZZNK7rocksdb14VersionBuilder3Rep26GetMinOldestBlobFileNumberEvENKUlRKSt10shared_ptrINS_16BlobFileMetaDataEERKNS1_23MutableBlobFileMetaDataEE_clES6_S9_.exit
 
 _ZZNK7rocksdb14VersionBuilder3Rep26GetMinOldestBlobFileNumberEvENKUlRKSt10shared_ptrINS_16BlobFileMetaDataEERKNS1_23MutableBlobFileMetaDataEE_clES6_S9_.exit: ; preds = %if.else30
-  %second33 = getelementptr inbounds i8, ptr %mutable_it.sroa.0.061, i64 40
+  %second33 = getelementptr inbounds i8, ptr %mutable_it.sroa.0.062, i64 40
   %13 = load ptr, ptr %second33, align 8
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr %process_both.coerce, align 8
   br label %while.end61
 
 if.end36:                                         ; preds = %if.else30
-  %incdec.ptr.i15 = getelementptr inbounds i8, ptr %base_it.sroa.0.062, i64 16
-  %call.i16 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %mutable_it.sroa.0.061) #24
+  %incdec.ptr.i15 = getelementptr inbounds i8, ptr %base_it.sroa.0.061, i64 16
+  %call.i16 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %mutable_it.sroa.0.062) #24
   br label %if.end40
 
 if.end40:                                         ; preds = %if.end28, %if.end36, %if.end
-  %mutable_it.sroa.0.1 = phi ptr [ %mutable_it.sroa.0.061, %if.end ], [ %call.i, %if.end28 ], [ %call.i16, %if.end36 ]
-  %base_it.sroa.0.1 = phi ptr [ %incdec.ptr.i, %if.end ], [ %base_it.sroa.0.062, %if.end28 ], [ %incdec.ptr.i15, %if.end36 ]
+  %base_it.sroa.0.1 = phi ptr [ %incdec.ptr.i, %if.end ], [ %base_it.sroa.0.061, %if.end28 ], [ %incdec.ptr.i15, %if.end36 ]
+  %mutable_it.sroa.0.1 = phi ptr [ %mutable_it.sroa.0.062, %if.end ], [ %call.i, %if.end28 ], [ %call.i16, %if.end36 ]
   %cmp.i = icmp ne ptr %base_it.sroa.0.1, %2
   %cmp.i5 = icmp ne ptr %mutable_it.sroa.0.1, %add.ptr.i.i.i
   %or.cond = select i1 %cmp.i, i1 %cmp.i5, i1 false

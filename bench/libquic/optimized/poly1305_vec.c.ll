@@ -190,14 +190,14 @@ if.end:                                           ; preds = %poly1305_block_copy
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end, %if.then2
-  %bytes.addr.0 = phi i64 [ %sub, %if.then2 ], [ %sub8, %if.end ]
   %m.addr.0 = phi ptr [ %add.ptr, %if.then2 ], [ %add.ptr9, %if.end ]
+  %bytes.addr.0 = phi i64 [ %sub, %if.then2 ], [ %sub8, %if.end ]
   store i64 1, ptr %started, align 16
   br label %if.end20
 
 if.end20:                                         ; preds = %if.end18, %entry
-  %bytes.addr.1 = phi i64 [ %bytes, %entry ], [ %bytes.addr.0, %if.end18 ]
   %m.addr.1 = phi ptr [ %m, %entry ], [ %m.addr.0, %if.end18 ]
+  %bytes.addr.1 = phi i64 [ %bytes, %entry ], [ %bytes.addr.0, %if.end18 ]
   %leftover21 = getelementptr inbounds i8, ptr %1, i64 376
   %12 = load i64, ptr %leftover21, align 8
   %tobool22.not = icmp eq i64 %12, 0
@@ -305,8 +305,8 @@ if.end38:                                         ; preds = %poly1305_block_copy
   br label %if.end42
 
 if.end42:                                         ; preds = %if.end38, %if.end20
-  %bytes.addr.2 = phi i64 [ %sub31, %if.end38 ], [ %bytes.addr.1, %if.end20 ]
   %m.addr.2 = phi ptr [ %add.ptr32, %if.end38 ], [ %m.addr.1, %if.end20 ]
+  %bytes.addr.2 = phi i64 [ %sub31, %if.end38 ], [ %bytes.addr.1, %if.end20 ]
   %cmp43 = icmp ugt i64 %bytes.addr.2, 63
   br i1 %cmp43, label %if.then44, label %if.end47
 
@@ -318,8 +318,8 @@ if.then44:                                        ; preds = %if.end42
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then44, %if.end42
-  %bytes.addr.3 = phi i64 [ %sub46, %if.then44 ], [ %bytes.addr.2, %if.end42 ]
   %m.addr.3 = phi ptr [ %add.ptr45, %if.then44 ], [ %m.addr.2, %if.end42 ]
+  %bytes.addr.3 = phi i64 [ %sub46, %if.then44 ], [ %bytes.addr.2, %if.end42 ]
   %tobool48.not = icmp eq i64 %bytes.addr.3, 0
   br i1 %tobool48.not, label %if.end56, label %if.then49
 

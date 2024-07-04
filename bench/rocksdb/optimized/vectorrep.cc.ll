@@ -3922,8 +3922,8 @@ if.end:                                           ; preds = %while.body.lr.ph, %
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %if.end
-  %__last.sroa.0.0.i.i = phi ptr [ %storemerge1629, %if.end ], [ %__last.sroa.0.1.i.i, %if.end.i.i ]
   %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %if.end ], [ %incdec.ptr.i.i.i, %if.end.i.i ]
+  %__last.sroa.0.0.i.i = phi ptr [ %storemerge1629, %if.end ], [ %__last.sroa.0.1.i.i, %if.end.i.i ]
   br label %while.cond6.i.i
 
 while.cond6.i.i:                                  ; preds = %while.cond6.i.i, %while.body.i.i

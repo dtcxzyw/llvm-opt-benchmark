@@ -633,9 +633,9 @@ define noundef i32 @Io_WriteMoPlaOneInt(ptr nocapture noundef %0, ptr nocapture 
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.0119133 = phi i32 [ %13, %.lr.ph ], [ 0, %4 ]
-  %12 = tail call ptr @Cudd_bddNewVarAtLevel(ptr noundef %2, i32 noundef %.0119133) #10
-  %13 = add nuw nsw i32 %.0119133, 1
+  %.0116133 = phi i32 [ %13, %.lr.ph ], [ 0, %4 ]
+  %12 = tail call ptr @Cudd_bddNewVarAtLevel(ptr noundef %2, i32 noundef %.0116133) #10
+  %13 = add nuw nsw i32 %.0116133, 1
   %exitcond.not = icmp eq i32 %13, %.val127.val
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
@@ -653,8 +653,8 @@ define noundef i32 @Io_WriteMoPlaOneInt(ptr nocapture noundef %0, ptr nocapture 
 
 .lr.ph137.preheader:                              ; preds = %._crit_edge138, %.lr.ph143
   %indvars.iv = phi i64 [ 0, %.lr.ph143 ], [ %indvars.iv.next, %._crit_edge138 ]
-  %.0141 = phi ptr [ %14, %.lr.ph143 ], [ %33, %._crit_edge138 ]
-  %.0115140 = phi ptr [ %15, %.lr.ph143 ], [ %39, %._crit_edge138 ]
+  %.0120140 = phi ptr [ %15, %.lr.ph143 ], [ %39, %._crit_edge138 ]
+  %.0121139 = phi ptr [ %14, %.lr.ph143 ], [ %33, %._crit_edge138 ]
   %.val128 = load ptr, ptr %16, align 8
   %17 = getelementptr inbounds ptr, ptr %.val128, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
@@ -666,43 +666,43 @@ define noundef i32 @Io_WriteMoPlaOneInt(ptr nocapture noundef %0, ptr nocapture 
   br label %.lr.ph137
 
 .lr.ph137:                                        ; preds = %.lr.ph137.preheader, %31
-  %.0117135 = phi ptr [ %.1, %31 ], [ %22, %.lr.ph137.preheader ]
-  %.0118134 = phi i32 [ %32, %31 ], [ 0, %.lr.ph137.preheader ]
-  %23 = zext nneg i32 %.0118134 to i64
+  %.0115135 = phi i32 [ %32, %31 ], [ 0, %.lr.ph137.preheader ]
+  %.0118134 = phi ptr [ %.1119, %31 ], [ %22, %.lr.ph137.preheader ]
+  %23 = zext nneg i32 %.0115135 to i64
   %.not126 = icmp eq i64 %indvars.iv, %23
   br i1 %.not126, label %31, label %24
 
 24:                                               ; preds = %.lr.ph137
-  %25 = add nsw i32 %.0118134, %.val131.val
+  %25 = add nsw i32 %.0115135, %.val131.val
   %26 = tail call ptr @Cudd_bddIthVar(ptr noundef %2, i32 noundef %25) #10
   %27 = ptrtoint ptr %26 to i64
   %28 = xor i64 %27, 1
   %29 = inttoptr i64 %28 to ptr
-  %30 = tail call ptr @Cudd_bddAnd(ptr noundef %2, ptr noundef %.0117135, ptr noundef %29) #10
+  %30 = tail call ptr @Cudd_bddAnd(ptr noundef %2, ptr noundef %.0118134, ptr noundef %29) #10
   tail call void @Cudd_Ref(ptr noundef %30) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.0117135) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.0118134) #10
   br label %31
 
 31:                                               ; preds = %.lr.ph137, %24
-  %.1 = phi ptr [ %30, %24 ], [ %.0117135, %.lr.ph137 ]
-  %32 = add nuw nsw i32 %.0118134, 1
+  %.1119 = phi ptr [ %30, %24 ], [ %.0118134, %.lr.ph137 ]
+  %32 = add nuw nsw i32 %.0115135, 1
   %exitcond159.not = icmp eq i32 %32, %.val127.val
   br i1 %exitcond159.not, label %._crit_edge138, label %.lr.ph137, !llvm.loop !15
 
 ._crit_edge138:                                   ; preds = %31
-  %33 = tail call ptr @Cudd_bddOr(ptr noundef %2, ptr noundef %.0141, ptr noundef %.1) #10
+  %33 = tail call ptr @Cudd_bddOr(ptr noundef %2, ptr noundef %.0121139, ptr noundef %.1119) #10
   tail call void @Cudd_Ref(ptr noundef %33) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.0141) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.1) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.0121139) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.1119) #10
   %34 = tail call ptr @Cudd_bddIthVar(ptr noundef %2, i32 noundef %20) #10
   %35 = ptrtoint ptr %18 to i64
   %36 = xor i64 %35, 1
   %37 = inttoptr i64 %36 to ptr
   %38 = tail call ptr @Cudd_bddAnd(ptr noundef %2, ptr noundef %34, ptr noundef %37) #10
   tail call void @Cudd_Ref(ptr noundef %38) #10
-  %39 = tail call ptr @Cudd_bddOr(ptr noundef %2, ptr noundef %.0115140, ptr noundef %38) #10
+  %39 = tail call ptr @Cudd_bddOr(ptr noundef %2, ptr noundef %.0120140, ptr noundef %38) #10
   tail call void @Cudd_Ref(ptr noundef %39) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.0115140) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.0120140) #10
   tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %38) #10
   %40 = trunc nuw nsw i64 %indvars.iv to i32
   %41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %40)
@@ -715,23 +715,23 @@ define noundef i32 @Io_WriteMoPlaOneInt(ptr nocapture noundef %0, ptr nocapture 
   br i1 %exitcond161.not, label %._crit_edge144, label %.lr.ph137.preheader, !llvm.loop !16
 
 ._crit_edge144:                                   ; preds = %._crit_edge138, %._crit_edge
-  %.0115.lcssa = phi ptr [ %15, %._crit_edge ], [ %39, %._crit_edge138 ]
-  %.0.lcssa = phi ptr [ %14, %._crit_edge ], [ %33, %._crit_edge138 ]
+  %.0121.lcssa = phi ptr [ %14, %._crit_edge ], [ %33, %._crit_edge138 ]
+  %.0120.lcssa = phi ptr [ %15, %._crit_edge ], [ %39, %._crit_edge138 ]
   %46 = tail call i32 @Cudd_zddVarsFromBddVars(ptr noundef %2, i32 noundef 2) #10
-  %47 = ptrtoint ptr %.0.lcssa to i64
+  %47 = ptrtoint ptr %.0121.lcssa to i64
   %48 = xor i64 %47, 1
   %49 = inttoptr i64 %48 to ptr
-  %50 = call ptr @Cudd_zddIsop(ptr noundef %2, ptr noundef %.0115.lcssa, ptr noundef %49, ptr noundef nonnull %5) #10
+  %50 = call ptr @Cudd_zddIsop(ptr noundef %2, ptr noundef %.0120.lcssa, ptr noundef %49, ptr noundef nonnull %5) #10
   %51 = load ptr, ptr %5, align 8
   call void @Cudd_Ref(ptr noundef %51) #10
   call void @Cudd_Ref(ptr noundef %50) #10
   call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %50) #10
   %52 = load ptr, ptr %5, align 8
   %53 = call i32 @Abc_CountZddCubes(ptr noundef %2, ptr noundef %52) #10
-  %54 = ptrtoint ptr %.0115.lcssa to i64
+  %54 = ptrtoint ptr %.0120.lcssa to i64
   %55 = xor i64 %54, 1
   %56 = inttoptr i64 %55 to ptr
-  %57 = call ptr @Cudd_zddIsop(ptr noundef %2, ptr noundef %.0.lcssa, ptr noundef %56, ptr noundef nonnull %6) #10
+  %57 = call ptr @Cudd_zddIsop(ptr noundef %2, ptr noundef %.0121.lcssa, ptr noundef %56, ptr noundef nonnull %6) #10
   %58 = load ptr, ptr %6, align 8
   call void @Cudd_Ref(ptr noundef %58) #10
   call void @Cudd_Ref(ptr noundef %57) #10
@@ -742,15 +742,15 @@ define noundef i32 @Io_WriteMoPlaOneInt(ptr nocapture noundef %0, ptr nocapture 
   %61 = load ptr, ptr %5, align 8
   %62 = load ptr, ptr %6, align 8
   %.sink = select i1 %.not, ptr %62, ptr %61
-  %.0121 = select i1 %.not, ptr %61, ptr %62
-  %.0116 = call i32 @llvm.smin.i32(i32 %60, i32 %53)
+  %.0117 = select i1 %.not, ptr %61, ptr %62
+  %.0 = call i32 @llvm.smin.i32(i32 %60, i32 %53)
   call void @Cudd_RecursiveDerefZdd(ptr noundef %2, ptr noundef %.sink) #10
-  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.0.lcssa) #10
-  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.0115.lcssa) #10
-  call void @Cudd_RecursiveDerefZdd(ptr noundef %2, ptr noundef %.0121) #10
-  %63 = call i32 @Cudd_DagSize(ptr noundef %.0121) #10
+  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.0121.lcssa) #10
+  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.0120.lcssa) #10
+  call void @Cudd_RecursiveDerefZdd(ptr noundef %2, ptr noundef %.0117) #10
+  %63 = call i32 @Cudd_DagSize(ptr noundef %.0117) #10
   %64 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %63)
-  %65 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %.0116)
+  %65 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %.0)
   %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %.val131.val) #10
   %67 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef %.val127.val) #10
   %68 = call i64 @fwrite(ptr nonnull @.str.2, i64 4, i64 1, ptr %0)
@@ -805,7 +805,7 @@ define noundef i32 @Io_WriteMoPlaOneInt(ptr nocapture noundef %0, ptr nocapture 
 
 .critedge2:                                       ; preds = %.lr.ph157, %.critedge
   %fputc125 = call i32 @fputc(i32 10, ptr %0)
-  %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %.0116) #10
+  %90 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef %.0) #10
   %91 = call i64 @fwrite(ptr nonnull @.str.8, i64 3, i64 1, ptr %0)
   ret i32 1
 }
@@ -918,7 +918,7 @@ define noundef i32 @Io_WriteMoPlaOneIntMinterms(ptr nocapture noundef %0, ptr no
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge75.us
-  %.04976.us = phi i32 [ %51, %._crit_edge75.us ], [ 0, %.preheader.us.preheader ]
+  %.076.us = phi i32 [ %51, %._crit_edge75.us ], [ 0, %.preheader.us.preheader ]
   br i1 %36, label %.lr.ph71.us, label %.lr.ph74.us
 
 .lr.ph74.us:                                      ; preds = %.lr.ph71.us, %.preheader.us
@@ -942,7 +942,7 @@ define noundef i32 @Io_WriteMoPlaOneIntMinterms(ptr nocapture noundef %0, ptr no
 .lr.ph71.us:                                      ; preds = %.preheader.us, %.lr.ph71.us
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %.lr.ph71.us ], [ 0, %.preheader.us ]
   %46 = trunc nuw nsw i64 %indvars.iv98 to i32
-  %47 = lshr i32 %.04976.us, %46
+  %47 = lshr i32 %.076.us, %46
   %48 = and i32 %47, 1
   %49 = getelementptr inbounds [1000 x i32], ptr %5, i64 0, i64 %indvars.iv98
   store i32 %48, ptr %49, align 4
@@ -954,7 +954,7 @@ define noundef i32 @Io_WriteMoPlaOneIntMinterms(ptr nocapture noundef %0, ptr no
 
 ._crit_edge75.us:                                 ; preds = %39
   %fputc52.us = call i32 @fputc(i32 10, ptr %0)
-  %51 = add nuw nsw i32 %.04976.us, 1
+  %51 = add nuw nsw i32 %.076.us, 1
   %exitcond109.not = icmp eq i32 %51, %smax108
   br i1 %exitcond109.not, label %._crit_edge77, label %.preheader.us, !llvm.loop !23
 
@@ -966,13 +966,13 @@ define noundef i32 @Io_WriteMoPlaOneIntMinterms(ptr nocapture noundef %0, ptr no
   br label %.preheader.us78
 
 .preheader.us78:                                  ; preds = %.preheader.us78.preheader, %._crit_edge.us85
-  %.04976.us79 = phi i32 [ %58, %._crit_edge.us85 ], [ 0, %.preheader.us78.preheader ]
+  %.076.us79 = phi i32 [ %58, %._crit_edge.us85 ], [ 0, %.preheader.us78.preheader ]
   br label %52
 
 52:                                               ; preds = %.preheader.us78, %52
   %indvars.iv92 = phi i64 [ 0, %.preheader.us78 ], [ %indvars.iv.next93, %52 ]
   %53 = trunc nuw nsw i64 %indvars.iv92 to i32
-  %54 = lshr i32 %.04976.us79, %53
+  %54 = lshr i32 %.076.us79, %53
   %55 = and i32 %54, 1
   %56 = getelementptr inbounds [1000 x i32], ptr %5, i64 0, i64 %indvars.iv92
   store i32 %55, ptr %56, align 4
@@ -985,15 +985,15 @@ define noundef i32 @Io_WriteMoPlaOneIntMinterms(ptr nocapture noundef %0, ptr no
 ._crit_edge.us85:                                 ; preds = %52
   %fputc51.us80 = tail call i32 @fputc(i32 32, ptr %0)
   %fputc52.us81 = tail call i32 @fputc(i32 10, ptr %0)
-  %58 = add nuw nsw i32 %.04976.us79, 1
+  %58 = add nuw nsw i32 %.076.us79, 1
   %exitcond97.not = icmp eq i32 %58, %smax108
   br i1 %exitcond97.not, label %._crit_edge77, label %.preheader.us78, !llvm.loop !23
 
 .preheader:                                       ; preds = %.preheader.lr.ph.split, %.preheader
-  %.04976 = phi i32 [ %59, %.preheader ], [ 0, %.preheader.lr.ph.split ]
+  %.076 = phi i32 [ %59, %.preheader ], [ 0, %.preheader.lr.ph.split ]
   %fputc51 = tail call i32 @fputc(i32 32, ptr %0)
   %fputc52 = tail call i32 @fputc(i32 10, ptr %0)
-  %59 = add nuw nsw i32 %.04976, 1
+  %59 = add nuw nsw i32 %.076, 1
   %exitcond.not = icmp eq i32 %59, %smax108
   br i1 %exitcond.not, label %._crit_edge77, label %.preheader, !llvm.loop !23
 
@@ -1705,8 +1705,8 @@ Vec_PtrFree.exit:                                 ; preds = %.lr.ph74, %109
   br label %Abc_NtkIsBddLogic.exit.thread
 
 Abc_NtkIsBddLogic.exit.thread:                    ; preds = %114, %Vec_PtrFree.exit, %126, %139, %4
-  %.0 = phi i32 [ 0, %4 ], [ 1, %139 ], [ 1, %126 ], [ 1, %Vec_PtrFree.exit ], [ 1, %114 ]
-  ret i32 %.0
+  %.047 = phi i32 [ 0, %4 ], [ 1, %139 ], [ 1, %126 ], [ 1, %Vec_PtrFree.exit ], [ 1, %114 ]
+  ret i32 %.047
 }
 
 declare void @Cudd_Quit(ptr noundef) local_unnamed_addr #1

@@ -9830,14 +9830,14 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit:    ; preds = %_ZNSt3__119__alloca
 
 24:                                               ; preds = %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit, %40
   %25 = phi i64 [ 0, %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit ], [ %46, %40 ]
-  %.081114 = phi i32 [ 0, %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit ], [ %45, %40 ]
-  %.082113 = phi double [ 0.000000e+00, %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit ], [ %28, %40 ]
-  %.086112 = phi ptr [ %1, %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit ], [ %41, %40 ]
+  %.0114 = phi i32 [ 0, %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit ], [ %45, %40 ]
+  %.081113 = phi double [ 0.000000e+00, %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit ], [ %28, %40 ]
+  %.085112 = phi ptr [ %1, %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit ], [ %41, %40 ]
   %spec.store.select104111 = phi i32 [ -1, %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit ], [ %spec.store.select103, %40 ]
-  %.081108110 = phi i32 [ -1, %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit ], [ %.081107, %40 ]
-  %26 = load float, ptr %.086112, align 4
+  %.0108110 = phi i32 [ -1, %_ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit ], [ %.0107, %40 ]
+  %26 = load float, ptr %.085112, align 4
   %27 = fpext float %26 to double
-  %28 = fadd contract double %.082113, %27
+  %28 = fadd contract double %.081113, %27
   %29 = fptrunc double %28 to float
   %30 = getelementptr inbounds float, ptr %19, i64 %25
   store float %29, ptr %30, align 4
@@ -9868,20 +9868,20 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEEC2Em.exit:    ; preds = %_ZNSt3__119__alloca
   br label %76
 
 40:                                               ; preds = %24
-  %41 = getelementptr inbounds i8, ptr %.086112, i64 4
+  %41 = getelementptr inbounds i8, ptr %.085112, i64 4
   %42 = fcmp contract ogt float %26, 0.000000e+00
   %43 = icmp eq i32 %spec.store.select104111, -1
-  %.081107 = select i1 %42, i32 %.081114, i32 %.081108110
+  %.0107 = select i1 %42, i32 %.0114, i32 %.0108110
   %44 = select i1 %42, i1 %43, i1 false
-  %spec.store.select103 = select i1 %44, i32 %.081114, i32 %spec.store.select104111
-  %45 = add i32 %.081114, 1
+  %spec.store.select103 = select i1 %44, i32 %.0114, i32 %spec.store.select104111
+  %45 = add i32 %.0114, 1
   %46 = zext i32 %45 to i64
   %47 = icmp ult i64 %46, %2
   br i1 %47, label %24, label %.critedge, !llvm.loop !129
 
 .critedge:                                        ; preds = %40
   %.sroa.0.0.insert.ext = zext i32 %spec.store.select103 to i64
-  %.sroa.0.4.insert.ext = zext i32 %.081107 to i64
+  %.sroa.0.4.insert.ext = zext i32 %.0107 to i64
   %.sroa.0.4.insert.shift = shl nuw i64 %.sroa.0.4.insert.ext, 32
   %.sroa.0.4.insert.insert = or disjoint i64 %.sroa.0.4.insert.shift, %.sroa.0.0.insert.ext
   %48 = bitcast i64 %.sroa.0.4.insert.insert to <2 x i32>

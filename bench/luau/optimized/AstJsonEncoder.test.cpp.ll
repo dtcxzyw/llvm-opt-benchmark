@@ -6202,8 +6202,8 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_56C2Ev.exit: ; preds = %0
 
 48:                                               ; preds = %45, %43
   %.pn.i = phi { ptr, i32 } [ %46, %45 ], [ %44, %43 ]
-  %.0.i = extractvalue { ptr, i32 } %.pn.i, 0
-  %49 = call ptr @__cxa_begin_catch(ptr %.0.i) #12
+  %.07.i = extractvalue { ptr, i32 } %.pn.i, 0
+  %49 = call ptr @__cxa_begin_catch(ptr %.07.i) #12
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %2)
           to label %50 unwind label %55
 
@@ -6309,8 +6309,8 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_56C2Ev.exit: ; preds = %0
 
 88:                                               ; preds = %85, %83
   %.pn14.i = phi { ptr, i32 } [ %86, %85 ], [ %84, %83 ]
-  %.2.i = extractvalue { ptr, i32 } %.pn14.i, 0
-  %89 = call ptr @__cxa_begin_catch(ptr %.2.i) #12
+  %.29.i = extractvalue { ptr, i32 } %.pn14.i, 0
+  %89 = call ptr @__cxa_begin_catch(ptr %.29.i) #12
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %8)
           to label %90 unwind label %95
 
@@ -6408,8 +6408,8 @@ _ZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_56C2Ev.exit: ; preds = %0
 
 121:                                              ; preds = %118, %116
   %.pn17.i = phi { ptr, i32 } [ %119, %118 ], [ %117, %116 ]
-  %.4.i = extractvalue { ptr, i32 } %.pn17.i, 0
-  %122 = call ptr @__cxa_begin_catch(ptr %.4.i) #12
+  %.411.i = extractvalue { ptr, i32 } %.pn17.i, 0
+  %122 = call ptr @__cxa_begin_catch(ptr %.411.i) #12
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %14)
           to label %123 unwind label %128
 
@@ -10175,8 +10175,8 @@ _ZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_107C2Ev.exit: ; preds = %0
 
 36:                                               ; preds = %33, %31
   %.pn.i = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ]
-  %.0.i = extractvalue { ptr, i32 } %.pn.i, 0
-  %37 = call ptr @__cxa_begin_catch(ptr %.0.i) #12
+  %.05.i = extractvalue { ptr, i32 } %.pn.i, 0
+  %37 = call ptr @__cxa_begin_catch(ptr %.05.i) #12
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %2)
           to label %38 unwind label %43
 

@@ -945,7 +945,7 @@ define internal fastcc i32 @process_dependencies(ptr noundef %0, i64 %1, ptr %2,
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %.sroa.9.0.ph200 = phi ptr [ %.sroa.9.0.copyload, %.lr.ph.lr.ph ], [ %.sroa.9.1, %.outer ]
   %.sroa.0110.0.ph199 = phi ptr [ %.sroa.0110.0.copyload, %.lr.ph.lr.ph ], [ %.sroa.0110.1, %.outer ]
-  %.0150.ph198 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.1, %.outer ]
+  %.0151.ph198 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.1, %.outer ]
   %.0152.ph197 = phi i32 [ %16, %.lr.ph.lr.ph ], [ %23, %.outer ]
   br label %22
 
@@ -1120,7 +1120,7 @@ default_search.exit:                              ; preds = %94, %110, %112
 
 145:                                              ; preds = %141
   %146 = call fastcc i32 @load_library(ptr noundef %0, i64 %127, ptr %128, i32 noundef %142, i32 noundef %spec.select.le, i32 noundef %.0155.le, ptr noundef %.0153, ptr noundef nonnull %8, ptr noundef %6)
-  %147 = add nsw i32 %146, %.0150.ph198
+  %147 = add nsw i32 %146, %.0151.ph198
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %149, label %.outer
 
@@ -1136,9 +1136,9 @@ default_search.exit:                              ; preds = %94, %110, %112
   br label %.outer
 
 .lr.ph192:                                        ; preds = %.preheader, %164
-  %.0151191 = phi i64 [ %165, %164 ], [ 0, %.preheader ]
+  %.0150191 = phi i64 [ %165, %164 ], [ 0, %.preheader ]
   %158 = load ptr, ptr %6, align 8
-  %159 = getelementptr inbounds ptr, ptr %158, i64 %.0151191
+  %159 = getelementptr inbounds ptr, ptr %158, i64 %.0150191
   %160 = load ptr, ptr %159, align 8
   %161 = tail call ptr @jv_string_value(i64 %127, ptr %128) #11
   %162 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %160, ptr noundef nonnull dereferenceable(1) %161) #12
@@ -1147,19 +1147,19 @@ default_search.exit:                              ; preds = %94, %110, %112
   br i1 %163, label %._crit_edge193, label %164
 
 164:                                              ; preds = %.lr.ph192
-  %165 = add nuw i64 %.0151191, 1
+  %165 = add nuw i64 %.0150191, 1
   %166 = icmp ult i64 %165, %.pre.pre
   br i1 %166, label %.lr.ph192, label %._crit_edge193, !llvm.loop !10
 
 ._crit_edge193:                                   ; preds = %164, %.lr.ph192
-  %.0151.lcssa = phi i64 [ %165, %164 ], [ %.0151191, %.lr.ph192 ]
-  %167 = icmp ult i64 %.0151.lcssa, %.pre.pre
+  %.0150.lcssa = phi i64 [ %165, %164 ], [ %.0150191, %.lr.ph192 ]
+  %167 = icmp ult i64 %.0150.lcssa, %.pre.pre
   br i1 %167, label %168, label %._crit_edge193.thread
 
 168:                                              ; preds = %._crit_edge193
   tail call void @jv_free(i64 %127, ptr %128) #11
   %169 = load ptr, ptr %20, align 8
-  %170 = getelementptr inbounds %struct.block, ptr %169, i64 %.0151.lcssa
+  %170 = getelementptr inbounds %struct.block, ptr %169, i64 %.0150.lcssa
   %171 = load ptr, ptr %170, align 8
   %172 = getelementptr inbounds i8, ptr %170, i64 8
   %173 = load ptr, ptr %172, align 8
@@ -1175,7 +1175,7 @@ default_search.exit:                              ; preds = %94, %110, %112
   %179 = extractvalue { ptr, ptr } %177, 1
   store ptr %179, ptr %19, align 8
   %180 = call fastcc i32 @load_library(ptr noundef %0, i64 %127, ptr %128, i32 noundef %142, i32 noundef %spec.select.le, i32 noundef %.0155.le, ptr noundef %.0153, ptr noundef nonnull %9, ptr noundef nonnull %6)
-  %181 = add nsw i32 %180, %.0150.ph198
+  %181 = add nsw i32 %180, %.0151.ph198
   %182 = icmp eq i32 %181, 0
   br i1 %182, label %183, label %.outer
 
@@ -1188,7 +1188,7 @@ default_search.exit:                              ; preds = %94, %110, %112
   br label %.outer
 
 .outer:                                           ; preds = %168, %183, %._crit_edge193.thread, %145, %149
-  %.1 = phi i32 [ 0, %149 ], [ %147, %145 ], [ %.0150.ph198, %168 ], [ 0, %183 ], [ %181, %._crit_edge193.thread ]
+  %.1 = phi i32 [ 0, %149 ], [ %147, %145 ], [ %.0151.ph198, %168 ], [ 0, %183 ], [ %181, %._crit_edge193.thread ]
   %.sroa.0110.1 = phi ptr [ %156, %149 ], [ %.sroa.0110.0.ph199, %145 ], [ %175, %168 ], [ %187, %183 ], [ %.sroa.0110.0.ph199, %._crit_edge193.thread ]
   %.sroa.9.1 = phi ptr [ %157, %149 ], [ %.sroa.9.0.ph200, %145 ], [ %176, %168 ], [ %188, %183 ], [ %.sroa.9.0.ph200, %._crit_edge193.thread ]
   tail call void @jv_free(i64 %80, ptr %81) #11
@@ -1196,14 +1196,14 @@ default_search.exit:                              ; preds = %94, %110, %112
   br i1 %189, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !9
 
 .outer._crit_edge:                                ; preds = %.outer, %131, %7
-  %.0150.ph.lcssa185 = phi i32 [ 0, %7 ], [ %.0150.ph198, %131 ], [ %.1, %.outer ]
+  %.0151.ph.lcssa185 = phi i32 [ 0, %7 ], [ %.0151.ph198, %131 ], [ %.1, %.outer ]
   tail call void @jv_free(i64 %3, ptr %4) #11
   tail call void @jv_free(i64 %1, ptr %2) #11
   tail call void @jv_free(i64 %11, ptr %12) #11
   br label %190
 
 190:                                              ; preds = %.outer._crit_edge, %133
-  %.0 = phi i32 [ 1, %133 ], [ %.0150.ph.lcssa185, %.outer._crit_edge ]
+  %.0 = phi i32 [ 1, %133 ], [ %.0151.ph.lcssa185, %.outer._crit_edge ]
   ret i32 %.0
 }
 

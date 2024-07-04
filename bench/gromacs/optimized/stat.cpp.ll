@@ -325,7 +325,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %48, %56, %64, %41, 
   br label %115
 
 115:                                              ; preds = %112, %111
-  %.0244 = phi i32 [ %114, %112 ], [ 0, %111 ]
+  %.0245 = phi i32 [ %114, %112 ], [ 0, %111 ]
   %.not264 = xor i1 %spec.select337, true
   %brmerge266 = or i1 %.not258, %.not264
   br i1 %brmerge266, label %120, label %116
@@ -345,8 +345,8 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %48, %56, %64, %41, 
   br label %124
 
 124:                                              ; preds = %70, %116, %121, %120, %108, %69
-  %.0246 = phi i32 [ 0, %120 ], [ %123, %121 ], [ %119, %116 ], [ 0, %108 ], [ 0, %70 ], [ 0, %69 ]
-  %.1245 = phi i32 [ %.0244, %120 ], [ %.0244, %121 ], [ %.0244, %116 ], [ 0, %108 ], [ 0, %70 ], [ 0, %69 ]
+  %.0247 = phi i32 [ 0, %120 ], [ %123, %121 ], [ %119, %116 ], [ 0, %108 ], [ 0, %70 ], [ 0, %69 ]
+  %.1246 = phi i32 [ %.0245, %120 ], [ %.0245, %121 ], [ %.0245, %116 ], [ 0, %108 ], [ 0, %70 ], [ 0, %69 ]
   %.1243 = phi i32 [ %.0242, %120 ], [ %.0242, %121 ], [ %.0242, %116 ], [ %.0242, %108 ], [ 0, %70 ], [ 0, %69 ]
   %.1 = phi i32 [ %.0234, %120 ], [ %.0234, %121 ], [ %.0234, %116 ], [ %.0234, %108 ], [ 0, %70 ], [ 0, %69 ]
   %.0233 = phi i32 [ %97, %120 ], [ %97, %121 ], [ %97, %116 ], [ %97, %108 ], [ 0, %70 ], [ 0, %69 ]
@@ -410,7 +410,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %48, %56, %64, %41, 
 160:                                              ; preds = %138, %149, %141, %127
   %.0239 = phi i32 [ %159, %149 ], [ 0, %141 ], [ 0, %138 ], [ 0, %127 ]
   %.0238 = phi i32 [ %146, %149 ], [ %146, %141 ], [ 0, %138 ], [ 0, %127 ]
-  %.0235 = phi i32 [ %144, %149 ], [ %144, %141 ], [ 0, %138 ], [ 0, %127 ]
+  %.0237 = phi i32 [ %144, %149 ], [ %144, %141 ], [ 0, %138 ], [ 0, %127 ]
   %.0 = phi i32 [ %129, %149 ], [ %129, %141 ], [ %129, %138 ], [ 0, %127 ]
   %.not260 = icmp eq ptr %7, null
   br i1 %.not260, label %190, label %161
@@ -486,7 +486,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %48, %56, %64, %41, 
   br label %211
 
 211:                                              ; preds = %204, %199
-  %.0237 = phi i32 [ 0, %199 ], [ %210, %204 ]
+  %.0236 = phi i32 [ 0, %199 ], [ %210, %204 ]
   call void @_Z7sum_binP5t_binPK9t_commrec(ptr noundef %28, ptr noundef %1)
   br i1 %.not257, label %213, label %212
 
@@ -590,7 +590,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %48, %56, %64, %41, 
 
 257:                                              ; preds = %256
   %258 = getelementptr inbounds i8, ptr %255, i64 32
-  call void @_Z12extract_bindP5t_biniiPd(ptr noundef %28, i32 noundef %.1245, i32 noundef 4, ptr noundef nonnull %258)
+  call void @_Z12extract_bindP5t_biniiPd(ptr noundef %28, i32 noundef %.1246, i32 noundef 4, ptr noundef nonnull %258)
   br label %259
 
 259:                                              ; preds = %257, %256
@@ -601,7 +601,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %48, %56, %64, %41, 
 260:                                              ; preds = %259
   %261 = load ptr, ptr %254, align 8
   %262 = getelementptr inbounds i8, ptr %261, i64 64
-  call void @_Z12extract_bindP5t_biniiPd(ptr noundef %28, i32 noundef %.0246, i32 noundef 4, ptr noundef nonnull %262)
+  call void @_Z12extract_bindP5t_biniiPd(ptr noundef %28, i32 noundef %.0247, i32 noundef 4, ptr noundef nonnull %262)
   br label %266
 
 263:                                              ; preds = %259
@@ -609,7 +609,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %48, %56, %64, %41, 
 
 264:                                              ; preds = %263
   %265 = load ptr, ptr %254, align 8
-  call void @_Z12extract_bindP5t_biniiPd(ptr noundef %28, i32 noundef %.0246, i32 noundef 4, ptr noundef %265)
+  call void @_Z12extract_bindP5t_biniiPd(ptr noundef %28, i32 noundef %.0247, i32 noundef 4, ptr noundef %265)
   br label %266
 
 266:                                              ; preds = %216, %260, %264, %263, %253, %215
@@ -649,7 +649,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %48, %56, %64, %41, 
 281:                                              ; preds = %278
   %282 = getelementptr inbounds i8, ptr %2, i64 504
   %283 = getelementptr inbounds i8, ptr %2, i64 560
-  call void @_Z12extract_bindP5t_biniN3gmx8ArrayRefIdEE(ptr noundef %28, i32 noundef %.0235, ptr nonnull %282, ptr nonnull %283)
+  call void @_Z12extract_bindP5t_biniN3gmx8ArrayRefIdEE(ptr noundef %28, i32 noundef %.0237, ptr nonnull %282, ptr nonnull %283)
   %284 = getelementptr inbounds i8, ptr %2, i64 616
   call void @_Z12extract_bindP5t_biniN3gmx8ArrayRefIdEE(ptr noundef %28, i32 noundef %.0238, ptr nonnull %283, ptr nonnull %284)
   %285 = load i32, ptr %284, align 8
@@ -819,7 +819,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit304:           ; preds = %312, %319, %305, %2
   %355 = sub i64 %353, %354
   %356 = lshr exact i64 %355, 3
   %357 = trunc i64 %356 to i32
-  call void @_Z12extract_bindP5t_biniiPd(ptr noundef %28, i32 noundef %.0237, i32 noundef %357, ptr noundef %201)
+  call void @_Z12extract_bindP5t_biniiPd(ptr noundef %28, i32 noundef %.0236, i32 noundef %357, ptr noundef %201)
   call void @_ZN3gmx18ObservablesReducer17reductionCompleteEl(ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef %11)
   br label %358
 

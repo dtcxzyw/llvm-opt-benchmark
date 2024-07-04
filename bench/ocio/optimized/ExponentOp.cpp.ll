@@ -6577,36 +6577,36 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %pixelIndex.025 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
-  %in.024 = phi ptr [ %add.ptr, %for.body ], [ %inImg, %entry ]
-  %out.023 = phi ptr [ %add.ptr42, %for.body ], [ %outImg, %entry ]
-  %5 = load float, ptr %in.024, align 4
+  %out.024 = phi ptr [ %add.ptr42, %for.body ], [ %outImg, %entry ]
+  %in.023 = phi ptr [ %add.ptr, %for.body ], [ %inImg, %entry ]
+  %5 = load float, ptr %in.023, align 4
   %cmp.i = fcmp ogt float %5, 0.000000e+00
   %.sroa.speculated21 = select i1 %cmp.i, float %5, float 0.000000e+00
   %call22 = tail call float @powf(float noundef %.sroa.speculated21, float noundef %conv) #20
-  store float %call22, ptr %out.023, align 4
-  %arrayidx25 = getelementptr inbounds i8, ptr %in.024, i64 4
+  store float %call22, ptr %out.024, align 4
+  %arrayidx25 = getelementptr inbounds i8, ptr %in.023, i64 4
   %6 = load float, ptr %arrayidx25, align 4
   %cmp.i10 = fcmp ogt float %6, 0.000000e+00
   %.sroa.speculated19 = select i1 %cmp.i10, float %6, float 0.000000e+00
   %call28 = tail call float @powf(float noundef %.sroa.speculated19, float noundef %conv6) #20
-  %arrayidx29 = getelementptr inbounds i8, ptr %out.023, i64 4
+  %arrayidx29 = getelementptr inbounds i8, ptr %out.024, i64 4
   store float %call28, ptr %arrayidx29, align 4
-  %arrayidx31 = getelementptr inbounds i8, ptr %in.024, i64 8
+  %arrayidx31 = getelementptr inbounds i8, ptr %in.023, i64 8
   %7 = load float, ptr %arrayidx31, align 4
   %cmp.i12 = fcmp ogt float %7, 0.000000e+00
   %.sroa.speculated17 = select i1 %cmp.i12, float %7, float 0.000000e+00
   %call34 = tail call float @powf(float noundef %.sroa.speculated17, float noundef %conv12) #20
-  %arrayidx35 = getelementptr inbounds i8, ptr %out.023, i64 8
+  %arrayidx35 = getelementptr inbounds i8, ptr %out.024, i64 8
   store float %call34, ptr %arrayidx35, align 4
-  %arrayidx37 = getelementptr inbounds i8, ptr %in.024, i64 12
+  %arrayidx37 = getelementptr inbounds i8, ptr %in.023, i64 12
   %8 = load float, ptr %arrayidx37, align 4
   %cmp.i14 = fcmp ogt float %8, 0.000000e+00
   %.sroa.speculated = select i1 %cmp.i14, float %8, float 0.000000e+00
   %call40 = tail call float @powf(float noundef %.sroa.speculated, float noundef %conv18) #20
-  %arrayidx41 = getelementptr inbounds i8, ptr %out.023, i64 12
+  %arrayidx41 = getelementptr inbounds i8, ptr %out.024, i64 12
   store float %call40, ptr %arrayidx41, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.024, i64 16
-  %add.ptr42 = getelementptr inbounds i8, ptr %out.023, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %in.023, i64 16
+  %add.ptr42 = getelementptr inbounds i8, ptr %out.024, i64 16
   %inc = add nuw nsw i64 %pixelIndex.025, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !72

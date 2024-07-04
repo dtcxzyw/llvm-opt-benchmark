@@ -559,10 +559,10 @@ define hidden void @_Z9luaS_freeP9lua_StateP7TStringP8lua_Page(ptr noundef %0, p
 
 .lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i._crit_edge.loopexit, %.lr.ph.i.preheader
   %.lcssa = phi ptr [ %12, %.lr.ph.i.preheader ], [ %17, %.lr.ph.i._crit_edge.loopexit ]
-  %.0126.i.lcssa = phi ptr [ %11, %.lr.ph.i.preheader ], [ %18, %.lr.ph.i._crit_edge.loopexit ]
+  %.06.i.lcssa = phi ptr [ %11, %.lr.ph.i.preheader ], [ %18, %.lr.ph.i._crit_edge.loopexit ]
   %19 = getelementptr inbounds i8, ptr %.lcssa, i64 8
   %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %.0126.i.lcssa, align 8
+  store ptr %20, ptr %.06.i.lcssa, align 8
   %21 = load ptr, ptr %4, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8

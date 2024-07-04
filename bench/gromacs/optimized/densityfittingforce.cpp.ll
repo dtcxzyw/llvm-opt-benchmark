@@ -273,8 +273,8 @@ define { <2 x float>, float } @_ZN3gmx19DensityFittingForce4Impl13evaluateForceE
 
 110:                                              ; preds = %.lr.ph113, %._crit_edge103
   %indvars.iv128 = phi i64 [ %108, %.lr.ph113 ], [ %indvars.iv.next129, %._crit_edge103 ]
-  %.sroa.9.0110 = phi double [ %97, %.lr.ph113 ], [ %173, %._crit_edge103 ]
-  %.sroa.8.0109 = phi double [ 0.000000e+00, %.lr.ph113 ], [ %.sroa.8.1.lcssa, %._crit_edge103 ]
+  %.sroa.8.0108 = phi double [ 0.000000e+00, %.lr.ph113 ], [ %.sroa.8.1.lcssa, %._crit_edge103 ]
+  %.sroa.9.0107 = phi double [ %97, %.lr.ph113 ], [ %173, %._crit_edge103 ]
   %111 = phi <2 x double> [ zeroinitializer, %.lr.ph113 ], [ %172, %._crit_edge103 ]
   br label %_ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i.i.i
 
@@ -309,8 +309,8 @@ _ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14a
 
 128:                                              ; preds = %.lr.ph102, %._crit_edge
   %indvars.iv125 = phi i64 [ %127, %.lr.ph102 ], [ %indvars.iv.next126, %._crit_edge ]
-  %.sroa.5.0100 = phi double [ %82, %.lr.ph102 ], [ %166, %._crit_edge ]
-  %.sroa.8.199 = phi double [ %.sroa.8.0109, %.lr.ph102 ], [ %.sroa.8.2.lcssa, %._crit_edge ]
+  %.sroa.8.198 = phi double [ %.sroa.8.0108, %.lr.ph102 ], [ %.sroa.8.2.lcssa, %._crit_edge ]
+  %.sroa.5.097 = phi double [ %82, %.lr.ph102 ], [ %166, %._crit_edge ]
   %129 = phi <2 x double> [ %111, %.lr.ph102 ], [ %165, %._crit_edge ]
   %130 = mul nsw i64 %103, %indvars.iv125
   %131 = getelementptr inbounds float, ptr %118, i64 %130
@@ -334,8 +334,8 @@ _ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14a
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv122 = phi i64 [ %144, %.lr.ph.preheader ], [ %indvars.iv.next123, %.lr.ph ]
-  %.sroa.057.094 = phi double [ %81, %.lr.ph.preheader ], [ %160, %.lr.ph ]
-  %.sroa.8.293 = phi double [ %.sroa.8.199, %.lr.ph.preheader ], [ %159, %.lr.ph ]
+  %.sroa.8.291 = phi double [ %.sroa.8.198, %.lr.ph.preheader ], [ %159, %.lr.ph ]
+  %.sroa.057.090 = phi double [ %81, %.lr.ph.preheader ], [ %160, %.lr.ph ]
   %145 = phi <2 x double> [ %129, %.lr.ph.preheader ], [ %158, %.lr.ph ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv122
   %146 = load float, ptr %gep, align 4
@@ -344,16 +344,16 @@ _ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14a
   %149 = load float, ptr %148, align 4
   %150 = fmul float %147, %149
   %151 = fpext float %150 to double
-  %152 = insertelement <2 x double> poison, double %.sroa.057.094, i64 0
-  %153 = insertelement <2 x double> %152, double %.sroa.5.0100, i64 1
+  %152 = insertelement <2 x double> poison, double %.sroa.057.090, i64 0
+  %153 = insertelement <2 x double> %152, double %.sroa.5.097, i64 1
   %154 = insertelement <2 x double> poison, double %151, i64 0
   %155 = shufflevector <2 x double> %154, <2 x double> poison, <2 x i32> zeroinitializer
   %156 = fmul <2 x double> %153, %155
-  %157 = fmul double %.sroa.9.0110, %151
+  %157 = fmul double %.sroa.9.0107, %151
   %158 = fadd <2 x double> %145, %156
-  %159 = fadd double %.sroa.8.293, %157
+  %159 = fadd double %.sroa.8.291, %157
   %indvars.iv.next123 = add nsw i64 %indvars.iv122, 1
-  %160 = fadd double %54, %.sroa.057.094
+  %160 = fadd double %54, %.sroa.057.090
   %161 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK3gmx10IntegerBox3endEv(ptr noundef nonnull align 4 dereferenceable(24) %5)
   %162 = load i32, ptr %161, align 4
   %163 = sext i32 %162 to i64
@@ -361,10 +361,10 @@ _ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14a
   br i1 %164, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %128
-  %.sroa.8.2.lcssa = phi double [ %.sroa.8.199, %128 ], [ %159, %.lr.ph ]
+  %.sroa.8.2.lcssa = phi double [ %.sroa.8.198, %128 ], [ %159, %.lr.ph ]
   %165 = phi <2 x double> [ %129, %128 ], [ %158, %.lr.ph ]
   %indvars.iv.next126 = add nsw i64 %indvars.iv125, 1
-  %166 = fadd double %58, %.sroa.5.0100
+  %166 = fadd double %58, %.sroa.5.097
   %167 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK3gmx10IntegerBox3endEv(ptr noundef nonnull align 4 dereferenceable(24) %5)
   %168 = getelementptr inbounds i8, ptr %167, i64 4
   %169 = load i32, ptr %168, align 4
@@ -373,10 +373,10 @@ _ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14a
   br i1 %171, label %128, label %._crit_edge103, !llvm.loop !18
 
 ._crit_edge103:                                   ; preds = %._crit_edge, %_ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS1_EEEixIiNS0_IS1_NS2_IJLln1ELln1EEEES4_S6_EEEENSt9enable_ifIXaaaasr3stdE13is_integral_vIT_EgtclL_ZNS3_4rankEvEELi1EL_ZSt9is_same_vIS4_S4_EEET0_E4typeESC_.exit
-  %.sroa.8.1.lcssa = phi double [ %.sroa.8.0109, %_ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS1_EEEixIiNS0_IS1_NS2_IJLln1ELln1EEEES4_S6_EEEENSt9enable_ifIXaaaasr3stdE13is_integral_vIT_EgtclL_ZNS3_4rankEvEELi1EL_ZSt9is_same_vIS4_S4_EEET0_E4typeESC_.exit ], [ %.sroa.8.2.lcssa, %._crit_edge ]
+  %.sroa.8.1.lcssa = phi double [ %.sroa.8.0108, %_ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS1_EEEixIiNS0_IS1_NS2_IJLln1ELln1EEEES4_S6_EEEENSt9enable_ifIXaaaasr3stdE13is_integral_vIT_EgtclL_ZNS3_4rankEvEELi1EL_ZSt9is_same_vIS4_S4_EEET0_E4typeESC_.exit ], [ %.sroa.8.2.lcssa, %._crit_edge ]
   %172 = phi <2 x double> [ %111, %_ZNK3gmx12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS1_EEEixIiNS0_IS1_NS2_IJLln1ELln1EEEES4_S6_EEEENSt9enable_ifIXaaaasr3stdE13is_integral_vIT_EgtclL_ZNS3_4rankEvEELi1EL_ZSt9is_same_vIS4_S4_EEET0_E4typeESC_.exit ], [ %165, %._crit_edge ]
   %indvars.iv.next129 = add nsw i64 %indvars.iv128, 1
-  %173 = fadd double %62, %.sroa.9.0110
+  %173 = fadd double %62, %.sroa.9.0107
   %174 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK3gmx10IntegerBox3endEv(ptr noundef nonnull align 4 dereferenceable(24) %5)
   %175 = getelementptr inbounds i8, ptr %174, i64 8
   %176 = load i32, ptr %175, align 4

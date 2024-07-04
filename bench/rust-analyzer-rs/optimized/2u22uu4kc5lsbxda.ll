@@ -8266,8 +8266,8 @@ define hidden void @_ZN3std9panicking3try7do_call17h4b00cd2a18beb18dE.llvm.56051
           to label %.thread.i.i unwind label %47, !noalias !901
 
 "_ZN3ide8Analysis7with_db28_$u7b$$u7b$closure$u7d$$u7d$17h1b42d10e5690d7e7E.exit": ; preds = %46, %.thread74.i.i, %"_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$span..FileRange$GT$$GT$17h361f76c3df1229a7E.exit.i.i"
-  %.sroa.02.1 = phi i64 [ -9223372036854775808, %"_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$span..FileRange$GT$$GT$17h361f76c3df1229a7E.exit.i.i" ], [ -9223372036854775808, %.thread74.i.i ], [ %.sroa.02.0.copyload3, %46 ]
   %.sroa.7.1 = phi i64 [ %.sroa.7.i.i.sroa.0.0.copyload, %"_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$span..FileRange$GT$$GT$17h361f76c3df1229a7E.exit.i.i" ], [ %.sroa.7.0, %.thread74.i.i ], [ %.sroa.7.0.copyload4, %46 ]
+  %.sroa.02.1 = phi i64 [ -9223372036854775808, %"_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$span..FileRange$GT$$GT$17h361f76c3df1229a7E.exit.i.i" ], [ -9223372036854775808, %.thread74.i.i ], [ %.sroa.02.0.copyload3, %46 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !892
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.78.i.i.sroa.5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7.i.i.sroa.5)

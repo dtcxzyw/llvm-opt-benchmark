@@ -16,26 +16,26 @@ define dso_local i32 @pg_wcswidth(ptr noundef %0, i64 noundef %1, i32 noundef %2
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %7
-  %.021 = phi ptr [ %10, %7 ], [ %0, %3 ]
-  %.01420 = phi i64 [ %11, %7 ], [ %1, %3 ]
-  %.01519 = phi i32 [ %spec.select, %7 ], [ 0, %3 ]
-  %4 = tail call i32 @PQmblen(ptr noundef %.021, i32 noundef %2) #6
+  %.021 = phi i32 [ %spec.select, %7 ], [ 0, %3 ]
+  %.01420 = phi ptr [ %10, %7 ], [ %0, %3 ]
+  %.01519 = phi i64 [ %11, %7 ], [ %1, %3 ]
+  %4 = tail call i32 @PQmblen(ptr noundef %.01420, i32 noundef %2) #6
   %5 = sext i32 %4 to i64
-  %6 = icmp ult i64 %.01420, %5
+  %6 = icmp ult i64 %.01519, %5
   br i1 %6, label %._crit_edge, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = tail call i32 @PQdsplen(ptr noundef %.021, i32 noundef %2) #6
+  %8 = tail call i32 @PQdsplen(ptr noundef %.01420, i32 noundef %2) #6
   %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
-  %spec.select = add i32 %9, %.01519
-  %10 = getelementptr i8, ptr %.021, i64 %5
-  %11 = sub i64 %.01420, %5
+  %spec.select = add i32 %9, %.021
+  %10 = getelementptr i8, ptr %.01420, i64 %5
+  %11 = sub i64 %.01519, %5
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %7, %.lr.ph, %3
-  %.015.lcssa = phi i32 [ 0, %3 ], [ %.01519, %.lr.ph ], [ %spec.select, %7 ]
-  ret i32 %.015.lcssa
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %.021, %.lr.ph ], [ %spec.select, %7 ]
+  ret i32 %.0.lcssa
 }
 
 declare i32 @PQmblen(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -187,22 +187,22 @@ define dso_local void @pg_wcsformat(ptr noundef %0, i64 noundef %1, i32 noundef 
 .lr.ph92:                                         ; preds = %5, %.loopexit
   %.05990 = phi ptr [ %.3, %.loopexit ], [ %6, %5 ]
   %.06089 = phi i32 [ %.262, %.loopexit ], [ 0, %5 ]
-  %.06386 = phi ptr [ %113, %.loopexit ], [ %0, %5 ]
-  %.06485 = phi i32 [ %.165, %.loopexit ], [ %4, %5 ]
-  %.06684 = phi ptr [ %.167, %.loopexit ], [ %3, %5 ]
+  %.06388 = phi i32 [ %.164, %.loopexit ], [ %4, %5 ]
+  %.06587 = phi ptr [ %.166, %.loopexit ], [ %3, %5 ]
+  %.06784 = phi ptr [ %113, %.loopexit ], [ %0, %5 ]
   %.06883 = phi i64 [ %112, %.loopexit ], [ %1, %5 ]
-  %11 = tail call i32 @PQmblen(ptr noundef nonnull %.06386, i32 noundef %2) #6
+  %11 = tail call i32 @PQmblen(ptr noundef nonnull %.06784, i32 noundef %2) #6
   %12 = sext i32 %11 to i64
   %13 = icmp ult i64 %.06883, %12
   br i1 %13, label %._crit_edge93, label %14
 
 14:                                               ; preds = %.lr.ph92
-  %15 = tail call i32 @PQdsplen(ptr noundef nonnull %.06386, i32 noundef %2) #6
+  %15 = tail call i32 @PQdsplen(ptr noundef nonnull %.06784, i32 noundef %2) #6
   %16 = icmp eq i32 %11, 1
   br i1 %16, label %17, label %47
 
 17:                                               ; preds = %14
-  %18 = load i8, ptr %.06386, align 1
+  %18 = load i8, ptr %.06784, align 1
   %19 = zext i8 %18 to i32
   switch i8 %18, label %38 [
     i8 10, label %27
@@ -225,9 +225,9 @@ define dso_local void @pg_wcsformat(ptr noundef %0, i64 noundef %1, i32 noundef 
 
 27:                                               ; preds = %17
   store i8 0, ptr %.05990, align 1
-  %28 = getelementptr inbounds i8, ptr %.06684, i64 8
+  %28 = getelementptr inbounds i8, ptr %.06587, i64 8
   store i32 %.06089, ptr %28, align 8
-  %29 = add i32 %.06485, -1
+  %29 = add i32 %.06388, -1
   %30 = icmp slt i32 %29, 1
   br i1 %30, label %31, label %32
 
@@ -236,7 +236,7 @@ define dso_local void @pg_wcsformat(ptr noundef %0, i64 noundef %1, i32 noundef 
   unreachable
 
 32:                                               ; preds = %27
-  %33 = getelementptr i8, ptr %.06684, i64 16
+  %33 = getelementptr i8, ptr %.06587, i64 16
   %34 = getelementptr i8, ptr %.05990, i64 1
   store ptr %34, ptr %33, align 8
   br label %.loopexit
@@ -291,7 +291,7 @@ pg_get_utf8_id.exit:                              ; preds = %50, %53
   br i1 %56, label %57, label %103
 
 57:                                               ; preds = %pg_get_utf8_id.exit
-  %58 = load i8, ptr %.06386, align 1
+  %58 = load i8, ptr %.06784, align 1
   %59 = zext i8 %58 to i32
   %60 = icmp sgt i8 %58, -1
   br i1 %60, label %utf8_to_unicode.exit, label %61
@@ -314,7 +314,7 @@ pg_get_utf8_id.exit:                              ; preds = %50, %53
 70:                                               ; preds = %67
   %71 = shl nuw nsw i32 %59, 12
   %72 = and i32 %71, 61440
-  %73 = getelementptr i8, ptr %.06386, i64 1
+  %73 = getelementptr i8, ptr %.06784, i64 1
   %74 = load i8, ptr %73, align 1
   %75 = and i8 %74, 63
   %76 = zext nneg i8 %75 to i32
@@ -330,13 +330,13 @@ pg_get_utf8_id.exit:                              ; preds = %50, %53
 82:                                               ; preds = %79
   %83 = shl nuw nsw i32 %59, 18
   %84 = and i32 %83, 1835008
-  %85 = getelementptr i8, ptr %.06386, i64 1
+  %85 = getelementptr i8, ptr %.06784, i64 1
   %86 = load i8, ptr %85, align 1
   %87 = and i8 %86, 63
   %88 = zext nneg i8 %87 to i32
   %89 = shl nuw nsw i32 %88, 12
   %90 = or disjoint i32 %89, %84
-  %91 = getelementptr i8, ptr %.06386, i64 2
+  %91 = getelementptr i8, ptr %.06784, i64 2
   %92 = load i8, ptr %91, align 1
   %93 = and i8 %92, 63
   %94 = zext nneg i8 %93 to i32
@@ -347,7 +347,7 @@ pg_get_utf8_id.exit:                              ; preds = %50, %53
 .sink.split.i:                                    ; preds = %82, %70, %64
   %.sink18.i = phi i64 [ 3, %82 ], [ 2, %70 ], [ 1, %64 ]
   %.sink.i = phi i32 [ %96, %82 ], [ %78, %70 ], [ %66, %64 ]
-  %97 = getelementptr i8, ptr %.06386, i64 %.sink18.i
+  %97 = getelementptr i8, ptr %.06784, i64 %.sink18.i
   %98 = load i8, ptr %97, align 1
   %99 = and i8 %98, 63
   %100 = zext nneg i8 %99 to i32
@@ -371,7 +371,7 @@ utf8_to_unicode.exit:                             ; preds = %57, %79, %.sink.spl
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.281 = phi ptr [ %.05990, %.lr.ph.preheader ], [ %110, %.lr.ph ]
-  %108 = getelementptr i8, ptr %.06386, i64 %indvars.iv
+  %108 = getelementptr i8, ptr %.06784, i64 %indvars.iv
   %109 = load i8, ptr %108, align 1
   %110 = getelementptr i8, ptr %.281, i64 1
   store i8 %109, ptr %.281, align 1
@@ -385,12 +385,12 @@ utf8_to_unicode.exit:                             ; preds = %57, %79, %.sink.spl
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %105, %._crit_edge, %32, %44, %40, %35
-  %.167 = phi ptr [ %33, %32 ], [ %.06684, %35 ], [ %.06684, %40 ], [ %.06684, %44 ], [ %.06684, %105 ], [ %.06684, %._crit_edge ], [ %.06684, %.preheader.preheader ]
-  %.165 = phi i32 [ %29, %32 ], [ %.06485, %35 ], [ %.06485, %40 ], [ %.06485, %44 ], [ %.06485, %105 ], [ %.06485, %._crit_edge ], [ %.06485, %.preheader.preheader ]
+  %.166 = phi ptr [ %33, %32 ], [ %.06587, %35 ], [ %.06587, %40 ], [ %.06587, %44 ], [ %.06587, %105 ], [ %.06587, %._crit_edge ], [ %.06587, %.preheader.preheader ]
+  %.164 = phi i32 [ %29, %32 ], [ %.06388, %35 ], [ %.06388, %40 ], [ %.06388, %44 ], [ %.06388, %105 ], [ %.06388, %._crit_edge ], [ %.06388, %.preheader.preheader ]
   %.262 = phi i32 [ 0, %32 ], [ %36, %35 ], [ %42, %40 ], [ %45, %44 ], [ %107, %105 ], [ %111, %._crit_edge ], [ %26, %.preheader.preheader ]
   %.3 = phi ptr [ %34, %32 ], [ %37, %35 ], [ %43, %40 ], [ %46, %44 ], [ %106, %105 ], [ %.2.lcssa, %._crit_edge ], [ %scevgep106, %.preheader.preheader ]
   %112 = sub i64 %.06883, %12
-  %113 = getelementptr i8, ptr %.06386, i64 %12
+  %113 = getelementptr i8, ptr %.06784, i64 %12
   %114 = load i8, ptr %113, align 1
   %115 = icmp ne i8 %114, 0
   %116 = icmp ne i64 %112, 0
@@ -398,14 +398,14 @@ utf8_to_unicode.exit:                             ; preds = %57, %79, %.sink.spl
   br i1 %117, label %.lr.ph92, label %._crit_edge93, !llvm.loop !9
 
 ._crit_edge93:                                    ; preds = %.loopexit, %.lr.ph92, %5
-  %.066.lcssa = phi ptr [ %3, %5 ], [ %.06684, %.lr.ph92 ], [ %.167, %.loopexit ]
-  %.064.lcssa = phi i32 [ %4, %5 ], [ %.06485, %.lr.ph92 ], [ %.165, %.loopexit ]
+  %.065.lcssa = phi ptr [ %3, %5 ], [ %.06587, %.lr.ph92 ], [ %.166, %.loopexit ]
+  %.063.lcssa = phi i32 [ %4, %5 ], [ %.06388, %.lr.ph92 ], [ %.164, %.loopexit ]
   %.060.lcssa = phi i32 [ 0, %5 ], [ %.06089, %.lr.ph92 ], [ %.262, %.loopexit ]
   %.059.lcssa = phi ptr [ %6, %5 ], [ %.05990, %.lr.ph92 ], [ %.3, %.loopexit ]
-  %118 = getelementptr inbounds i8, ptr %.066.lcssa, i64 8
+  %118 = getelementptr inbounds i8, ptr %.065.lcssa, i64 8
   store i32 %.060.lcssa, ptr %118, align 8
   store i8 0, ptr %.059.lcssa, align 1
-  %119 = icmp slt i32 %.064.lcssa, 1
+  %119 = icmp slt i32 %.063.lcssa, 1
   br i1 %119, label %120, label %121
 
 120:                                              ; preds = %._crit_edge93
@@ -413,7 +413,7 @@ utf8_to_unicode.exit:                             ; preds = %57, %79, %.sink.spl
   unreachable
 
 121:                                              ; preds = %._crit_edge93
-  %122 = getelementptr i8, ptr %.066.lcssa, i64 16
+  %122 = getelementptr i8, ptr %.065.lcssa, i64 16
   store ptr null, ptr %122, align 8
   ret void
 }

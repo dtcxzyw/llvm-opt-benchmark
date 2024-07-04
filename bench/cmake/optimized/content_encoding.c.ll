@@ -290,9 +290,9 @@ define dso_local i32 @Curl_build_unencoding_stack(ptr noundef %0, ptr noundef %1
   br i1 %.not36.i, label %find_unencode_writer.exit, label %.loopexit47.i, !llvm.loop !10
 
 find_unencode_writer.exit:                        ; preds = %52, %61, %65, %40, %46
-  %.0.i = phi ptr [ @Curl_httpchunk_unencoder, %46 ], [ @Curl_httpchunk_unencoder, %40 ], [ %49, %61 ], [ %49, %52 ], [ null, %65 ]
-  %.not55 = icmp eq ptr %.0.i, null
-  %spec.store.select = select i1 %.not55, ptr @error_writer, ptr %.0.i
+  %.031.i = phi ptr [ @Curl_httpchunk_unencoder, %46 ], [ @Curl_httpchunk_unencoder, %40 ], [ %49, %61 ], [ %49, %52 ], [ null, %65 ]
+  %.not55 = icmp eq ptr %.031.i, null
+  %spec.store.select = select i1 %.not55, ptr @error_writer, ptr %.031.i
   %68 = call i32 @Curl_cwriter_create(ptr noundef nonnull %4, ptr noundef %0, ptr noundef nonnull %spec.store.select, i32 noundef %5) #7
   %.not56 = icmp eq i32 %68, 0
   br i1 %.not56, label %69, label %.loopexit
@@ -814,8 +814,8 @@ exit_zlib.exit87:                                 ; preds = %51, %84, %82, %72, 
   br label %exit_zlib.exit
 
 exit_zlib.exit:                                   ; preds = %33, %31, %15, %13, %exit_zlib.exit87, %87, %90
-  %.0 = phi i32 [ %.3, %90 ], [ %.3, %87 ], [ %.3, %exit_zlib.exit87 ], [ 23, %13 ], [ 23, %15 ], [ 27, %31 ], [ 27, %33 ]
-  ret i32 %.0
+  %.067 = phi i32 [ %.3, %90 ], [ %.3, %87 ], [ %.3, %exit_zlib.exit87 ], [ 23, %13 ], [ 23, %15 ], [ 27, %31 ], [ 27, %33 ]
+  ret i32 %.067
 }
 
 ; Function Attrs: nounwind uwtable

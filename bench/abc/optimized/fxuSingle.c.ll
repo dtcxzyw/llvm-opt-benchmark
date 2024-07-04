@@ -36,14 +36,14 @@ define void @Fxu_MatrixComputeSingles(ptr noundef %0, i32 noundef %1, i32 nounde
 
 .preheader55.i:                                   ; preds = %13, %._crit_edge.i
   %.062.i = phi ptr [ %.0.i, %._crit_edge.i ], [ %.060.i, %13 ]
-  %.032.in56.i = getelementptr inbounds i8, ptr %.062.i, i64 24
-  %.03257.i = load ptr, ptr %.032.in56.i, align 8
-  %.not3958.i = icmp eq ptr %.03257.i, null
+  %.033.in56.i = getelementptr inbounds i8, ptr %.062.i, i64 24
+  %.03357.i = load ptr, ptr %.033.in56.i, align 8
+  %.not3958.i = icmp eq ptr %.03357.i, null
   br i1 %.not3958.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader55.i, %21
-  %.03259.i = phi ptr [ %.032.i, %21 ], [ %.03257.i, %.preheader55.i ]
-  %15 = getelementptr inbounds i8, ptr %.03259.i, i64 16
+  %.03359.i = phi ptr [ %.033.i, %21 ], [ %.03357.i, %.preheader55.i ]
+  %15 = getelementptr inbounds i8, ptr %.03359.i, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 64
   %18 = load ptr, ptr %17, align 8
@@ -58,9 +58,9 @@ define void @Fxu_MatrixComputeSingles(ptr noundef %0, i32 noundef %1, i32 nounde
   br label %21
 
 21:                                               ; preds = %19, %.lr.ph.i
-  %.032.in.i = getelementptr inbounds i8, ptr %.03259.i, i64 24
-  %.032.i = load ptr, ptr %.032.in.i, align 8
-  %.not39.i = icmp eq ptr %.032.i, null
+  %.033.in.i = getelementptr inbounds i8, ptr %.03359.i, i64 24
+  %.033.i = load ptr, ptr %.033.in.i, align 8
+  %.not39.i = icmp eq ptr %.033.i, null
   br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %21, %.preheader55.i
@@ -75,8 +75,8 @@ define void @Fxu_MatrixComputeSingles(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %switch.i, label %Fxu_MatrixComputeSinglesOneCollect.exit, label %.lr.ph66.i
 
 .lr.ph66.i:                                       ; preds = %._crit_edge63.i, %154
-  %.03365.i = phi ptr [ %156, %154 ], [ %.pre.i, %._crit_edge63.i ]
-  %23 = getelementptr inbounds i8, ptr %.03365.i, i64 24
+  %.03265.i = phi ptr [ %156, %154 ], [ %.pre.i, %._crit_edge63.i ]
+  %23 = getelementptr inbounds i8, ptr %.03265.i, i64 24
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %.lr.ph66.i, %45
@@ -241,7 +241,7 @@ Vec_PtrPush.exit.i:                               ; preds = %92, %Vec_PtrGrow.ex
   store i32 %95, ptr %7, align 4
   %96 = sext i32 %71 to i64
   %97 = getelementptr inbounds ptr, ptr %94, i64 %96
-  store ptr %.03365.i, ptr %97, align 8
+  store ptr %.03265.i, ptr %97, align 8
   %98 = load i32, ptr %7, align 4
   %99 = load i32, ptr %6, align 8
   %100 = icmp eq i32 %98, %99
@@ -369,7 +369,7 @@ Vec_PtrPush.exit54.i:                             ; preds = %148, %Vec_PtrGrow.e
   br label %154
 
 154:                                              ; preds = %Vec_PtrPush.exit54.i, %Fxu_SingleCountCoincidence.exit.i
-  %155 = getelementptr inbounds i8, ptr %.03365.i, i64 64
+  %155 = getelementptr inbounds i8, ptr %.03265.i, i64 64
   %156 = load ptr, ptr %155, align 8
   %.not37.i = icmp eq ptr %156, inttoptr (i64 1 to ptr)
   br i1 %.not37.i, label %Fxu_MatrixComputeSinglesOneCollect.exit, label %.lr.ph66.i, !llvm.loop !7
@@ -553,14 +553,14 @@ define void @Fxu_MatrixComputeSinglesOne(ptr noundef %0, ptr noundef %1) local_u
 
 .preheader39:                                     ; preds = %2, %._crit_edge
   %.046 = phi ptr [ %.0, %._crit_edge ], [ %.044, %2 ]
-  %.030.in40 = getelementptr inbounds i8, ptr %.046, i64 24
-  %.03041 = load ptr, ptr %.030.in40, align 8
-  %.not3742 = icmp eq ptr %.03041, null
+  %.031.in40 = getelementptr inbounds i8, ptr %.046, i64 24
+  %.03141 = load ptr, ptr %.031.in40, align 8
+  %.not3742 = icmp eq ptr %.03141, null
   br i1 %.not3742, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader39, %12
-  %.03043 = phi ptr [ %.030, %12 ], [ %.03041, %.preheader39 ]
-  %6 = getelementptr inbounds i8, ptr %.03043, i64 16
+  %.03143 = phi ptr [ %.031, %12 ], [ %.03141, %.preheader39 ]
+  %6 = getelementptr inbounds i8, ptr %.03143, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
@@ -575,9 +575,9 @@ define void @Fxu_MatrixComputeSinglesOne(ptr noundef %0, ptr noundef %1) local_u
   br label %12
 
 12:                                               ; preds = %.lr.ph, %10
-  %.030.in = getelementptr inbounds i8, ptr %.03043, i64 24
-  %.030 = load ptr, ptr %.030.in, align 8
-  %.not37 = icmp eq ptr %.030, null
+  %.031.in = getelementptr inbounds i8, ptr %.03143, i64 24
+  %.031 = load ptr, ptr %.031.in, align 8
+  %.not37 = icmp eq ptr %.031, null
   br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %12, %.preheader39
@@ -596,8 +596,8 @@ define void @Fxu_MatrixComputeSinglesOne(ptr noundef %0, ptr noundef %1) local_u
   br label %15
 
 15:                                               ; preds = %.lr.ph50, %64
-  %.03149 = phi ptr [ %.pre, %.lr.ph50 ], [ %66, %64 ]
-  %16 = getelementptr inbounds i8, ptr %.03149, i64 24
+  %.03049 = phi ptr [ %.pre, %.lr.ph50 ], [ %66, %64 ]
+  %16 = getelementptr inbounds i8, ptr %.03049, i64 24
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %15, %38
@@ -702,11 +702,11 @@ Fxu_SingleCountCoincidence.exit:                  ; preds = %57
   br i1 %.not36, label %64, label %63
 
 63:                                               ; preds = %Fxu_SingleCountCoincidence.exit
-  tail call void @Fxu_MatrixAddSingle(ptr noundef nonnull %0, ptr noundef %.03149, ptr noundef %1, i32 noundef %61) #9
+  tail call void @Fxu_MatrixAddSingle(ptr noundef nonnull %0, ptr noundef %.03049, ptr noundef %1, i32 noundef %61) #9
   br label %64
 
 64:                                               ; preds = %Fxu_SingleCountCoincidence.exit, %63
-  %65 = getelementptr inbounds i8, ptr %.03149, i64 64
+  %65 = getelementptr inbounds i8, ptr %.03049, i64 64
   %66 = load ptr, ptr %65, align 8
   %.not35 = icmp eq ptr %66, inttoptr (i64 1 to ptr)
   br i1 %.not35, label %.loopexit, label %15, !llvm.loop !15

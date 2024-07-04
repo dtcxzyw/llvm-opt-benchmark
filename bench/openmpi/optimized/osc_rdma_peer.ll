@@ -164,21 +164,21 @@ define range(i32 -12, 1) i32 @ompi_osc_rdma_new_peer(ptr nocapture noundef reado
   br i1 %.not.i.i28, label %opal_obj_new.exit, label %.lr.ph.i.i26, !llvm.loop !4
 
 opal_obj_new.exit:                                ; preds = %.lr.ph.i.i26, %.lr.ph.i.i19, %.lr.ph.i.i, %51, %38, %17
-  %.014 = phi ptr [ %13, %17 ], [ %34, %38 ], [ %47, %51 ], [ %13, %.lr.ph.i.i ], [ %34, %.lr.ph.i.i19 ], [ %47, %.lr.ph.i.i26 ]
+  %.0 = phi ptr [ %13, %17 ], [ %34, %38 ], [ %47, %51 ], [ %13, %.lr.ph.i.i ], [ %34, %.lr.ph.i.i19 ], [ %47, %.lr.ph.i.i26 ]
   %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds i8, ptr %.014, i64 40
+  %59 = getelementptr inbounds i8, ptr %.0, i64 40
   store ptr %58, ptr %59, align 8
   %60 = load i8, ptr %5, align 1
-  %61 = getelementptr inbounds i8, ptr %.014, i64 144
+  %61 = getelementptr inbounds i8, ptr %.0, i64 144
   store i8 %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %.014, i64 136
+  %62 = getelementptr inbounds i8, ptr %.0, i64 136
   store i32 %1, ptr %62, align 8
-  store ptr %.014, ptr %2, align 8
+  store ptr %.0, ptr %2, align 8
   br label %63
 
 63:                                               ; preds = %3, %opal_obj_new.exit
-  %.0 = phi i32 [ 0, %opal_obj_new.exit ], [ %6, %3 ]
-  ret i32 %.0
+  %.014 = phi i32 [ 0, %opal_obj_new.exit ], [ %6, %3 ]
+  ret i32 %.014
 }
 
 ; Function Attrs: nounwind uwtable
@@ -351,8 +351,8 @@ mca_bml_base_btl_array_find.exit:                 ; preds = %71
   br label %99
 
 99:                                               ; preds = %91, %94
-  %.044.in = phi ptr [ %98, %94 ], [ %84, %91 ]
-  %.044 = load ptr, ptr %.044.in, align 8
+  %.046.in = phi ptr [ %98, %94 ], [ %84, %91 ]
+  %.046 = load ptr, ptr %.046.in, align 8
   %100 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 76), align 4
   %101 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 60, i32 noundef %100) #12
   br i1 %101, label %102, label %109
@@ -362,7 +362,7 @@ mca_bml_base_btl_array_find.exit:                 ; preds = %71
   %104 = load ptr, ptr %5, align 8
   %105 = getelementptr i8, ptr %104, i64 220
   %.val53 = load i32, ptr %105, align 4
-  %106 = load ptr, ptr %.044, align 8
+  %106 = load ptr, ptr %.046, align 8
   %107 = getelementptr inbounds i8, ptr %106, i64 84
   %108 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %103, ptr noundef nonnull @.str.6, i32 noundef %.val53, ptr noundef nonnull %107, i32 noundef %108) #12
@@ -387,7 +387,7 @@ mca_bml_base_btl_array_find.exit:                 ; preds = %71
   %115 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %111, i64 %.09.i58
   %116 = getelementptr inbounds i8, ptr %115, i64 8
   %117 = load ptr, ptr %116, align 8
-  %118 = icmp eq ptr %117, %.044
+  %118 = icmp eq ptr %117, %.046
   br i1 %118, label %mca_bml_base_btl_array_find.exit61, label %112
 
 .loopexit77:                                      ; preds = %112, %109
@@ -409,15 +409,15 @@ mca_bml_base_btl_array_find.exit:                 ; preds = %71
   %124 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %120, i64 %.09.i64
   %125 = getelementptr inbounds i8, ptr %124, i64 8
   %126 = load ptr, ptr %125, align 8
-  %127 = icmp eq ptr %126, %.044
+  %127 = icmp eq ptr %126, %.046
   br i1 %127, label %mca_bml_base_btl_array_find.exit61, label %121
 
 mca_bml_base_btl_array_find.exit61:               ; preds = %114, %123
-  %.046 = phi ptr [ %124, %123 ], [ %115, %114 ]
+  %.045 = phi ptr [ %124, %123 ], [ %115, %114 ]
   %.0 = phi ptr [ @.str.8, %123 ], [ @.str.7, %114 ]
   %128 = trunc i64 %indvars.iv to i8
   store i8 %128, ptr %2, align 1
-  %129 = getelementptr inbounds i8, ptr %.046, i64 16
+  %129 = getelementptr inbounds i8, ptr %.045, i64 16
   %130 = load ptr, ptr %129, align 8
   store ptr %130, ptr %3, align 8
   %131 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 76), align 4
@@ -425,16 +425,16 @@ mca_bml_base_btl_array_find.exit61:               ; preds = %114, %123
   br i1 %132, label %133, label %150
 
 133:                                              ; preds = %mca_bml_base_btl_array_find.exit61
-  %.0459099 = trunc i64 %indvars.iv to i32
+  %.0449099 = trunc i64 %indvars.iv to i32
   %134 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 76), align 4
   %135 = load ptr, ptr %5, align 8
   %136 = getelementptr i8, ptr %135, i64 220
   %.val54 = load i32, ptr %136, align 4
-  %137 = getelementptr inbounds i8, ptr %.046, i64 8
+  %137 = getelementptr inbounds i8, ptr %.045, i64 8
   %138 = load ptr, ptr %137, align 8
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds i8, ptr %139, i64 84
-  tail call void (i32, ptr, ...) @opal_output(i32 noundef %134, ptr noundef nonnull @.str.9, i32 noundef %.val54, i32 noundef %1, ptr noundef nonnull %140, i32 noundef %.0459099, ptr noundef nonnull %.0) #12
+  tail call void (i32, ptr, ...) @opal_output(i32 noundef %134, ptr noundef nonnull @.str.9, i32 noundef %.val54, i32 noundef %1, ptr noundef nonnull %140, i32 noundef %.0449099, ptr noundef nonnull %.0) #12
   br label %150
 
 .loopexit:                                        ; preds = %121, %.loopexit77
@@ -844,7 +844,7 @@ define internal fastcc i32 @ompi_osc_rdma_peer_setup(ptr noundef %0, ptr noundef
   br label %107
 
 107:                                              ; preds = %100, %103
-  %.081 = phi ptr [ %106, %103 ], [ %92, %100 ]
+  %.0 = phi ptr [ %106, %103 ], [ %92, %100 ]
   %108 = getelementptr inbounds i8, ptr %1, i64 140
   %109 = load volatile i32, ptr %108, align 4
   %110 = and i32 %109, 2
@@ -852,13 +852,13 @@ define internal fastcc i32 @ompi_osc_rdma_peer_setup(ptr noundef %0, ptr noundef
   br i1 %.not92, label %111, label %137
 
 111:                                              ; preds = %107
-  %112 = load i64, ptr %.081, align 8
+  %112 = load i64, ptr %.0, align 8
   %113 = getelementptr inbounds i8, ptr %1, i64 152
   store i64 %112, ptr %113, align 8
   %114 = getelementptr inbounds i8, ptr %0, i64 309
   %115 = load i8, ptr %114, align 1
   %116 = trunc i8 %115 to i1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.081, i64 8
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.0, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br i1 %116, label %._crit_edge, label %117
 
@@ -886,7 +886,7 @@ define internal fastcc i32 @ompi_osc_rdma_peer_setup(ptr noundef %0, ptr noundef
   %126 = load volatile i32, ptr %108, align 4
   %127 = or i32 %126, 64
   store volatile i32 %127, ptr %108, align 4
-  %128 = getelementptr inbounds i8, ptr %.081, i64 16
+  %128 = getelementptr inbounds i8, ptr %.0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %122, ptr nonnull align 8 %128, i64 %121, i1 false)
   br label %129
 
@@ -905,8 +905,8 @@ define internal fastcc i32 @ompi_osc_rdma_peer_setup(ptr noundef %0, ptr noundef
   br label %137
 
 137:                                              ; preds = %._crit_edge, %132, %129, %120, %107, %86, %82, %75, %43, %15
-  %.0 = phi i32 [ -12, %15 ], [ %50, %43 ], [ -12, %75 ], [ 0, %82 ], [ %99, %86 ], [ 0, %107 ], [ -2, %120 ], [ 0, %129 ], [ 0, %132 ], [ 0, %._crit_edge ]
-  ret i32 %.0
+  %.081 = phi i32 [ -12, %15 ], [ %50, %43 ], [ -12, %75 ], [ 0, %82 ], [ %99, %86 ], [ 0, %107 ], [ -2, %120 ], [ 0, %129 ], [ 0, %132 ], [ 0, %._crit_edge ]
+  ret i32 %.081
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)

@@ -1035,8 +1035,8 @@ define void @Gia_ManHashProfile(ptr nocapture noundef readonly %0) local_unnamed
   %indvars.iv = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next, %._crit_edge.thread ]
   %.val21 = load ptr, ptr %24, align 8
   %27 = getelementptr inbounds i32, ptr %.val21, i64 %indvars.iv
-  %.022 = load i32, ptr %27, align 4
-  %.not23 = icmp eq i32 %.022, 0
+  %.01722 = load i32, ptr %27, align 4
+  %.not23 = icmp eq i32 %.01722, 0
   br i1 %.not23, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26
@@ -1044,13 +1044,13 @@ define void @Gia_ManHashProfile(ptr nocapture noundef readonly %0) local_unnamed
   br label %28
 
 28:                                               ; preds = %.lr.ph, %28
-  %.025 = phi i32 [ %.022, %.lr.ph ], [ %.0, %28 ]
-  %.01624 = phi i32 [ 0, %.lr.ph ], [ %29, %28 ]
-  %29 = add nuw nsw i32 %.01624, 1
-  %30 = sext i32 %.025 to i64
+  %.01725 = phi i32 [ %.01722, %.lr.ph ], [ %.017, %28 ]
+  %.024 = phi i32 [ 0, %.lr.ph ], [ %29, %28 ]
+  %29 = add nuw nsw i32 %.024, 1
+  %30 = sext i32 %.01725 to i64
   %31 = getelementptr inbounds i32, ptr %.val20, i64 %30
-  %.0 = load i32, ptr %31, align 4
-  %.not = icmp eq i32 %.0, 0
+  %.017 = load i32, ptr %31, align 4
+  %.not = icmp eq i32 %.017, 0
   br i1 %.not, label %._crit_edge, label %28, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %28
@@ -1595,9 +1595,9 @@ define i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
   br label %95
 
 73:                                               ; preds = %43, %40
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %1, i32 %2)
-  %spec.select70 = tail call i32 @llvm.umin.i32(i32 %1, i32 %2)
-  %74 = tail call fastcc ptr @Gia_ManHashFind(ptr noundef nonnull %0, i32 noundef %spec.select70, i32 noundef %spec.select, i32 noundef -1)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %1, i32 %2)
+  %spec.select70 = tail call i32 @llvm.umax.i32(i32 %1, i32 %2)
+  %74 = tail call fastcc ptr @Gia_ManHashFind(ptr noundef nonnull %0, i32 noundef %spec.select, i32 noundef %spec.select70, i32 noundef -1)
   %75 = load i32, ptr %74, align 4
   %.not67 = icmp eq i32 %75, 0
   br i1 %.not67, label %82, label %76
@@ -1621,11 +1621,11 @@ define i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
   %.val = load i32, ptr %87, align 4
   %.val73 = load i32, ptr %86, align 8
   %88 = icmp slt i32 %.val, %.val73
-  %89 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef nonnull %0, i32 noundef %spec.select70, i32 noundef %spec.select)
+  %89 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef nonnull %0, i32 noundef %spec.select, i32 noundef %spec.select70)
   br i1 %88, label %92, label %90
 
 90:                                               ; preds = %82
-  %91 = tail call fastcc ptr @Gia_ManHashFind(ptr noundef nonnull %0, i32 noundef %spec.select70, i32 noundef %spec.select, i32 noundef -1)
+  %91 = tail call fastcc ptr @Gia_ManHashFind(ptr noundef nonnull %0, i32 noundef %spec.select, i32 noundef %spec.select70, i32 noundef -1)
   br label %92
 
 92:                                               ; preds = %82, %90
@@ -2472,8 +2472,8 @@ Gia_ManHashFind.exit:                             ; preds = %60, %Gia_ObjFaninLi
   br label %Gia_ManHashFind.exit.thread
 
 Gia_ManHashFind.exit.thread:                      ; preds = %68, %Gia_ManHashFind.exit, %16, %13, %11, %9, %5
-  %.0 = phi i32 [ %6, %5 ], [ %10, %9 ], [ %1, %11 ], [ 0, %13 ], [ -1, %16 ], [ %71, %Gia_ManHashFind.exit ], [ -1, %68 ]
-  ret i32 %.0
+  %.025 = phi i32 [ %6, %5 ], [ %10, %9 ], [ %1, %11 ], [ 0, %13 ], [ -1, %16 ], [ %71, %Gia_ManHashFind.exit ], [ -1, %68 ]
+  ret i32 %.025
 }
 
 ; Function Attrs: nounwind uwtable

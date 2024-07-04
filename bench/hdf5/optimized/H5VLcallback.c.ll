@@ -2417,24 +2417,24 @@ define range(i32 -1, -2147483648) i32 @H5VLattr_optional_op(ptr noundef %0, ptr 
 define internal fastcc i32 @H5VL__common_optional_op(i64 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %.not = icmp eq ptr %6, null
   %8 = tail call ptr @H5I_object_verify(i64 noundef %0, i32 noundef %1) #6
-  br i1 %.not, label %.cont, label %.else
+  br i1 %.not, label %.cont20, label %.else21
 
-.else:                                            ; preds = %7
+.else21:                                          ; preds = %7
   store ptr %8, ptr %6, align 8
-  br label %.cont
+  br label %.cont20
 
-.cont:                                            ; preds = %7, %.else
-  %.022 = phi ptr [ null, %.else ], [ %8, %7 ]
+.cont20:                                          ; preds = %7, %.else21
+  %.022 = phi ptr [ null, %.else21 ], [ %8, %7 ]
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %14
 
-10:                                               ; preds = %.cont
+10:                                               ; preds = %.cont20
   %11 = load i64, ptr @H5E_ARGS_g, align 8
   %12 = load i64, ptr @H5E_BADTYPE_g, align 8
   %13 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__common_optional_op, i32 noundef 351, i64 noundef %11, i64 noundef %12, ptr noundef nonnull @.str.181) #6
   br label %40
 
-14:                                               ; preds = %.cont
+14:                                               ; preds = %.cont20
   %15 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef nonnull %8) #6
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %21
@@ -2446,14 +2446,14 @@ define internal fastcc i32 @H5VL__common_optional_op(i64 noundef %0, i32 noundef
   br label %40
 
 21:                                               ; preds = %14
-  br i1 %.not, label %.cont20, label %.else21
+  br i1 %.not, label %.cont, label %.else
 
-.else21:                                          ; preds = %21
+.else:                                            ; preds = %21
   %.else.val = load ptr, ptr %6, align 8
-  br label %.cont20
+  br label %.cont
 
-.cont20:                                          ; preds = %21, %.else21
-  %22 = phi ptr [ %.022, %21 ], [ %.else.val, %.else21 ]
+.cont:                                            ; preds = %21, %.else
+  %22 = phi ptr [ %.022, %21 ], [ %.else.val, %.else ]
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %22, i64 8
   %25 = load ptr, ptr %24, align 8
@@ -2462,13 +2462,13 @@ define internal fastcc i32 @H5VL__common_optional_op(i64 noundef %0, i32 noundef
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %33
 
-29:                                               ; preds = %.cont20
+29:                                               ; preds = %.cont
   %30 = load i64, ptr @H5E_VOL_g, align 8
   %31 = load i64, ptr @H5E_CANTOPERATE_g, align 8
   %32 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__common_optional_op, i32 noundef 362, i64 noundef %30, i64 noundef %31, ptr noundef nonnull @.str.173) #6
   br label %33
 
-33:                                               ; preds = %29, %.cont20
+33:                                               ; preds = %29, %.cont
   %34 = tail call i32 @H5VL_reset_vol_wrapper() #6
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %36, label %40
@@ -4641,25 +4641,25 @@ H5VL__datatype_optional.exit:                     ; preds = %4
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5VL_datatype_optional_op(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %.cont, label %.cont.thread
+  br i1 %.not, label %.cont15, label %.cont15.thread
 
-.cont:                                            ; preds = %5
+.cont15:                                          ; preds = %5
   %6 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %7 = icmp sgt i32 %6, -1
-  br i1 %7, label %.cont15, label %H5VL__datatype_optional.exit
+  br i1 %7, label %.cont, label %H5VL__datatype_optional.exit
 
-.cont.thread:                                     ; preds = %5
+.cont15.thread:                                   ; preds = %5
   store ptr %0, ptr %4, align 8
   %8 = tail call i32 @H5VL_set_vol_wrapper(ptr noundef %0) #6
   %9 = icmp sgt i32 %8, -1
-  br i1 %9, label %.else16, label %H5VL__datatype_optional.exit
+  br i1 %9, label %.else, label %H5VL__datatype_optional.exit
 
-.else16:                                          ; preds = %.cont.thread
+.else:                                            ; preds = %.cont15.thread
   %.else.val = load ptr, ptr %4, align 8
-  br label %.cont15
+  br label %.cont
 
-.cont15:                                          ; preds = %.cont, %.else16
-  %10 = phi ptr [ %.else.val, %.else16 ], [ %0, %.cont ]
+.cont:                                            ; preds = %.cont15, %.else
+  %10 = phi ptr [ %.else.val, %.else ], [ %0, %.cont15 ]
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
@@ -4668,13 +4668,13 @@ define range(i32 -1, 1) i32 @H5VL_datatype_optional_op(ptr noundef %0, ptr nound
   %15 = icmp eq ptr %.val, null
   br i1 %15, label %16, label %20
 
-16:                                               ; preds = %.cont15
+16:                                               ; preds = %.cont
   %17 = load i64, ptr @H5E_VOL_g, align 8
   %18 = load i64, ptr @H5E_UNSUPPORTED_g, align 8
   %19 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL__datatype_optional, i32 noundef 3236, i64 noundef %17, i64 noundef %18, ptr noundef nonnull @.str.196) #6
   br label %28
 
-20:                                               ; preds = %.cont15
+20:                                               ; preds = %.cont
   %21 = load ptr, ptr %10, align 8
   %22 = tail call i32 %.val(ptr noundef %21, ptr noundef %1, i64 noundef %2, ptr noundef %3) #6
   %23 = icmp slt i32 %22, 0
@@ -4692,7 +4692,7 @@ define range(i32 -1, 1) i32 @H5VL_datatype_optional_op(ptr noundef %0, ptr nound
   %31 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_optional_op, i32 noundef 3315, i64 noundef %29, i64 noundef %30, ptr noundef nonnull @.str.79) #6
   br label %35
 
-H5VL__datatype_optional.exit:                     ; preds = %.cont, %.cont.thread
+H5VL__datatype_optional.exit:                     ; preds = %.cont15, %.cont15.thread
   %32 = load i64, ptr @H5E_VOL_g, align 8
   %33 = load i64, ptr @H5E_CANTSET_g, align 8
   %34 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5VL_datatype_optional_op, i32 noundef 3310, i64 noundef %32, i64 noundef %33, ptr noundef nonnull @.str.24) #6

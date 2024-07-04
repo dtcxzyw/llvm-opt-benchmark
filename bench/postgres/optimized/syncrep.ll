@@ -765,7 +765,7 @@ SyncRepWakeQueue.exit:                            ; preds = %114, %.lr.ph.split.
   br i1 %.not18.i29, label %SyncRepWakeQueue.exit31, label %.lr.ph.split.i23, !llvm.loop !15
 
 SyncRepWakeQueue.exit31:                          ; preds = %134, %.lr.ph.split.i23, %124, %SyncRepWakeQueue.exit
-  %.09 = phi i32 [ 0, %SyncRepWakeQueue.exit ], [ 0, %124 ], [ %.01723.i25, %.lr.ph.split.i23 ], [ %140, %134 ]
+  %.010 = phi i32 [ 0, %SyncRepWakeQueue.exit ], [ 0, %124 ], [ %.01723.i25, %.lr.ph.split.i23 ], [ %140, %134 ]
   %141 = getelementptr i8, ptr %2, i64 64
   %142 = load volatile i64, ptr %141, align 8
   %143 = icmp ult i64 %142, %.3
@@ -811,7 +811,7 @@ SyncRepWakeQueue.exit31:                          ; preds = %134, %.lr.ph.split.
   br i1 %.not18.i44, label %SyncRepWakeQueue.exit46, label %.lr.ph.split.i38, !llvm.loop !15
 
 SyncRepWakeQueue.exit46:                          ; preds = %154, %.lr.ph.split.i38, %144, %SyncRepWakeQueue.exit31
-  %.010 = phi i32 [ 0, %SyncRepWakeQueue.exit31 ], [ 0, %144 ], [ %.01723.i40, %.lr.ph.split.i38 ], [ %160, %154 ]
+  %.09 = phi i32 [ 0, %SyncRepWakeQueue.exit31 ], [ 0, %144 ], [ %.01723.i40, %.lr.ph.split.i38 ], [ %160, %154 ]
   %161 = load ptr, ptr @MainLWLockArray, align 8
   %162 = getelementptr i8, ptr %161, i64 4096
   tail call void @LWLockRelease(ptr noundef %162) #10
@@ -828,7 +828,7 @@ SyncRepWakeQueue.exit46:                          ; preds = %154, %.lr.ph.split.
   %171 = lshr i64 %.3, 32
   %172 = trunc nuw i64 %171 to i32
   %173 = trunc i64 %.3 to i32
-  %174 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %.0, i32 noundef %166, i32 noundef %167, i32 noundef %.09, i32 noundef %169, i32 noundef %170, i32 noundef %.010, i32 noundef %172, i32 noundef %173) #10
+  %174 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %.0, i32 noundef %166, i32 noundef %167, i32 noundef %.010, i32 noundef %169, i32 noundef %170, i32 noundef %.09, i32 noundef %172, i32 noundef %173) #10
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 531, ptr noundef nonnull @__func__.SyncRepReleaseWaiters) #10
   br label %175
 
@@ -854,12 +854,12 @@ define dso_local i32 @SyncRepGetCandidateStandbys(ptr nocapture noundef %0) loca
 
 .lr.ph:                                           ; preds = %.preheader, %53
   %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.preheader ]
-  %.03638 = phi i32 [ %.1, %53 ], [ 0, %.preheader ]
+  %.039 = phi i32 [ %.1, %53 ], [ 0, %.preheader ]
   %10 = load ptr, ptr @WalSndCtl, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 104
   %12 = getelementptr [0 x %struct.WalSnd], ptr %11, i64 0, i64 %indvars.iv
   %13 = load ptr, ptr %0, align 8
-  %14 = sext i32 %.03638 to i64
+  %14 = sext i32 %.039 to i64
   %15 = getelementptr %struct.SyncRepStandbyData, ptr %13, i64 %14
   %16 = getelementptr inbounds i8, ptr %12, i64 76
   %17 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %16, i8 1, ptr nonnull elementtype(i8) %16) #10, !srcloc !9
@@ -919,11 +919,11 @@ define dso_local i32 @SyncRepGetCandidateStandbys(ptr nocapture noundef %0) loca
   %50 = getelementptr inbounds i8, ptr %15, i64 40
   %51 = zext i1 %49 to i8
   store i8 %51, ptr %50, align 8
-  %52 = add i32 %.03638, 1
+  %52 = add i32 %.039, 1
   br label %53
 
 53:                                               ; preds = %42, %39, %20, %45
-  %.1 = phi i32 [ %.03638, %20 ], [ %.03638, %39 ], [ %.03638, %42 ], [ %52, %45 ]
+  %.1 = phi i32 [ %.039, %20 ], [ %.039, %39 ], [ %.039, %42 ], [ %52, %45 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = load i32, ptr @max_wal_senders, align 4
   %55 = sext i32 %54 to i64
@@ -936,7 +936,7 @@ define dso_local i32 @SyncRepGetCandidateStandbys(ptr nocapture noundef %0) loca
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %57 = phi ptr [ %6, %.preheader ], [ %.pre, %._crit_edge.loopexit ]
-  %.036.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %._crit_edge.loopexit ]
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   %59 = load i8, ptr %58, align 4
   %60 = icmp eq i8 %59, 0
@@ -945,12 +945,12 @@ define dso_local i32 @SyncRepGetCandidateStandbys(ptr nocapture noundef %0) loca
 61:                                               ; preds = %._crit_edge
   %62 = getelementptr inbounds i8, ptr %57, i64 4
   %63 = load i32, ptr %62, align 4
-  %64 = icmp sgt i32 %.036.lcssa, %63
+  %64 = icmp sgt i32 %.0.lcssa, %63
   br i1 %64, label %65, label %71
 
 65:                                               ; preds = %61
   %66 = load ptr, ptr %0, align 8
-  %67 = sext i32 %.036.lcssa to i64
+  %67 = sext i32 %.0.lcssa to i64
   tail call void @pg_qsort(ptr noundef %66, i64 noundef %67, i64 noundef 48, ptr noundef nonnull @standby_priority_comparator) #10
   %68 = load ptr, ptr @SyncRepConfig, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 4
@@ -958,8 +958,8 @@ define dso_local i32 @SyncRepGetCandidateStandbys(ptr nocapture noundef %0) loca
   br label %71
 
 71:                                               ; preds = %._crit_edge, %61, %65, %1
-  %.0 = phi i32 [ 0, %1 ], [ %70, %65 ], [ %.036.lcssa, %61 ], [ %.036.lcssa, %._crit_edge ]
-  ret i32 %.0
+  %.036 = phi i32 [ 0, %1 ], [ %70, %65 ], [ %.0.lcssa, %61 ], [ %.0.lcssa, %._crit_edge ]
+  ret i32 %.036
 }
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1

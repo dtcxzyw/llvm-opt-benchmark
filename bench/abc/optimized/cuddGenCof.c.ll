@@ -55,8 +55,8 @@ define ptr @cuddBddConstrainRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2
 25:                                               ; preds = %20
   %26 = and i64 %13, 1
   %.not.not = icmp eq i64 %26, 0
-  %.0113 = select i1 %.not.not, ptr %1, ptr %15
-  %27 = tail call ptr @cuddCacheLookup2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_bddConstrain, ptr noundef %.0113, ptr noundef %2) #8
+  %.0122 = select i1 %.not.not, ptr %1, ptr %15
+  %27 = tail call ptr @cuddCacheLookup2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_bddConstrain, ptr noundef %.0122, ptr noundef %2) #8
   %.not137 = icmp eq ptr %27, null
   br i1 %.not137, label %32, label %28
 
@@ -69,7 +69,7 @@ define ptr @cuddBddConstrainRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2
 32:                                               ; preds = %25
   %33 = getelementptr inbounds i8, ptr %0, i64 312
   %34 = load ptr, ptr %33, align 8
-  %35 = load i32, ptr %.0113, align 8
+  %35 = load i32, ptr %.0122, align 8
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds i32, ptr %34, i64 %36
   %38 = load i32, ptr %37, align 4
@@ -83,15 +83,15 @@ define ptr @cuddBddConstrainRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not138, label %50, label %45
 
 45:                                               ; preds = %32
-  %46 = getelementptr inbounds i8, ptr %.0113, i64 16
+  %46 = getelementptr inbounds i8, ptr %.0122, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %.0113, i64 24
+  %48 = getelementptr inbounds i8, ptr %.0122, i64 24
   %49 = load ptr, ptr %48, align 8
   br label %50
 
 50:                                               ; preds = %32, %45
-  %.0115 = phi ptr [ %49, %45 ], [ %.0113, %32 ]
-  %.0114 = phi ptr [ %47, %45 ], [ %.0113, %32 ]
+  %.0120 = phi ptr [ %47, %45 ], [ %.0122, %32 ]
+  %.0119 = phi ptr [ %49, %45 ], [ %.0122, %32 ]
   %.0111 = phi i32 [ %35, %45 ], [ %41, %32 ]
   %.not139 = icmp ugt i32 %44, %38
   br i1 %.not139, label %64, label %51
@@ -115,9 +115,9 @@ define ptr @cuddBddConstrainRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %64
 
 64:                                               ; preds = %50, %51, %57
-  %.0122 = phi ptr [ %60, %57 ], [ %53, %51 ], [ %2, %50 ]
-  %.0121 = phi ptr [ %63, %57 ], [ %55, %51 ], [ %2, %50 ]
-  %65 = ptrtoint ptr %.0122 to i64
+  %.0118 = phi ptr [ %60, %57 ], [ %53, %51 ], [ %2, %50 ]
+  %.0117 = phi ptr [ %63, %57 ], [ %55, %51 ], [ %2, %50 ]
+  %65 = ptrtoint ptr %.0118 to i64
   %66 = and i64 %65, -2
   %67 = inttoptr i64 %66 to ptr
   %68 = load i32, ptr %67, align 8
@@ -125,40 +125,40 @@ define ptr @cuddBddConstrainRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %69, label %73, label %70
 
 70:                                               ; preds = %64
-  %71 = tail call ptr @cuddBddConstrainRecur(ptr noundef nonnull %0, ptr noundef %.0114, ptr noundef %.0122)
+  %71 = tail call ptr @cuddBddConstrainRecur(ptr noundef nonnull %0, ptr noundef %.0120, ptr noundef %.0118)
   %72 = icmp eq ptr %71, null
   br i1 %72, label %143, label %84
 
 73:                                               ; preds = %64
-  %74 = icmp eq ptr %.0122, %5
+  %74 = icmp eq ptr %.0118, %5
   br i1 %74, label %84, label %75
 
 75:                                               ; preds = %73
-  %76 = icmp eq ptr %.0121, %5
+  %76 = icmp eq ptr %.0117, %5
   br i1 %76, label %80, label %77
 
 77:                                               ; preds = %75
-  %78 = tail call ptr @cuddBddConstrainRecur(ptr noundef nonnull %0, ptr noundef %.0115, ptr noundef %.0121)
+  %78 = tail call ptr @cuddBddConstrainRecur(ptr noundef nonnull %0, ptr noundef %.0119, ptr noundef %.0117)
   %79 = icmp eq ptr %78, null
   br i1 %79, label %143, label %80
 
 80:                                               ; preds = %75, %77
-  %.0116 = phi ptr [ %78, %77 ], [ %.0115, %75 ]
-  %81 = ptrtoint ptr %.0116 to i64
+  %.0112 = phi ptr [ %78, %77 ], [ %.0119, %75 ]
+  %81 = ptrtoint ptr %.0112 to i64
   %82 = xor i64 %26, %81
   %83 = inttoptr i64 %82 to ptr
   br label %143
 
 84:                                               ; preds = %73, %70
-  %.0119 = phi ptr [ %71, %70 ], [ %.0114, %73 ]
-  %85 = ptrtoint ptr %.0119 to i64
+  %.0115 = phi ptr [ %71, %70 ], [ %.0120, %73 ]
+  %85 = ptrtoint ptr %.0115 to i64
   %86 = and i64 %85, -2
   %87 = inttoptr i64 %86 to ptr
   %88 = getelementptr inbounds i8, ptr %87, i64 4
   %89 = load i32, ptr %88, align 4
   %90 = add i32 %89, 1
   store i32 %90, ptr %88, align 4
-  %91 = ptrtoint ptr %.0121 to i64
+  %91 = ptrtoint ptr %.0117 to i64
   %92 = and i64 %91, -2
   %93 = inttoptr i64 %92 to ptr
   %94 = load i32, ptr %93, align 8
@@ -166,16 +166,16 @@ define ptr @cuddBddConstrainRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %95, label %100, label %96
 
 96:                                               ; preds = %84
-  %97 = tail call ptr @cuddBddConstrainRecur(ptr noundef nonnull %0, ptr noundef %.0115, ptr noundef %.0121)
+  %97 = tail call ptr @cuddBddConstrainRecur(ptr noundef nonnull %0, ptr noundef %.0119, ptr noundef %.0117)
   %98 = icmp eq ptr %97, null
   br i1 %98, label %99, label %105
 
 99:                                               ; preds = %96
-  tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef %.0119) #8
+  tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef %.0115) #8
   br label %143
 
 100:                                              ; preds = %84
-  %101 = icmp eq ptr %.0121, %5
+  %101 = icmp eq ptr %.0117, %5
   br i1 %101, label %105, label %102
 
 102:                                              ; preds = %100
@@ -185,8 +185,8 @@ define ptr @cuddBddConstrainRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %143
 
 105:                                              ; preds = %100, %96
-  %.0117 = phi ptr [ %97, %96 ], [ %.0115, %100 ]
-  %106 = ptrtoint ptr %.0117 to i64
+  %.0113 = phi ptr [ %97, %96 ], [ %.0119, %100 ]
+  %106 = ptrtoint ptr %.0113 to i64
   %107 = and i64 %106, -2
   %108 = inttoptr i64 %107 to ptr
   %109 = getelementptr inbounds i8, ptr %108, i64 4
@@ -224,21 +224,21 @@ define ptr @cuddBddConstrainRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %133
 
 125:                                              ; preds = %105
-  %126 = icmp eq ptr %.0119, %.0117
+  %126 = icmp eq ptr %.0115, %.0113
   br i1 %126, label %129, label %127
 
 127:                                              ; preds = %125
-  %128 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %.0111, ptr noundef %.0119, ptr noundef %.0117) #8
+  %128 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %.0111, ptr noundef %.0115, ptr noundef %.0113) #8
   br label %129
 
 129:                                              ; preds = %125, %127
-  %130 = phi ptr [ %128, %127 ], [ %.0119, %125 ]
+  %130 = phi ptr [ %128, %127 ], [ %.0115, %125 ]
   %131 = icmp eq ptr %130, null
   br i1 %131, label %132, label %133
 
 132:                                              ; preds = %129
-  tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef %.0117) #8
-  tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef %.0119) #8
+  tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef %.0113) #8
+  tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef %.0115) #8
   br label %143
 
 133:                                              ; preds = %129, %.thread
@@ -253,15 +253,15 @@ define ptr @cuddBddConstrainRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %138 = load i32, ptr %137, align 4
   %139 = add i32 %138, -1
   store i32 %139, ptr %137, align 4
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_bddConstrain, ptr noundef nonnull %.0113, ptr noundef %2, ptr noundef %.1) #8
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_bddConstrain, ptr noundef nonnull %.0122, ptr noundef %2, ptr noundef %.1) #8
   %140 = ptrtoint ptr %.1 to i64
   %141 = xor i64 %26, %140
   %142 = inttoptr i64 %141 to ptr
   br label %143
 
 143:                                              ; preds = %77, %70, %20, %18, %12, %10, %3, %133, %132, %120, %102, %99, %80, %28
-  %.0112 = phi ptr [ %31, %28 ], [ null, %120 ], [ %142, %133 ], [ null, %132 ], [ %104, %102 ], [ null, %99 ], [ %83, %80 ], [ %1, %3 ], [ %8, %10 ], [ %1, %12 ], [ %5, %18 ], [ %8, %20 ], [ null, %70 ], [ null, %77 ]
-  ret ptr %.0112
+  %.0121 = phi ptr [ %31, %28 ], [ null, %120 ], [ %142, %133 ], [ null, %132 ], [ %104, %102 ], [ null, %99 ], [ %83, %80 ], [ %1, %3 ], [ %8, %10 ], [ %1, %12 ], [ %5, %18 ], [ %8, %20 ], [ null, %70 ], [ null, %77 ]
+  ret ptr %.0121
 }
 
 ; Function Attrs: nounwind uwtable
@@ -448,8 +448,8 @@ define ptr @cuddBddRestrictRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 25:                                               ; preds = %20
   %26 = and i64 %13, 1
   %.not.not = icmp eq i64 %26, 0
-  %.0139 = select i1 %.not.not, ptr %1, ptr %15
-  %27 = tail call ptr @cuddCacheLookup2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_bddRestrict, ptr noundef %.0139, ptr noundef %2) #8
+  %.0146 = select i1 %.not.not, ptr %1, ptr %15
+  %27 = tail call ptr @cuddCacheLookup2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_bddRestrict, ptr noundef %.0146, ptr noundef %2) #8
   %.not165 = icmp eq ptr %27, null
   br i1 %.not165, label %32, label %28
 
@@ -462,7 +462,7 @@ define ptr @cuddBddRestrictRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 32:                                               ; preds = %25
   %33 = getelementptr inbounds i8, ptr %0, i64 312
   %34 = load ptr, ptr %33, align 8
-  %35 = load i32, ptr %.0139, align 8
+  %35 = load i32, ptr %.0146, align 8
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds i32, ptr %34, i64 %36
   %38 = load i32, ptr %37, align 4
@@ -517,7 +517,7 @@ define ptr @cuddBddRestrictRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %74 = load i32, ptr %73, align 4
   %75 = add i32 %74, 1
   store i32 %75, ptr %73, align 4
-  %76 = tail call ptr @cuddBddRestrictRecur(ptr noundef nonnull %0, ptr noundef nonnull %.0139, ptr noundef %70)
+  %76 = tail call ptr @cuddBddRestrictRecur(ptr noundef nonnull %0, ptr noundef nonnull %.0146, ptr noundef %70)
   %77 = icmp eq ptr %76, null
   br i1 %77, label %78, label %79
 
@@ -534,7 +534,7 @@ define ptr @cuddBddRestrictRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %85 = add i32 %84, 1
   store i32 %85, ptr %83, align 4
   tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef %70) #8
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_bddRestrict, ptr noundef nonnull %.0139, ptr noundef %2, ptr noundef nonnull %76) #8
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_bddRestrict, ptr noundef nonnull %.0146, ptr noundef %2, ptr noundef nonnull %76) #8
   %86 = load i32, ptr %83, align 4
   %87 = add i32 %86, -1
   store i32 %87, ptr %83, align 4
@@ -543,9 +543,9 @@ define ptr @cuddBddRestrictRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %188
 
 90:                                               ; preds = %32
-  %91 = getelementptr inbounds i8, ptr %.0139, i64 16
+  %91 = getelementptr inbounds i8, ptr %.0146, i64 16
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %.0139, i64 24
+  %93 = getelementptr inbounds i8, ptr %.0146, i64 24
   %94 = load ptr, ptr %93, align 8
   %95 = icmp eq i32 %44, %38
   br i1 %95, label %96, label %109
@@ -569,9 +569,9 @@ define ptr @cuddBddRestrictRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %109
 
 109:                                              ; preds = %90, %96, %102
-  %.0141 = phi ptr [ %108, %102 ], [ %100, %96 ], [ %2, %90 ]
-  %.0140 = phi ptr [ %105, %102 ], [ %98, %96 ], [ %2, %90 ]
-  %110 = ptrtoint ptr %.0140 to i64
+  %.0144 = phi ptr [ %105, %102 ], [ %98, %96 ], [ %2, %90 ]
+  %.0143 = phi ptr [ %108, %102 ], [ %100, %96 ], [ %2, %90 ]
+  %110 = ptrtoint ptr %.0144 to i64
   %111 = and i64 %110, -2
   %112 = inttoptr i64 %111 to ptr
   %113 = load i32, ptr %112, align 8
@@ -579,40 +579,40 @@ define ptr @cuddBddRestrictRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %114, label %118, label %115
 
 115:                                              ; preds = %109
-  %116 = tail call ptr @cuddBddRestrictRecur(ptr noundef nonnull %0, ptr noundef %92, ptr noundef %.0140)
+  %116 = tail call ptr @cuddBddRestrictRecur(ptr noundef nonnull %0, ptr noundef %92, ptr noundef %.0144)
   %117 = icmp eq ptr %116, null
   br i1 %117, label %188, label %129
 
 118:                                              ; preds = %109
-  %119 = icmp eq ptr %.0140, %5
+  %119 = icmp eq ptr %.0144, %5
   br i1 %119, label %129, label %120
 
 120:                                              ; preds = %118
-  %121 = icmp eq ptr %.0141, %5
+  %121 = icmp eq ptr %.0143, %5
   br i1 %121, label %125, label %122
 
 122:                                              ; preds = %120
-  %123 = tail call ptr @cuddBddRestrictRecur(ptr noundef nonnull %0, ptr noundef %94, ptr noundef %.0141)
+  %123 = tail call ptr @cuddBddRestrictRecur(ptr noundef nonnull %0, ptr noundef %94, ptr noundef %.0143)
   %124 = icmp eq ptr %123, null
   br i1 %124, label %188, label %125
 
 125:                                              ; preds = %120, %122
-  %.0143 = phi ptr [ %123, %122 ], [ %94, %120 ]
-  %126 = ptrtoint ptr %.0143 to i64
+  %.0138 = phi ptr [ %123, %122 ], [ %94, %120 ]
+  %126 = ptrtoint ptr %.0138 to i64
   %127 = xor i64 %26, %126
   %128 = inttoptr i64 %127 to ptr
   br label %188
 
 129:                                              ; preds = %118, %115
-  %.0142 = phi ptr [ %116, %115 ], [ %92, %118 ]
-  %130 = ptrtoint ptr %.0142 to i64
+  %.0141 = phi ptr [ %116, %115 ], [ %92, %118 ]
+  %130 = ptrtoint ptr %.0141 to i64
   %131 = and i64 %130, -2
   %132 = inttoptr i64 %131 to ptr
   %133 = getelementptr inbounds i8, ptr %132, i64 4
   %134 = load i32, ptr %133, align 4
   %135 = add i32 %134, 1
   store i32 %135, ptr %133, align 4
-  %136 = ptrtoint ptr %.0141 to i64
+  %136 = ptrtoint ptr %.0143 to i64
   %137 = and i64 %136, -2
   %138 = inttoptr i64 %137 to ptr
   %139 = load i32, ptr %138, align 8
@@ -620,16 +620,16 @@ define ptr @cuddBddRestrictRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br i1 %140, label %145, label %141
 
 141:                                              ; preds = %129
-  %142 = tail call ptr @cuddBddRestrictRecur(ptr noundef nonnull %0, ptr noundef %94, ptr noundef %.0141)
+  %142 = tail call ptr @cuddBddRestrictRecur(ptr noundef nonnull %0, ptr noundef %94, ptr noundef %.0143)
   %143 = icmp eq ptr %142, null
   br i1 %143, label %144, label %150
 
 144:                                              ; preds = %141
-  tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef %.0142) #8
+  tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef %.0141) #8
   br label %188
 
 145:                                              ; preds = %129
-  %146 = icmp eq ptr %.0141, %5
+  %146 = icmp eq ptr %.0143, %5
   br i1 %146, label %150, label %147
 
 147:                                              ; preds = %145
@@ -639,8 +639,8 @@ define ptr @cuddBddRestrictRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %188
 
 150:                                              ; preds = %145, %141
-  %.0145 = phi ptr [ %142, %141 ], [ %94, %145 ]
-  %151 = ptrtoint ptr %.0145 to i64
+  %.0139 = phi ptr [ %142, %141 ], [ %94, %145 ]
+  %151 = ptrtoint ptr %.0139 to i64
   %152 = and i64 %151, -2
   %153 = inttoptr i64 %152 to ptr
   %154 = getelementptr inbounds i8, ptr %153, i64 4
@@ -678,27 +678,27 @@ define ptr @cuddBddRestrictRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %178
 
 170:                                              ; preds = %150
-  %171 = icmp eq ptr %.0142, %.0145
+  %171 = icmp eq ptr %.0141, %.0139
   br i1 %171, label %174, label %172
 
 172:                                              ; preds = %170
-  %173 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %35, ptr noundef %.0142, ptr noundef %.0145) #8
+  %173 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %35, ptr noundef %.0141, ptr noundef %.0139) #8
   br label %174
 
 174:                                              ; preds = %170, %172
-  %175 = phi ptr [ %173, %172 ], [ %.0142, %170 ]
+  %175 = phi ptr [ %173, %172 ], [ %.0141, %170 ]
   %176 = icmp eq ptr %175, null
   br i1 %176, label %177, label %178
 
 177:                                              ; preds = %174
-  tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef %.0145) #8
-  tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef %.0142) #8
+  tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef %.0139) #8
+  tail call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef %.0141) #8
   br label %188
 
 178:                                              ; preds = %174, %.thread
   %.pre-phi178 = phi ptr [ %153, %174 ], [ %.pre177, %.thread ]
   %.pre-phi172 = phi ptr [ %132, %174 ], [ %.pre171, %.thread ]
-  %.1144 = phi ptr [ %175, %174 ], [ %169, %.thread ]
+  %.1 = phi ptr [ %175, %174 ], [ %169, %.thread ]
   %179 = getelementptr inbounds i8, ptr %.pre-phi172, i64 4
   %180 = load i32, ptr %179, align 4
   %181 = add i32 %180, -1
@@ -707,15 +707,15 @@ define ptr @cuddBddRestrictRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %183 = load i32, ptr %182, align 4
   %184 = add i32 %183, -1
   store i32 %184, ptr %182, align 4
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_bddRestrict, ptr noundef nonnull %.0139, ptr noundef %2, ptr noundef %.1144) #8
-  %185 = ptrtoint ptr %.1144 to i64
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_bddRestrict, ptr noundef nonnull %.0146, ptr noundef %2, ptr noundef %.1) #8
+  %185 = ptrtoint ptr %.1 to i64
   %186 = xor i64 %26, %185
   %187 = inttoptr i64 %186 to ptr
   br label %188
 
 188:                                              ; preds = %122, %115, %64, %20, %18, %12, %10, %3, %178, %177, %165, %147, %144, %125, %79, %78, %28
-  %.0138 = phi ptr [ %31, %28 ], [ null, %78 ], [ %89, %79 ], [ null, %165 ], [ %187, %178 ], [ null, %177 ], [ %149, %147 ], [ null, %144 ], [ %128, %125 ], [ %1, %3 ], [ %8, %10 ], [ %1, %12 ], [ %5, %18 ], [ %8, %20 ], [ null, %64 ], [ null, %115 ], [ null, %122 ]
-  ret ptr %.0138
+  %.0145 = phi ptr [ %31, %28 ], [ null, %78 ], [ %89, %79 ], [ null, %165 ], [ %187, %178 ], [ null, %177 ], [ %149, %147 ], [ null, %144 ], [ %128, %125 ], [ %1, %3 ], [ %8, %10 ], [ %1, %12 ], [ %5, %18 ], [ %8, %20 ], [ null, %64 ], [ null, %115 ], [ null, %122 ]
+  ret ptr %.0145
 }
 
 declare i32 @Cudd_DagSize(ptr noundef) local_unnamed_addr #1
@@ -829,9 +829,9 @@ define ptr @cuddBddNPAndRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %63
 
 63:                                               ; preds = %52, %47
-  %.0118 = phi ptr [ %51, %47 ], [ %62, %52 ]
-  %.0117 = phi ptr [ %49, %47 ], [ %57, %52 ]
-  %64 = tail call ptr @cuddBddAndRecur(ptr noundef nonnull %0, ptr noundef %.0117, ptr noundef %.0118) #8
+  %.0116 = phi ptr [ %49, %47 ], [ %57, %52 ]
+  %.0115 = phi ptr [ %51, %47 ], [ %62, %52 ]
+  %64 = tail call ptr @cuddBddAndRecur(ptr noundef nonnull %0, ptr noundef %.0116, ptr noundef %.0115) #8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %160, label %66
 
@@ -881,8 +881,8 @@ define ptr @cuddBddNPAndRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %96 = ptrtoint ptr %91 to i64
   %97 = xor i64 %96, 1
   %98 = inttoptr i64 %97 to ptr
-  %.0116 = select i1 %.not137, ptr %91, ptr %98
-  %.0115 = select i1 %.not137, ptr %89, ptr %95
+  %.0119 = select i1 %.not137, ptr %89, ptr %95
+  %.0118 = select i1 %.not137, ptr %91, ptr %98
   %99 = icmp eq i32 %43, %39
   br i1 %99, label %100, label %113
 
@@ -905,9 +905,9 @@ define ptr @cuddBddNPAndRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %113
 
 113:                                              ; preds = %87, %100, %106
-  %.1119 = phi ptr [ %112, %106 ], [ %104, %100 ], [ %2, %87 ]
-  %.1 = phi ptr [ %109, %106 ], [ %102, %100 ], [ %2, %87 ]
-  %114 = tail call ptr @cuddBddAndRecur(ptr noundef nonnull %0, ptr noundef %.0115, ptr noundef %.1) #8
+  %.1117 = phi ptr [ %109, %106 ], [ %102, %100 ], [ %2, %87 ]
+  %.1 = phi ptr [ %112, %106 ], [ %104, %100 ], [ %2, %87 ]
+  %114 = tail call ptr @cuddBddAndRecur(ptr noundef nonnull %0, ptr noundef %.0119, ptr noundef %.1117) #8
   %115 = icmp eq ptr %114, null
   br i1 %115, label %160, label %116
 
@@ -919,7 +919,7 @@ define ptr @cuddBddNPAndRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %121 = load i32, ptr %120, align 4
   %122 = add i32 %121, 1
   store i32 %122, ptr %120, align 4
-  %123 = tail call ptr @cuddBddAndRecur(ptr noundef nonnull %0, ptr noundef %.0116, ptr noundef %.1119) #8
+  %123 = tail call ptr @cuddBddAndRecur(ptr noundef nonnull %0, ptr noundef %.0118, ptr noundef %.1) #8
   %124 = icmp eq ptr %123, null
   br i1 %124, label %125, label %126
 
@@ -972,7 +972,7 @@ define ptr @cuddBddNPAndRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %160
 
 150:                                              ; preds = %126, %142, %146
-  %.0120 = phi ptr [ %145, %142 ], [ %147, %146 ], [ %114, %126 ]
+  %.0 = phi ptr [ %145, %142 ], [ %147, %146 ], [ %114, %126 ]
   %151 = load i32, ptr %130, align 4
   %152 = add i32 %151, -1
   store i32 %152, ptr %130, align 4
@@ -990,12 +990,12 @@ define ptr @cuddBddNPAndRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br i1 %.not141, label %160, label %159
 
 159:                                              ; preds = %156, %150
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_bddNPAnd, ptr noundef %1, ptr noundef %2, ptr noundef %.0120) #8
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_bddNPAnd, ptr noundef %1, ptr noundef %2, ptr noundef %.0) #8
   br label %160
 
 160:                                              ; preds = %156, %159, %113, %63, %31, %23, %21, %13, %149, %141, %125, %78, %77, %15
-  %.0 = phi ptr [ %18, %15 ], [ null, %77 ], [ %75, %78 ], [ null, %125 ], [ null, %141 ], [ null, %149 ], [ %5, %13 ], [ %., %21 ], [ %1, %23 ], [ %32, %31 ], [ null, %63 ], [ null, %113 ], [ %.0120, %159 ], [ %.0120, %156 ]
-  ret ptr %.0
+  %.0120 = phi ptr [ %18, %15 ], [ null, %77 ], [ %75, %78 ], [ null, %125 ], [ null, %141 ], [ null, %149 ], [ %5, %13 ], [ %., %21 ], [ %1, %23 ], [ %32, %31 ], [ null, %63 ], [ null, %113 ], [ %.0, %159 ], [ %.0, %156 ]
+  ret ptr %.0120
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1022,8 +1022,8 @@ define ptr @cuddAddConstrainRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %54, %3
-  %.tr102 = phi ptr [ %1, %3 ], [ %.085, %54 ]
-  %.tr103 = phi ptr [ %2, %3 ], [ %.090, %54 ]
+  %.tr102 = phi ptr [ %1, %3 ], [ %.088, %54 ]
+  %.tr103 = phi ptr [ %2, %3 ], [ %.086, %54 ]
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, %.tr103
   br i1 %8, label %.loopexit, label %9
@@ -1071,8 +1071,8 @@ tailrecurse:                                      ; preds = %54, %3
   br label %37
 
 37:                                               ; preds = %22, %32
-  %.085 = phi ptr [ %36, %32 ], [ %.tr102, %22 ]
-  %.084 = phi ptr [ %34, %32 ], [ %.tr102, %22 ]
+  %.089 = phi ptr [ %34, %32 ], [ %.tr102, %22 ]
+  %.088 = phi ptr [ %36, %32 ], [ %.tr102, %22 ]
   %.0 = phi i32 [ %24, %32 ], [ %28, %22 ]
   %.not101 = icmp ugt i32 %31, %27
   br i1 %.not101, label %43, label %38
@@ -1085,9 +1085,9 @@ tailrecurse:                                      ; preds = %54, %3
   br label %43
 
 43:                                               ; preds = %37, %38
-  %.090 = phi ptr [ %42, %38 ], [ %.tr103, %37 ]
-  %.086 = phi ptr [ %40, %38 ], [ %.tr103, %37 ]
-  %44 = ptrtoint ptr %.086 to i64
+  %.087 = phi ptr [ %40, %38 ], [ %.tr103, %37 ]
+  %.086 = phi ptr [ %42, %38 ], [ %.tr103, %37 ]
+  %44 = ptrtoint ptr %.087 to i64
   %45 = and i64 %44, -2
   %46 = inttoptr i64 %45 to ptr
   %47 = load i32, ptr %46, align 8
@@ -1095,28 +1095,28 @@ tailrecurse:                                      ; preds = %54, %3
   br i1 %48, label %52, label %49
 
 49:                                               ; preds = %43
-  %50 = tail call ptr @cuddAddConstrainRecur(ptr noundef nonnull %0, ptr noundef %.084, ptr noundef %.086)
+  %50 = tail call ptr @cuddAddConstrainRecur(ptr noundef nonnull %0, ptr noundef %.089, ptr noundef %.087)
   %51 = icmp eq ptr %50, null
   br i1 %51, label %.loopexit, label %.loopexit104
 
 52:                                               ; preds = %43
-  %53 = icmp eq ptr %.086, %7
+  %53 = icmp eq ptr %.087, %7
   br i1 %53, label %.loopexit104, label %54
 
 54:                                               ; preds = %52
-  %55 = icmp eq ptr %.090, %7
+  %55 = icmp eq ptr %.086, %7
   br i1 %55, label %.loopexit, label %tailrecurse
 
 .loopexit104:                                     ; preds = %52, %49
-  %.089 = phi ptr [ %50, %49 ], [ %.084, %52 ]
-  %56 = ptrtoint ptr %.089 to i64
+  %.085 = phi ptr [ %50, %49 ], [ %.089, %52 ]
+  %56 = ptrtoint ptr %.085 to i64
   %57 = and i64 %56, -2
   %58 = inttoptr i64 %57 to ptr
   %59 = getelementptr inbounds i8, ptr %58, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = add i32 %60, 1
   store i32 %61, ptr %59, align 4
-  %62 = ptrtoint ptr %.090 to i64
+  %62 = ptrtoint ptr %.086 to i64
   %63 = and i64 %62, -2
   %64 = inttoptr i64 %63 to ptr
   %65 = load i32, ptr %64, align 8
@@ -1124,16 +1124,16 @@ tailrecurse:                                      ; preds = %54, %3
   br i1 %66, label %71, label %67
 
 67:                                               ; preds = %.loopexit104
-  %68 = tail call ptr @cuddAddConstrainRecur(ptr noundef nonnull %0, ptr noundef %.085, ptr noundef %.090)
+  %68 = tail call ptr @cuddAddConstrainRecur(ptr noundef nonnull %0, ptr noundef %.088, ptr noundef %.086)
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %67
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.089) #8
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.085) #8
   br label %.loopexit
 
 71:                                               ; preds = %.loopexit104
-  %72 = icmp eq ptr %.090, %7
+  %72 = icmp eq ptr %.086, %7
   br i1 %72, label %74, label %73
 
 73:                                               ; preds = %71
@@ -1141,29 +1141,29 @@ tailrecurse:                                      ; preds = %54, %3
   br label %.loopexit
 
 74:                                               ; preds = %71, %67
-  %.088 = phi ptr [ %68, %67 ], [ %.085, %71 ]
-  %75 = ptrtoint ptr %.088 to i64
+  %.084 = phi ptr [ %68, %67 ], [ %.088, %71 ]
+  %75 = ptrtoint ptr %.084 to i64
   %76 = and i64 %75, -2
   %77 = inttoptr i64 %76 to ptr
   %78 = getelementptr inbounds i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = add i32 %79, 1
   store i32 %80, ptr %78, align 4
-  %81 = icmp eq ptr %.089, %.088
+  %81 = icmp eq ptr %.085, %.084
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %74
-  %83 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %.0, ptr noundef %.089, ptr noundef %.088) #8
+  %83 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %.0, ptr noundef %.085, ptr noundef %.084) #8
   br label %84
 
 84:                                               ; preds = %74, %82
-  %85 = phi ptr [ %83, %82 ], [ %.089, %74 ]
+  %85 = phi ptr [ %83, %82 ], [ %.085, %74 ]
   %86 = icmp eq ptr %85, null
   br i1 %86, label %87, label %88
 
 87:                                               ; preds = %84
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.088) #8
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.089) #8
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.084) #8
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.085) #8
   br label %.loopexit
 
 88:                                               ; preds = %84
@@ -1177,8 +1177,8 @@ tailrecurse:                                      ; preds = %54, %3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %54, %20, %18, %12, %9, %tailrecurse, %49, %88, %87, %73, %70
-  %.083 = phi ptr [ null, %87 ], [ %85, %88 ], [ %.089, %73 ], [ null, %70 ], [ null, %49 ], [ %.085, %54 ], [ %21, %20 ], [ %7, %18 ], [ %.tr102, %12 ], [ %10, %9 ], [ %.tr102, %tailrecurse ]
-  ret ptr %.083
+  %.090 = phi ptr [ null, %87 ], [ %85, %88 ], [ %.085, %73 ], [ null, %70 ], [ null, %49 ], [ %.088, %54 ], [ %21, %20 ], [ %7, %18 ], [ %.tr102, %12 ], [ %10, %9 ], [ %.tr102, %tailrecurse ]
+  ret ptr %.090
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1317,9 +1317,9 @@ define internal fastcc range(i32 0, 2) i32 @cuddBddConstrainDecomp(ptr noundef %
   %18 = ptrtoint ptr %13 to i64
   %19 = xor i64 %18, 1
   %20 = inttoptr i64 %19 to ptr
-  %.033 = select i1 %14, ptr %20, ptr %13
-  %.032 = select i1 %14, ptr %17, ptr %11
-  %21 = tail call ptr @cuddBddAndRecur(ptr noundef %0, ptr noundef %.032, ptr noundef %.033) #8
+  %.033 = select i1 %14, ptr %17, ptr %11
+  %.032 = select i1 %14, ptr %20, ptr %13
+  %21 = tail call ptr @cuddBddAndRecur(ptr noundef %0, ptr noundef %.033, ptr noundef %.032) #8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %47, label %23
 
@@ -1472,7 +1472,7 @@ define ptr @cuddAddRestrictRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 tailrecurse:                                      ; preds = %81, %3
   %.tr121 = phi ptr [ %1, %3 ], [ %63, %81 ]
-  %.tr122 = phi ptr [ %2, %3 ], [ %.0104, %81 ]
+  %.tr122 = phi ptr [ %2, %3 ], [ %.0106, %81 ]
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, %.tr122
   br i1 %8, label %.loopexit, label %9
@@ -1568,9 +1568,9 @@ tailrecurse:                                      ; preds = %81, %3
   br label %70
 
 70:                                               ; preds = %59, %65
-  %.0104 = phi ptr [ %69, %65 ], [ %.tr122, %59 ]
-  %.0103 = phi ptr [ %67, %65 ], [ %.tr122, %59 ]
-  %71 = ptrtoint ptr %.0103 to i64
+  %.0107 = phi ptr [ %67, %65 ], [ %.tr122, %59 ]
+  %.0106 = phi ptr [ %69, %65 ], [ %.tr122, %59 ]
+  %71 = ptrtoint ptr %.0107 to i64
   %72 = and i64 %71, -2
   %73 = inttoptr i64 %72 to ptr
   %74 = load i32, ptr %73, align 8
@@ -1578,16 +1578,16 @@ tailrecurse:                                      ; preds = %81, %3
   br i1 %75, label %79, label %76
 
 76:                                               ; preds = %70
-  %77 = tail call ptr @cuddAddRestrictRecur(ptr noundef nonnull %0, ptr noundef %61, ptr noundef %.0103)
+  %77 = tail call ptr @cuddAddRestrictRecur(ptr noundef nonnull %0, ptr noundef %61, ptr noundef %.0107)
   %78 = icmp eq ptr %77, null
   br i1 %78, label %.loopexit, label %.loopexit123
 
 79:                                               ; preds = %70
-  %80 = icmp eq ptr %.0103, %7
+  %80 = icmp eq ptr %.0107, %7
   br i1 %80, label %.loopexit123, label %81
 
 81:                                               ; preds = %79
-  %82 = icmp eq ptr %.0104, %7
+  %82 = icmp eq ptr %.0106, %7
   br i1 %82, label %.loopexit, label %tailrecurse
 
 .loopexit123:                                     ; preds = %79, %76
@@ -1599,7 +1599,7 @@ tailrecurse:                                      ; preds = %81, %3
   %87 = load i32, ptr %86, align 4
   %88 = add i32 %87, 1
   store i32 %88, ptr %86, align 4
-  %89 = ptrtoint ptr %.0104 to i64
+  %89 = ptrtoint ptr %.0106 to i64
   %90 = and i64 %89, -2
   %91 = inttoptr i64 %90 to ptr
   %92 = load i32, ptr %91, align 8
@@ -1607,7 +1607,7 @@ tailrecurse:                                      ; preds = %81, %3
   br i1 %93, label %98, label %94
 
 94:                                               ; preds = %.loopexit123
-  %95 = tail call ptr @cuddAddRestrictRecur(ptr noundef nonnull %0, ptr noundef %63, ptr noundef %.0104)
+  %95 = tail call ptr @cuddAddRestrictRecur(ptr noundef nonnull %0, ptr noundef %63, ptr noundef %.0106)
   %96 = icmp eq ptr %95, null
   br i1 %96, label %97, label %101
 
@@ -1616,7 +1616,7 @@ tailrecurse:                                      ; preds = %81, %3
   br label %.loopexit
 
 98:                                               ; preds = %.loopexit123
-  %99 = icmp eq ptr %.0104, %7
+  %99 = icmp eq ptr %.0106, %7
   br i1 %99, label %101, label %100
 
 100:                                              ; preds = %98
@@ -1624,19 +1624,19 @@ tailrecurse:                                      ; preds = %81, %3
   br label %.loopexit
 
 101:                                              ; preds = %98, %94
-  %.0106 = phi ptr [ %95, %94 ], [ %63, %98 ]
-  %102 = ptrtoint ptr %.0106 to i64
+  %.0104 = phi ptr [ %95, %94 ], [ %63, %98 ]
+  %102 = ptrtoint ptr %.0104 to i64
   %103 = and i64 %102, -2
   %104 = inttoptr i64 %103 to ptr
   %105 = getelementptr inbounds i8, ptr %104, i64 4
   %106 = load i32, ptr %105, align 4
   %107 = add i32 %106, 1
   store i32 %107, ptr %105, align 4
-  %108 = icmp eq ptr %.0105, %.0106
+  %108 = icmp eq ptr %.0105, %.0104
   br i1 %108, label %111, label %109
 
 109:                                              ; preds = %101
-  %110 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %24, ptr noundef %.0105, ptr noundef %.0106) #8
+  %110 = tail call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %24, ptr noundef %.0105, ptr noundef %.0104) #8
   br label %111
 
 111:                                              ; preds = %101, %109
@@ -1645,7 +1645,7 @@ tailrecurse:                                      ; preds = %81, %3
   br i1 %113, label %114, label %115
 
 114:                                              ; preds = %111
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.0106) #8
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.0104) #8
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.0105) #8
   br label %.loopexit
 
@@ -2029,10 +2029,10 @@ define ptr @Cudd_bddSqueeze(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %21
 
 21:                                               ; preds = %14, %11
-  %.025 = phi i32 [ %13, %14 ], [ %12, %11 ]
   %.024 = phi ptr [ %2, %14 ], [ %6, %11 ]
+  %.0 = phi i32 [ %13, %14 ], [ %12, %11 ]
   %22 = tail call i32 @Cudd_DagSize(ptr noundef %1) #8
-  %.not29 = icmp sgt i32 %22, %.025
+  %.not29 = icmp sgt i32 %22, %.0
   br i1 %.not29, label %30, label %23
 
 23:                                               ; preds = %21
@@ -2047,8 +2047,8 @@ define ptr @Cudd_bddSqueeze(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %30
 
 30:                                               ; preds = %21, %23, %9
-  %.0 = phi ptr [ null, %9 ], [ %1, %23 ], [ %.024, %21 ]
-  ret ptr %.0
+  %.025 = phi ptr [ null, %9 ], [ %1, %23 ], [ %.024, %21 ]
+  ret ptr %.025
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2078,9 +2078,9 @@ define internal fastcc ptr @cuddBddSqueeze(ptr noundef %0, ptr noundef %1, ptr n
   %19 = inttoptr i64 %18 to ptr
   %20 = and i64 %15, -2
   %21 = inttoptr i64 %20 to ptr
-  %.0198 = select i1 %.not.not, ptr %2, ptr %19
-  %.0197 = select i1 %.not.not, ptr %1, ptr %21
-  %22 = tail call ptr @cuddCacheLookup2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_bddSqueeze, ptr noundef %.0197, ptr noundef %.0198) #8
+  %.0206 = select i1 %.not.not, ptr %1, ptr %21
+  %.0205 = select i1 %.not.not, ptr %2, ptr %19
+  %22 = tail call ptr @cuddCacheLookup2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_bddSqueeze, ptr noundef %.0206, ptr noundef %.0205) #8
   %.not226 = icmp eq ptr %22, null
   br i1 %.not226, label %27, label %23
 
@@ -2093,11 +2093,11 @@ define internal fastcc ptr @cuddBddSqueeze(ptr noundef %0, ptr noundef %1, ptr n
 27:                                               ; preds = %14
   %28 = getelementptr inbounds i8, ptr %0, i64 312
   %29 = load ptr, ptr %28, align 8
-  %30 = load i32, ptr %.0198, align 8
+  %30 = load i32, ptr %.0205, align 8
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds i32, ptr %29, i64 %31
   %33 = load i32, ptr %32, align 4
-  %34 = ptrtoint ptr %.0197 to i64
+  %34 = ptrtoint ptr %.0206 to i64
   %35 = and i64 %34, -2
   %36 = inttoptr i64 %35 to ptr
   %37 = load i32, ptr %36, align 8
@@ -2108,15 +2108,15 @@ define internal fastcc ptr @cuddBddSqueeze(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not227, label %46, label %41
 
 41:                                               ; preds = %27
-  %42 = getelementptr inbounds i8, ptr %.0198, i64 16
+  %42 = getelementptr inbounds i8, ptr %.0205, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %.0198, i64 24
+  %44 = getelementptr inbounds i8, ptr %.0205, i64 24
   %45 = load ptr, ptr %44, align 8
   br label %46
 
 46:                                               ; preds = %27, %41
-  %.0203 = phi ptr [ %43, %41 ], [ %.0198, %27 ]
-  %.0202 = phi ptr [ %45, %41 ], [ %.0198, %27 ]
+  %.0201 = phi ptr [ %43, %41 ], [ %.0205, %27 ]
+  %.0200 = phi ptr [ %45, %41 ], [ %.0205, %27 ]
   %.0196 = phi i32 [ %30, %41 ], [ %37, %27 ]
   %.not228 = icmp ugt i32 %40, %33
   br i1 %.not228, label %60, label %47
@@ -2140,27 +2140,27 @@ define internal fastcc ptr @cuddBddSqueeze(ptr noundef %0, ptr noundef %1, ptr n
   br label %60
 
 60:                                               ; preds = %46, %47, %53
-  %.0205 = phi ptr [ %56, %53 ], [ %49, %47 ], [ %.0197, %46 ]
-  %.0204 = phi ptr [ %59, %53 ], [ %51, %47 ], [ %.0197, %46 ]
-  %61 = icmp eq ptr %.0205, %10
+  %.0203 = phi ptr [ %56, %53 ], [ %49, %47 ], [ %.0206, %46 ]
+  %.0202 = phi ptr [ %59, %53 ], [ %51, %47 ], [ %.0206, %46 ]
+  %61 = icmp eq ptr %.0203, %10
   br i1 %61, label %64, label %62
 
 62:                                               ; preds = %60
-  %63 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %.0205, ptr noundef %.0204) #8
+  %63 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %.0203, ptr noundef %.0202) #8
   %.not230 = icmp eq i32 %63, 0
   br i1 %.not230, label %75, label %64
 
 64:                                               ; preds = %62, %60
-  %65 = icmp eq ptr %.0203, %7
+  %65 = icmp eq ptr %.0201, %7
   br i1 %65, label %68, label %66
 
 66:                                               ; preds = %64
-  %67 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %.0202, ptr noundef %.0203) #8
+  %67 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %.0200, ptr noundef %.0201) #8
   %.not231 = icmp eq i32 %67, 0
   br i1 %.not231, label %75, label %68
 
 68:                                               ; preds = %66, %64
-  %69 = tail call fastcc ptr @cuddBddSqueeze(ptr noundef nonnull %0, ptr noundef %.0204, ptr noundef %.0202)
+  %69 = tail call fastcc ptr @cuddBddSqueeze(ptr noundef nonnull %0, ptr noundef %.0202, ptr noundef %.0200)
   %70 = icmp eq ptr %69, null
   br i1 %70, label %227, label %71
 
@@ -2171,25 +2171,25 @@ define internal fastcc ptr @cuddBddSqueeze(ptr noundef %0, ptr noundef %1, ptr n
   br label %227
 
 75:                                               ; preds = %66, %62
-  %76 = icmp eq ptr %.0204, %10
+  %76 = icmp eq ptr %.0202, %10
   br i1 %76, label %79, label %77
 
 77:                                               ; preds = %75
-  %78 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %.0204, ptr noundef %.0205) #8
+  %78 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %.0202, ptr noundef %.0203) #8
   %.not232 = icmp eq i32 %78, 0
   br i1 %.not232, label %.thread, label %79
 
 79:                                               ; preds = %77, %75
-  %80 = icmp eq ptr %.0202, %7
+  %80 = icmp eq ptr %.0200, %7
   br i1 %80, label %83, label %81
 
 81:                                               ; preds = %79
-  %82 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %.0203, ptr noundef %.0202) #8
+  %82 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %.0201, ptr noundef %.0200) #8
   %.not233 = icmp eq i32 %82, 0
   br i1 %.not233, label %90, label %83
 
 83:                                               ; preds = %81, %79
-  %84 = tail call fastcc ptr @cuddBddSqueeze(ptr noundef nonnull %0, ptr noundef %.0205, ptr noundef %.0203)
+  %84 = tail call fastcc ptr @cuddBddSqueeze(ptr noundef nonnull %0, ptr noundef %.0203, ptr noundef %.0201)
   %85 = icmp eq ptr %84, null
   br i1 %85, label %227, label %86
 
@@ -2203,27 +2203,27 @@ define internal fastcc ptr @cuddBddSqueeze(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %76, label %95, label %.thread
 
 .thread:                                          ; preds = %77, %90
-  %91 = ptrtoint ptr %.0203 to i64
+  %91 = ptrtoint ptr %.0201 to i64
   %92 = xor i64 %91, 1
   %93 = inttoptr i64 %92 to ptr
-  %94 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %.0204, ptr noundef %93) #8
+  %94 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %.0202, ptr noundef %93) #8
   %.not234 = icmp eq i32 %94, 0
   br i1 %.not234, label %134, label %95
 
 95:                                               ; preds = %.thread, %90
-  %96 = icmp eq ptr %.0202, %7
+  %96 = icmp eq ptr %.0200, %7
   br i1 %96, label %102, label %97
 
 97:                                               ; preds = %95
-  %98 = ptrtoint ptr %.0205 to i64
+  %98 = ptrtoint ptr %.0203 to i64
   %99 = xor i64 %98, 1
   %100 = inttoptr i64 %99 to ptr
-  %101 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %100, ptr noundef %.0202) #8
+  %101 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %100, ptr noundef %.0200) #8
   %.not235 = icmp eq i32 %101, 0
   br i1 %.not235, label %134, label %102
 
 102:                                              ; preds = %97, %95
-  %103 = tail call fastcc ptr @cuddBddSqueeze(ptr noundef nonnull %0, ptr noundef %.0205, ptr noundef %.0203)
+  %103 = tail call fastcc ptr @cuddBddSqueeze(ptr noundef nonnull %0, ptr noundef %.0203, ptr noundef %.0201)
   %104 = ptrtoint ptr %103 to i64
   %105 = and i64 %104, -2
   %106 = inttoptr i64 %105 to ptr
@@ -2272,9 +2272,9 @@ define internal fastcc ptr @cuddBddSqueeze(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %129, label %227, label %130
 
 130:                                              ; preds = %.thread241, %123
-  %.0206243 = phi ptr [ %118, %.thread241 ], [ %126, %123 ]
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_bddSqueeze, ptr noundef %.0197, ptr noundef nonnull %.0198, ptr noundef nonnull %.0206243) #8
-  %131 = ptrtoint ptr %.0206243 to i64
+  %.0204243 = phi ptr [ %118, %.thread241 ], [ %126, %123 ]
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_bddSqueeze, ptr noundef %.0206, ptr noundef nonnull %.0205, ptr noundef nonnull %.0204243) #8
+  %131 = ptrtoint ptr %.0204243 to i64
   %132 = xor i64 %16, %131
   %133 = inttoptr i64 %132 to ptr
   br label %227
@@ -2283,27 +2283,27 @@ define internal fastcc ptr @cuddBddSqueeze(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %61, label %140, label %135
 
 135:                                              ; preds = %134
-  %136 = ptrtoint ptr %.0202 to i64
+  %136 = ptrtoint ptr %.0200 to i64
   %137 = xor i64 %136, 1
   %138 = inttoptr i64 %137 to ptr
-  %139 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %.0205, ptr noundef %138) #8
+  %139 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %.0203, ptr noundef %138) #8
   %.not236 = icmp eq i32 %139, 0
   br i1 %.not236, label %179, label %140
 
 140:                                              ; preds = %135, %134
-  %141 = icmp eq ptr %.0203, %7
+  %141 = icmp eq ptr %.0201, %7
   br i1 %141, label %147, label %142
 
 142:                                              ; preds = %140
-  %143 = ptrtoint ptr %.0204 to i64
+  %143 = ptrtoint ptr %.0202 to i64
   %144 = xor i64 %143, 1
   %145 = inttoptr i64 %144 to ptr
-  %146 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %145, ptr noundef %.0203) #8
+  %146 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %145, ptr noundef %.0201) #8
   %.not237 = icmp eq i32 %146, 0
   br i1 %.not237, label %179, label %147
 
 147:                                              ; preds = %142, %140
-  %148 = tail call fastcc ptr @cuddBddSqueeze(ptr noundef nonnull %0, ptr noundef %.0204, ptr noundef %.0202)
+  %148 = tail call fastcc ptr @cuddBddSqueeze(ptr noundef nonnull %0, ptr noundef %.0202, ptr noundef %.0200)
   %149 = ptrtoint ptr %148 to i64
   %150 = and i64 %149, -2
   %151 = inttoptr i64 %150 to ptr
@@ -2353,14 +2353,14 @@ define internal fastcc ptr @cuddBddSqueeze(ptr noundef %0, ptr noundef %1, ptr n
 
 175:                                              ; preds = %.thread244, %168
   %.1246 = phi ptr [ %157, %.thread244 ], [ %171, %168 ]
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_bddSqueeze, ptr noundef %.0197, ptr noundef nonnull %.0198, ptr noundef nonnull %.1246) #8
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_bddSqueeze, ptr noundef %.0206, ptr noundef nonnull %.0205, ptr noundef nonnull %.1246) #8
   %176 = ptrtoint ptr %.1246 to i64
   %177 = xor i64 %16, %176
   %178 = inttoptr i64 %177 to ptr
   br label %227
 
 179:                                              ; preds = %135, %142
-  %180 = tail call fastcc ptr @cuddBddSqueeze(ptr noundef nonnull %0, ptr noundef %.0205, ptr noundef %.0203)
+  %180 = tail call fastcc ptr @cuddBddSqueeze(ptr noundef nonnull %0, ptr noundef %.0203, ptr noundef %.0201)
   %181 = icmp eq ptr %180, null
   br i1 %181, label %227, label %182
 
@@ -2372,7 +2372,7 @@ define internal fastcc ptr @cuddBddSqueeze(ptr noundef %0, ptr noundef %1, ptr n
   %187 = load i32, ptr %186, align 4
   %188 = add i32 %187, 1
   store i32 %188, ptr %186, align 4
-  %189 = tail call fastcc ptr @cuddBddSqueeze(ptr noundef nonnull %0, ptr noundef %.0204, ptr noundef %.0202)
+  %189 = tail call fastcc ptr @cuddBddSqueeze(ptr noundef nonnull %0, ptr noundef %.0202, ptr noundef %.0200)
   %190 = icmp eq ptr %189, null
   br i1 %190, label %191, label %192
 
@@ -2444,7 +2444,7 @@ define internal fastcc ptr @cuddBddSqueeze(ptr noundef %0, ptr noundef %1, ptr n
   %222 = load i32, ptr %221, align 4
   %223 = add i32 %222, -1
   store i32 %223, ptr %221, align 4
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_bddSqueeze, ptr noundef %.0197, ptr noundef nonnull %.0198, ptr noundef %.2) #8
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_bddSqueeze, ptr noundef %.0206, ptr noundef nonnull %.0205, ptr noundef %.2) #8
   %224 = ptrtoint ptr %.2 to i64
   %225 = xor i64 %16, %224
   %226 = inttoptr i64 %225 to ptr
@@ -2763,8 +2763,8 @@ define internal fastcc i32 @cuddBddLICMarkEdges(ptr noundef %0, ptr noundef %1, 
   br label %58
 
 58:                                               ; preds = %51, %53
+  %.077 = phi ptr [ %55, %53 ], [ %23, %51 ]
   %.076 = phi ptr [ %57, %53 ], [ %23, %51 ]
-  %.075 = phi ptr [ %55, %53 ], [ %23, %51 ]
   %.not90 = icmp ugt i32 %52, %41
   br i1 %.not90, label %72, label %59
 
@@ -2787,9 +2787,9 @@ define internal fastcc i32 @cuddBddLICMarkEdges(ptr noundef %0, ptr noundef %1, 
   br label %72
 
 72:                                               ; preds = %58, %59, %65
-  %.078 = phi ptr [ %71, %65 ], [ %63, %59 ], [ %2, %58 ]
-  %.077 = phi ptr [ %68, %65 ], [ %61, %59 ], [ %2, %58 ]
-  %73 = call fastcc i32 @cuddBddLICMarkEdges(ptr noundef nonnull %0, ptr noundef %.075, ptr noundef %.077, ptr noundef %3, ptr noundef %4)
+  %.075 = phi ptr [ %68, %65 ], [ %61, %59 ], [ %2, %58 ]
+  %.0 = phi ptr [ %71, %65 ], [ %63, %59 ], [ %2, %58 ]
+  %73 = call fastcc i32 @cuddBddLICMarkEdges(ptr noundef nonnull %0, ptr noundef %.077, ptr noundef %.075, ptr noundef %3, ptr noundef %4)
   %74 = icmp eq i32 %73, -1
   br i1 %74, label %75, label %76
 
@@ -2798,7 +2798,7 @@ define internal fastcc i32 @cuddBddLICMarkEdges(ptr noundef %0, ptr noundef %1, 
   br label %111
 
 76:                                               ; preds = %72
-  %77 = call fastcc i32 @cuddBddLICMarkEdges(ptr noundef nonnull %0, ptr noundef %.076, ptr noundef %.078, ptr noundef %3, ptr noundef %4)
+  %77 = call fastcc i32 @cuddBddLICMarkEdges(ptr noundef nonnull %0, ptr noundef %.076, ptr noundef %.0, ptr noundef %3, ptr noundef %4)
   %78 = icmp eq i32 %77, -1
   br i1 %78, label %79, label %80
 
@@ -2873,8 +2873,8 @@ define internal fastcc i32 @cuddBddLICMarkEdges(ptr noundef %0, ptr noundef %1, 
   br label %111
 
 111:                                              ; preds = %107, %110, %109, %108, %31, %34, %33, %32, %16, %14, %5, %106, %99, %79, %75, %26
-  %.0 = phi i32 [ -1, %26 ], [ -1, %75 ], [ -1, %79 ], [ -1, %106 ], [ -1, %99 ], [ 0, %5 ], [ 1, %14 ], [ 2, %16 ], [ %.pre, %32 ], [ 1, %33 ], [ 2, %34 ], [ %.pre, %31 ], [ %.pre94, %108 ], [ 1, %109 ], [ 2, %110 ], [ %.pre94, %107 ]
-  ret i32 %.0
+  %.078 = phi i32 [ -1, %26 ], [ -1, %75 ], [ -1, %79 ], [ -1, %106 ], [ -1, %99 ], [ 0, %5 ], [ 1, %14 ], [ 2, %16 ], [ %.pre, %32 ], [ 1, %33 ], [ 2, %34 ], [ %.pre, %31 ], [ %.pre94, %108 ], [ 1, %109 ], [ 2, %110 ], [ %.pre94, %107 ]
+  ret i32 %.078
 }
 
 declare i32 @st__foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -2975,8 +2975,8 @@ define internal fastcc ptr @cuddBddLICBuildResult(ptr noundef %0, ptr noundef %1
   br label %53
 
 53:                                               ; preds = %41, %52, %48
-  %.077 = phi ptr [ %49, %48 ], [ %11, %52 ], [ %8, %41 ]
-  %54 = ptrtoint ptr %.077 to i64
+  %.0 = phi ptr [ %49, %48 ], [ %11, %52 ], [ %8, %41 ]
+  %54 = ptrtoint ptr %.0 to i64
   %55 = and i64 %54, -2
   %56 = inttoptr i64 %55 to ptr
   %57 = getelementptr inbounds i8, ptr %56, i64 4
@@ -2989,7 +2989,7 @@ define internal fastcc ptr @cuddBddLICBuildResult(ptr noundef %0, ptr noundef %1
   br i1 %or.cond, label %62, label %63
 
 62:                                               ; preds = %53
-  store ptr %.077, ptr %5, align 8
+  store ptr %.0, ptr %5, align 8
   br label %89
 
 63:                                               ; preds = %53
@@ -3036,11 +3036,11 @@ define internal fastcc ptr @cuddBddLICBuildResult(ptr noundef %0, ptr noundef %1
   br label %89
 
 81:                                               ; preds = %67
-  %82 = icmp eq ptr %.076, %.077
+  %82 = icmp eq ptr %.076, %.0
   br i1 %82, label %85, label %83
 
 83:                                               ; preds = %81
-  %84 = call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %32, ptr noundef %.076, ptr noundef %.077) #8
+  %84 = call ptr @cuddUniqueInter(ptr noundef nonnull %0, i32 noundef %32, ptr noundef %.076, ptr noundef %.0) #8
   br label %85
 
 85:                                               ; preds = %81, %83
@@ -3050,7 +3050,7 @@ define internal fastcc ptr @cuddBddLICBuildResult(ptr noundef %0, ptr noundef %1
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %85
-  call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef %.077) #8
+  call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef %.0) #8
   call void @Cudd_IterDerefBdd(ptr noundef nonnull %0, ptr noundef %.076) #8
   br label %112
 
@@ -3090,8 +3090,8 @@ define internal fastcc ptr @cuddBddLICBuildResult(ptr noundef %0, ptr noundef %1
   br label %112
 
 112:                                              ; preds = %35, %25, %4, %108, %101, %88, %76, %51, %19
-  %.0 = phi ptr [ %24, %19 ], [ null, %51 ], [ null, %101 ], [ %111, %108 ], [ null, %76 ], [ null, %88 ], [ %1, %4 ], [ null, %25 ], [ null, %35 ]
-  ret ptr %.0
+  %.078 = phi ptr [ %24, %19 ], [ null, %51 ], [ null, %101 ], [ %111, %108 ], [ null, %76 ], [ null, %88 ], [ %1, %4 ], [ null, %25 ], [ null, %35 ]
+  ret ptr %.078
 }
 
 declare ptr @cuddBddIteRecur(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

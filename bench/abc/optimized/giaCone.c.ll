@@ -1686,7 +1686,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %125, %123
   br i1 %exitcond.not.i, label %Vec_IntFree.exit103, label %130, !llvm.loop !16
 
 Vec_IntFree.exit103:                              ; preds = %130, %Vec_IntAlloc.exit.i, %121
-  %.074 = phi ptr [ %122, %121 ], [ %129, %Vec_IntAlloc.exit.i ], [ %129, %130 ]
+  %.0 = phi ptr [ %122, %121 ], [ %129, %Vec_IntAlloc.exit.i ], [ %129, %130 ]
   %133 = tail call noundef i32 @llvm.smin.i32(i32 %.val84, i32 64)
   %134 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
   %135 = add i32 %133, -1
@@ -1720,7 +1720,7 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntFree.exit103
   br i1 %.not, label %.lr.ph121._crit_edge, label %145
 
 145:                                              ; preds = %.lr.ph121
-  %146 = getelementptr inbounds i32, ptr %.074, i64 %.pre130
+  %146 = getelementptr inbounds i32, ptr %.0, i64 %.pre130
   %147 = load i32, ptr %146, align 4
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds i32, ptr %.val88.pre, i64 %148
@@ -1732,7 +1732,7 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntFree.exit103
   br label %.lr.ph121._crit_edge
 
 .lr.ph121._crit_edge:                             ; preds = %.lr.ph121, %145
-  %154 = getelementptr inbounds i32, ptr %.074, i64 %.pre130
+  %154 = getelementptr inbounds i32, ptr %.0, i64 %.pre130
   %155 = load i32, ptr %154, align 4
   %156 = sext i32 %155 to i64
   %157 = getelementptr inbounds i32, ptr %.val88.pre, i64 %156
@@ -1823,11 +1823,11 @@ Vec_IntFree.exit113:                              ; preds = %._crit_edge122, %18
 
 Vec_IntFree.exit115:                              ; preds = %Vec_IntFree.exit113, %190
   tail call void @free(ptr noundef nonnull %15) #22
-  %.not76 = icmp eq ptr %.074, null
+  %.not76 = icmp eq ptr %.0, null
   br i1 %.not76, label %192, label %191
 
 191:                                              ; preds = %Vec_IntFree.exit115
-  tail call void @free(ptr noundef nonnull %.074) #22
+  tail call void @free(ptr noundef nonnull %.0) #22
   br label %192
 
 192:                                              ; preds = %Vec_IntFree.exit115, %191

@@ -225,7 +225,7 @@ define internal i32 @dissect_kdp(ptr noundef %0, ptr nocapture noundef readonly 
   br label %64
 
 64:                                               ; preds = %59, %57
-  %.0160 = phi i32 [ %62, %59 ], [ -1, %57 ]
+  %.0159 = phi i32 [ %62, %59 ], [ -1, %57 ]
   %.1 = phi i32 [ %63, %59 ], [ %.0158, %57 ]
   %65 = load i32, ptr @hf_kdp_sequence, align 4
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %65, ptr noundef %0, i32 noundef %.1, i32 noundef 4, i32 noundef 0) #3
@@ -241,7 +241,7 @@ define internal i32 @dissect_kdp(ptr noundef %0, ptr nocapture noundef readonly 
   br label %74
 
 74:                                               ; preds = %69, %64
-  %.0162 = phi i32 [ %72, %69 ], [ -1, %64 ]
+  %.0161 = phi i32 [ %72, %69 ], [ -1, %64 ]
   %.2 = phi i32 [ %73, %69 ], [ %68, %64 ]
   %75 = and i32 %51, 2
   %.not173 = icmp eq i32 %75, 0
@@ -370,14 +370,14 @@ define internal i32 @dissect_kdp(ptr noundef %0, ptr nocapture noundef readonly 
   br label %.thread185
 
 .thread185:                                       ; preds = %21, %._crit_edge, %136
-  %.1161197 = phi i32 [ %.0160, %._crit_edge ], [ %.0160, %136 ], [ -1, %21 ]
-  %.1163196 = phi i32 [ %.0162, %._crit_edge ], [ %.0162, %136 ], [ -1, %21 ]
-  %.0164195 = phi i32 [ %67, %._crit_edge ], [ %67, %136 ], [ -1, %21 ]
+  %.1160197 = phi i32 [ %.0159, %._crit_edge ], [ %.0159, %136 ], [ -1, %21 ]
+  %.1162196 = phi i32 [ %.0161, %._crit_edge ], [ %.0161, %136 ], [ -1, %21 ]
+  %.0163195 = phi i32 [ %67, %._crit_edge ], [ %67, %136 ], [ -1, %21 ]
   %.not176 = icmp eq i32 %52, 0
   br i1 %.not176, label %147, label %145
 
 145:                                              ; preds = %.thread185
-  %146 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 80, ptr noundef nonnull @.str.67, i32 noundef %.1163196) #3
+  %146 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 80, ptr noundef nonnull @.str.67, i32 noundef %.1162196) #3
   br label %148
 
 147:                                              ; preds = %.thread185
@@ -388,7 +388,7 @@ define internal i32 @dissect_kdp(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %50, label %149, label %151
 
 149:                                              ; preds = %148
-  %150 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 80, ptr noundef nonnull @.str.68, i32 noundef %.0164195) #3
+  %150 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 80, ptr noundef nonnull @.str.68, i32 noundef %.0163195) #3
   br label %152
 
 151:                                              ; preds = %148
@@ -401,7 +401,7 @@ define internal i32 @dissect_kdp(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %.not177, label %156, label %154
 
 154:                                              ; preds = %152
-  %155 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 80, ptr noundef nonnull @.str.69, i32 noundef %.1161197) #3
+  %155 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 80, ptr noundef nonnull @.str.69, i32 noundef %.1160197) #3
   br label %157
 
 156:                                              ; preds = %152

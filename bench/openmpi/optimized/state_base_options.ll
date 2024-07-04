@@ -777,8 +777,8 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
 
 .lr.ph:                                           ; preds = %.preheader, %23
   %14 = phi ptr [ %26, %23 ], [ %12, %.preheader ]
-  %.04352 = phi i64 [ %24, %23 ], [ 0, %.preheader ]
-  %15 = getelementptr inbounds ptr, ptr %8, i64 %.04352
+  %.04252 = phi i64 [ %24, %23 ], [ 0, %.preheader ]
+  %15 = getelementptr inbounds ptr, ptr %8, i64 %.04252
   %16 = load ptr, ptr %15, align 8
   %.not48 = icmp eq ptr %16, null
   br i1 %.not48, label %.critedge.loopexit, label %17
@@ -792,7 +792,7 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %17
-  %24 = add i64 %.04352, 1
+  %24 = add i64 %.04252, 1
   %25 = getelementptr inbounds ptr, ptr %7, i64 %24
   %26 = load ptr, ptr %25, align 8
   %.not47 = icmp eq ptr %26, null
@@ -804,7 +804,7 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
   br label %36
 
 .critedge.loopexit:                               ; preds = %23, %.lr.ph
-  %.0.lcssa.ph.in = phi i64 [ %.04352, %.lr.ph ], [ %24, %23 ]
+  %.0.lcssa.ph.in = phi i64 [ %.04252, %.lr.ph ], [ %24, %23 ]
   %.0.lcssa.ph = trunc i64 %.0.lcssa.ph.in to i32
   br label %.critedge
 
@@ -825,8 +825,8 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
   br label %36
 
 36:                                               ; preds = %30, %.critedge, %27, %13
-  %.042 = phi i1 [ false, %13 ], [ false, %27 ], [ %29, %.critedge ], [ %35, %30 ]
-  ret i1 %.042
+  %.043 = phi i1 [ false, %13 ], [ false, %27 ], [ %29, %.critedge ], [ %35, %30 ]
+  ret i1 %.043
 }
 
 declare i32 @PMIx_Value_true(ptr noundef) local_unnamed_addr #1

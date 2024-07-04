@@ -1654,13 +1654,13 @@ define noundef ptr @Llb_Nonlin4ComputeInitState(ptr noundef %0, ptr nocapture no
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.034.us = phi ptr [ %28, %.lr.ph.split.us ], [ %7, %.lr.ph ]
-  %.02533.us = phi i32 [ %29, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %.034.us = phi i32 [ %29, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %.02533.us = phi ptr [ %28, %.lr.ph.split.us ], [ %7, %.lr.ph ]
   %.val30.us = load ptr, ptr %12, align 8
   %.val31.us = load i32, ptr %13, align 4
   %15 = getelementptr i8, ptr %.val30.us, i64 8
   %.val30.val.us = load ptr, ptr %15, align 8
-  %16 = add nsw i32 %.val31.us, %.02533.us
+  %16 = add nsw i32 %.val31.us, %.034.us
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds ptr, ptr %.val30.val.us, i64 %17
   %19 = load ptr, ptr %18, align 8
@@ -1674,22 +1674,22 @@ define noundef ptr @Llb_Nonlin4ComputeInitState(ptr noundef %0, ptr nocapture no
   %25 = ptrtoint ptr %24 to i64
   %26 = xor i64 %25, 1
   %27 = inttoptr i64 %26 to ptr
-  %28 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.034.us, ptr noundef %27) #17
+  %28 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.02533.us, ptr noundef %27) #17
   tail call void @Cudd_Ref(ptr noundef %28) #17
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.034.us) #17
-  %29 = add nuw nsw i32 %.02533.us, 1
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.02533.us) #17
+  %29 = add nuw nsw i32 %.034.us, 1
   %.val27.us = load i32, ptr %8, align 8
   %30 = icmp slt i32 %29, %.val27.us
   br i1 %30, label %.lr.ph.split.us, label %.critedge, !llvm.loop !29
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.034 = phi ptr [ %44, %.lr.ph.split ], [ %7, %.lr.ph ]
-  %.02533 = phi i32 [ %45, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %.034 = phi i32 [ %45, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %.02533 = phi ptr [ %44, %.lr.ph.split ], [ %7, %.lr.ph ]
   %.val28 = load ptr, ptr %10, align 8
   %.val29 = load i32, ptr %11, align 8
   %31 = getelementptr i8, ptr %.val28, i64 8
   %.val28.val = load ptr, ptr %31, align 8
-  %32 = add nsw i32 %.val29, %.02533
+  %32 = add nsw i32 %.val29, %.034
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds ptr, ptr %.val28.val, i64 %33
   %35 = load ptr, ptr %34, align 8
@@ -1703,19 +1703,19 @@ define noundef ptr @Llb_Nonlin4ComputeInitState(ptr noundef %0, ptr nocapture no
   %41 = ptrtoint ptr %40 to i64
   %42 = xor i64 %41, 1
   %43 = inttoptr i64 %42 to ptr
-  %44 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.034, ptr noundef %43) #17
+  %44 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.02533, ptr noundef %43) #17
   tail call void @Cudd_Ref(ptr noundef %44) #17
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.034) #17
-  %45 = add nuw nsw i32 %.02533, 1
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.02533) #17
+  %45 = add nuw nsw i32 %.034, 1
   %.val27 = load i32, ptr %8, align 8
   %46 = icmp slt i32 %45, %.val27
   br i1 %46, label %.lr.ph.split, label %.critedge, !llvm.loop !29
 
 .critedge:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %4
-  %.0.lcssa = phi ptr [ %7, %4 ], [ %28, %.lr.ph.split.us ], [ %44, %.lr.ph.split ]
-  tail call void @Cudd_Deref(ptr noundef %.0.lcssa) #17
+  %.025.lcssa = phi ptr [ %7, %4 ], [ %28, %.lr.ph.split.us ], [ %44, %.lr.ph.split ]
+  tail call void @Cudd_Deref(ptr noundef %.025.lcssa) #17
   store i64 %6, ptr %5, align 8
-  ret ptr %.0.lcssa
+  ret ptr %.025.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1740,13 +1740,13 @@ define noundef ptr @Llb_Nonlin4ComputeCube(ptr noundef %0, ptr nocapture noundef
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.03145.us = phi i32 [ %42, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %.03444.us = phi ptr [ %41, %.lr.ph.split.us ], [ %8, %.lr.ph ]
+  %.045.us = phi i32 [ %42, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %.03344.us = phi ptr [ %41, %.lr.ph.split.us ], [ %8, %.lr.ph ]
   %.val39.us = load ptr, ptr %11, align 8
   %.val40.us = load i32, ptr %12, align 8
   %16 = getelementptr i8, ptr %.val39.us, i64 8
   %.val39.val.us = load ptr, ptr %16, align 8
-  %17 = add nsw i32 %.val40.us, %.03145.us
+  %17 = add nsw i32 %.val40.us, %.045.us
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds ptr, ptr %.val39.val.us, i64 %18
   %20 = load ptr, ptr %19, align 8
@@ -1754,7 +1754,7 @@ define noundef ptr @Llb_Nonlin4ComputeCube(ptr noundef %0, ptr nocapture noundef
   %.val42.us = load i32, ptr %14, align 4
   %21 = getelementptr i8, ptr %.val41.us, i64 8
   %.val41.val.us = load ptr, ptr %21, align 8
-  %22 = add nsw i32 %.val42.us, %.03145.us
+  %22 = add nsw i32 %.val42.us, %.045.us
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds ptr, ptr %.val41.val.us, i64 %23
   %25 = load ptr, ptr %24, align 8
@@ -1778,23 +1778,23 @@ define noundef ptr @Llb_Nonlin4ComputeCube(ptr noundef %0, ptr nocapture noundef
   %38 = ptrtoint ptr %30 to i64
   %39 = xor i64 %38, 1
   %40 = inttoptr i64 %39 to ptr
-  %.033.us = select i1 %.not35.us, ptr %30, ptr %40
-  %41 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.03444.us, ptr noundef %.033.us) #17
+  %.032.us = select i1 %.not35.us, ptr %30, ptr %40
+  %41 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.03344.us, ptr noundef %.032.us) #17
   tail call void @Cudd_Ref(ptr noundef %41) #17
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.03444.us) #17
-  %42 = add nuw nsw i32 %.03145.us, 1
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.03344.us) #17
+  %42 = add nuw nsw i32 %.045.us, 1
   %.val38.us = load i32, ptr %9, align 8
   %43 = icmp slt i32 %42, %.val38.us
   br i1 %43, label %.lr.ph.split.us, label %.critedge, !llvm.loop !30
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.03145 = phi i32 [ %70, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %.03444 = phi ptr [ %69, %.lr.ph.split ], [ %8, %.lr.ph ]
+  %.045 = phi i32 [ %70, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %.03344 = phi ptr [ %69, %.lr.ph.split ], [ %8, %.lr.ph ]
   %.val39 = load ptr, ptr %11, align 8
   %.val40 = load i32, ptr %12, align 8
   %44 = getelementptr i8, ptr %.val39, i64 8
   %.val39.val = load ptr, ptr %44, align 8
-  %45 = add nsw i32 %.val40, %.03145
+  %45 = add nsw i32 %.val40, %.045
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds ptr, ptr %.val39.val, i64 %46
   %48 = load ptr, ptr %47, align 8
@@ -1802,7 +1802,7 @@ define noundef ptr @Llb_Nonlin4ComputeCube(ptr noundef %0, ptr nocapture noundef
   %.val42 = load i32, ptr %14, align 4
   %49 = getelementptr i8, ptr %.val41, i64 8
   %.val41.val = load ptr, ptr %49, align 8
-  %50 = add nsw i32 %.val42, %.03145
+  %50 = add nsw i32 %.val42, %.045
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds ptr, ptr %.val41.val, i64 %51
   %53 = load ptr, ptr %52, align 8
@@ -1826,20 +1826,20 @@ define noundef ptr @Llb_Nonlin4ComputeCube(ptr noundef %0, ptr nocapture noundef
   %66 = ptrtoint ptr %58 to i64
   %67 = xor i64 %66, 1
   %68 = inttoptr i64 %67 to ptr
-  %.033 = select i1 %.not35, ptr %58, ptr %68
-  %69 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.03444, ptr noundef %.033) #17
+  %.032 = select i1 %.not35, ptr %58, ptr %68
+  %69 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.03344, ptr noundef %.032) #17
   tail call void @Cudd_Ref(ptr noundef %69) #17
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.03444) #17
-  %70 = add nuw nsw i32 %.03145, 1
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.03344) #17
+  %70 = add nuw nsw i32 %.045, 1
   %.val38 = load i32, ptr %9, align 8
   %71 = icmp slt i32 %70, %.val38
   br i1 %71, label %.lr.ph.split, label %.critedge, !llvm.loop !30
 
 .critedge:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %5
-  %.034.lcssa = phi ptr [ %8, %5 ], [ %41, %.lr.ph.split.us ], [ %69, %.lr.ph.split ]
-  tail call void @Cudd_Deref(ptr noundef %.034.lcssa) #17
+  %.033.lcssa = phi ptr [ %8, %5 ], [ %41, %.lr.ph.split.us ], [ %69, %.lr.ph.split ]
+  tail call void @Cudd_Deref(ptr noundef %.033.lcssa) #17
   store i64 %7, ptr %6, align 8
-  ret ptr %.034.lcssa
+  ret ptr %.033.lcssa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -2842,10 +2842,10 @@ Abc_Clock.exit:                                   ; preds = %1, %13
   br label %156
 
 156:                                              ; preds = %.lr.ph, %440
-  %.0190282 = phi i32 [ 0, %.lr.ph ], [ %441, %440 ]
-  %.0191281 = phi i32 [ 0, %.lr.ph ], [ %.1, %440 ]
+  %.0282 = phi i32 [ 0, %.lr.ph ], [ %.1, %440 ]
+  %.0190281 = phi i32 [ 0, %.lr.ph ], [ %.1191, %440 ]
   %.0192280 = phi i32 [ 0, %.lr.ph ], [ %.1193, %440 ]
-  %.0194279 = phi i32 [ 0, %.lr.ph ], [ %.1195, %440 ]
+  %.0194279 = phi i32 [ 0, %.lr.ph ], [ %441, %440 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %157 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #17
   %158 = icmp slt i32 %157, 0
@@ -2906,7 +2906,7 @@ Abc_Clock.exit236:                                ; preds = %165, %168
 
 185:                                              ; preds = %181, %178
   %186 = phi ptr [ %.pre302, %181 ], [ %174, %178 ]
-  %187 = add nsw i32 %.0190282, -1
+  %187 = add nsw i32 %.0194279, -1
   %188 = getelementptr inbounds i8, ptr %186, i64 104
   store i32 %187, ptr %188, align 8
   br label %512
@@ -3042,7 +3042,7 @@ Vec_PtrFreeP.exit:                                ; preds = %235, %.thread.i
   %258 = load ptr, ptr %257, align 8
   %259 = load i32, ptr %258, align 4
   %260 = load ptr, ptr %256, align 8
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, i32 noundef %259, ptr noundef %260, i32 noundef %.0190282)
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, i32 noundef %259, ptr noundef %260, i32 noundef %.0194279)
   %261 = call fastcc i64 @Abc_Clock()
   %262 = sub nsw i64 %261, %.0.i
   call fastcc void @Abc_PrintTime(ptr noundef nonnull @.str.4, i64 noundef %262)
@@ -3051,7 +3051,7 @@ Vec_PtrFreeP.exit:                                ; preds = %235, %.thread.i
 
 263:                                              ; preds = %255, %Vec_PtrFreeP.exit
   %264 = phi ptr [ %.pre316, %255 ], [ %252, %Vec_PtrFreeP.exit ]
-  %265 = add nsw i32 %.0190282, -1
+  %265 = add nsw i32 %.0194279, -1
   %266 = getelementptr inbounds i8, ptr %264, i64 104
   store i32 %265, ptr %266, align 8
   br label %512
@@ -3098,7 +3098,7 @@ Abc_Clock.exit239:                                ; preds = %267, %270
 
 287:                                              ; preds = %283, %279
   %288 = phi ptr [ %.pre315, %283 ], [ %280, %279 ]
-  %289 = add nsw i32 %.0190282, -1
+  %289 = add nsw i32 %.0194279, -1
   %290 = getelementptr inbounds i8, ptr %288, i64 104
   store i32 %289, ptr %290, align 8
   br label %512
@@ -3164,7 +3164,7 @@ Abc_Clock.exit243:                                ; preds = %Abc_Clock.exit241, 
 320:                                              ; preds = %316, %312
   %321 = load ptr, ptr %144, align 8
   call void @Cudd_RecursiveDeref(ptr noundef %321, ptr noundef %309) #17
-  %322 = add nsw i32 %.0190282, -1
+  %322 = add nsw i32 %.0194279, -1
   %323 = load ptr, ptr %20, align 8
   %324 = getelementptr inbounds i8, ptr %323, i64 104
   store i32 %322, ptr %324, align 8
@@ -3209,9 +3209,9 @@ Abc_Clock.exit245:                                ; preds = %325, %329
   br label %347
 
 347:                                              ; preds = %341, %Abc_Clock.exit245
-  %.1195 = phi i32 [ %343, %341 ], [ %.0194279, %Abc_Clock.exit245 ]
-  %.1193 = phi i32 [ %344, %341 ], [ %.0192280, %Abc_Clock.exit245 ]
-  %.1 = phi i32 [ %346, %341 ], [ %.0191281, %Abc_Clock.exit245 ]
+  %.1193 = phi i32 [ %343, %341 ], [ %.0192280, %Abc_Clock.exit245 ]
+  %.1191 = phi i32 [ %344, %341 ], [ %.0190281, %Abc_Clock.exit245 ]
+  %.1 = phi i32 [ %346, %341 ], [ %.0282, %Abc_Clock.exit245 ]
   %348 = load ptr, ptr %144, align 8
   %349 = load ptr, ptr %134, align 8
   call void @Cudd_RecursiveDeref(ptr noundef %348, ptr noundef %349) #17
@@ -3243,7 +3243,7 @@ Abc_Clock.exit245:                                ; preds = %325, %329
 
 366:                                              ; preds = %362, %358
   %367 = phi ptr [ %.pre314, %362 ], [ %359, %358 ]
-  %368 = add nsw i32 %.0190282, -1
+  %368 = add nsw i32 %.0194279, -1
   %369 = getelementptr inbounds i8, ptr %367, i64 104
   store i32 %368, ptr %369, align 8
   br label %512
@@ -3290,7 +3290,7 @@ Abc_Clock.exit245:                                ; preds = %325, %329
 
 392:                                              ; preds = %388, %384
   %393 = phi ptr [ %.pre305, %388 ], [ %385, %384 ]
-  %394 = add nsw i32 %.0190282, -1
+  %394 = add nsw i32 %.0194279, -1
   %395 = getelementptr inbounds i8, ptr %393, i64 104
   store i32 %394, ptr %395, align 8
   %396 = load ptr, ptr %144, align 8
@@ -3308,9 +3308,9 @@ Abc_Clock.exit245:                                ; preds = %325, %329
   br i1 %.not219, label %426, label %402
 
 402:                                              ; preds = %397
-  %403 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.0190282)
-  %404 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.1195)
-  %405 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.1193)
+  %403 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.0194279)
+  %404 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.1193)
+  %405 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %.1191)
   %406 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.1)
   %407 = load ptr, ptr %136, align 8
   %408 = call i32 @Cudd_DagSize(ptr noundef %407) #17
@@ -3349,7 +3349,7 @@ Abc_Clock.exit247:                                ; preds = %402, %417
   %428 = getelementptr inbounds i8, ptr %427, i64 4
   %429 = load i32, ptr %428, align 4
   %430 = add nsw i32 %429, -1
-  %431 = icmp eq i32 %.0190282, %430
+  %431 = icmp eq i32 %.0194279, %430
   br i1 %431, label %432, label %440
 
 432:                                              ; preds = %426
@@ -3366,17 +3366,17 @@ Abc_Clock.exit247:                                ; preds = %402, %417
 437:                                              ; preds = %435, %432
   %438 = phi ptr [ %.pre304, %435 ], [ %427, %432 ]
   %439 = getelementptr inbounds i8, ptr %438, i64 104
-  store i32 %.0190282, ptr %439, align 8
+  store i32 %.0194279, ptr %439, align 8
   br label %512
 
 440:                                              ; preds = %426
-  %441 = add nuw nsw i32 %.0190282, 1
+  %441 = add nuw nsw i32 %.0194279, 1
   %442 = icmp slt i32 %441, %429
   br i1 %442, label %156, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %440, %.._crit_edge.loopexit_crit_edge, %133
   %443 = phi ptr [ %137, %133 ], [ %.pre306.pre, %.._crit_edge.loopexit_crit_edge ], [ %427, %440 ]
-  %.0190.lcssa = phi i32 [ 0, %133 ], [ %.0190282, %.._crit_edge.loopexit_crit_edge ], [ %441, %440 ]
+  %.0194.lcssa = phi i32 [ 0, %133 ], [ %.0194279, %.._crit_edge.loopexit_crit_edge ], [ %441, %440 ]
   %444 = getelementptr inbounds i8, ptr %443, i64 64
   %445 = load i32, ptr %444, align 8
   %.not222 = icmp eq i32 %445, 0
@@ -3407,7 +3407,7 @@ Abc_Clock.exit247:                                ; preds = %402, %417
 
 461:                                              ; preds = %454, %460
   %.str.17.sink = phi ptr [ @.str.17, %460 ], [ @.str.16, %454 ]
-  %462 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.17.sink, i32 noundef %.0190.lcssa)
+  %462 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.17.sink, i32 noundef %.0194.lcssa)
   %463 = fmul double %452, 1.000000e+02
   %464 = load ptr, ptr %0, align 8
   %465 = getelementptr i8, ptr %464, i64 104
@@ -3445,7 +3445,7 @@ Abc_Clock.exit247:                                ; preds = %402, %417
   br i1 %.not226, label %483, label %485
 
 483:                                              ; preds = %479
-  %484 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %.0190.lcssa)
+  %484 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %.0194.lcssa)
   %.pre313 = load ptr, ptr %20, align 8
   br label %485
 
@@ -3464,7 +3464,7 @@ Abc_Clock.exit247:                                ; preds = %402, %417
   br i1 %.not224, label %493, label %.thread
 
 493:                                              ; preds = %490
-  %494 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %.0190.lcssa)
+  %494 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %.0194.lcssa)
   %.pre307 = load ptr, ptr %20, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre307, i64 72
   %.pre308 = load i32, ptr %.phi.trans.insert, align 8
@@ -3499,14 +3499,14 @@ Abc_Clock.exit249:                                ; preds = %496, %499
 
 .thread:                                          ; preds = %490, %Abc_Clock.exit249, %493
   %509 = phi ptr [ %.pre309, %Abc_Clock.exit249 ], [ %.pre307, %493 ], [ %.pre312, %490 ]
-  %510 = add nsw i32 %.0190.lcssa, -1
+  %510 = add nsw i32 %.0194.lcssa, -1
   %511 = getelementptr inbounds i8, ptr %509, i64 104
   store i32 %510, ptr %511, align 8
   br label %512
 
 512:                                              ; preds = %.thread, %485, %437, %392, %366, %320, %287, %263, %185, %110, %79, %60
-  %.0 = phi i32 [ -1, %79 ], [ -1, %185 ], [ -1, %287 ], [ -1, %320 ], [ -1, %366 ], [ -1, %485 ], [ 1, %.thread ], [ -1, %392 ], [ -1, %437 ], [ 0, %263 ], [ -1, %60 ], [ -1, %110 ]
-  ret i32 %.0
+  %.0195 = phi i32 [ -1, %79 ], [ -1, %185 ], [ -1, %287 ], [ -1, %320 ], [ -1, %366 ], [ -1, %485 ], [ 1, %.thread ], [ -1, %392 ], [ -1, %437 ], [ 0, %263 ], [ -1, %60 ], [ -1, %110 ]
+  ret i32 %.0195
 }
 
 ; Function Attrs: nofree nounwind
@@ -4270,7 +4270,7 @@ Abc_Clock.exit:                                   ; preds = %18, %21
   br label %30
 
 30:                                               ; preds = %28, %Abc_Clock.exit
-  %.013 = phi i32 [ -1, %Abc_Clock.exit ], [ %29, %28 ]
+  %.0 = phi i32 [ -1, %Abc_Clock.exit ], [ %29, %28 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %31 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #17
   %32 = icmp slt i32 %31, 0
@@ -4295,8 +4295,8 @@ Abc_Clock.exit18:                                 ; preds = %30, %33
   br label %42
 
 42:                                               ; preds = %Abc_Clock.exit18, %17
-  %.0 = phi i32 [ -1, %17 ], [ %.013, %Abc_Clock.exit18 ]
-  ret i32 %.0
+  %.013 = phi i32 [ -1, %17 ], [ %.0, %Abc_Clock.exit18 ]
+  ret i32 %.013
 }
 
 declare void @Aig_ManPrintStats(ptr noundef) local_unnamed_addr #1

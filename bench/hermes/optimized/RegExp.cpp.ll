@@ -193,8 +193,8 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %if.end
-  %retval.sroa.0.0 = phi i32 [ 1, %if.end ], [ 0, %entry ]
   %retval.sroa.3.0 = phi i64 [ %retval.sroa.0.0.copyload.i, %if.end ], [ undef, %entry ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.end ], [ 0, %entry ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -592,13 +592,13 @@ if.end94.split.us.split.us:                       ; preds = %if.end94.split.us
 _ZN6hermes2vm10StringView14const_iteratorppEi.exit.us.us: ; preds = %if.end94.split.us.split.us, %_ZN6hermes2vm10StringView14const_iteratorppEi.exit.us.us
   %global.0.us.us157 = phi i1 [ %spec.select91.us.us, %_ZN6hermes2vm10StringView14const_iteratorppEi.exit.us.us ], [ false, %if.end94.split.us.split.us ]
   %fullUnicode.0.us.us156 = phi i1 [ %fullUnicode.197.us.us, %_ZN6hermes2vm10StringView14const_iteratorppEi.exit.us.us ], [ false, %if.end94.split.us.split.us ]
-  %it.sroa.6.0.us.us155 = phi ptr [ %incdec.ptr5.i.us.us, %_ZN6hermes2vm10StringView14const_iteratorppEi.exit.us.us ], [ %35, %if.end94.split.us.split.us ]
-  %40 = load i16, ptr %it.sroa.6.0.us.us155, align 2
+  %it.sroa.6.0.us.us154 = phi ptr [ %incdec.ptr5.i.us.us, %_ZN6hermes2vm10StringView14const_iteratorppEi.exit.us.us ], [ %35, %if.end94.split.us.split.us ]
+  %40 = load i16, ptr %it.sroa.6.0.us.us154, align 2
   %cmp10490.us.us = icmp eq i16 %40, 103
   %spec.select91.us.us = select i1 %cmp10490.us.us, i1 true, i1 %global.0.us.us157
   %cmp10996.us.us = icmp eq i16 %40, 117
   %fullUnicode.197.us.us = select i1 %cmp10996.us.us, i1 true, i1 %fullUnicode.0.us.us156
-  %incdec.ptr5.i.us.us = getelementptr inbounds i8, ptr %it.sroa.6.0.us.us155, i64 2
+  %incdec.ptr5.i.us.us = getelementptr inbounds i8, ptr %it.sroa.6.0.us.us154, i64 2
   %cmp5.i.us.us165 = icmp ugt ptr %add.ptr6.i.us.us, %incdec.ptr5.i.us.us
   br i1 %cmp5.i.us.us165, label %_ZN6hermes2vm10StringView14const_iteratorppEi.exit.us.us, label %for.end, !llvm.loop !4
 
@@ -631,19 +631,19 @@ if.end94.split.us.split.split.us:                 ; preds = %if.end94.split.us.s
 _ZN6hermes2vm10StringView14const_iteratorppEi.exit.us.us131: ; preds = %if.end94.split.us.split.split.us, %_ZN6hermes2vm10StringView14const_iteratorppEi.exit.us.us131
   %global.0.us.us109147 = phi i1 [ %spec.select91.us.us127, %_ZN6hermes2vm10StringView14const_iteratorppEi.exit.us.us131 ], [ false, %if.end94.split.us.split.split.us ]
   %fullUnicode.0.us.us108146 = phi i1 [ %fullUnicode.197.us.us129, %_ZN6hermes2vm10StringView14const_iteratorppEi.exit.us.us131 ], [ false, %if.end94.split.us.split.split.us ]
-  %it.sroa.6.0.us.us107145 = phi ptr [ %incdec.ptr5.i.us.us130, %_ZN6hermes2vm10StringView14const_iteratorppEi.exit.us.us131 ], [ %35, %if.end94.split.us.split.split.us ]
-  %44 = load i16, ptr %it.sroa.6.0.us.us107145, align 2
+  %it.sroa.6.0.us.us106144 = phi ptr [ %incdec.ptr5.i.us.us130, %_ZN6hermes2vm10StringView14const_iteratorppEi.exit.us.us131 ], [ %35, %if.end94.split.us.split.split.us ]
+  %44 = load i16, ptr %it.sroa.6.0.us.us106144, align 2
   %cmp10490.us.us126 = icmp eq i16 %44, 103
   %spec.select91.us.us127 = select i1 %cmp10490.us.us126, i1 true, i1 %global.0.us.us109147
   %cmp10996.us.us128 = icmp eq i16 %44, 117
   %fullUnicode.197.us.us129 = select i1 %cmp10996.us.us128, i1 true, i1 %fullUnicode.0.us.us108146
-  %incdec.ptr5.i.us.us130 = getelementptr inbounds i8, ptr %it.sroa.6.0.us.us107145, i64 2
+  %incdec.ptr5.i.us.us130 = getelementptr inbounds i8, ptr %it.sroa.6.0.us.us106144, i64 2
   %cmp5.i.us.us117163 = icmp ugt ptr %add.ptr6.i.us.us113, %incdec.ptr5.i.us.us130
   br i1 %cmp5.i.us.us117163, label %_ZN6hermes2vm10StringView14const_iteratorppEi.exit.us.us131, label %for.end, !llvm.loop !4
 
 for.cond.us:                                      ; preds = %for.cond.us.preheader, %_ZN6hermes2vm10StringView14const_iteratorppEi.exit.us
-  %it.sroa.0.0.us = phi i1 [ true, %_ZN6hermes2vm10StringView14const_iteratorppEi.exit.us ], [ %42, %for.cond.us.preheader ]
   %it.sroa.6.0.us = phi ptr [ %incdec.ptr5.i.us, %_ZN6hermes2vm10StringView14const_iteratorppEi.exit.us ], [ %35, %for.cond.us.preheader ]
+  %it.sroa.0.0.us = phi i1 [ true, %_ZN6hermes2vm10StringView14const_iteratorppEi.exit.us ], [ %42, %for.cond.us.preheader ]
   %fullUnicode.0.us = phi i1 [ %fullUnicode.197.us, %_ZN6hermes2vm10StringView14const_iteratorppEi.exit.us ], [ false, %for.cond.us.preheader ]
   %global.0.us = phi i1 [ %spec.select91.us, %_ZN6hermes2vm10StringView14const_iteratorppEi.exit.us ], [ false, %for.cond.us.preheader ]
   switch i32 %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i.i11.i.us, label %if.else13.i.i20.i.us [
@@ -832,8 +832,8 @@ if.else.i:                                        ; preds = %for.body
 
 for.cond.outer:                                   ; preds = %if.end94, %if.else.i
   %bf.load.i.i.ph = phi i32 [ %bf.load.i.i169, %if.else.i ], [ %36, %if.end94 ]
-  %it.sroa.0.0.ph = phi ptr [ null, %if.else.i ], [ %34, %if.end94 ]
   %it.sroa.6.0.ph = phi ptr [ %incdec.ptr5.i, %if.else.i ], [ %35, %if.end94 ]
+  %it.sroa.0.0.ph = phi ptr [ null, %if.else.i ], [ %34, %if.end94 ]
   %fullUnicode.0.ph = phi i1 [ %fullUnicode.197, %if.else.i ], [ false, %if.end94 ]
   %global.0.ph = phi i1 [ %spec.select91, %if.else.i ], [ false, %if.end94 ]
   br label %for.cond
@@ -9633,8 +9633,8 @@ for.body.preheader:                               ; preds = %if.end31
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit
-  %NumOverwritten.080 = phi i64 [ %dec, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit ], [ %sub.ptr.div15, %for.body.preheader ]
-  %J.079 = phi ptr [ %incdec.ptr72, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit ], [ %add.ptr10, %for.body.preheader ]
+  %J.080 = phi ptr [ %incdec.ptr72, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit ], [ %add.ptr10, %for.body.preheader ]
+  %NumOverwritten.079 = phi i64 [ %dec, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit ], [ %sub.ptr.div15, %for.body.preheader ]
   %From.sroa.8.078 = phi ptr [ %From.sroa.8.1, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit ], [ %From.coerce1, %for.body.preheader ]
   %From.sroa.0.077 = phi ptr [ %From.sroa.0.1, %_ZN6hermes2vm10StringView14const_iteratorppEv.exit ], [ %From.coerce0, %for.body.preheader ]
   %tobool.not.i = icmp eq ptr %From.sroa.0.077, null
@@ -9655,9 +9655,9 @@ _ZN6hermes2vm10StringView14const_iteratorppEv.exit: ; preds = %if.then.i63, %if.
   %.sink = phi i16 [ %23, %if.else.i ], [ %22, %if.then.i63 ]
   %From.sroa.0.1 = phi ptr [ null, %if.else.i ], [ %incdec.ptr.i, %if.then.i63 ]
   %From.sroa.8.1 = phi ptr [ %incdec.ptr3.i, %if.else.i ], [ %From.sroa.8.078, %if.then.i63 ]
-  store i16 %.sink, ptr %J.079, align 2
-  %incdec.ptr72 = getelementptr inbounds i8, ptr %J.079, i64 2
-  %dec = add i64 %NumOverwritten.080, -1
+  store i16 %.sink, ptr %J.080, align 2
+  %incdec.ptr72 = getelementptr inbounds i8, ptr %J.080, i64 2
+  %dec = add i64 %NumOverwritten.079, -1
   %cmp43.not = icmp eq i64 %dec, 0
   br i1 %cmp43.not, label %for.end.loopexit, label %for.body, !llvm.loop !39
 

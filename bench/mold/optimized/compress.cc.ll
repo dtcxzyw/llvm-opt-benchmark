@@ -500,15 +500,15 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
   %add.ptr19.i.i.i25 = phi ptr [ null, %while.body.lr.ph ], [ %add.ptr19.i.i.i24, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
   %incdec.ptr.i.i.i22 = phi ptr [ null, %while.body.lr.ph ], [ %incdec.ptr.i.i.i23, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
-  %input.sroa.8.020 = phi ptr [ %input.coerce1, %while.body.lr.ph ], [ %add.ptr.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
-  %input.sroa.0.019 = phi i64 [ %input.coerce0, %while.body.lr.ph ], [ %sub.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
+  %input.sroa.0.020 = phi i64 [ %input.coerce0, %while.body.lr.ph ], [ %sub.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
+  %input.sroa.8.019 = phi ptr [ %input.coerce1, %while.body.lr.ph ], [ %add.ptr.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i.i22, %add.ptr19.i.i.i25
   br i1 %cmp.not.i.i, label %if.else.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit.thread
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit.thread: ; preds = %while.body
   store i64 1048576, ptr %incdec.ptr.i.i.i22, align 8
   %ref.tmp.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i22, i64 8
-  store ptr %input.sroa.8.020, ptr %ref.tmp.sroa.3.0..sroa_idx, align 8
+  store ptr %input.sroa.8.019, ptr %ref.tmp.sroa.3.0..sroa_idx, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i22, i64 16
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
@@ -545,7 +545,7 @@ _ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_M_alloc
   %add.ptr.i.i.i = getelementptr inbounds %"class.std::basic_string_view", ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   store i64 1048576, ptr %add.ptr.i.i.i, align 8
   %ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
-  store ptr %input.sroa.8.020, ptr %ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx, align 8
+  store ptr %input.sroa.8.019, ptr %ref.tmp.sroa.3.0.add.ptr.i.i.i.sroa_idx, align 8
   %cmp.not5.i.i.i.i.i.i = icmp eq ptr %0, %add.ptr19.i.i.i25
   br i1 %cmp.not5.i.i.i.i.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i.i, label %for.body.i.i.i.i.i.i
 
@@ -578,15 +578,15 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.e
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit.thread
   %add.ptr19.i.i.i24 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit ], [ %add.ptr19.i.i.i25, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit.thread ]
   %incdec.ptr.i.i.i23 = phi ptr [ %incdec.ptr.i.i.i, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit ], [ %incdec.ptr.i.i, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit.thread ]
-  %sub.i = add i64 %input.sroa.0.019, -1048576
-  %add.ptr.i = getelementptr inbounds i8, ptr %input.sroa.8.020, i64 1048576
+  %sub.i = add i64 %input.sroa.0.020, -1048576
+  %add.ptr.i = getelementptr inbounds i8, ptr %input.sroa.8.019, i64 1048576
   %cmp = icmp ugt i64 %sub.i, 1048575
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, %entry
   %2 = phi ptr [ null, %entry ], [ %incdec.ptr.i.i.i23, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
-  %input.sroa.0.0.lcssa = phi i64 [ %input.coerce0, %entry ], [ %sub.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
   %input.sroa.8.0.lcssa = phi ptr [ %input.coerce1, %entry ], [ %add.ptr.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
+  %input.sroa.0.0.lcssa = phi i64 [ %input.coerce0, %entry ], [ %sub.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ]
   %cmp.i = icmp eq i64 %input.sroa.0.0.lcssa, 0
   br i1 %cmp.i, label %nrvo.skipdtor, label %if.then
 

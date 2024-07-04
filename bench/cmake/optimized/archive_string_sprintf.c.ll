@@ -44,8 +44,8 @@ define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef reado
   br label %.loopexit
 
 13:                                               ; preds = %.preheader, %217
-  %.058 = phi ptr [ %218, %217 ], [ %1, %.preheader ]
-  %14 = load i8, ptr %.058, align 1
+  %.057 = phi ptr [ %218, %217 ], [ %1, %.preheader ]
+  %14 = load i8, ptr %.057, align 1
   switch i8 %14, label %15 [
     i8 0, label %.loopexit
     i8 37, label %17
@@ -56,7 +56,7 @@ define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef reado
   br label %217
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %.058, i64 1
+  %18 = getelementptr inbounds i8, ptr %.057, i64 1
   %19 = load i8, ptr %18, align 1
   switch i8 %19, label %22 [
     i8 106, label %20
@@ -65,7 +65,7 @@ define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef reado
   ]
 
 20:                                               ; preds = %17, %17, %17
-  %21 = getelementptr inbounds i8, ptr %.058, i64 2
+  %21 = getelementptr inbounds i8, ptr %.057, i64 2
   %.pr = load i8, ptr %21, align 1
   br label %22
 
@@ -214,17 +214,17 @@ define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef reado
   br label %94
 
 94:                                               ; preds = %90, %78, %66, %54
-  %.057 = phi i64 [ %93, %90 ], [ %80, %78 ], [ %68, %66 ], [ %56, %54 ]
-  %95 = icmp slt i64 %.057, 0
+  %.059 = phi i64 [ %93, %90 ], [ %80, %78 ], [ %68, %66 ], [ %56, %54 ]
+  %95 = icmp slt i64 %.059, 0
   br i1 %95, label %96, label %append_int.exit
 
 96:                                               ; preds = %94
   %97 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 45) #6
-  %98 = sub i64 0, %.057
+  %98 = sub i64 0, %.059
   br label %append_int.exit
 
 append_int.exit:                                  ; preds = %94, %96
-  %.0.i = phi i64 [ %98, %96 ], [ %.057, %94 ]
+  %.0.i = phi i64 [ %98, %96 ], [ %.059, %94 ]
   tail call fastcc void @append_uint(ptr noundef %0, i64 noundef %.0.i, i32 noundef 10)
   br label %217
 
@@ -434,7 +434,7 @@ append_int.exit:                                  ; preds = %94, %96
   br label %210
 
 210:                                              ; preds = %206, %194, %182, %170
-  %.059 = phi i64 [ %209, %206 ], [ %196, %194 ], [ %184, %182 ], [ %172, %170 ]
+  %.058 = phi i64 [ %209, %206 ], [ %196, %194 ], [ %184, %182 ], [ %172, %170 ]
   %211 = load i8, ptr %.1, align 1
   switch i8 %211, label %214 [
     i8 111, label %212
@@ -442,15 +442,15 @@ append_int.exit:                                  ; preds = %94, %96
   ]
 
 212:                                              ; preds = %210
-  tail call fastcc void @append_uint(ptr noundef %0, i64 noundef %.059, i32 noundef 8)
+  tail call fastcc void @append_uint(ptr noundef %0, i64 noundef %.058, i32 noundef 8)
   br label %217
 
 213:                                              ; preds = %210
-  tail call fastcc void @append_uint(ptr noundef %0, i64 noundef %.059, i32 noundef 10)
+  tail call fastcc void @append_uint(ptr noundef %0, i64 noundef %.058, i32 noundef 10)
   br label %217
 
 214:                                              ; preds = %210
-  tail call fastcc void @append_uint(ptr noundef %0, i64 noundef %.059, i32 noundef 16)
+  tail call fastcc void @append_uint(ptr noundef %0, i64 noundef %.058, i32 noundef 16)
   br label %217
 
 215:                                              ; preds = %22
@@ -458,7 +458,7 @@ append_int.exit:                                  ; preds = %94, %96
   br label %217
 
 217:                                              ; preds = %24, %37, %append_int.exit, %215, %111, %117, %131, %153, %147, %214, %213, %212, %15
-  %.2 = phi ptr [ %.058, %15 ], [ %.058, %215 ], [ %.1, %214 ], [ %.1, %213 ], [ %.1, %212 ], [ %.1, %153 ], [ %.1, %147 ], [ %.1, %117 ], [ %.1, %111 ], [ %.1, %131 ], [ %.1, %append_int.exit ], [ %.1, %37 ], [ %.1, %24 ]
+  %.2 = phi ptr [ %.057, %15 ], [ %.057, %215 ], [ %.1, %214 ], [ %.1, %213 ], [ %.1, %212 ], [ %.1, %153 ], [ %.1, %147 ], [ %.1, %117 ], [ %.1, %111 ], [ %.1, %131 ], [ %.1, %append_int.exit ], [ %.1, %37 ], [ %.1, %24 ]
   %218 = getelementptr inbounds i8, ptr %.2, i64 1
   br label %13, !llvm.loop !5
 

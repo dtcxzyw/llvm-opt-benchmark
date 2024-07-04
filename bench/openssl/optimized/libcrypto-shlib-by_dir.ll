@@ -464,8 +464,8 @@ for.inc:                                          ; preds = %for.end, %if.end154
   br i1 %cmp19, label %for.body, label %finish, !llvm.loop !4
 
 finish:                                           ; preds = %if.then34, %if.then87, %if.then109, %for.inc, %for.cond.preheader, %if.end13, %if.then157, %if.then139, %if.then130, %if.then29, %if.then12, %if.else8
-  %b.0 = phi ptr [ null, %if.then12 ], [ %call, %if.end13 ], [ %call, %if.then130 ], [ %call, %if.then157 ], [ %call, %if.then139 ], [ %call, %if.then29 ], [ null, %if.else8 ], [ %call, %for.cond.preheader ], [ %call, %for.inc ], [ %call, %if.then109 ], [ %call, %if.then87 ], [ %call, %if.then34 ]
   %ok.0 = phi i32 [ 0, %if.then12 ], [ 0, %if.end13 ], [ 0, %if.then130 ], [ 1, %if.then157 ], [ 0, %if.then139 ], [ 0, %if.then29 ], [ 0, %if.else8 ], [ 0, %for.cond.preheader ], [ 0, %for.inc ], [ 0, %if.then109 ], [ 0, %if.then87 ], [ 0, %if.then34 ]
+  %b.0 = phi ptr [ null, %if.then12 ], [ %call, %if.end13 ], [ %call, %if.then130 ], [ %call, %if.then157 ], [ %call, %if.then139 ], [ %call, %if.then29 ], [ null, %if.else8 ], [ %call, %for.cond.preheader ], [ %call, %for.inc ], [ %call, %if.then109 ], [ %call, %if.then87 ], [ %call, %if.then34 ]
   %store_ctx165 = getelementptr inbounds i8, ptr %xl, i64 24
   %51 = load ptr, ptr %store_ctx165, align 8
   %objs166 = getelementptr inbounds i8, ptr %51, i64 8

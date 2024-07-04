@@ -216,8 +216,8 @@ if.then75:                                        ; preds = %if.end72
   br i1 %cmp77, label %for.cond79, label %for.cond105
 
 for.cond79:                                       ; preds = %if.then75, %if.end99
-  %rightIndex.0 = phi i64 [ %indvars.iv.next314, %if.end99 ], [ 0, %if.then75 ]
   %leftIndex.0 = phi i64 [ %indvars.iv.next311, %if.end99 ], [ 0, %if.then75 ]
+  %rightIndex.0 = phi i64 [ %indvars.iv.next314, %if.end99 ], [ 0, %if.then75 ]
   %sext = shl i64 %leftIndex.0, 32
   %28 = ashr exact i64 %sext, 32
   br label %do.body80

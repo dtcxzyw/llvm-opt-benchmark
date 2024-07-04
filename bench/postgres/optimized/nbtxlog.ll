@@ -1545,10 +1545,10 @@ BufferGetPage.exit121._crit_edge:                 ; preds = %BufferGetPage.exit1
   br label %136
 
 136:                                              ; preds = %BufferGetPage.exit121, %BufferGetPage.exit121._crit_edge, %119
-  %.0111 = phi i64 [ %135, %119 ], [ 0, %BufferGetPage.exit121._crit_edge ], [ 0, %BufferGetPage.exit121 ]
-  %.0110 = phi i64 [ %115, %119 ], [ %115, %BufferGetPage.exit121._crit_edge ], [ 0, %BufferGetPage.exit121 ]
-  %.0109 = phi ptr [ %134, %119 ], [ null, %BufferGetPage.exit121._crit_edge ], [ null, %BufferGetPage.exit121 ]
-  %.0108 = phi ptr [ %124, %119 ], [ %110, %BufferGetPage.exit121._crit_edge ], [ null, %BufferGetPage.exit121 ]
+  %.0111 = phi ptr [ %124, %119 ], [ %110, %BufferGetPage.exit121._crit_edge ], [ null, %BufferGetPage.exit121 ]
+  %.0110 = phi ptr [ %134, %119 ], [ null, %BufferGetPage.exit121._crit_edge ], [ null, %BufferGetPage.exit121 ]
+  %.0109 = phi i64 [ %115, %119 ], [ %115, %BufferGetPage.exit121._crit_edge ], [ 0, %BufferGetPage.exit121 ]
+  %.0107 = phi i64 [ %135, %119 ], [ 0, %BufferGetPage.exit121._crit_edge ], [ 0, %BufferGetPage.exit121 ]
   %.0 = phi ptr [ %116, %119 ], [ %116, %BufferGetPage.exit121._crit_edge ], [ %110, %BufferGetPage.exit121 ]
   %137 = getelementptr inbounds i8, ptr %.0, i64 6
   %138 = load i16, ptr %137, align 2
@@ -1584,14 +1584,14 @@ BufferGetPage.exit121._crit_edge:                 ; preds = %BufferGetPage.exit1
 .lr.ph:                                           ; preds = %150
   %158 = getelementptr inbounds i8, ptr %15, i64 6
   %159 = getelementptr inbounds i8, ptr %.0.i.i120, i64 24
-  %160 = getelementptr inbounds i8, ptr %.0109, i64 6
+  %160 = getelementptr inbounds i8, ptr %.0110, i64 6
   %161 = zext nneg i16 %154 to i64
   br i1 %0, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %190
   %indvars.iv145 = phi i64 [ %indvars.iv.next146, %190 ], [ %161, %.lr.ph ]
-  %.0112132.us = phi i16 [ %.2.us, %190 ], [ 2, %.lr.ph ]
-  %162 = icmp eq i64 %indvars.iv145, %.0111
+  %.0108133.us = phi i16 [ %.2.us, %190 ], [ 2, %.lr.ph ]
+  %162 = icmp eq i64 %indvars.iv145, %.0107
   br i1 %162, label %183, label %163
 
 163:                                              ; preds = %.lr.ph.split.us
@@ -1601,16 +1601,16 @@ BufferGetPage.exit121._crit_edge:                 ; preds = %BufferGetPage.exit1
   br i1 %166, label %167, label %172
 
 167:                                              ; preds = %163
-  %168 = call zeroext i16 @PageAddItemExtended(ptr noundef %144, ptr noundef %.0108, i64 noundef %.0110, i16 noundef zeroext %.0112132.us, i32 noundef 0) #7
+  %168 = call zeroext i16 @PageAddItemExtended(ptr noundef %144, ptr noundef %.0111, i64 noundef %.0109, i16 noundef zeroext %.0108133.us, i32 noundef 0) #7
   %169 = icmp eq i16 %168, 0
   br i1 %169, label %.split.us, label %170
 
 170:                                              ; preds = %167
-  %171 = add i16 %.0112132.us, 1
+  %171 = add i16 %.0108133.us, 1
   br label %172
 
 172:                                              ; preds = %170, %163
-  %.1.us = phi i16 [ %171, %170 ], [ %.0112132.us, %163 ]
+  %.1.us = phi i16 [ %171, %170 ], [ %.0108133.us, %163 ]
   %173 = add nsw i64 %indvars.iv145, -1
   %174 = getelementptr [0 x %struct.ItemIdData], ptr %159, i64 0, i64 %173
   %175 = load i32, ptr %174, align 4
@@ -1629,12 +1629,12 @@ BufferGetPage.exit121._crit_edge:                 ; preds = %BufferGetPage.exit1
   %narrow118.us = add nuw nsw i16 %185, 7
   %186 = and i16 %narrow118.us, 16376
   %187 = zext nneg i16 %186 to i64
-  %188 = call zeroext i16 @PageAddItemExtended(ptr noundef %144, ptr noundef %.0109, i64 noundef %187, i16 noundef zeroext %.0112132.us, i32 noundef 0) #7
+  %188 = call zeroext i16 @PageAddItemExtended(ptr noundef %144, ptr noundef %.0110, i64 noundef %187, i16 noundef zeroext %.0108133.us, i32 noundef 0) #7
   %189 = icmp eq i16 %188, 0
   br i1 %189, label %.split138.us, label %190
 
 190:                                              ; preds = %183, %172
-  %.2.in.us = phi i16 [ %.0112132.us, %183 ], [ %.1.us, %172 ]
+  %.2.in.us = phi i16 [ %.0108133.us, %183 ], [ %.1.us, %172 ]
   %.2.us = add i16 %.2.in.us, 1
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %191 = load i16, ptr %155, align 4
@@ -1644,8 +1644,8 @@ BufferGetPage.exit121._crit_edge:                 ; preds = %BufferGetPage.exit1
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %219
   %indvars.iv = phi i64 [ %indvars.iv.next, %219 ], [ %161, %.lr.ph ]
-  %.0112132 = phi i16 [ %.2, %219 ], [ 2, %.lr.ph ]
-  %194 = icmp eq i64 %indvars.iv, %.0111
+  %.0108133 = phi i16 [ %.2, %219 ], [ 2, %.lr.ph ]
+  %194 = icmp eq i64 %indvars.iv, %.0107
   br i1 %194, label %195, label %204
 
 195:                                              ; preds = %.lr.ph.split
@@ -1654,7 +1654,7 @@ BufferGetPage.exit121._crit_edge:                 ; preds = %BufferGetPage.exit1
   %narrow118 = add nuw nsw i16 %197, 7
   %198 = and i16 %narrow118, 16376
   %199 = zext nneg i16 %198 to i64
-  %200 = call zeroext i16 @PageAddItemExtended(ptr noundef %144, ptr noundef %.0109, i64 noundef %199, i16 noundef zeroext %.0112132, i32 noundef 0) #7
+  %200 = call zeroext i16 @PageAddItemExtended(ptr noundef %144, ptr noundef %.0110, i64 noundef %199, i16 noundef zeroext %.0108133, i32 noundef 0) #7
   %201 = icmp eq i16 %200, 0
   br i1 %201, label %.split138.us, label %219
 
@@ -1674,7 +1674,7 @@ BufferGetPage.exit121._crit_edge:                 ; preds = %BufferGetPage.exit1
   %210 = and i32 %207, 32767
   %211 = zext nneg i32 %210 to i64
   %212 = getelementptr i8, ptr %.0.i.i120, i64 %211
-  %213 = call zeroext i16 @PageAddItemExtended(ptr noundef %144, ptr noundef %212, i64 noundef %209, i16 noundef zeroext %.0112132, i32 noundef 0) #7
+  %213 = call zeroext i16 @PageAddItemExtended(ptr noundef %144, ptr noundef %212, i64 noundef %209, i16 noundef zeroext %.0108133, i32 noundef 0) #7
   %214 = icmp eq i16 %213, 0
   br i1 %214, label %.split136.us, label %219
 
@@ -1693,7 +1693,7 @@ BufferGetPage.exit121._crit_edge:                 ; preds = %BufferGetPage.exit1
   unreachable
 
 219:                                              ; preds = %204, %195
-  %.2 = add i16 %.0112132, 1
+  %.2 = add i16 %.0108133, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %220 = load i16, ptr %155, align 4
   %221 = zext i16 %220 to i64
@@ -1709,18 +1709,18 @@ BufferGetPage.exit121._crit_edge:                 ; preds = %BufferGetPage.exit1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit142, %._crit_edge.loopexit, %150
-  %.0112.lcssa = phi i16 [ 2, %150 ], [ %.2.us, %._crit_edge.loopexit ], [ %.2, %._crit_edge.loopexit142 ]
-  %.0107.lcssa = phi i16 [ %154, %150 ], [ %223, %._crit_edge.loopexit ], [ %224, %._crit_edge.loopexit142 ]
+  %.0112.lcssa = phi i16 [ %154, %150 ], [ %223, %._crit_edge.loopexit ], [ %224, %._crit_edge.loopexit142 ]
+  %.0108.lcssa = phi i16 [ 2, %150 ], [ %.2.us, %._crit_edge.loopexit ], [ %.2, %._crit_edge.loopexit142 ]
   br i1 %0, label %225, label %235
 
 225:                                              ; preds = %._crit_edge
   %226 = getelementptr inbounds i8, ptr %15, i64 6
   %227 = load i16, ptr %226, align 2
-  %228 = icmp eq i16 %.0107.lcssa, %227
+  %228 = icmp eq i16 %.0112.lcssa, %227
   br i1 %228, label %229, label %235
 
 229:                                              ; preds = %225
-  %230 = call zeroext i16 @PageAddItemExtended(ptr noundef %144, ptr noundef %.0108, i64 noundef %.0110, i16 noundef zeroext %.0112.lcssa, i32 noundef 0) #7
+  %230 = call zeroext i16 @PageAddItemExtended(ptr noundef %144, ptr noundef %.0111, i64 noundef %.0109, i16 noundef zeroext %.0108.lcssa, i32 noundef 0) #7
   %231 = icmp eq i16 %230, 0
   br i1 %231, label %232, label %235
 
@@ -1997,26 +1997,26 @@ define internal fastcc void @_bt_restore_page(ptr noundef %0, ptr noundef %1, i3
   br i1 %8, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph, %3
-  %.021.lcssa = phi i32 [ 0, %3 ], [ %16, %.lr.ph ]
-  %9 = zext i32 %.021.lcssa to i64
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %16, %.lr.ph ]
+  %9 = zext i32 %.0.lcssa to i64
   br label %19
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.023 = phi ptr [ %17, %.lr.ph ], [ %1, %3 ]
-  %.02122 = phi i32 [ %16, %.lr.ph ], [ 0, %3 ]
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %.023, i64 6
+  %.023 = phi i32 [ %16, %.lr.ph ], [ 0, %3 ]
+  %.02122 = phi ptr [ %17, %.lr.ph ], [ %1, %3 ]
+  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %.02122, i64 6
   %.sroa.1.0.copyload = load i16, ptr %.sroa.1.0..sroa_idx, align 1
   %10 = and i16 %.sroa.1.0.copyload, 8191
   %narrow = add nuw nsw i16 %10, 7
   %11 = and i16 %narrow, 16376
   %12 = zext nneg i16 %11 to i64
-  %13 = sext i32 %.02122 to i64
+  %13 = sext i32 %.023 to i64
   %14 = getelementptr [408 x ptr], ptr %4, i64 0, i64 %13
-  store ptr %.023, ptr %14, align 8
+  store ptr %.02122, ptr %14, align 8
   %15 = getelementptr [408 x i16], ptr %5, i64 0, i64 %13
   store i16 %11, ptr %15, align 2
-  %16 = add i32 %.02122, 1
-  %17 = getelementptr i8, ptr %.023, i64 %12
+  %16 = add i32 %.023, 1
+  %17 = getelementptr i8, ptr %.02122, i64 %12
   %18 = icmp ult ptr %17, %7
   br i1 %18, label %.lr.ph, label %.preheader, !llvm.loop !8
 
@@ -2034,7 +2034,7 @@ define internal fastcc void @_bt_restore_page(ptr noundef %0, ptr noundef %1, i3
   %25 = getelementptr [408 x i16], ptr %5, i64 0, i64 %22
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i64
-  %28 = sub i32 %.021.lcssa, %indvars
+  %28 = sub i32 %.0.lcssa, %indvars
   %29 = trunc i32 %28 to i16
   %30 = tail call zeroext i16 @PageAddItemExtended(ptr noundef %0, ptr noundef %24, i64 noundef %27, i16 noundef zeroext %29, i32 noundef 0) #7
   %31 = icmp eq i16 %30, 0

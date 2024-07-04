@@ -696,8 +696,8 @@ common.resume:                                    ; preds = %19, %15
   br i1 %88, label %89, label %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit"
 
 89:                                               ; preds = %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit48.thread", %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit48", %68, %107
-  %.035 = phi i64 [ %109, %107 ], [ 0, %68 ], [ %12, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit48" ], [ %12, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit48.thread" ]
-  %90 = add i64 %.035, %31
+  %.034 = phi i64 [ %109, %107 ], [ 0, %68 ], [ %12, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit48" ], [ %12, %"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h29c47e4156ad4f52E.llvm.6876384978452292205.exit48.thread" ]
+  %90 = add i64 %.034, %31
   %91 = getelementptr inbounds i8, ptr %23, i64 16
   %92 = load ptr, ptr %91, align 8, !nonnull !16, !align !105, !noundef !16
   %93 = getelementptr inbounds i8, ptr %23, i64 24
@@ -742,7 +742,7 @@ common.resume:                                    ; preds = %19, %15
   %114 = trunc nuw i8 %113 to i1
   %115 = getelementptr inbounds i8, ptr %1, i64 78
   %116 = load i8, ptr %115, align 2, !range !89
-  %.034 = select i1 %114, i8 1, i8 %116
+  %.036 = select i1 %114, i8 1, i8 %116
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
   %117 = getelementptr inbounds i8, ptr %0, i64 56
   %118 = load ptr, ptr %117, align 8, !nonnull !16, !noundef !16
@@ -758,7 +758,7 @@ common.resume:                                    ; preds = %19, %15
   %124 = getelementptr inbounds i8, ptr %9, i64 40
   store i64 %12, ptr %124, align 8
   %125 = getelementptr inbounds i8, ptr %9, i64 48
-  store i8 %.034, ptr %125, align 8
+  store i8 %.036, ptr %125, align 8
   %126 = getelementptr inbounds i8, ptr %9, i64 24
   store ptr %2, ptr %126, align 8
   %127 = getelementptr inbounds i8, ptr %1, i64 79

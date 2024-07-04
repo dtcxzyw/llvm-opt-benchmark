@@ -6473,29 +6473,29 @@ for.body.preheader:                               ; preds = %if.end3
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %data.addr.053 = phi ptr [ %add.ptr19, %for.body ], [ %data, %for.body.preheader ]
-  %hash.addr.052 = phi i32 [ %add21, %for.body ], [ %hash, %for.body.preheader ]
-  %len.addr.151 = phi i32 [ %dec, %for.body ], [ %shr, %for.body.preheader ]
-  %0 = load i16, ptr %data.addr.053, align 1
+  %hash.addr.053 = phi i32 [ %add21, %for.body ], [ %hash, %for.body.preheader ]
+  %len.addr.152 = phi i32 [ %dec, %for.body ], [ %shr, %for.body.preheader ]
+  %data.addr.051 = phi ptr [ %add.ptr19, %for.body ], [ %data, %for.body.preheader ]
+  %0 = load i16, ptr %data.addr.051, align 1
   %1 = zext i16 %0 to i32
-  %add8 = add i32 %hash.addr.052, %1
-  %add.ptr = getelementptr inbounds i8, ptr %data.addr.053, i64 2
+  %add8 = add i32 %hash.addr.053, %1
+  %add.ptr = getelementptr inbounds i8, ptr %data.addr.051, i64 2
   %2 = load i16, ptr %add.ptr, align 1
   %3 = zext i16 %2 to i32
   %4 = shl nuw nsw i32 %3, 11
   %shl17 = shl i32 %add8, 16
   %5 = xor i32 %shl17, %4
   %xor18 = xor i32 %5, %add8
-  %add.ptr19 = getelementptr inbounds i8, ptr %data.addr.053, i64 4
+  %add.ptr19 = getelementptr inbounds i8, ptr %data.addr.051, i64 4
   %shr20 = lshr i32 %xor18, 11
   %add21 = add i32 %shr20, %xor18
-  %dec = add nsw i32 %len.addr.151, -1
+  %dec = add nsw i32 %len.addr.152, -1
   %cmp4.not = icmp eq i32 %dec, 0
   br i1 %cmp4.not, label %for.end, label %for.body, !llvm.loop !65
 
 for.end:                                          ; preds = %for.body, %if.end3
-  %hash.addr.0.lcssa = phi i32 [ %hash, %if.end3 ], [ %add21, %for.body ]
   %data.addr.0.lcssa = phi ptr [ %data, %if.end3 ], [ %add.ptr19, %for.body ]
+  %hash.addr.0.lcssa = phi i32 [ %hash, %if.end3 ], [ %add21, %for.body ]
   switch i32 %and, label %default.unreachable [
     i32 3, label %sw.bb
     i32 2, label %sw.bb37
@@ -7255,8 +7255,8 @@ cond.false.i.i.i:                                 ; preds = %land.rhs
   br label %do.body.i.i.i.i
 
 do.body.i.i.i.i:                                  ; preds = %do.body.i.i.i.i, %cond.false.i.i.i
-  %s2.addr.0.i.i.i.i = phi ptr [ %call4.i.i.i, %cond.false.i.i.i ], [ %incdec.ptr2.i.i.i.i, %do.body.i.i.i.i ]
   %s1.addr.0.i.i.i.i = phi ptr [ %call3.i.i.i, %cond.false.i.i.i ], [ %incdec.ptr.i.i.i.i, %do.body.i.i.i.i ]
+  %s2.addr.0.i.i.i.i = phi ptr [ %call4.i.i.i, %cond.false.i.i.i ], [ %incdec.ptr2.i.i.i.i, %do.body.i.i.i.i ]
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %s1.addr.0.i.i.i.i, i64 1
   %0 = load i8, ptr %s1.addr.0.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %0 to i32

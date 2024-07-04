@@ -56,21 +56,21 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden noundef i32 @_ZNK15linear_equation3posEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %x_i) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
+  %sub = add i32 %0, -1
   %m_xs = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %m_xs, align 8
   br label %while.body.outer
 
-while.body.outer:                                 ; preds = %if.then7, %entry
-  %high.0.ph.in = phi i32 [ %add, %if.then7 ], [ %0, %entry ]
-  %low.0.ph = phi i32 [ %low.0, %if.then7 ], [ 0, %entry ]
-  %high.0.ph = add i32 %high.0.ph.in, -1
+while.body.outer:                                 ; preds = %if.then, %entry
+  %low.0.ph = phi i32 [ %add3, %if.then ], [ 0, %entry ]
+  %high.0.ph = phi i32 [ %high.0, %if.then ], [ %sub, %entry ]
   br label %while.body
 
-while.body:                                       ; preds = %while.body.outer, %if.then
-  %low.0 = phi i32 [ %add3, %if.then ], [ %low.0.ph, %while.body.outer ]
-  %sub2 = sub nsw i32 %high.0.ph, %low.0
+while.body:                                       ; preds = %while.body.outer, %if.then7
+  %high.0 = phi i32 [ %sub8, %if.then7 ], [ %high.0.ph, %while.body.outer ]
+  %sub2 = sub nsw i32 %high.0, %low.0.ph
   %div = sdiv i32 %sub2, 2
-  %add = add nsw i32 %div, %low.0
+  %add = add nsw i32 %div, %low.0.ph
   %idxprom = sext i32 %add to i64
   %arrayidx = getelementptr inbounds i32, ptr %1, i64 %idxprom
   %2 = load i32, ptr %arrayidx, align 4
@@ -79,19 +79,20 @@ while.body:                                       ; preds = %while.body.outer, %
 
 if.then:                                          ; preds = %while.body
   %add3 = add nsw i32 %add, 1
-  %cmp4.not = icmp slt i32 %add, %high.0.ph
-  br i1 %cmp4.not, label %while.body, label %return, !llvm.loop !4
+  %cmp4.not = icmp slt i32 %add, %high.0
+  br i1 %cmp4.not, label %while.body.outer, label %return, !llvm.loop !4
 
 if.else:                                          ; preds = %while.body
   %cmp6 = icmp ugt i32 %2, %x_i
   br i1 %cmp6, label %if.then7, label %return
 
 if.then7:                                         ; preds = %if.else
+  %sub8 = add nsw i32 %add, -1
   %cmp9.not = icmp sgt i32 %sub2, 1
-  br i1 %cmp9.not, label %while.body.outer, label %return, !llvm.loop !4
+  br i1 %cmp9.not, label %while.body, label %return, !llvm.loop !4
 
-return:                                           ; preds = %if.else, %if.then7, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ %add, %if.else ], [ -1, %if.then7 ]
+return:                                           ; preds = %if.then, %if.else, %if.then7
+  %retval.0 = phi i32 [ %add, %if.else ], [ -1, %if.then7 ], [ -1, %if.then ]
   ret i32 %retval.0
 }
 

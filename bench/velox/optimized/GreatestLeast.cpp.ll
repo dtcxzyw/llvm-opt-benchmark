@@ -5148,28 +5148,28 @@ for.body.i.i.i.i.i.preheader:                     ; preds = %if.then
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 1
   %3 = trunc i64 %add.i.i.i to i32
   %conv4.i.i.i = and i32 %3, 63
-  %div.i.i.i104105 = lshr i64 %add.i.i.i, 6
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %0, i64 %div.i.i.i104105
+  %div.i.i.i103104 = lshr i64 %add.i.i.i, 6
+  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %0, i64 %div.i.i.i103104
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i
   %__n.029.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %sub.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader ]
   %__last.sroa.5.028.i.i.i.i.i = phi i32 [ %spec.select23.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %2, %for.body.i.i.i.i.i.preheader ]
-  %__last.sroa.0.027.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %0, %for.body.i.i.i.i.i.preheader ]
+  %__result.sroa.0.027.i.i.i.i.i = phi ptr [ %__result.sroa.0.1.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %add.ptr.i.i.i, %for.body.i.i.i.i.i.preheader ]
   %__result.sroa.5.026.i.i.i.i.i = phi i32 [ %__result.sroa.5.1.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %conv4.i.i.i, %for.body.i.i.i.i.i.preheader ]
-  %__result.sroa.0.025.i.i.i.i.i = phi ptr [ %__result.sroa.0.1.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %add.ptr.i.i.i, %for.body.i.i.i.i.i.preheader ]
+  %__last.sroa.0.025.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i ], [ %0, %for.body.i.i.i.i.i.preheader ]
   %dec.i.i.i.i.i.i.i = add i32 %__last.sroa.5.028.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %__last.sroa.5.028.i.i.i.i.i, 0
   %spec.select.idx.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 -8, i64 0
-  %spec.select.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.027.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
+  %spec.select.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.025.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i
   %spec.select23.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i32 63, i32 %dec.i.i.i.i.i.i.i
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %spec.select23.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i
   %dec.i.i4.i.i.i.i.i = add i32 %__result.sroa.5.026.i.i.i.i.i, -1
   %cmp.i.i5.i.i.i.i.i = icmp eq i32 %__result.sroa.5.026.i.i.i.i.i, 0
-  %__result.sroa.0.1.idx.i.i.i.i.i = select i1 %cmp.i.i5.i.i.i.i.i, i64 -8, i64 0
-  %__result.sroa.0.1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.025.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i
   %__result.sroa.5.1.i.i.i.i.i = select i1 %cmp.i.i5.i.i.i.i.i, i32 63, i32 %dec.i.i4.i.i.i.i.i
+  %__result.sroa.0.1.idx.i.i.i.i.i = select i1 %cmp.i.i5.i.i.i.i.i, i64 -8, i64 0
+  %__result.sroa.0.1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.027.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i
   %sh_prom.i10.i.i.i.i.i = zext nneg i32 %__result.sroa.5.1.i.i.i.i.i to i64
   %shl.i11.i.i.i.i.i = shl nuw i64 1, %sh_prom.i10.i.i.i.i.i
   %4 = load i64, ptr %spec.select.i.i.i.i.i, align 8
@@ -5271,42 +5271,42 @@ for.body.i.i.i.i.i.preheader.i:                   ; preds = %_ZSt4copyIPmS0_ET0_
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader.i
   %__n.025.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %conv.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader.i ]
   %__first.sroa.5.024.i.i.i.i.i.i = phi i32 [ %spec.select19.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.preheader.i ]
-  %__first.sroa.0.023.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %__position.coerce0, %for.body.i.i.i.i.i.preheader.i ]
-  %__result.sroa.0.022.i.i.i.i.i.i = phi ptr [ %__result.sroa.0.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader.i ]
-  %__result.sroa.5.021.i.i.i.i.i.i = phi i32 [ %__result.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.preheader.i ]
+  %__result.sroa.0.023.i.i.i.i.i.i = phi ptr [ %__result.sroa.0.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader.i ]
+  %__result.sroa.5.022.i.i.i.i.i.i = phi i32 [ %__result.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %for.body.i.i.i.i.i.preheader.i ]
+  %__first.sroa.0.021.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %__position.coerce0, %for.body.i.i.i.i.i.preheader.i ]
   %sh_prom.i.i.i.i.i.i.i = zext nneg i32 %__first.sroa.5.024.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i.i.i
-  %15 = load i64, ptr %__first.sroa.0.023.i.i.i.i.i.i, align 8
+  %15 = load i64, ptr %__first.sroa.0.021.i.i.i.i.i.i, align 8
   %and.i.i.i.i.i.i.i.i = and i64 %15, %shl.i.i.i.i.i.i.i
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i.i, 0
-  %sh_prom.i4.i.i.i.i.i.i = zext nneg i32 %__result.sroa.5.021.i.i.i.i.i.i to i64
+  %sh_prom.i4.i.i.i.i.i.i = zext nneg i32 %__result.sroa.5.022.i.i.i.i.i.i to i64
   %shl.i5.i.i.i.i.i.i = shl nuw i64 1, %sh_prom.i4.i.i.i.i.i.i
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i22, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i
-  %16 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
+  %16 = load i64, ptr %__result.sroa.0.023.i.i.i.i.i.i, align 8
   %or.i.i.i.i.i.i.i21 = or i64 %16, %shl.i5.i.i.i.i.i.i
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 if.else.i.i.i.i.i.i.i22:                          ; preds = %for.body.i.i.i.i.i.i
   %not.i.i.i.i.i.i.i23 = xor i64 %shl.i5.i.i.i.i.i.i, -1
-  %17 = load i64, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
+  %17 = load i64, ptr %__result.sroa.0.023.i.i.i.i.i.i, align 8
   %and.i.i.i.i.i.i.i24 = and i64 %17, %not.i.i.i.i.i.i.i23
   br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
 
 _ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %if.else.i.i.i.i.i.i.i22, %if.then.i.i.i.i.i.i.i
   %storemerge.i.i.i.i.i.i = phi i64 [ %and.i.i.i.i.i.i.i24, %if.else.i.i.i.i.i.i.i22 ], [ %or.i.i.i.i.i.i.i21, %if.then.i.i.i.i.i.i.i ]
-  store i64 %storemerge.i.i.i.i.i.i, ptr %__result.sroa.0.022.i.i.i.i.i.i, align 8
+  store i64 %storemerge.i.i.i.i.i.i, ptr %__result.sroa.0.023.i.i.i.i.i.i, align 8
   %inc.i.i.i.i.i.i.i.i = add i32 %__first.sroa.5.024.i.i.i.i.i.i, 1
   %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %__first.sroa.5.024.i.i.i.i.i.i, 63
   %spec.select.idx.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 8, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.023.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
+  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.021.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
   %spec.select19.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i32 0, i32 %inc.i.i.i.i.i.i.i.i
-  %inc.i.i7.i.i.i.i.i.i = add i32 %__result.sroa.5.021.i.i.i.i.i.i, 1
-  %cmp.i.i8.i.i.i.i.i.i = icmp eq i32 %__result.sroa.5.021.i.i.i.i.i.i, 63
+  %inc.i.i7.i.i.i.i.i.i = add i32 %__result.sroa.5.022.i.i.i.i.i.i, 1
+  %cmp.i.i8.i.i.i.i.i.i = icmp eq i32 %__result.sroa.5.022.i.i.i.i.i.i, 63
   %__result.sroa.5.1.i.i.i.i.i.i = select i1 %cmp.i.i8.i.i.i.i.i.i, i32 0, i32 %inc.i.i7.i.i.i.i.i.i
   %__result.sroa.0.1.idx.i.i.i.i.i.i = select i1 %cmp.i.i8.i.i.i.i.i.i, i64 8, i64 0
-  %__result.sroa.0.1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.022.i.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i.i
+  %__result.sroa.0.1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.023.i.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i.i
   %dec.i.i.i.i.i.i = add nsw i64 %__n.025.i.i.i.i.i.i, -1
   %cmp.i.i.i.i.i.i = icmp sgt i64 %__n.025.i.i.i.i.i.i, 1
   br i1 %cmp.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit, !llvm.loop !36
@@ -5321,28 +5321,28 @@ if.then.i.i30:                                    ; preds = %_ZNSt6vectorIbSaIbE
   br label %_ZNSt13_Bit_iteratorppEi.exit
 
 _ZNSt13_Bit_iteratorppEi.exit:                    ; preds = %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit, %if.then.i.i30
-  %__result.sroa.0.0.lcssa.i.i.i.i.i.i103 = phi ptr [ %__result.sroa.0.1.i.i.i.i.i.i, %if.then.i.i30 ], [ %__result.sroa.0.1.i.i.i.i.i.i, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit ], [ %add.ptr.i.i.i.i.i.i, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ]
-  %__result.sroa.5.0.lcssa.i.i.i.i.i.i102 = phi i32 [ 63, %if.then.i.i30 ], [ %__result.sroa.5.1.i.i.i.i.i.i, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit ], [ 0, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ]
+  %__result.sroa.0.0.lcssa.i.i.i.i.i.i102 = phi ptr [ %__result.sroa.0.1.i.i.i.i.i.i, %if.then.i.i30 ], [ %__result.sroa.0.1.i.i.i.i.i.i, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit ], [ %add.ptr.i.i.i.i.i.i, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ]
+  %__result.sroa.5.0.lcssa.i.i.i.i.i.i101 = phi i32 [ 63, %if.then.i.i30 ], [ %__result.sroa.5.1.i.i.i.i.i.i, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit ], [ 0, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ]
   %__i.sroa.0.0 = phi ptr [ %incdec.ptr.i.i31, %if.then.i.i30 ], [ %__result.sroa.0.1.i.i.i.i.i.i, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit ], [ %add.ptr.i.i.i.i.i.i, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ]
   %__i.sroa.4.0 = phi i32 [ 0, %if.then.i.i30 ], [ %inc.i.i26, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit ], [ 1, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ]
-  %sh_prom.i33 = zext nneg i32 %__result.sroa.5.0.lcssa.i.i.i.i.i.i102 to i64
+  %sh_prom.i33 = zext nneg i32 %__result.sroa.5.0.lcssa.i.i.i.i.i.i101 to i64
   %shl.i34 = shl nuw i64 1, %sh_prom.i33
   br i1 %__x, label %if.then.i41, label %if.else.i38
 
 if.then.i41:                                      ; preds = %_ZNSt13_Bit_iteratorppEi.exit
-  %18 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8
+  %18 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i102, align 8
   %or.i42 = or i64 %18, %shl.i34
   br label %_ZNSt14_Bit_referenceaSEb.exit43
 
 if.else.i38:                                      ; preds = %_ZNSt13_Bit_iteratorppEi.exit
   %not.i39 = xor i64 %shl.i34, -1
-  %19 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8
+  %19 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i102, align 8
   %and.i40 = and i64 %19, %not.i39
   br label %_ZNSt14_Bit_referenceaSEb.exit43
 
 _ZNSt14_Bit_referenceaSEb.exit43:                 ; preds = %if.then.i41, %if.else.i38
-  %storemerge106 = phi i64 [ %and.i40, %if.else.i38 ], [ %or.i42, %if.then.i41 ]
-  store i64 %storemerge106, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8
+  %storemerge105 = phi i64 [ %and.i40, %if.else.i38 ], [ %or.i42, %if.then.i41 ]
+  store i64 %storemerge105, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i102, align 8
   %sub.ptr.sub.i.i.i.i.i.i50 = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.lhs.cast.i.i.i.i.i.i18
   %mul.i.i.i.i.i.i51 = shl nsw i64 %sub.ptr.sub.i.i.i.i.i.i50, 3
   %conv3.i.i.i.i.i.i53 = zext i32 %__position.coerce1 to i64
@@ -5351,61 +5351,61 @@ _ZNSt14_Bit_referenceaSEb.exit43:                 ; preds = %if.then.i41, %if.el
   %cmp24.i.i.i.i.i56 = icmp sgt i64 %sub.i.i.i.i.i.i55, 0
   br i1 %cmp24.i.i.i.i.i56, label %for.body.i.i.i.i.i61, label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
 
-for.body.i.i.i.i.i61:                             ; preds = %_ZNSt14_Bit_referenceaSEb.exit43, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71
-  %__n.029.i.i.i.i.i62 = phi i64 [ %dec.i.i.i.i.i80, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71 ], [ %sub.i.i.i.i.i.i55, %_ZNSt14_Bit_referenceaSEb.exit43 ]
-  %__first.sroa.5.028.i.i.i.i.i = phi i32 [ %spec.select23.i.i.i.i.i76, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71 ], [ %__position.coerce1, %_ZNSt14_Bit_referenceaSEb.exit43 ]
-  %__first.sroa.0.027.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i75, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71 ], [ %__position.coerce0, %_ZNSt14_Bit_referenceaSEb.exit43 ]
-  %__result.sroa.5.026.i.i.i.i.i63 = phi i32 [ %__result.sroa.5.1.i.i.i.i.i79, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71 ], [ %__i.sroa.4.0, %_ZNSt14_Bit_referenceaSEb.exit43 ]
-  %__result.sroa.0.025.i.i.i.i.i64 = phi ptr [ %__result.sroa.0.1.i.i.i.i.i78, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71 ], [ %__i.sroa.0.0, %_ZNSt14_Bit_referenceaSEb.exit43 ]
-  %sh_prom.i.i.i.i.i.i65 = zext nneg i32 %__first.sroa.5.028.i.i.i.i.i to i64
-  %shl.i.i.i.i.i.i66 = shl nuw i64 1, %sh_prom.i.i.i.i.i.i65
+for.body.i.i.i.i.i61:                             ; preds = %_ZNSt14_Bit_referenceaSEb.exit43, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i70
+  %__n.029.i.i.i.i.i62 = phi i64 [ %dec.i.i.i.i.i79, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i70 ], [ %sub.i.i.i.i.i.i55, %_ZNSt14_Bit_referenceaSEb.exit43 ]
+  %__first.sroa.5.028.i.i.i.i.i = phi i32 [ %spec.select23.i.i.i.i.i75, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i70 ], [ %__position.coerce1, %_ZNSt14_Bit_referenceaSEb.exit43 ]
+  %__first.sroa.0.027.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i74, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i70 ], [ %__position.coerce0, %_ZNSt14_Bit_referenceaSEb.exit43 ]
+  %__result.sroa.5.026.i.i.i.i.i63 = phi i32 [ %__result.sroa.5.1.i.i.i.i.i78, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i70 ], [ %__i.sroa.4.0, %_ZNSt14_Bit_referenceaSEb.exit43 ]
+  %__result.sroa.0.025.i.i.i.i.i = phi ptr [ %__result.sroa.0.1.i.i.i.i.i77, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i70 ], [ %__i.sroa.0.0, %_ZNSt14_Bit_referenceaSEb.exit43 ]
+  %sh_prom.i.i.i.i.i.i64 = zext nneg i32 %__first.sroa.5.028.i.i.i.i.i to i64
+  %shl.i.i.i.i.i.i65 = shl nuw i64 1, %sh_prom.i.i.i.i.i.i64
   %sh_prom.i4.i.i.i.i.i = zext nneg i32 %__result.sroa.5.026.i.i.i.i.i63 to i64
   %shl.i5.i.i.i.i.i = shl nuw i64 1, %sh_prom.i4.i.i.i.i.i
   %20 = load i64, ptr %__first.sroa.0.027.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i.i67 = and i64 %20, %shl.i.i.i.i.i.i66
-  %tobool.i.not.i.i.i.i.i.i68 = icmp eq i64 %and.i.i.i.i.i.i.i67, 0
-  br i1 %tobool.i.not.i.i.i.i.i.i68, label %if.else.i.i.i.i.i.i.i82, label %if.then.i.i.i.i.i.i.i69
+  %and.i.i.i.i.i.i.i66 = and i64 %20, %shl.i.i.i.i.i.i65
+  %tobool.i.not.i.i.i.i.i.i67 = icmp eq i64 %and.i.i.i.i.i.i.i66, 0
+  br i1 %tobool.i.not.i.i.i.i.i.i67, label %if.else.i.i.i.i.i.i.i81, label %if.then.i.i.i.i.i.i.i68
 
-if.then.i.i.i.i.i.i.i69:                          ; preds = %for.body.i.i.i.i.i61
-  %21 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i64, align 8
-  %or.i.i.i.i.i.i.i70 = or i64 %21, %shl.i5.i.i.i.i.i
-  br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71
+if.then.i.i.i.i.i.i.i68:                          ; preds = %for.body.i.i.i.i.i61
+  %21 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i, align 8
+  %or.i.i.i.i.i.i.i69 = or i64 %21, %shl.i5.i.i.i.i.i
+  br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i70
 
-if.else.i.i.i.i.i.i.i82:                          ; preds = %for.body.i.i.i.i.i61
-  %not.i.i.i.i.i.i.i83 = xor i64 %shl.i5.i.i.i.i.i, -1
-  %22 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i64, align 8
-  %and.i2.i.i.i.i.i.i84 = and i64 %22, %not.i.i.i.i.i.i.i83
-  br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71
+if.else.i.i.i.i.i.i.i81:                          ; preds = %for.body.i.i.i.i.i61
+  %not.i.i.i.i.i.i.i82 = xor i64 %shl.i5.i.i.i.i.i, -1
+  %22 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i, align 8
+  %and.i2.i.i.i.i.i.i83 = and i64 %22, %not.i.i.i.i.i.i.i82
+  br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i70
 
-_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71:    ; preds = %if.else.i.i.i.i.i.i.i82, %if.then.i.i.i.i.i.i.i69
-  %storemerge.i.i.i.i.i72 = phi i64 [ %or.i.i.i.i.i.i.i70, %if.then.i.i.i.i.i.i.i69 ], [ %and.i2.i.i.i.i.i.i84, %if.else.i.i.i.i.i.i.i82 ]
-  store i64 %storemerge.i.i.i.i.i72, ptr %__result.sroa.0.025.i.i.i.i.i64, align 8
+_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i70:    ; preds = %if.else.i.i.i.i.i.i.i81, %if.then.i.i.i.i.i.i.i68
+  %storemerge.i.i.i.i.i71 = phi i64 [ %or.i.i.i.i.i.i.i69, %if.then.i.i.i.i.i.i.i68 ], [ %and.i2.i.i.i.i.i.i83, %if.else.i.i.i.i.i.i.i81 ]
+  store i64 %storemerge.i.i.i.i.i71, ptr %__result.sroa.0.025.i.i.i.i.i, align 8
   %inc.i.i.i.i.i.i.i = add i32 %__first.sroa.5.028.i.i.i.i.i, 1
-  %cmp.i.i.i.i.i.i.i73 = icmp eq i32 %__first.sroa.5.028.i.i.i.i.i, 63
-  %spec.select.idx.i.i.i.i.i74 = select i1 %cmp.i.i.i.i.i.i.i73, i64 8, i64 0
-  %spec.select.i.i.i.i.i75 = getelementptr inbounds i8, ptr %__first.sroa.0.027.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i74
-  %spec.select23.i.i.i.i.i76 = select i1 %cmp.i.i.i.i.i.i.i73, i32 0, i32 %inc.i.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i72 = icmp eq i32 %__first.sroa.5.028.i.i.i.i.i, 63
+  %spec.select.idx.i.i.i.i.i73 = select i1 %cmp.i.i.i.i.i.i.i72, i64 8, i64 0
+  %spec.select.i.i.i.i.i74 = getelementptr inbounds i8, ptr %__first.sroa.0.027.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i73
+  %spec.select23.i.i.i.i.i75 = select i1 %cmp.i.i.i.i.i.i.i72, i32 0, i32 %inc.i.i.i.i.i.i.i
   %inc.i.i10.i.i.i.i.i = add i32 %__result.sroa.5.026.i.i.i.i.i63, 1
   %cmp.i.i11.i.i.i.i.i = icmp eq i32 %__result.sroa.5.026.i.i.i.i.i63, 63
-  %__result.sroa.0.1.idx.i.i.i.i.i77 = select i1 %cmp.i.i11.i.i.i.i.i, i64 8, i64 0
-  %__result.sroa.0.1.i.i.i.i.i78 = getelementptr inbounds i8, ptr %__result.sroa.0.025.i.i.i.i.i64, i64 %__result.sroa.0.1.idx.i.i.i.i.i77
-  %__result.sroa.5.1.i.i.i.i.i79 = select i1 %cmp.i.i11.i.i.i.i.i, i32 0, i32 %inc.i.i10.i.i.i.i.i
-  %dec.i.i.i.i.i80 = add nsw i64 %__n.029.i.i.i.i.i62, -1
-  %cmp.i.i.i.i.i81 = icmp sgt i64 %__n.029.i.i.i.i.i62, 1
-  br i1 %cmp.i.i.i.i.i81, label %for.body.i.i.i.i.i61, label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit, !llvm.loop !37
+  %__result.sroa.0.1.idx.i.i.i.i.i76 = select i1 %cmp.i.i11.i.i.i.i.i, i64 8, i64 0
+  %__result.sroa.0.1.i.i.i.i.i77 = getelementptr inbounds i8, ptr %__result.sroa.0.025.i.i.i.i.i, i64 %__result.sroa.0.1.idx.i.i.i.i.i76
+  %__result.sroa.5.1.i.i.i.i.i78 = select i1 %cmp.i.i11.i.i.i.i.i, i32 0, i32 %inc.i.i10.i.i.i.i.i
+  %dec.i.i.i.i.i79 = add nsw i64 %__n.029.i.i.i.i.i62, -1
+  %cmp.i.i.i.i.i80 = icmp sgt i64 %__n.029.i.i.i.i.i62, 1
+  br i1 %cmp.i.i.i.i.i80, label %for.body.i.i.i.i.i61, label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit, !llvm.loop !37
 
-_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit: ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71
+_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit: ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i70
   %.pre = load ptr, ptr %this, align 8
   br label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
 
 _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit, %_ZNSt14_Bit_referenceaSEb.exit43
   %23 = phi ptr [ %11, %_ZNSt14_Bit_referenceaSEb.exit43 ], [ %.pre, %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit ]
-  %__result.sroa.0.0.lcssa.i.i.i.i.i57 = phi ptr [ %__i.sroa.0.0, %_ZNSt14_Bit_referenceaSEb.exit43 ], [ %__result.sroa.0.1.i.i.i.i.i78, %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit ]
-  %__result.sroa.5.0.lcssa.i.i.i.i.i58 = phi i32 [ %__i.sroa.4.0, %_ZNSt14_Bit_referenceaSEb.exit43 ], [ %__result.sroa.5.1.i.i.i.i.i79, %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit ]
+  %__result.sroa.0.0.lcssa.i.i.i.i.i57 = phi ptr [ %__i.sroa.0.0, %_ZNSt14_Bit_referenceaSEb.exit43 ], [ %__result.sroa.0.1.i.i.i.i.i77, %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit ]
+  %__result.sroa.5.0.lcssa.i.i.i.i.i58 = phi i32 [ %__i.sroa.4.0, %_ZNSt14_Bit_referenceaSEb.exit43 ], [ %__result.sroa.5.1.i.i.i.i.i78, %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit.loopexit ]
   %tobool.not.i = icmp eq ptr %23, null
-  br i1 %tobool.not.i, label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit, label %if.then.i85
+  br i1 %tobool.not.i, label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit, label %if.then.i84
 
-if.then.i85:                                      ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
+if.then.i84:                                      ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
   %sub.ptr.rhs.cast.i = ptrtoint ptr %23 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
@@ -5414,7 +5414,7 @@ if.then.i85:                                      ; preds = %_ZSt4copyISt13_Bit_
   tail call void @_ZdlPv(ptr noundef %add.ptr.i) #25
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
-_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %if.then.i85
+_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %if.then.i84
   %div1.i = lshr i64 %sub.i.i, 6
   %add.ptr = getelementptr inbounds i64, ptr %call5.i.i.i, i64 %div1.i
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8
@@ -26272,8 +26272,8 @@ if.then.i:                                        ; preds = %_ZNK8facebook5velox
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.exit24
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.exit24 ]
-  %valueIndex.035 = phi i64 [ 0, %for.body.lr.ph ], [ %valueIndex.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.exit24 ]
-  %currentValue.034 = phi double [ %8, %for.body.lr.ph ], [ %currentValue.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.exit24 ]
+  %currentValue.035 = phi double [ %8, %for.body.lr.ph ], [ %currentValue.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.exit24 ]
+  %valueIndex.034 = phi i64 [ 0, %for.body.lr.ph ], [ %valueIndex.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.exit24 ]
   %14 = load ptr, ptr %this, align 8
   %15 = load ptr, ptr %14, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %15, i64 %indvars.iv
@@ -26316,9 +26316,9 @@ if.then.i23:                                      ; preds = %_ZNK8facebook5velox
   unreachable
 
 _ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.exit24: ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit22
-  %cmp6 = fcmp olt double %22, %currentValue.034
-  %currentValue.1 = select i1 %cmp6, double %22, double %currentValue.034
-  %valueIndex.1 = select i1 %cmp6, i64 %indvars.iv, i64 %valueIndex.035
+  %cmp6 = fcmp olt double %22, %currentValue.035
+  %valueIndex.1 = select i1 %cmp6, i64 %indvars.iv, i64 %valueIndex.034
+  %currentValue.1 = select i1 %cmp6, double %22, double %currentValue.035
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load ptr, ptr %10, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %24, i64 8
@@ -26332,8 +26332,8 @@ _ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNan
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !239
 
 for.end:                                          ; preds = %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.exit24, %for.cond.preheader
-  %currentValue.0.lcssa = phi double [ %8, %for.cond.preheader ], [ %currentValue.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.exit24 ]
   %valueIndex.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %valueIndex.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.exit24 ]
+  %currentValue.0.lcssa = phi double [ %8, %for.cond.preheader ], [ %currentValue.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb1EE8checkNanIdEEvRKT_.exit24 ]
   %27 = getelementptr inbounds i8, ptr %this, i64 24
   %28 = load ptr, ptr %27, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 16
@@ -28837,9 +28837,9 @@ for.body.lr.ph:                                   ; preds = %_ZNK8facebook5velox
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %valueIndex.038 = phi i64 [ 0, %for.body.lr.ph ], [ %valueIndex.1, %for.inc ]
+  %currentValue.sroa.0.038 = phi i64 [ %retval.sroa.0.0.copyload.i, %for.body.lr.ph ], [ %currentValue.sroa.0.1, %for.inc ]
   %currentValue.sroa.4.037 = phi i64 [ %retval.sroa.2.0.copyload.i, %for.body.lr.ph ], [ %currentValue.sroa.4.1, %for.inc ]
-  %currentValue.sroa.0.036 = phi i64 [ %retval.sroa.0.0.copyload.i, %for.body.lr.ph ], [ %currentValue.sroa.0.1, %for.inc ]
+  %valueIndex.036 = phi i64 [ 0, %for.body.lr.ph ], [ %valueIndex.1, %for.inc ]
   %12 = load ptr, ptr %this, align 8
   %13 = load ptr, ptr %12, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %13, i64 %indvars.iv
@@ -28876,11 +28876,11 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit27: ; preds 
   %retval.sroa.0.0.copyload.i20 = load i64, ptr %arrayidx.i19, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i21 = getelementptr inbounds i8, ptr %arrayidx.i19, i64 8
   %retval.sroa.2.0.copyload.i22 = load i64, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i21, align 8
-  %cmp.i = icmp slt i64 %retval.sroa.0.0.copyload.i20, %currentValue.sroa.0.036
+  %cmp.i = icmp slt i64 %retval.sroa.0.0.copyload.i20, %currentValue.sroa.0.038
   br i1 %cmp.i, label %if.then, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit27
-  %cmp5.i = icmp eq i64 %retval.sroa.0.0.copyload.i20, %currentValue.sroa.0.036
+  %cmp5.i = icmp eq i64 %retval.sroa.0.0.copyload.i20, %currentValue.sroa.0.038
   %cmp7.i = icmp ult i64 %retval.sroa.2.0.copyload.i22, %currentValue.sroa.4.037
   %or.cond = select i1 %cmp5.i, i1 %cmp7.i, i1 false
   br i1 %or.cond, label %if.then, label %for.inc
@@ -28889,9 +28889,9 @@ if.then:                                          ; preds = %lor.rhs.i, %_ZNK8fa
   br label %for.inc
 
 for.inc:                                          ; preds = %lor.rhs.i, %if.then
-  %currentValue.sroa.0.1 = phi i64 [ %retval.sroa.0.0.copyload.i20, %if.then ], [ %currentValue.sroa.0.036, %lor.rhs.i ]
+  %valueIndex.1 = phi i64 [ %indvars.iv, %if.then ], [ %valueIndex.036, %lor.rhs.i ]
   %currentValue.sroa.4.1 = phi i64 [ %retval.sroa.2.0.copyload.i22, %if.then ], [ %currentValue.sroa.4.037, %lor.rhs.i ]
-  %valueIndex.1 = phi i64 [ %indvars.iv, %if.then ], [ %valueIndex.038, %lor.rhs.i ]
+  %currentValue.sroa.0.1 = phi i64 [ %retval.sroa.0.0.copyload.i20, %if.then ], [ %currentValue.sroa.0.038, %lor.rhs.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load ptr, ptr %8, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %20, i64 8
@@ -28905,9 +28905,9 @@ for.inc:                                          ; preds = %lor.rhs.i, %if.then
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !255
 
 for.end:                                          ; preds = %for.inc, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit
-  %currentValue.sroa.0.0.lcssa = phi i64 [ %retval.sroa.0.0.copyload.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit ], [ %currentValue.sroa.0.1, %for.inc ]
-  %currentValue.sroa.4.0.lcssa = phi i64 [ %retval.sroa.2.0.copyload.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit ], [ %currentValue.sroa.4.1, %for.inc ]
   %valueIndex.0.lcssa = phi i64 [ 0, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit ], [ %valueIndex.1, %for.inc ]
+  %currentValue.sroa.4.0.lcssa = phi i64 [ %retval.sroa.2.0.copyload.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit ], [ %currentValue.sroa.4.1, %for.inc ]
+  %currentValue.sroa.0.0.lcssa = phi i64 [ %retval.sroa.0.0.copyload.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit ], [ %currentValue.sroa.0.1, %for.inc ]
   %23 = getelementptr inbounds i8, ptr %this, i64 24
   %24 = load ptr, ptr %23, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 16
@@ -41360,8 +41360,8 @@ if.then.i:                                        ; preds = %_ZNK8facebook5velox
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.exit24
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.exit24 ]
-  %valueIndex.035 = phi i64 [ 0, %for.body.lr.ph ], [ %valueIndex.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.exit24 ]
-  %currentValue.034 = phi double [ %8, %for.body.lr.ph ], [ %currentValue.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.exit24 ]
+  %currentValue.035 = phi double [ %8, %for.body.lr.ph ], [ %currentValue.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.exit24 ]
+  %valueIndex.034 = phi i64 [ 0, %for.body.lr.ph ], [ %valueIndex.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.exit24 ]
   %14 = load ptr, ptr %this, align 8
   %15 = load ptr, ptr %14, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %15, i64 %indvars.iv
@@ -41404,9 +41404,9 @@ if.then.i23:                                      ; preds = %_ZNK8facebook5velox
   unreachable
 
 _ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.exit24: ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIdEET_i.exit22
-  %cmp6 = fcmp ogt double %22, %currentValue.034
-  %currentValue.1 = select i1 %cmp6, double %22, double %currentValue.034
-  %valueIndex.1 = select i1 %cmp6, i64 %indvars.iv, i64 %valueIndex.035
+  %cmp6 = fcmp ogt double %22, %currentValue.035
+  %valueIndex.1 = select i1 %cmp6, i64 %indvars.iv, i64 %valueIndex.034
+  %currentValue.1 = select i1 %cmp6, double %22, double %currentValue.035
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load ptr, ptr %10, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %24, i64 8
@@ -41420,8 +41420,8 @@ _ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNan
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !363
 
 for.end:                                          ; preds = %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.exit24, %for.cond.preheader
-  %currentValue.0.lcssa = phi double [ %8, %for.cond.preheader ], [ %currentValue.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.exit24 ]
   %valueIndex.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %valueIndex.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.exit24 ]
+  %currentValue.0.lcssa = phi double [ %8, %for.cond.preheader ], [ %currentValue.1, %_ZNK8facebook5velox9functions12_GLOBAL__N_120ExtremeValueFunctionILb0EE8checkNanIdEEvRKT_.exit24 ]
   %27 = getelementptr inbounds i8, ptr %this, i64 24
   %28 = load ptr, ptr %27, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 16
@@ -42120,9 +42120,9 @@ for.body.lr.ph:                                   ; preds = %_ZNK8facebook5velox
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %valueIndex.038 = phi i64 [ 0, %for.body.lr.ph ], [ %valueIndex.1, %for.inc ]
+  %currentValue.sroa.0.038 = phi i64 [ %retval.sroa.0.0.copyload.i, %for.body.lr.ph ], [ %currentValue.sroa.0.1, %for.inc ]
   %currentValue.sroa.4.037 = phi i64 [ %retval.sroa.2.0.copyload.i, %for.body.lr.ph ], [ %currentValue.sroa.4.1, %for.inc ]
-  %currentValue.sroa.0.036 = phi i64 [ %retval.sroa.0.0.copyload.i, %for.body.lr.ph ], [ %currentValue.sroa.0.1, %for.inc ]
+  %valueIndex.036 = phi i64 [ 0, %for.body.lr.ph ], [ %valueIndex.1, %for.inc ]
   %12 = load ptr, ptr %this, align 8
   %13 = load ptr, ptr %12, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.facebook::velox::exec::LocalDecodedVector", ptr %13, i64 %indvars.iv
@@ -42159,11 +42159,11 @@ _ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit27: ; preds 
   %retval.sroa.0.0.copyload.i20 = load i64, ptr %arrayidx.i19, align 8
   %retval.sroa.2.0.arrayidx.sroa_idx.i21 = getelementptr inbounds i8, ptr %arrayidx.i19, i64 8
   %retval.sroa.2.0.copyload.i22 = load i64, ptr %retval.sroa.2.0.arrayidx.sroa_idx.i21, align 8
-  %cmp.i = icmp sgt i64 %retval.sroa.0.0.copyload.i20, %currentValue.sroa.0.036
+  %cmp.i = icmp sgt i64 %retval.sroa.0.0.copyload.i20, %currentValue.sroa.0.038
   br i1 %cmp.i, label %if.then, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit27
-  %cmp5.i = icmp eq i64 %retval.sroa.0.0.copyload.i20, %currentValue.sroa.0.036
+  %cmp5.i = icmp eq i64 %retval.sroa.0.0.copyload.i20, %currentValue.sroa.0.038
   %cmp7.i = icmp ugt i64 %retval.sroa.2.0.copyload.i22, %currentValue.sroa.4.037
   %or.cond = select i1 %cmp5.i, i1 %cmp7.i, i1 false
   br i1 %or.cond, label %if.then, label %for.inc
@@ -42172,9 +42172,9 @@ if.then:                                          ; preds = %lor.rhs.i, %_ZNK8fa
   br label %for.inc
 
 for.inc:                                          ; preds = %lor.rhs.i, %if.then
-  %currentValue.sroa.0.1 = phi i64 [ %retval.sroa.0.0.copyload.i20, %if.then ], [ %currentValue.sroa.0.036, %lor.rhs.i ]
+  %valueIndex.1 = phi i64 [ %indvars.iv, %if.then ], [ %valueIndex.036, %lor.rhs.i ]
   %currentValue.sroa.4.1 = phi i64 [ %retval.sroa.2.0.copyload.i22, %if.then ], [ %currentValue.sroa.4.037, %lor.rhs.i ]
-  %valueIndex.1 = phi i64 [ %indvars.iv, %if.then ], [ %valueIndex.038, %lor.rhs.i ]
+  %currentValue.sroa.0.1 = phi i64 [ %retval.sroa.0.0.copyload.i20, %if.then ], [ %currentValue.sroa.0.038, %lor.rhs.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load ptr, ptr %8, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %20, i64 8
@@ -42188,9 +42188,9 @@ for.inc:                                          ; preds = %lor.rhs.i, %if.then
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !365
 
 for.end:                                          ; preds = %for.inc, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit
-  %currentValue.sroa.0.0.lcssa = phi i64 [ %retval.sroa.0.0.copyload.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit ], [ %currentValue.sroa.0.1, %for.inc ]
-  %currentValue.sroa.4.0.lcssa = phi i64 [ %retval.sroa.2.0.copyload.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit ], [ %currentValue.sroa.4.1, %for.inc ]
   %valueIndex.0.lcssa = phi i64 [ 0, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit ], [ %valueIndex.1, %for.inc ]
+  %currentValue.sroa.4.0.lcssa = phi i64 [ %retval.sroa.2.0.copyload.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit ], [ %currentValue.sroa.4.1, %for.inc ]
+  %currentValue.sroa.0.0.lcssa = phi i64 [ %retval.sroa.0.0.copyload.i, %_ZNK8facebook5velox13DecodedVector7valueAtINS0_9TimestampEEET_i.exit ], [ %currentValue.sroa.0.1, %for.inc ]
   %23 = getelementptr inbounds i8, ptr %this, i64 24
   %24 = load ptr, ptr %23, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %24, i64 16

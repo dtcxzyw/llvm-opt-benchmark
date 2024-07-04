@@ -816,10 +816,10 @@ if.else.i:                                        ; preds = %sw.epilog
 
 for.body.i:                                       ; preds = %if.end32.i, %for.body.lr.ph.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end32.i ], [ 0, %for.body.lr.ph.i ]
-  %count.040.i = phi i32 [ %add33.i, %if.end32.i ], [ 0, %for.body.lr.ph.i ]
+  %expected_type.041.i = phi i32 [ %expected_type.1.i, %if.end32.i ], [ 4, %for.body.lr.ph.i ]
+  %expected_offset.040.i = phi i64 [ %expected_offset.1.i, %if.end32.i ], [ 0, %for.body.lr.ph.i ]
   %check_offset.039.i = phi i1 [ %check_offset.1.i, %if.end32.i ], [ false, %for.body.lr.ph.i ]
-  %expected_type.038.i = phi i32 [ %expected_type.1.i, %if.end32.i ], [ 4, %for.body.lr.ph.i ]
-  %expected_offset.037.i = phi i64 [ %expected_offset.1.i, %if.end32.i ], [ 0, %for.body.lr.ph.i ]
+  %count.038.i = phi i32 [ %add33.i, %if.end32.i ], [ 0, %for.body.lr.ph.i ]
   %cmp2.i = icmp eq i64 %indvars.iv, 0
   %cond.i = select i1 %cmp2.i, i32 %conv1.i109, i32 0
   %39 = trunc nuw nsw i64 %indvars.iv to i32
@@ -932,7 +932,7 @@ if.end15.i:                                       ; preds = %if.then12.i
   br label %if.end32.i
 
 if.else19.i:                                      ; preds = %if.end10.i
-  %cmp20.not.i = icmp eq i32 %call.i.i, %expected_type.038.i
+  %cmp20.not.i = icmp eq i32 %call.i.i, %expected_type.041.i
   br i1 %cmp20.not.i, label %if.else22.i, label %count_contiguous_subclusters.exit
 
 if.else22.i:                                      ; preds = %if.else19.i
@@ -941,16 +941,16 @@ if.else22.i:                                      ; preds = %if.else19.i
 if.then23.i:                                      ; preds = %if.else22.i
   %54 = load i32, ptr %cluster_size.i, align 4
   %conv.i130 = sext i32 %54 to i64
-  %add24.i = add nsw i64 %expected_offset.037.i, %conv.i130
+  %add24.i = add nsw i64 %expected_offset.040.i, %conv.i130
   %and25.i = and i64 %44, 72057594037927424
   %cmp26.not.i = icmp eq i64 %add24.i, %and25.i
   br i1 %cmp26.not.i, label %if.end32.i, label %count_contiguous_subclusters.exit
 
 if.end32.i:                                       ; preds = %if.then23.i, %if.else22.i, %if.end15.i
-  %expected_offset.1.i = phi i64 [ %and.i131, %if.end15.i ], [ %add24.i, %if.then23.i ], [ %expected_offset.037.i, %if.else22.i ]
-  %expected_type.1.i = phi i32 [ %call.i.i, %if.end15.i ], [ %expected_type.038.i, %if.then23.i ], [ %expected_type.038.i, %if.else22.i ]
   %check_offset.1.i = phi i1 [ %spec.select.i, %if.end15.i ], [ true, %if.then23.i ], [ false, %if.else22.i ]
-  %add33.i = add i32 %retval.0.i30.i, %count.040.i
+  %expected_offset.1.i = phi i64 [ %and.i131, %if.end15.i ], [ %add24.i, %if.then23.i ], [ %expected_offset.040.i, %if.else22.i ]
+  %expected_type.1.i = phi i32 [ %call.i.i, %if.end15.i ], [ %expected_type.041.i, %if.then23.i ], [ %expected_type.041.i, %if.else22.i ]
+  %add33.i = add i32 %retval.0.i30.i, %count.038.i
   %55 = load i32, ptr %subclusters_per_cluster.i, align 4
   %cmp35.i = icmp uge i32 %.pn.i, %55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -959,7 +959,7 @@ if.end32.i:                                       ; preds = %if.then23.i, %if.el
   br i1 %or.cond46.i, label %for.body.i, label %count_contiguous_subclusters.exit, !llvm.loop !11
 
 count_contiguous_subclusters.exit:                ; preds = %if.else19.i, %if.then23.i, %if.end32.i
-  %retval.0.i125 = phi i32 [ %add33.i, %if.end32.i ], [ %count.040.i, %if.then23.i ], [ %count.040.i, %if.else19.i ]
+  %retval.0.i125 = phi i32 [ %add33.i, %if.end32.i ], [ %count.038.i, %if.then23.i ], [ %count.038.i, %if.else19.i ]
   %cmp66 = icmp slt i32 %retval.0.i125, 0
   br i1 %cmp66, label %if.then68, label %if.end69
 
@@ -3352,12 +3352,12 @@ while.body.lr.ph:                                 ; preds = %if.end11
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end20
-  %offset.addr.034 = phi i64 [ %offset, %while.body.lr.ph ], [ %add23, %if.end20 ]
-  %nb_clusters.033 = phi i64 [ %shr.i, %while.body.lr.ph ], [ %sub, %if.end20 ]
+  %nb_clusters.034 = phi i64 [ %shr.i, %while.body.lr.ph ], [ %sub, %if.end20 ]
+  %offset.addr.033 = phi i64 [ %offset, %while.body.lr.ph ], [ %add23, %if.end20 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %l2_slice.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %l2_index.i)
   %4 = load ptr, ptr %opaque, align 8
-  %call.i = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %offset.addr.034, ptr noundef nonnull %l2_slice.i, ptr noundef nonnull %l2_index.i)
+  %call.i = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %offset.addr.033, ptr noundef nonnull %l2_slice.i, ptr noundef nonnull %l2_index.i)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %discard_in_l2_slice.exit.thread, label %if.end.i
 
@@ -3372,7 +3372,7 @@ if.end.i:                                         ; preds = %while.body
   %6 = load i32, ptr %l2_index.i, align 4
   %sub.i21 = sub i32 %5, %6
   %conv.i22 = sext i32 %sub.i21 to i64
-  %cond.i = call i64 @llvm.umin.i64(i64 %conv.i22, i64 %nb_clusters.033)
+  %cond.i = call i64 @llvm.umin.i64(i64 %conv.i22, i64 %nb_clusters.034)
   %cmp3.i = icmp ult i64 %cond.i, 2147483648
   br i1 %cmp3.i, label %for.cond.preheader.i, label %if.else.i
 
@@ -3584,11 +3584,11 @@ discard_in_l2_slice.exit:                         ; preds = %for.inc.i
 
 if.end20:                                         ; preds = %discard_in_l2_slice.exit, %discard_in_l2_slice.exit.thread26
   %conv78.i30 = phi i64 [ 0, %discard_in_l2_slice.exit.thread26 ], [ %cond.i, %discard_in_l2_slice.exit ]
-  %sub = sub i64 %nb_clusters.033, %conv78.i30
+  %sub = sub i64 %nb_clusters.034, %conv78.i30
   %38 = load i32, ptr %cluster_size, align 4
   %conv22 = sext i32 %38 to i64
   %mul = mul nsw i64 %conv78.i30, %conv22
-  %add23 = add i64 %mul, %offset.addr.034
+  %add23 = add i64 %mul, %offset.addr.033
   %cmp12.not = icmp eq i64 %sub, 0
   br i1 %cmp12.not, label %fail, label %while.body, !llvm.loop !17
 
@@ -4183,14 +4183,14 @@ for.cond.split:                                   ; preds = %for.body, %if.then
   br label %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %l1_entries.055 = phi i64 [ %conv, %for.body.lr.ph ], [ %add, %for.body ]
-  %i.054 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %idxprom = sext i32 %i.054 to i64
+  %i.055 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %l1_entries.054 = phi i64 [ %conv, %for.body.lr.ph ], [ %add, %for.body ]
+  %idxprom = sext i32 %i.055 to i64
   %l1_size2 = getelementptr %struct.QCowSnapshot, ptr %5, i64 %idxprom, i32 1
   %7 = load i32, ptr %l1_size2, align 8
   %conv3 = zext i32 %7 to i64
-  %add = add i64 %l1_entries.055, %conv3
-  %inc = add nuw i32 %i.054, 1
+  %add = add i64 %l1_entries.054, %conv3
+  %inc = add nuw i32 %i.055, 1
   %exitcond.not = icmp eq i32 %inc, %4
   br i1 %exitcond.not, label %for.cond.split, label %for.body, !llvm.loop !20
 
@@ -4219,17 +4219,17 @@ for.body19.lr.ph:                                 ; preds = %for.cond15.preheade
   br label %for.body19
 
 for.cond15:                                       ; preds = %for.end67
-  %inc78 = add nuw i32 %i.161, 1
+  %inc78 = add nuw i32 %i.162, 1
   %10 = load i32, ptr %nb_snapshots16, align 4
   %cmp17 = icmp ult i32 %inc78, %10
   br i1 %cmp17, label %for.body19, label %fail, !llvm.loop !21
 
 for.body19:                                       ; preds = %for.body19.lr.ph, %for.cond15
-  %l1_table.062 = phi ptr [ null, %for.body19.lr.ph ], [ %call41, %for.cond15 ]
-  %i.161 = phi i32 [ 0, %for.body19.lr.ph ], [ %inc78, %for.cond15 ]
+  %i.162 = phi i32 [ 0, %for.body19.lr.ph ], [ %inc78, %for.cond15 ]
+  %l1_table.061 = phi ptr [ null, %for.body19.lr.ph ], [ %call41, %for.cond15 ]
   store ptr null, ptr %local_err, align 8
   %11 = load ptr, ptr %snapshots21, align 8
-  %idxprom22 = sext i32 %i.161 to i64
+  %idxprom22 = sext i32 %i.162 to i64
   %arrayidx23 = getelementptr %struct.QCowSnapshot, ptr %11, i64 %idxprom22
   %12 = load i64, ptr %arrayidx23, align 8
   %l1_size27 = getelementptr inbounds i8, ptr %arrayidx23, i64 8
@@ -4250,7 +4250,7 @@ if.end33:                                         ; preds = %for.body19
   %16 = load i32, ptr %l1_size37, align 8
   %mul = shl i32 %16, 3
   %conv40 = sext i32 %mul to i64
-  %call41 = call ptr @g_try_realloc(ptr noundef %l1_table.062, i64 noundef %conv40) #13
+  %call41 = call ptr @g_try_realloc(ptr noundef %l1_table.061, i64 noundef %conv40) #13
   %tobool42.not = icmp eq ptr %call41, null
   br i1 %tobool42.not, label %fail, label %if.end44
 
@@ -4291,8 +4291,8 @@ for.end67:                                        ; preds = %for.body62, %for.co
   br i1 %cmp73, label %fail, label %for.cond15
 
 fail:                                             ; preds = %if.end44, %for.end67, %if.end33, %for.cond15, %for.cond15.preheader, %if.end9, %if.end, %if.then32
+  %l1_table.1 = phi ptr [ null, %if.end ], [ null, %if.end9 ], [ %l1_table.061, %if.then32 ], [ null, %for.cond15.preheader ], [ %call41, %if.end44 ], [ %call41, %for.end67 ], [ %l1_table.061, %if.end33 ], [ %call41, %for.cond15 ]
   %ret.0 = phi i32 [ %phi.call, %if.end ], [ %call10, %if.end9 ], [ %call29, %if.then32 ], [ 0, %for.cond15.preheader ], [ %call50, %if.end44 ], [ %call72, %for.end67 ], [ -12, %if.end33 ], [ 0, %for.cond15 ]
-  %l1_table.1 = phi ptr [ null, %if.end ], [ null, %if.end9 ], [ %l1_table.062, %if.then32 ], [ null, %for.cond15.preheader ], [ %call41, %if.end44 ], [ %call41, %for.end67 ], [ %l1_table.062, %if.end33 ], [ %call41, %for.cond15 ]
   call void @g_free(ptr noundef %l1_table.1) #13
   ret i32 %ret.0
 }

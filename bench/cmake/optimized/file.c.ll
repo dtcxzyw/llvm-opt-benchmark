@@ -124,7 +124,7 @@ define internal i32 @file_do(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br label %49
 
 49:                                               ; preds = %63, %46
-  %.05675.i = phi i64 [ 0, %46 ], [ %61, %63 ]
+  %.05475.i = phi i64 [ 0, %46 ], [ %61, %63 ]
   store ptr %3, ptr %47, align 8
   %50 = call i32 @Curl_fillreadbuffer(ptr noundef nonnull %0, i64 noundef 8192, ptr noundef nonnull %5) #9
   %51 = icmp eq i32 %50, 0
@@ -143,21 +143,21 @@ define internal i32 @file_do(ptr noundef %0, ptr nocapture noundef writeonly %1)
   %56 = sub i64 %55, %52
   %57 = sub i64 %52, %55
   %.sink.i = select i1 %.not68.i, i64 0, i64 %56
-  %.055.ph.idx.i = select i1 %.not68.i, i64 %55, i64 0
-  %.055.ph.i = getelementptr inbounds i8, ptr %3, i64 %.055.ph.idx.i
-  %.054.ph.i = select i1 %.not68.i, i64 %57, i64 0
+  %.053.ph.idx.i = select i1 %.not68.i, i64 %55, i64 0
+  %.053.ph.i = getelementptr inbounds i8, ptr %3, i64 %.053.ph.idx.i
+  %.052.ph.i = select i1 %.not68.i, i64 %57, i64 0
   store i64 %.sink.i, ptr %23, align 8
   br label %58
 
 58:                                               ; preds = %.sink.split.i, %54
-  %.055.i = phi ptr [ %3, %54 ], [ %.055.ph.i, %.sink.split.i ]
-  %.054.i = phi i64 [ %52, %54 ], [ %.054.ph.i, %.sink.split.i ]
-  %59 = call i64 @write(i32 noundef %27, ptr noundef %.055.i, i64 noundef %.054.i) #9
-  %.not69.i = icmp eq i64 %59, %.054.i
+  %.053.i = phi ptr [ %3, %54 ], [ %.053.ph.i, %.sink.split.i ]
+  %.052.i = phi i64 [ %52, %54 ], [ %.052.ph.i, %.sink.split.i ]
+  %59 = call i64 @write(i32 noundef %27, ptr noundef %.053.i, i64 noundef %.052.i) #9
+  %.not69.i = icmp eq i64 %59, %.052.i
   br i1 %.not69.i, label %60, label %.thread.i
 
 60:                                               ; preds = %58
-  %61 = add i64 %.054.i, %.05675.i
+  %61 = add i64 %.052.i, %.05475.i
   call void @Curl_pgrsSetUploadCounter(ptr noundef nonnull %0, i64 noundef %61) #9
   %62 = call i32 @Curl_pgrsUpdate(ptr noundef nonnull %0) #9
   %.not70.i = icmp eq i32 %62, 0

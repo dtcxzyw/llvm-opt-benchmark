@@ -1114,7 +1114,7 @@ Ssw_SemCheckTargets.exit.thread:                  ; preds = %21, %9, %Ssw_SemChe
 
 56:                                               ; preds = %Ssw_SemCheckTargets.exit78.thread, %.lr.ph
   %.092 = phi i32 [ 0, %.lr.ph ], [ %117, %Ssw_SemCheckTargets.exit78.thread ]
-  %.04891 = phi i32 [ 0, %.lr.ph ], [ %.1, %Ssw_SemCheckTargets.exit78.thread ]
+  %.04791 = phi i32 [ 0, %.lr.ph ], [ %.1, %Ssw_SemCheckTargets.exit78.thread ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %57 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #18
   %58 = icmp slt i32 %57, 0
@@ -1239,7 +1239,7 @@ Ssw_SemCheckTargets.exit78.thread86:              ; preds = %Ssw_ObjIsConst1Cand
   br label %Ssw_SemCheckTargets.exit78.thread
 
 Ssw_SemCheckTargets.exit78.thread:                ; preds = %107, %98, %Ssw_SemCheckTargets.exit78.thread86, %Ssw_SemCheckTargets.exit78, %97
-  %.1 = phi i32 [ 1, %Ssw_SemCheckTargets.exit78.thread86 ], [ %.04891, %Ssw_SemCheckTargets.exit78 ], [ %.04891, %97 ], [ %.04891, %98 ], [ %.04891, %107 ]
+  %.1 = phi i32 [ 1, %Ssw_SemCheckTargets.exit78.thread86 ], [ %.04791, %Ssw_SemCheckTargets.exit78 ], [ %.04791, %97 ], [ %.04791, %98 ], [ %.04791, %107 ]
   %115 = load i32, ptr %47, align 4
   %116 = load i32, ptr %55, align 8
   %.not53 = icmp slt i32 %115, %116
@@ -1258,8 +1258,8 @@ Ssw_SemCheckTargets.exit78.thread._crit_edge:     ; preds = %Ssw_SemCheckTargets
   br label %121
 
 121:                                              ; preds = %Ssw_SemCheckTargets.exit78.thread._crit_edge, %Ssw_SemCheckTargets.exit.thread81
-  %.047 = phi i32 [ 1, %Ssw_SemCheckTargets.exit.thread81 ], [ %.2, %Ssw_SemCheckTargets.exit78.thread._crit_edge ]
-  ret i32 %.047
+  %.048 = phi i32 [ 1, %Ssw_SemCheckTargets.exit.thread81 ], [ %.2, %Ssw_SemCheckTargets.exit78.thread._crit_edge ]
+  ret i32 %.048
 }
 
 ; Function Attrs: nounwind uwtable

@@ -132,11 +132,11 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
-  %lo.017 = phi i32 [ 0, %while.body.lr.ph ], [ %lo.1, %if.end ]
-  %hi.016 = phi i32 [ %1, %while.body.lr.ph ], [ %hi.1, %if.end ]
-  %sub = sub nsw i32 %hi.016, %lo.017
+  %hi.017 = phi i32 [ %1, %while.body.lr.ph ], [ %hi.1, %if.end ]
+  %lo.016 = phi i32 [ 0, %while.body.lr.ph ], [ %lo.1, %if.end ]
+  %sub = sub nsw i32 %hi.017, %lo.016
   %div = sdiv i32 %sub, 2
-  %add = add nsw i32 %div, %lo.017
+  %add = add nsw i32 %div, %lo.016
   %idxprom = sext i32 %add to i64
   %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
@@ -159,8 +159,8 @@ if.end:                                           ; preds = %if.end.i, %while.bo
   %retval.0.i13 = phi i32 [ %call.i, %subtree_name_cmp.exit ], [ 1, %if.end.i ], [ -1, %while.body ]
   %cmp3 = icmp slt i32 %retval.0.i13, 0
   %add5 = add nsw i32 %add, 1
-  %hi.1 = select i1 %cmp3, i32 %add, i32 %hi.016
-  %lo.1 = select i1 %cmp3, i32 %lo.017, i32 %add5
+  %lo.1 = select i1 %cmp3, i32 %lo.016, i32 %add5
+  %hi.1 = select i1 %cmp3, i32 %add, i32 %hi.017
   %cmp = icmp slt i32 %lo.1, %hi.1
   br i1 %cmp, label %while.body, label %while.end.loopexit, !llvm.loop !7
 
@@ -200,11 +200,11 @@ while.body.lr.ph.i:                               ; preds = %entry
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i, %while.body.lr.ph.i
-  %lo.017.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %lo.1.i, %if.end.i ]
-  %hi.016.i = phi i32 [ %1, %while.body.lr.ph.i ], [ %hi.1.i, %if.end.i ]
-  %sub.i = sub nsw i32 %hi.016.i, %lo.017.i
+  %hi.017.i = phi i32 [ %1, %while.body.lr.ph.i ], [ %hi.1.i, %if.end.i ]
+  %lo.016.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %lo.1.i, %if.end.i ]
+  %sub.i = sub nsw i32 %hi.017.i, %lo.016.i
   %div.i = sdiv i32 %sub.i, 2
-  %add.i = add nsw i32 %div.i, %lo.017.i
+  %add.i = add nsw i32 %div.i, %lo.016.i
   %idxprom.i = sext i32 %add.i to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %0, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
@@ -227,8 +227,8 @@ if.end.i:                                         ; preds = %subtree_name_cmp.ex
   %retval.0.i13.i = phi i32 [ %call.i.i, %subtree_name_cmp.exit.i ], [ 1, %if.end.i.i ], [ -1, %while.body.i ]
   %cmp3.i = icmp slt i32 %retval.0.i13.i, 0
   %add5.i = add nsw i32 %add.i, 1
-  %hi.1.i = select i1 %cmp3.i, i32 %add.i, i32 %hi.016.i
-  %lo.1.i = select i1 %cmp3.i, i32 %lo.017.i, i32 %add5.i
+  %lo.1.i = select i1 %cmp3.i, i32 %lo.016.i, i32 %add5.i
+  %hi.1.i = select i1 %cmp3.i, i32 %add.i, i32 %hi.017.i
   %cmp.i = icmp slt i32 %lo.1.i, %hi.1.i
   br i1 %cmp.i, label %while.body.i, label %while.end.loopexit.i, !llvm.loop !7
 
@@ -386,11 +386,11 @@ while.body.lr.ph.i.i:                             ; preds = %if.then2.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.lr.ph.i.i
-  %lo.017.i.i = phi i32 [ 0, %while.body.lr.ph.i.i ], [ %lo.1.i.i, %if.end.i.i ]
-  %hi.016.i.i = phi i32 [ %3, %while.body.lr.ph.i.i ], [ %hi.1.i.i, %if.end.i.i ]
-  %sub.i.i = sub nsw i32 %hi.016.i.i, %lo.017.i.i
+  %hi.017.i.i = phi i32 [ %3, %while.body.lr.ph.i.i ], [ %hi.1.i.i, %if.end.i.i ]
+  %lo.016.i.i = phi i32 [ 0, %while.body.lr.ph.i.i ], [ %lo.1.i.i, %if.end.i.i ]
+  %sub.i.i = sub nsw i32 %hi.017.i.i, %lo.016.i.i
   %div.i.i = sdiv i32 %sub.i.i, 2
-  %add.i.i = add nsw i32 %div.i.i, %lo.017.i.i
+  %add.i.i = add nsw i32 %div.i.i, %lo.016.i.i
   %idxprom.i.i = sext i32 %add.i.i to i64
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %2, i64 %idxprom.i.i
   %4 = load ptr, ptr %arrayidx.i.i, align 8
@@ -413,8 +413,8 @@ if.end.i.i:                                       ; preds = %subtree_name_cmp.ex
   %retval.0.i13.i.i = phi i32 [ %call.i.i.i, %subtree_name_cmp.exit.i.i ], [ 1, %if.end.i.i.i ], [ -1, %while.body.i.i ]
   %cmp3.i.i = icmp slt i32 %retval.0.i13.i.i, 0
   %add5.i.i = add nsw i32 %add.i.i, 1
-  %hi.1.i.i = select i1 %cmp3.i.i, i32 %add.i.i, i32 %hi.016.i.i
-  %lo.1.i.i = select i1 %cmp3.i.i, i32 %lo.017.i.i, i32 %add5.i.i
+  %lo.1.i.i = select i1 %cmp3.i.i, i32 %lo.016.i.i, i32 %add5.i.i
+  %hi.1.i.i = select i1 %cmp3.i.i, i32 %add.i.i, i32 %hi.017.i.i
   %cmp.i.i = icmp slt i32 %lo.1.i.i, %hi.1.i.i
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end.loopexit.i.i, !llvm.loop !7
 
@@ -475,11 +475,11 @@ while.body.lr.ph.i.i.i:                           ; preds = %if.end19.i
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end.i.i27.i, %while.body.lr.ph.i.i.i
-  %lo.017.i.i.i = phi i32 [ 0, %while.body.lr.ph.i.i.i ], [ %lo.1.i.i.i, %if.end.i.i27.i ]
-  %hi.016.i.i.i = phi i32 [ %3, %while.body.lr.ph.i.i.i ], [ %hi.1.i.i.i, %if.end.i.i27.i ]
-  %sub.i.i.i = sub nsw i32 %hi.016.i.i.i, %lo.017.i.i.i
+  %hi.017.i.i.i = phi i32 [ %3, %while.body.lr.ph.i.i.i ], [ %hi.1.i.i.i, %if.end.i.i27.i ]
+  %lo.016.i.i.i = phi i32 [ 0, %while.body.lr.ph.i.i.i ], [ %lo.1.i.i.i, %if.end.i.i27.i ]
+  %sub.i.i.i = sub nsw i32 %hi.017.i.i.i, %lo.016.i.i.i
   %div.i.i.i = sdiv i32 %sub.i.i.i, 2
-  %add.i.i.i = add nsw i32 %div.i.i.i, %lo.017.i.i.i
+  %add.i.i.i = add nsw i32 %div.i.i.i, %lo.016.i.i.i
   %idxprom.i.i.i = sext i32 %add.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %idxprom.i.i.i
   %14 = load ptr, ptr %arrayidx.i.i.i, align 8
@@ -502,8 +502,8 @@ if.end.i.i27.i:                                   ; preds = %subtree_name_cmp.ex
   %retval.0.i13.i.i.i = phi i32 [ %call.i.i.i.i, %subtree_name_cmp.exit.i.i.i ], [ 1, %if.end.i.i.i.i ], [ -1, %while.body.i.i.i ]
   %cmp3.i.i.i = icmp slt i32 %retval.0.i13.i.i.i, 0
   %add5.i.i.i = add nsw i32 %add.i.i.i, 1
-  %hi.1.i.i.i = select i1 %cmp3.i.i.i, i32 %add.i.i.i, i32 %hi.016.i.i.i
-  %lo.1.i.i.i = select i1 %cmp3.i.i.i, i32 %lo.017.i.i.i, i32 %add5.i.i.i
+  %lo.1.i.i.i = select i1 %cmp3.i.i.i, i32 %lo.016.i.i.i, i32 %add5.i.i.i
+  %hi.1.i.i.i = select i1 %cmp3.i.i.i, i32 %add.i.i.i, i32 %hi.017.i.i.i
   %cmp.i.i28.i = icmp slt i32 %lo.1.i.i.i, %hi.1.i.i.i
   br i1 %cmp.i.i28.i, label %while.body.i.i.i, label %while.end.loopexit.i.i.i, !llvm.loop !7
 
@@ -1013,7 +1013,7 @@ for.body.preheader.i:                             ; preds = %while.end
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %dst.011.i = phi i32 [ 0, %for.body.preheader.i ], [ %dst.1.i, %for.inc.i ]
+  %dst.010.i = phi i32 [ 0, %for.body.preheader.i ], [ %dst.1.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv.i
   %21 = load ptr, ptr %arrayidx.i, align 8
   %used.i = getelementptr inbounds i8, ptr %21, i64 16
@@ -1022,8 +1022,8 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %inc.i = add nsw i32 %dst.011.i, 1
-  %idxprom2.i = sext i32 %dst.011.i to i64
+  %inc.i = add nsw i32 %dst.010.i, 1
+  %idxprom2.i = sext i32 %dst.010.i to i64
   %arrayidx3.i = getelementptr inbounds ptr, ptr %20, i64 %idxprom2.i
   store ptr %21, ptr %arrayidx3.i, align 8
   br label %for.inc.i
@@ -1037,7 +1037,7 @@ if.else.i:                                        ; preds = %for.body.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i, %if.then.i
-  %dst.1.i = phi i32 [ %inc.i, %if.then.i ], [ %dst.011.i, %if.else.i ]
+  %dst.1.i = phi i32 [ %inc.i, %if.then.i ], [ %dst.010.i, %if.else.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %discard_unused_subtrees.exit, label %for.body.i, !llvm.loop !13
@@ -1090,11 +1090,11 @@ while.body.lr.ph.i.i:                             ; preds = %if.then96
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.lr.ph.i.i
-  %lo.017.i.i = phi i32 [ 0, %while.body.lr.ph.i.i ], [ %lo.1.i.i, %if.end.i.i ]
-  %hi.016.i.i = phi i32 [ %27, %while.body.lr.ph.i.i ], [ %hi.1.i.i, %if.end.i.i ]
-  %sub.i.i = sub nsw i32 %hi.016.i.i, %lo.017.i.i
+  %hi.017.i.i = phi i32 [ %27, %while.body.lr.ph.i.i ], [ %hi.1.i.i, %if.end.i.i ]
+  %lo.016.i.i = phi i32 [ 0, %while.body.lr.ph.i.i ], [ %lo.1.i.i, %if.end.i.i ]
+  %sub.i.i = sub nsw i32 %hi.017.i.i, %lo.016.i.i
   %div.i.i = sdiv i32 %sub.i.i, 2
-  %add.i.i = add nsw i32 %div.i.i, %lo.017.i.i
+  %add.i.i = add nsw i32 %div.i.i, %lo.016.i.i
   %idxprom.i.i = sext i32 %add.i.i to i64
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %26, i64 %idxprom.i.i
   %28 = load ptr, ptr %arrayidx.i.i, align 8
@@ -1117,8 +1117,8 @@ if.end.i.i:                                       ; preds = %subtree_name_cmp.ex
   %retval.0.i13.i.i = phi i32 [ %call.i.i.i, %subtree_name_cmp.exit.i.i ], [ 1, %if.end.i.i.i ], [ -1, %while.body.i.i ]
   %cmp3.i.i = icmp slt i32 %retval.0.i13.i.i, 0
   %add5.i.i = add nsw i32 %add.i.i, 1
-  %hi.1.i.i = select i1 %cmp3.i.i, i32 %add.i.i, i32 %hi.016.i.i
-  %lo.1.i.i = select i1 %cmp3.i.i, i32 %lo.017.i.i, i32 %add5.i.i
+  %lo.1.i.i = select i1 %cmp3.i.i, i32 %lo.016.i.i, i32 %add5.i.i
+  %hi.1.i.i = select i1 %cmp3.i.i, i32 %add.i.i, i32 %hi.017.i.i
   %cmp.i.i = icmp slt i32 %lo.1.i.i, %hi.1.i.i
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end.loopexit.i.i, !llvm.loop !7
 
@@ -2138,16 +2138,16 @@ while.condthread-pre-split:                       ; preds = %entry
   br i1 %tobool1.not13, label %return, label %while.body
 
 while.body:                                       ; preds = %while.cond6, %while.condthread-pre-split
-  %it.addr.015 = phi ptr [ %it, %while.condthread-pre-split ], [ %6, %while.cond6 ]
-  %path.addr.014 = phi ptr [ %path, %while.condthread-pre-split ], [ %path.addr.1, %while.cond6 ]
-  %call = tail call ptr @strchrnul(ptr noundef nonnull %path.addr.014, i32 noundef 47) #15
+  %path.addr.015 = phi ptr [ %path, %while.condthread-pre-split ], [ %path.addr.1, %while.cond6 ]
+  %it.addr.014 = phi ptr [ %it, %while.condthread-pre-split ], [ %6, %while.cond6 ]
+  %call = tail call ptr @strchrnul(ptr noundef nonnull %path.addr.015, i32 noundef 47) #15
   %sub.ptr.lhs.cast = ptrtoint ptr %call to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %path.addr.014 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %path.addr.015 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
-  %down1.i.i = getelementptr inbounds i8, ptr %it.addr.015, i64 48
+  %down1.i.i = getelementptr inbounds i8, ptr %it.addr.014, i64 48
   %0 = load ptr, ptr %down1.i.i, align 8
-  %subtree_nr.i.i = getelementptr inbounds i8, ptr %it.addr.015, i64 40
+  %subtree_nr.i.i = getelementptr inbounds i8, ptr %it.addr.014, i64 40
   %1 = load i32, ptr %subtree_nr.i.i, align 8
   %cmp15.i.i = icmp sgt i32 %1, 0
   br i1 %cmp15.i.i, label %while.body.lr.ph.i.i, label %return
@@ -2158,11 +2158,11 @@ while.body.lr.ph.i.i:                             ; preds = %while.body
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.lr.ph.i.i
-  %lo.017.i.i = phi i32 [ 0, %while.body.lr.ph.i.i ], [ %lo.1.i.i, %if.end.i.i ]
-  %hi.016.i.i = phi i32 [ %1, %while.body.lr.ph.i.i ], [ %hi.1.i.i, %if.end.i.i ]
-  %sub.i.i = sub nsw i32 %hi.016.i.i, %lo.017.i.i
+  %hi.017.i.i = phi i32 [ %1, %while.body.lr.ph.i.i ], [ %hi.1.i.i, %if.end.i.i ]
+  %lo.016.i.i = phi i32 [ 0, %while.body.lr.ph.i.i ], [ %lo.1.i.i, %if.end.i.i ]
+  %sub.i.i = sub nsw i32 %hi.017.i.i, %lo.016.i.i
   %div.i.i = sdiv i32 %sub.i.i, 2
-  %add.i.i = add nsw i32 %div.i.i, %lo.017.i.i
+  %add.i.i = add nsw i32 %div.i.i, %lo.016.i.i
   %idxprom.i.i = sext i32 %add.i.i to i64
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %0, i64 %idxprom.i.i
   %2 = load ptr, ptr %arrayidx.i.i, align 8
@@ -2177,7 +2177,7 @@ if.end.i.i.i:                                     ; preds = %while.body.i.i
   br i1 %cmp1.i.i.i, label %if.end.i.i, label %subtree_name_cmp.exit.i.i
 
 subtree_name_cmp.exit.i.i:                        ; preds = %if.end.i.i.i
-  %call.i.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly %path.addr.014, ptr noundef nonnull readonly %name.i.i, i64 noundef %conv.i.i.i) #15
+  %call.i.i.i = tail call i32 @memcmp(ptr noundef nonnull readonly %path.addr.015, ptr noundef nonnull readonly %name.i.i, i64 noundef %conv.i.i.i) #15
   %tobool.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i.i, label %cache_tree_subtree_pos.exit.i, label %if.end.i.i
 
@@ -2185,8 +2185,8 @@ if.end.i.i:                                       ; preds = %subtree_name_cmp.ex
   %retval.0.i13.i.i = phi i32 [ %call.i.i.i, %subtree_name_cmp.exit.i.i ], [ 1, %if.end.i.i.i ], [ -1, %while.body.i.i ]
   %cmp3.i.i = icmp slt i32 %retval.0.i13.i.i, 0
   %add5.i.i = add nsw i32 %add.i.i, 1
-  %hi.1.i.i = select i1 %cmp3.i.i, i32 %add.i.i, i32 %hi.016.i.i
-  %lo.1.i.i = select i1 %cmp3.i.i, i32 %lo.017.i.i, i32 %add5.i.i
+  %lo.1.i.i = select i1 %cmp3.i.i, i32 %lo.016.i.i, i32 %add5.i.i
+  %hi.1.i.i = select i1 %cmp3.i.i, i32 %add.i.i, i32 %hi.017.i.i
   %cmp.i.i = icmp slt i32 %lo.1.i.i, %hi.1.i.i
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end.loopexit.i.i, !llvm.loop !7
 
@@ -2460,11 +2460,11 @@ while.body.lr.ph.i.i:                             ; preds = %if.then51
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end.i.i, %while.body.lr.ph.i.i
-  %lo.017.i.i = phi i32 [ 0, %while.body.lr.ph.i.i ], [ %lo.1.i.i, %if.end.i.i ]
-  %hi.016.i.i = phi i32 [ %28, %while.body.lr.ph.i.i ], [ %hi.1.i.i, %if.end.i.i ]
-  %sub.i.i = sub nsw i32 %hi.016.i.i, %lo.017.i.i
+  %hi.017.i.i = phi i32 [ %28, %while.body.lr.ph.i.i ], [ %hi.1.i.i, %if.end.i.i ]
+  %lo.016.i.i = phi i32 [ 0, %while.body.lr.ph.i.i ], [ %lo.1.i.i, %if.end.i.i ]
+  %sub.i.i = sub nsw i32 %hi.017.i.i, %lo.016.i.i
   %div.i.i = sdiv i32 %sub.i.i, 2
-  %add.i.i = add nsw i32 %div.i.i, %lo.017.i.i
+  %add.i.i = add nsw i32 %div.i.i, %lo.016.i.i
   %idxprom.i.i = sext i32 %add.i.i to i64
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %27, i64 %idxprom.i.i
   %29 = load ptr, ptr %arrayidx.i.i, align 8
@@ -2487,8 +2487,8 @@ if.end.i.i:                                       ; preds = %subtree_name_cmp.ex
   %retval.0.i13.i.i = phi i32 [ %call.i.i.i, %subtree_name_cmp.exit.i.i ], [ 1, %if.end.i.i.i ], [ -1, %while.body.i.i ]
   %cmp3.i.i = icmp slt i32 %retval.0.i13.i.i, 0
   %add5.i.i = add nsw i32 %add.i.i, 1
-  %hi.1.i.i = select i1 %cmp3.i.i, i32 %add.i.i, i32 %hi.016.i.i
-  %lo.1.i.i = select i1 %cmp3.i.i, i32 %lo.017.i.i, i32 %add5.i.i
+  %lo.1.i.i = select i1 %cmp3.i.i, i32 %lo.016.i.i, i32 %add5.i.i
+  %hi.1.i.i = select i1 %cmp3.i.i, i32 %add.i.i, i32 %hi.017.i.i
   %cmp.i.i = icmp slt i32 %lo.1.i.i, %hi.1.i.i
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end.loopexit.i.i, !llvm.loop !7
 

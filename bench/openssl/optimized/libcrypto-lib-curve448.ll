@@ -447,11 +447,11 @@ for.end:                                          ; preds = %for.inc
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc9.i.i, %for.end
-  %idx.addr.012.i.i = phi i64 [ %conv1.i, %for.end ], [ %sub.i.i.i, %for.inc9.i.i ]
+  %tablec.012.i.i = phi ptr [ %arrayidx28, %for.end ], [ %incdec.ptr.i.i, %for.inc9.i.i ]
   %i.011.i.i = phi i64 [ 0, %for.end ], [ %inc10.i.i, %for.inc9.i.i ]
-  %tablec.010.i.i = phi ptr [ %arrayidx28, %for.end ], [ %incdec.ptr.i.i, %for.inc9.i.i ]
-  %not.i.i.i = xor i64 %idx.addr.012.i.i, -1
-  %sub.i.i.i = add nsw i64 %idx.addr.012.i.i, -1
+  %idx.addr.010.i.i = phi i64 [ %conv1.i, %for.end ], [ %sub.i.i.i, %for.inc9.i.i ]
+  %not.i.i.i = xor i64 %idx.addr.010.i.i, -1
+  %sub.i.i.i = add nsw i64 %idx.addr.010.i.i, -1
   %and.i.i.i = and i64 %sub.i.i.i, %not.i.i.i
   %shr.neg.i.i.i.i = ashr i64 %and.i.i.i, 63
   %conv.i.i = trunc nsw i64 %shr.neg.i.i.i.i to i32
@@ -463,7 +463,7 @@ for.body.i.i:                                     ; preds = %for.inc9.i.i, %for.
   br label %for.body4.i.i
 
 for.body4.i.i:                                    ; preds = %for.body4.i.i, %for.body.i.i
-  %tablec.19.i.i = phi ptr [ %tablec.010.i.i, %for.body.i.i ], [ %incdec.ptr.i.i, %for.body4.i.i ]
+  %tablec.19.i.i = phi ptr [ %tablec.012.i.i, %for.body.i.i ], [ %incdec.ptr.i.i, %for.body4.i.i ]
   %j.08.i.i = phi i64 [ 0, %for.body.i.i ], [ %inc.i.i, %for.body4.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %tablec.19.i.i, i64 1
   %10 = load i8, ptr %tablec.19.i.i, align 1, !noalias !9
@@ -1961,9 +1961,9 @@ if.else30:                                        ; preds = %if.else
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then15, %if.else30, %if.then7
-  %i.0 = phi i32 [ %14, %if.then7 ], [ %14, %if.then15 ], [ %15, %if.else30 ]
-  %contv.0 = phi i32 [ 1, %if.then7 ], [ 1, %if.then15 ], [ 0, %if.else30 ]
   %contp.0 = phi i32 [ 0, %if.then7 ], [ 1, %if.then15 ], [ 1, %if.else30 ]
+  %contv.0 = phi i32 [ 1, %if.then7 ], [ 1, %if.then15 ], [ 0, %if.else30 ]
+  %i.0 = phi i32 [ %14, %if.then7 ], [ %14, %if.then15 ], [ %15, %if.else30 ]
   %cmp42134.not = icmp eq i32 %i.0, 0
   br i1 %cmp42134.not, label %for.end, label %for.body.lr.ph
 
@@ -1973,14 +1973,14 @@ for.body.lr.ph:                                   ; preds = %if.end41
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.1137.in = phi i32 [ %i.0, %for.body.lr.ph ], [ %i.1137, %for.inc ]
-  %contp.1136 = phi i32 [ %contp.0, %for.body.lr.ph ], [ %contp.2, %for.inc ]
-  %contv.1135 = phi i32 [ %contv.0, %for.body.lr.ph ], [ %contv.2, %for.inc ]
+  %contv.1136 = phi i32 [ %contv.0, %for.body.lr.ph ], [ %contv.2, %for.inc ]
+  %contp.1135 = phi i32 [ %contp.0, %for.body.lr.ph ], [ %contp.2, %for.inc ]
   %i.1137 = add nsw i32 %i.1137.in, -1
-  %idxprom43 = sext i32 %contv.1135 to i64
+  %idxprom43 = sext i32 %contv.1136 to i64
   %arrayidx44 = getelementptr inbounds [114 x %struct.smvt_control], ptr %control_var, i64 0, i64 %idxprom43
   %22 = load i32, ptr %arrayidx44, align 8
   %cmp46 = icmp ne i32 %i.1137, %22
-  %idxprom47 = sext i32 %contp.1136 to i64
+  %idxprom47 = sext i32 %contp.1135 to i64
   %arrayidx48 = getelementptr inbounds [77 x %struct.smvt_control], ptr %control_pre, i64 0, i64 %idxprom47
   %23 = load i32, ptr %arrayidx48, align 8
   %cmp50 = icmp ne i32 %i.1137, %23
@@ -2027,11 +2027,11 @@ if.else75:                                        ; preds = %if.then55
   br label %if.end89
 
 if.end89:                                         ; preds = %if.else75, %if.then61
-  %inc90 = add nsw i32 %contv.1135, 1
+  %inc90 = add nsw i32 %contv.1136, 1
   br label %if.end91
 
 if.end91:                                         ; preds = %if.end89, %for.body
-  %contv.2 = phi i32 [ %inc90, %if.end89 ], [ %contv.1135, %for.body ]
+  %contv.2 = phi i32 [ %inc90, %if.end89 ], [ %contv.1136, %for.body ]
   br i1 %cmp50, label %for.inc, label %if.then93
 
 if.then93:                                        ; preds = %if.end91
@@ -2057,11 +2057,11 @@ if.else107:                                       ; preds = %if.then93
   br label %if.end116
 
 if.end116:                                        ; preds = %if.else107, %if.then99
-  %inc117 = add nsw i32 %contp.1136, 1
+  %inc117 = add nsw i32 %contp.1135, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end91, %if.end116
-  %contp.2 = phi i32 [ %inc117, %if.end116 ], [ %contp.1136, %if.end91 ]
+  %contp.2 = phi i32 [ %inc117, %if.end116 ], [ %contp.1135, %if.end91 ]
   %cmp42 = icmp ugt i32 %i.1137.in, 1
   br i1 %cmp42, label %for.body, label %for.end, !llvm.loop !40
 

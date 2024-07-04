@@ -715,11 +715,11 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %cmp422, label %for.body, label %for.end
 
 for.body:                                         ; preds = %if.end, %for.inc
-  %i.026 = phi i32 [ %inc, %for.inc ], [ 0, %if.end ]
-  %micros.025 = phi i32 [ %micros.1, %for.inc ], [ 0, %if.end ]
-  %millis.024 = phi i32 [ %millis.1, %for.inc ], [ 0, %if.end ]
-  %secs.023 = phi i32 [ %secs.1, %for.inc ], [ 0, %if.end ]
-  %call6 = tail call ptr @OPENSSL_sk_value(ptr noundef %list.0, i32 noundef %i.026) #4
+  %micros.026 = phi i32 [ %micros.1, %for.inc ], [ 0, %if.end ]
+  %millis.025 = phi i32 [ %millis.1, %for.inc ], [ 0, %if.end ]
+  %secs.024 = phi i32 [ %secs.1, %for.inc ], [ 0, %if.end ]
+  %i.023 = phi i32 [ %inc, %for.inc ], [ 0, %if.end ]
+  %call6 = tail call ptr @OPENSSL_sk_value(ptr noundef %list.0, i32 noundef %i.023) #4
   %name = getelementptr inbounds i8, ptr %call6, i64 8
   %0 = load ptr, ptr %name, align 8
   %call7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.17) #5
@@ -773,10 +773,10 @@ if.else36:                                        ; preds = %if.else25
   br label %err
 
 for.inc:                                          ; preds = %if.then11, %if.then9, %if.then32, %if.then29, %if.then18, %if.then21
-  %secs.1 = phi i32 [ %call13, %if.then11 ], [ %secs.023, %if.then9 ], [ %secs.023, %if.then21 ], [ %secs.023, %if.then18 ], [ %secs.023, %if.then32 ], [ %secs.023, %if.then29 ]
-  %millis.1 = phi i32 [ %millis.024, %if.then11 ], [ %millis.024, %if.then9 ], [ %call23, %if.then21 ], [ %millis.024, %if.then18 ], [ %millis.024, %if.then32 ], [ %millis.024, %if.then29 ]
-  %micros.1 = phi i32 [ %micros.025, %if.then11 ], [ %micros.025, %if.then9 ], [ %micros.025, %if.then21 ], [ %micros.025, %if.then18 ], [ %call34, %if.then32 ], [ %micros.025, %if.then29 ]
-  %inc = add nuw nsw i32 %i.026, 1
+  %secs.1 = phi i32 [ %call13, %if.then11 ], [ %secs.024, %if.then9 ], [ %secs.024, %if.then21 ], [ %secs.024, %if.then18 ], [ %secs.024, %if.then32 ], [ %secs.024, %if.then29 ]
+  %millis.1 = phi i32 [ %millis.025, %if.then11 ], [ %millis.025, %if.then9 ], [ %call23, %if.then21 ], [ %millis.025, %if.then18 ], [ %millis.025, %if.then32 ], [ %millis.025, %if.then29 ]
+  %micros.1 = phi i32 [ %micros.026, %if.then11 ], [ %micros.026, %if.then9 ], [ %micros.026, %if.then21 ], [ %micros.026, %if.then18 ], [ %call34, %if.then32 ], [ %micros.026, %if.then29 ]
+  %inc = add nuw nsw i32 %i.023, 1
   %call3 = tail call i32 @OPENSSL_sk_num(ptr noundef %list.0) #4
   %cmp4 = icmp slt i32 %inc, %call3
   br i1 %cmp4, label %for.body, label %for.end, !llvm.loop !8
@@ -791,8 +791,8 @@ for.end:                                          ; preds = %for.inc, %if.end
   br label %err
 
 err:                                              ; preds = %for.end, %if.else36, %if.then
-  %list.1 = phi ptr [ null, %if.then ], [ %list.0, %if.else36 ], [ %list.0, %for.end ]
   %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.else36 ], [ %spec.select, %for.end ]
+  %list.1 = phi ptr [ null, %if.then ], [ %list.0, %if.else36 ], [ %list.0, %for.end ]
   tail call void @OPENSSL_sk_pop_free(ptr noundef %list.1, ptr noundef nonnull @X509V3_conf_free) #4
   ret i32 %ret.0
 }

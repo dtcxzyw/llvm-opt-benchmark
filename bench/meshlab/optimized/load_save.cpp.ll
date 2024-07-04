@@ -2343,8 +2343,8 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %.lr.ph
   %132 = shufflevector <2 x float> %131, <2 x float> poison, <2 x i32> zeroinitializer
   %133 = fdiv <2 x float> %123, %132
   %134 = fdiv float %124, %sqrt.i52
-  %.sroa.092.0 = select i1 %130, <2 x float> %133, <2 x float> %123
   %.sroa.6.0 = select i1 %130, float %134, float %124
+  %.sroa.092.0 = select i1 %130, <2 x float> %133, <2 x float> %123
   %.sroa.095.0.vec.extract = extractelement <2 x float> %.sroa.092.0, i64 0
   %135 = fneg float %.sroa.095.0.vec.extract
   %.sroa.095.4.vec.extract = extractelement <2 x float> %.sroa.092.0, i64 1
@@ -7792,26 +7792,26 @@ define void @_ZN7meshlab30loadMeshWithStandardParametersB5cxx11ERK7QStringR12Mes
   br label %46
 
 44:                                               ; preds = %29, %28
-  %.043 = phi i1 [ false, %29 ], [ true, %28 ]
+  %.044 = phi i1 [ false, %29 ], [ true, %28 ]
   %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #25
   br label %46
 
 46:                                               ; preds = %44, %42
-  %.144 = phi i1 [ %.043, %44 ], [ true, %42 ]
+  %.145 = phi i1 [ %.044, %44 ], [ true, %42 ]
   %.pn53 = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #25
   br label %47
 
 47:                                               ; preds = %40, %46
-  %.245 = phi i1 [ %.144, %46 ], [ true, %40 ]
+  %.246 = phi i1 [ %.145, %46 ], [ true, %40 ]
   %.pn53.pn = phi { ptr, i32 } [ %.pn53, %46 ], [ %41, %40 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #25
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #25
   %.3 = extractvalue { ptr, i32 } %.pn53.pn, 0
   %.336 = extractvalue { ptr, i32 } %.pn53.pn, 1
-  br i1 %.245, label %48, label %177
+  br i1 %.246, label %48, label %177
 
 48:                                               ; preds = %.thread99, %.thread, %47
   %.33698 = phi i32 [ %.33696, %.thread ], [ %.336, %47 ], [ %.336103, %.thread99 ]
@@ -7926,7 +7926,7 @@ define void @_ZN7meshlab30loadMeshWithStandardParametersB5cxx11ERK7QStringR12Mes
   br label %91
 
 91:                                               ; preds = %.lr.ph116, %121
-  %.048114 = phi i32 [ 0, %.lr.ph116 ], [ %125, %121 ]
+  %.043114 = phi i32 [ 0, %.lr.ph116 ], [ %125, %121 ]
   %92 = load ptr, ptr %1, align 8
   store ptr %92, ptr %13, align 8
   %93 = load atomic i32, ptr %92 monotonic, align 4
@@ -7995,7 +7995,7 @@ _ZN7QStringD2Ev.exit63:                           ; preds = %_ZN7QStringD2Ev.exi
 
 108:                                              ; preds = %_ZN7QStringD2Ev.exit63
   %109 = getelementptr inbounds i8, ptr %98, i64 1232
-  store i32 %.048114, ptr %109, align 8
+  store i32 %.043114, ptr %109, align 8
   br label %119
 
 110:                                              ; preds = %_ZN7QStringC2ERKS_.exit
@@ -8034,7 +8034,7 @@ _ZN7QStringD2Ev.exit63:                           ; preds = %_ZN7QStringD2Ev.exi
   %123 = load i64, ptr %90, align 8
   %124 = add i64 %123, 1
   store i64 %124, ptr %90, align 8
-  %125 = add nuw i32 %.048114, 1
+  %125 = add nuw i32 %.043114, 1
   %exitcond.not = icmp eq i32 %125, %87
   br i1 %exitcond.not, label %._crit_edge117, label %91, !llvm.loop !132
 

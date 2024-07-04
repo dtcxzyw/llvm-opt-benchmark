@@ -2447,16 +2447,16 @@ lor.lhs.false32:                                  ; preds = %if.end26
   br i1 %cmp37, label %.thread58.thread, label %if.end102
 
 if.then35:                                        ; preds = %if.end26
-  %.str.10..str.11 = select i1 %tobool.not.i, ptr @.str.10, ptr @.str.11
   %.str.11..str.10 = select i1 %tobool.not.i, ptr @.str.11, ptr @.str.10
-  %spec.select = select i1 %cmp37, ptr @.str.9, ptr %.str.11..str.10
-  %spec.select73 = select i1 %cmp37, ptr @.str.8, ptr %.str.10..str.11
+  %.str.10..str.11 = select i1 %tobool.not.i, ptr @.str.10, ptr @.str.11
+  %spec.select = select i1 %cmp37, ptr @.str.8, ptr %.str.10..str.11
+  %spec.select73 = select i1 %cmp37, ptr @.str.9, ptr %.str.11..str.10
   br label %.thread58.thread
 
 .thread58.thread:                                 ; preds = %if.then35, %lor.lhs.false32
-  %11 = phi ptr [ @.str.9, %lor.lhs.false32 ], [ %spec.select, %if.then35 ]
+  %11 = phi ptr [ @.str.8, %lor.lhs.false32 ], [ %spec.select, %if.then35 ]
   %cmp283745546268 = phi i1 [ false, %lor.lhs.false32 ], [ %tobool.not.i, %if.then35 ]
-  %12 = phi ptr [ @.str.8, %lor.lhs.false32 ], [ %spec.select73, %if.then35 ]
+  %12 = phi ptr [ @.str.9, %lor.lhs.false32 ], [ %spec.select73, %if.then35 ]
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %len, i64 4096)
   %lastcmd = getelementptr inbounds i8, ptr %c, i64 136
   %13 = load ptr, ptr %lastcmd, align 8
@@ -2478,7 +2478,7 @@ if.end60:                                         ; preds = %cond.end55
   %conv61 = trunc nuw nsw i64 %spec.store.select to i32
   %tobool62.not = icmp eq ptr %cond56, null
   %cond66 = select i1 %tobool62.not, ptr @.str.3, ptr %cond56
-  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.12, ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef %conv61, ptr noundef %s, ptr noundef nonnull %cond66) #26
+  tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.12, ptr noundef nonnull %12, ptr noundef nonnull %11, i32 noundef %conv61, ptr noundef %s, ptr noundef nonnull %cond66) #26
   br label %do.end
 
 do.end:                                           ; preds = %cond.end55, %if.end60
@@ -2533,7 +2533,7 @@ land.end:                                         ; preds = %land.end.critedge, 
 if.then95:                                        ; preds = %land.end
   %tobool96.not = icmp eq ptr %cond56, null
   %cond100 = select i1 %tobool96.not, ptr @.str.3, ptr %cond56
-  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 585, ptr noundef nonnull @.str.13, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %cond100) #26
+  tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.1, i32 noundef 585, ptr noundef nonnull @.str.13, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %cond100) #26
   tail call void @abort() #27
   unreachable
 
@@ -8552,12 +8552,12 @@ if.else175:                                       ; preds = %if.then166
 while.body:                                       ; preds = %if.else175, %if.end323
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end323 ], [ 2, %if.else175 ]
   %48 = phi i32 [ %71, %if.end323 ], [ %0, %if.else175 ]
-  %addr.0507 = phi ptr [ %addr.1, %if.end323 ], [ null, %if.else175 ]
-  %laddr.0506 = phi ptr [ %laddr.1, %if.end323 ], [ null, %if.else175 ]
-  %user.0505 = phi ptr [ %user.1, %if.end323 ], [ null, %if.else175 ]
+  %skipme.0506 = phi i32 [ %skipme.1, %if.end323 ], [ 1, %if.else175 ]
+  %id168.0505 = phi i64 [ %id168.1, %if.end323 ], [ 0, %if.else175 ]
   %type167.0504 = phi i32 [ %type167.1, %if.end323 ], [ -1, %if.else175 ]
-  %id168.0503 = phi i64 [ %id168.1, %if.end323 ], [ 0, %if.else175 ]
-  %skipme.0501 = phi i32 [ %skipme.1, %if.end323 ], [ 1, %if.else175 ]
+  %user.0503 = phi ptr [ %user.1, %if.end323 ], [ null, %if.else175 ]
+  %laddr.0502 = phi ptr [ %laddr.1, %if.end323 ], [ null, %if.else175 ]
+  %addr.0501 = phi ptr [ %addr.1, %if.end323 ], [ null, %if.else175 ]
   %49 = or disjoint i64 %indvars.iv, 1
   %50 = sext i32 %48 to i64
   %cmp182 = icmp slt i64 %49, %50
@@ -8703,12 +8703,12 @@ if.else317:                                       ; preds = %if.else287
   br label %if.end922
 
 if.end323:                                        ; preds = %if.else12.i374, %if.else8.i371, %if.else4.i368, %if.else.i365, %if.then210, %if.else305, %if.then296, %if.then250, %if.then265, %if.then235, %if.end200
-  %skipme.1 = phi i32 [ %skipme.0501, %if.end200 ], [ %skipme.0501, %if.then235 ], [ %skipme.0501, %if.then250 ], [ %skipme.0501, %if.then265 ], [ 1, %if.then296 ], [ 0, %if.else305 ], [ %skipme.0501, %if.then210 ], [ %skipme.0501, %if.else.i365 ], [ %skipme.0501, %if.else4.i368 ], [ %skipme.0501, %if.else8.i371 ], [ %skipme.0501, %if.else12.i374 ]
-  %id168.1 = phi i64 [ %55, %if.end200 ], [ %id168.0503, %if.then235 ], [ %id168.0503, %if.then250 ], [ %id168.0503, %if.then265 ], [ %id168.0503, %if.then296 ], [ %id168.0503, %if.else305 ], [ %id168.0503, %if.then210 ], [ %id168.0503, %if.else.i365 ], [ %id168.0503, %if.else4.i368 ], [ %id168.0503, %if.else8.i371 ], [ %id168.0503, %if.else12.i374 ]
+  %addr.1 = phi ptr [ %addr.0501, %if.end200 ], [ %59, %if.then235 ], [ %addr.0501, %if.then250 ], [ %addr.0501, %if.then265 ], [ %addr.0501, %if.then296 ], [ %addr.0501, %if.else305 ], [ %addr.0501, %if.then210 ], [ %addr.0501, %if.else.i365 ], [ %addr.0501, %if.else4.i368 ], [ %addr.0501, %if.else8.i371 ], [ %addr.0501, %if.else12.i374 ]
+  %laddr.1 = phi ptr [ %laddr.0502, %if.end200 ], [ %laddr.0502, %if.then235 ], [ %61, %if.then250 ], [ %laddr.0502, %if.then265 ], [ %laddr.0502, %if.then296 ], [ %laddr.0502, %if.else305 ], [ %laddr.0502, %if.then210 ], [ %laddr.0502, %if.else.i365 ], [ %laddr.0502, %if.else4.i368 ], [ %laddr.0502, %if.else8.i371 ], [ %laddr.0502, %if.else12.i374 ]
+  %user.1 = phi ptr [ %user.0503, %if.end200 ], [ %user.0503, %if.then235 ], [ %user.0503, %if.then250 ], [ %call277, %if.then265 ], [ %user.0503, %if.then296 ], [ %user.0503, %if.else305 ], [ %user.0503, %if.then210 ], [ %user.0503, %if.else.i365 ], [ %user.0503, %if.else4.i368 ], [ %user.0503, %if.else8.i371 ], [ %user.0503, %if.else12.i374 ]
   %type167.1 = phi i32 [ %type167.0504, %if.end200 ], [ %type167.0504, %if.then235 ], [ %type167.0504, %if.then250 ], [ %type167.0504, %if.then265 ], [ %type167.0504, %if.then296 ], [ %type167.0504, %if.else305 ], [ 0, %if.then210 ], [ 1, %if.else.i365 ], [ 1, %if.else4.i368 ], [ 2, %if.else8.i371 ], [ 3, %if.else12.i374 ]
-  %user.1 = phi ptr [ %user.0505, %if.end200 ], [ %user.0505, %if.then235 ], [ %user.0505, %if.then250 ], [ %call277, %if.then265 ], [ %user.0505, %if.then296 ], [ %user.0505, %if.else305 ], [ %user.0505, %if.then210 ], [ %user.0505, %if.else.i365 ], [ %user.0505, %if.else4.i368 ], [ %user.0505, %if.else8.i371 ], [ %user.0505, %if.else12.i374 ]
-  %laddr.1 = phi ptr [ %laddr.0506, %if.end200 ], [ %laddr.0506, %if.then235 ], [ %61, %if.then250 ], [ %laddr.0506, %if.then265 ], [ %laddr.0506, %if.then296 ], [ %laddr.0506, %if.else305 ], [ %laddr.0506, %if.then210 ], [ %laddr.0506, %if.else.i365 ], [ %laddr.0506, %if.else4.i368 ], [ %laddr.0506, %if.else8.i371 ], [ %laddr.0506, %if.else12.i374 ]
-  %addr.1 = phi ptr [ %addr.0507, %if.end200 ], [ %59, %if.then235 ], [ %addr.0507, %if.then250 ], [ %addr.0507, %if.then265 ], [ %addr.0507, %if.then296 ], [ %addr.0507, %if.else305 ], [ %addr.0507, %if.then210 ], [ %addr.0507, %if.else.i365 ], [ %addr.0507, %if.else4.i368 ], [ %addr.0507, %if.else8.i371 ], [ %addr.0507, %if.else12.i374 ]
+  %id168.1 = phi i64 [ %55, %if.end200 ], [ %id168.0505, %if.then235 ], [ %id168.0505, %if.then250 ], [ %id168.0505, %if.then265 ], [ %id168.0505, %if.then296 ], [ %id168.0505, %if.else305 ], [ %id168.0505, %if.then210 ], [ %id168.0505, %if.else.i365 ], [ %id168.0505, %if.else4.i368 ], [ %id168.0505, %if.else8.i371 ], [ %id168.0505, %if.else12.i374 ]
+  %skipme.1 = phi i32 [ %skipme.0506, %if.end200 ], [ %skipme.0506, %if.then235 ], [ %skipme.0506, %if.then250 ], [ %skipme.0506, %if.then265 ], [ 1, %if.then296 ], [ 0, %if.else305 ], [ %skipme.0506, %if.then210 ], [ %skipme.0506, %if.else.i365 ], [ %skipme.0506, %if.else4.i368 ], [ %skipme.0506, %if.else8.i371 ], [ %skipme.0506, %if.else12.i374 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %71 = load i32, ptr %argc, align 8
   %72 = trunc nuw i64 %indvars.iv.next to i32
@@ -8767,12 +8767,12 @@ addReplyErrorObject.exit400:                      ; preds = %if.else325, %sw.bb.
   br label %if.end922
 
 if.end327:                                        ; preds = %if.end323, %if.then171
-  %skipme.2 = phi i32 [ 0, %if.then171 ], [ %skipme.1, %if.end323 ]
-  %id168.2 = phi i64 [ 0, %if.then171 ], [ %id168.1, %if.end323 ]
-  %type167.2 = phi i32 [ -1, %if.then171 ], [ %type167.1, %if.end323 ]
-  %user.2 = phi ptr [ null, %if.then171 ], [ %user.1, %if.end323 ]
-  %laddr.2 = phi ptr [ null, %if.then171 ], [ %laddr.1, %if.end323 ]
   %addr.2 = phi ptr [ %47, %if.then171 ], [ %addr.1, %if.end323 ]
+  %laddr.2 = phi ptr [ null, %if.then171 ], [ %laddr.1, %if.end323 ]
+  %user.2 = phi ptr [ null, %if.then171 ], [ %user.1, %if.end323 ]
+  %type167.2 = phi i32 [ -1, %if.then171 ], [ %type167.1, %if.end323 ]
+  %id168.2 = phi i64 [ 0, %if.then171 ], [ %id168.1, %if.end323 ]
+  %skipme.2 = phi i32 [ 0, %if.then171 ], [ %skipme.1, %if.end323 ]
   %user.2.fr = freeze ptr %user.2
   %id168.2.fr = freeze i64 %id168.2
   %laddr.2.fr = freeze ptr %laddr.2
@@ -10344,13 +10344,13 @@ land.lhs.true:                                    ; preds = %if.end6
   %add.ptr11 = getelementptr inbounds i8, ptr %call, i64 -1
   %7 = load i8, ptr %add.ptr11, align 1
   %cmp12 = icmp eq i8 %7, 13
-  %spec.select = select i1 %cmp12, i64 2, i64 1
-  %spec.select46 = select i1 %cmp12, ptr %add.ptr11, ptr %call
+  %spec.select = select i1 %cmp12, ptr %add.ptr11, ptr %call
+  %spec.select46 = select i1 %cmp12, i64 2, i64 1
   br label %if.end15
 
 if.end15:                                         ; preds = %land.lhs.true, %if.end6
-  %linefeed_chars.0 = phi i64 [ 1, %if.end6 ], [ %spec.select, %land.lhs.true ]
-  %newline.0 = phi ptr [ %add.ptr, %if.end6 ], [ %spec.select46, %land.lhs.true ]
+  %newline.0 = phi ptr [ %add.ptr, %if.end6 ], [ %spec.select, %land.lhs.true ]
+  %linefeed_chars.0 = phi i64 [ 1, %if.end6 ], [ %spec.select46, %land.lhs.true ]
   %sub.ptr.lhs.cast = ptrtoint ptr %newline.0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -12826,13 +12826,13 @@ for.body.lr.ph:                                   ; preds = %if.end7
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %6 = phi i32 [ %5, %for.body.lr.ph ], [ %55, %for.inc ]
   %7 = phi ptr [ %.pre236, %for.body.lr.ph ], [ %56, %for.inc ]
-  %username.0231 = phi ptr [ null, %for.body.lr.ph ], [ %username.1, %for.inc ]
-  %password.0230 = phi ptr [ null, %for.body.lr.ph ], [ %password.1, %for.inc ]
-  %j.0229 = phi i32 [ %next_arg.0, %for.body.lr.ph ], [ %inc45, %for.inc ]
-  %clientname.0228 = phi ptr [ null, %for.body.lr.ph ], [ %clientname.1, %for.inc ]
-  %8 = xor i32 %j.0229, -1
+  %j.0231 = phi i32 [ %next_arg.0, %for.body.lr.ph ], [ %inc45, %for.inc ]
+  %clientname.0230 = phi ptr [ null, %for.body.lr.ph ], [ %clientname.1, %for.inc ]
+  %password.0229 = phi ptr [ null, %for.body.lr.ph ], [ %password.1, %for.inc ]
+  %username.0228 = phi ptr [ null, %for.body.lr.ph ], [ %username.1, %for.inc ]
+  %8 = xor i32 %j.0231, -1
   %sub11 = add i32 %6, %8
-  %idxprom13 = sext i32 %j.0229 to i64
+  %idxprom13 = sext i32 %j.0231 to i64
   %arrayidx14 = getelementptr inbounds ptr, ptr %7, i64 %idxprom13
   %9 = load ptr, ptr %arrayidx14, align 8
   %ptr = getelementptr inbounds i8, ptr %9, i64 8
@@ -12844,7 +12844,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %or.cond1, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %for.body
-  %add = add nsw i32 %j.0229, 1
+  %add = add nsw i32 %j.0231, 1
   %11 = load ptr, ptr %original_argv.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i, label %if.end.i.i, label %retainOriginalCommandVector.exit.i
@@ -12935,7 +12935,7 @@ retainOriginalCommandVector.exit.loopexit.i89:    ; preds = %for.body.i.i82
 
 retainOriginalCommandVector.exit.i67:             ; preds = %retainOriginalCommandVector.exit.i, %retainOriginalCommandVector.exit.loopexit.i89, %if.end.i.i73, %redactClientCommandArgument.exit
   %34 = phi ptr [ %.pre.i90, %retainOriginalCommandVector.exit.loopexit.i89 ], [ %.pre237, %redactClientCommandArgument.exit ], [ %call.i.i78, %if.end.i.i73 ], [ %20, %retainOriginalCommandVector.exit.i ]
-  %add18242 = add nsw i32 %j.0229, 2
+  %add18242 = add nsw i32 %j.0231, 2
   %idxprom.i68 = sext i32 %add18242 to i64
   %arrayidx.i69 = getelementptr inbounds ptr, ptr %34, i64 %idxprom.i68
   %35 = load ptr, ptr %arrayidx.i69, align 8
@@ -12968,7 +12968,7 @@ if.else:                                          ; preds = %for.body
   br i1 %or.cond2, label %if.then32, label %if.else42
 
 if.then32:                                        ; preds = %if.else
-  %add34 = add nsw i32 %j.0229, 1
+  %add34 = add nsw i32 %j.0231, 1
   %idxprom35 = sext i32 %add34 to i64
   %arrayidx36 = getelementptr inbounds ptr, ptr %7, i64 %idxprom35
   %42 = load ptr, ptr %arrayidx36, align 8
@@ -13054,10 +13054,10 @@ if.else42:                                        ; preds = %if.else
 for.inc:                                          ; preds = %while.cond.i.i, %if.end.i94, %cond.true.i, %if.then32, %sdslen.exit.i, %redactClientCommandArgument.exit91
   %55 = phi i32 [ %.pre238, %redactClientCommandArgument.exit91 ], [ %6, %sdslen.exit.i ], [ %6, %if.then32 ], [ %6, %cond.true.i ], [ %6, %if.end.i94 ], [ %6, %while.cond.i.i ]
   %56 = phi ptr [ %39, %redactClientCommandArgument.exit91 ], [ %7, %sdslen.exit.i ], [ %7, %if.then32 ], [ %7, %cond.true.i ], [ %7, %if.end.i94 ], [ %7, %while.cond.i.i ]
-  %clientname.1 = phi ptr [ %clientname.0228, %redactClientCommandArgument.exit91 ], [ %42, %sdslen.exit.i ], [ null, %if.then32 ], [ %42, %cond.true.i ], [ %42, %if.end.i94 ], [ %42, %while.cond.i.i ]
+  %username.1 = phi ptr [ %40, %redactClientCommandArgument.exit91 ], [ %username.0228, %sdslen.exit.i ], [ %username.0228, %if.then32 ], [ %username.0228, %cond.true.i ], [ %username.0228, %if.end.i94 ], [ %username.0228, %while.cond.i.i ]
+  %password.1 = phi ptr [ %41, %redactClientCommandArgument.exit91 ], [ %password.0229, %sdslen.exit.i ], [ %password.0229, %if.then32 ], [ %password.0229, %cond.true.i ], [ %password.0229, %if.end.i94 ], [ %password.0229, %while.cond.i.i ]
+  %clientname.1 = phi ptr [ %clientname.0230, %redactClientCommandArgument.exit91 ], [ %42, %sdslen.exit.i ], [ null, %if.then32 ], [ %42, %cond.true.i ], [ %42, %if.end.i94 ], [ %42, %while.cond.i.i ]
   %j.1 = phi i32 [ %add18242, %redactClientCommandArgument.exit91 ], [ %add34, %sdslen.exit.i ], [ %add34, %if.then32 ], [ %add34, %cond.true.i ], [ %add34, %if.end.i94 ], [ %add34, %while.cond.i.i ]
-  %password.1 = phi ptr [ %41, %redactClientCommandArgument.exit91 ], [ %password.0230, %sdslen.exit.i ], [ %password.0230, %if.then32 ], [ %password.0230, %cond.true.i ], [ %password.0230, %if.end.i94 ], [ %password.0230, %while.cond.i.i ]
-  %username.1 = phi ptr [ %40, %redactClientCommandArgument.exit91 ], [ %username.0231, %sdslen.exit.i ], [ %username.0231, %if.then32 ], [ %username.0231, %cond.true.i ], [ %username.0231, %if.end.i94 ], [ %username.0231, %while.cond.i.i ]
   %inc45 = add nsw i32 %j.1, 1
   %cmp9 = icmp slt i32 %inc45, %55
   br i1 %cmp9, label %for.body, label %for.end, !llvm.loop !33

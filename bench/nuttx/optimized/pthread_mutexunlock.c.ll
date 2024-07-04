@@ -52,7 +52,7 @@ define i32 @pthread_mutex_unlock(ptr noundef %0) local_unnamed_addr #0 {
   br label %26
 
 26:                                               ; preds = %9, %23, %21, %4
-  %.011 = phi i32 [ 0, %21 ], [ %25, %23 ], [ 1, %4 ], [ 1, %9 ]
+  %.0 = phi i32 [ 0, %21 ], [ %25, %23 ], [ 1, %4 ], [ 1, %9 ]
   %27 = and i64 %5, 512
   %.not.i = icmp eq i64 %27, 0
   br i1 %.not.i, label %up_irq_restore.exit, label %28
@@ -62,8 +62,8 @@ define i32 @pthread_mutex_unlock(ptr noundef %0) local_unnamed_addr #0 {
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %28, %26, %1
-  %.0 = phi i32 [ 22, %1 ], [ %.011, %26 ], [ %.011, %28 ]
-  ret i32 %.0
+  %.011 = phi i32 [ 22, %1 ], [ %.0, %26 ], [ %.0, %28 ]
+  ret i32 %.011
 }
 
 declare i32 @nxsched_gettid() local_unnamed_addr #1

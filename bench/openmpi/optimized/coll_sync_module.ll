@@ -641,15 +641,15 @@ define range(i32 -13, 1) i32 @mca_coll_sync_module_enable(ptr nocapture noundef 
   br label %opal_thread_add_fetch_32.exit
 
 opal_thread_add_fetch_32.exit:                    ; preds = %15, %13, %2
-  %.052 = phi i8 [ 0, %2 ], [ 1, %13 ], [ 1, %15 ]
-  %.051 = phi ptr [ @.str.1, %2 ], [ null, %13 ], [ null, %15 ]
+  %.051 = phi i8 [ 0, %2 ], [ 1, %13 ], [ 1, %15 ]
+  %.0 = phi ptr [ @.str.1, %2 ], [ null, %13 ], [ null, %15 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 744
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %opal_thread_add_fetch_32.exit71, label %22
 
 22:                                               ; preds = %opal_thread_add_fetch_32.exit
-  %23 = trunc nuw i8 %.052 to i1
+  %23 = trunc nuw i8 %.051 to i1
   br i1 %23, label %24, label %opal_thread_add_fetch_32.exit71
 
 24:                                               ; preds = %22
@@ -670,15 +670,15 @@ opal_thread_add_fetch_32.exit:                    ; preds = %15, %13, %2
   br label %opal_thread_add_fetch_32.exit71
 
 opal_thread_add_fetch_32.exit71:                  ; preds = %30, %28, %opal_thread_add_fetch_32.exit, %22
-  %.153 = phi i8 [ %.052, %22 ], [ 0, %opal_thread_add_fetch_32.exit ], [ %.052, %28 ], [ %.052, %30 ]
-  %.1 = phi ptr [ %.051, %22 ], [ @.str.2, %opal_thread_add_fetch_32.exit ], [ %.051, %28 ], [ %.051, %30 ]
+  %.152 = phi i8 [ %.051, %22 ], [ 0, %opal_thread_add_fetch_32.exit ], [ %.051, %28 ], [ %.051, %30 ]
+  %.1 = phi ptr [ %.0, %22 ], [ @.str.2, %opal_thread_add_fetch_32.exit ], [ %.0, %28 ], [ %.0, %30 ]
   %34 = getelementptr inbounds i8, ptr %0, i64 760
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %opal_thread_add_fetch_32.exit73, label %37
 
 37:                                               ; preds = %opal_thread_add_fetch_32.exit71
-  %38 = trunc nuw i8 %.153 to i1
+  %38 = trunc nuw i8 %.152 to i1
   br i1 %38, label %39, label %opal_thread_add_fetch_32.exit73
 
 39:                                               ; preds = %37
@@ -699,7 +699,7 @@ opal_thread_add_fetch_32.exit71:                  ; preds = %30, %28, %opal_thre
   br label %opal_thread_add_fetch_32.exit73
 
 opal_thread_add_fetch_32.exit73:                  ; preds = %45, %43, %opal_thread_add_fetch_32.exit71, %37
-  %.254 = phi i8 [ %.153, %37 ], [ 0, %opal_thread_add_fetch_32.exit71 ], [ %.153, %43 ], [ %.153, %45 ]
+  %.253 = phi i8 [ %.152, %37 ], [ 0, %opal_thread_add_fetch_32.exit71 ], [ %.152, %43 ], [ %.152, %45 ]
   %.2 = phi ptr [ %.1, %37 ], [ @.str.3, %opal_thread_add_fetch_32.exit71 ], [ %.1, %43 ], [ %.1, %45 ]
   %49 = getelementptr inbounds i8, ptr %0, i64 776
   %50 = load ptr, ptr %49, align 8
@@ -707,7 +707,7 @@ opal_thread_add_fetch_32.exit73:                  ; preds = %45, %43, %opal_thre
   br i1 %51, label %opal_thread_add_fetch_32.exit75, label %52
 
 52:                                               ; preds = %opal_thread_add_fetch_32.exit73
-  %53 = trunc nuw i8 %.254 to i1
+  %53 = trunc nuw i8 %.253 to i1
   br i1 %53, label %54, label %opal_thread_add_fetch_32.exit75
 
 54:                                               ; preds = %52
@@ -728,7 +728,7 @@ opal_thread_add_fetch_32.exit73:                  ; preds = %45, %43, %opal_thre
   br label %opal_thread_add_fetch_32.exit75
 
 opal_thread_add_fetch_32.exit75:                  ; preds = %60, %58, %opal_thread_add_fetch_32.exit73, %52
-  %.355 = phi i8 [ %.254, %52 ], [ 0, %opal_thread_add_fetch_32.exit73 ], [ %.254, %58 ], [ %.254, %60 ]
+  %.354 = phi i8 [ %.253, %52 ], [ 0, %opal_thread_add_fetch_32.exit73 ], [ %.253, %58 ], [ %.253, %60 ]
   %.3 = phi ptr [ %.2, %52 ], [ @.str.4, %opal_thread_add_fetch_32.exit73 ], [ %.2, %58 ], [ %.2, %60 ]
   %64 = getelementptr inbounds i8, ptr %0, i64 792
   %65 = load ptr, ptr %64, align 8
@@ -736,7 +736,7 @@ opal_thread_add_fetch_32.exit75:                  ; preds = %60, %58, %opal_thre
   br i1 %66, label %opal_thread_add_fetch_32.exit77, label %67
 
 67:                                               ; preds = %opal_thread_add_fetch_32.exit75
-  %68 = trunc nuw i8 %.355 to i1
+  %68 = trunc nuw i8 %.354 to i1
   br i1 %68, label %69, label %opal_thread_add_fetch_32.exit77
 
 69:                                               ; preds = %67
@@ -757,7 +757,7 @@ opal_thread_add_fetch_32.exit75:                  ; preds = %60, %58, %opal_thre
   br label %opal_thread_add_fetch_32.exit77
 
 opal_thread_add_fetch_32.exit77:                  ; preds = %75, %73, %opal_thread_add_fetch_32.exit75, %67
-  %.456 = phi i8 [ %.355, %67 ], [ 0, %opal_thread_add_fetch_32.exit75 ], [ %.355, %73 ], [ %.355, %75 ]
+  %.455 = phi i8 [ %.354, %67 ], [ 0, %opal_thread_add_fetch_32.exit75 ], [ %.354, %73 ], [ %.354, %75 ]
   %.4 = phi ptr [ %.3, %67 ], [ @.str.5, %opal_thread_add_fetch_32.exit75 ], [ %.3, %73 ], [ %.3, %75 ]
   %79 = getelementptr inbounds i8, ptr %0, i64 840
   %80 = load ptr, ptr %79, align 8
@@ -765,7 +765,7 @@ opal_thread_add_fetch_32.exit77:                  ; preds = %75, %73, %opal_thre
   br i1 %81, label %opal_thread_add_fetch_32.exit79, label %82
 
 82:                                               ; preds = %opal_thread_add_fetch_32.exit77
-  %83 = trunc nuw i8 %.456 to i1
+  %83 = trunc nuw i8 %.455 to i1
   br i1 %83, label %84, label %opal_thread_add_fetch_32.exit79
 
 84:                                               ; preds = %82
@@ -786,7 +786,7 @@ opal_thread_add_fetch_32.exit77:                  ; preds = %75, %73, %opal_thre
   br label %opal_thread_add_fetch_32.exit79
 
 opal_thread_add_fetch_32.exit79:                  ; preds = %90, %88, %opal_thread_add_fetch_32.exit77, %82
-  %.557 = phi i8 [ %.456, %82 ], [ 0, %opal_thread_add_fetch_32.exit77 ], [ %.456, %88 ], [ %.456, %90 ]
+  %.556 = phi i8 [ %.455, %82 ], [ 0, %opal_thread_add_fetch_32.exit77 ], [ %.455, %88 ], [ %.455, %90 ]
   %.5 = phi ptr [ %.4, %82 ], [ @.str.6, %opal_thread_add_fetch_32.exit77 ], [ %.4, %88 ], [ %.4, %90 ]
   %94 = getelementptr inbounds i8, ptr %0, i64 856
   %95 = load ptr, ptr %94, align 8
@@ -794,7 +794,7 @@ opal_thread_add_fetch_32.exit79:                  ; preds = %90, %88, %opal_thre
   br i1 %96, label %opal_thread_add_fetch_32.exit81, label %97
 
 97:                                               ; preds = %opal_thread_add_fetch_32.exit79
-  %98 = trunc nuw i8 %.557 to i1
+  %98 = trunc nuw i8 %.556 to i1
   br i1 %98, label %99, label %opal_thread_add_fetch_32.exit81
 
 99:                                               ; preds = %97
@@ -815,7 +815,7 @@ opal_thread_add_fetch_32.exit79:                  ; preds = %90, %88, %opal_thre
   br label %opal_thread_add_fetch_32.exit81
 
 opal_thread_add_fetch_32.exit81:                  ; preds = %105, %103, %opal_thread_add_fetch_32.exit79, %97
-  %.658 = phi i8 [ %.557, %97 ], [ 0, %opal_thread_add_fetch_32.exit79 ], [ %.557, %103 ], [ %.557, %105 ]
+  %.657 = phi i8 [ %.556, %97 ], [ 0, %opal_thread_add_fetch_32.exit79 ], [ %.556, %103 ], [ %.556, %105 ]
   %.6 = phi ptr [ %.5, %97 ], [ @.str.7, %opal_thread_add_fetch_32.exit79 ], [ %.5, %103 ], [ %.5, %105 ]
   %109 = getelementptr inbounds i8, ptr %1, i64 224
   %110 = load i32, ptr %109, align 8
@@ -830,7 +830,7 @@ opal_thread_add_fetch_32.exit81:                  ; preds = %105, %103, %opal_th
   br i1 %115, label %opal_thread_add_fetch_32.exit83, label %116
 
 116:                                              ; preds = %112
-  %117 = trunc nuw i8 %.658 to i1
+  %117 = trunc nuw i8 %.657 to i1
   br i1 %117, label %118, label %opal_thread_add_fetch_32.exit83
 
 118:                                              ; preds = %116
@@ -851,7 +851,7 @@ opal_thread_add_fetch_32.exit81:                  ; preds = %105, %103, %opal_th
   br label %opal_thread_add_fetch_32.exit83
 
 opal_thread_add_fetch_32.exit83:                  ; preds = %124, %122, %112, %116
-  %.759 = phi i8 [ %.658, %116 ], [ 0, %112 ], [ %.658, %122 ], [ %.658, %124 ]
+  %.758 = phi i8 [ %.657, %116 ], [ 0, %112 ], [ %.657, %122 ], [ %.657, %124 ]
   %.7 = phi ptr [ %.6, %116 ], [ @.str.8, %112 ], [ %.6, %122 ], [ %.6, %124 ]
   %128 = getelementptr inbounds i8, ptr %0, i64 824
   %129 = load ptr, ptr %128, align 8
@@ -859,7 +859,7 @@ opal_thread_add_fetch_32.exit83:                  ; preds = %124, %122, %112, %1
   br i1 %130, label %opal_thread_add_fetch_32.exit85.thread, label %131
 
 131:                                              ; preds = %opal_thread_add_fetch_32.exit83
-  %132 = trunc nuw i8 %.759 to i1
+  %132 = trunc nuw i8 %.758 to i1
   br i1 %132, label %133, label %opal_thread_add_fetch_32.exit85.thread
 
 133:                                              ; preds = %131
@@ -880,7 +880,7 @@ opal_thread_add_fetch_32.exit83:                  ; preds = %124, %122, %112, %1
   br label %opal_thread_add_fetch_32.exit85.thread89
 
 opal_thread_add_fetch_32.exit85:                  ; preds = %opal_thread_add_fetch_32.exit81
-  %.pre = trunc nuw i8 %.658 to i1
+  %.pre = trunc nuw i8 %.657 to i1
   br i1 %.pre, label %opal_thread_add_fetch_32.exit85.thread89, label %opal_thread_add_fetch_32.exit85.thread
 
 opal_thread_add_fetch_32.exit85.thread:           ; preds = %131, %opal_thread_add_fetch_32.exit83, %opal_thread_add_fetch_32.exit85
@@ -892,8 +892,8 @@ opal_thread_add_fetch_32.exit85.thread:           ; preds = %131, %opal_thread_a
   br label %opal_thread_add_fetch_32.exit85.thread89
 
 opal_thread_add_fetch_32.exit85.thread89:         ; preds = %137, %139, %opal_thread_add_fetch_32.exit85, %opal_thread_add_fetch_32.exit85.thread
-  %.0 = phi i32 [ -13, %opal_thread_add_fetch_32.exit85.thread ], [ 0, %opal_thread_add_fetch_32.exit85 ], [ 0, %139 ], [ 0, %137 ]
-  ret i32 %.0
+  %.060 = phi i32 [ -13, %opal_thread_add_fetch_32.exit85.thread ], [ 0, %opal_thread_add_fetch_32.exit85 ], [ 0, %139 ], [ 0, %137 ]
+  ret i32 %.060
 }
 
 declare i32 @mca_coll_sync_bcast(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #3

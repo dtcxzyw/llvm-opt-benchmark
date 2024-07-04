@@ -980,7 +980,7 @@ if.end201:                                        ; preds = %if.end193, %if.end1
   %65 = load ptr, ptr %40, align 8
   %66 = load i32, ptr %cluster_size, align 4
   %conv203 = sext i32 %66 to i64
-  %call204 = tail call i32 @bdrv_pwrite(ptr noundef %65, i64 noundef 0, i64 noundef %conv203, ptr noundef nonnull %call, i32 noundef 0) #22
+  %call204 = tail call i32 @bdrv_pwrite(ptr noundef %65, i64 noundef 0, i64 noundef %conv203, ptr noundef %call, i32 noundef 0) #22
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %call204, i32 0)
   br label %fail
 
@@ -1100,13 +1100,13 @@ entry:
 
 do.body:                                          ; preds = %do.cond, %entry
   %generous_increase.addr.0 = phi i1 [ %generous_increase, %entry ], [ %generous_increase.addr.1, %do.cond ]
+  %clusters.addr.0 = phi i64 [ %clusters, %entry ], [ %clusters.addr.1, %do.cond ]
   %table.0 = phi i64 [ 0, %entry ], [ %div7, %do.cond ]
   %blocks.0 = phi i64 [ 0, %entry ], [ %div4, %do.cond ]
-  %clusters.addr.0 = phi i64 [ %clusters, %entry ], [ %clusters.addr.1, %do.cond ]
   %n.0 = phi i64 [ 0, %entry ], [ %n.1, %do.cond ]
-  %add2 = add i64 %add, %table.0
-  %add3 = add i64 %add2, %blocks.0
-  %sub = add i64 %add3, %clusters.addr.0
+  %add2 = add i64 %add, %clusters.addr.0
+  %add3 = add i64 %add2, %table.0
+  %sub = add i64 %add3, %blocks.0
   %div4 = sdiv i64 %sub, %div1
   %sub6 = add i64 %add5, %div4
   %div7 = sdiv i64 %sub6, %div18
@@ -2334,18 +2334,18 @@ finish:                                           ; preds = %if.end58
 
 if.then67:                                        ; preds = %if.end58, %if.end52, %if.end47, %if.end36, %if.end30, %if.then43, %if.end33, %finish
   %bs.057 = phi ptr [ %call37, %finish ], [ %call37, %if.end58 ], [ %call37, %if.end52 ], [ %call37, %if.end47 ], [ null, %if.end36 ], [ null, %if.end30 ], [ %call37, %if.then43 ], [ null, %if.end33 ]
-  %data_bs.155 = phi ptr [ %data_bs.0, %finish ], [ %data_bs.0, %if.end58 ], [ %data_bs.0, %if.end52 ], [ null, %if.end47 ], [ null, %if.end36 ], [ null, %if.end30 ], [ null, %if.then43 ], [ null, %if.end33 ]
-  %ret.054 = phi i32 [ %call65, %finish ], [ -22, %if.end58 ], [ -22, %if.end52 ], [ -5, %if.end47 ], [ -5, %if.end36 ], [ -22, %if.end30 ], [ %call44, %if.then43 ], [ %call34, %if.end33 ]
+  %ret.056 = phi i32 [ %call65, %finish ], [ -22, %if.end58 ], [ -22, %if.end52 ], [ -5, %if.end47 ], [ -5, %if.end36 ], [ -22, %if.end30 ], [ %call44, %if.then43 ], [ %call34, %if.end33 ]
+  %data_bs.154 = phi ptr [ %data_bs.0, %finish ], [ %data_bs.0, %if.end58 ], [ %data_bs.0, %if.end52 ], [ null, %if.end47 ], [ null, %if.end36 ], [ null, %if.end30 ], [ null, %if.then43 ], [ null, %if.end33 ]
   call void @bdrv_graph_co_rdlock() #22
   call void @bdrv_co_delete_file_noerr(ptr noundef %bs.057) #22
-  call void @bdrv_co_delete_file_noerr(ptr noundef %data_bs.155) #22
+  call void @bdrv_co_delete_file_noerr(ptr noundef %data_bs.154) #22
   call void @bdrv_graph_co_rdunlock() #22
   br label %if.end69
 
 if.end69:                                         ; preds = %finish, %if.then67
   %bs.058 = phi ptr [ %bs.057, %if.then67 ], [ %call37, %finish ]
-  %data_bs.156 = phi ptr [ %data_bs.155, %if.then67 ], [ %data_bs.0, %finish ]
-  %ret.1 = phi i32 [ %ret.054, %if.then67 ], [ 0, %finish ]
+  %data_bs.155 = phi ptr [ %data_bs.154, %if.then67 ], [ %data_bs.0, %finish ]
+  %ret.1 = phi i32 [ %ret.056, %if.then67 ], [ 0, %finish ]
   %tobool70.not = icmp eq ptr %call, null
   br i1 %tobool70.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
@@ -2371,7 +2371,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
 
 qobject_unref_impl.exit:                          ; preds = %if.end69, %land.lhs.true.i, %if.then5.i
   call void @bdrv_co_unref(ptr noundef %bs.058) #22
-  call void @bdrv_co_unref(ptr noundef %data_bs.156) #22
+  call void @bdrv_co_unref(ptr noundef %data_bs.155) #22
   %10 = load ptr, ptr %create_options, align 8
   call void @qapi_free_BlockdevCreateOptions(ptr noundef %10) #22
   ret i32 %ret.1
@@ -2411,12 +2411,12 @@ land.rhs.lr.ph:                                   ; preds = %entry, %if.end119
   %lazy_refcounts.0.ph300 = phi i8 [ %2, %entry ], [ %lazy_refcounts.1, %if.end119 ]
   %data_file_raw.0.ph299 = phi i8 [ %5, %entry ], [ %data_file_raw.1, %if.end119 ]
   %refcount_bits.0.ph298 = phi i32 [ %6, %entry ], [ %refcount_bits.1, %if.end119 ]
-  %desc.0.ph297 = phi ptr [ %desc4, %entry ], [ %incdec.ptr120, %if.end119 ]
-  %encryption_update.0.ph296 = phi i8 [ 0, %entry ], [ %encryption_update.1, %if.end119 ]
+  %encryption_update.0.ph297 = phi i8 [ 0, %entry ], [ %encryption_update.1, %if.end119 ]
+  %desc.0.ph296 = phi ptr [ %desc4, %entry ], [ %incdec.ptr120, %if.end119 ]
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.then
-  %desc.0269 = phi ptr [ %desc.0.ph297, %land.rhs.lr.ph ], [ %incdec.ptr, %if.then ]
+  %desc.0269 = phi ptr [ %desc.0.ph296, %land.rhs.lr.ph ], [ %incdec.ptr, %if.then ]
   %9 = load ptr, ptr %desc.0269, align 8
   %tobool6.not = icmp eq ptr %9, null
   br i1 %tobool6.not, label %while.end, label %while.body
@@ -2638,7 +2638,7 @@ if.else110:                                       ; preds = %if.else96
   unreachable
 
 if.end119:                                        ; preds = %lor.lhs.false81, %if.end58, %if.else22, %lor.lhs.false25.tail, %if.else, %lor.lhs.false.tail, %if.then37, %if.then49, %if.then65, %land.lhs.true, %if.then90, %if.then100, %land.lhs.true106, %if.then43, %if.then13
-  %encryption_update.1 = phi i8 [ %encryption_update.0.ph296, %land.lhs.true106 ], [ %encryption_update.0.ph296, %if.then100 ], [ %encryption_update.0.ph296, %land.lhs.true ], [ %encryption_update.0.ph296, %if.then90 ], [ %encryption_update.0.ph296, %if.then65 ], [ %encryption_update.0.ph296, %if.then49 ], [ %encryption_update.0.ph296, %if.then43 ], [ %encryption_update.0.ph296, %if.then37 ], [ %encryption_update.0.ph296, %if.then13 ], [ %encryption_update.0.ph296, %lor.lhs.false.tail ], [ %encryption_update.0.ph296, %if.else ], [ %encryption_update.0.ph296, %lor.lhs.false25.tail ], [ %encryption_update.0.ph296, %if.else22 ], [ 1, %if.end58 ], [ %encryption_update.0.ph296, %lor.lhs.false81 ]
+  %encryption_update.1 = phi i8 [ %encryption_update.0.ph297, %land.lhs.true106 ], [ %encryption_update.0.ph297, %if.then100 ], [ %encryption_update.0.ph297, %land.lhs.true ], [ %encryption_update.0.ph297, %if.then90 ], [ %encryption_update.0.ph297, %if.then65 ], [ %encryption_update.0.ph297, %if.then49 ], [ %encryption_update.0.ph297, %if.then43 ], [ %encryption_update.0.ph297, %if.then37 ], [ %encryption_update.0.ph297, %if.then13 ], [ %encryption_update.0.ph297, %lor.lhs.false.tail ], [ %encryption_update.0.ph297, %if.else ], [ %encryption_update.0.ph297, %lor.lhs.false25.tail ], [ %encryption_update.0.ph297, %if.else22 ], [ 1, %if.end58 ], [ %encryption_update.0.ph297, %lor.lhs.false81 ]
   %refcount_bits.1 = phi i32 [ %refcount_bits.0.ph298, %land.lhs.true106 ], [ %refcount_bits.0.ph298, %if.then100 ], [ %refcount_bits.0.ph298, %land.lhs.true ], [ %refcount_bits.0.ph298, %if.then90 ], [ %refcount_bits.0.ph298, %if.then65 ], [ %refcount_bits.0.ph298, %if.then49 ], [ %refcount_bits.0.ph298, %if.then43 ], [ %refcount_bits.0.ph298, %if.then37 ], [ %refcount_bits.0.ph298, %if.then13 ], [ %refcount_bits.0.ph298, %lor.lhs.false.tail ], [ %refcount_bits.0.ph298, %if.else ], [ %refcount_bits.0.ph298, %lor.lhs.false25.tail ], [ %refcount_bits.0.ph298, %if.else22 ], [ %refcount_bits.0.ph298, %if.end58 ], [ %conv75, %lor.lhs.false81 ]
   %data_file_raw.1 = phi i8 [ 1, %land.lhs.true106 ], [ 0, %if.then100 ], [ %data_file_raw.0.ph299, %land.lhs.true ], [ %data_file_raw.0.ph299, %if.then90 ], [ %data_file_raw.0.ph299, %if.then65 ], [ %data_file_raw.0.ph299, %if.then49 ], [ %data_file_raw.0.ph299, %if.then43 ], [ %data_file_raw.0.ph299, %if.then37 ], [ %data_file_raw.0.ph299, %if.then13 ], [ %data_file_raw.0.ph299, %lor.lhs.false.tail ], [ %data_file_raw.0.ph299, %if.else ], [ %data_file_raw.0.ph299, %lor.lhs.false25.tail ], [ %data_file_raw.0.ph299, %if.else22 ], [ %data_file_raw.0.ph299, %if.end58 ], [ %data_file_raw.0.ph299, %lor.lhs.false81 ]
   %lazy_refcounts.1 = phi i8 [ %lazy_refcounts.0.ph300, %land.lhs.true106 ], [ %lazy_refcounts.0.ph300, %if.then100 ], [ %lazy_refcounts.0.ph300, %land.lhs.true ], [ %lazy_refcounts.0.ph300, %if.then90 ], [ %frombool68, %if.then65 ], [ %lazy_refcounts.0.ph300, %if.then49 ], [ %lazy_refcounts.0.ph300, %if.then43 ], [ %lazy_refcounts.0.ph300, %if.then37 ], [ %lazy_refcounts.0.ph300, %if.then13 ], [ %lazy_refcounts.0.ph300, %lor.lhs.false.tail ], [ %lazy_refcounts.0.ph300, %if.else ], [ %lazy_refcounts.0.ph300, %lor.lhs.false25.tail ], [ %lazy_refcounts.0.ph300, %if.else22 ], [ %lazy_refcounts.0.ph300, %if.end58 ], [ %lazy_refcounts.0.ph300, %lor.lhs.false81 ]
@@ -2652,7 +2652,7 @@ if.end119:                                        ; preds = %lor.lhs.false81, %i
   br i1 %tobool5.not268, label %while.end, label %land.rhs.lr.ph, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end119, %land.rhs, %if.then
-  %encryption_update.0.ph.lcssa = phi i8 [ %encryption_update.0.ph296, %if.then ], [ %encryption_update.0.ph296, %land.rhs ], [ %encryption_update.1, %if.end119 ]
+  %encryption_update.0.ph.lcssa = phi i8 [ %encryption_update.0.ph297, %if.then ], [ %encryption_update.0.ph297, %land.rhs ], [ %encryption_update.1, %if.end119 ]
   %refcount_bits.0.ph.lcssa = phi i32 [ %refcount_bits.0.ph298, %if.then ], [ %refcount_bits.0.ph298, %land.rhs ], [ %refcount_bits.1, %if.end119 ]
   %data_file_raw.0.ph.lcssa = phi i8 [ %data_file_raw.0.ph299, %if.then ], [ %data_file_raw.0.ph299, %land.rhs ], [ %data_file_raw.1, %if.end119 ]
   %lazy_refcounts.0.ph.lcssa = phi i8 [ %lazy_refcounts.0.ph300, %if.then ], [ %lazy_refcounts.0.ph300, %land.rhs ], [ %lazy_refcounts.1, %if.end119 ]
@@ -4318,8 +4318,8 @@ if.else60:                                        ; preds = %trace_qcow2_pwrite_
   br label %if.end62
 
 if.end62:                                         ; preds = %lor.lhs.false43, %if.else60
-  %bytes.addr.0 = phi i64 [ %conv38, %lor.lhs.false43 ], [ %bytes, %if.else60 ]
   %offset.addr.0 = phi i64 [ %sub25, %lor.lhs.false43 ], [ %offset, %if.else60 ]
+  %bytes.addr.0 = phi i64 [ %conv38, %lor.lhs.false43 ], [ %bytes, %if.else60 ]
   %call63 = call ptr @qemu_coroutine_self() #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i71)
   %16 = load i32, ptr @trace_events_enabled_count, align 4
@@ -5782,21 +5782,21 @@ if.end18:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp2145, label %while.body, label %while.end
 
 land.rhs:                                         ; preds = %if.end37
-  %add38 = add i64 %cond, %qiov_offset.addr.04148
+  %add38 = add i64 %cond, %qiov_offset.addr.03949
   %add39 = add i64 %cond, %offset.addr.04346
   %call20 = tail call i32 @aio_task_pool_status(ptr noundef %aio.1) #22
   %cmp21 = icmp eq i32 %call20, 0
   br i1 %cmp21, label %while.body, label %while.end, !llvm.loop !21
 
 while.body:                                       ; preds = %if.end18, %land.rhs
-  %aio.04049 = phi ptr [ %aio.1, %land.rhs ], [ null, %if.end18 ]
-  %qiov_offset.addr.04148 = phi i64 [ %add38, %land.rhs ], [ %qiov_offset, %if.end18 ]
+  %qiov_offset.addr.03949 = phi i64 [ %add38, %land.rhs ], [ %qiov_offset, %if.end18 ]
+  %aio.04048 = phi ptr [ %aio.1, %land.rhs ], [ null, %if.end18 ]
   %bytes.addr.04247 = phi i64 [ %sub, %land.rhs ], [ %bytes, %if.end18 ]
   %offset.addr.04346 = phi i64 [ %add39, %land.rhs ], [ %offset, %if.end18 ]
   %7 = load i32, ptr %5, align 4
   %conv23 = sext i32 %7 to i64
   %cond = tail call i64 @llvm.smin.i64(i64 %bytes.addr.04247, i64 %conv23)
-  %tobool26.not = icmp eq ptr %aio.04049, null
+  %tobool26.not = icmp eq ptr %aio.04048, null
   br i1 %tobool26.not, label %land.lhs.true27, label %if.end32
 
 land.lhs.true27:                                  ; preds = %while.body
@@ -5808,8 +5808,8 @@ if.then30:                                        ; preds = %land.lhs.true27
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then30, %land.lhs.true27, %while.body
-  %aio.1 = phi ptr [ %aio.04049, %while.body ], [ %call31, %if.then30 ], [ null, %land.lhs.true27 ]
-  %call33 = tail call i32 @qcow2_add_task(ptr noundef %bs, ptr noundef %aio.1, ptr noundef nonnull @qcow2_co_pwritev_compressed_task_entry, i32 noundef 0, i64 noundef 0, i64 noundef %offset.addr.04346, i64 noundef %cond, ptr noundef %qiov, i64 noundef %qiov_offset.addr.04148, ptr noundef null)
+  %aio.1 = phi ptr [ %aio.04048, %while.body ], [ %call31, %if.then30 ], [ null, %land.lhs.true27 ]
+  %call33 = tail call i32 @qcow2_add_task(ptr noundef %bs, ptr noundef %aio.1, ptr noundef nonnull @qcow2_co_pwritev_compressed_task_entry, i32 noundef 0, i64 noundef 0, i64 noundef %offset.addr.04346, i64 noundef %cond, ptr noundef %qiov, i64 noundef %qiov_offset.addr.03949, ptr noundef null)
   %cmp34 = icmp slt i32 %call33, 0
   br i1 %cmp34, label %while.end, label %if.end37
 
@@ -5819,8 +5819,8 @@ if.end37:                                         ; preds = %if.end32
   br i1 %tobool19.not, label %while.end, label %land.rhs, !llvm.loop !21
 
 while.end:                                        ; preds = %land.rhs, %if.end32, %if.end37, %if.end18
-  %ret.1 = phi i32 [ 0, %if.end18 ], [ %call33, %if.end37 ], [ %call33, %if.end32 ], [ %call33, %land.rhs ]
   %aio.2 = phi ptr [ null, %if.end18 ], [ %aio.1, %if.end37 ], [ %aio.1, %if.end32 ], [ %aio.1, %land.rhs ]
+  %ret.1 = phi i32 [ 0, %if.end18 ], [ %call33, %if.end37 ], [ %call33, %if.end32 ], [ %call33, %land.rhs ]
   %tobool40.not = icmp eq ptr %aio.2, null
   br i1 %tobool40.not, label %return, label %if.then41
 
@@ -10228,8 +10228,8 @@ if.end17:                                         ; preds = %if.end11
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end17, %entry
-  %qiov_offset.addr.0 = phi i64 [ 0, %if.end17 ], [ %qiov_offset, %entry ]
   %qiov.addr.0 = phi ptr [ %encrypted_qiov, %if.end17 ], [ %qiov, %entry ]
+  %qiov_offset.addr.0 = phi i64 [ 0, %if.end17 ], [ %qiov_offset, %entry ]
   %crypt_buf.0 = phi ptr [ %call, %if.end17 ], [ null, %entry ]
   %call19 = call i32 @handle_alloc_space(ptr noundef nonnull %bs, ptr noundef %l2meta)
   %cmp20 = icmp slt i32 %call19, 0

@@ -68,15 +68,15 @@ define internal fastcc void @"_ZN4core3ptr195drop_in_place$LT$hashbrown..scopegu
   br i1 %exitcond.not.i.i, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7619639ab6886b63E.exit", label %9
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7619639ab6886b63E.exit": ; preds = %26, %1, %4
-  %27 = getelementptr inbounds i8, ptr %.val2.i, i64 8
-  %28 = load i64, ptr %27, align 8, !noalias !4, !noundef !7
-  %29 = icmp ult i64 %28, 8
-  %30 = add i64 %28, 1
-  %31 = lshr i64 %30, 3
-  %32 = mul nuw i64 %31, 7
-  %.0.i.i = select i1 %29, i64 %28, i64 %32
-  %33 = icmp ne ptr %.val2.i, null
-  tail call void @llvm.assume(i1 %33)
+  %27 = icmp ne ptr %.val2.i, null
+  tail call void @llvm.assume(i1 %27)
+  %28 = getelementptr inbounds i8, ptr %.val2.i, i64 8
+  %29 = load i64, ptr %28, align 8, !noalias !4, !noundef !7
+  %30 = icmp ult i64 %29, 8
+  %31 = add i64 %29, 1
+  %32 = lshr i64 %31, 3
+  %33 = mul nuw i64 %32, 7
+  %.0.i.i = select i1 %30, i64 %29, i64 %33
   %34 = getelementptr inbounds i8, ptr %.val2.i, i64 24
   %35 = load i64, ptr %34, align 8, !noalias !4, !noundef !7
   %36 = getelementptr inbounds i8, ptr %.val2.i, i64 16
@@ -326,16 +326,16 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h5723d79da7bb3e3aE
   br label %common.resume
 
 .noexc.preheader:                                 ; preds = %.noexc.preheader.lr.ph, %158
-  %.sroa.1332.0107 = phi i16 [ %86, %.noexc.preheader.lr.ph ], [ %98, %158 ]
-  %.sroa.930.0106 = phi i64 [ %81, %.noexc.preheader.lr.ph ], [ %102, %158 ]
-  %.sroa.027.0105 = phi ptr [ %82, %.noexc.preheader.lr.ph ], [ %.sroa.027.1.lcssa, %158 ]
-  %.sroa.528.0104 = phi i64 [ 0, %.noexc.preheader.lr.ph ], [ %.sroa.528.1.lcssa, %158 ]
-  %.not.i8.not95 = icmp eq i16 %.sroa.1332.0107, 0
+  %.sroa.027.0107 = phi ptr [ %82, %.noexc.preheader.lr.ph ], [ %.sroa.027.1.lcssa, %158 ]
+  %.sroa.528.0106 = phi i64 [ 0, %.noexc.preheader.lr.ph ], [ %.sroa.528.1.lcssa, %158 ]
+  %.sroa.930.0105 = phi i64 [ %81, %.noexc.preheader.lr.ph ], [ %102, %158 ]
+  %.sroa.1332.0104 = phi i16 [ %86, %.noexc.preheader.lr.ph ], [ %98, %158 ]
+  %.not.i8.not95 = icmp eq i16 %.sroa.1332.0104, 0
   br i1 %.not.i8.not95, label %.noexc2, label %.noexc._crit_edge
 
 .noexc2:                                          ; preds = %.noexc.preheader, %.noexc2
-  %.sroa.027.197 = phi ptr [ %91, %.noexc2 ], [ %.sroa.027.0105, %.noexc.preheader ]
-  %.sroa.528.196 = phi i64 [ %95, %.noexc2 ], [ %.sroa.528.0104, %.noexc.preheader ]
+  %.sroa.027.197 = phi ptr [ %91, %.noexc2 ], [ %.sroa.027.0107, %.noexc.preheader ]
+  %.sroa.528.196 = phi i64 [ %95, %.noexc2 ], [ %.sroa.528.0106, %.noexc.preheader ]
   %90 = icmp ne ptr %.sroa.027.197, null
   tail call void @llvm.assume(i1 %90)
   %91 = getelementptr inbounds i8, ptr %.sroa.027.197, i64 16
@@ -351,15 +351,15 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h5723d79da7bb3e3aE
   br label %.noexc._crit_edge
 
 .noexc._crit_edge:                                ; preds = %.noexc._crit_edge.loopexit, %.noexc.preheader
-  %.sroa.1332.1.lcssa94 = phi i16 [ %.sroa.1332.0107, %.noexc.preheader ], [ %96, %.noexc._crit_edge.loopexit ]
-  %.sroa.528.1.lcssa = phi i64 [ %.sroa.528.0104, %.noexc.preheader ], [ %95, %.noexc._crit_edge.loopexit ]
-  %.sroa.027.1.lcssa = phi ptr [ %.sroa.027.0105, %.noexc.preheader ], [ %91, %.noexc._crit_edge.loopexit ]
+  %.sroa.1332.1.lcssa94 = phi i16 [ %.sroa.1332.0104, %.noexc.preheader ], [ %96, %.noexc._crit_edge.loopexit ]
+  %.sroa.528.1.lcssa = phi i64 [ %.sroa.528.0106, %.noexc.preheader ], [ %95, %.noexc._crit_edge.loopexit ]
+  %.sroa.027.1.lcssa = phi ptr [ %.sroa.027.0107, %.noexc.preheader ], [ %91, %.noexc._crit_edge.loopexit ]
   %97 = add i16 %.sroa.1332.1.lcssa94, -1
   %98 = and i16 %97, %.sroa.1332.1.lcssa94
   %99 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.1332.1.lcssa94, i1 true)
   %100 = zext nneg i16 %99 to i64
   %101 = add i64 %.sroa.528.1.lcssa, %100
-  %102 = add i64 %.sroa.930.0106, -1
+  %102 = add i64 %.sroa.930.0105, -1
   %103 = sub nsw i64 0, %101
   %gep109 = getelementptr i64, ptr %invariant.gep108, i64 %103
   %.val5.i = load i64, ptr %gep109, align 8, !noalias !36, !noundef !7

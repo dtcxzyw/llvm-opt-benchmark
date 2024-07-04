@@ -152,15 +152,15 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   %30 = load ptr, ptr @ws_optarg, align 8
   %char0 = load i8, ptr %30, align 1
   %31 = icmp ne i8 %char0, 43
-  %.128 = select i1 %31, i1 %.027.ph, i1 false
+  %.1 = select i1 %31, i1 %.026.ph, i1 false
   %32 = icmp slt i32 %29, 0
-  %spec.select39 = select i1 %32, i1 true, i1 %.128
-  %spec.select40 = call i32 @llvm.abs.i32(i32 %29, i1 false)
+  %spec.select39 = call i32 @llvm.abs.i32(i32 %29, i1 false)
+  %spec.select40 = select i1 %32, i1 true, i1 %.1
   br label %.preheader.outer, !llvm.loop !5
 
 .preheader.outer:                                 ; preds = %10, %28
-  %.027.ph = phi i1 [ %spec.select39, %28 ], [ true, %10 ]
-  %.0.ph = phi i32 [ %spec.select40, %28 ], [ 10, %10 ]
+  %.027.ph = phi i32 [ %spec.select39, %28 ], [ 10, %10 ]
+  %.026.ph = phi i1 [ %spec.select40, %28 ], [ true, %10 ]
   br label %.preheader
 
 33:                                               ; preds = %.preheader
@@ -243,13 +243,13 @@ list_config.exit:                                 ; preds = %57, %60, %61
 66:                                               ; preds = %63
   %67 = getelementptr inbounds i8, ptr %51, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = call fastcc i32 @sdj_start_export(i32 noundef %.0.ph, i1 noundef zeroext %.027.ph, ptr noundef %68)
+  %69 = call fastcc i32 @sdj_start_export(i32 noundef %.027.ph, i1 noundef zeroext %.026.ph, ptr noundef %68)
   br label %70
 
 70:                                               ; preds = %63, %48, %66, %list_config.exit, %42, %26, %19, %18, %16
-  %.026 = phi i32 [ 1, %16 ], [ 1, %42 ], [ 1, %26 ], [ 0, %19 ], [ 0, %18 ], [ %.0.i, %list_config.exit ], [ %69, %66 ], [ 0, %48 ], [ 1, %63 ]
+  %.0 = phi i32 [ 1, %16 ], [ 1, %42 ], [ 1, %26 ], [ 0, %19 ], [ 0, %18 ], [ %.0.i, %list_config.exit ], [ %69, %66 ], [ 0, %48 ], [ 1, %63 ]
   call void @extcap_base_cleanup(ptr noundef nonnull %5) #14
-  ret i32 %.026
+  ret i32 %.0
 }
 
 ; Function Attrs: allocsize(0,1)

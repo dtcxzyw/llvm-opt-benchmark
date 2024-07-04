@@ -3295,10 +3295,10 @@ if.end55:                                         ; preds = %if.then42, %if.else
   br label %if.end61
 
 if.end61:                                         ; preds = %if.end55, %if.end12
+  %out.addr.0 = phi ptr [ %out, %if.end12 ], [ %spec.select, %if.end55 ]
+  %in.addr.0 = phi ptr [ %in, %if.end12 ], [ %add.ptr31, %if.end55 ]
   %len.addr.0 = phi i64 [ %len, %if.end12 ], [ %sub29, %if.end55 ]
   %written_len.0 = phi i32 [ 0, %if.end12 ], [ 16, %if.end55 ]
-  %in.addr.0 = phi ptr [ %in, %if.end12 ], [ %add.ptr31, %if.end55 ]
-  %out.addr.0 = phi ptr [ %out, %if.end12 ], [ %spec.select, %if.end55 ]
   %rem = and i64 %len.addr.0, 15
   %cmp62.not = icmp ult i64 %len.addr.0, 16
   br i1 %cmp62.not, label %if.end99, label %if.then64
@@ -3339,8 +3339,8 @@ if.end92:                                         ; preds = %if.then77, %if.else
   br label %if.end99
 
 if.end99:                                         ; preds = %if.end92, %if.end61
-  %written_len.1 = phi i32 [ %conv96, %if.end92 ], [ %written_len.0, %if.end61 ]
   %in.addr.1 = phi ptr [ %add.ptr98, %if.end92 ], [ %in.addr.0, %if.end61 ]
+  %written_len.1 = phi i32 [ %conv96, %if.end92 ], [ %written_len.0, %if.end61 ]
   %cmp100.not = icmp eq i64 %rem, 0
   br i1 %cmp100.not, label %return, label %if.then102
 

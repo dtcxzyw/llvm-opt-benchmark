@@ -159,12 +159,12 @@ define void @_Z16gmx_sum_qgrid_ddP9gmx_pme_tN3gmx8ArrayRefIfEEi(ptr nocapture no
   %40 = getelementptr inbounds i8, ptr %37, i64 %.321
   %41 = getelementptr inbounds i8, ptr %37, i64 %.322
   %42 = getelementptr inbounds i8, ptr %37, i64 %.323
-  %.0196 = load i32, ptr %39, align 4
-  %.0197 = load i32, ptr %.325, align 4
-  %.0199 = load i32, ptr %.324, align 4
-  %.0212 = load i32, ptr %41, align 4
-  %.0214 = load i32, ptr %40, align 4
-  %.0210 = load i32, ptr %42, align 4
+  %.0196 = load i32, ptr %.325, align 4
+  %.0197 = load i32, ptr %.324, align 4
+  %.0210 = load i32, ptr %41, align 4
+  %.0212 = load i32, ptr %40, align 4
+  %.0214 = load i32, ptr %39, align 4
+  %.0208 = load i32, ptr %42, align 4
   %43 = load ptr, ptr @debug, align 8
   %.not220 = icmp eq ptr %43, null
   br i1 %.not220, label %51, label %44
@@ -173,15 +173,15 @@ define void @_Z16gmx_sum_qgrid_ddP9gmx_pme_tN3gmx8ArrayRefIfEEi(ptr nocapture no
   %45 = load i32, ptr %13, align 4
   %46 = load i32, ptr %14, align 4
   %47 = load i32, ptr %15, align 8
-  %48 = sub nsw i32 %.0196, %47
-  %49 = add nsw i32 %48, %.0214
-  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %43, ptr noundef nonnull @.str, i32 noundef %45, i32 noundef %46, i32 noundef %.0199, i32 noundef %47, i32 noundef %48, i32 noundef %49) #7
+  %48 = sub nsw i32 %.0214, %47
+  %49 = add nsw i32 %48, %.0212
+  %50 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %43, ptr noundef nonnull @.str, i32 noundef %45, i32 noundef %46, i32 noundef %.0197, i32 noundef %47, i32 noundef %48, i32 noundef %49) #7
   br label %51
 
 51:                                               ; preds = %44, %35
   %52 = load i32, ptr %16, align 4
   %53 = icmp sgt i32 %52, 0
-  %54 = icmp sgt i32 %.0214, 0
+  %54 = icmp sgt i32 %.0212, 0
   %or.cond = select i1 %53, i1 %54, i1 false
   br i1 %or.cond, label %.preheader232.lr.ph.split.us, label %._crit_edge244
 
@@ -194,23 +194,23 @@ define void @_Z16gmx_sum_qgrid_ddP9gmx_pme_tN3gmx8ArrayRefIfEEi(ptr nocapture no
   %57 = phi i32 [ %82, %._crit_edge239.us ], [ %52, %.preheader232.lr.ph.split.us ]
   %58 = phi i32 [ %83, %._crit_edge239.us ], [ %55, %.preheader232.lr.ph.split.us ]
   %59 = phi i32 [ %84, %._crit_edge239.us ], [ %55, %.preheader232.lr.ph.split.us ]
-  %.0201243.us = phi i32 [ %.us-phi.us, %._crit_edge239.us ], [ 0, %.preheader232.lr.ph.split.us ]
-  %.0207241.us = phi i32 [ %85, %._crit_edge239.us ], [ 0, %.preheader232.lr.ph.split.us ]
+  %.0199243.us = phi i32 [ %.us-phi.us, %._crit_edge239.us ], [ 0, %.preheader232.lr.ph.split.us ]
+  %.0205241.us = phi i32 [ %85, %._crit_edge239.us ], [ 0, %.preheader232.lr.ph.split.us ]
   %60 = icmp sgt i32 %59, 0
   br i1 %60, label %.lr.ph238.split.us248, label %._crit_edge239.us
 
 .lr.ph238.split.us248:                            ; preds = %.preheader232.us, %._crit_edge.us
   %61 = phi i32 [ %68, %._crit_edge.us ], [ %58, %.preheader232.us ]
-  %.1202237.us = phi i32 [ %.2.lcssa.us, %._crit_edge.us ], [ %.0201243.us, %.preheader232.us ]
-  %.0205236.us246 = phi i32 [ %69, %._crit_edge.us ], [ 0, %.preheader232.us ]
-  %62 = add nsw i32 %.0205236.us246, %.0196
+  %.1200237.us = phi i32 [ %.2.lcssa.us, %._crit_edge.us ], [ %.0199243.us, %.preheader232.us ]
+  %.0203236.us246 = phi i32 [ %69, %._crit_edge.us ], [ 0, %.preheader232.us ]
+  %62 = add nsw i32 %.0203236.us246, %.0214
   %63 = load i32, ptr %15, align 8
   %64 = sub i32 %62, %63
   %65 = icmp sgt i32 %61, 0
   br i1 %65, label %.lr.ph.us.preheader, label %._crit_edge.us
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph238.split.us248
-  %66 = sext i32 %.1202237.us to i64
+  %66 = sext i32 %.1200237.us to i64
   br label %.lr.ph.us
 
 ._crit_edge.us.loopexit:                          ; preds = %.lr.ph.us
@@ -219,20 +219,20 @@ define void @_Z16gmx_sum_qgrid_ddP9gmx_pme_tN3gmx8ArrayRefIfEEi(ptr nocapture no
 
 ._crit_edge.us:                                   ; preds = %._crit_edge.us.loopexit, %.lr.ph238.split.us248
   %68 = phi i32 [ %61, %.lr.ph238.split.us248 ], [ %80, %._crit_edge.us.loopexit ]
-  %.2.lcssa.us = phi i32 [ %.1202237.us, %.lr.ph238.split.us248 ], [ %67, %._crit_edge.us.loopexit ]
-  %69 = add nuw nsw i32 %.0205236.us246, 1
-  %exitcond.not = icmp eq i32 %69, %.0214
+  %.2.lcssa.us = phi i32 [ %.1200237.us, %.lr.ph238.split.us248 ], [ %67, %._crit_edge.us.loopexit ]
+  %69 = add nuw nsw i32 %.0203236.us246, 1
+  %exitcond.not = icmp eq i32 %69, %.0212
   br i1 %exitcond.not, label %._crit_edge239.us.loopexit, label %.lr.ph238.split.us248, !llvm.loop !5
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %indvars.iv = phi i64 [ %66, %.lr.ph.us.preheader ], [ %indvars.iv.next, %.lr.ph.us ]
-  %.0203234.us = phi i32 [ 0, %.lr.ph.us.preheader ], [ %79, %.lr.ph.us ]
+  %.0201234.us = phi i32 [ 0, %.lr.ph.us.preheader ], [ %79, %.lr.ph.us ]
   %70 = load i32, ptr %18, align 8
   %71 = load i32, ptr %19, align 4
-  %72 = mul i32 %70, %.0207241.us
+  %72 = mul i32 %70, %.0205241.us
   %reass.add229.us = add i32 %64, %72
   %reass.mul230.us = mul i32 %reass.add229.us, %71
-  %73 = add i32 %reass.mul230.us, %.0203234.us
+  %73 = add i32 %reass.mul230.us, %.0201234.us
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds float, ptr %1, i64 %74
   %76 = load float, ptr %75, align 4
@@ -240,7 +240,7 @@ define void @_Z16gmx_sum_qgrid_ddP9gmx_pme_tN3gmx8ArrayRefIfEEi(ptr nocapture no
   %77 = load ptr, ptr %20, align 8
   %78 = getelementptr inbounds float, ptr %77, i64 %indvars.iv
   store float %76, ptr %78, align 4
-  %79 = add nuw nsw i32 %.0203234.us, 1
+  %79 = add nuw nsw i32 %.0201234.us, 1
   %80 = load i32, ptr %17, align 8
   %81 = icmp slt i32 %79, %80
   br i1 %81, label %.lr.ph.us, label %._crit_edge.us.loopexit, !llvm.loop !8
@@ -253,8 +253,8 @@ define void @_Z16gmx_sum_qgrid_ddP9gmx_pme_tN3gmx8ArrayRefIfEEi(ptr nocapture no
   %82 = phi i32 [ %.pre, %._crit_edge239.us.loopexit ], [ %57, %.preheader232.us ]
   %83 = phi i32 [ %68, %._crit_edge239.us.loopexit ], [ %58, %.preheader232.us ]
   %84 = phi i32 [ %68, %._crit_edge239.us.loopexit ], [ %59, %.preheader232.us ]
-  %.us-phi.us = phi i32 [ %.2.lcssa.us, %._crit_edge239.us.loopexit ], [ %.0201243.us, %.preheader232.us ]
-  %85 = add nuw nsw i32 %.0207241.us, 1
+  %.us-phi.us = phi i32 [ %.2.lcssa.us, %._crit_edge239.us.loopexit ], [ %.0199243.us, %.preheader232.us ]
+  %85 = add nuw nsw i32 %.0205241.us, 1
   %86 = icmp slt i32 %85, %82
   br i1 %86, label %.preheader232.us, label %._crit_edge244, !llvm.loop !9
 
@@ -263,12 +263,12 @@ define void @_Z16gmx_sum_qgrid_ddP9gmx_pme_tN3gmx8ArrayRefIfEEi(ptr nocapture no
   %87 = load i32, ptr %17, align 8
   %88 = mul nsw i32 %87, %.lcssa
   %89 = load ptr, ptr %20, align 8
-  %90 = mul nsw i32 %88, %.0214
+  %90 = mul nsw i32 %88, %.0212
   %91 = trunc i64 %.0194276 to i32
   %92 = load ptr, ptr %22, align 8
-  %93 = mul nsw i32 %88, %.0210
+  %93 = mul nsw i32 %88, %.0208
   %94 = load ptr, ptr %7, align 8
-  %95 = call noundef i32 @_Z13tMPI_SendrecvPKviP14tmpi_datatype_iiPviS2_iiP10tmpi_comm_P12tmpi_status_(ptr noundef %89, i32 noundef %90, ptr noundef %21, i32 noundef %.0199, i32 noundef %91, ptr noundef %92, i32 noundef %93, ptr noundef %21, i32 noundef %.0197, i32 noundef %91, ptr noundef %94, ptr noundef nonnull %5)
+  %95 = call noundef i32 @_Z13tMPI_SendrecvPKviP14tmpi_datatype_iiPviS2_iiP10tmpi_comm_P12tmpi_status_(ptr noundef %89, i32 noundef %90, ptr noundef %21, i32 noundef %.0197, i32 noundef %91, ptr noundef %92, i32 noundef %93, ptr noundef %21, i32 noundef %.0196, i32 noundef %91, ptr noundef %94, ptr noundef nonnull %5)
   %96 = load ptr, ptr @debug, align 8
   %.not221 = icmp eq ptr %96, null
   br i1 %.not221, label %104, label %97
@@ -277,15 +277,15 @@ define void @_Z16gmx_sum_qgrid_ddP9gmx_pme_tN3gmx8ArrayRefIfEEi(ptr nocapture no
   %98 = load i32, ptr %13, align 4
   %99 = load i32, ptr %14, align 4
   %100 = load i32, ptr %15, align 8
-  %101 = sub nsw i32 %.0212, %100
-  %102 = add nsw i32 %101, %.0210
-  %103 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %96, ptr noundef nonnull @.str.1, i32 noundef %98, i32 noundef %99, i32 noundef %.0197, i32 noundef %100, i32 noundef %101, i32 noundef %102) #7
+  %101 = sub nsw i32 %.0210, %100
+  %102 = add nsw i32 %101, %.0208
+  %103 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %96, ptr noundef nonnull @.str.1, i32 noundef %98, i32 noundef %99, i32 noundef %.0196, i32 noundef %100, i32 noundef %101, i32 noundef %102) #7
   br label %104
 
 104:                                              ; preds = %97, %._crit_edge244
   %105 = load i32, ptr %16, align 4
   %106 = icmp sgt i32 %105, 0
-  %107 = icmp sgt i32 %.0210, 0
+  %107 = icmp sgt i32 %.0208, 0
   %or.cond320 = select i1 %106, i1 %107, i1 false
   br i1 %or.cond320, label %.preheader231.us.preheader, label %._crit_edge263
 
@@ -298,7 +298,7 @@ define void @_Z16gmx_sum_qgrid_ddP9gmx_pme_tN3gmx8ArrayRefIfEEi(ptr nocapture no
   %109 = phi i32 [ %159, %._crit_edge257.us ], [ %.pre304, %.preheader231.us.preheader ]
   %110 = phi i32 [ %160, %._crit_edge257.us ], [ %.pre304, %.preheader231.us.preheader ]
   %.3262.us = phi i32 [ %.us-phi259.us, %._crit_edge257.us ], [ 0, %.preheader231.us.preheader ]
-  %.1208260.us = phi i32 [ %161, %._crit_edge257.us ], [ 0, %.preheader231.us.preheader ]
+  %.1206260.us = phi i32 [ %161, %._crit_edge257.us ], [ 0, %.preheader231.us.preheader ]
   %111 = icmp sgt i32 %110, 0
   br i1 %111, label %.lr.ph256.split.us274, label %._crit_edge257.us
 
@@ -306,8 +306,8 @@ define void @_Z16gmx_sum_qgrid_ddP9gmx_pme_tN3gmx8ArrayRefIfEEi(ptr nocapture no
   %112 = phi i32 [ %120, %._crit_edge.split.us269 ], [ %108, %.lr.ph256.split.us274 ]
   %113 = phi i32 [ %121, %._crit_edge.split.us269 ], [ %109, %.lr.ph256.split.us274 ]
   %.4255.us = phi i32 [ %.5.lcssa.us, %._crit_edge.split.us269 ], [ %.3262.us, %.lr.ph256.split.us274 ]
-  %.1206254.us264 = phi i32 [ %122, %._crit_edge.split.us269 ], [ 0, %.lr.ph256.split.us274 ]
-  %114 = add nsw i32 %.1206254.us264, %.0212
+  %.1204254.us264 = phi i32 [ %122, %._crit_edge.split.us269 ], [ 0, %.lr.ph256.split.us274 ]
+  %114 = add nsw i32 %.1204254.us264, %.0210
   %115 = load i32, ptr %15, align 8
   %116 = sub i32 %114, %115
   %117 = icmp sgt i32 %113, 0
@@ -325,27 +325,27 @@ define void @_Z16gmx_sum_qgrid_ddP9gmx_pme_tN3gmx8ArrayRefIfEEi(ptr nocapture no
   %120 = phi i32 [ %112, %.lr.ph256.split.us274.split ], [ %133, %._crit_edge.split.us269.loopexit ]
   %121 = phi i32 [ %113, %.lr.ph256.split.us274.split ], [ %133, %._crit_edge.split.us269.loopexit ]
   %.5.lcssa.us = phi i32 [ %.4255.us, %.lr.ph256.split.us274.split ], [ %119, %._crit_edge.split.us269.loopexit ]
-  %122 = add nuw nsw i32 %.1206254.us264, 1
-  %exitcond295.not = icmp eq i32 %122, %.0210
+  %122 = add nuw nsw i32 %.1204254.us264, 1
+  %exitcond295.not = icmp eq i32 %122, %.0208
   br i1 %exitcond295.not, label %._crit_edge257.us, label %.lr.ph256.split.us274.split, !llvm.loop !10
 
 .lr.ph.us268:                                     ; preds = %.lr.ph.us268.preheader, %.lr.ph.us268
   %indvars.iv292 = phi i64 [ %118, %.lr.ph.us268.preheader ], [ %indvars.iv.next293, %.lr.ph.us268 ]
-  %.1204250.us266 = phi i32 [ 0, %.lr.ph.us268.preheader ], [ %132, %.lr.ph.us268 ]
+  %.1202250.us266 = phi i32 [ 0, %.lr.ph.us268.preheader ], [ %132, %.lr.ph.us268 ]
   %123 = load ptr, ptr %22, align 8
   %124 = getelementptr inbounds float, ptr %123, i64 %indvars.iv292
   %125 = load float, ptr %124, align 4
   %126 = load i32, ptr %18, align 8
   %127 = load i32, ptr %19, align 4
-  %128 = mul i32 %126, %.1208260.us
+  %128 = mul i32 %126, %.1206260.us
   %reass.add.us = add i32 %128, %116
   %reass.mul.us = mul i32 %reass.add.us, %127
-  %129 = add i32 %reass.mul.us, %.1204250.us266
+  %129 = add i32 %reass.mul.us, %.1202250.us266
   %130 = sext i32 %129 to i64
   %131 = getelementptr inbounds float, ptr %1, i64 %130
   store float %125, ptr %131, align 4
   %indvars.iv.next293 = add nsw i64 %indvars.iv292, 1
-  %132 = add nuw nsw i32 %.1204250.us266, 1
+  %132 = add nuw nsw i32 %.1202250.us266, 1
   %133 = load i32, ptr %17, align 8
   %134 = icmp slt i32 %132, %133
   br i1 %134, label %.lr.ph.us268, label %._crit_edge.split.us269.loopexit, !llvm.loop !11
@@ -356,8 +356,8 @@ define void @_Z16gmx_sum_qgrid_ddP9gmx_pme_tN3gmx8ArrayRefIfEEi(ptr nocapture no
 .lr.ph256.split.us274.split.us:                   ; preds = %.lr.ph256.split.us274, %._crit_edge.split.us.us.us
   %135 = phi i32 [ %142, %._crit_edge.split.us.us.us ], [ %108, %.lr.ph256.split.us274 ]
   %.4255.us.us = phi i32 [ %.5.lcssa.us.us, %._crit_edge.split.us.us.us ], [ %.3262.us, %.lr.ph256.split.us274 ]
-  %.1206254.us264.us = phi i32 [ %143, %._crit_edge.split.us.us.us ], [ 0, %.lr.ph256.split.us274 ]
-  %136 = add nsw i32 %.1206254.us264.us, %.0212
+  %.1204254.us264.us = phi i32 [ %143, %._crit_edge.split.us.us.us ], [ 0, %.lr.ph256.split.us274 ]
+  %136 = add nsw i32 %.1204254.us264.us, %.0210
   %137 = load i32, ptr %15, align 8
   %138 = sub i32 %136, %137
   %139 = icmp sgt i32 %135, 0
@@ -374,29 +374,29 @@ define void @_Z16gmx_sum_qgrid_ddP9gmx_pme_tN3gmx8ArrayRefIfEEi(ptr nocapture no
 ._crit_edge.split.us.us.us:                       ; preds = %._crit_edge.split.us.us.us.loopexit, %.lr.ph256.split.us274.split.us
   %142 = phi i32 [ %135, %.lr.ph256.split.us274.split.us ], [ %156, %._crit_edge.split.us.us.us.loopexit ]
   %.5.lcssa.us.us = phi i32 [ %.4255.us.us, %.lr.ph256.split.us274.split.us ], [ %141, %._crit_edge.split.us.us.us.loopexit ]
-  %143 = add nuw nsw i32 %.1206254.us264.us, 1
-  %exitcond299.not = icmp eq i32 %143, %.0210
+  %143 = add nuw nsw i32 %.1204254.us264.us, 1
+  %exitcond299.not = icmp eq i32 %143, %.0208
   br i1 %exitcond299.not, label %._crit_edge257.us, label %.lr.ph256.split.us274.split.us, !llvm.loop !10
 
 .lr.ph.us268.us:                                  ; preds = %.lr.ph.us268.us.preheader, %.lr.ph.us268.us
   %indvars.iv296 = phi i64 [ %140, %.lr.ph.us268.us.preheader ], [ %indvars.iv.next297, %.lr.ph.us268.us ]
-  %.1204250.us.us.us = phi i32 [ 0, %.lr.ph.us268.us.preheader ], [ %155, %.lr.ph.us268.us ]
+  %.1202250.us.us.us = phi i32 [ 0, %.lr.ph.us268.us.preheader ], [ %155, %.lr.ph.us268.us ]
   %144 = load ptr, ptr %22, align 8
   %145 = getelementptr inbounds float, ptr %144, i64 %indvars.iv296
   %146 = load float, ptr %145, align 4
   %147 = load i32, ptr %18, align 8
   %148 = load i32, ptr %19, align 4
-  %149 = mul i32 %147, %.1208260.us
+  %149 = mul i32 %147, %.1206260.us
   %reass.add226.us.us.us = add i32 %149, %138
   %reass.mul227.us.us.us = mul i32 %reass.add226.us.us.us, %148
-  %150 = add i32 %reass.mul227.us.us.us, %.1204250.us.us.us
+  %150 = add i32 %reass.mul227.us.us.us, %.1202250.us.us.us
   %151 = sext i32 %150 to i64
   %152 = getelementptr inbounds float, ptr %1, i64 %151
   %153 = load float, ptr %152, align 4
   %154 = fadd float %146, %153
   store float %154, ptr %152, align 4
   %indvars.iv.next297 = add nsw i64 %indvars.iv296, 1
-  %155 = add nuw nsw i32 %.1204250.us.us.us, 1
+  %155 = add nuw nsw i32 %.1202250.us.us.us, 1
   %156 = load i32, ptr %17, align 8
   %157 = icmp slt i32 %155, %156
   br i1 %157, label %.lr.ph.us268.us, label %._crit_edge.split.us.us.us.loopexit, !llvm.loop !11
@@ -406,7 +406,7 @@ define void @_Z16gmx_sum_qgrid_ddP9gmx_pme_tN3gmx8ArrayRefIfEEi(ptr nocapture no
   %159 = phi i32 [ %109, %.preheader231.us ], [ %142, %._crit_edge.split.us.us.us ], [ %121, %._crit_edge.split.us269 ]
   %160 = phi i32 [ %110, %.preheader231.us ], [ %142, %._crit_edge.split.us.us.us ], [ %121, %._crit_edge.split.us269 ]
   %.us-phi259.us = phi i32 [ %.3262.us, %.preheader231.us ], [ %.5.lcssa.us.us, %._crit_edge.split.us.us.us ], [ %.5.lcssa.us, %._crit_edge.split.us269 ]
-  %161 = add nuw nsw i32 %.1208260.us, 1
+  %161 = add nuw nsw i32 %.1206260.us, 1
   %162 = load i32, ptr %16, align 4
   %163 = icmp slt i32 %161, %162
   br i1 %163, label %.preheader231.us, label %._crit_edge263, !llvm.loop !12
@@ -457,19 +457,19 @@ define void @_Z16gmx_sum_qgrid_ddP9gmx_pme_tN3gmx8ArrayRefIfEEi(ptr nocapture no
 
 195:                                              ; preds = %183, %176
   %196 = phi i32 [ %.pre305, %176 ], [ %189, %183 ]
-  %.1215.in = phi ptr [ %178, %176 ], [ %185, %183 ]
-  %.1213 = phi i32 [ %180, %176 ], [ %187, %183 ]
-  %.1211.in = phi ptr [ %181, %176 ], [ %188, %183 ]
-  %.1200.in = phi ptr [ %174, %176 ], [ %175, %183 ]
-  %.1198.in = phi ptr [ %175, %176 ], [ %174, %183 ]
-  %.1.in = phi ptr [ %177, %176 ], [ %184, %183 ]
+  %.1215.in = phi ptr [ %177, %176 ], [ %184, %183 ]
+  %.1213.in = phi ptr [ %178, %176 ], [ %185, %183 ]
+  %.1211 = phi i32 [ %180, %176 ], [ %187, %183 ]
+  %.1209.in = phi ptr [ %181, %176 ], [ %188, %183 ]
+  %.1198.in = phi ptr [ %174, %176 ], [ %175, %183 ]
+  %.1.in = phi ptr [ %175, %176 ], [ %174, %183 ]
   %.0195 = phi ptr [ %182, %176 ], [ %194, %183 ]
   %.1 = load i32, ptr %.1.in, align 4
   %.1198 = load i32, ptr %.1198.in, align 4
-  %.1200 = load i32, ptr %.1200.in, align 4
-  %.1211 = load i32, ptr %.1211.in, align 4
+  %.1209 = load i32, ptr %.1209.in, align 4
+  %.1213 = load i32, ptr %.1213.in, align 4
   %.1215 = load i32, ptr %.1215.in, align 4
-  %197 = sub nsw i32 %.1, %196
+  %197 = sub nsw i32 %.1215, %196
   %198 = mul nsw i32 %.pre307, %.pre306
   %199 = mul nsw i32 %198, %197
   %200 = sext i32 %199 to i64
@@ -481,28 +481,28 @@ define void @_Z16gmx_sum_qgrid_ddP9gmx_pme_tN3gmx8ArrayRefIfEEi(ptr nocapture no
 203:                                              ; preds = %195
   %204 = load i32, ptr %32, align 4
   %205 = load i32, ptr %33, align 4
-  %206 = add nsw i32 %197, %.1215
-  %207 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %202, ptr noundef nonnull @.str, i32 noundef %204, i32 noundef %205, i32 noundef %.1200, i32 noundef %196, i32 noundef %197, i32 noundef %206) #7
+  %206 = add nsw i32 %197, %.1213
+  %207 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %202, ptr noundef nonnull @.str, i32 noundef %204, i32 noundef %205, i32 noundef %.1198, i32 noundef %196, i32 noundef %197, i32 noundef %206) #7
   %208 = load ptr, ptr @debug, align 8
   %209 = load i32, ptr %32, align 4
   %210 = load i32, ptr %33, align 4
   %211 = load i32, ptr %28, align 4
-  %212 = sub nsw i32 %.1213, %211
-  %213 = add nsw i32 %212, %.1211
-  %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %208, ptr noundef nonnull @.str.1, i32 noundef %209, i32 noundef %210, i32 noundef %.1198, i32 noundef %211, i32 noundef %212, i32 noundef %213) #7
+  %212 = sub nsw i32 %.1211, %211
+  %213 = add nsw i32 %212, %.1209
+  %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %208, ptr noundef nonnull @.str.1, i32 noundef %209, i32 noundef %210, i32 noundef %.1, i32 noundef %211, i32 noundef %212, i32 noundef %213) #7
   br label %215
 
 215:                                              ; preds = %203, %195
-  %216 = mul nsw i32 %198, %.1215
+  %216 = mul nsw i32 %198, %.1213
   %217 = trunc i64 %.0279 to i32
-  %218 = mul nsw i32 %198, %.1211
+  %218 = mul nsw i32 %198, %.1209
   %219 = load ptr, ptr %6, align 8
-  %220 = call noundef i32 @_Z13tMPI_SendrecvPKviP14tmpi_datatype_iiPviS2_iiP10tmpi_comm_P12tmpi_status_(ptr noundef %201, i32 noundef %216, ptr noundef %34, i32 noundef %.1200, i32 noundef %217, ptr noundef %.0195, i32 noundef %218, ptr noundef %34, i32 noundef %.1198, i32 noundef %217, ptr noundef %219, ptr noundef nonnull %5)
+  %220 = call noundef i32 @_Z13tMPI_SendrecvPKviP14tmpi_datatype_iiPviS2_iiP10tmpi_comm_P12tmpi_status_(ptr noundef %201, i32 noundef %216, ptr noundef %34, i32 noundef %.1198, i32 noundef %217, ptr noundef %.0195, i32 noundef %218, ptr noundef %34, i32 noundef %.1, i32 noundef %217, ptr noundef %219, ptr noundef nonnull %5)
   br i1 %27, label %221, label %.loopexit
 
 221:                                              ; preds = %215
   %222 = load i32, ptr %28, align 4
-  %223 = sub nsw i32 %.1213, %222
+  %223 = sub nsw i32 %.1211, %222
   %224 = load i32, ptr %29, align 8
   %225 = load i32, ptr %30, align 4
   %226 = mul i32 %223, %224
@@ -582,8 +582,8 @@ define noundef i32 @_Z23copy_pmegrid_to_fftgridPK9gmx_pme_tP14PmeAndFftGrids(ptr
   br i1 %24, label %.preheader.lr.ph, label %._crit_edge32
 
 .preheader.lr.ph:                                 ; preds = %.preheader26.lr.ph, %._crit_edge29
-  %.030 = phi i32 [ %42, %._crit_edge29 ], [ 0, %.preheader26.lr.ph ]
-  %25 = mul i32 %.030, %14
+  %.02330 = phi i32 [ %42, %._crit_edge29 ], [ 0, %.preheader26.lr.ph ]
+  %25 = mul i32 %.02330, %14
   %26 = load i32, ptr %20, align 4
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %.preheader.preheader, label %._crit_edge29
@@ -598,7 +598,7 @@ define noundef i32 @_Z23copy_pmegrid_to_fftgridPK9gmx_pme_tP14PmeAndFftGrids(ptr
   %reass.mul = mul i32 %reass.add, %16
   %.pre = load i32, ptr %21, align 4
   %.pre36 = load i32, ptr %22, align 4
-  %29 = mul i32 %.pre, %.030
+  %29 = mul i32 %.pre, %.02330
   %reass.add24 = add i32 %29, %.02228
   %reass.mul25 = mul i32 %reass.add24, %.pre36
   br label %30
@@ -624,7 +624,7 @@ define noundef i32 @_Z23copy_pmegrid_to_fftgridPK9gmx_pme_tP14PmeAndFftGrids(ptr
   br i1 %41, label %.lr.ph, label %._crit_edge29, !llvm.loop !17
 
 ._crit_edge29:                                    ; preds = %._crit_edge, %.preheader.lr.ph
-  %42 = add nuw nsw i32 %.030, 1
+  %42 = add nuw nsw i32 %.02330, 1
   %43 = icmp slt i32 %42, %17
   br i1 %43, label %.preheader.lr.ph, label %._crit_edge32, !llvm.loop !18
 
@@ -677,11 +677,11 @@ define noundef i32 @_Z23copy_fftgrid_to_pmegridPK9gmx_pme_tP14PmeAndFftGridsii(p
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge, %.lr.ph32.split.preheader
-  %.030 = phi i32 [ %47, %._crit_edge ], [ %24, %.lr.ph32.split.preheader ]
-  %35 = sdiv i32 %.030, %21
+  %.02830 = phi i32 [ %47, %._crit_edge ], [ %24, %.lr.ph32.split.preheader ]
+  %35 = sdiv i32 %.02830, %21
   %36 = mul nsw i32 %.pre, %35
   %37 = mul nsw i32 %35, %21
-  %.recomposed = srem i32 %.030, %21
+  %.recomposed = srem i32 %.02830, %21
   %38 = add nsw i32 %36, %.recomposed
   %39 = mul nsw i32 %38, %.pre36
   %40 = mul nsw i32 %35, %16
@@ -704,7 +704,7 @@ define noundef i32 @_Z23copy_fftgrid_to_pmegridPK9gmx_pme_tP14PmeAndFftGridsii(p
   br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %47 = add nsw i32 %.030, 1
+  %47 = add nsw i32 %.02830, 1
   %exitcond.not = icmp eq i32 %47, %27
   br i1 %exitcond.not, label %._crit_edge33, label %.lr.ph.preheader, !llvm.loop !20
 

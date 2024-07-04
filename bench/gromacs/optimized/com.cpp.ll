@@ -46,15 +46,15 @@ define void @_ZN3gmx10shiftAtomsERKNS_11BasicVectorIfEENS_8ArrayRefIS1_EE(ptr no
   br label %4
 
 4:                                                ; preds = %4, %.lr.ph.i
-  %.sroa.015.019.i = phi ptr [ %1, %.lr.ph.i ], [ %7, %4 ]
-  %.sroa.03.0.copyload.i = load <2 x float>, ptr %.sroa.015.019.i, align 4
-  %.sroa.24.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.015.019.i, i64 8
+  %.sroa.013.019.i = phi ptr [ %1, %.lr.ph.i ], [ %7, %4 ]
+  %.sroa.03.0.copyload.i = load <2 x float>, ptr %.sroa.013.019.i, align 4
+  %.sroa.24.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.013.019.i, i64 8
   %.sroa.24.0.copyload.i = load float, ptr %.sroa.24.0..sroa_idx.i, align 4
   %5 = fadd <2 x float> %.sroa.02.0.copyload, %.sroa.03.0.copyload.i
   %6 = fadd float %.sroa.23.0.copyload, %.sroa.24.0.copyload.i
-  store <2 x float> %5, ptr %.sroa.015.019.i, align 4
+  store <2 x float> %5, ptr %.sroa.013.019.i, align 4
   store float %6, ptr %.sroa.24.0..sroa_idx.i, align 4
-  %7 = getelementptr i8, ptr %.sroa.015.019.i, i64 12
+  %7 = getelementptr i8, ptr %.sroa.013.019.i, i64 12
   %.not.i = icmp eq ptr %7, %2
   br i1 %.not.i, label %"_ZSt9transformIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEES4_ZNS0_10shiftAtomsERKS3_NS0_8ArrayRefIS3_EEE3$_0ET0_T_SB_SA_T1_.exit", label %4, !llvm.loop !5
 
@@ -305,15 +305,15 @@ _ZNSt6vectorIN3gmx5RangeIiEESaIS2_EED2Ev.exit41:  ; preds = %37
   br i1 %.not4.i, label %_ZN3gmx10shiftAtomsERKNS_11BasicVectorIfEENS_8ArrayRefIS1_EE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %91, %.lr.ph.i.i
-  %.sroa.015.019.i.i = phi ptr [ %98, %.lr.ph.i.i ], [ %62, %91 ]
-  %.sroa.03.0.copyload.i.i = load <2 x float>, ptr %.sroa.015.019.i.i, align 4
-  %.sroa.24.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sroa.015.019.i.i, i64 8
+  %.sroa.013.019.i.i = phi ptr [ %98, %.lr.ph.i.i ], [ %62, %91 ]
+  %.sroa.03.0.copyload.i.i = load <2 x float>, ptr %.sroa.013.019.i.i, align 4
+  %.sroa.24.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sroa.013.019.i.i, i64 8
   %.sroa.24.0.copyload.i.i = load float, ptr %.sroa.24.0..sroa_idx.i.i, align 4
   %96 = fadd <2 x float> %93, %.sroa.03.0.copyload.i.i
   %97 = fadd float %95, %.sroa.24.0.copyload.i.i
-  store <2 x float> %96, ptr %.sroa.015.019.i.i, align 4
+  store <2 x float> %96, ptr %.sroa.013.019.i.i, align 4
   store float %97, ptr %.sroa.24.0..sroa_idx.i.i, align 4
-  %98 = getelementptr i8, ptr %.sroa.015.019.i.i, i64 12
+  %98 = getelementptr i8, ptr %.sroa.013.019.i.i, i64 12
   %.not.i.i = icmp eq ptr %98, %63
   br i1 %.not.i.i, label %_ZN3gmx10shiftAtomsERKNS_11BasicVectorIfEENS_8ArrayRefIS1_EE.exit, label %.lr.ph.i.i, !llvm.loop !5
 

@@ -418,19 +418,19 @@ define internal fastcc range(i32 -1, -2147483648) i32 @dissect_mp4_box(i32 nound
 
 33:                                               ; preds = %23, %26
   %.sink = phi i32 [ 8, %23 ], [ 16, %26 ]
-  %.0153 = phi i64 [ %8, %23 ], [ %30, %26 ]
-  %.0152 = phi ptr [ null, %23 ], [ %32, %26 ]
+  %.0152 = phi i64 [ %8, %23 ], [ %30, %26 ]
+  %.0 = phi ptr [ null, %23 ], [ %32, %26 ]
   %34 = add i32 %.sink, %2
-  %35 = icmp ugt i64 %.0153, 2147483647
+  %35 = icmp ugt i64 %.0152, 2147483647
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %33
-  %37 = call ptr @expert_add_info(ptr noundef nonnull %3, ptr noundef %.0152, ptr noundef nonnull @ei_mp4_box_too_large) #5
+  %37 = call ptr @expert_add_info(ptr noundef nonnull %3, ptr noundef %.0, ptr noundef nonnull @ei_mp4_box_too_large) #5
   br label %.loopexit
 
 38:                                               ; preds = %33
   %39 = load ptr, ptr %6, align 8
-  %40 = trunc nuw nsw i64 %.0153 to i32
+  %40 = trunc nuw nsw i64 %.0152 to i32
   call void @proto_item_set_len(ptr noundef %39, i32 noundef %40) #5
   %41 = sub nsw i32 %40, %.sink
   %42 = add i32 %0, 1
@@ -549,8 +549,8 @@ define internal fastcc range(i32 -1, -2147483648) i32 @dissect_mp4_box(i32 nound
   br i1 %69, label %.loopexit, label %64
 
 .loopexit:                                        ; preds = %64, %.lr.ph, %62, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57, %58, %59, %60, %61, %46, %5, %44, %36
-  %.0 = phi i32 [ -1, %36 ], [ -1, %44 ], [ -1, %5 ], [ %40, %46 ], [ %40, %61 ], [ %40, %60 ], [ %40, %59 ], [ %40, %58 ], [ %40, %57 ], [ %40, %56 ], [ %40, %55 ], [ %40, %54 ], [ %40, %53 ], [ %40, %52 ], [ %40, %51 ], [ %40, %50 ], [ %40, %49 ], [ %40, %48 ], [ %40, %47 ], [ %40, %62 ], [ %40, %.lr.ph ], [ %40, %64 ]
-  ret i32 %.0
+  %.0151 = phi i32 [ -1, %36 ], [ -1, %44 ], [ -1, %5 ], [ %40, %46 ], [ %40, %61 ], [ %40, %60 ], [ %40, %59 ], [ %40, %58 ], [ %40, %57 ], [ %40, %56 ], [ %40, %55 ], [ %40, %54 ], [ %40, %53 ], [ %40, %52 ], [ %40, %51 ], [ %40, %50 ], [ %40, %49 ], [ %40, %48 ], [ %40, %47 ], [ %40, %62 ], [ %40, %.lr.ph ], [ %40, %64 ]
+  ret i32 %.0151
 }
 
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -928,15 +928,15 @@ define internal fastcc void @dissect_mp4_dref_body(ptr noundef %0, i32 noundef %
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
-  %.026 = phi i32 [ %19, %18 ], [ %15, %.lr.ph.preheader ]
-  %.02325 = phi i32 [ %20, %18 ], [ 0, %.lr.ph.preheader ]
-  %16 = tail call fastcc i32 @dissect_mp4_box(i32 noundef %3, ptr noundef %0, i32 noundef %.026, ptr noundef %2, ptr noundef %4)
+  %.026 = phi i32 [ %20, %18 ], [ 0, %.lr.ph.preheader ]
+  %.02325 = phi i32 [ %19, %18 ], [ %15, %.lr.ph.preheader ]
+  %16 = tail call fastcc i32 @dissect_mp4_box(i32 noundef %3, ptr noundef %0, i32 noundef %.02325, ptr noundef %2, ptr noundef %4)
   %17 = icmp slt i32 %16, 1
   br i1 %17, label %._crit_edge, label %18
 
 18:                                               ; preds = %.lr.ph
-  %19 = add i32 %16, %.026
-  %20 = add nuw i32 %.02325, 1
+  %19 = add i32 %16, %.02325
+  %20 = add nuw i32 %.026, 1
   %exitcond.not = icmp eq i32 %20, %12
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
@@ -975,15 +975,15 @@ define internal fastcc void @dissect_mp4_stsd_body(ptr noundef %0, i32 noundef %
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
-  %.024 = phi i32 [ %19, %18 ], [ %15, %.lr.ph.preheader ]
-  %.02123 = phi i32 [ %20, %18 ], [ 0, %.lr.ph.preheader ]
-  %16 = tail call fastcc i32 @dissect_mp4_box(i32 noundef %3, ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %4)
+  %.024 = phi i32 [ %20, %18 ], [ 0, %.lr.ph.preheader ]
+  %.02123 = phi i32 [ %19, %18 ], [ %15, %.lr.ph.preheader ]
+  %16 = tail call fastcc i32 @dissect_mp4_box(i32 noundef %3, ptr noundef %0, i32 noundef %.02123, ptr noundef %2, ptr noundef %4)
   %17 = icmp slt i32 %16, 1
   br i1 %17, label %._crit_edge, label %18
 
 18:                                               ; preds = %.lr.ph
-  %19 = add i32 %16, %.024
-  %20 = add nuw i32 %.02123, 1
+  %19 = add i32 %16, %.02123
+  %20 = add nuw i32 %.024, 1
   %exitcond.not = icmp eq i32 %20, %12
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
@@ -1146,9 +1146,9 @@ define internal fastcc void @dissect_mp4_elst_body(ptr noundef %0, i32 noundef %
 
 27:                                               ; preds = %.lr.ph, %timescaled_val_to_str.exit58
   %.061 = phi i32 [ %21, %.lr.ph ], [ %80, %timescaled_val_to_str.exit58 ]
-  %.05560 = phi i32 [ 0, %.lr.ph ], [ %29, %timescaled_val_to_str.exit58 ]
+  %.05660 = phi i32 [ 0, %.lr.ph ], [ %29, %timescaled_val_to_str.exit58 ]
   %28 = load i32, ptr @ett_mp4_entry, align 4
-  %29 = add nuw i32 %.05560, 1
+  %29 = add nuw i32 %.05660, 1
   %30 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %.061, i32 noundef 8, i32 noundef %28, ptr noundef nonnull %8, ptr noundef nonnull @.str.172, i32 noundef %29) #5
   br i1 %22, label %31, label %33
 
@@ -1162,7 +1162,7 @@ define internal fastcc void @dissect_mp4_elst_body(ptr noundef %0, i32 noundef %
   br label %36
 
 36:                                               ; preds = %33, %31
-  %.056 = phi i64 [ %32, %31 ], [ %35, %33 ]
+  %.055 = phi i64 [ %32, %31 ], [ %35, %33 ]
   %37 = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %38 = load i32, ptr @mvhd_timescale, align 4
@@ -1175,9 +1175,9 @@ define internal fastcc void @dissect_mp4_elst_body(ptr noundef %0, i32 noundef %
 
 42:                                               ; preds = %36
   %43 = zext i32 %38 to i64
-  %44 = udiv i64 %.056, %43
+  %44 = udiv i64 %.055, %43
   store i64 %44, ptr %6, align 8
-  %45 = urem i64 %.056, %43
+  %45 = urem i64 %.055, %43
   %46 = udiv i32 1000000000, %38
   %47 = trunc nuw i64 %45 to i32
   %48 = mul i32 %46, %47
@@ -1189,7 +1189,7 @@ timescaled_val_to_str.exit:                       ; preds = %40, %42
   %.0.i = phi ptr [ %41, %40 ], [ %49, %42 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %50 = load i32, ptr @hf_mp4_elst_segment_duration, align 4
-  %51 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef %30, i32 noundef %50, ptr noundef %0, i32 noundef %.061, i32 noundef %23, i64 noundef %.056, ptr noundef nonnull @.str.177, ptr noundef %.0.i, i64 noundef %.056) #5
+  %51 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef %30, i32 noundef %50, ptr noundef %0, i32 noundef %.061, i32 noundef %23, i64 noundef %.055, ptr noundef nonnull @.str.177, ptr noundef %.0.i, i64 noundef %.055) #5
   %52 = add i32 %.061, %23
   br i1 %22, label %53, label %55
 

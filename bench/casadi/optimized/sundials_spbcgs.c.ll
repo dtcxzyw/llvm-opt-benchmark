@@ -226,8 +226,8 @@ define range(i32 -3, 5) i32 @SpbcgSolve(ptr noundef readonly %0, ptr noundef %1,
 
 .lr.ph:                                           ; preds = %59, %132
   %61 = phi i1 [ %142, %132 ], [ true, %59 ]
-  %.0206273 = phi i32 [ %141, %132 ], [ 0, %59 ]
-  %.0209272 = phi double [ %133, %132 ], [ %56, %59 ]
+  %.0273 = phi i32 [ %141, %132 ], [ 0, %59 ]
+  %.0208272 = phi double [ %133, %132 ], [ %56, %59 ]
   %62 = load i32, ptr %12, align 4
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %12, align 4
@@ -376,9 +376,9 @@ define range(i32 -3, 5) i32 @SpbcgSolve(ptr noundef readonly %0, ptr noundef %1,
 123:                                              ; preds = %122, %121
   %124 = tail call double @N_VDotProd(ptr noundef %27, ptr noundef %27) #4
   %125 = fcmp oeq double %124, 0.000000e+00
-  %.0208 = select i1 %125, double 1.000000e+00, double %124
+  %.0210 = select i1 %125, double 1.000000e+00, double %124
   %126 = tail call double @N_VDotProd(ptr noundef %27, ptr noundef %25) #4
-  %127 = fdiv double %126, %.0208
+  %127 = fdiv double %126, %.0210
   tail call void @N_VLinearSum(double noundef %94, ptr noundef %23, double noundef %127, ptr noundef %25, ptr noundef %31) #4
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %2, double noundef 1.000000e+00, ptr noundef %31, ptr noundef %2) #4
   %128 = fneg double %127
@@ -394,14 +394,14 @@ define range(i32 -3, 5) i32 @SpbcgSolve(ptr noundef readonly %0, ptr noundef %1,
   %134 = insertelement <2 x double> poison, double %94, i64 0
   %135 = insertelement <2 x double> %134, double %133, i64 1
   %136 = insertelement <2 x double> poison, double %127, i64 0
-  %137 = insertelement <2 x double> %136, double %.0209272, i64 1
+  %137 = insertelement <2 x double> %136, double %.0208272, i64 1
   %138 = fdiv <2 x double> %135, %137
   %shift = shufflevector <2 x double> %138, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %139 = fmul <2 x double> %138, %shift
   %140 = extractelement <2 x double> %139, i64 0
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %23, double noundef %128, ptr noundef %29, ptr noundef %31) #4
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %21, double noundef %140, ptr noundef %31, ptr noundef %23) #4
-  %141 = add nuw nsw i32 %.0206273, 1
+  %141 = add nuw nsw i32 %.0273, 1
   %142 = icmp slt i32 %141, %17
   %exitcond.not = icmp eq i32 %141, %17
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -444,8 +444,8 @@ define range(i32 -3, 5) i32 @SpbcgSolve(ptr noundef readonly %0, ptr noundef %1,
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %59, %._crit_edge, %155, %55, %14, %151, %116, %108, %103, %84, %76, %71, %48, %39
-  %.0 = phi i32 [ %50, %48 ], [ %73, %71 ], [ %78, %76 ], [ %86, %84 ], [ %105, %103 ], [ %110, %108 ], [ %118, %116 ], [ %153, %151 ], [ %41, %39 ], [ -1, %14 ], [ 0, %55 ], [ %., %155 ], [ 2, %._crit_edge ], [ 2, %59 ]
-  ret i32 %.0
+  %.0209 = phi i32 [ %50, %48 ], [ %73, %71 ], [ %78, %76 ], [ %86, %84 ], [ %105, %103 ], [ %110, %108 ], [ %118, %116 ], [ %153, %151 ], [ %41, %39 ], [ -1, %14 ], [ 0, %55 ], [ %., %155 ], [ 2, %._crit_edge ], [ 2, %59 ]
+  ret i32 %.0209
 }
 
 declare double @N_VDotProd(ptr noundef, ptr noundef) local_unnamed_addr #1

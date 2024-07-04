@@ -403,9 +403,9 @@ invoke.cont136:                                   ; preds = %invoke.cont134
   br label %cleanup
 
 cleanup:                                          ; preds = %if.else, %invoke.cont136, %if.end120, %invoke.cont105, %if.then119, %invoke.cont89
-  %19 = phi ptr [ %call88, %invoke.cont89 ], [ %call88, %if.else ], [ %call88, %invoke.cont136 ], [ %.pr.pre, %if.end120 ], [ %call88, %invoke.cont105 ], [ %call88, %if.then119 ]
-  %hasName.2 = phi i8 [ %hasName.0, %invoke.cont89 ], [ %hasName.0, %if.else ], [ %spec.select, %invoke.cont136 ], [ %hasName.0, %if.end120 ], [ %hasName.0, %invoke.cont105 ], [ %hasName.0, %if.then119 ]
-  %cond1 = phi i1 [ false, %invoke.cont89 ], [ true, %if.else ], [ true, %invoke.cont136 ], [ true, %if.end120 ], [ false, %invoke.cont105 ], [ false, %if.then119 ]
+  %19 = phi ptr [ %call88, %invoke.cont89 ], [ %call88, %if.else ], [ %.pr.pre, %if.end120 ], [ %call88, %invoke.cont136 ], [ %call88, %invoke.cont105 ], [ %call88, %if.then119 ]
+  %cond1 = phi i1 [ false, %invoke.cont89 ], [ true, %if.else ], [ true, %if.end120 ], [ true, %invoke.cont136 ], [ false, %invoke.cont105 ], [ false, %if.then119 ]
+  %hasName.2 = phi i8 [ %hasName.0, %invoke.cont89 ], [ %hasName.0, %if.else ], [ %hasName.0, %if.end120 ], [ %spec.select, %invoke.cont136 ], [ %hasName.0, %invoke.cont105 ], [ %hasName.0, %if.then119 ]
   %cmp.not.i = icmp eq ptr %19, null
   br i1 %cmp.not.i, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, label %if.then.i
 

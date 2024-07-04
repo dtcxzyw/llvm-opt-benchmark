@@ -27,33 +27,33 @@ define i64 @x86_Convert(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noca
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.backedge
   %15 = phi ptr [ %0, %.lr.ph.lr.ph ], [ %51, %.backedge ]
-  %.080110 = phi i64 [ -1, %.lr.ph.lr.ph ], [ %25, %.backedge ]
-  %.082109 = phi i32 [ %9, %.lr.ph.lr.ph ], [ %.082.be, %.backedge ]
+  %.080110 = phi i32 [ %9, %.lr.ph.lr.ph ], [ %.080.be, %.backedge ]
+  %.081109 = phi i64 [ -1, %.lr.ph.lr.ph ], [ %25, %.backedge ]
   br label %16
 
 16:                                               ; preds = %.lr.ph, %20
-  %.08193 = phi ptr [ %15, %.lr.ph ], [ %21, %20 ]
-  %17 = load i8, ptr %.08193, align 1
+  %.07993 = phi ptr [ %15, %.lr.ph ], [ %21, %20 ]
+  %17 = load i8, ptr %.07993, align 1
   %18 = and i8 %17, -2
   %19 = icmp eq i8 %18, -24
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %.08193, i64 1
+  %21 = getelementptr inbounds i8, ptr %.07993, i64 1
   %22 = icmp ult ptr %21, %12
   br i1 %22, label %16, label %._crit_edge
 
 23:                                               ; preds = %16
-  %24 = ptrtoint ptr %.08193 to i64
+  %24 = ptrtoint ptr %.07993 to i64
   %25 = sub i64 %24, %14
-  %26 = sub i64 %25, %.080110
+  %26 = sub i64 %25, %.081109
   %27 = icmp ugt i64 %26, 3
   br i1 %27, label %53, label %28
 
 28:                                               ; preds = %23
   %29 = trunc nuw nsw i64 %26 to i32
   %30 = add nsw i32 %29, -1
-  %31 = shl nuw nsw i32 %.082109, %30
+  %31 = shl nuw nsw i32 %.080110, %30
   %32 = and i32 %31, 7
   %.not90 = icmp eq i32 %32, 0
   br i1 %.not90, label %53, label %33
@@ -64,7 +64,7 @@ define i64 @x86_Convert(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noca
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i64
   %38 = sub nsw i64 4, %37
-  %39 = getelementptr inbounds i8, ptr %.08193, i64 %38
+  %39 = getelementptr inbounds i8, ptr %.07993, i64 %38
   %40 = load i8, ptr %39, align 1
   %41 = lshr i64 232, %34
   %42 = and i64 %41, 1
@@ -82,15 +82,15 @@ define i64 @x86_Convert(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noca
 
 .backedge:                                        ; preds = %._crit_edge104, %97, %46
   %.sink = phi i64 [ 5, %._crit_edge104 ], [ 1, %97 ], [ 1, %46 ]
-  %.082.be = phi i32 [ %.183, %._crit_edge104 ], [ %100, %97 ], [ %49, %46 ]
+  %.080.be = phi i32 [ %.1, %._crit_edge104 ], [ %100, %97 ], [ %49, %46 ]
   %50 = getelementptr i8, ptr %0, i64 %25
   %51 = getelementptr i8, ptr %50, i64 %.sink
   %52 = icmp ult ptr %51, %12
   br i1 %52, label %.lr.ph, label %._crit_edge
 
 53:                                               ; preds = %23, %28, %33
-  %.183 = phi i32 [ %32, %33 ], [ 0, %28 ], [ 0, %23 ]
-  %54 = getelementptr inbounds i8, ptr %.08193, i64 4
+  %.1 = phi i32 [ %32, %33 ], [ 0, %28 ], [ 0, %23 ]
+  %54 = getelementptr inbounds i8, ptr %.07993, i64 4
   %55 = load i8, ptr %54, align 1
   switch i8 %55, label %97 [
     i8 0, label %56
@@ -100,17 +100,17 @@ define i64 @x86_Convert(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noca
 56:                                               ; preds = %53, %53
   %57 = zext i8 %55 to i32
   %58 = shl nuw i32 %57, 24
-  %59 = getelementptr inbounds i8, ptr %.08193, i64 3
+  %59 = getelementptr inbounds i8, ptr %.07993, i64 3
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
   %62 = shl nuw nsw i32 %61, 16
   %63 = or disjoint i32 %62, %58
-  %64 = getelementptr inbounds i8, ptr %.08193, i64 2
+  %64 = getelementptr inbounds i8, ptr %.07993, i64 2
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   %67 = shl nuw nsw i32 %66, 8
   %68 = or disjoint i32 %63, %67
-  %69 = getelementptr inbounds i8, ptr %.08193, i64 1
+  %69 = getelementptr inbounds i8, ptr %.07993, i64 1
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i32
   %72 = or disjoint i32 %68, %71
@@ -118,12 +118,12 @@ define i64 @x86_Convert(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noca
   %74 = add i32 %10, %73
   %75 = sub i32 0, %74
   %.077.p = select i1 %.not91, i32 %75, i32 %74
-  %76 = icmp eq i32 %.183, 0
+  %76 = icmp eq i32 %.1, 0
   %.077100 = add i32 %72, %.077.p
   br i1 %76, label %._crit_edge104, label %.lr.ph103
 
 .lr.ph103:                                        ; preds = %56
-  %77 = zext nneg i32 %.183 to i64
+  %77 = zext nneg i32 %.1 to i64
   %78 = getelementptr inbounds [8 x i8], ptr @kMaskToBitNumber, i64 0, i64 %77
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
@@ -165,22 +165,22 @@ define i64 @x86_Convert(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noca
   br label %.backedge
 
 97:                                               ; preds = %53
-  %98 = shl nuw nsw i32 %.183, 1
+  %98 = shl nuw nsw i32 %.1, 1
   %99 = and i32 %98, 6
   %100 = or disjoint i32 %99, 1
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %20, %7
-  %.082.lcssa = phi i32 [ %9, %7 ], [ %.082109, %20 ], [ %.082.be, %.backedge ]
-  %.080.lcssa = phi i64 [ -1, %7 ], [ %.080110, %20 ], [ %25, %.backedge ]
-  %.081.lcssa = phi ptr [ %0, %7 ], [ %21, %20 ], [ %51, %.backedge ]
-  %101 = ptrtoint ptr %.081.lcssa to i64
+  %.081.lcssa = phi i64 [ -1, %7 ], [ %.081109, %20 ], [ %25, %.backedge ]
+  %.080.lcssa = phi i32 [ %9, %7 ], [ %.080110, %20 ], [ %.080.be, %.backedge ]
+  %.079.lcssa = phi ptr [ %0, %7 ], [ %21, %20 ], [ %51, %.backedge ]
+  %101 = ptrtoint ptr %.079.lcssa to i64
   %102 = sub i64 %101, %14
-  %103 = sub i64 %102, %.080.lcssa
+  %103 = sub i64 %102, %.081.lcssa
   %104 = icmp ugt i64 %103, 3
   %105 = trunc nuw nsw i64 %103 to i32
   %106 = add nsw i32 %105, -1
-  %107 = shl nuw nsw i32 %.082.lcssa, %106
+  %107 = shl nuw nsw i32 %.080.lcssa, %106
   %108 = and i32 %107, 7
   %109 = select i1 %104, i32 0, i32 %108
   store i32 %109, ptr %3, align 4

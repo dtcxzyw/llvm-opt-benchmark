@@ -1554,9 +1554,9 @@ Vec_IntGrow.exit.i.i:                             ; preds = %53, %51
   store i32 %32, ptr %73, align 4
   %.pre.i = load ptr, ptr %33, align 8
   %.phi.trans.insert.i = getelementptr inbounds i16, ptr %.pre.i, i64 %35
-  %.pre24.i = load i16, ptr %.phi.trans.insert.i, align 2
-  %.not20.i = icmp eq i16 %.pre24.i, 0
-  br i1 %.not20.i, label %.Odc_HashLookup.exit.thread_crit_edge, label %.lr.ph.i
+  %.pre25.i = load i16, ptr %.phi.trans.insert.i, align 2
+  %.not21.i = icmp eq i16 %.pre25.i, 0
+  br i1 %.not21.i, label %.Odc_HashLookup.exit.thread_crit_edge, label %.lr.ph.i
 
 .Odc_HashLookup.exit.thread_crit_edge:            ; preds = %68
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 72
@@ -1564,7 +1564,7 @@ Vec_IntGrow.exit.i.i:                             ; preds = %53, %51
   br label %Odc_HashLookup.exit.thread
 
 .lr.ph.i:                                         ; preds = %16, %68
-  %74 = phi i16 [ %.pre24.i, %68 ], [ %37, %16 ]
+  %74 = phi i16 [ %.pre25.i, %68 ], [ %37, %16 ]
   %75 = getelementptr i8, ptr %0, i64 72
   %.val.i = load ptr, ptr %75, align 8
   br label %76
@@ -1596,7 +1596,7 @@ Odc_HashLookup.exit.thread.loopexit:              ; preds = %86
 
 Odc_HashLookup.exit.thread:                       ; preds = %Odc_HashLookup.exit.thread.loopexit, %.Odc_HashLookup.exit.thread_crit_edge
   %90 = phi ptr [ %.pre, %.Odc_HashLookup.exit.thread_crit_edge ], [ %.val.i, %Odc_HashLookup.exit.thread.loopexit ]
-  %.019.lcssa.i49 = phi ptr [ %.phi.trans.insert.i, %.Odc_HashLookup.exit.thread_crit_edge ], [ %89, %Odc_HashLookup.exit.thread.loopexit ]
+  %.0.lcssa.i49 = phi ptr [ %.phi.trans.insert.i, %.Odc_HashLookup.exit.thread_crit_edge ], [ %89, %Odc_HashLookup.exit.thread.loopexit ]
   %91 = getelementptr inbounds i8, ptr %0, i64 72
   %92 = getelementptr inbounds i8, ptr %0, i64 60
   %93 = load i32, ptr %92, align 4
@@ -1629,7 +1629,7 @@ Odc_HashLookup.exit.thread:                       ; preds = %Odc_HashLookup.exit
   %112 = sub i64 %110, %111
   %113 = lshr exact i64 %112, 3
   %114 = trunc i64 %113 to i16
-  store i16 %114, ptr %.019.lcssa.i49, align 2
+  store i16 %114, ptr %.0.lcssa.i49, align 2
   br label %Odc_HashLookup.exit
 
 Odc_HashLookup.exit:                              ; preds = %82, %14, %10, %5, %3, %Odc_HashLookup.exit.thread
@@ -2134,16 +2134,16 @@ define void @Abc_NtkDontCareSimulateSetRand(ptr nocapture noundef readonly %0) l
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
-  %.01213 = phi i32 [ %narrow, %.lr.ph ], [ 0, %6 ]
+  %.013 = phi i32 [ %narrow, %.lr.ph ], [ 0, %6 ]
   %.val = load ptr, ptr %5, align 8
   %10 = getelementptr i8, ptr %.val, i64 8
   %.val.val = load ptr, ptr %10, align 8
-  %narrow = add nuw nsw i32 %.01213, 1
+  %narrow = add nuw nsw i32 %.013, 1
   %11 = and i32 %narrow, 32767
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds ptr, ptr %.val.val, i64 %12
   %14 = load ptr, ptr %13, align 8
-  %15 = shl nuw i32 1, %.01213
+  %15 = shl nuw i32 1, %.013
   %16 = and i32 %15, %7
   %.not = icmp ne i32 %16, 0
   %17 = sext i1 %.not to i32
@@ -2498,16 +2498,16 @@ define range(i32 -1073741824, 1073741824) i32 @Abc_NtkDontCareSimulateBefore(ptr
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph16.i, %.lr.ph.i
-  %.01213.i = phi i32 [ %narrow.i, %.lr.ph.i ], [ 0, %.lr.ph16.i ]
+  %.013.i = phi i32 [ %narrow.i, %.lr.ph.i ], [ 0, %.lr.ph16.i ]
   %.val.i = load ptr, ptr %7, align 8
   %15 = getelementptr i8, ptr %.val.i, i64 8
   %.val.val.i = load ptr, ptr %15, align 8
-  %narrow.i = add nuw nsw i32 %.01213.i, 1
+  %narrow.i = add nuw nsw i32 %.013.i, 1
   %16 = and i32 %narrow.i, 32767
   %17 = zext nneg i32 %16 to i64
   %18 = getelementptr inbounds ptr, ptr %.val.val.i, i64 %17
   %19 = load ptr, ptr %18, align 8
-  %20 = shl nuw i32 1, %.01213.i
+  %20 = shl nuw i32 1, %.013.i
   %21 = and i32 %20, %12
   %.not.i = icmp ne i32 %21, 0
   %22 = sext i1 %.not.i to i32
@@ -2824,16 +2824,16 @@ Abc_Clock.exit94:                                 ; preds = %Abc_Clock.exit92, %
   br i1 %151, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph16.i.i, %.lr.ph.i.i
-  %.01213.i.i = phi i32 [ %narrow.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph16.i.i ]
+  %.013.i.i = phi i32 [ %narrow.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph16.i.i ]
   %.val.i.i95 = load ptr, ptr %144, align 8
   %152 = getelementptr i8, ptr %.val.i.i95, i64 8
   %.val.val.i.i = load ptr, ptr %152, align 8
-  %narrow.i.i = add nuw nsw i32 %.01213.i.i, 1
+  %narrow.i.i = add nuw nsw i32 %.013.i.i, 1
   %153 = and i32 %narrow.i.i, 32767
   %154 = zext nneg i32 %153 to i64
   %155 = getelementptr inbounds ptr, ptr %.val.val.i.i, i64 %154
   %156 = load ptr, ptr %155, align 8
-  %157 = shl nuw i32 1, %.01213.i.i
+  %157 = shl nuw i32 1, %.013.i.i
   %158 = and i32 %157, %149
   %.not.i.i = icmp ne i32 %158, 0
   %159 = sext i1 %.not.i.i to i32

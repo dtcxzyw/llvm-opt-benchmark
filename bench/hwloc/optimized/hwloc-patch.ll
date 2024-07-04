@@ -56,7 +56,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
   %7 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 47) #12
   %.not = icmp eq ptr %7, null
   %8 = getelementptr inbounds i8, ptr %7, i64 1
-  %.054 = select i1 %.not, ptr %6, ptr %8
+  %.052 = select i1 %.not, ptr %6, ptr %8
   %9 = tail call i32 @hwloc_get_api_version() #13
   %.mask.i = and i32 %9, -65536
   %.not.i = icmp eq i32 %.mask.i, 196608
@@ -64,7 +64,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr @stderr, align 8
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.25, ptr noundef %.054, i32 noundef 196608, i32 noundef %9) #14
+  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.25, ptr noundef %.052, i32 noundef 196608, i32 noundef %9) #14
   tail call void @exit(i32 noundef 1) #15
   unreachable
 
@@ -78,30 +78,30 @@ hwloc_utils_check_api_version.exit:               ; preds = %2
   br label %16
 
 16:                                               ; preds = %14, %hwloc_utils_check_api_version.exit
-  %.05290 = add nsw i32 %0, -1
-  %.not6091 = icmp eq i32 %.05290, 0
+  %.05490 = add nsw i32 %0, -1
+  %.not6091 = icmp eq i32 %.05490, 0
   br i1 %.not6091, label %.critedge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %16
-  %.05395137 = getelementptr inbounds i8, ptr %1, i64 8
-  %17 = load ptr, ptr %.05395137, align 8
+  %.05595137 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = load ptr, ptr %.05595137, align 8
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 45
   br i1 %19, label %sub_1, label %.critedge
 
 .lr.ph:                                           ; preds = %35
-  %20 = xor i64 %.05592139, 1
-  %.05395 = getelementptr inbounds i8, ptr %.05395140, i64 8
-  %21 = load ptr, ptr %.05395, align 8
+  %20 = xor i64 %.05394139, 1
+  %.05595 = getelementptr inbounds i8, ptr %.05595140, i64 8
+  %21 = load ptr, ptr %.05595, align 8
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 45
   br i1 %23, label %sub_1, label %.critedge, !llvm.loop !5
 
 sub_1:                                            ; preds = %.lr.ph.preheader, %.lr.ph
   %24 = phi ptr [ %21, %.lr.ph ], [ %17, %.lr.ph.preheader ]
-  %.05395140 = phi ptr [ %.05395, %.lr.ph ], [ %.05395137, %.lr.ph.preheader ]
-  %.05592139 = phi i64 [ %20, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.05296138 = phi i32 [ %.052, %.lr.ph ], [ %.05290, %.lr.ph.preheader ]
+  %.05595140 = phi ptr [ %.05595, %.lr.ph ], [ %.05595137, %.lr.ph.preheader ]
+  %.05394139 = phi i64 [ %20, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.05496138 = phi i32 [ %.054, %.lr.ph ], [ %.05490, %.lr.ph.preheader ]
   %25 = getelementptr inbounds i8, ptr %24, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
@@ -126,8 +126,8 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not67, label %35, label %36
 
 35:                                               ; preds = %33, %.tail
-  %.052 = add nsw i32 %.05296138, -1
-  %.not60 = icmp eq i32 %.052, 0
+  %.054 = add nsw i32 %.05496138, -1
+  %.not60 = icmp eq i32 %.054, 0
   br i1 %.not60, label %.critedge.thread, label %.lr.ph, !llvm.loop !5
 
 36:                                               ; preds = %33
@@ -136,7 +136,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %.not68, label %38, label %sub_174
 
 38:                                               ; preds = %36
-  %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef %.054, ptr noundef nonnull @.str.11)
+  %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef %.052, ptr noundef nonnull @.str.11)
   tail call void @exit(i32 noundef 0) #15
   unreachable
 
@@ -172,11 +172,11 @@ sub_174:                                          ; preds = %36
   unreachable
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader
-  %.052.in94.lcssa = phi i32 [ %0, %.lr.ph.preheader ], [ %.05296138, %.lr.ph ]
-  %.pn93.lcssa = phi ptr [ %1, %.lr.ph.preheader ], [ %.05395140, %.lr.ph ]
-  %.05592.lcssa = phi i64 [ 0, %.lr.ph.preheader ], [ %20, %.lr.ph ]
+  %.05394.lcssa = phi i64 [ 0, %.lr.ph.preheader ], [ %20, %.lr.ph ]
+  %.054.in93.lcssa = phi i32 [ %0, %.lr.ph.preheader ], [ %.05496138, %.lr.ph ]
+  %.pn92.lcssa = phi ptr [ %1, %.lr.ph.preheader ], [ %.05595140, %.lr.ph ]
   %.lcssa = phi ptr [ %17, %.lr.ph.preheader ], [ %21, %.lr.ph ]
-  %52 = icmp slt i32 %.052.in94.lcssa, 3
+  %52 = icmp slt i32 %.054.in93.lcssa, 3
   br i1 %52, label %.critedge.thread, label %54
 
 .critedge.thread:                                 ; preds = %35, %16, %.critedge
@@ -186,13 +186,13 @@ sub_174:                                          ; preds = %36
   unreachable
 
 54:                                               ; preds = %.critedge
-  %55 = getelementptr inbounds i8, ptr %.pn93.lcssa, i64 16
+  %55 = getelementptr inbounds i8, ptr %.pn92.lcssa, i64 16
   %56 = load ptr, ptr %55, align 8
-  %.not61 = icmp eq i32 %.052.in94.lcssa, 3
+  %.not61 = icmp eq i32 %.054.in93.lcssa, 3
   br i1 %.not61, label %60, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %.pn93.lcssa, i64 24
+  %58 = getelementptr inbounds i8, ptr %.pn92.lcssa, i64 24
   %59 = load ptr, ptr %58, align 8
   br label %60
 
@@ -328,13 +328,13 @@ hwloc_diff_read.exit.thread:                      ; preds = %82, %66, %hwloc_dif
 125:                                              ; preds = %118
   %126 = load ptr, ptr %3, align 8
   %127 = load ptr, ptr %4, align 8
-  %128 = call i32 @hwloc_topology_diff_apply(ptr noundef %126, ptr noundef %127, i64 noundef %.05592.lcssa) #13
+  %128 = call i32 @hwloc_topology_diff_apply(ptr noundef %126, ptr noundef %127, i64 noundef %.05394.lcssa) #13
   %129 = icmp slt i32 %128, 0
   br i1 %129, label %130, label %136
 
 130:                                              ; preds = %125
   %131 = load ptr, ptr @stderr, align 8
-  %132 = and i64 %.05592.lcssa, 1
+  %132 = and i64 %.05394.lcssa, 1
   %.not65 = icmp eq i64 %132, 0
   %133 = select i1 %.not65, ptr @.str.23, ptr @.str.22
   %134 = sub nsw i32 0, %128

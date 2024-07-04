@@ -6413,11 +6413,11 @@ if.end3:                                          ; preds = %if.then1, %if.end
   br i1 %tobool4.not13, label %while.end, label %do.end6
 
 do.end6:                                          ; preds = %if.end3, %if.end24
-  %match.015 = phi i32 [ %match.1, %if.end24 ], [ 0, %if.end3 ]
-  %altName.114 = phi ptr [ %4, %if.end24 ], [ %altName.0, %if.end3 ]
-  %name = getelementptr inbounds i8, ptr %altName.114, i64 16
+  %altName.115 = phi ptr [ %4, %if.end24 ], [ %altName.0, %if.end3 ]
+  %match.014 = phi i32 [ %match.1, %if.end24 ], [ 0, %if.end3 ]
+  %name = getelementptr inbounds i8, ptr %altName.115, i64 16
   %1 = load ptr, ptr %name, align 8
-  %len7 = getelementptr inbounds i8, ptr %altName.114, i64 12
+  %len7 = getelementptr inbounds i8, ptr %altName.115, i64 12
   %2 = load i32, ptr %len7, align 4
   %call = tail call i32 @MatchDomainName(ptr noundef %1, i32 noundef %2, ptr noundef %domain)
   %tobool8.not = icmp eq i32 %call, 0
@@ -6439,12 +6439,12 @@ if.else:                                          ; preds = %do.end6
 land.lhs.true17:                                  ; preds = %if.else
   %3 = load i8, ptr %1, align 1
   %cmp18 = icmp eq i8 %3, 42
-  %spec.select = select i1 %cmp18, i32 -1, i32 %match.015
+  %spec.select = select i1 %cmp18, i32 -1, i32 %match.014
   br label %if.end24
 
 if.end24:                                         ; preds = %land.lhs.true17, %if.else
-  %match.1 = phi i32 [ %match.015, %if.else ], [ %spec.select, %land.lhs.true17 ]
-  %4 = load ptr, ptr %altName.114, align 8
+  %match.1 = phi i32 [ %match.014, %if.else ], [ %spec.select, %land.lhs.true17 ]
+  %4 = load ptr, ptr %altName.115, align 8
   %tobool4.not = icmp eq ptr %4, null
   br i1 %tobool4.not, label %while.end, label %do.end6, !llvm.loop !13
 
@@ -6466,11 +6466,11 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp2.i, label %if.then2, label %do.end6.i
 
 do.end6.i:                                        ; preds = %if.end.i, %if.end24.i
-  %match.015.i = phi i32 [ %match.1.i.fr, %if.end24.i ], [ 0, %if.end.i ]
-  %altName.114.i = phi ptr [ %4, %if.end24.i ], [ %0, %if.end.i ]
-  %name.i = getelementptr inbounds i8, ptr %altName.114.i, i64 16
+  %altName.115.i = phi ptr [ %4, %if.end24.i ], [ %0, %if.end.i ]
+  %match.014.i = phi i32 [ %match.1.i.fr, %if.end24.i ], [ 0, %if.end.i ]
+  %name.i = getelementptr inbounds i8, ptr %altName.115.i, i64 16
   %1 = load ptr, ptr %name.i, align 8
-  %len7.i = getelementptr inbounds i8, ptr %altName.114.i, i64 12
+  %len7.i = getelementptr inbounds i8, ptr %altName.115.i, i64 12
   %2 = load i32, ptr %len7.i, align 4
   %call.i = tail call i32 @MatchDomainName(ptr noundef %1, i32 noundef %2, ptr noundef readonly %domainName)
   %tobool8.not.i = icmp eq i32 %call.i, 0
@@ -6485,13 +6485,13 @@ if.else.i:                                        ; preds = %do.end6.i
 land.lhs.true17.i:                                ; preds = %if.else.i
   %3 = load i8, ptr %1, align 1
   %cmp18.i = icmp eq i8 %3, 42
-  %spec.select.i = select i1 %cmp18.i, i32 -1, i32 %match.015.i
+  %spec.select.i = select i1 %cmp18.i, i32 -1, i32 %match.014.i
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %land.lhs.true17.i, %if.else.i
-  %match.1.i = phi i32 [ %match.015.i, %if.else.i ], [ %spec.select.i, %land.lhs.true17.i ]
+  %match.1.i = phi i32 [ %match.014.i, %if.else.i ], [ %spec.select.i, %land.lhs.true17.i ]
   %match.1.i.fr = freeze i32 %match.1.i
-  %4 = load ptr, ptr %altName.114.i, align 8
+  %4 = load ptr, ptr %altName.115.i, align 8
   %tobool4.not.i = icmp eq ptr %4, null
   br i1 %tobool4.not.i, label %CheckForAltNames.exit, label %do.end6.i, !llvm.loop !13
 
@@ -6528,11 +6528,11 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp2.i.i, label %if.then2.i, label %do.end6.i.i
 
 do.end6.i.i:                                      ; preds = %if.end.i.i, %if.end24.i.i
-  %match.015.i.i = phi i32 [ %match.1.i.fr.i, %if.end24.i.i ], [ 0, %if.end.i.i ]
-  %altName.114.i.i = phi ptr [ %4, %if.end24.i.i ], [ %0, %if.end.i.i ]
-  %name.i.i = getelementptr inbounds i8, ptr %altName.114.i.i, i64 16
+  %altName.115.i.i = phi ptr [ %4, %if.end24.i.i ], [ %0, %if.end.i.i ]
+  %match.014.i.i = phi i32 [ %match.1.i.fr.i, %if.end24.i.i ], [ 0, %if.end.i.i ]
+  %name.i.i = getelementptr inbounds i8, ptr %altName.115.i.i, i64 16
   %1 = load ptr, ptr %name.i.i, align 8
-  %len7.i.i = getelementptr inbounds i8, ptr %altName.114.i.i, i64 12
+  %len7.i.i = getelementptr inbounds i8, ptr %altName.115.i.i, i64 12
   %2 = load i32, ptr %len7.i.i, align 4
   %call.i.i = tail call i32 @MatchDomainName(ptr noundef %1, i32 noundef %2, ptr noundef readonly %ipasc)
   %tobool8.not.i.i = icmp eq i32 %call.i.i, 0
@@ -6547,13 +6547,13 @@ if.else.i.i:                                      ; preds = %do.end6.i.i
 land.lhs.true17.i.i:                              ; preds = %if.else.i.i
   %3 = load i8, ptr %1, align 1
   %cmp18.i.i = icmp eq i8 %3, 42
-  %spec.select.i.i = select i1 %cmp18.i.i, i32 -1, i32 %match.015.i.i
+  %spec.select.i.i = select i1 %cmp18.i.i, i32 -1, i32 %match.014.i.i
   br label %if.end24.i.i
 
 if.end24.i.i:                                     ; preds = %land.lhs.true17.i.i, %if.else.i.i
-  %match.1.i.i = phi i32 [ %match.015.i.i, %if.else.i.i ], [ %spec.select.i.i, %land.lhs.true17.i.i ]
+  %match.1.i.i = phi i32 [ %match.014.i.i, %if.else.i.i ], [ %spec.select.i.i, %land.lhs.true17.i.i ]
   %match.1.i.fr.i = freeze i32 %match.1.i.i
-  %4 = load ptr, ptr %altName.114.i.i, align 8
+  %4 = load ptr, ptr %altName.115.i.i, align 8
   %tobool4.not.i.i = icmp eq ptr %4, null
   br i1 %tobool4.not.i.i, label %CheckForAltNames.exit.i, label %do.end6.i.i, !llvm.loop !13
 
@@ -14713,8 +14713,8 @@ for.body.lr.ph:                                   ; preds = %if.then216
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %invalid.0614 = phi i8 [ 0, %for.body.lr.ph ], [ %conv250, %for.body ]
   %padding.0613 = phi i8 [ -1, %for.body.lr.ph ], [ %and, %for.body ]
+  %invalid.0612 = phi i8 [ 0, %for.body.lr.ph ], [ %conv250, %for.body ]
   %.not576.not = icmp ugt i64 %indvars.iv, %72
   %and = select i1 %.not576.not, i8 0, i8 %padding.0613
   %73 = trunc nuw nsw i64 %indvars.iv to i32
@@ -14734,7 +14734,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %conv.i6.i = add nsw i8 %77, -1
   %or3.i = or i8 %conv.i.i361, %conv.i6.i
   %78 = and i8 %or3.i, %and
-  %conv250 = or i8 %78, %invalid.0614
+  %conv250 = or i8 %78, %invalid.0612
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = icmp ult i64 %indvars.iv, %invariant.umin
   br i1 %79, label %for.body, label %for.end, !llvm.loop !27
@@ -14978,15 +14978,15 @@ ConstantCompare.exit69.i:                         ; preds = %ConstantCompare.exi
   br i1 %or.cond47.i, label %if.end83thread-pre-split.i, label %VerifyMac.exit.thread
 
 if.end83thread-pre-split.i:                       ; preds = %ConstantCompare.exit69.i, %ConstantCompare.exit.i406, %if.then17.i
-  %padByte.0.ph.i = phi i32 [ 0, %ConstantCompare.exit69.i ], [ 1, %ConstantCompare.exit.i406 ], [ 1, %if.then17.i ]
   %pad.1.ph.i = phi i32 [ 0, %ConstantCompare.exit69.i ], [ %spec.select.i400, %ConstantCompare.exit.i406 ], [ %conv10.i, %if.then17.i ]
+  %padByte.0.ph.i = phi i32 [ 0, %ConstantCompare.exit69.i ], [ 1, %ConstantCompare.exit.i406 ], [ 1, %if.then17.i ]
   %.pr.i = load i8, ptr %cipher_type.i, align 1
   br label %if.end83.i
 
 if.end83.i:                                       ; preds = %if.end83thread-pre-split.i, %if.then354
   %115 = phi i8 [ %.pr.i, %if.end83thread-pre-split.i ], [ %101, %if.then354 ]
-  %padByte.0.i = phi i32 [ %padByte.0.ph.i, %if.end83thread-pre-split.i ], [ 0, %if.then354 ]
   %pad.1.i = phi i32 [ %pad.1.ph.i, %if.end83thread-pre-split.i ], [ 0, %if.then354 ]
+  %padByte.0.i = phi i32 [ %padByte.0.ph.i, %if.end83thread-pre-split.i ], [ 0, %if.then354 ]
   %cmp87.i = icmp eq i8 %115, 2
   br i1 %cmp87.i, label %if.then89.i, label %if.else92.i
 
@@ -14996,8 +14996,8 @@ if.then89.i:                                      ; preds = %if.end83.i
   br label %VerifyMac.exit.thread531
 
 if.else92.i:                                      ; preds = %if.end83.i
-  %add.i385 = add nuw nsw i32 %padByte.0.i, %conv.i382
-  %add93.i = add nuw nsw i32 %add.i385, %pad.1.i
+  %add.i385 = add nuw nsw i32 %pad.1.i, %conv.i382
+  %add93.i = add nuw nsw i32 %add.i385, %padByte.0.i
   br label %VerifyMac.exit.thread531
 
 VerifyMac.exit.thread531:                         ; preds = %if.then89.i, %if.else92.i
@@ -17991,11 +17991,11 @@ if.then31:                                        ; preds = %land.lhs.true
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end23, %land.lhs.true, %if.end, %if.then31
+  %certSz.0 = phi i32 [ %2, %if.then31 ], [ 0, %if.end ], [ %2, %land.lhs.true ], [ 0, %if.end23 ]
+  %certChainSz.0 = phi i32 [ %4, %if.then31 ], [ 0, %if.end ], [ 0, %land.lhs.true ], [ 0, %if.end23 ]
   %headerSz.0 = phi i32 [ 6, %if.then31 ], [ 3, %if.end ], [ 6, %land.lhs.true ], [ 6, %if.end23 ]
   %listSz.0 = phi i32 [ %add36, %if.then31 ], [ 0, %if.end ], [ %add27, %land.lhs.true ], [ 3, %if.end23 ]
-  %certChainSz.0 = phi i32 [ %4, %if.then31 ], [ 0, %if.end ], [ 0, %land.lhs.true ], [ 0, %if.end23 ]
   %length.0 = phi i32 [ %add35, %if.then31 ], [ 3, %if.end ], [ %add, %land.lhs.true ], [ 6, %if.end23 ]
-  %certSz.0 = phi i32 [ %2, %if.then31 ], [ 0, %if.end ], [ %2, %land.lhs.true ], [ 0, %if.end23 ]
   %fragOffset = getelementptr inbounds i8, ptr %ssl, i64 672
   %5 = load i32, ptr %fragOffset, align 16
   %cmp40.not = icmp eq i32 %5, 0
@@ -18006,7 +18006,7 @@ if.end39:                                         ; preds = %if.end23, %land.lhs
   br i1 %cmp46268.not, label %if.then306, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end39
-  %add64 = add i32 %certSz.0, %certChainSz.0
+  %add64 = add i32 %certChainSz.0, %certSz.0
   %add65 = add i32 %add64, %headerSz.0
   %sub66.add65 = tail call i32 @llvm.umin.i32(i32 %add65, i32 16380)
   %add76 = add nuw nsw i32 %sub66.add65, 9
@@ -20674,10 +20674,10 @@ if.then16.i:                                      ; preds = %lor.lhs.false12.i, 
   br label %ParseCipherList.exit
 
 do.body24.i:                                      ; preds = %do.cond.i, %do.body24.preheader.i
+  %ret.0.i = phi i32 [ %ret.1.i, %do.cond.i ], [ 0, %do.body24.preheader.i ]
+  %idx.0.i = phi i32 [ %idx.1.i, %do.cond.i ], [ 0, %do.body24.preheader.i ]
   %haveSig.0.i = phi i32 [ %haveSig.2.i, %do.cond.i ], [ 0, %do.body24.preheader.i ]
   %next.0.i = phi ptr [ %incdec.ptr.i, %do.cond.i ], [ %list, %do.body24.preheader.i ]
-  %idx.0.i = phi i32 [ %idx.1.i, %do.cond.i ], [ 0, %do.body24.preheader.i ]
-  %ret.0.i = phi i32 [ %ret.1.i, %do.cond.i ], [ 0, %do.body24.preheader.i ]
   %strchr.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %next.0.i, i32 58)
   %cmp26.not.i = icmp eq ptr %strchr.i, null
   %sub.ptr.lhs.cast.i = ptrtoint ptr %strchr.i to i64
@@ -20794,9 +20794,9 @@ if.else142.i:                                     ; preds = %if.else.i
   br label %do.cond.i
 
 do.cond.i:                                        ; preds = %for.cond.i, %if.else142.i, %if.then140.i, %land.lhs.true121.i, %if.end94.i, %for.end.i
-  %haveSig.2.i = phi i32 [ %haveSig.0.i, %for.end.i ], [ %or141.i, %if.then140.i ], [ %or143.i, %if.else142.i ], [ 3, %land.lhs.true121.i ], [ 3, %if.end94.i ], [ %haveSig.0.i, %for.cond.i ]
-  %idx.1.i = phi i32 [ %idx.0.i, %for.end.i ], [ %inc105.i, %if.then140.i ], [ %inc105.i, %if.else142.i ], [ %inc105.i, %land.lhs.true121.i ], [ %inc105.i, %if.end94.i ], [ %idx.0.i, %for.cond.i ]
-  %ret.1.i = phi i32 [ %ret.0.i, %for.end.i ], [ 1, %if.then140.i ], [ 1, %if.else142.i ], [ 1, %land.lhs.true121.i ], [ 1, %if.end94.i ], [ %ret.0.i, %for.cond.i ]
+  %ret.1.i = phi i32 [ %ret.0.i, %for.end.i ], [ 1, %if.end94.i ], [ 1, %land.lhs.true121.i ], [ 1, %if.then140.i ], [ 1, %if.else142.i ], [ %ret.0.i, %for.cond.i ]
+  %idx.1.i = phi i32 [ %idx.0.i, %for.end.i ], [ %inc105.i, %if.end94.i ], [ %inc105.i, %land.lhs.true121.i ], [ %inc105.i, %if.then140.i ], [ %inc105.i, %if.else142.i ], [ %idx.0.i, %for.cond.i ]
+  %haveSig.2.i = phi i32 [ %haveSig.0.i, %for.end.i ], [ 3, %if.end94.i ], [ 3, %land.lhs.true121.i ], [ %or141.i, %if.then140.i ], [ %or143.i, %if.else142.i ], [ %haveSig.0.i, %for.cond.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %strchr.i, i64 1
   br i1 %cmp26.not.i, label %do.end151.i, label %do.body24.i, !llvm.loop !38
 

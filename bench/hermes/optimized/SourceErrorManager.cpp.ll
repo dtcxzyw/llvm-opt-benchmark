@@ -236,8 +236,8 @@ cond.false:                                       ; preds = %"_ZZN6hermes18Sourc
   br label %cond.end
 
 cond.end:                                         ; preds = %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit, %cond.false
-  %agg.tmp.sroa.0.0 = phi ptr [ %call.i.i, %cond.false ], [ @.str.4, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
   %agg.tmp.sroa.3.0 = phi i64 [ %call2.i.i, %cond.false ], [ 7, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
+  %agg.tmp.sroa.0.0 = phi ptr [ %call.i.i, %cond.false ], [ @.str.4, %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit ]
   %OutBufEnd.i = getelementptr inbounds i8, ptr %call, i64 16
   %3 = load ptr, ptr %OutBufEnd.i, align 8
   %OutBufCur.i = getelementptr inbounds i8, ptr %call, i64 24
@@ -2406,9 +2406,9 @@ _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   br i1 %tobool.not255, label %while.end7, label %while.body
 
 while.cond.loopexit:                              ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit, %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9push_backEDi.exit
-  %narrowByteToColumn.sroa.7.1.lcssa = phi ptr [ %narrowByteToColumn.sroa.7.0256, %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9push_backEDi.exit ], [ %narrowByteToColumn.sroa.7.2, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
-  %narrowByteToColumn.sroa.14.1.lcssa = phi ptr [ %narrowByteToColumn.sroa.14.0257, %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9push_backEDi.exit ], [ %narrowByteToColumn.sroa.14.2, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
-  %narrowByteToColumn.sroa.0.1.lcssa = phi ptr [ %narrowByteToColumn.sroa.0.0258, %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9push_backEDi.exit ], [ %narrowByteToColumn.sroa.0.2, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
+  %narrowByteToColumn.sroa.0.1.lcssa = phi ptr [ %narrowByteToColumn.sroa.0.0256, %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9push_backEDi.exit ], [ %narrowByteToColumn.sroa.0.2, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
+  %narrowByteToColumn.sroa.7.1.lcssa = phi ptr [ %narrowByteToColumn.sroa.7.0257, %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9push_backEDi.exit ], [ %narrowByteToColumn.sroa.7.2, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
+  %narrowByteToColumn.sroa.14.1.lcssa = phi ptr [ %narrowByteToColumn.sroa.14.0258, %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9push_backEDi.exit ], [ %narrowByteToColumn.sroa.14.2, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
   %2 = load i8, ptr %cursor.2, align 1
   %tobool.not = icmp eq i8 %2, 0
   br i1 %tobool.not, label %while.end7, label %while.body, !llvm.loop !37
@@ -2416,9 +2416,9 @@ while.cond.loopexit:                              ; preds = %_ZNSt6vectorIjSaIjE
 while.body:                                       ; preds = %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit, %while.cond.loopexit
   %3 = phi i8 [ %2, %while.cond.loopexit ], [ %1, %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ]
   %cursor.0259 = phi ptr [ %cursor.2, %while.cond.loopexit ], [ %call1, %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ]
-  %narrowByteToColumn.sroa.0.0258 = phi ptr [ %narrowByteToColumn.sroa.0.1.lcssa, %while.cond.loopexit ], [ null, %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ]
-  %narrowByteToColumn.sroa.14.0257 = phi ptr [ %narrowByteToColumn.sroa.14.1.lcssa, %while.cond.loopexit ], [ null, %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ]
-  %narrowByteToColumn.sroa.7.0256 = phi ptr [ %narrowByteToColumn.sroa.7.1.lcssa, %while.cond.loopexit ], [ null, %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ]
+  %narrowByteToColumn.sroa.14.0258 = phi ptr [ %narrowByteToColumn.sroa.14.1.lcssa, %while.cond.loopexit ], [ null, %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ]
+  %narrowByteToColumn.sroa.7.0257 = phi ptr [ %narrowByteToColumn.sroa.7.1.lcssa, %while.cond.loopexit ], [ null, %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ]
+  %narrowByteToColumn.sroa.0.0256 = phi ptr [ %narrowByteToColumn.sroa.0.1.lcssa, %while.cond.loopexit ], [ null, %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ]
   %cmp.i = icmp sgt i8 %3, -1
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -2616,23 +2616,23 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9push_backEDi.exit: ; pr
 
 while.body4:                                      ; preds = %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9push_backEDi.exit, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
   %prev.0252 = phi ptr [ %incdec.ptr, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ], [ %cursor.0259, %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9push_backEDi.exit ]
-  %narrowByteToColumn.sroa.0.1251 = phi ptr [ %narrowByteToColumn.sroa.0.2, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ], [ %narrowByteToColumn.sroa.0.0258, %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9push_backEDi.exit ]
-  %narrowByteToColumn.sroa.14.1250 = phi ptr [ %narrowByteToColumn.sroa.14.2, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ], [ %narrowByteToColumn.sroa.14.0257, %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9push_backEDi.exit ]
-  %narrowByteToColumn.sroa.7.1249 = phi ptr [ %narrowByteToColumn.sroa.7.2, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ], [ %narrowByteToColumn.sroa.7.0256, %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9push_backEDi.exit ]
+  %narrowByteToColumn.sroa.14.1251 = phi ptr [ %narrowByteToColumn.sroa.14.2, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ], [ %narrowByteToColumn.sroa.14.0258, %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9push_backEDi.exit ]
+  %narrowByteToColumn.sroa.7.1250 = phi ptr [ %narrowByteToColumn.sroa.7.2, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ], [ %narrowByteToColumn.sroa.7.0257, %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9push_backEDi.exit ]
+  %narrowByteToColumn.sroa.0.1249 = phi ptr [ %narrowByteToColumn.sroa.0.2, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ], [ %narrowByteToColumn.sroa.0.0256, %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9push_backEDi.exit ]
   %incdec.ptr = getelementptr inbounds i8, ptr %prev.0252, i64 1
   %22 = load i64, ptr %_M_string_length.i.i.i, align 8
   %23 = trunc i64 %22 to i32
   %conv = add i32 %23, -1
-  %cmp.not.i.i = icmp eq ptr %narrowByteToColumn.sroa.7.1249, %narrowByteToColumn.sroa.14.1250
+  %cmp.not.i.i = icmp eq ptr %narrowByteToColumn.sroa.7.1250, %narrowByteToColumn.sroa.14.1251
   br i1 %cmp.not.i.i, label %if.else.i.i46, label %if.then.i.i45
 
 if.then.i.i45:                                    ; preds = %while.body4
-  store i32 %conv, ptr %narrowByteToColumn.sroa.7.1249, align 4
+  store i32 %conv, ptr %narrowByteToColumn.sroa.7.1250, align 4
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
 if.else.i.i46:                                    ; preds = %while.body4
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %narrowByteToColumn.sroa.14.1250 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %narrowByteToColumn.sroa.0.1251 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %narrowByteToColumn.sroa.14.1251 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %narrowByteToColumn.sroa.0.1249 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775804
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
@@ -2664,16 +2664,16 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i.i, ptr align 4 %narrowByteToColumn.sroa.0.1251, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i.i.i, ptr align 4 %narrowByteToColumn.sroa.0.1249, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i
 
 _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
-  %tobool.not.i.i.i.i = icmp eq ptr %narrowByteToColumn.sroa.0.1251, null
+  %tobool.not.i.i.i.i = icmp eq ptr %narrowByteToColumn.sroa.0.1249, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
 if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %narrowByteToColumn.sroa.0.1251) #26
+  call void @_ZdlPv(ptr noundef nonnull %narrowByteToColumn.sroa.0.1249) #26
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit17.i.i.i
@@ -2681,16 +2681,16 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %if.then.i.i45, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i
-  %add.ptr.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %narrowByteToColumn.sroa.7.1249, %if.then.i.i45 ]
-  %narrowByteToColumn.sroa.14.2 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %narrowByteToColumn.sroa.14.1250, %if.then.i.i45 ]
-  %narrowByteToColumn.sroa.0.2 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %narrowByteToColumn.sroa.0.1251, %if.then.i.i45 ]
+  %narrowByteToColumn.sroa.0.2 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %narrowByteToColumn.sroa.0.1249, %if.then.i.i45 ]
+  %add.ptr.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %narrowByteToColumn.sroa.7.1250, %if.then.i.i45 ]
+  %narrowByteToColumn.sroa.14.2 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %narrowByteToColumn.sroa.14.1251, %if.then.i.i45 ]
   %narrowByteToColumn.sroa.7.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 4
   %cmp = icmp ult ptr %incdec.ptr, %cursor.2
   br i1 %cmp, label %while.body4, label %while.cond.loopexit, !llvm.loop !38
 
 while.end7:                                       ; preds = %while.cond.loopexit, %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
-  %narrowByteToColumn.sroa.7.0.lcssa = phi ptr [ null, %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ], [ %narrowByteToColumn.sroa.7.1.lcssa, %while.cond.loopexit ]
   %narrowByteToColumn.sroa.0.0.lcssa = phi ptr [ null, %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ], [ %narrowByteToColumn.sroa.0.1.lcssa, %while.cond.loopexit ]
+  %narrowByteToColumn.sroa.7.0.lcssa = phi ptr [ null, %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ], [ %narrowByteToColumn.sroa.7.1.lcssa, %while.cond.loopexit ]
   %25 = load i64, ptr %_M_string_length.i.i.i, align 8
   %ColumnNo.i = getelementptr inbounds i8, ptr %diag, i64 52
   %26 = load i32, ptr %ColumnNo.i, align 4

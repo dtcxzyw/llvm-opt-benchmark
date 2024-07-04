@@ -3887,11 +3887,11 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @Mini_Subchannel_all
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.073 = phi i32 [ %71, %.lr.ph ], [ %33, %.lr.ph.preheader ]
-  %.06772 = phi i32 [ %72, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %34 = sdiv i32 %.073, 8
+  %.073 = phi i32 [ %72, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.06772 = phi i32 [ %71, %.lr.ph ], [ %33, %.lr.ph.preheader ]
+  %34 = sdiv i32 %.06772, 8
   %35 = tail call i32 @tvb_get_ntohl(ptr noundef %3, i32 noundef %34) #4
-  %36 = srem i32 %.073, 8
+  %36 = srem i32 %.06772, 8
   %37 = sub nsw i32 16, %36
   %38 = lshr i32 %35, %37
   %39 = and i32 %38, 65535
@@ -3899,8 +3899,8 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @Mini_Subchannel_all
   %41 = add nsw i32 %36, 15
   %42 = lshr i32 %41, 3
   %43 = add nuw nsw i32 %42, 1
-  %44 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %40, ptr noundef %3, i32 noundef %34, i32 noundef %43, i32 noundef %39, ptr noundef nonnull @.str.546, i32 noundef %.06772, i32 noundef %39) #4
-  %45 = add i32 %.073, 16
+  %44 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %40, ptr noundef %3, i32 noundef %34, i32 noundef %43, i32 noundef %39, ptr noundef nonnull @.str.546, i32 noundef %.073, i32 noundef %39) #4
+  %45 = add i32 %.06772, 16
   %46 = sdiv i32 %45, 8
   %47 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %3, i32 noundef %46) #4
   %48 = zext i16 %47 to i32
@@ -3914,8 +3914,8 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @Mini_Subchannel_all
   %55 = sdiv i8 %.lhs.trunc, 8
   %narrow = add nuw nsw i8 %55, 1
   %56 = zext nneg i8 %narrow to i32
-  %57 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %53, ptr noundef %3, i32 noundef %46, i32 noundef %56, i32 noundef %52, ptr noundef nonnull @.str.547, i32 noundef %.06772, i32 noundef %52) #4
-  %58 = add i32 %.073, 20
+  %57 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %53, ptr noundef %3, i32 noundef %46, i32 noundef %56, i32 noundef %52, ptr noundef nonnull @.str.547, i32 noundef %.073, i32 noundef %52) #4
+  %58 = add i32 %.06772, 20
   %59 = sdiv i32 %58, 8
   %60 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %3, i32 noundef %59) #4
   %61 = zext i16 %60 to i32
@@ -3929,9 +3929,9 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @Mini_Subchannel_all
   %68 = sdiv i8 %.lhs.trunc69, 8
   %narrow71 = add nsw i8 %68, 1
   %69 = sext i8 %narrow71 to i32
-  %70 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %66, ptr noundef %3, i32 noundef %59, i32 noundef %69, i32 noundef %65, ptr noundef nonnull @.str.548, i32 noundef %.06772, i32 noundef %65) #4
-  %71 = add i32 %.073, 22
-  %72 = add nuw nsw i32 %.06772, 1
+  %70 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %66, ptr noundef %3, i32 noundef %59, i32 noundef %69, i32 noundef %65, ptr noundef nonnull @.str.548, i32 noundef %.073, i32 noundef %65) #4
+  %71 = add i32 %.06772, 22
+  %72 = add nuw nsw i32 %.073, 1
   %exitcond.not = icmp eq i32 %72, %smax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
@@ -3942,7 +3942,7 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @Mini_Subchannel_all
 74:                                               ; preds = %._crit_edge
   %75 = load i32, ptr @hf_ulmap_mini_subcha_alloc_padding, align 4
   %76 = tail call ptr @proto_tree_add_bits_item(ptr noundef %11, i32 noundef %75, ptr noundef %3, i32 noundef %71, i32 noundef 4, i32 noundef 0) #4
-  %77 = add i32 %.073, 26
+  %77 = add i32 %.06772, 26
   br label %78
 
 78:                                               ; preds = %74, %._crit_edge

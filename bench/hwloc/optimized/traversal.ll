@@ -496,8 +496,8 @@ hwloc_get_obj_by_depth.exit.i26:                  ; preds = %51, %43
   br i1 %.not.i31, label %hwloc_get_obj_by_depth_and_gp_index.exit, label %.lr.ph.i29, !llvm.loop !6
 
 hwloc_get_obj_by_depth_and_gp_index.exit:         ; preds = %hwloc_get_obj_by_depth_and_gp_index.exit.thread, %.lr.ph.i, %60, %.lr.ph.i29, %.preheader, %3, %hwloc_get_obj_by_depth.exit.i26, %45, %37, %35, %hwloc_get_type_depth.exit
-  %.0 = phi ptr [ null, %hwloc_get_type_depth.exit ], [ null, %hwloc_get_obj_by_depth.exit.i26 ], [ null, %37 ], [ null, %35 ], [ null, %45 ], [ null, %3 ], [ null, %.preheader ], [ %.010.i30, %.lr.ph.i29 ], [ null, %60 ], [ %.010.i, %.lr.ph.i ], [ null, %hwloc_get_obj_by_depth_and_gp_index.exit.thread ]
-  ret ptr %.0
+  %.018 = phi ptr [ null, %hwloc_get_type_depth.exit ], [ null, %hwloc_get_obj_by_depth.exit.i26 ], [ null, %37 ], [ null, %35 ], [ null, %45 ], [ null, %3 ], [ null, %.preheader ], [ %.010.i30, %.lr.ph.i29 ], [ null, %60 ], [ %.010.i, %.lr.ph.i ], [ null, %hwloc_get_obj_by_depth_and_gp_index.exit.thread ]
+  ret ptr %.018
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
@@ -533,18 +533,18 @@ define i32 @hwloc_get_closest_objs(ptr nocapture noundef readonly %0, ptr nocapt
 
 .preheader42.us:                                  ; preds = %.preheader42.us.preheader, %..loopexit_crit_edge.us
   %.055.us = phi i32 [ %.2.us, %..loopexit_crit_edge.us ], [ 0, %.preheader42.us.preheader ]
-  %.03254.us = phi ptr [ %21, %..loopexit_crit_edge.us ], [ %1, %.preheader42.us.preheader ]
+  %.03154.us = phi ptr [ %21, %..loopexit_crit_edge.us ], [ %1, %.preheader42.us.preheader ]
   br label %19
 
 19:                                               ; preds = %22, %.preheader42.us
-  %.133.us = phi ptr [ %21, %22 ], [ %.03254.us, %.preheader42.us ]
-  %20 = getelementptr inbounds i8, ptr %.133.us, i64 72
+  %.132.us = phi ptr [ %21, %22 ], [ %.03154.us, %.preheader42.us ]
+  %20 = getelementptr inbounds i8, ptr %.132.us, i64 72
   %21 = load ptr, ptr %20, align 8
   %.not37.us = icmp eq ptr %21, null
   br i1 %.not37.us, label %.loopexit41, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %.133.us, i64 184
+  %23 = getelementptr inbounds i8, ptr %.132.us, i64 184
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %21, i64 184
   %26 = load ptr, ptr %25, align 8
@@ -585,7 +585,7 @@ define i32 @hwloc_get_closest_objs(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %28, !llvm.loop !8
 
 .preheader.us:                                    ; preds = %22
-  %44 = getelementptr inbounds i8, ptr %.133.us, i64 184
+  %44 = getelementptr inbounds i8, ptr %.132.us, i64 184
   %45 = getelementptr inbounds i8, ptr %21, i64 184
   br label %28
 
@@ -594,15 +594,15 @@ define i32 @hwloc_get_closest_objs(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %46, label %.preheader42.us, label %.loopexit41, !llvm.loop !9
 
 .preheader42:                                     ; preds = %.preheader42.lr.ph, %.preheader42
-  %.133 = phi ptr [ %48, %.preheader42 ], [ %1, %.preheader42.lr.ph ]
-  %47 = getelementptr inbounds i8, ptr %.133, i64 72
+  %.132 = phi ptr [ %48, %.preheader42 ], [ %1, %.preheader42.lr.ph ]
+  %47 = getelementptr inbounds i8, ptr %.132, i64 72
   %48 = load ptr, ptr %47, align 8
   %.not37 = icmp eq ptr %48, null
   br i1 %.not37, label %.loopexit41, label %.preheader42
 
 .loopexit41:                                      ; preds = %..loopexit_crit_edge.us, %19, %38, %.preheader42, %7, %4
-  %.030 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 0, %.preheader42 ], [ %3, %38 ], [ %.055.us, %19 ], [ %.2.us, %..loopexit_crit_edge.us ]
-  ret i32 %.030
+  %.033 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 0, %.preheader42 ], [ %3, %38 ], [ %.055.us, %19 ], [ %.2.us, %..loopexit_crit_edge.us ]
+  ret i32 %.033
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -1892,27 +1892,27 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
   br label %50
 
 50:                                               ; preds = %48, %36, %41
-  %.0141 = phi i32 [ %37, %36 ], [ %42, %41 ], [ %49, %48 ]
-  %51 = icmp slt i32 %.0141, 0
+  %.0140 = phi i32 [ %37, %36 ], [ %42, %41 ], [ %49, %48 ]
+  %51 = icmp slt i32 %.0140, 0
   br i1 %51, label %.loopexit, label %52
 
 52:                                               ; preds = %50
-  %.not162 = icmp eq i32 %.0141, 0
+  %.not162 = icmp eq i32 %.0140, 0
   %spec.select180 = select i1 %.not162, ptr @.str.55, ptr %3
   %.pre = load i32, ptr %2, align 8
   br label %.thread171
 
 .thread171:                                       ; preds = %52, %38, %43
   %53 = phi i32 [ %29, %43 ], [ %29, %38 ], [ %.pre, %52 ]
-  %.0141170174 = phi i32 [ 0, %43 ], [ 0, %38 ], [ %.0141, %52 ]
+  %.0140170174 = phi i32 [ 0, %43 ], [ 0, %38 ], [ %.0140, %52 ]
   %54 = phi ptr [ @.str.55, %43 ], [ @.str.55, %38 ], [ %spec.select180, %52 ]
-  %55 = zext nneg i32 %.0141170174 to i64
+  %55 = zext nneg i32 %.0140170174 to i64
   %.not163 = icmp slt i64 %55, %1
   %56 = icmp sgt i64 %1, 0
   %57 = trunc i64 %1 to i32
   %58 = add nsw i32 %57, -1
   %59 = select i1 %56, i32 %58, i32 0
-  %.1 = select i1 %.not163, i32 %.0141170174, i32 %59
+  %.1 = select i1 %.not163, i32 %.0140170174, i32 %59
   %60 = sext i32 %.1 to i64
   %61 = getelementptr inbounds i8, ptr %0, i64 %60
   %62 = sub nsw i64 %1, %60
@@ -2105,7 +2105,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
 
 .thread177:                                       ; preds = %.thread171, %175
   %.2179 = phi i32 [ %.2, %175 ], [ 0, %.thread171 ]
-  %177 = add nuw nsw i32 %.2179, %.0141170174
+  %177 = add nuw nsw i32 %.2179, %.0140170174
   br i1 %.not157, label %.loopexit, label %178
 
 178:                                              ; preds = %.thread177
@@ -2132,10 +2132,10 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %198
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %198 ]
-  %.0142185 = phi i32 [ %177, %.lr.ph.preheader ], [ %199, %198 ]
-  %.0144184 = phi i64 [ %189, %.lr.ph.preheader ], [ %207, %198 ]
-  %.0145183 = phi ptr [ %188, %.lr.ph.preheader ], [ %206, %198 ]
-  %.2148182 = phi ptr [ %spec.select168, %.lr.ph.preheader ], [ %.3149, %198 ]
+  %.0141185 = phi i32 [ %177, %.lr.ph.preheader ], [ %199, %198 ]
+  %.0143184 = phi i64 [ %189, %.lr.ph.preheader ], [ %207, %198 ]
+  %.0144183 = phi ptr [ %188, %.lr.ph.preheader ], [ %206, %198 ]
+  %.2147182 = phi ptr [ %spec.select168, %.lr.ph.preheader ], [ %.3148, %198 ]
   %190 = load ptr, ptr %179, align 8
   %191 = getelementptr inbounds %struct.hwloc_info_s, ptr %190, i64 %indvars.iv
   %192 = getelementptr inbounds i8, ptr %191, i64 8
@@ -2144,24 +2144,24 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
   %.not166 = icmp eq ptr %194, null
   %.str.55..str.70 = select i1 %.not166, ptr @.str.55, ptr @.str.70
   %195 = load ptr, ptr %191, align 8
-  %196 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0145183, i64 noundef %.0144184, ptr noundef nonnull @.str.71, ptr noundef %.2148182, ptr noundef %195, ptr noundef nonnull %.str.55..str.70, ptr noundef %193, ptr noundef nonnull %.str.55..str.70) #18
+  %196 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.0144183, i64 noundef %.0143184, ptr noundef nonnull @.str.71, ptr noundef %.2147182, ptr noundef %195, ptr noundef nonnull %.str.55..str.70, ptr noundef %193, ptr noundef nonnull %.str.55..str.70) #18
   %197 = icmp slt i32 %196, 0
   br i1 %197, label %.loopexit, label %198
 
 198:                                              ; preds = %.lr.ph
-  %199 = add nuw nsw i32 %196, %.0142185
+  %199 = add nuw nsw i32 %196, %.0141185
   %200 = zext nneg i32 %196 to i64
-  %.not167 = icmp sgt i64 %.0144184, %200
-  %201 = icmp sgt i64 %.0144184, 0
-  %202 = trunc i64 %.0144184 to i32
+  %.not167 = icmp sgt i64 %.0143184, %200
+  %201 = icmp sgt i64 %.0143184, 0
+  %202 = trunc i64 %.0143184 to i32
   %203 = add nsw i32 %202, -1
   %204 = select i1 %201, i32 %203, i32 0
   %.4 = select i1 %.not167, i32 %196, i32 %204
   %205 = sext i32 %.4 to i64
-  %206 = getelementptr inbounds i8, ptr %.0145183, i64 %205
-  %207 = sub nsw i64 %.0144184, %205
+  %206 = getelementptr inbounds i8, ptr %.0144183, i64 %205
+  %207 = sub nsw i64 %.0143184, %205
   %208 = icmp sgt i32 %199, 0
-  %.3149 = select i1 %208, ptr %3, ptr %.2148182
+  %.3148 = select i1 %208, ptr %3, ptr %.2147182
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %209 = load i32, ptr %180, align 8
   %210 = zext i32 %209 to i64
@@ -2169,8 +2169,8 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
   br i1 %211, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph, %198, %44, %142, %83, %178, %.thread177, %175, %50
-  %.0139 = phi i32 [ -1, %50 ], [ -1, %175 ], [ %177, %.thread177 ], [ %177, %178 ], [ %.0141170174, %83 ], [ %.0141170174, %142 ], [ 0, %44 ], [ -1, %.lr.ph ], [ %199, %198 ]
-  ret i32 %.0139
+  %.0149 = phi i32 [ -1, %50 ], [ -1, %175 ], [ %177, %.thread177 ], [ %177, %178 ], [ %.0140170174, %83 ], [ %.0140170174, %142 ], [ 0, %44 ], [ -1, %.lr.ph ], [ %199, %198 ]
+  ret i32 %.0149
 }
 
 ; Function Attrs: nofree nounwind uwtable

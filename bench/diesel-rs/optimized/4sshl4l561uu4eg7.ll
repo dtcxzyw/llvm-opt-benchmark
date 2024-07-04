@@ -407,7 +407,7 @@ define hidden void @"_ZN6diesel5mysql13query_builder12limit_offset285_$LT$impl$u
 define hidden void @"_ZN6diesel9query_dsl8load_dsl7private31LoadIter$LT$U$C$C$C$ST$C$DB$GT$7map_row17h7fe63a2ceaf23960E.llvm.4308264632886301207"(ptr noalias nocapture noundef writeonly sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [6 x i64] }, align 8
   %.sroa.827.sroa.0 = alloca [2 x i64], align 8
-  %4 = alloca { ptr, ptr }, align 8
+  %4 = alloca { ptr, ptr }, align 16
   %5 = load i64, ptr %1, align 8, !range !91, !noundef !5
   %6 = icmp eq i64 %5, -9223372036854775797
   br i1 %6, label %.thread, label %7
@@ -430,9 +430,8 @@ define hidden void @"_ZN6diesel9query_dsl8load_dsl7private31LoadIter$LT$U$C$C$C$
   %12 = extractelement <2 x ptr> %8, i64 1
   %13 = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %13)
-  store ptr %10, ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr %12, ptr %14, align 8
+  store <2 x ptr> %8, ptr %4, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.827.sroa.0)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3), !noalias !92
   invoke void @"_ZN6diesel10type_impls6tuples137_$LT$impl$u20$diesel..deserialize..FromStaticSqlRow$LT$$LP$ST1$C$ST2$C$ST3$C$ST0$RP$$C$__DB$GT$$u20$for$u20$$LP$T1$C$T2$C$T3$C$T0$RP$$GT$14build_from_row17h262c53a275621aa2E"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)

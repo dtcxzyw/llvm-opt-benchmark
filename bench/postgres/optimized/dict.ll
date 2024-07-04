@@ -120,8 +120,8 @@ define dso_local i64 @ts_lexize(ptr nocapture noundef %0) local_unnamed_addr #0 
   br label %80
 
 80:                                               ; preds = %75, %40
-  %.057 = phi ptr [ %45, %40 ], [ %spec.select, %75 ]
-  %.not68 = icmp eq ptr %.057, null
+  %.056 = phi ptr [ %45, %40 ], [ %spec.select, %75 ]
+  %.not68 = icmp eq ptr %.056, null
   br i1 %.not68, label %81, label %.preheader
 
 81:                                               ; preds = %80
@@ -130,27 +130,27 @@ define dso_local i64 @ts_lexize(ptr nocapture noundef %0) local_unnamed_addr #0 
   br label %121
 
 .preheader:                                       ; preds = %80, %.preheader
-  %.056 = phi ptr [ %85, %.preheader ], [ %.057, %80 ]
-  %83 = getelementptr inbounds i8, ptr %.056, i64 8
+  %.0 = phi ptr [ %85, %.preheader ], [ %.056, %80 ]
+  %83 = getelementptr inbounds i8, ptr %.0, i64 8
   %84 = load ptr, ptr %83, align 8
   %.not69 = icmp eq ptr %84, null
-  %85 = getelementptr i8, ptr %.056, i64 16
+  %85 = getelementptr i8, ptr %.0, i64 16
   br i1 %.not69, label %86, label %.preheader, !llvm.loop !5
 
 86:                                               ; preds = %.preheader
-  %87 = ptrtoint ptr %.056 to i64
-  %88 = ptrtoint ptr %.057 to i64
+  %87 = ptrtoint ptr %.0 to i64
+  %88 = ptrtoint ptr %.056 to i64
   %89 = sub i64 %87, %88
   %90 = ashr exact i64 %89, 1
   %91 = call ptr @palloc(i64 noundef %90) #3
-  %92 = getelementptr inbounds i8, ptr %.057, i64 8
+  %92 = getelementptr inbounds i8, ptr %.056, i64 8
   %93 = load ptr, ptr %92, align 8
   %.not7075 = icmp eq ptr %93, null
   br i1 %.not7075, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %86, %.lr.ph
   %94 = phi ptr [ %103, %.lr.ph ], [ %93, %86 ]
-  %.176 = phi ptr [ %101, %.lr.ph ], [ %.057, %86 ]
+  %.176 = phi ptr [ %101, %.lr.ph ], [ %.056, %86 ]
   %95 = call ptr @cstring_to_text(ptr noundef nonnull %94) #3
   %96 = ptrtoint ptr %95 to i64
   %97 = ptrtoint ptr %.176 to i64
@@ -180,7 +180,7 @@ define dso_local i64 @ts_lexize(ptr nocapture noundef %0) local_unnamed_addr #0 
 
 .lr.ph80:                                         ; preds = %._crit_edge, %.lr.ph80
   %109 = phi ptr [ %118, %.lr.ph80 ], [ %92, %._crit_edge ]
-  %.278 = phi ptr [ %117, %.lr.ph80 ], [ %.057, %._crit_edge ]
+  %.278 = phi ptr [ %117, %.lr.ph80 ], [ %.056, %._crit_edge ]
   %110 = ptrtoint ptr %.278 to i64
   %111 = sub i64 %110, %88
   %112 = ashr exact i64 %111, 1
@@ -197,14 +197,14 @@ define dso_local i64 @ts_lexize(ptr nocapture noundef %0) local_unnamed_addr #0 
   br i1 %.not71, label %._crit_edge81, label %.lr.ph80, !llvm.loop !8
 
 ._crit_edge81:                                    ; preds = %.lr.ph80, %._crit_edge
-  call void @pfree(ptr noundef nonnull %.057) #3
+  call void @pfree(ptr noundef nonnull %.056) #3
   call void @pfree(ptr noundef %91) #3
   %120 = ptrtoint ptr %107 to i64
   br label %121
 
 121:                                              ; preds = %._crit_edge81, %81
-  %.0 = phi i64 [ %120, %._crit_edge81 ], [ 0, %81 ]
-  ret i64 %.0
+  %.057 = phi i64 [ %120, %._crit_edge81 ], [ 0, %81 ]
+  ret i64 %.057
 }
 
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1

@@ -60,13 +60,13 @@ define range(i32 -1, 2) i32 @ompi_coll_libnbc_dict_str_cmp(ptr nocapture noundef
   br label %3
 
 3:                                                ; preds = %3, %2
-  %.010 = phi ptr [ %1, %2 ], [ %7, %3 ]
-  %.0 = phi ptr [ %0, %2 ], [ %8, %3 ]
-  %4 = load i8, ptr %.0, align 1
-  %5 = load i8, ptr %.010, align 1
+  %.010 = phi ptr [ %0, %2 ], [ %8, %3 ]
+  %.0 = phi ptr [ %1, %2 ], [ %7, %3 ]
+  %4 = load i8, ptr %.010, align 1
+  %5 = load i8, ptr %.0, align 1
   %6 = icmp ne i8 %4, 0
-  %7 = getelementptr inbounds i8, ptr %.010, i64 1
-  %8 = getelementptr inbounds i8, ptr %.0, i64 1
+  %7 = getelementptr inbounds i8, ptr %.0, i64 1
+  %8 = getelementptr inbounds i8, ptr %.010, i64 1
   %.not = icmp eq i8 %4, %5
   %or.cond = select i1 %6, i1 %.not, i1 false
   br i1 %or.cond, label %3, label %9

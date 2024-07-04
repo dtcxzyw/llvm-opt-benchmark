@@ -4511,8 +4511,8 @@ common.ret:                                       ; preds = %1799, %1794, %1786,
   br label %641
 
 .thread366.i:                                     ; preds = %.noexc114.i, %621
-  %.sroa.02.0.i.i = phi i64 [ %.fca.0.extract.i.i, %.noexc114.i ], [ %626, %621 ]
   %.sroa.3.0.i.i = phi i32 [ %.fca.1.extract.i.i, %.noexc114.i ], [ %628, %621 ]
+  %.sroa.02.0.i.i = phi i64 [ %.fca.0.extract.i.i, %.noexc114.i ], [ %626, %621 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %69), !noalias !534
   %637 = getelementptr inbounds i8, ptr %0, i64 112
   store i64 %.sroa.02.0.i.i, ptr %637, align 8, !noalias !534

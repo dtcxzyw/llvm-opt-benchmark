@@ -134,8 +134,8 @@ define void @_ZNK5ZXing15HybridBinarizer14getBlackMatrixEv(ptr dead_on_unwind no
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
-  %.02349.us.i = phi i32 [ %49, %._crit_edge.us.i ], [ 0, %.lr.ph.us.preheader.i ]
-  %20 = shl nsw i32 %.02349.us.i, 3
+  %.02549.us.i = phi i32 [ %49, %._crit_edge.us.i ], [ 0, %.lr.ph.us.preheader.i ]
+  %20 = shl nsw i32 %.02549.us.i, 3
   %.sroa.speculated34.us.i = call i32 @llvm.smin.i32(i32 %16, i32 %20)
   %21 = sext i32 %.sroa.speculated34.us.i to i64
   br label %22
@@ -159,7 +159,7 @@ define void @_ZNK5ZXing15HybridBinarizer14getBlackMatrixEv(ptr dead_on_unwind no
   %33 = trunc nuw i32 %32 to i8
   %34 = select i1 %30, i8 %33, i8 0
   %35 = load i32, ptr %4, align 8, !alias.scope !4
-  %36 = mul nsw i32 %35, %.02349.us.i
+  %36 = mul nsw i32 %35, %.02549.us.i
   %37 = add nsw i32 %36, %.02448.us.i
   %38 = sext i32 %37 to i64
   %39 = load ptr, ptr %18, align 8, !alias.scope !4
@@ -196,7 +196,7 @@ define void @_ZNK5ZXing15HybridBinarizer14getBlackMatrixEv(ptr dead_on_unwind no
   br i1 %exitcond.not.i, label %45, label %46, !llvm.loop !10
 
 ._crit_edge.us.i:                                 ; preds = %26
-  %49 = add nuw nsw i32 %.02349.us.i, 1
+  %49 = add nuw nsw i32 %.02549.us.i, 1
   %exitcond59.not.i = icmp eq i32 %49, %15
   br i1 %exitcond59.not.i, label %_ZN5ZXingL15BlockThresholdsENS_9ImageViewE.exit, label %.lr.ph.us.i, !llvm.loop !11
 
@@ -496,14 +496,14 @@ _ZSt11make_sharedIN5ZXing9BitMatrixEJiiEESt10shared_ptrINSt9enable_ifIXntsr8is_a
 
 191:                                              ; preds = %191, %183
   %.0.idx21.i.i = phi i64 [ 0, %183 ], [ %.0.add.i.i, %191 ]
-  %.01920.i.i = phi ptr [ %gep.i.i, %183 ], [ %194, %191 ]
+  %.01820.i.i = phi ptr [ %gep.i.i, %183 ], [ %194, %191 ]
   %.0.ptr.i.i = getelementptr inbounds i8, ptr %190, i64 %.0.idx21.i.i
-  %192 = load i8, ptr %.01920.i.i, align 1, !alias.scope !27, !noalias !26
+  %192 = load i8, ptr %.01820.i.i, align 1, !alias.scope !27, !noalias !26
   %.not.i.i = icmp ule i8 %192, %181
   %193 = sext i1 %.not.i.i to i8
   store i8 %193, ptr %.0.ptr.i.i, align 1, !noalias !31
   %.0.add.i.i = add nuw nsw i64 %.0.idx21.i.i, 1
-  %194 = getelementptr inbounds i8, ptr %.01920.i.i, i64 1
+  %194 = getelementptr inbounds i8, ptr %.01820.i.i, i64 1
   %exitcond.not.i.i = icmp eq i64 %.0.add.i.i, 8
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %191, !llvm.loop !32
 

@@ -138,8 +138,8 @@ define internal range(i32 0, 2) i32 @dissect_xcsl_tcp_heur(ptr noundef %0, ptr n
   %30 = phi i32 [ %27, %.lr.ph.lr.ph.i ], [ %96, %.outer.i ]
   %.0.ph88.i = phi i32 [ 0, %.lr.ph.lr.ph.i ], [ %94, %.outer.i ]
   %.070.ph87.i = phi i8 [ 0, %.lr.ph.lr.ph.i ], [ %95, %.outer.i ]
-  %.074.ph86.i = phi i32 [ 0, %.lr.ph.lr.ph.i ], [ %.1.i, %.outer.i ]
-  %.075.ph85.i = phi i8 [ 0, %.lr.ph.lr.ph.i ], [ %.176.i, %.outer.i ]
+  %.074.ph86.i = phi i8 [ 0, %.lr.ph.lr.ph.i ], [ %.1.i, %.outer.i ]
+  %.075.ph85.i = phi i32 [ 0, %.lr.ph.lr.ph.i ], [ %.176.i, %.outer.i ]
   br label %31
 
 31:                                               ; preds = %38, %.lr.ph.i
@@ -235,7 +235,7 @@ define internal range(i32 0, 2) i32 @dissect_xcsl_tcp_heur(ptr noundef %0, ptr n
 81:                                               ; preds = %42
   %82 = load i32, ptr @hf_xcsl_parameter, align 4
   %83 = call ptr @proto_tree_add_item(ptr noundef %.071.i, i32 noundef %82, ptr noundef %0, i32 noundef %.084.i, i32 noundef %.073.i, i32 noundef 0) #4
-  %84 = icmp eq i32 %.074.ph86.i, 1
+  %84 = icmp eq i32 %.075.ph85.i, 1
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %81
@@ -244,7 +244,7 @@ define internal range(i32 0, 2) i32 @dissect_xcsl_tcp_heur(ptr noundef %0, ptr n
   br label %92
 
 87:                                               ; preds = %81
-  %88 = icmp eq i8 %.075.ph85.i, 0
+  %88 = icmp eq i8 %.074.ph86.i, 0
   %89 = load ptr, ptr %18, align 8
   br i1 %88, label %90, label %91
 
@@ -257,12 +257,12 @@ define internal range(i32 0, 2) i32 @dissect_xcsl_tcp_heur(ptr noundef %0, ptr n
   br label %92
 
 92:                                               ; preds = %91, %90, %85
-  %93 = add i8 %.075.ph85.i, 1
+  %93 = add i8 %.074.ph86.i, 1
   br label %.outer.i
 
 .outer.i:                                         ; preds = %92, %77, %75, %68, %48, %45
-  %.176.i = phi i8 [ %93, %92 ], [ %.075.ph85.i, %75 ], [ %.075.ph85.i, %68 ], [ %.075.ph85.i, %77 ], [ %.075.ph85.i, %48 ], [ %.075.ph85.i, %45 ]
-  %.1.i = phi i32 [ %.074.ph86.i, %92 ], [ 0, %75 ], [ 0, %68 ], [ 1, %77 ], [ %.074.ph86.i, %48 ], [ %.074.ph86.i, %45 ]
+  %.176.i = phi i32 [ %.075.ph85.i, %92 ], [ 0, %75 ], [ 0, %68 ], [ 1, %77 ], [ %.075.ph85.i, %48 ], [ %.075.ph85.i, %45 ]
+  %.1.i = phi i8 [ %93, %92 ], [ %.074.ph86.i, %75 ], [ %.074.ph86.i, %68 ], [ %.074.ph86.i, %77 ], [ %.074.ph86.i, %48 ], [ %.074.ph86.i, %45 ]
   %94 = add i32 %.072.i, 1
   %95 = add i8 %.070.ph87.i, 1
   %96 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %94) #4

@@ -566,8 +566,8 @@ if.then.i:                                        ; preds = %emptybuffer.exit
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end.i14, %if.then.i
-  %toplen.0.i = phi i64 [ %call.i, %if.then.i ], [ %add9.i, %if.end.i14 ]
   %toget.0.i = phi i32 [ 1, %if.then.i ], [ %add.i, %if.end.i14 ]
+  %toplen.0.i = phi i64 [ %call.i, %if.then.i ], [ %add9.i, %if.end.i14 ]
   %sub.i = xor i32 %toget.0.i, -1
   %call2.i = tail call i64 @lua_objlen(ptr noundef %6, i32 noundef %sub.i) #11
   %7 = load i32, ptr %lvl, align 8
@@ -672,8 +672,8 @@ if.then.i:                                        ; preds = %if.then
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end.i5, %if.then.i
-  %toplen.0.i = phi i64 [ %call.i, %if.then.i ], [ %add9.i, %if.end.i5 ]
   %toget.0.i = phi i32 [ 1, %if.then.i ], [ %add.i, %if.end.i5 ]
+  %toplen.0.i = phi i64 [ %call.i, %if.then.i ], [ %add9.i, %if.end.i5 ]
   %sub.i = xor i32 %toget.0.i, -1
   %call2.i = tail call i64 @lua_objlen(ptr noundef %3, i32 noundef %sub.i) #11
   %4 = load i32, ptr %lvl.i, align 8
@@ -763,8 +763,8 @@ if.then.i:                                        ; preds = %if.end
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end.i12, %if.then.i
-  %toplen.0.i = phi i64 [ %call.i, %if.then.i ], [ %add9.i, %if.end.i12 ]
   %toget.0.i = phi i32 [ 1, %if.then.i ], [ %add.i, %if.end.i12 ]
+  %toplen.0.i = phi i64 [ %call.i, %if.then.i ], [ %add9.i, %if.end.i12 ]
   %sub.i = xor i32 %toget.0.i, -1
   %call2.i = call i64 @lua_objlen(ptr noundef %8, i32 noundef %sub.i) #11
   %9 = load i32, ptr %lvl, align 8

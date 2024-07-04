@@ -364,8 +364,8 @@ if.then1:                                         ; preds = %if.end
   br i1 %tobool3.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.then1, %if.end
-  %allocd.addr.0 = phi ptr [ %allocd, %if.end ], [ %call2, %if.then1 ]
   %allocf.addr.0 = phi ptr [ %allocf, %if.end ], [ @lj_alloc_f, %if.then1 ]
+  %allocd.addr.0 = phi ptr [ %allocd, %if.end ], [ %call2, %if.then1 ]
   %call7 = call ptr %allocf.addr.0(ptr noundef %allocd.addr.0, ptr noundef null, i64 noundef 0, i64 noundef 6240) #7
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %return, label %cond.true

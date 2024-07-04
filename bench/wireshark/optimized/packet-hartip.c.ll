@@ -1551,8 +1551,8 @@ dissect_session_init.exit:                        ; preds = %95, %101
   %513 = icmp eq i8 %511, 0
   %514 = icmp eq i32 %.06479.i.i.i, 4
   %or.cond.not76.i.i.i = select i1 %513, i1 true, i1 %514
-  %.not.i95.i.i = icmp ult i32 %510, %512
-  %or.cond71.i.i.i = select i1 %or.cond.not76.i.i.i, i1 true, i1 %.not.i95.i.i
+  %.not.i94.i.i = icmp ult i32 %510, %512
+  %or.cond71.i.i.i = select i1 %or.cond.not76.i.i.i, i1 true, i1 %.not.i94.i.i
   br i1 %or.cond71.i.i.i, label %529, label %515
 
 515:                                              ; preds = %.lr.ph.i.i.i
@@ -1575,8 +1575,8 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %522
 
 522:                                              ; preds = %520, %518, %516
-  %.0.i96.i.i = phi i32 [ %521, %520 ], [ %519, %518 ], [ %517, %516 ]
-  %523 = icmp eq i32 %.0.i96.i.i, 0
+  %.0.i95.i.i = phi i32 [ %521, %520 ], [ %519, %518 ], [ %517, %516 ]
+  %523 = icmp eq i32 %.0.i95.i.i, 0
   br i1 %523, label %.thread.i.i.i, label %526
 
 .thread.i.i.i:                                    ; preds = %522, %515
@@ -1946,10 +1946,10 @@ define internal fastcc range(i32 6, 25) i32 @dissect_packAscii(ptr noundef %0, i
   br label %22
 
 22:                                               ; preds = %.lr.ph, %64
-  %.03948 = phi i32 [ 0, %.lr.ph ], [ %65, %64 ]
-  %.04047 = phi i32 [ 0, %.lr.ph ], [ %50, %64 ]
-  %.04146 = phi i16 [ 0, %.lr.ph ], [ %66, %64 ]
-  %23 = sext i32 %.04047 to i64
+  %.048 = phi i32 [ 0, %.lr.ph ], [ %65, %64 ]
+  %.03947 = phi i32 [ 0, %.lr.ph ], [ %50, %64 ]
+  %.04046 = phi i16 [ 0, %.lr.ph ], [ %66, %64 ]
+  %23 = sext i32 %.03947 to i64
   %24 = getelementptr i8, ptr %9, i64 %23
   %25 = load i8, ptr %24, align 1
   %26 = lshr i8 %25, 2
@@ -1958,7 +1958,7 @@ define internal fastcc range(i32 6, 25) i32 @dissect_packAscii(ptr noundef %0, i
   %28 = zext i8 %25 to i16
   %29 = shl nuw nsw i16 %28, 4
   %30 = and i16 %29, 48
-  %31 = add i32 %.04047, 1
+  %31 = add i32 %.03947, 1
   %32 = sext i32 %31 to i64
   %33 = getelementptr i8, ptr %9, i64 %32
   %34 = load i8, ptr %33, align 1
@@ -1969,7 +1969,7 @@ define internal fastcc range(i32 6, 25) i32 @dissect_packAscii(ptr noundef %0, i
   %38 = zext i8 %34 to i16
   %39 = shl nuw nsw i16 %38, 2
   %40 = and i16 %39, 60
-  %41 = add i32 %.04047, 2
+  %41 = add i32 %.03947, 2
   %42 = sext i32 %41 to i64
   %43 = getelementptr i8, ptr %9, i64 %42
   %44 = load i8, ptr %43, align 1
@@ -1980,17 +1980,17 @@ define internal fastcc range(i32 6, 25) i32 @dissect_packAscii(ptr noundef %0, i
   %48 = and i8 %44, 63
   %49 = zext nneg i8 %48 to i16
   store i16 %49, ptr %20, align 2
-  %50 = add i32 %.04047, 3
-  %51 = sext i32 %.03948 to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %.03948, i32 256)
-  %52 = sub i32 %smax, %.03948
+  %50 = add i32 %.03947, 3
+  %51 = sext i32 %.048 to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %.048, i32 256)
+  %52 = sub i32 %smax, %.048
   %wide.trip.count = zext i32 %52 to i64
   br label %53
 
 53:                                               ; preds = %22, %55
-  %indvars.iv49 = phi i64 [ %51, %22 ], [ %indvars.iv.next50, %55 ]
-  %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %55 ]
-  %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
+  %indvars.iv49 = phi i64 [ 0, %22 ], [ %indvars.iv.next50, %55 ]
+  %indvars.iv = phi i64 [ %51, %22 ], [ %indvars.iv.next, %55 ]
+  %exitcond.not = icmp eq i64 %indvars.iv49, %wide.trip.count
   br i1 %exitcond.not, label %54, label %55
 
 54:                                               ; preds = %53
@@ -1998,34 +1998,34 @@ define internal fastcc range(i32 6, 25) i32 @dissect_packAscii(ptr noundef %0, i
   unreachable
 
 55:                                               ; preds = %53
-  %56 = getelementptr [4 x i16], ptr %6, i64 0, i64 %indvars.iv
+  %56 = getelementptr [4 x i16], ptr %6, i64 0, i64 %indvars.iv49
   %57 = load i16, ptr %56, align 2
   %58 = shl i16 %57, 1
   %59 = and i16 %58, 64
   %60 = xor i16 %59, 64
   %61 = or i16 %60, %57
   %62 = trunc i16 %61 to i8
-  %indvars.iv.next50 = add nsw i64 %indvars.iv49, 1
-  %63 = getelementptr i8, ptr %16, i64 %indvars.iv49
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %63 = getelementptr i8, ptr %16, i64 %indvars.iv
   store i8 %62, ptr %63, align 1
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond52.not = icmp eq i64 %indvars.iv.next, 4
+  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
+  %exitcond52.not = icmp eq i64 %indvars.iv.next50, 4
   br i1 %exitcond52.not, label %64, label %53, !llvm.loop !8
 
 64:                                               ; preds = %55
-  %65 = trunc nsw i64 %indvars.iv.next50 to i32
-  %66 = add nuw i16 %.04146, 1
+  %65 = trunc nsw i64 %indvars.iv.next to i32
+  %66 = add nuw i16 %.04046, 1
   %67 = icmp ult i16 %66, %21
   br i1 %67, label %22, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %64
-  %sext = shl i64 %indvars.iv.next50, 32
+  %sext = shl i64 %indvars.iv.next, 32
   %68 = ashr exact i64 %sext, 32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
-  %.039.lcssa = phi i64 [ 0, %5 ], [ %68, %._crit_edge.loopexit ]
-  %69 = getelementptr i8, ptr %16, i64 %.039.lcssa
+  %.0.lcssa = phi i64 [ 0, %5 ], [ %68, %._crit_edge.loopexit ]
+  %69 = getelementptr i8, ptr %16, i64 %.0.lcssa
   store i8 0, ptr %69, align 1
   %70 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %16) #4
   ret i32 %4

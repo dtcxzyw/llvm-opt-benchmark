@@ -2352,16 +2352,16 @@ _ZN17crossbeam_channel7context7Context4with17hd72a7288512febd9E.exit: ; preds = 
 
 24:                                               ; preds = %.backedge.i, %_ZN17crossbeam_channel7context7Context4with17hd72a7288512febd9E.exit
   %.040.i = phi i32 [ 0, %_ZN17crossbeam_channel7context7Context4with17hd72a7288512febd9E.exit ], [ %.040.be.i, %.backedge.i ]
-  %.015.i = phi i64 [ %22, %_ZN17crossbeam_channel7context7Context4with17hd72a7288512febd9E.exit ], [ %.015.be.i, %.backedge.i ]
+  %.017.i = phi i64 [ %22, %_ZN17crossbeam_channel7context7Context4with17hd72a7288512febd9E.exit ], [ %.017.be.i, %.backedge.i ]
   %.014.in.i = phi i64 [ %23, %_ZN17crossbeam_channel7context7Context4with17hd72a7288512febd9E.exit ], [ %.014.in.be.i, %.backedge.i ]
-  %25 = lshr i64 %.015.i, 1
+  %25 = lshr i64 %.017.i, 1
   %26 = and i64 %25, 31
   %27 = icmp eq i64 %26, 31
   br i1 %27, label %32, label %28
 
 28:                                               ; preds = %24
-  %29 = add i64 %.015.i, 2
-  %30 = and i64 %.015.i, 1
+  %29 = add i64 %.017.i, 2
+  %30 = and i64 %.017.i, 1
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %40, label %49
 
@@ -2381,7 +2381,7 @@ _ZN17crossbeam_channel7context7Context4with17hd72a7288512febd9E.exit: ; preds = 
 
 .backedge.i:                                      ; preds = %_ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit.i, %.thread.i25.i, %.thread.i.i
   %.pn.in.i = phi i1 [ %35, %.thread.i.i ], [ %54, %.thread.i25.i ], [ %65, %_ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit.i ]
-  %.015.be.i = phi i64 [ %36, %.thread.i.i ], [ %55, %.thread.i25.i ], [ %.sroa.07.0.i.i, %_ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit.i ]
+  %.017.be.i = phi i64 [ %36, %.thread.i.i ], [ %55, %.thread.i25.i ], [ %.sroa.07.0.i.i, %_ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit.i ]
   %.014.in.be.i = phi i64 [ %37, %.thread.i.i ], [ %56, %.thread.i25.i ], [ %64, %_ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit.i ]
   %.pn.i = zext i1 %.pn.in.i to i32
   %.040.be.i = add nuw nsw i32 %.040.i, %.pn.i
@@ -2403,7 +2403,7 @@ _ZN17crossbeam_channel7context7Context4with17hd72a7288512febd9E.exit: ; preds = 
   br i1 %43, label %46, label %44
 
 44:                                               ; preds = %40
-  %.not.unshifted.i = xor i64 %41, %.015.i
+  %.not.unshifted.i = xor i64 %41, %.017.i
   %.not.i = icmp ugt i64 %.not.unshifted.i, 63
   %45 = zext i1 %.not.i to i64
   %spec.select.i = or disjoint i64 %29, %45
@@ -2415,7 +2415,7 @@ _ZN17crossbeam_channel7context7Context4with17hd72a7288512febd9E.exit: ; preds = 
   br i1 %48, label %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$10start_recv17h0508251c841fadd5E.exit", label %.thread
 
 49:                                               ; preds = %44, %28
-  %.016.i = phi i64 [ %29, %28 ], [ %spec.select.i, %44 ]
+  %.015.i = phi i64 [ %29, %28 ], [ %spec.select.i, %44 ]
   %50 = icmp eq i64 %.014.in.i, 0
   br i1 %50, label %51, label %59
 
@@ -2442,7 +2442,7 @@ _ZN17crossbeam_channel7context7Context4with17hd72a7288512febd9E.exit: ; preds = 
   br i1 %58, label %.preheader.i26.i, label %.thread.i25.i
 
 59:                                               ; preds = %49
-  %60 = cmpxchg weak ptr %1, i64 %.015.i, i64 %.016.i seq_cst acquire, align 8, !noalias !204
+  %60 = cmpxchg weak ptr %1, i64 %.017.i, i64 %.015.i seq_cst acquire, align 8, !noalias !204
   %.sroa.18.0.in.i.i = extractvalue { i64, i1 } %60, 1
   %.sroa.07.0.i.i = extractvalue { i64, i1 } %60, 0
   br i1 %.sroa.18.0.in.i.i, label %61, label %63
@@ -2503,7 +2503,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit.i: ; preds = 
 .thread38:                                        ; preds = %.thread.i.i.i, %69
   %.lcssa.i.i = phi i64 [ %71, %69 ], [ %77, %.thread.i.i.i ]
   %.0.i.i.i = inttoptr i64 %.lcssa.i.i to ptr
-  %81 = and i64 %.016.i, -2
+  %81 = and i64 %.015.i, -2
   %82 = add i64 %81, 2
   %83 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1984
   %84 = load atomic i64, ptr %83 monotonic, align 8, !noalias !204
@@ -2905,16 +2905,16 @@ _ZN17crossbeam_channel7context7Context4with17h8fa6f2fbf9113addE.exit: ; preds = 
 
 24:                                               ; preds = %.backedge.i, %_ZN17crossbeam_channel7context7Context4with17h8fa6f2fbf9113addE.exit
   %.040.i = phi i32 [ 0, %_ZN17crossbeam_channel7context7Context4with17h8fa6f2fbf9113addE.exit ], [ %.040.be.i, %.backedge.i ]
-  %.015.i = phi i64 [ %22, %_ZN17crossbeam_channel7context7Context4with17h8fa6f2fbf9113addE.exit ], [ %.015.be.i, %.backedge.i ]
+  %.017.i = phi i64 [ %22, %_ZN17crossbeam_channel7context7Context4with17h8fa6f2fbf9113addE.exit ], [ %.017.be.i, %.backedge.i ]
   %.014.in.i = phi i64 [ %23, %_ZN17crossbeam_channel7context7Context4with17h8fa6f2fbf9113addE.exit ], [ %.014.in.be.i, %.backedge.i ]
-  %25 = lshr i64 %.015.i, 1
+  %25 = lshr i64 %.017.i, 1
   %26 = and i64 %25, 31
   %27 = icmp eq i64 %26, 31
   br i1 %27, label %32, label %28
 
 28:                                               ; preds = %24
-  %29 = add i64 %.015.i, 2
-  %30 = and i64 %.015.i, 1
+  %29 = add i64 %.017.i, 2
+  %30 = and i64 %.017.i, 1
   %31 = icmp eq i64 %30, 0
   br i1 %31, label %40, label %49
 
@@ -2934,7 +2934,7 @@ _ZN17crossbeam_channel7context7Context4with17h8fa6f2fbf9113addE.exit: ; preds = 
 
 .backedge.i:                                      ; preds = %_ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit.i, %.thread.i25.i, %.thread.i.i
   %.pn.in.i = phi i1 [ %35, %.thread.i.i ], [ %54, %.thread.i25.i ], [ %65, %_ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit.i ]
-  %.015.be.i = phi i64 [ %36, %.thread.i.i ], [ %55, %.thread.i25.i ], [ %.sroa.07.0.i.i, %_ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit.i ]
+  %.017.be.i = phi i64 [ %36, %.thread.i.i ], [ %55, %.thread.i25.i ], [ %.sroa.07.0.i.i, %_ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit.i ]
   %.014.in.be.i = phi i64 [ %37, %.thread.i.i ], [ %56, %.thread.i25.i ], [ %64, %_ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit.i ]
   %.pn.i = zext i1 %.pn.in.i to i32
   %.040.be.i = add nuw nsw i32 %.040.i, %.pn.i
@@ -2956,7 +2956,7 @@ _ZN17crossbeam_channel7context7Context4with17h8fa6f2fbf9113addE.exit: ; preds = 
   br i1 %43, label %46, label %44
 
 44:                                               ; preds = %40
-  %.not.unshifted.i = xor i64 %41, %.015.i
+  %.not.unshifted.i = xor i64 %41, %.017.i
   %.not.i = icmp ugt i64 %.not.unshifted.i, 63
   %45 = zext i1 %.not.i to i64
   %spec.select.i = or disjoint i64 %29, %45
@@ -2968,7 +2968,7 @@ _ZN17crossbeam_channel7context7Context4with17h8fa6f2fbf9113addE.exit: ; preds = 
   br i1 %48, label %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$10start_recv17hb02a4a68346117cfE.exit", label %.thread
 
 49:                                               ; preds = %44, %28
-  %.016.i = phi i64 [ %29, %28 ], [ %spec.select.i, %44 ]
+  %.015.i = phi i64 [ %29, %28 ], [ %spec.select.i, %44 ]
   %50 = icmp eq i64 %.014.in.i, 0
   br i1 %50, label %51, label %59
 
@@ -2995,7 +2995,7 @@ _ZN17crossbeam_channel7context7Context4with17h8fa6f2fbf9113addE.exit: ; preds = 
   br i1 %58, label %.preheader.i26.i, label %.thread.i25.i
 
 59:                                               ; preds = %49
-  %60 = cmpxchg weak ptr %1, i64 %.015.i, i64 %.016.i seq_cst acquire, align 8, !noalias !295
+  %60 = cmpxchg weak ptr %1, i64 %.017.i, i64 %.015.i seq_cst acquire, align 8, !noalias !295
   %.sroa.18.0.in.i.i = extractvalue { i64, i1 } %60, 1
   %.sroa.07.0.i.i = extractvalue { i64, i1 } %60, 0
   br i1 %.sroa.18.0.in.i.i, label %61, label %63
@@ -3056,7 +3056,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hfa7581fc1bbbad82E.exit.i: ; preds = 
 .thread38:                                        ; preds = %.thread.i.i.i, %69
   %.lcssa.i.i = phi i64 [ %71, %69 ], [ %77, %.thread.i.i.i ]
   %.0.i.i.i = inttoptr i64 %.lcssa.i.i to ptr
-  %81 = and i64 %.016.i, -2
+  %81 = and i64 %.015.i, -2
   %82 = add i64 %81, 2
   %83 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 992
   %84 = load atomic i64, ptr %83 monotonic, align 8, !noalias !295

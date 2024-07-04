@@ -323,7 +323,7 @@ Abc_Clock.exit100:                                ; preds = %122, %125
 
 .critedge:                                        ; preds = %Extra_ProgressBarUpdate.exit, %136, %Abc_Clock.exit98, %67
   %141 = phi i1 [ true, %67 ], [ false, %Abc_Clock.exit98 ], [ true, %136 ], [ true, %Extra_ProgressBarUpdate.exit ]
-  %.071 = phi i32 [ 1, %67 ], [ -1, %Abc_Clock.exit98 ], [ 1, %136 ], [ 1, %Extra_ProgressBarUpdate.exit ]
+  %.0 = phi i32 [ 1, %67 ], [ -1, %Abc_Clock.exit98 ], [ 1, %136 ], [ 1, %Extra_ProgressBarUpdate.exit ]
   call void @Extra_ProgressBarStop(ptr noundef %72) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %142 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #11
@@ -389,8 +389,8 @@ Abc_Clock.exit102:                                ; preds = %.critedge, %144
   br label %164
 
 164:                                              ; preds = %156, %161, %Abc_Clock.exit, %163
-  %.0 = phi i32 [ 0, %163 ], [ 0, %Abc_Clock.exit ], [ %.071, %161 ], [ %.071, %156 ]
-  ret i32 %.0
+  %.072 = phi i32 [ 0, %163 ], [ 0, %Abc_Clock.exit ], [ %.0, %161 ], [ %.0, %156 ]
+  ret i32 %.072
 }
 
 declare i32 @Abc_AigCleanup(ptr noundef) local_unnamed_addr #1

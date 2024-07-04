@@ -27,12 +27,12 @@ define void @graphviz_unflatten(ptr noundef %0, ptr nocapture noundef readonly %
 10:                                               ; preds = %.lr.ph100, %.loopexit
   %.098 = phi ptr [ null, %.lr.ph100 ], [ %.1, %.loopexit ]
   %.05497 = phi i32 [ 0, %.lr.ph100 ], [ %.155, %.loopexit ]
-  %.05696 = phi ptr [ %7, %.lr.ph100 ], [ %149, %.loopexit ]
-  %11 = getelementptr inbounds i8, ptr %.05696, i64 24
+  %.06096 = phi ptr [ %7, %.lr.ph100 ], [ %149, %.loopexit ]
+  %11 = getelementptr inbounds i8, ptr %.06096, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = call i32 @agdegree(ptr noundef %12, ptr noundef nonnull %.05696, i32 noundef 1, i32 noundef 0) #4
+  %13 = call i32 @agdegree(ptr noundef %12, ptr noundef nonnull %.06096, i32 noundef 1, i32 noundef 0) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = call ptr @agfstout(ptr noundef %14, ptr noundef nonnull %.05696) #4
+  %15 = call ptr @agfstout(ptr noundef %14, ptr noundef nonnull %.06096) #4
   %.not15.i = icmp eq ptr %15, null
   br i1 %.not15.i, label %myoutdegree.exit, label %.lr.ph.i
 
@@ -75,13 +75,13 @@ myoutdegree.exit:                                 ; preds = %.lr.ph.i, %10
   br i1 %.not65, label %.loopexit, label %35
 
 35:                                               ; preds = %34
-  %36 = call ptr @agedge(ptr noundef %0, ptr noundef nonnull %.098, ptr noundef nonnull %.05696, ptr noundef nonnull @.str.2, i32 noundef 1) #4
+  %36 = call ptr @agedge(ptr noundef %0, ptr noundef nonnull %.098, ptr noundef nonnull %.06096, ptr noundef nonnull @.str.2, i32 noundef 1) #4
   %37 = call i32 @agxset(ptr noundef %36, ptr noundef %6, ptr noundef nonnull @.str.3) #4
   %38 = add nsw i32 %.05497, 1
   %39 = load i32, ptr %9, align 4
   %40 = icmp slt i32 %38, %39
   %. = select i1 %40, i32 %38, i32 0
-  %.056. = select i1 %40, ptr %.05696, ptr null
+  %.060. = select i1 %40, ptr %.06096, ptr null
   br label %.loopexit
 
 41:                                               ; preds = %myoutdegree.exit
@@ -94,18 +94,18 @@ myoutdegree.exit:                                 ; preds = %.lr.ph.i, %10
   br i1 %45, label %.loopexit, label %46
 
 46:                                               ; preds = %43
-  %47 = call ptr @agfstin(ptr noundef %0, ptr noundef nonnull %.05696) #4
+  %47 = call ptr @agfstin(ptr noundef %0, ptr noundef nonnull %.06096) #4
   %.not6386 = icmp eq ptr %47, null
   br i1 %.not6386, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %46, %85
-  %.05788 = phi i32 [ %.158, %85 ], [ 0, %46 ]
-  %.05987 = phi ptr [ %86, %85 ], [ %47, %46 ]
-  %48 = load i32, ptr %.05987, align 8
+  %.05688 = phi i32 [ %.157, %85 ], [ 0, %46 ]
+  %.05887 = phi ptr [ %86, %85 ], [ %47, %46 ]
+  %48 = load i32, ptr %.05887, align 8
   %49 = and i32 %48, 3
   %50 = icmp eq i32 %49, 3
   %.idx = select i1 %50, i64 0, i64 64
-  %51 = getelementptr inbounds i8, ptr %.05987, i64 %.idx
+  %51 = getelementptr inbounds i8, ptr %.05887, i64 %.idx
   %52 = getelementptr inbounds i8, ptr %51, i64 56
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 24
@@ -146,37 +146,37 @@ isleaf.exit:                                      ; preds = %.lr.ph.i.i, %.lr.ph
   br i1 %73, label %74, label %85
 
 74:                                               ; preds = %isleaf.exit
-  %75 = call ptr @agxget(ptr noundef nonnull %.05987, ptr noundef %5) #4
+  %75 = call ptr @agxget(ptr noundef nonnull %.05887, ptr noundef %5) #4
   %76 = load i8, ptr %75, align 1
   %77 = icmp eq i8 %76, 0
   br i1 %77, label %78, label %85
 
 78:                                               ; preds = %74
   %79 = load i32, ptr %8, align 4
-  %80 = srem i32 %.05788, %79
+  %80 = srem i32 %.05688, %79
   %81 = add nsw i32 %80, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   %82 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 12, ptr noundef nonnull @.str.4, i32 noundef %81) #4
-  %83 = call i32 @agxset(ptr noundef nonnull %.05987, ptr noundef %5, ptr noundef nonnull %4) #4
+  %83 = call i32 @agxset(ptr noundef nonnull %.05887, ptr noundef %5, ptr noundef nonnull %4) #4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  %84 = add nsw i32 %.05788, 1
+  %84 = add nsw i32 %.05688, 1
   br label %85
 
 85:                                               ; preds = %isleaf.exit, %78, %74
-  %.158 = phi i32 [ %84, %78 ], [ %.05788, %74 ], [ %.05788, %isleaf.exit ]
-  %86 = call ptr @agnxtin(ptr noundef %0, ptr noundef nonnull %.05987) #4
+  %.157 = phi i32 [ %84, %78 ], [ %.05688, %74 ], [ %.05688, %isleaf.exit ]
+  %86 = call ptr @agnxtin(ptr noundef %0, ptr noundef nonnull %.05887) #4
   %.not63 = icmp eq ptr %86, null
   br i1 %.not63, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %85, %46
-  %87 = call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.05696) #4
+  %87 = call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.06096) #4
   %.not6489 = icmp eq ptr %87, null
   br i1 %.not6489, label %.loopexit, label %.lr.ph94
 
 .lr.ph94:                                         ; preds = %._crit_edge, %ischainnode.exit.thread
   %.292 = phi i32 [ %.3, %ischainnode.exit.thread ], [ 0, %._crit_edge ]
-  %.16090 = phi ptr [ %148, %ischainnode.exit.thread ], [ %87, %._crit_edge ]
-  %88 = getelementptr inbounds i8, ptr %.16090, i64 56
+  %.15990 = phi ptr [ %148, %ischainnode.exit.thread ], [ %87, %._crit_edge ]
+  %88 = getelementptr inbounds i8, ptr %.15990, i64 56
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 24
   %91 = load ptr, ptr %90, align 8
@@ -262,7 +262,7 @@ ischainnode.exit:                                 ; preds = %.lr.ph.i.i78
   br i1 %135, label %136, label %ischainnode.exit.thread
 
 136:                                              ; preds = %ischainnode.exit, %isleaf.exit76
-  %137 = call ptr @agxget(ptr noundef nonnull %.16090, ptr noundef %5) #4
+  %137 = call ptr @agxget(ptr noundef nonnull %.15990, ptr noundef %5) #4
   %138 = load i8, ptr %137, align 1
   %139 = icmp eq i8 %138, 0
   br i1 %139, label %140, label %146
@@ -273,7 +273,7 @@ ischainnode.exit:                                 ; preds = %.lr.ph.i.i78
   %143 = add nsw i32 %142, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
   %144 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 12, ptr noundef nonnull @.str.4, i32 noundef %143) #4
-  %145 = call i32 @agxset(ptr noundef nonnull %.16090, ptr noundef %5, ptr noundef nonnull %3) #4
+  %145 = call i32 @agxset(ptr noundef nonnull %.15990, ptr noundef %5, ptr noundef nonnull %3) #4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
   br label %146
 
@@ -283,14 +283,14 @@ ischainnode.exit:                                 ; preds = %.lr.ph.i.i78
 
 ischainnode.exit.thread:                          ; preds = %119, %113, %110, %ischainnode.exit, %146
   %.3 = phi i32 [ %147, %146 ], [ %.292, %ischainnode.exit ], [ %.292, %110 ], [ %.292, %113 ], [ %.292, %119 ]
-  %148 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.16090) #4
+  %148 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.15990) #4
   %.not64 = icmp eq ptr %148, null
   br i1 %.not64, label %.loopexit, label %.lr.ph94
 
 .loopexit:                                        ; preds = %ischainnode.exit.thread, %._crit_edge, %34, %35, %41, %43, %31
   %.155 = phi i32 [ %.05497, %31 ], [ %.05497, %43 ], [ %.05497, %41 ], [ %., %35 ], [ %.05497, %34 ], [ %.05497, %._crit_edge ], [ %.05497, %ischainnode.exit.thread ]
-  %.1 = phi ptr [ %.098, %31 ], [ %.098, %43 ], [ %.098, %41 ], [ %.056., %35 ], [ %.05696, %34 ], [ %.098, %._crit_edge ], [ %.098, %ischainnode.exit.thread ]
-  %149 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.05696) #4
+  %.1 = phi ptr [ %.098, %31 ], [ %.098, %43 ], [ %.098, %41 ], [ %.060., %35 ], [ %.06096, %34 ], [ %.098, %._crit_edge ], [ %.098, %ischainnode.exit.thread ]
+  %149 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.06096) #4
   %.not = icmp eq ptr %149, null
   br i1 %.not, label %._crit_edge101, label %10
 

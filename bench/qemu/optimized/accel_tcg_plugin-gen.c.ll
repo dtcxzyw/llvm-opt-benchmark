@@ -652,10 +652,10 @@ for.body.preheader.i.i.i.i:                       ; preds = %if.end.i.i.i.i49.i,
 for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %for.body.preheader.i.i.i.i
   %35 = phi i32 [ %32, %for.body.preheader.i.i.i.i ], [ %61, %for.inc.i.i.i.i ]
   %cb_idx.i.0.i.i.i = phi i32 [ -1, %for.body.preheader.i.i.i.i ], [ %cb_idx.i.1.i.i.i, %for.inc.i.i.i.i ]
-  %op.016.i.i.i.i = phi ptr [ %op.addr.0.lcssa.i.i.i.i.i, %for.body.preheader.i.i.i.i ], [ %op.1.i.i.i.i, %for.inc.i.i.i.i ]
-  %i.015.i.i.i.i = phi i32 [ 0, %for.body.preheader.i.i.i.i ], [ %inc.i.i.i.i, %for.inc.i.i.i.i ]
+  %i.016.i.i.i.i = phi i32 [ 0, %for.body.preheader.i.i.i.i ], [ %inc.i.i.i.i, %for.inc.i.i.i.i ]
+  %op.015.i.i.i.i = phi ptr [ %op.addr.0.lcssa.i.i.i.i.i, %for.body.preheader.i.i.i.i ], [ %op.1.i.i.i.i, %for.inc.i.i.i.i ]
   %36 = load ptr, ptr %31, align 8
-  %idxprom.i.i.i.i = sext i32 %i.015.i.i.i.i to i64
+  %idxprom.i.i.i.i = sext i32 %i.016.i.i.i.i to i64
   %arrayidx.i.i.i.i = getelementptr %struct.qemu_plugin_dyn_cb, ptr %36, i64 %idxprom.i.i.i.i
   %37 = load i64, ptr %arrayidx.i10.i.i.i, align 8
   %conv.i.i.i.i = trunc i64 %37 to i32
@@ -677,7 +677,7 @@ if.end9.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %bf.clear.i.i.i5.i.i.i = and i32 %bf.lshr.i.i.i.i.i.i, 255
   %42 = load ptr, ptr %0, align 8
   %bf.clear2.i.i.i.i.i.i = and i32 %bf.load.i.i.i4.i.i.i, 255
-  %call.i.i.i.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %42, ptr noundef %op.016.i.i.i.i, i32 noundef %bf.clear2.i.i.i.i.i.i, i32 noundef %bf.clear.i.i.i5.i.i.i) #9
+  %call.i.i.i.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %42, ptr noundef %op.015.i.i.i.i, i32 noundef %bf.clear2.i.i.i.i.i.i, i32 noundef %bf.clear.i.i.i5.i.i.i) #9
   %args.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 32
   %args3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %41, i64 32
   %43 = shl nuw nsw i32 %bf.clear.i.i.i5.i.i.i, 3
@@ -793,8 +793,8 @@ append_mem_cb.exit.i.i.i:                         ; preds = %do.body.i.i.i.i.i
 for.inc.i.i.i.i:                                  ; preds = %append_mem_cb.exit.i.i.i, %for.body.i.i.i.i
   %61 = phi i32 [ %.pre.i.i.i, %append_mem_cb.exit.i.i.i ], [ %35, %for.body.i.i.i.i ]
   %cb_idx.i.1.i.i.i = phi i32 [ %add.i.i.i.i.i, %append_mem_cb.exit.i.i.i ], [ %cb_idx.i.0.i.i.i, %for.body.i.i.i.i ]
-  %op.1.i.i.i.i = phi ptr [ %call.i.i29.i.i.i.i, %append_mem_cb.exit.i.i.i ], [ %op.016.i.i.i.i, %for.body.i.i.i.i ]
-  %inc.i.i.i.i = add nuw i32 %i.015.i.i.i.i, 1
+  %op.1.i.i.i.i = phi ptr [ %call.i.i29.i.i.i.i, %append_mem_cb.exit.i.i.i ], [ %op.015.i.i.i.i, %for.body.i.i.i.i ]
+  %inc.i.i.i.i = add nuw i32 %i.016.i.i.i.i, 1
   %cmp6.i.i.i.i = icmp ult i32 %inc.i.i.i.i, %61
   br i1 %cmp6.i.i.i.i, label %for.body.i.i.i.i, label %plugin_gen_mem_regular.exit.i, !llvm.loop !11
 
@@ -1012,10 +1012,10 @@ for.body.preheader.i:                             ; preds = %if.end.i.i, %while.
 
 if.end9.i:                                        ; preds = %for.body.preheader.i, %for.inc.i
   %cb_idx.i.0 = phi i1 [ true, %for.body.preheader.i ], [ false, %for.inc.i ]
-  %op.016.i = phi ptr [ %op.addr.0.lcssa.i.i, %for.body.preheader.i ], [ %call.i.i14.i, %for.inc.i ]
-  %i.015.i = phi i32 [ 0, %for.body.preheader.i ], [ %inc.i, %for.inc.i ]
+  %i.016.i = phi i32 [ 0, %for.body.preheader.i ], [ %inc.i, %for.inc.i ]
+  %op.015.i = phi ptr [ %op.addr.0.lcssa.i.i, %for.body.preheader.i ], [ %call.i.i14.i, %for.inc.i ]
   %5 = load ptr, ptr %cbs, align 8
-  %idxprom.i = sext i32 %i.015.i to i64
+  %idxprom.i = sext i32 %i.016.i to i64
   %arrayidx.i = getelementptr %struct.qemu_plugin_dyn_cb, ptr %5, i64 %idxprom.i
   %userp.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %6 = load ptr, ptr %userp.i, align 8
@@ -1025,7 +1025,7 @@ if.end9.i:                                        ; preds = %for.body.preheader.
   %bf.clear.i.i.i.i = and i32 %bf.lshr.i.i.i.i, 255
   %8 = load ptr, ptr %4, align 8
   %bf.clear2.i.i.i.i = and i32 %bf.load.i.i.i.i, 255
-  %call.i.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %8, ptr noundef nonnull %op.016.i, i32 noundef %bf.clear2.i.i.i.i, i32 noundef %bf.clear.i.i.i.i) #9
+  %call.i.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %8, ptr noundef nonnull %op.015.i, i32 noundef %bf.clear2.i.i.i.i, i32 noundef %bf.clear.i.i.i.i) #9
   %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   %args3.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
   %9 = shl nuw nsw i32 %bf.clear.i.i.i.i, 3
@@ -1115,7 +1115,7 @@ for.inc.i:                                        ; preds = %do.body.i.i
   %idxprom.i.i = zext nneg i32 %add.i.i to i64
   %arrayidx.i20.i = getelementptr [0 x i64], ptr %args.i.i15.i, i64 0, i64 %idxprom.i.i
   store i64 %22, ptr %arrayidx.i20.i, align 8
-  %inc.i = add nuw i32 %i.015.i, 1
+  %inc.i = add nuw i32 %i.016.i, 1
   %23 = load i32, ptr %len.i, align 8
   %cmp6.i = icmp ult i32 %inc.i, %23
   br i1 %cmp6.i, label %if.end9.i, label %inject_cb_type.exit, !llvm.loop !11
@@ -1211,10 +1211,10 @@ for.body.preheader.i:                             ; preds = %if.end.i.i, %while.
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
-  %op.016.i = phi ptr [ %op.1.i, %for.inc.i ], [ %op.addr.0.lcssa.i.i, %for.body.preheader.i ]
-  %i.015.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.body.preheader.i ]
+  %i.016.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.body.preheader.i ]
+  %op.015.i = phi ptr [ %op.1.i, %for.inc.i ], [ %op.addr.0.lcssa.i.i, %for.body.preheader.i ]
   %5 = load ptr, ptr %cbs, align 8
-  %idxprom.i = sext i32 %i.015.i to i64
+  %idxprom.i = sext i32 %i.016.i to i64
   %arrayidx.i = getelementptr %struct.qemu_plugin_dyn_cb, ptr %5, i64 %idxprom.i
   %call7.i = tail call zeroext i1 %ok(ptr noundef %begin_op, ptr noundef %arrayidx.i) #9, !callees !13
   br i1 %call7.i, label %if.end9.i, label %for.inc.i
@@ -1228,7 +1228,7 @@ if.end9.i:                                        ; preds = %for.body.i
   %bf.clear.i.i.i.i = and i32 %bf.lshr.i.i.i.i, 255
   %8 = load ptr, ptr %4, align 8
   %bf.clear2.i.i.i.i = and i32 %bf.load.i.i.i.i, 255
-  %call.i.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %8, ptr noundef %op.016.i, i32 noundef %bf.clear2.i.i.i.i, i32 noundef %bf.clear.i.i.i.i) #9
+  %call.i.i.i.i = tail call ptr @tcg_op_insert_after(ptr noundef %8, ptr noundef %op.015.i, i32 noundef %bf.clear2.i.i.i.i, i32 noundef %bf.clear.i.i.i.i) #9
   %args.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 32
   %args3.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
   %9 = shl nuw nsw i32 %bf.clear.i.i.i.i, 3
@@ -1309,8 +1309,8 @@ if.end9.i:                                        ; preds = %for.body.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end9.i, %for.body.i
-  %op.1.i = phi ptr [ %call.i.i.i41.i, %if.end9.i ], [ %op.016.i, %for.body.i ]
-  %inc.i = add nuw i32 %i.015.i, 1
+  %op.1.i = phi ptr [ %call.i.i.i41.i, %if.end9.i ], [ %op.015.i, %for.body.i ]
+  %inc.i = add nuw i32 %i.016.i, 1
   %27 = load i32, ptr %len.i, align 8
   %cmp6.i = icmp ult i32 %inc.i, %27
   br i1 %cmp6.i, label %for.body.i, label %inject_cb_type.exit, !llvm.loop !11

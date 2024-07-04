@@ -265,29 +265,29 @@ define ptr @yr_parser_lookup_string(ptr noundef %0, ptr noundef %1) local_unname
   br label %8
 
 8:                                                ; preds = %.lr.ph, %21
-  %.01416 = phi ptr [ %5, %.lr.ph ], [ %23, %21 ]
-  %9 = getelementptr inbounds i8, ptr %.01416, i64 8
+  %.016 = phi ptr [ %5, %.lr.ph ], [ %23, %21 ]
+  %9 = getelementptr inbounds i8, ptr %.016, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 4096
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %.critedge
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %.01416, i64 16
+  %13 = getelementptr inbounds i8, ptr %.016, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %1) #7
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %.01416, i64 32
+  %18 = getelementptr inbounds i8, ptr %.016, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %17, %12
   %22 = load ptr, ptr %7, align 8
-  %23 = tail call ptr @yr_arena_next_address(ptr noundef %22, ptr noundef nonnull %.01416, i64 noundef 48) #6
+  %23 = tail call ptr @yr_arena_next_address(ptr noundef %22, ptr noundef nonnull %.016, i64 noundef 48) #6
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.critedge, label %8
 
@@ -299,8 +299,8 @@ define ptr @yr_parser_lookup_string(ptr noundef %0, ptr noundef %1) local_unname
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %.critedge
-  %.0 = phi ptr [ null, %.critedge ], [ %.01416, %17 ]
-  ret ptr %.0
+  %.014 = phi ptr [ null, %.critedge ], [ %.016, %17 ]
+  ret ptr %.014
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -485,8 +485,8 @@ _yr_parser_write_string.exit:                     ; preds = %23
   br label %50
 
 50:                                               ; preds = %44, %_yr_parser_write_string.exit, %_yr_parser_write_string.exit.thread, %43
-  %.0 = phi ptr [ null, %43 ], [ null, %_yr_parser_write_string.exit.thread ], [ null, %_yr_parser_write_string.exit ], [ %49, %44 ]
-  ret ptr %.0
+  %.022 = phi ptr [ null, %43 ], [ null, %_yr_parser_write_string.exit.thread ], [ null, %_yr_parser_write_string.exit ], [ %49, %44 ]
+  ret ptr %.022
 }
 
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
@@ -738,8 +738,8 @@ sub_0:
   %6 = alloca i64, align 8
   %7 = tail call ptr @yara_yyget_extra(ptr noundef %0) #6
   %8 = load i8, ptr %1, align 1
-  %.not35 = icmp eq i8 %8, 36
-  br i1 %.not35, label %.tail, label %.tail.thread
+  %.not34 = icmp eq i8 %8, 36
+  br i1 %.not34, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %9 = getelementptr inbounds i8, ptr %1, i64 1
@@ -797,8 +797,8 @@ yr_parser_emit_with_arg.exit:                     ; preds = %16, %23
   br label %37
 
 37:                                               ; preds = %.lr.ph, %41
-  %.033 = phi ptr [ %34, %.lr.ph ], [ %44, %41 ]
-  %38 = getelementptr inbounds i8, ptr %.033, i64 8
+  %.032 = phi ptr [ %34, %.lr.ph ], [ %44, %41 ]
+  %38 = getelementptr inbounds i8, ptr %.032, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 4096
   %.not = icmp eq i32 %40, 0
@@ -808,7 +808,7 @@ yr_parser_emit_with_arg.exit:                     ; preds = %16, %23
   %42 = and i32 %39, -4609
   store i32 %42, ptr %38, align 8
   %43 = load ptr, ptr %36, align 8
-  %44 = call ptr @yr_arena_next_address(ptr noundef %43, ptr noundef nonnull %.033, i64 noundef 48) #6
+  %44 = call ptr @yr_arena_next_address(ptr noundef %43, ptr noundef nonnull %.032, i64 noundef 48) #6
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.critedge, label %37
 
@@ -829,29 +829,29 @@ yr_parser_emit_with_arg.exit:                     ; preds = %16, %23
   br label %53
 
 53:                                               ; preds = %66, %.lr.ph.i
-  %.01416.i = phi ptr [ %50, %.lr.ph.i ], [ %68, %66 ]
-  %54 = getelementptr inbounds i8, ptr %.01416.i, i64 8
+  %.016.i = phi ptr [ %50, %.lr.ph.i ], [ %68, %66 ]
+  %54 = getelementptr inbounds i8, ptr %.016.i, i64 8
   %55 = load i32, ptr %54, align 8
   %56 = and i32 %55, 4096
   %.not.i = icmp eq i32 %56, 0
   br i1 %.not.i, label %57, label %yr_parser_lookup_string.exit.thread
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %.01416.i, i64 16
+  %58 = getelementptr inbounds i8, ptr %.016.i, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(1) %1) #7
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %.01416.i, i64 32
+  %63 = getelementptr inbounds i8, ptr %.016.i, i64 32
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %yr_parser_lookup_string.exit, label %66
 
 66:                                               ; preds = %62, %57
   %67 = load ptr, ptr %52, align 8
-  %68 = tail call ptr @yr_arena_next_address(ptr noundef %67, ptr noundef nonnull %.01416.i, i64 noundef 48) #6
+  %68 = tail call ptr @yr_arena_next_address(ptr noundef %67, ptr noundef nonnull %.016.i, i64 noundef 48) #6
   %69 = icmp eq ptr %68, null
   br i1 %69, label %yr_parser_lookup_string.exit.thread, label %53
 
@@ -863,8 +863,8 @@ yr_parser_lookup_string.exit.thread:              ; preds = %53, %66, %.tail.thr
   br label %.critedge
 
 yr_parser_lookup_string.exit:                     ; preds = %62
-  %73 = getelementptr inbounds i8, ptr %.01416.i, i64 8
-  %74 = ptrtoint ptr %.01416.i to i64
+  %73 = getelementptr inbounds i8, ptr %.016.i, i64 8
+  %74 = ptrtoint ptr %.016.i to i64
   %75 = tail call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %0, i8 noundef signext 22, i64 noundef %74, ptr noundef null)
   %.not27 = icmp eq i8 %2, 30
   br i1 %.not27, label %79, label %76

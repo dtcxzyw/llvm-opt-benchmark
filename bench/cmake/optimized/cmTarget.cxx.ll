@@ -5991,9 +5991,9 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   br label %95
 
 95:                                               ; preds = %90, %226
-  %.0100.idx282 = phi i64 [ 0, %90 ], [ %.0100.add, %226 ]
-  %.0100.ptr = getelementptr inbounds i8, ptr %22, i64 %.0100.idx282
-  %96 = load ptr, ptr %.0100.ptr, align 8
+  %.0123.idx282 = phi i64 [ 0, %90 ], [ %.0123.add, %226 ]
+  %.0123.ptr = getelementptr inbounds i8, ptr %22, i64 %.0123.idx282
+  %96 = load ptr, ptr %.0123.ptr, align 8
   %97 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
@@ -6426,8 +6426,8 @@ _ZN12_GLOBAL__N_111FileSetType15WritePropertiesI7cmValueEEbP8cmTargetP17cmTarget
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
-  %.0100.add = add nuw nsw i64 %.0100.idx282, 8
-  %.not126 = icmp eq i64 %.0100.add, 16
+  %.0123.add = add nuw nsw i64 %.0123.idx282, 8
+  %.not126 = icmp eq i64 %.0123.add, 16
   br i1 %.not126, label %227, label %95
 
 227:                                              ; preds = %226
@@ -11410,9 +11410,9 @@ _ZN12_GLOBAL__N_124UsageRequirementProperty5WriteI7cmValueEEbPK17cmTargetInterna
   br label %122
 
 122:                                              ; preds = %117, %273
-  %.044.idx89 = phi i64 [ 0, %117 ], [ %.044.add, %273 ]
-  %.044.ptr = getelementptr inbounds i8, ptr %33, i64 %.044.idx89
-  %123 = load ptr, ptr %.044.ptr, align 8
+  %.043.idx89 = phi i64 [ 0, %117 ], [ %.043.add, %273 ]
+  %.043.ptr = getelementptr inbounds i8, ptr %33, i64 %.043.idx89
+  %123 = load ptr, ptr %.043.ptr, align 8
   %124 = load ptr, ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %2)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
@@ -11938,8 +11938,8 @@ _Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit96.i: ; preds =
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #25
-  %.044.add = add nuw nsw i64 %.044.idx89, 8
-  %.not47 = icmp eq i64 %.044.add, 16
+  %.043.add = add nuw nsw i64 %.043.idx89, 8
+  %.not47 = icmp eq i64 %.043.add, 16
   br i1 %.not47, label %274, label %122
 
 274:                                              ; preds = %273
@@ -14094,11 +14094,11 @@ define dso_local void @_ZN8cmTarget32CopyImportedCxxModulesPropertiesEPKS_(ptr n
           to label %.preheader unwind label %.loopexit
 
 .preheader:                                       ; preds = %214, %"_ZZN8cmTarget32CopyImportedCxxModulesPropertiesEPKS_ENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit"
-  %.094.idx164 = phi i64 [ %.094.add, %"_ZZN8cmTarget32CopyImportedCxxModulesPropertiesEPKS_ENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit" ], [ 0, %214 ]
-  %.094.ptr = getelementptr inbounds i8, ptr @_ZZN8cmTarget32CopyImportedCxxModulesPropertiesEPKS_E25perConfigPropertiesToCopy, i64 %.094.idx164
+  %.055.idx164 = phi i64 [ %.055.add, %"_ZZN8cmTarget32CopyImportedCxxModulesPropertiesEPKS_ENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit" ], [ 0, %214 ]
+  %.055.ptr = getelementptr inbounds i8, ptr @_ZZN8cmTarget32CopyImportedCxxModulesPropertiesEPKS_E25perConfigPropertiesToCopy, i64 %.055.idx164
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
-  %.sroa.0.0.copyload.i = load i64, ptr %.094.ptr, align 16, !noalias !245
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.094.ptr, i64 8
+  %.sroa.0.0.copyload.i = load i64, ptr %.055.ptr, align 16, !noalias !245
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.055.ptr, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !245
   store i64 %.sroa.0.0.copyload.i, ptr %3, align 8, !alias.scope !248, !noalias !245
   store ptr %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx.i4.i, align 8, !alias.scope !248, !noalias !245
@@ -14123,8 +14123,8 @@ define dso_local void @_ZN8cmTarget32CopyImportedCxxModulesPropertiesEPKS_(ptr n
 
 "_ZZN8cmTarget32CopyImportedCxxModulesPropertiesEPKS_ENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit": ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #25
-  %.094.add = add nuw nsw i64 %.094.idx164, 16
-  %.not135 = icmp eq i64 %.094.add, 64
+  %.055.add = add nuw nsw i64 %.055.idx164, 16
+  %.not135 = icmp eq i64 %.055.add, 64
   br i1 %.not135, label %224, label %.preheader
 
 .loopexit:                                        ; preds = %214
@@ -16142,9 +16142,9 @@ common.resume:                                    ; preds = %323, %346, %407, %4
   br label %194
 
 194:                                              ; preds = %181, %223
-  %.049.idx117 = phi i64 [ 0, %181 ], [ %.049.add, %223 ]
-  %.049.ptr = getelementptr inbounds i8, ptr %18, i64 %.049.idx117
-  %195 = load ptr, ptr %.049.ptr, align 8
+  %.050.idx117 = phi i64 [ 0, %181 ], [ %.050.add, %223 ]
+  %.050.ptr = getelementptr inbounds i8, ptr %18, i64 %.050.idx117
+  %195 = load ptr, ptr %.050.ptr, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   %196 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
   %197 = extractvalue { i64, ptr } %196, 0
@@ -16216,8 +16216,8 @@ _ZN6cmList9to_stringISt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 
 223:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %194
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
-  %.049.add = add nuw nsw i64 %.049.idx117, 8
-  %.not54 = icmp eq i64 %.049.add, 136
+  %.050.add = add nuw nsw i64 %.050.idx117, 8
+  %.not54 = icmp eq i64 %.050.add, 136
   br i1 %.not54, label %224, label %194
 
 224:                                              ; preds = %223
@@ -16356,9 +16356,9 @@ _ZN6cmList9to_stringISt6vectorI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br label %299
 
 299:                                              ; preds = %294, %425
-  %.050.idx118 = phi i64 [ 0, %294 ], [ %.050.add, %425 ]
-  %.050.ptr = getelementptr inbounds i8, ptr %24, i64 %.050.idx118
-  %300 = load ptr, ptr %.050.ptr, align 8
+  %.049.idx118 = phi i64 [ 0, %294 ], [ %.049.add, %425 ]
+  %.049.ptr = getelementptr inbounds i8, ptr %24, i64 %.049.idx118
+  %300 = load ptr, ptr %.049.ptr, align 8
   %301 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
@@ -16726,8 +16726,8 @@ _Z11cmHasPrefixSt17basic_string_viewIcSt11char_traitsIcEES2_.exit87.i: ; preds =
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
-  %.050.add = add nuw nsw i64 %.050.idx118, 8
-  %.not55 = icmp eq i64 %.050.add, 16
+  %.049.add = add nuw nsw i64 %.049.idx118, 8
+  %.not55 = icmp eq i64 %.049.add, 16
   br i1 %.not55, label %426, label %299
 
 426:                                              ; preds = %425

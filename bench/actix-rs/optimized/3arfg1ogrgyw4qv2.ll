@@ -3864,8 +3864,8 @@ define hidden void @"_ZN96_$LT$actix_http..encoding..decoder..Decoder$LT$S$GT$$u
   br label %37
 
 37:                                               ; preds = %173, %3
-  %.sroa.12.sroa.0.0 = phi i64 [ undef, %3 ], [ %.sroa.12.sroa.0.1, %173 ]
   %.sroa.12.sroa.7.0 = phi i64 [ undef, %3 ], [ %.sroa.12.sroa.7.1, %173 ]
+  %.sroa.12.sroa.0.0 = phi i64 [ undef, %3 ], [ %.sroa.12.sroa.0.1, %173 ]
   %.sroa.12169.0 = phi i64 [ undef, %3 ], [ %.sroa.12169.1, %173 ]
   %38 = load ptr, ptr %26, align 8, !noundef !11
   %.not = icmp eq ptr %38, null
@@ -4004,8 +4004,8 @@ common.resume:                                    ; preds = %132, %198, %104, %1
   br i1 %.not.i, label %.loopexit, label %72
 
 69:                                               ; preds = %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hed795f86e18863ffE.llvm.926505738866763462.exit154", %37
-  %.sroa.12.sroa.0.1 = phi i64 [ %.sroa.12.sroa.0.0, %37 ], [ %.sroa.0170.sroa.6.sroa.0.0.copyload, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hed795f86e18863ffE.llvm.926505738866763462.exit154" ]
   %.sroa.12.sroa.7.1 = phi i64 [ %.sroa.12.sroa.7.0, %37 ], [ %.sroa.0170.sroa.6.sroa.5.0.copyload, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hed795f86e18863ffE.llvm.926505738866763462.exit154" ]
+  %.sroa.12.sroa.0.1 = phi i64 [ %.sroa.12.sroa.0.0, %37 ], [ %.sroa.0170.sroa.6.sroa.0.0.copyload, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hed795f86e18863ffE.llvm.926505738866763462.exit154" ]
   %.sroa.12169.1 = phi i64 [ %.sroa.12169.0, %37 ], [ %63, %"_ZN4core3ptr68drop_in_place$LT$core..option..Option$LT$bytes..bytes..Bytes$GT$$GT$17hed795f86e18863ffE.llvm.926505738866763462.exit154" ]
   %70 = load i8, ptr %25, align 8, !range !314, !noundef !11
   %71 = trunc nuw i8 %70 to i1
@@ -5749,11 +5749,11 @@ define void @_ZN9actix_web4http6header15accept_language14AcceptLanguage10prefere
   %13 = phi i64 [ -9223372036854775807, %.lr.ph ], [ %20, %.critedge ]
   %.052 = phi i16 [ 0, %.lr.ph ], [ %.1, %.critedge ]
   %.sroa.5.sroa.9.051 = phi i64 [ undef, %.lr.ph ], [ %.sroa.5.sroa.9.1, %.critedge ]
-  %.sroa.5.sroa.8.050 = phi i64 [ undef, %.lr.ph ], [ %.sroa.5.sroa.8.1, %.critedge ]
-  %.sroa.5.sroa.7.049 = phi i64 [ undef, %.lr.ph ], [ %.sroa.5.sroa.7.1, %.critedge ]
+  %.sroa.5.sroa.4.050 = phi i64 [ undef, %.lr.ph ], [ %.sroa.5.sroa.4.1, %.critedge ]
+  %.sroa.5.sroa.5.049 = phi i64 [ undef, %.lr.ph ], [ %.sroa.5.sroa.5.1, %.critedge ]
   %.sroa.5.sroa.6.048 = phi i64 [ undef, %.lr.ph ], [ %.sroa.5.sroa.6.1, %.critedge ]
-  %.sroa.5.sroa.5.047 = phi i64 [ undef, %.lr.ph ], [ %.sroa.5.sroa.5.1, %.critedge ]
-  %.sroa.5.sroa.4.046 = phi i64 [ undef, %.lr.ph ], [ %.sroa.5.sroa.4.1, %.critedge ]
+  %.sroa.5.sroa.7.047 = phi i64 [ undef, %.lr.ph ], [ %.sroa.5.sroa.7.1, %.critedge ]
+  %.sroa.5.sroa.8.046 = phi i64 [ undef, %.lr.ph ], [ %.sroa.5.sroa.8.1, %.critedge ]
   %.sroa.0.03545 = phi ptr [ %.val, %.lr.ph ], [ %14, %.critedge ]
   %14 = getelementptr inbounds i8, ptr %.sroa.0.03545, i64 80
   %15 = getelementptr inbounds i8, ptr %.sroa.0.03545, i64 72
@@ -5780,11 +5780,11 @@ define void @_ZN9actix_web4http6header15accept_language14AcceptLanguage10prefere
 
 .critedge:                                        ; preds = %12, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$language_tags..LanguageTag$GT$$GT$$GT$17h88c836ce1e74f763E.exit"
   %20 = phi i64 [ %.sroa.0.0, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$language_tags..LanguageTag$GT$$GT$$GT$17h88c836ce1e74f763E.exit" ], [ %13, %12 ]
-  %.sroa.5.sroa.4.1 = phi i64 [ %.sroa.5.sroa.4.2, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$language_tags..LanguageTag$GT$$GT$$GT$17h88c836ce1e74f763E.exit" ], [ %.sroa.5.sroa.4.046, %12 ]
-  %.sroa.5.sroa.5.1 = phi i64 [ %.sroa.5.sroa.5.2, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$language_tags..LanguageTag$GT$$GT$$GT$17h88c836ce1e74f763E.exit" ], [ %.sroa.5.sroa.5.047, %12 ]
+  %.sroa.5.sroa.8.1 = phi i64 [ %.sroa.5.sroa.8.2, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$language_tags..LanguageTag$GT$$GT$$GT$17h88c836ce1e74f763E.exit" ], [ %.sroa.5.sroa.8.046, %12 ]
+  %.sroa.5.sroa.7.1 = phi i64 [ %.sroa.5.sroa.7.2, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$language_tags..LanguageTag$GT$$GT$$GT$17h88c836ce1e74f763E.exit" ], [ %.sroa.5.sroa.7.047, %12 ]
   %.sroa.5.sroa.6.1 = phi i64 [ %.sroa.5.sroa.6.2, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$language_tags..LanguageTag$GT$$GT$$GT$17h88c836ce1e74f763E.exit" ], [ %.sroa.5.sroa.6.048, %12 ]
-  %.sroa.5.sroa.7.1 = phi i64 [ %.sroa.5.sroa.7.2, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$language_tags..LanguageTag$GT$$GT$$GT$17h88c836ce1e74f763E.exit" ], [ %.sroa.5.sroa.7.049, %12 ]
-  %.sroa.5.sroa.8.1 = phi i64 [ %.sroa.5.sroa.8.2, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$language_tags..LanguageTag$GT$$GT$$GT$17h88c836ce1e74f763E.exit" ], [ %.sroa.5.sroa.8.050, %12 ]
+  %.sroa.5.sroa.5.1 = phi i64 [ %.sroa.5.sroa.5.2, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$language_tags..LanguageTag$GT$$GT$$GT$17h88c836ce1e74f763E.exit" ], [ %.sroa.5.sroa.5.049, %12 ]
+  %.sroa.5.sroa.4.1 = phi i64 [ %.sroa.5.sroa.4.2, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$language_tags..LanguageTag$GT$$GT$$GT$17h88c836ce1e74f763E.exit" ], [ %.sroa.5.sroa.4.050, %12 ]
   %.sroa.5.sroa.9.1 = phi i64 [ %.sroa.5.sroa.9.2, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$language_tags..LanguageTag$GT$$GT$$GT$17h88c836ce1e74f763E.exit" ], [ %.sroa.5.sroa.9.051, %12 ]
   %.1 = phi i16 [ %16, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$language_tags..LanguageTag$GT$$GT$$GT$17h88c836ce1e74f763E.exit" ], [ %.052, %12 ]
   %21 = icmp eq ptr %14, %8
@@ -5802,11 +5802,11 @@ define void @_ZN9actix_web4http6header15accept_language14AcceptLanguage10prefere
 
 24:                                               ; preds = %17, %33
   %25 = phi i64 [ %.pre, %33 ], [ %13, %17 ]
-  %.sroa.5.sroa.4.2 = phi i64 [ %35, %33 ], [ %.sroa.5.sroa.4.046, %17 ]
-  %.sroa.5.sroa.5.2 = phi i64 [ %37, %33 ], [ %.sroa.5.sroa.5.047, %17 ]
+  %.sroa.5.sroa.8.2 = phi i64 [ %43, %33 ], [ %.sroa.5.sroa.8.046, %17 ]
+  %.sroa.5.sroa.7.2 = phi i64 [ %41, %33 ], [ %.sroa.5.sroa.7.047, %17 ]
   %.sroa.5.sroa.6.2 = phi i64 [ %39, %33 ], [ %.sroa.5.sroa.6.048, %17 ]
-  %.sroa.5.sroa.7.2 = phi i64 [ %41, %33 ], [ %.sroa.5.sroa.7.049, %17 ]
-  %.sroa.5.sroa.8.2 = phi i64 [ %43, %33 ], [ %.sroa.5.sroa.8.050, %17 ]
+  %.sroa.5.sroa.5.2 = phi i64 [ %37, %33 ], [ %.sroa.5.sroa.5.049, %17 ]
+  %.sroa.5.sroa.4.2 = phi i64 [ %35, %33 ], [ %.sroa.5.sroa.4.050, %17 ]
   %.sroa.5.sroa.9.2 = phi i64 [ %45, %33 ], [ %.sroa.5.sroa.9.051, %17 ]
   %.sroa.0.0 = phi i64 [ %.sroa.016.0.copyload, %33 ], [ -9223372036854775808, %17 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.56.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.sroa.0, i64 16, i1 false)

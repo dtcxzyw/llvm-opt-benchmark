@@ -174,8 +174,8 @@ szddd_read_headers.exit:                          ; preds = %14, %21, %24, %32, 
   br label %56
 
 56:                                               ; preds = %47, %53, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %53 ], [ %11, %47 ]
-  ret ptr %.0
+  %.029 = phi ptr [ null, %2 ], [ null, %53 ], [ %11, %47 ]
+  ret ptr %.029
 }
 
 ; Function Attrs: nounwind uwtable

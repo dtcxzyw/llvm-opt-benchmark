@@ -54,20 +54,20 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   br label %13
 
 13:                                               ; preds = %10, %11, %12
-  %.0131 = phi ptr [ null, %10 ], [ %8, %11 ], [ %5, %12 ]
+  %.0129 = phi ptr [ null, %10 ], [ %8, %11 ], [ %5, %12 ]
   br label %14
 
 14:                                               ; preds = %14, %13
-  %.0126 = phi ptr [ %4, %13 ], [ %17, %14 ]
-  %15 = load i8, ptr %.0126, align 1
+  %.0133 = phi ptr [ %4, %13 ], [ %17, %14 ]
+  %15 = load i8, ptr %.0133, align 1
   %16 = icmp eq i8 %15, 32
-  %17 = getelementptr i8, ptr %.0126, i64 1
+  %17 = getelementptr i8, ptr %.0133, i64 1
   br i1 %16, label %14, label %.preheader182, !llvm.loop !4
 
 .preheader182:                                    ; preds = %14
-  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0126) #8
+  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0133) #8
   %19 = add i64 %18, -1
-  %20 = getelementptr i8, ptr %.0126, i64 %19
+  %20 = getelementptr i8, ptr %.0133, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 32
   br i1 %22, label %.lr.ph, label %._crit_edge
@@ -75,15 +75,15 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
 .lr.ph:                                           ; preds = %.preheader182, %.lr.ph
   %23 = phi ptr [ %26, %.lr.ph ], [ %20, %.preheader182 ]
   store i8 0, ptr %23, align 1
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0126) #8
+  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0133) #8
   %25 = add i64 %24, -1
-  %26 = getelementptr i8, ptr %.0126, i64 %25
+  %26 = getelementptr i8, ptr %.0133, i64 %25
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 32
   br i1 %28, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load i8, ptr %.0126, align 1
+  %.pre = load i8, ptr %.0133, align 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader182
@@ -96,12 +96,12 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   br label %.thread167
 
 31:                                               ; preds = %._crit_edge
-  %32 = tail call ptr @find_dissector_table(ptr noundef nonnull %.0126) #7
+  %32 = tail call ptr @find_dissector_table(ptr noundef nonnull %.0133) #7
   %.not153 = icmp eq ptr %32, null
   br i1 %.not153, label %33, label %35
 
 33:                                               ; preds = %31
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.3, ptr noundef nonnull %.0126) #7
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.3, ptr noundef nonnull %.0133) #7
   br label %.thread167
 
 .thread167:                                       ; preds = %30, %33
@@ -112,7 +112,7 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   br label %36
 
 35:                                               ; preds = %31
-  %.not179 = icmp eq ptr %.0131, null
+  %.not179 = icmp eq ptr %.0129, null
   br i1 %.not179, label %36, label %37
 
 36:                                               ; preds = %.thread167, %35
@@ -120,18 +120,18 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   br label %146
 
 37:                                               ; preds = %35
-  %38 = tail call i32 @get_dissector_table_selector_type(ptr noundef nonnull %.0126) #7
+  %38 = tail call i32 @get_dissector_table_selector_type(ptr noundef nonnull %.0133) #7
   %.not154 = icmp eq i32 %38, 0
   br i1 %.not154, label %.preheader181.preheader, label %39
 
 39:                                               ; preds = %37
-  %40 = getelementptr i8, ptr %.0131, i64 1
+  %40 = getelementptr i8, ptr %.0129, i64 1
   %41 = load i8, ptr %40, align 1
   %.not155 = icmp eq i8 %41, 61
   br i1 %.not155, label %43, label %42
 
 42:                                               ; preds = %39
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.5, ptr noundef nonnull %.0126, ptr noundef nonnull %40) #7
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.5, ptr noundef nonnull %.0133, ptr noundef nonnull %40) #7
   br label %44
 
 43:                                               ; preds = %39
@@ -139,8 +139,8 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   br label %44
 
 44:                                               ; preds = %43, %42
-  %.1132 = phi ptr [ %.0131, %42 ], [ %40, %43 ]
-  %45 = getelementptr i8, ptr %.1132, i64 1
+  %.1130 = phi ptr [ %.0129, %42 ], [ %40, %43 ]
+  %45 = getelementptr i8, ptr %.1130, i64 1
   %46 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %45, i32 noundef 44) #8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %49
@@ -171,20 +171,20 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   br label %53
 
 53:                                               ; preds = %53, %51
-  %.0123 = phi ptr [ %45, %51 ], [ %59, %53 ]
-  %54 = load i8, ptr %.0123, align 1
+  %.0 = phi ptr [ %45, %51 ], [ %59, %53 ]
+  %54 = load i8, ptr %.0, align 1
   %55 = zext i8 %54 to i64
   %56 = getelementptr i16, ptr %52, i64 %55
   %57 = load i16, ptr %56, align 2
   %58 = and i16 %57, 256
   %.not156 = icmp eq i16 %58, 0
-  %59 = getelementptr i8, ptr %.0123, i64 1
+  %59 = getelementptr i8, ptr %.0, i64 1
   br i1 %.not156, label %60, label %53, !llvm.loop !7
 
 60:                                               ; preds = %53
-  %61 = call i64 @g_ascii_strtoull(ptr noundef nonnull %.0123, ptr noundef nonnull %3, i32 noundef 0) #7
+  %61 = call i64 @g_ascii_strtoull(ptr noundef nonnull %.0, ptr noundef nonnull %3, i32 noundef 0) #7
   %62 = load ptr, ptr %3, align 8
-  %63 = icmp eq ptr %.0123, %62
+  %63 = icmp eq ptr %.0, %62
   %64 = icmp ugt i64 %61, 4294967295
   %or.cond3 = select i1 %63, i1 true, i1 %64
   br i1 %or.cond3, label %65, label %66
@@ -261,37 +261,37 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   unreachable
 
 .thread170:                                       ; preds = %66, %50, %50, %50, %50, %50, %83, %88
-  %.0134 = phi i32 [ 0, %50 ], [ 0, %50 ], [ 0, %50 ], [ 0, %50 ], [ 0, %50 ], [ %79, %83 ], [ %79, %88 ], [ 0, %66 ]
-  %.0133 = phi i32 [ 0, %50 ], [ 0, %50 ], [ 0, %50 ], [ 0, %50 ], [ 0, %50 ], [ %67, %83 ], [ %67, %88 ], [ %67, %66 ]
-  %.0124 = phi i8 [ 0, %50 ], [ 0, %50 ], [ 0, %50 ], [ 0, %50 ], [ 0, %50 ], [ 58, %83 ], [ %68, %88 ], [ %68, %66 ]
+  %.0132 = phi i32 [ 0, %50 ], [ 0, %50 ], [ 0, %50 ], [ 0, %50 ], [ 0, %50 ], [ %67, %83 ], [ %67, %88 ], [ %67, %66 ]
+  %.0131 = phi i32 [ 0, %50 ], [ 0, %50 ], [ 0, %50 ], [ 0, %50 ], [ 0, %50 ], [ %79, %83 ], [ %79, %88 ], [ 0, %66 ]
+  %.0123 = phi i8 [ 0, %50 ], [ 0, %50 ], [ 0, %50 ], [ 0, %50 ], [ 0, %50 ], [ 58, %83 ], [ %68, %88 ], [ %68, %66 ]
   %93 = icmp eq ptr %46, null
   br i1 %93, label %94, label %.preheader181.preheader
 
 .preheader181.preheader:                          ; preds = %37, %.thread170
-  %.0124204 = phi i8 [ %.0124, %.thread170 ], [ 0, %37 ]
-  %.0133203 = phi i32 [ %.0133, %.thread170 ], [ 0, %37 ]
-  %.0134202 = phi i32 [ %.0134, %.thread170 ], [ 0, %37 ]
-  %.2173201 = phi ptr [ %46, %.thread170 ], [ %.0131, %37 ]
-  %.0130174200 = phi ptr [ %45, %.thread170 ], [ null, %37 ]
+  %.0123204 = phi i8 [ %.0123, %.thread170 ], [ 0, %37 ]
+  %.0131203 = phi i32 [ %.0131, %.thread170 ], [ 0, %37 ]
+  %.0132202 = phi i32 [ %.0132, %.thread170 ], [ 0, %37 ]
+  %.2173201 = phi ptr [ %46, %.thread170 ], [ %.0129, %37 ]
+  %.0128174200 = phi ptr [ %45, %.thread170 ], [ null, %37 ]
   br label %.preheader181
 
 94:                                               ; preds = %.thread170
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.11, ptr noundef nonnull %.0126) #7
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.11, ptr noundef nonnull %.0133) #7
   %95 = load ptr, ptr @stderr, align 8
   store ptr null, ptr @prev_display_dissector_name, align 8
-  call void @dissector_table_foreach_handle(ptr noundef nonnull %.0126, ptr noundef nonnull @display_dissector_names, ptr noundef %95) #7
+  call void @dissector_table_foreach_handle(ptr noundef nonnull %.0133, ptr noundef nonnull @display_dissector_names, ptr noundef %95) #7
   call void @g_free(ptr noundef %4) #7
   br label %146
 
 .preheader181:                                    ; preds = %.preheader181.preheader, %.preheader181
-  %.2.pn = phi ptr [ %.0129, %.preheader181 ], [ %.2173201, %.preheader181.preheader ]
-  %.0129 = getelementptr i8, ptr %.2.pn, i64 1
-  %96 = load i8, ptr %.0129, align 1
+  %.2.pn = phi ptr [ %.0127, %.preheader181 ], [ %.2173201, %.preheader181.preheader ]
+  %.0127 = getelementptr i8, ptr %.2.pn, i64 1
+  %96 = load i8, ptr %.0127, align 1
   %97 = icmp eq i8 %96, 32
   br i1 %97, label %.preheader181, label %.preheader, !llvm.loop !8
 
 .preheader:                                       ; preds = %.preheader181
-  %98 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0129) #8
+  %98 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0127) #8
   %99 = getelementptr i8, ptr %.2.pn, i64 %98
   %100 = load i8, ptr %99, align 1
   %101 = icmp eq i8 %100, 32
@@ -300,14 +300,14 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
 .lr.ph183:                                        ; preds = %.preheader, %.lr.ph183
   %102 = phi ptr [ %104, %.lr.ph183 ], [ %99, %.preheader ]
   store i8 0, ptr %102, align 1
-  %103 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0129) #8
+  %103 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0127) #8
   %104 = getelementptr i8, ptr %.2.pn, i64 %103
   %105 = load i8, ptr %104, align 1
   %106 = icmp eq i8 %105, 32
   br i1 %106, label %.lr.ph183, label %._crit_edge184.loopexit, !llvm.loop !9
 
 ._crit_edge184.loopexit:                          ; preds = %.lr.ph183
-  %.pre194 = load i8, ptr %.0129, align 1
+  %.pre194 = load i8, ptr %.0127, align 1
   br label %._crit_edge184
 
 ._crit_edge184:                                   ; preds = %._crit_edge184.loopexit, %.preheader
@@ -320,7 +320,7 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   br label %.thread176
 
 109:                                              ; preds = %._crit_edge184
-  %110 = call ptr @proto_registrar_get_byalias(ptr noundef nonnull %.0129) #7
+  %110 = call ptr @proto_registrar_get_byalias(ptr noundef nonnull %.0127) #7
   %111 = getelementptr inbounds i8, ptr %2, i64 16
   store i32 0, ptr %111, align 8
   %.not159 = icmp eq ptr %110, null
@@ -332,11 +332,11 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   br label %115
 
 115:                                              ; preds = %109, %112
-  %storemerge = phi ptr [ %114, %112 ], [ %.0129, %109 ]
+  %storemerge = phi ptr [ %114, %112 ], [ %.0127, %109 ]
   store ptr %storemerge, ptr %2, align 8
   %116 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr null, ptr %116, align 8
-  call void @dissector_table_foreach_handle(ptr noundef nonnull %.0126, ptr noundef nonnull @find_protocol_name_func, ptr noundef nonnull %2) #7
+  call void @dissector_table_foreach_handle(ptr noundef nonnull %.0133, ptr noundef nonnull @find_protocol_name_func, ptr noundef nonnull %2) #7
   %117 = load i32, ptr %111, align 8
   %.not160 = icmp eq i32 %117, 0
   br i1 %.not160, label %121, label %118
@@ -347,20 +347,20 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   br i1 %.not161, label %126, label %120
 
 120:                                              ; preds = %118
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.13, ptr noundef nonnull %.0129, i32 noundef %117) #7
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.13, ptr noundef nonnull %.0127, i32 noundef %117) #7
   br label %126
 
 121:                                              ; preds = %115
-  %122 = call i32 @proto_get_id_by_filter_name(ptr noundef nonnull %.0129) #7
+  %122 = call i32 @proto_get_id_by_filter_name(ptr noundef nonnull %.0127) #7
   %123 = icmp eq i32 %122, -1
   br i1 %123, label %124, label %125
 
 124:                                              ; preds = %121
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.14, ptr noundef nonnull %.0129) #7
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.14, ptr noundef nonnull %.0127) #7
   br label %.thread176
 
 125:                                              ; preds = %121
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.15, ptr noundef nonnull %.0129, ptr noundef nonnull %.0126) #7
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.15, ptr noundef nonnull %.0127, ptr noundef nonnull %.0133) #7
   br label %.thread176
 
 126:                                              ; preds = %120, %118
@@ -368,10 +368,10 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   br i1 %.not162, label %.thread176, label %128
 
 .thread176:                                       ; preds = %108, %125, %124, %126
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.11, ptr noundef nonnull %.0126) #7
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.11, ptr noundef nonnull %.0133) #7
   %127 = load ptr, ptr @stderr, align 8
   store ptr null, ptr @prev_display_dissector_name, align 8
-  call void @dissector_table_foreach_handle(ptr noundef nonnull %.0126, ptr noundef nonnull @display_dissector_names, ptr noundef %127) #7
+  call void @dissector_table_foreach_handle(ptr noundef nonnull %.0133, ptr noundef nonnull @display_dissector_names, ptr noundef %127) #7
   call void @g_free(ptr noundef %4) #7
   br label %146
 
@@ -390,53 +390,53 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   ]
 
 129:                                              ; preds = %128, %128, %128, %128
-  switch i8 %.0124204, label %138 [
+  switch i8 %.0123204, label %138 [
     i8 0, label %130
     i8 58, label %131
   ]
 
 130:                                              ; preds = %129
-  call void @dissector_change_uint(ptr noundef nonnull %.0126, i32 noundef %.0133203, ptr noundef nonnull %119) #7
+  call void @dissector_change_uint(ptr noundef nonnull %.0133, i32 noundef %.0132202, ptr noundef nonnull %119) #7
   br label %.loopexit
 
 131:                                              ; preds = %129
-  %132 = zext i32 %.0133203 to i64
-  %133 = zext i32 %.0134202 to i64
-  %134 = add nuw nsw i64 %132, %133
-  %.not192 = icmp eq i32 %.0134202, 0
+  %132 = zext i32 %.0132202 to i64
+  %133 = zext i32 %.0131203 to i64
+  %134 = add nuw nsw i64 %133, %132
+  %.not192 = icmp eq i32 %.0131203, 0
   br i1 %.not192, label %.loopexit, label %.lr.ph187
 
 .lr.ph187:                                        ; preds = %131, %.lr.ph187
-  %.0125185 = phi i64 [ %136, %.lr.ph187 ], [ %132, %131 ]
-  %135 = trunc i64 %.0125185 to i32
-  call void @dissector_change_uint(ptr noundef nonnull %.0126, i32 noundef %135, ptr noundef nonnull %119) #7
-  %136 = add nuw nsw i64 %.0125185, 1
+  %.0124185 = phi i64 [ %136, %.lr.ph187 ], [ %132, %131 ]
+  %135 = trunc i64 %.0124185 to i32
+  call void @dissector_change_uint(ptr noundef nonnull %.0133, i32 noundef %135, ptr noundef nonnull %119) #7
+  %136 = add nuw nsw i64 %.0124185, 1
   %137 = icmp ult i64 %136, %134
   br i1 %137, label %.lr.ph187, label %.loopexit, !llvm.loop !10
 
 138:                                              ; preds = %129
-  %.not163188 = icmp ugt i32 %.0133203, %.0134202
+  %.not163188 = icmp ugt i32 %.0132202, %.0131203
   br i1 %.not163188, label %.loopexit, label %.lr.ph191.preheader
 
 .lr.ph191.preheader:                              ; preds = %138
-  %139 = zext i32 %.0134202 to i64
-  %140 = zext i32 %.0133203 to i64
+  %139 = zext i32 %.0131203 to i64
+  %140 = zext i32 %.0132202 to i64
   br label %.lr.ph191
 
 .lr.ph191:                                        ; preds = %.lr.ph191.preheader, %.lr.ph191
   %.1189 = phi i64 [ %142, %.lr.ph191 ], [ %140, %.lr.ph191.preheader ]
   %141 = trunc nuw i64 %.1189 to i32
-  call void @dissector_change_uint(ptr noundef nonnull %.0126, i32 noundef %141, ptr noundef nonnull %119) #7
+  call void @dissector_change_uint(ptr noundef nonnull %.0133, i32 noundef %141, ptr noundef nonnull %119) #7
   %142 = add nuw nsw i64 %.1189, 1
   %exitcond.not = icmp eq i64 %.1189, %139
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph191, !llvm.loop !11
 
 143:                                              ; preds = %128, %128, %128, %128, %128
-  call void @dissector_change_string(ptr noundef nonnull %.0126, ptr noundef %.0130174200, ptr noundef nonnull %119) #7
+  call void @dissector_change_string(ptr noundef nonnull %.0133, ptr noundef %.0128174200, ptr noundef nonnull %119) #7
   br label %.loopexit
 
 144:                                              ; preds = %128
-  call void @dissector_change_payload(ptr noundef nonnull %.0126, ptr noundef nonnull %119) #7
+  call void @dissector_change_payload(ptr noundef nonnull %.0133, ptr noundef nonnull %119) #7
   br label %.loopexit
 
 145:                                              ; preds = %128
@@ -448,8 +448,8 @@ define hidden range(i32 0, 2) i32 @decode_as_command_option(ptr noundef %0) loca
   br label %146
 
 146:                                              ; preds = %.loopexit, %.thread176, %94, %91, %90, %87, %77, %65, %36
-  %.0 = phi i32 [ 0, %94 ], [ 1, %.loopexit ], [ 0, %.thread176 ], [ 0, %65 ], [ 0, %77 ], [ 0, %87 ], [ 0, %90 ], [ 0, %91 ], [ 0, %36 ]
-  ret i32 %.0
+  %.0134 = phi i32 [ 0, %94 ], [ 1, %.loopexit ], [ 0, %.thread176 ], [ 0, %65 ], [ 0, %77 ], [ 0, %87 ], [ 0, %90 ], [ 0, %91 ], [ 0, %36 ]
+  ret i32 %.0134
 }
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1

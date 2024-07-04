@@ -293,7 +293,7 @@ list_head.exit:                                   ; preds = %11, %15
 
 23:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %.02337 = phi ptr [ %18, %.lr.ph ], [ %.1, %40 ]
+  %.02436 = phi ptr [ %18, %.lr.ph ], [ %.1, %40 ]
   %.val33 = load ptr, ptr %20, align 8
   %24 = getelementptr i16, ptr %.val33, i64 %indvars.iv
   %25 = load i16, ptr %24, align 2
@@ -311,12 +311,12 @@ list_head.exit:                                   ; preds = %11, %15
   br i1 %.not31, label %.loopexit, label %.loopexit.sink.split
 
 31:                                               ; preds = %23
-  %32 = load ptr, ptr %.02337, align 8
+  %32 = load ptr, ptr %.02436, align 8
   store ptr null, ptr %4, align 8
   call void @pull_varattnos(ptr noundef %32, i32 noundef 1, ptr noundef nonnull %4) #5
   %.val34 = load i32, ptr %21, align 4
   %.val35 = load ptr, ptr %22, align 8
-  %33 = getelementptr i8, ptr %.02337, i64 8
+  %33 = getelementptr i8, ptr %.02436, i64 8
   %34 = sext i32 %.val34 to i64
   %35 = getelementptr %union.ListCell, ptr %.val35, i64 %34
   %36 = icmp ult ptr %33, %35
@@ -330,7 +330,7 @@ list_head.exit:                                   ; preds = %11, %15
   br i1 %.not30, label %.loopexit, label %.loopexit.sink.split
 
 40:                                               ; preds = %26, %31
-  %.1 = phi ptr [ %.02337, %26 ], [ %..i, %31 ]
+  %.1 = phi ptr [ %.02436, %26 ], [ %..i, %31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %23, !llvm.loop !5

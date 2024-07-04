@@ -300,14 +300,14 @@ mempool_add_queue.exit:                           ; preds = %43, %33
 mempool_remove_queue.exit51.sink.split:           ; preds = %8, %52, %14
   %.sink93 = phi ptr [ %16, %14 ], [ %53, %52 ], [ %10, %8 ]
   %.sink92 = phi ptr [ %15, %14 ], [ %4, %52 ], [ %4, %8 ]
-  %.040.ph = phi i64 [ %9, %14 ], [ %34, %52 ], [ %9, %8 ]
+  %.039.ph = phi i64 [ %9, %14 ], [ %34, %52 ], [ %9, %8 ]
   %61 = load ptr, ptr %.sink93, align 8
   store ptr %61, ptr %.sink92, align 8
   br label %mempool_remove_queue.exit51
 
 mempool_remove_queue.exit51:                      ; preds = %mempool_remove_queue.exit51.sink.split, %52
-  %.040 = phi i64 [ %34, %52 ], [ %.040.ph, %mempool_remove_queue.exit51.sink.split ]
-  %.039 = phi ptr [ null, %52 ], [ %.sink93, %mempool_remove_queue.exit51.sink.split ]
+  %.040 = phi ptr [ null, %52 ], [ %.sink93, %mempool_remove_queue.exit51.sink.split ]
+  %.039 = phi i64 [ %34, %52 ], [ %.039.ph, %mempool_remove_queue.exit51.sink.split ]
   %62 = getelementptr inbounds i8, ptr %0, i64 120
   %63 = load i64, ptr %62, align 8
   %64 = add i64 %63, 1
@@ -315,9 +315,9 @@ mempool_remove_queue.exit51:                      ; preds = %mempool_remove_queu
   br label %mempool_remove_queue.exit49.thread
 
 mempool_remove_queue.exit49.thread:               ; preds = %14, %mempool_remove_queue.exit51
-  %.141 = phi i64 [ %.040, %mempool_remove_queue.exit51 ], [ %9, %14 ]
-  %.1 = phi ptr [ %.039, %mempool_remove_queue.exit51 ], [ null, %14 ]
-  %65 = and i64 %.141, 512
+  %.141 = phi ptr [ %.040, %mempool_remove_queue.exit51 ], [ null, %14 ]
+  %.1 = phi i64 [ %.039, %mempool_remove_queue.exit51 ], [ %9, %14 ]
+  %65 = and i64 %.1, 512
   %.not.i52 = icmp eq i64 %65, 0
   br i1 %.not.i52, label %up_irq_restore.exit53, label %66
 
@@ -326,7 +326,7 @@ mempool_remove_queue.exit49.thread:               ; preds = %14, %mempool_remove
   br label %up_irq_restore.exit53
 
 up_irq_restore.exit53:                            ; preds = %55, %58, %66, %mempool_remove_queue.exit49.thread, %24
-  %.0 = phi ptr [ null, %24 ], [ %.1, %mempool_remove_queue.exit49.thread ], [ %.1, %66 ], [ null, %58 ], [ null, %55 ]
+  %.0 = phi ptr [ null, %24 ], [ %.141, %mempool_remove_queue.exit49.thread ], [ %.141, %66 ], [ null, %58 ], [ null, %55 ]
   ret ptr %.0
 }
 

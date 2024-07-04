@@ -2374,8 +2374,8 @@ if.then21:                                        ; preds = %if.end13
   br label %if.end25
 
 if.end25:                                         ; preds = %if.end13, %if.then21
-  %upperBoundary.0 = phi ptr [ %lowerBoundary_, %if.then21 ], [ null, %if.end13 ]
   %nextBucket.0 = phi ptr [ %call.i.i28, %if.then21 ], [ null, %if.end13 ]
+  %upperBoundary.0 = phi ptr [ %lowerBoundary_, %if.then21 ], [ null, %if.end13 ]
   %bucketIndex.0 = phi i32 [ 2, %if.then21 ], [ 1, %if.end13 ]
   %11 = load ptr, ptr %inputList_, align 8
   %count.i2966 = getelementptr inbounds i8, ptr %11, i64 8
@@ -2391,10 +2391,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %13 = phi ptr [ %11, %for.body.lr.ph ], [ %25, %if.end62 ]
   %currentBucket.072 = phi ptr [ %call.i.i, %for.body.lr.ph ], [ %currentBucket.1.lcssa, %if.end62 ]
   %bucketIndex.171 = phi i32 [ %bucketIndex.0, %for.body.lr.ph ], [ %bucketIndex.2.lcssa, %if.end62 ]
-  %nextBucket.170 = phi ptr [ %nextBucket.0, %for.body.lr.ph ], [ %nextBucket.2.lcssa, %if.end62 ]
+  %i.070 = phi i32 [ 0, %for.body.lr.ph ], [ %inc64, %if.end62 ]
   %upperBoundary.169 = phi ptr [ %upperBoundary.0, %for.body.lr.ph ], [ %upperBoundary.2.lcssa, %if.end62 ]
-  %i.068 = phi i32 [ 0, %for.body.lr.ph ], [ %inc64, %if.end62 ]
-  %call.i.i30 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef %i.068)
+  %nextBucket.168 = phi ptr [ %nextBucket.0, %for.body.lr.ph ], [ %nextBucket.2.lcssa, %if.end62 ]
+  %call.i.i30 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef %i.070)
   %cmp31.not54 = icmp eq ptr %upperBoundary.169, null
   br i1 %cmp31.not54, label %while.end, label %land.rhs.lr.ph
 
@@ -2406,7 +2406,7 @@ land.rhs.lr.ph:                                   ; preds = %for.body
   br i1 %cmp3385, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.rhs.lr.ph, %if.end45
-  %nextBucket.25687 = phi ptr [ %call.i.i32, %if.end45 ], [ %nextBucket.170, %land.rhs.lr.ph ]
+  %nextBucket.25587 = phi ptr [ %call.i.i32, %if.end45 ], [ %nextBucket.168, %land.rhs.lr.ph ]
   %bucketIndex.25786 = phi i32 [ %inc41, %if.end45 ], [ %bucketIndex.171, %land.rhs.lr.ph ]
   %15 = load ptr, ptr %buckets_, align 8
   %bucketList_35 = getelementptr inbounds i8, ptr %15, i64 8
@@ -2426,10 +2426,10 @@ if.end45:                                         ; preds = %while.body
   br i1 %cmp33, label %while.body, label %while.end, !llvm.loop !16
 
 while.end:                                        ; preds = %if.end45, %while.body, %land.rhs.lr.ph, %for.body
+  %nextBucket.2.lcssa = phi ptr [ %nextBucket.168, %for.body ], [ %nextBucket.168, %land.rhs.lr.ph ], [ %nextBucket.25587, %while.body ], [ %call.i.i32, %if.end45 ]
   %upperBoundary.2.lcssa = phi ptr [ null, %for.body ], [ %upperBoundary.169, %land.rhs.lr.ph ], [ null, %while.body ], [ %lowerBoundary_43, %if.end45 ]
-  %nextBucket.2.lcssa = phi ptr [ %nextBucket.170, %for.body ], [ %nextBucket.170, %land.rhs.lr.ph ], [ %nextBucket.25687, %while.body ], [ %call.i.i32, %if.end45 ]
   %bucketIndex.2.lcssa = phi i32 [ %bucketIndex.171, %for.body ], [ %bucketIndex.171, %land.rhs.lr.ph ], [ %bucketIndex.25786, %while.body ], [ %inc41, %if.end45 ]
-  %currentBucket.1.lcssa = phi ptr [ %currentBucket.072, %for.body ], [ %currentBucket.072, %land.rhs.lr.ph ], [ %nextBucket.25687, %while.body ], [ %nextBucket.25687, %if.end45 ]
+  %currentBucket.1.lcssa = phi ptr [ %currentBucket.072, %for.body ], [ %currentBucket.072, %land.rhs.lr.ph ], [ %nextBucket.25587, %while.body ], [ %nextBucket.25587, %if.end45 ]
   %displayBucket_ = getelementptr inbounds i8, ptr %currentBucket.1.lcssa, i64 144
   %19 = load ptr, ptr %displayBucket_, align 8
   %cmp46.not = icmp eq ptr %19, null
@@ -2482,7 +2482,7 @@ _ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %new.cont
 if.end62:                                         ; preds = %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit.thread49, %while.end
   %24 = phi ptr [ %call52, %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit.thread49 ], [ %20, %while.end ]
   tail call void @_ZN6icu_757UVector10addElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef %call.i.i30, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  %inc64 = add nuw nsw i32 %i.068, 1
+  %inc64 = add nuw nsw i32 %i.070, 1
   %25 = load ptr, ptr %inputList_, align 8
   %count.i29 = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load i32, ptr %count.i29, align 8

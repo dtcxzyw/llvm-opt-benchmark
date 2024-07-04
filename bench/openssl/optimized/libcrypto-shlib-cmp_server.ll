@@ -818,8 +818,8 @@ if.then69:                                        ; preds = %if.end64
   br label %err
 
 err:                                              ; preds = %if.end64, %if.then69, %land.end58, %if.else43
-  %si.1 = phi ptr [ null, %if.else43 ], [ %si.0, %if.then69 ], [ %si.0, %if.end64 ], [ %call45, %land.end58 ]
   %msg.0 = phi ptr [ null, %if.else43 ], [ null, %if.then69 ], [ %call66, %if.end64 ], [ null, %land.end58 ]
+  %si.1 = phi ptr [ null, %if.else43 ], [ %si.0, %if.then69 ], [ %si.0, %if.end64 ], [ %call45, %land.end58 ]
   call void @OSSL_CMP_PKISI_free(ptr noundef %si.1) #2
   %17 = load ptr, ptr %certOut, align 8
   call void @X509_free(ptr noundef %17) #2

@@ -3522,8 +3522,8 @@ tailrecurse:                                      ; preds = %if.end17, %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %tailrecurse
-  %j.0 = phi i32 [ %hi, %tailrecurse ], [ %j.2, %do.cond ]
   %i.0 = phi i32 [ %lo.tr, %tailrecurse ], [ %i.2, %do.cond ]
+  %j.0 = phi i32 [ %hi, %tailrecurse ], [ %j.2, %do.cond ]
   %2 = load ptr, ptr %m_data, align 8
   %3 = load i32, ptr %m_capacity.i1.i, align 8
   %4 = sext i32 %i.0 to i64
@@ -3570,8 +3570,8 @@ if.then:                                          ; preds = %while.end11
   br label %do.cond
 
 do.cond:                                          ; preds = %while.end11, %if.then
-  %j.2 = phi i32 [ %dec13, %if.then ], [ %11, %while.end11 ]
   %i.2 = phi i32 [ %inc12, %if.then ], [ %7, %while.end11 ]
+  %j.2 = phi i32 [ %dec13, %if.then ], [ %11, %while.end11 ]
   %cmp14.not = icmp sgt i32 %i.2, %j.2
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !46
 
@@ -3611,8 +3611,8 @@ tailrecurse:                                      ; preds = %if.end17, %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %tailrecurse
-  %j.0 = phi i32 [ %hi, %tailrecurse ], [ %j.2, %do.cond ]
   %i.0 = phi i32 [ %lo.tr, %tailrecurse ], [ %i.2, %do.cond ]
+  %j.0 = phi i32 [ %hi, %tailrecurse ], [ %j.2, %do.cond ]
   %2 = load ptr, ptr %m_data, align 8
   %3 = load i32, ptr %m_size.i.i1.i, align 4
   %4 = load i32, ptr %m_size.i3.i2.i, align 4
@@ -3681,8 +3681,8 @@ if.then:                                          ; preds = %while.end11
   br label %do.cond
 
 do.cond:                                          ; preds = %while.end11, %if.then
-  %j.2 = phi i32 [ %dec13, %if.then ], [ %17, %while.end11 ]
   %i.2 = phi i32 [ %inc12, %if.then ], [ %11, %while.end11 ]
+  %j.2 = phi i32 [ %dec13, %if.then ], [ %17, %while.end11 ]
   %cmp14.not = icmp sgt i32 %i.2, %j.2
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !49
 

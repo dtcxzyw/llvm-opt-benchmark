@@ -454,8 +454,8 @@ if.then73:                                        ; preds = %if.else69
   br label %while.body.backedge
 
 cleanup:                                          ; preds = %if.else69, %if.then47, %if.end56, %if.then37
-  %cleanup.dest.slot.0 = phi i1 [ false, %if.then37 ], [ %cmp46, %if.end56 ], [ %cmp46, %if.then47 ], [ %cmp46, %if.else69 ]
-  %usingFallback.2 = phi i1 [ true, %if.then37 ], [ true, %if.end56 ], [ true, %if.then47 ], [ false, %if.else69 ]
+  %usingFallback.2 = phi i1 [ true, %if.then37 ], [ true, %if.then47 ], [ true, %if.end56 ], [ false, %if.else69 ]
+  %cleanup.dest.slot.0 = phi i1 [ false, %if.then37 ], [ %cmp46, %if.then47 ], [ %cmp46, %if.end56 ], [ %cmp46, %if.else69 ]
   %cmp.not.i = icmp eq ptr %call34, null
   br i1 %cmp.not.i, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, label %if.then.i
 

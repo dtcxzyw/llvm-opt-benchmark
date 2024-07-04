@@ -483,8 +483,8 @@ define internal range(i32 -1, 33619977) i32 @dissect_iwarp_mpa_pdu(ptr noundef %
   br label %26
 
 26:                                               ; preds = %25, %16
-  %.071.i.i = phi i32 [ 0, %25 ], [ 4, %16 ]
-  %27 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.071.i.i) #5
+  %.070.i.i = phi i32 [ 0, %25 ], [ 4, %16 ]
+  %27 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.070.i.i) #5
   %28 = load i32, ptr %14, align 4
   %.not75.i.i = icmp eq i32 %28, 0
   br i1 %.not75.i.i, label %.thread.i.i, label %29
@@ -582,11 +582,11 @@ expected_ulpdu_length.exit.i.i:                   ; preds = %63
   %85 = load i32, ptr @ett_mpa, align 4
   %86 = tail call ptr @proto_item_add_subtree(ptr noundef %84, i32 noundef %85) #5
   %87 = load i32, ptr @hf_mpa_fpdu, align 4
-  %88 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %87, ptr noundef %0, i32 noundef %.071.i.i, i32 noundef -1, i32 noundef 0) #5
+  %88 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %87, ptr noundef %0, i32 noundef %.070.i.i, i32 noundef -1, i32 noundef 0) #5
   %89 = load i32, ptr @ett_mpa, align 4
   %90 = tail call ptr @proto_item_add_subtree(ptr noundef %88, i32 noundef %89) #5
   %91 = load i32, ptr @hf_mpa_ulpdu_length, align 4
-  %92 = tail call ptr @proto_tree_add_uint(ptr noundef %90, i32 noundef %91, ptr noundef %0, i32 noundef %.071.i.i, i32 noundef 2, i32 noundef %.pre-phi.i.i) #5
+  %92 = tail call ptr @proto_tree_add_uint(ptr noundef %90, i32 noundef %91, ptr noundef %0, i32 noundef %.070.i.i, i32 noundef 2, i32 noundef %.pre-phi.i.i) #5
   br i1 %.not76103.i.i, label %147, label %93
 
 93:                                               ; preds = %73
@@ -675,7 +675,7 @@ expected_ulpdu_length.exit.i.i:                   ; preds = %63
   br label %125, !llvm.loop !4
 
 147:                                              ; preds = %73
-  %148 = or disjoint i32 %.071.i.i, 2
+  %148 = or disjoint i32 %.070.i.i, 2
   %149 = add nuw nsw i32 %.pre-phi.i.i, %148
   %150 = zext nneg i8 %74 to i32
   %.not79.i.i = icmp eq i8 %74, 0
@@ -819,8 +819,8 @@ dissect_iwarp_mpa.exit:                           ; preds = %212, %210
   %.sink = phi i32 [ 1, %210 ], [ 2, %212 ]
   %214 = tail call fastcc i32 @dissect_mpa_req_rep(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.sink)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  %.0.i.fr = freeze i32 %214
-  %.not = icmp eq i32 %.0.i.fr, 0
+  %.039.i.fr = freeze i32 %214
+  %.not = icmp eq i32 %.039.i.fr, 0
   br i1 %.not, label %215, label %216
 
 215:                                              ; preds = %dissect_iwarp_mpa.exit.thread, %dissect_iwarp_mpa.exit
@@ -1036,8 +1036,8 @@ define internal fastcc range(i32 0, 2) i32 @dissect_mpa_req_rep(ptr noundef %0, 
   br label %47
 
 47:                                               ; preds = %4, %44, %41, %39
-  %.0 = phi i32 [ 0, %39 ], [ 1, %41 ], [ 1, %44 ], [ 1, %4 ]
-  ret i32 %.0
+  %.057 = phi i32 [ 0, %39 ], [ 1, %41 ], [ 1, %44 ], [ 1, %4 ]
+  ret i32 %.057
 }
 
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

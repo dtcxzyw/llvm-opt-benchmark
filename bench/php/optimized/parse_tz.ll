@@ -972,9 +972,9 @@ define hidden range(i32 0, 2) i32 @timelib_timezone_id_is_valid(ptr noundef %0, 
   br label %8
 
 8:                                                ; preds = %22, %.preheader.i
-  %.018.i = phi i32 [ %.119.i, %22 ], [ %6, %.preheader.i ]
-  %.017.i = phi i32 [ %.1.i, %22 ], [ 0, %.preheader.i ]
-  %9 = add i32 %.017.i, %.018.i
+  %.017.i = phi i32 [ %.118.i, %22 ], [ 0, %.preheader.i ]
+  %.0.i = phi i32 [ %.1.i, %22 ], [ %6, %.preheader.i ]
+  %9 = add i32 %.0.i, %.017.i
   %10 = lshr i32 %9, 1
   %11 = load ptr, ptr %7, align 8
   %12 = zext nneg i32 %10 to i64
@@ -997,14 +997,14 @@ define hidden range(i32 0, 2) i32 @timelib_timezone_id_is_valid(ptr noundef %0, 
   br label %22
 
 22:                                               ; preds = %20, %17
-  %.119.i = phi i32 [ %18, %17 ], [ %.018.i, %20 ]
-  %.1.i = phi i32 [ %.017.i, %17 ], [ %21, %20 ]
-  %.not21.i = icmp sgt i32 %.1.i, %.119.i
+  %.118.i = phi i32 [ %.017.i, %17 ], [ %21, %20 ]
+  %.1.i = phi i32 [ %18, %17 ], [ %.0.i, %20 ]
+  %.not21.i = icmp sgt i32 %.118.i, %.1.i
   br i1 %.not21.i, label %seek_to_tz_position.exit, label %8
 
 seek_to_tz_position.exit:                         ; preds = %19, %22, %2
-  %.0.i = phi i32 [ 0, %2 ], [ 1, %19 ], [ 0, %22 ]
-  ret i32 %.0.i
+  %.019.i = phi i32 [ 0, %2 ], [ 1, %19 ], [ 0, %22 ]
+  ret i32 %.019.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1022,9 +1022,9 @@ define hidden noundef ptr @timelib_parse_tzfile(ptr noundef %0, ptr nocapture no
   br label %10
 
 10:                                               ; preds = %24, %.preheader.i
-  %.018.i = phi i32 [ %.119.i, %24 ], [ %8, %.preheader.i ]
-  %.017.i = phi i32 [ %.1.i, %24 ], [ 0, %.preheader.i ]
-  %11 = add i32 %.017.i, %.018.i
+  %.017.i = phi i32 [ %.118.i, %24 ], [ 0, %.preheader.i ]
+  %.0.i = phi i32 [ %.1.i, %24 ], [ %8, %.preheader.i ]
+  %11 = add i32 %.0.i, %.017.i
   %12 = lshr i32 %11, 1
   %13 = load ptr, ptr %9, align 8
   %14 = zext nneg i32 %12 to i64
@@ -1047,9 +1047,9 @@ define hidden noundef ptr @timelib_parse_tzfile(ptr noundef %0, ptr nocapture no
   br label %24
 
 24:                                               ; preds = %22, %19
-  %.119.i = phi i32 [ %20, %19 ], [ %.018.i, %22 ]
-  %.1.i = phi i32 [ %.017.i, %19 ], [ %23, %22 ]
-  %.not21.i = icmp sgt i32 %.1.i, %.119.i
+  %.118.i = phi i32 [ %.017.i, %19 ], [ %23, %22 ]
+  %.1.i = phi i32 [ %20, %19 ], [ %.0.i, %22 ]
+  %.not21.i = icmp sgt i32 %.118.i, %.1.i
   br i1 %.not21.i, label %.loopexit90, label %10
 
 25:                                               ; preds = %21
@@ -2207,44 +2207,44 @@ define hidden ptr @timelib_fetch_timezone_offset(ptr noundef %0, i64 noundef %1,
   br i1 %49, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %47, %.lr.ph
-  %.04254 = phi i32 [ %..042, %.lr.ph ], [ %48, %47 ]
-  %.04353 = phi i32 [ %.043., %.lr.ph ], [ 0, %47 ]
-  %50 = add i32 %.04254, %.04353
+  %.054 = phi i32 [ %..0, %.lr.ph ], [ %48, %47 ]
+  %.04253 = phi i32 [ %.042., %.lr.ph ], [ 0, %47 ]
+  %50 = add i32 %.054, %.04253
   %51 = lshr i32 %50, 1
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds i64, ptr %8, i64 %52
   %54 = load i64, ptr %53, align 8
   %55 = icmp sgt i64 %54, %1
-  %.043. = select i1 %55, i32 %.04353, i32 %51
-  %..042 = select i1 %55, i32 %51, i32 %.04254
-  %56 = sub i32 %..042, %.043.
+  %.042. = select i1 %55, i32 %.04253, i32 %51
+  %..0 = select i1 %55, i32 %51, i32 %.054
+  %56 = sub i32 %..0, %.042.
   %57 = icmp ugt i32 %56, 1
   br i1 %57, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.phi.trans.insert = zext nneg i32 %.043. to i64
+  %.phi.trans.insert = zext nneg i32 %.042. to i64
   %.phi.trans.insert55 = getelementptr inbounds i64, ptr %8, i64 %.phi.trans.insert
   %.pre = load i64, ptr %.phi.trans.insert55, align 8
-  %58 = zext nneg i32 %.043. to i64
+  %58 = zext nneg i32 %.042. to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %47, %._crit_edge.loopexit
   %59 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %22, %47 ]
-  %.043.lcssa = phi i64 [ %58, %._crit_edge.loopexit ], [ 0, %47 ]
+  %.042.lcssa = phi i64 [ %58, %._crit_edge.loopexit ], [ 0, %47 ]
   store i64 %59, ptr %2, align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 96
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %0, i64 88
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 %.043.lcssa
+  %64 = getelementptr inbounds i8, ptr %63, i64 %.042.lcssa
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i64
   %67 = getelementptr inbounds %struct._ttinfo, ptr %61, i64 %66
   br label %68
 
 68:                                               ; preds = %14, %._crit_edge, %36, %34, %24, %18, %12
-  %.0 = phi ptr [ %26, %24 ], [ %35, %34 ], [ %46, %36 ], [ %67, %._crit_edge ], [ %13, %12 ], [ %20, %18 ], [ null, %14 ]
-  ret ptr %.0
+  %.044 = phi ptr [ %26, %24 ], [ %35, %34 ], [ %46, %36 ], [ %67, %._crit_edge ], [ %13, %12 ], [ %20, %18 ], [ null, %14 ]
+  ret ptr %.044
 }
 
 declare ptr @timelib_fetch_posix_timezone_offset(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
@@ -2295,8 +2295,8 @@ define hidden ptr @timelib_get_time_zone_info(i64 noundef %0, ptr noundef %1) lo
 20:                                               ; preds = %17, %6
   %.sink29 = phi i32 [ 0, %17 ], [ %15, %6 ]
   %.sink = phi i64 [ 0, %17 ], [ %16, %6 ]
-  %.021 = phi ptr [ %19, %17 ], [ %13, %6 ]
-  %.0 = phi i32 [ 0, %17 ], [ %7, %6 ]
+  %.022 = phi i32 [ 0, %17 ], [ %7, %6 ]
+  %.0 = phi ptr [ %19, %17 ], [ %13, %6 ]
   %21 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %.sink29, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %4, i64 24
@@ -2333,13 +2333,13 @@ fetch_leaptime_offset.exit:                       ; preds = %29
   br label %fetch_leaptime_offset.exit.thread
 
 fetch_leaptime_offset.exit.thread:                ; preds = %.preheader, %20, %25, %fetch_leaptime_offset.exit
-  %.022 = phi i32 [ %36, %fetch_leaptime_offset.exit ], [ 0, %25 ], [ 0, %20 ], [ 0, %.preheader ]
-  store i32 %.0, ptr %4, align 8
+  %.021 = phi i32 [ %36, %fetch_leaptime_offset.exit ], [ 0, %25 ], [ 0, %20 ], [ 0, %.preheader ]
+  store i32 %.022, ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 4
-  store i32 %.022, ptr %37, align 4
-  %.not26 = icmp eq ptr %.021, null
-  %.str.493..021 = select i1 %.not26, ptr @.str.493, ptr %.021
-  %38 = call noalias ptr @_estrdup(ptr noundef nonnull %.str.493..021) #17
+  store i32 %.021, ptr %37, align 4
+  %.not26 = icmp eq ptr %.0, null
+  %.str.493..0 = select i1 %.not26, ptr @.str.493, ptr %.0
+  %38 = call noalias ptr @_estrdup(ptr noundef nonnull %.str.493..0) #17
   %39 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %38, ptr %39, align 8
   ret ptr %4

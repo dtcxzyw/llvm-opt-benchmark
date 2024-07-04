@@ -452,13 +452,13 @@ define ptr @get_data_source_tvb(ptr nocapture noundef readonly %0) local_unnamed
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define ptr @get_data_source_tvb_by_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
-  %.0912 = load ptr, ptr %3, align 8
-  %.not13 = icmp eq ptr %.0912, null
+  %.012 = load ptr, ptr %3, align 8
+  %.not13 = icmp eq ptr %.012, null
   br i1 %.not13, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %12
-  %.0914 = phi ptr [ %.09, %12 ], [ %.0912, %2 ]
-  %4 = load ptr, ptr %.0914, align 8
+  %.014 = phi ptr [ %.0, %12 ], [ %.012, %2 ]
+  %4 = load ptr, ptr %.014, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not11 = icmp eq ptr %6, null
@@ -474,14 +474,14 @@ define ptr @get_data_source_tvb_by_name(ptr nocapture noundef readonly %0, ptr n
   br label %.loopexit
 
 12:                                               ; preds = %.lr.ph, %7
-  %13 = getelementptr inbounds i8, ptr %.0914, i64 8
-  %.09 = load ptr, ptr %13, align 8
-  %.not = icmp eq ptr %.09, null
+  %13 = getelementptr inbounds i8, ptr %.014, i64 8
+  %.0 = load ptr, ptr %13, align 8
+  %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %12, %2, %10
-  %.0 = phi ptr [ %11, %10 ], [ null, %2 ], [ null, %12 ]
-  ret ptr %.0
+  %.09 = phi ptr [ %11, %10 ], [ null, %2 ], [ null, %12 ]
+  ret ptr %.09
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -1655,8 +1655,8 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   br label %23
 
 23:                                               ; preds = %21, %find_dissector_table.exit
-  %.026 = phi ptr [ %22, %21 ], [ %19, %find_dissector_table.exit ]
-  %24 = tail call ptr @prefs_find_preference(ptr noundef %.026, ptr noundef %0) #24
+  %.027 = phi ptr [ %22, %21 ], [ %19, %find_dissector_table.exit ]
+  %24 = tail call ptr @prefs_find_preference(ptr noundef %.027, ptr noundef %0) #24
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %51
 
@@ -1679,7 +1679,7 @@ find_dissector_table.exit:                        ; preds = %3, %6, %9, %12
   br label %38
 
 38:                                               ; preds = %36, %34
-  %.027 = phi ptr [ %35, %34 ], [ %37, %36 ]
+  %.026 = phi ptr [ %35, %34 ], [ %37, %36 ]
   %39 = tail call ptr @wmem_epan_scope() #24
   %40 = getelementptr inbounds i8, ptr %.1.i, i64 16
   %41 = load ptr, ptr %40, align 8
@@ -1701,7 +1701,7 @@ switch.lookup:                                    ; preds = %38
   %switch.load = load i32, ptr %switch.gep, align 4
   %49 = tail call ptr @wmem_epan_scope() #24
   %50 = tail call i32 @range_convert_str(ptr noundef %49, ptr noundef %17, ptr noundef %2, i32 noundef %switch.load) #24
-  tail call void @prefs_register_decode_as_range_preference(ptr noundef %.026, ptr noundef %0, ptr noundef %42, ptr noundef %.027, ptr noundef %17, i32 noundef %switch.load) #24
+  tail call void @prefs_register_decode_as_range_preference(ptr noundef %.027, ptr noundef %0, ptr noundef %42, ptr noundef %.026, ptr noundef %17, i32 noundef %switch.load) #24
   br label %51
 
 51:                                               ; preds = %switch.lookup, %23
@@ -2338,8 +2338,8 @@ call_dissector_through_handle.exit:               ; preds = %60, %64
   br label %71
 
 71:                                               ; preds = %call_dissector_through_handle.exit, %47
-  %.053 = phi i32 [ %48, %47 ], [ %.0.i, %call_dissector_through_handle.exit ]
-  %72 = icmp eq i32 %.053, 0
+  %.0 = phi i32 [ %48, %47 ], [ %.0.i, %call_dissector_through_handle.exit ]
+  %72 = icmp eq i32 %.0, 0
   br i1 %72, label %79, label %73
 
 73:                                               ; preds = %71
@@ -2403,8 +2403,8 @@ call_dissector_through_handle.exit:               ; preds = %60, %64
   br label %103
 
 103:                                              ; preds = %18, %.loopexit
-  %.0 = phi i32 [ %.053, %.loopexit ], [ 0, %18 ]
-  ret i32 %.0
+  %.053 = phi i32 [ %.0, %.loopexit ], [ 0, %18 ]
+  ret i32 %.053
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4594,8 +4594,8 @@ define range(i32 0, 2) i32 @dissector_try_heuristic(ptr nocapture noundef %0, pt
 
 28:                                               ; preds = %12
   %29 = getelementptr inbounds i8, ptr %0, i64 16
-  %.06891 = load ptr, ptr %29, align 8
-  %.not7592 = icmp eq ptr %.06891, null
+  %.06991 = load ptr, ptr %29, align 8
+  %.not7592 = icmp eq ptr %.06991, null
   br i1 %.not7592, label %.loopexit88, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %28
@@ -4608,10 +4608,10 @@ define range(i32 0, 2) i32 @dissector_try_heuristic(ptr nocapture noundef %0, pt
   br label %36
 
 36:                                               ; preds = %.lr.ph95, %.loopexit.thread107
-  %.06894 = phi ptr [ %.06891, %.lr.ph95 ], [ %.068, %.loopexit.thread107 ]
-  %.06993 = phi ptr [ null, %.lr.ph95 ], [ %.1, %.loopexit.thread107 ]
+  %.06994 = phi ptr [ %.06991, %.lr.ph95 ], [ %.069, %.loopexit.thread107 ]
+  %.06893 = phi ptr [ null, %.lr.ph95 ], [ %.1, %.loopexit.thread107 ]
   store i16 %18, ptr %14, align 8
-  %37 = load ptr, ptr %.06894, align 8
+  %37 = load ptr, ptr %.06994, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not76 = icmp eq ptr %39, null
@@ -4786,22 +4786,22 @@ remove_last_layer.exit:                           ; preds = %110, %113
 .thread87:                                        ; preds = %.thread84, %60, %.thread86, %65, %.thread103, %.loopexit
   %125 = tail call zeroext i1 @ws_log_msg_is_active(ptr noundef nonnull @.str.14, i32 noundef 2) #24
   store ptr %37, ptr %4, align 8
-  %.not82 = icmp eq ptr %.06993, null
+  %.not82 = icmp eq ptr %.06893, null
   br i1 %.not82, label %.loopexit88, label %126
 
 126:                                              ; preds = %.thread87
   %127 = load ptr, ptr %29, align 8
-  %128 = tail call ptr @g_slist_remove_link(ptr noundef %127, ptr noundef nonnull %.06894) #24
+  %128 = tail call ptr @g_slist_remove_link(ptr noundef %127, ptr noundef nonnull %.06994) #24
   store ptr %128, ptr %29, align 8
-  %129 = tail call ptr @g_slist_concat(ptr noundef nonnull %.06894, ptr noundef %128) #24
+  %129 = tail call ptr @g_slist_concat(ptr noundef nonnull %.06994, ptr noundef %128) #24
   store ptr %129, ptr %29, align 8
   br label %.loopexit88
 
 .loopexit.thread107:                              ; preds = %.thread100, %.loopexit, %40, %42
-  %.1 = phi ptr [ %.06993, %42 ], [ %.06993, %40 ], [ %.06894, %.loopexit ], [ %.06894, %.thread100 ]
-  %130 = getelementptr inbounds i8, ptr %.06894, i64 8
-  %.068 = load ptr, ptr %130, align 8
-  %.not75 = icmp eq ptr %.068, null
+  %.1 = phi ptr [ %.06893, %42 ], [ %.06893, %40 ], [ %.06994, %.loopexit ], [ %.06994, %.thread100 ]
+  %130 = getelementptr inbounds i8, ptr %.06994, i64 8
+  %.069 = load ptr, ptr %130, align 8
+  %.not75 = icmp eq ptr %.069, null
   br i1 %.not75, label %.loopexit88, label %36, !llvm.loop !18
 
 .loopexit88:                                      ; preds = %.loopexit.thread107, %28, %.thread87, %126
@@ -6226,8 +6226,8 @@ define hidden range(i32 0, 2) i32 @have_postdissector() local_unnamed_addr #0 {
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %10, %12, %0
-  %.0 = phi i32 [ 0, %0 ], [ 0, %12 ], [ 1, %10 ]
-  ret i32 %.0
+  %.05 = phi i32 [ 0, %0 ], [ 0, %12 ], [ 1, %10 ]
+  ret i32 %.05
 }
 
 ; Function Attrs: nounwind uwtable

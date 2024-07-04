@@ -1720,7 +1720,7 @@ switch.lookup518:                                 ; preds = %371
 
 501:                                              ; preds = %499, %451, %430, %378
   %.str.142.sink = phi ptr [ @.str.139, %378 ], [ @.str.139, %430 ], [ @.str.141, %451 ], [ %.str.142..str.141, %499 ]
-  %.0418 = phi i64 [ %384, %378 ], [ %384, %430 ], [ %454, %451 ], [ %454, %499 ]
+  %.0421 = phi i64 [ %384, %378 ], [ %384, %430 ], [ %454, %451 ], [ %454, %499 ]
   %.4 = phi i32 [ 0, %378 ], [ %.1, %430 ], [ %.2, %451 ], [ %.3, %499 ]
   %502 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %1, ptr noundef nonnull %.str.142.sink) #12
   %503 = call zeroext i1 @h5tools_render_element(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %8, i64 noundef %spec.select, i64 noundef 0, i64 noundef 0) #12
@@ -1729,7 +1729,7 @@ switch.lookup518:                                 ; preds = %371
   store i32 %505, ptr %355, align 8
   store i32 1, ptr %358, align 8
   %506 = call ptr @h5tools_str_reset(ptr noundef %1) #12
-  %507 = call i32 @H5Tclose(i64 noundef %.0418) #12
+  %507 = call i32 @H5Tclose(i64 noundef %.0421) #12
   %508 = icmp slt i32 %507, 0
   br i1 %508, label %509, label %525
 
@@ -5188,11 +5188,11 @@ define range(i32 -1, 1) i32 @h5tools_dump_dset(ptr nocapture readnone %0, ptr no
 
 118:                                              ; preds = %118, %.preheader.i
   %.0131195.i = phi i64 [ 1, %.preheader.i ], [ %121, %118 ]
-  %.0136194.i = phi i64 [ 0, %.preheader.i ], [ %122, %118 ]
-  %119 = getelementptr inbounds [32 x i64], ptr %17, i64 0, i64 %.0136194.i
+  %.0135194.i = phi i64 [ 0, %.preheader.i ], [ %122, %118 ]
+  %119 = getelementptr inbounds [32 x i64], ptr %17, i64 0, i64 %.0135194.i
   %120 = load i64, ptr %119, align 8
   %121 = mul i64 %120, %.0131195.i
-  %122 = add nuw nsw i64 %.0136194.i, 1
+  %122 = add nuw nsw i64 %.0135194.i, 1
   %exitcond.not.i = icmp eq i64 %122, %117
   br i1 %exitcond.not.i, label %124, label %118
 
@@ -5227,11 +5227,11 @@ define range(i32 -1, 1) i32 @h5tools_dump_dset(ptr nocapture readnone %0, ptr no
 
 138:                                              ; preds = %138, %135
   %.0129197.i = phi i64 [ %133, %135 ], [ %145, %138 ]
-  %.1137196.i = phi i64 [ %136, %135 ], [ %141, %138 ]
+  %.1136196.i = phi i64 [ %136, %135 ], [ %141, %138 ]
   %139 = udiv i64 %137, %.0129197.i
   %140 = icmp ugt i64 %.0129197.i, %137
   %spec.store.select.i = select i1 %140, i64 1, i64 %139
-  %141 = add nsw i64 %.1137196.i, -1
+  %141 = add nsw i64 %.1136196.i, -1
   %142 = getelementptr inbounds [32 x i64], ptr %17, i64 0, i64 %141
   %143 = load i64, ptr %142, align 8
   %.spec.store.select.i = call i64 @llvm.umin.i64(i64 %143, i64 %spec.store.select.i)
@@ -5264,7 +5264,7 @@ define range(i32 -1, 1) i32 @h5tools_dump_dset(ptr nocapture readnone %0, ptr no
 
 154:                                              ; preds = %.loopexit.i, %148
   %.1201.i = phi i32 [ 0, %148 ], [ %.7.i, %.loopexit.i ]
-  %.0133200.i = phi i64 [ 0, %148 ], [ %300, %.loopexit.i ]
+  %.0139200.i = phi i64 [ 0, %148 ], [ %300, %.loopexit.i ]
   %155 = load i32, ptr %92, align 4
   %.not173.i = icmp eq i32 %155, 0
   br i1 %.not173.i, label %212, label %156
@@ -5274,25 +5274,25 @@ define range(i32 -1, 1) i32 @h5tools_dump_dset(ptr nocapture readnone %0, ptr no
   br label %158
 
 158:                                              ; preds = %158, %156
-  %.2138198.i = phi i64 [ 0, %156 ], [ %173, %158 ]
+  %.2137198.i = phi i64 [ 0, %156 ], [ %173, %158 ]
   %159 = phi i64 [ 1, %156 ], [ %172, %158 ]
-  %160 = getelementptr inbounds [32 x i64], ptr %17, i64 0, i64 %.2138198.i
+  %160 = getelementptr inbounds [32 x i64], ptr %17, i64 0, i64 %.2137198.i
   %161 = load i64, ptr %160, align 8
-  %162 = getelementptr inbounds [32 x i64], ptr %20, i64 0, i64 %.2138198.i
+  %162 = getelementptr inbounds [32 x i64], ptr %20, i64 0, i64 %.2137198.i
   %163 = load i64, ptr %162, align 8
   %164 = sub i64 %161, %163
-  %165 = getelementptr inbounds [32 x i64], ptr %18, i64 0, i64 %.2138198.i
+  %165 = getelementptr inbounds [32 x i64], ptr %18, i64 0, i64 %.2137198.i
   %166 = load i64, ptr %165, align 8
   %..i = call i64 @llvm.umin.i64(i64 %164, i64 %166)
-  %167 = getelementptr inbounds [32 x i64], ptr %21, i64 0, i64 %.2138198.i
+  %167 = getelementptr inbounds [32 x i64], ptr %21, i64 0, i64 %.2137198.i
   store i64 %..i, ptr %167, align 8
-  %168 = getelementptr inbounds [32 x i64], ptr %115, i64 0, i64 %.2138198.i
+  %168 = getelementptr inbounds [32 x i64], ptr %115, i64 0, i64 %.2137198.i
   %169 = load i64, ptr %168, align 8
   %170 = add i64 %169, %..i
-  %171 = getelementptr inbounds [32 x i64], ptr %151, i64 0, i64 %.2138198.i
+  %171 = getelementptr inbounds [32 x i64], ptr %151, i64 0, i64 %.2137198.i
   store i64 %170, ptr %171, align 8
   %172 = mul i64 %..i, %159
-  %173 = add nuw nsw i64 %.2138198.i, 1
+  %173 = add nuw nsw i64 %.2137198.i, 1
   %exitcond205.not.i = icmp eq i64 %173, %157
   br i1 %exitcond205.not.i, label %174, label %158
 
@@ -5435,14 +5435,14 @@ define range(i32 -1, 1) i32 @h5tools_dump_dset(ptr nocapture readnone %0, ptr no
   br i1 %253, label %254, label %281
 
 254:                                              ; preds = %251
-  %255 = icmp eq i64 %.0133200.i, 0
+  %255 = icmp eq i64 %.0139200.i, 0
   %256 = zext i1 %255 to i32
   %257 = load i64, ptr %22, align 8
-  %258 = add i64 %257, %.0133200.i
+  %258 = add i64 %257, %.0139200.i
   %.not178.i = icmp ult i64 %258, %.1132188.i
   %259 = select i1 %.not178.i, i32 0, i32 2
   %260 = or disjoint i32 %259, %256
-  store i64 %.0133200.i, ptr %152, align 8
+  store i64 %.0139200.i, ptr %152, align 8
   %261 = call i32 @h5tools_dump_simple_data(ptr noundef %52, ptr noundef nonnull %.035, ptr noundef nonnull %2, i64 noundef %3, i32 noundef %260, i64 noundef %257, i64 noundef %.033, ptr noundef nonnull %147)
   br i1 %.not180.i, label %262, label %264
 
@@ -5460,8 +5460,8 @@ define range(i32 -1, 1) i32 @h5tools_dump_dset(ptr nocapture readnone %0, ptr no
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.3139199.i = phi i64 [ %267, %.lr.ph.i ], [ %266, %.lr.ph.preheader.i ]
-  %267 = add nsw i64 %.3139199.i, -1
+  %.3138199.i = phi i64 [ %267, %.lr.ph.i ], [ %266, %.lr.ph.preheader.i ]
+  %267 = add nsw i64 %.3138199.i, -1
   %268 = getelementptr inbounds [32 x i64], ptr %151, i64 0, i64 %267
   %269 = load i64, ptr %268, align 8
   %270 = getelementptr inbounds [32 x i64], ptr %115, i64 0, i64 %267
@@ -5512,7 +5512,7 @@ define range(i32 -1, 1) i32 @h5tools_dump_dset(ptr nocapture readnone %0, ptr no
   %298 = add nsw i32 %297, 1
   store i32 %298, ptr %153, align 8
   %299 = load i64, ptr %22, align 8
-  %300 = add i64 %299, %.0133200.i
+  %300 = add i64 %299, %.0139200.i
   %301 = icmp ult i64 %300, %.1132188.i
   br i1 %301, label %154, label %302
 
@@ -6053,18 +6053,18 @@ h5tools_dump_simple_dset.exit:                    ; preds = %56, %64, %68, %124,
   br label %599
 
 599:                                              ; preds = %599, %596
-  %.0145222.i.i.i = phi i64 [ %597, %596 ], [ %602, %599 ]
-  %.0152221.i.i.i = phi i64 [ %576, %596 ], [ %606, %599 ]
-  %600 = udiv i64 %598, %.0152221.i.i.i
-  %601 = icmp ugt i64 %.0152221.i.i.i, %598
+  %.0148222.i.i.i = phi i64 [ %597, %596 ], [ %602, %599 ]
+  %.0151221.i.i.i = phi i64 [ %576, %596 ], [ %606, %599 ]
+  %600 = udiv i64 %598, %.0151221.i.i.i
+  %601 = icmp ugt i64 %.0151221.i.i.i, %598
   %spec.store.select.i.i.i = select i1 %601, i64 1, i64 %600
-  %602 = add nsw i64 %.0145222.i.i.i, -1
+  %602 = add nsw i64 %.0148222.i.i.i, -1
   %603 = getelementptr inbounds i64, ptr %15, i64 %602
   %604 = load i64, ptr %603, align 8
   %.spec.store.select.i.i.i = call i64 @llvm.umin.i64(i64 %604, i64 %spec.store.select.i.i.i)
   %605 = getelementptr inbounds [32 x i64], ptr %8, i64 0, i64 %602
   store i64 %.spec.store.select.i.i.i, ptr %605, align 8
-  %606 = mul i64 %.spec.store.select.i.i.i, %.0152221.i.i.i
+  %606 = mul i64 %.spec.store.select.i.i.i, %.0151221.i.i.i
   %.not189.i.i.i = icmp eq i64 %602, 0
   br i1 %.not189.i.i.i, label %.loopexit.i.i.i, label %599
 
@@ -6203,18 +6203,18 @@ h5tools_dump_simple_dset.exit:                    ; preds = %56, %64, %68, %124,
   br i1 %.not241.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %684, %.lr.ph.i.i.i
-  %.1146223.i.i.i = phi i64 [ %696, %.lr.ph.i.i.i ], [ 0, %684 ]
-  %688 = getelementptr inbounds [32 x i64], ptr %405, i64 0, i64 %.1146223.i.i.i
+  %.1149223.i.i.i = phi i64 [ %696, %.lr.ph.i.i.i ], [ 0, %684 ]
+  %688 = getelementptr inbounds [32 x i64], ptr %405, i64 0, i64 %.1149223.i.i.i
   %689 = load i64, ptr %688, align 8
-  %690 = getelementptr inbounds i64, ptr %15, i64 %.1146223.i.i.i
+  %690 = getelementptr inbounds i64, ptr %15, i64 %.1149223.i.i.i
   %691 = load i64, ptr %690, align 8
-  %692 = getelementptr inbounds [32 x i64], ptr %8, i64 0, i64 %.1146223.i.i.i
+  %692 = getelementptr inbounds [32 x i64], ptr %8, i64 0, i64 %.1149223.i.i.i
   %693 = load i64, ptr %692, align 8
   %..i.i.i = call i64 @llvm.umin.i64(i64 %691, i64 %693)
   %694 = add i64 %..i.i.i, %689
-  %695 = getelementptr inbounds [32 x i64], ptr %469, i64 0, i64 %.1146223.i.i.i
+  %695 = getelementptr inbounds [32 x i64], ptr %469, i64 0, i64 %.1149223.i.i.i
   store i64 %694, ptr %695, align 8
-  %696 = add nuw nsw i64 %.1146223.i.i.i, 1
+  %696 = add nuw nsw i64 %.1149223.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %696, %687
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
@@ -6257,25 +6257,25 @@ h5tools_dump_simple_dset.exit:                    ; preds = %56, %64, %68, %124,
   br i1 %.not242.i.i.i, label %._crit_edge233.i.i.i, label %.lr.ph232.i.i.i
 
 .lr.ph232.i.i.i:                                  ; preds = %715, %._crit_edge228.i.i.i
-  %.2147230.i.i.i = phi i64 [ %719, %._crit_edge228.i.i.i ], [ 0, %715 ]
+  %.2150230.i.i.i = phi i64 [ %719, %._crit_edge228.i.i.i ], [ 0, %715 ]
   %storemerge229.i.i.i = phi i64 [ %729, %._crit_edge228.i.i.i ], [ 0, %715 ]
-  %719 = add nuw i64 %.2147230.i.i.i, 1
+  %719 = add nuw i64 %.2150230.i.i.i, 1
   %720 = icmp ult i64 %719, %717
   br i1 %720, label %.lr.ph227.i.i.i, label %._crit_edge228.i.i.i
 
 .lr.ph227.i.i.i:                                  ; preds = %.lr.ph232.i.i.i, %.lr.ph227.i.i.i
   %.0225.i.i.i = phi i64 [ %723, %.lr.ph227.i.i.i ], [ 1, %.lr.ph232.i.i.i ]
-  %.0151224.i.i.i = phi i64 [ %724, %.lr.ph227.i.i.i ], [ %719, %.lr.ph232.i.i.i ]
-  %721 = getelementptr inbounds i64, ptr %15, i64 %.0151224.i.i.i
+  %.0152224.i.i.i = phi i64 [ %724, %.lr.ph227.i.i.i ], [ %719, %.lr.ph232.i.i.i ]
+  %721 = getelementptr inbounds i64, ptr %15, i64 %.0152224.i.i.i
   %722 = load i64, ptr %721, align 8
   %723 = mul i64 %722, %.0225.i.i.i
-  %724 = add nuw nsw i64 %.0151224.i.i.i, 1
+  %724 = add nuw nsw i64 %.0152224.i.i.i, 1
   %725 = icmp ult i64 %724, %717
   br i1 %725, label %.lr.ph227.i.i.i, label %._crit_edge228.i.i.i
 
 ._crit_edge228.i.i.i:                             ; preds = %.lr.ph227.i.i.i, %.lr.ph232.i.i.i
   %.0.lcssa.i.i.i = phi i64 [ 1, %.lr.ph232.i.i.i ], [ %723, %.lr.ph227.i.i.i ]
-  %726 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %.2147230.i.i.i
+  %726 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %.2150230.i.i.i
   %727 = load i64, ptr %726, align 8
   %728 = mul i64 %727, %.0.lcssa.i.i.i
   %729 = add i64 %728, %storemerge229.i.i.i
@@ -7697,29 +7697,29 @@ define void @h5tools_dump_dcpl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 
 .lr.ph435:                                        ; preds = %.lr.ph435.preheader, %.lr.ph435
   %indvars.iv449 = phi i64 [ 0, %.lr.ph435.preheader ], [ %indvars.iv.next450, %.lr.ph435 ]
-  %.0387433 = phi i64 [ 1, %.lr.ph435.preheader ], [ %73, %.lr.ph435 ]
+  %.0385433 = phi i64 [ 1, %.lr.ph435.preheader ], [ %73, %.lr.ph435 ]
   %71 = getelementptr inbounds [32 x i64], ptr %20, i64 0, i64 %indvars.iv449
   %72 = load i64, ptr %71, align 8
-  %73 = mul i64 %72, %.0387433
+  %73 = mul i64 %72, %.0385433
   %indvars.iv.next450 = add nuw nsw i64 %indvars.iv449, 1
   %exitcond453.not = icmp eq i64 %indvars.iv.next450, %wide.trip.count452
   br i1 %exitcond453.not, label %._crit_edge436, label %.lr.ph435
 
 ._crit_edge436:                                   ; preds = %.lr.ph435, %.preheader422
-  %.0387.lcssa = phi i64 [ 1, %.preheader422 ], [ %73, %.lr.ph435 ]
+  %.0385.lcssa = phi i64 [ 1, %.preheader422 ], [ %73, %.lr.ph435 ]
   %.not407 = icmp eq i64 %26, 0
   br i1 %.not407, label %79, label %74
 
 74:                                               ; preds = %._crit_edge436
-  %75 = mul i64 %.0387.lcssa, %62
+  %75 = mul i64 %.0385.lcssa, %62
   %76 = uitofp i64 %75 to double
   %77 = uitofp i64 %26 to double
   %78 = fdiv double %76, %77
   br label %79
 
 79:                                               ; preds = %74, %._crit_edge436
-  %.0388 = phi double [ %78, %74 ], [ 0.000000e+00, %._crit_edge436 ]
-  %80 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %19, ptr noundef nonnull @.str.200, i64 noundef %26, double noundef %.0388) #12
+  %.0384 = phi double [ %78, %74 ], [ 0.000000e+00, %._crit_edge436 ]
+  %80 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %19, ptr noundef nonnull @.str.200, i64 noundef %26, double noundef %.0384) #12
   br label %82
 
 ._crit_edge432.thread:                            ; preds = %59, %._crit_edge432
@@ -7784,8 +7784,8 @@ define void @h5tools_dump_dcpl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   br label %117
 
 117:                                              ; preds = %108, %117
-  %.0382424 = phi i32 [ 0, %108 ], [ %125, %117 ]
-  %118 = call i32 @H5Pget_external(i64 noundef %3, i32 noundef %.0382424, i64 noundef 256, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %17) #12
+  %.0388424 = phi i32 [ 0, %108 ], [ %125, %117 ]
+  %118 = call i32 @H5Pget_external(i64 noundef %3, i32 noundef %.0388424, i64 noundef 256, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %17) #12
   store i32 1, ptr %31, align 8
   %119 = call ptr @h5tools_str_reset(ptr noundef nonnull %19) #12
   %120 = load i64, ptr %17, align 8
@@ -7793,7 +7793,7 @@ define void @h5tools_dump_dcpl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %122 = load i64, ptr %13, align 8
   %123 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %19, ptr noundef nonnull @.str.206, i64 noundef %122) #12
   %124 = call zeroext i1 @h5tools_render_element(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %19, ptr noundef nonnull %18, i64 noundef %spec.select, i64 noundef 0, i64 noundef 0) #12
-  %125 = add nuw i32 %.0382424, 1
+  %125 = add nuw i32 %.0388424, 1
   %exitcond.not = icmp eq i32 %125, %104
   br i1 %exitcond.not, label %126, label %117
 
@@ -7862,12 +7862,12 @@ define void @h5tools_dump_dcpl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0384423 = phi i64 [ %219, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %161 = call i64 @H5Pget_virtual_vspace(i64 noundef %3, i64 noundef %.0384423) #12
-  %162 = call i64 @H5Pget_virtual_srcspace(i64 noundef %3, i64 noundef %.0384423) #12
+  %.0382423 = phi i64 [ %219, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %161 = call i64 @H5Pget_virtual_vspace(i64 noundef %3, i64 noundef %.0382423) #12
+  %162 = call i64 @H5Pget_virtual_srcspace(i64 noundef %3, i64 noundef %.0382423) #12
   store i32 1, ptr %31, align 8
   %163 = call ptr @h5tools_str_reset(ptr noundef nonnull %19) #12
-  %164 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %19, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.210, i64 noundef %.0384423, ptr noundef nonnull @.str.11) #12
+  %164 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %19, ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.210, i64 noundef %.0382423, ptr noundef nonnull @.str.11) #12
   %165 = call zeroext i1 @h5tools_render_element(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %19, ptr noundef nonnull %18, i64 noundef %spec.select, i64 noundef 0, i64 noundef 0) #12
   %166 = load i32, ptr %158, align 8
   %167 = add i32 %166, 1
@@ -7894,10 +7894,10 @@ define void @h5tools_dump_dcpl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %181 = load i32, ptr %158, align 8
   %182 = add i32 %181, 1
   store i32 %182, ptr %158, align 8
-  %183 = call i64 @H5Pget_virtual_filename(i64 noundef %3, i64 noundef %.0384423, ptr noundef null, i64 noundef 0) #12
-  %184 = call i64 @H5Pget_virtual_filename(i64 noundef %3, i64 noundef %.0384423, ptr noundef nonnull %15, i64 noundef 256) #12
-  %185 = call i64 @H5Pget_virtual_dsetname(i64 noundef %3, i64 noundef %.0384423, ptr noundef null, i64 noundef 0) #12
-  %186 = call i64 @H5Pget_virtual_dsetname(i64 noundef %3, i64 noundef %.0384423, ptr noundef nonnull %22, i64 noundef 256) #12
+  %183 = call i64 @H5Pget_virtual_filename(i64 noundef %3, i64 noundef %.0382423, ptr noundef null, i64 noundef 0) #12
+  %184 = call i64 @H5Pget_virtual_filename(i64 noundef %3, i64 noundef %.0382423, ptr noundef nonnull %15, i64 noundef 256) #12
+  %185 = call i64 @H5Pget_virtual_dsetname(i64 noundef %3, i64 noundef %.0382423, ptr noundef null, i64 noundef 0) #12
+  %186 = call i64 @H5Pget_virtual_dsetname(i64 noundef %3, i64 noundef %.0382423, ptr noundef nonnull %22, i64 noundef 256) #12
   store i32 1, ptr %31, align 8
   %187 = call ptr @h5tools_str_reset(ptr noundef nonnull %19) #12
   %188 = load ptr, ptr @h5tools_dump_header_format, align 8
@@ -7937,7 +7937,7 @@ define void @h5tools_dump_dcpl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %216 = call ptr @h5tools_str_reset(ptr noundef nonnull %19) #12
   %217 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %19, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.12) #12
   %218 = call zeroext i1 @h5tools_render_element(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %19, ptr noundef nonnull %18, i64 noundef %spec.select, i64 noundef 0, i64 noundef 0) #12
-  %219 = add nuw i64 %.0384423, 1
+  %219 = add nuw i64 %.0382423, 1
   %220 = load i64, ptr %23, align 8
   %221 = icmp ult i64 %219, %220
   br i1 %221, label %.lr.ph, label %._crit_edge
@@ -7949,20 +7949,20 @@ define void @h5tools_dump_dcpl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   br label %227
 
 .thread:                                          ; preds = %30, %35
-  %.0385421 = phi i32 [ %36, %35 ], [ -1, %30 ]
+  %.0387421 = phi i32 [ %36, %35 ], [ -1, %30 ]
   %223 = call ptr @h5tools_str_reset(ptr noundef nonnull %19) #12
   %224 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %19, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.214) #12
   %225 = call zeroext i1 @h5tools_render_element(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %19, ptr noundef nonnull %18, i64 noundef %spec.select, i64 noundef 0, i64 noundef 0) #12
-  %226 = icmp eq i32 %.0385421, 3
+  %226 = icmp eq i32 %.0387421, 3
   br label %227
 
 227:                                              ; preds = %155, %._crit_edge, %.thread, %152, %91, %87
-  %.0385420 = phi i1 [ true, %155 ], [ true, %._crit_edge ], [ %226, %.thread ], [ false, %152 ], [ false, %91 ], [ false, %87 ]
+  %.0387420 = phi i1 [ true, %155 ], [ true, %._crit_edge ], [ %226, %.thread ], [ false, %152 ], [ false, %91 ], [ false, %87 ]
   store i32 1, ptr %31, align 8
   %228 = call ptr @h5tools_str_reset(ptr noundef nonnull %19) #12
   %229 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %19, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.12) #12
   %230 = call zeroext i1 @h5tools_render_element(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %19, ptr noundef nonnull %18, i64 noundef %spec.select, i64 noundef 0, i64 noundef 0) #12
-  br i1 %.0385420, label %350, label %231
+  br i1 %.0387420, label %350, label %231
 
 231:                                              ; preds = %227
   store i32 1, ptr %31, align 8
@@ -8153,11 +8153,11 @@ define void @h5tools_dump_dcpl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 
 .lr.ph440:                                        ; preds = %319, %.lr.ph440
   %323 = phi i64 [ %328, %.lr.ph440 ], [ 0, %319 ]
-  %.1383438 = phi i32 [ %327, %.lr.ph440 ], [ 0, %319 ]
+  %.1389438 = phi i32 [ %327, %.lr.ph440 ], [ 0, %319 ]
   %324 = getelementptr inbounds [20 x i32], ptr %8, i64 0, i64 %323
   %325 = load i32, ptr %324, align 4
   %326 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %19, ptr noundef nonnull @.str.241, i32 noundef %325) #12
-  %327 = add i32 %.1383438, 1
+  %327 = add i32 %.1389438, 1
   %328 = zext i32 %327 to i64
   %329 = load i64, ptr %12, align 8
   %330 = icmp ugt i64 %329, %328
@@ -8283,7 +8283,7 @@ switch.lookup:                                    ; preds = %359
   %387 = call ptr @h5tools_str_reset(ptr noundef nonnull %19) #12
   %388 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %19, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.12) #12
   %389 = call zeroext i1 @h5tools_render_element(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %19, ptr noundef nonnull %18, i64 noundef %spec.select, i64 noundef 0, i64 noundef 0) #12
-  br i1 %.0385420, label %408, label %390
+  br i1 %.0387420, label %408, label %390
 
 390:                                              ; preds = %383
   store i32 1, ptr %31, align 8

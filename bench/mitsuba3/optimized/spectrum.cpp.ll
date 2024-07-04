@@ -417,17 +417,17 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   br label %86
 
 86:                                               ; preds = %.lr.ph, %179
-  %.074138 = phi i64 [ 0, %.lr.ph ], [ %.175, %179 ]
-  %.076137 = phi i1 [ false, %.lr.ph ], [ %.177, %179 ]
-  %.081136 = phi ptr [ %77, %.lr.ph ], [ %.182, %179 ]
-  %87 = load i8, ptr %.081136, align 1
+  %.0138 = phi i64 [ 0, %.lr.ph ], [ %.1, %179 ]
+  %.074137 = phi i1 [ false, %.lr.ph ], [ %.175, %179 ]
+  %.076136 = phi ptr [ %77, %.lr.ph ], [ %.177, %179 ]
+  %87 = load i8, ptr %.076136, align 1
   switch i8 %87, label %102 [
     i8 35, label %88
     i8 10, label %100
   ]
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds i8, ptr %.081136, i64 1
+  %89 = getelementptr inbounds i8, ptr %.076136, i64 1
   br label %179
 
 90:                                               ; preds = %49
@@ -473,11 +473,11 @@ _ZN7mitsuba3refINS_16MemoryMappedFileEED2Ev.exit: ; preds = %.loopexit, %.loopex
   br label %201
 
 100:                                              ; preds = %86
-  %101 = getelementptr inbounds i8, ptr %.081136, i64 1
+  %101 = getelementptr inbounds i8, ptr %.076136, i64 1
   br label %179
 
 102:                                              ; preds = %86
-  br i1 %.076137, label %177, label %switch.early.test
+  br i1 %.074137, label %177, label %switch.early.test
 
 switch.early.test:                                ; preds = %102
   switch i8 %87, label %103 [
@@ -486,12 +486,12 @@ switch.early.test:                                ; preds = %102
   ]
 
 103:                                              ; preds = %switch.early.test
-  %104 = invoke noundef float @_ZN7mitsuba6string11parse_floatIfEET_PKcS4_PPc(ptr noundef nonnull %.081136, ptr noundef nonnull %81, ptr noundef nonnull %12)
+  %104 = invoke noundef float @_ZN7mitsuba6string11parse_floatIfEET_PKcS4_PPc(ptr noundef nonnull %.076136, ptr noundef nonnull %81, ptr noundef nonnull %12)
           to label %105 unwind label %.loopexit
 
 105:                                              ; preds = %103
   %106 = load ptr, ptr %12, align 8
-  switch i64 %.074138, label %160 [
+  switch i64 %.0138, label %160 [
     i64 0, label %107
     i64 1, label %134
   ]
@@ -673,18 +673,18 @@ _ZNSt3__16vectorIfNS_9allocatorIfEEE9push_backB8ne190000ERKf.exit116: ; preds = 
   br label %_ZN7mitsuba3refINS_16MemoryMappedFileEED2Ev.exit
 
 175:                                              ; preds = %_ZNSt3__16vectorIfNS_9allocatorIfEEE9push_backB8ne190000ERKf.exit116, %_ZNSt3__16vectorIfNS_9allocatorIfEEE9push_backB8ne190000ERKf.exit, %165, %166, %172
-  %176 = add i64 %.074138, 1
+  %176 = add i64 %.0138, 1
   br label %179
 
 177:                                              ; preds = %switch.early.test, %switch.early.test, %102
-  %178 = getelementptr inbounds i8, ptr %.081136, i64 1
+  %178 = getelementptr inbounds i8, ptr %.076136, i64 1
   br label %179
 
 179:                                              ; preds = %100, %177, %175, %88
-  %.182 = phi ptr [ %89, %88 ], [ %101, %100 ], [ %106, %175 ], [ %178, %177 ]
-  %.177 = phi i1 [ true, %88 ], [ false, %100 ], [ false, %175 ], [ %.076137, %177 ]
-  %.175 = phi i64 [ %.074138, %88 ], [ 0, %100 ], [ %176, %175 ], [ %.074138, %177 ]
-  %.not93 = icmp eq ptr %.182, %81
+  %.177 = phi ptr [ %89, %88 ], [ %101, %100 ], [ %106, %175 ], [ %178, %177 ]
+  %.175 = phi i1 [ true, %88 ], [ false, %100 ], [ false, %175 ], [ %.074137, %177 ]
+  %.1 = phi i64 [ %.0138, %88 ], [ 0, %100 ], [ %176, %175 ], [ %.0138, %177 ]
+  %.not93 = icmp eq ptr %.177, %81
   br i1 %.not93, label %_ZN7mitsuba3refINS_16MemoryMappedFileEED2Ev.exit118, label %86, !llvm.loop !4
 
 _ZN7mitsuba3refINS_16MemoryMappedFileEED2Ev.exit118: ; preds = %179, %80
@@ -1101,17 +1101,17 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   br label %86
 
 86:                                               ; preds = %.lr.ph, %179
-  %.074138 = phi i64 [ 0, %.lr.ph ], [ %.175, %179 ]
-  %.076137 = phi i1 [ false, %.lr.ph ], [ %.177, %179 ]
-  %.081136 = phi ptr [ %77, %.lr.ph ], [ %.182, %179 ]
-  %87 = load i8, ptr %.081136, align 1
+  %.0138 = phi i64 [ 0, %.lr.ph ], [ %.1, %179 ]
+  %.074137 = phi i1 [ false, %.lr.ph ], [ %.175, %179 ]
+  %.076136 = phi ptr [ %77, %.lr.ph ], [ %.177, %179 ]
+  %87 = load i8, ptr %.076136, align 1
   switch i8 %87, label %102 [
     i8 35, label %88
     i8 10, label %100
   ]
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds i8, ptr %.081136, i64 1
+  %89 = getelementptr inbounds i8, ptr %.076136, i64 1
   br label %179
 
 90:                                               ; preds = %49
@@ -1157,11 +1157,11 @@ _ZN7mitsuba3refINS_16MemoryMappedFileEED2Ev.exit: ; preds = %.loopexit, %.loopex
   br label %201
 
 100:                                              ; preds = %86
-  %101 = getelementptr inbounds i8, ptr %.081136, i64 1
+  %101 = getelementptr inbounds i8, ptr %.076136, i64 1
   br label %179
 
 102:                                              ; preds = %86
-  br i1 %.076137, label %177, label %switch.early.test
+  br i1 %.074137, label %177, label %switch.early.test
 
 switch.early.test:                                ; preds = %102
   switch i8 %87, label %103 [
@@ -1170,12 +1170,12 @@ switch.early.test:                                ; preds = %102
   ]
 
 103:                                              ; preds = %switch.early.test
-  %104 = invoke noundef double @_ZN7mitsuba6string11parse_floatIdEET_PKcS4_PPc(ptr noundef nonnull %.081136, ptr noundef nonnull %81, ptr noundef nonnull %12)
+  %104 = invoke noundef double @_ZN7mitsuba6string11parse_floatIdEET_PKcS4_PPc(ptr noundef nonnull %.076136, ptr noundef nonnull %81, ptr noundef nonnull %12)
           to label %105 unwind label %.loopexit
 
 105:                                              ; preds = %103
   %106 = load ptr, ptr %12, align 8
-  switch i64 %.074138, label %160 [
+  switch i64 %.0138, label %160 [
     i64 0, label %107
     i64 1, label %134
   ]
@@ -1357,18 +1357,18 @@ _ZNSt3__16vectorIdNS_9allocatorIdEEE9push_backB8ne190000ERKd.exit116: ; preds = 
   br label %_ZN7mitsuba3refINS_16MemoryMappedFileEED2Ev.exit
 
 175:                                              ; preds = %_ZNSt3__16vectorIdNS_9allocatorIdEEE9push_backB8ne190000ERKd.exit116, %_ZNSt3__16vectorIdNS_9allocatorIdEEE9push_backB8ne190000ERKd.exit, %165, %166, %172
-  %176 = add i64 %.074138, 1
+  %176 = add i64 %.0138, 1
   br label %179
 
 177:                                              ; preds = %switch.early.test, %switch.early.test, %102
-  %178 = getelementptr inbounds i8, ptr %.081136, i64 1
+  %178 = getelementptr inbounds i8, ptr %.076136, i64 1
   br label %179
 
 179:                                              ; preds = %100, %177, %175, %88
-  %.182 = phi ptr [ %89, %88 ], [ %101, %100 ], [ %106, %175 ], [ %178, %177 ]
-  %.177 = phi i1 [ true, %88 ], [ false, %100 ], [ false, %175 ], [ %.076137, %177 ]
-  %.175 = phi i64 [ %.074138, %88 ], [ 0, %100 ], [ %176, %175 ], [ %.074138, %177 ]
-  %.not93 = icmp eq ptr %.182, %81
+  %.177 = phi ptr [ %89, %88 ], [ %101, %100 ], [ %106, %175 ], [ %178, %177 ]
+  %.175 = phi i1 [ true, %88 ], [ false, %100 ], [ false, %175 ], [ %.074137, %177 ]
+  %.1 = phi i64 [ %.0138, %88 ], [ 0, %100 ], [ %176, %175 ], [ %.0138, %177 ]
+  %.not93 = icmp eq ptr %.177, %81
   br i1 %.not93, label %_ZN7mitsuba3refINS_16MemoryMappedFileEED2Ev.exit118, label %86, !llvm.loop !7
 
 _ZN7mitsuba3refINS_16MemoryMappedFileEED2Ev.exit118: ; preds = %179, %80

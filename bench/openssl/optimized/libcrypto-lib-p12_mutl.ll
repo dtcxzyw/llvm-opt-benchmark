@@ -262,8 +262,8 @@ lor.lhs.false98:                                  ; preds = %lor.lhs.false89
   br label %err
 
 err:                                              ; preds = %lor.lhs.false98, %if.end81, %lor.lhs.false85, %lor.lhs.false89, %if.end36, %if.then78, %if.then57
-  %hmac.0 = phi ptr [ null, %if.end36 ], [ null, %if.end81 ], [ %call82, %lor.lhs.false89 ], [ %call82, %lor.lhs.false85 ], [ null, %if.then57 ], [ null, %if.then78 ], [ %call82, %lor.lhs.false98 ]
   %ret.0 = phi i32 [ 0, %if.end36 ], [ 0, %if.end81 ], [ 0, %lor.lhs.false89 ], [ 0, %lor.lhs.false85 ], [ 0, %if.then57 ], [ 0, %if.then78 ], [ %spec.select, %lor.lhs.false98 ]
+  %hmac.0 = phi ptr [ null, %if.end36 ], [ null, %if.end81 ], [ %call82, %lor.lhs.false89 ], [ %call82, %lor.lhs.false85 ], [ null, %if.then57 ], [ null, %if.then78 ], [ %call82, %lor.lhs.false98 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %key, i64 noundef 64) #5
   call void @HMAC_CTX_free(ptr noundef %hmac.0) #5
   call void @EVP_MD_free(ptr noundef %call24) #5

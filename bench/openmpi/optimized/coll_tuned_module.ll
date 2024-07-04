@@ -137,8 +137,8 @@ define internal range(i32 -1, 1) i32 @tuned_module_enable(ptr noundef %0, ptr no
   %.pn.in.v = select i1 %.not, i64 248, i64 256
   %.pn.in = getelementptr i8, ptr %1, i64 %.pn.in.v
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.0184.in = getelementptr i8, ptr %.pn, i64 16
-  %.0184 = load i32, ptr %.0184.in, align 8
+  %.0183.in = getelementptr i8, ptr %.pn, i64 16
+  %.0183 = load i32, ptr %.0183.in, align 8
   %7 = load i64, ptr getelementptr inbounds (i8, ptr @mca_coll_base_comm_t_class, i64 56), align 8
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #5
   %9 = load i32, ptr @opal_class_init_epoch, align 4
@@ -189,7 +189,7 @@ opal_obj_new.exit.thread289:                      ; preds = %.lr.ph.i.i, %13
   br i1 %.not204, label %select.unfold, label %27
 
 27:                                               ; preds = %22
-  %28 = tail call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %26, i32 noundef 0, i32 noundef %.0184) #6
+  %28 = tail call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %26, i32 noundef 0, i32 noundef %.0183) #6
   store ptr %28, ptr %24, align 8
   %.not205 = icmp ne ptr %28, null
   %or.cond = select i1 %.not205, i1 true, i1 %.not203
@@ -215,7 +215,7 @@ select.unfold:                                    ; preds = %22
   br i1 %.not207, label %select.unfold291, label %35
 
 35:                                               ; preds = %30
-  %36 = tail call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %34, i32 noundef 1, i32 noundef %.0184) #6
+  %36 = tail call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %34, i32 noundef 1, i32 noundef %.0183) #6
   store ptr %36, ptr %32, align 8
   %.not208 = icmp ne ptr %36, null
   %or.cond342 = select i1 %.not208, i1 true, i1 %.not206
@@ -241,7 +241,7 @@ select.unfold291:                                 ; preds = %30
   br i1 %.not210, label %select.unfold294, label %43
 
 43:                                               ; preds = %38
-  %44 = tail call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %42, i32 noundef 2, i32 noundef %.0184) #6
+  %44 = tail call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %42, i32 noundef 2, i32 noundef %.0183) #6
   store ptr %44, ptr %40, align 8
   %.not211 = icmp ne ptr %44, null
   %or.cond344 = select i1 %.not211, i1 true, i1 %.not209
@@ -267,7 +267,7 @@ select.unfold294:                                 ; preds = %38
   br i1 %.not213, label %select.unfold297, label %51
 
 51:                                               ; preds = %46
-  %52 = tail call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %50, i32 noundef 3, i32 noundef %.0184) #6
+  %52 = tail call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %50, i32 noundef 3, i32 noundef %.0183) #6
   store ptr %52, ptr %48, align 8
   %.not214 = icmp ne ptr %52, null
   %or.cond346 = select i1 %.not214, i1 true, i1 %.not212
@@ -293,7 +293,7 @@ select.unfold297:                                 ; preds = %46
   br i1 %.not216, label %select.unfold300, label %59
 
 59:                                               ; preds = %54
-  %60 = tail call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %58, i32 noundef 4, i32 noundef %.0184) #6
+  %60 = tail call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %58, i32 noundef 4, i32 noundef %.0183) #6
   store ptr %60, ptr %56, align 8
   %.not217 = icmp ne ptr %60, null
   %or.cond348 = select i1 %.not217, i1 true, i1 %.not215
@@ -319,7 +319,7 @@ select.unfold300:                                 ; preds = %54
   br i1 %.not219, label %select.unfold303, label %67
 
 67:                                               ; preds = %62
-  %68 = tail call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %66, i32 noundef 5, i32 noundef %.0184) #6
+  %68 = tail call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %66, i32 noundef 5, i32 noundef %.0183) #6
   store ptr %68, ptr %64, align 8
   %.not220 = icmp ne ptr %68, null
   %or.cond350 = select i1 %.not220, i1 true, i1 %.not218
@@ -368,7 +368,7 @@ select.unfold303:                                 ; preds = %62
   %82 = phi ptr [ %80, %.thread374 ], [ %78, %75 ]
   %83 = phi i1 [ false, %.thread374 ], [ %.not221, %75 ]
   %84 = phi ptr [ %79, %.thread374 ], [ %77, %75 ]
-  %85 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %82, i32 noundef 6, i32 noundef %.0184) #6
+  %85 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %82, i32 noundef 6, i32 noundef %.0183) #6
   store ptr %85, ptr %84, align 8
   %.not223 = icmp ne ptr %85, null
   %or.cond353 = or i1 %83, %.not223
@@ -394,7 +394,7 @@ select.unfold308.thread:                          ; preds = %.thread374, %81, %.
   br i1 %.not225, label %select.unfold311, label %91
 
 91:                                               ; preds = %select.unfold308.thread
-  %92 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %90, i32 noundef 7, i32 noundef %.0184) #6
+  %92 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %90, i32 noundef 7, i32 noundef %.0183) #6
   store ptr %92, ptr %88, align 8
   %.not226 = icmp ne ptr %92, null
   %or.cond355 = select i1 %.not226, i1 true, i1 %.not224
@@ -420,7 +420,7 @@ select.unfold311:                                 ; preds = %select.unfold308.th
   br i1 %.not228, label %select.unfold314, label %99
 
 99:                                               ; preds = %94
-  %100 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %98, i32 noundef 8, i32 noundef %.0184) #6
+  %100 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %98, i32 noundef 8, i32 noundef %.0183) #6
   store ptr %100, ptr %96, align 8
   %.not229 = icmp ne ptr %100, null
   %or.cond357 = select i1 %.not229, i1 true, i1 %.not227
@@ -446,7 +446,7 @@ select.unfold314:                                 ; preds = %94
   br i1 %.not231, label %select.unfold317, label %107
 
 107:                                              ; preds = %102
-  %108 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %106, i32 noundef 9, i32 noundef %.0184) #6
+  %108 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %106, i32 noundef 9, i32 noundef %.0183) #6
   store ptr %108, ptr %104, align 8
   %.not232 = icmp ne ptr %108, null
   %or.cond359 = select i1 %.not232, i1 true, i1 %.not230
@@ -472,7 +472,7 @@ select.unfold317:                                 ; preds = %102
   br i1 %.not234, label %select.unfold320, label %115
 
 115:                                              ; preds = %110
-  %116 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %114, i32 noundef 10, i32 noundef %.0184) #6
+  %116 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %114, i32 noundef 10, i32 noundef %.0183) #6
   store ptr %116, ptr %112, align 8
   %.not235 = icmp ne ptr %116, null
   %or.cond361 = select i1 %.not235, i1 true, i1 %.not233
@@ -498,7 +498,7 @@ select.unfold320:                                 ; preds = %110
   br i1 %.not237, label %select.unfold323, label %123
 
 123:                                              ; preds = %118
-  %124 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %122, i32 noundef 11, i32 noundef %.0184) #6
+  %124 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %122, i32 noundef 11, i32 noundef %.0183) #6
   store ptr %124, ptr %120, align 8
   %.not238 = icmp ne ptr %124, null
   %or.cond363 = select i1 %.not238, i1 true, i1 %.not236
@@ -524,7 +524,7 @@ select.unfold323:                                 ; preds = %118
   br i1 %.not240, label %select.unfold326, label %131
 
 131:                                              ; preds = %126
-  %132 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %130, i32 noundef 12, i32 noundef %.0184) #6
+  %132 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %130, i32 noundef 12, i32 noundef %.0183) #6
   store ptr %132, ptr %128, align 8
   %.not241 = icmp ne ptr %132, null
   %or.cond365 = select i1 %.not241, i1 true, i1 %.not239
@@ -550,7 +550,7 @@ select.unfold326:                                 ; preds = %126
   br i1 %.not243, label %select.unfold329, label %139
 
 139:                                              ; preds = %134
-  %140 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %138, i32 noundef 13, i32 noundef %.0184) #6
+  %140 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %138, i32 noundef 13, i32 noundef %.0183) #6
   store ptr %140, ptr %136, align 8
   %.not244 = icmp ne ptr %140, null
   %or.cond367 = select i1 %.not244, i1 true, i1 %.not242
@@ -576,7 +576,7 @@ select.unfold329:                                 ; preds = %134
   br i1 %.not246, label %select.unfold332, label %147
 
 147:                                              ; preds = %142
-  %148 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %146, i32 noundef 14, i32 noundef %.0184) #6
+  %148 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %146, i32 noundef 14, i32 noundef %.0183) #6
   store ptr %148, ptr %144, align 8
   %.not247 = icmp ne ptr %148, null
   %or.cond369 = select i1 %.not247, i1 true, i1 %.not245
@@ -602,7 +602,7 @@ select.unfold332:                                 ; preds = %142
   br i1 %.not249, label %select.unfold335, label %155
 
 155:                                              ; preds = %150
-  %156 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %154, i32 noundef 15, i32 noundef %.0184) #6
+  %156 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %154, i32 noundef 15, i32 noundef %.0183) #6
   store ptr %156, ptr %152, align 8
   %.not250 = icmp ne ptr %156, null
   %or.cond371 = select i1 %.not250, i1 true, i1 %.not248
@@ -628,7 +628,7 @@ select.unfold335:                                 ; preds = %150
   br i1 %.not252, label %select.unfold338, label %163
 
 163:                                              ; preds = %158
-  %164 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %162, i32 noundef 16, i32 noundef %.0184) #6
+  %164 = call ptr @ompi_coll_tuned_get_com_rule_ptr(ptr noundef nonnull %162, i32 noundef 16, i32 noundef %.0183) #6
   store ptr %164, ptr %160, align 8
   %.not253 = icmp ne ptr %164, null
   %or.cond373 = select i1 %.not253, i1 true, i1 %.not251
@@ -664,8 +664,8 @@ select.unfold338:                                 ; preds = %158
   br label %opal_obj_new.exit.thread
 
 opal_obj_new.exit.thread:                         ; preds = %12, %166
-  %.0183 = phi i32 [ 0, %166 ], [ -1, %12 ]
-  ret i32 %.0183
+  %.0184 = phi i32 [ 0, %166 ], [ -1, %12 ]
+  ret i32 %.0184
 }
 
 declare i32 @ompi_coll_tuned_allgather_intra_dec_fixed(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2

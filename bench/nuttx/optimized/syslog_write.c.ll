@@ -72,15 +72,15 @@ define i64 @syslog_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   br label %syslog_default_write.exit
 
 .preheader.us.i:                                  ; preds = %.lr.ph62.i, %.preheader.us.i
-  %.153.us.i = phi i64 [ %35, %.preheader.us.i ], [ 0, %.lr.ph62.i ]
+  %.13353.us.i = phi i64 [ %35, %.preheader.us.i ], [ 0, %.lr.ph62.i ]
   %28 = load ptr, ptr %21, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 %.153.us.i
+  %31 = getelementptr inbounds i8, ptr %0, i64 %.13353.us.i
   %32 = load i8, ptr %31, align 1
   %33 = sext i8 %32 to i32
   %34 = tail call i32 %30(ptr noundef nonnull %21, i32 noundef %33) #2
-  %35 = add nuw i64 %.153.us.i, 1
+  %35 = add nuw i64 %.13353.us.i, 1
   %exitcond70.not.i = icmp eq i64 %35, %1
   br i1 %exitcond70.not.i, label %syslog_default_write.exit, label %.preheader.us.i, !llvm.loop !8
 

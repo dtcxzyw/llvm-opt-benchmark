@@ -469,18 +469,18 @@ for.body.preheader:                               ; preds = %for.body.lr.ph
   br label %for.body
 
 for.bodythread-pre-split:                         ; preds = %for.inc
-  %incdec.ptr = getelementptr inbounds i8, ptr %methsrc.014, i64 56
+  %incdec.ptr = getelementptr inbounds i8, ptr %methsrc.015, i64 56
   %.pr = load i64, ptr %meths_count.i, align 8
   br label %for.body
 
 for.body:                                         ; preds = %for.bodythread-pre-split, %for.body.preheader
   %4 = phi i64 [ %.pr, %for.bodythread-pre-split ], [ %1, %for.body.preheader ]
   %5 = phi i64 [ %13, %for.bodythread-pre-split ], [ %0, %for.body.preheader ]
-  %i.015 = phi i64 [ %inc, %for.bodythread-pre-split ], [ 0, %for.body.preheader ]
-  %methsrc.014 = phi ptr [ %incdec.ptr, %for.bodythread-pre-split ], [ %3, %for.body.preheader ]
-  %role = getelementptr inbounds i8, ptr %methsrc.014, i64 4
+  %methsrc.015 = phi ptr [ %incdec.ptr, %for.bodythread-pre-split ], [ %3, %for.body.preheader ]
+  %i.014 = phi i64 [ %inc, %for.bodythread-pre-split ], [ 0, %for.body.preheader ]
+  %role = getelementptr inbounds i8, ptr %methsrc.015, i64 4
   %6 = load i32, ptr %role, align 4
-  %7 = load i16, ptr %methsrc.014, align 8
+  %7 = load i16, ptr %methsrc.015, align 8
   %cmp12.not.i = icmp eq i64 %4, 0
   br i1 %cmp12.not.i, label %for.inc, label %for.body.lr.ph.i
 
@@ -525,7 +525,7 @@ for.inc.i:                                        ; preds = %land.lhs.true.i, %f
 
 if.end:                                           ; preds = %land.lhs.true.i, %for.body.us.i
   %retval.0.i = phi ptr [ %meth.014.us.i, %for.body.us.i ], [ %meth.014.i, %land.lhs.true.i ]
-  %ext_flags = getelementptr inbounds i8, ptr %methsrc.014, i64 12
+  %ext_flags = getelementptr inbounds i8, ptr %methsrc.015, i64 12
   %12 = load i32, ptr %ext_flags, align 4
   %ext_flags3 = getelementptr inbounds i8, ptr %retval.0.i, i64 12
   store i32 %12, ptr %ext_flags3, align 4
@@ -534,7 +534,7 @@ if.end:                                           ; preds = %land.lhs.true.i, %f
 
 for.inc:                                          ; preds = %for.inc.i, %for.inc.us.i, %for.body, %if.end
   %13 = phi i64 [ %5, %for.body ], [ %.pre, %if.end ], [ %5, %for.inc.us.i ], [ %5, %for.inc.i ]
-  %inc = add nuw i64 %i.015, 1
+  %inc = add nuw i64 %i.014, 1
   %cmp = icmp ult i64 %inc, %13
   br i1 %cmp, label %for.bodythread-pre-split, label %for.end, !llvm.loop !8
 
@@ -566,19 +566,19 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp923.not, label %return, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.body.backedge
-  %i.025 = phi i64 [ %i.025.be, %for.body.backedge ], [ 0, %if.end ]
-  %err.024 = phi i32 [ %err.024.be, %for.body.backedge ], [ 0, %if.end ]
+  %err.025 = phi i32 [ %err.025.be, %for.body.backedge ], [ 0, %if.end ]
+  %i.024 = phi i64 [ %i.024.be, %for.body.backedge ], [ 0, %if.end ]
   %3 = load ptr, ptr %src, align 8
-  %add.ptr = getelementptr inbounds %struct.custom_ext_method, ptr %3, i64 %i.025
+  %add.ptr = getelementptr inbounds %struct.custom_ext_method, ptr %3, i64 %i.024
   %4 = load ptr, ptr %dst, align 8
-  %add.ptr12 = getelementptr inbounds %struct.custom_ext_method, ptr %4, i64 %i.025
+  %add.ptr12 = getelementptr inbounds %struct.custom_ext_method, ptr %4, i64 %i.024
   %add_cb = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %5 = load ptr, ptr %add_cb, align 8
   %cmp13.not = icmp eq ptr %5, @custom_ext_add_old_cb_wrap
   br i1 %cmp13.not, label %if.end15, label %for.inc
 
 if.end15:                                         ; preds = %for.body
-  %tobool.not = icmp eq i32 %err.024, 0
+  %tobool.not = icmp eq i32 %err.025, 0
   br i1 %tobool.not, label %if.end17, label %for.inc.thread
 
 if.end17:                                         ; preds = %if.end15
@@ -600,15 +600,15 @@ if.end17:                                         ; preds = %if.end15
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end17, %for.body
-  %err.1 = phi i32 [ %err.024, %for.body ], [ %spec.select, %if.end17 ]
-  %inc = add nuw i64 %i.025, 1
+  %err.1 = phi i32 [ %err.025, %for.body ], [ %spec.select, %if.end17 ]
+  %inc = add nuw i64 %i.024, 1
   %9 = load i64, ptr %meths_count, align 8
   %cmp9 = icmp ult i64 %inc, %9
   br i1 %cmp9, label %for.body.backedge, label %if.end30
 
 for.body.backedge:                                ; preds = %for.inc, %for.inc.thread
-  %i.025.be = phi i64 [ %inc, %for.inc ], [ %inc28, %for.inc.thread ]
-  %err.024.be = phi i32 [ %err.1, %for.inc ], [ 1, %for.inc.thread ]
+  %err.025.be = phi i32 [ %err.1, %for.inc ], [ 1, %for.inc.thread ]
+  %i.024.be = phi i64 [ %inc, %for.inc ], [ %inc28, %for.inc.thread ]
   br label %for.body, !llvm.loop !10
 
 for.inc.thread:                                   ; preds = %if.end15
@@ -616,7 +616,7 @@ for.inc.thread:                                   ; preds = %if.end15
   store ptr null, ptr %add_arg, align 8
   %parse_arg = getelementptr inbounds i8, ptr %add.ptr12, i64 48
   store ptr null, ptr %parse_arg, align 8
-  %inc28 = add nuw i64 %i.025, 1
+  %inc28 = add nuw i64 %i.024, 1
   %10 = load i64, ptr %meths_count, align 8
   %cmp929 = icmp ult i64 %inc28, %10
   br i1 %cmp929, label %for.body.backedge, label %if.then32

@@ -147,28 +147,28 @@ define dso_local range(i64 0, 2) i64 @boolin(ptr nocapture noundef readonly %0) 
   br label %8
 
 8:                                                ; preds = %8, %1
-  %.016 = phi ptr [ %5, %1 ], [ %14, %8 ]
-  %9 = load i8, ptr %.016, align 1
+  %.015 = phi ptr [ %5, %1 ], [ %14, %8 ]
+  %9 = load i8, ptr %.015, align 1
   %10 = zext i8 %9 to i64
   %11 = getelementptr i16, ptr %7, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = and i16 %12, 8192
   %.not = icmp eq i16 %13, 0
-  %14 = getelementptr i8, ptr %.016, i64 1
+  %14 = getelementptr i8, ptr %.015, i64 1
   br i1 %.not, label %15, label %8, !llvm.loop !5
 
 15:                                               ; preds = %8
-  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.016) #12
+  %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.015) #12
   br label %17
 
 17:                                               ; preds = %18, %15
-  %.015 = phi i64 [ %16, %15 ], [ %19, %18 ]
-  %.not17 = icmp eq i64 %.015, 0
+  %.0 = phi i64 [ %16, %15 ], [ %19, %18 ]
+  %.not17 = icmp eq i64 %.0, 0
   br i1 %.not17, label %.critedge, label %18
 
 18:                                               ; preds = %17
-  %19 = add i64 %.015, -1
-  %20 = getelementptr i8, ptr %.016, i64 %19
+  %19 = add i64 %.0, -1
+  %20 = getelementptr i8, ptr %.015, i64 %19
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i64
   %23 = getelementptr i16, ptr %7, i64 %22
@@ -178,7 +178,7 @@ define dso_local range(i64 0, 2) i64 @boolin(ptr nocapture noundef readonly %0) 
   br i1 %.not18, label %.critedge, label %17, !llvm.loop !7
 
 .critedge:                                        ; preds = %17, %18
-  %26 = call zeroext i1 @parse_bool_with_len(ptr noundef nonnull %.016, i64 noundef %.015, ptr noundef nonnull %2)
+  %26 = call zeroext i1 @parse_bool_with_len(ptr noundef nonnull %.015, i64 noundef %.0, ptr noundef nonnull %2)
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %.critedge
@@ -200,8 +200,8 @@ define dso_local range(i64 0, 2) i64 @boolin(ptr nocapture noundef readonly %0) 
   br label %38
 
 38:                                               ; preds = %35, %31, %27
-  %.0 = phi i64 [ %30, %27 ], [ 0, %31 ], [ 0, %35 ]
-  ret i64 %.0
+  %.016 = phi i64 [ %30, %27 ], [ 0, %31 ], [ 0, %35 ]
+  ret i64 %.016
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)

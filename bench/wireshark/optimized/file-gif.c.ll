@@ -286,13 +286,13 @@ define internal noundef i32 @dissect_gif(ptr noundef %0, ptr noundef %1, ptr nou
   br label %79
 
 79:                                               ; preds = %74, %73
-  %.0173 = phi i32 [ %78, %74 ], [ 13, %73 ]
-  %80 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0173) #2
+  %.0174 = phi i32 [ %78, %74 ], [ 13, %73 ]
+  %80 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0174) #2
   %.not181188 = icmp eq i32 %80, 0
   br i1 %.not181188, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %79, %176
-  %.1189 = phi i32 [ %.3, %176 ], [ %.0173, %79 ]
+  %.1189 = phi i32 [ %.3, %176 ], [ %.0174, %79 ]
   %81 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1189) #2
   switch i8 %81, label %173 [
     i8 33, label %82
@@ -447,7 +447,7 @@ dissect_gif_data_block_seq.exit185:               ; preds = %160
   br i1 %.not181, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %dissect_gif_data_block_seq.exit185, %dissect_gif_data_block_seq.exit, %176, %79, %169, %12, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ %172, %169 ], [ %.0173, %79 ], [ %159, %dissect_gif_data_block_seq.exit185 ], [ %94, %dissect_gif_data_block_seq.exit ], [ %.3, %176 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ %172, %169 ], [ %.0174, %79 ], [ %159, %dissect_gif_data_block_seq.exit185 ], [ %94, %dissect_gif_data_block_seq.exit ], [ %.3, %176 ]
   ret i32 %.0
 }
 

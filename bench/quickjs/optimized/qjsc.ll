@@ -218,8 +218,8 @@ define dso_local noundef ptr @namelist_find(ptr nocapture noundef readonly %0, p
   br i1 %.not, label %._crit_edge, label %7
 
 ._crit_edge:                                      ; preds = %8, %7, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %7 ], [ %9, %8 ]
-  ret ptr %.0
+  %.08 = phi ptr [ null, %2 ], [ null, %7 ], [ %9, %8 ]
+  ret ptr %.08
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -754,13 +754,13 @@ namelist_add.exit137:                             ; preds = %namelist_add.exit, 
   %.sroa.0.0 = phi ptr [ null, %namelist_add.exit137 ], [ %.sroa.0.0.be, %.backedge ]
   %.sroa.5.0 = phi i32 [ 0, %namelist_add.exit137 ], [ %.sroa.5.0.be, %.backedge ]
   %.sroa.9.0 = phi i32 [ 0, %namelist_add.exit137 ], [ %.sroa.9.0.be, %.backedge ]
-  %.0109 = phi i32 [ -1, %namelist_add.exit137 ], [ %.0109.be, %.backedge ]
-  %.0107 = phi i32 [ 2, %namelist_add.exit137 ], [ %.0107.be, %.backedge ]
-  %.0105 = phi i64 [ 0, %namelist_add.exit137 ], [ %.0105.be, %.backedge ]
-  %.0103 = phi i32 [ 0, %namelist_add.exit137 ], [ %.0103.be, %.backedge ]
-  %.0100 = phi ptr [ null, %namelist_add.exit137 ], [ %.0100.be, %.backedge ]
-  %.097 = phi ptr [ null, %namelist_add.exit137 ], [ %.097.be, %.backedge ]
-  %.095 = phi i32 [ 0, %namelist_add.exit137 ], [ %.095.be, %.backedge ]
+  %.0111 = phi i32 [ 0, %namelist_add.exit137 ], [ %.0111.be, %.backedge ]
+  %.0108 = phi ptr [ null, %namelist_add.exit137 ], [ %.0108.be, %.backedge ]
+  %.0105 = phi ptr [ null, %namelist_add.exit137 ], [ %.0105.be, %.backedge ]
+  %.099 = phi i32 [ -1, %namelist_add.exit137 ], [ %.099.be, %.backedge ]
+  %.097 = phi i32 [ 2, %namelist_add.exit137 ], [ %.097.be, %.backedge ]
+  %.095 = phi i64 [ 0, %namelist_add.exit137 ], [ %.095.be, %.backedge ]
+  %.094 = phi i32 [ 0, %namelist_add.exit137 ], [ %.094.be, %.backedge ]
   %55 = call i32 @getopt(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.6) #16
   switch i32 %55, label %.backedge [
     i32 -1, label %137
@@ -834,13 +834,13 @@ namelist_add.exit137:                             ; preds = %namelist_add.exit, 
   %.sroa.0.0.be = phi ptr [ %.sroa.0.0, %54 ], [ %.sroa.0.0, %133 ], [ %.sroa.0.0, %131 ], [ %.sroa.0.0, %129 ], [ %.sroa.0.0, %128 ], [ %.sroa.0.1, %namelist_add.exit143 ], [ %.sroa.0.0, %namelist_add.exit140 ], [ %.sroa.0.0, %85 ], [ %.sroa.0.0, %64 ], [ %.sroa.0.0, %79 ], [ %.sroa.0.0, %62 ], [ %.sroa.0.0, %61 ], [ %.sroa.0.0, %60 ], [ %.sroa.0.0, %58 ], [ %.sroa.0.0, %.thread ]
   %.sroa.5.0.be = phi i32 [ %.sroa.5.0, %54 ], [ %.sroa.5.0, %133 ], [ %.sroa.5.0, %131 ], [ %.sroa.5.0, %129 ], [ %.sroa.5.0, %128 ], [ %122, %namelist_add.exit143 ], [ %.sroa.5.0, %namelist_add.exit140 ], [ %.sroa.5.0, %85 ], [ %.sroa.5.0, %64 ], [ %.sroa.5.0, %79 ], [ %.sroa.5.0, %62 ], [ %.sroa.5.0, %61 ], [ %.sroa.5.0, %60 ], [ %.sroa.5.0, %58 ], [ %.sroa.5.0, %.thread ]
   %.sroa.9.0.be = phi i32 [ %.sroa.9.0, %54 ], [ %.sroa.9.0, %133 ], [ %.sroa.9.0, %131 ], [ %.sroa.9.0, %129 ], [ %.sroa.9.0, %128 ], [ %.sroa.9.1, %namelist_add.exit143 ], [ %.sroa.9.0, %namelist_add.exit140 ], [ %.sroa.9.0, %85 ], [ %.sroa.9.0, %64 ], [ %.sroa.9.0, %79 ], [ %.sroa.9.0, %62 ], [ %.sroa.9.0, %61 ], [ %.sroa.9.0, %60 ], [ %.sroa.9.0, %58 ], [ %.sroa.9.0, %.thread ]
-  %.0109.be = phi i32 [ %.0109, %54 ], [ %.0109, %133 ], [ %.0109, %131 ], [ %.0109, %129 ], [ %.0109, %128 ], [ %.0109, %namelist_add.exit143 ], [ %.0109, %namelist_add.exit140 ], [ 1, %85 ], [ %.0109, %64 ], [ %.0109, %79 ], [ %.0109, %62 ], [ %.0109, %61 ], [ %.0109, %60 ], [ %.0109, %58 ], [ %.0109, %.thread ]
-  %.0107.be = phi i32 [ %.0107, %54 ], [ %.0107, %133 ], [ %.0107, %131 ], [ %.0107, %129 ], [ %.0107, %128 ], [ %.0107, %namelist_add.exit143 ], [ %.0107, %namelist_add.exit140 ], [ %.0107, %85 ], [ %.0107, %64 ], [ %.0107, %79 ], [ %.0107, %62 ], [ 1, %61 ], [ 0, %60 ], [ %.0107, %58 ], [ %.0107, %.thread ]
-  %.0105.be = phi i64 [ %.0105, %54 ], [ %136, %133 ], [ %.0105, %131 ], [ %.0105, %129 ], [ %.0105, %128 ], [ %.0105, %namelist_add.exit143 ], [ %.0105, %namelist_add.exit140 ], [ %.0105, %85 ], [ %.0105, %64 ], [ %.0105, %79 ], [ %.0105, %62 ], [ %.0105, %61 ], [ %.0105, %60 ], [ %.0105, %58 ], [ %.0105, %.thread ]
-  %.0103.be = phi i32 [ %.0103, %54 ], [ %.0103, %133 ], [ %.0103, %131 ], [ %.0103, %129 ], [ %.0103, %128 ], [ %.0103, %namelist_add.exit143 ], [ %.0103, %namelist_add.exit140 ], [ %.0103, %85 ], [ %.0103, %64 ], [ 1, %79 ], [ %.0103, %62 ], [ %.0103, %61 ], [ %.0103, %60 ], [ %.0103, %58 ], [ %.0103, %.thread ]
-  %.0100.be = phi ptr [ %.0100, %54 ], [ %.0100, %133 ], [ %.0100, %131 ], [ %.0100, %129 ], [ %.0100, %128 ], [ %.0100, %namelist_add.exit143 ], [ %.0100, %namelist_add.exit140 ], [ %.0100, %85 ], [ %.0100, %64 ], [ %.0100, %79 ], [ %63, %62 ], [ %.0100, %61 ], [ %.0100, %60 ], [ %.0100, %58 ], [ %.0100, %.thread ]
-  %.097.be = phi ptr [ %.097, %54 ], [ %.097, %133 ], [ %.097, %131 ], [ %.097, %129 ], [ %.097, %128 ], [ %.097, %namelist_add.exit143 ], [ %.097, %namelist_add.exit140 ], [ %.097, %85 ], [ %.097, %64 ], [ %.097, %79 ], [ %.097, %62 ], [ %.097, %61 ], [ %.097, %60 ], [ %59, %58 ], [ %.097, %.thread ]
-  %.095.be = phi i32 [ %.095, %54 ], [ %.095, %133 ], [ %.095, %131 ], [ %130, %129 ], [ %.095, %128 ], [ %.095, %namelist_add.exit143 ], [ %.095, %namelist_add.exit140 ], [ %.095, %85 ], [ %.095, %64 ], [ %.095, %79 ], [ %.095, %62 ], [ %.095, %61 ], [ %.095, %60 ], [ %.095, %58 ], [ %.095, %.thread ]
+  %.0111.be = phi i32 [ %.0111, %54 ], [ %.0111, %133 ], [ %.0111, %131 ], [ %130, %129 ], [ %.0111, %128 ], [ %.0111, %namelist_add.exit143 ], [ %.0111, %namelist_add.exit140 ], [ %.0111, %85 ], [ %.0111, %64 ], [ %.0111, %79 ], [ %.0111, %62 ], [ %.0111, %61 ], [ %.0111, %60 ], [ %.0111, %58 ], [ %.0111, %.thread ]
+  %.0108.be = phi ptr [ %.0108, %54 ], [ %.0108, %133 ], [ %.0108, %131 ], [ %.0108, %129 ], [ %.0108, %128 ], [ %.0108, %namelist_add.exit143 ], [ %.0108, %namelist_add.exit140 ], [ %.0108, %85 ], [ %.0108, %64 ], [ %.0108, %79 ], [ %.0108, %62 ], [ %.0108, %61 ], [ %.0108, %60 ], [ %59, %58 ], [ %.0108, %.thread ]
+  %.0105.be = phi ptr [ %.0105, %54 ], [ %.0105, %133 ], [ %.0105, %131 ], [ %.0105, %129 ], [ %.0105, %128 ], [ %.0105, %namelist_add.exit143 ], [ %.0105, %namelist_add.exit140 ], [ %.0105, %85 ], [ %.0105, %64 ], [ %.0105, %79 ], [ %63, %62 ], [ %.0105, %61 ], [ %.0105, %60 ], [ %.0105, %58 ], [ %.0105, %.thread ]
+  %.099.be = phi i32 [ %.099, %54 ], [ %.099, %133 ], [ %.099, %131 ], [ %.099, %129 ], [ %.099, %128 ], [ %.099, %namelist_add.exit143 ], [ %.099, %namelist_add.exit140 ], [ 1, %85 ], [ %.099, %64 ], [ %.099, %79 ], [ %.099, %62 ], [ %.099, %61 ], [ %.099, %60 ], [ %.099, %58 ], [ %.099, %.thread ]
+  %.097.be = phi i32 [ %.097, %54 ], [ %.097, %133 ], [ %.097, %131 ], [ %.097, %129 ], [ %.097, %128 ], [ %.097, %namelist_add.exit143 ], [ %.097, %namelist_add.exit140 ], [ %.097, %85 ], [ %.097, %64 ], [ %.097, %79 ], [ %.097, %62 ], [ 1, %61 ], [ 0, %60 ], [ %.097, %58 ], [ %.097, %.thread ]
+  %.095.be = phi i64 [ %.095, %54 ], [ %136, %133 ], [ %.095, %131 ], [ %.095, %129 ], [ %.095, %128 ], [ %.095, %namelist_add.exit143 ], [ %.095, %namelist_add.exit140 ], [ %.095, %85 ], [ %.095, %64 ], [ %.095, %79 ], [ %.095, %62 ], [ %.095, %61 ], [ %.095, %60 ], [ %.095, %58 ], [ %.095, %.thread ]
+  %.094.be = phi i32 [ %.094, %54 ], [ %.094, %133 ], [ %.094, %131 ], [ %.094, %129 ], [ %.094, %128 ], [ %.094, %namelist_add.exit143 ], [ %.094, %namelist_add.exit140 ], [ %.094, %85 ], [ %.094, %64 ], [ 1, %79 ], [ %.094, %62 ], [ %.094, %61 ], [ %.094, %60 ], [ %.094, %58 ], [ %.094, %.thread ]
   br label %54
 
 78:                                               ; preds = %70
@@ -953,7 +953,7 @@ namelist_add.exit143:                             ; preds = %112, %115
   br label %.backedge
 
 129:                                              ; preds = %54
-  %130 = add i32 %.095, 1
+  %130 = add i32 %.0111, 1
   br label %.backedge
 
 131:                                              ; preds = %54
@@ -978,10 +978,10 @@ namelist_add.exit143:                             ; preds = %112, %115
   unreachable
 
 141:                                              ; preds = %137
-  %.not124 = icmp eq ptr %.097, null
-  %142 = icmp eq i32 %.0107, 2
+  %.not124 = icmp eq ptr %.0108, null
+  %142 = icmp eq i32 %.097, 2
   %.str.11..str.12 = select i1 %142, ptr @.str.11, ptr @.str.12
-  %.299 = select i1 %.not124, ptr %.str.11..str.12, ptr %.097
+  %.2110 = select i1 %.not124, ptr %.str.11..str.12, ptr %.0108
   br i1 %142, label %143, label %146
 
 143:                                              ; preds = %141
@@ -990,7 +990,7 @@ namelist_add.exit143:                             ; preds = %112, %115
   br label %147
 
 146:                                              ; preds = %141
-  call void @pstrcpy(ptr noundef nonnull %12, i32 noundef 1024, ptr noundef nonnull %.299) #16
+  call void @pstrcpy(ptr noundef nonnull %12, i32 noundef 1024, ptr noundef nonnull %.2110) #16
   br label %147
 
 147:                                              ; preds = %146, %143
@@ -1007,7 +1007,7 @@ namelist_add.exit143:                             ; preds = %112, %115
   store ptr %148, ptr @outfile, align 8
   %151 = call ptr @JS_NewRuntime() #16
   %152 = call ptr @JS_NewContext(ptr noundef %151) #16
-  %.not126 = icmp eq i32 %.0103, 0
+  %.not126 = icmp eq i32 %.094, 0
   br i1 %.not126, label %154, label %153
 
 153:                                              ; preds = %150
@@ -1020,7 +1020,7 @@ namelist_add.exit143:                             ; preds = %112, %115
 154:                                              ; preds = %153, %150
   call void @JS_SetModuleLoaderFunc(ptr noundef %151, ptr noundef null, ptr noundef nonnull @jsc_module_loader, ptr noundef null) #16
   %155 = call i64 @fwrite(ptr nonnull @.str.15, i64 61, i64 1, ptr nonnull %148)
-  %.not127 = icmp eq i32 %.0107, 0
+  %.not127 = icmp eq i32 %.097, 0
   br i1 %.not127, label %158, label %156
 
 156:                                              ; preds = %154
@@ -1037,7 +1037,7 @@ namelist_add.exit143:                             ; preds = %112, %115
   br i1 %162, label %.lr.ph, label %.preheader159
 
 .lr.ph:                                           ; preds = %160
-  %163 = icmp slt i32 %.0109, 0
+  %163 = icmp slt i32 %.099, 0
   %164 = sext i32 %161 to i64
   br label %166
 
@@ -1051,7 +1051,7 @@ namelist_add.exit143:                             ; preds = %112, %115
 
 166:                                              ; preds = %.lr.ph, %compile_file.exit
   %indvars.iv227 = phi i64 [ %164, %.lr.ph ], [ %indvars.iv.next228, %compile_file.exit ]
-  %.2102185 = phi ptr [ %.0100, %.lr.ph ], [ null, %compile_file.exit ]
+  %.2107185 = phi ptr [ %.0105, %.lr.ph ], [ null, %compile_file.exit ]
   %167 = getelementptr ptr, ptr %1, i64 %indvars.iv227
   %168 = load ptr, ptr %167, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10)
@@ -1105,11 +1105,11 @@ namelist_add.exit143:                             ; preds = %112, %115
 
 189:                                              ; preds = %.thread.i
   call void @js_free(ptr noundef %152, ptr noundef nonnull %169) #16
-  %.not34.i = icmp eq ptr %.2102185, null
+  %.not34.i = icmp eq ptr %.2107185, null
   br i1 %.not34.i, label %191, label %190
 
 190:                                              ; preds = %189
-  call void @pstrcpy(ptr noundef nonnull %10, i32 noundef 1024, ptr noundef nonnull %.2102185) #16
+  call void @pstrcpy(ptr noundef nonnull %10, i32 noundef 1024, ptr noundef nonnull %.2107185) #16
   br label %192
 
 191:                                              ; preds = %189
@@ -1257,11 +1257,11 @@ compile_file.exit:                                ; preds = %192, %195, %200
 ._crit_edge195:                                   ; preds = %247, %.preheader
   %252 = call i64 @fwrite(ptr nonnull @.str.25, i64 17, i64 1, ptr nonnull %148)
   %253 = call i64 @fwrite(ptr nonnull @main_c_template1, i64 180, i64 1, ptr nonnull %148)
-  %.not128 = icmp eq i64 %.0105, 0
+  %.not128 = icmp eq i64 %.095, 0
   br i1 %.not128, label %257, label %254
 
 254:                                              ; preds = %._crit_edge195
-  %255 = trunc i64 %.0105 to i32
+  %255 = trunc i64 %.095 to i32
   %256 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %148, ptr noundef nonnull @.str.26, i32 noundef %255) #16
   br label %257
 
@@ -1373,7 +1373,7 @@ compile_file.exit:                                ; preds = %192, %195, %200
   %302 = getelementptr inbounds i8, ptr %4, i64 56
   store ptr @.str.71, ptr %301, align 16
   %303 = getelementptr inbounds i8, ptr %4, i64 64
-  store ptr %.299, ptr %302, align 8
+  store ptr %.2110, ptr %302, align 8
   %.b.i = load i1, ptr @dynamic_export, align 4
   br i1 %.b.i, label %304, label %306
 
@@ -1396,7 +1396,7 @@ compile_file.exit:                                ; preds = %192, %195, %200
   %312 = getelementptr i8, ptr %.0.i146, i64 40
   store ptr @.str.76, ptr %311, align 8
   store ptr null, ptr %312, align 8
-  %.not29.i = icmp eq i32 %.095, 0
+  %.not29.i = icmp eq i32 %.0111, 0
   br i1 %.not29.i, label %318, label %.preheader.i
 
 .preheader.i:                                     ; preds = %306

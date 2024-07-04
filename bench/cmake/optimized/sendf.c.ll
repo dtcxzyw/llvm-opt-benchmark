@@ -249,7 +249,7 @@ define dso_local i32 @Curl_client_write(ptr noundef %0, i32 noundef %1, ptr noun
   br label %convert_lineends.exit
 
 convert_lineends.exit:                            ; preds = %72, %37, %18, %14, %6, %4
-  %.015 = phi i64 [ %3, %14 ], [ %3, %6 ], [ %3, %4 ], [ %75, %72 ], [ %3, %18 ], [ %.148.i, %37 ]
+  %.0 = phi i64 [ %3, %14 ], [ %3, %6 ], [ %3, %4 ], [ %75, %72 ], [ %3, %18 ], [ %.148.i, %37 ]
   %76 = getelementptr inbounds i8, ptr %0, i64 328
   %77 = load ptr, ptr %76, align 8
   %.not18 = icmp eq ptr %77, null
@@ -270,12 +270,12 @@ convert_lineends.exit:                            ; preds = %72, %37, %18, %14, 
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 24
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call i32 %84(ptr noundef nonnull %0, ptr noundef nonnull %81, i32 noundef %1, ptr noundef %2, i64 noundef %.015) #9
+  %85 = tail call i32 %84(ptr noundef nonnull %0, ptr noundef nonnull %81, i32 noundef %1, ptr noundef %2, i64 noundef %.0) #9
   br label %Curl_cwriter_write.exit
 
 Curl_cwriter_write.exit:                          ; preds = %.thread, %80, %78
-  %.0 = phi i32 [ %79, %78 ], [ %85, %.thread ], [ 23, %80 ]
-  ret i32 %.0
+  %.015 = phi i32 [ %79, %78 ], [ %85, %.thread ], [ 23, %80 ]
+  ret i32 %.015
 }
 
 ; Function Attrs: nounwind uwtable
@@ -494,8 +494,8 @@ define dso_local i32 @Curl_client_unpause(ptr noundef %0) local_unnamed_addr #0 
 
 12:                                               ; preds = %._crit_edge, %23
   %indvars.iv31 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next32, %23 ]
-  %.028 = phi i32 [ 0, %._crit_edge ], [ %.1, %23 ]
-  %.not24 = icmp eq i32 %.028, 0
+  %.02127 = phi i32 [ 0, %._crit_edge ], [ %.122, %23 ]
+  %.not24 = icmp eq i32 %.02127, 0
   br i1 %.not24, label %13, label %23
 
 13:                                               ; preds = %12
@@ -512,7 +512,7 @@ define dso_local i32 @Curl_client_unpause(ptr noundef %0) local_unnamed_addr #0 
   br label %23
 
 23:                                               ; preds = %13, %12
-  %.1 = phi i32 [ %.028, %12 ], [ %22, %13 ]
+  %.122 = phi i32 [ %.02127, %12 ], [ %22, %13 ]
   %24 = getelementptr inbounds [3 x %struct.tempbuf], ptr %2, i64 0, i64 %indvars.iv31
   call void @Curl_dyn_free(ptr noundef nonnull %24) #9
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
@@ -520,7 +520,7 @@ define dso_local i32 @Curl_client_unpause(ptr noundef %0) local_unnamed_addr #0 
   br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !9
 
 .loopexit:                                        ; preds = %23, %1
-  %.2 = phi i32 [ 0, %1 ], [ %.1, %23 ]
+  %.2 = phi i32 [ 0, %1 ], [ %.122, %23 ]
   ret i32 %.2
 }
 
@@ -656,7 +656,7 @@ define internal fastcc i32 @chop_write(ptr noundef %0, i32 noundef %1, i1 nounde
   br label %65
 
 65:                                               ; preds = %62, %58, %56, %53
-  %.073 = phi ptr [ null, %53 ], [ %64, %62 ], [ null, %58 ], [ null, %56 ]
+  %.074 = phi ptr [ null, %53 ], [ %64, %62 ], [ null, %58 ], [ null, %56 ]
   %66 = and i32 %1, 6
   %.not85 = icmp eq i32 %66, 0
   br i1 %.not85, label %76, label %67
@@ -679,16 +679,16 @@ define internal fastcc i32 @chop_write(ptr noundef %0, i32 noundef %1, i1 nounde
   br label %76
 
 76:                                               ; preds = %67, %73, %70, %65
-  %.072 = phi ptr [ null, %70 ], [ null, %65 ], [ %75, %73 ], [ %69, %67 ]
-  %.not99 = icmp eq ptr %.073, null
+  %.075 = phi ptr [ null, %70 ], [ null, %65 ], [ %75, %73 ], [ %69, %67 ]
+  %.not99 = icmp eq ptr %.074, null
   br i1 %.not99, label %.split155.us, label %.split
 
 .split:                                           ; preds = %76, %124
-  %.074153 = phi ptr [ %125, %124 ], [ %3, %76 ]
-  %.075152 = phi i64 [ %126, %124 ], [ %4, %76 ]
-  %77 = tail call i64 @llvm.umin.i64(i64 %.075152, i64 16384)
+  %.072153 = phi i64 [ %126, %124 ], [ %4, %76 ]
+  %.073152 = phi ptr [ %125, %124 ], [ %3, %76 ]
+  %77 = tail call i64 @llvm.umin.i64(i64 %.072153, i64 16384)
   tail call void @Curl_set_in_callback(ptr noundef %0, i1 noundef zeroext true) #9
-  %78 = tail call i64 %.073(ptr noundef %.074153, i64 noundef 1, i64 noundef %77, ptr noundef %9) #9
+  %78 = tail call i64 %.074(ptr noundef %.073152, i64 noundef 1, i64 noundef %77, ptr noundef %9) #9
   tail call void @Curl_set_in_callback(ptr noundef %0, i1 noundef zeroext false) #9
   %79 = icmp eq i64 %78, 268435457
   br i1 %79, label %80, label %122
@@ -777,7 +777,7 @@ define internal fastcc i32 @chop_write(ptr noundef %0, i32 noundef %1, i1 nounde
   %.pre-phi.i115 = phi i64 [ %.pre.i119, %._crit_edge.i118 ], [ %107, %.thread.i113 ]
   %116 = getelementptr inbounds i8, ptr %0, i64 3216
   %117 = getelementptr inbounds [3 x %struct.tempbuf], ptr %116, i64 0, i64 %.pre-phi.i115
-  %118 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %117, ptr noundef %.074153, i64 noundef %.075152) #9
+  %118 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %117, ptr noundef %.073152, i64 noundef %.072153) #9
   %.not32.i116 = icmp eq i32 %118, 0
   br i1 %.not32.i116, label %119, label %pausewrite.exit
 
@@ -796,8 +796,8 @@ define internal fastcc i32 @chop_write(ptr noundef %0, i32 noundef %1, i1 nounde
   br label %pausewrite.exit
 
 124:                                              ; preds = %122
-  %125 = getelementptr inbounds i8, ptr %.074153, i64 %77
-  %126 = sub i64 %.075152, %77
+  %125 = getelementptr inbounds i8, ptr %.073152, i64 %77
+  %126 = sub i64 %.072153, %77
   %.not89 = icmp eq i64 %126, 0
   br i1 %.not89, label %.split155.us, label %.split, !llvm.loop !11
 
@@ -834,14 +834,14 @@ define internal fastcc i32 @chop_write(ptr noundef %0, i32 noundef %1, i1 nounde
   br i1 %.not96, label %144, label %pausewrite.exit
 
 144:                                              ; preds = %141, %.split155.us
-  %.not97 = icmp eq ptr %.072, null
+  %.not97 = icmp eq ptr %.075, null
   br i1 %.not97, label %pausewrite.exit, label %145
 
 145:                                              ; preds = %144
   tail call void @Curl_set_in_callback(ptr noundef %0, i1 noundef zeroext true) #9
   %146 = getelementptr inbounds i8, ptr %0, i64 448
   %147 = load ptr, ptr %146, align 8
-  %148 = tail call i64 %.072(ptr noundef %3, i64 noundef 1, i64 noundef %4, ptr noundef %147) #9
+  %148 = tail call i64 %.075(ptr noundef %3, i64 noundef 1, i64 noundef %4, ptr noundef %147) #9
   tail call void @Curl_set_in_callback(ptr noundef %0, i1 noundef zeroext false) #9
   %149 = icmp eq i64 %148, 268435457
   br i1 %149, label %150, label %185

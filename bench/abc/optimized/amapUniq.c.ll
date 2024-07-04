@@ -1432,18 +1432,18 @@ define noundef ptr @Amap_LibLookupTableAlloc(ptr nocapture noundef readonly %0, 
 
 .lr.ph66.split.us:                                ; preds = %.lr.ph66, %.critedge4.us
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %.critedge4.us ], [ 0, %.lr.ph66 ]
-  %.04764.us = phi i32 [ %27, %.critedge4.us ], [ 0, %.lr.ph66 ]
+  %.04665.us = phi i32 [ %27, %.critedge4.us ], [ 0, %.lr.ph66 ]
   %.val.us = load ptr, ptr %18, align 8
   %19 = getelementptr inbounds ptr, ptr %.val.us, i64 %indvars.iv80
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %16, align 8
-  %22 = sext i32 %.04764.us to i64
+  %22 = sext i32 %.04665.us to i64
   %23 = getelementptr inbounds i32, ptr %21, i64 %22
   %24 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv80
   store ptr %23, ptr %24, align 8
   %25 = getelementptr i8, ptr %20, i64 4
   %.val51.us = load i32, ptr %25, align 4
-  %26 = add i32 %.04764.us, 1
+  %26 = add i32 %.04665.us, 1
   %27 = add i32 %26, %.val51.us
   %28 = icmp sgt i32 %.val51.us, 0
   br i1 %28, label %.lr.ph61.us, label %.critedge4.us
@@ -1454,8 +1454,8 @@ define noundef ptr @Amap_LibLookupTableAlloc(ptr nocapture noundef readonly %0, 
 
 .critedge4.us:                                    ; preds = %.critedge4.us.loopexit, %.lr.ph66.split.us
   %29 = phi ptr [ %23, %.lr.ph66.split.us ], [ %.pre, %.critedge4.us.loopexit ]
-  %.048.lcssa.us = phi i64 [ 0, %.lr.ph66.split.us ], [ %indvars.iv.next78, %.critedge4.us.loopexit ]
-  %30 = and i64 %.048.lcssa.us, 4294967295
+  %.047.lcssa.us = phi i64 [ 0, %.lr.ph66.split.us ], [ %indvars.iv.next78, %.critedge4.us.loopexit ]
+  %30 = and i64 %.047.lcssa.us, 4294967295
   %31 = getelementptr inbounds i32, ptr %29, i64 %30
   store i32 0, ptr %31, align 4
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
@@ -1484,18 +1484,18 @@ define noundef ptr @Amap_LibLookupTableAlloc(ptr nocapture noundef readonly %0, 
 
 .lr.ph66.split:                                   ; preds = %.lr.ph66, %.critedge4
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %.critedge4 ], [ 0, %.lr.ph66 ]
-  %.04764 = phi i32 [ %50, %.critedge4 ], [ 0, %.lr.ph66 ]
+  %.04665 = phi i32 [ %50, %.critedge4 ], [ 0, %.lr.ph66 ]
   %.val = load ptr, ptr %18, align 8
   %42 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv74
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %16, align 8
-  %45 = sext i32 %.04764 to i64
+  %45 = sext i32 %.04665 to i64
   %46 = getelementptr inbounds i32, ptr %44, i64 %45
   %47 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv74
   store ptr %46, ptr %47, align 8
   %48 = getelementptr i8, ptr %43, i64 4
   %.val51 = load i32, ptr %48, align 4
-  %49 = add i32 %.04764, 1
+  %49 = add i32 %.04665, 1
   %50 = add i32 %49, %.val51
   %51 = trunc nuw nsw i64 %indvars.iv74 to i32
   %52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %51)
@@ -1525,10 +1525,10 @@ define noundef ptr @Amap_LibLookupTableAlloc(ptr nocapture noundef readonly %0, 
   br i1 %64, label %55, label %.critedge4, !llvm.loop !10
 
 .critedge4:                                       ; preds = %55, %.lr.ph66.split
-  %.048.lcssa = phi i64 [ 0, %.lr.ph66.split ], [ %indvars.iv.next72, %55 ]
+  %.047.lcssa = phi i64 [ 0, %.lr.ph66.split ], [ %indvars.iv.next72, %55 ]
   %putchar = tail call i32 @putchar(i32 10)
   %65 = load ptr, ptr %47, align 8
-  %66 = and i64 %.048.lcssa, 4294967295
+  %66 = and i64 %.047.lcssa, 4294967295
   %67 = getelementptr inbounds i32, ptr %65, i64 %66
   store i32 0, ptr %67, align 4
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1

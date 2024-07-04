@@ -353,23 +353,23 @@ sane_qsort.exit:                                  ; preds = %if.end, %if.then.i
 
 for.body:                                         ; preds = %sane_qsort.exit, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %sane_qsort.exit ]
-  %i.023 = phi i32 [ %i.1, %for.inc ], [ 0, %sane_qsort.exit ]
-  %last.022 = phi ptr [ %last.1, %for.inc ], [ null, %sane_qsort.exit ]
+  %last.023 = phi ptr [ %last.1, %for.inc ], [ null, %sane_qsort.exit ]
+  %i.021 = phi i32 [ %i.1, %for.inc ], [ 0, %sane_qsort.exit ]
   %4 = load ptr, ptr %entries, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx, align 8
-  %tobool.not = icmp eq ptr %last.022, null
+  %tobool.not = icmp eq ptr %last.023, null
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %name.i = getelementptr inbounds i8, ptr %last.022, i64 48
+  %name.i = getelementptr inbounds i8, ptr %last.023, i64 48
   %name1.i = getelementptr inbounds i8, ptr %5, i64 48
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull readonly dereferenceable(1) %name1.i) #13
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.else
 
 if.end.i:                                         ; preds = %land.lhs.true
-  %6 = load i8, ptr %last.022, align 8
+  %6 = load i8, ptr %last.023, align 8
   %7 = and i8 %6, 16
   %tobool3.not.i = icmp eq i8 %7, 0
   br i1 %tobool3.not.i, label %lor.lhs.false.i, label %if.then8.i
@@ -385,9 +385,9 @@ if.then8.i:                                       ; preds = %lor.lhs.false.i, %i
   unreachable
 
 if.end11.i:                                       ; preds = %lor.lhs.false.i
-  %u.i = getelementptr inbounds i8, ptr %last.022, i64 8
+  %u.i = getelementptr inbounds i8, ptr %last.023, i64 8
   %u12.i = getelementptr inbounds i8, ptr %5, i64 8
-  %algo.i.i = getelementptr inbounds i8, ptr %last.022, i64 40
+  %algo.i.i = getelementptr inbounds i8, ptr %last.023, i64 40
   %10 = load i32, ptr %algo.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %10, 0
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.else.i.i
@@ -433,15 +433,15 @@ if.then8:                                         ; preds = %oideq.exit.i
   br label %for.inc
 
 if.else:                                          ; preds = %land.lhs.true, %for.body
-  %inc = add nsw i32 %i.023, 1
-  %idxprom10 = sext i32 %i.023 to i64
+  %inc = add nsw i32 %i.021, 1
+  %idxprom10 = sext i32 %i.021 to i64
   %arrayidx11 = getelementptr inbounds ptr, ptr %4, i64 %idxprom10
   store ptr %5, ptr %arrayidx11, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then8, %if.else
-  %last.1 = phi ptr [ %last.022, %if.then8 ], [ %5, %if.else ]
-  %i.1 = phi i32 [ %i.023, %if.then8 ], [ %inc, %if.else ]
+  %i.1 = phi i32 [ %i.021, %if.then8 ], [ %inc, %if.else ]
+  %last.1 = phi ptr [ %last.023, %if.then8 ], [ %5, %if.else ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %dir, align 8
   %15 = sext i32 %14 to i64

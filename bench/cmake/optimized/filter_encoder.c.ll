@@ -171,8 +171,8 @@ define dso_local i64 @lzma_mt_block_size(ptr nocapture noundef readonly %0) loca
 
 .preheader:                                       ; preds = %1, %17
   %3 = phi i64 [ %20, %17 ], [ %2, %1 ]
-  %.01423 = phi i64 [ %.1, %17 ], [ 0, %1 ]
-  %.01522 = phi i64 [ %18, %17 ], [ 0, %1 ]
+  %.023 = phi i64 [ %18, %17 ], [ 0, %1 ]
+  %.01422 = phi i64 [ %.1, %17 ], [ 0, %1 ]
   %4 = icmp eq i64 %3, 4611686018427387905
   br i1 %4, label %encoder_find.exit, label %.lr.ph
 
@@ -194,27 +194,27 @@ encoder_find.exit:                                ; preds = %.lr.ph, %.preheader
   br i1 %.not19, label %17, label %11
 
 11:                                               ; preds = %encoder_find.exit
-  %12 = getelementptr inbounds %struct.lzma_filter, ptr %0, i64 %.01522, i32 1
+  %12 = getelementptr inbounds %struct.lzma_filter, ptr %0, i64 %.023, i32 1
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i64 %10(ptr noundef %13) #9
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %._crit_edge, label %16
 
 16:                                               ; preds = %11
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %14, i64 %.01423)
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %14, i64 %.01422)
   br label %17
 
 17:                                               ; preds = %16, %encoder_find.exit
-  %.1 = phi i64 [ %.01423, %encoder_find.exit ], [ %spec.select, %16 ]
-  %18 = add i64 %.01522, 1
+  %.1 = phi i64 [ %.01422, %encoder_find.exit ], [ %spec.select, %16 ]
+  %18 = add i64 %.023, 1
   %19 = getelementptr inbounds %struct.lzma_filter, ptr %0, i64 %18
   %20 = load i64, ptr %19, align 8
   %.not = icmp eq i64 %20, -1
   br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %11, %17, %1
-  %.0 = phi i64 [ 0, %1 ], [ %.1, %17 ], [ 0, %11 ]
-  ret i64 %.0
+  %.015 = phi i64 [ 0, %1 ], [ %.1, %17 ], [ 0, %11 ]
+  ret i64 %.015
 }
 
 ; Function Attrs: nounwind uwtable

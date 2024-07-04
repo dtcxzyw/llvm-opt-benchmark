@@ -713,8 +713,8 @@ define void @_ZN6colvar18CartesianBasedPath37computeDistanceBetweenReferenceFram
 
 22:                                               ; preds = %.lr.ph115, %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EED2Ev.exit52
   %23 = phi ptr [ %9, %.lr.ph115 ], [ %212, %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EED2Ev.exit52 ]
-  %.032113 = phi i64 [ 0, %.lr.ph115 ], [ %36, %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EED2Ev.exit52 ]
-  %24 = getelementptr inbounds %"class.std::vector.64", ptr %23, i64 %.032113
+  %.036113 = phi i64 [ 0, %.lr.ph115 ], [ %36, %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EED2Ev.exit52 ]
+  %24 = getelementptr inbounds %"class.std::vector.64", ptr %23, i64 %.036113
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %24, align 8
@@ -749,7 +749,7 @@ _ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i: ; p
   %.sink.i = phi ptr [ null, %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %34, %.lr.ph.preheader.i.i.i.i.i ]
   store ptr %.sink.i, ptr %14, align 8
   store ptr %.sink.i, ptr %13, align 8
-  %36 = add nuw i64 %.032113, 1
+  %36 = add nuw i64 %.036113, 1
   %37 = getelementptr inbounds %"class.std::vector.64", ptr %23, i64 %36
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
@@ -811,8 +811,8 @@ _ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i47: ;
 
 59:                                               ; preds = %.lr.ph, %59
   %.03197 = phi i64 [ 0, %.lr.ph ], [ %74, %59 ]
-  %.sroa.1183.194 = phi double [ 0.000000e+00, %.lr.ph ], [ %67, %59 ]
-  %.sroa.11.191 = phi double [ 0.000000e+00, %.lr.ph ], [ %73, %59 ]
+  %.sroa.11.195 = phi double [ 0.000000e+00, %.lr.ph ], [ %73, %59 ]
+  %.sroa.1183.192 = phi double [ 0.000000e+00, %.lr.ph ], [ %67, %59 ]
   %60 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %64, %59 ]
   %61 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %70, %59 ]
   %62 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %.pre, i64 %.03197
@@ -820,13 +820,13 @@ _ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i47: ;
   %64 = fadd <2 x double> %60, %63
   %65 = getelementptr inbounds i8, ptr %62, i64 16
   %66 = load double, ptr %65, align 8
-  %67 = fadd double %.sroa.1183.194, %66
+  %67 = fadd double %.sroa.1183.192, %66
   %68 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %.pre128, i64 %.03197
   %69 = load <2 x double>, ptr %68, align 8
   %70 = fadd <2 x double> %61, %69
   %71 = getelementptr inbounds i8, ptr %68, i64 16
   %72 = load double, ptr %71, align 8
-  %73 = fadd double %.sroa.11.191, %72
+  %73 = fadd double %.sroa.11.195, %72
   %74 = add nuw i64 %.03197, 1
   %exitcond.not = icmp eq i64 %74, %umax
   br i1 %exitcond.not, label %._crit_edge, label %59, !llvm.loop !7
@@ -847,8 +847,8 @@ _ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i47: ;
   br label %219
 
 ._crit_edge:                                      ; preds = %59, %49
-  %.sroa.11.1.lcssa = phi double [ 0.000000e+00, %49 ], [ %73, %59 ]
   %.sroa.1183.1.lcssa = phi double [ 0.000000e+00, %49 ], [ %67, %59 ]
+  %.sroa.11.1.lcssa = phi double [ 0.000000e+00, %49 ], [ %73, %59 ]
   %77 = phi <2 x double> [ zeroinitializer, %49 ], [ %64, %59 ]
   %78 = phi <2 x double> [ zeroinitializer, %49 ], [ %70, %59 ]
   %79 = load ptr, ptr %25, align 8
@@ -876,7 +876,7 @@ _ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i47: ;
 .lr.ph105:                                        ; preds = %._crit_edge, %.lr.ph105
   %.030103 = phi i64 [ %121, %.lr.ph105 ], [ 0, %._crit_edge ]
   %99 = load ptr, ptr %6, align 8
-  %100 = getelementptr inbounds %"class.std::vector.64", ptr %99, i64 %.032113
+  %100 = getelementptr inbounds %"class.std::vector.64", ptr %99, i64 %.036113
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %101, i64 %.030103
   %103 = getelementptr inbounds i8, ptr %102, i64 16
@@ -1016,7 +1016,7 @@ _ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i47: ;
   %203 = fdiv double %.089.lcssa, %202
   %204 = call noundef double @sqrt(double noundef %203) #25
   %205 = load ptr, ptr %1, align 8
-  %206 = getelementptr inbounds double, ptr %205, i64 %.032113
+  %206 = getelementptr inbounds double, ptr %205, i64 %.036113
   store double %204, ptr %206, align 8
   call void @_ZN12colvarmodule8rotationD1Ev(ptr noundef nonnull align 8 dereferenceable(568) %5) #25
   %207 = load ptr, ptr %4, align 8
@@ -1547,8 +1547,8 @@ _ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i92: ;
 
 221:                                              ; preds = %.lr.ph419, %221
   %.370418 = phi i64 [ 0, %.lr.ph419 ], [ %236, %221 ]
-  %.sroa.11291.0415 = phi double [ 0.000000e+00, %.lr.ph419 ], [ %229, %221 ]
-  %.sroa.11282.0412 = phi double [ 0.000000e+00, %.lr.ph419 ], [ %235, %221 ]
+  %.sroa.11282.0417 = phi double [ 0.000000e+00, %.lr.ph419 ], [ %235, %221 ]
+  %.sroa.11291.0414 = phi double [ 0.000000e+00, %.lr.ph419 ], [ %229, %221 ]
   %222 = phi <2 x double> [ zeroinitializer, %.lr.ph419 ], [ %226, %221 ]
   %223 = phi <2 x double> [ zeroinitializer, %.lr.ph419 ], [ %232, %221 ]
   %224 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %216, i64 %.370418
@@ -1556,20 +1556,20 @@ _ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i92: ;
   %226 = fadd <2 x double> %222, %225
   %227 = getelementptr inbounds i8, ptr %224, i64 16
   %228 = load double, ptr %227, align 8
-  %229 = fadd double %.sroa.11291.0415, %228
+  %229 = fadd double %.sroa.11291.0414, %228
   %230 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %.pre505, i64 %.370418
   %231 = load <2 x double>, ptr %230, align 8
   %232 = fadd <2 x double> %223, %231
   %233 = getelementptr inbounds i8, ptr %230, i64 16
   %234 = load double, ptr %233, align 8
-  %235 = fadd double %.sroa.11282.0412, %234
+  %235 = fadd double %.sroa.11282.0417, %234
   %236 = add nuw i64 %.370418, 1
   %exitcond476.not = icmp eq i64 %236, %umax475
   br i1 %exitcond476.not, label %._crit_edge420, label %221, !llvm.loop !43
 
 ._crit_edge420:                                   ; preds = %221, %.preheader
-  %.sroa.11282.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %235, %221 ]
   %.sroa.11291.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %229, %221 ]
+  %.sroa.11282.0.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %235, %221 ]
   %237 = phi <2 x double> [ zeroinitializer, %.preheader ], [ %226, %221 ]
   %238 = phi <2 x double> [ zeroinitializer, %.preheader ], [ %232, %221 ]
   %239 = uitofp i64 %220 to double
@@ -1912,8 +1912,8 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EED2Ev.exit127: ; preds = %417, %_ZNS
 
 419:                                              ; preds = %.lr.ph353, %419
   %.673352 = phi i64 [ 0, %.lr.ph353 ], [ %434, %419 ]
-  %.sroa.11246.0349 = phi double [ 0.000000e+00, %.lr.ph353 ], [ %427, %419 ]
-  %.sroa.11237.0346 = phi double [ 0.000000e+00, %.lr.ph353 ], [ %433, %419 ]
+  %.sroa.11237.0351 = phi double [ 0.000000e+00, %.lr.ph353 ], [ %433, %419 ]
+  %.sroa.11246.0348 = phi double [ 0.000000e+00, %.lr.ph353 ], [ %427, %419 ]
   %420 = phi <2 x double> [ zeroinitializer, %.lr.ph353 ], [ %424, %419 ]
   %421 = phi <2 x double> [ zeroinitializer, %.lr.ph353 ], [ %430, %419 ]
   %422 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %94, i64 %.673352
@@ -1921,13 +1921,13 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EED2Ev.exit127: ; preds = %417, %_ZNS
   %424 = fadd <2 x double> %420, %423
   %425 = getelementptr inbounds i8, ptr %422, i64 16
   %426 = load double, ptr %425, align 8
-  %427 = fadd double %.sroa.11246.0349, %426
+  %427 = fadd double %.sroa.11246.0348, %426
   %428 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %96, i64 %.673352
   %429 = load <2 x double>, ptr %428, align 8
   %430 = fadd <2 x double> %421, %429
   %431 = getelementptr inbounds i8, ptr %428, i64 16
   %432 = load double, ptr %431, align 8
-  %433 = fadd double %.sroa.11237.0346, %432
+  %433 = fadd double %.sroa.11237.0351, %432
   %434 = add nuw i64 %.673352, 1
   %exitcond.not = icmp eq i64 %434, %.lcssa343
   br i1 %exitcond.not, label %._crit_edge354, label %419, !llvm.loop !63
@@ -1937,8 +1937,8 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EED2Ev.exit127: ; preds = %417, %_ZNS
   %436 = phi ptr [ %.pre480, %.preheader331.._crit_edge354_crit_edge ], [ %94, %419 ]
   %437 = phi ptr [ %.pre478, %.preheader331.._crit_edge354_crit_edge ], [ %92, %419 ]
   %438 = phi i64 [ %.pre, %.preheader331.._crit_edge354_crit_edge ], [ %91, %419 ]
-  %.sroa.11237.0.lcssa = phi double [ 0.000000e+00, %.preheader331.._crit_edge354_crit_edge ], [ %433, %419 ]
   %.sroa.11246.0.lcssa = phi double [ 0.000000e+00, %.preheader331.._crit_edge354_crit_edge ], [ %427, %419 ]
+  %.sroa.11237.0.lcssa = phi double [ 0.000000e+00, %.preheader331.._crit_edge354_crit_edge ], [ %433, %419 ]
   %439 = phi <2 x double> [ zeroinitializer, %.preheader331.._crit_edge354_crit_edge ], [ %424, %419 ]
   %440 = phi <2 x double> [ zeroinitializer, %.preheader331.._crit_edge354_crit_edge ], [ %430, %419 ]
   %441 = getelementptr inbounds i8, ptr %0, i64 1664
@@ -2130,8 +2130,8 @@ _ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i146: 
 
 533:                                              ; preds = %.lr.ph372, %533
   %.8371 = phi i64 [ 0, %.lr.ph372 ], [ %548, %533 ]
-  %.sroa.11216.0368 = phi double [ 0.000000e+00, %.lr.ph372 ], [ %541, %533 ]
-  %.sroa.11.0365 = phi double [ 0.000000e+00, %.lr.ph372 ], [ %547, %533 ]
+  %.sroa.11.0370 = phi double [ 0.000000e+00, %.lr.ph372 ], [ %547, %533 ]
+  %.sroa.11216.0367 = phi double [ 0.000000e+00, %.lr.ph372 ], [ %541, %533 ]
   %534 = phi <2 x double> [ zeroinitializer, %.lr.ph372 ], [ %538, %533 ]
   %535 = phi <2 x double> [ zeroinitializer, %.lr.ph372 ], [ %544, %533 ]
   %536 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %528, i64 %.8371
@@ -2139,20 +2139,20 @@ _ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i146: 
   %538 = fadd <2 x double> %534, %537
   %539 = getelementptr inbounds i8, ptr %536, i64 16
   %540 = load double, ptr %539, align 8
-  %541 = fadd double %.sroa.11216.0368, %540
+  %541 = fadd double %.sroa.11216.0367, %540
   %542 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %.pre487, i64 %.8371
   %543 = load <2 x double>, ptr %542, align 8
   %544 = fadd <2 x double> %535, %543
   %545 = getelementptr inbounds i8, ptr %542, i64 16
   %546 = load double, ptr %545, align 8
-  %547 = fadd double %.sroa.11.0365, %546
+  %547 = fadd double %.sroa.11.0370, %546
   %548 = add nuw i64 %.8371, 1
   %exitcond473.not = icmp eq i64 %548, %umax
   br i1 %exitcond473.not, label %._crit_edge373, label %533, !llvm.loop !71
 
 ._crit_edge373:                                   ; preds = %533, %.preheader330
-  %.sroa.11.0.lcssa = phi double [ 0.000000e+00, %.preheader330 ], [ %547, %533 ]
   %.sroa.11216.0.lcssa = phi double [ 0.000000e+00, %.preheader330 ], [ %541, %533 ]
+  %.sroa.11.0.lcssa = phi double [ 0.000000e+00, %.preheader330 ], [ %547, %533 ]
   %549 = phi <2 x double> [ zeroinitializer, %.preheader330 ], [ %538, %533 ]
   %550 = phi <2 x double> [ zeroinitializer, %.preheader330 ], [ %544, %533 ]
   %551 = uitofp i64 %532 to double
@@ -4104,8 +4104,8 @@ _ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i77: ;
 
 147:                                              ; preds = %.lr.ph292, %147
   %.259291 = phi i64 [ 0, %.lr.ph292 ], [ %162, %147 ]
-  %.sroa.11224.0288 = phi double [ 0.000000e+00, %.lr.ph292 ], [ %155, %147 ]
-  %.sroa.11215.0285 = phi double [ 0.000000e+00, %.lr.ph292 ], [ %161, %147 ]
+  %.sroa.11215.0290 = phi double [ 0.000000e+00, %.lr.ph292 ], [ %161, %147 ]
+  %.sroa.11224.0287 = phi double [ 0.000000e+00, %.lr.ph292 ], [ %155, %147 ]
   %148 = phi <2 x double> [ zeroinitializer, %.lr.ph292 ], [ %152, %147 ]
   %149 = phi <2 x double> [ zeroinitializer, %.lr.ph292 ], [ %158, %147 ]
   %150 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %142, i64 %.259291
@@ -4113,13 +4113,13 @@ _ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i77: ;
   %152 = fadd <2 x double> %148, %151
   %153 = getelementptr inbounds i8, ptr %150, i64 16
   %154 = load double, ptr %153, align 8
-  %155 = fadd double %.sroa.11224.0288, %154
+  %155 = fadd double %.sroa.11224.0287, %154
   %156 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %.pre386, i64 %.259291
   %157 = load <2 x double>, ptr %156, align 8
   %158 = fadd <2 x double> %149, %157
   %159 = getelementptr inbounds i8, ptr %156, i64 16
   %160 = load double, ptr %159, align 8
-  %161 = fadd double %.sroa.11215.0285, %160
+  %161 = fadd double %.sroa.11215.0290, %160
   %162 = add nuw i64 %.259291, 1
   %exitcond372.not = icmp eq i64 %162, %umax371
   br i1 %exitcond372.not, label %._crit_edge293, label %147, !llvm.loop !118
@@ -4130,8 +4130,8 @@ _ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i77: ;
   br label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EED2Ev.exit126
 
 ._crit_edge293:                                   ; preds = %147, %.preheader258
-  %.sroa.11215.0.lcssa = phi double [ 0.000000e+00, %.preheader258 ], [ %161, %147 ]
   %.sroa.11224.0.lcssa = phi double [ 0.000000e+00, %.preheader258 ], [ %155, %147 ]
+  %.sroa.11215.0.lcssa = phi double [ 0.000000e+00, %.preheader258 ], [ %161, %147 ]
   %165 = phi <2 x double> [ zeroinitializer, %.preheader258 ], [ %152, %147 ]
   %166 = phi <2 x double> [ zeroinitializer, %.preheader258 ], [ %158, %147 ]
   %167 = uitofp i64 %146 to double
@@ -4458,14 +4458,14 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit100: ; preds = %_ZNSt
 
 .lr.ph315:                                        ; preds = %.preheader257, %.lr.ph315
   %.5314 = phi i64 [ %399, %.lr.ph315 ], [ 0, %.preheader257 ]
-  %.sroa.11173.0311 = phi double [ %398, %.lr.ph315 ], [ 0.000000e+00, %.preheader257 ]
+  %.sroa.11173.0313 = phi double [ %398, %.lr.ph315 ], [ 0.000000e+00, %.preheader257 ]
   %392 = phi <2 x double> [ %395, %.lr.ph315 ], [ zeroinitializer, %.preheader257 ]
   %393 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %.pre391, i64 %.5314
   %394 = load <2 x double>, ptr %393, align 8
   %395 = fadd <2 x double> %392, %394
   %396 = getelementptr inbounds i8, ptr %393, i64 16
   %397 = load double, ptr %396, align 8
-  %398 = fadd double %.sroa.11173.0311, %397
+  %398 = fadd double %.sroa.11173.0313, %397
   %399 = add nuw i64 %.5314, 1
   %exitcond373.not = icmp eq i64 %399, %.lcssa263
   br i1 %exitcond373.not, label %._crit_edge316, label %.lr.ph315, !llvm.loop !144
@@ -4597,14 +4597,14 @@ _ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i107: 
 
 .lr.ph328:                                        ; preds = %.lr.ph328.preheader, %.lr.ph328
   %.7327 = phi i64 [ %467, %.lr.ph328 ], [ 0, %.lr.ph328.preheader ]
-  %.sroa.11.0324 = phi double [ %466, %.lr.ph328 ], [ 0.000000e+00, %.lr.ph328.preheader ]
+  %.sroa.11.0326 = phi double [ %466, %.lr.ph328 ], [ 0.000000e+00, %.lr.ph328.preheader ]
   %460 = phi <2 x double> [ %463, %.lr.ph328 ], [ zeroinitializer, %.lr.ph328.preheader ]
   %461 = getelementptr inbounds %"class.colvarmodule::rvector", ptr %455, i64 %.7327
   %462 = load <2 x double>, ptr %461, align 8
   %463 = fadd <2 x double> %460, %462
   %464 = getelementptr inbounds i8, ptr %461, i64 16
   %465 = load double, ptr %464, align 8
-  %466 = fadd double %.sroa.11.0324, %465
+  %466 = fadd double %.sroa.11.0326, %465
   %467 = add nuw i64 %.7327, 1
   %exitcond375.not = icmp eq i64 %467, %umax374
   br i1 %exitcond375.not, label %._crit_edge329, label %.lr.ph328, !llvm.loop !149
@@ -21910,9 +21910,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit155: ;
 
 .lr.ph413:                                        ; preds = %330, %._crit_edge407
   %333 = phi ptr [ %597, %._crit_edge407 ], [ %332, %330 ]
-  %.033410 = phi i64 [ %595, %._crit_edge407 ], [ 0, %330 ]
-  %.034409 = phi i64 [ %348, %._crit_edge407 ], [ 0, %330 ]
-  %334 = getelementptr inbounds %class.colvarvalue, ptr %333, i64 %.033410
+  %.032410 = phi i64 [ %595, %._crit_edge407 ], [ 0, %330 ]
+  %.033409 = phi i64 [ %348, %._crit_edge407 ], [ 0, %330 ]
+  %334 = getelementptr inbounds %class.colvarvalue, ptr %333, i64 %.032410
   %335 = load i32, ptr %334, align 8
   switch i32 %335, label %_ZNK11colvarvalue4sizeEv.exit [
     i32 7, label %339
@@ -21947,7 +21947,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit155: ;
 _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %339, %338, %337, %336, %.lr.ph413
   %.0.i = phi i64 [ 4, %338 ], [ 3, %337 ], [ 1, %336 ], [ %347, %339 ], [ 0, %.lr.ph413 ]
   store i64 %.0.i, ptr %45, align 8
-  %348 = add i64 %.0.i, %.034409
+  %348 = add i64 %.0.i, %.033409
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #25
   %349 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %50)
           to label %.noexc161 unwind label %560
@@ -21968,7 +21968,7 @@ _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %339, %338, %337, %3
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit165: ; preds = %.noexc162
   %352 = load ptr, ptr %66, align 8
-  %353 = getelementptr inbounds ptr, ptr %352, i64 %.033410
+  %353 = getelementptr inbounds ptr, ptr %352, i64 %.032410
   %354 = load ptr, ptr %353, align 8
   %355 = getelementptr inbounds i8, ptr %354, i64 440
   %356 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %355)
@@ -22124,7 +22124,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit187: ;
   %414 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %413) #25
   %415 = call double @atof(ptr noundef %414) #30
   %416 = load ptr, ptr %20, align 8
-  %417 = getelementptr inbounds %class.colvarvalue, ptr %416, i64 %.033410
+  %417 = getelementptr inbounds %class.colvarvalue, ptr %416, i64 %.032410
   %418 = sub nuw i64 %.031404, %410
   %419 = trunc i64 %418 to i32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
@@ -22365,7 +22365,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i243:
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18)
   store double %415, ptr %.07.i, align 8
   %479 = load ptr, ptr %20, align 8
-  %480 = getelementptr inbounds %class.colvarvalue, ptr %479, i64 %.033410
+  %480 = getelementptr inbounds %class.colvarvalue, ptr %479, i64 %.032410
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
   %481 = load i32, ptr %480, align 8
@@ -22841,7 +22841,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit211: ;
   br label %.body193
 
 ._crit_edge407:                                   ; preds = %541, %408
-  %595 = add nuw i64 %.033410, 1
+  %595 = add nuw i64 %.032410, 1
   %596 = load ptr, ptr %282, align 8
   %597 = load ptr, ptr %20, align 8
   %598 = ptrtoint ptr %596 to i64
@@ -23502,8 +23502,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6ve
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_SH_SH_T0_.exit
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_SH_SH_T0_.exit: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_SH_SH_T0_.exit.preheader, %56
-  %.sroa.09.0.i = phi ptr [ %.sroa.09.1.i, %56 ], [ %1, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_SH_SH_T0_.exit.preheader ]
   %.sroa.012.0.i = phi ptr [ %50, %56 ], [ %10, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_SH_SH_T0_.exit.preheader ]
+  %.sroa.09.0.i = phi ptr [ %.sroa.09.1.i, %56 ], [ %1, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_SH_SH_T0_.exit.preheader ]
   br label %46
 
 46:                                               ; preds = %46, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPN6colvar3cvcESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS3_SD_EEEEvT_SH_SH_SH_T0_.exit
@@ -26902,8 +26902,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEE
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS9_7path_szE0EE22doCompareFrameDistanceEEEEvT_SH_SH_SH_T0_.exit.i
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS9_7path_szE0EE22doCompareFrameDistanceEEEEvT_SH_SH_SH_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS9_7path_szE0EE22doCompareFrameDistanceEEEEvT_SH_SH_SH_T0_.exit.i.preheader, %66
-  %.sroa.09.0.i.i = phi ptr [ %.sroa.09.1.i.i, %66 ], [ %storemerge18, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS9_7path_szE0EE22doCompareFrameDistanceEEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
   %.sroa.012.0.i.i = phi ptr [ %59, %66 ], [ %10, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS9_7path_szE0EE22doCompareFrameDistanceEEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
+  %.sroa.09.0.i.i = phi ptr [ %.sroa.09.1.i.i, %66 ], [ %storemerge18, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS9_7path_szE0EE22doCompareFrameDistanceEEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
   %50 = load ptr, ptr %11, align 8
   %51 = load i64, ptr %0, align 8
   %52 = getelementptr inbounds double, ptr %50, i64 %51
@@ -27719,8 +27719,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEE
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS9_7path_szE1EE22doCompareFrameDistanceEEEEvT_SH_SH_SH_T0_.exit.i
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS9_7path_szE1EE22doCompareFrameDistanceEEEEvT_SH_SH_SH_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS9_7path_szE1EE22doCompareFrameDistanceEEEEvT_SH_SH_SH_T0_.exit.i.preheader, %66
-  %.sroa.09.0.i.i = phi ptr [ %.sroa.09.1.i.i, %66 ], [ %storemerge18, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS9_7path_szE1EE22doCompareFrameDistanceEEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
   %.sroa.012.0.i.i = phi ptr [ %59, %66 ], [ %10, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS9_7path_szE1EE22doCompareFrameDistanceEEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
+  %.sroa.09.0.i.i = phi ptr [ %.sroa.09.1.i.i, %66 ], [ %storemerge18, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseIN12colvarmodule7rvectorEdLNS9_7path_szE1EE22doCompareFrameDistanceEEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
   %50 = load ptr, ptr %11, align 8
   %51 = load i64, ptr %0, align 8
   %52 = getelementptr inbounds double, ptr %50, i64 %51
@@ -29285,8 +29285,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEE
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseI11colvarvaluedLNS9_7path_szE0EE22doCompareFrameDistanceEEEEvT_SG_SG_SG_T0_.exit.i
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseI11colvarvaluedLNS9_7path_szE0EE22doCompareFrameDistanceEEEEvT_SG_SG_SG_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseI11colvarvaluedLNS9_7path_szE0EE22doCompareFrameDistanceEEEEvT_SG_SG_SG_T0_.exit.i.preheader, %66
-  %.sroa.09.0.i.i = phi ptr [ %.sroa.09.1.i.i, %66 ], [ %storemerge18, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseI11colvarvaluedLNS9_7path_szE0EE22doCompareFrameDistanceEEEEvT_SG_SG_SG_T0_.exit.i.preheader ]
   %.sroa.012.0.i.i = phi ptr [ %59, %66 ], [ %10, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseI11colvarvaluedLNS9_7path_szE0EE22doCompareFrameDistanceEEEEvT_SG_SG_SG_T0_.exit.i.preheader ]
+  %.sroa.09.0.i.i = phi ptr [ %.sroa.09.1.i.i, %66 ], [ %storemerge18, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseI11colvarvaluedLNS9_7path_szE0EE22doCompareFrameDistanceEEEEvT_SG_SG_SG_T0_.exit.i.preheader ]
   %50 = load ptr, ptr %11, align 8
   %51 = load i64, ptr %0, align 8
   %52 = getelementptr inbounds double, ptr %50, i64 %51
@@ -30102,8 +30102,8 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEE
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseI11colvarvaluedLNS9_7path_szE1EE22doCompareFrameDistanceEEEEvT_SG_SG_SG_T0_.exit.i
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseI11colvarvaluedLNS9_7path_szE1EE22doCompareFrameDistanceEEEEvT_SG_SG_SG_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseI11colvarvaluedLNS9_7path_szE1EE22doCompareFrameDistanceEEEEvT_SG_SG_SG_T0_.exit.i.preheader, %66
-  %.sroa.09.0.i.i = phi ptr [ %.sroa.09.1.i.i, %66 ], [ %storemerge18, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseI11colvarvaluedLNS9_7path_szE1EE22doCompareFrameDistanceEEEEvT_SG_SG_SG_T0_.exit.i.preheader ]
   %.sroa.012.0.i.i = phi ptr [ %59, %66 ], [ %10, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseI11colvarvaluedLNS9_7path_szE1EE22doCompareFrameDistanceEEEEvT_SG_SG_SG_T0_.exit.i.preheader ]
+  %.sroa.09.0.i.i = phi ptr [ %.sroa.09.1.i.i, %66 ], [ %storemerge18, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN15GeometricPathCV17GeometricPathBaseI11colvarvaluedLNS9_7path_szE1EE22doCompareFrameDistanceEEEEvT_SG_SG_SG_T0_.exit.i.preheader ]
   %50 = load ptr, ptr %11, align 8
   %51 = load i64, ptr %0, align 8
   %52 = getelementptr inbounds double, ptr %50, i64 %51

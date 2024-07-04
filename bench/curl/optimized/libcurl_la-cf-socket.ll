@@ -2737,9 +2737,9 @@ do.end198.i:                                      ; preds = %if.then195.i, %land
 
 if.end202.i:                                      ; preds = %do.end224.i, %if.end202.preheader.i
   %indvars.iv.i = phi i32 [ %62, %if.end202.preheader.i ], [ %indvars.iv.next.i, %do.end224.i ]
-  %portnum.0124.i = phi i32 [ %conv.i, %if.end202.preheader.i ], [ %dec.i, %do.end224.i ]
-  %dec.i = add nsw i32 %portnum.0124.i, -1
-  %cmp203.i = icmp sgt i32 %portnum.0124.i, 1
+  %portnum.0125.i = phi i32 [ %conv.i, %if.end202.preheader.i ], [ %dec.i, %do.end224.i ]
+  %dec.i = add nsw i32 %portnum.0125.i, -1
+  %cmp203.i = icmp sgt i32 %portnum.0125.i, 1
   br i1 %cmp203.i, label %if.then205.i, label %for.end.i
 
 if.then205.i:                                     ; preds = %if.end202.i

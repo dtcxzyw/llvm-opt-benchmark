@@ -3865,9 +3865,9 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE7compareEmmPKc.exit.thread: ; pred
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %13, %.lr.ph.i.i
   %.033.i.i = phi i64 [ %0, %.lr.ph.i.i ], [ %16, %13 ]
-  %.02132.i.i = phi ptr [ %1, %.lr.ph.i.i ], [ %14, %13 ]
+  %.02032.i.i = phi ptr [ %1, %.lr.ph.i.i ], [ %14, %13 ]
   %10 = add i64 %.033.i.i, -2
-  %11 = tail call ptr @memchr(ptr noundef %.02132.i.i, i32 noundef 58, i64 noundef %10) #20
+  %11 = tail call ptr @memchr(ptr noundef %.02032.i.i, i32 noundef 58, i64 noundef %10) #20
   %.not26.i.i = icmp eq ptr %11, null
   br i1 %.not26.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i5
 

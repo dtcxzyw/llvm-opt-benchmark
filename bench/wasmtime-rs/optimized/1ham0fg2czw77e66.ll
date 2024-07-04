@@ -30,11 +30,11 @@ define hidden void @_ZN22cranelift_codegen_meta13constant_hash14generate_table17
   %18 = lshr i64 -1, %17
   %19 = add i64 %18, 1
   %.inv = icmp ugt i64 %10, 1
-  %.026 = select i1 %.inv, i64 %19, i64 1
+  %.027 = select i1 %.inv, i64 %19, i64 1
   br label %20
 
 20:                                               ; preds = %15, %13
-  %.0 = phi i64 [ %14, %13 ], [ %.026, %15 ]
+  %.0 = phi i64 [ %14, %13 ], [ %.027, %15 ]
   %.0.fr = freeze i64 %.0
   call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17hb6afa60266f60ef5E"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %7, ptr align 8 null, i64 %.0.fr)
   store ptr %1, ptr %6, align 8
@@ -95,8 +95,8 @@ define hidden void @_ZN22cranelift_codegen_meta13constant_hash14generate_table17
 
 .preheader:                                       ; preds = %33
   %35 = load i64, ptr %23, align 8, !noundef !4
-  %.02737 = urem i64 %34, %.0.fr
-  %36 = icmp ult i64 %.02737, %35
+  %.02637 = urem i64 %34, %.0.fr
+  %36 = icmp ult i64 %.02637, %35
   br i1 %36, label %.lr.ph, label %.preheader._crit_edge, !prof !5
 
 .lr.ph:                                           ; preds = %.preheader
@@ -111,27 +111,27 @@ define hidden void @_ZN22cranelift_codegen_meta13constant_hash14generate_table17
   unreachable
 
 39:                                               ; preds = %.lr.ph, %42
-  %.02739 = phi i64 [ %.02737, %.lr.ph ], [ %.027, %42 ]
+  %.02639 = phi i64 [ %.02637, %.lr.ph ], [ %.026, %42 ]
   %.02538 = phi i64 [ 0, %.lr.ph ], [ %43, %42 ]
-  %40 = getelementptr inbounds [0 x ptr], ptr %37, i64 0, i64 %.02739
+  %40 = getelementptr inbounds [0 x ptr], ptr %37, i64 0, i64 %.02639
   %41 = load ptr, ptr %40, align 8, !noundef !4
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %46, label %42
 
 .preheader._crit_edge:                            ; preds = %.preheader, %42
-  %.027.lcssa = phi i64 [ %.027, %42 ], [ %.02737, %.preheader ]
-  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.027.lcssa, i64 %35, ptr nonnull align 8 @anon.0dcf95d8095fab7984e3592cd739e873.2) #7
+  %.026.lcssa = phi i64 [ %.026, %42 ], [ %.02637, %.preheader ]
+  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.026.lcssa, i64 %35, ptr nonnull align 8 @anon.0dcf95d8095fab7984e3592cd739e873.2) #7
           to label %38 unwind label %.loopexit.split-lp
 
 42:                                               ; preds = %39
   %43 = add i64 %.02538, 1
-  %44 = add i64 %.02739, %43
-  %.027 = urem i64 %44, %.0.fr
-  %45 = icmp ult i64 %.027, %35
+  %44 = add i64 %.02639, %43
+  %.026 = urem i64 %44, %.0.fr
+  %45 = icmp ult i64 %.026, %35
   br i1 %45, label %39, label %.preheader._crit_edge, !prof !6
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds [0 x ptr], ptr %37, i64 0, i64 %.02739
+  %47 = getelementptr inbounds [0 x ptr], ptr %37, i64 0, i64 %.02639
   store ptr %30, ptr %47, align 8
   br label %.split
 
@@ -167,11 +167,11 @@ define hidden void @_ZN22cranelift_codegen_meta13constant_hash14generate_table17
   %18 = lshr i64 -1, %17
   %19 = add i64 %18, 1
   %.inv = icmp ugt i64 %10, 1
-  %.026 = select i1 %.inv, i64 %19, i64 1
+  %.027 = select i1 %.inv, i64 %19, i64 1
   br label %20
 
 20:                                               ; preds = %15, %13
-  %.0 = phi i64 [ %14, %13 ], [ %.026, %15 ]
+  %.0 = phi i64 [ %14, %13 ], [ %.027, %15 ]
   %.0.fr = freeze i64 %.0
   call void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17he43f979cad09fdddE"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %7, ptr align 8 null, i64 %.0.fr)
   store ptr %1, ptr %6, align 8
@@ -232,8 +232,8 @@ define hidden void @_ZN22cranelift_codegen_meta13constant_hash14generate_table17
 
 .preheader:                                       ; preds = %33
   %35 = load i64, ptr %23, align 8, !noundef !4
-  %.02737 = urem i64 %34, %.0.fr
-  %36 = icmp ult i64 %.02737, %35
+  %.02637 = urem i64 %34, %.0.fr
+  %36 = icmp ult i64 %.02637, %35
   br i1 %36, label %.lr.ph, label %.preheader._crit_edge, !prof !5
 
 .lr.ph:                                           ; preds = %.preheader
@@ -248,27 +248,27 @@ define hidden void @_ZN22cranelift_codegen_meta13constant_hash14generate_table17
   unreachable
 
 39:                                               ; preds = %.lr.ph, %42
-  %.02739 = phi i64 [ %.02737, %.lr.ph ], [ %.027, %42 ]
+  %.02639 = phi i64 [ %.02637, %.lr.ph ], [ %.026, %42 ]
   %.02538 = phi i64 [ 0, %.lr.ph ], [ %43, %42 ]
-  %40 = getelementptr inbounds [0 x ptr], ptr %37, i64 0, i64 %.02739
+  %40 = getelementptr inbounds [0 x ptr], ptr %37, i64 0, i64 %.02639
   %41 = load ptr, ptr %40, align 8, !noundef !4
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %46, label %42
 
 .preheader._crit_edge:                            ; preds = %.preheader, %42
-  %.027.lcssa = phi i64 [ %.027, %42 ], [ %.02737, %.preheader ]
-  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.027.lcssa, i64 %35, ptr nonnull align 8 @anon.0dcf95d8095fab7984e3592cd739e873.2) #7
+  %.026.lcssa = phi i64 [ %.026, %42 ], [ %.02637, %.preheader ]
+  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %.026.lcssa, i64 %35, ptr nonnull align 8 @anon.0dcf95d8095fab7984e3592cd739e873.2) #7
           to label %38 unwind label %.loopexit.split-lp
 
 42:                                               ; preds = %39
   %43 = add i64 %.02538, 1
-  %44 = add i64 %.02739, %43
-  %.027 = urem i64 %44, %.0.fr
-  %45 = icmp ult i64 %.027, %35
+  %44 = add i64 %.02639, %43
+  %.026 = urem i64 %44, %.0.fr
+  %45 = icmp ult i64 %.026, %35
   br i1 %45, label %39, label %.preheader._crit_edge, !prof !6
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds [0 x ptr], ptr %37, i64 0, i64 %.02739
+  %47 = getelementptr inbounds [0 x ptr], ptr %37, i64 0, i64 %.02639
   store ptr %30, ptr %47, align 8
   br label %.split
 

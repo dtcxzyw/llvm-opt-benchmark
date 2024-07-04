@@ -255,11 +255,11 @@ define internal i32 @dissect_ppi_antenna(ptr noundef %0, ptr noundef %1, ptr nou
   br label %41
 
 41:                                               ; preds = %.lr.ph, %212
-  %.0225281 = phi i32 [ %11, %.lr.ph ], [ %44, %212 ]
+  %.0226281 = phi i32 [ %11, %.lr.ph ], [ %44, %212 ]
   %42 = phi <2 x i32> [ %40, %.lr.ph ], [ %213, %212 ]
-  %43 = add i32 %.0225281, -1
-  %44 = and i32 %43, %.0225281
-  %45 = xor i32 %44, %.0225281
+  %43 = add i32 %.0226281, -1
+  %44 = and i32 %43, %.0226281
+  %45 = xor i32 %44, %.0226281
   %.not244 = icmp ult i32 %45, 65536
   br i1 %.not244, label %75, label %46
 

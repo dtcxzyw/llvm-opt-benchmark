@@ -5064,14 +5064,14 @@ invoke.cont:                                      ; preds = %_ZNSt16allocator_tr
   br i1 %cmp24.not, label %invoke.cont5.thread, label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %invoke.cont, %if.end
-  %chars_written.028 = phi i64 [ %add, %if.end ], [ 0, %invoke.cont ]
-  %i.027 = phi i64 [ %inc, %if.end ], [ 0, %invoke.cont ]
+  %i.028 = phi i64 [ %inc, %if.end ], [ 0, %invoke.cont ]
+  %chars_written.027 = phi i64 [ %add, %if.end ], [ 0, %invoke.cont ]
   %s.sroa.4.026 = phi i8 [ %s.sroa.4.1.ph, %if.end ], [ 0, %invoke.cont ]
   %s.sroa.0.025 = phi i1 [ %s.sroa.0.1.ph, %if.end ], [ false, %invoke.cont ]
-  %arrayidx = getelementptr inbounds i32, ptr %v, i64 %i.027
+  %arrayidx = getelementptr inbounds i32, ptr %v, i64 %i.028
   %2 = load i32, ptr %arrayidx, align 4
   %3 = load ptr, ptr %data_.i.i, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 %chars_written.028
+  %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 %chars_written.027
   %cmp.i = icmp ult i32 %2, 128
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
@@ -5205,8 +5205,8 @@ if.end:                                           ; preds = %if.then.i, %if.then
   %s.sroa.0.1.ph = phi i1 [ false, %if.then70.i ], [ true, %if.then45.i ], [ %s.sroa.0.025, %if.then25.i ], [ %s.sroa.0.025, %if.then9.i ], [ %s.sroa.0.025, %if.then2.i ], [ %s.sroa.0.025, %if.then.i ]
   %s.sroa.4.1.ph = phi i8 [ 0, %if.then70.i ], [ %conv47.i, %if.then45.i ], [ %s.sroa.4.026, %if.then25.i ], [ %s.sroa.4.026, %if.then9.i ], [ %s.sroa.4.026, %if.then2.i ], [ %s.sroa.4.026, %if.then.i ]
   %retval.0.i.ph = phi i64 [ 2, %if.then70.i ], [ 2, %if.then45.i ], [ 4, %if.then25.i ], [ 3, %if.then9.i ], [ 2, %if.then2.i ], [ 1, %if.then.i ]
-  %add = add i64 %retval.0.i.ph, %chars_written.028
-  %inc = add nuw i64 %i.027, 1
+  %add = add i64 %retval.0.i.ph, %chars_written.027
+  %inc = add nuw i64 %i.028, 1
   %exitcond.not = icmp eq i64 %inc, %len
   br i1 %exitcond.not, label %invoke.cont5, label %invoke.cont2, !llvm.loop !23
 

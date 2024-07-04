@@ -1377,10 +1377,10 @@ for.body102.lr.ph:                                ; preds = %for.end95
   br label %for.body102
 
 for.body102:                                      ; preds = %for.body102.lr.ph, %_ZNSt15_Deque_iteratorISt10shared_ptrIN6Assimp3COB4NodeEERS4_PS4_EppEv.exit111
-  %__begin198.sroa.11.0385 = phi ptr [ %53, %for.body102.lr.ph ], [ %__begin198.sroa.11.1, %_ZNSt15_Deque_iteratorISt10shared_ptrIN6Assimp3COB4NodeEERS4_PS4_EppEv.exit111 ]
+  %__begin198.sroa.0.0385 = phi ptr [ %51, %for.body102.lr.ph ], [ %__begin198.sroa.0.1, %_ZNSt15_Deque_iteratorISt10shared_ptrIN6Assimp3COB4NodeEERS4_PS4_EppEv.exit111 ]
   %__begin198.sroa.8.0384 = phi ptr [ %52, %for.body102.lr.ph ], [ %__begin198.sroa.8.1, %_ZNSt15_Deque_iteratorISt10shared_ptrIN6Assimp3COB4NodeEERS4_PS4_EppEv.exit111 ]
-  %__begin198.sroa.0.0383 = phi ptr [ %51, %for.body102.lr.ph ], [ %__begin198.sroa.0.1, %_ZNSt15_Deque_iteratorISt10shared_ptrIN6Assimp3COB4NodeEERS4_PS4_EppEv.exit111 ]
-  %55 = load ptr, ptr %__begin198.sroa.0.0383, align 8
+  %__begin198.sroa.11.0383 = phi ptr [ %53, %for.body102.lr.ph ], [ %__begin198.sroa.11.1, %_ZNSt15_Deque_iteratorISt10shared_ptrIN6Assimp3COB4NodeEERS4_PS4_EppEv.exit111 ]
+  %55 = load ptr, ptr %__begin198.sroa.0.0385, align 8
   %type106 = getelementptr inbounds i8, ptr %55, i64 24
   %56 = load i32, ptr %type106, align 8
   %cmp107 = icmp eq i32 %56, 0
@@ -1412,20 +1412,20 @@ if.then115:                                       ; preds = %land.lhs.true
   br label %for.inc121
 
 for.inc121:                                       ; preds = %for.body102, %if.then115, %land.lhs.true, %if.then108
-  %incdec.ptr.i103 = getelementptr inbounds i8, ptr %__begin198.sroa.0.0383, i64 16
+  %incdec.ptr.i103 = getelementptr inbounds i8, ptr %__begin198.sroa.0.0385, i64 16
   %cmp.i105 = icmp eq ptr %incdec.ptr.i103, %__begin198.sroa.8.0384
   br i1 %cmp.i105, label %if.then.i106, label %_ZNSt15_Deque_iteratorISt10shared_ptrIN6Assimp3COB4NodeEERS4_PS4_EppEv.exit111
 
 if.then.i106:                                     ; preds = %for.inc121
-  %add.ptr.i108 = getelementptr inbounds i8, ptr %__begin198.sroa.11.0385, i64 8
+  %add.ptr.i108 = getelementptr inbounds i8, ptr %__begin198.sroa.11.0383, i64 8
   %63 = load ptr, ptr %add.ptr.i108, align 8
   %add.ptr.i.i110 = getelementptr inbounds i8, ptr %63, i64 512
   br label %_ZNSt15_Deque_iteratorISt10shared_ptrIN6Assimp3COB4NodeEERS4_PS4_EppEv.exit111
 
 _ZNSt15_Deque_iteratorISt10shared_ptrIN6Assimp3COB4NodeEERS4_PS4_EppEv.exit111: ; preds = %for.inc121, %if.then.i106
-  %__begin198.sroa.0.1 = phi ptr [ %63, %if.then.i106 ], [ %incdec.ptr.i103, %for.inc121 ]
+  %__begin198.sroa.11.1 = phi ptr [ %add.ptr.i108, %if.then.i106 ], [ %__begin198.sroa.11.0383, %for.inc121 ]
   %__begin198.sroa.8.1 = phi ptr [ %add.ptr.i.i110, %if.then.i106 ], [ %__begin198.sroa.8.0384, %for.inc121 ]
-  %__begin198.sroa.11.1 = phi ptr [ %add.ptr.i108, %if.then.i106 ], [ %__begin198.sroa.11.0385, %for.inc121 ]
+  %__begin198.sroa.0.1 = phi ptr [ %63, %if.then.i106 ], [ %incdec.ptr.i103, %for.inc121 ]
   %cmp.i.i96.not = icmp eq ptr %__begin198.sroa.0.1, %54
   br i1 %cmp.i.i96.not, label %for.end123, label %for.body102
 
@@ -17247,16 +17247,16 @@ invoke.cont:                                      ; preds = %cond.true
   br i1 %cmp.i.not5.i.i, label %cleanup.action, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %.noexc, %for.body.i.i
-  %__first.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %call.i, %.noexc ]
-  %__result.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %call5.i, %.noexc ]
-  %0 = load i8, ptr %__first.sroa.0.07.i.i, align 1
+  %__result.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %call5.i, %.noexc ]
+  %__first.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %call.i, %.noexc ]
+  %0 = load i8, ptr %__first.sroa.0.06.i.i, align 1
   %conv.i.i.i = zext i8 %0 to i32
   %call.i.i.i = call i32 @isprint(i32 noundef %conv.i.i.i) #27
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   %cond.i.i.i = select i1 %tobool.not.i.i.i, i8 %placeholder, i8 %0
-  store i8 %cond.i.i.i, ptr %__result.sroa.0.06.i.i, align 1
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.07.i.i, i64 1
-  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.06.i.i, i64 1
+  store i8 %cond.i.i.i, ptr %__result.sroa.0.07.i.i, align 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i, i64 1
+  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.07.i.i, i64 1
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %call2.i
   br i1 %cmp.i.not.i.i, label %cleanup.action, label %for.body.i.i, !llvm.loop !149
 

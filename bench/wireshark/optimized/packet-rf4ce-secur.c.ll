@@ -464,13 +464,13 @@ define hidden range(i32 0, 2) i32 @rf4ce_addr_table_get_ieee_addr(ptr noundef wr
 
 6:                                                ; preds = %3
   %.not = icmp eq i32 %2, 0
-  %.030.in.v = select i1 %.not, i64 136, i64 112
-  %.030.in = getelementptr inbounds i8, ptr %1, i64 %.030.in.v
+  %.029.in.v = select i1 %.not, i64 136, i64 112
+  %.029.in = getelementptr inbounds i8, ptr %1, i64 %.029.in.v
   %.028.in.v = select i1 %.not, i64 144, i64 120
   %.028.in = getelementptr inbounds i8, ptr %1, i64 %.028.in.v
   %.028 = load ptr, ptr %.028.in, align 8
-  %.030 = load i32, ptr %.030.in, align 8
-  %7 = icmp eq i32 %.030, 8
+  %.029 = load i32, ptr %.029.in, align 8
+  %7 = icmp eq i32 %.029, 8
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
@@ -534,8 +534,8 @@ define hidden range(i32 0, 2) i32 @rf4ce_addr_table_get_ieee_addr(ptr noundef wr
   br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !14
 
 .loopexit:                                        ; preds = %27, %19, %.split43.us, %10, %8, %3
-  %.029 = phi i32 [ 0, %3 ], [ 0, %8 ], [ 0, %10 ], [ 1, %.split43.us ], [ 0, %19 ], [ 0, %27 ]
-  ret i32 %.029
+  %.031 = phi i32 [ 0, %3 ], [ 0, %8 ], [ 0, %10 ], [ 1, %.split43.us ], [ 0, %19 ], [ 0, %27 ]
+  ret i32 %.031
 }
 
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
@@ -1214,8 +1214,8 @@ reverse.exit31:                                   ; preds = %30
   br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !21
 
 .loopexit:                                        ; preds = %42, %39, %6
-  %.022 = phi i32 [ 0, %6 ], [ %38, %39 ], [ 0, %42 ]
-  ret i32 %.022
+  %.023 = phi i32 [ 0, %6 ], [ %38, %39 ], [ 0, %42 ]
+  ret i32 %.023
 }
 
 declare i32 @zbee_sec_ccm_decrypt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7

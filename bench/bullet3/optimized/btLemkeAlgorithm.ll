@@ -1349,8 +1349,8 @@ invoke.cont2.lr.ph:                               ; preds = %entry
 
 invoke.cont2:                                     ; preds = %invoke.cont2.lr.ph, %for.inc
   %1 = phi i32 [ 0, %invoke.cont2.lr.ph ], [ %31, %for.inc ]
-  %firstRow.0388 = phi i1 [ true, %invoke.cont2.lr.ph ], [ %firstRow.1, %for.inc ]
-  %currentMin.0387 = phi float [ 0.000000e+00, %invoke.cont2.lr.ph ], [ %currentMin.1, %for.inc ]
+  %currentMin.0388 = phi float [ 0.000000e+00, %invoke.cont2.lr.ph ], [ %currentMin.1, %for.inc ]
+  %firstRow.0387 = phi i1 [ true, %invoke.cont2.lr.ph ], [ %firstRow.1, %for.inc ]
   %storemerge386 = phi i32 [ 0, %invoke.cont2.lr.ph ], [ %inc, %for.inc ]
   %2 = load i32, ptr %pivotColIndex, align 4
   %3 = load i32, ptr %m_cols.i, align 4
@@ -1388,7 +1388,7 @@ invoke.cont7:                                     ; preds = %_Z9btMachEpsv.exit
   %arrayidx.i.i38 = getelementptr inbounds float, ptr %4, i64 %idxprom.i.i37
   %6 = load float, ptr %arrayidx.i.i38, align 4
   %div = fdiv float %6, %5
-  br i1 %firstRow.0388, label %if.then9, label %_Z9btMachEpsv.exit54
+  br i1 %firstRow.0387, label %if.then9, label %_Z9btMachEpsv.exit54
 
 if.then9:                                         ; preds = %invoke.cont7
   %7 = load i32, ptr %m_capacity.i.i, align 8
@@ -1474,7 +1474,7 @@ lpad.loopexit.split-lp377:                        ; preds = %if.then.i.i.i, %if.
   br label %ehcleanup
 
 _Z9btMachEpsv.exit54:                             ; preds = %invoke.cont7
-  %sub = fsub float %currentMin.0387, %div
+  %sub = fsub float %currentMin.0388, %div
   %15 = tail call noundef float @llvm.fabs.f32(float %sub)
   %cmp14 = fcmp olt float %15, %.pre.i46
   br i1 %cmp14, label %if.then15, label %if.else17
@@ -1553,7 +1553,7 @@ _ZN20btAlignedObjectArrayIiE9push_backERKi.exit98: ; preds = %if.then15, %if.the
   br label %for.inc.sink.split
 
 if.else17:                                        ; preds = %_Z9btMachEpsv.exit54
-  %cmp18 = fcmp ogt float %currentMin.0387, %div
+  %cmp18 = fcmp ogt float %currentMin.0388, %div
   br i1 %cmp18, label %if.then19, label %for.inc
 
 if.then19:                                        ; preds = %if.else17
@@ -1622,7 +1622,7 @@ _ZN20btAlignedObjectArrayIiE9push_backERKi.exit149: ; preds = %_ZNK20btAlignedOb
 for.inc.sink.split:                               ; preds = %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit98, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit149
   %.pre2.i135.sink = phi i32 [ %.pre2.i135, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit149 ], [ %22, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit98 ], [ %13, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit ]
   %call.i.i.i.i147.sink = phi ptr [ %call.i.i.i.i147, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit149 ], [ %23, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit98 ], [ %14, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit ]
-  %currentMin.1.ph = phi float [ %div, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit149 ], [ %currentMin.0387, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit98 ], [ %div, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit ]
+  %currentMin.1.ph = phi float [ %div, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit149 ], [ %currentMin.0388, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit98 ], [ %div, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit ]
   %idxprom.i110 = sext i32 %.pre2.i135.sink to i64
   %arrayidx.i111 = getelementptr inbounds i32, ptr %call.i.i.i.i147.sink, i64 %idxprom.i110
   store i32 %storemerge386, ptr %arrayidx.i111, align 4
@@ -1633,8 +1633,8 @@ for.inc.sink.split:                               ; preds = %_ZN20btAlignedObjec
 
 for.inc:                                          ; preds = %for.inc.sink.split, %_Z9btMachEpsv.exit, %if.else17
   %31 = phi i32 [ %1, %if.else17 ], [ %1, %_Z9btMachEpsv.exit ], [ %inc.i112, %for.inc.sink.split ]
-  %currentMin.1 = phi float [ %currentMin.0387, %if.else17 ], [ %currentMin.0387, %_Z9btMachEpsv.exit ], [ %currentMin.1.ph, %for.inc.sink.split ]
-  %firstRow.1 = phi i1 [ false, %if.else17 ], [ %firstRow.0388, %_Z9btMachEpsv.exit ], [ false, %for.inc.sink.split ]
+  %firstRow.1 = phi i1 [ false, %if.else17 ], [ %firstRow.0387, %_Z9btMachEpsv.exit ], [ false, %for.inc.sink.split ]
+  %currentMin.1 = phi float [ %currentMin.0388, %if.else17 ], [ %currentMin.0388, %_Z9btMachEpsv.exit ], [ %currentMin.1.ph, %for.inc.sink.split ]
   %inc = add nuw nsw i32 %storemerge386, 1
   %exitcond.not = icmp eq i32 %inc, %0
   br i1 %exitcond.not, label %for.end, label %invoke.cont2, !llvm.loop !27
@@ -1685,13 +1685,13 @@ for.body42:                                       ; preds = %for.body42.lr.ph, %
   br i1 %cmp45, label %cleanup104, label %for.cond38
 
 for.cond51:                                       ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit
-  %inc102 = add nuw nsw i32 %col.0398, 1
+  %inc102 = add nuw nsw i32 %col.0399, 1
   %exitcond407.not = icmp eq i32 %inc102, %0
   br i1 %exitcond407.not, label %cleanup104.sink.split, label %for.body53, !llvm.loop !29
 
 for.body53:                                       ; preds = %for.body53.lr.ph, %for.cond51
-  %retval.0399 = phi i32 [ undef, %for.body53.lr.ph ], [ %retval.1, %for.cond51 ]
-  %col.0398 = phi i32 [ 0, %for.body53.lr.ph ], [ %inc102, %for.cond51 ]
+  %col.0399 = phi i32 [ 0, %for.body53.lr.ph ], [ %inc102, %for.cond51 ]
+  %retval.0398 = phi i32 [ undef, %for.body53.lr.ph ], [ %retval.1, %for.cond51 ]
   %currentMin.2397 = phi float [ %currentMin.1, %for.body53.lr.ph ], [ %currentMin.3.lcssa412, %for.cond51 ]
   store i8 1, ptr %m_ownsMemory.i.i157, align 8
   store ptr null, ptr %m_data.i.i158, align 8
@@ -1769,8 +1769,8 @@ invoke.cont69.preheader:                          ; preds = %_ZN20btAlignedObjec
 invoke.cont69:                                    ; preds = %invoke.cont69.preheader, %for.inc91
   %44 = phi i32 [ 0, %invoke.cont69.preheader ], [ %76, %for.inc91 ]
   %indvars.iv405 = phi i64 [ 0, %invoke.cont69.preheader ], [ %indvars.iv.next406, %for.inc91 ]
-  %firstRow.2394 = phi i1 [ true, %invoke.cont69.preheader ], [ false, %for.inc91 ]
-  %currentMin.3392 = phi float [ %currentMin.2397, %invoke.cont69.preheader ], [ %currentMin.4, %for.inc91 ]
+  %currentMin.3393 = phi float [ %currentMin.2397, %invoke.cont69.preheader ], [ %currentMin.4, %for.inc91 ]
+  %firstRow.2392 = phi i1 [ true, %invoke.cont69.preheader ], [ false, %for.inc91 ]
   %arrayidx.i179 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv405
   %45 = load i32, ptr %arrayidx.i179, align 4
   %46 = load i32, ptr %pivotColIndex, align 4
@@ -1781,12 +1781,12 @@ invoke.cont69:                                    ; preds = %invoke.cont69.prehe
   %idxprom.i.i184 = sext i32 %add.i182 to i64
   %arrayidx.i.i185 = getelementptr inbounds float, ptr %48, i64 %idxprom.i.i184
   %49 = load float, ptr %arrayidx.i.i185, align 4
-  %add.i188 = add nsw i32 %mul.i181, %col.0398
+  %add.i188 = add nsw i32 %mul.i181, %col.0399
   %idxprom.i.i190 = sext i32 %add.i188 to i64
   %arrayidx.i.i191 = getelementptr inbounds float, ptr %48, i64 %idxprom.i.i190
   %50 = load float, ptr %arrayidx.i.i191, align 4
   %div71 = fdiv float %50, %49
-  br i1 %firstRow.2394, label %if.then73, label %if.else75
+  br i1 %firstRow.2392, label %if.then73, label %if.else75
 
 if.then73:                                        ; preds = %invoke.cont69
   %51 = load i32, ptr %m_capacity.i.i, align 8
@@ -1877,7 +1877,7 @@ lpad55:                                           ; preds = %lpad55.loopexit.spl
   br label %ehcleanup
 
 if.else75:                                        ; preds = %invoke.cont69
-  %sub76 = fsub float %currentMin.3392, %div71
+  %sub76 = fsub float %currentMin.3393, %div71
   %59 = tail call noundef float @llvm.fabs.f32(float %sub76)
   %.b1.i236 = load i1, ptr @_ZZ9btMachEpsvE10calculated, align 1
   %.pre.i237 = load float, ptr @_ZZ9btMachEpsvE7machEps, align 4
@@ -1975,7 +1975,7 @@ _ZN20btAlignedObjectArrayIiE9push_backERKi.exit289: ; preds = %if.then81, %if.th
   br label %for.inc91.sink.split
 
 if.else83:                                        ; preds = %_Z9btMachEpsv.exit245
-  %cmp84 = fcmp ogt float %currentMin.3392, %div71
+  %cmp84 = fcmp ogt float %currentMin.3393, %div71
   br i1 %cmp84, label %if.then85, label %for.inc91
 
 if.then85:                                        ; preds = %if.else83
@@ -2044,7 +2044,7 @@ _ZN20btAlignedObjectArrayIiE9push_backERKi.exit344: ; preds = %_ZNK20btAlignedOb
 for.inc91.sink.split:                             ; preds = %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit235, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit289, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit344
   %.pre2.i330.sink = phi i32 [ %.pre2.i330, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit344 ], [ %67, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit289 ], [ %57, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit235 ]
   %call.i.i.i.i342.sink = phi ptr [ %call.i.i.i.i342, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit344 ], [ %68, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit289 ], [ %58, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit235 ]
-  %currentMin.4.ph = phi float [ %div71, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit344 ], [ %currentMin.3392, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit289 ], [ %div71, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit235 ]
+  %currentMin.4.ph = phi float [ %div71, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit344 ], [ %currentMin.3393, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit289 ], [ %div71, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit235 ]
   %idxprom.i305 = sext i32 %.pre2.i330.sink to i64
   %arrayidx.i306 = getelementptr inbounds i32, ptr %call.i.i.i.i342.sink, i64 %idxprom.i305
   store i32 %45, ptr %arrayidx.i306, align 4
@@ -2055,7 +2055,7 @@ for.inc91.sink.split:                             ; preds = %_ZN20btAlignedObjec
 
 for.inc91:                                        ; preds = %for.inc91.sink.split, %if.else83
   %76 = phi i32 [ %44, %if.else83 ], [ %inc.i307, %for.inc91.sink.split ]
-  %currentMin.4 = phi float [ %currentMin.3392, %if.else83 ], [ %currentMin.4.ph, %for.inc91.sink.split ]
+  %currentMin.4 = phi float [ %currentMin.3393, %if.else83 ], [ %currentMin.4.ph, %for.inc91.sink.split ]
   %indvars.iv.next406 = add nuw nsw i64 %indvars.iv405, 1
   %cmp61 = icmp ult i64 %indvars.iv.next406, %43
   br i1 %cmp61, label %invoke.cont69, label %for.end93, !llvm.loop !31
@@ -2072,7 +2072,7 @@ if.then97:                                        ; preds = %for.end93
 cleanup:                                          ; preds = %_ZN20btAlignedObjectArrayIiE5clearEv.exit175, %for.end93, %if.then97
   %cmp96.not413 = phi i1 [ true, %if.then97 ], [ false, %for.end93 ], [ false, %_ZN20btAlignedObjectArrayIiE5clearEv.exit175 ]
   %currentMin.3.lcssa412 = phi float [ %currentMin.4, %if.then97 ], [ %currentMin.4, %for.end93 ], [ %currentMin.2397, %_ZN20btAlignedObjectArrayIiE5clearEv.exit175 ]
-  %retval.1 = phi i32 [ %78, %if.then97 ], [ %retval.0399, %for.end93 ], [ %retval.0399, %_ZN20btAlignedObjectArrayIiE5clearEv.exit175 ]
+  %retval.1 = phi i32 [ %78, %if.then97 ], [ %retval.0398, %for.end93 ], [ %retval.0398, %_ZN20btAlignedObjectArrayIiE5clearEv.exit175 ]
   %tobool.not.i.i.i349 = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i349, label %_ZN20btAlignedObjectArrayIiED2Ev.exit, label %if.then3.i.i.i353
 

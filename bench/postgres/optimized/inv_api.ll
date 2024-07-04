@@ -670,8 +670,8 @@ getdatafield.exit:                                ; preds = %109
   br label %139
 
 139:                                              ; preds = %17, %138
-  %.0 = phi i32 [ %.4, %138 ], [ 0, %17 ]
-  ret i32 %.0
+  %.070 = phi i32 [ %.4, %138 ], [ 0, %17 ]
+  ret i32 %.070
 }
 
 declare void @ScanKeyInit(ptr noundef, i16 noundef signext, i16 noundef zeroext, i32 noundef, i64 noundef) local_unnamed_addr #1
@@ -799,12 +799,12 @@ define dso_local range(i32 0, -2147483648) i32 @inv_write(ptr nocapture noundef 
   br label %71
 
 71:                                               ; preds = %.lr.ph159, %197
-  %.0116158 = phi i32 [ 0, %.lr.ph159 ], [ %.1, %197 ]
-  %.0117157 = phi i32 [ %13, %.lr.ph159 ], [ %198, %197 ]
-  %.0119156 = phi ptr [ null, %.lr.ph159 ], [ %.2, %197 ]
-  %.0121155 = phi ptr [ null, %.lr.ph159 ], [ %.3, %197 ]
-  %.0124154 = phi i1 [ true, %.lr.ph159 ], [ %.2126, %197 ]
-  br i1 %.0124154, label %72, label %88
+  %.0117158 = phi i32 [ 0, %.lr.ph159 ], [ %.1, %197 ]
+  %.0118157 = phi i1 [ true, %.lr.ph159 ], [ %.2, %197 ]
+  %.0120156 = phi ptr [ null, %.lr.ph159 ], [ %.3, %197 ]
+  %.0123155 = phi ptr [ null, %.lr.ph159 ], [ %.2125, %197 ]
+  %.0126154 = phi i32 [ %13, %.lr.ph159 ], [ %198, %197 ]
+  br i1 %.0118157, label %72, label %88
 
 72:                                               ; preds = %71
   %73 = call ptr @systable_getnext_ordered(ptr noundef %61, i32 noundef 1) #9
@@ -835,19 +835,19 @@ define dso_local range(i32 0, -2147483648) i32 @inv_write(ptr nocapture noundef 
   br label %88
 
 88:                                               ; preds = %72, %83, %71
-  %.2123 = phi ptr [ %.0121155, %71 ], [ %87, %83 ], [ %.0121155, %72 ]
-  %.1120 = phi ptr [ %.0119156, %71 ], [ %73, %83 ], [ null, %72 ]
-  %.not135 = icmp eq ptr %.2123, null
+  %.1124 = phi ptr [ %.0123155, %71 ], [ %73, %83 ], [ null, %72 ]
+  %.2122 = phi ptr [ %.0120156, %71 ], [ %87, %83 ], [ %.0120156, %72 ]
+  %.not135 = icmp eq ptr %.2122, null
   br i1 %.not135, label %162, label %89
 
 89:                                               ; preds = %88
-  %90 = getelementptr inbounds i8, ptr %.2123, i64 4
+  %90 = getelementptr inbounds i8, ptr %.2122, i64 4
   %91 = load i32, ptr %90, align 4
-  %92 = icmp eq i32 %91, %.0117157
+  %92 = icmp eq i32 %91, %.0126154
   br i1 %92, label %93, label %162
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds i8, ptr %.2123, i64 8
+  %94 = getelementptr inbounds i8, ptr %.2122, i64 8
   %95 = load i8, ptr %94, align 1
   %96 = and i8 %95, 3
   %.not145 = icmp eq i8 %96, 0
@@ -867,11 +867,11 @@ define dso_local range(i32 0, -2147483648) i32 @inv_write(ptr nocapture noundef 
   br i1 %or.cond.i140, label %104, label %getdatafield.exit
 
 104:                                              ; preds = %99
-  %105 = getelementptr inbounds i8, ptr %.2123, i64 4
+  %105 = getelementptr inbounds i8, ptr %.2122, i64 4
   %106 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %106)
   %107 = call i32 @errcode(i32 noundef 16779816) #9
-  %108 = load i32, ptr %.2123, align 4
+  %108 = load i32, ptr %.2122, align 4
   %109 = load i32, ptr %105, align 4
   %110 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %108, i32 noundef %109, i32 noundef %102) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 192, ptr noundef nonnull @__func__.getdatafield) #9
@@ -935,11 +935,11 @@ getdatafield.exit:                                ; preds = %99
 
 .loopexit146:                                     ; preds = %.lr.ph.preheader, %130, %142, %114
   %143 = sub nuw nsw i32 2048, %117
-  %144 = sub i32 %2, %.0116158
+  %144 = sub i32 %2, %.0117158
   %145 = call i32 @llvm.smin.i32(i32 %143, i32 %144)
   %146 = and i64 %115, 2047
   %147 = getelementptr i8, ptr %14, i64 %146
-  %148 = sext i32 %.0116158 to i64
+  %148 = sext i32 %.0117158 to i64
   %149 = getelementptr i8, ptr %1, i64 %148
   %150 = sext i32 %145 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %147, ptr align 1 %149, i64 %150, i1 false)
@@ -958,7 +958,7 @@ getdatafield.exit:                                ; preds = %99
   %156 = load ptr, ptr @lo_heap_r, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 64
   %158 = load ptr, ptr %157, align 8
-  %159 = call ptr @heap_modify_tuple(ptr noundef %.1120, ptr noundef %158, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #9
+  %159 = call ptr @heap_modify_tuple(ptr noundef %.1124, ptr noundef %158, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #9
   %160 = load ptr, ptr @lo_heap_r, align 8
   %161 = getelementptr inbounds i8, ptr %159, i64 4
   call void @CatalogTupleUpdateWithInfo(ptr noundef %160, ptr noundef nonnull %161, ptr noundef %159, ptr noundef %52) #9
@@ -1000,10 +1000,10 @@ getdatafield.exit:                                ; preds = %99
 
 .loopexit:                                        ; preds = %162, %.lr.ph152.preheader, %171, %177
   %178 = sub nuw nsw i32 2048, %165
-  %179 = sub i32 %2, %.0116158
+  %179 = sub i32 %2, %.0117158
   %180 = call i32 @llvm.smin.i32(i32 %178, i32 %179)
   %181 = getelementptr i8, ptr %14, i64 %.pre163
-  %182 = sext i32 %.0116158 to i64
+  %182 = sext i32 %.0117158 to i64
   %183 = getelementptr i8, ptr %1, i64 %182
   %184 = sext i32 %180 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %181, ptr align 1 %183, i64 %184, i1 false)
@@ -1017,7 +1017,7 @@ getdatafield.exit:                                ; preds = %99
   %189 = load i32, ptr %0, align 8
   %190 = zext i32 %189 to i64
   store i64 %190, ptr %7, align 16
-  %191 = sext i32 %.0117157 to i64
+  %191 = sext i32 %.0126154 to i64
   store i64 %191, ptr %67, align 8
   store i64 %6, ptr %62, align 16
   %192 = load ptr, ptr @lo_heap_r, align 8
@@ -1030,13 +1030,13 @@ getdatafield.exit:                                ; preds = %99
 
 197:                                              ; preds = %.loopexit, %.loopexit146
   %.sink = phi ptr [ %195, %.loopexit ], [ %159, %.loopexit146 ]
-  %.2126 = phi i1 [ false, %.loopexit ], [ true, %.loopexit146 ]
-  %.3 = phi ptr [ %.2123, %.loopexit ], [ null, %.loopexit146 ]
-  %.2 = phi ptr [ %.1120, %.loopexit ], [ null, %.loopexit146 ]
+  %.2125 = phi ptr [ %.1124, %.loopexit ], [ null, %.loopexit146 ]
+  %.3 = phi ptr [ %.2122, %.loopexit ], [ null, %.loopexit146 ]
+  %.2 = phi i1 [ false, %.loopexit ], [ true, %.loopexit146 ]
   %.pn = phi i32 [ %180, %.loopexit ], [ %145, %.loopexit146 ]
   call void @heap_freetuple(ptr noundef %.sink) #9
-  %.1 = add i32 %.pn, %.0116158
-  %198 = add i32 %.0117157, 1
+  %.1 = add i32 %.pn, %.0117158
+  %198 = add i32 %.0126154, 1
   %199 = icmp slt i32 %.1, %2
   br i1 %199, label %71, label %._crit_edge, !llvm.loop !7
 
@@ -1047,8 +1047,8 @@ getdatafield.exit:                                ; preds = %99
   br label %200
 
 200:                                              ; preds = %24, %._crit_edge
-  %.0 = phi i32 [ %.1, %._crit_edge ], [ 0, %24 ]
-  ret i32 %.0
+  %.0115 = phi i32 [ %.1, %._crit_edge ], [ 0, %24 ]
+  ret i32 %.0115
 }
 
 declare ptr @CatalogOpenIndexes(ptr noundef) local_unnamed_addr #1

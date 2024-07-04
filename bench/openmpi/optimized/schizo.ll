@@ -243,14 +243,14 @@ pmix_cmd_line_get_param.exit.preheader:           ; preds = %.lr.ph.i.tail
   br i1 %39, label %43, label %.critedge.us
 
 .critedge.us:                                     ; preds = %37, %35
-  %.048.us = phi ptr [ %36, %35 ], [ %38, %37 ]
+  %.0.us = phi ptr [ %36, %35 ], [ %38, %37 ]
   %40 = load ptr, ptr %4, align 8
   %.not65.us = icmp eq ptr %40, null
   br i1 %.not65.us, label %.loopexit.us, label %.preheader70.us
 
 .loopexit.us:                                     ; preds = %.lr.ph91.us, %.preheader70.us, %.critedge.us
   %41 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %4, ptr noundef nonnull %33) #8
-  %42 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %5, ptr noundef nonnull %.048.us) #8
+  %42 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %5, ptr noundef nonnull %.0.us) #8
   br label %pmix_cmd_line_get_param.exit.us
 
 43:                                               ; preds = %37
@@ -303,7 +303,7 @@ pmix_cmd_line_get_param.exit.us:                  ; preds = %43, %.loopexit.us
   br label %pmix_cmd_line_get_param.exit
 
 .lr.ph:                                           ; preds = %57, %55
-  %.048 = phi ptr [ %56, %55 ], [ %58, %57 ]
+  %.0 = phi ptr [ %56, %55 ], [ %58, %57 ]
   %62 = load ptr, ptr %.fr, align 8
   %.not6486 = icmp eq ptr %62, null
   br i1 %.not6486, label %..critedge_crit_edge82.split, label %.lr.ph88
@@ -320,12 +320,12 @@ pmix_cmd_line_get_param.exit.us:                  ; preds = %43, %.loopexit.us
 
 68:                                               ; preds = %.lr.ph88
   %69 = getelementptr inbounds i8, ptr %65, i64 1
-  %70 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(1) %.048) #9
+  %70 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(1) %.0) #9
   %.not67 = icmp eq i32 %70, 0
   br i1 %.not67, label %73, label %.split
 
 .split:                                           ; preds = %68
-  %71 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.37, i32 noundef 1, ptr noundef nonnull %53, ptr noundef nonnull %.048, ptr noundef nonnull %69) #8
+  %71 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.37, i32 noundef 1, ptr noundef nonnull %53, ptr noundef nonnull %.0, ptr noundef nonnull %69) #8
   call void @free(ptr noundef %64) #8
   %72 = load ptr, ptr %4, align 8
   call void @PMIx_Argv_free(ptr noundef %72) #8
@@ -355,7 +355,7 @@ pmix_cmd_line_get_param.exit.us:                  ; preds = %43, %.loopexit.us
   br i1 %79, label %.lr.ph91.split.us, label %.loopexit
 
 .lr.ph91.split.us:                                ; preds = %.lr.ph91, %.lr.ph91.us
-  %.us-phi109 = phi ptr [ %.048.us, %.lr.ph91.us ], [ %.048, %.lr.ph91 ]
+  %.us-phi109 = phi ptr [ %.0.us, %.lr.ph91.us ], [ %.0, %.lr.ph91 ]
   %.us-phi110 = phi ptr [ %33, %.lr.ph91.us ], [ %53, %.lr.ph91 ]
   %80 = load ptr, ptr %5, align 8
   %81 = load ptr, ptr %80, align 8
@@ -366,7 +366,7 @@ pmix_cmd_line_get_param.exit.us:                  ; preds = %43, %.loopexit.us
 
 .loopexit:                                        ; preds = %.lr.ph91, %.preheader70, %..critedge_crit_edge82.split
   %84 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %4, ptr noundef nonnull %53) #8
-  %85 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %5, ptr noundef nonnull %.048) #8
+  %85 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %5, ptr noundef nonnull %.0) #8
   br label %pmix_cmd_line_get_param.exit
 
 pmix_cmd_line_get_param.exit:                     ; preds = %.loopexit, %60
@@ -407,14 +407,14 @@ pmix_cmd_line_get_param.exit.thread:              ; preds = %51, %pmix_cmd_line_
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.split, %.lr.ph91.split.us, %._crit_edge
-  %.0.ph = phi i32 [ 0, %._crit_edge ], [ -5, %.lr.ph91.split.us ], [ -5, %.split ]
+  %.049.ph = phi i32 [ 0, %._crit_edge ], [ -5, %.lr.ph91.split.us ], [ -5, %.split ]
   %.sink = load ptr, ptr %5, align 8
   call void @PMIx_Argv_free(ptr noundef %.sink) #8
   br label %99
 
 99:                                               ; preds = %.sink.split, %pmix_cmd_line_get_param.exit.thread, %14
-  %.0 = phi i32 [ 0, %14 ], [ 0, %pmix_cmd_line_get_param.exit.thread ], [ %.0.ph, %.sink.split ]
-  ret i32 %.0
+  %.049 = phi i32 [ 0, %14 ], [ 0, %pmix_cmd_line_get_param.exit.thread ], [ %.049.ph, %.sink.split ]
+  ret i32 %.049
 }
 
 ; Function Attrs: nounwind uwtable

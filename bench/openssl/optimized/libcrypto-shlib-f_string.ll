@@ -227,16 +227,16 @@ for.cond73.preheader.preheader:                   ; preds = %if.end68
   br label %for.cond73.preheader
 
 for.cond73.preheader:                             ; preds = %for.cond73.preheader.preheader, %for.inc97
-  %indvars.iv118 = phi i64 [ 0, %for.cond73.preheader.preheader ], [ %indvars.iv.next119, %for.inc97 ]
+  %indvars.iv117 = phi i64 [ 0, %for.cond73.preheader.preheader ], [ %indvars.iv.next118, %for.inc97 ]
   %indvars.iv115 = phi i64 [ 0, %for.cond73.preheader.preheader ], [ %indvars.iv.next116, %for.inc97 ]
-  %7 = add nuw nsw i64 %indvars.iv115, %6
+  %7 = add nuw nsw i64 %indvars.iv117, %6
   %arrayidx87 = getelementptr inbounds i8, ptr %s.1, i64 %7
   br label %for.body76
 
 for.body76:                                       ; preds = %for.cond73.preheader, %if.end84
   %cmp74 = phi i1 [ true, %for.cond73.preheader ], [ false, %if.end84 ]
   %indvars.iv111 = phi i64 [ 0, %for.cond73.preheader ], [ 1, %if.end84 ]
-  %8 = or disjoint i64 %indvars.iv111, %indvars.iv118
+  %8 = or disjoint i64 %indvars.iv111, %indvars.iv115
   %arrayidx79 = getelementptr inbounds i8, ptr %buf, i64 %8
   %9 = load i8, ptr %arrayidx79, align 1
   %call80 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %9) #3
@@ -259,9 +259,9 @@ if.end84:                                         ; preds = %for.body76
   br i1 %cmp74, label %for.body76, label %for.inc97, !llvm.loop !7
 
 for.inc97:                                        ; preds = %if.end84
-  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 2
-  %exitcond.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count
+  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
+  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 2
+  %exitcond.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count
   br i1 %exitcond.not, label %for.end100, label %for.cond73.preheader, !llvm.loop !8
 
 for.end100:                                       ; preds = %for.inc97, %if.end68

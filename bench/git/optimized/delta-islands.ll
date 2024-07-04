@@ -639,7 +639,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %4 = phi i32 [ %3, %for.body.lr.ph ], [ %11, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %nr.064 = phi i32 [ 0, %for.body.lr.ph ], [ %nr.1, %for.inc ]
+  %nr.063 = phi i32 [ 0, %for.body.lr.ph ], [ %nr.1, %for.inc ]
   %5 = load ptr, ptr %objects, align 8
   %arrayidx = getelementptr inbounds %struct.object_entry, ptr %5, i64 %indvars.iv
   %6 = getelementptr i8, ptr %arrayidx, i64 88
@@ -649,7 +649,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp5, label %if.then7, label %for.inc
 
 if.then7:                                         ; preds = %for.body
-  %idxprom11 = sext i32 %nr.064 to i64
+  %idxprom11 = sext i32 %nr.063 to i64
   %arrayidx12 = getelementptr inbounds %struct.tree_islands_todo, ptr %call1, i64 %idxprom11
   store ptr %arrayidx, ptr %arrayidx12, align 8
   %8 = load ptr, ptr %tree_depth.i, align 8
@@ -666,13 +666,13 @@ oe_tree_depth.exit:                               ; preds = %if.then7, %if.end.i
   %retval.0.i = phi i32 [ %10, %if.end.i ], [ 0, %if.then7 ]
   %depth = getelementptr inbounds i8, ptr %arrayidx12, i64 8
   store i32 %retval.0.i, ptr %depth, align 8
-  %inc = add nsw i32 %nr.064, 1
+  %inc = add nsw i32 %nr.063, 1
   %.pre = load i32, ptr %nr_objects, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %oe_tree_depth.exit
   %11 = phi i32 [ %.pre, %oe_tree_depth.exit ], [ %4, %for.body ]
-  %nr.1 = phi i32 [ %inc, %oe_tree_depth.exit ], [ %nr.064, %for.body ]
+  %nr.1 = phi i32 [ %inc, %oe_tree_depth.exit ], [ %nr.063, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = zext i32 %11 to i64
   %cmp = icmp ult i64 %indvars.iv.next, %12
@@ -1888,8 +1888,8 @@ if.then48.i.i:                                    ; preds = %for.body.i.i
   br label %while.body.i20.i
 
 while.body.i20.i:                                 ; preds = %if.then102.i.i, %if.then48.i.i
-  %val.0.i.i = phi ptr [ %36, %if.then48.i.i ], [ %55, %if.then102.i.i ]
   %key.0.i.i = phi ptr [ %34, %if.then48.i.i ], [ %53, %if.then102.i.i ]
+  %val.0.i.i = phi ptr [ %36, %if.then48.i.i ], [ %55, %if.then102.i.i ]
   %37 = load i8, ptr %key.0.i.i, align 1
   %tobool.not.i.i21.i = icmp eq i8 %37, 0
   br i1 %tobool.not.i.i21.i, label %__ac_X31_hash_string.exit.i33.i, label %if.then.i97.i.i
@@ -2075,8 +2075,8 @@ while.cond.preheader.i.i:                         ; preds = %__ac_X31_hash_strin
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.body.i.i, %while.cond.preheader.i.i
-  %site.0.i.i = phi i32 [ %spec.select.i.i, %while.body.i.i ], [ %65, %while.cond.preheader.i.i ]
   %i.0.i.i = phi i32 [ %and49.i.i, %while.body.i.i ], [ %and.i.i, %while.cond.preheader.i.i ]
+  %site.0.i.i = phi i32 [ %spec.select.i.i, %while.body.i.i ], [ %65, %while.cond.preheader.i.i ]
   %step.0.i.i = phi i32 [ %inc.i.i, %while.body.i.i ], [ 0, %while.cond.preheader.i.i ]
   %shr16.i.i = lshr i32 %i.0.i.i, 4
   %idxprom17.i.i = zext nneg i32 %shr16.i.i to i64
@@ -2105,7 +2105,7 @@ lor.rhs.i.i:                                      ; preds = %land.rhs.i.i
 
 while.body.i.i:                                   ; preds = %lor.rhs.i.i, %land.rhs.i.i
   %77 = shl nuw nsw i32 1, %shl20.i.i
-  %78 = and i32 %77, %74
+  %78 = and i32 %74, %77
   %tobool45.not.i.i = icmp eq i32 %78, 0
   %spec.select.i.i = select i1 %tobool45.not.i.i, i32 %site.0.i.i, i32 %i.0.i.i
   %inc.i.i = add i32 %step.0.i.i, 1
@@ -2126,11 +2126,11 @@ if.then55.loopexit.i.i:                           ; preds = %lor.rhs.i.i, %while
 
 if.then55.i.i:                                    ; preds = %if.then55.loopexit.i.i, %while.end.i.i
   %.pre-phi75.i.i = phi i1 [ %79, %if.then55.loopexit.i.i ], [ true, %while.end.i.i ]
-  %i.169.i.i = phi i32 [ %i.0.i.i, %if.then55.loopexit.i.i ], [ %and.i.i, %while.end.i.i ]
-  %site.268.i.i = phi i32 [ %site.0.i.i, %if.then55.loopexit.i.i ], [ %65, %while.end.i.i ]
-  %cmp66.not.i.i = icmp eq i32 %site.268.i.i, %65
+  %site.269.i.i = phi i32 [ %site.0.i.i, %if.then55.loopexit.i.i ], [ %65, %while.end.i.i ]
+  %i.168.i.i = phi i32 [ %i.0.i.i, %if.then55.loopexit.i.i ], [ %and.i.i, %while.end.i.i ]
+  %cmp66.not.i.i = icmp eq i32 %site.269.i.i, %65
   %or.cond.i.i = select i1 %.pre-phi75.i.i, i1 true, i1 %cmp66.not.i.i
-  %spec.select63.i.i = select i1 %or.cond.i.i, i32 %i.169.i.i, i32 %site.268.i.i
+  %spec.select63.i.i = select i1 %or.cond.i.i, i32 %i.168.i.i, i32 %site.269.i.i
   br label %if.end71.i.i
 
 if.end71.i.i:                                     ; preds = %if.then55.i.i, %while.end.i.i, %__ac_X31_hash_string.exit.i.i
@@ -2863,8 +2863,8 @@ while.cond.preheader:                             ; preds = %if.end5
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.body
-  %site.0 = phi i32 [ %spec.select, %while.body ], [ %4, %while.cond.preheader ]
   %i.0 = phi i32 [ %and49, %while.body ], [ %and, %while.cond.preheader ]
+  %site.0 = phi i32 [ %spec.select, %while.body ], [ %4, %while.cond.preheader ]
   %step.0 = phi i32 [ %inc, %while.body ], [ 0, %while.cond.preheader ]
   %shr16 = lshr i32 %i.0, 4
   %idxprom17 = zext nneg i32 %shr16 to i64
@@ -2922,7 +2922,7 @@ oideq_by_value.exit:                              ; preds = %if.then.i.i.i, %if.
 
 while.body:                                       ; preds = %land.rhs, %oideq_by_value.exit
   %15 = shl nuw nsw i32 1, %shl20
-  %16 = and i32 %15, %10
+  %16 = and i32 %10, %15
   %tobool45.not = icmp eq i32 %16, 0
   %spec.select = select i1 %tobool45.not, i32 %site.0, i32 %i.0
   %inc = add i32 %step.0, 1
@@ -2943,11 +2943,11 @@ if.then55.loopexit:                               ; preds = %while.cond, %oideq_
 
 if.then55:                                        ; preds = %while.end, %if.then55.loopexit
   %.pre-phi72 = phi i1 [ %17, %if.then55.loopexit ], [ true, %while.end ]
-  %i.166 = phi i32 [ %i.0, %if.then55.loopexit ], [ %and, %while.end ]
-  %site.265 = phi i32 [ %site.0, %if.then55.loopexit ], [ %4, %while.end ]
-  %cmp66.not = icmp eq i32 %site.265, %4
+  %site.266 = phi i32 [ %site.0, %if.then55.loopexit ], [ %4, %while.end ]
+  %i.165 = phi i32 [ %i.0, %if.then55.loopexit ], [ %and, %while.end ]
+  %cmp66.not = icmp eq i32 %site.266, %4
   %or.cond = select i1 %.pre-phi72, i1 true, i1 %cmp66.not
-  %spec.select60 = select i1 %or.cond, i32 %i.166, i32 %site.265
+  %spec.select60 = select i1 %or.cond, i32 %i.165, i32 %site.266
   br label %if.end71
 
 if.end71:                                         ; preds = %if.then55, %if.end5, %while.end

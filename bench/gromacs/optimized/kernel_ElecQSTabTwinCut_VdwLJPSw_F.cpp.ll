@@ -144,18 +144,18 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   br label %77
 
 77:                                               ; preds = %.lr.ph2360, %.loopexit
-  %.sroa.01738.02359 = phi ptr [ %69, %.lr.ph2360 ], [ %1511, %.loopexit ]
-  %.sroa.51688.02358 = phi <8 x float> [ undef, %.lr.ph2360 ], [ %.sroa.51688.1, %.loopexit ]
-  %.sroa.01684.02357 = phi <8 x float> [ undef, %.lr.ph2360 ], [ %.sroa.01684.1, %.loopexit ]
-  %78 = getelementptr inbounds i8, ptr %.sroa.01738.02359, i64 4
+  %.sroa.01738.02357 = phi ptr [ %69, %.lr.ph2360 ], [ %1511, %.loopexit ]
+  %.sroa.51688.02354 = phi <8 x float> [ undef, %.lr.ph2360 ], [ %.sroa.51688.1, %.loopexit ]
+  %.sroa.01684.02353 = phi <8 x float> [ undef, %.lr.ph2360 ], [ %.sroa.01684.1, %.loopexit ]
+  %78 = getelementptr inbounds i8, ptr %.sroa.01738.02357, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = and i32 %79, 127
   %81 = mul nuw nsw i32 %80, 3
-  %82 = getelementptr inbounds i8, ptr %.sroa.01738.02359, i64 8
+  %82 = getelementptr inbounds i8, ptr %.sroa.01738.02357, i64 8
   %83 = load i32, ptr %82, align 4
-  %84 = getelementptr inbounds i8, ptr %.sroa.01738.02359, i64 12
+  %84 = getelementptr inbounds i8, ptr %.sroa.01738.02357, i64 12
   %85 = load i32, ptr %84, align 4
-  %86 = load i32, ptr %.sroa.01738.02359, align 4
+  %86 = load i32, ptr %.sroa.01738.02357, align 4
   %87 = icmp eq i32 %80, 22
   %88 = select i1 %87, i32 %86, i32 -1
   %89 = zext nneg i32 %81 to i64
@@ -257,8 +257,8 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   br label %._crit_edge2438
 
 ._crit_edge2438:                                  ; preds = %77, %151
-  %.sroa.01684.1 = phi <8 x float> [ %157, %151 ], [ %.sroa.01684.02357, %77 ]
-  %.sroa.51688.1 = phi <8 x float> [ %163, %151 ], [ %.sroa.51688.02358, %77 ]
+  %.sroa.01684.1 = phi <8 x float> [ %157, %151 ], [ %.sroa.01684.02353, %77 ]
+  %.sroa.51688.1 = phi <8 x float> [ %163, %151 ], [ %.sroa.51688.02354, %77 ]
   %164 = load i32, ptr %1, align 8
   %165 = shl i32 %164, 1
   br label %166
@@ -2000,7 +2000,7 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %1509 = load float, ptr %1508, align 4
   %1510 = fadd float %1501, %1509
   store float %1510, ptr %1508, align 4
-  %1511 = getelementptr inbounds i8, ptr %.sroa.01738.02359, i64 16
+  %1511 = getelementptr inbounds i8, ptr %.sroa.01738.02357, i64 16
   %.not2113 = icmp eq ptr %1511, %71
   br i1 %.not2113, label %._crit_edge, label %77
 

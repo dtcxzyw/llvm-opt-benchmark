@@ -3968,33 +3968,33 @@ define hidden i32 @nspi_dissect_struct_MAPIUID(ptr noundef %0, i32 noundef %1, p
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_nspi_MAPIUID, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   br label %19
 
 19:                                               ; preds = %19, %18
   %.010.i = phi i32 [ 0, %18 ], [ %22, %19 ]
-  %.089.i = phi i32 [ %.0, %18 ], [ %21, %19 ]
+  %.089.i = phi i32 [ %.024, %18 ], [ %21, %19 ]
   %20 = load i32, ptr @hf_nspi_MAPIUID_ab, align 4
-  %21 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.023, ptr noundef %4, ptr noundef %5, i32 noundef %20, i32 noundef 0) #4
+  %21 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %20, i32 noundef 0) #4
   %22 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %22, 16
   br i1 %exitcond.not.i, label %nspi_dissect_element_MAPIUID_ab.exit, label %19, !llvm.loop !4
 
 nspi_dissect_element_MAPIUID_ab.exit:             ; preds = %19
-  %23 = sub i32 %21, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %23) #4
+  %23 = sub i32 %21, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %23) #4
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -4037,25 +4037,25 @@ define hidden i32 @nspi_dissect_struct_input_locale(ptr noundef %0, i32 noundef 
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_nspi_input_locale, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_nspi_input_locale_language, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
   %21 = load i32, ptr @hf_nspi_input_locale_method, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #4
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #4
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -4097,20 +4097,20 @@ define hidden i32 @nspi_dissect_struct_MAPI_SETTINGS(ptr noundef %0, i32 noundef
   br label %15
 
 15:                                               ; preds = %11, %8
-  %.044 = phi ptr [ %14, %11 ], [ null, %8 ]
-  %.0 = phi ptr [ %12, %11 ], [ null, %8 ]
+  %.044 = phi ptr [ %12, %11 ], [ null, %8 ]
+  %.0 = phi ptr [ %14, %11 ], [ null, %8 ]
   %16 = load i32, ptr @hf_nspi_MAPI_SETTINGS_handle, align 4
-  %17 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.044, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, i32 noundef 0) #4
+  %17 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, i32 noundef 0) #4
   %18 = load i32, ptr @hf_nspi_MAPI_SETTINGS_flag, align 4
-  %19 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.044, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, i32 noundef 0) #4
+  %19 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, i32 noundef 0) #4
   %20 = load i32, ptr @hf_nspi_MAPI_SETTINGS_service_provider, align 4
-  %21 = tail call i32 @nspi_dissect_struct_MAPIUID(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.044, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, i32 poison)
+  %21 = tail call i32 @nspi_dissect_struct_MAPIUID(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, i32 poison)
   %22 = load i32, ptr @hf_nspi_MAPI_SETTINGS_codepage, align 4
-  %23 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.044, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 noundef 0) #4
+  %23 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 noundef 0) #4
   %24 = load i32, ptr @hf_nspi_MAPI_SETTINGS_input_locale, align 4
-  %25 = tail call i32 @nspi_dissect_struct_input_locale(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.044, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, i32 poison)
+  %25 = tail call i32 @nspi_dissect_struct_input_locale(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, i32 poison)
   %26 = sub i32 %25, %1
-  tail call void @proto_item_set_len(ptr noundef %.0, i32 noundef %26) #4
+  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %26) #4
   store i32 %10, ptr %9, align 8
   ret i32 %25
 }
@@ -4151,25 +4151,25 @@ define hidden i32 @nspi_dissect_struct_SPropTagArray(ptr noundef %0, i32 noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_nspi_SPropTagArray, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_nspi_SPropTagArray_aulPropTag, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SPropTagArray_aulPropTag_, i32 noundef 2, ptr noundef nonnull @.str.3695, i32 noundef %32) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SPropTagArray_aulPropTag_, i32 noundef 2, ptr noundef nonnull @.str.3695, i32 noundef %32) #4
   %34 = load i32, ptr @hf_nspi_SPropTagArray_cValues, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4232,25 +4232,25 @@ define hidden i32 @nspi_dissect_struct_instance_key(ptr noundef %0, i32 noundef 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_nspi_instance_key, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_nspi_instance_key_value, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_instance_key_value_, i32 noundef 2, ptr noundef nonnull @.str.3696, i32 noundef %32) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_instance_key_value_, i32 noundef 2, ptr noundef nonnull @.str.3696, i32 noundef %32) #4
   %34 = load i32, ptr @hf_nspi_instance_key_cValues, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4313,27 +4313,27 @@ define hidden i32 @nspi_dissect_struct_MAPINAMEID(ptr noundef %0, i32 noundef %1
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_nspi_MAPINAMEID, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_nspi_MAPINAMEID_lpguid, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_MAPINAMEID_lpguid_, i32 noundef 2, ptr noundef nonnull @.str.3697, i32 noundef %32) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_MAPINAMEID_lpguid_, i32 noundef 2, ptr noundef nonnull @.str.3697, i32 noundef %32) #4
   %34 = load i32, ptr @hf_nspi_MAPINAMEID_ulKind, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_nspi_MAPINAMEID_lID, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #4
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #4
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -4421,30 +4421,30 @@ define hidden i32 @nspi_dissect_struct_SPropertyRestriction(ptr noundef %0, i32 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.044 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #4
   %30 = load i32, ptr @ett_nspi_SPropertyRestriction, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #4
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.044 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.043 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.043 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_nspi_SPropertyRestriction_relop, align 4
-  %34 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #4
+  %34 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #4
   %35 = load i32, ptr @hf_nspi_SPropertyRestriction_ulPropTag, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %9) #4
+  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %37 = load i32, ptr @hf_nspi_SPropertyRestriction_lpProp, align 4
-  %38 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SPropertyRestriction_lpProp_, i32 noundef 2, ptr noundef nonnull @.str.3698, i32 noundef %37) #4
-  %39 = sub i32 %38, %.0
-  call void @proto_item_set_len(ptr noundef %.044, i32 noundef %39) #4
+  %38 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SPropertyRestriction_lpProp_, i32 noundef 2, ptr noundef nonnull @.str.3698, i32 noundef %37) #4
+  %39 = sub i32 %38, %.044
+  call void @proto_item_set_len(ptr noundef %.043, i32 noundef %39) #4
   %40 = load ptr, ptr %10, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 96
   %42 = load i32, ptr %41, align 8
@@ -4507,25 +4507,25 @@ define hidden i32 @nspi_dissect_struct_SAndRestriction(ptr noundef %0, i32 nound
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_nspi_SAndRestriction, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_nspi_SAndRestriction_cRes, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_nspi_SAndRestriction_lpRes, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SAndRestriction_lpRes_, i32 noundef 2, ptr noundef nonnull @.str.3699, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SAndRestriction_lpRes_, i32 noundef 2, ptr noundef nonnull @.str.3699, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4565,39 +4565,39 @@ define hidden i32 @nspi_dissect_struct_SRestriction(ptr noundef %0, i32 noundef 
   %or.cond = or i1 %.not32, %.not
   %15 = and i32 %1, -4
   %16 = add i32 %15, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %16
+  %.030 = select i1 %or.cond, i32 %1, i32 %16
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %21, label %17
 
 17:                                               ; preds = %8
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #4
   %19 = load i32, ptr @ett_nspi_SRestriction, align 4
   %20 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19) #4
   br label %21
 
 21:                                               ; preds = %17, %8
-  %.030 = phi ptr [ %18, %17 ], [ null, %8 ]
-  %.029 = phi ptr [ %20, %17 ], [ null, %8 ]
+  %.029 = phi ptr [ %18, %17 ], [ null, %8 ]
+  %.0 = phi ptr [ %20, %17 ], [ null, %8 ]
   %22 = load i32, ptr @hf_nspi_SRestriction_PTTYPE, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store i32 0, ptr %11, align 4
-  %23 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %11) #4
+  %23 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %11) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %24 = load i32, ptr @hf_nspi_SRestriction_PTTYPE, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store ptr null, ptr %9, align 8
-  %.not.i.i = icmp eq ptr %.029, null
+  %.not.i.i = icmp eq ptr %.0, null
   br i1 %.not.i.i, label %28, label %25
 
 25:                                               ; preds = %21
   %26 = load i32, ptr @ett_nspi_SRestriction_CTR, align 4
-  %27 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.029, ptr noundef %0, i32 noundef %23, i32 noundef -1, i32 noundef %26, ptr noundef nonnull %9, ptr noundef nonnull @.str.3700) #4
+  %27 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %23, i32 noundef -1, i32 noundef %26, ptr noundef nonnull %9, ptr noundef nonnull @.str.3700) #4
   br label %28
 
 28:                                               ; preds = %25, %21
-  %.033.i.i = phi ptr [ %27, %25 ], [ null, %21 ]
-  %29 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %10) #4
+  %.0.i.i = phi ptr [ %27, %25 ], [ null, %21 ]
+  %29 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %10) #4
   %30 = getelementptr inbounds i8, ptr %4, i64 72
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 96
@@ -4631,7 +4631,7 @@ define hidden i32 @nspi_dissect_struct_SRestriction(ptr noundef %0, i32 noundef 
   br label %46
 
 46:                                               ; preds = %43, %41, %38, %36
-  %.0.i.i = phi i32 [ %29, %36 ], [ %40, %38 ], [ %29, %41 ], [ %45, %43 ]
+  %.033.i.i = phi i32 [ %29, %36 ], [ %40, %38 ], [ %29, %41 ], [ %45, %43 ]
   %47 = load i32, ptr %10, align 4
   switch i32 %47, label %nspi_dissect_element_SRestriction_res.exit [
     i32 0, label %48
@@ -4640,23 +4640,23 @@ define hidden i32 @nspi_dissect_struct_SRestriction(ptr noundef %0, i32 noundef 
 
 48:                                               ; preds = %46
   %49 = load i32, ptr @hf_nspi_SRestriction_CTR_resAnd, align 4
-  %50 = call i32 @nspi_dissect_struct_SAndRestriction(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %49, i32 poison)
+  %50 = call i32 @nspi_dissect_struct_SAndRestriction(ptr noundef %0, i32 noundef %.033.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %49, i32 poison)
   br label %nspi_dissect_element_SRestriction_res.exit
 
 51:                                               ; preds = %46
   %52 = load i32, ptr @hf_nspi_SRestriction_CTR_resProperty, align 4
-  %53 = call i32 @nspi_dissect_struct_SPropertyRestriction(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 poison)
+  %53 = call i32 @nspi_dissect_struct_SPropertyRestriction(ptr noundef %0, i32 noundef %.033.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 poison)
   br label %nspi_dissect_element_SRestriction_res.exit
 
 nspi_dissect_element_SRestriction_res.exit:       ; preds = %46, %48, %51
-  %.1.i.i = phi i32 [ %.0.i.i, %46 ], [ %53, %51 ], [ %50, %48 ]
+  %.1.i.i = phi i32 [ %.033.i.i, %46 ], [ %53, %51 ], [ %50, %48 ]
   %54 = load ptr, ptr %9, align 8
   %55 = sub i32 %.1.i.i, %23
   call void @proto_item_set_len(ptr noundef %54, i32 noundef %55) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %56 = sub i32 %.1.i.i, %.0
-  call void @proto_item_set_len(ptr noundef %.030, i32 noundef %56) #4
+  %56 = sub i32 %.1.i.i, %.030
+  call void @proto_item_set_len(ptr noundef %.029, i32 noundef %56) #4
   %57 = load ptr, ptr %30, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 96
   %59 = load i32, ptr %58, align 8
@@ -4692,25 +4692,25 @@ define hidden i32 @nspi_dissect_struct_SSortOrder(ptr noundef %0, i32 noundef %1
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_nspi_SSortOrder, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_nspi_SSortOrder_ulPropTag, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
   %21 = load i32, ptr @hf_nspi_SSortOrder_ulOrder, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #4
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #4
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -4747,29 +4747,29 @@ define hidden i32 @nspi_dissect_struct_SSortOrderSet(ptr noundef %0, i32 noundef
   %or.cond = or i1 %.not44, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.042 = select i1 %or.cond, i32 %1, i32 %13
   %.not45 = icmp eq ptr %3, null
   br i1 %.not45, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.042, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_nspi_SSortOrderSet, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.042 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.041 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.041 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_nspi_SSortOrderSet_cSorts, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.042, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
   %21 = load i32, ptr @hf_nspi_SSortOrderSet_cCategories, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
   %23 = load i32, ptr @hf_nspi_SSortOrderSet_cExpanded, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #4
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #4
   %25 = load i32, ptr @hf_nspi_SSortOrderSet_aSort, align 4
-  %26 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SSortOrderSet_aSort_, i32 noundef 2, ptr noundef nonnull @.str.3701, i32 noundef %25) #4
-  %27 = sub i32 %26, %.0
-  tail call void @proto_item_set_len(ptr noundef %.042, i32 noundef %27) #4
+  %26 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SSortOrderSet_aSort_, i32 noundef 2, ptr noundef nonnull @.str.3701, i32 noundef %25) #4
+  %27 = sub i32 %26, %.042
+  tail call void @proto_item_set_len(ptr noundef %.041, i32 noundef %27) #4
   %28 = getelementptr inbounds i8, ptr %4, i64 72
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 96
@@ -4832,23 +4832,23 @@ define hidden i32 @nspi_dissect_struct_NAME_STRING(ptr noundef %0, i32 noundef %
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_nspi_NAME_STRING, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_nspi_NAME_STRING_str, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_NAME_STRING_str_, i32 noundef 2, ptr noundef nonnull @.str.3702, i32 noundef %32) #4
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_NAME_STRING_str_, i32 noundef 2, ptr noundef nonnull @.str.3702, i32 noundef %32) #4
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #4
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -4935,25 +4935,25 @@ define hidden i32 @nspi_dissect_struct_SBinary(ptr noundef %0, i32 noundef %1, p
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_nspi_SBinary, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_nspi_SBinary_cb, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_nspi_SBinary_lpb, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SBinary_lpb_, i32 noundef 2, ptr noundef nonnull @.str.3704, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SBinary_lpb_, i32 noundef 2, ptr noundef nonnull @.str.3704, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4990,25 +4990,25 @@ define hidden i32 @nspi_dissect_struct_FILETIME(ptr noundef %0, i32 noundef %1, 
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_nspi_FILETIME, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_nspi_FILETIME_dwLowDateTime, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
   %21 = load i32, ptr @hf_nspi_FILETIME_dwHighDateTime, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #4
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #4
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -5071,25 +5071,25 @@ define hidden i32 @nspi_dissect_struct_SShortArray(ptr noundef %0, i32 noundef %
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_nspi_SShortArray, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_nspi_SShortArray_cValues, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_nspi_SShortArray_lpi, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SShortArray_lpi_, i32 noundef 2, ptr noundef nonnull @.str.3705, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SShortArray_lpi_, i32 noundef 2, ptr noundef nonnull @.str.3705, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -5152,25 +5152,25 @@ define hidden i32 @nspi_dissect_struct_MV_LONG_STRUCT(ptr noundef %0, i32 nounde
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_nspi_MV_LONG_STRUCT, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_nspi_MV_LONG_STRUCT_cValues, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_nspi_MV_LONG_STRUCT_lpl, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_MV_LONG_STRUCT_lpl_, i32 noundef 2, ptr noundef nonnull @.str.3706, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_MV_LONG_STRUCT_lpl_, i32 noundef 2, ptr noundef nonnull @.str.3706, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -5208,27 +5208,27 @@ define hidden i32 @nspi_dissect_struct_LPSTR(ptr noundef %0, i32 noundef %1, ptr
   %or.cond = or i1 %.not26, %.not
   %13 = and i32 %1, -4
   %14 = add i32 %13, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %14
+  %.024 = select i1 %or.cond, i32 %1, i32 %14
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %17 = load i32, ptr @ett_nspi_LPSTR, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #4
   br label %19
 
 19:                                               ; preds = %15, %8
-  %.024 = phi ptr [ %16, %15 ], [ null, %8 ]
-  %.023 = phi ptr [ %18, %15 ], [ null, %8 ]
+  %.023 = phi ptr [ %16, %15 ], [ null, %8 ]
+  %.0 = phi ptr [ %18, %15 ], [ null, %8 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %20 = load i32, ptr @hf_nspi_LPSTR_lppszA, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %20, i32 noundef 0, ptr noundef nonnull %9) #4
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 1, i32 noundef %20, i32 noundef 0, ptr noundef nonnull %9) #4
   %22 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.023, ptr noundef nonnull @.str.3703, ptr noundef %22) #4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0, ptr noundef nonnull @.str.3703, ptr noundef %22) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %23 = sub i32 %21, %.0
-  call void @proto_item_set_len(ptr noundef %.024, i32 noundef %23) #4
+  %23 = sub i32 %21, %.024
+  call void @proto_item_set_len(ptr noundef %.023, i32 noundef %23) #4
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -5291,25 +5291,25 @@ define hidden i32 @nspi_dissect_struct_SLPSTRArray(ptr noundef %0, i32 noundef %
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_nspi_SLPSTRArray, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_nspi_SLPSTRArray_cValues, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_nspi_SLPSTRArray_strings, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SLPSTRArray_strings_, i32 noundef 2, ptr noundef nonnull @.str.3707, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SLPSTRArray_strings_, i32 noundef 2, ptr noundef nonnull @.str.3707, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -5372,25 +5372,25 @@ define hidden i32 @nspi_dissect_struct_SBinaryArray(ptr noundef %0, i32 noundef 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_nspi_SBinaryArray, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_nspi_SBinaryArray_cValues, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_nspi_SBinaryArray_lpbin, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SBinaryArray_lpbin_, i32 noundef 2, ptr noundef nonnull @.str.3708, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SBinaryArray_lpbin_, i32 noundef 2, ptr noundef nonnull @.str.3708, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -5432,14 +5432,14 @@ define hidden i32 @nspi_dissect_struct_SGuidArray(ptr noundef %0, i32 noundef %1
   br label %15
 
 15:                                               ; preds = %11, %8
-  %.026 = phi ptr [ %14, %11 ], [ null, %8 ]
-  %.0 = phi ptr [ %12, %11 ], [ null, %8 ]
+  %.026 = phi ptr [ %12, %11 ], [ null, %8 ]
+  %.0 = phi ptr [ %14, %11 ], [ null, %8 ]
   %16 = load i32, ptr @hf_nspi_SGuidArray_cValues, align 4
-  %17 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, i32 noundef 0) #4
+  %17 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, i32 noundef 0) #4
   %18 = load i32, ptr @hf_nspi_SGuidArray_lpguid, align 4
-  %19 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SGuidArray_lpguid_, i32 noundef 2, ptr noundef nonnull @.str.3709, i32 noundef %18) #4
+  %19 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SGuidArray_lpguid_, i32 noundef 2, ptr noundef nonnull @.str.3709, i32 noundef %18) #4
   %20 = sub i32 %19, %1
-  tail call void @proto_item_set_len(ptr noundef %.0, i32 noundef %20) #4
+  tail call void @proto_item_set_len(ptr noundef %.026, i32 noundef %20) #4
   store i32 %10, ptr %9, align 8
   ret i32 %19
 }
@@ -5480,25 +5480,25 @@ define hidden i32 @nspi_dissect_struct_MV_UNICODE_STRUCT(ptr noundef %0, i32 nou
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_nspi_MV_UNICODE_STRUCT, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_nspi_MV_UNICODE_STRUCT_cValues, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_nspi_MV_UNICODE_STRUCT_lpi, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_MV_UNICODE_STRUCT_lpi_, i32 noundef 2, ptr noundef nonnull @.str.3710, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_MV_UNICODE_STRUCT_lpi_, i32 noundef 2, ptr noundef nonnull @.str.3710, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -5561,25 +5561,25 @@ define hidden i32 @nspi_dissect_struct_SDateTimeArray(ptr noundef %0, i32 nounde
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_nspi_SDateTimeArray, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_nspi_SDateTimeArray_cValues, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_nspi_SDateTimeArray_lpft, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SDateTimeArray_lpft_, i32 noundef 2, ptr noundef nonnull @.str.3711, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SDateTimeArray_lpft_, i32 noundef 2, ptr noundef nonnull @.str.3711, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -5646,41 +5646,41 @@ define hidden i32 @nspi_dissect_struct_SPropValue(ptr noundef %0, i32 noundef %1
   br label %30
 
 30:                                               ; preds = %25, %27, %20, %22
-  %.0 = phi i32 [ %1, %20 ], [ %24, %22 ], [ %1, %25 ], [ %29, %27 ]
+  %.044 = phi i32 [ %1, %20 ], [ %24, %22 ], [ %1, %25 ], [ %29, %27 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %35, label %31
 
 31:                                               ; preds = %30
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #4
   %33 = load i32, ptr @ett_nspi_SPropValue, align 4
   %34 = tail call ptr @proto_item_add_subtree(ptr noundef %32, i32 noundef %33) #4
   br label %35
 
 35:                                               ; preds = %31, %30
-  %.044 = phi ptr [ %32, %31 ], [ null, %30 ]
-  %.043 = phi ptr [ %34, %31 ], [ null, %30 ]
+  %.043 = phi ptr [ %32, %31 ], [ null, %30 ]
+  %.0 = phi ptr [ %34, %31 ], [ null, %30 ]
   %36 = load i32, ptr @hf_nspi_SPropValue_ulPropTag, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   store i32 0, ptr %12, align 4
-  %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %12) #4
+  %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %12) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %38 = load i32, ptr @hf_nspi_SPropValue_dwAlignPad, align 4
-  %39 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
+  %39 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
   %40 = load i32, ptr @hf_nspi_property_type, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store ptr null, ptr %10, align 8
-  %.not.i.i = icmp eq ptr %.043, null
+  %.not.i.i = icmp eq ptr %.0, null
   br i1 %.not.i.i, label %44, label %41
 
 41:                                               ; preds = %35
   %42 = load i32, ptr @ett_nspi_SPropValue_CTR, align 4
-  %43 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.043, ptr noundef %0, i32 noundef %39, i32 noundef -1, i32 noundef %42, ptr noundef nonnull %10, ptr noundef nonnull @.str.3712) #4
+  %43 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %39, i32 noundef -1, i32 noundef %42, ptr noundef nonnull %10, ptr noundef nonnull @.str.3712) #4
   br label %44
 
 44:                                               ; preds = %41, %35
-  %.0129.i.i = phi ptr [ %43, %41 ], [ null, %35 ]
-  %45 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0129.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, ptr noundef nonnull %11) #4
+  %.0.i.i = phi ptr [ %43, %41 ], [ null, %35 ]
+  %45 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, ptr noundef nonnull %11) #4
   %46 = load ptr, ptr %13, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 96
   %48 = load i32, ptr %47, align 8
@@ -5714,7 +5714,7 @@ define hidden i32 @nspi_dissect_struct_SPropValue(ptr noundef %0, i32 noundef %1
   br label %62
 
 62:                                               ; preds = %59, %57, %54, %52
-  %.0.i.i = phi i32 [ %45, %52 ], [ %56, %54 ], [ %45, %57 ], [ %61, %59 ]
+  %.0129.i.i = phi i32 [ %45, %52 ], [ %56, %54 ], [ %45, %57 ], [ %61, %59 ]
   %63 = load i32, ptr %11, align 4
   switch i32 %63, label %nspi_dissect_element_SPropValue_value.exit [
     i32 2, label %64
@@ -5739,106 +5739,106 @@ define hidden i32 @nspi_dissect_struct_SPropValue(ptr noundef %0, i32 noundef %1
 
 64:                                               ; preds = %62
   %65 = load i32, ptr @hf_nspi_SPropValue_CTR_i, align 4
-  %66 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0129.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %65, i32 noundef 0) #4
+  %66 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.0129.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %65, i32 noundef 0) #4
   br label %nspi_dissect_element_SPropValue_value.exit
 
 67:                                               ; preds = %62
   %68 = load i32, ptr @hf_nspi_SPropValue_CTR_l, align 4
-  %69 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0129.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %68, i32 noundef 0) #4
+  %69 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0129.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %68, i32 noundef 0) #4
   br label %nspi_dissect_element_SPropValue_value.exit
 
 70:                                               ; preds = %62
   %71 = load i32, ptr @hf_nspi_SPropValue_CTR_b, align 4
-  %72 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0129.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %71, i32 noundef 0) #4
+  %72 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %.0129.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %71, i32 noundef 0) #4
   br label %nspi_dissect_element_SPropValue_value.exit
 
 73:                                               ; preds = %62
   %74 = load i32, ptr @hf_nspi_SPropValue_CTR_lpszA, align 4
-  %75 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0129.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SPropValue_CTR_lpszA_, i32 noundef 2, ptr noundef nonnull @.str.3713, i32 noundef %74) #4
+  %75 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0129.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SPropValue_CTR_lpszA_, i32 noundef 2, ptr noundef nonnull @.str.3713, i32 noundef %74) #4
   br label %nspi_dissect_element_SPropValue_value.exit
 
 76:                                               ; preds = %62
   %77 = load i32, ptr @hf_nspi_SPropValue_CTR_bin, align 4
-  %78 = call i32 @nspi_dissect_struct_SBinary(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0129.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %77, i32 poison)
+  %78 = call i32 @nspi_dissect_struct_SBinary(ptr noundef %0, i32 noundef %.0129.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %77, i32 poison)
   br label %nspi_dissect_element_SPropValue_value.exit
 
 79:                                               ; preds = %62
   %80 = load i32, ptr @hf_nspi_SPropValue_CTR_lpszW, align 4
-  %81 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0129.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SPropValue_CTR_lpszW_, i32 noundef 2, ptr noundef nonnull @.str.3714, i32 noundef %80) #4
+  %81 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0129.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SPropValue_CTR_lpszW_, i32 noundef 2, ptr noundef nonnull @.str.3714, i32 noundef %80) #4
   br label %nspi_dissect_element_SPropValue_value.exit
 
 82:                                               ; preds = %62
   %83 = load i32, ptr @hf_nspi_SPropValue_CTR_lpguid, align 4
-  %84 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0129.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SPropValue_CTR_lpguid_, i32 noundef 2, ptr noundef nonnull @.str.3697, i32 noundef %83) #4
+  %84 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0129.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SPropValue_CTR_lpguid_, i32 noundef 2, ptr noundef nonnull @.str.3697, i32 noundef %83) #4
   br label %nspi_dissect_element_SPropValue_value.exit
 
 85:                                               ; preds = %62
   %86 = load i32, ptr @hf_nspi_SPropValue_CTR_ft, align 4
-  %87 = call i32 @nspi_dissect_struct_FILETIME(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0129.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %86, i32 poison)
+  %87 = call i32 @nspi_dissect_struct_FILETIME(ptr noundef %0, i32 noundef %.0129.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %86, i32 poison)
   br label %nspi_dissect_element_SPropValue_value.exit
 
 88:                                               ; preds = %62
   %89 = load i32, ptr @hf_nspi_SPropValue_CTR_err, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %90 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0129.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %89, ptr noundef nonnull %9) #4
+  %90 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0129.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %89, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   br label %nspi_dissect_element_SPropValue_value.exit
 
 91:                                               ; preds = %62
   %92 = load i32, ptr @hf_nspi_SPropValue_CTR_MVi, align 4
-  %93 = call i32 @nspi_dissect_struct_SShortArray(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0129.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %92, i32 poison)
+  %93 = call i32 @nspi_dissect_struct_SShortArray(ptr noundef %0, i32 noundef %.0129.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %92, i32 poison)
   br label %nspi_dissect_element_SPropValue_value.exit
 
 94:                                               ; preds = %62
   %95 = load i32, ptr @hf_nspi_SPropValue_CTR_MVl, align 4
-  %96 = call i32 @nspi_dissect_struct_MV_LONG_STRUCT(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0129.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %95, i32 poison)
+  %96 = call i32 @nspi_dissect_struct_MV_LONG_STRUCT(ptr noundef %0, i32 noundef %.0129.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %95, i32 poison)
   br label %nspi_dissect_element_SPropValue_value.exit
 
 97:                                               ; preds = %62
   %98 = load i32, ptr @hf_nspi_SPropValue_CTR_MVszA, align 4
-  %99 = call i32 @nspi_dissect_struct_SLPSTRArray(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0129.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %98, i32 poison)
+  %99 = call i32 @nspi_dissect_struct_SLPSTRArray(ptr noundef %0, i32 noundef %.0129.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %98, i32 poison)
   br label %nspi_dissect_element_SPropValue_value.exit
 
 100:                                              ; preds = %62
   %101 = load i32, ptr @hf_nspi_SPropValue_CTR_MVbin, align 4
-  %102 = call i32 @nspi_dissect_struct_SBinaryArray(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0129.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %101, i32 poison)
+  %102 = call i32 @nspi_dissect_struct_SBinaryArray(ptr noundef %0, i32 noundef %.0129.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %101, i32 poison)
   br label %nspi_dissect_element_SPropValue_value.exit
 
 103:                                              ; preds = %62
   %104 = load i32, ptr @hf_nspi_SPropValue_CTR_MVguid, align 4
-  %105 = call i32 @nspi_dissect_struct_SGuidArray(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0129.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %104, i32 poison)
+  %105 = call i32 @nspi_dissect_struct_SGuidArray(ptr noundef %0, i32 noundef %.0129.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %104, i32 poison)
   br label %nspi_dissect_element_SPropValue_value.exit
 
 106:                                              ; preds = %62
   %107 = load i32, ptr @hf_nspi_SPropValue_CTR_MVszW, align 4
-  %108 = call i32 @nspi_dissect_struct_MV_UNICODE_STRUCT(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0129.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %107, i32 poison)
+  %108 = call i32 @nspi_dissect_struct_MV_UNICODE_STRUCT(ptr noundef %0, i32 noundef %.0129.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %107, i32 poison)
   br label %nspi_dissect_element_SPropValue_value.exit
 
 109:                                              ; preds = %62
   %110 = load i32, ptr @hf_nspi_SPropValue_CTR_MVft, align 4
-  %111 = call i32 @nspi_dissect_struct_SDateTimeArray(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0129.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %110, i32 poison)
+  %111 = call i32 @nspi_dissect_struct_SDateTimeArray(ptr noundef %0, i32 noundef %.0129.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %110, i32 poison)
   br label %nspi_dissect_element_SPropValue_value.exit
 
 112:                                              ; preds = %62
   %113 = load i32, ptr @hf_nspi_SPropValue_CTR_null, align 4
-  %114 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0129.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %113, i32 noundef 0) #4
+  %114 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0129.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %113, i32 noundef 0) #4
   br label %nspi_dissect_element_SPropValue_value.exit
 
 115:                                              ; preds = %62
   %116 = load i32, ptr @hf_nspi_SPropValue_CTR_object, align 4
-  %117 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0129.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %116, i32 noundef 0) #4
+  %117 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0129.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %116, i32 noundef 0) #4
   br label %nspi_dissect_element_SPropValue_value.exit
 
 nspi_dissect_element_SPropValue_value.exit:       ; preds = %62, %64, %67, %70, %73, %76, %79, %82, %85, %88, %91, %94, %97, %100, %103, %106, %109, %112, %115
-  %.1.i.i = phi i32 [ %.0.i.i, %62 ], [ %117, %115 ], [ %114, %112 ], [ %111, %109 ], [ %108, %106 ], [ %105, %103 ], [ %102, %100 ], [ %99, %97 ], [ %96, %94 ], [ %93, %91 ], [ %90, %88 ], [ %87, %85 ], [ %84, %82 ], [ %81, %79 ], [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %69, %67 ], [ %66, %64 ]
+  %.1.i.i = phi i32 [ %.0129.i.i, %62 ], [ %117, %115 ], [ %114, %112 ], [ %111, %109 ], [ %108, %106 ], [ %105, %103 ], [ %102, %100 ], [ %99, %97 ], [ %96, %94 ], [ %93, %91 ], [ %90, %88 ], [ %87, %85 ], [ %84, %82 ], [ %81, %79 ], [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %69, %67 ], [ %66, %64 ]
   %118 = load ptr, ptr %10, align 8
   %119 = sub i32 %.1.i.i, %39
   call void @proto_item_set_len(ptr noundef %118, i32 noundef %119) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  %120 = sub i32 %.1.i.i, %.0
-  call void @proto_item_set_len(ptr noundef %.044, i32 noundef %120) #4
+  %120 = sub i32 %.1.i.i, %.044
+  call void @proto_item_set_len(ptr noundef %.043, i32 noundef %120) #4
   %121 = load ptr, ptr %13, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 96
   %123 = load i32, ptr %122, align 8
@@ -5900,27 +5900,27 @@ define hidden i32 @nspi_dissect_struct_SRow(ptr noundef %0, i32 noundef %1, ptr 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_nspi_SRow, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_nspi_SRow_ulAdrEntryPad, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_nspi_SRow_cValues, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_nspi_SRow_lpProps, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SRow_lpProps_, i32 noundef 2, ptr noundef nonnull @.str.3715, i32 noundef %36) #4
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #4
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SRow_lpProps_, i32 noundef 2, ptr noundef nonnull @.str.3715, i32 noundef %36) #4
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #4
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -5983,24 +5983,24 @@ define hidden i32 @nspi_dissect_struct_SRowSet(ptr noundef %0, i32 noundef %1, p
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_nspi_SRowSet, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_nspi_SRowSet_cRows, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
-  %34 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SRowSet_aRow_) #4
-  %35 = sub i32 %34, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %35) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %34 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SRowSet_aRow_) #4
+  %35 = sub i32 %34, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %35) #4
   %36 = load ptr, ptr %9, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 96
   %38 = load i32, ptr %37, align 8

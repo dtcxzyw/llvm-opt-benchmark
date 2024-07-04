@@ -713,8 +713,8 @@ define internal range(i32 -21, 903) i32 @cvNlsLSolveSensStg(ptr nocapture nounde
   br i1 %.not, label %15, label %.loopexit
 
 .loopexit:                                        ; preds = %19, %30, %15, %5, %4
-  %.0 = phi i32 [ -21, %4 ], [ 0, %5 ], [ -7, %19 ], [ 902, %30 ], [ 0, %15 ]
-  ret i32 %.0
+  %.016 = phi i32 [ -21, %4 ], [ 0, %5 ], [ -7, %19 ], [ 902, %30 ], [ 0, %15 ]
+  ret i32 %.016
 }
 
 declare i32 @SUNNonlinSolInitialize(ptr noundef) local_unnamed_addr #1

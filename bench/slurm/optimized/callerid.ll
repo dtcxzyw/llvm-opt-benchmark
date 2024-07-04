@@ -469,8 +469,8 @@ _find_inode_in_fddir.exit:                        ; preds = %.backedge.i, %.preh
   br label %50
 
 50:                                               ; preds = %.loopexit, %11
-  %.0 = phi i32 [ -1, %11 ], [ %.1, %.loopexit ]
-  ret i32 %.0
+  %.012 = phi i32 [ -1, %11 ], [ %.1, %.loopexit ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nofree nounwind

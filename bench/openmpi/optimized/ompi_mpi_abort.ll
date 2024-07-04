@@ -45,7 +45,7 @@ define noundef i32 @ompi_mpi_abort(ptr noundef readonly %0, i32 noundef %1) loca
   br label %opal_gethostname.exit
 
 opal_gethostname.exit:                            ; preds = %6, %11
-  %.0 = phi ptr [ %.pre.i, %11 ], [ %9, %6 ]
+  %.019 = phi ptr [ %.pre.i, %11 ], [ %9, %6 ]
   %13 = tail call i32 @getpid() #8
   %14 = load i8, ptr @opal_abort_print_stack, align 1
   %15 = trunc i8 %14 to i1
@@ -68,7 +68,7 @@ opal_gethostname.exit:                            ; preds = %6, %11
   %23 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = trunc nuw nsw i64 %indvars.iv to i32
-  %26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str, ptr noundef %.0, i32 noundef %13, i32 noundef %25, ptr noundef %24) #9
+  %26 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str, ptr noundef %.019, i32 noundef %13, i32 noundef %25, ptr noundef %24) #9
   %27 = load ptr, ptr @stderr, align 8
   %28 = call i32 @fflush(ptr noundef %27)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -98,7 +98,7 @@ opal_gethostname.exit:                            ; preds = %6, %11
   %41 = load ptr, ptr @stderr, align 8
   %42 = icmp sgt i32 %37, 2
   %43 = select i1 %42, ptr @.str.2, ptr @.str.3
-  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.1, ptr noundef %.0, i32 noundef %13, ptr noundef nonnull %43) #9
+  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.1, ptr noundef %.019, i32 noundef %13, ptr noundef nonnull %43) #9
   %45 = call i32 @llvm.umax.i32(i32 %1, i32 1)
   call void @_exit(i32 noundef %45) #10
   unreachable

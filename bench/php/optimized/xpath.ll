@@ -482,21 +482,21 @@ define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noun
   br label %.loopexit11
 
 .loopexit11:                                      ; preds = %.loopexit11.loopexit, %58, %54
-  %.0142 = phi ptr [ null, %58 ], [ null, %54 ], [ %59, %.loopexit11.loopexit ]
+  %.0143 = phi ptr [ null, %58 ], [ null, %54 ], [ %59, %.loopexit11.loopexit ]
   %.1140 = phi i32 [ 0, %58 ], [ 0, %54 ], [ %63, %.loopexit11.loopexit ]
   %64 = getelementptr inbounds i8, ptr %21, i64 80
-  store ptr %.0142, ptr %64, align 8
+  store ptr %.0143, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %21, i64 88
   store i32 %.1140, ptr %65, align 8
   %66 = load ptr, ptr %5, align 8
   %67 = call ptr @xmlXPathEvalExpression(ptr noundef %66, ptr noundef nonnull %21) #11
   store ptr null, ptr %55, align 8
-  %.not158 = icmp eq ptr %.0142, null
+  %.not158 = icmp eq ptr %.0143, null
   br i1 %.not158, label %70, label %68
 
 68:                                               ; preds = %.loopexit11
   %69 = load ptr, ptr @xmlFree, align 8
-  call void %69(ptr noundef nonnull %.0142) #11
+  call void %69(ptr noundef nonnull %.0143) #11
   store ptr null, ptr %64, align 8
   store i32 0, ptr %65, align 8
   br label %70
@@ -707,10 +707,10 @@ define hidden void @zim_DOMXPath_registerPhpFunctions(ptr noundef %0, ptr nocapt
 
 .thread96:                                        ; preds = %21, %10
   %.0106 = phi i32 [ 1, %10 ], [ 9, %21 ]
-  %.054105 = phi i32 [ 0, %10 ], [ 1, %21 ]
-  %.055104 = phi i32 [ 0, %10 ], [ 27, %21 ]
-  %.056103 = phi ptr [ null, %10 ], [ %14, %21 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0106, i32 noundef %.054105, ptr noundef null, i32 noundef %.055104, ptr noundef %.056103) #11
+  %.054105 = phi i32 [ 0, %10 ], [ 27, %21 ]
+  %.055104 = phi ptr [ null, %10 ], [ %14, %21 ]
+  %.056103 = phi i32 [ 0, %10 ], [ 1, %21 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0106, i32 noundef %.056103, ptr noundef null, i32 noundef %.054105, ptr noundef %.055104) #11
   br label %27
 
 .thread86:                                        ; preds = %13, %..thread86_crit_edge, %17, %19, %11
@@ -832,11 +832,11 @@ thread-pre-split167:                              ; preds = %34
 
 47:                                               ; preds = %13, %24, %20, %38, %34, %45
   %48 = phi ptr [ %46, %45 ], [ null, %34 ], [ null, %38 ], [ null, %20 ], [ null, %24 ], [ null, %13 ]
-  %.0141.ph = phi i32 [ 3, %45 ], [ 2, %34 ], [ 2, %38 ], [ 1, %20 ], [ 1, %24 ], [ 0, %13 ]
-  %.0140.ph = phi ptr [ %43, %45 ], [ %29, %34 ], [ %29, %38 ], [ %15, %20 ], [ %15, %24 ], [ null, %13 ]
-  %.0139.ph = phi i32 [ %., %45 ], [ 16, %34 ], [ 16, %38 ], [ 16, %20 ], [ 16, %24 ], [ 0, %13 ]
+  %.0140.ph = phi i32 [ 3, %45 ], [ 2, %34 ], [ 2, %38 ], [ 1, %20 ], [ 1, %24 ], [ 0, %13 ]
+  %.0139.ph = phi ptr [ %43, %45 ], [ %29, %34 ], [ %29, %38 ], [ %15, %20 ], [ %15, %24 ], [ null, %13 ]
+  %.0138.ph = phi i32 [ %., %45 ], [ 16, %34 ], [ 16, %38 ], [ 16, %20 ], [ 16, %24 ], [ 0, %13 ]
   %.0.ph = phi i32 [ %.166, %45 ], [ 9, %34 ], [ 9, %38 ], [ 9, %20 ], [ 9, %24 ], [ 1, %13 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.0141.ph, ptr noundef %48, i32 noundef %.0139.ph, ptr noundef %.0140.ph) #11
+  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.0140.ph, ptr noundef %48, i32 noundef %.0138.ph, ptr noundef %.0139.ph) #11
   br label %63
 
 49:                                               ; preds = %.critedge165
@@ -999,11 +999,11 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
 71:                                               ; preds = %119, %.lr.ph
   %72 = phi i64 [ 7, %.lr.ph ], [ %116, %119 ]
   %73 = phi ptr [ %63, %.lr.ph ], [ %123, %119 ]
-  %.0309345 = phi ptr [ %65, %.lr.ph ], [ %115, %119 ]
-  %74 = ptrtoint ptr %.0309345 to i64
+  %.0345 = phi ptr [ %65, %.lr.ph ], [ %115, %119 ]
+  %74 = ptrtoint ptr %.0345 to i64
   %75 = sub i64 %69, %74
-  %76 = call ptr @memchr(ptr noundef %.0309345, i32 noundef 39, i64 noundef %75) #12
-  %77 = call ptr @memchr(ptr noundef %.0309345, i32 noundef 34, i64 noundef %75) #12
+  %76 = call ptr @memchr(ptr noundef %.0345, i32 noundef 39, i64 noundef %75) #12
+  %77 = call ptr @memchr(ptr noundef %.0345, i32 noundef 34, i64 noundef %75) #12
   %.not333 = icmp eq ptr %76, null
   %78 = ptrtoint ptr %76 to i64
   %79 = sub i64 %78, %74
@@ -1050,7 +1050,7 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
   %101 = phi ptr [ %94, %90 ], [ %.pre346, %98 ]
   %102 = getelementptr inbounds i8, ptr %101, i64 24
   %103 = getelementptr inbounds i8, ptr %102, i64 %100
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %103, ptr align 1 %.0309345, i64 %85, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %103, ptr align 1 %.0345, i64 %85, i1 false)
   %104 = load ptr, ptr %5, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 16
   store i64 %96, ptr %105, align 8
@@ -1072,7 +1072,7 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
   %113 = load ptr, ptr %5, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 16
   store i64 %106, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %.0309345, i64 %85
+  %115 = getelementptr inbounds i8, ptr %.0345, i64 %85
   %116 = add i64 %96, 2
   %117 = load i64, ptr %70, align 8
   %.not342 = icmp ult i64 %116, %117
@@ -1101,8 +1101,8 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %57
   %127 = phi i64 [ 6, %57 ], [ %126, %._crit_edge.loopexit ]
   %128 = phi ptr [ %63, %57 ], [ %123, %._crit_edge.loopexit ]
-  %.0309.lcssa = phi ptr [ %65, %57 ], [ %115, %._crit_edge.loopexit ]
-  %129 = icmp eq ptr %.0309.lcssa, %67
+  %.0.lcssa = phi ptr [ %65, %57 ], [ %115, %._crit_edge.loopexit ]
+  %129 = icmp eq ptr %.0.lcssa, %67
   call void @llvm.assume(i1 %129)
   %130 = getelementptr inbounds i8, ptr %128, i64 24
   %131 = getelementptr inbounds [1 x i8], ptr %130, i64 0, i64 %127
@@ -1186,12 +1186,12 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
   br label %178
 
 178:                                              ; preds = %161, %174, %152
-  %.0 = phi ptr [ %155, %152 ], [ %164, %174 ], [ %164, %161 ]
+  %.0299 = phi ptr [ %155, %152 ], [ %164, %174 ], [ %164, %161 ]
   store i64 %143, ptr %140, align 8
   br label %179
 
 179:                                              ; preds = %178, %139, %133
-  %180 = phi ptr [ %.0, %178 ], [ %138, %139 ], [ null, %133 ]
+  %180 = phi ptr [ %.0299, %178 ], [ %138, %139 ], [ null, %133 ]
   store ptr null, ptr %5, align 8
   br label %183
 
@@ -1200,9 +1200,9 @@ define hidden void @zim_DOMXPath_quote(ptr nocapture noundef readonly %0, ptr no
   br label %183
 
 183:                                              ; preds = %181, %179
-  %.0299 = phi ptr [ %180, %179 ], [ %182, %181 ]
-  store ptr %.0299, ptr %1, align 8
-  %184 = getelementptr inbounds i8, ptr %.0299, i64 4
+  %.0300 = phi ptr [ %180, %179 ], [ %182, %181 ]
+  store ptr %.0300, ptr %1, align 8
+  %184 = getelementptr inbounds i8, ptr %.0300, i64 4
   %185 = load i32, ptr %184, align 4
   %186 = and i32 %185, 64
   %.not332 = icmp eq i32 %186, 0

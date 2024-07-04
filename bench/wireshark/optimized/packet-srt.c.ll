@@ -658,15 +658,15 @@ srt_format_ip_address.exit.i:                     ; preds = %.loopexit.i.i, %118
   br i1 %125, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %srt_format_ip_address.exit.i, %srt_format_hs_ext_group.exit.i
-  %.0197.i = phi i32 [ %196, %srt_format_hs_ext_group.exit.i ], [ 64, %srt_format_ip_address.exit.i ]
-  %126 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0197.i) #5
-  %127 = add i32 %.0197.i, 2
+  %.0198.i = phi i32 [ %196, %srt_format_hs_ext_group.exit.i ], [ 64, %srt_format_ip_address.exit.i ]
+  %126 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0198.i) #5
+  %127 = add i32 %.0198.i, 2
   %128 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %127) #5
   %129 = load i32, ptr @hf_srt_srths_blocktype, align 4
-  %130 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %129, ptr noundef %0, i32 noundef %.0197.i, i32 noundef 2, i32 noundef 0) #5
+  %130 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %129, ptr noundef %0, i32 noundef %.0198.i, i32 noundef 2, i32 noundef 0) #5
   %131 = load i32, ptr @hf_srt_srths_blocklen, align 4
   %132 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %131, ptr noundef %0, i32 noundef %127, i32 noundef 2, i32 noundef 0) #5
-  %133 = add i32 %.0197.i, 4
+  %133 = add i32 %.0198.i, 4
   switch i16 %126, label %191 [
     i16 1, label %134
     i16 2, label %134
@@ -694,15 +694,15 @@ srt_format_ip_address.exit.i:                     ; preds = %.loopexit.i.i, %118
   %143 = and i32 %142, 255
   %144 = and i32 %139, 255
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %138, ptr noundef nonnull @.str.261, i32 noundef %143, i32 noundef %141, i32 noundef %144) #5
-  %145 = add i32 %.0197.i, 8
+  %145 = add i32 %.0198.i, 8
   %146 = load i32, ptr @hf_srt_handshake_ext_flags, align 4
   %147 = load i32, ptr @ett_srt_handshake_ext_flags, align 4
   %148 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %19, ptr noundef %0, i32 noundef %145, i32 noundef %146, i32 noundef %147, ptr noundef nonnull @srt_format_hs_ext_hsreq.ext_hs_flags, i32 noundef 0, i32 noundef 1) #5
   %149 = load i32, ptr @hf_srt_srths_peer_latency, align 4
-  %150 = add i32 %.0197.i, 12
+  %150 = add i32 %.0198.i, 12
   %151 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %149, ptr noundef %0, i32 noundef %150, i32 noundef 2, i32 noundef 0) #5
   %152 = load i32, ptr @hf_srt_srths_agent_latency, align 4
-  %153 = add i32 %.0197.i, 14
+  %153 = add i32 %.0198.i, 14
   %154 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %152, ptr noundef %0, i32 noundef %153, i32 noundef 2, i32 noundef 0) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %srt_format_hs_ext_group.exit.i
@@ -753,13 +753,13 @@ srt_format_ip_address.exit.i:                     ; preds = %.loopexit.i.i, %118
   %179 = load i32, ptr @hf_srt_hs_ext_group_id, align 4
   %180 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %179, ptr noundef %0, i32 noundef %133, i32 noundef 4, i32 noundef 0) #5
   %181 = load i32, ptr @hf_srt_hs_ext_group_type, align 4
-  %182 = add i32 %.0197.i, 8
+  %182 = add i32 %.0198.i, 8
   %183 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %181, ptr noundef %0, i32 noundef %182, i32 noundef 1, i32 noundef 0) #5
   %184 = load i32, ptr @hf_srt_hs_ext_group_flags, align 4
-  %185 = add i32 %.0197.i, 9
+  %185 = add i32 %.0198.i, 9
   %186 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %184, ptr noundef %0, i32 noundef %185, i32 noundef 1, i32 noundef 0) #5
   %187 = load i32, ptr @hf_srt_hs_ext_group_weight, align 4
-  %188 = add i32 %.0197.i, 10
+  %188 = add i32 %.0198.i, 10
   %189 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %187, ptr noundef %0, i32 noundef %188, i32 noundef 2, i32 noundef 0) #5
   %.not.i213.i = icmp eq i16 %128, 2
   br i1 %.not.i213.i, label %srt_format_hs_ext_group.exit.i, label %.sink.split.i.i
@@ -782,8 +782,8 @@ srt_format_hs_ext_group.exit.i:                   ; preds = %191, %.sink.split.i
   br i1 %.not210.i, label %.preheader.i, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %srt_format_hs_ext_group.exit.i, %srt_format_ip_address.exit.i
-  %.0.i = phi i32 [ 64, %srt_format_ip_address.exit.i ], [ %196, %srt_format_hs_ext_group.exit.i ]
-  call void @proto_item_set_len(ptr noundef %17, i32 noundef %.0.i) #5
+  %.0196.i = phi i32 [ 64, %srt_format_ip_address.exit.i ], [ %196, %srt_format_hs_ext_group.exit.i ]
+  call void @proto_item_set_len(ptr noundef %17, i32 noundef %.0196.i) #5
   br label %dissect_srt_control_packet.exit
 
 197:                                              ; preds = %54
@@ -821,8 +821,8 @@ srt_format_hs_ext_group.exit.i:                   ; preds = %191, %.sink.split.i
   br label %220
 
 220:                                              ; preds = %217, %211
-  %.0198.i = phi i32 [ 44, %217 ], [ %198, %211 ]
-  call void @proto_item_set_len(ptr noundef %17, i32 noundef %.0198.i) #5
+  %.0197.i = phi i32 [ 44, %217 ], [ %198, %211 ]
+  call void @proto_item_set_len(ptr noundef %17, i32 noundef %.0197.i) #5
   br label %dissect_srt_control_packet.exit
 
 221:                                              ; preds = %203
@@ -847,37 +847,37 @@ srt_format_hs_ext_group.exit.i:                   ; preds = %191, %.sink.split.i
   br i1 %231, label %.lr.ph.i, label %._crit_edge.thread.i
 
 .lr.ph.i:                                         ; preds = %229, %.lr.ph.i.backedge
-  %.0194215.i = phi i32 [ %.0194215.i.be, %.lr.ph.i.backedge ], [ 0, %229 ]
-  %.0196214.i = phi i32 [ %.0196214.i.be, %.lr.ph.i.backedge ], [ 16, %229 ]
-  %232 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0196214.i) #5
+  %.0215.i = phi i32 [ %.0215.i.be, %.lr.ph.i.backedge ], [ 0, %229 ]
+  %.0195214.i = phi i32 [ %.0195214.i.be, %.lr.ph.i.backedge ], [ 16, %229 ]
+  %232 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0195214.i) #5
   %.not208.i = icmp sgt i32 %232, -1
   br i1 %.not208.i, label %233, label %236
 
 233:                                              ; preds = %.lr.ph.i
-  %.not209.i = icmp sgt i32 %.0194215.i, -1
+  %.not209.i = icmp sgt i32 %.0215.i, -1
   br i1 %.not209.i, label %234, label %.thread.i
 
 234:                                              ; preds = %233
-  %235 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %19, ptr noundef %1, ptr noundef nonnull @ei_srt_nak_seqno, ptr noundef %0, i32 noundef %.0196214.i, i32 noundef 4, ptr noundef nonnull @.str.258, i32 noundef %232) #5
+  %235 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %19, ptr noundef %1, ptr noundef nonnull @ei_srt_nak_seqno, ptr noundef %0, i32 noundef %.0195214.i, i32 noundef 4, ptr noundef nonnull @.str.258, i32 noundef %232) #5
   br label %236
 
 236:                                              ; preds = %234, %.lr.ph.i
-  %.1.i = phi i32 [ %.0194215.i, %234 ], [ %232, %.lr.ph.i ]
-  %237 = add i32 %.0196214.i, 4
+  %.1.i = phi i32 [ %.0215.i, %234 ], [ %232, %.lr.ph.i ]
+  %237 = add i32 %.0195214.i, 4
   %238 = icmp ult i32 %237, %230
   br i1 %238, label %.lr.ph.i.backedge, label %._crit_edge.i
 
 .thread.i:                                        ; preds = %233
-  %239 = add i32 %.0196214.i, -4
-  %240 = and i32 %.0194215.i, 2147483647
+  %239 = add i32 %.0195214.i, -4
+  %240 = and i32 %.0215.i, 2147483647
   %241 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %19, ptr noundef %1, ptr noundef nonnull @ei_srt_nak_seqno, ptr noundef %0, i32 noundef %239, i32 noundef 8, ptr noundef nonnull @.str.257, i32 noundef %240, i32 noundef %232) #5
-  %242 = add i32 %.0196214.i, 4
+  %242 = add i32 %.0195214.i, 4
   %243 = icmp ult i32 %242, %230
   br i1 %243, label %.lr.ph.i.backedge, label %._crit_edge.thread.i
 
 .lr.ph.i.backedge:                                ; preds = %.thread.i, %236
-  %.0194215.i.be = phi i32 [ %.1.i, %236 ], [ 0, %.thread.i ]
-  %.0196214.i.be = phi i32 [ %237, %236 ], [ %242, %.thread.i ]
+  %.0215.i.be = phi i32 [ %.1.i, %236 ], [ 0, %.thread.i ]
+  %.0195214.i.be = phi i32 [ %237, %236 ], [ %242, %.thread.i ]
   br label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %236
@@ -886,7 +886,7 @@ srt_format_hs_ext_group.exit.i:                   ; preds = %191, %.sink.split.i
 
 245:                                              ; preds = %._crit_edge.i
   %246 = and i32 %232, 2147483647
-  %247 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %19, ptr noundef %1, ptr noundef nonnull @ei_srt_nak_seqno, ptr noundef %0, i32 noundef %.0196214.i, i32 noundef 4, ptr noundef nonnull @.str.259, i32 noundef %246, i32 noundef %232) #5
+  %247 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %19, ptr noundef %1, ptr noundef nonnull @ei_srt_nak_seqno, ptr noundef %0, i32 noundef %.0195214.i, i32 noundef 4, ptr noundef nonnull @.str.259, i32 noundef %246, i32 noundef %232) #5
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %.thread.i, %245, %._crit_edge.i, %229

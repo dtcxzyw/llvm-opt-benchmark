@@ -1357,8 +1357,8 @@ Vec_IntPush.exit191:                              ; preds = %.Vec_IntGrow.exit10
 
 .Vec_IntGrow.exit10_crit_edge.i194:               ; preds = %.thread, %149
   %159 = phi ptr [ %156, %.thread ], [ %151, %149 ]
-  %.0141288 = phi ptr [ %126, %.thread ], [ %150, %149 ]
-  %.phi.trans.insert.i195 = getelementptr inbounds i8, ptr %.0141288, i64 8
+  %.0142288 = phi ptr [ %126, %.thread ], [ %150, %149 ]
+  %.phi.trans.insert.i195 = getelementptr inbounds i8, ptr %.0142288, i64 8
   %.pre.i196 = load ptr, ptr %.phi.trans.insert.i195, align 8
   br label %Vec_IntPush.exit200
 
@@ -1367,9 +1367,9 @@ Vec_IntPush.exit191:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %161, label %.thread290, label %170
 
 .thread290:                                       ; preds = %.thread, %160
-  %.0141289292 = phi ptr [ %150, %160 ], [ %126, %.thread ]
+  %.0142289292 = phi ptr [ %150, %160 ], [ %126, %.thread ]
   %162 = phi ptr [ %151, %160 ], [ %156, %.thread ]
-  %163 = getelementptr inbounds i8, ptr %.0141289292, i64 8
+  %163 = getelementptr inbounds i8, ptr %.0142289292, i64 8
   %164 = load ptr, ptr %163, align 8
   %.not9.i.i198 = icmp eq ptr %164, null
   br i1 %.not9.i.i198, label %167, label %165
@@ -1385,7 +1385,7 @@ Vec_IntPush.exit191:                              ; preds = %.Vec_IntGrow.exit10
 Vec_IntGrow.exit.i199:                            ; preds = %167, %165
   %169 = phi ptr [ %166, %165 ], [ %168, %167 ]
   store ptr %169, ptr %163, align 8
-  store i32 16, ptr %.0141289292, align 8
+  store i32 16, ptr %.0142289292, align 8
   br label %Vec_IntPush.exit200
 
 170:                                              ; preds = %160
@@ -1413,7 +1413,7 @@ Vec_IntGrow.exit.i199:                            ; preds = %167, %165
 
 Vec_IntPush.exit200:                              ; preds = %.Vec_IntGrow.exit10_crit_edge.i194, %Vec_IntGrow.exit.i199, %180
   %182 = phi ptr [ %159, %.Vec_IntGrow.exit10_crit_edge.i194 ], [ %151, %180 ], [ %162, %Vec_IntGrow.exit.i199 ]
-  %.0141287 = phi ptr [ %.0141288, %.Vec_IntGrow.exit10_crit_edge.i194 ], [ %150, %180 ], [ %.0141289292, %Vec_IntGrow.exit.i199 ]
+  %.0142287 = phi ptr [ %.0142288, %.Vec_IntGrow.exit10_crit_edge.i194 ], [ %150, %180 ], [ %.0142289292, %Vec_IntGrow.exit.i199 ]
   %183 = phi ptr [ %.pre.i196, %.Vec_IntGrow.exit10_crit_edge.i194 ], [ %181, %180 ], [ %169, %Vec_IntGrow.exit.i199 ]
   %184 = load i32, ptr %182, align 4
   %185 = add nsw i32 %184, 1
@@ -1421,12 +1421,12 @@ Vec_IntPush.exit200:                              ; preds = %.Vec_IntGrow.exit10
   %186 = sext i32 %184 to i64
   %187 = getelementptr inbounds i32, ptr %183, i64 %186
   store i32 %122, ptr %187, align 4
-  %188 = getelementptr i8, ptr %.0141287, i64 8
-  %.0141.val168 = load ptr, ptr %188, align 8
-  %.0141.val = load i32, ptr %182, align 4
-  %189 = sext i32 %.0141.val to i64
-  %190 = getelementptr inbounds i32, ptr %.0141.val168, i64 %189
-  %191 = tail call i32 @sat_solver_addclause(ptr noundef %119, ptr noundef %.0141.val168, ptr noundef %190) #8
+  %188 = getelementptr i8, ptr %.0142287, i64 8
+  %.0142.val168 = load ptr, ptr %188, align 8
+  %.0142.val = load i32, ptr %182, align 4
+  %189 = sext i32 %.0142.val to i64
+  %190 = getelementptr inbounds i32, ptr %.0142.val168, i64 %189
+  %191 = tail call i32 @sat_solver_addclause(ptr noundef %119, ptr noundef %.0142.val168, ptr noundef %190) #8
   %192 = getelementptr inbounds i8, ptr %119, i64 12
   %193 = load i32, ptr %192, align 4
   %194 = getelementptr inbounds i8, ptr %119, i64 8

@@ -763,7 +763,7 @@ default.unreachable:                              ; preds = %87
   br label %369
 
 369:                                              ; preds = %365, %369
-  %.0626834 = phi i64 [ 0, %365 ], [ %377, %369 ]
+  %.0621834 = phi i64 [ 0, %365 ], [ %377, %369 ]
   %370 = phi i64 [ 0, %365 ], [ %376, %369 ]
   %371 = phi ptr [ %368, %365 ], [ %373, %369 ]
   %372 = shl i64 %370, 8
@@ -773,7 +773,7 @@ default.unreachable:                              ; preds = %87
   %375 = zext i8 %374 to i64
   %376 = or disjoint i64 %372, %375
   store i64 %376, ptr %366, align 8
-  %377 = add nuw nsw i64 %.0626834, 1
+  %377 = add nuw nsw i64 %.0621834, 1
   %exitcond860.not = icmp eq i64 %377, 8
   br i1 %exitcond860.not, label %378, label %369
 
@@ -1122,9 +1122,9 @@ default.unreachable:                              ; preds = %87
   br label %._crit_edge817
 
 .lr.ph812:                                        ; preds = %573, %599
-  %.0623810 = phi i32 [ %600, %599 ], [ 0, %573 ]
+  %.0618810 = phi i32 [ %600, %599 ], [ 0, %573 ]
   %.promoted800806809 = phi ptr [ %594, %599 ], [ %550, %573 ]
-  %577 = zext i32 %.0623810 to i64
+  %577 = zext i32 %.0618810 to i64
   %578 = getelementptr inbounds [33 x i32], ptr %574, i64 0, i64 %577
   store i32 0, ptr %578, align 4
   %579 = load i32, ptr %553, align 8
@@ -1140,7 +1140,7 @@ default.unreachable:                              ; preds = %87
 
 .lr.ph803:                                        ; preds = %.lr.ph812, %.lr.ph803
   %583 = phi i32 [ %589, %.lr.ph803 ], [ 0, %.lr.ph812 ]
-  %.0622801 = phi i64 [ %590, %.lr.ph803 ], [ 0, %.lr.ph812 ]
+  %.0617801 = phi i64 [ %590, %.lr.ph803 ], [ 0, %.lr.ph812 ]
   %584 = phi ptr [ %586, %.lr.ph803 ], [ %581, %.lr.ph812 ]
   %585 = shl i32 %583, 8
   %586 = getelementptr inbounds i8, ptr %584, i64 -1
@@ -1149,7 +1149,7 @@ default.unreachable:                              ; preds = %87
   %588 = zext i8 %587 to i32
   %589 = or disjoint i32 %585, %588
   store i32 %589, ptr %578, align 4
-  %590 = add nuw nsw i64 %.0622801, 1
+  %590 = add nuw nsw i64 %.0617801, 1
   %591 = load i32, ptr %553, align 8
   %592 = zext i32 %591 to i64
   %593 = icmp ult i64 %590, %592
@@ -1164,11 +1164,11 @@ default.unreachable:                              ; preds = %87
 .loopexit879:                                     ; preds = %._crit_edge804, %._crit_edge804.thread
   %596 = load i64, ptr @H5E_OHDR_g, align 8
   %597 = load i64, ptr @H5E_BADVALUE_g, align 8
-  %598 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5O__layout_decode, i32 noundef 365, i64 noundef %596, i64 noundef %597, ptr noundef nonnull @.str.10, i32 noundef %.0623810, i32 noundef 0) #11
+  %598 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5O__layout_decode, i32 noundef 365, i64 noundef %596, i64 noundef %597, ptr noundef nonnull @.str.10, i32 noundef %.0618810, i32 noundef 0) #11
   br label %1350
 
 599:                                              ; preds = %._crit_edge804
-  %600 = add nuw i32 %.0623810, 1
+  %600 = add nuw i32 %.0618810, 1
   %601 = icmp ult i32 %600, %533
   br i1 %601, label %.lr.ph812, label %._crit_edge813
 
@@ -1308,16 +1308,16 @@ default.unreachable:                              ; preds = %87
   br label %677
 
 677:                                              ; preds = %675, %677
-  %.0618821 = phi i64 [ 0, %675 ], [ %684, %677 ]
-  %.0619820 = phi i32 [ 0, %675 ], [ %683, %677 ]
+  %.0613821 = phi i64 [ 0, %675 ], [ %684, %677 ]
+  %.0614820 = phi i32 [ 0, %675 ], [ %683, %677 ]
   %678 = phi ptr [ %676, %675 ], [ %680, %677 ]
-  %679 = shl i32 %.0619820, 8
+  %679 = shl i32 %.0614820, 8
   %680 = getelementptr inbounds i8, ptr %678, i64 -1
   store ptr %680, ptr %7, align 8
   %681 = load i8, ptr %680, align 1
   %682 = zext i8 %681 to i32
   %683 = or disjoint i32 %679, %682
-  %684 = add nuw nsw i64 %.0618821, 1
+  %684 = add nuw nsw i64 %.0613821, 1
   %exitcond853.not = icmp eq i64 %684, 8
   br i1 %exitcond853.not, label %685, label %677
 
@@ -1341,9 +1341,9 @@ default.unreachable:                              ; preds = %87
 
 696:                                              ; preds = %654, %687, %685, %656
   %697 = phi ptr [ %622, %654 ], [ %695, %687 ], [ %686, %685 ], [ %674, %656 ]
-  %.1620 = phi i32 [ 0, %654 ], [ %694, %687 ], [ %683, %685 ], [ %673, %656 ]
+  %.1615 = phi i32 [ 0, %654 ], [ %694, %687 ], [ %683, %685 ], [ %673, %656 ]
   %698 = getelementptr inbounds i8, ptr %11, i64 1944
-  store i32 %.1620, ptr %698, align 8
+  store i32 %.1615, ptr %698, align 8
   %699 = load i8, ptr %697, align 1
   %700 = zext i8 %699 to i32
   %701 = getelementptr inbounds i8, ptr %11, i64 1948
@@ -1907,9 +1907,9 @@ default.unreachable878:                           ; preds = %630
 
 1053:                                             ; preds = %1050, %1053
   %.0611798 = phi i64 [ 0, %1050 ], [ %1060, %1053 ]
-  %.0613797 = phi i64 [ 0, %1050 ], [ %1059, %1053 ]
+  %.0612797 = phi i64 [ 0, %1050 ], [ %1059, %1053 ]
   %1054 = phi ptr [ %1052, %1050 ], [ %1056, %1053 ]
-  %1055 = shl i64 %.0613797, 8
+  %1055 = shl i64 %.0612797, 8
   %1056 = getelementptr inbounds i8, ptr %1054, i64 -1
   %1057 = load i8, ptr %1056, align 1
   %1058 = zext i8 %1057 to i64
@@ -1937,12 +1937,12 @@ default.unreachable878:                           ; preds = %630
   br label %1073
 
 1073:                                             ; preds = %1030, %1061, %1063
-  %.1614 = phi i64 [ %1071, %1063 ], [ %1059, %1061 ], [ %1048, %1030 ]
-  %.not691 = icmp eq i64 %.1614, 0
+  %.1 = phi i64 [ %1071, %1063 ], [ %1059, %1061 ], [ %1048, %1030 ]
+  %.not691 = icmp eq i64 %.1, 0
   br i1 %.not691, label %.thread875, label %1074
 
 1074:                                             ; preds = %1073
-  %1075 = mul i64 %.1614, 224
+  %1075 = mul i64 %.1, 224
   %1076 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %1075) #13
   store ptr %1076, ptr %974, align 8
   %1077 = icmp eq ptr %1076, null
@@ -1959,8 +1959,8 @@ default.unreachable878:                           ; preds = %630
   br label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %1074
-  store i64 %.1614, ptr %975, align 8
-  store i64 %.1614, ptr %973, align 8
+  store i64 %.1, ptr %975, align 8
+  store i64 %.1, ptr %973, align 8
   br label %.lr.ph
 
 1082:                                             ; preds = %1291
@@ -2344,7 +2344,7 @@ default.unreachable878:                           ; preds = %630
   br label %1350
 
 1344:                                             ; preds = %1335, %953
-  %.0612 = phi ptr [ %981, %1335 ], [ null, %953 ]
+  %.0626 = phi ptr [ %981, %1335 ], [ null, %953 ]
   %1345 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr @H5D_LOPS_VIRTUAL, ptr %1345, align 8
   br label %.thread768
@@ -2356,7 +2356,7 @@ default.unreachable878:                           ; preds = %630
   br label %1350
 
 1350:                                             ; preds = %25, %35, %46, %55, %64, %72, %83, %101, %119, %139, %149, %164, %190, %210, %239, %247, %255, %270, %289, %297, %318, %338, %401, %411, %417, %434, %452, %484, %508, %517, %526, %536, %545, %555, %569, %.loopexit879, %617, %626, %632, %650, %723, %732, %741, %750, %759, %768, %777, %786, %795, %804, %813, %822, %833, %861, %870, %880, %889, %909, %919, %936, %949, %983, %997, %1004, %1024, %1078, %1090, %1098, %1108, %1122, %1130, %1140, %1154, %1164, %1173, %1183, %1197, %1211, %1278, %1287, %1294, %1305, %1331, %1340, %1346
-  %.2 = phi ptr [ null, %25 ], [ null, %35 ], [ null, %46 ], [ null, %55 ], [ null, %64 ], [ null, %72 ], [ null, %83 ], [ null, %101 ], [ null, %139 ], [ null, %210 ], [ null, %239 ], [ null, %247 ], [ null, %149 ], [ null, %164 ], [ null, %190 ], [ null, %119 ], [ null, %255 ], [ null, %1346 ], [ null, %919 ], [ null, %936 ], [ null, %949 ], [ null, %983 ], [ %981, %997 ], [ %981, %1004 ], [ %981, %1024 ], [ %981, %1078 ], [ %981, %1090 ], [ %981, %1098 ], [ %981, %1108 ], [ %981, %1122 ], [ %981, %1130 ], [ %981, %1140 ], [ %981, %1154 ], [ %981, %1164 ], [ %981, %1173 ], [ %981, %1183 ], [ %981, %1197 ], [ %981, %1211 ], [ %981, %1278 ], [ %981, %1287 ], [ %981, %1294 ], [ %981, %1305 ], [ %981, %1331 ], [ %981, %1340 ], [ null, %401 ], [ null, %411 ], [ null, %417 ], [ null, %434 ], [ null, %452 ], [ null, %484 ], [ null, %508 ], [ null, %517 ], [ null, %526 ], [ null, %536 ], [ null, %545 ], [ null, %555 ], [ null, %569 ], [ null, %.loopexit879 ], [ null, %617 ], [ null, %626 ], [ null, %833 ], [ null, %861 ], [ null, %870 ], [ null, %880 ], [ null, %889 ], [ null, %909 ], [ null, %741 ], [ null, %750 ], [ null, %759 ], [ null, %768 ], [ null, %777 ], [ null, %786 ], [ null, %795 ], [ null, %804 ], [ null, %813 ], [ null, %822 ], [ null, %723 ], [ null, %732 ], [ null, %650 ], [ null, %632 ], [ null, %318 ], [ null, %338 ], [ null, %270 ], [ null, %289 ], [ null, %297 ]
+  %.2628 = phi ptr [ null, %25 ], [ null, %35 ], [ null, %46 ], [ null, %55 ], [ null, %64 ], [ null, %72 ], [ null, %83 ], [ null, %101 ], [ null, %139 ], [ null, %210 ], [ null, %239 ], [ null, %247 ], [ null, %149 ], [ null, %164 ], [ null, %190 ], [ null, %119 ], [ null, %255 ], [ null, %1346 ], [ null, %919 ], [ null, %936 ], [ null, %949 ], [ null, %983 ], [ %981, %997 ], [ %981, %1004 ], [ %981, %1024 ], [ %981, %1078 ], [ %981, %1090 ], [ %981, %1098 ], [ %981, %1108 ], [ %981, %1122 ], [ %981, %1130 ], [ %981, %1140 ], [ %981, %1154 ], [ %981, %1164 ], [ %981, %1173 ], [ %981, %1183 ], [ %981, %1197 ], [ %981, %1211 ], [ %981, %1278 ], [ %981, %1287 ], [ %981, %1294 ], [ %981, %1305 ], [ %981, %1331 ], [ %981, %1340 ], [ null, %401 ], [ null, %411 ], [ null, %417 ], [ null, %434 ], [ null, %452 ], [ null, %484 ], [ null, %508 ], [ null, %517 ], [ null, %526 ], [ null, %536 ], [ null, %545 ], [ null, %555 ], [ null, %569 ], [ null, %.loopexit879 ], [ null, %617 ], [ null, %626 ], [ null, %833 ], [ null, %861 ], [ null, %870 ], [ null, %880 ], [ null, %889 ], [ null, %909 ], [ null, %741 ], [ null, %750 ], [ null, %759 ], [ null, %768 ], [ null, %777 ], [ null, %786 ], [ null, %795 ], [ null, %804 ], [ null, %813 ], [ null, %822 ], [ null, %723 ], [ null, %732 ], [ null, %650 ], [ null, %632 ], [ null, %318 ], [ null, %338 ], [ null, %270 ], [ null, %289 ], [ null, %297 ]
   %1351 = load i32, ptr %11, align 8
   %1352 = icmp eq i32 %1351, 3
   br i1 %1352, label %1353, label %1360
@@ -2377,10 +2377,10 @@ default.unreachable878:                           ; preds = %630
   br label %.thread768
 
 .thread768:                                       ; preds = %13, %214, %251, %.loopexit, %1344, %915, %391, %303, %1360
-  %.2772 = phi ptr [ %.2, %1360 ], [ null, %303 ], [ null, %391 ], [ null, %915 ], [ %.0612, %1344 ], [ null, %.loopexit ], [ null, %214 ], [ null, %251 ], [ null, %13 ]
-  %.2617 = phi ptr [ null, %1360 ], [ %11, %303 ], [ %11, %391 ], [ %11, %915 ], [ %11, %1344 ], [ %11, %.loopexit ], [ %11, %214 ], [ %11, %251 ], [ null, %13 ]
-  %1362 = call ptr @H5MM_xfree(ptr noundef %.2772) #11
-  ret ptr %.2617
+  %.2628772 = phi ptr [ %.2628, %1360 ], [ null, %303 ], [ null, %391 ], [ null, %915 ], [ %.0626, %1344 ], [ null, %.loopexit ], [ null, %214 ], [ null, %251 ], [ null, %13 ]
+  %.2 = phi ptr [ null, %1360 ], [ %11, %303 ], [ %11, %391 ], [ %11, %915 ], [ %11, %1344 ], [ %11, %.loopexit ], [ %11, %214 ], [ %11, %251 ], [ null, %13 ]
+  %1362 = call ptr @H5MM_xfree(ptr noundef %.2628772) #11
+  ret ptr %.2
 }
 
 ; Function Attrs: nounwind uwtable

@@ -467,8 +467,8 @@ define internal fastcc i32 @group_register(ptr noundef %0, ptr noundef %1, ptr n
   br label %15
 
 15:                                               ; preds = %12, %9
-  %.0105 = phi ptr [ %spec.store.select, %12 ], [ %0, %9 ]
-  %16 = tail call fastcc i32 @group_find(ptr noundef %.0105, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true)
+  %.0104 = phi ptr [ %spec.store.select, %12 ], [ %0, %9 ]
+  %16 = tail call fastcc i32 @group_find(ptr noundef %.0104, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true)
   store i32 %16, ptr %5, align 4
   %17 = icmp sgt i32 %16, -1
   br i1 %17, label %18, label %29
@@ -537,11 +537,11 @@ pmix_pointer_array_get_item.exit.i:               ; preds = %18
 pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %35, %36
   %47 = getelementptr inbounds i8, ptr %31, i64 148
   store i8 1, ptr %47, align 4
-  %.not = icmp eq ptr %.0105, null
+  %.not = icmp eq ptr %.0104, null
   br i1 %.not, label %77, label %48
 
 48:                                               ; preds = %pmix_obj_new_tma.exit
-  %49 = tail call noalias ptr @strdup(ptr noundef nonnull %.0105) #17
+  %49 = tail call noalias ptr @strdup(ptr noundef nonnull %.0104) #17
   %50 = getelementptr inbounds i8, ptr %31, i64 160
   store ptr %49, ptr %50, align 8
   %51 = icmp eq ptr %49, null
@@ -800,13 +800,13 @@ pmix_obj_run_destructors.exit148:                 ; preds = %.lr.ph.i145, %154
   br i1 %or.cond7, label %169, label %171
 
 169:                                              ; preds = %168
-  %170 = tail call fastcc i32 @group_register(ptr noundef %.0105, ptr noundef nonnull %1, ptr noundef null, ptr noundef null)
+  %170 = tail call fastcc i32 @group_register(ptr noundef %.0104, ptr noundef nonnull %1, ptr noundef null, ptr noundef null)
   br label %171
 
 171:                                              ; preds = %169, %168
   %.0 = phi i32 [ %170, %169 ], [ -1, %168 ]
   %172 = getelementptr inbounds i8, ptr %31, i64 152
-  %173 = tail call i32 @pmix_mca_base_var_generate_full_name4(ptr noundef null, ptr noundef %.0105, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %172) #17
+  %173 = tail call i32 @pmix_mca_base_var_generate_full_name4(ptr noundef null, ptr noundef %.0104, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %172) #17
   %.not121 = icmp eq i32 %173, 0
   br i1 %.not121, label %199, label %174
 
@@ -982,8 +982,8 @@ pmix_mca_base_var_group_get_internal.exit166:     ; preds = %245, %pmix_pointer_
   br label %pmix_mca_base_var_group_get_internal.exit
 
 pmix_mca_base_var_group_get_internal.exit:        ; preds = %227, %pmix_mca_base_var_group_get_internal.exit166, %254, %224, %226, %196, %198, %165, %167, %135, %137, %104, %106, %74, %76, %pmix_pointer_array_get_item.exit.i, %18, %207, %179, %148, %118, %87, %57, %4, %25
-  %.0104 = phi i32 [ %16, %25 ], [ -1, %4 ], [ -29, %57 ], [ -29, %87 ], [ -29, %118 ], [ -29, %148 ], [ %173, %179 ], [ -1, %207 ], [ -46, %18 ], [ -46, %pmix_pointer_array_get_item.exit.i ], [ -29, %76 ], [ -29, %74 ], [ -29, %106 ], [ -29, %104 ], [ -29, %137 ], [ -29, %135 ], [ -29, %167 ], [ -29, %165 ], [ %173, %198 ], [ %173, %196 ], [ -1, %226 ], [ -1, %224 ], [ %200, %254 ], [ %200, %pmix_mca_base_var_group_get_internal.exit166 ], [ %200, %227 ]
-  ret i32 %.0104
+  %.0105 = phi i32 [ %16, %25 ], [ -1, %4 ], [ -29, %57 ], [ -29, %87 ], [ -29, %118 ], [ -29, %148 ], [ %173, %179 ], [ -1, %207 ], [ -46, %18 ], [ -46, %pmix_pointer_array_get_item.exit.i ], [ -29, %76 ], [ -29, %74 ], [ -29, %106 ], [ -29, %104 ], [ -29, %137 ], [ -29, %135 ], [ -29, %167 ], [ -29, %165 ], [ %173, %198 ], [ %173, %196 ], [ -1, %226 ], [ -1, %224 ], [ %200, %254 ], [ %200, %pmix_mca_base_var_group_get_internal.exit166 ], [ %200, %227 ]
+  ret i32 %.0105
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1731,8 +1731,8 @@ pmix_value_array_append_item.exit.loopexit:       ; preds = %.lr.ph
   br label %pmix_value_array_append_item.exit
 
 pmix_value_array_append_item.exit:                ; preds = %pmix_value_array_append_item.exit.loopexit, %pmix_pointer_array_get_item.exit.i, %11, %2, %._crit_edge, %27
-  %.0 = phi i32 [ %36, %27 ], [ %26, %._crit_edge ], [ -46, %2 ], [ -46, %11 ], [ -46, %pmix_pointer_array_get_item.exit.i ], [ %37, %pmix_value_array_append_item.exit.loopexit ]
-  ret i32 %.0
+  %.010 = phi i32 [ %36, %27 ], [ %26, %._crit_edge ], [ -46, %2 ], [ -46, %11 ], [ -46, %pmix_pointer_array_get_item.exit.i ], [ %37, %pmix_value_array_append_item.exit.loopexit ]
+  ret i32 %.010
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

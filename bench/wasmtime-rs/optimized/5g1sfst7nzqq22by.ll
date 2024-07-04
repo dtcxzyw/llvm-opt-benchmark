@@ -1886,10 +1886,10 @@ define void @"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT
   br label %12
 
 12:                                               ; preds = %2, %8
-  %.sroa.0.sroa.4.0 = phi i64 [ 1, %8 ], [ 0, %2 ]
+  %.sroa.0.sroa.0.0 = phi i64 [ 1, %8 ], [ 0, %2 ]
   %.sroa.0.sroa.3.sroa.4.0 = phi i64 [ %10, %8 ], [ undef, %2 ]
   %.sroa.3.0 = phi i64 [ %11, %8 ], [ 0, %2 ]
-  store i64 %.sroa.0.sroa.4.0, ptr %4, align 8
+  store i64 %.sroa.0.sroa.0.0, ptr %4, align 8
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store ptr null, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8
   %.sroa.0.sroa.3.sroa.3.0..sroa.0.sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
@@ -1897,7 +1897,7 @@ define void @"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT
   %.sroa.0.sroa.3.sroa.4.0..sroa.0.sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %.sroa.0.sroa.3.sroa.4.0, ptr %.sroa.0.sroa.3.sroa.4.0..sroa.0.sroa.3.0..sroa_idx.sroa_idx, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
-  store i64 %.sroa.0.sroa.4.0, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  store i64 %.sroa.0.sroa.0.0, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
   store ptr null, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.0.sroa.5.sroa.3.0..sroa.0.sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %4, i64 48

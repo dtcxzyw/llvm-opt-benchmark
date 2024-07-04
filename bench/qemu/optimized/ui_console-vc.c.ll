@@ -765,12 +765,12 @@ for.body38.us:                                    ; preds = %if.end33.loopexit.u
 
 for.body31.us:                                    ; preds = %for.body31.us, %for.body.us
   %c.045.us = phi ptr [ %arrayidx.us, %for.body.us ], [ %incdec.ptr.us, %for.body31.us ]
-  %c1.044.us = phi ptr [ %arrayidx27.us, %for.body.us ], [ %incdec.ptr32.us, %for.body31.us ]
-  %x.043.us = phi i32 [ 0, %for.body.us ], [ %inc.us, %for.body31.us ]
+  %x.044.us = phi i32 [ 0, %for.body.us ], [ %inc.us, %for.body31.us ]
+  %c1.043.us = phi ptr [ %arrayidx27.us, %for.body.us ], [ %incdec.ptr32.us, %for.body31.us ]
   %incdec.ptr.us = getelementptr i8, ptr %c.045.us, i64 3
-  %incdec.ptr32.us = getelementptr i8, ptr %c1.044.us, i64 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %c.045.us, ptr noundef nonnull align 1 dereferenceable(3) %c1.044.us, i64 3, i1 false)
-  %inc.us = add nuw nsw i32 %x.043.us, 1
+  %incdec.ptr32.us = getelementptr i8, ptr %c1.043.us, i64 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %c.045.us, ptr noundef nonnull align 1 dereferenceable(3) %c1.043.us, i64 3, i1 false)
+  %inc.us = add nuw nsw i32 %x.044.us, 1
   %exitcond79.not = icmp eq i32 %inc.us, %cond
   br i1 %exitcond79.not, label %if.end33.loopexit.us, label %for.body31.us, !llvm.loop !14
 
@@ -1458,9 +1458,9 @@ if.else25:                                        ; preds = %trace_console_txt_n
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else25, %if.then20
+  %s.0 = phi ptr [ %call.i37, %if.then20 ], [ %call.i38, %if.else25 ]
   %width.1 = phi i32 [ %call23, %if.then20 ], [ %width.0, %if.else25 ]
   %height.1 = phi i32 [ %call24, %if.then20 ], [ %height.0, %if.else25 ]
-  %s.0 = phi ptr [ %call.i37, %if.then20 ], [ %call.i38, %if.else25 ]
   %call.i39 = tail call ptr @object_dynamic_cast_assert(ptr noundef %s.0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 12, ptr noundef nonnull @__func__.QEMU_CONSOLE) #12
   %call30 = tail call ptr @qemu_create_displaysurface(i32 noundef %width.1, i32 noundef %height.1) #12
   tail call void @dpy_gfx_replace_surface(ptr noundef %call.i39, ptr noundef %call30) #12
@@ -2831,13 +2831,13 @@ for.body.preheader:                               ; preds = %if.end25
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %c.06 = phi ptr [ %incdec.ptr, %for.body ], [ %arrayidx, %for.body.preheader ]
-  %x.05 = phi i32 [ %inc50, %for.body ], [ 0, %for.body.preheader ]
-  store i8 32, ptr %c.06, align 1
-  %t_attrib = getelementptr inbounds i8, ptr %c.06, i64 1
+  %x.06 = phi i32 [ %inc50, %for.body ], [ 0, %for.body.preheader ]
+  %c.05 = phi ptr [ %incdec.ptr, %for.body ], [ %arrayidx, %for.body.preheader ]
+  store i8 32, ptr %c.05, align 1
+  %t_attrib = getelementptr inbounds i8, ptr %c.05, i64 1
   store i16 7, ptr %t_attrib, align 1
-  %incdec.ptr = getelementptr i8, ptr %c.06, i64 3
-  %inc50 = add nuw nsw i32 %x.05, 1
+  %incdec.ptr = getelementptr i8, ptr %c.05, i64 3
+  %inc50 = add nuw nsw i32 %x.06, 1
   %10 = load i32, ptr %width, align 8
   %cmp31 = icmp slt i32 %inc50, %10
   br i1 %cmp31, label %for.body, label %for.end.loopexit, !llvm.loop !29

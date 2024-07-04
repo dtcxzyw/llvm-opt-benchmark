@@ -795,7 +795,7 @@ define void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(p
 152:                                              ; preds = %252, %130
   %.sroa.056.0 = phi ptr [ %92, %130 ], [ %.sroa.01.0.i, %252 ]
   %.sroa.8.0 = phi i64 [ %91, %130 ], [ %.sroa.5.0.i, %252 ]
-  %.0181 = phi i8 [ 0, %130 ], [ %spec.select, %252 ]
+  %.0182 = phi i8 [ 0, %130 ], [ %spec.select, %252 ]
   %153 = invoke { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h99f2f1b0a0caefc9E"(ptr nonnull align 1 %.sroa.056.0, i64 %.sroa.8.0, i32 123)
           to label %154 unwind label %.loopexit
 
@@ -979,11 +979,11 @@ define void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(p
 
 217:                                              ; preds = %239, %222, %211
   %.sroa.034.0.i = phi ptr [ @anon.3ce6b816cb19b0461f38b33c0e713f57.19, %222 ], [ %237, %239 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.17, %211 ]
-  %.sroa.5.0.i = phi i64 [ %223, %222 ], [ %199, %239 ], [ %199, %211 ]
-  %.sroa.01.0.i = phi ptr [ %215, %222 ], [ %198, %239 ], [ %198, %211 ]
   %.sroa.435.0.i = phi i64 [ 2, %222 ], [ %240, %239 ], [ 5, %211 ]
   %.sroa.036.0.i = phi ptr [ %202, %222 ], [ %225, %239 ], [ %202, %211 ]
   %.sroa.9.0.i = phi i64 [ %203, %222 ], [ %233, %239 ], [ %203, %211 ]
+  %.sroa.5.0.i = phi i64 [ %223, %222 ], [ %199, %239 ], [ %199, %211 ]
+  %.sroa.01.0.i = phi ptr [ %215, %222 ], [ %198, %239 ], [ %198, %211 ]
   store ptr %.sroa.036.0.i, ptr %18, align 8, !noalias !13
   store i64 %.sroa.9.0.i, ptr %144, align 8, !noalias !13
   store ptr %.sroa.034.0.i, ptr %17, align 8, !noalias !13
@@ -1085,7 +1085,7 @@ define void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(p
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
-  %spec.select = select i1 %206, i8 1, i8 %.0181
+  %spec.select = select i1 %206, i8 1, i8 %.0182
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h503b52b6ae7fdfeeE"(ptr nonnull align 8 %81, ptr nonnull align 8 %73)
           to label %249 unwind label %247
 
@@ -1114,7 +1114,7 @@ define void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(p
           to label %335 unwind label %.loopexit.split-lp
 
 257:                                              ; preds = %159
-  %258 = trunc nuw i8 %.0181 to i1
+  %258 = trunc nuw i8 %.0182 to i1
   br i1 %258, label %259, label %255
 
 259:                                              ; preds = %257
@@ -1319,7 +1319,7 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit214: ; p
   br i1 %338, label %362, label %340
 
 340:                                              ; preds = %339
-  %341 = trunc nuw i8 %.0181 to i1
+  %341 = trunc nuw i8 %.0182 to i1
   %342 = icmp eq i64 %.sroa.8.0, 0
   %or.cond = or i1 %342, %341
   br i1 %or.cond, label %343, label %346
@@ -1588,7 +1588,7 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit: ; pred
 
 446:                                              ; preds = %445
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
-  %447 = trunc nuw i8 %.0181 to i1
+  %447 = trunc nuw i8 %.0182 to i1
   br i1 %447, label %449, label %448
 
 448:                                              ; preds = %446

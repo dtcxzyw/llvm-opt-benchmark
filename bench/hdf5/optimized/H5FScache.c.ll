@@ -1930,16 +1930,16 @@ define internal ptr @H5FS__cache_sinfo_deserialize(ptr noundef %0, i64 %1, ptr n
   br label %61
 
 61:                                               ; preds = %57, %61
-  %.083107 = phi i64 [ 0, %57 ], [ %68, %61 ]
-  %.085106 = phi i64 [ 0, %57 ], [ %67, %61 ]
+  %.082107 = phi i64 [ 0, %57 ], [ %68, %61 ]
+  %.084106 = phi i64 [ 0, %57 ], [ %67, %61 ]
   %62 = phi ptr [ %60, %57 ], [ %64, %61 ]
-  %63 = shl i64 %.085106, 8
+  %63 = shl i64 %.084106, 8
   %64 = getelementptr inbounds i8, ptr %62, i64 -1
   store ptr %64, ptr %6, align 8
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i64
   %67 = or disjoint i64 %63, %66
-  %68 = add nuw nsw i64 %.083107, 1
+  %68 = add nuw nsw i64 %.082107, 1
   %exitcond.not = icmp eq i64 %68, %51
   br i1 %exitcond.not, label %69, label %61
 
@@ -1952,29 +1952,29 @@ define internal ptr @H5FS__cache_sinfo_deserialize(ptr noundef %0, i64 %1, ptr n
   br i1 %.not124, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %69, %.lr.ph
-  %.082110 = phi i64 [ %80, %.lr.ph ], [ 0, %69 ]
-  %.086109 = phi i64 [ %79, %.lr.ph ], [ 0, %69 ]
+  %.081110 = phi i64 [ %80, %.lr.ph ], [ 0, %69 ]
+  %.085109 = phi i64 [ %79, %.lr.ph ], [ 0, %69 ]
   %74 = phi ptr [ %76, %.lr.ph ], [ %73, %69 ]
-  %75 = shl i64 %.086109, 8
+  %75 = shl i64 %.085109, 8
   %76 = getelementptr inbounds i8, ptr %74, i64 -1
   store ptr %76, ptr %6, align 8
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i64
   %79 = or disjoint i64 %75, %78
-  %80 = add nuw nsw i64 %.082110, 1
+  %80 = add nuw nsw i64 %.081110, 1
   %81 = icmp ult i64 %80, %72
   br i1 %81, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %69
   %82 = phi ptr [ %73, %69 ], [ %76, %.lr.ph ]
-  %.086.lcssa = phi i64 [ 0, %69 ], [ %79, %.lr.ph ]
+  %.085.lcssa = phi i64 [ 0, %69 ], [ %79, %.lr.ph ]
   %83 = getelementptr inbounds i8, ptr %82, i64 %72
   store ptr %83, ptr %6, align 8
   %.not125 = icmp eq i64 %67, 0
   br i1 %.not125, label %._crit_edge123, label %.lr.ph122
 
 .lr.ph122:                                        ; preds = %._crit_edge, %127
-  %.084120 = phi i64 [ %128, %127 ], [ 0, %._crit_edge ]
+  %.083120 = phi i64 [ %128, %127 ], [ 0, %._crit_edge ]
   %84 = load i32, ptr %53, align 4
   %85 = load ptr, ptr %6, align 8
   %86 = zext i32 %84 to i64
@@ -2009,7 +2009,7 @@ define internal ptr @H5FS__cache_sinfo_deserialize(ptr noundef %0, i64 %1, ptr n
   %102 = getelementptr inbounds %struct.H5FS_section_class_t, ptr %100, i64 %101
   %103 = getelementptr inbounds i8, ptr %102, i64 64
   %104 = load ptr, ptr %103, align 8
-  %105 = call ptr %104(ptr noundef %102, ptr noundef nonnull %98, i64 noundef %.080.lcssa, i64 noundef %.086.lcssa, ptr noundef nonnull %7) #7
+  %105 = call ptr %104(ptr noundef %102, ptr noundef nonnull %98, i64 noundef %.080.lcssa, i64 noundef %.085.lcssa, ptr noundef nonnull %7) #7
   %106 = icmp eq ptr %105, null
   br i1 %106, label %107, label %111
 
@@ -2044,7 +2044,7 @@ define internal ptr @H5FS__cache_sinfo_deserialize(ptr noundef %0, i64 %1, ptr n
   br label %134
 
 127:                                              ; preds = %111, %119
-  %128 = add nuw i64 %.084120, 1
+  %128 = add nuw i64 %.083120, 1
   %129 = icmp ult i64 %128, %67
   br i1 %129, label %.lr.ph122, label %._crit_edge123.loopexit
 

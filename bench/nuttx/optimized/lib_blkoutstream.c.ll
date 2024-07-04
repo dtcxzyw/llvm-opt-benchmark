@@ -144,8 +144,8 @@ define internal void @blkoutstream_putc(ptr nocapture noundef %0, i32 noundef %1
   br label %12
 
 12:                                               ; preds = %61, %2
-  %.06474.i = phi ptr [ %3, %2 ], [ %.1.i, %61 ]
-  %.06573.i = phi i64 [ 1, %2 ], [ %.166.i, %61 ]
+  %.06474.i = phi i64 [ 1, %2 ], [ %.1.i, %61 ]
+  %.06573.i = phi ptr [ %3, %2 ], [ %.166.i, %61 ]
   %13 = load i32, ptr %0, align 8
   %14 = sext i32 %13 to i64
   %15 = udiv i64 %14, %7
@@ -154,13 +154,13 @@ define internal void @blkoutstream_putc(ptr nocapture noundef %0, i32 noundef %1
   br i1 %.not71.i, label %39, label %17
 
 17:                                               ; preds = %12
-  %18 = add i64 %16, %.06573.i
+  %18 = add i64 %16, %.06474.i
   %19 = icmp ugt i64 %18, %7
   %20 = sub i64 %7, %16
-  %21 = select i1 %19, i64 %20, i64 %.06573.i
+  %21 = select i1 %19, i64 %20, i64 %.06474.i
   %22 = load ptr, ptr %11, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 %16
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %.06474.i, i64 %21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %.06573.i, i64 %21, i1 false)
   %24 = add i64 %21, %16
   %25 = load i32, ptr %0, align 8
   %26 = trunc i64 %21 to i32
@@ -185,26 +185,26 @@ define internal void @blkoutstream_putc(ptr nocapture noundef %0, i32 noundef %1
 39:                                               ; preds = %12
   %40 = load i16, ptr %5, align 8
   %41 = sext i16 %40 to i64
-  %42 = icmp ult i64 %.06573.i, %41
+  %42 = icmp ult i64 %.06474.i, %41
   br i1 %42, label %.thread.i, label %47
 
 .thread.i:                                        ; preds = %39
   %43 = load ptr, ptr %11, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull align 1 dereferenceable(1) %.06474.i, i64 %.06573.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %43, ptr noundef nonnull align 1 dereferenceable(1) %.06573.i, i64 %.06474.i, i1 false)
   %44 = load i32, ptr %0, align 8
-  %45 = trunc i64 %.06573.i to i32
+  %45 = trunc i64 %.06474.i to i32
   %46 = add i32 %44, %45
   store i32 %46, ptr %0, align 8
   br label %blkoutstream_puts.exit
 
 47:                                               ; preds = %39
-  %48 = udiv i64 %.06573.i, %41
+  %48 = udiv i64 %.06474.i, %41
   %49 = load ptr, ptr %10, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 24
   %51 = load ptr, ptr %50, align 8
   %52 = trunc i64 %15 to i32
   %53 = trunc i64 %48 to i32
-  %54 = call i64 %51(ptr noundef %9, ptr noundef %.06474.i, i32 noundef %52, i32 noundef %53) #6
+  %54 = call i64 %51(ptr noundef %9, ptr noundef %.06573.i, i32 noundef %52, i32 noundef %53) #6
   %55 = and i64 %54, 2147483648
   %.not1 = icmp eq i64 %55, 0
   br i1 %.not1, label %56, label %blkoutstream_puts.exit
@@ -219,9 +219,9 @@ define internal void @blkoutstream_putc(ptr nocapture noundef %0, i32 noundef %1
 
 61:                                               ; preds = %56, %31, %17
   %.pn.i = phi i64 [ %21, %31 ], [ %21, %17 ], [ %57, %56 ]
-  %.1.i = getelementptr inbounds i8, ptr %.06474.i, i64 %.pn.i
-  %.166.i = sub i64 %.06573.i, %.pn.i
-  %.not.i = icmp eq i64 %.166.i, 0
+  %.1.i = sub i64 %.06474.i, %.pn.i
+  %.166.i = getelementptr inbounds i8, ptr %.06573.i, i64 %.pn.i
+  %.not.i = icmp eq i64 %.1.i, 0
   br i1 %.not.i, label %blkoutstream_puts.exit, label %12, !llvm.loop !6
 
 blkoutstream_puts.exit:                           ; preds = %31, %47, %61, %.thread.i
@@ -245,8 +245,8 @@ define internal i32 @blkoutstream_puts(ptr nocapture noundef %0, ptr noundef %1,
   br label %12
 
 12:                                               ; preds = %.lr.ph, %63
-  %.06474 = phi ptr [ %1, %.lr.ph ], [ %.1, %63 ]
-  %.06573 = phi i64 [ %10, %.lr.ph ], [ %.166, %63 ]
+  %.06474 = phi i64 [ %10, %.lr.ph ], [ %.1, %63 ]
+  %.06573 = phi ptr [ %1, %.lr.ph ], [ %.166, %63 ]
   %13 = load i32, ptr %0, align 8
   %14 = sext i32 %13 to i64
   %15 = udiv i64 %14, %6
@@ -255,13 +255,13 @@ define internal i32 @blkoutstream_puts(ptr nocapture noundef %0, ptr noundef %1,
   br i1 %.not71, label %40, label %17
 
 17:                                               ; preds = %12
-  %18 = add i64 %16, %.06573
+  %18 = add i64 %16, %.06474
   %19 = icmp ugt i64 %18, %6
   %20 = sub i64 %6, %16
-  %21 = select i1 %19, i64 %20, i64 %.06573
+  %21 = select i1 %19, i64 %20, i64 %.06474
   %22 = load ptr, ptr %11, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %.06474, i64 %21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %.06573, i64 %21, i1 false)
   %24 = add i64 %21, %16
   %25 = load i32, ptr %0, align 8
   %26 = trunc i64 %21 to i32
@@ -286,26 +286,26 @@ define internal i32 @blkoutstream_puts(ptr nocapture noundef %0, ptr noundef %1,
 40:                                               ; preds = %12
   %41 = load i16, ptr %4, align 8
   %42 = sext i16 %41 to i64
-  %43 = icmp ult i64 %.06573, %42
+  %43 = icmp ult i64 %.06474, %42
   br i1 %43, label %.thread, label %48
 
 .thread:                                          ; preds = %40
   %44 = load ptr, ptr %11, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 1 %.06474, i64 %.06573, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 1 %.06573, i64 %.06474, i1 false)
   %45 = load i32, ptr %0, align 8
-  %46 = trunc i64 %.06573 to i32
+  %46 = trunc i64 %.06474 to i32
   %47 = add i32 %45, %46
   store i32 %47, ptr %0, align 8
   br label %._crit_edge
 
 48:                                               ; preds = %40
-  %49 = udiv i64 %.06573, %42
+  %49 = udiv i64 %.06474, %42
   %50 = load ptr, ptr %9, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8
   %53 = trunc i64 %15 to i32
   %54 = trunc i64 %49 to i32
-  %55 = tail call i64 %52(ptr noundef %8, ptr noundef %.06474, i32 noundef %53, i32 noundef %54) #6
+  %55 = tail call i64 %52(ptr noundef %8, ptr noundef %.06573, i32 noundef %53, i32 noundef %54) #6
   %56 = trunc i64 %55 to i32
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %._crit_edge, label %58
@@ -320,9 +320,9 @@ define internal i32 @blkoutstream_puts(ptr nocapture noundef %0, ptr noundef %1,
 
 63:                                               ; preds = %58, %17, %31
   %.pn = phi i64 [ %21, %31 ], [ %21, %17 ], [ %59, %58 ]
-  %.1 = getelementptr inbounds i8, ptr %.06474, i64 %.pn
-  %.166 = sub i64 %.06573, %.pn
-  %.not = icmp eq i64 %.166, 0
+  %.1 = sub i64 %.06474, %.pn
+  %.166 = getelementptr inbounds i8, ptr %.06573, i64 %.pn
+  %.not = icmp eq i64 %.1, 0
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %31, %48, %63, %.thread, %3

@@ -8511,9 +8511,9 @@ default.unreachable1.i.i:                         ; preds = %45
 "_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit": ; preds = %63, %62, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i", %36, %33
   %.sroa.5.sroa.4.0 = phi i16 [ undef, %33 ], [ undef, %63 ], [ undef, %62 ], [ %.sroa.5.0.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ undef, %36 ]
   %.sroa.5.sroa.0.0 = phi i8 [ undef, %33 ], [ undef, %63 ], [ undef, %62 ], [ %.sroa.4.0.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ undef, %36 ]
+  %.sroa.6.0 = phi i64 [ undef, %33 ], [ undef, %63 ], [ undef, %62 ], [ %.sroa.15.12.insert.insert, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ undef, %36 ]
   %.sroa.53.0 = phi i32 [ %35, %33 ], [ %43, %63 ], [ %43, %62 ], [ %43, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ %43, %36 ]
   %.sroa.01.0 = phi i8 [ 6, %33 ], [ 5, %63 ], [ 4, %62 ], [ %31, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ 3, %36 ]
-  %.sroa.6.0 = phi i64 [ undef, %33 ], [ undef, %63 ], [ undef, %62 ], [ %.sroa.15.12.insert.insert, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ undef, %36 ]
   %64 = getelementptr inbounds i8, ptr %5, i64 2
   store i8 %30, ptr %64, align 2
   %65 = getelementptr inbounds i8, ptr %5, i64 1
@@ -19263,9 +19263,9 @@ default.unreachable1.i.i:                         ; preds = %64
 "_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit": ; preds = %82, %81, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i", %55, %52
   %.sroa.5.sroa.4.0 = phi i16 [ undef, %52 ], [ undef, %82 ], [ undef, %81 ], [ %.sroa.5.0.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ undef, %55 ]
   %.sroa.5.sroa.0.0 = phi i8 [ undef, %52 ], [ undef, %82 ], [ undef, %81 ], [ %.sroa.4.0.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ undef, %55 ]
-  %.sroa.02.0 = phi i8 [ 6, %52 ], [ 5, %82 ], [ 4, %81 ], [ %50, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ 3, %55 ]
-  %.sroa.54.0 = phi i32 [ %54, %52 ], [ %62, %82 ], [ %62, %81 ], [ %62, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ %62, %55 ]
   %.sroa.6.0 = phi i64 [ undef, %52 ], [ undef, %82 ], [ undef, %81 ], [ %.sroa.15.12.insert.insert, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ undef, %55 ]
+  %.sroa.54.0 = phi i32 [ %54, %52 ], [ %62, %82 ], [ %62, %81 ], [ %62, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ %62, %55 ]
+  %.sroa.02.0 = phi i8 [ 6, %52 ], [ 5, %82 ], [ 4, %81 ], [ %50, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ 3, %55 ]
   %83 = getelementptr inbounds i8, ptr %9, i64 1
   store i8 %switch.masked, ptr %83, align 1
   %84 = getelementptr inbounds i8, ptr %9, i64 2
@@ -19665,9 +19665,9 @@ default.unreachable1.i.i:                         ; preds = %53
 "_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit": ; preds = %71, %70, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i", %44, %41
   %.sroa.5.sroa.4.0 = phi i16 [ undef, %41 ], [ undef, %71 ], [ undef, %70 ], [ %.sroa.5.0.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ undef, %44 ]
   %.sroa.5.sroa.0.0 = phi i8 [ undef, %41 ], [ undef, %71 ], [ undef, %70 ], [ %.sroa.4.0.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ undef, %44 ]
+  %.sroa.6.0 = phi i64 [ undef, %41 ], [ undef, %71 ], [ undef, %70 ], [ %.sroa.15.12.insert.insert, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ undef, %44 ]
   %.sroa.53.0 = phi i32 [ %43, %41 ], [ %51, %71 ], [ %51, %70 ], [ %51, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ %51, %44 ]
   %.sroa.01.0 = phi i8 [ 6, %41 ], [ 5, %71 ], [ 4, %70 ], [ %39, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ 3, %44 ]
-  %.sroa.6.0 = phi i64 [ undef, %41 ], [ undef, %71 ], [ undef, %70 ], [ %.sroa.15.12.insert.insert, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ undef, %44 ]
   %72 = getelementptr inbounds i8, ptr %8, i64 1
   store i8 %switch.masked, ptr %72, align 1
   %73 = getelementptr inbounds i8, ptr %8, i64 4
@@ -19892,9 +19892,9 @@ default.unreachable1.i.i:                         ; preds = %53
 "_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit": ; preds = %71, %70, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i", %44, %41
   %.sroa.5.sroa.4.0 = phi i16 [ undef, %41 ], [ undef, %71 ], [ undef, %70 ], [ %.sroa.5.0.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ undef, %44 ]
   %.sroa.5.sroa.0.0 = phi i8 [ undef, %41 ], [ undef, %71 ], [ undef, %70 ], [ %.sroa.4.0.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ undef, %44 ]
+  %.sroa.6.0 = phi i64 [ undef, %41 ], [ undef, %71 ], [ undef, %70 ], [ %.sroa.15.12.insert.insert, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ undef, %44 ]
   %.sroa.53.0 = phi i32 [ %43, %41 ], [ %51, %71 ], [ %51, %70 ], [ %51, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ %51, %44 ]
   %.sroa.01.0 = phi i8 [ 6, %41 ], [ 5, %71 ], [ 4, %70 ], [ %39, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ 3, %44 ]
-  %.sroa.6.0 = phi i64 [ undef, %41 ], [ undef, %71 ], [ undef, %70 ], [ %.sroa.15.12.insert.insert, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ undef, %44 ]
   %72 = getelementptr inbounds i8, ptr %8, i64 1
   store i8 %switch.masked, ptr %72, align 1
   %73 = getelementptr inbounds i8, ptr %8, i64 12
@@ -20891,8 +20891,8 @@ switch.lookup5:                                   ; preds = %switch.hole_check
   %41 = load i32, ptr %40, align 4
   %42 = getelementptr inbounds i8, ptr %2, i64 1
   %43 = load i8, ptr %42, align 1
-  %.sroa.5.0 = select i1 %trunc, i8 undef, i8 %43
   %.sroa.62.0 = select i1 %trunc, i32 %41, i32 undef
+  %.sroa.5.0 = select i1 %trunc, i8 undef, i8 %43
   %44 = getelementptr inbounds i8, ptr %8, i64 2
   store i8 %switch.masked, ptr %44, align 2
   %45 = getelementptr inbounds i8, ptr %8, i64 1
@@ -23489,15 +23489,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !2725, !noalias !2728
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !2725, !noalias !2728
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !2725, !noalias !2728
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !2725, !noalias !2728
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !2725, !noalias !2728
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !2725, !noalias !2728
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -23627,15 +23627,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !2750, !noalias !2753
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !2750, !noalias !2753
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !2750, !noalias !2753
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !2750, !noalias !2753
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !2750, !noalias !2753
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !2750, !noalias !2753
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -23765,15 +23765,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !2775, !noalias !2778
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !2775, !noalias !2778
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !2775, !noalias !2778
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !2775, !noalias !2778
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !2775, !noalias !2778
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !2775, !noalias !2778
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -23903,15 +23903,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !2800, !noalias !2803
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !2800, !noalias !2803
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !2800, !noalias !2803
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !2800, !noalias !2803
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !2800, !noalias !2803
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !2800, !noalias !2803
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -24041,15 +24041,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !2825, !noalias !2828
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !2825, !noalias !2828
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !2825, !noalias !2828
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !2825, !noalias !2828
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !2825, !noalias !2828
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !2825, !noalias !2828
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -24179,15 +24179,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !2850, !noalias !2853
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !2850, !noalias !2853
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !2850, !noalias !2853
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !2850, !noalias !2853
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !2850, !noalias !2853
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !2850, !noalias !2853
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -24317,15 +24317,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !2875, !noalias !2878
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !2875, !noalias !2878
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !2875, !noalias !2878
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !2875, !noalias !2878
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !2875, !noalias !2878
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !2875, !noalias !2878
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -24455,15 +24455,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !2900, !noalias !2903
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !2900, !noalias !2903
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !2900, !noalias !2903
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !2900, !noalias !2903
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !2900, !noalias !2903
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !2900, !noalias !2903
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -24593,15 +24593,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !2925, !noalias !2928
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !2925, !noalias !2928
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !2925, !noalias !2928
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !2925, !noalias !2928
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !2925, !noalias !2928
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !2925, !noalias !2928
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -24731,15 +24731,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !2950, !noalias !2953
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !2950, !noalias !2953
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !2950, !noalias !2953
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !2950, !noalias !2953
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !2950, !noalias !2953
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !2950, !noalias !2953
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -24869,15 +24869,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !2975, !noalias !2978
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !2975, !noalias !2978
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !2975, !noalias !2978
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !2975, !noalias !2978
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !2975, !noalias !2978
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !2975, !noalias !2978
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -25007,15 +25007,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3000, !noalias !3003
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3000, !noalias !3003
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3000, !noalias !3003
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3000, !noalias !3003
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3000, !noalias !3003
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3000, !noalias !3003
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -25145,15 +25145,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3025, !noalias !3028
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3025, !noalias !3028
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3025, !noalias !3028
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3025, !noalias !3028
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3025, !noalias !3028
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3025, !noalias !3028
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -25283,15 +25283,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3050, !noalias !3053
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3050, !noalias !3053
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3050, !noalias !3053
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3050, !noalias !3053
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3050, !noalias !3053
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3050, !noalias !3053
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -25421,15 +25421,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3075, !noalias !3078
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3075, !noalias !3078
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3075, !noalias !3078
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3075, !noalias !3078
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3075, !noalias !3078
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3075, !noalias !3078
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -25559,15 +25559,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3100, !noalias !3103
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3100, !noalias !3103
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3100, !noalias !3103
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3100, !noalias !3103
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3100, !noalias !3103
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3100, !noalias !3103
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -25697,15 +25697,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3125, !noalias !3128
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3125, !noalias !3128
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3125, !noalias !3128
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3125, !noalias !3128
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3125, !noalias !3128
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3125, !noalias !3128
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -25835,15 +25835,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3150, !noalias !3153
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3150, !noalias !3153
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3150, !noalias !3153
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3150, !noalias !3153
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3150, !noalias !3153
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3150, !noalias !3153
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -25973,15 +25973,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3175, !noalias !3178
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3175, !noalias !3178
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3175, !noalias !3178
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3175, !noalias !3178
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3175, !noalias !3178
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3175, !noalias !3178
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -26111,15 +26111,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3200, !noalias !3203
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3200, !noalias !3203
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3200, !noalias !3203
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3200, !noalias !3203
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3200, !noalias !3203
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3200, !noalias !3203
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -26249,15 +26249,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3225, !noalias !3228
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3225, !noalias !3228
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3225, !noalias !3228
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3225, !noalias !3228
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3225, !noalias !3228
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3225, !noalias !3228
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -26387,15 +26387,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3250, !noalias !3253
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3250, !noalias !3253
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3250, !noalias !3253
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3250, !noalias !3253
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3250, !noalias !3253
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3250, !noalias !3253
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -26525,15 +26525,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3275, !noalias !3278
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3275, !noalias !3278
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3275, !noalias !3278
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3275, !noalias !3278
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3275, !noalias !3278
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3275, !noalias !3278
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -26663,15 +26663,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3300, !noalias !3303
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3300, !noalias !3303
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3300, !noalias !3303
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3300, !noalias !3303
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3300, !noalias !3303
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3300, !noalias !3303
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -26801,15 +26801,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3325, !noalias !3328
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3325, !noalias !3328
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3325, !noalias !3328
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3325, !noalias !3328
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3325, !noalias !3328
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3325, !noalias !3328
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -26939,15 +26939,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3350, !noalias !3353
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3350, !noalias !3353
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3350, !noalias !3353
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3350, !noalias !3353
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3350, !noalias !3353
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3350, !noalias !3353
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -27077,15 +27077,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3375, !noalias !3378
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3375, !noalias !3378
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3375, !noalias !3378
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3375, !noalias !3378
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3375, !noalias !3378
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3375, !noalias !3378
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -27215,15 +27215,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3400, !noalias !3403
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3400, !noalias !3403
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3400, !noalias !3403
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3400, !noalias !3403
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3400, !noalias !3403
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3400, !noalias !3403
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -27353,15 +27353,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3425, !noalias !3428
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3425, !noalias !3428
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3425, !noalias !3428
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3425, !noalias !3428
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3425, !noalias !3428
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3425, !noalias !3428
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -27491,15 +27491,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3450, !noalias !3453
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3450, !noalias !3453
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3450, !noalias !3453
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3450, !noalias !3453
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3450, !noalias !3453
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3450, !noalias !3453
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -27629,15 +27629,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3475, !noalias !3478
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3475, !noalias !3478
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3475, !noalias !3478
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3475, !noalias !3478
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3475, !noalias !3478
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3475, !noalias !3478
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -27767,15 +27767,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3500, !noalias !3503
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3500, !noalias !3503
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3500, !noalias !3503
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3500, !noalias !3503
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3500, !noalias !3503
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3500, !noalias !3503
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -27905,15 +27905,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3525, !noalias !3528
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3525, !noalias !3528
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3525, !noalias !3528
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3525, !noalias !3528
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3525, !noalias !3528
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3525, !noalias !3528
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -28043,15 +28043,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3550, !noalias !3553
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3550, !noalias !3553
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3550, !noalias !3553
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3550, !noalias !3553
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3550, !noalias !3553
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3550, !noalias !3553
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -28181,15 +28181,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3575, !noalias !3578
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3575, !noalias !3578
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3575, !noalias !3578
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3575, !noalias !3578
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3575, !noalias !3578
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3575, !noalias !3578
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -28319,15 +28319,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3600, !noalias !3603
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3600, !noalias !3603
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3600, !noalias !3603
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3600, !noalias !3603
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3600, !noalias !3603
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3600, !noalias !3603
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -28457,15 +28457,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3625, !noalias !3628
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3625, !noalias !3628
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3625, !noalias !3628
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3625, !noalias !3628
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3625, !noalias !3628
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3625, !noalias !3628
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -28595,15 +28595,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3650, !noalias !3653
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3650, !noalias !3653
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3650, !noalias !3653
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3650, !noalias !3653
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3650, !noalias !3653
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3650, !noalias !3653
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -28733,15 +28733,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3675, !noalias !3678
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3675, !noalias !3678
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3675, !noalias !3678
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3675, !noalias !3678
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3675, !noalias !3678
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3675, !noalias !3678
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -28871,15 +28871,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3700, !noalias !3703
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3700, !noalias !3703
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3700, !noalias !3703
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3700, !noalias !3703
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3700, !noalias !3703
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3700, !noalias !3703
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -29009,15 +29009,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3725, !noalias !3728
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3725, !noalias !3728
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3725, !noalias !3728
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3725, !noalias !3728
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3725, !noalias !3728
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3725, !noalias !3728
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -29147,15 +29147,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3750, !noalias !3753
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3750, !noalias !3753
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3750, !noalias !3753
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3750, !noalias !3753
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3750, !noalias !3753
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3750, !noalias !3753
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -29285,15 +29285,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3775, !noalias !3778
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3775, !noalias !3778
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3775, !noalias !3778
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3775, !noalias !3778
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3775, !noalias !3778
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3775, !noalias !3778
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -29423,15 +29423,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3800, !noalias !3803
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3800, !noalias !3803
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3800, !noalias !3803
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3800, !noalias !3803
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3800, !noalias !3803
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3800, !noalias !3803
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -29561,15 +29561,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3825, !noalias !3828
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3825, !noalias !3828
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3825, !noalias !3828
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3825, !noalias !3828
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3825, !noalias !3828
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3825, !noalias !3828
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -29699,15 +29699,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3850, !noalias !3853
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3850, !noalias !3853
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3850, !noalias !3853
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3850, !noalias !3853
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3850, !noalias !3853
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3850, !noalias !3853
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -29837,15 +29837,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3875, !noalias !3878
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3875, !noalias !3878
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3875, !noalias !3878
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3875, !noalias !3878
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3875, !noalias !3878
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3875, !noalias !3878
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -29975,15 +29975,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3900, !noalias !3903
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3900, !noalias !3903
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3900, !noalias !3903
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3900, !noalias !3903
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3900, !noalias !3903
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3900, !noalias !3903
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -30110,15 +30110,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %14, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %40, %41, %42
   %.sroa.08.061.i = phi i8 [ 6, %42 ], [ 3, %14 ], [ %12, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %40 ], [ 5, %41 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.6.04358.i = phi i64 [ undef, %42 ], [ undef, %14 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.53.04557.i = phi i32 [ %44, %42 ], [ %21, %14 ], [ %21, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %21, %40 ], [ %21, %41 ]
   store i8 %.sroa.08.061.i, ptr %3, align 4, !alias.scope !3925, !noalias !3928
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3925, !noalias !3928
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3925, !noalias !3928
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3925, !noalias !3928
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3925, !noalias !3928
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3925, !noalias !3928
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -30246,15 +30246,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %14, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %40, %41, %42
   %.sroa.08.061.i = phi i8 [ 6, %42 ], [ 3, %14 ], [ %12, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %40 ], [ 5, %41 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.6.04358.i = phi i64 [ undef, %42 ], [ undef, %14 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.53.04557.i = phi i32 [ %44, %42 ], [ %21, %14 ], [ %21, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %21, %40 ], [ %21, %41 ]
   store i8 %.sroa.08.061.i, ptr %3, align 4, !alias.scope !3950, !noalias !3953
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3950, !noalias !3953
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3950, !noalias !3953
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3950, !noalias !3953
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3950, !noalias !3953
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3950, !noalias !3953
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -30385,15 +30385,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !3975, !noalias !3978
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3975, !noalias !3978
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !3975, !noalias !3978
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3975, !noalias !3978
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !3975, !noalias !3978
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !3975, !noalias !3978
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -30523,15 +30523,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !4000, !noalias !4003
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4000, !noalias !4003
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4000, !noalias !4003
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4000, !noalias !4003
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4000, !noalias !4003
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !4000, !noalias !4003
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -30658,15 +30658,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %14, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %40, %41, %42
   %.sroa.08.061.i = phi i8 [ 6, %42 ], [ 3, %14 ], [ %12, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %40 ], [ 5, %41 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.6.04358.i = phi i64 [ undef, %42 ], [ undef, %14 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.53.04557.i = phi i32 [ %44, %42 ], [ %21, %14 ], [ %21, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %21, %40 ], [ %21, %41 ]
   store i8 %.sroa.08.061.i, ptr %3, align 4, !alias.scope !4025, !noalias !4028
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4025, !noalias !4028
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4025, !noalias !4028
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4025, !noalias !4028
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4025, !noalias !4028
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !4025, !noalias !4028
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -30794,15 +30794,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %14, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %40, %41, %42
   %.sroa.08.061.i = phi i8 [ 6, %42 ], [ 3, %14 ], [ %12, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %40 ], [ 5, %41 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.6.04358.i = phi i64 [ undef, %42 ], [ undef, %14 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.53.04557.i = phi i32 [ %44, %42 ], [ %21, %14 ], [ %21, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %21, %40 ], [ %21, %41 ]
   store i8 %.sroa.08.061.i, ptr %3, align 4, !alias.scope !4050, !noalias !4053
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4050, !noalias !4053
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4050, !noalias !4053
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4050, !noalias !4053
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4050, !noalias !4053
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !4050, !noalias !4053
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -30933,15 +30933,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !4075, !noalias !4078
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4075, !noalias !4078
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4075, !noalias !4078
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4075, !noalias !4078
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4075, !noalias !4078
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !4075, !noalias !4078
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -31071,15 +31071,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !4100, !noalias !4103
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4100, !noalias !4103
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4100, !noalias !4103
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4100, !noalias !4103
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4100, !noalias !4103
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !4100, !noalias !4103
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -31206,15 +31206,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %14, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %40, %41, %42
   %.sroa.08.061.i = phi i8 [ 6, %42 ], [ 3, %14 ], [ %12, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %40 ], [ 5, %41 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.6.04358.i = phi i64 [ undef, %42 ], [ undef, %14 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.53.04557.i = phi i32 [ %44, %42 ], [ %21, %14 ], [ %21, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %21, %40 ], [ %21, %41 ]
   store i8 %.sroa.08.061.i, ptr %3, align 4, !alias.scope !4125, !noalias !4128
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4125, !noalias !4128
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4125, !noalias !4128
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4125, !noalias !4128
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4125, !noalias !4128
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !4125, !noalias !4128
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -31342,15 +31342,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %14, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %40, %41, %42
   %.sroa.08.061.i = phi i8 [ 6, %42 ], [ 3, %14 ], [ %12, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %40 ], [ 5, %41 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.6.04358.i = phi i64 [ undef, %42 ], [ undef, %14 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.53.04557.i = phi i32 [ %44, %42 ], [ %21, %14 ], [ %21, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %21, %40 ], [ %21, %41 ]
   store i8 %.sroa.08.061.i, ptr %3, align 4, !alias.scope !4150, !noalias !4153
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4150, !noalias !4153
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4150, !noalias !4153
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4150, !noalias !4153
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4150, !noalias !4153
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !4150, !noalias !4153
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -31481,15 +31481,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !4175, !noalias !4178
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4175, !noalias !4178
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4175, !noalias !4178
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4175, !noalias !4178
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4175, !noalias !4178
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !4175, !noalias !4178
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -31619,15 +31619,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !4200, !noalias !4203
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4200, !noalias !4203
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4200, !noalias !4203
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4200, !noalias !4203
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4200, !noalias !4203
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !4200, !noalias !4203
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -31754,15 +31754,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %14, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %40, %41, %42
   %.sroa.08.061.i = phi i8 [ 6, %42 ], [ 3, %14 ], [ %12, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %40 ], [ 5, %41 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.6.04358.i = phi i64 [ undef, %42 ], [ undef, %14 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.53.04557.i = phi i32 [ %44, %42 ], [ %21, %14 ], [ %21, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %21, %40 ], [ %21, %41 ]
   store i8 %.sroa.08.061.i, ptr %3, align 4, !alias.scope !4225, !noalias !4228
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4225, !noalias !4228
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4225, !noalias !4228
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4225, !noalias !4228
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4225, !noalias !4228
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !4225, !noalias !4228
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -31890,15 +31890,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %14, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %40, %41, %42
   %.sroa.08.061.i = phi i8 [ 6, %42 ], [ 3, %14 ], [ %12, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %40 ], [ 5, %41 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.6.04358.i = phi i64 [ undef, %42 ], [ undef, %14 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.53.04557.i = phi i32 [ %44, %42 ], [ %21, %14 ], [ %21, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %21, %40 ], [ %21, %41 ]
   store i8 %.sroa.08.061.i, ptr %3, align 4, !alias.scope !4250, !noalias !4253
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4250, !noalias !4253
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4250, !noalias !4253
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4250, !noalias !4253
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4250, !noalias !4253
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !4250, !noalias !4253
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -32029,15 +32029,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !4275, !noalias !4278
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4275, !noalias !4278
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4275, !noalias !4278
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4275, !noalias !4278
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4275, !noalias !4278
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !4275, !noalias !4278
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -32167,15 +32167,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !4300, !noalias !4303
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4300, !noalias !4303
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4300, !noalias !4303
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4300, !noalias !4303
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4300, !noalias !4303
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !4300, !noalias !4303
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -32587,15 +32587,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !4394, !noalias !4397
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4394, !noalias !4397
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4394, !noalias !4397
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4394, !noalias !4397
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4394, !noalias !4397
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !4394, !noalias !4397
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -32752,15 +32752,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit.i": ; preds = %54, %53, %52, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i", %26
   %.sroa.08.061.i.i = phi i8 [ 6, %54 ], [ 3, %26 ], [ %24, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ 4, %52 ], [ 5, %53 ]
-  %.sroa.5.sroa.0.03960.i.i = phi i8 [ undef, %54 ], [ undef, %26 ], [ %.sroa.4.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %52 ], [ undef, %53 ]
-  %.sroa.5.sroa.4.04159.i.i = phi i16 [ undef, %54 ], [ undef, %26 ], [ %.sroa.5.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %52 ], [ undef, %53 ]
+  %.sroa.5.sroa.4.03960.i.i = phi i16 [ undef, %54 ], [ undef, %26 ], [ %.sroa.5.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %52 ], [ undef, %53 ]
+  %.sroa.5.sroa.0.04159.i.i = phi i8 [ undef, %54 ], [ undef, %26 ], [ %.sroa.4.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %52 ], [ undef, %53 ]
   %.sroa.6.04358.i.i = phi i64 [ undef, %54 ], [ undef, %26 ], [ %.sroa.15.12.insert.insert.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %52 ], [ undef, %53 ]
   %.sroa.53.04557.i.i = phi i32 [ %56, %54 ], [ %33, %26 ], [ %33, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ %33, %52 ], [ %33, %53 ]
   store i8 %.sroa.08.061.i.i, ptr %9, align 4, !alias.scope !4431, !noalias !4453
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i.i, ptr %.sroa.8.0..sroa_idx.i.i, align 1, !alias.scope !4431, !noalias !4453
+  store i8 %.sroa.5.sroa.0.04159.i.i, ptr %.sroa.8.0..sroa_idx.i.i, align 1, !alias.scope !4431, !noalias !4453
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i, align 2, !alias.scope !4431, !noalias !4453
+  store i16 %.sroa.5.sroa.4.03960.i.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i, align 2, !alias.scope !4431, !noalias !4453
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %.sroa.53.04557.i.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i, align 4, !alias.scope !4431, !noalias !4453
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 8
@@ -32885,15 +32885,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit.i3": ; preds = %100, %99, %98, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15", %72
   %.sroa.08.061.i.i4 = phi i8 [ 6, %100 ], [ 3, %72 ], [ %70, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ 4, %98 ], [ 5, %99 ]
-  %.sroa.5.sroa.0.03960.i.i5 = phi i8 [ undef, %100 ], [ undef, %72 ], [ %.sroa.4.0.i.i.i18, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ undef, %98 ], [ undef, %99 ]
-  %.sroa.5.sroa.4.04159.i.i6 = phi i16 [ undef, %100 ], [ undef, %72 ], [ %.sroa.5.0.i.i.i17, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ undef, %98 ], [ undef, %99 ]
+  %.sroa.5.sroa.4.03960.i.i5 = phi i16 [ undef, %100 ], [ undef, %72 ], [ %.sroa.5.0.i.i.i17, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ undef, %98 ], [ undef, %99 ]
+  %.sroa.5.sroa.0.04159.i.i6 = phi i8 [ undef, %100 ], [ undef, %72 ], [ %.sroa.4.0.i.i.i18, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ undef, %98 ], [ undef, %99 ]
   %.sroa.6.04358.i.i7 = phi i64 [ undef, %100 ], [ undef, %72 ], [ %.sroa.15.12.insert.insert.i.i21, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ undef, %98 ], [ undef, %99 ]
   %.sroa.53.04557.i.i8 = phi i32 [ %102, %100 ], [ %79, %72 ], [ %79, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ %79, %98 ], [ %79, %99 ]
   store i8 %.sroa.08.061.i.i4, ptr %7, align 4, !alias.scope !4465, !noalias !4487
   %.sroa.8.0..sroa_idx.i.i9 = getelementptr inbounds i8, ptr %7, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i.i5, ptr %.sroa.8.0..sroa_idx.i.i9, align 1, !alias.scope !4465, !noalias !4487
+  store i8 %.sroa.5.sroa.0.04159.i.i6, ptr %.sroa.8.0..sroa_idx.i.i9, align 1, !alias.scope !4465, !noalias !4487
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i10 = getelementptr inbounds i8, ptr %7, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i.i6, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i10, align 2, !alias.scope !4465, !noalias !4487
+  store i16 %.sroa.5.sroa.4.03960.i.i5, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i10, align 2, !alias.scope !4465, !noalias !4487
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i11 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 %.sroa.53.04557.i.i8, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i11, align 4, !alias.scope !4465, !noalias !4487
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i.i12 = getelementptr inbounds i8, ptr %7, i64 8
@@ -33023,15 +33023,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !4493, !noalias !4496
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4493, !noalias !4496
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4493, !noalias !4496
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4493, !noalias !4496
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4493, !noalias !4496
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !4493, !noalias !4496
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -33190,15 +33190,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit.i": ; preds = %56, %55, %54, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i", %28
   %.sroa.08.061.i.i = phi i8 [ 6, %56 ], [ 3, %28 ], [ %26, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ 4, %54 ], [ 5, %55 ]
-  %.sroa.5.sroa.0.03960.i.i = phi i8 [ undef, %56 ], [ undef, %28 ], [ %.sroa.4.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %54 ], [ undef, %55 ]
-  %.sroa.5.sroa.4.04159.i.i = phi i16 [ undef, %56 ], [ undef, %28 ], [ %.sroa.5.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %54 ], [ undef, %55 ]
+  %.sroa.5.sroa.4.03960.i.i = phi i16 [ undef, %56 ], [ undef, %28 ], [ %.sroa.5.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %54 ], [ undef, %55 ]
+  %.sroa.5.sroa.0.04159.i.i = phi i8 [ undef, %56 ], [ undef, %28 ], [ %.sroa.4.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %54 ], [ undef, %55 ]
   %.sroa.6.04358.i.i = phi i64 [ undef, %56 ], [ undef, %28 ], [ %.sroa.15.12.insert.insert.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %54 ], [ undef, %55 ]
   %.sroa.53.04557.i.i = phi i32 [ %58, %56 ], [ %35, %28 ], [ %35, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ %35, %54 ], [ %35, %55 ]
   store i8 %.sroa.08.061.i.i, ptr %11, align 4, !alias.scope !4530, !noalias !4552
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %11, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i.i, ptr %.sroa.8.0..sroa_idx.i.i, align 1, !alias.scope !4530, !noalias !4552
+  store i8 %.sroa.5.sroa.0.04159.i.i, ptr %.sroa.8.0..sroa_idx.i.i, align 1, !alias.scope !4530, !noalias !4552
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %11, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i, align 2, !alias.scope !4530, !noalias !4552
+  store i16 %.sroa.5.sroa.4.03960.i.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i, align 2, !alias.scope !4530, !noalias !4552
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %11, i64 4
   store i32 %.sroa.53.04557.i.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i, align 4, !alias.scope !4530, !noalias !4552
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %11, i64 8
@@ -33319,15 +33319,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit.i3": ; preds = %100, %99, %98, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15", %72
   %.sroa.08.061.i.i4 = phi i8 [ 6, %100 ], [ 3, %72 ], [ %70, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ 4, %98 ], [ 5, %99 ]
-  %.sroa.5.sroa.0.03960.i.i5 = phi i8 [ undef, %100 ], [ undef, %72 ], [ %.sroa.4.0.i.i.i18, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ undef, %98 ], [ undef, %99 ]
-  %.sroa.5.sroa.4.04159.i.i6 = phi i16 [ undef, %100 ], [ undef, %72 ], [ %.sroa.5.0.i.i.i17, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ undef, %98 ], [ undef, %99 ]
+  %.sroa.5.sroa.4.03960.i.i5 = phi i16 [ undef, %100 ], [ undef, %72 ], [ %.sroa.5.0.i.i.i17, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ undef, %98 ], [ undef, %99 ]
+  %.sroa.5.sroa.0.04159.i.i6 = phi i8 [ undef, %100 ], [ undef, %72 ], [ %.sroa.4.0.i.i.i18, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ undef, %98 ], [ undef, %99 ]
   %.sroa.6.04358.i.i7 = phi i64 [ undef, %100 ], [ undef, %72 ], [ %.sroa.15.12.insert.insert.i.i21, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ undef, %98 ], [ undef, %99 ]
   %.sroa.53.04557.i.i8 = phi i32 [ %102, %100 ], [ %79, %72 ], [ %79, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ %79, %98 ], [ %79, %99 ]
   store i8 %.sroa.08.061.i.i4, ptr %9, align 4, !alias.scope !4564, !noalias !4586
   %.sroa.8.0..sroa_idx.i.i9 = getelementptr inbounds i8, ptr %9, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i.i5, ptr %.sroa.8.0..sroa_idx.i.i9, align 1, !alias.scope !4564, !noalias !4586
+  store i8 %.sroa.5.sroa.0.04159.i.i6, ptr %.sroa.8.0..sroa_idx.i.i9, align 1, !alias.scope !4564, !noalias !4586
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i10 = getelementptr inbounds i8, ptr %9, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i.i6, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i10, align 2, !alias.scope !4564, !noalias !4586
+  store i16 %.sroa.5.sroa.4.03960.i.i5, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i10, align 2, !alias.scope !4564, !noalias !4586
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i11 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %.sroa.53.04557.i.i8, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i11, align 4, !alias.scope !4564, !noalias !4586
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i.i12 = getelementptr inbounds i8, ptr %9, i64 8
@@ -33448,15 +33448,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit.i28": ; preds = %144, %143, %142, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i40", %116
   %.sroa.08.061.i.i29 = phi i8 [ 6, %144 ], [ 3, %116 ], [ %114, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i40" ], [ 4, %142 ], [ 5, %143 ]
-  %.sroa.5.sroa.0.03960.i.i30 = phi i8 [ undef, %144 ], [ undef, %116 ], [ %.sroa.4.0.i.i.i43, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i40" ], [ undef, %142 ], [ undef, %143 ]
-  %.sroa.5.sroa.4.04159.i.i31 = phi i16 [ undef, %144 ], [ undef, %116 ], [ %.sroa.5.0.i.i.i42, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i40" ], [ undef, %142 ], [ undef, %143 ]
+  %.sroa.5.sroa.4.03960.i.i30 = phi i16 [ undef, %144 ], [ undef, %116 ], [ %.sroa.5.0.i.i.i42, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i40" ], [ undef, %142 ], [ undef, %143 ]
+  %.sroa.5.sroa.0.04159.i.i31 = phi i8 [ undef, %144 ], [ undef, %116 ], [ %.sroa.4.0.i.i.i43, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i40" ], [ undef, %142 ], [ undef, %143 ]
   %.sroa.6.04358.i.i32 = phi i64 [ undef, %144 ], [ undef, %116 ], [ %.sroa.15.12.insert.insert.i.i46, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i40" ], [ undef, %142 ], [ undef, %143 ]
   %.sroa.53.04557.i.i33 = phi i32 [ %146, %144 ], [ %123, %116 ], [ %123, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i40" ], [ %123, %142 ], [ %123, %143 ]
   store i8 %.sroa.08.061.i.i29, ptr %7, align 4, !alias.scope !4598, !noalias !4620
   %.sroa.8.0..sroa_idx.i.i34 = getelementptr inbounds i8, ptr %7, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i.i30, ptr %.sroa.8.0..sroa_idx.i.i34, align 1, !alias.scope !4598, !noalias !4620
+  store i8 %.sroa.5.sroa.0.04159.i.i31, ptr %.sroa.8.0..sroa_idx.i.i34, align 1, !alias.scope !4598, !noalias !4620
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i35 = getelementptr inbounds i8, ptr %7, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i.i31, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i35, align 2, !alias.scope !4598, !noalias !4620
+  store i16 %.sroa.5.sroa.4.03960.i.i30, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i35, align 2, !alias.scope !4598, !noalias !4620
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i36 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 %.sroa.53.04557.i.i33, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i36, align 4, !alias.scope !4598, !noalias !4620
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i.i37 = getelementptr inbounds i8, ptr %7, i64 8
@@ -33615,15 +33615,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit.i": ; preds = %56, %55, %54, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i", %28
   %.sroa.08.061.i.i = phi i8 [ 6, %56 ], [ 3, %28 ], [ %26, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ 4, %54 ], [ 5, %55 ]
-  %.sroa.5.sroa.0.03960.i.i = phi i8 [ undef, %56 ], [ undef, %28 ], [ %.sroa.4.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %54 ], [ undef, %55 ]
-  %.sroa.5.sroa.4.04159.i.i = phi i16 [ undef, %56 ], [ undef, %28 ], [ %.sroa.5.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %54 ], [ undef, %55 ]
+  %.sroa.5.sroa.4.03960.i.i = phi i16 [ undef, %56 ], [ undef, %28 ], [ %.sroa.5.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %54 ], [ undef, %55 ]
+  %.sroa.5.sroa.0.04159.i.i = phi i8 [ undef, %56 ], [ undef, %28 ], [ %.sroa.4.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %54 ], [ undef, %55 ]
   %.sroa.6.04358.i.i = phi i64 [ undef, %56 ], [ undef, %28 ], [ %.sroa.15.12.insert.insert.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %54 ], [ undef, %55 ]
   %.sroa.53.04557.i.i = phi i32 [ %58, %56 ], [ %35, %28 ], [ %35, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ %35, %54 ], [ %35, %55 ]
   store i8 %.sroa.08.061.i.i, ptr %11, align 4, !alias.scope !4638, !noalias !4660
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %11, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i.i, ptr %.sroa.8.0..sroa_idx.i.i, align 1, !alias.scope !4638, !noalias !4660
+  store i8 %.sroa.5.sroa.0.04159.i.i, ptr %.sroa.8.0..sroa_idx.i.i, align 1, !alias.scope !4638, !noalias !4660
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %11, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i, align 2, !alias.scope !4638, !noalias !4660
+  store i16 %.sroa.5.sroa.4.03960.i.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i, align 2, !alias.scope !4638, !noalias !4660
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %11, i64 4
   store i32 %.sroa.53.04557.i.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i, align 4, !alias.scope !4638, !noalias !4660
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %11, i64 8
@@ -33744,15 +33744,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit.i3": ; preds = %100, %99, %98, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15", %72
   %.sroa.08.061.i.i4 = phi i8 [ 6, %100 ], [ 3, %72 ], [ %70, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ 4, %98 ], [ 5, %99 ]
-  %.sroa.5.sroa.0.03960.i.i5 = phi i8 [ undef, %100 ], [ undef, %72 ], [ %.sroa.4.0.i.i.i18, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ undef, %98 ], [ undef, %99 ]
-  %.sroa.5.sroa.4.04159.i.i6 = phi i16 [ undef, %100 ], [ undef, %72 ], [ %.sroa.5.0.i.i.i17, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ undef, %98 ], [ undef, %99 ]
+  %.sroa.5.sroa.4.03960.i.i5 = phi i16 [ undef, %100 ], [ undef, %72 ], [ %.sroa.5.0.i.i.i17, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ undef, %98 ], [ undef, %99 ]
+  %.sroa.5.sroa.0.04159.i.i6 = phi i8 [ undef, %100 ], [ undef, %72 ], [ %.sroa.4.0.i.i.i18, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ undef, %98 ], [ undef, %99 ]
   %.sroa.6.04358.i.i7 = phi i64 [ undef, %100 ], [ undef, %72 ], [ %.sroa.15.12.insert.insert.i.i21, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ undef, %98 ], [ undef, %99 ]
   %.sroa.53.04557.i.i8 = phi i32 [ %102, %100 ], [ %79, %72 ], [ %79, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ %79, %98 ], [ %79, %99 ]
   store i8 %.sroa.08.061.i.i4, ptr %9, align 4, !alias.scope !4672, !noalias !4694
   %.sroa.8.0..sroa_idx.i.i9 = getelementptr inbounds i8, ptr %9, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i.i5, ptr %.sroa.8.0..sroa_idx.i.i9, align 1, !alias.scope !4672, !noalias !4694
+  store i8 %.sroa.5.sroa.0.04159.i.i6, ptr %.sroa.8.0..sroa_idx.i.i9, align 1, !alias.scope !4672, !noalias !4694
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i10 = getelementptr inbounds i8, ptr %9, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i.i6, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i10, align 2, !alias.scope !4672, !noalias !4694
+  store i16 %.sroa.5.sroa.4.03960.i.i5, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i10, align 2, !alias.scope !4672, !noalias !4694
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i11 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %.sroa.53.04557.i.i8, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i11, align 4, !alias.scope !4672, !noalias !4694
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i.i12 = getelementptr inbounds i8, ptr %9, i64 8
@@ -33873,15 +33873,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit.i28": ; preds = %144, %143, %142, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i40", %116
   %.sroa.08.061.i.i29 = phi i8 [ 6, %144 ], [ 3, %116 ], [ %114, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i40" ], [ 4, %142 ], [ 5, %143 ]
-  %.sroa.5.sroa.0.03960.i.i30 = phi i8 [ undef, %144 ], [ undef, %116 ], [ %.sroa.4.0.i.i.i43, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i40" ], [ undef, %142 ], [ undef, %143 ]
-  %.sroa.5.sroa.4.04159.i.i31 = phi i16 [ undef, %144 ], [ undef, %116 ], [ %.sroa.5.0.i.i.i42, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i40" ], [ undef, %142 ], [ undef, %143 ]
+  %.sroa.5.sroa.4.03960.i.i30 = phi i16 [ undef, %144 ], [ undef, %116 ], [ %.sroa.5.0.i.i.i42, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i40" ], [ undef, %142 ], [ undef, %143 ]
+  %.sroa.5.sroa.0.04159.i.i31 = phi i8 [ undef, %144 ], [ undef, %116 ], [ %.sroa.4.0.i.i.i43, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i40" ], [ undef, %142 ], [ undef, %143 ]
   %.sroa.6.04358.i.i32 = phi i64 [ undef, %144 ], [ undef, %116 ], [ %.sroa.15.12.insert.insert.i.i46, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i40" ], [ undef, %142 ], [ undef, %143 ]
   %.sroa.53.04557.i.i33 = phi i32 [ %146, %144 ], [ %123, %116 ], [ %123, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i40" ], [ %123, %142 ], [ %123, %143 ]
   store i8 %.sroa.08.061.i.i29, ptr %7, align 4, !alias.scope !4706, !noalias !4728
   %.sroa.8.0..sroa_idx.i.i34 = getelementptr inbounds i8, ptr %7, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i.i30, ptr %.sroa.8.0..sroa_idx.i.i34, align 1, !alias.scope !4706, !noalias !4728
+  store i8 %.sroa.5.sroa.0.04159.i.i31, ptr %.sroa.8.0..sroa_idx.i.i34, align 1, !alias.scope !4706, !noalias !4728
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i35 = getelementptr inbounds i8, ptr %7, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i.i31, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i35, align 2, !alias.scope !4706, !noalias !4728
+  store i16 %.sroa.5.sroa.4.03960.i.i30, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i35, align 2, !alias.scope !4706, !noalias !4728
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i36 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 %.sroa.53.04557.i.i33, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i36, align 4, !alias.scope !4706, !noalias !4728
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i.i37 = getelementptr inbounds i8, ptr %7, i64 8
@@ -34042,15 +34042,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit.i": ; preds = %56, %55, %54, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i", %28
   %.sroa.08.061.i.i = phi i8 [ 6, %56 ], [ 3, %28 ], [ %26, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ 4, %54 ], [ 5, %55 ]
-  %.sroa.5.sroa.0.03960.i.i = phi i8 [ undef, %56 ], [ undef, %28 ], [ %.sroa.4.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %54 ], [ undef, %55 ]
-  %.sroa.5.sroa.4.04159.i.i = phi i16 [ undef, %56 ], [ undef, %28 ], [ %.sroa.5.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %54 ], [ undef, %55 ]
+  %.sroa.5.sroa.4.03960.i.i = phi i16 [ undef, %56 ], [ undef, %28 ], [ %.sroa.5.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %54 ], [ undef, %55 ]
+  %.sroa.5.sroa.0.04159.i.i = phi i8 [ undef, %56 ], [ undef, %28 ], [ %.sroa.4.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %54 ], [ undef, %55 ]
   %.sroa.6.04358.i.i = phi i64 [ undef, %56 ], [ undef, %28 ], [ %.sroa.15.12.insert.insert.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %54 ], [ undef, %55 ]
   %.sroa.53.04557.i.i = phi i32 [ %58, %56 ], [ %35, %28 ], [ %35, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ %35, %54 ], [ %35, %55 ]
   store i8 %.sroa.08.061.i.i, ptr %9, align 4, !alias.scope !4746, !noalias !4768
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i.i, ptr %.sroa.8.0..sroa_idx.i.i, align 1, !alias.scope !4746, !noalias !4768
+  store i8 %.sroa.5.sroa.0.04159.i.i, ptr %.sroa.8.0..sroa_idx.i.i, align 1, !alias.scope !4746, !noalias !4768
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i, align 2, !alias.scope !4746, !noalias !4768
+  store i16 %.sroa.5.sroa.4.03960.i.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i, align 2, !alias.scope !4746, !noalias !4768
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %.sroa.53.04557.i.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i, align 4, !alias.scope !4746, !noalias !4768
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 8
@@ -34171,15 +34171,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit.i3": ; preds = %100, %99, %98, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15", %72
   %.sroa.08.061.i.i4 = phi i8 [ 6, %100 ], [ 3, %72 ], [ %70, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ 4, %98 ], [ 5, %99 ]
-  %.sroa.5.sroa.0.03960.i.i5 = phi i8 [ undef, %100 ], [ undef, %72 ], [ %.sroa.4.0.i.i.i18, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ undef, %98 ], [ undef, %99 ]
-  %.sroa.5.sroa.4.04159.i.i6 = phi i16 [ undef, %100 ], [ undef, %72 ], [ %.sroa.5.0.i.i.i17, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ undef, %98 ], [ undef, %99 ]
+  %.sroa.5.sroa.4.03960.i.i5 = phi i16 [ undef, %100 ], [ undef, %72 ], [ %.sroa.5.0.i.i.i17, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ undef, %98 ], [ undef, %99 ]
+  %.sroa.5.sroa.0.04159.i.i6 = phi i8 [ undef, %100 ], [ undef, %72 ], [ %.sroa.4.0.i.i.i18, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ undef, %98 ], [ undef, %99 ]
   %.sroa.6.04358.i.i7 = phi i64 [ undef, %100 ], [ undef, %72 ], [ %.sroa.15.12.insert.insert.i.i21, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ undef, %98 ], [ undef, %99 ]
   %.sroa.53.04557.i.i8 = phi i32 [ %102, %100 ], [ %79, %72 ], [ %79, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i15" ], [ %79, %98 ], [ %79, %99 ]
   store i8 %.sroa.08.061.i.i4, ptr %7, align 4, !alias.scope !4780, !noalias !4802
   %.sroa.8.0..sroa_idx.i.i9 = getelementptr inbounds i8, ptr %7, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i.i5, ptr %.sroa.8.0..sroa_idx.i.i9, align 1, !alias.scope !4780, !noalias !4802
+  store i8 %.sroa.5.sroa.0.04159.i.i6, ptr %.sroa.8.0..sroa_idx.i.i9, align 1, !alias.scope !4780, !noalias !4802
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i10 = getelementptr inbounds i8, ptr %7, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i.i6, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i10, align 2, !alias.scope !4780, !noalias !4802
+  store i16 %.sroa.5.sroa.4.03960.i.i5, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i10, align 2, !alias.scope !4780, !noalias !4802
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i11 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 %.sroa.53.04557.i.i8, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i11, align 4, !alias.scope !4780, !noalias !4802
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i.i12 = getelementptr inbounds i8, ptr %7, i64 8
@@ -34309,15 +34309,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !4808, !noalias !4811
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4808, !noalias !4811
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4808, !noalias !4811
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4808, !noalias !4811
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4808, !noalias !4811
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !4808, !noalias !4811
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -34447,15 +34447,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !4833, !noalias !4836
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4833, !noalias !4836
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4833, !noalias !4836
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4833, !noalias !4836
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4833, !noalias !4836
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !4833, !noalias !4836
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -34585,15 +34585,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !4858, !noalias !4861
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4858, !noalias !4861
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4858, !noalias !4861
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4858, !noalias !4861
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4858, !noalias !4861
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !4858, !noalias !4861
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -34723,15 +34723,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !4883, !noalias !4886
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4883, !noalias !4886
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4883, !noalias !4886
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4883, !noalias !4886
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4883, !noalias !4886
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !4883, !noalias !4886
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -34861,15 +34861,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !4908, !noalias !4911
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4908, !noalias !4911
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4908, !noalias !4911
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4908, !noalias !4911
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4908, !noalias !4911
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !4908, !noalias !4911
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -34999,15 +34999,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !4933, !noalias !4936
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4933, !noalias !4936
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4933, !noalias !4936
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4933, !noalias !4936
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4933, !noalias !4936
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !4933, !noalias !4936
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -35137,15 +35137,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !4958, !noalias !4961
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4958, !noalias !4961
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !4958, !noalias !4961
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4958, !noalias !4961
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !4958, !noalias !4961
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !4958, !noalias !4961
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -36280,15 +36280,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !5176, !noalias !5179
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5176, !noalias !5179
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5176, !noalias !5179
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5176, !noalias !5179
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5176, !noalias !5179
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !5176, !noalias !5179
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -36418,15 +36418,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !5201, !noalias !5204
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5201, !noalias !5204
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5201, !noalias !5204
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5201, !noalias !5204
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5201, !noalias !5204
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !5201, !noalias !5204
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -36704,15 +36704,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !5255, !noalias !5258
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5255, !noalias !5258
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5255, !noalias !5258
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5255, !noalias !5258
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5255, !noalias !5258
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !5255, !noalias !5258
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -39467,15 +39467,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %14, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %40, %41, %42
   %.sroa.08.061.i = phi i8 [ 6, %42 ], [ 3, %14 ], [ %12, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %40 ], [ 5, %41 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.6.04358.i = phi i64 [ undef, %42 ], [ undef, %14 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.53.04557.i = phi i32 [ %44, %42 ], [ %21, %14 ], [ %21, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %21, %40 ], [ %21, %41 ]
   store i8 %.sroa.08.061.i, ptr %3, align 4, !alias.scope !5569, !noalias !5572
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5569, !noalias !5572
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5569, !noalias !5572
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5569, !noalias !5572
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5569, !noalias !5572
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !5569, !noalias !5572
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -39603,15 +39603,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %14, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %40, %41, %42
   %.sroa.08.061.i = phi i8 [ 6, %42 ], [ 3, %14 ], [ %12, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %40 ], [ 5, %41 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.6.04358.i = phi i64 [ undef, %42 ], [ undef, %14 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.53.04557.i = phi i32 [ %44, %42 ], [ %21, %14 ], [ %21, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %21, %40 ], [ %21, %41 ]
   store i8 %.sroa.08.061.i, ptr %3, align 4, !alias.scope !5594, !noalias !5597
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5594, !noalias !5597
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5594, !noalias !5597
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5594, !noalias !5597
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5594, !noalias !5597
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !5594, !noalias !5597
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -39742,15 +39742,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !5619, !noalias !5622
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5619, !noalias !5622
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5619, !noalias !5622
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5619, !noalias !5622
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5619, !noalias !5622
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !5619, !noalias !5622
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -39880,15 +39880,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !5644, !noalias !5647
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5644, !noalias !5647
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5644, !noalias !5647
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5644, !noalias !5647
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5644, !noalias !5647
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !5644, !noalias !5647
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -40015,15 +40015,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %14, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %40, %41, %42
   %.sroa.08.061.i = phi i8 [ 6, %42 ], [ 3, %14 ], [ %12, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %40 ], [ 5, %41 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.6.04358.i = phi i64 [ undef, %42 ], [ undef, %14 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.53.04557.i = phi i32 [ %44, %42 ], [ %21, %14 ], [ %21, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %21, %40 ], [ %21, %41 ]
   store i8 %.sroa.08.061.i, ptr %3, align 4, !alias.scope !5669, !noalias !5672
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5669, !noalias !5672
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5669, !noalias !5672
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5669, !noalias !5672
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5669, !noalias !5672
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !5669, !noalias !5672
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -40151,15 +40151,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %14, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %40, %41, %42
   %.sroa.08.061.i = phi i8 [ 6, %42 ], [ 3, %14 ], [ %12, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %40 ], [ 5, %41 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.6.04358.i = phi i64 [ undef, %42 ], [ undef, %14 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.53.04557.i = phi i32 [ %44, %42 ], [ %21, %14 ], [ %21, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %21, %40 ], [ %21, %41 ]
   store i8 %.sroa.08.061.i, ptr %3, align 4, !alias.scope !5694, !noalias !5697
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5694, !noalias !5697
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5694, !noalias !5697
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5694, !noalias !5697
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5694, !noalias !5697
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !5694, !noalias !5697
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -40290,15 +40290,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !5719, !noalias !5722
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5719, !noalias !5722
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5719, !noalias !5722
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5719, !noalias !5722
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5719, !noalias !5722
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !5719, !noalias !5722
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -40428,15 +40428,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !5744, !noalias !5747
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5744, !noalias !5747
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5744, !noalias !5747
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5744, !noalias !5747
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5744, !noalias !5747
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !5744, !noalias !5747
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -40647,15 +40647,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %14, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %40, %41, %42
   %.sroa.08.061.i = phi i8 [ 6, %42 ], [ 3, %14 ], [ %12, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %40 ], [ 5, %41 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.6.04358.i = phi i64 [ undef, %42 ], [ undef, %14 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.53.04557.i = phi i32 [ %44, %42 ], [ %21, %14 ], [ %21, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %21, %40 ], [ %21, %41 ]
   store i8 %.sroa.08.061.i, ptr %3, align 4, !alias.scope !5781, !noalias !5784
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5781, !noalias !5784
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5781, !noalias !5784
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5781, !noalias !5784
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5781, !noalias !5784
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !5781, !noalias !5784
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -40783,15 +40783,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %14, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %40, %41, %42
   %.sroa.08.061.i = phi i8 [ 6, %42 ], [ 3, %14 ], [ %12, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %40 ], [ 5, %41 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.6.04358.i = phi i64 [ undef, %42 ], [ undef, %14 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.53.04557.i = phi i32 [ %44, %42 ], [ %21, %14 ], [ %21, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %21, %40 ], [ %21, %41 ]
   store i8 %.sroa.08.061.i, ptr %3, align 4, !alias.scope !5806, !noalias !5809
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5806, !noalias !5809
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5806, !noalias !5809
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5806, !noalias !5809
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5806, !noalias !5809
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !5806, !noalias !5809
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -40977,15 +40977,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %14, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %40, %41, %42
   %.sroa.08.061.i = phi i8 [ 6, %42 ], [ 3, %14 ], [ %12, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %40 ], [ 5, %41 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.6.04358.i = phi i64 [ undef, %42 ], [ undef, %14 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.53.04557.i = phi i32 [ %44, %42 ], [ %21, %14 ], [ %21, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %21, %40 ], [ %21, %41 ]
   store i8 %.sroa.08.061.i, ptr %3, align 4, !alias.scope !5841, !noalias !5844
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5841, !noalias !5844
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5841, !noalias !5844
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5841, !noalias !5844
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5841, !noalias !5844
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !5841, !noalias !5844
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -41113,15 +41113,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %14, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %40, %41, %42
   %.sroa.08.061.i = phi i8 [ 6, %42 ], [ 3, %14 ], [ %12, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %40 ], [ 5, %41 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %42 ], [ undef, %14 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %42 ], [ undef, %14 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.6.04358.i = phi i64 [ undef, %42 ], [ undef, %14 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %40 ], [ undef, %41 ]
   %.sroa.53.04557.i = phi i32 [ %44, %42 ], [ %21, %14 ], [ %21, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %21, %40 ], [ %21, %41 ]
   store i8 %.sroa.08.061.i, ptr %3, align 4, !alias.scope !5866, !noalias !5869
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5866, !noalias !5869
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !5866, !noalias !5869
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5866, !noalias !5869
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !5866, !noalias !5869
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !5866, !noalias !5869
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -41798,15 +41798,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit.i": ; preds = %75, %74, %73, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i", %47
   %.sroa.08.061.i.i = phi i8 [ 6, %75 ], [ 3, %47 ], [ %45, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ 4, %73 ], [ 5, %74 ]
-  %.sroa.5.sroa.0.03960.i.i = phi i8 [ undef, %75 ], [ undef, %47 ], [ %.sroa.4.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %73 ], [ undef, %74 ]
-  %.sroa.5.sroa.4.04159.i.i = phi i16 [ undef, %75 ], [ undef, %47 ], [ %.sroa.5.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %73 ], [ undef, %74 ]
+  %.sroa.5.sroa.4.03960.i.i = phi i16 [ undef, %75 ], [ undef, %47 ], [ %.sroa.5.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %73 ], [ undef, %74 ]
+  %.sroa.5.sroa.0.04159.i.i = phi i8 [ undef, %75 ], [ undef, %47 ], [ %.sroa.4.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %73 ], [ undef, %74 ]
   %.sroa.6.04358.i.i = phi i64 [ undef, %75 ], [ undef, %47 ], [ %.sroa.15.12.insert.insert.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %73 ], [ undef, %74 ]
   %.sroa.53.04557.i.i = phi i32 [ %77, %75 ], [ %54, %47 ], [ %54, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ %54, %73 ], [ %54, %74 ]
   store i8 %.sroa.08.061.i.i, ptr %7, align 4, !alias.scope !5993, !noalias !6015
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i.i, ptr %.sroa.8.0..sroa_idx.i.i, align 1, !alias.scope !5993, !noalias !6015
+  store i8 %.sroa.5.sroa.0.04159.i.i, ptr %.sroa.8.0..sroa_idx.i.i, align 1, !alias.scope !5993, !noalias !6015
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i, align 2, !alias.scope !5993, !noalias !6015
+  store i16 %.sroa.5.sroa.4.03960.i.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i, align 2, !alias.scope !5993, !noalias !6015
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 4
   store i32 %.sroa.53.04557.i.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i, align 4, !alias.scope !5993, !noalias !6015
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 8
@@ -41932,15 +41932,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !6021, !noalias !6024
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !6021, !noalias !6024
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !6021, !noalias !6024
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !6021, !noalias !6024
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !6021, !noalias !6024
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !6021, !noalias !6024
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -42070,15 +42070,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !6046, !noalias !6049
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !6046, !noalias !6049
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !6046, !noalias !6049
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !6046, !noalias !6049
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !6046, !noalias !6049
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !6046, !noalias !6049
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -42208,15 +42208,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !6071, !noalias !6074
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !6071, !noalias !6074
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !6071, !noalias !6074
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !6071, !noalias !6074
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !6071, !noalias !6074
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !6071, !noalias !6074
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -42389,15 +42389,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit.i": ; preds = %69, %68, %67, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i", %41
   %.sroa.08.061.i.i = phi i8 [ 6, %69 ], [ 3, %41 ], [ %39, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ 4, %67 ], [ 5, %68 ]
-  %.sroa.5.sroa.0.03960.i.i = phi i8 [ undef, %69 ], [ undef, %41 ], [ %.sroa.4.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %67 ], [ undef, %68 ]
-  %.sroa.5.sroa.4.04159.i.i = phi i16 [ undef, %69 ], [ undef, %41 ], [ %.sroa.5.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %67 ], [ undef, %68 ]
+  %.sroa.5.sroa.4.03960.i.i = phi i16 [ undef, %69 ], [ undef, %41 ], [ %.sroa.5.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %67 ], [ undef, %68 ]
+  %.sroa.5.sroa.0.04159.i.i = phi i8 [ undef, %69 ], [ undef, %41 ], [ %.sroa.4.0.i.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %67 ], [ undef, %68 ]
   %.sroa.6.04358.i.i = phi i64 [ undef, %69 ], [ undef, %41 ], [ %.sroa.15.12.insert.insert.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ undef, %67 ], [ undef, %68 ]
   %.sroa.53.04557.i.i = phi i32 [ %71, %69 ], [ %48, %41 ], [ %48, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i" ], [ %48, %67 ], [ %48, %68 ]
   store i8 %.sroa.08.061.i.i, ptr %15, align 4, !alias.scope !6108, !noalias !6130
   %.sroa.8.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %15, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i.i, ptr %.sroa.8.0..sroa_idx.i.i, align 1, !alias.scope !6108, !noalias !6130
+  store i8 %.sroa.5.sroa.0.04159.i.i, ptr %.sroa.8.0..sroa_idx.i.i, align 1, !alias.scope !6108, !noalias !6130
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %15, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i, align 2, !alias.scope !6108, !noalias !6130
+  store i16 %.sroa.5.sroa.4.03960.i.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i, align 2, !alias.scope !6108, !noalias !6130
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %15, i64 4
   store i32 %.sroa.53.04557.i.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i, align 4, !alias.scope !6108, !noalias !6130
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %15, i64 8
@@ -42518,15 +42518,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit.i6": ; preds = %113, %112, %111, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i18", %85
   %.sroa.08.061.i.i7 = phi i8 [ 6, %113 ], [ 3, %85 ], [ %83, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i18" ], [ 4, %111 ], [ 5, %112 ]
-  %.sroa.5.sroa.0.03960.i.i8 = phi i8 [ undef, %113 ], [ undef, %85 ], [ %.sroa.4.0.i.i.i21, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i18" ], [ undef, %111 ], [ undef, %112 ]
-  %.sroa.5.sroa.4.04159.i.i9 = phi i16 [ undef, %113 ], [ undef, %85 ], [ %.sroa.5.0.i.i.i20, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i18" ], [ undef, %111 ], [ undef, %112 ]
+  %.sroa.5.sroa.4.03960.i.i8 = phi i16 [ undef, %113 ], [ undef, %85 ], [ %.sroa.5.0.i.i.i20, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i18" ], [ undef, %111 ], [ undef, %112 ]
+  %.sroa.5.sroa.0.04159.i.i9 = phi i8 [ undef, %113 ], [ undef, %85 ], [ %.sroa.4.0.i.i.i21, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i18" ], [ undef, %111 ], [ undef, %112 ]
   %.sroa.6.04358.i.i10 = phi i64 [ undef, %113 ], [ undef, %85 ], [ %.sroa.15.12.insert.insert.i.i24, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i18" ], [ undef, %111 ], [ undef, %112 ]
   %.sroa.53.04557.i.i11 = phi i32 [ %115, %113 ], [ %92, %85 ], [ %92, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i18" ], [ %92, %111 ], [ %92, %112 ]
   store i8 %.sroa.08.061.i.i7, ptr %13, align 4, !alias.scope !6142, !noalias !6164
   %.sroa.8.0..sroa_idx.i.i12 = getelementptr inbounds i8, ptr %13, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i.i8, ptr %.sroa.8.0..sroa_idx.i.i12, align 1, !alias.scope !6142, !noalias !6164
+  store i8 %.sroa.5.sroa.0.04159.i.i9, ptr %.sroa.8.0..sroa_idx.i.i12, align 1, !alias.scope !6142, !noalias !6164
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i13 = getelementptr inbounds i8, ptr %13, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i.i9, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i13, align 2, !alias.scope !6142, !noalias !6164
+  store i16 %.sroa.5.sroa.4.03960.i.i8, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i13, align 2, !alias.scope !6142, !noalias !6164
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i14 = getelementptr inbounds i8, ptr %13, i64 4
   store i32 %.sroa.53.04557.i.i11, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i14, align 4, !alias.scope !6142, !noalias !6164
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i.i15 = getelementptr inbounds i8, ptr %13, i64 8
@@ -42823,15 +42823,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit.i57": ; preds = %206, %205, %204, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i69", %178
   %.sroa.08.061.i.i58 = phi i8 [ 6, %206 ], [ 3, %178 ], [ %176, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i69" ], [ 4, %204 ], [ 5, %205 ]
-  %.sroa.5.sroa.0.03960.i.i59 = phi i8 [ undef, %206 ], [ undef, %178 ], [ %.sroa.4.0.i.i.i72, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i69" ], [ undef, %204 ], [ undef, %205 ]
-  %.sroa.5.sroa.4.04159.i.i60 = phi i16 [ undef, %206 ], [ undef, %178 ], [ %.sroa.5.0.i.i.i71, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i69" ], [ undef, %204 ], [ undef, %205 ]
+  %.sroa.5.sroa.4.03960.i.i59 = phi i16 [ undef, %206 ], [ undef, %178 ], [ %.sroa.5.0.i.i.i71, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i69" ], [ undef, %204 ], [ undef, %205 ]
+  %.sroa.5.sroa.0.04159.i.i60 = phi i8 [ undef, %206 ], [ undef, %178 ], [ %.sroa.4.0.i.i.i72, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i69" ], [ undef, %204 ], [ undef, %205 ]
   %.sroa.6.04358.i.i61 = phi i64 [ undef, %206 ], [ undef, %178 ], [ %.sroa.15.12.insert.insert.i.i75, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i69" ], [ undef, %204 ], [ undef, %205 ]
   %.sroa.53.04557.i.i62 = phi i32 [ %208, %206 ], [ %185, %178 ], [ %185, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i.i69" ], [ %185, %204 ], [ %185, %205 ]
   store i8 %.sroa.08.061.i.i58, ptr %7, align 4, !alias.scope !6269, !noalias !6291
   %.sroa.8.0..sroa_idx.i.i63 = getelementptr inbounds i8, ptr %7, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i.i59, ptr %.sroa.8.0..sroa_idx.i.i63, align 1, !alias.scope !6269, !noalias !6291
+  store i8 %.sroa.5.sroa.0.04159.i.i60, ptr %.sroa.8.0..sroa_idx.i.i63, align 1, !alias.scope !6269, !noalias !6291
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i64 = getelementptr inbounds i8, ptr %7, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i.i60, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i64, align 2, !alias.scope !6269, !noalias !6291
+  store i16 %.sroa.5.sroa.4.03960.i.i59, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i64, align 2, !alias.scope !6269, !noalias !6291
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i65 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 %.sroa.53.04557.i.i62, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i.i65, align 4, !alias.scope !6269, !noalias !6291
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i.i66 = getelementptr inbounds i8, ptr %7, i64 8
@@ -42957,15 +42957,15 @@ _ZN17cranelift_codegen3isa3x644inst4args9XmmMemImm3new17h1a431caf179f36e5E.exit.
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$22xmm_mem_to_xmm_mem_imm17hfd2f5842ab310ad2E.exit": ; preds = %15, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i", %41, %42, %43
   %.sroa.08.061.i = phi i8 [ 6, %43 ], [ 3, %15 ], [ %13, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ 4, %41 ], [ 5, %42 ]
-  %.sroa.5.sroa.0.03960.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
-  %.sroa.5.sroa.4.04159.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.4.03960.i = phi i16 [ undef, %43 ], [ undef, %15 ], [ %.sroa.5.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
+  %.sroa.5.sroa.0.04159.i = phi i8 [ undef, %43 ], [ undef, %15 ], [ %.sroa.4.0.i.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.6.04358.i = phi i64 [ undef, %43 ], [ undef, %15 ], [ %.sroa.15.12.insert.insert.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ undef, %41 ], [ undef, %42 ]
   %.sroa.53.04557.i = phi i32 [ %45, %43 ], [ %22, %15 ], [ %22, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i.i" ], [ %22, %41 ], [ %22, %42 ]
   store i8 %.sroa.08.061.i, ptr %5, align 4, !alias.scope !6297, !noalias !6300
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 1
-  store i8 %.sroa.5.sroa.0.03960.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !6297, !noalias !6300
+  store i8 %.sroa.5.sroa.0.04159.i, ptr %.sroa.8.0..sroa_idx.i, align 1, !alias.scope !6297, !noalias !6300
   %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 2
-  store i16 %.sroa.5.sroa.4.04159.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !6297, !noalias !6300
+  store i16 %.sroa.5.sroa.4.03960.i, ptr %.sroa.8.sroa.0.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !6297, !noalias !6300
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %.sroa.53.04557.i, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !6297, !noalias !6300
   %.sroa.8.sroa.9.0..sroa.8.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -49268,9 +49268,9 @@ default.unreachable1.i.i:                         ; preds = %42
 "_ZN94_$LT$cranelift_codegen..isa..x64..inst..args..SyntheticAmode$u20$as$u20$core..clone..Clone$GT$5clone17he9d558dd68191759E.exit": ; preds = %60, %59, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i", %33, %30
   %.sroa.5.sroa.4.0 = phi i16 [ undef, %30 ], [ undef, %60 ], [ undef, %59 ], [ %.sroa.5.0.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ undef, %33 ]
   %.sroa.5.sroa.0.0 = phi i8 [ undef, %30 ], [ undef, %60 ], [ undef, %59 ], [ %.sroa.4.0.i, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ undef, %33 ]
+  %.sroa.6.0 = phi i64 [ undef, %30 ], [ undef, %60 ], [ undef, %59 ], [ %.sroa.15.12.insert.insert, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ undef, %33 ]
   %.sroa.54.0 = phi i32 [ %32, %30 ], [ %40, %60 ], [ %40, %59 ], [ %40, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ %40, %33 ]
   %.sroa.02.0 = phi i8 [ 6, %30 ], [ 5, %60 ], [ 4, %59 ], [ %28, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ 3, %33 ]
-  %.sroa.6.0 = phi i64 [ undef, %30 ], [ undef, %60 ], [ undef, %59 ], [ %.sroa.15.12.insert.insert, %"_ZN102_$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..Amode$u20$as$u20$core..clone..Clone$GT$5clone17ha4538dbe8f05ef7bE.exit.i" ], [ undef, %33 ]
   %61 = getelementptr inbounds i8, ptr %5, i64 1
   store i8 %.0.val1, ptr %61, align 1
   %62 = getelementptr inbounds i8, ptr %5, i64 2
@@ -74978,8 +74978,8 @@ define hidden noundef zeroext i1 @_ZN17cranelift_codegen3isa3x645lower4isle14gen
 43:                                               ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit"
   %44 = icmp eq i8 %.sroa.5.0.copyload, 1
   %45 = icmp eq i64 %3, 1
-  %or.cond129 = and i1 %45, %44
-  br i1 %or.cond129, label %287, label %"_ZN4core3ptr200drop_in_place$LT$core..option..Option$LT$$LP$cranelift_codegen..machinst..buffer..MachLabel$C$alloc..boxed..Box$LT$alloc..vec..Vec$LT$cranelift_codegen..machinst..buffer..MachLabel$GT$$GT$$RP$$GT$$GT$17h92761f6b73707f6bE.exit"
+  %or.cond134 = and i1 %45, %44
+  br i1 %or.cond134, label %287, label %"_ZN4core3ptr200drop_in_place$LT$core..option..Option$LT$$LP$cranelift_codegen..machinst..buffer..MachLabel$C$alloc..boxed..Box$LT$alloc..vec..Vec$LT$cranelift_codegen..machinst..buffer..MachLabel$GT$$GT$$RP$$GT$$GT$17h92761f6b73707f6bE.exit"
 
 46:                                               ; preds = %38
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10450)
@@ -75059,7 +75059,7 @@ common.resume:                                    ; preds = %269, %235, %244, %2
   invoke fastcc void @"_ZN4core3ptr172drop_in_place$LT$$LP$cranelift_codegen..machinst..buffer..MachLabel$C$alloc..boxed..Box$LT$alloc..vec..Vec$LT$cranelift_codegen..machinst..buffer..MachLabel$GT$$GT$$RP$$GT$17h95f24f7f2227c0bfE"(ptr %58) #22
           to label %common.resume unwind label %173
 
-73:                                               ; preds = %.sink.split.i, %110, %109, %94, %72, %105, %111, %switch.lookup135
+73:                                               ; preds = %.sink.split.i, %110, %109, %94, %72, %105, %111, %switch.lookup140
   %74 = landingpad { ptr, i32 }
           cleanup
   br label %.body89
@@ -75095,8 +75095,8 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.i.i: ; preds
   %92 = lshr exact i32 %91, 3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store i32 %92, ptr %11, align 4
-  %switch.tableidx134 = add nsw i32 %92, -1
-  %93 = icmp ult i32 %switch.tableidx134, 8
+  %switch.tableidx139 = add nsw i32 %92, -1
+  %93 = icmp ult i32 %switch.tableidx139, 8
   br i1 %93, label %switch.hole_check, label %94
 
 94:                                               ; preds = %switch.hole_check, %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.i.i
@@ -75121,13 +75121,13 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.i.i: ; preds
   unreachable
 
 switch.hole_check:                                ; preds = %_ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit.i.i
-  %switch.maskindex = trunc nuw i32 %switch.tableidx134 to i8
+  %switch.maskindex = trunc nuw i32 %switch.tableidx139 to i8
   %switch.shifted = lshr i8 -117, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup135, label %94
+  br i1 %switch.lobit, label %switch.lookup140, label %94
 
-switch.lookup135:                                 ; preds = %switch.hole_check
-  %100 = shl nuw nsw i32 %switch.tableidx134, 3
+switch.lookup140:                                 ; preds = %switch.hole_check
+  %100 = shl nuw nsw i32 %switch.tableidx139, 3
   %switch.shiftamt = zext nneg i32 %100 to i64
   %switch.downshift = lshr i64 216172782147338496, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
@@ -75138,7 +75138,7 @@ switch.lookup135:                                 ; preds = %switch.hole_check
   %104 = invoke fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code15constructor_imm17h33fe35522f4bdf1dE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i16 noundef %82, i64 noundef %103)
           to label %105 unwind label %73
 
-105:                                              ; preds = %switch.lookup135
+105:                                              ; preds = %switch.lookup140
   %106 = invoke fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code25constructor_extend_to_gpr17hd73c4234da12df9dE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %.sroa.898.0.copyload, i16 noundef 121, i8 1)
           to label %107 unwind label %73
 
@@ -75207,15 +75207,15 @@ default.unreachable:                              ; preds = %136, %129, %"_ZN17c
   invoke fastcc void @"_ZN4core3ptr92drop_in_place$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..ConsumesFlags$GT$17h029461dc9de2efcaE"(ptr noalias noundef nonnull align 8 dereferenceable(168) %24) #22
           to label %112 unwind label %173
 
-118:                                              ; preds = %.invoke131, %.invoke, %141, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit8.i", %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit.i", %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7gpr_new17h6915fe95f7bdb957E.exit76", %121, %116, %154
+118:                                              ; preds = %.invoke136, %.invoke, %141, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit8.i", %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit.i", %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7gpr_new17h6915fe95f7bdb957E.exit76", %121, %116, %154
   %119 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 120:                                              ; preds = %116
   %.sroa.0115.0.extract.trunc = trunc i64 %117 to i32
-  %.not130 = icmp eq i64 %117, 36028779847483388
-  br i1 %.not130, label %121, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14value_regs_get17h3e8257de7726c8faE.exit", !prof !1010
+  %.not135 = icmp eq i64 %117, 36028779847483388
+  br i1 %.not135, label %121, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14value_regs_get17h3e8257de7726c8faE.exit", !prof !1010
 
 121:                                              ; preds = %120
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef 0, i64 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2cddbf5bcaf761a71b3f633d4eb1e193.639) #20
@@ -75230,7 +75230,7 @@ default.unreachable:                              ; preds = %136, %129, %"_ZN17c
     i32 0, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7gpr_new17h6915fe95f7bdb957E.exit76"
     i32 1, label %.invoke
     i32 2, label %.invoke
-    i32 3, label %.invoke131
+    i32 3, label %.invoke136
   ]
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7gpr_new17h6915fe95f7bdb957E.exit76": ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14value_regs_get17h3e8257de7726c8faE.exit"
@@ -75256,7 +75256,7 @@ default.unreachable:                              ; preds = %136, %129, %"_ZN17c
     i32 0, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit.i"
     i32 1, label %.invoke
     i32 2, label %.invoke
-    i32 3, label %.invoke131
+    i32 3, label %.invoke136
   ]
 
 "_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit.i": ; preds = %129
@@ -75278,14 +75278,14 @@ default.unreachable:                              ; preds = %136, %129, %"_ZN17c
     i32 0, label %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17temp_writable_gpr17h28c426f58c0012f7E.exit8.i"
     i32 1, label %.invoke
     i32 2, label %.invoke
-    i32 3, label %.invoke131
+    i32 3, label %.invoke136
   ]
 
-.invoke131:                                       ; preds = %136, %129, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14value_regs_get17h3e8257de7726c8faE.exit"
+.invoke136:                                       ; preds = %136, %129, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14value_regs_get17h3e8257de7726c8faE.exit"
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.93d33193ed412401645690e7206ea482.120.llvm.6890334928246803750, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.93d33193ed412401645690e7206ea482.315.llvm.6890334928246803750) #20
-          to label %.cont132 unwind label %118
+          to label %.cont137 unwind label %118
 
-.cont132:                                         ; preds = %.invoke131
+.cont137:                                         ; preds = %.invoke136
   unreachable
 
 .invoke:                                          ; preds = %136, %136, %.noexc82, %129, %129, %.noexc78, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14value_regs_get17h3e8257de7726c8faE.exit", %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$14value_regs_get17h3e8257de7726c8faE.exit"

@@ -193,9 +193,9 @@ while.body.lr.ph:                                 ; preds = %if.end6
 while.body:                                       ; preds = %while.body.lr.ph, %for.end58
   %5 = phi ptr [ %3, %while.body.lr.ph ], [ %24, %for.end58 ]
   %6 = phi i64 [ %4, %while.body.lr.ph ], [ %25, %for.end58 ]
-  %errs.069 = phi i32 [ 0, %while.body.lr.ph ], [ %errs.1.lcssa, %for.end58 ]
-  %filtered_bytes.068 = phi i64 [ 0, %while.body.lr.ph ], [ %filtered_bytes.1.lcssa, %for.end58 ]
-  %processed_paths.067 = phi i32 [ 0, %while.body.lr.ph ], [ %processed_paths.1.lcssa, %for.end58 ]
+  %filtered_bytes.069 = phi i64 [ 0, %while.body.lr.ph ], [ %filtered_bytes.1.lcssa, %for.end58 ]
+  %processed_paths.068 = phi i32 [ 0, %while.body.lr.ph ], [ %processed_paths.1.lcssa, %for.end58 ]
+  %errs.067 = phi i32 [ 0, %while.body.lr.ph ], [ %errs.1.lcssa, %for.end58 ]
   %7 = load ptr, ptr %filters, align 8
   %tobool9.not55 = icmp ne ptr %7, null
   %cmp1488 = icmp sgt i64 %6, 0
@@ -203,13 +203,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %or.cond, label %for.body, label %for.end58
 
 for.body:                                         ; preds = %while.body, %for.inc56
-  %processed_paths.15693 = phi i32 [ %processed_paths.4, %for.inc56 ], [ %processed_paths.067, %while.body ]
-  %filtered_bytes.15792 = phi i64 [ %filtered_bytes.4, %for.inc56 ], [ %filtered_bytes.068, %while.body ]
-  %filter.05890 = phi ptr [ %incdec.ptr57, %for.inc56 ], [ %7, %while.body ]
-  %errs.15989 = phi i32 [ %errs.4, %for.inc56 ], [ %errs.069, %while.body ]
+  %errs.15693 = phi i32 [ %errs.4, %for.inc56 ], [ %errs.067, %while.body ]
+  %processed_paths.15792 = phi i32 [ %processed_paths.4, %for.inc56 ], [ %processed_paths.068, %while.body ]
+  %filtered_bytes.15891 = phi i64 [ %filtered_bytes.4, %for.inc56 ], [ %filtered_bytes.069, %while.body ]
+  %filter.05989 = phi ptr [ %incdec.ptr57, %for.inc56 ], [ %7, %while.body ]
   %8 = phi ptr [ %23, %for.inc56 ], [ %5, %while.body ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %available_paths, i8 0, i64 40, i1 false)
-  %9 = load ptr, ptr %filter.05890, align 8
+  %9 = load ptr, ptr %filter.05989, align 8
   %call15 = call i32 @async_query_available_blobs(ptr noundef %9, ptr noundef nonnull %available_paths) #14
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %for.inc56.sink.split, label %if.end19
@@ -229,22 +229,22 @@ if.end24:                                         ; preds = %if.end19
   br i1 %or.cond101, label %for.body35, label %for.inc56
 
 for.body35:                                       ; preds = %if.end24, %for.inc
-  %processed_paths.24683 = phi i32 [ %processed_paths.3, %for.inc ], [ %processed_paths.15693, %if.end24 ]
-  %filtered_bytes.24782 = phi i64 [ %filtered_bytes.3, %for.inc ], [ %filtered_bytes.15792, %if.end24 ]
-  %path.04881 = phi ptr [ %incdec.ptr, %for.inc ], [ %11, %if.end24 ]
-  %errs.24980 = phi i32 [ %errs.3, %for.inc ], [ %errs.15989, %if.end24 ]
+  %errs.24683 = phi i32 [ %errs.3, %for.inc ], [ %errs.15693, %if.end24 ]
+  %processed_paths.24782 = phi i32 [ %processed_paths.3, %for.inc ], [ %processed_paths.15792, %if.end24 ]
+  %filtered_bytes.24881 = phi i64 [ %filtered_bytes.3, %for.inc ], [ %filtered_bytes.15891, %if.end24 ]
+  %path.04980 = phi ptr [ %incdec.ptr, %for.inc ], [ %11, %if.end24 ]
   %13 = phi ptr [ %21, %for.inc ], [ %8, %if.end24 ]
-  %util = getelementptr inbounds i8, ptr %path.04881, i64 8
+  %util = getelementptr inbounds i8, ptr %path.04980, i64 8
   %14 = load ptr, ptr %util, align 8
   %tobool36.not = icmp eq ptr %14, null
-  %15 = load ptr, ptr %path.04881, align 8
+  %15 = load ptr, ptr %path.04980, align 8
   br i1 %tobool36.not, label %if.then37, label %if.end43
 
 if.then37:                                        ; preds = %for.body35
-  %16 = load ptr, ptr %filter.05890, align 8
+  %16 = load ptr, ptr %filter.05989, align 8
   %call40 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef %16, ptr noundef %15) #14
-  %or = or i32 %errs.24980, 1
-  store ptr @.str.1, ptr %filter.05890, align 8
+  %or = or i32 %errs.24683, 1
+  store ptr @.str.1, ptr %filter.05989, align 8
   br label %for.inc
 
 if.end43:                                         ; preds = %for.body35
@@ -256,26 +256,26 @@ if.end43:                                         ; preds = %for.body35
   br i1 %tobool48.not, label %for.inc, label %if.then49
 
 if.then49:                                        ; preds = %if.end43
-  %inc = add i32 %processed_paths.24683, 1
+  %inc = add i32 %processed_paths.24782, 1
   %conv50 = zext i32 %inc to i64
   call void @display_progress(ptr noundef %13, i64 noundef %conv50) #14
   %18 = load ptr, ptr %util, align 8
   %call.i44 = call i32 @checkout_entry_ca(ptr noundef nonnull %call47, ptr noundef null, ptr noundef nonnull %state, ptr noundef null, ptr noundef %18)
-  %or53 = or i32 %call.i44, %errs.24980
+  %or53 = or i32 %call.i44, %errs.24683
   %sd_size = getelementptr inbounds i8, ptr %call47, i64 48
   %19 = load i32, ptr %sd_size, align 8
   %conv54 = zext i32 %19 to i64
-  %add = add nsw i64 %filtered_bytes.24782, %conv54
+  %add = add nsw i64 %filtered_bytes.24881, %conv54
   %20 = load ptr, ptr %progress, align 8
   call void @display_throughput(ptr noundef %20, i64 noundef %add) #14
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end43, %if.then49, %if.then37
   %21 = phi ptr [ %20, %if.then49 ], [ %13, %if.then37 ], [ %13, %if.end43 ]
-  %processed_paths.3 = phi i32 [ %inc, %if.then49 ], [ %processed_paths.24683, %if.then37 ], [ %processed_paths.24683, %if.end43 ]
-  %filtered_bytes.3 = phi i64 [ %add, %if.then49 ], [ %filtered_bytes.24782, %if.then37 ], [ %filtered_bytes.24782, %if.end43 ]
   %errs.3 = phi i32 [ %or53, %if.then49 ], [ %or, %if.then37 ], [ 1, %if.end43 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %path.04881, i64 16
+  %processed_paths.3 = phi i32 [ %inc, %if.then49 ], [ %processed_paths.24782, %if.then37 ], [ %processed_paths.24782, %if.end43 ]
+  %filtered_bytes.3 = phi i64 [ %add, %if.then49 ], [ %filtered_bytes.24881, %if.then37 ], [ %filtered_bytes.24881, %if.end43 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %path.04980, i64 16
   %.pre75 = load ptr, ptr %available_paths, align 8
   %22 = load i64, ptr %nr20, align 8
   %add.ptr32 = getelementptr inbounds %struct.string_list_item, ptr %.pre75, i64 %22
@@ -283,16 +283,16 @@ for.inc:                                          ; preds = %if.end43, %if.then4
   br i1 %cmp33, label %for.body35, label %for.inc56, !llvm.loop !5
 
 for.inc56.sink.split:                             ; preds = %if.end19, %for.body
-  %errs.4.ph = phi i32 [ 1, %for.body ], [ %errs.15989, %if.end19 ]
-  store ptr @.str.1, ptr %filter.05890, align 8
+  %errs.4.ph = phi i32 [ 1, %for.body ], [ %errs.15693, %if.end19 ]
+  store ptr @.str.1, ptr %filter.05989, align 8
   br label %for.inc56
 
 for.inc56:                                        ; preds = %for.inc, %for.inc56.sink.split, %if.end24
   %23 = phi ptr [ %8, %if.end24 ], [ %8, %for.inc56.sink.split ], [ %21, %for.inc ]
-  %processed_paths.4 = phi i32 [ %processed_paths.15693, %if.end24 ], [ %processed_paths.15693, %for.inc56.sink.split ], [ %processed_paths.3, %for.inc ]
-  %filtered_bytes.4 = phi i64 [ %filtered_bytes.15792, %if.end24 ], [ %filtered_bytes.15792, %for.inc56.sink.split ], [ %filtered_bytes.3, %for.inc ]
-  %errs.4 = phi i32 [ %errs.15989, %if.end24 ], [ %errs.4.ph, %for.inc56.sink.split ], [ %errs.3, %for.inc ]
-  %incdec.ptr57 = getelementptr inbounds i8, ptr %filter.05890, i64 16
+  %errs.4 = phi i32 [ %errs.15693, %if.end24 ], [ %errs.4.ph, %for.inc56.sink.split ], [ %errs.3, %for.inc ]
+  %processed_paths.4 = phi i32 [ %processed_paths.15792, %if.end24 ], [ %processed_paths.15792, %for.inc56.sink.split ], [ %processed_paths.3, %for.inc ]
+  %filtered_bytes.4 = phi i64 [ %filtered_bytes.15891, %if.end24 ], [ %filtered_bytes.15891, %for.inc56.sink.split ], [ %filtered_bytes.3, %for.inc ]
+  %incdec.ptr57 = getelementptr inbounds i8, ptr %filter.05989, i64 16
   %.pre = load ptr, ptr %filters, align 8
   %.pre74 = load i64, ptr %nr7, align 8
   %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %.pre, i64 %.pre74
@@ -301,9 +301,9 @@ for.inc56:                                        ; preds = %for.inc, %for.inc56
 
 for.end58:                                        ; preds = %for.inc56, %while.body
   %24 = phi ptr [ %5, %while.body ], [ %23, %for.inc56 ]
-  %processed_paths.1.lcssa = phi i32 [ %processed_paths.067, %while.body ], [ %processed_paths.4, %for.inc56 ]
-  %filtered_bytes.1.lcssa = phi i64 [ %filtered_bytes.068, %while.body ], [ %filtered_bytes.4, %for.inc56 ]
-  %errs.1.lcssa = phi i32 [ %errs.069, %while.body ], [ %errs.4, %for.inc56 ]
+  %errs.1.lcssa = phi i32 [ %errs.067, %while.body ], [ %errs.4, %for.inc56 ]
+  %processed_paths.1.lcssa = phi i32 [ %processed_paths.068, %while.body ], [ %processed_paths.4, %for.inc56 ]
+  %filtered_bytes.1.lcssa = phi i64 [ %filtered_bytes.069, %while.body ], [ %filtered_bytes.4, %for.inc56 ]
   call void @string_list_remove_empty_items(ptr noundef nonnull %filters, i32 noundef 0) #14
   %25 = load i64, ptr %nr7, align 8
   %cmp.not = icmp eq i64 %25, 0

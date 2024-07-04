@@ -682,17 +682,17 @@ define dso_local void @_ZN11cmJSONState16AddErrorAtOffsetERKNSt7__cxx1112basic_s
   br i1 %.not19.i, label %_ZN11cmJSONState16LocateInDocumentEl.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21, %34
-  %.022.i = phi i32 [ %.1.i, %34 ], [ 1, %21 ]
-  %.01321.i = phi ptr [ %35, %34 ], [ %22, %21 ]
+  %.022.i = phi ptr [ %35, %34 ], [ %22, %21 ]
+  %.01321.i = phi i32 [ %.1.i, %34 ], [ 1, %21 ]
   %.01420.i = phi i32 [ %.115.i, %34 ], [ 1, %21 ]
-  %24 = load i8, ptr %.01321.i, align 1
+  %24 = load i8, ptr %.022.i, align 1
   switch i8 %24, label %32 [
     i8 13, label %25
     i8 10, label %30
   ]
 
 25:                                               ; preds = %.lr.ph.i
-  %26 = getelementptr inbounds i8, ptr %.01321.i, i64 1
+  %26 = getelementptr inbounds i8, ptr %.022.i, i64 1
   %.not18.i = icmp eq ptr %26, %23
   br i1 %.not18.i, label %30, label %27
 
@@ -702,24 +702,24 @@ define dso_local void @_ZN11cmJSONState16AddErrorAtOffsetERKNSt7__cxx1112basic_s
   br i1 %29, label %34, label %30
 
 30:                                               ; preds = %27, %25, %.lr.ph.i
-  %31 = add nsw i32 %.022.i, 1
+  %31 = add nsw i32 %.01420.i, 1
   br label %34
 
 32:                                               ; preds = %.lr.ph.i
-  %33 = add nsw i32 %.01420.i, 1
+  %33 = add nsw i32 %.01321.i, 1
   br label %34
 
 34:                                               ; preds = %32, %30, %27
-  %.115.i = phi i32 [ %33, %32 ], [ 1, %30 ], [ %.01420.i, %27 ]
-  %.1.i = phi i32 [ %.022.i, %32 ], [ %31, %30 ], [ %.022.i, %27 ]
-  %35 = getelementptr inbounds i8, ptr %.01321.i, i64 1
+  %.115.i = phi i32 [ %.01420.i, %32 ], [ %31, %30 ], [ %.01420.i, %27 ]
+  %.1.i = phi i32 [ %33, %32 ], [ 1, %30 ], [ %.01321.i, %27 ]
+  %35 = getelementptr inbounds i8, ptr %.022.i, i64 1
   %.not.i = icmp eq ptr %35, %23
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !32
 
 ._crit_edge.loopexit.i:                           ; preds = %34
-  %36 = zext i32 %.115.i to i64
+  %36 = zext i32 %.1.i to i64
   %37 = shl nuw i64 %36, 32
-  %38 = zext i32 %.1.i to i64
+  %38 = zext i32 %.115.i to i64
   %39 = or disjoint i64 %37, %38
   br label %_ZN11cmJSONState16LocateInDocumentEl.exit
 
@@ -766,17 +766,17 @@ define dso_local i64 @_ZN11cmJSONState16LocateInDocumentEl(ptr noundef nonnull a
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %16
-  %.022 = phi i32 [ %.1, %16 ], [ 1, %2 ]
-  %.01321 = phi ptr [ %17, %16 ], [ %4, %2 ]
+  %.022 = phi ptr [ %17, %16 ], [ %4, %2 ]
+  %.01321 = phi i32 [ %.1, %16 ], [ 1, %2 ]
   %.01420 = phi i32 [ %.115, %16 ], [ 1, %2 ]
-  %6 = load i8, ptr %.01321, align 1
+  %6 = load i8, ptr %.022, align 1
   switch i8 %6, label %14 [
     i8 13, label %7
     i8 10, label %12
   ]
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %.01321, i64 1
+  %8 = getelementptr inbounds i8, ptr %.022, i64 1
   %.not18 = icmp eq ptr %8, %5
   br i1 %.not18, label %12, label %9
 
@@ -786,24 +786,24 @@ define dso_local i64 @_ZN11cmJSONState16LocateInDocumentEl(ptr noundef nonnull a
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %7, %9, %.lr.ph
-  %13 = add nsw i32 %.022, 1
+  %13 = add nsw i32 %.01420, 1
   br label %16
 
 14:                                               ; preds = %.lr.ph
-  %15 = add nsw i32 %.01420, 1
+  %15 = add nsw i32 %.01321, 1
   br label %16
 
 16:                                               ; preds = %12, %14, %9
-  %.115 = phi i32 [ %15, %14 ], [ 1, %12 ], [ %.01420, %9 ]
-  %.1 = phi i32 [ %.022, %14 ], [ %13, %12 ], [ %.022, %9 ]
-  %17 = getelementptr inbounds i8, ptr %.01321, i64 1
+  %.115 = phi i32 [ %.01420, %14 ], [ %13, %12 ], [ %.01420, %9 ]
+  %.1 = phi i32 [ %15, %14 ], [ 1, %12 ], [ %.01321, %9 ]
+  %17 = getelementptr inbounds i8, ptr %.022, i64 1
   %.not = icmp eq ptr %17, %5
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge.loopexit:                             ; preds = %16
-  %18 = zext i32 %.115 to i64
+  %18 = zext i32 %.1 to i64
   %19 = shl nuw i64 %18, 32
-  %20 = zext i32 %.1 to i64
+  %20 = zext i32 %.115 to i64
   %21 = or disjoint i64 %19, %20
   br label %._crit_edge
 

@@ -3484,19 +3484,19 @@ if.then14:                                        ; preds = %if.then10
   br label %return
 
 if.end16:                                         ; preds = %if.then10, %if.end
-  %dest.0 = phi ptr [ %call12, %if.then10 ], [ %1, %if.end ]
   %destCap.addr.0 = phi i32 [ %mul, %if.then10 ], [ %destCap, %if.end ]
+  %dest.0 = phi ptr [ %call12, %if.then10 ], [ %1, %if.end ]
   store i8 0, ptr %dest.0, align 1
   %cmp17132 = icmp sgt i32 %srcLen, 0
   br i1 %cmp17132, label %do.body, label %while.end
 
 do.body:                                          ; preds = %if.end16, %if.end202
-  %destCap.addr.1136 = phi i32 [ %destCap.addr.2, %if.end202 ], [ %destCap.addr.0, %if.end16 ]
-  %destLen.0135 = phi i32 [ %destLen.2, %if.end202 ], [ 0, %if.end16 ]
-  %dest.1134 = phi ptr [ %dest.2, %if.end202 ], [ %dest.0, %if.end16 ]
-  %srcIndex.0133 = phi i32 [ %srcIndex.1, %if.end202 ], [ 0, %if.end16 ]
-  %inc = add nsw i32 %srcIndex.0133, 1
-  %idxprom = sext i32 %srcIndex.0133 to i64
+  %destLen.0136 = phi i32 [ %destLen.2, %if.end202 ], [ 0, %if.end16 ]
+  %dest.1135 = phi ptr [ %dest.2, %if.end202 ], [ %dest.0, %if.end16 ]
+  %srcIndex.0134 = phi i32 [ %srcIndex.1, %if.end202 ], [ 0, %if.end16 ]
+  %destCap.addr.1133 = phi i32 [ %destCap.addr.2, %if.end202 ], [ %destCap.addr.0, %if.end16 ]
+  %inc = add nsw i32 %srcIndex.0134, 1
+  %idxprom = sext i32 %srcIndex.0134 to i64
   %arrayidx18 = getelementptr inbounds i16, ptr %src, i64 %idxprom
   %2 = load i16, ptr %arrayidx18, align 2
   %conv19 = zext i16 %2 to i32
@@ -3516,7 +3516,7 @@ land.lhs.true:                                    ; preds = %do.body
   br i1 %cmp27, label %if.then28, label %do.end
 
 if.then28:                                        ; preds = %land.lhs.true
-  %inc29 = add nsw i32 %srcIndex.0133, 2
+  %inc29 = add nsw i32 %srcIndex.0134, 2
   %shl = shl nuw nsw i32 %conv19, 10
   %add = add nsw i32 %shl, -56613888
   %sub = add nuw nsw i32 %add, %conv25
@@ -3535,7 +3535,7 @@ if.then38:                                        ; preds = %do.end, %do.end
   store i32 12, ptr %status, align 4
   %4 = load ptr, ptr @stderr, align 8
   %5 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 20, i64 1, ptr %4) #16
-  tail call void @uprv_free_75(ptr noundef %dest.1134)
+  tail call void @uprv_free_75(ptr noundef %dest.1135)
   br label %return
 
 if.end40:                                         ; preds = %do.end
@@ -3560,13 +3560,13 @@ cond.false47:                                     ; preds = %cond.false44
 
 cond.end59:                                       ; preds = %cond.false, %cond.false44, %cond.false47
   %cond60 = phi i32 [ 2, %cond.false ], [ %cond54, %cond.false47 ], [ 3, %cond.false44 ]
-  %add61 = add nsw i32 %cond60, %destLen.0135
-  %cmp62 = icmp slt i32 %add61, %destCap.addr.1136
+  %add61 = add nsw i32 %cond60, %destLen.0136
+  %cmp62 = icmp slt i32 %add61, %destCap.addr.1133
   br i1 %cmp62, label %if.then63, label %if.else191
 
 cond.end59.thread:                                ; preds = %if.end40
-  %add61147 = add nsw i32 %destLen.0135, 1
-  %cmp62148 = icmp slt i32 %add61147, %destCap.addr.1136
+  %add61147 = add nsw i32 %destLen.0136, 1
+  %cmp62148 = icmp slt i32 %add61147, %destCap.addr.1133
   br i1 %cmp62148, label %if.then65, label %if.else191
 
 if.then63:                                        ; preds = %cond.end59
@@ -3611,52 +3611,52 @@ if.then65:                                        ; preds = %cond.end59.thread, 
   ]
 
 sw.bb:                                            ; preds = %if.then65
-  %idx.ext = sext i32 %destLen.0135 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %dest.1134, i64 %idx.ext
+  %idx.ext = sext i32 %destLen.0136 to i64
+  %add.ptr = getelementptr inbounds i8, ptr %dest.1135, i64 %idx.ext
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %add.ptr, ptr noundef nonnull align 1 dereferenceable(6) @.str.44, i64 6, i1 false) #13
-  %add67 = add nsw i32 %destLen.0135, 5
+  %add67 = add nsw i32 %destLen.0136, 5
   br label %if.end202
 
 sw.bb68:                                          ; preds = %if.then65
-  %idx.ext69 = sext i32 %destLen.0135 to i64
-  %add.ptr70 = getelementptr inbounds i8, ptr %dest.1134, i64 %idx.ext69
+  %idx.ext69 = sext i32 %destLen.0136 to i64
+  %add.ptr70 = getelementptr inbounds i8, ptr %dest.1135, i64 %idx.ext69
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr70, ptr noundef nonnull align 1 dereferenceable(5) @.str.45, i64 5, i1 false) #13
-  %add72 = add nsw i32 %destLen.0135, 4
+  %add72 = add nsw i32 %destLen.0136, 4
   br label %if.end202
 
 sw.bb73:                                          ; preds = %if.then65
-  %idx.ext74 = sext i32 %destLen.0135 to i64
-  %add.ptr75 = getelementptr inbounds i8, ptr %dest.1134, i64 %idx.ext74
+  %idx.ext74 = sext i32 %destLen.0136 to i64
+  %add.ptr75 = getelementptr inbounds i8, ptr %dest.1135, i64 %idx.ext74
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr75, ptr noundef nonnull align 1 dereferenceable(5) @.str.46, i64 5, i1 false) #13
-  %add77 = add nsw i32 %destLen.0135, 4
+  %add77 = add nsw i32 %destLen.0136, 4
   br label %if.end202
 
 sw.bb78:                                          ; preds = %if.then65
-  %idx.ext79 = sext i32 %destLen.0135 to i64
-  %add.ptr80 = getelementptr inbounds i8, ptr %dest.1134, i64 %idx.ext79
+  %idx.ext79 = sext i32 %destLen.0136 to i64
+  %add.ptr80 = getelementptr inbounds i8, ptr %dest.1135, i64 %idx.ext79
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr80, ptr noundef nonnull align 1 dereferenceable(7) @.str.47, i64 7, i1 false) #13
-  %add82 = add nsw i32 %destLen.0135, 6
+  %add82 = add nsw i32 %destLen.0136, 6
   br label %if.end202
 
 sw.bb83:                                          ; preds = %if.then65
-  %idx.ext84 = sext i32 %destLen.0135 to i64
-  %add.ptr85 = getelementptr inbounds i8, ptr %dest.1134, i64 %idx.ext84
+  %idx.ext84 = sext i32 %destLen.0136 to i64
+  %add.ptr85 = getelementptr inbounds i8, ptr %dest.1135, i64 %idx.ext84
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %add.ptr85, ptr noundef nonnull align 1 dereferenceable(7) @.str.48, i64 7, i1 false) #13
-  %add87 = add nsw i32 %destLen.0135, 6
+  %add87 = add nsw i32 %destLen.0136, 6
   br label %if.end202
 
 sw.bb88:                                          ; preds = %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65, %if.then65
   store i32 12, ptr %status, align 4
   %7 = load ptr, ptr @stderr, align 8
   %call89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.49, i32 noundef %c.0) #16
-  tail call void @uprv_free_75(ptr noundef %dest.1134)
+  tail call void @uprv_free_75(ptr noundef %dest.1135)
   br label %return
 
 sw.default:                                       ; preds = %if.then65
   %conv90 = trunc nuw i32 %c.0 to i8
-  %inc91 = add nsw i32 %destLen.0135, 1
-  %idxprom92 = sext i32 %destLen.0135 to i64
-  %arrayidx93 = getelementptr inbounds i8, ptr %dest.1134, i64 %idxprom92
+  %inc91 = add nsw i32 %destLen.0136, 1
+  %idxprom92 = sext i32 %destLen.0136 to i64
+  %arrayidx93 = getelementptr inbounds i8, ptr %dest.1135, i64 %idxprom92
   store i8 %conv90, ptr %arrayidx93, align 1
   br label %if.end202
 
@@ -3665,23 +3665,23 @@ if.else101:                                       ; preds = %if.then63
   br i1 %cmp102, label %land.lhs.true103, label %if.else117
 
 land.lhs.true103:                                 ; preds = %if.else101
-  %add104 = add nsw i32 %destLen.0135, 1
-  %cmp105 = icmp slt i32 %add104, %destCap.addr.1136
+  %add104 = add nsw i32 %destLen.0136, 1
+  %cmp105 = icmp slt i32 %add104, %destCap.addr.1133
   br i1 %cmp105, label %if.then106, label %if.else117
 
 if.then106:                                       ; preds = %land.lhs.true103
   %shr = lshr i32 %c.0, 6
   %8 = trunc nuw i32 %shr to i8
   %conv107 = or disjoint i8 %8, -64
-  %idxprom109 = sext i32 %destLen.0135 to i64
-  %arrayidx110 = getelementptr inbounds i8, ptr %dest.1134, i64 %idxprom109
+  %idxprom109 = sext i32 %destLen.0136 to i64
+  %arrayidx110 = getelementptr inbounds i8, ptr %dest.1135, i64 %idxprom109
   store i8 %conv107, ptr %arrayidx110, align 1
   %9 = trunc i32 %c.0 to i8
   %10 = and i8 %9, 63
   %conv113 = or disjoint i8 %10, -128
-  %inc114 = add nsw i32 %destLen.0135, 2
+  %inc114 = add nsw i32 %destLen.0136, 2
   %idxprom115 = sext i32 %add104 to i64
-  %arrayidx116 = getelementptr inbounds i8, ptr %dest.1134, i64 %idxprom115
+  %arrayidx116 = getelementptr inbounds i8, ptr %dest.1135, i64 %idxprom115
   store i8 %conv113, ptr %arrayidx116, align 1
   br label %if.end202
 
@@ -3690,8 +3690,8 @@ if.else117:                                       ; preds = %land.lhs.true103, %
   %11 = and i32 %c.0, 2147475456
   %or.cond5 = icmp eq i32 %11, 57344
   %or.cond116 = or i1 %cmp118, %or.cond5
-  %add124 = add nsw i32 %destLen.0135, 2
-  %cmp125 = icmp slt i32 %add124, %destCap.addr.1136
+  %add124 = add nsw i32 %destLen.0136, 2
+  %cmp125 = icmp slt i32 %add124, %destCap.addr.1133
   %or.cond117 = select i1 %or.cond116, i1 %cmp125, i1 false
   br i1 %or.cond117, label %if.then126, label %if.else146
 
@@ -3699,31 +3699,31 @@ if.then126:                                       ; preds = %if.else117
   %shr127 = lshr i32 %c.0, 12
   %12 = trunc i32 %shr127 to i8
   %conv129 = or disjoint i8 %12, -32
-  %inc130 = add nsw i32 %destLen.0135, 1
-  %idxprom131 = sext i32 %destLen.0135 to i64
-  %arrayidx132 = getelementptr inbounds i8, ptr %dest.1134, i64 %idxprom131
+  %inc130 = add nsw i32 %destLen.0136, 1
+  %idxprom131 = sext i32 %destLen.0136 to i64
+  %arrayidx132 = getelementptr inbounds i8, ptr %dest.1135, i64 %idxprom131
   store i8 %conv129, ptr %arrayidx132, align 1
   %shr133 = lshr i32 %c.0, 6
   %13 = trunc i32 %shr133 to i8
   %14 = and i8 %13, 63
   %conv136 = or disjoint i8 %14, -128
   %idxprom138 = sext i32 %inc130 to i64
-  %arrayidx139 = getelementptr inbounds i8, ptr %dest.1134, i64 %idxprom138
+  %arrayidx139 = getelementptr inbounds i8, ptr %dest.1135, i64 %idxprom138
   store i8 %conv136, ptr %arrayidx139, align 1
   %15 = trunc i32 %c.0 to i8
   %16 = and i8 %15, 63
   %conv142 = or disjoint i8 %16, -128
-  %inc143 = add nsw i32 %destLen.0135, 3
+  %inc143 = add nsw i32 %destLen.0136, 3
   %idxprom144 = sext i32 %add124 to i64
-  %arrayidx145 = getelementptr inbounds i8, ptr %dest.1134, i64 %idxprom144
+  %arrayidx145 = getelementptr inbounds i8, ptr %dest.1135, i64 %idxprom144
   store i8 %conv142, ptr %arrayidx145, align 1
   br label %if.end202
 
 if.else146:                                       ; preds = %if.else117
   %17 = add nsw i32 %c.0, -65536
   %or.cond6 = icmp ult i32 %17, 1048576
-  %add151 = add nsw i32 %destLen.0135, 3
-  %cmp152 = icmp slt i32 %add151, %destCap.addr.1136
+  %add151 = add nsw i32 %destLen.0136, 3
+  %cmp152 = icmp slt i32 %add151, %destCap.addr.1133
   %or.cond118 = select i1 %or.cond6, i1 %cmp152, i1 false
   br i1 %or.cond118, label %if.then153, label %if.then187
 
@@ -3731,30 +3731,30 @@ if.then153:                                       ; preds = %if.else146
   %shr154 = lshr i32 %c.0, 18
   %18 = trunc nuw i32 %shr154 to i8
   %conv156 = or disjoint i8 %18, -16
-  %inc157 = add nsw i32 %destLen.0135, 1
-  %idxprom158 = sext i32 %destLen.0135 to i64
-  %arrayidx159 = getelementptr inbounds i8, ptr %dest.1134, i64 %idxprom158
+  %inc157 = add nsw i32 %destLen.0136, 1
+  %idxprom158 = sext i32 %destLen.0136 to i64
+  %arrayidx159 = getelementptr inbounds i8, ptr %dest.1135, i64 %idxprom158
   store i8 %conv156, ptr %arrayidx159, align 1
   %shr160 = lshr i32 %c.0, 12
   %19 = trunc i32 %shr160 to i8
   %20 = and i8 %19, 63
   %conv163 = or disjoint i8 %20, -128
   %idxprom165 = sext i32 %inc157 to i64
-  %arrayidx166 = getelementptr inbounds i8, ptr %dest.1134, i64 %idxprom165
+  %arrayidx166 = getelementptr inbounds i8, ptr %dest.1135, i64 %idxprom165
   store i8 %conv163, ptr %arrayidx166, align 1
   %shr167 = lshr i32 %c.0, 6
   %21 = trunc i32 %shr167 to i8
   %22 = and i8 %21, 63
   %conv170 = or disjoint i8 %22, -128
   %idxprom172 = sext i32 %add124 to i64
-  %arrayidx173 = getelementptr inbounds i8, ptr %dest.1134, i64 %idxprom172
+  %arrayidx173 = getelementptr inbounds i8, ptr %dest.1135, i64 %idxprom172
   store i8 %conv170, ptr %arrayidx173, align 1
   %23 = trunc i32 %c.0 to i8
   %24 = and i8 %23, 63
   %conv176 = or disjoint i8 %24, -128
-  %inc177 = add nsw i32 %destLen.0135, 4
+  %inc177 = add nsw i32 %destLen.0136, 4
   %idxprom178 = sext i32 %add151 to i64
-  %arrayidx179 = getelementptr inbounds i8, ptr %dest.1134, i64 %idxprom178
+  %arrayidx179 = getelementptr inbounds i8, ptr %dest.1135, i64 %idxprom178
   store i8 %conv176, ptr %arrayidx179, align 1
   br label %if.end202
 
@@ -3762,11 +3762,11 @@ if.then187:                                       ; preds = %if.else146
   store i32 12, ptr %status, align 4
   %25 = load ptr, ptr @stderr, align 8
   %call188 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.50, i32 noundef %c.0) #16
-  tail call void @uprv_free_75(ptr noundef %dest.1134)
+  tail call void @uprv_free_75(ptr noundef %dest.1135)
   br label %return
 
 if.else191:                                       ; preds = %cond.end59.thread, %cond.end59
-  %add192 = add nsw i32 %destCap.addr.1136, %destLen.0135
+  %add192 = add nsw i32 %destLen.0136, %destCap.addr.1133
   %conv193 = sext i32 %add192 to i64
   %call195 = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv193) #14
   %cmp196 = icmp eq ptr %call195, null
@@ -3774,19 +3774,19 @@ if.else191:                                       ; preds = %cond.end59.thread, 
 
 if.then197:                                       ; preds = %if.else191
   store i32 7, ptr %status, align 4
-  tail call void @uprv_free_75(ptr noundef %dest.1134)
+  tail call void @uprv_free_75(ptr noundef %dest.1135)
   br label %return
 
 do.body199:                                       ; preds = %if.else191
-  %conv200 = sext i32 %destLen.0135 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %call195, ptr align 1 %dest.1134, i64 %conv200, i1 false)
-  tail call void @uprv_free_75(ptr noundef %dest.1134)
+  %conv200 = sext i32 %destLen.0136 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %call195, ptr align 1 %dest.1135, i64 %conv200, i1 false)
+  tail call void @uprv_free_75(ptr noundef %dest.1135)
   br label %if.end202
 
 if.end202:                                        ; preds = %if.then153, %if.then126, %if.then106, %sw.default, %sw.bb83, %sw.bb78, %sw.bb73, %sw.bb68, %sw.bb, %do.body199
-  %dest.2 = phi ptr [ %dest.1134, %sw.default ], [ %dest.1134, %sw.bb83 ], [ %dest.1134, %sw.bb78 ], [ %dest.1134, %sw.bb73 ], [ %dest.1134, %sw.bb68 ], [ %dest.1134, %sw.bb ], [ %call195, %do.body199 ], [ %dest.1134, %if.then106 ], [ %dest.1134, %if.then126 ], [ %dest.1134, %if.then153 ]
+  %destCap.addr.2 = phi i32 [ %destCap.addr.1133, %sw.default ], [ %destCap.addr.1133, %sw.bb83 ], [ %destCap.addr.1133, %sw.bb78 ], [ %destCap.addr.1133, %sw.bb73 ], [ %destCap.addr.1133, %sw.bb68 ], [ %destCap.addr.1133, %sw.bb ], [ %add192, %do.body199 ], [ %destCap.addr.1133, %if.then106 ], [ %destCap.addr.1133, %if.then126 ], [ %destCap.addr.1133, %if.then153 ]
+  %dest.2 = phi ptr [ %dest.1135, %sw.default ], [ %dest.1135, %sw.bb83 ], [ %dest.1135, %sw.bb78 ], [ %dest.1135, %sw.bb73 ], [ %dest.1135, %sw.bb68 ], [ %dest.1135, %sw.bb ], [ %call195, %do.body199 ], [ %dest.1135, %if.then106 ], [ %dest.1135, %if.then126 ], [ %dest.1135, %if.then153 ]
   %destLen.2 = phi i32 [ %inc91, %sw.default ], [ %add87, %sw.bb83 ], [ %add82, %sw.bb78 ], [ %add77, %sw.bb73 ], [ %add72, %sw.bb68 ], [ %add67, %sw.bb ], [ 0, %do.body199 ], [ %inc114, %if.then106 ], [ %inc143, %if.then126 ], [ %inc177, %if.then153 ]
-  %destCap.addr.2 = phi i32 [ %destCap.addr.1136, %sw.default ], [ %destCap.addr.1136, %sw.bb83 ], [ %destCap.addr.1136, %sw.bb78 ], [ %destCap.addr.1136, %sw.bb73 ], [ %destCap.addr.1136, %sw.bb68 ], [ %destCap.addr.1136, %sw.bb ], [ %add192, %do.body199 ], [ %destCap.addr.1136, %if.then106 ], [ %destCap.addr.1136, %if.then126 ], [ %destCap.addr.1136, %if.then153 ]
   %cmp17 = icmp slt i32 %srcIndex.1, %srcLen
   br i1 %cmp17, label %do.body, label %while.end, !llvm.loop !17
 

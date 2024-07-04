@@ -1493,24 +1493,24 @@ _ZN5uu_wc10count_fast24count_bytes_using_splice17hc1a7f8521c37f22dE.exit.thread.
   br label %.loopexit.split-lp.i.i
 
 .loopexit.split-lp.loopexit.i.i:                  ; preds = %150
-  %lpad.loopexit44.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit48.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i.i
 
 .loopexit.split-lp.loopexit.split-lp.i.i:         ; preds = %164
-  %lpad.loopexit.split-lp45.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp49.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %.loopexit.split-lp.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.i.i, %.loopexit.i.i
-  %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit44.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp45.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ]
+  %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit48.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp49.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ]
   %151 = invoke noundef i32 @close(i32 noundef %.sroa.4.0.extract.trunc.i.i.i)
           to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h830ab77ffb00e60dE.exit63.i.i" unwind label %176, !noalias !207
 
 _ZN6uucore8features5pipes6splice17h079ba82cb7ee58c7E.exit.i.i: ; preds = %150
   %152 = load i32, ptr %62, align 8, !range !210, !noalias !207, !noundef !5
   %trunc45.i.i = trunc nuw i32 %152 to i1
-  br i1 %trunc45.i.i, label %.loopexit47.i.i, label %153
+  br i1 %trunc45.i.i, label %.loopexit51.i.i, label %153
 
 153:                                              ; preds = %_ZN6uucore8features5pipes6splice17h079ba82cb7ee58c7E.exit.i.i
   %154 = load i64, ptr %148, align 8, !noalias !207, !noundef !5
@@ -1571,7 +1571,7 @@ _ZN6uucore8features5pipes6splice17h079ba82cb7ee58c7E.exit.i.i: ; preds = %150
   %168 = invoke noundef i32 @close(i32 noundef %.sroa.03.0.extract.trunc.i.i.i)
           to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h830ab77ffb00e60dE.exit68.i.i" unwind label %176, !noalias !207
 
-169:                                              ; preds = %.loopexit47.i.i, %156
+169:                                              ; preds = %.loopexit51.i.i, %156
   %170 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h830ab77ffb00e60dE.exit63.i.i"
@@ -1582,19 +1582,19 @@ _ZN6uucore8features5pipes6splice17h079ba82cb7ee58c7E.exit.i.i: ; preds = %150
 
 _ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE.exit.i.i: ; preds = %.noexc.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60), !noalias !236
-  br label %.loopexit47.i.i
+  br label %.loopexit51.i.i
 
 172:                                              ; preds = %165
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62), !noalias !207
   br label %150
 
-.loopexit47.i.i:                                  ; preds = %_ZN6uucore8features5pipes6splice17h079ba82cb7ee58c7E.exit.i.i, %_ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE.exit.i.i
+.loopexit51.i.i:                                  ; preds = %_ZN6uucore8features5pipes6splice17h079ba82cb7ee58c7E.exit.i.i, %_ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE.exit.i.i
   %.sroa.8.1.i.i = phi i64 [ %158, %_ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE.exit.i.i ], [ %.038.i.i, %_ZN6uucore8features5pipes6splice17h079ba82cb7ee58c7E.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62), !noalias !207
   %173 = invoke noundef i32 @close(i32 noundef %.sroa.4.0.extract.trunc.i.i.i)
           to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h830ab77ffb00e60dE.exit72.i.i" unwind label %169, !noalias !207
 
-"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h830ab77ffb00e60dE.exit72.i.i": ; preds = %.loopexit47.i.i
+"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h830ab77ffb00e60dE.exit72.i.i": ; preds = %.loopexit51.i.i
   %174 = invoke noundef i32 @close(i32 noundef %.sroa.03.0.extract.trunc.i.i.i)
           to label %.critedge.i.i unwind label %127, !noalias !207
 
@@ -4118,24 +4118,24 @@ _ZN5uu_wc10count_fast24count_bytes_using_splice17hd9582513b1fe0a7aE.exit.thread.
   br label %.loopexit.split-lp.i.i
 
 .loopexit.split-lp.loopexit.i.i:                  ; preds = %182
-  %lpad.loopexit44.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit48.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i.i
 
 .loopexit.split-lp.loopexit.split-lp.i.i:         ; preds = %196
-  %lpad.loopexit.split-lp45.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp49.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp.i.i
 
 .loopexit.split-lp.i.i:                           ; preds = %.loopexit.split-lp.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.i.i, %.loopexit.i.i
-  %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit44.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp45.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ]
+  %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit48.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp49.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ]
   %183 = invoke noundef i32 @close(i32 noundef %.sroa.4.0.extract.trunc.i.i.i)
           to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h830ab77ffb00e60dE.exit63.i.i" unwind label %208
 
 _ZN6uucore8features5pipes6splice17h1815b91d86907b5fE.exit.i.i: ; preds = %182
   %184 = load i32, ptr %61, align 8, !range !210, !noalias !781, !noundef !5
   %trunc45.i.i = trunc nuw i32 %184 to i1
-  br i1 %trunc45.i.i, label %.loopexit47.i.i, label %185
+  br i1 %trunc45.i.i, label %.loopexit51.i.i, label %185
 
 185:                                              ; preds = %_ZN6uucore8features5pipes6splice17h1815b91d86907b5fE.exit.i.i
   %186 = load i64, ptr %180, align 8, !noalias !781, !noundef !5
@@ -4196,7 +4196,7 @@ _ZN6uucore8features5pipes6splice17h1815b91d86907b5fE.exit.i.i: ; preds = %182
   %200 = invoke noundef i32 @close(i32 noundef %.sroa.03.0.extract.trunc.i.i.i)
           to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h830ab77ffb00e60dE.exit68.i.i" unwind label %208
 
-201:                                              ; preds = %.loopexit47.i.i, %188
+201:                                              ; preds = %.loopexit51.i.i, %188
   %202 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h830ab77ffb00e60dE.exit63.i.i"
@@ -4207,19 +4207,19 @@ _ZN6uucore8features5pipes6splice17h1815b91d86907b5fE.exit.i.i: ; preds = %182
 
 _ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE.exit.i.i: ; preds = %.noexc.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59), !noalias !817
-  br label %.loopexit47.i.i
+  br label %.loopexit51.i.i
 
 204:                                              ; preds = %197
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61), !noalias !781
   br label %182
 
-.loopexit47.i.i:                                  ; preds = %_ZN6uucore8features5pipes6splice17h1815b91d86907b5fE.exit.i.i, %_ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE.exit.i.i
+.loopexit51.i.i:                                  ; preds = %_ZN6uucore8features5pipes6splice17h1815b91d86907b5fE.exit.i.i, %_ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE.exit.i.i
   %.sroa.8.1.i.i = phi i64 [ %190, %_ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE.exit.i.i ], [ %.038.i.i, %_ZN6uucore8features5pipes6splice17h1815b91d86907b5fE.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61), !noalias !781
   %205 = invoke noundef i32 @close(i32 noundef %.sroa.4.0.extract.trunc.i.i.i)
           to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h830ab77ffb00e60dE.exit72.i.i" unwind label %201
 
-"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h830ab77ffb00e60dE.exit72.i.i": ; preds = %.loopexit47.i.i
+"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h830ab77ffb00e60dE.exit72.i.i": ; preds = %.loopexit51.i.i
   %206 = invoke noundef i32 @close(i32 noundef %.sroa.03.0.extract.trunc.i.i.i)
           to label %.critedge.i.i unwind label %159
 

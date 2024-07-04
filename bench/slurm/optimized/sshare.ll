@@ -498,9 +498,9 @@ thread-pre-split63:                               ; preds = %140
 
 .lr.ph.i:                                         ; preds = %158, %163
   %161 = phi ptr [ %169, %163 ], [ %160, %158 ]
-  %.012.i = phi i1 [ false, %163 ], [ true, %158 ]
-  %.0711.i = phi i32 [ %spec.select.i, %163 ], [ 0, %158 ]
-  br i1 %.012.i, label %163, label %162
+  %.012.i = phi i32 [ %spec.select.i, %163 ], [ 0, %158 ]
+  %.0711.i = phi i1 [ false, %163 ], [ true, %158 ]
+  br i1 %.0711.i, label %163, label %162
 
 162:                                              ; preds = %.lr.ph.i
   %putchar.i = call i32 @putchar(i32 10)
@@ -514,14 +514,14 @@ thread-pre-split63:                               ; preds = %140
   %167 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, ptr noundef %166)
   %168 = call fastcc i32 @_single_cluster(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %5)
   %.not9.i = icmp eq i32 %168, 0
-  %spec.select.i = select i1 %.not9.i, i32 %.0711.i, i32 1
+  %spec.select.i = select i1 %.not9.i, i32 %.012.i, i32 1
   %169 = call ptr @list_next(ptr noundef %159) #14
   store ptr %169, ptr @working_cluster_rec, align 8
   %.not.i61 = icmp eq ptr %169, null
   br i1 %.not.i61, label %_multi_cluster.exit, label %.lr.ph.i, !llvm.loop !11
 
 _multi_cluster.exit:                              ; preds = %163, %158
-  %.07.lcssa.i = phi i32 [ 0, %158 ], [ %spec.select.i, %163 ]
+  %.0.lcssa.i = phi i32 [ 0, %158 ], [ %spec.select.i, %163 ]
   call void @list_iterator_destroy(ptr noundef %159) #14
   br label %172
 
@@ -530,7 +530,7 @@ _multi_cluster.exit:                              ; preds = %163, %158
   br label %172
 
 172:                                              ; preds = %_multi_cluster.exit, %170
-  %storemerge = phi i32 [ %171, %170 ], [ %.07.lcssa.i, %_multi_cluster.exit ]
+  %storemerge = phi i32 [ %171, %170 ], [ %.0.lcssa.i, %_multi_cluster.exit ]
   store i32 %storemerge, ptr @exit_code, align 4
   %173 = load ptr, ptr %5, align 8
   %.not52 = icmp eq ptr %173, null

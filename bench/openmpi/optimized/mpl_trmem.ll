@@ -1548,7 +1548,7 @@ define ptr @MPL_trrealloc(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 no
   br label %trrealloc.exit
 
 32:                                               ; preds = %17, %.critedge
-  %.032.i = phi ptr [ %18, %17 ], [ null, %.critedge ]
+  %.031.i = phi ptr [ %18, %17 ], [ null, %.critedge ]
   %.not37.i = icmp eq i64 %1, 0
   br i1 %.not37.i, label %33, label %34
 
@@ -1563,7 +1563,7 @@ define ptr @MPL_trrealloc(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 no
   br i1 %or.cond.i, label %.thread.i, label %39
 
 .thread.i:                                        ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %.032.i, i64 8
+  %37 = getelementptr inbounds i8, ptr %.031.i, i64 8
   %38 = load i64, ptr %37, align 8
   %spec.select.i = call i64 @llvm.umin.i64(i64 %38, i64 %1)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull align 1 %0, i64 %spec.select.i, i1 false)
@@ -1571,12 +1571,12 @@ define ptr @MPL_trrealloc(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 no
   br label %40
 
 39:                                               ; preds = %34
-  %.not38.i = icmp eq ptr %.032.i, null
+  %.not38.i = icmp eq ptr %.031.i, null
   br i1 %.not38.i, label %trrealloc.exit, label %40
 
 40:                                               ; preds = %39, %.thread.i
   store volatile i64 1296236544, ptr %8, align 16
-  %41 = ptrtoint ptr %.032.i to i64
+  %41 = ptrtoint ptr %.031.i to i64
   %42 = getelementptr inbounds i8, ptr %8, i64 8
   store volatile i64 %41, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %8, i64 16

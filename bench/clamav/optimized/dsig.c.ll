@@ -465,17 +465,17 @@ cli_ndecode.exit:                                 ; preds = %20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %30, %27, %cli_ndecode.exit, %cli_ndecode.exit.thread, %47, %._crit_edge, %12, %10, %8, %4, %46, %42
-  %.043 = phi ptr [ null, %42 ], [ null, %46 ], [ null, %._crit_edge ], [ null, %12 ], [ null, %10 ], [ null, %8 ], [ null, %4 ], [ %spec.select, %47 ], [ null, %cli_ndecode.exit.thread ], [ null, %cli_ndecode.exit ], [ null, %27 ], [ null, %30 ], [ null, %34 ]
-  %.042 = phi ptr [ null, %42 ], [ null, %46 ], [ null, %._crit_edge ], [ null, %12 ], [ null, %10 ], [ null, %8 ], [ null, %4 ], [ %spec.select65, %47 ], [ null, %cli_ndecode.exit.thread ], [ null, %cli_ndecode.exit ], [ null, %27 ], [ null, %30 ], [ null, %34 ]
-  %.041 = phi ptr [ %9, %42 ], [ %9, %46 ], [ %9, %._crit_edge ], [ %9, %12 ], [ %9, %10 ], [ null, %8 ], [ null, %4 ], [ %9, %47 ], [ %9, %cli_ndecode.exit.thread ], [ %9, %cli_ndecode.exit ], [ %9, %27 ], [ %9, %30 ], [ %9, %34 ]
-  %.040 = phi ptr [ %11, %42 ], [ %11, %46 ], [ %11, %._crit_edge ], [ %11, %12 ], [ null, %10 ], [ null, %8 ], [ null, %4 ], [ %11, %47 ], [ %11, %cli_ndecode.exit.thread ], [ %11, %cli_ndecode.exit ], [ %11, %27 ], [ %11, %30 ], [ %11, %34 ]
-  %.039 = phi ptr [ %13, %42 ], [ %13, %46 ], [ %13, %._crit_edge ], [ null, %12 ], [ null, %10 ], [ null, %8 ], [ null, %4 ], [ %13, %47 ], [ %13, %cli_ndecode.exit.thread ], [ %13, %cli_ndecode.exit ], [ %13, %27 ], [ %13, %30 ], [ %13, %34 ]
+  %.042 = phi ptr [ null, %42 ], [ null, %46 ], [ null, %._crit_edge ], [ null, %12 ], [ null, %10 ], [ null, %8 ], [ null, %4 ], [ %spec.select, %47 ], [ null, %cli_ndecode.exit.thread ], [ null, %cli_ndecode.exit ], [ null, %27 ], [ null, %30 ], [ null, %34 ]
+  %.041 = phi ptr [ null, %42 ], [ null, %46 ], [ null, %._crit_edge ], [ null, %12 ], [ null, %10 ], [ null, %8 ], [ null, %4 ], [ %spec.select65, %47 ], [ null, %cli_ndecode.exit.thread ], [ null, %cli_ndecode.exit ], [ null, %27 ], [ null, %30 ], [ null, %34 ]
+  %.040 = phi ptr [ %9, %42 ], [ %9, %46 ], [ %9, %._crit_edge ], [ %9, %12 ], [ %9, %10 ], [ null, %8 ], [ null, %4 ], [ %9, %47 ], [ %9, %cli_ndecode.exit.thread ], [ %9, %cli_ndecode.exit ], [ %9, %27 ], [ %9, %30 ], [ %9, %34 ]
+  %.039 = phi ptr [ %11, %42 ], [ %11, %46 ], [ %11, %._crit_edge ], [ %11, %12 ], [ null, %10 ], [ null, %8 ], [ null, %4 ], [ %11, %47 ], [ %11, %cli_ndecode.exit.thread ], [ %11, %cli_ndecode.exit ], [ %11, %27 ], [ %11, %30 ], [ %11, %34 ]
+  %.0 = phi ptr [ %13, %42 ], [ %13, %46 ], [ %13, %._crit_edge ], [ null, %12 ], [ null, %10 ], [ null, %8 ], [ null, %4 ], [ %13, %47 ], [ %13, %cli_ndecode.exit.thread ], [ %13, %cli_ndecode.exit ], [ %13, %27 ], [ %13, %30 ], [ %13, %34 ]
   tail call void @BN_free(ptr noundef %7) #14
-  tail call void @BN_free(ptr noundef %.041) #14
   tail call void @BN_free(ptr noundef %.040) #14
-  tail call void @BN_CTX_free(ptr noundef %.039) #14
-  tail call void @free(ptr noundef %.043) #14
-  ret ptr %.042
+  tail call void @BN_free(ptr noundef %.039) #14
+  tail call void @BN_CTX_free(ptr noundef %.0) #14
+  tail call void @free(ptr noundef %.042) #14
+  ret ptr %.041
 }
 
 declare ptr @cli_str2hex(ptr noundef, i32 noundef) local_unnamed_addr #4

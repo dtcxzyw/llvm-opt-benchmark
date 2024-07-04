@@ -251,14 +251,14 @@ define internal i32 @dissect_ppi_sensor(ptr noundef %0, ptr noundef %1, ptr noun
   br label %41
 
 41:                                               ; preds = %.lr.ph, %261
-  %.0260349 = phi i8 [ 0, %.lr.ph ], [ %.1261, %261 ]
-  %.0265347 = phi i32 [ %11, %.lr.ph ], [ %44, %261 ]
-  %.0266346 = phi ptr [ @.str.83, %.lr.ph ], [ %.1267, %261 ]
-  %.0268345 = phi ptr [ @.str.82, %.lr.ph ], [ %.1269, %261 ]
+  %.0259350 = phi i8 [ 0, %.lr.ph ], [ %.1, %261 ]
+  %.0263348 = phi i32 [ %11, %.lr.ph ], [ %44, %261 ]
+  %.0264347 = phi ptr [ @.str.83, %.lr.ph ], [ %.1265, %261 ]
+  %.0266346 = phi ptr [ @.str.82, %.lr.ph ], [ %.1267, %261 ]
   %42 = phi <2 x i32> [ %40, %.lr.ph ], [ %262, %261 ]
-  %43 = add i32 %.0265347, -1
-  %44 = and i32 %43, %.0265347
-  %45 = xor i32 %44, %.0265347
+  %43 = add i32 %.0263348, -1
+  %44 = and i32 %43, %.0263348
+  %45 = xor i32 %44, %.0263348
   %.not287 = icmp ult i32 %45, 65536
   br i1 %.not287, label %75, label %46
 
@@ -462,12 +462,12 @@ define internal i32 @dissect_ppi_sensor(ptr noundef %0, ptr noundef %1, ptr noun
 133:                                              ; preds = %129
   %134 = load i32, ptr @hf_ppi_sensor_val_x, align 4
   %135 = tail call ptr @proto_tree_add_double(ptr noundef %16, i32 noundef %134, ptr noundef %0, i32 noundef %130, i32 noundef 4, double noundef %132) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %135, ptr noundef nonnull @.str.91, ptr noundef %.0266346) #3
-  %136 = icmp eq i8 %.0260349, 0
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %135, ptr noundef nonnull @.str.91, ptr noundef %.0264347) #3
+  %136 = icmp eq i8 %.0259350, 0
   br i1 %136, label %base_10_expt.exit, label %137
 
 137:                                              ; preds = %133
-  %138 = tail call i8 @llvm.abs.i8(i8 %.0260349, i1 false)
+  %138 = tail call i8 @llvm.abs.i8(i8 %.0259350, i1 false)
   %spec.select.i = zext i8 %138 to i32
   br label %139
 
@@ -480,7 +480,7 @@ define internal i32 @dissect_ppi_sensor(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %142, label %139, label %143, !llvm.loop !4
 
 143:                                              ; preds = %139
-  %144 = icmp sgt i8 %.0260349, -1
+  %144 = icmp sgt i8 %.0259350, -1
   br i1 %144, label %base_10_expt.exit, label %145
 
 145:                                              ; preds = %143
@@ -490,7 +490,7 @@ define internal i32 @dissect_ppi_sensor(ptr noundef %0, ptr noundef %1, ptr noun
 base_10_expt.exit:                                ; preds = %133, %143, %145
   %.011.i = phi double [ %146, %145 ], [ 1.000000e+00, %133 ], [ %140, %143 ]
   %147 = fmul double %132, %.011.i
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %14, ptr noundef nonnull @.str.93, ptr noundef %.0268345, double noundef %147, ptr noundef %.0266346) #3
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %14, ptr noundef nonnull @.str.93, ptr noundef %.0266346, double noundef %147, ptr noundef %.0264347) #3
   br label %148
 
 148:                                              ; preds = %base_10_expt.exit, %129
@@ -509,12 +509,12 @@ base_10_expt.exit:                                ; preds = %133, %143, %145
 154:                                              ; preds = %150
   %155 = load i32, ptr @hf_ppi_sensor_val_y, align 4
   %156 = tail call ptr @proto_tree_add_double(ptr noundef %16, i32 noundef %155, ptr noundef %0, i32 noundef %151, i32 noundef 4, double noundef %153) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %156, ptr noundef nonnull @.str.91, ptr noundef %.0266346) #3
-  %157 = icmp eq i8 %.0260349, 0
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %156, ptr noundef nonnull @.str.91, ptr noundef %.0264347) #3
+  %157 = icmp eq i8 %.0259350, 0
   br i1 %157, label %base_10_expt.exit329, label %158
 
 158:                                              ; preds = %154
-  %159 = tail call i8 @llvm.abs.i8(i8 %.0260349, i1 false)
+  %159 = tail call i8 @llvm.abs.i8(i8 %.0259350, i1 false)
   %spec.select.i325 = zext i8 %159 to i32
   br label %160
 
@@ -527,7 +527,7 @@ base_10_expt.exit:                                ; preds = %133, %143, %145
   br i1 %163, label %160, label %164, !llvm.loop !4
 
 164:                                              ; preds = %160
-  %165 = icmp sgt i8 %.0260349, -1
+  %165 = icmp sgt i8 %.0259350, -1
   br i1 %165, label %base_10_expt.exit329, label %166
 
 166:                                              ; preds = %164
@@ -537,7 +537,7 @@ base_10_expt.exit:                                ; preds = %133, %143, %145
 base_10_expt.exit329:                             ; preds = %154, %164, %166
   %.011.i328 = phi double [ %167, %166 ], [ 1.000000e+00, %154 ], [ %161, %164 ]
   %168 = fmul double %153, %.011.i328
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %14, ptr noundef nonnull @.str.93, ptr noundef %.0268345, double noundef %168, ptr noundef %.0266346) #3
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %14, ptr noundef nonnull @.str.93, ptr noundef %.0266346, double noundef %168, ptr noundef %.0264347) #3
   br label %169
 
 169:                                              ; preds = %base_10_expt.exit329, %150
@@ -558,12 +558,12 @@ base_10_expt.exit329:                             ; preds = %154, %164, %166
 178:                                              ; preds = %174
   %179 = load i32, ptr @hf_ppi_sensor_val_z, align 4
   %180 = tail call ptr @proto_tree_add_double(ptr noundef %16, i32 noundef %179, ptr noundef %0, i32 noundef %175, i32 noundef 4, double noundef %177) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %180, ptr noundef nonnull @.str.91, ptr noundef %.0266346) #3
-  %181 = icmp eq i8 %.0260349, 0
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %180, ptr noundef nonnull @.str.91, ptr noundef %.0264347) #3
+  %181 = icmp eq i8 %.0259350, 0
   br i1 %181, label %base_10_expt.exit334, label %182
 
 182:                                              ; preds = %178
-  %183 = tail call i8 @llvm.abs.i8(i8 %.0260349, i1 false)
+  %183 = tail call i8 @llvm.abs.i8(i8 %.0259350, i1 false)
   %spec.select.i330 = zext i8 %183 to i32
   br label %184
 
@@ -576,7 +576,7 @@ base_10_expt.exit329:                             ; preds = %154, %164, %166
   br i1 %187, label %184, label %188, !llvm.loop !4
 
 188:                                              ; preds = %184
-  %189 = icmp sgt i8 %.0260349, -1
+  %189 = icmp sgt i8 %.0259350, -1
   br i1 %189, label %base_10_expt.exit334, label %190
 
 190:                                              ; preds = %188
@@ -586,7 +586,7 @@ base_10_expt.exit329:                             ; preds = %154, %164, %166
 base_10_expt.exit334:                             ; preds = %178, %188, %190
   %.011.i333 = phi double [ %191, %190 ], [ 1.000000e+00, %178 ], [ %185, %188 ]
   %192 = fmul double %177, %.011.i333
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %14, ptr noundef nonnull @.str.93, ptr noundef %.0268345, double noundef %192, ptr noundef %.0266346) #3
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %14, ptr noundef nonnull @.str.93, ptr noundef %.0266346, double noundef %192, ptr noundef %.0264347) #3
   br label %193
 
 193:                                              ; preds = %base_10_expt.exit334, %174
@@ -607,12 +607,12 @@ base_10_expt.exit334:                             ; preds = %178, %188, %190
 202:                                              ; preds = %198
   %203 = load i32, ptr @hf_ppi_sensor_val_t, align 4
   %204 = tail call ptr @proto_tree_add_double(ptr noundef %16, i32 noundef %203, ptr noundef %0, i32 noundef %199, i32 noundef 4, double noundef %201) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %204, ptr noundef nonnull @.str.91, ptr noundef %.0266346) #3
-  %205 = icmp eq i8 %.0260349, 0
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %204, ptr noundef nonnull @.str.91, ptr noundef %.0264347) #3
+  %205 = icmp eq i8 %.0259350, 0
   br i1 %205, label %base_10_expt.exit339, label %206
 
 206:                                              ; preds = %202
-  %207 = tail call i8 @llvm.abs.i8(i8 %.0260349, i1 false)
+  %207 = tail call i8 @llvm.abs.i8(i8 %.0259350, i1 false)
   %spec.select.i335 = zext i8 %207 to i32
   br label %208
 
@@ -625,7 +625,7 @@ base_10_expt.exit334:                             ; preds = %178, %188, %190
   br i1 %211, label %208, label %212, !llvm.loop !4
 
 212:                                              ; preds = %208
-  %213 = icmp sgt i8 %.0260349, -1
+  %213 = icmp sgt i8 %.0259350, -1
   br i1 %213, label %base_10_expt.exit339, label %214
 
 214:                                              ; preds = %212
@@ -635,7 +635,7 @@ base_10_expt.exit334:                             ; preds = %178, %188, %190
 base_10_expt.exit339:                             ; preds = %202, %212, %214
   %.011.i338 = phi double [ %215, %214 ], [ 1.000000e+00, %202 ], [ %209, %212 ]
   %216 = fmul double %201, %.011.i338
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %14, ptr noundef nonnull @.str.93, ptr noundef %.0268345, double noundef %216, ptr noundef %.0266346) #3
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %14, ptr noundef nonnull @.str.93, ptr noundef %.0266346, double noundef %216, ptr noundef %.0264347) #3
   br label %217
 
 217:                                              ; preds = %base_10_expt.exit339, %198
@@ -656,7 +656,7 @@ base_10_expt.exit339:                             ; preds = %202, %212, %214
 226:                                              ; preds = %222
   %227 = load i32, ptr @hf_ppi_sensor_val_e, align 4
   %228 = tail call ptr @proto_tree_add_double(ptr noundef %16, i32 noundef %227, ptr noundef %0, i32 noundef %223, i32 noundef 4, double noundef %225) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %228, ptr noundef nonnull @.str.91, ptr noundef %.0266346) #3
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %228, ptr noundef nonnull @.str.91, ptr noundef %.0264347) #3
   br label %229
 
 229:                                              ; preds = %226, %222
@@ -714,9 +714,9 @@ base_10_expt.exit339:                             ; preds = %202, %212, %214
   br label %._crit_edge
 
 261:                                              ; preds = %116, %122, %148, %169, %193, %217, %229, %241, %246, %255, %104, %118, %.thread, %.thread340, %171, %195, %219, %231, %243, %252
-  %.1269 = phi ptr [ %.0268345, %252 ], [ %.0268345, %255 ], [ %.0268345, %243 ], [ %.0268345, %246 ], [ %.0268345, %231 ], [ %.0268345, %241 ], [ %.0268345, %219 ], [ %.0268345, %229 ], [ %.0268345, %195 ], [ %.0268345, %217 ], [ %.0268345, %171 ], [ %.0268345, %193 ], [ %.0268345, %.thread340 ], [ %.0268345, %169 ], [ %.0268345, %.thread ], [ %.0268345, %148 ], [ %.0268345, %118 ], [ %.0268345, %122 ], [ %.0268345, %104 ], [ %111, %116 ]
-  %.1267 = phi ptr [ %.0266346, %252 ], [ %.0266346, %255 ], [ %.0266346, %243 ], [ %.0266346, %246 ], [ %.0266346, %231 ], [ %.0266346, %241 ], [ %.0266346, %219 ], [ %.0266346, %229 ], [ %.0266346, %195 ], [ %.0266346, %217 ], [ %.0266346, %171 ], [ %.0266346, %193 ], [ %.0266346, %.thread340 ], [ %.0266346, %169 ], [ %.0266346, %.thread ], [ %.0266346, %148 ], [ %.0266346, %118 ], [ %.0266346, %122 ], [ %.0266346, %104 ], [ %112, %116 ]
-  %.1261 = phi i8 [ %.0260349, %252 ], [ %.0260349, %255 ], [ %.0260349, %243 ], [ %.0260349, %246 ], [ %.0260349, %231 ], [ %.0260349, %241 ], [ %.0260349, %219 ], [ %.0260349, %229 ], [ %.0260349, %195 ], [ %.0260349, %217 ], [ %.0260349, %171 ], [ %.0260349, %193 ], [ %.0260349, %.thread340 ], [ %.0260349, %169 ], [ %.0260349, %.thread ], [ %.0260349, %148 ], [ %.0260349, %118 ], [ %124, %122 ], [ %.0260349, %104 ], [ %.0260349, %116 ]
+  %.1267 = phi ptr [ %.0266346, %252 ], [ %.0266346, %255 ], [ %.0266346, %243 ], [ %.0266346, %246 ], [ %.0266346, %231 ], [ %.0266346, %241 ], [ %.0266346, %219 ], [ %.0266346, %229 ], [ %.0266346, %195 ], [ %.0266346, %217 ], [ %.0266346, %171 ], [ %.0266346, %193 ], [ %.0266346, %.thread340 ], [ %.0266346, %169 ], [ %.0266346, %.thread ], [ %.0266346, %148 ], [ %.0266346, %118 ], [ %.0266346, %122 ], [ %.0266346, %104 ], [ %111, %116 ]
+  %.1265 = phi ptr [ %.0264347, %252 ], [ %.0264347, %255 ], [ %.0264347, %243 ], [ %.0264347, %246 ], [ %.0264347, %231 ], [ %.0264347, %241 ], [ %.0264347, %219 ], [ %.0264347, %229 ], [ %.0264347, %195 ], [ %.0264347, %217 ], [ %.0264347, %171 ], [ %.0264347, %193 ], [ %.0264347, %.thread340 ], [ %.0264347, %169 ], [ %.0264347, %.thread ], [ %.0264347, %148 ], [ %.0264347, %118 ], [ %.0264347, %122 ], [ %.0264347, %104 ], [ %112, %116 ]
+  %.1 = phi i8 [ %.0259350, %252 ], [ %.0259350, %255 ], [ %.0259350, %243 ], [ %.0259350, %246 ], [ %.0259350, %231 ], [ %.0259350, %241 ], [ %.0259350, %219 ], [ %.0259350, %229 ], [ %.0259350, %195 ], [ %.0259350, %217 ], [ %.0259350, %171 ], [ %.0259350, %193 ], [ %.0259350, %.thread340 ], [ %.0259350, %169 ], [ %.0259350, %.thread ], [ %.0259350, %148 ], [ %.0259350, %118 ], [ %124, %122 ], [ %.0259350, %104 ], [ %.0259350, %116 ]
   %262 = phi <2 x i32> [ %42, %252 ], [ %259, %255 ], [ %42, %243 ], [ %251, %246 ], [ %42, %231 ], [ %242, %241 ], [ %42, %219 ], [ %230, %229 ], [ %42, %195 ], [ %218, %217 ], [ %42, %171 ], [ %194, %193 ], [ %42, %.thread340 ], [ %170, %169 ], [ %42, %.thread ], [ %149, %148 ], [ %121, %118 ], [ %128, %122 ], [ %42, %104 ], [ %117, %116 ]
   %.not = icmp eq i32 %44, 0
   br i1 %.not, label %._crit_edge, label %41, !llvm.loop !6

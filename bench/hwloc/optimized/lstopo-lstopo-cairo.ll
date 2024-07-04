@@ -234,7 +234,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr nocapture nou
   %spec.select = call i32 @llvm.smin.i32(i32 %120, i32 %132)
   %133 = getelementptr inbounds i8, ptr %28, i64 28
   %134 = load i32, ptr %133, align 4
-  %.0269 = call i32 @llvm.smin.i32(i32 %122, i32 %134)
+  %.0282 = call i32 @llvm.smin.i32(i32 %122, i32 %134)
   %135 = getelementptr inbounds i8, ptr %8, i64 80
   store i32 0, ptr %135, align 8
   %136 = getelementptr inbounds i8, ptr %8, i64 84
@@ -242,7 +242,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr nocapture nou
   %137 = getelementptr inbounds i8, ptr %8, i64 72
   store i32 %spec.select, ptr %137, align 8
   %138 = getelementptr inbounds i8, ptr %8, i64 76
-  store i32 %.0269, ptr %138, align 4
+  store i32 %.0282, ptr %138, align 4
   %139 = load i32, ptr %119, align 4
   %140 = getelementptr inbounds i8, ptr %8, i64 88
   store i32 %139, ptr %140, align 8
@@ -349,9 +349,9 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr nocapture nou
   br i1 %.not297351, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %187, %434
-  %.0277342354 = phi i32 [ %.1278, %434 ], [ %188, %187 ]
-  %.0275343353 = phi i32 [ %.1276, %434 ], [ %189, %187 ]
-  %.0273344352 = phi i32 [ %.1274, %434 ], [ 0, %187 ]
+  %.0275340356 = phi i32 [ %.1276, %434 ], [ 0, %187 ]
+  %.0269343353 = phi i32 [ %.1270, %434 ], [ %188, %187 ]
+  %.0268344352 = phi i32 [ %.1, %434 ], [ %189, %187 ]
   %216 = phi <2 x i32> [ %435, %434 ], [ zeroinitializer, %187 ]
   %217 = load ptr, ptr %21, align 8
   %218 = call i32 @XEventsQueued(ptr noundef %217, i32 noundef 2) #13
@@ -360,9 +360,9 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr nocapture nou
 
 219:                                              ; preds = %.lr.ph
   %220 = load i32, ptr %147, align 8
-  %.not299 = icmp eq i32 %220, %.0277342354
+  %.not299 = icmp eq i32 %220, %.0269343353
   %221 = load i32, ptr %148, align 4
-  %.not300 = icmp eq i32 %221, %.0275343353
+  %.not300 = icmp eq i32 %221, %.0268344352
   %or.cond330 = select i1 %.not299, i1 %.not300, i1 false
   br i1 %or.cond330, label %230, label %222
 
@@ -377,8 +377,8 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr nocapture nou
   br label %230
 
 230:                                              ; preds = %219, %222, %.lr.ph
-  %.1278 = phi i32 [ %.0277342354, %.lr.ph ], [ %228, %222 ], [ %.0277342354, %219 ]
-  %.1276 = phi i32 [ %.0275343353, %.lr.ph ], [ %229, %222 ], [ %.0275343353, %219 ]
+  %.1270 = phi i32 [ %.0269343353, %.lr.ph ], [ %228, %222 ], [ %.0269343353, %219 ]
+  %.1 = phi i32 [ %.0268344352, %.lr.ph ], [ %229, %222 ], [ %.0268344352, %219 ]
   %231 = load ptr, ptr %21, align 8
   %232 = call i32 @XNextEvent(ptr noundef %231, ptr noundef nonnull %11) #13
   %233 = load i32, ptr %11, align 8
@@ -419,7 +419,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr nocapture nou
   br label %434
 
 249:                                              ; preds = %230
-  %.not327 = icmp eq i32 %.0273344352, 0
+  %.not327 = icmp eq i32 %.0275340356, 0
   br i1 %.not327, label %434, label %250
 
 250:                                              ; preds = %249
@@ -460,9 +460,9 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr nocapture nou
 
 273:                                              ; preds = %255, %261
   %274 = load i32, ptr %147, align 8
-  %.not325 = icmp eq i32 %274, %.1278
+  %.not325 = icmp eq i32 %274, %.1270
   %275 = load i32, ptr %148, align 4
-  %.not326 = icmp eq i32 %275, %.1276
+  %.not326 = icmp eq i32 %275, %.1
   %or.cond332 = select i1 %.not325, i1 %.not326, i1 false
   br i1 %or.cond332, label %282, label %276
 
@@ -500,40 +500,40 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr nocapture nou
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %289, %.lr.ph.i
-  %.021.i = phi i64 [ %299, %.lr.ph.i ], [ 0, %289 ]
-  %.01420.i = phi i32 [ %.1.i, %.lr.ph.i ], [ 0, %289 ]
-  %.01519.i = phi i32 [ %.116.i, %.lr.ph.i ], [ 0, %289 ]
-  %295 = getelementptr inbounds i64, ptr %.pre.i, i64 %.021.i
+  %.021.i = phi i32 [ %.1.i, %.lr.ph.i ], [ 0, %289 ]
+  %.01420.i = phi i32 [ %.115.i, %.lr.ph.i ], [ 0, %289 ]
+  %.01719.i = phi i64 [ %299, %.lr.ph.i ], [ 0, %289 ]
+  %295 = getelementptr inbounds i64, ptr %.pre.i, i64 %.01719.i
   %296 = load i64, ptr %295, align 8
   %297 = icmp eq i64 %296, %291
   %298 = icmp eq i64 %296, %293
-  %spec.select.i = select i1 %298, i32 1, i32 %.01420.i
-  %.116.i = select i1 %297, i32 1, i32 %.01519.i
-  %.1.i = select i1 %297, i32 %.01420.i, i32 %spec.select.i
-  %299 = add nuw i64 %.021.i, 1
+  %spec.select.i = select i1 %298, i32 1, i32 %.021.i
+  %.115.i = select i1 %297, i32 1, i32 %.01420.i
+  %.1.i = select i1 %297, i32 %.021.i, i32 %spec.select.i
+  %299 = add nuw i64 %.01719.i, 1
   %exitcond.not.i = icmp eq i64 %299, %294
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %300 = icmp ne i32 %.116.i, 0
+  %300 = icmp ne i32 %.115.i, 0
   %301 = icmp ne i32 %.1.i, 0
   %302 = select i1 %300, i1 %301, i1 false
   %303 = zext i1 %302 to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %289
-  %.015.lcssa.i = phi i32 [ 0, %289 ], [ %303, %._crit_edge.loopexit.i ]
+  %.014.lcssa.i = phi i32 [ 0, %289 ], [ %303, %._crit_edge.loopexit.i ]
   %304 = call i32 @XFree(ptr noundef %.pre.i) #13
   br label %x11_is_maximized.exit
 
 x11_is_maximized.exit:                            ; preds = %282, %._crit_edge.i
-  %.217.i = phi i32 [ %.015.lcssa.i, %._crit_edge.i ], [ 0, %282 ]
+  %.216.i = phi i32 [ %.014.lcssa.i, %._crit_edge.i ], [ 0, %282 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  store i32 %.217.i, ptr %153, align 4
+  store i32 %.216.i, ptr %153, align 4
   br label %434
 
 305:                                              ; preds = %230
@@ -548,7 +548,7 @@ x11_is_maximized.exit:                            ; preds = %282, %._crit_edge.i
 310:                                              ; preds = %230
   %311 = load i32, ptr %212, align 4
   %312 = icmp eq i32 %311, 1
-  %spec.select333 = select i1 %312, i32 0, i32 %.0273344352
+  %spec.select333 = select i1 %312, i32 0, i32 %.0275340356
   br label %434
 
 313:                                              ; preds = %230
@@ -890,7 +890,7 @@ switch.lookup362:                                 ; preds = %427
   br label %434
 
 434:                                              ; preds = %310, %315, %318, %319, %323, %328, %332, %359, %360, %361, %373, %376, %379, %380, %381, %386, %387, %392, %switch.lookup, %403, %408, %413, %426, %switch.lookup362, %433, %344, %340, %355, %351, %305, %308, %249, %250, %234, %237, %313, %x11_is_maximized.exit, %230
-  %.1274 = phi i32 [ %.0273344352, %230 ], [ %.0273344352, %315 ], [ %.0273344352, %433 ], [ %.0273344352, %switch.lookup362 ], [ %.0273344352, %426 ], [ %.0273344352, %413 ], [ %.0273344352, %408 ], [ %.0273344352, %403 ], [ %.0273344352, %switch.lookup ], [ %.0273344352, %392 ], [ %.0273344352, %387 ], [ %.0273344352, %386 ], [ %.0273344352, %381 ], [ %.0273344352, %380 ], [ %.0273344352, %379 ], [ %.0273344352, %376 ], [ %.0273344352, %373 ], [ %.0273344352, %361 ], [ %.0273344352, %360 ], [ %.0273344352, %359 ], [ %.0273344352, %351 ], [ %.0273344352, %355 ], [ %.0273344352, %340 ], [ %.0273344352, %344 ], [ %.0273344352, %332 ], [ %.0273344352, %328 ], [ %.0273344352, %323 ], [ %.0273344352, %319 ], [ %.0273344352, %318 ], [ %.0273344352, %313 ], [ 1, %308 ], [ %.0273344352, %305 ], [ %.0273344352, %x11_is_maximized.exit ], [ 1, %250 ], [ 0, %249 ], [ %.0273344352, %237 ], [ %.0273344352, %234 ], [ %spec.select333, %310 ]
+  %.1276 = phi i32 [ %.0275340356, %230 ], [ %.0275340356, %315 ], [ %.0275340356, %433 ], [ %.0275340356, %switch.lookup362 ], [ %.0275340356, %426 ], [ %.0275340356, %413 ], [ %.0275340356, %408 ], [ %.0275340356, %403 ], [ %.0275340356, %switch.lookup ], [ %.0275340356, %392 ], [ %.0275340356, %387 ], [ %.0275340356, %386 ], [ %.0275340356, %381 ], [ %.0275340356, %380 ], [ %.0275340356, %379 ], [ %.0275340356, %376 ], [ %.0275340356, %373 ], [ %.0275340356, %361 ], [ %.0275340356, %360 ], [ %.0275340356, %359 ], [ %.0275340356, %351 ], [ %.0275340356, %355 ], [ %.0275340356, %340 ], [ %.0275340356, %344 ], [ %.0275340356, %332 ], [ %.0275340356, %328 ], [ %.0275340356, %323 ], [ %.0275340356, %319 ], [ %.0275340356, %318 ], [ %.0275340356, %313 ], [ 1, %308 ], [ %.0275340356, %305 ], [ %.0275340356, %x11_is_maximized.exit ], [ 1, %250 ], [ 0, %249 ], [ %.0275340356, %237 ], [ %.0275340356, %234 ], [ %spec.select333, %310 ]
   %435 = phi <2 x i32> [ %216, %230 ], [ %216, %315 ], [ %216, %433 ], [ %216, %switch.lookup362 ], [ %216, %426 ], [ %216, %413 ], [ %216, %408 ], [ %216, %403 ], [ %216, %switch.lookup ], [ %216, %392 ], [ %216, %387 ], [ %216, %386 ], [ %216, %381 ], [ %216, %380 ], [ %216, %379 ], [ %216, %376 ], [ %216, %373 ], [ %216, %361 ], [ %216, %360 ], [ %216, %359 ], [ %216, %351 ], [ %216, %355 ], [ %216, %340 ], [ %216, %344 ], [ %216, %332 ], [ %216, %328 ], [ %216, %323 ], [ %216, %319 ], [ %216, %318 ], [ %216, %313 ], [ %309, %308 ], [ %216, %305 ], [ %216, %x11_is_maximized.exit ], [ %251, %250 ], [ %216, %249 ], [ %216, %237 ], [ %216, %234 ], [ %216, %310 ]
   %436 = load i32, ptr %201, align 4
   %.not297 = icmp eq i32 %436, 0

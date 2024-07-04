@@ -2169,11 +2169,11 @@ if.end.lr.ph.i:                                   ; preds = %if.then21
 if.end.i:                                         ; preds = %if.end60.i, %if.end.lr.ph.i
   %15 = phi i16 [ %11, %if.end.lr.ph.i ], [ %31, %if.end60.i ]
   %16 = phi i32 [ %7, %if.end.lr.ph.i ], [ %30, %if.end60.i ]
-  %idx.092.i = phi i32 [ %conv.i, %if.end.lr.ph.i ], [ %idx.2.i, %if.end60.i ]
-  %wrap_counter.091.i = phi i8 [ %10, %if.end.lr.ph.i ], [ %wrap_counter.1.i, %if.end60.i ]
-  %out_total.090.i = phi i32 [ 0, %if.end.lr.ph.i ], [ %out_total.250.i, %if.end60.i ]
-  %in_total.089.i = phi i32 [ 0, %if.end.lr.ph.i ], [ %in_total.253.i, %if.end60.i ]
-  %total_bufs.088.i = phi i32 [ 0, %if.end.lr.ph.i ], [ %total_bufs.1.i, %if.end60.i ]
+  %wrap_counter.092.i = phi i8 [ %10, %if.end.lr.ph.i ], [ %wrap_counter.1.i, %if.end60.i ]
+  %out_total.091.i = phi i32 [ 0, %if.end.lr.ph.i ], [ %out_total.250.i, %if.end60.i ]
+  %in_total.090.i = phi i32 [ 0, %if.end.lr.ph.i ], [ %in_total.253.i, %if.end60.i ]
+  %total_bufs.089.i = phi i32 [ 0, %if.end.lr.ph.i ], [ %total_bufs.1.i, %if.end60.i ]
+  %idx.088.i = phi i32 [ %conv.i, %if.end.lr.ph.i ], [ %idx.2.i, %if.end60.i ]
   %17 = and i16 %15, 4
   %tobool6.not.i = icmp eq i16 %17, 0
   br i1 %tobool6.not.i, label %if.end28.i, label %if.then7.i
@@ -2190,7 +2190,7 @@ if.then11.i:                                      ; preds = %if.then7.i
   br label %done.i
 
 if.end12.i:                                       ; preds = %if.then7.i
-  %cmp.not.i = icmp ult i32 %total_bufs.088.i, %16
+  %cmp.not.i = icmp ult i32 %total_bufs.089.i, %16
   br i1 %cmp.not.i, label %if.end15.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end12.i
@@ -2216,9 +2216,9 @@ if.end24.i:                                       ; preds = %if.end15.i
   br label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.end24.i, %if.end.i
-  %i.0.i = phi i32 [ %idx.092.i, %if.end.i ], [ 0, %if.end24.i ]
+  %i.0.i = phi i32 [ %idx.088.i, %if.end.i ], [ 0, %if.end24.i ]
   %desc_cache.0.i = phi ptr [ %desc2.i, %if.end.i ], [ %indirect_desc_cache.i, %if.end24.i ]
-  %num_bufs.0.i = phi i32 [ %total_bufs.088.i, %if.end.i ], [ 0, %if.end24.i ]
+  %num_bufs.0.i = phi i32 [ %total_bufs.089.i, %if.end.i ], [ 0, %if.end24.i ]
   %max.0.i = phi i32 [ %16, %if.end.i ], [ %div40.i, %if.end24.i ]
   %inc74.i = add i32 %num_bufs.0.i, 1
   %cmp2975.i = icmp ugt i32 %inc74.i, %max.0.i
@@ -2230,8 +2230,8 @@ if.end32.lr.ph.i:                                 ; preds = %if.end28.i
 
 if.end32.us.i:                                    ; preds = %if.end32.lr.ph.i, %virtqueue_packed_read_next_desc.exit.us.i
   %inc79.us.i = phi i32 [ %inc.us.i, %virtqueue_packed_read_next_desc.exit.us.i ], [ %inc74.i, %if.end32.lr.ph.i ]
-  %out_total.178.us.i = phi i32 [ %out_total.2.us.i, %virtqueue_packed_read_next_desc.exit.us.i ], [ %out_total.090.i, %if.end32.lr.ph.i ]
-  %in_total.177.us.i = phi i32 [ %in_total.2.us.i, %virtqueue_packed_read_next_desc.exit.us.i ], [ %in_total.089.i, %if.end32.lr.ph.i ]
+  %out_total.178.us.i = phi i32 [ %out_total.2.us.i, %virtqueue_packed_read_next_desc.exit.us.i ], [ %out_total.091.i, %if.end32.lr.ph.i ]
+  %in_total.177.us.i = phi i32 [ %in_total.2.us.i, %virtqueue_packed_read_next_desc.exit.us.i ], [ %in_total.090.i, %if.end32.lr.ph.i ]
   %i.176.us.i = phi i32 [ %inc.i.us.i, %virtqueue_packed_read_next_desc.exit.us.i ], [ %i.0.i, %if.end32.lr.ph.i ]
   %22 = load i16, ptr %flags.i, align 2
   %23 = and i16 %22, 2
@@ -2259,8 +2259,8 @@ virtqueue_packed_read_next_desc.exit.us.i:        ; preds = %if.end47.us.i
 
 if.then55.split.us.i:                             ; preds = %if.end47.us.i
   call void @address_space_cache_destroy(ptr noundef nonnull %indirect_desc_cache.i) #21
-  %inc56.i = add i32 %total_bufs.088.i, 1
-  %inc57.i = add i32 %idx.092.i, 1
+  %inc56.i = add i32 %total_bufs.089.i, 1
+  %inc57.i = add i32 %idx.088.i, 1
   br label %if.end60.i
 
 if.then31.i:                                      ; preds = %if.end28.i, %virtqueue_packed_read_next_desc.exit.i, %virtqueue_packed_read_next_desc.exit.us.i
@@ -2269,8 +2269,8 @@ if.then31.i:                                      ; preds = %if.end28.i, %virtqu
 
 if.end32.i:                                       ; preds = %if.end32.lr.ph.i, %virtqueue_packed_read_next_desc.exit.i
   %inc79.i = phi i32 [ %inc.i, %virtqueue_packed_read_next_desc.exit.i ], [ %inc74.i, %if.end32.lr.ph.i ]
-  %out_total.178.i = phi i32 [ %out_total.2.i, %virtqueue_packed_read_next_desc.exit.i ], [ %out_total.090.i, %if.end32.lr.ph.i ]
-  %in_total.177.i = phi i32 [ %in_total.2.i, %virtqueue_packed_read_next_desc.exit.i ], [ %in_total.089.i, %if.end32.lr.ph.i ]
+  %out_total.178.i = phi i32 [ %out_total.2.i, %virtqueue_packed_read_next_desc.exit.i ], [ %out_total.091.i, %if.end32.lr.ph.i ]
+  %in_total.177.i = phi i32 [ %in_total.2.i, %virtqueue_packed_read_next_desc.exit.i ], [ %in_total.090.i, %if.end32.lr.ph.i ]
   %i.176.i = phi i32 [ %i.2.i, %virtqueue_packed_read_next_desc.exit.i ], [ %i.0.i, %if.end32.lr.ph.i ]
   %25 = load i16, ptr %flags.i, align 2
   %26 = and i16 %25, 2
@@ -2308,21 +2308,21 @@ virtqueue_packed_read_next_desc.exit.i:           ; preds = %if.else.i.i, %if.en
   br i1 %cmp29.i, label %if.then31.i, label %if.end32.i, !llvm.loop !17
 
 if.else58.i:                                      ; preds = %if.end47.i
-  %sub.i = sub i32 %idx.092.i, %total_bufs.088.i
+  %sub.i = sub i32 %idx.088.i, %total_bufs.089.i
   %add59.i = add i32 %sub.i, %inc79.i
   br label %if.end60.i
 
 if.end60.i:                                       ; preds = %if.else58.i, %if.then55.split.us.i
   %in_total.253.i = phi i32 [ %in_total.2.us.i, %if.then55.split.us.i ], [ %in_total.2.i, %if.else58.i ]
   %out_total.250.i = phi i32 [ %out_total.2.us.i, %if.then55.split.us.i ], [ %out_total.2.i, %if.else58.i ]
-  %total_bufs.1.i = phi i32 [ %inc56.i, %if.then55.split.us.i ], [ %inc79.i, %if.else58.i ]
   %idx.1.i = phi i32 [ %inc57.i, %if.then55.split.us.i ], [ %add59.i, %if.else58.i ]
+  %total_bufs.1.i = phi i32 [ %inc56.i, %if.then55.split.us.i ], [ %inc79.i, %if.else58.i ]
   %30 = load i32, ptr %vq, align 8
   %cmp63.not.i = icmp uge i32 %idx.1.i, %30
-  %frombool72.i = zext i1 %cmp63.not.i to i8
-  %wrap_counter.1.i = xor i8 %wrap_counter.091.i, %frombool72.i
   %sub68.i = select i1 %cmp63.not.i, i32 %30, i32 0
   %idx.2.i = sub i32 %idx.1.i, %sub68.i
+  %frombool72.i = zext i1 %cmp63.not.i to i8
+  %wrap_counter.1.i = xor i8 %wrap_counter.092.i, %frombool72.i
   call fastcc void @vring_packed_desc_read(ptr noundef nonnull %desc.i, ptr noundef nonnull %desc2.i, i32 noundef %idx.2.i, i1 noundef zeroext true)
   %31 = load i16, ptr %flags.i, align 2
   %tobool3.i = trunc i8 %wrap_counter.1.i to i1
@@ -2340,10 +2340,10 @@ for.end.loopexit.i:                               ; preds = %if.end60.i
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.then21
+  %idx.0.lcssa.i = phi i16 [ %9, %if.then21 ], [ %35, %for.end.loopexit.i ]
   %in_total.0.lcssa.i = phi i32 [ 0, %if.then21 ], [ %in_total.253.i, %for.end.loopexit.i ]
   %out_total.0.lcssa.i = phi i32 [ 0, %if.then21 ], [ %out_total.250.i, %for.end.loopexit.i ]
   %wrap_counter.0.lcssa.i = phi i8 [ %10, %if.then21 ], [ %wrap_counter.1.i, %for.end.loopexit.i ]
-  %idx.0.lcssa.i = phi i16 [ %9, %if.then21 ], [ %35, %for.end.loopexit.i ]
   %shadow_avail_idx.i = getelementptr inbounds i8, ptr %vq, i64 60
   store i16 %idx.0.lcssa.i, ptr %shadow_avail_idx.i, align 4
   %shadow_avail_wrap_counter.i = getelementptr inbounds i8, ptr %vq, i64 62
@@ -3667,11 +3667,11 @@ if.end45.i:                                       ; preds = %if.end35.i
   br label %if.end49.i
 
 if.end49.i:                                       ; preds = %if.end45.i, %vring_split_desc_read.exit.i
-  %desc_cache.0.i50 = phi ptr [ %indirect_desc_cache.i5, %if.end45.i ], [ %desc18.i, %vring_split_desc_read.exit.i ]
-  %max.0.i51 = phi i32 [ %div55.i, %if.end45.i ], [ %79, %vring_split_desc_read.exit.i ]
+  %max.0.i50 = phi i32 [ %div55.i, %if.end45.i ], [ %79, %vring_split_desc_read.exit.i ]
+  %desc_cache.0.i51 = phi ptr [ %indirect_desc_cache.i5, %if.end45.i ], [ %desc18.i, %vring_split_desc_read.exit.i ]
   %len59.i = getelementptr inbounds i8, ptr %desc.i10, i64 8
   %next.i.i = getelementptr inbounds i8, ptr %desc.i10, i64 14
-  %len1.i.i.i.i = getelementptr inbounds i8, ptr %desc_cache.0.i50, i64 16
+  %len1.i.i.i.i = getelementptr inbounds i8, ptr %desc_cache.0.i51, i64 16
   br label %do.body.i52
 
 do.body.i52:                                      ; preds = %do.body.i52.backedge, %if.end49.i
@@ -3711,7 +3711,7 @@ if.end72.i:                                       ; preds = %if.else.i75
 
 if.end75.i:                                       ; preds = %if.end72.i, %if.then54.i
   %inc76.i = add i32 %elem_entries.0.i53, 1
-  %cmp77.i = icmp ugt i32 %inc76.i, %max.0.i51
+  %cmp77.i = icmp ugt i32 %inc76.i, %max.0.i50
   br i1 %cmp77.i, label %if.then79.i, label %if.end80.i
 
 if.then79.i:                                      ; preds = %if.end75.i
@@ -3727,7 +3727,7 @@ if.end80.i:                                       ; preds = %if.end75.i
 if.end.i80.i:                                     ; preds = %if.end80.i
   %119 = load i16, ptr %next.i.i, align 2
   %conv1.i.i = zext i16 %119 to i32
-  %cmp.not.i81.i = icmp ugt i32 %max.0.i51, %conv1.i.i
+  %cmp.not.i81.i = icmp ugt i32 %max.0.i50, %conv1.i.i
   br i1 %cmp.not.i81.i, label %if.end6.i.i, label %virtqueue_split_read_next_desc.exit.thread94.i
 
 virtqueue_split_read_next_desc.exit.thread94.i:   ; preds = %if.end.i80.i
@@ -3749,7 +3749,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end6.i.i
   unreachable
 
 if.end.i.i.i.i:                                   ; preds = %if.end6.i.i
-  %121 = load ptr, ptr %desc_cache.0.i50, align 16
+  %121 = load ptr, ptr %desc_cache.0.i51, align 16
   %tobool.not.i.i.i.i = icmp eq ptr %121, null
   br i1 %tobool.not.i.i.i.i, label %if.else8.i.i.i.i, label %if.then6.i.i.i.i
 
@@ -3759,7 +3759,7 @@ if.then6.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br label %do.body.i52.backedge
 
 if.else8.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
-  %call.i.i.i.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc_cache.0.i50, i64 noundef %mul.i.i.i58, ptr noundef nonnull %desc.i10, i64 noundef 16) #21
+  %call.i.i.i.i = call i32 @address_space_read_cached_slow(ptr noundef nonnull %desc_cache.0.i51, i64 noundef %mul.i.i.i58, ptr noundef nonnull %desc.i10, i64 noundef 16) #21
   br label %do.body.i52.backedge
 
 do.body.i52.backedge:                             ; preds = %if.else8.i.i.i.i, %if.then6.i.i.i.i

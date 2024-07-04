@@ -772,8 +772,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit217.i:     ; preds = %203, %200
   %.0287.i = phi ptr [ null, %._crit_edge308.i ], [ %.1288.i, %.noexc57 ]
   %.0285.i = phi ptr [ null, %._crit_edge308.i ], [ %.1286.i, %.noexc57 ]
   %.0283.i = phi ptr [ null, %._crit_edge308.i ], [ %.1284.i, %.noexc57 ]
-  %.0199.i = phi i32 [ 0, %._crit_edge308.i ], [ %550, %.noexc57 ]
-  %259 = srem i32 %.0199.i, %172
+  %.0194.i = phi i32 [ 0, %._crit_edge308.i ], [ %550, %.noexc57 ]
+  %259 = srem i32 %.0194.i, %172
   %260 = icmp eq i32 %259, 0
   br i1 %260, label %261, label %.loopexit.i
 
@@ -1420,7 +1420,7 @@ _ZL21find_tetra_order_grid10t_topology7PbcTypeiPA3_fS2_iPKiPfS5_iiiPPS5_S7_.exit
   br i1 %exitcond347.not, label %._crit_edge322.i, label %.preheader296.i.us.us, !llvm.loop !26
 
 ._crit_edge322.i:                                 ; preds = %._crit_edge320.i.loopexit.us.us, %.preheader297.i
-  %550 = add nuw nsw i32 %.0199.i, 1
+  %550 = add nuw nsw i32 %.0194.i, 1
   %551 = srem i32 %550, %172
   %552 = icmp eq i32 %551, 0
   br i1 %552, label %553, label %563

@@ -15526,7 +15526,7 @@ _ZN6cmListC2ESt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br i1 %.not135136, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6cmListC2ESt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit, %145
-  %.038138 = phi i64 [ %146, %145 ], [ 0, %_ZN6cmListC2ESt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit ]
+  %.037138 = phi i64 [ %146, %145 ], [ 0, %_ZN6cmListC2ESt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit ]
   %.sroa.0121.0137 = phi ptr [ %147, %145 ], [ %113, %_ZN6cmListC2ESt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE.exit ]
   %116 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0121.0137) #23
   %117 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #23
@@ -15541,7 +15541,7 @@ _ZN6cmListC2ESt16initializer_listINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br i1 %123, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread: ; preds = %119
-  %124 = add nsw i64 %.038138, 1
+  %124 = add nsw i64 %.037138, 1
   %125 = load i64, ptr %9, align 8
   %126 = icmp eq i64 %124, %125
   br label %131
@@ -15550,10 +15550,10 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %bcmp.i = call i32 @bcmp(ptr %120, ptr %121, i64 %122)
   %bcmp.i.fr = freeze i32 %bcmp.i
   %127 = icmp eq i32 %bcmp.i.fr, 0
-  %128 = add nsw i64 %.038138, 1
+  %128 = add nsw i64 %.037138, 1
   %129 = load i64, ptr %9, align 8
   %130 = icmp eq i64 %128, %129
-  %spec.select = select i1 %127, i64 %128, i64 %.038138
+  %spec.select = select i1 %127, i64 %128, i64 %.037138
   br label %131
 
 131:                                              ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
@@ -15564,7 +15564,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %135, label %145, label %.thread132
 
 .thread132:                                       ; preds = %.lr.ph, %131
-  %136 = phi i64 [ %134, %131 ], [ %.038138, %.lr.ph ]
+  %136 = phi i64 [ %134, %131 ], [ %.037138, %.lr.ph ]
   invoke void @_ZN12cmSearchPath7AddPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0121.0137)
           to label %145 unwind label %143
 
@@ -26360,10 +26360,10 @@ define linkonce_odr dso_local ptr @_ZSt18__set_intersectionISt23_Rb_tree_const_i
   br label %10
 
 10:                                               ; preds = %.lr.ph, %37
-  %.sroa.011.017 = phi ptr [ %0, %.lr.ph ], [ %.sroa.011.1, %37 ]
-  %.sroa.07.016 = phi ptr [ %2, %.lr.ph ], [ %.sroa.07.1, %37 ]
-  %11 = getelementptr inbounds i8, ptr %.sroa.011.017, i64 32
-  %12 = getelementptr inbounds i8, ptr %.sroa.07.016, i64 32
+  %.sroa.07.017 = phi ptr [ %2, %.lr.ph ], [ %.sroa.07.1, %37 ]
+  %.sroa.011.016 = phi ptr [ %0, %.lr.ph ], [ %.sroa.011.1, %37 ]
+  %11 = getelementptr inbounds i8, ptr %.sroa.011.016, i64 32
+  %12 = getelementptr inbounds i8, ptr %.sroa.07.017, i64 32
   %13 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESA_EEbT_T0_.exit unwind label %14
 
@@ -26379,7 +26379,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorINSt7__cxx111
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESA_EEbT_T0_.exit
-  %19 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.011.017) #27
+  %19 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.011.016) #27
   br label %37
 
 20:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESA_EEbT_T0_.exit
@@ -26398,7 +26398,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorINSt7__cxx111
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESA_EEbT_T0_.exit5
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.016) #27
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.017) #27
   br label %37
 
 28:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESA_EEbT_T0_.exit5
@@ -26419,13 +26419,13 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorINSt7__cxx111
   br label %_ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSERKS6_.exit
 
 _ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSERKS6_.exit: ; preds = %31, %34
-  %35 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.011.017) #27
-  %36 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.016) #27
+  %35 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.011.016) #27
+  %36 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.017) #27
   br label %37
 
 37:                                               ; preds = %26, %_ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSERKS6_.exit, %18
-  %.sroa.07.1 = phi ptr [ %.sroa.07.016, %18 ], [ %27, %26 ], [ %36, %_ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSERKS6_.exit ]
-  %.sroa.011.1 = phi ptr [ %19, %18 ], [ %.sroa.011.017, %26 ], [ %35, %_ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSERKS6_.exit ]
+  %.sroa.011.1 = phi ptr [ %19, %18 ], [ %.sroa.011.016, %26 ], [ %35, %_ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSERKS6_.exit ]
+  %.sroa.07.1 = phi ptr [ %.sroa.07.017, %18 ], [ %27, %26 ], [ %36, %_ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSERKS6_.exit ]
   %38 = icmp ne ptr %.sroa.011.1, %1
   %39 = icmp ne ptr %.sroa.07.1, %3
   %or.cond = select i1 %38, i1 %39, i1 false

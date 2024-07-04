@@ -41,16 +41,16 @@ define ptr @Mvc_CoverSort_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %.028 = phi i32 [ %13, %.lr.ph ], [ 0, %8 ]
-  %.02427 = phi ptr [ %12, %.lr.ph ], [ %0, %8 ]
-  %12 = load ptr, ptr %.02427, align 8
+  %.02327 = phi ptr [ %12, %.lr.ph ], [ %0, %8 ]
+  %12 = load ptr, ptr %.02327, align 8
   %13 = add nuw nsw i32 %.028, 1
   %exitcond.not = icmp eq i32 %13, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
-  %.024.lcssa = phi ptr [ %0, %8 ], [ %12, %.lr.ph ]
+  %.023.lcssa = phi ptr [ %0, %8 ], [ %12, %.lr.ph ]
   %14 = tail call ptr @Mvc_CoverSort_rec(ptr noundef %0, i32 noundef %9, ptr noundef %2, ptr noundef %3)
-  %15 = tail call ptr @Mvc_CoverSort_rec(ptr noundef %.024.lcssa, i32 noundef %10, ptr noundef %2, ptr noundef %3)
+  %15 = tail call ptr @Mvc_CoverSort_rec(ptr noundef %.023.lcssa, i32 noundef %10, ptr noundef %2, ptr noundef %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %16 = icmp ne ptr %14, null
@@ -96,8 +96,8 @@ Mvc_CoverSortMerge.exit:                          ; preds = %25, %._crit_edge
   br label %30
 
 30:                                               ; preds = %Mvc_CoverSortMerge.exit, %7
-  %.023 = phi ptr [ %0, %7 ], [ %.0..0..0..0..0..0..i, %Mvc_CoverSortMerge.exit ]
-  ret ptr %.023
+  %.024 = phi ptr [ %0, %7 ], [ %.0..0..0..0..0..0..i, %Mvc_CoverSortMerge.exit ]
+  ret ptr %.024
 }
 
 declare ptr @Mvc_CoverReadCubeHead(ptr noundef) local_unnamed_addr #1

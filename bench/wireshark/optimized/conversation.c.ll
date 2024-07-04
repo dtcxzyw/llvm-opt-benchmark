@@ -201,9 +201,9 @@ define internal fastcc ptr @conversation_element_list_name(ptr noundef %0, ptr n
   unreachable
 
 conversation_element_count.exit.preheader:        ; preds = %10, %conversation_element_count.exit
-  %.015 = phi ptr [ @.str.18, %conversation_element_count.exit ], [ @.str.15, %10 ]
-  %.01114 = phi i64 [ %19, %conversation_element_count.exit ], [ 0, %10 ]
-  %12 = getelementptr %struct.conversation_element, ptr %1, i64 %.01114
+  %.015 = phi i64 [ %19, %conversation_element_count.exit ], [ 0, %10 ]
+  %.01114 = phi ptr [ @.str.18, %conversation_element_count.exit ], [ @.str.15, %10 ]
+  %12 = getelementptr %struct.conversation_element, ptr %1, i64 %.015
   %13 = load i32, ptr %12, align 8
   %14 = icmp ult i32 %13, 8
   br i1 %14, label %conversation_element_count.exit, label %15
@@ -216,8 +216,8 @@ conversation_element_count.exit:                  ; preds = %conversation_elemen
   %16 = zext nneg i32 %13 to i64
   %17 = getelementptr [8 x ptr], ptr @type_names, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %3, ptr noundef nonnull @.str.17, ptr noundef nonnull %.015, ptr noundef %18) #13
-  %19 = add nuw nsw i64 %.01114, 1
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %3, ptr noundef nonnull @.str.17, ptr noundef nonnull %.01114, ptr noundef %18) #13
+  %19 = add nuw nsw i64 %.015, 1
   %exitcond.not = icmp eq i64 %19, %indvars.iv
   br i1 %exitcond.not, label %20, label %conversation_element_count.exit.preheader, !llvm.loop !6
 
@@ -583,7 +583,7 @@ define nonnull ptr @conversation_new_full(i32 noundef %0, ptr noundef %1) local_
   br label %17
 
 17:                                               ; preds = %9, %4
-  %.0 = phi ptr [ %8, %4 ], [ %12, %9 ]
+  %.032 = phi ptr [ %8, %4 ], [ %12, %9 ]
   br label %18
 
 18:                                               ; preds = %21, %17
@@ -620,8 +620,8 @@ conversation_element_count.exit:                  ; preds = %24
   br label %30
 
 30:                                               ; preds = %conversation_element_count.exit, %copy_address_wmem.exit
-  %.03239 = phi i64 [ 0, %conversation_element_count.exit ], [ %55, %copy_address_wmem.exit ]
-  %31 = getelementptr %struct.conversation_element, ptr %29, i64 %.03239
+  %.039 = phi i64 [ 0, %conversation_element_count.exit ], [ %55, %copy_address_wmem.exit ]
+  %31 = getelementptr %struct.conversation_element, ptr %29, i64 %.039
   %32 = load i32, ptr %31, align 8
   switch i32 %32, label %copy_address_wmem.exit [
     i32 1, label %33
@@ -631,7 +631,7 @@ conversation_element_count.exit:                  ; preds = %24
 33:                                               ; preds = %30
   %34 = tail call ptr @wmem_file_scope() #13
   %35 = getelementptr inbounds i8, ptr %31, i64 8
-  %36 = getelementptr %struct.conversation_element, ptr %1, i64 %.03239, i32 1
+  %36 = getelementptr %struct.conversation_element, ptr %1, i64 %.039, i32 1
   %37 = load i32, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %36, i64 4
   %39 = load i32, ptr %38, align 4
@@ -655,7 +655,7 @@ conversation_element_count.exit:                  ; preds = %24
 
 49:                                               ; preds = %30
   %50 = tail call ptr @wmem_file_scope() #13
-  %51 = getelementptr %struct.conversation_element, ptr %1, i64 %.03239, i32 1
+  %51 = getelementptr %struct.conversation_element, ptr %1, i64 %.039, i32 1
   %52 = load ptr, ptr %51, align 8
   %53 = tail call noalias ptr @wmem_strdup(ptr noundef %50, ptr noundef %52) #13
   %54 = getelementptr inbounds i8, ptr %31, i64 8
@@ -663,7 +663,7 @@ conversation_element_count.exit:                  ; preds = %24
   br label %copy_address_wmem.exit
 
 copy_address_wmem.exit:                           ; preds = %43, %33, %30, %49
-  %55 = add nuw nsw i64 %.03239, 1
+  %55 = add nuw nsw i64 %.039, 1
   %exitcond.not = icmp eq i64 %55, %indvars.iv
   br i1 %exitcond.not, label %56, label %30, !llvm.loop !8
 
@@ -681,7 +681,7 @@ copy_address_wmem.exit:                           ; preds = %43, %33, %30, %49
   store i32 %63, ptr @new_index, align 4
   %64 = getelementptr inbounds i8, ptr %58, i64 64
   store ptr %29, ptr %64, align 8
-  tail call fastcc void @conversation_insert_into_hashtable(ptr noundef %.0, ptr noundef %58)
+  tail call fastcc void @conversation_insert_into_hashtable(ptr noundef %.032, ptr noundef %58)
   ret ptr %58
 }
 
@@ -3050,16 +3050,16 @@ is_no_port2_key.exit:                             ; preds = %50, %46, %is_no_add
   br label %85
 
 85:                                               ; preds = %54, %76, %34
-  %.038 = phi ptr [ %40, %34 ], [ %61, %54 ], [ %84, %76 ]
+  %.0 = phi ptr [ %40, %34 ], [ %61, %54 ], [ %84, %76 ]
   %86 = getelementptr inbounds i8, ptr %0, i64 48
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %.038, i64 48
+  %88 = getelementptr inbounds i8, ptr %.0, i64 48
   store ptr %87, ptr %88, align 8
   br label %is_no_addr2_key.exit
 
 is_no_addr2_key.exit:                             ; preds = %23, %72, %68, %64, %62, %conversation_get_key_type.exit, %is_no_port2_key.exit, %85
-  %.0 = phi ptr [ %.038, %85 ], [ %0, %is_no_port2_key.exit ], [ %0, %conversation_get_key_type.exit ], [ %0, %62 ], [ %0, %64 ], [ %0, %68 ], [ %0, %72 ], [ %0, %23 ]
-  ret ptr %.0
+  %.038 = phi ptr [ %.0, %85 ], [ %0, %is_no_port2_key.exit ], [ %0, %conversation_get_key_type.exit ], [ %0, %62 ], [ %0, %64 ], [ %0, %68 ], [ %0, %72 ], [ %0, %23 ]
+  ret ptr %.038
 }
 
 ; Function Attrs: nounwind uwtable

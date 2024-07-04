@@ -1297,14 +1297,14 @@ phar_dostat.exit121:                              ; preds = %87, %101
   br i1 %.not109128, label %.thread124, label %.lr.ph
 
 .lr.ph:                                           ; preds = %113, %164
-  %.087129 = phi ptr [ %165, %164 ], [ %115, %113 ]
-  %121 = getelementptr inbounds i8, ptr %.087129, i64 8
+  %.085129 = phi ptr [ %165, %164 ], [ %115, %113 ]
+  %121 = getelementptr inbounds i8, ptr %.085129, i64 8
   %122 = load i8, ptr %121, align 8
   %123 = icmp eq i8 %122, 0
   br i1 %123, label %164, label %124
 
 124:                                              ; preds = %.lr.ph
-  %125 = getelementptr inbounds i8, ptr %.087129, i64 24
+  %125 = getelementptr inbounds i8, ptr %.085129, i64 24
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 16
   %128 = load i64, ptr %127, align 8
@@ -1376,7 +1376,7 @@ phar_dostat.exit121:                              ; preds = %87, %101
   br label %166
 
 164:                                              ; preds = %124, %129, %.lr.ph, %150
-  %165 = getelementptr inbounds i8, ptr %.087129, i64 32
+  %165 = getelementptr inbounds i8, ptr %.085129, i64 32
   %.not109 = icmp eq ptr %165, %119
   br i1 %.not109, label %.thread124, label %.lr.ph
 
@@ -1896,16 +1896,16 @@ define internal range(i32 0, 2) i32 @phar_wrapper_rename(ptr noundef %0, ptr nou
   br label %163
 
 163:                                              ; preds = %137, %160
-  %.0 = phi ptr [ %162, %160 ], [ null, %137 ]
+  %.0496 = phi ptr [ %162, %160 ], [ null, %137 ]
   %164 = load ptr, ptr %83, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 25
   %166 = getelementptr inbounds i8, ptr %164, i64 16
   %167 = load i64, ptr %166, align 8
   %168 = add i64 %167, -1
   %169 = call noalias ptr @_estrndup(ptr noundef nonnull %165, i64 noundef %168) #14
-  %170 = getelementptr inbounds i8, ptr %.0, i64 56
+  %170 = getelementptr inbounds i8, ptr %.0496, i64 56
   store ptr %169, ptr %170, align 8
-  %171 = call i32 @phar_copy_entry_fp(ptr noundef nonnull %132, ptr noundef %.0, ptr noundef nonnull %7) #14
+  %171 = call i32 @phar_copy_entry_fp(ptr noundef nonnull %132, ptr noundef %.0496, ptr noundef nonnull %7) #14
   %172 = icmp eq i32 %171, -1
   br i1 %172, label %173, label %191
 
@@ -1942,21 +1942,21 @@ define internal range(i32 0, 2) i32 @phar_wrapper_rename(ptr noundef %0, ptr nou
   br label %435
 
 191:                                              ; preds = %163
-  %192 = getelementptr inbounds i8, ptr %.0, i64 154
+  %192 = getelementptr inbounds i8, ptr %.0496, i64 154
   %193 = load i16, ptr %192, align 2
   %194 = or i16 %193, 2
   store i16 %194, ptr %192, align 2
   %195 = load ptr, ptr %170, align 8
   %196 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %195) #15
   %197 = trunc i64 %196 to i32
-  %198 = getelementptr inbounds i8, ptr %.0, i64 48
+  %198 = getelementptr inbounds i8, ptr %.0496, i64 48
   store i32 %197, ptr %198, align 8
   %199 = and i16 %193, 8
   %.not547 = icmp eq i16 %199, 0
   br i1 %.not547, label %.thread576, label %.thread571
 
 .thread571:                                       ; preds = %181, %191
-  %.0496575 = phi i32 [ 1, %191 ], [ 0, %181 ]
+  %.0493575 = phi i32 [ 1, %191 ], [ 0, %181 ]
   %200 = load ptr, ptr %75, align 8
   %201 = getelementptr inbounds i8, ptr %200, i64 16
   %202 = load i64, ptr %201, align 8
@@ -1989,17 +1989,17 @@ define internal range(i32 0, 2) i32 @phar_wrapper_rename(ptr noundef %0, ptr nou
   br label %223
 
 223:                                              ; preds = %.lr.ph, %288
-  %.1584 = phi i32 [ %.0496575, %.lr.ph ], [ %.2, %288 ]
-  %.0497583 = phi ptr [ %212, %.lr.ph ], [ %289, %288 ]
-  %224 = getelementptr inbounds i8, ptr %.0497583, i64 8
+  %.0492584 = phi ptr [ %212, %.lr.ph ], [ %289, %288 ]
+  %.1583 = phi i32 [ %.0493575, %.lr.ph ], [ %.2, %288 ]
+  %224 = getelementptr inbounds i8, ptr %.0492584, i64 8
   %225 = load i8, ptr %224, align 8
   %226 = icmp eq i8 %225, 0
   br i1 %226, label %288, label %227
 
 227:                                              ; preds = %223
-  %228 = getelementptr inbounds i8, ptr %.0497583, i64 24
+  %228 = getelementptr inbounds i8, ptr %.0492584, i64 24
   %229 = load ptr, ptr %228, align 8
-  %230 = load ptr, ptr %.0497583, align 8
+  %230 = load ptr, ptr %.0492584, align 8
   %231 = getelementptr inbounds i8, ptr %230, i64 154
   %232 = load i16, ptr %231, align 2
   %233 = and i16 %232, 4
@@ -2092,14 +2092,14 @@ define internal range(i32 0, 2) i32 @phar_wrapper_rename(ptr noundef %0, ptr nou
 
 285:                                              ; preds = %281, %283
   %286 = phi i64 [ %284, %283 ], [ %282, %281 ]
-  %287 = getelementptr inbounds i8, ptr %.0497583, i64 16
+  %287 = getelementptr inbounds i8, ptr %.0492584, i64 16
   store i64 %286, ptr %287, align 8
   store ptr %251, ptr %228, align 8
   br label %288
 
 288:                                              ; preds = %227, %234, %238, %243, %285, %223
-  %.2 = phi i32 [ %.1584, %223 ], [ %.1584, %227 ], [ 1, %285 ], [ %.1584, %243 ], [ %.1584, %238 ], [ %.1584, %234 ]
-  %289 = getelementptr inbounds i8, ptr %.0497583, i64 32
+  %.2 = phi i32 [ %.1583, %223 ], [ %.1583, %227 ], [ 1, %285 ], [ %.1583, %243 ], [ %.1583, %238 ], [ %.1583, %234 ]
+  %289 = getelementptr inbounds i8, ptr %.0492584, i64 32
   %.not549 = icmp eq ptr %289, %216
   br i1 %.not549, label %._crit_edge.loopexit, label %223
 
@@ -2109,7 +2109,7 @@ define internal range(i32 0, 2) i32 @phar_wrapper_rename(ptr noundef %0, ptr nou
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.thread571
   %290 = phi ptr [ %210, %.thread571 ], [ %.pre596, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i32 [ %.0496575, %.thread571 ], [ %.2, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i32 [ %.0493575, %.thread571 ], [ %.2, %._crit_edge.loopexit ]
   %291 = getelementptr inbounds i8, ptr %290, i64 72
   call void @zend_hash_rehash(ptr noundef nonnull %291) #14
   %292 = load ptr, ptr %8, align 8
@@ -2134,14 +2134,14 @@ define internal range(i32 0, 2) i32 @phar_wrapper_rename(ptr noundef %0, ptr nou
   br label %305
 
 305:                                              ; preds = %.lr.ph588, %.critedge4
-  %.0495586 = phi ptr [ %294, %.lr.ph588 ], [ %357, %.critedge4 ]
-  %306 = getelementptr inbounds i8, ptr %.0495586, i64 8
+  %.0491586 = phi ptr [ %294, %.lr.ph588 ], [ %357, %.critedge4 ]
+  %306 = getelementptr inbounds i8, ptr %.0491586, i64 8
   %307 = load i8, ptr %306, align 8
   %308 = icmp eq i8 %307, 0
   br i1 %308, label %.critedge4, label %309
 
 309:                                              ; preds = %305
-  %310 = getelementptr inbounds i8, ptr %.0495586, i64 24
+  %310 = getelementptr inbounds i8, ptr %.0491586, i64 24
   %311 = load ptr, ptr %310, align 8
   %312 = getelementptr inbounds i8, ptr %311, i64 16
   %313 = load i64, ptr %312, align 8
@@ -2220,13 +2220,13 @@ define internal range(i32 0, 2) i32 @phar_wrapper_rename(ptr noundef %0, ptr nou
 
 354:                                              ; preds = %350, %352
   %355 = phi i64 [ %353, %352 ], [ %351, %350 ]
-  %356 = getelementptr inbounds i8, ptr %.0495586, i64 16
+  %356 = getelementptr inbounds i8, ptr %.0491586, i64 16
   store i64 %355, ptr %356, align 8
   store ptr %328, ptr %310, align 8
   br label %.critedge4
 
 .critedge4:                                       ; preds = %314, %320, %354, %309, %305
-  %357 = getelementptr inbounds i8, ptr %.0495586, i64 32
+  %357 = getelementptr inbounds i8, ptr %.0491586, i64 32
   %.not551 = icmp eq ptr %357, %298
   br i1 %.not551, label %._crit_edge589.loopexit, label %305
 
@@ -2260,14 +2260,14 @@ define internal range(i32 0, 2) i32 @phar_wrapper_rename(ptr noundef %0, ptr nou
   br label %373
 
 373:                                              ; preds = %.lr.ph593, %.critedge6
-  %.0492591 = phi ptr [ %362, %.lr.ph593 ], [ %425, %.critedge6 ]
-  %374 = getelementptr inbounds i8, ptr %.0492591, i64 8
+  %.0591 = phi ptr [ %362, %.lr.ph593 ], [ %425, %.critedge6 ]
+  %374 = getelementptr inbounds i8, ptr %.0591, i64 8
   %375 = load i8, ptr %374, align 8
   %376 = icmp eq i8 %375, 0
   br i1 %376, label %.critedge6, label %377
 
 377:                                              ; preds = %373
-  %378 = getelementptr inbounds i8, ptr %.0492591, i64 24
+  %378 = getelementptr inbounds i8, ptr %.0591, i64 24
   %379 = load ptr, ptr %378, align 8
   %380 = getelementptr inbounds i8, ptr %379, i64 16
   %381 = load i64, ptr %380, align 8
@@ -2346,13 +2346,13 @@ define internal range(i32 0, 2) i32 @phar_wrapper_rename(ptr noundef %0, ptr nou
 
 422:                                              ; preds = %418, %420
   %423 = phi i64 [ %421, %420 ], [ %419, %418 ]
-  %424 = getelementptr inbounds i8, ptr %.0492591, i64 16
+  %424 = getelementptr inbounds i8, ptr %.0591, i64 16
   store i64 %423, ptr %424, align 8
   store ptr %396, ptr %378, align 8
   br label %.critedge6
 
 .critedge6:                                       ; preds = %382, %388, %422, %377, %373
-  %425 = getelementptr inbounds i8, ptr %.0492591, i64 32
+  %425 = getelementptr inbounds i8, ptr %.0591, i64 32
   %.not553 = icmp eq ptr %425, %366
   br i1 %.not553, label %._crit_edge594.loopexit, label %373
 
@@ -2389,8 +2389,8 @@ define internal range(i32 0, 2) i32 @phar_wrapper_rename(ptr noundef %0, ptr nou
   br label %435
 
 435:                                              ; preds = %434, %431, %190, %173, %136, %121, %110, %102, %93, %85, %77, %.critedge2, %58, %38, %34, %15
-  %.0493 = phi i32 [ 0, %15 ], [ 0, %38 ], [ 0, %93 ], [ 0, %102 ], [ 0, %110 ], [ 0, %121 ], [ 0, %136 ], [ 0, %173 ], [ 0, %431 ], [ 1, %434 ], [ 0, %190 ], [ 0, %85 ], [ 0, %77 ], [ 0, %.critedge2 ], [ 0, %58 ], [ 0, %34 ]
-  ret i32 %.0493
+  %.0495 = phi i32 [ 0, %15 ], [ 0, %38 ], [ 0, %93 ], [ 0, %102 ], [ 0, %110 ], [ 0, %121 ], [ 0, %136 ], [ 0, %173 ], [ 0, %431 ], [ 1, %434 ], [ 0, %190 ], [ 0, %85 ], [ 0, %77 ], [ 0, %.critedge2 ], [ 0, %58 ], [ 0, %34 ]
+  ret i32 %.0495
 }
 
 declare i32 @phar_wrapper_mkdir(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
@@ -2683,8 +2683,8 @@ define hidden noundef ptr @phar_parse_url(ptr noundef %0, ptr noundef %1, ptr no
   br label %144
 
 144:                                              ; preds = %114, %109, %129, %26, %34, %33, %18, %20, %4, %13, %143, %128, %108, %93
-  %.0219 = phi ptr [ null, %108 ], [ null, %128 ], [ null, %93 ], [ null, %143 ], [ null, %13 ], [ null, %4 ], [ null, %20 ], [ null, %18 ], [ null, %33 ], [ null, %34 ], [ null, %26 ], [ %36, %129 ], [ %36, %109 ], [ %36, %114 ]
-  ret ptr %.0219
+  %.0218 = phi ptr [ null, %108 ], [ null, %128 ], [ null, %93 ], [ null, %143 ], [ null, %13 ], [ null, %4 ], [ null, %20 ], [ null, %18 ], [ null, %33 ], [ null, %34 ], [ null, %26 ], [ %36, %129 ], [ %36, %109 ], [ %36, %114 ]
+  ret ptr %.0218
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

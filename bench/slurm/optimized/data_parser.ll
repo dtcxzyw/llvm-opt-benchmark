@@ -346,20 +346,20 @@ define internal fastcc ptr @_parse_plugin_type(ptr noundef %0) unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %5, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %5 ]
-  %.01726 = phi ptr [ %33, %32 ], [ %7, %5 ]
+  %.01825 = phi ptr [ %33, %32 ], [ %7, %5 ]
   %8 = add nuw nsw i64 %indvars.iv, 2
   %9 = call ptr @slurm_xrecalloc(ptr noundef nonnull %4, i64 noundef %8, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 234, ptr noundef nonnull @__func__._parse_plugin_type) #13
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %struct.plugin_param_t, ptr %10, i64 %indvars.iv
-  %12 = call ptr @xstrstr(ptr noundef nonnull %.01726, ptr noundef nonnull @.str.33) #13
+  %12 = call ptr @xstrstr(ptr noundef nonnull %.01825, ptr noundef nonnull @.str.33) #13
   %.not22 = icmp eq ptr %12, null
   br i1 %.not22, label %20, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = ptrtoint ptr %12 to i64
-  %15 = ptrtoint ptr %.01726 to i64
+  %15 = ptrtoint ptr %.01825 to i64
   %16 = sub i64 %14, %15
-  %17 = call ptr @xstrndup(ptr noundef nonnull %.01726, i64 noundef %16) #13
+  %17 = call ptr @xstrndup(ptr noundef nonnull %.01825, i64 noundef %16) #13
   store ptr %17, ptr %11, align 8
   %18 = call ptr @xstrdup(ptr noundef nonnull %12) #13
   %19 = getelementptr inbounds i8, ptr %11, i64 8
@@ -367,7 +367,7 @@ define internal fastcc ptr @_parse_plugin_type(ptr noundef %0) unnamed_addr #0 {
   br label %22
 
 20:                                               ; preds = %.lr.ph
-  %21 = call ptr @xstrdup(ptr noundef nonnull %.01726) #13
+  %21 = call ptr @xstrdup(ptr noundef nonnull %.01825) #13
   store ptr %21, ptr %11, align 8
   br label %22
 
@@ -466,8 +466,8 @@ define internal fastcc i32 @_load_plugins(ptr noundef readonly %0, ptr noundef %
   unreachable
 
 22:                                               ; preds = %.critedge, %3
-  %.0 = phi i32 [ 0, %3 ], [ %.1, %.critedge ]
-  ret i32 %.0
+  %.018 = phi i32 [ 0, %3 ], [ %.1, %.critedge ]
+  ret i32 %.018
 }
 
 declare ptr @slurm_strerror(i32 noundef) local_unnamed_addr #2
@@ -764,8 +764,8 @@ _find_plugin_by_type.exit:                        ; preds = %37, %.lr.ph33.i, %.
   br label %113
 
 113:                                              ; preds = %.loopexit63, %.loopexit, %15
-  %.046 = phi ptr [ null, %.loopexit63 ], [ %25, %.loopexit ], [ null, %15 ]
-  ret ptr %.046
+  %.047 = phi ptr [ null, %.loopexit63 ], [ %25, %.loopexit ], [ null, %15 ]
+  ret ptr %.047
 }
 
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2

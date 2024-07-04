@@ -881,8 +881,8 @@ if.end13:                                         ; preds = %_ZNK6icu_7513Unicod
   %shr.i.i.i.i55.pre-phi = phi i32 [ %shr.i.i, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ %.pre101, %if.else ]
   %8 = phi i32 [ %3, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ %.pre97, %if.else ]
   %9 = phi i16 [ %0, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ %.pre, %if.else ]
-  %length.0 = phi i32 [ 0, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ %sub, %if.else ]
   %offset.0 = phi i32 [ 2, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ %inc12, %if.else ]
+  %prefixLength.0 = phi i32 [ 0, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ %sub, %if.else ]
   %cmp.i.i.i.i54 = icmp slt i16 %9, 0
   %cond.i.i.i57 = select i1 %cmp.i.i.i.i54, i32 %8, i32 %shr.i.i.i.i55.pre-phi
   %cmp.i.i58 = icmp ugt i32 %cond.i.i.i57, %offset.0
@@ -911,10 +911,10 @@ if.else19:                                        ; preds = %_ZNK6icu_7513Unicod
   %retval.0.i.i5995 = phi i16 [ -1, %_ZNK6icu_7513UnicodeString6charAtEi.exit66.thread ], [ %12, %_ZNK6icu_7513UnicodeString6charAtEi.exit66 ]
   %conv15 = zext i16 %retval.0.i.i5995 to i32
   %sub20 = add nsw i32 %conv15, -256
-  %add21 = add nsw i32 %length.0, %index
+  %add21 = add nsw i32 %prefixLength.0, %index
   %add22 = add nuw nsw i32 %sub20, %inc1696
   %call25 = tail call noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKNS_13UnicodeStringEiiNS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %result, i32 noundef %add21, ptr noundef nonnull align 8 dereferenceable(64) %compiledPattern1, i32 noundef %inc1696, i32 noundef %add22, i8 %field.coerce, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %add27 = add nuw nsw i32 %sub20, %length.0
+  %add27 = add nuw nsw i32 %sub20, %prefixLength.0
   %inc28 = add nuw nsw i32 %add22, 1
   %.pre98 = load i16, ptr %fUnion.i, align 8
   %.pre99 = load i32, ptr %fLength.i, align 4
@@ -926,8 +926,8 @@ if.end29:                                         ; preds = %_ZNK6icu_7513Unicod
   %shr.i.i69.pre-phi = phi i32 [ %shr.i.i.i.i55.pre-phi, %_ZNK6icu_7513UnicodeString6charAtEi.exit66 ], [ %.pre104, %if.else19 ]
   %13 = phi i32 [ %8, %_ZNK6icu_7513UnicodeString6charAtEi.exit66 ], [ %.pre99, %if.else19 ]
   %14 = phi i16 [ %9, %_ZNK6icu_7513UnicodeString6charAtEi.exit66 ], [ %.pre98, %if.else19 ]
-  %length.1 = phi i32 [ %length.0, %_ZNK6icu_7513UnicodeString6charAtEi.exit66 ], [ %add27, %if.else19 ]
   %offset.1 = phi i32 [ %inc16, %_ZNK6icu_7513UnicodeString6charAtEi.exit66 ], [ %inc28, %if.else19 ]
+  %length.1 = phi i32 [ %prefixLength.0, %_ZNK6icu_7513UnicodeString6charAtEi.exit66 ], [ %add27, %if.else19 ]
   %cmp.i.i68 = icmp slt i16 %14, 0
   %cond.i71 = select i1 %cmp.i.i68, i32 %13, i32 %shr.i.i69.pre-phi
   %cmp31 = icmp eq i32 %offset.1, %cond.i71
@@ -963,7 +963,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit86:       ; preds = %if.else33, %if.then
 if.end44:                                         ; preds = %if.end29, %_ZNK6icu_7513UnicodeString6charAtEi.exit86
   %length.2 = phi i32 [ %add43, %_ZNK6icu_7513UnicodeString6charAtEi.exit86 ], [ %length.1, %if.end29 ]
   %suffixLength.0 = phi i32 [ %retval.0.i.i78, %_ZNK6icu_7513UnicodeString6charAtEi.exit86 ], [ 0, %if.end29 ]
-  store i32 %length.0, ptr %outPrefixLength, align 4
+  store i32 %prefixLength.0, ptr %outPrefixLength, align 4
   store i32 %suffixLength.0, ptr %outSuffixLength, align 4
   br label %return
 

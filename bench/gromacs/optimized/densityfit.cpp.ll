@@ -2692,13 +2692,13 @@ define void @_ZN3gmx33normalizeSumPositiveValuesToUnityENS_8ArrayRefIfEE(ptr %0,
   br i1 %9, label %"_ZSt9transformIN3gmx12ArrayRefIterIfEES2_ZNS0_33normalizeSumPositiveValuesToUnityENS0_8ArrayRefIfEEE3$_1ET0_T_S7_S6_T1_.exit", label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %"_ZSt10accumulateIN3gmx12ArrayRefIterIfEEdZNS0_33normalizeSumPositiveValuesToUnityENS0_8ArrayRefIfEEE3$_0ET0_T_S7_S6_T1_.exit", %.lr.ph.i12
-  %.sroa.07.011.i = phi ptr [ %13, %.lr.ph.i12 ], [ %0, %"_ZSt10accumulateIN3gmx12ArrayRefIterIfEEdZNS0_33normalizeSumPositiveValuesToUnityENS0_8ArrayRefIfEEE3$_0ET0_T_S7_S6_T1_.exit" ]
-  %.val4.i = load float, ptr %.sroa.07.011.i, align 4
+  %.sroa.05.011.i = phi ptr [ %13, %.lr.ph.i12 ], [ %0, %"_ZSt10accumulateIN3gmx12ArrayRefIterIfEEdZNS0_33normalizeSumPositiveValuesToUnityENS0_8ArrayRefIfEEE3$_0ET0_T_S7_S6_T1_.exit" ]
+  %.val4.i = load float, ptr %.sroa.05.011.i, align 4
   %10 = fpext float %.val4.i to double
   %11 = fdiv double %10, %7
   %12 = fptrunc double %11 to float
-  store float %12, ptr %.sroa.07.011.i, align 4
-  %13 = getelementptr i8, ptr %.sroa.07.011.i, i64 4
+  store float %12, ptr %.sroa.05.011.i, align 4
+  %13 = getelementptr i8, ptr %.sroa.05.011.i, i64 4
   %.not.i13 = icmp eq ptr %13, %1
   br i1 %.not.i13, label %"_ZSt9transformIN3gmx12ArrayRefIterIfEES2_ZNS0_33normalizeSumPositiveValuesToUnityENS0_8ArrayRefIfEEE3$_1ET0_T_S7_S6_T1_.exit", label %.lr.ph.i12, !llvm.loop !48
 

@@ -21,13 +21,13 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
 
 15:                                               ; preds = %5
   %16 = load i8, ptr %2, align 1
-  %.048.pre = load i8, ptr %0, align 1
+  %.049.pre = load i8, ptr %0, align 1
   br label %17
 
 17:                                               ; preds = %22, %15
-  %.048 = phi i8 [ %.048.pre, %15 ], [ %25, %22 ]
+  %.049 = phi i8 [ %.049.pre, %15 ], [ %25, %22 ]
   %.0108 = phi ptr [ %0, %15 ], [ %20, %22 ]
-  %18 = icmp eq i8 %.048, 48
+  %18 = icmp eq i8 %.049, 48
   br i1 %18, label %19, label %.critedge.preheader
 
 19:                                               ; preds = %17
@@ -51,8 +51,8 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
 
 .critedge:                                        ; preds = %.critedge.preheader, %34
   %.0103 = phi ptr [ %32, %34 ], [ %2, %.critedge.preheader ]
-  %.049 = phi i8 [ %37, %34 ], [ %16, %.critedge.preheader ]
-  %30 = icmp eq i8 %.049, 48
+  %.048 = phi i8 [ %37, %34 ], [ %16, %.critedge.preheader ]
+  %30 = icmp eq i8 %.048, 48
   br i1 %30, label %31, label %.critedge3
 
 31:                                               ; preds = %.critedge
@@ -79,9 +79,9 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
 44:                                               ; preds = %159, %.critedge3
   %.1109 = phi ptr [ %.0108, %.critedge3 ], [ %157, %159 ]
   %.1104 = phi ptr [ %.0103, %.critedge3 ], [ %158, %159 ]
-  %.150 = phi i8 [ %.049, %.critedge3 ], [ %161, %159 ]
-  %.1 = phi i8 [ %.048, %.critedge3 ], [ %160, %159 ]
-  %45 = zext i8 %.1 to i64
+  %.150 = phi i8 [ %.049, %.critedge3 ], [ %160, %159 ]
+  %.1 = phi i8 [ %.048, %.critedge3 ], [ %161, %159 ]
+  %45 = zext i8 %.150 to i64
   %46 = getelementptr inbounds i16, ptr %43, i64 %45
   %47 = load i16, ptr %46, align 2
   %48 = and i16 %47, 8192
@@ -90,9 +90,9 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
 
 .preheader136:                                    ; preds = %.lr.ph, %44
   %.2110.lcssa = phi ptr [ %.1109, %44 ], [ %54, %.lr.ph ]
-  %.2.lcssa = phi i8 [ %.1, %44 ], [ %55, %.lr.ph ]
+  %.251.lcssa = phi i8 [ %.150, %44 ], [ %55, %.lr.ph ]
   %.lcssa = phi i16 [ %47, %44 ], [ %58, %.lr.ph ]
-  %49 = zext i8 %.150 to i64
+  %49 = zext i8 %.1 to i64
   %50 = getelementptr inbounds i16, ptr %43, i64 %49
   %51 = load i16, ptr %50, align 2
   %52 = zext i16 %51 to i32
@@ -125,7 +125,7 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
 
 ._crit_edge:                                      ; preds = %.lr.ph160, %.preheader136
   %.2105.lcssa = phi ptr [ %.1104, %.preheader136 ], [ %60, %.lr.ph160 ]
-  %.251.lcssa = phi i8 [ %.150, %.preheader136 ], [ %61, %.lr.ph160 ]
+  %.2.lcssa = phi i8 [ %.1, %.preheader136 ], [ %61, %.lr.ph160 ]
   %.lcssa141 = phi i32 [ %52, %.preheader136 ], [ %65, %.lr.ph160 ]
   %67 = and i16 %.lcssa, 2048
   %.not65 = icmp eq i16 %67, 0
@@ -135,8 +135,8 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
   br i1 %or.cond72, label %144, label %69
 
 69:                                               ; preds = %._crit_edge
-  %70 = icmp eq i8 %.2.lcssa, 48
-  %71 = icmp eq i8 %.251.lcssa, 48
+  %70 = icmp eq i8 %.251.lcssa, 48
+  %71 = icmp eq i8 %.2.lcssa, 48
   %72 = or i1 %70, %71
   br i1 %72, label %.preheader, label %.preheader133
 
@@ -316,27 +316,27 @@ compare_left.exit.thread119:                      ; preds = %80, %compare_left.e
 144:                                              ; preds = %141, %._crit_edge
   %.6114 = phi ptr [ %.2110.lcssa, %._crit_edge ], [ %.5113124, %141 ]
   %.6 = phi ptr [ %.2105.lcssa, %._crit_edge ], [ %.5125, %141 ]
-  %.352 = phi i8 [ %.251.lcssa, %._crit_edge ], [ %143, %141 ]
-  %.3 = phi i8 [ %.2.lcssa, %._crit_edge ], [ %142, %141 ]
+  %.352 = phi i8 [ %.251.lcssa, %._crit_edge ], [ %142, %141 ]
+  %.3 = phi i8 [ %.2.lcssa, %._crit_edge ], [ %143, %141 ]
   br i1 %4, label %145, label %152
 
 145:                                              ; preds = %144
-  %146 = zext i8 %.3 to i32
+  %146 = zext i8 %.352 to i32
   %147 = tail call i32 @toupper(i32 noundef %146) #5
   %148 = trunc i32 %147 to i8
-  %149 = zext i8 %.352 to i32
+  %149 = zext i8 %.3 to i32
   %150 = tail call i32 @toupper(i32 noundef %149) #5
   %151 = trunc i32 %150 to i8
   br label %152
 
 152:                                              ; preds = %145, %144
-  %.453 = phi i8 [ %151, %145 ], [ %.352, %144 ]
-  %.4 = phi i8 [ %148, %145 ], [ %.3, %144 ]
-  %153 = icmp ult i8 %.4, %.453
+  %.453 = phi i8 [ %148, %145 ], [ %.352, %144 ]
+  %.4 = phi i8 [ %151, %145 ], [ %.3, %144 ]
+  %153 = icmp ult i8 %.453, %.4
   br i1 %153, label %compare_left.exit.thread, label %154
 
 154:                                              ; preds = %152
-  %155 = icmp ugt i8 %.4, %.453
+  %155 = icmp ugt i8 %.453, %.4
   br i1 %155, label %compare_left.exit.thread, label %156
 
 156:                                              ; preds = %154

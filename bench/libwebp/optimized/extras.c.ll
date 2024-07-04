@@ -47,22 +47,22 @@ define dso_local range(i32 0, 2) i32 @WebPImportGray(ptr noundef readonly %0, pt
   br label %23
 
 23:                                               ; preds = %.lr.ph, %44
-  %.02631 = phi ptr [ %0, %.lr.ph ], [ %29, %44 ]
-  %.02730 = phi i32 [ 0, %.lr.ph ], [ %45, %44 ]
+  %.031 = phi i32 [ 0, %.lr.ph ], [ %45, %44 ]
+  %.02730 = phi ptr [ %0, %.lr.ph ], [ %29, %44 ]
   %24 = load ptr, ptr %16, align 8
   %25 = load i32, ptr %17, align 8
-  %26 = mul nsw i32 %25, %.02730
+  %26 = mul nsw i32 %25, %.031
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr align 1 %.02631, i64 %18, i1 false)
-  %29 = getelementptr inbounds i8, ptr %.02631, i64 %18
-  %30 = and i32 %.02730, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr align 1 %.02730, i64 %18, i1 false)
+  %29 = getelementptr inbounds i8, ptr %.02730, i64 %18
+  %30 = and i32 %.031, 1
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %44
 
 32:                                               ; preds = %23
   %33 = load ptr, ptr %19, align 8
-  %34 = lshr exact i32 %.02730, 1
+  %34 = lshr exact i32 %.031, 1
   %35 = load i32, ptr %20, align 4
   %36 = mul nsw i32 %35, %34
   %37 = sext i32 %36 to i64
@@ -77,14 +77,14 @@ define dso_local range(i32 0, 2) i32 @WebPImportGray(ptr noundef readonly %0, pt
   br label %44
 
 44:                                               ; preds = %23, %32
-  %45 = add nuw nsw i32 %.02730, 1
+  %45 = add nuw nsw i32 %.031, 1
   %46 = load i32, ptr %9, align 4
   %47 = icmp slt i32 %45, %46
   br i1 %47, label %23, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %44, %8, %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %8 ], [ 1, %44 ]
-  ret i32 %.0
+  %.026 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %8 ], [ 1, %44 ]
+  ret i32 %.026
 }
 
 declare i32 @WebPPictureAlloc(ptr noundef) local_unnamed_addr #2
@@ -594,15 +594,15 @@ define dso_local range(i32 0, 2) i32 @SharpYuvEstimate420Risk(ptr noundef readon
 .lr.ph.i92.us.i:                                  ; preds = %._crit_edge.us.i.loopexit, %.lr.ph.i92.us.preheader.i
   %.07712.us.i = phi ptr [ %114, %._crit_edge.us.i.loopexit ], [ %0, %.lr.ph.i92.us.preheader.i ]
   %.07811.us.i = phi ptr [ %115, %._crit_edge.us.i.loopexit ], [ %1, %.lr.ph.i92.us.preheader.i ]
-  %.07910.us.i = phi ptr [ %116, %._crit_edge.us.i.loopexit ], [ %2, %.lr.ph.i92.us.preheader.i ]
-  %.0809.us.i = phi i32 [ %191, %._crit_edge.us.i.loopexit ], [ 1, %.lr.ph.i92.us.preheader.i ]
-  %.0828.us.i = phi double [ %.2.us.i, %._crit_edge.us.i.loopexit ], [ 0.000000e+00, %.lr.ph.i92.us.preheader.i ]
-  %.0837.us.i = phi ptr [ %.0846.us.i, %._crit_edge.us.i.loopexit ], [ %33, %.lr.ph.i92.us.preheader.i ]
-  %.0846.us.i = phi ptr [ %.0837.us.i, %._crit_edge.us.i.loopexit ], [ %32, %.lr.ph.i92.us.preheader.i ]
+  %.07910.us.i = phi i32 [ %191, %._crit_edge.us.i.loopexit ], [ 1, %.lr.ph.i92.us.preheader.i ]
+  %.0819.us.i = phi ptr [ %116, %._crit_edge.us.i.loopexit ], [ %2, %.lr.ph.i92.us.preheader.i ]
+  %.0828.us.i = phi ptr [ %.0837.us.i, %._crit_edge.us.i.loopexit ], [ %33, %.lr.ph.i92.us.preheader.i ]
+  %.0837.us.i = phi ptr [ %.0828.us.i, %._crit_edge.us.i.loopexit ], [ %32, %.lr.ph.i92.us.preheader.i ]
+  %.0846.us.i = phi double [ %.2.us.i, %._crit_edge.us.i.loopexit ], [ 0.000000e+00, %.lr.ph.i92.us.preheader.i ]
   %.0855.us.i = phi double [ %.287.us.i, %._crit_edge.us.i.loopexit ], [ 0.000000e+00, %.lr.ph.i92.us.preheader.i ]
   %114 = getelementptr inbounds i8, ptr %.07712.us.i, i64 %113
   %115 = getelementptr inbounds i8, ptr %.07811.us.i, i64 %113
-  %116 = getelementptr inbounds i8, ptr %.07910.us.i, i64 %113
+  %116 = getelementptr inbounds i8, ptr %.0819.us.i, i64 %113
   %117 = load ptr, ptr %8, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 4
   %119 = getelementptr inbounds i8, ptr %117, i64 8
@@ -681,7 +681,7 @@ define dso_local range(i32 0, 2) i32 @SharpYuvEstimate420Risk(ptr noundef readon
   %reass.mul.i.i99.us.i = mul i32 %reass.add.i.i98.us.i, %28
   %185 = add i32 %reass.mul.i.i99.us.i, %151
   %186 = trunc i32 %185 to i16
-  %187 = getelementptr inbounds i16, ptr %.0846.us.i, i64 %indvars.iv.i94.us.i
+  %187 = getelementptr inbounds i16, ptr %.0837.us.i, i64 %indvars.iv.i94.us.i
   store i16 %186, ptr %187, align 2
   %indvars.iv.next.i100.us.i = add nuw nsw i64 %indvars.iv.i94.us.i, 1
   %188 = getelementptr inbounds i8, ptr %.01520.i95.us.i, i64 %50
@@ -691,21 +691,21 @@ define dso_local range(i32 0, 2) i32 @SharpYuvEstimate420Risk(ptr noundef readon
   br i1 %exitcond.not.i101.us.i, label %SharpYuvRowToYuvSharpnessIndex.exit102.loopexit.us.i, label %129, !llvm.loop !15
 
 ._crit_edge.us.i.loopexit:                        ; preds = %.lr.ph.us.i
-  %191 = add nuw nsw i32 %.0809.us.i, 1
+  %191 = add nuw nsw i32 %.07910.us.i, 1
   %exitcond60.not.i = icmp eq i32 %191, %7
   br i1 %exitcond60.not.i, label %._crit_edge14.i, label %.lr.ph.i92.us.i, !llvm.loop !16
 
 .lr.ph.us.i:                                      ; preds = %SharpYuvRowToYuvSharpnessIndex.exit102.loopexit.us.i, %.lr.ph.us.i
   %192 = phi i16 [ %.pre61.i, %SharpYuvRowToYuvSharpnessIndex.exit102.loopexit.us.i ], [ %195, %.lr.ph.us.i ]
   %indvars.iv55.i = phi i64 [ 0, %SharpYuvRowToYuvSharpnessIndex.exit102.loopexit.us.i ], [ %indvars.iv.next56.i, %.lr.ph.us.i ]
-  %.12.us.i = phi double [ %.0828.us.i, %SharpYuvRowToYuvSharpnessIndex.exit102.loopexit.us.i ], [ %.2.us.i, %.lr.ph.us.i ]
+  %.12.us.i = phi double [ %.0846.us.i, %SharpYuvRowToYuvSharpnessIndex.exit102.loopexit.us.i ], [ %.2.us.i, %.lr.ph.us.i ]
   %.1861.us.i = phi double [ %.0855.us.i, %SharpYuvRowToYuvSharpnessIndex.exit102.loopexit.us.i ], [ %.287.us.i, %.lr.ph.us.i ]
   %193 = zext i16 %192 to i32
   %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
-  %194 = getelementptr inbounds i16, ptr %.0837.us.i, i64 %indvars.iv.next56.i
+  %194 = getelementptr inbounds i16, ptr %.0828.us.i, i64 %indvars.iv.next56.i
   %195 = load i16, ptr %194, align 2
   %196 = zext i16 %195 to i32
-  %197 = getelementptr inbounds i16, ptr %.0846.us.i, i64 %indvars.iv55.i
+  %197 = getelementptr inbounds i16, ptr %.0837.us.i, i64 %indvars.iv55.i
   %198 = load i16, ptr %197, align 2
   %199 = zext i16 %198 to i32
   %200 = mul nsw i32 %30, %196
@@ -729,22 +729,22 @@ define dso_local range(i32 0, 2) i32 @SharpYuvEstimate420Risk(ptr noundef readon
   %218 = add nuw nsw i32 %212, %217
   %219 = icmp ugt i32 %218, 4
   %220 = uitofp nneg i32 %218 to double
-  %221 = fadd double %.12.us.i, %220
-  %222 = fadd double %.1861.us.i, 1.000000e+00
-  %.287.us.i = select i1 %219, double %222, double %.1861.us.i
-  %.2.us.i = select i1 %219, double %221, double %.12.us.i
+  %221 = fadd double %.1861.us.i, %220
+  %222 = fadd double %.12.us.i, 1.000000e+00
+  %.287.us.i = select i1 %219, double %221, double %.1861.us.i
+  %.2.us.i = select i1 %219, double %222, double %.12.us.i
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, %wide.trip.count58.i
   br i1 %exitcond59.not.i, label %._crit_edge.us.i.loopexit, label %.lr.ph.us.i, !llvm.loop !17
 
 SharpYuvRowToYuvSharpnessIndex.exit102.loopexit.us.i: ; preds = %129
-  %.pre61.i = load i16, ptr %.0837.us.i, align 2
+  %.pre61.i = load i16, ptr %.0828.us.i, align 2
   br label %.lr.ph.us.i
 
 ._crit_edge14.i:                                  ; preds = %._crit_edge.us.i.loopexit
-  %223 = fcmp ogt double %.287.us.i, 0.000000e+00
-  %224 = fdiv double %.2.us.i, %.287.us.i
-  %.3.i = select i1 %223, double %224, double %.2.us.i
-  %225 = fmul double %.287.us.i, 1.000000e+02
+  %223 = fcmp ogt double %.2.us.i, 0.000000e+00
+  %224 = fdiv double %.287.us.i, %.2.us.i
+  %.3.i = select i1 %223, double %224, double %.287.us.i
+  %225 = fmul double %.2.us.i, 1.000000e+02
   %226 = mul nuw nsw i32 %7, %6
   %227 = uitofp nneg i32 %226 to double
   %228 = fdiv double %225, %227
@@ -754,8 +754,8 @@ SharpYuvRowToYuvSharpnessIndex.exit102.loopexit.us.i: ; preds = %129
   %231 = fmul double %.4.i, 1.000000e+02
   %232 = fdiv double %231, 2.500000e+01
   %233 = select i1 %230, double 1.000000e+02, double %232
+  tail call void @WebPFree(ptr noundef nonnull %.0828.us.i) #6
   tail call void @WebPFree(ptr noundef nonnull %.0837.us.i) #6
-  tail call void @WebPFree(ptr noundef nonnull %.0846.us.i) #6
   %234 = fptrunc double %233 to float
   store float %234, ptr %9, align 4
   br label %DoEstimateRisk.exit

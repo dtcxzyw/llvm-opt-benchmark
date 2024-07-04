@@ -919,17 +919,17 @@ for.cond33.preheader:                             ; preds = %for.body24
   br i1 %cmp5164.not73, label %for.inc89, label %for.body35
 
 for.body35:                                       ; preds = %for.cond33.preheader, %for.body35
-  %vector_exp.068 = phi i32 [ %cond43, %for.body35 ], [ -100, %for.cond33.preheader ]
-  %j32.067 = phi i64 [ %inc45, %for.body35 ], [ 0, %for.cond33.preheader ]
-  %arrayidx37 = getelementptr inbounds float, ptr %arrayidx27, i64 %j32.067
+  %j32.068 = phi i64 [ %inc45, %for.body35 ], [ 0, %for.cond33.preheader ]
+  %vector_exp.067 = phi i32 [ %cond43, %for.body35 ], [ -100, %for.cond33.preheader ]
+  %arrayidx37 = getelementptr inbounds float, ptr %arrayidx27, i64 %j32.068
   %2 = load i32, ptr %arrayidx37, align 4
   %cmp.i46 = icmp eq i32 %2, 0
   %shr.i47 = lshr i32 %2, 23
   %and.i48 = and i32 %shr.i47, 255
   %add.i49 = add nsw i32 %and.i48, -126
   %cond.i50 = select i1 %cmp.i46, i32 0, i32 %add.i49
-  %cond43 = tail call i32 @llvm.smax.i32(i32 %vector_exp.068, i32 %cond.i50)
-  %inc45 = add nuw nsw i64 %j32.067, 1
+  %cond43 = tail call i32 @llvm.smax.i32(i32 %vector_exp.067, i32 %cond.i50)
+  %inc45 = add nuw nsw i64 %j32.068, 1
   %exitcond79.not = icmp eq i64 %inc45, %div45
   br i1 %exitcond79.not, label %if.end66, label %for.body35, !llvm.loop !15
 

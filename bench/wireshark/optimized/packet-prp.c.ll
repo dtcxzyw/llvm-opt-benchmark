@@ -84,13 +84,13 @@ define internal range(i32 0, 7) i32 @dissect_prp_redundancy_control_trailer(ptr 
   br i1 %.not8995, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %22
-  %.08396 = phi i32 [ %23, %22 ], [ 0, %10 ]
-  %12 = sub i32 %7, %.08396
+  %.08296 = phi i32 [ %23, %22 ], [ 0, %10 ]
+  %12 = sub i32 %7, %.08296
   %13 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %12) #2
   %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %12) #2
   %15 = and i16 %14, 4095
   %16 = zext nneg i16 %15 to i32
-  %17 = sub i32 %11, %.08396
+  %17 = sub i32 %11, %.08296
   %18 = icmp eq i32 %17, %16
   %19 = and i16 %13, -8192
   %or.cond = icmp eq i16 %19, -24576
@@ -98,17 +98,17 @@ define internal range(i32 0, 7) i32 @dissect_prp_redundancy_control_trailer(ptr 
   br i1 %or.cond91, label %20, label %22
 
 20:                                               ; preds = %.lr.ph
-  %21 = sub i32 %6, %.08396
+  %21 = sub i32 %6, %.08296
   br label %.loopexit
 
 22:                                               ; preds = %.lr.ph
-  %23 = add i32 %.08396, 1
+  %23 = add i32 %.08296, 1
   %.not89 = icmp sgt i32 %23, %6
   br i1 %.not89, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %22, %10, %20
-  %.080 = phi i32 [ %21, %20 ], [ 0, %10 ], [ 0, %22 ]
-  %.079 = phi i32 [ 4, %20 ], [ 0, %10 ], [ 0, %22 ]
+  %.079 = phi i32 [ %21, %20 ], [ 0, %10 ], [ 0, %22 ]
+  %.0 = phi i32 [ 4, %20 ], [ 0, %10 ], [ 0, %22 ]
   %24 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #2
   %25 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6) #2
   %26 = and i16 %25, 4095
@@ -118,14 +118,14 @@ define internal range(i32 0, 7) i32 @dissect_prp_redundancy_control_trailer(ptr 
   %or.cond5 = icmp eq i16 %29, -24576
   %or.cond92 = select i1 %28, i1 %or.cond5, i1 false
   %30 = add i32 %5, -6
-  %.181 = select i1 %or.cond92, i32 %30, i32 %.080
-  %.1 = select i1 %or.cond92, i32 6, i32 %.079
+  %.180 = select i1 %or.cond92, i32 %30, i32 %.079
+  %.1 = select i1 %or.cond92, i32 6, i32 %.0
   %.not90 = icmp eq i32 %.1, 0
   br i1 %.not90, label %70, label %31
 
 31:                                               ; preds = %.loopexit
   %32 = load i32, ptr @proto_prp, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef %.181, i32 noundef %.1, i32 noundef 0) #2
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef %.180, i32 noundef %.1, i32 noundef 0) #2
   %34 = load i32, ptr @ett_prp_redundancy_control_trailer, align 4
   %35 = tail call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34) #2
   %36 = icmp eq i32 %.1, 4
@@ -133,20 +133,20 @@ define internal range(i32 0, 7) i32 @dissect_prp_redundancy_control_trailer(ptr 
   br i1 %36, label %38, label %40
 
 38:                                               ; preds = %31
-  %39 = tail call ptr @proto_tree_add_string(ptr noundef %35, i32 noundef %37, ptr noundef %0, i32 noundef %.181, i32 noundef 4, ptr noundef nonnull @.str.19) #2
+  %39 = tail call ptr @proto_tree_add_string(ptr noundef %35, i32 noundef %37, ptr noundef %0, i32 noundef %.180, i32 noundef 4, ptr noundef nonnull @.str.19) #2
   br label %42
 
 40:                                               ; preds = %31
-  %41 = tail call ptr @proto_tree_add_string(ptr noundef %35, i32 noundef %37, ptr noundef %0, i32 noundef %.181, i32 noundef %.1, ptr noundef nonnull @.str.20) #2
+  %41 = tail call ptr @proto_tree_add_string(ptr noundef %35, i32 noundef %37, ptr noundef %0, i32 noundef %.180, i32 noundef %.1, ptr noundef nonnull @.str.20) #2
   br label %42
 
 42:                                               ; preds = %40, %38
-  %.082 = phi ptr [ %39, %38 ], [ %41, %40 ]
-  %.not.i = icmp eq ptr %.082, null
+  %.083 = phi ptr [ %39, %38 ], [ %41, %40 ]
+  %.not.i = icmp eq ptr %.083, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %43
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %.082, i64 32
+  %44 = getelementptr inbounds i8, ptr %.083, i64 32
   %45 = load ptr, ptr %44, align 8
   %.not5.i = icmp eq ptr %45, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %46
@@ -160,9 +160,9 @@ define internal range(i32 0, 7) i32 @dissect_prp_redundancy_control_trailer(ptr 
 
 proto_item_set_generated.exit:                    ; preds = %42, %43, %46
   %50 = load i32, ptr @hf_prp_redundancy_control_trailer_sequence_nr, align 4
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %50, ptr noundef %0, i32 noundef %.181, i32 noundef 2, i32 noundef 0) #2
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %50, ptr noundef %0, i32 noundef %.180, i32 noundef 2, i32 noundef 0) #2
   %52 = load i32, ptr @hf_prp_redundancy_control_trailer_lan, align 4
-  %53 = add i32 %.181, 2
+  %53 = add i32 %.180, 2
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %52, ptr noundef %0, i32 noundef %53, i32 noundef 2, i32 noundef 0) #2
   br i1 %36, label %55, label %58
 
@@ -187,13 +187,13 @@ proto_item_set_generated.exit:                    ; preds = %42, %43, %46
 
 66:                                               ; preds = %64, %62
   %67 = load i32, ptr @hf_prp_redundancy_control_trailer_suffix, align 4
-  %68 = add i32 %.181, 4
+  %68 = add i32 %.180, 4
   %69 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %67, ptr noundef %0, i32 noundef %68, i32 noundef 2, i32 noundef 0) #2
   br label %70
 
 70:                                               ; preds = %.loopexit, %66, %55, %4
-  %.0 = phi i32 [ 0, %4 ], [ 4, %55 ], [ %.1, %66 ], [ 0, %.loopexit ]
-  ret i32 %.0
+  %.081 = phi i32 [ 0, %4 ], [ 4, %55 ], [ %.1, %66 ], [ 0, %.loopexit ]
+  ret i32 %.081
 }
 
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1

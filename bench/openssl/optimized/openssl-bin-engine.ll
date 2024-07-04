@@ -129,23 +129,25 @@ while.end:                                        ; preds = %while.body, %land.r
   %call15 = tail call ptr @opt_init(i32 noundef %argc.addr.0.lcssa, ptr noundef nonnull %argv.addr.0.lcssa, ptr noundef nonnull @engine_options) #7
   br label %while.cond16.outer
 
-while.cond16.outer:                               ; preds = %sw.bb30, %while.end
-  %test_avail_noise.0.ph = phi i32 [ %test_avail_noise.1, %sw.bb30 ], [ 0, %while.end ]
-  %test_avail.0.ph = phi i32 [ %inc31, %sw.bb30 ], [ 0, %while.end ]
-  %list_cap.0.ph = phi i32 [ %list_cap.0.ph230, %sw.bb30 ], [ 0, %while.end ]
-  %verbose.0.ph = phi i32 [ %verbose.0.ph233, %sw.bb30 ], [ 0, %while.end ]
+while.cond16.outer:                               ; preds = %sw.bb23, %while.end
+  %verbose.0.ph = phi i32 [ %spec.select, %sw.bb23 ], [ 0, %while.end ]
+  %list_cap.0.ph = phi i32 [ %list_cap.0.ph230, %sw.bb23 ], [ 0, %while.end ]
+  %test_avail.0.ph = phi i32 [ %test_avail.0.ph234, %sw.bb23 ], [ 0, %while.end ]
+  %test_avail_noise.0.ph = phi i32 [ %test_avail_noise.0.ph235, %sw.bb23 ], [ 0, %while.end ]
   br label %while.cond16.outer229
 
 while.cond16.outer229:                            ; preds = %while.cond16, %while.cond16.outer
   %list_cap.0.ph230 = phi i32 [ %list_cap.0.ph, %while.cond16.outer ], [ 1, %while.cond16 ]
-  %verbose.0.ph231 = phi i32 [ %verbose.0.ph, %while.cond16.outer ], [ %verbose.0.ph233, %while.cond16 ]
-  br label %while.cond16.outer232
+  %test_avail.0.ph231 = phi i32 [ %test_avail.0.ph, %while.cond16.outer ], [ %test_avail.0.ph234, %while.cond16 ]
+  %test_avail_noise.0.ph232 = phi i32 [ %test_avail_noise.0.ph, %while.cond16.outer ], [ %test_avail_noise.0.ph235, %while.cond16 ]
+  br label %while.cond16.outer233
 
-while.cond16.outer232:                            ; preds = %while.cond16.outer229, %sw.bb23
-  %verbose.0.ph233 = phi i32 [ %verbose.0.ph231, %while.cond16.outer229 ], [ %spec.select, %sw.bb23 ]
+while.cond16.outer233:                            ; preds = %while.cond16.outer229, %sw.bb30
+  %test_avail.0.ph234 = phi i32 [ %test_avail.0.ph231, %while.cond16.outer229 ], [ %inc31, %sw.bb30 ]
+  %test_avail_noise.0.ph235 = phi i32 [ %test_avail_noise.0.ph232, %while.cond16.outer229 ], [ %test_avail_noise.1, %sw.bb30 ]
   br label %while.cond16
 
-while.cond16:                                     ; preds = %while.cond16.backedge, %while.cond16.outer232
+while.cond16:                                     ; preds = %while.cond16.backedge, %while.cond16.outer233
   %call17 = tail call i32 @opt_next() #7
   switch i32 %call17, label %while.cond16.backedge [
     i32 0, label %while.end42
@@ -176,17 +178,17 @@ sw.bb22:                                          ; preds = %while.cond16
 
 sw.bb23:                                          ; preds = %while.cond16, %while.cond16, %while.cond16, %while.cond16
   %add = add nsw i32 %call17, -99
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %verbose.0.ph233, i32 %add)
-  br label %while.cond16.outer232, !llvm.loop !7
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %verbose.0.ph, i32 %add)
+  br label %while.cond16.outer, !llvm.loop !7
 
 sw.bb29:                                          ; preds = %while.cond16
-  %inc = add nsw i32 %test_avail_noise.0.ph, 1
+  %inc = add nsw i32 %test_avail_noise.0.ph235, 1
   br label %sw.bb30
 
 sw.bb30:                                          ; preds = %while.cond16, %sw.bb29
-  %test_avail_noise.1 = phi i32 [ %inc, %sw.bb29 ], [ %test_avail_noise.0.ph, %while.cond16 ]
-  %inc31 = add nuw nsw i32 %test_avail.0.ph, 1
-  br label %while.cond16.outer, !llvm.loop !7
+  %test_avail_noise.1 = phi i32 [ %inc, %sw.bb29 ], [ %test_avail_noise.0.ph235, %while.cond16 ]
+  %inc31 = add nsw i32 %test_avail.0.ph234, 1
+  br label %while.cond16.outer233, !llvm.loop !7
 
 sw.bb32:                                          ; preds = %while.cond16
   %call34 = tail call ptr @opt_arg() #7
@@ -254,12 +256,12 @@ for.body79.lr.ph:                                 ; preds = %if.end73
   %cap_buf189 = getelementptr inbounds i8, ptr %store_ctx, i64 8
   %cap_size190 = getelementptr inbounds i8, ptr %store_ctx, i64 16
   %ok = getelementptr inbounds i8, ptr %store_ctx, i64 24
-  %tobool206.not = icmp eq i32 %test_avail.0.ph, 0
-  %tobool215.not = icmp eq i32 %test_avail_noise.0.ph, 0
-  %cmp220 = icmp sgt i32 %verbose.0.ph233, 0
-  %cmp13.i = icmp ugt i32 %verbose.0.ph233, 3
-  %cmp56.i = icmp eq i32 %verbose.0.ph233, 1
-  %cmp78.i = icmp ugt i32 %verbose.0.ph233, 2
+  %tobool206.not = icmp eq i32 %test_avail.0.ph234, 0
+  %tobool215.not = icmp eq i32 %test_avail_noise.0.ph235, 0
+  %cmp220 = icmp sgt i32 %verbose.0.ph, 0
+  %cmp13.i = icmp ugt i32 %verbose.0.ph, 3
+  %cmp56.i = icmp eq i32 %verbose.0.ph, 1
+  %cmp78.i = icmp ugt i32 %verbose.0.ph, 2
   br label %for.body79
 
 for.body79:                                       ; preds = %for.body79.lr.ph, %for.inc235

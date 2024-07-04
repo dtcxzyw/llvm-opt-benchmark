@@ -615,9 +615,9 @@ if.end.i.us.i.preheader:                          ; preds = %for.body.lr.ph.i, %
 
 if.end.i.us.i:                                    ; preds = %if.end.i.us.i.preheader, %edata_list_inactive_remove.exit.us.i
   %14 = phi ptr [ %decay_extents.sroa.0.2, %edata_list_inactive_remove.exit.us.i ], [ %decay_extents.sroa.0.131, %if.end.i.us.i.preheader ]
-  %nmadvise.05.us.i = phi i64 [ %inc.us.i, %edata_list_inactive_remove.exit.us.i ], [ 0, %if.end.i.us.i.preheader ]
+  %npurged.05.us.i = phi i64 [ %add.us.i, %edata_list_inactive_remove.exit.us.i ], [ 0, %if.end.i.us.i.preheader ]
   %nunmapped.04.us.i = phi i64 [ %add14.us.i, %edata_list_inactive_remove.exit.us.i ], [ 0, %if.end.i.us.i.preheader ]
-  %npurged.03.us.i = phi i64 [ %add.us.i, %edata_list_inactive_remove.exit.us.i ], [ 0, %if.end.i.us.i.preheader ]
+  %nmadvise.03.us.i = phi i64 [ %inc.us.i, %edata_list_inactive_remove.exit.us.i ], [ 0, %if.end.i.us.i.preheader ]
   %15 = getelementptr inbounds i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8
   %cmp7.not.i.us.i = icmp eq ptr %16, %14
@@ -652,8 +652,8 @@ edata_list_inactive_remove.exit.us.i:             ; preds = %if.end.i.us.i, %do.
   %29 = getelementptr i8, ptr %14, i64 16
   %edata.0.val.us.i = load i64, ptr %29, align 8
   %shr.us.i = lshr i64 %edata.0.val.us.i, 12
-  %inc.us.i = add i64 %nmadvise.05.us.i, 1
-  %add.us.i = add i64 %shr.us.i, %npurged.03.us.i
+  %inc.us.i = add i64 %nmadvise.03.us.i, 1
+  %add.us.i = add i64 %shr.us.i, %npurged.05.us.i
   tail call void @extent_dalloc_wrapper(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %call.i.i16, ptr noundef nonnull %14) #8
   %add14.us.i = add i64 %shr.us.i, %nunmapped.04.us.i
   %cmp4.not.us.i = icmp eq ptr %decay_extents.sroa.0.2, null
@@ -661,9 +661,9 @@ edata_list_inactive_remove.exit.us.i:             ; preds = %if.end.i.us.i, %do.
 
 if.end.i.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
   %30 = phi ptr [ %decay_extents.sroa.0.3, %for.inc.i ], [ %decay_extents.sroa.0.131, %for.body.lr.ph.i ]
-  %nmadvise.05.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
+  %npurged.05.i = phi i64 [ %add.i21, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
   %nunmapped.04.i = phi i64 [ %nunmapped.1.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
-  %npurged.03.i = phi i64 [ %add.i21, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
+  %nmadvise.03.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
   %31 = getelementptr inbounds i8, ptr %30, i64 64
   %32 = load ptr, ptr %31, align 8
   %cmp7.not.i.i = icmp eq ptr %32, %30
@@ -698,8 +698,8 @@ edata_list_inactive_remove.exit.i:                ; preds = %if.end.i.i, %do.bod
   %45 = getelementptr i8, ptr %30, i64 16
   %edata.0.val.i = load i64, ptr %45, align 8
   %shr.i20 = lshr i64 %edata.0.val.i, 12
-  %inc.i = add i64 %nmadvise.05.i, 1
-  %add.i21 = add i64 %shr.i20, %npurged.03.i
+  %inc.i = add i64 %nmadvise.03.i, 1
+  %add.i21 = add i64 %shr.i20, %npurged.05.i
   %46 = load i32, ptr %state.i, align 8
   %switch.i = icmp eq i32 %46, 2
   br i1 %switch.i, label %sw.bb13.i, label %if.then.i
@@ -724,9 +724,9 @@ for.inc.i:                                        ; preds = %sw.bb13.i, %if.then
   br i1 %cmp4.not.i, label %pac_decay_stashed.exit, label %if.end.i.i, !llvm.loop !7
 
 pac_decay_stashed.exit:                           ; preds = %for.inc.i, %edata_list_inactive_remove.exit.us.i, %land.end.i, %land.end.thread.i
-  %npurged.0.lcssa.i = phi i64 [ 0, %land.end.i ], [ 0, %land.end.thread.i ], [ %add.us.i, %edata_list_inactive_remove.exit.us.i ], [ %add.i21, %for.inc.i ]
-  %nunmapped.0.lcssa.i = phi i64 [ 0, %land.end.i ], [ 0, %land.end.thread.i ], [ %add14.us.i, %edata_list_inactive_remove.exit.us.i ], [ %nunmapped.1.i, %for.inc.i ]
   %nmadvise.0.lcssa.i = phi i64 [ 0, %land.end.i ], [ 0, %land.end.thread.i ], [ %inc.us.i, %edata_list_inactive_remove.exit.us.i ], [ %inc.i, %for.inc.i ]
+  %nunmapped.0.lcssa.i = phi i64 [ 0, %land.end.i ], [ 0, %land.end.thread.i ], [ %add14.us.i, %edata_list_inactive_remove.exit.us.i ], [ %nunmapped.1.i, %for.inc.i ]
+  %npurged.0.lcssa.i = phi i64 [ 0, %land.end.i ], [ 0, %land.end.thread.i ], [ %add.us.i, %edata_list_inactive_remove.exit.us.i ], [ %add.i21, %for.inc.i ]
   %47 = atomicrmw add ptr %decay_stats, i64 1 monotonic, align 8
   %nmadvise19.i = getelementptr inbounds i8, ptr %decay_stats, i64 8
   %48 = atomicrmw add ptr %nmadvise19.i, i64 %nmadvise.0.lcssa.i monotonic, align 8

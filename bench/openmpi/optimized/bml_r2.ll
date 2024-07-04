@@ -612,10 +612,10 @@ define internal i32 @mca_bml_r2_add_proc(ptr noundef %0) #0 {
   br i1 %.not43, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %mca_bml_r2_register_progress.exit
-  %.02942 = phi i1 [ %.1, %mca_bml_r2_register_progress.exit ], [ false, %.preheader ]
-  %.03041 = phi i64 [ %54, %mca_bml_r2_register_progress.exit ], [ 0, %.preheader ]
+  %.02942 = phi i64 [ %54, %mca_bml_r2_register_progress.exit ], [ 0, %.preheader ]
+  %.03041 = phi i1 [ %.1, %mca_bml_r2_register_progress.exit ], [ false, %.preheader ]
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml_r2, i64 88), align 8
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %.03041
+  %25 = getelementptr inbounds ptr, ptr %24, i64 %.02942
   %26 = load ptr, ptr %25, align 8
   store ptr null, ptr %3, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 136
@@ -680,8 +680,8 @@ define internal i32 @mca_bml_r2_add_proc(ptr noundef %0) #0 {
   br label %mca_bml_r2_register_progress.exit
 
 mca_bml_r2_register_progress.exit:                ; preds = %.critedge.thread.i, %40, %36, %.lr.ph
-  %.1 = phi i1 [ %.02942, %.lr.ph ], [ %.02942, %36 ], [ true, %40 ], [ true, %.critedge.thread.i ]
-  %54 = add nuw i64 %.03041, 1
+  %.1 = phi i1 [ %.03041, %.lr.ph ], [ %.03041, %36 ], [ true, %40 ], [ true, %.critedge.thread.i ]
+  %54 = add nuw i64 %.02942, 1
   %55 = load i64, ptr getelementptr inbounds (i8, ptr @mca_bml_r2, i64 80), align 8
   %56 = icmp ult i64 %54, %55
   br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !17
@@ -794,10 +794,10 @@ define internal range(i32 -12, 1) i32 @mca_bml_r2_add_procs(i64 noundef %0, ptr 
   br label %9
 
 9:                                                ; preds = %.preheader108, %31
-  %.083115 = phi i64 [ 0, %.preheader108 ], [ %.1, %31 ]
+  %.088115 = phi i64 [ 0, %.preheader108 ], [ %32, %31 ]
   %.090114 = phi ptr [ null, %.preheader108 ], [ %.2, %31 ]
-  %.092113 = phi i64 [ 0, %.preheader108 ], [ %32, %31 ]
-  %10 = getelementptr inbounds ptr, ptr %1, i64 %.092113
+  %.092113 = phi i64 [ 0, %.preheader108 ], [ %.193, %31 ]
+  %10 = getelementptr inbounds ptr, ptr %1, i64 %.088115
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 72
   %13 = load ptr, ptr %12, align 8
@@ -832,24 +832,24 @@ define internal range(i32 -12, 1) i32 @mca_bml_r2_add_procs(i64 noundef %0, ptr 
   br label %opal_thread_add_fetch_32.exit
 
 opal_thread_add_fetch_32.exit:                    ; preds = %23, %25
-  %29 = add i64 %.083115, 1
-  %30 = getelementptr inbounds ptr, ptr %.191, i64 %.083115
+  %29 = add i64 %.092113, 1
+  %30 = getelementptr inbounds ptr, ptr %.191, i64 %.092113
   store ptr %11, ptr %30, align 8
   br label %31
 
 31:                                               ; preds = %9, %opal_thread_add_fetch_32.exit
+  %.193 = phi i64 [ %.092113, %9 ], [ %29, %opal_thread_add_fetch_32.exit ]
   %.2 = phi ptr [ %.090114, %9 ], [ %.191, %opal_thread_add_fetch_32.exit ]
-  %.1 = phi i64 [ %.083115, %9 ], [ %29, %opal_thread_add_fetch_32.exit ]
-  %32 = add nuw i64 %.092113, 1
+  %32 = add nuw i64 %.088115, 1
   %exitcond.not = icmp eq i64 %32, %0
   br i1 %exitcond.not, label %33, label %9, !llvm.loop !18
 
 33:                                               ; preds = %31
-  %34 = icmp eq i64 %.1, 0
+  %34 = icmp eq i64 %.193, 0
   br i1 %34, label %.loopexit109, label %35
 
 35:                                               ; preds = %33
-  %36 = shl i64 %.1, 3
+  %36 = shl i64 %.193, 3
   %37 = tail call noalias ptr @malloc(i64 noundef %36) #16
   %38 = icmp eq ptr %37, null
   br i1 %38, label %40, label %.preheader107
@@ -864,15 +864,15 @@ opal_thread_add_fetch_32.exit:                    ; preds = %23, %25
   br label %.loopexit109
 
 .lr.ph:                                           ; preds = %.preheader107, %mca_bml_r2_register_progress.exit
-  %.089118 = phi i64 [ %93, %mca_bml_r2_register_progress.exit ], [ 0, %.preheader107 ]
+  %.087118 = phi i64 [ %93, %mca_bml_r2_register_progress.exit ], [ 0, %.preheader107 ]
   %41 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml_r2, i64 88), align 8
-  %42 = getelementptr inbounds ptr, ptr %41, i64 %.089118
+  %42 = getelementptr inbounds ptr, ptr %41, i64 %.087118
   %43 = load ptr, ptr %42, align 8
   %44 = call i32 @opal_bitmap_clear_all_bits(ptr noundef %2) #15
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %37, i8 0, i64 %36, i1 false)
   %45 = getelementptr inbounds i8, ptr %43, i64 136
   %46 = load ptr, ptr %45, align 8
-  %47 = call i32 %46(ptr noundef %43, i64 noundef %.1, ptr noundef %.2, ptr noundef nonnull %37, ptr noundef %2) #15
+  %47 = call i32 %46(ptr noundef %43, i64 noundef %.193, ptr noundef %.2, ptr noundef nonnull %37, ptr noundef %2) #15
   %.not102 = icmp eq i32 %47, 0
   br i1 %.not102, label %.preheader106, label %mca_bml_r2_register_progress.exit
 
@@ -881,14 +881,14 @@ opal_thread_add_fetch_32.exit:                    ; preds = %23, %25
   br label %49
 
 49:                                               ; preds = %.preheader106, %74
-  %.086117 = phi i64 [ 0, %.preheader106 ], [ %75, %74 ]
-  %.087116 = phi i32 [ 0, %.preheader106 ], [ %.188, %74 ]
-  %50 = trunc i64 %.086117 to i32
+  %.085117 = phi i64 [ 0, %.preheader106 ], [ %75, %74 ]
+  %.086116 = phi i32 [ 0, %.preheader106 ], [ %.1, %74 ]
+  %50 = trunc i64 %.085117 to i32
   %51 = call zeroext i1 @opal_bitmap_is_set_bit(ptr noundef %2, i32 noundef %50) #15
   br i1 %51, label %52, label %74
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds ptr, ptr %.2, i64 %.086117
+  %53 = getelementptr inbounds ptr, ptr %.2, i64 %.085117
   %54 = load ptr, ptr %53, align 8
   store ptr %54, ptr %4, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 72
@@ -911,10 +911,10 @@ opal_thread_add_fetch_32.exit:                    ; preds = %23, %25
 
 64:                                               ; preds = %58, %52
   %65 = phi ptr [ %60, %58 ], [ %54, %52 ]
-  %.085 = phi ptr [ %59, %58 ], [ %56, %52 ]
-  %66 = getelementptr inbounds ptr, ptr %37, i64 %.086117
+  %.084 = phi ptr [ %59, %58 ], [ %56, %52 ]
+  %66 = getelementptr inbounds ptr, ptr %37, i64 %.085117
   %67 = load ptr, ptr %66, align 8
-  %68 = call fastcc i32 @mca_bml_r2_endpoint_add_btl(ptr noundef nonnull %65, ptr noundef nonnull %.085, ptr noundef %43, ptr noundef %67)
+  %68 = call fastcc i32 @mca_bml_r2_endpoint_add_btl(ptr noundef nonnull %65, ptr noundef nonnull %.084, ptr noundef %43, ptr noundef %67)
   %.not103 = icmp eq i32 %68, 0
   br i1 %.not103, label %72, label %69
 
@@ -924,17 +924,17 @@ opal_thread_add_fetch_32.exit:                    ; preds = %23, %25
   br label %74
 
 72:                                               ; preds = %64
-  %73 = add nsw i32 %.087116, 1
+  %73 = add nsw i32 %.086116, 1
   br label %74
 
 74:                                               ; preds = %49, %72, %69
-  %.188 = phi i32 [ %.087116, %69 ], [ %73, %72 ], [ %.087116, %49 ]
-  %75 = add nuw i64 %.086117, 1
-  %exitcond123.not = icmp eq i64 %75, %.1
+  %.1 = phi i32 [ %.086116, %69 ], [ %73, %72 ], [ %.086116, %49 ]
+  %75 = add nuw i64 %.085117, 1
+  %exitcond123.not = icmp eq i64 %75, %.193
   br i1 %exitcond123.not, label %76, label %49, !llvm.loop !19
 
 76:                                               ; preds = %74
-  %.not105 = icmp eq i32 %.188, 0
+  %.not105 = icmp eq i32 %.1, 0
   %77 = load ptr, ptr %43, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 272
   %79 = load ptr, ptr %78, align 8
@@ -982,19 +982,19 @@ opal_thread_add_fetch_32.exit:                    ; preds = %23, %25
   br label %mca_bml_r2_register_progress.exit
 
 mca_bml_r2_register_progress.exit:                ; preds = %91, %.critedge.thread.i, %86, %76, %.lr.ph
-  %93 = add nuw i64 %.089118, 1
+  %93 = add nuw i64 %.087118, 1
   %94 = load i64, ptr getelementptr inbounds (i8, ptr @mca_bml_r2, i64 80), align 8
   %95 = icmp ult i64 %93, %94
   br i1 %95, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %mca_bml_r2_register_progress.exit, %.preheader107
   call void @free(ptr noundef %37) #15
-  %umax = call i64 @llvm.umax.i64(i64 %.1, i64 1)
+  %umax = call i64 @llvm.umax.i64(i64 %.193, i64 1)
   br label %96
 
 96:                                               ; preds = %._crit_edge, %102
-  %.084119 = phi i64 [ 0, %._crit_edge ], [ %103, %102 ]
-  %97 = getelementptr inbounds ptr, ptr %.2, i64 %.084119
+  %.083119 = phi i64 [ 0, %._crit_edge ], [ %103, %102 ]
+  %97 = getelementptr inbounds ptr, ptr %.2, i64 %.083119
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 72
   %100 = load ptr, ptr %99, align 8
@@ -1006,7 +1006,7 @@ mca_bml_r2_register_progress.exit:                ; preds = %91, %.critedge.thre
   br label %102
 
 102:                                              ; preds = %96, %101
-  %103 = add nuw i64 %.084119, 1
+  %103 = add nuw i64 %.083119, 1
   %exitcond124.not = icmp eq i64 %103, %umax
   br i1 %exitcond124.not, label %.preheader, label %96, !llvm.loop !21
 
@@ -1048,12 +1048,12 @@ mca_bml_r2_register_progress.exit:                ; preds = %91, %.critedge.thre
   br label %.loopexit
 
 .loopexit:                                        ; preds = %104, %111, %114
-  %.093 = phi i32 [ -12, %114 ], [ -12, %111 ], [ 0, %104 ]
+  %.089 = phi i32 [ -12, %114 ], [ -12, %111 ], [ 0, %104 ]
   call void @free(ptr noundef nonnull %.2) #15
   br label %.loopexit109
 
 .loopexit109:                                     ; preds = %16, %33, %6, %3, %.loopexit, %63, %40
-  %.0 = phi i32 [ -2, %40 ], [ -2, %63 ], [ %.093, %.loopexit ], [ 0, %3 ], [ %7, %6 ], [ 0, %33 ], [ -2, %16 ]
+  %.0 = phi i32 [ -2, %40 ], [ -2, %63 ], [ %.089, %.loopexit ], [ 0, %3 ], [ %7, %6 ], [ 0, %33 ], [ -2, %16 ]
   ret i32 %.0
 }
 
@@ -1064,8 +1064,8 @@ define internal i32 @mca_bml_r2_del_procs(i64 noundef %0, ptr nocapture noundef 
   br i1 %.not81, label %.loopexit70, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %89
-  %.04579 = phi i64 [ %90, %89 ], [ 0, %2 ]
-  %4 = getelementptr inbounds ptr, ptr %1, i64 %.04579
+  %.04879 = phi i64 [ %90, %89 ], [ 0, %2 ]
+  %4 = getelementptr inbounds ptr, ptr %1, i64 %.04879
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 72
@@ -1084,17 +1084,17 @@ mca_bml_base_btl_array_get_index.exit.lr.ph:      ; preds = %8
   br label %mca_bml_base_btl_array_get_index.exit
 
 11:                                               ; preds = %mca_bml_base_btl_array_get_index.exit
-  %12 = add nuw i64 %.04874, 1
+  %12 = add nuw i64 %.04974, 1
   %exitcond.not = icmp eq i64 %12, %.val
   br i1 %exitcond.not, label %._crit_edge, label %mca_bml_base_btl_array_get_index.exit, !llvm.loop !23
 
 mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_btl_array_get_index.exit.lr.ph, %11
-  %.04874 = phi i64 [ 0, %mca_bml_base_btl_array_get_index.exit.lr.ph ], [ %12, %11 ]
+  %.04974 = phi i64 [ 0, %mca_bml_base_btl_array_get_index.exit.lr.ph ], [ %12, %11 ]
   %13 = load i64, ptr %9, align 8
-  %14 = icmp ugt i64 %13, %.04874
+  %14 = icmp ugt i64 %13, %.04974
   call void @llvm.assume(i1 %14)
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %15, i64 %.04874
+  %16 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %15, i64 %.04974
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 144
@@ -1116,12 +1116,12 @@ mca_bml_base_btl_array_get_index.exit59.lr.ph:    ; preds = %._crit_edge
   br label %mca_bml_base_btl_array_get_index.exit59
 
 mca_bml_base_btl_array_get_index.exit59:          ; preds = %mca_bml_base_btl_array_get_index.exit59.lr.ph, %.loopexit
-  %.04977 = phi i64 [ 0, %mca_bml_base_btl_array_get_index.exit59.lr.ph ], [ %46, %.loopexit ]
+  %.04777 = phi i64 [ 0, %mca_bml_base_btl_array_get_index.exit59.lr.ph ], [ %46, %.loopexit ]
   %26 = load i64, ptr %23, align 8
-  %27 = icmp ugt i64 %26, %.04977
+  %27 = icmp ugt i64 %26, %.04777
   call void @llvm.assume(i1 %27)
   %28 = load ptr, ptr %24, align 8
-  %29 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %28, i64 %.04977
+  %29 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %28, i64 %.04777
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   br i1 %.not82, label %.critedge, label %mca_bml_base_btl_array_get_index.exit61.lr.ph
@@ -1134,15 +1134,15 @@ mca_bml_base_btl_array_get_index.exit61.lr.ph:    ; preds = %mca_bml_base_btl_ar
   br label %mca_bml_base_btl_array_get_index.exit61
 
 36:                                               ; preds = %mca_bml_base_btl_array_get_index.exit61
-  %37 = add nuw i64 %.04676, 1
+  %37 = add nuw i64 %.04576, 1
   %exitcond88.not = icmp eq i64 %37, %.val
   br i1 %exitcond88.not, label %.critedge, label %mca_bml_base_btl_array_get_index.exit61, !llvm.loop !24
 
 mca_bml_base_btl_array_get_index.exit61:          ; preds = %mca_bml_base_btl_array_get_index.exit61.lr.ph, %36
-  %.04676 = phi i64 [ 0, %mca_bml_base_btl_array_get_index.exit61.lr.ph ], [ %37, %36 ]
-  %38 = icmp ugt i64 %32, %.04676
+  %.04576 = phi i64 [ 0, %mca_bml_base_btl_array_get_index.exit61.lr.ph ], [ %37, %36 ]
+  %38 = icmp ugt i64 %32, %.04576
   call void @llvm.assume(i1 %38)
-  %39 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %33, i64 %.04676, i32 3
+  %39 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %33, i64 %.04576, i32 3
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %35
   br i1 %41, label %.loopexit, label %36
@@ -1156,7 +1156,7 @@ mca_bml_base_btl_array_get_index.exit61:          ; preds = %mca_bml_base_btl_ar
   br i1 %.not55, label %.loopexit, label %.loopexit70
 
 .loopexit:                                        ; preds = %mca_bml_base_btl_array_get_index.exit61, %.critedge
-  %46 = add nuw i64 %.04977, 1
+  %46 = add nuw i64 %.04777, 1
   %exitcond89.not = icmp eq i64 %46, %.val57
   br i1 %exitcond89.not, label %._crit_edge78, label %mca_bml_base_btl_array_get_index.exit59, !llvm.loop !25
 
@@ -1259,7 +1259,7 @@ opal_obj_run_destructors.exit69:                  ; preds = %.lr.ph.i66, %81
   br label %89
 
 89:                                               ; preds = %opal_obj_run_destructors.exit69, %opal_thread_add_fetch_32.exit64, %.lr.ph
-  %90 = add nuw i64 %.04579, 1
+  %90 = add nuw i64 %.04879, 1
   %exitcond90.not = icmp eq i64 %90, %0
   br i1 %exitcond90.not, label %.loopexit70, label %.lr.ph, !llvm.loop !26
 
@@ -1347,11 +1347,11 @@ bml_r2_remove_btl_progress.exit:                  ; preds = %14, %9, %.preheader
   br i1 %.not66, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %bml_r2_remove_btl_progress.exit, %.lr.ph
-  %.04553 = phi i64 [ %37, %.lr.ph ], [ 0, %bml_r2_remove_btl_progress.exit ]
-  %34 = getelementptr inbounds ptr, ptr %7, i64 %.04553
+  %.04353 = phi i64 [ %37, %.lr.ph ], [ 0, %bml_r2_remove_btl_progress.exit ]
+  %34 = getelementptr inbounds ptr, ptr %7, i64 %.04353
   %35 = load ptr, ptr %34, align 8
   %36 = call i32 @mca_bml_r2_del_proc_btl(ptr noundef %35, ptr noundef nonnull %0)
-  %37 = add nuw i64 %.04553, 1
+  %37 = add nuw i64 %.04353, 1
   %38 = load i64, ptr %2, align 8
   %39 = icmp ult i64 %37, %38
   br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !27
@@ -1363,18 +1363,18 @@ bml_r2_remove_btl_progress.exit:                  ; preds = %14, %9, %.preheader
   br i1 %.not.not54, label %.critedge, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %._crit_edge, %49
-  %.04455 = phi ptr [ %50, %49 ], [ %41, %._crit_edge ]
-  %42 = getelementptr inbounds i8, ptr %.04455, i64 48
+  %.04255 = phi ptr [ %50, %49 ], [ %41, %._crit_edge ]
+  %42 = getelementptr inbounds i8, ptr %.04255, i64 48
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, %0
   br i1 %44, label %51, label %45
 
 45:                                               ; preds = %.lr.ph57
-  %.not48 = icmp eq ptr %.04455, null
+  %.not48 = icmp eq ptr %.04255, null
   br i1 %.not48, label %49, label %46
 
 46:                                               ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %.04455, i64 16
+  %47 = getelementptr inbounds i8, ptr %.04255, i64 16
   %48 = load volatile ptr, ptr %47, align 8
   br label %49
 
@@ -1384,9 +1384,9 @@ bml_r2_remove_btl_progress.exit:                  ; preds = %14, %9, %.preheader
   br i1 %.not.not, label %.critedge, label %.lr.ph57, !llvm.loop !28
 
 51:                                               ; preds = %.lr.ph57
-  %52 = getelementptr inbounds i8, ptr %.04455, i64 16
+  %52 = getelementptr inbounds i8, ptr %.04255, i64 16
   %53 = load volatile ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %.04455, i64 24
+  %54 = getelementptr inbounds i8, ptr %.04255, i64 24
   %55 = load volatile ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 16
   store volatile ptr %53, ptr %56, align 8
@@ -1398,7 +1398,7 @@ bml_r2_remove_btl_progress.exit:                  ; preds = %14, %9, %.preheader
   %61 = add i64 %60, -1
   store volatile i64 %61, ptr getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 56), align 8
   %62 = load volatile ptr, ptr %54, align 8
-  call void @free(ptr noundef %.04455) #15
+  call void @free(ptr noundef %.04255) #15
   %63 = load i64, ptr getelementptr inbounds (i8, ptr @mca_bml_r2, i64 80), align 8
   %64 = shl i64 %63, 3
   %65 = add i64 %64, -8
@@ -1408,30 +1408,30 @@ bml_r2_remove_btl_progress.exit:                  ; preds = %14, %9, %.preheader
   br i1 %.not67, label %._crit_edge62, label %.lr.ph61
 
 .lr.ph61:                                         ; preds = %51, %72
-  %.04159 = phi i64 [ %73, %72 ], [ 0, %51 ]
-  %.04358 = phi i64 [ %.1, %72 ], [ 0, %51 ]
-  %67 = getelementptr inbounds ptr, ptr %.pre, i64 %.04159
+  %.04459 = phi i64 [ %.145, %72 ], [ 0, %51 ]
+  %.04658 = phi i64 [ %73, %72 ], [ 0, %51 ]
+  %67 = getelementptr inbounds ptr, ptr %.pre, i64 %.04658
   %68 = load ptr, ptr %67, align 8
   %.not = icmp eq ptr %68, %0
   br i1 %.not, label %72, label %69
 
 69:                                               ; preds = %.lr.ph61
-  %70 = add i64 %.04358, 1
-  %71 = getelementptr inbounds ptr, ptr %66, i64 %.04358
+  %70 = add i64 %.04459, 1
+  %71 = getelementptr inbounds ptr, ptr %66, i64 %.04459
   store ptr %68, ptr %71, align 8
   br label %72
 
 72:                                               ; preds = %.lr.ph61, %69
-  %.1 = phi i64 [ %70, %69 ], [ %.04358, %.lr.ph61 ]
-  %73 = add nuw i64 %.04159, 1
+  %.145 = phi i64 [ %70, %69 ], [ %.04459, %.lr.ph61 ]
+  %73 = add nuw i64 %.04658, 1
   %exitcond.not = icmp eq i64 %73, %63
   br i1 %exitcond.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !29
 
 ._crit_edge62:                                    ; preds = %72, %51
-  %.043.lcssa = phi i64 [ 0, %51 ], [ %.1, %72 ]
+  %.044.lcssa = phi i64 [ 0, %51 ], [ %.145, %72 ]
   call void @free(ptr noundef %.pre) #15
   store ptr %66, ptr getelementptr inbounds (i8, ptr @mca_bml_r2, i64 88), align 8
-  store i64 %.043.lcssa, ptr getelementptr inbounds (i8, ptr @mca_bml_r2, i64 80), align 8
+  store i64 %.044.lcssa, ptr getelementptr inbounds (i8, ptr @mca_bml_r2, i64 80), align 8
   %74 = getelementptr inbounds i8, ptr %0, i64 160
   %75 = load ptr, ptr %74, align 8
   %76 = call i32 %75(ptr noundef nonnull %0) #15
@@ -1450,8 +1450,8 @@ bml_r2_remove_btl_progress.exit:                  ; preds = %14, %9, %.preheader
 .lr.ph64:                                         ; preds = %.lr.ph64.preheader, %102
   %78 = phi i64 [ %103, %102 ], [ %77, %.lr.ph64.preheader ]
   %79 = phi i8 [ %104, %102 ], [ %.pre73, %.lr.ph64.preheader ]
-  %.14663 = phi i64 [ %105, %102 ], [ 0, %.lr.ph64.preheader ]
-  %80 = getelementptr inbounds ptr, ptr %7, i64 %.14663
+  %.163 = phi i64 [ %105, %102 ], [ 0, %.lr.ph64.preheader ]
+  %80 = getelementptr inbounds ptr, ptr %7, i64 %.163
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 8
   %83 = trunc i8 %79 to i1
@@ -1507,7 +1507,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 102:                                              ; preds = %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit
   %103 = phi i64 [ %.pre75, %opal_obj_run_destructors.exit ], [ %78, %opal_thread_add_fetch_32.exit ]
   %104 = phi i8 [ %.pre72, %opal_obj_run_destructors.exit ], [ %79, %opal_thread_add_fetch_32.exit ]
-  %105 = add nuw i64 %.14663, 1
+  %105 = add nuw i64 %.163, 1
   %106 = icmp ult i64 %105, %103
   br i1 %106, label %.lr.ph64, label %._crit_edge65, !llvm.loop !30
 
@@ -1566,8 +1566,8 @@ define internal i32 @mca_bml_r2_register(i8 noundef zeroext %0, ptr noundef %1, 
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %17, %19, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %19 ], [ %18, %17 ]
-  ret i32 %.0
+  %.015 = phi i32 [ 0, %3 ], [ 0, %19 ], [ %18, %17 ]
+  ret i32 %.015
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1658,13 +1658,13 @@ define internal fastcc range(i32 -2, 1) i32 @mca_bml_r2_add_btls() unnamed_addr 
   br i1 %or.cond, label %41, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %.01535 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 32), align 8
-  %.not36 = icmp eq ptr %.01535, getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 16)
+  %.035 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 32), align 8
+  %.not36 = icmp eq ptr %.035, getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 16)
   br i1 %.not36, label %._crit_edge.thread, label %.lr.ph38
 
 .lr.ph38:                                         ; preds = %.preheader, %32
-  %.01537 = phi ptr [ %.015, %32 ], [ %.01535, %.preheader ]
-  %11 = getelementptr inbounds i8, ptr %.01537, i64 48
+  %.037 = phi ptr [ %.0, %32 ], [ %.035, %.preheader ]
+  %11 = getelementptr inbounds i8, ptr %.037, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_bml_r2, i64 88), align 8
   %14 = load i64, ptr getelementptr inbounds (i8, ptr @mca_bml_r2, i64 80), align 8
@@ -1701,8 +1701,8 @@ define internal fastcc range(i32 -2, 1) i32 @mca_bml_r2_add_btls() unnamed_addr 
   br i1 %.not23, label %.split, label %21
 
 .split:                                           ; preds = %21, %25
-  %.016.lcssa25.ph.in = phi i64 [ %indvars.iv.next, %25 ], [ %indvars.iv, %21 ]
-  %.phi.trans.insert = and i64 %.016.lcssa25.ph.in, 4294967295
+  %.015.lcssa25.ph.in = phi i64 [ %indvars.iv.next, %25 ], [ %indvars.iv, %21 ]
+  %.phi.trans.insert = and i64 %.015.lcssa25.ph.in, 4294967295
   %.phi.trans.insert40 = getelementptr inbounds ptr, ptr %17, i64 %.phi.trans.insert
   %.pre = load ptr, ptr %.phi.trans.insert40, align 8
   %28 = icmp eq ptr %.pre, null
@@ -1715,9 +1715,9 @@ define internal fastcc range(i32 -2, 1) i32 @mca_bml_r2_add_btls() unnamed_addr 
   br label %32
 
 32:                                               ; preds = %.split, %.critedge
-  %33 = getelementptr inbounds i8, ptr %.01537, i64 16
-  %.015 = load volatile ptr, ptr %33, align 8
-  %.not = icmp eq ptr %.015, getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 16)
+  %33 = getelementptr inbounds i8, ptr %.037, i64 16
+  %.0 = load volatile ptr, ptr %33, align 8
+  %.not = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 16)
   br i1 %.not, label %._crit_edge, label %.lr.ph38, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %32
@@ -1745,8 +1745,8 @@ define internal fastcc range(i32 -2, 1) i32 @mca_bml_r2_add_btls() unnamed_addr 
   br label %41
 
 41:                                               ; preds = %4, %0, %38
-  %.0 = phi i32 [ 0, %38 ], [ 0, %0 ], [ -2, %4 ]
-  ret i32 %.0
+  %.016 = phi i32 [ 0, %38 ], [ 0, %0 ], [ -2, %4 ]
+  ret i32 %.016
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2083,12 +2083,12 @@ mca_bml_r2_calculate_bandwidth_latency.exit:      ; preds = %mca_bml_base_btl_ar
   br label %mca_bml_base_btl_array_get_index.exit
 
 mca_bml_base_btl_array_get_index.exit:            ; preds = %.lr.ph, %47
-  %.066 = phi i64 [ 0, %.lr.ph ], [ %48, %47 ]
+  %.03766 = phi i64 [ 0, %.lr.ph ], [ %48, %47 ]
   %22 = load i64, ptr %2, align 8
-  %23 = icmp ugt i64 %22, %.066
+  %23 = icmp ugt i64 %22, %.03766
   tail call void @llvm.assume(i1 %23)
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %24, i64 %.066
+  %25 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %24, i64 %.03766
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 64
@@ -2126,7 +2126,7 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %.lr.ph, %47
   br label %47
 
 47:                                               ; preds = %41, %46
-  %48 = add nuw i64 %.066, 1
+  %48 = add nuw i64 %.03766, 1
   %exitcond.not = icmp eq i64 %48, %.val44
   br i1 %exitcond.not, label %._crit_edge, label %mca_bml_base_btl_array_get_index.exit, !llvm.loop !36
 
@@ -2166,12 +2166,12 @@ mca_bml_base_btl_array_get_index.exit53.lr.ph:    ; preds = %mca_bml_r2_calculat
   br label %mca_bml_base_btl_array_get_index.exit53
 
 mca_bml_base_btl_array_get_index.exit53:          ; preds = %mca_bml_base_btl_array_get_index.exit53.lr.ph, %mca_bml_base_btl_array_get_index.exit53
-  %.03767 = phi i64 [ 0, %mca_bml_base_btl_array_get_index.exit53.lr.ph ], [ %72, %mca_bml_base_btl_array_get_index.exit53 ]
+  %.067 = phi i64 [ 0, %mca_bml_base_btl_array_get_index.exit53.lr.ph ], [ %72, %mca_bml_base_btl_array_get_index.exit53 ]
   %61 = load i64, ptr %3, align 8
-  %62 = icmp ugt i64 %61, %.03767
+  %62 = icmp ugt i64 %61, %.067
   tail call void @llvm.assume(i1 %62)
   %63 = load ptr, ptr %49, align 8
-  %64 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %63, i64 %.03767
+  %64 = getelementptr inbounds %struct.mca_bml_base_btl_t, ptr %63, i64 %.067
   %65 = getelementptr inbounds i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 64
@@ -2183,7 +2183,7 @@ mca_bml_base_btl_array_get_index.exit53:          ; preds = %mca_bml_base_btl_ar
   %.sink73 = fptrunc double %.sink73.in to float
   %71 = getelementptr inbounds i8, ptr %64, i64 4
   store float %.sink73, ptr %71, align 4
-  %72 = add nuw i64 %.03767, 1
+  %72 = add nuw i64 %.067, 1
   %exitcond72.not = icmp eq i64 %72, %.val
   br i1 %exitcond72.not, label %._crit_edge68, label %mca_bml_base_btl_array_get_index.exit53, !llvm.loop !37
 

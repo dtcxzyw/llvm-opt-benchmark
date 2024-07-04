@@ -50,8 +50,8 @@ is_http_whitespace.exit.thread:                   ; preds = %.lr.ph, %.lr.ph, %.
   br label %.lr.ph227
 
 .lr.ph227:                                        ; preds = %.lr.ph227.preheader, %.backedge212
-  %.0176226 = phi ptr [ %11, %.backedge212 ], [ %1, %.lr.ph227.preheader ]
-  %11 = getelementptr inbounds i8, ptr %.0176226, i64 -1
+  %.0170226 = phi ptr [ %11, %.backedge212 ], [ %1, %.lr.ph227.preheader ]
+  %11 = getelementptr inbounds i8, ptr %.0170226, i64 -1
   %12 = load i8, ptr %11, align 1
   switch i8 %12, label %.critedge2.loopexit [
     i8 13, label %.backedge212
@@ -65,35 +65,35 @@ is_http_whitespace.exit.thread:                   ; preds = %.lr.ph, %.lr.ph, %.
   br i1 %13, label %.lr.ph227, label %.critedge2.loopexit
 
 .critedge2.loopexit:                              ; preds = %.lr.ph227, %.backedge212
-  %.0176.lcssa.ph = phi ptr [ %scevgep286, %.backedge212 ], [ %.0176226, %.lr.ph227 ]
-  %.pre303 = ptrtoint ptr %.0176.lcssa.ph to i64
+  %.0170.lcssa.ph = phi ptr [ %scevgep286, %.backedge212 ], [ %.0170226, %.lr.ph227 ]
+  %.pre303 = ptrtoint ptr %.0170.lcssa.ph to i64
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %.critedge
-  %.0176.lcssa287.pre-phi = phi i64 [ %.pre303, %.critedge2.loopexit ], [ %3, %.critedge ]
-  %.0176.lcssa = phi ptr [ %.0176.lcssa.ph, %.critedge2.loopexit ], [ %1, %.critedge ]
-  %14 = icmp ult ptr %storemerge.lcssa, %.0176.lcssa
+  %.0170.lcssa287.pre-phi = phi i64 [ %.pre303, %.critedge2.loopexit ], [ %3, %.critedge ]
+  %.0170.lcssa = phi ptr [ %.0170.lcssa.ph, %.critedge2.loopexit ], [ %1, %.critedge ]
+  %14 = icmp ult ptr %storemerge.lcssa, %.0170.lcssa
   br i1 %14, label %.lr.ph232.preheader, label %.critedge4
 
 .lr.ph232.preheader:                              ; preds = %.critedge2
-  %15 = sub i64 %.0176.lcssa287.pre-phi, %storemerge.lcssa285.pre-phi
+  %15 = sub i64 %.0170.lcssa287.pre-phi, %storemerge.lcssa285.pre-phi
   %scevgep288 = getelementptr i8, ptr %storemerge.lcssa, i64 %15
   br label %.lr.ph232
 
 .lr.ph232:                                        ; preds = %.lr.ph232.preheader, %17
-  %.0231 = phi ptr [ %18, %17 ], [ %storemerge.lcssa, %.lr.ph232.preheader ]
-  %16 = load i8, ptr %.0231, align 1
+  %.0176231 = phi ptr [ %18, %17 ], [ %storemerge.lcssa, %.lr.ph232.preheader ]
+  %16 = load i8, ptr %.0176231, align 1
   %.not207 = icmp eq i8 %16, 47
   br i1 %.not207, label %.critedge4.loopexit, label %17
 
 17:                                               ; preds = %.lr.ph232
-  %18 = getelementptr inbounds i8, ptr %.0231, i64 1
+  %18 = getelementptr inbounds i8, ptr %.0176231, i64 1
   %exitcond289.not = icmp eq ptr %18, %scevgep288
   br i1 %exitcond289.not, label %.critedge4.loopexit, label %.lr.ph232
 
 .critedge4.loopexit:                              ; preds = %17, %.lr.ph232
-  %.0.lcssa.ph = phi ptr [ %.0231, %.lr.ph232 ], [ %scevgep288, %17 ]
-  %.pre304 = ptrtoint ptr %.0.lcssa.ph to i64
+  %.0176.lcssa.ph = phi ptr [ %.0176231, %.lr.ph232 ], [ %scevgep288, %17 ]
+  %.pre304 = ptrtoint ptr %.0176.lcssa.ph to i64
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %.critedge2
@@ -104,37 +104,37 @@ is_http_whitespace.exit.thread:                   ; preds = %.lr.ph, %.lr.ph, %.
 
 21:                                               ; preds = %.critedge4
   %22 = getelementptr inbounds i8, ptr %storemerge.lcssa, i64 %19
-  %.not = icmp ult ptr %22, %.0176.lcssa
+  %.not = icmp ult ptr %22, %.0170.lcssa
   br i1 %.not, label %23, label %solely_contains_http_quoted_string_tokens.exit.thread
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds i8, ptr %22, i64 1
-  %25 = icmp ult ptr %24, %.0176.lcssa
+  %25 = icmp ult ptr %24, %.0170.lcssa
   br i1 %25, label %.lr.ph237.preheader, label %.critedge6
 
 .lr.ph237.preheader:                              ; preds = %23
-  %26 = sub i64 %.0176.lcssa287.pre-phi, %storemerge.lcssa285.pre-phi
+  %26 = sub i64 %.0170.lcssa287.pre-phi, %storemerge.lcssa285.pre-phi
   %scevgep290 = getelementptr i8, ptr %storemerge.lcssa, i64 %26
   br label %.lr.ph237
 
 .lr.ph237:                                        ; preds = %.lr.ph237.preheader, %28
-  %.0171236 = phi ptr [ %29, %28 ], [ %24, %.lr.ph237.preheader ]
-  %27 = load i8, ptr %.0171236, align 1
+  %.0177236 = phi ptr [ %29, %28 ], [ %24, %.lr.ph237.preheader ]
+  %27 = load i8, ptr %.0177236, align 1
   %.not208 = icmp eq i8 %27, 59
   br i1 %.not208, label %.critedge6, label %28
 
 28:                                               ; preds = %.lr.ph237
-  %29 = getelementptr inbounds i8, ptr %.0171236, i64 1
+  %29 = getelementptr inbounds i8, ptr %.0177236, i64 1
   %exitcond291.not = icmp eq ptr %29, %scevgep290
   br i1 %exitcond291.not, label %.critedge6, label %.lr.ph237
 
 .critedge6:                                       ; preds = %.lr.ph237, %28, %23
-  %.0171.lcssa = phi ptr [ %24, %23 ], [ %scevgep290, %28 ], [ %.0171236, %.lr.ph237 ]
-  %30 = ptrtoint ptr %.0171.lcssa to i64
+  %.0177.lcssa = phi ptr [ %24, %23 ], [ %scevgep290, %28 ], [ %.0177236, %.lr.ph237 ]
+  %30 = ptrtoint ptr %.0177.lcssa to i64
   %31 = ptrtoint ptr %24 to i64
   %32 = sub i64 %30, %31
   %33 = tail call fastcc zeroext i1 @is_empty_string_or_does_not_solely_contain_http_token_code_points(ptr noundef nonnull %24, i64 noundef %32)
-  %34 = icmp uge ptr %.0171.lcssa, %.0176.lcssa
+  %34 = icmp uge ptr %.0177.lcssa, %.0170.lcssa
   %or.cond.not = or i1 %34, %33
   br i1 %or.cond.not, label %solely_contains_http_quoted_string_tokens.exit.thread, label %.lr.ph269
 
@@ -146,18 +146,18 @@ is_http_whitespace.exit.thread:                   ; preds = %.lr.ph, %.lr.ph, %.
   %.0205268 = phi ptr [ %35, %.lr.ph269 ], [ %.0205.be, %.backedge ]
   %.0205268293 = ptrtoint ptr %.0205268 to i64
   %37 = getelementptr inbounds i8, ptr %.0205268, i64 1
-  %38 = icmp ult ptr %37, %.0176.lcssa
+  %38 = icmp ult ptr %37, %.0170.lcssa
   br i1 %38, label %.lr.ph242.preheader, label %.critedge8
 
 .lr.ph242.preheader:                              ; preds = %36
-  %scevgep292 = getelementptr i8, ptr %.0205268, i64 %.0176.lcssa287.pre-phi
+  %scevgep292 = getelementptr i8, ptr %.0205268, i64 %.0170.lcssa287.pre-phi
   %39 = sub i64 0, %.0205268293
   %scevgep294 = getelementptr i8, ptr %scevgep292, i64 %39
   br label %.lr.ph242
 
 .lr.ph242:                                        ; preds = %.lr.ph242.preheader, %is_http_whitespace.exit188.thread
-  %.0172241 = phi ptr [ %41, %is_http_whitespace.exit188.thread ], [ %37, %.lr.ph242.preheader ]
-  %40 = load i8, ptr %.0172241, align 1
+  %.0175241 = phi ptr [ %41, %is_http_whitespace.exit188.thread ], [ %37, %.lr.ph242.preheader ]
+  %40 = load i8, ptr %.0175241, align 1
   switch i8 %40, label %.critedge8 [
     i8 13, label %is_http_whitespace.exit188.thread
     i8 10, label %is_http_whitespace.exit188.thread
@@ -166,38 +166,38 @@ is_http_whitespace.exit.thread:                   ; preds = %.lr.ph, %.lr.ph, %.
   ]
 
 is_http_whitespace.exit188.thread:                ; preds = %.lr.ph242, %.lr.ph242, %.lr.ph242, %.lr.ph242
-  %41 = getelementptr inbounds i8, ptr %.0172241, i64 1
+  %41 = getelementptr inbounds i8, ptr %.0175241, i64 1
   %exitcond295.not = icmp eq ptr %41, %scevgep294
   br i1 %exitcond295.not, label %.critedge8, label %.lr.ph242
 
 .critedge8:                                       ; preds = %is_http_whitespace.exit188.thread, %.lr.ph242, %36
-  %.0172.lcssa = phi ptr [ %37, %36 ], [ %.0172241, %.lr.ph242 ], [ %scevgep294, %is_http_whitespace.exit188.thread ]
-  %42 = ptrtoint ptr %.0172.lcssa to i64
+  %.0175.lcssa = phi ptr [ %37, %36 ], [ %.0175241, %.lr.ph242 ], [ %scevgep294, %is_http_whitespace.exit188.thread ]
+  %42 = ptrtoint ptr %.0175.lcssa to i64
   %43 = ptrtoint ptr %37 to i64
   %44 = sub i64 %42, %43
   %45 = getelementptr inbounds i8, ptr %37, i64 %44
-  %46 = icmp ult ptr %.0172.lcssa, %.0176.lcssa
+  %46 = icmp ult ptr %.0175.lcssa, %.0170.lcssa
   br i1 %46, label %.lr.ph247, label %.critedge10
 
 .lr.ph247:                                        ; preds = %.critedge8, %48
-  %.0173246 = phi ptr [ %49, %48 ], [ %45, %.critedge8 ]
-  %47 = load i8, ptr %.0173246, align 1
+  %.0174246 = phi ptr [ %49, %48 ], [ %45, %.critedge8 ]
+  %47 = load i8, ptr %.0174246, align 1
   switch i8 %47, label %48 [
     i8 61, label %.critedge10
     i8 59, label %.critedge10
   ]
 
 48:                                               ; preds = %.lr.ph247
-  %49 = getelementptr inbounds i8, ptr %.0173246, i64 1
-  %50 = icmp ult ptr %49, %.0176.lcssa
+  %49 = getelementptr inbounds i8, ptr %.0174246, i64 1
+  %50 = icmp ult ptr %49, %.0170.lcssa
   br i1 %50, label %.lr.ph247, label %.critedge10
 
 .critedge10:                                      ; preds = %48, %.lr.ph247, %.lr.ph247, %.critedge8
-  %.0173.lcssa = phi ptr [ %45, %.critedge8 ], [ %.0173246, %.lr.ph247 ], [ %.0173246, %.lr.ph247 ], [ %49, %48 ]
-  %51 = ptrtoint ptr %.0173.lcssa to i64
+  %.0174.lcssa = phi ptr [ %45, %.critedge8 ], [ %.0174246, %.lr.ph247 ], [ %.0174246, %.lr.ph247 ], [ %49, %48 ]
+  %51 = ptrtoint ptr %.0174.lcssa to i64
   %52 = sub i64 %51, %42
   %53 = getelementptr inbounds i8, ptr %45, i64 %52
-  %54 = icmp ult ptr %53, %.0176.lcssa
+  %54 = icmp ult ptr %53, %.0170.lcssa
   br i1 %54, label %55, label %solely_contains_http_quoted_string_tokens.exit.thread
 
 55:                                               ; preds = %.critedge10
@@ -212,18 +212,18 @@ is_http_whitespace.exit188.thread:                ; preds = %.lr.ph242, %.lr.ph2
   br i1 %61, label %64, label %.preheader
 
 .preheader:                                       ; preds = %58
-  %62 = icmp ult ptr %59, %.0176.lcssa
+  %62 = icmp ult ptr %59, %.0170.lcssa
   br i1 %62, label %.lr.ph254.preheader, label %.critedge14
 
 .lr.ph254.preheader:                              ; preds = %.preheader
-  %scevgep296 = getelementptr i8, ptr %.0205268, i64 %.0176.lcssa287.pre-phi
+  %scevgep296 = getelementptr i8, ptr %.0205268, i64 %.0170.lcssa287.pre-phi
   %63 = sub i64 0, %.0205268293
   %scevgep297 = getelementptr i8, ptr %scevgep296, i64 %63
   br label %.lr.ph254
 
 64:                                               ; preds = %58
   %65 = ptrtoint ptr %59 to i64
-  %66 = sub i64 %.0176.lcssa287.pre-phi, %65
+  %66 = sub i64 %.0170.lcssa287.pre-phi, %65
   %67 = and i64 %66, -8
   %68 = add i64 %67, 32
   %69 = tail call noalias ptr @_emalloc(i64 noundef %68) #8
@@ -244,11 +244,11 @@ is_http_whitespace.exit188.thread:                ; preds = %.lr.ph242, %.lr.ph2
   %.pn = phi ptr [ %53, %64 ], [ %87, %97 ]
   %.089.i = getelementptr inbounds i8, ptr %.pn, i64 2
   %.089124.i = ptrtoint ptr %.089.i to i64
-  %78 = icmp ult ptr %.089.i, %.0176.lcssa
+  %78 = icmp ult ptr %.089.i, %.0170.lcssa
   br i1 %78, label %.lr.ph.preheader.i, label %.critedge.i
 
 .lr.ph.preheader.i:                               ; preds = %76
-  %scevgep.i = getelementptr i8, ptr %.089.i, i64 %.0176.lcssa287.pre-phi
+  %scevgep.i = getelementptr i8, ptr %.089.i, i64 %.0170.lcssa287.pre-phi
   %79 = sub i64 0, %.089124.i
   %scevgep125.i = getelementptr i8, ptr %scevgep.i, i64 %79
   br label %.lr.ph.i
@@ -280,7 +280,7 @@ is_http_whitespace.exit188.thread:                ; preds = %.lr.ph242, %.lr.ph2
   %86 = add i64 %85, %83
   store i64 %86, ptr %72, align 8
   %87 = getelementptr inbounds i8, ptr %.089.i, i64 %83
-  %.not.i = icmp ult ptr %87, %.0176.lcssa
+  %.not.i = icmp ult ptr %87, %.0170.lcssa
   br i1 %.not.i, label %88, label %collect_an_http_quoted_string_with_extract_value.exit
 
 88:                                               ; preds = %.critedge.i
@@ -290,7 +290,7 @@ is_http_whitespace.exit188.thread:                ; preds = %.lr.ph242, %.lr.ph2
   br i1 %91, label %92, label %102
 
 92:                                               ; preds = %88
-  %.not97.i = icmp ult ptr %90, %.0176.lcssa
+  %.not97.i = icmp ult ptr %90, %.0170.lcssa
   br i1 %.not97.i, label %97, label %93
 
 93:                                               ; preds = %92
@@ -321,29 +321,29 @@ collect_an_http_quoted_string_with_extract_value.exit: ; preds = %.critedge.i, %
   %.1.i300 = ptrtoint ptr %.1.i to i64
   %105 = getelementptr inbounds [1 x i8], ptr %75, i64 0, i64 %104
   store i8 0, ptr %105, align 1
-  %106 = icmp ult ptr %.1.i, %.0176.lcssa
+  %106 = icmp ult ptr %.1.i, %.0170.lcssa
   br i1 %106, label %.lr.ph264.preheader, label %.critedge12
 
 .lr.ph264.preheader:                              ; preds = %collect_an_http_quoted_string_with_extract_value.exit
-  %scevgep299 = getelementptr i8, ptr %.1.i, i64 %.0176.lcssa287.pre-phi
+  %scevgep299 = getelementptr i8, ptr %.1.i, i64 %.0170.lcssa287.pre-phi
   %107 = sub i64 0, %.1.i300
   %scevgep301 = getelementptr i8, ptr %scevgep299, i64 %107
   br label %.lr.ph264
 
 .lr.ph264:                                        ; preds = %.lr.ph264.preheader, %109
-  %.0174263 = phi ptr [ %110, %109 ], [ %.1.i, %.lr.ph264.preheader ]
-  %108 = load i8, ptr %.0174263, align 1
+  %.0173263 = phi ptr [ %110, %109 ], [ %.1.i, %.lr.ph264.preheader ]
+  %108 = load i8, ptr %.0173263, align 1
   %.not210 = icmp eq i8 %108, 59
   br i1 %.not210, label %.critedge12.loopexit, label %109
 
 109:                                              ; preds = %.lr.ph264
-  %110 = getelementptr inbounds i8, ptr %.0174263, i64 1
+  %110 = getelementptr inbounds i8, ptr %.0173263, i64 1
   %exitcond302.not = icmp eq ptr %110, %scevgep301
   br i1 %exitcond302.not, label %.critedge12.loopexit, label %.lr.ph264
 
 .critedge12.loopexit:                             ; preds = %109, %.lr.ph264
-  %.0174.lcssa.ph = phi ptr [ %.0174263, %.lr.ph264 ], [ %scevgep301, %109 ]
-  %.pre305 = ptrtoint ptr %.0174.lcssa.ph to i64
+  %.0173.lcssa.ph = phi ptr [ %.0173263, %.lr.ph264 ], [ %scevgep301, %109 ]
+  %.pre305 = ptrtoint ptr %.0173.lcssa.ph to i64
   br label %.critedge12
 
 .critedge12:                                      ; preds = %.critedge12.loopexit, %collect_an_http_quoted_string_with_extract_value.exit
@@ -353,19 +353,19 @@ collect_an_http_quoted_string_with_extract_value.exit: ; preds = %.critedge.i, %
   br label %144
 
 .lr.ph254:                                        ; preds = %.lr.ph254.preheader, %114
-  %.0175253 = phi ptr [ %115, %114 ], [ %59, %.lr.ph254.preheader ]
-  %113 = load i8, ptr %.0175253, align 1
+  %.0172253 = phi ptr [ %115, %114 ], [ %59, %.lr.ph254.preheader ]
+  %113 = load i8, ptr %.0172253, align 1
   %.not209 = icmp eq i8 %113, 59
   br i1 %.not209, label %.critedge14, label %114
 
 114:                                              ; preds = %.lr.ph254
-  %115 = getelementptr inbounds i8, ptr %.0175253, i64 1
+  %115 = getelementptr inbounds i8, ptr %.0172253, i64 1
   %exitcond298.not = icmp eq ptr %115, %scevgep297
   br i1 %exitcond298.not, label %.critedge14, label %.lr.ph254
 
 .critedge14:                                      ; preds = %.lr.ph254, %114, %.preheader
-  %.0175.lcssa = phi ptr [ %59, %.preheader ], [ %scevgep297, %114 ], [ %.0175253, %.lr.ph254 ]
-  %116 = ptrtoint ptr %.0175.lcssa to i64
+  %.0172.lcssa = phi ptr [ %59, %.preheader ], [ %scevgep297, %114 ], [ %.0172253, %.lr.ph254 ]
+  %116 = ptrtoint ptr %.0172.lcssa to i64
   %117 = ptrtoint ptr %59 to i64
   %118 = sub i64 %116, %117
   %119 = and i64 %118, -8
@@ -428,19 +428,19 @@ is_http_whitespace.exit189.thread:                ; preds = %.lr.ph259, %.lr.ph2
   br i1 %142, label %.backedge.sink.split, label %.backedge
 
 .backedge.sink.split:                             ; preds = %138, %163
-  %.0170.sink = phi ptr [ %.0170, %163 ], [ %121, %138 ]
+  %.0.sink = phi ptr [ %.0, %163 ], [ %121, %138 ]
   %.0205.be.ph = phi ptr [ %.1, %163 ], [ %127, %138 ]
-  tail call void @_efree(ptr noundef nonnull %.0170.sink) #9
+  tail call void @_efree(ptr noundef nonnull %.0.sink) #9
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.sink.split, %solely_contains_http_quoted_string_tokens.exit, %163, %135, %138, %55
   %.0205.be = phi ptr [ %53, %55 ], [ %127, %138 ], [ %127, %135 ], [ %.1, %163 ], [ %.1, %solely_contains_http_quoted_string_tokens.exit ], [ %.0205.be.ph, %.backedge.sink.split ]
-  %143 = icmp ult ptr %.0205.be, %.0176.lcssa
+  %143 = icmp ult ptr %.0205.be, %.0170.lcssa
   br i1 %143, label %36, label %solely_contains_http_quoted_string_tokens.exit.thread
 
 144:                                              ; preds = %.critedge16, %.critedge12
   %.1 = phi ptr [ %112, %.critedge12 ], [ %127, %.critedge16 ]
-  %.0170 = phi ptr [ %69, %.critedge12 ], [ %121, %.critedge16 ]
+  %.0 = phi ptr [ %69, %.critedge12 ], [ %121, %.critedge16 ]
   %145 = icmp eq i64 %52, 7
   br i1 %145, label %146, label %solely_contains_http_quoted_string_tokens.exit
 
@@ -450,13 +450,13 @@ is_http_whitespace.exit189.thread:                ; preds = %.lr.ph259, %.lr.ph2
   br i1 %148, label %149, label %solely_contains_http_quoted_string_tokens.exit
 
 149:                                              ; preds = %146
-  %150 = getelementptr inbounds i8, ptr %.0170, i64 16
+  %150 = getelementptr inbounds i8, ptr %.0, i64 16
   %151 = load i64, ptr %150, align 8
   %.not6.i = icmp eq i64 %151, 0
   br i1 %.not6.i, label %solely_contains_http_quoted_string_tokens.exit.thread, label %.lr.ph.i190.preheader
 
 .lr.ph.i190.preheader:                            ; preds = %149
-  %152 = getelementptr inbounds i8, ptr %.0170, i64 24
+  %152 = getelementptr inbounds i8, ptr %.0, i64 24
   br label %.lr.ph.i190
 
 .lr.ph.i190:                                      ; preds = %.lr.ph.i190.preheader, %is_http_quoted_string_token.exit.thread.i
@@ -479,24 +479,24 @@ is_http_quoted_string_token.exit.thread.i:        ; preds = %is_http_quoted_stri
   br i1 %.not.i191, label %solely_contains_http_quoted_string_tokens.exit.thread, label %.lr.ph.i190
 
 solely_contains_http_quoted_string_tokens.exit:   ; preds = %is_http_quoted_string_token.exit.i, %146, %144
-  %160 = getelementptr inbounds i8, ptr %.0170, i64 4
+  %160 = getelementptr inbounds i8, ptr %.0, i64 4
   %161 = load i32, ptr %160, align 4
   %162 = and i32 %161, 64
   %.not186 = icmp eq i32 %162, 0
   br i1 %.not186, label %163, label %.backedge
 
 163:                                              ; preds = %solely_contains_http_quoted_string_tokens.exit
-  %164 = load i32, ptr %.0170, align 4
+  %164 = load i32, ptr %.0, align 4
   %165 = icmp ne i32 %164, 0
   tail call void @llvm.assume(i1 %165)
   %166 = add i32 %164, -1
-  store i32 %166, ptr %.0170, align 4
+  store i32 %166, ptr %.0, align 4
   %167 = icmp eq i32 %166, 0
   br i1 %167, label %.backedge.sink.split, label %.backedge
 
 solely_contains_http_quoted_string_tokens.exit.thread: ; preds = %.critedge10, %.backedge, %149, %is_http_quoted_string_token.exit.thread.i, %.critedge6, %21, %.critedge4
-  %.0177 = phi ptr [ null, %.critedge4 ], [ null, %21 ], [ null, %.critedge6 ], [ %.0170, %is_http_quoted_string_token.exit.thread.i ], [ null, %.critedge10 ], [ null, %.backedge ], [ %.0170, %149 ]
-  ret ptr %.0177
+  %.0171 = phi ptr [ null, %.critedge4 ], [ null, %21 ], [ null, %.critedge6 ], [ %.0, %is_http_quoted_string_token.exit.thread.i ], [ null, %.critedge10 ], [ null, %.backedge ], [ %.0, %149 ]
+  ret ptr %.0171
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable

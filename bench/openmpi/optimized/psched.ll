@@ -1043,9 +1043,9 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i269, %._cri
   br label %.thread
 
 .thread:                                          ; preds = %468, %329, %324, %243, %257, %._crit_edge288
-  %.0182281 = phi ptr [ %275, %468 ], [ undef, %243 ], [ undef, %257 ], [ %275, %._crit_edge288 ], [ %275, %324 ], [ %275, %329 ]
+  %.0281 = phi ptr [ %275, %468 ], [ undef, %243 ], [ undef, %257 ], [ %275, %._crit_edge288 ], [ %275, %324 ], [ %275, %329 ]
   call void @psched_server_finalize() #15
-  %469 = call i32 @pthread_mutex_lock(ptr noundef %.0182281) #15
+  %469 = call i32 @pthread_mutex_lock(ptr noundef %.0281) #15
   %470 = icmp eq i32 %469, 35
   br i1 %470, label %471, label %473
 
@@ -1057,16 +1057,16 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i269, %._cri
   unreachable
 
 473:                                              ; preds = %.thread
-  %474 = getelementptr inbounds i8, ptr %.0182281, i64 48
+  %474 = getelementptr inbounds i8, ptr %.0281, i64 48
   %475 = load i32, ptr %474, align 8
   %476 = add nsw i32 %475, -1
   store i32 %476, ptr %474, align 8
-  %477 = call i32 @pthread_mutex_unlock(ptr noundef %.0182281) #15
+  %477 = call i32 @pthread_mutex_unlock(ptr noundef %.0281) #15
   %478 = icmp eq i32 %476, 0
   br i1 %478, label %479, label %493
 
 479:                                              ; preds = %473
-  %480 = getelementptr inbounds i8, ptr %.0182281, i64 40
+  %480 = getelementptr inbounds i8, ptr %.0281, i64 40
   %481 = load ptr, ptr %480, align 8
   %482 = getelementptr inbounds i8, ptr %481, i64 48
   %483 = load ptr, ptr %482, align 8
@@ -1077,25 +1077,25 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i269, %._cri
 .lr.ph.i273:                                      ; preds = %479, %.lr.ph.i273
   %485 = phi ptr [ %487, %.lr.ph.i273 ], [ %484, %479 ]
   %.07.i274 = phi ptr [ %486, %.lr.ph.i273 ], [ %483, %479 ]
-  call void %485(ptr noundef %.0182281) #15
+  call void %485(ptr noundef %.0281) #15
   %486 = getelementptr inbounds i8, ptr %.07.i274, i64 8
   %487 = load ptr, ptr %486, align 8
   %.not.i275 = icmp eq ptr %487, null
   br i1 %.not.i275, label %pmix_obj_run_destructors.exit276, label %.lr.ph.i273, !llvm.loop !8
 
 pmix_obj_run_destructors.exit276:                 ; preds = %.lr.ph.i273, %479
-  %488 = getelementptr inbounds i8, ptr %.0182281, i64 96
+  %488 = getelementptr inbounds i8, ptr %.0281, i64 96
   %489 = load ptr, ptr %488, align 8
   %.not260 = icmp eq ptr %489, null
   br i1 %.not260, label %492, label %490
 
 490:                                              ; preds = %pmix_obj_run_destructors.exit276
-  %491 = getelementptr inbounds i8, ptr %.0182281, i64 56
-  call void %489(ptr noundef nonnull %491, ptr noundef nonnull %.0182281) #15
+  %491 = getelementptr inbounds i8, ptr %.0281, i64 56
+  call void %489(ptr noundef nonnull %491, ptr noundef nonnull %.0281) #15
   br label %493
 
 492:                                              ; preds = %pmix_obj_run_destructors.exit276
-  call void @free(ptr noundef nonnull %.0182281) #15
+  call void @free(ptr noundef nonnull %.0281) #15
   br label %493
 
 493:                                              ; preds = %490, %492, %473
@@ -1116,8 +1116,8 @@ pmix_obj_run_destructors.exit276:                 ; preds = %.lr.ph.i273, %479
   unreachable
 
 503:                                              ; preds = %pmix_obj_run_constructors.exit, %271, %266, %148, %126, %120, %114, %108, %102, %97, %92, %80, %72, %67, %62, %57, %51, %46, %40, %33, %17
-  %.0 = phi i32 [ %16, %17 ], [ %36, %33 ], [ %43, %40 ], [ %45, %46 ], [ %50, %51 ], [ %56, %57 ], [ %61, %62 ], [ %66, %67 ], [ %71, %72 ], [ %79, %80 ], [ %91, %92 ], [ %96, %97 ], [ %101, %102 ], [ %107, %108 ], [ %113, %114 ], [ %119, %120 ], [ %125, %126 ], [ %142, %148 ], [ %265, %266 ], [ %270, %271 ], [ 0, %pmix_obj_run_constructors.exit ]
-  ret i32 %.0
+  %.0181 = phi i32 [ %16, %17 ], [ %36, %33 ], [ %43, %40 ], [ %45, %46 ], [ %50, %51 ], [ %56, %57 ], [ %61, %62 ], [ %66, %67 ], [ %71, %72 ], [ %79, %80 ], [ %91, %92 ], [ %96, %97 ], [ %101, %102 ], [ %107, %108 ], [ %113, %114 ], [ %119, %120 ], [ %125, %126 ], [ %142, %148 ], [ %265, %266 ], [ %270, %271 ], [ 0, %pmix_obj_run_constructors.exit ]
+  ret i32 %.0181
 }
 
 declare noalias ptr @pmix_basename(ptr noundef) local_unnamed_addr #1

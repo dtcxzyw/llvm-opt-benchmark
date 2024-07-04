@@ -743,10 +743,10 @@ define hidden void @zim_Random_Engine_Mt19937___unserialize(ptr noundef %0, ptr 
 
 12:                                               ; preds = %8, %.thread
   %.0106 = phi i32 [ 1, %.thread ], [ 9, %8 ]
-  %.075105 = phi i32 [ 0, %.thread ], [ 1, %8 ]
-  %.076104 = phi i32 [ 0, %.thread ], [ 6, %8 ]
-  %.077103 = phi ptr [ null, %.thread ], [ %9, %8 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0106, i32 noundef %.075105, ptr noundef null, i32 noundef %.076104, ptr noundef %.077103) #6
+  %.075105 = phi i32 [ 0, %.thread ], [ 6, %8 ]
+  %.076104 = phi ptr [ null, %.thread ], [ %9, %8 ]
+  %.077103 = phi i32 [ 0, %.thread ], [ 1, %8 ]
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0106, i32 noundef %.077103, ptr noundef null, i32 noundef %.075105, ptr noundef %.076104) #6
   br label %83
 
 13:                                               ; preds = %8

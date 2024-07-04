@@ -2773,27 +2773,27 @@ define hidden i32 @clusapi_dissect_struct_RPC_SECURITY_DESCRIPTOR(ptr noundef %0
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_clusapi_RPC_SECURITY_DESCRIPTOR, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_clusapi_RPC_SECURITY_DESCRIPTOR_lpSecurityDescriptor, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RPC_SECURITY_DESCRIPTOR_lpSecurityDescriptor_, i32 noundef 2, ptr noundef nonnull @.str.1441, i32 noundef %32) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RPC_SECURITY_DESCRIPTOR_lpSecurityDescriptor_, i32 noundef 2, ptr noundef nonnull @.str.1441, i32 noundef %32) #4
   %34 = load i32, ptr @hf_clusapi_RPC_SECURITY_DESCRIPTOR_cbInSecurityDescriptor, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_clusapi_RPC_SECURITY_DESCRIPTOR_cbOutSecurityDescriptor, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #4
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #4
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -2862,27 +2862,27 @@ define hidden i32 @clusapi_dissect_struct_RPC_SECURITY_ATTRIBUTES(ptr noundef %0
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_clusapi_RPC_SECURITY_ATTRIBUTES, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_clusapi_RPC_SECURITY_ATTRIBUTES_nLength, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_clusapi_RPC_SECURITY_ATTRIBUTES_RpcSecurityDescriptor, align 4
-  %35 = tail call i32 @clusapi_dissect_struct_RPC_SECURITY_DESCRIPTOR(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %35 = tail call i32 @clusapi_dissect_struct_RPC_SECURITY_DESCRIPTOR(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
   %36 = load i32, ptr @hf_clusapi_RPC_SECURITY_ATTRIBUTES_bInheritHandle, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #4
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #4
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -2919,31 +2919,31 @@ define hidden i32 @clusapi_dissect_struct_CLUSTER_OPERATIONAL_VERSION_INFO(ptr n
   %or.cond = or i1 %.not50, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.048 = select i1 %or.cond, i32 %1, i32 %13
   %.not51 = icmp eq ptr %3, null
   br i1 %.not51, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.048, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_clusapi_CLUSTER_OPERATIONAL_VERSION_INFO, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.048 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.047 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.047 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_clusapi_CLUSTER_OPERATIONAL_VERSION_INFO_dwSize, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.048, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
   %21 = load i32, ptr @hf_clusapi_CLUSTER_OPERATIONAL_VERSION_INFO_dwClusterHighestVersion, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
   %23 = load i32, ptr @hf_clusapi_CLUSTER_OPERATIONAL_VERSION_INFO_dwClusterLowestVersion, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #4
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #4
   %25 = load i32, ptr @hf_clusapi_CLUSTER_OPERATIONAL_VERSION_INFO_dwFlags, align 4
-  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #4
+  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #4
   %27 = load i32, ptr @hf_clusapi_CLUSTER_OPERATIONAL_VERSION_INFO_dwReserved, align 4
-  %28 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #4
-  %29 = sub i32 %28, %.0
-  tail call void @proto_item_set_len(ptr noundef %.048, i32 noundef %29) #4
+  %28 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #4
+  %29 = sub i32 %28, %.048
+  tail call void @proto_item_set_len(ptr noundef %.047, i32 noundef %29) #4
   %30 = getelementptr inbounds i8, ptr %4, i64 72
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 96
@@ -2980,27 +2980,27 @@ define hidden i32 @clusapi_dissect_struct_IDL_CLUSTER_SET_PASSWORD_STATUS(ptr no
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.036 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_clusapi_IDL_CLUSTER_SET_PASSWORD_STATUS, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_clusapi_IDL_CLUSTER_SET_PASSWORD_STATUS_NodeId, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
   %21 = load i32, ptr @hf_clusapi_IDL_CLUSTER_SET_PASSWORD_STATUS_SetAttempted, align 4
-  %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
+  %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
   %23 = load i32, ptr @hf_clusapi_IDL_CLUSTER_SET_PASSWORD_STATUS_ReturnStatus, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #4
-  %25 = sub i32 %24, %.0
-  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #4
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #4
+  %25 = sub i32 %24, %.036
+  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %25) #4
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 96
@@ -3063,25 +3063,25 @@ define hidden i32 @clusapi_dissect_struct_CLUSTER_CREATE_GROUP_INFO_RPC(ptr noun
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_clusapi_CLUSTER_CREATE_GROUP_INFO_RPC, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_clusapi_CLUSTER_CREATE_GROUP_INFO_RPC_dwVersion, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
   %21 = load i32, ptr @hf_clusapi_CLUSTER_CREATE_GROUP_INFO_RPC_dwGroupType, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #4
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #4
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -3193,25 +3193,25 @@ define hidden i32 @clusapi_dissect_struct_ENUM_ENTRY(ptr noundef %0, i32 noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_clusapi_ENUM_ENTRY, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_clusapi_ENUM_ENTRY_Type, align 4
-  %33 = tail call i32 @clusapi_dissect_bitmap_ClusterEnumType(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %33 = tail call i32 @clusapi_dissect_bitmap_ClusterEnumType(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
   %34 = load i32, ptr @hf_clusapi_ENUM_ENTRY_Name, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ENUM_ENTRY_Name_, i32 noundef 2, ptr noundef nonnull @.str.1442, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ENUM_ENTRY_Name_, i32 noundef 2, ptr noundef nonnull @.str.1442, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -3274,24 +3274,24 @@ define hidden i32 @clusapi_dissect_struct_ENUM_LIST(ptr noundef %0, i32 noundef 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_clusapi_ENUM_LIST, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_clusapi_ENUM_LIST_EntryCount, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
-  %34 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ENUM_LIST_Entry_) #4
-  %35 = sub i32 %34, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %35) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %34 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_ENUM_LIST_Entry_) #4
+  %35 = sub i32 %34, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %35) #4
   %36 = load ptr, ptr %9, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 96
   %38 = load i32, ptr %37, align 8
@@ -3354,39 +3354,39 @@ define hidden i32 @clusapi_dissect_struct_GROUP_ENUM_ENTRY(ptr noundef %0, i32 n
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.080 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not86 = icmp eq ptr %3, null
   br i1 %.not86, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.080, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_clusapi_GROUP_ENUM_ENTRY, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.080 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.079 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.079 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_clusapi_GROUP_ENUM_ENTRY_Name, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GROUP_ENUM_ENTRY_Name_, i32 noundef 2, ptr noundef nonnull @.str.1442, i32 noundef %32) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.080, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GROUP_ENUM_ENTRY_Name_, i32 noundef 2, ptr noundef nonnull @.str.1442, i32 noundef %32) #4
   %34 = load i32, ptr @hf_clusapi_GROUP_ENUM_ENTRY_Id, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GROUP_ENUM_ENTRY_Id_, i32 noundef 2, ptr noundef nonnull @.str.1444, i32 noundef %34) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GROUP_ENUM_ENTRY_Id_, i32 noundef 2, ptr noundef nonnull @.str.1444, i32 noundef %34) #4
   %36 = load i32, ptr @hf_clusapi_GROUP_ENUM_ENTRY_dwState, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
   %38 = load i32, ptr @hf_clusapi_GROUP_ENUM_ENTRY_Owner, align 4
-  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GROUP_ENUM_ENTRY_Owner_, i32 noundef 2, ptr noundef nonnull @.str.1445, i32 noundef %38) #4
+  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GROUP_ENUM_ENTRY_Owner_, i32 noundef 2, ptr noundef nonnull @.str.1445, i32 noundef %38) #4
   %40 = load i32, ptr @hf_clusapi_GROUP_ENUM_ENTRY_dwFlags, align 4
-  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
+  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
   %42 = load i32, ptr @hf_clusapi_GROUP_ENUM_ENTRY_cbProperties, align 4
-  %43 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #4
+  %43 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #4
   %44 = load i32, ptr @hf_clusapi_GROUP_ENUM_ENTRY_Properties, align 4
-  %45 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GROUP_ENUM_ENTRY_Properties_, i32 noundef 2, ptr noundef nonnull @.str.1446, i32 noundef %44) #4
+  %45 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GROUP_ENUM_ENTRY_Properties_, i32 noundef 2, ptr noundef nonnull @.str.1446, i32 noundef %44) #4
   %46 = load i32, ptr @hf_clusapi_GROUP_ENUM_ENTRY_cbRoProperties, align 4
-  %47 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #4
+  %47 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #4
   %48 = load i32, ptr @hf_clusapi_GROUP_ENUM_ENTRY_RoProperties, align 4
-  %49 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GROUP_ENUM_ENTRY_RoProperties_, i32 noundef 2, ptr noundef nonnull @.str.1447, i32 noundef %48) #4
-  %50 = sub i32 %49, %.0
-  tail call void @proto_item_set_len(ptr noundef %.080, i32 noundef %50) #4
+  %49 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GROUP_ENUM_ENTRY_RoProperties_, i32 noundef 2, ptr noundef nonnull @.str.1447, i32 noundef %48) #4
+  %50 = sub i32 %49, %.080
+  tail call void @proto_item_set_len(ptr noundef %.079, i32 noundef %50) #4
   %51 = load ptr, ptr %9, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 96
   %53 = load i32, ptr %52, align 8
@@ -3449,37 +3449,37 @@ define hidden i32 @clusapi_dissect_struct_RESOURCE_ENUM_ENTRY(ptr noundef %0, i3
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.074 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not80 = icmp eq ptr %3, null
   br i1 %.not80, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.074, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_clusapi_RESOURCE_ENUM_ENTRY, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.074 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.073 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.073 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_clusapi_RESOURCE_ENUM_ENTRY_Name, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RESOURCE_ENUM_ENTRY_Name_, i32 noundef 2, ptr noundef nonnull @.str.1442, i32 noundef %32) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.074, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RESOURCE_ENUM_ENTRY_Name_, i32 noundef 2, ptr noundef nonnull @.str.1442, i32 noundef %32) #4
   %34 = load i32, ptr @hf_clusapi_RESOURCE_ENUM_ENTRY_Id, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RESOURCE_ENUM_ENTRY_Id_, i32 noundef 2, ptr noundef nonnull @.str.1444, i32 noundef %34) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RESOURCE_ENUM_ENTRY_Id_, i32 noundef 2, ptr noundef nonnull @.str.1444, i32 noundef %34) #4
   %36 = load i32, ptr @hf_clusapi_RESOURCE_ENUM_ENTRY_OwnerName, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RESOURCE_ENUM_ENTRY_OwnerName_, i32 noundef 2, ptr noundef nonnull @.str.1448, i32 noundef %36) #4
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RESOURCE_ENUM_ENTRY_OwnerName_, i32 noundef 2, ptr noundef nonnull @.str.1448, i32 noundef %36) #4
   %38 = load i32, ptr @hf_clusapi_RESOURCE_ENUM_ENTRY_OwnerId, align 4
-  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RESOURCE_ENUM_ENTRY_OwnerId_, i32 noundef 2, ptr noundef nonnull @.str.1449, i32 noundef %38) #4
+  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RESOURCE_ENUM_ENTRY_OwnerId_, i32 noundef 2, ptr noundef nonnull @.str.1449, i32 noundef %38) #4
   %40 = load i32, ptr @hf_clusapi_RESOURCE_ENUM_ENTRY_cbProperties, align 4
-  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
+  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
   %42 = load i32, ptr @hf_clusapi_RESOURCE_ENUM_ENTRY_Properties, align 4
-  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RESOURCE_ENUM_ENTRY_Properties_, i32 noundef 2, ptr noundef nonnull @.str.1446, i32 noundef %42) #4
+  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RESOURCE_ENUM_ENTRY_Properties_, i32 noundef 2, ptr noundef nonnull @.str.1446, i32 noundef %42) #4
   %44 = load i32, ptr @hf_clusapi_RESOURCE_ENUM_ENTRY_cbRoProperties, align 4
-  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #4
+  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #4
   %46 = load i32, ptr @hf_clusapi_RESOURCE_ENUM_ENTRY_RoProperties, align 4
-  %47 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RESOURCE_ENUM_ENTRY_RoProperties_, i32 noundef 2, ptr noundef nonnull @.str.1447, i32 noundef %46) #4
-  %48 = sub i32 %47, %.0
-  tail call void @proto_item_set_len(ptr noundef %.074, i32 noundef %48) #4
+  %47 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RESOURCE_ENUM_ENTRY_RoProperties_, i32 noundef 2, ptr noundef nonnull @.str.1447, i32 noundef %46) #4
+  %48 = sub i32 %47, %.074
+  tail call void @proto_item_set_len(ptr noundef %.073, i32 noundef %48) #4
   %49 = load ptr, ptr %9, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 96
   %51 = load i32, ptr %50, align 8
@@ -3542,24 +3542,24 @@ define hidden i32 @clusapi_dissect_struct_GROUP_ENUM_LIST(ptr noundef %0, i32 no
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_clusapi_GROUP_ENUM_LIST, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_clusapi_GROUP_ENUM_LIST_EntryCount, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
-  %34 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GROUP_ENUM_LIST_Entry_) #4
-  %35 = sub i32 %34, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %35) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %34 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_GROUP_ENUM_LIST_Entry_) #4
+  %35 = sub i32 %34, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %35) #4
   %36 = load ptr, ptr %9, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 96
   %38 = load i32, ptr %37, align 8
@@ -3622,24 +3622,24 @@ define hidden i32 @clusapi_dissect_struct_RESOURCE_ENUM_LIST(ptr noundef %0, i32
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_clusapi_RESOURCE_ENUM_LIST, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_clusapi_RESOURCE_ENUM_LIST_EntryCount, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
-  %34 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RESOURCE_ENUM_LIST_Entry_) #4
-  %35 = sub i32 %34, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %35) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %34 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_RESOURCE_ENUM_LIST_Entry_) #4
+  %35 = sub i32 %34, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %35) #4
   %36 = load ptr, ptr %9, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 96
   %38 = load i32, ptr %37, align 8
@@ -3840,28 +3840,28 @@ define hidden i32 @clusapi_dissect_struct_CLUS_RESOURCE_CLASS_INFO(ptr noundef %
   %or.cond = or i1 %.not32, %.not
   %13 = and i32 %1, -4
   %14 = add i32 %13, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %14
+  %.030 = select i1 %or.cond, i32 %1, i32 %14
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #4
   %17 = load i32, ptr @ett_clusapi_CLUS_RESOURCE_CLASS_INFO, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #4
   br label %19
 
 19:                                               ; preds = %15, %8
-  %.030 = phi ptr [ %16, %15 ], [ null, %8 ]
-  %.029 = phi ptr [ %18, %15 ], [ null, %8 ]
+  %.029 = phi ptr [ %16, %15 ], [ null, %8 ]
+  %.0 = phi ptr [ %18, %15 ], [ null, %8 ]
   %20 = load i32, ptr @hf_clusapi_CLUS_RESOURCE_CLASS_INFO_Class, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %9) #4
+  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %22 = load i32, ptr @hf_clusapi_CLUS_RESOURCE_CLASS_INFO_SubClass, align 4
-  %23 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 noundef 0) #4
-  %24 = sub i32 %23, %.0
-  call void @proto_item_set_len(ptr noundef %.030, i32 noundef %24) #4
+  %23 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 noundef 0) #4
+  %24 = sub i32 %23, %.030
+  call void @proto_item_set_len(ptr noundef %.029, i32 noundef %24) #4
   %25 = getelementptr inbounds i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 96
@@ -4176,25 +4176,25 @@ define hidden i32 @clusapi_dissect_struct_NOTIFY_FILTER_AND_TYPE_RPC(ptr noundef
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_clusapi_NOTIFY_FILTER_AND_TYPE_RPC, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_clusapi_NOTIFY_FILTER_AND_TYPE_RPC_dwObjectType, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
   %21 = load i32, ptr @hf_clusapi_NOTIFY_FILTER_AND_TYPE_RPC_FilterFlags, align 4
-  %22 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #4
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #4
+  %22 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #4
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #4
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -4231,35 +4231,35 @@ define hidden i32 @clusapi_dissect_struct_NOTIFICATION_DATA_RPC(ptr noundef %0, 
   %or.cond = or i1 %.not62, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.060 = select i1 %or.cond, i32 %1, i32 %13
   %.not63 = icmp eq ptr %3, null
   br i1 %.not63, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.060, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_clusapi_NOTIFICATION_DATA_RPC, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.060 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.059 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.059 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_clusapi_NOTIFICATION_DATA_RPC_FilterAndType, align 4
-  %20 = tail call i32 @clusapi_dissect_struct_NOTIFY_FILTER_AND_TYPE_RPC(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %20 = tail call i32 @clusapi_dissect_struct_NOTIFY_FILTER_AND_TYPE_RPC(ptr noundef %0, i32 noundef %.060, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = load i32, ptr @hf_clusapi_NOTIFICATION_DATA_RPC_buffer, align 4
-  %22 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NOTIFICATION_DATA_RPC_buffer_, i32 noundef 2, ptr noundef nonnull @.str.1450, i32 noundef %21) #4
+  %22 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NOTIFICATION_DATA_RPC_buffer_, i32 noundef 2, ptr noundef nonnull @.str.1450, i32 noundef %21) #4
   %23 = load i32, ptr @hf_clusapi_NOTIFICATION_DATA_RPC_dwBufferSize, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #4
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #4
   %25 = load i32, ptr @hf_clusapi_NOTIFICATION_DATA_RPC_ObjectId, align 4
-  %26 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NOTIFICATION_DATA_RPC_ObjectId_, i32 noundef 2, ptr noundef nonnull @.str.1451, i32 noundef %25) #4
+  %26 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NOTIFICATION_DATA_RPC_ObjectId_, i32 noundef 2, ptr noundef nonnull @.str.1451, i32 noundef %25) #4
   %27 = load i32, ptr @hf_clusapi_NOTIFICATION_DATA_RPC_ParentId, align 4
-  %28 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NOTIFICATION_DATA_RPC_ParentId_, i32 noundef 2, ptr noundef nonnull @.str.1452, i32 noundef %27) #4
+  %28 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NOTIFICATION_DATA_RPC_ParentId_, i32 noundef 2, ptr noundef nonnull @.str.1452, i32 noundef %27) #4
   %29 = load i32, ptr @hf_clusapi_NOTIFICATION_DATA_RPC_Name, align 4
-  %30 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NOTIFICATION_DATA_RPC_Name_, i32 noundef 2, ptr noundef nonnull @.str.1442, i32 noundef %29) #4
+  %30 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NOTIFICATION_DATA_RPC_Name_, i32 noundef 2, ptr noundef nonnull @.str.1442, i32 noundef %29) #4
   %31 = load i32, ptr @hf_clusapi_NOTIFICATION_DATA_RPC_Type, align 4
-  %32 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NOTIFICATION_DATA_RPC_Type_, i32 noundef 2, ptr noundef nonnull @.str.1453, i32 noundef %31) #4
-  %33 = sub i32 %32, %.0
-  tail call void @proto_item_set_len(ptr noundef %.060, i32 noundef %33) #4
+  %32 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NOTIFICATION_DATA_RPC_Type_, i32 noundef 2, ptr noundef nonnull @.str.1453, i32 noundef %31) #4
+  %33 = sub i32 %32, %.060
+  tail call void @proto_item_set_len(ptr noundef %.059, i32 noundef %33) #4
   %34 = getelementptr inbounds i8, ptr %4, i64 72
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
@@ -4296,25 +4296,25 @@ define hidden i32 @clusapi_dissect_struct_NOTIFICATION_RPC(ptr noundef %0, i32 n
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_clusapi_NOTIFICATION_RPC, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_clusapi_NOTIFICATION_RPC_dwNotifyKey, align 4
-  %20 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NOTIFICATION_RPC_dwNotifyKey_, i32 noundef 2, ptr noundef nonnull @.str.1454, i32 noundef %19) #4
+  %20 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NOTIFICATION_RPC_dwNotifyKey_, i32 noundef 2, ptr noundef nonnull @.str.1454, i32 noundef %19) #4
   %21 = load i32, ptr @hf_clusapi_NOTIFICATION_RPC_NotificationData, align 4
-  %22 = tail call i32 @clusapi_dissect_struct_NOTIFICATION_DATA_RPC(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #4
+  %22 = tail call i32 @clusapi_dissect_struct_NOTIFICATION_DATA_RPC(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #4
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -4351,35 +4351,35 @@ define hidden i32 @clusapi_dissect_struct_CLUSTER_DISKID(ptr noundef %0, i32 nou
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_clusapi_CLUSTER_DISKID, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_clusapi_CLUSTER_DISKID_DiskIdType, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
   br label %21
 
 21:                                               ; preds = %21, %18
   %.010.i = phi i32 [ 0, %18 ], [ %24, %21 ]
   %.089.i = phi i32 [ %20, %18 ], [ %23, %21 ]
   %22 = load i32, ptr @hf_clusapi_CLUSTER_DISKID_DiskIdBlob, align 4
-  %23 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.029, ptr noundef %4, ptr noundef %5, i32 noundef %22, i32 noundef 0) #4
+  %23 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %22, i32 noundef 0) #4
   %24 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %24, 16
   br i1 %exitcond.not.i, label %clusapi_dissect_element_CLUSTER_DISKID_DiskIdBlob.exit, label %21, !llvm.loop !4
 
 clusapi_dissect_element_CLUSTER_DISKID_DiskIdBlob.exit: ; preds = %21
-  %25 = sub i32 %23, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %25) #4
+  %25 = sub i32 %23, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %25) #4
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 96
@@ -4442,29 +4442,29 @@ define hidden i32 @clusapi_dissect_struct_CLUSTER_MRR_NODE_RESPONSE(ptr noundef 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.050 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.050, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_clusapi_CLUSTER_MRR_NODE_RESPONSE, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.050 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.049 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.049 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_clusapi_CLUSTER_MRR_NODE_RESPONSE_pszNodeName, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CLUSTER_MRR_NODE_RESPONSE_pszNodeName_, i32 noundef 2, ptr noundef nonnull @.str.1455, i32 noundef %32) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.050, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CLUSTER_MRR_NODE_RESPONSE_pszNodeName_, i32 noundef 2, ptr noundef nonnull @.str.1455, i32 noundef %32) #4
   %34 = load i32, ptr @hf_clusapi_CLUSTER_MRR_NODE_RESPONSE_ResultCode, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_clusapi_CLUSTER_MRR_NODE_RESPONSE_ResultSize, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
   %38 = load i32, ptr @hf_clusapi_CLUSTER_MRR_NODE_RESPONSE_pResultData, align 4
-  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CLUSTER_MRR_NODE_RESPONSE_pResultData_, i32 noundef 2, ptr noundef nonnull @.str.1456, i32 noundef %38) #4
-  %40 = sub i32 %39, %.0
-  tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #4
+  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CLUSTER_MRR_NODE_RESPONSE_pResultData_, i32 noundef 2, ptr noundef nonnull @.str.1456, i32 noundef %38) #4
+  %40 = sub i32 %39, %.050
+  tail call void @proto_item_set_len(ptr noundef %.049, i32 noundef %40) #4
   %41 = load ptr, ptr %9, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
@@ -4527,25 +4527,25 @@ define hidden i32 @clusapi_dissect_struct_CLUSTER_MRR_RESPONSE(ptr noundef %0, i
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_clusapi_CLUSTER_MRR_RESPONSE, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_clusapi_CLUSTER_MRR_RESPONSE_NodeCount, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_clusapi_CLUSTER_MRR_RESPONSE_pNodes, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CLUSTER_MRR_RESPONSE_pNodes_, i32 noundef 2, ptr noundef nonnull @.str.1457, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_CLUSTER_MRR_RESPONSE_pNodes_, i32 noundef 2, ptr noundef nonnull @.str.1457, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4608,27 +4608,27 @@ define hidden i32 @clusapi_dissect_struct_NOTIFICATION_DATA_ASYNC_RPC(ptr nounde
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_clusapi_NOTIFICATION_DATA_ASYNC_RPC, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_clusapi_NOTIFICATION_DATA_ASYNC_RPC_dwNotifyKey, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_clusapi_NOTIFICATION_DATA_ASYNC_RPC_dwFilter, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_clusapi_NOTIFICATION_DATA_ASYNC_RPC_Name, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NOTIFICATION_DATA_ASYNC_RPC_Name_, i32 noundef 2, ptr noundef nonnull @.str.1442, i32 noundef %36) #4
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #4
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @clusapi_dissect_element_NOTIFICATION_DATA_ASYNC_RPC_Name_, i32 noundef 2, ptr noundef nonnull @.str.1442, i32 noundef %36) #4
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #4
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8

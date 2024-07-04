@@ -162,11 +162,11 @@ zddVarToConst.exit:                               ; preds = %49
 
 .else:                                            ; preds = %91
   %92 = getelementptr inbounds i8, ptr %spec.select, i64 24
-  %.0106.else.val = load ptr, ptr %92, align 8
+  %.0103.else.val = load ptr, ptr %92, align 8
   br label %.cont
 
 .cont:                                            ; preds = %91, %.else
-  %.0106 = phi ptr [ %spec.select, %91 ], [ %.0106.else.val, %.else ]
+  %.0103 = phi ptr [ %spec.select, %91 ], [ %.0103.else.val, %.else ]
   %93 = icmp ult i32 %70, %80
   br i1 %93, label %98, label %94
 
@@ -174,13 +174,13 @@ zddVarToConst.exit:                               ; preds = %49
   %95 = getelementptr inbounds i8, ptr %.0156, i64 16
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds i8, ptr %.0156, i64 24
-  %.0103.in.sroa.speculate.load. = load ptr, ptr %97, align 8
+  %.0100.in.sroa.speculate.load. = load ptr, ptr %97, align 8
   br label %98
 
 98:                                               ; preds = %.cont, %94
-  %.0104 = phi ptr [ %96, %94 ], [ %6, %.cont ]
-  %.0103.in.sroa.speculated = phi ptr [ %.0103.in.sroa.speculate.load., %94 ], [ %.0156, %.cont ]
-  %99 = tail call ptr @cuddZddIte(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %.0106, ptr noundef %.0103.in.sroa.speculated)
+  %.0101 = phi ptr [ %96, %94 ], [ %6, %.cont ]
+  %.0100.in.sroa.speculated = phi ptr [ %.0100.in.sroa.speculate.load., %94 ], [ %.0156, %.cont ]
+  %99 = tail call ptr @cuddZddIte(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %.0103, ptr noundef %.0100.in.sroa.speculated)
   %100 = icmp eq ptr %99, null
   br i1 %100, label %156, label %101
 
@@ -192,7 +192,7 @@ zddVarToConst.exit:                               ; preds = %49
   %106 = load i32, ptr %105, align 4
   %107 = add i32 %106, 1
   store i32 %107, ptr %105, align 4
-  %108 = tail call ptr @cuddZddGetNode(ptr noundef nonnull %0, i32 noundef %.0, ptr noundef %.0104, ptr noundef nonnull %99) #3
+  %108 = tail call ptr @cuddZddGetNode(ptr noundef nonnull %0, i32 noundef %.0, ptr noundef %.0101, ptr noundef nonnull %99) #3
   %109 = icmp eq ptr %108, null
   br i1 %109, label %110, label %.sink.split
 
@@ -208,12 +208,12 @@ zddVarToConst.exit:                               ; preds = %49
   %114 = getelementptr inbounds i8, ptr %spec.select, i64 16
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds i8, ptr %spec.select, i64 24
-  %.1107.in.sroa.speculate.load. = load ptr, ptr %116, align 8
+  %.1104.in.sroa.speculate.load. = load ptr, ptr %116, align 8
   br label %117
 
 117:                                              ; preds = %111, %113
-  %.1107.in.sroa.speculated = phi ptr [ %.1107.in.sroa.speculate.load., %113 ], [ %spec.select, %111 ]
-  %.0102 = phi ptr [ %115, %113 ], [ %6, %111 ]
+  %.0105 = phi ptr [ %115, %113 ], [ %6, %111 ]
+  %.1104.in.sroa.speculated = phi ptr [ %.1104.in.sroa.speculate.load., %113 ], [ %spec.select, %111 ]
   %118 = icmp ult i32 %70, %80
   br i1 %118, label %123, label %119
 
@@ -225,11 +225,11 @@ zddVarToConst.exit:                               ; preds = %49
   br label %123
 
 123:                                              ; preds = %117, %119
-  %.1105 = phi ptr [ %121, %119 ], [ %6, %117 ]
+  %.1102 = phi ptr [ %121, %119 ], [ %6, %117 ]
   %.1.in.sroa.speculated = phi ptr [ %.1.in.sroa.speculate.load., %119 ], [ %.0156, %117 ]
   %124 = getelementptr inbounds i8, ptr %1, i64 24
   %125 = load ptr, ptr %124, align 8
-  %126 = tail call ptr @cuddZddIte(ptr noundef nonnull %0, ptr noundef %125, ptr noundef %.1107.in.sroa.speculated, ptr noundef %.1.in.sroa.speculated)
+  %126 = tail call ptr @cuddZddIte(ptr noundef nonnull %0, ptr noundef %125, ptr noundef %.1104.in.sroa.speculated, ptr noundef %.1.in.sroa.speculated)
   %127 = icmp eq ptr %126, null
   br i1 %127, label %156, label %128
 
@@ -243,7 +243,7 @@ zddVarToConst.exit:                               ; preds = %49
   %135 = add i32 %134, 1
   store i32 %135, ptr %133, align 4
   %136 = load ptr, ptr %129, align 8
-  %137 = tail call ptr @cuddZddIte(ptr noundef nonnull %0, ptr noundef %136, ptr noundef %.0102, ptr noundef %.1105)
+  %137 = tail call ptr @cuddZddIte(ptr noundef nonnull %0, ptr noundef %136, ptr noundef %.0105, ptr noundef %.1102)
   %138 = icmp eq ptr %137, null
   br i1 %138, label %139, label %140
 
@@ -276,20 +276,20 @@ zddVarToConst.exit:                               ; preds = %49
 
 .sink.split:                                      ; preds = %101, %150
   %.sink = phi ptr [ %133, %150 ], [ %105, %101 ]
-  %.0101.ph = phi ptr [ %147, %150 ], [ %108, %101 ]
+  %.0106.ph = phi ptr [ %147, %150 ], [ %108, %101 ]
   %153 = load i32, ptr %.sink, align 4
   %154 = add i32 %153, -1
   store i32 %154, ptr %.sink, align 4
   br label %155
 
 155:                                              ; preds = %.sink.split, %84
-  %.0101 = phi ptr [ %87, %84 ], [ %.0101.ph, %.sink.split ]
-  tail call void @cuddCacheInsert(ptr noundef nonnull %0, i64 noundef 78, ptr noundef nonnull %1, ptr noundef nonnull %spec.select, ptr noundef nonnull %.0156, ptr noundef nonnull %.0101) #3
+  %.0106 = phi ptr [ %87, %84 ], [ %.0106.ph, %.sink.split ]
+  tail call void @cuddCacheInsert(ptr noundef nonnull %0, i64 noundef 78, ptr noundef nonnull %1, ptr noundef nonnull %spec.select, ptr noundef nonnull %.0156, ptr noundef nonnull %.0106) #3
   br label %156
 
 156:                                              ; preds = %49, %123, %98, %84, %58, %55, %zddVarToConst.exit, %4, %155, %149, %139, %110
-  %.0100 = phi ptr [ %.0101, %155 ], [ null, %110 ], [ null, %139 ], [ null, %149 ], [ %3, %4 ], [ %spec.select, %zddVarToConst.exit ], [ %1, %55 ], [ %59, %58 ], [ null, %84 ], [ null, %98 ], [ null, %123 ], [ %2, %49 ]
-  ret ptr %.0100
+  %.0107 = phi ptr [ %.0106, %155 ], [ null, %110 ], [ null, %139 ], [ null, %149 ], [ %3, %4 ], [ %spec.select, %zddVarToConst.exit ], [ %1, %55 ], [ %59, %58 ], [ null, %84 ], [ null, %98 ], [ null, %123 ], [ %2, %49 ]
+  ret ptr %.0107
 }
 
 ; Function Attrs: nounwind uwtable
@@ -354,8 +354,8 @@ define ptr @cuddZddUnion(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %30
 
 30:                                               ; preds = %21, %24
-  %.084 = phi i32 [ %29, %24 ], [ 2147483647, %21 ]
-  %31 = icmp slt i32 %.083, %.084
+  %.082 = phi i32 [ %29, %24 ], [ 2147483647, %21 ]
+  %31 = icmp slt i32 %.083, %.082
   br i1 %31, label %32, label %50
 
 32:                                               ; preds = %30
@@ -385,7 +385,7 @@ define ptr @cuddZddUnion(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %108
 
 50:                                               ; preds = %30
-  %51 = icmp sgt i32 %.083, %.084
+  %51 = icmp sgt i32 %.083, %.082
   br i1 %51, label %52, label %70
 
 52:                                               ; preds = %50
@@ -469,16 +469,16 @@ define ptr @cuddZddUnion(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 105:                                              ; preds = %57, %37, %102
   %.sink = phi ptr [ %95, %102 ], [ %42, %37 ], [ %62, %57 ]
-  %.082 = phi ptr [ %99, %102 ], [ %47, %37 ], [ %67, %57 ]
+  %.0 = phi ptr [ %99, %102 ], [ %47, %37 ], [ %67, %57 ]
   %106 = load i32, ptr %.sink, align 4
   %107 = add i32 %106, -1
   store i32 %107, ptr %.sink, align 4
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddUnion, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.082) #3
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddUnion, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.0) #3
   br label %108
 
 108:                                              ; preds = %70, %52, %32, %10, %7, %3, %105, %101, %90, %69, %49
-  %.0 = phi ptr [ null, %49 ], [ %.082, %105 ], [ null, %69 ], [ null, %90 ], [ null, %101 ], [ %2, %3 ], [ %1, %7 ], [ %11, %10 ], [ null, %32 ], [ null, %52 ], [ null, %70 ]
-  ret ptr %.0
+  %.084 = phi ptr [ null, %49 ], [ %.0, %105 ], [ null, %69 ], [ null, %90 ], [ null, %101 ], [ %2, %3 ], [ %1, %7 ], [ %11, %10 ], [ null, %32 ], [ null, %52 ], [ null, %70 ]
+  ret ptr %.084
 }
 
 ; Function Attrs: nounwind uwtable
@@ -543,8 +543,8 @@ define ptr @cuddZddIntersect(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   br label %30
 
 30:                                               ; preds = %21, %24
-  %.066 = phi i32 [ %29, %24 ], [ 2147483647, %21 ]
-  %31 = icmp slt i32 %.065, %.066
+  %.064 = phi i32 [ %29, %24 ], [ 2147483647, %21 ]
+  %31 = icmp slt i32 %.065, %.064
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %30
@@ -555,7 +555,7 @@ define ptr @cuddZddIntersect(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   br i1 %36, label %82, label %81
 
 37:                                               ; preds = %30
-  %38 = icmp sgt i32 %.065, %.066
+  %38 = icmp sgt i32 %.065, %.064
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %37
@@ -622,13 +622,13 @@ define ptr @cuddZddIntersect(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   br label %81
 
 81:                                               ; preds = %76, %39, %32
-  %.064 = phi ptr [ %35, %32 ], [ %42, %39 ], [ %73, %76 ]
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddIntersect, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.064) #3
+  %.0 = phi ptr [ %35, %32 ], [ %42, %39 ], [ %73, %76 ]
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddIntersect, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.0) #3
   br label %82
 
 82:                                               ; preds = %44, %39, %32, %10, %8, %3, %81, %75, %64
-  %.0 = phi ptr [ %.064, %81 ], [ null, %64 ], [ null, %75 ], [ %5, %3 ], [ %1, %8 ], [ %11, %10 ], [ null, %32 ], [ null, %39 ], [ null, %44 ]
-  ret ptr %.0
+  %.066 = phi ptr [ %.0, %81 ], [ null, %64 ], [ null, %75 ], [ %5, %3 ], [ %1, %8 ], [ %11, %10 ], [ null, %32 ], [ null, %39 ], [ null, %44 ]
+  ret ptr %.066
 }
 
 ; Function Attrs: nounwind uwtable
@@ -695,8 +695,8 @@ define ptr @cuddZddDiff(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %31
 
 31:                                               ; preds = %22, %25
-  %.078 = phi i32 [ %30, %25 ], [ 2147483647, %22 ]
-  %32 = icmp slt i32 %.077, %.078
+  %.076 = phi i32 [ %30, %25 ], [ 2147483647, %22 ]
+  %32 = icmp slt i32 %.077, %.076
   br i1 %32, label %33, label %51
 
 33:                                               ; preds = %31
@@ -726,7 +726,7 @@ define ptr @cuddZddDiff(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %96
 
 51:                                               ; preds = %31
-  %52 = icmp sgt i32 %.077, %.078
+  %52 = icmp sgt i32 %.077, %.076
   br i1 %52, label %53, label %58
 
 53:                                               ; preds = %51
@@ -791,20 +791,20 @@ define ptr @cuddZddDiff(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 
 .sink.split:                                      ; preds = %38, %90
   %.sink = phi ptr [ %83, %90 ], [ %43, %38 ]
-  %.076.ph = phi ptr [ %87, %90 ], [ %48, %38 ]
+  %.0.ph = phi ptr [ %87, %90 ], [ %48, %38 ]
   %93 = load i32, ptr %.sink, align 4
   %94 = add i32 %93, -1
   store i32 %94, ptr %.sink, align 4
   br label %95
 
 95:                                               ; preds = %.sink.split, %53
-  %.076 = phi ptr [ %56, %53 ], [ %.076.ph, %.sink.split ]
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddDiff, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.076) #3
+  %.0 = phi ptr [ %56, %53 ], [ %.0.ph, %.sink.split ]
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddDiff, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.0) #3
   br label %96
 
 96:                                               ; preds = %11, %58, %53, %33, %9, %7, %3, %95, %89, %78, %50
-  %.0 = phi ptr [ null, %50 ], [ %.076, %95 ], [ null, %78 ], [ null, %89 ], [ %5, %3 ], [ %1, %7 ], [ %5, %9 ], [ %12, %11 ], [ null, %33 ], [ null, %53 ], [ null, %58 ]
-  ret ptr %.0
+  %.078 = phi ptr [ null, %50 ], [ %.0, %95 ], [ null, %78 ], [ null, %89 ], [ %5, %3 ], [ %1, %7 ], [ %5, %9 ], [ %12, %11 ], [ null, %33 ], [ null, %53 ], [ null, %58 ]
+  ret ptr %.078
 }
 
 ; Function Attrs: nounwind uwtable
@@ -841,7 +841,7 @@ define ptr @Cudd_zddDiffConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %22
 
 22:                                               ; preds = %13, %16
-  %.045 = phi i32 [ %21, %16 ], [ 2147483647, %13 ]
+  %.046 = phi i32 [ %21, %16 ], [ 2147483647, %13 ]
   %23 = load i32, ptr %2, align 8
   %24 = icmp eq i32 %23, 2147483647
   br i1 %24, label %31, label %25
@@ -855,12 +855,12 @@ define ptr @Cudd_zddDiffConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %31
 
 31:                                               ; preds = %22, %25
-  %.046 = phi i32 [ %30, %25 ], [ 2147483647, %22 ]
-  %32 = icmp slt i32 %.045, %.046
+  %.045 = phi i32 [ %30, %25 ], [ 2147483647, %22 ]
+  %32 = icmp slt i32 %.046, %.045
   br i1 %32, label %51, label %33
 
 33:                                               ; preds = %31
-  %34 = icmp sgt i32 %.045, %.046
+  %34 = icmp sgt i32 %.046, %.045
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %33
@@ -887,13 +887,13 @@ define ptr @Cudd_zddDiffConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %51
 
 51:                                               ; preds = %39, %31, %35, %45
-  %.044 = phi ptr [ %38, %35 ], [ %50, %45 ], [ inttoptr (i64 1 to ptr), %31 ], [ inttoptr (i64 1 to ptr), %39 ]
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddDiff, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %.044) #3
+  %.0 = phi ptr [ %38, %35 ], [ %50, %45 ], [ inttoptr (i64 1 to ptr), %31 ], [ inttoptr (i64 1 to ptr), %39 ]
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddDiff, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %.0) #3
   br label %52
 
 52:                                               ; preds = %11, %9, %7, %3, %51
-  %.0 = phi ptr [ %.044, %51 ], [ %5, %3 ], [ %1, %7 ], [ %5, %9 ], [ %12, %11 ]
-  ret ptr %.0
+  %.044 = phi ptr [ %.0, %51 ], [ %5, %3 ], [ %1, %7 ], [ %5, %9 ], [ %12, %11 ]
+  ret ptr %.044
 }
 
 declare ptr @cuddCacheLookup2Zdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1316,13 +1316,13 @@ define ptr @cuddZddChangeAux(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   br label %70
 
 70:                                               ; preds = %65, %32, %25
-  %.059 = phi ptr [ %27, %25 ], [ %36, %32 ], [ %62, %65 ]
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddChangeAux, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.059) #3
+  %.0 = phi ptr [ %27, %25 ], [ %36, %32 ], [ %62, %65 ]
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @cuddZddChangeAux, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.0) #3
   br label %71
 
 71:                                               ; preds = %38, %32, %25, %11, %7, %3, %70, %64, %53
-  %.0 = phi ptr [ %.059, %70 ], [ null, %53 ], [ null, %64 ], [ %5, %3 ], [ %2, %7 ], [ %12, %11 ], [ null, %25 ], [ null, %32 ], [ null, %38 ]
-  ret ptr %.0
+  %.059 = phi ptr [ %.0, %70 ], [ null, %53 ], [ null, %64 ], [ %5, %3 ], [ %2, %7 ], [ %12, %11 ], [ null, %25 ], [ null, %32 ], [ null, %38 ]
+  ret ptr %.059
 }
 
 declare ptr @cuddUniqueInterZdd(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1414,13 +1414,13 @@ define internal ptr @zdd_subset1_aux(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %57
 
 57:                                               ; preds = %22, %11, %52
-  %.051 = phi ptr [ %49, %52 ], [ %5, %11 ], [ %25, %22 ]
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @zdd_subset1_aux, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %.051) #3
+  %.0 = phi ptr [ %49, %52 ], [ %5, %11 ], [ %25, %22 ]
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @zdd_subset1_aux, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %.0) #3
   br label %58
 
 58:                                               ; preds = %26, %3, %57, %51, %40, %10
-  %.0 = phi ptr [ %5, %10 ], [ %.051, %57 ], [ null, %40 ], [ null, %51 ], [ %6, %3 ], [ null, %26 ]
-  ret ptr %.0
+  %.051 = phi ptr [ %5, %10 ], [ %.0, %57 ], [ null, %40 ], [ null, %51 ], [ %6, %3 ], [ null, %26 ]
+  ret ptr %.051
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1513,13 +1513,13 @@ define internal ptr @zdd_subset0_aux(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %58
 
 58:                                               ; preds = %9, %22, %53
-  %.050 = phi ptr [ %24, %22 ], [ %50, %53 ], [ %1, %9 ]
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @zdd_subset0_aux, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %.050) #3
+  %.0 = phi ptr [ %24, %22 ], [ %50, %53 ], [ %1, %9 ]
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @zdd_subset0_aux, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %.0) #3
   br label %59
 
 59:                                               ; preds = %25, %3, %58, %52, %41, %8
-  %.0 = phi ptr [ %1, %8 ], [ %.050, %58 ], [ null, %41 ], [ null, %52 ], [ %4, %3 ], [ null, %25 ]
-  ret ptr %.0
+  %.050 = phi ptr [ %1, %8 ], [ %.0, %58 ], [ null, %41 ], [ null, %52 ], [ %4, %3 ], [ null, %25 ]
+  ret ptr %.050
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

@@ -622,8 +622,8 @@ list_head.exit158.i:                              ; preds = %158, %list_head.exi
 
 182:                                              ; preds = %372, %.lr.ph175.i
   %indvar.i = phi i64 [ 0, %.lr.ph175.i ], [ %indvar.next.i, %372 ]
-  %.0174.i = phi ptr [ %155, %.lr.ph175.i ], [ %..i.i, %372 ]
-  %.0136173.i = phi ptr [ %161, %.lr.ph175.i ], [ %.1.i, %372 ]
+  %.0136174.i = phi ptr [ %155, %.lr.ph175.i ], [ %..i.i, %372 ]
+  %.0139172.i = phi ptr [ %161, %.lr.ph175.i ], [ %.1140.i, %372 ]
   %183 = mul nuw nsw i64 %indvar.i, 104
   %gep.i = getelementptr i8, ptr %172, i64 %183
   %184 = add i64 %177, %183
@@ -674,7 +674,7 @@ list_head.exit158.i:                              ; preds = %158, %list_head.exi
   %207 = phi i32 [ %205, %203 ], [ 0, %.loopexit.i ]
   %208 = getelementptr inbounds i8, ptr %193, i64 100
   store i32 %207, ptr %208, align 4
-  %209 = icmp eq ptr %.0174.i, null
+  %209 = icmp eq ptr %.0136174.i, null
   br i1 %209, label %210, label %213
 
 210:                                              ; preds = %206
@@ -686,11 +686,11 @@ list_head.exit158.i:                              ; preds = %158, %list_head.exi
 
 213:                                              ; preds = %206
   %214 = getelementptr inbounds i8, ptr %193, i64 4
-  %215 = load ptr, ptr %.0174.i, align 8
+  %215 = load ptr, ptr %.0136174.i, align 8
   tail call void @namestrcpy(ptr noundef nonnull %214, ptr noundef %215) #11
   %.val.i = load i32, ptr %173, align 4
   %.val154.i = load ptr, ptr %174, align 8
-  %216 = getelementptr i8, ptr %.0174.i, i64 8
+  %216 = getelementptr i8, ptr %.0136174.i, i64 8
   %217 = sext i32 %.val.i to i64
   %218 = getelementptr %union.ListCell, ptr %.val154.i, i64 %217
   %219 = icmp ult ptr %216, %218
@@ -750,7 +750,7 @@ list_head.exit158.i:                              ; preds = %158, %list_head.exi
   br label %301
 
 255:                                              ; preds = %213
-  %256 = icmp eq ptr %.0136173.i, null
+  %256 = icmp eq ptr %.0139172.i, null
   br i1 %256, label %257, label %260
 
 257:                                              ; preds = %255
@@ -761,7 +761,7 @@ list_head.exit158.i:                              ; preds = %158, %list_head.exi
   unreachable
 
 260:                                              ; preds = %255
-  %261 = load ptr, ptr %.0136173.i, align 8
+  %261 = load ptr, ptr %.0139172.i, align 8
   %262 = load ptr, ptr %156, align 8
   %263 = getelementptr i8, ptr %262, i64 4
   %.val155.i = load i32, ptr %263, align 4
@@ -781,7 +781,7 @@ list_head.exit158.i:                              ; preds = %158, %list_head.exi
   unreachable
 
 271:                                              ; preds = %260
-  %272 = getelementptr i8, ptr %.0136173.i, i64 8
+  %272 = getelementptr i8, ptr %.0139172.i, i64 8
   %273 = sext i32 %.val155.i to i64
   %274 = getelementptr %union.ListCell, ptr %.val156.i, i64 %273
   %275 = icmp ult ptr %272, %274
@@ -823,7 +823,7 @@ list_head.exit158.i:                              ; preds = %158, %list_head.exi
   br label %301
 
 301:                                              ; preds = %271, %226
-  %.1.i = phi ptr [ %.0136173.i, %226 ], [ %..i159.i, %271 ]
+  %.1140.i = phi ptr [ %.0139172.i, %226 ], [ %..i159.i, %271 ]
   store i32 0, ptr %193, align 4
   %302 = load i32, ptr %176, align 4
   %303 = load i32, ptr %72, align 8
@@ -885,12 +885,12 @@ list_head.exit158.i:                              ; preds = %158, %list_head.exi
   unreachable
 
 339:                                              ; preds = %330, %326, %316
-  %.1140.i = phi i32 [ %333, %330 ], [ 2283, %326 ], [ %spec.select.i, %316 ]
+  %.1.i = phi i32 [ %333, %330 ], [ 2283, %326 ], [ %spec.select.i, %316 ]
   tail call void @ReleaseSysCache(ptr noundef nonnull %310) #11
   br label %340
 
 340:                                              ; preds = %339, %301
-  %.2.i = phi i32 [ %.1140.i, %339 ], [ %302, %301 ]
+  %.2.i = phi i32 [ %.1.i, %339 ], [ %302, %301 ]
   %.not151.i = icmp eq i32 %.2.i, 0
   br i1 %.not151.i, label %372, label %341
 
@@ -1095,7 +1095,7 @@ InitializeAttributeOids.exit:                     ; preds = %413, %393
   br label %446
 
 446:                                              ; preds = %442, %._crit_edge.i
-  %.0.i = phi i64 [ %445, %442 ], [ 0, %._crit_edge.i ]
+  %.046.i = phi i64 [ %445, %442 ], [ 0, %._crit_edge.i ]
   %447 = getelementptr inbounds i8, ptr %6, i64 96
   %448 = load ptr, ptr %447, align 8
   %.not49.i = icmp eq ptr %448, null
@@ -1165,8 +1165,8 @@ InitializeAttributeOids.exit:                     ; preds = %413, %393
   %489 = getelementptr inbounds i8, ptr %21, i64 144
   store i64 %488, ptr %489, align 16
   %490 = getelementptr inbounds i8, ptr %21, i64 152
-  store i64 %.0.i, ptr %490, align 8
-  %491 = icmp eq i64 %.0.i, 0
+  store i64 %.046.i, ptr %490, align 8
+  %491 = icmp eq i64 %.046.i, 0
   br i1 %491, label %492, label %494
 
 492:                                              ; preds = %454
@@ -1233,8 +1233,8 @@ UpdateIndexRelation.exit:                         ; preds = %494, %497
   unreachable
 
 516:                                              ; preds = %510, %509
-  %.0214 = phi i8 [ 112, %509 ], [ %.mux, %510 ]
-  %517 = call { i64, i32 } @index_constraint_create(ptr noundef %0, i32 noundef %.0210, i32 noundef %4, ptr noundef nonnull %6, ptr noundef %1, i8 noundef signext %.0214, i16 noundef zeroext %16, i1 noundef zeroext %17, i1 noundef zeroext %18)
+  %.0212 = phi i8 [ 112, %509 ], [ %.mux, %510 ]
+  %517 = call { i64, i32 } @index_constraint_create(ptr noundef %0, i32 noundef %.0210, i32 noundef %4, ptr noundef nonnull %6, ptr noundef %1, i8 noundef signext %.0212, i16 noundef zeroext %16, i1 noundef zeroext %17, i1 noundef zeroext %18)
   %.not236 = icmp eq ptr %19, null
   br i1 %.not236, label %537, label %518
 
@@ -1691,7 +1691,7 @@ define dso_local { i64, i32 } @index_constraint_create(ptr noundef %0, i32 nound
   br label %108
 
 108:                                              ; preds = %107, %103, %96
-  %.087 = phi i1 [ false, %103 ], [ true, %107 ], [ false, %96 ]
+  %.0 = phi i1 [ false, %103 ], [ true, %107 ], [ false, %96 ]
   br i1 %19, label %109, label %114
 
 109:                                              ; preds = %108
@@ -1704,10 +1704,10 @@ define dso_local { i64, i32 } @index_constraint_create(ptr noundef %0, i32 nound
   store i8 0, ptr %110, align 4
   %113 = getelementptr inbounds i8, ptr %92, i64 4
   call void @CatalogTupleUpdate(ptr noundef %90, ptr noundef nonnull %113, ptr noundef nonnull %92) #11
-  br i1 %.087, label %116, label %117
+  br i1 %.0, label %116, label %117
 
 114:                                              ; preds = %109, %108
-  br i1 %.087, label %.critedge, label %120
+  br i1 %.0, label %.critedge, label %120
 
 .critedge:                                        ; preds = %114
   %115 = getelementptr inbounds i8, ptr %92, i64 4
@@ -1799,8 +1799,8 @@ define internal fastcc void @index_update_stats(ptr noundef %0, i1 noundef zeroe
   br label %26
 
 26:                                               ; preds = %24, %15
-  %.036 = phi ptr [ %18, %15 ], [ %25, %24 ]
-  %.not = icmp eq ptr %.036, null
+  %.037 = phi ptr [ %18, %15 ], [ %25, %24 ]
+  %.not = icmp eq ptr %.037, null
   br i1 %.not, label %27, label %30
 
 27:                                               ; preds = %26
@@ -1811,7 +1811,7 @@ define internal fastcc void @index_update_stats(ptr noundef %0, i1 noundef zeroe
   unreachable
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %.036, i64 16
+  %31 = getelementptr inbounds i8, ptr %.037, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 22
   %34 = load i8, ptr %33, align 2
@@ -1899,15 +1899,15 @@ define internal fastcc void @index_update_stats(ptr noundef %0, i1 noundef zeroe
   br i1 %.3, label %72, label %73
 
 72:                                               ; preds = %.thread, %71
-  call void @heap_inplace_update(ptr noundef %9, ptr noundef nonnull %.036) #11
+  call void @heap_inplace_update(ptr noundef %9, ptr noundef nonnull %.037) #11
   br label %74
 
 73:                                               ; preds = %71
-  call void @CacheInvalidateRelcacheByTuple(ptr noundef nonnull %.036) #11
+  call void @CacheInvalidateRelcacheByTuple(ptr noundef nonnull %.037) #11
   br label %74
 
 74:                                               ; preds = %73, %72
-  call void @heap_freetuple(ptr noundef nonnull %.036) #11
+  call void @heap_freetuple(ptr noundef nonnull %.037) #11
   call void @table_close(ptr noundef %9, i32 noundef 3) #11
   ret void
 }
@@ -2374,7 +2374,7 @@ define dso_local noundef i32 @index_concurrently_create_copy(ptr noundef %0, i32
   br label %45
 
 45:                                               ; preds = %39, %36
-  %.070 = phi ptr [ %44, %39 ], [ null, %36 ]
+  %.068 = phi ptr [ %44, %39 ], [ null, %36 ]
   %46 = getelementptr inbounds i8, ptr %7, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = getelementptr inbounds i8, ptr %7, i64 8
@@ -2392,7 +2392,7 @@ define dso_local noundef i32 @index_concurrently_create_copy(ptr noundef %0, i32
   %60 = getelementptr inbounds i8, ptr %59, i64 25
   %61 = load i8, ptr %60, align 1
   %62 = trunc i8 %61 to i1
-  %63 = call ptr @makeIndexInfo(i32 noundef %47, i32 noundef %49, i32 noundef %51, ptr noundef %.069, ptr noundef %.070, i1 noundef zeroext %54, i1 noundef zeroext %57, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext %62) #11
+  %63 = call ptr @makeIndexInfo(i32 noundef %47, i32 noundef %49, i32 noundef %51, ptr noundef %.069, ptr noundef %.068, i1 noundef zeroext %54, i1 noundef zeroext %57, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext %62) #11
   %64 = load i32, ptr %46, align 4
   %65 = icmp sgt i32 %64, 0
   br i1 %65, label %.lr.ph, label %._crit_edge
@@ -2405,11 +2405,11 @@ define dso_local noundef i32 @index_concurrently_create_copy(ptr noundef %0, i32
 
 69:                                               ; preds = %.lr.ph, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
-  %.06778 = phi ptr [ null, %.lr.ph ], [ %73, %69 ]
+  %.07077 = phi ptr [ null, %.lr.ph ], [ %73, %69 ]
   %70 = load ptr, ptr %66, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 24
   %72 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %71, i64 0, i64 %indvars.iv, i32 1
-  %73 = call ptr @lappend(ptr noundef %.06778, ptr noundef %72) #11
+  %73 = call ptr @lappend(ptr noundef %.07077, ptr noundef %72) #11
   %74 = getelementptr [32 x i16], ptr %67, i64 0, i64 %indvars.iv
   %75 = load i16, ptr %74, align 2
   %76 = getelementptr [32 x i16], ptr %68, i64 0, i64 %indvars.iv
@@ -2421,7 +2421,7 @@ define dso_local noundef i32 @index_concurrently_create_copy(ptr noundef %0, i32
   br i1 %79, label %69, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %69, %45
-  %.067.lcssa = phi ptr [ null, %45 ], [ %73, %69 ]
+  %.070.lcssa = phi ptr [ null, %45 ], [ %73, %69 ]
   %80 = getelementptr inbounds i8, ptr %63, i64 4
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
@@ -2454,7 +2454,7 @@ define dso_local noundef i32 @index_concurrently_create_copy(ptr noundef %0, i32
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds i8, ptr %94, i64 24
   %102 = getelementptr inbounds i8, ptr %93, i64 24
-  %103 = call i32 @index_create(ptr noundef %0, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %63, ptr noundef %.067.lcssa, i32 noundef %98, i32 noundef %2, ptr noundef %100, ptr noundef nonnull %101, ptr noundef %84, ptr noundef nonnull %102, i64 noundef %28, i16 noundef zeroext 12, i16 noundef zeroext 0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef null)
+  %103 = call i32 @index_create(ptr noundef %0, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %63, ptr noundef %.070.lcssa, i32 noundef %98, i32 noundef %2, ptr noundef %100, ptr noundef nonnull %101, ptr noundef %84, ptr noundef nonnull %102, i64 noundef %28, i16 noundef zeroext 12, i16 noundef zeroext 0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef null)
   call void @index_close(ptr noundef %6, i32 noundef 0) #11
   call void @ReleaseSysCache(ptr noundef nonnull %16) #11
   call void @ReleaseSysCache(ptr noundef nonnull %23) #11
@@ -2819,15 +2819,15 @@ define dso_local void @index_concurrently_swap(i32 noundef %0, i32 noundef %1, p
   br label %102
 
 102:                                              ; preds = %100, %61
-  %.0 = phi ptr [ %101, %100 ], [ %98, %61 ]
+  %.0163 = phi ptr [ %101, %100 ], [ %98, %61 ]
   %103 = tail call ptr @table_open(i32 noundef 2606, i32 noundef 3) #11
   %104 = tail call ptr @table_open(i32 noundef 2620, i32 noundef 3) #11
-  %.not178 = icmp eq ptr %.0, null
+  %.not178 = icmp eq ptr %.0163, null
   br i1 %.not178, label %._crit_edge194, label %.lr.ph193
 
 .lr.ph193:                                        ; preds = %102
-  %105 = getelementptr inbounds i8, ptr %.0, i64 4
-  %106 = getelementptr inbounds i8, ptr %.0, i64 16
+  %105 = getelementptr inbounds i8, ptr %.0163, i64 4
+  %106 = getelementptr inbounds i8, ptr %.0163, i64 16
   %107 = load i32, ptr %105, align 4
   %108 = icmp sgt i32 %107, 0
   br i1 %108, label %.lr.ph209, label %._crit_edge194
@@ -3585,8 +3585,8 @@ define dso_local zeroext i1 @CompareIndexInfo(ptr nocapture noundef readonly %0,
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %71, %66, %59, %109, %106, %103, %99, %91, %88, %84, %._crit_edge, %33, %28, %23, %16, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %16 ], [ false, %23 ], [ false, %28 ], [ false, %33 ], [ false, %._crit_edge ], [ false, %84 ], [ false, %88 ], [ false, %91 ], [ false, %99 ], [ false, %103 ], [ false, %106 ], [ %.not67, %109 ], [ false, %59 ], [ false, %66 ], [ false, %71 ], [ false, %56 ]
-  ret i1 %.0
+  %.055 = phi i1 [ false, %7 ], [ false, %16 ], [ false, %23 ], [ false, %28 ], [ false, %33 ], [ false, %._crit_edge ], [ false, %84 ], [ false, %88 ], [ false, %91 ], [ false, %99 ], [ false, %103 ], [ false, %106 ], [ %.not67, %109 ], [ false, %59 ], [ false, %66 ], [ false, %71 ], [ false, %56 ]
+  ret i1 %.055
 }
 
 declare ptr @map_variable_attnos(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -3753,7 +3753,7 @@ list_head.exit:                                   ; preds = %._crit_edge43, %16
 
 35:                                               ; preds = %.lr.ph, %slot_getsysattr.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %slot_getsysattr.exit ]
-  %.02941 = phi ptr [ %22, %.lr.ph ], [ %.1, %slot_getsysattr.exit ]
+  %.03040 = phi ptr [ %22, %.lr.ph ], [ %.1, %slot_getsysattr.exit ]
   %36 = getelementptr [32 x i16], ptr %26, i64 0, i64 %indvars.iv
   %37 = load i16, ptr %36, align 2
   %38 = sext i16 %37 to i32
@@ -3810,7 +3810,7 @@ slot_getattr.exit:                                ; preds = %51, %slot_getsomeat
   br label %slot_getsysattr.exit
 
 63:                                               ; preds = %50
-  %64 = icmp eq ptr %.02941, null
+  %64 = icmp eq ptr %.03040, null
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %63
@@ -3821,7 +3821,7 @@ slot_getattr.exit:                                ; preds = %51, %slot_getsomeat
   unreachable
 
 68:                                               ; preds = %63
-  %69 = load ptr, ptr %.02941, align 8
+  %69 = load ptr, ptr %.03040, align 8
   %70 = load ptr, ptr %30, align 8
   %.not37 = icmp eq ptr %70, null
   br i1 %.not37, label %71, label %73
@@ -3845,7 +3845,7 @@ slot_getattr.exit:                                ; preds = %51, %slot_getsomeat
   %.val = load i32, ptr %82, align 4
   %83 = getelementptr i8, ptr %81, i64 16
   %.val38 = load ptr, ptr %83, align 8
-  %84 = getelementptr i8, ptr %.02941, i64 8
+  %84 = getelementptr i8, ptr %.03040, i64 8
   %85 = sext i32 %.val to i64
   %86 = getelementptr %union.ListCell, ptr %.val38, i64 %85
   %87 = icmp ult ptr %84, %86
@@ -3853,7 +3853,7 @@ slot_getattr.exit:                                ; preds = %51, %slot_getsomeat
   br label %slot_getsysattr.exit
 
 slot_getsysattr.exit:                             ; preds = %45, %44, %41, %slot_getattr.exit, %73
-  %.1 = phi ptr [ %.02941, %slot_getattr.exit ], [ %..i, %73 ], [ %.02941, %41 ], [ %.02941, %44 ], [ %.02941, %45 ]
+  %.1 = phi ptr [ %.03040, %slot_getattr.exit ], [ %..i, %73 ], [ %.03040, %41 ], [ %.03040, %44 ], [ %.03040, %45 ]
   %.0 = phi i64 [ %62, %slot_getattr.exit ], [ %80, %73 ], [ %43, %41 ], [ %32, %44 ], [ %49, %45 ]
   %88 = getelementptr i64, ptr %3, i64 %indvars.iv
   store i64 %.0, ptr %88, align 8
@@ -3868,8 +3868,8 @@ slot_getsysattr.exit:                             ; preds = %45, %44, %41, %slot
   br i1 %94, label %35, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %slot_getsysattr.exit, %list_head.exit
-  %.029.lcssa = phi ptr [ %22, %list_head.exit ], [ %.1, %slot_getsysattr.exit ]
-  %.not35 = icmp eq ptr %.029.lcssa, null
+  %.030.lcssa = phi ptr [ %22, %list_head.exit ], [ %.1, %slot_getsysattr.exit ]
+  %.not35 = icmp eq ptr %.030.lcssa, null
   br i1 %.not35, label %98, label %95
 
 95:                                               ; preds = %._crit_edge
@@ -4497,12 +4497,12 @@ define dso_local zeroext i1 @reindex_relation(ptr noundef %0, i32 noundef %1, i3
   br label %12
 
 12:                                               ; preds = %10, %8
-  %.044 = phi ptr [ %9, %8 ], [ %11, %10 ]
-  %.not51 = icmp eq ptr %.044, null
+  %.047 = phi ptr [ %9, %8 ], [ %11, %10 ]
+  %.not51 = icmp eq ptr %.047, null
   br i1 %.not51, label %94, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %.044, i64 56
+  %14 = getelementptr inbounds i8, ptr %.047, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 115
   %17 = load i8, ptr %16, align 1
@@ -4525,7 +4525,7 @@ define dso_local zeroext i1 @reindex_relation(ptr noundef %0, i32 noundef %1, i3
 28:                                               ; preds = %13
   %29 = getelementptr inbounds i8, ptr %15, i64 108
   %30 = load i32, ptr %29, align 4
-  %31 = tail call ptr @RelationGetIndexList(ptr noundef nonnull %.044) #11
+  %31 = tail call ptr @RelationGetIndexList(ptr noundef nonnull %.047) #11
   %32 = and i32 %2, 2
   %.not52 = icmp eq i32 %32, 0
   br i1 %.not52, label %45, label %33
@@ -4580,7 +4580,7 @@ SetReindexPending.exit:                           ; preds = %38
   br label %56
 
 56:                                               ; preds = %49, %45
-  %.048 = phi i32 [ %55, %49 ], [ 0, %45 ]
+  %.045 = phi i32 [ %55, %49 ], [ 0, %45 ]
   %57 = and i32 %2, 8
   %.not53 = icmp eq i32 %57, 0
   br i1 %.not53, label %58, label %64
@@ -4597,7 +4597,7 @@ SetReindexPending.exit:                           ; preds = %38
   br label %64
 
 64:                                               ; preds = %58, %56, %60
-  %.045 = phi i8 [ %63, %60 ], [ 117, %56 ], [ 112, %58 ]
+  %.046 = phi i8 [ %63, %60 ], [ 117, %56 ], [ 112, %58 ]
   %65 = getelementptr inbounds i8, ptr %31, i64 4
   %.not68 = icmp ne ptr %31, null
   br i1 %.not68, label %.lr.ph, label %._crit_edge
@@ -4612,7 +4612,7 @@ SetReindexPending.exit:                           ; preds = %38
 
 .lr.ph65:                                         ; preds = %.lr.ph, %87
   %indvars.iv = phi i64 [ %indvars.iv.next, %87 ], [ 0, %.lr.ph ]
-  %.04659.us64 = phi i32 [ %.1.us, %87 ], [ 1, %.lr.ph ]
+  %.059.us64 = phi i32 [ %.1.us, %87 ], [ 1, %.lr.ph ]
   %70 = load ptr, ptr %66, align 8
   %71 = getelementptr %union.ListCell, ptr %70, i64 %indvars.iv
   %72 = load i32, ptr %71, align 8
@@ -4637,15 +4637,15 @@ SetReindexPending.exit:                           ; preds = %38
   br label %87
 
 84:                                               ; preds = %75, %.lr.ph65
-  tail call void @reindex_index(ptr noundef %0, i32 noundef %72, i1 noundef zeroext %.not56, i8 noundef signext %.045, ptr noundef nonnull %3)
+  tail call void @reindex_index(ptr noundef %0, i32 noundef %72, i1 noundef zeroext %.not56, i8 noundef signext %.046, ptr noundef nonnull %3)
   tail call void @CommandCounterIncrement() #11
-  %85 = sext i32 %.04659.us64 to i64
+  %85 = sext i32 %.059.us64 to i64
   tail call void @pgstat_progress_update_param(i32 noundef 7, i64 noundef %85) #11
-  %86 = add i32 %.04659.us64, 1
+  %86 = add i32 %.059.us64, 1
   br label %87
 
 87:                                               ; preds = %84, %79, %77
-  %.1.us = phi i32 [ %86, %84 ], [ %.04659.us64, %79 ], [ %.04659.us64, %77 ]
+  %.1.us = phi i32 [ %86, %84 ], [ %.059.us64, %79 ], [ %.059.us64, %77 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %88 = load i32, ptr %65, align 4
   %89 = sext i32 %88 to i64
@@ -4653,15 +4653,15 @@ SetReindexPending.exit:                           ; preds = %38
   br i1 %90, label %.lr.ph65, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %87, %.lr.ph, %64
-  tail call void @table_close(ptr noundef nonnull %.044, i32 noundef 0) #11
+  tail call void @table_close(ptr noundef nonnull %.047, i32 noundef 0) #11
   %91 = zext i1 %.not68 to i32
-  %92 = or i32 %.048, %91
+  %92 = or i32 %.045, %91
   %93 = icmp ne i32 %92, 0
   br label %94
 
 94:                                               ; preds = %12, %._crit_edge
-  %.0 = phi i1 [ %93, %._crit_edge ], [ false, %12 ]
-  ret i1 %.0
+  %.048 = phi i1 [ %93, %._crit_edge ], [ false, %12 ]
+  ret i1 %.048
 }
 
 declare ptr @RelationGetIndexList(ptr noundef) local_unnamed_addr #2

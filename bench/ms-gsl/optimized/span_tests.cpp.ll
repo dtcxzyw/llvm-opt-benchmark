@@ -38302,31 +38302,31 @@ land.rhs.us86.lr.ph.split:                        ; preds = %land.rhs.us86.lr.ph
   br label %land.rhs.us86
 
 _ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us82: ; preds = %cond.end.i26.us
-  %incdec.ptr.i29.us = getelementptr inbounds i8, ptr %__tmp.sroa.5.068.us84101, i64 1
+  %incdec.ptr.i29.us = getelementptr inbounds i8, ptr %__tmp.sroa.5.069.us83100, i64 1
   %cmp7.i.i.not.us85 = icmp eq ptr %incdec.ptr.i.us96, %9
   br i1 %cmp7.i.i.not.us85, label %for.end, label %land.rhs.us86
 
 land.rhs.us86:                                    ; preds = %land.rhs.us86.lr.ph.split, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us82
-  %__tmp.sroa.5.068.us84101 = phi ptr [ %__tmp.sroa.5.0.copyload, %land.rhs.us86.lr.ph.split ], [ %incdec.ptr.i29.us, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us82 ]
-  %__last.sroa.9.069.us83100 = phi ptr [ %__last.sroa.9.0.copyload, %land.rhs.us86.lr.ph.split ], [ %incdec.ptr.i.us96, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us82 ]
-  %cmp7.i.i16.not.us90 = icmp eq ptr %__tmp.sroa.5.068.us84101, %23
+  %__last.sroa.9.068.us84101 = phi ptr [ %__last.sroa.9.0.copyload, %land.rhs.us86.lr.ph.split ], [ %incdec.ptr.i.us96, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us82 ]
+  %__tmp.sroa.5.069.us83100 = phi ptr [ %__tmp.sroa.5.0.copyload, %land.rhs.us86.lr.ph.split ], [ %incdec.ptr.i29.us, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us82 ]
+  %cmp7.i.i16.not.us90 = icmp eq ptr %__tmp.sroa.5.069.us83100, %23
   br i1 %cmp7.i.i16.not.us90, label %for.end, label %for.body.us91
 
 for.body.us91:                                    ; preds = %land.rhs.us86
-  %tobool2.not.i.us92.not = icmp eq ptr %__last.sroa.9.069.us83100, null
+  %tobool2.not.i.us92.not = icmp eq ptr %__last.sroa.9.068.us84101, null
   br i1 %tobool2.not.i.us92.not, label %cond.false.i, label %cond.end.i.us93
 
 cond.end.i.us93:                                  ; preds = %for.body.us91
-  %cmp.i.us94 = icmp ult ptr %__last.sroa.9.069.us83100, %__last.sroa.6.0.copyload.fr
+  %cmp.i.us94 = icmp ult ptr %__last.sroa.9.068.us84101, %__last.sroa.6.0.copyload.fr
   br i1 %cmp.i.us94, label %_ZN3gsl7details13span_iteratorIcEppEv.exit.us95, label %cond.false10.i
 
 _ZN3gsl7details13span_iteratorIcEppEv.exit.us95:  ; preds = %cond.end.i.us93
-  %incdec.ptr.i.us96 = getelementptr inbounds i8, ptr %__last.sroa.9.069.us83100, i64 1
-  %tobool2.not.i20.us.not = icmp eq ptr %__tmp.sroa.5.068.us84101, null
+  %incdec.ptr.i.us96 = getelementptr inbounds i8, ptr %__last.sroa.9.068.us84101, i64 1
+  %tobool2.not.i20.us.not = icmp eq ptr %__tmp.sroa.5.069.us83100, null
   br i1 %tobool2.not.i20.us.not, label %cond.false.i25, label %cond.end.i26.us
 
 cond.end.i26.us:                                  ; preds = %_ZN3gsl7details13span_iteratorIcEppEv.exit.us95
-  %cmp.i27.us = icmp ult ptr %__tmp.sroa.5.068.us84101, %__tmp.sroa.3.0.copyload.fr
+  %cmp.i27.us = icmp ult ptr %__tmp.sroa.5.069.us83100, %__tmp.sroa.3.0.copyload.fr
   br i1 %cmp.i27.us, label %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us82, label %cond.false10.i28
 
 cond.false.i.i:                                   ; preds = %if.end
@@ -38354,7 +38354,7 @@ cond.false10.i28:                                 ; preds = %cond.end.i26.us
   unreachable
 
 for.end:                                          ; preds = %land.rhs.us86, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us82, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit17.us77, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us70, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.lr.ph.split.split.split.us, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit17.us
-  %.us-phi = phi ptr [ %__last.sroa.9.0.copyload, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us ], [ %__last.sroa.9.0.copyload, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit17.us ], [ %__last.sroa.9.0.copyload, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us70 ], [ %__last.sroa.9.0.copyload, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit17.us77 ], [ %__last.sroa.9.0.copyload, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.lr.ph.split.split.split.us ], [ %__last.sroa.9.069.us83100, %land.rhs.us86 ], [ %incdec.ptr.i.us96, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us82 ]
+  %.us-phi = phi ptr [ %__last.sroa.9.0.copyload, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us ], [ %__last.sroa.9.0.copyload, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit17.us ], [ %__last.sroa.9.0.copyload, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us70 ], [ %__last.sroa.9.0.copyload, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit17.us77 ], [ %__last.sroa.9.0.copyload, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.lr.ph.split.split.split.us ], [ %__last.sroa.9.068.us84101, %land.rhs.us86 ], [ %incdec.ptr.i.us96, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us82 ]
   %_M_re = getelementptr inbounds i8, ptr %this, i64 96
   %24 = load ptr, ptr %_M_re, align 8
   %25 = load i32, ptr %24, align 8
@@ -40367,31 +40367,31 @@ land.rhs.us86.lr.ph.split:                        ; preds = %land.rhs.us86.lr.ph
   br label %land.rhs.us86
 
 _ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us82: ; preds = %cond.end.i26.us
-  %incdec.ptr.i29.us = getelementptr inbounds i8, ptr %__tmp.sroa.5.068.us84101, i64 1
+  %incdec.ptr.i29.us = getelementptr inbounds i8, ptr %__tmp.sroa.5.069.us83100, i64 1
   %cmp7.i.i.not.us85 = icmp eq ptr %incdec.ptr.i.us96, %9
   br i1 %cmp7.i.i.not.us85, label %for.end, label %land.rhs.us86
 
 land.rhs.us86:                                    ; preds = %land.rhs.us86.lr.ph.split, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us82
-  %__tmp.sroa.5.068.us84101 = phi ptr [ %__tmp.sroa.5.0.copyload, %land.rhs.us86.lr.ph.split ], [ %incdec.ptr.i29.us, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us82 ]
-  %__last.sroa.9.069.us83100 = phi ptr [ %__last.sroa.9.0.copyload, %land.rhs.us86.lr.ph.split ], [ %incdec.ptr.i.us96, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us82 ]
-  %cmp7.i.i16.not.us90 = icmp eq ptr %__tmp.sroa.5.068.us84101, %23
+  %__last.sroa.9.068.us84101 = phi ptr [ %__last.sroa.9.0.copyload, %land.rhs.us86.lr.ph.split ], [ %incdec.ptr.i.us96, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us82 ]
+  %__tmp.sroa.5.069.us83100 = phi ptr [ %__tmp.sroa.5.0.copyload, %land.rhs.us86.lr.ph.split ], [ %incdec.ptr.i29.us, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us82 ]
+  %cmp7.i.i16.not.us90 = icmp eq ptr %__tmp.sroa.5.069.us83100, %23
   br i1 %cmp7.i.i16.not.us90, label %for.end, label %for.body.us91
 
 for.body.us91:                                    ; preds = %land.rhs.us86
-  %tobool2.not.i.us92.not = icmp eq ptr %__last.sroa.9.069.us83100, null
+  %tobool2.not.i.us92.not = icmp eq ptr %__last.sroa.9.068.us84101, null
   br i1 %tobool2.not.i.us92.not, label %cond.false.i, label %cond.end.i.us93
 
 cond.end.i.us93:                                  ; preds = %for.body.us91
-  %cmp.i.us94 = icmp ult ptr %__last.sroa.9.069.us83100, %__last.sroa.6.0.copyload.fr
+  %cmp.i.us94 = icmp ult ptr %__last.sroa.9.068.us84101, %__last.sroa.6.0.copyload.fr
   br i1 %cmp.i.us94, label %_ZN3gsl7details13span_iteratorIcEppEv.exit.us95, label %cond.false10.i
 
 _ZN3gsl7details13span_iteratorIcEppEv.exit.us95:  ; preds = %cond.end.i.us93
-  %incdec.ptr.i.us96 = getelementptr inbounds i8, ptr %__last.sroa.9.069.us83100, i64 1
-  %tobool2.not.i20.us.not = icmp eq ptr %__tmp.sroa.5.068.us84101, null
+  %incdec.ptr.i.us96 = getelementptr inbounds i8, ptr %__last.sroa.9.068.us84101, i64 1
+  %tobool2.not.i20.us.not = icmp eq ptr %__tmp.sroa.5.069.us83100, null
   br i1 %tobool2.not.i20.us.not, label %cond.false.i25, label %cond.end.i26.us
 
 cond.end.i26.us:                                  ; preds = %_ZN3gsl7details13span_iteratorIcEppEv.exit.us95
-  %cmp.i27.us = icmp ult ptr %__tmp.sroa.5.068.us84101, %__tmp.sroa.3.0.copyload.fr
+  %cmp.i27.us = icmp ult ptr %__tmp.sroa.5.069.us83100, %__tmp.sroa.3.0.copyload.fr
   br i1 %cmp.i27.us, label %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us82, label %cond.false10.i28
 
 cond.false.i.i:                                   ; preds = %if.end
@@ -40419,7 +40419,7 @@ cond.false10.i28:                                 ; preds = %cond.end.i26.us
   unreachable
 
 for.end:                                          ; preds = %land.rhs.us86, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us82, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit17.us77, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us70, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.lr.ph.split.split.split.us, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit17.us
-  %.us-phi = phi ptr [ %__last.sroa.9.0.copyload, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us ], [ %__last.sroa.9.0.copyload, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit17.us ], [ %__last.sroa.9.0.copyload, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us70 ], [ %__last.sroa.9.0.copyload, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit17.us77 ], [ %__last.sroa.9.0.copyload, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.lr.ph.split.split.split.us ], [ %__last.sroa.9.069.us83100, %land.rhs.us86 ], [ %incdec.ptr.i.us96, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us82 ]
+  %.us-phi = phi ptr [ %__last.sroa.9.0.copyload, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us ], [ %__last.sroa.9.0.copyload, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit17.us ], [ %__last.sroa.9.0.copyload, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us70 ], [ %__last.sroa.9.0.copyload, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit17.us77 ], [ %__last.sroa.9.0.copyload, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.lr.ph.split.split.split.us ], [ %__last.sroa.9.068.us84101, %land.rhs.us86 ], [ %incdec.ptr.i.us96, %_ZNK3gsl7details13span_iteratorIcEneIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit.us82 ]
   %_M_re = getelementptr inbounds i8, ptr %this, i64 96
   %24 = load ptr, ptr %_M_re, align 8
   %25 = load i32, ptr %24, align 8

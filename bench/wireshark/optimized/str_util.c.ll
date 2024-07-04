@@ -65,7 +65,7 @@ define noalias noundef ptr @wmem_strconcat(ptr noundef %0, ptr noundef %1, ...) 
 10:                                               ; preds = %25, %4
   %11 = phi ptr [ %.promoted20, %4 ], [ %21, %25 ]
   %12 = phi i32 [ %.promoted, %4 ], [ %22, %25 ]
-  %.012 = phi i64 [ %6, %4 ], [ %27, %25 ]
+  %.011 = phi i64 [ %6, %4 ], [ %27, %25 ]
   %13 = icmp ult i32 %12, 41
   br i1 %13, label %14, label %18
 
@@ -91,12 +91,12 @@ define noalias noundef ptr @wmem_strconcat(ptr noundef %0, ptr noundef %1, ...) 
 
 25:                                               ; preds = %20
   %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #17
-  %27 = add i64 %26, %.012
+  %27 = add i64 %26, %.011
   br label %10, !llvm.loop !4
 
 28:                                               ; preds = %20
   call void @llvm.va_end.p0(ptr nonnull %3)
-  %29 = call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %.012) #18
+  %29 = call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %.011) #18
   %30 = call ptr @g_stpcpy(ptr noundef %29, ptr noundef nonnull %1) #18
   call void @llvm.va_start.p0(ptr nonnull %3)
   br label %31
@@ -136,8 +136,8 @@ define noalias noundef ptr @wmem_strconcat(ptr noundef %0, ptr noundef %1, ...) 
   br label %48
 
 48:                                               ; preds = %2, %47
-  %.011 = phi ptr [ %29, %47 ], [ null, %2 ]
-  ret ptr %.011
+  %.012 = phi ptr [ %29, %47 ], [ null, %2 ]
+  ret ptr %.012
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -170,7 +170,7 @@ define noalias noundef ptr @wmem_strjoin(ptr noundef %0, ptr noundef %1, ptr nou
 13:                                               ; preds = %28, %5
   %14 = phi ptr [ %.promoted25, %5 ], [ %24, %28 ]
   %15 = phi i32 [ %.promoted, %5 ], [ %25, %28 ]
-  %.017 = phi i64 [ %9, %5 ], [ %31, %28 ]
+  %.016 = phi i64 [ %9, %5 ], [ %31, %28 ]
   %16 = icmp ult i32 %15, 41
   br i1 %16, label %17, label %21
 
@@ -196,13 +196,13 @@ define noalias noundef ptr @wmem_strjoin(ptr noundef %0, ptr noundef %1, ptr nou
 
 28:                                               ; preds = %23
   %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #17
-  %30 = add i64 %.017, %7
+  %30 = add i64 %.016, %7
   %31 = add i64 %30, %29
   br label %13, !llvm.loop !7
 
 32:                                               ; preds = %23
   call void @llvm.va_end.p0(ptr nonnull %4)
-  %33 = call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %.017) #18
+  %33 = call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %.016) #18
   %34 = call ptr @g_stpcpy(ptr noundef %33, ptr noundef nonnull %2) #18
   call void @llvm.va_start.p0(ptr nonnull %4)
   br label %35
@@ -243,8 +243,8 @@ define noalias noundef ptr @wmem_strjoin(ptr noundef %0, ptr noundef %1, ptr nou
   br label %53
 
 53:                                               ; preds = %3, %52
-  %.016 = phi ptr [ %33, %52 ], [ null, %3 ]
-  ret ptr %.016
+  %.017 = phi ptr [ %33, %52 ], [ null, %3 ]
+  ret ptr %.017
 }
 
 ; Function Attrs: nounwind uwtable
@@ -352,21 +352,21 @@ define noalias ptr @wmem_strsplit(ptr noundef %0, ptr noundef %1, ptr noundef re
   br label %20
 
 20:                                               ; preds = %.lr.ph, %22
-  %.04760 = phi i32 [ 1, %.lr.ph ], [ %24, %22 ]
-  %.04859 = phi ptr [ %14, %.lr.ph ], [ %23, %22 ]
-  %21 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.04859, ptr noundef nonnull dereferenceable(1) %2) #17
+  %.04660 = phi i32 [ 1, %.lr.ph ], [ %24, %22 ]
+  %.04759 = phi ptr [ %14, %.lr.ph ], [ %23, %22 ]
+  %21 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.04759, ptr noundef nonnull dereferenceable(1) %2) #17
   %.not57 = icmp eq ptr %21, null
   br i1 %.not57, label %.critedge, label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr i8, ptr %21, i64 %19
-  %24 = add nuw nsw i32 %.04760, 1
+  %24 = add nuw nsw i32 %.04660, 1
   %exitcond.not = icmp eq i32 %24, %spec.store.select
   br i1 %exitcond.not, label %.critedge, label %20, !llvm.loop !11
 
 .critedge:                                        ; preds = %20, %22
-  %.047.lcssa.ph = phi i32 [ %.04760, %20 ], [ %spec.store.select, %22 ]
-  %25 = add i32 %.047.lcssa.ph, 1
+  %.046.lcssa.ph = phi i32 [ %.04660, %20 ], [ %spec.store.select, %22 ]
+  %25 = add i32 %.046.lcssa.ph, 1
   %26 = zext i32 %25 to i64
   %27 = shl nuw nsw i64 %26, 3
   %28 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %27) #18
@@ -390,8 +390,8 @@ define noalias ptr @wmem_strsplit(ptr noundef %0, ptr noundef %1, ptr noundef re
 
 .lr.ph67.split.us:                                ; preds = %.lr.ph67.split.us.preheader, %.preheader.us.preheader
   %indvars.iv = phi i64 [ 1, %.lr.ph67.split.us.preheader ], [ %indvars.iv.next, %.preheader.us.preheader ]
-  %.14965.us = phi ptr [ %14, %.lr.ph67.split.us.preheader ], [ %33, %.preheader.us.preheader ]
-  %32 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.14965.us, ptr noundef nonnull dereferenceable(1) %2) #17
+  %.14865.us = phi ptr [ %14, %.lr.ph67.split.us.preheader ], [ %33, %.preheader.us.preheader ]
+  %32 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.14865.us, ptr noundef nonnull dereferenceable(1) %2) #17
   %.not58.us = icmp eq ptr %32, null
   br i1 %.not58.us, label %.critedge3.loopexit85.split.loop.exit87, label %.preheader.us.preheader
 
@@ -406,8 +406,8 @@ define noalias ptr @wmem_strsplit(ptr noundef %0, ptr noundef %1, ptr noundef re
 
 .lr.ph67.split:                                   ; preds = %.lr.ph67.split.preheader, %.preheader
   %indvars.iv79 = phi i64 [ 1, %.lr.ph67.split.preheader ], [ %indvars.iv.next80, %.preheader ]
-  %.14965 = phi ptr [ %14, %.lr.ph67.split.preheader ], [ %36, %.preheader ]
-  %35 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.14965, ptr noundef nonnull dereferenceable(1) %2) #17
+  %.14865 = phi ptr [ %14, %.lr.ph67.split.preheader ], [ %36, %.preheader ]
+  %35 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.14865, ptr noundef nonnull dereferenceable(1) %2) #17
   %.not58 = icmp eq ptr %35, null
   br i1 %.not58, label %.critedge3.loopexit.split.loop.exit89, label %.preheader
 
@@ -436,8 +436,8 @@ define noalias ptr @wmem_strsplit(ptr noundef %0, ptr noundef %1, ptr noundef re
   br label %43
 
 43:                                               ; preds = %4, %7, %.critedge3, %11
-  %.046 = phi ptr [ %40, %.critedge3 ], [ %12, %11 ], [ null, %7 ], [ null, %4 ]
-  ret ptr %.046
+  %.049 = phi ptr [ %40, %.critedge3 ], [ %12, %11 ], [ null, %7 ], [ null, %4 ]
+  ret ptr %.049
 }
 
 declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #2
@@ -463,8 +463,8 @@ define noalias noundef ptr @wmem_ascii_strdown(ptr noundef %0, ptr noundef %1, i
   br label %9
 
 9:                                                ; preds = %7, %5
-  %.013 = phi i64 [ %8, %7 ], [ %2, %5 ]
-  %10 = tail call noalias ptr @wmem_strndup(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.013) #18
+  %.012 = phi i64 [ %8, %7 ], [ %2, %5 ]
+  %10 = tail call noalias ptr @wmem_strndup(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.012) #18
   %11 = load i8, ptr %10, align 1
   %.not1718 = icmp eq i8 %11, 0
   br i1 %.not1718, label %.loopexit, label %.lr.ph
@@ -480,8 +480,8 @@ define noalias noundef ptr @wmem_ascii_strdown(ptr noundef %0, ptr noundef %1, i
   br i1 %.not17, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %4
-  %.012 = phi ptr [ null, %4 ], [ %10, %9 ], [ %10, %.lr.ph ]
-  ret ptr %.012
+  %.013 = phi ptr [ null, %4 ], [ %10, %9 ], [ %10, %.lr.ph ]
+  ret ptr %.013
 }
 
 declare void @g_return_if_fail_warning(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -701,8 +701,8 @@ define noundef ptr @ws_ascii_strcasestr(ptr noundef %0, ptr noundef %1) local_un
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %6 ], [ %.01014, %.lr.ph ]
-  ret ptr %.0
+  %.09 = phi ptr [ null, %2 ], [ null, %6 ], [ %.01014, %.lr.ph ]
+  ret ptr %.09
 }
 
 declare i32 @g_ascii_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
@@ -737,13 +737,13 @@ define ptr @format_size_wmem(ptr noundef %0, i64 noundef %1, i32 noundef %2, i16
 13:                                               ; preds = %8, %4
   %14 = and i16 %3, 2
   %.not = icmp eq i16 %14, 0
+  %spec.select = select i1 %.not, i64 1000, i64 1024
   %15 = shl nuw nsw i16 %14, 1
-  %spec.select = zext nneg i16 %15 to i32
-  %spec.select64 = select i1 %.not, i64 1000, i64 1024
-  %16 = sdiv i64 %1, %spec.select64
-  %17 = sdiv i64 %16, %spec.select64
-  %18 = sdiv i64 %17, %spec.select64
-  %19 = sdiv i64 %18, %spec.select64
+  %spec.select64 = zext nneg i16 %15 to i32
+  %16 = sdiv i64 %1, %spec.select
+  %17 = sdiv i64 %16, %spec.select
+  %18 = sdiv i64 %17, %spec.select
+  %19 = sdiv i64 %18, %spec.select
   %20 = icmp sgt i64 %19, 9
   br i1 %20, label %21, label %26
 
@@ -763,7 +763,7 @@ define ptr @format_size_wmem(ptr noundef %0, i64 noundef %1, i32 noundef %2, i16
 28:                                               ; preds = %26
   %29 = load ptr, ptr @thousands_grouping_fmt, align 8
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %29, i64 noundef %18) #18
-  %30 = or disjoint i32 %spec.select, 1
+  %30 = or disjoint i32 %spec.select64, 1
   %31 = zext nneg i32 %30 to i64
   %32 = getelementptr [8 x ptr], ptr @format_size_wmem.prefix, i64 0, i64 %31
   %33 = load ptr, ptr %32, align 8
@@ -777,7 +777,7 @@ define ptr @format_size_wmem(ptr noundef %0, i64 noundef %1, i32 noundef %2, i16
 36:                                               ; preds = %34
   %37 = load ptr, ptr @thousands_grouping_fmt, align 8
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %37, i64 noundef %17) #18
-  %38 = or disjoint i32 %spec.select, 2
+  %38 = or disjoint i32 %spec.select64, 2
   %39 = zext nneg i32 %38 to i64
   %40 = getelementptr [8 x ptr], ptr @format_size_wmem.prefix, i64 0, i64 %39
   %41 = load ptr, ptr %40, align 16
@@ -791,7 +791,7 @@ define ptr @format_size_wmem(ptr noundef %0, i64 noundef %1, i32 noundef %2, i16
 
 45:                                               ; preds = %42
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %44, i64 noundef %16) #18
-  %46 = or disjoint i32 %spec.select, 3
+  %46 = or disjoint i32 %spec.select64, 3
   %47 = zext nneg i32 %46 to i64
   %48 = getelementptr [8 x ptr], ptr @format_size_wmem.prefix, i64 0, i64 %47
   %49 = load ptr, ptr %48, align 8
@@ -803,7 +803,7 @@ define ptr @format_size_wmem(ptr noundef %0, i64 noundef %1, i32 noundef %2, i16
   br label %51
 
 51:                                               ; preds = %28, %45, %50, %36, %21
-  %.058 = phi i1 [ false, %21 ], [ false, %28 ], [ false, %36 ], [ false, %45 ], [ true, %50 ]
+  %.0 = phi i1 [ false, %21 ], [ false, %28 ], [ false, %36 ], [ false, %45 ], [ true, %50 ]
   switch i32 %2, label %64 [
     i32 0, label %65
     i32 1, label %52
@@ -815,27 +815,27 @@ define ptr @format_size_wmem(ptr noundef %0, i64 noundef %1, i32 noundef %2, i16
   ]
 
 52:                                               ; preds = %51
-  %53 = select i1 %.058, ptr @.str.10, ptr @.str.11
+  %53 = select i1 %.0, ptr @.str.10, ptr @.str.11
   br label %.sink.split
 
 54:                                               ; preds = %51
-  %55 = select i1 %.058, ptr @.str.12, ptr @.str.13
+  %55 = select i1 %.0, ptr @.str.12, ptr @.str.13
   br label %.sink.split
 
 56:                                               ; preds = %51
-  %57 = select i1 %.058, ptr @.str.14, ptr @.str.15
+  %57 = select i1 %.0, ptr @.str.14, ptr @.str.15
   br label %.sink.split
 
 58:                                               ; preds = %51
-  %59 = select i1 %.058, ptr @.str.16, ptr @.str.17
+  %59 = select i1 %.0, ptr @.str.16, ptr @.str.17
   br label %.sink.split
 
 60:                                               ; preds = %51
-  %61 = select i1 %.058, ptr @.str.18, ptr @.str.19
+  %61 = select i1 %.0, ptr @.str.18, ptr @.str.19
   br label %.sink.split
 
 62:                                               ; preds = %51
-  %63 = select i1 %.058, ptr @.str.20, ptr @.str.21
+  %63 = select i1 %.0, ptr @.str.20, ptr @.str.21
   br label %.sink.split
 
 64:                                               ; preds = %51
@@ -1179,12 +1179,12 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br label %9
 
 9:                                                ; preds = %.lr.ph368, %363
-  %.0271365 = phi ptr [ %1, %.lr.ph368 ], [ %.3274, %363 ]
-  %.0275364 = phi i32 [ 0, %.lr.ph368 ], [ %.1276, %363 ]
-  %.0277363 = phi i32 [ 128, %.lr.ph368 ], [ %.11, %363 ]
-  %.0281362 = phi ptr [ %5, %.lr.ph368 ], [ %.11292, %363 ]
-  %10 = getelementptr i8, ptr %.0271365, i64 1
-  %11 = load i8, ptr %.0271365, align 1
+  %.0271365 = phi i32 [ 0, %.lr.ph368 ], [ %.1272, %363 ]
+  %.0273364 = phi i32 [ 128, %.lr.ph368 ], [ %.11, %363 ]
+  %.0277363 = phi ptr [ %5, %.lr.ph368 ], [ %.11288, %363 ]
+  %.0289362 = phi ptr [ %1, %.lr.ph368 ], [ %.3292, %363 ]
+  %10 = getelementptr i8, ptr %.0289362, i64 1
+  %11 = load i8, ptr %.0289362, align 1
   %12 = zext i8 %11 to i64
   %13 = getelementptr i16, ptr %8, i64 %12
   %14 = load i16, ptr %13, align 2
@@ -1194,23 +1194,23 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br i1 %.not, label %27, label %17
 
 17:                                               ; preds = %9
-  %18 = add i32 %.0275364, 2
-  %.not312 = icmp ult i32 %18, %.0277363
+  %18 = add i32 %.0271365, 2
+  %.not312 = icmp ult i32 %18, %.0273364
   br i1 %.not312, label %23, label %19
 
 19:                                               ; preds = %17
-  %20 = shl i32 %.0277363, 1
+  %20 = shl i32 %.0273364, 1
   %21 = zext i32 %20 to i64
-  %22 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %21) #18
+  %22 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0277363, i64 noundef %21) #18
   br label %23
 
 23:                                               ; preds = %19, %17
-  %.1282 = phi ptr [ %22, %19 ], [ %.0281362, %17 ]
-  %.1278 = phi i32 [ %20, %19 ], [ %.0277363, %17 ]
-  %24 = zext i32 %.0275364 to i64
-  %25 = getelementptr i8, ptr %.1282, i64 %24
+  %.1278 = phi ptr [ %22, %19 ], [ %.0277363, %17 ]
+  %.1274 = phi i32 [ %20, %19 ], [ %.0273364, %17 ]
+  %24 = zext i32 %.0271365 to i64
+  %25 = getelementptr i8, ptr %.1278, i64 %24
   store i8 %11, ptr %25, align 1
-  %26 = add i32 %.0275364, 1
+  %26 = add i32 %.0271365, 1
   br label %363
 
 27:                                               ; preds = %9
@@ -1220,23 +1220,23 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br i1 %or.cond.not, label %29, label %39
 
 29:                                               ; preds = %27
-  %30 = add i32 %.0275364, 2
-  %.not311 = icmp ult i32 %30, %.0277363
+  %30 = add i32 %.0271365, 2
+  %.not311 = icmp ult i32 %30, %.0273364
   br i1 %.not311, label %35, label %31
 
 31:                                               ; preds = %29
-  %32 = shl i32 %.0277363, 1
+  %32 = shl i32 %.0273364, 1
   %33 = zext i32 %32 to i64
-  %34 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %33) #18
+  %34 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0277363, i64 noundef %33) #18
   br label %35
 
 35:                                               ; preds = %31, %29
-  %.2283 = phi ptr [ %34, %31 ], [ %.0281362, %29 ]
-  %.2279 = phi i32 [ %32, %31 ], [ %.0277363, %29 ]
-  %36 = zext i32 %.0275364 to i64
-  %37 = getelementptr i8, ptr %.2283, i64 %36
+  %.2279 = phi ptr [ %34, %31 ], [ %.0277363, %29 ]
+  %.2275 = phi i32 [ %32, %31 ], [ %.0273364, %29 ]
+  %36 = zext i32 %.0271365 to i64
+  %37 = getelementptr i8, ptr %.2279, i64 %36
   store i8 32, ptr %37, align 1
-  %38 = add i32 %.0275364, 1
+  %38 = add i32 %.0271365, 1
   br label %363
 
 39:                                               ; preds = %27
@@ -1245,23 +1245,23 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br i1 %41, label %42, label %102
 
 42:                                               ; preds = %39
-  %43 = add i32 %.0275364, 3
-  %.not309 = icmp ult i32 %43, %.0277363
+  %43 = add i32 %.0271365, 3
+  %.not309 = icmp ult i32 %43, %.0273364
   br i1 %.not309, label %48, label %44
 
 44:                                               ; preds = %42
-  %45 = shl i32 %.0277363, 1
+  %45 = shl i32 %.0273364, 1
   %46 = zext i32 %45 to i64
-  %47 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %46) #18
+  %47 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0277363, i64 noundef %46) #18
   br label %48
 
 48:                                               ; preds = %44, %42
-  %.3284 = phi ptr [ %47, %44 ], [ %.0281362, %42 ]
-  %.3280 = phi i32 [ %45, %44 ], [ %.0277363, %42 ]
-  %49 = zext i32 %.0275364 to i64
-  %50 = getelementptr i8, ptr %.3284, i64 %49
+  %.3280 = phi ptr [ %47, %44 ], [ %.0277363, %42 ]
+  %.3276 = phi i32 [ %45, %44 ], [ %.0273364, %42 ]
+  %49 = zext i32 %.0271365 to i64
+  %50 = getelementptr i8, ptr %.3280, i64 %49
   store i8 92, ptr %50, align 1
-  %51 = add i32 %.0275364, 1
+  %51 = add i32 %.0271365, 1
   switch i8 %11, label %80 [
     i8 7, label %52
     i8 8, label %56
@@ -1274,85 +1274,85 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 
 52:                                               ; preds = %48
   %53 = zext i32 %51 to i64
-  %54 = getelementptr i8, ptr %.3284, i64 %53
+  %54 = getelementptr i8, ptr %.3280, i64 %53
   store i8 97, ptr %54, align 1
-  %55 = add i32 %.0275364, 2
+  %55 = add i32 %.0271365, 2
   br label %363
 
 56:                                               ; preds = %48
   %57 = zext i32 %51 to i64
-  %58 = getelementptr i8, ptr %.3284, i64 %57
+  %58 = getelementptr i8, ptr %.3280, i64 %57
   store i8 98, ptr %58, align 1
-  %59 = add i32 %.0275364, 2
+  %59 = add i32 %.0271365, 2
   br label %363
 
 60:                                               ; preds = %48
   %61 = zext i32 %51 to i64
-  %62 = getelementptr i8, ptr %.3284, i64 %61
+  %62 = getelementptr i8, ptr %.3280, i64 %61
   store i8 102, ptr %62, align 1
-  %63 = add i32 %.0275364, 2
+  %63 = add i32 %.0271365, 2
   br label %363
 
 64:                                               ; preds = %48
   %65 = zext i32 %51 to i64
-  %66 = getelementptr i8, ptr %.3284, i64 %65
+  %66 = getelementptr i8, ptr %.3280, i64 %65
   store i8 110, ptr %66, align 1
-  %67 = add i32 %.0275364, 2
+  %67 = add i32 %.0271365, 2
   br label %363
 
 68:                                               ; preds = %48
   %69 = zext i32 %51 to i64
-  %70 = getelementptr i8, ptr %.3284, i64 %69
+  %70 = getelementptr i8, ptr %.3280, i64 %69
   store i8 114, ptr %70, align 1
-  %71 = add i32 %.0275364, 2
+  %71 = add i32 %.0271365, 2
   br label %363
 
 72:                                               ; preds = %48
   %73 = zext i32 %51 to i64
-  %74 = getelementptr i8, ptr %.3284, i64 %73
+  %74 = getelementptr i8, ptr %.3280, i64 %73
   store i8 116, ptr %74, align 1
-  %75 = add i32 %.0275364, 2
+  %75 = add i32 %.0271365, 2
   br label %363
 
 76:                                               ; preds = %48
   %77 = zext i32 %51 to i64
-  %78 = getelementptr i8, ptr %.3284, i64 %77
+  %78 = getelementptr i8, ptr %.3280, i64 %77
   store i8 118, ptr %78, align 1
-  %79 = add i32 %.0275364, 2
+  %79 = add i32 %.0271365, 2
   br label %363
 
 80:                                               ; preds = %48
-  %81 = add i32 %.0275364, 5
-  %.not310 = icmp ult i32 %81, %.3280
+  %81 = add i32 %.0271365, 5
+  %.not310 = icmp ult i32 %81, %.3276
   br i1 %.not310, label %86, label %82
 
 82:                                               ; preds = %80
-  %83 = shl i32 %.3280, 1
+  %83 = shl i32 %.3276, 1
   %84 = zext i32 %83 to i64
-  %85 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef nonnull %.3284, i64 noundef %84) #18
+  %85 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef nonnull %.3280, i64 noundef %84) #18
   br label %86
 
 86:                                               ; preds = %82, %80
-  %.4285 = phi ptr [ %85, %82 ], [ %.3284, %80 ]
-  %.4 = phi i32 [ %83, %82 ], [ %.3280, %80 ]
+  %.4281 = phi ptr [ %85, %82 ], [ %.3280, %80 ]
+  %.4 = phi i32 [ %83, %82 ], [ %.3276, %80 ]
   %87 = lshr i8 %11, 6
   %88 = or disjoint i8 %87, 48
   %89 = zext i32 %51 to i64
-  %90 = getelementptr i8, ptr %.4285, i64 %89
+  %90 = getelementptr i8, ptr %.4281, i64 %89
   store i8 %88, ptr %90, align 1
-  %91 = add i32 %.0275364, 2
+  %91 = add i32 %.0271365, 2
   %92 = lshr i8 %11, 3
   %93 = and i8 %92, 7
   %94 = or disjoint i8 %93, 48
   %95 = zext i32 %91 to i64
-  %96 = getelementptr i8, ptr %.4285, i64 %95
+  %96 = getelementptr i8, ptr %.4281, i64 %95
   store i8 %94, ptr %96, align 1
   %97 = and i8 %11, 7
   %98 = or disjoint i8 %97, 48
   %99 = zext i32 %43 to i64
-  %100 = getelementptr i8, ptr %.4285, i64 %99
+  %100 = getelementptr i8, ptr %.4281, i64 %99
   store i8 %98, ptr %100, align 1
-  %101 = add i32 %.0275364, 4
+  %101 = add i32 %.0271365, 4
   br label %363
 
 102:                                              ; preds = %39
@@ -1383,7 +1383,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 .thread:                                          ; preds = %111, %108, %105, %102, %114
   %.1264321 = phi i8 [ 1, %114 ], [ 3, %111 ], [ 7, %108 ], [ 15, %105 ], [ 31, %102 ]
   %.0266319 = phi i32 [ 5, %114 ], [ 4, %111 ], [ 3, %108 ], [ 2, %105 ], [ 1, %102 ]
-  %scevgep = getelementptr i8, ptr %.0271365, i64 2
+  %scevgep = getelementptr i8, ptr %.0289362, i64 2
   %117 = zext nneg i32 %.0266319 to i64
   %118 = getelementptr i8, ptr %scevgep, i64 %117
   %scevgep372 = getelementptr i8, ptr %118, i64 -1
@@ -1396,15 +1396,15 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br label %123
 
 121:                                              ; preds = %127
-  %122 = getelementptr i8, ptr %.1272356377, i64 1
+  %122 = getelementptr i8, ptr %.1290356377, i64 1
   %.not298 = icmp ult ptr %122, %6
   br i1 %.not298, label %123, label %._crit_edge379, !llvm.loop !24
 
 123:                                              ; preds = %.lr.ph378, %121
-  %.1272356377 = phi ptr [ %10, %.lr.ph378 ], [ %122, %121 ]
+  %.1290356377 = phi ptr [ %10, %.lr.ph378 ], [ %122, %121 ]
   %.0262358376 = phi i32 [ %120, %.lr.ph378 ], [ %130, %121 ]
   %.0260359375 = phi i32 [ 0, %.lr.ph378 ], [ %131, %121 ]
-  %124 = load i8, ptr %.1272356377, align 1
+  %124 = load i8, ptr %.1290356377, align 1
   %125 = zext i8 %124 to i32
   %126 = and i32 %125, 192
   %.not299 = icmp eq i32 %126, 128
@@ -1419,7 +1419,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br i1 %exitcond.not, label %._crit_edge379, label %121, !llvm.loop !24
 
 ._crit_edge379:                                   ; preds = %123, %121, %127, %.thread
-  %.1272.lcssa = phi ptr [ %10, %.thread ], [ %.1272356377, %123 ], [ %122, %121 ], [ %scevgep372, %127 ]
+  %.1290.lcssa = phi ptr [ %10, %.thread ], [ %.1290356377, %123 ], [ %122, %121 ], [ %scevgep372, %127 ]
   %.1269 = phi i8 [ %11, %.thread ], [ %124, %127 ], [ %124, %121 ], [ %124, %123 ]
   %.1 = phi i32 [ 65533, %.thread ], [ 65533, %123 ], [ 65533, %121 ], [ %130, %127 ]
   %132 = tail call i32 @g_unichar_validate(i32 noundef %.1) #19
@@ -1457,24 +1457,24 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br label %.thread352
 
 .thread352:                                       ; preds = %.thread322, %143, %141, %139, %137, %135
-  %.2273330342 = phi ptr [ %.1272.lcssa, %135 ], [ %.1272.lcssa, %137 ], [ %.1272.lcssa, %139 ], [ %.1272.lcssa, %141 ], [ %.1272.lcssa, %143 ], [ %10, %.thread322 ]
+  %.2291330342 = phi ptr [ %.1290.lcssa, %135 ], [ %.1290.lcssa, %137 ], [ %.1290.lcssa, %139 ], [ %.1290.lcssa, %141 ], [ %.1290.lcssa, %143 ], [ %10, %.thread322 ]
   %.2333340 = phi i32 [ %.1, %135 ], [ %.1, %137 ], [ %spec.store.select, %139 ], [ %.1, %141 ], [ %.1, %143 ], [ 65533, %.thread322 ]
   %.1267 = phi i32 [ 1, %135 ], [ 2, %137 ], [ 3, %139 ], [ 4, %141 ], [ %.315, %143 ], [ 3, %.thread322 ]
   %.0261 = phi i32 [ 0, %135 ], [ 192, %137 ], [ 224, %139 ], [ 240, %141 ], [ %.316, %143 ], [ 224, %.thread322 ]
-  %145 = add i32 %.0275364, 1
+  %145 = add i32 %.0271365, 1
   %146 = add i32 %145, %.1267
-  %.not308 = icmp ult i32 %146, %.0277363
+  %.not308 = icmp ult i32 %146, %.0273364
   br i1 %.not308, label %151, label %147
 
 147:                                              ; preds = %.thread352
-  %148 = shl i32 %.0277363, 1
+  %148 = shl i32 %.0273364, 1
   %149 = zext i32 %148 to i64
-  %150 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %149) #18
+  %150 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0277363, i64 noundef %149) #18
   br label %151
 
 151:                                              ; preds = %147, %.thread352
-  %.5286 = phi ptr [ %150, %147 ], [ %.0281362, %.thread352 ]
-  %.5 = phi i32 [ %148, %147 ], [ %.0277363, %.thread352 ]
+  %.5282 = phi ptr [ %150, %147 ], [ %.0277363, %.thread352 ]
+  %.5 = phi i32 [ %148, %147 ], [ %.0273364, %.thread352 ]
   %152 = icmp ugt i32 %.1267, 1
   br i1 %152, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1490,9 +1490,9 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %155 = and i8 %154, 63
   %156 = or disjoint i8 %155, -128
   %157 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %158 = add i32 %.0275364, %157
+  %158 = add i32 %.0271365, %157
   %159 = zext i32 %158 to i64
-  %160 = getelementptr i8, ptr %.5286, i64 %159
+  %160 = getelementptr i8, ptr %.5282, i64 %159
   store i8 %156, ptr %160, align 1
   %161 = lshr i32 %.3360, 6
   %162 = icmp ugt i64 %indvars.iv, 2
@@ -1502,16 +1502,16 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %.3.lcssa = phi i32 [ %.2333340, %151 ], [ %161, %.lr.ph ]
   %163 = or i32 %.3.lcssa, %.0261
   %164 = trunc i32 %163 to i8
-  %165 = zext i32 %.0275364 to i64
-  %166 = getelementptr i8, ptr %.5286, i64 %165
+  %165 = zext i32 %.0271365 to i64
+  %166 = getelementptr i8, ptr %.5282, i64 %165
   store i8 %164, ptr %166, align 1
-  %167 = add i32 %.1267, %.0275364
+  %167 = add i32 %.1267, %.0271365
   br label %363
 
 168:                                              ; preds = %.thread322, %._crit_edge379
   %.2334 = phi i32 [ 65533, %.thread322 ], [ %spec.store.select, %._crit_edge379 ]
   %.2270332 = phi i8 [ %11, %.thread322 ], [ %.1269, %._crit_edge379 ]
-  %.2273331 = phi ptr [ %10, %.thread322 ], [ %.1272.lcssa, %._crit_edge379 ]
+  %.2291331 = phi ptr [ %10, %.thread322 ], [ %.1290.lcssa, %._crit_edge379 ]
   br i1 %3, label %169, label %181
 
 169:                                              ; preds = %168
@@ -1520,23 +1520,23 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br i1 %.not302, label %181, label %171
 
 171:                                              ; preds = %169
-  %172 = add i32 %.0275364, 2
-  %.not307 = icmp ult i32 %172, %.0277363
+  %172 = add i32 %.0271365, 2
+  %.not307 = icmp ult i32 %172, %.0273364
   br i1 %.not307, label %177, label %173
 
 173:                                              ; preds = %171
-  %174 = shl i32 %.0277363, 1
+  %174 = shl i32 %.0273364, 1
   %175 = zext i32 %174 to i64
-  %176 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %175) #18
+  %176 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0277363, i64 noundef %175) #18
   br label %177
 
 177:                                              ; preds = %173, %171
-  %.6287 = phi ptr [ %176, %173 ], [ %.0281362, %171 ]
-  %.6 = phi i32 [ %174, %173 ], [ %.0277363, %171 ]
-  %178 = zext i32 %.0275364 to i64
-  %179 = getelementptr i8, ptr %.6287, i64 %178
+  %.6283 = phi ptr [ %176, %173 ], [ %.0277363, %171 ]
+  %.6 = phi i32 [ %174, %173 ], [ %.0273364, %171 ]
+  %178 = zext i32 %.0271365 to i64
+  %179 = getelementptr i8, ptr %.6283, i64 %178
   store i8 32, ptr %179, align 1
-  %180 = add i32 %.0275364, 1
+  %180 = add i32 %.0271365, 1
   br label %363
 
 181:                                              ; preds = %169, %168
@@ -1544,23 +1544,23 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br i1 %182, label %183, label %243
 
 183:                                              ; preds = %181
-  %184 = add i32 %.0275364, 3
-  %.not305 = icmp ult i32 %184, %.0277363
+  %184 = add i32 %.0271365, 3
+  %.not305 = icmp ult i32 %184, %.0273364
   br i1 %.not305, label %189, label %185
 
 185:                                              ; preds = %183
-  %186 = shl i32 %.0277363, 1
+  %186 = shl i32 %.0273364, 1
   %187 = zext i32 %186 to i64
-  %188 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %187) #18
+  %188 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0277363, i64 noundef %187) #18
   br label %189
 
 189:                                              ; preds = %185, %183
-  %.7288 = phi ptr [ %188, %185 ], [ %.0281362, %183 ]
-  %.7 = phi i32 [ %186, %185 ], [ %.0277363, %183 ]
-  %190 = zext i32 %.0275364 to i64
-  %191 = getelementptr i8, ptr %.7288, i64 %190
+  %.7284 = phi ptr [ %188, %185 ], [ %.0277363, %183 ]
+  %.7 = phi i32 [ %186, %185 ], [ %.0273364, %183 ]
+  %190 = zext i32 %.0271365 to i64
+  %191 = getelementptr i8, ptr %.7284, i64 %190
   store i8 92, ptr %191, align 1
-  %192 = add i32 %.0275364, 1
+  %192 = add i32 %.0271365, 1
   switch i8 %.2270332, label %221 [
     i8 7, label %193
     i8 8, label %197
@@ -1573,85 +1573,85 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 
 193:                                              ; preds = %189
   %194 = zext i32 %192 to i64
-  %195 = getelementptr i8, ptr %.7288, i64 %194
+  %195 = getelementptr i8, ptr %.7284, i64 %194
   store i8 97, ptr %195, align 1
-  %196 = add i32 %.0275364, 2
+  %196 = add i32 %.0271365, 2
   br label %363
 
 197:                                              ; preds = %189
   %198 = zext i32 %192 to i64
-  %199 = getelementptr i8, ptr %.7288, i64 %198
+  %199 = getelementptr i8, ptr %.7284, i64 %198
   store i8 98, ptr %199, align 1
-  %200 = add i32 %.0275364, 2
+  %200 = add i32 %.0271365, 2
   br label %363
 
 201:                                              ; preds = %189
   %202 = zext i32 %192 to i64
-  %203 = getelementptr i8, ptr %.7288, i64 %202
+  %203 = getelementptr i8, ptr %.7284, i64 %202
   store i8 102, ptr %203, align 1
-  %204 = add i32 %.0275364, 2
+  %204 = add i32 %.0271365, 2
   br label %363
 
 205:                                              ; preds = %189
   %206 = zext i32 %192 to i64
-  %207 = getelementptr i8, ptr %.7288, i64 %206
+  %207 = getelementptr i8, ptr %.7284, i64 %206
   store i8 110, ptr %207, align 1
-  %208 = add i32 %.0275364, 2
+  %208 = add i32 %.0271365, 2
   br label %363
 
 209:                                              ; preds = %189
   %210 = zext i32 %192 to i64
-  %211 = getelementptr i8, ptr %.7288, i64 %210
+  %211 = getelementptr i8, ptr %.7284, i64 %210
   store i8 114, ptr %211, align 1
-  %212 = add i32 %.0275364, 2
+  %212 = add i32 %.0271365, 2
   br label %363
 
 213:                                              ; preds = %189
   %214 = zext i32 %192 to i64
-  %215 = getelementptr i8, ptr %.7288, i64 %214
+  %215 = getelementptr i8, ptr %.7284, i64 %214
   store i8 116, ptr %215, align 1
-  %216 = add i32 %.0275364, 2
+  %216 = add i32 %.0271365, 2
   br label %363
 
 217:                                              ; preds = %189
   %218 = zext i32 %192 to i64
-  %219 = getelementptr i8, ptr %.7288, i64 %218
+  %219 = getelementptr i8, ptr %.7284, i64 %218
   store i8 118, ptr %219, align 1
-  %220 = add i32 %.0275364, 2
+  %220 = add i32 %.0271365, 2
   br label %363
 
 221:                                              ; preds = %189
-  %222 = add i32 %.0275364, 5
+  %222 = add i32 %.0271365, 5
   %.not306 = icmp ult i32 %222, %.7
   br i1 %.not306, label %227, label %223
 
 223:                                              ; preds = %221
   %224 = shl i32 %.7, 1
   %225 = zext i32 %224 to i64
-  %226 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef nonnull %.7288, i64 noundef %225) #18
+  %226 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef nonnull %.7284, i64 noundef %225) #18
   br label %227
 
 227:                                              ; preds = %223, %221
-  %.8289 = phi ptr [ %226, %223 ], [ %.7288, %221 ]
+  %.8285 = phi ptr [ %226, %223 ], [ %.7284, %221 ]
   %.8 = phi i32 [ %224, %223 ], [ %.7, %221 ]
   %228 = lshr i8 %.2270332, 6
   %229 = or disjoint i8 %228, 48
   %230 = zext i32 %192 to i64
-  %231 = getelementptr i8, ptr %.8289, i64 %230
+  %231 = getelementptr i8, ptr %.8285, i64 %230
   store i8 %229, ptr %231, align 1
-  %232 = add i32 %.0275364, 2
+  %232 = add i32 %.0271365, 2
   %233 = lshr i8 %.2270332, 3
   %234 = and i8 %233, 7
   %235 = or disjoint i8 %234, 48
   %236 = zext i32 %232 to i64
-  %237 = getelementptr i8, ptr %.8289, i64 %236
+  %237 = getelementptr i8, ptr %.8285, i64 %236
   store i8 %235, ptr %237, align 1
   %238 = and i8 %.2270332, 7
   %239 = or disjoint i8 %238, 48
   %240 = zext i32 %184 to i64
-  %241 = getelementptr i8, ptr %.8289, i64 %240
+  %241 = getelementptr i8, ptr %.8285, i64 %240
   store i8 %239, ptr %241, align 1
-  %242 = add i32 %.0275364, 4
+  %242 = add i32 %.0271365, 4
   br label %363
 
 243:                                              ; preds = %181
@@ -1659,175 +1659,175 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br i1 %244, label %245, label %288
 
 245:                                              ; preds = %243
-  %246 = add i32 %.0275364, 7
-  %.not304 = icmp ult i32 %246, %.0277363
+  %246 = add i32 %.0271365, 7
+  %.not304 = icmp ult i32 %246, %.0273364
   br i1 %.not304, label %251, label %247
 
 247:                                              ; preds = %245
-  %248 = shl i32 %.0277363, 1
+  %248 = shl i32 %.0273364, 1
   %249 = zext i32 %248 to i64
-  %250 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %249) #18
+  %250 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0277363, i64 noundef %249) #18
   br label %251
 
 251:                                              ; preds = %247, %245
-  %.9290 = phi ptr [ %250, %247 ], [ %.0281362, %245 ]
-  %.9 = phi i32 [ %248, %247 ], [ %.0277363, %245 ]
-  %252 = zext i32 %.0275364 to i64
-  %253 = getelementptr i8, ptr %.9290, i64 %252
+  %.9286 = phi ptr [ %250, %247 ], [ %.0277363, %245 ]
+  %.9 = phi i32 [ %248, %247 ], [ %.0273364, %245 ]
+  %252 = zext i32 %.0271365 to i64
+  %253 = getelementptr i8, ptr %.9286, i64 %252
   store i8 92, ptr %253, align 1
-  %254 = add i32 %.0275364, 1
+  %254 = add i32 %.0271365, 1
   %255 = zext i32 %254 to i64
-  %256 = getelementptr i8, ptr %.9290, i64 %255
+  %256 = getelementptr i8, ptr %.9286, i64 %255
   store i8 117, ptr %256, align 1
-  %257 = add i32 %.0275364, 2
+  %257 = add i32 %.0271365, 2
   %258 = lshr i32 %.2334, 12
   %259 = zext nneg i32 %258 to i64
   %260 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %259
   %261 = load i8, ptr %260, align 1
   %262 = zext i32 %257 to i64
-  %263 = getelementptr i8, ptr %.9290, i64 %262
+  %263 = getelementptr i8, ptr %.9286, i64 %262
   store i8 %261, ptr %263, align 1
-  %264 = add i32 %.0275364, 3
+  %264 = add i32 %.0271365, 3
   %265 = lshr i32 %.2334, 8
   %266 = and i32 %265, 15
   %267 = zext nneg i32 %266 to i64
   %268 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %267
   %269 = load i8, ptr %268, align 1
   %270 = zext i32 %264 to i64
-  %271 = getelementptr i8, ptr %.9290, i64 %270
+  %271 = getelementptr i8, ptr %.9286, i64 %270
   store i8 %269, ptr %271, align 1
-  %272 = add i32 %.0275364, 4
+  %272 = add i32 %.0271365, 4
   %273 = lshr i32 %.2334, 4
   %274 = and i32 %273, 15
   %275 = zext nneg i32 %274 to i64
   %276 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %275
   %277 = load i8, ptr %276, align 1
   %278 = zext i32 %272 to i64
-  %279 = getelementptr i8, ptr %.9290, i64 %278
+  %279 = getelementptr i8, ptr %.9286, i64 %278
   store i8 %277, ptr %279, align 1
-  %280 = add i32 %.0275364, 5
+  %280 = add i32 %.0271365, 5
   %281 = and i32 %.2334, 15
   %282 = zext nneg i32 %281 to i64
   %283 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %282
   %284 = load i8, ptr %283, align 1
   %285 = zext i32 %280 to i64
-  %286 = getelementptr i8, ptr %.9290, i64 %285
+  %286 = getelementptr i8, ptr %.9286, i64 %285
   store i8 %284, ptr %286, align 1
-  %287 = add i32 %.0275364, 6
+  %287 = add i32 %.0271365, 6
   br label %363
 
 288:                                              ; preds = %243
-  %289 = add i32 %.0275364, 11
-  %.not303 = icmp ult i32 %289, %.0277363
+  %289 = add i32 %.0271365, 11
+  %.not303 = icmp ult i32 %289, %.0273364
   br i1 %.not303, label %294, label %290
 
 290:                                              ; preds = %288
-  %291 = shl i32 %.0277363, 1
+  %291 = shl i32 %.0273364, 1
   %292 = zext i32 %291 to i64
-  %293 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0281362, i64 noundef %292) #18
+  %293 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0277363, i64 noundef %292) #18
   br label %294
 
 294:                                              ; preds = %290, %288
-  %.10291 = phi ptr [ %293, %290 ], [ %.0281362, %288 ]
-  %.10 = phi i32 [ %291, %290 ], [ %.0277363, %288 ]
-  %295 = zext i32 %.0275364 to i64
-  %296 = getelementptr i8, ptr %.10291, i64 %295
+  %.10287 = phi ptr [ %293, %290 ], [ %.0277363, %288 ]
+  %.10 = phi i32 [ %291, %290 ], [ %.0273364, %288 ]
+  %295 = zext i32 %.0271365 to i64
+  %296 = getelementptr i8, ptr %.10287, i64 %295
   store i8 92, ptr %296, align 1
-  %297 = add i32 %.0275364, 1
+  %297 = add i32 %.0271365, 1
   %298 = zext i32 %297 to i64
-  %299 = getelementptr i8, ptr %.10291, i64 %298
+  %299 = getelementptr i8, ptr %.10287, i64 %298
   store i8 85, ptr %299, align 1
-  %300 = add i32 %.0275364, 2
+  %300 = add i32 %.0271365, 2
   %301 = lshr i32 %.2334, 28
   %302 = zext nneg i32 %301 to i64
   %303 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %302
   %304 = load i8, ptr %303, align 1
   %305 = zext i32 %300 to i64
-  %306 = getelementptr i8, ptr %.10291, i64 %305
+  %306 = getelementptr i8, ptr %.10287, i64 %305
   store i8 %304, ptr %306, align 1
-  %307 = add i32 %.0275364, 3
+  %307 = add i32 %.0271365, 3
   %308 = lshr i32 %.2334, 24
   %309 = and i32 %308, 15
   %310 = zext nneg i32 %309 to i64
   %311 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %310
   %312 = load i8, ptr %311, align 1
   %313 = zext i32 %307 to i64
-  %314 = getelementptr i8, ptr %.10291, i64 %313
+  %314 = getelementptr i8, ptr %.10287, i64 %313
   store i8 %312, ptr %314, align 1
-  %315 = add i32 %.0275364, 4
+  %315 = add i32 %.0271365, 4
   %316 = lshr i32 %.2334, 20
   %317 = and i32 %316, 15
   %318 = zext nneg i32 %317 to i64
   %319 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %318
   %320 = load i8, ptr %319, align 1
   %321 = zext i32 %315 to i64
-  %322 = getelementptr i8, ptr %.10291, i64 %321
+  %322 = getelementptr i8, ptr %.10287, i64 %321
   store i8 %320, ptr %322, align 1
-  %323 = add i32 %.0275364, 5
+  %323 = add i32 %.0271365, 5
   %324 = lshr i32 %.2334, 16
   %325 = and i32 %324, 15
   %326 = zext nneg i32 %325 to i64
   %327 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %326
   %328 = load i8, ptr %327, align 1
   %329 = zext i32 %323 to i64
-  %330 = getelementptr i8, ptr %.10291, i64 %329
+  %330 = getelementptr i8, ptr %.10287, i64 %329
   store i8 %328, ptr %330, align 1
-  %331 = add i32 %.0275364, 6
+  %331 = add i32 %.0271365, 6
   %332 = lshr i32 %.2334, 12
   %333 = and i32 %332, 15
   %334 = zext nneg i32 %333 to i64
   %335 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %334
   %336 = load i8, ptr %335, align 1
   %337 = zext i32 %331 to i64
-  %338 = getelementptr i8, ptr %.10291, i64 %337
+  %338 = getelementptr i8, ptr %.10287, i64 %337
   store i8 %336, ptr %338, align 1
-  %339 = add i32 %.0275364, 7
+  %339 = add i32 %.0271365, 7
   %340 = lshr i32 %.2334, 8
   %341 = and i32 %340, 15
   %342 = zext nneg i32 %341 to i64
   %343 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %342
   %344 = load i8, ptr %343, align 1
   %345 = zext i32 %339 to i64
-  %346 = getelementptr i8, ptr %.10291, i64 %345
+  %346 = getelementptr i8, ptr %.10287, i64 %345
   store i8 %344, ptr %346, align 1
-  %347 = add i32 %.0275364, 8
+  %347 = add i32 %.0271365, 8
   %348 = lshr i32 %.2334, 4
   %349 = and i32 %348, 15
   %350 = zext nneg i32 %349 to i64
   %351 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %350
   %352 = load i8, ptr %351, align 1
   %353 = zext i32 %347 to i64
-  %354 = getelementptr i8, ptr %.10291, i64 %353
+  %354 = getelementptr i8, ptr %.10287, i64 %353
   store i8 %352, ptr %354, align 1
-  %355 = add i32 %.0275364, 9
+  %355 = add i32 %.0271365, 9
   %356 = and i32 %.2334, 15
   %357 = zext nneg i32 %356 to i64
   %358 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %357
   %359 = load i8, ptr %358, align 1
   %360 = zext i32 %355 to i64
-  %361 = getelementptr i8, ptr %.10291, i64 %360
+  %361 = getelementptr i8, ptr %.10287, i64 %360
   store i8 %359, ptr %361, align 1
-  %362 = add i32 %.0275364, 10
+  %362 = add i32 %.0271365, 10
   br label %363
 
 363:                                              ; preds = %35, %._crit_edge, %227, %217, %213, %209, %205, %201, %197, %193, %294, %251, %177, %52, %56, %60, %64, %68, %72, %76, %86, %23
-  %.11292 = phi ptr [ %.1282, %23 ], [ %.2283, %35 ], [ %.4285, %86 ], [ %.3284, %76 ], [ %.3284, %72 ], [ %.3284, %68 ], [ %.3284, %64 ], [ %.3284, %60 ], [ %.3284, %56 ], [ %.3284, %52 ], [ %.5286, %._crit_edge ], [ %.6287, %177 ], [ %.8289, %227 ], [ %.7288, %217 ], [ %.7288, %213 ], [ %.7288, %209 ], [ %.7288, %205 ], [ %.7288, %201 ], [ %.7288, %197 ], [ %.7288, %193 ], [ %.9290, %251 ], [ %.10291, %294 ]
-  %.11 = phi i32 [ %.1278, %23 ], [ %.2279, %35 ], [ %.4, %86 ], [ %.3280, %76 ], [ %.3280, %72 ], [ %.3280, %68 ], [ %.3280, %64 ], [ %.3280, %60 ], [ %.3280, %56 ], [ %.3280, %52 ], [ %.5, %._crit_edge ], [ %.6, %177 ], [ %.8, %227 ], [ %.7, %217 ], [ %.7, %213 ], [ %.7, %209 ], [ %.7, %205 ], [ %.7, %201 ], [ %.7, %197 ], [ %.7, %193 ], [ %.9, %251 ], [ %.10, %294 ]
-  %.1276 = phi i32 [ %26, %23 ], [ %38, %35 ], [ %101, %86 ], [ %79, %76 ], [ %75, %72 ], [ %71, %68 ], [ %67, %64 ], [ %63, %60 ], [ %59, %56 ], [ %55, %52 ], [ %167, %._crit_edge ], [ %180, %177 ], [ %242, %227 ], [ %220, %217 ], [ %216, %213 ], [ %212, %209 ], [ %208, %205 ], [ %204, %201 ], [ %200, %197 ], [ %196, %193 ], [ %287, %251 ], [ %362, %294 ]
-  %.3274 = phi ptr [ %10, %23 ], [ %10, %35 ], [ %10, %86 ], [ %10, %76 ], [ %10, %72 ], [ %10, %68 ], [ %10, %64 ], [ %10, %60 ], [ %10, %56 ], [ %10, %52 ], [ %.2273330342, %._crit_edge ], [ %.2273331, %177 ], [ %.2273331, %227 ], [ %.2273331, %217 ], [ %.2273331, %213 ], [ %.2273331, %209 ], [ %.2273331, %205 ], [ %.2273331, %201 ], [ %.2273331, %197 ], [ %.2273331, %193 ], [ %.2273331, %251 ], [ %.2273331, %294 ]
-  %364 = icmp ult ptr %.3274, %6
+  %.3292 = phi ptr [ %10, %23 ], [ %10, %35 ], [ %10, %86 ], [ %10, %76 ], [ %10, %72 ], [ %10, %68 ], [ %10, %64 ], [ %10, %60 ], [ %10, %56 ], [ %10, %52 ], [ %.2291330342, %._crit_edge ], [ %.2291331, %177 ], [ %.2291331, %227 ], [ %.2291331, %217 ], [ %.2291331, %213 ], [ %.2291331, %209 ], [ %.2291331, %205 ], [ %.2291331, %201 ], [ %.2291331, %197 ], [ %.2291331, %193 ], [ %.2291331, %251 ], [ %.2291331, %294 ]
+  %.11288 = phi ptr [ %.1278, %23 ], [ %.2279, %35 ], [ %.4281, %86 ], [ %.3280, %76 ], [ %.3280, %72 ], [ %.3280, %68 ], [ %.3280, %64 ], [ %.3280, %60 ], [ %.3280, %56 ], [ %.3280, %52 ], [ %.5282, %._crit_edge ], [ %.6283, %177 ], [ %.8285, %227 ], [ %.7284, %217 ], [ %.7284, %213 ], [ %.7284, %209 ], [ %.7284, %205 ], [ %.7284, %201 ], [ %.7284, %197 ], [ %.7284, %193 ], [ %.9286, %251 ], [ %.10287, %294 ]
+  %.11 = phi i32 [ %.1274, %23 ], [ %.2275, %35 ], [ %.4, %86 ], [ %.3276, %76 ], [ %.3276, %72 ], [ %.3276, %68 ], [ %.3276, %64 ], [ %.3276, %60 ], [ %.3276, %56 ], [ %.3276, %52 ], [ %.5, %._crit_edge ], [ %.6, %177 ], [ %.8, %227 ], [ %.7, %217 ], [ %.7, %213 ], [ %.7, %209 ], [ %.7, %205 ], [ %.7, %201 ], [ %.7, %197 ], [ %.7, %193 ], [ %.9, %251 ], [ %.10, %294 ]
+  %.1272 = phi i32 [ %26, %23 ], [ %38, %35 ], [ %101, %86 ], [ %79, %76 ], [ %75, %72 ], [ %71, %68 ], [ %67, %64 ], [ %63, %60 ], [ %59, %56 ], [ %55, %52 ], [ %167, %._crit_edge ], [ %180, %177 ], [ %242, %227 ], [ %220, %217 ], [ %216, %213 ], [ %212, %209 ], [ %208, %205 ], [ %204, %201 ], [ %200, %197 ], [ %196, %193 ], [ %287, %251 ], [ %362, %294 ]
+  %364 = icmp ult ptr %.3292, %6
   br i1 %364, label %9, label %._crit_edge369.loopexit, !llvm.loop !26
 
 ._crit_edge369.loopexit:                          ; preds = %363
-  %365 = zext i32 %.1276 to i64
+  %365 = zext i32 %.1272 to i64
   br label %._crit_edge369
 
 ._crit_edge369:                                   ; preds = %._crit_edge369.loopexit, %4
-  %.0281.lcssa = phi ptr [ %5, %4 ], [ %.11292, %._crit_edge369.loopexit ]
-  %.0275.lcssa = phi i64 [ 0, %4 ], [ %365, %._crit_edge369.loopexit ]
-  %366 = getelementptr i8, ptr %.0281.lcssa, i64 %.0275.lcssa
+  %.0277.lcssa = phi ptr [ %5, %4 ], [ %.11288, %._crit_edge369.loopexit ]
+  %.0271.lcssa = phi i64 [ 0, %4 ], [ %365, %._crit_edge369.loopexit ]
+  %366 = getelementptr i8, ptr %.0277.lcssa, i64 %.0271.lcssa
   store i8 0, ptr %366, align 1
-  ret ptr %.0281.lcssa
+  ret ptr %.0277.lcssa
 }
 
 ; Function Attrs: nounwind uwtable

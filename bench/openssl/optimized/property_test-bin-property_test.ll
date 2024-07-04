@@ -679,8 +679,8 @@ if.end19:                                         ; preds = %if.else, %if.then8
   br label %err
 
 err:                                              ; preds = %if.else, %if.then8, %entry, %lor.lhs.false, %if.end19
-  %r.0 = phi i32 [ 1, %if.end19 ], [ 0, %if.then8 ], [ 0, %if.else ], [ 0, %lor.lhs.false ], [ 0, %entry ]
   %p.1 = phi ptr [ %p.0, %if.end19 ], [ %call9, %if.then8 ], [ %call14, %if.else ], [ null, %lor.lhs.false ], [ null, %entry ]
+  %r.0 = phi i32 [ 1, %if.end19 ], [ 0, %if.then8 ], [ 0, %if.else ], [ 0, %lor.lhs.false ], [ 0, %entry ]
   tail call void @ossl_property_free(ptr noundef %p.1) #5
   tail call void @ossl_method_store_free(ptr noundef %call) #5
   ret i32 %r.0
@@ -1522,8 +1522,8 @@ lor.lhs.false21:                                  ; preds = %lor.lhs.false16
   br label %err
 
 err:                                              ; preds = %lor.lhs.false21, %if.end9, %lor.lhs.false, %lor.lhs.false16, %if.end, %land.lhs.true
-  %ret.0 = phi i32 [ 0, %lor.lhs.false16 ], [ 0, %lor.lhs.false ], [ 0, %if.end9 ], [ 0, %if.end ], [ 0, %land.lhs.true ], [ %spec.select, %lor.lhs.false21 ]
   %pl.1 = phi ptr [ %pl.0, %lor.lhs.false16 ], [ %pl.0, %lor.lhs.false ], [ %pl.0, %if.end9 ], [ %pl.0, %if.end ], [ %call, %land.lhs.true ], [ %pl.0, %lor.lhs.false21 ]
+  %ret.0 = phi i32 [ 0, %lor.lhs.false16 ], [ 0, %lor.lhs.false ], [ 0, %if.end9 ], [ 0, %if.end ], [ 0, %land.lhs.true ], [ %spec.select, %lor.lhs.false21 ]
   %buf.0 = phi ptr [ %call10, %lor.lhs.false16 ], [ %call10, %lor.lhs.false ], [ %call10, %if.end9 ], [ null, %if.end ], [ null, %land.lhs.true ], [ %call10, %lor.lhs.false21 ]
   tail call void @CRYPTO_free(ptr noundef %buf.0, ptr noundef nonnull @.str.12, i32 noundef 685) #5
   tail call void @ossl_property_free(ptr noundef %pl.1) #5

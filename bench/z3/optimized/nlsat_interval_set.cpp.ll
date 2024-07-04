@@ -972,9 +972,9 @@ for.body.preheader:                               ; preds = %while.end183
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv357 = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next358, %for.inc ]
-  %j.0338 = phi i32 [ 0, %for.body.preheader ], [ %j.1, %for.inc ]
+  %j.0337 = phi i32 [ 0, %for.body.preheader ], [ %j.1, %for.inc ]
   %52 = load ptr, ptr %result, align 8
-  %idxprom.i = zext i32 %j.0338 to i64
+  %idxprom.i = zext i32 %j.0337 to i64
   %arrayidx.i = getelementptr inbounds %"struct.nlsat::interval", ptr %52, i64 %idxprom.i
   %arrayidx.i228 = getelementptr inbounds %"struct.nlsat::interval", ptr %52, i64 %indvars.iv357
   %m_justification191 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
@@ -1021,7 +1021,7 @@ if.then198:                                       ; preds = %invoke.cont196
   br label %for.inc
 
 if.else217:                                       ; preds = %call.i.noexc237, %invoke.cont196, %for.body
-  %inc218 = add i32 %j.0338, 1
+  %inc218 = add i32 %j.0337, 1
   %59 = zext i32 %inc218 to i64
   %cmp219.not = icmp eq i64 %indvars.iv357, %59
   br i1 %cmp219.not, label %for.inc, label %if.then220
@@ -1065,7 +1065,7 @@ if.then220:                                       ; preds = %if.else217
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then198, %if.then220, %if.else217
-  %j.1 = phi i32 [ %j.0338, %if.then198 ], [ %inc218, %if.then220 ], [ %inc218, %if.else217 ]
+  %j.1 = phi i32 [ %j.0337, %if.then198 ], [ %inc218, %if.then220 ], [ %inc218, %if.else217 ]
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
   %exitcond361.not = icmp eq i64 %indvars.iv.next358, %wide.trip.count360
   br i1 %exitcond361.not, label %for.end, label %for.body, !llvm.loop !9

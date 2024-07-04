@@ -519,8 +519,8 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit153:            ; preds = %163, %161, %159, %1
 218:                                              ; preds = %211, %216, %.loopexit187
   %219 = phi i32 [ %217, %216 ], [ %212, %211 ], [ %193, %.loopexit187 ]
   %.0134 = phi i1 [ true, %216 ], [ false, %211 ], [ false, %.loopexit187 ]
-  %.1131 = phi i1 [ %.not, %216 ], [ %.not, %211 ], [ false, %.loopexit187 ]
-  %.1129 = phi i1 [ %201, %216 ], [ %201, %211 ], [ false, %.loopexit187 ]
+  %.1133 = phi i1 [ %.not, %216 ], [ %.not, %211 ], [ false, %.loopexit187 ]
+  %.1131 = phi i1 [ %201, %216 ], [ %201, %211 ], [ false, %.loopexit187 ]
   %220 = sext i32 %219 to i64
   %221 = getelementptr inbounds i8, ptr %0, i64 8
   %222 = load ptr, ptr %221, align 8
@@ -547,7 +547,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit153:            ; preds = %163, %161, %159, %1
   br label %_ZNSt6vectorI13t_mde_delta_hSaIS0_EE6resizeEm.exit
 
 _ZNSt6vectorI13t_mde_delta_hSaIS0_EE6resizeEm.exit: ; preds = %233, %231, %229
-  br i1 %.1129, label %235, label %242
+  br i1 %.1131, label %235, label %242
 
 235:                                              ; preds = %_ZNSt6vectorI13t_mde_delta_hSaIS0_EE6resizeEm.exit
   store i32 0, ptr %166, align 4
@@ -562,7 +562,7 @@ _ZNSt6vectorI13t_mde_delta_hSaIS0_EE6resizeEm.exit: ; preds = %233, %231, %229
 
 242:                                              ; preds = %235, %_ZNSt6vectorI13t_mde_delta_hSaIS0_EE6resizeEm.exit
   %.0126 = phi i32 [ 0, %_ZNSt6vectorI13t_mde_delta_hSaIS0_EE6resizeEm.exit ], [ 1, %235 ]
-  br i1 %.1131, label %243, label %254
+  br i1 %.1133, label %243, label %254
 
 243:                                              ; preds = %242
   store i32 %.0126, ptr %167, align 4
@@ -675,7 +675,7 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit:          ; preds = %.loopexit182
 
 299:                                              ; preds = %298, %311
   %indvars.iv219 = phi i64 [ 0, %298 ], [ %indvars.iv.next220, %311 ]
-  %.0132202 = phi i32 [ 0, %298 ], [ %.1133, %311 ]
+  %.0128202 = phi i32 [ 0, %298 ], [ %.1129, %311 ]
   %300 = getelementptr inbounds [7 x i8], ptr %294, i64 0, i64 %indvars.iv219
   %301 = load i8, ptr %300, align 1
   %302 = trunc i8 %301 to i1
@@ -686,14 +686,14 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit:          ; preds = %.loopexit182
   %305 = load ptr, ptr %304, align 8
   %306 = getelementptr inbounds double, ptr %305, i64 %indvars.iv222
   %307 = load double, ptr %306, align 8
-  %308 = add nsw i32 %.0132202, 1
-  %309 = sext i32 %.0132202 to i64
+  %308 = add nsw i32 %.0128202, 1
+  %309 = sext i32 %.0128202 to i64
   %310 = getelementptr inbounds double, ptr %287, i64 %309
   store double %307, ptr %310, align 8
   br label %311
 
 311:                                              ; preds = %299, %303
-  %.1133 = phi i32 [ %308, %303 ], [ %.0132202, %299 ]
+  %.1129 = phi i32 [ %308, %303 ], [ %.0128202, %299 ]
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %.not181 = icmp eq i64 %indvars.iv.next220, 7
   br i1 %.not181, label %312, label %299
@@ -2372,7 +2372,7 @@ define void @_Z29mde_delta_h_coll_handle_blockP18t_mde_delta_h_collP10t_enxframe
   br label %185
 
 .preheader.i.i:                                   ; preds = %185, %178
-  %.071.lcssa.i.i = phi double [ 0x47EFFFFFE0000000, %178 ], [ %.172.i.i, %185 ]
+  %.075.lcssa.i.i = phi double [ 0x47EFFFFFE0000000, %178 ], [ %.176.i.i, %185 ]
   %183 = load i32, ptr %169, align 8
   %.not90.i.i = icmp eq i32 %183, 0
   br i1 %.not90.i.i, label %._crit_edge.i.i, label %.lr.ph84.i.i
@@ -2383,13 +2383,13 @@ define void @_Z29mde_delta_h_coll_handle_blockP18t_mde_delta_h_collP10t_enxframe
 
 185:                                              ; preds = %185, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %185 ]
-  %.07182.i.i = phi double [ 0x47EFFFFFE0000000, %.lr.ph.i.i ], [ %.172.i.i, %185 ]
+  %.07580.i.i = phi double [ 0x47EFFFFFE0000000, %.lr.ph.i.i ], [ %.176.i.i, %185 ]
   %186 = getelementptr inbounds float, ptr %182, i64 %indvars.iv.i.i
   %187 = load float, ptr %186, align 4
   %188 = fpext float %187 to double
   %189 = fmul double %181, %188
-  %190 = fcmp olt double %189, %.07182.i.i
-  %.172.i.i = select i1 %190, double %189, double %.07182.i.i
+  %190 = fcmp olt double %189, %.07580.i.i
+  %.176.i.i = select i1 %190, double %189, double %.07580.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %.preheader.i.i, label %185, !llvm.loop !23
@@ -2414,7 +2414,7 @@ define void @_Z29mde_delta_h_coll_handle_blockP18t_mde_delta_h_collP10t_enxframe
   %198 = phi i32 [ %194, %._crit_edge.i.loopexit.i ], [ 0, %.preheader.i.i ]
   %199 = getelementptr inbounds [2 x i32], ptr %171, i64 0, i64 %indvars.iv.i
   store i32 0, ptr %199, align 4
-  %200 = fdiv double %.071.lcssa.i.i, %180
+  %200 = fdiv double %.075.lcssa.i.i, %180
   %201 = tail call double @llvm.floor.f64(double %200)
   %202 = fptosi double %201 to i64
   %203 = getelementptr inbounds [2 x i64], ptr %172, i64 0, i64 %indvars.iv.i

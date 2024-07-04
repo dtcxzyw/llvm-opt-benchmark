@@ -1483,17 +1483,17 @@ slot_getattr.exit145.i.i.i:                       ; preds = %slot_getsomeattrs.e
 
 .lr.ph191.i.i.i:                                  ; preds = %.lr.ph191.i.i.i, %.lr.ph191.preheader.i.i.i
   %indvars.iv210.i.i.i = phi i64 [ 0, %.lr.ph191.preheader.i.i.i ], [ %indvars.iv.next211.i.i.i, %.lr.ph191.i.i.i ]
-  %.0121188.i.i.i = phi ptr [ null, %.lr.ph191.preheader.i.i.i ], [ %351, %.lr.ph191.i.i.i ]
+  %.0119189.i.i.i = phi ptr [ null, %.lr.ph191.preheader.i.i.i ], [ %351, %.lr.ph191.i.i.i ]
   %348 = getelementptr i16, ptr %346, i64 %indvars.iv210.i.i.i
   %349 = load i16, ptr %348, align 2
   %350 = sext i16 %349 to i32
-  %351 = call ptr @bms_add_member(ptr noundef %.0121188.i.i.i, i32 noundef %350) #12
+  %351 = call ptr @bms_add_member(ptr noundef %.0119189.i.i.i, i32 noundef %350) #12
   %indvars.iv.next211.i.i.i = add nuw nsw i64 %indvars.iv210.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next211.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %.loopexit177.i.i.i, label %.lr.ph191.i.i.i, !llvm.loop !11
 
 .loopexit177.i.i.i:                               ; preds = %.lr.ph191.i.i.i, %344, %slot_getattr.exit145.i.i.i
-  %.1122.i.i.i = phi ptr [ null, %slot_getattr.exit145.i.i.i ], [ null, %344 ], [ %351, %.lr.ph191.i.i.i ]
+  %.1.i.i.i = phi ptr [ null, %slot_getattr.exit145.i.i.i ], [ null, %344 ], [ %351, %.lr.ph191.i.i.i ]
   %352 = getelementptr inbounds i8, ptr %314, i64 8
   %353 = load ptr, ptr %352, align 8
   %354 = getelementptr inbounds i8, ptr %353, i64 24
@@ -1502,7 +1502,7 @@ slot_getattr.exit145.i.i.i:                       ; preds = %slot_getsomeattrs.e
   br label %356
 
 356:                                              ; preds = %.loopexit177.i.i.i, %311
-  %.2.i.i.i = phi ptr [ %.1122.i.i.i, %.loopexit177.i.i.i ], [ null, %311 ]
+  %.2.i.i.i = phi ptr [ %.1.i.i.i, %.loopexit177.i.i.i ], [ null, %311 ]
   call void @ExecDropSingleTupleTableSlot(ptr noundef %314) #12
   %357 = getelementptr inbounds i8, ptr %294, i64 8
   %358 = load ptr, ptr %357, align 8
@@ -1725,10 +1725,10 @@ slot_getattr.exit158.i.i.i:                       ; preds = %slot_getsomeattrs.e
   br label %.outer._crit_edge.i.i.i
 
 .outer._crit_edge.i.i.i:                          ; preds = %.outer._crit_edge.loopexit205.i.i.i, %.outer._crit_edge.loopexit.i.i.i, %390
-  %.1.ph.lcssa183.i.i.i = phi i32 [ 0, %390 ], [ %455, %.outer._crit_edge.loopexit.i.i.i ], [ %456, %.outer._crit_edge.loopexit205.i.i.i ]
+  %.1122.ph.lcssa183.i.i.i = phi i32 [ 0, %390 ], [ %455, %.outer._crit_edge.loopexit.i.i.i ], [ %456, %.outer._crit_edge.loopexit205.i.i.i ]
   call void @ExecDropSingleTupleTableSlot(ptr noundef %398) #12
   %457 = getelementptr inbounds i8, ptr %10, i64 24
-  store i32 %.1.ph.lcssa183.i.i.i, ptr %457, align 8
+  store i32 %.1122.ph.lcssa183.i.i.i, ptr %457, align 8
   %458 = getelementptr inbounds i8, ptr %382, i64 8
   %459 = load ptr, ptr %458, align 8
   %.not11.i160.i.i.i = icmp eq ptr %459, null
@@ -2082,7 +2082,7 @@ fetch_remote_table_info.exit.i.i:                 ; preds = %walrcv_clear_result
   br label %623
 
 623:                                              ; preds = %619, %614, %607
-  %.0.i.i = phi ptr [ %622, %619 ], [ null, %614 ], [ null, %607 ]
+  %.032.i.i = phi ptr [ %622, %619 ], [ null, %614 ], [ null, %607 ]
   %624 = load ptr, ptr @WalReceiverFunctions, align 8
   %625 = getelementptr inbounds i8, ptr %624, i64 120
   %626 = load ptr, ptr %625, align 8
@@ -2168,7 +2168,7 @@ walrcv_clear_result.exit.i.i:                     ; preds = %651, %648
 
 copy_table.exit.i:                                ; preds = %659, %walrcv_clear_result.exit.i.i
   %.06.lcssa.i.i.i = phi ptr [ null, %walrcv_clear_result.exit.i.i ], [ %664, %659 ]
-  %668 = call ptr @BeginCopyFrom(ptr noundef %653, ptr noundef %116, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef nonnull @copy_read_data, ptr noundef %.06.lcssa.i.i.i, ptr noundef %.0.i.i) #12
+  %668 = call ptr @BeginCopyFrom(ptr noundef %653, ptr noundef %116, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef nonnull @copy_read_data, ptr noundef %.06.lcssa.i.i.i, ptr noundef %.032.i.i) #12
   %669 = call i64 @CopyFrom(ptr noundef %668) #12
   call void @logicalrep_rel_close(ptr noundef nonnull %547, i32 noundef 0) #12
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
@@ -2509,16 +2509,16 @@ define internal i32 @copy_read_data(ptr nocapture noundef writeonly %0, i32 noun
   br label %20
 
 20:                                               ; preds = %11, %3
-  %.038 = phi i32 [ %19, %11 ], [ %2, %3 ]
-  %.036 = phi i32 [ %spec.select, %11 ], [ 0, %3 ]
-  %21 = icmp sgt i32 %.038, 0
-  %22 = icmp slt i32 %.036, %1
+  %.037 = phi i32 [ %19, %11 ], [ %2, %3 ]
+  %.035 = phi i32 [ %spec.select, %11 ], [ 0, %3 ]
+  %21 = icmp sgt i32 %.037, 0
+  %22 = icmp slt i32 %.035, %1
   %23 = and i1 %21, %22
   br i1 %23, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %20, %48
-  %.13760 = phi i32 [ %.2, %48 ], [ %.036, %20 ]
-  %.13959 = phi i32 [ %.240, %48 ], [ %.038, %20 ]
+  %.13660 = phi i32 [ %.2, %48 ], [ %.035, %20 ]
+  %.13859 = phi i32 [ %.239, %48 ], [ %.037, %20 ]
   %.04158 = phi ptr [ %.142, %48 ], [ %0, %20 ]
   store i32 -1, ptr %4, align 4
   store ptr null, ptr %5, align 8
@@ -2526,8 +2526,8 @@ define internal i32 @copy_read_data(ptr nocapture noundef writeonly %0, i32 noun
 
 24:                                               ; preds = %36, %.lr.ph
   %.142 = phi ptr [ %.04158, %.lr.ph ], [ %47, %36 ]
-  %.240 = phi i32 [ %.13959, %.lr.ph ], [ %44, %36 ]
-  %.2 = phi i32 [ %.13760, %.lr.ph ], [ %45, %36 ]
+  %.239 = phi i32 [ %.13859, %.lr.ph ], [ %44, %36 ]
+  %.2 = phi i32 [ %.13660, %.lr.ph ], [ %45, %36 ]
   %25 = load ptr, ptr @WalReceiverFunctions, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 80
   %27 = load ptr, ptr %26, align 8
@@ -2557,13 +2557,13 @@ define internal i32 @copy_read_data(ptr nocapture noundef writeonly %0, i32 noun
   store i32 %29, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %38, i64 16
   store i32 0, ptr %40, align 8
-  %spec.select52 = call i32 @llvm.smin.i32(i32 %29, i32 %.240)
+  %spec.select52 = call i32 @llvm.smin.i32(i32 %29, i32 %.239)
   %41 = sext i32 %spec.select52 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.142, ptr align 1 %37, i64 %41, i1 false)
   %42 = load i32, ptr %40, align 8
   %43 = add i32 %42, %spec.select52
   store i32 %43, ptr %40, align 8
-  %44 = sub i32 %.240, %spec.select52
+  %44 = sub i32 %.239, %spec.select52
   %45 = add i32 %spec.select52, %.2
   %46 = icmp sgt i32 %44, 0
   %47 = getelementptr i8, ptr %.142, i64 %41
@@ -2581,8 +2581,8 @@ define internal i32 @copy_read_data(ptr nocapture noundef writeonly %0, i32 noun
   br i1 %53, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %48, %36, %34, %20
-  %.0 = phi i32 [ %.036, %20 ], [ %45, %36 ], [ %.2, %34 ], [ %.2, %48 ]
-  ret i32 %.0
+  %.040 = phi i32 [ %.035, %20 ], [ %45, %36 ], [ %.2, %34 ], [ %.2, %48 ]
+  ret i32 %.040
 }
 
 declare i64 @CopyFrom(ptr noundef) local_unnamed_addr #3

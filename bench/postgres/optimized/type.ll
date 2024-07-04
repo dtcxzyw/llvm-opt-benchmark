@@ -1136,11 +1136,11 @@ mm_alloc.exit75:                                  ; preds = %24
   br label %44
 
 44:                                               ; preds = %mm_alloc.exit75, %36, %37
-  %.062 = phi ptr [ %43, %37 ], [ null, %36 ], [ @struct_no_indicator, %mm_alloc.exit75 ]
-  %.0 = phi ptr [ %28, %37 ], [ %7, %36 ], [ %7, %mm_alloc.exit75 ]
+  %.063 = phi ptr [ %28, %37 ], [ %7, %36 ], [ %7, %mm_alloc.exit75 ]
+  %.0 = phi ptr [ %43, %37 ], [ null, %36 ], [ @struct_no_indicator, %mm_alloc.exit75 ]
   %45 = getelementptr inbounds i8, ptr %4, i64 32
-  %.06379 = load ptr, ptr %45, align 8
-  %.not7380 = icmp eq ptr %.06379, null
+  %.06279 = load ptr, ptr %45, align 8
+  %.not7380 = icmp eq ptr %.06279, null
   br i1 %.not7380, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %44
@@ -1149,17 +1149,17 @@ mm_alloc.exit75:                                  ; preds = %24
   br label %48
 
 48:                                               ; preds = %.lr.ph, %67
-  %.06382 = phi ptr [ %.06379, %.lr.ph ], [ %.063, %67 ]
-  %.181 = phi ptr [ %.062, %.lr.ph ], [ %.2, %67 ]
-  %49 = load ptr, ptr %.06382, align 8
-  %50 = getelementptr inbounds i8, ptr %.06382, i64 8
+  %.06282 = phi ptr [ %.06279, %.lr.ph ], [ %.062, %67 ]
+  %.181 = phi ptr [ %.0, %.lr.ph ], [ %.2, %67 ]
+  %49 = load ptr, ptr %.06282, align 8
+  %50 = getelementptr inbounds i8, ptr %.06282, i64 8
   %51 = load ptr, ptr %50, align 8
   %.not = icmp eq ptr %.181, null
   br i1 %.not, label %.thread77, label %53
 
 .thread77:                                        ; preds = %48
   %52 = load ptr, ptr %46, align 8
-  tail call void @ECPGdump_a_type(ptr noundef %0, ptr noundef %49, ptr noundef %51, i32 noundef -1, ptr noundef null, ptr noundef null, i32 noundef -1, ptr noundef nonnull %17, ptr noundef %.0, ptr noundef %3, ptr noundef %52, ptr noundef null)
+  tail call void @ECPGdump_a_type(ptr noundef %0, ptr noundef %49, ptr noundef %51, i32 noundef -1, ptr noundef null, ptr noundef null, i32 noundef -1, ptr noundef nonnull %17, ptr noundef %.063, ptr noundef %3, ptr noundef %52, ptr noundef null)
   br label %67
 
 53:                                               ; preds = %48
@@ -1168,7 +1168,7 @@ mm_alloc.exit75:                                  ; preds = %24
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %46, align 8
   %58 = load ptr, ptr %47, align 8
-  tail call void @ECPGdump_a_type(ptr noundef %0, ptr noundef %49, ptr noundef %51, i32 noundef -1, ptr noundef %54, ptr noundef %56, i32 noundef -1, ptr noundef nonnull %17, ptr noundef %.0, ptr noundef %3, ptr noundef %57, ptr noundef %58)
+  tail call void @ECPGdump_a_type(ptr noundef %0, ptr noundef %49, ptr noundef %51, i32 noundef -1, ptr noundef %54, ptr noundef %56, i32 noundef -1, ptr noundef nonnull %17, ptr noundef %.063, ptr noundef %3, ptr noundef %57, ptr noundef %58)
   %.not83 = icmp eq ptr %.181, @struct_no_indicator
   br i1 %.not83, label %67, label %59
 
@@ -1179,7 +1179,7 @@ mm_alloc.exit75:                                  ; preds = %24
   br i1 %62, label %63, label %67
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds i8, ptr %.06382, i64 16
+  %64 = getelementptr inbounds i8, ptr %.06282, i64 16
   %65 = load ptr, ptr %64, align 8
   %.not74 = icmp eq ptr %65, null
   br i1 %.not74, label %67, label %66
@@ -1190,13 +1190,13 @@ mm_alloc.exit75:                                  ; preds = %24
 
 67:                                               ; preds = %.thread77, %53, %66, %63, %59
   %.2 = phi ptr [ @struct_no_indicator, %66 ], [ null, %63 ], [ %61, %59 ], [ @struct_no_indicator, %53 ], [ null, %.thread77 ]
-  %68 = getelementptr inbounds i8, ptr %.06382, i64 16
-  %.063 = load ptr, ptr %68, align 8
-  %.not73 = icmp eq ptr %.063, null
+  %68 = getelementptr inbounds i8, ptr %.06282, i64 16
+  %.062 = load ptr, ptr %68, align 8
+  %.not73 = icmp eq ptr %.062, null
   br i1 %.not73, label %._crit_edge, label %48, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %67, %44
-  %.1.lcssa = phi ptr [ %.062, %44 ], [ %.2, %67 ]
+  %.1.lcssa = phi ptr [ %.0, %44 ], [ %.2, %67 ]
   %69 = icmp ne ptr %5, null
   %70 = icmp ne ptr %.1.lcssa, null
   %71 = icmp ne ptr %.1.lcssa, @struct_no_indicator

@@ -12511,10 +12511,10 @@ common.ret:                                       ; preds = %789, %793
           to label %.body18.i.i unwind label %375, !noalias !2027
 
 360:                                              ; preds = %.loopexit.i.i.i, %351
+  %.sroa.13.1.ph.i.i = phi i64 [ %.sroa.17.0.copyload15.i.i.i, %351 ], [ undef, %.loopexit.i.i.i ]
+  %.sroa.11.1.ph.i.i = phi ptr [ %.sroa.14.0.copyload14.i.i.i, %351 ], [ %.sroa.53.i.sroa.5.0.copyload.i.i, %.loopexit.i.i.i ]
   %.sroa.9.1.ph.i.i = phi i64 [ %.sroa.10.0.copyload13.i.i.i, %351 ], [ %.sroa.53.i.sroa.0.0.copyload.i.i, %.loopexit.i.i.i ]
   %.sroa.024.1.ph.i.i = phi i64 [ %350, %351 ], [ 16, %.loopexit.i.i.i ]
-  %.sroa.11.1.ph.i.i = phi ptr [ %.sroa.14.0.copyload14.i.i.i, %351 ], [ %.sroa.53.i.sroa.5.0.copyload.i.i, %.loopexit.i.i.i ]
-  %.sroa.13.1.ph.i.i = phi i64 [ %.sroa.17.0.copyload15.i.i.i, %351 ], [ undef, %.loopexit.i.i.i ]
   %361 = phi <2 x i64> [ %352, %351 ], [ %356, %.loopexit.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2043)
   call void @llvm.experimental.noalias.scope.decl(metadata !2046)
@@ -14705,8 +14705,8 @@ common.ret:                                       ; preds = %690, %694
 
 204:                                              ; preds = %203, %.thread.i.i
   %.sroa.13.132.i.i = phi i64 [ undef, %.thread.i.i ], [ %.sroa.16.0.copyload18.i.i.i, %203 ]
-  %.sroa.11.131.i.i = phi i8 [ undef, %.thread.i.i ], [ %.sroa.12.0.copyload17.i.i.i, %203 ]
-  %.sroa.024.130.i.i = phi i64 [ 16, %.thread.i.i ], [ %198, %203 ]
+  %.sroa.024.131.i.i = phi i64 [ 16, %.thread.i.i ], [ %198, %203 ]
+  %.sroa.11.130.i.i = phi i8 [ undef, %.thread.i.i ], [ %.sroa.12.0.copyload17.i.i.i, %203 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2366)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2369)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2372)
@@ -14774,11 +14774,11 @@ common.ret:                                       ; preds = %690, %694
   store i8 1, ptr %188, align 8, !noalias !2307
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.9.i.i)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.12.i.i)
-  store i64 %.sroa.024.130.i.i, ptr %54, align 8, !noalias !2276
+  store i64 %.sroa.024.131.i.i, ptr %54, align 8, !noalias !2276
   %.sroa.8316.0..sroa_idx.i = getelementptr inbounds i8, ptr %54, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8316.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8316.i, i64 24, i1 false), !noalias !2276
   %.sroa.9317.0..sroa_idx.i = getelementptr inbounds i8, ptr %54, i64 32
-  store i8 %.sroa.11.131.i.i, ptr %.sroa.9317.0..sroa_idx.i, align 8, !noalias !2276
+  store i8 %.sroa.11.130.i.i, ptr %.sroa.9317.0..sroa_idx.i, align 8, !noalias !2276
   %.sroa.10318.0..sroa_idx.i = getelementptr inbounds i8, ptr %54, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10318.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.10318.i, i64 7, i1 false), !noalias !2276
   %.sroa.11319.0..sroa_idx.i = getelementptr inbounds i8, ptr %54, i64 40

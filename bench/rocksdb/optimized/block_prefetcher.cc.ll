@@ -1377,7 +1377,7 @@ if.end19:                                         ; preds = %if.then.i.i.i52, %i
 invoke.cont24:                                    ; preds = %if.end19, %for.inc134
   %cmp22 = phi i1 [ true, %if.end19 ], [ false, %for.inc134 ]
   %indvars.iv116 = phi i64 [ 0, %if.end19 ], [ 1, %for.inc134 ]
-  %bytes_discarded.0113 = phi i64 [ 0, %if.end19 ], [ %bytes_discarded.1, %for.inc134 ]
+  %bytes_discarded.0112 = phi i64 [ 0, %if.end19 ], [ %bytes_discarded.1, %for.inc134 ]
   %cursize_.i.i = getelementptr inbounds %"struct.rocksdb::BufferInfo", ptr %26, i64 %indvars.iv116, i32 0, i32 3
   %29 = load i64, ptr %cursize_.i.i, align 8
   %cmp.i53.not = icmp eq i64 %29, 0
@@ -1395,7 +1395,7 @@ land.lhs.true31:                                  ; preds = %if.then26
   br i1 %cmp43, label %if.then44, label %for.inc134
 
 if.then44:                                        ; preds = %land.lhs.true31
-  %sub.neg = add i64 %30, %bytes_discarded.0113
+  %sub.neg = add i64 %30, %bytes_discarded.0112
   %sub58 = sub i64 %sub.neg, %add
   %add59 = add i64 %sub58, %29
   br label %for.inc134
@@ -1412,7 +1412,7 @@ if.then69:                                        ; preds = %invoke.cont67
   br i1 %cmp77.not, label %land.lhs.true95, label %if.then78
 
 if.then78:                                        ; preds = %if.then69
-  %add85 = add i64 %29, %bytes_discarded.0113
+  %add85 = add i64 %29, %bytes_discarded.0112
   br label %for.inc134
 
 land.lhs.true95:                                  ; preds = %if.then69
@@ -1423,13 +1423,13 @@ land.lhs.true95:                                  ; preds = %if.then69
   br i1 %cmp111, label %if.then112, label %for.inc134
 
 if.then112:                                       ; preds = %land.lhs.true95
-  %33 = add i64 %bytes_discarded.0113, %30
+  %33 = add i64 %bytes_discarded.0112, %30
   %sub127 = sub i64 %33, %add
   %add128 = add i64 %sub127, %29
   br label %for.inc134
 
 for.inc134:                                       ; preds = %land.lhs.true31, %invoke.cont24, %invoke.cont67, %land.lhs.true95, %if.then112, %if.then78, %if.then44
-  %bytes_discarded.1 = phi i64 [ %add59, %if.then44 ], [ %bytes_discarded.0113, %invoke.cont67 ], [ %add85, %if.then78 ], [ %add128, %if.then112 ], [ %bytes_discarded.0113, %land.lhs.true95 ], [ %bytes_discarded.0113, %invoke.cont24 ], [ %bytes_discarded.0113, %land.lhs.true31 ]
+  %bytes_discarded.1 = phi i64 [ %add59, %if.then44 ], [ %bytes_discarded.0112, %invoke.cont67 ], [ %add85, %if.then78 ], [ %add128, %if.then112 ], [ %bytes_discarded.0112, %land.lhs.true95 ], [ %bytes_discarded.0112, %invoke.cont24 ], [ %bytes_discarded.0112, %land.lhs.true31 ]
   br i1 %cmp22, label %invoke.cont24, label %for.body140, !llvm.loop !14
 
 for.body140:                                      ; preds = %for.inc134, %for.inc142

@@ -77,7 +77,7 @@ define i32 @mca_coll_basic_neighbor_alltoallw(ptr noundef %0, ptr nocapture noun
   %indvars.iv200.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next201.i, %89 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %89 ]
   %.0190.i = phi ptr [ %34, %.lr.ph.i ], [ %.2.i, %89 ]
-  %.095189.i = phi i32 [ 0, %.lr.ph.i ], [ %.297.i, %89 ]
+  %.094189.i = phi i32 [ 0, %.lr.ph.i ], [ %.296.i, %89 ]
   store i32 -2, ptr %12, align 4
   store i32 -2, ptr %13, align 4
   %42 = load ptr, ptr %38, align 8
@@ -114,7 +114,7 @@ thread-pre-split.i:                               ; preds = %55, %46
   br i1 %.not130.i, label %thread-pre-split.thread.i, label %57
 
 57:                                               ; preds = %thread-pre-split.i
-  %58 = add nsw i32 %.095189.i, 1
+  %58 = add nsw i32 %.094189.i, 1
   %59 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %60 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv.i
   %61 = load i64, ptr %60, align 8
@@ -133,14 +133,14 @@ thread-pre-split.i:                               ; preds = %55, %46
   br i1 %.not131.i, label %thread-pre-split.thread.i, label %93
 
 thread-pre-split.thread.i:                        ; preds = %57, %thread-pre-split.i, %51, %49
-  %.196.i = phi i32 [ %58, %57 ], [ %.095189.i, %thread-pre-split.i ], [ %.095189.i, %51 ], [ %.095189.i, %49 ]
+  %.195.i = phi i32 [ %58, %57 ], [ %.094189.i, %thread-pre-split.i ], [ %.094189.i, %51 ], [ %.094189.i, %49 ]
   %.1.i = phi ptr [ %68, %57 ], [ %.0190.i, %thread-pre-split.i ], [ %.0190.i, %51 ], [ %.0190.i, %49 ]
   %72 = load i32, ptr %13, align 4
   %.not132.i = icmp eq i32 %72, -2
   br i1 %.not132.i, label %89, label %73
 
 73:                                               ; preds = %thread-pre-split.thread.i
-  %74 = add nsw i32 %.196.i, 1
+  %74 = add nsw i32 %.195.i, 1
   %75 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %76 = or disjoint i64 %indvars.iv.i, 1
   %77 = getelementptr inbounds i64, ptr %6, i64 %76
@@ -160,7 +160,7 @@ thread-pre-split.thread.i:                        ; preds = %57, %thread-pre-spl
   br i1 %.not133.i, label %89, label %93
 
 89:                                               ; preds = %73, %thread-pre-split.thread.i
-  %.297.i = phi i32 [ %74, %73 ], [ %.196.i, %thread-pre-split.thread.i ]
+  %.296.i = phi i32 [ %74, %73 ], [ %.195.i, %thread-pre-split.thread.i ]
   %.2.i = phi ptr [ %85, %73 ], [ %.1.i, %thread-pre-split.thread.i ]
   %indvars.iv.next201.i = add nuw nsw i64 %indvars.iv200.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
@@ -170,13 +170,13 @@ thread-pre-split.thread.i:                        ; preds = %57, %thread-pre-spl
   br i1 %92, label %41, label %.preheader.i, !llvm.loop !4
 
 93:                                               ; preds = %73, %57
-  %.3109.ph.i = phi i32 [ %88, %73 ], [ %71, %57 ]
-  %.398.ph.i = phi i32 [ %74, %73 ], [ %58, %57 ]
-  %94 = icmp sgt i32 %.398.ph.i, 0
+  %.3108.ph.i = phi i32 [ %88, %73 ], [ %71, %57 ]
+  %.397.ph.i = phi i32 [ %74, %73 ], [ %58, %57 ]
+  %94 = icmp sgt i32 %.397.ph.i, 0
   br i1 %94, label %.lr.ph.preheader.i.i, label %mca_coll_basic_neighbor_alltoallw_cart.exit
 
 .lr.ph.preheader.i.i:                             ; preds = %93
-  %wide.trip.count.i.i = zext nneg i32 %.398.ph.i to i64
+  %wide.trip.count.i.i = zext nneg i32 %.397.ph.i to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %111, %.lr.ph.preheader.i.i
@@ -223,7 +223,7 @@ ompi_request_cancel.exit.i.i:                     ; preds = %103, %100
   %indvars.iv207.i = phi i64 [ %indvars.iv.next208.i, %159 ], [ 0, %.preheader.i ]
   %indvars.iv205.i = phi i64 [ %indvars.iv.next206.i, %159 ], [ 0, %.preheader.i ]
   %.4195.i = phi ptr [ %.6.i, %159 ], [ %.2.i, %.preheader.i ]
-  %.499194.i = phi i32 [ %.6101.i, %159 ], [ %.297.i, %.preheader.i ]
+  %.498194.i = phi i32 [ %.6100.i, %159 ], [ %.296.i, %.preheader.i ]
   store i32 -2, ptr %14, align 4
   store i32 -2, ptr %15, align 4
   %112 = load ptr, ptr %38, align 8
@@ -260,7 +260,7 @@ thread-pre-split172.i:                            ; preds = %125, %116
   br i1 %.not136.i, label %thread-pre-split172.thread.i, label %127
 
 127:                                              ; preds = %thread-pre-split172.i
-  %128 = add nsw i32 %.499194.i, 1
+  %128 = add nsw i32 %.498194.i, 1
   %129 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %130 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv205.i
   %131 = load i64, ptr %130, align 8
@@ -279,14 +279,14 @@ thread-pre-split172.i:                            ; preds = %125, %116
   br i1 %.not137.i, label %thread-pre-split172.thread.i, label %163
 
 thread-pre-split172.thread.i:                     ; preds = %127, %thread-pre-split172.i, %121, %119
-  %.5100.i = phi i32 [ %128, %127 ], [ %.499194.i, %thread-pre-split172.i ], [ %.499194.i, %121 ], [ %.499194.i, %119 ]
+  %.599.i = phi i32 [ %128, %127 ], [ %.498194.i, %thread-pre-split172.i ], [ %.498194.i, %121 ], [ %.498194.i, %119 ]
   %.5.i = phi ptr [ %138, %127 ], [ %.4195.i, %thread-pre-split172.i ], [ %.4195.i, %121 ], [ %.4195.i, %119 ]
   %142 = load i32, ptr %15, align 4
   %.not138.i = icmp eq i32 %142, -2
   br i1 %.not138.i, label %159, label %143
 
 143:                                              ; preds = %thread-pre-split172.thread.i
-  %144 = add nsw i32 %.5100.i, 1
+  %144 = add nsw i32 %.599.i, 1
   %145 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %146 = or disjoint i64 %indvars.iv205.i, 1
   %147 = getelementptr inbounds i64, ptr %2, i64 %146
@@ -306,7 +306,7 @@ thread-pre-split172.thread.i:                     ; preds = %127, %thread-pre-sp
   br i1 %.not139.i, label %159, label %163
 
 159:                                              ; preds = %143, %thread-pre-split172.thread.i
-  %.6101.i = phi i32 [ %144, %143 ], [ %.5100.i, %thread-pre-split172.thread.i ]
+  %.6100.i = phi i32 [ %144, %143 ], [ %.599.i, %thread-pre-split172.thread.i ]
   %.6.i = phi ptr [ %155, %143 ], [ %.5.i, %thread-pre-split172.thread.i ]
   %indvars.iv.next208.i = add nuw nsw i64 %indvars.iv207.i, 1
   %indvars.iv.next206.i = add nuw nsw i64 %indvars.iv205.i, 2
@@ -316,7 +316,7 @@ thread-pre-split172.thread.i:                     ; preds = %127, %thread-pre-sp
   br i1 %162, label %.lr.ph196.i, label %._crit_edge.i, !llvm.loop !7
 
 163:                                              ; preds = %143, %127
-  %.7113.ph.i = phi i32 [ %158, %143 ], [ %141, %127 ]
+  %.7112.ph.i = phi i32 [ %158, %143 ], [ %141, %127 ]
   %.7.ph.i = phi i32 [ %144, %143 ], [ %128, %127 ]
   %164 = icmp sgt i32 %.7.ph.i, 0
   br i1 %164, label %.lr.ph.preheader.i142.i, label %mca_coll_basic_neighbor_alltoallw_cart.exit
@@ -366,19 +366,19 @@ ompi_request_cancel.exit.i152.i:                  ; preds = %173, %170
   br i1 %exitcond.not.i150.i, label %mca_coll_basic_neighbor_alltoallw_cart.exit, label %.lr.ph.i144.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %159, %.preheader.i, %.preheader183.i
-  %.499.lcssa.i = phi i32 [ %.297.i, %.preheader.i ], [ 0, %.preheader183.i ], [ %.6101.i, %159 ]
+  %.498.lcssa.i = phi i32 [ %.296.i, %.preheader.i ], [ 0, %.preheader183.i ], [ %.6100.i, %159 ]
   %182 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
-  %183 = sext i32 %.499.lcssa.i to i64
+  %183 = sext i32 %.498.lcssa.i to i64
   %184 = call i32 %182(i64 noundef %183, ptr noundef nonnull %34, ptr noundef null) #3
   %.not141.i = icmp eq i32 %184, 0
   br i1 %.not141.i, label %mca_coll_basic_neighbor_alltoallw_cart.exit, label %185
 
 185:                                              ; preds = %._crit_edge.i
-  %186 = icmp sgt i32 %.499.lcssa.i, 0
+  %186 = icmp sgt i32 %.498.lcssa.i, 0
   br i1 %186, label %.lr.ph.preheader.i154.i, label %mca_coll_basic_neighbor_alltoallw_cart.exit
 
 .lr.ph.preheader.i154.i:                          ; preds = %185
-  %wide.trip.count.i155.i = zext nneg i32 %.499.lcssa.i to i64
+  %wide.trip.count.i155.i = zext nneg i32 %.498.lcssa.i to i64
   br label %.lr.ph.i156.i
 
 .lr.ph.i156.i:                                    ; preds = %203, %.lr.ph.preheader.i154.i
@@ -422,7 +422,7 @@ ompi_request_cancel.exit.i164.i:                  ; preds = %195, %192
   br i1 %exitcond.not.i162.i, label %mca_coll_basic_neighbor_alltoallw_cart.exit, label %.lr.ph.i156.i, !llvm.loop !6
 
 mca_coll_basic_neighbor_alltoallw_cart.exit:      ; preds = %111, %181, %203, %21, %30, %93, %163, %._crit_edge.i, %185
-  %.094.i = phi i32 [ 0, %21 ], [ -2, %30 ], [ 0, %._crit_edge.i ], [ %.3109.ph.i, %93 ], [ %.7113.ph.i, %163 ], [ %184, %185 ], [ %184, %203 ], [ %.7113.ph.i, %181 ], [ %.3109.ph.i, %111 ]
+  %.0113.i = phi i32 [ 0, %21 ], [ -2, %30 ], [ 0, %._crit_edge.i ], [ %.3108.ph.i, %93 ], [ %.7112.ph.i, %163 ], [ %184, %185 ], [ %184, %203 ], [ %.7112.ph.i, %181 ], [ %.3108.ph.i, %111 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
@@ -691,7 +691,7 @@ ompi_request_cancel.exit.i90.i:                   ; preds = %331, %328
   br i1 %exitcond.not.i88.i, label %mca_coll_basic_neighbor_alltoallw_graph.exit, label %.lr.ph.i82.i, !llvm.loop !6
 
 mca_coll_basic_neighbor_alltoallw_graph.exit:     ; preds = %273, %313, %339, %206, %215, %291, %._crit_edge.i38, %319
-  %.052.i = phi i32 [ 0, %206 ], [ -2, %215 ], [ 0, %._crit_edge.i38 ], [ %285, %291 ], [ %318, %319 ], [ %318, %339 ], [ %285, %313 ], [ %249, %273 ]
+  %.057.i = phi i32 [ 0, %206 ], [ -2, %215 ], [ 0, %._crit_edge.i38 ], [ %285, %291 ], [ %318, %319 ], [ %318, %339 ], [ %285, %313 ], [ %249, %273 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   br label %mca_coll_basic_neighbor_alltoallw_dist_graph.exit
 
@@ -941,7 +941,7 @@ ompi_request_cancel.exit.i97.i:                   ; preds = %446, %443
   br i1 %exitcond.not.i95.i, label %mca_coll_basic_neighbor_alltoallw_dist_graph.exit, label %.lr.ph.i89.i, !llvm.loop !6
 
 mca_coll_basic_neighbor_alltoallw_dist_graph.exit: ; preds = %396, %432, %454, %436, %._crit_edge.i56, %411, %353, %342, %340, %10, %mca_coll_basic_neighbor_alltoallw_graph.exit, %mca_coll_basic_neighbor_alltoallw_cart.exit
-  %.0 = phi i32 [ %.094.i, %mca_coll_basic_neighbor_alltoallw_cart.exit ], [ %.052.i, %mca_coll_basic_neighbor_alltoallw_graph.exit ], [ -8, %10 ], [ -8, %340 ], [ 0, %342 ], [ -2, %353 ], [ 0, %._crit_edge.i56 ], [ %408, %411 ], [ %435, %436 ], [ %435, %454 ], [ %408, %432 ], [ %375, %396 ]
+  %.0 = phi i32 [ %.0113.i, %mca_coll_basic_neighbor_alltoallw_cart.exit ], [ %.057.i, %mca_coll_basic_neighbor_alltoallw_graph.exit ], [ -8, %10 ], [ -8, %340 ], [ 0, %342 ], [ -2, %353 ], [ 0, %._crit_edge.i56 ], [ %408, %411 ], [ %435, %436 ], [ %435, %454 ], [ %408, %432 ], [ %375, %396 ]
   ret i32 %.0
 }
 

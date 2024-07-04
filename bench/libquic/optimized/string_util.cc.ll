@@ -2703,8 +2703,8 @@ do.body23.preheader:                              ; preds = %if.end19
   br label %do.body23
 
 do.body23:                                        ; preds = %do.body23.preheader, %do.cond42
-  %write_offset.0 = phi i64 [ %write_offset.2, %do.cond42 ], [ %call2, %do.body23.preheader ]
   %offset.addr.1 = phi i64 [ %.sroa.speculated, %do.cond42 ], [ %call2, %do.body23.preheader ]
+  %write_offset.0 = phi i64 [ %write_offset.2, %do.cond42 ], [ %call2, %do.body23.preheader ]
   br i1 %tobool24.not, label %if.end30, label %if.then25
 
 if.then25:                                        ; preds = %do.body23
@@ -2747,8 +2747,8 @@ if.end45:                                         ; preds = %if.end19
   br label %do.body47
 
 do.body47:                                        ; preds = %do.body47, %if.end45
-  %final_length.0 = phi i64 [ %call20, %if.end45 ], [ %add48, %do.body47 ]
   %offset.addr.2 = phi i64 [ %call2, %if.end45 ], [ %call52, %do.body47 ]
+  %final_length.0 = phi i64 [ %call20, %if.end45 ], [ %add48, %do.body47 ]
   %add48 = add i64 %final_length.0, %sub46
   %call49 = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %find_this)
   %add50 = add i64 %offset.addr.2, %call3
@@ -2859,8 +2859,8 @@ do.body23.preheader:                              ; preds = %if.end19
   br label %do.body23
 
 do.body23:                                        ; preds = %do.body23.preheader, %do.cond42
-  %write_offset.0 = phi i64 [ %write_offset.2, %do.cond42 ], [ %call2, %do.body23.preheader ]
   %offset.addr.1 = phi i64 [ %.sroa.speculated, %do.cond42 ], [ %call2, %do.body23.preheader ]
+  %write_offset.0 = phi i64 [ %write_offset.2, %do.cond42 ], [ %call2, %do.body23.preheader ]
   br i1 %tobool24.not, label %if.end30, label %if.then25
 
 if.then25:                                        ; preds = %do.body23
@@ -2902,8 +2902,8 @@ if.end45:                                         ; preds = %if.end19
   br label %do.body47
 
 do.body47:                                        ; preds = %do.body47, %if.end45
-  %final_length.0 = phi i64 [ %call20, %if.end45 ], [ %add48, %do.body47 ]
   %offset.addr.2 = phi i64 [ %call2, %if.end45 ], [ %call52, %do.body47 ]
+  %final_length.0 = phi i64 [ %call20, %if.end45 ], [ %add48, %do.body47 ]
   %add48 = add i64 %final_length.0, %sub46
   %call49 = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %find_this)
   %add50 = add i64 %offset.addr.2, %call3

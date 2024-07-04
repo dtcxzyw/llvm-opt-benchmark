@@ -39,8 +39,8 @@ define internal void @array_subscript_transform(ptr nocapture noundef %0, ptr no
   br i1 %10, label %.lr.ph138, label %._crit_edge
 
 .lr.ph138:                                        ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %.04366.us137 = phi ptr [ %29, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ]
-  %.04267.us136 = phi ptr [ %38, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ]
+  %.04565.us137 = phi ptr [ %38, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ]
+  %.04366.us136 = phi ptr [ %29, %.lr.ph.split.us ], [ null, %.lr.ph.split.us.preheader ]
   %indvars.iv105135 = phi i64 [ %indvars.iv.next106, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
   %11 = load ptr, ptr %7, align 8
   %12 = getelementptr %union.ListCell, ptr %11, i64 %indvars.iv105135
@@ -70,7 +70,7 @@ define internal void @array_subscript_transform(ptr nocapture noundef %0, ptr no
 
 28:                                               ; preds = %26, %22, %16
   %.0.us = phi ptr [ %20, %16 ], [ %27, %26 ], [ null, %22 ]
-  %29 = tail call ptr @lappend(ptr noundef %.04366.us137, ptr noundef %.0.us) #6
+  %29 = tail call ptr @lappend(ptr noundef %.04366.us136, ptr noundef %.0.us) #6
   %30 = getelementptr inbounds i8, ptr %13, i64 16
   %31 = load ptr, ptr %30, align 8
   %.not53.us = icmp eq ptr %31, null
@@ -86,7 +86,7 @@ define internal void @array_subscript_transform(ptr nocapture noundef %0, ptr no
 
 .lr.ph.split.us:                                  ; preds = %32, %28
   %.1.us = phi ptr [ %36, %32 ], [ null, %28 ]
-  %38 = tail call ptr @lappend(ptr noundef %.04267.us136, ptr noundef %.1.us) #6
+  %38 = tail call ptr @lappend(ptr noundef %.04565.us137, ptr noundef %.1.us) #6
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105135, 1
   %39 = load i32, ptr %6, align 4
   %40 = sext i32 %39 to i64
@@ -98,7 +98,7 @@ define internal void @array_subscript_transform(ptr nocapture noundef %0, ptr no
 
 .lr.ph95:                                         ; preds = %.lr.ph.split.split, %67
   %indvars.iv = phi i64 [ %indvars.iv.next, %67 ], [ 0, %.lr.ph.split.split ]
-  %.0426793 = phi ptr [ %68, %67 ], [ null, %.lr.ph.split.split ]
+  %.0456594 = phi ptr [ %68, %67 ], [ null, %.lr.ph.split.split ]
   %42 = load ptr, ptr %7, align 8
   %43 = getelementptr %union.ListCell, ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
@@ -142,7 +142,7 @@ define internal void @array_subscript_transform(ptr nocapture noundef %0, ptr no
 
 67:                                               ; preds = %.lr.ph95, %54
   %.1 = phi ptr [ %58, %54 ], [ null, %.lr.ph95 ]
-  %68 = tail call ptr @lappend(ptr noundef %.0426793, ptr noundef %.1) #6
+  %68 = tail call ptr @lappend(ptr noundef %.0456594, ptr noundef %.1) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load i32, ptr %6, align 4
   %70 = sext i32 %69 to i64
@@ -155,17 +155,17 @@ define internal void @array_subscript_transform(ptr nocapture noundef %0, ptr no
   br label %list_length.exit.thread
 
 ._crit_edge:                                      ; preds = %67, %.lr.ph.split.us, %.lr.ph.split.us.preheader
+  %.045.lcssa = phi ptr [ null, %.lr.ph.split.us.preheader ], [ %38, %.lr.ph.split.us ], [ %68, %67 ]
   %.043.lcssa = phi ptr [ null, %.lr.ph.split.us.preheader ], [ %29, %.lr.ph.split.us ], [ null, %67 ]
-  %.042.lcssa = phi ptr [ null, %.lr.ph.split.us.preheader ], [ %38, %.lr.ph.split.us ], [ %68, %67 ]
   %73 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.042.lcssa, ptr %73, align 8
+  store ptr %.045.lcssa, ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %.043.lcssa, ptr %74, align 8
-  %.not.i = icmp eq ptr %.042.lcssa, null
+  %.not.i = icmp eq ptr %.045.lcssa, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %._crit_edge
-  %75 = getelementptr inbounds i8, ptr %.042.lcssa, i64 4
+  %75 = getelementptr inbounds i8, ptr %.045.lcssa, i64 4
   %76 = load i32, ptr %75, align 4
   %77 = icmp sgt i32 %76, 6
   br i1 %77, label %list_length.exit55, label %list_length.exit.thread

@@ -650,8 +650,8 @@ Abc_ObjIsBarBuf.exit.i:                           ; preds = %179
 
 191:                                              ; preds = %297, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %297 ]
-  %.0113.i.i = phi i32 [ 6, %.lr.ph.i.i ], [ %.2.i.i, %297 ]
-  %.059111.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.261.i.i, %297 ]
+  %.058112.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.2.i.i, %297 ]
+  %.059111.i.i = phi i32 [ 6, %.lr.ph.i.i ], [ %.261.i.i, %297 ]
   %.val96.i.i = load ptr, ptr %165, align 8
   %.val97.i.i = load ptr, ptr %188, align 8
   %192 = getelementptr i8, ptr %.val96.i.i, i64 32
@@ -667,11 +667,11 @@ Abc_ObjIsBarBuf.exit.i:                           ; preds = %179
   %200 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %199) #12
   %201 = trunc i64 %200 to i32
   %202 = add i32 %201, 1
-  %.not.i13.i = icmp eq i32 %.059111.i.i, 0
+  %.not.i13.i = icmp eq i32 %.058112.i.i, 0
   br i1 %.not.i13.i, label %208, label %203
 
 203:                                              ; preds = %191
-  %204 = add nsw i32 %202, %.0113.i.i
+  %204 = add nsw i32 %202, %.059111.i.i
   %205 = icmp sgt i32 %204, 75
   br i1 %205, label %206, label %208
 
@@ -680,8 +680,8 @@ Abc_ObjIsBarBuf.exit.i:                           ; preds = %179
   br label %208
 
 208:                                              ; preds = %206, %203, %191
-  %.160.i.i = phi i32 [ 0, %206 ], [ %.059111.i.i, %203 ], [ 0, %191 ]
-  %.1.i.i = phi i32 [ 0, %206 ], [ %.0113.i.i, %203 ], [ %.0113.i.i, %191 ]
+  %.160.i.i = phi i32 [ 0, %206 ], [ %.059111.i.i, %203 ], [ %.059111.i.i, %191 ]
+  %.1.i.i = phi i32 [ 0, %206 ], [ %.058112.i.i, %203 ], [ 0, %191 ]
   br i1 %.not66.i.i, label %211, label %209
 
 209:                                              ; preds = %208
@@ -696,8 +696,8 @@ Abc_ObjIsBarBuf.exit.i:                           ; preds = %179
   br label %214
 
 214:                                              ; preds = %211, %209
-  %215 = add nsw i32 %.1.i.i, %202
-  %216 = add nsw i32 %.160.i.i, 1
+  %215 = add nsw i32 %.160.i.i, %202
+  %216 = add nsw i32 %.1.i.i, 1
   %.val89.i.i = load ptr, ptr %165, align 8
   %.val90.i.i = load ptr, ptr %189, align 8
   %217 = getelementptr i8, ptr %.val89.i.i, i64 32
@@ -725,8 +725,8 @@ Abc_ObjIsBarBuf.exit.i:                           ; preds = %179
   br label %Abc_UtilStrsav.exit.i.i
 
 Abc_UtilStrsav.exit.i.i:                          ; preds = %229, %223, %214
-  %.261.i.i = phi i32 [ 0, %229 ], [ %216, %223 ], [ 0, %214 ]
-  %.2.i.i = phi i32 [ 0, %229 ], [ %215, %223 ], [ %215, %214 ]
+  %.261.i.i = phi i32 [ 0, %229 ], [ %215, %223 ], [ %215, %214 ]
+  %.2.i.i = phi i32 [ 0, %229 ], [ %216, %223 ], [ 0, %214 ]
   %.val95.i.i = load ptr, ptr %190, align 8, !nonnull !11, !noundef !11
   %231 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val95.i.i) #12
   %232 = add i64 %231, 1
@@ -1295,7 +1295,7 @@ define range(i32 0, 2) i32 @Io_NtkEdgelistWriteNodeGate(ptr nocapture noundef %0
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %.03248.us = phi ptr [ %18, %.lr.ph.split.us ], [ %7, %.lr.ph ]
+  %.03148.us = phi ptr [ %18, %.lr.ph.split.us ], [ %7, %.lr.ph ]
   %.val43.us = load ptr, ptr %1, align 8
   %.val44.us = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %.val43.us, i64 32
@@ -1310,14 +1310,14 @@ define range(i32 0, 2) i32 @Io_NtkEdgelistWriteNodeGate(ptr nocapture noundef %0
   %16 = getelementptr i8, ptr %15, i64 16
   %.val42.us = load i32, ptr %16, align 8
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.20, i32 noundef %.val42.us) #11
-  %18 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.03248.us) #11
+  %18 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.03148.us) #11
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %.not.us = icmp eq ptr %18, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %.03248 = phi ptr [ %28, %.lr.ph.split ], [ %7, %.lr.ph ]
+  %.03148 = phi ptr [ %28, %.lr.ph.split ], [ %7, %.lr.ph ]
   %.val45 = load ptr, ptr %1, align 8
   %.val46 = load ptr, ptr %8, align 8
   %19 = getelementptr i8, ptr %.val45, i64 32
@@ -1331,7 +1331,7 @@ define range(i32 0, 2) i32 @Io_NtkEdgelistWriteNodeGate(ptr nocapture noundef %0
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @Abc_ObjName(ptr noundef %25) #11
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef %26) #11
-  %28 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.03248) #11
+  %28 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.03148) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
@@ -1410,8 +1410,8 @@ define range(i32 0, 2) i32 @Io_NtkEdgelistWriteNodeGate(ptr nocapture noundef %0
   br label %68
 
 68:                                               ; preds = %51, %52, %55, %43
-  %.031 = phi i32 [ 0, %43 ], [ 1, %55 ], [ 0, %52 ], [ 0, %51 ]
-  ret i32 %.031
+  %.032 = phi i32 [ 0, %43 ], [ 1, %55 ], [ 0, %52 ], [ 0, %51 ]
+  ret i32 %.032
 }
 
 declare ptr @Mio_GateReadPins(ptr noundef) local_unnamed_addr #2

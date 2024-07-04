@@ -776,12 +776,12 @@ for.body.lr.ph.i.i:                               ; preds = %do.body.i.i
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %i.048.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.body.i.i ]
   %zone.047.i.i = phi ptr [ %73, %for.body.lr.ph.i.i ], [ %incdec.ptr.i.i, %for.body.i.i ]
-  %start.046.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %add38.i.i, %for.body.i.i ]
-  %zone_size.045.i.i = phi i64 [ %div.i, %for.body.lr.ph.i.i ], [ %spec.select.i.i, %for.body.i.i ]
-  %add.i.i32 = add i64 %zone_size.045.i.i, %start.046.i.i
+  %zone_size.046.i.i = phi i64 [ %div.i, %for.body.lr.ph.i.i ], [ %spec.select.i.i, %for.body.i.i ]
+  %start.045.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %add38.i.i, %for.body.i.i ]
+  %add.i.i32 = add i64 %start.045.i.i, %zone_size.046.i.i
   %cmp30.i.i = icmp ugt i64 %add.i.i32, %mul.i.i
-  %sub.i.i33 = sub i64 %mul.i.i, %start.046.i.i
-  %spec.select.i.i = select i1 %cmp30.i.i, i64 %sub.i.i33, i64 %zone_size.045.i.i
+  %sub.i.i33 = sub i64 %mul.i.i, %start.045.i.i
+  %spec.select.i.i = select i1 %cmp30.i.i, i64 %sub.i.i33, i64 %zone_size.046.i.i
   store i8 2, ptr %zone.047.i.i, align 8
   %zs.i.i.i = getelementptr inbounds i8, ptr %zone.047.i.i, i64 1
   store i8 16, ptr %zs.i.i.i, align 1
@@ -791,12 +791,12 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %zcap.i.i = getelementptr inbounds i8, ptr %zone.047.i.i, i64 8
   store i64 %74, ptr %zcap.i.i, align 8
   %zslba.i.i = getelementptr inbounds i8, ptr %zone.047.i.i, i64 16
-  store i64 %start.046.i.i, ptr %zslba.i.i, align 8
+  store i64 %start.045.i.i, ptr %zslba.i.i, align 8
   %wp.i.i = getelementptr inbounds i8, ptr %zone.047.i.i, i64 24
-  store i64 %start.046.i.i, ptr %wp.i.i, align 8
+  store i64 %start.045.i.i, ptr %wp.i.i, align 8
   %w_ptr.i.i = getelementptr inbounds i8, ptr %zone.047.i.i, i64 64
-  store i64 %start.046.i.i, ptr %w_ptr.i.i, align 8
-  %add38.i.i = add i64 %spec.select.i.i, %start.046.i.i
+  store i64 %start.045.i.i, ptr %w_ptr.i.i, align 8
+  %add38.i.i = add i64 %spec.select.i.i, %start.045.i.i
   %inc.i.i = add nuw i32 %i.048.i.i, 1
   %incdec.ptr.i.i = getelementptr i8, ptr %zone.047.i.i, i64 88
   %75 = load i32, ptr %num_zones.i, align 8

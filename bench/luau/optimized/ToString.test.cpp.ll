@@ -13699,8 +13699,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 194:                                              ; preds = %192, %190
   %.pn18.i = phi { ptr, i32 } [ %193, %192 ], [ %191, %190 ]
-  %.3.i = extractvalue { ptr, i32 } %.pn18.i, 0
-  %195 = call ptr @__cxa_begin_catch(ptr %.3.i) #22
+  %.311.i = extractvalue { ptr, i32 } %.pn18.i, 0
+  %195 = call ptr @__cxa_begin_catch(ptr %.311.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %20)
           to label %196 unwind label %201
 
@@ -13804,8 +13804,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 229:                                              ; preds = %227, %225
   %.pn.i = phi { ptr, i32 } [ %228, %227 ], [ %226, %225 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn.i, 0
-  %230 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
+  %.513.i = extractvalue { ptr, i32 } %.pn.i, 0
+  %230 = call ptr @__cxa_begin_catch(ptr %.513.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %23)
           to label %231 unwind label %236
 
@@ -14457,8 +14457,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 194:                                              ; preds = %192, %190
   %.pn18.i = phi { ptr, i32 } [ %193, %192 ], [ %191, %190 ]
-  %.3.i = extractvalue { ptr, i32 } %.pn18.i, 0
-  %195 = call ptr @__cxa_begin_catch(ptr %.3.i) #22
+  %.311.i = extractvalue { ptr, i32 } %.pn18.i, 0
+  %195 = call ptr @__cxa_begin_catch(ptr %.311.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %20)
           to label %196 unwind label %201
 
@@ -14562,8 +14562,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 229:                                              ; preds = %227, %225
   %.pn.i = phi { ptr, i32 } [ %228, %227 ], [ %226, %225 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn.i, 0
-  %230 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
+  %.513.i = extractvalue { ptr, i32 } %.pn.i, 0
+  %230 = call ptr @__cxa_begin_catch(ptr %.513.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %23)
           to label %231 unwind label %236
 
@@ -19188,8 +19188,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 182:                                              ; preds = %180, %178
   %.pn18.i = phi { ptr, i32 } [ %181, %180 ], [ %179, %178 ]
-  %.3.i = extractvalue { ptr, i32 } %.pn18.i, 0
-  %183 = call ptr @__cxa_begin_catch(ptr %.3.i) #22
+  %.311.i = extractvalue { ptr, i32 } %.pn18.i, 0
+  %183 = call ptr @__cxa_begin_catch(ptr %.311.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %20)
           to label %184 unwind label %189
 
@@ -19293,8 +19293,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 217:                                              ; preds = %215, %213
   %.pn.i = phi { ptr, i32 } [ %216, %215 ], [ %214, %213 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn.i, 0
-  %218 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
+  %.513.i = extractvalue { ptr, i32 } %.pn.i, 0
+  %218 = call ptr @__cxa_begin_catch(ptr %.513.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %23)
           to label %219 unwind label %224
 

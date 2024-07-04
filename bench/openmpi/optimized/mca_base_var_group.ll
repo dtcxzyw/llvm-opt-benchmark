@@ -1744,8 +1744,8 @@ opal_value_array_append_item.exit.loopexit:       ; preds = %.lr.ph
   br label %opal_value_array_append_item.exit
 
 opal_value_array_append_item.exit:                ; preds = %opal_value_array_append_item.exit.loopexit, %opal_pointer_array_get_item.exit.i, %21, %2, %._crit_edge, %37
-  %.0 = phi i32 [ %46, %37 ], [ %36, %._crit_edge ], [ -13, %2 ], [ -13, %21 ], [ -13, %opal_pointer_array_get_item.exit.i ], [ %47, %opal_value_array_append_item.exit.loopexit ]
-  ret i32 %.0
+  %.010 = phi i32 [ %46, %37 ], [ %36, %._crit_edge ], [ -13, %2 ], [ -13, %21 ], [ -13, %opal_pointer_array_get_item.exit.i ], [ %47, %opal_value_array_append_item.exit.loopexit ]
+  ret i32 %.010
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1843,8 +1843,8 @@ opal_value_array_append_item.exit.loopexit:       ; preds = %.lr.ph
   br label %opal_value_array_append_item.exit
 
 opal_value_array_append_item.exit:                ; preds = %opal_value_array_append_item.exit.loopexit, %opal_pointer_array_get_item.exit.i, %21, %2, %._crit_edge, %37
-  %.0 = phi i32 [ %46, %37 ], [ %36, %._crit_edge ], [ -13, %2 ], [ -13, %21 ], [ -13, %opal_pointer_array_get_item.exit.i ], [ %47, %opal_value_array_append_item.exit.loopexit ]
-  ret i32 %.0
+  %.010 = phi i32 [ %46, %37 ], [ %36, %._crit_edge ], [ -13, %2 ], [ -13, %21 ], [ -13, %opal_pointer_array_get_item.exit.i ], [ %47, %opal_value_array_append_item.exit.loopexit ]
+  ret i32 %.010
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1937,8 +1937,8 @@ opal_value_array_append_item.exit.loopexit:       ; preds = %.lr.ph
   br label %opal_value_array_append_item.exit
 
 opal_value_array_append_item.exit:                ; preds = %opal_value_array_append_item.exit.loopexit, %opal_pointer_array_get_item.exit.i, %20, %2, %._crit_edge, %36
-  %.0 = phi i32 [ %43, %36 ], [ %35, %._crit_edge ], [ -13, %2 ], [ -13, %20 ], [ -13, %opal_pointer_array_get_item.exit.i ], [ %44, %opal_value_array_append_item.exit.loopexit ]
-  ret i32 %.0
+  %.012 = phi i32 [ %43, %36 ], [ %35, %._crit_edge ], [ -13, %2 ], [ -13, %20 ], [ -13, %opal_pointer_array_get_item.exit.i ], [ %44, %opal_value_array_append_item.exit.loopexit ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2065,8 +2065,8 @@ mca_base_var_group_get_internal.exit:             ; preds = %21
   br i1 %exitcond.not, label %mca_base_var_group_get_internal.exit.thread, label %.lr.ph, !llvm.loop !16
 
 mca_base_var_group_get_internal.exit.thread:      ; preds = %35, %mca_base_var_group_get_internal.exit, %opal_pointer_array_get_item.exit.i, %21, %3
-  %.0 = phi i32 [ -13, %3 ], [ -13, %21 ], [ -13, %opal_pointer_array_get_item.exit.i ], [ 0, %mca_base_var_group_get_internal.exit ], [ 0, %35 ]
-  ret i32 %.0
+  %.012 = phi i32 [ -13, %3 ], [ -13, %21 ], [ -13, %opal_pointer_array_get_item.exit.i ], [ 0, %mca_base_var_group_get_internal.exit ], [ 0, %35 ]
+  ret i32 %.012
 }
 
 declare i32 @mca_base_var_set_flag(i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1

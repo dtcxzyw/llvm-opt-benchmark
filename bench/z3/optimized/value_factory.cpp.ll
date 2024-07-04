@@ -772,24 +772,24 @@ _ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beg
   br i1 %cmp.i.not51, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit
-  %n.055 = phi i32 [ %inc, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit ], [ 1, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ]
-  %result.054 = phi ptr [ %spec.select, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit ], [ null, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ]
-  %rand.sroa.0.053 = phi i32 [ %add.i, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit ], [ %15, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ]
-  %__begin2.sroa.0.052 = phi ptr [ %__begin2.sroa.0.2, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit ], [ %retval.sroa.0.1.i, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ]
-  %19 = load ptr, ptr %__begin2.sroa.0.052, align 8
-  %mul.i = mul i32 %rand.sroa.0.053, 214013
+  %result.055 = phi ptr [ %spec.select, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit ], [ null, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ]
+  %n.054 = phi i32 [ %inc, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit ], [ 1, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ]
+  %__begin2.sroa.0.053 = phi ptr [ %__begin2.sroa.0.2, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit ], [ %retval.sroa.0.1.i, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ]
+  %rand.sroa.0.052 = phi i32 [ %add.i, %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit ], [ %15, %_ZNK14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE5beginEv.exit ]
+  %19 = load ptr, ptr %__begin2.sroa.0.053, align 8
+  %mul.i = mul i32 %rand.sroa.0.052, 214013
   %add.i = add i32 %mul.i, 2531011
   %shr.i = lshr i32 %add.i, 16
   %and.i = and i32 %shr.i, 32767
-  %inc = add nuw nsw i32 %n.055, 1
-  %rem = urem i32 %and.i, %n.055
+  %inc = add nuw nsw i32 %n.054, 1
+  %rem = urem i32 %and.i, %n.054
   %cmp = icmp eq i32 %rem, 0
-  %spec.select = select i1 %cmp, ptr %19, ptr %result.054
-  %exitcond = icmp eq i32 %n.055, 10
+  %spec.select = select i1 %cmp, ptr %19, ptr %result.055
+  %exitcond = icmp eq i32 %n.054, 10
   br i1 %exitcond, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.052, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.053, i64 8
   %cmp.not2.i.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i
   br i1 %cmp.not2.i.i, label %_ZN14core_hashtableI14obj_hash_entryI4exprE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8iteratorppEv.exit, label %land.rhs.i.i
 
@@ -1761,10 +1761,10 @@ while.body.lr.ph.i:                               ; preds = %land.lhs.true.i
   %.fr.i = freeze i64 %9
   %cmp.i = icmp ult i64 %.fr.i, 4294967295
   %conv.i = trunc i64 %.fr.i to i32
-  %spec.select.i = select i1 %cmp.i, i32 %conv.i, i32 0
+  %spec.select13.i = select i1 %cmp.i, i32 %conv.i, i32 0
   %m_next.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %10 = load i32, ptr %m_next.i, align 8
-  %add.i = add i32 %spec.select.i, %10
+  %add.i = add i32 %spec.select13.i, %10
   br i1 %cmp.i, label %while.body.i, label %while.body.us.preheader.i
 
 while.body.us.preheader.i:                        ; preds = %while.body.lr.ph.i, %while.body.lr.ph.thread.i
@@ -1830,10 +1830,10 @@ while.body.lr.ph:                                 ; preds = %land.lhs.true
   %.fr = freeze i64 %2
   %cmp = icmp ult i64 %.fr, 4294967295
   %conv = trunc i64 %.fr to i32
-  %spec.select = select i1 %cmp, i32 %conv, i32 0
+  %spec.select13 = select i1 %cmp, i32 %conv, i32 0
   %m_next = getelementptr inbounds i8, ptr %call, i64 24
   %3 = load i32, ptr %m_next, align 8
-  %add = add i32 %3, %spec.select
+  %add = add i32 %3, %spec.select13
   br i1 %cmp, label %while.body, label %while.body.us.preheader
 
 while.body.us.preheader:                          ; preds = %while.body.lr.ph.thread, %while.body.lr.ph

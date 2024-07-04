@@ -130,8 +130,8 @@ define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1
   unreachable
 
 ._crit_edge:                                      ; preds = %19, %.lr.ph, %3
-  %.047.lcssa = phi i1 [ false, %3 ], [ false, %.lr.ph ], [ %20, %19 ]
-  %32 = zext i1 %.047.lcssa to i32
+  %.051.lcssa = phi i1 [ false, %3 ], [ false, %.lr.ph ], [ %20, %19 ]
+  %32 = zext i1 %.051.lcssa to i32
   store i32 %32, ptr %5, align 4
   %33 = getelementptr inbounds i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8
@@ -243,18 +243,18 @@ define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1
   br label %170
 
 92:                                               ; preds = %87, %._crit_edge
+  %.050 = phi ptr [ %37, %87 ], [ null, %._crit_edge ]
   %.3 = phi i32 [ %.2, %87 ], [ 0, %._crit_edge ]
-  %.049 = phi ptr [ %37, %87 ], [ null, %._crit_edge ]
   tail call void @PreventInTransactionBlock(i1 noundef zeroext %2, ptr noundef nonnull @.str.6) #8
   %93 = load ptr, ptr @PortalContext, align 8
   %94 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %93, ptr noundef nonnull @.str.7, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #8
   %95 = or disjoint i32 %32, 2
   store i32 %95, ptr %5, align 4
-  %.not64 = icmp eq ptr %.049, null
+  %.not64 = icmp eq ptr %.050, null
   br i1 %.not64, label %125, label %96
 
 96:                                               ; preds = %92
-  tail call void @check_index_is_clusterable(ptr noundef nonnull %.049, i32 noundef %.3, i32 noundef 1)
+  tail call void @check_index_is_clusterable(ptr noundef nonnull %.050, i32 noundef %.3, i32 noundef 1)
   %97 = tail call ptr @find_all_inheritors(i32 noundef %.3, i32 noundef 0, ptr noundef null) #8
   %98 = getelementptr inbounds i8, ptr %97, i64 4
   %.not.i = icmp eq ptr %97, null
@@ -268,7 +268,7 @@ define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1
 
 .lr.ph32.i:                                       ; preds = %.lr.ph.i, %121
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %121 ], [ 0, %.lr.ph.i ]
-  %.0192630.i = phi ptr [ %.1.i, %121 ], [ null, %.lr.ph.i ]
+  %.0192531.i = phi ptr [ %.1.i, %121 ], [ null, %.lr.ph.i ]
   %102 = load ptr, ptr %99, align 8
   %103 = getelementptr %union.ListCell, ptr %102, i64 %indvars.iv.i
   %104 = load i32, ptr %103, align 8
@@ -299,12 +299,12 @@ define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1
   store i32 %105, ptr %118, align 4
   %119 = getelementptr inbounds i8, ptr %118, i64 4
   store i32 %104, ptr %119, align 4
-  %120 = tail call ptr @lappend(ptr noundef %.0192630.i, ptr noundef nonnull %118) #8
+  %120 = tail call ptr @lappend(ptr noundef %.0192531.i, ptr noundef nonnull %118) #8
   store ptr %117, ptr @CurrentMemoryContext, align 8
   br label %121
 
 121:                                              ; preds = %116, %114, %110, %.lr.ph32.i
-  %.1.i = phi ptr [ %.0192630.i, %.lr.ph32.i ], [ %120, %116 ], [ %.0192630.i, %114 ], [ %.0192630.i, %110 ]
+  %.1.i = phi ptr [ %.0192531.i, %.lr.ph32.i ], [ %120, %116 ], [ %.0192531.i, %114 ], [ %.0192531.i, %110 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %122 = load i32, ptr %98, align 4
   %123 = sext i32 %122 to i64
@@ -313,7 +313,7 @@ define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1
 
 get_tables_to_cluster_partitioned.exit:           ; preds = %121, %96, %.lr.ph.i
   %.019.lcssa.i = phi ptr [ null, %96 ], [ null, %.lr.ph.i ], [ %.1.i, %121 ]
-  tail call void @table_close(ptr noundef nonnull %.049, i32 noundef 8) #8
+  tail call void @table_close(ptr noundef nonnull %.050, i32 noundef 8) #8
   br label %155
 
 125:                                              ; preds = %92
@@ -373,15 +373,15 @@ get_tables_to_cluster.exit:                       ; preds = %128
   br label %155
 
 155:                                              ; preds = %get_tables_to_cluster.exit, %get_tables_to_cluster_partitioned.exit
-  %.051 = phi ptr [ %.019.lcssa.i, %get_tables_to_cluster_partitioned.exit ], [ %.0.ph.i, %get_tables_to_cluster.exit ]
+  %.048 = phi ptr [ %.019.lcssa.i, %get_tables_to_cluster_partitioned.exit ], [ %.0.ph.i, %get_tables_to_cluster.exit ]
   call void @PopActiveSnapshot() #8
   call void @CommitTransactionCommand() #8
-  %156 = getelementptr inbounds i8, ptr %.051, i64 4
-  %.not.i66 = icmp eq ptr %.051, null
+  %156 = getelementptr inbounds i8, ptr %.048, i64 4
+  %.not.i66 = icmp eq ptr %.048, null
   br i1 %.not.i66, label %cluster_multiple_rels.exit, label %.lr.ph.i67
 
 .lr.ph.i67:                                       ; preds = %155
-  %157 = getelementptr inbounds i8, ptr %.051, i64 16
+  %157 = getelementptr inbounds i8, ptr %.048, i64 16
   %158 = load i32, ptr %156, align 4
   %159 = icmp sgt i32 %158, 0
   br i1 %159, label %.lr.ph16.i, label %cluster_multiple_rels.exit
@@ -670,7 +670,7 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
   br label %110
 
 110:                                              ; preds = %108, %99
-  %.0.i.i = phi ptr [ %109, %108 ], [ null, %99 ]
+  %.0105.i.i = phi ptr [ %109, %108 ], [ null, %99 ]
   %111 = getelementptr inbounds i8, ptr %107, i64 56
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds i8, ptr %112, i64 68
@@ -747,11 +747,11 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
   br label %151
 
 151:                                              ; preds = %147, %143, %139
-  %.not116.i.i = icmp eq ptr %.0.i.i, null
+  %.not116.i.i = icmp eq ptr %.0105.i.i, null
   br i1 %.not116.i.i, label %.thread123.i.i, label %152
 
 152:                                              ; preds = %151
-  %153 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
+  %153 = getelementptr inbounds i8, ptr %.0105.i.i, i64 56
   %154 = load ptr, ptr %153, align 8
   %155 = getelementptr inbounds i8, ptr %154, i64 84
   %156 = load i32, ptr %155, align 4
@@ -796,12 +796,12 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
 
 .sink.split.i.i:                                  ; preds = %174, %169, %161
   %.sink.i.i = phi i32 [ 963, %174 ], [ 958, %169 ], [ 953, %161 ]
-  %.0105122.ph.i.i = phi i1 [ false, %174 ], [ true, %169 ], [ false, %161 ]
+  %.0122.ph.i.i = phi i1 [ false, %174 ], [ true, %169 ], [ false, %161 ]
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink.i.i, ptr noundef nonnull @__func__.copy_table_data) #8
   br label %178
 
 178:                                              ; preds = %.sink.split.i.i, %.thread123.i.i, %167, %.thread129.i.i
-  %.0105122.i.i = phi i1 [ false, %.thread123.i.i ], [ true, %167 ], [ false, %.thread129.i.i ], [ %.0105122.ph.i.i, %.sink.split.i.i ]
+  %.0122.i.i = phi i1 [ false, %.thread123.i.i ], [ true, %167 ], [ false, %.thread129.i.i ], [ %.0122.ph.i.i, %.sink.split.i.i ]
   %179 = getelementptr inbounds i8, ptr %5, i64 8
   %180 = load i32, ptr %179, align 4
   %181 = getelementptr inbounds i8, ptr %5, i64 16
@@ -810,7 +810,7 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds i8, ptr %184, i64 248
   %186 = load ptr, ptr %185, align 8
-  call void %186(ptr noundef nonnull %107, ptr noundef %106, ptr noundef %.0.i.i, i1 noundef zeroext %.0105122.i.i, i32 noundef %180, ptr noundef nonnull %181, ptr noundef nonnull %182, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
+  call void %186(ptr noundef nonnull %107, ptr noundef %106, ptr noundef %.0105.i.i, i1 noundef zeroext %.0122.i.i, i32 noundef %180, ptr noundef nonnull %181, ptr noundef nonnull %182, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
   %187 = load i32, ptr %181, align 4
   %188 = load i32, ptr %182, align 4
   %189 = getelementptr inbounds i8, ptr %106, i64 464
@@ -836,7 +836,7 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
   br i1 %.not116.i.i, label %204, label %203
 
 203:                                              ; preds = %202
-  call void @index_close(ptr noundef nonnull %.0.i.i, i32 noundef 0) #8
+  call void @index_close(ptr noundef nonnull %.0105.i.i, i32 noundef 0) #8
   br label %204
 
 204:                                              ; preds = %203, %202

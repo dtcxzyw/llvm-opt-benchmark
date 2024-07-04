@@ -1483,33 +1483,33 @@ Abc_SclLoadStore.exit:                            ; preds = %Vec_FltPush.exit23.
   br label %385
 
 385:                                              ; preds = %Abc_SclLoadStore.exit, %Abc_SclEvalPerformLegal.exit.thread
-  %.066164 = phi i32 [ -1, %Abc_SclLoadStore.exit ], [ %.1, %Abc_SclEvalPerformLegal.exit.thread ]
-  %.068163 = phi i32 [ 0, %Abc_SclLoadStore.exit ], [ %485, %Abc_SclEvalPerformLegal.exit.thread ]
-  %.069162 = phi float [ %375, %Abc_SclLoadStore.exit ], [ %.170, %Abc_SclEvalPerformLegal.exit.thread ]
-  %.071161 = phi ptr [ %28, %Abc_SclLoadStore.exit ], [ %484, %Abc_SclEvalPerformLegal.exit.thread ]
-  %386 = getelementptr inbounds i8, ptr %.071161, i64 24
+  %.0164 = phi i32 [ -1, %Abc_SclLoadStore.exit ], [ %.1, %Abc_SclEvalPerformLegal.exit.thread ]
+  %.067163 = phi i32 [ 0, %Abc_SclLoadStore.exit ], [ %485, %Abc_SclEvalPerformLegal.exit.thread ]
+  %.068162 = phi float [ %375, %Abc_SclLoadStore.exit ], [ %.169, %Abc_SclEvalPerformLegal.exit.thread ]
+  %.070161 = phi ptr [ %28, %Abc_SclLoadStore.exit ], [ %484, %Abc_SclEvalPerformLegal.exit.thread ]
+  %386 = getelementptr inbounds i8, ptr %.070161, i64 24
   %387 = load float, ptr %386, align 8
   %388 = load float, ptr %376, align 8
   %389 = fcmp ult float %387, %388
   br i1 %389, label %390, label %Abc_SclEvalPerformLegal.exit.thread
 
 390:                                              ; preds = %385
-  %391 = icmp sgt i32 %.068163, %4
+  %391 = icmp sgt i32 %.067163, %4
   br i1 %391, label %486, label %392
 
 392:                                              ; preds = %390
   %.val79 = load ptr, ptr %1, align 8
   %.val80 = load i32, ptr %15, align 8
-  %393 = getelementptr i8, ptr %.071161, i64 8
-  %.071.val = load i32, ptr %393, align 8
+  %393 = getelementptr i8, ptr %.070161, i64 8
+  %.070.val = load i32, ptr %393, align 8
   %394 = getelementptr i8, ptr %.val79, i64 376
   %.val79.val = load ptr, ptr %394, align 8
   %395 = getelementptr i8, ptr %.val79.val, i64 8
   %.val79.val.val = load ptr, ptr %395, align 8
   %396 = sext i32 %.val80 to i64
   %397 = getelementptr inbounds i32, ptr %.val79.val.val, i64 %396
-  store i32 %.071.val, ptr %397, align 4
-  call void @Abc_SclUpdateLoad(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %28, ptr noundef nonnull %.071161) #22
+  store i32 %.070.val, ptr %397, align 4
+  call void @Abc_SclUpdateLoad(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %28, ptr noundef nonnull %.070161) #22
   call void @Abc_SclTimeCone(ptr noundef %0, ptr noundef %2) #22
   %.val81 = load ptr, ptr %1, align 8
   %.val82 = load i32, ptr %15, align 8
@@ -1656,7 +1656,7 @@ Abc_SclEvalPerformLegal.exit:                     ; preds = %476, %Abc_SclLoadRe
   %477 = sitofp i32 %.val35.i to float
   %478 = fdiv float %.031.lcssa.i, %477
   %479 = fcmp une float %478, -1.000000e+00
-  %480 = fcmp olt float %.069162, %478
+  %480 = fcmp olt float %.068162, %478
   %or.cond = select i1 %479, i1 %480, i1 false
   br i1 %or.cond, label %481, label %Abc_SclEvalPerformLegal.exit.thread
 
@@ -1665,16 +1665,16 @@ Abc_SclEvalPerformLegal.exit:                     ; preds = %476, %Abc_SclLoadRe
   br label %Abc_SclEvalPerformLegal.exit.thread
 
 Abc_SclEvalPerformLegal.exit.thread:              ; preds = %438, %461, %481, %Abc_SclEvalPerformLegal.exit, %385
-  %.170 = phi float [ %.069162, %385 ], [ %.069162, %Abc_SclEvalPerformLegal.exit ], [ %478, %481 ], [ %.069162, %461 ], [ %.069162, %438 ]
-  %.1 = phi i32 [ %.066164, %385 ], [ %.066164, %Abc_SclEvalPerformLegal.exit ], [ %482, %481 ], [ %.066164, %461 ], [ %.066164, %438 ]
-  %483 = getelementptr inbounds i8, ptr %.071161, i64 80
+  %.169 = phi float [ %.068162, %385 ], [ %.068162, %Abc_SclEvalPerformLegal.exit ], [ %478, %481 ], [ %.068162, %461 ], [ %.068162, %438 ]
+  %.1 = phi i32 [ %.0164, %385 ], [ %.0164, %Abc_SclEvalPerformLegal.exit ], [ %482, %481 ], [ %.0164, %461 ], [ %.0164, %438 ]
+  %483 = getelementptr inbounds i8, ptr %.070161, i64 80
   %484 = load ptr, ptr %483, align 8
-  %485 = add nuw nsw i32 %.068163, 1
+  %485 = add nuw nsw i32 %.067163, 1
   %.not = icmp eq ptr %484, %28
   br i1 %.not, label %486, label %385, !llvm.loop !18
 
 486:                                              ; preds = %390, %Abc_SclEvalPerformLegal.exit.thread
-  %.066.lcssa = phi i32 [ %.066164, %390 ], [ %.1, %Abc_SclEvalPerformLegal.exit.thread ]
+  %.0.lcssa = phi i32 [ %.0164, %390 ], [ %.1, %Abc_SclEvalPerformLegal.exit.thread ]
   %.val84 = load ptr, ptr %1, align 8
   %.val85 = load i32, ptr %15, align 8
   %.val86 = load i32, ptr %377, align 8
@@ -1793,14 +1793,14 @@ Abc_Clock.exit156:                                ; preds = %Abc_SclConeRestore.
   %549 = load i64, ptr %548, align 8
   %550 = add nsw i64 %547, %549
   store i64 %550, ptr %548, align 8
-  %551 = icmp sgt i32 %.066.lcssa, -1
+  %551 = icmp sgt i32 %.0.lcssa, -1
   br i1 %551, label %552, label %594
 
 552:                                              ; preds = %Abc_Clock.exit156
   %553 = load ptr, ptr %0, align 8
   %554 = getelementptr i8, ptr %553, i64 104
   %.val76 = load ptr, ptr %554, align 8
-  %555 = zext nneg i32 %.066.lcssa to i64
+  %555 = zext nneg i32 %.0.lcssa to i64
   %556 = getelementptr inbounds ptr, ptr %.val76, i64 %555
   %557 = load ptr, ptr %556, align 8
   %.val87 = load ptr, ptr %1, align 8
@@ -1877,8 +1877,8 @@ Abc_Clock.exit156:                                ; preds = %Abc_SclConeRestore.
   br label %594
 
 594:                                              ; preds = %Abc_Clock.exit156, %.critedge
-  %.0 = phi i32 [ 1, %.critedge ], [ 0, %Abc_Clock.exit156 ]
-  ret i32 %.0
+  %.071 = phi i32 [ 1, %.critedge ], [ 0, %Abc_Clock.exit156 ]
+  ret i32 %.071
 }
 
 declare void @Abc_SclUpdateLoad(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

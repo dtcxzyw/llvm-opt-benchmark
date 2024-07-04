@@ -1654,11 +1654,11 @@ define i32 @Abc_FlowRetime_PushFlows(ptr noundef %0, i32 noundef %1) local_unnam
   %12 = phi ptr [ %19, %.critedge.preheader ], [ %.pre120, %.critedge2.loopexit.loopexit ]
   %13 = phi ptr [ %20, %.critedge.preheader ], [ %60, %.critedge2.loopexit.loopexit ]
   %14 = phi ptr [ %21, %.critedge.preheader ], [ %60, %.critedge2.loopexit.loopexit ]
-  %.156.lcssa = phi i32 [ %.05596, %.critedge.preheader ], [ %.257, %.critedge2.loopexit.loopexit ]
+  %.152.lcssa = phi i32 [ %.05196, %.critedge.preheader ], [ %.253, %.critedge2.loopexit.loopexit ]
   %15 = getelementptr inbounds i8, ptr %12, i64 64
   %16 = load i32, ptr %15, align 8
   %.not = icmp eq i32 %16, 0
-  %17 = icmp slt i32 %.253, 30000
+  %17 = icmp slt i32 %.2, 30000
   %18 = select i1 %.not, i1 %17, i1 false
   br i1 %18, label %.preheader, label %.critedge2._crit_edge, !llvm.loop !19
 
@@ -1666,7 +1666,7 @@ define i32 @Abc_FlowRetime_PushFlows(ptr noundef %0, i32 noundef %1) local_unnam
   %19 = phi ptr [ %8, %.preheader.lr.ph ], [ %12, %.critedge2.loopexit ]
   %20 = phi ptr [ %.pre, %.preheader.lr.ph ], [ %13, %.critedge2.loopexit ]
   %21 = phi ptr [ %.pre, %.preheader.lr.ph ], [ %14, %.critedge2.loopexit ]
-  %.05596 = phi i32 [ 0, %.preheader.lr.ph ], [ %.156.lcssa, %.critedge2.loopexit ]
+  %.05196 = phi i32 [ 0, %.preheader.lr.ph ], [ %.152.lcssa, %.critedge2.loopexit ]
   %22 = getelementptr i8, ptr %21, i64 4
   %.val70 = load i32, ptr %22, align 4
   %23 = icmp sgt i32 %.val70, 0
@@ -1684,7 +1684,7 @@ define i32 @Abc_FlowRetime_PushFlows(ptr noundef %0, i32 noundef %1) local_unnam
 
 26:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %.15288 = phi i32 [ 30000, %.lr.ph ], [ %.253, %39 ]
+  %.189 = phi i32 [ 30000, %.lr.ph ], [ %.2, %39 ]
   %27 = getelementptr inbounds ptr, ptr %.val73.val, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr i8, ptr %28, i64 20
@@ -1702,12 +1702,12 @@ define i32 @Abc_FlowRetime_PushFlows(ptr noundef %0, i32 noundef %1) local_unnam
   %36 = load i32, ptr %35, align 8
   %37 = and i32 %36, 65535
   %.not67 = icmp eq i32 %37, 0
-  %38 = tail call i32 @llvm.smin.i32(i32 %.15288, i32 %37)
-  %spec.select83 = select i1 %.not67, i32 %.15288, i32 %38
+  %38 = tail call i32 @llvm.smin.i32(i32 %.189, i32 %37)
+  %spec.select83 = select i1 %.not67, i32 %.189, i32 %38
   br label %39
 
 39:                                               ; preds = %31, %26
-  %.253 = phi i32 [ %.15288, %26 ], [ %spec.select83, %31 ]
+  %.2 = phi i32 [ %.189, %26 ], [ %spec.select83, %31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.preheader, label %26, !llvm.loop !20
@@ -1716,7 +1716,7 @@ define i32 @Abc_FlowRetime_PushFlows(ptr noundef %0, i32 noundef %1) local_unnam
   %40 = phi ptr [ %60, %.critedge ], [ %20, %.critedge.preheader ]
   %indvars.iv110 = phi i64 [ %indvars.iv.next111, %.critedge ], [ 0, %.critedge.preheader ]
   %41 = phi ptr [ %60, %.critedge ], [ %21, %.critedge.preheader ]
-  %.15691 = phi i32 [ %.257, %.critedge ], [ %.05596, %.critedge.preheader ]
+  %.15292 = phi i32 [ %.253, %.critedge ], [ %.05196, %.critedge.preheader ]
   %42 = getelementptr i8, ptr %41, i64 8
   %.val72.val = load ptr, ptr %42, align 8
   %43 = getelementptr inbounds ptr, ptr %.val72.val, i64 %indvars.iv110
@@ -1737,20 +1737,20 @@ define i32 @Abc_FlowRetime_PushFlows(ptr noundef %0, i32 noundef %1) local_unnam
   %53 = getelementptr inbounds %struct.Flow_Data_t_, ptr %50, i64 %52, i32 2
   %54 = load i32, ptr %53, align 8
   %55 = and i32 %54, 65535
-  %56 = icmp eq i32 %.253, %55
+  %56 = icmp eq i32 %.2, %55
   br i1 %56, label %57, label %.critedge
 
 57:                                               ; preds = %47
   %58 = tail call i32 @dfsfast_e(ptr noundef nonnull %44, ptr noundef null) #16
   %.not65 = icmp ne i32 %58, 0
   %59 = zext i1 %.not65 to i32
-  %spec.select = add nsw i32 %.15691, %59
+  %spec.select = add nsw i32 %.15292, %59
   %.pre119 = load ptr, ptr %11, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %57, %.lr.ph93, %47
   %60 = phi ptr [ %40, %47 ], [ %40, %.lr.ph93 ], [ %.pre119, %57 ]
-  %.257 = phi i32 [ %.15691, %47 ], [ %.15691, %.lr.ph93 ], [ %spec.select, %57 ]
+  %.253 = phi i32 [ %.15292, %47 ], [ %.15292, %.lr.ph93 ], [ %spec.select, %57 ]
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %61 = getelementptr i8, ptr %60, i64 4
   %.val69 = load i32, ptr %61, align 4
@@ -1759,7 +1759,7 @@ define i32 @Abc_FlowRetime_PushFlows(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %63, label %.lr.ph93, label %.critedge2.loopexit.loopexit, !llvm.loop !21
 
 .critedge2._crit_edge:                            ; preds = %.preheader, %.critedge2.loopexit, %2
-  %.055.lcssa = phi i32 [ 0, %2 ], [ %.05596, %.preheader ], [ %.156.lcssa, %.critedge2.loopexit ]
+  %.051.lcssa = phi i32 [ 0, %2 ], [ %.05196, %.preheader ], [ %.152.lcssa, %.critedge2.loopexit ]
   %.lcssa87 = phi ptr [ %8, %2 ], [ %19, %.preheader ], [ %12, %.critedge2.loopexit ]
   %.not59 = icmp eq i32 %1, 0
   br i1 %.not59, label %69, label %64
@@ -1771,7 +1771,7 @@ define i32 @Abc_FlowRetime_PushFlows(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %.not60, label %69, label %67
 
 67:                                               ; preds = %64
-  %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %.055.lcssa)
+  %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, i32 noundef %.051.lcssa)
   br label %69
 
 69:                                               ; preds = %64, %67, %.critedge2._crit_edge
@@ -1785,7 +1785,7 @@ define i32 @Abc_FlowRetime_PushFlows(ptr noundef %0, i32 noundef %1) local_unnam
 
 .split:                                           ; preds = %69, %.critedge4
   %76 = phi ptr [ %111, %.critedge4 ], [ %72, %69 ]
-  %.3 = phi i32 [ %.5, %.critedge4 ], [ %.055.lcssa, %69 ]
+  %.3 = phi i32 [ %.5, %.critedge4 ], [ %.051.lcssa, %69 ]
   %77 = getelementptr i8, ptr %76, i64 4
   %.val68102 = load i32, ptr %77, align 4
   %78 = icmp sgt i32 %.val68102, 0
@@ -1794,7 +1794,7 @@ define i32 @Abc_FlowRetime_PushFlows(ptr noundef %0, i32 noundef %1) local_unnam
 .lr.ph105:                                        ; preds = %.split, %.critedge6
   %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.critedge6 ], [ 0, %.split ]
   %79 = phi ptr [ %111, %.critedge6 ], [ %76, %.split ]
-  %.4103 = phi i32 [ %.5, %.critedge6 ], [ %.3, %.split ]
+  %.4104 = phi i32 [ %.5, %.critedge6 ], [ %.3, %.split ]
   %80 = getelementptr i8, ptr %79, i64 8
   %.val71.val = load ptr, ptr %80, align 8
   %81 = getelementptr inbounds ptr, ptr %.val71.val, i64 %indvars.iv116
@@ -1811,7 +1811,7 @@ define i32 @Abc_FlowRetime_PushFlows(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %.not63, label %.critedge6, label %87
 
 87:                                               ; preds = %85
-  %88 = add nsw i32 %.4103, 1
+  %88 = add nsw i32 %.4104, 1
   %89 = load ptr, ptr %71, align 8
   %90 = getelementptr i8, ptr %89, i64 4
   %.val99 = load i32, ptr %90, align 4
@@ -1852,7 +1852,7 @@ define i32 @Abc_FlowRetime_PushFlows(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %110, label %.lr.ph101, label %.critedge6, !llvm.loop !22
 
 .critedge6:                                       ; preds = %106, %87, %.lr.ph105, %85
-  %.5 = phi i32 [ %.4103, %85 ], [ %.4103, %.lr.ph105 ], [ %88, %87 ], [ %88, %106 ]
+  %.5 = phi i32 [ %.4104, %85 ], [ %.4104, %.lr.ph105 ], [ %88, %87 ], [ %88, %106 ]
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %111 = load ptr, ptr %70, align 8
   %112 = getelementptr i8, ptr %111, i64 4
@@ -1866,7 +1866,7 @@ define i32 @Abc_FlowRetime_PushFlows(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %115, label %.split, label %.split108.us, !llvm.loop !24
 
 .split108.us:                                     ; preds = %.split, %.critedge4, %69
-  %.us-phi = phi i32 [ %.055.lcssa, %69 ], [ %.3, %.split ], [ %.5, %.critedge4 ]
+  %.us-phi = phi i32 [ %.051.lcssa, %69 ], [ %.3, %.split ], [ %.5, %.critedge4 ]
   br i1 %.not59, label %122, label %116
 
 116:                                              ; preds = %.split108.us
@@ -2205,8 +2205,8 @@ Vec_PtrPush.exit119:                              ; preds = %.Vec_PtrGrow.exit11
 
 145:                                              ; preds = %134
   %146 = getelementptr i8, ptr %140, i64 20
-  %.069.val = load i32, ptr %146, align 4
-  %147 = and i32 %.069.val, 15
+  %.0.val = load i32, ptr %146, align 4
+  %147 = and i32 %.0.val, 15
   %.not125 = icmp eq i32 %147, 5
   br i1 %.not125, label %170, label %159
 
@@ -4119,8 +4119,8 @@ Vec_PtrPush.exit131:                              ; preds = %.Vec_PtrGrow.exit11
 .lr.ph175:                                        ; preds = %.critedge.preheader, %.critedge
   %152 = phi ptr [ %262, %.critedge ], [ %30, %.critedge.preheader ]
   %indvars.iv193 = phi i64 [ %indvars.iv.next194, %.critedge ], [ 0, %.critedge.preheader ]
-  %.076173 = phi i32 [ %.177, %.critedge ], [ 0, %.critedge.preheader ]
-  %.078172 = phi i32 [ %.2, %.critedge ], [ 0, %.critedge.preheader ]
+  %.0174 = phi i32 [ %.2, %.critedge ], [ 0, %.critedge.preheader ]
+  %.075173 = phi i32 [ %.176, %.critedge ], [ 0, %.critedge.preheader ]
   %153 = getelementptr i8, ptr %152, i64 8
   %.val108.val = load ptr, ptr %153, align 8
   %154 = getelementptr inbounds ptr, ptr %.val108.val, i64 %indvars.iv193
@@ -4149,7 +4149,7 @@ Vec_PtrPush.exit131:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %or.cond154, label %169, label %.critedge
 
 169:                                              ; preds = %160
-  %170 = add nsw i32 %.076173, 1
+  %170 = add nsw i32 %.075173, 1
   %171 = getelementptr inbounds i8, ptr %161, i64 60
   %172 = load i32, ptr %171, align 4
   %.not86 = icmp eq i32 %172, 0
@@ -4164,11 +4164,11 @@ Vec_PtrPush.exit131:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not158, label %175, label %177
 
 175:                                              ; preds = %174, %173
-  %176 = add nsw i32 %.078172, 1
+  %176 = add nsw i32 %.0174, 1
   br label %177
 
 177:                                              ; preds = %173, %175, %174
-  %.179 = phi i32 [ %176, %175 ], [ %.078172, %174 ], [ %.078172, %173 ]
+  %.1 = phi i32 [ %176, %175 ], [ %.0174, %174 ], [ %.0174, %173 ]
   %178 = getelementptr i8, ptr %155, i64 44
   %.val107165 = load i32, ptr %178, align 4
   %179 = icmp sgt i32 %.val107165, 0
@@ -4358,8 +4358,8 @@ Abc_FlowRetime_IsAcrossCut.exit:                  ; preds = %215, %212, %181, %V
 
 .critedge:                                        ; preds = %.loopexit, %.lr.ph175, %160, %157
   %262 = phi ptr [ %152, %.lr.ph175 ], [ %152, %157 ], [ %152, %160 ], [ %.pre202, %.loopexit ]
-  %.2 = phi i32 [ %.078172, %.lr.ph175 ], [ %.078172, %157 ], [ %.078172, %160 ], [ %.179, %.loopexit ]
-  %.177 = phi i32 [ %.076173, %.lr.ph175 ], [ %.076173, %157 ], [ %.076173, %160 ], [ %170, %.loopexit ]
+  %.176 = phi i32 [ %.075173, %.lr.ph175 ], [ %.075173, %157 ], [ %.075173, %160 ], [ %170, %.loopexit ]
+  %.2 = phi i32 [ %.0174, %.lr.ph175 ], [ %.0174, %157 ], [ %.0174, %160 ], [ %.1, %.loopexit ]
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %263 = getelementptr i8, ptr %262, i64 4
   %.val98 = load i32, ptr %263, align 4
@@ -4369,8 +4369,8 @@ Abc_FlowRetime_IsAcrossCut.exit:                  ; preds = %215, %212, %181, %V
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %266 = phi ptr [ %30, %.critedge.preheader ], [ %262, %.critedge ]
-  %.078.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %.2, %.critedge ]
-  %.076.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %.177, %.critedge ]
+  %.075.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %.176, %.critedge ]
+  %.0.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %.2, %.critedge ]
   store i32 0, ptr @fPathError, align 4
   %267 = load ptr, ptr @pManMR, align 8
   %268 = getelementptr inbounds i8, ptr %267, i64 40
@@ -4572,11 +4572,11 @@ Vec_PtrFree.exit151:                              ; preds = %Vec_PtrFree.exit149
   br i1 %.not81, label %345, label %343
 
 343:                                              ; preds = %Vec_PtrFree.exit151
-  %344 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i32 noundef %.076.lcssa, i32 noundef %.078.lcssa)
+  %344 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i32 noundef %.075.lcssa, i32 noundef %.0.lcssa)
   br label %345
 
 345:                                              ; preds = %343, %Vec_PtrFree.exit151
-  ret i32 %.076.lcssa
+  ret i32 %.075.lcssa
 }
 
 declare void @Abc_FlowRetime_SetupBackwardInit(ptr noundef) local_unnamed_addr #3
@@ -4818,8 +4818,8 @@ define internal fastcc range(i32 -1, 2) i32 @Abc_FlowRetime_VerifyPathLatencies_
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %6, %._crit_edge, %2, %.critedge, %77, %.thread81
-  %.042 = phi i32 [ %79, %77 ], [ 0, %.thread81 ], [ -1, %.critedge ], [ -1, %2 ], [ -1, %._crit_edge ], [ -1, %6 ]
-  ret i32 %.042
+  %.043 = phi i32 [ %79, %77 ], [ 0, %.thread81 ], [ -1, %.critedge ], [ -1, %2 ], [ -1, %._crit_edge ], [ -1, %6 ]
+  ret i32 %.043
 }
 
 ; Function Attrs: noreturn nounwind

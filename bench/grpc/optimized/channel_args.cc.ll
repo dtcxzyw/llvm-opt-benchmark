@@ -2152,35 +2152,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end16.i
-  %__value.addr.021.i = phi i64 [ %div.i, %if.end16.i ], [ %cond, %entry ]
-  %__n.020.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
-  %cmp5.i = icmp ult i64 %__value.addr.021.i, 100
+  %__n.021.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
+  %__value.addr.020.i = phi i64 [ %div.i, %if.end16.i ], [ %cond, %entry ]
+  %cmp5.i = icmp ult i64 %__value.addr.020.i, 100
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.020.i, 1
+  %add.i = add i32 %__n.021.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end7.i:                                        ; preds = %if.end.i
-  %cmp9.i = icmp ult i64 %__value.addr.021.i, 1000
+  %cmp9.i = icmp ult i64 %__value.addr.020.i, 1000
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.end7.i
-  %add11.i = add i32 %__n.020.i, 2
+  %add11.i = add i32 %__n.021.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end12.i:                                       ; preds = %if.end7.i
-  %cmp13.i = icmp ult i64 %__value.addr.021.i, 10000
+  %cmp13.i = icmp ult i64 %__value.addr.020.i, 10000
   br i1 %cmp13.i, label %if.then14.i, label %if.end16.i
 
 if.then14.i:                                      ; preds = %if.end12.i
-  %add15.i = add i32 %__n.020.i, 3
+  %add15.i = add i32 %__n.021.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %div.i = udiv i64 %__value.addr.021.i, 10000
-  %add17.i = add i32 %__n.020.i, 4
-  %cmp.i = icmp ult i64 %__value.addr.021.i, 100000
+  %div.i = udiv i64 %__value.addr.020.i, 10000
+  %add17.i = add i32 %__n.021.i, 4
+  %cmp.i = icmp ult i64 %__value.addr.020.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !45
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
@@ -2875,8 +2875,8 @@ if.end35:                                         ; preds = %for.inc32, %for.con
 for.body39:                                       ; preds = %if.end35, %_ZL8copy_argPK8grpc_arg.exit61
   %i36.091 = phi i64 [ %inc46, %_ZL8copy_argPK8grpc_arg.exit61 ], [ 0, %if.end35 ]
   %dst_idx.390 = phi i64 [ %inc43, %_ZL8copy_argPK8grpc_arg.exit61 ], [ %dst_idx.2, %if.end35 ]
-  %ref.tmp40.sroa.3.089 = phi ptr [ %ref.tmp40.sroa.3.1, %_ZL8copy_argPK8grpc_arg.exit61 ], [ undef, %if.end35 ]
-  %ref.tmp40.sroa.7.088 = phi ptr [ %ref.tmp40.sroa.7.1, %_ZL8copy_argPK8grpc_arg.exit61 ], [ undef, %if.end35 ]
+  %ref.tmp40.sroa.7.089 = phi ptr [ %ref.tmp40.sroa.7.1, %_ZL8copy_argPK8grpc_arg.exit61 ], [ undef, %if.end35 ]
+  %ref.tmp40.sroa.3.088 = phi ptr [ %ref.tmp40.sroa.3.1, %_ZL8copy_argPK8grpc_arg.exit61 ], [ undef, %if.end35 ]
   %arrayidx41 = getelementptr inbounds %struct.grpc_arg, ptr %to_add, i64 %i36.091
   %19 = load i32, ptr %arrayidx41, align 8, !noalias !72
   %key.i46 = getelementptr inbounds i8, ptr %arrayidx41, i64 8
@@ -2897,7 +2897,7 @@ sw.bb.i57:                                        ; preds = %for.body39
 sw.bb6.i54:                                       ; preds = %for.body39
   %value7.i55 = getelementptr inbounds i8, ptr %arrayidx41, i64 16
   %22 = load i32, ptr %value7.i55, align 8, !noalias !72
-  %23 = ptrtoint ptr %ref.tmp40.sroa.3.089 to i64
+  %23 = ptrtoint ptr %ref.tmp40.sroa.3.088 to i64
   %ref.tmp40.sroa.3.0.insert.ext = zext i32 %22 to i64
   %ref.tmp40.sroa.3.0.insert.mask = and i64 %23, -4294967296
   %ref.tmp40.sroa.3.0.insert.insert = or disjoint i64 %ref.tmp40.sroa.3.0.insert.mask, %ref.tmp40.sroa.3.0.insert.ext
@@ -2914,8 +2914,8 @@ sw.bb9.i49:                                       ; preds = %for.body39
   br label %_ZL8copy_argPK8grpc_arg.exit61
 
 _ZL8copy_argPK8grpc_arg.exit61:                   ; preds = %for.body39, %sw.bb.i57, %sw.bb6.i54, %sw.bb9.i49
-  %ref.tmp40.sroa.7.1 = phi ptr [ %ref.tmp40.sroa.7.088, %for.body39 ], [ %ref.tmp40.sroa.7.16.copyload, %sw.bb9.i49 ], [ %ref.tmp40.sroa.7.088, %sw.bb6.i54 ], [ %ref.tmp40.sroa.7.088, %sw.bb.i57 ]
-  %ref.tmp40.sroa.3.1 = phi ptr [ %ref.tmp40.sroa.3.089, %for.body39 ], [ %call14.i53, %sw.bb9.i49 ], [ %24, %sw.bb6.i54 ], [ %call4.i59, %sw.bb.i57 ]
+  %ref.tmp40.sroa.3.1 = phi ptr [ %ref.tmp40.sroa.3.088, %for.body39 ], [ %call14.i53, %sw.bb9.i49 ], [ %24, %sw.bb6.i54 ], [ %call4.i59, %sw.bb.i57 ]
+  %ref.tmp40.sroa.7.1 = phi ptr [ %ref.tmp40.sroa.7.089, %for.body39 ], [ %ref.tmp40.sroa.7.16.copyload, %sw.bb9.i49 ], [ %ref.tmp40.sroa.7.089, %sw.bb6.i54 ], [ %ref.tmp40.sroa.7.089, %sw.bb.i57 ]
   %27 = load ptr, ptr %args14, align 8
   %inc43 = add i64 %dst_idx.390, 1
   %arrayidx44 = getelementptr inbounds %struct.grpc_arg, ptr %27, i64 %dst_idx.390

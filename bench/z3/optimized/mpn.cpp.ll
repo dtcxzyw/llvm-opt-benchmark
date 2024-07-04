@@ -61,7 +61,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %res.1 = select i1 %cmp15, i32 1, i32 %spec.select
   %cmp2.wide = icmp ne i64 %3, 0
   %cmp3 = icmp eq i32 %res.1, 0
-  %6 = and i1 %cmp2.wide, %cmp3
+  %6 = and i1 %cmp3, %cmp2.wide
   br i1 %6, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.body, %entry

@@ -722,9 +722,9 @@ define weak_odr void @_ZNK7mitsuba9AreaLightIfN5drjit6MatrixINS_8SpectrumIfLm4EE
 .critedge:                                        ; preds = %.noexc90, %.noexc89
   %.sroa.0.i.sroa.0.0 = phi <4 x float> [ %.sroa.0.i.sroa.0.0.copyload159, %.noexc90 ], [ %.sroa.0.i.sroa.0.0.copyload, %.noexc89 ]
   %.sroa.0.i.sroa.5.0 = phi <4 x float> [ %.sroa.0.i.sroa.5.16.copyload, %.noexc90 ], [ %.sroa.0.i.sroa.5.0.copyload, %.noexc89 ]
-  %.sroa.3113.0.i = phi i64 [ %71, %.noexc90 ], [ %.sroa.3113.0.copyload115.i, %.noexc89 ]
-  %.sroa.4116.0.i = phi float [ %73, %.noexc90 ], [ %.sroa.4116.0.copyload118.i, %.noexc89 ]
   %.sroa.5119.0.i = phi float [ %67, %.noexc90 ], [ %.sroa.5119.0.copyload121.i, %.noexc89 ]
+  %.sroa.4116.0.i = phi float [ %73, %.noexc90 ], [ %.sroa.4116.0.copyload118.i, %.noexc89 ]
+  %.sroa.3113.0.i = phi i64 [ %71, %.noexc90 ], [ %.sroa.3113.0.copyload115.i, %.noexc89 ]
   %.0.i = phi i1 [ %49, %.noexc90 ], [ true, %.noexc89 ]
   %74 = fcmp contract ogt float %.sroa.5119.0.i, 0.000000e+00
   %75 = fdiv contract float 1.000000e+00, %.sroa.5119.0.i
@@ -1179,10 +1179,10 @@ define weak_odr void @_ZNK7mitsuba9AreaLightIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   br label %60
 
 60:                                               ; preds = %21, %15
-  %.sroa.3113.0 = phi i64 [ %57, %21 ], [ %.sroa.3113.0.copyload115, %15 ]
-  %.sroa.4116.0 = phi float [ %59, %21 ], [ %.sroa.4116.0.copyload118, %15 ]
-  %.sroa.5119.0 = phi float [ %53, %21 ], [ %.sroa.5119.0.copyload121, %15 ]
   %.sroa.9.0 = phi i8 [ 0, %21 ], [ %.sroa.9.0.copyload124, %15 ]
+  %.sroa.5119.0 = phi float [ %53, %21 ], [ %.sroa.5119.0.copyload121, %15 ]
+  %.sroa.4116.0 = phi float [ %59, %21 ], [ %.sroa.4116.0.copyload118, %15 ]
+  %.sroa.3113.0 = phi i64 [ %57, %21 ], [ %.sroa.3113.0.copyload115, %15 ]
   %.0 = phi i1 [ %35, %21 ], [ true, %15 ]
   %61 = fcmp contract ogt float %.sroa.5119.0, 0.000000e+00
   %62 = select i1 %.0, i1 %61, i1 false
@@ -1468,16 +1468,16 @@ define weak_odr void @_ZNK7mitsuba9AreaLightIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   br label %126
 
 126:                                              ; preds = %104, %65, %22
-  %.sroa.0236.0 = phi <4 x float> [ %.sroa.0236.0.copyload, %22 ], [ %.sroa.0236.0.copyload239, %65 ], [ %.sroa.0236.0.copyload239, %104 ]
-  %.sroa.5240.0 = phi <4 x float> [ %.sroa.5240.0.copyload, %22 ], [ %.sroa.5240.16.copyload, %65 ], [ %.sroa.5240.16.copyload, %104 ]
-  %.sroa.10246.0 = phi i64 [ %.sroa.10246.0.copyload, %22 ], [ %85, %65 ], [ %85, %104 ]
-  %.sroa.12249.0 = phi float [ %.sroa.12249.0.copyload, %22 ], [ %87, %65 ], [ %87, %104 ]
-  %.sroa.14.0 = phi float [ %.sroa.14.0.copyload, %22 ], [ 0.000000e+00, %65 ], [ %125, %104 ]
-  %.sroa.17.0 = phi i8 [ %.sroa.17.0.copyload, %22 ], [ 0, %65 ], [ 0, %104 ]
-  %.sroa.18258.0 = phi <4 x float> [ %.sroa.18258.0.copyload, %22 ], [ %99, %65 ], [ %99, %104 ]
-  %.sroa.23.0 = phi float [ %.sroa.23.0.copyload, %22 ], [ %95, %65 ], [ %95, %104 ]
-  %.sroa.24.0 = phi i32 [ %.sroa.24.0.copyload, %22 ], [ undef, %65 ], [ undef, %104 ]
   %.0297 = phi i1 [ %narrow, %22 ], [ false, %65 ], [ true, %104 ]
+  %.sroa.24.0 = phi i32 [ %.sroa.24.0.copyload, %22 ], [ undef, %65 ], [ undef, %104 ]
+  %.sroa.23.0 = phi float [ %.sroa.23.0.copyload, %22 ], [ %95, %65 ], [ %95, %104 ]
+  %.sroa.18258.0 = phi <4 x float> [ %.sroa.18258.0.copyload, %22 ], [ %99, %65 ], [ %99, %104 ]
+  %.sroa.17.0 = phi i8 [ %.sroa.17.0.copyload, %22 ], [ 0, %65 ], [ 0, %104 ]
+  %.sroa.14.0 = phi float [ %.sroa.14.0.copyload, %22 ], [ 0.000000e+00, %65 ], [ %125, %104 ]
+  %.sroa.12249.0 = phi float [ %.sroa.12249.0.copyload, %22 ], [ %87, %65 ], [ %87, %104 ]
+  %.sroa.10246.0 = phi i64 [ %.sroa.10246.0.copyload, %22 ], [ %85, %65 ], [ %85, %104 ]
+  %.sroa.5240.0 = phi <4 x float> [ %.sroa.5240.0.copyload, %22 ], [ %.sroa.5240.16.copyload, %65 ], [ %.sroa.5240.16.copyload, %104 ]
+  %.sroa.0236.0 = phi <4 x float> [ %.sroa.0236.0.copyload, %22 ], [ %.sroa.0236.0.copyload239, %65 ], [ %.sroa.0236.0.copyload239, %104 ]
   %127 = load ptr, ptr %16, align 16
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 72
@@ -1797,11 +1797,11 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   br label %85
 
 85:                                               ; preds = %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit, %85
-  %.0155169 = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit ], [ %88, %85 ]
-  %86 = getelementptr inbounds [4 x %"struct.drjit::Array.14"], ptr %15, i64 0, i64 %.0155169
-  %87 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %86, i64 0, i64 %.0155169
+  %.0154169 = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit ], [ %88, %85 ]
+  %86 = getelementptr inbounds [4 x %"struct.drjit::Array.14"], ptr %15, i64 0, i64 %.0154169
+  %87 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %86, i64 0, i64 %.0154169
   store <4 x float> %74, ptr %87, align 16
-  %88 = add nuw nsw i64 %.0155169, 1
+  %88 = add nuw nsw i64 %.0154169, 1
   %exitcond.not = icmp eq i64 %88, 4
   br i1 %exitcond.not, label %89, label %85, !llvm.loop !70
 
@@ -1853,11 +1853,11 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   br label %103
 
 103:                                              ; preds = %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit162, %103
-  %.0154170 = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit162 ], [ %106, %103 ]
-  %104 = getelementptr inbounds [4 x %"struct.drjit::Array.14"], ptr %12, i64 0, i64 %.0154170
-  %105 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %104, i64 0, i64 %.0154170
+  %.0155170 = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit162 ], [ %106, %103 ]
+  %104 = getelementptr inbounds [4 x %"struct.drjit::Array.14"], ptr %12, i64 0, i64 %.0155170
+  %105 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %104, i64 0, i64 %.0155170
   store <4 x float> zeroinitializer, ptr %105, align 16
-  %106 = add nuw nsw i64 %.0154170, 1
+  %106 = add nuw nsw i64 %.0155170, 1
   %exitcond173.not = icmp eq i64 %106, 4
   br i1 %exitcond173.not, label %.preheader, label %103, !llvm.loop !82
 

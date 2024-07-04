@@ -952,7 +952,7 @@ define internal i32 @ompi_comm_allreduce_getnextcid(ptr noundef %0) #3 {
   br label %85
 
 76:                                               ; preds = %65, %59
-  %.035 = phi i32 [ %64, %59 ], [ -2, %65 ]
+  %.034 = phi i32 [ %64, %59 ], [ -2, %65 ]
   %brmerge.not = and i1 %.not, %.2
   br i1 %brmerge.not, label %77, label %80
 
@@ -972,8 +972,8 @@ define internal i32 @ompi_comm_allreduce_getnextcid(ptr noundef %0) #3 {
   br label %85
 
 85:                                               ; preds = %83, %80, %74, %34, %24
-  %.034 = phi i32 [ %25, %24 ], [ %35, %34 ], [ %75, %74 ], [ %.035, %80 ], [ %.035, %83 ]
-  ret i32 %.034
+  %.036 = phi i32 [ %25, %24 ], [ %35, %34 ], [ %75, %74 ], [ %.034, %80 ], [ %.034, %83 ]
+  ret i32 %.036
 }
 
 declare void @ompi_comm_request_start(ptr noundef) local_unnamed_addr #5
@@ -2013,8 +2013,8 @@ opal_obj_run_destructors.exit79:                  ; preds = %.lr.ph.i76, %73
 102:                                              ; preds = %81, %116
   %103 = phi i1 [ true, %81 ], [ false, %116 ]
   %indvars.iv = phi i64 [ 1, %81 ], [ 2, %116 ]
-  %.06283 = phi ptr [ %37, %81 ], [ %.1, %116 ]
-  %.06382 = phi i32 [ 0, %81 ], [ %.164, %116 ]
+  %.06183 = phi i32 [ 0, %81 ], [ %.1, %116 ]
+  %.06282 = phi ptr [ %37, %81 ], [ %.163, %116 ]
   %104 = getelementptr inbounds [3 x i32], ptr %97, i64 0, i64 %indvars.iv
   %105 = load i32, ptr %104, align 4
   %.not70 = icmp eq i32 %105, -2
@@ -2023,9 +2023,9 @@ opal_obj_run_destructors.exit79:                  ; preds = %.lr.ph.i76, %73
 106:                                              ; preds = %102
   %107 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %108 = load i32, ptr %101, align 4
-  %109 = sext i32 %.06382 to i64
+  %109 = sext i32 %.06183 to i64
   %110 = getelementptr inbounds ptr, ptr %8, i64 %109
-  %111 = call i32 %107(ptr noundef %.06283, i64 noundef %99, ptr noundef nonnull @ompi_mpi_int, i32 noundef %105, i32 noundef %108, ptr noundef %16, ptr noundef nonnull %110) #14
+  %111 = call i32 %107(ptr noundef %.06282, i64 noundef %99, ptr noundef nonnull @ompi_mpi_int, i32 noundef %105, i32 noundef %108, ptr noundef %16, ptr noundef nonnull %110) #14
   %.not71 = icmp eq i32 %111, 0
   br i1 %.not71, label %113, label %112
 
@@ -2034,24 +2034,24 @@ opal_obj_run_destructors.exit79:                  ; preds = %.lr.ph.i76, %73
   br label %ompi_comm_allreduce_context_alloc.exit.thread
 
 113:                                              ; preds = %106
-  %114 = add nsw i32 %.06382, 1
-  %115 = getelementptr inbounds i32, ptr %.06283, i64 %99
+  %114 = add nsw i32 %.06183, 1
+  %115 = getelementptr inbounds i32, ptr %.06282, i64 %99
   br label %116
 
 116:                                              ; preds = %102, %113
-  %.164 = phi i32 [ %114, %113 ], [ %.06382, %102 ]
-  %.1 = phi ptr [ %115, %113 ], [ %.06283, %102 ]
+  %.163 = phi ptr [ %115, %113 ], [ %.06282, %102 ]
+  %.1 = phi i32 [ %114, %113 ], [ %.06183, %102 ]
   br i1 %103, label %102, label %117, !llvm.loop !18
 
 117:                                              ; preds = %116
-  %118 = call i32 @ompi_comm_request_schedule_append(ptr noundef nonnull %60, ptr noundef nonnull @ompi_comm_allreduce_group_recv_complete, ptr noundef nonnull %8, i32 noundef %.164) #14
+  %118 = call i32 @ompi_comm_request_schedule_append(ptr noundef nonnull %60, ptr noundef nonnull @ompi_comm_allreduce_group_recv_complete, ptr noundef nonnull %8, i32 noundef %.1) #14
   call void @ompi_comm_request_start(ptr noundef nonnull %60) #14
   store ptr %60, ptr %5, align 8
   br label %ompi_comm_allreduce_context_alloc.exit.thread
 
 ompi_comm_allreduce_context_alloc.exit.thread:    ; preds = %22, %opal_obj_run_destructors.exit79, %opal_thread_add_fetch_32.exit74, %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %117, %112
-  %.0 = phi i32 [ %111, %112 ], [ 0, %117 ], [ -2, %opal_thread_add_fetch_32.exit ], [ -2, %opal_obj_run_destructors.exit ], [ -2, %opal_thread_add_fetch_32.exit74 ], [ -2, %opal_obj_run_destructors.exit79 ], [ -2, %22 ]
-  ret i32 %.0
+  %.064 = phi i32 [ %111, %112 ], [ 0, %117 ], [ -2, %opal_thread_add_fetch_32.exit ], [ -2, %opal_obj_run_destructors.exit ], [ -2, %opal_thread_add_fetch_32.exit74 ], [ -2, %opal_obj_run_destructors.exit79 ], [ -2, %22 ]
+  ret i32 %.064
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3093,7 +3093,7 @@ define internal i32 @ompi_comm_allreduce_group_recv_complete(ptr noundef %0) #3 
 60:                                               ; preds = %75, %51
   %61 = phi i1 [ true, %51 ], [ false, %75 ]
   %indvars.iv.i = phi i64 [ 1, %51 ], [ 2, %75 ]
-  %.01823.i = phi i32 [ 0, %51 ], [ %.1.i, %75 ]
+  %.01723.i = phi i32 [ 0, %51 ], [ %.1.i, %75 ]
   %62 = getelementptr inbounds [3 x i32], ptr %55, i64 0, i64 %indvars.iv.i
   %63 = load i32, ptr %62, align 4
   %.not.i = icmp eq i32 %63, -2
@@ -3106,15 +3106,15 @@ define internal i32 @ompi_comm_allreduce_group_recv_complete(ptr noundef %0) #3 
   %68 = sext i32 %67 to i64
   %69 = load i32, ptr %58, align 4
   %70 = load ptr, ptr %59, align 8
-  %71 = add nsw i32 %.01823.i, 1
-  %72 = sext i32 %.01823.i to i64
+  %71 = add nsw i32 %.01723.i, 1
+  %72 = sext i32 %.01723.i to i64
   %73 = getelementptr inbounds ptr, ptr %2, i64 %72
   %74 = call i32 %65(ptr noundef %66, i64 noundef %68, ptr noundef nonnull @ompi_mpi_int, i32 noundef %63, i32 noundef %69, i32 noundef 4, ptr noundef %70, ptr noundef nonnull %73) #14
   %.not21.i = icmp eq i32 %74, 0
   br i1 %.not21.i, label %75, label %ompi_comm_allreduce_group_broadcast.exit
 
 75:                                               ; preds = %64, %60
-  %.1.i = phi i32 [ %71, %64 ], [ %.01823.i, %60 ]
+  %.1.i = phi i32 [ %71, %64 ], [ %.01723.i, %60 ]
   br i1 %61, label %60, label %76, !llvm.loop !21
 
 76:                                               ; preds = %75
@@ -3122,12 +3122,12 @@ define internal i32 @ompi_comm_allreduce_group_recv_complete(ptr noundef %0) #3 
   br label %ompi_comm_allreduce_group_broadcast.exit
 
 ompi_comm_allreduce_group_broadcast.exit:         ; preds = %64, %76
-  %.017.i = phi i32 [ %77, %76 ], [ %74, %64 ]
+  %.018.i = phi i32 [ %77, %76 ], [ %74, %64 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %78
 
 78:                                               ; preds = %39, %29, %ompi_comm_allreduce_group_broadcast.exit, %49
-  %.031 = phi i32 [ %50, %49 ], [ %.017.i, %ompi_comm_allreduce_group_broadcast.exit ], [ %38, %29 ], [ %48, %39 ]
+  %.031 = phi i32 [ %50, %49 ], [ %.018.i, %ompi_comm_allreduce_group_broadcast.exit ], [ %38, %29 ], [ %48, %39 ]
   ret i32 %.031
 }
 
@@ -3148,7 +3148,7 @@ define internal i32 @ompi_comm_allreduce_group_broadcast(ptr noundef %0) #3 {
 12:                                               ; preds = %1, %27
   %13 = phi i1 [ true, %1 ], [ false, %27 ]
   %indvars.iv = phi i64 [ 1, %1 ], [ 2, %27 ]
-  %.01823 = phi i32 [ 0, %1 ], [ %.1, %27 ]
+  %.01723 = phi i32 [ 0, %1 ], [ %.1, %27 ]
   %14 = getelementptr inbounds [3 x i32], ptr %7, i64 0, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %.not = icmp eq i32 %15, -2
@@ -3161,15 +3161,15 @@ define internal i32 @ompi_comm_allreduce_group_broadcast(ptr noundef %0) #3 {
   %20 = sext i32 %19 to i64
   %21 = load i32, ptr %10, align 4
   %22 = load ptr, ptr %11, align 8
-  %23 = add nsw i32 %.01823, 1
-  %24 = sext i32 %.01823 to i64
+  %23 = add nsw i32 %.01723, 1
+  %24 = sext i32 %.01723 to i64
   %25 = getelementptr inbounds ptr, ptr %2, i64 %24
   %26 = call i32 %17(ptr noundef %18, i64 noundef %20, ptr noundef nonnull @ompi_mpi_int, i32 noundef %15, i32 noundef %21, i32 noundef 4, ptr noundef %22, ptr noundef nonnull %25) #14
   %.not21 = icmp eq i32 %26, 0
   br i1 %.not21, label %27, label %.loopexit
 
 27:                                               ; preds = %12, %16
-  %.1 = phi i32 [ %23, %16 ], [ %.01823, %12 ]
+  %.1 = phi i32 [ %23, %16 ], [ %.01723, %12 ]
   br i1 %13, label %12, label %28, !llvm.loop !21
 
 28:                                               ; preds = %27
@@ -3177,8 +3177,8 @@ define internal i32 @ompi_comm_allreduce_group_broadcast(ptr noundef %0) #3 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %28
-  %.017 = phi i32 [ %29, %28 ], [ %26, %16 ]
-  ret i32 %.017
+  %.018 = phi i32 [ %29, %28 ], [ %26, %16 ]
+  ret i32 %.018
 }
 
 ; Function Attrs: nounwind uwtable

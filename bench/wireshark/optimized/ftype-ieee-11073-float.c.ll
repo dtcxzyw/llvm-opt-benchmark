@@ -1095,19 +1095,19 @@ switch.lookup:                                    ; preds = %4
   br label %22
 
 22:                                               ; preds = %21, %20
-  %.070 = phi i32 [ 1, %21 ], [ 0, %20 ]
+  %.069 = phi i32 [ 1, %21 ], [ 0, %20 ]
   %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 8, ptr noundef nonnull @.str.10, i32 noundef %spec.select) #8
   %24 = ashr i32 %8, 24
   %25 = icmp ult i32 %8, 16777216
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %22
-  %27 = zext nneg i32 %.070 to i64
+  %27 = zext nneg i32 %.069 to i64
   %28 = getelementptr i8, ptr %6, i64 %27
   %.mask79 = and i32 %23, 255
   %29 = zext nneg i32 %.mask79 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %28, ptr nonnull align 1 %5, i64 %29, i1 false)
-  %30 = add nuw nsw i32 %.mask79, %.070
+  %30 = add nuw nsw i32 %.mask79, %.069
   br label %81
 
 31:                                               ; preds = %22
@@ -1115,12 +1115,12 @@ switch.lookup:                                    ; preds = %4
   br i1 %32, label %33, label %42
 
 33:                                               ; preds = %31
-  %34 = zext nneg i32 %.070 to i64
+  %34 = zext nneg i32 %.069 to i64
   %35 = getelementptr i8, ptr %6, i64 %34
   %.mask78 = and i32 %23, 255
   %36 = zext nneg i32 %.mask78 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr nonnull align 1 %5, i64 %36, i1 false)
-  %37 = add nuw nsw i32 %.mask78, %.070
+  %37 = add nuw nsw i32 %.mask78, %.069
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr i8, ptr %6, i64 %38
   %sext = shl nuw i64 %14, 56
@@ -1133,7 +1133,7 @@ switch.lookup:                                    ; preds = %4
   %43 = sub nsw i32 0, %24
   %44 = and i32 %23, 255
   %45 = icmp ugt i32 %44, %43
-  %46 = zext nneg i32 %.070 to i64
+  %46 = zext nneg i32 %.069 to i64
   br i1 %45, label %47, label %63
 
 47:                                               ; preds = %42
@@ -1141,7 +1141,7 @@ switch.lookup:                                    ; preds = %4
   %49 = add nsw i32 %44, %24
   %50 = sext i32 %49 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr nonnull align 1 %5, i64 %50, i1 false)
-  %51 = add nsw i32 %49, %.070
+  %51 = add nsw i32 %49, %.069
   %52 = zext i32 %51 to i64
   %53 = getelementptr [136 x i8], ptr %6, i64 0, i64 %52
   store i8 46, ptr %53, align 1
@@ -1160,11 +1160,11 @@ switch.lookup:                                    ; preds = %4
 63:                                               ; preds = %42
   %64 = getelementptr [136 x i8], ptr %6, i64 0, i64 %46
   store i8 48, ptr %64, align 1
-  %65 = add nuw nsw i32 %.070, 1
+  %65 = add nuw nsw i32 %.069, 1
   %66 = zext nneg i32 %65 to i64
   %67 = getelementptr [136 x i8], ptr %6, i64 0, i64 %66
   store i8 46, ptr %67, align 1
-  %68 = or disjoint i32 %.070, 2
+  %68 = or disjoint i32 %.069, 2
   %69 = sub nsw i32 %43, %44
   %70 = icmp sgt i32 %69, 0
   br i1 %70, label %71, label %76
@@ -1336,8 +1336,8 @@ float_to_normal_form.exit66.i:                    ; preds = %._crit_edge.i56.i, 
   %55 = and i32 %.019.i60.i, 8388608
   %.not48.i = icmp eq i32 %55, 0
   %masksel1.i = select i1 %.not48.i, i32 0, i32 -16777216
-  %.039.i = or disjoint i32 %masksel1.i, %53
-  %56 = icmp eq i32 %spec.select.i, %.039.i
+  %.037.i = or disjoint i32 %masksel1.i, %53
+  %56 = icmp eq i32 %spec.select.i, %.037.i
   %57 = ashr i32 %.019.i.i, 24
   %58 = ashr i32 %.019.i60.i, 24
   %59 = icmp slt i32 %57, %58
@@ -1346,7 +1346,7 @@ float_to_normal_form.exit66.i:                    ; preds = %._crit_edge.i56.i, 
 
 ._crit_edge.i:                                    ; preds = %51
   %60 = icmp eq i32 %57, %58
-  %61 = icmp slt i32 %spec.select.i, %.039.i
+  %61 = icmp slt i32 %spec.select.i, %.037.i
   %or.cond.i = and i1 %60, %61
   br i1 %or.cond.i, label %float_ieee_11073_cmp_lt.exit.thread, label %62
 
@@ -1366,9 +1366,9 @@ float_to_normal_form.exit66.i:                    ; preds = %._crit_edge.i56.i, 
 
 .lr.ph11.i:                                       ; preds = %.preheader.i, %.lr.ph11.i
   %.03610.i = phi i8 [ %68, %.lr.ph11.i ], [ %67, %.preheader.i ]
-  %.1409.i = phi i32 [ %69, %.lr.ph11.i ], [ %.039.i, %.preheader.i ]
+  %.19.i = phi i32 [ %69, %.lr.ph11.i ], [ %.037.i, %.preheader.i ]
   %68 = add i8 %.03610.i, -1
-  %69 = mul i32 %.1409.i, 10
+  %69 = mul i32 %.19.i, 10
   %.not50.i = icmp eq i8 %68, 0
   br i1 %.not50.i, label %float_ieee_11073_cmp_lt.exit, label %.lr.ph11.i, !llvm.loop !17
 
@@ -1385,16 +1385,16 @@ float_to_normal_form.exit66.i:                    ; preds = %._crit_edge.i56.i, 
 
 .lr.ph.i:                                         ; preds = %.preheader2.i, %.lr.ph.i
   %.07.i = phi i8 [ %75, %.lr.ph.i ], [ %74, %.preheader2.i ]
-  %.16.i = phi i32 [ %76, %.lr.ph.i ], [ %spec.select.i, %.preheader2.i ]
+  %.1396.i = phi i32 [ %76, %.lr.ph.i ], [ %spec.select.i, %.preheader2.i ]
   %75 = add i8 %.07.i, -1
-  %76 = mul i32 %.16.i, 10
+  %76 = mul i32 %.1396.i, 10
   %.not49.i = icmp eq i8 %75, 0
   br i1 %.not49.i, label %float_ieee_11073_cmp_lt.exit, label %.lr.ph.i, !llvm.loop !18
 
 float_ieee_11073_cmp_lt.exit:                     ; preds = %.lr.ph.i, %.lr.ph11.i, %.preheader.i, %.preheader2.i
-  %.241.i = phi i32 [ %.039.i, %.preheader.i ], [ %.039.i, %.preheader2.i ], [ %69, %.lr.ph11.i ], [ %.039.i, %.lr.ph.i ]
-  %.2.i = phi i32 [ %spec.select.i, %.preheader.i ], [ %spec.select.i, %.preheader2.i ], [ %spec.select.i, %.lr.ph11.i ], [ %76, %.lr.ph.i ]
-  %77 = icmp slt i32 %.2.i, %.241.i
+  %.240.i = phi i32 [ %spec.select.i, %.preheader.i ], [ %spec.select.i, %.preheader2.i ], [ %spec.select.i, %.lr.ph11.i ], [ %76, %.lr.ph.i ]
+  %.2.i = phi i32 [ %.037.i, %.preheader.i ], [ %.037.i, %.preheader2.i ], [ %69, %.lr.ph11.i ], [ %.037.i, %.lr.ph.i ]
+  %77 = icmp slt i32 %.240.i, %.2.i
   br i1 %77, label %float_ieee_11073_cmp_lt.exit.thread, label %float_ieee_11073_cmp_lt.exit.thread24
 
 float_ieee_11073_cmp_lt.exit.thread24:            ; preds = %70, %48, %48, %48, %48, %float_to_normal_form.exit66.i, %49, %float_ieee_11073_cmp_lt.exit

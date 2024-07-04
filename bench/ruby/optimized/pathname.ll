@@ -757,18 +757,18 @@ RSTRING_PTR.exit36:                               ; preds = %RSTRING_PTR.exit, %
   br label %43
 
 43:                                               ; preds = %47, %RSTRING_PTR.exit36
-  %.027 = phi ptr [ %.sroa.2.0.i35, %RSTRING_PTR.exit36 ], [ %50, %47 ]
   %.026 = phi ptr [ %.sroa.2.0.i, %RSTRING_PTR.exit36 ], [ %48, %47 ]
+  %.0 = phi ptr [ %.sroa.2.0.i35, %RSTRING_PTR.exit36 ], [ %50, %47 ]
   %44 = icmp ult ptr %.026, %39
-  %45 = icmp ult ptr %.027, %42
+  %45 = icmp ult ptr %.0, %42
   %46 = select i1 %44, i1 %45, i1 false
   br i1 %46, label %47, label %56
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds i8, ptr %.026, i64 1
   %49 = load i8, ptr %.026, align 1
-  %50 = getelementptr inbounds i8, ptr %.027, i64 1
-  %51 = load i8, ptr %.027, align 1
+  %50 = getelementptr inbounds i8, ptr %.0, i64 1
+  %51 = load i8, ptr %.0, align 1
   %52 = icmp eq i8 %49, 47
   %narrow = select i1 %52, i8 0, i8 %49
   %53 = icmp eq i8 %51, 47
@@ -787,8 +787,8 @@ RSTRING_PTR.exit36:                               ; preds = %RSTRING_PTR.exit, %
   br label %57
 
 57:                                               ; preds = %56, %54, %2
-  %.0 = phi i64 [ 4, %2 ], [ %., %54 ], [ %spec.select, %56 ]
-  ret i64 %.0
+  %.027 = phi i64 [ 4, %2 ], [ %., %54 ], [ %spec.select, %56 ]
+  ret i64 %.027
 }
 
 ; Function Attrs: nounwind uwtable

@@ -1224,18 +1224,18 @@ define internal i32 @epoll_do_close(ptr nocapture noundef readonly %0) #0 {
   %15 = tail call i32 @nxmutex_destroy(ptr noundef nonnull %4) #9
   %16 = getelementptr inbounds i8, ptr %3, i64 80
   %17 = getelementptr inbounds i8, ptr %3, i64 88
-  %.03033 = load ptr, ptr %17, align 8
-  %.not34 = icmp eq ptr %.03033, %16
+  %.03133 = load ptr, ptr %17, align 8
+  %.not34 = icmp eq ptr %.03133, %16
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14, %.lr.ph
-  %.03035 = phi ptr [ %.030, %.lr.ph ], [ %.03033, %14 ]
-  %18 = getelementptr inbounds i8, ptr %.03035, i64 32
+  %.03135 = phi ptr [ %.031, %.lr.ph ], [ %.03133, %14 ]
+  %18 = getelementptr inbounds i8, ptr %.03135, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = tail call i32 @poll_fdsetup(i32 noundef %19, ptr noundef nonnull %18, i1 noundef zeroext false) #9
-  %21 = getelementptr inbounds i8, ptr %.03035, i64 8
-  %.030 = load ptr, ptr %21, align 8
-  %.not = icmp eq ptr %.030, %16
+  %21 = getelementptr inbounds i8, ptr %.03135, i64 8
+  %.031 = load ptr, ptr %21, align 8
+  %.not = icmp eq ptr %.031, %16
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
@@ -1246,16 +1246,16 @@ define internal i32 @epoll_do_close(ptr nocapture noundef readonly %0) #0 {
   br i1 %.not3236, label %._crit_edge40, label %.lr.ph39
 
 .lr.ph39:                                         ; preds = %._crit_edge, %.lr.ph39
-  %.137 = phi ptr [ %.031, %.lr.ph39 ], [ %24, %._crit_edge ]
-  %.031.in = getelementptr inbounds i8, ptr %.137, i64 8
-  %.031 = load ptr, ptr %.031.in, align 8
+  %.137 = phi ptr [ %.030, %.lr.ph39 ], [ %24, %._crit_edge ]
+  %.030.in = getelementptr inbounds i8, ptr %.137, i64 8
+  %.030 = load ptr, ptr %.030.in, align 8
   %25 = load ptr, ptr %.137, align 8
-  store ptr %25, ptr %.031, align 8
-  %26 = load ptr, ptr %.031.in, align 8
+  store ptr %25, ptr %.030, align 8
+  %26 = load ptr, ptr %.030.in, align 8
   %27 = getelementptr inbounds i8, ptr %25, i64 8
   store ptr %26, ptr %27, align 8
   tail call void @free(ptr noundef %.137)
-  %.not32 = icmp eq ptr %.031, %22
+  %.not32 = icmp eq ptr %.030, %22
   br i1 %.not32, label %._crit_edge40, label %.lr.ph39, !llvm.loop !21
 
 ._crit_edge40:                                    ; preds = %.lr.ph39, %._crit_edge

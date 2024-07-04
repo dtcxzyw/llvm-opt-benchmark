@@ -69,12 +69,12 @@ switch.lookup:                                    ; preds = %13
   br label %21
 
 21:                                               ; preds = %switch.lookup, %19
-  %.0 = phi i32 [ 13, %19 ], [ 0, %switch.lookup ]
+  %.010 = phi i32 [ 13, %19 ], [ 0, %switch.lookup ]
   %.not12 = icmp eq ptr %3, null
   br i1 %.not12, label %23, label %22
 
 22:                                               ; preds = %21
-  store i32 %.0, ptr %3, align 4
+  store i32 %.010, ptr %3, align 4
   br label %23
 
 23:                                               ; preds = %22, %21

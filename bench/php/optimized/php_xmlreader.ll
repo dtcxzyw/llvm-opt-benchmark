@@ -258,8 +258,8 @@ define hidden ptr @xmlreader_read_property(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %22, label %48, label %23
 
 23:                                               ; preds = %20, %18, %16, %11
-  %.082.i = phi i32 [ 0, %16 ], [ %21, %20 ], [ 0, %18 ], [ 0, %11 ]
-  %.081.i = phi ptr [ %17, %16 ], [ null, %20 ], [ null, %18 ], [ null, %11 ]
+  %.082.i = phi ptr [ %17, %16 ], [ null, %20 ], [ null, %18 ], [ null, %11 ]
+  %.081.i = phi i32 [ 0, %16 ], [ %21, %20 ], [ 0, %18 ], [ 0, %11 ]
   %24 = getelementptr inbounds i8, ptr %12, i64 16
   %25 = load i32, ptr %24, align 8
   switch i32 %25, label %47 [
@@ -269,11 +269,11 @@ define hidden ptr @xmlreader_read_property(ptr noundef %0, ptr noundef %1, i32 n
   ]
 
 26:                                               ; preds = %23
-  %.not91.i = icmp eq ptr %.081.i, null
+  %.not91.i = icmp eq ptr %.082.i, null
   br i1 %.not91.i, label %38, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.081.i) #12
+  %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.082.i) #12
   %29 = and i64 %28, -8
   %30 = add i64 %29, 32
   %31 = tail call noalias ptr @_emalloc(i64 noundef %30) #13
@@ -285,7 +285,7 @@ define hidden ptr @xmlreader_read_property(ptr noundef %0, ptr noundef %1, i32 n
   %34 = getelementptr inbounds i8, ptr %31, i64 16
   store i64 %28, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %31, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %35, ptr nonnull align 1 %.081.i, i64 %28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %35, ptr nonnull align 1 %.082.i, i64 %28, i1 false)
   %36 = getelementptr inbounds [1 x i8], ptr %35, i64 0, i64 %28
   store i8 0, ptr %36, align 1
   store ptr %31, ptr %4, align 8
@@ -301,14 +301,14 @@ define hidden ptr @xmlreader_read_property(ptr noundef %0, ptr noundef %1, i32 n
   br label %xmlreader_property_reader.exit.thread
 
 41:                                               ; preds = %23
-  %.not90.i = icmp eq i32 %.082.i, 0
+  %.not90.i = icmp eq i32 %.081.i, 0
   %42 = select i1 %.not90.i, i32 2, i32 3
   %43 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %42, ptr %43, align 8
   br label %xmlreader_property_reader.exit.thread
 
 44:                                               ; preds = %23
-  %45 = sext i32 %.082.i to i64
+  %45 = sext i32 %.081.i to i64
   store i64 %45, ptr %4, align 8
   %46 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 4, ptr %46, align 8
@@ -4346,7 +4346,7 @@ define hidden void @zim_XMLReader_XML(ptr nocapture noundef readonly %0, ptr nou
   br label %xmlreader_free_resources.exit
 
 xmlreader_free_resources.exit:                    ; preds = %32, %29, %16
-  %.0 = phi ptr [ null, %16 ], [ %22, %29 ], [ %22, %32 ]
+  %.047 = phi ptr [ null, %16 ], [ %22, %29 ], [ %22, %32 ]
   %33 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %33, 0
   br i1 %.not, label %34, label %37
@@ -4412,7 +4412,7 @@ xmlreader_free_resources.exit:                    ; preds = %32, %29, %16
   br label %63
 
 63:                                               ; preds = %61, %48
-  %.047 = phi ptr [ %62, %61 ], [ null, %48 ]
+  %.0 = phi ptr [ %62, %61 ], [ null, %48 ]
   %64 = call ptr @__xmlLoadExtDtdDefaultValue() #11
   %65 = load i32, ptr %64, align 4
   %66 = call ptr @__xmlLoadExtDtdDefaultValue() #11
@@ -4425,7 +4425,7 @@ xmlreader_free_resources.exit:                    ; preds = %32, %29, %16
   %71 = call i32 @xmlSubstituteEntitiesDefault(i32 noundef 0) #11
   %72 = call i32 @xmlLineNumbersDefault(i32 noundef 0) #11
   %73 = call i32 @xmlKeepBlanksDefault(i32 noundef 1) #11
-  %74 = call ptr @xmlNewTextReader(ptr noundef nonnull %47, ptr noundef %.047) #11
+  %74 = call ptr @xmlNewTextReader(ptr noundef nonnull %47, ptr noundef %.0) #11
   %.not60 = icmp eq ptr %74, null
   br i1 %.not60, label %100, label %75
 
@@ -4433,7 +4433,7 @@ xmlreader_free_resources.exit:                    ; preds = %32, %29, %16
   %76 = load ptr, ptr %7, align 8
   %77 = load i64, ptr %5, align 8
   %78 = trunc i64 %77 to i32
-  %79 = call i32 @xmlTextReaderSetup(ptr noundef nonnull %74, ptr noundef null, ptr noundef %.047, ptr noundef %76, i32 noundef %78) #11
+  %79 = call i32 @xmlTextReaderSetup(ptr noundef nonnull %74, ptr noundef null, ptr noundef %.0, ptr noundef %76, i32 noundef %78) #11
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %81, label %100
 
@@ -4453,16 +4453,16 @@ xmlreader_free_resources.exit:                    ; preds = %32, %29, %16
   br label %89
 
 89:                                               ; preds = %87, %82
-  %.1 = phi ptr [ %86, %82 ], [ %.0, %87 ]
-  %90 = getelementptr inbounds i8, ptr %.1, i64 8
+  %.148 = phi ptr [ %86, %82 ], [ %.047, %87 ]
+  %90 = getelementptr inbounds i8, ptr %.148, i64 8
   store ptr %47, ptr %90, align 8
-  store ptr %74, ptr %.1, align 8
-  %.not63 = icmp eq ptr %.047, null
+  store ptr %74, ptr %.148, align 8
+  %.not63 = icmp eq ptr %.0, null
   br i1 %.not63, label %93, label %91
 
 91:                                               ; preds = %89
   %92 = load ptr, ptr @xmlFree, align 8
-  call void %92(ptr noundef nonnull %.047) #11
+  call void %92(ptr noundef nonnull %.0) #11
   br label %93
 
 93:                                               ; preds = %91, %89
@@ -4485,12 +4485,12 @@ xmlreader_free_resources.exit:                    ; preds = %32, %29, %16
   %104 = call i32 @xmlSubstituteEntitiesDefault(i32 noundef %71) #11
   %105 = call i32 @xmlLineNumbersDefault(i32 noundef %72) #11
   %106 = call i32 @xmlKeepBlanksDefault(i32 noundef %73) #11
-  %.not61 = icmp eq ptr %.047, null
+  %.not61 = icmp eq ptr %.0, null
   br i1 %.not61, label %109, label %107
 
 107:                                              ; preds = %100
   %108 = load ptr, ptr @xmlFree, align 8
-  call void %108(ptr noundef nonnull %.047) #11
+  call void %108(ptr noundef nonnull %.0) #11
   br label %109
 
 109:                                              ; preds = %107, %100

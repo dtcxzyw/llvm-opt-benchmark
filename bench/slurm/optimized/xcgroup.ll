@@ -280,9 +280,9 @@ define range(i32 -1, 1) i32 @xcgroup_ns_mount(ptr nocapture noundef readonly %0)
   br label %64
 
 61:                                               ; preds = %54, %51
-  %.026 = phi ptr [ %53, %51 ], [ %2, %54 ]
+  %.025 = phi ptr [ %53, %51 ], [ %2, %54 ]
   %62 = load ptr, ptr %5, align 8
-  %63 = call i32 @mount(ptr noundef nonnull @.str.7, ptr noundef %62, ptr noundef nonnull @.str.7, i64 noundef 14, ptr noundef %.026) #6
+  %63 = call i32 @mount(ptr noundef nonnull @.str.7, ptr noundef %62, ptr noundef nonnull @.str.7, i64 noundef 14, ptr noundef %.025) #6
   %.not35 = icmp ne i32 %63, 0
   %. = sext i1 %.not35 to i32
   br label %64
@@ -515,8 +515,8 @@ define void @xcgroup_wait_pid_moved(ptr noundef %0, ptr noundef %1) local_unname
   br label %6
 
 6:                                                ; preds = %17, %2
-  %.014 = phi i32 [ 0, %2 ], [ %7, %17 ]
-  %7 = add nuw nsw i32 %.014, 1
+  %.015 = phi i32 [ 0, %2 ], [ %7, %17 ]
+  %7 = add nuw nsw i32 %.015, 1
   %8 = call i32 @common_cgroup_get_pids(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   %9 = load i32, ptr %4, align 4
   %10 = icmp sgt i32 %9, 0

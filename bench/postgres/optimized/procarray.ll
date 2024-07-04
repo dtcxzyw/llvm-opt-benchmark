@@ -642,22 +642,22 @@ ProcArrayEndTransactionInternal.exit:             ; preds = %48, %53
   br label %82
 
 82:                                               ; preds = %82, %79
-  %.023.i = phi i32 [ 0, %79 ], [ %86, %82 ]
+  %.0.i = phi i32 [ 0, %79 ], [ %86, %82 ]
   %83 = load ptr, ptr %81, align 8
   tail call void @PGSemaphoreLock(ptr noundef %83) #15
   %84 = load i8, ptr %69, align 4
   %85 = trunc i8 %84 to i1
-  %86 = add i32 %.023.i, 1
+  %86 = add i32 %.0.i, 1
   br i1 %85, label %82, label %87
 
 87:                                               ; preds = %82
   %88 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %88, align 4
-  %89 = icmp sgt i32 %.023.i, 0
+  %89 = icmp sgt i32 %.0.i, 0
   br i1 %89, label %.lr.ph.i, label %ProcArrayGroupClearXid.exit
 
 .lr.ph.i:                                         ; preds = %87, %.lr.ph.i
-  %.135.i = phi i32 [ %90, %.lr.ph.i ], [ %.023.i, %87 ]
+  %.135.i = phi i32 [ %90, %.lr.ph.i ], [ %.0.i, %87 ]
   %90 = add nsw i32 %.135.i, -1
   %91 = load ptr, ptr %81, align 8
   tail call void @PGSemaphoreUnlock(ptr noundef %91) #15
@@ -777,9 +777,9 @@ ProcArrayEndTransactionInternal.exit.i:           ; preds = %148, %143
   br label %.lr.ph42.i
 
 .lr.ph42.i:                                       ; preds = %.lr.ph42.i.preheader, %170
-  %.040.i = phi i32 [ %164, %170 ], [ %97, %.lr.ph42.i.preheader ]
+  %.02340.i = phi i32 [ %164, %170 ], [ %97, %.lr.ph42.i.preheader ]
   %160 = load ptr, ptr @allProcs, align 8
-  %161 = zext i32 %.040.i to i64
+  %161 = zext i32 %.02340.i to i64
   %162 = getelementptr %struct.PGPROC, ptr %160, i64 %161
   %163 = getelementptr inbounds i8, ptr %162, i64 704
   %164 = load volatile i32, ptr %163, align 4
@@ -949,8 +949,8 @@ ExpireOldKnownAssignedTransactionIds.exit:        ; preds = %1, %11
   br label %18
 
 18:                                               ; preds = %18, %ExpireOldKnownAssignedTransactionIds.exit
-  %.0 = phi i32 [ %17, %ExpireOldKnownAssignedTransactionIds.exit ], [ %19, %18 ]
-  %19 = add i32 %.0, -1
+  %.047 = phi i32 [ %17, %ExpireOldKnownAssignedTransactionIds.exit ], [ %19, %18 ]
+  %19 = add i32 %.047, -1
   %20 = icmp ult i32 %19, 3
   br i1 %20, label %18, label %21, !llvm.loop !15
 
@@ -1040,7 +1040,7 @@ ExpireOldKnownAssignedTransactionIds.exit:        ; preds = %1, %11
 
 71:                                               ; preds = %.lr.ph, %82
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %82 ]
-  %.04652 = phi i32 [ 0, %.lr.ph ], [ %.147, %82 ]
+  %.04552 = phi i32 [ 0, %.lr.ph ], [ %.146, %82 ]
   %72 = load ptr, ptr %70, align 8
   %73 = getelementptr i32, ptr %72, i64 %indvars.iv
   %74 = load i32, ptr %73, align 4
@@ -1052,14 +1052,14 @@ ExpireOldKnownAssignedTransactionIds.exit:        ; preds = %1, %11
   br i1 %77, label %82, label %78
 
 78:                                               ; preds = %76
-  %79 = add i32 %.04652, 1
-  %80 = sext i32 %.04652 to i64
+  %79 = add i32 %.04552, 1
+  %80 = sext i32 %.04552 to i64
   %81 = getelementptr i32, ptr %65, i64 %80
   store i32 %74, ptr %81, align 4
   br label %82
 
 82:                                               ; preds = %71, %76, %78
-  %.147 = phi i32 [ %.04652, %71 ], [ %.04652, %76 ], [ %79, %78 ]
+  %.146 = phi i32 [ %.04552, %71 ], [ %.04552, %76 ], [ %79, %78 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %83 = load i32, ptr %0, align 8
   %84 = load i32, ptr %60, align 4
@@ -1069,7 +1069,7 @@ ExpireOldKnownAssignedTransactionIds.exit:        ; preds = %1, %11
   br i1 %87, label %71, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %82
-  %88 = icmp sgt i32 %.147, 0
+  %88 = icmp sgt i32 %.146, 0
   br i1 %88, label %89, label %._crit_edge.thread
 
 89:                                               ; preds = %._crit_edge
@@ -1090,7 +1090,7 @@ ExpireOldKnownAssignedTransactionIds.exit:        ; preds = %1, %11
   unreachable
 
 .lr.ph56.preheader:                               ; preds = %89
-  %98 = zext nneg i32 %.147 to i64
+  %98 = zext nneg i32 %.146 to i64
   tail call void @pg_qsort(ptr noundef %65, i64 noundef %98, i64 noundef 4, ptr noundef nonnull @xidLogicalComparator) #15
   br label %.lr.ph56
 
@@ -1308,9 +1308,9 @@ define internal fastcc void @KnownAssignedXidsAdd(i32 noundef %0, i32 noundef %1
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.03950 = phi i32 [ %8, %.lr.ph ], [ 1, %.preheader ]
-  %.04049 = phi i32 [ %spec.store.select, %.lr.ph ], [ %0, %.preheader ]
+  %.04249 = phi i32 [ %spec.store.select, %.lr.ph ], [ %0, %.preheader ]
   %8 = add i32 %.03950, 1
-  %9 = add i32 %.04049, 1
+  %9 = add i32 %.04249, 1
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %9, i32 3)
   %10 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %spec.store.select, i32 noundef %1) #15
   br i1 %10, label %.lr.ph, label %.loopexit, !llvm.loop !20
@@ -1375,7 +1375,7 @@ define internal fastcc void @KnownAssignedXidsAdd(i32 noundef %0, i32 noundef %1
 
 46:                                               ; preds = %57, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %45, %.lr.ph.i ], [ %indvars.iv.next.i, %57 ]
-  %.034.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %57 ]
+  %.02633.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %57 ]
   %47 = getelementptr i8, ptr %43, i64 %indvars.iv.i
   %48 = load i8, ptr %47, align 1
   %49 = trunc i8 %48 to i1
@@ -1384,24 +1384,24 @@ define internal fastcc void @KnownAssignedXidsAdd(i32 noundef %0, i32 noundef %1
 50:                                               ; preds = %46
   %51 = getelementptr i32, ptr %44, i64 %indvars.iv.i
   %52 = load i32, ptr %51, align 4
-  %53 = sext i32 %.034.i to i64
+  %53 = sext i32 %.02633.i to i64
   %54 = getelementptr i32, ptr %44, i64 %53
   store i32 %52, ptr %54, align 4
   %55 = getelementptr i8, ptr %43, i64 %53
   store i8 1, ptr %55, align 1
-  %56 = add i32 %.034.i, 1
+  %56 = add i32 %.02633.i, 1
   br label %57
 
 57:                                               ; preds = %50, %46
-  %.1.i = phi i32 [ %56, %50 ], [ %.034.i, %46 ]
+  %.1.i = phi i32 [ %56, %50 ], [ %.02633.i, %46 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %46, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %57, %41
-  %.0.lcssa.i = phi i32 [ 0, %41 ], [ %.1.i, %57 ]
+  %.026.lcssa.i = phi i32 [ 0, %41 ], [ %.1.i, %57 ]
   store i32 0, ptr %35, align 4
-  store i32 %.0.lcssa.i, ptr %33, align 4
+  store i32 %.026.lcssa.i, ptr %33, align 4
   br i1 %2, label %KnownAssignedXidsCompress.exit, label %58
 
 58:                                               ; preds = %._crit_edge.i
@@ -1427,7 +1427,7 @@ KnownAssignedXidsCompress.exit:                   ; preds = %._crit_edge.i, %58
   unreachable
 
 69:                                               ; preds = %KnownAssignedXidsCompress.exit, %26
-  %.042 = phi i32 [ %62, %KnownAssignedXidsCompress.exit ], [ %12, %26 ]
+  %.040 = phi i32 [ %62, %KnownAssignedXidsCompress.exit ], [ %12, %26 ]
   %70 = icmp sgt i32 %.1, 0
   br i1 %70, label %.lr.ph54, label %._crit_edge
 
@@ -1438,22 +1438,22 @@ KnownAssignedXidsCompress.exit:                   ; preds = %._crit_edge.i, %58
 
 73:                                               ; preds = %.lr.ph54, %73
   %.053 = phi i32 [ 0, %.lr.ph54 ], [ %79, %73 ]
-  %.14152 = phi i32 [ %0, %.lr.ph54 ], [ %spec.store.select1, %73 ]
-  %.14351 = phi i32 [ %.042, %.lr.ph54 ], [ %78, %73 ]
-  %74 = sext i32 %.14351 to i64
+  %.14152 = phi i32 [ %.040, %.lr.ph54 ], [ %78, %73 ]
+  %.14351 = phi i32 [ %0, %.lr.ph54 ], [ %spec.store.select1, %73 ]
+  %74 = sext i32 %.14152 to i64
   %75 = getelementptr i32, ptr %71, i64 %74
-  store i32 %.14152, ptr %75, align 4
+  store i32 %.14351, ptr %75, align 4
   %76 = getelementptr i8, ptr %72, i64 %74
   store i8 1, ptr %76, align 1
-  %77 = add i32 %.14152, 1
+  %77 = add i32 %.14351, 1
   %spec.store.select1 = tail call i32 @llvm.umax.i32(i32 %77, i32 3)
-  %78 = add i32 %.14351, 1
+  %78 = add i32 %.14152, 1
   %79 = add nuw nsw i32 %.053, 1
   %exitcond.not = icmp eq i32 %79, %.1
   br i1 %exitcond.not, label %._crit_edge, label %73, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %73, %69
-  %.143.lcssa = phi i32 [ %.042, %69 ], [ %78, %73 ]
+  %.141.lcssa = phi i32 [ %.040, %69 ], [ %78, %73 ]
   %80 = getelementptr inbounds i8, ptr %4, i64 12
   %81 = load i32, ptr %80, align 4
   %82 = add i32 %81, %.1
@@ -1465,7 +1465,7 @@ KnownAssignedXidsCompress.exit:                   ; preds = %._crit_edge.i, %58
   br label %84
 
 84:                                               ; preds = %83, %._crit_edge
-  store i32 %.143.lcssa, ptr %11, align 4
+  store i32 %.141.lcssa, ptr %11, align 4
   ret void
 }
 
@@ -1618,7 +1618,7 @@ define dso_local void @ProcArrayApplyXidAssignment(i32 noundef %0, i32 noundef %
 
 36:                                               ; preds = %47, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %35, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %47 ]
-  %.034.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %47 ]
+  %.02633.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %47 ]
   %37 = getelementptr i8, ptr %33, i64 %indvars.iv.i.i
   %38 = load i8, ptr %37, align 1
   %39 = trunc i8 %38 to i1
@@ -1627,24 +1627,24 @@ define dso_local void @ProcArrayApplyXidAssignment(i32 noundef %0, i32 noundef %
 40:                                               ; preds = %36
   %41 = getelementptr i32, ptr %34, i64 %indvars.iv.i.i
   %42 = load i32, ptr %41, align 4
-  %43 = sext i32 %.034.i.i to i64
+  %43 = sext i32 %.02633.i.i to i64
   %44 = getelementptr i32, ptr %34, i64 %43
   store i32 %42, ptr %44, align 4
   %45 = getelementptr i8, ptr %33, i64 %43
   store i8 1, ptr %45, align 1
-  %46 = add i32 %.034.i.i, 1
+  %46 = add i32 %.02633.i.i, 1
   br label %47
 
 47:                                               ; preds = %40, %36
-  %.1.i.i = phi i32 [ %46, %40 ], [ %.034.i.i, %36 ]
+  %.1.i.i = phi i32 [ %46, %40 ], [ %.02633.i.i, %36 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %36, !llvm.loop !21
 
 ._crit_edge.i.i:                                  ; preds = %47, %31
-  %.0.lcssa.i.i = phi i32 [ 0, %31 ], [ %.1.i.i, %47 ]
+  %.026.lcssa.i.i = phi i32 [ 0, %31 ], [ %.1.i.i, %47 ]
   store i32 0, ptr %19, align 4
-  store i32 %.0.lcssa.i.i, ptr %17, align 4
+  store i32 %.026.lcssa.i.i, ptr %17, align 4
   %48 = tail call i64 @GetCurrentTimestamp() #15
   store i64 %48, ptr @KnownAssignedXidsCompress.lastCompressTs, align 8
   %.pre = load ptr, ptr @procArray, align 8
@@ -1984,9 +1984,9 @@ define internal fastcc zeroext i1 @KnownAssignedXidExists(i32 noundef %0) unname
   br i1 %.not49.i, label %KnownAssignedXidsSearch.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %15
-  %.03551.i = phi i32 [ %.1.i, %15 ], [ %4, %1 ]
-  %.03850.i = phi i32 [ %.139.i, %15 ], [ %7, %1 ]
-  %8 = add i32 %.03850.i, %.03551.i
+  %.03651.i = phi i32 [ %.1.i, %15 ], [ %7, %1 ]
+  %.03750.i = phi i32 [ %.138.i, %15 ], [ %4, %1 ]
+  %8 = add i32 %.03750.i, %.03651.i
   %9 = sdiv i32 %8, 2
   %10 = load ptr, ptr @KnownAssignedXids, align 8
   %11 = sext i32 %9 to i64
@@ -1999,9 +1999,9 @@ define internal fastcc zeroext i1 @KnownAssignedXidExists(i32 noundef %0) unname
   %16 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %0, i32 noundef %13) #15
   %17 = add nsw i32 %9, -1
   %18 = add nsw i32 %9, 1
-  %.139.i = select i1 %16, i32 %17, i32 %.03850.i
-  %.1.i = select i1 %16, i32 %.03551.i, i32 %18
-  %.not.i = icmp sgt i32 %.1.i, %.139.i
+  %.138.i = select i1 %16, i32 %.03750.i, i32 %18
+  %.1.i = select i1 %16, i32 %17, i32 %.03651.i
+  %.not.i = icmp sgt i32 %.138.i, %.1.i
   br i1 %.not.i, label %KnownAssignedXidsSearch.exit, label %.lr.ph.i, !llvm.loop !32
 
 19:                                               ; preds = %.lr.ph.i
@@ -2017,8 +2017,8 @@ define internal fastcc zeroext i1 @KnownAssignedXidExists(i32 noundef %0) unname
   br label %KnownAssignedXidsSearch.exit
 
 KnownAssignedXidsSearch.exit:                     ; preds = %15, %1, %19, %21
-  %.0.i = phi i1 [ false, %19 ], [ %26, %21 ], [ false, %1 ], [ false, %15 ]
-  ret i1 %.0.i
+  %.039.i = phi i1 [ false, %19 ], [ %26, %21 ], [ false, %1 ], [ false, %15 ]
+  ret i1 %.039.i
 }
 
 declare zeroext i1 @TransactionIdPrecedesOrEquals(i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -3249,7 +3249,7 @@ define internal fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr nocapture noundef
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %29
   %11 = phi ptr [ %30, %29 ], [ %.pre32, %.lr.ph ]
   %indvars.iv25 = phi i64 [ %indvars.iv.next26, %29 ], [ %10, %.lr.ph ]
-  %.020.us = phi i32 [ %.1.us, %29 ], [ 0, %.lr.ph ]
+  %.01719.us = phi i32 [ %.1.us, %29 ], [ 0, %.lr.ph ]
   %12 = getelementptr i8, ptr %11, i64 %indvars.iv25
   %13 = load i8, ptr %12, align 1
   %14 = trunc i8 %13 to i1
@@ -3259,7 +3259,7 @@ define internal fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr nocapture noundef
   %16 = load ptr, ptr @KnownAssignedXids, align 8
   %17 = getelementptr i32, ptr %16, i64 %indvars.iv25
   %18 = load i32, ptr %17, align 4
-  %19 = icmp eq i32 %.020.us, 0
+  %19 = icmp eq i32 %.01719.us, 0
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %15
@@ -3274,15 +3274,15 @@ define internal fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr nocapture noundef
 
 24:                                               ; preds = %23, %20, %15
   %25 = phi ptr [ %.pre31, %23 ], [ %.pre31, %20 ], [ %11, %15 ]
-  %26 = add i32 %.020.us, 1
-  %27 = sext i32 %.020.us to i64
+  %26 = add i32 %.01719.us, 1
+  %27 = sext i32 %.01719.us to i64
   %28 = getelementptr i32, ptr %0, i64 %27
   store i32 %18, ptr %28, align 4
   br label %29
 
 29:                                               ; preds = %24, %.lr.ph.split.us
   %30 = phi ptr [ %25, %24 ], [ %11, %.lr.ph.split.us ]
-  %.1.us = phi i32 [ %26, %24 ], [ %.020.us, %.lr.ph.split.us ]
+  %.1.us = phi i32 [ %26, %24 ], [ %.01719.us, %.lr.ph.split.us ]
   %indvars.iv.next26 = add nsw i64 %indvars.iv25, 1
   %lftr.wideiv28 = trunc i64 %indvars.iv.next26 to i32
   %exitcond29.not = icmp eq i32 %8, %lftr.wideiv28
@@ -3291,7 +3291,7 @@ define internal fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr nocapture noundef
 .lr.ph.split:                                     ; preds = %.lr.ph, %50
   %31 = phi ptr [ %51, %50 ], [ %.pre32, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ %10, %.lr.ph ]
-  %.020 = phi i32 [ %.1, %50 ], [ 0, %.lr.ph ]
+  %.01719 = phi i32 [ %.1, %50 ], [ 0, %.lr.ph ]
   %32 = getelementptr i8, ptr %31, i64 %indvars.iv
   %33 = load i8, ptr %32, align 1
   %34 = trunc i8 %33 to i1
@@ -3301,7 +3301,7 @@ define internal fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr nocapture noundef
   %36 = load ptr, ptr @KnownAssignedXids, align 8
   %37 = getelementptr i32, ptr %36, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
-  %39 = icmp eq i32 %.020, 0
+  %39 = icmp eq i32 %.01719, 0
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %35
@@ -3319,23 +3319,23 @@ define internal fastcc i32 @KnownAssignedXidsGetAndSetXmin(ptr nocapture noundef
 
 46:                                               ; preds = %44
   %.pre = load ptr, ptr @KnownAssignedXidsValid, align 8
-  %47 = add i32 %.020, 1
-  %48 = sext i32 %.020 to i64
+  %47 = add i32 %.01719, 1
+  %48 = sext i32 %.01719 to i64
   %49 = getelementptr i32, ptr %0, i64 %48
   store i32 %38, ptr %49, align 4
   br label %50
 
 50:                                               ; preds = %.lr.ph.split, %46
   %51 = phi ptr [ %.pre, %46 ], [ %31, %.lr.ph.split ]
-  %.1 = phi i32 [ %47, %46 ], [ %.020, %.lr.ph.split ]
+  %.1 = phi i32 [ %47, %46 ], [ %.01719, %.lr.ph.split ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %8, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %50, %44, %29, %3
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %.1.us, %29 ], [ %.020, %44 ], [ %.1, %50 ]
-  ret i32 %.0.lcssa
+  %.017.lcssa = phi i32 [ 0, %3 ], [ %.1.us, %29 ], [ %.01719, %44 ], [ %.1, %50 ]
+  ret i32 %.017.lcssa
 }
 
 declare i32 @GetCurrentCommandId(i1 noundef zeroext) local_unnamed_addr #1
@@ -3544,26 +3544,26 @@ define dso_local noundef ptr @GetRunningTransactionData() local_unnamed_addr #0 
 .lr.ph:                                           ; preds = %20, %50
   %36 = phi i32 [ %51, %50 ], [ %34, %20 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 0, %20 ]
-  %.064 = phi i32 [ %.2, %50 ], [ %33, %20 ]
-  %.04962 = phi i32 [ %.150, %50 ], [ 0, %20 ]
-  %.05561 = phi i8 [ %.257, %50 ], [ 0, %20 ]
+  %.064 = phi i8 [ %.2, %50 ], [ 0, %20 ]
+  %.05063 = phi i32 [ %.151, %50 ], [ 0, %20 ]
+  %.05561 = phi i32 [ %.257, %50 ], [ %33, %20 ]
   %37 = getelementptr i32, ptr %4, i64 %indvars.iv
   %38 = load volatile i32, ptr %37, align 4
   %.not60 = icmp eq i32 %38, 0
   br i1 %.not60, label %50, label %39
 
 39:                                               ; preds = %.lr.ph
-  %40 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %38, i32 noundef %.064) #15
-  %spec.select = select i1 %40, i32 %38, i32 %.064
+  %40 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %38, i32 noundef %.05561) #15
+  %spec.select = select i1 %40, i32 %38, i32 %.05561
   %41 = load ptr, ptr @ProcGlobal, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr %struct.XidCacheStatus, ptr %43, i64 %indvars.iv, i32 1
   %45 = load i8, ptr %44, align 1
   %46 = trunc i8 %45 to i1
-  %.156 = select i1 %46, i8 1, i8 %.05561
-  %47 = add i32 %.04962, 1
-  %48 = sext i32 %.04962 to i64
+  %.1 = select i1 %46, i8 1, i8 %.064
+  %47 = add i32 %.05063, 1
+  %48 = sext i32 %.05063 to i64
   %49 = getelementptr i32, ptr %21, i64 %48
   store i32 %38, ptr %49, align 4
   %.pre = load i32, ptr %1, align 4
@@ -3571,16 +3571,16 @@ define dso_local noundef ptr @GetRunningTransactionData() local_unnamed_addr #0 
 
 50:                                               ; preds = %.lr.ph, %39
   %51 = phi i32 [ %.pre, %39 ], [ %36, %.lr.ph ]
-  %.257 = phi i8 [ %.156, %39 ], [ %.05561, %.lr.ph ]
-  %.150 = phi i32 [ %47, %39 ], [ %.04962, %.lr.ph ]
-  %.2 = phi i32 [ %spec.select, %39 ], [ %.064, %.lr.ph ]
+  %.257 = phi i32 [ %spec.select, %39 ], [ %.05561, %.lr.ph ]
+  %.151 = phi i32 [ %47, %39 ], [ %.05063, %.lr.ph ]
+  %.2 = phi i8 [ %.1, %39 ], [ %.064, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = sext i32 %51 to i64
   %53 = icmp slt i64 %indvars.iv.next, %52
   br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %50
-  %54 = trunc nuw i8 %.257 to i1
+  %54 = trunc nuw i8 %.2 to i1
   br i1 %54, label %.loopexit, label %55
 
 55:                                               ; preds = %._crit_edge
@@ -3597,8 +3597,8 @@ define dso_local noundef ptr @GetRunningTransactionData() local_unnamed_addr #0 
 61:                                               ; preds = %.lr.ph71, %78
   %62 = phi i32 [ %51, %.lr.ph71 ], [ %79, %78 ]
   %indvars.iv74 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next75, %78 ]
-  %.25168 = phi i32 [ %.150, %.lr.ph71 ], [ %.3, %78 ]
-  %.05267 = phi i32 [ 0, %.lr.ph71 ], [ %.153, %78 ]
+  %.04769 = phi i32 [ 0, %.lr.ph71 ], [ %.148, %78 ]
+  %.25268 = phi i32 [ %.151, %.lr.ph71 ], [ %.3, %78 ]
   %63 = getelementptr %struct.XidCacheStatus, ptr %58, i64 %indvars.iv74
   %64 = load i8, ptr %63, align 1
   %.not = icmp eq i8 %64, 0
@@ -3611,43 +3611,43 @@ define dso_local noundef ptr @GetRunningTransactionData() local_unnamed_addr #0 
   %69 = load i32, ptr %68, align 4
   %70 = sext i32 %69 to i64
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !45
-  %71 = sext i32 %.25168 to i64
+  %71 = sext i32 %.25268 to i64
   %72 = getelementptr i32, ptr %21, i64 %71
   %73 = getelementptr %struct.PGPROC, ptr %67, i64 %70, i32 31
   %74 = zext i8 %64 to i64
   %75 = shl nuw nsw i64 %74, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %72, ptr align 4 %73, i64 %75, i1 false)
-  %76 = add i32 %.25168, %66
-  %77 = add i32 %.05267, %66
+  %76 = add i32 %.25268, %66
+  %77 = add i32 %.04769, %66
   %.pre77 = load i32, ptr %1, align 4
   br label %78
 
 78:                                               ; preds = %61, %65
   %79 = phi i32 [ %.pre77, %65 ], [ %62, %61 ]
-  %.153 = phi i32 [ %77, %65 ], [ %.05267, %61 ]
-  %.3 = phi i32 [ %76, %65 ], [ %.25168, %61 ]
+  %.3 = phi i32 [ %76, %65 ], [ %.25268, %61 ]
+  %.148 = phi i32 [ %77, %65 ], [ %.04769, %61 ]
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %80 = sext i32 %79 to i64
   %81 = icmp slt i64 %indvars.iv.next75, %80
   br i1 %81, label %61, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %78, %20, %55, %._crit_edge
-  %.0.lcssa85 = phi i32 [ %.2, %._crit_edge ], [ %.2, %55 ], [ %33, %20 ], [ %.2, %78 ]
-  %.055.lcssa82 = phi i8 [ %.257, %._crit_edge ], [ %.257, %55 ], [ 0, %20 ], [ %.257, %78 ]
-  %.254 = phi i32 [ 0, %._crit_edge ], [ 0, %55 ], [ 0, %20 ], [ %.153, %78 ]
-  %.4 = phi i32 [ %.150, %._crit_edge ], [ %.150, %55 ], [ 0, %20 ], [ %.3, %78 ]
+  %.0.lcssa85 = phi i8 [ %.2, %._crit_edge ], [ %.2, %55 ], [ 0, %20 ], [ %.2, %78 ]
+  %.055.lcssa82 = phi i32 [ %.257, %._crit_edge ], [ %.257, %55 ], [ %33, %20 ], [ %.257, %78 ]
+  %.4 = phi i32 [ %.151, %._crit_edge ], [ %.151, %55 ], [ 0, %20 ], [ %.3, %78 ]
+  %.249 = phi i32 [ 0, %._crit_edge ], [ 0, %55 ], [ 0, %20 ], [ %.148, %78 ]
   %82 = trunc i64 %30 to i32
-  %83 = sub i32 %.4, %.254
+  %83 = sub i32 %.4, %.249
   store i32 %83, ptr @GetRunningTransactionData.CurrentRunningXactsData, align 8
-  store i32 %.254, ptr getelementptr inbounds (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 4), align 4
-  %84 = and i8 %.055.lcssa82, 1
+  store i32 %.249, ptr getelementptr inbounds (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 4), align 4
+  %84 = and i8 %.0.lcssa85, 1
   store i8 %84, ptr getelementptr inbounds (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 8), align 8
   %85 = load ptr, ptr @TransamVariables, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 8
   %87 = load i64, ptr %86, align 8
   %88 = trunc i64 %87 to i32
   store i32 %88, ptr getelementptr inbounds (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 12), align 4
-  store i32 %.0.lcssa85, ptr getelementptr inbounds (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 16), align 8
+  store i32 %.055.lcssa82, ptr getelementptr inbounds (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 16), align 8
   store i32 %82, ptr getelementptr inbounds (i8, ptr @GetRunningTransactionData.CurrentRunningXactsData, i64 20), align 4
   ret ptr @GetRunningTransactionData.CurrentRunningXactsData
 }
@@ -3678,32 +3678,32 @@ define dso_local i32 @GetOldestActiveTransactionId() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %25
   %19 = phi i32 [ %26, %25 ], [ %17, %0 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %0 ]
-  %.012 = phi i32 [ %.1, %25 ], [ %11, %0 ]
+  %.0911 = phi i32 [ %.1, %25 ], [ %11, %0 ]
   %20 = getelementptr i32, ptr %4, i64 %indvars.iv
   %21 = load volatile i32, ptr %20, align 4
   %22 = icmp ugt i32 %21, 2
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %.lr.ph
-  %24 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %21, i32 noundef %.012) #15
-  %spec.select = select i1 %24, i32 %21, i32 %.012
+  %24 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %21, i32 noundef %.0911) #15
+  %spec.select = select i1 %24, i32 %21, i32 %.0911
   %.pre = load i32, ptr %1, align 4
   br label %25
 
 25:                                               ; preds = %23, %.lr.ph
   %26 = phi i32 [ %19, %.lr.ph ], [ %.pre, %23 ]
-  %.1 = phi i32 [ %.012, %.lr.ph ], [ %spec.select, %23 ]
+  %.1 = phi i32 [ %.0911, %.lr.ph ], [ %spec.select, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %25, %0
-  %.0.lcssa = phi i32 [ %11, %0 ], [ %.1, %25 ]
+  %.09.lcssa = phi i32 [ %11, %0 ], [ %.1, %25 ]
   %29 = load ptr, ptr @MainLWLockArray, align 8
   %30 = getelementptr i8, ptr %29, i64 512
   tail call void @LWLockRelease(ptr noundef %30) #15
-  ret i32 %.0.lcssa
+  ret i32 %.09.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3734,7 +3734,7 @@ define dso_local i32 @GetOldestSafeDecodingTransactionId(i1 noundef zeroext %0) 
   br label %20
 
 20:                                               ; preds = %16, %14, %1
-  %.0 = phi i32 [ %19, %16 ], [ %10, %14 ], [ %10, %1 ]
+  %.013 = phi i32 [ %19, %16 ], [ %10, %14 ], [ %10, %1 ]
   br i1 %0, label %21, label %31
 
 21:                                               ; preds = %20
@@ -3745,7 +3745,7 @@ define dso_local i32 @GetOldestSafeDecodingTransactionId(i1 noundef zeroext %0) 
   br i1 %.not17, label %31, label %25
 
 25:                                               ; preds = %21
-  %26 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %24, i32 noundef %.0) #15
+  %26 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %24, i32 noundef %.013) #15
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %25
@@ -3755,7 +3755,7 @@ define dso_local i32 @GetOldestSafeDecodingTransactionId(i1 noundef zeroext %0) 
   br label %31
 
 31:                                               ; preds = %27, %25, %21, %20
-  %.1 = phi i32 [ %30, %27 ], [ %.0, %25 ], [ %.0, %21 ], [ %.0, %20 ]
+  %.1 = phi i32 [ %30, %27 ], [ %.013, %25 ], [ %.013, %21 ], [ %.013, %20 ]
   br i1 %3, label %.loopexit, label %32
 
 32:                                               ; preds = %31
@@ -3769,21 +3769,21 @@ define dso_local i32 @GetOldestSafeDecodingTransactionId(i1 noundef zeroext %0) 
 .lr.ph:                                           ; preds = %32, %44
   %38 = phi i32 [ %45, %44 ], [ %36, %32 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %32 ]
-  %.219 = phi i32 [ %.3, %44 ], [ %.1, %32 ]
+  %.218 = phi i32 [ %.3, %44 ], [ %.1, %32 ]
   %39 = getelementptr i32, ptr %35, i64 %indvars.iv
   %40 = load volatile i32, ptr %39, align 4
   %41 = icmp ugt i32 %40, 2
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %.lr.ph
-  %43 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %40, i32 noundef %.219) #15
-  %spec.select = select i1 %43, i32 %40, i32 %.219
+  %43 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %40, i32 noundef %.218) #15
+  %spec.select = select i1 %43, i32 %40, i32 %.218
   %.pre = load i32, ptr %2, align 4
   br label %44
 
 44:                                               ; preds = %42, %.lr.ph
   %45 = phi i32 [ %38, %.lr.ph ], [ %.pre, %42 ]
-  %.3 = phi i32 [ %.219, %.lr.ph ], [ %spec.select, %42 ]
+  %.3 = phi i32 [ %.218, %.lr.ph ], [ %spec.select, %42 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next, %46
@@ -3820,7 +3820,7 @@ define dso_local ptr @GetVirtualXIDsDelayingChkpt(ptr nocapture noundef writeonl
 16:                                               ; preds = %.lr.ph, %34
   %17 = phi i32 [ %12, %.lr.ph ], [ %35, %34 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %.019 = phi i32 [ 0, %.lr.ph ], [ %.1, %34 ]
+  %.01518 = phi i32 [ 0, %.lr.ph ], [ %.1, %34 ]
   %18 = getelementptr [0 x i32], ptr %14, i64 0, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %20 = sext i32 %19 to i64
@@ -3840,8 +3840,8 @@ define dso_local ptr @GetVirtualXIDsDelayingChkpt(ptr nocapture noundef writeonl
 28:                                               ; preds = %25
   %29 = getelementptr inbounds i8, ptr %21, i64 68
   %30 = load i32, ptr %29, align 4
-  %31 = add i32 %.019, 1
-  %32 = sext i32 %.019 to i64
+  %31 = add i32 %.01518, 1
+  %32 = sext i32 %.01518 to i64
   %33 = getelementptr %struct.VirtualTransactionId, ptr %8, i64 %32
   store i32 %30, ptr %33, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 4
@@ -3851,18 +3851,18 @@ define dso_local ptr @GetVirtualXIDsDelayingChkpt(ptr nocapture noundef writeonl
 
 34:                                               ; preds = %16, %28, %25
   %35 = phi i32 [ %.pre, %28 ], [ %17, %25 ], [ %17, %16 ]
-  %.1 = phi i32 [ %31, %28 ], [ %.019, %25 ], [ %.019, %16 ]
+  %.1 = phi i32 [ %31, %28 ], [ %.01518, %25 ], [ %.01518, %16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
   br i1 %37, label %16, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %34, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %.1, %34 ]
+  %.015.lcssa = phi i32 [ 0, %2 ], [ %.1, %34 ]
   %38 = load ptr, ptr @MainLWLockArray, align 8
   %39 = getelementptr i8, ptr %38, i64 512
   tail call void @LWLockRelease(ptr noundef %39) #15
-  store i32 %.0.lcssa, ptr %0, align 4
+  store i32 %.015.lcssa, ptr %0, align 4
   ret ptr %8
 }
 
@@ -4055,14 +4055,14 @@ define dso_local ptr @BackendPidGetProc(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %19, label %BackendPidGetProcWithLock.exit, label %11
 
 BackendPidGetProcWithLock.exit:                   ; preds = %11, %12, %.preheader.i
-  %.0.i = phi ptr [ null, %.preheader.i ], [ null, %11 ], [ %16, %12 ]
+  %.011.i = phi ptr [ null, %.preheader.i ], [ null, %11 ], [ %16, %12 ]
   %20 = load ptr, ptr @MainLWLockArray, align 8
   %21 = getelementptr i8, ptr %20, i64 512
   tail call void @LWLockRelease(ptr noundef %21) #15
   br label %22
 
 22:                                               ; preds = %1, %BackendPidGetProcWithLock.exit
-  %.0 = phi ptr [ %.0.i, %BackendPidGetProcWithLock.exit ], [ null, %1 ]
+  %.0 = phi ptr [ %.011.i, %BackendPidGetProcWithLock.exit ], [ null, %1 ]
   ret ptr %.0
 }
 
@@ -4100,8 +4100,8 @@ define dso_local ptr @BackendPidGetProcWithLock(i32 noundef %0) local_unnamed_ad
   br i1 %16, label %.loopexit, label %8
 
 .loopexit:                                        ; preds = %9, %8, %.preheader, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %.preheader ], [ %13, %9 ], [ null, %8 ]
-  ret ptr %.0
+  %.011 = phi ptr [ null, %1 ], [ null, %.preheader ], [ %13, %9 ], [ null, %8 ]
+  ret ptr %.011
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4196,19 +4196,19 @@ define dso_local zeroext i1 @IsBackendPid(i32 noundef %0) local_unnamed_addr #0 
   br i1 %19, label %BackendPidGetProcWithLock.exit.i.loopexit, label %11
 
 BackendPidGetProcWithLock.exit.i.loopexit:        ; preds = %11, %12
-  %.0.i.i.ph = phi ptr [ null, %11 ], [ %16, %12 ]
-  %20 = icmp ne ptr %.0.i.i.ph, null
+  %.011.i.i.ph = phi ptr [ null, %11 ], [ %16, %12 ]
+  %20 = icmp ne ptr %.011.i.i.ph, null
   br label %BackendPidGetProcWithLock.exit.i
 
 BackendPidGetProcWithLock.exit.i:                 ; preds = %BackendPidGetProcWithLock.exit.i.loopexit, %.preheader.i.i
-  %.0.i.i = phi i1 [ false, %.preheader.i.i ], [ %20, %BackendPidGetProcWithLock.exit.i.loopexit ]
+  %.011.i.i = phi i1 [ false, %.preheader.i.i ], [ %20, %BackendPidGetProcWithLock.exit.i.loopexit ]
   %21 = load ptr, ptr @MainLWLockArray, align 8
   %22 = getelementptr i8, ptr %21, i64 512
   tail call void @LWLockRelease(ptr noundef %22) #15
   br label %BackendPidGetProc.exit
 
 BackendPidGetProc.exit:                           ; preds = %1, %BackendPidGetProcWithLock.exit.i
-  %.0.i = phi i1 [ %.0.i.i, %BackendPidGetProcWithLock.exit.i ], [ false, %1 ]
+  %.0.i = phi i1 [ %.011.i.i, %BackendPidGetProcWithLock.exit.i ], [ false, %1 ]
   ret i1 %.0.i
 }
 
@@ -4236,7 +4236,7 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %50
   %18 = phi ptr [ %51, %50 ], [ %.pre73, %.lr.ph ]
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %50 ], [ 0, %.lr.ph ]
-  %.034.us = phi i32 [ %.1.us, %50 ], [ 0, %.lr.ph ]
+  %.02633.us = phi i32 [ %.1.us, %50 ], [ 0, %.lr.ph ]
   %19 = getelementptr [0 x i32], ptr %17, i64 0, i64 %indvars.iv63
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
@@ -4281,8 +4281,8 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %22, i64 68
   %46 = load i32, ptr %45, align 4
-  %47 = add i32 %.034.us, 1
-  %48 = sext i32 %.034.us to i64
+  %47 = add i32 %.02633.us, 1
+  %48 = sext i32 %.02633.us to i64
   %49 = getelementptr %struct.VirtualTransactionId, ptr %11, i64 %48
   store i32 %46, ptr %49, align 4
   %.sroa.2.0..sroa_idx.us = getelementptr inbounds i8, ptr %49, i64 4
@@ -4291,7 +4291,7 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
 
 50:                                               ; preds = %44, %40, %38, %33, %25, %.lr.ph.split.us
   %51 = phi ptr [ %18, %.lr.ph.split.us ], [ %18, %25 ], [ %41, %44 ], [ %41, %40 ], [ %.pre72, %38 ], [ %18, %33 ]
-  %.1.us = phi i32 [ %.034.us, %.lr.ph.split.us ], [ %.034.us, %25 ], [ %47, %44 ], [ %.034.us, %40 ], [ %.034.us, %38 ], [ %.034.us, %33 ]
+  %.1.us = phi i32 [ %.02633.us, %.lr.ph.split.us ], [ %.02633.us, %25 ], [ %47, %44 ], [ %.02633.us, %40 ], [ %.02633.us, %38 ], [ %.02633.us, %33 ]
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %52 = load i32, ptr %6, align 4
   %53 = sext i32 %52 to i64
@@ -4309,7 +4309,7 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
   %56 = phi i32 [ %90, %89 ], [ %15, %.lr.ph.split.split.us ]
   %57 = phi ptr [ %91, %89 ], [ %.pre70, %.lr.ph.split.split.us ]
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %89 ], [ 0, %.lr.ph.split.split.us ]
-  %.034.us35 = phi i32 [ %.1.us41, %89 ], [ 0, %.lr.ph.split.split.us ]
+  %.02633.us36 = phi i32 [ %.1.us41, %89 ], [ 0, %.lr.ph.split.split.us ]
   %58 = getelementptr [0 x i32], ptr %17, i64 0, i64 %indvars.iv60
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
@@ -4351,8 +4351,8 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
 83:                                               ; preds = %80
   %84 = getelementptr inbounds i8, ptr %61, i64 68
   %85 = load i32, ptr %84, align 4
-  %86 = add i32 %.034.us35, 1
-  %87 = sext i32 %.034.us35 to i64
+  %86 = add i32 %.02633.us36, 1
+  %87 = sext i32 %.02633.us36 to i64
   %88 = getelementptr %struct.VirtualTransactionId, ptr %11, i64 %87
   store i32 %85, ptr %88, align 4
   %.sroa.2.0..sroa_idx.us40 = getelementptr inbounds i8, ptr %88, i64 4
@@ -4364,7 +4364,7 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
 89:                                               ; preds = %83, %80, %76, %71, %63, %55
   %90 = phi i32 [ %56, %55 ], [ %56, %63 ], [ %.pre71, %83 ], [ %56, %80 ], [ %56, %76 ], [ %56, %71 ]
   %91 = phi ptr [ %57, %55 ], [ %57, %63 ], [ %.pre69, %83 ], [ %57, %80 ], [ %57, %76 ], [ %57, %71 ]
-  %.1.us41 = phi i32 [ %.034.us35, %55 ], [ %.034.us35, %63 ], [ %86, %83 ], [ %.034.us35, %80 ], [ %.034.us35, %76 ], [ %.034.us35, %71 ]
+  %.1.us41 = phi i32 [ %.02633.us36, %55 ], [ %.02633.us36, %63 ], [ %86, %83 ], [ %.02633.us36, %80 ], [ %.02633.us36, %76 ], [ %.02633.us36, %71 ]
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %92 = sext i32 %90 to i64
   %93 = icmp slt i64 %indvars.iv.next61, %92
@@ -4376,7 +4376,7 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %127
   %94 = phi ptr [ %128, %127 ], [ %.pre73, %.lr.ph.split.split ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %127 ], [ 0, %.lr.ph.split.split ]
-  %.034.us44 = phi i32 [ %.1.us50, %127 ], [ 0, %.lr.ph.split.split ]
+  %.02633.us45 = phi i32 [ %.1.us50, %127 ], [ 0, %.lr.ph.split.split ]
   %95 = getelementptr [0 x i32], ptr %17, i64 0, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4
   %97 = sext i32 %96 to i64
@@ -4419,8 +4419,8 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
 121:                                              ; preds = %118
   %122 = getelementptr inbounds i8, ptr %98, i64 68
   %123 = load i32, ptr %122, align 4
-  %124 = add i32 %.034.us44, 1
-  %125 = sext i32 %.034.us44 to i64
+  %124 = add i32 %.02633.us45, 1
+  %125 = sext i32 %.02633.us45 to i64
   %126 = getelementptr %struct.VirtualTransactionId, ptr %11, i64 %125
   store i32 %123, ptr %126, align 4
   %.sroa.2.0..sroa_idx.us49 = getelementptr inbounds i8, ptr %126, i64 4
@@ -4429,7 +4429,7 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
 
 127:                                              ; preds = %121, %118, %114, %109, %101, %.lr.ph.split.split.split.us
   %128 = phi ptr [ %94, %.lr.ph.split.split.split.us ], [ %94, %101 ], [ %.pre, %121 ], [ %.pre, %118 ], [ %.pre, %114 ], [ %94, %109 ]
-  %.1.us50 = phi i32 [ %.034.us44, %.lr.ph.split.split.split.us ], [ %.034.us44, %101 ], [ %124, %121 ], [ %.034.us44, %118 ], [ %.034.us44, %114 ], [ %.034.us44, %109 ]
+  %.1.us50 = phi i32 [ %.02633.us45, %.lr.ph.split.split.split.us ], [ %.02633.us45, %101 ], [ %124, %121 ], [ %.02633.us45, %118 ], [ %.02633.us45, %114 ], [ %.02633.us45, %109 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %129 = load i32, ptr %6, align 4
   %130 = sext i32 %129 to i64
@@ -4439,7 +4439,7 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %167
   %132 = phi ptr [ %168, %167 ], [ %.pre73, %.lr.ph.split.split ]
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %167 ], [ 0, %.lr.ph.split.split ]
-  %.034 = phi i32 [ %.1, %167 ], [ 0, %.lr.ph.split.split ]
+  %.02633 = phi i32 [ %.1, %167 ], [ 0, %.lr.ph.split.split ]
   %133 = getelementptr [0 x i32], ptr %17, i64 0, i64 %indvars.iv57
   %134 = load i32, ptr %133, align 4
   %135 = sext i32 %134 to i64
@@ -4486,8 +4486,8 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
 161:                                              ; preds = %158
   %162 = getelementptr inbounds i8, ptr %136, i64 68
   %163 = load i32, ptr %162, align 4
-  %164 = add i32 %.034, 1
-  %165 = sext i32 %.034 to i64
+  %164 = add i32 %.02633, 1
+  %165 = sext i32 %.02633 to i64
   %166 = getelementptr %struct.VirtualTransactionId, ptr %11, i64 %165
   store i32 %163, ptr %166, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %166, i64 4
@@ -4496,7 +4496,7 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
 
 167:                                              ; preds = %147, %158, %161, %156, %152, %139, %.lr.ph.split.split.split
   %168 = phi ptr [ %132, %.lr.ph.split.split.split ], [ %132, %139 ], [ %.pre67, %161 ], [ %.pre67, %158 ], [ %.pre67, %156 ], [ %132, %152 ], [ %132, %147 ]
-  %.1 = phi i32 [ %.034, %.lr.ph.split.split.split ], [ %.034, %139 ], [ %164, %161 ], [ %.034, %158 ], [ %.034, %156 ], [ %.034, %152 ], [ %.034, %147 ]
+  %.1 = phi i32 [ %.02633, %.lr.ph.split.split.split ], [ %.02633, %139 ], [ %164, %161 ], [ %.02633, %158 ], [ %.02633, %156 ], [ %.02633, %152 ], [ %.02633, %147 ]
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %169 = load i32, ptr %6, align 4
   %170 = sext i32 %169 to i64
@@ -4504,11 +4504,11 @@ define dso_local ptr @GetCurrentVirtualXIDs(i32 noundef %0, i1 noundef zeroext %
   br i1 %171, label %.lr.ph.split.split.split, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %127, %167, %89, %50, %5
-  %.0.lcssa = phi i32 [ 0, %5 ], [ %.1.us, %50 ], [ %.1.us41, %89 ], [ %.1, %167 ], [ %.1.us50, %127 ]
+  %.026.lcssa = phi i32 [ 0, %5 ], [ %.1.us, %50 ], [ %.1.us41, %89 ], [ %.1, %167 ], [ %.1.us50, %127 ]
   %172 = load ptr, ptr @MainLWLockArray, align 8
   %173 = getelementptr i8, ptr %172, i64 512
   tail call void @LWLockRelease(ptr noundef %173) #15
-  store i32 %.0.lcssa, ptr %4, align 4
+  store i32 %.026.lcssa, ptr %4, align 4
   ret ptr %11
 }
 
@@ -4560,7 +4560,7 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %46
   %27 = phi i32 [ %47, %46 ], [ %22, %.lr.ph.split.us ]
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %46 ], [ 0, %.lr.ph.split.us ]
-  %.029.us.us = phi i32 [ %.1.us.us, %46 ], [ 0, %.lr.ph.split.us ]
+  %.02028.us.us = phi i32 [ %.1.us.us, %46 ], [ 0, %.lr.ph.split.us ]
   %28 = getelementptr [0 x i32], ptr %24, i64 0, i64 %indvars.iv48
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
@@ -4581,8 +4581,8 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds i8, ptr %31, i64 68
   %42 = load i32, ptr %41, align 4
-  %43 = add i32 %.029.us.us, 1
-  %44 = sext i32 %.029.us.us to i64
+  %43 = add i32 %.02028.us.us, 1
+  %44 = sext i32 %.02028.us.us to i64
   %45 = getelementptr %struct.VirtualTransactionId, ptr %26, i64 %44
   store i32 %42, ptr %45, align 4
   %.sroa.2.0..sroa_idx.us.us = getelementptr inbounds i8, ptr %45, i64 4
@@ -4592,7 +4592,7 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
 
 46:                                               ; preds = %40, %35, %.lr.ph.split.us.split.us
   %47 = phi i32 [ %27, %.lr.ph.split.us.split.us ], [ %.pre55, %40 ], [ %27, %35 ]
-  %.1.us.us = phi i32 [ %.029.us.us, %.lr.ph.split.us.split.us ], [ %43, %40 ], [ %.029.us.us, %35 ]
+  %.1.us.us = phi i32 [ %.02028.us.us, %.lr.ph.split.us.split.us ], [ %43, %40 ], [ %.02028.us.us, %35 ]
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next49, %48
@@ -4601,7 +4601,7 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %73
   %50 = phi i32 [ %74, %73 ], [ %22, %.lr.ph.split.us ]
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %73 ], [ 0, %.lr.ph.split.us ]
-  %.029.us = phi i32 [ %.1.us, %73 ], [ 0, %.lr.ph.split.us ]
+  %.02028.us = phi i32 [ %.1.us, %73 ], [ 0, %.lr.ph.split.us ]
   %51 = getelementptr [0 x i32], ptr %24, i64 0, i64 %indvars.iv45
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
@@ -4628,8 +4628,8 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
 67:                                               ; preds = %62
   %68 = getelementptr inbounds i8, ptr %54, i64 68
   %69 = load i32, ptr %68, align 4
-  %70 = add i32 %.029.us, 1
-  %71 = sext i32 %.029.us to i64
+  %70 = add i32 %.02028.us, 1
+  %71 = sext i32 %.02028.us to i64
   %72 = getelementptr %struct.VirtualTransactionId, ptr %26, i64 %71
   store i32 %69, ptr %72, align 4
   %.sroa.2.0..sroa_idx.us = getelementptr inbounds i8, ptr %72, i64 4
@@ -4639,7 +4639,7 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
 
 73:                                               ; preds = %67, %62, %58, %.lr.ph.split.us.split
   %74 = phi i32 [ %50, %.lr.ph.split.us.split ], [ %.pre54, %67 ], [ %50, %62 ], [ %50, %58 ]
-  %.1.us = phi i32 [ %.029.us, %.lr.ph.split.us.split ], [ %70, %67 ], [ %.029.us, %62 ], [ %.029.us, %58 ]
+  %.1.us = phi i32 [ %.02028.us, %.lr.ph.split.us.split ], [ %70, %67 ], [ %.02028.us, %62 ], [ %.02028.us, %58 ]
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next46, %75
@@ -4651,7 +4651,7 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %100
   %77 = phi ptr [ %101, %100 ], [ %25, %.lr.ph.split ]
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %100 ], [ 0, %.lr.ph.split ]
-  %.029.us30 = phi i32 [ %.1.us34, %100 ], [ 0, %.lr.ph.split ]
+  %.02028.us31 = phi i32 [ %.1.us34, %100 ], [ 0, %.lr.ph.split ]
   %78 = getelementptr [0 x i32], ptr %24, i64 0, i64 %indvars.iv42
   %79 = load i32, ptr %78, align 4
   %80 = sext i32 %79 to i64
@@ -4682,8 +4682,8 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
   %94 = getelementptr inbounds i8, ptr %81, i64 68
   %95 = load i32, ptr %94, align 4
   %96 = load ptr, ptr @GetConflictingVirtualXIDs.vxids, align 8
-  %97 = add i32 %.029.us30, 1
-  %98 = sext i32 %.029.us30 to i64
+  %97 = add i32 %.02028.us31, 1
+  %98 = sext i32 %.02028.us31 to i64
   %99 = getelementptr %struct.VirtualTransactionId, ptr %96, i64 %98
   store i32 %95, ptr %99, align 4
   %.sroa.2.0..sroa_idx.us33 = getelementptr inbounds i8, ptr %99, i64 4
@@ -4692,7 +4692,7 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
 
 100:                                              ; preds = %93, %90, %88, %85, %.lr.ph.split.split.us
   %101 = phi ptr [ %77, %.lr.ph.split.split.us ], [ %.pre52, %88 ], [ %.pre52, %93 ], [ %.pre52, %90 ], [ %77, %85 ]
-  %.1.us34 = phi i32 [ %.029.us30, %.lr.ph.split.split.us ], [ %.029.us30, %88 ], [ %97, %93 ], [ %.029.us30, %90 ], [ %.029.us30, %85 ]
+  %.1.us34 = phi i32 [ %.02028.us31, %.lr.ph.split.split.us ], [ %.02028.us31, %88 ], [ %97, %93 ], [ %.02028.us31, %90 ], [ %.02028.us31, %85 ]
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %102 = load i32, ptr %3, align 4
   %103 = sext i32 %102 to i64
@@ -4702,7 +4702,7 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %132
   %105 = phi ptr [ %133, %132 ], [ %25, %.lr.ph.split ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %132 ], [ 0, %.lr.ph.split ]
-  %.029 = phi i32 [ %.1, %132 ], [ 0, %.lr.ph.split ]
+  %.02028 = phi i32 [ %.1, %132 ], [ 0, %.lr.ph.split ]
   %106 = getelementptr [0 x i32], ptr %24, i64 0, i64 %indvars.iv
   %107 = load i32, ptr %106, align 4
   %108 = sext i32 %107 to i64
@@ -4739,8 +4739,8 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
   %126 = getelementptr inbounds i8, ptr %109, i64 68
   %127 = load i32, ptr %126, align 4
   %128 = load ptr, ptr @GetConflictingVirtualXIDs.vxids, align 8
-  %129 = add i32 %.029, 1
-  %130 = sext i32 %.029 to i64
+  %129 = add i32 %.02028, 1
+  %130 = sext i32 %.02028 to i64
   %131 = getelementptr %struct.VirtualTransactionId, ptr %128, i64 %130
   store i32 %127, ptr %131, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %131, i64 4
@@ -4749,7 +4749,7 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
 
 132:                                              ; preds = %113, %122, %125, %120, %117, %.lr.ph.split.split
   %133 = phi ptr [ %105, %.lr.ph.split.split ], [ %.pre, %120 ], [ %.pre, %125 ], [ %.pre, %122 ], [ %105, %117 ], [ %105, %113 ]
-  %.1 = phi i32 [ %.029, %.lr.ph.split.split ], [ %.029, %120 ], [ %129, %125 ], [ %.029, %122 ], [ %.029, %117 ], [ %.029, %113 ]
+  %.1 = phi i32 [ %.02028, %.lr.ph.split.split ], [ %.02028, %120 ], [ %129, %125 ], [ %.02028, %122 ], [ %.02028, %117 ], [ %.02028, %113 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %134 = load i32, ptr %3, align 4
   %135 = sext i32 %134 to i64
@@ -4757,12 +4757,12 @@ define dso_local ptr @GetConflictingVirtualXIDs(i32 noundef %0, i32 noundef %1) 
   br i1 %136, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %132, %100, %73, %46, %18
-  %.0.lcssa = phi i32 [ 0, %18 ], [ %.1.us.us, %46 ], [ %.1.us, %73 ], [ %.1.us34, %100 ], [ %.1, %132 ]
+  %.020.lcssa = phi i32 [ 0, %18 ], [ %.1.us.us, %46 ], [ %.1.us, %73 ], [ %.1.us34, %100 ], [ %.1, %132 ]
   %137 = load ptr, ptr @MainLWLockArray, align 8
   %138 = getelementptr i8, ptr %137, i64 512
   tail call void @LWLockRelease(ptr noundef %138) #15
   %139 = load ptr, ptr @GetConflictingVirtualXIDs.vxids, align 8
-  %140 = sext i32 %.0.lcssa to i64
+  %140 = sext i32 %.020.lcssa to i64
   %141 = getelementptr %struct.VirtualTransactionId, ptr %139, i64 %140
   store i32 -1, ptr %141, align 4
   %142 = getelementptr %struct.VirtualTransactionId, ptr %139, i64 %140, i32 1
@@ -4826,11 +4826,11 @@ define dso_local i32 @CancelVirtualTransaction(i64 %0, i32 noundef %1) local_unn
   br i1 %exitcond.not.i, label %SignalVirtualTransaction.exit, label %11, !llvm.loop !56
 
 SignalVirtualTransaction.exit:                    ; preds = %29, %2, %23, %27
-  %.016.i = phi i32 [ %26, %27 ], [ 0, %23 ], [ 0, %2 ], [ 0, %29 ]
+  %.0.i = phi i32 [ %26, %27 ], [ 0, %23 ], [ 0, %2 ], [ 0, %29 ]
   %30 = load ptr, ptr @MainLWLockArray, align 8
   %31 = getelementptr i8, ptr %30, i64 512
   tail call void @LWLockRelease(ptr noundef %31) #15
-  ret i32 %.016.i
+  ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4888,11 +4888,11 @@ define dso_local i32 @SignalVirtualTransaction(i64 %0, i32 noundef %1, i1 nounde
   br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !56
 
 .loopexit:                                        ; preds = %31, %3, %25, %29
-  %.016 = phi i32 [ %28, %29 ], [ 0, %25 ], [ 0, %3 ], [ 0, %31 ]
+  %.0 = phi i32 [ %28, %29 ], [ 0, %25 ], [ 0, %3 ], [ 0, %31 ]
   %32 = load ptr, ptr @MainLWLockArray, align 8
   %33 = getelementptr i8, ptr %32, i64 512
   tail call void @LWLockRelease(ptr noundef %33) #15
-  ret i32 %.016
+  ret i32 %.0
 }
 
 declare i32 @SendProcSignal(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -4917,7 +4917,7 @@ define dso_local zeroext i1 @MinimumActiveBackends(i32 noundef %0) local_unnamed
 
 9:                                                ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %.01726 = phi i32 [ 0, %.lr.ph ], [ %.1, %29 ]
+  %.01825 = phi i32 [ 0, %.lr.ph ], [ %.1, %29 ]
   %10 = getelementptr [0 x i32], ptr %6, i64 0, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
@@ -4946,12 +4946,12 @@ define dso_local zeroext i1 @MinimumActiveBackends(i32 noundef %0) local_unnamed
   br i1 %.not, label %27, label %29
 
 27:                                               ; preds = %24
-  %28 = add i32 %.01726, 1
+  %28 = add i32 %.01825, 1
   %.not23 = icmp slt i32 %28, %0
   br i1 %.not23, label %29, label %._crit_edge
 
 29:                                               ; preds = %27, %24, %20, %16, %9
-  %.1 = phi i32 [ %.01726, %9 ], [ %.01726, %16 ], [ %.01726, %20 ], [ %.01726, %24 ], [ %28, %27 ]
+  %.1 = phi i32 [ %.01825, %9 ], [ %.01825, %16 ], [ %.01825, %20 ], [ %.01825, %24 ], [ %28, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !57
@@ -4993,7 +4993,7 @@ define dso_local i32 @CountDBBackends(i32 noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %10, %.lr.ph.split.us
   %indvars.iv18 = phi i64 [ %indvars.iv.next19, %10 ], [ 0, %.lr.ph.split.us ]
-  %.014.us = phi i32 [ %spec.select, %10 ], [ 0, %.lr.ph.split.us ]
+  %.01113.us = phi i32 [ %spec.select, %10 ], [ 0, %.lr.ph.split.us ]
   %11 = getelementptr [0 x i32], ptr %8, i64 0, i64 %indvars.iv18
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
@@ -5001,14 +5001,14 @@ define dso_local i32 @CountDBBackends(i32 noundef %0) local_unnamed_addr #0 {
   %14 = load i32, ptr %gep, align 4
   %15 = icmp ne i32 %14, 0
   %16 = zext i1 %15 to i32
-  %spec.select = add i32 %.014.us, %16
+  %spec.select = add i32 %.01113.us, %16
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count21
   br i1 %exitcond22.not, label %._crit_edge, label %10, !llvm.loop !58
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %29 ]
-  %.014 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.1, %29 ]
+  %.01113 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.1, %29 ]
   %17 = getelementptr [0 x i32], ptr %8, i64 0, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = sext i32 %18 to i64
@@ -5023,21 +5023,21 @@ define dso_local i32 @CountDBBackends(i32 noundef %0) local_unnamed_addr #0 {
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, %0
   %28 = zext i1 %27 to i32
-  %spec.select15 = add i32 %.014, %28
+  %spec.select15 = add i32 %.01113, %28
   br label %29
 
 29:                                               ; preds = %24, %.lr.ph.split
-  %.1 = phi i32 [ %.014, %.lr.ph.split ], [ %spec.select15, %24 ]
+  %.1 = phi i32 [ %.01113, %.lr.ph.split ], [ %spec.select15, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %29, %10, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %spec.select, %10 ], [ %.1, %29 ]
+  %.011.lcssa = phi i32 [ 0, %1 ], [ %spec.select, %10 ], [ %.1, %29 ]
   %30 = load ptr, ptr @MainLWLockArray, align 8
   %31 = getelementptr i8, ptr %30, i64 512
   tail call void @LWLockRelease(ptr noundef %31) #15
-  ret i32 %.0.lcssa
+  ret i32 %.011.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5059,7 +5059,7 @@ define dso_local i32 @CountDBConnections(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %23
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %23 ], [ 0, %.lr.ph ]
-  %.015.us = phi i32 [ %.1.us, %23 ], [ 0, %.lr.ph ]
+  %.01214.us = phi i32 [ %.1.us, %23 ], [ 0, %.lr.ph ]
   %10 = getelementptr [0 x i32], ptr %8, i64 0, i64 %indvars.iv19
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
@@ -5075,18 +5075,18 @@ define dso_local i32 @CountDBConnections(i32 noundef %0) local_unnamed_addr #0 {
   %20 = and i8 %19, 1
   %21 = xor i8 %20, 1
   %22 = zext nneg i8 %21 to i32
-  %spec.select = add i32 %.015.us, %22
+  %spec.select = add i32 %.01214.us, %22
   br label %23
 
 23:                                               ; preds = %17, %.lr.ph.split.us
-  %.1.us = phi i32 [ %.015.us, %.lr.ph.split.us ], [ %spec.select, %17 ]
+  %.1.us = phi i32 [ %.01214.us, %.lr.ph.split.us ], [ %spec.select, %17 ]
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next20, %wide.trip.count22
   br i1 %exitcond23.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !59
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %.lr.ph ]
-  %.015 = phi i32 [ %.1, %40 ], [ 0, %.lr.ph ]
+  %.01214 = phi i32 [ %.1, %40 ], [ 0, %.lr.ph ]
   %24 = getelementptr [0 x i32], ptr %8, i64 0, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
@@ -5107,21 +5107,21 @@ define dso_local i32 @CountDBConnections(i32 noundef %0) local_unnamed_addr #0 {
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, %0
   %39 = zext i1 %38 to i32
-  %spec.select16 = add i32 %.015, %39
+  %spec.select16 = add i32 %.01214, %39
   br label %40
 
 40:                                               ; preds = %35, %31, %.lr.ph.split
-  %.1 = phi i32 [ %.015, %.lr.ph.split ], [ %.015, %31 ], [ %spec.select16, %35 ]
+  %.1 = phi i32 [ %.01214, %.lr.ph.split ], [ %.01214, %31 ], [ %spec.select16, %35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count22
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %40, %23, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %.1.us, %23 ], [ %.1, %40 ]
+  %.012.lcssa = phi i32 [ 0, %1 ], [ %.1.us, %23 ], [ %.1, %40 ]
   %41 = load ptr, ptr @MainLWLockArray, align 8
   %42 = getelementptr i8, ptr %41, i64 512
   tail call void @LWLockRelease(ptr noundef %42) #15
-  ret i32 %.0.lcssa
+  ret i32 %.012.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5230,7 +5230,7 @@ define dso_local i32 @CountUserBackends(i32 noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %.013 = phi i32 [ 0, %.lr.ph ], [ %.1, %27 ]
+  %.01112 = phi i32 [ 0, %.lr.ph ], [ %.1, %27 ]
   %11 = getelementptr [0 x i32], ptr %8, i64 0, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
@@ -5251,21 +5251,21 @@ define dso_local i32 @CountUserBackends(i32 noundef %0) local_unnamed_addr #0 {
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, %0
   %26 = zext i1 %25 to i32
-  %spec.select = add i32 %.013, %26
+  %spec.select = add i32 %.01112, %26
   br label %27
 
 27:                                               ; preds = %22, %18, %10
-  %.1 = phi i32 [ %.013, %10 ], [ %.013, %18 ], [ %spec.select, %22 ]
+  %.1 = phi i32 [ %.01112, %10 ], [ %.01112, %18 ], [ %spec.select, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %27, %1
-  %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %27 ]
+  %.011.lcssa = phi i32 [ 0, %1 ], [ %.1, %27 ]
   %28 = load ptr, ptr @MainLWLockArray, align 8
   %29 = getelementptr i8, ptr %28, i64 512
   tail call void @LWLockRelease(ptr noundef %29) #15
-  ret i32 %.0.lcssa
+  ret i32 %.011.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5277,7 +5277,7 @@ define dso_local zeroext i1 @CountOtherDBBackends(i32 noundef %0, ptr nocapture 
 
 7:                                                ; preds = %3, %._crit_edge43
   %8 = phi i1 [ false, %3 ], [ %63, %._crit_edge43 ]
-  %.02744 = phi i32 [ 0, %3 ], [ %62, %._crit_edge43 ]
+  %.03244 = phi i32 [ 0, %3 ], [ %62, %._crit_edge43 ]
   %9 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %11, label %10
@@ -5308,8 +5308,8 @@ define dso_local zeroext i1 @CountOtherDBBackends(i32 noundef %0, ptr nocapture 
 
 20:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %.02839 = phi i32 [ 0, %.lr.ph ], [ %.1, %52 ]
-  %.03137 = phi i1 [ false, %.lr.ph ], [ %.132, %52 ]
+  %.02838 = phi i1 [ false, %.lr.ph ], [ %.129, %52 ]
+  %.03037 = phi i32 [ 0, %.lr.ph ], [ %.131, %52 ]
   %21 = getelementptr [0 x i32], ptr %6, i64 0, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
@@ -5345,21 +5345,21 @@ define dso_local zeroext i1 @CountOtherDBBackends(i32 noundef %0, ptr nocapture 
   store i32 %43, ptr %1, align 4
   %44 = and i8 %29, 1
   %45 = icmp ne i8 %44, 0
-  %46 = icmp slt i32 %.02839, 10
+  %46 = icmp slt i32 %.03037, 10
   %or.cond = select i1 %45, i1 %46, i1 false
   br i1 %or.cond, label %47, label %52
 
 47:                                               ; preds = %41
   %48 = load i32, ptr %35, align 4
-  %49 = add nsw i32 %.02839, 1
-  %50 = sext i32 %.02839 to i64
+  %49 = add nsw i32 %.03037, 1
+  %50 = sext i32 %.03037 to i64
   %51 = getelementptr [10 x i32], ptr %4, i64 0, i64 %50
   store i32 %48, ptr %51, align 4
   br label %52
 
 52:                                               ; preds = %38, %47, %41, %20
-  %.132 = phi i1 [ %.03137, %20 ], [ true, %38 ], [ true, %47 ], [ true, %41 ]
-  %.1 = phi i32 [ %.02839, %20 ], [ %.02839, %38 ], [ %49, %47 ], [ %.02839, %41 ]
+  %.131 = phi i32 [ %.03037, %20 ], [ %.03037, %38 ], [ %49, %47 ], [ %.03037, %41 ]
+  %.129 = phi i1 [ %.02838, %20 ], [ true, %38 ], [ true, %47 ], [ true, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = load i32, ptr %5, align 4
   %54 = sext i32 %53 to i64
@@ -5370,14 +5370,14 @@ define dso_local zeroext i1 @CountOtherDBBackends(i32 noundef %0, ptr nocapture 
   %56 = load ptr, ptr @MainLWLockArray, align 8
   %57 = getelementptr i8, ptr %56, i64 512
   tail call void @LWLockRelease(ptr noundef %57) #15
-  br i1 %.132, label %.preheader, label %.loopexit
+  br i1 %.129, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %._crit_edge
-  %58 = icmp sgt i32 %.1, 0
+  %58 = icmp sgt i32 %.131, 0
   br i1 %58, label %.lr.ph42.preheader, label %._crit_edge43
 
 .lr.ph42.preheader:                               ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %.1 to i64
+  %wide.trip.count = zext nneg i32 %.131 to i64
   br label %.lr.ph42
 
 .lr.ph42:                                         ; preds = %.lr.ph42.preheader, %.lr.ph42
@@ -5391,8 +5391,8 @@ define dso_local zeroext i1 @CountOtherDBBackends(i32 noundef %0, ptr nocapture 
 
 ._crit_edge43:                                    ; preds = %.lr.ph42, %.preheader
   tail call void @pg_usleep(i64 noundef 100000) #15
-  %62 = add nuw nsw i32 %.02744, 1
-  %63 = icmp ugt i32 %.02744, 48
+  %62 = add nuw nsw i32 %.03244, 1
+  %63 = icmp ugt i32 %.03244, 48
   %exitcond48 = icmp eq i32 %62, 50
   br i1 %exitcond48, label %.loopexit, label %7, !llvm.loop !64
 
@@ -5437,7 +5437,7 @@ define dso_local void @TerminateOtherDBBackends(i32 noundef %0) local_unnamed_ad
   %15 = phi ptr [ %.pre106, %.lr.ph ], [ %33, %30 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %.088 = phi ptr [ null, %.lr.ph ], [ %.1, %30 ]
-  %.03787 = phi i32 [ 0, %.lr.ph ], [ %.138, %30 ]
+  %.03987 = phi i32 [ 0, %.lr.ph ], [ %.140, %30 ]
   %16 = getelementptr [0 x i32], ptr %11, i64 0, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
@@ -5464,14 +5464,14 @@ define dso_local void @TerminateOtherDBBackends(i32 noundef %0) local_unnamed_ad
   br label %30
 
 28:                                               ; preds = %23
-  %29 = add i32 %.03787, 1
+  %29 = add i32 %.03987, 1
   br label %30
 
 30:                                               ; preds = %26, %28, %12
   %31 = phi i32 [ %13, %12 ], [ %.pre110, %26 ], [ %13, %28 ]
   %32 = phi ptr [ %14, %12 ], [ %.pre107, %26 ], [ %14, %28 ]
   %33 = phi ptr [ %15, %12 ], [ %.pre, %26 ], [ %15, %28 ]
-  %.138 = phi i32 [ %.03787, %12 ], [ %.03787, %26 ], [ %29, %28 ]
+  %.140 = phi i32 [ %.03987, %12 ], [ %.03987, %26 ], [ %29, %28 ]
   %.1 = phi ptr [ %.088, %12 ], [ %27, %26 ], [ %.088, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = sext i32 %31 to i64
@@ -5482,7 +5482,7 @@ define dso_local void @TerminateOtherDBBackends(i32 noundef %0) local_unnamed_ad
   %36 = load ptr, ptr @MainLWLockArray, align 8
   %37 = getelementptr i8, ptr %36, i64 512
   tail call void @LWLockRelease(ptr noundef %37) #15
-  %38 = icmp sgt i32 %.138, 0
+  %38 = icmp sgt i32 %.140, 0
   br i1 %38, label %39, label %46
 
 39:                                               ; preds = %._crit_edge
@@ -5491,8 +5491,8 @@ define dso_local void @TerminateOtherDBBackends(i32 noundef %0) local_unnamed_ad
   %41 = tail call i32 @errcode(i32 noundef 100663621) #15
   %42 = tail call ptr @get_database_name(i32 noundef %0) #15
   %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef %42) #15
-  %44 = zext nneg i32 %.138 to i64
-  %45 = tail call i32 (ptr, ptr, i64, ...) @errdetail_plural(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i64 noundef %44, i32 noundef %.138) #15
+  %44 = zext nneg i32 %.140 to i64
+  %45 = tail call i32 (ptr, ptr, i64, ...) @errdetail_plural(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i64 noundef %44, i32 noundef %.140) #15
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3840, ptr noundef nonnull @__func__.TerminateOtherDBBackends) #15
   unreachable
 
@@ -5785,12 +5785,12 @@ define dso_local void @XidCacheRemoveRunningXids(i32 noundef %0, i32 noundef %1,
   %13 = load i32, ptr %12, align 8
   %14 = sext i32 %13 to i64
   %15 = getelementptr %struct.XidCacheStatus, ptr %10, i64 %14
-  %.029 = add i32 %1, -1
-  %16 = icmp sgt i32 %.029, -1
+  %.02129 = add i32 %1, -1
+  %16 = icmp sgt i32 %.02129, -1
   br i1 %16, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %4
-  %17 = zext nneg i32 %.029 to i64
+  %17 = zext nneg i32 %.02129 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %50
@@ -6431,7 +6431,7 @@ define dso_local void @ExpireTreeKnownAssignedTransactionIds(i32 noundef %0, i32
 
 33:                                               ; preds = %44, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %32, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %44 ]
-  %.034.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %44 ]
+  %.02633.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %44 ]
   %34 = getelementptr i8, ptr %30, i64 %indvars.iv.i.i
   %35 = load i8, ptr %34, align 1
   %36 = trunc i8 %35 to i1
@@ -6440,24 +6440,24 @@ define dso_local void @ExpireTreeKnownAssignedTransactionIds(i32 noundef %0, i32
 37:                                               ; preds = %33
   %38 = getelementptr i32, ptr %31, i64 %indvars.iv.i.i
   %39 = load i32, ptr %38, align 4
-  %40 = sext i32 %.034.i.i to i64
+  %40 = sext i32 %.02633.i.i to i64
   %41 = getelementptr i32, ptr %31, i64 %40
   store i32 %39, ptr %41, align 4
   %42 = getelementptr i8, ptr %30, i64 %40
   store i8 1, ptr %42, align 1
-  %43 = add i32 %.034.i.i, 1
+  %43 = add i32 %.02633.i.i, 1
   br label %44
 
 44:                                               ; preds = %37, %33
-  %.1.i.i = phi i32 [ %43, %37 ], [ %.034.i.i, %33 ]
+  %.1.i.i = phi i32 [ %43, %37 ], [ %.02633.i.i, %33 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %33, !llvm.loop !21
 
 ._crit_edge.i.i:                                  ; preds = %44, %28
-  %.0.lcssa.i.i = phi i32 [ 0, %28 ], [ %.1.i.i, %44 ]
+  %.026.lcssa.i.i = phi i32 [ 0, %28 ], [ %.1.i.i, %44 ]
   store i32 0, ptr %16, align 4
-  store i32 %.0.lcssa.i.i, ptr %14, align 4
+  store i32 %.026.lcssa.i.i, ptr %14, align 4
   %45 = tail call i64 @GetCurrentTimestamp() #15
   store i64 %45, ptr @KnownAssignedXidsCompress.lastCompressTs, align 8
   br label %KnownAssignedXidsRemoveTree.exit
@@ -6577,7 +6577,7 @@ define internal fastcc void @KnownAssignedXidsRemovePreceding(i32 noundef %0) un
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %35
   %21 = phi ptr [ %.pre50, %.lr.ph.preheader ], [ %36, %35 ]
   %indvars.iv = phi i64 [ %20, %.lr.ph.preheader ], [ %indvars.iv.next, %35 ]
-  %.036 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %35 ]
+  %.03035 = phi i32 [ 0, %.lr.ph.preheader ], [ %.131, %35 ]
   %22 = getelementptr i8, ptr %21, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1
   %24 = trunc i8 %23 to i1
@@ -6598,22 +6598,22 @@ define internal fastcc void @KnownAssignedXidsRemovePreceding(i32 noundef %0) un
 32:                                               ; preds = %30
   %33 = getelementptr i8, ptr %.pre, i64 %indvars.iv
   store i8 0, ptr %33, align 1
-  %34 = add i32 %.036, 1
+  %34 = add i32 %.03035, 1
   br label %35
 
 35:                                               ; preds = %.lr.ph, %32, %30
   %36 = phi ptr [ %.pre, %30 ], [ %.pre, %32 ], [ %21, %.lr.ph ]
-  %.1 = phi i32 [ %.036, %30 ], [ %34, %32 ], [ %.036, %.lr.ph ]
+  %.131 = phi i32 [ %.03035, %30 ], [ %34, %32 ], [ %.03035, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %18, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %35, %25
-  %.0.lcssa = phi i32 [ %.1, %35 ], [ %.036, %25 ]
+  %.030.lcssa = phi i32 [ %.131, %35 ], [ %.03035, %25 ]
   %37 = getelementptr inbounds i8, ptr %2, i64 12
   %38 = load i32, ptr %37, align 4
-  %39 = sub i32 %38, %.0.lcssa
+  %39 = sub i32 %38, %.030.lcssa
   store i32 %39, ptr %37, align 4
   br i1 %19, label %.lr.ph41, label %._crit_edge42
 
@@ -6670,7 +6670,7 @@ define internal fastcc void @KnownAssignedXidsRemovePreceding(i32 noundef %0) un
 
 62:                                               ; preds = %73, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %61, %.lr.ph.i ], [ %indvars.iv.next.i, %73 ]
-  %.034.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %73 ]
+  %.02633.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %73 ]
   %63 = getelementptr i8, ptr %59, i64 %indvars.iv.i
   %64 = load i8, ptr %63, align 1
   %65 = trunc i8 %64 to i1
@@ -6679,24 +6679,24 @@ define internal fastcc void @KnownAssignedXidsRemovePreceding(i32 noundef %0) un
 66:                                               ; preds = %62
   %67 = getelementptr i32, ptr %60, i64 %indvars.iv.i
   %68 = load i32, ptr %67, align 4
-  %69 = sext i32 %.034.i to i64
+  %69 = sext i32 %.02633.i to i64
   %70 = getelementptr i32, ptr %60, i64 %69
   store i32 %68, ptr %70, align 4
   %71 = getelementptr i8, ptr %59, i64 %69
   store i8 1, ptr %71, align 1
-  %72 = add i32 %.034.i, 1
+  %72 = add i32 %.02633.i, 1
   br label %73
 
 73:                                               ; preds = %66, %62
-  %.1.i = phi i32 [ %72, %66 ], [ %.034.i, %62 ]
+  %.1.i = phi i32 [ %72, %66 ], [ %.02633.i, %62 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %62, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %73, %57
-  %.0.lcssa.i = phi i32 [ 0, %57 ], [ %.1.i, %73 ]
+  %.026.lcssa.i = phi i32 [ 0, %57 ], [ %.1.i, %73 ]
   store i32 0, ptr %51, align 4
-  store i32 %.0.lcssa.i, ptr %49, align 4
+  store i32 %.026.lcssa.i, ptr %49, align 4
   %74 = tail call i64 @GetCurrentTimestamp() #15
   store i64 %74, ptr @KnownAssignedXidsCompress.lastCompressTs, align 8
   br label %KnownAssignedXidsCompress.exit
@@ -6745,7 +6745,7 @@ define dso_local void @KnownAssignedTransactionIdsIdleMaintenance() local_unname
 
 24:                                               ; preds = %35, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %23, %.lr.ph.i ], [ %indvars.iv.next.i, %35 ]
-  %.034.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %35 ]
+  %.02633.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %35 ]
   %25 = getelementptr i8, ptr %21, i64 %indvars.iv.i
   %26 = load i8, ptr %25, align 1
   %27 = trunc i8 %26 to i1
@@ -6754,24 +6754,24 @@ define dso_local void @KnownAssignedTransactionIdsIdleMaintenance() local_unname
 28:                                               ; preds = %24
   %29 = getelementptr i32, ptr %22, i64 %indvars.iv.i
   %30 = load i32, ptr %29, align 4
-  %31 = sext i32 %.034.i to i64
+  %31 = sext i32 %.02633.i to i64
   %32 = getelementptr i32, ptr %22, i64 %31
   store i32 %30, ptr %32, align 4
   %33 = getelementptr i8, ptr %21, i64 %31
   store i8 1, ptr %33, align 1
-  %34 = add i32 %.034.i, 1
+  %34 = add i32 %.02633.i, 1
   br label %35
 
 35:                                               ; preds = %28, %24
-  %.1.i = phi i32 [ %34, %28 ], [ %.034.i, %24 ]
+  %.1.i = phi i32 [ %34, %28 ], [ %.02633.i, %24 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %24, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %35, %16
-  %.0.lcssa.i = phi i32 [ 0, %16 ], [ %.1.i, %35 ]
+  %.026.lcssa.i = phi i32 [ 0, %16 ], [ %.1.i, %35 ]
   store i32 0, ptr %4, align 4
-  store i32 %.0.lcssa.i, ptr %2, align 4
+  store i32 %.026.lcssa.i, ptr %2, align 4
   %36 = load ptr, ptr @MainLWLockArray, align 8
   %37 = getelementptr i8, ptr %36, i64 512
   tail call void @LWLockRelease(ptr noundef %37) #15
@@ -6814,9 +6814,9 @@ define internal fastcc void @KnownAssignedXidsRemove(i32 noundef %0) unnamed_add
   br i1 %.not49.i, label %KnownAssignedXidsSearch.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %19
-  %.03551.i = phi i32 [ %.1.i, %19 ], [ %8, %5 ]
-  %.03850.i = phi i32 [ %.139.i, %19 ], [ %11, %5 ]
-  %12 = add i32 %.03850.i, %.03551.i
+  %.03651.i = phi i32 [ %.1.i, %19 ], [ %11, %5 ]
+  %.03750.i = phi i32 [ %.138.i, %19 ], [ %8, %5 ]
+  %12 = add i32 %.03750.i, %.03651.i
   %13 = sdiv i32 %12, 2
   %14 = load ptr, ptr @KnownAssignedXids, align 8
   %15 = sext i32 %13 to i64
@@ -6829,9 +6829,9 @@ define internal fastcc void @KnownAssignedXidsRemove(i32 noundef %0) unnamed_add
   %20 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %0, i32 noundef %17) #15
   %21 = add nsw i32 %13, -1
   %22 = add nsw i32 %13, 1
-  %.139.i = select i1 %20, i32 %21, i32 %.03850.i
-  %.1.i = select i1 %20, i32 %.03551.i, i32 %22
-  %.not.i = icmp sgt i32 %.1.i, %.139.i
+  %.138.i = select i1 %20, i32 %.03750.i, i32 %22
+  %.1.i = select i1 %20, i32 %21, i32 %.03651.i
+  %.not.i = icmp sgt i32 %.138.i, %.1.i
   br i1 %.not.i, label %KnownAssignedXidsSearch.exit, label %.lr.ph.i, !llvm.loop !32
 
 23:                                               ; preds = %.lr.ph.i
@@ -6856,13 +6856,13 @@ define internal fastcc void @KnownAssignedXidsRemove(i32 noundef %0) unnamed_add
   br i1 %35, label %.preheader.i, label %KnownAssignedXidsSearch.exit
 
 .preheader.i:                                     ; preds = %31, %37
-  %.037.in.i = phi i32 [ %.037.i, %37 ], [ %8, %31 ]
-  %.037.i = add i32 %.037.in.i, 1
-  %36 = icmp slt i32 %.037.i, %10
+  %.035.in.i = phi i32 [ %.035.i, %37 ], [ %8, %31 ]
+  %.035.i = add i32 %.035.in.i, 1
+  %36 = icmp slt i32 %.035.i, %10
   br i1 %36, label %37, label %.critedge.i
 
 37:                                               ; preds = %.preheader.i
-  %38 = sext i32 %.037.i to i64
+  %38 = sext i32 %.035.i to i64
   %39 = getelementptr i8, ptr %26, i64 %38
   %40 = load i8, ptr %39, align 1
   %41 = trunc i8 %40 to i1
@@ -6873,7 +6873,7 @@ define internal fastcc void @KnownAssignedXidsRemove(i32 noundef %0) unnamed_add
   br label %.thread.sink.split.i
 
 .thread.sink.split.i:                             ; preds = %37, %.critedge.i
-  %.sink.i = phi i32 [ 0, %.critedge.i ], [ %.037.i, %37 ]
+  %.sink.i = phi i32 [ 0, %.critedge.i ], [ %.035.i, %37 ]
   store i32 %.sink.i, ptr %7, align 4
   br label %KnownAssignedXidsSearch.exit
 

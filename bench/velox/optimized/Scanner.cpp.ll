@@ -397,9 +397,9 @@ while.body:                                       ; preds = %while.body.backedge
 
 yy_match:                                         ; preds = %yy_match.backedge, %while.body
   %27 = phi i8 [ %25, %while.body ], [ %.pre236, %yy_match.backedge ]
+  %yy_current_state.0 = phi i32 [ %26, %while.body ], [ %yy_current_state.0.be, %yy_match.backedge ]
   %yy_cp.0 = phi ptr [ %24, %while.body ], [ %yy_cp.0.be, %yy_match.backedge ]
   %yy_bp.0 = phi ptr [ %24, %while.body ], [ %yy_bp.0.be, %yy_match.backedge ]
-  %yy_current_state.0 = phi i32 [ %26, %while.body ], [ %yy_current_state.0.be, %yy_match.backedge ]
   %idxprom182 = sext i32 %yy_current_state.0 to i64
   %idxprom52183 = zext i8 %27 to i64
   %arrayidx53184 = getelementptr inbounds [61 x [128 x i16]], ptr @_ZL6yy_nxt, i64 0, i64 %idxprom182, i64 %idxprom52183
@@ -438,15 +438,15 @@ while.end:                                        ; preds = %if.end59, %yy_match
   br label %yy_find_action.outer
 
 yy_find_action.outer:                             ; preds = %yy_find_action.outer.backedge, %while.end
+  %yy_current_state.2.ph = phi i32 [ %sub, %while.end ], [ %yy_current_state.2.ph.be, %yy_find_action.outer.backedge ]
   %yy_cp.2.ph = phi ptr [ %yy_cp.1.lcssa, %while.end ], [ %yy_cp.2.ph.be, %yy_find_action.outer.backedge ]
   %yy_bp.1.ph = phi ptr [ %yy_bp.0, %while.end ], [ %yy_bp.1.ph.be, %yy_find_action.outer.backedge ]
-  %yy_current_state.2.ph = phi i32 [ %sub, %while.end ], [ %yy_current_state.2.ph.be, %yy_find_action.outer.backedge ]
   %sub.ptr.rhs.cast = ptrtoint ptr %yy_bp.1.ph to i64
   br label %yy_find_action
 
 yy_find_action:                                   ; preds = %yy_find_action.outer, %sw.bb
-  %yy_cp.2 = phi ptr [ %add.ptr68, %sw.bb ], [ %yy_cp.2.ph, %yy_find_action.outer ]
   %yy_current_state.2 = phi i32 [ %37, %sw.bb ], [ %yy_current_state.2.ph, %yy_find_action.outer ]
+  %yy_cp.2 = phi ptr [ %add.ptr68, %sw.bb ], [ %yy_cp.2.ph, %yy_find_action.outer ]
   %idxprom60 = sext i32 %yy_current_state.2 to i64
   %arrayidx61 = getelementptr inbounds [61 x i16], ptr @_ZL9yy_accept, i64 0, i64 %idxprom60
   %33 = load i16, ptr %arrayidx61, align 2
@@ -798,9 +798,9 @@ if.then165:                                       ; preds = %_ZN16veloxtpFlexLex
   br label %yy_match.backedge
 
 yy_match.backedge:                                ; preds = %for.inc.i102, %sw.bb192, %if.then165
+  %yy_current_state.0.be = phi i32 [ %74, %if.then165 ], [ %81, %sw.bb192 ], [ %yy_current_state.1.i101, %for.inc.i102 ]
   %yy_cp.0.be = phi ptr [ %incdec.ptr167, %if.then165 ], [ %add.ptr195, %sw.bb192 ], [ %add.ptr195, %for.inc.i102 ]
   %yy_bp.0.be = phi ptr [ %69, %if.then165 ], [ %80, %sw.bb192 ], [ %80, %for.inc.i102 ]
-  %yy_current_state.0.be = phi i32 [ %74, %if.then165 ], [ %81, %sw.bb192 ], [ %yy_current_state.1.i101, %for.inc.i102 ]
   %.pre236 = load i8, ptr %yy_cp.0.be, align 1
   br label %yy_match
 
@@ -913,9 +913,9 @@ sw.bb201:                                         ; preds = %if.else169
   br i1 %cmp9.i112, label %for.body.i117, label %yy_find_action.outer.backedge
 
 yy_find_action.outer.backedge:                    ; preds = %for.inc.i128, %sw.bb201, %_ZN16veloxtpFlexLexer21yy_get_previous_stateEv.exit
+  %yy_current_state.2.ph.be = phi i32 [ %yy_current_state.0.lcssa.i, %_ZN16veloxtpFlexLexer21yy_get_previous_stateEv.exit ], [ %90, %sw.bb201 ], [ %yy_current_state.1.i127, %for.inc.i128 ]
   %yy_cp.2.ph.be = phi ptr [ %add.ptr158, %_ZN16veloxtpFlexLexer21yy_get_previous_stateEv.exit ], [ %arrayidx208, %sw.bb201 ], [ %arrayidx208, %for.inc.i128 ]
   %yy_bp.1.ph.be = phi ptr [ %69, %_ZN16veloxtpFlexLexer21yy_get_previous_stateEv.exit ], [ %91, %sw.bb201 ], [ %91, %for.inc.i128 ]
-  %yy_current_state.2.ph.be = phi i32 [ %yy_current_state.0.lcssa.i, %_ZN16veloxtpFlexLexer21yy_get_previous_stateEv.exit ], [ %90, %sw.bb201 ], [ %yy_current_state.1.i127, %for.inc.i128 ]
   br label %yy_find_action.outer
 
 for.body.i117:                                    ; preds = %sw.bb201, %for.inc.i128
@@ -1325,14 +1325,14 @@ if.end16:                                         ; preds = %if.end
   br i1 %cmp2331, label %for.body, label %for.end
 
 for.body:                                         ; preds = %if.end16, %for.body
-  %dest.034 = phi ptr [ %incdec.ptr24, %for.body ], [ %3, %if.end16 ]
+  %i.034 = phi i32 [ %inc, %for.body ], [ 0, %if.end16 ]
   %source.033 = phi ptr [ %incdec.ptr, %for.body ], [ %4, %if.end16 ]
-  %i.032 = phi i32 [ %inc, %for.body ], [ 0, %if.end16 ]
+  %dest.032 = phi ptr [ %incdec.ptr24, %for.body ], [ %3, %if.end16 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %source.033, i64 1
   %17 = load i8, ptr %source.033, align 1
-  %incdec.ptr24 = getelementptr inbounds i8, ptr %dest.034, i64 1
-  store i8 %17, ptr %dest.034, align 1
-  %inc = add nuw nsw i32 %i.032, 1
+  %incdec.ptr24 = getelementptr inbounds i8, ptr %dest.032, i64 1
+  store i8 %17, ptr %dest.032, align 1
+  %inc = add nuw nsw i32 %i.034, 1
   %exitcond.not = icmp eq i32 %inc, %conv
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !22
 

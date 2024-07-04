@@ -3705,9 +3705,9 @@ define internal fastcc noundef ptr @print_enum(i64 noundef %0, ptr noundef %1, p
   %15 = tail call i32 @H5open() #20
   %H5T_NATIVE_UINT_g.val = load i64, ptr @H5T_NATIVE_UINT_g, align 8
   %H5T_NATIVE_INT_g.val = load i64, ptr @H5T_NATIVE_INT_g, align 8
-  %.097 = select i1 %14, i64 %H5T_NATIVE_UINT_g.val, i64 %H5T_NATIVE_INT_g.val
+  %.094 = select i1 %14, i64 %H5T_NATIVE_UINT_g.val, i64 %H5T_NATIVE_INT_g.val
   %16 = tail call i64 @H5Tget_size(i64 noundef %11) #20
-  %17 = tail call i64 @H5Tget_size(i64 noundef %.097) #20
+  %17 = tail call i64 @H5Tget_size(i64 noundef %.094) #20
   %18 = zext nneg i32 %8 to i64
   %19 = tail call noalias ptr @calloc(i64 noundef %18, i64 noundef 8) #25
   %20 = tail call i64 @llvm.umax.i64(i64 %17, i64 %16)
@@ -3737,11 +3737,11 @@ define internal fastcc noundef ptr @print_enum(i64 noundef %0, ptr noundef %1, p
   br i1 %31, label %.loopexit, label %22
 
 ._crit_edge:                                      ; preds = %22
-  %32 = icmp sgt i64 %.097, 0
+  %32 = icmp sgt i64 %.094, 0
   br i1 %32, label %33, label %.lr.ph150
 
 33:                                               ; preds = %._crit_edge
-  %34 = tail call i32 @H5Tconvert(i64 noundef %11, i64 noundef %.097, i64 noundef %18, ptr noundef %21, ptr noundef null, i64 noundef 0) #20
+  %34 = tail call i32 @H5Tconvert(i64 noundef %11, i64 noundef %.094, i64 noundef %18, ptr noundef %21, ptr noundef null, i64 noundef 0) #20
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %.loopexit, label %.lr.ph150
 
@@ -3765,7 +3765,7 @@ define internal fastcc noundef ptr @print_enum(i64 noundef %0, ptr noundef %1, p
 
 40:                                               ; preds = %.lr.ph150, %39
   %indvars.iv159 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next160, %39 ]
-  %.095147 = phi ptr [ %1, %.lr.ph150 ], [ %65, %39 ]
+  %.097147 = phi ptr [ %1, %.lr.ph150 ], [ %65, %39 ]
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6)
   br i1 %37, label %41, label %42
 
@@ -3779,7 +3779,7 @@ define internal fastcc noundef ptr @print_enum(i64 noundef %0, ptr noundef %1, p
   br label %indentation.exit
 
 indentation.exit:                                 ; preds = %41, %42
-  %43 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %3, ptr noundef %2, ptr noundef %.095147, ptr noundef nonnull %6)
+  %43 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %3, ptr noundef %2, ptr noundef %.097147, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
   %.not = icmp eq ptr %43, null
   br i1 %.not, label %.loopexit, label %44
@@ -3805,7 +3805,7 @@ indentation.exit:                                 ; preds = %41, %42
   br i1 %.not116, label %.loopexit, label %56
 
 56:                                               ; preds = %49
-  %57 = call i32 @H5Tget_sign(i64 noundef %.097) #20
+  %57 = call i32 @H5Tget_sign(i64 noundef %.094) #20
   %58 = icmp eq i32 %57, 0
   %59 = mul i64 %17, %indvars.iv159
   %60 = getelementptr inbounds i8, ptr %21, i64 %59
@@ -3880,28 +3880,28 @@ indentation.exit:                                 ; preds = %41, %42
   br label %80
 
 80:                                               ; preds = %.thread, %._crit_edge156, %.loopexit
-  %.098189 = phi i64 [ -1, %.thread ], [ %11, %._crit_edge156 ], [ %11, %.loopexit ]
-  %.0100182 = phi ptr [ null, %.thread ], [ %21, %._crit_edge156 ], [ %21, %.loopexit ]
-  %.not120 = icmp eq ptr %.0100182, null
+  %.095190 = phi i64 [ -1, %.thread ], [ %11, %._crit_edge156 ], [ %11, %.loopexit ]
+  %.099185 = phi ptr [ null, %.thread ], [ %21, %._crit_edge156 ], [ %21, %.loopexit ]
+  %.not120 = icmp eq ptr %.099185, null
   br i1 %.not120, label %82, label %81
 
 81:                                               ; preds = %80
-  call void @free(ptr noundef nonnull %.0100182) #20
+  call void @free(ptr noundef nonnull %.099185) #20
   br label %82
 
 82:                                               ; preds = %81, %80
-  %83 = icmp sgt i64 %.098189, -1
+  %83 = icmp sgt i64 %.095190, -1
   br i1 %83, label %.thread141.sink.split, label %.thread141
 
 .thread141.sink.split:                            ; preds = %82, %._crit_edge153
-  %.098189.sink = phi i64 [ %11, %._crit_edge153 ], [ %.098189, %82 ]
-  %.094.ph = phi ptr [ %65, %._crit_edge153 ], [ null, %82 ]
-  %84 = call i32 @H5Tclose(i64 noundef %.098189.sink) #20
+  %.095190.sink = phi i64 [ %11, %._crit_edge153 ], [ %.095190, %82 ]
+  %.096.ph = phi ptr [ %65, %._crit_edge153 ], [ null, %82 ]
+  %84 = call i32 @H5Tclose(i64 noundef %.095190.sink) #20
   br label %.thread141
 
 .thread141:                                       ; preds = %.thread141.sink.split, %.loopexit.thread, %10, %82
-  %.094 = phi ptr [ null, %82 ], [ null, %10 ], [ null, %.loopexit.thread ], [ %.094.ph, %.thread141.sink.split ]
-  ret ptr %.094
+  %.096 = phi ptr [ null, %82 ], [ null, %10 ], [ null, %.loopexit.thread ], [ %.096.ph, %.thread141.sink.split ]
+  ret ptr %.096
 }
 
 declare i32 @H5Tget_array_ndims(i64 noundef) local_unnamed_addr #1

@@ -3680,7 +3680,7 @@ for.body62:                                       ; preds = %for.body62.lr.ph, %
   %35 = phi i32 [ %18, %for.body62.lr.ph ], [ %33, %for.cond57 ]
   %caseVariant.addr.0569 = phi ptr [ %caseVariant, %for.body62.lr.ph ], [ %caseVariant.addr.1, %for.cond57 ]
   %globalJoinerChar.0568 = phi i16 [ 0, %for.body62.lr.ph ], [ %globalJoinerChar.6, %for.cond57 ]
-  %pluralCategory.0567 = phi ptr [ @.str, %for.body62.lr.ph ], [ %pluralCategory.1, %for.cond57 ]
+  %pluralCategory.0563 = phi ptr [ @.str, %for.body62.lr.ph ], [ %pluralCategory.1, %for.cond57 ]
   %36 = load ptr, ptr %fPool.i, align 8
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv605
   %37 = load ptr, ptr %arrayidx.i.i, align 8
@@ -3693,7 +3693,7 @@ if.then70:                                        ; preds = %for.body62
   %derivedTimesPlurals.val = load i8, ptr %23, align 4
   %derivedTimesPlurals.val162 = load ptr, ptr %24, align 8
   %tobool.i = trunc i8 %derivedTimesPlurals.val to i1
-  %spec.select.i = select i1 %tobool.i, ptr %pluralCategory.0567, ptr %derivedTimesPlurals.val162
+  %spec.select.i = select i1 %tobool.i, ptr %pluralCategory.0563, ptr %derivedTimesPlurals.val162
   %derivedTimesCases.val = load i8, ptr %25, align 4
   %derivedTimesCases.val161 = load ptr, ptr %26, align 8
   %tobool.i183 = trunc i8 %derivedTimesCases.val to i1
@@ -3701,7 +3701,7 @@ if.then70:                                        ; preds = %for.body62
   %derivedTimesPlurals.val168 = load i8, ptr %19, align 1
   %derivedTimesPlurals.val169 = load ptr, ptr %20, align 8
   %tobool.i185 = trunc i8 %derivedTimesPlurals.val168 to i1
-  %spec.select.i186 = select i1 %tobool.i185, ptr %pluralCategory.0567, ptr %derivedTimesPlurals.val169
+  %spec.select.i186 = select i1 %tobool.i185, ptr %pluralCategory.0563, ptr %derivedTimesPlurals.val169
   %derivedTimesCases.val166 = load i8, ptr %21, align 1
   %derivedTimesCases.val167 = load ptr, ptr %22, align 8
   %tobool.i187 = trunc i8 %derivedTimesCases.val166 to i1
@@ -3732,7 +3732,7 @@ if.else79:                                        ; preds = %for.body62
   %derivedTimesPlurals.val172 = load i8, ptr %19, align 1
   %derivedTimesPlurals.val173 = load ptr, ptr %20, align 8
   %tobool.i189 = trunc i8 %derivedTimesPlurals.val172 to i1
-  %spec.select.i190 = select i1 %tobool.i189, ptr %pluralCategory.0567, ptr %derivedTimesPlurals.val173
+  %spec.select.i190 = select i1 %tobool.i189, ptr %pluralCategory.0563, ptr %derivedTimesPlurals.val173
   %derivedTimesCases.val170 = load i8, ptr %21, align 1
   %derivedTimesCases.val171 = load ptr, ptr %22, align 8
   %tobool.i191 = trunc i8 %derivedTimesCases.val170 to i1
@@ -3740,9 +3740,9 @@ if.else79:                                        ; preds = %for.body62
   br label %if.end84
 
 if.end84:                                         ; preds = %if.else79, %if.then70
+  %pluralCategory.1 = phi ptr [ %spec.select.i186, %if.then70 ], [ %pluralCategory.0563, %if.else79 ]
   %singlePluralCategory.0 = phi ptr [ %spec.select.i, %if.then70 ], [ %spec.select.i190, %if.else79 ]
   %singleCaseVariant.0 = phi ptr [ %spec.select.i184, %if.then70 ], [ %spec.select.i192, %if.else79 ]
-  %pluralCategory.1 = phi ptr [ %spec.select.i186, %if.then70 ], [ %pluralCategory.0567, %if.else79 ]
   %caseVariant.addr.1 = phi ptr [ %spec.select.i188, %if.then70 ], [ %caseVariant.addr.0569, %if.else79 ]
   invoke void @_ZN6icu_7511MeasureUnitC1Ev(ptr noundef nonnull align 8 dereferenceable(19) %simpleUnit)
           to label %invoke.cont85 unwind label %lpad58.loopexit.split-lp

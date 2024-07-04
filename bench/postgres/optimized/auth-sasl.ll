@@ -36,7 +36,7 @@ define dso_local range(i32 -2, 1) i32 @CheckSASLAuth(ptr nocapture noundef reado
   br label %17
 
 17:                                               ; preds = %62, %4
-  %.025 = phi ptr [ null, %4 ], [ %.126, %62 ]
+  %.028 = phi ptr [ null, %4 ], [ %.129, %62 ]
   %.024 = phi i1 [ true, %4 ], [ false, %62 ]
   call void @pq_startmsgread() #4
   %18 = call i32 @pq_getbyte() #4
@@ -91,17 +91,17 @@ define dso_local range(i32 -2, 1) i32 @CheckSASLAuth(ptr nocapture noundef reado
 
 .sink.split:                                      ; preds = %33, %39
   %.sink = phi i32 [ %40, %39 ], [ %37, %33 ]
-  %.126.ph = phi ptr [ %.025, %39 ], [ %36, %33 ]
+  %.129.ph = phi ptr [ %.028, %39 ], [ %36, %33 ]
   %41 = call ptr @pq_getmsgbytes(ptr noundef nonnull %6, i32 noundef %.sink) #4
   br label %42
 
 42:                                               ; preds = %.sink.split, %33
-  %.129 = phi ptr [ null, %33 ], [ %41, %.sink.split ]
-  %.027 = phi i32 [ -1, %33 ], [ %.sink, %.sink.split ]
-  %.126 = phi ptr [ %36, %33 ], [ %.126.ph, %.sink.split ]
+  %.129 = phi ptr [ %36, %33 ], [ %.129.ph, %.sink.split ]
+  %.127 = phi ptr [ null, %33 ], [ %41, %.sink.split ]
+  %.025 = phi i32 [ -1, %33 ], [ %.sink, %.sink.split ]
   call void @pq_getmsgend(ptr noundef nonnull %6) #4
   %43 = load ptr, ptr %16, align 8
-  %44 = call i32 %43(ptr noundef %.126, ptr noundef %.129, i32 noundef %.027, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %3) #4
+  %44 = call i32 %43(ptr noundef %.129, ptr noundef %.127, i32 noundef %.025, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %3) #4
   %45 = load ptr, ptr %6, align 8
   call void @pfree(ptr noundef %45) #4
   %46 = load ptr, ptr %7, align 8

@@ -44,9 +44,9 @@ if.end6:                                          ; preds = %lor.lhs.false3
   br label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %if.end6, %do.cond
+  %in.addr.0 = phi ptr [ %in, %if.end6 ], [ %in.addr.3, %do.cond ]
   %inl.addr.0 = phi i32 [ %inl, %if.end6 ], [ %inl.addr.3, %do.cond ]
   %num.0 = phi i32 [ 0, %if.end6 ], [ %num.3, %do.cond ]
-  %in.addr.0 = phi ptr [ %in, %if.end6 ], [ %in.addr.3, %do.cond ]
   %idx.ext = zext nneg i32 %inl.addr.0 to i64
   %add.ptr = getelementptr inbounds i8, ptr %in.addr.0, i64 %idx.ext
   br label %land.rhs
@@ -65,9 +65,9 @@ if.end15:                                         ; preds = %land.rhs
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end107, %if.end15
+  %in.addr.1 = phi ptr [ %in.addr.0, %if.end15 ], [ %in.addr.2, %if.end107 ]
   %inl.addr.1 = phi i32 [ %inl.addr.0, %if.end15 ], [ %inl.addr.2, %if.end107 ]
   %num.1 = phi i32 [ %num.0, %if.end15 ], [ %num.2, %if.end107 ]
-  %in.addr.1 = phi ptr [ %in.addr.0, %if.end15 ], [ %in.addr.2, %if.end107 ]
   br i1 %cmp8.not, label %land.rhs20, label %lor.lhs.false16
 
 lor.lhs.false16:                                  ; preds = %while.cond
@@ -131,9 +131,9 @@ if.else64:                                        ; preds = %if.then34
 
 if.end77:                                         ; preds = %if.then41, %if.else64, %while.body
   %11 = phi i32 [ %conv51, %if.then41 ], [ %add71, %if.else64 ], [ %6, %while.body ]
+  %in.addr.2 = phi ptr [ %incdec.ptr14, %if.then41 ], [ %add.ptr74, %if.else64 ], [ %in.addr.1, %while.body ]
   %inl.addr.2 = phi i32 [ %conv57, %if.then41 ], [ %sub72, %if.else64 ], [ %inl.addr.1, %while.body ]
   %num.2 = phi i32 [ %conv63, %if.then41 ], [ %add75, %if.else64 ], [ %num.1, %while.body ]
-  %in.addr.2 = phi ptr [ %incdec.ptr14, %if.then41 ], [ %add.ptr74, %if.else64 ], [ %in.addr.1, %while.body ]
   %12 = load ptr, ptr %next_bio, align 8
   %13 = load ptr, ptr %0, align 8
   %call = tail call i32 @BIO_write(ptr noundef %12, ptr noundef %13, i32 noundef %11) #5
@@ -216,9 +216,9 @@ if.end148:                                        ; preds = %if.then124
   br label %do.cond
 
 do.cond:                                          ; preds = %land.lhs.true, %if.end148
+  %in.addr.3 = phi ptr [ %add.ptr151, %if.end148 ], [ %in.addr.1, %land.lhs.true ]
   %inl.addr.3 = phi i32 [ %sub152, %if.end148 ], [ %inl.addr.1, %land.lhs.true ]
   %num.3 = phi i32 [ %add149, %if.end148 ], [ %num.1, %land.lhs.true ]
-  %in.addr.3 = phi ptr [ %add.ptr151, %if.end148 ], [ %in.addr.1, %land.lhs.true ]
   %cmp156 = icmp sgt i32 %inl.addr.3, 0
   %18 = select i1 %cmp8.not, i1 %cmp156, i1 false
   br i1 %18, label %land.rhs.preheader, label %do.end, !llvm.loop !7
@@ -232,18 +232,18 @@ do.end.if.then161_crit_edge:                      ; preds = %do.end
 
 if.then161:                                       ; preds = %do.end.if.then161_crit_edge, %do.cond.thread
   %19 = phi i32 [ %4, %do.cond.thread ], [ %.pre, %do.end.if.then161_crit_edge ]
-  %inl.addr.3114120 = phi i32 [ %inl.addr.1, %do.cond.thread ], [ %inl.addr.3, %do.end.if.then161_crit_edge ]
-  %num.3115119 = phi i32 [ %num.1, %do.cond.thread ], [ %num.3, %do.end.if.then161_crit_edge ]
-  %in.addr.3116118 = phi ptr [ %in.addr.1, %do.cond.thread ], [ %in.addr.3, %do.end.if.then161_crit_edge ]
+  %in.addr.3114120 = phi ptr [ %in.addr.1, %do.cond.thread ], [ %in.addr.3, %do.end.if.then161_crit_edge ]
+  %inl.addr.3115119 = phi i32 [ %inl.addr.1, %do.cond.thread ], [ %inl.addr.3, %do.end.if.then161_crit_edge ]
+  %num.3116118 = phi i32 [ %num.1, %do.cond.thread ], [ %num.3, %do.end.if.then161_crit_edge ]
   %20 = load ptr, ptr %0, align 8
   %idxprom164 = sext i32 %19 to i64
   %arrayidx165 = getelementptr inbounds i8, ptr %20, i64 %idxprom164
-  %conv166 = zext nneg i32 %inl.addr.3114120 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx165, ptr noundef nonnull align 1 dereferenceable(1) %in.addr.3116118, i64 %conv166, i1 false)
+  %conv166 = zext nneg i32 %inl.addr.3115119 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %arrayidx165, ptr noundef nonnull align 1 dereferenceable(1) %in.addr.3114120, i64 %conv166, i1 false)
   %21 = load i32, ptr %obuf_len, align 4
-  %add168 = add nsw i32 %21, %inl.addr.3114120
+  %add168 = add nsw i32 %21, %inl.addr.3115119
   store i32 %add168, ptr %obuf_len, align 4
-  %add169 = add nsw i32 %num.3115119, %inl.addr.3114120
+  %add169 = add nsw i32 %num.3116118, %inl.addr.3115119
   br label %return
 
 return:                                           ; preds = %do.cond.thread, %do.end, %if.then161, %if.then133, %if.then83, %if.end, %lor.lhs.false3, %entry, %if.then136, %if.then87

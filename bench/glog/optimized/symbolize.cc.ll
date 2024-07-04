@@ -639,8 +639,8 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit31.i.i.i: ; pred
   br label %122
 
 122:                                              ; preds = %119, %_ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i.i.i, %85
-  %.sroa.11.1.i.i = phi i64 [ %86, %85 ], [ %120, %119 ], [ %.sroa.11.0.i.i, %_ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i.i.i ]
   %.sroa.18.0.i.i = phi ptr [ %14, %85 ], [ %14, %119 ], [ %89, %_ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i.i.i ]
+  %.sroa.11.1.i.i = phi i64 [ %86, %85 ], [ %120, %119 ], [ %.sroa.11.0.i.i, %_ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i.i.i ]
   %.sroa.27.1.i.i = phi ptr [ %87, %85 ], [ %121, %119 ], [ %.sroa.27.0.i.i, %_ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i.i.i ]
   %123 = ptrtoint ptr %.sroa.27.1.i.i to i64
   %124 = ptrtoint ptr %.sroa.18.0.i.i to i64
@@ -2048,7 +2048,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread71: ; pre
 
 .lr.ph:                                           ; preds = %.preheader, %87
   %47 = phi i64 [ %89, %87 ], [ 0, %.preheader ]
-  %.04583 = phi i32 [ %88, %87 ], [ 0, %.preheader ]
+  %.04483 = phi i32 [ %88, %87 ], [ 0, %.preheader ]
   %48 = getelementptr inbounds [32 x %struct.Elf64_Sym], ptr %8, i64 0, i64 %47
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   %50 = load i64, ptr %49, align 8
@@ -2140,7 +2140,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit66.thread: ; pre
   br label %.loopexit
 
 87:                                               ; preds = %.lr.ph, %51
-  %88 = add i32 %.04583, 1
+  %88 = add i32 %.04483, 1
   %89 = zext i32 %88 to i64
   %90 = icmp ugt i64 %44, %89
   br i1 %90, label %.lr.ph, label %._crit_edge, !llvm.loop !23

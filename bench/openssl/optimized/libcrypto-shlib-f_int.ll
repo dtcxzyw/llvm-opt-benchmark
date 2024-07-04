@@ -260,16 +260,16 @@ for.cond84.preheader.preheader:                   ; preds = %if.end79
   br label %for.cond84.preheader
 
 for.cond84.preheader:                             ; preds = %for.cond84.preheader.preheader, %for.inc109
-  %indvars.iv112 = phi i64 [ 0, %for.cond84.preheader.preheader ], [ %indvars.iv.next113, %for.inc109 ]
+  %indvars.iv111 = phi i64 [ 0, %for.cond84.preheader.preheader ], [ %indvars.iv.next112, %for.inc109 ]
   %indvars.iv109 = phi i64 [ 0, %for.cond84.preheader.preheader ], [ %indvars.iv.next110, %for.inc109 ]
-  %10 = add nsw i64 %indvars.iv109, %9
+  %10 = add nsw i64 %indvars.iv111, %9
   %arrayidx98 = getelementptr inbounds i8, ptr %s.1, i64 %10
   br label %for.body87
 
 for.body87:                                       ; preds = %for.cond84.preheader, %if.end95
   %cmp85 = phi i1 [ true, %for.cond84.preheader ], [ false, %if.end95 ]
   %indvars.iv105 = phi i64 [ 0, %for.cond84.preheader ], [ 1, %if.end95 ]
-  %11 = or disjoint i64 %indvars.iv105, %indvars.iv112
+  %11 = or disjoint i64 %indvars.iv105, %indvars.iv109
   %arrayidx90 = getelementptr inbounds i8, ptr %bufp.0, i64 %11
   %12 = load i8, ptr %arrayidx90, align 1
   %call91 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %12) #2
@@ -291,9 +291,9 @@ if.end95:                                         ; preds = %for.body87
   br i1 %cmp85, label %for.body87, label %for.inc109, !llvm.loop !7
 
 for.inc109:                                       ; preds = %if.end95
-  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 2
-  %exitcond118.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count117
+  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
+  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 2
+  %exitcond118.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count117
   br i1 %exitcond118.not, label %for.end112, label %for.cond84.preheader, !llvm.loop !8
 
 for.end112:                                       ; preds = %for.inc109, %if.end79

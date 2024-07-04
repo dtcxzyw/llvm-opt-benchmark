@@ -55,10 +55,10 @@ define internal range(i32 -29, 1) i32 @if_posix_open() #0 {
   br label %243
 
 8:                                                ; preds = %.preheader, %28
-  %.0126 = phi i32 [ %32, %28 ], [ 400, %.preheader ]
-  %.0124 = phi i32 [ %.1, %28 ], [ 0, %.preheader ]
-  store i32 %.0126, ptr %1, align 8
-  %9 = sext i32 %.0126 to i64
+  %.0127 = phi i32 [ %.1128, %28 ], [ 0, %.preheader ]
+  %.0124 = phi i32 [ %32, %28 ], [ 400, %.preheader ]
+  store i32 %.0124, ptr %1, align 8
+  %9 = sext i32 %.0124 to i64
   %calloc = call ptr @calloc(i64 1, i64 %9)
   store ptr %calloc, ptr %4, align 8
   %10 = icmp eq ptr %calloc, null
@@ -77,7 +77,7 @@ define internal range(i32 -29, 1) i32 @if_posix_open() #0 {
   %17 = tail call ptr @__errno_location() #12
   %18 = load i32, ptr %17, align 4
   %19 = icmp ne i32 %18, 22
-  %20 = icmp ne i32 %.0124, 0
+  %20 = icmp ne i32 %.0127, 0
   %or.cond = select i1 %19, i1 %20, i1 false
   br i1 %or.cond, label %21, label %28
 
@@ -90,17 +90,17 @@ define internal range(i32 -29, 1) i32 @if_posix_open() #0 {
 
 24:                                               ; preds = %13
   %25 = load i32, ptr %1, align 8
-  %26 = icmp eq i32 %25, %.0124
+  %26 = icmp eq i32 %25, %.0127
   %27 = icmp sgt i32 %25, 0
   %or.cond4 = and i1 %26, %27
   br i1 %or.cond4, label %.lr.ph, label %28
 
 28:                                               ; preds = %24, %16
-  %.1 = phi i32 [ %.0124, %16 ], [ %25, %24 ]
+  %.1128 = phi i32 [ %.0127, %16 ], [ %25, %24 ]
   %29 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %29) #11
-  %30 = icmp eq i32 %.0126, 0
-  %31 = shl nsw i32 %.0126, 1
+  %30 = icmp eq i32 %.0124, 0
+  %31 = shl nsw i32 %.0124, 1
   %32 = select i1 %30, i32 1, i32 %31
   %33 = icmp slt i32 %32, 10485760
   br i1 %33, label %8, label %34, !llvm.loop !4
@@ -116,16 +116,16 @@ define internal range(i32 -29, 1) i32 @if_posix_open() #0 {
   %38 = getelementptr inbounds i8, ptr %36, i64 16
   %39 = getelementptr inbounds i8, ptr %36, i64 20
   %40 = getelementptr inbounds i8, ptr %36, i64 18
-  %41 = zext i32 %.0124 to i64
+  %41 = zext i32 %.0127 to i64
   br label %42
 
 42:                                               ; preds = %.lr.ph, %.backedge
   %indvars.iv = phi i64 [ %41, %.lr.ph ], [ %indvars.iv.next, %.backedge ]
-  %.0128193 = phi ptr [ %37, %.lr.ph ], [ %43, %.backedge ]
+  %.0125193 = phi ptr [ %37, %.lr.ph ], [ %43, %.backedge ]
   call void @llvm.memset.p0.i64(ptr align 8 %36, i8 0, i64 %9, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 1 %.0128193, i64 %indvars.iv, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %36, ptr align 1 %.0125193, i64 %indvars.iv, i1 false)
   %indvars.iv.next = add nsw i64 %indvars.iv, -40
-  %43 = getelementptr inbounds i8, ptr %.0128193, i64 40
+  %43 = getelementptr inbounds i8, ptr %.0125193, i64 40
   %44 = load i16, ptr %38, align 8
   %.not = icmp eq i16 %44, 2
   br i1 %.not, label %45, label %.backedge
@@ -573,8 +573,8 @@ prefix.exit:                                      ; preds = %200, %.preheader.i,
   br label %243
 
 243:                                              ; preds = %.loopexit, %pmix_obj_new_tma.exit.thread, %34, %21, %11, %5
-  %.0 = phi i32 [ -1, %5 ], [ -1, %11 ], [ -1, %21 ], [ -29, %pmix_obj_new_tma.exit.thread ], [ 0, %.loopexit ], [ -1, %34 ]
-  ret i32 %.0
+  %.0129 = phi i32 [ -1, %5 ], [ -1, %11 ], [ -1, %21 ], [ -29, %pmix_obj_new_tma.exit.thread ], [ 0, %.loopexit ], [ -1, %34 ]
+  ret i32 %.0129
 }
 
 ; Function Attrs: nounwind

@@ -79,14 +79,14 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
 
 25:                                               ; preds = %.lr.ph69, %25
   %indvars.iv85 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next86, %25 ]
-  %.05067 = phi i32 [ 0, %.lr.ph69 ], [ %31, %25 ]
+  %.04768 = phi i32 [ 0, %.lr.ph69 ], [ %31, %25 ]
   %26 = getelementptr inbounds [0 x i16], ptr %24, i64 0, i64 %indvars.iv85
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i32
   %29 = tail call i32 @Lpk_ComputeSets_rec(ptr noundef nonnull %0, i32 noundef %28, ptr noundef %2)
   %30 = getelementptr inbounds [16 x i32], ptr %4, i64 0, i64 %indvars.iv85
   store i32 %29, ptr %30, align 4
-  %31 = or i32 %29, %.05067
+  %31 = or i32 %29, %.04768
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %32 = load i32, ptr %14, align 4
   %33 = lshr i32 %32, 26
@@ -95,7 +95,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
   br i1 %35, label %25, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %25, %.preheader62
-  %.050.lcssa = phi i32 [ 0, %.preheader62 ], [ %31, %25 ]
+  %.047.lcssa = phi i32 [ 0, %.preheader62 ], [ %31, %25 ]
   %.lcssa = phi i32 [ %23, %.preheader62 ], [ %33, %25 ]
   %notmask = shl nsw i32 -1, %.lcssa
   %36 = icmp ult i32 %notmask, -2
@@ -119,7 +119,7 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
 
 .lr.ph74:                                         ; preds = %.lr.ph74.preheader, %47
   %indvars.iv88 = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next89, %47 ]
-  %.04872 = phi i32 [ 0, %.lr.ph74.preheader ], [ %.149, %47 ]
+  %.04673 = phi i32 [ 0, %.lr.ph74.preheader ], [ %.1, %47 ]
   %40 = trunc nuw nsw i64 %indvars.iv88 to i32
   %41 = shl nuw i32 1, %40
   %42 = and i32 %41, %.076
@@ -129,17 +129,17 @@ Kit_DsdNtkObj.exit.thread:                        ; preds = %3, %Kit_DsdNtkObj.e
 43:                                               ; preds = %.lr.ph74
   %44 = getelementptr inbounds [16 x i32], ptr %4, i64 0, i64 %indvars.iv88
   %45 = load i32, ptr %44, align 4
-  %46 = or i32 %45, %.04872
+  %46 = or i32 %45, %.04673
   br label %47
 
 47:                                               ; preds = %.lr.ph74, %43
-  %.149 = phi i32 [ %46, %43 ], [ %.04872, %.lr.ph74 ]
+  %.1 = phi i32 [ %46, %43 ], [ %.04673, %.lr.ph74 ]
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph74, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %47, %.preheader
-  %.048.lcssa = phi i32 [ 0, %.preheader ], [ %.149, %47 ]
+  %.046.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %47 ]
   %48 = load i32, ptr %37, align 4
   %49 = load i32, ptr %2, align 8
   %50 = icmp eq i32 %48, %49
@@ -201,7 +201,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %73, ptr %37, align 4
   %74 = sext i32 %72 to i64
   %75 = getelementptr inbounds i32, ptr %71, i64 %74
-  store i32 %.048.lcssa, ptr %75, align 4
+  store i32 %.046.lcssa, ptr %75, align 4
   %76 = add nuw nsw i32 %.076, 1
   %77 = xor i32 %notmask, %76
   %exitcond91.not = icmp eq i32 %77, -1
@@ -209,12 +209,12 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 78:                                               ; preds = %.lr.ph, %Vec_IntPush.exit61
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_IntPush.exit61 ]
-  %.15165 = phi i32 [ 0, %.lr.ph ], [ %83, %Vec_IntPush.exit61 ]
+  %.14866 = phi i32 [ 0, %.lr.ph ], [ %83, %Vec_IntPush.exit61 ]
   %79 = getelementptr inbounds [0 x i16], ptr %21, i64 0, i64 %indvars.iv
   %80 = load i16, ptr %79, align 2
   %81 = zext i16 %80 to i32
   %82 = tail call i32 @Lpk_ComputeSets_rec(ptr noundef nonnull %0, i32 noundef %81, ptr noundef %2)
-  %83 = or i32 %82, %.15165
+  %83 = or i32 %82, %.14866
   %84 = load i32, ptr %22, align 4
   %85 = load i32, ptr %2, align 8
   %86 = icmp eq i32 %84, %85
@@ -285,8 +285,8 @@ Vec_IntPush.exit61:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %115, label %78, label %.critedge2, !llvm.loop !8
 
 .critedge2:                                       ; preds = %Vec_IntPush.exit61, %Vec_IntPush.exit, %.preheader63, %.critedge, %Kit_DsdNtkObj.exit.thread
-  %.046 = phi i32 [ %16, %Kit_DsdNtkObj.exit.thread ], [ %.050.lcssa, %.critedge ], [ 0, %.preheader63 ], [ %.050.lcssa, %Vec_IntPush.exit ], [ %83, %Vec_IntPush.exit61 ]
-  ret i32 %.046
+  %.051 = phi i32 [ %16, %Kit_DsdNtkObj.exit.thread ], [ %.047.lcssa, %.critedge ], [ 0, %.preheader63 ], [ %.047.lcssa, %Vec_IntPush.exit ], [ %83, %Vec_IntPush.exit61 ]
+  ret i32 %.051
 }
 
 ; Function Attrs: nounwind uwtable
@@ -555,7 +555,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
 
 .lr.ph.us:                                        ; preds = %..critedge2_crit_edge.us, %.lr.ph117.split.us
   %indvars.iv133 = phi i64 [ %indvars.iv.next134, %..critedge2_crit_edge.us ], [ 0, %.lr.ph117.split.us ]
-  %.0116.us = phi i32 [ %.us-phi.us, %..critedge2_crit_edge.us ], [ 0, %.lr.ph117.split.us ]
+  %.093114.us = phi i32 [ %.us-phi.us, %..critedge2_crit_edge.us ], [ 0, %.lr.ph117.split.us ]
   %21 = getelementptr inbounds i32, ptr %.val109, i64 %indvars.iv133
   %22 = load i32, ptr %21, align 4
   %.fr128 = freeze i32 %22
@@ -571,7 +571,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
 
 .lr.ph.split.us121:                               ; preds = %.lr.ph.split.us121.preheader, %90
   %indvars.iv = phi i64 [ %indvars.iv.next, %90 ], [ 0, %.lr.ph.split.us121.preheader ]
-  %.1113.us = phi i32 [ %.2.us, %90 ], [ %.0116.us, %.lr.ph.split.us121.preheader ]
+  %.194112.us = phi i32 [ %.2.us, %90 ], [ %.093114.us, %.lr.ph.split.us121.preheader ]
   %27 = getelementptr inbounds i32, ptr %.val108.us, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 65535
@@ -626,8 +626,8 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
 
 68:                                               ; preds = %63
   %69 = trunc i32 %38 to i16
-  %70 = add nsw i32 %.1113.us, 1
-  %71 = sext i32 %.1113.us to i64
+  %70 = add nsw i32 %.194112.us, 1
+  %71 = sext i32 %.194112.us to i64
   %72 = getelementptr inbounds [65536 x i16], ptr @Lpk_ComposeSets.Used, i64 0, i64 %71
   store i16 %69, ptr %72, align 2
   store i32 %12, ptr %66, align 4
@@ -654,7 +654,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %68, %82
-  %.2.us.ph = phi i32 [ %.1113.us, %82 ], [ %70, %68 ]
+  %.2.us.ph = phi i32 [ %.194112.us, %82 ], [ %70, %68 ]
   %84 = trunc nuw nsw i32 %58 to i8
   %85 = getelementptr inbounds [65536 x i8], ptr @Lpk_ComposeSets.Over, i64 0, i64 %65
   store i8 %84, ptr %85, align 1
@@ -666,13 +666,13 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   br label %90
 
 90:                                               ; preds = %.sink.split, %77, %75, %37, %34, %.lr.ph.split.us121
-  %.2.us = phi i32 [ %.1113.us, %.lr.ph.split.us121 ], [ %.1113.us, %37 ], [ %.1113.us, %77 ], [ %.1113.us, %75 ], [ %.1113.us, %34 ], [ %.2.us.ph, %.sink.split ]
+  %.2.us = phi i32 [ %.194112.us, %.lr.ph.split.us121 ], [ %.194112.us, %37 ], [ %.194112.us, %77 ], [ %.194112.us, %75 ], [ %.194112.us, %34 ], [ %.2.us.ph, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..critedge2_crit_edge.us, label %.lr.ph.split.us121, !llvm.loop !10
 
 ..critedge2_crit_edge.us:                         ; preds = %90, %.lr.ph.us
-  %.us-phi.us = phi i32 [ %.0116.us, %.lr.ph.us ], [ %.2.us, %90 ]
+  %.us-phi.us = phi i32 [ %.093114.us, %.lr.ph.us ], [ %.2.us, %90 ]
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
   br i1 %exitcond137.not, label %.critedge.preheader, label %.lr.ph.us, !llvm.loop !11
@@ -697,14 +697,14 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
 
 .critedge:                                        ; preds = %.critedge.preheader129, %.critedge
   %indvars.iv138 = phi i64 [ 0, %.critedge.preheader129 ], [ %indvars.iv.next139, %.critedge ]
-  %.089124 = phi i32 [ 1000, %.critedge.preheader129 ], [ %spec.select, %.critedge ]
+  %.091123 = phi i32 [ 1000, %.critedge.preheader129 ], [ %spec.select, %.critedge ]
   %95 = getelementptr inbounds [65536 x i16], ptr @Lpk_ComposeSets.Used, i64 0, i64 %indvars.iv138
   %96 = load i16, ptr %95, align 2
   %97 = zext i16 %96 to i64
   %98 = getelementptr inbounds [65536 x i8], ptr @Lpk_ComposeSets.Over, i64 0, i64 %97
   %99 = load i8, ptr %98, align 1
   %100 = sext i8 %99 to i32
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %.089124, i32 %100)
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %.091123, i32 %100)
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count141
   br i1 %exitcond142.not, label %.preheader, label %.critedge, !llvm.loop !12

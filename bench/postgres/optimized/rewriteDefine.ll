@@ -544,9 +544,9 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   br label %225
 
 225:                                              ; preds = %219, %221
-  %.085 = phi i64 [ %224, %221 ], [ 2618, %219 ]
+  %.086 = phi i64 [ %224, %221 ], [ 2618, %219 ]
   tail call void @table_close(ptr noundef %8, i32 noundef 0) #5
-  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.085, 0
+  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.086, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 0, 1
   ret { i64, i32 } %.fca.1.insert
 }
@@ -596,7 +596,7 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly %0, ptr no
 
 .lr.ph173:                                        ; preds = %.lr.ph.split.us.split, %45
   %indvars.iv209 = phi i64 [ %indvars.iv.next210, %45 ], [ 0, %.lr.ph.split.us.split ]
-  %.05798.us171 = phi i32 [ %.1.us, %45 ], [ 0, %.lr.ph.split.us.split ]
+  %.097.us172 = phi i32 [ %.1.us, %45 ], [ 0, %.lr.ph.split.us.split ]
   %10 = load ptr, ptr %6, align 8
   %11 = getelementptr %union.ListCell, ptr %10, i64 %indvars.iv209
   %12 = load ptr, ptr %11, align 8
@@ -606,13 +606,13 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly %0, ptr no
   br i1 %15, label %45, label %16
 
 16:                                               ; preds = %.lr.ph173
-  %17 = add i32 %.05798.us171, 1
+  %17 = add i32 %.097.us172, 1
   %18 = load i32, ptr %1, align 8
   %19 = icmp sgt i32 %17, %18
   br i1 %19, label %.split.us, label %20
 
 20:                                               ; preds = %16
-  %21 = sext i32 %.05798.us171 to i64
+  %21 = sext i32 %.097.us172 to i64
   %22 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %7, i64 0, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 4
   %24 = getelementptr inbounds i8, ptr %22, i64 95
@@ -651,7 +651,7 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly %0, ptr no
   br i1 %or.cond.us, label %.split115.us, label %45
 
 45:                                               ; preds = %42, %37, %.lr.ph173
-  %.1.us = phi i32 [ %.05798.us171, %.lr.ph173 ], [ %17, %42 ], [ %17, %37 ]
+  %.1.us = phi i32 [ %.097.us172, %.lr.ph173 ], [ %17, %42 ], [ %17, %37 ]
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %46 = load i32, ptr %5, align 4
   %47 = sext i32 %46 to i64
@@ -663,7 +663,7 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly %0, ptr no
 
 .lr.ph154:                                        ; preds = %.lr.ph.split.split, %112
   %indvars.iv = phi i64 [ %indvars.iv.next, %112 ], [ 0, %.lr.ph.split.split ]
-  %.05798152 = phi i32 [ %.1, %112 ], [ 0, %.lr.ph.split.split ]
+  %.097153 = phi i32 [ %.1, %112 ], [ 0, %.lr.ph.split.split ]
   %49 = load ptr, ptr %6, align 8
   %50 = getelementptr %union.ListCell, ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
@@ -673,7 +673,7 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly %0, ptr no
   br i1 %54, label %112, label %55
 
 55:                                               ; preds = %.lr.ph154
-  %56 = add i32 %.05798152, 1
+  %56 = add i32 %.097153, 1
   %57 = load i32, ptr %1, align 8
   %58 = icmp sgt i32 %56, %57
   br i1 %58, label %.split.us, label %62
@@ -688,7 +688,7 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly %0, ptr no
   unreachable
 
 62:                                               ; preds = %55
-  %63 = sext i32 %.05798152 to i64
+  %63 = sext i32 %.097153 to i64
   %64 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %7, i64 0, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 95
   %66 = load i8, ptr %65, align 1
@@ -788,7 +788,7 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly %0, ptr no
   unreachable
 
 112:                                              ; preds = %93, %98, %.lr.ph154
-  %.1 = phi i32 [ %.05798152, %.lr.ph154 ], [ %56, %98 ], [ %56, %93 ]
+  %.1 = phi i32 [ %.097153, %.lr.ph154 ], [ %56, %98 ], [ %56, %93 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %113 = load i32, ptr %5, align 4
   %114 = sext i32 %113 to i64
@@ -796,9 +796,9 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly %0, ptr no
   br i1 %115, label %.lr.ph154, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %112, %45, %.lr.ph.split.us.split, %.lr.ph.split.split, %4
-  %.057.lcssa = phi i32 [ 0, %4 ], [ 0, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.split ], [ %.1.us, %45 ], [ %.1, %112 ]
+  %.0.lcssa = phi i32 [ 0, %4 ], [ 0, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.split ], [ %.1.us, %45 ], [ %.1, %112 ]
   %116 = load i32, ptr %1, align 8
-  %.not65 = icmp eq i32 %.057.lcssa, %116
+  %.not65 = icmp eq i32 %.0.lcssa, %116
   br i1 %.not65, label %121, label %117
 
 117:                                              ; preds = %._crit_edge
@@ -908,10 +908,10 @@ define internal fastcc i32 @InsertRule(ptr noundef %0, i32 noundef %1, i32 nound
   br label %60
 
 60:                                               ; preds = %.thread, %47
-  %.04248 = phi i32 [ %42, %.thread ], [ %58, %47 ]
+  %.04148 = phi i32 [ %42, %.thread ], [ %58, %47 ]
   store i32 2618, ptr %11, align 4
   %61 = getelementptr inbounds i8, ptr %11, i64 4
-  store i32 %.04248, ptr %61, align 4
+  store i32 %.04148, ptr %61, align 4
   %62 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 0, ptr %62, align 4
   store i32 1259, ptr %12, align 4
@@ -942,12 +942,12 @@ define internal fastcc i32 @InsertRule(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %.not45, label %76, label %75
 
 75:                                               ; preds = %73
-  call void @RunObjectPostCreateHook(i32 noundef 2618, i32 noundef %.04248, i32 noundef 0, i1 noundef zeroext false) #5
+  call void @RunObjectPostCreateHook(i32 noundef 2618, i32 noundef %.04148, i32 noundef 0, i1 noundef zeroext false) #5
   br label %76
 
 76:                                               ; preds = %73, %75
   call void @table_close(ptr noundef nonnull %33, i32 noundef 3) #5
-  ret i32 %.04248
+  ret i32 %.04148
 }
 
 declare void @SetRelationRuleStatus(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1

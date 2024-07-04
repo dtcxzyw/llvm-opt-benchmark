@@ -179,15 +179,15 @@ define internal void @pic_begin_page(ptr noundef %0) #0 {
   %17 = getelementptr inbounds i8, ptr %0, i64 480
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 90
-  %.048 = select i1 %19, double %12, double %16
-  %.0 = select i1 %19, double %16, double %12
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, double noundef %.048, double noundef %.0) #7
+  %.048 = select i1 %19, double %16, double %12
+  %.0 = select i1 %19, double %12, double %16
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, double noundef %.0, double noundef %.048) #7
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, ptr noundef nonnull @pic_comments) #7
-  %20 = fcmp ogt double %.048, 0.000000e+00
+  %20 = fcmp ogt double %.0, 0.000000e+00
   br i1 %20, label %21, label %27
 
 21:                                               ; preds = %8
-  %22 = tail call double @log10(double noundef %.048) #7
+  %22 = tail call double @log10(double noundef %.0) #7
   %23 = fptosi double %22 to i32
   %24 = sitofp i32 %23 to double
   %25 = fsub double 3.000000e+00, %24
@@ -228,7 +228,7 @@ define internal void @pic_begin_page(ptr noundef %0) #0 {
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.36, ptr noundef nonnull @pic_comments) #7
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.37, ptr noundef nonnull @pic_comments) #7
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.38, ptr noundef nonnull @pic_comments) #7
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.39, double noundef %.0, double noundef %.048) #7
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.39, double noundef %.048, double noundef %.0) #7
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.40) #7
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.41) #7
   ret void

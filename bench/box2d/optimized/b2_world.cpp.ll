@@ -3420,24 +3420,24 @@ entry:
   br label %while.body
 
 while.condthread-pre-splitthread-pre-split:       ; preds = %invoke.cont31, %invoke.cont19, %while.body, %if.end53, %invoke.cont70, %if.end
-  %segmentAABB.sroa.0.0.ph.ph = phi <2 x float> [ %segmentAABB.sroa.0.0213, %if.end ], [ %segmentAABB.sroa.0.0213, %if.end53 ], [ %60, %invoke.cont70 ], [ %segmentAABB.sroa.0.0213, %while.body ], [ %segmentAABB.sroa.0.0213, %invoke.cont31 ], [ %segmentAABB.sroa.0.0213, %invoke.cont19 ]
-  %segmentAABB.sroa.4.0.ph.ph = phi <2 x float> [ %segmentAABB.sroa.4.0214, %if.end ], [ %segmentAABB.sroa.4.0214, %if.end53 ], [ %62, %invoke.cont70 ], [ %segmentAABB.sroa.4.0214, %while.body ], [ %segmentAABB.sroa.4.0214, %invoke.cont31 ], [ %segmentAABB.sroa.4.0214, %invoke.cont19 ]
+  %segmentAABB.sroa.4.0.ph.ph = phi <2 x float> [ %segmentAABB.sroa.4.0213, %if.end ], [ %segmentAABB.sroa.4.0213, %if.end53 ], [ %62, %invoke.cont70 ], [ %segmentAABB.sroa.4.0213, %while.body ], [ %segmentAABB.sroa.4.0213, %invoke.cont31 ], [ %segmentAABB.sroa.4.0213, %invoke.cont19 ]
+  %segmentAABB.sroa.0.0.ph.ph = phi <2 x float> [ %segmentAABB.sroa.0.0214, %if.end ], [ %segmentAABB.sroa.0.0214, %if.end53 ], [ %60, %invoke.cont70 ], [ %segmentAABB.sroa.0.0214, %while.body ], [ %segmentAABB.sroa.0.0214, %invoke.cont31 ], [ %segmentAABB.sroa.0.0214, %invoke.cont19 ]
   %maxFraction.0.ph.ph = phi float [ %maxFraction.0215, %if.end ], [ %maxFraction.0215, %if.end53 ], [ %retval.0.i90, %invoke.cont70 ], [ %maxFraction.0215, %while.body ], [ %maxFraction.0215, %invoke.cont31 ], [ %maxFraction.0215, %invoke.cont19 ]
   %.pr.pr = load i32, ptr %m_count.i, align 8
   br label %while.condthread-pre-split
 
 while.condthread-pre-split:                       ; preds = %while.condthread-pre-splitthread-pre-split, %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit168
   %.pr = phi i32 [ %.pr.pr, %while.condthread-pre-splitthread-pre-split ], [ %inc.i156, %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit168 ]
-  %segmentAABB.sroa.0.0.ph = phi <2 x float> [ %segmentAABB.sroa.0.0.ph.ph, %while.condthread-pre-splitthread-pre-split ], [ %segmentAABB.sroa.0.0213, %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit168 ]
-  %segmentAABB.sroa.4.0.ph = phi <2 x float> [ %segmentAABB.sroa.4.0.ph.ph, %while.condthread-pre-splitthread-pre-split ], [ %segmentAABB.sroa.4.0214, %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit168 ]
+  %segmentAABB.sroa.4.0.ph = phi <2 x float> [ %segmentAABB.sroa.4.0.ph.ph, %while.condthread-pre-splitthread-pre-split ], [ %segmentAABB.sroa.4.0213, %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit168 ]
+  %segmentAABB.sroa.0.0.ph = phi <2 x float> [ %segmentAABB.sroa.0.0.ph.ph, %while.condthread-pre-splitthread-pre-split ], [ %segmentAABB.sroa.0.0214, %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit168 ]
   %maxFraction.0.ph = phi float [ %maxFraction.0.ph.ph, %while.condthread-pre-splitthread-pre-split ], [ %maxFraction.0215, %_ZN15b2GrowableStackIiLi256EE4PushERKi.exit168 ]
   %cmp = icmp sgt i32 %.pr, 0
   br i1 %cmp, label %while.body, label %cleanup
 
 while.body:                                       ; preds = %entry, %while.condthread-pre-split
   %maxFraction.0215 = phi float [ %9, %entry ], [ %maxFraction.0.ph, %while.condthread-pre-split ]
-  %segmentAABB.sroa.4.0214 = phi <2 x float> [ %17, %entry ], [ %segmentAABB.sroa.4.0.ph, %while.condthread-pre-split ]
-  %segmentAABB.sroa.0.0213 = phi <2 x float> [ %15, %entry ], [ %segmentAABB.sroa.0.0.ph, %while.condthread-pre-split ]
+  %segmentAABB.sroa.0.0214 = phi <2 x float> [ %15, %entry ], [ %segmentAABB.sroa.0.0.ph, %while.condthread-pre-split ]
+  %segmentAABB.sroa.4.0213 = phi <2 x float> [ %17, %entry ], [ %segmentAABB.sroa.4.0.ph, %while.condthread-pre-split ]
   %21 = phi i32 [ 1, %entry ], [ %.pr, %while.condthread-pre-split ]
   %dec.i = add nsw i32 %21, -1
   store i32 %dec.i, ptr %m_count.i, align 8
@@ -3459,9 +3459,9 @@ if.end:                                           ; preds = %while.body
   %idx.ext = sext i32 %23 to i64
   %add.ptr = getelementptr inbounds %struct.b2TreeNode, ptr %25, i64 %idx.ext
   %upperBound.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %segmentAABB.sroa.0.0.vec.extract = extractelement <2 x float> %segmentAABB.sroa.0.0213, i64 0
+  %segmentAABB.sroa.0.0.vec.extract = extractelement <2 x float> %segmentAABB.sroa.0.0214, i64 0
   %26 = load float, ptr %upperBound.i, align 4
-  %segmentAABB.sroa.0.4.vec.extract = extractelement <2 x float> %segmentAABB.sroa.0.0213, i64 1
+  %segmentAABB.sroa.0.4.vec.extract = extractelement <2 x float> %segmentAABB.sroa.0.0214, i64 1
   %y2.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 12
   %27 = load float, ptr %y2.i.i, align 4
   %cmp.i63 = fcmp ogt float %segmentAABB.sroa.0.0.vec.extract, %26
@@ -3472,9 +3472,9 @@ if.end:                                           ; preds = %while.body
 invoke.cont19:                                    ; preds = %if.end
   %y.i5.i = getelementptr inbounds i8, ptr %add.ptr, i64 4
   %28 = load float, ptr %y.i5.i, align 4
-  %segmentAABB.sroa.4.12.vec.extract = extractelement <2 x float> %segmentAABB.sroa.4.0214, i64 1
+  %segmentAABB.sroa.4.12.vec.extract = extractelement <2 x float> %segmentAABB.sroa.4.0213, i64 1
   %29 = load float, ptr %add.ptr, align 4
-  %segmentAABB.sroa.4.8.vec.extract = extractelement <2 x float> %segmentAABB.sroa.4.0214, i64 0
+  %segmentAABB.sroa.4.8.vec.extract = extractelement <2 x float> %segmentAABB.sroa.4.0213, i64 0
   %cmp7.i = fcmp ule float %29, %segmentAABB.sroa.4.8.vec.extract
   %cmp10.i = fcmp ule float %28, %segmentAABB.sroa.4.12.vec.extract
   %or.cond1.not.i = select i1 %cmp7.i, i1 %cmp10.i, i1 false

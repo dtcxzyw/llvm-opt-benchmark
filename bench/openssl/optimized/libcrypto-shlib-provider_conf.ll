@@ -119,12 +119,12 @@ for.cond.preheader.i:                             ; preds = %for.body
   br i1 %cmp41.i, label %for.body.i, label %if.else30.thread.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i
-  %name.addr.046.i = phi ptr [ %name.addr.1.i, %for.inc.i ], [ %retval.0.i.i, %for.cond.preheader.i ]
-  %i.045.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
-  %activate.044.i = phi i64 [ %activate.1.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
-  %path.043.i = phi ptr [ %path.1.i, %for.inc.i ], [ null, %for.cond.preheader.i ]
-  %soft.042.i = phi i32 [ %soft.1.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
-  %call5.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call1.i, i32 noundef %i.045.i) #5
+  %activate.046.i = phi i64 [ %activate.1.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
+  %path.045.i = phi ptr [ %path.1.i, %for.inc.i ], [ null, %for.cond.preheader.i ]
+  %soft.044.i = phi i32 [ %soft.1.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
+  %i.043.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
+  %name.addr.042.i = phi ptr [ %name.addr.1.i, %for.inc.i ], [ %retval.0.i.i, %for.cond.preheader.i ]
+  %call5.i = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call1.i, i32 noundef %i.043.i) #5
   %name6.i = getelementptr inbounds i8, ptr %call5.i, i64 8
   %2 = load ptr, ptr %name6.i, align 8
   %call.i29.i = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %2, i32 noundef 46) #6
@@ -150,15 +150,15 @@ if.else15.i:                                      ; preds = %if.else.i
 if.else19.i:                                      ; preds = %if.else15.i
   %call20.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i32.i, ptr noundef nonnull dereferenceable(9) @.str.6) #6
   %cmp21.i = icmp eq i32 %call20.i, 0
-  %spec.select.i = select i1 %cmp21.i, i64 1, i64 %activate.044.i
+  %spec.select.i = select i1 %cmp21.i, i64 1, i64 %activate.046.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else19.i, %if.else15.i, %if.else.i, %for.body.i
-  %soft.1.i = phi i32 [ %soft.042.i, %for.body.i ], [ 1, %if.else.i ], [ %soft.042.i, %if.else15.i ], [ %soft.042.i, %if.else19.i ]
-  %path.1.i = phi ptr [ %path.043.i, %for.body.i ], [ %path.043.i, %if.else.i ], [ %3, %if.else15.i ], [ %path.043.i, %if.else19.i ]
-  %activate.1.i = phi i64 [ %activate.044.i, %for.body.i ], [ %activate.044.i, %if.else.i ], [ %activate.044.i, %if.else15.i ], [ %spec.select.i, %if.else19.i ]
-  %name.addr.1.i = phi ptr [ %3, %for.body.i ], [ %name.addr.046.i, %if.else.i ], [ %name.addr.046.i, %if.else15.i ], [ %name.addr.046.i, %if.else19.i ]
-  %inc.i = add nuw nsw i32 %i.045.i, 1
+  %name.addr.1.i = phi ptr [ %3, %for.body.i ], [ %name.addr.042.i, %if.else.i ], [ %name.addr.042.i, %if.else15.i ], [ %name.addr.042.i, %if.else19.i ]
+  %soft.1.i = phi i32 [ %soft.044.i, %for.body.i ], [ 1, %if.else.i ], [ %soft.044.i, %if.else15.i ], [ %soft.044.i, %if.else19.i ]
+  %path.1.i = phi ptr [ %path.045.i, %for.body.i ], [ %path.045.i, %if.else.i ], [ %3, %if.else15.i ], [ %path.045.i, %if.else19.i ]
+  %activate.1.i = phi i64 [ %activate.046.i, %for.body.i ], [ %activate.046.i, %if.else.i ], [ %activate.046.i, %if.else15.i ], [ %spec.select.i, %if.else19.i ]
+  %inc.i = add nuw nsw i32 %i.043.i, 1
   %call3.i = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call1.i) #5
   %cmp.i = icmp slt i32 %inc.i, %call3.i
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !4
@@ -335,12 +335,12 @@ if.else30.thread.i:                               ; preds = %for.cond.preheader.
   br i1 %cmp32.not67.i, label %if.then52.i, label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.else30.thread.i, %if.else30.i
-  %path.0.lcssa5670.i = phi ptr [ null, %if.else30.thread.i ], [ %path.1.i, %if.else30.i ]
-  %name.addr.0.lcssa5768.i = phi ptr [ %retval.0.i.i, %if.else30.thread.i ], [ %name.addr.1.i, %if.else30.i ]
-  %call34.i = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %name.addr.0.lcssa5768.i, ptr noundef nonnull @.str, i32 noundef 258) #5
+  %name.addr.0.lcssa5671.i = phi ptr [ %retval.0.i.i, %if.else30.thread.i ], [ %name.addr.1.i, %if.else30.i ]
+  %path.0.lcssa5769.i = phi ptr [ null, %if.else30.thread.i ], [ %path.1.i, %if.else30.i ]
+  %call34.i = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %name.addr.0.lcssa5671.i, ptr noundef nonnull @.str, i32 noundef 258) #5
   store ptr %call34.i, ptr %entry31.i, align 8
   %cmp37.i = icmp ne ptr %call34.i, null
-  %cmp42.i = icmp ne ptr %path.0.lcssa5670.i, null
+  %cmp42.i = icmp ne ptr %path.0.lcssa5769.i, null
   %or.cond.i = select i1 %cmp37.i, i1 %cmp42.i, i1 false
   br i1 %or.cond.i, label %if.then43.i, label %if.end50.i
 
@@ -349,8 +349,8 @@ if.end40.thread.i:                                ; preds = %if.else30.i
   br i1 %cmp4260.not.i, label %if.then52.i, label %if.then43.i
 
 if.then43.i:                                      ; preds = %if.end40.thread.i, %if.end40.i
-  %path.0.lcssa5669.i = phi ptr [ %path.1.i, %if.end40.thread.i ], [ %path.0.lcssa5670.i, %if.end40.i ]
-  %call44.i = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %path.0.lcssa5669.i, ptr noundef nonnull @.str, i32 noundef 263) #5
+  %path.0.lcssa5768.i = phi ptr [ %path.1.i, %if.end40.thread.i ], [ %path.0.lcssa5769.i, %if.end40.i ]
+  %call44.i = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %path.0.lcssa5768.i, ptr noundef nonnull @.str, i32 noundef 263) #5
   store ptr %call44.i, ptr %path45.i, align 8
   %cmp47.i = icmp eq ptr %call44.i, null
   br i1 %cmp47.i, label %if.then70.i, label %if.then52.i

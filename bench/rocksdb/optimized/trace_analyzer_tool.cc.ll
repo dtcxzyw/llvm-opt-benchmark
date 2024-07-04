@@ -6958,9 +6958,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %s.sroa.39.0 = phi ptr [ null, %for.body.lr.ph ], [ %s.sroa.39.8, %for.inc ]
   %prefix_succ_access.0287 = phi i64 [ 0, %for.body.lr.ph ], [ %prefix_succ_access.5, %for.inc ]
   %prefix_count.0286 = phi i64 [ 0, %for.body.lr.ph ], [ %prefix_count.5, %for.inc ]
-  %prefix_access.0285 = phi i64 [ 0, %for.body.lr.ph ], [ %prefix_access.4, %for.inc ]
-  %__begin1.sroa.0.0284 = phi ptr [ %1, %for.body.lr.ph ], [ %call.i205, %for.inc ]
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0284, i64 32
+  %__begin1.sroa.0.0285 = phi ptr [ %1, %for.body.lr.ph ], [ %call.i205, %for.inc ]
+  %prefix_access.0284 = phi i64 [ 0, %for.body.lr.ph ], [ %prefix_access.4, %for.inc ]
+  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0285, i64 32
   %2 = load ptr, ptr %a_key_f, align 8
   %cmp.i46.not = icmp eq ptr %2, null
   br i1 %cmp.i46.not, label %if.then, label %if.end
@@ -6988,13 +6988,13 @@ lpad8:                                            ; preds = %if.then29.invoke
   br label %ehcleanup189
 
 if.end:                                           ; preds = %for.body
-  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.0284, i64 64
-  %succ_count = getelementptr inbounds i8, ptr %__begin1.sroa.0.0284, i64 88
+  %second = getelementptr inbounds i8, ptr %__begin1.sroa.0.0285, i64 64
+  %succ_count = getelementptr inbounds i8, ptr %__begin1.sroa.0.0285, i64 88
   %5 = load i64, ptr %succ_count, align 8
   %6 = load i64, ptr %a_succ_count, align 8
   %add = add i64 %6, %5
   store i64 %add, ptr %a_succ_count, align 8
-  %access_count = getelementptr inbounds i8, ptr %__begin1.sroa.0.0284, i64 72
+  %access_count = getelementptr inbounds i8, ptr %__begin1.sroa.0.0285, i64 72
   %7 = load i64, ptr %access_count, align 8
   %cmp.not = icmp eq i64 %7, 0
   %8 = load i64, ptr %succ_count, align 8
@@ -7002,9 +7002,9 @@ if.end:                                           ; preds = %for.body
   %conv20 = uitofp i64 %7 to double
   %div = fdiv double %conv, %conv20
   %succ_ratio.0 = select i1 %cmp.not, double 0.000000e+00, double %div
-  %cf_id = getelementptr inbounds i8, ptr %__begin1.sroa.0.0284, i64 96
+  %cf_id = getelementptr inbounds i8, ptr %__begin1.sroa.0.0285, i64 96
   %9 = load i32, ptr %cf_id, align 8
-  %value_size = getelementptr inbounds i8, ptr %__begin1.sroa.0.0284, i64 104
+  %value_size = getelementptr inbounds i8, ptr %__begin1.sroa.0.0285, i64 104
   %10 = load i64, ptr %value_size, align 8
   %11 = load i64, ptr %second, align 8
   %call27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer_, i64 noundef 1024, ptr noundef nonnull @.str.137, i32 noundef %9, i64 noundef %10, i64 noundef %11, i64 noundef %7, double noundef %succ_ratio.0) #25
@@ -7143,17 +7143,17 @@ if.then62:                                        ; preds = %invoke.cont59
 
 invoke.cont63:                                    ; preds = %if.then62
   %cmp64 = icmp eq i64 %prefix_count.0286, 0
-  %conv66 = uitofp i64 %prefix_access.0285 to double
+  %conv66 = uitofp i64 %prefix_access.0284 to double
   %conv67 = uitofp i64 %prefix_count.0286 to double
   %div68 = fdiv double %conv66, %conv67
   %storemerge = select i1 %cmp64, double 0.000000e+00, double %div68
-  %cmp70.not = icmp eq i64 %prefix_access.0285, 0
+  %cmp70.not = icmp eq i64 %prefix_access.0284, 0
   %conv72 = uitofp i64 %prefix_succ_access.0287 to double
   %div74 = fdiv double %conv72, %conv66
   %prefix_succ_ratio.0 = select i1 %cmp70.not, double 0.000000e+00, double %div74
   %29 = load i64, ptr %second, align 8
   %call80 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %prefix_out) #25
-  %call81 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer_, i64 noundef 1024, ptr noundef nonnull @.str.139, i64 noundef %29, i64 noundef %prefix_access.0285, i64 noundef %prefix_count.0286, double noundef %storemerge, double noundef %prefix_succ_ratio.0, ptr noundef %call80) #25
+  %call81 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buffer_, i64 noundef 1024, ptr noundef nonnull @.str.139, i64 noundef %29, i64 noundef %prefix_access.0284, i64 noundef %prefix_count.0286, double noundef %storemerge, double noundef %prefix_succ_ratio.0, ptr noundef %call80) #25
   %cmp82 = icmp slt i32 %call81, 0
   br i1 %cmp82, label %if.then83, label %if.end90
 
@@ -7283,7 +7283,7 @@ if.end111:                                        ; preds = %invoke.cont106
   br i1 %cmp115, label %if.then116, label %if.else122
 
 if.then116:                                       ; preds = %if.end111
-  store i64 %prefix_access.0285, ptr %ref.tmp118, align 8, !alias.scope !38
+  store i64 %prefix_access.0284, ptr %ref.tmp118, align 8, !alias.scope !38
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i, ptr noundef nonnull align 8 dereferenceable(32) %prefix_out)
           to label %invoke.cont119 unwind label %lpad100
 
@@ -7325,7 +7325,7 @@ lpad120:                                          ; preds = %_ZNSt6vectorISt4pai
 
 if.else122:                                       ; preds = %if.end111
   %55 = load i64, ptr %46, align 8
-  %cmp127 = icmp ugt i64 %prefix_access.0285, %55
+  %cmp127 = icmp ugt i64 %prefix_access.0284, %55
   br i1 %cmp127, label %if.then128, label %if.end137
 
 if.then128:                                       ; preds = %if.else122
@@ -7349,7 +7349,7 @@ invoke.cont130:                                   ; preds = %.noexc136, %if.then
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %56, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i) #25
-  store i64 %prefix_access.0285, ptr %ref.tmp132, align 8, !alias.scope !41
+  store i64 %prefix_access.0284, ptr %ref.tmp132, align 8, !alias.scope !41
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i137, ptr noundef nonnull align 8 dereferenceable(32) %prefix_out)
           to label %invoke.cont133 unwind label %lpad100
 
@@ -7531,7 +7531,7 @@ invoke.cont167:                                   ; preds = %if.end163
 
 cleanup169:                                       ; preds = %invoke.cont167, %if.then108
   %s.sroa.39.3 = phi ptr [ %40, %invoke.cont167 ], [ null, %if.then108 ]
-  %prefix_access.1 = phi i64 [ 0, %invoke.cont167 ], [ %prefix_access.0285, %if.then108 ]
+  %prefix_access.1 = phi i64 [ 0, %invoke.cont167 ], [ %prefix_access.0284, %if.then108 ]
   %prefix_count.1 = phi i64 [ 0, %invoke.cont167 ], [ %prefix_count.0286, %if.then108 ]
   %prefix_succ_access.1 = phi i64 [ 0, %invoke.cont167 ], [ %prefix_succ_access.0287, %if.then108 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pout) #25
@@ -7552,7 +7552,7 @@ ehcleanup170:                                     ; preds = %ehcleanup, %lpad94.
 
 if.end171:                                        ; preds = %cleanup169, %invoke.cont59
   %s.sroa.39.6 = phi ptr [ %22, %invoke.cont59 ], [ %s.sroa.39.3, %cleanup169 ]
-  %prefix_access.3 = phi i64 [ %prefix_access.0285, %invoke.cont59 ], [ %prefix_access.1, %cleanup169 ]
+  %prefix_access.3 = phi i64 [ %prefix_access.0284, %invoke.cont59 ], [ %prefix_access.1, %cleanup169 ]
   %prefix_count.3 = phi i64 [ %prefix_count.0286, %invoke.cont59 ], [ %prefix_count.1, %cleanup169 ]
   %prefix_succ_access.3 = phi i64 [ %prefix_succ_access.0287, %invoke.cont59 ], [ %prefix_succ_access.1, %cleanup169 ]
   %84 = load i64, ptr %access_count, align 8
@@ -7569,11 +7569,11 @@ cleanup180.thread:                                ; preds = %cleanup169, %if.the
 
 for.inc:                                          ; preds = %if.end171, %if.end54
   %s.sroa.39.8 = phi ptr [ %22, %if.end54 ], [ %s.sroa.39.6, %if.end171 ]
-  %prefix_access.4 = phi i64 [ %prefix_access.0285, %if.end54 ], [ %add174, %if.end171 ]
+  %prefix_access.4 = phi i64 [ %prefix_access.0284, %if.end54 ], [ %add174, %if.end171 ]
   %prefix_count.5 = phi i64 [ %prefix_count.0286, %if.end54 ], [ %add175, %if.end171 ]
   %prefix_succ_access.5 = phi i64 [ %prefix_succ_access.0287, %if.end54 ], [ %add178, %if.end171 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %printout) #25
-  %call.i205 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.0284) #28
+  %call.i205 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.0285) #28
   %cmp.i.not = icmp eq ptr %call.i205, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -12226,35 +12226,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end14.i
-  %__value.addr.021.i = phi i32 [ %0, %if.end14.i ], [ %__val, %entry ]
-  %__n.020.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
-  %cmp3.i = icmp ult i32 %__value.addr.021.i, 100
+  %__n.021.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
+  %__value.addr.020.i = phi i32 [ %0, %if.end14.i ], [ %__val, %entry ]
+  %cmp3.i = icmp ult i32 %__value.addr.020.i, 100
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.020.i, 1
+  %add.i = add i32 %__n.021.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ult i32 %__value.addr.021.i, 1000
+  %cmp6.i = icmp ult i32 %__value.addr.020.i, 1000
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %add8.i = add i32 %__n.020.i, 2
+  %add8.i = add i32 %__n.021.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %cmp11.i = icmp ult i32 %__value.addr.021.i, 10000
+  %cmp11.i = icmp ult i32 %__value.addr.020.i, 10000
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %add13.i = add i32 %__n.020.i, 3
+  %add13.i = add i32 %__n.021.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end14.i:                                       ; preds = %if.end9.i
-  %0 = udiv i32 %__value.addr.021.i, 10000
-  %add17.i = add i32 %__n.020.i, 4
-  %cmp.i = icmp ult i32 %__value.addr.021.i, 100000
+  %0 = udiv i32 %__value.addr.020.i, 10000
+  %add17.i = add i32 %__n.021.i, 4
+  %cmp.i = icmp ult i32 %__value.addr.020.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !108
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i

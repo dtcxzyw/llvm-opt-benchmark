@@ -26,12 +26,12 @@ define dso_local void @rhash_swap_copy_str_to_u32(ptr noundef %0, i32 noundef %1
 
 .lr.ph31:                                         ; preds = %.lr.ph31.preheader, %.lr.ph31
   %.02330 = phi ptr [ %19, %.lr.ph31 ], [ %16, %.lr.ph31.preheader ]
-  %.02529 = phi ptr [ %20, %.lr.ph31 ], [ %2, %.lr.ph31.preheader ]
-  %17 = load i32, ptr %.02529, align 4
+  %.02429 = phi ptr [ %20, %.lr.ph31 ], [ %2, %.lr.ph31.preheader ]
+  %17 = load i32, ptr %.02429, align 4
   %18 = tail call i32 @llvm.bswap.i32(i32 %17)
   store i32 %18, ptr %.02330, align 4
   %19 = getelementptr inbounds i8, ptr %.02330, i64 4
-  %20 = getelementptr inbounds i8, ptr %.02529, i64 4
+  %20 = getelementptr inbounds i8, ptr %.02429, i64 4
   %21 = icmp ult ptr %20, %14
   br i1 %21, label %.lr.ph31, label %.loopexit, !llvm.loop !5
 
@@ -84,9 +84,9 @@ define dso_local void @rhash_swap_copy_str_to_u64(ptr noundef %0, i32 noundef %1
 
 .lr.ph29:                                         ; preds = %.lr.ph29.preheader, %.lr.ph29
   %.02128 = phi ptr [ %20, %.lr.ph29 ], [ %16, %.lr.ph29.preheader ]
-  %.02327 = phi ptr [ %17, %.lr.ph29 ], [ %2, %.lr.ph29.preheader ]
-  %17 = getelementptr inbounds i8, ptr %.02327, i64 8
-  %18 = load i64, ptr %.02327, align 8
+  %.02227 = phi ptr [ %17, %.lr.ph29 ], [ %2, %.lr.ph29.preheader ]
+  %17 = getelementptr inbounds i8, ptr %.02227, i64 8
+  %18 = load i64, ptr %.02227, align 8
   %19 = tail call i64 @llvm.bswap.i64(i64 %18)
   %20 = getelementptr inbounds i8, ptr %.02128, i64 8
   store i64 %19, ptr %.02128, align 8

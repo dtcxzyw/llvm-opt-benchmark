@@ -1115,18 +1115,18 @@ cond.end.thread.i.i:                              ; preds = %cond.true.i.i
   br label %cleanup.done.i.i
 
 cleanup.action.i.i:                               ; preds = %if.end26.i, %if.end26.thread.i
-  %depth.sroa.0.sroa.4.0288.i = phi i64 [ %depth.sroa.0.sroa.4.0.extract.shift270.i, %if.end26.thread.i ], [ %depth.sroa.0.sroa.4.0.extract.shift.i, %if.end26.i ]
+  %depth.sroa.5.1288.i = phi i64 [ %52, %if.end26.thread.i ], [ %54, %if.end26.i ]
   %depth.sroa.0.sroa.0.0286.i = phi i64 [ %51, %if.end26.thread.i ], [ %53, %if.end26.i ]
-  %depth.sroa.5.1284.i = phi i64 [ %52, %if.end26.thread.i ], [ %54, %if.end26.i ]
+  %depth.sroa.0.sroa.4.0284.i = phi i64 [ %depth.sroa.0.sroa.4.0.extract.shift270.i, %if.end26.thread.i ], [ %depth.sroa.0.sroa.4.0.extract.shift.i, %if.end26.i ]
   store ptr %m_storage_start.i.i.i.i.i.i.i.i.i.i, ptr %ci.i, align 8, !noalias !22
   store i64 2, ptr %m_capacity.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !22
   store i64 0, ptr %m_size.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !22
   br label %cleanup.done.i.i
 
 cleanup.done.i.i:                                 ; preds = %cleanup.action.i.i, %cond.end.thread.i.i
-  %depth.sroa.0.sroa.4.0287.i = phi i64 [ %depth.sroa.0.sroa.4.0288.i, %cleanup.action.i.i ], [ %depth.sroa.0.sroa.4.0.extract.shift.i, %cond.end.thread.i.i ]
+  %depth.sroa.5.1287.i = phi i64 [ %depth.sroa.5.1288.i, %cleanup.action.i.i ], [ %54, %cond.end.thread.i.i ]
   %depth.sroa.0.sroa.0.0285.i = phi i64 [ %depth.sroa.0.sroa.0.0286.i, %cleanup.action.i.i ], [ %53, %cond.end.thread.i.i ]
-  %depth.sroa.5.1283.i = phi i64 [ %depth.sroa.5.1284.i, %cleanup.action.i.i ], [ %54, %cond.end.thread.i.i ]
+  %depth.sroa.0.sroa.4.0283.i = phi i64 [ %depth.sroa.0.sroa.4.0284.i, %cleanup.action.i.i ], [ %depth.sroa.0.sroa.4.0.extract.shift.i, %cond.end.thread.i.i ]
   %vertex_flags6.i.i = getelementptr inbounds i8, ptr %call12.val26.i, i64 220
   %60 = load i32, ptr %vertex_flags6.i.i, align 4, !noalias !22
   store i32 %60, ptr %vertex_flags.i.i, align 8, !noalias !22
@@ -1184,17 +1184,17 @@ invoke.cont28.i:                                  ; preds = %cleanup.done.i.i
   %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %68, i64 4)
   %conv.i.i = trunc nuw nsw i64 %.sroa.speculated.i.i to i32
   store i32 %conv.i.i, ptr %node_type.i.i, align 8, !noalias !22
-  %depth.sroa.0.sroa.4.0.insert.ext.i = shl nuw i64 %depth.sroa.0.sroa.4.0287.i, 32
+  %depth.sroa.0.sroa.4.0.insert.ext.i = shl nuw i64 %depth.sroa.0.sroa.4.0283.i, 32
   %depth.sroa.0.sroa.0.0.insert.ext.i = and i64 %depth.sroa.0.sroa.0.0285.i, 4294967295
-  %depth.sroa.0.sroa.0.0.insert.insert.i = or disjoint i64 %depth.sroa.0.sroa.0.0.insert.ext.i, %depth.sroa.0.sroa.4.0.insert.ext.i
+  %depth.sroa.0.sroa.0.0.insert.insert.i = or disjoint i64 %depth.sroa.0.sroa.4.0.insert.ext.i, %depth.sroa.0.sroa.0.0.insert.ext.i
   store i64 %depth.sroa.0.sroa.0.0.insert.insert.i, ptr %depth.i.i, align 4, !noalias !22
-  store i64 %depth.sroa.5.1283.i, ptr %depth.sroa.5.0.depth.i.sroa_idx.i, align 4, !noalias !22
+  store i64 %depth.sroa.5.1287.i, ptr %depth.sroa.5.0.depth.i.sroa_idx.i, align 4, !noalias !22
   %this.val.i.i.i = load i64, ptr %_M_element_count.i.i.i.i, align 8, !noalias !22
   %cmp.not.not.i.i.i = icmp eq i64 %this.val.i.i.i, 0
   %69 = trunc i64 %depth.sroa.0.sroa.0.0285.i to i32
-  %70 = trunc nuw i64 %depth.sroa.0.sroa.4.0287.i to i32
-  %71 = trunc i64 %depth.sroa.5.1283.i to i32
-  %72 = lshr i64 %depth.sroa.5.1283.i, 32
+  %70 = trunc nuw i64 %depth.sroa.0.sroa.4.0283.i to i32
+  %71 = trunc i64 %depth.sroa.5.1287.i to i32
+  %72 = lshr i64 %depth.sroa.5.1287.i, 32
   %73 = trunc nuw i64 %72 to i32
   br i1 %cmp.not.not.i.i.i, label %for.cond.i.i.preheader.i, label %if.end15.i.i.i
 
@@ -8833,14 +8833,14 @@ entry:
   br i1 %cmp.i.i.i.i.not5.i.i.i.i.i.i.i.i, label %_ZN3ue211hash_detail10hash_buildINS_8flat_setIjSt4lessIjESaIjEEEEEvRmRKT_.exit.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %entry, %for.body.i.i.i.i.i.i.i.i
-  %v.07.i.i.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ 0, %entry ]
-  %__begin0.sroa.0.06.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %0, %entry ]
-  %2 = load i32, ptr %__begin0.sroa.0.06.i.i.i.i.i.i.i.i, align 4
+  %__begin0.sroa.0.07.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ %0, %entry ]
+  %v.06.i.i.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i ], [ 0, %entry ]
+  %2 = load i32, ptr %__begin0.sroa.0.07.i.i.i.i.i.i.i.i, align 4
   %conv.i.i.i.i.i.i.i.i.i.i = zext i32 %2 to i64
   %mul.i.i.i.i.i.i.i.i.i = mul i64 %conv.i.i.i.i.i.i.i.i.i.i, 814605021516865831
-  %xor.i.i.i.i.i.i.i.i.i = xor i64 %mul.i.i.i.i.i.i.i.i.i, %v.07.i.i.i.i.i.i.i.i
+  %xor.i.i.i.i.i.i.i.i.i = xor i64 %mul.i.i.i.i.i.i.i.i.i, %v.06.i.i.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i.i.i = add i64 %xor.i.i.i.i.i.i.i.i.i, 3571081485394615273
-  %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.06.i.i.i.i.i.i.i.i, i64 4
+  %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.07.i.i.i.i.i.i.i.i, i64 4
   %cmp.i.i.i.i.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.not.i.i.i.i.i.i.i.i, label %_ZNK3ue211hash_detail8ue2_hashINS_8flat_setIjSt4lessIjESaIjEEEvEclERKS6_.exit.loopexit.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
 

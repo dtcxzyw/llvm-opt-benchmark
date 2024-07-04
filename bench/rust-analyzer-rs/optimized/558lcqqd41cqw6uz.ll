@@ -1051,8 +1051,8 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc50,
   br label %.loopexit.split-lp
 
 _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit67: ; preds = %.noexc59, %.noexc61, %.noexc65
-  %.sroa.0164.0 = phi i64 [ %.0.i91, %.noexc59 ], [ %.0.i123, %.noexc65 ], [ 0, %.noexc61 ]
   %.sroa.6165.0 = phi i64 [ %.0.i104, %.noexc59 ], [ %.0.i135, %.noexc65 ], [ %239, %.noexc61 ]
+  %.sroa.0164.0 = phi i64 [ %.0.i91, %.noexc59 ], [ %.0.i123, %.noexc65 ], [ 0, %.noexc61 ]
   %339 = load i64, ptr %52, align 8, !alias.scope !111, !noundef !8
   %340 = load i64, ptr %51, align 8, !alias.scope !111, !noundef !8
   %341 = icmp eq i64 %339, %340
@@ -2020,8 +2020,8 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %.noexc54,
   br label %"_ZN4core3ptr36drop_in_place$LT$fst..raw..Bound$GT$17hc124da62a7cc8668E.llvm.5376302435122490944.exit"
 
 _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit71: ; preds = %.noexc69, %.noexc65, %.noexc63
-  %.sroa.0171.0 = phi i64 [ %.0.i95, %.noexc63 ], [ %.0.i127, %.noexc69 ], [ 0, %.noexc65 ]
   %.sroa.6172.0 = phi i64 [ %.0.i108, %.noexc63 ], [ %.0.i139, %.noexc69 ], [ %241, %.noexc65 ]
+  %.sroa.0171.0 = phi i64 [ %.0.i95, %.noexc63 ], [ %.0.i127, %.noexc69 ], [ 0, %.noexc65 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !216)
   %339 = load i64, ptr %52, align 8, !alias.scope !216, !noalias !219, !noundef !8
   %.not.i151 = icmp ult i64 %.039357, %339
@@ -2390,7 +2390,7 @@ _ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit: ; preds = %45
   br i1 %59, label %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_edge, label %60
 
 _ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_edge: ; preds = %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit
-  %.pre320 = lshr exact i8 %.sroa.0.sroa.17.0.copyload, 4
+  %.pre319 = lshr exact i8 %.sroa.0.sroa.17.0.copyload, 4
   br label %.loopexit
 
 60:                                               ; preds = %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit
@@ -2450,23 +2450,23 @@ _ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_ed
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_edge
-  %.pre-phi321 = phi i8 [ %.pre320, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_edge ], [ %62, %.lr.ph.i.i ]
+  %.pre-phi320 = phi i8 [ %.pre319, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_edge ], [ %62, %.lr.ph.i.i ]
   %.0.i41 = phi i64 [ 0, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_edge ], [ %82, %.lr.ph.i.i ]
-  %85 = zext nneg i8 %.pre-phi321 to i64
+  %85 = zext nneg i8 %.pre-phi320 to i64
   %.neg3.i = select i1 %.not.i, i64 -2, i64 -1
-  %.neg164 = sub i64 %.sroa.0.sroa.11.0.copyload, %39
-  %.neg166 = add i64 %.neg164, %.02.neg.i
-  %86 = add i64 %.neg166, %.neg3.i
+  %.neg163 = sub i64 %.sroa.0.sroa.11.0.copyload, %39
+  %.neg165 = add i64 %.neg163, %.02.neg.i
+  %86 = add i64 %.neg165, %.neg3.i
   %.neg = xor i64 %.sroa.0.sroa.0.0.copyload, -1
-  %.neg243 = mul i64 %.neg, %85
-  %87 = add i64 %.neg243, %86
+  %.neg242 = mul i64 %.neg, %85
+  %87 = add i64 %.neg242, %86
   %88 = icmp ugt i64 %87, %.sroa.0.sroa.9.0.copyload
   br i1 %88, label %106, label %89
 
 89:                                               ; preds = %.loopexit
   %90 = getelementptr inbounds i8, ptr %.sroa.0.sroa.8.0.copyload, i64 %87
   tail call void @llvm.experimental.noalias.scope.decl(metadata !262)
-  %91 = add nsw i8 %.pre-phi321, -1
+  %91 = add nsw i8 %.pre-phi320, -1
   %or.cond.i.i45 = icmp ult i8 %91, 8
   br i1 %or.cond.i.i45, label %93, label %92
 
@@ -2583,14 +2583,14 @@ _ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit: ; preds = %127, 
   %138 = and i8 %.sroa.0.sroa.17.0.copyload, 15
   %139 = icmp eq i8 %138, 0
   %.pre = lshr i8 %.sroa.0.sroa.17.0.copyload, 4
-  %.pre317 = zext i1 %.not.i54 to i64
-  %.pre318 = xor i64 %.pre317, -1
+  %.pre316 = zext i1 %.not.i54 to i64
+  %.pre317 = xor i64 %.pre316, -1
   br i1 %139, label %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit, label %140
 
 140:                                              ; preds = %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
   %narrow.i57 = add nuw nsw i8 %.pre, %138
   %141 = zext nneg i8 %narrow.i57 to i64
-  %142 = sub nuw nsw i64 %.pre318, %141
+  %142 = sub nuw nsw i64 %.pre317, %141
   %143 = add i64 %142, %.sroa.0.sroa.11.0.copyload
   %144 = icmp ugt i64 %143, %.sroa.0.sroa.9.0.copyload
   br i1 %144, label %163, label %145
@@ -2642,7 +2642,7 @@ _ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit: ; preds = %127, 
 _ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit: ; preds = %.lr.ph.i.i60, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
   %.0.i64 = phi i64 [ 0, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit ], [ %161, %.lr.ph.i.i60 ]
   %164 = zext nneg i8 %.pre to i64
-  %165 = add i64 %.sroa.0.sroa.11.0.copyload, %.pre318
+  %165 = add i64 %.sroa.0.sroa.11.0.copyload, %.pre317
   %166 = sub i64 %165, %164
   %167 = icmp ugt i64 %166, %.sroa.0.sroa.9.0.copyload
   br i1 %167, label %186, label %168
@@ -2702,9 +2702,9 @@ _ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit: ; preds = 
   unreachable
 
 _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit
-  %.sroa.0.0 = phi i64 [ %.0.i41, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit ], [ %.0.i64, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit ], [ 0, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ]
-  %.sroa.7124.0 = phi i64 [ %.0.i51, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit ], [ %.0.i73, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit ], [ %123, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ]
   %.sroa.11.0 = phi i8 [ %56, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit ], [ %.0.i56, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit ], [ %.0.i53, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ]
+  %.sroa.7124.0 = phi i64 [ %.0.i51, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit ], [ %.0.i73, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit ], [ %123, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ]
+  %.sroa.0.0 = phi i64 [ %.0.i41, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit ], [ %.0.i64, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit ], [ 0, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ]
   %190 = add i64 %.sroa.0.0, %.sroa.0.sroa.7.0.copyload
   %191 = load ptr, ptr %12, align 8, !nonnull !8, !align !15, !noundef !8
   %192 = getelementptr inbounds i8, ptr %191, i64 8
@@ -2858,8 +2858,8 @@ _ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit83.thread: ; preds = %"_Z
 
 247:                                              ; preds = %211
   %248 = load i64, ptr %13, align 8, !alias.scope !320, !noundef !8
-  %.not162 = icmp eq i64 %248, 0
-  br i1 %.not162, label %252, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h60d5ebd25f8927ebE.exit"
+  %.not161 = icmp eq i64 %248, 0
+  br i1 %.not161, label %252, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h60d5ebd25f8927ebE.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h60d5ebd25f8927ebE.exit": ; preds = %247
   %249 = add i64 %248, -1
@@ -2991,8 +2991,8 @@ _ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit.thread: ; preds = %24, %
 40:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hd7c8198c4a2a32d1E.exit"
   %41 = extractelement <2 x i64> %39, i64 0
   %.not31 = icmp uge i64 %.sroa.0.sroa.0.0.copyload, %41
-  %.not175 = icmp eq i64 %.sroa.0.sroa.8.0.copyload, -1
-  %or.cond = select i1 %.not31, i1 true, i1 %.not175
+  %.not174 = icmp eq i64 %.sroa.0.sroa.8.0.copyload, -1
+  %or.cond = select i1 %.not31, i1 true, i1 %.not174
   br i1 %or.cond, label %42, label %46
 
 42:                                               ; preds = %40
@@ -3051,7 +3051,7 @@ _ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit: ; preds = %51
   br i1 %65, label %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_edge, label %66
 
 _ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_edge: ; preds = %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit
-  %.pre335 = lshr exact i8 %.sroa.0.sroa.18.0.copyload, 4
+  %.pre334 = lshr exact i8 %.sroa.0.sroa.18.0.copyload, 4
   br label %.loopexit
 
 66:                                               ; preds = %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit
@@ -3111,23 +3111,23 @@ _ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_ed
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_edge
-  %.pre-phi336 = phi i8 [ %.pre335, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_edge ], [ %68, %.lr.ph.i.i ]
+  %.pre-phi335 = phi i8 [ %.pre334, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_edge ], [ %68, %.lr.ph.i.i ]
   %.0.i44 = phi i64 [ 0, %_ZN3fst3raw4node13StateAnyTrans5input17hfa12f0c81e05daddE.exit..loopexit_crit_edge ], [ %88, %.lr.ph.i.i ]
-  %91 = zext nneg i8 %.pre-phi336 to i64
+  %91 = zext nneg i8 %.pre-phi335 to i64
   %.neg3.i = select i1 %.not.i, i64 -2, i64 -1
-  %.neg179 = sub i64 %.sroa.0.sroa.12.0.copyload, %41
-  %.neg181 = add i64 %.neg179, %.02.neg.i
-  %92 = add i64 %.neg181, %.neg3.i
+  %.neg178 = sub i64 %.sroa.0.sroa.12.0.copyload, %41
+  %.neg180 = add i64 %.neg178, %.02.neg.i
+  %92 = add i64 %.neg180, %.neg3.i
   %.neg = xor i64 %.sroa.0.sroa.0.0.copyload, -1
-  %.neg258 = mul i64 %.neg, %91
-  %93 = add i64 %.neg258, %92
+  %.neg257 = mul i64 %.neg, %91
+  %93 = add i64 %.neg257, %92
   %94 = icmp ugt i64 %93, %.sroa.0.sroa.10.0.copyload
   br i1 %94, label %112, label %95
 
 95:                                               ; preds = %.loopexit
   %96 = getelementptr inbounds i8, ptr %.sroa.0.sroa.9.0.copyload, i64 %93
   tail call void @llvm.experimental.noalias.scope.decl(metadata !348)
-  %97 = add nsw i8 %.pre-phi336, -1
+  %97 = add nsw i8 %.pre-phi335, -1
   %or.cond.i.i48 = icmp ult i8 %97, 8
   br i1 %or.cond.i.i48, label %99, label %98
 
@@ -3244,14 +3244,14 @@ _ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit: ; preds = %133, 
   %144 = and i8 %.sroa.0.sroa.18.0.copyload, 15
   %145 = icmp eq i8 %144, 0
   %.pre = lshr i8 %.sroa.0.sroa.18.0.copyload, 4
-  %.pre332 = zext i1 %.not.i57 to i64
-  %.pre333 = xor i64 %.pre332, -1
+  %.pre331 = zext i1 %.not.i57 to i64
+  %.pre332 = xor i64 %.pre331, -1
   br i1 %145, label %_ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit, label %146
 
 146:                                              ; preds = %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
   %narrow.i60 = add nuw nsw i8 %.pre, %144
   %147 = zext nneg i8 %narrow.i60 to i64
-  %148 = sub nuw nsw i64 %.pre333, %147
+  %148 = sub nuw nsw i64 %.pre332, %147
   %149 = add i64 %148, %.sroa.0.sroa.12.0.copyload
   %150 = icmp ugt i64 %149, %.sroa.0.sroa.10.0.copyload
   br i1 %150, label %169, label %151
@@ -3303,7 +3303,7 @@ _ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit: ; preds = %133, 
 _ZN3fst3raw4node13StateOneTrans6output17hd8a15a320bfd9586E.exit: ; preds = %.lr.ph.i.i63, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit
   %.0.i67 = phi i64 [ 0, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit ], [ %167, %.lr.ph.i.i63 ]
   %170 = zext nneg i8 %.pre to i64
-  %171 = add i64 %.sroa.0.sroa.12.0.copyload, %.pre333
+  %171 = add i64 %.sroa.0.sroa.12.0.copyload, %.pre332
   %172 = sub i64 %171, %170
   %173 = icmp ugt i64 %172, %.sroa.0.sroa.10.0.copyload
   br i1 %173, label %192, label %174
@@ -3363,9 +3363,9 @@ _ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit: ; preds = 
   unreachable
 
 _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit
-  %.sroa.0.0 = phi i64 [ %.0.i44, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit ], [ %.0.i67, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit ], [ 0, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ]
-  %.sroa.7131.0 = phi i64 [ %.0.i54, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit ], [ %.0.i76, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit ], [ %129, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ]
   %.sroa.11.0 = phi i8 [ %62, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit ], [ %.0.i59, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit ], [ %.0.i56, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ]
+  %.sroa.7131.0 = phi i64 [ %.0.i54, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit ], [ %.0.i76, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit ], [ %129, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ]
+  %.sroa.0.0 = phi i64 [ %.0.i44, %_ZN3fst3raw4node13StateAnyTrans10trans_addr17hfd00fe5688f9c56bE.exit ], [ %.0.i67, %_ZN3fst3raw4node13StateOneTrans10trans_addr17ha4da43a2586c28f8E.exit ], [ 0, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ]
   %196 = add i64 %.sroa.0.0, %.sroa.0.sroa.7.0.copyload
   tail call void @llvm.experimental.noalias.scope.decl(metadata !388)
   %197 = load i64, ptr %13, align 8, !alias.scope !388, !noalias !391, !noundef !8
@@ -3383,7 +3383,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %_ZN3fst3r
 
 "_ZN75_$LT$vfs..file_set..PrefixOf$u20$as$u20$fst..inner_automaton..Automaton$GT$6accept17h064955a9ea6f76a6E.exit": ; preds = %_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit, %198
   %.0.i78 = phi i64 [ -1, %_ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit ], [ %spec.select.i, %198 ]
-  %.not177 = icmp ne i64 %.0.i78, -1
+  %.not176 = icmp ne i64 %.0.i78, -1
   %204 = load ptr, ptr %14, align 8, !nonnull !8, !align !15, !noundef !8
   %205 = getelementptr inbounds i8, ptr %204, i64 8
   %206 = load i64, ptr %205, align 8, !noundef !8
@@ -3505,7 +3505,7 @@ _ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit88: ; preds = %"_ZN5alloc
   br i1 %switch.i86, label %248, label %_ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit88.thread
 
 _ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit88.thread: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h55284c7994551ca4E.exit81", %_ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit88
-  %brmerge.not = and i1 %.not177, %219
+  %brmerge.not = and i1 %.not176, %219
   br i1 %brmerge.not, label %251, label %.backedge
 
 248:                                              ; preds = %_ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit88
@@ -3534,8 +3534,8 @@ _ZN3fst3raw5Bound11exceeded_by17h6f7f53368cc18044E.exit88.thread: ; preds = %"_Z
 
 256:                                              ; preds = %42
   %257 = load i64, ptr %18, align 8, !alias.scope !412, !noundef !8
-  %.not176 = icmp eq i64 %257, 0
-  br i1 %.not176, label %261, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h60d5ebd25f8927ebE.exit"
+  %.not175 = icmp eq i64 %257, 0
+  br i1 %.not175, label %261, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h60d5ebd25f8927ebE.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h60d5ebd25f8927ebE.exit": ; preds = %256
   %258 = add i64 %257, -1

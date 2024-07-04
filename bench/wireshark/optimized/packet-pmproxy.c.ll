@@ -144,13 +144,13 @@ is_client_exchange.exit.thread.i:                 ; preds = %is_client_exchange.
   br i1 %.not9.i.i.i, label %looks_like_proxy_exchange.exit.i, label %.lr.ph.i.i.i
 
 48:                                               ; preds = %.lr.ph.i.i.i
-  %49 = getelementptr i8, ptr %.0710.i.i.i, i64 1
+  %49 = getelementptr i8, ptr %.010.i.i.i, i64 1
   %.not.i.i22.i = icmp eq ptr %49, %47
   br i1 %.not.i.i22.i, label %looks_like_proxy_exchange.exit.i, label %.lr.ph.i.i.i, !llvm.loop !4
 
 .lr.ph.i.i.i:                                     ; preds = %is_client_exchange.exit.thread.i, %48
-  %.0710.i.i.i = phi ptr [ %49, %48 ], [ %45, %is_client_exchange.exit.thread.i ]
-  %50 = load i8, ptr %.0710.i.i.i, align 1
+  %.010.i.i.i = phi ptr [ %49, %48 ], [ %45, %is_client_exchange.exit.thread.i ]
+  %50 = load i8, ptr %.010.i.i.i, align 1
   %.not8.i.i.i = icmp sgt i8 %50, -1
   br i1 %.not8.i.i.i, label %48, label %looks_like_proxy_exchange.exit.thread.i
 

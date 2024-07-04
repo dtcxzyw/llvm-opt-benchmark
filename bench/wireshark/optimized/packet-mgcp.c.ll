@@ -942,9 +942,9 @@ is_mgcp_rspcode.exit:                             ; preds = %42, %50
   br label %tvb_find_dot_line.exit
 
 tvb_find_dot_line.exit:                           ; preds = %.critedge.i, %.thread.i
-  %.1.i = phi i32 [ %80, %.critedge.i ], [ %104, %.thread.i ]
-  %106 = icmp eq i32 %.1.i, %.040
-  %107 = sub i32 %.1.i, %.040
+  %.155.i = phi i32 [ %80, %.critedge.i ], [ %104, %.thread.i ]
+  %106 = icmp eq i32 %.155.i, %.040
+  %107 = sub i32 %.155.i, %.040
   %.not4652 = icmp eq i32 %107, -1
   %.not46 = or i1 %106, %.not4652
   br i1 %.not46, label %521, label %108
@@ -2767,8 +2767,8 @@ tvb_parse_param.exit:                             ; preds = %36, %34, %64, %._cr
 .lr.ph.i60:                                       ; preds = %194, %296
   %205 = phi ptr [ %302, %296 ], [ %204, %194 ]
   %206 = phi ptr [ %301, %296 ], [ %203, %194 ]
-  %.06186.i = phi i32 [ %298, %296 ], [ %.1.i, %194 ]
-  %.06285.i = phi i32 [ %299, %296 ], [ 0, %194 ]
+  %.06186.i = phi i32 [ %299, %296 ], [ 0, %194 ]
+  %.06285.i = phi i32 [ %298, %296 ], [ %.1.i, %194 ]
   %207 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %205) #13
   %208 = trunc i64 %207 to i32
   %209 = call ptr @wmem_packet_scope() #11
@@ -2881,7 +2881,7 @@ tvb_parse_param.exit:                             ; preds = %36, %34, %64, %._cr
   %273 = load ptr, ptr %214, align 8
   %274 = call i64 @strtoul(ptr nocapture noundef %273, ptr noundef null, i32 noundef 10) #11
   %275 = trunc i64 %274 to i32
-  %276 = call ptr @proto_tree_add_uint(ptr noundef %199, i32 noundef %.060.i, ptr noundef %0, i32 noundef %.06186.i, i32 noundef %208, i32 noundef %275) #11
+  %276 = call ptr @proto_tree_add_uint(ptr noundef %199, i32 noundef %.060.i, ptr noundef %0, i32 noundef %.06285.i, i32 noundef %208, i32 noundef %275) #11
   br label %296
 
 277:                                              ; preds = %265
@@ -2899,25 +2899,25 @@ tvb_parse_param.exit:                             ; preds = %36, %34, %64, %._cr
   %285 = load ptr, ptr %214, align 8
   %286 = call ptr @g_strchug(ptr noundef %285) #11
   %287 = call ptr @g_strchomp(ptr noundef %286) #11
-  %288 = call ptr @proto_tree_add_string(ptr noundef %199, i32 noundef %spec.select.i, ptr noundef %0, i32 noundef %.06186.i, i32 noundef %208, ptr noundef %287) #11
+  %288 = call ptr @proto_tree_add_string(ptr noundef %199, i32 noundef %spec.select.i, ptr noundef %0, i32 noundef %.06285.i, i32 noundef %208, ptr noundef %287) #11
   br label %296
 
 .thread82.i:                                      ; preds = %277, %270
   %289 = load i32, ptr @hf_mgcp_unknown_parameter, align 4
   %290 = load ptr, ptr %206, align 8
-  %291 = call ptr @proto_tree_add_string(ptr noundef %199, i32 noundef %289, ptr noundef %0, i32 noundef %.06186.i, i32 noundef %208, ptr noundef %290) #11
+  %291 = call ptr @proto_tree_add_string(ptr noundef %199, i32 noundef %289, ptr noundef %0, i32 noundef %.06285.i, i32 noundef %208, ptr noundef %290) #11
   br label %296
 
 292:                                              ; preds = %213, %.lr.ph.i60
   %293 = load i32, ptr @hf_mgcp_malformed_parameter, align 4
   %294 = load ptr, ptr %206, align 8
-  %295 = call ptr @proto_tree_add_string(ptr noundef %199, i32 noundef %293, ptr noundef %0, i32 noundef %.06186.i, i32 noundef %208, ptr noundef %294) #11
+  %295 = call ptr @proto_tree_add_string(ptr noundef %199, i32 noundef %293, ptr noundef %0, i32 noundef %.06285.i, i32 noundef %208, ptr noundef %294) #11
   br label %296
 
 296:                                              ; preds = %292, %.thread82.i, %284, %272
-  %297 = add i32 %.06186.i, 1
+  %297 = add i32 %.06285.i, 1
   %298 = add i32 %297, %208
-  %299 = add i32 %.06285.i, 1
+  %299 = add i32 %.06186.i, 1
   %300 = zext i32 %299 to i64
   %301 = getelementptr ptr, ptr %203, i64 %300
   %302 = load ptr, ptr %301, align 8

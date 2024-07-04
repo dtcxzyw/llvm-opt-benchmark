@@ -978,25 +978,25 @@ define internal fastcc i32 @dissect_dcom_extent(ptr noundef %0, i32 noundef %1, 
   br label %48
 
 48:                                               ; preds = %.lr.ph, %111
-  %.094113 = phi i32 [ %32, %.lr.ph ], [ %55, %111 ]
-  %.095112 = phi i32 [ %35, %.lr.ph ], [ %.2, %111 ]
-  %.096110 = phi i32 [ 1, %.lr.ph ], [ %113, %111 ]
+  %.094112 = phi i32 [ 1, %.lr.ph ], [ %113, %111 ]
+  %.095111 = phi i32 [ %35, %.lr.ph ], [ %.2, %111 ]
+  %.096110 = phi i32 [ %32, %.lr.ph ], [ %55, %111 ]
   %49 = load i32, ptr @hf_dcom_extent, align 4
-  %50 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %49, ptr noundef %0, i32 noundef %.094113, i32 noundef 0, i32 noundef 0) #11
+  %50 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %49, ptr noundef %0, i32 noundef %.096110, i32 noundef 0, i32 noundef 0) #11
   %51 = load i32, ptr @ett_dcom_extent, align 4
   %52 = call ptr @proto_item_add_subtree(ptr noundef %50, i32 noundef %51) #11
   %53 = load i32, ptr @dcom_prefs_display_unmarshalling_details, align 4
   %.not.i105 = icmp eq i32 %53, 0
   %spec.select.i106 = select i1 %.not.i105, ptr null, ptr %52
   %54 = load i32, ptr @hf_dcom_pointer_val, align 4
-  %55 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.094113, ptr noundef %2, ptr noundef %spec.select.i106, ptr noundef %4, ptr noundef %5, i32 noundef %54, ptr noundef nonnull %9) #11
+  %55 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.096110, ptr noundef %2, ptr noundef %spec.select.i106, ptr noundef %4, ptr noundef %5, i32 noundef %54, ptr noundef nonnull %9) #11
   %56 = load i32, ptr %9, align 4
   %.not99 = icmp eq i32 %56, 0
   br i1 %.not99, label %110, label %57
 
 57:                                               ; preds = %48
   %58 = load i32, ptr @hf_dcom_extent_size, align 4
-  %59 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.095112, ptr noundef %2, ptr noundef %52, ptr noundef %4, ptr noundef %5, i32 noundef %58, ptr noundef nonnull %12) #11
+  %59 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.095111, ptr noundef %2, ptr noundef %52, ptr noundef %4, ptr noundef %5, i32 noundef %58, ptr noundef nonnull %12) #11
   %60 = load i32, ptr @hf_dcom_extent_id, align 4
   %61 = call i32 @dissect_dcom_UUID(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef null, ptr noundef %4, ptr noundef %5, i32 noundef %60, ptr noundef nonnull %13)
   %62 = load ptr, ptr %37, align 8
@@ -1068,22 +1068,22 @@ dissect_dcom_nospec_data.exit:                    ; preds = %91, %98, %101
   br i1 %.not100, label %109, label %108
 
 108:                                              ; preds = %dissect_dcom_nospec_data.exit
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.331, i32 noundef %.096110, ptr noundef nonnull %63, i32 noundef %107) #11
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.331, i32 noundef %.094112, ptr noundef nonnull %63, i32 noundef %107) #11
   br label %111
 
 109:                                              ; preds = %dissect_dcom_nospec_data.exit
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.332, i32 noundef %.096110, i32 noundef %107) #11
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.332, i32 noundef %.094112, i32 noundef %107) #11
   br label %111
 
 110:                                              ; preds = %48
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.333, i32 noundef %.096110) #11
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.333, i32 noundef %.094112) #11
   br label %111
 
 111:                                              ; preds = %108, %109, %110
-  %.2 = phi i32 [ %.095112, %110 ], [ %106, %109 ], [ %106, %108 ]
-  %112 = sub i32 %55, %.094113
+  %.2 = phi i32 [ %.095111, %110 ], [ %106, %109 ], [ %106, %108 ]
+  %112 = sub i32 %55, %.096110
   call void @proto_item_set_len(ptr noundef %50, i32 noundef %112) #11
-  %113 = add i32 %.096110, 1
+  %113 = add i32 %.094112, 1
   %.pr = load i32, ptr %7, align 4
   %114 = add i32 %.pr, -1
   store i32 %114, ptr %7, align 4
@@ -2263,8 +2263,8 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   unreachable
 
 10:                                               ; preds = %.lr.ph, %29
-  %.076 = phi i32 [ 0, %.lr.ph ], [ %30, %29 ]
-  %11 = add i32 %.076, %1
+  %.06276 = phi i32 [ 0, %.lr.ph ], [ %30, %29 ]
+  %11 = add i32 %.06276, %1
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %11) #11
   %13 = add i32 %11, 1
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %13) #11
@@ -2274,7 +2274,7 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   br i1 %or.cond, label %17, label %19
 
 17:                                               ; preds = %10
-  %18 = add i32 %.076, 2
+  %18 = add i32 %.06276, 2
   br label %.loopexit74
 
 19:                                               ; preds = %10
@@ -2296,16 +2296,16 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   br label %29
 
 29:                                               ; preds = %28, %19
-  %30 = add i32 %.076, 2
+  %30 = add i32 %.06276, 2
   %31 = icmp ult i32 %30, %7
   br i1 %31, label %10, label %.loopexit74, !llvm.loop !12
 
 .loopexit74:                                      ; preds = %29, %17
-  %.1.ph = phi i32 [ %18, %17 ], [ %30, %29 ]
+  %.163.ph = phi i32 [ %18, %17 ], [ %30, %29 ]
   %.pr = load i32, ptr %5, align 4
   %32 = icmp eq i32 %.pr, 1
   %33 = add i32 %4, -2
-  %34 = icmp ne i32 %.1.ph, 0
+  %34 = icmp ne i32 %.163.ph, 0
   %35 = icmp ne i32 %33, 0
   %36 = and i1 %34, %35
   br i1 %32, label %.preheader, label %.preheader71
@@ -2322,30 +2322,30 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
 
 .lr.ph83:                                         ; preds = %.lr.ph83.preheader, %.lr.ph83
   %indvars.iv = phi i64 [ 0, %.lr.ph83.preheader ], [ %indvars.iv.next, %.lr.ph83 ]
-  %.06281 = phi i32 [ 0, %.lr.ph83.preheader ], [ %41, %.lr.ph83 ]
-  %38 = add i32 %.06281, %1
+  %.082 = phi i32 [ 0, %.lr.ph83.preheader ], [ %41, %.lr.ph83 ]
+  %38 = add i32 %.082, %1
   %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %38) #11
   %40 = getelementptr i8, ptr %3, i64 %indvars.iv
   store i8 %39, ptr %40, align 1
-  %41 = add nuw i32 %.06281, 2
+  %41 = add nuw i32 %.082, 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = icmp ult i32 %41, %.1.ph
+  %42 = icmp ult i32 %41, %.163.ph
   %43 = icmp ult i64 %indvars.iv.next, %37
   %44 = select i1 %42, i1 %43, i1 false
   br i1 %44, label %.lr.ph83, label %.loopexit.loopexit, !llvm.loop !13
 
 .lr.ph79:                                         ; preds = %.preheader71, %.lr.ph79
-  %.16178 = phi i32 [ %52, %.lr.ph79 ], [ 0, %.preheader71 ]
-  %.16377 = phi i32 [ %51, %.lr.ph79 ], [ 0, %.preheader71 ]
-  %45 = zext i32 %.16178 to i64
+  %.178 = phi i32 [ %51, %.lr.ph79 ], [ 0, %.preheader71 ]
+  %.16177 = phi i32 [ %52, %.lr.ph79 ], [ 0, %.preheader71 ]
+  %45 = zext i32 %.16177 to i64
   %46 = getelementptr i8, ptr %3, i64 %45
-  %47 = add i32 %.16377, %1
+  %47 = add i32 %.178, %1
   %48 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %47) #11
   %49 = zext i8 %48 to i32
   %50 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %46, i64 noundef 3, ptr noundef nonnull @.str.337, i32 noundef %49) #11
-  %51 = add nuw i32 %.16377, 1
-  %52 = add i32 %.16178, 2
-  %53 = icmp ult i32 %51, %.1.ph
+  %51 = add nuw i32 %.178, 1
+  %52 = add i32 %.16177, 2
+  %53 = icmp ult i32 %51, %.163.ph
   %54 = icmp ult i32 %52, %33
   %55 = select i1 %53, i1 %54, i1 false
   br i1 %55, label %.lr.ph79, label %.loopexit, !llvm.loop !14
@@ -2355,7 +2355,7 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph79, %.preheader73, %.loopexit.loopexit, %.preheader71, %.preheader
-  %.193 = phi i32 [ %.1.ph, %.preheader ], [ %.1.ph, %.preheader71 ], [ %.1.ph, %.loopexit.loopexit ], [ 0, %.preheader73 ], [ %.1.ph, %.lr.ph79 ]
+  %.16393 = phi i32 [ %.163.ph, %.preheader ], [ %.163.ph, %.preheader71 ], [ %.163.ph, %.loopexit.loopexit ], [ 0, %.preheader73 ], [ %.163.ph, %.lr.ph79 ]
   %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader71 ], [ %56, %.loopexit.loopexit ], [ 0, %.preheader73 ], [ %52, %.lr.ph79 ]
   %57 = icmp ult i32 %.2, %4
   br i1 %57, label %59, label %58
@@ -2368,7 +2368,7 @@ define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef 
   %60 = zext i32 %.2 to i64
   %61 = getelementptr i8, ptr %3, i64 %60
   store i8 0, ptr %61, align 1
-  %62 = add i32 %.193, %1
+  %62 = add i32 %.16393, %1
   ret i32 %62
 }
 
@@ -2419,15 +2419,15 @@ define hidden i32 @dissect_dcom_DUALSTRINGARRAY(ptr noundef %0, i32 noundef %1, 
   br label %36
 
 36:                                               ; preds = %.lr.ph, %64
-  %.0107 = phi i32 [ %27, %.lr.ph ], [ %44, %64 ]
-  %.097106 = phi i32 [ 0, %.lr.ph ], [ %37, %64 ]
-  %37 = add i32 %.097106, 1
+  %.096107 = phi i32 [ 0, %.lr.ph ], [ %37, %64 ]
+  %.097106 = phi i32 [ %27, %.lr.ph ], [ %44, %64 ]
+  %37 = add i32 %.096107, 1
   %38 = load i32, ptr @hf_dcom_dualstringarray_string, align 4
-  %39 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %38, ptr noundef %0, i32 noundef %.0107, i32 noundef 0, i32 noundef 0) #11
+  %39 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %38, ptr noundef %0, i32 noundef %.097106, i32 noundef 0, i32 noundef 0) #11
   %40 = load i32, ptr @ett_dcom_dualstringarray_binding, align 4
   %41 = call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40) #11
   %42 = load i32, ptr @hf_dcom_dualstringarray_string_tower_id, align 4
-  %43 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %.0107, ptr noundef %2, ptr noundef %41, ptr noundef %4, ptr noundef %5, i32 noundef %42, ptr noundef nonnull %12) #11
+  %43 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %.097106, ptr noundef %2, ptr noundef %41, ptr noundef %4, ptr noundef %5, i32 noundef %42, ptr noundef nonnull %12) #11
   %44 = call fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef %43, i32 noundef 1000, ptr noundef nonnull %11, i32 noundef 1000, ptr noundef nonnull %15)
   %45 = load i32, ptr @hf_dcom_dualstringarray_string_network_addr, align 4
   %46 = sub i32 %44, %43
@@ -2482,30 +2482,30 @@ define hidden i32 @dissect_dcom_DUALSTRINGARRAY(ptr noundef %0, i32 noundef %1, 
   %66 = zext i16 %65 to i32
   %67 = call ptr @val_to_str(i32 noundef %66, ptr noundef nonnull @dcom_protseq_vals, ptr noundef nonnull @.str.151) #11
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.150, i32 noundef %37, ptr noundef %67, ptr noundef nonnull %11) #11
-  %68 = sub i32 %44, %.0107
+  %68 = sub i32 %44, %.097106
   call void @proto_item_set_len(ptr noundef %39, i32 noundef %68) #11
   %69 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %44) #11
   %.not = icmp eq i16 %69, 0
   br i1 %.not, label %._crit_edge, label %36, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %64, %8
-  %.097.lcssa = phi i32 [ 0, %8 ], [ %37, %64 ]
-  %.0.lcssa = phi i32 [ %27, %8 ], [ %44, %64 ]
-  %70 = add i32 %.0.lcssa, 2
+  %.097.lcssa = phi i32 [ %27, %8 ], [ %44, %64 ]
+  %.096.lcssa = phi i32 [ 0, %8 ], [ %37, %64 ]
+  %70 = add i32 %.097.lcssa, 2
   %71 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %70) #11
   %.not100109 = icmp eq i16 %71, 0
   br i1 %.not100109, label %._crit_edge114, label %.lr.ph113
 
 .lr.ph113:                                        ; preds = %._crit_edge, %.lr.ph113
-  %.1111 = phi i32 [ %81, %.lr.ph113 ], [ %70, %._crit_edge ]
-  %.096110 = phi i32 [ %72, %.lr.ph113 ], [ 0, %._crit_edge ]
-  %72 = add i32 %.096110, 1
+  %.0111 = phi i32 [ %72, %.lr.ph113 ], [ 0, %._crit_edge ]
+  %.1110 = phi i32 [ %81, %.lr.ph113 ], [ %70, %._crit_edge ]
+  %72 = add i32 %.0111, 1
   %73 = load i32, ptr @hf_dcom_dualstringarray_security, align 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %73, ptr noundef %0, i32 noundef %.1111, i32 noundef 0, i32 noundef 0) #11
+  %74 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %73, ptr noundef %0, i32 noundef %.1110, i32 noundef 0, i32 noundef 0) #11
   %75 = load i32, ptr @ett_dcom_dualstringarray_binding, align 4
   %76 = call ptr @proto_item_add_subtree(ptr noundef %74, i32 noundef %75) #11
   %77 = load i32, ptr @hf_dcom_dualstringarray_security_authn_svc, align 4
-  %78 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %.1111, ptr noundef %2, ptr noundef %76, ptr noundef %4, ptr noundef %5, i32 noundef %77, ptr noundef nonnull %13) #11
+  %78 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %.1110, ptr noundef %2, ptr noundef %76, ptr noundef %4, ptr noundef %5, i32 noundef %77, ptr noundef nonnull %13) #11
   %79 = load i32, ptr @hf_dcom_dualstringarray_security_authz_svc, align 4
   %80 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %78, ptr noundef %2, ptr noundef %76, ptr noundef %4, ptr noundef %5, i32 noundef %79, ptr noundef nonnull %14) #11
   %81 = call fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef %80, i32 noundef 1000, ptr noundef nonnull %11, i32 noundef 1000, ptr noundef nonnull %15)
@@ -2517,17 +2517,17 @@ define hidden i32 @dissect_dcom_DUALSTRINGARRAY(ptr noundef %0, i32 noundef %1, 
   %87 = load i16, ptr %14, align 2
   %88 = zext i16 %87 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %74, ptr noundef nonnull @.str.152, i32 noundef %72, i32 noundef %86, i32 noundef %88, ptr noundef nonnull %11) #11
-  %89 = sub i32 %81, %.1111
+  %89 = sub i32 %81, %.1110
   call void @proto_item_set_len(ptr noundef %74, i32 noundef %89) #11
   %90 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %81) #11
   %.not100 = icmp eq i16 %90, 0
   br i1 %.not100, label %._crit_edge114, label %.lr.ph113, !llvm.loop !16
 
 ._crit_edge114:                                   ; preds = %.lr.ph113, %._crit_edge
-  %.096.lcssa = phi i32 [ 0, %._crit_edge ], [ %72, %.lr.ph113 ]
   %.1.lcssa = phi i32 [ %70, %._crit_edge ], [ %81, %.lr.ph113 ]
+  %.0.lcssa = phi i32 [ 0, %._crit_edge ], [ %72, %.lr.ph113 ]
   %91 = add i32 %.1.lcssa, 2
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef nonnull @.str.153, i32 noundef %.097.lcssa, i32 noundef %.096.lcssa) #11
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef nonnull @.str.153, i32 noundef %.096.lcssa, i32 noundef %.0.lcssa) #11
   %92 = sub i32 %.1.lcssa, %25
   %93 = add i32 %92, 4
   call void @proto_item_set_len(ptr noundef %21, i32 noundef %93) #11
@@ -2913,15 +2913,15 @@ define internal void @dcom_cleanup() #1 {
   br i1 %.not, label %34, label %.preheader41
 
 .preheader41:                                     ; preds = %0, %28
-  %.02644 = phi ptr [ %31, %28 ], [ %1, %0 ]
-  %2 = load ptr, ptr %.02644, align 8
+  %.02744 = phi ptr [ %31, %28 ], [ %1, %0 ]
+  %2 = load ptr, ptr %.02744, align 8
   %3 = load ptr, ptr %2, align 8
   %.not36 = icmp eq ptr %3, null
   br i1 %.not36, label %28, label %.preheader40
 
 .preheader40:                                     ; preds = %.preheader41, %12
-  %.02743 = phi ptr [ %15, %12 ], [ %3, %.preheader41 ]
-  %4 = load ptr, ptr %.02743, align 8
+  %.02643 = phi ptr [ %15, %12 ], [ %3, %.preheader41 ]
+  %4 = load ptr, ptr %.02643, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not38 = icmp eq ptr %6, null
@@ -2941,14 +2941,14 @@ define internal void @dcom_cleanup() #1 {
   %11 = load ptr, ptr %5, align 8
   tail call void @g_list_free(ptr noundef %11) #11
   store ptr null, ptr %5, align 8
-  %.pre = load ptr, ptr %.02743, align 8
+  %.pre = load ptr, ptr %.02643, align 8
   br label %12
 
 12:                                               ; preds = %10, %.preheader40
   %13 = phi ptr [ %.pre, %10 ], [ %4, %.preheader40 ]
   tail call void @g_free(ptr noundef %13) #11
-  store ptr null, ptr %.02743, align 8
-  %14 = getelementptr inbounds i8, ptr %.02743, i64 8
+  store ptr null, ptr %.02643, align 8
+  %14 = getelementptr inbounds i8, ptr %.02643, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not37 = icmp eq ptr %15, null
   br i1 %.not37, label %16, label %.preheader40, !llvm.loop !19
@@ -2980,14 +2980,14 @@ define internal void @dcom_cleanup() #1 {
 free_address.exit:                                ; preds = %16, %20, %24, %27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   store ptr null, ptr %2, align 8
-  %.pre45 = load ptr, ptr %.02644, align 8
+  %.pre45 = load ptr, ptr %.02744, align 8
   br label %28
 
 28:                                               ; preds = %free_address.exit, %.preheader41
   %29 = phi ptr [ %.pre45, %free_address.exit ], [ %2, %.preheader41 ]
   tail call void @g_free(ptr noundef %29) #11
-  store ptr null, ptr %.02644, align 8
-  %30 = getelementptr inbounds i8, ptr %.02644, i64 8
+  store ptr null, ptr %.02744, align 8
+  %30 = getelementptr inbounds i8, ptr %.02744, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not33 = icmp eq ptr %31, null
   br i1 %.not33, label %32, label %.preheader41, !llvm.loop !20

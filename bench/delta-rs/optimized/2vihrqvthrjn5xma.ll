@@ -1195,11 +1195,11 @@ define hidden { ptr, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
   br i1 %.not.i.i.i, label %197, label %201
 
 .lr.ph.i.i:                                       ; preds = %179, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i"
-  %.022.i13.i.i = phi i16 [ %186, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i" ], [ %182, %179 ]
-  %183 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i13.i.i, i1 true)
+  %.0.i13.i.i = phi i16 [ %186, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i" ], [ %182, %179 ]
+  %183 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i13.i.i, i1 true)
   %184 = zext nneg i16 %183 to i64
-  %185 = add i16 %.022.i13.i.i, -1
-  %186 = and i16 %185, %.022.i13.i.i
+  %185 = add i16 %.0.i13.i.i, -1
+  %186 = and i16 %185, %.0.i13.i.i
   %187 = add i64 %.sroa.0.021.i.i.i, %184
   %188 = and i64 %187, %.val4.i.i
   %189 = sub nsw i64 0, %188
@@ -1683,11 +1683,11 @@ define hidden { ptr, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
   br i1 %.not.i.i.i, label %197, label %201
 
 .lr.ph.i.i:                                       ; preds = %179, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i"
-  %.022.i13.i.i = phi i16 [ %186, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i" ], [ %182, %179 ]
-  %183 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i13.i.i, i1 true)
+  %.0.i13.i.i = phi i16 [ %186, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i.backedge.i.i" ], [ %182, %179 ]
+  %183 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i13.i.i, i1 true)
   %184 = zext nneg i16 %183 to i64
-  %185 = add i16 %.022.i13.i.i, -1
-  %186 = and i16 %185, %.022.i13.i.i
+  %185 = add i16 %.0.i13.i.i, -1
+  %186 = and i16 %185, %.0.i13.i.i
   %187 = add i64 %.sroa.0.021.i.i.i, %184
   %188 = and i64 %187, %.val4.i.i
   %189 = sub nsw i64 0, %188

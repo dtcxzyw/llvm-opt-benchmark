@@ -864,8 +864,8 @@ while.body.i.i5.preheader:                        ; preds = %if.else57.i.i, %if.
   br label %while.body.i.i5
 
 while.body.i.i5:                                  ; preds = %while.body.i.i5.preheader, %if.end.i.i
-  %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge2042, %while.body.i.i5.preheader ]
   %__first.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i ], [ %add.ptr.i1.i, %while.body.i.i5.preheader ]
+  %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge2042, %while.body.i.i5.preheader ]
   %__comp.val1.val.i.i = load ptr, ptr %__comp.coerce, align 8
   %42 = load i32, ptr %__first.coerce.fr, align 4
   %conv3.i.i.i4.i = sext i32 %42 to i64

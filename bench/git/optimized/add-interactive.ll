@@ -1258,28 +1258,28 @@ for.body.lr.ph:                                   ; preds = %st_mult.exit
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %9 = phi i64 [ %8, %for.body.lr.ph ], [ %14, %for.inc ]
-  %i.035 = phi i64 [ 0, %for.body.lr.ph ], [ %inc39, %for.inc ]
-  %j.034 = phi i64 [ 0, %for.body.lr.ph ], [ %j.1, %for.inc ]
+  %j.035 = phi i64 [ 0, %for.body.lr.ph ], [ %j.1, %for.inc ]
+  %i.034 = phi i64 [ 0, %for.body.lr.ph ], [ %inc39, %for.inc ]
   %10 = load ptr, ptr %selected, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %10, i64 %i.035
+  %arrayidx = getelementptr inbounds i32, ptr %10, i64 %i.034
   %11 = load i32, ptr %arrayidx, align 4
   %tobool32.not = icmp eq i32 %11, 0
   br i1 %tobool32.not, label %for.inc, label %if.then33
 
 if.then33:                                        ; preds = %for.body
   %12 = load ptr, ptr %files, align 8
-  %arrayidx36 = getelementptr inbounds %struct.string_list_item, ptr %12, i64 %i.035
+  %arrayidx36 = getelementptr inbounds %struct.string_list_item, ptr %12, i64 %i.034
   %13 = load ptr, ptr %arrayidx36, align 8
-  %inc = add i64 %j.034, 1
-  %arrayidx37 = getelementptr inbounds ptr, ptr %call28, i64 %j.034
+  %inc = add i64 %j.035, 1
+  %arrayidx37 = getelementptr inbounds ptr, ptr %call28, i64 %j.035
   store ptr %13, ptr %arrayidx37, align 8
   %.pre = load i64, ptr %nr, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then33
   %14 = phi i64 [ %.pre, %if.then33 ], [ %9, %for.body ]
-  %j.1 = phi i64 [ %inc, %if.then33 ], [ %j.034, %for.body ]
-  %inc39 = add nuw i64 %i.035, 1
+  %j.1 = phi i64 [ %inc, %if.then33 ], [ %j.035, %for.body ]
+  %inc39 = add nuw i64 %i.034, 1
   %cmp31 = icmp ult i64 %inc39, %14
   br i1 %cmp31, label %for.body, label %for.end, !llvm.loop !9
 

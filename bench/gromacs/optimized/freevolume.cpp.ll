@@ -1888,8 +1888,8 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110FreeVolume12analyz
   br label %.preheader51
 
 .preheader51:                                     ; preds = %.preheader51.lr.ph, %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit
-  %.03060 = phi i32 [ 0, %.preheader51.lr.ph ], [ %spec.select, %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit ]
-  %.03559 = phi i32 [ 0, %.preheader51.lr.ph ], [ %255, %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit ]
+  %.03460 = phi i32 [ 0, %.preheader51.lr.ph ], [ %255, %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit ]
+  %.03559 = phi i32 [ 0, %.preheader51.lr.ph ], [ %spec.select, %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit ]
   %.promoted = load i32, ptr %65, align 8
   %.sroa.020.0.copyload.i.i = load i64, ptr %67, align 8
   %82 = load i64, ptr %64, align 8
@@ -2140,9 +2140,9 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110FreeVolume12analyz
   br label %.body
 
 .critedge:                                        ; preds = %197, %189
-  %not..031 = xor i1 %188, true
-  %219 = zext i1 %not..031 to i32
-  %spec.select = add nuw nsw i32 %.03060, %219
+  %not..030 = xor i1 %188, true
+  %219 = zext i1 %not..030 to i32
+  %spec.select = add nuw nsw i32 %.03559, %219
   %220 = load ptr, ptr %81, align 8
   %.not.i.i.i.i = icmp eq ptr %220, null
   br i1 %.not.i.i.i.i, label %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit, label %221
@@ -2216,7 +2216,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit
 
 _ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit: ; preds = %.critedge, %237, %250, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %255 = add nuw nsw i32 %.03559, 1
+  %255 = add nuw nsw i32 %.03460, 1
   %exitcond62.not = icmp eq i32 %255, %61
   br i1 %exitcond62.not, label %._crit_edge, label %.preheader51, !llvm.loop !9
 

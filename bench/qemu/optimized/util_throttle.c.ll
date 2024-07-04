@@ -671,7 +671,7 @@ for.body.i6.i.preheader:                          ; preds = %throttle_leak_bucke
 
 for.body.i6.i:                                    ; preds = %for.body.i6.i.preheader, %throttle_compute_wait.exit.i.i
   %indvars.iv.i7.i = phi i64 [ %indvars.iv.next.i14.i, %throttle_compute_wait.exit.i.i ], [ 0, %for.body.i6.i.preheader ]
-  %max_wait.07.i.i = phi i64 [ %spec.select.i.i, %throttle_compute_wait.exit.i.i ], [ 0, %for.body.i6.i.preheader ]
+  %max_wait.06.i.i = phi i64 [ %spec.select.i.i, %throttle_compute_wait.exit.i.i ], [ 0, %for.body.i6.i.preheader ]
   %arrayidx3.i.i = getelementptr [2 x [4 x i32]], ptr @throttle_compute_wait_for.to_check, i64 0, i64 %idxprom, i64 %indvars.iv.i7.i
   %8 = load i32, ptr %arrayidx3.i.i, align 4
   %idxprom4.i.i = zext i32 %8 to i64
@@ -745,7 +745,7 @@ if.then28.i.i.i:                                  ; preds = %if.end24.i.i.i
 
 throttle_compute_wait.exit.i.i:                   ; preds = %if.then28.i.i.i, %if.end24.i.i.i, %if.end14.i.i.i, %if.then11.i.i.i, %for.body.i6.i
   %retval.0.i.i.i = phi i64 [ %conv.i.i.i.i, %if.then11.i.i.i ], [ %conv.i19.i.i.i, %if.then28.i.i.i ], [ 0, %for.body.i6.i ], [ 0, %if.end24.i.i.i ], [ 0, %if.end14.i.i.i ]
-  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %retval.0.i.i.i, i64 %max_wait.07.i.i)
+  %spec.select.i.i = tail call i64 @llvm.smax.i64(i64 %retval.0.i.i.i, i64 %max_wait.06.i.i)
   %indvars.iv.next.i14.i = add nuw nsw i64 %indvars.iv.i7.i, 1
   %exitcond.not.i15.i = icmp eq i64 %indvars.iv.next.i14.i, 4
   br i1 %exitcond.not.i15.i, label %throttle_compute_timer.exit, label %for.body.i6.i, !llvm.loop !14
